@@ -1,61 +1,61 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-tripura-1601,tripura,2023,AMARPUR,44975,40693,90.48,Ranjit Das,parties.IN.BJP,17989,44.21,Parimal Debnath,,13395,4594,11.29,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1602,tripura,2023,AMBASSA,52533,46045,87.65,Chitta Ranjan Debbarma,,15317,33.27,Suchitra Debbarma,parties.IN.BJP,14824,493,1.08,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1603,tripura,2023,AMPINAGAR,42905,37743,87.97,PATHAN LAL JAMATIA,,21525,57.03,PATAL KANYA JAMATIA,parties.IN.BJP,9339,12186,32.29,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1604,tripura,2023,ASHARAMBARI,40589,35815,88.24,Animesh Debbarma,,23838,66.56,Jayanti Deb Barma,,5510,18328,51.18,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1605,tripura,2023,BAGBASSA,47965,39878,83.14,Jadab Lal Debnath,parties.IN.BJP,18905,47.41,Bijita Nath,,17444,1461,3.67,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1606,tripura,2023,CHANDIPUR,47358,40761,86.07,Tinku Roy,parties.IN.BJP,17395,42.68,Krishnendu Choudhury,,16818,577,1.42,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1607,tripura,2023,CHHAWMANU,45847,39772,86.75,Sambhu Lal Chakma,parties.IN.BJP,16644,41.85,Hangsa Kumar Tripura,,13745,2899,7.29,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1608,tripura,2023,DHARMANAGAR,45310,37861,83.56,Biswa Bandhu Sen,parties.IN.BJP,18684,49.35,Chayan Bhattacharya,parties.IN.INC,17586,1098,2.9,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1609,tripura,2023,FATIKROY,44787,39170,87.46,Sudhangshu Das,parties.IN.BJP,19570,49.96,Subrata Das,,14458,5112,13.05,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1610,tripura,2023,HRISHYAMUKH,47761,43104,90.25,ASOKE CH. MITRA,,19986,46.37,DIPAYAN CHOUDHURY,parties.IN.BJP,18568,1418,3.29,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1611,tripura,2023,JOLAIBARI,49809,45719,91.79,SUKLA CHARAN NOATIA,,17621,38.54,DEBENDRA TRIPURA,,17246,375,0.82,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1612,tripura,2023,JUBARAJNAGAR,45331,39329,86.76,Sailendra Chandra Nath,,19386,49.29,Malina Debnath,parties.IN.BJP,19090,296,0.75,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1613,tripura,2023,KADAMTALA - KURTI,47619,40309,84.65,Islam Uddin,,20012,49.65,Dilip Tanti,parties.IN.BJP,18120,1892,4.7,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1614,tripura,2023,KAILASAHAR,52040,42433,81.54,Birajit Sinha,parties.IN.INC,25300,59.62,Moboshar Ali,parties.IN.BJP,15614,9686,22.82,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1615,tripura,2023,KALYANPUR-PRAMODENAGAR,45741,41075,89.8,Pinaki Das Chowdhury,parties.IN.BJP,17903,43.59,Manihar Debbarma,,11290,6613,16.1,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1616,tripura,2023,KAMALPUR,47056,40496,86.06,MANOJ KANTI DEB,parties.IN.BJP,18287,45.16,RUBI GHOSH,parties.IN.INC,13027,5260,12.99,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1617,tripura,2023,KANCHANPUR,52075,42295,81.22,PHILIP KUMAR REANG,,15413,36.44,RAJENDRA REANG,,10522,4891,11.56,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1618,tripura,2023,KARBOOK,41408,37089,89.57,Sanjoy Manik Tripura,,16647,44.88,Ashim Kumar Tripura,parties.IN.BJP,12200,4447,11.99,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1619,tripura,2023,KARAMCHHARA,44207,38871,87.93,Paul Dangshu,,20496,52.73,Braja Lal Tripura,parties.IN.BJP,9901,10595,27.26,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1620,tripura,2023,KHOWAI,43436,39609,91.19,Nirmal Biswas,,19696,49.73,Subrata Majumdar,parties.IN.BJP,18656,1040,2.63,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1621,tripura,2023,KRISHNAPUR,38814,34525,88.95,BIKASH DEBBARMA,parties.IN.BJP,13800,39.97,MAHENDRA DEBBARMA,,11162,2638,7.64,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1622,tripura,2023,MANU,48697,44835,92.07,Mailafru Mog,parties.IN.BJP,15469,34.5,Pravat Chowdhury,,14922,547,1.22,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1623,tripura,2023,PABIACHHARA,50140,43952,87.66,BHAGABAN CHANDRA DAS,parties.IN.BJP,19542,44.46,SATYABAN DAS,parties.IN.INC,19134,408,0.93,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1624,tripura,2023,PANISAGAR,45278,37843,83.58,Binay Bhushan Das,parties.IN.BJP,15745,41.61,Sital Das,,13247,2498,6.6,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1625,tripura,2023,PENCHARTHAL,46373,39078,84.27,SANTANA CHAKMA,parties.IN.BJP,17781,45.5,SADHAN KUMAR CHAKMA,,9808,7973,20.4,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1626,tripura,2023,RAIMA VALLEY,53942,47393,87.86,Nandita Debbarma(Reang),,19269,40.66,Bikash Chakma,parties.IN.BJP,15827,3442,7.26,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1627,tripura,2023,RAMCHANDRAGHAT,42555,38018,89.34,Ranjit Debbarma,,23143,60.87,Ranjit Debbarma,,6941,16202,42.61,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1628,tripura,2023,SABROOM,49069,44471,90.63,Jitendra Chaudhury,,21801,49.02,Sankar Roy,parties.IN.BJP,21405,396,0.89,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1629,tripura,2023,SURMA,49613,42964,86.6,SWAPNA DAS PAUL,parties.IN.BJP,17313,40.3,ANJAN DAS,,12475,4838,11.26,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1630,tripura,2023,TELIAMURA,45836,39799,86.83,KALYANI SAHA ROY,parties.IN.BJP,16755,42.1,ASHOK KR. BAIDYA,parties.IN.INC,12603,4152,10.43,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1631,tripura,2023,AGARTALA,54496,46092,84.58,Sudip Roy Barman,parties.IN.INC,26435,57.35,Papia Dutta,parties.IN.BJP,18273,8162,17.71,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1632,tripura,2023,BADHARGHAT,63905,56044,87.7,Mina Rani Sarkar,parties.IN.BJP,27427,48.94,Partha Ranjan Sarkar,parties.IN.AIFB,26138,1289,2.3,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1633,tripura,2023,BAGMA,56617,50287,88.82,Ram Pada Jamatia,parties.IN.BJP,19482,38.74,Purna Ch. Jamatia,,17399,2083,4.14,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1634,tripura,2023,BAMUTIA,47896,43365,90.54,Nayan Sarkar,,20119,46.39,Krishnadhan Das,parties.IN.BJP,18093,2026,4.67,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1635,tripura,2023,BANAMALIPUR,42912,34548,80.51,GOPAL CHANDRA ROY,parties.IN.INC,17128,49.58,RAJIB BHATTACHARJEE,parties.IN.BJP,15759,1369,3.97,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1636,tripura,2023,BARJALA,47931,42184,88.01,Sudip Sarkar,,21486,50.93,Dr. Dilip Kumar Das,parties.IN.BJP,19697,1789,4.24,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1637,tripura,2023,BELONIA,45926,41466,90.29,DIPANKAR SEN,,20016,48.27,GOUTAM SARKAR,parties.IN.BJP,19613,403,0.97,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1638,tripura,2023,BISHALGARH,51135,45985,89.93,Sushanta Deb,parties.IN.BJP,22314,48.52,Partha Pratim Majumder,,20988,1326,2.88,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1639,tripura,2023,BOXANAGAR,43909,38543,87.78,Samsul Haque,,19404,50.34,Tafajjal Hossain,parties.IN.BJP,14555,4849,12.58,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1640,tripura,2023,CHARILAM,40949,36579,89.33,Subodh Deb Barma,,13657,37.34,Jishnu Dev Varma,parties.IN.BJP,12799,858,2.35,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1641,tripura,2023,DHANPUR,51168,45319,88.57,Pratima Bhoumik,parties.IN.BJP,19148,42.25,Kaushik Chanda,,15648,3500,7.72,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1642,tripura,2023,GOLAGHATI,43404,38981,89.81,Manab Debbarma,,19800,50.79,Himani Debbarma,parties.IN.BJP,10602,9198,23.59,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1643,tripura,2023,KAKRABAN-SALGARAH,55372,49048,88.58,Jitendra Majumder,parties.IN.BJP,23625,48.17,Ratan Kr. Bhowmik,,18574,5051,10.3,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1644,tripura,2023,KAMALASAGAR,44508,40199,90.32,Antara Sarkar Deb,parties.IN.BJP,19052,47.39,Hiranmay Narayan Debnath,,17308,1744,4.33,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1645,tripura,2023,KHAYERPUR,52426,47293,90.21,Ratan Chakraborty,parties.IN.BJP,22453,47.48,Pabitra Kar,,18343,4110,8.69,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1646,tripura,2023,MAJLISHPUR,50412,45622,90.5,Sushanta Chowdhury,parties.IN.BJP,21349,46.8,Sanjoy Das,,16177,5172,11.34,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1647,tripura,2023,MANDAIBAZAR,48858,43293,88.61,Swapna Debbarma,,28726,66.35,Radhacharan Debbarma,,7077,21649,50,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1648,tripura,2023,MATARBARI,56004,49933,89.16,Abhishek Debroy,parties.IN.BJP,25494,51.06,Pranajit Roy,parties.IN.INC,16453,9041,18.11,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1649,tripura,2023,MOHANPUR,48071,43364,90.21,Ratan Lal Nath,parties.IN.BJP,19663,45.34,Tapas Dey,,12278,7385,17.03,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1650,tripura,2023,NALCHAR,46040,41712,90.6,Kishor Barman,parties.IN.BJP,20836,49.95,Tapan Ch. Das,,18452,2384,5.71,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1651,tripura,2023,PRATAPGARH,58839,53255,90.51,RAMU DAS,,26422,49.61,REBATI MOHAN DAS,parties.IN.BJP,24336,2086,3.91,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1652,tripura,2023,RADHAKISHOREPUR,50020,43552,87.07,Pranajit Singha Roy,parties.IN.BJP,24421,56.07,Srikanta Datta,parties.IN.RSP,17007,7414,17.02,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1653,tripura,2023,RAJNAGAR,48794,43368,88.88,SWAPNA MAJUMDER,parties.IN.BJP,20849,48.07,SUDHAN DAS,,19514,1335,3.07,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1654,tripura,2023,RAMNAGAR,47240,37782,79.98,SURAJIT DATTA,parties.IN.BJP,17455,46.2,PURUSHUTTAM ROY BARMAN,parties.IN.IND,16558,897,2.37,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1655,tripura,2023,SANTIRBAZAR,51545,46720,90.64,PRAMOD REANG,parties.IN.BJP,18709,40.04,HARENDRA REANG,,14615,4094,8.76,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1656,tripura,2023,SIMNA,39362,35071,89.1,Brishaketu Debbarma,,22757,64.89,Kumodh Debbarma,,5811,16946,48.32,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1657,tripura,2023,SONAMURA,45599,39703,87.07,Shyamal Chakraborty,,20039,50.47,Debabrata Bhattacharjee,parties.IN.BJP,17624,2415,6.08,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1658,tripura,2023,SURYAMANINAGAR,55325,50063,90.49,RAM PRASAD PAUL,parties.IN.BJP,24991,49.92,SUSANTA CHAKRABORTY,parties.IN.INC,23083,1908,3.81,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1659,tripura,2023,TAKARJALA,45712,39993,87.49,Biswajit Kalai,,34717,86.81,Bidhan DebBarma,,2262,32455,81.15,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1660,tripura,2023,TOWN BORDOWALI,49225,39350,79.94,MANIK SAHA,parties.IN.BJP,19586,49.77,ASISH KUMAR SAHA,parties.IN.INC,18329,1257,3.19,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-tripura-1601,tripura,2023,AMARPUR,44975,40693,90.48,Ranjit Das,parties.IN.BJP,BJP,17989,44.21,Parimal Debnath,parties.IN.CPIM,Communist Party of India(Marxist),13395,4594,11.29,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1602,tripura,2023,AMBASSA,52533,46045,87.65,Chitta Ranjan Debbarma,parties.IN.TMP,Tipra Motha Party,15317,33.27,Suchitra Debbarma,parties.IN.BJP,BJP,14824,493,1.08,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1603,tripura,2023,AMPINAGAR,42905,37743,87.97,PATHAN LAL JAMATIA,parties.IN.TMP,Tipra Motha Party,21525,57.03,PATAL KANYA JAMATIA,parties.IN.BJP,BJP,9339,12186,32.29,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1604,tripura,2023,ASHARAMBARI,40589,35815,88.24,Animesh Debbarma,parties.IN.TMP,Tipra Motha Party,23838,66.56,Jayanti Deb Barma,,Indigenous People's Front of Tripura,5510,18328,51.18,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1605,tripura,2023,BAGBASSA,47965,39878,83.14,Jadab Lal Debnath,parties.IN.BJP,BJP,18905,47.41,Bijita Nath,parties.IN.CPIM,Communist Party of India(Marxist),17444,1461,3.67,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1606,tripura,2023,CHANDIPUR,47358,40761,86.07,Tinku Roy,parties.IN.BJP,BJP,17395,42.68,Krishnendu Choudhury,parties.IN.CPIM,Communist Party of India(Marxist),16818,577,1.42,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1607,tripura,2023,CHHAWMANU,45847,39772,86.75,Sambhu Lal Chakma,parties.IN.BJP,BJP,16644,41.85,Hangsa Kumar Tripura,parties.IN.TMP,Tipra Motha Party,13745,2899,7.29,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1608,tripura,2023,DHARMANAGAR,45310,37861,83.56,Biswa Bandhu Sen,parties.IN.BJP,BJP,18684,49.35,Chayan Bhattacharya,parties.IN.INC,INC,17586,1098,2.9,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1609,tripura,2023,FATIKROY,44787,39170,87.46,Sudhangshu Das,parties.IN.BJP,BJP,19570,49.96,Subrata Das,parties.IN.CPIM,Communist Party of India(Marxist),14458,5112,13.05,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1610,tripura,2023,HRISHYAMUKH,47761,43104,90.25,ASOKE CH. MITRA,parties.IN.CPIM,Communist Party of India(Marxist),19986,46.37,DIPAYAN CHOUDHURY,parties.IN.BJP,BJP,18568,1418,3.29,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1611,tripura,2023,JOLAIBARI,49809,45719,91.79,SUKLA CHARAN NOATIA,,Indigenous People's Front of Tripura,17621,38.54,DEBENDRA TRIPURA,parties.IN.CPIM,Communist Party of India(Marxist),17246,375,0.82,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1612,tripura,2023,JUBARAJNAGAR,45331,39329,86.76,Sailendra Chandra Nath,parties.IN.CPIM,Communist Party of India(Marxist),19386,49.29,Malina Debnath,parties.IN.BJP,BJP,19090,296,0.75,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1613,tripura,2023,KADAMTALA - KURTI,47619,40309,84.65,Islam Uddin,parties.IN.CPIM,Communist Party of India(Marxist),20012,49.65,Dilip Tanti,parties.IN.BJP,BJP,18120,1892,4.7,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1614,tripura,2023,KAILASAHAR,52040,42433,81.54,Birajit Sinha,parties.IN.INC,INC,25300,59.62,Moboshar Ali,parties.IN.BJP,BJP,15614,9686,22.82,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1615,tripura,2023,KALYANPUR-PRAMODENAGAR,45741,41075,89.8,Pinaki Das Chowdhury,parties.IN.BJP,BJP,17903,43.59,Manihar Debbarma,parties.IN.TMP,Tipra Motha Party,11290,6613,16.1,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1616,tripura,2023,KAMALPUR,47056,40496,86.06,MANOJ KANTI DEB,parties.IN.BJP,BJP,18287,45.16,RUBI GHOSH,parties.IN.INC,INC,13027,5260,12.99,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1617,tripura,2023,KANCHANPUR,52075,42295,81.22,PHILIP KUMAR REANG,parties.IN.TMP,Tipra Motha Party,15413,36.44,RAJENDRA REANG,parties.IN.CPIM,Communist Party of India(Marxist),10522,4891,11.56,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1618,tripura,2023,KARBOOK,41408,37089,89.57,Sanjoy Manik Tripura,parties.IN.TMP,Tipra Motha Party,16647,44.88,Ashim Kumar Tripura,parties.IN.BJP,BJP,12200,4447,11.99,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1619,tripura,2023,KARAMCHHARA,44207,38871,87.93,Paul Dangshu,parties.IN.TMP,Tipra Motha Party,20496,52.73,Braja Lal Tripura,parties.IN.BJP,BJP,9901,10595,27.26,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1620,tripura,2023,KHOWAI,43436,39609,91.19,Nirmal Biswas,parties.IN.CPIM,Communist Party of India(Marxist),19696,49.73,Subrata Majumdar,parties.IN.BJP,BJP,18656,1040,2.63,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1621,tripura,2023,KRISHNAPUR,38814,34525,88.95,BIKASH DEBBARMA,parties.IN.BJP,BJP,13800,39.97,MAHENDRA DEBBARMA,parties.IN.TMP,Tipra Motha Party,11162,2638,7.64,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1622,tripura,2023,MANU,48697,44835,92.07,Mailafru Mog,parties.IN.BJP,BJP,15469,34.5,Pravat Chowdhury,parties.IN.CPIM,Communist Party of India(Marxist),14922,547,1.22,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1623,tripura,2023,PABIACHHARA,50140,43952,87.66,BHAGABAN CHANDRA DAS,parties.IN.BJP,BJP,19542,44.46,SATYABAN DAS,parties.IN.INC,INC,19134,408,0.93,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1624,tripura,2023,PANISAGAR,45278,37843,83.58,Binay Bhushan Das,parties.IN.BJP,BJP,15745,41.61,Sital Das,parties.IN.CPIM,Communist Party of India(Marxist),13247,2498,6.6,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1625,tripura,2023,PENCHARTHAL,46373,39078,84.27,SANTANA CHAKMA,parties.IN.BJP,BJP,17781,45.5,SADHAN KUMAR CHAKMA,parties.IN.CPIM,Communist Party of India(Marxist),9808,7973,20.4,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1626,tripura,2023,RAIMA VALLEY,53942,47393,87.86,Nandita Debbarma(Reang),parties.IN.TMP,Tipra Motha Party,19269,40.66,Bikash Chakma,parties.IN.BJP,BJP,15827,3442,7.26,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1627,tripura,2023,RAMCHANDRAGHAT,42555,38018,89.34,Ranjit Debbarma,parties.IN.TMP,Tipra Motha Party,23143,60.87,Ranjit Debbarma,parties.IN.CPIM,Communist Party of India(Marxist),6941,16202,42.61,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1628,tripura,2023,SABROOM,49069,44471,90.63,Jitendra Chaudhury,parties.IN.CPIM,Communist Party of India(Marxist),21801,49.02,Sankar Roy,parties.IN.BJP,BJP,21405,396,0.89,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1629,tripura,2023,SURMA,49613,42964,86.6,SWAPNA DAS PAUL,parties.IN.BJP,BJP,17313,40.3,ANJAN DAS,parties.IN.CPIM,Communist Party of India(Marxist),12475,4838,11.26,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1630,tripura,2023,TELIAMURA,45836,39799,86.83,KALYANI SAHA ROY,parties.IN.BJP,BJP,16755,42.1,ASHOK KR. BAIDYA,parties.IN.INC,INC,12603,4152,10.43,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1631,tripura,2023,AGARTALA,54496,46092,84.58,Sudip Roy Barman,parties.IN.INC,INC,26435,57.35,Papia Dutta,parties.IN.BJP,BJP,18273,8162,17.71,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1632,tripura,2023,BADHARGHAT,63905,56044,87.7,Mina Rani Sarkar,parties.IN.BJP,BJP,27427,48.94,Partha Ranjan Sarkar,parties.IN.AIFB,AIFB,26138,1289,2.3,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1633,tripura,2023,BAGMA,56617,50287,88.82,Ram Pada Jamatia,parties.IN.BJP,BJP,19482,38.74,Purna Ch. Jamatia,parties.IN.TMP,Tipra Motha Party,17399,2083,4.14,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1634,tripura,2023,BAMUTIA,47896,43365,90.54,Nayan Sarkar,parties.IN.CPIM,Communist Party of India(Marxist),20119,46.39,Krishnadhan Das,parties.IN.BJP,BJP,18093,2026,4.67,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1635,tripura,2023,BANAMALIPUR,42912,34548,80.51,GOPAL CHANDRA ROY,parties.IN.INC,INC,17128,49.58,RAJIB BHATTACHARJEE,parties.IN.BJP,BJP,15759,1369,3.97,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1636,tripura,2023,BARJALA,47931,42184,88.01,Sudip Sarkar,parties.IN.CPIM,Communist Party of India(Marxist),21486,50.93,Dr. Dilip Kumar Das,parties.IN.BJP,BJP,19697,1789,4.24,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1637,tripura,2023,BELONIA,45926,41466,90.29,DIPANKAR SEN,parties.IN.CPIM,Communist Party of India(Marxist),20016,48.27,GOUTAM SARKAR,parties.IN.BJP,BJP,19613,403,0.97,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1638,tripura,2023,BISHALGARH,51135,45985,89.93,Sushanta Deb,parties.IN.BJP,BJP,22314,48.52,Partha Pratim Majumder,parties.IN.CPIM,Communist Party of India(Marxist),20988,1326,2.88,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1639,tripura,2023,BOXANAGAR,43909,38543,87.78,Samsul Haque,parties.IN.CPIM,Communist Party of India(Marxist),19404,50.34,Tafajjal Hossain,parties.IN.BJP,BJP,14555,4849,12.58,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1640,tripura,2023,CHARILAM,40949,36579,89.33,Subodh Deb Barma,parties.IN.TMP,Tipra Motha Party,13657,37.34,Jishnu Dev Varma,parties.IN.BJP,BJP,12799,858,2.35,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1641,tripura,2023,DHANPUR,51168,45319,88.57,Pratima Bhoumik,parties.IN.BJP,BJP,19148,42.25,Kaushik Chanda,parties.IN.CPIM,Communist Party of India(Marxist),15648,3500,7.72,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1642,tripura,2023,GOLAGHATI,43404,38981,89.81,Manab Debbarma,parties.IN.TMP,Tipra Motha Party,19800,50.79,Himani Debbarma,parties.IN.BJP,BJP,10602,9198,23.59,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1643,tripura,2023,KAKRABAN-SALGARAH,55372,49048,88.58,Jitendra Majumder,parties.IN.BJP,BJP,23625,48.17,Ratan Kr. Bhowmik,parties.IN.CPIM,Communist Party of India(Marxist),18574,5051,10.3,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1644,tripura,2023,KAMALASAGAR,44508,40199,90.32,Antara Sarkar Deb,parties.IN.BJP,BJP,19052,47.39,Hiranmay Narayan Debnath,parties.IN.CPIM,Communist Party of India(Marxist),17308,1744,4.33,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1645,tripura,2023,KHAYERPUR,52426,47293,90.21,Ratan Chakraborty,parties.IN.BJP,BJP,22453,47.48,Pabitra Kar,parties.IN.CPIM,Communist Party of India(Marxist),18343,4110,8.69,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1646,tripura,2023,MAJLISHPUR,50412,45622,90.5,Sushanta Chowdhury,parties.IN.BJP,BJP,21349,46.8,Sanjoy Das,parties.IN.CPIM,Communist Party of India(Marxist),16177,5172,11.34,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1647,tripura,2023,MANDAIBAZAR,48858,43293,88.61,Swapna Debbarma,parties.IN.TMP,Tipra Motha Party,28726,66.35,Radhacharan Debbarma,parties.IN.CPIM,Communist Party of India(Marxist),7077,21649,50,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1648,tripura,2023,MATARBARI,56004,49933,89.16,Abhishek Debroy,parties.IN.BJP,BJP,25494,51.06,Pranajit Roy,parties.IN.INC,INC,16453,9041,18.11,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1649,tripura,2023,MOHANPUR,48071,43364,90.21,Ratan Lal Nath,parties.IN.BJP,BJP,19663,45.34,Tapas Dey,parties.IN.TMP,Tipra Motha Party,12278,7385,17.03,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1650,tripura,2023,NALCHAR,46040,41712,90.6,Kishor Barman,parties.IN.BJP,BJP,20836,49.95,Tapan Ch. Das,parties.IN.CPIM,Communist Party of India(Marxist),18452,2384,5.71,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1651,tripura,2023,PRATAPGARH,58839,53255,90.51,RAMU DAS,parties.IN.CPIM,Communist Party of India(Marxist),26422,49.61,REBATI MOHAN DAS,parties.IN.BJP,BJP,24336,2086,3.91,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1652,tripura,2023,RADHAKISHOREPUR,50020,43552,87.07,Pranajit Singha Roy,parties.IN.BJP,BJP,24421,56.07,Srikanta Datta,parties.IN.RSP,RSP,17007,7414,17.02,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1653,tripura,2023,RAJNAGAR,48794,43368,88.88,SWAPNA MAJUMDER,parties.IN.BJP,BJP,20849,48.07,SUDHAN DAS,parties.IN.CPIM,Communist Party of India(Marxist),19514,1335,3.07,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1654,tripura,2023,RAMNAGAR,47240,37782,79.98,SURAJIT DATTA,parties.IN.BJP,BJP,17455,46.2,PURUSHUTTAM ROY BARMAN,parties.IN.IND,IND,16558,897,2.37,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1655,tripura,2023,SANTIRBAZAR,51545,46720,90.64,PRAMOD REANG,parties.IN.BJP,BJP,18709,40.04,HARENDRA REANG,parties.IN.TMP,Tipra Motha Party,14615,4094,8.76,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1656,tripura,2023,SIMNA,39362,35071,89.1,Brishaketu Debbarma,parties.IN.TMP,Tipra Motha Party,22757,64.89,Kumodh Debbarma,parties.IN.CPIM,Communist Party of India(Marxist),5811,16946,48.32,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1657,tripura,2023,SONAMURA,45599,39703,87.07,Shyamal Chakraborty,parties.IN.CPIM,Communist Party of India(Marxist),20039,50.47,Debabrata Bhattacharjee,parties.IN.BJP,BJP,17624,2415,6.08,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1658,tripura,2023,SURYAMANINAGAR,55325,50063,90.49,RAM PRASAD PAUL,parties.IN.BJP,BJP,24991,49.92,SUSANTA CHAKRABORTY,parties.IN.INC,INC,23083,1908,3.81,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1659,tripura,2023,TAKARJALA,45712,39993,87.49,Biswajit Kalai,parties.IN.TMP,Tipra Motha Party,34717,86.81,Bidhan DebBarma,,Indigenous People's Front of Tripura,2262,32455,81.15,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1660,tripura,2023,TOWN BORDOWALI,49225,39350,79.94,MANIK SAHA,parties.IN.BJP,BJP,19586,49.77,ASISH KUMAR SAHA,parties.IN.INC,INC,18329,1257,3.19,src-1b7bc1c9d39a

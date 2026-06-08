@@ -1,13 +1,13 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,R.R. Tripathi,parties.IN.BJP,74098,56.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,U.S.Singhdeo ( U.S.Baba),parties.IN.INC,39236,29.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,S. Dewangan,parties.IN.IND,4346,3.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,H.S.Markam,parties.IN.GGP,4177,3.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,A.P.Rajwade,,3355,2.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,K.Sandil,parties.IN.JDU,2082,1.57,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,R. Dubey,parties.IN.IND,1330,1.01,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,C. Sarthi,parties.IN.IND,1273,0.96,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,Gul Khan,parties.IN.IND,798,0.6,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,Anand Soni,parties.IN.IND,540,0.41,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,Ram Nayak ( Dr. Mourya),parties.IN.SSD,536,0.41,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,Harilal Patel,parties.IN.SSP,480,0.36,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,R.R. Tripathi,parties.IN.BJP,BJP,74098,56.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,U.S.Singhdeo ( U.S.Baba),parties.IN.INC,INC,39236,29.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,S. Dewangan,parties.IN.IND,IND,4346,3.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,H.S.Markam,parties.IN.GGP,GGP,4177,3.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,A.P.Rajwade,parties.IN.CPIM,CPM,3355,2.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,K.Sandil,parties.IN.JDU,JD(U),2082,1.57,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,R. Dubey,parties.IN.IND,IND,1330,1.01,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,C. Sarthi,parties.IN.IND,IND,1273,0.96,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,Gul Khan,parties.IN.IND,IND,798,0.6,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,Anand Soni,parties.IN.IND,IND,540,0.41,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,Ram Nayak ( Dr. Mourya),parties.IN.SSD,SSD,536,0.41,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2452,chhattisgarh,2010,5,BHATGAON,Harilal Patel,parties.IN.SSP,SSP,480,0.36,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a

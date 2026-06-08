@@ -1,25 +1,25 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,RAMACHANDRAPURAM,175348,154786,88.27,T. Trimurthula,parties.IN.INC,77292,49.93,Bosu Pilli,parties.IN.YSRCP,65373,11919,7.7,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2012,PAYAKARAOPETA,210818,171815,81.5,B.Rao Golla,parties.IN.YSRCP,71963,41.88,C.V. Rao,,57601,14362,8.35,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3180,andhra-pradesh,2012,ANANTAPUR URBAN,229876,124239,54.05,B.G. Reddy,parties.IN.YSRCP,65719,52.9,M. Sreenivasulu,parties.IN.TDP,40980,24739,19.92,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3183,andhra-pradesh,2012,RAYADURG,198167,170866,86.22,K.R. Reddy,parties.IN.YSRCP,79171,46.34,D.R.Gunapati,parties.IN.TDP,46695,32476,19.01,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3227,andhra-pradesh,2012,POLAVARAM,166300,149979,90.19,T. Bala Raju,parties.IN.YSRCP,80790,53.87,B.S.Rao,,45023,35767,23.85,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3233,andhra-pradesh,2012,PARTHIPADU (SC),207396,179662,86.63,M. Sucharitha,parties.IN.YSRCP,87742,48.84,K. Veeraiah,,70961,16781,9.34,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3284,andhra-pradesh,2012,YEMMIGANUR,189278,152502,80.57,K.C.K. Reddy,parties.IN.YSRCP,64155,42.07,B.V. Mohan Reddy,parties.IN.TDP,44052,20103,13.18,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,ALLAGADDA,200691,168365,83.89,B.S. Nagireddy,parties.IN.YSRCP,88697,52.68,G.P. Reddy,parties.IN.INC,51902,36795,21.85,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3343,andhra-pradesh,2012,MACHERLA,201861,170872,84.65,R.K.Reddy Pisnelhi,parties.IN.YSRCP,79751,46.67,C.M. Babu,parties.IN.TDP,64272,15479,9.06,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3350,andhra-pradesh,2012,NARASAPURAM,132956,124296,93.49,K.P.S. Yudu (Pedabahn),parties.IN.INC,58368,46.96,M.P. Raju,,53896,4472,3.6,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3358,andhra-pradesh,2012,KOVUR,227130,175913,77.45,N.P.Kumar Reddy,,73876,42,S.C. Reddy,parties.IN.TDP,50382,23494,13.36,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3361,andhra-pradesh,2012,UDAYAGIRI,203782,160410,78.72,M.C.S.Reddy,parties.IN.YSRCP,75103,46.82,B.V. Rama Rao,,44505,30598,19.08,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,ONGOLE,234265,158238,67.55,B.S.Reddy (Vasu),parties.IN.YSRCP,77222,48.8,D.J. Rao,,49819,27403,17.32,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,KODUR (SC),158139,123520,78.11,K.Sdreenivasulu,parties.IN.YSRCP,66456,53.8,E. Kanuparthi,parties.IN.INC,34465,31991,25.9,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,RAJAMPET,185475,146615,79.05,A.R. Akepati,parties.IN.YSRCP,76951,52.49,M.V.M.K. Reddy,parties.IN.INC,38732,38219,26.07,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,RAYACHOTY,186579,159201,85.33,G.K. S. Reddy,parties.IN.YSRCP,90978,57.15,S.M. Sugavasi,,34087,56891,35.74,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2012,NARASANNAPETA,172020,139765,81.25,D.K. Das,,54454,38.96,D. Ramadas,parties.IN.INC,47142,7312,5.23,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,TIRUPATI,247160,136740,55.32,B.K. Reddy,parties.IN.YSRCP,59195,43.29,Venkararamana M.,parties.IN.INC,41220,17975,13.15,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,PARKAL,193381,157167,81.27,M. Bikshpathi,,51936,33.05,S. Konda,,50374,1562,1,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci16,andhra-pradesh,2012,KAMAREDDY,199249,137051,68.78,Gampa Goverdhan,,75699,55.23,Adla Raja Reddy,parties.IN.INC,31234,44465,32.44,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci7,andhra-pradesh,2012,ADILABAD,177743,120502,67.8,Jogu Ramanna,,59452,49.34,C. Ram Chandra Reddy,parties.IN.INC,28056,31396,26.06,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci74,andhra-pradesh,2012,MAHABUBNAGAR,208747,124985,59.87,Yennam Srinivas Reddy,parties.IN.BJP,39385,31.51,Ibrahim Syed,,37506,1879,1.5,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci85,andhra-pradesh,2012,KOLLAPUR,214047,151030,70.56,Jupally Krishna Rao,,58107,38.47,Mamillapally Vishnuvardhab Reddy,parties.IN.INC,43083,15024,9.94,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci99,andhra-pradesh,2012,GHANPUR (STATION) (SC),225885,169907,75.22,Rajaiah Thatikinda,,81279,47.84,Kadiyam Srihari,parties.IN.TDP,48641,32638,19.21,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-andhra-pradesh-3171,andhra-pradesh,2012,RAMACHANDRAPURAM,175348,154786,88.27,T. Trimurthula,parties.IN.INC,INC,77292,49.93,Bosu Pilli,parties.IN.YSRCP,YSRCP,65373,11919,7.7,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3178,andhra-pradesh,2012,PAYAKARAOPETA,210818,171815,81.5,B.Rao Golla,parties.IN.YSRCP,YSRCP,71963,41.88,C.V. Rao,,TD,57601,14362,8.35,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3180,andhra-pradesh,2012,ANANTAPUR URBAN,229876,124239,54.05,B.G. Reddy,parties.IN.YSRCP,YSRCP,65719,52.9,M. Sreenivasulu,parties.IN.TDP,TDP,40980,24739,19.92,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3183,andhra-pradesh,2012,RAYADURG,198167,170866,86.22,K.R. Reddy,parties.IN.YSRCP,YSRCP,79171,46.34,D.R.Gunapati,parties.IN.TDP,TDP,46695,32476,19.01,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3227,andhra-pradesh,2012,POLAVARAM,166300,149979,90.19,T. Bala Raju,parties.IN.YSRCP,YSRCP,80790,53.87,B.S.Rao,,TD,45023,35767,23.85,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3233,andhra-pradesh,2012,PARTHIPADU (SC),207396,179662,86.63,M. Sucharitha,parties.IN.YSRCP,YSRCP,87742,48.84,K. Veeraiah,,TD,70961,16781,9.34,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3284,andhra-pradesh,2012,YEMMIGANUR,189278,152502,80.57,K.C.K. Reddy,parties.IN.YSRCP,YSRCP,64155,42.07,B.V. Mohan Reddy,parties.IN.TDP,TDP,44052,20103,13.18,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3334,andhra-pradesh,2012,ALLAGADDA,200691,168365,83.89,B.S. Nagireddy,parties.IN.YSRCP,YSRCP,88697,52.68,G.P. Reddy,parties.IN.INC,INC,51902,36795,21.85,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3343,andhra-pradesh,2012,MACHERLA,201861,170872,84.65,R.K.Reddy Pisnelhi,parties.IN.YSRCP,YSRCP,79751,46.67,C.M. Babu,parties.IN.TDP,TDP,64272,15479,9.06,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3350,andhra-pradesh,2012,NARASAPURAM,132956,124296,93.49,K.P.S. Yudu (Pedabahn),parties.IN.INC,INC,58368,46.96,M.P. Raju,,YJSRCP,53896,4472,3.6,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3358,andhra-pradesh,2012,KOVUR,227130,175913,77.45,N.P.Kumar Reddy,,VSRC,73876,42,S.C. Reddy,parties.IN.TDP,TDP,50382,23494,13.36,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3361,andhra-pradesh,2012,UDAYAGIRI,203782,160410,78.72,M.C.S.Reddy,parties.IN.YSRCP,YSRCP,75103,46.82,B.V. Rama Rao,,TD,44505,30598,19.08,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3374,andhra-pradesh,2012,ONGOLE,234265,158238,67.55,B.S.Reddy (Vasu),parties.IN.YSRCP,YSRCP,77222,48.8,D.J. Rao,,TD,49819,27403,17.32,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3390,andhra-pradesh,2012,KODUR (SC),158139,123520,78.11,K.Sdreenivasulu,parties.IN.YSRCP,YSRCP,66456,53.8,E. Kanuparthi,parties.IN.INC,INC,34465,31991,25.9,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3394,andhra-pradesh,2012,RAJAMPET,185475,146615,79.05,A.R. Akepati,parties.IN.YSRCP,YSRCP,76951,52.49,M.V.M.K. Reddy,parties.IN.INC,INC,38732,38219,26.07,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3395,andhra-pradesh,2012,RAYACHOTY,186579,159201,85.33,G.K. S. Reddy,parties.IN.YSRCP,YSRCP,90978,57.15,S.M. Sugavasi,,TD,34087,56891,35.74,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3406,andhra-pradesh,2012,NARASANNAPETA,172020,139765,81.25,D.K. Das,,YSRPC C,54454,38.96,D. Ramadas,parties.IN.INC,INC,47142,7312,5.23,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3416,andhra-pradesh,2012,TIRUPATI,247160,136740,55.32,B.K. Reddy,parties.IN.YSRCP,YSRCP,59195,43.29,Venkararamana M.,parties.IN.INC,INC,41220,17975,13.15,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci104,andhra-pradesh,2012,PARKAL,193381,157167,81.27,M. Bikshpathi,parties.IN.BRS,TRS,51936,33.05,S. Konda,,YSCP,50374,1562,1,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci16,andhra-pradesh,2012,KAMAREDDY,199249,137051,68.78,Gampa Goverdhan,parties.IN.BRS,TRS,75699,55.23,Adla Raja Reddy,parties.IN.INC,INC,31234,44465,32.44,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci7,andhra-pradesh,2012,ADILABAD,177743,120502,67.8,Jogu Ramanna,parties.IN.BRS,TRS,59452,49.34,C. Ram Chandra Reddy,parties.IN.INC,INC,28056,31396,26.06,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci74,andhra-pradesh,2012,MAHABUBNAGAR,208747,124985,59.87,Yennam Srinivas Reddy,parties.IN.BJP,BJP,39385,31.51,Ibrahim Syed,parties.IN.BRS,TRS,37506,1879,1.5,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci85,andhra-pradesh,2012,KOLLAPUR,214047,151030,70.56,Jupally Krishna Rao,parties.IN.BRS,TRS,58107,38.47,Mamillapally Vishnuvardhab Reddy,parties.IN.INC,INC,43083,15024,9.94,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci99,andhra-pradesh,2012,GHANPUR (STATION) (SC),225885,169907,75.22,Rajaiah Thatikinda,parties.IN.BRS,TRS,81279,47.84,Kadiyam Srihari,parties.IN.TDP,TDP,48641,32638,19.21,src-1b7bc1c9d39a

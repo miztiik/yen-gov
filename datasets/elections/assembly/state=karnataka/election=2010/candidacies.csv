@@ -1,15 +1,15 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,A.C.P.Revoor.,parties.IN.JDS,39430,34.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,S.G.Namoshi,parties.IN.BJP,35898,31.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,A.Dharamasingh,parties.IN.INC,35567,30.83,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,V.Dorepalli,parties.IN.IND,1282,1.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,S.M.S.Hussaini,parties.IN.IND,950,0.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,Mohd.Ehasim,parties.IN.JDU,647,0.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,S.Kattoli,parties.IN.IND,612,0.53,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,Shanker Jadhav,,360,0.31,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,Basheer Aalam,parties.IN.IND,263,0.23,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,O.A.Lakpati,parties.IN.IND,192,0.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,A.R.Dodiamani,parties.IN.IND,177,0.15,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3594,karnataka,2010,127,KADUR,Dr.Y.C.Viswanath,parties.IN.BJP,55796,43.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3594,karnataka,2010,127,KADUR,Y.S.V.Datta,parties.IN.JDS,41899,32.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3594,karnataka,2010,127,KADUR,K.M.Kemparaju,parties.IN.INC,30330,23.69,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,A.C.P.Revoor.,parties.IN.JDS,JD(S),39430,34.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,S.G.Namoshi,parties.IN.BJP,BJP,35898,31.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,A.Dharamasingh,parties.IN.INC,INC,35567,30.83,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,V.Dorepalli,parties.IN.IND,IND,1282,1.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,S.M.S.Hussaini,parties.IN.IND,IND,950,0.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,Mohd.Ehasim,parties.IN.JDU,JD(U),647,0.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,S.Kattoli,parties.IN.IND,IND,612,0.53,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,Shanker Jadhav,,BHPP,360,0.31,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,Basheer Aalam,parties.IN.IND,IND,263,0.23,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,O.A.Lakpati,parties.IN.IND,IND,192,0.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3583,karnataka,2010,44,GULBARGA DAKSHIN,A.R.Dodiamani,parties.IN.IND,IND,177,0.15,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3594,karnataka,2010,127,KADUR,Dr.Y.C.Viswanath,parties.IN.BJP,BJP,55796,43.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3594,karnataka,2010,127,KADUR,Y.S.V.Datta,parties.IN.JDS,JD(S),41899,32.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3594,karnataka,2010,127,KADUR,K.M.Kemparaju,parties.IN.INC,INC,30330,23.69,3,lost,U,,,,challenger,src-1b7bc1c9d39a

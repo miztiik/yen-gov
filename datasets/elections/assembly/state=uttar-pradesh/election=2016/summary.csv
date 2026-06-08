@@ -1,6 +1,6 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-uttar-pradesh-1018,uttar-pradesh,2016,MUZAFFARNAGAR,301726,155080,51.4,Kapil Dev Agarwal 'E',parties.IN.BJP,65378,42.16,Gaurav Swarup Bansal,parties.IN.SP,58026,7352,4.74,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1056,uttar-pradesh,2016,DEOBAND,292273,168390,57.61,Mavia ALI 'E'',parties.IN.INC,51012,30.29,Meena Singh,parties.IN.SP,47453,3559,2.11,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1066,uttar-pradesh,2016,BILARI,292315,182039,62.27,Mohd. Faeem(E),parties.IN.SWP,90464,49.69,Suresh Saini,parties.IN.BJP,83371,7093,3.89,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-840,uttar-pradesh,2016,BIKAPUR,332607,167999,50.51,Anand Sen ''E',parties.IN.SP,68896,41.01,Ka. Munna Singh Chauhan,parties.IN.RLD,62456,6440,3.83,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-877,uttar-pradesh,2016,JANGIPUR,311256,160842,51.68,Kismatiya 'E',parties.IN.SWP,82316,51.18,Ramesh,parties.IN.BJP,60224,22092,13.74,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-uttar-pradesh-1018,uttar-pradesh,2016,MUZAFFARNAGAR,301726,155080,51.4,Kapil Dev Agarwal 'E',parties.IN.BJP,BJP,65378,42.16,Gaurav Swarup Bansal,parties.IN.SP,SP,58026,7352,4.74,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1056,uttar-pradesh,2016,DEOBAND,292273,168390,57.61,Mavia ALI 'E'',parties.IN.INC,INC,51012,30.29,Meena Singh,parties.IN.SP,SP,47453,3559,2.11,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1066,uttar-pradesh,2016,BILARI,292315,182039,62.27,Mohd. Faeem(E),parties.IN.SWP,SWP,90464,49.69,Suresh Saini,parties.IN.BJP,BJP,83371,7093,3.89,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-840,uttar-pradesh,2016,BIKAPUR,332607,167999,50.51,Anand Sen ''E',parties.IN.SP,SP,68896,41.01,Ka. Munna Singh Chauhan,parties.IN.RLD,RLD,62456,6440,3.83,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-877,uttar-pradesh,2016,JANGIPUR,311256,160842,51.68,Kismatiya 'E',parties.IN.SWP,SWP,82316,51.18,Ramesh,parties.IN.BJP,BJP,60224,22092,13.74,src-1b7bc1c9d39a

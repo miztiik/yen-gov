@@ -1,16 +1,16 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Jeetmohinder Singh Sidhu,,71747,60.75,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Harminder Singh Jassi,parties.IN.INC,25105,21.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Prof. Baljinder Kaur,parties.IN.AAP,13899,11.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Balkar Sidhu,parties.IN.IND,6305,5.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Bhai Bharpur Singh,parties.IN.IND,447,0.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Makhan Singh Premi,,389,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Balwinder Singh,parties.IN.IND,218,0.18,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-258,punjab,2014,115,PATIALA,Preneet Kaur (W),parties.IN.INC,52967,59.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-258,punjab,2014,115,PATIALA,Bhagwan Dass Juneja,,29685,33.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-258,punjab,2014,115,PATIALA,Harjeet Singh,parties.IN.AAP,5724,6.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-258,punjab,2014,115,PATIALA,Amrik Singh,,139,0.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-258,punjab,2014,115,PATIALA,Rajinder Singh Pawar,parties.IN.IND,138,0.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-258,punjab,2014,115,PATIALA,Balwinder Singh,parties.IN.IND,119,0.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-258,punjab,2014,115,PATIALA,Ravi Kant,parties.IN.HND,101,0.11,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-258,punjab,2014,115,PATIALA,Balbir Singh,parties.IN.IND,74,0.08,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Jeetmohinder Singh Sidhu,,SKD,71747,60.75,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Harminder Singh Jassi,parties.IN.INC,INC,25105,21.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Prof. Baljinder Kaur,parties.IN.AAP,AAP,13899,11.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Balkar Sidhu,parties.IN.IND,IND,6305,5.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Bhai Bharpur Singh,parties.IN.IND,IND,447,0.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Makhan Singh Premi,,PLP,389,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Balwinder Singh,parties.IN.IND,IND,218,0.18,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-258,punjab,2014,115,PATIALA,Preneet Kaur (W),parties.IN.INC,INC,52967,59.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-258,punjab,2014,115,PATIALA,Bhagwan Dass Juneja,,SAK,29685,33.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-258,punjab,2014,115,PATIALA,Harjeet Singh,parties.IN.AAP,AAP,5724,6.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-258,punjab,2014,115,PATIALA,Amrik Singh,,NAICP,139,0.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-258,punjab,2014,115,PATIALA,Rajinder Singh Pawar,parties.IN.IND,IND,138,0.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-258,punjab,2014,115,PATIALA,Balwinder Singh,parties.IN.IND,IND,119,0.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-258,punjab,2014,115,PATIALA,Ravi Kant,parties.IN.HND,HND,101,0.11,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-258,punjab,2014,115,PATIALA,Balbir Singh,parties.IN.IND,IND,74,0.08,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a

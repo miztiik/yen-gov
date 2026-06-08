@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-jharkhand-2173,jharkhand,2011,MANDHU,293563,167504,57.06,J.P.B. Patel,parties.IN.JMM,52404,31.29,K.M. Singh,parties.IN.INC,28636,23768,14.19,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2181,jharkhand,2011,KHARASAWAN,154453,111671,72.3,Arjun Munda,parties.IN.BJP,61801,55.34,Dashrath Gagrai,,44355,17446,15.62,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-jharkhand-2173,jharkhand,2011,MANDHU,293563,167504,57.06,J.P.B. Patel,parties.IN.JMM,JMM,52404,31.29,K.M. Singh,parties.IN.INC,INC,28636,23768,14.19,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2181,jharkhand,2011,KHARASAWAN,154453,111671,72.3,Arjun Munda,parties.IN.BJP,BJP,61801,55.34,Dashrath Gagrai,,J V (P),44355,17446,15.62,src-1b7bc1c9d39a

@@ -1,6 +1,6 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-karnataka-3479,karnataka,2011,CHANNAPATNA,183793,148764,80.94,CP Yogeshwara,parties.IN.BJP,75275,50.6,SL Nagaraju,parties.IN.JDS,57472,17803,11.97,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3501,karnataka,2011,BELLARY,184316,123369,66.93,B. Sriramulu,parties.IN.IND,74527,60.41,B. Ramprasad,parties.IN.INC,27737,46790,37.93,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3571,karnataka,2011,JAGALUR,145628,116977,80.33,S.V.Ramachandra,parties.IN.BJP,41961,35.87,H.P. Rajesh,parties.IN.IND,37528,4433,3.79,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3605,karnataka,2011,BANGARAPET,151337,120931,79.91,E.M.Narayana Swamy,parties.IN.BJP,56824,46.99,K.M.Narayanas.,parties.IN.INC,52781,4043,3.34,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3615,karnataka,2011,KOPPAL,182348,134620,73.83,K.S. Amarappa,parties.IN.BJP,60405,44.87,K.B.B. Hitanal,parties.IN.INC,47917,12488,9.28,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-karnataka-3479,karnataka,2011,CHANNAPATNA,183793,148764,80.94,CP Yogeshwara,parties.IN.BJP,BJP,75275,50.6,SL Nagaraju,parties.IN.JDS,JD(S),57472,17803,11.97,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,BELLARY,184316,123369,66.93,B. Sriramulu,parties.IN.IND,IND,74527,60.41,B. Ramprasad,parties.IN.INC,INC,27737,46790,37.93,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,JAGALUR,145628,116977,80.33,S.V.Ramachandra,parties.IN.BJP,BJP,41961,35.87,H.P. Rajesh,parties.IN.IND,IND,37528,4433,3.79,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,BANGARAPET,151337,120931,79.91,E.M.Narayana Swamy,parties.IN.BJP,BJP,56824,46.99,K.M.Narayanas.,parties.IN.INC,INC,52781,4043,3.34,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,KOPPAL,182348,134620,73.83,K.S. Amarappa,parties.IN.BJP,BJP,60405,44.87,K.B.B. Hitanal,parties.IN.INC,INC,47917,12488,9.28,src-1b7bc1c9d39a

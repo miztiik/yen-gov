@@ -1,33 +1,33 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Parduymn Rajput,,35891,54.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Tilotma Chod.,,24526,37.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Madan Mohan,,3178,4.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Mordhwaj Rai,,417,0.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Gulfan,,332,0.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Om Prakash Indora,,286,0.44,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Suvash Kr. Ch.,,234,0.36,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,R. Kr. Hotla,,162,0.25,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Hari Parkash,,151,0.23,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Naresh Chandr.p,,85,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Mukesh Kr.Tan.,,60,0.09,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Pro.R.N.Singh,,51,0.08,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Anil Singh,,45,0.07,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Asif Md. Khan,,23394,28.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Braham Singh,,18387,22.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Farhad Suri,,17804,22.06,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Rambir S.Bidhuri,,17718,21.95,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Mohd. Irfan Ahmad,,2519,3.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Sanjay,,280,0.35,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Wasim Ah.Ghazi,,238,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Mohd. Ayoub,,104,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Sunita Chod.,,97,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Jamaluddin,,91,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Ilyas Khan,,87,0.11,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci64,delhi,2009,64,ROHTAS NAGAR,Vipin Sharma,,57848,57.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci64,delhi,2009,64,ROHTAS NAGAR,Divy Jayaswal,,34299,34.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci64,delhi,2009,64,ROHTAS NAGAR,Jai Chand Sharma,,7191,7.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci64,delhi,2009,64,ROHTAS NAGAR,Sanjay Gupta,,350,0.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci64,delhi,2009,64,ROHTAS NAGAR,Subhash Mishra,,346,0.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci64,delhi,2009,64,ROHTAS NAGAR,Rakesh Gupta,,339,0.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci64,delhi,2009,64,ROHTAS NAGAR,Yudhister Kr. Sharma,,179,0.18,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci64,delhi,2009,64,ROHTAS NAGAR,Vinod Kr. Gupta,,119,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Parduymn Rajput,,,35891,54.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Tilotma Chod.,,,24526,37.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Madan Mohan,,,3178,4.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Mordhwaj Rai,,,417,0.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Gulfan,,,332,0.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Om Prakash Indora,,,286,0.44,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Suvash Kr. Ch.,,,234,0.36,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,R. Kr. Hotla,,,162,0.25,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Hari Parkash,,,151,0.23,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Naresh Chandr.p,,,85,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Mukesh Kr.Tan.,,,60,0.09,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Pro.R.N.Singh,,,51,0.08,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci33,delhi,2009,33,DWARKA,Anil Singh,,,45,0.07,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Asif Md. Khan,,,23394,28.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Braham Singh,,,18387,22.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Farhad Suri,,,17804,22.06,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Rambir S.Bidhuri,,,17718,21.95,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Mohd. Irfan Ahmad,,,2519,3.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Sanjay,,,280,0.35,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Wasim Ah.Ghazi,,,238,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Mohd. Ayoub,,,104,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Sunita Chod.,,,97,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Jamaluddin,,,91,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci54,delhi,2009,54,OKHLA,Ilyas Khan,,,87,0.11,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci64,delhi,2009,64,ROHTAS NAGAR,Vipin Sharma,,,57848,57.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci64,delhi,2009,64,ROHTAS NAGAR,Divy Jayaswal,,,34299,34.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci64,delhi,2009,64,ROHTAS NAGAR,Jai Chand Sharma,,,7191,7.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci64,delhi,2009,64,ROHTAS NAGAR,Sanjay Gupta,,,350,0.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci64,delhi,2009,64,ROHTAS NAGAR,Subhash Mishra,,,346,0.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci64,delhi,2009,64,ROHTAS NAGAR,Rakesh Gupta,,,339,0.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci64,delhi,2009,64,ROHTAS NAGAR,Yudhister Kr. Sharma,,,179,0.18,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci64,delhi,2009,64,ROHTAS NAGAR,Vinod Kr. Gupta,,,119,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a

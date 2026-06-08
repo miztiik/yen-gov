@@ -1,10 +1,10 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Sudhanshu Shekhar E,parties.IN.RLSP,62434,46.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Mohammad Shabbir,parties.IN.INC,43784,32.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Ram Naresh Pandey,parties.IN.CPI,19835,14.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Madan Chadra Jha,,2826,2.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Anita Devi,,2004,1.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Vijay Gandhi,parties.IN.BJP,1393,1.03,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Bhagirath Jha,,1351,1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Parmanand Paswan,parties.IN.PBI,594,0.44,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Priya Ranjan,,580,0.43,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Sudhanshu Shekhar E,parties.IN.RLSP,RLSP,62434,46.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Mohammad Shabbir,parties.IN.INC,INC,43784,32.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Ram Naresh Pandey,parties.IN.CPI,CPI,19835,14.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Madan Chadra Jha,,INDEPENDENT,2826,2.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Anita Devi,,JAP(LOKTANTRIK),2004,1.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Vijay Gandhi,parties.IN.BJP,BJP,1393,1.03,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Bhagirath Jha,,SKLP,1351,1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Parmanand Paswan,parties.IN.PBI,PBI,594,0.44,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1224,bihar,2016,35,BISFI,Sh. Priya Ranjan,,AMP,580,0.43,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a

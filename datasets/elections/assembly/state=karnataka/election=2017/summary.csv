@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-karnataka-3526,karnataka,2017,GUNDLUPET,190420,173359,91.04,M.C.Mohan Kuimari Uruf Geetha,parties.IN.INC,90260,52.07,C.S. Niranjan Kumar,parties.IN.BJP,79383,10877,6.28,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3530,karnataka,2017,NANJANGUD,185095,154650,83.55,Kalale.N.Keshavamur Thy,parties.IN.INC,86212,55.75,V.Srivinasa Prasad,parties.IN.BJP,64878,21334,13.8,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-karnataka-3526,karnataka,2017,GUNDLUPET,190420,173359,91.04,M.C.Mohan Kuimari Uruf Geetha,parties.IN.INC,INC,90260,52.07,C.S. Niranjan Kumar,parties.IN.BJP,BJP,79383,10877,6.28,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3530,karnataka,2017,NANJANGUD,185095,154650,83.55,Kalale.N.Keshavamur Thy,parties.IN.INC,INC,86212,55.75,V.Srivinasa Prasad,parties.IN.BJP,BJP,64878,21334,13.8,src-1b7bc1c9d39a

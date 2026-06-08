@@ -1,5 +1,5 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-nagaland-1451,nagaland,2009,CHIZAMI,21871,21279,97.29,Deo nukhu,parties.IN.NPF,13971,65.66,Kewekhape Therie,parties.IN.INC,7308,6663,31.32,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1454,nagaland,2009,DIMAPUR-III,19931,16800,84.29,Azheto Zhimomi,parties.IN.NPF,12427,73.97,Y.Vikheho,parties.IN.INC,4373,8054,47.94,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1490,nagaland,2009,TIZIT,18904,16128,85.32,T. Aloh,parties.IN.NPF,8749,54.25,P. Paiwang,parties.IN.BJP,5909,2840,17.61,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-eci54,nagaland,2009,TUENSANG SADAR-II,18619,17037,91.5,Kejong  E,parties.IN.NPF,11345,66.59,Wongto,parties.IN.INC,5692,5653,33.18,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-nagaland-1451,nagaland,2009,CHIZAMI,21871,21279,97.29,Deo nukhu,parties.IN.NPF,NPF,13971,65.66,Kewekhape Therie,parties.IN.INC,INC,7308,6663,31.32,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1454,nagaland,2009,DIMAPUR-III,19931,16800,84.29,Azheto Zhimomi,parties.IN.NPF,NPF,12427,73.97,Y.Vikheho,parties.IN.INC,INC,4373,8054,47.94,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1490,nagaland,2009,TIZIT,18904,16128,85.32,T. Aloh,parties.IN.NPF,NPF,8749,54.25,P. Paiwang,parties.IN.BJP,BJP,5909,2840,17.61,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci54,nagaland,2009,TUENSANG SADAR-II,18619,17037,91.5,Kejong  E,parties.IN.NPF,NPF,11345,66.59,Wongto,parties.IN.INC,INC,5692,5653,33.18,src-1b7bc1c9d39a

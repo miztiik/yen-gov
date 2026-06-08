@@ -1,2 +1,2 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-gujarat-2829,gujarat,2018,JASDAN,232236,165331,71.19,Bavaliya Kunvarji Bhai Mohan Bhai 'E',parties.IN.BJP,90268,54.6,Avshar Bhai kanji Bhai Nakiya,parties.IN.INC,70283,19985,12.09,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-gujarat-2829,gujarat,2018,JASDAN,232236,165331,71.19,Bavaliya Kunvarji Bhai Mohan Bhai 'E',parties.IN.BJP,BJP,90268,54.6,Avshar Bhai kanji Bhai Nakiya,parties.IN.INC,INC,70283,19985,12.09,src-1b7bc1c9d39a

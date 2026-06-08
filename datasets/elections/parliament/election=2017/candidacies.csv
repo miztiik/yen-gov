@@ -1,15 +1,15 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-PC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2017,2,SRINAGAR,Farooq Abdullah,,48555,56.24,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2017,2,SRINAGAR,Nazir Ahmad Khan,,37779,43.76,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",P.K Kunhalikutty,parties.IN.IUML,515330,55.34,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",ADV. M.B. Faisal,,344307,36.97,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",ADV. N. SreePrakash,parties.IN.BJP,65675,7.05,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",Muhammed Faisal,,1698,0.18,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",Adv.N.SreePrakash,,1469,0.16,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",K.Shajismon,,1027,0.11,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",Kunjalikutty Kulambil Padinharekara,,720,0.08,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",A.K. Shaji,,565,0.06,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",Muhammed Musliyar.N,,445,0.05,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-punjab-17,punjab,2017,1,GURDASHPUR,Sunil Kumar Jakhar,parties.IN.INC,499752,60.22,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-punjab-17,punjab,2017,1,GURDASHPUR,Swaran Salaria,parties.IN.BJP,306533,36.94,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-punjab-17,punjab,2017,1,GURDASHPUR,Maj. Gen Suresh Kumar Khajuria (Retd.),parties.IN.AAP,23579,2.84,3,forfeit,U,,,,challenger,src-31c65dbec869
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-PC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2017,2,SRINAGAR,Farooq Abdullah,,NC,48555,56.24,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2017,2,SRINAGAR,Nazir Ahmad Khan,,PDP,37779,43.76,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",P.K Kunhalikutty,parties.IN.IUML,IUML,515330,55.34,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",ADV. M.B. Faisal,parties.IN.CPIM,CPI(Marxist),344307,36.97,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",ADV. N. SreePrakash,parties.IN.BJP,BJP,65675,7.05,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",Muhammed Faisal,,INDEPENDENT,1698,0.18,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",Adv.N.SreePrakash,,INDEPENDENT,1469,0.16,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",K.Shajismon,,INDEPENDENT,1027,0.11,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",Kunjalikutty Kulambil Padinharekara,,INDEPENDENT,720,0.08,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",A.K. Shaji,,INDEPENDENT,565,0.06,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",Muhammed Musliyar.N,,INDEPENDENT,445,0.05,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-punjab-17,punjab,2017,1,GURDASHPUR,Sunil Kumar Jakhar,parties.IN.INC,INC,499752,60.22,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-punjab-17,punjab,2017,1,GURDASHPUR,Swaran Salaria,parties.IN.BJP,BJP,306533,36.94,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-punjab-17,punjab,2017,1,GURDASHPUR,Maj. Gen Suresh Kumar Khajuria (Retd.),parties.IN.AAP,AAP,23579,2.84,3,forfeit,U,,,,challenger,src-31c65dbec869

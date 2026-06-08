@@ -1,158 +1,158 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-arunachal-pradesh-1423,arunachal-pradesh,2009,1,LUMLA,JAMBEY TASHI,parties.IN.INC,0,,1,won,U,35,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1437,arunachal-pradesh,2009,2,TAWANG,TSEWANG DHONDUP,parties.IN.INC,0,,1,won,U,50,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1425,arunachal-pradesh,2009,3,MUKTO,DORJEE KHANDU,parties.IN.INC,0,,1,won,U,54,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1415,arunachal-pradesh,2009,4,DIRANG,PHURPA TSERING,parties.IN.PPA,6618,56.55,1,won,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1415,arunachal-pradesh,2009,4,DIRANG,TSERING GYURME,parties.IN.INC,5085,43.45,2,lost,U,54,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1419,arunachal-pradesh,2009,5,KALAKTANG,TENZING NORBU THONGDOK,parties.IN.INC,4189,58.61,1,won,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1419,arunachal-pradesh,2009,5,KALAKTANG,RINCHIN KHANDU KHRIMEY,parties.IN.NCP,2958,41.39,2,lost,U,62,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1438,arunachal-pradesh,2009,6,THRIZINO-BURAGAON,KUMSI SIDISOW,parties.IN.PPA,8279,71.62,1,won,U,27,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1438,arunachal-pradesh,2009,6,THRIZINO-BURAGAON,NARESH GLOW,parties.IN.INC,3281,28.38,2,lost,U,49,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1412,arunachal-pradesh,2009,7,BOMDILA,R. T. KHUNJUJU,parties.IN.INC,4062,50.96,1,won,U,42,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1412,arunachal-pradesh,2009,7,BOMDILA,JAPU DERU,parties.IN.NCP,3670,46.04,2,lost,U,51,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1412,arunachal-pradesh,2009,7,BOMDILA,SAMBU SIONGJU,parties.IN.BJP,239,3,3,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1410,arunachal-pradesh,2009,8,BAMENG,KUMAR WAII,parties.IN.INC,5647,71.21,1,won,U,38,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1410,arunachal-pradesh,2009,8,BAMENG,TAGUNG NERI,parties.IN.AITC,2283,28.79,2,lost,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1413,arunachal-pradesh,2009,9,CHAYANG TAJO,KARYA BAGANG,parties.IN.AITC,3674,52.44,1,won,U,32,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1413,arunachal-pradesh,2009,9,CHAYANG TAJO,KAMENG DOLO,parties.IN.INC,3332,47.56,2,lost,U,57,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1433,arunachal-pradesh,2009,10,SEPPA EAST,TAPUK TAKU,parties.IN.AITC,4666,51.62,1,won,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1433,arunachal-pradesh,2009,10,SEPPA EAST,TAME PHASSANG,parties.IN.INC,4374,48.38,2,lost,U,40,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1434,arunachal-pradesh,2009,11,SEPPA WEST,TANI LOFFA,parties.IN.AITC,2783,52.96,1,won,U,52,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1434,arunachal-pradesh,2009,11,SEPPA WEST,HARI NOTUNG,parties.IN.INC,2472,47.04,2,lost,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1428,arunachal-pradesh,2009,12,PAKKE KESSANG,ATUM WELLY,parties.IN.INC,2885,50.59,1,won,U,46,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1428,arunachal-pradesh,2009,12,PAKKE KESSANG,TECHI HEMU,parties.IN.NCP,2818,49.41,2,lost,U,41,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1418,arunachal-pradesh,2009,13,ITANAGAR,SHRI TECHI KASO,parties.IN.NCP,13443,45.48,1,won,U,52,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1418,arunachal-pradesh,2009,13,ITANAGAR,SHRI KIPA BABU,parties.IN.INC,10057,34.03,2,lost,U,36,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1418,arunachal-pradesh,2009,13,ITANAGAR,SHRI LICHI LEGI,parties.IN.BJP,4894,16.56,3,forfeit,U,58,Literate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1418,arunachal-pradesh,2009,13,ITANAGAR,SHRI TECHI NECHA,parties.IN.AITC,884,2.99,4,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1418,arunachal-pradesh,2009,13,ITANAGAR,SRI TAMI TANIANG,parties.IN.JDU,278,0.94,5,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1416,arunachal-pradesh,2009,14,DOIMUKH,SHRI NABAM REBIA,parties.IN.INC,6752,40.69,1,won,U,47,Graduate Professional,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1416,arunachal-pradesh,2009,14,DOIMUKH,SHRI NGURANG PINCH,parties.IN.NCP,6154,37.09,2,lost,U,42,8th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1416,arunachal-pradesh,2009,14,DOIMUKH,SHRI T.C. TELI,parties.IN.AITC,3686,22.22,3,lost,U,45,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1432,arunachal-pradesh,2009,15,SAGALEE,SHRI NABAM TUKI,parties.IN.INC,6646,69.23,1,won,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1432,arunachal-pradesh,2009,15,SAGALEE,SRI TAD TANA,parties.IN.NCP,2954,30.77,2,lost,U,42,Illiterate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1439,arunachal-pradesh,2009,16,YACHULI,SHRI LIKHA SAAYA,parties.IN.INC,5638,41.58,1,won,U,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1439,arunachal-pradesh,2009,16,YACHULI,SHRI NIKH KAMIN,parties.IN.AITC,5596,41.27,2,lost,U,39,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1439,arunachal-pradesh,2009,16,YACHULI,SHRI JOTAM TOKO TAKAM,parties.IN.PPA,2324,17.14,3,lost,U,45,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1440,arunachal-pradesh,2009,17,ZIRO HAPOLI,SHRI PADI RICHO,parties.IN.INC,9569,55.89,1,won,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1440,arunachal-pradesh,2009,17,ZIRO HAPOLI,NANI RIBIA,parties.IN.AITC,6697,39.12,2,lost,U,49,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1440,arunachal-pradesh,2009,17,ZIRO HAPOLI,SHRI KURU TAI,parties.IN.BJP,442,2.58,3,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1440,arunachal-pradesh,2009,17,ZIRO HAPOLI,SRI SUBU KOYANG,parties.IN.NCP,412,2.41,4,forfeit,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1429,arunachal-pradesh,2009,18,PALIN,TAKAM TAGAR,parties.IN.PPA,6015,52.68,1,won,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1429,arunachal-pradesh,2009,18,PALIN,BALO RAJA,parties.IN.INC,5326,46.65,2,lost,U,39,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1429,arunachal-pradesh,2009,18,PALIN,CHARU TANAM,parties.IN.NCP,77,0.67,3,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1427,arunachal-pradesh,2009,19,NYAPIN,BAMANG FELIX,parties.IN.NCP,4865,54.11,1,won,U,38,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1427,arunachal-pradesh,2009,19,NYAPIN,TATAR KIPA,parties.IN.INC,4126,45.89,2,lost,U,41,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1435,arunachal-pradesh,2009,20,TALI,MARKIO TADO,parties.IN.PPA,5261,67.37,1,won,U,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1435,arunachal-pradesh,2009,20,TALI,TAKAM SORANG,parties.IN.INC,2548,32.63,2,lost,U,35,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1420,arunachal-pradesh,2009,21,KOLORIANG,LOKAM TASSAR,parties.IN.INC,5095,56.04,1,won,U,37,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1420,arunachal-pradesh,2009,21,KOLORIANG,KAHFA BENGIA,parties.IN.NCP,3996,43.96,2,lost,U,48,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1426,arunachal-pradesh,2009,22,NACHO,SHRI TANGA BYALING,parties.IN.INC,4878,70,1,won,U,57,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1426,arunachal-pradesh,2009,22,NACHO,SHRI AJIT NACHO,parties.IN.BJP,1052,15.1,2,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1426,arunachal-pradesh,2009,22,NACHO,SHRI TAPA GARAM BAKI,parties.IN.NCP,1039,14.91,3,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1436,arunachal-pradesh,2009,23,TALIHA,SHRI PUNJI MARA,parties.IN.INC,3570,53.01,1,won,U,55,Others,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1436,arunachal-pradesh,2009,23,TALIHA,SHRI NYATO RIGIA,parties.IN.AITC,3164,46.99,2,lost,U,45,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1414,arunachal-pradesh,2009,24,DAPORIJO,SHRI TAPEN SIGA,parties.IN.BJP,5009,39.24,1,won,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1414,arunachal-pradesh,2009,24,DAPORIJO,SMTI YARI DULOM,parties.IN.INC,3806,29.82,2,lost,U,54,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1414,arunachal-pradesh,2009,24,DAPORIJO,SHRI DAKLO NIDAK,parties.IN.AITC,2874,22.52,3,lost,U,48,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1414,arunachal-pradesh,2009,24,DAPORIJO,SHRI MAJI MARGING,parties.IN.NCP,684,5.36,4,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1414,arunachal-pradesh,2009,24,DAPORIJO,SHRI TAKIR KURDU,parties.IN.JDU,391,3.06,5,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1430,arunachal-pradesh,2009,25,RAGA,SRI NIDO PAVITRA,parties.IN.INC,5460,40.64,1,won,U,42,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1430,arunachal-pradesh,2009,25,RAGA,SHRI AATH TACHO KABAK,parties.IN.NCP,4274,31.81,2,lost,U,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1430,arunachal-pradesh,2009,25,RAGA,SHRI TALO MUGLI,parties.IN.AITC,3700,27.54,3,lost,U,52,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1417,arunachal-pradesh,2009,26,DUMPORIJO,SHRI TAKAR MARDE,parties.IN.INC,7493,81.2,1,won,U,49,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1417,arunachal-pradesh,2009,26,DUMPORIJO,SHRI LOMPAK PAKSOK,parties.IN.BJP,1735,18.8,2,lost,U,35,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1422,arunachal-pradesh,2009,27,LIROMOBA,JARBOM GAMLIN,parties.IN.INC,6640,70.73,1,won,U,48,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1422,arunachal-pradesh,2009,27,LIROMOBA,BAI GADI,parties.IN.BJP,2748,29.27,2,lost,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1421,arunachal-pradesh,2009,28,LIKABALI,JOMDE KENA,parties.IN.INC,3420,40.39,1,won,U,45,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1421,arunachal-pradesh,2009,28,LIKABALI,YAI MARA,parties.IN.AITC,2527,29.84,2,lost,U,50,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1421,arunachal-pradesh,2009,28,LIKABALI,GUMKE RIBA,parties.IN.NCP,2477,29.25,3,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1421,arunachal-pradesh,2009,28,LIKABALI,KARDU TAIPODIA,parties.IN.PPA,44,0.52,4,forfeit,U,57,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1411,arunachal-pradesh,2009,29,BASAR,GOJEN GADI,parties.IN.INC,8438,60.86,1,won,U,50,Literate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1411,arunachal-pradesh,2009,29,BASAR,DAKTER BASAR,parties.IN.AITC,5317,38.35,2,lost,U,53,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1411,arunachal-pradesh,2009,29,BASAR,YOMKAR RIBA,parties.IN.NCP,109,0.79,3,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1409,arunachal-pradesh,2009,30,ALONG WEST,GADAM ETE,parties.IN.INC,5113,50.15,1,won,U,36,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1409,arunachal-pradesh,2009,30,ALONG WEST,DUTER PADU,parties.IN.AITC,5082,49.85,2,lost,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1408,arunachal-pradesh,2009,31,ALONG EAST,JARKAR GAMLIN,parties.IN.INC,5175,53.07,1,won,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1408,arunachal-pradesh,2009,31,ALONG EAST,YOMTO JINI,parties.IN.AITC,4576,46.93,2,lost,U,45,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1431,arunachal-pradesh,2009,32,RUMGONG,TAMIYO TAGA,parties.IN.BJP,3658,38.77,1,won,U,57,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1431,arunachal-pradesh,2009,32,RUMGONG,KARMA JERANG,parties.IN.JDU,2915,30.89,2,lost,U,53,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1431,arunachal-pradesh,2009,32,RUMGONG,DIBANG TATAK,parties.IN.INC,2749,29.13,3,lost,U,46,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1431,arunachal-pradesh,2009,32,RUMGONG,TAYU JERANG,parties.IN.NCP,114,1.21,4,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1424,arunachal-pradesh,2009,33,MECHUKA,PASANG DORJEE SONA,parties.IN.INC,3973,51.67,1,won,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1424,arunachal-pradesh,2009,33,MECHUKA,TSERING NAKSANG,parties.IN.NCP,2423,31.51,2,lost,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1424,arunachal-pradesh,2009,33,MECHUKA,BOTE YUTO,parties.IN.PPA,1175,15.28,3,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1424,arunachal-pradesh,2009,33,MECHUKA,TAKO PUNING,parties.IN.AITC,118,1.53,4,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1407,arunachal-pradesh,2009,34,TUTING YINGKIONG,ALO LIBANG,parties.IN.NCP,4827,53.52,1,won,U,45,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1407,arunachal-pradesh,2009,34,TUTING YINGKIONG,GEGONG APANG,parties.IN.INC,3457,38.33,2,lost,U,62,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1407,arunachal-pradesh,2009,34,TUTING YINGKIONG,KATAN KOMBOH,parties.IN.BJP,735,8.15,3,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1401,arunachal-pradesh,2009,35,PANGIN,TAPANG TALOH,parties.IN.INC,6826,62.79,1,won,U,45,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1401,arunachal-pradesh,2009,35,PANGIN,KALING JERANG,parties.IN.NCP,4045,37.21,2,lost,U,43,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1400,arunachal-pradesh,2009,36,NARI-KOYU,TAKO DABI,parties.IN.INC,3398,56.13,1,won,U,53,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1400,arunachal-pradesh,2009,36,NARI-KOYU,KENYIR RINGU,parties.IN.NCP,2656,43.87,2,lost,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1403,arunachal-pradesh,2009,37,PASIGHAT WEST,DR. TANGOR TAPAK,parties.IN.BJP,5529,53.18,1,won,U,47,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1403,arunachal-pradesh,2009,37,PASIGHAT WEST,OMAK APANG,parties.IN.INC,4868,46.82,2,lost,U,38,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1402,arunachal-pradesh,2009,38,PASIGHAT EAST,BOSIRAM SIRAM,parties.IN.INC,8908,59.71,1,won,U,43,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1402,arunachal-pradesh,2009,38,PASIGHAT EAST,KALING MOYONG,parties.IN.NCP,5683,38.09,2,lost,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1402,arunachal-pradesh,2009,38,PASIGHAT EAST,OYEM DAI,parties.IN.BJP,329,2.21,3,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1395,arunachal-pradesh,2009,39,MEBO,RALOM BORANG,parties.IN.NCP,5142,53.03,1,won,U,43,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1395,arunachal-pradesh,2009,39,MEBO,LOMBO TAYENG,parties.IN.INC,4555,46.97,2,lost,U,45,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1394,arunachal-pradesh,2009,40,MARIYANG-GEKU,J K PANGGENG,parties.IN.INC,4165,44.05,1,won,U,58,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1394,arunachal-pradesh,2009,40,MARIYANG-GEKU,RAISING PERME,parties.IN.NCP,2885,30.51,2,lost,U,60,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1394,arunachal-pradesh,2009,40,MARIYANG-GEKU,OLOM PANYANG,parties.IN.AITC,2212,23.39,3,lost,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1394,arunachal-pradesh,2009,40,MARIYANG-GEKU,DANA PERTIN,parties.IN.BJP,194,2.05,4,forfeit,U,63,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1381,arunachal-pradesh,2009,41,ANINI,RAJESH TACHO,parties.IN.INC,1730,51.2,1,won,U,47,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1381,arunachal-pradesh,2009,41,ANINI,ERI TAYU,parties.IN.NCP,1649,48.8,2,lost,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1387,arunachal-pradesh,2009,42,DAMBUK,JOMIN TAYENG,parties.IN.NCP,4967,50.66,1,won,U,64,Graduate Professional,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1387,arunachal-pradesh,2009,42,DAMBUK,RODING PERTIN,parties.IN.INC,4837,49.34,2,lost,U,43,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1405,arunachal-pradesh,2009,43,ROING,SHRI LAETA UMBREY,parties.IN.AITC,5170,54.38,1,won,U,53,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1405,arunachal-pradesh,2009,43,ROING,SMTI POMAYA MITHI,parties.IN.INC,4337,45.62,2,lost,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1406,arunachal-pradesh,2009,44,TEZU,KARIKHO KRI,parties.IN.INC,8397,64.85,1,won,U,36,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1406,arunachal-pradesh,2009,44,TEZU,NAKUL CHAI,parties.IN.AITC,4552,35.15,2,lost,U,55,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1388,arunachal-pradesh,2009,45,HAYULIANG,SHRI KALIKHO PUL,parties.IN.INC,7788,85.26,1,won,U,37,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1388,arunachal-pradesh,2009,45,HAYULIANG,SHRI BARITLUM AMA,parties.IN.AITC,998,10.93,2,forfeit,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1388,arunachal-pradesh,2009,45,HAYULIANG,SH. BANIM KRI,parties.IN.BJP,250,2.74,3,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1388,arunachal-pradesh,2009,45,HAYULIANG,SHRI KHUJE DRAI,parties.IN.NCP,98,1.07,4,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1386,arunachal-pradesh,2009,46,CHOWKHAM,CHOW TEWA MEIN,parties.IN.INC,6279,60.95,1,won,U,66,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1386,arunachal-pradesh,2009,46,CHOWKHAM,CHOW CHINAKONG NAMCHOOM,parties.IN.NCP,4023,39.05,2,lost,U,62,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1398,arunachal-pradesh,2009,47,NAMSAI,NANG SATI MEIN,parties.IN.IND,10477,64.89,1,won,U,49,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1398,arunachal-pradesh,2009,47,NAMSAI,CHOW PINGTHIKA NAMCHOOM,parties.IN.AITC,4778,29.59,2,lost,U,53,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1398,arunachal-pradesh,2009,47,NAMSAI,CHAU AMBIKA ENLING,parties.IN.BJP,603,3.73,3,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1398,arunachal-pradesh,2009,47,NAMSAI,CHOW CHANDRA MANSAI,parties.IN.INC,288,1.78,4,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1392,arunachal-pradesh,2009,48,LEKANG,CHOWNA MEIN,parties.IN.INC,6896,56.97,1,won,U,59,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1392,arunachal-pradesh,2009,48,LEKANG,JAMES TECHI TARA,parties.IN.NCP,3950,32.63,2,lost,U,32,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1392,arunachal-pradesh,2009,48,LEKANG,SOTAI KRI,parties.IN.BJP,705,5.82,3,forfeit,U,47,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1392,arunachal-pradesh,2009,48,LEKANG,KORUNA MORANG,parties.IN.IND,305,2.52,4,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1392,arunachal-pradesh,2009,48,LEKANG,LARBIN NASI,parties.IN.AITC,248,2.05,5,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1382,arunachal-pradesh,2009,49,BORDUMSA - DIYUN,C.C SINGPHO,parties.IN.INC,6193,48.84,1,won,U,63,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1382,arunachal-pradesh,2009,49,BORDUMSA - DIYUN,KHUMRAL LUNGPHI,parties.IN.NCP,5238,41.31,2,lost,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1382,arunachal-pradesh,2009,49,BORDUMSA - DIYUN,SIRAIONG SINGPHO,parties.IN.BJP,1250,9.86,3,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1396,arunachal-pradesh,2009,50,MIAO,KAMLUNG MOSANG,parties.IN.INC,9151,59.69,1,won,U,47,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1396,arunachal-pradesh,2009,50,MIAO,SAMCHOM NGEMU,parties.IN.NCP,6180,40.31,2,lost,U,57,Post Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1397,arunachal-pradesh,2009,51,NAMPONG,SETONG SENA,parties.IN.INC,5432,77.45,1,won,U,48,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1397,arunachal-pradesh,2009,51,NAMPONG,TOSHAM MOSSANG,parties.IN.IND,1582,22.55,2,lost,U,43,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1385,arunachal-pradesh,2009,52,CHANGLANG SOUTH,PHOSUM KHIMHUN,parties.IN.INC,2904,67.55,1,won,U,44,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1385,arunachal-pradesh,2009,52,CHANGLANG SOUTH,TENGAM NGEMU,parties.IN.AITC,950,22.1,2,lost,U,64,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1385,arunachal-pradesh,2009,52,CHANGLANG SOUTH,HAMJONG TANGHA,parties.IN.NCP,445,10.35,3,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1384,arunachal-pradesh,2009,53,CHANGLANG NORTH,THINGHAAP TAIJU,parties.IN.INC,4088,52.91,1,won,U,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1384,arunachal-pradesh,2009,53,CHANGLANG NORTH,WANGNIA PONGTE,parties.IN.AITC,2834,36.68,2,lost,U,51,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1384,arunachal-pradesh,2009,53,CHANGLANG NORTH,HAPPA TAIDONG,parties.IN.NCP,804,10.41,3,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1399,arunachal-pradesh,2009,54,NAMSANG,WANGKI LOWANG,parties.IN.INC,4968,68.59,1,won,U,47,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1399,arunachal-pradesh,2009,54,NAMSANG,WANGLONG RAJKUMAR,parties.IN.NCP,2275,31.41,2,lost,U,38,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1390,arunachal-pradesh,2009,55,KHONSA EAST,KAMTHOK LOWANG,parties.IN.AITC,3475,45.38,1,won,U,42,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1390,arunachal-pradesh,2009,55,KHONSA EAST,T L RAJKUMAR,parties.IN.INC,3020,39.44,2,lost,U,59,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1390,arunachal-pradesh,2009,55,KHONSA EAST,NGAMPAY LAMATY,parties.IN.PPA,721,9.41,3,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1390,arunachal-pradesh,2009,55,KHONSA EAST,WANGMAN LOWANGCHA,parties.IN.BJP,442,5.77,4,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1391,arunachal-pradesh,2009,56,KHONSA WEST,YUMSEM MATEY,parties.IN.INC,4030,51.34,1,won,U,40,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1391,arunachal-pradesh,2009,56,KHONSA WEST,THAJAM ABOH,parties.IN.AITC,3562,45.38,2,lost,U,47,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1391,arunachal-pradesh,2009,56,KHONSA WEST,JITBO ABOH,parties.IN.NCP,143,1.82,3,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1391,arunachal-pradesh,2009,56,KHONSA WEST,LANGWANG SUMPA,parties.IN.BJP,115,1.46,4,forfeit,U,59,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1383,arunachal-pradesh,2009,57,BORDURIA BOGAPANI,WANGLIN LOWANGDONG,parties.IN.INC,4034,67.89,1,won,U,53,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1383,arunachal-pradesh,2009,57,BORDURIA BOGAPANI,TONHANG TONGLUK,parties.IN.NCP,1908,32.11,2,lost,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1389,arunachal-pradesh,2009,58,KANUBARI,NEWLAI TINGKHATRA,parties.IN.INC,4859,53.7,1,won,U,57,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1389,arunachal-pradesh,2009,58,KANUBARI,GABRIEL DENWANG WANGSU,parties.IN.PPA,4189,46.3,2,lost,U,35,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1393,arunachal-pradesh,2009,59,LONGDING PUMAO,THANGWANG WANGHAM,parties.IN.INC,4763,53.27,1,won,U,42,Others,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1393,arunachal-pradesh,2009,59,LONGDING PUMAO,TANPHO WANGNAW,parties.IN.PPA,4178,46.73,2,lost,U,43,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1404,arunachal-pradesh,2009,60,PONGCHAU WAKKA,HONCHUN NGANDAM,parties.IN.INC,7531,61.63,1,won,U,56,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1404,arunachal-pradesh,2009,60,PONGCHAU WAKKA,ANOK WANGSA,parties.IN.PPA,2976,24.35,2,lost,U,53,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1404,arunachal-pradesh,2009,60,PONGCHAU WAKKA,KAPNAI WANGSA,parties.IN.NCP,1713,14.02,3,forfeit,U,39,10th Pass,,crossover,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-arunachal-pradesh-1423,arunachal-pradesh,2009,1,LUMLA,JAMBEY TASHI,parties.IN.INC,INC,0,,1,won,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1437,arunachal-pradesh,2009,2,TAWANG,TSEWANG DHONDUP,parties.IN.INC,INC,0,,1,won,U,50,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1425,arunachal-pradesh,2009,3,MUKTO,DORJEE KHANDU,parties.IN.INC,INC,0,,1,won,U,54,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1415,arunachal-pradesh,2009,4,DIRANG,PHURPA TSERING,parties.IN.PPA,PPA,6618,56.55,1,won,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1415,arunachal-pradesh,2009,4,DIRANG,TSERING GYURME,parties.IN.INC,INC,5085,43.45,2,lost,U,54,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1419,arunachal-pradesh,2009,5,KALAKTANG,TENZING NORBU THONGDOK,parties.IN.INC,INC,4189,58.61,1,won,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1419,arunachal-pradesh,2009,5,KALAKTANG,RINCHIN KHANDU KHRIMEY,parties.IN.NCP,NCP,2958,41.39,2,lost,U,62,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1438,arunachal-pradesh,2009,6,THRIZINO-BURAGAON,KUMSI SIDISOW,parties.IN.PPA,PPA,8279,71.62,1,won,U,27,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1438,arunachal-pradesh,2009,6,THRIZINO-BURAGAON,NARESH GLOW,parties.IN.INC,INC,3281,28.38,2,lost,U,49,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1412,arunachal-pradesh,2009,7,BOMDILA,R. T. KHUNJUJU,parties.IN.INC,INC,4062,50.96,1,won,U,42,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1412,arunachal-pradesh,2009,7,BOMDILA,JAPU DERU,parties.IN.NCP,NCP,3670,46.04,2,lost,U,51,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1412,arunachal-pradesh,2009,7,BOMDILA,SAMBU SIONGJU,parties.IN.BJP,BJP,239,3,3,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1410,arunachal-pradesh,2009,8,BAMENG,KUMAR WAII,parties.IN.INC,INC,5647,71.21,1,won,U,38,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1410,arunachal-pradesh,2009,8,BAMENG,TAGUNG NERI,parties.IN.AITC,AITC,2283,28.79,2,lost,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1413,arunachal-pradesh,2009,9,CHAYANG TAJO,KARYA BAGANG,parties.IN.AITC,AITC,3674,52.44,1,won,U,32,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1413,arunachal-pradesh,2009,9,CHAYANG TAJO,KAMENG DOLO,parties.IN.INC,INC,3332,47.56,2,lost,U,57,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1433,arunachal-pradesh,2009,10,SEPPA EAST,TAPUK TAKU,parties.IN.AITC,AITC,4666,51.62,1,won,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1433,arunachal-pradesh,2009,10,SEPPA EAST,TAME PHASSANG,parties.IN.INC,INC,4374,48.38,2,lost,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1434,arunachal-pradesh,2009,11,SEPPA WEST,TANI LOFFA,parties.IN.AITC,AITC,2783,52.96,1,won,U,52,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1434,arunachal-pradesh,2009,11,SEPPA WEST,HARI NOTUNG,parties.IN.INC,INC,2472,47.04,2,lost,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1428,arunachal-pradesh,2009,12,PAKKE KESSANG,ATUM WELLY,parties.IN.INC,INC,2885,50.59,1,won,U,46,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1428,arunachal-pradesh,2009,12,PAKKE KESSANG,TECHI HEMU,parties.IN.NCP,NCP,2818,49.41,2,lost,U,41,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1418,arunachal-pradesh,2009,13,ITANAGAR,SHRI TECHI KASO,parties.IN.NCP,NCP,13443,45.48,1,won,U,52,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1418,arunachal-pradesh,2009,13,ITANAGAR,SHRI KIPA BABU,parties.IN.INC,INC,10057,34.03,2,lost,U,36,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1418,arunachal-pradesh,2009,13,ITANAGAR,SHRI LICHI LEGI,parties.IN.BJP,BJP,4894,16.56,3,forfeit,U,58,Literate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1418,arunachal-pradesh,2009,13,ITANAGAR,SHRI TECHI NECHA,parties.IN.AITC,AITC,884,2.99,4,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1418,arunachal-pradesh,2009,13,ITANAGAR,SRI TAMI TANIANG,parties.IN.JDU,JD(U),278,0.94,5,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1416,arunachal-pradesh,2009,14,DOIMUKH,SHRI NABAM REBIA,parties.IN.INC,INC,6752,40.69,1,won,U,47,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1416,arunachal-pradesh,2009,14,DOIMUKH,SHRI NGURANG PINCH,parties.IN.NCP,NCP,6154,37.09,2,lost,U,42,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1416,arunachal-pradesh,2009,14,DOIMUKH,SHRI T.C. TELI,parties.IN.AITC,AITC,3686,22.22,3,lost,U,45,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1432,arunachal-pradesh,2009,15,SAGALEE,SHRI NABAM TUKI,parties.IN.INC,INC,6646,69.23,1,won,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1432,arunachal-pradesh,2009,15,SAGALEE,SRI TAD TANA,parties.IN.NCP,NCP,2954,30.77,2,lost,U,42,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1439,arunachal-pradesh,2009,16,YACHULI,SHRI LIKHA SAAYA,parties.IN.INC,INC,5638,41.58,1,won,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1439,arunachal-pradesh,2009,16,YACHULI,SHRI NIKH KAMIN,parties.IN.AITC,AITC,5596,41.27,2,lost,U,39,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1439,arunachal-pradesh,2009,16,YACHULI,SHRI JOTAM TOKO TAKAM,parties.IN.PPA,PPA,2324,17.14,3,lost,U,45,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1440,arunachal-pradesh,2009,17,ZIRO HAPOLI,SHRI PADI RICHO,parties.IN.INC,INC,9569,55.89,1,won,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1440,arunachal-pradesh,2009,17,ZIRO HAPOLI,NANI RIBIA,parties.IN.AITC,AITC,6697,39.12,2,lost,U,49,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1440,arunachal-pradesh,2009,17,ZIRO HAPOLI,SHRI KURU TAI,parties.IN.BJP,BJP,442,2.58,3,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1440,arunachal-pradesh,2009,17,ZIRO HAPOLI,SRI SUBU KOYANG,parties.IN.NCP,NCP,412,2.41,4,forfeit,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1429,arunachal-pradesh,2009,18,PALIN,TAKAM TAGAR,parties.IN.PPA,PPA,6015,52.68,1,won,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1429,arunachal-pradesh,2009,18,PALIN,BALO RAJA,parties.IN.INC,INC,5326,46.65,2,lost,U,39,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1429,arunachal-pradesh,2009,18,PALIN,CHARU TANAM,parties.IN.NCP,NCP,77,0.67,3,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1427,arunachal-pradesh,2009,19,NYAPIN,BAMANG FELIX,parties.IN.NCP,NCP,4865,54.11,1,won,U,38,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1427,arunachal-pradesh,2009,19,NYAPIN,TATAR KIPA,parties.IN.INC,INC,4126,45.89,2,lost,U,41,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1435,arunachal-pradesh,2009,20,TALI,MARKIO TADO,parties.IN.PPA,PPA,5261,67.37,1,won,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1435,arunachal-pradesh,2009,20,TALI,TAKAM SORANG,parties.IN.INC,INC,2548,32.63,2,lost,U,35,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1420,arunachal-pradesh,2009,21,KOLORIANG,LOKAM TASSAR,parties.IN.INC,INC,5095,56.04,1,won,U,37,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1420,arunachal-pradesh,2009,21,KOLORIANG,KAHFA BENGIA,parties.IN.NCP,NCP,3996,43.96,2,lost,U,48,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1426,arunachal-pradesh,2009,22,NACHO,SHRI TANGA BYALING,parties.IN.INC,INC,4878,70,1,won,U,57,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1426,arunachal-pradesh,2009,22,NACHO,SHRI AJIT NACHO,parties.IN.BJP,BJP,1052,15.1,2,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1426,arunachal-pradesh,2009,22,NACHO,SHRI TAPA GARAM BAKI,parties.IN.NCP,NCP,1039,14.91,3,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1436,arunachal-pradesh,2009,23,TALIHA,SHRI PUNJI MARA,parties.IN.INC,INC,3570,53.01,1,won,U,55,Others,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1436,arunachal-pradesh,2009,23,TALIHA,SHRI NYATO RIGIA,parties.IN.AITC,AITC,3164,46.99,2,lost,U,45,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1414,arunachal-pradesh,2009,24,DAPORIJO,SHRI TAPEN SIGA,parties.IN.BJP,BJP,5009,39.24,1,won,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1414,arunachal-pradesh,2009,24,DAPORIJO,SMTI YARI DULOM,parties.IN.INC,INC,3806,29.82,2,lost,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1414,arunachal-pradesh,2009,24,DAPORIJO,SHRI DAKLO NIDAK,parties.IN.AITC,AITC,2874,22.52,3,lost,U,48,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1414,arunachal-pradesh,2009,24,DAPORIJO,SHRI MAJI MARGING,parties.IN.NCP,NCP,684,5.36,4,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1414,arunachal-pradesh,2009,24,DAPORIJO,SHRI TAKIR KURDU,parties.IN.JDU,JD(U),391,3.06,5,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1430,arunachal-pradesh,2009,25,RAGA,SRI NIDO PAVITRA,parties.IN.INC,INC,5460,40.64,1,won,U,42,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1430,arunachal-pradesh,2009,25,RAGA,SHRI AATH TACHO KABAK,parties.IN.NCP,NCP,4274,31.81,2,lost,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1430,arunachal-pradesh,2009,25,RAGA,SHRI TALO MUGLI,parties.IN.AITC,AITC,3700,27.54,3,lost,U,52,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1417,arunachal-pradesh,2009,26,DUMPORIJO,SHRI TAKAR MARDE,parties.IN.INC,INC,7493,81.2,1,won,U,49,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1417,arunachal-pradesh,2009,26,DUMPORIJO,SHRI LOMPAK PAKSOK,parties.IN.BJP,BJP,1735,18.8,2,lost,U,35,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1422,arunachal-pradesh,2009,27,LIROMOBA,JARBOM GAMLIN,parties.IN.INC,INC,6640,70.73,1,won,U,48,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1422,arunachal-pradesh,2009,27,LIROMOBA,BAI GADI,parties.IN.BJP,BJP,2748,29.27,2,lost,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1421,arunachal-pradesh,2009,28,LIKABALI,JOMDE KENA,parties.IN.INC,INC,3420,40.39,1,won,U,45,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1421,arunachal-pradesh,2009,28,LIKABALI,YAI MARA,parties.IN.AITC,AITC,2527,29.84,2,lost,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1421,arunachal-pradesh,2009,28,LIKABALI,GUMKE RIBA,parties.IN.NCP,NCP,2477,29.25,3,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1421,arunachal-pradesh,2009,28,LIKABALI,KARDU TAIPODIA,parties.IN.PPA,PPA,44,0.52,4,forfeit,U,57,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1411,arunachal-pradesh,2009,29,BASAR,GOJEN GADI,parties.IN.INC,INC,8438,60.86,1,won,U,50,Literate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1411,arunachal-pradesh,2009,29,BASAR,DAKTER BASAR,parties.IN.AITC,AITC,5317,38.35,2,lost,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1411,arunachal-pradesh,2009,29,BASAR,YOMKAR RIBA,parties.IN.NCP,NCP,109,0.79,3,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1409,arunachal-pradesh,2009,30,ALONG WEST,GADAM ETE,parties.IN.INC,INC,5113,50.15,1,won,U,36,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1409,arunachal-pradesh,2009,30,ALONG WEST,DUTER PADU,parties.IN.AITC,AITC,5082,49.85,2,lost,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1408,arunachal-pradesh,2009,31,ALONG EAST,JARKAR GAMLIN,parties.IN.INC,INC,5175,53.07,1,won,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1408,arunachal-pradesh,2009,31,ALONG EAST,YOMTO JINI,parties.IN.AITC,AITC,4576,46.93,2,lost,U,45,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1431,arunachal-pradesh,2009,32,RUMGONG,TAMIYO TAGA,parties.IN.BJP,BJP,3658,38.77,1,won,U,57,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1431,arunachal-pradesh,2009,32,RUMGONG,KARMA JERANG,parties.IN.JDU,JD(U),2915,30.89,2,lost,U,53,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1431,arunachal-pradesh,2009,32,RUMGONG,DIBANG TATAK,parties.IN.INC,INC,2749,29.13,3,lost,U,46,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1431,arunachal-pradesh,2009,32,RUMGONG,TAYU JERANG,parties.IN.NCP,NCP,114,1.21,4,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1424,arunachal-pradesh,2009,33,MECHUKA,PASANG DORJEE SONA,parties.IN.INC,INC,3973,51.67,1,won,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1424,arunachal-pradesh,2009,33,MECHUKA,TSERING NAKSANG,parties.IN.NCP,NCP,2423,31.51,2,lost,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1424,arunachal-pradesh,2009,33,MECHUKA,BOTE YUTO,parties.IN.PPA,PPA,1175,15.28,3,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1424,arunachal-pradesh,2009,33,MECHUKA,TAKO PUNING,parties.IN.AITC,AITC,118,1.53,4,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1407,arunachal-pradesh,2009,34,TUTING YINGKIONG,ALO LIBANG,parties.IN.NCP,NCP,4827,53.52,1,won,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1407,arunachal-pradesh,2009,34,TUTING YINGKIONG,GEGONG APANG,parties.IN.INC,INC,3457,38.33,2,lost,U,62,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1407,arunachal-pradesh,2009,34,TUTING YINGKIONG,KATAN KOMBOH,parties.IN.BJP,BJP,735,8.15,3,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1401,arunachal-pradesh,2009,35,PANGIN,TAPANG TALOH,parties.IN.INC,INC,6826,62.79,1,won,U,45,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1401,arunachal-pradesh,2009,35,PANGIN,KALING JERANG,parties.IN.NCP,NCP,4045,37.21,2,lost,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1400,arunachal-pradesh,2009,36,NARI-KOYU,TAKO DABI,parties.IN.INC,INC,3398,56.13,1,won,U,53,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1400,arunachal-pradesh,2009,36,NARI-KOYU,KENYIR RINGU,parties.IN.NCP,NCP,2656,43.87,2,lost,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1403,arunachal-pradesh,2009,37,PASIGHAT WEST,DR. TANGOR TAPAK,parties.IN.BJP,BJP,5529,53.18,1,won,U,47,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1403,arunachal-pradesh,2009,37,PASIGHAT WEST,OMAK APANG,parties.IN.INC,INC,4868,46.82,2,lost,U,38,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1402,arunachal-pradesh,2009,38,PASIGHAT EAST,BOSIRAM SIRAM,parties.IN.INC,INC,8908,59.71,1,won,U,43,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1402,arunachal-pradesh,2009,38,PASIGHAT EAST,KALING MOYONG,parties.IN.NCP,NCP,5683,38.09,2,lost,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1402,arunachal-pradesh,2009,38,PASIGHAT EAST,OYEM DAI,parties.IN.BJP,BJP,329,2.21,3,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1395,arunachal-pradesh,2009,39,MEBO,RALOM BORANG,parties.IN.NCP,NCP,5142,53.03,1,won,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1395,arunachal-pradesh,2009,39,MEBO,LOMBO TAYENG,parties.IN.INC,INC,4555,46.97,2,lost,U,45,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1394,arunachal-pradesh,2009,40,MARIYANG-GEKU,J K PANGGENG,parties.IN.INC,INC,4165,44.05,1,won,U,58,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1394,arunachal-pradesh,2009,40,MARIYANG-GEKU,RAISING PERME,parties.IN.NCP,NCP,2885,30.51,2,lost,U,60,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1394,arunachal-pradesh,2009,40,MARIYANG-GEKU,OLOM PANYANG,parties.IN.AITC,AITC,2212,23.39,3,lost,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1394,arunachal-pradesh,2009,40,MARIYANG-GEKU,DANA PERTIN,parties.IN.BJP,BJP,194,2.05,4,forfeit,U,63,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1381,arunachal-pradesh,2009,41,ANINI,RAJESH TACHO,parties.IN.INC,INC,1730,51.2,1,won,U,47,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1381,arunachal-pradesh,2009,41,ANINI,ERI TAYU,parties.IN.NCP,NCP,1649,48.8,2,lost,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1387,arunachal-pradesh,2009,42,DAMBUK,JOMIN TAYENG,parties.IN.NCP,NCP,4967,50.66,1,won,U,64,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1387,arunachal-pradesh,2009,42,DAMBUK,RODING PERTIN,parties.IN.INC,INC,4837,49.34,2,lost,U,43,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1405,arunachal-pradesh,2009,43,ROING,SHRI LAETA UMBREY,parties.IN.AITC,AITC,5170,54.38,1,won,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1405,arunachal-pradesh,2009,43,ROING,SMTI POMAYA MITHI,parties.IN.INC,INC,4337,45.62,2,lost,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1406,arunachal-pradesh,2009,44,TEZU,KARIKHO KRI,parties.IN.INC,INC,8397,64.85,1,won,U,36,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1406,arunachal-pradesh,2009,44,TEZU,NAKUL CHAI,parties.IN.AITC,AITC,4552,35.15,2,lost,U,55,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1388,arunachal-pradesh,2009,45,HAYULIANG,SHRI KALIKHO PUL,parties.IN.INC,INC,7788,85.26,1,won,U,37,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1388,arunachal-pradesh,2009,45,HAYULIANG,SHRI BARITLUM AMA,parties.IN.AITC,AITC,998,10.93,2,forfeit,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1388,arunachal-pradesh,2009,45,HAYULIANG,SH. BANIM KRI,parties.IN.BJP,BJP,250,2.74,3,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1388,arunachal-pradesh,2009,45,HAYULIANG,SHRI KHUJE DRAI,parties.IN.NCP,NCP,98,1.07,4,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1386,arunachal-pradesh,2009,46,CHOWKHAM,CHOW TEWA MEIN,parties.IN.INC,INC,6279,60.95,1,won,U,66,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1386,arunachal-pradesh,2009,46,CHOWKHAM,CHOW CHINAKONG NAMCHOOM,parties.IN.NCP,NCP,4023,39.05,2,lost,U,62,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1398,arunachal-pradesh,2009,47,NAMSAI,NANG SATI MEIN,parties.IN.IND,IND,10477,64.89,1,won,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1398,arunachal-pradesh,2009,47,NAMSAI,CHOW PINGTHIKA NAMCHOOM,parties.IN.AITC,AITC,4778,29.59,2,lost,U,53,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1398,arunachal-pradesh,2009,47,NAMSAI,CHAU AMBIKA ENLING,parties.IN.BJP,BJP,603,3.73,3,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1398,arunachal-pradesh,2009,47,NAMSAI,CHOW CHANDRA MANSAI,parties.IN.INC,INC,288,1.78,4,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1392,arunachal-pradesh,2009,48,LEKANG,CHOWNA MEIN,parties.IN.INC,INC,6896,56.97,1,won,U,59,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1392,arunachal-pradesh,2009,48,LEKANG,JAMES TECHI TARA,parties.IN.NCP,NCP,3950,32.63,2,lost,U,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1392,arunachal-pradesh,2009,48,LEKANG,SOTAI KRI,parties.IN.BJP,BJP,705,5.82,3,forfeit,U,47,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1392,arunachal-pradesh,2009,48,LEKANG,KORUNA MORANG,parties.IN.IND,IND,305,2.52,4,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1392,arunachal-pradesh,2009,48,LEKANG,LARBIN NASI,parties.IN.AITC,AITC,248,2.05,5,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1382,arunachal-pradesh,2009,49,BORDUMSA - DIYUN,C.C SINGPHO,parties.IN.INC,INC,6193,48.84,1,won,U,63,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1382,arunachal-pradesh,2009,49,BORDUMSA - DIYUN,KHUMRAL LUNGPHI,parties.IN.NCP,NCP,5238,41.31,2,lost,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1382,arunachal-pradesh,2009,49,BORDUMSA - DIYUN,SIRAIONG SINGPHO,parties.IN.BJP,BJP,1250,9.86,3,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1396,arunachal-pradesh,2009,50,MIAO,KAMLUNG MOSANG,parties.IN.INC,INC,9151,59.69,1,won,U,47,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1396,arunachal-pradesh,2009,50,MIAO,SAMCHOM NGEMU,parties.IN.NCP,NCP,6180,40.31,2,lost,U,57,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1397,arunachal-pradesh,2009,51,NAMPONG,SETONG SENA,parties.IN.INC,INC,5432,77.45,1,won,U,48,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1397,arunachal-pradesh,2009,51,NAMPONG,TOSHAM MOSSANG,parties.IN.IND,IND,1582,22.55,2,lost,U,43,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1385,arunachal-pradesh,2009,52,CHANGLANG SOUTH,PHOSUM KHIMHUN,parties.IN.INC,INC,2904,67.55,1,won,U,44,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1385,arunachal-pradesh,2009,52,CHANGLANG SOUTH,TENGAM NGEMU,parties.IN.AITC,AITC,950,22.1,2,lost,U,64,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1385,arunachal-pradesh,2009,52,CHANGLANG SOUTH,HAMJONG TANGHA,parties.IN.NCP,NCP,445,10.35,3,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1384,arunachal-pradesh,2009,53,CHANGLANG NORTH,THINGHAAP TAIJU,parties.IN.INC,INC,4088,52.91,1,won,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1384,arunachal-pradesh,2009,53,CHANGLANG NORTH,WANGNIA PONGTE,parties.IN.AITC,AITC,2834,36.68,2,lost,U,51,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1384,arunachal-pradesh,2009,53,CHANGLANG NORTH,HAPPA TAIDONG,parties.IN.NCP,NCP,804,10.41,3,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1399,arunachal-pradesh,2009,54,NAMSANG,WANGKI LOWANG,parties.IN.INC,INC,4968,68.59,1,won,U,47,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1399,arunachal-pradesh,2009,54,NAMSANG,WANGLONG RAJKUMAR,parties.IN.NCP,NCP,2275,31.41,2,lost,U,38,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1390,arunachal-pradesh,2009,55,KHONSA EAST,KAMTHOK LOWANG,parties.IN.AITC,AITC,3475,45.38,1,won,U,42,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1390,arunachal-pradesh,2009,55,KHONSA EAST,T L RAJKUMAR,parties.IN.INC,INC,3020,39.44,2,lost,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1390,arunachal-pradesh,2009,55,KHONSA EAST,NGAMPAY LAMATY,parties.IN.PPA,PPA,721,9.41,3,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1390,arunachal-pradesh,2009,55,KHONSA EAST,WANGMAN LOWANGCHA,parties.IN.BJP,BJP,442,5.77,4,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1391,arunachal-pradesh,2009,56,KHONSA WEST,YUMSEM MATEY,parties.IN.INC,INC,4030,51.34,1,won,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1391,arunachal-pradesh,2009,56,KHONSA WEST,THAJAM ABOH,parties.IN.AITC,AITC,3562,45.38,2,lost,U,47,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1391,arunachal-pradesh,2009,56,KHONSA WEST,JITBO ABOH,parties.IN.NCP,NCP,143,1.82,3,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1391,arunachal-pradesh,2009,56,KHONSA WEST,LANGWANG SUMPA,parties.IN.BJP,BJP,115,1.46,4,forfeit,U,59,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1383,arunachal-pradesh,2009,57,BORDURIA BOGAPANI,WANGLIN LOWANGDONG,parties.IN.INC,INC,4034,67.89,1,won,U,53,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1383,arunachal-pradesh,2009,57,BORDURIA BOGAPANI,TONHANG TONGLUK,parties.IN.NCP,NCP,1908,32.11,2,lost,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1389,arunachal-pradesh,2009,58,KANUBARI,NEWLAI TINGKHATRA,parties.IN.INC,INC,4859,53.7,1,won,U,57,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1389,arunachal-pradesh,2009,58,KANUBARI,GABRIEL DENWANG WANGSU,parties.IN.PPA,PPA,4189,46.3,2,lost,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1393,arunachal-pradesh,2009,59,LONGDING PUMAO,THANGWANG WANGHAM,parties.IN.INC,INC,4763,53.27,1,won,U,42,Others,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1393,arunachal-pradesh,2009,59,LONGDING PUMAO,TANPHO WANGNAW,parties.IN.PPA,PPA,4178,46.73,2,lost,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1404,arunachal-pradesh,2009,60,PONGCHAU WAKKA,HONCHUN NGANDAM,parties.IN.INC,INC,7531,61.63,1,won,U,56,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1404,arunachal-pradesh,2009,60,PONGCHAU WAKKA,ANOK WANGSA,parties.IN.PPA,PPA,2976,24.35,2,lost,U,53,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-arunachal-pradesh-1404,arunachal-pradesh,2009,60,PONGCHAU WAKKA,KAPNAI WANGSA,parties.IN.NCP,NCP,1713,14.02,3,forfeit,U,39,10th Pass,,crossover,src-1b7bc1c9d39a

@@ -1,5 +1,5 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-madhya-pradesh-2506,madhya-pradesh,2014,AGAR,202498,134063,66.2,Gopal Parmar,parties.IN.BJP,78178,58.31,Rajkumar Goure,parties.IN.INC,50476,27702,20.66,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2562,madhya-pradesh,2014,BAHORIBAND,204898,151235,73.81,Kunwar Suarabh Singh,parties.IN.INC,76712,50.72,Pranay Prabhat Pandey,parties.IN.BJP,68735,7977,5.27,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2569,madhya-pradesh,2014,VIJAYRAGHAVGARH,195183,132882,68.08,Sanjay Pathak,parties.IN.BJP,90084,67.79,Vijendra Pt. Vijay Prakash Mishra,parties.IN.INC,36687,53397,40.18,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2688,madhya-pradesh,2014,VIDISHA,186422,130180,69.83,K.S.Thakur,parties.IN.BJP,68961,52.97,S. Bhargava,parties.IN.INC,56735,12226,9.39,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-madhya-pradesh-2506,madhya-pradesh,2014,AGAR,202498,134063,66.2,Gopal Parmar,parties.IN.BJP,BJP,78178,58.31,Rajkumar Goure,parties.IN.INC,INC,50476,27702,20.66,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2562,madhya-pradesh,2014,BAHORIBAND,204898,151235,73.81,Kunwar Suarabh Singh,parties.IN.INC,INC,76712,50.72,Pranay Prabhat Pandey,parties.IN.BJP,BJP,68735,7977,5.27,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2569,madhya-pradesh,2014,VIJAYRAGHAVGARH,195183,132882,68.08,Sanjay Pathak,parties.IN.BJP,BJP,90084,67.79,Vijendra Pt. Vijay Prakash Mishra,parties.IN.INC,INC,36687,53397,40.18,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2688,madhya-pradesh,2014,VIDISHA,186422,130180,69.83,K.S.Thakur,parties.IN.BJP,BJP,68961,52.97,S. Bhargava,parties.IN.INC,INC,56735,12226,9.39,src-1b7bc1c9d39a

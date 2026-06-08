@@ -133,7 +133,7 @@ IN-PC-2008-S15-1,2024,LsGenJun2024,6,pc-total-electors,1402892.0,,src-bfb4e7fb97
 IN-PC-2008-S15-1,2024,LsGenJun2024,6,pc-turnout-pct,74.0297186098431,,src-bfb4e7fb9785,ratio_pct
 IN-PC-2008-S15-1,2024,LsGenJun2024,6,pc-votes-polled,1038557.0,,src-bfb4e7fb9785,raw
 IN-PC-2008-S15-1,2024,LsGenJun2024,6,pc-winner-candidate-id,,IN-PC-2008-S15-1-LsGenJun2024-C01,src-bfb4e7fb9785,argmax
-IN-PC-2008-S15-1,2024,LsGenJun2024,6,pc-winner-party-id,,parties.IN.VOICE_OF_THE_PEOPLE_PARTY,src-bfb4e7fb9785,join
+IN-PC-2008-S15-1,2024,LsGenJun2024,6,pc-winner-party-id,,parties.IN.VPP,src-bfb4e7fb9785,join
 IN-PC-2008-S15-1-LsGenJun2024-C01,2024,LsGenJun2024,6,candidate-rank,1.0,,src-bfb4e7fb9785,raw
 IN-PC-2008-S15-1-LsGenJun2024-C01,2024,LsGenJun2024,6,candidate-vote-share-pct,55.611678999866584,,src-bfb4e7fb9785,ratio_pct
 IN-PC-2008-S15-1-LsGenJun2024-C01,2024,LsGenJun2024,6,candidate-votes-polled,571078.0,,src-bfb4e7fb9785,raw

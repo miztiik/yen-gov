@@ -97,7 +97,7 @@
       ]
     },
     "datasets/data/entities/parties.csv": {
-      "notes": "Sole party key is party_id (plan section 20.3); eci_code is NOT a PK. Spec: csv-column-contract.md section 3.2.",
+      "notes": "Sole party key is party_id (plan section 20.3); eci_code is NOT a PK. aliases is a pipe-delimited list of UPPERCASE alternate shortcodes (e.g. TCPD's dialect: CPM, ADMK, AAAP for the canonical CPI(M), AIADMK, AAP) consumed by the elections writer's party_lookup expansion (G1, 2026-06-08). Spec: csv-column-contract.md section 3.2.",
       "columns": [
         { "name": "party_id", "dtype": "string", "nullable": false, "pk": true },
         { "name": "short", "dtype": "string", "nullable": false },
@@ -105,7 +105,8 @@
         { "name": "eci_codes", "dtype": "string", "nullable": true },
         { "name": "brand_colour", "dtype": "string", "nullable": true },
         { "name": "symbol_asset", "dtype": "string", "nullable": true },
-        { "name": "wikipedia", "dtype": "string", "nullable": true }
+        { "name": "wikipedia", "dtype": "string", "nullable": true },
+        { "name": "aliases", "dtype": "string", "nullable": true }
       ]
     },
     "datasets/data/entities/party_alliances.csv": {
@@ -203,7 +204,7 @@
       ]
     },
     "datasets/elections/assembly/state=*/election=*/candidacies.csv": {
-      "notes": "Per-election self-contained CSV (wide: one row per constituency x candidate). Delimitation merge/split never reconciled in-file (plan section 21.3). Spec: csv-column-contract.md section 3.4.",
+      "notes": "Per-election self-contained CSV (wide: one row per constituency x candidate). Delimitation merge/split never reconciled in-file (plan section 21.3). party_short_raw carries the VERBATIM upstream TCPD Party label even when party_id is null (PR-R.2 v1.1 precedent on the retired dim_candidates parquet, reintroduced for CSV on G1, 2026-06-08); citizen UI MUST use it as the display fallback so long-tail fringe parties not yet in parties.csv still render with a usable name. Spec: csv-column-contract.md section 3.4.",
       "columns": [
         { "name": "entity_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/electoral.csv.entity_id" },
         { "name": "state", "dtype": "string", "nullable": false },
@@ -212,6 +213,7 @@
         { "name": "constituency_name", "dtype": "string", "nullable": false },
         { "name": "candidate_name", "dtype": "string", "nullable": false },
         { "name": "party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
+        { "name": "party_short_raw", "dtype": "string", "nullable": true },
         { "name": "votes", "dtype": "integer", "nullable": false },
         { "name": "vote_share_pct", "dtype": "number", "nullable": true, "derived": true },
         { "name": "position", "dtype": "integer", "nullable": false },
@@ -225,7 +227,7 @@
       ]
     },
     "datasets/elections/assembly/state=*/election=*/summary.csv": {
-      "notes": "Derived projection of candidacies.csv (parity-oracle-CSV gate asserts summary == recompute(candidacies)). Spec: csv-column-contract.md section 3.4.",
+      "notes": "Derived projection of candidacies.csv (parity-oracle-CSV gate asserts summary == recompute(candidacies)). winner_party_short_raw + runnerup_party_short_raw mirror the candidacies.party_short_raw column (G1, 2026-06-08) so the citizen UI never falls back to displaying a NULL party. Spec: csv-column-contract.md section 3.4.",
       "columns": [
         { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/electoral.csv.entity_id" },
         { "name": "state", "dtype": "string", "nullable": false },
@@ -236,10 +238,12 @@
         { "name": "turnout_pct", "dtype": "number", "nullable": true, "derived": true },
         { "name": "winner_candidate", "dtype": "string", "nullable": false },
         { "name": "winner_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
+        { "name": "winner_party_short_raw", "dtype": "string", "nullable": true, "derived": true },
         { "name": "winner_votes", "dtype": "integer", "nullable": false, "derived": true },
         { "name": "winner_share_pct", "dtype": "number", "nullable": true, "derived": true },
         { "name": "runnerup_candidate", "dtype": "string", "nullable": true },
         { "name": "runnerup_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
+        { "name": "runnerup_party_short_raw", "dtype": "string", "nullable": true, "derived": true },
         { "name": "runnerup_votes", "dtype": "integer", "nullable": true, "derived": true },
         { "name": "margin_votes", "dtype": "integer", "nullable": true, "derived": true },
         { "name": "margin_pct", "dtype": "number", "nullable": true, "derived": true },
@@ -247,7 +251,7 @@
       ]
     },
     "datasets/elections/parliament/election=*/candidacies.csv": {
-      "notes": "Same shape as assembly candidacies. constituency_no is ECI pc_no (per-state-restart, so 'state' is MANDATORY even though the path lacks a state= partition - plan section 23.4). entity_id follows IN-PC-<delim>-<state_code>-<pc_no>. Spec: csv-column-contract.md section 3.4.",
+      "notes": "Same shape as assembly candidacies. constituency_no is ECI pc_no (per-state-restart, so 'state' is MANDATORY even though the path lacks a state= partition - plan section 23.4). entity_id follows IN-PC-<delim>-<state_code>-<pc_no>. party_short_raw carries the verbatim upstream TCPD Party label (G1, 2026-06-08); see assembly candidacies.csv notes. Spec: csv-column-contract.md section 3.4.",
       "columns": [
         { "name": "entity_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/electoral.csv.entity_id" },
         { "name": "state", "dtype": "string", "nullable": false },
@@ -256,6 +260,7 @@
         { "name": "constituency_name", "dtype": "string", "nullable": false },
         { "name": "candidate_name", "dtype": "string", "nullable": false },
         { "name": "party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
+        { "name": "party_short_raw", "dtype": "string", "nullable": true },
         { "name": "votes", "dtype": "integer", "nullable": false },
         { "name": "vote_share_pct", "dtype": "number", "nullable": true, "derived": true },
         { "name": "position", "dtype": "integer", "nullable": false },
@@ -269,7 +274,7 @@
       ]
     },
     "datasets/elections/parliament/election=*/summary.csv": {
-      "notes": "Same shape as assembly summary with entity_id keyed to PC. state is MANDATORY (plan section 23.4). winner_share_pct + the runnerup_* + margin_* fields are nullable: an uncontested seat (single candidate, unopposed return) has no runner-up and no meaningful margin, and TCPD records an unopposed winner's share as non-numeric (B2b.5.3). Spec: csv-column-contract.md section 3.4.",
+      "notes": "Same shape as assembly summary with entity_id keyed to PC. state is MANDATORY (plan section 23.4). winner_share_pct + the runnerup_* + margin_* fields are nullable: an uncontested seat (single candidate, unopposed return) has no runner-up and no meaningful margin, and TCPD records an unopposed winner's share as non-numeric (B2b.5.3). winner_party_short_raw + runnerup_party_short_raw mirror the candidacies.party_short_raw column (G1, 2026-06-08). Spec: csv-column-contract.md section 3.4.",
       "columns": [
         { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/electoral.csv.entity_id" },
         { "name": "state", "dtype": "string", "nullable": false },
@@ -280,10 +285,12 @@
         { "name": "turnout_pct", "dtype": "number", "nullable": true, "derived": true },
         { "name": "winner_candidate", "dtype": "string", "nullable": false },
         { "name": "winner_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
+        { "name": "winner_party_short_raw", "dtype": "string", "nullable": true, "derived": true },
         { "name": "winner_votes", "dtype": "integer", "nullable": false, "derived": true },
         { "name": "winner_share_pct", "dtype": "number", "nullable": true, "derived": true },
         { "name": "runnerup_candidate", "dtype": "string", "nullable": true },
         { "name": "runnerup_party_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/parties.csv.party_id" },
+        { "name": "runnerup_party_short_raw", "dtype": "string", "nullable": true, "derived": true },
         { "name": "runnerup_votes", "dtype": "integer", "nullable": true, "derived": true },
         { "name": "margin_votes", "dtype": "integer", "nullable": true, "derived": true },
         { "name": "margin_pct", "dtype": "number", "nullable": true, "derived": true },

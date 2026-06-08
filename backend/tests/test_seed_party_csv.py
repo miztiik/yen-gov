@@ -36,11 +36,11 @@ def test_emit_minimal_row(tmp_path):
     out = tmp_path / "datasets" / "data" / "entities" / "parties.csv"
     emit(parties_json=src, out_path=out)
     lines = out.read_text(encoding="utf-8").splitlines()
-    assert lines[0] == "party_id,short,full,eci_codes,brand_colour,symbol_asset,wikipedia"
+    assert lines[0] == "party_id,short,full,eci_codes,brand_colour,symbol_asset,wikipedia,aliases"
     assert len(lines) == 2
     assert (
         lines[1]
-        == "parties.IN.AGP,AGP,Asom Gana Parishad,83,#99CCFF,party-symbols/elephant-agp.png,https://en.wikipedia.org/wiki/Asom_Gana_Parishad"
+        == "parties.IN.AGP,AGP,Asom Gana Parishad,83,#99CCFF,party-symbols/elephant-agp.png,https://en.wikipedia.org/wiki/Asom_Gana_Parishad,"
     )
 
 
@@ -59,8 +59,8 @@ def test_emit_nullable_fields_blank_when_absent(tmp_path):
     out = tmp_path / "parties.csv"
     emit(parties_json=src, out_path=out)
     body = out.read_text(encoding="utf-8").splitlines()[1]
-    # eci_codes, brand_colour, symbol_asset, wikipedia all blank
-    assert body == "parties.IN.X,X,Party X,,,,"
+    # eci_codes, brand_colour, symbol_asset, wikipedia, aliases all blank
+    assert body == "parties.IN.X,X,Party X,,,,,"
 
 
 def test_emit_pipe_joins_multiple_eci_codes(tmp_path):

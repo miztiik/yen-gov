@@ -1,9 +1,9 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-maharashtra-2899,maharashtra,2011,211,KHADAKWASALA,T.B. Dhondiba,parties.IN.BJP,59634,50.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2899,maharashtra,2011,211,KHADAKWASALA,W.H. Rameshbhau,parties.IN.NCP,56009,47.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2899,maharashtra,2011,211,KHADAKWASALA,B.R. Kamble,parties.IN.IND,838,0.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2899,maharashtra,2011,211,KHADAKWASALA,A.K. Chavan,parties.IN.BMSM,625,0.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2899,maharashtra,2011,211,KHADAKWASALA,G.M. Bapu,parties.IN.IND,583,0.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2899,maharashtra,2011,211,KHADAKWASALA,R.D. Nana,parties.IN.RSP,350,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2899,maharashtra,2011,211,KHADAKWASALA,A.G. Bhende,,332,0.28,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2899,maharashtra,2011,211,KHADAKWASALA,G.V. Digambar,parties.IN.IND,290,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-maharashtra-2899,maharashtra,2011,211,KHADAKWASALA,T.B. Dhondiba,parties.IN.BJP,BJP,59634,50.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2899,maharashtra,2011,211,KHADAKWASALA,W.H. Rameshbhau,parties.IN.NCP,NCP,56009,47.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2899,maharashtra,2011,211,KHADAKWASALA,B.R. Kamble,parties.IN.IND,IND,838,0.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2899,maharashtra,2011,211,KHADAKWASALA,A.K. Chavan,parties.IN.BMSM,BMSM,625,0.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2899,maharashtra,2011,211,KHADAKWASALA,G.M. Bapu,parties.IN.IND,IND,583,0.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2899,maharashtra,2011,211,KHADAKWASALA,R.D. Nana,parties.IN.RSP,RSP,350,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2899,maharashtra,2011,211,KHADAKWASALA,A.G. Bhende,,PRP,332,0.28,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2899,maharashtra,2011,211,KHADAKWASALA,G.V. Digambar,parties.IN.IND,IND,290,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a

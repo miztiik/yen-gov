@@ -1,15 +1,15 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Rita Sahu,parties.IN.BJD,102871,56.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Ashok Kumar Panigrahy,parties.IN.BJP,60939,33.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Pranaya Kumar Sahu,parties.IN.INC,10274,5.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,NOTA,,1684,0.93,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Ratha Xalxo,parties.IN.IND,981,0.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Purnachandra Paik,,941,0.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Demahari Harpal,parties.IN.RPIA,905,0.5,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Rajendra Puruhit,parties.IN.IND,644,0.35,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Chudamani Keshari,parties.IN.IND,543,0.3,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Kumer Jal Yadav,parties.IN.IND,506,0.28,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Pramod Kumar Chhatar,parties.IN.IND,456,0.25,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Demarchan Naik,parties.IN.IND,352,0.19,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Jeheru Bag,parties.IN.IND,322,0.18,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Jugal Kishor Sahu,parties.IN.PBI,298,0.16,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Rita Sahu,parties.IN.BJD,BJD,102871,56.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Ashok Kumar Panigrahy,parties.IN.BJP,BJP,60939,33.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Pranaya Kumar Sahu,parties.IN.INC,INC,10274,5.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,NOTA,,,1684,0.93,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Ratha Xalxo,parties.IN.IND,IND,981,0.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Purnachandra Paik,,API,941,0.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Demahari Harpal,parties.IN.RPIA,RPI(A),905,0.5,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Rajendra Puruhit,parties.IN.IND,IND,644,0.35,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Chudamani Keshari,parties.IN.IND,IND,543,0.3,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Kumer Jal Yadav,parties.IN.IND,IND,506,0.28,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Pramod Kumar Chhatar,parties.IN.IND,IND,456,0.25,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Demarchan Naik,parties.IN.IND,IND,352,0.19,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Jeheru Bag,parties.IN.IND,IND,322,0.18,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2239,odisha,2018,2,BIJEPUR,Jugal Kishor Sahu,parties.IN.PBI,PBI,298,0.16,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -289,8 +289,9 @@ def test_writes_assembly_candidacies_file_class(tmp_path):
     lines = _read(path).splitlines()
     assert lines[0] == (
         "entity_id,state,election_year,constituency_no,constituency_name,"
-        "candidate_name,party_id,votes,vote_share_pct,position,result,"
-        "sex,age,education,profession,candidate_type,source_id"
+        "candidate_name,party_id,party_short_raw,votes,vote_share_pct,"
+        "position,result,sex,age,education,profession,candidate_type,"
+        "source_id"
     )
     # No PK on candidacies; input order is preserved (stable sort by empty key).
     assert lines[1].startswith("IN-AC-2008-S22-234,tamil-nadu,2021,234,Kanyakumari,Candidate 2,")
@@ -369,8 +370,9 @@ def test_writes_parliament_candidacies_file_class_with_mandatory_state(tmp_path)
     lines = _read(path).splitlines()
     assert lines[0] == (
         "entity_id,state,election_year,constituency_no,constituency_name,"
-        "candidate_name,party_id,votes,vote_share_pct,position,result,"
-        "sex,age,education,profession,candidate_type,source_id"
+        "candidate_name,party_id,party_short_raw,votes,vote_share_pct,"
+        "position,result,sex,age,education,profession,candidate_type,"
+        "source_id"
     )
     assert "tamil-nadu" in lines[1]
 
@@ -404,10 +406,12 @@ def test_writes_parliament_summary_file_class(tmp_path):
                 "turnout_pct": 73.33,
                 "winner_candidate": "Eve",
                 "winner_party_id": "p-inc",
+                "winner_party_short_raw": "INC",
                 "winner_votes": 550000,
                 "winner_share_pct": 50.0,
                 "runnerup_candidate": "Frank",
                 "runnerup_party_id": "p-bjp",
+                "runnerup_party_short_raw": "BJP",
                 "runnerup_votes": 400000,
                 "margin_votes": 150000,
                 "margin_pct": 13.64,
@@ -418,9 +422,10 @@ def test_writes_parliament_summary_file_class(tmp_path):
     lines = _read(path).splitlines()
     assert lines[0] == (
         "entity_id,state,election_year,constituency_name,electors,votes_polled,"
-        "turnout_pct,winner_candidate,winner_party_id,winner_votes,"
-        "winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,"
-        "margin_votes,margin_pct,source_id"
+        "turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,"
+        "winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,"
+        "runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,"
+        "source_id"
     )
     assert lines[1].startswith("IN-PC-2008-S22-39,tamil-nadu,2024,Kanyakumari,")
     # winner_votes is integer-dtype number; 550000 must emit without ".0".

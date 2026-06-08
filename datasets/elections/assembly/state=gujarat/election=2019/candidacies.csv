@@ -1,98 +1,98 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-gujarat-2722,gujarat,2019,8,THARAD,RAJPUT GULABSINH PIRABHAI,parties.IN.INC,72959,48.55,1,won,M,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2722,gujarat,2019,8,THARAD,PATEL JIVRAJBHAI JAGTABHAI,parties.IN.BJP,66587,44.31,2,lost,M,71,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2722,gujarat,2019,8,THARAD,NOTA,,3565,2.37,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2722,gujarat,2019,8,THARAD,ISHWARBHAI HARSENGABHAI PATEL,parties.IN.IND,3032,2.02,4,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2722,gujarat,2019,8,THARAD,PUNJABHAI NAVABHAI RABARI,parties.IN.NCP,1699,1.13,5,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2722,gujarat,2019,8,THARAD,PARMAR SEDHABHAI VAGHABHAI,parties.IN.IND,1008,0.67,6,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2722,gujarat,2019,8,THARAD,K. N. BHAPADIA (JOSHI),parties.IN.IND,747,0.5,7,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2722,gujarat,2019,8,THARAD,CHARMATA BHARATKUMAR KHEMABHAI,parties.IN.IND,671,0.45,8,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Desai Raghubhai Merajbhai,parties.IN.INC,77410,45.52,1,won,M,52,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Alpesh Khodaji Thakor,parties.IN.BJP,73603,43.28,2,lost,M,44,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Goklani Farsubhai Muljibhai,parties.IN.NCP,7200,4.23,3,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,NOTA,,2793,1.64,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Thakor Maganbhai Arjanbhai,parties.IN.IND,2329,1.37,5,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Parmabhai Karmanbhai Chaudhari,parties.IN.IND,1681,0.99,6,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Kadri Mohammadsabir Anwarhusen,,1160,0.68,7,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Makwana Subhashbhai Bhojabhai,parties.IN.IND,1145,0.67,8,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Thakor Nanjibhai Lilabhai,parties.IN.IND,1095,0.64,9,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Thakor Rameshbhai Bijalbhai,parties.IN.IND,849,0.5,10,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Madhu Nirupaben Natavarlal,parties.IN.IND,797,0.47,11,forfeit,F,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2817,gujarat,2019,20,KHERALU,Ajmalji Valaji Thakor,parties.IN.BJP,60875,62.79,1,won,M,67,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2817,gujarat,2019,20,KHERALU,Thakor Babuji Ujamji,parties.IN.INC,31784,32.78,2,lost,M,66,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2817,gujarat,2019,20,KHERALU,NOTA,,1822,1.88,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2817,gujarat,2019,20,KHERALU,Pathuji Chhagaji Thakor,parties.IN.NCP,1753,1.81,4,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2817,gujarat,2019,20,KHERALU,Thakor Jarinaben Nagaji,parties.IN.IND,718,0.74,5,forfeit,F,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Dr. Ashaben Dwarkadas Patel,parties.IN.BJP,77459,52.29,1,won,F,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Patel Kantibhai Muljidas (kamu),parties.IN.INC,54387,36.72,2,lost,M,67,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Natvarji Babuji Thakor,parties.IN.NCP,5620,3.79,3,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Patel Bhavleshbhai Jashavantbhai,parties.IN.IND,4978,3.36,4,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,NOTA,,2060,1.39,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Rabari Babubhai Karashanbhai,parties.IN.IND,623,0.42,6,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Patel Hareshkumar Narottambhai (Advocate),parties.IN.IND,583,0.39,7,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Thakor Popatji Kantiji,parties.IN.IND,567,0.38,8,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Patel Manubhai Sankarlal,parties.IN.IND,563,0.38,9,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Jayantibhai Jivramdas Patel,parties.IN.IND,534,0.36,10,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Dadawala Hasanali Ismailbhai,parties.IN.IND,382,0.26,11,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Patel Kamleshbhai Shivram,parties.IN.IND,369,0.25,12,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2836,gujarat,2019,32,BAYAD,PATEL JASHUBHAI SHIVABHAI,parties.IN.INC,65597,46.46,1,won,M,62,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2836,gujarat,2019,32,BAYAD,DHAVALSINH NARENDRASINH ZALA,parties.IN.BJP,64854,45.93,2,lost,M,44,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2836,gujarat,2019,32,BAYAD,CHAUHAN DOLATSINH JAGATSINH,parties.IN.NCP,4065,2.88,3,forfeit,M,67,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2836,gujarat,2019,32,BAYAD,RAJUBHAI KHANT,parties.IN.IND,2668,1.89,4,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2836,gujarat,2019,32,BAYAD,NOTA,,1681,1.19,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2836,gujarat,2019,32,BAYAD,PATEL MANHARBHAI AMBALAL,parties.IN.IND,849,0.6,6,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2836,gujarat,2019,32,BAYAD,PATEL KIRITKUMAR BABARBHAI,parties.IN.IND,779,0.55,7,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2836,gujarat,2019,32,BAYAD,PATEL KESHAVLAL GANGARAMBHAI,parties.IN.IND,698,0.49,8,forfeit,M,64,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,JAGDISH ISHWARBHAI PATEL,parties.IN.BJP,48657,50.24,1,won,M,54,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,PATEL DHARMENDRA SHANTILAL (DHAMBHAI),parties.IN.INC,43129,44.53,2,lost,M,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,TARUNKUMAR JIVANBHAI PARMAR,,1407,1.45,3,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,DESAI NATVARBHAI TOKARBHAI,parties.IN.CPI,1224,1.26,4,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,NOTA,,1185,1.22,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,YADAV VIJAYKUMAR DEVPOOJAN,parties.IN.NCP,534,0.55,6,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,DIPIKA JITENDRAKUMAR SUTARIYA,parties.IN.IND,192,0.2,7,forfeit,F,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,MAHEDIYA MAHENDRABHAI PARSOTTAMDAS,parties.IN.IND,135,0.14,8,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,ARJUN RAMSHANKAR MISHRA,,125,0.13,9,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,ATULBHAI NANUBHAI KATHIRIYA (ATUL PATEL),,112,0.12,10,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,MINAXIBEN RAKESHKUMAR SOLANKI,,90,0.09,11,forfeit,F,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,NARENDRABHAI REVASHANKER TRIVEDI,,57,0.06,12,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,PARSOTAM UKABHAI SABARIYA,parties.IN.BJP,99252,56.36,1,won,M,60,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,DINESHBHAI JIVRAJBHAI PATEL,parties.IN.INC,64972,36.89,2,lost,M,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,NOTA,,3648,2.07,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,RATANSINH VAJUBHAI DODIYA,parties.IN.IND,2777,1.58,4,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,CHANDURA DHANJIBHAI LAXMANBHAI,,1897,1.08,5,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,MALASANA PRANJIVAN PREMAJIBHAI,parties.IN.IND,714,0.41,6,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,MAKWANA CHANDUBHAI BHAGVANBHAI,,679,0.39,7,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,MAKVANA UKABHAI AMARABHAI,parties.IN.IND,609,0.35,8,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,BHATTI ASLAM GAFARBHAI,parties.IN.IND,533,0.3,9,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,BHAVESHKUMAR NARENDRAKUMAR KATHARANI (THAKKAR),parties.IN.IND,378,0.21,10,forfeit,M,25,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,JITENDRAKUMAR (BHARATBHAI) POPATBHAI RATHOD,parties.IN.IND,358,0.2,11,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,KOLI KESHABHAI PRABHUBHAI,parties.IN.IND,286,0.16,12,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,PATEL RAGHAVJIBHAI HANSRAJBHAI,parties.IN.BJP,88254,58.2,1,won,M,60,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,JAYANTIBHAI SABHAYA,parties.IN.INC,55232,36.42,2,lost,M,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,NOTA,,2215,1.46,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,KANZARIYA BHARATBHAI GANGDASBHAI,parties.IN.IND,1591,1.05,4,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,SAGATHIYA VINODBHAI VIRJIBHAI,parties.IN.IND,940,0.62,5,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,RATHOD HARISHBHAI NAJABHAI,parties.IN.IND,603,0.4,6,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,MAGHODIYA LADHABHAI KALYANBHAI,parties.IN.IND,451,0.3,7,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,RATHOD BHAVIN,parties.IN.IND,442,0.29,8,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,MATANG NARENDRA BHOJABHAI,parties.IN.IND,277,0.18,9,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,RAMESHBHAI HIRABHAI PANARA,parties.IN.IND,270,0.18,10,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,CHAUHAN DHIRAJ KANTILAL,parties.IN.IND,246,0.16,11,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,PARMAR BHURALAL MEGHJIBHAI,parties.IN.IND,246,0.16,12,forfeit,M,71,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,CHAUHAN UPENDRA LAXMANBHAI,parties.IN.IND,227,0.15,13,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,KHAFI AMADBHAI UMARBHAI,parties.IN.IND,222,0.15,14,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,CHOUHAN HAMIDA MAMAD,parties.IN.IND,219,0.14,15,forfeit,F,56,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,RANCHHOD KANJIBHAI KANZARIYA,parties.IN.IND,216,0.14,16,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,CHAVDA JAWAHARBHAI PETHALJIBHAI,parties.IN.BJP,78491,51.71,1,won,M,55,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,ARVINDBHAI JINABHAI LADANI,parties.IN.INC,68732,45.28,2,lost,M,57,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,KANERIYA RESHMA PATEL,parties.IN.NCP,1709,1.13,3,forfeit,F,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,NOTA,,1375,0.91,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,KANERIYA SANJAY MOHANBHAI,parties.IN.IND,383,0.25,5,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,SUMRA AARABBHAI HASAMBHAI,parties.IN.IND,333,0.22,6,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,SIDAPARA MUKTABEN BHANUBHAI,parties.IN.IND,306,0.2,7,forfeit,F,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,VADALIYA HITENDRA GANGDASBHAI,parties.IN.IND,263,0.17,8,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,BUSA RAMJIBHAI BHAGVANBHAI,parties.IN.IND,203,0.13,9,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2811,gujarat,2019,122,LUNAWADA,Jigneshkumar Sevak,parties.IN.BJP,67391,49.02,1,won,M,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2811,gujarat,2019,122,LUNAWADA,Gulabsinh Chauhan,parties.IN.INC,55439,40.32,2,lost,M,58,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2811,gujarat,2019,122,LUNAWADA,Bharatkumar Patel,parties.IN.NCP,12309,8.95,3,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2811,gujarat,2019,122,LUNAWADA,NOTA,,2350,1.71,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-gujarat-2722,gujarat,2019,8,THARAD,RAJPUT GULABSINH PIRABHAI,parties.IN.INC,INC,72959,48.55,1,won,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2722,gujarat,2019,8,THARAD,PATEL JIVRAJBHAI JAGTABHAI,parties.IN.BJP,BJP,66587,44.31,2,lost,M,71,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2722,gujarat,2019,8,THARAD,NOTA,,,3565,2.37,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2722,gujarat,2019,8,THARAD,ISHWARBHAI HARSENGABHAI PATEL,parties.IN.IND,IND,3032,2.02,4,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2722,gujarat,2019,8,THARAD,PUNJABHAI NAVABHAI RABARI,parties.IN.NCP,NCP,1699,1.13,5,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2722,gujarat,2019,8,THARAD,PARMAR SEDHABHAI VAGHABHAI,parties.IN.IND,IND,1008,0.67,6,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2722,gujarat,2019,8,THARAD,K. N. BHAPADIA (JOSHI),parties.IN.IND,IND,747,0.5,7,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2722,gujarat,2019,8,THARAD,CHARMATA BHARATKUMAR KHEMABHAI,parties.IN.IND,IND,671,0.45,8,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Desai Raghubhai Merajbhai,parties.IN.INC,INC,77410,45.52,1,won,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Alpesh Khodaji Thakor,parties.IN.BJP,BJP,73603,43.28,2,lost,M,44,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Goklani Farsubhai Muljibhai,parties.IN.NCP,NCP,7200,4.23,3,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,NOTA,,,2793,1.64,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Thakor Maganbhai Arjanbhai,parties.IN.IND,IND,2329,1.37,5,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Parmabhai Karmanbhai Chaudhari,parties.IN.IND,IND,1681,0.99,6,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Kadri Mohammadsabir Anwarhusen,,Manvadhikar National Party,1160,0.68,7,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Makwana Subhashbhai Bhojabhai,parties.IN.IND,IND,1145,0.67,8,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Thakor Nanjibhai Lilabhai,parties.IN.IND,IND,1095,0.64,9,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Thakor Rameshbhai Bijalbhai,parties.IN.IND,IND,849,0.5,10,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2819,gujarat,2019,16,RADHANPUR,Madhu Nirupaben Natavarlal,parties.IN.IND,IND,797,0.47,11,forfeit,F,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2817,gujarat,2019,20,KHERALU,Ajmalji Valaji Thakor,parties.IN.BJP,BJP,60875,62.79,1,won,M,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2817,gujarat,2019,20,KHERALU,Thakor Babuji Ujamji,parties.IN.INC,INC,31784,32.78,2,lost,M,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2817,gujarat,2019,20,KHERALU,NOTA,,,1822,1.88,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2817,gujarat,2019,20,KHERALU,Pathuji Chhagaji Thakor,parties.IN.NCP,NCP,1753,1.81,4,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2817,gujarat,2019,20,KHERALU,Thakor Jarinaben Nagaji,parties.IN.IND,IND,718,0.74,5,forfeit,F,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Dr. Ashaben Dwarkadas Patel,parties.IN.BJP,BJP,77459,52.29,1,won,F,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Patel Kantibhai Muljidas (kamu),parties.IN.INC,INC,54387,36.72,2,lost,M,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Natvarji Babuji Thakor,parties.IN.NCP,NCP,5620,3.79,3,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Patel Bhavleshbhai Jashavantbhai,parties.IN.IND,IND,4978,3.36,4,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,NOTA,,,2060,1.39,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Rabari Babubhai Karashanbhai,parties.IN.IND,IND,623,0.42,6,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Patel Hareshkumar Narottambhai (Advocate),parties.IN.IND,IND,583,0.39,7,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Thakor Popatji Kantiji,parties.IN.IND,IND,567,0.38,8,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Patel Manubhai Sankarlal,parties.IN.IND,IND,563,0.38,9,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Jayantibhai Jivramdas Patel,parties.IN.IND,IND,534,0.36,10,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Dadawala Hasanali Ismailbhai,parties.IN.IND,IND,382,0.26,11,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2798,gujarat,2019,21,UNJHA,Patel Kamleshbhai Shivram,parties.IN.IND,IND,369,0.25,12,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2836,gujarat,2019,32,BAYAD,PATEL JASHUBHAI SHIVABHAI,parties.IN.INC,INC,65597,46.46,1,won,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2836,gujarat,2019,32,BAYAD,DHAVALSINH NARENDRASINH ZALA,parties.IN.BJP,BJP,64854,45.93,2,lost,M,44,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2836,gujarat,2019,32,BAYAD,CHAUHAN DOLATSINH JAGATSINH,parties.IN.NCP,NCP,4065,2.88,3,forfeit,M,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2836,gujarat,2019,32,BAYAD,RAJUBHAI KHANT,parties.IN.IND,IND,2668,1.89,4,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2836,gujarat,2019,32,BAYAD,NOTA,,,1681,1.19,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2836,gujarat,2019,32,BAYAD,PATEL MANHARBHAI AMBALAL,parties.IN.IND,IND,849,0.6,6,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2836,gujarat,2019,32,BAYAD,PATEL KIRITKUMAR BABARBHAI,parties.IN.IND,IND,779,0.55,7,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2836,gujarat,2019,32,BAYAD,PATEL KESHAVLAL GANGARAMBHAI,parties.IN.IND,IND,698,0.49,8,forfeit,M,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,JAGDISH ISHWARBHAI PATEL,parties.IN.BJP,BJP,48657,50.24,1,won,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,PATEL DHARMENDRA SHANTILAL (DHAMBHAI),parties.IN.INC,INC,43129,44.53,2,lost,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,TARUNKUMAR JIVANBHAI PARMAR,,Bahujan Mukti Party,1407,1.45,3,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,DESAI NATVARBHAI TOKARBHAI,parties.IN.CPI,CPI,1224,1.26,4,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,NOTA,,,1185,1.22,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,YADAV VIJAYKUMAR DEVPOOJAN,parties.IN.NCP,NCP,534,0.55,6,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,DIPIKA JITENDRAKUMAR SUTARIYA,parties.IN.IND,IND,192,0.2,7,forfeit,F,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,MAHEDIYA MAHENDRABHAI PARSOTTAMDAS,parties.IN.IND,IND,135,0.14,8,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,ARJUN RAMSHANKAR MISHRA,,Jan Sangharsh Virat Party,125,0.13,9,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,ATULBHAI NANUBHAI KATHIRIYA (ATUL PATEL),,Right to Recall Party,112,0.12,10,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,MINAXIBEN RAKESHKUMAR SOLANKI,,Manvadhikar National Party,90,0.09,11,forfeit,F,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2696,gujarat,2019,50,AMRAIWADI,NARENDRABHAI REVASHANKER TRIVEDI,,Jan Satya Path Party,57,0.06,12,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,PARSOTAM UKABHAI SABARIYA,parties.IN.BJP,BJP,99252,56.36,1,won,M,60,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,DINESHBHAI JIVRAJBHAI PATEL,parties.IN.INC,INC,64972,36.89,2,lost,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,NOTA,,,3648,2.07,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,RATANSINH VAJUBHAI DODIYA,parties.IN.IND,IND,2777,1.58,4,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,CHANDURA DHANJIBHAI LAXMANBHAI,,Bahujan Mukti Party,1897,1.08,5,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,MALASANA PRANJIVAN PREMAJIBHAI,parties.IN.IND,IND,714,0.41,6,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,MAKWANA CHANDUBHAI BHAGVANBHAI,,Hindusthan Nirman Dal,679,0.39,7,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,MAKVANA UKABHAI AMARABHAI,parties.IN.IND,IND,609,0.35,8,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,BHATTI ASLAM GAFARBHAI,parties.IN.IND,IND,533,0.3,9,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,BHAVESHKUMAR NARENDRAKUMAR KATHARANI (THAKKAR),parties.IN.IND,IND,378,0.21,10,forfeit,M,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,JITENDRAKUMAR (BHARATBHAI) POPATBHAI RATHOD,parties.IN.IND,IND,358,0.2,11,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2853,gujarat,2019,64,DHRANGADHRA,KOLI KESHABHAI PRABHUBHAI,parties.IN.IND,IND,286,0.16,12,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,PATEL RAGHAVJIBHAI HANSRAJBHAI,parties.IN.BJP,BJP,88254,58.2,1,won,M,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,JAYANTIBHAI SABHAYA,parties.IN.INC,INC,55232,36.42,2,lost,M,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,NOTA,,,2215,1.46,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,KANZARIYA BHARATBHAI GANGDASBHAI,parties.IN.IND,IND,1591,1.05,4,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,SAGATHIYA VINODBHAI VIRJIBHAI,parties.IN.IND,IND,940,0.62,5,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,RATHOD HARISHBHAI NAJABHAI,parties.IN.IND,IND,603,0.4,6,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,MAGHODIYA LADHABHAI KALYANBHAI,parties.IN.IND,IND,451,0.3,7,forfeit,M,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,RATHOD BHAVIN,parties.IN.IND,IND,442,0.29,8,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,MATANG NARENDRA BHOJABHAI,parties.IN.IND,IND,277,0.18,9,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,RAMESHBHAI HIRABHAI PANARA,parties.IN.IND,IND,270,0.18,10,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,CHAUHAN DHIRAJ KANTILAL,parties.IN.IND,IND,246,0.16,11,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,PARMAR BHURALAL MEGHJIBHAI,parties.IN.IND,IND,246,0.16,12,forfeit,M,71,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,CHAUHAN UPENDRA LAXMANBHAI,parties.IN.IND,IND,227,0.15,13,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,KHAFI AMADBHAI UMARBHAI,parties.IN.IND,IND,222,0.15,14,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,CHOUHAN HAMIDA MAMAD,parties.IN.IND,IND,219,0.14,15,forfeit,F,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2770,gujarat,2019,77,JAMNAGAR RURAL,RANCHHOD KANJIBHAI KANZARIYA,parties.IN.IND,IND,216,0.14,16,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,CHAVDA JAWAHARBHAI PETHALJIBHAI,parties.IN.BJP,BJP,78491,51.71,1,won,M,55,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,ARVINDBHAI JINABHAI LADANI,parties.IN.INC,INC,68732,45.28,2,lost,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,KANERIYA RESHMA PATEL,parties.IN.NCP,NCP,1709,1.13,3,forfeit,F,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,NOTA,,,1375,0.91,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,KANERIYA SANJAY MOHANBHAI,parties.IN.IND,IND,383,0.25,5,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,SUMRA AARABBHAI HASAMBHAI,parties.IN.IND,IND,333,0.22,6,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,SIDAPARA MUKTABEN BHANUBHAI,parties.IN.IND,IND,306,0.2,7,forfeit,F,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,VADALIYA HITENDRA GANGDASBHAI,parties.IN.IND,IND,263,0.17,8,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2827,gujarat,2019,85,MANAVADAR,BUSA RAMJIBHAI BHAGVANBHAI,parties.IN.IND,IND,203,0.13,9,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2811,gujarat,2019,122,LUNAWADA,Jigneshkumar Sevak,parties.IN.BJP,BJP,67391,49.02,1,won,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2811,gujarat,2019,122,LUNAWADA,Gulabsinh Chauhan,parties.IN.INC,INC,55439,40.32,2,lost,M,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2811,gujarat,2019,122,LUNAWADA,Bharatkumar Patel,parties.IN.NCP,NCP,12309,8.95,3,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2811,gujarat,2019,122,LUNAWADA,NOTA,,,2350,1.71,4,lost,U,,,,challenger,src-1b7bc1c9d39a

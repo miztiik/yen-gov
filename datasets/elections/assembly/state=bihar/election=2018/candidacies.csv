@@ -1,44 +1,44 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Shahnawaz -E,parties.IN.RJD,81240,55.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,MD. Murhid Alam,,40016,27.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,MD.Shabbir Ahmad,parties.IN.IND,11176,7.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Ghousul Alam,,5314,3.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,NOTA,,2673,1.83,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Mohammad Irfan,parties.IN.IND,2229,1.53,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Javed Alam,parties.IN.IND,1298,0.89,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,MD. Masroor Alam,parties.IN.IND,757,0.52,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,MD.Mobinul Haque,parties.IN.IND,584,0.4,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Prasenjeet Krishna,parties.IN.IND,458,0.31,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Rinki Rani Pandey 'E',parties.IN.BJP,64413,47.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Shambhu Singh Patel,parties.IN.INC,49547,36.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Dharmendra Singh,parties.IN.IND,3690,2.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Vikash Singh,parties.IN.IND,3515,2.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Samprabhawati Devi,,2121,1.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Santosh Kumar Singh,parties.IN.IND,2014,1.5,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Shivmurat Bind,parties.IN.IND,1530,1.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Vijyanta Devi,parties.IN.IND,1377,1.02,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Kamlesh Azad,parties.IN.IND,1255,0.93,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Samim Rain,parties.IN.IND,1046,0.78,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,NOTA,,873,0.65,11,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Jageshwar  Singh,parties.IN.IND,718,0.53,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Salim Ansari,,604,0.45,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Ujjwal Kumar chaubey,parties.IN.IND,565,0.42,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Jagmohan Pal,parties.IN.IND,472,0.35,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Ram Dular Choudhary,parties.IN.IND,325,0.24,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Omprakash Singh,parties.IN.IND,313,0.23,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Akshaywar Singh,parties.IN.IND,286,0.21,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Kumar Krishna Mohan Alis Sudyk Yadav,parties.IN.RJD,76598,54.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Abhi Ram Sharma,,41255,29.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Kunti Devi,,8498,6.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,NOTA,,3232,2.29,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Archana Mishra,,2012,1.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Kumari Kusum,parties.IN.IND,1990,1.41,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,MD.Sultan Ahmad,parties.IN.IND,1898,1.34,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Prakash Kumar,parties.IN.IND,1099,0.78,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Mithilesh Kumar Singh,parties.IN.IND,1085,0.77,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Brijnandan Singh,parties.IN.SSD,732,0.52,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Anand Kumar,,686,0.49,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Dhananjay Kumar,parties.IN.IND,615,0.44,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Mani Bhushan Sharma,parties.IN.IND,615,0.44,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Amul Kumar,parties.IN.IND,516,0.37,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Mahesh Kumar,parties.IN.RJBP,467,0.33,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Shahnawaz -E,parties.IN.RJD,RJD,81240,55.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,MD. Murhid Alam,,JD(United),40016,27.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,MD.Shabbir Ahmad,parties.IN.IND,IND,11176,7.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Ghousul Alam,,JAP(Loktantrik),5314,3.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,NOTA,,,2673,1.83,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Mohammad Irfan,parties.IN.IND,IND,2229,1.53,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Javed Alam,parties.IN.IND,IND,1298,0.89,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,MD. Masroor Alam,parties.IN.IND,IND,757,0.52,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,MD.Mobinul Haque,parties.IN.IND,IND,584,0.4,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Prasenjeet Krishna,parties.IN.IND,IND,458,0.31,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Rinki Rani Pandey 'E',parties.IN.BJP,BJP,64413,47.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Shambhu Singh Patel,parties.IN.INC,INC,49547,36.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Dharmendra Singh,parties.IN.IND,IND,3690,2.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Vikash Singh,parties.IN.IND,IND,3515,2.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Samprabhawati Devi,,BMP,2121,1.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Santosh Kumar Singh,parties.IN.IND,IND,2014,1.5,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Shivmurat Bind,parties.IN.IND,IND,1530,1.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Vijyanta Devi,parties.IN.IND,IND,1377,1.02,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Kamlesh Azad,parties.IN.IND,IND,1255,0.93,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Samim Rain,parties.IN.IND,IND,1046,0.78,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,NOTA,,,873,0.65,11,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Jageshwar  Singh,parties.IN.IND,IND,718,0.53,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Salim Ansari,,BMF,604,0.45,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Ujjwal Kumar chaubey,parties.IN.IND,IND,565,0.42,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Jagmohan Pal,parties.IN.IND,IND,472,0.35,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Ram Dular Choudhary,parties.IN.IND,IND,325,0.24,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Omprakash Singh,parties.IN.IND,IND,313,0.23,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Akshaywar Singh,parties.IN.IND,IND,286,0.21,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Kumar Krishna Mohan Alis Sudyk Yadav,parties.IN.RJD,RJD,76598,54.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Abhi Ram Sharma,,JD(United),41255,29.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Kunti Devi,,CPI(Marxist Leninist)Liberation,8498,6.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,NOTA,,,3232,2.29,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Archana Mishra,,SS,2012,1.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Kumari Kusum,parties.IN.IND,IND,1990,1.41,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,MD.Sultan Ahmad,parties.IN.IND,IND,1898,1.34,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Prakash Kumar,parties.IN.IND,IND,1099,0.78,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Mithilesh Kumar Singh,parties.IN.IND,IND,1085,0.77,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Brijnandan Singh,parties.IN.SSD,SSD,732,0.52,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Anand Kumar,,KVD,686,0.49,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Dhananjay Kumar,parties.IN.IND,IND,615,0.44,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Mani Bhushan Sharma,parties.IN.IND,IND,615,0.44,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Amul Kumar,parties.IN.IND,IND,516,0.37,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Mahesh Kumar,parties.IN.RJBP,RJBP,467,0.33,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a

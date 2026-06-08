@@ -1,112 +1,112 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-sikkim-1380,sikkim,2014,1,YOKSAM-TASHIDING,SONAM DADUL BHUTIA,parties.IN.SDF,6777,68.33,1,won,U,43,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1380,sikkim,2014,1,YOKSAM-TASHIDING,THUTOP BHUTIA,parties.IN.SKM,2559,25.8,2,lost,U,54,5th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1380,sikkim,2014,1,YOKSAM-TASHIDING,PEMA RINZING BHUTIA,parties.IN.INC,363,3.66,3,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1379,sikkim,2014,2,YANGTHANG,CHANDRA MAYA LIMBOO (SUBBA),parties.IN.SDF,5211,56,1,won,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1379,sikkim,2014,2,YANGTHANG,KHARKA BDR. SUBBA,parties.IN.SKM,3572,38.39,2,lost,U,31,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1379,sikkim,2014,2,YANGTHANG,LALL MAN SUBBA,parties.IN.INC,223,2.4,3,forfeit,U,52,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1379,sikkim,2014,2,YANGTHANG,ASHIS GURUNG,parties.IN.BJP,140,1.5,5,forfeit,U,33,8th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1361,sikkim,2014,3,MANEYBUNG-DENTAM,NARENDRA KUMAR SUBBA,parties.IN.SDF,7737,72.43,1,won,U,46,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1361,sikkim,2014,3,MANEYBUNG-DENTAM,BIRBAL TAMLING,parties.IN.SKM,2519,23.58,2,lost,U,65,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1361,sikkim,2014,3,MANEYBUNG-DENTAM,KESHAR MAN GURUNG,parties.IN.BJP,140,1.31,4,forfeit,U,32,Literate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1361,sikkim,2014,3,MANEYBUNG-DENTAM,MAN MAYA LIMBU,parties.IN.INC,130,1.22,5,forfeit,U,50,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1357,sikkim,2014,4,GYALSHING-BARNYAK,SHER BAHADUR SUBEDI,parties.IN.SDF,4529,50.86,1,won,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1357,sikkim,2014,4,GYALSHING-BARNYAK,LOK NATH SHARMA,parties.IN.SKM,3890,43.68,2,lost,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1357,sikkim,2014,4,GYALSHING-BARNYAK,MANDHOJ THAPA,parties.IN.BJP,135,1.52,4,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1357,sikkim,2014,4,GYALSHING-BARNYAK,DAL BAHADUR KARKI,parties.IN.INC,107,1.2,5,forfeit,U,50,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1357,sikkim,2014,4,GYALSHING-BARNYAK,HARI CHANDRA SHARMA,parties.IN.AITC,96,1.08,6,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1370,sikkim,2014,5,RINCHENPONG,KARMA SONAM LEPCHA,parties.IN.SDF,7347,68.37,1,won,U,49,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1370,sikkim,2014,5,RINCHENPONG,PEMA KINZANG BHUTIA,parties.IN.SKM,2891,26.9,2,lost,U,41,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1370,sikkim,2014,5,RINCHENPONG,LATEN TSHERING SHERPA,parties.IN.BJP,186,1.73,3,forfeit,U,28,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1370,sikkim,2014,5,RINCHENPONG,KARSANG SHERPA,parties.IN.INC,132,1.23,4,forfeit,U,41,12th Pass,Party Worker,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1370,sikkim,2014,5,RINCHENPONG,PHUR TSHERING LEPCHA,parties.IN.AITC,93,0.87,6,forfeit,U,61,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1353,sikkim,2014,6,DARAMDIN,DANORBU SHERPA,parties.IN.SDF,6250,54.89,1,won,U,51,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1353,sikkim,2014,6,DARAMDIN,MINGMA NORBU SHERPA,parties.IN.SKM,4646,40.8,2,lost,U,43,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1353,sikkim,2014,6,DARAMDIN,LADEN LEPCHA,parties.IN.INC,306,2.69,3,forfeit,U,41,8th Pass,Party Worker,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1373,sikkim,2014,7,SOREONG-CHAKUNG,RAM BAHADUR LIMBOO (SUBBA),parties.IN.SDF,6596,55.4,1,won,U,60,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1373,sikkim,2014,7,SOREONG-CHAKUNG,BHARATI SHARMA,parties.IN.SKM,4667,39.2,2,lost,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1373,sikkim,2014,7,SOREONG-CHAKUNG,PUSHKER LIMBU,parties.IN.INC,212,1.78,4,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1373,sikkim,2014,7,SOREONG-CHAKUNG,SHER BAHADUR KARKI,parties.IN.BJP,197,1.65,5,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1371,sikkim,2014,8,SALGHARI-ZOO,ARJUN KUMAR GHATANI,parties.IN.SDF,4250,52.63,1,won,U,34,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1371,sikkim,2014,8,SALGHARI-ZOO,BHANU PRATAP RASAILY,parties.IN.SKM,3471,42.98,2,lost,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1371,sikkim,2014,8,SALGHARI-ZOO,RANJIT KAMI,parties.IN.BJP,162,2.01,3,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1371,sikkim,2014,8,SALGHARI-ZOO,KHARKA BAHADUR THATAL,parties.IN.INC,64,0.79,5,forfeit,U,46,12th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1351,sikkim,2014,9,BARFUNG,DORJEE DAZOM BHUTIA,parties.IN.SDF,6639,63.79,1,won,U,63,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1351,sikkim,2014,9,BARFUNG,PEMA WANGYAL BHUTIA,parties.IN.SKM,3460,33.24,2,lost,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1351,sikkim,2014,9,BARFUNG,DADUL LEPCHA,parties.IN.INC,112,1.08,4,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1367,sikkim,2014,10,POKLOK-KAMRANG,KEDAR NATH RAI,parties.IN.SDF,7996,68.85,1,won,U,49,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1367,sikkim,2014,10,POKLOK-KAMRANG,BHOJ RAJ RAI,parties.IN.SKM,3325,28.63,2,lost,U,45,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1367,sikkim,2014,10,POKLOK-KAMRANG,ISHWAR PRASAD RAI,parties.IN.INC,115,0.99,4,forfeit,U,36,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1365,sikkim,2014,11,NAMCHI-SINGHITHANG,PAWAN CHAMLING,parties.IN.SDF,4774,55.08,1,won,U,62,Doctorate,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1365,sikkim,2014,11,NAMCHI-SINGHITHANG,MILAN RAI,parties.IN.SKM,3690,42.57,2,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1365,sikkim,2014,11,NAMCHI-SINGHITHANG,KHUSH BDR. RAI,parties.IN.INC,92,1.06,4,forfeit,U,46,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1363,sikkim,2014,12,MELLI,TULSHI DEVI RAI,parties.IN.SDF,7655,67.32,1,won,U,39,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1363,sikkim,2014,12,MELLI,PREM BAHADUR KARKI,parties.IN.SKM,3406,29.95,2,lost,U,40,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1363,sikkim,2014,12,MELLI,MAN BAHADUR RAI,parties.IN.INC,132,1.16,4,forfeit,U,56,8th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1366,sikkim,2014,13,NAMTHANG-RATEYPANI,TILU GURUNG,parties.IN.SDF,5947,53.84,1,won,U,47,8th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1366,sikkim,2014,13,NAMTHANG-RATEYPANI,PREM SINGH TAMANG,parties.IN.SKM,4792,43.38,2,lost,U,44,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1366,sikkim,2014,13,NAMTHANG-RATEYPANI,DIK MAYA BASNET,parties.IN.INC,107,0.97,4,forfeit,U,28,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1366,sikkim,2014,13,NAMTHANG-RATEYPANI,YASODHA BARAKOTI,parties.IN.AITC,91,0.82,5,forfeit,U,39,12th Pass,Household,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1374,sikkim,2014,14,TEMI-NAMPHING,GARJAMAN GURUNG,parties.IN.SDF,5657,55.38,1,won,U,51,Graduate,Activist,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1374,sikkim,2014,14,TEMI-NAMPHING,LALIT SHARMA,parties.IN.SKM,4268,41.78,2,lost,U,41,Post Graduate,Party Worker,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1374,sikkim,2014,14,TEMI-NAMPHING,DEEPAK BHANDARI,parties.IN.INC,110,1.08,4,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1368,sikkim,2014,15,RANGANG-YANGANG,R.N.Chamling,parties.IN.IND,4788,51.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1368,sikkim,2014,15,RANGANG-YANGANG,Kumari Manger,parties.IN.SDF,4080,43.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1368,sikkim,2014,15,RANGANG-YANGANG,Bikash Basnet,parties.IN.BJP,352,3.77,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1368,sikkim,2014,15,RANGANG-YANGANG,S.R.Limboo,parties.IN.IND,92,0.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1368,sikkim,2014,15,RANGANG-YANGANG,B.P.Adhikari,parties.IN.INC,28,0.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1375,sikkim,2014,16,TUMEN-LINGI,UGEN T. GYATSO BHUTIA,parties.IN.SDF,7191,62.26,1,won,U,50,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1375,sikkim,2014,16,TUMEN-LINGI,NIDUP TSHERING LEPCHA,parties.IN.SKM,3999,34.62,2,lost,U,50,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1375,sikkim,2014,16,TUMEN-LINGI,PANDUP LEPCHA,parties.IN.INC,151,1.31,3,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1375,sikkim,2014,16,TUMEN-LINGI,PREM TSHERING LEPCHA,parties.IN.AITC,104,0.9,5,forfeit,U,38,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1359,sikkim,2014,17,KHAMDONG-SINGTAM,SOM NATH POUDYAL,parties.IN.SDF,4718,49.13,1,won,U,50,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1359,sikkim,2014,17,KHAMDONG-SINGTAM,MANI KUMAR SHARMA,parties.IN.SKM,4448,46.31,2,lost,U,43,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1359,sikkim,2014,17,KHAMDONG-SINGTAM,MADAN KUMAR SHARMA,parties.IN.BJP,191,1.99,3,forfeit,U,39,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1359,sikkim,2014,17,KHAMDONG-SINGTAM,PUNYA PRASAD KOIRALA,parties.IN.INC,87,0.91,5,forfeit,U,44,12th Pass,Journalist or Editor,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1378,sikkim,2014,18,WEST PENDA,GOPAL BARAILY,parties.IN.SKM,5382,52.45,1,won,U,48,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1378,sikkim,2014,18,WEST PENDA,K. K. THATAL,parties.IN.SDF,4462,43.49,2,lost,U,45,8th Pass,Self-employed,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1378,sikkim,2014,18,WEST PENDA,AMAR LOHAR,parties.IN.BJP,157,1.53,3,forfeit,U,32,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1378,sikkim,2014,18,WEST PENDA,RANJEET GAZMER,parties.IN.INC,74,0.72,5,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1378,sikkim,2014,18,WEST PENDA,MOHAN LALL THATAL(DARJEE),parties.IN.AITC,73,0.71,6,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1369,sikkim,2014,19,RHENOCK,HEMENDRA ADHIKARI,parties.IN.SKM,6415,50.05,1,won,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1369,sikkim,2014,19,RHENOCK,BHIM PRASAD DHUNGEL,parties.IN.SDF,5461,42.6,2,lost,U,42,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1369,sikkim,2014,19,RHENOCK,TILAK KUMAR PRADHAN,parties.IN.IND,474,3.7,3,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1369,sikkim,2014,19,RHENOCK,PADAM BDR. CHETTRI,parties.IN.INC,138,1.08,5,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1369,sikkim,2014,19,RHENOCK,OM PRAKASH BHANDARI,parties.IN.IND,99,0.77,6,forfeit,U,45,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1369,sikkim,2014,19,RHENOCK,NAWRAJ CHETTRI,parties.IN.AITC,92,0.72,7,forfeit,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1352,sikkim,2014,20,CHUJACHEN,BIKRAM PRADHAN,parties.IN.SDF,7836,60.98,1,won,U,34,Graduate,Contractor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1352,sikkim,2014,20,CHUJACHEN,KHARGA BAHADUR GURUNG,parties.IN.SKM,4425,34.44,2,lost,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1352,sikkim,2014,20,CHUJACHEN,GAJENDRA RIZAL,parties.IN.BJP,248,1.93,3,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1352,sikkim,2014,20,CHUJACHEN,RUDRA NARSING SAKYA,parties.IN.INC,162,1.26,5,forfeit,U,42,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1356,sikkim,2014,21,GNATHANG-MACHONG,DORJEE TSH. LEPCHA,parties.IN.SDF,5017,58.21,1,won,U,56,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1356,sikkim,2014,21,GNATHANG-MACHONG,SONAM DORJEE,parties.IN.SKM,3101,35.98,2,lost,U,59,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1356,sikkim,2014,21,GNATHANG-MACHONG,PEMPA TSHERING BHUTIA,parties.IN.IND,325,3.77,3,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1356,sikkim,2014,21,GNATHANG-MACHONG,DORJEE ONGDEN BHUTIA,parties.IN.INC,107,1.24,4,forfeit,U,71,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1364,sikkim,2014,22,NAMCHEYBUNG,BEK BAHADUR RAI,parties.IN.SDF,5577,50.72,1,won,U,45,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1364,sikkim,2014,22,NAMCHEYBUNG,DILIP RAI,parties.IN.SKM,4955,45.07,2,lost,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1364,sikkim,2014,22,NAMCHEYBUNG,TASHI RAI,parties.IN.BJP,167,1.52,3,forfeit,U,33,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1364,sikkim,2014,22,NAMCHEYBUNG,MANOJ RAI,parties.IN.INC,139,1.26,5,forfeit,U,45,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1372,sikkim,2014,23,SHYARI,KUNGA NIMA LEPCHA,parties.IN.SKM,5324,52.23,1,won,U,66,Graduate,Ex Govt Employee,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1372,sikkim,2014,23,SHYARI,KARMA TEMPO NAMGYAL GYALTSEN,parties.IN.SDF,4588,45.01,2,lost,U,52,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1372,sikkim,2014,23,SHYARI,SAMDUP DORJEE LAMA,parties.IN.INC,142,1.39,3,forfeit,U,38,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1362,sikkim,2014,24,MARTAM-RUMTEK,MECHUNG BHUTIA,parties.IN.SKM,6055,50.24,1,won,U,36,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1362,sikkim,2014,24,MARTAM-RUMTEK,MENLOM LEPCHA,parties.IN.SDF,5576,46.26,2,lost,U,46,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1362,sikkim,2014,24,MARTAM-RUMTEK,SONAM TSHERING BHUTIA,parties.IN.INC,183,1.52,4,forfeit,U,47,5th Pass,Party Worker,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1350,sikkim,2014,26,ARITHANG,SHYAM PRADHAN,parties.IN.SKM,4026,57.92,1,won,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1350,sikkim,2014,26,ARITHANG,UDAI LAMA,parties.IN.SDF,2420,34.82,2,lost,U,60,5th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1350,sikkim,2014,26,ARITHANG,SHERAP DORJEE BHUTIA,parties.IN.IND,253,3.64,3,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1350,sikkim,2014,26,ARITHANG,GYALPO TAMANG,parties.IN.INC,105,1.51,4,forfeit,U,39,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1350,sikkim,2014,26,ARITHANG,RAJENEY GURUNG,parties.IN.IND,76,1.09,5,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1376,sikkim,2014,28,UPPER BURTUK,PREM SINGH TAMANG,parties.IN.SKM,5272,50.73,1,won,U,44,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1376,sikkim,2014,28,UPPER BURTUK,D. R. THAPA,parties.IN.SDF,4699,45.21,2,lost,U,45,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1376,sikkim,2014,28,UPPER BURTUK,UGEN TAMANG,parties.IN.BJP,159,1.53,3,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1376,sikkim,2014,28,UPPER BURTUK,SANTA BIR GURUNG,parties.IN.INC,124,1.19,5,forfeit,U,62,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1358,sikkim,2014,29,KABI LUNGCHUK,UGEN NEDUP BHUTIA,parties.IN.SKM,4615,49.18,1,won,U,46,12th Pass,Party Worker,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1358,sikkim,2014,29,KABI LUNGCHUK,THENLAY TSHERING BHUTIA,parties.IN.SDF,4489,47.84,2,lost,U,60,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1358,sikkim,2014,29,KABI LUNGCHUK,KARMA TASHI BHUTIA,parties.IN.INC,127,1.35,4,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1354,sikkim,2014,30,DJONGU,SONAM GYATSO LEPCHA,parties.IN.SDF,4618,63.67,1,won,U,52,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1354,sikkim,2014,30,DJONGU,DAWA TSHERING LEPCHA,parties.IN.SKM,2443,33.68,2,lost,U,40,Others,Activist,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1354,sikkim,2014,30,DJONGU,PENZONG LEPCHA,parties.IN.INC,105,1.45,3,forfeit,U,29,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1360,sikkim,2014,31,LACHEN MANGAN,TSHERING WANGDI LEPCHA,parties.IN.SDF,3127,53.43,1,won,U,47,5th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1360,sikkim,2014,31,LACHEN MANGAN,SAMDUP LEPCHA,parties.IN.SKM,2570,43.92,2,lost,U,48,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1360,sikkim,2014,31,LACHEN MANGAN,TOPDEN LEPCHA,parties.IN.INC,76,1.3,4,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-sikkim-1380,sikkim,2014,1,YOKSAM-TASHIDING,SONAM DADUL BHUTIA,parties.IN.SDF,SDF,6777,68.33,1,won,U,43,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1380,sikkim,2014,1,YOKSAM-TASHIDING,THUTOP BHUTIA,parties.IN.SKM,SKM,2559,25.8,2,lost,U,54,5th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1380,sikkim,2014,1,YOKSAM-TASHIDING,PEMA RINZING BHUTIA,parties.IN.INC,INC,363,3.66,3,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1379,sikkim,2014,2,YANGTHANG,CHANDRA MAYA LIMBOO (SUBBA),parties.IN.SDF,SDF,5211,56,1,won,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1379,sikkim,2014,2,YANGTHANG,KHARKA BDR. SUBBA,parties.IN.SKM,SKM,3572,38.39,2,lost,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1379,sikkim,2014,2,YANGTHANG,LALL MAN SUBBA,parties.IN.INC,INC,223,2.4,3,forfeit,U,52,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1379,sikkim,2014,2,YANGTHANG,ASHIS GURUNG,parties.IN.BJP,BJP,140,1.5,5,forfeit,U,33,8th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1361,sikkim,2014,3,MANEYBUNG-DENTAM,NARENDRA KUMAR SUBBA,parties.IN.SDF,SDF,7737,72.43,1,won,U,46,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1361,sikkim,2014,3,MANEYBUNG-DENTAM,BIRBAL TAMLING,parties.IN.SKM,SKM,2519,23.58,2,lost,U,65,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1361,sikkim,2014,3,MANEYBUNG-DENTAM,KESHAR MAN GURUNG,parties.IN.BJP,BJP,140,1.31,4,forfeit,U,32,Literate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1361,sikkim,2014,3,MANEYBUNG-DENTAM,MAN MAYA LIMBU,parties.IN.INC,INC,130,1.22,5,forfeit,U,50,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1357,sikkim,2014,4,GYALSHING-BARNYAK,SHER BAHADUR SUBEDI,parties.IN.SDF,SDF,4529,50.86,1,won,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1357,sikkim,2014,4,GYALSHING-BARNYAK,LOK NATH SHARMA,parties.IN.SKM,SKM,3890,43.68,2,lost,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1357,sikkim,2014,4,GYALSHING-BARNYAK,MANDHOJ THAPA,parties.IN.BJP,BJP,135,1.52,4,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1357,sikkim,2014,4,GYALSHING-BARNYAK,DAL BAHADUR KARKI,parties.IN.INC,INC,107,1.2,5,forfeit,U,50,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1357,sikkim,2014,4,GYALSHING-BARNYAK,HARI CHANDRA SHARMA,parties.IN.AITC,AITC,96,1.08,6,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1370,sikkim,2014,5,RINCHENPONG,KARMA SONAM LEPCHA,parties.IN.SDF,SDF,7347,68.37,1,won,U,49,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1370,sikkim,2014,5,RINCHENPONG,PEMA KINZANG BHUTIA,parties.IN.SKM,SKM,2891,26.9,2,lost,U,41,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1370,sikkim,2014,5,RINCHENPONG,LATEN TSHERING SHERPA,parties.IN.BJP,BJP,186,1.73,3,forfeit,U,28,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1370,sikkim,2014,5,RINCHENPONG,KARSANG SHERPA,parties.IN.INC,INC,132,1.23,4,forfeit,U,41,12th Pass,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1370,sikkim,2014,5,RINCHENPONG,PHUR TSHERING LEPCHA,parties.IN.AITC,AITC,93,0.87,6,forfeit,U,61,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1353,sikkim,2014,6,DARAMDIN,DANORBU SHERPA,parties.IN.SDF,SDF,6250,54.89,1,won,U,51,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1353,sikkim,2014,6,DARAMDIN,MINGMA NORBU SHERPA,parties.IN.SKM,SKM,4646,40.8,2,lost,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1353,sikkim,2014,6,DARAMDIN,LADEN LEPCHA,parties.IN.INC,INC,306,2.69,3,forfeit,U,41,8th Pass,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1373,sikkim,2014,7,SOREONG-CHAKUNG,RAM BAHADUR LIMBOO (SUBBA),parties.IN.SDF,SDF,6596,55.4,1,won,U,60,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1373,sikkim,2014,7,SOREONG-CHAKUNG,BHARATI SHARMA,parties.IN.SKM,SKM,4667,39.2,2,lost,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1373,sikkim,2014,7,SOREONG-CHAKUNG,PUSHKER LIMBU,parties.IN.INC,INC,212,1.78,4,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1373,sikkim,2014,7,SOREONG-CHAKUNG,SHER BAHADUR KARKI,parties.IN.BJP,BJP,197,1.65,5,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1371,sikkim,2014,8,SALGHARI-ZOO,ARJUN KUMAR GHATANI,parties.IN.SDF,SDF,4250,52.63,1,won,U,34,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1371,sikkim,2014,8,SALGHARI-ZOO,BHANU PRATAP RASAILY,parties.IN.SKM,SKM,3471,42.98,2,lost,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1371,sikkim,2014,8,SALGHARI-ZOO,RANJIT KAMI,parties.IN.BJP,BJP,162,2.01,3,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1371,sikkim,2014,8,SALGHARI-ZOO,KHARKA BAHADUR THATAL,parties.IN.INC,INC,64,0.79,5,forfeit,U,46,12th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1351,sikkim,2014,9,BARFUNG,DORJEE DAZOM BHUTIA,parties.IN.SDF,SDF,6639,63.79,1,won,U,63,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1351,sikkim,2014,9,BARFUNG,PEMA WANGYAL BHUTIA,parties.IN.SKM,SKM,3460,33.24,2,lost,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1351,sikkim,2014,9,BARFUNG,DADUL LEPCHA,parties.IN.INC,INC,112,1.08,4,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1367,sikkim,2014,10,POKLOK-KAMRANG,KEDAR NATH RAI,parties.IN.SDF,SDF,7996,68.85,1,won,U,49,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1367,sikkim,2014,10,POKLOK-KAMRANG,BHOJ RAJ RAI,parties.IN.SKM,SKM,3325,28.63,2,lost,U,45,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1367,sikkim,2014,10,POKLOK-KAMRANG,ISHWAR PRASAD RAI,parties.IN.INC,INC,115,0.99,4,forfeit,U,36,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1365,sikkim,2014,11,NAMCHI-SINGHITHANG,PAWAN CHAMLING,parties.IN.SDF,SDF,4774,55.08,1,won,U,62,Doctorate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1365,sikkim,2014,11,NAMCHI-SINGHITHANG,MILAN RAI,parties.IN.SKM,SKM,3690,42.57,2,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1365,sikkim,2014,11,NAMCHI-SINGHITHANG,KHUSH BDR. RAI,parties.IN.INC,INC,92,1.06,4,forfeit,U,46,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1363,sikkim,2014,12,MELLI,TULSHI DEVI RAI,parties.IN.SDF,SDF,7655,67.32,1,won,U,39,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1363,sikkim,2014,12,MELLI,PREM BAHADUR KARKI,parties.IN.SKM,SKM,3406,29.95,2,lost,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1363,sikkim,2014,12,MELLI,MAN BAHADUR RAI,parties.IN.INC,INC,132,1.16,4,forfeit,U,56,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1366,sikkim,2014,13,NAMTHANG-RATEYPANI,TILU GURUNG,parties.IN.SDF,SDF,5947,53.84,1,won,U,47,8th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1366,sikkim,2014,13,NAMTHANG-RATEYPANI,PREM SINGH TAMANG,parties.IN.SKM,SKM,4792,43.38,2,lost,U,44,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1366,sikkim,2014,13,NAMTHANG-RATEYPANI,DIK MAYA BASNET,parties.IN.INC,INC,107,0.97,4,forfeit,U,28,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1366,sikkim,2014,13,NAMTHANG-RATEYPANI,YASODHA BARAKOTI,parties.IN.AITC,AITC,91,0.82,5,forfeit,U,39,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1374,sikkim,2014,14,TEMI-NAMPHING,GARJAMAN GURUNG,parties.IN.SDF,SDF,5657,55.38,1,won,U,51,Graduate,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1374,sikkim,2014,14,TEMI-NAMPHING,LALIT SHARMA,parties.IN.SKM,SKM,4268,41.78,2,lost,U,41,Post Graduate,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1374,sikkim,2014,14,TEMI-NAMPHING,DEEPAK BHANDARI,parties.IN.INC,INC,110,1.08,4,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1368,sikkim,2014,15,RANGANG-YANGANG,R.N.Chamling,parties.IN.IND,IND,4788,51.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1368,sikkim,2014,15,RANGANG-YANGANG,Kumari Manger,parties.IN.SDF,SDF,4080,43.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1368,sikkim,2014,15,RANGANG-YANGANG,Bikash Basnet,parties.IN.BJP,BJP,352,3.77,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1368,sikkim,2014,15,RANGANG-YANGANG,S.R.Limboo,parties.IN.IND,IND,92,0.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1368,sikkim,2014,15,RANGANG-YANGANG,B.P.Adhikari,parties.IN.INC,INC,28,0.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1375,sikkim,2014,16,TUMEN-LINGI,UGEN T. GYATSO BHUTIA,parties.IN.SDF,SDF,7191,62.26,1,won,U,50,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1375,sikkim,2014,16,TUMEN-LINGI,NIDUP TSHERING LEPCHA,parties.IN.SKM,SKM,3999,34.62,2,lost,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1375,sikkim,2014,16,TUMEN-LINGI,PANDUP LEPCHA,parties.IN.INC,INC,151,1.31,3,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1375,sikkim,2014,16,TUMEN-LINGI,PREM TSHERING LEPCHA,parties.IN.AITC,AITC,104,0.9,5,forfeit,U,38,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1359,sikkim,2014,17,KHAMDONG-SINGTAM,SOM NATH POUDYAL,parties.IN.SDF,SDF,4718,49.13,1,won,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1359,sikkim,2014,17,KHAMDONG-SINGTAM,MANI KUMAR SHARMA,parties.IN.SKM,SKM,4448,46.31,2,lost,U,43,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1359,sikkim,2014,17,KHAMDONG-SINGTAM,MADAN KUMAR SHARMA,parties.IN.BJP,BJP,191,1.99,3,forfeit,U,39,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1359,sikkim,2014,17,KHAMDONG-SINGTAM,PUNYA PRASAD KOIRALA,parties.IN.INC,INC,87,0.91,5,forfeit,U,44,12th Pass,Journalist or Editor,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1378,sikkim,2014,18,WEST PENDA,GOPAL BARAILY,parties.IN.SKM,SKM,5382,52.45,1,won,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1378,sikkim,2014,18,WEST PENDA,K. K. THATAL,parties.IN.SDF,SDF,4462,43.49,2,lost,U,45,8th Pass,Self-employed,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1378,sikkim,2014,18,WEST PENDA,AMAR LOHAR,parties.IN.BJP,BJP,157,1.53,3,forfeit,U,32,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1378,sikkim,2014,18,WEST PENDA,RANJEET GAZMER,parties.IN.INC,INC,74,0.72,5,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1378,sikkim,2014,18,WEST PENDA,MOHAN LALL THATAL(DARJEE),parties.IN.AITC,AITC,73,0.71,6,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1369,sikkim,2014,19,RHENOCK,HEMENDRA ADHIKARI,parties.IN.SKM,SKM,6415,50.05,1,won,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1369,sikkim,2014,19,RHENOCK,BHIM PRASAD DHUNGEL,parties.IN.SDF,SDF,5461,42.6,2,lost,U,42,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1369,sikkim,2014,19,RHENOCK,TILAK KUMAR PRADHAN,parties.IN.IND,IND,474,3.7,3,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1369,sikkim,2014,19,RHENOCK,PADAM BDR. CHETTRI,parties.IN.INC,INC,138,1.08,5,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1369,sikkim,2014,19,RHENOCK,OM PRAKASH BHANDARI,parties.IN.IND,IND,99,0.77,6,forfeit,U,45,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1369,sikkim,2014,19,RHENOCK,NAWRAJ CHETTRI,parties.IN.AITC,AITC,92,0.72,7,forfeit,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1352,sikkim,2014,20,CHUJACHEN,BIKRAM PRADHAN,parties.IN.SDF,SDF,7836,60.98,1,won,U,34,Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1352,sikkim,2014,20,CHUJACHEN,KHARGA BAHADUR GURUNG,parties.IN.SKM,SKM,4425,34.44,2,lost,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1352,sikkim,2014,20,CHUJACHEN,GAJENDRA RIZAL,parties.IN.BJP,BJP,248,1.93,3,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1352,sikkim,2014,20,CHUJACHEN,RUDRA NARSING SAKYA,parties.IN.INC,INC,162,1.26,5,forfeit,U,42,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1356,sikkim,2014,21,GNATHANG-MACHONG,DORJEE TSH. LEPCHA,parties.IN.SDF,SDF,5017,58.21,1,won,U,56,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1356,sikkim,2014,21,GNATHANG-MACHONG,SONAM DORJEE,parties.IN.SKM,SKM,3101,35.98,2,lost,U,59,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1356,sikkim,2014,21,GNATHANG-MACHONG,PEMPA TSHERING BHUTIA,parties.IN.IND,IND,325,3.77,3,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1356,sikkim,2014,21,GNATHANG-MACHONG,DORJEE ONGDEN BHUTIA,parties.IN.INC,INC,107,1.24,4,forfeit,U,71,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1364,sikkim,2014,22,NAMCHEYBUNG,BEK BAHADUR RAI,parties.IN.SDF,SDF,5577,50.72,1,won,U,45,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1364,sikkim,2014,22,NAMCHEYBUNG,DILIP RAI,parties.IN.SKM,SKM,4955,45.07,2,lost,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1364,sikkim,2014,22,NAMCHEYBUNG,TASHI RAI,parties.IN.BJP,BJP,167,1.52,3,forfeit,U,33,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1364,sikkim,2014,22,NAMCHEYBUNG,MANOJ RAI,parties.IN.INC,INC,139,1.26,5,forfeit,U,45,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1372,sikkim,2014,23,SHYARI,KUNGA NIMA LEPCHA,parties.IN.SKM,SKM,5324,52.23,1,won,U,66,Graduate,Ex Govt Employee,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1372,sikkim,2014,23,SHYARI,KARMA TEMPO NAMGYAL GYALTSEN,parties.IN.SDF,SDF,4588,45.01,2,lost,U,52,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1372,sikkim,2014,23,SHYARI,SAMDUP DORJEE LAMA,parties.IN.INC,INC,142,1.39,3,forfeit,U,38,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1362,sikkim,2014,24,MARTAM-RUMTEK,MECHUNG BHUTIA,parties.IN.SKM,SKM,6055,50.24,1,won,U,36,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1362,sikkim,2014,24,MARTAM-RUMTEK,MENLOM LEPCHA,parties.IN.SDF,SDF,5576,46.26,2,lost,U,46,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1362,sikkim,2014,24,MARTAM-RUMTEK,SONAM TSHERING BHUTIA,parties.IN.INC,INC,183,1.52,4,forfeit,U,47,5th Pass,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1350,sikkim,2014,26,ARITHANG,SHYAM PRADHAN,parties.IN.SKM,SKM,4026,57.92,1,won,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1350,sikkim,2014,26,ARITHANG,UDAI LAMA,parties.IN.SDF,SDF,2420,34.82,2,lost,U,60,5th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1350,sikkim,2014,26,ARITHANG,SHERAP DORJEE BHUTIA,parties.IN.IND,IND,253,3.64,3,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1350,sikkim,2014,26,ARITHANG,GYALPO TAMANG,parties.IN.INC,INC,105,1.51,4,forfeit,U,39,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1350,sikkim,2014,26,ARITHANG,RAJENEY GURUNG,parties.IN.IND,IND,76,1.09,5,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1376,sikkim,2014,28,UPPER BURTUK,PREM SINGH TAMANG,parties.IN.SKM,SKM,5272,50.73,1,won,U,44,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1376,sikkim,2014,28,UPPER BURTUK,D. R. THAPA,parties.IN.SDF,SDF,4699,45.21,2,lost,U,45,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1376,sikkim,2014,28,UPPER BURTUK,UGEN TAMANG,parties.IN.BJP,BJP,159,1.53,3,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1376,sikkim,2014,28,UPPER BURTUK,SANTA BIR GURUNG,parties.IN.INC,INC,124,1.19,5,forfeit,U,62,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1358,sikkim,2014,29,KABI LUNGCHUK,UGEN NEDUP BHUTIA,parties.IN.SKM,SKM,4615,49.18,1,won,U,46,12th Pass,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1358,sikkim,2014,29,KABI LUNGCHUK,THENLAY TSHERING BHUTIA,parties.IN.SDF,SDF,4489,47.84,2,lost,U,60,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1358,sikkim,2014,29,KABI LUNGCHUK,KARMA TASHI BHUTIA,parties.IN.INC,INC,127,1.35,4,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1354,sikkim,2014,30,DJONGU,SONAM GYATSO LEPCHA,parties.IN.SDF,SDF,4618,63.67,1,won,U,52,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1354,sikkim,2014,30,DJONGU,DAWA TSHERING LEPCHA,parties.IN.SKM,SKM,2443,33.68,2,lost,U,40,Others,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1354,sikkim,2014,30,DJONGU,PENZONG LEPCHA,parties.IN.INC,INC,105,1.45,3,forfeit,U,29,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1360,sikkim,2014,31,LACHEN MANGAN,TSHERING WANGDI LEPCHA,parties.IN.SDF,SDF,3127,53.43,1,won,U,47,5th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1360,sikkim,2014,31,LACHEN MANGAN,SAMDUP LEPCHA,parties.IN.SKM,SKM,2570,43.92,2,lost,U,48,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1360,sikkim,2014,31,LACHEN MANGAN,TOPDEN LEPCHA,parties.IN.INC,INC,76,1.3,4,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a

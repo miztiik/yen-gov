@@ -11125,23 +11125,6 @@
       "successor_party_id": null,
       "predecessor_party_id": null,
       "notes": "Bihar state party; won Gaya in the 2024 Lok Sabha general election. Seeded for ECI 2024 Lok Sabha Report-33 PC ingest."
-    },
-    {
-      "party_id": "parties.IN.VOICE_OF_THE_PEOPLE_PARTY",
-      "short_name": "VPP",
-      "full_name": "Voice of the People Party",
-      "aliases": [
-        "VOTPP"
-      ],
-      "eci_codes": [],
-      "state_scope": [
-        "S15"
-      ],
-      "founded_year": 2021,
-      "dissolved_year": null,
-      "successor_party_id": null,
-      "predecessor_party_id": null,
-      "notes": "Meghalaya state party; won Shillong in the 2024 Lok Sabha general election. Seeded for ECI 2024 Lok Sabha Report-33 PC ingest."
     }
   ]
 }

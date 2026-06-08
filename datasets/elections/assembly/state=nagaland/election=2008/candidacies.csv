@@ -1,219 +1,219 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-nagaland-eci1,nagaland,2008,1,DIMAPUR-I,K.L. CHISHI,parties.IN.INC,8700,60.16,1,won,U,65,Graduate Professional,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-eci1,nagaland,2008,1,DIMAPUR-I,ATOMI,parties.IN.NPF,4774,33.01,2,lost,U,31,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-eci1,nagaland,2008,1,DIMAPUR-I,R.S. SANGTAM,parties.IN.IND,768,5.31,3,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-eci1,nagaland,2008,1,DIMAPUR-I,ZENEISELE,parties.IN.JDU,220,1.52,4,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1453,nagaland,2008,2,DIMAPUR-II,S.I. JAMIR,parties.IN.INC,17954,54.16,1,won,U,70,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1453,nagaland,2008,2,DIMAPUR-II,SAVI LIEGISE,parties.IN.NPF,15195,45.84,2,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1454,nagaland,2008,3,DIMAPUR-III,AZHETO ZHIMOMI,parties.IN.INC,7874,50.16,1,won,U,58,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1454,nagaland,2008,3,DIMAPUR-III,L. INAZHE SEMA,parties.IN.RJD,4871,31.03,2,lost,U,47,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1454,nagaland,2008,3,DIMAPUR-III,V. ABU METHA,parties.IN.NPF,2784,17.73,3,lost,U,31,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1454,nagaland,2008,3,DIMAPUR-III,AKHEI ACHUMI,parties.IN.IND,170,1.08,4,forfeit,U,68,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1455,nagaland,2008,4,GHASPANI-I,Y. HEWOTO AWOMI,parties.IN.INC,17646,36.58,1,won,U,55,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1455,nagaland,2008,4,GHASPANI-I,KHEKIHO ZHIMOMI,parties.IN.NPF,16132,33.45,2,lost,U,68,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1455,nagaland,2008,4,GHASPANI-I,DR. KAKHETO ZHIMOMI,parties.IN.IND,14456,29.97,3,lost,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1456,nagaland,2008,5,GHASPANI-II,K. HOLLOHON,parties.IN.IND,8312,35.61,1,won,U,75,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1456,nagaland,2008,5,GHASPANI-II,ROKONICHA,parties.IN.NPF,6661,28.54,2,lost,U,63,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1456,nagaland,2008,5,GHASPANI-II,KIKHEHO SEMA,parties.IN.RJD,4931,21.12,3,lost,U,63,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1456,nagaland,2008,5,GHASPANI-II,MIATHOU,parties.IN.INC,3439,14.73,4,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1488,nagaland,2008,6,TENNING,TARIE,parties.IN.INC,15234,59.61,1,won,U,45,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1488,nagaland,2008,6,TENNING,K. SAMUEL MEDALIANG,parties.IN.NPF,10323,40.39,2,lost,U,37,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1472,nagaland,2008,7,PEREN,T.R. ZELIANG,parties.IN.NPF,14959,57.45,1,won,U,50,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1472,nagaland,2008,7,PEREN,VATSU MERU,parties.IN.INC,11080,42.55,2,lost,U,49,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1498,nagaland,2008,8,WESTERN ANGAMI,KIYANILIE PESEYIE,parties.IN.NPF,6284,40.62,1,won,U,59,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1498,nagaland,2008,8,WESTERN ANGAMI,ACHUBU,parties.IN.INC,4854,31.37,2,lost,U,53,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1498,nagaland,2008,8,WESTERN ANGAMI,ASU KEYHO,parties.IN.IND,3990,25.79,3,lost,U,43,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1498,nagaland,2008,8,WESTERN ANGAMI,KELHUZHATO NAKHRO,parties.IN.LJP,343,2.22,4,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1459,nagaland,2008,9,KOHIMA TOWN,DR. NEIKIESALIE NICKY KIRE,parties.IN.NPF,16197,58.09,1,won,U,56,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1459,nagaland,2008,9,KOHIMA TOWN,Z. OBED SOLO,parties.IN.INC,9094,32.61,2,lost,U,73,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1459,nagaland,2008,9,KOHIMA TOWN,R. SOPU ANGAMI,parties.IN.BJP,2482,8.9,3,forfeit,U,67,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1459,nagaland,2008,9,KOHIMA TOWN,SABU SOTE,parties.IN.JDU,111,0.4,4,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-eci10,nagaland,2008,10,NORTHERN ANGAMI-I,SHURHOZELIE,parties.IN.NPF,6229,37.5,1,won,U,71,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-eci10,nagaland,2008,10,NORTHERN ANGAMI-I,PRASIELIE PIENYU,parties.IN.IND,5256,31.64,2,lost,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-eci10,nagaland,2008,10,NORTHERN ANGAMI-I,SEYIEKUOLIE,parties.IN.INC,5126,30.86,3,lost,U,52,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1471,nagaland,2008,11,NORTHERN ANGAMI-II,NEIPHIU RIO,parties.IN.NPF,13641,82.57,1,won,U,57,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1471,nagaland,2008,11,NORTHERN ANGAMI-II,SEVETSO,parties.IN.INC,2880,17.43,2,lost,U,57,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1492,nagaland,2008,12,TSEMINYU,R. KHING,parties.IN.NPF,8216,33.71,1,won,U,58,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1492,nagaland,2008,12,TSEMINYU,ER. LEVI RENGMA,parties.IN.IND,8150,33.44,2,lost,U,50,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1492,nagaland,2008,12,TSEMINYU,NILLO,parties.IN.INC,8006,32.85,3,lost,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1476,nagaland,2008,13,PUGHOBOTO,JOSHUA,parties.IN.INC,6853,44.24,1,won,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1476,nagaland,2008,13,PUGHOBOTO,Y. VIKHEHO SWU,parties.IN.NPF,6421,41.46,2,lost,U,41,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1476,nagaland,2008,13,PUGHOBOTO,HUSKA SUMI,parties.IN.IND,2215,14.3,3,forfeit,U,61,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1482,nagaland,2008,14,SOUTHERN ANGAMI-I,VIKHO-O YHOSHU,parties.IN.NPF,6774,57.5,1,won,U,56,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1482,nagaland,2008,14,SOUTHERN ANGAMI-I,MEDOKUL,parties.IN.INC,5006,42.5,2,lost,U,42,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1483,nagaland,2008,15,SOUTHERN ANGAMI-II,K.V. PUSA,parties.IN.INC,5116,37.47,1,won,U,60,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1483,nagaland,2008,15,SOUTHERN ANGAMI-II,DR. ATHA VIZOL,parties.IN.NPF,4598,33.68,2,lost,U,51,Graduate Professional,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1483,nagaland,2008,15,SOUTHERN ANGAMI-II,SWEDEHOL SALE,parties.IN.IND,3939,28.85,3,lost,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1473,nagaland,2008,16,PFUTSERO,NEIBA,parties.IN.NPF,10574,50.43,1,won,U,41,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1473,nagaland,2008,16,PFUTSERO,KEWEKHAPE THERIE,parties.IN.INC,9453,45.08,2,lost,U,54,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1473,nagaland,2008,16,PFUTSERO,PFUCHUKHA LASUSHE,parties.IN.RJD,942,4.49,3,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1451,nagaland,2008,17,CHIZAMI,DEO NUKHU,parties.IN.INC,8117,39.16,1,won,U,56,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1451,nagaland,2008,17,CHIZAMI,KEWEZU,parties.IN.NPF,7942,38.31,2,lost,U,47,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1451,nagaland,2008,17,CHIZAMI,KEVECHUTSO,parties.IN.IND,4671,22.53,3,lost,U,38,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1450,nagaland,2008,18,CHAZOUBA,CHOTISUH SAZO,parties.IN.IND,8754,37.56,1,won,U,46,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1450,nagaland,2008,18,CHAZOUBA,VAPRUMU DEMO,parties.IN.INC,7402,31.76,2,lost,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1450,nagaland,2008,18,CHAZOUBA,THENUCHO,parties.IN.NPF,7152,30.68,3,lost,U,55,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1474,nagaland,2008,19,PHEK,KUZHOLUZO,parties.IN.NPF,10919,55.43,1,won,U,43,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1474,nagaland,2008,19,PHEK,DEZOTO RHAKHO,parties.IN.RJD,4643,23.57,2,lost,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1474,nagaland,2008,19,PHEK,KUVEZOCHI,parties.IN.INC,4138,21.01,3,lost,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1463,nagaland,2008,20,MELURI,YITACHU,parties.IN.NPF,11121,57.5,1,won,U,41,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1463,nagaland,2008,20,MELURI,PENTHU,parties.IN.INC,8184,42.31,2,lost,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1463,nagaland,2008,20,MELURI,ZUTSEPA KATIRY,parties.IN.JDS,36,0.19,3,forfeit,U,55,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1495,nagaland,2008,21,TULI,L. TEMJEN JAMIR,parties.IN.NPF,4411,28.45,1,won,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1495,nagaland,2008,21,TULI,T. TALI,parties.IN.IND,4231,27.29,2,lost,U,66,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1495,nagaland,2008,21,TULI,IMTIWAPANG,parties.IN.INC,3531,22.77,3,lost,U,53,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1495,nagaland,2008,21,TULI,N.I. WATI,parties.IN.RJD,3332,21.49,4,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1447,nagaland,2008,22,ARKAKONG,NUKLUTOSHI,parties.IN.NPF,9035,45.4,1,won,U,43,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1447,nagaland,2008,22,ARKAKONG,TAKATIBA MASA AO,parties.IN.INC,8455,42.49,2,lost,U,43,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1447,nagaland,2008,22,ARKAKONG,O. LANUTOSHI AO,parties.IN.IND,2411,12.11,3,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1457,nagaland,2008,23,IMPUR,NUNGSANGYAPANG,parties.IN.INC,10373,61.42,1,won,U,52,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1457,nagaland,2008,23,IMPUR,T.N. MANNEN,parties.IN.RJD,6184,36.61,2,lost,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1457,nagaland,2008,23,IMPUR,AKANG,parties.IN.NPF,333,1.97,3,forfeit,U,68,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1445,nagaland,2008,24,ANGETYONGPANG,T. SENTICHUBA,parties.IN.INC,8304,53.46,1,won,U,73,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1445,nagaland,2008,24,ANGETYONGPANG,JONGSHILEMBA,parties.IN.RJD,7069,45.51,2,lost,U,55,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1445,nagaland,2008,24,ANGETYONGPANG,SUPONGWATI,parties.IN.BJP,160,1.03,3,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1467,nagaland,2008,25,MONGOYA,DR. NGANGSHI K. AO,parties.IN.IND,7325,53.14,1,won,U,66,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1467,nagaland,2008,25,MONGOYA,SUPONGMEREN,parties.IN.INC,4291,31.13,2,lost,U,48,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1467,nagaland,2008,25,MONGOYA,AOCHUBA,parties.IN.NPF,2081,15.1,3,forfeit,U,63,Graduate Professional,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1467,nagaland,2008,25,MONGOYA,TAKUSUNGBA,parties.IN.BJP,88,0.64,4,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1446,nagaland,2008,26,AONGLENDEN,NUNGSHIZENBA,parties.IN.INC,4380,47.01,1,won,U,71,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1446,nagaland,2008,26,AONGLENDEN,IMTIKUMZUK,parties.IN.IND,2841,30.49,2,lost,U,39,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1446,nagaland,2008,26,AONGLENDEN,TOSHIPOKBA,parties.IN.NPF,2096,22.5,3,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-eci27,nagaland,2008,27,MOKOKCHUNG TOWN,C. APOK JAMIR,parties.IN.INC,2085,42.94,1,won,U,45,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-eci27,nagaland,2008,27,MOKOKCHUNG TOWN,AOLEPDEN,parties.IN.IND,1459,30.05,2,lost,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-eci27,nagaland,2008,27,MOKOKCHUNG TOWN,NOKZENKETBA,parties.IN.NPF,1312,27.02,3,lost,U,59,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1460,nagaland,2008,28,KORIDANG,IMKONG L. IMCHEN,parties.IN.NPF,10144,52,1,won,U,58,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1460,nagaland,2008,28,KORIDANG,T. CHENUNG LONGCHAR,parties.IN.IND,8947,45.87,2,lost,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1460,nagaland,2008,28,KORIDANG,S. MOA IMCHEN,parties.IN.INC,415,2.13,3,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1458,nagaland,2008,29,JANGPETKONG,I. IMKONG,parties.IN.INC,7721,58.8,1,won,U,66,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1458,nagaland,2008,29,JANGPETKONG,LONGRINEKEN,parties.IN.NPF,5410,41.2,2,lost,U,40,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1444,nagaland,2008,30,ALONGTAKI,SAKUSANGBA,parties.IN.NPF,9521,59.75,1,won,U,71,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1444,nagaland,2008,30,ALONGTAKI,TIAMEREN AIER,parties.IN.INC,5637,35.37,2,lost,U,71,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1444,nagaland,2008,30,ALONGTAKI,MERENCHIBA,parties.IN.BJP,467,2.93,3,forfeit,U,41,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1444,nagaland,2008,30,ALONGTAKI,ROSE MARY JAMIR,parties.IN.IND,220,1.38,4,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1444,nagaland,2008,30,ALONGTAKI,IMLITEMSU,parties.IN.NCP,91,0.57,5,forfeit,U,60,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1443,nagaland,2008,31,AKULUTO,KHETO,parties.IN.INC,7100,64.63,1,won,U,56,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1443,nagaland,2008,31,AKULUTO,KHETOHO,parties.IN.NPF,3885,35.37,2,lost,U,53,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1448,nagaland,2008,32,ATOIZU,DOSHEHE Y. SEMA,parties.IN.NPF,8188,51.79,1,won,U,51,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1448,nagaland,2008,32,ATOIZU,MGHATO ACHUMI,parties.IN.INC,7622,48.21,2,lost,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1484,nagaland,2008,33,SURUHOTO,SHETOYI,parties.IN.IND,7053,52.83,1,won,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1484,nagaland,2008,33,SURUHOTO,KHUTOVI,parties.IN.INC,6257,46.87,2,lost,U,63,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1484,nagaland,2008,33,SURUHOTO,HOKHETO,parties.IN.RJD,40,0.3,3,forfeit,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1442,nagaland,2008,34,AGHUNATO,TOKHEHO,parties.IN.INC,6997,52.93,1,won,U,51,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1442,nagaland,2008,34,AGHUNATO,PUKHAYI,parties.IN.NPF,6223,47.07,2,lost,U,62,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1500,nagaland,2008,35,ZUNHEBOTO,DR. K.C. NIHOSHE,parties.IN.IND,9592,52.1,1,won,U,57,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1500,nagaland,2008,35,ZUNHEBOTO,S. HUKAVI ZHIMOMI,parties.IN.INC,8403,45.65,2,lost,U,47,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1500,nagaland,2008,35,ZUNHEBOTO,KHUVISHE,parties.IN.BJP,414,2.25,3,forfeit,U,59,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1479,nagaland,2008,36,SATAKHA,G. KAITO,parties.IN.NPF,7621,56.33,1,won,U,59,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1479,nagaland,2008,36,SATAKHA,INAVI,parties.IN.INC,5909,43.67,2,lost,U,45,Post Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1496,nagaland,2008,37,TYUI,YANTHUNGO,parties.IN.BJP,6172,30.72,1,won,U,51,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1496,nagaland,2008,37,TYUI,YANKITHUNG YANTHAN,parties.IN.INC,5335,26.56,2,lost,U,51,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1496,nagaland,2008,37,TYUI,T.A. NGULLIE,,2565,12.77,3,forfeit,U,75,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1496,nagaland,2008,37,TYUI,Y.Y. KIKON,parties.IN.NCP,2026,10.08,4,forfeit,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1496,nagaland,2008,37,TYUI,DR. PHYOBEMO NGULLY,parties.IN.IND,1800,8.96,5,forfeit,U,51,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1496,nagaland,2008,37,TYUI,PINYIMTHUNG LOTHA,parties.IN.NPF,998,4.97,6,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1496,nagaland,2008,37,TYUI,SENCHUMO,parties.IN.IND,974,4.85,7,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1496,nagaland,2008,37,TYUI,P. YIBEMO KIKON,parties.IN.RJD,220,1.1,8,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1499,nagaland,2008,38,WOKHA,DR. CHUMBEN MURRY,parties.IN.NCP,14181,42.45,1,won,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1499,nagaland,2008,38,WOKHA,DR. T.M. LOTHA,parties.IN.BJP,8270,24.76,2,lost,U,55,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1499,nagaland,2008,38,WOKHA,MHAO HUMTSOE,parties.IN.INC,6683,20.01,3,lost,U,61,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1499,nagaland,2008,38,WOKHA,A. YENTSAO ODYUO,parties.IN.NPF,3697,11.07,4,forfeit,U,68,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1499,nagaland,2008,38,WOKHA,KHYOTHUNGO K. OVUNG,parties.IN.RJD,574,1.72,5,forfeit,U,68,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1478,nagaland,2008,39,SANIS,RALANTHUNG,parties.IN.NPF,5114,22.75,1,won,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1478,nagaland,2008,39,SANIS,T.L. MERRY,parties.IN.BJP,4037,17.96,2,lost,U,51,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1478,nagaland,2008,39,SANIS,Y. SULANTHUNG H. LOTHA,parties.IN.NCP,3979,17.7,3,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1478,nagaland,2008,39,SANIS,NKHAO LOTHA,parties.IN.RJD,3507,15.6,4,forfeit,U,65,8th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1478,nagaland,2008,39,SANIS,Y. EKYIMO KIKON,parties.IN.IND,2611,11.62,5,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1478,nagaland,2008,39,SANIS,N. THOMAS LOTHA,parties.IN.INC,2321,10.33,6,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1478,nagaland,2008,39,SANIS,ER. SENKATHUNG JAMI,parties.IN.IND,906,4.03,7,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1449,nagaland,2008,40,BHANDARI,WOCHUMO KITHAN,parties.IN.NPF,6059,25.91,1,won,U,63,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1449,nagaland,2008,40,BHANDARI,MMHONLUMO KIKON,parties.IN.NCP,4301,18.4,2,lost,U,30,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1449,nagaland,2008,40,BHANDARI,YIPHYOLUMO LOTHA MOZHUI,parties.IN.RJD,3097,13.25,3,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1449,nagaland,2008,40,BHANDARI,MHONJAN LOTHA,parties.IN.JDU,2912,12.45,4,forfeit,U,45,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1449,nagaland,2008,40,BHANDARI,ACHUMBEMO KIKON,parties.IN.LJP,2244,9.6,5,forfeit,U,32,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1449,nagaland,2008,40,BHANDARI,C. KIKON,parties.IN.BJP,2115,9.05,6,forfeit,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1449,nagaland,2008,40,BHANDARI,E.T. EZUNG,parties.IN.INC,1987,8.5,7,forfeit,U,59,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1449,nagaland,2008,40,BHANDARI,E. ZACHAMO LOTHA,parties.IN.IND,666,2.85,8,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1490,nagaland,2008,41,TIZIT,ALOH,parties.IN.INC,8463,50.12,1,won,U,56,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1490,nagaland,2008,41,TIZIT,TINGKUP,parties.IN.NPF,6284,37.22,2,lost,U,51,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1490,nagaland,2008,41,TIZIT,YEANGPHONG,parties.IN.RJD,1981,11.73,3,forfeit,U,61,5th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1490,nagaland,2008,41,TIZIT,KHONGWANG,parties.IN.BJP,156,0.92,4,forfeit,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1497,nagaland,2008,42,WAKCHING,M.C. KONYAK,parties.IN.BJP,7476,38.88,1,won,U,55,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1497,nagaland,2008,42,WAKCHING,YONA,parties.IN.INC,6213,32.31,2,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1497,nagaland,2008,42,WAKCHING,P. ENYEI,parties.IN.RJD,5539,28.81,3,lost,U,65,Others,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1486,nagaland,2008,43,TAPI,LANPHA,parties.IN.INC,6941,53.81,1,won,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1486,nagaland,2008,43,TAPI,NOKE,parties.IN.NPF,5957,46.19,2,lost,U,76,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1475,nagaland,2008,44,PHOMCHING,KONGAM,parties.IN.INC,8802,48.28,1,won,U,56,8th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1475,nagaland,2008,44,PHOMCHING,POHWANG,parties.IN.BJP,7773,42.63,2,lost,U,71,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1475,nagaland,2008,44,PHOMCHING,WANGPAI,parties.IN.NPF,1285,7.05,3,forfeit,U,48,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1475,nagaland,2008,44,PHOMCHING,LEIYANG,parties.IN.LJP,373,2.05,4,forfeit,U,39,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1487,nagaland,2008,45,TEHOK,C.L. JOHN,parties.IN.NPF,7829,53.29,1,won,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1487,nagaland,2008,45,TEHOK,SHABOH,parties.IN.INC,6426,43.74,2,lost,U,39,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1487,nagaland,2008,45,TEHOK,CHENNYEM,parties.IN.RJD,356,2.42,3,forfeit,U,48,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1487,nagaland,2008,45,TEHOK,THRONWA,parties.IN.APP,81,0.55,4,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1466,nagaland,2008,46,MON TOWN,CHINGWANG,parties.IN.INC,10316,58,1,won,U,64,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1466,nagaland,2008,46,MON TOWN,N. THONGWANG,parties.IN.NPF,7136,40.12,2,lost,U,48,8th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1466,nagaland,2008,46,MON TOWN,PHONGNYEI,parties.IN.RJD,333,1.87,3,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1441,nagaland,2008,47,ABOI,NYEIWANG,parties.IN.NPF,5415,51.83,1,won,U,56,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1441,nagaland,2008,47,ABOI,ESHAK,parties.IN.RJD,4799,45.94,2,lost,U,43,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1441,nagaland,2008,47,ABOI,B.P. HANGHU,parties.IN.INC,233,2.23,3,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1464,nagaland,2008,48,MOKA,E.E. PANGTEANG,parties.IN.NPF,8256,52.97,1,won,U,57,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1464,nagaland,2008,48,MOKA,A. NYIAMNYEI,parties.IN.INC,6190,39.72,2,lost,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1464,nagaland,2008,48,MOKA,K. KIKO,parties.IN.BJP,1139,7.31,3,forfeit,U,66,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1485,nagaland,2008,49,TAMLU,P. DAKO PHOM,parties.IN.IND,17860,53.53,1,won,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1485,nagaland,2008,49,TAMLU,B.S. NGANLANG,parties.IN.INC,12932,38.76,2,lost,U,36,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1485,nagaland,2008,49,TAMLU,NYEMLI,parties.IN.NPF,1675,5.02,3,forfeit,U,53,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1485,nagaland,2008,49,TAMLU,M. MANOHM,parties.IN.RJD,898,2.69,4,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1462,nagaland,2008,50,LONGLENG,S. PANGNYU PHOM,parties.IN.NCP,13535,36.84,1,won,U,44,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1462,nagaland,2008,50,LONGLENG,ER.T.L. SEMDOK,parties.IN.RJD,11309,30.78,2,lost,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1462,nagaland,2008,50,LONGLENG,SHAMI ANGH,parties.IN.INC,4346,11.83,3,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1462,nagaland,2008,50,LONGLENG,S. BUKCHEM,parties.IN.IND,3601,9.8,4,forfeit,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1462,nagaland,2008,50,LONGLENG,M. CHENLOM,parties.IN.NPF,1732,4.71,5,forfeit,U,59,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1462,nagaland,2008,50,LONGLENG,PUKYONG,parties.IN.JDS,1448,3.94,6,forfeit,U,46,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1462,nagaland,2008,50,LONGLENG,Y.B. ANGAM,parties.IN.BJP,766,2.09,7,forfeit,U,61,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1469,nagaland,2008,51,NOKSEN,H. CHUBA,parties.IN.INC,2988,32.55,1,won,U,56,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1469,nagaland,2008,51,NOKSEN,C.M. CHANG,parties.IN.NPF,2905,31.64,2,lost,U,59,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1469,nagaland,2008,51,NOKSEN,CHANGLEMBA,parties.IN.RJD,1741,18.97,3,lost,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1469,nagaland,2008,51,NOKSEN,Y. LIMA,parties.IN.BJP,1546,16.84,4,lost,U,33,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1461,nagaland,2008,52,LONGKHIM CHARE,S.K. SANGTAM,parties.IN.INC,7437,38.57,1,won,U,59,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1461,nagaland,2008,52,LONGKHIM CHARE,IMTILEMBA SANGTAM,parties.IN.BJP,6474,33.57,2,lost,U,56,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1461,nagaland,2008,52,LONGKHIM CHARE,L.T. SANGTAM,parties.IN.NPF,5012,25.99,3,lost,U,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1461,nagaland,2008,52,LONGKHIM CHARE,HOTONGSE,parties.IN.IND,361,1.87,4,forfeit,U,49,Illiterate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1494,nagaland,2008,53,TUENSANG SADAR-I,P. CHUBA,parties.IN.INC,9230,56.22,1,won,U,44,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1494,nagaland,2008,53,TUENSANG SADAR-I,NUNGSANGLEMBA CHANG,parties.IN.BJP,4078,24.84,2,lost,U,49,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1494,nagaland,2008,53,TUENSANG SADAR-I,L. ELAM,parties.IN.NPF,3110,18.94,3,lost,U,40,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-eci54,nagaland,2008,54,TUENSANG SADAR-II,KEJONG,parties.IN.INC,7628,43.58,1,won,U,72,8th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-eci54,nagaland,2008,54,TUENSANG SADAR-II,RHAKILA,parties.IN.NCP,7275,41.56,2,lost,U,70,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-eci54,nagaland,2008,54,TUENSANG SADAR-II,K. IMLONG,parties.IN.NPF,1855,10.6,3,forfeit,U,56,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-eci54,nagaland,2008,54,TUENSANG SADAR-II,N. KAIMANG,parties.IN.RJD,705,4.03,4,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-eci54,nagaland,2008,54,TUENSANG SADAR-II,WONGTO,parties.IN.BJP,42,0.24,5,forfeit,U,36,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1491,nagaland,2008,55,TOBU,NAIBA,parties.IN.NPF,10017,58.26,1,won,U,43,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1491,nagaland,2008,55,TOBU,BONGKHAO,parties.IN.INC,7176,41.74,2,lost,U,31,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1468,nagaland,2008,56,NOKLAK,P. LONGON,parties.IN.NPF,7939,60.18,1,won,U,41,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1468,nagaland,2008,56,NOKLAK,SEDEM,parties.IN.INC,2167,16.43,2,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1468,nagaland,2008,56,NOKLAK,HAIYENG,parties.IN.RJD,1727,13.09,3,forfeit,U,41,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1468,nagaland,2008,56,NOKLAK,NGON,parties.IN.BJP,1148,8.7,4,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1468,nagaland,2008,56,NOKLAK,KHAOSHAI,parties.IN.IND,210,1.59,5,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,S. HENO,parties.IN.NPF,5600,34.58,1,won,U,61,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,PONGON,parties.IN.IND,3432,21.19,2,lost,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,P.K.F. TOCHU,parties.IN.IND,2791,17.23,3,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,KHONGO,parties.IN.RJD,1609,9.93,4,forfeit,U,54,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,DR.N.L. AIMONG,parties.IN.JDS,1535,9.48,5,forfeit,U,44,Doctorate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,KHONOU,parties.IN.INC,666,4.11,6,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,CHINGKONG,parties.IN.BJP,536,3.31,7,forfeit,U,78,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,T.K. MEYO,,18,0.11,8,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,PUSHOU,parties.IN.NCP,9,0.06,9,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1481,nagaland,2008,58,SHAMATOR CHESSORE,R. TOHANBA,parties.IN.NPF,9315,48.54,1,won,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1481,nagaland,2008,58,SHAMATOR CHESSORE,K. YAMUKAM,parties.IN.INC,6922,36.07,2,lost,U,77,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1481,nagaland,2008,58,SHAMATOR CHESSORE,M. ROKKIMONG,parties.IN.BJP,2301,11.99,3,forfeit,U,69,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1481,nagaland,2008,58,SHAMATOR CHESSORE,THONGTHONG,parties.IN.JDS,652,3.4,4,forfeit,U,67,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1480,nagaland,2008,59,SEYOCHUNG SITIMI,C. KIPILI SANGTAM,parties.IN.IND,8054,38.18,1,won,U,51,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1480,nagaland,2008,59,SEYOCHUNG SITIMI,SETHRICHO SHIHOTE,parties.IN.INC,6754,32.02,2,lost,U,54,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1480,nagaland,2008,59,SEYOCHUNG SITIMI,L. TSANIO SANGTAM,parties.IN.NPF,3343,15.85,3,forfeit,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1480,nagaland,2008,59,SEYOCHUNG SITIMI,KIHETO,parties.IN.BJP,2474,11.73,4,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1480,nagaland,2008,59,SEYOCHUNG SITIMI,CHOTHRONGBA,parties.IN.IND,271,1.28,5,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1480,nagaland,2008,59,SEYOCHUNG SITIMI,T. THSAPONGKYU SANGTAM,parties.IN.RJD,200,0.95,6,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1477,nagaland,2008,60,PUNGRO KIPHIRE,TORECHU,parties.IN.NPF,13275,49.56,1,won,U,60,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1477,nagaland,2008,60,PUNGRO KIPHIRE,R.L. AKAMBA,parties.IN.INC,9308,34.75,2,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1477,nagaland,2008,60,PUNGRO KIPHIRE,R. TSAPIKIU SANGTAM,parties.IN.RJD,3691,13.78,3,forfeit,U,47,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1477,nagaland,2008,60,PUNGRO KIPHIRE,SOLY,parties.IN.BJP,513,1.92,4,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-nagaland-eci1,nagaland,2008,1,DIMAPUR-I,K.L. CHISHI,parties.IN.INC,INC,8700,60.16,1,won,U,65,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci1,nagaland,2008,1,DIMAPUR-I,ATOMI,parties.IN.NPF,NPF,4774,33.01,2,lost,U,31,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci1,nagaland,2008,1,DIMAPUR-I,R.S. SANGTAM,parties.IN.IND,IND,768,5.31,3,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci1,nagaland,2008,1,DIMAPUR-I,ZENEISELE,parties.IN.JDU,JD(U),220,1.52,4,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1453,nagaland,2008,2,DIMAPUR-II,S.I. JAMIR,parties.IN.INC,INC,17954,54.16,1,won,U,70,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1453,nagaland,2008,2,DIMAPUR-II,SAVI LIEGISE,parties.IN.NPF,NPF,15195,45.84,2,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1454,nagaland,2008,3,DIMAPUR-III,AZHETO ZHIMOMI,parties.IN.INC,INC,7874,50.16,1,won,U,58,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1454,nagaland,2008,3,DIMAPUR-III,L. INAZHE SEMA,parties.IN.RJD,RJD,4871,31.03,2,lost,U,47,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1454,nagaland,2008,3,DIMAPUR-III,V. ABU METHA,parties.IN.NPF,NPF,2784,17.73,3,lost,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1454,nagaland,2008,3,DIMAPUR-III,AKHEI ACHUMI,parties.IN.IND,IND,170,1.08,4,forfeit,U,68,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1455,nagaland,2008,4,GHASPANI-I,Y. HEWOTO AWOMI,parties.IN.INC,INC,17646,36.58,1,won,U,55,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1455,nagaland,2008,4,GHASPANI-I,KHEKIHO ZHIMOMI,parties.IN.NPF,NPF,16132,33.45,2,lost,U,68,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1455,nagaland,2008,4,GHASPANI-I,DR. KAKHETO ZHIMOMI,parties.IN.IND,IND,14456,29.97,3,lost,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1456,nagaland,2008,5,GHASPANI-II,K. HOLLOHON,parties.IN.IND,IND,8312,35.61,1,won,U,75,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1456,nagaland,2008,5,GHASPANI-II,ROKONICHA,parties.IN.NPF,NPF,6661,28.54,2,lost,U,63,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1456,nagaland,2008,5,GHASPANI-II,KIKHEHO SEMA,parties.IN.RJD,RJD,4931,21.12,3,lost,U,63,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1456,nagaland,2008,5,GHASPANI-II,MIATHOU,parties.IN.INC,INC,3439,14.73,4,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1488,nagaland,2008,6,TENNING,TARIE,parties.IN.INC,INC,15234,59.61,1,won,U,45,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1488,nagaland,2008,6,TENNING,K. SAMUEL MEDALIANG,parties.IN.NPF,NPF,10323,40.39,2,lost,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1472,nagaland,2008,7,PEREN,T.R. ZELIANG,parties.IN.NPF,NPF,14959,57.45,1,won,U,50,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1472,nagaland,2008,7,PEREN,VATSU MERU,parties.IN.INC,INC,11080,42.55,2,lost,U,49,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1498,nagaland,2008,8,WESTERN ANGAMI,KIYANILIE PESEYIE,parties.IN.NPF,NPF,6284,40.62,1,won,U,59,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1498,nagaland,2008,8,WESTERN ANGAMI,ACHUBU,parties.IN.INC,INC,4854,31.37,2,lost,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1498,nagaland,2008,8,WESTERN ANGAMI,ASU KEYHO,parties.IN.IND,IND,3990,25.79,3,lost,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1498,nagaland,2008,8,WESTERN ANGAMI,KELHUZHATO NAKHRO,parties.IN.LJP,LJP,343,2.22,4,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1459,nagaland,2008,9,KOHIMA TOWN,DR. NEIKIESALIE NICKY KIRE,parties.IN.NPF,NPF,16197,58.09,1,won,U,56,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1459,nagaland,2008,9,KOHIMA TOWN,Z. OBED SOLO,parties.IN.INC,INC,9094,32.61,2,lost,U,73,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1459,nagaland,2008,9,KOHIMA TOWN,R. SOPU ANGAMI,parties.IN.BJP,BJP,2482,8.9,3,forfeit,U,67,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1459,nagaland,2008,9,KOHIMA TOWN,SABU SOTE,parties.IN.JDU,JD(U),111,0.4,4,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci10,nagaland,2008,10,NORTHERN ANGAMI-I,SHURHOZELIE,parties.IN.NPF,NPF,6229,37.5,1,won,U,71,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci10,nagaland,2008,10,NORTHERN ANGAMI-I,PRASIELIE PIENYU,parties.IN.IND,IND,5256,31.64,2,lost,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci10,nagaland,2008,10,NORTHERN ANGAMI-I,SEYIEKUOLIE,parties.IN.INC,INC,5126,30.86,3,lost,U,52,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1471,nagaland,2008,11,NORTHERN ANGAMI-II,NEIPHIU RIO,parties.IN.NPF,NPF,13641,82.57,1,won,U,57,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1471,nagaland,2008,11,NORTHERN ANGAMI-II,SEVETSO,parties.IN.INC,INC,2880,17.43,2,lost,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1492,nagaland,2008,12,TSEMINYU,R. KHING,parties.IN.NPF,NPF,8216,33.71,1,won,U,58,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1492,nagaland,2008,12,TSEMINYU,ER. LEVI RENGMA,parties.IN.IND,IND,8150,33.44,2,lost,U,50,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1492,nagaland,2008,12,TSEMINYU,NILLO,parties.IN.INC,INC,8006,32.85,3,lost,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1476,nagaland,2008,13,PUGHOBOTO,JOSHUA,parties.IN.INC,INC,6853,44.24,1,won,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1476,nagaland,2008,13,PUGHOBOTO,Y. VIKHEHO SWU,parties.IN.NPF,NPF,6421,41.46,2,lost,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1476,nagaland,2008,13,PUGHOBOTO,HUSKA SUMI,parties.IN.IND,IND,2215,14.3,3,forfeit,U,61,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1482,nagaland,2008,14,SOUTHERN ANGAMI-I,VIKHO-O YHOSHU,parties.IN.NPF,NPF,6774,57.5,1,won,U,56,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1482,nagaland,2008,14,SOUTHERN ANGAMI-I,MEDOKUL,parties.IN.INC,INC,5006,42.5,2,lost,U,42,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1483,nagaland,2008,15,SOUTHERN ANGAMI-II,K.V. PUSA,parties.IN.INC,INC,5116,37.47,1,won,U,60,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1483,nagaland,2008,15,SOUTHERN ANGAMI-II,DR. ATHA VIZOL,parties.IN.NPF,NPF,4598,33.68,2,lost,U,51,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1483,nagaland,2008,15,SOUTHERN ANGAMI-II,SWEDEHOL SALE,parties.IN.IND,IND,3939,28.85,3,lost,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1473,nagaland,2008,16,PFUTSERO,NEIBA,parties.IN.NPF,NPF,10574,50.43,1,won,U,41,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1473,nagaland,2008,16,PFUTSERO,KEWEKHAPE THERIE,parties.IN.INC,INC,9453,45.08,2,lost,U,54,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1473,nagaland,2008,16,PFUTSERO,PFUCHUKHA LASUSHE,parties.IN.RJD,RJD,942,4.49,3,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1451,nagaland,2008,17,CHIZAMI,DEO NUKHU,parties.IN.INC,INC,8117,39.16,1,won,U,56,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1451,nagaland,2008,17,CHIZAMI,KEWEZU,parties.IN.NPF,NPF,7942,38.31,2,lost,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1451,nagaland,2008,17,CHIZAMI,KEVECHUTSO,parties.IN.IND,IND,4671,22.53,3,lost,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1450,nagaland,2008,18,CHAZOUBA,CHOTISUH SAZO,parties.IN.IND,IND,8754,37.56,1,won,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1450,nagaland,2008,18,CHAZOUBA,VAPRUMU DEMO,parties.IN.INC,INC,7402,31.76,2,lost,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1450,nagaland,2008,18,CHAZOUBA,THENUCHO,parties.IN.NPF,NPF,7152,30.68,3,lost,U,55,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1474,nagaland,2008,19,PHEK,KUZHOLUZO,parties.IN.NPF,NPF,10919,55.43,1,won,U,43,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1474,nagaland,2008,19,PHEK,DEZOTO RHAKHO,parties.IN.RJD,RJD,4643,23.57,2,lost,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1474,nagaland,2008,19,PHEK,KUVEZOCHI,parties.IN.INC,INC,4138,21.01,3,lost,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1463,nagaland,2008,20,MELURI,YITACHU,parties.IN.NPF,NPF,11121,57.5,1,won,U,41,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1463,nagaland,2008,20,MELURI,PENTHU,parties.IN.INC,INC,8184,42.31,2,lost,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1463,nagaland,2008,20,MELURI,ZUTSEPA KATIRY,parties.IN.JDS,JD(S),36,0.19,3,forfeit,U,55,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1495,nagaland,2008,21,TULI,L. TEMJEN JAMIR,parties.IN.NPF,NPF,4411,28.45,1,won,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1495,nagaland,2008,21,TULI,T. TALI,parties.IN.IND,IND,4231,27.29,2,lost,U,66,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1495,nagaland,2008,21,TULI,IMTIWAPANG,parties.IN.INC,INC,3531,22.77,3,lost,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1495,nagaland,2008,21,TULI,N.I. WATI,parties.IN.RJD,RJD,3332,21.49,4,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1447,nagaland,2008,22,ARKAKONG,NUKLUTOSHI,parties.IN.NPF,NPF,9035,45.4,1,won,U,43,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1447,nagaland,2008,22,ARKAKONG,TAKATIBA MASA AO,parties.IN.INC,INC,8455,42.49,2,lost,U,43,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1447,nagaland,2008,22,ARKAKONG,O. LANUTOSHI AO,parties.IN.IND,IND,2411,12.11,3,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1457,nagaland,2008,23,IMPUR,NUNGSANGYAPANG,parties.IN.INC,INC,10373,61.42,1,won,U,52,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1457,nagaland,2008,23,IMPUR,T.N. MANNEN,parties.IN.RJD,RJD,6184,36.61,2,lost,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1457,nagaland,2008,23,IMPUR,AKANG,parties.IN.NPF,NPF,333,1.97,3,forfeit,U,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1445,nagaland,2008,24,ANGETYONGPANG,T. SENTICHUBA,parties.IN.INC,INC,8304,53.46,1,won,U,73,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1445,nagaland,2008,24,ANGETYONGPANG,JONGSHILEMBA,parties.IN.RJD,RJD,7069,45.51,2,lost,U,55,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1445,nagaland,2008,24,ANGETYONGPANG,SUPONGWATI,parties.IN.BJP,BJP,160,1.03,3,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1467,nagaland,2008,25,MONGOYA,DR. NGANGSHI K. AO,parties.IN.IND,IND,7325,53.14,1,won,U,66,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1467,nagaland,2008,25,MONGOYA,SUPONGMEREN,parties.IN.INC,INC,4291,31.13,2,lost,U,48,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1467,nagaland,2008,25,MONGOYA,AOCHUBA,parties.IN.NPF,NPF,2081,15.1,3,forfeit,U,63,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1467,nagaland,2008,25,MONGOYA,TAKUSUNGBA,parties.IN.BJP,BJP,88,0.64,4,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1446,nagaland,2008,26,AONGLENDEN,NUNGSHIZENBA,parties.IN.INC,INC,4380,47.01,1,won,U,71,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1446,nagaland,2008,26,AONGLENDEN,IMTIKUMZUK,parties.IN.IND,IND,2841,30.49,2,lost,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1446,nagaland,2008,26,AONGLENDEN,TOSHIPOKBA,parties.IN.NPF,NPF,2096,22.5,3,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci27,nagaland,2008,27,MOKOKCHUNG TOWN,C. APOK JAMIR,parties.IN.INC,INC,2085,42.94,1,won,U,45,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci27,nagaland,2008,27,MOKOKCHUNG TOWN,AOLEPDEN,parties.IN.IND,IND,1459,30.05,2,lost,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci27,nagaland,2008,27,MOKOKCHUNG TOWN,NOKZENKETBA,parties.IN.NPF,NPF,1312,27.02,3,lost,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1460,nagaland,2008,28,KORIDANG,IMKONG L. IMCHEN,parties.IN.NPF,NPF,10144,52,1,won,U,58,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1460,nagaland,2008,28,KORIDANG,T. CHENUNG LONGCHAR,parties.IN.IND,IND,8947,45.87,2,lost,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1460,nagaland,2008,28,KORIDANG,S. MOA IMCHEN,parties.IN.INC,INC,415,2.13,3,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1458,nagaland,2008,29,JANGPETKONG,I. IMKONG,parties.IN.INC,INC,7721,58.8,1,won,U,66,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1458,nagaland,2008,29,JANGPETKONG,LONGRINEKEN,parties.IN.NPF,NPF,5410,41.2,2,lost,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1444,nagaland,2008,30,ALONGTAKI,SAKUSANGBA,parties.IN.NPF,NPF,9521,59.75,1,won,U,71,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1444,nagaland,2008,30,ALONGTAKI,TIAMEREN AIER,parties.IN.INC,INC,5637,35.37,2,lost,U,71,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1444,nagaland,2008,30,ALONGTAKI,MERENCHIBA,parties.IN.BJP,BJP,467,2.93,3,forfeit,U,41,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1444,nagaland,2008,30,ALONGTAKI,ROSE MARY JAMIR,parties.IN.IND,IND,220,1.38,4,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1444,nagaland,2008,30,ALONGTAKI,IMLITEMSU,parties.IN.NCP,NCP,91,0.57,5,forfeit,U,60,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1443,nagaland,2008,31,AKULUTO,KHETO,parties.IN.INC,INC,7100,64.63,1,won,U,56,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1443,nagaland,2008,31,AKULUTO,KHETOHO,parties.IN.NPF,NPF,3885,35.37,2,lost,U,53,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1448,nagaland,2008,32,ATOIZU,DOSHEHE Y. SEMA,parties.IN.NPF,NPF,8188,51.79,1,won,U,51,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1448,nagaland,2008,32,ATOIZU,MGHATO ACHUMI,parties.IN.INC,INC,7622,48.21,2,lost,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1484,nagaland,2008,33,SURUHOTO,SHETOYI,parties.IN.IND,IND,7053,52.83,1,won,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1484,nagaland,2008,33,SURUHOTO,KHUTOVI,parties.IN.INC,INC,6257,46.87,2,lost,U,63,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1484,nagaland,2008,33,SURUHOTO,HOKHETO,parties.IN.RJD,RJD,40,0.3,3,forfeit,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1442,nagaland,2008,34,AGHUNATO,TOKHEHO,parties.IN.INC,INC,6997,52.93,1,won,U,51,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1442,nagaland,2008,34,AGHUNATO,PUKHAYI,parties.IN.NPF,NPF,6223,47.07,2,lost,U,62,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1500,nagaland,2008,35,ZUNHEBOTO,DR. K.C. NIHOSHE,parties.IN.IND,IND,9592,52.1,1,won,U,57,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1500,nagaland,2008,35,ZUNHEBOTO,S. HUKAVI ZHIMOMI,parties.IN.INC,INC,8403,45.65,2,lost,U,47,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1500,nagaland,2008,35,ZUNHEBOTO,KHUVISHE,parties.IN.BJP,BJP,414,2.25,3,forfeit,U,59,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1479,nagaland,2008,36,SATAKHA,G. KAITO,parties.IN.NPF,NPF,7621,56.33,1,won,U,59,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1479,nagaland,2008,36,SATAKHA,INAVI,parties.IN.INC,INC,5909,43.67,2,lost,U,45,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1496,nagaland,2008,37,TYUI,YANTHUNGO,parties.IN.BJP,BJP,6172,30.72,1,won,U,51,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1496,nagaland,2008,37,TYUI,YANKITHUNG YANTHAN,parties.IN.INC,INC,5335,26.56,2,lost,U,51,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1496,nagaland,2008,37,TYUI,T.A. NGULLIE,,UNDP,2565,12.77,3,forfeit,U,75,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1496,nagaland,2008,37,TYUI,Y.Y. KIKON,parties.IN.NCP,NCP,2026,10.08,4,forfeit,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1496,nagaland,2008,37,TYUI,DR. PHYOBEMO NGULLY,parties.IN.IND,IND,1800,8.96,5,forfeit,U,51,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1496,nagaland,2008,37,TYUI,PINYIMTHUNG LOTHA,parties.IN.NPF,NPF,998,4.97,6,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1496,nagaland,2008,37,TYUI,SENCHUMO,parties.IN.IND,IND,974,4.85,7,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1496,nagaland,2008,37,TYUI,P. YIBEMO KIKON,parties.IN.RJD,RJD,220,1.1,8,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1499,nagaland,2008,38,WOKHA,DR. CHUMBEN MURRY,parties.IN.NCP,NCP,14181,42.45,1,won,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1499,nagaland,2008,38,WOKHA,DR. T.M. LOTHA,parties.IN.BJP,BJP,8270,24.76,2,lost,U,55,Graduate Professional,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1499,nagaland,2008,38,WOKHA,MHAO HUMTSOE,parties.IN.INC,INC,6683,20.01,3,lost,U,61,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1499,nagaland,2008,38,WOKHA,A. YENTSAO ODYUO,parties.IN.NPF,NPF,3697,11.07,4,forfeit,U,68,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1499,nagaland,2008,38,WOKHA,KHYOTHUNGO K. OVUNG,parties.IN.RJD,RJD,574,1.72,5,forfeit,U,68,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1478,nagaland,2008,39,SANIS,RALANTHUNG,parties.IN.NPF,NPF,5114,22.75,1,won,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1478,nagaland,2008,39,SANIS,T.L. MERRY,parties.IN.BJP,BJP,4037,17.96,2,lost,U,51,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1478,nagaland,2008,39,SANIS,Y. SULANTHUNG H. LOTHA,parties.IN.NCP,NCP,3979,17.7,3,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1478,nagaland,2008,39,SANIS,NKHAO LOTHA,parties.IN.RJD,RJD,3507,15.6,4,forfeit,U,65,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1478,nagaland,2008,39,SANIS,Y. EKYIMO KIKON,parties.IN.IND,IND,2611,11.62,5,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1478,nagaland,2008,39,SANIS,N. THOMAS LOTHA,parties.IN.INC,INC,2321,10.33,6,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1478,nagaland,2008,39,SANIS,ER. SENKATHUNG JAMI,parties.IN.IND,IND,906,4.03,7,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1449,nagaland,2008,40,BHANDARI,WOCHUMO KITHAN,parties.IN.NPF,NPF,6059,25.91,1,won,U,63,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1449,nagaland,2008,40,BHANDARI,MMHONLUMO KIKON,parties.IN.NCP,NCP,4301,18.4,2,lost,U,30,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1449,nagaland,2008,40,BHANDARI,YIPHYOLUMO LOTHA MOZHUI,parties.IN.RJD,RJD,3097,13.25,3,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1449,nagaland,2008,40,BHANDARI,MHONJAN LOTHA,parties.IN.JDU,JD(U),2912,12.45,4,forfeit,U,45,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1449,nagaland,2008,40,BHANDARI,ACHUMBEMO KIKON,parties.IN.LJP,LJP,2244,9.6,5,forfeit,U,32,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1449,nagaland,2008,40,BHANDARI,C. KIKON,parties.IN.BJP,BJP,2115,9.05,6,forfeit,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1449,nagaland,2008,40,BHANDARI,E.T. EZUNG,parties.IN.INC,INC,1987,8.5,7,forfeit,U,59,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1449,nagaland,2008,40,BHANDARI,E. ZACHAMO LOTHA,parties.IN.IND,IND,666,2.85,8,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1490,nagaland,2008,41,TIZIT,ALOH,parties.IN.INC,INC,8463,50.12,1,won,U,56,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1490,nagaland,2008,41,TIZIT,TINGKUP,parties.IN.NPF,NPF,6284,37.22,2,lost,U,51,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1490,nagaland,2008,41,TIZIT,YEANGPHONG,parties.IN.RJD,RJD,1981,11.73,3,forfeit,U,61,5th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1490,nagaland,2008,41,TIZIT,KHONGWANG,parties.IN.BJP,BJP,156,0.92,4,forfeit,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1497,nagaland,2008,42,WAKCHING,M.C. KONYAK,parties.IN.BJP,BJP,7476,38.88,1,won,U,55,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1497,nagaland,2008,42,WAKCHING,YONA,parties.IN.INC,INC,6213,32.31,2,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1497,nagaland,2008,42,WAKCHING,P. ENYEI,parties.IN.RJD,RJD,5539,28.81,3,lost,U,65,Others,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1486,nagaland,2008,43,TAPI,LANPHA,parties.IN.INC,INC,6941,53.81,1,won,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1486,nagaland,2008,43,TAPI,NOKE,parties.IN.NPF,NPF,5957,46.19,2,lost,U,76,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1475,nagaland,2008,44,PHOMCHING,KONGAM,parties.IN.INC,INC,8802,48.28,1,won,U,56,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1475,nagaland,2008,44,PHOMCHING,POHWANG,parties.IN.BJP,BJP,7773,42.63,2,lost,U,71,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1475,nagaland,2008,44,PHOMCHING,WANGPAI,parties.IN.NPF,NPF,1285,7.05,3,forfeit,U,48,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1475,nagaland,2008,44,PHOMCHING,LEIYANG,parties.IN.LJP,LJP,373,2.05,4,forfeit,U,39,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1487,nagaland,2008,45,TEHOK,C.L. JOHN,parties.IN.NPF,NPF,7829,53.29,1,won,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1487,nagaland,2008,45,TEHOK,SHABOH,parties.IN.INC,INC,6426,43.74,2,lost,U,39,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1487,nagaland,2008,45,TEHOK,CHENNYEM,parties.IN.RJD,RJD,356,2.42,3,forfeit,U,48,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1487,nagaland,2008,45,TEHOK,THRONWA,parties.IN.APP,APP,81,0.55,4,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1466,nagaland,2008,46,MON TOWN,CHINGWANG,parties.IN.INC,INC,10316,58,1,won,U,64,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1466,nagaland,2008,46,MON TOWN,N. THONGWANG,parties.IN.NPF,NPF,7136,40.12,2,lost,U,48,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1466,nagaland,2008,46,MON TOWN,PHONGNYEI,parties.IN.RJD,RJD,333,1.87,3,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1441,nagaland,2008,47,ABOI,NYEIWANG,parties.IN.NPF,NPF,5415,51.83,1,won,U,56,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1441,nagaland,2008,47,ABOI,ESHAK,parties.IN.RJD,RJD,4799,45.94,2,lost,U,43,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1441,nagaland,2008,47,ABOI,B.P. HANGHU,parties.IN.INC,INC,233,2.23,3,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1464,nagaland,2008,48,MOKA,E.E. PANGTEANG,parties.IN.NPF,NPF,8256,52.97,1,won,U,57,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1464,nagaland,2008,48,MOKA,A. NYIAMNYEI,parties.IN.INC,INC,6190,39.72,2,lost,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1464,nagaland,2008,48,MOKA,K. KIKO,parties.IN.BJP,BJP,1139,7.31,3,forfeit,U,66,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1485,nagaland,2008,49,TAMLU,P. DAKO PHOM,parties.IN.IND,IND,17860,53.53,1,won,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1485,nagaland,2008,49,TAMLU,B.S. NGANLANG,parties.IN.INC,INC,12932,38.76,2,lost,U,36,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1485,nagaland,2008,49,TAMLU,NYEMLI,parties.IN.NPF,NPF,1675,5.02,3,forfeit,U,53,12th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1485,nagaland,2008,49,TAMLU,M. MANOHM,parties.IN.RJD,RJD,898,2.69,4,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1462,nagaland,2008,50,LONGLENG,S. PANGNYU PHOM,parties.IN.NCP,NCP,13535,36.84,1,won,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1462,nagaland,2008,50,LONGLENG,ER.T.L. SEMDOK,parties.IN.RJD,RJD,11309,30.78,2,lost,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1462,nagaland,2008,50,LONGLENG,SHAMI ANGH,parties.IN.INC,INC,4346,11.83,3,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1462,nagaland,2008,50,LONGLENG,S. BUKCHEM,parties.IN.IND,IND,3601,9.8,4,forfeit,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1462,nagaland,2008,50,LONGLENG,M. CHENLOM,parties.IN.NPF,NPF,1732,4.71,5,forfeit,U,59,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1462,nagaland,2008,50,LONGLENG,PUKYONG,parties.IN.JDS,JD(S),1448,3.94,6,forfeit,U,46,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1462,nagaland,2008,50,LONGLENG,Y.B. ANGAM,parties.IN.BJP,BJP,766,2.09,7,forfeit,U,61,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1469,nagaland,2008,51,NOKSEN,H. CHUBA,parties.IN.INC,INC,2988,32.55,1,won,U,56,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1469,nagaland,2008,51,NOKSEN,C.M. CHANG,parties.IN.NPF,NPF,2905,31.64,2,lost,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1469,nagaland,2008,51,NOKSEN,CHANGLEMBA,parties.IN.RJD,RJD,1741,18.97,3,lost,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1469,nagaland,2008,51,NOKSEN,Y. LIMA,parties.IN.BJP,BJP,1546,16.84,4,lost,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1461,nagaland,2008,52,LONGKHIM CHARE,S.K. SANGTAM,parties.IN.INC,INC,7437,38.57,1,won,U,59,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1461,nagaland,2008,52,LONGKHIM CHARE,IMTILEMBA SANGTAM,parties.IN.BJP,BJP,6474,33.57,2,lost,U,56,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1461,nagaland,2008,52,LONGKHIM CHARE,L.T. SANGTAM,parties.IN.NPF,NPF,5012,25.99,3,lost,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1461,nagaland,2008,52,LONGKHIM CHARE,HOTONGSE,parties.IN.IND,IND,361,1.87,4,forfeit,U,49,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1494,nagaland,2008,53,TUENSANG SADAR-I,P. CHUBA,parties.IN.INC,INC,9230,56.22,1,won,U,44,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1494,nagaland,2008,53,TUENSANG SADAR-I,NUNGSANGLEMBA CHANG,parties.IN.BJP,BJP,4078,24.84,2,lost,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1494,nagaland,2008,53,TUENSANG SADAR-I,L. ELAM,parties.IN.NPF,NPF,3110,18.94,3,lost,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci54,nagaland,2008,54,TUENSANG SADAR-II,KEJONG,parties.IN.INC,INC,7628,43.58,1,won,U,72,8th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci54,nagaland,2008,54,TUENSANG SADAR-II,RHAKILA,parties.IN.NCP,NCP,7275,41.56,2,lost,U,70,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci54,nagaland,2008,54,TUENSANG SADAR-II,K. IMLONG,parties.IN.NPF,NPF,1855,10.6,3,forfeit,U,56,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci54,nagaland,2008,54,TUENSANG SADAR-II,N. KAIMANG,parties.IN.RJD,RJD,705,4.03,4,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci54,nagaland,2008,54,TUENSANG SADAR-II,WONGTO,parties.IN.BJP,BJP,42,0.24,5,forfeit,U,36,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1491,nagaland,2008,55,TOBU,NAIBA,parties.IN.NPF,NPF,10017,58.26,1,won,U,43,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1491,nagaland,2008,55,TOBU,BONGKHAO,parties.IN.INC,INC,7176,41.74,2,lost,U,31,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1468,nagaland,2008,56,NOKLAK,P. LONGON,parties.IN.NPF,NPF,7939,60.18,1,won,U,41,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1468,nagaland,2008,56,NOKLAK,SEDEM,parties.IN.INC,INC,2167,16.43,2,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1468,nagaland,2008,56,NOKLAK,HAIYENG,parties.IN.RJD,RJD,1727,13.09,3,forfeit,U,41,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1468,nagaland,2008,56,NOKLAK,NGON,parties.IN.BJP,BJP,1148,8.7,4,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1468,nagaland,2008,56,NOKLAK,KHAOSHAI,parties.IN.IND,IND,210,1.59,5,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,S. HENO,parties.IN.NPF,NPF,5600,34.58,1,won,U,61,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,PONGON,parties.IN.IND,IND,3432,21.19,2,lost,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,P.K.F. TOCHU,parties.IN.IND,IND,2791,17.23,3,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,KHONGO,parties.IN.RJD,RJD,1609,9.93,4,forfeit,U,54,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,DR.N.L. AIMONG,parties.IN.JDS,JD(S),1535,9.48,5,forfeit,U,44,Doctorate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,KHONOU,parties.IN.INC,INC,666,4.11,6,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,CHINGKONG,parties.IN.BJP,BJP,536,3.31,7,forfeit,U,78,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,T.K. MEYO,,UNDP,18,0.11,8,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1489,nagaland,2008,57,THONOKNYU,PUSHOU,parties.IN.NCP,NCP,9,0.06,9,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1481,nagaland,2008,58,SHAMATOR CHESSORE,R. TOHANBA,parties.IN.NPF,NPF,9315,48.54,1,won,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1481,nagaland,2008,58,SHAMATOR CHESSORE,K. YAMUKAM,parties.IN.INC,INC,6922,36.07,2,lost,U,77,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1481,nagaland,2008,58,SHAMATOR CHESSORE,M. ROKKIMONG,parties.IN.BJP,BJP,2301,11.99,3,forfeit,U,69,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1481,nagaland,2008,58,SHAMATOR CHESSORE,THONGTHONG,parties.IN.JDS,JD(S),652,3.4,4,forfeit,U,67,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1480,nagaland,2008,59,SEYOCHUNG SITIMI,C. KIPILI SANGTAM,parties.IN.IND,IND,8054,38.18,1,won,U,51,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1480,nagaland,2008,59,SEYOCHUNG SITIMI,SETHRICHO SHIHOTE,parties.IN.INC,INC,6754,32.02,2,lost,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1480,nagaland,2008,59,SEYOCHUNG SITIMI,L. TSANIO SANGTAM,parties.IN.NPF,NPF,3343,15.85,3,forfeit,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1480,nagaland,2008,59,SEYOCHUNG SITIMI,KIHETO,parties.IN.BJP,BJP,2474,11.73,4,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1480,nagaland,2008,59,SEYOCHUNG SITIMI,CHOTHRONGBA,parties.IN.IND,IND,271,1.28,5,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1480,nagaland,2008,59,SEYOCHUNG SITIMI,T. THSAPONGKYU SANGTAM,parties.IN.RJD,RJD,200,0.95,6,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1477,nagaland,2008,60,PUNGRO KIPHIRE,TORECHU,parties.IN.NPF,NPF,13275,49.56,1,won,U,60,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1477,nagaland,2008,60,PUNGRO KIPHIRE,R.L. AKAMBA,parties.IN.INC,INC,9308,34.75,2,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1477,nagaland,2008,60,PUNGRO KIPHIRE,R. TSAPIKIU SANGTAM,parties.IN.RJD,RJD,3691,13.78,3,forfeit,U,47,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-1477,nagaland,2008,60,PUNGRO KIPHIRE,SOLY,parties.IN.BJP,BJP,513,1.92,4,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
