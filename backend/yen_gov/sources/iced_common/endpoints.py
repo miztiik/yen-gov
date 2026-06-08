@@ -202,7 +202,7 @@ ENDPOINT_CATALOGUE: tuple[Endpoint, ...] = (
         notes="Daily peak demand for last 30 days, all India."),
 
     # ----- Climate / air quality --------------------------------------
-    # Recon 2026-05-15 via tools/iced_full_triage.py against the public
+    # Recon 2026-05-15 against the public
     # /climate-and-environment/environment/air-quality dashboard. Eight
     # endpoints respond OK; registered here as catalogue-only (no parser
     # binds them yet). ICED is a re-publisher of CPCB NAMP annual-mean

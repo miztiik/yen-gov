@@ -274,8 +274,7 @@ def _resolve_workbook(*, repo_root: Path) -> tuple[bytes, datetime, str]:
                 f"Or override the path with $RBI_HBS_IE_T89_PATH=<absolute "
                 f"path>.\n"
                 f"For convenience, the 2024-25 edition direct URL is "
-                f"recorded in this module as PINNED_XLSX_URL_2024_25 and "
-                f"can be fetched via tools/rbi_download.py."
+                f"recorded in this module as PINNED_XLSX_URL_2024_25."
             )
     mtime = datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc).replace(
         microsecond=0
