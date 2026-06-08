@@ -47,6 +47,7 @@ ai-engineering-coach/
 backend/inspect_topn.py
 tools/inspect_elections_corpus.py
 tools/inspect_state_event_matrix.py
+datasets/ephemeral/pre-regen-parquet-snapshot/
 
 
 # TopoJSON converter idempotency sidecars (local-only; cross-worktree re-emit is cheap and deterministic).
