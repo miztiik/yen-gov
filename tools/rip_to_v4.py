@@ -13,7 +13,7 @@ Migrates indicator artifacts from schema v3.0 to v4.0 (CLAUDE.md §11):
 
 Side effects:
   - Walks ``datasets/indicators/in/**/*.json``.
-  - Seeds ``datasets/reference/in/indicators-operator-state.json`` from the
+  - Seeds ``datasets/_ops/indicators-operator-state.json`` from the
     pre-migration ``collection_inventory.{frozen, refetch_requested,
     unavailable_periods}`` so operator state is preserved.
 

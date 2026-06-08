@@ -7,7 +7,7 @@
 > the old PER-INDICATOR-DOCS-PLAN) has been **retired** in Phase #4a
 > of [TODO/20260517-coverage-temporal-range-plan.md](../../../TODO/20260517-coverage-temporal-range-plan.md).
 > Structured temporal range data now lives on
-> [`datasets/reference/in/indicators-completeness.json`](../../../datasets/reference/in/indicators-completeness.json)
+> [`datasets/_ops/indicators-completeness.json`](../../../datasets/_ops/indicators-completeness.json)
 > (schema [`indicators-completeness.schema.json`](../../../datasets/schemas/indicators-completeness.schema.json)
 > v2.0+) as `min_time` / `max_time` / `min_period_label` /
 > `max_period_label` / `observed_periods_within_range` /

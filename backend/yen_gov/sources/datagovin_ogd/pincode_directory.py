@@ -6,10 +6,13 @@ Why a SEPARATE parser module (vs the existing ``parsers.py``)?
 fact rows that flow into a ``datasets/indicators/.../<id>.json``
 artifact. The Pincode Directory is **reference data** (one row per
 Post Office, no time axis, no fact value) and lands as a flat CSV
-under ``datasets/reference/in/pincodes/``. Same source (data.gov.in
-OGD), different shape — keeping it in its own module avoids
-polluting ``IndicatorSpec`` / ``SHIPPED_SPECS`` with an artificial
-"reference" leg.
+at ``datasets/data/entities/pincode.csv`` (G8 2026-06-08: was
+``datasets/reference/in/pincodes/pincode-directory.parquet``; the
+reshape lifted reference entity data into ``data/entities/`` per
+plan-doc section 9 + flipped Parquet -> CSV per section 21.2). Same
+source (data.gov.in OGD), different shape — keeping it in its own
+module avoids polluting ``IndicatorSpec`` / ``SHIPPED_SPECS`` with an
+artificial "reference" leg.
 
 This module is I/O-free. Network + filesystem live in the upcoming
 ``ingest_pincode.py`` (Phase A.1.b, ships after the operator

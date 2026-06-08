@@ -89,21 +89,26 @@ def _build_kmz(tmp_path: Path, placemarks: list[str]) -> Path:
 def _build_directory_parquet(
     tmp_path: Path, rows: list[tuple[str, str | None]]
 ) -> Path:
-    """Build a minimal pincode-directory.parquet with (pincode, statename) rows.
+    """Build a minimal pincode directory CSV with (pincode, statename) rows.
 
     Only the two columns the ingest reads are populated; the rest of
     the A.1.b schema is irrelevant here because the ingest's
     ``_build_pincode_to_state_lookup`` only ``SELECT pincode,
     MIN(statename) FROM ... GROUP BY pincode``.
+
+    G8 (2026-06-08): the on-disk pincode directory moved from
+    ``reference/in/pincodes/pincode-directory.parquet`` to
+    ``data/entities/pincode.csv`` and the reader switched to typed
+    ``read_csv(columns=...)`` per plan-doc section 21.2. The fixture
+    function name is preserved for back-compat with the rest of this
+    test module; it now writes a CSV under tmp_path.
     """
-    out = tmp_path / "pincode-directory.parquet"
-    con = duckdb.connect(":memory:")
-    try:
-        con.execute("CREATE TABLE d (pincode VARCHAR, statename VARCHAR)")
-        con.executemany("INSERT INTO d VALUES (?, ?)", rows)
-        con.execute(f"COPY d TO '{out.as_posix()}' (FORMAT PARQUET)")
-    finally:
-        con.close()
+    out = tmp_path / "pincode.csv"
+    with out.open("w", encoding="utf-8", newline="") as fh:
+        w = _csv.writer(fh, lineterminator="\n")
+        w.writerow(["pincode", "statename"])
+        for pincode, statename in rows:
+            w.writerow([pincode, "" if statename is None else statename])
     return out
 
 

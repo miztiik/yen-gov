@@ -1,7 +1,7 @@
 """Indicators inventory endpoint — read-only listing of every indicator's
 folded v3.0 completeness summary.
 
-This wraps ``datasets/reference/in/indicators-completeness.json``, the
+This wraps ``datasets/_ops/indicators-completeness.json``, the
 static index emitted by ``tools/emit_indicators_completeness_index.py``
 and consumed by the citizen-facing ``/data-completeness`` route. The
 admin panel re-uses the same on-disk artifact so the operator and the
@@ -31,7 +31,7 @@ from fastapi import APIRouter, HTTPException
 router = APIRouter()
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
-INDEX_PATH = REPO_ROOT / "datasets" / "reference" / "in" / "indicators-completeness.json"
+INDEX_PATH = REPO_ROOT / "datasets" / "_ops" / "indicators-completeness.json"
 
 
 @router.get("/inventory/indicators")

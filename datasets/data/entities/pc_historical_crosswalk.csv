@@ -1,0 +1,113 @@
+ge_year,tcpd_state,tcpd_constituency_no,state_code,pc_no,match_method,note
+1999,Dadra & Nagar Haveli,1,U03,2,merge,Dadra & Nagar Haveli merged with Daman & Diu into U03 on 26 January 2020; modern pc_no 2. Coded to U03 for all years.
+1999,Daman & Diu,1,U03,1,merge,Daman & Diu merged with Dadra & Nagar Haveli into U03 on 26 January 2020; modern pc_no 1. Coded to U03 for all years.
+2004,Dadra & Nagar Haveli,1,U03,2,merge,Dadra & Nagar Haveli merged with Daman & Diu into U03 on 26 January 2020; modern pc_no 2. Coded to U03 for all years.
+2004,Daman & Diu,1,U03,1,merge,Daman & Diu merged with Dadra & Nagar Haveli into U03 on 26 January 2020; modern pc_no 1. Coded to U03 for all years.
+2009,Andhra Pradesh,1,S29,1,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2009,Andhra Pradesh,2,S29,2,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2009,Andhra Pradesh,3,S29,3,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2009,Andhra Pradesh,4,S29,4,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2009,Andhra Pradesh,5,S29,5,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2009,Andhra Pradesh,6,S29,6,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2009,Andhra Pradesh,7,S29,7,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2009,Andhra Pradesh,8,S29,8,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2009,Andhra Pradesh,9,S29,9,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2009,Andhra Pradesh,10,S29,10,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2009,Andhra Pradesh,11,S29,11,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2009,Andhra Pradesh,12,S29,12,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2009,Andhra Pradesh,13,S29,13,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2009,Andhra Pradesh,14,S29,14,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2009,Andhra Pradesh,15,S29,15,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2009,Andhra Pradesh,16,S29,16,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2009,Andhra Pradesh,17,S29,17,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2009,Andhra Pradesh,18,S01,1,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,19,S01,2,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,20,S01,3,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,21,S01,4,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,22,S01,5,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,23,S01,6,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,24,S01,7,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,25,S01,8,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,26,S01,9,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,27,S01,10,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,28,S01,11,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,29,S01,12,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,30,S01,13,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,31,S01,14,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,32,S01,15,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,33,S01,16,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,34,S01,17,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,35,S01,18,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,36,S01,19,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,37,S01,20,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,38,S01,21,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,39,S01,22,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,40,S01,23,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,41,S01,24,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Andhra Pradesh,42,S01,25,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2009,Dadra & Nagar Haveli,1,U03,2,merge,Dadra & Nagar Haveli merged with Daman & Diu into U03 on 26 January 2020; modern pc_no 2. Coded to U03 for all years.
+2009,Daman & Diu,1,U03,1,merge,Daman & Diu merged with Dadra & Nagar Haveli into U03 on 26 January 2020; modern pc_no 1. Coded to U03 for all years.
+2009,Jammu & Kashmir,1,U08,1,ut_reorg,Jammu & Kashmir became a Union Territory (U08) on 31 October 2019; Ladakh split off. Coded to the modern J&K UT numbering.
+2009,Jammu & Kashmir,2,U08,2,ut_reorg,Jammu & Kashmir became a Union Territory (U08) on 31 October 2019; Ladakh split off. Coded to the modern J&K UT numbering.
+2009,Jammu & Kashmir,3,U08,3,ut_reorg,Jammu & Kashmir became a Union Territory (U08) on 31 October 2019; Ladakh split off. Coded to the modern J&K UT numbering.
+2009,Jammu & Kashmir,4,U09,1,ut_reorg,Ladakh became a separate Union Territory on 31 October 2019. Coded to Ladakh (U09).
+2009,Jammu & Kashmir,5,U08,4,ut_reorg,Jammu & Kashmir became a Union Territory (U08) on 31 October 2019; Ladakh split off. Coded to the modern J&K UT numbering.
+2009,Jammu & Kashmir,6,U08,5,ut_reorg,Jammu & Kashmir became a Union Territory (U08) on 31 October 2019; Ladakh split off. Coded to the modern J&K UT numbering.
+2014,Andhra Pradesh,1,S29,1,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2014,Andhra Pradesh,2,S29,2,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2014,Andhra Pradesh,3,S29,3,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2014,Andhra Pradesh,4,S29,4,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2014,Andhra Pradesh,5,S29,5,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2014,Andhra Pradesh,6,S29,6,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2014,Andhra Pradesh,7,S29,7,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2014,Andhra Pradesh,8,S29,8,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2014,Andhra Pradesh,9,S29,9,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2014,Andhra Pradesh,10,S29,10,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2014,Andhra Pradesh,11,S29,11,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2014,Andhra Pradesh,12,S29,12,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2014,Andhra Pradesh,13,S29,13,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2014,Andhra Pradesh,14,S29,14,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2014,Andhra Pradesh,15,S29,15,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2014,Andhra Pradesh,16,S29,16,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2014,Andhra Pradesh,17,S29,17,state_split,Telangana seat; Telangana split from Andhra Pradesh on 2 June 2014. Coded to modern Telangana (S29).
+2014,Andhra Pradesh,18,S01,1,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,19,S01,2,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,20,S01,3,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,21,S01,4,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,22,S01,5,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,23,S01,6,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,24,S01,7,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,25,S01,8,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,26,S01,9,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,27,S01,10,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,28,S01,11,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,29,S01,12,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,30,S01,13,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,31,S01,14,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,32,S01,15,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,33,S01,16,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,34,S01,17,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,35,S01,18,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,36,S01,19,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,37,S01,20,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,38,S01,21,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,39,S01,22,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,40,S01,23,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,41,S01,24,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Andhra Pradesh,42,S01,25,state_split,"Residual Andhra Pradesh seat after the 2 June 2014 Telangana split; TCPD numbers it within undivided AP (1-42), modern AP renumbers 1-25 (offset -17)."
+2014,Dadra & Nagar Haveli,1,U03,2,merge,Dadra & Nagar Haveli merged with Daman & Diu into U03 on 26 January 2020; modern pc_no 2. Coded to U03 for all years.
+2014,Daman & Diu,1,U03,1,merge,Daman & Diu merged with Dadra & Nagar Haveli into U03 on 26 January 2020; modern pc_no 1. Coded to U03 for all years.
+2014,Jammu & Kashmir,1,U08,1,ut_reorg,Jammu & Kashmir became a Union Territory (U08) on 31 October 2019; Ladakh split off. Coded to the modern J&K UT numbering.
+2014,Jammu & Kashmir,2,U08,2,ut_reorg,Jammu & Kashmir became a Union Territory (U08) on 31 October 2019; Ladakh split off. Coded to the modern J&K UT numbering.
+2014,Jammu & Kashmir,3,U08,3,ut_reorg,Jammu & Kashmir became a Union Territory (U08) on 31 October 2019; Ladakh split off. Coded to the modern J&K UT numbering.
+2014,Jammu & Kashmir,4,U09,1,ut_reorg,Ladakh became a separate Union Territory on 31 October 2019. Coded to Ladakh (U09).
+2014,Jammu & Kashmir,5,U08,4,ut_reorg,Jammu & Kashmir became a Union Territory (U08) on 31 October 2019; Ladakh split off. Coded to the modern J&K UT numbering.
+2014,Jammu & Kashmir,6,U08,5,ut_reorg,Jammu & Kashmir became a Union Territory (U08) on 31 October 2019; Ladakh split off. Coded to the modern J&K UT numbering.
+2019,Dadra & Nagar Haveli,1,U03,2,merge,Dadra & Nagar Haveli merged with Daman & Diu into U03 on 26 January 2020; modern pc_no 2. Coded to U03 for all years.
+2019,Daman & Diu,1,U03,1,merge,Daman & Diu merged with Dadra & Nagar Haveli into U03 on 26 January 2020; modern pc_no 1. Coded to U03 for all years.
+2019,Jammu & Kashmir,1,U08,1,ut_reorg,Jammu & Kashmir became a Union Territory (U08) on 31 October 2019; Ladakh split off. Coded to the modern J&K UT numbering.
+2019,Jammu & Kashmir,2,U08,2,ut_reorg,Jammu & Kashmir became a Union Territory (U08) on 31 October 2019; Ladakh split off. Coded to the modern J&K UT numbering.
+2019,Jammu & Kashmir,3,U08,3,ut_reorg,Jammu & Kashmir became a Union Territory (U08) on 31 October 2019; Ladakh split off. Coded to the modern J&K UT numbering.
+2019,Jammu & Kashmir,4,U09,1,ut_reorg,Ladakh became a separate Union Territory on 31 October 2019. Coded to Ladakh (U09).
+2019,Jammu & Kashmir,5,U08,4,ut_reorg,Jammu & Kashmir became a Union Territory (U08) on 31 October 2019; Ladakh split off. Coded to the modern J&K UT numbering.
+2019,Jammu & Kashmir,6,U08,5,ut_reorg,Jammu & Kashmir became a Union Territory (U08) on 31 October 2019; Ladakh split off. Coded to the modern J&K UT numbering.

@@ -51,10 +51,13 @@ KNOWN_RESOURCES: dict[str, ResourceMeta] = {
         ),
     ),
     # Reference table (not an indicator) — flat lookup, one row per Post
-    # Office, no time axis. Emits to ``datasets/reference/in/pincodes/``
-    # in Phase A.1.b after the operator captcha-fetches the CSV. The key
-    # uses the ``reference/<leaf>`` namespace to make it visually distinct
-    # from indicator keys (``fiscal/...``, etc.) in this dict.
+    # Office, no time axis. Emits to ``datasets/data/entities/pincode.csv``
+    # (G8 2026-06-08: was ``datasets/reference/in/pincodes/`` Parquet; the
+    # reshape lifted reference entity data into ``data/entities/`` per
+    # plan-doc section 9 + flipped to CSV per section 21.2) in Phase A.1.b
+    # after the operator captcha-fetches the CSV. The key uses the
+    # ``reference/<leaf>`` namespace to make it visually distinct from
+    # indicator keys (``fiscal/...``, etc.) in this dict.
     "reference/pincode_directory": ResourceMeta(
         uuid="5c2f62fe-5afa-4119-a499-fec9d604d5bd",
         portal_page_url=(

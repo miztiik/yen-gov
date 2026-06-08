@@ -9,15 +9,20 @@ Design (Fowler verdict, CLAUDE.md section 0a):
   - Resolution is automatic for every seat UNLESS a reorganization broke the
     1:1 ``(state, Constituency_No) -> (state_code, pc_no)`` map. The break set
     lives in an override-only CSV
-    (``datasets/reference/in/elections/pc_historical_crosswalk.csv``); the
-    absence of a row IS the identity.
+    (``datasets/data/entities/pc_historical_crosswalk.csv``); the absence of a
+    row IS the identity.
 
 The resolver is pure and free of pipeline I/O so it is unit-testable in
 isolation from the (future) GE panel parser.
 
+G8 (2026-06-08): the crosswalk CSV moved out of
+``datasets/reference/in/elections/`` into ``datasets/data/entities/`` as part of
+the mechanical ``datasets/reference/`` reshape (plan-doc section 9 + section
+21.2). The override-only row shape is unchanged.
+
 See also:
     - datasets/schemas/pc-historical-crosswalk.schema.json
-    - datasets/reference/in/elections/pc_historical_crosswalk.csv
+    - datasets/data/entities/pc_historical_crosswalk.csv
     - backend/yen_gov/canonical/adapters/eci/identity.py (pc_entity_id)
 """
 
@@ -29,7 +34,7 @@ from pathlib import Path
 
 from yen_gov.sources.eci.ls_constituencywise import _norm, load_state_code_lookup
 
-CROSSWALK_RELPATH = "reference/in/elections/pc_historical_crosswalk.csv"
+CROSSWALK_RELPATH = "data/entities/pc_historical_crosswalk.csv"
 
 # Delimitation cycle in force for each Lok Sabha general election. The
 # 1976 delimitation governed 1999 + 2004; the 2008 delimitation governs

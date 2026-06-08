@@ -6,7 +6,12 @@ extracts a tiny row per indicator (id, topic, title,
 documentation_status, inventory_status, frozen, last_polled_at,
 counts, and the structured temporal range from
 `yen_gov.inventory.derive.derive_temporal_range`), and writes the
-aggregated index to `datasets/reference/in/indicators-completeness.json`.
+aggregated index to `datasets/_ops/indicators-completeness.json`.
+
+G8 (2026-06-08): the completeness index + the operator-state overlay
+both moved out of ``datasets/reference/in/`` into ``datasets/_ops/`` as
+part of the mechanical ``datasets/reference/`` reshape (plan-doc section
+9: both are operator bookkeeping, not citizen-facing fact data).
 
 Sources of each field (schema v2.0):
   - `inventory_status`: "complete" iff `rows[]` is non-empty, else "empty".
@@ -22,7 +27,7 @@ Sources of each field (schema v2.0):
   - `pending_count`: always 0 in v4.0+ (was: expected - observed; expected
     is no longer in-artifact).
   - `unavailable_count`: from the operator-state overlay
-    (`datasets/reference/in/indicators-operator-state.json`).
+    (`datasets/_ops/indicators-operator-state.json`).
   - `frozen`: from the same operator-state overlay.
   - `min_time` / `max_time` / `min_period_label` / `max_period_label` /
     `observed_periods_within_range` / `gap_count_within_range` /
@@ -56,9 +61,9 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 INDICATORS_ROOT = REPO_ROOT / "datasets" / "indicators" / "in"
-OUTPUT_PATH = REPO_ROOT / "datasets" / "reference" / "in" / "indicators-completeness.json"
+OUTPUT_PATH = REPO_ROOT / "datasets" / "_ops" / "indicators-completeness.json"
 SCHEMA_PATH = REPO_ROOT / "datasets" / "schemas" / "indicators-completeness.schema.json"
-OPERATOR_STATE_PATH = REPO_ROOT / "datasets" / "reference" / "in" / "indicators-operator-state.json"
+OPERATOR_STATE_PATH = REPO_ROOT / "datasets" / "_ops" / "indicators-operator-state.json"
 
 # Import path -- backend/ is a sibling sister tree; for the tool to find
 # yen_gov we add backend/ to sys.path if it isn't already.

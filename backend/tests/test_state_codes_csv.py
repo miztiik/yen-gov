@@ -18,7 +18,7 @@ from yen_gov.canonical.seed.state_codes_csv import FILE_CLASS, emit
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 REAL_SNAPSHOT = REPO_ROOT / "datasets" / "reference" / "lgd" / "states.csv"
-REAL_ISO_SEED = REPO_ROOT / "datasets" / "reference" / "state-iso-seed.csv"
+REAL_ISO_SEED = REPO_ROOT / "datasets" / "data" / "entities" / "state_iso_seed.csv"
 
 
 def _write(path: Path, header: list[str], rows: list[list[str]]) -> Path:

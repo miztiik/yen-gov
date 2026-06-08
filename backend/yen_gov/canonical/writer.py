@@ -328,6 +328,24 @@ _DEPRECATIONS: list[dict[str, str]] = [
         "new_path": "data/datapoints/electoral/election_results.csv",
         "deprecated_at": "2026-06-07",
     },
+    # G8 (2026-06-08) - datasets/reference/in/pincodes/pincode-directory.parquet
+    # (165627 rows, 3.7 MB) retired as part of the mechanical
+    # ``datasets/reference/`` reshape (plan-doc section 9 + section 21.2
+    # "CSV everywhere, no parquet"). Transcoded in place via DuckDB
+    # ``COPY (SELECT * FROM read_parquet(...)) TO ... (HEADER, DELIMITER ',')``;
+    # post-move row count == pre-move row count (165627). The sole backend
+    # reader (``ingest_pincode_polygons.py::_build_pincode_to_state_lookup``)
+    # flipped to typed ``read_csv(columns={'pincode': 'VARCHAR', 'statename':
+    # 'VARCHAR'}, ...)`` per plan-doc section 21.2 typed-read mandate. No
+    # frontend reader exists (verified via grep). Writer rewrite (parquet
+    # emit -> direct CSV emit + the 9 parquet-shaped tests in
+    # test_ingest_pincode.py) deferred to a G8-followup PR to keep this
+    # change mechanical.
+    {
+        "old_path": "reference/in/pincodes/pincode-directory.parquet",
+        "new_path": "data/entities/pincode.csv",
+        "deprecated_at": "2026-06-08",
+    },
 ]
 
 
