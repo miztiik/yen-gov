@@ -16,7 +16,7 @@ ac_crosswalk Tier-A test. Pins:
 
 See also:
     - datasets/schemas/pc-historical-crosswalk.schema.json
-    - datasets/reference/in/elections/pc_historical_crosswalk.csv
+    - datasets/data/entities/pc_historical_crosswalk.csv
     - backend/yen_gov/canonical/adapters/eci/pc_crosswalk.py
 """
 
@@ -41,7 +41,7 @@ from yen_gov.sources.eci.ls_constituencywise import load_state_code_lookup
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DATASETS = REPO_ROOT / "datasets"
 SCHEMA = DATASETS / "schemas" / "pc-historical-crosswalk.schema.json"
-CSV_PATH = DATASETS / "reference" / "in" / "elections" / "pc_historical_crosswalk.csv"
+CSV_PATH = DATASETS / "data" / "entities" / "pc_historical_crosswalk.csv"
 
 
 def _load(p: Path) -> dict:

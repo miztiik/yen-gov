@@ -1,6 +1,8 @@
 """Smoke tests for the `/api/inventory/indicators` admin endpoint.
 
-The endpoint wraps `datasets/reference/in/indicators-completeness.json`;
+The endpoint wraps `datasets/_ops/indicators-completeness.json` (G8
+2026-06-08: was `datasets/reference/in/indicators-completeness.json`,
+moved by the mechanical reference/ reshape per plan-doc section 9);
 the assertions here pin the response envelope (shape contract with the
 admin Svelte panel) and confirm that index updates flow through without
 restarting the app — the file is read fresh on every request, not

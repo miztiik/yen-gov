@@ -1,7 +1,9 @@
 <script lang="ts">
   // Indicators panel — operator's view of every indicator's folded v3.0
   // completeness summary. Wraps `/api/inventory/indicators` (which in
-  // turn wraps `datasets/reference/in/indicators-completeness.json`).
+  // turn wraps `datasets/_ops/indicators-completeness.json`; G8
+  // 2026-06-08: was `datasets/reference/in/indicators-completeness.json`,
+  // moved by the mechanical reference/ reshape per plan-doc section 9).
   //
   // The point: a single sortable + filterable table that tells the
   // operator at a glance which indicators are stubs, which are stale,
@@ -110,7 +112,7 @@
       <h2 class="text-lg font-semibold">Indicators</h2>
       <p class="text-xs text-slate-400">
         Folded v3.0 completeness summary for every indicator. Wraps
-        <code class="font-mono">datasets/reference/in/indicators-completeness.json</code>;
+        <code class="font-mono">datasets/_ops/indicators-completeness.json</code>;
         regenerate with
         <code class="font-mono">python tools/emit_indicators_completeness_index.py --write</code>
         then refresh.

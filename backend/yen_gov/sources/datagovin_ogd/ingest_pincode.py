@@ -3,20 +3,26 @@
 Reads the operator-staged ``datasets/ephemeral/all_india_pincode_directory_2025.csv``,
 runs it through :func:`parse_pincode_directory`, and emits two artifacts:
 
-1. ``datasets/reference/in/pincodes/pincode-directory.parquet`` — the
-   canonical pincode reference table (DuckDB-WASM-readable, sorted on
-   ``(pincode, officename)`` for byte-determinism, 12 columns: 11 from
-   upstream + ``source_id`` FK).
+1. ``datasets/data/entities/pincode.csv`` — the canonical pincode reference
+   table (G8 2026-06-08: was ``datasets/reference/in/pincodes/pincode-directory.parquet``;
+   moved + transcoded to CSV per plan-doc section 9 reference/ reshape
+   + section 21.2 one-format CSV mandate).
 
 2. UPSERT of one citation row into
    ``datasets/taxonomy/sources.parquet`` — the v2.0 sources ledger entry
    per ADR-0032 (``(producer, title, vintage)`` triple ->
    :func:`derive_source_id`).
 
-Output format is Parquet, not CSV. CLAUDE.md §10 anti-pattern: the
-frontend reads canonical data via DuckDB-WASM on Parquet shards. A CSV
-emit would force a per-page-load reparse of 165k rows; Parquet permits
-column-projection and pincode-indexed queries with millisecond latency.
+MIGRATING (G8-followup): the ``DEFAULT_OUTPUT_REL`` constant below was
+updated to the new CSV path, but the writer body still emits via DuckDB
+``COPY ... TO ... (FORMAT PARQUET)``. The canonical on-disk file
+``datasets/data/entities/pincode.csv`` was transcoded from the legacy
+parquet in this same PR; the writer rewrite (parquet emit -> direct CSV
+emit) is queued as a G8-followup so its 9 parquet-shaped tests can be
+rewritten in one bundle. Operators MUST NOT re-run this ingest until
+the followup lands (a re-run would overwrite the canonical CSV with
+parquet bytes); the captcha-fetched input is byte-stable for the 2025
+vintage anyway, so a near-term re-run is not needed.
 
 Bulk-insert strategy: ``executemany`` against a 165k-row corpus takes
 minutes (per-row IPC dominates). We write the parsed rows back out
@@ -103,9 +109,14 @@ PINCODE_SOURCE_ID = derive_source_id(PRODUCER, TITLE, VINTAGE)
 # on ``datasets/ephemeral/`` keeps the file local-only.
 DEFAULT_INPUT_REL = Path("datasets/ephemeral/all_india_pincode_directory_2025.csv")
 
-# Canonical output: parquet under reference/, the DuckDB-WASM-readable
-# corner of the static bundle.
-DEFAULT_OUTPUT_REL = Path("datasets/reference/in/pincodes/pincode-directory.parquet")
+# Canonical output: CSV under data/entities/, the canonical reference home
+# (G8 2026-06-08: was datasets/reference/in/pincodes/pincode-directory.parquet;
+# moved + transcoded per plan-doc section 9 + section 21.2). MIGRATING:
+# the writer body still emits (FORMAT PARQUET) at this path - the
+# G8-followup that flips the writer to direct CSV emission is queued.
+# Operators MUST NOT re-run this ingest until that followup lands; the
+# committed CSV at this path is authoritative.
+DEFAULT_OUTPUT_REL = Path("datasets/data/entities/pincode.csv")
 
 # Sources ledger lives at the standard taxonomy path; this PR upserts
 # one row into it (alongside whatever other adapters have already

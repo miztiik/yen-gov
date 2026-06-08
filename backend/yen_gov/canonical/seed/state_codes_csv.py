@@ -2,8 +2,12 @@
 
 Joins the committed LGD parsed snapshot (``datasets/reference/lgd/states.csv``,
 the LGD-authority register from B2b.5.0a) with the committed ISO transcription
-seed (``datasets/reference/state-iso-seed.csv``) to emit the LGD-spine state/UT
-identity table ``datasets/data/entities/state_codes.csv``.
+seed (``datasets/data/entities/state_iso_seed.csv``) to emit the LGD-spine
+state/UT identity table ``datasets/data/entities/state_codes.csv``.
+
+G8 (2026-06-08): the ISO seed moved out of ``datasets/reference/`` into
+``datasets/data/entities/`` as part of the mechanical ``datasets/reference/``
+reshape (plan-doc section 9 + section 21.2). The seed shape is unchanged.
 
 Per sub-plan section 0c.4 / round-8c:
 
@@ -76,7 +80,7 @@ def emit(
             "iso-seed-coverage: ISO seed state set does not equal the LGD "
             f"snapshot state set. snapshot-only={sorted(snap_codes - seed_codes)}, "
             f"seed-only={sorted(seed_codes - snap_codes)}. Add the missing ISO "
-            "transcription row(s) to datasets/reference/state-iso-seed.csv."
+            "transcription row(s) to datasets/data/entities/state_iso_seed.csv."
         )
 
     rows: list[dict[str, Any]] = []

@@ -49,14 +49,14 @@ def test_emit_is_byte_deterministic_over_two_runs() -> None:
 
 
 @pytest.mark.skipif(
-    not (REPO_ROOT / "datasets" / "reference" / "in" / "indicators-completeness.json").exists(),
+    not (REPO_ROOT / "datasets" / "_ops" / "indicators-completeness.json").exists(),
     reason="completeness index not yet generated",
 )
 def test_on_disk_index_matches_fresh_emit() -> None:
     """If this fails, run ``python tools/emit_indicators_completeness_index.py --write``."""
     mod = _load_emit_module()
     fresh = json.dumps(mod.build_index(), indent=2, ensure_ascii=False) + "\n"
-    on_disk = (REPO_ROOT / "datasets" / "reference" / "in" / "indicators-completeness.json").read_text(encoding="utf-8")
+    on_disk = (REPO_ROOT / "datasets" / "_ops" / "indicators-completeness.json").read_text(encoding="utf-8")
     assert fresh == on_disk, (
         "On-disk index drifted from a fresh emit. Re-run "
         "`python tools/emit_indicators_completeness_index.py --write` and commit."

@@ -1,6 +1,12 @@
 """One-off driver to emit datasets/data/entities/state_codes.csv from the
 committed LGD parsed snapshot (datasets/reference/lgd/states.csv) + the ISO
-transcription seed (datasets/reference/state-iso-seed.csv). Run from repo root.
+transcription seed (datasets/data/entities/state_iso_seed.csv). Run from repo
+root.
+
+G8 (2026-06-08): the ISO seed moved from
+``datasets/reference/state-iso-seed.csv`` to
+``datasets/data/entities/state_iso_seed.csv`` as part of the mechanical
+``datasets/reference/`` reshape (plan-doc section 9 + section 21.2).
 """
 from pathlib import Path
 
@@ -11,7 +17,7 @@ from yen_gov.canonical.seed.state_codes_csv import FILE_CLASS, emit
 def main() -> None:
     repo_root = Path(__file__).resolve().parents[4]
     snapshot = repo_root / "datasets" / "reference" / "lgd" / "states.csv"
-    iso_seed = repo_root / "datasets" / "reference" / "state-iso-seed.csv"
+    iso_seed = repo_root / "datasets" / "data" / "entities" / "state_iso_seed.csv"
     out = repo_root / "datasets" / "data" / "entities" / "state_codes.csv"
     emit(
         lgd_snapshot_states_csv=snapshot,

@@ -65,8 +65,8 @@ The 1-thing-per-field rule (lesson-2026-05-16) made the diagnosis surgical: a fi
 | Job | New surface | Schema |
 | --- | --- | --- |
 | Publisher promise (expected periods + geographies) | absorbed by the completeness index (follow-up) | `datasets/schemas/indicators-completeness.schema.json` |
-| Operator scoreboard (frozen / refetch / unavailable / first-collected) | sparse hand-edited overlay `datasets/reference/in/indicators-operator-state.json` | `datasets/schemas/indicators-operator-state.schema.json` v1.0 |
-| Citizen completeness banner (status, observed count, last-collected-at) | derived index `datasets/reference/in/indicators-completeness.json` | `datasets/schemas/indicators-completeness.schema.json` |
+| Operator scoreboard (frozen / refetch / unavailable / first-collected) | sparse hand-edited overlay `datasets/_ops/indicators-operator-state.json` | `datasets/schemas/indicators-operator-state.schema.json` v1.0 |
+| Citizen completeness banner (status, observed count, last-collected-at) | derived index `datasets/_ops/indicators-completeness.json` | `datasets/schemas/indicators-completeness.schema.json` |
 
 Concretely: `indicator.schema.json` v4.0 removes `collection_inventory` (required + properties); shrinks `series_spec` to `{description}` only; bumps version. A new `indicators-operator-state.json` envelope `{$schema, $schema_version: "1.0", indicators: {<id>: {frozen?, refetch_requested?, unavailable_periods?}}}` is sparse (only indicators with non-default flags appear) and hand-edited. `indicators-completeness.json` regenerates from `rows[].time` (observed_count), `sources[].fetched_at` (last_collected_at), and the operator-state overlay (frozen, unavailable_count). A one-shot migration `tools/rip_to_v4.py` walked 110 indicators, stripped the blocks, bumped the version, and seeded the operator-state overlay from any pre-existing values. Frontend `IndicatorArtifact` type loses `collection_inventory?`; `SeriesSpec` shrinks to `{description}`. `AboutThisData.svelte` drops the per-indicator Coverage block - citizens now see completeness on `/data-completeness` which already exists and reads the index.
 

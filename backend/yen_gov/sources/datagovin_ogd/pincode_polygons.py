@@ -8,9 +8,10 @@ Posts (Government of India) via data.gov.in into in-memory
 The parser is deliberately I/O-free at the boundary between modules:
 ``parse_pincode_polygons_from_kmz`` accepts a ``Path`` or bytes-like
 KMZ source and yields the parsed structure. Cross-joining to the A.1.b
-``pincode-directory.parquet`` for state assignment, coordinate
-rounding for byte budget, and emission to Hive-partitioned GeoJSON
-shards live in the sibling ``ingest_pincode_polygons`` module.
+pincode directory CSV (``datasets/data/entities/pincode.csv``;
+G8 2026-06-08: was ``pincode-directory.parquet``) for state assignment,
+coordinate rounding for byte budget, and emission to Hive-partitioned
+GeoJSON shards live in the sibling ``ingest_pincode_polygons`` module.
 
 KMZ shape (verified 2026-05-25 via .tmp_explore_kmz.py on the 21 MB
 upstream archive):
@@ -53,8 +54,10 @@ become the emitter's problem):
   [-90, 90]). Confirmed clean on the 2025 corpus; future drift caught
   at boundary contract test layer.
 * State assignment (uses ``Pincode`` → ``statename`` lookup against
-  A.1.b ``pincode-directory.parquet`` via DuckDB, NOT KMZ ``Circle``
-  which is the postal-admin proxy not the canonical ECI state code).
+  the A.1.b pincode directory CSV (``datasets/data/entities/pincode.csv``;
+  G8 2026-06-08: was ``pincode-directory.parquet``) via DuckDB, NOT KMZ
+  ``Circle`` which is the postal-admin proxy not the canonical ECI state
+  code).
 """
 
 from __future__ import annotations

@@ -1,7 +1,8 @@
 // /data-completeness smoke test (folded-indicator PR, commit 10).
 //
 // Asserts the citizen-facing transparency surface mounts, fetches the
-// completeness index (`/data/reference/in/indicators-completeness.json`),
+// completeness index (`/data/_ops/indicators-completeness.json`; G8
+// 2026-06-08: was `/data/reference/in/indicators-completeness.json`),
 // and renders at least one row with a `stub` documentation badge — the
 // load-bearing reality today (110/110 indicators are documentation_status
 // `stub` after the v1.5→v2.0 auto-fold). When editors start authoring

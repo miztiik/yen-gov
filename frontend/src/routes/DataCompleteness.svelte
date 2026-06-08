@@ -9,11 +9,16 @@
   // glance which indicators are still scaffold-quality vs. fully
   // editor-reviewed, and which series have known gaps.
   //
-  // Data source: `/data/reference/in/indicators-completeness.json`,
-  // emitted by `tools/emit_indicators_completeness_index.py` from
-  // every artifact under `datasets/indicators/in/`. The page does NOT
-  // fetch the 110 individual indicator JSONs; we read one pre-rolled
-  // index so the page loads instantly.
+  // Data source: `/data/_ops/indicators-completeness.json` (G8
+  // 2026-06-08: was `/data/reference/in/indicators-completeness.json`,
+  // moved by the mechanical reference/ reshape per plan-doc section 9 -
+  // operator bookkeeping under _ops/, not citizen-facing fact data,
+  // though the /data-completeness route still consumes it for the
+  // public transparency surface), emitted by
+  // `tools/emit_indicators_completeness_index.py` from every artifact
+  // under `datasets/indicators/in/`. The page does NOT fetch the 110
+  // individual indicator JSONs; we read one pre-rolled index so the
+  // page loads instantly.
   import { onMount } from "svelte";
   import { DATA_BASE } from "../lib/paths";
   import TopicIcon from "../lib/TopicIcon.svelte";
@@ -67,7 +72,7 @@
 
   onMount(async () => {
     try {
-      const res = await fetch(`${DATA_BASE}/reference/in/indicators-completeness.json`);
+      const res = await fetch(`${DATA_BASE}/_ops/indicators-completeness.json`);
       if (!res.ok) throw new Error(`fetch failed: ${res.status} ${res.statusText}`);
       const data = (await res.json()) as CompletenessIndex;
       view = { kind: "ready", data };

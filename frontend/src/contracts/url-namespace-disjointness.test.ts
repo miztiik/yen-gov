@@ -31,7 +31,7 @@
  *     change in Phase 2 (per the strangler-fig plan).
  *   * **Indicator url_slug** (Max §3i on ADR-0037). The `url_slug` field
  *     does not yet exist on `datasets/taxonomy/indicators.parquet` or
- *     `datasets/reference/in/indicators-completeness.json`. Phase 3 adds
+ *     `datasets/_ops/indicators-completeness.json`. Phase 3 adds
  *     the field + extends this test to assert the 5-way disjointness Max
  *     ratified.
  *

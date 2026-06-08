@@ -2,7 +2,9 @@
 
 Reads the operator-staged all-India pincode KMZ (parsed by
 :mod:`yen_gov.sources.datagovin_ogd.pincode_polygons`), cross-joins
-pincode → state via the A.1.b ``pincode-directory.parquet``, emits one
+pincode → state via the A.1.b pincode directory CSV
+(``datasets/data/entities/pincode.csv``, G8 2026-06-08: was
+``reference/in/pincodes/pincode-directory.parquet``), emits one
 GeoJSON FeatureCollection per ECI state under
 ``datasets/boundaries/in/postal/state=in_<sNN>/all.geojson`` (T.0d
 Hive layout), and UPSERTs the per-state layer rows into
@@ -15,7 +17,9 @@ Pipeline (one read-through of the KMZ):
 1. :func:`parse_pincode_polygons_from_kmz` — pure parse (19,312
    placemarks, ~3.3M vertices on the 2025 corpus).
 2. ``_build_pincode_to_state_lookup`` — DuckDB query over the A.1.b
-   directory parquet returning ``{pincode → uppercase_statename}``.
+   directory CSV returning ``{pincode → uppercase_statename}`` (G8
+   2026-06-08: typed ``read_csv(columns=...)`` per plan section 21.2,
+   was ``read_parquet``).
 3. ``_build_entity_lookup`` — DuckDB query over ``entities.parquet``
    returning ``{normalised_display_name → entity_id (IN-S22)}``.
 4. ``_state_assign`` — walks parsed polygons, resolves
@@ -52,12 +56,13 @@ GeoJSON dict-key order is fixed at insertion time (``type`` →
 State assignment policy (verified empirically on the 2025 corpus —
 99.9% directory coverage):
 
-* Source of truth is ``pincode-directory.parquet`` (A.1.b), NOT the
-  KMZ ``Circle`` field. The KMZ Circle is a postal administrative
-  unit that imperfectly aligns with ECI states (e.g. "North Eastern"
-  Circle covers 7 sister states; "Delhi" Circle is partly in
-  Haryana / UP; "Jammukashmir" predates the 2019 reorganisation).
-  Pincode → directory.statename → ECI entity_id is the canonical chain.
+* Source of truth is ``datasets/data/entities/pincode.csv`` (A.1.b, G8
+  2026-06-08: was ``pincode-directory.parquet``), NOT the KMZ ``Circle``
+  field. The KMZ Circle is a postal administrative unit that imperfectly
+  aligns with ECI states (e.g. "North Eastern" Circle covers 7 sister
+  states; "Delhi" Circle is partly in Haryana / UP; "Jammukashmir"
+  predates the 2019 reorganisation). Pincode → directory.statename → ECI
+  entity_id is the canonical chain.
 * 3 manual aliases handle directory statenames that don't normalise
   cleanly to an ``entities.parquet`` display_name:
 
@@ -139,8 +144,14 @@ DEFAULT_INPUT_KMZ_REL = Path(
 )
 DEFAULT_OUTPUT_DIR_REL = Path("datasets/boundaries/in/postal")
 DEFAULT_BOUNDARY_LAYERS_REL = Path("datasets/boundaries/boundary_layers.parquet")
+# G8 (2026-06-08): pincode directory moved out of reference/ and was
+# transcoded from Parquet to CSV per plan-doc section 21.2 (one format:
+# long-format CSV with typed read_csv(columns=...) at the loader
+# boundary). The constant name ``DEFAULT_DIRECTORY_REL`` is kept (was
+# previously ``DEFAULT_DIRECTORY_REL`` pointing at the parquet) for
+# back-compat with callers / tests that pass the path through.
 DEFAULT_DIRECTORY_REL = Path(
-    "datasets/reference/in/pincodes/pincode-directory.parquet"
+    "datasets/data/entities/pincode.csv"
 )
 DEFAULT_ENTITIES_REL = Path("datasets/taxonomy/entities.parquet")
 
@@ -193,13 +204,25 @@ def _build_pincode_to_state_lookup(directory_parquet: Path) -> dict[str, str]:
     determinism in the unlikely event of a row-level inconsistency.
     Pincodes with only NULL-statename rows are EXCLUDED from the map
     (the caller treats them as unkeyed).
+
+    G8 (2026-06-08): reads CSV via typed ``read_csv(columns=...)`` per
+    plan-doc section 21.2 typed-read mandate. The parameter name
+    ``directory_parquet`` is kept for back-compat with callers /
+    tests; the path now points at the CSV at
+    ``datasets/data/entities/pincode.csv``.
     """
     con = duckdb.connect(":memory:")
     try:
         rows = con.execute(
             f"""
             SELECT pincode, MIN(statename) AS statename
-            FROM read_parquet('{directory_parquet.as_posix()}')
+            FROM read_csv(
+                '{directory_parquet.as_posix()}',
+                header = true,
+                columns = {{'pincode': 'VARCHAR', 'statename': 'VARCHAR'}},
+                nullstr = '',
+                auto_detect = false
+            )
             WHERE statename IS NOT NULL
             GROUP BY pincode
             """
@@ -477,7 +500,8 @@ def _build_per_state_layer_row(
             "Per-pincode polygon shard for one ECI state, derived from "
             "the Department of Posts all-India pincode KMZ (data.gov.in). "
             "Pincode → state assignment via cross-join with "
-            "reference/in/pincodes/pincode-directory.parquet (A.1.b). "
+            "data/entities/pincode.csv (A.1.b, G8 2026-06-08: was "
+            "reference/in/pincodes/pincode-directory.parquet). "
             "Coordinates rounded to 4 decimal places (~11 m at the "
             "equator) at emit time for byte-budget; original WGS84 "
             "precision preserved upstream in the KMZ itself."
@@ -514,7 +538,9 @@ def _build_unkeyed_layer_row(
         unkeyed_keys_json=json.dumps(sorted(unkeyed_pincodes)),
         notes=(
             "Pincodes present in the Department of Posts KMZ but absent "
-            "from (or NULL-statename in) the A.1.b pincode-directory.parquet. "
+            "from (or NULL-statename in) the A.1.b pincode directory CSV "
+            "(data/entities/pincode.csv; G8 2026-06-08: was "
+            "reference/in/pincodes/pincode-directory.parquet). "
             "The shard file is intentionally an empty FeatureCollection; "
             "the pincode list lives in unkeyed_keys_json for ledger-side "
             "audit without re-parsing the KMZ. Citizen-trust invariant: "

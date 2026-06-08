@@ -41,8 +41,8 @@ shape.
 
 | Was in artifact (v3.0) | Lives now (v4.0)                                                                 |
 | ---------------------- | -------------------------------------------------------------------------------- |
-| `collection_inventory.status` / `observed_periods` / `last_collected_at` | Derived index [`datasets/reference/in/indicators-completeness.json`](../../datasets/reference/in/indicators-completeness.json). |
-| `collection_inventory.frozen` / `refetch_requested` / `unavailable_periods` | Hand-edited overlay [`datasets/reference/in/indicators-operator-state.json`](../../datasets/reference/in/indicators-operator-state.json). |
+| `collection_inventory.status` / `observed_periods` / `last_collected_at` | Derived index [`datasets/_ops/indicators-completeness.json`](../../datasets/_ops/indicators-completeness.json). |
+| `collection_inventory.frozen` / `refetch_requested` / `unavailable_periods` | Hand-edited overlay [`datasets/_ops/indicators-operator-state.json`](../../datasets/_ops/indicators-operator-state.json). |
 | `series_spec.expected_geographies` / `expected_periods` / `expected_periods_inference` | Not in any file today. The framework no longer pretends to know a publisher-promised cell universe; if a publisher commitment exists, the adapter authors it directly into `methodology`. |
 
 ## Why folded
