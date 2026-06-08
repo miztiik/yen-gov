@@ -31,6 +31,7 @@ src-1048ce25cf5f,Election Commission of India,"Statistical Report on General Ele
 src-111d478574b6,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Madhya Pradesh, 1985",1985,
 src-115a1d3b069c,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Nagaland, 2008",2008,
 src-1194e3295b48,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S26 AcGenNov2023,AcGenNov2023,https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/chhattisgarh/2023/Detailed_Results.xlsx
+src-12340fb1cea0,Reserve Bank of India,"Handbook of Statistics on Indian Economy 2024-25, Tables 5+6 (Net State Domestic Product - State-wise, At Current + Constant Prices)",2024-25,https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+Economy
 src-1236b90051ad,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S19 AcGenFeb2017,AcGenFeb2017,
 src-1240f07df0ac,NITI Aayog India Climate & Energy Dashboard,"Capacity Metatable API (state-wise installed capacity, by fuel)",2024-25,https://iced.niti.gov.in/energy/electricity/generation/capacity/state-wise
 src-135c304564fd,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Puducherry, 1980",1980,
@@ -47,6 +48,7 @@ src-17da38ffa757,Election Commission of India,"Statistical Report on General Ele
 src-183b4a86ce1d,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Uttar Pradesh, 2002",2002,
 src-1a418a6f08dd,Wikipedia,List of Chief Ministers of Goa,,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Goa
 src-1a69f6c8f902,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Karnataka, 1999",1999,
+src-1a8a6f710f23,NITI Aayog India Climate & Energy Dashboard,"Key Economic Indicators API — State per-capita Private Final Consumption Expenditure (PFCE, INR)",2024-25,https://icedapi.niti.gov.in/economy-demography/key-economic-indicators/per-capita-consumption
 src-1ab4290c6901,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Maharashtra, 1980",1980,
 src-1af4a6a43fd6,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Punjab, 2012",2012,
 src-1b31fb6cca29,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Punjab, 1997",1997,
@@ -65,6 +67,7 @@ src-22807955e180,Election Commission of India,"Statistical Report on General Ele
 src-22b61f1fd6b4,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S23 AcGenFeb2018,AcGenFeb2018,
 src-251e612f6213,yashveeeeeeer/india-geodata,India national silhouette (SoI-derived),,https://github.com/yashveeeeeeer/india-geodata
 src-254843fef7c2,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Andhra Pradesh, 2014",2014,
+src-263dcba882ba,NITI Aayog India Climate & Energy Dashboard,Climate-Environment Air Quality AQI Map Markers API — State-wise annual mean concentrations of NO2/SO2/PM10/PM2.5 (ug/m3),2024-25,https://icedapi.niti.gov.in/climate-environment/environment/air-quality/aqi-map-markers
 src-274c3619844c,Wikipedia,List of Chief Ministers of Gujarat,,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Gujarat
 src-276836eeb2c1,Wikipedia,List of Chief Ministers of West Bengal,operator-snapshot-2026-05,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_West_Bengal
 src-276913fe2487,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Puducherry, 1996",1996,
@@ -77,11 +80,14 @@ src-2bd23a88b63f,Wikipedia,List of Chief Ministers of Nagaland,operator-snapshot
 src-2c57781325fd,Wikipedia,List of Chief Ministers of Assam,operator-snapshot-2026-05,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Assam
 src-2c82cd8fda65,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Meghalaya, 1998",1998,
 src-2e3e251ee6a4,President's Secretariat,Shri Ram Nath Kovind,Page Last Updated on: 25/05/2026,https://www.presidentofindia.gov.in/former-president/shri-ram-nath-kovind
+src-2eaebbb1cfe5,Reserve Bank of India,"Handbook of Statistics on Indian Economy 2024-25, Table 9 (Per Capita Net State Domestic Product - State-wise, At Current Prices)",2024-25,https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+Economy
 src-2fbfb9f483a0,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of West Bengal, 2016",2016,
 src-2fc8ad08c280,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Rajasthan, 1985",1985,
 src-308d70821d95,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Goa, 1994",1994,
+src-3155ffeddf80,NITI Aayog India Climate & Energy Dashboard,"State-wise Deep Dive — Population (lakhs) by State, fiscal-year",2024-25,https://iced.niti.gov.in/analytics/state-wise-deep-dive
 src-31c65dbec869,"Trivedi Centre for Political Data, Ashoka University",Indian General Elections (Lok Sabha) - Constituency-wise candidate results (TCPD compilation of ECI returns),2026-06-05,https://tcpd.ashoka.edu.in/lok-dhaba/
 src-31d879923e61,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Arunachal Pradesh, 1980",1980,
+src-324392501ae9,Reserve Bank of India,"Handbook of Statistics on Indian States 2024-25, Tables 108-111 (State-wise Average CPI Inflation: General, Food and Beverages, Fuel and Light, Housing-Urban)",2024-25,https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+States
 src-33ba3556a8f4,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Kerala, 1980",1980,
 src-33d259753407,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of NCT of Delhi, 1993",1993,
 src-35e6c87c480b,Wikipedia,List of Chief Ministers of Bihar,,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Bihar
@@ -106,6 +112,7 @@ src-3f43c6f26da5,Wikipedia,List of Chief Ministers of Madhya Pradesh,operator-sn
 src-3f9d4daf9289,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Sikkim, 2014",2014,
 src-401ec179ced9,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Tamil Nadu, 1996",1996,
 src-419098a2fee9,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Gujarat, 2012",2012,
+src-41cb48075b72,NITI Aayog India Climate & Energy Dashboard,"Key Economic Indicators API — India Balance of Payments components (national, INR crore)",2024-25,https://icedapi.niti.gov.in/economy-demography/key-economic-indicators/balance-trendline
 src-41d3d3556e9d,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Meghalaya, 2008",2008,
 src-421cf8d49abb,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Assam, 1985",1985,
 src-4280140bc721,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Assam, 1983",1983,
@@ -131,6 +138,7 @@ src-4bc9bead980e,Election Commission of India,"Statistical Report on General Ele
 src-4bea2515fd9d,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Maharashtra, 1972",1972,
 src-4c63b70dbcf5,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Tamil Nadu, 2021",2021,
 src-4c77ab7c8b18,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S16 AcGenNov2023,AcGenNov2023,https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mizoram/2023/Detailed_Results.xlsx
+src-4c95d17fcd6e,Reserve Bank of India,"Handbook of Statistics on Indian Economy 2024-25, Table 10 (Per Capita Net State Domestic Product - State-wise, At Constant Prices)",2024-25,https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+Economy
 src-4cf8378fae18,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of West Bengal, 2006",2006,
 src-4d8c80f8c8fe,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Karnataka, 2013",2013,
 src-4d91103b76b2,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Sikkim, 1994",1994,
@@ -145,6 +153,7 @@ src-4f52acd5570b,Wikipedia,List of Chief Ministers of Telangana,operator-snapsho
 src-4f63186fa7cf,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Mizoram, 2018",2018,
 src-508c8fe83f5c,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Tripura, 1993",1993,
 src-50c93d074c18,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Rajasthan, 2008",2008,
+src-514f13de303b,Reserve Bank of India,State Finances: A Study of Budgets - Combined Gross Fiscal Deficit of All State Governments (INR crore),2025-26,https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=State+Finances+%3A+A+Study+of+Budgets
 src-5230abac31bb,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Uttar Pradesh, 2007",2007,
 src-542153f504f1,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Gujarat, 2007",2007,
 src-549efa82d0e1,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Madhya Pradesh, 2018",2018,
@@ -165,8 +174,10 @@ src-5a55ef1114cd,Election Commission of India,"Statistical Report on General Ele
 src-5ae945f7f814,Wikipedia,List of Chief Ministers of Jammu and Kashmir (UT),,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Jammu_and_Kashmir
 src-5b2670ea594e,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Maharashtra, 2009",2009,
 src-5c0c9c3de1ed,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Uttar Pradesh, 2012",2012,
+src-5c93205c875f,NITI Aayog India Climate & Energy Dashboard,"Key Economic Indicators API — GVA at constant prices by industry (national, INR crore)",2024-25,https://icedapi.niti.gov.in/economy-demography/key-economic-indicators/gva-trend
 src-5cc96aeab15f,Wikipedia,List of Chief Ministers of Sikkim,operator-snapshot-2026-05,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Sikkim
 src-5dd3d997bf7a,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Assam, 2006",2006,
+src-5e771ccbbdee,Reserve Bank of India,"State Finances: A Study of Budgets, Statement 17 (Devolution and Transfer of Resources from the Centre - Net)",2025-26,https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=State+Finances+%3A+A+Study+of+Budgets
 src-5ea8e5f3b5d7,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Karnataka, 1978",1978,
 src-6051c0ba2605,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Sikkim, 1979",1979,
 src-606ae1d0586b,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of NCT of Delhi, 2013",2013,
@@ -189,12 +200,14 @@ src-6e6cad8b2a5a,Election Commission of India,"Statistical Report on General Ele
 src-6f664e14e065,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S07 AcGenOct2019,AcGenOct2019,
 src-6fd9fd4654a9,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of West Bengal, 1991",1991,
 src-701a81e72fbb,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Maharashtra, 1978",1978,
+src-706a26f2871e,NITI Aayog India Climate & Energy Dashboard,Climate-Environment Air Quality FGD API — State-wise share of coal-based thermal capacity with installed Flue-Gas Desulphurisation (%),2024-25,https://icedapi.niti.gov.in/climate-environment/environment/air-quality/fgd
 src-70f27d85923d,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Mizoram, 1989",1989,
 src-71f0e1eb39ea,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Meghalaya, 2003",2003,
 src-7310fa0f34b6,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S28 AcGenFeb2022,AcGenFeb2022,
 src-731874b4f970,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of NCT of Delhi, 2003",2003,
 src-733047d7201b,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Sikkim, 1989",1989,
 src-7433352a7424,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Chhattisgarh, 2018",2018,
+src-7532e395ae91,NITI Aayog India Climate & Energy Dashboard,Climate-Environment GHG Emissions API — India GHG by sector and sub-sector (Gg CO2e),2024-25,https://icedapi.niti.gov.in/climate-environment/ghg-emissions/energy
 src-755a37da21a2,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Haryana, 2000",2000,
 src-7678c0c320bf,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S21 AcGenJun2024,AcGenJun2024,https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-SK/10-Detailed-Results.xlsx
 src-79f27d78734d,"Department of Posts, Government of India",All India Pincode Boundaries (KMZ),2025,https://www.data.gov.in/catalog/all-india-pincode-boundary
@@ -202,6 +215,7 @@ src-7a217e3416d4,Wikipedia,List of Chief Ministers of Rajasthan,,https://en.wiki
 src-7b4f21307492,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Tamil Nadu, 2006",2006,
 src-7b75aa8e54d3,Wikipedia,List of Chief Ministers of Arunachal Pradesh,,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Arunachal_Pradesh
 src-7bfa105ca7d0,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Uttar Pradesh, 1991",1991,
+src-7c3cc99a3b68,NITI Aayog India Climate & Energy Dashboard,Climate-Environment CO Emission Metatable API — State-wise power-sector CO2 emissions by fuel (Mt CO2),2024-25,https://icedapi.niti.gov.in/v1/co-emission-metatable-data
 src-7c6b30f97b01,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Nagaland, 1977",1977,
 src-7d6399c74294,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Himachal Pradesh, 2003",2003,
 src-7e54c96393b9,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S28 AcGenFeb2017,AcGenFeb2017,
@@ -218,6 +232,7 @@ src-81f99a4321ae,Election Commission of India,Statistical Report Section 10 (Det
 src-8412f0292338,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of NCT of Delhi, 2008",2008,
 src-841460ac0eb1,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Gujarat, 1998",1998,
 src-8444a948b2a8,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of West Bengal, 2021",2021,
+src-857e962f15f5,NITI Aayog India Climate & Energy Dashboard,Climate-Environment GHG Emissions API — India economy-wide GHG by sector (Gg CO2e),2024-25,https://icedapi.niti.gov.in/climate-environment/ghg-emissions/economy-wide-emission
 src-86f97d85cdc9,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Meghalaya, 1983",1983,
 src-876bf921c339,Election Commission of India,Statistical Report Section 10 (Detailed Results) — U05 AcGenFeb2025,AcGenFeb2025,
 src-878a615fb32b,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S06 AcGenDec2017,AcGenDec2017,
@@ -238,6 +253,7 @@ src-8f3fd20e4fce,Election Commission of India,"Statistical Report on General Ele
 src-8fbed42aa70c,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Himachal Pradesh, 1982",1982,
 src-90eb6961f25f,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Uttarakhand, 2012",2012,
 src-920426012b16,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S11 AcGenMay2026,AcGenMay2026,https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Kerala_2026_2026/10-Detailed_Results_1778164525.xlsx
+src-933106681441,NITI Aayog India Climate & Energy Dashboard,"Key Economic Indicators API — Index of Industrial Production (2011-12=100), by use-based + sectoral classification",2024-25,https://icedapi.niti.gov.in/economy-demography/key-economic-indicators/industrial-production
 src-935cfa064ac8,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Bihar, 1980",1980,
 src-93a2a72db482,"Department of Animal Husbandry & Dairying, Ministry of Fisheries, Animal Husbandry & Dairying, Government of India","Bharat Pashudhan — NAIP IV AI Coverage, Pregnancies, Calves (district-wise)",2024-25,https://bharatpashudhan.gov.in/
 src-94b43c14e514,Wikipedia,List of Chief Ministers of West Bengal,,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_West_Bengal
@@ -283,6 +299,7 @@ src-a3859a5a6fab,Election Commission of India,"Statistical Report on General Ele
 src-a403cedd49aa,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Rajasthan, 2003",2003,
 src-a4526341e90d,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Uttar Pradesh, 1989",1989,
 src-a52f0799d8fe,Election Commission of India,Statistical Report Section 10 (Detailed Results) — U07 AcGenApr2021,AcGenApr2021,
+src-a678f28ff9fc,Reserve Bank of India,Handbook of Statistics on Indian Economy - Union (Central) Government Gross Fiscal Deficit (INR crore),2024-25,https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+Economy
 src-a6ac80b5dbb5,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Goa, 2022",2022,
 src-a6ca5a69db75,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Maharashtra, 1962",1962,
 src-a6ff45d1f5fb,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S04 AcGenNov2025,AcGenNov2025,https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_Bihar_October_to_November_2025_Statistical_Report_2025/10-Detailed_Results_1763549630.xlsx
@@ -303,10 +320,13 @@ src-acb75d0ef1ff,Election Commission of India,"Statistical Report on General Ele
 src-aeaa90663876,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Kerala, 1987",1987,
 src-aedf97ce448b,Wikipedia,List of Chief Ministers of NCT of Delhi,,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Delhi
 src-afa3b46d2fea,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S29 AcGenNov2023,AcGenNov2023,https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/telangana/2023/Detailed_Results.xlsx
+src-afc5e9518318,Rajya Sabha Secretariat (Government of India),"Rajya Sabha Session 260 Unstarred Question 1323 (State non-tax revenue, INR crore)",2023-08-01,https://sansad.in/rs/questions/questions-and-answers
 src-b01dae08d922,Wikipedia,List of Chief Ministers of Bihar,operator-snapshot-2026-05,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Bihar
 src-b03564ebb111,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of West Bengal, 1996",1996,
 src-b05f5ec0aecb,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Gujarat, 1980",1980,
+src-b0e345f8906c,Rajya Sabha Secretariat (Government of India),"Rajya Sabha Session 259 Unstarred Question 1480 (State external debt, INR crore)",2023-02-09,https://sansad.in/rs/questions/questions-and-answers
 src-b186201797e9,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Telangana, 2018",2018,
+src-b222d76f33c1,NITI Aayog India Climate & Energy Dashboard,"State-wise Deep Dive API — Sectoral GVA (state, INR crore, current + constant prices)",2024-25,https://iced.niti.gov.in/analytics/state-wise-deep-dive
 src-b2b916daabf9,Election Commission of India,General Election to Lok Sabha 2019 — Constituency-wise candidate results (TCPD compilation of ECI returns),2019,
 src-b2eeb28b5a24,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Manipur, 1990",1990,
 src-b34454befb7d,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Gujarat, 1967",1967,
@@ -315,6 +335,7 @@ src-b476d85084d9,Election Commission of India,Statistical Report Section 10 (Det
 src-b51245a2bd86,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Nagaland, 1998",1998,
 src-b51ea4c83cb8,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Arunachal Pradesh, 1999",1999,
 src-b65b6ec9f54a,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Bihar, 1995",1995,
+src-b6b6a168517e,NITI Aayog India Climate & Energy Dashboard,State-wise Deep Dive API — State GDP at constant 2011-12 prices (INR lakh crore),2024-25,https://iced.niti.gov.in/analytics/state-wise-deep-dive
 src-b70c80893817,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Mizoram, 1987",1987,
 src-b71794c93281,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Kerala, 2006",2006,
 src-b7f0dd7f9087,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S08 AcGenNov2022,AcGenNov2022,
@@ -325,6 +346,7 @@ src-b96bca4d5290,Election Commission of India,"Statistical Report on General Ele
 src-ba67b2879885,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Maharashtra, 1967",1967,
 src-ba7cd29cfe91,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Sikkim, 2019",2019,
 src-bb1d7bec8b34,NITI Aayog India Climate & Energy Dashboard,State-wise Deep Dive API,2024-25,https://iced.niti.gov.in/energy/electricity
+src-bb7935971e98,NITI Aayog India Climate & Energy Dashboard,"Key Economic Indicators API — GDP / GSDP (current + constant prices, INR crore)",2024-25,https://icedapi.niti.gov.in/economy-demography/key-economic-indicators/gdp-trend
 src-bbb00e489d24,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Tripura, 1977",1977,
 src-bbb1962ef943,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Arunachal Pradesh, 1995",1995,
 src-bc1c6cb7e993,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Odisha, 2009",2009,

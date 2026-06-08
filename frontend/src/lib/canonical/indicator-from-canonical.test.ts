@@ -1871,9 +1871,9 @@ describe("loadIndicator — universal entry-point (Phase B-extension)", () => {
     const legacy: import("../indicators").IndicatorArtifact = {
       $schema_version: "4.4",
       indicator: {
-        id: "state-population-lakhs",
-        title: "Population (lakhs)",
-        unit: "lakhs",
+        id: "fake-non-existent-indicator",
+        title: "Fake non-existent indicator",
+        unit: "units",
         entity_kind: "state",
         time_grain: "annual",
       } as any,
@@ -1884,9 +1884,14 @@ describe("loadIndicator — universal entry-point (Phase B-extension)", () => {
       rows: [],
     } as any;
     mockedFetch.mockResolvedValueOnce(legacy);
-    const out = await loadIndicator("/indicators/in/demography/state_population_lakhs.json");
+    // Use an obviously-unmapped legacy path so the dispatch must fall
+    // through to fetchIndicator. Post-G5 (2026-06-08), every wired
+    // legacy id under fiscal/economy/environment/demography/prices is
+    // canonical-backed, so a non-allowlisted path has to be one that
+    // does not exist in the catalogue or the on-disk corpus.
+    const out = await loadIndicator("/indicators/in/fake/non_existent_indicator.json");
     expect(mockedFetch).toHaveBeenCalledTimes(1);
-    expect(mockedFetch).toHaveBeenCalledWith("/indicators/in/demography/state_population_lakhs.json");
+    expect(mockedFetch).toHaveBeenCalledWith("/indicators/in/fake/non_existent_indicator.json");
     expect(out).toBe(legacy);
     expect(mockedQuery).not.toHaveBeenCalled();
   });

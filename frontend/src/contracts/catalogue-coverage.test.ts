@@ -104,9 +104,16 @@ const ALLOWLIST = loadAllowlist();
 const ALLOWED_IDS = new Set(ALLOWLIST.map(e => e.id));
 
 describe("contract — catalogue drift detector", () => {
-  it("workspace contains the catalogue and at least one indicator artifact", () => {
+  it("workspace contains the catalogue (topics.json wires at least one indicator)", () => {
+    // Post-G5 (2026-06-08), the on-disk legacy JSON corpus under
+    // datasets/indicators/in/ is empty - every wired indicator has been
+    // migrated to the canonical CSV path under datasets/data/datapoints/geo/
+    // via per-indicator allowlist descriptors. The drift detector
+    // continues to guard against re-introduction of legacy JSON shards
+    // (ON_DISK.size MUST stay 0 unless paired with a wiring or allowlist
+    // entry), but the existence-of-on-disk-files sanity-check is no
+    // longer load-bearing. The catalogue itself is still mandatory.
     expect(WIRED.size, "topics.json wired set is empty — wrong path?").toBeGreaterThan(0);
-    expect(ON_DISK.size, "no indicator artifacts found on disk — wrong path?").toBeGreaterThan(0);
   });
 
   it("every on-disk indicator is either wired or explicitly allowlisted", () => {
