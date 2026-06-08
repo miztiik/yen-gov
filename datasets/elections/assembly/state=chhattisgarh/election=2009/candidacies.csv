@@ -1,16 +1,16 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Bhajan S. N.,parties.IN.INC,47225,43.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Jageshwar Sahu,parties.IN.BJP,45997,42.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Riti Deshlahara,parties.IN.IND,11477,10.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Noor Bhai,parties.IN.IND,1058,0.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Ashok Miri,parties.IN.CPI,586,0.54,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Shiv S. Singh Ad,parties.IN.AJP,314,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Farooque Khan,parties.IN.LJP,230,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Adv. N. Gupta,parties.IN.IND,185,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Durga Patel,parties.IN.IND,126,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Ganesh Manhar,parties.IN.IND,116,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Chitra Lekha D.,,114,0.11,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Manharan S. C.,parties.IN.GGP,112,0.1,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Anand Gautam,parties.IN.IND,107,0.1,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Anita Verma,parties.IN.IND,92,0.09,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Bakar Ali,,62,0.06,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Bhajan S. N.,parties.IN.INC,INC,47225,43.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Jageshwar Sahu,parties.IN.BJP,BJP,45997,42.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Riti Deshlahara,parties.IN.IND,IND,11477,10.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Noor Bhai,parties.IN.IND,IND,1058,0.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Ashok Miri,parties.IN.CPI,CPI,586,0.54,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Shiv S. Singh Ad,parties.IN.AJP,AJP,314,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Farooque Khan,parties.IN.LJP,LJP,230,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Adv. N. Gupta,parties.IN.IND,IND,185,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Durga Patel,parties.IN.IND,IND,126,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Ganesh Manhar,parties.IN.IND,IND,116,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Chitra Lekha D.,,CVP,114,0.11,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Manharan S. C.,parties.IN.GGP,GGP,112,0.1,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Anand Gautam,parties.IN.IND,IND,107,0.1,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Anita Verma,parties.IN.IND,IND,92,0.09,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-chhattisgarh-2393,chhattisgarh,2009,66,VAISHALI NAGAR,Bakar Ali,,BSSP,62,0.06,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a

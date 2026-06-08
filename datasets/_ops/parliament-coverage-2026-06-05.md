@@ -2,8 +2,6 @@
 
 Per-cycle PC bind coverage for the in-force (2008) delimitation. `unbound` counts (state, pc_no) pairs that did not resolve to an `electoral.csv` PC entity - state-reorganisation artefacts + the small LGD-spine gap + Delhi's PCs (Delhi has no `electoral.csv` constituencies; deferred with the assembly Delhi gap).
 
-Per-cycle totals below are reproduced by `_write_coverage` on every run; re-emitted unchanged on 2026-06-06 (F1.3a Path A) AFTER party_lookup wiring was added to `emit_parliament`. Aggregate party_id resolution: **15,929 of 19,336 rows (82.4%)** carry a non-null `party_id`; the remaining 3,407 rows are long-tail independents + niche parties not in `parties.csv`. Provenance is 100% (every row carries `source_id`). Per Holy Law #9 no party_ids are fabricated.
-
 | election | states | candidacies | summary PCs | unbound |
 | --- | --- | --- | --- | --- |
 | 2009 | 29 | 6380 | 428 | 115 |

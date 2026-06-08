@@ -1,5 +1,5 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-punjab-207,punjab,2019,JALALABAD,204329,154363,75.55,RAMINDER SINGH AWLA,parties.IN.INC,76098,49.3,RAJ SINGH,parties.IN.SAD,59465,16633,10.78,src-1b7bc1c9d39a
-IN-AC-2008-punjab-223,punjab,2019,MUKERIAN,195794,115632,59.06,INDU BALA,parties.IN.INC,53910,46.62,JANGI LAL MAHAJAN,parties.IN.BJP,50470,3440,2.97,src-1b7bc1c9d39a
-IN-AC-2008-punjab-224,punjab,2019,PHAGWARA,184903,103344,55.89,BALWINDER SINGH DHALIWAL,parties.IN.INC,49215,47.62,RAJESH BAGHA,parties.IN.BJP,23099,26116,25.27,src-1b7bc1c9d39a
-IN-AC-2008-punjab-247,punjab,2019,DAKHA,183897,131792,71.67,MANPREET SINGH AYALI,parties.IN.SAD,66297,50.3,SANDEEP SINGH SANDHU,parties.IN.INC,51625,14672,11.13,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-punjab-207,punjab,2019,JALALABAD,204329,154363,75.55,RAMINDER SINGH AWLA,parties.IN.INC,INC,76098,49.3,RAJ SINGH,parties.IN.SAD,SAD,59465,16633,10.78,src-1b7bc1c9d39a
+IN-AC-2008-punjab-223,punjab,2019,MUKERIAN,195794,115632,59.06,INDU BALA,parties.IN.INC,INC,53910,46.62,JANGI LAL MAHAJAN,parties.IN.BJP,BJP,50470,3440,2.97,src-1b7bc1c9d39a
+IN-AC-2008-punjab-224,punjab,2019,PHAGWARA,184903,103344,55.89,BALWINDER SINGH DHALIWAL,parties.IN.INC,INC,49215,47.62,RAJESH BAGHA,parties.IN.BJP,BJP,23099,26116,25.27,src-1b7bc1c9d39a
+IN-AC-2008-punjab-247,punjab,2019,DAKHA,183897,131792,71.67,MANPREET SINGH AYALI,parties.IN.SAD,SAD,66297,50.3,SANDEEP SINGH SANDHU,parties.IN.INC,INC,51625,14672,11.13,src-1b7bc1c9d39a

@@ -124,3 +124,97 @@ proportionally).
 | uttarakhand | 8 | 2095 | 217 | 0 |
 | west-bengal | 10 | 6046 | 909 | 0 |
 | **wave 3 total** | | 40602 | 3949 | |
+
+## Wave 1
+
+| state | years | candidacies | summary ACs | skipped_eci_no |
+| --- | --- | --- | --- | --- |
+| andhra-pradesh | 9 | 8778 | 684 | 1 |
+| arunachal-pradesh | 7 | 505 | 184 | 0 |
+| assam | 7 | 3051 | 387 | 0 |
+| bihar | 10 | 10990 | 759 | 0 |
+| chhattisgarh | 9 | 3386 | 277 | 0 |
+| goa | 5 | 797 | 125 | 0 |
+| gujarat | 10 | 5683 | 590 | 0 |
+| haryana | 7 | 3838 | 275 | 0 |
+| himachal-pradesh | 6 | 1310 | 210 | 0 |
+| jammu-and-kashmir | 4 | 1973 | 157 | 21 |
+| **wave 1 total** | | 40311 | 3648 | |
+
+## Wave 2
+
+| state | years | candidacies | summary ACs | skipped_eci_no |
+| --- | --- | --- | --- | --- |
+| jharkhand | 11 | 4015 | 256 | 0 |
+| karnataka | 13 | 11154 | 938 | 0 |
+| kerala | 7 | 3254 | 431 | 0 |
+| madhya-pradesh | 13 | 9231 | 737 | 4 |
+| maharashtra | 11 | 10153 | 810 | 68 |
+| manipur | 6 | 838 | 188 | 0 |
+| meghalaya | 6 | 1175 | 186 | 0 |
+| mizoram | 7 | 474 | 101 | 24 |
+| nagaland | 11 | 876 | 252 | 0 |
+| odisha | 7 | 3841 | 442 | 3 |
+| **wave 2 total** | | 45011 | 4341 | |
+
+## Wave 3
+
+| state | years | candidacies | summary ACs | skipped_eci_no |
+| --- | --- | --- | --- | --- |
+| puducherry | 4 | 872 | 92 | 0 |
+| punjab | 8 | 3615 | 361 | 0 |
+| rajasthan | 8 | 6673 | 613 | 0 |
+| sikkim | 4 | 406 | 88 | 9 |
+| telangana | 6 | 3327 | 224 | 20 |
+| tripura | 8 | 928 | 191 | 0 |
+| uttar-pradesh | 10 | 16640 | 1254 | 0 |
+| uttarakhand | 8 | 2095 | 217 | 0 |
+| west-bengal | 10 | 6046 | 909 | 0 |
+| **wave 3 total** | | 40602 | 3949 | |
+
+## Wave 1
+
+| state | years | candidacies | summary ACs | skipped_eci_no |
+| --- | --- | --- | --- | --- |
+| andhra-pradesh | 9 | 8778 | 684 | 1 |
+| arunachal-pradesh | 7 | 505 | 184 | 0 |
+| assam | 7 | 3051 | 387 | 0 |
+| bihar | 10 | 10990 | 759 | 0 |
+| chhattisgarh | 9 | 3386 | 277 | 0 |
+| goa | 5 | 797 | 125 | 0 |
+| gujarat | 10 | 5501 | 590 | 0 |
+| haryana | 7 | 3838 | 275 | 0 |
+| himachal-pradesh | 6 | 1242 | 210 | 0 |
+| jammu-and-kashmir | 4 | 1973 | 157 | 21 |
+| **wave 1 total** | | 40061 | 3648 | |
+
+## Wave 2
+
+| state | years | candidacies | summary ACs | skipped_eci_no |
+| --- | --- | --- | --- | --- |
+| jharkhand | 11 | 4015 | 256 | 0 |
+| karnataka | 13 | 10930 | 938 | 0 |
+| kerala | 7 | 3254 | 431 | 0 |
+| madhya-pradesh | 13 | 9231 | 737 | 4 |
+| maharashtra | 11 | 10153 | 810 | 68 |
+| manipur | 6 | 838 | 188 | 0 |
+| meghalaya | 6 | 1116 | 186 | 0 |
+| mizoram | 7 | 474 | 101 | 24 |
+| nagaland | 11 | 817 | 252 | 0 |
+| odisha | 7 | 3841 | 442 | 3 |
+| **wave 2 total** | | 44669 | 4341 | |
+
+## Wave 3
+
+| state | years | candidacies | summary ACs | skipped_eci_no |
+| --- | --- | --- | --- | --- |
+| puducherry | 4 | 872 | 92 | 0 |
+| punjab | 8 | 3615 | 361 | 0 |
+| rajasthan | 8 | 6673 | 613 | 0 |
+| sikkim | 4 | 406 | 88 | 9 |
+| telangana | 6 | 3327 | 224 | 20 |
+| tripura | 8 | 868 | 191 | 0 |
+| uttar-pradesh | 10 | 16640 | 1254 | 0 |
+| uttarakhand | 8 | 2095 | 217 | 0 |
+| west-bengal | 10 | 6046 | 909 | 0 |
+| **wave 3 total** | | 40542 | 3949 | |

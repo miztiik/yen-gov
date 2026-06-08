@@ -1,8 +1,8 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-odisha-2271,odisha,2012,89,ATHAGARH,R. P. Swain,,87604,65.88,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2271,odisha,2012,89,ATHAGARH,S. Mohapatra,parties.IN.INC,40214,30.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2271,odisha,2012,89,ATHAGARH,Bikram Das,parties.IN.BJP,2377,1.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2271,odisha,2012,89,ATHAGARH,B. Rout,parties.IN.IND,1108,0.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2271,odisha,2012,89,ATHAGARH,G. B. Rout,,775,0.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2271,odisha,2012,89,ATHAGARH,B. Chatterjee,parties.IN.IND,577,0.43,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-odisha-2271,odisha,2012,89,ATHAGARH,B. K. Biswal,parties.IN.IND,322,0.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-odisha-2271,odisha,2012,89,ATHAGARH,R. P. Swain,,BJD(B),87604,65.88,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2271,odisha,2012,89,ATHAGARH,S. Mohapatra,parties.IN.INC,INC,40214,30.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2271,odisha,2012,89,ATHAGARH,Bikram Das,parties.IN.BJP,BJP,2377,1.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2271,odisha,2012,89,ATHAGARH,B. Rout,parties.IN.IND,IND,1108,0.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2271,odisha,2012,89,ATHAGARH,G. B. Rout,,SAMO,775,0.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2271,odisha,2012,89,ATHAGARH,B. Chatterjee,parties.IN.IND,IND,577,0.43,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-odisha-2271,odisha,2012,89,ATHAGARH,B. K. Biswal,parties.IN.IND,IND,322,0.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -1,13 +1,13 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,SIRPUR,154673,127084,82.16,Kaveti Sammaiah,,56262,44.27,Allola Indrakaran Reddy,parties.IN.INC,41033,15229,11.98,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,WARANGAL (WEST),216155,118171,54.67,O.V.Bhaskar,,88449,74.85,K.D.Rao,parties.IN.INC,20925,67524,57.14,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,YELLAREDDY,191237,138610,72.48,Eanugu.Ravinder Reddy,,72491,52.3,Ali Shabbir Mohammed,parties.IN.INC,34829,37662,27.17,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,NIZAMABAD (URBAN),239887,120822,50.37,Endala Lakshmi Narayana,parties.IN.BJP,64176,53.12,Dharmapuri  Srinivas,parties.IN.INC,52195,11981,9.92,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,CHENNUR (SC),150107,112300,74.81,Nallala Odelu,,67887,60.45,G. Vinod,parties.IN.INC,23603,44284,39.43,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,KORATLA,191853,124453,64.87,K.V. S. Rao,,80495,64.68,J.R.Rao,parties.IN.INC,23970,56525,45.42,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci22,andhra-pradesh,2010,DHARMAPURI (SC),193562,127577,65.91,E. Koppula,,86720,67.97,A. L. Kumar,parties.IN.INC,27829,58891,46.16,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci28,andhra-pradesh,2010,VEMULAWADA,184513,120987,65.57,Ramesh Chennamaneni,,79146,65.42,A. Srinivas,parties.IN.INC,28695,50451,41.7,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,SIRCILLA,210869,133039,63.09,K.T Ramarao,,87876,66.05,K.K.Mahender Reddy,parties.IN.INC,19657,68219,51.27,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,HUZURABAD,204056,138105,67.68,E.Rajender,,93026,67.36,D.R.Muddasani,parties.IN.TDP,13799,79227,57.37,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci33,andhra-pradesh,2010,SIDDIPET,185202,132442,71.51,T.Harish Rao,,108799,82.15,T.Srinivas Goud,parties.IN.INC,12921,95878,72.39,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,MANCHERIAL,199133,130251,65.41,Aravind Reddy Gaddam,,95311,73.17,Gone Hanmanatha Rao.,parties.IN.TDP,17264,78047,59.92,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,SIRPUR,154673,127084,82.16,Kaveti Sammaiah,parties.IN.BRS,TRS,56262,44.27,Allola Indrakaran Reddy,parties.IN.INC,INC,41033,15229,11.98,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,WARANGAL (WEST),216155,118171,54.67,O.V.Bhaskar,parties.IN.BRS,TRS,88449,74.85,K.D.Rao,parties.IN.INC,INC,20925,67524,57.14,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,YELLAREDDY,191237,138610,72.48,Eanugu.Ravinder Reddy,parties.IN.BRS,TRS,72491,52.3,Ali Shabbir Mohammed,parties.IN.INC,INC,34829,37662,27.17,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,NIZAMABAD (URBAN),239887,120822,50.37,Endala Lakshmi Narayana,parties.IN.BJP,BJP,64176,53.12,Dharmapuri  Srinivas,parties.IN.INC,INC,52195,11981,9.92,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,CHENNUR (SC),150107,112300,74.81,Nallala Odelu,parties.IN.BRS,TRS,67887,60.45,G. Vinod,parties.IN.INC,INC,23603,44284,39.43,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,KORATLA,191853,124453,64.87,K.V. S. Rao,parties.IN.BRS,TRS,80495,64.68,J.R.Rao,parties.IN.INC,INC,23970,56525,45.42,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci22,andhra-pradesh,2010,DHARMAPURI (SC),193562,127577,65.91,E. Koppula,parties.IN.BRS,TRS,86720,67.97,A. L. Kumar,parties.IN.INC,INC,27829,58891,46.16,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci28,andhra-pradesh,2010,VEMULAWADA,184513,120987,65.57,Ramesh Chennamaneni,parties.IN.BRS,TRS,79146,65.42,A. Srinivas,parties.IN.INC,INC,28695,50451,41.7,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,SIRCILLA,210869,133039,63.09,K.T Ramarao,parties.IN.BRS,TRS,87876,66.05,K.K.Mahender Reddy,parties.IN.INC,INC,19657,68219,51.27,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,HUZURABAD,204056,138105,67.68,E.Rajender,parties.IN.BRS,TRS,93026,67.36,D.R.Muddasani,parties.IN.TDP,TDP,13799,79227,57.37,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci33,andhra-pradesh,2010,SIDDIPET,185202,132442,71.51,T.Harish Rao,parties.IN.BRS,TRS,108799,82.15,T.Srinivas Goud,parties.IN.INC,INC,12921,95878,72.39,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,MANCHERIAL,199133,130251,65.41,Aravind Reddy Gaddam,parties.IN.BRS,TRS,95311,73.17,Gone Hanmanatha Rao.,parties.IN.TDP,TDP,17264,78047,59.92,src-1b7bc1c9d39a

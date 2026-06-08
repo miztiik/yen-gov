@@ -81,6 +81,7 @@ _CANDIDACIES_COLUMNS: dict[str, str] = {
     "constituency_name": "VARCHAR",
     "candidate_name": "VARCHAR",
     "party_id": "VARCHAR",
+    "party_short_raw": "VARCHAR",
     "votes": "BIGINT",
     "vote_share_pct": "DOUBLE",
     "position": "INTEGER",

@@ -1,42 +1,42 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-PC-2008-assam-212,assam,2016,14,"LAKHIMPUR , DISTRICT, LAKHIMPUR",Pradan Baruh E,parties.IN.BJP,38197,44.65,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-assam-212,assam,2016,14,"LAKHIMPUR , DISTRICT, LAKHIMPUR",Dr. Hema Hari Prasanna Pegu,parties.IN.INC,34351,40.16,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-assam-212,assam,2016,14,"LAKHIMPUR , DISTRICT, LAKHIMPUR",Dilip Moran,parties.IN.IND,8219,9.61,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-assam-212,assam,2016,14,"LAKHIMPUR , DISTRICT, LAKHIMPUR",Amiya Kumar Handique,,3186,3.72,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-assam-212,assam,2016,14,"LAKHIMPUR , DISTRICT, LAKHIMPUR",Hem Kanta Miri,,1590,1.86,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Gyan Singh,parties.IN.BJP,481398,45.06,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Himadri Dalbir Singh,parties.IN.INC,421015,39.41,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Hira Singh Markam,parties.IN.GGP,55306,5.18,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Parmeshwar Singh Porte,parties.IN.CPI,21143,1.98,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Shivcharan Pao,parties.IN.IND,17198,1.61,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Amit Padwar Adhivakta,,14398,1.35,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Bhai Bimal Beghha,parties.IN.IND,11850,1.11,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Ram Sundar Beghha,parties.IN.IND,9783,0.92,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Parvati Singh Marabe,parties.IN.IND,7229,0.68,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Sheshram Beghha,parties.IN.IND,5687,0.53,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Jhamaklal Banvashi,parties.IN.IND,4711,0.44,11,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Komal Beghha,parties.IN.IND,3902,0.37,12,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Anuradha Patle,parties.IN.IND,3456,0.32,13,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Sajjan Singh Paraste,parties.IN.IND,3365,0.31,14,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Amarpal Singh Dhurve,parties.IN.IND,3037,0.28,15,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Kailash Kol,,2846,0.27,16,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Krishan Pal Singh Pavel,parties.IN.LJSP,2021,0.19,17,forfeit,U,,,,crossover,src-31c65dbec869
-IN-PC-2008-meghalaya-202,meghalaya,2016,2,"TURA(ST), DISTRICT,WEST GARO HILLS",Conrad Kongkal Sangma,parties.IN.NPP,329497,70.59,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-meghalaya-202,meghalaya,2016,2,"TURA(ST), DISTRICT,WEST GARO HILLS",Dikkanchi D.Shira,parties.IN.INC,137285,29.41,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Partha Pratim Ray Ë,parties.IN.AITC,794375,59.46,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Hem Chandra Barman,parties.IN.BJP,381134,28.53,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Nripendra Nath Roy,parties.IN.AIFB,87363,6.54,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Partha Pratim Isore,parties.IN.INC,33470,2.51,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Subodh Barman,,9434,0.71,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Kangsa Raj Barman,,8336,0.62,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Naresh Chandra Roy,,7890,0.59,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Nripen Karjee,,5693,0.43,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Nirmal Kumar Roy,,4617,0.35,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Dhananjoy Barman,parties.IN.WPI,3725,0.28,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-257,west-bengal,2016,30,"TAMLUK(GEN), DISTRICT, PURBA MEDINIPUR",Adhikari Dibyendu (E),parties.IN.AITC,779594,60.31,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-257,west-bengal,2016,30,"TAMLUK(GEN), DISTRICT, PURBA MEDINIPUR",Mandira Panda,,280066,21.66,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-257,west-bengal,2016,30,"TAMLUK(GEN), DISTRICT, PURBA MEDINIPUR",Professor Ambujaksha Mahanti (Ambuj Mahanti),parties.IN.BJP,196450,15.2,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-257,west-bengal,2016,30,"TAMLUK(GEN), DISTRICT, PURBA MEDINIPUR",Batabyal Partha,parties.IN.INC,19851,1.54,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-257,west-bengal,2016,30,"TAMLUK(GEN), DISTRICT, PURBA MEDINIPUR",Dilip Maiti,,10179,0.79,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-257,west-bengal,2016,30,"TAMLUK(GEN), DISTRICT, PURBA MEDINIPUR",Dhananjoy Dalai,,3859,0.3,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-257,west-bengal,2016,30,"TAMLUK(GEN), DISTRICT, PURBA MEDINIPUR",Subhrajit Bhaduri(Lion),,2718,0.21,7,forfeit,U,,,,challenger,src-31c65dbec869
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-PC-2008-assam-212,assam,2016,14,"LAKHIMPUR , DISTRICT, LAKHIMPUR",Pradan Baruh E,parties.IN.BJP,BJP,38197,44.65,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-assam-212,assam,2016,14,"LAKHIMPUR , DISTRICT, LAKHIMPUR",Dr. Hema Hari Prasanna Pegu,parties.IN.INC,INC,34351,40.16,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-assam-212,assam,2016,14,"LAKHIMPUR , DISTRICT, LAKHIMPUR",Dilip Moran,parties.IN.IND,IND,8219,9.61,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-assam-212,assam,2016,14,"LAKHIMPUR , DISTRICT, LAKHIMPUR",Amiya Kumar Handique,parties.IN.CPIM,CPI(Marxist),3186,3.72,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-assam-212,assam,2016,14,"LAKHIMPUR , DISTRICT, LAKHIMPUR",Hem Kanta Miri,,SUC(Commu.),1590,1.86,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Gyan Singh,parties.IN.BJP,BJP,481398,45.06,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Himadri Dalbir Singh,parties.IN.INC,INC,421015,39.41,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Hira Singh Markam,parties.IN.GGP,GGP,55306,5.18,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Parmeshwar Singh Porte,parties.IN.CPI,CPI,21143,1.98,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Shivcharan Pao,parties.IN.IND,IND,17198,1.61,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Amit Padwar Adhivakta,,BSCP,14398,1.35,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Bhai Bimal Beghha,parties.IN.IND,IND,11850,1.11,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Ram Sundar Beghha,parties.IN.IND,IND,9783,0.92,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Parvati Singh Marabe,parties.IN.IND,IND,7229,0.68,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Sheshram Beghha,parties.IN.IND,IND,5687,0.53,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Jhamaklal Banvashi,parties.IN.IND,IND,4711,0.44,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Komal Beghha,parties.IN.IND,IND,3902,0.37,12,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Anuradha Patle,parties.IN.IND,IND,3456,0.32,13,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Sajjan Singh Paraste,parties.IN.IND,IND,3365,0.31,14,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Amarpal Singh Dhurve,parties.IN.IND,IND,3037,0.28,15,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Kailash Kol,,AIDP,2846,0.27,16,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-305,madhya-pradesh,2016,12,"SHAHDOL(ST) , DISTRICT, ANOOPPUR",Krishan Pal Singh Pavel,parties.IN.LJSP,LJSP,2021,0.19,17,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-2008-meghalaya-202,meghalaya,2016,2,"TURA(ST), DISTRICT,WEST GARO HILLS",Conrad Kongkal Sangma,parties.IN.NPP,NPP,329497,70.59,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-meghalaya-202,meghalaya,2016,2,"TURA(ST), DISTRICT,WEST GARO HILLS",Dikkanchi D.Shira,parties.IN.INC,INC,137285,29.41,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Partha Pratim Ray Ë,parties.IN.AITC,AITC,794375,59.46,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Hem Chandra Barman,parties.IN.BJP,BJP,381134,28.53,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Nripendra Nath Roy,parties.IN.AIFB,AIFB,87363,6.54,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Partha Pratim Isore,parties.IN.INC,INC,33470,2.51,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Subodh Barman,,AB,9434,0.71,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Kangsa Raj Barman,,KPP(UNITED),8336,0.62,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Naresh Chandra Roy,,INDEPENDENT,7890,0.59,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Nripen Karjee,,SUCI(COMMUNIST),5693,0.43,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Nirmal Kumar Roy,,INDEPENDENT,4617,0.35,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-232,west-bengal,2016,1,"COOCHBEHAR(SC), DISTRICT, COOCHBEHAR",Dhananjoy Barman,parties.IN.WPI,WPI,3725,0.28,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-257,west-bengal,2016,30,"TAMLUK(GEN), DISTRICT, PURBA MEDINIPUR",Adhikari Dibyendu (E),parties.IN.AITC,AITC,779594,60.31,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-257,west-bengal,2016,30,"TAMLUK(GEN), DISTRICT, PURBA MEDINIPUR",Mandira Panda,parties.IN.CPIM,CPI(Marxist),280066,21.66,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-257,west-bengal,2016,30,"TAMLUK(GEN), DISTRICT, PURBA MEDINIPUR",Professor Ambujaksha Mahanti (Ambuj Mahanti),parties.IN.BJP,BJP,196450,15.2,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-257,west-bengal,2016,30,"TAMLUK(GEN), DISTRICT, PURBA MEDINIPUR",Batabyal Partha,parties.IN.INC,INC,19851,1.54,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-257,west-bengal,2016,30,"TAMLUK(GEN), DISTRICT, PURBA MEDINIPUR",Dilip Maiti,,SUCI(COMMUNIST),10179,0.79,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-257,west-bengal,2016,30,"TAMLUK(GEN), DISTRICT, PURBA MEDINIPUR",Dhananjoy Dalai,,INDEPENDENT,3859,0.3,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-257,west-bengal,2016,30,"TAMLUK(GEN), DISTRICT, PURBA MEDINIPUR",Subhrajit Bhaduri(Lion),,PDS,2718,0.21,7,forfeit,U,,,,challenger,src-31c65dbec869

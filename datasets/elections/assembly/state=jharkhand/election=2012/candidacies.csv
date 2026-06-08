@@ -1,30 +1,30 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,N. Jaiswal (E),parties.IN.AJSUP,41566,27.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,A.N. Shahdeo,,29682,19.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,R.Ji Lal Sharda,parties.IN.BJP,26151,17.21,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,S.K. Sahay,parties.IN.INC,21578,14.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,B. Bhagat,parties.IN.IND,17559,11.55,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,Md. Sharfuddin,parties.IN.IND,2371,1.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,R. Ahmad,parties.IN.JP,1611,1.06,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,J. Hussain,parties.IN.IND,1411,0.93,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,A.K. Mishra,parties.IN.IND,1126,0.74,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,A. Ahmad,parties.IN.IND,977,0.64,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,A.K. Dubey,parties.IN.IND,945,0.62,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,H.P. Sahu,parties.IN.IND,746,0.49,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,A. Ayub,,737,0.48,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,A. Kumar,parties.IN.IND,733,0.48,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,N.K. Agarwal,parties.IN.ABMSD,540,0.36,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,K. Yadav,parties.IN.JDU,474,0.31,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,A.R. Mahto,parties.IN.IND,423,0.28,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,D. Jayswal,parties.IN.IND,417,0.27,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,V.P. Mahto,,397,0.26,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,G.R. Gaunjhu,,361,0.24,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,K. Toppo,parties.IN.IND,346,0.23,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,S. Kerketta,,302,0.2,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,S.K. Jaiwal,parties.IN.SP,262,0.17,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,R.Kumar,parties.IN.IND,258,0.17,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,U. Yadav,parties.IN.AIMF,253,0.17,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,A. Imam,parties.IN.IND,237,0.16,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,V.Tiwary,parties.IN.IND,214,0.14,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,R. Mahto,parties.IN.IND,172,0.11,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,J. Hussain,parties.IN.IND,142,0.09,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,N. Jaiswal (E),parties.IN.AJSUP,AJSUP,41566,27.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,A.N. Shahdeo,,JVM(P),29682,19.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,R.Ji Lal Sharda,parties.IN.BJP,BJP,26151,17.21,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,S.K. Sahay,parties.IN.INC,INC,21578,14.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,B. Bhagat,parties.IN.IND,IND,17559,11.55,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,Md. Sharfuddin,parties.IN.IND,IND,2371,1.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,R. Ahmad,parties.IN.JP,JP,1611,1.06,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,J. Hussain,parties.IN.IND,IND,1411,0.93,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,A.K. Mishra,parties.IN.IND,IND,1126,0.74,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,A. Ahmad,parties.IN.IND,IND,977,0.64,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,A.K. Dubey,parties.IN.IND,IND,945,0.62,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,H.P. Sahu,parties.IN.IND,IND,746,0.49,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,A. Ayub,,PP,737,0.48,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,A. Kumar,parties.IN.IND,IND,733,0.48,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,N.K. Agarwal,parties.IN.ABMSD,ABMSD,540,0.36,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,K. Yadav,parties.IN.JDU,JD(U),474,0.31,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,A.R. Mahto,parties.IN.IND,IND,423,0.28,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,D. Jayswal,parties.IN.IND,IND,417,0.27,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,V.P. Mahto,,JPJD,397,0.26,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,G.R. Gaunjhu,,JDP,361,0.24,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,K. Toppo,parties.IN.IND,IND,346,0.23,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,S. Kerketta,,ABJP,302,0.2,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,S.K. Jaiwal,parties.IN.SP,SP,262,0.17,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,R.Kumar,parties.IN.IND,IND,258,0.17,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,U. Yadav,parties.IN.AIMF,AIMF,253,0.17,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,A. Imam,parties.IN.IND,IND,237,0.16,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,V.Tiwary,parties.IN.IND,IND,214,0.14,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,R. Mahto,parties.IN.IND,IND,172,0.11,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,J. Hussain,parties.IN.IND,IND,142,0.09,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a

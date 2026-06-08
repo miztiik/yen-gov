@@ -41,6 +41,7 @@ from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.canonical.reingest.assembly_results import (
     DELIM_ID_2008,
     NOTA_PARTY_TOKEN,
+    NOTA_TOKENS,
     _candidate_type,
     _float_or_none,
     _int_or_none,
@@ -122,7 +123,7 @@ def build_parliament_year(
     unbound: set[tuple[str, int]] = set()
     for src in final_rows:
         raw_party = (src.get("Party") or "").strip()
-        if raw_party.upper() == NOTA_PARTY_TOKEN:
+        if raw_party.upper() in NOTA_TOKENS:
             continue
         pc_no = _int_or_none(src.get("Constituency_No"))
         if pc_no is None:
@@ -142,6 +143,7 @@ def build_parliament_year(
                 "constituency_name": _text_or_none(src.get("Constituency_Name")) or "",
                 "candidate_name": _text_or_none(src.get("Candidate")) or "",
                 "party_id": lookup.get(raw_party.upper()) if raw_party else None,
+                "party_short_raw": raw_party or None,
                 "votes": _int_or_none(src.get("Votes")) or 0,
                 "vote_share_pct": _float_or_none(src.get("Vote_Share_Percentage")),
                 "position": position if position is not None else 0,

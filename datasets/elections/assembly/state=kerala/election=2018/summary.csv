@@ -1,2 +1,2 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-kerala-3802,kerala,2018,CHENGANNUR,200137,152041,75.97,Saji Cheryan 'E',,67303,44.27,Adv. D. VijayaKumar,parties.IN.INC,46347,20956,13.79,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-kerala-3802,kerala,2018,CHENGANNUR,200137,152041,75.97,Saji Cheryan 'E',parties.IN.CPIM,CPM,67303,44.27,Adv. D. VijayaKumar,parties.IN.INC,INC,46347,20956,13.79,src-1b7bc1c9d39a

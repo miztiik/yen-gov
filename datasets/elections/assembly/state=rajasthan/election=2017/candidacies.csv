@@ -1,16 +1,16 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Shobha Rani Kushavah,parties.IN.BJP,91548,62.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Banwari Lal Sharma,parties.IN.INC,52875,35.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Harvilash Jatav,,919,0.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Banavari Lal Sharma,parties.IN.SP,664,0.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,JayPrakash Jatav,,193,0.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Lala Bahid Khan,,192,0.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Kamlesh Chand,,148,0.1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Mamata Jagan Gurjar,,112,0.08,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Rajuddin Khan,,107,0.07,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Gunjan Jatav,,91,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Meenakshi Bhaskar(Jatav),,80,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Bano Begam,,71,0.05,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Deshraj Upadhyay,,70,0.05,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Prashant Sharma,,67,0.05,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Farman Bhai,,65,0.04,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Shobha Rani Kushavah,parties.IN.BJP,BJP,91548,62.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Banwari Lal Sharma,parties.IN.INC,INC,52875,35.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Harvilash Jatav,,INDEPENDENT,919,0.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Banavari Lal Sharma,parties.IN.SP,SP,664,0.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,JayPrakash Jatav,,INDEPENDENT,193,0.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Lala Bahid Khan,,INDEPENDENT,192,0.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Kamlesh Chand,,INDEPENDENT,148,0.1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Mamata Jagan Gurjar,,INDEPENDENT,112,0.08,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Rajuddin Khan,,INDEPENDENT,107,0.07,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Gunjan Jatav,,INDEPENDENT,91,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Meenakshi Bhaskar(Jatav),,INDEPENDENT,80,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Bano Begam,,INDEPENDENT,71,0.05,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Deshraj Upadhyay,,INDEPENDENT,70,0.05,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Prashant Sharma,,INDEPENDENT,67,0.05,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-642,rajasthan,2017,79,DHOLPUR,Farman Bhai,,INDEPENDENT,65,0.04,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a

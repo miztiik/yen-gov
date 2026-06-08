@@ -1,2 +1,2 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-telangana-3313,telangana,2020,DUBBAK,198756,164669,82.85,MADHAVANENI RAGHUNANDAN RAO,parties.IN.BJP,63352,38.47,SOLIPETA SUJATHA,,62273,1079,0.65,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-telangana-3313,telangana,2020,DUBBAK,198756,164669,82.85,MADHAVANENI RAGHUNANDAN RAO,parties.IN.BJP,BJP,63352,38.47,SOLIPETA SUJATHA,parties.IN.BRS,TRS,62273,1079,0.65,src-1b7bc1c9d39a

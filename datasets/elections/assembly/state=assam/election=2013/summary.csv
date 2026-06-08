@@ -1,2 +1,2 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-assam-1785,assam,2013,ALGAPUR,131624,110969,84.31,Mandira Roy,parties.IN.INC,52814,47.59,Mehsubul Hassan Laskar,parties.IN.AIUDF,51899,915,0.82,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-assam-1785,assam,2013,ALGAPUR,131624,110969,84.31,Mandira Roy,parties.IN.INC,INC,52814,47.59,Mehsubul Hassan Laskar,parties.IN.AIUDF,AIUDF,51899,915,0.82,src-1b7bc1c9d39a

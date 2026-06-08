@@ -1,35 +1,35 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Rahim Khan,parties.IN.INC,70138,56.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Prakash Khanore,parties.IN.BJP,47417,37.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Md. Ayaz Khan,parties.IN.JDS,4421,3.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Dr. Madna Vaijinath,parties.IN.BSP,1519,1.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Md. Qayamuddin,,555,0.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Shivakumar,parties.IN.IND,362,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Mallappa,parties.IN.IND,275,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Eshawar Keneri,parties.IN.IND,154,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Shamanna Bavri,parties.IN.IND,148,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Abdul Razzak,parties.IN.IND,145,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3637,karnataka,2016,56,DEVADURGA,K. Shivana Gowda NayakaE',parties.IN.BJP,72647,52.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3637,karnataka,2016,56,DEVADURGA,A. Rajashekhar Nayak,parties.IN.INC,55776,40.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3637,karnataka,2016,56,DEVADURGA,Karemma G. Nayaka,parties.IN.JDS,9156,6.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3637,karnataka,2016,56,DEVADURGA,Shivaraj Dore,parties.IN.IND,1837,1.32,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Y.A. Narayana SwamyË,parties.IN.BJP,60367,56.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,C.K. Abdul Rahman Shartef,parties.IN.INC,41218,38.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Ismail Sharieff Nana,parties.IN.JDS,3666,3.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Vinay Kumar. V. Nayak,parties.IN.IND,395,0.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Syed Asif Bukhari,parties.IN.IND,359,0.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Hunsur.K. Chandrashekhar,,304,0.28,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,B.S. Manjunath,parties.IN.IND,241,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Pavithra,parties.IN.IND,205,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,N. Nagarathna,parties.IN.RPI,149,0.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Dr. P.K. Velladurai,parties.IN.IND,134,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,K.A. Mohan,,130,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Anjan Kumar Gowda.S,parties.IN.IND,95,0.09,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Nagesh.S,parties.IN.IND,80,0.07,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Ali Haidar,parties.IN.IND,71,0.07,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Muni By Lappa,parties.IN.JSP,70,0.06,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Dr. Manjunath Nayak,parties.IN.ANC,64,0.06,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Supreeth Poojary Dharmasthala,parties.IN.HJP,60,0.06,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Ambrose D'mello,parties.IN.IND,53,0.05,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Deepak Rajesh Coelho,parties.IN.IND,45,0.04,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,TK Dasar,parties.IN.IND,35,0.03,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Rahim Khan,parties.IN.INC,INC,70138,56.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Prakash Khanore,parties.IN.BJP,BJP,47417,37.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Md. Ayaz Khan,parties.IN.JDS,JD(S),4421,3.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Dr. Madna Vaijinath,parties.IN.BSP,BSP,1519,1.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Md. Qayamuddin,,NDP,555,0.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Shivakumar,parties.IN.IND,IND,362,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Mallappa,parties.IN.IND,IND,275,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Eshawar Keneri,parties.IN.IND,IND,154,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Shamanna Bavri,parties.IN.IND,IND,148,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2016,50,BIDAR,Abdul Razzak,parties.IN.IND,IND,145,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3637,karnataka,2016,56,DEVADURGA,K. Shivana Gowda NayakaE',parties.IN.BJP,BJP,72647,52.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3637,karnataka,2016,56,DEVADURGA,A. Rajashekhar Nayak,parties.IN.INC,INC,55776,40.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3637,karnataka,2016,56,DEVADURGA,Karemma G. Nayaka,parties.IN.JDS,JD(S),9156,6.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3637,karnataka,2016,56,DEVADURGA,Shivaraj Dore,parties.IN.IND,IND,1837,1.32,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Y.A. Narayana SwamyË,parties.IN.BJP,BJP,60367,56.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,C.K. Abdul Rahman Shartef,parties.IN.INC,INC,41218,38.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Ismail Sharieff Nana,parties.IN.JDS,JD(S),3666,3.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Vinay Kumar. V. Nayak,parties.IN.IND,IND,395,0.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Syed Asif Bukhari,parties.IN.IND,IND,359,0.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Hunsur.K. Chandrashekhar,,DPKPS,304,0.28,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,B.S. Manjunath,parties.IN.IND,IND,241,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Pavithra,parties.IN.IND,IND,205,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,N. Nagarathna,parties.IN.RPI,RPI,149,0.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Dr. P.K. Velladurai,parties.IN.IND,IND,134,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,K.A. Mohan,,KDC,130,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Anjan Kumar Gowda.S,parties.IN.IND,IND,95,0.09,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Nagesh.S,parties.IN.IND,IND,80,0.07,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Ali Haidar,parties.IN.IND,IND,71,0.07,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Muni By Lappa,parties.IN.JSP,JSP,70,0.06,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Dr. Manjunath Nayak,parties.IN.ANC,ANC,64,0.06,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Supreeth Poojary Dharmasthala,parties.IN.HJP,HJP,60,0.06,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Ambrose D'mello,parties.IN.IND,IND,53,0.05,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,Deepak Rajesh Coelho,parties.IN.IND,IND,45,0.04,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2016,158,HEBBAL,TK Dasar,parties.IN.IND,IND,35,0.03,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a

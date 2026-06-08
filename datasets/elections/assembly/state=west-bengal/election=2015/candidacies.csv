@@ -1,6 +1,6 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-west-bengal-2114,west-bengal,2015,88,KRISHNAGANJ,Satyajit Biswas,parties.IN.AITC,95469,48.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2114,west-bengal,2015,88,KRISHNAGANJ,Dr. Manabendra Ray,parties.IN.BJP,58436,29.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2114,west-bengal,2015,88,KRISHNAGANJ,A.K. Biswas,,37620,19.01,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2114,west-bengal,2015,88,KRISHNAGANJ,N.G.Mondal,parties.IN.INC,4817,2.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2114,west-bengal,2015,88,KRISHNAGANJ,B.K. Golder,,1503,0.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-west-bengal-2114,west-bengal,2015,88,KRISHNAGANJ,Satyajit Biswas,parties.IN.AITC,AITC,95469,48.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2114,west-bengal,2015,88,KRISHNAGANJ,Dr. Manabendra Ray,parties.IN.BJP,BJP,58436,29.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2114,west-bengal,2015,88,KRISHNAGANJ,A.K. Biswas,parties.IN.CPIM,CPM,37620,19.01,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2114,west-bengal,2015,88,KRISHNAGANJ,N.G.Mondal,parties.IN.INC,INC,4817,2.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2114,west-bengal,2015,88,KRISHNAGANJ,B.K. Golder,,NSBP,1503,0.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

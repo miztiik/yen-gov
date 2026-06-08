@@ -1,15 +1,15 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,PRATAPGARH,336989,149184,44.27,RAJKUMAR PAL,,52949,35.49,BRIJESH VERMA,parties.IN.SP,23228,29721,19.92,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,RAMPUR,390725,160881,41.17,Dr. Tazeen Fatma,parties.IN.SP,79043,49.13,Bharat Bhushan,parties.IN.BJP,71327,7716,4.79,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,JALALPUR,393038,229797,58.47,Subhash Rai,parties.IN.SP,72611,31.6,Dr. Chhaya Verma,parties.IN.BSP,71821,790,0.35,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,BALHA,357305,185425,51.9,SAROJ SONKAR,parties.IN.BJP,89641,48.34,KIRAN BHARTI,parties.IN.SP,43154,46487,25.07,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-772,uttar-pradesh,2019,MANIKPUR,338116,177166,52.4,AANAND SHUKLA,parties.IN.BJP,66310,37.43,DR NIRBHAY SINGH PATEL,parties.IN.SP,53470,12840,7.25,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-783,uttar-pradesh,2019,ZAIDPUR,379827,221586,58.34,Gaurav Kumar,parties.IN.SP,78172,35.28,Ambrish,parties.IN.BJP,74007,4165,1.88,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,GHOSI,423952,219652,51.81,VIJAY KUMAR RAJBHAR,parties.IN.BJP,68371,31.13,SUDHAKAR SINGH,parties.IN.IND,66598,1773,0.81,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2019,HAMIRPUR,401497,193037,48.08,Yuwraj Singh,parties.IN.BJP,74409,38.55,Dr. Manoj Kumar Prajapati,parties.IN.SP,56542,17867,9.26,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-907,uttar-pradesh,2019,IGLAS,374733,146452,39.08,RAJKUMAR SAHYOGI,parties.IN.BJP,75673,51.67,ABHAY KUMAR,parties.IN.BSP,49736,25937,17.71,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,GANGOH,369317,224583,60.81,KIRAT SINGH,parties.IN.BJP,68300,30.41,NOOMAN MASOOD,parties.IN.INC,62881,5419,2.41,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-952,uttar-pradesh,2019,NIGHASAN,336086,224719,66.86,SHASHANK VERMA,parties.IN.BJP,120269,53.52,MOHAMMAD KAIYUM,parties.IN.SP,68987,51282,22.82,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,LUCKNOW CANTONMENT,385064,111072,28.85,Suresh Chandra Tiwari,parties.IN.BJP,56684,51.03,Major Ashish Chaturvedi,parties.IN.SP,21256,35428,31.89,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,GOVIND NAGAR,359343,120255,33.47,SURENDRA MAITHANI,parties.IN.BJP,60237,50.09,KARISHMA THAKUR,parties.IN.INC,38993,21244,17.66,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,AGRA NORTH,409578,162777,39.74,PURSHOTTAM KHANDELWAL,parties.IN.BJP,105762,64.97,SURAJ SHARMA,parties.IN.SP,45731,60031,36.88,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,PRATAPGARH,336989,149184,44.27,RAJKUMAR PAL,parties.IN.ADS,ADS,52949,35.49,BRIJESH VERMA,parties.IN.SP,SP,23228,29721,19.92,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,RAMPUR,390725,160881,41.17,Dr. Tazeen Fatma,parties.IN.SP,SP,79043,49.13,Bharat Bhushan,parties.IN.BJP,BJP,71327,7716,4.79,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,JALALPUR,393038,229797,58.47,Subhash Rai,parties.IN.SP,SP,72611,31.6,Dr. Chhaya Verma,parties.IN.BSP,BSP,71821,790,0.35,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,BALHA,357305,185425,51.9,SAROJ SONKAR,parties.IN.BJP,BJP,89641,48.34,KIRAN BHARTI,parties.IN.SP,SP,43154,46487,25.07,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-772,uttar-pradesh,2019,MANIKPUR,338116,177166,52.4,AANAND SHUKLA,parties.IN.BJP,BJP,66310,37.43,DR NIRBHAY SINGH PATEL,parties.IN.SP,SP,53470,12840,7.25,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-783,uttar-pradesh,2019,ZAIDPUR,379827,221586,58.34,Gaurav Kumar,parties.IN.SP,SP,78172,35.28,Ambrish,parties.IN.BJP,BJP,74007,4165,1.88,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-880,uttar-pradesh,2019,GHOSI,423952,219652,51.81,VIJAY KUMAR RAJBHAR,parties.IN.BJP,BJP,68371,31.13,SUDHAKAR SINGH,parties.IN.IND,IND,66598,1773,0.81,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-896,uttar-pradesh,2019,HAMIRPUR,401497,193037,48.08,Yuwraj Singh,parties.IN.BJP,BJP,74409,38.55,Dr. Manoj Kumar Prajapati,parties.IN.SP,SP,56542,17867,9.26,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-907,uttar-pradesh,2019,IGLAS,374733,146452,39.08,RAJKUMAR SAHYOGI,parties.IN.BJP,BJP,75673,51.67,ABHAY KUMAR,parties.IN.BSP,BSP,49736,25937,17.71,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-925,uttar-pradesh,2019,GANGOH,369317,224583,60.81,KIRAT SINGH,parties.IN.BJP,BJP,68300,30.41,NOOMAN MASOOD,parties.IN.INC,INC,62881,5419,2.41,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-952,uttar-pradesh,2019,NIGHASAN,336086,224719,66.86,SHASHANK VERMA,parties.IN.BJP,BJP,120269,53.52,MOHAMMAD KAIYUM,parties.IN.SP,SP,68987,51282,22.82,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci175,uttar-pradesh,2019,LUCKNOW CANTONMENT,385064,111072,28.85,Suresh Chandra Tiwari,parties.IN.BJP,BJP,56684,51.03,Major Ashish Chaturvedi,parties.IN.SP,SP,21256,35428,31.89,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci212,uttar-pradesh,2019,GOVIND NAGAR,359343,120255,33.47,SURENDRA MAITHANI,parties.IN.BJP,BJP,60237,50.09,KARISHMA THAKUR,parties.IN.INC,INC,38993,21244,17.66,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-eci89,uttar-pradesh,2019,AGRA NORTH,409578,162777,39.74,PURSHOTTAM KHANDELWAL,parties.IN.BJP,BJP,105762,64.97,SURAJ SHARMA,parties.IN.SP,SP,45731,60031,36.88,src-1b7bc1c9d39a

@@ -68,6 +68,7 @@ from yen_gov.canonical.reingest.elections import (
 __all__ = [
     "DELIM_ID_2008",
     "NOTA_PARTY_TOKEN",
+    "NOTA_TOKENS",
     "build_candidacy_rows",
     "party_lookup_from_parties_csv",
     "recompute_summary_row",
@@ -78,8 +79,15 @@ __all__ = [
 # Constituency_No numbering matches the emitted electoral.csv entities.
 DELIM_ID_2008 = "4"
 
-# TCPD marks the "None of the Above" ballot line with this Party token.
+# TCPD marks the "None of the Above" ballot line three different ways across
+# years (G1, 2026-06-08): the canonical "NOTA" literal and the long-form
+# "None of the Above" / bare "None". All three are ballot options, not
+# candidates, and MUST be filtered out of candidacies + summary alike. The
+# legacy NOTA_PARTY_TOKEN constant is preserved for backwards-compat callers
+# (e.g. parliament_results re-export) but the live filter consults the
+# NOTA_TOKENS frozenset.
 NOTA_PARTY_TOKEN = "NOTA"
+NOTA_TOKENS: frozenset[str] = frozenset({"NOTA", "NONE OF THE ABOVE", "NONE"})
 
 # Closed-enum maps (the validator enforces membership; we map at the boundary).
 _SEX_MAP = {"MALE": "M", "FEMALE": "F", "OTHERS": "O", "OTHER": "O", "THIRD": "O"}
@@ -110,16 +118,27 @@ def _electoral_eci_to_entity(
 
 
 def party_lookup_from_parties_csv(parties_csv: Path) -> dict[str, str]:
-    """Build a TCPD-shortcode -> canonical party_id map (F1.3a v1.1).
+    """Build a TCPD-shortcode -> canonical party_id map (F1.3a v1.2 + G1).
 
     Reads ``datasets/data/entities/parties.csv`` and returns
-    ``{upper(short): party_id}``. The TCPD ``Party`` field is the same
-    shortcode shape (DMK, AIADMK, BJP, ...), so a case-insensitive direct
-    lookup resolves every party in the canonical taxonomy without any
-    intermediate adapter. Long-tail shorts absent from ``parties.csv``
-    return None from the resulting dict.get() (caller writes null).
+    ``{upper(short): party_id}`` plus, for every non-empty pipe-delimited
+    ``aliases`` value, ``{upper(alias): party_id}`` for each alias. TCPD's
+    ``Party`` field uses a dialect different from the canonical short in
+    places (CPM vs CPI(M), ADMK vs AIADMK, AAAP vs AAP, TRS vs BRS, ...);
+    the ``aliases`` column captures those equivalences as data on disk
+    (round-7c inline pipe-delim precedent on geo.csv + electoral.csv) so
+    a future enrichment is a one-cell CSV edit, not a code change.
 
-    Pure I/O of one small CSV (~620 rows); called once per emit, not per row.
+    Backwards compatible: if the ``aliases`` column is absent (older test
+    fixtures), only ``upper(short) -> party_id`` mappings are emitted.
+
+    Collisions are an error: if two distinct shorts/aliases would resolve
+    to different ``party_id`` values, the writer fails loud (Holy Law #5)
+    rather than silently picking one. Same short/alias to the same
+    ``party_id`` via two rows is fine (idempotent).
+
+    Pure I/O of one small CSV (~620 rows); called once per emit, not per
+    row.
     """
     out: dict[str, str] = {}
     if not parties_csv.exists():
@@ -128,8 +147,26 @@ def party_lookup_from_parties_csv(parties_csv: Path) -> dict[str, str]:
         for row in csv.DictReader(fh):
             short = (row.get("short") or "").strip().upper()
             pid = (row.get("party_id") or "").strip()
-            if short and pid:
-                out[short] = pid
+            if not pid:
+                continue
+            keys: list[str] = []
+            if short:
+                keys.append(short)
+            aliases_raw = (row.get("aliases") or "").strip()
+            if aliases_raw:
+                for alias in aliases_raw.split("|"):
+                    alias_clean = alias.strip().upper()
+                    if alias_clean:
+                        keys.append(alias_clean)
+            for key in keys:
+                existing = out.get(key)
+                if existing is not None and existing != pid:
+                    raise ValueError(
+                        f"party_lookup collision: key {key!r} maps to both "
+                        f"{existing!r} and {pid!r}; resolve by editing "
+                        f"datasets/data/entities/parties.csv"
+                    )
+                out[key] = pid
     return out
 
 
@@ -242,8 +279,8 @@ def build_candidacy_rows(
     unbound: set[int] = set()
     for src in source_rows:
         raw_party = (src.get("Party") or "").strip()
-        if raw_party.upper() == NOTA_PARTY_TOKEN:
-            continue  # NOTA is a ballot option, not a candidate.
+        if raw_party.upper() in NOTA_TOKENS:
+            continue  # NOTA / None of the Above / None are ballot options, not candidates.
         eci_no = _int_or_none(src.get("Constituency_No"))
         if eci_no is None:
             continue
@@ -261,6 +298,7 @@ def build_candidacy_rows(
                 "constituency_name": _text_or_none(src.get("Constituency_Name")) or "",
                 "candidate_name": _text_or_none(src.get("Candidate")) or "",
                 "party_id": lookup.get(raw_party.upper()) if raw_party else None,
+                "party_short_raw": raw_party or None,
                 "votes": _int_or_none(src.get("Votes")) or 0,
                 "vote_share_pct": _float_or_none(src.get("Vote_Share_Percentage")),
                 "position": position if position is not None else 0,
@@ -326,10 +364,12 @@ def recompute_summary_row(
         "turnout_pct": _round(ac_facts.get("turnout_pct")),
         "winner_candidate": winner["candidate_name"],
         "winner_party_id": winner.get("party_id"),
+        "winner_party_short_raw": winner.get("party_short_raw"),
         "winner_votes": winner["votes"],
         "winner_share_pct": _round(winner_share),
         "runnerup_candidate": runner["candidate_name"] if runner else None,
         "runnerup_party_id": runner.get("party_id") if runner else None,
+        "runnerup_party_short_raw": runner.get("party_short_raw") if runner else None,
         "runnerup_votes": runner["votes"] if runner else None,
         "margin_votes": (winner["votes"] - runner["votes"]) if runner else None,
         "margin_pct": margin_pct,

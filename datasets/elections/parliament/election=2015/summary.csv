@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,WARANGAL(SC),1537778,1026732,66.77,Dayakar Pasunoori,,615544,59.95,Sarvey Sathyanarayana,parties.IN.INC,156315,459229,44.73,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,RATLAM(ST) JHABUA,1702576,1045071,61.38,Kantilal Bhuria,parties.IN.INC,536743,51.36,Nirmala Dileep Singh Bhuriya,parties.IN.BJP,447911,88832,8.5,src-31c65dbec869
-IN-PC-2008-west-bengal-228,west-bengal,2015,BANGAON,1540713,1236222,80.24,Mamta Thakur,parties.IN.AITC,539999,43.68,Debesh Das,,328214,211785,17.13,src-31c65dbec869
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,WARANGAL(SC),1537778,1026732,66.77,Dayakar Pasunoori,parties.IN.BRS,TRS,615544,59.95,Sarvey Sathyanarayana,parties.IN.INC,INC,156315,459229,44.73,src-31c65dbec869
+IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,RATLAM(ST) JHABUA,1702576,1045071,61.38,Kantilal Bhuria,parties.IN.INC,INC,536743,51.36,Nirmala Dileep Singh Bhuriya,parties.IN.BJP,BJP,447911,88832,8.5,src-31c65dbec869
+IN-PC-2008-west-bengal-228,west-bengal,2015,BANGAON,1540713,1236222,80.24,Mamta Thakur,parties.IN.AITC,AITC,539999,43.68,Debesh Das,parties.IN.CPIM,CPM,328214,211785,17.13,src-31c65dbec869

@@ -1,7 +1,7 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-tripura-1622,tripura,2014,39,MANU,Pravat Chowdhury,,21759,64.65,1,won,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1622,tripura,2014,39,MANU,Mailafru Mog,parties.IN.INC,5788,17.2,2,lost,U,,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1622,tripura,2014,39,MANU,Mithun Joy Tripura,parties.IN.IPFT,3018,8.97,3,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1622,tripura,2014,39,MANU,Nirmal Kumar Tripura,parties.IN.BJP,1550,4.61,4,forfeit,U,,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1622,tripura,2014,39,MANU,Angthai Mog,parties.IN.AITC,1110,3.3,5,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tripura-1622,tripura,2014,39,MANU,Kirti Mohan Tripura,parties.IN.INPT,432,1.28,6,forfeit,U,,10th Pass,Ex Civil Service,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-tripura-1622,tripura,2014,39,MANU,Pravat Chowdhury,parties.IN.CPIM,CPM,21759,64.65,1,won,U,,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1622,tripura,2014,39,MANU,Mailafru Mog,parties.IN.INC,INC,5788,17.2,2,lost,U,,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1622,tripura,2014,39,MANU,Mithun Joy Tripura,parties.IN.IPFT,IPFT,3018,8.97,3,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1622,tripura,2014,39,MANU,Nirmal Kumar Tripura,parties.IN.BJP,BJP,1550,4.61,4,forfeit,U,,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1622,tripura,2014,39,MANU,Angthai Mog,parties.IN.AITC,AITC,1110,3.3,5,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1622,tripura,2014,39,MANU,Kirti Mohan Tripura,parties.IN.INPT,INPT,432,1.28,6,forfeit,U,,10th Pass,Ex Civil Service,challenger,src-1b7bc1c9d39a

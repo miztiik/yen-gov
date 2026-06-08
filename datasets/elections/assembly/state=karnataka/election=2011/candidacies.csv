@@ -1,56 +1,56 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,K.S. Amarappa,parties.IN.BJP,60405,44.87,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,K.B.B. Hitanal,parties.IN.INC,47917,35.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,P.V.M.Kavaloorgoodra,parties.IN.JDS,20719,15.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,H.S.S. Rayya,parties.IN.IND,1252,0.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,S.N. Patil,parties.IN.RPI,822,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,S. Moulasab,parties.IN.IND,716,0.53,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,V. Gorantli,parties.IN.IND,662,0.49,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,K.B.S.Vaddaratti,parties.IN.IND,508,0.38,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,K. Mounesh,parties.IN.IND,346,0.26,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,N.M Hadpad,parties.IN.IND,272,0.2,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,R. (Apanaram),parties.IN.IND,258,0.19,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,M. Basha R.,parties.IN.IND,251,0.19,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,Y.M.Pundgoudar,parties.IN.IND,248,0.18,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,H.M.E. Patel,parties.IN.IND,244,0.18,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,B. Sriramulu,parties.IN.IND,74527,60.41,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,B. Ramprasad,parties.IN.INC,27737,22.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,Gadilimgappa,parties.IN.BJP,17366,14.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,B.Ram Prasad,parties.IN.IND,1116,0.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,B. Anjinappa,parties.IN.IND,731,0.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,B.T. Raju,parties.IN.IND,728,0.59,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,N. Gangadhappa,parties.IN.IND,661,0.54,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,K. Channappa,parties.IN.IND,503,0.41,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,S.V.Ramachandra,parties.IN.BJP,41961,35.87,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,H.P. Rajesh,parties.IN.IND,37528,32.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,Y.Devendrappa,parties.IN.INC,28625,24.47,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,H.Manjunatha,parties.IN.JDS,3804,3.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,G.N.Bheemappa,parties.IN.IND,2846,2.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,C.Manjunatha,parties.IN.IND,880,0.75,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,G.B.Chowdappa,parties.IN.IND,732,0.63,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,"Prakash ,B.",parties.IN.IND,601,0.51,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,E.M.Narayana Swamy,parties.IN.BJP,56824,46.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,K.M.Narayanas.,parties.IN.INC,52781,43.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,C.Venkateshap.,parties.IN.JDS,9255,7.65,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,Srinivasa,parties.IN.IND,463,0.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,V.A.Manjunathappa,parties.IN.IND,317,0.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,S.M.Krishna,parties.IN.BPP,316,0.26,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,V.K.A.Kittanna,parties.IN.IND,302,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,Jayaramappa,parties.IN.IND,239,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,V.Ravikumar,parties.IN.JDU,229,0.19,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,T.S.Krishnamurthy,parties.IN.IND,205,0.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,CP Yogeshwara,parties.IN.BJP,75275,50.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,SL Nagaraju,parties.IN.JDS,57472,38.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,R Ramanna,parties.IN.INC,12687,8.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,Syed Zikriya,parties.IN.SDP,785,0.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,S Zulfikar Mehdi,parties.IN.IND,690,0.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,S.S (Heggade),parties.IN.IND,425,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,T M Mancheg.,parties.IN.JDU,361,0.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,S.L Gowda (GN),parties.IN.IND,300,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,V Gowda D.R.,parties.IN.IND,175,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,S P Shivaraju,parties.IN.IND,140,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,Jai Kissan,parties.IN.IND,113,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,BS Prasad,parties.IN.IND,96,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,Ashraf,parties.IN.IND,93,0.06,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,K S Gowda (P),parties.IN.IND,81,0.05,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,M Fathima,parties.IN.IND,71,0.05,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,K.S. Amarappa,parties.IN.BJP,BJP,60405,44.87,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,K.B.B. Hitanal,parties.IN.INC,INC,47917,35.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,P.V.M.Kavaloorgoodra,parties.IN.JDS,JD(S),20719,15.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,H.S.S. Rayya,parties.IN.IND,IND,1252,0.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,S.N. Patil,parties.IN.RPI,RPI,822,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,S. Moulasab,parties.IN.IND,IND,716,0.53,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,V. Gorantli,parties.IN.IND,IND,662,0.49,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,K.B.S.Vaddaratti,parties.IN.IND,IND,508,0.38,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,K. Mounesh,parties.IN.IND,IND,346,0.26,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,N.M Hadpad,parties.IN.IND,IND,272,0.2,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,R. (Apanaram),parties.IN.IND,IND,258,0.19,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,M. Basha R.,parties.IN.IND,IND,251,0.19,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,Y.M.Pundgoudar,parties.IN.IND,IND,248,0.18,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2011,64,KOPPAL,H.M.E. Patel,parties.IN.IND,IND,244,0.18,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,B. Sriramulu,parties.IN.IND,IND,74527,60.41,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,B. Ramprasad,parties.IN.INC,INC,27737,22.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,Gadilimgappa,parties.IN.BJP,BJP,17366,14.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,B.Ram Prasad,parties.IN.IND,IND,1116,0.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,B. Anjinappa,parties.IN.IND,IND,731,0.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,B.T. Raju,parties.IN.IND,IND,728,0.59,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,N. Gangadhappa,parties.IN.IND,IND,661,0.54,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3501,karnataka,2011,93,BELLARY,K. Channappa,parties.IN.IND,IND,503,0.41,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,S.V.Ramachandra,parties.IN.BJP,BJP,41961,35.87,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,H.P. Rajesh,parties.IN.IND,IND,37528,32.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,Y.Devendrappa,parties.IN.INC,INC,28625,24.47,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,H.Manjunatha,parties.IN.JDS,JD(S),3804,3.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,G.N.Bheemappa,parties.IN.IND,IND,2846,2.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,C.Manjunatha,parties.IN.IND,IND,880,0.75,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,G.B.Chowdappa,parties.IN.IND,IND,732,0.63,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3571,karnataka,2011,103,JAGALUR,"Prakash ,B.",parties.IN.IND,IND,601,0.51,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,E.M.Narayana Swamy,parties.IN.BJP,BJP,56824,46.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,K.M.Narayanas.,parties.IN.INC,INC,52781,43.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,C.Venkateshap.,parties.IN.JDS,JD(S),9255,7.65,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,Srinivasa,parties.IN.IND,IND,463,0.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,V.A.Manjunathappa,parties.IN.IND,IND,317,0.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,S.M.Krishna,parties.IN.BPP,BPP,316,0.26,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,V.K.A.Kittanna,parties.IN.IND,IND,302,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,Jayaramappa,parties.IN.IND,IND,239,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,V.Ravikumar,parties.IN.JDU,JD(U),229,0.19,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3605,karnataka,2011,147,BANGARAPET,T.S.Krishnamurthy,parties.IN.IND,IND,205,0.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,CP Yogeshwara,parties.IN.BJP,BJP,75275,50.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,SL Nagaraju,parties.IN.JDS,JD(S),57472,38.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,R Ramanna,parties.IN.INC,INC,12687,8.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,Syed Zikriya,parties.IN.SDP,SDP,785,0.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,S Zulfikar Mehdi,parties.IN.IND,IND,690,0.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,S.S (Heggade),parties.IN.IND,IND,425,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,T M Mancheg.,parties.IN.JDU,JD(U),361,0.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,S.L Gowda (GN),parties.IN.IND,IND,300,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,V Gowda D.R.,parties.IN.IND,IND,175,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,S P Shivaraju,parties.IN.IND,IND,140,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,Jai Kissan,parties.IN.IND,IND,113,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,BS Prasad,parties.IN.IND,IND,96,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,Ashraf,parties.IN.IND,IND,93,0.06,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,K S Gowda (P),parties.IN.IND,IND,81,0.05,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2011,185,CHANNAPATNA,M Fathima,parties.IN.IND,IND,71,0.05,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a

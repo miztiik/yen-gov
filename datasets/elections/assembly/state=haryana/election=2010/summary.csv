@@ -1,2 +1,2 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-haryana-417,haryana,2010,ELLENABAD,144181,127711,88.58,Abhay Singh Chautala,parties.IN.INLD,64813,50.75,Bharat Singh Beniwal,parties.IN.INC,58586,6227,4.88,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-haryana-417,haryana,2010,ELLENABAD,144181,127711,88.58,Abhay Singh Chautala,parties.IN.INLD,INLD,64813,50.75,Bharat Singh Beniwal,parties.IN.INC,INC,58586,6227,4.88,src-1b7bc1c9d39a

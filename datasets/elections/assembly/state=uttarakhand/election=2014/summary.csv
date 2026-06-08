@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-uttarakhand-277,uttarakhand,2014,DHARCHULA,72755,41824,57.49,Harish Chandra Singh Rawat,parties.IN.INC,31214,74.63,Bishnu Dutt Joshi,parties.IN.BJP,10610,20604,49.26,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-287,uttarakhand,2014,SOMESHWAR,75643,38013,50.25,Rekha Arya,parties.IN.INC,23241,61.14,Mohan Ram Arya,parties.IN.BJP,13196,10045,26.43,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-305,uttarakhand,2014,DOIWALA,107015,68550,64.06,Hira Singh Bisht,parties.IN.INC,35980,52.49,Trivender Singh Rawat,parties.IN.BJP,29468,6512,9.5,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-uttarakhand-277,uttarakhand,2014,DHARCHULA,72755,41824,57.49,Harish Chandra Singh Rawat,parties.IN.INC,INC,31214,74.63,Bishnu Dutt Joshi,parties.IN.BJP,BJP,10610,20604,49.26,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-287,uttarakhand,2014,SOMESHWAR,75643,38013,50.25,Rekha Arya,parties.IN.INC,INC,23241,61.14,Mohan Ram Arya,parties.IN.BJP,BJP,13196,10045,26.43,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-305,uttarakhand,2014,DOIWALA,107015,68550,64.06,Hira Singh Bisht,parties.IN.INC,INC,35980,52.49,Trivender Singh Rawat,parties.IN.BJP,BJP,29468,6512,9.5,src-1b7bc1c9d39a

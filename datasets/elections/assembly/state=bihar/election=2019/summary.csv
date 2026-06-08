@@ -1,8 +1,8 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-bihar-1128,bihar,2019,BELHAR,303170,150192,49.54,Ramdeo Yadav,parties.IN.RJD,76350,50.83,Laldhari Yadav,parties.IN.JDU,57119,19231,12.8,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1143,bihar,2019,NATHNAGAR,316736,149945,47.34,Lakshmikant Mandal,parties.IN.JDU,55981,37.33,Rabiya Khatun,parties.IN.RJD,50850,5131,3.42,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1193,bihar,2019,DEHRI,289230,143556,49.63,Satyanarayan Singh,parties.IN.BJP,72097,50.22,Mohammad Firoz Husain,parties.IN.RJD,38104,33993,23.68,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1210,bihar,2019,SIMRI BAKHTIARPUR,322730,168423,52.19,ZAFAR ALAM,parties.IN.RJD,71441,42.42,Dr. ARUN KUMAR,parties.IN.JDU,55936,15505,9.21,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1214,bihar,2019,KISHANGANJ,284264,169969,59.79,QAMRUL HODA,parties.IN.AIMIM,70469,41.46,SWEETY SINGH,parties.IN.BJP,60265,10204,6,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1257,bihar,2019,NAWADA,341275,164922,48.33,Kaushal Yadav,parties.IN.JDU,53880,32.67,Shrawan Kumar,parties.IN.IND,42754,11126,6.75,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1322,bihar,2019,DARAUNDHA,317219,140433,44.27,Karnjeet Singh Alias Vyas Singh,parties.IN.IND,51223,36.48,Ajay Kumar Singh,parties.IN.JDU,23944,27279,19.43,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-bihar-1128,bihar,2019,BELHAR,303170,150192,49.54,Ramdeo Yadav,parties.IN.RJD,RJD,76350,50.83,Laldhari Yadav,parties.IN.JDU,JD(U),57119,19231,12.8,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1143,bihar,2019,NATHNAGAR,316736,149945,47.34,Lakshmikant Mandal,parties.IN.JDU,JD(U),55981,37.33,Rabiya Khatun,parties.IN.RJD,RJD,50850,5131,3.42,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1193,bihar,2019,DEHRI,289230,143556,49.63,Satyanarayan Singh,parties.IN.BJP,BJP,72097,50.22,Mohammad Firoz Husain,parties.IN.RJD,RJD,38104,33993,23.68,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1210,bihar,2019,SIMRI BAKHTIARPUR,322730,168423,52.19,ZAFAR ALAM,parties.IN.RJD,RJD,71441,42.42,Dr. ARUN KUMAR,parties.IN.JDU,JD(U),55936,15505,9.21,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1214,bihar,2019,KISHANGANJ,284264,169969,59.79,QAMRUL HODA,parties.IN.AIMIM,AIMIM,70469,41.46,SWEETY SINGH,parties.IN.BJP,BJP,60265,10204,6,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1257,bihar,2019,NAWADA,341275,164922,48.33,Kaushal Yadav,parties.IN.JDU,JD(U),53880,32.67,Shrawan Kumar,parties.IN.IND,IND,42754,11126,6.75,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1322,bihar,2019,DARAUNDHA,317219,140433,44.27,Karnjeet Singh Alias Vyas Singh,parties.IN.IND,IND,51223,36.48,Ajay Kumar Singh,parties.IN.JDU,JD(U),23944,27279,19.43,src-1b7bc1c9d39a

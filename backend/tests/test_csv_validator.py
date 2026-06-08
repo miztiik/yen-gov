@@ -230,16 +230,16 @@ _PARLIAMENT_SUMMARY_FC = (
 
 _CANDIDACIES_HEADER = [
     "entity_id", "state", "election_year", "constituency_no",
-    "constituency_name", "candidate_name", "party_id", "votes",
-    "vote_share_pct", "position", "result", "sex", "age", "education",
-    "profession", "candidate_type", "source_id",
+    "constituency_name", "candidate_name", "party_id", "party_short_raw",
+    "votes", "vote_share_pct", "position", "result", "sex", "age",
+    "education", "profession", "candidate_type", "source_id",
 ]
 _PARLIAMENT_SUMMARY_HEADER = [
     "entity_id", "state", "election_year", "constituency_name", "electors",
     "votes_polled", "turnout_pct", "winner_candidate", "winner_party_id",
-    "winner_votes", "winner_share_pct", "runnerup_candidate",
-    "runnerup_party_id", "runnerup_votes", "margin_votes", "margin_pct",
-    "source_id",
+    "winner_party_short_raw", "winner_votes", "winner_share_pct",
+    "runnerup_candidate", "runnerup_party_id", "runnerup_party_short_raw",
+    "runnerup_votes", "margin_votes", "margin_pct", "source_id",
 ]
 
 
@@ -274,9 +274,9 @@ def _stage_geo_for_electoral(root: Path) -> Path:
 def _stage_party_entities(root: Path, ids: list[str]) -> Path:
     target = root / "datasets" / "data" / "entities" / "parties.csv"
     target.parent.mkdir(parents=True, exist_ok=True)
-    lines = ["party_id,short,full,eci_codes,brand_colour,symbol_asset,wikipedia"]
+    lines = ["party_id,short,full,eci_codes,brand_colour,symbol_asset,wikipedia,aliases"]
     for party_id in ids:
-        lines.append(f"{party_id},{party_id},{party_id},,,,")
+        lines.append(f"{party_id},{party_id},{party_id},,,,,")
     target.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return target
 
@@ -293,7 +293,7 @@ def _candidacy_row(
 ) -> list[str]:
     return [
         entity_id, state, "2021", "234", "Kanyakumari",
-        f"Candidate {position}", party_id, str(50000 - position),
+        f"Candidate {position}", party_id, party_id, str(50000 - position),
         str(45.5 - position), str(position), result, sex, str(45 + position),
         "Graduate", "Politics", "incumbent", source_id,
     ]
@@ -445,8 +445,8 @@ def test_parliament_summary_rejects_missing_state_column(tmp_path):
         [
             [
                 "IN-PC-2008-S22-39", "", "2024", "Kanyakumari", "1500000",
-                "1100000", "73.33", "Eve", "p-bjp", "550000", "50.0", "Frank",
-                "p-dmk", "400000", "150000", "13.64", "tcpd-ge-2024",
+                "1100000", "73.33", "Eve", "p-bjp", "BJP", "550000", "50.0", "Frank",
+                "p-dmk", "DMK", "400000", "150000", "13.64", "tcpd-ge-2024",
             ],
         ],
     )

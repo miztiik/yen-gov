@@ -1,2 +1,2 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-mizoram-1569,mizoram,2019,AIZAWL WEST I,25913,18391,70.97,ZOTHANTLUANGA,parties.IN.MNF,12489,67.91,LALBUANGA SAILO,parties.IN.IND,5322,7167,38.97,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-mizoram-1569,mizoram,2019,AIZAWL WEST I,25913,18391,70.97,ZOTHANTLUANGA,parties.IN.MNF,MNF,12489,67.91,LALBUANGA SAILO,parties.IN.IND,IND,5322,7167,38.97,src-1b7bc1c9d39a

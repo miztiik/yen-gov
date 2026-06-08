@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-madhya-pradesh-2508,madhya-pradesh,2015,DEWAS,223347,149360,66.87,Gayatri Raje Puar,parties.IN.BJP,89385,59.85,Jai Prakash Shastri,parties.IN.INC,58580,30805,20.63,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,GAROTH,210263,153925,73.21,Chander Singh Sisodia(E),parties.IN.BJP,81449,52.91,Subhash Kumar Sojatia,parties.IN.INC,68504,12945,8.41,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-madhya-pradesh-2508,madhya-pradesh,2015,DEWAS,223347,149360,66.87,Gayatri Raje Puar,parties.IN.BJP,BJP,89385,59.85,Jai Prakash Shastri,parties.IN.INC,INC,58580,30805,20.63,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,GAROTH,210263,153925,73.21,Chander Singh Sisodia(E),parties.IN.BJP,BJP,81449,52.91,Subhash Kumar Sojatia,parties.IN.INC,INC,68504,12945,8.41,src-1b7bc1c9d39a

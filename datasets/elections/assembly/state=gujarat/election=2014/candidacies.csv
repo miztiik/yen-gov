@@ -1,133 +1,133 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-gujarat-2780,gujarat,2014,1,ABDASA,G.S.S.Hari Chandra,parties.IN.INC,67863,47.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2780,gujarat,2014,1,ABDASA,C.N. Patel,parties.IN.BJP,67099,47.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2780,gujarat,2014,1,ABDASA,S.M. Abhamiya,parties.IN.BSP,2703,1.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2780,gujarat,2014,1,ABDASA,A.L. Patel,parties.IN.IND,1394,0.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2780,gujarat,2014,1,ABDASA,R.J. Gor,parties.IN.AAP,1049,0.74,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2780,gujarat,2014,1,ABDASA,P.H. Amarshibhai,parties.IN.IND,910,0.64,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2780,gujarat,2014,1,ABDASA,P.N. Suresh Chandra,parties.IN.IND,764,0.54,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2780,gujarat,2014,1,ABDASA,G.H. Kantilal,parties.IN.IND,540,0.38,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,P.A. Mehta,parties.IN.BJP,59165,50.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,B.M. Shah,parties.IN.INC,44151,37.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,S.V. Sujabhai,parties.IN.IND,5895,5.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,A.M. Rathod,parties.IN.BSP,2960,2.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,A.R. Gami,parties.IN.AAP,1913,1.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,H.G.Patel,parties.IN.IND,1025,0.87,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,K.M. Bijalbhai,,1024,0.87,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,H.B.Dhila,parties.IN.IND,929,0.79,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,M.H.Popatbhai,parties.IN.IND,540,0.46,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2718,gujarat,2014,13,DEESA,Gova Bhai Hamira Bhai Rabari,parties.IN.INC,73962,52.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2718,gujarat,2014,13,DEESA,Parmar(T) Leba Bhai Chamnaji,parties.IN.BJP,63568,45.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2718,gujarat,2014,13,DEESA,Jagdish Bhai Jayanti Bhai Patel,parties.IN.IND,1187,0.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2718,gujarat,2014,13,DEESA,Shri Mali Ashok Bhai Balchand Bhai,parties.IN.IND,813,0.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2718,gujarat,2014,13,DEESA,Thakor Bhupataji Ravaji,parties.IN.IND,526,0.37,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2718,gujarat,2014,13,DEESA,Pathan Munavarkhan Alamkhan,parties.IN.IND,314,0.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2718,gujarat,2014,13,DEESA,P.C. Dhana Bhai,parties.IN.IND,301,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2718,gujarat,2014,13,DEESA,Padhiyar Parbat Bhai Goya Bhai,parties.IN.IND,290,0.21,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,C.R. Ranjitsinh,parties.IN.BJP,81052,48.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,Dr.V.R.Patel,parties.IN.INC,78490,47.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,K.U.R.Sharifbhai,parties.IN.AAP,2470,1.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,A.R.Aiyub Bhai,parties.IN.BSP,1475,0.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,S.M.Jamal Bhai,parties.IN.IND,922,0.55,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,S.N.Pratab Sinh,parties.IN.IND,862,0.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,P.L.Pruthvisinh,parties.IN.IND,342,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,P.J.Pasha Bhai,parties.IN.BNJD,333,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,D.M.Akbar Bhai,parties.IN.IND,322,0.19,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,P.C.Anin Bhai,parties.IN.IND,305,0.18,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,C.S.Ratansinh,parties.IN.IND,183,0.11,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2702,gujarat,2014,53,MANINAGAR,Patel Suresh Bhai Dhanji Bhai,parties.IN.BJP,67689,78.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2702,gujarat,2014,53,MANINAGAR,Jain(K) Jatin Vijay (A),parties.IN.INC,18037,20.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2702,gujarat,2014,53,MANINAGAR,Patel Kanu Bhai Shivdas,parties.IN.IND,544,0.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2834,gujarat,2014,66,TANKARA,M.B.H. Bhai,parties.IN.BJP,65833,53.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2834,gujarat,2014,66,TANKARA,K.L.K. Bhai,parties.IN.INC,54102,43.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2834,gujarat,2014,66,TANKARA,S.D Bhai.Talsi Bhai,parties.IN.IND,1512,1.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2834,gujarat,2014,66,TANKARA,F.D Bhai.Daya Bhai,parties.IN.IND,868,0.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2834,gujarat,2014,66,TANKARA,K.B.Chhagan Das,parties.IN.JDU,861,0.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2834,gujarat,2014,66,TANKARA,D.P.Meghaji Bhai,parties.IN.IND,522,0.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,V.R.Rudani,parties.IN.BJP,81092,57.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,K.J.Bhagvanji Bhai,parties.IN.INC,57352,40.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,B.G.Lokhil,parties.IN.NCP,1027,0.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,T.T. Anilbhai,parties.IN.IND,514,0.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,Kachara Imranbhai Ramjanbhai,parties.IN.IND,373,0.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,Saiyad Husenbhai Suctanbhai,parties.IN.IND,279,0.2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,Bediya Chhakanbhai Mohanbhai,parties.IN.IND,240,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,D.P.Meghaji Bhai,parties.IN.IND,178,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,C.J.Bhurabhai,parties.IN.IND,117,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,A.M. Markhi Bhai,parties.IN.INC,66410,48.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,A.M.H. Bera,parties.IN.BJP,65202,47.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,S.D.Natha Bhai,parties.IN.IND,1228,0.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,G.J.Valimamad,parties.IN.IND,1112,0.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,N.A.Haribahi,parties.IN.IND,1058,0.77,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,S.Y.Suleman,parties.IN.IND,670,0.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,S.N.G.Parmar,parties.IN.IND,452,0.33,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,B.N.A Bhai,parties.IN.IND,390,0.28,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,M.J.Khafi,parties.IN.IND,196,0.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,B.J.Umiyashankar,parties.IN.IND,177,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2779,gujarat,2014,87,VISAVADAR,R.H Madhauji Bhai,parties.IN.INC,67128,52.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2779,gujarat,2014,87,VISAVADAR,B.K Patel,parties.IN.BJP,56868,44.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2779,gujarat,2014,87,VISAVADAR,K.S. Bhikhu Bhai,,1329,1.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2779,gujarat,2014,87,VISAVADAR,V.R. Makwana,parties.IN.IND,1231,0.96,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2779,gujarat,2014,87,VISAVADAR,G.B. Rauji  Bhai,parties.IN.IND,677,0.53,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2779,gujarat,2014,87,VISAVADAR,M.S. Gulamhushen Bhai,parties.IN.SP,532,0.41,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2779,gujarat,2014,87,VISAVADAR,K.B Devrakhi bhai,parties.IN.IND,504,0.39,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2775,gujarat,2014,89,MANGROL,V.B.Kala Bhai,parties.IN.INC,66498,59.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2775,gujarat,2014,89,MANGROL,Y.L.Rama Bhai,parties.IN.BJP,43816,39.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2775,gujarat,2014,89,MANGROL,K.H.B.Hamirbahi,parties.IN.IND,1549,1.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,J.B. Barad,parties.IN.BJP,86640,53,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,Dr.N.J.Chotai,parties.IN.INC,60971,37.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,A.H.Bhai. Karshan Bhai,parties.IN.BSP,4771,2.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,P.H.Ibrahim Bhai,parties.IN.IND,2140,1.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,P.G.A Raheman,parties.IN.IND,1973,1.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,B.G. Umarshah,parties.IN.IND,1134,0.69,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,B.R.Isha Bhai,parties.IN.AAP,960,0.59,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,S.I. Nurmohmad,parties.IN.IND,639,0.39,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,S.B.Bhai.Aahmad Bhai,parties.IN.IND,542,0.33,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,M.M.Nathu,parties.IN.IND,434,0.27,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,D.I. Bhai Moti Bhai,parties.IN.IND,419,0.26,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,K.M.Isa Bhai,,390,0.24,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,S.R.B.Gulam Bhai,parties.IN.IND,261,0.16,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,T.J.Mahamad Bhai,parties.IN.IND,237,0.14,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,S.I.Kasam Bhai,parties.IN.SP,227,0.14,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,D.J. Jadav Bhai,parties.IN.IND,224,0.14,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,C.K. Haja Bhai,parties.IN.IND,216,0.13,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,C.S.Bhai  Abderahim Bhai,parties.IN.IND,196,0.12,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,M.Y. Sidik Patni,parties.IN.IND,193,0.12,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,C.M. Harun Bhai,parties.IN.IND,175,0.11,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,G.S. Husen Bhai,parties.IN.IND,167,0.1,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,G.A.G.J.Bhai Chheda,parties.IN.IND,163,0.1,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,M.S.Isufmaman,parties.IN.IND,153,0.09,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,C.S.Mohmadamin,parties.IN.IND,137,0.08,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,Gohel Harun Ali,parties.IN.IND,101,0.06,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,U.B.Natha Bhai,parties.IN.BJP,59722,47.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,H.B.(Bhabha),parties.IN.INC,57096,45.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,P.R.Bhai Jasa Bhai,parties.IN.AAP,1886,1.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,M.D.Manjariya,parties.IN.BSP,1711,1.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,C.M.Parsotm Bhai,parties.IN.IND,1605,1.28,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,H.N. (Robert),parties.IN.IND,979,0.78,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,G.A.Shanti Giri,parties.IN.IND,712,0.57,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,P.M.Bhai.Devshi Bhai,parties.IN.BNJD,676,0.54,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,J.R.Parmar,parties.IN.IND,620,0.49,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,K.M.Anvar Khan,parties.IN.IND,505,0.4,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2744,gujarat,2014,100,TALAJA,G.S.Jeram Bhai,parties.IN.BJP,50290,51.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2744,gujarat,2014,100,TALAJA,V.P.Magan Bhai,parties.IN.INC,41067,41.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2744,gujarat,2014,100,TALAJA,B.M.Uka Bhai,parties.IN.JDU,6843,6.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2710,gujarat,2014,112,ANAND,Rohit Patel (M),parties.IN.BJP,75850,51.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2710,gujarat,2014,112,ANAND,Kanti Bhai (B),parties.IN.INC,70607,47.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2710,gujarat,2014,112,ANAND,H.M.Parmar,,524,0.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2710,gujarat,2014,112,ANAND,H.P.Soni,parties.IN.INC,484,0.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2710,gujarat,2014,112,ANAND,R.H.Lalji Bhai,parties.IN.IND,292,0.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2791,gujarat,2014,115,MATAR,K.J.Solanki,parties.IN.BJP,59576,51.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2791,gujarat,2014,115,MATAR,K.H.Paramar,parties.IN.INC,50966,44.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2791,gujarat,2014,115,MATAR,Z.G.Bharwad,parties.IN.IND,3188,2.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2791,gujarat,2014,115,MATAR,M.V.Bhagvansinh,parties.IN.IND,938,0.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2791,gujarat,2014,115,MATAR,P.F.Yasinkha,parties.IN.IND,434,0.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2757,gujarat,2014,131,LIMKHEDA,B.V.Jokhna Bhai,parties.IN.BJP,66057,61.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2757,gujarat,2014,131,LIMKHEDA,M.C.Kalu Bhai,parties.IN.INC,42012,38.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2727,gujarat,2014,157,MANDVI (ST),C.A. Mohan Bhai,parties.IN.INC,91242,53.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2727,gujarat,2014,157,MANDVI (ST),V.H. Mahesh Bhai,parties.IN.BJP,68673,40.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2727,gujarat,2014,157,MANDVI (ST),C.K. Prabhu Bhai,parties.IN.JDU,3807,2.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2727,gujarat,2014,157,MANDVI (ST),G.M. Khalpan Bhai,parties.IN.BSP,2243,1.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2727,gujarat,2014,157,MANDVI (ST),V.H. Chhauan Bhai,parties.IN.IND,1519,0.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2727,gujarat,2014,157,MANDVI (ST),C.R.Jayram Bhai,parties.IN.IND,1263,0.74,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2727,gujarat,2014,157,MANDVI (ST),V.P. Khansihu  Bhai,parties.IN.AAP,1227,0.72,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2727,gujarat,2014,157,MANDVI (ST),C.A. Jashvant Bhai,parties.IN.IND,878,0.51,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-gujarat-2780,gujarat,2014,1,ABDASA,G.S.S.Hari Chandra,parties.IN.INC,INC,67863,47.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2780,gujarat,2014,1,ABDASA,C.N. Patel,parties.IN.BJP,BJP,67099,47.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2780,gujarat,2014,1,ABDASA,S.M. Abhamiya,parties.IN.BSP,BSP,2703,1.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2780,gujarat,2014,1,ABDASA,A.L. Patel,parties.IN.IND,IND,1394,0.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2780,gujarat,2014,1,ABDASA,R.J. Gor,parties.IN.AAP,AAP,1049,0.74,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2780,gujarat,2014,1,ABDASA,P.H. Amarshibhai,parties.IN.IND,IND,910,0.64,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2780,gujarat,2014,1,ABDASA,P.N. Suresh Chandra,parties.IN.IND,IND,764,0.54,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2780,gujarat,2014,1,ABDASA,G.H. Kantilal,parties.IN.IND,IND,540,0.38,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,P.A. Mehta,parties.IN.BJP,BJP,59165,50.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,B.M. Shah,parties.IN.INC,INC,44151,37.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,S.V. Sujabhai,parties.IN.IND,IND,5895,5.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,A.M. Rathod,parties.IN.BSP,BSP,2960,2.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,A.R. Gami,parties.IN.AAP,AAP,1913,1.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,H.G.Patel,parties.IN.IND,IND,1025,0.87,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,K.M. Bijalbhai,,BMP,1024,0.87,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,H.B.Dhila,parties.IN.IND,IND,929,0.79,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2786,gujarat,2014,6,RAPAR,M.H.Popatbhai,parties.IN.IND,IND,540,0.46,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2718,gujarat,2014,13,DEESA,Gova Bhai Hamira Bhai Rabari,parties.IN.INC,INC,73962,52.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2718,gujarat,2014,13,DEESA,Parmar(T) Leba Bhai Chamnaji,parties.IN.BJP,BJP,63568,45.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2718,gujarat,2014,13,DEESA,Jagdish Bhai Jayanti Bhai Patel,parties.IN.IND,IND,1187,0.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2718,gujarat,2014,13,DEESA,Shri Mali Ashok Bhai Balchand Bhai,parties.IN.IND,IND,813,0.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2718,gujarat,2014,13,DEESA,Thakor Bhupataji Ravaji,parties.IN.IND,IND,526,0.37,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2718,gujarat,2014,13,DEESA,Pathan Munavarkhan Alamkhan,parties.IN.IND,IND,314,0.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2718,gujarat,2014,13,DEESA,P.C. Dhana Bhai,parties.IN.IND,IND,301,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2718,gujarat,2014,13,DEESA,Padhiyar Parbat Bhai Goya Bhai,parties.IN.IND,IND,290,0.21,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,C.R. Ranjitsinh,parties.IN.BJP,BJP,81052,48.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,Dr.V.R.Patel,parties.IN.INC,INC,78490,47.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,K.U.R.Sharifbhai,parties.IN.AAP,AAP,2470,1.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,A.R.Aiyub Bhai,parties.IN.BSP,BSP,1475,0.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,S.M.Jamal Bhai,parties.IN.IND,IND,922,0.55,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,S.N.Pratab Sinh,parties.IN.IND,IND,862,0.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,P.L.Pruthvisinh,parties.IN.IND,IND,342,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,P.J.Pasha Bhai,parties.IN.BNJD,BNJD,333,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,D.M.Akbar Bhai,parties.IN.IND,IND,322,0.19,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,P.C.Anin Bhai,parties.IN.IND,IND,305,0.18,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2838,gujarat,2014,27,HIMATNAGAR,C.S.Ratansinh,parties.IN.IND,IND,183,0.11,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2702,gujarat,2014,53,MANINAGAR,Patel Suresh Bhai Dhanji Bhai,parties.IN.BJP,BJP,67689,78.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2702,gujarat,2014,53,MANINAGAR,Jain(K) Jatin Vijay (A),parties.IN.INC,INC,18037,20.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2702,gujarat,2014,53,MANINAGAR,Patel Kanu Bhai Shivdas,parties.IN.IND,IND,544,0.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2834,gujarat,2014,66,TANKARA,M.B.H. Bhai,parties.IN.BJP,BJP,65833,53.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2834,gujarat,2014,66,TANKARA,K.L.K. Bhai,parties.IN.INC,INC,54102,43.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2834,gujarat,2014,66,TANKARA,S.D Bhai.Talsi Bhai,parties.IN.IND,IND,1512,1.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2834,gujarat,2014,66,TANKARA,F.D Bhai.Daya Bhai,parties.IN.IND,IND,868,0.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2834,gujarat,2014,66,TANKARA,K.B.Chhagan Das,parties.IN.JDU,JD(U),861,0.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2834,gujarat,2014,66,TANKARA,D.P.Meghaji Bhai,parties.IN.IND,IND,522,0.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,V.R.Rudani,parties.IN.BJP,BJP,81092,57.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,K.J.Bhagvanji Bhai,parties.IN.INC,INC,57352,40.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,B.G.Lokhil,parties.IN.NCP,NCP,1027,0.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,T.T. Anilbhai,parties.IN.IND,IND,514,0.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,Kachara Imranbhai Ramjanbhai,parties.IN.IND,IND,373,0.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,Saiyad Husenbhai Suctanbhai,parties.IN.IND,IND,279,0.2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,Bediya Chhakanbhai Mohanbhai,parties.IN.IND,IND,240,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,D.P.Meghaji Bhai,parties.IN.IND,IND,178,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2833,gujarat,2014,69,RAJKOT WEST,C.J.Bhurabhai,parties.IN.IND,IND,117,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,A.M. Markhi Bhai,parties.IN.INC,INC,66410,48.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,A.M.H. Bera,parties.IN.BJP,BJP,65202,47.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,S.D.Natha Bhai,parties.IN.IND,IND,1228,0.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,G.J.Valimamad,parties.IN.IND,IND,1112,0.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,N.A.Haribahi,parties.IN.IND,IND,1058,0.77,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,S.Y.Suleman,parties.IN.IND,IND,670,0.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,S.N.G.Parmar,parties.IN.IND,IND,452,0.33,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,B.N.A Bhai,parties.IN.IND,IND,390,0.28,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,M.J.Khafi,parties.IN.IND,IND,196,0.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2772,gujarat,2014,81,KHAMBHALIA,B.J.Umiyashankar,parties.IN.IND,IND,177,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2779,gujarat,2014,87,VISAVADAR,R.H Madhauji Bhai,parties.IN.INC,INC,67128,52.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2779,gujarat,2014,87,VISAVADAR,B.K Patel,parties.IN.BJP,BJP,56868,44.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2779,gujarat,2014,87,VISAVADAR,K.S. Bhikhu Bhai,,BNJP,1329,1.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2779,gujarat,2014,87,VISAVADAR,V.R. Makwana,parties.IN.IND,IND,1231,0.96,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2779,gujarat,2014,87,VISAVADAR,G.B. Rauji  Bhai,parties.IN.IND,IND,677,0.53,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2779,gujarat,2014,87,VISAVADAR,M.S. Gulamhushen Bhai,parties.IN.SP,SP,532,0.41,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2779,gujarat,2014,87,VISAVADAR,K.B Devrakhi bhai,parties.IN.IND,IND,504,0.39,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2775,gujarat,2014,89,MANGROL,V.B.Kala Bhai,parties.IN.INC,INC,66498,59.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2775,gujarat,2014,89,MANGROL,Y.L.Rama Bhai,parties.IN.BJP,BJP,43816,39.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2775,gujarat,2014,89,MANGROL,K.H.B.Hamirbahi,parties.IN.IND,IND,1549,1.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,J.B. Barad,parties.IN.BJP,BJP,86640,53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,Dr.N.J.Chotai,parties.IN.INC,INC,60971,37.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,A.H.Bhai. Karshan Bhai,parties.IN.BSP,BSP,4771,2.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,P.H.Ibrahim Bhai,parties.IN.IND,IND,2140,1.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,P.G.A Raheman,parties.IN.IND,IND,1973,1.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,B.G. Umarshah,parties.IN.IND,IND,1134,0.69,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,B.R.Isha Bhai,parties.IN.AAP,AAP,960,0.59,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,S.I. Nurmohmad,parties.IN.IND,IND,639,0.39,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,S.B.Bhai.Aahmad Bhai,parties.IN.IND,IND,542,0.33,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,M.M.Nathu,parties.IN.IND,IND,434,0.27,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,D.I. Bhai Moti Bhai,parties.IN.IND,IND,419,0.26,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,K.M.Isa Bhai,,BMP,390,0.24,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,S.R.B.Gulam Bhai,parties.IN.IND,IND,261,0.16,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,T.J.Mahamad Bhai,parties.IN.IND,IND,237,0.14,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,S.I.Kasam Bhai,parties.IN.SP,SP,227,0.14,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,D.J. Jadav Bhai,parties.IN.IND,IND,224,0.14,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,C.K. Haja Bhai,parties.IN.IND,IND,216,0.13,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,C.S.Bhai  Abderahim Bhai,parties.IN.IND,IND,196,0.12,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,M.Y. Sidik Patni,parties.IN.IND,IND,193,0.12,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,C.M. Harun Bhai,parties.IN.IND,IND,175,0.11,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,G.S. Husen Bhai,parties.IN.IND,IND,167,0.1,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,G.A.G.J.Bhai Chheda,parties.IN.IND,IND,163,0.1,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,M.S.Isufmaman,parties.IN.IND,IND,153,0.09,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,C.S.Mohmadamin,parties.IN.IND,IND,137,0.08,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2776,gujarat,2014,90,SOMNATH,Gohel Harun Ali,parties.IN.IND,IND,101,0.06,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,U.B.Natha Bhai,parties.IN.BJP,BJP,59722,47.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,H.B.(Bhabha),parties.IN.INC,INC,57096,45.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,P.R.Bhai Jasa Bhai,parties.IN.AAP,AAP,1886,1.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,M.D.Manjariya,parties.IN.BSP,BSP,1711,1.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,C.M.Parsotm Bhai,parties.IN.IND,IND,1605,1.28,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,H.N. (Robert),parties.IN.IND,IND,979,0.78,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,G.A.Shanti Giri,parties.IN.IND,IND,712,0.57,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,P.M.Bhai.Devshi Bhai,parties.IN.BNJD,BNJD,676,0.54,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,J.R.Parmar,parties.IN.IND,IND,620,0.49,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2706,gujarat,2014,96,LATHI,K.M.Anvar Khan,parties.IN.IND,IND,505,0.4,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2744,gujarat,2014,100,TALAJA,G.S.Jeram Bhai,parties.IN.BJP,BJP,50290,51.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2744,gujarat,2014,100,TALAJA,V.P.Magan Bhai,parties.IN.INC,INC,41067,41.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2744,gujarat,2014,100,TALAJA,B.M.Uka Bhai,parties.IN.JDU,JD(U),6843,6.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2710,gujarat,2014,112,ANAND,Rohit Patel (M),parties.IN.BJP,BJP,75850,51.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2710,gujarat,2014,112,ANAND,Kanti Bhai (B),parties.IN.INC,INC,70607,47.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2710,gujarat,2014,112,ANAND,H.M.Parmar,,BNJ,524,0.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2710,gujarat,2014,112,ANAND,H.P.Soni,parties.IN.INC,INC,484,0.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2710,gujarat,2014,112,ANAND,R.H.Lalji Bhai,parties.IN.IND,IND,292,0.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2791,gujarat,2014,115,MATAR,K.J.Solanki,parties.IN.BJP,BJP,59576,51.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2791,gujarat,2014,115,MATAR,K.H.Paramar,parties.IN.INC,INC,50966,44.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2791,gujarat,2014,115,MATAR,Z.G.Bharwad,parties.IN.IND,IND,3188,2.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2791,gujarat,2014,115,MATAR,M.V.Bhagvansinh,parties.IN.IND,IND,938,0.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2791,gujarat,2014,115,MATAR,P.F.Yasinkha,parties.IN.IND,IND,434,0.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2757,gujarat,2014,131,LIMKHEDA,B.V.Jokhna Bhai,parties.IN.BJP,BJP,66057,61.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2757,gujarat,2014,131,LIMKHEDA,M.C.Kalu Bhai,parties.IN.INC,INC,42012,38.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2727,gujarat,2014,157,MANDVI (ST),C.A. Mohan Bhai,parties.IN.INC,INC,91242,53.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2727,gujarat,2014,157,MANDVI (ST),V.H. Mahesh Bhai,parties.IN.BJP,BJP,68673,40.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2727,gujarat,2014,157,MANDVI (ST),C.K. Prabhu Bhai,parties.IN.JDU,JD(U),3807,2.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2727,gujarat,2014,157,MANDVI (ST),G.M. Khalpan Bhai,parties.IN.BSP,BSP,2243,1.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2727,gujarat,2014,157,MANDVI (ST),V.H. Chhauan Bhai,parties.IN.IND,IND,1519,0.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2727,gujarat,2014,157,MANDVI (ST),C.R.Jayram Bhai,parties.IN.IND,IND,1263,0.74,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2727,gujarat,2014,157,MANDVI (ST),V.P. Khansihu  Bhai,parties.IN.AAP,AAP,1227,0.72,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2727,gujarat,2014,157,MANDVI (ST),C.A. Jashvant Bhai,parties.IN.IND,IND,878,0.51,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
