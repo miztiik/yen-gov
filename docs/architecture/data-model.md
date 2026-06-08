@@ -70,7 +70,7 @@ Districts now live as `entity_type='district'` rows on `datasets/taxonomy/entiti
 Constituencies stay state-scoped on disk; the `(state, body)` partition keeps file sizes manageable and makes the path itself self-describing:
 
 ```
-datasets/reference/in/states/S22/constituencies.json
+datasets/data/entities/boundaries_sot/S22/constituencies.json
 ```
 
 ## Per-AC result structure

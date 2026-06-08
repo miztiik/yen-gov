@@ -52,7 +52,7 @@ The May 2026 wave (the project's primary "live" target — TN, WB, Kerala, Assam
 | `reference/in/election-events.json` | Master event index | Event id, name, dates |
 | `taxonomy/topics.json` | UI topic taxonomy | Indicator-id → topic |
 | `reference/in/upstream-sources.json` | **Upstream registry (new, 2026-05-14)** | 21 upstreams, statuses, adapters, indicator ids |
-| `reference/in/states/<S__>/constituencies.json` | Per-state AC list | 26 of 36 states/UTs covered |
+| `data/entities/boundaries_sot/<S__>/constituencies.json` | Per-state AC list | 26 of 36 states/UTs covered |
 | `taxonomy/lgd/{states,districts}-latest.csv.sources.json` (+ dated `<role>-YYYY-MM-DD.csv` snapshots) | LGD download provenance stubs | Moved from `reference/in/lgd/` in T.0c-ii closeout, 2026-05-21 |
 
 ## 4. Boundaries, features, governments

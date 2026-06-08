@@ -37,7 +37,9 @@ git log on this directory or the T.1 commit for the migration plan.
 The two `indicators-*.json` files moved in by G8 (2026-06-08) as part of
 the mechanical `datasets/reference/` reshape (plan-doc section 9: the
 reference tier folds into `data/entities/` for citizen-facing reference
-data + `_ops/` for operator bookkeeping). The hand-authored
-`datasets/reference/in/states/S##/constituencies.json` x 32 curator
-inputs survive in place under `datasets/reference/in/states/` until the
-T.0c-iii entities.json widening lands.
+data + `_ops/` for operator bookkeeping). The 31 hand-authored
+`datasets/reference/in/states/S##/constituencies.json` curator inputs
+were moved to `datasets/data/entities/boundaries_sot/<S##>/constituencies.json`
+on 2026-06-08 (Option D - citizen-facing per CLAUDE.md §3), closing the
+`reference/` tier retire arc. See `datasets/data/entities/boundaries_sot/README.md`
+for the per-state SoT operator notes.

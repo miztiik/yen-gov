@@ -113,9 +113,9 @@ def sot_ap(tmp_path: Path) -> Path:
     sot_path = (
         tmp_path
         / "datasets"
-        / "reference"
-        / "in"
-        / "states"
+        / "data"
+        / "entities"
+        / "boundaries_sot"
         / "S01"
         / "constituencies.json"
     )
@@ -198,7 +198,7 @@ def test_rewrite_projects_ac_no_to_sot_eci_no(
         ap_only,
         {
             "method": "by_name_to_sot_eci_no",
-            "sot_ref": "datasets/reference/in/states/S01/constituencies.json",
+            "sot_ref": "datasets/data/entities/boundaries_sot/S01/constituencies.json",
         },
         repo_root=sot_ap,
     )
@@ -233,7 +233,7 @@ def test_rewrite_folds_case_and_reservation_suffix(
         features,
         {
             "method": "by_name_to_sot_eci_no",
-            "sot_ref": "datasets/reference/in/states/S01/constituencies.json",
+            "sot_ref": "datasets/data/entities/boundaries_sot/S01/constituencies.json",
         },
         repo_root=sot_ap,
     )
@@ -264,7 +264,7 @@ def test_rewrite_uses_compound_name_reservation_key(tmp_path: Path) -> None:
         ],
     }
     sot_path = (
-        tmp_path / "datasets" / "reference" / "in" / "states" / "S01"
+        tmp_path / "datasets" / "data" / "entities" / "boundaries_sot" / "S01"
         / "constituencies.json"
     )
     sot_path.parent.mkdir(parents=True, exist_ok=True)
@@ -283,7 +283,7 @@ def test_rewrite_uses_compound_name_reservation_key(tmp_path: Path) -> None:
         features,
         {
             "method": "by_name_to_sot_eci_no",
-            "sot_ref": "datasets/reference/in/states/S01/constituencies.json",
+            "sot_ref": "datasets/data/entities/boundaries_sot/S01/constituencies.json",
         },
         repo_root=tmp_path,
     )
@@ -311,7 +311,7 @@ def test_rewrite_reservation_mismatch_drops_feature(tmp_path: Path) -> None:
         ],
     }
     sot_path = (
-        tmp_path / "datasets" / "reference" / "in" / "states" / "S01"
+        tmp_path / "datasets" / "data" / "entities" / "boundaries_sot" / "S01"
         / "constituencies.json"
     )
     sot_path.parent.mkdir(parents=True, exist_ok=True)
@@ -327,7 +327,7 @@ def test_rewrite_reservation_mismatch_drops_feature(tmp_path: Path) -> None:
             features,
             {
                 "method": "by_name_to_sot_eci_no",
-                "sot_ref": "datasets/reference/in/states/S01/constituencies.json",
+                "sot_ref": "datasets/data/entities/boundaries_sot/S01/constituencies.json",
             },
             repo_root=tmp_path,
         )
@@ -346,7 +346,7 @@ def test_rewrite_raises_when_zero_matches(sot_ap: Path) -> None:
             features,
             {
                 "method": "by_name_to_sot_eci_no",
-                "sot_ref": "datasets/reference/in/states/S01/constituencies.json",
+                "sot_ref": "datasets/data/entities/boundaries_sot/S01/constituencies.json",
             },
             repo_root=sot_ap,
         )
@@ -364,7 +364,7 @@ def test_rewrite_raises_on_unsupported_method(sot_ap: Path) -> None:
             features,
             {
                 "method": "by_some_other_method",
-                "sot_ref": "datasets/reference/in/states/S01/constituencies.json",
+                "sot_ref": "datasets/data/entities/boundaries_sot/S01/constituencies.json",
             },
             repo_root=sot_ap,
         )
@@ -382,7 +382,7 @@ def test_rewrite_raises_when_sot_missing(tmp_path: Path) -> None:
             features,
             {
                 "method": "by_name_to_sot_eci_no",
-                "sot_ref": "datasets/reference/in/states/S99/constituencies.json",
+                "sot_ref": "datasets/data/entities/boundaries_sot/S99/constituencies.json",
             },
             repo_root=tmp_path,
         )
@@ -406,7 +406,7 @@ def test_rewrite_raises_on_duplicate_sot_keys(tmp_path: Path) -> None:
         ],
     }
     sot_path = (
-        tmp_path / "datasets" / "reference" / "in" / "states" / "S01"
+        tmp_path / "datasets" / "data" / "entities" / "boundaries_sot" / "S01"
         / "constituencies.json"
     )
     sot_path.parent.mkdir(parents=True, exist_ok=True)
@@ -422,7 +422,7 @@ def test_rewrite_raises_on_duplicate_sot_keys(tmp_path: Path) -> None:
             features,
             {
                 "method": "by_name_to_sot_eci_no",
-                "sot_ref": "datasets/reference/in/states/S01/constituencies.json",
+                "sot_ref": "datasets/data/entities/boundaries_sot/S01/constituencies.json",
             },
             repo_root=tmp_path,
         )
@@ -448,7 +448,7 @@ def test_rewrite_raises_on_duplicate_snap_names_for_same_sot(
             features,
             {
                 "method": "by_name_to_sot_eci_no",
-                "sot_ref": "datasets/reference/in/states/S01/constituencies.json",
+                "sot_ref": "datasets/data/entities/boundaries_sot/S01/constituencies.json",
             },
             repo_root=sot_ap,
         )

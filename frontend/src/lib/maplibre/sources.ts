@@ -460,7 +460,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   // pre-delimitation 87-AC layer for J&K; shijithpk/2024_maps_supplement
   // georeferenced the J&K CEO official AC map PDF + an NIC map server into
   // a fresh GeoJSON. Property schema is non-HTL: join key is `seat_id`
-  // (matches eci_no in datasets/reference/in/states/U08/constituencies.json,
+  // (matches eci_no in datasets/data/entities/boundaries_sot/U08/constituencies.json,
   // cross-validated 2026-05-13). The file also contains one extra feature
   // with seat_id 9999 for PoK areas; renderers should ignore it for the
   // 90-AC choropleth.

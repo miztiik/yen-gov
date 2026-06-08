@@ -238,7 +238,7 @@ export function fetchStates(): Promise<StatesCollection> {
 }
 
 export function fetchConstituencies(state: string): Promise<ConstituenciesCollection> {
-  return fetchJson<ConstituenciesCollection>(`/reference/in/states/${state}/constituencies.json`);
+  return fetchJson<ConstituenciesCollection>(`/data/entities/boundaries_sot/${state}/constituencies.json`);
 }
 
 // fetchDistricts retired in Phase-0 closeout T.0c-ii-B.2 — see the
