@@ -117,9 +117,8 @@ _TRIPLES: dict[str, tuple[str, str, str]] = {
 # / url_main / notes. All 5 endpoints share the same NDLM hostname
 # (``bharatpashudhan-api.ndlm.co.in``); the url_main is the public
 # portal landing page (the operator-facing surface), not the JSON
-# endpoint (which is documented in tools/ndlm_download.py and the
-# how-to). DAHD is the issuing authority for each series -- gold tier,
-# live-fetch, OGL-IN-1.0.
+# endpoint (which is documented in the NDLM how-to). DAHD is the
+# issuing authority for each series -- gold tier, live-fetch, OGL-IN-1.0.
 #
 # Pashu Aadhaar carries the strongest caveat string in ``notes`` per
 # Hans's honest-renderer pin (plan-doc \u00a73 + plan-doc-pashu-aadhaar):

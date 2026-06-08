@@ -1,11 +1,11 @@
 # tools/migrate/
 
-One-shot DuckDB CTAS migration scripts for the grain-rip
-(`docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md` §3 PR-B
-series). Each script renames or collapses `indicator_id` values across the
-canonical Parquet shards for a single family. Idempotent: re-running on
-post-migration shards is a no-op.
+One-shot migration scripts kept around for re-runnable, test-anchored
+operator chores. Most of the grain-rip / LGD-build path_b_* + build_lgd_*
++ backfill_concept_id_fk scripts were retired in the G6 tools/ prune
+(2026-06-08) once their per-family migrations had landed; the surviving
+script is the one with a Tier-A pytest pin.
 
-| Script | PR | Scope |
+| Script | Tier-A pin | Scope |
 | --- | --- | --- |
-| `path_b_elections.py` | B2 | Strip `state-` prefix on 8 elections rollups |
+| [`rename_partition_keys.py`](rename_partition_keys.py) | [`backend/tests/test_rename_partition_keys.py`](../../backend/tests/test_rename_partition_keys.py) | Rename `state=in_sXX` / `state=in_uXX` partition dirs to `state=<lgd-name-slug>` per ADR-0050; ships with `--apply` gate + sample manifest. |

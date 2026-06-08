@@ -5,9 +5,9 @@ The legacy network-fetch + folded-indicator-JSON path (``ingest_pm25`` /
 per parent plan section 21.4 ("network-fetch code is deleted; ingest reads
 local TCPD / source CSV"). What remains is the indicator metadata, the
 ``_build_*_payload`` helpers exercised by
-``backend/tests/test_sources_iced_air_quality_markers.py`` + operator
-reingest tooling (``tools/iced_aq_emit_from_fixture.py``), and the B1.4.9
-canonical CSV emission exercised by
+``backend/tests/test_sources_iced_air_quality_markers.py`` (the operator
+fixture-based reingest tool was retired in the G6 tools/ prune 2026-06-08),
+and the B1.4.9 canonical CSV emission exercised by
 ``backend/tests/test_iced_air_quality_csv_repoint.py``.
 """
 from __future__ import annotations

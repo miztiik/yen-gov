@@ -753,8 +753,7 @@
         <p>
           Per-constituency directory for {event_row.display}
           isn't available yet — the constituencies reference file for this
-          state still needs to be bootstrapped (run
-          <code>python tools/bootstrap_constituencies_from_results.py {state_code}</code>).
+          state still needs to be bootstrapped.
         </p>
       </section>
     {:else if event_row && summary && acs}

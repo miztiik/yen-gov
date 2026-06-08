@@ -12,9 +12,10 @@ with Phase 2.A of TODO/20260525-livestock-ndlm-ingest-plan.md):
   the SAME taxonomy the writer's FK gate validates entity_id against.
   Co-locating the resolver here keeps the producer (ingest tooling)
   and the consumer (writer FK gate) reading the same single file.
-* The first consumer (``tools/livestock_meadow_pashu_aadhaar.py``) had
-  an inline ``_load_district_lookup()`` shaped exactly like this; the
-  second consumer (any future NDLM meadow generator that pulls raw
+* The first consumer (an early livestock NDLM meadow tool, retired
+  in the G6 tools/ prune 2026-06-08) had an inline
+  ``_load_district_lookup()`` shaped exactly like this; the second
+  consumer (any future NDLM meadow generator that pulls raw
   district-keyed responses by LGD code) will need the same logic.
   Extracting now keeps the next consumer additive.
 * ``ValueError`` on miss (not a default ``None``) - silent misses are

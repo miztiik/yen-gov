@@ -6,11 +6,11 @@ annual-publications page. URL slugs include a date stamp (e.g.
 edition) plus an opaque hex hash. New editions land each December /
 January and the URLs change wholesale — there is no stable redirect.
 
-Recon procedure (run on each new edition)::
-
-    python tools/rbi_recon.py --dump
-    # Inspect .runtime/rbi_titles.txt for ``Statement <N>: <title>``
-    # lines; copy the URL into the matching entry below.
+Recon procedure on each new edition: open the RBI State Finances
+landing page in a browser, copy each Statement/Appendix XLSX URL into
+the matching entry below. The legacy ``tools/rbi_recon.py`` helper was
+retired in the G6 tools/ prune 2026-06-08; operators now hand-snapshot
+the page.
 
 The ``ingest`` orchestrator resolves URLs in this order:
 

@@ -80,8 +80,10 @@ LEGACY_BOUNDARY_SIDECARS_ALLOWLIST = Path("datasets/_ops/legacy-boundary-sidecar
 # agents cannot re-encode grain on the id. SHIPS DARK in PR-B1 (function
 # present but NOT chained into `run()`); ENFORCED post-PR-B9 once the existing
 # 132 grain-prefixed rows have migrated under the per-PR `tools/migrate/path_b_*`
-# scripts. The 60-day Tier-B alias-window check (T.3 2026-05-22) was deleted
-# in PR-B1 -- back-compat surface migrates to per-PR rename scripts.
+# scripts (now retired in the G6 tools/ prune 2026-06-08 after the
+# per-family migrations landed). The 60-day Tier-B alias-window check
+# (T.3 2026-05-22) was deleted in PR-B1 -- back-compat surface migrates
+# to per-PR rename scripts.
 INDICATOR_CATALOGUE_JSON = Path("datasets/taxonomy/indicators.json")
 # Predicate body lives in yen_gov.preflight.predicates.grain_prefix_violation
 # (ADR-0046 DRY extraction). Re-exported here for back-compat with callers
@@ -638,9 +640,10 @@ def tier_b_indicator_id_no_grain_prefix(root: Path) -> list[Failure]:
     SHIPS DARK in PR-B1 (function present but NOT chained into ``run()``).
     Will be wired into ``run()`` in PR-B9 once the existing 132 grain-prefixed
     catalogue rows have migrated via the per-PR ``tools/migrate/path_b_*``
-    scripts (PR-B2..B8). Until then, calling this function returns the
-    backlog of grain-prefix violations for visibility -- useful in
-    migration-PR acceptance gates.
+    scripts (PR-B2..B8; those scripts were retired in the G6 tools/ prune
+    2026-06-08 after the per-family migrations landed). Until then,
+    calling this function returns the backlog of grain-prefix violations
+    for visibility -- useful in migration-PR acceptance gates.
 
     No-ops when ``datasets/taxonomy/indicators.json`` is absent or fails
     to parse.

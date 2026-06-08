@@ -1,8 +1,10 @@
 """Hive partition path + layer_id derivation for boundary geometry shards.
 
-Shared by ``tools/boundaries/snapshot.py`` (forward-going re-fetches) and
-``tools/boundaries/migrate_to_hive_layout.py`` (one-shot initial migration
-in T.0d chunk 3) so the on-disk layout is decided in exactly one place.
+Shared by ``tools/boundaries/snapshot.py`` (forward-going re-fetches). The
+original one-shot migrator (``migrate_to_hive_layout.py``) was retired in
+the G6 tools/ prune 2026-06-08 once T.0d chunk 3 had landed; the path
+derivation it shared with snapshot.py is preserved here for any future
+layout changes.
 
 T.0d §1 admin-spine layout (locked 2026-05-22)::
 

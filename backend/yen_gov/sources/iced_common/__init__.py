@@ -12,7 +12,7 @@ The legacy network client (``client.IcedClient``) was retired in B4-pt2.3
 per parent plan section 21.4 ("network-fetch code is deleted; ingest reads
 local TCPD / source CSV"). What remains is the pure-Python crypto / entity /
 endpoint catalogue (decrypts are still useful when an operator hands a
-captured ciphertext to ``tools/iced_aq_emit_from_fixture.py`` or similar).
+captured ciphertext to a fixture-based reingest helper).
 
 Public surface (post-pt2.3):
 
