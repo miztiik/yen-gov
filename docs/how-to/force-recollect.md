@@ -1,55 +1,40 @@
 # How to force re-collection of an indicator
 
-**Last Updated**: 2026-05-17
+**Last Updated**: 2026-06-08
 **Audience**: operators with local clone of `yen-gov`.
 
-There is no force-refetch flag in `processing.json`, no CLI option,
-and no admin button. By design — see [collection-inventory](../concepts/collection-inventory.md)
-and [ADR-0003](../architecture/backend/core.md#adr-0003-no-fetch-cache).
-`rm` IS the force mechanism.
+> **Post-B4 (2026-06-06 / 2026-06-07).** Production runtime no longer fetches over the network; the legacy live-fetch loop (`yen-gov run`, `core/http.py`, `httpx`/`tenacity` runtime) was retired per [TODO/20260603-data-and-charting-platform-reset-plan.md](../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 21.4. "Force recollect" today means either re-running a frozen-CSV ingest with `--force` or deleting a debug cache under `.runtime/raw/` before re-running an operator-tier `tools/` fetcher.
 
-## Recipe
+## Recipe A — re-ingest a canonical election artifact
 
-1. Identify the indicator path:
-   ```
-   datasets/indicators/in/<topic>/<id>.json
-   ```
-2. Identify the `.runtime/raw/<source>/...` files the adapter caches
-   on its way to that indicator. Most adapters keep their cache under
-   `.runtime/raw/<adapter-name>/`.
-3. Delete those raw files:
+The four surviving election ingest commands gate the no-op skip on a row in `datasets/elections/_inventory.json`. Pass `--force` to bypass:
+
+- `python -m yen_gov ingest-eci-ae-panel --input <csv> --state <S##> --force`
+- `python -m yen_gov ingest-eci-ls --input <Report-33.csv> --crosswalk <Report-34.csv> --force`
+- `python -m yen_gov ingest-ls-ge-tcpd --input All_States_GE.csv --year <YYYY> --force`
+- `python -m yen_gov canonical-backfill-eci --event <id> --state <S##>`
+
+No state lives outside the inventory row; once `--force` runs, the next non-`--force` invocation skips again.
+
+## Recipe B — re-fetch a `.runtime/raw/` debug cache (operator tier)
+
+For operator-tier tools under [`tools/`](../../tools/) that still touch the network for a one-shot asset population (font builds, raw-data refreshes), the cache layer is `rm`:
+
+1. Identify the relevant cache prefix under `.runtime/raw/<source>/`.
+2. Delete the cache directory:
+
    ```powershell
-   Remove-Item .runtime/raw/<adapter-name>/<path-to-files> -Force
+   Remove-Item .runtime/raw/<source>/<path> -Recurse -Force
    ```
-4. Re-run the collector. The pipeline command and module vary by
-   indicator (see the adapter's own README under
-   `backend/yen_gov/sources/<adapter>/`).
-5. Verify:
-   ```powershell
-   git diff datasets/indicators/in/<topic>/<id>.json
-   ```
-   If the upstream bytes were identical, `sources[].fetched_at`
-   should be **unchanged** (fetch-once-freeze) and only legitimate
-   value changes should appear. If `fetched_at` smears across rows
-   on a no-op re-run, that is a provenance bug — see
-   [data-provenance](../concepts/data-provenance.md) and CLAUDE.md
-   §10 anti-patterns.
+
+3. Re-run the tool. `.runtime/raw/` is throwaway debug per [core](../architecture/backend/core.md) (no schema, no contract surface, gitignored).
 
 ## Why no flag
 
-A boolean force-refetch flag in config is itself state. State
-duplicates state: now you have the indicator file *and* a flag that
-says "this indicator wants to be re-collected", and operators have
-to remember to clear it. `rm` is unambiguous, leaves no residue, and
-already worked.
+A boolean force-refetch flag would be state. State duplicates state: the inventory row already says "this event was ingested"; the `--force` flag overrides that one decision without leaving residue. For the operator-tier `tools/` fetchers, `rm` of the debug cache is unambiguous and leaves nothing to remember to clear.
 
-The `collection_inventory.refetch_requested` flag is **triage status**,
-not a second force mechanism. Operators use it to mark "this needs
-re-pulling on the next pass" so the team can see the queue; the
-planner clears it after a successful re-collect.
+## See also
 
-## Related
-
-- [collection-inventory](../concepts/collection-inventory.md)
-- [folded-indicator](../concepts/folded-indicator.md)
-- [ADR-0003 — No fetch cache](../architecture/backend/core.md#adr-0003-no-fetch-cache)
+- [run-the-pipeline.md](run-the-pipeline.md) — surviving operator + ingest CLIs.
+- [data-provenance](../concepts/data-provenance.md) — what `source_id` / `sources[]` mean on every re-ingested row.
+- [core](../architecture/backend/core.md) — post-B4 `core/` module map.

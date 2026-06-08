@@ -18,7 +18,7 @@ The pipeline is one-shot per `(event, state)`: results don't change after declar
 
 ## The two layers
 
-**`sources/eci/`** parses one page at a time. Each parser is a pure function from `bytes` to an adapter-local dataclass (`PartywiseSnapshot`, `ConstituencywiseRaw`). They know nothing about the schema, the election, or each other. See [backend/sources-eci.md](../architecture/backend/sources-eci.md).
+**`sources/eci/`** parses one page at a time. Each parser is a pure function from `bytes` to an adapter-local dataclass (`PartywiseSnapshot`, `DetailedResultsRaw`). They know nothing about the schema, the election, or each other. See [backend/sources-eci.md](../architecture/backend/sources-eci.md).
 
 **`pipeline/compose.py`** combines those adapter outputs into schema-bound models:
 

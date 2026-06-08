@@ -1,63 +1,53 @@
 # How to run the pipeline
 
-**Last Updated**: 2026-05-09
+**Last Updated**: 2026-06-08
 
-The yen-gov pipeline has two operator-facing CLI commands. Both live in `backend/yen_gov/cli.py` and are exposed via `python -m yen_gov`.
+> **Post-B4 (2026-06-06 / 2026-06-07).** The legacy live-fetch pipeline (`yen-gov run <event> <state>`, `yen-gov reference <state>`, `yen-gov pipeline run`, and 8 other network CLIs) was deleted in B4-pt2.2 (#826) along with `pipeline/run.py` + `pipeline/reference.py`, and `core/http.py` + the `httpx`/`tenacity` runtime dependency were retired in B4-pt2.4 (#828) per [TODO/20260603-data-and-charting-platform-reset-plan.md](../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 21.4. Production runtime no longer fetches over the network. The surviving operator CLIs are listed below; all read local source files (frozen CSV, hand-downloaded XLSX) into the canonical long-format CSV store under `datasets/data/`.
+
+All commands live in [`backend/yen_gov/cli.py`](../../backend/yen_gov/cli.py) and run via `python -m yen_gov <command>` from the `backend/` directory with the venv active.
 
 ## Prerequisites
 
-- Python 3.13+ with the backend installed: `pip install -e backend/`.
-- A populated `config/processing.json` (the committed default works).
-- Network access to `results.eci.gov.in` and `en.wikipedia.org`.
+- Python 3.11+ with the backend installed: `pip install -e backend/`.
+- For the ECI/TCPD ingest commands: a local copy of the source CSV under `datasets/ephemeral/` (gitignored, see plan section 21.4 / B4 for the operator-handoff convention).
+- For `eci-statreport-emit-local`: a hand-downloaded Section 10 XLSX under `datasets/raw_ephemeral_datasets/`.
 
-## `yen-gov reference <state>` — one-shot Wikipedia scrape
+## Operator commands
 
-Populates the per-state constituency reference (AC list with reservation status) under `datasets/reference/in/states/<state>/`. (Districts are NOT re-emitted; district identity lives on `datasets/taxonomy/entities.json` since T.0c-iii Phase A — see [ADR-0033](../architecture/backend/sources-wikipedia.md#adr-0033-retire-wikipedia-districts-adapter).)
+| Command | What it does |
+| ------- | ------------ |
+| `validate` | Two-tier schema validator (CLAUDE.md §11). Tier A (always-on in pytest) + Tier B (corpus walk, local-only). |
+| `coverage` | Regenerates [data-inventory.md](../reference/data-inventory.md) from `datasets/taxonomy/election_events.json` + on-disk artifacts. |
+| `emit-taxonomy` | Compiles hand-authored taxonomy JSON (entities, office holdings) into canonical CSV under `datasets/data/`. Supports `--dry-run` for byte-compare reports. |
+| `check-overlap` | Concept-overlap gate (CLAUDE.md §10): scores a candidate concept against `datasets/taxonomy/concepts.json` before any new `indicator_id` is minted. |
+| `pre-flight-ingest` | ADR-0046 6-check gate run before every new-source ingest handover-doc lands. Reads a JSON proposal; writes a JSON report. |
 
-```sh
-python -m yen_gov reference S22
-# → datasets/reference/in/states/S22/constituencies.json  (234 ACs)
-```
+## Election ingest commands
 
-This command is run **once per state per delimitation cycle**. The data does not change between elections; rerun only when district boundaries or reservation status change.
+All four ingest commands read a frozen CSV/XLSX off disk and write directly into the canonical Parquet/CSV store. No network. Each is idempotent against `datasets/elections/_inventory.json`; pass `--force` to re-ingest a recorded event.
 
-Wikipedia requires a descriptive User-Agent (per their bot etiquette and [backend/sources-wikipedia.md](../architecture/backend/sources-wikipedia.md#user-agent)). The default UA is appropriate; override with `--user-agent` if you need to cite a different contact URL.
+| Command | Source shape | Writes |
+| ------- | ------------ | ------ |
+| `ingest-eci-ae-panel --input <csv> --state <S##>` | All-states ECI Assembly Election panel CSV, filtered to one state code. Supports `--delim-id` repetition, `--min-year/--max-year`, `--dry-run` preflight, `--allow-unknown-parties`. | `dim_persons` + `elections_candidacies` + `dim_acs` + party dims + election observations + inventory row. |
+| `ingest-eci-ls --input <Report-33.csv> --crosswalk <Report-34.csv>` | ECI 2024 Lok Sabha Report-33 (constituency-wise detailed result) + Report-34 (AC→PC crosswalk). | `dim_pcs` + observations across rewritten per-state shards. |
+| `ingest-ls-ge-tcpd --input All_States_GE.csv --year <YYYY>` | One historical Lok Sabha year from the TCPD All-States GE panel. Year must resolve via the `(year → event_id)` registry in `eci_ls.EVENT_BY_GE_YEAR`. | Same shape as `ingest-eci-ls`, scoped to the one historical year. |
+| `eci-statreport-emit-local <xlsx>` | Hand-downloaded Section 10 XLSX (filename pattern `YYYY_state_<name>_*.xlsx`; state/year auto-detected). | `datasets/elections/<event>/<state>/results.csv` (researcher-facing CSV bundle, the only post-B4-pt3 emit). |
+| `canonical-backfill-eci [--event <id>] [--state <S##>] [--corpus-root <dir>]` | Backfills `datasets/elections/election_results.parquet` from a per-AC JSON corpus (typically a restored snapshot under `datasets/ephemeral/legacy-corpus/elections`). | Re-emits the canonical Parquet's per-state shards. |
 
-## `yen-gov run <event> <state>` — full result run
+Provenance: every emitted observation row carries a `source_id` FK to `datasets/data/entities/source.csv` (CLAUDE.md §12). The four ingest commands derive `source_id` via `backend.yen_gov.canonical.citation.derive_source_id`; `eci-statreport-emit-local` emits with `sources: []` per ADR-0002 (hand-authored / out-of-band ingest signal).
 
-Fetches one ECI partywise page and N constituencywise pages, parses them, composes a state-level summary, and writes everything under `datasets/elections/<event>/<state>/`.
+## Force re-collection
 
-```sh
-python -m yen_gov run AcGenMay2026 S22
-# → datasets/elections/AcGenMay2026/S22/parties.json
-# → datasets/elections/AcGenMay2026/S22/result.summary.json
-# → datasets/elections/AcGenMay2026/S22/results/1.json … 234.json
-```
+There is no force-refetch flag in any config file. Re-ingest works two ways:
 
-Each constituency is fetched and emitted in order; a single AC failure aborts the run with the underlying `ValueError` (per [pipeline fail-loud policy](../architecture/backend/pipeline.md#fail-loud-whole-run)). Bytes for every URL are persisted under `.runtime/raw/eci/...` for offline debugging (per [ADR-0003](../architecture/backend/core.md#adr-0003-no-fetch-cache)) — but the orchestrator does not consult them on rerun.
+- For canonical Parquet/CSV ingest: pass `--force` to the relevant ingest command; the inventory row gates the no-op skip.
+- For operator-tier `tools/` fetchers that still touch the network (font builds, raw data refreshes), delete the relevant `.runtime/raw/<source>/...` cache before re-running the tool. `.runtime/raw/` is throwaway debug per [core](../architecture/backend/core.md) and the `.runtime/` gitignore.
 
-The composer's reconciler (`reconcile_winners_against_partywise`) cross-checks per-AC winners against the partywise seat counts; a mismatch raises before any artifact is written. This catches both ECI page corruption and parser drift.
-
-### Knobs
-
-`config/processing.json` controls:
-- `fetch.timeout_seconds`, `fetch.retry_attempts`, `fetch.retry_backoff_seconds`, `fetch.user_agent`
-- `results.top_n_candidates` — how many candidates to keep per AC (rest collapse into `OthersBucket` when `collapse_others: true`).
-
-## `yen-gov validate` — schema gate
-
-After any pipeline run, validate the whole repo:
-
-```sh
-python -m yen_gov validate
-# → validate: OK (0 issues)
-```
-
-This runs Tier A (schemas vs draft 2020-12 meta-schema + `x-version`/`x-changelog` invariants) and Tier B (every `*.json` under `datasets/` against its declared `$schema`). Per CLAUDE.md §11, both tiers must pass before merge.
+See [`how-to/force-recollect.md`](force-recollect.md).
 
 ## See also
 
-- [backend/sources-eci.md](../architecture/backend/sources-eci.md) (ECI source adapter conventions)
-- [backend/sources-wikipedia.md](../architecture/backend/sources-wikipedia.md) (Wikipedia source adapter conventions)
-- [backend/pipeline.md](../architecture/backend/pipeline.md) (pipeline orchestration: composers, fail-loud, top-N trade-off)
-- `docs/concepts/data-provenance.md` (what `sources` means in every emitted file)
+- [backend/sources-eci.md](../architecture/backend/sources-eci.md) (ECI parser conventions; partial-stale post-B4 banner included)
+- [backend/pipeline.md](../architecture/backend/pipeline.md) (composition + reconciler model; pre-B4 narrative)
+- [docs/concepts/data-provenance.md](../concepts/data-provenance.md) (what `sources[]` / `source_id` mean in every emitted row)
+- [TODO/20260603-data-and-charting-platform-reset-plan.md](../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 21.4 (binding direction for the B4 elections-backend rip)

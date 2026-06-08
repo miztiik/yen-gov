@@ -275,9 +275,7 @@ ENDPOINT_CATALOGUE: tuple[Endpoint, ...] = (
         page_hint="/energy/sources-and-end-use",
         notes="Sector × source × year, 360 rows / 33 KB. End-use energy "
               "consumption by sector (industry, transport, agriculture, "
-              "residential, commercial). Unblocks ephemeral candidate #19 "
-              "in notes/ephemeral-datasets-triage-2026-05-14.md ("
-              "sectorwise_energy_consumption). MoSPI Energy Statistics."),
+              "residential, commercial). MoSPI Energy Statistics."),
     _ep("energy_source_wise_supply",
         "/energy/sourceWiseEnergySupply",
         page_hint="/energy/sources-and-end-use",
