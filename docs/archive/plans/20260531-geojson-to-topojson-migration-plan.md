@@ -47,7 +47,7 @@
 
 User's original ladder was `geoBoundaries → udit-001 → convert-existing`. Max's audit found BOTH external sources strip LGD codes from features (geoBoundaries normalises to `shapeName`/`shapeISO`/`shapeID`/`shapeGroup`/`shapeType`; udit-001 hobbyist mirror). Adopting either as canonical breaks every join in `boundary_layers.parquet`.
 
-**Decision: all 10 in-scope layers convert IN-PLACE from existing LGD-keyed GeoJSON sources to TopoJSON. No external source is introduced.** Max's full verdict lands at `notes/2026-05-31-geoboundaries-udit001-source-audit.md` (P0 R0.2) so future agents do not re-litigate.
+**Decision: all 10 in-scope layers convert IN-PLACE from existing LGD-keyed GeoJSON sources to TopoJSON. No external source is introduced.** Max's full verdict lives at [docs/architecture/data/boundaries.md](../../architecture/data/boundaries.md) section "2026-05-31 2026-05-31-geoboundaries-udit001-source-audit" (P0 R0.2; lifted 2026-06-08 G4 from `notes/2026-05-31-geoboundaries-udit001-source-audit.md`) so future agents do not re-litigate.
 
 ## 3. Tooling (locked 2026-05-31 per Fowler's verdict)
 
@@ -92,11 +92,11 @@ Status flags: `[ ]` not-started · `[~]` in-progress · `[x]` done · `[!]` bloc
 | Phase | Row | Title | Level | Depends-on | Executing agent | PR | Status |
 |-------|-----|-------|-------|-----------|-----------------|----|--------|
 | **P0**: Foundations | 0.1 | Author ADR-0047 (already drafted; ships with PR-0) | 2 | — | default | `#486` | `[x]` |
-| P0 | 0.2 | Distill Max's source audit to `notes/2026-05-31-geoboundaries-udit001-source-audit.md` | 1 | — | default | `#486` | `[x]` |
+| P0 | 0.2 | Distill Max's source audit to [docs/architecture/data/boundaries.md](../../architecture/data/boundaries.md) section "2026-05-31 2026-05-31-geoboundaries-udit001-source-audit" (lifted 2026-06-08 G4) | 1 | — | default | `#486` | `[x]` |
 | P0 | 0.3 | PR-0 (plan-doc + ADR + Max-distill) | 2 | 0.1, 0.2 | default | `#486` | `[x]` |
 | **P1**: Benchmark scaffolding | 1.1 | Add Playwright bench spec | 3 | 0.3 | Jony | #487 | `[x]` |
 | P1 | 1.2 | Add `VITE_BENCH=1` perf-mark instrumentation | 2 | 0.3 | Jony | #487 | `[x]` |
-| P1 | 1.3 | Run baseline; publish `notes/2026-05-31-topojson-baseline-bench.md` | 1 | 1.1, 1.2 | Jony | #487 | `[x]` |
+| P1 | 1.3 | Run baseline; publish [docs/architecture/data/topojson-benchmark.md](../../architecture/data/topojson-benchmark.md) section "2026-05-31 2026-05-31-topojson-baseline-bench" (lifted 2026-06-08 G4) | 1 | 1.1, 1.2 | Jony | #487 | `[x]` |
 | P1 | 1.4 | Stamp plan-doc with derived STOP-CONDITION numbers | 0 | 1.3 | default | n/a | `[x]` |
 | **P2**: Phase 1 — India home (state layer) | 2.1 | Add converter + `config/topojson.json` + schema + pytest | 3 | 0.1 | Fowler | #488 | `[x]` |
 | P2 | 2.2 | Run converter on `states/all.geojson` | 1 | 2.1 | default | #488 | `[x]` |
@@ -126,7 +126,7 @@ Every row below has everything a fresh subagent needs. The loop: read `bootstrap
 
 ### P0.2 — Distill Max source audit
 - **Branch**: `feat/topojson-p0r2-source-audit-distillation` (FROM main)
-- **Files**: NEW `notes/2026-05-31-geoboundaries-udit001-source-audit.md` (~80 lines: Max's verbatim table + key finding + join-key risk + sample properties)
+- **Files**: [docs/architecture/data/boundaries.md](../../architecture/data/boundaries.md) section "2026-05-31 2026-05-31-geoboundaries-udit001-source-audit" (lifted 2026-06-08 G4; ~80 lines: Max's verbatim table + key finding + join-key risk + sample properties)
 - **Acceptance**: file exists; cross-linked from this plan §2 + ADR-0047 §Rejected-A
 - **DoD gates**: all n/a (notes-only)
 - **Executing agent**: default
@@ -154,7 +154,7 @@ Every row below has everything a fresh subagent needs. The loop: read `bootstrap
 
 ### P1.3 — baseline measurement
 - **Branch**: `feat/topojson-p1r3-baseline-bench-notes` (FROM main)
-- **Files**: NEW `notes/2026-05-31-topojson-baseline-bench.md` (median + p95 + computed noise-floor for each Jony metric across 10-cold + 10-warm runs)
+- **Files**: [docs/architecture/data/topojson-benchmark.md](../../architecture/data/topojson-benchmark.md) section "2026-05-31 2026-05-31-topojson-baseline-bench" (lifted 2026-06-08 G4; median + p95 + computed noise-floor for each Jony metric across 10-cold + 10-warm runs)
 - **Acceptance**: noise-floor computed as `p95 - median` per metric
 - **DoD gates**: all n/a (notes-only)
 - **Executing agent**: Jony
@@ -208,7 +208,7 @@ Every row below has everything a fresh subagent needs. The loop: read `bootstrap
 
 ### P2.6 — Candidate bench
 - **Branch**: bundle into P2.7 PR
-- **Files**: NEW `notes/2026-05-31-topojson-candidate-bench.md` (10-cold + 10-warm against `/` with topojson live). PR body MUST report BOTH raw bytes AND gzip-transfer bytes (GH Pages serves gzipped; raw deltas overstate the win).
+- **Files**: [docs/architecture/data/topojson-benchmark.md](../../architecture/data/topojson-benchmark.md) section "2026-05-31 2026-05-31-topojson-candidate-bench" (lifted 2026-06-08 G4; 10-cold + 10-warm against `/` with topojson live). PR body MUST report BOTH raw bytes AND gzip-transfer bytes (GH Pages serves gzipped; raw deltas overstate the win).
 - **Acceptance**: P1.4 STOP CONDITION numerically satisfied; if not, P2.7 BLOCKED with explicit diagnosis → trigger P2.6a (rollback row, see below)
 
 ### P2.6a — Rollback row (only fires if P2.6 fails)
@@ -272,7 +272,7 @@ Plan terminates when:
 - ADR-0047 status flipped to "accepted" (was "proposed" in P0.1).
 
 Per-row Phase-2 STOP CONDITION numbers (derived 2026-05-31 from
-`notes/2026-05-31-topojson-baseline-bench.md` § 3; rule = `delta >= 3 *
+[docs/architecture/data/topojson-benchmark.md](../../architecture/data/topojson-benchmark.md) section "2026-05-31 2026-05-31-topojson-baseline-bench" § 3; rule = `delta >= 3 *
 noise_floor` against the warm-steady-state baseline; route `/`):
 
 | Metric | Warm median (geojson baseline) | Warm noise floor (p95 - median) | 3 x noise floor | Topojson candidate MUST show |
@@ -315,11 +315,11 @@ None. All ambiguities resolved 2026-05-31.
 | Row | PR(s) | Distilled output |
 |---|---|---|
 | P0.1 ADR draft | #486 | docs/architecture/decisions/0047-topojson-as-render-encoding.md |
-| P0.2 Max source audit | #486 | notes/2026-05-31-geoboundaries-udit001-source-audit.md |
+| P0.2 Max source audit | #486 | docs/architecture/data/boundaries.md section "2026-05-31 2026-05-31-geoboundaries-udit001-source-audit" (lifted 2026-06-08 G4) |
 | P0.3 PR-0 bundle | #486 | this plan-doc (now archived) |
 | P1.1 Playwright bench spec | #487 | frontend/e2e/boundary-benchmark.spec.ts |
 | P1.2 perf-mark instrumentation | #487 | frontend/src/lib/boundaries.ts (VITE_BENCH branch) |
-| P1.3 baseline bench note | #487 | notes/2026-05-31-topojson-baseline-bench.md |
+| P1.3 baseline bench note | #487 | docs/architecture/data/topojson-benchmark.md section "2026-05-31 2026-05-31-topojson-baseline-bench" (lifted 2026-06-08 G4) |
 | P1.4 STOP-CONDITION stamp | #487 | this plan-doc ?7 |
 | P2.1 converter | #488 | tools/topojson/convert_layer.py + config/topojson.json + datasets/schemas/topojson-config.schema.json |
 | P2.2-2.7 Phase 1 India home | #488 | datasets/boundaries/in/states/all.topojson + loader topo-first contract |

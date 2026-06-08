@@ -10,11 +10,11 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | PR-SYM-0 | DONE | `TODO/20260527-party-symbol-assets-plan.md` | none | docs-only | none | #524 |
 | PR-SYM-1 | DONE | `datasets/schemas/taxonomy-parties.schema.json` (2.1 -> 2.2), `datasets/taxonomy/parties.json` ($schema_version bump), `backend/tests/test_taxonomy_parties_schema_v22.py` (13 cases) | `taxonomy-parties` minor (`recognition` + `election_symbol`); `dim-parties` NOT bumped (recognition already declared v1.0, election_symbol mirror deferred to PR-SYM-5) | pytest 70 targeted pass + Tier-A validate exit 0 | unblocks PR-SYM-4b | #526 |
-| PR-SYM-2 | DONE | `notes/20260601-party-symbol-roster.md` (177 lines: top-60 winners SQL + snapshot pins + Tier 0/1/2 routing + alias-trap flags + recognition source policy) | none | notes-only | unblocks PR-SYM-4 | #527 |
+| PR-SYM-2 | DONE | [docs/architecture/data/party-symbols.md](../docs/architecture/data/party-symbols.md) section "20260601-party-symbol-roster" (177 lines: top-60 winners SQL + snapshot pins + Tier 0/1/2 routing + alias-trap flags + recognition source policy; lifted 2026-06-08 G4 from `notes/20260601-party-symbol-roster.md`) | none | notes-only | unblocks PR-SYM-4 | #527 |
 | PR-SYM-3 | DONE | `frontend/src/lib/party-symbols/sanitizer.ts`, `frontend/src/lib/party-symbols/sanitizer.test.ts` (18 cases), `frontend/public/party-symbols/placeholder.svg` | none | vitest 18/18 pass | unblocks PR-SYM-4a | #528 |
 | PR-SYM-4a.i | SUPERSEDED by 4a-redo | _hand-authored silhouettes; rejected as inauthentic_ | none | n/a | n/a | #543 |
 | PR-SYM-4a.ii | SUPERSEDED by 4a-redo | _Commons party-LOGO bytes mislabelled as election-symbols (e.g. `aap-broom.svg` contained AAP wordmark, not broom)_ | none | n/a | n/a | #545 |
-| PR-SYM-4a-redo | DONE (Wikipedia scrape, 55 parties / 50 unique symbols) | `frontend/public/party-symbols/<symbol-noun>.{svg,png,jpg,webp}` (50 new files), `notes/20260601-party-symbol-wiki-inventory.md`, `TODO/20260527-party-symbol-assets-plan.md` reckoner update; deletes the 4 mislabelled files from #545 | none | sanitizer N/A at scrape time (renderer-time enforcement deferred to PR-SYM-5) | unblocks PR-SYM-4b | #551 |
+| PR-SYM-4a-redo | DONE (Wikipedia scrape, 55 parties / 50 unique symbols) | `frontend/public/party-symbols/<symbol-noun>.{svg,png,jpg,webp}` (50 new files), [docs/architecture/data/party-symbols.md](../docs/architecture/data/party-symbols.md) section "20260601-party-symbol-wiki-inventory" (lifted 2026-06-08 G4 from `notes/20260601-party-symbol-wiki-inventory.md`), `TODO/20260527-party-symbol-assets-plan.md` reckoner update; deletes the 4 mislabelled files from #545 | none | sanitizer N/A at scrape time (renderer-time enforcement deferred to PR-SYM-5) | unblocks PR-SYM-4b | #551 |
 | PR-SYM-4b | DONE | parties.json + recompiled dim_parties.parquet + taxonomy schema v2.2->v2.3 | `taxonomy-parties` minor | Tier-A validate + pytest | PR-SYM-4c, PR-SYM-6a | #563 |
 | PR-SYM-4c | DONE | parties.json (wikipedia_url + brand_colour for 55 parties), inventory note, sources.parquet | none | validate + pytest + Garudadev cross-check | PR-SYM-6a | #564 |
 | PR-SYM-6a | DONE | resolver.ts + resolver.test.ts (3-tier: anchor / brand / fallback) | none | svelte-check + vitest | PR-SYM-6b | #566 |
@@ -466,7 +466,7 @@ Goal: choose the first 80/20 collection set without hand-picking in chat.
 
 Work:
 
-- Add `notes/YYYY-MM-DD-party-symbol-roster.md` (and optionally `tools/parties/roster_report.py`) that runs the DuckDB top-winner query in section 1 and produces: party_id, eci_code, short_name, full_name, wins, win_states, win_events, candidacies, total_votes.
+- Add a roster handover at [docs/architecture/data/party-symbols.md](../docs/architecture/data/party-symbols.md) (and optionally `tools/parties/roster_report.py`) that runs the DuckDB top-winner query in section 1 and produces: party_id, eci_code, short_name, full_name, wins, win_states, win_events, candidacies, total_votes.
 - Cross-check against the latest ECI national/state recognised-party notification to mark `recognition` candidates per row.
 - Flag historical / alias-heavy rows (`JSP`, `INC_I`, `JD`, `ADK`, etc.) for review instead of auto-assigning symbols.
 - Record in the note: (a) the verbatim SQL, (b) the git SHA of `datasets/elections/elections_candidacies.parquet` and `datasets/elections/dim_parties.parquet` at probe time, (c) the produced 40-60 target list. The corpus grows, so a rerun in 6 months must either reproduce or knowingly differ from this snapshot.
@@ -520,7 +520,7 @@ Work:
 - Edit `datasets/taxonomy/parties.json` to add `recognition` and `election_symbol` blocks for each Tier-0 / Tier-1 party on the roster.
 - For recognised parties without a collected SVG in PR-SYM-4a, write `symbol_status: "placeholder"` with `source_id: null`.
 - Recompile `datasets/elections/dim_parties.parquet`; `recognition` populates from the new schema mirror (`election_symbol` mirror is deferred to PR-SYM-5).
-- Update the coverage section of `notes/YYYY-MM-DD-party-symbol-roster.md` with before/after counts.
+- Update the coverage section of [docs/architecture/data/party-symbols.md](../docs/architecture/data/party-symbols.md) with before/after counts.
 
 Acceptance:
 

@@ -251,7 +251,7 @@ See section 0d-correction. The `lgd_state_id` field in `lgd_acs.json` + `lgd_ac_
 - `git mv TODO/20260602-eci-sot-rip-and-replace-plan.md docs/archive/plans/`
 - Append "Plan complete" closure block with per-row PR distillation map per [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md).
 - Update `docs/reference/data-coverage-report.md` to remove the `reference/in/states/<S__>/constituencies.json` entry and replace with `taxonomy/ac_crosswalk.parquet` row.
-- Emit a `notes/20260602-eci-sot-rip-handover.md` lesson if any surprises hit during R3.
+- Emit a `TODO/20260602-eci-sot-rip-handover.md` lesson if any surprises hit during R3.
 
 ---
 
