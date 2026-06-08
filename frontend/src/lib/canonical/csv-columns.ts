@@ -113,9 +113,38 @@ export async function loadCsvColumnsContract(): Promise<CsvColumnsContract> {
  * Example:
  *   datasets/elections/assembly/state=tamil-nadu/election=2021/candidacies.csv
  *     -> datasets/elections/assembly/state=*\/election=*\/candidacies.csv
+ *
+ * Filename-glob handling: the partition-collapse output remains the
+ * primary file_class shape. When a file class is keyed by a bare
+ * filename wildcard (e.g. `datasets/data/datapoints/geo/*.csv`,
+ * `datasets/data/datapoints/electoral/*.csv` - the per-indicator
+ * canonical CSV file classes), the partition-collapsed form does NOT
+ * match. The lookup callers (`csvColumnsClause`, `csvColumnsSpec`) walk
+ * a `[exact, filename-glob]` sequence via `candidateFileClassKeys` so
+ * the schema-of-schemas keeps a single glob entry per file class
+ * without minting a new entry per concrete file.
  */
 export function fileClassForCsvPath(csvPath: string): string {
   return csvPath.replace(/=[^/]+/g, "=*");
+}
+
+/** Ordered file_class lookup-key candidates for a concrete CSV path.
+ *  Tried in order: (1) the partition-collapsed path as-is (exact +
+ *  partition-wildcard file classes), (2) `<dirname>/*<ext>` (filename-
+ *  wildcard file classes like `datasets/data/datapoints/geo/*.csv`).
+ *  Duplicates suppressed when collapse #1 and #2 yield the same key. */
+export function candidateFileClassKeys(csvPath: string): readonly string[] {
+  const partitionCollapsed = fileClassForCsvPath(csvPath);
+  const lastSlash = partitionCollapsed.lastIndexOf("/");
+  if (lastSlash < 0) return [partitionCollapsed];
+  const filename = partitionCollapsed.slice(lastSlash + 1);
+  const lastDot = filename.lastIndexOf(".");
+  if (lastDot <= 0) return [partitionCollapsed];
+  const ext = filename.slice(lastDot);
+  const dirname = partitionCollapsed.slice(0, lastSlash);
+  const filenameGlob = `${dirname}/*${ext}`;
+  if (filenameGlob === partitionCollapsed) return [partitionCollapsed];
+  return [partitionCollapsed, filenameGlob];
 }
 
 // -----------------------------------------------------------------------------
@@ -172,14 +201,14 @@ export function buildColumnsClause(spec: CsvFileClassSpec): string {
  */
 export async function csvColumnsClause(csvPath: string): Promise<string> {
   const contract = await loadCsvColumnsContract();
-  const fileClass = fileClassForCsvPath(csvPath);
-  const spec = contract.file_classes[fileClass];
-  if (!spec) {
-    throw new Error(
-      `csv-columns: no file_class match for ${csvPath} (looked up ${fileClass})`,
-    );
+  const candidates = candidateFileClassKeys(csvPath);
+  for (const key of candidates) {
+    const spec = contract.file_classes[key];
+    if (spec) return buildColumnsClause(spec);
   }
-  return buildColumnsClause(spec);
+  throw new Error(
+    `csv-columns: no file_class match for ${csvPath} (looked up ${candidates.join(", ")})`,
+  );
 }
 
 /** Convenience: return the typed column list for a file_class without
@@ -189,14 +218,14 @@ export async function csvColumnsSpec(
   csvPath: string,
 ): Promise<readonly CsvColumnSpec[]> {
   const contract = await loadCsvColumnsContract();
-  const fileClass = fileClassForCsvPath(csvPath);
-  const spec = contract.file_classes[fileClass];
-  if (!spec) {
-    throw new Error(
-      `csv-columns: no file_class match for ${csvPath} (looked up ${fileClass})`,
-    );
+  const candidates = candidateFileClassKeys(csvPath);
+  for (const key of candidates) {
+    const spec = contract.file_classes[key];
+    if (spec) return spec.columns;
   }
-  return spec.columns;
+  throw new Error(
+    `csv-columns: no file_class match for ${csvPath} (looked up ${candidates.join(", ")})`,
+  );
 }
 
 // -----------------------------------------------------------------------------

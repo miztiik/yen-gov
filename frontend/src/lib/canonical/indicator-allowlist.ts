@@ -2572,6 +2572,241 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
         "NAIP IV is a SELECT-DISTRICT programme; 8 states/UTs report zero coverage upstream. Counts distinct farmers per district per FY. This is the source-of-truth grain.",
     },
   },
+
+  // ---------------------------------------------------------------------------
+  // W1 RBI State Finances cohort (2026-06-08, feat/w1-canonical-first-rbi-state-finances).
+  //
+  // Migrates 6 fiscal indicators from legacy datasets/indicators/in/fiscal/<id>.json
+  // shards onto the canonical long-format CSV seam per plan-doc §10 W1 + §3.
+  // Closes the 0/42 canonical-backed count to 6/42; unblocks the G5-PR-B
+  // bulk rip once W1 + W2 + W3 cross the 22/42 threshold the G5 audit set.
+  //
+  // Substitution noted: `fiscal/net_transfers_from_centre` was REPLACED by
+  // `fiscal/state_pension_expenditure_inr_crore` because the former's legacy
+  // shard carries only 3 years (1 Accounts + 1 RE + 1 BE) and 1 Accounts
+  // year x 31 entities is too thin for a citizen-grade time series.
+  // `state_pension_expenditure_inr_crore` is RBI Handbook Table 171, 21 years
+  // x 30 entities = 619 Accounts rows (longest series of any candidate).
+  //
+  // S09 (J&K state-era 2008-2019) and RE/BE projection rows are excluded
+  // from the `outstanding-liabilities-pct-gsdp` CSV: silently merging the
+  // pre-2019 state with the post-2019 UT would obscure the constitutional
+  // reorganisation, and RE/BE rows are upstream projections not settled
+  // Accounts. Documented as caveats on the descriptor.
+  //
+  // Time encoding: the canonical `time` column is the fiscal-year-start year
+  // (integer) per datasets/data/_schema/columns.json. Legacy `"YYYY-04"`
+  // (April-anchored = FY start) maps to integer `YYYY`. Legacy `"YYYY-03"`
+  // (March-anchored = FY end) maps to integer `YYYY - 1`. The
+  // `outstanding-liabilities-pct-gsdp` series uses the March-anchored form
+  // and is rewound by one year; the other 5 are April-anchored and pass
+  // through verbatim.
+
+  {
+    kind: "single",
+    legacy_artifact_id: "fiscal/state_own_tax_revenue_inr_crore",
+    canonical_indicator_id: "own-tax-revenue-inr-crore",
+    csv_path: "data/datapoints/geo/own-tax-revenue-inr-crore.csv",
+    table_id: "fiscal.state_finances",
+    meta: {
+      id: "own-tax-revenue-inr-crore",
+      title: "Own tax revenue (state)",
+      description:
+        "Tax revenue raised by the State Government from sources within its constitutional jurisdiction (state GST share, state excise, stamp duties, motor vehicle tax, etc.). A direct measure of a state's revenue effort. Excludes the state's share of central taxes devolved by the Finance Commission.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "currency",
+      direction: "higher_is_better",
+      scale_hint: "linear",
+      unit: "INR (crore)",
+      short_unit: "INRcr",
+      icon: "landmark",
+      attribution_geography: "where_administered",
+      comparability: "comparable_with_normalisation",
+      implementing_authority: "state",
+      methodology_vintage:
+        "Rajya Sabha Session 260 Unstarred Question 1323, answered 1 August 2023.",
+      notes:
+        "Read alongside `share-central-taxes-inr-crore` (central tax devolution) and `grants-in-aid-inr-crore` (centre-to-state grants) to see the full revenue picture. Raw INR-crore values are not directly comparable across states of very different size; per-capita and %-of-GSDP normalisations are the next-cut readings.",
+    },
+    caveats: [
+      "Excludes the state's share of central taxes (Finance Commission devolution); add `central-tax-devolution-inr-crore` for total tax receipts.",
+      "Raw INR-crore is not directly comparable across states of very different size. Karnataka at INR 1.3 lakh-crore and Sikkim at INR 1,000 crore reflect tax bases proportional to GSDP, not policy difference.",
+      "Covers fiscal years 2016-17 to 2022-23 (the window the parliamentary question covered). Earlier and later years require separate sources (CAG, RBI State Finances).",
+    ],
+  },
+
+  {
+    kind: "single",
+    legacy_artifact_id: "fiscal/state_share_central_taxes_inr_crore",
+    canonical_indicator_id: "central-tax-devolution-inr-crore",
+    csv_path: "data/datapoints/geo/central-tax-devolution-inr-crore.csv",
+    table_id: "fiscal.state_finances",
+    meta: {
+      id: "central-tax-devolution-inr-crore",
+      title: "Central tax devolution (state share)",
+      description:
+        "Amount transferred to each state as its share in central taxes under the Finance Commission's award formula. Income tax, CGST, and Union excise are divided among states using a weighted formula (population, income gap, area, demographic performance, forest cover, tax effort).",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "currency",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "INR (crore)",
+      short_unit: "INRcr",
+      icon: "landmark",
+      attribution_geography: "where_administered",
+      comparability: "comparable_with_normalisation",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "Rajya Sabha Session 260 Unstarred Question 1323, answered 1 August 2023.",
+      notes:
+        "The formula is fixed for each Finance Commission cycle (5 years). Year-on-year changes within a cycle track central gross tax collections; cross-cycle jumps (14th FC -> 15th FC, FY 2020-21 onwards) reflect formula changes. Direction is `neutral`: a high devolution rewards lower per-capita income and weaker tax base; the citizen-readable measure of state fiscal effort is `own-tax-revenue-inr-crore`, not this column.",
+    },
+    caveats: [
+      "Devolution depends on national tax buoyancy, not state effort. A poor year for central GST collections shrinks every state's share proportionally.",
+      "15th Finance Commission (FY 2020-21 onwards) changed weights and introduced a separate 1% share for the J&K/Ladakh UTs that previously formed J&K state. Cross-cycle comparisons need a footnote.",
+      "Covers fiscal years 2016-17 to 2022-23.",
+    ],
+  },
+
+  {
+    kind: "single",
+    legacy_artifact_id: "fiscal/state_revenue_expenditure_inr_crore",
+    canonical_indicator_id: "revenue-expenditure-inr-crore",
+    csv_path: "data/datapoints/geo/revenue-expenditure-inr-crore.csv",
+    table_id: "fiscal.state_finances",
+    meta: {
+      id: "revenue-expenditure-inr-crore",
+      title: "Revenue expenditure (state)",
+      description:
+        "Total revenue-account expenditure by the State Government in the fiscal year: salaries, pensions, interest payments, subsidies, grants to local bodies, and operating costs of departments. Excludes capital expenditure (assets, infrastructure) which appears in the capital account.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "currency",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "INR (crore)",
+      short_unit: "INRcr",
+      icon: "landmark",
+      attribution_geography: "where_administered",
+      comparability: "comparable_with_normalisation",
+      implementing_authority: "state",
+      methodology_vintage:
+        "Rajya Sabha Session 260 Unstarred Question 1323, answered 1 August 2023.",
+      notes:
+        "Direction is `neutral`: spending more is not necessarily better (could be salary inflation) and spending less is not necessarily better (could be under-delivery on welfare). The honest reading is the composition (salary vs subsidy vs interest) and the revenue-deficit (revenue expenditure minus revenue receipts), both surfaced as separate indicators.",
+    },
+    caveats: [
+      "Excludes capital expenditure (infrastructure, land, buildings). A state with a large capex push will look like it spends less per-capita on the revenue account.",
+      "Interest payments and pensions are non-discretionary committed liabilities; the share of revenue expenditure that goes to these (vs developmental departments) is the citizen-meaningful split.",
+      "Covers fiscal years 2016-17 to 2022-23.",
+    ],
+  },
+
+  {
+    kind: "single",
+    legacy_artifact_id: "fiscal/state_grants_in_aid_inr_crore",
+    canonical_indicator_id: "grants-in-aid-inr-crore",
+    csv_path: "data/datapoints/geo/grants-in-aid-inr-crore.csv",
+    table_id: "fiscal.state_finances",
+    meta: {
+      id: "grants-in-aid-inr-crore",
+      title: "Grants-in-aid from the Centre (state)",
+      description:
+        "Total grants received by each state from the Central Government in the fiscal year: Finance Commission grants (revenue-deficit, local bodies, post-devolution), centrally-sponsored scheme transfers (PMAY, MGNREGA, PMGSY, etc.), and special-purpose grants. Distinct from central tax devolution (the formula-based share of taxes); grants are conditional or scheme-tied.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "currency",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "INR (crore)",
+      short_unit: "INRcr",
+      icon: "landmark",
+      attribution_geography: "where_administered",
+      comparability: "comparable_with_normalisation",
+      implementing_authority: "centre",
+      methodology_vintage:
+        "Rajya Sabha Session 260 Unstarred Question 1323, answered 1 August 2023.",
+      notes:
+        "Read alongside `central-tax-devolution-inr-crore` for the full picture of centre-to-state transfers. NEH (north-east + hill) special-category states draw a disproportionate share of grants; per-capita is the comparison frame.",
+    },
+    caveats: [
+      "Tied to centrally-sponsored schemes (CSS) in most cases - the state cannot redirect the funds. A high grant figure can mean the state is implementing many CSS, not that it is fiscally healthy.",
+      "Finance-Commission revenue-deficit grants taper across the FC cycle; expect step-downs at FC boundaries (FY 2015-16 / FY 2020-21).",
+      "Covers fiscal years 2016-17 to 2022-23.",
+    ],
+  },
+
+  {
+    kind: "single",
+    legacy_artifact_id: "fiscal/outstanding_debt_pct_gsdp",
+    canonical_indicator_id: "outstanding-liabilities-pct-gsdp",
+    csv_path: "data/datapoints/geo/outstanding-liabilities-pct-gsdp.csv",
+    table_id: "fiscal.state_finances",
+    meta: {
+      id: "outstanding-liabilities-pct-gsdp",
+      title: "Outstanding liabilities (% of GSDP)",
+      description:
+        "Total outstanding state government debt as a share of Gross State Domestic Product, end-of-FY. Includes internal debt (market borrowings, NSSF, special securities), loans from the Centre, and provident-fund liabilities. The single most-watched indicator of state fiscal sustainability.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "share",
+      direction: "lower_is_better",
+      scale_hint: "linear",
+      unit: "%",
+      short_unit: "%",
+      icon: "trending-down",
+      attribution_geography: "where_administered",
+      comparability: "comparable_across_states_and_time",
+      implementing_authority: "state",
+      methodology_vintage:
+        "RBI State Finances: A Study of Budgets, 2022-23 edition, Appendix Table 20 (Outstanding Liabilities of State Governments as Percentage of GSDP).",
+      notes:
+        "FRBM target: under 20% for the Centre, under 25% (most states) to 35% (special-category states) per state-FRBM acts. The 14th Finance Commission tightened the discipline; FY 2020-21 COVID stimulus expanded debt across the board with an explicit relaxation. NEH special-category states (Mizoram, Arunachal Pradesh, Manipur, Nagaland) routinely exceed 50% because GSDP base is small.",
+    },
+    caveats: [
+      "Accounts-only canonical series. The legacy shard's 2024-25 RE (Revised Estimate) and 2025-26 BE (Budget Estimate) rows are EXCLUDED from this CSV because they are upstream projections, not settled. Add them back in a later release once Accounts land.",
+      "J&K state-era values (2007-08 to 2018-19, ECI code S09) are EXCLUDED. The constitutional reorganisation in August 2019 split J&K into two UTs (J&K-UT and Ladakh); the canonical `jammu-and-kashmir` slug represents the post-2019 UT only. Silently merging the two would obscure the reorganisation.",
+      "GSDP denominator is published with a 2-year lag (FY 2024-25 debt uses provisional FY 2022-23 GSDP); year-on-year movements can be denominator-driven, not numerator-driven.",
+      "FRBM targets vary by state-tier; do not compare against a single threshold across NEH special-category and general-category states.",
+    ],
+  },
+
+  {
+    kind: "single",
+    legacy_artifact_id: "fiscal/state_pension_expenditure_inr_crore",
+    canonical_indicator_id: "pension-expenditure-inr-crore",
+    csv_path: "data/datapoints/geo/pension-expenditure-inr-crore.csv",
+    table_id: "fiscal.state_finances",
+    meta: {
+      id: "pension-expenditure-inr-crore",
+      title: "Pension expenditure (state revenue account)",
+      description:
+        "State government pension liabilities paid in the fiscal year: old-pension-scheme (OPS) payments to pre-2004 recruits, family pensions, and commuted-pension settlements. The single largest fixed liability for most states. Read alongside salary expenditure to see the committed-spending squeeze.",
+      entity_kind: "state",
+      time_grain: "fiscal_year",
+      value_kind: "currency",
+      direction: "neutral",
+      scale_hint: "linear",
+      unit: "INR (crore)",
+      short_unit: "INRcr",
+      icon: "landmark",
+      attribution_geography: "where_administered",
+      comparability: "comparable_with_normalisation",
+      implementing_authority: "state",
+      methodology_vintage:
+        "RBI Handbook of Statistics on Indian States, 2024-25 edition, Table 171 (State-wise Pension).",
+      notes:
+        "Pre-2004 recruits remain on OPS (defined-benefit, employer-funded); post-2004 NPS (defined-contribution) shifts the liability off the state budget but accrues a separate matching-contribution flow. Several states (Rajasthan, Chhattisgarh, Punjab, Himachal, Jharkhand) have legislated NPS-to-OPS reversal post-2022; the lagged actuarial impact will appear over the next two decades, not in this column today.",
+    },
+    caveats: [
+      "OPS-to-NPS-to-OPS-reversal: the FY24 number does not yet show the actuarial liability the post-2022 reversal states have committed to. The fiscal squeeze will materialise over 2030-2050 as the post-2004 cohort retires.",
+      "Includes commuted-pension settlements which are lumpy; a single-year spike often reflects a wave of retirements, not a permanent step-up.",
+      "Does not include central employees stationed in the state (Railways, paramilitary, central PSUs); those liabilities sit on the Union account.",
+      "Covers fiscal years 2004-05 to 2024-25.",
+    ],
+  },
 ];
 
 const BY_LEGACY_ID = new Map(

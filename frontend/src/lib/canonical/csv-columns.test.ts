@@ -12,6 +12,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   __resetForTests,
   buildColumnsClause,
+  candidateFileClassKeys,
   csvColumnsClause,
   csvColumnsSpec,
   fileClassForCsvPath,
@@ -47,6 +48,15 @@ const FIXTURE: CsvColumnsContract = {
         { name: "votes", dtype: "integer", nullable: false },
         { name: "vote_share_pct", dtype: "number", nullable: true, derived: true },
         { name: "is_incumbent", dtype: "boolean", nullable: true },
+      ],
+    },
+    "datasets/data/datapoints/geo/*.csv": {
+      notes: "fixture - per-indicator long-format CSV (filename-glob file class)",
+      columns: [
+        { name: "entity_id", dtype: "string", nullable: false, pk: true },
+        { name: "time", dtype: "integer", nullable: false, pk: true },
+        { name: "value", dtype: "number", nullable: true },
+        { name: "source_id", dtype: "string", nullable: false },
       ],
     },
   },
@@ -100,6 +110,54 @@ describe("fileClassForCsvPath", () => {
     expect(fileClassForCsvPath("datasets/data/entities/electoral.csv")).toBe(
       "datasets/data/entities/electoral.csv",
     );
+  });
+});
+
+describe("candidateFileClassKeys (W1 2026-06-08 filename-glob fix)", () => {
+  it("emits [exact] for a path that exactly matches a non-glob file_class", () => {
+    expect(
+      candidateFileClassKeys("datasets/data/entities/electoral.csv"),
+    ).toEqual([
+      "datasets/data/entities/electoral.csv",
+      "datasets/data/entities/*.csv",
+    ]);
+  });
+
+  it("emits [partition-glob, filename-glob] for a per-indicator datapoints CSV", () => {
+    // The fileClassForCsvPath collapse is a no-op (no `=` segments);
+    // the filename-glob fallback `<dirname>/*.csv` is what unblocks the
+    // datapoints/geo/*.csv file_class lookup. Pre-2026-06-08 this lookup
+    // returned only the exact path and silently 404'd into "no file_class
+    // match" for every per-indicator canonical CSV in the energy +
+    // livestock allowlist + the new W1 cohort.
+    expect(
+      candidateFileClassKeys(
+        "datasets/data/datapoints/geo/own-tax-revenue-inr-crore.csv",
+      ),
+    ).toEqual([
+      "datasets/data/datapoints/geo/own-tax-revenue-inr-crore.csv",
+      "datasets/data/datapoints/geo/*.csv",
+    ]);
+  });
+
+  it("emits [partition-glob, filename-glob] for an electoral per-state candidacies CSV", () => {
+    // Partition collapse runs first; filename-glob fallback is preserved.
+    expect(
+      candidateFileClassKeys(
+        "datasets/elections/assembly/state=tamil-nadu/election=2021/candidacies.csv",
+      ),
+    ).toEqual([
+      "datasets/elections/assembly/state=*/election=*/candidacies.csv",
+      "datasets/elections/assembly/state=*/election=*/*.csv",
+    ]);
+  });
+
+  it("skips the filename-glob fallback when the path has no extension", () => {
+    // Defensive: a bare path with no `.<ext>` should not emit a spurious
+    // duplicate candidate. The single partition-collapsed result is enough.
+    expect(candidateFileClassKeys("datasets/data/no-ext-file")).toEqual([
+      "datasets/data/no-ext-file",
+    ]);
   });
 });
 
@@ -185,6 +243,22 @@ describe("csvColumnsClause", () => {
     expect(clause).toContain("'entity_id': 'VARCHAR'");
     expect(clause).toContain("'eci_no': 'BIGINT'");
     expect(clause).toContain("'reservation': 'VARCHAR'");
+  });
+
+  it("falls back to the filename-glob file_class for per-indicator CSVs (W1 2026-06-08)", async () => {
+    // The W1 RBI State Finances cohort + the energy / livestock cohorts
+    // all key per-indicator CSV file_classes by filename wildcard
+    // (`datasets/data/datapoints/geo/*.csv`). Before the candidate-key
+    // fallback landed, this lookup threw "no file_class match" because
+    // `fileClassForCsvPath` only collapses `=*` segments, leaving the
+    // concrete filename untouched. Pin the fix.
+    mockColumnsJson(FIXTURE);
+    const clause = await csvColumnsClause(
+      "datasets/data/datapoints/geo/own-tax-revenue-inr-crore.csv",
+    );
+    expect(clause).toBe(
+      "columns={'entity_id': 'VARCHAR', 'time': 'BIGINT', 'value': 'DOUBLE', 'source_id': 'VARCHAR'}",
+    );
   });
 
   it("throws when the file_class is absent from the contract", async () => {
