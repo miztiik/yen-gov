@@ -174,9 +174,9 @@ def observations_from_constituency(
 
     # Field-size + collapsed-tail rollups (Phase 1.6 — Q5 resolution).
     # The canonical store previously dropped the others bucket the parser
-    # already computes (constituencywise.py / statistical_report_detailed.py),
-    # so the frontend "Top 5 candidates" heading was silent about whether 6
-    # or 60 candidates contested. Emit:
+    # already computes (statistical_report_detailed.py), so the frontend
+    # "Top 5 candidates" heading was silent about whether 6 or 60
+    # candidates contested. Emit:
     #   - ac-candidates-total: full field size including the collapsed tail.
     #   - ac-others-votes / ac-others-pct: only when there IS a tail.
     others_count = result.others.candidate_count if result.others else 0

@@ -169,7 +169,7 @@ Plus **extend** existing topics: `economy` gets the 4 RBI-spliced state NSDP / p
 | `fiscal/net_transfers_from_centre` | FY24..FY26 | Backfill FY08..FY23 from older RBI State Finances editions (per-edition pin already exists in `rbi_xlsx/urls.py`). |
 | Per-state constituency lists | 26 of 36 covered | Missing UTs / smaller states. Bootstrap from ECI statistical reports for any state with a past election in the inventory. |
 | Per-state district lists | 6 of 36 hand-authored | Pending the LGD pipeline (see §6). |
-| Election results | 17 states/UTs covered | Pre-2016 history is not ingested. The `eci` adapter already supports it; just needs `processing.json` event ids added. |
+| Election results | 17 states/UTs covered | Pre-2016 history is not ingested. The TCPD + ECI Section 10 adapters already support it; backfill is operator-driven via `python -m yen_gov ingest-ls-ge-tcpd` (historical LS years) and `python -m yen_gov eci-statreport-emit-local <xlsx>` (per-AC assembly slices). |
 
 ### 5c. Conscious skips (`status: skipped` in the registry)
 
@@ -192,9 +192,12 @@ Plus **extend** existing topics: `economy` gets the 4 RBI-spliced state NSDP / p
 | Regenerate the auto election-coverage report ([data-inventory.md](data-inventory.md)) | `python -m yen_gov coverage` |
 | Run the full backend test suite | `cd backend && pytest -q` (the two LGD tests above will fail until that pipeline lands; `--deselect` if needed) |
 | Run the frontend contract tests (every dataset) | `cd frontend && npm test -- src/contracts/datasets-conform.test.ts` (9,312 tests) |
-| Ingest a new ECI election | Add the event id to `config/processing.json`, then `python -m yen_gov pipeline run --event <EventSlug>` |
-| Refresh ICED state series | Re-run the ICED adapter; payload is fetched live and decrypted in-process |
-| Refresh CEA installed capacity | Operator: `Invoke-WebRequest` on the next monthly XLSX into `.runtime/raw/cea/`, then run the CEA adapter |
+| Ingest a new assembly-election panel (frozen CSV) | `python -m yen_gov ingest-eci-ae-panel --input <csv> --state <S##> [--delim-id 3 --delim-id 4]` |
+| Ingest the 2024 Lok Sabha result | `python -m yen_gov ingest-eci-ls --input <Report-33.csv> --crosswalk <Report-34.csv>` |
+| Ingest one historical Lok Sabha year (TCPD panel) | `python -m yen_gov ingest-ls-ge-tcpd --input All_States_GE.csv --year 2019` |
+| Ingest a hand-downloaded Section 10 XLSX (2016-2023 AE backfill) | `python -m yen_gov eci-statreport-emit-local <xlsx>` |
+| Refill the canonical election-results table from a per-AC JSON corpus | `python -m yen_gov canonical-backfill-eci [--event <id>] [--state <S##>] [--corpus-root <dir>]` |
+| Regenerate hand-authored taxonomy CSV bundles | `python -m yen_gov emit-taxonomy` |
 
 ## 8. See also
 

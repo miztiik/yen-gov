@@ -1,14 +1,15 @@
 """Cross-page composers that bridge sources/ outputs into schema-bound models.
 
-The constituencywise mapper (`sources.eci.constituencywise.to_constituency_result`)
-accepts an optional `party_lookup: dict[full_name, (short, eci_code)]` to fill
-`party_short` and `party_eci_code` from full party names. The lookup is built
-from a `PartywiseSnapshot` (which carries all three of full / short / code).
+The Section 10 XLSX mapper (`sources.eci.statistical_report_detailed.to_constituency_results`)
+accepts an optional `party_eci_codes: dict[short, eci_code]` to backfill numeric
+ECI party codes onto Section 10 rows (which only carry short codes). The lookup
+is built via `eci_code_by_short_from_partywise` from a `PartywiseSnapshot`
+(which carries full / short / numeric ECI code triples).
 
 Keeping this in `pipeline/` rather than `sources/eci/` enforces the single-
 responsibility split documented in docs/architecture/backend/sources-eci.md: the partywise parser knows
-nothing about the constituencywise mapper, and vice versa. The composer is
-the thread.
+nothing about the Section 10 mapper, and vice versa. The composer is the
+thread.
 """
 
 from __future__ import annotations

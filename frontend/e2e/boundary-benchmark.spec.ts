@@ -29,7 +29,7 @@
 // throttle hangs ~indefinitely on Windows, so we use ONE context. "Cold"
 // simulates fresh-arrival by clearing cookies + storage + caches before
 // each navigation; "warm" reuses everything. The trade-off is recorded in
-// notes/2026-05-31-topojson-baseline-bench.md "Methodology" section.
+// docs/architecture/data/topojson-benchmark.md "Methodology" section.
 
 import { test, expect, type CDPSession, type Page } from "@playwright/test";
 import { appendFileSync, mkdirSync, writeFileSync } from "node:fs";
