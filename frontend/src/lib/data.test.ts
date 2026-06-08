@@ -83,11 +83,11 @@ describe("fetchResultSummary — moved to view-model loader", () => {
 });
 
 describe("fetchConstituencies / fetchDistricts", () => {
-  it("uses the per-state reference path for constituencies", async () => {
+  it("uses the per-state boundaries-SoT path for constituencies", async () => {
     fetchSpy.mockResolvedValueOnce(jsonResponse({}));
     await fetchConstituencies("S22");
     expect(fetchSpy).toHaveBeenCalledWith(
-      `${BASE}/reference/in/states/S22/constituencies.json`,
+      `${BASE}/data/entities/boundaries_sot/S22/constituencies.json`,
     );
   });
 

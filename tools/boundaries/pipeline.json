@@ -154,7 +154,7 @@
       "license_url": "https://github.com/HindustanTimesLabs/shapefiles/blob/master/LICENSE",
       "ac_no_property": "AC_NO",
       "name_property": "AC_NAME",
-      "delimitation_warning": "datameet/shapefile sources for Assam may not match the post-2008 delimitation used by ECI for AcGenMay2026. Verify AC_NO 1..126 against datasets/reference/in/states/S03/constituencies.json before publishing.",
+      "delimitation_warning": "datameet/shapefile sources for Assam may not match the post-2008 delimitation used by ECI for AcGenMay2026. Verify AC_NO 1..126 against datasets/data/entities/boundaries_sot/S03/constituencies.json before publishing.",
       "tippecanoe": {
         "minzoom": 4,
         "maxzoom": 10,
@@ -250,14 +250,14 @@
         ],
         "ac_no_rewrite": {
           "method": "by_name_to_sot_eci_no",
-          "sot_ref": "datasets/reference/in/states/S01/constituencies.json"
+          "sot_ref": "datasets/data/entities/boundaries_sot/S01/constituencies.json"
         }
       },
       "license": "Unlicense",
       "license_url": "https://github.com/ramSeraph/indian_admin_boundaries/blob/main/LICENSE",
       "ac_no_property": "ac_no",
       "name_property": "ac_name",
-      "delimitation_warning": "ramSeraph LGD release carries pre-2014 unified AP+TG numbering (legacy 1-294); snapshot projects to post-2014 AP-only 1-175 via name-based ac_no rewrite against the ECI 2024 AE SoT (datasets/reference/in/states/S01/constituencies.json). Each feature preserves lgd_legacy_ac_no + lgd_ac_id + lgd_st_name for LGD-golden provenance (docs/archive/plans/20260529-boundary-rip-and-replace-plan.md). 2 features drop in rewrite: ac_no=0 empty placeholder + 'Bhadrachalam (ST)' ac_no=119 (post-2014 in Telangana, not in S01 SoT).",
+      "delimitation_warning": "ramSeraph LGD release carries pre-2014 unified AP+TG numbering (legacy 1-294); snapshot projects to post-2014 AP-only 1-175 via name-based ac_no rewrite against the ECI 2024 AE SoT (datasets/data/entities/boundaries_sot/S01/constituencies.json). Each feature preserves lgd_legacy_ac_no + lgd_ac_id + lgd_st_name for LGD-golden provenance (docs/archive/plans/20260529-boundary-rip-and-replace-plan.md). 2 features drop in rewrite: ac_no=0 empty placeholder + 'Bhadrachalam (ST)' ac_no=119 (post-2014 in Telangana, not in S01 SoT).",
       "tippecanoe": {
         "minzoom": 4,
         "maxzoom": 10,
@@ -1137,7 +1137,7 @@
   ],
   "staged_inputs": [
     {
-      "$comment": "TIEBREAKER (Assam): post-2023-delim AC layer from BharatMaps/LGD. Use ONLY when promoting to replace ac/S03-ac.* if the HTL S03 file fails the cross-check against datasets/reference/in/states/S03/constituencies.json (see Assam delimitation note in docs/reference/boundary-data-sources.md). Same format-handler dependency as the districts entry above.",
+      "$comment": "TIEBREAKER (Assam): post-2023-delim AC layer from BharatMaps/LGD. Use ONLY when promoting to replace ac/S03-ac.* if the HTL S03 file fails the cross-check against datasets/data/entities/boundaries_sot/S03/constituencies.json (see Assam delimitation note in docs/reference/boundary-data-sources.md). Same format-handler dependency as the districts entry above.",
       "kind": "ac",
       "country": "IN",
       "state": "S03",

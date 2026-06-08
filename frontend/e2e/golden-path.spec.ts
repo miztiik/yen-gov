@@ -150,7 +150,7 @@ test.describe("golden path", () => {
     // This test throttles the JSON fetch to a 1.5s delay so the race window
     // is wide and deterministic; the bootstrap copy must NOT appear at any
     // point during that window, and the AC list must still arrive.
-    await page.route("**/data/reference/in/states/S22/constituencies.json", async (route) => {
+    await page.route("**/data/data/entities/boundaries_sot/S22/constituencies.json", async (route) => {
       await new Promise((r) => setTimeout(r, 1500));
       await route.continue();
     });

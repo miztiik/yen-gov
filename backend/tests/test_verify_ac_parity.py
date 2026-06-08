@@ -20,7 +20,7 @@ import verify_ac_parity as vap  # noqa: E402  (after sys.path manipulation)
 
 
 def _write_sot(root: Path, eci: str, names: dict[int, str]) -> None:
-    path = root / "datasets" / "reference" / "in" / "states" / eci / "constituencies.json"
+    path = root / "datasets" / "data" / "entities" / "boundaries_sot" / eci / "constituencies.json"
     path.parent.mkdir(parents=True, exist_ok=True)
     doc = {
         "body": "AC",

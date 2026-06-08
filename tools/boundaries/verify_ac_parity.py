@@ -7,7 +7,7 @@ that D.1 recon (`tools/boundaries/recon_d1_ac.py`, PR #270) measured on the
 unfiltered upstream:
 
     1. **Count match** — the snapshot geojson has exactly as many features as
-       the SoT `datasets/reference/in/states/<eci>/constituencies.json` lists.
+       the SoT `datasets/data/entities/boundaries_sot/<eci>/constituencies.json` lists.
     2. **`ac_no` coverage** — every `eci_no` in SoT appears as an `ac_no` in
        the geojson exactly once; no extras.
     3. **Name parity >= 95%** — normalised (NFKD + reservation-suffix strip +
@@ -81,7 +81,15 @@ def normalize_name(name: str | None) -> str:
 
 def load_sot(repo_root: Path, eci: str) -> dict[int, str]:
     """Return ``{eci_no: name}`` from the state's SoT constituencies.json."""
-    path = repo_root / "datasets" / "reference" / "in" / "states" / eci / "constituencies.json"
+    path = (
+        repo_root
+        / "datasets"
+        / "data"
+        / "entities"
+        / "boundaries_sot"
+        / eci
+        / "constituencies.json"
+    )
     if not path.is_file():
         msg = f"SoT not found for {eci}: {path}"
         raise FileNotFoundError(msg)

@@ -720,7 +720,7 @@ def apply_ac_no_rewrite_by_name(
 
     `rewrite_spec` shape:
         {"method": "by_name_to_sot_eci_no",
-         "sot_ref": "datasets/reference/in/states/<eci>/constituencies.json",
+         "sot_ref": "datasets/data/entities/boundaries_sot/<eci>/constituencies.json",
          "name_property": "ac_name"}  # optional, default "ac_name"
 
     Returns `(kept, dropped)`. Empty `kept` raises (the SoT MUST find
