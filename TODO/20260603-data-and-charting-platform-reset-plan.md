@@ -207,7 +207,7 @@ Git is the backup. No migrate-then-bypass; delete the legacy path and re-ingest 
 
 | Row | Delete | Note |
 | --- | --- | --- |
-| D1 | `datasets/indicators/in/**` JSON write path + `core.io.write_artifact` + all `sources/iced_*` legacy adapters | re-ingest energy etc. onto the long-format CSV spine if/when wanted (energy is low-priority per Max) |
+| D1 | `datasets/indicators/in/**` JSON write path + `core.io.write_artifact` + all `sources/iced_*` legacy adapters | re-ingest energy etc. onto the long-format CSV spine if/when wanted (energy is low-priority per Max). PARTIAL 2026-06-08 (feat/g5a-rip-orphan-indicator-jsons): 11 silent-orphan JSONs deleted (8 fiscal + 3 economy; allowlist-only, never wired). Bulk rip of the 31 topics.json-wired indicators BLOCKED on user signoff per G5 audit (would blackout fiscal/economy/environment/demography/prices citizen surface). See G5 audit handover for re-issue gates. |
 | D2 | `tools/` one-shot scripts: fold the genuinely-reusable ones into `backend/yen_gov/utils/` (O-refinement: "folded into backend utils where necessary"); delete the rest (`*_recon`, `*_probe`, `*_inspect`, executed `migrate_*`/`bump_*`) | ~50 files; net keep a handful as utils |
 | D3 | `composers/` empty dead package; repo-root `_probe_ac*.py`, `_probe_jk.py`; `datasets/ephemeral/pre-regen-parquet-snapshot/` (14MB) | confirm zero refs first |
 | D4 | Frontend: **keep the V2 chart variety** (O2). Delete only true byte-duplicates after picking the live one; consolidate all chart types into ONE reusable, default-built chart library (`frontend/src/lib/charts/`) that pages compose, not per-indicator bespoke. | this is consolidation, not deletion of the V2 work |
@@ -273,7 +273,7 @@ The parity oracle (`test_canonical_parity_oracle.py`) and the geo/delimitation c
 | Direction | A ratified + 10 overrides | DONE (this doc) |
 | F1-F9 | Doctrine freezes | NOT STARTED |
 | section 3 | long-format CSV storage model + columns | **FINALIZED 2026-06-03 (Max+Hans)**; Gregor ratifies read-path only. **Naming envelope renamed 2026-06-04 (Gregor): envelope `datasets/data/`, drop the old `--by--time` grammar, OWID-grapher names; columns unchanged (section 20.1)**. **Round 7 2026-06-05 (user-ratified): electoral model - LGD-native PK, `eci_no` folded, `aliases` added, `ac_crosswalk` deleted, `electoral_lgd_xwalk` -> `electoral_district_membership` (`is_primary`), `state_codes.csv` added, `parties.csv`, clean-start; resolution in B2b.5 sub-plan section 0b** |
-| D1-D6 | Demolition (no strangler) | NOT STARTED |
+| D1-D6 | Demolition (no strangler) | D1 PARTIAL 2026-06-08 (G5-PR-A: 11 silent-orphan shards ripped); D1 bulk + D2-D6 NOT STARTED |
 | section 9 | Repo hygiene (ADR retire-keep-receipts, datasets/schemas/config/notes) | **ADR rule FINALIZED 2026-06-03 (Hans)**; rest NOT STARTED |
 | section 7 | Provenance 4-field | NOT STARTED |
 | EL1-EL6 | Elections path | NOT STARTED |

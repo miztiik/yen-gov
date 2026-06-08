@@ -56,9 +56,6 @@ datasets/indicators/in/economy/gdp_inr_crore.json
 datasets/indicators/in/economy/gva_by_industry_constant_inr_crore.json
 datasets/indicators/in/economy/iip_index.json
 datasets/indicators/in/economy/india_external_balance_inr_crore.json
-datasets/indicators/in/economy/national_gva_by_industry_constant_2011_12_inr_crore.json
-datasets/indicators/in/economy/national_gva_by_industry_quarterly_constant_2011_12_inr_crore.json
-datasets/indicators/in/economy/national_macro_aggregates_constant_2011_12_inr_crore.json
 datasets/indicators/in/economy/nsdp_inr_crore.json
 datasets/indicators/in/economy/per_capita_nsdp_constant_inr.json
 datasets/indicators/in/economy/per_capita_nsdp_current_inr.json
@@ -73,8 +70,6 @@ datasets/indicators/in/environment/state_pm25_annual_mean_ug_m3.json
 datasets/indicators/in/environment/state_power_sector_co2_emissions_mtco2.json
 datasets/indicators/in/environment/state_so2_annual_mean_ug_m3.json
 datasets/indicators/in/environment/state_thermal_fgd_installed_share_pct.json
-datasets/indicators/in/fiscal/centre_transfers_gross.json
-datasets/indicators/in/fiscal/centre_transfers_inr_crore.json
 datasets/indicators/in/fiscal/net_transfers_from_centre.json
 datasets/indicators/in/fiscal/outstanding_debt_pct_gsdp.json
 datasets/indicators/in/fiscal/state_external_debt_inr_crore.json
@@ -85,11 +80,5 @@ datasets/indicators/in/fiscal/state_pension_expenditure_inr_crore.json
 datasets/indicators/in/fiscal/state_revenue_expenditure_inr_crore.json
 datasets/indicators/in/fiscal/state_share_central_taxes_inr_crore.json
 datasets/indicators/in/fiscal/states_combined_gross_fiscal_deficit.json
-datasets/indicators/in/fiscal/states_combined_primary_deficit.json
-datasets/indicators/in/fiscal/states_combined_primary_revenue_deficit.json
-datasets/indicators/in/fiscal/states_combined_revenue_deficit.json
 datasets/indicators/in/fiscal/union_gross_fiscal_deficit.json
-datasets/indicators/in/fiscal/union_primary_deficit.json
-datasets/indicators/in/fiscal/union_primary_revenue_deficit.json
-datasets/indicators/in/fiscal/union_revenue_deficit.json
 datasets/indicators/in/prices/cpi_inflation_pct.json
