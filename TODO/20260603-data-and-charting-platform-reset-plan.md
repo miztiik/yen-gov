@@ -245,6 +245,25 @@ All RBI-actuals (F1), one-concept-per-indicator (F6), state+district (F4), long-
 
 W1 = re-ingest clean (not migrate); W2/W3 = net-new adapters; do not bundle.
 
+**W1 PARTIAL 2026-06-08 (`feat/w1-canonical-first-rbi-state-finances`):** 6 fiscal indicators migrated from legacy `datasets/indicators/in/fiscal/<id>.json` JSON shards onto the canonical long-format CSV + indicator-allowlist seam (canonical-backed count: 0/42 -> 6/42; unblocks G5-PR-B once W2 + W3 cross the 22/42 threshold). Substitution: `net_transfers_from_centre` was replaced with `state_pension_expenditure_inr_crore` (the former's legacy shard carries 3 years / 1 Accounts year x 31 entities, too thin for citizen-grade time series; pension is RBI Handbook Table 171, 21 years x 30 entities = 619 Accounts rows). Mapping:
+
+| legacy id | canonical id | rows |
+| --- | --- | --- |
+| `fiscal/state_own_tax_revenue_inr_crore` | `own-tax-revenue-inr-crore` | 196 |
+| `fiscal/state_share_central_taxes_inr_crore` | `central-tax-devolution-inr-crore` | 196 |
+| `fiscal/state_revenue_expenditure_inr_crore` | `revenue-expenditure-inr-crore` | 196 |
+| `fiscal/state_grants_in_aid_inr_crore` | `grants-in-aid-inr-crore` | 196 |
+| `fiscal/outstanding_debt_pct_gsdp` | `outstanding-liabilities-pct-gsdp` | 510 |
+| `fiscal/state_pension_expenditure_inr_crore` | `pension-expenditure-inr-crore` | 619 |
+
+W1 PR side-effect (in-scope fix): the pre-existing `frontend/src/lib/canonical/csv-columns.ts::fileClassForCsvPath` helper only handled `=*` partition wildcards, not filename wildcards (`*.csv`). Every canonical descriptor with `csv_path: data/datapoints/geo/<id>.csv` (14 existing energy + 6 new W1) failed at runtime with `Error: csv-columns: no file_class match`. Fixed in same commit via new `candidateFileClassKeys()` helper that yields `[partition-glob, filename-glob]` candidates; both `csvColumnsClause` + `csvColumnsSpec` walk the list. 14 existing energy descriptors now also work as a free side-effect. §13 verified PASS on `/t/fiscal` + `/s/tamil-nadu` (zero 404 for the 6 deleted JSON shards; ALL 6 W1 CSVs served 200; zero new console errors).
+
+W1 still-open follow-ons (NOT in this PR; future W2/W3 sub-PRs):
+- `net_transfers_from_centre` migration deferred (needs separate strategy for `BE`/`RE`/Accounts facet column the canonical schema doesn't yet model)
+- W2 GST + W3 MGNREGA + W3 PM-KISAN ingests
+- bulk G5-PR-B rip of the remaining ~25 wired-but-not-canonical legacy JSON shards once the 22/42 threshold is met
+- `outstanding-liabilities-pct-gsdp.csv` drops 19 J&K state-era (S09) rows + 62 RE/BE projection rows from the legacy shard's 589 rows -> 510 Accounts rows; J&K state-era data is recoverable in a later PR once the entity-bifurcation doctrine for U08 (UT) vs S09 (pre-2019 state) lands
+
 ---
 
 ## 11. Biggest risk
@@ -273,12 +292,12 @@ The parity oracle (`test_canonical_parity_oracle.py`) and the geo/delimitation c
 | Direction | A ratified + 10 overrides | DONE (this doc) |
 | F1-F9 | Doctrine freezes | NOT STARTED |
 | section 3 | long-format CSV storage model + columns | **FINALIZED 2026-06-03 (Max+Hans)**; Gregor ratifies read-path only. **Naming envelope renamed 2026-06-04 (Gregor): envelope `datasets/data/`, drop the old `--by--time` grammar, OWID-grapher names; columns unchanged (section 20.1)**. **Round 7 2026-06-05 (user-ratified): electoral model - LGD-native PK, `eci_no` folded, `aliases` added, `ac_crosswalk` deleted, `electoral_lgd_xwalk` -> `electoral_district_membership` (`is_primary`), `state_codes.csv` added, `parties.csv`, clean-start; resolution in B2b.5 sub-plan section 0b** |
-| D1-D6 | Demolition (no strangler) | D1 PARTIAL 2026-06-08 (G5-PR-A `feat/g5a-rip-orphan-indicator-jsons`: 11 silent-orphan shards ripped; bulk D1 rip of the 31 topics.json-wired indicators BLOCKED on user signoff per G5 audit). D2 DONE 2026-06-08 (`feat/g6-tools-audit-and-prune`): tools/ pruned 87 top-level + 7 subdirs -> 7 top-level (5 KEEP + 2 .gitignored scratchpads) + 5 KEEP subdirs (boundaries/, iced_parity/, lgd/, migrate/, topojson/); KEPT=5+5, DELETED=94, FOLDED=0; backend pytest delta net-zero vs origin/main baseline. D3 partial (G7 pre-regen-parquet-snapshot deleted). D4/D5/D6 NOT STARTED. |
+| D1-D6 | Demolition (no strangler) | D1 PARTIAL 2026-06-08 (G5-PR-A `feat/g5a-rip-orphan-indicator-jsons`: 11 silent-orphan shards ripped; W1 follow-up `feat/w1-canonical-first-rbi-state-finances` ripped 6 more after migrating them to canonical CSV + indicator-allowlist seam; bulk D1 rip of the remaining ~25 wired-but-not-canonical indicators BLOCKED on the 22/42 canonical-backed threshold). D2 DONE 2026-06-08 (`feat/g6-tools-audit-and-prune`): tools/ pruned 87 top-level + 7 subdirs -> 7 top-level (5 KEEP + 2 .gitignored scratchpads) + 5 KEEP subdirs (boundaries/, iced_parity/, lgd/, migrate/, topojson/); KEPT=5+5, DELETED=94, FOLDED=0; backend pytest delta net-zero vs origin/main baseline. D3 partial (G7 pre-regen-parquet-snapshot deleted). D4/D5/D6 NOT STARTED. |
 | section 9 | Repo hygiene (ADR retire-keep-receipts, datasets/schemas/config/notes) | **ADR rule FINALIZED 2026-06-03 (Hans)**; ADR tier RETIRED 2026-06-05 (D-DOC3); `config/` row DONE 2026-06-08 (feat/g9-config-audit-and-prune): KEPT topojson + topojson-config schema, DELETED eci-pins + elections + processing + their 3 schemas + categories.py orphan reader + 3 ProcessingConfig pydantic classes, FOLDED-INLINE processing.results.* into cli.py constants; net = 1 file in `config/`; `datasets/reference/` PARTIAL 2026-06-08 (feat/g8-reshape-pincode-and-reference-mechanical: 5 files moved + pincode parquet->CSV per section 21.2, 165627 rows preserved; deprecation row in manifest; 32 constituencies.json + 6 lgd/*.csv DEFERRED). `notes/` row DONE 2026-06-08 (feat/g4-retire-notes-into-docs-and-todo: 17 notes dispositioned, dir removed). Rest (schemas hygiene) NOT STARTED. |
 | section 7 | Provenance 4-field | NOT STARTED |
 | EL1-EL6 | Elections path | NOT STARTED |
 | PL1-PL3 | Psephlab repair | NOT STARTED |
-| W1-W3 | Refill | NOT STARTED |
+| W1-W3 | Refill | W1 PARTIAL 2026-06-08 (`feat/w1-canonical-first-rbi-state-finances`): 6 RBI State Finances indicators migrated to canonical CSV + indicator-allowlist descriptors per §10 (canonical-backed count 0/42 -> 6/42). Substitution: `net_transfers_from_centre` -> `state_pension_expenditure_inr_crore` (former too thin; only 1 Accounts year). Side-effect: csv-columns filename-glob fix unblocks the 14 existing energy descriptors that were silently failing on `main`. §13 PASS on `/t/fiscal` + `/s/tamil-nadu` (zero 404 for deleted shards; 6 W1 CSVs served 200; zero new console errors). W2 + W3 NOT STARTED. |
 | FE | Frontend re-arch + reusable charts | NOT STARTED |
 | YA1-YA3 | yen-ask re-point | MERGED #813 (semantic-catalogue startup queries flipped to CSV + `fetchElectionEvents()` per Andre deviation; sentinel coercer for X1a-NULL'd source fields; YA2 model-runtime blockers parked as a separate post-foundation track) |
 | section 14 | Chart system (choropleth + legend + grain + search) | **ANALYSED 2026-06-03 (browser teardown)**; geo source = own district topojson; district coverage 771/784 (98.3%) verified; build deferred to FE row |
