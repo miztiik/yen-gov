@@ -28,15 +28,12 @@ from yen_gov.core.models import (
     ConstituencyEntry,
     ConstituencyResult,
     Election,
-    FetchKnobs,
     NotaResult,
     OthersBucket,
     PartiesSnapshot,
     PartyEntry,
     PartyTotals,
-    ProcessingConfig,
     ResultSummary,
-    ResultsKnobs,
     ResultTotals,
     SourceRef,
     SummaryTotals,
@@ -226,19 +223,9 @@ def test_result_summary_round_trip(tmp_path: Path):
     assert out["alliance_distribution"][0]["alliance"] == "SPA"
 
 
-# --- ProcessingConfig ------------------------------------------------------
-
-def test_processing_config_round_trip(tmp_path: Path):
-    m = ProcessingConfig(
-        sources=[],
-        fetch=FetchKnobs(concurrency=4, retry_attempts=3, timeout_seconds=30.0, user_agent="yen-gov/0.0"),
-        results=ResultsKnobs(top_n_candidates=5, collapse_others=True),
-    )
-    out = _round_trip(tmp_path, m, "processing.schema.json")
-    assert out["fetch"]["concurrency"] == 4
-    assert out["sources"] == []
-
-
-def test_processing_rejects_concurrency_above_max():
-    with pytest.raises(ValidationError):
-        FetchKnobs(concurrency=99, retry_attempts=0, timeout_seconds=1.0, user_agent="x")
+# --- ProcessingConfig: retired in G9 (2026-06-08) --------------------------
+# config/processing.json + ProcessingConfig / FetchKnobs / ResultsKnobs were
+# deleted (fetch.* knobs died with core/http.py in B4-pt2.4 #828; results.*
+# was inlined as _TOP_N_DEFAULT + _COLLAPSE_OTHERS_DEFAULT module constants
+# in yen_gov.cli). No replacement test - there is no schema to round-trip,
+# and the cli constants are not a contract surface.

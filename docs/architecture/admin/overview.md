@@ -119,11 +119,11 @@ Election-specific (event × state) coverage is deliberately **not** built in her
 
 The UI is two tables in [`admin/src/routes/Inventory.svelte`](../../../admin/src/routes/Inventory.svelte): a **Stores** table (one row per Parquet, kind badge colours observations / dim / taxonomy, sizes formatted KB/MB/GB) and an **Indicators** table (one row per family × indicator).
 
-### ECI Recon — retired 2026-05-18 (Phase 1.7)
+### ECI Recon — retired 2026-05-18 (Phase 1.7); ingest path further retired in B4-pt2.2 (2026-06-06) + G9 (2026-06-08)
 
-The ECI Recon panel + `tools/eci_recon/` scanner were removed. They had been built to enumerate `https://results.eci.gov.in/...` URLs and download HTML on the fly; under the canonical pivot the ingest seam is the file path, not the website. The operator now hand-supplies the upstream XLS / CSV / HTML (whatever the ECI portal makes downloadable for a given event) and the ingest code (`backend/yen_gov/sources/eci/categories.py`, `config/eci-pins.json`, the per-year pin map) loads from disk. The scanner / sweep / probe / compare UI was dead weight under that workflow.
+The ECI Recon panel + `tools/eci_recon/` scanner were removed in Phase 1.7. They had been built to enumerate `https://results.eci.gov.in/...` URLs and download HTML on the fly; under the canonical pivot the ingest seam is the file path, not the website. Subsequently B4-pt2.2 (#826) deleted the `eci-statreport` + `eci-statreport-emit` network CLIs and G9 (2026-06-08) deleted the residual orphan reader code (`backend/yen_gov/sources/eci/categories.py`, `config/eci-pins.json`, `datasets/schemas/eci_pins.schema.json`). The only operator surface that survives is `python -m yen_gov eci-statreport-emit-local <xlsx-path>` (hand-loaded XLSX-on-disk emit; reads no pin file).
 
-Deleted in this phase: `backend/yen_gov/admin/eci_recon.py`, `admin/src/routes/EciRecon.svelte`, `tools/eci_recon/` (entire directory), the `EciRecon` panel nav button and its types/api methods in `admin/src/lib/api.ts`, and the corresponding `panels.spec.ts` e2e block. **Not deleted** (still load-bearing for ingest): `backend/yen_gov/sources/eci/categories.py`, `datasets/schemas/eci_pins.schema.json`, `config/eci-pins.json`, the pins-loading code path inside the pipeline.
+Deleted in Phase 1.7 (2026-05-18): `backend/yen_gov/admin/eci_recon.py`, `admin/src/routes/EciRecon.svelte`, `tools/eci_recon/` (entire directory), the `EciRecon` panel nav button and its types/api methods in `admin/src/lib/api.ts`, and the corresponding `panels.spec.ts` e2e block. Deleted in B4-pt2.2 (2026-06-06): the `eci-statreport` + `eci-statreport-emit` CLI commands. Deleted in G9 (2026-06-08): `backend/yen_gov/sources/eci/categories.py`, `datasets/schemas/eci_pins.schema.json`, `config/eci-pins.json`.
 
 ### Schemas (planned)
 

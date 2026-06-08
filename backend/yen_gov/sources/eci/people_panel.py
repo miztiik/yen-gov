@@ -20,8 +20,7 @@ from pathlib import Path
 from typing import Iterable, Iterator
 
 # Adapter id stamped into people.field_provenance.source_id. Publisher
-# label, not carrier. Matches ``field_priority`` entries in
-# ``config/elections.json``.
+# label, not carrier.
 ADAPTER_ID = "eci_statreport"
 
 # CSV column -> normalised value mappings. Kept inline; if these grow,

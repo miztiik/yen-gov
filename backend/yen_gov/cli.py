@@ -9,7 +9,6 @@ from pathlib import Path
 
 import typer
 
-from yen_gov.core.models import ProcessingConfig
 from yen_gov.sources.eci.events import event_info_for
 from yen_gov.sources.eci.statistical_report_detailed import (
     parse_detailed_results,
@@ -21,6 +20,14 @@ from yen_gov.coverage import (
     render_markdown,
 )
 from yen_gov.validate import run as run_validate
+
+# G9 (2026-06-08): top-N / collapse-others rule formalised in PR-K
+# (2026-05-18) lives here as a presentation constant, not a config knob.
+# config/processing.json + ProcessingConfig were retired - the only
+# alive consumer was eci-statreport-emit-local below; the fetch.* block
+# died with core/http.py in B4-pt2.4 (#828).
+_TOP_N_DEFAULT = 5
+_COLLAPSE_OTHERS_DEFAULT = True
 
 app = typer.Typer(help="yen-gov pipeline CLI", no_args_is_help=True)
 
@@ -823,10 +830,6 @@ def eci_statreport_emit_local(
         help="Repo root.",
         file_okay=False, dir_okay=True, exists=True,
     ),
-    config: Path = typer.Option(
-        None, "--config", "-c",
-        help="Path to processing.json. Defaults to <root>/config/processing.json.",
-    ),
     delete_source_on_success: bool = typer.Option(
         True, "--delete-source/--keep-source",
         help="Delete the source XLSX after successful emit. Drop-dir is "
@@ -879,18 +882,13 @@ def eci_statreport_emit_local(
     typer.echo(f"state/year:  {state} / {year}")
     typer.echo(f"event:       {event} (has_partywise={info.has_partywise})")
 
-    # --- Load config (top_n / collapse_others) --------------------------------
-    config_path = config or (root / "config" / "processing.json")
-    config_doc = json.loads(config_path.read_text(encoding="utf-8"))
-    for key in ("$schema", "$schema_version"):
-        config_doc.pop(key, None)
-    cfg = ProcessingConfig.model_validate(config_doc)
-
     # --- Parse + emit ---------------------------------------------------------
     # Per O1 doctrine + B4-pt3 (no strangler-fig - git is the backup), the
     # legacy per-event JSON shards (results/<ac>.json, result.summary.json,
     # parties.json) are no longer emitted from this command. The
     # researcher-facing per-state CSV bundle survives as the only output.
+    # G9 (2026-06-08): top_n / collapse_others now sourced from module
+    # constants (config/processing.json + ProcessingConfig retired).
     raw = parse_detailed_results(file.read_bytes())
     typer.echo(f"parsed:      {len(raw.sections)} AC sections")
 
@@ -899,8 +897,8 @@ def eci_statreport_emit_local(
         raw,
         election=event,
         state=state,
-        top_n=cfg.results.top_n_candidates,
-        collapse_others=cfg.results.collapse_others,
+        top_n=_TOP_N_DEFAULT,
+        collapse_others=_COLLAPSE_OTHERS_DEFAULT,
         sources=[],
         party_eci_codes=None,
     )

@@ -33,9 +33,8 @@ class EventInfo:
     has_partywise: bool
 
 
-# (state_code, year) -> EventInfo. Populated for every pin in
-# config/eci-pins.json so the admin GUI's "Full ingest" button can run
-# on all of them. has_partywise=True only for events whose
+# (state_code, year) -> EventInfo. Populated for every event the ingest
+# pipeline supports. has_partywise=True only for events whose
 # results.eci.gov.in/Result<event_id>/ pages still exist live.
 EVENTS: dict[tuple[str, int], EventInfo] = {
     # May-2026 cohort — five states polled together. Live results portal

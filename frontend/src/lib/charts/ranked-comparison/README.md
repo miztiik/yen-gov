@@ -16,8 +16,9 @@ Pure helpers for ranked-comparison renderers (Phase 3 of
 - **No DOM, no Svelte runes** — pure functions only.
 - **Honesty**: wording NEVER says "better" or "worse" — direction is in
   `verdict` for renderers to badge separately. Preserves the
-  "suppress dominance verbs" rule from `config/processing.json` in
-  spirit.
+  "suppress dominance verbs" rule of the elections-presentation
+  contract (formerly cited from `config/processing.json`, retired in
+  G9 2026-06-08) in spirit.
 - **Closed enums**: `IndicatorDirection`, `PeerBandKind`, `direction`,
   `verdict` are all closed unions (CLAUDE.md §10 three-place lock).
 - **No fetch telemetry** (R-24).

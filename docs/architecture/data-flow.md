@@ -54,7 +54,6 @@ The frontend's `vite.config.ts` registers a small `serveDatasets()` middleware t
 | `datasets/elections/`  | yes             | yes            | yes (results, summaries, party snapshots, sqlite) |
 | `datasets/boundaries/` | no (`tools/boundaries/build.py` writes locally; see [map](frontend/map.md)) | no | yes (PMTiles via MapLibre; falls back to upstream GeoJSON when absent) |
 | `datasets/patches/`    | reads at apply step (planned, Phase 4) | reads | no |
-| `config/processing.json` | no            | yes            | no              |
 | `.runtime/raw/`        | yes (debug only, ADR-0003) | yes | no |
 
 The backend is the **only writer** to `datasets/`. Any future tool that wants to mutate `datasets/` must do so through the backend's emit layer so two-tier validation (CLAUDE.md §11) runs first.

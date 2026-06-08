@@ -308,26 +308,8 @@ class ResultSummary(_Artifact):
     alliance_distribution: list[AllianceDistribution] | None = None
 
 
-# --- processing config ------------------------------------------------------
-
-class FetchKnobs(_Strict):
-    concurrency: int = Field(ge=1, le=32)
-    retry_attempts: int = Field(ge=0, le=10)
-    retry_backoff_seconds: float | None = Field(default=None, ge=0)
-    timeout_seconds: float = Field(gt=0)
-    user_agent: str = Field(min_length=1)
-
-
-class ResultsKnobs(_Strict):
-    top_n_candidates: int = Field(ge=1)
-    collapse_others: bool
-
-
-class ProcessingConfig(_Artifact):
-    """Mirrors datasets/schemas/processing.schema.json. Version sourced via core.schema_registry."""
-
-    _schema_id = schema_id("processing.schema.json")
-    _schema_version = schema_version("processing.schema.json")
-
-    fetch: FetchKnobs
-    results: ResultsKnobs
+# G9 (2026-06-08): ProcessingConfig / FetchKnobs / ResultsKnobs retired.
+# fetch.* knobs died with core/http.py in B4-pt2.4 (#828); results.* knobs
+# were inlined as TOP_N_DEFAULT + COLLAPSE_OTHERS_DEFAULT module constants
+# in yen_gov.cli (the only surviving consumer was eci-statreport-emit-local).
+# config/processing.json + datasets/schemas/processing.schema.json deleted.
