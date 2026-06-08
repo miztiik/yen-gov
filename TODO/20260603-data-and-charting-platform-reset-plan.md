@@ -209,7 +209,7 @@ Git is the backup. No migrate-then-bypass; delete the legacy path and re-ingest 
 | --- | --- | --- |
 | D1 | `datasets/indicators/in/**` JSON write path + `core.io.write_artifact` + all `sources/iced_*` legacy adapters | re-ingest energy etc. onto the long-format CSV spine if/when wanted (energy is low-priority per Max) |
 | D2 | `tools/` one-shot scripts: fold the genuinely-reusable ones into `backend/yen_gov/utils/` (O-refinement: "folded into backend utils where necessary"); delete the rest (`*_recon`, `*_probe`, `*_inspect`, executed `migrate_*`/`bump_*`) | ~50 files; net keep a handful as utils |
-| D3 | `composers/` empty dead package; repo-root `_probe_ac*.py`, `_probe_jk.py`; `datasets/ephemeral/pre-regen-parquet-snapshot/` (14MB) | confirm zero refs first |
+| D3 | `composers/` empty dead package; repo-root `_probe_ac*.py`, `_probe_jk.py`; ~~`datasets/ephemeral/pre-regen-parquet-snapshot/` (14MB)~~ DONE 2026-06-08 (untracked local snapshot deleted + .gitignore'd in `feat/g7-delete-pre-regen-snapshot`; zero code refs) | confirm zero refs first |
 | D4 | Frontend: **keep the V2 chart variety** (O2). Delete only true byte-duplicates after picking the live one; consolidate all chart types into ONE reusable, default-built chart library (`frontend/src/lib/charts/`) that pages compose, not per-indicator bespoke. | this is consolidation, not deletion of the V2 work |
 | D5 | The 1700-LOC `cli.py` god-file `write_artifact` half (goes with D1); keep/repurpose the `write_batch`/`ingest` half | |
 | D6 | Most of `datasets/schemas/**` (60 -> ~5): one tiny schema each for `concepts`, `entities`, `datapoints`, `source`, and the parquet escape-hatch | follows section 3 |
