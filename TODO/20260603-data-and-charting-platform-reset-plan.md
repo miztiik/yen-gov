@@ -31,7 +31,7 @@ Direction **A (aggressive rip-and-refill)** is locked. The following user refine
 | O7 | "yen-ask is important dont remove it ... headline feature" | (was Phase-5 footnote) | yen-ask is the north star; every storage change keeps yen-ask's 4 concepts working. |
 | O8 | "rather not have decisions, instead decomposed into actual locations" | ADR tier | Retire `docs/architecture/decisions/`; fold each live decision into its subsystem/concept doc. |
 | O9 | "all government sources are gold - not just RBI - we take what we get, we are beggars. whether it is CAG or RBI" | F1 (single golden source) | **Any government source is gold.** No single anointed golden source. Take whatever the government publishes (RBI, CAG, ministry MIS, PIB, data.gov.in); prefer Accounts/actuals when available; gaps stay labelled, never BE/RE-filled. |
-| O10 | "notes and TODO almost same" | two scratch dirs | Merge into one working-docs convention. See section 9. |
+| O10 | "notes and TODO almost same" | two scratch dirs | Merge into one working-docs convention. See section 9. **DONE 2026-06-08 (feat/g4-retire-notes-into-docs-and-todo).** |
 
 ---
 
@@ -228,7 +228,7 @@ Git is the backup. No migrate-then-bypass; delete the legacy path and re-ingest 
 | `.runtime/` | "a mess" | It is gitignored + ephemeral by contract; add a single documented cache layout (`.runtime/cache/<source>/...`) and a `clean` command; never referenced from committed artifacts. |
 | `config/` | "probably superfluous" | Audit the 4 files (`eci-pins`, `elections`, `processing`, `topojson`). Fold genuine tunables into the concept CSV or a single `config.json`; delete the rest. Likely collapses to 0-1 files. |
 | `datasets/schemas/` | "a mess, consolidate" | Collapse to ~5 schemas (section 3 / D6). |
-| `notes/` + `TODO/` | "almost same" (O10) | Merge into ONE convention: `TODO/` holds live plan-docs + handover docs (actionable); `notes/` is retired, its still-relevant content distilled into `docs/` or folded into the relevant plan-doc. One working-docs home, not two. |
+| `notes/` + `TODO/` | "almost same" (O10) | Merge into ONE convention: `TODO/` holds live plan-docs + handover docs (actionable); `notes/` is retired, its still-relevant content distilled into `docs/` or folded into the relevant plan-doc. One working-docs home, not two. **DONE 2026-06-08 (feat/g4-retire-notes-into-docs-and-todo)**: all 17 surviving `notes/*.md` files dispositioned (6 LIFT-TO-DOCS into `docs/architecture/data/{boundaries,topojson-benchmark,party-symbols}.md`, 4 LIFT-TO-PLAN into `TODO/20260602-eci-historical-ls-handover.md` + `TODO/20260530-eci-to-lgd-acid-migration-plan.md` Appendix A, 7 DROP); `notes/` directory removed; CLAUDE.md §3 topology row rewritten to drop `notes/`. |
 
 ---
 

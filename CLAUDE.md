@@ -81,7 +81,7 @@ In-memory `Path` objects for local I/O may stay platform-native. Rule applies at
 | `admin/`        | created    | Dev-only Svelte app on port 5174. Never deployed publicly. |
 | `tools/`        | created    | Standalone dev/ops tooling. No `backend/` imports. |
 | `.runtime/`     | gitignored | Ephemeral run state. Never a contract surface. |
-| `TODO/` `notes/`| optional   | Working scratchpads - non-authoritative |
+| `TODO/`         | optional   | Working scratchpads - non-authoritative. Sole working-docs home; `notes/` was retired 2026-06-08 per [TODO/20260603-data-and-charting-platform-reset-plan.md](TODO/20260603-data-and-charting-platform-reset-plan.md) override O10 (durable content lifted into `docs/`, in-flight handover folded into the relevant TODO/ sub-plan). |
 
 Create folders only when real code is about to land. Identifier convention: use issuing-authority IDs (ISO 3166, ECI codes, LGD codes); see [docs/reference/identifiers.md](docs/reference/identifiers.md).
 
