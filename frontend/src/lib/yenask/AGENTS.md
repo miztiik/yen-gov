@@ -27,6 +27,15 @@ testids, ADR titles). Don't unify them - see ADR-0040 section "Brand vs
 identifier separation" (supersedes ADR-0039 section D-33's earlier route
 placement).
 
+Per EL6 closure (2026-06-09): the `constituency_result` resolver does
+NOT need an AC->district crosswalk. The single-AC question (`who won AC
+X in election Y`) resolves via direct `electoral.csv` entity_id lookup
+joined to `candidacies.csv` on entity_id + `dim_parties` for party
+metadata. The earlier plan-doc EL6 framing (re-point through
+`electoral_district_membership.csv`) is superseded - the membership
+table is for AC->district 1:many navigation, not for single-AC result
+lookup.
+
 ## Layout
 
 | File | Role | Phase |
