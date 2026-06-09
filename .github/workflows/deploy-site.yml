@@ -86,16 +86,18 @@ jobs:
         # The bundle that ships: frontend/dist/ + datasets/ mounted at
         # /data/. The sanity check enforces the dev-time middleware
         # contract (frontend/data-loading.md) at deploy time. Target is
-        # the canonical store, now state-partitioned (post PR #63 /
-        # T.0a row 1.8b-iii): elections/state=<key>/election_results.parquet.
+        # the canonical store; post-X1a-fu2 (2026-06-07) elections is the
+        # per-state long-format CSV at
+        # data/datapoints/electoral/<slug>_election_results.csv
+        # (every residual canonical parquet was retired in that pivot).
         # TN (S22) is the canonical first-slice state per CLAUDE.md and is
         # always present; asserting on it doubles as a smoke check that the
-        # partitioned layout shipped, not the pre-pivot monolith.
+        # CSV shape shipped, not the pre-pivot parquet partitions.
         run: |
           mkdir -p _site
           cp -r frontend/dist/. _site/
           cp -r datasets _site/data
-          test -f _site/data/elections/state=tamil-nadu/election_results.parquet
+          test -f _site/data/data/datapoints/electoral/tamil-nadu_election_results.csv
 
       - uses: actions/configure-pages@v5
 
@@ -159,21 +161,20 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: smoke check (deployed election_results.parquet)
-        # Round-trips the deployed bundle: fetch one canonical Parquet
-        # partition from the live URL and assert it is a real Parquet
-        # payload (PAR1 magic header at offset 0 + at offset -4).
-        # Defends the Pages MIME / Range-request contract that
-        # DuckDB-WASM depends on for the frontend reader (see
-        # deployment.md). Post PR #63 (T.0a), elections is state-
-        # partitioned at elections/state=<key>/election_results.parquet;
+      - name: smoke check (deployed election_results CSV)
+        # Round-trips the deployed bundle: fetch the canonical per-state CSV
+        # from the live URL and assert it is non-empty + carries the expected
+        # long-format header. Defends the Pages MIME-type contract that
+        # DuckDB-WASM's read_csv depends on for the frontend reader (see
+        # deployment.md). Post-X1a-fu2 (2026-06-07), elections is per-state
+        # CSV at data/datapoints/electoral/<slug>_election_results.csv;
         # TN (S22) is the canonical first-slice state per CLAUDE.md.
         run: |
           base="${{ steps.deployment.outputs.page_url }}"
-          url="${base}data/elections/state=tamil-nadu/election_results.parquet"
+          url="${base}data/data/datapoints/electoral/tamil-nadu_election_results.csv"
           for i in 1 2 3; do
-            if curl -fsSL "$url" -o /tmp/election_results.parquet; then break; fi
+            if curl -fsSL "$url" -o /tmp/tamil-nadu_election_results.csv; then break; fi
             sleep 10
           done
-          test -s /tmp/election_results.parquet
-          python3 -c "p=open('/tmp/election_results.parquet','rb').read(); assert p[:4]==b'PAR1' and p[-4:]==b'PAR1', 'not a parquet file (missing PAR1 magic)'"
+          test -s /tmp/tamil-nadu_election_results.csv
+          head -n 1 /tmp/tamil-nadu_election_results.csv | grep -q '^entity_id,year,period_label,period_seq,indicator_id,value_numeric,value_text,source_id,derivation$'
