@@ -1163,28 +1163,60 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/MoSPI|RBI|restate|revision/i);
   });
 
-  // G29 pilot (parent plan section 14.5 / 15 / 16): the first descriptor
-  // flipped from the legacy 923-LOC maplibre `<IndicatorChoropleth>` to
-  // the d3-geo SVG F2b.3 `<GeoChoropleth>` primitive. The dispatch is a
-  // thin per-descriptor opt-in via `renderer_override` in the allowlist;
-  // these tests pin both (a) the pilot scope ("only THIS descriptor has
-  // the flag") and (b) the value lockdown ("the flag value is the
-  // expected literal"). Subsequent indicators get their own PRs; this
-  // lockdown is the contract the next PR's author must update when they
-  // add a second flipped descriptor.
+  // G29 pilot + G30 wave-2 (parent plan section 14.5 / 15 / 16): the
+  // first descriptor (G29) and the next 5 environment descriptors (G30
+  // wave-2) flipped from the legacy 923-LOC maplibre
+  // `<IndicatorChoropleth>` to the d3-geo SVG F2b.3 `<GeoChoropleth>`
+  // primitive. The dispatch is a thin per-descriptor opt-in via
+  // `renderer_override` in the allowlist; these tests pin both (a) the
+  // per-descriptor positive assertion ("each of THESE descriptors has
+  // the flag") and (b) the enumerated lockdown ("exactly these N
+  // descriptors carry the flag, no more no less"). Each subsequent
+  // wave widens the enumeration EXPLICITLY; the lockdown's failure on
+  // an un-expected addition is the contract the next PR's author must
+  // honour.
   it("G29 pilot — per-capita-nsdp-constant-inr carries renderer_override = geo-choropleth-f2b", () => {
     const d = getCanonicalDescriptor("economy/per_capita_nsdp_constant_inr");
     expect(d).not.toBeNull();
     expect(d!.renderer_override).toBe("geo-choropleth-f2b");
   });
 
-  it("G29 pilot — NO other descriptor in the allowlist sets renderer_override (single-flip lockdown)", () => {
+  it("G30 wave-2 - each of the 5 environment descriptors carries renderer_override = geo-choropleth-f2b", () => {
+    const WAVE_2_LEGACY_IDS = [
+      "environment/state_pm25_annual_mean_ug_m3",
+      "environment/state_thermal_fgd_installed_share_pct",
+      "environment/state_pm10_annual_mean_ug_m3",
+      "environment/state_so2_annual_mean_ug_m3",
+      "environment/state_no2_annual_mean_ug_m3",
+    ] as const;
+    for (const legacy_id of WAVE_2_LEGACY_IDS) {
+      const d = getCanonicalDescriptor(legacy_id);
+      expect(d, `descriptor ${legacy_id} missing from allowlist`).not.toBeNull();
+      expect(
+        d!.renderer_override,
+        `descriptor ${legacy_id} missing renderer_override flip`,
+      ).toBe("geo-choropleth-f2b");
+    }
+  });
+
+  it("G29 pilot + G30 wave-2 - exactly 6 descriptors carry renderer_override = geo-choropleth-f2b (enumerated lockdown)", () => {
     const flipped = CANONICAL_BACKED_INDICATORS.filter(
       (d) => d.renderer_override !== undefined,
     );
-    expect(flipped.map((d) => d.legacy_artifact_id)).toEqual([
+    const expected_legacy_ids = new Set<string>([
+      // G29 pilot (PR #855)
       "economy/per_capita_nsdp_constant_inr",
+      // G30 wave-2 (this PR)
+      "environment/state_pm25_annual_mean_ug_m3",
+      "environment/state_thermal_fgd_installed_share_pct",
+      "environment/state_pm10_annual_mean_ug_m3",
+      "environment/state_so2_annual_mean_ug_m3",
+      "environment/state_no2_annual_mean_ug_m3",
     ]);
+    const actual_legacy_ids = new Set<string>(
+      flipped.map((d) => d.legacy_artifact_id),
+    );
+    expect(actual_legacy_ids).toEqual(expected_legacy_ids);
   });
 });
 
