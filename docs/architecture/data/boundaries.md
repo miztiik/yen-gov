@@ -89,6 +89,20 @@ The `india.gov.in` NAPIX API was rejected as a primary upstream: it requires reg
 
 Names drift (Thoothukudi/Tuticorin, Kanyakumari/Kanniyakumari, Chennai/Madras) and merge (Chengalpattu was carved from Kancheepuram, Villupuram, and Tiruvannamalai). The LGD numeric code is the only stable handle. Where a name is needed for citizen display, it lives as a `name` field; where an alternate or historical name is useful, `name_alt`; where the name's authority matters, `name_source` (`lgd|census_2011|wikipedia`). None of these are identifiers.
 
+### Path-builder contract (Hans + Max + Gregor, PR #856 2026-06-09)
+
+`tools/boundaries/_paths.py::derive_hive` accepts `state_slug` (kebab-case LGD slug, e.g. `tamil-nadu`) and writes `state=<slug>` into every Hive partition path it emits. ECI state codes (`S22`, `U08`, ...) are NOT a partition value — they are translated at the caller boundary via the helper `_eci_to_slug(state_eci_code, lgd_states_path=None)`, which reads `datasets/taxonomy/lgd_states.json` (ADR-0050 canonical source). The function raises `ValueError` on any argument matching `^[SU]\d{2}$` so accidental ECI-code passes fail fast at the seam.
+
+Why this is a contract and not a style choice:
+
+- **Plan section 22.4 invariant #2 (binding)**: ECI state code is "never a column, join key, or partition value." `state=in_s22` literally embeds `S22` — the exact prohibited pattern. The path-builder is the upstream filter that the invariant has to hold at; downstream alignment in `pipeline.json` (32 electoral `out` fields) + `boundary_layer.csv` + on-disk dirs all flow from this one seam.
+- **LGD-spine doctrine**: slug `tamil-nadu` lives in `state_codes.csv.slug` + `geo.csv.entity_id` with provenance to the LGD register. The legacy ECI codes (`S22`/`U08`) came from an in-repo Wikipedia join per `lgd_states.json`'s own `$comment` — they are not authority-backed and ECI's own result exports key on state NAME, not these codes.
+- **Reorganization-survival** (Hans + Rosling Destiny instinct): slug `andhra-pradesh` survives the 2014 AP/TG bifurcation cleanly (`andhra-pradesh` stays, `telangana` is new); ECI codes don't (legacy `S01` was unified AP+TG; post-2014 `S01` is AP-only; new `S29` is TG). For a multi-decade civic-trajectory project, partition-key stability across reorganization is the scarce resource.
+- **OWID precedent** (Max): owid-grapher's data-lake URIs use human-readable namespaces; entity join keys carry editorial NAMES (`United States`, `South Korea`) rather than opaque publisher codes — explicitly "in order to make data visualisations richer and more understandable." Slug is the OWID-style editorial label; `in_s22` is the publisher-internal cargo-cult.
+- **Citizen-DX**: `git ls-tree origin/main -- datasets/boundaries/electoral/delim=2008/ac/` returns self-describing `state=andhra-pradesh/`, `state=tamil-nadu/` — readable without a lookup table.
+
+Scope today: this rule binds the electoral subtree (`boundaries/electoral/delim=<year>/<grain>/state=<slug>/...`) and the 32 corresponding `out` fields in `tools/boundaries/pipeline.json`. The admin spine (`boundaries/in/<level>/state=<slug>/...`) is ALREADY slug-keyed on disk; the 4013 admin-spine rows in `boundary_layer.csv` are scheduled for resync via the in-flight LGD-canonical-keys M2-M4 wave (see `datasets/_ops/eci-census-decommission-sweep-2026-06-05.md` section C). No re-litigation: `boundary-layers.schema.json` v1.5 already widened the `partition_path` regex to accept slugs without a schema bump. Regression-guarded by `backend/tests/test_derive_hive_signature.py` + `backend/tests/test_no_eci_state_in_electoral_partition.py` (PR #856).
+
 ## File-size budget
 
 Per-fetch budget: the active target is the per-layer gzip ceiling in `tools/boundaries/simplify.py:LAYER_TUNING` (100-500 KB depending on layer). The full corpus check is `python tools/boundaries/simplify.py --dry-run --skip-parquet`; it belongs at the boundary-pipeline seam, not in everyday frontend vitest. Beyond this, mid-tier Android phones on 4G start to feel the chunk download.
