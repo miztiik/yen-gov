@@ -15,12 +15,14 @@ import { dhondt } from "./dhondt";
 import { hamilton } from "./hamilton";
 import { mmp } from "./mmp";
 import { instantRunoff } from "./instantRunoff";
+import { irvAllianceTransfer } from "./irvAllianceTransfer";
 import { trsRound2 } from "./trsRound2";
+import { trsRound2Alliance } from "./trsRound2Alliance";
 import { borda } from "./borda";
 import { condorcetProxy } from "./condorcetProxy";
 import { approval } from "./approval";
 
-// Round-2 (2026-06-09) expansion: 4 -> 10 rules. New methods grouped by
+// Round-2 (2026-06-09) expansion: 4 -> 12 rules. New methods grouped by
 // Hans's validity tier: fully_workable (mechanical re-arrangement of
 // FPTP data) versus medium_validity (requires an explicit assumption
 // India doesn't publish data for). Order in the array determines
@@ -33,7 +35,9 @@ export const RULES: CountingRule[] = [
   hamilton,
   mmp,
   instantRunoff,
+  irvAllianceTransfer,
   trsRound2,
+  trsRound2Alliance,
   borda,
   condorcetProxy,
   approval,
