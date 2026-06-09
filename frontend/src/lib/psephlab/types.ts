@@ -41,6 +41,15 @@ export interface CandidateTally {
    */
   brand_colour_hex?: string | null;
   brand_colour_confidence?: "high" | "medium" | "low" | null;
+  /**
+   * Sanitised party ballot-symbol asset path from
+   * `dim_parties.election_symbol_asset_path` (e.g. `"party-symbols/lotus.svg"`).
+   * Threaded through so the ParliamentArc symbol-ring legend can render
+   * a glyph next to the party token without a second dim_parties query.
+   * Optional; null when the symbol is not yet curated or the party is
+   * the synthetic NOTA / IND sentinel.
+   */
+  election_symbol_asset_path?: string | null;
 }
 
 export interface AcTally {
@@ -149,6 +158,13 @@ export interface PartyResult {
   party_id: string;
   brand_colour_hex?: string | null;
   brand_colour_confidence?: "high" | "medium" | "low" | null;
+  /**
+   * Sanitised party ballot-symbol asset path (forwarded from the
+   * first CandidateTally contributing to this party). Used by the
+   * ParliamentArc symbol-ring legend to render the glyph next to each
+   * party. Optional; null when the symbol is not curated.
+   */
+  election_symbol_asset_path?: string | null;
 }
 
 export interface AcOutcome {

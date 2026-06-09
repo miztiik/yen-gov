@@ -64,6 +64,7 @@ export const fptp: CountingRule = {
             t.party_id = c.party_id;
             t.brand_colour_hex = c.brand_colour_hex ?? null;
             t.brand_colour_confidence = c.brand_colour_confidence ?? null;
+            t.election_symbol_asset_path = c.election_symbol_asset_path ?? null;
           }
         } else {
           totals.set(c.party_eci_code, {
@@ -77,6 +78,7 @@ export const fptp: CountingRule = {
             party_id: c.party_id,
             brand_colour_hex: c.brand_colour_hex ?? null,
             brand_colour_confidence: c.brand_colour_confidence ?? null,
+            election_symbol_asset_path: c.election_symbol_asset_path ?? null,
           });
         }
       }

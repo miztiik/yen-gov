@@ -68,6 +68,7 @@ interface CandidateRow {
   party_id: string | null;
   brand_colour_hex: string | null;
   brand_colour_confidence: "high" | "medium" | "low" | null;
+  election_symbol_asset_path: string | null;
 }
 
 // ---------- SQL composition -----------------------------------------------
@@ -141,6 +142,7 @@ function buildCandidateSql(
       ec.party_id                                           AS party_id,
       dp.brand_colour_hex                                   AS brand_colour_hex,
       dp.brand_colour_confidence                            AS brand_colour_confidence,
+      dp.election_symbol_asset_path                         AS election_symbol_asset_path,
       CAST(ec.votes AS BIGINT)                              AS votes,
       0                                                     AS is_nota
     FROM read_csv('${candUrl}', ${candClause}) ec
@@ -161,6 +163,7 @@ function buildCandidateSql(
       'parties.IN.NOTA'                                     AS party_id,
       NULL::VARCHAR                                         AS brand_colour_hex,
       NULL::VARCHAR                                         AS brand_colour_confidence,
+      NULL::VARCHAR                                         AS election_symbol_asset_path,
       CAST(GREATEST(
         COALESCE(s.votes_polled, 0) - COALESCE(real.real_votes, 0),
         0
@@ -279,6 +282,7 @@ export function loadActuals(event: string, state: string): Promise<Tallies> {
         party_id,
         brand_colour_hex: row.brand_colour_hex ?? null,
         brand_colour_confidence: row.brand_colour_confidence ?? null,
+        election_symbol_asset_path: row.election_symbol_asset_path ?? null,
       };
       ac.candidates.push(c);
     }
