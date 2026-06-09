@@ -23,6 +23,7 @@ import mvpWorker from "@duckdb/duckdb-wasm/dist/duckdb-browser-mvp.worker.js?url
 import ehWorker from "@duckdb/duckdb-wasm/dist/duckdb-browser-eh.worker.js?url";
 
 import { acceptedSchemaVersions } from "./canonical/schema-compatibility";
+import { csvColumnsClause } from "./canonical/csv-columns";
 import { DATA_BASE } from "./paths";
 
 // -----------------------------------------------------------------------------
@@ -418,10 +419,23 @@ interface CsvAsTableSpec {
   readonly viewName: string;
   /** Repo-relative CSV path (sliced into the URL via DATA_BASE). */
   readonly csvRel: string;
-  /** Build the `SELECT ... FROM read_csv(<url>, columns={...})` body that
-   *  becomes the view definition. Returns SQL fragment WITHOUT the
-   *  `CREATE OR REPLACE VIEW ... AS` prefix (the caller adds that). */
-  selectSql(url: string): string;
+  /**
+   * Build the `SELECT ... FROM read_csv(<url>, <columnsClause>)` body
+   * that becomes the view definition. Returns SQL fragment WITHOUT the
+   * `CREATE OR REPLACE VIEW ... AS` prefix (the caller adds that).
+   *
+   * `columnsClause` is the resolved `columns={...}` fragment derived
+   * from `datasets/data/_schema/columns.json` via `csvColumnsClause`.
+   * Passed in (rather than hardcoded inline) so a new column landing on
+   * parties.csv / source.csv (e.g. G1 2026-06-08 added `aliases`)
+   * flows through automatically - schema-as-single-source-of-truth per
+   * CLAUDE.md Holy Law #6 + plan section 22.4 contract invariant #4.
+   * The SELECT projection still hand-aliases only the columns the
+   * legacy parquet view exposed; any new CSV column is read by the
+   * underlying read_csv but simply ignored by the SELECT until a
+   * consumer wants it.
+   */
+  selectSql(url: string, columnsClause: string): string;
 }
 
 const CSV_AS_TABLE_SPECS: Readonly<Record<CsvAsTableId, CsvAsTableSpec>> = Object.freeze({
@@ -437,7 +451,7 @@ const CSV_AS_TABLE_SPECS: Readonly<Record<CsvAsTableId, CsvAsTableSpec>> = Objec
     // both identifiers. The seats-invariant gate (plan section 22.6)
     // would otherwise be trivially false because the view returns zero
     // rows -> sum(seats_won)=0 != total_seats=234.
-    selectSql: (url: string): string => `
+    selectSql: (url: string, columnsClause: string): string => `
       SELECT
         party_id                     AS party_id,
         eci_codes                    AS eci_code,
@@ -450,17 +464,13 @@ const CSV_AS_TABLE_SPECS: Readonly<Record<CsvAsTableId, CsvAsTableSpec>> = Objec
         wikipedia                    AS wikipedia_url,
         symbol_asset                 AS election_symbol_asset_path,
         NULL::VARCHAR                AS election_symbol_render_mode
-      FROM read_csv('${url}', columns={
-        'party_id': 'VARCHAR', 'short': 'VARCHAR', 'full': 'VARCHAR',
-        'eci_codes': 'VARCHAR', 'brand_colour': 'VARCHAR',
-        'symbol_asset': 'VARCHAR', 'wikipedia': 'VARCHAR'
-      }, header=true)
+      FROM read_csv('${url}', ${columnsClause}, header=true)
     `,
   },
   "taxonomy.sources": {
     viewName: "sources",
     csvRel: "data/entities/source.csv",
-    selectSql: (url: string): string => `
+    selectSql: (url: string, columnsClause: string): string => `
       SELECT
         source_id                    AS source_id,
         owner                        AS producer,
@@ -473,10 +483,7 @@ const CSV_AS_TABLE_SPECS: Readonly<Record<CsvAsTableId, CsvAsTableSpec>> = Objec
         url                          AS url_main,
         NULL::VARCHAR                AS citation_full,
         NULL::VARCHAR                AS notes
-      FROM read_csv('${url}', columns={
-        'source_id': 'VARCHAR', 'owner': 'VARCHAR', 'title': 'VARCHAR',
-        'vintage': 'VARCHAR', 'url': 'VARCHAR'
-      }, header=true)
+      FROM read_csv('${url}', ${columnsClause}, header=true)
     `,
   },
 });
@@ -511,8 +518,18 @@ export async function registerCsvAsTable(table_id: CsvAsTableId): Promise<string
     registeredCsvUrls.add(url);
   }
 
+  // Resolve the columns={...} clause from the canonical schema BEFORE
+  // building the view body. The schema is the single source of truth
+  // (CLAUDE.md Holy Law #6); a new column landing on parties.csv /
+  // source.csv flows in automatically with no edit to this module. The
+  // earlier hand-typed dict drifted on G1 (2026-06-08 - parties.csv
+  // gained `aliases`) and silently broke every dim_parties consumer
+  // (StateOverview, Psephlab, Compare, Constituency) with the DuckDB
+  // sniffer error "7 columns in dict but 8 in file".
+  const columnsClause = await csvColumnsClause(`datasets/${spec.csvRel}`);
+
   await conn.query(
-    `CREATE OR REPLACE VIEW "${spec.viewName}" AS ${spec.selectSql(url)}`,
+    `CREATE OR REPLACE VIEW "${spec.viewName}" AS ${spec.selectSql(url, columnsClause)}`,
   );
   registeredViews.set(spec.viewName, key);
   return spec.viewName;

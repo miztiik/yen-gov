@@ -172,6 +172,28 @@ export interface CountingRule {
   id: string;
   label: string;
   apply(tallies: Tallies): SeatAllocation;
+  /**
+   * Optional honesty-marker text shown alongside `HypotheticalRecountBanner`
+   * when the rule represents a counterfactual rather than the official
+   * result. FPTP (the official method) omits this field; rules added per
+   * E6 sub-plan (TODO/20260608-e6-user-override-and-pl2-pl3-execution-subplan.md)
+   * MUST set it.
+   */
+  caveat?: string;
+  /**
+   * Optional list of structured assumptions the simulator makes (e.g.
+   * "Voters cast the same ballots as under FPTP"). Surfaced as bullets
+   * inside the banner so the citizen sees the load-bearing assumptions
+   * inline with the counterfactual seat tally.
+   */
+  assumptions?: string[];
+  /**
+   * When true, the host UI (Psephlab) mounts `HypotheticalRecountBanner`
+   * above the result panel. FPTP and any other "official-result" rule
+   * omits this; counterfactual rules (Sainte-Lague PR, IRV, Approval)
+   * set it to true.
+   */
+  requires_banner?: boolean;
 }
 
 // ---------- Scenarios ----------

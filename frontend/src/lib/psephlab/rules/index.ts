@@ -1,16 +1,23 @@
 // Counting-rule registry. New rules register here; the UI reads `RULES` to
-// populate the dropdown. Defer-list (IRV, STV, D'Hondt, Sainte-Laguë) lives
-// in psephlab.md, not here — adding any of them is one entry plus a sibling
-// file under this directory.
+// populate the dropdown. Three alternate methods landed under the E6
+// user-override sprint per TODO/20260608-e6-user-override-and-pl2-pl3-execution-subplan.md:
+// Proportional (Sainte-Lague, state-wide), Ranked-choice (IRV with
+// uniform transfer), and Approval (cast = approval). Each carries a
+// `requires_banner: true` flag + a Hans-grade caveat that
+// HypotheticalRecountBanner surfaces above the seat panel; FPTP remains
+// the only rule that DOES NOT mount the banner.
 
 import type { CountingRule } from "../types";
 import { fptp } from "./fptp";
+import { sainteLague } from "./sainteLague";
+import { instantRunoff } from "./instantRunoff";
+import { approval } from "./approval";
 
-export const RULES: CountingRule[] = [fptp];
+export const RULES: CountingRule[] = [fptp, sainteLague, instantRunoff, approval];
 
 export function ruleById(id: string): CountingRule {
   const r = RULES.find(x => x.id === id);
-  // Unknown rule → fall back to FPTP rather than throw. Scenarios saved
+  // Unknown rule -> fall back to FPTP rather than throw. Scenarios saved
   // under a future rule name should still render *something* when loaded
   // by an older bundle, with the loader reporting the downgrade.
   return r ?? fptp;
