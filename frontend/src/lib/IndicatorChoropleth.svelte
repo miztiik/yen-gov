@@ -58,8 +58,12 @@
   } from "./indicators";
   import {
     indicatorArtifactSourcesV2,
+    legacyArtifactIdFromPath,
     loadIndicator,
   } from "./canonical/indicator-from-canonical";
+  import { getCanonicalDescriptor } from "./canonical/indicator-allowlist";
+  import GeoChoropleth from "./charts/GeoChoropleth.svelte";
+  import type { GeoChoroplethRow } from "./charts/geo-choropleth-helpers";
   import { axisUnitLabel, legendCaption } from "./indicator-render";
 
   interface Props {
@@ -184,6 +188,58 @@
       return new Map<string, Array<{ facet: string; value: number }>>();
     }
     return facetsByEntity(artifact.rows, selected_time);
+  });
+
+  // G29 pilot (parent plan section 14.5 / 15 / 16): per-descriptor
+  // opt-in flip from the legacy maplibre wrapper to the F2b.3
+  // d3-geo SVG GeoChoropleth primitive. The dispatch is a thin
+  // boolean derived from the allowlist's `renderer_override` field;
+  // descriptors without the field render via the legacy maplibre
+  // body unchanged (zero behaviour change for non-allowlisted +
+  // for allowlisted descriptors that have not opted in yet).
+  // State-grain only at the pilot; the flag is ignored at district
+  // grain so a misapplied flag falls through to the legacy render.
+  const canonical_descriptor = $derived(
+    getCanonicalDescriptor(legacyArtifactIdFromPath(indicator_path)),
+  );
+  const is_geo_f2b = $derived(
+    canonical_descriptor?.renderer_override === "geo-choropleth-f2b"
+      && grain === "state",
+  );
+  // Build the (entity_key=LGD code, time, value) row set the F2b
+  // GeoChoropleth consumes. We honour peer_set_members so that
+  // TopicLanding's peer-set filter still gates which states get a
+  // value (non-members emit value=null which the renderer paints
+  // with the hatch). Only the SELECTED time slice is emitted; the
+  // pilot ships single-snapshot rendering per the brief's "no
+  // TimeControl integration in this PR" constraint.
+  const geo_f2b_rows = $derived.by<GeoChoroplethRow[]>(() => {
+    if (!is_geo_f2b || !artifact || selected_time == null) return [];
+    const out: GeoChoroplethRow[] = [];
+    const member_set = peer_set_members ? new Set(peer_set_members) : null;
+    for (const e of entities_taxonomy ?? []) {
+      if (member_set && !member_set.has(e.code)) continue;
+      const v = values.get(e.code);
+      out.push({
+        entity_key: e.boundary_join_key,
+        time: selected_time,
+        value: v ?? null,
+      });
+    }
+    return out;
+  });
+  // Source attribution surfaced inside the F2b GeoChoropleth's own
+  // SourceLine (C5). Falls back to the first sources_v2 row when
+  // present, then to a "Source" placeholder. Honest degraded UX:
+  // an empty owner reads "Source: " with no name.
+  const geo_f2b_source = $derived.by(() => {
+    const v2 = sources_v2;
+    const first = v2 && v2.length > 0 ? v2[0] : null;
+    return {
+      owner: first?.producer ?? "Source",
+      vintage: first?.vintage ?? (selected_time ?? ""),
+      url: first?.url_main ?? null,
+    };
   });
 
   const domain = $derived.by(() => {
@@ -689,6 +745,41 @@
   });
 </script>
 
+{#if is_geo_f2b}
+  <!-- G29 pilot: F2b.3 GeoChoropleth (d3-geo SVG) renders in place
+       of the legacy maplibre body for descriptors that have opted
+       in via `renderer_override: "geo-choropleth-f2b"` in the
+       allowlist. Single-snapshot rendering at the latest available
+       year (no TimeControl integration in this PR; deferred to a
+       multi-indicator follow-on per the parent plan section 16).
+       The descriptor stays canonical-backed through the same
+       `loadIndicator(path)` seam every other allowlisted indicator
+       uses; only the renderer flips. -->
+  <section
+    class="bg-white rounded-lg shadow-sm overflow-hidden p-4"
+    data-testid="indicator-choropleth-geo-f2b"
+  >
+    {#if load_error}
+      <div class="text-sm bg-rose-50 border border-rose-200 text-rose-900 rounded px-3 py-2">
+        Failed to load indicator: <code>{load_error}</code>
+      </div>
+    {:else if !artifact || selected_time == null}
+      <div class="text-sm text-slate-500">Loading indicator...</div>
+    {:else}
+      <GeoChoropleth
+        topojson_path="/boundaries/in/states/all.topojson"
+        feature_key="State_LGD"
+        rows={geo_f2b_rows}
+        selected_time={selected_time}
+        direction={artifact.indicator.direction}
+        title={artifact.indicator.title}
+        source_owner={geo_f2b_source.owner}
+        source_vintage={geo_f2b_source.vintage}
+        source_url={geo_f2b_source.url}
+      />
+    {/if}
+  </section>
+{:else}
 <section class="bg-white rounded-lg shadow-sm overflow-hidden">
   {#if load_error}
     <div class="p-4 text-sm bg-rose-50 border border-rose-200 text-rose-900">
@@ -976,3 +1067,4 @@
     </div>
   {/if}
 </section>
+{/if}
