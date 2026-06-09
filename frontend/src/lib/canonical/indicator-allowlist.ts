@@ -209,6 +209,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "peak-electricity-demand-mw",
     csv_path: "data/datapoints/geo/peak-electricity-demand-mw.csv",
     table_id: "energy.energy_demand_supply",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "peak-electricity-demand-mw",
       title: "State-wise peak power demand (MW)",
@@ -256,6 +258,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "peak-electricity-supplied-mw",
     csv_path: "data/datapoints/geo/peak-electricity-supplied-mw.csv",
     table_id: "energy.energy_demand_supply",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "peak-electricity-supplied-mw",
       title: "State-wise peak power supplied (MW)",
@@ -286,6 +290,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "per-capita-electricity-consumption-kwh",
     csv_path: "data/datapoints/geo/per-capita-electricity-consumption-kwh.csv",
     table_id: "energy.energy_demand_supply",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "per-capita-electricity-consumption-kwh",
       title: "Electricity used per person (kWh/year)",
@@ -347,6 +353,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "electricity-sales-mu",
     csv_path: "data/datapoints/geo/electricity-sales-mu.csv",
     table_id: "energy.energy_distribution_performance",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "electricity-sales-mu",
       title: "Annual electricity sales (by state, MU)",
@@ -385,6 +393,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "atc-losses-pct",
     csv_path: "data/datapoints/geo/atc-losses-pct.csv",
     table_id: "energy.energy_distribution_performance",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "atc-losses-pct",
       title: "Power lost to leaks and theft (%)",
@@ -429,6 +439,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     legacy_artifact_id: "energy/state_installed_capacity_by_source_mw",
     canonical_parent_indicator_id: "installed-capacity-geographical-mw",
     table_id: "energy.energy_installed_capacity",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     facet_axis_id: "fuel_type",
     facet_values: [
       {
@@ -500,6 +512,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     legacy_artifact_id: "energy/state_electricity_generation_by_source_gwh",
     canonical_parent_indicator_id: "electricity-generation-gwh",
     table_id: "energy.energy_generation",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     facet_axis_id: "fuel_type",
     facet_values: [
       {
@@ -592,6 +606,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "installed-capacity-snapshot-mw-coal",
     csv_path: "data/datapoints/geo/installed-capacity-snapshot-mw-coal.csv",
     table_id: "energy.energy_installed_capacity",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "installed-capacity-snapshot-mw-coal",
       title: "State installed capacity — Coal (CEA monthly snapshot)",
@@ -619,6 +635,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "installed-capacity-snapshot-mw-gas",
     csv_path: "data/datapoints/geo/installed-capacity-snapshot-mw-gas.csv",
     table_id: "energy.energy_installed_capacity",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "installed-capacity-snapshot-mw-gas",
       title: "State installed capacity — Gas (CEA monthly snapshot)",
@@ -646,6 +664,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "installed-capacity-snapshot-mw-hydro",
     csv_path: "data/datapoints/geo/installed-capacity-snapshot-mw-hydro.csv",
     table_id: "energy.energy_installed_capacity",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "installed-capacity-snapshot-mw-hydro",
       title: "State installed capacity — Hydro (CEA monthly snapshot)",
@@ -673,6 +693,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "installed-capacity-snapshot-mw-nuclear",
     csv_path: "data/datapoints/geo/installed-capacity-snapshot-mw-nuclear.csv",
     table_id: "energy.energy_installed_capacity",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "installed-capacity-snapshot-mw-nuclear",
       title: "State installed capacity — Nuclear (CEA monthly snapshot)",
@@ -700,6 +722,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "installed-capacity-snapshot-mw-renewable",
     csv_path: "data/datapoints/geo/installed-capacity-snapshot-mw-renewable.csv",
     table_id: "energy.energy_installed_capacity",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "installed-capacity-snapshot-mw-renewable",
       title: "State installed capacity — Renewable (CEA monthly snapshot)",
@@ -727,6 +751,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "installed-capacity-geographical-mw",
     csv_path: "data/datapoints/geo/installed-capacity-geographical-mw.csv",
     table_id: "energy.energy_installed_capacity",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "installed-capacity-geographical-mw",
       title: "State installed electricity capacity, geographical-location basis (MW)",
@@ -756,6 +782,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "installed-capacity-allocated-mw",
     csv_path: "data/datapoints/geo/installed-capacity-allocated-mw.csv",
     table_id: "energy.energy_installed_capacity",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "installed-capacity-allocated-mw",
       title: "State installed electricity capacity, allocated-shares basis (MW)",
@@ -793,6 +821,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "electricity-generation-gwh",
     csv_path: "data/datapoints/geo/electricity-generation-gwh.csv",
     table_id: "energy.energy_generation",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "electricity-generation-gwh",
       title: "State electricity generation, by fuel (GWh)",
@@ -822,6 +852,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "electricity-requirement-mu",
     csv_path: "data/datapoints/geo/electricity-requirement-mu.csv",
     table_id: "energy.energy_demand_supply",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "electricity-requirement-mu",
       title: "State annual power requirement (MU)",
@@ -851,6 +883,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "electricity-availability-mu",
     csv_path: "data/datapoints/geo/electricity-availability-mu.csv",
     table_id: "energy.energy_demand_supply",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "electricity-availability-mu",
       title: "State annual power availability (MU)",
@@ -880,6 +914,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "per-capita-electricity-availability-kwh",
     csv_path: "data/datapoints/geo/per-capita-electricity-availability-kwh.csv",
     table_id: "energy.energy_demand_supply",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "per-capita-electricity-availability-kwh",
       title: "State per-capita electricity availability (kWh/person/year)",
@@ -918,6 +954,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "coal-consumption-mt",
     csv_path: "data/datapoints/geo/coal-consumption-mt.csv",
     table_id: "energy.energy_fuel_consumption",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "coal-consumption-mt",
       title: "State coal consumption (Mt, by fiscal year)",
@@ -967,6 +1005,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "rooftop-solar-capacity-mw",
     csv_path: "data/datapoints/geo/rooftop-solar-capacity-mw.csv",
     table_id: "energy.energy_installed_capacity",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "rooftop-solar-capacity-mw",
       title: "State rooftop solar installed capacity (MW)",
@@ -1080,6 +1120,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     legacy_artifact_id: "energy/state_oil_product_consumption_kt",
     canonical_parent_indicator_id: "oil-product-consumption-kt",
     table_id: "energy.energy_fuel_consumption",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     facet_axis_id: "oil_product",
     facet_values: [
       {
@@ -1257,6 +1299,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     legacy_artifact_id: "energy/state_plant_load_factor_pct",
     canonical_parent_indicator_id: "plant-load-factor-pct",
     table_id: "energy.energy_generation",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     facet_axis_id: "fuel_type",
     facet_values: [
       {
@@ -1354,6 +1398,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     legacy_artifact_id: "energy/state_power_purchase_share_pct",
     canonical_parent_indicator_id: "power-purchase-share-pct",
     table_id: "energy.energy_demand_supply",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     facet_axis_id: "fuel_type",
     facet_values: [
       { canonical_child_id: "power-purchase-share-pct-coal", legacy_facet_label: "coal" , csv_path: "data/datapoints/geo/power-purchase-share-pct-coal.csv" },
@@ -1482,6 +1528,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "renewable-grid-capacity-mw",
     csv_path: "data/datapoints/geo/renewable-grid-capacity-mw.csv",
     table_id: "energy.energy_installed_capacity",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "renewable-grid-capacity-mw",
       title: "State installed grid-connected renewable capacity (MW, end-March snapshot)",
@@ -1519,6 +1567,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "acs-arr-gap-inr-per-kwh",
     csv_path: "data/datapoints/geo/acs-arr-gap-inr-per-kwh.csv",
     table_id: "energy.energy_distribution_performance",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "acs-arr-gap-inr-per-kwh",
       title: "ACS-ARR gap on electricity sales (₹/kWh, by state)",
@@ -1548,6 +1598,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "distribution-efficiency-pct-billing",
     csv_path: "data/datapoints/geo/distribution-efficiency-pct-billing.csv",
     table_id: "energy.energy_distribution_performance",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "distribution-efficiency-pct-billing",
       title: "Distribution billing efficiency (%, by state)",
@@ -1585,6 +1637,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "distribution-efficiency-pct-collection",
     csv_path: "data/datapoints/geo/distribution-efficiency-pct-collection.csv",
     table_id: "energy.energy_distribution_performance",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "distribution-efficiency-pct-collection",
       title: "Distribution collection efficiency (%, by state)",
@@ -1622,6 +1676,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "distribution-efficiency-pct-td-loss",
     csv_path: "data/datapoints/geo/distribution-efficiency-pct-td-loss.csv",
     table_id: "energy.energy_distribution_performance",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "distribution-efficiency-pct-td-loss",
       title: "Transmission & Distribution loss (%, by state)",
@@ -1668,6 +1724,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     legacy_artifact_id: "energy/state_rpo_compliance_pct",
     canonical_parent_indicator_id: "rpo-compliance-pct",
     table_id: "energy.energy_distribution_performance",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     facet_axis_id: "rpo_segment",
     facet_values: [
       {
@@ -1890,6 +1948,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "pashu-aadhaar-count-goat",
     csv_path: "data/datapoints/geo/pashu-aadhaar-count-goat.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "state-pashu-aadhaar-count-goat",
       title: "Goats tagged with Pashu Aadhaar (state)",
@@ -1965,6 +2025,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     // grain is dispatched at read time via the entity_kind row filter.
     csv_path: "data/datapoints/geo/pashu-aadhaar-count-cattle.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "state-pashu-aadhaar-count-cattle",
       title: "Cattle tagged with Pashu Aadhaar (state)",
@@ -2038,6 +2100,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "state-pashu-aadhaar-count-buffalo",
     csv_path: "data/datapoints/geo/pashu-aadhaar-count-buffalo.csv",
     table_id: "livestock.livestock_pashu_aadhaar",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "state-pashu-aadhaar-count-buffalo",
       title: "Buffaloes tagged with Pashu Aadhaar (state)",
@@ -2380,6 +2444,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     legacy_artifact_id: "agriculture/state_livestock_owner_reg_count",
     canonical_parent_indicator_id: "livestock-owner-reg-count",
     table_id: "livestock.livestock_owner_registration",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     facet_axis_id: "landholding",
     facet_values: [
       {
@@ -2652,6 +2718,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "own-tax-revenue-inr-crore",
     csv_path: "data/datapoints/geo/own-tax-revenue-inr-crore.csv",
     table_id: "fiscal.state_finances",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "own-tax-revenue-inr-crore",
       title: "Own tax revenue (state)",
@@ -2686,6 +2754,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "central-tax-devolution-inr-crore",
     csv_path: "data/datapoints/geo/central-tax-devolution-inr-crore.csv",
     table_id: "fiscal.state_finances",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "central-tax-devolution-inr-crore",
       title: "Central tax devolution (state share)",
@@ -2720,6 +2790,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "revenue-expenditure-inr-crore",
     csv_path: "data/datapoints/geo/revenue-expenditure-inr-crore.csv",
     table_id: "fiscal.state_finances",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "revenue-expenditure-inr-crore",
       title: "Revenue expenditure (state)",
@@ -2754,6 +2826,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "grants-in-aid-inr-crore",
     csv_path: "data/datapoints/geo/grants-in-aid-inr-crore.csv",
     table_id: "fiscal.state_finances",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "grants-in-aid-inr-crore",
       title: "Grants-in-aid from the Centre (state)",
@@ -2788,6 +2862,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "outstanding-liabilities-pct-gsdp",
     csv_path: "data/datapoints/geo/outstanding-liabilities-pct-gsdp.csv",
     table_id: "fiscal.state_finances",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     // G31b (parent plan section 20.11): pilot for the pop-weighted
     // national reference line. The backend writer (G31a / PR #854)
     // emits the sibling CSV at
@@ -2834,6 +2910,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "pension-expenditure-inr-crore",
     csv_path: "data/datapoints/geo/pension-expenditure-inr-crore.csv",
     table_id: "fiscal.state_finances",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "pension-expenditure-inr-crore",
       title: "Pension expenditure (state revenue account)",
@@ -2893,6 +2971,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "state-population-lakhs",
     csv_path: "data/datapoints/geo/state-population-lakhs.csv",
     table_id: "demography.demography_canonical",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "state-population-lakhs",
       title: "State population (lakhs)",
@@ -3191,6 +3271,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     legacy_artifact_id: "economy/nsdp_inr_crore",
     canonical_parent_indicator_id: "nsdp-inr-crore",
     table_id: "economy.economy_canonical",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     facet_axis_id: "price_basis",
     meta: {
       id: "nsdp-inr-crore",
@@ -3271,6 +3353,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "per-capita-nsdp-current-inr",
     csv_path: "data/datapoints/geo/per-capita-nsdp-current-inr.csv",
     table_id: "economy.economy_canonical",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "per-capita-nsdp-current-inr",
       title: "Per-capita NSDP (current prices, INR)",
@@ -3300,6 +3384,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     legacy_artifact_id: "economy/sectoral_gva_inr_crore",
     canonical_parent_indicator_id: "sectoral-gva-inr-crore",
     table_id: "economy.economy_canonical",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     facet_axis_id: "price_basis",
     meta: {
       id: "sectoral-gva-inr-crore",
@@ -3343,6 +3429,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "state-gdp-constant-2011-12-inr-lakh-crore",
     csv_path: "data/datapoints/geo/state-gdp-constant-2011-12-inr-lakh-crore.csv",
     table_id: "economy.economy_canonical",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "state-gdp-constant-2011-12-inr-lakh-crore",
       title: "State GDP at constant 2011-12 prices (INR lakh crore)",
@@ -3373,6 +3461,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "per-capita-consumption-inr",
     csv_path: "data/datapoints/geo/per-capita-consumption-inr.csv",
     table_id: "economy.economy_canonical",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "per-capita-consumption-inr",
       title: "State per-capita private consumption (INR per person per year)",
@@ -3716,6 +3806,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     legacy_artifact_id: "environment/state_power_sector_co2_emissions_mtco2",
     canonical_parent_indicator_id: "state-power-sector-co2-emissions-mtco2",
     table_id: "environment.environment_canonical",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     facet_axis_id: "fuel_type",
     meta: {
       id: "state-power-sector-co2-emissions-mtco2",
@@ -3824,6 +3916,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     legacy_artifact_id: "fiscal/net_transfers_from_centre",
     canonical_parent_indicator_id: "net-transfers-from-centre-inr-crore",
     table_id: "fiscal.fiscal_canonical",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     facet_axis_id: "budget_phase",
     meta: {
       id: "net-transfers-from-centre-inr-crore",
@@ -3874,6 +3968,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "state-external-debt-inr-crore",
     csv_path: "data/datapoints/geo/state-external-debt-inr-crore.csv",
     table_id: "fiscal.fiscal_canonical",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "state-external-debt-inr-crore",
       title: "State external debt (INR crore)",
@@ -3905,6 +4001,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "non-tax-revenue-inr-crore",
     csv_path: "data/datapoints/geo/non-tax-revenue-inr-crore.csv",
     table_id: "fiscal.fiscal_canonical",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "non-tax-revenue-inr-crore",
       title: "State non-tax revenue (INR crore)",
@@ -3995,6 +4093,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     legacy_artifact_id: "prices/cpi_inflation_pct",
     canonical_parent_indicator_id: "cpi-inflation-pct",
     table_id: "prices.prices_canonical",
+    // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     facet_axis_id: "cpi_subindex",
     meta: {
       id: "cpi-inflation-pct",

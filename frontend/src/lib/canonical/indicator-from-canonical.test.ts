@@ -1163,9 +1163,10 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/MoSPI|RBI|restate|revision/i);
   });
 
-  // G29 pilot + G30 wave-2 (parent plan section 14.5 / 15 / 16): the
-  // first descriptor (G29) and the next 5 environment descriptors (G30
-  // wave-2) flipped from the legacy 923-LOC maplibre
+  // G29 pilot + G30 wave-2 + G30 wave-3 (parent plan section 14.5 / 15
+  // / 16): the first descriptor (G29) + the 5 environment descriptors
+  // (G30 wave-2) + the remaining 50 state-grain welfare descriptors
+  // (G30 wave-3) flipped from the legacy 923-LOC maplibre
   // `<IndicatorChoropleth>` to the d3-geo SVG F2b.3 `<GeoChoropleth>`
   // primitive. The dispatch is a thin per-descriptor opt-in via
   // `renderer_override` in the allowlist; these tests pin both (a) the
@@ -1199,20 +1200,155 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     }
   });
 
-  it("G29 pilot + G30 wave-2 - exactly 6 descriptors carry renderer_override = geo-choropleth-f2b (enumerated lockdown)", () => {
+  it("G30 wave-3 - each of the 50 remaining state-grain welfare descriptors carries renderer_override = geo-choropleth-f2b", () => {
+    // Wave-3 closes the state-grain fence: every state-grain descriptor
+    // (single + facet-multiplexed) in the allowlist now routes through
+    // the d3-geo SVG GeoChoropleth primitive. Districts + country grain
+    // are out of scope (the IndicatorChoropleth dispatch ignores the
+    // flag at non-state grain so the worst-case is a silent no-op).
+    const WAVE_3_LEGACY_IDS = [
+      // energy (29 descriptors)
+      "energy/state_peak_electricity_demand_mw",
+      "energy/state_peak_met_mw",
+      "energy/state_per_capita_electricity_consumption_kwh",
+      "energy/state_electricity_sales_mu",
+      "energy/state_atc_losses_pct",
+      "energy/state_installed_capacity_by_source_mw",
+      "energy/state_electricity_generation_by_source_gwh",
+      "energy/installed_capacity_coal_mw",
+      "energy/installed_capacity_gas_mw",
+      "energy/installed_capacity_hydro_mw",
+      "energy/installed_capacity_nuclear_mw",
+      "energy/installed_capacity_renewable_mw",
+      "energy/state_installed_capacity_geographical_mw",
+      "energy/state_installed_capacity_with_alloc_mw",
+      "energy/state_electricity_generation_mu",
+      "energy/state_power_requirement_mu",
+      "energy/state_power_availability_mu",
+      "energy/state_per_capita_availability_kwh",
+      "energy/state_coal_consumption_mt",
+      "energy/state_rooftop_solar_capacity_mw",
+      "energy/state_oil_product_consumption_kt",
+      "energy/state_plant_load_factor_pct",
+      "energy/state_power_purchase_share_pct",
+      "energy/state_renewable_grid_capacity_mw",
+      "energy/state_acs_arr_gap_inr_per_kwh",
+      "energy/state_distribution_billing_efficiency_pct",
+      "energy/state_distribution_collection_efficiency_pct",
+      "energy/state_distribution_td_loss_pct",
+      "energy/state_rpo_compliance_pct",
+      // agriculture (4 descriptors - state-rollup pashu_aadhaar + livestock owner reg)
+      "agriculture/state_pashu_aadhaar_count_goat",
+      "agriculture/state_pashu_aadhaar_count_cattle",
+      "agriculture/state_pashu_aadhaar_count_buffalo",
+      "agriculture/state_livestock_owner_reg_count",
+      // fiscal (8 descriptors)
+      "fiscal/state_own_tax_revenue_inr_crore",
+      "fiscal/state_share_central_taxes_inr_crore",
+      "fiscal/state_revenue_expenditure_inr_crore",
+      "fiscal/state_grants_in_aid_inr_crore",
+      "fiscal/outstanding_debt_pct_gsdp",
+      "fiscal/state_pension_expenditure_inr_crore",
+      "fiscal/net_transfers_from_centre",
+      "fiscal/state_external_debt_inr_crore",
+      "fiscal/state_non_tax_revenue_inr_crore",
+      // demography (1 descriptor)
+      "demography/state_population_lakhs",
+      // economy (5 descriptors - per_capita_nsdp_constant_inr is the G29 pilot, NOT wave-3)
+      "economy/nsdp_inr_crore",
+      "economy/per_capita_nsdp_current_inr",
+      "economy/sectoral_gva_inr_crore",
+      "economy/state_gdp_constant_2011_12_inr_lakh_crore",
+      "economy/state_per_capita_consumption_inr",
+      // environment (1 descriptor - the 5 air-quality + FGD descriptors are wave-2)
+      "environment/state_power_sector_co2_emissions_mtco2",
+      // prices (1 descriptor)
+      "prices/cpi_inflation_pct",
+    ] as const;
+    expect(WAVE_3_LEGACY_IDS.length).toBe(50);
+    for (const legacy_id of WAVE_3_LEGACY_IDS) {
+      const d = getCanonicalDescriptor(legacy_id);
+      expect(d, `descriptor ${legacy_id} missing from allowlist`).not.toBeNull();
+      expect(
+        d!.renderer_override,
+        `descriptor ${legacy_id} missing renderer_override flip`,
+      ).toBe("geo-choropleth-f2b");
+    }
+  });
+
+  it("G29 pilot + G30 wave-2 + G30 wave-3 — exactly 56 descriptors carry renderer_override = geo-choropleth-f2b (enumerated lockdown)", () => {
     const flipped = CANONICAL_BACKED_INDICATORS.filter(
       (d) => d.renderer_override !== undefined,
     );
     const expected_legacy_ids = new Set<string>([
       // G29 pilot (PR #855)
       "economy/per_capita_nsdp_constant_inr",
-      // G30 wave-2 (this PR)
+      // G30 wave-2 (merge fef48a7a)
       "environment/state_pm25_annual_mean_ug_m3",
       "environment/state_thermal_fgd_installed_share_pct",
       "environment/state_pm10_annual_mean_ug_m3",
       "environment/state_so2_annual_mean_ug_m3",
       "environment/state_no2_annual_mean_ug_m3",
+      // G30 wave-3 (this PR) - all remaining state-grain welfare descriptors
+      // energy (29)
+      "energy/state_peak_electricity_demand_mw",
+      "energy/state_peak_met_mw",
+      "energy/state_per_capita_electricity_consumption_kwh",
+      "energy/state_electricity_sales_mu",
+      "energy/state_atc_losses_pct",
+      "energy/state_installed_capacity_by_source_mw",
+      "energy/state_electricity_generation_by_source_gwh",
+      "energy/installed_capacity_coal_mw",
+      "energy/installed_capacity_gas_mw",
+      "energy/installed_capacity_hydro_mw",
+      "energy/installed_capacity_nuclear_mw",
+      "energy/installed_capacity_renewable_mw",
+      "energy/state_installed_capacity_geographical_mw",
+      "energy/state_installed_capacity_with_alloc_mw",
+      "energy/state_electricity_generation_mu",
+      "energy/state_power_requirement_mu",
+      "energy/state_power_availability_mu",
+      "energy/state_per_capita_availability_kwh",
+      "energy/state_coal_consumption_mt",
+      "energy/state_rooftop_solar_capacity_mw",
+      "energy/state_oil_product_consumption_kt",
+      "energy/state_plant_load_factor_pct",
+      "energy/state_power_purchase_share_pct",
+      "energy/state_renewable_grid_capacity_mw",
+      "energy/state_acs_arr_gap_inr_per_kwh",
+      "energy/state_distribution_billing_efficiency_pct",
+      "energy/state_distribution_collection_efficiency_pct",
+      "energy/state_distribution_td_loss_pct",
+      "energy/state_rpo_compliance_pct",
+      // agriculture (4)
+      "agriculture/state_pashu_aadhaar_count_goat",
+      "agriculture/state_pashu_aadhaar_count_cattle",
+      "agriculture/state_pashu_aadhaar_count_buffalo",
+      "agriculture/state_livestock_owner_reg_count",
+      // fiscal (9)
+      "fiscal/state_own_tax_revenue_inr_crore",
+      "fiscal/state_share_central_taxes_inr_crore",
+      "fiscal/state_revenue_expenditure_inr_crore",
+      "fiscal/state_grants_in_aid_inr_crore",
+      "fiscal/outstanding_debt_pct_gsdp",
+      "fiscal/state_pension_expenditure_inr_crore",
+      "fiscal/net_transfers_from_centre",
+      "fiscal/state_external_debt_inr_crore",
+      "fiscal/state_non_tax_revenue_inr_crore",
+      // demography (1)
+      "demography/state_population_lakhs",
+      // economy (5)
+      "economy/nsdp_inr_crore",
+      "economy/per_capita_nsdp_current_inr",
+      "economy/sectoral_gva_inr_crore",
+      "economy/state_gdp_constant_2011_12_inr_lakh_crore",
+      "economy/state_per_capita_consumption_inr",
+      // environment (1)
+      "environment/state_power_sector_co2_emissions_mtco2",
+      // prices (1)
+      "prices/cpi_inflation_pct",
     ]);
+    expect(expected_legacy_ids.size).toBe(56);
     const actual_legacy_ids = new Set<string>(
       flipped.map((d) => d.legacy_artifact_id),
     );
