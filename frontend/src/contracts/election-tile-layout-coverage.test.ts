@@ -24,8 +24,11 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..", "..");
 const layoutPath = resolve(repoRoot, "datasets", "grapher", "election_tile_layouts.json");
-const acDir = resolve(repoRoot, "datasets", "boundaries", "in", "ac");
-const pcBndPath = resolve(repoRoot, "datasets", "boundaries", "in", "pc", "delim=2024", "all.geojson");
+// G10 (2026-06-07) moved electoral boundaries to a delim-partitioned subtree.
+// AC -> datasets/boundaries/electoral/delim=2008/ac/state=<slug>/all.{geojson,topojson}
+// PC -> datasets/boundaries/electoral/delim=2024/pc/all.{geojson,topojson}
+const acDir = resolve(repoRoot, "datasets", "boundaries", "electoral", "delim=2008", "ac");
+const pcBndPath = resolve(repoRoot, "datasets", "boundaries", "electoral", "delim=2024", "pc", "all.geojson");
 
 const DELIM_YEAR = 2008;
 
