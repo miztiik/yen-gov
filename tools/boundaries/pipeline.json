@@ -37,6 +37,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S22-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Tamil Nadu — 234 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -70,6 +71,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S11-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Himachal Pradesh — 68 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -103,6 +105,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S25-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Odisha — 147 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -136,6 +139,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27) — S03 EXCLUDED from swap and KEPT on HTL. ramSeraph LGD slice for State_LGD=18 (Assam) ships the post-2023 Delimitation Commission Order boundaries and names, but the SoT (and ALL ECI election results yen-gov surfaces) remain on the pre-2023 delimitation. Joining post-2023 polygons to pre-2023 ac_no=>name SoT yields 1/126 name parity (e.g. ac_no=1 → LGD 'Ratabari' vs SoT 'Gossaigaon'). Deferred until the paired SoT refresh to post-2023 delim ships (gated on first ECI election result published under the new delimitation). See TODO/20260527-state-ac-map-universal-coverage-plan.md §1 Verdict table (PR #431) and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "Hindustan Times Labs",
         "title": "HTL state-AC shapefile bundle",
@@ -164,6 +168,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL U07-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Puducherry — 30 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -196,6 +201,7 @@
     },
     {
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "shijithpk",
         "title": "J&K Assembly New Borders (georeferenced)",
@@ -224,6 +230,7 @@
     {
       "$comment": "Phase A.1.a (2026-05-29 rip-and-replace) — S01 swapped from HTL 2008-vintage to ramSeraph LGD release via the LGD-golden doctrine carve-out for upstream legacy numbering. The LGD slice for (State_LGD=28 AND st_name='ANDHRA PRADESH') returns 177 features carrying pre-2014 unified AP+TG ac_no 0-294. We project ac_no to SoT post-2014 1-175 via name-based rewrite while preserving lgd_legacy_ac_no + lgd_ac_id + lgd_st_name on every feature for LGD-golden traceability. Excluded post-PR #431 deferral resolved here. See docs/archive/plans/20260529-boundary-rip-and-replace-plan.md (LGD-golden doctrine + Phase A.1.a) and docs/archive/notes/2026-05-29-phase-b-verdict-correction.md (LGD probe evidence: 178 features under double filter, 100% name parity to SoT 175).",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -267,6 +274,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S02-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Arunachal Pradesh — 60 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -300,6 +308,7 @@
     {
       "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S04-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 99% name parity for Bihar (243 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -333,6 +342,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S05-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Goa — 40 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -366,6 +376,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S06-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Gujarat — 182 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -399,6 +410,7 @@
     {
       "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S07-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 97% name parity for Haryana (90 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -432,6 +444,7 @@
     {
       "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S08-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 99% name parity for Himachal Pradesh (68 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -465,6 +478,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S10-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Haryana — 90 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -498,6 +512,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S12-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Jammu & Kashmir — 90 AC seats; post-UT delimitation effective from 2022. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -531,6 +546,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S13-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Karnataka — 224 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -564,6 +580,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S14-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Kerala — 140 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -597,6 +614,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S15-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Madhya Pradesh — 230 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -630,6 +648,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S16-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Maharashtra — 288 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -663,6 +682,7 @@
     {
       "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S17-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 100% name parity for Nagaland (60 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -696,6 +716,7 @@
     {
       "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S18-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 97% name parity for Odisha (147 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -729,6 +750,7 @@
     {
       "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S19-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 100% name parity for Punjab (117 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -762,6 +784,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S20-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Manipur — 60 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -795,6 +818,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S21-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Meghalaya — 60 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -828,6 +852,7 @@
     {
       "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S23-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 100% name parity for Tripura (60 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -861,6 +886,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S24-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Nagaland — 60 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -894,6 +920,7 @@
     {
       "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S26-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 99% name parity for Chhattisgarh (90 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -927,6 +954,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S27-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Sikkim — 32 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -960,6 +988,7 @@
     {
       "$comment": "Phase D.2 swap (2026-05-25): replaced HTL S28-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 100% name parity for Uttarakhand (70 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -993,6 +1022,7 @@
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S29-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. West Bengal — 294 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
@@ -1026,6 +1056,7 @@
     {
       "$comment": "Phase D.2 swap (2026-05-25): replaced HTL U05-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. D.1 recon (PR #270 / docs/archive/notes/2026-05-25-d1-ac-consolidation-recon.md) confirmed 100% AC_NO coverage and 97% name parity for NCT of Delhi (70 ACs). See Phase D.2 of TODO/20260524-boundary-coverage-expansion-plan.md.",
       "kind": "ac",
+      "delimitation_vintage": "2008",
       "source_triple": {
         "producer": "ramSeraph",
         "title": "Indian Admin Boundaries (LGD-keyed)",
