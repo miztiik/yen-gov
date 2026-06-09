@@ -34,6 +34,12 @@ export const perAcSwing: MutationPlugin<PerAcSwingConfig> = {
   label: "Per-AC vote swing",
   summary: "Move a fixed number of votes from one or more source parties to a single destination, inside one AC. Total AC votes conserved.",
   docs_anchor: "how-per-ac-swing-works",
+  // Per-AC vote transfer preserves state-wide totals; under Proportional
+  // (Sainte-Lague) the seat allocation is keyed off state-wide aggregates
+  // so this mutation has zero visible effect. Listed for FPTP / IRV /
+  // Approval where the per-AC winner can flip. Per Fowler verdict
+  // (2026-06-09).
+  allowed_rules: ["fptp", "ranked-choice", "approval"],
 
   apply(tallies: Tallies, cfg: PerAcSwingConfig): Tallies {
     if (cfg.votes <= 0) return tallies;

@@ -136,6 +136,23 @@ export interface MutationPlugin<C extends MutationConfig = MutationConfig> {
    * that the info icon deep-links to. The UI prefixes the repo blob URL.
    */
   docs_anchor: string;
+  /**
+   * Counting-rule ids this mutation is meaningful under. Omit (or set
+   * undefined) to apply under every rule. Per Fowler verdict
+   * (2026-06-09): each mutation OWNS the constraint that defines when
+   * its effect is visible. perAcSwing and thresholdDrop are per-AC
+   * vote transfers that preserve state-wide totals - they have zero
+   * visible effect under Proportional, which aggregates state-wide.
+   * statewideSwing and partyBag DO change state-wide totals so they
+   * stay rule-agnostic.
+   *
+   * The Psephlab "+ Add what-if" menu filters MUTATIONS by
+   * `applicableMutationsFor(rule_id)` (lib/psephlab/applicable-mutations.ts).
+   * Already-encoded scenarios with disallowed mutations are kept-but-
+   * struck-through with explanatory micro-copy (never silently dropped
+   * - share-URL contract).
+   */
+  allowed_rules?: ReadonlyArray<string>;
   /** Apply the mutation. Pure. */
   apply(tallies: Tallies, config: C): Tallies;
   /** Default config when the user adds this mutation from the UI. */

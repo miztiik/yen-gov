@@ -16,6 +16,12 @@ export const thresholdDrop: MutationPlugin<ThresholdDropConfig> = {
   label: "Threshold drop",
   summary: "Per AC, eliminate every candidate below N% and split their votes proportionally among survivors. NOTA is exempt from both dropping and receiving.",
   docs_anchor: "how-threshold-drop-works",
+  // Per-AC eliminate-and-redistribute preserves state-wide totals; under
+  // Proportional this is invisible (state-wide aggregates unchanged).
+  // Under FPTP / IRV / Approval the per-AC winner can flip. A future
+  // PR-specific 'national-threshold' mutation would belong in a separate
+  // plug-in file. Per Fowler verdict (2026-06-09).
+  allowed_rules: ["fptp", "ranked-choice", "approval"],
 
   apply(tallies: Tallies, cfg: ThresholdDropConfig): Tallies {
     if (cfg.threshold_pct <= 0) return tallies;
