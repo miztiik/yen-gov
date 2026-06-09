@@ -19,6 +19,7 @@
     applicableMutationsFor,
     inertReasonFor,
   } from "../lib/psephlab/applicable-mutations";
+  import { buildMethodPreviews } from "../lib/psephlab/method-preview";
   import {
     EMPTY_SCENARIO,
     decodeScenario,
@@ -129,9 +130,23 @@
       ? findEvent(event_catalogue, state_code, event)?.display ?? null
       : null,
   );
+  /** Live preview map: rule_id -> { top: PreviewItem[]; chamber }.
+   *  Computed ONCE when actuals load (memoised in $derived; recomputes
+   *  only on actuals identity change, which happens on event switch =
+   *  page reload). 12 rule.apply() runs at ~3ms each = ~40ms one-time
+   *  cost on TN-234; well under the page-mount budget which is
+   *  dominated by the DuckDB-WASM 800-1500ms boot.
+   *
+   *  Per Jony + Fowler ship-loop verdict (2026-06-09): the drawer
+   *  cards render this as a citizen-readable "DMK 133 / AIADMK 66 /
+   *  INC 18" line below the headline, plus MMP chamber suffix. */
+  const method_previews = $derived(buildMethodPreviews(actuals, RULES));
+
   /** All 12 method options the picker drawer renders. Carries each
    *  rule's validity + headline + short_label so the drawer + pill
-   *  read the rule's own copy without a second translation layer. */
+   *  read the rule's own copy without a second translation layer.
+   *  Threads the precomputed preview (top-3 + chamber) so each card
+   *  shows the live seat outcome under that rule. */
   const method_options = $derived(
     RULES.map((r) => ({
       id: r.id,
@@ -139,6 +154,8 @@
       short_label: r.short_label,
       headline: r.headline,
       validity: r.validity,
+      preview: method_previews?.get(r.id),
+      constituency_seats: actuals?.acs.length,
     })),
   );
 

@@ -22,6 +22,33 @@
     short_label?: string;
     headline?: string;
     validity: "fully_workable" | "medium_validity";
+    /** Optional live-preview payload (top-3 parties + chamber size)
+     *  rendered as a one-line readout below the headline. Populated
+     *  by the host (Psephlab.svelte) via
+     *  `buildMethodPreviews(actuals, RULES)` once actuals load.
+     *  Absent during the still-loading arm; cards then render
+     *  without preview lines. Per Jony + Fowler ship-loop verdict
+     *  (2026-06-09). */
+    preview?: MethodPreview;
+    /** Constituency seat count for the active election - used to
+     *  decide whether to show the MMP-overhang chamber suffix
+     *  ` (234 -> 304)`. */
+    constituency_seats?: number;
+  }
+
+  /** One row in the preview. Inline-typed here to keep the drawer
+   *  free of cross-file imports from `psephlab/method-preview` (the
+   *  helper module owns the construction; the drawer only renders). */
+  export interface MethodPreviewItem {
+    party_short: string;
+    party_id: string;
+    seats: number;
+    hex: string | null;
+  }
+
+  export interface MethodPreview {
+    top: ReadonlyArray<MethodPreviewItem>;
+    chamber: number;
   }
 
   export interface MethodDrawerProps {
@@ -54,6 +81,28 @@
   /** Pure helper: validity-badge text (per-card). */
   export function validityBadgeText(tier: "fully_workable" | "medium_validity"): string {
     return tier === "fully_workable" ? "Fully workable" : "Experimental";
+  }
+
+  /** Pure helper: render the preview top-N as a citizen-readable
+   *  one-liner. Joined by ` / ` per Jony verdict. Returns the empty
+   *  string for an empty preview. Mirrors
+   *  `psephlab/method-preview.ts::formatPreviewLine`; duplicated to
+   *  avoid the drawer importing from the psephlab subtree (the
+   *  drawer is a presentation primitive). */
+  export function formatDrawerPreviewLine(preview: MethodPreview | undefined): string {
+    if (!preview || preview.top.length === 0) return "";
+    return preview.top.map((p) => `${p.party_short} ${p.seats}`).join(" / ");
+  }
+
+  /** Pure helper: MMP chamber-growth suffix when chamber > constituency.
+   *  Returns empty when the rule does not grow the chamber. */
+  export function formatDrawerChamberSuffix(
+    preview: MethodPreview | undefined,
+    constituency_seats: number | undefined,
+  ): string {
+    if (!preview || constituency_seats == null) return "";
+    if (preview.chamber === constituency_seats) return "";
+    return ` (${constituency_seats} -> ${preview.chamber})`;
   }
 </script>
 
@@ -160,6 +209,20 @@
                     {#if m.headline}
                       <p class="text-xs" style:color="var(--ink-muted, #64748b)">
                         {m.headline}
+                      </p>
+                    {/if}
+                    {#if m.preview && m.preview.top.length > 0}
+                      {@const line = formatDrawerPreviewLine(m.preview)}
+                      {@const suffix = formatDrawerChamberSuffix(m.preview, m.constituency_seats)}
+                      <p
+                        class="text-xs font-medium tabular-nums leading-snug"
+                        style:color="var(--ink, #0f172a)"
+                        data-component="method-card-preview"
+                      >
+                        <span>{line}</span>
+                        {#if suffix}
+                          <span style:color="var(--ink-muted, #64748b)">{suffix}</span>
+                        {/if}
                       </p>
                     {/if}
                   </button>

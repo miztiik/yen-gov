@@ -6,10 +6,13 @@
 
 import { describe, expect, it } from "vitest";
 import {
+  formatDrawerChamberSuffix,
+  formatDrawerPreviewLine,
   partitionByValidity,
   validityBadgeText,
   validityTierLabel,
   type MethodPickerOption,
+  type MethodPreview,
 } from "./MethodDrawer.svelte";
 
 const SAMPLE: MethodPickerOption[] = [
@@ -92,5 +95,52 @@ describe("validityBadgeText", () => {
 
   it("returns 'Experimental' for medium_validity", () => {
     expect(validityBadgeText("medium_validity")).toBe("Experimental");
+  });
+});
+
+describe("formatDrawerPreviewLine", () => {
+  it("renders a citizen-readable line of top-N parties joined by ' / '", () => {
+    const preview: MethodPreview = {
+      top: [
+        { party_short: "DMK", party_id: "parties.IN.DMK", seats: 133, hex: null },
+        { party_short: "AIADMK", party_id: "parties.IN.AIADMK", seats: 66, hex: null },
+        { party_short: "INC", party_id: "parties.IN.INC", seats: 18, hex: null },
+      ],
+      chamber: 234,
+    };
+    expect(formatDrawerPreviewLine(preview)).toBe("DMK 133 / AIADMK 66 / INC 18");
+  });
+
+  it("returns empty string for undefined preview (still-loading arm)", () => {
+    expect(formatDrawerPreviewLine(undefined)).toBe("");
+  });
+
+  it("returns empty string for empty preview top", () => {
+    expect(formatDrawerPreviewLine({ top: [], chamber: 234 })).toBe("");
+  });
+});
+
+describe("formatDrawerChamberSuffix", () => {
+  it("returns empty when chamber equals constituency_seats (no overhang)", () => {
+    expect(
+      formatDrawerChamberSuffix({ top: [], chamber: 234 }, 234),
+    ).toBe("");
+  });
+
+  it("returns ' (234 -> 304)' for MMP chamber growth", () => {
+    expect(
+      formatDrawerChamberSuffix({ top: [], chamber: 304 }, 234),
+    ).toBe(" (234 -> 304)");
+  });
+
+  it("returns empty when preview or constituency_seats absent", () => {
+    expect(formatDrawerChamberSuffix(undefined, 234)).toBe("");
+    expect(formatDrawerChamberSuffix({ top: [], chamber: 304 }, undefined)).toBe("");
+  });
+
+  it("uses ASCII '->' (no Unicode arrow)", () => {
+    const out = formatDrawerChamberSuffix({ top: [], chamber: 16 }, 10);
+    expect(out).toContain("->");
+    expect(Array.from(out).every((c) => c.charCodeAt(0) < 128)).toBe(true);
   });
 });
