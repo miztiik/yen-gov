@@ -29,6 +29,7 @@ import DataCompleteness from "./routes/DataCompleteness.svelte";
 import DevChartsSandbox from "./routes/DevChartsSandbox.svelte";
 import Yenask from "./routes/Yenask.svelte";
 import IndicatorDoc from "./routes/IndicatorDoc.svelte";
+import CountingMethodDoc from "./routes/CountingMethodDoc.svelte";
 import NotFound from "./routes/NotFound.svelte";
 
 // Mount the persistent shell once. The router replaces the contents of
@@ -180,6 +181,18 @@ startRouter({
       pattern: "/docs/indicator/:topic/:id",
       component: IndicatorDoc,
       parse: ({ topic, id }) => ({ indicator_id: `${topic}/${id}` }),
+    },
+    // Per-counting-method documentation page (2026-06-09 redesign,
+    // Fowler verdict route topology). Mirrors /docs/indicator/ shape:
+    // ONE generic CountingMethodDoc.svelte reading TS-constant caveat
+    // + assumptions from the rule registry + linking out to authoritative
+    // Markdown long-form at docs/concepts/counting-methods/<method>.md.
+    // 3-segment pattern with literal `/docs/lab/`, distinct from every
+    // other route by both the literal and the segment count.
+    {
+      pattern: "/docs/lab/:method",
+      component: CountingMethodDoc,
+      parse: ({ method }) => ({ method }),
     },
   ],
   notFound: { pattern: "*", component: NotFound },
