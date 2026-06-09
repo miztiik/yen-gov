@@ -304,11 +304,12 @@ describe("contract — schema registry sanity", () => {
   it("accepts json-corpus additive minors but filters future and old-major overrides", () => {
     // G9 (2026-06-08) retarget: was `processing.schema.json` (3 versions in
     // changelog: 1.0/2.0/3.0/3.1); retargeted to `manifest.schema.json`
-    // (versions 1.0/1.1/1.2/1.3 in changelog, current 1.3) after the
+    // (versions 1.0/1.1/1.2/1.3/1.4 in changelog, current 1.4) after the
     // processing schema retired with config/processing.json. The behaviour
     // under test (filter major mismatches, drop future versions, keep
     // in-changelog minors-not-greater-than-current) is independent of the
-    // sample schema, so this swap is faithful.
+    // sample schema, so this swap is faithful. Pin updated 2026-06-09 with
+    // the manifest 1.3 -> 1.4 widening for _ops/ prefix deprecation rows.
     const manifest = SCHEMAS.get("manifest.schema.json");
     expect(manifest).toBeDefined();
 
@@ -321,10 +322,10 @@ describe("contract — schema registry sanity", () => {
       }],
     }, [manifest!]);
 
-    // Default current 1.3 is always in the set; 1.0 and 1.1 pass (additive
+    // Default current 1.4 is always in the set; 1.0 and 1.1 pass (additive
     // minors in changelog, minor <= current); 0.9 filtered (major
     // mismatch); 1.9 filtered (future + not in changelog).
-    expect(accepted.get("manifest.schema.json")).toEqual(new Set(["1.0", "1.1", "1.3"]));
+    expect(accepted.get("manifest.schema.json")).toEqual(new Set(["1.0", "1.1", "1.4"]));
   });
 });
 

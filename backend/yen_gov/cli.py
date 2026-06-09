@@ -317,6 +317,9 @@ def emit_taxonomy(
     parquet path is an implementation detour, not a citizen-visible
     artifact.
     """
+    from yen_gov.canonical.alliance_membership_csv import (
+        emit as _emit_alliance_membership_csv,
+    )
     from yen_gov.canonical.entities_seed import (
         compile_to_parquet as _compile_entities,
     )
@@ -467,6 +470,54 @@ def emit_taxonomy(
             typer.echo(
                 f"{prefix}: skipped party_alliances.csv (parquet retired; "
                 "committed CSV is authoritative)"
+            )
+
+        # 9) alliance_membership -> CSV emit (plan section 20.4).
+        # Back-fills datasets/data/datapoints/alliance_membership.csv from
+        # the per-CM-tenure alliance field on office_holdings.json (real
+        # term boundaries) plus the per-event snapshot in
+        # party_alliances.csv (term_start = event polled_on date; term_end
+        # null since the snapshot does not record an end). PK is
+        # (alliance_id, party_id, term_start); holdings-derived rows win
+        # on collision because they carry explicit term_end values. Per
+        # Holy Law #9 every row carries source_id FK to source.csv -
+        # resolved by URL match against either the holding's
+        # citation_group_id.url_main or the office_citations[office_id]
+        # entry. The emitter surfaces unresolved party-ECI codes and
+        # source URLs as diagnostics for operator follow-up; the offending
+        # rows are SKIPPED, never silently dropped or guessed.
+        alliance_membership_csv = (
+            root / "datasets" / "data" / "datapoints" / "alliance_membership.csv"
+        )
+        am_result = _emit_alliance_membership_csv(
+            office_holdings_json=office_holdings_json,
+            party_alliances_csv=alliances_csv,
+            parties_entities_csv=root
+            / "datasets"
+            / "data"
+            / "entities"
+            / "parties.csv",
+            election_events_json=taxonomy_dir / "election_events.json",
+            source_csv=root / "datasets" / "data" / "entities" / "source.csv",
+            out_csv_path=alliance_membership_csv,
+        )
+        typer.echo(
+            f"{prefix}: wrote {am_result.out_csv_path.relative_to(root).as_posix()} "
+            f"[datasets/data/datapoints/alliance_membership.csv] "
+            f"({am_result.rows_written} rows: "
+            f"{am_result.from_holdings} from office_holdings.json, "
+            f"{am_result.from_party_alliances} from party_alliances.csv)"
+        )
+        if am_result.unresolved_party_eci_codes:
+            typer.echo(
+                f"{prefix}: alliance_membership skipped holdings with unresolved "
+                f"party ECI codes: {list(am_result.unresolved_party_eci_codes)}"
+            )
+        if am_result.unresolved_source_urls:
+            typer.echo(
+                f"{prefix}: alliance_membership skipped holdings with unresolved "
+                f"source URLs (not in source.csv): "
+                f"{list(am_result.unresolved_source_urls)}"
             )
 
         _regenerate_manifest(root / "datasets", dry_run=dry_run)

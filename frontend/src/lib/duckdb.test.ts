@@ -23,7 +23,7 @@ import {
 
 const SAMPLE_MANIFEST: Manifest = {
   $schema: "./schemas/manifest.schema.json",
-  $schema_version: "1.3",
+  $schema_version: "1.4",
   manifest_version: "1.0",
   generated_at: "2026-05-18T12:00:00Z",
   tables: [
@@ -118,7 +118,7 @@ describe("manifest helpers", () => {
     await expect(loadManifest()).rejects.toThrow(/schema_version_unsupported: manifest schema_version 9\.9/);
     const manifest = await loadManifest();
 
-    expect(manifest.$schema_version).toBe("1.3");
+    expect(manifest.$schema_version).toBe("1.4");
     expect(fetchSpy).toHaveBeenCalledTimes(2);
   });
 
