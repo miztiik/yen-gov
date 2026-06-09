@@ -30,6 +30,7 @@ import DevChartsSandbox from "./routes/DevChartsSandbox.svelte";
 import Yenask from "./routes/Yenask.svelte";
 import IndicatorDoc from "./routes/IndicatorDoc.svelte";
 import CountingMethodDoc from "./routes/CountingMethodDoc.svelte";
+import RedirectLegacyUrl from "./routes/RedirectLegacyUrl.svelte";
 import NotFound from "./routes/NotFound.svelte";
 
 // Mount the persistent shell once. The router replaces the contents of
@@ -52,74 +53,59 @@ mount(LeftRail, { target: document.getElementById("rail")! });
 // resolver (state) or by parsing the numeric prefix (AC). Party slugs are
 // `{short}-{eci_code_lower}`; the page derives the ECI code from the
 // trailing token to avoid needing a parties index at routing time.
+//
+// Route ordering (load-bearing per the first-match-wins resolver):
+//   1. Chrome literals (`/`, `/about`, `/settings`, etc.) come FIRST so
+//      they always win over the Grammar A `/:state` catch-all.
+//   2. Multi-segment literal-rooted routes (`/lab/...`, `/compare/...`,
+//      `/docs/...`, `/t/...`) come next; they're segment-count + literal
+//      distinguished from Grammar A.
+//   3. The Grammar B legacy redirect `/s/*` catches every legacy URL
+//      before Grammar A inspects it.
+//   4. Grammar A routes follow, most-specific first; the 1-segment
+//      `/:state` catch-all is LAST so it never poaches a literal route.
+//
+// Per ADR-0037 / TODO/20260609-url-prefix-drop-phase0-plan.md PR-P1:
+// the legacy `/s/<state>/...` routes are no longer registered as
+// distinct entries - the single `/s/*` catch-all routes them all
+// through RedirectLegacyUrl, which rewrites the path to Grammar A
+// and replaceState-flips the URL bar.
 startRouter({
   target: document.getElementById("route")!,
   routes: [
+    // === 1. Root + chrome literals (single-segment, MUST come before
+    //        the 1-segment Grammar A `/:state` catch-all). ===
     { pattern: "/", component: Home },
-    { pattern: "/s/:state", component: StateOverview },
-    // Canonical single-constituency drill-down (ADR-0052). The election
-    // event is part of the resource identity, so it lives in the PATH,
-    // nested beneath the state's election overview:
-    //   /s/<state>/elections/<event>/ac/<n-slug>
-    // 6-segment pattern, distinct from every other route by both segment
-    // count and the `elections`/`ac` literals, so order is not load-bearing.
-    {
-      pattern: "/s/:state/elections/:event/ac/:ac",
-      component: Constituency,
-      parse: ({ state, event, ac }) => ({
-        state,
-        event,
-        ac_slug: ac,
-        eci_no: parseAcSlug(ac) ?? -1,
-      }),
-    },
-    // Bare-AC convenience entry (ADR-0052). Not a canonical resource: it
-    // carries no election in its path, so Constituency resolves the
-    // state's default event and replaceState-redirects to the nested
-    // canonical form above. A legacy `?event=<e>` query (the pre-ADR-0052
-    // shape) is honoured by the same redirect for one release.
-    {
-      pattern: "/s/:state/ac/:ac",
-      component: Constituency,
-      parse: ({ state, ac }) => ({
-        state,
-        ac_slug: ac,
-        eci_no: parseAcSlug(ac) ?? -1,
-      }),
-    },
-    {
-      pattern: "/s/:state/party/:party",
-      component: Party,
-      parse: ({ state, party }) => ({ state, party_slug: party }),
-    },
-    { pattern: "/s/:state/explore", component: Explore },
-    // Per-state per-district landing (U2 sub-plan U2a). Place-first geo
-    // axis lives in the PATH never the querystring (parent plan section
-    // 23.5 + 20.8). 4-segment pattern, distinct from /s/:state (2 seg)
-    // and /s/:state/t/:topic (4 seg with literal `t`); route order is
-    // not load-bearing. The `district` slug is opaque to the router and
-    // resolved at render time inside District.svelte against the LGD
-    // district `display_name` via slugify().
-    //
-    // Reserved (NOT registered): `/sd/:subdistrict` per parent plan
-    // section 23.5. The shape is held for a future chunk that lifts
-    // subdistrict-grain data; until then it intentionally falls through
-    // to NotFound so we do not ship a route that points at no data.
-    {
-      pattern: "/s/:state/d/:district",
-      component: District,
-      parse: ({ state, district }) => ({ state, district_slug: district }),
-    },
-    // Per-state topic page (IA-reset Step #2). Sits under /s/:state and is
-    // pattern-distinct from /s/:state (different segment count), so order
-    // here is not load-bearing.
-    { pattern: "/s/:state/t/:topic", component: StateTopic },
-    // Per-state per-event election landing (ADR-0023, Q1 2026-05-24).
-    // Distinct from /lab/ (analyst surface) and /compare/ (cross-state
-    // results compare) — this is the neutral citizen permalink for a
-    // specific cohort's results in a specific state. Linked from the
-    // `/s/<state>/t/elections` topic page's default-event card.
-    { pattern: "/s/:state/elections/:event", component: StateElection },
+    { pattern: "/settings", component: Settings },
+    { pattern: "/about", component: About },
+    { pattern: "/disclaimer", component: Disclaimer },
+    // Topic Front Door (P3.3, ADR-0022).
+    { pattern: "/t", component: TopicIndex },
+    // Generic indicator Compare (P4) — sits alongside the more-specific
+    // election Compare below; the two patterns don't overlap.
+    { pattern: "/compare", component: CompareIndicator },
+    // Citizen transparency surface (folded-indicator PR commit 10).
+    { pattern: "/data-completeness", component: DataCompleteness },
+
+    // === 2. Multi-segment literal-rooted routes. ===
+    // Phase 6 (charting modernisation plan) — dev sandbox that mounts
+    // every Phase 1.6 / 3.5 generic renderer against synthetic fixture
+    // data. Not citizen-discoverable; not linked from the left rail.
+    { pattern: "/dev/charts-sandbox", component: DevChartsSandbox },
+    // YENASK (display name Yen-Ask) — browser governance insight
+    // assistant. Mounted under /lab/ alongside the analyst lab routes
+    // (/lab/:state/:event). Dev-only — not citizen-discoverable, not
+    // linked from the left rail. See ADR-0040 (brand + lab-route
+    // placement) and ADR-0039 (Slice E LLM-OS architecture).
+    // Pattern-distinct from /lab/:state/:event (2 vs 3 segments) so
+    // route order is not load-bearing. Removal = git rm of
+    // routes/Yenask.svelte + lib/yenask/ + this entry.
+    { pattern: "/lab/yenask", component: Yenask },
+    // National Lok Sabha PC results atlas (UK-style elections plan, PR-B4).
+    // 3-segment pattern, distinct from /t/:topic (2 segments); placed first
+    // so the more-specific route wins regardless of matcher order.
+    { pattern: "/t/elections/:event", component: NationalElectionsAtlas },
+    { pattern: "/t/:topic", component: TopicLanding },
     // Method-first Psephlab route (2026-06-09 redesign, Fowler verdict).
     // 4-segment pattern - distinct from the 3-segment bare lab route by
     // segment count + literal `m`. The method_id is opaque to the router
@@ -141,34 +127,6 @@ startRouter({
       parse: ({ state, event, method }) => ({ state, event, method }),
     },
     { pattern: "/compare/:state/:event", component: Compare },
-    // Generic indicator Compare (P4) — sits alongside the more-specific
-    // election Compare above; the two patterns don't overlap.
-    { pattern: "/compare", component: CompareIndicator },
-    { pattern: "/settings", component: Settings },
-    { pattern: "/about", component: About },
-    { pattern: "/disclaimer", component: Disclaimer },
-    // Topic Front Door (P3.3, ADR-0022).
-    { pattern: "/t", component: TopicIndex },
-    // National Lok Sabha PC results atlas (UK-style elections plan, PR-B4).
-    // 3-segment pattern, distinct from /t/:topic (2 segments); placed first
-    // so the more-specific route wins regardless of matcher order.
-    { pattern: "/t/elections/:event", component: NationalElectionsAtlas },
-    { pattern: "/t/:topic", component: TopicLanding },
-    // Citizen transparency surface (folded-indicator PR commit 10).
-    { pattern: "/data-completeness", component: DataCompleteness },
-    // Phase 6 (charting modernisation plan) — dev sandbox that mounts
-    // every Phase 1.6 / 3.5 generic renderer against synthetic fixture
-    // data. Not citizen-discoverable; not linked from the left rail.
-    { pattern: "/dev/charts-sandbox", component: DevChartsSandbox },
-    // YENASK (display name Yen-Ask) — browser governance insight
-    // assistant. Mounted under /lab/ alongside the analyst lab routes
-    // (/lab/:state/:event). Dev-only — not citizen-discoverable, not
-    // linked from the left rail. See ADR-0040 (brand + lab-route
-    // placement) and ADR-0039 (Slice E LLM-OS architecture).
-    // Pattern-distinct from /lab/:state/:event (2 vs 3 segments) so
-    // route order is not load-bearing. Removal = git rm of
-    // routes/Yenask.svelte + lib/yenask/ + this entry.
-    { pattern: "/lab/yenask", component: Yenask },
     // Per-indicator documentation page (U5b, parent plan section 20.12
     // IndicatorDoc bullet). 4-segment pattern with the literal `/docs/`
     // + literal `indicator/` + 2 catalogue-key segments
@@ -194,6 +152,80 @@ startRouter({
       component: CountingMethodDoc,
       parse: ({ method }) => ({ method }),
     },
+
+    // === 3. Grammar B legacy redirect (catches `/s/...` for every
+    //        legacy state URL and replaceState-flips it to Grammar A).
+    //        Placed BEFORE Grammar A routes so the literal `/s/` wins
+    //        over the Grammar A `/:state` catch-all for citizens
+    //        landing on legacy bookmarks. Per ADR-0037 / TODO
+    //        20260609-url-prefix-drop-phase0-plan.md PR-P1. ===
+    { pattern: "/s/*", component: RedirectLegacyUrl },
+
+    // === 4. Grammar A: place-first cascade per ADR-0037, most-specific
+    //        first. The 1-segment `/:state` catch-all MUST be last so
+    //        every literal chrome route (above) wins on a name clash.
+    //        Disjointness against chrome literals is guaranteed by
+    //        `frontend/src/contracts/url-namespace-disjointness.test.ts`. ===
+    // Canonical single-constituency drill-down (ADR-0052). Event lives
+    // in PATH per ADR-0052; 5-segment pattern (state + literal
+    // `elections` + event + literal `ac` + ac slug).
+    {
+      pattern: "/:state/elections/:event/ac/:ac",
+      component: Constituency,
+      parse: ({ state, event, ac }) => ({
+        state,
+        event,
+        ac_slug: ac,
+        eci_no: parseAcSlug(ac) ?? -1,
+      }),
+    },
+    // Bare-AC convenience entry (ADR-0052). Not a canonical resource:
+    // Constituency resolves the state's default event and
+    // replaceState-redirects to the nested canonical form above.
+    {
+      pattern: "/:state/ac/:ac",
+      component: Constituency,
+      parse: ({ state, ac }) => ({
+        state,
+        ac_slug: ac,
+        eci_no: parseAcSlug(ac) ?? -1,
+      }),
+    },
+    {
+      pattern: "/:state/party/:party",
+      component: Party,
+      parse: ({ state, party }) => ({ state, party_slug: party }),
+    },
+    // Per-state per-district landing (U2 sub-plan U2a). Place-first geo
+    // axis lives in the PATH never the querystring (parent plan section
+    // 23.5 + 20.8). 3-segment pattern with literal `d`, distinct from
+    // every other 3-segment pattern by its literal. The `district` slug
+    // is opaque to the router and resolved at render time inside
+    // District.svelte against the LGD district `display_name` via slugify().
+    //
+    // Reserved (NOT registered): positional `/<state>/<district>` (no
+    // `/d/` marker) per ADR-0037 routing.md - requires a runtime
+    // depth-2 dispatcher with a district + indicator + AC registry,
+    // deferred to a follow-up.
+    {
+      pattern: "/:state/d/:district",
+      component: District,
+      parse: ({ state, district }) => ({ state, district_slug: district }),
+    },
+    // Per-state topic page (IA-reset Step #2).
+    { pattern: "/:state/t/:topic", component: StateTopic },
+    // Per-state per-event election landing (ADR-0023, Q1 2026-05-24).
+    // Distinct from /lab/ (analyst surface) and /compare/ (cross-state
+    // results compare) — this is the neutral citizen permalink for a
+    // specific cohort's results in a specific state.
+    { pattern: "/:state/elections/:event", component: StateElection },
+    // Per-state explorer.
+    { pattern: "/:state/explore", component: Explore },
+    // State hub (1-segment catch-all). MUST be the LAST 1-segment
+    // pattern in the table - every chrome literal above this line will
+    // win on a name clash, and the disjointness contract guarantees no
+    // state slug equals a chrome literal.
+    { pattern: "/:state", component: StateOverview },
   ],
   notFound: { pattern: "*", component: NotFound },
 });
