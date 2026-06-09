@@ -133,6 +133,18 @@
       <TopicIcon name="vote" cls="w-6 h-6 text-slate-500 shrink-0" />
       <span>{#if result}{result.constituency_name ?? `AC ${result.eci_no}`}{:else}AC {params.eci_no}{/if}</span>
     </h1>
+    <!-- G12 (EL4) in-page back-link. Duplicates the GeoBreadcrumb crumb on
+         purpose: the breadcrumb is chrome, this is contextual "I'm done with
+         this AC, take me back to the state hub." -->
+    {#if state_code}
+      <p class="text-sm">
+        <a
+          href={url.state(state_code)}
+          class="text-slate-500 hover:underline"
+          data-testid="back-to-state"
+        >← Back to {states.name(state_code)}</a>
+      </p>
+    {/if}
     <p class="text-sm text-slate-500">
       {states.name(state_code)} · constituency #{params.eci_no}
     </p>

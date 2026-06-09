@@ -66,7 +66,10 @@
   const event = $derived(params.event);
 
   const DELIM_YEAR = 2008;
-  const HEIGHT = "560px";
+  // G13 (EL5): map demoted from hero to companion. Height shrunk from
+  // the original 560px so the seat-bar + ranked party list above it carry
+  // the primary visual weight.
+  const HEIGHT = "420px";
 
   // ─── Winners load ───────────────────────────────────────────────────
   let result = $state<LoaderResult<NationalPcWinner[]>>({ status: "loading" });
@@ -309,6 +312,15 @@
 
 <main class="mx-auto max-w-5xl space-y-5 p-4">
   <header class="space-y-1">
+    <!-- G12 (EL4) in-page back-link to the India home. Citizen returns
+         from the national atlas to the all-India entry. -->
+    <p class="text-sm">
+      <a
+        href="/"
+        class="text-slate-500 hover:underline"
+        data-testid="back-to-india"
+      >← Back to India</a>
+    </p>
     <h1 class="text-2xl font-semibold text-slate-900">
       National results — Parliamentary Constituencies
     </h1>
@@ -350,23 +362,35 @@
             ></div>
           {/each}
         </div>
-        <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-600">
-          {#each seat_totals.slice(0, 8) as p (p.label)}
-            <span class="inline-flex items-center gap-1">
-              <span
-                class="inline-block h-2.5 w-2.5 rounded-sm"
-                style:background-color={p.color}
-              ></span>
-              {p.label}
-              <span class="font-medium text-slate-900">{p.seats}</span>
-            </span>
-          {/each}
-        </div>
+        <!-- G13 (EL5): expanded per-party legend. The previous slice(0, 8)
+             truncated the ranked party list at 8; with the map demoted to a
+             companion, the seat-bar + FULL party list become the primary
+             surface. Wrapped in <details open> so the citizen can collapse
+             the long list when scrolling. -->
+        <details open data-testid="national-seat-ranked-list">
+          <summary class="cursor-pointer text-xs text-slate-500 mb-1">
+            All parties ranked by seats ({seat_totals.length})
+          </summary>
+          <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-600">
+            {#each seat_totals as p (p.label)}
+              <span class="inline-flex items-center gap-1">
+                <span
+                  class="inline-block h-2.5 w-2.5 rounded-sm"
+                  style:background-color={p.color}
+                ></span>
+                {p.label}
+                <span class="font-medium text-slate-900">{p.seats}</span>
+              </span>
+            {/each}
+          </div>
+        </details>
       </section>
     {/if}
 
-    <!-- View toggle -->
-    <div class="flex items-center justify-between gap-3">
+    <!-- G13 (EL5): view toggle + filter rail collapsed into a single thin
+         sub-header strip, right-aligned above the map. Visually demotes
+         these controls relative to the seat-bar + ranked-list block. -->
+    <div class="flex items-center justify-end gap-3 flex-wrap">
       <p class="text-xs text-slate-500">
         {view === "hex" ? "Each tile = one seat" : "Seats sized by geography"}
       </p>
@@ -398,16 +422,16 @@
           Equal seats
         </button>
       </div>
-    </div>
 
-    {#if !pending && winners.length > 0}
-      <ElectionFilterRail
-        {filters}
-        parties={party_options}
-        coverage={mode_coverage}
-        onChange={onFilterChange}
-      />
-    {/if}
+      {#if !pending && winners.length > 0}
+        <ElectionFilterRail
+          {filters}
+          parties={party_options}
+          coverage={mode_coverage}
+          onChange={onFilterChange}
+        />
+      {/if}
+    </div>
 
     {#if pending}
       <div
@@ -420,7 +444,9 @@
     {/if}
 
     {#if view === "geo"}
-      <div data-testid="national-election-map-geo">
+      <!-- G13 (EL5): map container narrowed to max-w-4xl so the seat-bar
+           + ranked-list above retain primary visual weight. -->
+      <div class="max-w-4xl mx-auto" data-testid="national-election-map-geo">
         <MapChoropleth
           entry={INDIA_PC}
           {fills}
@@ -433,7 +459,7 @@
         />
       </div>
     {:else}
-      <div data-testid="national-election-map-hex">
+      <div class="max-w-4xl mx-auto" data-testid="national-election-map-hex">
         {#if layout_unavailable}
           <div
             class="flex items-center justify-center rounded border border-dashed border-slate-300 bg-slate-50 p-6 text-center text-sm text-slate-500"

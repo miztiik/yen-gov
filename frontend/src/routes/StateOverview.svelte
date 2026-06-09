@@ -758,21 +758,23 @@
       </section>
     {:else if event_row && summary && acs}
 
-    <!-- Top row: map (3fr) + donut + key totals (2fr).
-         At <lg the donut wraps below the map (single column). -->
-    <section class="grid lg:grid-cols-[3fr_2fr] gap-6 items-start">
-      {#if event && STATE_AC[state_code]}
-        <div class="bg-white rounded-lg shadow-sm p-4 min-w-0">
-          <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Constituency map</h2>
-          <StateAcMap state={state_code} rows={summary?.ac_winners ?? null} {event} />
-          <p class="text-xs text-slate-400 mt-2">
-            Hover for winner & margin · click an AC to drill in. Darker fill = larger winning margin.
-          </p>
-        </div>
-      {:else}
-        <div></div>
-      {/if}
+    <!-- G13 (EL5): RacesBoard lifted to be the FIRST election section.
+         The map below is demoted to a companion (right column, 2fr); the
+         donut + KPI block becomes the dominant left column (3fr). The
+         relative column heights of the races board are themselves the
+         headline, so it leads the election cluster. -->
+    {#if event}
+      <section class="bg-white rounded-lg shadow-sm p-5" data-testid="races-board">
+        <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Races by competitiveness</h2>
+        <RacesBoard state={state_code} rows={summary?.ac_winners ?? null} {event} />
+      </section>
+    {/if}
 
+    <!-- Top row: donut + key totals (3fr LEFT) + map (2fr RIGHT).
+         At <lg the map wraps below the donut (single column). G13 (EL5)
+         demoted the map from hero (was 3fr LEFT) to companion (2fr
+         RIGHT). -->
+    <section class="grid lg:grid-cols-[3fr_2fr] gap-6 items-start">
       <div class="space-y-4 min-w-0">
         <!-- Donut card: subtle radial-tinted background so the chart has
              "presence" against the surrounding white cards instead of
@@ -831,6 +833,18 @@
           </div>
         </div>
       </div>
+
+      {#if event && STATE_AC[state_code]}
+        <section class="bg-white rounded-lg shadow-sm p-4 min-w-0" data-testid="state-ac-map">
+          <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Constituency map</h2>
+          <StateAcMap state={state_code} rows={summary?.ac_winners ?? null} {event} />
+          <p class="text-xs text-slate-400 mt-2">
+            Hover for winner & margin · click an AC to drill in. Darker fill = larger winning margin.
+          </p>
+        </section>
+      {:else}
+        <div></div>
+      {/if}
     </section>
 
     <!-- Full-width seats-by-party bar (below the map row so wide bars
@@ -886,16 +900,6 @@
       <section class="bg-white rounded-lg shadow-sm p-5">
         <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Margin of victory</h2>
         <MarginHistogram rows={summary?.ac_winners ?? null} />
-      </section>
-
-      <!-- Races by competitiveness. Same per-AC margin data as the
-           histogram, viewed as a NYT-style "All races" board: one column
-           per top-3 winning party (their easy wins), then narrow wins,
-           smaller-party wins, and a most-competitive column. The relative
-           column heights are themselves the headline. -->
-      <section class="bg-white rounded-lg shadow-sm p-5">
-        <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Races by competitiveness</h2>
-        <RacesBoard state={state_code} rows={summary?.ac_winners ?? null} {event} />
       </section>
     {/if}
 

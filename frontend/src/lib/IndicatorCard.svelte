@@ -45,6 +45,18 @@
     type IndicatorRender,
   } from "./grapher/catalogue";
   import { url } from "./url";
+  // G12 (EL4) indicator -> election bridge. The per-state indicator card
+  // gets a thin "View latest election for <state>" footer line when
+  // home_state is set. We resolve the latest event via the existing
+  // catalogue helper (defaultEventForState = most-recent assembly, with
+  // an any-kind fallback for UTs that have no assembly entry yet). The
+  // link silently disappears when no event is found (graceful fail-safe).
+  import {
+    fetchElectionEvents,
+    defaultEventForState,
+    type ElectionEventsCatalogue,
+  } from "./election-events";
+  import { states } from "./states.svelte";
   // Phase B reader-switch: per-artifact branch between the legacy
   // `/data/indicators/in/<topic>/<id>.json` shard fetch and a DuckDB-WASM
   // query against the canonical Parquet store. The allowlist in
@@ -215,6 +227,21 @@
   // Link to the topic page until /i/<indicator> exists (per plan §2:
   // "See all states →" → `url.topic(topic.id)`).
   const see_all_href = $derived(url.topic(topic.id));
+
+  // G12 (EL4) bridge state. Lazy-loaded once per IndicatorCard mount via
+  // the shared cached fetcher in election-events.ts. The catalogue is
+  // ~3KB gzipped and de-duped across all callers, so even on a state hub
+  // with 20 IndicatorCards this is one fetch total.
+  let election_catalogue = $state<ElectionEventsCatalogue | null>(null);
+  $effect(() => {
+    if (election_catalogue !== null) return;
+    fetchElectionEvents()
+      .then(c => (election_catalogue = c))
+      .catch(() => { /* non-fatal — the link just hides */ });
+  });
+  const latest_event_for_state = $derived(
+    defaultEventForState(election_catalogue, home_state),
+  );
 </script>
 
 <section
@@ -310,6 +337,19 @@
         data-testid="indicator-card-see-all"
       >See all states →</a>
     </footer>
+
+    <!-- G12 (EL4) bridge: navigate from this indicator card to the home
+         state's latest election landing. Silent fail-safe — if the
+         catalogue hasn't loaded or the state has no events, no link. -->
+    {#if latest_event_for_state && home_state}
+      <p class="text-xs">
+        <a
+          class="text-blue-600 hover:underline"
+          href={url.stateElection(home_state, latest_event_for_state.event_id)}
+          data-testid="indicator-card-latest-election"
+        >View latest election for {states.name(home_state)} →</a>
+      </p>
+    {/if}
 
     <AboutThisData artifact={data} />
   {/if}
