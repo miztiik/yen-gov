@@ -15,12 +15,17 @@ import { dhondt } from "./dhondt";
 import { hamilton } from "./hamilton";
 import { mmp } from "./mmp";
 import { instantRunoff } from "./instantRunoff";
+import { trsRound2 } from "./trsRound2";
+import { borda } from "./borda";
+import { condorcetProxy } from "./condorcetProxy";
 import { approval } from "./approval";
 
-// Round-2 (2026-06-09) expansion: 4 -> 7 rules. D'Hondt + Hamilton + MMP
-// land alongside Sainte-Lague per Hans + Fowler convergence verdict.
-// Order in the array determines picker-card order in the new
-// MethodPicker drawer; FPTP first as the official baseline.
+// Round-2 (2026-06-09) expansion: 4 -> 10 rules. New methods grouped by
+// Hans's validity tier: fully_workable (mechanical re-arrangement of
+// FPTP data) versus medium_validity (requires an explicit assumption
+// India doesn't publish data for). Order in the array determines
+// picker-card order in the MethodPicker drawer; FPTP first as the
+// official baseline.
 export const RULES: CountingRule[] = [
   fptp,
   sainteLague,
@@ -28,6 +33,9 @@ export const RULES: CountingRule[] = [
   hamilton,
   mmp,
   instantRunoff,
+  trsRound2,
+  borda,
+  condorcetProxy,
   approval,
 ];
 
