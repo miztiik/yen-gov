@@ -559,6 +559,170 @@ def _compare_dryrun_file(tmp_file: Path, real_file: Path) -> None:
     )
 
 
+@app.command("derive-national-reference")
+def derive_national_reference(
+    indicator: str = typer.Option(
+        ...,
+        "--indicator",
+        help="Canonical indicator id (file stem under datasets/data/datapoints/geo/).",
+    ),
+    population_indicator: str = typer.Option(
+        "state-population-lakhs",
+        "--population-indicator",
+        help=(
+            "Canonical indicator id used as the population denominator "
+            "for the pop-weighted average (file stem under "
+            "datasets/data/datapoints/geo/)."
+        ),
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Compute and write the national reference series for one indicator (G31a).
+
+    Produces a sibling file
+    ``datasets/data/datapoints/geo/<indicator>-national.csv`` carrying
+    rows for two derived pseudo-entities -- ``IN-pop-weighted`` and
+    ``IN-median`` -- one row per (entity_id, time) per the standard
+    long-format 4-column shape. Idempotent: re-running overwrites the
+    sibling file with the same deterministic output (writer skips the
+    write when bytes match exactly).
+
+    Inputs:
+    - per-state observations:
+      ``datasets/data/datapoints/geo/<indicator>.csv``
+    - population denominator:
+      ``datasets/data/datapoints/geo/<population_indicator>.csv``
+      (defaults to ``state-population-lakhs``).
+    - citation ledger: ``datasets/data/entities/source.csv`` -- the
+      "yen-gov (derived)" row must already exist (B2a/source_csv seed)
+      with the deterministic ``src-...`` id derived from the triple
+      ``("yen-gov (derived)", "National reference line ...",
+      "2026-06-09")``.
+
+    Parent plan section 20.11 (Max + Hans verdict) authorises this
+    derivation. The direction hard gate (``higher_is_better`` /
+    ``lower_is_better`` only -- never ``neutral``) is enforced at the
+    renderer-side seam, not here; this command computes whenever asked.
+    """
+    from yen_gov.canonical.citation import derive_source_id
+    from yen_gov.canonical.csv_writer import write_csv
+    from yen_gov.canonical.national_reference import compute_national_reference_rows
+
+    datapoints_dir = root / "datasets" / "data" / "datapoints" / "geo"
+    indicator_csv = datapoints_dir / f"{indicator}.csv"
+    population_csv = datapoints_dir / f"{population_indicator}.csv"
+    out_csv = datapoints_dir / f"{indicator}-national.csv"
+    source_csv = root / "datasets" / "data" / "entities" / "source.csv"
+
+    if not indicator_csv.exists():
+        typer.echo(f"derive-national-reference: missing input {indicator_csv.as_posix()}", err=True)
+        raise typer.Exit(2)
+    if not population_csv.exists():
+        typer.echo(
+            f"derive-national-reference: missing population denominator "
+            f"{population_csv.as_posix()}",
+            err=True,
+        )
+        raise typer.Exit(2)
+    if not source_csv.exists():
+        typer.echo(
+            f"derive-national-reference: missing citation ledger {source_csv.as_posix()}",
+            err=True,
+        )
+        raise typer.Exit(2)
+
+    # Derived-citation identity per parent plan section 20.11 + CLAUDE.md
+    # section 12 + ADR-0042 (vintage = operator snapshot window). The
+    # vintage is hard-coded (NOT datetime.now per CLAUDE.md section 10
+    # anti-pattern) -- it pins the citation to the operator snapshot
+    # window that this derivation rule was authored against.
+    derived_source_id = derive_source_id(
+        "yen-gov (derived)",
+        "National reference line (pop-weighted average + median of states), "
+        "computed from per-state values",
+        "2026-06-09",
+    )
+
+    sources_text = source_csv.read_text(encoding="utf-8")
+    if derived_source_id not in sources_text:
+        typer.echo(
+            f"derive-national-reference: citation row {derived_source_id!r} missing "
+            f"from {source_csv.as_posix()}; add it before running this command.",
+            err=True,
+        )
+        raise typer.Exit(2)
+
+    state_rows = _read_long_csv(indicator_csv)
+    population_rows = _read_long_csv(population_csv)
+    # Filter the population to state-grain entities (drop IN itself and
+    # any IN-* derived pseudo-entities); the compute function joins by
+    # entity_id and we never want a country-grain population row to be
+    # treated as a state-grain weight.
+    population_rows = [r for r in population_rows if not str(r["entity_id"]).startswith("IN")]
+
+    derived_rows = compute_national_reference_rows(
+        state_rows, population_rows, derived_source_id
+    )
+    if not derived_rows:
+        typer.echo(
+            f"derive-national-reference: zero derived rows for indicator={indicator!r}; "
+            f"writing empty file would still be a no-op.",
+            err=True,
+        )
+        raise typer.Exit(1)
+
+    write_csv(
+        path=out_csv,
+        file_class="datasets/data/datapoints/geo/*.csv",
+        rows=derived_rows,
+    )
+
+    pw_count = sum(1 for r in derived_rows if r["entity_id"] == "IN-pop-weighted")
+    median_count = sum(1 for r in derived_rows if r["entity_id"] == "IN-median")
+    typer.echo(
+        f"derive-national-reference: wrote {out_csv.relative_to(root).as_posix()} "
+        f"({len(derived_rows)} rows: {pw_count} pop-weighted + {median_count} median; "
+        f"input state rows: {len(state_rows)}; source_id: {derived_source_id})"
+    )
+
+
+def _read_long_csv(path: Path) -> list[dict[str, object]]:
+    """Read a 4-column long-format CSV (entity_id, time, value, source_id).
+
+    Parses ``time`` as int and ``value`` as float (empty cell -> None).
+    Used by ``derive-national-reference`` to materialise the per-state
+    and population inputs before handing them to the pure compute
+    function. Tier-B / B1.3 CsvValidator owns full contract checks; this
+    helper is the minimum-viable read for the compute step.
+    """
+    import csv as _csv
+
+    out: list[dict[str, object]] = []
+    with path.open(encoding="utf-8", newline="") as fh:
+        reader = _csv.DictReader(fh)
+        for row in reader:
+            value_raw = (row.get("value") or "").strip()
+            value: float | None = float(value_raw) if value_raw else None
+            out.append(
+                {
+                    "entity_id": row["entity_id"],
+                    "time": int(row["time"]),
+                    "value": value,
+                    "source_id": row.get("source_id") or "",
+                }
+            )
+    return out
+
+
+
 @app.command("ingest-eci-ae-panel")
 def ingest_eci_ae_panel(
     root: Path = typer.Option(

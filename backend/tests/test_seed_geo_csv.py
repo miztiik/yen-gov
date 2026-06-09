@@ -54,10 +54,16 @@ def test_emit_minimal_ladder(tmp_path):
     emit(lgd_states_json=s, lgd_districts_json=d, out_path=out)
     lines = out.read_text(encoding="utf-8").splitlines()
     assert lines[0] == "entity_id,name,parent,entity_kind,aliases,census_2001_code,census_2011_code"
-    # 1 country + 1 state + 1 district = 3 rows
-    assert len(lines) == 4
+    # 1 country + 2 derived national-reference pseudo-entities (G31a)
+    # + 1 state + 1 district = 5 rows
+    assert len(lines) == 6
     body = "\n".join(lines[1:])
     assert "IN,India,,country,IN|IND|356,," in body
+    # G31a derived pseudo-entities live alongside IN with the same
+    # entity_kind and parent=IN; see DERIVED_NATIONAL_REFERENCE_ENTITIES
+    # in backend/yen_gov/canonical/seed/geo_csv.py.
+    assert "IN-median,India (median of states),IN,country,,," in body
+    assert "IN-pop-weighted,India (population-weighted average),IN,country,,," in body
     # eci_st_code (S22) is RETAINED on the alias until the 0e decommission sweep;
     # no census snapshot supplied here, so census cells are empty.
     assert "tamil-nadu,Tamil Nadu,IN,state,IN-TN|S22|lgd:32,," in body
