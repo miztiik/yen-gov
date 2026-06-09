@@ -35,21 +35,23 @@ interface PartyAggregate {
 
 export const sainteLague: CountingRule = {
   id: "proportional",
-  label: "Proportional (Sainte-Lague, state-wide)",
+  label: "Proportional (Sainte-Lague, state pool)",
+  short_label: "Proportional (Sainte-Lague)",
+  headline: "Seats follow vote share, pooled across the state.",
+  validity: "fully_workable",
   requires_banner: true,
   caveat:
-    "Indian Lok Sabha and Vidhan Sabha elections use First-Past-The-Post, " +
-    "not Proportional Representation. This re-allocation takes the SAME " +
-    "ballots cast in this election and distributes seats by the " +
-    "Sainte-Lague divisor method (divisors 1, 3, 5, 7, ...) using " +
-    "state-wide party vote totals. The result is a MECHANICAL " +
-    "illustration of the difference between FPTP and PR - NOT a " +
-    "prediction of how voters would vote under a different system.",
+    "Re-allocates the same ballots state-wide so that a party with about 5% of " +
+    "votes wins about 5% of seats, using the Sainte-Lague divisor method " +
+    "(divisors 1, 3, 5, 7, ...). The per-constituency view goes dark - PR " +
+    "does not bind to places. Watch where this method DIVERGES from the " +
+    "official count - that is where the FPTP geography is doing the heavy " +
+    "lifting.",
   assumptions: [
-    "Voters cast the same ballots under PR as under FPTP (unrealistic - real voters strategise to the system).",
-    "NOTA votes are excluded from the divisor calculation (they cannot translate to a seat).",
-    "Seats are not distributed per-AC; PR allocates state-wide totals.",
-    "Number of seats to allocate = number of ACs in the tally.",
+    "Holds constant: ballots cast remain as cast (real voters strategise to whichever system they vote under).",
+    "Holds constant: state-wide pool; no multi-member districts.",
+    "Holds constant: Sainte-Lague divisors (small-party friendly versus D'Hondt).",
+    "NOTA is excluded from the divisor calculation - it cannot translate to a seat.",
   ],
 
   apply(tallies: Tallies): SeatAllocation {

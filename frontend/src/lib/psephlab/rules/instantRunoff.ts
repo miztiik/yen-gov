@@ -100,22 +100,27 @@ function runoff_one_ac(candidates: readonly CandidateTally[]): CandidateTally | 
 
 export const instantRunoff: CountingRule = {
   id: "ranked-choice",
-  label: "Ranked-choice (IRV, uniform transfer)",
+  label: "Ranked-choice (proportional transfer)",
+  short_label: "Ranked-choice (proportional)",
+  headline: "Eliminate the weakest, share their votes by current strength.",
+  validity: "medium_validity",
   requires_banner: true,
   caveat:
-    "Indian EVMs do not record ranked ballots. This simulator " +
-    "approximates Instant Runoff Voting (IRV) by assuming that when a " +
-    "candidate is eliminated, their votes transfer to the surviving " +
-    "candidates in PROPORTION to those candidates' current vote shares " +
-    "in this AC. Real IRV results depend on voters' actual second / " +
-    "third preferences - data that does not exist. This is a defensible " +
-    "but UN-TESTABLE assumption.",
+    "India's EVMs do not record ranked ballots, so we hold each voter's " +
+    "second preference proportional to current first-preference shares in " +
+    "their constituency. Watch where this method DIVERGES from the official " +
+    "count - the seats that flip are the ones where the FPTP plurality is " +
+    "so structurally narrow that almost any reasonable transfer rule would " +
+    "flip them. The unflipped seats stay neutral; they prove neither " +
+    "stability nor instability under real ranked ballots. Read flips as a " +
+    "lower bound on how different India would look with real ranked-choice " +
+    "ballots.",
   assumptions: [
-    "Voters cast the same first-preference vote as under FPTP.",
-    "When a candidate is eliminated, their votes are redistributed to the surviving candidates in proportion to those candidates' CURRENT vote shares (uniform-transfer rule).",
+    "Holds constant: each voter's first preference matches their FPTP vote.",
+    "Holds constant: when a candidate is eliminated, their votes redistribute to surviving non-NOTA candidates in proportion to those candidates' CURRENT vote shares.",
     "NOTA is never eliminated and never receives transfers; if only NOTA plus one non-NOTA remain, the non-NOTA candidate wins.",
     "Tie-breaking on elimination: lowest votes first; ties broken by candidate name ASC.",
-    "The winner is the first candidate to cross 50% of remaining non-NOTA votes; if no one reaches 50%, the last-standing non-NOTA candidate wins.",
+    "Reveals: the seats where the FPTP plurality is structurally fragile.",
   ],
 
   apply(tallies: Tallies): SeatAllocation {

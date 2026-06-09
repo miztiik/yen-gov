@@ -60,9 +60,32 @@ export interface AcTally {
   candidates: CandidateTally[];
 }
 
+/**
+ * Per-(party_id) alliance label at the time of the active election event.
+ * Returned by `lib/psephlab/alliances.ts::loadAlliances(event)`. Returns
+ * `null` for a party with no curated alliance row for the event - the
+ * caller (alliance-aware counting rule) treats null as "unallied" and
+ * falls back to its proportional sibling for that party's transfer.
+ *
+ * Per Fowler verdict (2026-06-09 round 2): the lookup is a function, not
+ * a Map, so rules carry zero CSV knowledge and tests can inject a 3-line
+ * stub `() => null` for the no-alliance branch.
+ */
+export type AllianceLookup = (party_id: string) => string | null;
+
 export interface Tallies {
   scope: Scope;
   acs: AcTally[];
+  /**
+   * Optional party-to-alliance lookup for the active election event.
+   * Populated by `canonical-loaders.ts::loadActuals` via
+   * `lib/psephlab/alliances.ts::loadAlliances(event)`. Two alliance-aware
+   * rules (TRS Round 2 alliance + Ranked-choice alliance-transfer) read
+   * this; every other rule ignores it. When the CSV has no rows for
+   * the active event the field is `() => null` (transparent fallback),
+   * NOT undefined - downstream code can call without guarding.
+   */
+  alliances?: AllianceLookup;
 }
 
 // ---------- Mutations ----------
@@ -201,6 +224,28 @@ export interface SeatAllocation {
   total_votes: number;
 }
 
+/**
+ * Validity tier for a counting rule. Surfaced inline on the MethodPicker
+ * card + the hero explanation so the citizen knows whether the method's
+ * output is a mechanical re-arrangement of FPTP data (fully_workable) or
+ * rests on a load-bearing assumption that India does not publish data
+ * for (medium_validity). Hans-non-negotiable: this MUST stay inline -
+ * hiding it would be a more subtle form of dishonesty than the Round-1
+ * "HYPOTHETICAL RECOUNT" banner. See Hans verdict round 2 section 9.
+ *
+ * - `fully_workable`: every input the rule consumes is in the FPTP
+ *   ballot. Examples: FPTP, Proportional (D'Hondt / Sainte-Lague /
+ *   Hamilton), MMP. Includes Approval-as-cast (the cleanest example
+ *   of the tier's lower bound - the rule operates exactly, the
+ *   answer happens to mirror FPTP).
+ * - `medium_validity`: the rule REQUIRES data India does not collect
+ *   (ranked ballots, alliance-transfer preferences, pairwise rankings).
+ *   The simulator holds an explicit assumption constant so the rule
+ *   can operate; the assumption is named in `assumptions[]` and the
+ *   load-bearing one is repeated as a hero-card line.
+ */
+export type ValidityTier = "fully_workable" | "medium_validity";
+
 export interface CountingRule {
   id: string;
   label: string;
@@ -227,6 +272,29 @@ export interface CountingRule {
    * set it to true.
    */
   requires_banner?: boolean;
+  /**
+   * Validity tier. Required as of round 2 (2026-06-09). FPTP is
+   * fully_workable (it IS the data). PR variants + MMP are
+   * fully_workable (mechanical re-arrangement). Approval is
+   * fully_workable (the rule operates exactly; the answer mirrors
+   * FPTP). Ranked-choice + Borda + Condorcet + TRS-r2 variants are
+   * medium_validity (require ranked-ballot / alliance / pairwise
+   * data India does not publish).
+   */
+  validity: ValidityTier;
+  /**
+   * Optional one-line headline (<= 12 words, encouraging-visionary
+   * register) shown above the hero explanation card. Defaults to
+   * generated copy when absent. Hans's round-2 headline + per-method
+   * rewrites should be the source.
+   */
+  headline?: string;
+  /**
+   * Optional citizen-readable short label (<= 30 chars, encouraging
+   * tone) for the MethodPicker chip + the URL pill. Falls back to
+   * `label` when absent. Round-2 picker reads this preferentially.
+   */
+  short_label?: string;
 }
 
 // ---------- Scenarios ----------

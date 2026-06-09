@@ -42,6 +42,9 @@ function tally_winner(candidates: { votes: number; name: string }[]):
 export const fptp: CountingRule = {
   id: "fptp",
   label: "First-Past-The-Post",
+  short_label: "Winner takes the seat",
+  headline: "What India actually counted on results night.",
+  validity: "fully_workable",
   apply(tallies: Tallies): SeatAllocation {
     const by_ac: AcOutcome[] = [];
     // Aggregate per-party totals across all ACs.
