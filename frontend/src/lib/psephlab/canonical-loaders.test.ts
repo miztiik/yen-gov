@@ -52,6 +52,7 @@ const candidateRows = [
     party_id: "parties.IN.DMK",
     brand_colour_hex: "#e2231a",
     brand_colour_confidence: "high" as const,
+    election_symbol_asset_path: "party-symbols/rising-sun.svg",
     votes: 126_452,
     is_nota: 0,
   },
@@ -64,6 +65,7 @@ const candidateRows = [
     party_id: "parties.IN.PMK",
     brand_colour_hex: null,
     brand_colour_confidence: null,
+    election_symbol_asset_path: null,
     votes: 75_514,
     is_nota: 0,
   },
@@ -78,6 +80,7 @@ const candidateRows = [
     party_id: "parties.IN.NOTA",
     brand_colour_hex: null,
     brand_colour_confidence: null,
+    election_symbol_asset_path: null,
     votes: 20_103,
     is_nota: 1,
   },
@@ -91,6 +94,7 @@ const candidateRows = [
     party_id: null,
     brand_colour_hex: null,
     brand_colour_confidence: null,
+    election_symbol_asset_path: null,
     votes: 100_000,
     is_nota: 0,
   },
@@ -140,6 +144,7 @@ describe("loadActuals - happy path", () => {
       party_id: "parties.IN.DMK",
       brand_colour_hex: "#e2231a",
       brand_colour_confidence: "high",
+      election_symbol_asset_path: "party-symbols/rising-sun.svg",
     });
     expect(ac1.candidates[1]).toEqual({
       party_eci_code: "742",
@@ -149,6 +154,7 @@ describe("loadActuals - happy path", () => {
       party_id: "parties.IN.PMK",
       brand_colour_hex: null,
       brand_colour_confidence: null,
+      election_symbol_asset_path: null,
     });
     expect(ac1.candidates[2]).toEqual({
       party_eci_code: "NOTA",
@@ -158,6 +164,7 @@ describe("loadActuals - happy path", () => {
       party_id: "parties.IN.NOTA",
       brand_colour_hex: null,
       brand_colour_confidence: null,
+      election_symbol_asset_path: null,
     });
   });
 
@@ -176,6 +183,7 @@ describe("loadActuals - happy path", () => {
       party_id: "parties.IN.IND",
       brand_colour_hex: null,
       brand_colour_confidence: null,
+      election_symbol_asset_path: null,
     });
   });
 
