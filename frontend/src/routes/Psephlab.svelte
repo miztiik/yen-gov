@@ -14,7 +14,7 @@
   import { loadActuals } from "../lib/psephlab/canonical-loaders";
   import { run } from "../lib/psephlab/engine";
   import { MUTATIONS, mutationById } from "../lib/psephlab/mutations";
-  import { RULES } from "../lib/psephlab/rules";
+  import { RULES, ruleById } from "../lib/psephlab/rules";
   import {
     EMPTY_SCENARIO,
     decodeScenario,
@@ -33,6 +33,8 @@
   import { partyColourHex } from "../lib/psephlab/colour-bridge";
   import ParliamentArc from "../lib/ParliamentArc.svelte";
   import SwingSankey from "../lib/SwingSankey.svelte";
+  import HypotheticalRecountBanner from "../lib/HypotheticalRecountBanner.svelte";
+  import GallagherDisproportionality from "../lib/charts/GallagherDisproportionality.svelte";
   import { states } from "../lib/states.svelte";
   import { url } from "../lib/url";
   import TopicIcon from "../lib/TopicIcon.svelte";
@@ -78,6 +80,29 @@
   const result = $derived.by(() => {
     if (!actuals) return null;
     return run(actuals, scenario);
+  });
+
+  // E6 alternate-counting metadata (Hans's "fabricated-input" gate per
+  // TODO/20260608-e6-user-override-and-pl2-pl3-execution-subplan.md).
+  // - current_rule: full CountingRule for the active scenario; used to
+  //   read caveat / assumptions / requires_banner.
+  // - fptp_official: the SAME tally run under FPTP, regardless of the
+  //   active rule. Used to (a) compose the "Official result: ..." label
+  //   the banner cites + (b) feed GallagherDisproportionality (which
+  //   measures the OFFICIAL FPTP system's disproportionality, NOT the
+  //   counterfactual rule's). Per Hans verdict, Gallagher is a measurement
+  //   of FPTP, not of any counterfactual.
+  const current_rule = $derived(ruleById(scenario.rule));
+  const fptp_official = $derived.by(() => {
+    if (!actuals) return null;
+    return ruleById("fptp").apply(actuals);
+  });
+  const official_result_label = $derived.by(() => {
+    if (!fptp_official || fptp_official.by_party.length === 0) return undefined;
+    const seats_total = actuals?.acs.length ?? 0;
+    const top = fptp_official.by_party[0];
+    if (top.seats_won === 0) return undefined;
+    return `${top.party_short} won ${top.seats_won} of ${seats_total} seats (FPTP)`;
   });
 
   // Distinct parties pulled from actuals — populates the swap dropdowns.
@@ -483,6 +508,20 @@
 
         <!-- Parliament arc -->
         <div class="bg-white rounded-lg shadow-sm p-4">
+          {#if current_rule.requires_banner}
+            <div class="mb-3">
+              <HypotheticalRecountBanner
+                method={current_rule.label}
+                assumptions={current_rule.assumptions}
+                official_result_label={official_result_label}
+              />
+              {#if current_rule.caveat}
+                <p class="mt-2 text-xs text-rose-900 leading-snug">
+                  {current_rule.caveat}
+                </p>
+              {/if}
+            </div>
+          {/if}
           <div class="flex items-baseline justify-between mb-2 gap-2">
             <h3 class="text-sm font-semibold uppercase text-slate-500">Scenario seats</h3>
             {#if hidden_parties.size > 0}
@@ -507,6 +546,24 @@
           <h3 class="text-sm font-semibold uppercase text-slate-500 mb-2">Vote flow (actuals → scenario)</h3>
           <SwingSankey actuals={result.actuals_allocation.by_party} scenario={result.allocation.by_party} />
         </div>
+
+        <!-- E7 Gallagher disproportionality of the official FPTP system -->
+        {#if fptp_official}
+          <div class="bg-white rounded-lg shadow-sm p-4">
+            <h3 class="text-sm font-semibold uppercase text-slate-500 mb-3">
+              Gallagher index (official FPTP result)
+            </h3>
+            <p class="text-xs text-slate-500 mb-3">
+              How much did seat shares diverge from vote shares in the actual
+              FPTP election? Lower is more proportional. This always measures
+              the official result, not any counterfactual rule above.
+            </p>
+            <GallagherDisproportionality
+              allocation={fptp_official}
+              total_seats={total_seats}
+            />
+          </div>
+        {/if}
 
         <!-- Before / After party bar -->
         <div class="grid md:grid-cols-2 gap-4">
