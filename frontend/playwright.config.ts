@@ -52,7 +52,22 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
-  workers: process.env.CI ? 2 : 4,
+  // CI: workers=1 so DuckDB-WASM cold-init (worker boot, MVP-load, view
+  // registration for parties.csv + party_alliances.csv + electoral.csv +
+  // ac_crosswalk.csv) is paid ONCE per project, not 2x in parallel.
+  // Local: 4 workers for fast iteration. The trade-off: serial CI runs
+  // ~1.7x longer but stop the cold-start race that timed out 33 specs
+  // on 2026-06-07 / 2026-06-09 (every cohort-switch test waiting for
+  // `getByText(/DMK/)` exceeded the 30s default per-test timeout while
+  // two parallel workers fought for DuckDB-WASM init bandwidth).
+  workers: process.env.CI ? 1 : 4,
+  // Per-test timeout: 30s default is too tight on ubuntu-latest cold
+  // start when the test pivots on a DuckDB-WASM cohort switch (test
+  // selects a non-default election cohort, then waits for a party-chip
+  // selector that depends on a full CSV-fan-out + view rebuild). 90s
+  // gives the cold ubuntu-latest container headroom; warm tests still
+  // complete in <2s locally and remain green-fast.
+  timeout: process.env.CI ? 90_000 : 30_000,
   reporter: process.env.CI ? [["github"], ["list"]] : "list",
   grep: GREP,
   grepInvert: GREP ? undefined : /@bench/,
