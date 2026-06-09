@@ -101,7 +101,7 @@ if str(BACKEND) not in sys.path:
     sys.path.insert(0, str(BACKEND))
 
 # local helpers (tools/boundaries/_paths.py, tools/boundaries/snapshot.py)
-from _paths import derive_hive  # noqa: E402
+from _paths import _eci_to_slug, derive_hive  # noqa: E402
 from snapshot import (  # noqa: E402
     SNAPSHOT_BYTE_BUDGET,
     _round_coords_geom,
@@ -279,11 +279,14 @@ def lift_panchayats_to_per_district_shards(
         )
         if not state_districts:
             continue
+        # ECI -> LGD-name slug at the derive_hive boundary (Hans+Max+Gregor
+        # verdict, 2026-06-09, Item 1 of the G10 follow-on).
+        state_slug = _eci_to_slug(eci)
         for dist_lgd in state_districts:
             bucket = groups[(state_lgd, dist_lgd)]
             partition_path, layer_id = derive_hive(
                 kind="panchayats",
-                state=eci,
+                state_slug=state_slug,
                 district_lgd=str(dist_lgd),
             )
             bucket_sorted = sort_features_deterministically(bucket)

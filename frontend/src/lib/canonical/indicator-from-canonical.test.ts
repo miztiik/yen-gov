@@ -66,13 +66,17 @@ import { fetchIndicator } from "../indicators";
 import { FORBIDDEN_SOURCE_FIELDS } from "../source-list-v2";
 import {
   buildIndicatorArtifact,
+  buildNationalReferenceSeries,
   canonicalEntityToLegacy,
   entityKindToAdminLevel,
+  indicatorArtifactNationalReference,
   indicatorArtifactSourcesV2,
   legacyArtifactIdFromPath,
   loadIndicator,
   loadIndicatorFromCanonical,
   loadIndicatorIfCanonical,
+  NATIONAL_REFERENCE_LABEL_DEFAULT,
+  type NationalReferenceRow,
 } from "./indicator-from-canonical";
 import {
   CANONICAL_BACKED_INDICATORS,
@@ -1157,6 +1161,30 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/end-?March|snapshot|STOCK|stock/i);
     expect(d!.caveats![2]).toMatch(/cumulative|annual|flow|difference/i);
     expect(d!.caveats![2]).toMatch(/MoSPI|RBI|restate|revision/i);
+  });
+
+  // G29 pilot (parent plan section 14.5 / 15 / 16): the first descriptor
+  // flipped from the legacy 923-LOC maplibre `<IndicatorChoropleth>` to
+  // the d3-geo SVG F2b.3 `<GeoChoropleth>` primitive. The dispatch is a
+  // thin per-descriptor opt-in via `renderer_override` in the allowlist;
+  // these tests pin both (a) the pilot scope ("only THIS descriptor has
+  // the flag") and (b) the value lockdown ("the flag value is the
+  // expected literal"). Subsequent indicators get their own PRs; this
+  // lockdown is the contract the next PR's author must update when they
+  // add a second flipped descriptor.
+  it("G29 pilot — per-capita-nsdp-constant-inr carries renderer_override = geo-choropleth-f2b", () => {
+    const d = getCanonicalDescriptor("economy/per_capita_nsdp_constant_inr");
+    expect(d).not.toBeNull();
+    expect(d!.renderer_override).toBe("geo-choropleth-f2b");
+  });
+
+  it("G29 pilot — NO other descriptor in the allowlist sets renderer_override (single-flip lockdown)", () => {
+    const flipped = CANONICAL_BACKED_INDICATORS.filter(
+      (d) => d.renderer_override !== undefined,
+    );
+    expect(flipped.map((d) => d.legacy_artifact_id)).toEqual([
+      "economy/per_capita_nsdp_constant_inr",
+    ]);
   });
 });
 
@@ -2788,5 +2816,208 @@ describe("Phase C/D — descriptor without csv_path raises (no parquet back-comp
       /missing csv_path: synthetic-child-a, synthetic-child-b/,
     );
     expect(mockedQuery).not.toHaveBeenCalled();
+  });
+});
+
+// G31b — National reference line seam (parent plan section 20.11).
+// The loader opportunistically fetches `<canonical-id>-national.csv`
+// when the descriptor opts in via `has_national_reference: true`,
+// filters to `IN-pop-weighted` rows, and attaches them via a WeakMap
+// side-channel (`indicatorArtifactNationalReference(artifact)`). The
+// pilot is `outstanding-liabilities-pct-gsdp` (the only descriptor
+// carrying the flag today); follow-on PRs add one indicator at a time
+// per the "per-indicator allowlist seam" doctrine.
+
+describe("G31b - national reference rows (opportunistic sibling-CSV load)", () => {
+  it("attaches pop-weighted rows from the sibling CSV when has_national_reference is set", async () => {
+    // Three mock queries: base obs, source ledger, sibling CSV.
+    mockedQuery
+      .mockResolvedValueOnce([
+        { entity_id: "andhra-pradesh", time: 2007, value: 27.4, source_id: "src-17c983e79ed9" },
+      ])
+      .mockResolvedValueOnce([
+        {
+          source_id: "src-17c983e79ed9",
+          producer: "Reserve Bank of India",
+          title: "State Finances: A Study of Budgets, 2022-23 (Appendix Table 20)",
+          vintage: "2022-23",
+          license: "OGL-IN-1.0",
+          confidence_tier: "gold",
+          is_issuing_authority: true,
+          verification_method: "live-fetch",
+          url_main: "https://rbi.org.in/",
+          citation_full: null,
+          notes: null,
+        },
+      ])
+      .mockResolvedValueOnce([
+        { entity_id: "IN-pop-weighted", time: 2007, value: 30.04, source_id: "src-3efef1095d49" },
+        { entity_id: "IN-pop-weighted", time: 2008, value: 31.42, source_id: "src-3efef1095d49" },
+        { entity_id: "IN-pop-weighted", time: 2023, value: 30.04, source_id: "src-3efef1095d49" },
+      ]);
+    const out = await loadIndicatorIfCanonical("fiscal/outstanding_debt_pct_gsdp");
+    expect(out).not.toBeNull();
+    expect(out!.indicator.id).toBe("outstanding-liabilities-pct-gsdp");
+
+    const ref = indicatorArtifactNationalReference(out!);
+    expect(ref).toBeDefined();
+    expect(ref!.length).toBe(3);
+    expect(ref![0].entity_id).toBe("IN-pop-weighted");
+    expect(ref![0].time).toBe(2007);
+    expect(ref![0].value).toBe(30.04);
+    // Holy Law #9: every observation row (including the derived ones)
+    // carries source_id; the reserved `yen-gov (derived)` row.
+    expect(ref![0].source_id).toBe("src-3efef1095d49");
+
+    // Three query calls: base obs, source ledger, sibling CSV.
+    expect(mockedQuery).toHaveBeenCalledTimes(3);
+
+    // Sibling SQL must filter server-side to the pop-weighted pseudo-
+    // entity AND must point at the sibling URL (`-national.csv`), NOT
+    // the base CSV. We assert both to lock the contract.
+    const siblingSql = mockedQuery.mock.calls[2][0] as string;
+    expect(siblingSql).toMatch(/IN-pop-weighted/);
+    expect(siblingSql).toMatch(/outstanding-liabilities-pct-gsdp-national\.csv/);
+    expect(siblingSql).not.toMatch(/IN-median/);
+  });
+
+  it("does not attempt a sibling fetch when has_national_reference is absent", async () => {
+    // peak-electricity-demand-mw is canonical-backed but the descriptor
+    // does NOT set has_national_reference. Only two queries fire: base
+    // obs + source ledger.
+    mockedQuery
+      .mockResolvedValueOnce([
+        { entity_id: "tamil-nadu", time: 2025, value: 20211, source_id: "src-iced" },
+      ])
+      .mockResolvedValueOnce([]);
+    const out = await loadIndicatorIfCanonical("energy/state_peak_electricity_demand_mw");
+    expect(out).not.toBeNull();
+    expect(out!.indicator.id).toBe("peak-electricity-demand-mw");
+    expect(indicatorArtifactNationalReference(out!)).toBeUndefined();
+    expect(mockedQuery).toHaveBeenCalledTimes(2);
+  });
+
+  it("gracefully degrades to no reference when the sibling CSV fetch fails (404 / parse error)", async () => {
+    // The loader's try/catch around `loadNationalReferenceRows` returns
+    // undefined on ANY sibling error - the base artifact ships intact,
+    // no console output, no [error]. The renderer wrapper reads
+    // `indicatorArtifactNationalReference(...) === undefined` as the
+    // "no reference line" signal (plan section 20.11 honest-degrade).
+    mockedQuery
+      .mockResolvedValueOnce([
+        { entity_id: "andhra-pradesh", time: 2007, value: 27.4, source_id: "src-17c983e79ed9" },
+      ])
+      .mockResolvedValueOnce([
+        {
+          source_id: "src-17c983e79ed9",
+          producer: "Reserve Bank of India",
+          title: "State Finances: A Study of Budgets, 2022-23 (Appendix Table 20)",
+          vintage: "2022-23",
+          license: "OGL-IN-1.0",
+          confidence_tier: "gold",
+          is_issuing_authority: true,
+          verification_method: "live-fetch",
+          url_main: "https://rbi.org.in/",
+          citation_full: null,
+          notes: null,
+        },
+      ])
+      .mockRejectedValueOnce(new Error("HTTP 404 for sibling CSV"));
+    const out = await loadIndicatorIfCanonical("fiscal/outstanding_debt_pct_gsdp");
+    expect(out).not.toBeNull();
+    expect(out!.indicator.id).toBe("outstanding-liabilities-pct-gsdp");
+    // Base artifact intact - the base obs row survives the sibling miss.
+    expect(out!.rows.length).toBe(1);
+    expect(out!.rows[0].entity_id).toBe("S01");
+    // Sibling miss -> undefined; the renderer skips reference_series.
+    expect(indicatorArtifactNationalReference(out!)).toBeUndefined();
+  });
+
+  it("returns the base artifact unchanged when the sibling CSV parses to zero pop-weighted rows", async () => {
+    // Sibling file exists + parses but has no `IN-pop-weighted` rows
+    // (e.g. only the median variant emitted). The accessor still
+    // returns undefined - the renderer cannot draw a reference line
+    // without points. This is the "honest empty" path.
+    mockedQuery
+      .mockResolvedValueOnce([
+        { entity_id: "andhra-pradesh", time: 2007, value: 27.4, source_id: "src-17c983e79ed9" },
+      ])
+      .mockResolvedValueOnce([
+        {
+          source_id: "src-17c983e79ed9",
+          producer: "Reserve Bank of India",
+          title: "State Finances: A Study of Budgets, 2022-23 (Appendix Table 20)",
+          vintage: "2022-23",
+          license: "OGL-IN-1.0",
+          confidence_tier: "gold",
+          is_issuing_authority: true,
+          verification_method: "live-fetch",
+          url_main: "https://rbi.org.in/",
+          citation_full: null,
+          notes: null,
+        },
+      ])
+      .mockResolvedValueOnce([]);
+    const out = await loadIndicatorIfCanonical("fiscal/outstanding_debt_pct_gsdp");
+    expect(out).not.toBeNull();
+    expect(indicatorArtifactNationalReference(out!)).toBeUndefined();
+  });
+});
+
+describe("G31b - buildNationalReferenceSeries (TimeSeriesSeriesVM projection)", () => {
+  it("returns null for empty input (no series to render)", () => {
+    expect(buildNationalReferenceSeries([])).toBeNull();
+  });
+
+  it("projects pop-weighted rows into a TimeSeriesSeriesVM with chronological points", () => {
+    const rows: NationalReferenceRow[] = [
+      { entity_id: "IN-pop-weighted", time: 2018, value: 27.77, source_id: "src-3efef1095d49" },
+      { entity_id: "IN-pop-weighted", time: 2019, value: 28.43, source_id: "src-3efef1095d49" },
+      { entity_id: "IN-pop-weighted", time: 2020, value: 33.11, source_id: "src-3efef1095d49" },
+      { entity_id: "IN-pop-weighted", time: 2021, value: 30.97, source_id: "src-3efef1095d49" },
+      { entity_id: "IN-pop-weighted", time: 2022, value: 30.04, source_id: "src-3efef1095d49" },
+      { entity_id: "IN-pop-weighted", time: 2023, value: 30.04, source_id: "src-3efef1095d49" },
+    ];
+    const series = buildNationalReferenceSeries(rows);
+    expect(series).not.toBeNull();
+    expect(series!.series_id).toBe("IN-pop-weighted");
+    expect(series!.series_label).toBe(NATIONAL_REFERENCE_LABEL_DEFAULT);
+    expect(series!.points.length).toBe(6);
+    // Points stay in input chronological order; first and last match
+    // the input rows' values (post-build, the VM's own per-period
+    // axis is chronological per buildTimeSeriesLineViewModel docs).
+    expect(series!.points[0].value).toBe(27.77);
+    expect(series!.points[series!.points.length - 1].value).toBe(30.04);
+    expect(series!.latest_value).toBe(30.04);
+    expect(series!.earliest_value).toBe(27.77);
+    // The renderer renders no end-of-line label for the reference
+    // series (it is grey-dashed and recessive per plan 20.11); the
+    // builder's `show_direct_end_label` is informational only for
+    // this series since `<TimeSeriesLine>` ignores the flag on the
+    // reference branch.
+    expect(series!.is_missing).toBe(false);
+  });
+
+  it("respects a custom label (e.g. for the median variant in a future toggle)", () => {
+    const rows: NationalReferenceRow[] = [
+      { entity_id: "IN-pop-weighted", time: 2007, value: 33.4, source_id: "src-3efef1095d49" },
+    ];
+    const series = buildNationalReferenceSeries(rows, { label: "All-India weighted" });
+    expect(series).not.toBeNull();
+    expect(series!.series_label).toBe("All-India weighted");
+  });
+
+  it("series_id passes through from row.entity_id (so median rows would yield 'IN-median')", () => {
+    // Defensive: the loader filters to pop-weighted today, but the
+    // helper itself is grain-agnostic. A median-only input would build
+    // a VM keyed on the median pseudo-entity. This pins the contract
+    // for the eventual pop-weighted-vs-median toggle.
+    const rows: NationalReferenceRow[] = [
+      { entity_id: "IN-median", time: 2020, value: 25.5, source_id: "src-3efef1095d49" },
+      { entity_id: "IN-median", time: 2021, value: 26.7, source_id: "src-3efef1095d49" },
+    ];
+    const series = buildNationalReferenceSeries(rows, { label: "National median" });
+    expect(series!.series_id).toBe("IN-median");
+    expect(series!.points.length).toBe(2);
   });
 });

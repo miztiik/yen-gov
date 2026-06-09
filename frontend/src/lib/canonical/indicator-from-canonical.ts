@@ -45,6 +45,10 @@ import {
 import { DATA_BASE } from "../paths";
 import type { SourceV2Row } from "../source-list-v2";
 import {
+  buildTimeSeriesLineViewModel,
+  type TimeSeriesSeriesVM,
+} from "../charts/time-view-models";
+import {
   loadCanonicalSlugToLegacyMap,
   translateCanonicalSlugToLegacy,
 } from "./canonical-entity-translation";
@@ -60,7 +64,6 @@ import {
   CURRENT_INDICATOR_SCHEMA_ID,
   CURRENT_INDICATOR_SCHEMA_VERSION,
 } from "./indicator-schema-policy";
-
 /** Strip `IN-` prefix from canonical entity_ids; pass bare `IN` (national
  *  aggregate) and any unrecognised shape through unchanged. Works for
  *  every canonical entity shape currently in use:
@@ -168,6 +171,56 @@ export function indicatorArtifactSourcesV2(
   artifact: IndicatorArtifact,
 ): readonly SourceV2Row[] | undefined {
   return artifactSourcesV2.get(artifact) ?? artifact.sources_v2;
+}
+
+/** One observation row from a `<canonical_indicator_id>-national.csv`
+ *  sibling file (G31a / parent plan section 20.11). The shape matches
+ *  the long-format canonical CSV (`entity_id`, `time`, `value`,
+ *  `source_id`) - the only differences vs the base indicator are
+ *  (a) `entity_id` is one of the reserved pseudo-entities
+ *  `"IN-pop-weighted"` / `"IN-median"`, and (b) `source_id` is the
+ *  reserved `yen-gov (derived)` ledger row per Holy Law #9 (NOT a
+ *  publisher's source_id). `time` and `value` carry their CSV-typed
+ *  shapes (BIGINT/DOUBLE per columns.json); the loader does not
+ *  re-stringify `time` so consumers can compute on it directly. */
+export interface NationalReferenceRow {
+  readonly entity_id: string;
+  readonly time: number;
+  readonly value: number | null;
+  readonly source_id: string;
+}
+
+/** WeakMap side-channel mirroring `artifactSourcesV2`. Carries the
+ *  pop-weighted national-reference rows for indicators that opt in via
+ *  `descriptor.has_national_reference === true`. Keeping the data off
+ *  the on-disk IndicatorArtifact shape avoids a JSON Schema bump
+ *  (CLAUDE.md section 11) for what is a runtime-only enrichment - the
+ *  artifact body still validates against the current indicator schema
+ *  unchanged. Discovery is via the exported accessor below. */
+const artifactNationalReference = new WeakMap<
+  IndicatorArtifact,
+  readonly NationalReferenceRow[]
+>();
+
+function attachNationalReference<T extends IndicatorArtifact>(
+  artifact: T,
+  rows: readonly NationalReferenceRow[],
+): T {
+  artifactNationalReference.set(artifact, Object.freeze([...rows]));
+  return artifact;
+}
+
+/** Read the pop-weighted national-reference rows attached to a
+ *  canonical-backed IndicatorArtifact, or `undefined` if the indicator
+ *  did not opt in / the sibling CSV was absent / the sibling carried
+ *  no pop-weighted rows. Returning `undefined` (rather than an empty
+ *  array) is the structural "no reference line" signal renderer
+ *  wrappers consume to decide whether to mount `<TimeSeriesLine
+ *  reference_series=...>` per plan section 20.11. */
+export function indicatorArtifactNationalReference(
+  artifact: IndicatorArtifact,
+): readonly NationalReferenceRow[] | undefined {
+  return artifactNationalReference.get(artifact);
 }
 
 function requireRows(rows: readonly IndicatorRow[], indicatorId: string): void {
@@ -429,7 +482,74 @@ async function loadSingleFromCsv(
     sourceRows = await query<CanonicalSourceRow>(srcSql);
   }
 
-  return buildIndicatorArtifact(descriptor, adapted, sourceRows);
+  const artifact = buildIndicatorArtifact(descriptor, adapted, sourceRows);
+
+  // G31b (plan section 20.11): opportunistic sibling-CSV load for the
+  // pop-weighted national reference line. Only when the descriptor opts
+  // in via `has_national_reference: true`. Failures are graceful - the
+  // base artifact ships unchanged and the accessor returns `undefined`,
+  // which the renderer wrapper reads as "no reference line for this
+  // indicator". No console output on the miss path (anti-pattern: a
+  // log per indicator without a sibling would be noise on every page).
+  if (descriptor.has_national_reference === true) {
+    const refRows = await loadNationalReferenceRows(csvRelPath);
+    if (refRows !== undefined && refRows.length > 0) {
+      attachNationalReference(artifact, refRows);
+    }
+  }
+
+  return artifact;
+}
+
+/** Compute the sibling URL: `data/datapoints/geo/<canonical-id>.csv`
+ *  -> `data/datapoints/geo/<canonical-id>-national.csv`. Only handles
+ *  the `.csv` extension because the canonical store's geo datapoint
+ *  file class is csv-only (no manifest indirection). Returns the
+ *  base path unchanged for any non-csv extension; the caller's CSV
+ *  reader will then fail loud, surfacing a contract violation rather
+ *  than silently falling through. */
+function nationalSiblingCsvPath(baseCsvRelPath: string): string {
+  if (baseCsvRelPath.endsWith(".csv")) {
+    return `${baseCsvRelPath.slice(0, -".csv".length)}-national.csv`;
+  }
+  return baseCsvRelPath;
+}
+
+/** Fetch + parse the sibling `<base>-national.csv`. Filters to
+ *  `entity_id === "IN-pop-weighted"` (median rows are reserved for a
+ *  future toggle), sorts by `time`. Returns `undefined` when the
+ *  sibling file is absent OR a network error fires OR the file
+ *  parses to zero pop-weighted rows - all graceful, all silent. The
+ *  caller MUST distinguish `undefined` (no reference attached) from
+ *  `[]` (which would currently NOT be returned, since `[]` collapses
+ *  to `undefined` via the length check; the consumer surface is
+ *  therefore "either >=1 row or absent"). */
+async function loadNationalReferenceRows(
+  baseCsvRelPath: string,
+): Promise<readonly NationalReferenceRow[] | undefined> {
+  const siblingRelPath = nationalSiblingCsvPath(baseCsvRelPath);
+  const siblingUrl = canonicalCsvUrl(siblingRelPath);
+  try {
+    // The sibling file class is the same as the base
+    // (`data/datapoints/geo/*.csv`); reuse the shared columns clause
+    // resolver so the typed read contract stays single-source.
+    const siblingColumnsClause = await csvColumnsClause(`datasets/${siblingRelPath}`);
+    await registerCsvFile(siblingUrl);
+    const sql = `
+      SELECT entity_id, time, value, source_id
+      FROM read_csv('${siblingUrl.replace(/'/g, "''")}', ${siblingColumnsClause}, header=true)
+      WHERE entity_id = 'IN-pop-weighted'
+      ORDER BY time
+    `;
+    const rows = await query<NationalReferenceRow>(sql);
+    return rows;
+  } catch {
+    // Sibling absent / fetch failed / DuckDB rejected the file: the
+    // descriptor's `has_national_reference: true` is INERT until the
+    // backend writer emits the file. Graceful pass-through is the
+    // plan-section-20.11 contract (no broken charts; no `[error]`).
+    return undefined;
+  }
 }
 
 /** Facet-multiplexed adapter — fuses N canonical child indicators into a
@@ -639,4 +759,48 @@ export async function loadIndicator(path: string): Promise<IndicatorArtifact> {
     if (canonical !== null) return canonical;
   }
   return fetchIndicator(path);
+}
+
+/** Default label used by `buildNationalReferenceSeries` when the caller
+ *  omits one. Plan section 20.11 mandates that "national" never appear
+ *  unqualified - "pop-weighted" is the qualifier for the only series
+ *  this PR ships (the median variant lands in a follow-on toggle PR). */
+export const NATIONAL_REFERENCE_LABEL_DEFAULT = "National (pop-weighted)";
+
+/** Project `NationalReferenceRow[]` (from
+ *  `indicatorArtifactNationalReference(artifact)`) into a
+ *  `TimeSeriesSeriesVM<NationalReferenceRow>` the F3
+ *  `<TimeSeriesLine reference_series=...>` prop consumes directly
+ *  (parent plan section 20.11, PR #779).
+ *
+ *  Wraps `buildTimeSeriesLineViewModel` rather than constructing the VM
+ *  by hand so the per-point shape (`is_missing`, `is_break_start`,
+ *  `period_id`/`period_label` derivation) stays in lockstep with the
+ *  state-side series; this is the same builder the state's primary
+ *  line uses. The returned series's `.series_id` is the reserved
+ *  pseudo-entity `"IN-pop-weighted"`; `.series_label` defaults to
+ *  `NATIONAL_REFERENCE_LABEL_DEFAULT` and is overridable per chart.
+ *
+ *  Returns `null` when `rows.length === 0` so the renderer can keep
+ *  the same conditional shape it already uses for
+ *  `indicatorArtifactNationalReference(artifact)` (undefined-or-array)
+ *  - both signal "no reference line" identically. */
+export function buildNationalReferenceSeries(
+  rows: readonly NationalReferenceRow[],
+  options?: { label?: string },
+): TimeSeriesSeriesVM<NationalReferenceRow> | null {
+  if (rows.length === 0) return null;
+  const label = options?.label ?? NATIONAL_REFERENCE_LABEL_DEFAULT;
+  const vm = buildTimeSeriesLineViewModel<NationalReferenceRow>({
+    rows: [...rows],
+    toPoint: (r) => ({
+      series_id: r.entity_id,
+      series_label: label,
+      period_id: String(r.time),
+      period_label: String(r.time),
+      value: r.value,
+    }),
+    policy: "value_desc",
+  });
+  return vm.series[0] ?? null;
 }

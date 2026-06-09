@@ -14,8 +14,8 @@ T.0d section 1 admin-spine layout (locked 2026-05-22)::
         country/all.geojson                         # india-soi
         states/all.geojson                          # india-states
         districts/all.geojson                       # india-districts
-        subdistricts/state=in_<lc>/all.geojson      # per-state subdistrict
-        villages/state=in_<lc>/district=<lgd>/all.geojson  # per-district village shard
+        subdistricts/state=<slug>/all.geojson       # per-state subdistrict
+        villages/state=<slug>/district=<lgd>/all.geojson  # per-district village shard
 
 G10 electoral-spine layout (section 4 EL2 of
 TODO/20260603-data-and-charting-platform-reset-plan.md, 2026-06-09)::
@@ -36,10 +36,23 @@ The admin spine (``boundaries/in/...``) and the electoral spine
 v1.5). The Hive key/value tokens (``state=tamil-nadu``, ``district=603``,
 ``delim=2008``) are embedded verbatim so callers can build either form
 from the same args.
+
+Slug-only partition contract (2026-06-09, Hans+Max+Gregor converged
+verdict on Item 1 of the G10 follow-on reconciliation): the ``state=``
+Hive value is an LGD-name slug verbatim (e.g. ``state=tamil-nadu``,
+``state=delhi``), never the legacy ECI-derived ``in_<lc>`` form
+(``state=in_s22``, ``state=in_u05``). The plan-doc round-8 decommissioned
+``eci_st_code`` as "a column, join key, or partition value"; the
+``state_slug`` parameter rename is the compile-time gate that forces
+every caller through the type-checker. Callers that hold an ECI code
+must translate via ``_eci_to_slug()`` at the call site.
 """
 
 from __future__ import annotations
 
+import json
+import re
+from pathlib import Path
 from typing import Literal
 
 # pipeline.json uses the plural kind name (``states``, ``districts``,
@@ -89,12 +102,98 @@ KIND_TO_LEVEL: dict[Kind, Level] = {
     "postal": "postal",
 }
 
+# Regex matching the ECI state-code shape (S01-S29 / U01-U09). Used by
+# ``derive_hive`` to reject an accidental ECI-code pass-through on the
+# ``state_slug=`` parameter (callers must call ``_eci_to_slug()`` first).
+_ECI_STATE_CODE_RE = re.compile(r"^[SU][0-9]{2}$")
+
+# Repo root (parent of ``tools/``); used by ``_eci_to_slug`` as the
+# default search root for ``datasets/taxonomy/lgd_states.json``.
+_REPO_ROOT = Path(__file__).resolve().parents[2]
+
+# Module-level cache for the ECI->slug map. Built lazily on first call;
+# the lgd_states.json file is hand-authored canonical data so the read
+# is cheap once per process.
+_ECI_TO_SLUG_CACHE: dict[str, str] | None = None
+
+
+def _eci_to_slug(state_eci_code: str, lgd_states_path: Path | None = None) -> str:
+    """Map an ECI state code (``S22``, ``U05``, ...) to its LGD-name slug
+    (``tamil-nadu``, ``delhi``, ...).
+
+    The canonical mapping lives in ``datasets/taxonomy/lgd_states.json``
+    (same source ``backend/yen_gov/canonical/writer.py::_eci_to_lgd_slug_case_sql``
+    reads from per ADR-0050). This helper exists so caller-side
+    translation at the ``derive_hive`` boundary stays a one-liner;
+    every caller that still holds an ECI code (the ``lift_*.py`` family
+    + ``snapshot.py`` driving from ``pipeline.json``) wraps its ``eci``
+    variable in ``_eci_to_slug(eci)`` before passing it to
+    ``derive_hive(state_slug=...)``.
+
+    BRIEF CORRECTION (2026-06-09): the orchestrator brief named
+    ``datasets/data/entities/state_iso_seed.csv`` as the source file.
+    That CSV is keyed on ``lgd_state_code`` (the LGD numeric id, 1-38)
+    and does NOT carry ``eci_st_code`` at all, so it can't satisfy this
+    helper's signature. ``datasets/taxonomy/lgd_states.json`` is the
+    canonical (ECI -> slug) source already used by
+    ``writer.py::_eci_to_lgd_slug_case_sql`` per ADR-0050. The brief's
+    INTENT - read the slug from a canonical store, never hardcode -
+    is preserved verbatim; only the source file name moves from a CSV
+    that doesn't carry the join key to the JSON that does.
+
+    Args:
+        state_eci_code: ECI st_code in canonical form (``S01``..``S29``,
+            ``U01``..``U09``).
+        lgd_states_path: Override for the lgd_states.json path. Defaults
+            to ``<repo_root>/datasets/taxonomy/lgd_states.json``. Tests
+            pass a fixture path; production callers leave it as None.
+
+    Returns:
+        The matching slug verbatim from lgd_states.json (e.g.
+        ``"tamil-nadu"``, ``"delhi"``).
+
+    Raises:
+        ValueError: ``state_eci_code`` is not in the lgd_states.json
+            map (catches typos + future ECI codes that haven't been
+            seeded yet).
+    """
+    global _ECI_TO_SLUG_CACHE
+    if lgd_states_path is not None:
+        # Test path: bypass cache, read the override, return without
+        # mutating module state.
+        doc = json.loads(lgd_states_path.read_text(encoding="utf-8"))
+        built = {str(s["eci_st_code"]): str(s["slug"]) for s in doc["states"]}
+        slug = built.get(state_eci_code)
+        if slug is None:
+            msg = (
+                f"unknown ECI state code {state_eci_code!r}; not in "
+                f"{lgd_states_path}"
+            )
+            raise ValueError(msg)
+        return slug
+    if _ECI_TO_SLUG_CACHE is None:
+        default_path = (
+            _REPO_ROOT / "datasets" / "taxonomy" / "lgd_states.json"
+        )
+        doc = json.loads(default_path.read_text(encoding="utf-8"))
+        _ECI_TO_SLUG_CACHE = {
+            str(s["eci_st_code"]): str(s["slug"]) for s in doc["states"]
+        }
+    slug = _ECI_TO_SLUG_CACHE.get(state_eci_code)
+    if slug is None:
+        msg = (
+            f"unknown ECI state code {state_eci_code!r}; not in "
+            "datasets/taxonomy/lgd_states.json"
+        )
+        raise ValueError(msg)
+    return slug
+
 
 def derive_hive(
     *,
     kind: str,
     delim: str | None = None,
-    state: str | None = None,
+    state_slug: str | None = None,
     district_lgd: str | None = None,
     ulb_lgd: str | None = None,
     ext: str = "geojson",
@@ -110,8 +209,14 @@ def derive_hive(
             layers. Inserted as a ``delim=<year>`` Hive segment immediately
             after the kind segment so per-state/per-district sub-partitions
             still nest below it.
-        state: ECI state code (``S22``, ``U08``); lowercased + prefixed
-            with ``in_`` for the Hive key (``state=tamil-nadu``).
+        state_slug: LGD-name slug for the state shard (e.g.
+            ``"tamil-nadu"``, ``"delhi"``). Embedded verbatim in the
+            ``state=<value>`` Hive segment. The ``state`` parameter was
+            renamed to ``state_slug`` 2026-06-09 (Hans+Max+Gregor
+            converged verdict, Item 1 of the G10 follow-on
+            reconciliation) so an accidental ECI-code pass becomes a
+            compile-time + runtime error. Callers that still hold an
+            ECI code must translate via ``_eci_to_slug()`` first.
         district_lgd: LGD district code as digit string (``603``); valid
             for nested per-district layers (``kind in {"villages", "panchayats"}``).
         ulb_lgd: LGD ULB code as digit string (``802743``); valid for
@@ -140,10 +245,23 @@ def derive_hive(
 
     Raises:
         ValueError: ``kind`` is not in ``KIND_TO_LEVEL`` (catches
-            pipeline.json typos at compile time).
+            pipeline.json typos at compile time); ``state_slug`` matches
+            the ECI state-code shape (``^[SU][0-9]{2}$``) - catches an
+            accidental ECI-code pass-through that pre-2026-06-09 silently
+            became the legacy ``state=in_<lc>`` partition value;
+            electoral layer is missing the required ``delim`` argument.
     """
     if kind not in KIND_TO_LEVEL:
         msg = f"unknown kind {kind!r}; expected one of {sorted(KIND_TO_LEVEL)}"
+        raise ValueError(msg)
+    if state_slug is not None and _ECI_STATE_CODE_RE.match(state_slug):
+        msg = (
+            f"state_slug={state_slug!r} matches the ECI state-code shape "
+            "[SU][0-9]{2}; partition values must be LGD-name slugs "
+            "(e.g. 'tamil-nadu', 'delhi'). Call _eci_to_slug() at the "
+            "call site to translate ECI codes before passing to "
+            "derive_hive."
+        )
         raise ValueError(msg)
     # G10 (section 4 EL2 of TODO/20260603-data-and-charting-platform-
     # reset-plan.md, 2026-06-09): electoral constituency layers live
@@ -171,10 +289,9 @@ def derive_hive(
         if delim is not None:
             parts_path.append(f"delim={delim}")
             parts_id.append(f"delim={delim}")
-    if state is not None:
-        state_key = f"in_{state.lower()}"
-        parts_path.append(f"state={state_key}")
-        parts_id.append(f"state={state_key}")
+    if state_slug is not None:
+        parts_path.append(f"state={state_slug}")
+        parts_id.append(f"state={state_slug}")
     if district_lgd is not None:
         parts_path.append(f"district={district_lgd}")
         parts_id.append(f"district={district_lgd}")
@@ -184,4 +301,4 @@ def derive_hive(
     return f"{'/'.join(parts_path)}/all.{ext}", ".".join(parts_id)
 
 
-__all__ = ["KIND_TO_LEVEL", "Kind", "Level", "derive_hive"]
+__all__ = ["KIND_TO_LEVEL", "Kind", "Level", "_eci_to_slug", "derive_hive"]

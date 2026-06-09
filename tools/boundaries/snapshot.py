@@ -77,7 +77,7 @@ from yen_gov.canonical.boundary_layers_seed import (  # noqa: E402
     compile_to_csv,
 )
 
-from _paths import KIND_TO_LEVEL, derive_hive  # noqa: E402
+from _paths import KIND_TO_LEVEL, _eci_to_slug, derive_hive  # noqa: E402
 
 # -----------------------------------------------------------------------------
 # Constants
@@ -170,10 +170,17 @@ def derive_partition_path(
     # Hive segment immediately after the kind segment so per-state /
     # per-district sub-partitions still nest below it.
     delim = entry.get("delimitation_vintage")
+    # pipeline.json carries ECI st_codes (``S22``, ``U05``); the
+    # canonical Hive partition value is the LGD-name slug per the
+    # Hans+Max+Gregor converged verdict (2026-06-09, Item 1 of the
+    # G10 follow-on). Translate at the derive_hive call site so the
+    # ECI code stays local to this module and the partition key never
+    # leaks the publisher-specific id.
+    state_slug = _eci_to_slug(state) if state is not None else None
     return derive_hive(
         kind=kind,
         delim=delim,
-        state=state,
+        state_slug=state_slug,
         district_lgd=district_lgd,
     )
 
@@ -872,12 +879,16 @@ def _emit_split_shards(
         flush=True,
     )
 
+    # state is the ECI st_code from pipeline.json; translate to the LGD-name
+    # slug at the derive_hive call site (Hans+Max+Gregor verdict, 2026-06-09).
+    state_slug = _eci_to_slug(state)
+
     rows: list[BoundaryLayerRow] = []
     for key in sorted(groups, key=lambda k: str(k)):
         district_lgd = str(key)
         partition_path, layer_id = derive_hive(
             kind=entry["kind"],
-            state=state,
+            state_slug=state_slug,
             district_lgd=district_lgd,
         )
         shard_path = datasets_root / partition_path

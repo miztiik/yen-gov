@@ -110,6 +110,50 @@ interface CanonicalIndicatorDescriptorBase {
    *  facet-multiplexed descriptors this field stays absent on the
    *  parent and is set per child in `facet_values[].csv_path`. */
   csv_path?: string;
+  /** G29 pilot opt-in flag (parent plan section 14.5 / 15 / 16):
+   *  swaps the legacy maplibre-based `<IndicatorChoropleth>` for the
+   *  d3-geo SVG `<GeoChoropleth>` (F2b.3) at this descriptor's
+   *  render seam. Reversible by removing the field. The pilot is
+   *  scoped to ONE descriptor per PR; the next indicator gets its
+   *  own follow-on entry. Today the only value is the literal
+   *  `"geo-choropleth-f2b"`; future renderer flips can widen the
+   *  union. State-grain only at the pilot; the dispatch falls
+   *  through to the legacy maplibre body for any non-state grain
+   *  even when the flag is set, so the worst-case behaviour for a
+   *  misapplied flag is the legacy render. */
+  renderer_override?: "geo-choropleth-f2b";
+  /** G31b pilot opt-in flag (parent plan section 20.11 "National
+   *  reference line per state chart"). When `true`, the canonical
+   *  loader opportunistically fetches a SIBLING CSV at
+   *  `<csv_path stem>-national.csv` (e.g.
+   *  `data/datapoints/geo/outstanding-liabilities-pct-gsdp-national.csv`),
+   *  filters its rows to `entity_id === "IN-pop-weighted"`, sorts by
+   *  `time`, and attaches them to the returned IndicatorArtifact via
+   *  the `indicatorArtifactNationalReference(artifact)` accessor (a
+   *  WeakMap side-channel mirroring the existing `attachSourcesV2`
+   *  pattern - no schema bump). When the sibling file is absent or
+   *  returns no pop-weighted rows the loader silently returns the
+   *  base artifact unchanged; consumers MUST treat the accessor
+   *  returning `undefined` as the "no reference available" case.
+   *
+   *  The opt-in is intentionally scoped per descriptor (not derived
+   *  from `meta.direction`) because:
+   *   1. The class-A vs class-B/C/D dispatch in plan section 20.11 is
+   *      author-judged (population-weighted only when numerator AND
+   *      denominator are both held; B = counts, no compare line; D =
+   *      neutral, no line). Tying it to `direction` would over-trigger.
+   *   2. The renderer-side `<TimeSeriesLine reference_series=...
+   *      indicator_direction=...>` (F3 / PR #779) already gates the
+   *      colour-coded `StatusGlyph` on `direction in {higher_is_better,
+   *      lower_is_better}` - a `neutral` indicator that opts in still
+   *      gets the recessive grey-dashed line, just without the verdict
+   *      glyph. The renderer is the right place for that gate.
+   *
+   *  Backend pre-flight: the sibling file MUST be emitted by the
+   *  backend writer (G31a / PR #854) AND every row MUST carry the
+   *  reserved `source_id` for `yen-gov (derived)` per Holy Law #9.
+   *  This flag is INERT until both are in place. */
+  has_national_reference?: true;
 }
 
 export interface CanonicalSingleIndicatorDescriptor
@@ -2744,6 +2788,17 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "outstanding-liabilities-pct-gsdp",
     csv_path: "data/datapoints/geo/outstanding-liabilities-pct-gsdp.csv",
     table_id: "fiscal.state_finances",
+    // G31b (parent plan section 20.11): pilot for the pop-weighted
+    // national reference line. The backend writer (G31a / PR #854)
+    // emits the sibling CSV at
+    // `datasets/data/datapoints/geo/outstanding-liabilities-pct-gsdp-national.csv`
+    // with 17 pop-weighted + 17 median rows covering FY 2007 to FY 2023,
+    // each carrying source_id=src-3efef1095d49 (the reserved
+    // `yen-gov (derived)` citation row per Holy Law #9). Outstanding
+    // liabilities is Class A in plan section 20.11 (rate/ratio with
+    // both numerator AND denominator available; direction=lower_is_better
+    // for the renderer-side StatusGlyph verdict).
+    has_national_reference: true,
     meta: {
       id: "outstanding-liabilities-pct-gsdp",
       title: "Outstanding liabilities (% of GSDP)",
@@ -3179,6 +3234,13 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "per-capita-nsdp-constant-inr",
     csv_path: "data/datapoints/geo/per-capita-nsdp-constant-inr.csv",
     table_id: "economy.economy_canonical",
+    // G29 PILOT (2026-06-09): first descriptor to flip from the
+    // legacy 923-LOC maplibre wrapper `<IndicatorChoropleth>` to the
+    // d3-geo SVG F2b.3 `<GeoChoropleth>` primitive. Pilot scope per
+    // parent plan section 14.5 / 15 / 16 + the per-indicator
+    // allowlist seam doctrine; reversible by removing this field.
+    // Subsequent indicators get their own PRs.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "per-capita-nsdp-constant-inr",
       title: "Per-capita NSDP (constant prices, INR)",

@@ -18,7 +18,7 @@ datasets/boundaries/
     ├── districts/all.geojson                        # all districts; property `dist_lgd`
     ├── subdistricts/state=in_<lc>/all.geojson       # 36 states/UTs; property `subdist_lgd`
     ├── villages/state=in_<lc>/district=<lgd>/all.geojson  # 27 states/UTs; per-(state, district); property `village_lgd`
-    ├── ac/state=in_<lc>/all.geojson                 # 31 elective states/UTs; property keyed to ECI ac code
+    ├── ../electoral/delim=<year>/ac/state=<slug>/all.geojson  # 31 elective states/UTs; LGD-name slug partition (G10 + Item 1 of G10 follow-on, 2026-06-09); property keyed to ECI ac code
     ├── pc/delim=<YYYY>/all.geojson                  # national; delim partition mandatory (ECI cycles)
     └── postal/state=in_<lc>/all.geojson             # 36 state shards; orthogonal; keyed by pincode
         postal/scope=unkeyed/all.geojson             # unresolved pincode polygons

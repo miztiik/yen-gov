@@ -89,7 +89,7 @@ if str(HERE) not in sys.path:
 if str(BACKEND) not in sys.path:
     sys.path.insert(0, str(BACKEND))
 
-from _paths import derive_hive  # noqa: E402
+from _paths import _eci_to_slug, derive_hive  # noqa: E402
 from snapshot import (  # noqa: E402
     SNAPSHOT_BYTE_BUDGET,
     _round_coords_geom,
@@ -273,9 +273,14 @@ def lift_jk_villages_to_per_district_shards(
     for census_name in sorted_districts:
         eci_state, slug = CENSUS2011_DISTRICT_TO_MODERN[census_name]
         bucket = groups[census_name]
+        # ECI state code -> LGD-name slug at the derive_hive boundary
+        # (Hans+Max+Gregor verdict, 2026-06-09, Item 1 of the G10
+        # follow-on). NOTE: the local ``slug`` variable here is the
+        # DISTRICT slug (different from the state slug), passed to the
+        # district_lgd parameter; see file docstring.
         partition_path, layer_id = derive_hive(
             kind="villages",
-            state=eci_state,
+            state_slug=_eci_to_slug(eci_state),
             district_lgd=slug,  # NOTE: slug, not LGD numeric; see file docstring.
         )
         bucket_sorted = sort_features_deterministically(bucket)
