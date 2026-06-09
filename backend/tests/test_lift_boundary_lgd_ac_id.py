@@ -51,7 +51,14 @@ def _feature(props: dict[str, Any]) -> dict[str, Any]:
 
 
 def _write_shard(root: Path, state: str, features: list[dict]) -> Path:
-    d = root / "boundaries" / "in" / "ac" / f"state=in_{state}"
+    d = (
+        root
+        / "boundaries"
+        / "electoral"
+        / "delim=2008"
+        / "ac"
+        / f"state=in_{state}"
+    )
     d.mkdir(parents=True, exist_ok=True)
     p = d / "all.geojson"
     with p.open("w", encoding="utf-8") as fh:
@@ -103,7 +110,7 @@ def test_covered_features_get_lgd_ac_id(lift_module: Any, datasets_root: Path) -
     report = lift_module.lift_all(datasets_root)
     assert report["state=in_s22"] == (3, 2)  # 3 features, 2 stamped
     data = json.loads(
-        (datasets_root / "boundaries/in/ac/state=in_s22/all.geojson").read_text()
+        (datasets_root / "boundaries/electoral/delim=2008/ac/state=in_s22/all.geojson").read_text()
     )
     by_acno = {f["properties"]["ac_no"]: f["properties"] for f in data["features"]}
     assert by_acno[1]["lgd_ac_id"] == 33001
@@ -115,7 +122,7 @@ def test_covered_features_get_lgd_ac_id(lift_module: Any, datasets_root: Path) -
 def test_uncovered_spillover_untouched(lift_module: Any, datasets_root: Path) -> None:
     lift_module.lift_all(datasets_root)
     data = json.loads(
-        (datasets_root / "boundaries/in/ac/state=in_s22/all.geojson").read_text()
+        (datasets_root / "boundaries/electoral/delim=2008/ac/state=in_s22/all.geojson").read_text()
     )
     spill = next(f for f in data["features"] if f["properties"]["ac_no"] == 9)
     assert "lgd_ac_id" not in spill["properties"]
@@ -127,7 +134,7 @@ def test_shards_without_ac_id_untouched(lift_module: Any, datasets_root: Path) -
     assert report["state=in_u08"] == (1, 0)
     for state in ("s03", "u08"):
         data = json.loads(
-            (datasets_root / f"boundaries/in/ac/state=in_{state}/all.geojson").read_text()
+            (datasets_root / f"boundaries/electoral/delim=2008/ac/state=in_{state}/all.geojson").read_text()
         )
         for f in data["features"]:
             assert "lgd_ac_id" not in f["properties"]
@@ -138,7 +145,7 @@ def test_subset_gate(lift_module: Any, datasets_root: Path) -> None:
     covered = lift_module.load_covered_lgd_ac_ids(datasets_root)
     lift_module.lift_all(datasets_root)
     stamped: set[int] = set()
-    for sd in (datasets_root / "boundaries/in/ac").glob("state=in_*"):
+    for sd in (datasets_root / "boundaries/electoral/delim=2008/ac").glob("state=in_*"):
         data = json.loads((sd / "all.geojson").read_text())
         for f in data["features"]:
             v = f["properties"].get("lgd_ac_id")
@@ -161,7 +168,7 @@ def test_missing_crosswalk_returns_empty(lift_module: Any, tmp_path: Path) -> No
 
 
 def test_idempotent_byte_stable(lift_module: Any, datasets_root: Path) -> None:
-    shard = datasets_root / "boundaries/in/ac/state=in_s22/all.geojson"
+    shard = datasets_root / "boundaries/electoral/delim=2008/ac/state=in_s22/all.geojson"
     lift_module.lift_all(datasets_root)
     first = shard.read_bytes()
     lift_module.lift_all(datasets_root)

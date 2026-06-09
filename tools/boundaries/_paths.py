@@ -6,7 +6,7 @@ the G6 tools/ prune 2026-06-08 once T.0d chunk 3 had landed; the path
 derivation it shared with snapshot.py is preserved here for any future
 layout changes.
 
-T.0d §1 admin-spine layout (locked 2026-05-22)::
+T.0d section 1 admin-spine layout (locked 2026-05-22)::
 
     datasets/boundaries/
       boundary_layers.parquet                       # control table
@@ -14,14 +14,28 @@ T.0d §1 admin-spine layout (locked 2026-05-22)::
         country/all.geojson                         # india-soi
         states/all.geojson                          # india-states
         districts/all.geojson                       # india-districts
-        ac/state=in_<lc>/all.geojson                # per-state AC layer
         subdistricts/state=in_<lc>/all.geojson      # per-state subdistrict
         villages/state=in_<lc>/district=<lgd>/all.geojson  # per-district village shard
 
+G10 electoral-spine layout (section 4 EL2 of
+TODO/20260603-data-and-charting-platform-reset-plan.md, 2026-06-09)::
+
+    datasets/boundaries/
+      electoral/
+        delim=<year>/
+          ac/state=<slug>/all.geojson              # per-state AC layer
+          pc/all.geojson                           # country-wide PC layer
+
+The admin spine (``boundaries/in/...``) and the electoral spine
+(``boundaries/electoral/delim=<year>/...``) sit as peers under
+``datasets/boundaries/``; both are addressed via this builder.
+
 ``layer_id`` mirrors the partition path under the dot grammar required by
-``boundary-layers.schema.json`` (regex ``^boundaries\\.in\\.[a-z]+(\\.[a-z]+=[a-z0-9_]+)*$``).
-The Hive key/value tokens (``state=tamil-nadu``, ``district=603``) are
-embedded verbatim so callers can build either form from the same args.
+``boundary-layers.schema.json`` (regex
+``^boundaries\\.(in|electoral)(\\.[a-z]+(=[a-z0-9_-]+)?)+$`` after schema
+v1.5). The Hive key/value tokens (``state=tamil-nadu``, ``district=603``,
+``delim=2008``) are embedded verbatim so callers can build either form
+from the same args.
 """
 
 from __future__ import annotations
@@ -113,13 +127,15 @@ def derive_hive(
         * ``partition_path`` is repo-relative POSIX (e.g.
           ``boundaries/in/villages/state=tamil-nadu/district=603/all.geojson``,
           ``boundaries/in/wards/state=tamil-nadu/ulb=802743/all.geojson``,
-          ``boundaries/in/pc/delim=2024/all.geojson``).
+          ``boundaries/electoral/delim=2008/ac/state=tamil-nadu/all.geojson``,
+          ``boundaries/electoral/delim=2024/pc/all.geojson``).
           Matches the JSON Schema ``partition_path`` regex
-          (``^boundaries/in/``).
+          (``^boundaries/(in|electoral)/``).
         * ``layer_id`` is the dot-grammar equivalent (e.g.
           ``boundaries.in.villages.state=tamil-nadu.district=603``,
           ``boundaries.in.wards.state=tamil-nadu.ulb=802743``,
-          ``boundaries.in.pc.delim=2024``).
+          ``boundaries.electoral.delim=2008.ac.state=tamil-nadu``,
+          ``boundaries.electoral.delim=2024.pc``).
           Matches ``boundary-layers.schema.json:properties.layer_id.pattern``.
 
     Raises:
@@ -129,11 +145,32 @@ def derive_hive(
     if kind not in KIND_TO_LEVEL:
         msg = f"unknown kind {kind!r}; expected one of {sorted(KIND_TO_LEVEL)}"
         raise ValueError(msg)
-    parts_path: list[str] = [f"boundaries/in/{kind}"]
-    parts_id: list[str] = [f"boundaries.in.{kind}"]
-    if delim is not None:
-        parts_path.append(f"delim={delim}")
+    # G10 (section 4 EL2 of TODO/20260603-data-and-charting-platform-
+    # reset-plan.md, 2026-06-09): electoral constituency layers live
+    # under ``boundaries/electoral/delim=<year>/<grain>/...`` so each
+    # ECI Delimitation Commission Order publishes its own coexisting
+    # boundary set; the admin spine stays under ``boundaries/in/``.
+    is_electoral = kind in {"ac", "pc"}
+    section = "electoral" if is_electoral else "in"
+    parts_path: list[str] = [f"boundaries/{section}/"]
+    parts_id: list[str] = [f"boundaries.{section}"]
+    if is_electoral:
+        if delim is None:
+            msg = (
+                f"kind={kind!r} is electoral; ``delim`` is required to "
+                "select the Delimitation Commission Order vintage "
+                "(boundaries/electoral/delim=<year>/...)."
+            )
+            raise ValueError(msg)
+        parts_path[-1] = f"boundaries/{section}/delim={delim}/{kind}"
         parts_id.append(f"delim={delim}")
+        parts_id.append(kind)
+    else:
+        parts_path[-1] = f"boundaries/{section}/{kind}"
+        parts_id.append(kind)
+        if delim is not None:
+            parts_path.append(f"delim={delim}")
+            parts_id.append(f"delim={delim}")
     if state is not None:
         state_key = f"in_{state.lower()}"
         parts_path.append(f"state={state_key}")

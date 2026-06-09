@@ -34,8 +34,8 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 LAYOUT_PATH = REPO / "datasets" / "grapher" / "election_tile_layouts.json"
 SCOPES_PATH = REPO / "datasets" / "grapher" / "election_tile_scopes.json"
-AC_DIR = REPO / "datasets" / "boundaries" / "in" / "ac"
-PC_PATH = REPO / "datasets" / "boundaries" / "in" / "pc" / "delim=2024" / "all.geojson"
+AC_DIR = REPO / "datasets" / "boundaries" / "electoral" / "delim=2008" / "ac"
+PC_PATH = REPO / "datasets" / "boundaries" / "electoral" / "delim=2024" / "pc" / "all.geojson"
 
 DELIM_YEAR = 2008
 ROW_PITCH = math.sqrt(3) / 2  # pointy-top: vertical row pitch / horizontal pitch
@@ -261,7 +261,7 @@ def build_ac_scope(slug: str) -> list[dict]:
                 props.get("ac_name") or props.get("seat_name_en") or f"AC {ac_no}"
             )
 
-    source_id = f"boundaries/in/ac/state={slug}/all.geojson"
+    source_id = f"boundaries/electoral/delim=2008/ac/state={slug}/all.geojson"
     units: list[dict] = []
     for ac_no, b in by_ac.items():
         units.append(
@@ -296,7 +296,7 @@ def build_pc_scope() -> list[dict]:
             }
         )
     assign_hex_cells(units)
-    source_id = "boundaries/in/pc/delim=2024/all.geojson"
+    source_id = "boundaries/electoral/delim=2024/pc/all.geojson"
     return [_tile("pc", "national", source_id, u) for u in units]
 
 

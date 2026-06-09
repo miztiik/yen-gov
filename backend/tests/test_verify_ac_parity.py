@@ -33,7 +33,14 @@ def _write_sot(root: Path, eci: str, names: dict[int, str]) -> None:
 
 def _write_geojson(root: Path, eci: str, features_props: list[dict]) -> None:
     path = (
-        root / "datasets" / "boundaries" / "in" / "ac" / f"state=in_{eci.lower()}" / "all.geojson"
+        root
+        / "datasets"
+        / "boundaries"
+        / "electoral"
+        / "delim=2008"
+        / "ac"
+        / f"state=in_{eci.lower()}"
+        / "all.geojson"
     )
     path.parent.mkdir(parents=True, exist_ok=True)
     doc = {

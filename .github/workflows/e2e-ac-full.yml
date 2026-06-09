@@ -29,7 +29,7 @@ on:
       - "frontend/src/lib/boundaries.ts"
       - "frontend/src/contracts/state-ac-registry-coverage.test.ts"
       - "frontend/e2e/state-ac-coverage.spec.ts"
-      - "datasets/boundaries/in/ac/**"
+      - "datasets/boundaries/electoral/delim=2008/ac/**"
       - "datasets/taxonomy/entities.json"
       - "datasets/taxonomy/election_events.json"
   workflow_dispatch:

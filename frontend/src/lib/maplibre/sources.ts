@@ -32,10 +32,14 @@ export interface BoundaryEntry {
   label: string;
   /**
    * Optional same-origin GeoJSON snapshot path under DATA_BASE (e.g.
-   * "boundaries/in/ac/state=tamil-nadu/all.geojson"). Preferred over the
+   * "boundaries/electoral/delim=2008/ac/state=tamil-nadu/all.geojson"
+   * for the per-state electoral layers; "boundaries/in/states/all.geojson"
+   * for the admin-spine layers). Preferred over the
    * upstream URL when present — it's an order of magnitude faster and
    * works offline. Populated by tools/boundaries/snapshot.py; Hive
-   * partition layout per ADR-0031 Amendment 2026-05-22.
+   * partition layout per ADR-0031 Amendment 2026-05-22, with the
+   * electoral subtree added by G10 of TODO/20260603-data-and-charting-
+   * platform-reset-plan.md section 4 EL2.
    */
   geojson_local_path?: string;
   /** Direct upstream GeoJSON URL (last-resort fallback). */
@@ -149,7 +153,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S01: {
     id: "S01-ac",
     label: "Andhra Pradesh — Assembly constituencies (post-2014 bifurcation)",
-    geojson_local_path: "boundaries/in/ac/state=andhra-pradesh/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=andhra-pradesh/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -159,7 +163,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S22: {
     id: "S22-ac",
     label: "Tamil Nadu — Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=tamil-nadu/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=tamil-nadu/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -169,7 +173,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S11: {
     id: "S11-ac",
     label: "Kerala — Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=kerala/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=kerala/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -179,7 +183,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S25: {
     id: "S25-ac",
     label: "West Bengal — Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=west-bengal/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=west-bengal/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -190,7 +194,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
     id: "S03-ac",
     label:
       "Assam - Assembly constituencies (post-2023 delimitation; district-fallback geometry)",
-    geojson_local_path: "boundaries/in/ac/state=assam/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=assam/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/districts/LGD_Districts.geojsonl.7z",
     join_property: "ac_no",
@@ -198,7 +202,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   U07: {
     id: "U07-ac",
     label: "Puducherry — Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=puducherry/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=puducherry/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -207,7 +211,9 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   },
   // A.2 (docs/archive/plans/20260529-boundary-rip-and-replace-plan.md) - 24 additional
   // LGD-keyed AC layers covering the remaining states + UTs where the AC
-  // shard exists under datasets/boundaries/in/ac/state=<lgd_slug>/all.geojson.
+  // shard exists under datasets/boundaries/electoral/delim=2008/ac/state=<lgd_slug>/all.geojson
+  // (per G10 of TODO/20260603-data-and-charting-platform-reset-plan.md section 4 EL2;
+  // previously under datasets/boundaries/electoral/delim=2008/ac/state=<lgd_slug>/all.geojson).
   // All entries below are post-D.7 R1 (PR #431) ramSeraph LGD release;
   // each feature carries `ac_no` (lowercase) + `State_LGD` per the
   // snapshot.py normalisation pipeline. No per-state caveat in the label
@@ -219,7 +225,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S02: {
     id: "S02-ac",
     label: "Arunachal Pradesh - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=arunachal-pradesh/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=arunachal-pradesh/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -229,7 +235,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S04: {
     id: "S04-ac",
     label: "Bihar - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=bihar/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=bihar/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -239,7 +245,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S05: {
     id: "S05-ac",
     label: "Goa - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=goa/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=goa/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -249,7 +255,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S06: {
     id: "S06-ac",
     label: "Gujarat - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=gujarat/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=gujarat/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -259,7 +265,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S07: {
     id: "S07-ac",
     label: "Haryana - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=haryana/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=haryana/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -269,7 +275,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S08: {
     id: "S08-ac",
     label: "Himachal Pradesh - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=himachal-pradesh/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=himachal-pradesh/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -279,7 +285,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S10: {
     id: "S10-ac",
     label: "Karnataka - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=karnataka/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=karnataka/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -289,7 +295,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S12: {
     id: "S12-ac",
     label: "Madhya Pradesh - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=madhya-pradesh/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=madhya-pradesh/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -299,7 +305,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S13: {
     id: "S13-ac",
     label: "Maharashtra - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=maharashtra/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=maharashtra/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -309,7 +315,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S14: {
     id: "S14-ac",
     label: "Manipur - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=manipur/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=manipur/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -319,7 +325,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S15: {
     id: "S15-ac",
     label: "Meghalaya - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=meghalaya/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=meghalaya/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -329,7 +335,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S16: {
     id: "S16-ac",
     label: "Mizoram - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=mizoram/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=mizoram/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -339,7 +345,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S17: {
     id: "S17-ac",
     label: "Nagaland - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=nagaland/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=nagaland/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -349,7 +355,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S18: {
     id: "S18-ac",
     label: "Odisha - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=odisha/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=odisha/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -359,7 +365,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S19: {
     id: "S19-ac",
     label: "Punjab - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=punjab/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=punjab/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -369,7 +375,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S20: {
     id: "S20-ac",
     label: "Rajasthan - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=rajasthan/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=rajasthan/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -379,7 +385,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S21: {
     id: "S21-ac",
     label: "Sikkim - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=sikkim/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=sikkim/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -389,7 +395,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S23: {
     id: "S23-ac",
     label: "Tripura - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=tripura/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=tripura/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -399,7 +405,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S24: {
     id: "S24-ac",
     label: "Uttar Pradesh - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=uttar-pradesh/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=uttar-pradesh/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -409,7 +415,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S26: {
     id: "S26-ac",
     label: "Chhattisgarh - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=chhattisgarh/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=chhattisgarh/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -419,7 +425,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S27: {
     id: "S27-ac",
     label: "Jharkhand - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=jharkhand/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=jharkhand/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -429,7 +435,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S28: {
     id: "S28-ac",
     label: "Uttarakhand - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=uttarakhand/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=uttarakhand/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -439,7 +445,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   S29: {
     id: "S29-ac",
     label: "Telangana - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=telangana/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=telangana/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -449,7 +455,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   U05: {
     id: "U05-ac",
     label: "NCT of Delhi - Assembly constituencies",
-    geojson_local_path: "boundaries/in/ac/state=delhi/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=delhi/all.geojson",
     geojson_url:
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/constituencies/LGD_Assembly_Constituencies.geojsonl.7z",
     join_property: "lgd_ac_id",
@@ -467,7 +473,7 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
   U08: {
     id: "U08-ac",
     label: "Jammu & Kashmir — Assembly constituencies (post-2022 delimitation)",
-    geojson_local_path: "boundaries/in/ac/state=jammu-and-kashmir/all.geojson",
+    geojson_local_path: "boundaries/electoral/delim=2008/ac/state=jammu-and-kashmir/all.geojson",
     geojson_url:
       "https://raw.githubusercontent.com/shijithpk/2024_maps_supplement/main/j_and_k_assembly_new_borders.geojson",
     join_property: "seat_id",
@@ -1793,7 +1799,7 @@ export async function resolveSource(entry: BoundaryEntry): Promise<ResolvedSourc
 export const INDIA_PC: BoundaryEntry = {
   id: "india-pc",
   label: "India — Parliamentary Constituencies (2024 delimitation)",
-  geojson_local_path: "boundaries/in/pc/delim=2024/all.geojson",
+  geojson_local_path: "boundaries/electoral/delim=2024/pc/all.geojson",
   geojson_url:
     "https://github.com/shijithpk/2024_maps_supplement",
   join_property: "unique_id",

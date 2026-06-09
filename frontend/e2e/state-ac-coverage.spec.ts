@@ -86,8 +86,10 @@ for (const e of entities) {
   }
 }
 
-// State / UT codes for which `boundaries/in/ac/state=<lgd-slug>/all.geojson`
-// exists on disk after A.2 (31 entries). Sorted lexicographically.
+// State / UT codes for which `boundaries/electoral/delim=2008/ac/state=<lgd-slug>/all.geojson`
+// exists on disk after A.2 (31 entries; the boundaries/in/ac/... -> boundaries/electoral/delim=2008/ac/...
+// rename landed in G10 of TODO/20260603-data-and-charting-platform-reset-plan.md section 4 EL2).
+// Sorted lexicographically.
 const FULL_CODES: readonly string[] = [
   "S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08",
   "S10", "S11", "S12", "S13", "S14", "S15", "S16", "S17",
@@ -160,7 +162,7 @@ test.describe("STATE_AC per-state coverage", () => {
       // EXACT fetch the citizen-facing render makes. TopoJSON siblings
       // exist for AC shards (ADR-0047), so accept either extension.
       const acShardRe =
-        /\/data\/boundaries\/in\/ac\/state=[^/]+\/all\.(topojson|geojson)(\?|$)/;
+        /\/data\/boundaries\/electoral\/delim=2008\/ac\/state=[^/]+\/all\.(topojson|geojson)(\?|$)/;
       // Set up the shard-response listener BEFORE navigation so the
       // map's own GET is captured by the same Promise we await later.
       const shardResponsePromise = page
@@ -204,7 +206,7 @@ test.describe("STATE_AC per-state coverage", () => {
       const shardResponse = await shardResponsePromise;
       expect(
         shardResponse,
-        `${code}: map did not request /data/boundaries/in/ac/state=<lgd-slug>/all.{topojson,geojson}`,
+        `${code}: map did not request /data/boundaries/electoral/delim=2008/ac/state=<lgd-slug>/all.{topojson,geojson}`,
       ).not.toBeNull();
       expect(shardResponse?.status(), `${code}: shard load failed`).toBe(200);
     });

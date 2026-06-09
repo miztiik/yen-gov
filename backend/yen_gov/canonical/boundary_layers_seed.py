@@ -156,10 +156,23 @@ class BoundaryLayerRow(BaseModel):
     # --- required (10) ---
     layer_id: str = Field(
         min_length=1,
-        pattern=r"^boundaries\.in\.[a-z]+(\.[a-z]+=[a-z0-9_]+)*$",
+        # Section-1 (after ``boundaries``) is ``in`` (admin spine, T.0d
+        # ADR-0031 Amendment) OR ``electoral`` (ECI constituency layers,
+        # G10 of TODO/20260603-data-and-charting-platform-reset-plan.md
+        # section 4 EL2). Hive-value charclass widened to include ``-``
+        # so hyphenated slugs (``state=andhra-pradesh``) validate
+        # alongside the legacy ``state=in_s01`` form.
+        pattern=r"^boundaries\.(in|electoral)(\.[a-z]+(=[a-z0-9_-]+)?)+$",
     )
     level: Level
-    partition_path: str = Field(min_length=1, pattern=r"^boundaries/in/")
+    partition_path: str = Field(
+        min_length=1,
+        # Per G10 (plan section 4 EL2) electoral layers live under
+        # ``boundaries/electoral/delim=<year>/...`` so each ECI
+        # Delimitation Commission Order publishes its own coexisting
+        # boundary set; the admin spine stays under ``boundaries/in/``.
+        pattern=r"^boundaries/(in|electoral)/",
+    )
     format: Format
     crs: str = Field(min_length=1)
     original_feature_count: int = Field(ge=0)

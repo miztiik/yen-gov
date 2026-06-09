@@ -134,11 +134,29 @@ def test_boundary_layer_row_invalid_layer_id_pattern():
 
 
 def test_boundary_layer_row_invalid_partition_path():
-    """partition_path must start with ``boundaries/in/``."""
+    """partition_path must start with ``boundaries/in/`` or
+    ``boundaries/electoral/`` (G10, plan section 4 EL2)."""
     with pytest.raises(ValidationError):
         BoundaryLayerRow(
             **_minimal_row_kwargs(partition_path="elections/in/results.parquet")
         )
+
+
+def test_boundary_layer_row_electoral_partition_path_accepted():
+    """G10 widened the partition_path regex to accept the electoral subtree
+    (``boundaries/electoral/delim=<year>/...``) alongside the admin spine
+    (``boundaries/in/...``); the matching layer_id grammar accepts the
+    ``delim=<year>`` Hive segment plus hyphenated slugs."""
+    row = BoundaryLayerRow(
+        **_minimal_row_kwargs(
+            layer_id="boundaries.electoral.delim=2008.ac.state=andhra-pradesh",
+            partition_path="boundaries/electoral/delim=2008/ac/state=andhra-pradesh/all.geojson",
+            level="ac",
+            delimitation_vintage="2008",
+        )
+    )
+    assert row.layer_id.startswith("boundaries.electoral.")
+    assert row.partition_path.startswith("boundaries/electoral/")
 
 
 def test_boundary_layer_row_invalid_level_enum():
@@ -458,12 +476,18 @@ def test_shijithpk_pc_2024_v2_field_profile():
 
 def test_pc_layer_row_delim_partition_via_compile(tmp_path):
     """End-to-end: write + read CSV, confirm delimitation_vintage
-    column round-trips for the PC row."""
+    column round-trips for the PC row.
+
+    PC partition_path uses the G10 electoral subtree
+    (``boundaries/electoral/delim=2024/pc/all.geojson``); the layer_id
+    grammar still permits the legacy ``boundaries.in.pc.delim=2024``
+    form per the v1.5 regex widening, but new rows are written under
+    the electoral handle."""
     pc_src = BOUNDARY_SOURCE_ID_BY_NICKNAME["shijithpk_pc_2024"]
     row = BoundaryLayerRow(
-        layer_id="boundaries.in.pc.delim=2024",
+        layer_id="boundaries.electoral.delim=2024.pc",
         level="pc",
-        partition_path="boundaries/in/pc/delim=2024/all.geojson",
+        partition_path="boundaries/electoral/delim=2024/pc/all.geojson",
         format="geojson",
         crs="EPSG:4326",
         original_feature_count=545,
@@ -480,7 +504,7 @@ def test_pc_layer_row_delim_partition_via_compile(tmp_path):
     out = _read_csv_rows(csv_path)
     pc_rows = [r for r in out if r["level"] == "pc"]
     assert len(pc_rows) == 1
-    assert pc_rows[0]["layer_id"] == "boundaries.in.pc.delim=2024"
+    assert pc_rows[0]["layer_id"] == "boundaries.electoral.delim=2024.pc"
     assert pc_rows[0]["level"] == "pc"
     assert pc_rows[0]["delimitation_vintage"] == "2024"
 
@@ -490,9 +514,9 @@ def test_delim_vintage_pattern_enforced():
     Catches accidental empty string, ISO date, or free-form vintage text."""
     pc_src = BOUNDARY_SOURCE_ID_BY_NICKNAME["shijithpk_pc_2024"]
     base = dict(
-        layer_id="boundaries.in.pc.delim=2024",
+        layer_id="boundaries.electoral.delim=2024.pc",
         level="pc",
-        partition_path="boundaries/in/pc/delim=2024/all.geojson",
+        partition_path="boundaries/electoral/delim=2024/pc/all.geojson",
         format="geojson",
         crs="EPSG:4326",
         original_feature_count=1,

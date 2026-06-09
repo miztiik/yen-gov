@@ -1,7 +1,7 @@
 """Verify Phase D.2 AC promote parity per state.
 
 After `python -m tools.boundaries.snapshot --kind ac --state S04 ...` rewrites
-`datasets/boundaries/in/ac/state=in_<eci_lc>/all.geojson` for each D.2 target
+`datasets/boundaries/electoral/delim=2008/ac/state=in_<eci_lc>/all.geojson` for each D.2 target
 state with the ramSeraph LGD slice, this tool re-asserts the parity invariants
 that D.1 recon (`tools/boundaries/recon_d1_ac.py`, PR #270) measured on the
 unfiltered upstream:
@@ -108,12 +108,19 @@ def load_sot(repo_root: Path, eci: str) -> dict[int, str]:
 
 
 def load_geojson_features(repo_root: Path, eci: str) -> list[dict]:
-    """Return the FeatureCollection's features for the per-state geojson."""
+    """Return the FeatureCollection's features for the per-state geojson.
+
+    The on-disk AC shard layout moved from ``boundaries/in/ac/state=in_<lc>/``
+    to ``boundaries/electoral/delim=2008/ac/state=in_<lc>/`` in G10 of
+    TODO/20260603-data-and-charting-platform-reset-plan.md section 4 EL2
+    (2026-06-09); this loader reads the new path.
+    """
     path = (
         repo_root
         / "datasets"
         / "boundaries"
-        / "in"
+        / "electoral"
+        / "delim=2008"
         / "ac"
         / f"state=in_{eci.lower()}"
         / "all.geojson"
