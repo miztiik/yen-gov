@@ -32,7 +32,7 @@
 </script>
 
 <script lang="ts">
-  import { ruleById } from "../lib/psephlab/rules";
+  import { ruleById, RULES } from "../lib/psephlab/rules";
   import { url } from "../lib/url";
   import { docsUrl } from "../lib/repo";
   import TopicIcon from "../lib/TopicIcon.svelte";
@@ -74,14 +74,27 @@
       </h1>
       <p class="mt-2 text-sm" style:color="var(--ink-muted, #64748b)">
         No counting method matches the id <code>{method_id}</code>. The
-        Election Studio currently offers four:
+        Election Studio currently offers {RULES.length} methods, organised
+        into two validity tiers:
       </p>
       <ul class="mt-3 text-sm space-y-1">
-        <li><a class="hover:underline" style:color="var(--accent, #3538cd)" href={url.docsLabMethod("fptp")}>First-Past-The-Post</a></li>
-        <li><a class="hover:underline" style:color="var(--accent, #3538cd)" href={url.docsLabMethod("proportional")}>Proportional (Sainte-Lague, state-wide)</a></li>
-        <li><a class="hover:underline" style:color="var(--accent, #3538cd)" href={url.docsLabMethod("ranked-choice")}>Ranked-choice (IRV, uniform transfer)</a></li>
-        <li><a class="hover:underline" style:color="var(--accent, #3538cd)" href={url.docsLabMethod("approval")}>Approval (cast = approval)</a></li>
+        {#each RULES as r (r.id)}
+          <li>
+            <a class="hover:underline" style:color="var(--accent, #3538cd)" href={url.docsLabMethod(r.id)}>{r.short_label ?? r.label}</a>
+            <span class="text-xs ml-2" style:color="var(--ink-muted, #64748b)">({r.validity === "fully_workable" ? "Fully workable" : "Experimental"})</span>
+          </li>
+        {/each}
       </ul>
+      <p class="mt-4 text-sm">
+        For the trade-off framing across methods, see the
+        <a
+          href={docsUrl("docs/concepts/counting-methods/overview.md")}
+          target="_blank"
+          rel="noreferrer noopener"
+          class="hover:underline font-mono text-xs"
+          style:color="var(--accent, #3538cd)"
+        >counting-methods overview</a>.
+      </p>
     </section>
   {:else}
     <header class="space-y-2">
@@ -131,6 +144,32 @@
           style:color="var(--accent, #3538cd)"
         >docs/concepts/counting-methods/{method_id}.md</a>
         and renders natively on GitHub.
+      </p>
+      <p class="mt-3 text-sm">
+        For the trade-off framing across all methods, see the
+        <a
+          href={docsUrl("docs/concepts/counting-methods/overview.md")}
+          target="_blank"
+          rel="noreferrer noopener"
+          class="hover:underline font-mono text-xs"
+          style:color="var(--accent, #3538cd)"
+        >counting-methods overview</a>,
+        the
+        <a
+          href={docsUrl("docs/concepts/counting-methods/derivability.md")}
+          target="_blank"
+          rel="noreferrer noopener"
+          class="hover:underline font-mono text-xs"
+          style:color="var(--accent, #3538cd)"
+        >derivability matrix</a>,
+        and
+        <a
+          href={docsUrl("docs/concepts/counting-methods/india-caveats.md")}
+          target="_blank"
+          rel="noreferrer noopener"
+          class="hover:underline font-mono text-xs"
+          style:color="var(--accent, #3538cd)"
+        >India-specific caveats</a>.
       </p>
       <p class="mt-3 text-sm">
         <a

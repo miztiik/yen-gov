@@ -1,4 +1,4 @@
-# Counting method: Proportional (Sainte-Lague, state-wide)
+# Counting method: Proportional (Sainte-Lague, state pool)
 
 **Last Updated**: 2026-06-09
 
