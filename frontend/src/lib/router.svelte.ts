@@ -38,11 +38,23 @@ interface Compiled {
 function compile(routes: Route[]): Compiled[] {
   return routes.map(r => {
     const keys: string[] = [];
-    const src = r.pattern.replace(/\/:([A-Za-z_][A-Za-z0-9_]*)/g, (_m, k) => {
+    // Trailing `/*` matches the remainder of the path (including nothing).
+    // The captured tail is exposed as the param key `rest`. Used by
+    // RedirectLegacyUrl to catch every legacy `/s/<state>/...` URL with a
+    // single route entry (ADR-0037 Phase 2-4, PR-P1).
+    let pattern = r.pattern;
+    let hasWildcard = false;
+    if (pattern.endsWith("/*")) {
+      hasWildcard = true;
+      pattern = pattern.slice(0, -2);
+      keys.push("rest");
+    }
+    const src = pattern.replace(/\/:([A-Za-z_][A-Za-z0-9_]*)/g, (_m, k) => {
       keys.push(k);
       return "/([^/]+)";
     });
-    return { re: new RegExp("^" + src + "$"), keys, route: r };
+    const wildcardSuffix = hasWildcard ? "(?:/(.*))?" : "";
+    return { re: new RegExp("^" + src + wildcardSuffix + "$"), keys, route: r };
   });
 }
 
@@ -65,7 +77,13 @@ function resolve(compiled: Compiled[], fallback: Route, path: string): Matched {
     const m = c.re.exec(path);
     if (!m) continue;
     const raw: Record<string, string> = {};
-    c.keys.forEach((k, i) => (raw[k] = decodeURIComponent(m[i + 1])));
+    c.keys.forEach((k, i) => {
+      // Trailing `/*` wildcard groups are optional and may be undefined
+      // when the tail is empty (e.g. `/s/` matches `/s/*` with empty rest).
+      // Coerce undefined to "" so decodeURIComponent doesn't stringify it.
+      const captured = m[i + 1];
+      raw[k] = captured === undefined ? "" : decodeURIComponent(captured);
+    });
     const params = c.route.parse ? c.route.parse(raw) : raw;
     return { route: c.route, params };
   }
