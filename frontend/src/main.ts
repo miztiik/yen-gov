@@ -29,6 +29,7 @@ import DataCompleteness from "./routes/DataCompleteness.svelte";
 import DevChartsSandbox from "./routes/DevChartsSandbox.svelte";
 import Yenask from "./routes/Yenask.svelte";
 import IndicatorDoc from "./routes/IndicatorDoc.svelte";
+import CountingMethodDoc from "./routes/CountingMethodDoc.svelte";
 import NotFound from "./routes/NotFound.svelte";
 
 // Mount the persistent shell once. The router replaces the contents of
@@ -119,7 +120,26 @@ startRouter({
     // specific cohort's results in a specific state. Linked from the
     // `/s/<state>/t/elections` topic page's default-event card.
     { pattern: "/s/:state/elections/:event", component: StateElection },
+    // Method-first Psephlab route (2026-06-09 redesign, Fowler verdict).
+    // 4-segment pattern - distinct from the 3-segment bare lab route by
+    // segment count + literal `m`. The method_id is opaque to the router
+    // and resolved at render time via `ruleById(method_id)`. Placed
+    // BEFORE the 3-segment bare route so a more-specific match wins on
+    // any router ordering policy.
+    {
+      pattern: "/lab/:state/:event/m/:method",
+      component: Psephlab,
+      parse: ({ state, event, method }) => ({ state, event, method }),
+    },
     { pattern: "/lab/:state/:event", component: Psephlab },
+    // Method-aware Compare (2026-06-09 redesign). Same 4-segment shape
+    // as labMethod above; both sides share the active method per Fowler
+    // verdict (per-side method override deferred).
+    {
+      pattern: "/compare/:state/:event/m/:method",
+      component: Compare,
+      parse: ({ state, event, method }) => ({ state, event, method }),
+    },
     { pattern: "/compare/:state/:event", component: Compare },
     // Generic indicator Compare (P4) — sits alongside the more-specific
     // election Compare above; the two patterns don't overlap.
@@ -161,6 +181,18 @@ startRouter({
       pattern: "/docs/indicator/:topic/:id",
       component: IndicatorDoc,
       parse: ({ topic, id }) => ({ indicator_id: `${topic}/${id}` }),
+    },
+    // Per-counting-method documentation page (2026-06-09 redesign,
+    // Fowler verdict route topology). Mirrors /docs/indicator/ shape:
+    // ONE generic CountingMethodDoc.svelte reading TS-constant caveat
+    // + assumptions from the rule registry + linking out to authoritative
+    // Markdown long-form at docs/concepts/counting-methods/<method>.md.
+    // 3-segment pattern with literal `/docs/lab/`, distinct from every
+    // other route by both the literal and the segment count.
+    {
+      pattern: "/docs/lab/:method",
+      component: CountingMethodDoc,
+      parse: ({ method }) => ({ method }),
     },
   ],
   notFound: { pattern: "*", component: NotFound },

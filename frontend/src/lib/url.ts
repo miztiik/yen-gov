@@ -138,8 +138,51 @@ export const url = {
   lab(stateCode: string, event: string): string {
     return withBase(`/lab/${states.slug(stateCode) || stateCode.toLowerCase()}/${event}`);
   },
+  /**
+   * Method-first Psephlab route - `/lab/<state>/<event>/m/<method-id>`.
+   *
+   * NEW (2026-06-09 redesign, Fowler verdict route topology). The path
+   * carries the counting rule so the URL telegraphs "you are looking at
+   * <method> seats", which is the visionary-explorer framing the user
+   * authorised. The bare `/lab/<state>/<event>` URL keeps defaulting to
+   * FPTP so every existing bookmark + share link works untouched
+   * (Fowler strangler-fig EXPAND, not MIGRATE; the legacy `?s=` blob's
+   * `rule` field is still read as a fallback for one release).
+   *
+   * `method_id` is the kebab-case `CountingRule.id` ('fptp' |
+   * 'proportional' | 'ranked-choice' | 'approval'). Unknown ids resolve
+   * to fptp at the render seam (per `ruleById` fallback contract).
+   */
+  labMethod(stateCode: string, event: string, method_id: string): string {
+    const slug = states.slug(stateCode) || stateCode.toLowerCase();
+    return withBase(`/lab/${slug}/${event}/m/${encodeURIComponent(method_id)}`);
+  },
   compare(stateCode: string, event: string): string {
     return withBase(`/compare/${states.slug(stateCode) || stateCode.toLowerCase()}/${event}`);
+  },
+  /**
+   * Method-aware election Compare - `/compare/<state>/<event>/m/<method-id>`.
+   *
+   * NEW (2026-06-09 redesign). Both sides share the active method;
+   * per-side method override is out-of-scope STOP for this PR
+   * (Fowler verdict section 8).
+   */
+  compareMethod(stateCode: string, event: string, method_id: string): string {
+    const slug = states.slug(stateCode) || stateCode.toLowerCase();
+    return withBase(`/compare/${slug}/${event}/m/${encodeURIComponent(method_id)}`);
+  },
+  /**
+   * Per-method documentation route - `/docs/lab/<method-id>`.
+   *
+   * NEW (2026-06-09 redesign). Mirrors `/docs/indicator/<id>` precedent:
+   * one generic CountingMethodDoc.svelte route reads the TS-constant
+   * caveat + assumptions from the rule registry + links out to the
+   * authoritative Markdown long-form. The TS constants stay the source
+   * for the banner so the in-app honesty marker renders synchronously
+   * (Fowler vs Hans compromise).
+   */
+  docsLabMethod(method_id: string): string {
+    return withBase(`/docs/lab/${encodeURIComponent(method_id)}`);
   },
   /** Topic Front Door index — `/t`. (P3.3b, ADR-0022.) */
   topics(): string {

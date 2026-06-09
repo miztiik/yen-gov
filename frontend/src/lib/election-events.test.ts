@@ -118,6 +118,21 @@ describe("listEventsForState", () => {
     expect(listEventsForState(null, "S22")).toEqual([]);
     expect(listEventsForState(CATALOGUE, null)).toEqual([]);
   });
+
+  it("filters by kind when the optional kind arg is supplied (2026-06-09 Compare kind-constraint)", () => {
+    // S10 has 2 assembly + 1 lok_sabha; filter must keep only the
+    // matching kind and stay sorted most-recent-first.
+    expect(
+      listEventsForState(CATALOGUE, "S10", "assembly").map((e) => e.event_id),
+    ).toEqual(["AcGenMay2023", "AcGenMay2018"]);
+    expect(
+      listEventsForState(CATALOGUE, "S10", "lok_sabha").map((e) => e.event_id),
+    ).toEqual(["LsGenJun2024"]);
+    // by_election kind has no rows -> empty.
+    expect(
+      listEventsForState(CATALOGUE, "S10", "by_election"),
+    ).toEqual([]);
+  });
 });
 
 describe("findEvent", () => {

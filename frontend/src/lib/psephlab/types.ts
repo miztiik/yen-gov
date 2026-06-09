@@ -41,6 +41,15 @@ export interface CandidateTally {
    */
   brand_colour_hex?: string | null;
   brand_colour_confidence?: "high" | "medium" | "low" | null;
+  /**
+   * Sanitised party ballot-symbol asset path from
+   * `dim_parties.election_symbol_asset_path` (e.g. `"party-symbols/lotus.svg"`).
+   * Threaded through so the ParliamentArc symbol-ring legend can render
+   * a glyph next to the party token without a second dim_parties query.
+   * Optional; null when the symbol is not yet curated or the party is
+   * the synthetic NOTA / IND sentinel.
+   */
+  election_symbol_asset_path?: string | null;
 }
 
 export interface AcTally {
@@ -127,6 +136,23 @@ export interface MutationPlugin<C extends MutationConfig = MutationConfig> {
    * that the info icon deep-links to. The UI prefixes the repo blob URL.
    */
   docs_anchor: string;
+  /**
+   * Counting-rule ids this mutation is meaningful under. Omit (or set
+   * undefined) to apply under every rule. Per Fowler verdict
+   * (2026-06-09): each mutation OWNS the constraint that defines when
+   * its effect is visible. perAcSwing and thresholdDrop are per-AC
+   * vote transfers that preserve state-wide totals - they have zero
+   * visible effect under Proportional, which aggregates state-wide.
+   * statewideSwing and partyBag DO change state-wide totals so they
+   * stay rule-agnostic.
+   *
+   * The Psephlab "+ Add what-if" menu filters MUTATIONS by
+   * `applicableMutationsFor(rule_id)` (lib/psephlab/applicable-mutations.ts).
+   * Already-encoded scenarios with disallowed mutations are kept-but-
+   * struck-through with explanatory micro-copy (never silently dropped
+   * - share-URL contract).
+   */
+  allowed_rules?: ReadonlyArray<string>;
   /** Apply the mutation. Pure. */
   apply(tallies: Tallies, config: C): Tallies;
   /** Default config when the user adds this mutation from the UI. */
@@ -149,6 +175,13 @@ export interface PartyResult {
   party_id: string;
   brand_colour_hex?: string | null;
   brand_colour_confidence?: "high" | "medium" | "low" | null;
+  /**
+   * Sanitised party ballot-symbol asset path (forwarded from the
+   * first CandidateTally contributing to this party). Used by the
+   * ParliamentArc symbol-ring legend to render the glyph next to each
+   * party. Optional; null when the symbol is not curated.
+   */
+  election_symbol_asset_path?: string | null;
 }
 
 export interface AcOutcome {
@@ -173,7 +206,7 @@ export interface CountingRule {
   label: string;
   apply(tallies: Tallies): SeatAllocation;
   /**
-   * Optional honesty-marker text shown alongside `HypotheticalRecountBanner`
+   * Optional honesty-marker text shown alongside `ImaginingCard`
    * when the rule represents a counterfactual rather than the official
    * result. FPTP (the official method) omits this field; rules added per
    * E6 sub-plan (TODO/20260608-e6-user-override-and-pl2-pl3-execution-subplan.md)
@@ -183,12 +216,12 @@ export interface CountingRule {
   /**
    * Optional list of structured assumptions the simulator makes (e.g.
    * "Voters cast the same ballots as under FPTP"). Surfaced as bullets
-   * inside the banner so the citizen sees the load-bearing assumptions
-   * inline with the counterfactual seat tally.
+   * inside the ImaginingCard so the citizen sees the load-bearing
+   * assumptions inline with the counterfactual seat tally.
    */
   assumptions?: string[];
   /**
-   * When true, the host UI (Psephlab) mounts `HypotheticalRecountBanner`
+   * When true, the host UI (Psephlab) mounts `ImaginingCard`
    * above the result panel. FPTP and any other "official-result" rule
    * omits this; counterfactual rules (Sainte-Lague PR, IRV, Approval)
    * set it to true.

@@ -10,6 +10,7 @@
 
   import type { PartyResult } from "./psephlab/types";
   import { partyColourHex } from "./psephlab/colour-bridge";
+  import PartySymbolGlyph from "./PartySymbolGlyph.svelte";
   import { majorityFor } from "./electoral";
 
   interface Props {
@@ -127,7 +128,14 @@
 </script>
 
 <div class="relative pt-4">
-  <svg viewBox="0 0 {W} {H}" class="w-full h-auto" role="img" aria-label="Seat distribution arc">
+  <!--
+    viewBox top is `-20`, not `0`. The majority label sits at y =
+    cy - r_outer - 12 = (380 - 24) - 340 - 12 = 4, which clipped the
+    text ascenders above a `0` top edge. 20px of headroom keeps the
+    label fully visible without touching cx/cy/r_outer/r_inner or the
+    234-dot reconciliation math the E5 invariant gate depends on.
+  -->
+  <svg viewBox="0 -20 {W} {H + 20}" class="w-full h-auto" role="img" aria-label="Seat distribution arc">
     <!-- Majority midline -->
     <line
       x1={cx} y1={cy - r_outer - 8} x2={cx} y2={cy - r_inner + 8}
@@ -164,13 +172,26 @@
     >{hover.label}</div>
   {/if}
 
-  <!-- Compact legend -->
-  <ul class="flex flex-wrap gap-x-3 gap-y-1 mt-2 text-xs">
+  <!--
+    Compact legend - symbol-ring chips (Jony verdict 2026-06-09, user
+    ask #2). Each chip is a small open ring stroked at the party's
+    brand colour, with the party's election symbol centred inside when
+    `election_symbol_asset_path` is curated. Falls back to the first
+    letter of `party_short` when no glyph is curated (mirrors the
+    no-placeholder doctrine in PartySymbolGlyph). The party name + seat
+    count stay beside the ring so the chip still reads when the glyph
+    fails. Replaces the bare 10px coloured square the legend used
+    before; the swatch is forbidden going forward per CLAUDE.md
+    schema-is-the-design-system rule.
+  -->
+  <ul class="flex flex-wrap gap-x-3 gap-y-2 mt-3 text-xs">
     {#each legend as p (p.party_eci_code)}
       {@const muted = !!hidden_parties?.has(p.party_eci_code)}
       {@const clickable = !!onToggleHidden}
+      {@const ring_colour = partyColourHex(p)}
+      {@const asset_path = p.election_symbol_asset_path ?? null}
       <li
-        class="flex items-center gap-1.5 transition-opacity"
+        class="flex items-center gap-2 transition-opacity"
         class:opacity-40={muted}
         class:cursor-pointer={clickable}
         role={clickable ? "button" : undefined}
@@ -179,7 +200,17 @@
         onclick={() => onToggleHidden?.(p.party_eci_code)}
         onkeydown={(e) => { if (clickable && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); onToggleHidden?.(p.party_eci_code); } }}
       >
-        <span class="inline-block w-2.5 h-2.5 rounded-sm" style:background-color={partyColourHex(p)}></span>
+        <span
+          class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white shrink-0"
+          style:border="2px solid {ring_colour}"
+          aria-hidden="true"
+        >
+          {#if asset_path}
+            <PartySymbolGlyph assetPath={asset_path} size={16} />
+          {:else}
+            <span class="text-[10px] font-semibold leading-none" style:color={ring_colour}>{p.party_short.charAt(0)}</span>
+          {/if}
+        </span>
         <span class="font-medium">{p.party_short}</span>
         <span class="text-slate-500 tabular-nums">{p.seats_won}</span>
       </li>

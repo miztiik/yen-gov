@@ -16,6 +16,10 @@
   import { MUTATIONS, mutationById } from "../lib/psephlab/mutations";
   import { RULES, ruleById } from "../lib/psephlab/rules";
   import {
+    applicableMutationsFor,
+    inertReasonFor,
+  } from "../lib/psephlab/applicable-mutations";
+  import {
     EMPTY_SCENARIO,
     decodeScenario,
     writeScenarioToHash,
@@ -33,29 +37,64 @@
   import { partyColourHex } from "../lib/psephlab/colour-bridge";
   import ParliamentArc from "../lib/ParliamentArc.svelte";
   import SwingSankey from "../lib/SwingSankey.svelte";
-  import HypotheticalRecountBanner from "../lib/HypotheticalRecountBanner.svelte";
+  import ImaginingCard from "../lib/ImaginingCard.svelte";
+  import MethodTabs from "../lib/MethodTabs.svelte";
+  import ContextLabel from "../lib/ContextLabel.svelte";
   import GallagherDisproportionality from "../lib/charts/GallagherDisproportionality.svelte";
   import { states } from "../lib/states.svelte";
-  import { url } from "../lib/url";
+  import { url, navigate } from "../lib/url";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import { docsUrl } from "../lib/repo";
   import { majorityFor } from "../lib/electoral";
+  import {
+    fetchElectionEvents,
+    findEvent,
+    type ElectionEventsCatalogue,
+  } from "../lib/election-events";
 
-  interface Props { params: { state: string; event: string } }
+  /** params.method is the optional 4-segment path discriminator
+   *  (`/lab/:state/:event/m/:method`). When present it overrides the
+   *  scenario blob's `rule` field at hydration time (Fowler strangler-fig
+   *  EXPAND - the path is the encouraged form, the blob field is the
+   *  legacy fallback that keeps existing share URLs working). */
+  interface Props {
+    params: { state: string; event: string; method?: string };
+  }
   let { params }: Props = $props();
 
   const event = $derived(params.event);
   const state_code = $derived(states.codeFromSlug(params.state));
+  /** Method id from the optional `/m/<method>` path segment. Empty when
+   *  the citizen is on the bare 3-segment route (defaults to FPTP). */
+  const path_method = $derived(params.method ?? "");
 
   let actuals = $state<Tallies | null>(null);
   let actuals_error = $state<string | null>(null);
+  let event_catalogue = $state<ElectionEventsCatalogue | null>(null);
 
   // Initial scenario from URL (read once, then we own the mutable state).
+  // Path-method (when present) overrides the blob's `rule` field at
+  // hydration so a share link of the form
+  // `/lab/<state>/<event>/m/proportional?s=<blob with rule=fptp>` reads
+  // as proportional (the path is the encouraged form per Fowler verdict).
   let scenario = $state<Scenario>(initialScenario());
 
   function initialScenario(): Scenario {
-    return decodeScenario(new URLSearchParams(window.location.search).get("s"));
+    const decoded = decodeScenario(new URLSearchParams(window.location.search).get("s"));
+    if (path_method && path_method !== decoded.rule) {
+      return { ...decoded, rule: path_method };
+    }
+    return decoded;
   }
+
+  // Fetch the election catalogue once so ContextLabel can show the
+  // citizen-readable event display string ("TN AC Apr 2021") instead
+  // of the opaque event id.
+  $effect(() => {
+    fetchElectionEvents()
+      .then((c) => (event_catalogue = c))
+      .catch(() => (event_catalogue = null));
+  });
 
   $effect(() => {
     actuals = null;
@@ -67,9 +106,34 @@
       .catch(e => (actuals_error = String(e)));
   });
 
-  // Persist scenario → URL on every change. The path prefix mirrors the
-  // current route so deep links work; history.replaceState avoids back-stack
-  // pollution.
+  // ----- Method-first navigation (2026-06-09 redesign) -----
+  //
+  // Switching counting rule navigates to the 4-segment
+  // `/lab/<state>/<event>/m/<method-id>` route so the URL telegraphs
+  // the active method (per Jony + Fowler convergence). The scenario
+  // blob's `rule` field is kept in sync as a legacy fallback for
+  // existing share URLs (Fowler strangler-fig EXPAND).
+  function selectMethod(method_id: string): void {
+    if (method_id === scenario.rule) return;
+    scenario = { ...scenario, rule: method_id };
+    if (state_code) {
+      navigate(url.labMethod(state_code, event, method_id), { replace: true });
+    }
+  }
+
+  /** Citizen-readable election display string from the catalogue. */
+  const election_display = $derived(
+    state_code
+      ? findEvent(event_catalogue, state_code, event)?.display ?? null
+      : null,
+  );
+  /** All 4 method options the tabs render. Empty array until the rule
+   *  registry resolves (always synchronous today). */
+  const method_tabs = $derived(RULES.map((r) => ({ id: r.id, label: r.label })));
+
+  // Persist scenario -> URL on every change. history.replaceState avoids
+  // back-stack pollution; the path is owned by the router so we only
+  // touch the search portion.
   $effect(() => {
     void scenario;
     writeScenarioToHash(`/lab/${state_code}/${event}`, scenario);
@@ -163,6 +227,12 @@
     scenario = { ...scenario, mutations: [...scenario.mutations, plug.defaultConfig(actuals)] };
   }
 
+  /** Applicable mutations under the active counting rule. Filters out
+   *  per-AC mutations that have zero visible effect under Proportional
+   *  (perAcSwing + thresholdDrop) per Fowler allow-list seam. The
+   *  rule-agnostic ones (statewideSwing + partyBag) always render. */
+  const applicable_mutations = $derived(applicableMutationsFor(scenario.rule));
+
   function removeMutation(idx: number): void {
     scenario = { ...scenario, mutations: scenario.mutations.filter((_, i) => i !== idx) };
   }
@@ -222,17 +292,34 @@
 </script>
 
 <div class="max-w-6xl mx-auto p-4 md:p-6 space-y-4">
-  <header class="space-y-1">
+  <header class="space-y-2">
     <p class="text-xs"><a class="text-slate-500 hover:underline" href={state_code ? url.state(state_code) : url.home()}>← {states.name(state_code)} overview</a></p>
     <div class="flex items-baseline justify-between gap-4 flex-wrap">
       <h1 class="text-2xl font-bold flex items-center gap-2">
         <TopicIcon name="flask" cls="w-6 h-6 text-slate-500 shrink-0" />
-        <span>Psephlab — {states.name(state_code)}</span>
+        <span>Election Studio &mdash; {states.name(state_code)}</span>
       </h1>
-      <p class="text-xs text-slate-500">
-        Counting rule: <code class="font-mono">{scenario.rule}</code> · {scenario.mutations.length} mutation(s)
-      </p>
     </div>
+    <!--
+      Method-first nav (Jony + Fowler verdict, 2026-06-09). The counting
+      method moves from a footer dropdown to a top-of-page segmented
+      control: "a counting method is a room, not a setting." Selecting
+      a tab navigates to /lab/<state>/<event>/m/<method-id> via
+      url.labMethod (strangler-fig EXPAND; the bare 3-segment URL still
+      defaults to FPTP).
+    -->
+    <MethodTabs
+      methods={method_tabs}
+      active_method_id={scenario.rule}
+      onpick={selectMethod}
+    />
+    <ContextLabel
+      election_display={election_display}
+      seat_count={total_seats}
+      rule_id={scenario.rule}
+      rule_label={current_rule.label}
+      mutation_count={scenario.mutations.length}
+    />
   </header>
 
   {#if actuals_error}
@@ -243,10 +330,10 @@
     <div class="text-slate-500 p-8 text-center">Loading actuals…</div>
   {:else}
     <div class="grid lg:grid-cols-[360px_1fr] gap-4 items-start">
-      <!-- ============== Mutation panel ============== -->
+      <!-- ============== What-ifs panel ============== -->
       <section class="bg-white rounded-lg shadow-sm p-4 space-y-3 lg:sticky lg:top-4">
         <div class="flex items-center justify-between gap-2">
-          <h2 class="text-sm font-semibold uppercase text-slate-500">Mutations</h2>
+          <h2 class="text-sm font-semibold uppercase text-slate-500">What-ifs</h2>
           <select
             class="text-xs rounded border-slate-300 py-1 px-2"
             value=""
@@ -255,8 +342,8 @@
               if (v) { addMutation(v); (e.target as HTMLSelectElement).value = ""; }
             }}
           >
-            <option value="">+ Add mutation…</option>
-            {#each MUTATIONS as m}
+            <option value="">+ Add what-if...</option>
+            {#each applicable_mutations as m}
               <option value={m.id}>{m.label}</option>
             {/each}
           </select>
@@ -264,14 +351,22 @@
 
         {#if scenario.mutations.length === 0}
           <p class="text-xs text-slate-500 italic">
-            No mutations. The result mirrors the actuals; add one above to start exploring.
+            No what-ifs yet. The result mirrors the actuals; add one above to start exploring.
           </p>
         {/if}
 
         <ul class="space-y-3">
           {#each scenario.mutations as cfg, i (i + ':' + cfg.id)}
             {@const plug = mutationById(cfg.id)}
-            <li class="border border-slate-200 rounded p-2 space-y-2 bg-slate-50/50">
+            {@const inert_reason = inertReasonFor(cfg, scenario.rule)}
+            <li
+              class="border rounded p-2 space-y-2 {inert_reason ? 'bg-amber-50 border-amber-200' : 'bg-slate-50/50 border-slate-200'}"
+            >
+              {#if inert_reason}
+                <p class="text-[11px] text-amber-900 leading-snug">
+                  {inert_reason}
+                </p>
+              {/if}
               <div class="flex items-center justify-between gap-1 text-xs">
                 <span class="flex items-center gap-1 font-medium text-slate-700">
                   <span>{i + 1}. {plug?.label ?? cfg.id}</span>
@@ -461,24 +556,18 @@
         </ul>
 
         <div class="pt-2 border-t border-slate-200 space-y-2">
-          <label class="block text-xs">
-            Counting rule
-            <select
-              class="mt-0.5 w-full rounded border-slate-300 py-1 px-2 text-xs"
-              value={scenario.rule}
-              onchange={(e) => (scenario = { ...scenario, rule: (e.target as HTMLSelectElement).value })}
-            >
-              {#each RULES as r}
-                <option value={r.id}>{r.label}</option>
-              {/each}
-            </select>
-          </label>
+          <!--
+            Counting rule moved to the top-of-page MethodTabs (2026-06-09
+            redesign per Jony + Fowler verdict). Methods are now navigable
+            primary nav, not a footer setting; the URL telegraphs the
+            active method as `/lab/<state>/<event>/m/<method-id>`.
+          -->
           <div class="flex gap-2">
             <button
               class="flex-1 text-xs rounded border border-slate-300 py-1.5 hover:bg-slate-50"
               onclick={copyShareUrl}
             >
-              {share_state === "copied" ? "✓ Copied" : share_state === "failed" ? "Copy failed" : "Copy share URL"}
+              {share_state === "copied" ? "Copied" : share_state === "failed" ? "Copy failed" : "Copy share URL"}
             </button>
             <button
               class="text-xs rounded border border-slate-300 py-1.5 px-3 hover:bg-slate-50"
@@ -510,16 +599,12 @@
         <div class="bg-white rounded-lg shadow-sm p-4">
           {#if current_rule.requires_banner}
             <div class="mb-3">
-              <HypotheticalRecountBanner
+              <ImaginingCard
                 method={current_rule.label}
                 assumptions={current_rule.assumptions}
                 official_result_label={official_result_label}
+                docs_href={url.docsLabMethod(current_rule.id)}
               />
-              {#if current_rule.caveat}
-                <p class="mt-2 text-xs text-rose-900 leading-snug">
-                  {current_rule.caveat}
-                </p>
-              {/if}
             </div>
           {/if}
           <div class="flex items-baseline justify-between mb-2 gap-2">
@@ -530,7 +615,7 @@
                 onclick={() => (hidden_parties = new Set())}
               >Show all ({hidden_parties.size} muted)</button>
             {:else}
-              <span class="text-xs text-slate-400">Click a legend chip to mute · resets on first mutation</span>
+              <span class="text-xs text-slate-400">Click a legend chip to mute &middot; resets on first mutation</span>
             {/if}
           </div>
           <ParliamentArc

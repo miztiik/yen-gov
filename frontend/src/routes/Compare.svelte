@@ -33,6 +33,13 @@
   import { states } from "../lib/states.svelte";
   import { url } from "../lib/url";
   import TopicIcon from "../lib/TopicIcon.svelte";
+  import {
+    fetchElectionEvents,
+    findEvent,
+    listEventsForState,
+    type ElectionEventsCatalogue,
+    type EventKind,
+  } from "../lib/election-events";
 
   interface Props { params: { state: string; event: string } }
   let { params }: Props = $props();
@@ -76,6 +83,51 @@
   let actuals_left = $state<Tallies | null>(null);
   let actuals_right = $state<Tallies | null>(null);
   let load_error_right = $state<string | null>(null);
+  let event_catalogue = $state<ElectionEventsCatalogue | null>(null);
+
+  // Fetch the election catalogue once. Used to (a) derive the citizen-
+  // readable event display, (b) derive the origin event's `kind`, and
+  // (c) list available events of the SAME kind for the Compare picker
+  // (user ask #4 + Fowler verdict: kind-constrained search).
+  $effect(() => {
+    fetchElectionEvents()
+      .then((c) => (event_catalogue = c))
+      .catch(() => (event_catalogue = null));
+  });
+
+  /** Origin event's citizen-readable display string. */
+  const origin_display = $derived(
+    state_code
+      ? findEvent(event_catalogue, state_code, params.event)?.display ?? params.event
+      : params.event,
+  );
+  /** Origin event's kind ('assembly' / 'lok_sabha' / 'by_election'). The
+   *  Compare picker filters Side B to events of the SAME kind so a citizen
+   *  who started in an assembly election never sees Lok Sabha events in the
+   *  dropdown (user ask #4). Falls back to 'assembly' before the catalogue
+   *  resolves so the picker has a sensible default. */
+  const origin_kind = $derived<EventKind>(
+    (state_code
+      ? findEvent(event_catalogue, state_code, params.event)?.kind
+      : null) ?? "assembly",
+  );
+  /** Events available for Side B - same state, same kind, EXCLUDING the
+   *  origin event itself (a self-compare returns a meaningless zero-delta). */
+  const compare_options = $derived(
+    state_code
+      ? listEventsForState(event_catalogue, state_code, origin_kind).filter(
+          (e) => e.event_id !== params.event,
+        )
+      : [],
+  );
+  /** Citizen-readable display string for the actively-compared event
+   *  on Side B. Falls back to the raw event_id when the catalogue does
+   *  not know about it (a malformed share URL). */
+  const event_b_display = $derived(
+    state_code && event_b !== params.event
+      ? findEvent(event_catalogue, state_code, event_b)?.display ?? event_b
+      : event_b,
+  );
 
   $effect(() => {
     actuals_left = null;
@@ -302,19 +354,32 @@
 
   {:else}
     <p class="text-xs text-slate-500">
-      Compare actuals across two events for {states.name(state_code)}. Until additional events land under
-      <code class="font-mono">datasets/elections/</code>, only <code class="font-mono">{params.event}</code> is loaded.
+      Compare actuals across two {origin_kind === "lok_sabha" ? "Lok Sabha" : origin_kind === "by_election" ? "by-election" : "assembly"} events for {states.name(state_code)}.
     </p>
 
-    <label class="text-xs flex items-center gap-2">
-      Compare against
-      <input
-        class="rounded border-slate-300 py-1 px-2 text-xs font-mono w-64"
-        value={event_b}
-        oninput={(e) => (event_b = (e.target as HTMLInputElement).value)}
-        placeholder="e.g. AcGenMay2021"
-      />
-    </label>
+    <div class="flex flex-wrap items-end gap-3">
+      <div class="text-xs">
+        <div class="text-[10px] uppercase tracking-wide text-slate-500">Side A</div>
+        <div class="font-semibold">{origin_display}</div>
+      </div>
+      <div class="text-slate-400 text-lg leading-none pb-1">vs</div>
+      <label class="text-xs flex flex-col gap-1">
+        <span class="text-[10px] uppercase tracking-wide text-slate-500">Side B</span>
+        {#if compare_options.length === 0}
+          <span class="text-amber-700 text-xs">No other {origin_kind === "lok_sabha" ? "Lok Sabha" : "assembly"} events on record for {states.name(state_code)}.</span>
+        {:else}
+          <select
+            class="rounded border-slate-300 py-1 px-2 text-xs min-w-[16rem]"
+            value={event_b}
+            onchange={(e) => (event_b = (e.target as HTMLSelectElement).value)}
+          >
+            {#each compare_options as opt (opt.event_id)}
+              <option value={opt.event_id}>{opt.display}</option>
+            {/each}
+          </select>
+        {/if}
+      </label>
+    </div>
 
     {#if load_error_right}
       <div class="p-4 bg-amber-50 border border-amber-200 rounded text-amber-900 text-sm">
@@ -325,11 +390,11 @@
 
     <div class="grid lg:grid-cols-[1fr_minmax(180px,auto)_1fr] gap-3 items-start">
       <section class="bg-white border border-slate-200 rounded p-3 space-y-3">
-        <h2 class="text-sm font-semibold font-mono">{params.event}</h2>
+        <h2 class="text-sm font-semibold">{origin_display}</h2>
         {#if result_left}
           <ParliamentArc parties={result_left.allocation.by_party} total_seats={result_left.allocation.by_ac.length} />
         {:else}
-          <p class="text-xs text-slate-400">Loading…</p>
+          <p class="text-xs text-slate-400">Loading...</p>
         {/if}
       </section>
 
@@ -362,13 +427,13 @@
       </section>
 
       <section class="bg-white border border-slate-200 rounded p-3 space-y-3">
-        <h2 class="text-sm font-semibold font-mono">{event_b}</h2>
+        <h2 class="text-sm font-semibold">{event_b_display}</h2>
         {#if load_error_right}
           <p class="text-xs text-slate-400">No data.</p>
         {:else if result_right}
           <ParliamentArc parties={result_right.allocation.by_party} total_seats={result_right.allocation.by_ac.length} />
         {:else}
-          <p class="text-xs text-slate-400">Loading…</p>
+          <p class="text-xs text-slate-400">Loading...</p>
         {/if}
       </section>
     </div>

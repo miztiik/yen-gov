@@ -115,16 +115,27 @@ export function defaultEventForState(
  * oldest-first). Sorting here gives every consumer a stable order: the
  * StateOverview picker leads with the most-recent event; downstream
  * adapters (ElectionSeatsTrend, etc.) re-sort by their own axis.
+ *
+ * Optional `kind` arg filters to a single event class (assembly /
+ * lok_sabha / by_election). Per Fowler verdict (2026-06-09 debate):
+ * the Compare 'elec' mode uses this to constrain the cross-event
+ * picker to the same kind as the origin event - if the user started
+ * in an assembly election (kind === 'assembly') the dropdown lists
+ * only assembly events; if they started in a parliament election
+ * (kind === 'lok_sabha') only LS events show. Cross-kind compare is
+ * impossible by construction.
  */
 export function listEventsForState(
   catalogue: ElectionEventsCatalogue | null,
   stateCode: string | null,
+  kind?: EventKind,
 ): ElectionEventRow[] {
   if (!catalogue || !stateCode) return [];
   const rows = catalogue.states[stateCode];
   if (!rows) return [];
-  // Copy before sort — never mutate the cached catalogue.
-  return [...rows].sort((a, b) => b.polled_on.localeCompare(a.polled_on));
+  // Copy before sort - never mutate the cached catalogue.
+  const sorted = [...rows].sort((a, b) => b.polled_on.localeCompare(a.polled_on));
+  return kind ? sorted.filter((r) => r.kind === kind) : sorted;
 }
 
 /** Lookup a specific event in a state — used by routes that take an event_id segment. */

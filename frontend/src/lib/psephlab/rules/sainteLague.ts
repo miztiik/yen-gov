@@ -30,6 +30,7 @@ interface PartyAggregate {
   party_id: string;
   brand_colour_hex: string | null;
   brand_colour_confidence: "high" | "medium" | "low" | null;
+  election_symbol_asset_path: string | null;
 }
 
 export const sainteLague: CountingRule = {
@@ -76,6 +77,7 @@ export const sainteLague: CountingRule = {
             party_id: c.party_id,
             brand_colour_hex: c.brand_colour_hex ?? null,
             brand_colour_confidence: c.brand_colour_confidence ?? null,
+            election_symbol_asset_path: c.election_symbol_asset_path ?? null,
           });
         }
       }
@@ -119,6 +121,7 @@ export const sainteLague: CountingRule = {
         party_id: agg.party_id,
         brand_colour_hex: agg.brand_colour_hex,
         brand_colour_confidence: agg.brand_colour_confidence,
+        election_symbol_asset_path: agg.election_symbol_asset_path,
       });
     }
     by_party.sort(
