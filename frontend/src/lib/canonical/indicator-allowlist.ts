@@ -110,6 +110,18 @@ interface CanonicalIndicatorDescriptorBase {
    *  facet-multiplexed descriptors this field stays absent on the
    *  parent and is set per child in `facet_values[].csv_path`. */
   csv_path?: string;
+  /** G29 pilot opt-in flag (parent plan section 14.5 / 15 / 16):
+   *  swaps the legacy maplibre-based `<IndicatorChoropleth>` for the
+   *  d3-geo SVG `<GeoChoropleth>` (F2b.3) at this descriptor's
+   *  render seam. Reversible by removing the field. The pilot is
+   *  scoped to ONE descriptor per PR; the next indicator gets its
+   *  own follow-on entry. Today the only value is the literal
+   *  `"geo-choropleth-f2b"`; future renderer flips can widen the
+   *  union. State-grain only at the pilot; the dispatch falls
+   *  through to the legacy maplibre body for any non-state grain
+   *  even when the flag is set, so the worst-case behaviour for a
+   *  misapplied flag is the legacy render. */
+  renderer_override?: "geo-choropleth-f2b";
 }
 
 export interface CanonicalSingleIndicatorDescriptor
@@ -3179,6 +3191,13 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "per-capita-nsdp-constant-inr",
     csv_path: "data/datapoints/geo/per-capita-nsdp-constant-inr.csv",
     table_id: "economy.economy_canonical",
+    // G29 PILOT (2026-06-09): first descriptor to flip from the
+    // legacy 923-LOC maplibre wrapper `<IndicatorChoropleth>` to the
+    // d3-geo SVG F2b.3 `<GeoChoropleth>` primitive. Pilot scope per
+    // parent plan section 14.5 / 15 / 16 + the per-indicator
+    // allowlist seam doctrine; reversible by removing this field.
+    // Subsequent indicators get their own PRs.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "per-capita-nsdp-constant-inr",
       title: "Per-capita NSDP (constant prices, INR)",

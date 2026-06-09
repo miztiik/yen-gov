@@ -1,5 +1,7 @@
 entity_id,name,parent,entity_kind,aliases,census_2001_code,census_2011_code
 IN,India,,country,IN|IND|356,,
+IN-median,India (median of states),IN,country,,,
+IN-pop-weighted,India (population-weighted average),IN,country,,,
 andaman-and-nicobar,Andaman & Nicobar,IN,state,IN-AN|U01|lgd:35|Andaman And Nicobar Islands,35,35
 andaman-and-nicobar/nicobars,Nicobars,andaman-and-nicobar,district,lgd:603,2,638
 andaman-and-nicobar/north-and-middle-andaman,North And Middle Andaman,andaman-and-nicobar,district,lgd:632,,639

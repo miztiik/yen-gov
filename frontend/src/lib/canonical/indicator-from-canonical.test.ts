@@ -1158,6 +1158,30 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/cumulative|annual|flow|difference/i);
     expect(d!.caveats![2]).toMatch(/MoSPI|RBI|restate|revision/i);
   });
+
+  // G29 pilot (parent plan section 14.5 / 15 / 16): the first descriptor
+  // flipped from the legacy 923-LOC maplibre `<IndicatorChoropleth>` to
+  // the d3-geo SVG F2b.3 `<GeoChoropleth>` primitive. The dispatch is a
+  // thin per-descriptor opt-in via `renderer_override` in the allowlist;
+  // these tests pin both (a) the pilot scope ("only THIS descriptor has
+  // the flag") and (b) the value lockdown ("the flag value is the
+  // expected literal"). Subsequent indicators get their own PRs; this
+  // lockdown is the contract the next PR's author must update when they
+  // add a second flipped descriptor.
+  it("G29 pilot — per-capita-nsdp-constant-inr carries renderer_override = geo-choropleth-f2b", () => {
+    const d = getCanonicalDescriptor("economy/per_capita_nsdp_constant_inr");
+    expect(d).not.toBeNull();
+    expect(d!.renderer_override).toBe("geo-choropleth-f2b");
+  });
+
+  it("G29 pilot — NO other descriptor in the allowlist sets renderer_override (single-flip lockdown)", () => {
+    const flipped = CANONICAL_BACKED_INDICATORS.filter(
+      (d) => d.renderer_override !== undefined,
+    );
+    expect(flipped.map((d) => d.legacy_artifact_id)).toEqual([
+      "economy/per_capita_nsdp_constant_inr",
+    ]);
+  });
 });
 
 describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
