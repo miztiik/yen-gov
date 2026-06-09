@@ -32,8 +32,10 @@ by Phase B; deletion follows in Phase C with the frontend port.
 
 from __future__ import annotations
 
+import csv
 import json
 import re
+from collections.abc import Iterator
 from dataclasses import dataclass, field
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -41,9 +43,10 @@ from urllib.parse import urlparse
 
 CATALOGUE_REL = "datasets/taxonomy/election_events.json"
 STATES_REL = "datasets/taxonomy/entities.json"
+GEO_REL = "datasets/data/entities/geo.csv"
 ELECTIONS_REL = "datasets/elections"
-ELECTION_RESULTS_PARQUET_REL = "datasets/elections/election_results.parquet"
-ELECTION_RESULTS_PARTITION_GLOB_REL = "datasets/elections/state=*/election_results.parquet"
+ASSEMBLY_SUBDIR = "assembly"
+PARLIAMENT_SUBDIR = "parliament"
 INDICATORS_REL = "datasets/indicators/in"
 TOPIC_CATALOGUE_REL = "datasets/taxonomy/topics.json"
 INVENTORY_REL = "docs/reference/data-inventory.md"
@@ -75,18 +78,32 @@ N_BUCKETS = len(BUCKET_EDGES)
 
 @dataclass(frozen=True)
 class SliceCoverage:
-    """A single (event, state) slice — declared, on disk, or both."""
+    """A single (event, state) slice — declared, on disk, or both.
+
+    ``body`` discriminates Assembly (``"AC"``) from Parliament
+    (``"PC"``); see G14 (plan section 23.4 EL7). It defaults to ``"AC"``
+    so callers built before the CSV-walker rewrite remain byte-compatible.
+    For declared-only slices, ``body`` is derived from the catalogue
+    ``kind`` field (``assembly`` -> ``AC``, ``lok_sabha`` -> ``PC``).
+    For on-disk slices, it comes from which subdirectory the walker
+    found the CSV in (``assembly/`` vs ``parliament/``).
+
+    ``ac_count`` is named for back-compat with the AC-only history of
+    this report. For PC slices it carries the per-state count of
+    parliament-summary rows ingested for the slice (not AC counts).
+    """
 
     event_id: str
     state_code: str
-    state_name: str | None  # from states.json; None if state code is unknown
+    state_name: str | None  # from entities.json; None if state code is unknown
     display: str | None  # citizen-facing label from the catalogue
     polled_on: str | None
     declared_status: str | None  # complete | partial | pending_upstream | None (undeclared)
     on_disk: bool
-    ac_count: int  # number of per-AC result files actually present
+    ac_count: int  # number of per-AC (or per-PC) summary rows actually present
     has_summary: bool
     has_parties: bool
+    body: str = "AC"  # "AC" (assembly) | "PC" (parliament). Default preserves callers.
 
 
 @dataclass(frozen=True)
@@ -150,96 +167,224 @@ class CoverageReport:
         return tuple(s for s in self.slices if s.on_disk and s.declared_status is None)
 
 
-def _election_slices_from_canonical(
+_ECI_CODE_RE = re.compile(r"^[SU]\d{2}$")
+_PARTITION_RE = re.compile(r"^[a-z][a-z0-9_]*=(.+)$")
+
+
+def _partition_value(directory_name: str) -> str | None:
+    """Return the value of a Hive-style ``key=value`` directory name.
+
+    Returns ``None`` when ``directory_name`` does not match. The walkers
+    use this to derive ``state_slug`` from ``state=tamil-nadu`` and
+    ``year_token`` from ``election=2021``.
+    """
+    m = _PARTITION_RE.match(directory_name)
+    return m.group(1) if m else None
+
+
+def _slug_to_state_code(geo_csv: Path) -> dict[str, str]:
+    """Map state/UT slug -> ECI code (e.g. ``'tamil-nadu' -> 'S22'``).
+
+    Reads ``datasets/data/entities/geo.csv``. For rows whose ``entity_kind``
+    is ``state`` or ``ut`` (today the canonical store flattens all 36
+    states+UTs under ``state``; ``ut`` is accepted for forward-compat), the
+    pipe-delimited ``aliases`` column is scanned for the first ``[SU]NN``
+    token (the ECI code). The ``entity_id`` column carries the slug used in
+    election-tree partitions (e.g. ``tamil-nadu`` matches the directory
+    name ``assembly/state=tamil-nadu/``).
+    """
+    out: dict[str, str] = {}
+    if not geo_csv.is_file():
+        return out
+    with geo_csv.open(encoding="utf-8", newline="") as fh:
+        reader = csv.DictReader(fh)
+        for row in reader:
+            kind = (row.get("entity_kind") or "").strip()
+            if kind not in ("state", "ut"):
+                continue
+            slug = (row.get("entity_id") or "").strip()
+            if not slug:
+                continue
+            aliases = (row.get("aliases") or "").split("|")
+            for alias in aliases:
+                alias = alias.strip()
+                if _ECI_CODE_RE.match(alias):
+                    out[slug] = alias
+                    break
+    return out
+
+
+def _body_from_kind(kind: str | None) -> str:
+    """Translate catalogue ``kind`` to the SliceCoverage ``body`` field.
+
+    ``assembly`` -> ``"AC"`` (state legislative assembly); ``lok_sabha``
+    -> ``"PC"`` (parliamentary constituency / Lok Sabha). Any other
+    value (``rajya_sabha`` etc.) currently degrades to ``"AC"`` since
+    only Lok-Sabha-style PC data flows through the citizen surface today;
+    widen the enum if/when that changes.
+    """
+    if kind == "lok_sabha":
+        return "PC"
+    return "AC"
+
+
+def _polled_year_to_event(
+    catalogue: dict[str, object], body: str
+) -> dict[tuple[str, int], str]:
+    """Build ``{(state_code, year): event_id}`` from the catalogue.
+
+    Used by both CSV walkers to back-resolve the event id when all we have
+    on disk is ``state=<slug>/election=<year>/`` (no full ECI event_id is
+    encoded in the path). For Lok Sabha (PC) by-elections that have no
+    catalogue entry, the walker synthesises a sentinel id of the shape
+    ``Pc<year>`` so the slice still surfaces in the inventory under the
+    "undeclared on-disk" lane.
+    """
+    kind_match = "assembly" if body == "AC" else "lok_sabha"
+    out: dict[tuple[str, int], str] = {}
+    for state_code, events in (catalogue.get("states") or {}).items():
+        for ev in events or []:
+            if ev.get("kind") != kind_match:
+                continue
+            polled = (ev.get("polled_on") or "").strip()
+            if len(polled) < 4:
+                continue
+            try:
+                year = int(polled[:4])
+            except ValueError:
+                continue
+            key = (state_code, year)
+            # First catalogue entry wins; the catalogue is hand-ordered
+            # so the canonical event for a given (state, year, body) is
+            # the first one declared.
+            out.setdefault(key, ev["event_id"])
+    return out
+
+
+def _walk_assembly_csv(
+    elections_root: Path,
+    ac_year_to_event: dict[tuple[str, int], str],
+    slug_to_code: dict[str, str],
+) -> Iterator[tuple[tuple[str, str], tuple[int, bool, bool, str]]]:
+    """Yield ``((event_id, state_code), (ac_count, has_summary, has_parties, body))``
+    for every ``assembly/state=<slug>/election=<year>/summary.csv`` on disk.
+
+    ``event_id`` is back-resolved via ``ac_year_to_event`` using
+    ``(state_code, year)`` derived from the partition path. If the slug
+    does not resolve to an ECI code (unexpected; would mean a brand-new
+    state slug not yet in ``geo.csv``), the slice is yielded with the
+    slug itself as ``state_code`` so the inventory still surfaces it
+    rather than silently dropping the data.
+    """
+    base = elections_root / ASSEMBLY_SUBDIR
+    if not base.is_dir():
+        return
+    for state_dir in sorted(base.iterdir()):
+        if not state_dir.is_dir():
+            continue
+        slug = _partition_value(state_dir.name)
+        if slug is None:
+            continue
+        state_code = slug_to_code.get(slug, slug)
+        for elec_dir in sorted(state_dir.iterdir()):
+            if not elec_dir.is_dir():
+                continue
+            year_token = _partition_value(elec_dir.name)
+            if year_token is None:
+                continue
+            try:
+                year = int(year_token)
+            except ValueError:
+                continue
+            summary_path = elec_dir / "summary.csv"
+            if not summary_path.is_file():
+                continue
+            row_count = _count_csv_rows(summary_path)
+            event_id = ac_year_to_event.get((state_code, year), f"Ac{year}")
+            yield (event_id, state_code), (row_count, True, False, "AC")
+
+
+def _walk_parliament_csv(
+    elections_root: Path,
+    pc_year_to_event: dict[tuple[str, int], str],
+    slug_to_code: dict[str, str],
+) -> Iterator[tuple[tuple[str, str], tuple[int, bool, bool, str]]]:
+    """Yield one slice per ``(event_id, state_code)`` found under
+    ``parliament/election=<year>/summary.csv``.
+
+    Parliament CSVs are NOT partitioned by state on disk \u2014 one file
+    holds the whole national cohort. We fan out by reading the ``state``
+    column on each summary row and emitting one ``SliceCoverage`` per
+    distinct state slug, so the inventory shows per-state PC coverage
+    the same way assembly does. ``ac_count`` carries the per-state PC
+    summary-row count (the field name is preserved for back-compat).
+    """
+    base = elections_root / PARLIAMENT_SUBDIR
+    if not base.is_dir():
+        return
+    for elec_dir in sorted(base.iterdir()):
+        if not elec_dir.is_dir():
+            continue
+        year_token = _partition_value(elec_dir.name)
+        if year_token is None:
+            continue
+        try:
+            year = int(year_token)
+        except ValueError:
+            continue
+        summary_path = elec_dir / "summary.csv"
+        if not summary_path.is_file():
+            continue
+        per_state: dict[str, int] = {}
+        with summary_path.open(encoding="utf-8", newline="") as fh:
+            reader = csv.DictReader(fh)
+            for row in reader:
+                slug = (row.get("state") or "").strip()
+                if not slug:
+                    continue
+                per_state[slug] = per_state.get(slug, 0) + 1
+        for slug, count in sorted(per_state.items()):
+            state_code = slug_to_code.get(slug, slug)
+            event_id = pc_year_to_event.get((state_code, year), f"Pc{year}")
+            yield (event_id, state_code), (count, True, False, "PC")
+
+
+def _count_csv_rows(path: Path) -> int:
+    """Return the number of data rows in a CSV (header line excluded).
+
+    Streams the file line-by-line so a 100k-row PC summary doesn't have to
+    materialise in memory.
+    """
+    n = 0
+    with path.open(encoding="utf-8", newline="") as fh:
+        reader = csv.reader(fh)
+        # Skip header; do nothing if file is empty.
+        for _ in reader:
+            n += 1
+    return max(0, n - 1)
+
+
+def _election_slices_from_csv(
     root: Path,
-) -> dict[tuple[str, str], tuple[int, bool, bool]]:
-    """Return ``{(event_id, state_code): (ac_count, has_summary, has_parties)}``
-    derived from canonical election-results Parquet. The current store is
-    Hive-partitioned at ``datasets/elections/state=*/election_results.parquet``;
-    the retired monolith path is still accepted for old tests and snapshots.
+    catalogue: dict[str, object],
+) -> dict[tuple[str, str], tuple[int, bool, bool, str]]:
+    """Aggregate the two CSV walkers into one ``{key: tuple}`` map.
 
-    Coverage was historically computed by walking
-    ``datasets/elections/<event>/<state>/`` for ``results/<n>.json`` +
-    ``result.summary.json`` + ``parties.json``. Under the canonical pivot the
-    citizen-frontend reads only the canonical Parquet, so coverage now reads
-    the same source-of-truth. Mapping:
-
-    - ``ac_count``    : ``COUNT(DISTINCT entity_id)`` matching the AC entity
-      pattern ``^IN-<state>-AC-<delim>-<eci_no>$`` for this ``period_label``.
-    - ``has_summary`` : whether a state-rollup observation row exists at
-      ``entity_id = 'IN-<state>-<event_id>'`` (state-level rollups are the
-      canonical successor to ``result.summary.json``).
-    - ``has_parties`` : whether any party-rollup observation exists with
-      ``entity_id LIKE 'IN-<state>-PARTY-%'`` for this ``period_label``
-      (party rollups are the canonical successor to ``parties.json``).
-
-    Entity-id patterns are defined in
-    ``backend/yen_gov/canonical/adapters/eci/identity.py`` (see
-    ``ac_entity_id``, ``state_rollup_entity_id``, ``party_rollup_entity_id``).
-
-    If the Parquet file is absent (fresh repo, minimal test fixture) the
-    function returns an empty mapping, matching the prior "no files on
-    disk" behaviour.
+    Returns ``{(event_id, state_code): (ac_count, has_summary, has_parties, body)}``
+    so ``compute_coverage`` can merge it with the declared catalogue using
+    the same key shape it always has. The new tuple carries one extra
+    field (``body``) compared with the retired parquet walker.
     """
-    monolith_path = root / ELECTION_RESULTS_PARQUET_REL
-    partition_glob = root / ELECTION_RESULTS_PARTITION_GLOB_REL
-    partition_files = list((root / ELECTIONS_REL).glob("state=*/election_results.parquet"))
-    if monolith_path.exists():
-        read_target = monolith_path.as_posix()
-    elif partition_files:
-        read_target = partition_glob.as_posix()
-    else:
-        return {}
-
-    import duckdb
-
-    sql = """
-        WITH classified AS (
-            SELECT
-                period_label AS event_id,
-                CASE
-                    WHEN regexp_matches(entity_id, '^IN-PC-[0-9]+-[SU][0-9]{2}-[0-9]+$')
-                        THEN regexp_extract(entity_id, '^IN-PC-[0-9]+-([SU][0-9]{2})', 1)
-                    ELSE regexp_extract(entity_id, '^IN-([SU][0-9]{2})', 1)
-                END AS state_code,
-                entity_id,
-                CASE
-                    WHEN regexp_matches(entity_id, '^IN-[SU][0-9]{2}-AC-[0-9]+-[0-9]+$')
-                        THEN 'ac'
-                    WHEN regexp_matches(entity_id, '^IN-PC-[0-9]+-[SU][0-9]{2}-[0-9]+$')
-                        THEN 'pc'
-                    WHEN regexp_matches(entity_id, '^IN-[SU][0-9]{2}-[A-Za-z]+[A-Za-z0-9]*-PARTY-')
-                        THEN 'party'
-                    WHEN regexp_matches(entity_id, '^IN-[SU][0-9]{2}-[A-Za-z]+[A-Za-z0-9]*$')
-                        THEN 'state_rollup'
-                    ELSE 'other'
-                END AS kind
-            FROM read_parquet(?)
-        )
-        SELECT
-            event_id,
-            state_code,
-            COUNT(DISTINCT CASE WHEN kind = 'ac' THEN entity_id END)        AS ac_count,
-            COUNT(*) FILTER (WHERE kind = 'state_rollup') > 0                AS has_summary,
-            COUNT(*) FILTER (WHERE kind = 'party') > 0                       AS has_parties
-        FROM classified
-        WHERE state_code <> ''
-        GROUP BY event_id, state_code
-    """
-    conn = duckdb.connect(database=":memory:")
-    try:
-        rows = conn.execute(sql, [read_target]).fetchall()
-    finally:
-        conn.close()
-
-    return {
-        (str(event_id), str(state_code)): (
-            int(ac_count or 0),
-            bool(has_summary),
-            bool(has_parties),
-        )
-        for event_id, state_code, ac_count, has_summary, has_parties in rows
-    }
+    elections_root = root / ELECTIONS_REL
+    slug_to_code = _slug_to_state_code(root / GEO_REL)
+    ac_year_to_event = _polled_year_to_event(catalogue, "AC")
+    pc_year_to_event = _polled_year_to_event(catalogue, "PC")
+    out: dict[tuple[str, str], tuple[int, bool, bool, str]] = {}
+    for key, tup in _walk_assembly_csv(elections_root, ac_year_to_event, slug_to_code):
+        out[key] = tup
+    for key, tup in _walk_parliament_csv(elections_root, pc_year_to_event, slug_to_code):
+        out[key] = tup
+    return out
 
 
 # entities.json `entity_type` values mapped to the legacy states.json `kind`
@@ -286,14 +431,14 @@ def _load_states_from_entities(entities_path: Path) -> list[dict[str, str]]:
 
 
 def compute_coverage(root: Path) -> CoverageReport:
-    """Reconcile the catalogue with the canonical election Parquet store.
+    """Reconcile the catalogue with the on-disk election CSV store.
 
     Reads the declared catalogue at ``datasets/taxonomy/election_events.json``
-    and the on-disk inventory from ``datasets/elections/election_results.parquet``
-    (canonical store, sole source of truth per TODO row 1.8b). The legacy
-    per-event/per-state JSON shards (``results/<n>.json``,
-    ``result.summary.json``, ``parties.json``) are no longer consulted here
-    even when present — they are awaiting deletion in PR-O-ii (row 1.8b-ii).
+    and the on-disk inventory from ``datasets/elections/{assembly,parliament}/``
+    via the CSV walkers (sole source of truth post-X1a-fu2; the canonical
+    Parquet store retired 2026-06-07). Both assembly (AC) and parliament (PC)
+    slices flow through the same reconciliation, discriminated by the
+    ``body`` field on each ``SliceCoverage`` row (G14 / plan section 23.4 EL7).
     """
     catalogue_path = root / CATALOGUE_REL
     catalogue = json.loads(catalogue_path.read_text(encoding="utf-8"))
@@ -315,15 +460,20 @@ def compute_coverage(root: Path) -> CoverageReport:
             if code and kind:
                 state_kinds[code] = kind
 
-    on_disk = _election_slices_from_canonical(root)
+    on_disk = _election_slices_from_csv(root, catalogue)
 
     keys = sorted(set(declared) | set(on_disk))
     slices: list[SliceCoverage] = []
     for event_id, state_code in keys:
         d = declared.get((event_id, state_code))
-        ac_count, has_summary, has_parties = on_disk.get(
-            (event_id, state_code), (0, False, False)
-        )
+        on_disk_tup = on_disk.get((event_id, state_code))
+        if on_disk_tup is not None:
+            ac_count, has_summary, has_parties, body = on_disk_tup
+        else:
+            # Declared-only: body derived from catalogue ``kind`` so the
+            # missing slice is bucketed under the right Section 2 surface.
+            ac_count, has_summary, has_parties = 0, False, False
+            body = _body_from_kind(d.get("kind") if d else None)
         slices.append(
             SliceCoverage(
                 event_id=event_id,
@@ -336,6 +486,7 @@ def compute_coverage(root: Path) -> CoverageReport:
                 ac_count=ac_count,
                 has_summary=has_summary,
                 has_parties=has_parties,
+                body=body,
             )
         )
 
@@ -409,9 +560,12 @@ def _max_input_mtime_date(root: Path) -> str:
     for tree_rel in (INDICATORS_REL, ELECTIONS_REL):
         base = root / tree_rel
         if base.is_dir():
-            for path in base.rglob("*.json"):
-                if path.is_file():
-                    inputs.append(path)
+            # Indicator artifacts are .json; election slices are .csv post-G14
+            # (the canonical Parquet retired 2026-06-07 via X1a-fu2).
+            for pattern in ("*.json", "*.csv"):
+                for path in base.rglob(pattern):
+                    if path.is_file():
+                        inputs.append(path)
     if not inputs:
         return "unknown"
     newest = max(p.stat().st_mtime for p in inputs)
@@ -573,10 +727,17 @@ def _row_period_key(row: dict) -> str:
 def _project_state_first(
     slices: list[SliceCoverage], state_names: dict[str, str]
 ) -> list[StateElectionCoverage]:
-    """Group on-disk election slices by state for the state-first meter."""
+    """Group on-disk Assembly (AC) election slices by state for Section 2a.
+
+    PC slices are deliberately excluded here: Section 2a is the
+    state-first AC meter (one cell per assembly cycle), while PC coverage
+    lives in Section 2b (cycle-first). Combined AC+PC cohort is Section 2c.
+    """
     by_state: dict[str, list[SliceCoverage]] = {}
     for s in slices:
         if not s.on_disk:
+            continue
+        if s.body != "AC":
             continue
         by_state.setdefault(s.state_code, []).append(s)
     out: list[StateElectionCoverage] = []
@@ -627,7 +788,10 @@ def render_markdown(report: CoverageReport) -> str:
     out.append("")
 
     total_states = len({s.state_code for s in report.slices if s.on_disk})
-    total_acs = sum(s.ac_count for s in report.slices)
+    ac_slices = [s for s in report.slices if s.on_disk and s.body == "AC"]
+    pc_slices = [s for s in report.slices if s.on_disk and s.body == "PC"]
+    total_ac_rows = sum(s.ac_count for s in ac_slices)
+    total_pc_rows = sum(s.ac_count for s in pc_slices)
     declared_pending = sum(
         1 for s in report.slices if s.declared_status == "pending_upstream"
     )
@@ -638,7 +802,14 @@ def render_markdown(report: CoverageReport) -> str:
         f"on disk across {total_states} states / "
         f"{len({s.event_id for s in report.slices if s.on_disk})} cohorts."
     )
-    out.append(f"- {total_acs:,} per-AC result artifacts emitted in total.")
+    out.append(
+        f"- Assembly (AC): {len(ac_slices)} slice(s) / "
+        f"{total_ac_rows:,} summary row(s) emitted."
+    )
+    out.append(
+        f"- Parliament (PC): {len(pc_slices)} slice(s) / "
+        f"{total_pc_rows:,} summary row(s) emitted."
+    )
     if declared_pending:
         out.append(
             f"- {declared_pending} slice(s) declared but awaiting upstream "
@@ -787,16 +958,16 @@ def render_markdown(report: CoverageReport) -> str:
                     )
             out.append("")
 
-    out.append("## 2a. Elections \u2014 coverage depth (state-first)")
+    out.append("## 2a. Elections \u2014 Assembly (AC) coverage depth (state-first)")
     out.append("")
     if not report.state_elections:
-        out.append("_No on-disk election slices yet._")
+        out.append("_No on-disk Assembly slices yet._")
         out.append("")
     else:
         out.append(
             f"{len(report.state_elections)} state(s)/UT(s) have at least one "
-            "on-disk slice. The Temporal Richness meter here is "
-            "**event-cycle-based**: each cell is one election cycle (rightmost "
+            "on-disk Assembly slice. The Temporal Richness meter here is "
+            "**event-cycle-based**: each cell is one assembly cycle (rightmost "
             "= newest), so a state with 3 ingested elections shows "
             "`\u25cb \u25cb \u25cb \u25cb \u25cf \u25cf \u25cf 3/7`."
         )
@@ -816,7 +987,36 @@ def render_markdown(report: CoverageReport) -> str:
             )
         out.append("")
 
-    out.append("## 2b. Elections \u2014 by cohort (event-first)")
+    out.append("## 2b. Elections \u2014 Parliament (PC) coverage by cycle")
+    out.append("")
+    pc_on_disk = [s for s in report.slices if s.on_disk and s.body == "PC"]
+    if not pc_on_disk:
+        out.append("_No on-disk Parliament slices yet._")
+        out.append("")
+    else:
+        out.append(
+            f"{len(pc_on_disk)} on-disk (cycle, state) Parliament slice(s). "
+            "Cycle-first table: one row per (election_year, state, PC) with "
+            "per-state PC summary-row counts."
+        )
+        out.append("")
+        out.append(
+            "| Cycle | State | Code | PCs | Status | Polled |"
+        )
+        out.append("| --- | --- | --- | ---: | --- | --- |")
+        for s in sorted(
+            pc_on_disk,
+            key=lambda x: (x.event_id, x.state_code),
+        ):
+            label = s.state_name or s.display or "(unknown)"
+            status = s.declared_status or "_undeclared_"
+            out.append(
+                f"| `{s.event_id}` | {label} | `{s.state_code}` | "
+                f"{s.ac_count} | {status} | {s.polled_on or '-'} |"
+            )
+        out.append("")
+
+    out.append("## 2c. Elections \u2014 cohort (AC + PC, event-first)")
     out.append("")
     by_event: dict[str, list[SliceCoverage]] = {}
     for s in report.slices:
@@ -825,16 +1025,18 @@ def render_markdown(report: CoverageReport) -> str:
         out.append(f"### `{event_id}`")
         out.append("")
         out.append(
-            "| State | Code | ACs | Summary | Parties | Status | Polled |"
+            "| State | Code | Body | Rows | Summary | Parties | Status | Polled |"
         )
-        out.append("| --- | --- | ---: | :---: | :---: | --- | --- |")
+        out.append(
+            "| --- | --- | :---: | ---: | :---: | :---: | --- | --- |"
+        )
         for s in sorted(by_event[event_id], key=lambda x: x.state_code):
             label = s.state_name or s.display or "(unknown)"
             status = s.declared_status or "_undeclared_"
             if not s.on_disk:
                 status = f"{status} (catalogue-only)"
             out.append(
-                f"| {label} | `{s.state_code}` | "
+                f"| {label} | `{s.state_code}` | {s.body} | "
                 f"{s.ac_count if s.on_disk else '-'} | "
                 f"{'yes' if s.has_summary else '-'} | "
                 f"{'yes' if s.has_parties else '-'} | "

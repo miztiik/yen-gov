@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import csv
 import json
 from datetime import date
 from pathlib import Path
@@ -12,6 +13,8 @@ from yen_gov.coverage import (
     _compute_meter,
     _parse_temporal,
     _scan_indicators,
+    _walk_assembly_csv,
+    _walk_parliament_csv,
     compute_coverage,
     render_markdown,
 )
@@ -25,87 +28,230 @@ def _write(path: Path, content: str | dict) -> None:
         path.write_text(content, encoding="utf-8")
 
 
-def _seed_election_parquet(
+def _seed_geo_csv(root: Path, rows: list[tuple[str, str, str]]) -> None:
+    """Write a minimal ``datasets/data/entities/geo.csv`` with the columns the
+    walker's ``_slug_to_state_code`` helper consumes.
+
+    Each row is ``(entity_id, eci_code, name)`` (e.g. ``("tamil-nadu", "S22",
+    "Tamil Nadu")``). The ECI code is encoded into the pipe-delimited
+    ``aliases`` column to mirror the production geo.csv shape; ``entity_kind``
+    is hard-coded to ``state`` since the canonical store flattens both states
+    and UTs under that single value.
+    """
+    path = root / "datasets/data/entities/geo.csv"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="") as fh:
+        w = csv.writer(fh)
+        w.writerow([
+            "entity_id", "name", "parent", "entity_kind",
+            "aliases", "census_2001_code", "census_2011_code",
+        ])
+        for entity_id, eci_code, name in rows:
+            w.writerow([entity_id, name, "IN", "state", eci_code, "", ""])
+
+
+_CANDIDACY_COLS = (
+    "entity_id", "state", "election_year", "constituency_no",
+    "constituency_name", "candidate_name", "party_id", "party_short_raw",
+    "votes", "vote_share_pct", "position", "result", "sex", "age",
+    "education", "profession", "candidate_type", "source_id",
+)
+_SUMMARY_COLS = (
+    "entity_id", "state", "election_year", "constituency_name",
+    "electors", "votes_polled", "turnout_pct",
+    "winner_candidate", "winner_party_id", "winner_party_short_raw",
+    "winner_votes", "winner_share_pct",
+    "runnerup_candidate", "runnerup_party_id", "runnerup_party_short_raw",
+    "runnerup_votes", "margin_votes", "margin_pct", "source_id",
+)
+
+
+def _seed_assembly_csv(
+    root: Path,
+    *,
+    state_slug: str,
+    election_year: int,
+    n_acs: int,
+    source_id: str = "src-test",
+) -> Path:
+    """Write a minimal ``assembly/state=<slug>/election=<year>/{summary,candidacies}.csv``
+    pair that the G14 CSV walker can read.
+
+    Each AC gets a single summary row + 2 candidacy rows (winner + runner-up);
+    the CSV shape mirrors the on-disk emitter's column contract so the same
+    fixture can be reused by the G15 ``summary == recompute(candidacies)``
+    parity test if needed.
+    """
+    base = root / "datasets/elections/assembly" / f"state={state_slug}" / f"election={election_year}"
+    base.mkdir(parents=True, exist_ok=True)
+    summary_path = base / "summary.csv"
+    cand_path = base / "candidacies.csv"
+    summary_rows: list[dict[str, object]] = []
+    candidacy_rows: list[dict[str, object]] = []
+    for n in range(1, n_acs + 1):
+        entity_id = f"IN-AC-2008-{state_slug}-{n}"
+        winner = {
+            "entity_id": entity_id, "state": state_slug,
+            "election_year": election_year, "constituency_no": n,
+            "constituency_name": f"AC{n}", "candidate_name": f"W{n}",
+            "party_id": "parties.IN.A", "party_short_raw": "A",
+            "votes": 1000, "vote_share_pct": 60.0,
+            "position": 1, "result": "won",
+            "sex": "M", "age": 50, "education": "Graduate",
+            "profession": "", "candidate_type": "challenger",
+            "source_id": source_id,
+        }
+        runner = {**winner, "candidate_name": f"R{n}",
+                  "party_id": "parties.IN.B", "party_short_raw": "B",
+                  "votes": 500, "vote_share_pct": 30.0,
+                  "position": 2, "result": "lost"}
+        candidacy_rows.append(winner)
+        candidacy_rows.append(runner)
+        summary_rows.append({
+            "entity_id": entity_id, "state": state_slug,
+            "election_year": election_year, "constituency_name": f"AC{n}",
+            "electors": 2000, "votes_polled": 1500, "turnout_pct": 75.0,
+            "winner_candidate": f"W{n}", "winner_party_id": "parties.IN.A",
+            "winner_party_short_raw": "A", "winner_votes": 1000,
+            "winner_share_pct": 60.0,
+            "runnerup_candidate": f"R{n}",
+            "runnerup_party_id": "parties.IN.B",
+            "runnerup_party_short_raw": "B", "runnerup_votes": 500,
+            "margin_votes": 500, "margin_pct": 30.0,
+            "source_id": source_id,
+        })
+    with summary_path.open("w", encoding="utf-8", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=list(_SUMMARY_COLS))
+        w.writeheader()
+        for row in summary_rows:
+            w.writerow(row)
+    with cand_path.open("w", encoding="utf-8", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=list(_CANDIDACY_COLS))
+        w.writeheader()
+        for row in candidacy_rows:
+            w.writerow(row)
+    return base
+
+
+def _seed_parliament_csv(
+    root: Path,
+    *,
+    election_year: int,
+    per_state: dict[str, int],
+    source_id: str = "src-test",
+) -> Path:
+    """Write a minimal ``parliament/election=<year>/{summary,candidacies}.csv``
+    pair fanning out across ``per_state`` slugs.
+
+    ``per_state`` maps ``state_slug -> n_pcs``; the parliament CSV is a SINGLE
+    national file (no ``state=*/`` partition); the walker fans out per state
+    by reading the ``state`` column. Each PC gets 1 summary row + 2 candidacy
+    rows just like ``_seed_assembly_csv`` for symmetry.
+    """
+    base = root / "datasets/elections/parliament" / f"election={election_year}"
+    base.mkdir(parents=True, exist_ok=True)
+    summary_path = base / "summary.csv"
+    cand_path = base / "candidacies.csv"
+    summary_rows: list[dict[str, object]] = []
+    candidacy_rows: list[dict[str, object]] = []
+    pc_no = 0
+    for state_slug, n_pcs in per_state.items():
+        for _ in range(n_pcs):
+            pc_no += 1
+            entity_id = f"IN-PC-2008-{state_slug}-{pc_no}"
+            winner = {
+                "entity_id": entity_id, "state": state_slug,
+                "election_year": election_year, "constituency_no": pc_no,
+                "constituency_name": f"PC{pc_no}", "candidate_name": f"W{pc_no}",
+                "party_id": "parties.IN.A", "party_short_raw": "A",
+                "votes": 100000, "vote_share_pct": 55.0,
+                "position": 1, "result": "won",
+                "sex": "M", "age": 55, "education": "Graduate",
+                "profession": "", "candidate_type": "challenger",
+                "source_id": source_id,
+            }
+            runner = {**winner, "candidate_name": f"R{pc_no}",
+                      "party_id": "parties.IN.B", "party_short_raw": "B",
+                      "votes": 80000, "vote_share_pct": 40.0,
+                      "position": 2, "result": "lost"}
+            candidacy_rows.append(winner)
+            candidacy_rows.append(runner)
+            summary_rows.append({
+                "entity_id": entity_id, "state": state_slug,
+                "election_year": election_year,
+                "constituency_name": f"PC{pc_no}",
+                "electors": 200000, "votes_polled": 180000, "turnout_pct": 90.0,
+                "winner_candidate": f"W{pc_no}",
+                "winner_party_id": "parties.IN.A",
+                "winner_party_short_raw": "A",
+                "winner_votes": 100000, "winner_share_pct": 55.0,
+                "runnerup_candidate": f"R{pc_no}",
+                "runnerup_party_id": "parties.IN.B",
+                "runnerup_party_short_raw": "B",
+                "runnerup_votes": 80000,
+                "margin_votes": 20000, "margin_pct": 15.0,
+                "source_id": source_id,
+            })
+    with summary_path.open("w", encoding="utf-8", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=list(_SUMMARY_COLS))
+        w.writeheader()
+        for row in summary_rows:
+            w.writerow(row)
+    with cand_path.open("w", encoding="utf-8", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=list(_CANDIDACY_COLS))
+        w.writeheader()
+        for row in candidacy_rows:
+            w.writerow(row)
+    return base
+
+
+def _seed_election_csv(
     root: Path,
     slices: dict[tuple[str, str], dict[str, object]],
 ) -> None:
-    """Emit a minimal ``datasets/elections/election_results.parquet`` so
-    ``coverage._election_slices_from_canonical`` can read it.
+    """Drop-in replacement for the legacy ``_seed_election_parquet`` helper.
 
-    Each entry in ``slices`` maps ``(event_id, state_code)`` to a dict with:
+    Emits the on-disk CSV shape the G14 walker reads. Each ``slices`` entry
+    maps ``(event_id, state_code)`` to a dict with:
 
-    - ``ac_count``    : ``int``  — number of AC entity rows to emit
-      (``IN-<state>-AC-2008-<n>`` for ``n in 1..ac_count``).
-    - ``has_summary`` : ``bool`` — emit a state-rollup row
-      (``IN-<state>-<event_id>``) per ``canonical.adapters.eci.identity``.
-        - ``has_parties`` : ``bool`` — emit a party-rollup row
-            (``IN-<state>-<event_id>-PARTY-<slug>``).
-
-    All rows carry the minimum NOT-NULL columns required by the canonical
-    writer (``observation_id``, ``entity_id``, ``year``, ``period_label``,
-    ``period_seq``, ``indicator_id``, ``source_id``); ``value_num`` /
-    ``value_text`` / ``unit`` are nullable and left NULL.
+    - ``ac_count``    : ``int``  - number of (AC or PC) summary rows to emit.
+    - ``has_summary`` : ``bool`` - unused (kept for back-compat with the old
+      signature; the walker treats every directory with ``summary.csv`` as
+      ``has_summary=True``).
+    - ``has_parties`` : ``bool`` - same (always ``False`` in the new CSV
+      tree; no separate ``parties.csv`` is emitted).
+    - ``body``        : ``str``  - ``"AC"`` (default) or ``"PC"``.
+    - ``state_slug``  : ``str``  - the on-disk slug, e.g. ``"tamil-nadu"``.
+      Required because the walker partition discriminator is slug, not ECI
+      code; tests must supply the same string the production emitter writes.
+    - ``election_year``: ``int`` - the election year encoded in the
+      partition path; for ``event_id``-keyed slices this also drives the
+      catalogue back-resolution if a paired ``election_events.json`` entry
+      is present in the fixture.
     """
-    import duckdb
-
-    parquet_path = root / "datasets" / "elections" / "election_results.parquet"
-    parquet_path.parent.mkdir(parents=True, exist_ok=True)
-
-    rows: list[tuple[str, str, int, str, int, str, float | None, str | None, str | None, str]] = []
-    for (event_id, state_code), spec in slices.items():
+    for (_event_id, _state_code), spec in slices.items():
+        body = spec.get("body", "AC")
+        state_slug = spec.get("state_slug")
+        year = spec.get("election_year")
         ac_count = int(spec.get("ac_count", 0))  # type: ignore[arg-type]
-        has_summary = bool(spec.get("has_summary", False))
-        has_parties = bool(spec.get("has_parties", False))
-
-        # AC entity rows -- ac_count distinct entity_ids.
-        for n in range(1, ac_count + 1):
-            entity_id = f"IN-{state_code}-AC-2008-{n}"
-            rows.append((
-                f"obs-ac-{event_id}-{state_code}-{n}",
-                entity_id, 2026, event_id, 1, "ac-total-votes",
-                None, None, None, "src-test",
-            ))
-        if has_summary:
-            entity_id = f"IN-{state_code}-{event_id}"
-            rows.append((
-                f"obs-srollup-{event_id}-{state_code}",
-                entity_id, 2026, event_id, 1, "state-total-votes",
-                None, None, None, "src-test",
-            ))
-        if has_parties:
-            entity_id = f"IN-{state_code}-{event_id}-PARTY-TST"
-            rows.append((
-                f"obs-prollup-{event_id}-{state_code}",
-                entity_id, 2026, event_id, 1, "party-seats-won",
-                None, None, None, "src-test",
-            ))
-
-    conn = duckdb.connect(database=":memory:")
-    try:
-        conn.execute("""
-            CREATE TABLE staging (
-                observation_id VARCHAR NOT NULL,
-                entity_id      VARCHAR NOT NULL,
-                year           INTEGER NOT NULL,
-                period_label   VARCHAR NOT NULL,
-                period_seq     INTEGER NOT NULL,
-                indicator_id   VARCHAR NOT NULL,
-                value_num      DOUBLE,
-                value_text     VARCHAR,
-                unit           VARCHAR,
-                source_id      VARCHAR NOT NULL
+        if state_slug is None or year is None:
+            raise ValueError(
+                "_seed_election_csv requires both 'state_slug' and "
+                "'election_year' in every spec dict"
             )
-        """)
-        if rows:
-            conn.executemany(
-                "INSERT INTO staging VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                rows,
+        if body == "AC":
+            _seed_assembly_csv(
+                root,
+                state_slug=str(state_slug),
+                election_year=int(year),
+                n_acs=ac_count,
             )
-        conn.execute(
-            f"COPY staging TO '{parquet_path.as_posix()}' (FORMAT PARQUET)"
-        )
-    finally:
-        conn.close()
+        else:
+            _seed_parliament_csv(
+                root,
+                election_year=int(year),
+                per_state={str(state_slug): ac_count},
+            )
 
 
 def test_coverage_reconciles_catalogue_and_disk(tmp_path: Path) -> None:
@@ -140,16 +286,21 @@ def test_coverage_reconciles_catalogue_and_disk(tmp_path: Path) -> None:
             }
         },
     )
-    # Seed canonical Parquet — coverage now reads
-    # ``datasets/elections/election_results.parquet`` directly (PR-O.2-minimal,
-    # row 1.8b). Legacy JSON shards on disk are no longer consulted.
-    _seed_election_parquet(
+    # G14: coverage now walks the on-disk CSV tree at
+    # ``datasets/elections/{assembly,parliament}/`` directly (the canonical
+    # Parquet store retired 2026-06-07 via X1a-fu2). The slug-to-ECI map is
+    # built from ``datasets/data/entities/geo.csv``.
+    _seed_geo_csv(tmp_path, [("tamil-nadu", "S22", "Tamil Nadu")])
+    _seed_election_csv(
         tmp_path,
         {
             ("AcGenMay2026", "S22"): {
                 "ac_count": 2,
                 "has_summary": True,
-                "has_parties": True,
+                "has_parties": False,
+                "body": "AC",
+                "state_slug": "tamil-nadu",
+                "election_year": 2026,
             }
         },
     )
@@ -162,7 +313,12 @@ def test_coverage_reconciles_catalogue_and_disk(tmp_path: Path) -> None:
     assert s.state_name == "Tamil Nadu"
     assert s.on_disk is True
     assert s.ac_count == 2
-    assert s.has_summary and s.has_parties
+    assert s.has_summary
+    # has_parties is always False under the new CSV tree (no parties.csv
+    # is emitted; party rollups happen at frontend render time from
+    # candidacies). The contract field is preserved for back-compat.
+    assert s.has_parties is False
+    assert s.body == "AC"
     assert s.declared_status == "complete"
 
 
@@ -198,16 +354,24 @@ def test_coverage_flags_undeclared_and_pending(tmp_path: Path) -> None:
             }
         },
     )
-    # On-disk for an *undeclared* slice (catalogue knows S22/AcGenMay2026 but not S99/AcGenJan1900).
-    # Seed via the canonical Parquet (PR-O.2-minimal); a state-rollup row
-    # is the canonical analog of ``result.summary.json``.
-    _seed_election_parquet(
+    # G14: an on-disk slice the catalogue does NOT declare. The walker
+    # synthesises ``Ac<year>`` as the fallback event_id when no catalogue
+    # event matches (state_code, year, body). For this test, slug
+    # "wonderland" maps to ECI code "S99" via the geo.csv seed; year 1900
+    # is not in the catalogue -> walker emits ("Ac1900", "S99") -> appears
+    # in the "On-disk artifacts but no entry in the catalogue" lane of
+    # the Inconsistencies section.
+    _seed_geo_csv(tmp_path, [("wonderland", "S99", "Wonderland")])
+    _seed_election_csv(
         tmp_path,
         {
-            ("AcGenJan1900", "S99"): {
-                "ac_count": 0,
+            ("Ac1900", "S99"): {
+                "ac_count": 1,
                 "has_summary": True,
                 "has_parties": False,
+                "body": "AC",
+                "state_slug": "wonderland",
+                "election_year": 1900,
             }
         },
     )
@@ -216,7 +380,7 @@ def test_coverage_flags_undeclared_and_pending(tmp_path: Path) -> None:
     md = render_markdown(report)
 
     assert "Inconsistencies" in md
-    assert "AcGenJan1900" in md  # undeclared on-disk surfaces
+    assert "Ac1900" in md  # undeclared on-disk surfaces
     assert "S22" in md  # declared-and-missing surfaces (not pending)
     # Pending Bihar must NOT appear under Inconsistencies.
     bihar_in_issues = any(
@@ -321,19 +485,28 @@ def test_render_includes_indicators_and_state_first(tmp_path: Path) -> None:
             }
         },
     )
-    # Seed canonical Parquet for both Assam events (PR-O.2-minimal).
-    _seed_election_parquet(
+    # G14: seed CSV slices for both Assam events. Walker derives event_id
+    # via catalogue back-resolution (S03, 2016) -> AcGenApr2016 and
+    # (S03, 2026) -> AcGenMay2026.
+    _seed_geo_csv(tmp_path, [("assam", "S03", "Assam")])
+    _seed_election_csv(
         tmp_path,
         {
             ("AcGenApr2016", "S03"): {
                 "ac_count": 1,
                 "has_summary": True,
-                "has_parties": True,
+                "has_parties": False,
+                "body": "AC",
+                "state_slug": "assam",
+                "election_year": 2016,
             },
             ("AcGenMay2026", "S03"): {
                 "ac_count": 1,
                 "has_summary": True,
-                "has_parties": True,
+                "has_parties": False,
+                "body": "AC",
+                "state_slug": "assam",
+                "election_year": 2026,
             },
         },
     )
@@ -368,11 +541,13 @@ def test_render_includes_indicators_and_state_first(tmp_path: Path) -> None:
     assert "](indicators/" not in md
     # 7/7 for the all-7 bucket case.
     assert "7/7" in md
-    assert "## 2a. Elections \u2014 coverage depth (state-first)" in md
+    # G14: section 2a is the state-first Assembly (AC) meter.
+    assert "## 2a. Elections \u2014 Assembly (AC) coverage depth (state-first)" in md
     assert "Assam" in md
     # 2 events -> 2/7 with the rightmost two cells filled.
     assert "2/7" in md
-    assert "## 2b. Elections \u2014 by cohort (event-first)" in md
+    # G14: cohort table moved to 2c (was 2b before the AC/PC split).
+    assert "## 2c. Elections \u2014 cohort (AC + PC, event-first)" in md
 
 
 def test_render_markdown_includes_frontend_wiring_section(tmp_path: Path) -> None:
@@ -454,4 +629,173 @@ def test_render_markdown_includes_frontend_wiring_section(tmp_path: Path) -> Non
     # Per-row Wired column glyphs.
     assert " \u25cf | iced" not in md  # not asserting host, just that glyph exists somewhere
     assert "Wired |" in md
+
+
+# ---------------------------------------------------------------------------
+# G14 (plan section 23.4 EL7): CSV walker discriminates AC vs PC.
+# ---------------------------------------------------------------------------
+
+
+def _seed_minimal_catalogue(tmp_path: Path) -> None:
+    """Seed the bare minimum catalogue + entities files the walker needs."""
+    _write(tmp_path / "datasets/taxonomy/entities.json", {"entities": []})
+    _write(
+        tmp_path / "datasets/taxonomy/election_events.json",
+        {"states": {}},
+    )
+
+
+def test_walker_returns_ac_and_pc_rows(tmp_path: Path) -> None:
+    """The two CSV walkers MUST yield both AC and PC slices when both trees
+    are present on disk. This is the central G14 invariant: an aggregator
+    silently blind to a whole election class is a latent reporting bug
+    (plan section 23.4 EL7)."""
+    _seed_minimal_catalogue(tmp_path)
+    _seed_geo_csv(
+        tmp_path,
+        [
+            ("tamil-nadu", "S22", "Tamil Nadu"),
+            ("kerala", "S11", "Kerala"),
+        ],
+    )
+    _seed_assembly_csv(
+        tmp_path, state_slug="tamil-nadu", election_year=2021, n_acs=3
+    )
+    _seed_parliament_csv(
+        tmp_path,
+        election_year=2019,
+        per_state={"tamil-nadu": 2, "kerala": 1},
+    )
+
+    from yen_gov.coverage import _polled_year_to_event
+
+    catalogue: dict[str, object] = {"states": {}}
+    slug_to_code = {"tamil-nadu": "S22", "kerala": "S11"}
+    ac_map = _polled_year_to_event(catalogue, "AC")
+    pc_map = _polled_year_to_event(catalogue, "PC")
+
+    ac_rows = list(
+        _walk_assembly_csv(
+            tmp_path / "datasets/elections", ac_map, slug_to_code
+        )
+    )
+    pc_rows = list(
+        _walk_parliament_csv(
+            tmp_path / "datasets/elections", pc_map, slug_to_code
+        )
+    )
+    # Walker tuple layout: (ac_count, has_summary, has_parties, body).
+    assert len(ac_rows) == 1
+    assert ac_rows[0][0] == ("Ac2021", "S22")
+    assert ac_rows[0][1] == (3, True, False, "AC")
+    assert len(pc_rows) == 2
+    pc_keys = {row[0] for row in pc_rows}
+    assert pc_keys == {("Pc2019", "S11"), ("Pc2019", "S22")}
+    for _, tup in pc_rows:
+        assert tup[3] == "PC"
+        assert tup[1] is True
+        assert tup[2] is False
+
+
+def test_render_markdown_contains_section_2b_pc_header(tmp_path: Path) -> None:
+    """The PC section header MUST appear when at least one PC slice is on
+    disk. A future PR that drops PC support should fail this test loudly."""
+    _seed_minimal_catalogue(tmp_path)
+    _seed_geo_csv(tmp_path, [("tamil-nadu", "S22", "Tamil Nadu")])
+    _seed_parliament_csv(
+        tmp_path, election_year=2019, per_state={"tamil-nadu": 2}
+    )
+
+    md = render_markdown(compute_coverage(tmp_path))
+    assert "## 2b. Elections \u2014 Parliament (PC) coverage by cycle" in md
+    assert "Parliament" in md
+
+
+def test_render_markdown_contains_body_column_in_2c(tmp_path: Path) -> None:
+    """Section 2c (combined AC+PC cohort) MUST carry a Body column so AC
+    and PC slices can be told apart at a glance, and BOTH ``AC`` and ``PC``
+    cells MUST appear in the rendered Markdown when both bodies are on disk.
+    """
+    _seed_minimal_catalogue(tmp_path)
+    _seed_geo_csv(tmp_path, [("tamil-nadu", "S22", "Tamil Nadu")])
+    _seed_assembly_csv(
+        tmp_path, state_slug="tamil-nadu", election_year=2021, n_acs=1
+    )
+    _seed_parliament_csv(
+        tmp_path, election_year=2019, per_state={"tamil-nadu": 1}
+    )
+
+    md = render_markdown(compute_coverage(tmp_path))
+    assert "## 2c. Elections \u2014 cohort (AC + PC, event-first)" in md
+    # 2c header row carries Body column.
+    assert "| State | Code | Body | Rows |" in md
+    # Both body kinds appear as cell values in the 2c table. The pipe-
+    # framed cell text is deterministic; the regex would be overkill.
+    c2_start = md.index("## 2c. Elections")
+    c2_block = md[c2_start:]
+    assert "| AC |" in c2_block
+    assert "| PC |" in c2_block
+
+
+def test_summary_counts_ac_and_pc_separately(tmp_path: Path) -> None:
+    """The top-of-report Summary list MUST split AC and PC counts onto
+    separate bullet lines so a reader can see at a glance how many slices
+    of each body are on disk. A single combined count would silently mask
+    a 'PC went to zero' regression."""
+    _seed_minimal_catalogue(tmp_path)
+    _seed_geo_csv(
+        tmp_path,
+        [
+            ("tamil-nadu", "S22", "Tamil Nadu"),
+            ("kerala", "S11", "Kerala"),
+        ],
+    )
+    _seed_assembly_csv(
+        tmp_path, state_slug="tamil-nadu", election_year=2021, n_acs=2
+    )
+    _seed_parliament_csv(
+        tmp_path,
+        election_year=2019,
+        per_state={"tamil-nadu": 1, "kerala": 1},
+    )
+
+    md = render_markdown(compute_coverage(tmp_path))
+    # Find the Summary section block; both AC and PC bullets must exist.
+    sum_start = md.index("## Summary")
+    sum_block = md[sum_start:].split("##", 2)[1]  # everything up to next h2
+    assert "- Assembly (AC):" in sum_block
+    assert "- Parliament (PC):" in sum_block
+    # Counts are correct: 1 AC slice + 2 PC slices.
+    assert "Assembly (AC): 1 slice" in sum_block
+    assert "Parliament (PC): 2 slice" in sum_block
+
+
+def test_ac_only_walk_back_compat(tmp_path: Path) -> None:
+    """When only the assembly tree exists on disk, the walker MUST behave
+    exactly as the AC-only history of this report did: every emitted slice
+    carries ``body='AC'`` (the dataclass default), no PC rows appear, and
+    the rendered Markdown still has section 2a (state-first AC meter).
+    Section 2b (PC) MUST surface the 'No on-disk Parliament slices yet'
+    fallback rather than disappearing entirely."""
+    _seed_minimal_catalogue(tmp_path)
+    _seed_geo_csv(tmp_path, [("tamil-nadu", "S22", "Tamil Nadu")])
+    _seed_assembly_csv(
+        tmp_path, state_slug="tamil-nadu", election_year=2021, n_acs=2
+    )
+
+    report = compute_coverage(tmp_path)
+    on_disk = [s for s in report.slices if s.on_disk]
+    assert len(on_disk) == 1
+    assert on_disk[0].body == "AC"
+    assert on_disk[0].state_code == "S22"
+    assert on_disk[0].ac_count == 2
+    # No PC slices materialised when the parliament tree is absent.
+    assert not any(s.body == "PC" for s in report.slices if s.on_disk)
+
+    md = render_markdown(report)
+    assert "## 2a. Elections \u2014 Assembly (AC) coverage depth (state-first)" in md
+    # 2b is still rendered (so PC doesn't silently disappear); it surfaces
+    # the empty-state placeholder.
+    assert "## 2b. Elections \u2014 Parliament (PC) coverage by cycle" in md
+    assert "_No on-disk Parliament slices yet._" in md
 
