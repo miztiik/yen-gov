@@ -55,11 +55,11 @@ describe("buildModeMarker - non-FPTP", () => {
     expect(
       buildModeMarker({
         rule_id: "ranked-choice",
-        rule_label: "Ranked-choice (IRV, uniform transfer)",
+        rule_label: "Ranked-choice (proportional transfer)",
         mutation_count: 2,
       }),
     ).toBe(
-      "imagined under Ranked-choice (IRV, uniform transfer) + 2 what-ifs applied",
+      "imagined under Ranked-choice (proportional transfer) + 2 what-ifs applied",
     );
   });
 
@@ -67,10 +67,10 @@ describe("buildModeMarker - non-FPTP", () => {
     expect(
       buildModeMarker({
         rule_id: "approval",
-        rule_label: "Approval (cast = approval)",
+        rule_label: "Approval (single mark)",
         mutation_count: 1,
       }),
-    ).toBe("imagined under Approval (cast = approval) + 1 what-if applied");
+    ).toBe("imagined under Approval (single mark) + 1 what-if applied");
   });
 });
 
@@ -147,7 +147,7 @@ describe("buildContextLabel", () => {
       election_display: "TN AC Apr 2021",
       seat_count: 234,
       rule_id: "proportional",
-      rule_label: "Proportional (Sainte-Lague, state-wide)",
+      rule_label: "Proportional (Sainte-Lague, state pool)",
       mutation_count: 0,
     });
     expect(out).toContain("imagined under");
@@ -167,14 +167,14 @@ describe("buildContextLabel", () => {
         election_display: "Bihar AC Oct 2020",
         seat_count: 243,
         rule_id: "proportional",
-        rule_label: "Proportional (Sainte-Lague, state-wide)",
+        rule_label: "Proportional (Sainte-Lague, state pool)",
         mutation_count: 2,
       }),
       buildContextLabel({
         election_display: "TN AC May 2026",
         seat_count: 234,
         rule_id: "approval",
-        rule_label: "Approval (cast = approval)",
+        rule_label: "Approval (single mark)",
         mutation_count: 1,
         compare_with: "TN AC Apr 2021",
       }),

@@ -1,4 +1,4 @@
-# Counting method: Ranked-choice (IRV, uniform transfer)
+# Counting method: Ranked-choice (proportional transfer)
 
 **Last Updated**: 2026-06-09
 

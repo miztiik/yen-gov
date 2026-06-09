@@ -21,21 +21,25 @@ import { fptp } from "./fptp";
 
 export const approval: CountingRule = {
   id: "approval",
-  label: "Approval (cast = approval)",
+  label: "Approval (single mark)",
+  short_label: "Approval (single mark)",
+  headline: "What approval reveals when ballots stay single-mark.",
+  validity: "fully_workable",
   requires_banner: true,
   caveat:
-    "Indian EVMs do not record approval ballots. This simulator treats " +
-    "each cast vote as approving exactly ONE candidate - which is " +
-    "MATHEMATICALLY IDENTICAL to First-Past-The-Post. The result is the " +
-    "SAME as the official FPTP count. Showing this preserves the " +
-    "citizen's right to ask 'what would approval voting produce?' The " +
-    "honest answer from FPTP-only data is: nothing different. A " +
-    "meaningful approval simulation requires ballot-level approval data " +
-    "India does not collect.",
+    "Approval voting asks each voter to mark every candidate they find " +
+    "acceptable. India's EVMs record one button press, so for this view we " +
+    "treat each cast vote as a single approval. The result is " +
+    "mathematically identical to First-Past-The-Post by construction, and " +
+    "that mirroring IS the finding: under the data India collects, Approval " +
+    "and FPTP cannot diverge. To see Approval diverge, India would need an " +
+    "approval ballot. This is the cleanest example in the whole Election " +
+    "Studio of WHY ballot design matters - every other room shows a rule " +
+    "applied to data; this room shows the rule that DATA itself is.",
   assumptions: [
-    "Each voter approves exactly one candidate (the one they voted for).",
-    "There is no approval ballot data in India; this simulator cannot model 'voters might approve multiple candidates' without fabricating their preferences.",
-    "The result is mathematically equivalent to FPTP by construction; this rule exists to give the citizen an honest 'no useful difference' answer rather than hide the question.",
+    "Holds constant: each voter approves exactly one candidate (the one they voted for).",
+    "Holds constant: no approval ballot data exists in India - a meaningful approval simulation would require a different ballot.",
+    "Reveals: the structural choice that ballot design makes BEFORE counting begins.",
   ],
 
   apply(tallies: Tallies): SeatAllocation {

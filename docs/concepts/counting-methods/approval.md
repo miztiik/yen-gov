@@ -1,4 +1,4 @@
-# Counting method: Approval (cast = approval)
+# Counting method: Approval (single mark)
 
 **Last Updated**: 2026-06-09
 

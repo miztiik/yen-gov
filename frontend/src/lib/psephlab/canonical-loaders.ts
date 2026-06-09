@@ -39,6 +39,7 @@ import {
   electoralEntitiesPath,
 } from "../canonical/election-csv-paths";
 import { electionStatePartition } from "../election-partitions";
+import { loadAlliances } from "./alliances";
 import type { AcTally, CandidateTally, Tallies } from "./types";
 
 // ---------- Cache: identical-shape mirror of the legacy loader ------------
@@ -287,9 +288,16 @@ export function loadActuals(event: string, state: string): Promise<Tallies> {
       ac.candidates.push(c);
     }
 
+    // Alliance lookup for the event (round-2 addition). One fetch per
+    // event, module-level cache; degrades to () => null when the CSV
+    // has no rows for the event (alliance-aware counting rules then
+    // fall back to their proportional sibling with a one-line caveat).
+    const alliances = await loadAlliances(event);
+
     const tallies: Tallies = {
       scope: { country: "IN", state, election: event },
       acs,
+      alliances,
     };
     Object.freeze(tallies);
     Object.freeze(tallies.acs);

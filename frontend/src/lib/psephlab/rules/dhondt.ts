@@ -1,18 +1,21 @@
-// Proportional representation using the Sainte-Lague divisor method.
+// Proportional representation using the D'Hondt divisor method.
 //
-// Per parent plan section 25.6b-seam + override sub-plan
-// `TODO/20260608-e6-user-override-and-pl2-pl3-execution-subplan.md`.
+// Per Hans + Fowler round-2 verdict (2026-06-09 debate). D'Hondt is the
+// "first PR rule citizens encounter in academic discussions of FPTP
+// reform" - it favours large parties more than Sainte-Lague because the
+// divisor sequence is 1, 2, 3, ... versus Sainte-Lague's 1, 3, 5, 7, ...
 //
-// State-wide aggregation of votes; divisor sequence 1, 3, 5, 7, 9, ...
-// Seats allocated iteratively to the party with the highest quotient at
-// each step. This is a pedagogical illustration of PR on the same ballots
-// cast under FPTP, NOT a prediction of real-world PR outcomes (voters
-// strategise to the system).
+// State-wide aggregation of votes; iterative seat allocation to the
+// party with the highest quotient (votes / next_divisor). Per-party
+// next divisor is `seats_awarded_so_far + 1`.
 //
-// NOTA is excluded from the divisor calculation (cannot translate to a
-// seat). by_ac is intentionally empty because PR does not bind to
-// per-constituency outcomes; the host renderer treats the empty array as
-// "this method does not allocate per-AC" and surfaces a note.
+// NOTA is excluded from the divisor calculation (cannot translate to
+// a seat). by_ac is empty (PR does not bind to per-constituency
+// outcomes).
+//
+// Algorithm mirrors sainteLague.ts; the only difference is the divisor
+// sequence. Fowler verdict: "90% copy of sainteLague.ts; divisor n+1
+// instead of 2n+1."
 
 import type {
   AcOutcome,
@@ -33,34 +36,31 @@ interface PartyAggregate {
   election_symbol_asset_path: string | null;
 }
 
-export const sainteLague: CountingRule = {
-  id: "proportional",
-  label: "Proportional (Sainte-Lague, state pool)",
-  short_label: "Proportional (Sainte-Lague)",
-  headline: "Seats follow vote share, pooled across the state.",
+export const dhondt: CountingRule = {
+  id: "proportional-dhondt",
+  label: "Proportional (D'Hondt, state pool)",
+  short_label: "Proportional (D'Hondt)",
+  headline: "Proportional, but the biggest party gets a quiet bonus.",
   validity: "fully_workable",
   requires_banner: true,
   caveat:
-    "Re-allocates the same ballots state-wide so that a party with about 5% of " +
-    "votes wins about 5% of seats, using the Sainte-Lague divisor method " +
-    "(divisors 1, 3, 5, 7, ...). The per-constituency view goes dark - PR " +
-    "does not bind to places. Watch where this method DIVERGES from the " +
-    "official count - that is where the FPTP geography is doing the heavy " +
-    "lifting.",
+    "Same state-wide pool as Sainte-Lague, but the divisor sequence runs " +
+    "1, 2, 3 instead of 1, 3, 5. Watch how a small switch in divisor " +
+    "shifts seats from regional parties to the largest party - the " +
+    "contrast is one of the cleanest demonstrations that no PR rule is " +
+    "neutral on party size. Used in Belgium, Israel, the Netherlands, " +
+    "and Spain.",
   assumptions: [
     "Holds constant: ballots cast remain as cast (real voters strategise to whichever system they vote under).",
     "Holds constant: state-wide pool; no multi-member districts.",
-    "Holds constant: Sainte-Lague divisors (small-party friendly versus D'Hondt).",
+    "Holds constant: D'Hondt divisors (larger-party friendly versus Sainte-Lague).",
     "NOTA is excluded from the divisor calculation - it cannot translate to a seat.",
+    "Reveals: how sensitive proportionality is to a single design choice no citizen ever sees on the ballot.",
   ],
 
   apply(tallies: Tallies): SeatAllocation {
     const total_seats = tallies.acs.length;
 
-    // Aggregate per-party state-wide totals, excluding NOTA. The
-    // candidate's party_id + brand metadata is taken from the first row
-    // seen (every row for a given party_eci_code carries the same
-    // dim_parties JOIN payload).
     const party_votes = new Map<string, PartyAggregate>();
     let total_votes = 0;
 
@@ -85,10 +85,10 @@ export const sainteLague: CountingRule = {
       }
     }
 
-    // Sainte-Lague: iterative seat allocation. Each round, the party with
+    // D'Hondt: iterative seat allocation. Each round, the party with
     // the highest quotient (votes / next_divisor) wins one seat. Divisor
-    // sequence: 1, 3, 5, 7, ... -> the per-party next divisor is
-    // (2 * seats_awarded_so_far) + 1.
+    // sequence: 1, 2, 3, 4, ... -> the per-party next divisor is
+    // `seats_awarded_so_far + 1`.
     const party_seats = new Map<string, number>();
     for (const code of party_votes.keys()) party_seats.set(code, 0);
 
@@ -96,12 +96,14 @@ export const sainteLague: CountingRule = {
       let best_code: string | null = null;
       let best_quotient = -Infinity;
       for (const [code, agg] of party_votes) {
-        const divisor = 2 * (party_seats.get(code) ?? 0) + 1;
+        const divisor = (party_seats.get(code) ?? 0) + 1;
         const quotient = agg.votes / divisor;
         if (
           quotient > best_quotient ||
           (quotient === best_quotient &&
-            (best_code === null || agg.party_short < (party_votes.get(best_code)?.party_short ?? "")))
+            (best_code === null ||
+              agg.party_short <
+                (party_votes.get(best_code)?.party_short ?? "")))
         ) {
           best_code = code;
           best_quotient = quotient;
@@ -135,16 +137,23 @@ export const sainteLague: CountingRule = {
 
     const by_ac: AcOutcome[] = [];
 
-    assertSeatTallyInvariant(
-      {
-        total_seats,
-        parties: by_party.map((p) => ({
-          party_id: p.party_id,
-          seats_won: p.seats_won,
-        })),
-      },
-      "psephlab:sainteLague",
-    );
+    // Skip the seat-tally invariant when there are zero non-NOTA parties
+    // to allocate to (degenerate NOTA-only AC case). The assertion's
+    // contract is sum(seats_won) == total_seats; with zero allocatable
+    // parties total_seats > 0 trivially violates it. The host UI shows
+    // an empty seat panel; no party can be awarded a seat.
+    if (by_party.length > 0 || total_seats === 0) {
+      assertSeatTallyInvariant(
+        {
+          total_seats,
+          parties: by_party.map((p) => ({
+            party_id: p.party_id,
+            seats_won: p.seats_won,
+          })),
+        },
+        "psephlab:dhondt",
+      );
+    }
 
     return { by_party, by_ac, total_votes };
   },

@@ -1,14 +1,16 @@
 import { describe, it, expect } from "vitest";
 import { lookupMethod } from "./CountingMethodDoc.svelte";
+import { RULES } from "../lib/psephlab/rules";
 
 describe("lookupMethod", () => {
-  it("resolves the 4 known method ids", () => {
-    for (const id of ["fptp", "proportional", "ranked-choice", "approval"]) {
-      const out = lookupMethod(id);
-      expect(out.ok).toBe(true);
+  it("resolves every registered counting rule by id", () => {
+    for (const r of RULES) {
+      const out = lookupMethod(r.id);
+      expect(out.ok, `expected ok for ${r.id}`).toBe(true);
       if (out.ok) {
-        expect(out.rule.id).toBe(id);
+        expect(out.rule.id).toBe(r.id);
         expect(out.rule.label).toBeTruthy();
+        expect(out.rule.validity).toMatch(/^(fully_workable|medium_validity)$/);
       }
     }
   });
@@ -23,14 +25,18 @@ describe("lookupMethod", () => {
     expect(out.ok).toBe(false);
   });
 
-  it("returned rules carry caveat + assumptions for non-FPTP methods (so the page can render them)", () => {
-    for (const id of ["proportional", "ranked-choice", "approval"]) {
-      const out = lookupMethod(id);
-      expect(out.ok).toBe(true);
+  it("every non-FPTP rule carries caveat + assumptions + requires_banner", () => {
+    for (const r of RULES) {
+      if (r.id === "fptp") continue;
+      const out = lookupMethod(r.id);
+      expect(out.ok, `expected ok for ${r.id}`).toBe(true);
       if (out.ok) {
-        expect(out.rule.caveat ?? "").not.toBe("");
-        expect((out.rule.assumptions ?? []).length).toBeGreaterThan(0);
-        expect(out.rule.requires_banner).toBe(true);
+        expect(out.rule.caveat ?? "", `${r.id} caveat`).not.toBe("");
+        expect(
+          (out.rule.assumptions ?? []).length,
+          `${r.id} assumptions`,
+        ).toBeGreaterThan(0);
+        expect(out.rule.requires_banner, `${r.id} requires_banner`).toBe(true);
       }
     }
   });
