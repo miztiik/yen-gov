@@ -3618,6 +3618,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "no2-annual-mean-ug-m3",
     csv_path: "data/datapoints/geo/no2-annual-mean-ug-m3.csv",
     table_id: "environment.environment_canonical",
+    // G30 wave-2 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "no2-annual-mean-ug-m3",
       title: "State annual mean NO2 (ug/m3)",
@@ -3649,6 +3651,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "pm10-annual-mean-ug-m3",
     csv_path: "data/datapoints/geo/pm10-annual-mean-ug-m3.csv",
     table_id: "environment.environment_canonical",
+    // G30 wave-2 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "pm10-annual-mean-ug-m3",
       title: "State annual mean PM10 (ug/m3)",
@@ -3680,6 +3684,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "pm25-annual-mean-ug-m3",
     csv_path: "data/datapoints/geo/pm25-annual-mean-ug-m3.csv",
     table_id: "environment.environment_canonical",
+    // G30 wave-2 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "pm25-annual-mean-ug-m3",
       title: "State annual mean PM2.5 (ug/m3)",
@@ -3753,6 +3759,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "so2-annual-mean-ug-m3",
     csv_path: "data/datapoints/geo/so2-annual-mean-ug-m3.csv",
     table_id: "environment.environment_canonical",
+    // G30 wave-2 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "so2-annual-mean-ug-m3",
       title: "State annual mean SO2 (ug/m3)",
@@ -3784,6 +3792,8 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     canonical_indicator_id: "thermal-fgd-installed-share-pct",
     csv_path: "data/datapoints/geo/thermal-fgd-installed-share-pct.csv",
     table_id: "environment.environment_canonical",
+    // G30 wave-2 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
+    renderer_override: "geo-choropleth-f2b",
     meta: {
       id: "thermal-fgd-installed-share-pct",
       title: "State thermal FGD installed share (%)",
