@@ -514,18 +514,23 @@ def test_lift_skips_when_even_fallback_precision_exceeds_budget(
 
 
 def test_derive_hive_ulb_segment_in_partition_path(lift_module: Any) -> None:
-    """The wards-kind partition path MUST carry both state=in_<lc>/ and
+    """The wards-kind partition path MUST carry both state=<slug>/ and
     ulb=<lgd>/ Hive segments. Regression test for the C.3.a derive_hive
     extension that added the ``ulb_lgd`` parameter alongside the
     existing ``district_lgd`` parameter (mutually exclusive per the
     ULB-keyed partition rationale).
+
+    Slug-only partition contract (2026-06-09, Hans+Max+Gregor verdict):
+    ``state_slug=`` carries the LGD-name slug verbatim
+    (``"tamil-nadu"``, not ``"S22"``); the legacy ``state=in_<lc>``
+    pre-2026-06-09 form is no longer produced.
     """
     from _paths import derive_hive  # noqa: PLC0415
 
     partition_path, layer_id = derive_hive(
         kind="wards",
-        state="S22",
+        state_slug="tamil-nadu",
         ulb_lgd="800001",
     )
-    assert partition_path == "boundaries/in/wards/state=in_s22/ulb=800001/all.geojson"
-    assert layer_id == "boundaries.in.wards.state=in_s22.ulb=800001"
+    assert partition_path == "boundaries/in/wards/state=tamil-nadu/ulb=800001/all.geojson"
+    assert layer_id == "boundaries.in.wards.state=tamil-nadu.ulb=800001"

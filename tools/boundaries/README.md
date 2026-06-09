@@ -24,7 +24,7 @@ datasets/boundaries/
     ├── districts/all.geojson                   # all districts
     ├── subdistricts/state=in_<lc>/all.geojson  # per-state
     ├── villages/state=in_<lc>/district=<lgd>/all.geojson  # per-(state, district)
-    ├── ac/state=in_<lc>/all.geojson            # per-state AC layer (37 states/UTs)
+    ├── ../electoral/delim=<year>/ac/state=<slug>/all.geojson  # per-state AC layer (31 states/UTs)
     └── postal/IN-pincodes-<city>.geojson       # orthogonal; NOT LGD
 ```
 

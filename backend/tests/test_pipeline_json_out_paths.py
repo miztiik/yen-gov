@@ -43,12 +43,16 @@ REPO = Path(__file__).resolve().parents[2]
 PIPELINE_PATH = REPO / "tools" / "boundaries" / "pipeline.json"
 sys.path.insert(0, str(REPO))
 
-from tools.boundaries._paths import derive_hive  # noqa: E402
+from tools.boundaries._paths import _eci_to_slug, derive_hive  # noqa: E402
 
 OUTPUTS_DIR_REL = "datasets/boundaries/in"
 ELECTORAL_PREFIX = "datasets/boundaries/electoral/"
-LEGACY_AC_SUBSTRING = "boundaries/in/ac/"
-LEGACY_PC_SUBSTRING = "boundaries/in/pc/"
+# Pre-2026-06-09 partition shape: ``state=in_<lc>`` derived from ECI codes.
+# Hans+Max+Gregor converged verdict (Item 1 of the G10 follow-on) flipped
+# the partition value to LGD-name slugs verbatim, so any future drift back
+# to the legacy form must trip these regression guards.
+LEGACY_AC_SUBSTRING = "state=in_"
+LEGACY_PC_SUBSTRING = "state=in_"
 
 
 @pytest.fixture(scope="module")
@@ -81,8 +85,9 @@ def test_every_ac_entry_out_starts_with_electoral_relative_path(
     pipeline_payload: dict,
 ) -> None:
     """Test 1: every kind=ac entry's ``out`` is the relative-up
-    ``../electoral/delim=2008/ac/state=...`` form. Locks the syntactic
+    ``../electoral/delim=2008/ac/state=<slug>`` form. Locks the syntactic
     shape of the rewrite so future drift back to ``ac/`` is caught.
+    Slug-only partition contract (2026-06-09, Hans+Max+Gregor verdict).
     """
     ac_entries = _electoral_entries(pipeline_payload, "ac")
     wrong: list[tuple[str | None, str | None]] = []
@@ -91,8 +96,11 @@ def test_every_ac_entry_out_starts_with_electoral_relative_path(
         out_value = entry.get("out")
         if not isinstance(out_value, str) or not out_value.startswith(expected_prefix):
             wrong.append((entry.get("state"), out_value if isinstance(out_value, str) else None))
+        elif "state=in_" in out_value:
+            wrong.append((entry.get("state"), out_value))
     assert not wrong, (
-        f"AC entries with ``out`` not starting with {expected_prefix!r}: {wrong}"
+        f"AC entries with ``out`` not starting with {expected_prefix!r} "
+        f"or still carrying the legacy ``state=in_<lc>`` form: {wrong}"
     )
 
 
@@ -146,13 +154,18 @@ def test_every_electoral_out_matches_derive_hive_contract(
     pipeline_payload: dict,
 ) -> None:
     """Test 4: every electoral ``out`` resolves to exactly what
-    ``derive_hive(kind=, state=, delim=, ext=)`` produces (prefixed with
-    ``datasets/`` to lift derive_hive's repo-relative path into the
+    ``derive_hive(kind=, state_slug=, delim=, ext=)`` produces (prefixed
+    with ``datasets/`` to lift derive_hive's repo-relative path into the
     outputs_dir-resolved form). This is the load-bearing consistency
     assertion: the pipeline's persisted ``out`` field must agree with
     the canonical Hive layout contract.
 
-    The extension is preserved per-entry from the existing ``out`` —
+    Slug-only partition contract (2026-06-09, Hans+Max+Gregor verdict):
+    ECI codes in pipeline.json ``state`` field translate via
+    ``_eci_to_slug()`` at the derive_hive call site so the ``state=``
+    partition value is always an LGD-name slug.
+
+    The extension is preserved per-entry from the existing ``out`` -
     AC entries publish ``.pmtiles`` (tippecanoe output), the PC entry
     publishes ``.geojson`` (raw passthrough). derive_hive's basename
     convention (``all.<ext>``) is honoured.
@@ -170,10 +183,13 @@ def test_every_electoral_out_matches_derive_hive_contract(
         # repoint script per the operator's per-entry format choice).
         ext = PurePosixPath(out_value).suffix.lstrip(".")
         assert ext, f"out={out_value!r} has no extension"
+        # state is the ECI st_code in pipeline.json; translate to slug
+        # for the derive_hive boundary (Hans+Max+Gregor verdict).
+        state_slug = _eci_to_slug(str(state)) if state is not None else None
         partition_path, _layer_id = derive_hive(
             kind=str(kind),
             delim=str(delim) if delim is not None else None,
-            state=str(state) if state is not None else None,
+            state_slug=state_slug,
             ext=ext,
         )
         expected_resolved = f"datasets/{partition_path}"

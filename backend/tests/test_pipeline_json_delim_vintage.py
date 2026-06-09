@@ -34,7 +34,7 @@ REPO = Path(__file__).resolve().parents[2]
 PIPELINE_PATH = REPO / "tools" / "boundaries" / "pipeline.json"
 sys.path.insert(0, str(REPO))
 
-from tools.boundaries._paths import derive_hive  # noqa: E402
+from tools.boundaries._paths import _eci_to_slug, derive_hive  # noqa: E402
 
 
 AC_INVENTORY_COUNT = 31
@@ -104,9 +104,16 @@ def test_every_electoral_triple_is_consumable_by_derive_hive(
         if kind not in ("ac", "pc"):
             continue
         try:
+            # pipeline.json ``state`` is the ECI st_code; translate to
+            # LGD-name slug at the derive_hive boundary per the
+            # Hans+Max+Gregor verdict (2026-06-09, Item 1 of the G10
+            # follow-on). None state (PC national-wide layer) passes
+            # through unchanged.
+            state = entry.get("state")
+            state_slug = _eci_to_slug(state) if state is not None else None
             derive_hive(
                 kind=kind,
-                state=entry.get("state"),
+                state_slug=state_slug,
                 delim=entry.get("delimitation_vintage"),
             )
         except Exception as ex:  # noqa: BLE001  -- want every failure mode
