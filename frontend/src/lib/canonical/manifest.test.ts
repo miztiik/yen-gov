@@ -51,8 +51,9 @@ describe("isCompatibleSchemaVersion", () => {
   it("accepts manifest versions listed in the canonical-manifest-reader registry surface", () => {
     expect(isCompatibleSchemaVersion("manifest.schema.json", "1.0")).toBe(true);
     expect(isCompatibleSchemaVersion("manifest.schema.json", "1.3")).toBe(true);
+    expect(isCompatibleSchemaVersion("manifest.schema.json", "1.4")).toBe(true);
     expect(CANONICAL_MANIFEST_READER_SCHEMA_VERSIONS["manifest.schema.json"]).toEqual([
-      "1.0", "1.1", "1.2", "1.3",
+      "1.0", "1.1", "1.2", "1.3", "1.4",
     ]);
   });
 

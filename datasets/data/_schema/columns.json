@@ -180,6 +180,16 @@
         { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
       ]
     },
+    "datasets/data/datapoints/alliance_membership.csv": {
+      "notes": "Term-shape datapoint per plan section 20.4: one row per (alliance, party, term_start). Alliance membership shares the term-shape spine with office_holdings.csv but is NOT a fourth entity table - alliance_id is a free-text short label (NDA, UPA, SPA, AIADMK+, Mahagathbandhan, etc.) since no upstream issuing authority publishes a stable alliance-identity register. term_end null = open / still active at the latest evidence we have (never datetime.now per CLAUDE.md anti-pattern). Back-filled by backend/yen_gov/canonical/alliance_membership_csv.py from datasets/taxonomy/office_holdings.json (per-CM-tenure alliance with real start_date/end_date boundaries) and datasets/data/entities/party_alliances.csv (per-election-event snapshot resolved to polled_on date via election_events.json). Single-file datapoint family (not a per-variable glob); the datapoint-filename-equals-indicator_id rule does not apply.",
+      "columns": [
+        { "name": "alliance_id", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "party_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/parties.csv.party_id" },
+        { "name": "term_start", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "term_end", "dtype": "string", "nullable": true },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
+      ]
+    },
     "datasets/data/datapoints/geo/*.csv": {
       "notes": "Long-format datapoints keyed to LGD geo entities. One file per variable_id; filename is exactly <variable_id>.csv. Sorted by (entity_id, time). Per-indicator facet columns (e.g. sex, fuel_type) extend the core list dynamically and join the PK when present (plan section 21.6); facet metadata lives on the indicator's variables.csv row, not in this file class. Spec: csv-column-contract.md section 3.3.",
       "columns": [

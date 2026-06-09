@@ -1,8 +1,8 @@
 {
   "$schema": "./schemas/manifest.schema.json",
-  "$schema_version": "1.3",
+  "$schema_version": "1.4",
   "manifest_version": "1.0",
-  "generated_at": "2026-06-08T02:39:47Z",
+  "generated_at": "2026-06-09T05:19:07Z",
   "tables": [],
   "deprecations": [
     {
@@ -73,6 +73,36 @@
     {
       "old_path": "reference/in/pincodes/pincode-directory.parquet",
       "new_path": "data/entities/pincode.csv",
+      "deprecated_at": "2026-06-08"
+    },
+    {
+      "old_path": "reference/lgd/states.csv",
+      "new_path": "data/entities/lgd/states.csv",
+      "deprecated_at": "2026-06-08"
+    },
+    {
+      "old_path": "reference/lgd/districts.csv",
+      "new_path": "data/entities/lgd/districts.csv",
+      "deprecated_at": "2026-06-08"
+    },
+    {
+      "old_path": "reference/lgd/subdistricts.csv",
+      "new_path": "data/entities/lgd/subdistricts.csv",
+      "deprecated_at": "2026-06-08"
+    },
+    {
+      "old_path": "reference/lgd/constituencies.csv",
+      "new_path": "data/entities/lgd/constituencies.csv",
+      "deprecated_at": "2026-06-08"
+    },
+    {
+      "old_path": "reference/lgd/constituency_district_membership.csv",
+      "new_path": "data/entities/lgd/constituency_district_membership.csv",
+      "deprecated_at": "2026-06-08"
+    },
+    {
+      "old_path": "reference/lgd/parse-receipt.json",
+      "new_path": "_ops/lgd-parse-receipt.json",
       "deprecated_at": "2026-06-08"
     }
   ]
