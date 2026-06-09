@@ -189,7 +189,23 @@ When the LGD HTML export (`tools/lgd/parse_lgd_export.py` source) is demonstrabl
 
 The convention is round-7-compatible: round-7 prohibited *arithmetic* surrogate ids (e.g. `state_code * 1000 + eci_no`), not natural publisher ids with a provenance prefix. The `eci` prefix is self-describing - it visibly differs from the 3-digit LGD code shape, doubling as a migration trigger: when a future LGD HTML export covers these entities, a separate PR re-mints to the LGD-native id pattern and UPSERT-migrates downstream FKs in the same diff.
 
-**PC application (this PR, 2026-06-09)**: extends the convention to 4 PC rows surfaced by the LS2024 ECI Statement-33 ingest (G16, PR #844 unbound list): Mumbai South (MH, eci 31), Lucknow (UP, eci 35), Kolkata Dakshin (WB, eci 23), Kolkata Uttar (WB, eci 24). Citation: `src-bfb4e7fb9785` (ECI Statement-33 LS2024 vintage), reused per ADR-0042 one-row-per-(producer, title, vintage). LS2024 unbound count drops 14 -> 10 (irreducible spine gaps: Delhi x7 + Chandigarh + A&N + Dadra-DNH).
+**PC application (PR #849, 2026-06-09)**: extends the convention to 4 PC rows surfaced by the LS2024 ECI Statement-33 ingest (G16, PR #844 unbound list): Mumbai South (MH, eci 31), Lucknow (UP, eci 35), Kolkata Dakshin (WB, eci 23), Kolkata Uttar (WB, eci 24). Citation: `src-bfb4e7fb9785` (ECI Statement-33 LS2024 vintage), reused per ADR-0042 one-row-per-(producer, title, vintage). LS2024 unbound count drops 14 -> 10 (irreducible spine gaps: Delhi x7 + Chandigarh + A&N + Dadra-DNH).
+
+**UT-PC extension (this PR, 2026-06-09)**: closes the remaining 10 UT-classification gaps via the same `eci<N>` natural-publisher id pattern. The upstream LGD register omits Lok Sabha seats for UTs with limited Assembly status entirely from its PC enumeration; the gap is structural, not a spelling drift. 10 rows added to `electoral.csv` with per-state ECI ballot order as `eci_no`:
+
+- `IN-PC-2008-andaman-and-nicobar-islands-eci1` Andaman & Nicobar Islands (eci 1)
+- `IN-PC-2008-chandigarh-eci1` Chandigarh (eci 1)
+- `IN-PC-2008-dadra-and-nagar-haveli-and-daman-and-diu-eci2` Dadar & Nagar Haveli (eci 2; ECI publisher spelling preserved verbatim - LGD-canonical `Dadra & Nagar Haveli` already exists as a separate row at `-361` with `eci_no=1`, retained for backward compatibility with TCPD historical compilations that may use the LGD form)
+- `IN-PC-2008-delhi-eci1` Chandni Chowk (eci 1)
+- `IN-PC-2008-delhi-eci2` North-East Delhi (eci 2)
+- `IN-PC-2008-delhi-eci3` East Delhi (eci 3)
+- `IN-PC-2008-delhi-eci4` New Delhi (eci 4)
+- `IN-PC-2008-delhi-eci5` North-West Delhi (eci 5)
+- `IN-PC-2008-delhi-eci6` West Delhi (eci 6)
+- `IN-PC-2008-delhi-eci7` South Delhi (eci 7)
+
+Same citation (`src-bfb4e7fb9785`) reused (ADR-0042). NO `data_quality` enum (Hans Q3 PR #849: the `eci` prefix on `entity_id` is self-describing). LS2024 unbound count drops 10 -> **0**; candidacies 8161 -> 8359; summary PCs 532 -> 542; states 33 -> 36. The same `eci<N>` fallback id pattern, same provenance reuse rule, same self-describing prefix: extended once on the AC grain (G16 6 ACs), once on the PC grain (PR #849 4 metros), now closed on the UT-PC grain (this PR 10 UT PCs).
+
 
 ## See also
 

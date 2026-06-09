@@ -1,4 +1,16 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2024,1,Andaman & Nicobar Islands,BISHNU PADA RAY,parties.IN.BJP,BJP,102436,51.04,1,won,M,73,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2024,1,Andaman & Nicobar Islands,KULDEEP RAI SHARMA,parties.IN.INC,INC,78040,38.88,2,lost,M,56,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2024,1,Andaman & Nicobar Islands,MANOJ PAUL,,ANDC,8254,4.11,3,lost,M,35,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2024,1,Andaman & Nicobar Islands,D AYYAPPAN,parties.IN.CPIM,CPI(M),6017,3,4,lost,M,60,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2024,1,Andaman & Nicobar Islands,V.K. ABDUL AZIZ,parties.IN.IND,IND,2203,1.1,5,lost,M,42,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2024,1,Andaman & Nicobar Islands,K J B SELVARAJ,,ADMK,914,0.46,6,lost,M,50,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2024,1,Andaman & Nicobar Islands,DR ARUN KUMAR MALLIK,parties.IN.BSP,BSP,719,0.36,7,lost,M,64,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2024,1,Andaman & Nicobar Islands,RINKU MALA MONDAL,parties.IN.IND,IND,542,0.27,8,lost,F,36,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2024,1,Andaman & Nicobar Islands,K VENKAT RAM BABU,parties.IN.IND,IND,507,0.25,9,lost,M,50,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2024,1,Andaman & Nicobar Islands,USHA KUMARI,parties.IN.IND,IND,380,0.19,10,lost,F,39,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2024,1,Andaman & Nicobar Islands,SALAMAT MONDAL,parties.IN.SUCI,SUCI,351,0.17,11,lost,M,48,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2024,1,Andaman & Nicobar Islands,ANAND RAMNATH ARLEKAR,parties.IN.IND,IND,342,0.17,12,lost,M,58,,,challenger,src-bfb4e7fb9785
 IN-PC-2008-andhra-pradesh-449,andhra-pradesh,2024,0,Vizianagaram,APPALANAIDU KALISETTI,parties.IN.TDP,TDP,743113,58.24,1,won,M,50,,,challenger,src-bfb4e7fb9785
 IN-PC-2008-andhra-pradesh-414,andhra-pradesh,2024,0,Araku,GUMMA THANUJA RANI,parties.IN.YSRCP,YSRCP,477005,42.82,1,won,F,31,,,challenger,src-bfb4e7fb9785
 IN-PC-2008-andhra-pradesh-423,andhra-pradesh,2024,0,Kadapa,Y. S. AVINASH REDDY,parties.IN.YSRCP,YSRCP,605143,46.37,1,won,M,39,,,challenger,src-bfb4e7fb9785
@@ -1107,6 +1119,25 @@ IN-PC-2008-bihar-160,bihar,2024,40,Gaya,AMRESH KUMAR,parties.IN.IND,IND,2821,0.3
 IN-PC-2008-bihar-160,bihar,2024,40,Gaya,ASHOK KUMAR PASWAN,parties.IN.IND,IND,2701,0.29,12,lost,M,44,,,challenger,src-bfb4e7fb9785
 IN-PC-2008-bihar-160,bihar,2024,40,Gaya,ARUN KUMAR,parties.IN.IND,IND,2554,0.27,13,lost,M,60,,,challenger,src-bfb4e7fb9785
 IN-PC-2008-bihar-160,bihar,2024,40,Gaya,SHEO SHANKAR,,BHRTLKCHTP,2384,0.25,14,lost,M,66,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,MANISH TEWARI,parties.IN.INC,INC,216657,48.54,1,won,M,58,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,SANJAY TANDON,parties.IN.BJP,BJP,214153,47.98,2,lost,M,60,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,RITU SINGH,parties.IN.BSP,BSP,6708,1.5,3,lost,F,35,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,LAKHVIR SINGH ALIAS KOTLA,parties.IN.IND,IND,2626,0.59,4,lost,M,57,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,DEEPANSHU SHARMA,,AKBRPRVP,1068,0.24,5,lost,M,37,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,EX-ASSISTANT COMMANDANT RANPREET SINGH,parties.IN.IND,IND,1054,0.24,6,lost,M,41,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,VINOD KUMAR,parties.IN.IND,IND,683,0.15,7,lost,M,50,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,SUNIL THAMAN,,HRJSP,577,0.13,8,lost,M,63,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,BALJEET SINGH ALIAS LADDI,parties.IN.IND,IND,436,0.1,9,lost,M,40,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,SUNIL KUMAR,parties.IN.IND,IND,321,0.07,10,lost,M,49,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,PARTAP SINGH RANA,parties.IN.IND,IND,307,0.07,11,lost,M,65,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,MAHANT RAVI KANT MUNI,parties.IN.IND,IND,295,0.07,12,lost,M,46,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,VIVEK SHARMA,parties.IN.IND,IND,294,0.07,13,lost,M,39,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,PIAR CHAND ALIAS KOUNDAL,parties.IN.IND,IND,255,0.06,14,lost,M,47,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,KISHOR KUMAR ALIAS BANTI BHAIYA,parties.IN.IND,IND,239,0.05,15,lost,M,46,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,RAJINDER KAUR,parties.IN.SASP,SaSP,217,0.05,16,lost,F,54,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,RAJ PRINCE SINGH,,SPIP,205,0.05,17,lost,M,35,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,PUSHPINDER SINGH ALIAS LOVELY ATTAWA,parties.IN.IND,IND,154,0.03,18,lost,M,47,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-chandigarh-eci1,chandigarh,2024,1,Chandigarh,KULDIP RAI ALIAS HAPPY SOOD MORINDA,parties.IN.IND,IND,114,0.03,19,lost,M,53,,,challenger,src-bfb4e7fb9785
 IN-PC-2008-chhattisgarh-299,chhattisgarh,2024,0,KORBA,JYOTSNA CHARANDAS MAHANT,parties.IN.INC,INC,570182,46.77,1,won,F,70,,,challenger,src-bfb4e7fb9785
 IN-PC-2008-chhattisgarh-299,chhattisgarh,2024,0,KORBA,SAROJ PANDEY,parties.IN.BJP,BJP,526899,43.22,2,lost,F,55,,,challenger,src-bfb4e7fb9785
 IN-PC-2008-chhattisgarh-299,chhattisgarh,2024,0,KORBA,SHYAM SINGH MARKAM,parties.IN.GGP,GGP,48587,3.99,3,lost,M,54,,,challenger,src-bfb4e7fb9785
@@ -1334,6 +1365,173 @@ IN-PC-2008-dadra-and-nagar-haveli-and-daman-and-diu-360,dadra-and-nagar-haveli-a
 IN-PC-2008-dadra-and-nagar-haveli-and-daman-and-diu-360,dadra-and-nagar-haveli-and-daman-and-diu,2024,1,Daman & Diu,SAKIL LATIF KHAN,parties.IN.IND,IND,323,0.35,5,lost,M,37,,,challenger,src-bfb4e7fb9785
 IN-PC-2008-dadra-and-nagar-haveli-and-daman-and-diu-360,dadra-and-nagar-haveli-and-daman-and-diu,2024,1,Daman & Diu,IDRISH G MULLA,parties.IN.IND,IND,247,0.27,6,lost,M,57,,,challenger,src-bfb4e7fb9785
 IN-PC-2008-dadra-and-nagar-haveli-and-daman-and-diu-360,dadra-and-nagar-haveli-and-daman-and-diu,2024,1,Daman & Diu,PATEL UMESHBHAI BABU,parties.IN.IND,IND,238,0.26,7,lost,M,53,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-dadra-and-nagar-haveli-and-daman-and-diu-eci2,dadra-and-nagar-haveli-and-daman-and-diu,2024,2,Dadar & Nagar Haveli,DELKAR KALABEN MOHANBHAI,parties.IN.BJP,BJP,121074,60.41,1,won,F,53,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-dadra-and-nagar-haveli-and-daman-and-diu-eci2,dadra-and-nagar-haveli-and-daman-and-diu,2024,2,Dadar & Nagar Haveli,AJIT RAMJIBHAI MAHALA,parties.IN.INC,INC,63490,31.68,2,lost,M,47,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-dadra-and-nagar-haveli-and-daman-and-diu-eci2,dadra-and-nagar-haveli-and-daman-and-diu,2024,2,Dadar & Nagar Haveli,KURADA DEEPAKBHAI,,BHRTADVSIP,10197,5.09,3,lost,M,38,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-dadra-and-nagar-haveli-and-daman-and-diu-eci2,dadra-and-nagar-haveli-and-daman-and-diu,2024,2,Dadar & Nagar Haveli,BORSA SANDIPBHAI S,parties.IN.BSP,BSP,3152,1.57,4,lost,M,34,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-dadra-and-nagar-haveli-and-daman-and-diu-eci2,dadra-and-nagar-haveli-and-daman-and-diu,2024,2,Dadar & Nagar Haveli,SHAILESHBHAI VARTHA,parties.IN.IND,IND,2524,1.26,5,lost,M,32,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,PRAVEEN KHANDELWAL,parties.IN.BJP,BJP,516496,53.77,1,won,M,64,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,JAI PRAKASH AGARWAL,parties.IN.INC,INC,427171,44.47,2,lost,M,79,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,ABUL KALAM AZAD,parties.IN.BSP,BSP,5829,0.61,3,lost,M,48,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,UMESH RATHOR,,ATBP,1617,0.17,4,lost,M,54,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,SEEMA RIZVI,,AZSP,1089,0.11,5,lost,F,41,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,SHAIK JALEEL,,NRCP,949,0.1,6,lost,M,49,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,MD NAZIR,,AaSaP,945,0.1,7,lost,M,50,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,SATYA DEV CHAUDHARY,,SatBP,842,0.09,8,lost,M,72,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,RITU KAUSHIK,parties.IN.SUCI,SUCI,643,0.07,9,lost,F,45,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,SAMEER MIRZA,,RTPP,513,0.05,10,lost,M,34,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,SOHARSH GULGULIA JAIN,,SBNP,503,0.05,11,lost,M,37,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,SHYAM BHARTEEY,parties.IN.GAAP,GaAP,463,0.05,12,lost,M,54,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,GULJAR SINGH,parties.IN.PPID,PPID,424,0.04,13,lost,M,65,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,YOGENDER SINGH,,BHLBP,389,0.04,14,lost,M,48,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,VINOD KUMAR GUPTA,,AKBRPRVP,359,0.04,15,lost,M,48,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,SHIVAM SAINI,parties.IN.RTORP,RTORP,330,0.03,16,lost,M,28,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,MANOJ KUMAR NIGAM,,ABSPARTY,321,0.03,17,lost,M,55,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,RAJESH GUPTA,,BLokSP,262,0.03,18,lost,M,66,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,RAHUL SHARMA,,RMGLMP,257,0.03,19,lost,M,27,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,SUNIL KUMAR,parties.IN.IND,IND,247,0.03,20,lost,M,49,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,SUBHASH CHANDER,parties.IN.IND,IND,220,0.02,21,lost,M,67,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,MOHD HAMID,,BHRJWNKP,189,0.02,22,lost,M,42,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,PYUSH NARULA,parties.IN.IND,IND,172,0.02,23,lost,M,46,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,HEENA,,PuPP,169,0.02,24,lost,F,30,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci1,delhi,2024,1,Chandni Chowk,ASHOK KUMAR GUPTA,parties.IN.IND,IND,140,0.01,25,lost,M,64,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,MANOJ TIWARI,parties.IN.BJP,BJP,824451,53.3,1,won,M,53,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,KANHAIYA KUMAR,parties.IN.INC,INC,685673,44.33,2,lost,M,37,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,ASHOK KUMAR,parties.IN.BSP,BSP,12138,0.78,3,lost,M,66,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,SUNITA,,NRCP,3518,0.23,4,lost,F,49,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,AKESHAN DUT,parties.IN.IND,IND,3325,0.21,5,lost,M,30,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,SUSHIL CHOUDHARY,parties.IN.AAPP,AAPP,2070,0.13,6,lost,M,44,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,AJAY TIWARI,parties.IN.RTORP,RTORP,2042,0.13,7,lost,M,40,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,SUBHASH,,RJ,1639,0.11,8,lost,M,49,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,AKASH SRIVASTAV,,JIHNDNTLP,1317,0.09,9,lost,M,28,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,SANJEEV KUMAR PANDEY,,BHLBP,1163,0.08,10,lost,M,54,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,SAROJ KUMAR RAY,parties.IN.IND,IND,997,0.06,11,lost,M,33,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,ADV. BHIM KISHOR,parties.IN.PPID,PPID,827,0.05,12,lost,M,33,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,SANJEEV KUMAR,,PuPP,799,0.05,13,lost,M,46,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,PRAKASH DEVI,parties.IN.SUCI,SUCI,676,0.04,14,lost,F,56,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,LAKSHYA VASHIST (SHYAM),,JDKRP,653,0.04,15,lost,M,39,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,BABITA YADAV,parties.IN.ASPKR,ASPKR,646,0.04,16,lost,F,38,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,MANOJ KUMAR,parties.IN.IND,IND,561,0.04,17,lost,M,39,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,NIVEDITA SHARMA “PREM”,,RSTJLKPS,543,0.04,18,lost,F,57,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,DR. RAJESH KUMAR SINGH,parties.IN.IND,IND,540,0.03,19,lost,M,53,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,KANHI LAL,,SWAJANPA,498,0.03,20,lost,M,46,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,VIJAY KUMAR JHA,parties.IN.IND,IND,491,0.03,21,lost,M,48,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,YOGESH SWAMY,parties.IN.IND,IND,410,0.03,22,lost,M,41,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,ASHOK MISHRA,parties.IN.IND,IND,352,0.02,23,lost,M,46,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,ADV. K.T. PALUSKAR,parties.IN.PRCP,PRCP,349,0.02,24,lost,M,66,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,RAVI KIRAN THILAK THATIKONDA,parties.IN.IND,IND,324,0.02,25,lost,M,31,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,ISHWAR CHAND,,BDPty,310,0.02,26,lost,M,71,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,JAGDISH,parties.IN.RSPS,RSPS,276,0.02,27,lost,M,44,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci2,delhi,2024,2,North-East Delhi,BIRPAL SINGH KOLI,parties.IN.IND,IND,270,0.02,28,lost,M,54,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,HARSH MALHOTRA,parties.IN.BJP,BJP,664819,52.82,1,won,M,60,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,KULDEEP KUMAR (MONU),,AAAP,571156,45.38,2,lost,M,35,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,MOHD. WAQAR CHOUDHARY,parties.IN.BSP,BSP,9197,0.73,3,lost,M,41,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,A. GOPALA KRISHNA,,NRCP,2817,0.22,4,lost,M,32,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,KULDEEP KUMAR,parties.IN.IND,IND,1582,0.13,5,lost,M,40,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,MANOJ KUMAR GUPTA (SWARAJI),parties.IN.IND,IND,1192,0.09,6,lost,M,47,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,RODASH GUPTA,parties.IN.IND,IND,1099,0.09,7,lost,M,43,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,JYOTI PRAKASH (MONU),,ESBD,824,0.07,8,lost,M,46,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,ARUNIMA GAUTAM,parties.IN.IND,IND,751,0.06,9,lost,F,35,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,JAI RAM LAL,,RTPP,657,0.05,10,lost,M,60,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,ADVOCATE MANJEET SINGH,,RaNP,614,0.05,11,lost,M,36,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,MOHAMMAD IRFAN,parties.IN.IND,IND,583,0.05,12,lost,M,50,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,OM SHANKAR,parties.IN.IND,IND,556,0.04,13,lost,M,46,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,LAL SINGH,,BHUDRP,477,0.04,14,lost,M,65,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,YOGESH CHAUDHARY,,BVD,470,0.04,15,lost,M,51,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,VIMAL KUMAR SAXENA,parties.IN.IND,IND,433,0.03,16,lost,M,64,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,SURENDRA SINGH BASOYA,parties.IN.PPID,PPID,399,0.03,17,lost,M,48,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,SANJAY,,PuPP,379,0.03,18,lost,M,44,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,AMIT GUPTA,parties.IN.IND,IND,360,0.03,19,lost,M,49,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci3,delhi,2024,3,East Delhi,SANJAYA KUMAR YADAV,parties.IN.RTORP,RTORP,290,0.02,20,lost,M,28,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci4,delhi,2024,4,New Delhi,BANSURI SWARAJ,parties.IN.BJP,BJP,453185,53.78,1,won,F,40,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci4,delhi,2024,4,New Delhi,SOMNATH BHARTI,,AAAP,374815,44.48,2,lost,M,49,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci4,delhi,2024,4,New Delhi,RAAJ KUMAR ANAND,parties.IN.BSP,BSP,5629,0.67,3,lost,M,57,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci4,delhi,2024,4,New Delhi,SANJAY RAWAT,parties.IN.IND,IND,1276,0.15,4,lost,M,50,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci4,delhi,2024,4,New Delhi,ACHLA JETHMALANI,,JDKRP,1037,0.12,5,lost,F,54,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci4,delhi,2024,4,New Delhi,HIRA LAL,parties.IN.IND,IND,1005,0.12,6,lost,M,61,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci4,delhi,2024,4,New Delhi,PREM SINGH,,NRCP,806,0.1,7,lost,M,53,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci4,delhi,2024,4,New Delhi,UPEN‍DRA,,AnAP,781,0.09,8,lost,M,36,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci4,delhi,2024,4,New Delhi,DILIP SINGH,parties.IN.IND,IND,726,0.09,9,lost,M,65,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci4,delhi,2024,4,New Delhi,LUKMAN KHAN,,LGP,656,0.08,10,lost,M,62,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci4,delhi,2024,4,New Delhi,PUNAM PANDEY,,RLPI,641,0.08,11,lost,F,49,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci4,delhi,2024,4,New Delhi,SANDHYA THAKKAR,,RTPP,486,0.06,12,lost,F,42,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci4,delhi,2024,4,New Delhi,RAVINDER SINGH,parties.IN.IND,IND,416,0.05,13,lost,M,46,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci4,delhi,2024,4,New Delhi,DINESH KUMAR,parties.IN.PPID,PPID,361,0.04,14,lost,M,54,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci4,delhi,2024,4,New Delhi,PRITHVI NATH SINGH,,BSKRP,335,0.04,15,lost,M,61,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci4,delhi,2024,4,New Delhi,MAHESH KUMAR DENWAL,parties.IN.APOI,APoI,288,0.03,16,lost,M,49,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci4,delhi,2024,4,New Delhi,MANOJ KUMAR SHARMA,,LOKJANP,212,0.03,17,lost,M,48,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,YOGENDER CHANDOLIYA,parties.IN.BJP,BJP,866483,58.62,1,won,M,61,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,UDIT RAJ,parties.IN.INC,INC,575634,38.94,2,lost,M,66,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,VIJAY BAUDDH,parties.IN.BSP,BSP,11997,0.81,3,lost,M,46,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,SURESH KUMAR,parties.IN.PPID,PPID,2870,0.19,4,lost,M,65,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,SANJAY KUMAR SIWAL,,RJSPS,2866,0.19,5,lost,M,49,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,SUBHASH,,ASSP,2250,0.15,6,lost,M,65,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,RAJENDER SOOD,,AJPty,1478,0.1,7,lost,M,63,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,PRAVEEN GAUTAM,,NRCP,1456,0.1,8,lost,M,40,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,K M KAJAL,,PuPP,1342,0.09,9,lost,F,37,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,NARESH KUMAR,parties.IN.IND,IND,1275,0.09,10,lost,M,41,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,ADVOCATE SATISH CHANDRA,parties.IN.APOI,APoI,1237,0.08,11,lost,M,54,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,PARMENDRA MANJHI,parties.IN.IND,IND,1102,0.07,12,lost,M,46,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,ADVOCATE DR. MAHENDER SINGH CHURIYANA,,BHUDRP,1016,0.07,13,lost,M,65,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,CHANDER PAL SONI,parties.IN.IND,IND,891,0.06,14,lost,M,62,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,ADITI,parties.IN.IND,IND,790,0.05,15,lost,F,30,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,ADV. KRUPAL,parties.IN.PRCP,PRCP,675,0.05,16,lost,M,38,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,NAND RAM BAGRI,,VPI,638,0.04,17,lost,M,71,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,SHYAM BHARTEEY,parties.IN.GAAP,GaAP,632,0.04,18,lost,M,54,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,HARI KISHAN (MECHANIC),parties.IN.IND,IND,548,0.04,19,lost,M,47,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,POOJA (BHAGTANI),,BJJP,509,0.03,20,lost,O,29,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,PREETI,,SamAP,503,0.03,21,lost,F,41,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,NARESH KUMAR,parties.IN.RSPS,RSPS,500,0.03,22,lost,M,40,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,SATYA PRAKASH UTTRAKHANDI,parties.IN.IND,IND,434,0.03,23,lost,M,51,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,KHILKHILAKAR,,BSSSSP,373,0.03,24,lost,M,27,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,PRADEEP KUMAR,parties.IN.IND,IND,371,0.03,25,lost,M,37,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci5,delhi,2024,5,North-West Delhi,PUSHPA NAGRA,parties.IN.IND,IND,353,0.02,26,lost,F,53,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,KAMALJEET SEHRAWAT,parties.IN.BJP,BJP,842658,55.59,1,won,F,51,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,MAHABAL MISHRA,,AAAP,643645,42.46,2,lost,M,69,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,VISHAKHA,parties.IN.BSP,BSP,7964,0.53,3,lost,F,39,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,SABIR KHAN,parties.IN.IND,IND,3097,0.2,4,lost,M,48,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,AJ RAJAN,,NRCP,2387,0.16,5,lost,M,60,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,SUNIL MEGHWAL,parties.IN.APOI,APoI,1876,0.12,6,lost,M,37,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,OM PRAKASH NARAYAN,parties.IN.AAPP,AAPP,1773,0.12,7,lost,M,56,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,ANJU SHARMA,parties.IN.IND,IND,1267,0.08,8,lost,F,53,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,KAPIL MARWAH,parties.IN.IND,IND,1155,0.08,9,lost,M,41,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,JARNAIL SINGH,parties.IN.IND,IND,1089,0.07,10,lost,M,73,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,MADHU,,AKBRPRVP,1059,0.07,11,lost,F,54,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,RAJIV KANT MISHRA,parties.IN.IND,IND,995,0.07,12,lost,M,46,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,RAMESH KUMAR JAIN @ NIRBHIK,parties.IN.GAAP,GaAP,971,0.06,13,lost,M,48,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,UMA SHANKAR TIWARI,,BTMSP,758,0.05,14,lost,M,49,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,MEENA UJJAINWAL,parties.IN.PPID,PPID,756,0.05,15,lost,F,55,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,CHARANJEET SINGH,parties.IN.AIFB,AIFB,619,0.04,16,lost,M,57,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,UMESH CHAUHAN,parties.IN.RRP,RRP,614,0.04,17,lost,M,34,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,PRAMOD KUREEL,,BNPA,586,0.04,18,lost,M,57,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,AMIT KUMAR SINGH,,RSTRSURKP,574,0.04,19,lost,M,37,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,JAYA RAMAN,,SRVLKTSP,446,0.03,20,lost,M,61,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,RAM NARAYAN MOHANTY,parties.IN.IND,IND,434,0.03,21,lost,M,49,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,CHAMAN LAL VERMA,,SMJVKP,420,0.03,22,lost,M,72,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,DEEPAK SHARMA,,BJJP,370,0.02,23,lost,M,37,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci6,delhi,2024,6,West Delhi,RAVI,parties.IN.IND,IND,282,0.02,24,lost,M,36,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,RAMVIR SINGH BIDHURI,parties.IN.BJP,BJP,692832,53.71,1,won,M,71,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,SAHI RAM,,AAAP,568499,44.07,2,lost,M,63,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,ABDUL BASIT,parties.IN.BSP,BSP,9861,0.76,3,lost,M,45,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,RAM GOPAL,,HRJSP,3958,0.31,4,lost,M,50,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,CHANDRASHEKHAR SINGH KUSHWAHA,parties.IN.IND,IND,1889,0.15,5,lost,M,44,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,DEEPAK KAPILA,parties.IN.IND,IND,1500,0.12,6,lost,M,61,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,OMAPRAKASH,,SMJVKP,1365,0.11,7,lost,M,33,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,JAGDISH KUMAR VERMA,parties.IN.IND,IND,1296,0.1,8,lost,M,51,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,LAKHAN SINGH,,NRCP,970,0.08,9,lost,M,53,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,POONAM SRIVASTAVA,parties.IN.IND,IND,958,0.07,10,lost,F,57,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,ARUN KUMAR,parties.IN.IND,IND,842,0.07,11,lost,M,44,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,RINKI SANYAL,,BSKRP,763,0.06,12,lost,F,49,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,KAMLESH KUMAR JHA,parties.IN.IND,IND,714,0.06,13,lost,M,44,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,SURJEET SINGH,,DJP,638,0.05,14,lost,M,40,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,BHIM SINGH,parties.IN.APOI,APoI,602,0.05,15,lost,M,63,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,SURINDER KUMAR,,BHRJWNKP,592,0.05,16,lost,M,68,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,GAUTAM ANAND,parties.IN.AIFB,AIFB,540,0.04,17,lost,M,51,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,SHANKAR DEY,parties.IN.IND,IND,522,0.04,18,lost,M,62,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,BIHARI LAL JALANDHARI,,INGRP,514,0.04,19,lost,M,62,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,NAVEEN KUMAR,,HSVP,476,0.04,20,lost,M,36,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,VIRENDER,parties.IN.IND,IND,381,0.03,21,lost,M,27,,,challenger,src-bfb4e7fb9785
+IN-PC-2008-delhi-eci7,delhi,2024,7,South Delhi,RAJAN SINGH,parties.IN.IND,IND,325,0.03,22,lost,O,26,,,challenger,src-bfb4e7fb9785
 IN-PC-2008-goa-480,goa,2024,1,North Goa,SHRIPAD YESSO NAIK,parties.IN.BJP,BJP,257786,57.23,1,won,M,71,,,challenger,src-bfb4e7fb9785
 IN-PC-2008-goa-480,goa,2024,1,North Goa,RAMAKANT KHALAP,parties.IN.INC,INC,141534,31.42,2,lost,M,77,,,challenger,src-bfb4e7fb9785
 IN-PC-2008-goa-480,goa,2024,1,North Goa,TUKARAM BHARAT PARAB,,RVLTGONP,45744,10.16,3,lost,M,39,,,challenger,src-bfb4e7fb9785
