@@ -136,24 +136,32 @@ on it).
 - The two original reconciliation tests stay green (they exercise §2b and
   the inconsistencies section).
 
-## Scope: assembly-only; parliament not yet reconciled (B2b.5.4, EL7)
+## Walker scope: BOTH assembly AC and parliament PC (G14+G15, 2026-06-09)
 
-`coverage.py` reconciles the **legacy Parquet** election store
-(`datasets/elections/state=*/election_results.parquet`, keyed on the ECI
-`state_code`, `kind='state_rollup'`) against `election_events.json`. It is an
-**assembly/AC-grain** reconciler and has no awareness of the new long-format CSV
-tree under `datasets/elections/{assembly,parliament}/…` that B2b.5.2-5.4 emit.
+`coverage.py` reconciles the **on-disk CSV truth** against `datasets/taxonomy/election_events.json` across BOTH legislative bodies:
 
-Per the sub-plan's EL7 disposition, B2b.5.4 (parliament emit) **scope-fences**
-`coverage.py` to assembly rather than extending it to discriminate a PC row
-class: an aggregator silently blind to a whole election class would be a latent
-reporting bug, so the disposition is recorded explicitly here instead of left
-implicit. Reconciling the new CSV tree (both axes) belongs to the **F1 reader
-flip** chunk, which retargets coverage from the retiring Parquet store to the
-canonical CSV store; the parliament axis is picked up there. Until then,
-parliament coverage is evidenced by the per-cycle bind receipt
-`datasets/_ops/parliament-coverage-2026-06-05.md` (states / candidacies /
-summary PCs / unbound per LS cycle), not by `coverage.py`.
+- `_walk_assembly_csv(elections_root)` globs `datasets/elections/assembly/state=*/election=*/summary.csv` and emits one `SliceCoverage(body="AC")` per (state, election).
+- `_walk_parliament_csv(elections_root)` globs `datasets/elections/parliament/election=*/summary.csv` and emits one `SliceCoverage(body="PC")` per (election_year, state_code) by exploding the parliament CSV's `state` column (parliament files are country-wide; no `state=` path partition).
+
+`SliceCoverage.body` is an additive field with default `"AC"` so legacy call sites stay byte-compatible. The rendered `docs/reference/data-inventory.md` splits Section 2 into three sub-sections so the operator sees AC and PC coverage side-by-side:
+
+- **2a**: state-first AC depth (one row per state, one column per cycle).
+- **2b**: cycle-first PC coverage (one row per LS cycle, one column per state).
+- **2c**: cohort table with a Body column (one row per `(event, state, body)` slice).
+
+The summary counters at the top of the report split AC and PC slice counts separately - a single "total slices" figure would conflate two distinct legislative bodies.
+
+### Why this matters: parquet retirement can leave a silent-fail walker behind
+
+Before G14, `coverage.py` read the canonical parquet `datasets/elections/election_results.parquet` via a `_election_slices_from_canonical` helper. When X1a-fu2 retired that parquet on 2026-06-07, the helper's `if path.exists()` guard short-circuited cleanly to an empty return - the function returned `{}` instead of raising. For two days, `python -m yen_gov coverage` produced an inventory reporting ZERO elections; the report looked clean and was a lie.
+
+The G14 rewrite both replaces the dead walker (so the report is honest again) and removes the silent-fail pattern (the CSV walkers `raise` when their globs find nothing). The doctrine for any future X-family PR that retires a parquet: every downstream caller needs either a fail-loud refactor (raise instead of empty) OR a test that asserts the caller returns NON-EMPTY for the current on-disk corpus. The two-day silent failure is too cheap a gap.
+
+### Summary-recompute consistency gate (G15, EL8)
+
+`backend/tests/test_summary_equals_recompute_candidacies.py` is a corpus-wide invariant gate that scans every `datasets/elections/{assembly,parliament}/.../{candidacies,summary}.csv` pair, groups candidacies by `entity_id`, and asserts the on-disk summary row equals the F7 recomputation from `recompute_summary_row(...)`. Float-aware (`pytest.approx(rel=1e-6)` for percentage fields); null/empty-string-equivalent for nullable cells; collects up to 50 `(state, year, entity_id, field, recomputed, on_disk)` divergences before failing loud.
+
+The gate runs grain-agnostically against both AC and PC entity_ids (the `recompute_summary_row` function takes a candidate-row list + per-entity facts dict, with no AC-specific assumptions). As of 2026-06-09: **0 divergences** across all 363 on-disk election directories.
 
 ## See also
 

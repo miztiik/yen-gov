@@ -146,6 +146,25 @@ Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-r
 - **C. Lok Dhaba portal fetch per state-year.** Superseded. The signed-off fallback assumed ECI published only PDFs and the portal was the only AC-split arm; once the TCPD `All_States_GE.csv` spine was confirmed to carry electors/turnout/sex/edu/profession, the portal fetch (502-down at the time) became unnecessary.
 - **D. `boundary_changed` boolean column.** Rejected. Redundant with the `delim_year` already embedded in every `pc_id`. Deriving the gray-stripe behaviour from the id avoids a second source of truth.
 
+## Operational note: PC binding for ECI raw exports (2024+ vintages)
+
+When ingesting a new ECI raw export (e.g. Statement 33 "Constituency Wise Detailed Result" for a future LS cycle), the natural two-step PC lookup `(state_slug, pc_name) -> eci_no` then `(state_slug, eci_no) -> entity_id` SILENTLY DROPS PCs because `datasets/data/entities/electoral.csv` carries 22 PCs with `eci_no=0` (legitimate publisher gaps - AP Araku / Kadapa / Vizianagaram, Bihar x6, Kerala x13, etc.). The second-step map collides on the zero.
+
+Use a **single-step lookup** instead:
+
+```python
+# (state_slug, normalised_pc_name) -> (entity_id, eci_no_from_spine_row)
+pc_lookup: dict[tuple[str, str], tuple[str, int]] = {
+    (row["state"], _normalise(row["name"])): (row["entity_id"], int(row["eci_no"]))
+    for row in electoral_rows
+    if row["entity_kind"] == "pc" and row["delim_year"] == "2008"
+}
+```
+
+PC name is unique per `(state_slug, delim_year)` in the spine, so no collision. Emit `eci_no` verbatim into `candidacies.csv` (may be `0` if the spine doesn't know it) so the parity oracle can still bind. The same pattern applies to AC ingest (AC name is unique per `(state_slug, delim_year)`).
+
+Reference implementation: `backend/yen_gov/canonical/reingest/parliament_2024_eci.py` (G16, PR #836). The function `_build_pc_lookup` is the canonical example; copy it shape-for-shape for the next ECI raw cycle.
+
 ## See also
 
 - [data-model.md — Constituency hierarchy fields and status lifecycle](../architecture/data-model.md#constituency-hierarchy-and-status-lifecycle)
