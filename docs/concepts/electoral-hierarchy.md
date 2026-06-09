@@ -193,7 +193,7 @@ The convention is round-7-compatible: round-7 prohibited *arithmetic* surrogate 
 
 **PC application (PR #849, 2026-06-09)**: extends the convention to 4 PC rows surfaced by the LS2024 ECI Statement-33 ingest (G16, PR #844 unbound list): Mumbai South (MH, eci 31), Lucknow (UP, eci 35), Kolkata Dakshin (WB, eci 23), Kolkata Uttar (WB, eci 24). Citation: `src-bfb4e7fb9785` (ECI Statement-33 LS2024 vintage), reused per ADR-0042 one-row-per-(producer, title, vintage). LS2024 unbound count drops 14 -> 10 (irreducible spine gaps: Delhi x7 + Chandigarh + A&N + Dadra-DNH).
 
-**UT-PC extension (this PR, 2026-06-09)**: closes the remaining 10 UT-classification gaps via the same `eci<N>` natural-publisher id pattern. The upstream LGD register omits Lok Sabha seats for UTs with limited Assembly status entirely from its PC enumeration; the gap is structural, not a spelling drift. 10 rows added to `electoral.csv` with per-state ECI ballot order as `eci_no`:
+**UT-PC extension (PR #858, 2026-06-09, merge SHA 55dc9194)**: closes the remaining 10 UT-classification gaps via the same `eci<N>` natural-publisher id pattern. The upstream LGD register omits Lok Sabha seats for UTs with limited Assembly status entirely from its PC enumeration; the gap is structural, not a spelling drift. 10 rows added to `electoral.csv` with per-state ECI ballot order as `eci_no`:
 
 - `IN-PC-2008-andaman-and-nicobar-islands-eci1` Andaman & Nicobar Islands (eci 1)
 - `IN-PC-2008-chandigarh-eci1` Chandigarh (eci 1)
@@ -206,7 +206,7 @@ The convention is round-7-compatible: round-7 prohibited *arithmetic* surrogate 
 - `IN-PC-2008-delhi-eci6` West Delhi (eci 6)
 - `IN-PC-2008-delhi-eci7` South Delhi (eci 7)
 
-Same citation (`src-bfb4e7fb9785`) reused (ADR-0042). NO `data_quality` enum (Hans Q3 PR #849: the `eci` prefix on `entity_id` is self-describing). LS2024 unbound count drops 10 -> **0**; candidacies 8161 -> 8359; summary PCs 532 -> 542; states 33 -> 36. The same `eci<N>` fallback id pattern, same provenance reuse rule, same self-describing prefix: extended once on the AC grain (G16 6 ACs), once on the PC grain (PR #849 4 metros), now closed on the UT-PC grain (this PR 10 UT PCs).
+Same citation (`src-bfb4e7fb9785`) reused (ADR-0042). NO `data_quality` enum (Hans Q3 PR #849: the `eci` prefix on `entity_id` is self-describing). LS2024 unbound count drops 10 -> **0**; candidacies 8161 -> 8359; summary PCs 532 -> 542; states 33 -> 36. The same `eci<N>` fallback id pattern, same provenance reuse rule, same self-describing prefix: extended once on the AC grain (G16 6 ACs), once on the PC grain (PR #849 4 metros), now closed on the UT-PC grain (PR #858 10 UT PCs).
 
 
 ## See also
