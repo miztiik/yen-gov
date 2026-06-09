@@ -34,7 +34,7 @@ A T3 sprint produces:
    to within ~50 metres.
 3. LGD `ac_id` + ECI `eci_no` properties on every feature, ready for
    the existing election-results join pipeline.
-4. A `datasets/boundaries/in/ac/state=in_<lc>/all.geojson` shard
+4. A `datasets/boundaries/electoral/delim=<year>/ac/state=in_<lc>/all.geojson` shard
    that drops in alongside the other 30 state shards with no
    schema change.
 5. A verdict note + a lift ledger entry recording: source PDF URL,
@@ -111,7 +111,7 @@ the Barak Valley + tribal autonomous councils) is the upper bound at
    the rest of the AC layer (`coord_precision=5` per the boundary
    byte-budget rule).
 8. **Lift into yen-gov.** Place under
-   `datasets/boundaries/in/ac/state=in_<lc>/all.geojson`, run
+   `datasets/boundaries/electoral/delim=<year>/ac/state=in_<lc>/all.geojson`, run
    `tools/boundaries/lift_ac_<state>_t3.py` (if a wrapper exists)
    OR commit the shard directly + record the parquet ledger row.
 9. **Smoke + sign-off.** Run the standard 5-gate DoD; spot-check 5

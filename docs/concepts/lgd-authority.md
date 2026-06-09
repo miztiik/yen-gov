@@ -36,7 +36,7 @@ ECI is canonical for what it issues - elections. LGD is canonical for what IT is
 
 ## How LGD looks in yen-gov data
 
-- **Folder partitions** (per [ADR-0050](../architecture/data/canonical-store.md#adr-0050-folder-naming-lgd-slug)): `state=<lgd-name-slug>`, e.g. `datasets/boundaries/in/ac/state=haryana/all.geojson`.
+- **Folder partitions** (per [ADR-0050](../architecture/data/canonical-store.md#adr-0050-folder-naming-lgd-slug)): `state=<lgd-name-slug>`, e.g. `datasets/boundaries/electoral/delim=2008/ac/state=haryana/all.geojson` (electoral AC subtree per G10 of [TODO/20260603-data-and-charting-platform-reset-plan.md](../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 4 EL2) or `datasets/boundaries/in/subdistricts/state=haryana/all.geojson` (admin spine).
 - **Row columns**: every observation row carries an `lgd_state_id` / `lgd_district_id` / `lgd_ac_id` as the join attribute. The display-only `state_code` (ECI form) survives for citizen readability where it matters (URL slugs, election results pages).
 - **Taxonomy authority**: `datasets/taxonomy/lgd_states.json` (37 entries) + `datasets/taxonomy/lgd_districts.json` (~780 entries) + `datasets/taxonomy/lgd_acs.json` (~4123 entries) hold the master register snapshot. Every join in yen-gov resolves through one of these three files.
 

@@ -78,12 +78,17 @@ def _stamp_features(features: list[dict], covered: set[int]) -> int:
 def lift_all(
     datasets_root: Path, *, dry_run: bool = False
 ) -> dict[str, tuple[int, int]]:
-    """Stamp ``lgd_ac_id`` on every AC state shard under ``boundaries/in/ac``.
+    """Stamp ``lgd_ac_id`` on every AC state shard under ``boundaries/electoral/delim=2008/ac``.
 
     Returns ``{state_partition: (total_features, stamped_features)}``.
+
+    The on-disk AC shard layout moved from ``boundaries/in/ac/state=in_<lc>/``
+    to ``boundaries/electoral/delim=2008/ac/state=in_<lc>/`` in G10 of
+    TODO/20260603-data-and-charting-platform-reset-plan.md section 4 EL2
+    (2026-06-09); this tool walks the new path.
     """
     covered = load_covered_lgd_ac_ids(datasets_root)
-    ac_root = datasets_root / "boundaries" / "in" / "ac"
+    ac_root = datasets_root / "boundaries" / "electoral" / "delim=2008" / "ac"
     report: dict[str, tuple[int, int]] = {}
     if not ac_root.is_dir() or not covered:
         return report

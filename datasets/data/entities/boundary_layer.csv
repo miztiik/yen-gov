@@ -1,5 +1,5 @@
 layer_id,level,entity_state,entity_district,entity_city,partition_path,format,crs,simplification_algorithm,simplification_tolerance_deg,original_feature_count,retained_feature_count,unkeyed_count,unkeyed_keys_json,size_bytes,source_id,notes,delimitation_vintage
-boundaries.in.ac.state=in_s01,ac,S01,,,boundaries/in/ac/state=in_s01/all.geojson,geojson,EPSG:4326,coord-precision-round,1e-06,175,175,0,,3914392,src-a1dd899f902d,,
+boundaries.electoral.delim=2008.ac.state=in_s01,ac,S01,,,boundaries/electoral/delim=2008/ac/state=in_s01/all.geojson,geojson,EPSG:4326,coord-precision-round,1e-06,175,175,0,,3914392,src-a1dd899f902d,,2008
 boundaries.in.blocks.state=in_s01,block,S01,,,boundaries/in/blocks/state=in_s01/all.geojson,geojson,EPSG:4326,coord-precision-round,0.001,670,670,0,,7589769,src-a1dd899f902d,,
 boundaries.in.blocks.state=in_s02,block,S02,,,boundaries/in/blocks/state=in_s02/all.geojson,geojson,EPSG:4326,coord-precision-round,0.001,125,125,0,,696154,src-a1dd899f902d,,
 boundaries.in.blocks.state=in_s03,block,S03,,,boundaries/in/blocks/state=in_s03/all.geojson,geojson,EPSG:4326,coord-precision-round,0.001,232,232,0,,3163374,src-a1dd899f902d,,

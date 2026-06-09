@@ -1,7 +1,8 @@
 // state-ac-registry-coverage contract test.
 //
 // Invariant: every AC GeoJSON shard that exists on disk under
-// `datasets/boundaries/in/ac/state=<lgd-slug>/all.geojson` MUST have a
+// `datasets/boundaries/electoral/delim=2008/ac/state=<lgd-slug>/all.geojson`
+// MUST have a
 // matching `STATE_AC[<CODE>]` entry in `frontend/src/lib/maplibre/sources.ts`,
 // and vice versa. The frontend boundary registry and the on-disk
 // boundary corpus are two halves of the same contract; if a shard
@@ -13,11 +14,15 @@
 // This is the A.2 contract test
 // (docs/archive/plans/20260529-boundary-rip-and-replace-plan.md) - it locks in the
 // 31-shard / 31-entry registry sync that A.2 ships, and prevents
-// future PRs from drifting either direction.
+// future PRs from drifting either direction. The on-disk path moved
+// from boundaries/in/ac/... to boundaries/electoral/delim=2008/ac/...
+// via G10 of TODO/20260603-data-and-charting-platform-reset-plan.md
+// section 4 EL2 (the AC + PC subtrees now live under the electoral
+// peer of the admin spine; the registry shape is unchanged).
 //
 // Per-entry shape assertions (post-A.3 BoundaryEntry):
 //   - id matches "<CODE>-ac"
-//   - geojson_local_path matches "boundaries/in/ac/state=<lgd-slug>/all.geojson"
+//   - geojson_local_path matches "boundaries/electoral/delim=2008/ac/state=<lgd-slug>/all.geojson"
 //   - geojson_url is non-empty https URL
 //   - join_property is non-empty string
 //   - label is non-empty string
@@ -33,7 +38,7 @@ const SLUG_TO_ECI: Record<string, string> = Object.fromEntries(
 );
 
 const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..", "..");
-const acDir = resolve(repoRoot, "datasets", "boundaries", "in", "ac");
+const acDir = resolve(repoRoot, "datasets", "boundaries", "electoral", "delim=2008", "ac");
 
 // Discover all on-disk AC shards under the Hive partition layout.
 // Returns ["S01", "S02", ...] - 2- or 3-character state/UT codes.
@@ -81,7 +86,7 @@ describe("STATE_AC entry shape is well-formed", () => {
     (code, entry) => {
       expect(entry.id).toBe(`${code}-ac`);
       expect(entry.geojson_local_path).toBe(
-        `boundaries/in/ac/state=${ECI_TO_LGD_SLUG[code]}/all.geojson`,
+        `boundaries/electoral/delim=2008/ac/state=${ECI_TO_LGD_SLUG[code]}/all.geojson`,
       );
       expect(entry.geojson_url).toMatch(/^https:\/\//);
       expect(entry.join_property).toMatch(/^[a-z_]+$/);
