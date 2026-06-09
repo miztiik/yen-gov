@@ -1,3 +1,156 @@
+<script lang="ts" module>
+  // Module-scope pure helpers for the inline sparkline's national-
+  // reference overlay (G31; parent plan section 20.11). Mounted by
+  // the instance script below; tested in IndicatorCard.test.ts.
+  //
+  // Why module-scope: vitest is node-env (Skeleton + IndicatorJump
+  // precedent; no `@testing-library/svelte`). The geometry maths +
+  // verdict derivation are the testable surface; the SVG template
+  // wiring is exercised by the §13 in-browser smoke on /s/<state>.
+  //
+  // Doctrine: the four fence rules (ref_rows >= 2, direction != neutral,
+  // overlap >= 2, home period exists in ref) are enforced INLINE in the
+  // template via `{#if ...}` guards, NOT in the helpers — the helpers
+  // are total functions returning safe defaults so a renderer that
+  // forgets one guard still degrades gracefully (empty path / "missing"
+  // verdict) instead of throwing.
+
+  import type { NationalReferenceRow } from "./canonical/indicator-from-canonical";
+  import type { Direction } from "./indicators";
+  import {
+    computeStatusVerdict,
+    type StatusVerdict,
+  } from "./charts/status-glyph/helpers";
+
+  /** Sparkline viewBox + padding geometry, mirrored from the instance
+   *  script so the reference path projects to identical (x, y) as the
+   *  state path. Kept as a shape (not 4 positional args) so the test
+   *  can construct one without re-reading the instance constants. */
+  export interface SparklineGeom {
+    readonly W: number;
+    readonly H: number;
+    readonly PAD_X: number;
+    readonly PAD_Y: number;
+  }
+
+  /** State series shape after `seriesForEntity()` — IndicatorRow.time is
+   *  the string form (`"2023"`, `"2023-04-01"`), value is non-null. */
+  export interface StatePoint {
+    readonly time: string;
+    readonly value: number;
+  }
+
+  /** Build a `period_label -> value` map from pop-weighted reference
+   *  rows. Filters out null values (a publisher gap in the reference is
+   *  the same as no reference at that period — the polyline gets a
+   *  segment break, the glyph reports "missing"). Keys are stringified
+   *  from the BIGINT `time` so they line up with the state series'
+   *  string-shaped `time`.
+   *
+   *  Returns an empty map for `undefined` (descriptor opted out / fetch
+   *  failed / sibling file absent) and for an empty array — both
+   *  collapse to "no reference attached". */
+  export function nationalReferenceMap(
+    rows: readonly NationalReferenceRow[] | undefined,
+  ): ReadonlyMap<string, number> {
+    const m = new Map<string, number>();
+    if (!rows) return m;
+    for (const r of rows) {
+      if (r.value === null || r.value === undefined) continue;
+      if (Number.isNaN(r.value)) continue;
+      m.set(String(r.time), r.value);
+    }
+    return m;
+  }
+
+  /** Merged `y_max` for a sparkline that overlays a reference line on
+   *  the state series. Falls back to the state-only `y_max` (max abs
+   *  value across the state series, clamped to >=1) when the reference
+   *  map is empty. When non-empty, ONLY reference values at periods
+   *  present in the state series contribute — a ref period outside the
+   *  visible state range must not stretch the Y axis. */
+  export function mergedYMax(
+    state_series: readonly StatePoint[],
+    ref_map: ReadonlyMap<string, number>,
+  ): number {
+    let m = 0;
+    for (const p of state_series) {
+      const v = Math.abs(p.value);
+      if (v > m) m = v;
+    }
+    if (ref_map.size > 0) {
+      for (const p of state_series) {
+        const ref = ref_map.get(p.time);
+        if (ref === undefined) continue;
+        const v = Math.abs(ref);
+        if (v > m) m = v;
+      }
+    }
+    return m || 1;
+  }
+
+  /** Project the reference values at state-series periods into a
+   *  multi-segment SVG path. Same INDEX-driven x projection as the
+   *  state sparkline (so the two lines visually align period-by-
+   *  period). Gaps (state period with no matching reference value)
+   *  split the path into `M ... L ... L ... M ... L ...` segments so
+   *  the renderer never draws a connector across a missing period.
+   *
+   *  Returns "" when the state series has fewer than 2 points OR the
+   *  reference produces fewer than 2 plotted points (a single point
+   *  would render as an invisible zero-length path; better to suppress
+   *  the second `<path>` entirely). */
+  export function referenceSparklinePath(
+    state_series: readonly StatePoint[],
+    ref_map: ReadonlyMap<string, number>,
+    y_max: number,
+    geom: SparklineGeom,
+  ): string {
+    if (state_series.length < 2) return "";
+    if (ref_map.size === 0) return "";
+    const { W, H, PAD_X, PAD_Y } = geom;
+    const span = state_series.length - 1;
+    const inner_w = W - 2 * PAD_X;
+    const inner_h = H - 2 * PAD_Y;
+    const parts: string[] = [];
+    let started = false;
+    let plotted = 0;
+    for (let i = 0; i < state_series.length; i++) {
+      const ref = ref_map.get(state_series[i].time);
+      if (ref === undefined) {
+        // Gap — close the current segment so the next plotted point
+        // starts a fresh `M`.
+        started = false;
+        continue;
+      }
+      const x = PAD_X + (i / span) * inner_w;
+      const y = PAD_Y + inner_h - (Math.abs(ref) / y_max) * inner_h;
+      parts.push(`${started ? "L" : "M"}${x.toFixed(2)},${y.toFixed(2)}`);
+      started = true;
+      plotted += 1;
+    }
+    if (plotted < 2) return "";
+    return parts.join(" ");
+  }
+
+  /** Verdict for the StatusGlyph at the state's latest period. Returns
+   *  `"missing"` when the home value is null, the reference map has no
+   *  entry at the home period, or the direction is `"neutral"` — the
+   *  template's `{#if verdict !== "missing"}` guard then suppresses
+   *  the glyph (matching the `StatusGlyph.svelte` no-op render for
+   *  `"missing"`). */
+  export function referenceGlyphVerdict(
+    home_latest: { time: string; value: number } | null,
+    ref_map: ReadonlyMap<string, number>,
+    direction: Direction,
+  ): StatusVerdict {
+    if (!home_latest) return "missing";
+    const ref_value = ref_map.get(home_latest.time);
+    if (ref_value === undefined) return "missing";
+    return computeStatusVerdict(home_latest.value, ref_value, direction);
+  }
+</script>
+
 <script lang="ts">
   // IndicatorCard — per-state card primitive used on /s/<state>.
   //
@@ -67,7 +220,23 @@
   // canonical-backed artifacts work consistently across Card, Choropleth,
   // Ranked, and SmallMultiples renderers.
   // See TODO/20260524-p1a-data-reacquisition-plan.md §3 C4.7 Phase B / D.
-  import { loadIndicator } from "./canonical/indicator-from-canonical";
+  import {
+    loadIndicator,
+    indicatorArtifactNationalReference,
+  } from "./canonical/indicator-from-canonical";
+  // G31 (parent plan section 20.11): pop-weighted national reference
+  // line + direction-coloured StatusGlyph overlaid on the per-state
+  // sparkline. The reference data is opportunistically attached to the
+  // artifact by the canonical loader when the descriptor opts in via
+  // `has_national_reference: true` (today: outstanding-liabilities-pct-
+  // gsdp only). Renders byte-identical to today's baseline when the
+  // four fence rules below do not all hold; the citizen never sees a
+  // broken reference treatment. The four pure helpers
+  // (`nationalReferenceMap`, `mergedYMax`, `referenceSparklinePath`,
+  // `referenceGlyphVerdict`) live in this file's `<script module>`
+  // block and are in lexical scope without an explicit import (Svelte
+  // 5 module-script sharing — Skeleton / IndicatorJump precedent).
+  import StatusGlyph from "./charts/status-glyph/StatusGlyph.svelte";
 
   interface Props {
     /** Catalogue topic this card belongs to (drives header + "See all states" link). */
@@ -180,16 +349,68 @@
   // (single Y axis = max abs across this state's series; no axes; latest
   // value gets a dot). Wider/taller than the small-multiples tile because
   // there's only one of these per topic, not 36.
+  //
+  // G31: `H` bumped 48 -> 56 so the StatusGlyph (10 px, positioned 6 px
+  // to the right of the state's latest-point dot) does not visually
+  // clip the state line's top. The matching CSS class on the `<svg>`
+  // bumps `h-12 -> h-14` to keep the viewBox-to-frame stretch neutral
+  // (preserveAspectRatio="none"). `overflow="visible"` is added so the
+  // glyph's x-overflow past the right edge renders rather than
+  // clipping at the viewBox boundary.
   const W = 240;
-  const H = 48;
+  const H = 56;
   const PAD_X = 2;
   const PAD_Y = 3;
   const span = $derived(series.length > 1 ? series.length - 1 : 1);
-  const y_max = $derived.by(() => {
-    let m = 0;
-    for (const p of series) if (Math.abs(p.value) > m) m = Math.abs(p.value);
-    return m || 1;
+
+  // G31: pop-weighted national-reference rows attached to the artifact
+  // by the canonical loader (or `undefined` when the descriptor opts
+  // out / sibling CSV absent / fetch failed). Map keys are stringified
+  // from the BIGINT `time` so they join against the state series'
+  // string-shaped period_label.
+  const reference_rows = $derived(
+    data ? indicatorArtifactNationalReference(data) : undefined,
+  );
+  const ref_map = $derived(nationalReferenceMap(reference_rows));
+  // Overlap = count of state periods that also have a reference value.
+  // Fence rule 3: render the reference treatment only when overlap >= 2.
+  const ref_overlap = $derived.by(() => {
+    let n = 0;
+    for (const p of series) if (ref_map.has(p.time)) n += 1;
+    return n;
   });
+  // Fence rules 1 + 2 + 3 (the polyline gate). Rule 4 (home period in
+  // ref) gates the StatusGlyph independently below via the verdict.
+  const should_render_reference = $derived<boolean>(
+    !!meta
+      && meta.direction !== "neutral"
+      && (reference_rows?.length ?? 0) >= 2
+      && ref_overlap >= 2,
+  );
+
+  // y_max folds in reference values at overlapping periods so the two
+  // polylines share a Y-scale (otherwise the reference line could plot
+  // off-canvas when its values exceed the state's max). Falls back to
+  // state-only when reference is suppressed.
+  const y_max = $derived.by(() =>
+    should_render_reference
+      ? mergedYMax(series, ref_map)
+      : (() => {
+          let m = 0;
+          for (const p of series) if (Math.abs(p.value) > m) m = Math.abs(p.value);
+          return m || 1;
+        })(),
+  );
+  const reference_sparkline_path = $derived(
+    should_render_reference
+      ? referenceSparklinePath(series, ref_map, y_max, { W, H, PAD_X, PAD_Y })
+      : "",
+  );
+  const reference_glyph_verdict = $derived(
+    should_render_reference && meta
+      ? referenceGlyphVerdict(home_latest, ref_map, meta.direction)
+      : ("missing" as const),
+  );
   const sparkline_path = $derived.by(() => {
     if (series.length < 2) return "";
     const inner_w = W - 2 * PAD_X;
@@ -299,11 +520,27 @@
       {#if sparkline_path}
         <svg
           viewBox="0 0 {W} {H}"
-          class="w-40 h-12 flex-shrink-0"
+          class="w-40 h-14 flex-shrink-0"
           preserveAspectRatio="none"
+          overflow="visible"
           aria-hidden="true"
           data-testid="indicator-card-sparkline"
         >
+          <!-- G31: reference line BEHIND the state line so the citizen's
+               state stays the hero. Slate-400 dashed mirrors the F3
+               TimeSeriesLine reference treatment exactly. No end dot;
+               the comparator is labelled by the caption below. -->
+          {#if reference_sparkline_path}
+            <path
+              d={reference_sparkline_path}
+              fill="none"
+              stroke="rgb(148 163 184)"
+              stroke-width="1"
+              stroke-dasharray="3 3"
+              stroke-linecap="round"
+              data-testid="indicator-card-reference-path"
+            />
+          {/if}
           <path
             d={sparkline_path}
             fill="none"
@@ -315,9 +552,35 @@
           {#if sparkline_dot}
             <circle cx={sparkline_dot.cx} cy={sparkline_dot.cy} r="2" fill={stroke} />
           {/if}
+          <!-- G31: StatusGlyph 6 px right of the state's latest dot.
+               Verdict computed by `referenceGlyphVerdict` honours the
+               indicator's direction (`lower_is_better` for outstanding
+               liabilities). "missing" verdict renders nothing (no
+               glyph), which is the right outcome when the home period
+               has no matching reference value. -->
+          {#if sparkline_dot && reference_glyph_verdict !== "missing"}
+            <StatusGlyph
+              verdict={reference_glyph_verdict}
+              cx={sparkline_dot.cx + 6}
+              cy={sparkline_dot.cy}
+              size_px={10}
+            />
+          {/if}
         </svg>
       {/if}
     </div>
+
+    <!-- G31: one caption line beneath the sparkline row naming the
+         comparator. Citizen-readable ("vs national (pop-weighted)") so
+         the reference treatment never relies on colour alone (Citizen
+         flag, Hans-grade concern). Suppressed when the reference is
+         not rendered. -->
+    {#if reference_sparkline_path}
+      <div
+        class="text-[10px] text-slate-500 text-right"
+        data-testid="indicator-card-reference-caption"
+      >vs national (pop-weighted)</div>
+    {/if}
 
         <!-- Rank line. Suppressed when the indicator is not comparable across
           states or grapher/legacy render policy carries no_rank_table
