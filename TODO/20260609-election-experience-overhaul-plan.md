@@ -9,15 +9,16 @@
 > User-mandated binding constraints (baked into every row):
 >
 > 1. **No Hindi tokens** in URLs, page chrome, code identifiers, or event-id literals. Use English (`general-2024`, `assembly-2023`, `general-bye-2024-<state>-<seat>`).
-> 2. **Plain old routing.** No query params. No `#` fragments. Pure path cascades under the shipped `/s/<state>/...` grammar.
-> 3. **Repurpose** today's `/s/<state>/t/elections` ("horrible page") and the Home elections rail ("almost useless, hangs without context").
+> 2. **Plain old routing.** No query params. No `#` fragments. Pure path cascades under Grammar A (`/<state>/...` after the Phase 0 plan ships).
+> 3. **Repurpose** today's state-elections topic page ("horrible page" with bare "List: N/A" badge) and the Home elections rail ("almost useless, hangs without context").
 > 4. **Must-feature: scatter chart** (turnout x margin x party-colour x electors-size) on both national + per-state surfaces, with 6 filters.
 > 5. **Drop the body-root pages.** No `/parliament/`, no `/assembly/`. Body distinction lives ONLY in the event-slug prefix (`general-` / `assembly-`).
-> 6. **Drop the `/pc/` and `/ac/` literals.** The event-slug body prefix already implies constituency type. New URLs are `/s/<state>/elections/<event>/<constituency-slug>`.
+> 6. **Drop the `/pc/` and `/ac/` literals.** The event-slug body prefix already implies constituency type. New URLs are `/<state>/elections/<event>/<constituency-slug>`.
 > 7. **Body-tag the compare route.** `/compare/elections/<state>/<from-event>/<to-event>` (disambiguates from socio-econ compare).
 > 8. **Ephemeral scenarios.** No `?s=<b64>` URL. No localStorage. Refresh = fresh start. Add persistence only when a real citizen complaint surfaces.
 > 9. **No legacy-URL absorber.** Old bookmarks lose work; that is acceptable today.
-> 10. **The `/s/<state>/` -> `/<state>/` prefix-drop (ADR-0037 Phases 2-4) is OUT OF SCOPE.** Separate work item over a stable URL surface.
+
+> **PREREQUISITE: [URL Prefix Drop Phase 0 plan](20260609-url-prefix-drop-phase0-plan.md) must ship PR-P3 before this plan's PR-0 starts.** Phase 0 drops the `/s/` prefix across the whole app (executing ADR-0037 Phases 2-4 — a locked decision, not a new debate). This plan's URLs assume Grammar A (`/<state>/elections/<event>/...`) from day one. Per Gregor + Jony + Fowler unanimous verdict (2026-06-09): minting 16 new election URLs on the legacy `/s/<state>/...` grammar would force a second citizen-bookmark migration when Phase 0 finally lands.
 
 > Authorities per [CLAUDE.md section 0a](../CLAUDE.md): URL grammar + IA + UX = Jony + Citizen; data shape + English nouns + governance framing = Hans + Max; URL-as-contract + write-seam + refactor + PR decomposition = Gregor + Fowler; chart-dimension design = Max + Jony. **User approval supersedes every agent.**
 
@@ -37,7 +38,7 @@ The orchestrator stops ONLY at these triggers. Otherwise AUTO.
 1. **State-formation re-partition write (PR-W1b)** — Hans's verdict sanctions moving pre-formation election rows OUT of current-day state CSVs into historical-state CSVs (OWID USSR precedent). The WRITE is Hans+Max + user territory and touches data store contract ([CLAUDE.md](../CLAUDE.md) Holy Law #3). PR-W1b emits a DRY-RUN proposal CSV under `datasets/_ops/state-formation-repartition-proposal.csv` and STOPS for user sign-off before any move.
 2. **Schema MAJOR bump anywhere.** Per [CLAUDE.md section 11](../CLAUDE.md) MAJOR is a user sign-off gate. PR-W2a's MINOR bump on `election-events.schema.json` (adding `general_bye` + `assembly_bye` kinds + `event_id_aliases[]`) does NOT trigger this.
 3. **Persona verdict contradicts on-disk truth.** If any claim in this plan diverges from on-disk reality, surface and re-debate; do NOT silently re-author scope.
-4. **Tempted to bundle the ADR-0037 prefix-drop migration.** Out of scope per binding constraint #10. STOP-AND-SURFACE.
+4. **Phase 0 plan PR-P3 has not yet shipped.** This plan's URLs assume Grammar A. If an executing agent starts a row before PR-P3 lands, STOP-AND-SURFACE — the URL grammar will collide.
 
 ### 0.3 Baked facts (verified 2026-06-09; do not re-derive)
 
@@ -56,19 +57,19 @@ The orchestrator stops ONLY at these triggers. Otherwise AUTO.
 | Reserved-paths test | [frontend/src/contracts/url-namespace-disjointness.test.ts](../frontend/src/contracts/url-namespace-disjointness.test.ts) — ADR-0037 Phase 1 invariant (states + topics + RESERVED pairwise disjoint); EXTENDED in PR-0 |
 | Router | [frontend/src/main.ts](../frontend/src/main.ts) + [frontend/src/lib/router.svelte.ts](../frontend/src/lib/router.svelte.ts) |
 
-### 0.4 New URL grammar (binding contract after PR-0)
+### 0.4 New URL grammar (binding contract after PR-0; assumes Phase 0 plan PR-P3 shipped)
 
 ```
-/                                                                  -> Home (welfare-led; 3-card election rail)
-/t/elections                                                       -> firehose (every event ever, sortable)
-/t/elections/<event-slug>                                          -> national event view
-/s/<state>                                                         -> state hub (unchanged)
-/s/<state>/t/elections                                             -> state-elections hub (REBUILT in PR-W3a)
-/s/<state>/elections/<event-slug>                                  -> state slice of one event
-/s/<state>/elections/<event-slug>/<constituency-slug>              -> constituency drill (no /pc/, no /ac/)
-/compare/elections/<state>/<from-event-slug>/<to-event-slug>       -> event-vs-event compare
-/lab/<state>/<event-slug>                                          -> psephlab analyst surface (scenarios ephemeral)
-/s/<state>/party/<party-slug>                                      -> party page (unchanged)
+/                                                              -> Home (welfare-led; 3-card election rail)
+/t/elections                                                   -> firehose (every event ever, sortable)
+/t/elections/<event-slug>                                      -> national event view
+/<state>                                                       -> state hub (unchanged shape; Phase 0 dropped /s/)
+/<state>/t/elections                                           -> state-elections hub (REBUILT in PR-W3a)
+/<state>/elections/<event-slug>                                -> state slice of one event
+/<state>/elections/<event-slug>/<constituency-slug>            -> constituency drill (no /pc/, no /ac/)
+/compare/elections/<state>/<from-event-slug>/<to-event-slug>   -> event-vs-event compare
+/lab/<state>/<event-slug>                                      -> psephlab analyst surface (scenarios ephemeral)
+/<state>/party/<party-slug>                                    -> party page (unchanged shape; Phase 0 dropped /s/)
 ```
 
 Event-slug grammar:
@@ -88,7 +89,7 @@ This plan changes ONLY the elections surface. Socio-econ is untouched.
 
 | Concern | Elections (this plan) | Socio-econ (UNCHANGED) |
 | --- | --- | --- |
-| URL grammar | Place-first under `/s/<state>/elections/<event-slug>/<constituency-slug>` + firehose `/t/elections` + compare `/compare/elections/<state>/<from>/<to>`. No body-roots. No params. No fragments. | Place-first flat indicator slug: `/s/<state>/<indicator>` (shipped). Unchanged. |
+| URL grammar | Place-first under Grammar A `/<state>/elections/<event-slug>/<constituency-slug>` + firehose `/t/elections` + compare `/compare/elections/<state>/<from>/<to>`. No body-roots. No params. No fragments. Phase 0 plan ships Grammar A; this plan ships on top. | Place-first flat indicator slug: `/<state>/<indicator>` (shipped after Phase 0). Unchanged by this plan. |
 | Time nav | `YearPillStrip` (discrete tap-to-jump) in `frontend/src/lib/elections/`. Election-domain only. | Time slider in chart shell (continuous). NO pills. |
 | Year token | Inside event-slug (`general-2024`); never standalone. | Not in URL; chart shows all years via slider. |
 | Components dir | `frontend/src/lib/elections/` | `frontend/src/lib/charts/` (only PR-W4c's scatter primitive adds a NEW file here) |
@@ -126,8 +127,8 @@ WAVE 0 ships first and gates everything. WAVE 1+ rows within a wave are PARALLEL
 | PR-W1d | 1 | Rename `GeoBreadcrumb` -> `Breadcrumb` + per-route `crumbs(params)` field on route table | PR-0 | [ ] PENDING | — | S |
 | PR-W2a | 2 | Event-id rename in `taxonomy/election_events.json` + `event_id_aliases[]` strangler + add `general_bye` + `assembly_bye` kinds (MINOR schema bump) + one bye fixture row | PR-W1a | [ ] PENDING | — | M |
 | PR-W2b | 2 | Generic `loadElectionResults(scope)` view-model alongside the 4 bespoke ones (golden-row equality oracle) | PR-W1a | [ ] PENDING | — | M |
-| PR-W3a | 3 | Repurpose `/s/<state>/t/elections` ("horrible page") into state-elections hub: chronological timeline + body filter chip | PR-W2b | [ ] PENDING | — | M |
-| PR-W3b | 3 | Rebuild state event view `/s/<state>/elections/<event-slug>`: KPIs + state choropleth + top-parties + constituency table + inline swing + alliance-first + add `<constituency-slug>` leaf (no `/pc/`, no `/ac/`); strip `?s=<b64>` URL handling | PR-W2a, PR-W2b | [ ] PENDING | — | L |
+| PR-W3a | 3 | Repurpose `/<state>/t/elections` ("horrible page") into state-elections hub: chronological timeline + body filter chip | PR-W2b | [ ] PENDING | — | M |
+| PR-W3b | 3 | Rebuild state event view `/<state>/elections/<event-slug>`: KPIs + state choropleth + top-parties + constituency table + inline swing + alliance-first + add `<constituency-slug>` leaf (no `/pc/`, no `/ac/`); strip `?s=<b64>` URL handling | PR-W2a, PR-W2b | [ ] PENDING | — | L |
 | PR-W3c | 3 | Rebuild national event view `/t/elections/<event-slug>`: rename `NationalElectionsAtlas` -> `NationalElection`; KPIs + India choropleth + top-parties | PR-W2a, PR-W2b | [ ] PENDING | — | M |
 | PR-W3d | 3 | New `/t/elections` firehose: table of every event ever (year + body + leading party + seats + turnout + runners-up) | PR-W2b | [ ] PENDING | — | M |
 | PR-W4a | 4 | `YearPillStrip` + `ConstituencyHistoryBar` in `frontend/src/lib/elections/`; mount on `Constituency.svelte` (the constituency drill) | PR-W3b | [ ] PENDING | — | M |
@@ -282,9 +283,9 @@ WAVE 0 ships first and gates everything. WAVE 1+ rows within a wave are PARALLEL
 - [ ] G3 — every `period_label` in `datasets/data/datapoints/electoral/*.csv` resolves via the alias table (one Python test walks the CSVs).
 - [ ] G4 — bye fixture row resolves: `loadEventsByKind('assembly_bye').length >= 1`.
 
-**Oracle:** for an old-id URL like `/s/chhattisgarh/elections/LsGenJun2024` AND a new-id URL like `/s/chhattisgarh/elections/general-2024`, BOTH resolve via the alias table to the same canonical event row.
+**Oracle:** for an old-id URL like `/<state>/elections/LsGenJun2024` AND a new-id URL like `/<state>/elections/general-2024`, BOTH resolve via the alias table to the same canonical event row.
 
-**Escalation:** BLOCKED-NEEDS-PR0 if PR-0 has not landed Hans's bye-slug verdict.
+**Escalation:** if PR-0 has not landed Hans's bye-slug verdict, the executing agent CANNOT proceed (PR-W2a needs the bye-slug format to rename event ids without guessing a forever URL contract). The status reckoner's `Depends on: PR-W1a` chain already enforces this; no special status name needed. Surface to user if PR-0 is in flight but stalled.
 
 ---
 
@@ -312,28 +313,28 @@ WAVE 0 ships first and gates everything. WAVE 1+ rows within a wave are PARALLEL
 
 ---
 
-### PR-W3a — Repurpose `/s/<state>/t/elections` ("horrible page") into state-elections hub
+### PR-W3a — Repurpose `/<state>/t/elections` ("horrible page") into state-elections hub
 
 **Scope.** URL unchanged; content rewritten. Replaces today's "List: N/A" + "How X compares" framing with a chronological event timeline.
 
 **New layout (per Jony Q3):**
 - Header: `<state-name>` + "Election history".
 - Body filter chip: `[All] [Parliament] [Assembly]`. One filter only.
-- Chronological event timeline, newest first. One row per event: year + body chip + winning party/alliance pill + seat count + swing vs previous same-body event. Click -> `/s/<state>/elections/<event-slug>`.
+- Chronological event timeline, newest first. One row per event: year + body chip + winning party/alliance pill + seat count + swing vs previous same-body event. Click -> `/<state>/elections/<event-slug>`.
 
 **Files:**
 - EDIT [frontend/src/routes/StateTopic.svelte](../frontend/src/routes/StateTopic.svelte) topic=elections branch (or extract to NEW `frontend/src/routes/StateElectionsHub.svelte` if cleaner).
 - NEW `frontend/src/lib/elections/StateEventTimeline.svelte` — pure component, props `{ events: ElectionEvent[], onSelect }`.
-- NEW `frontend/e2e/state-elections-hub.spec.ts` — Playwright: navigate `/s/karnataka/t/elections`, assert >= 10 event rows + body filter chip + click-through to one event lands on `/s/karnataka/elections/<slug>`. 0 console errors.
+- NEW `frontend/e2e/state-elections-hub.spec.ts` — Playwright: navigate `/karnataka/t/elections`, assert >= 10 event rows + body filter chip + click-through to one event lands on `/karnataka/elections/<slug>`. 0 console errors.
 
 **Acceptance gates:**
 
 - [ ] G1 — Playwright spec GREEN.
 - [ ] G2 — svelte-check + tsc CLEAN; vitest GREEN.
-- [ ] G3 — integrated browser smoke on the user-named horrible page: navigate `/s/arunachal-pradesh/t/elections`, screenshot. Before/after comparison in PR body.
+- [ ] G3 — integrated browser smoke on the user-named horrible page: navigate `/arunachal-pradesh/t/elections`, screenshot. Before/after comparison in PR body.
 - [ ] G4 — anti-leakage: other topic branches of `StateTopic.svelte` (`t/economy`, `t/power-energy`, etc.) unchanged.
 
-**Oracle:** Playwright — `/s/karnataka/t/elections` renders all 11 Karnataka assembly events as clickable timeline rows.
+**Oracle:** Playwright — `/karnataka/t/elections` renders all 11 Karnataka assembly events as clickable timeline rows.
 
 **Escalation:** none.
 
@@ -341,7 +342,7 @@ WAVE 0 ships first and gates everything. WAVE 1+ rows within a wave are PARALLEL
 
 ### PR-W3b — Rebuild state event view + inline swing + alliance + add constituency leaf
 
-**Scope.** Rebuild `StateElection.svelte` (URL `/s/<state>/elections/<event-slug>`) into the new IndiaVotes-style state event experience. Add the `<constituency-slug>` route literal (no `/pc/`, no `/ac/`). Strip `?s=<b64>` URL handling from the inline swing.
+**Scope.** Rebuild `StateElection.svelte` (URL `/<state>/elections/<event-slug>` after Phase 0) into the new IndiaVotes-style state event experience. Add the `<constituency-slug>` route literal (no `/pc/`, no `/ac/`). Strip `?s=<b64>` URL handling from the inline swing.
 
 **New layout:**
 - KPIs strip: seats / voters / polled / turnout.
@@ -354,12 +355,12 @@ WAVE 0 ships first and gates everything. WAVE 1+ rows within a wave are PARALLEL
 
 **Files:**
 - EDIT [frontend/src/routes/StateElection.svelte](../frontend/src/routes/StateElection.svelte) — full rebuild.
-- EDIT [frontend/src/main.ts](../frontend/src/main.ts) — add `pattern: "/s/:state/elections/:event/:constituency"` (NO `/pc/` or `/ac/` literal). Same `Constituency.svelte` component handles both AC and PC; dispatch on event-slug prefix (`general-` -> PC; `assembly-` -> AC).
+- EDIT [frontend/src/main.ts](../frontend/src/main.ts) — add `pattern: "/:state/elections/:event/:constituency"` (NO `/pc/` or `/ac/` literal; Phase 0 plan dropped the `/s/` namespace marker). Same `Constituency.svelte` component handles both AC and PC; dispatch on event-slug prefix (`general-` -> PC; `assembly-` -> AC).
 - EDIT [frontend/src/routes/Constituency.svelte](../frontend/src/routes/Constituency.svelte) — adapt to read constituency type from event-slug prefix.
 - NEW `frontend/src/lib/elections/InlineCounterfactualSwing.svelte` — 2 dropdowns + slider + seats card. Composes `statewideSwing` mutation + `fptp` rule. Component state only (no URL).
 - NEW `frontend/src/lib/elections/AllianceTotals.svelte` — joins `party_alliances.csv` by `period_label` + `party_id`.
 - NEW `*.test.ts` for both panels — vitest fixtures.
-- NEW `frontend/e2e/state-event-view.spec.ts` — Playwright: navigate `/s/chhattisgarh/elections/general-2024`, assert KPIs + map + swing slider works + alliance totals show + drill into one constituency via `/s/chhattisgarh/elections/general-2024/bastar`.
+- NEW `frontend/e2e/state-event-view.spec.ts` — Playwright: navigate `/chhattisgarh/elections/general-2024`, assert KPIs + map + swing slider works + alliance totals show + drill into one constituency via `/chhattisgarh/elections/general-2024/bastar`.
 
 **Acceptance gates:**
 
@@ -432,7 +433,7 @@ WAVE 0 ships first and gates everything. WAVE 1+ rows within a wave are PARALLEL
 
 - [ ] G1 — vitest GREEN on both component tests.
 - [ ] G2 — svelte-check + tsc CLEAN.
-- [ ] G3 — integrated browser smoke: `/s/chhattisgarh/elections/general-2024/bastar`; assert year-pills (18 pills for Bastar's full history) + history bars (18 rows). Screenshot.
+- [ ] G3 — integrated browser smoke: `/chhattisgarh/elections/general-2024/bastar`; assert year-pills (18 pills for Bastar's full history) + history bars (18 rows). Screenshot.
 
 **Oracle:** constituency-history fixture — 18 general elections for Bastar produce 18 history-bar rows with correct party colours (BJP saffron, INC blue, IND grey).
 
@@ -469,7 +470,7 @@ WAVE 0 ships first and gates everything. WAVE 1+ rows within a wave are PARALLEL
 **Chart spec (Max verdict baked):**
 - X: voter turnout %; Y: winning margin %; colour: winning party (via `getPartyColor`); **size: total electors, sqrt-scaled** (visual area scales with value — OWID Rosling precedent).
 - 6 filters: event + state + highlight-party + reservation (GEN/SC/ST) + body (parliament/assembly) + margin-band (`<2%` / `2-5%` / `5-10%` / `>10%`).
-- Click-dot -> `/s/<state>/elections/<event-slug>/<constituency-slug>`.
+- Click-dot -> `/<state>/elections/<event-slug>/<constituency-slug>`.
 - Honesty caption (Max Q8): "Plotting N constituency-elections across <event-set>. 2008 delimitation break + AP/Telangana 2014 + Assam/J&K post-2022 redelim mean pre-2009 PC seats are not 1:1 comparable. [Methodology]".
 
 **Files:**
@@ -485,7 +486,7 @@ WAVE 0 ships first and gates everything. WAVE 1+ rows within a wave are PARALLEL
 - [ ] G1 — vitest GREEN on Scatter tests.
 - [ ] G2 — Playwright spec GREEN.
 - [ ] G3 — svelte-check + tsc CLEAN; full vitest GREEN.
-- [ ] G4 — integrated browser smoke: navigate `/t/elections/general-2024`, screenshot scatter with all filters open. Toggle reservation=ST; screenshot. Open `/s/karnataka/elections/assembly-2023`; confirm scatter restricts to Karnataka ACs.
+- [ ] G4 — integrated browser smoke: navigate `/t/elections/general-2024`, screenshot scatter with all filters open. Toggle reservation=ST; screenshot. Open `/karnataka/elections/assembly-2023`; confirm scatter restricts to Karnataka ACs.
 - [ ] G5 — anti-leakage: Scatter is the ONLY new file under `frontend/src/lib/charts/`. All other socio-econ chart files unchanged.
 
 **Oracle:** for `/t/elections/general-2024`, the scatter renders >= 540 dots (one per Parliament seat in 2024) AND size differentiates Bangalore-South (large) from Lakshadweep (small).
@@ -555,13 +556,13 @@ WAVE 0 ships first and gates everything. WAVE 1+ rows within a wave are PARALLEL
 
 1. Open `/t/elections` (firehose). Confirm event table renders.
 2. Click a national event view: `/t/elections/general-2024`. Confirm KPIs + India choropleth + top-parties bar + scatter chart.
-3. From the national choropleth, click Chhattisgarh -> `/s/chhattisgarh/elections/general-2024`. Confirm KPIs + state map + inline counterfactual swing + alliance-first totals + constituency table + scatter chart.
+3. From the national choropleth, click Chhattisgarh -> `/chhattisgarh/elections/general-2024`. Confirm KPIs + state map + inline counterfactual swing + alliance-first totals + constituency table + scatter chart.
 4. Trigger the inline swing (BJP -> INC 5%); see seats recompute live.
-5. From the constituency table, click Bastar -> `/s/chhattisgarh/elections/general-2024/bastar` (no `/pc/` literal). Confirm candidate list + year-pills strip + "across elections" history bars.
-6. Use year-pills to jump to Bastar 2019 -> URL becomes `/s/chhattisgarh/elections/general-2019/bastar`. Same shape.
+5. From the constituency table, click Bastar -> `/chhattisgarh/elections/general-2024/bastar` (no `/pc/` literal). Confirm candidate list + year-pills strip + "across elections" history bars.
+6. Use year-pills to jump to Bastar 2019 -> URL becomes `/chhattisgarh/elections/general-2019/bastar`. Same shape.
 7. From state event view click "Compare with previous ->" -> `/compare/elections/chhattisgarh/general-2019/general-2024`. Confirm winner-change table.
 8. Manually navigate to `/compare/elections/tamil-nadu/general-2014/general-2019`. Confirm >= 30 rows + >= 20 flips.
-9. Open state-elections hub `/s/arunachal-pradesh/t/elections` (the user-named horrible page). Confirm timeline + body filter chip. Clearly NOT the old "List: N/A" surface.
+9. Open state-elections hub `/arunachal-pradesh/t/elections` (the user-named horrible page). Confirm timeline + body filter chip. Clearly NOT the old "List: N/A" surface.
 10. Open Home `/`. Confirm 3-card elections rail. Clearly NOT the old "hanging" state.
 11. Verify breadcrumb on every page (one `Breadcrumb` component, body-aware vs place-first crumbs from per-route `crumbs(params)`).
 12. Verify alliance-first display on state event pages.
@@ -589,11 +590,11 @@ When this plan is in context and the instruction is "implement it", execute as t
 
 ## Appendix — Persona verdict convergence (baked; do not re-debate)
 
-**Jony (UX + URL).** Place-first cascade on shipped `/s/<state>/...`. Year inside event-slug (`general-2024`); event is one atomic identity. Year-pills strip for ELECTIONS only; socio-econ keeps slider. ONE breadcrumb engine, URL-derived. Inline counterfactual swing on state event page + `/lab/` for power users. No `/pc/` or `/ac/` literals (body prefix implies type). Keep `/t/elections` firehose. Compare URL body-tagged. Repurpose `/s/<state>/t/elections` into chronological timeline. Home rail = 3-card strip.
+**Jony (UX + URL).** Place-first cascade on Grammar A (`/<state>/...` after Phase 0 plan ships). Year inside event-slug (`general-2024`); event is one atomic identity. Year-pills strip for ELECTIONS only; socio-econ keeps slider. ONE breadcrumb engine, URL-derived. Inline counterfactual swing on state event page + `/lab/` for power users. No `/pc/` or `/ac/` literals (body prefix implies type). Keep `/t/elections` firehose. Compare URL body-tagged. Repurpose `/<state>/t/elections` into chronological timeline. Home rail = 3-card strip.
 
 **Hans (English nouns + governance).** Event slug `general-<YYYY>` / `assembly-<YYYY>`. Bye slug uses `bye-` per ECI/Hindu/IE/ToI usage: `general-bye-<YYYY>-<state>-<seat>` / `assembly-bye-<YYYY>-<seat>`. Constituency-unit nouns "Parliament constituency" / "Assembly constituency" in chrome; "PC" / "AC" survive in URL slugs + chart axes. Hindi Glossary line allowed in page body ONLY (one line, never slug/heading/code). State-formation events first-class (5-column JSON). Bye-elections as new event kinds (`general_bye` / `assembly_bye`). Top-parties widget filtered to "parties that contested this event". Alliance display alliance-first, party-breakdown one-click expand. V1 KPI lead: seats won. IndiaVotes parity oracle one-shot offline never CI.
 
-**Fowler (engineering).** Atomic rip with no legacy-URL absorber (user verdict drops the strangler). Generic `loadElectionResults(scope)` collapses 4 bespoke loaders; golden-row equality oracle. Breadcrumb rename + per-route `crumbs(params)`. NO localStorage for scenarios (ephemeral; revisit when citizen complaint surfaces). NO new TOP_LEVEL reserved tokens (firehose stays at `/t/elections`). Scatter as `frontend/src/lib/charts/Scatter.svelte`. Bye-slug locked in PR-0 BEFORE PR-W2a; PR-W2a STOPS at BLOCKED-NEEDS-PR0 otherwise.
+**Fowler (engineering).** Atomic rip with no legacy-URL absorber (user verdict drops the strangler). Generic `loadElectionResults(scope)` collapses 4 bespoke loaders; golden-row equality oracle. Breadcrumb rename + per-route `crumbs(params)`. NO localStorage for scenarios (ephemeral; revisit when citizen complaint surfaces). NO new TOP_LEVEL reserved tokens (firehose stays at `/t/elections`). Scatter as `frontend/src/lib/charts/Scatter.svelte`. Bye-slug locked in PR-0 BEFORE PR-W2a; the status-reckoner dependency chain (`PR-W2a depends on PR-W1a depends on PR-0`) enforces the sequence \u2014 no special "BLOCKED" status terminology needed.
 
 **Max (scatter dimensions).** Size = total electors (sqrt-scaled; Rosling precedent). 6 filters (event + state + highlight-party + reservation + body + margin-band). National + per-state surfaces. Click-dot -> constituency drill. Honesty caption naming the 2008 delimitation break + AP/Telangana 2014 + Assam/J&K post-2022 redelim.
 
