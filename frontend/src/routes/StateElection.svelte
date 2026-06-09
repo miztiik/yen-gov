@@ -35,6 +35,7 @@
   import ElectionMap from "../lib/elections/ElectionMap.svelte";
   import ElectionTimeSlider from "../lib/elections/ElectionTimeSlider.svelte";
   import ElectionFilterRail from "../lib/elections/ElectionFilterRail.svelte";
+  import RacesBoard from "../lib/RacesBoard.svelte";
   import { buildSliderStops } from "../lib/elections/election-time-slider";
   import { hasModeCoverage } from "../lib/elections/election-map-coloring";
   import {
@@ -232,6 +233,16 @@
         </ol>
       </nav>
       <h1 class="text-2xl font-semibold">{ev.display}</h1>
+      <!-- G12 (EL4) in-page back-link. Duplicates the breadcrumb's state
+           crumb on purpose: breadcrumb is chrome, this is the contextual
+           "done with this election, back to the state" affordance. -->
+      <p class="text-sm">
+        <a
+          href={url.state(state_code)}
+          class="text-slate-500 hover:underline"
+          data-testid="back-to-state"
+        >← Back to {state_name}</a>
+      </p>
       <p class="text-sm text-slate-600">
         {ev.kind === "assembly"
           ? `${state_name} Assembly election`
@@ -272,8 +283,15 @@
     </article>
 
     {#if ev.kind === "assembly"}
-      <section class="space-y-2" data-testid="state-election-map">
-        <h2 class="text-lg font-semibold">Results map</h2>
+      <!-- G13 (EL5) RacesBoard is now the primary election surface on this
+           per-state per-event landing; the map below is demoted to a
+           locator. Reads the same `ac_winners` view-model the map uses. -->
+      <section class="space-y-2" data-testid="races-board">
+        <h2 class="text-lg font-semibold">Races by competitiveness</h2>
+        <RacesBoard state={state_code} rows={ac_winners} event={ev.event_id} />
+      </section>
+      <section class="space-y-2" data-testid="state-ac-map">
+        <h2 class="text-lg font-semibold">Locate on map</h2>
         <p class="text-xs text-slate-500">
           Switch between the geographic map and the equal-seats cartogram.
           Tap a constituency to open its detailed result.
