@@ -69,12 +69,12 @@ from __future__ import annotations
 
 import csv
 import io
-import re
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
 from yen_gov.canonical.csv_writer import write_csv
+from yen_gov.canonical.name_normaliser import normalise_entity_name
 from yen_gov.canonical.reingest.assembly_results import (
     NOTA_TOKENS,
     _float_or_none,
@@ -124,8 +124,6 @@ _ECI_STATE_OVERRIDES: dict[str, str] = {
     "delhi": "delhi",
 }
 
-_WS_RUN_RE = re.compile(r"\s+")
-
 LS2024_ELECTION_YEAR: int = 2024
 
 
@@ -151,8 +149,15 @@ def parse_eci_raw_2024_csv(path: Path) -> list[dict[str, str]]:
 
 
 def _normalise_pc_name(name: str) -> str:
-    """Lowercase + strip + collapse whitespace runs to a single space."""
-    return _WS_RUN_RE.sub(" ", (name or "").strip().lower())
+    """Resolver-side PC name normaliser.
+
+    Delegates to the shared :func:`normalise_entity_name` (case-fold +
+    whitespace-collapse + hyphen/underscore/dash-collapse). Lifted to the
+    shared module 2026-06-09 by the G16 alias backfill PR; previously this was
+    a per-module helper that only collapsed whitespace (and therefore could
+    not bind ``Mumbai North East`` <-> ``Mumbai North-East``).
+    """
+    return normalise_entity_name(name)
 
 
 def _slugify_eci_state(name: str) -> str:
@@ -182,6 +187,16 @@ def _build_pc_lookup(
     the LGD-derived spine). PC ``name`` IS unique per state in
     ``electoral.csv`` so the (state, name) key is total.
 
+    Walks BOTH the ``name`` column AND the pipe-delimited ``aliases`` column,
+    registering the same ``(entity_id, eci_no)`` value under every normalised
+    name variant. This is how publisher-emitted names that differ from the
+    LGD-canonical (e.g. ECI ``Bangalore North`` <-> spine ``Bengaluru North``)
+    bind: the alias-backfill PR adds the ECI variant to the ``aliases`` cell
+    and this lookup picks it up at the next ingest run. Per-state collisions
+    are detected and raise ``ValueError`` rather than silently overwriting
+    (defensive: collisions would mean two spine PC rows share a name, which
+    violates the per-state-name-uniqueness invariant).
+
     Restricted to ``entity_kind == 'pc'`` AND ``delim_year == '2008'`` (the
     delimitation in force for LS2024).
     """
@@ -193,15 +208,31 @@ def _build_pc_lookup(
             if (row.get("delim_year") or "").strip() != "2008":
                 continue
             state_slug = (row.get("state") or "").strip()
-            pc_name = _normalise_pc_name(row.get("name") or "")
-            if not state_slug or not pc_name:
+            if not state_slug:
                 continue
             raw_eci = (row.get("eci_no") or "").strip()
             try:
                 eci_no = int(raw_eci) if raw_eci else 0
             except ValueError:
                 eci_no = 0
-            out[(state_slug, pc_name)] = (row["entity_id"], eci_no)
+            payload = (row["entity_id"], eci_no)
+            # Variant set: the canonical ``name`` plus each pipe-delimited alias.
+            variants = [(row.get("name") or "").strip()]
+            for alias in ((row.get("aliases") or "").split("|")):
+                alias = alias.strip()
+                if alias:
+                    variants.append(alias)
+            for variant in variants:
+                key = (state_slug, _normalise_pc_name(variant))
+                if not key[1]:
+                    continue
+                existing = out.get(key)
+                if existing is not None and existing != payload:
+                    raise ValueError(
+                        f"PC name collision on (state={state_slug!r}, "
+                        f"normalised={key[1]!r}): existing={existing} new={payload}"
+                    )
+                out[key] = payload
     return out
 
 

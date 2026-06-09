@@ -4,21 +4,12 @@ Source: ECI Statement 33 raw CSV (`datasets/ephemeral/2024_india_loksabha_33-Con
 
 | election | states | candidacies | summary PCs | unbound | raw rows |
 | --- | --- | --- | --- | --- | --- |
-| 2024 | 33 | 7511 | 492 | 50 | 8909 |
+| 2024 | 33 | 8105 | 528 | 14 | 8909 |
 
 ## Unbound (state_slug, ECI PC name)
 
 - `andaman-and-nicobar-islands` / `Andaman & Nicobar Islands`
-- `andhra-pradesh` / `Ananthapur`
-- `andhra-pradesh` / `Kurnoolu`
-- `andhra-pradesh` / `Narsaraopet`
-- `andhra-pradesh` / `Thirupathi`
-- `assam` / `Darrang-Udalguri`
-- `assam` / `Diphu`
-- `assam` / `Guwahati`
-- `bihar` / `Patliputra`
 - `chandigarh` / `Chandigarh`
-- `chhattisgarh` / `JANJGIR-CHAMPA`
 - `dadra-and-nagar-haveli-and-daman-and-diu` / `Dadar & Nagar Haveli`
 - `delhi` / `Chandni Chowk`
 - `delhi` / `East Delhi`
@@ -27,35 +18,8 @@ Source: ECI Statement 33 raw CSV (`datasets/ephemeral/2024_india_loksabha_33-Con
 - `delhi` / `North-West Delhi`
 - `delhi` / `South Delhi`
 - `delhi` / `West Delhi`
-- `jammu-and-kashmir` / `ANANTNAG-RAJOURI`
-- `jharkhand` / `Palamu`
-- `karnataka` / `Bangalore North`
-- `karnataka` / `Bangalore Rural`
-- `karnataka` / `Bangalore South`
-- `karnataka` / `Bangalore central`
-- `karnataka` / `Belgaum`
-- `karnataka` / `Bellary`
-- `karnataka` / `Bijapur`
-- `karnataka` / `Gulbarga`
-- `karnataka` / `Mysore`
-- `karnataka` / `Shimoga`
-- `karnataka` / `Tumkur`
-- `karnataka` / `Udupi Chikmagalur`
-- `maharashtra` / `Bhandara Gondiya`
-- `maharashtra` / `Gadchiroli - Chimur`
-- `maharashtra` / `Hatkanangale`
-- `maharashtra` / `Mumbai North Central`
-- `maharashtra` / `Mumbai North East`
-- `maharashtra` / `Mumbai North West`
 - `maharashtra` / `Mumbai South`
-- `maharashtra` / `Mumbai South Central`
-- `maharashtra` / `Ratnagiri- Sindhudurg`
-- `maharashtra` / `Yavatmal- Washim`
-- `telangana` / `Mahbubnagar`
-- `uttar-pradesh` / `Baharaich`
 - `uttar-pradesh` / `Lucknow`
-- `uttarakhand` / `Haridwar`
-- `west-bengal` / `Bardhaman-Durgapur`
 - `west-bengal` / `Kolkata Dakshin`
 - `west-bengal` / `Kolkata Uttar`
 
