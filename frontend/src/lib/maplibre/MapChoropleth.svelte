@@ -1,15 +1,29 @@
 <script lang="ts">
-  // Generic choropleth map. Parents pass a boundary `entry`, a `fills` map
-  // keyed by the join-property value (state name for India / AC_NO for AC
+  // Generic choropleth map - election engine only since G30 wave-4
+  // (2026-06-10). Parents pass a boundary `entry`, a `fills` map keyed
+  // by the join-property value (state name for India / AC_NO for AC
   // layers), and optional opacities + tooltip text. The component owns
   // map lifecycle, source loading (PMTiles via manifest or raw GeoJSON
-  // fallback — see ./sources.ts), and hover/click events.
+  // fallback - see ./sources.ts), and hover/click events.
+  //
+  // Surviving callers (all election surfaces - see parent plan section
+  // 14.5 / F5):
+  //   - `./IndiaMap.svelte` - national leading-party choropleth.
+  //   - `./StateAcMap.svelte` - per-state AC overlay.
+  //   - `../../routes/NationalElectionsAtlas.svelte` - national PC choropleth.
+  //
+  // G30 wave-4 retired the welfare-arm: the `pending` / `pending_at` /
+  // `pending_label` overlay, the `recentre_signal` re-fit hook, and the
+  // `pinch_to_drill` mobile gesture were all IndicatorChoropleth-only
+  // (TN drill-down) and deleted in the same commit that deleted the
+  // legacy IndicatorChoropleth maplibre arm. Static welfare maps now
+  // render via the d3-geo SVG `<GeoChoropleth>` primitive (F2b.3).
   //
   // maplibre-gl is loaded via dynamic import so it's split out of the
   // main bundle. Pages that don't render a map don't pay the ~300 KB cost.
   //
   // Coloring uses a `match` paint expression rebuilt whenever `fills`
-  // changes — works without per-feature ids and avoids the `setFeatureState`
+  // changes - works without per-feature ids and avoids the `setFeatureState`
   // dance for layers loaded from raw GeoJSON.
 
   import { onMount, onDestroy } from "svelte";
@@ -77,40 +91,6 @@
      */
     hatch_unmapped?: boolean;
     /**
-     * Recentre signal. Any change to this number (typically a monotonic
-     * counter from the parent) triggers a re-fit to the data bounds.
-     * Used by the drill-down breadcrumb's "re-click active crumb"
-     * affordance — the user has panned/zoomed away and wants to snap
-     * back to the current layer's extent. Initial mount is NOT a
-     * recentre (the load handler already fits bounds).
-     */
-    recentre_signal?: number;
-    /**
-     * Loading-overlay state for an external fetch (e.g. drill-down boundary
-     * download). When `pending` is true, an absolutely-positioned spinner
-     * appears inside the map wrapper. When `pending_at` is supplied, the
-     * spinner is anchored over that lng/lat (re-projected on every map
-     * move/zoom so it stays pinned through pan); otherwise it falls back
-     * to the canvas centre. Phase 4 d2 of TN-GRANULAR-GEO-PLAN — keeps the
-     * maplibre handle private (Fowler + Gregor verdict 2026-05-15: punching
-     * a handle hole through this component is a one-way door we don't need
-     * to walk through; declarative props match the `recentre_signal`
-     * precedent and stay reversible).
-     */
-    pending?: boolean;
-    pending_at?: [number, number];
-    pending_label?: string;
-    /**
-     * Mobile pinch-to-drill (Phase 4 of TN-GRANULAR-GEO-PLAN). When true,
-     * a touch-driven zoom-in that crosses a threshold dispatches `onSelect`
-     * on the polygon under the gesture's focal point. Lets a citizen drill
-     * the TN map naturally on a phone — pinch to zoom is the gesture they
-     * already know; the drill is the side-effect they expect at zoom-in.
-     * Off by default so non-drill maps (state-overview, IndiaMap) keep the
-     * v1 "pinch is just zoom" semantics.
-     */
-    pinch_to_drill?: boolean;
-    /**
      * Touch tap-to-pin. Without hover, a phone/tablet citizen can only
      * reach the tooltip card by tapping a polygon — but the click handler
      * also fires `onSelect` (navigation), so the card flashes for a frame
@@ -166,11 +146,6 @@
     height = "420px",
     highlight_key,
     hatch_unmapped = false,
-    recentre_signal,
-    pending = false,
-    pending_at,
-    pending_label,
-    pinch_to_drill = false,
     tap_to_pin = false,
     canonical_join = false,
     outline_features = null,
@@ -416,48 +391,6 @@
     applyOutline();
   });
 
-  // Pending-overlay projected pixel position. Re-projects on map move /
-  // zoom / render so the spinner stays pinned to the polygon as the user
-  // pans during a long fetch (Phase 4 d2). null → fall back to canvas
-  // centre (the wrapper CSS handles the centring).
-  let pending_xy = $state<{ x: number; y: number } | null>(null);
-
-  function project_pending(): void {
-    if (!map || !pending_at) {
-      pending_xy = null;
-      return;
-    }
-    try {
-      const p = map.project(pending_at);
-      pending_xy = { x: p.x, y: p.y };
-    } catch {
-      pending_xy = null;
-    }
-  }
-
-  $effect(() => {
-    void pending_at;
-    void pending;
-    project_pending();
-  });
-  // mount — the load handler already fits bounds, so we skip it. Any
-  // subsequent change re-fits to the cached data_bbox (no re-fetch).
-  let _last_recentre_signal: number | undefined = undefined;
-  let _seen_first_signal = false;
-  $effect(() => {
-    const sig = recentre_signal;
-    if (!_seen_first_signal) {
-      _seen_first_signal = true;
-      _last_recentre_signal = sig;
-      return;
-    }
-    if (sig === _last_recentre_signal) return;
-    _last_recentre_signal = sig;
-    if (map && data_bbox) {
-      map.fitBounds(data_bbox as any, { padding: 16, animate: true, duration: 400 });
-    }
-  });
-
   onMount(() => {
     let cancelled = false;
 
@@ -659,49 +592,6 @@
           // `outline_features` at mount. The reactive `$effect`
           // handles every subsequent change.
           applyOutline();
-          // Keep the pending-overlay pixel coords pinned to the source
-          // lng/lat as the user pans / zooms / the map animates a fit
-          // (Phase 4 d2). `move` covers pan + zoom; `render` is the
-          // safety net for any frame where the camera shifted without
-          // dispatching a discrete move event (e.g. resize observers).
-          map.on("move", project_pending);
-          map.on("zoom", project_pending);
-          // Mobile pinch-to-drill (Phase 4). We only act when (a) the prop is
-          // on, (b) the gesture started with multiple touches (a true pinch,
-          // not a single-finger tap), (c) the zoom delta exceeds the
-          // threshold (filters out incidental jitter from a non-pinch tap).
-          // The drill is dispatched on touchend (not zoom in real-time) so
-          // we don't fire mid-gesture or flood onSelect during the pinch.
-          // Threshold of 0.6 zoom levels is a citizen-comfortable amount —
-          // small enough to feel responsive, large enough that an accidental
-          // two-finger graze doesn't drill.
-          const PINCH_DRILL_DELTA = 0.6;
-          let _touch_start_zoom: number | null = null;
-          let _touch_start_n_fingers = 0;
-          map.on("touchstart", (e: any) => {
-            if (!pinch_to_drill) return;
-            _touch_start_n_fingers = e.originalEvent?.touches?.length ?? 0;
-            _touch_start_zoom = map.getZoom();
-          });
-          map.on("touchend", (e: any) => {
-            if (!pinch_to_drill || _touch_start_zoom === null) return;
-            const was_pinch = _touch_start_n_fingers >= 2;
-            const dz = map.getZoom() - _touch_start_zoom;
-            _touch_start_zoom = null;
-            _touch_start_n_fingers = 0;
-            if (!was_pinch || dz < PINCH_DRILL_DELTA) return;
-            const lngLat = e.lngLat ?? map.getCenter();
-            const point = map.project(lngLat);
-            const features = map.queryRenderedFeatures(point, { layers: [FILL_LAYER_ID] });
-            const f = features?.[0];
-            if (!f) return;
-            const key = f.properties?.[entry.join_property];
-            onSelect?.({
-              key,
-              properties: f.properties ?? {},
-              at: [lngLat.lng, lngLat.lat],
-            });
-          });
           // Fit bounds to the data extent. For GeoJSON we have it locally;
           // for vector tiles maplibre exposes querySourceFeatures only for
           // visible tiles, which isn't enough — fall back to the same bbox
@@ -891,24 +781,6 @@
     <div class="absolute inset-0 flex items-center justify-center text-xs text-slate-500 pointer-events-none">
       Loading map…
     </div>
-  {/if}
-  {#if pending}
-    {#if pending_xy}
-      <div
-        class="absolute pointer-events-none flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-xs text-slate-700 shadow ring-1 ring-slate-200"
-        style="left:{pending_xy.x}px;top:{pending_xy.y}px;transform:translate(-50%,-50%);"
-      >
-        <span class="inline-block h-3 w-3 animate-spin rounded-full border-2 border-slate-300 border-t-slate-600"></span>
-        <span>{pending_label ?? "Loading…"}</span>
-      </div>
-    {:else}
-      <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div class="flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-xs text-slate-700 shadow ring-1 ring-slate-200">
-          <span class="inline-block h-3 w-3 animate-spin rounded-full border-2 border-slate-300 border-t-slate-600"></span>
-          <span>{pending_label ?? "Loading…"}</span>
-        </div>
-      </div>
-    {/if}
   {/if}
   {#if error}
     <div class="absolute inset-x-2 bottom-2 p-2 text-xs bg-rose-50 border border-rose-200 rounded text-rose-900">

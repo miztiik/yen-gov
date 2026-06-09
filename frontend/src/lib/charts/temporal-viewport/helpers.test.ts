@@ -3,7 +3,7 @@
 // foundation).
 //
 // vitest is node-env across the frontend workspace (no jsdom — see
-// the comment in `IndicatorChoropleth.boundaries.test.ts:4`). These
+// the comment in `boundaries.integration.test.ts:4`). These
 // helpers are 100% pure: no DOM, no Svelte, no Blob, no clipboard.
 
 import { describe, expect, it } from "vitest";

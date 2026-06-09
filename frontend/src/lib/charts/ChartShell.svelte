@@ -58,7 +58,7 @@
   // Vitest gate: helper-side only. The action vocabulary is closed by
   // `actions.test.ts` (13 cases). Component-level DOM assertions land
   // in Playwright when the first renderer adopts the shell — vitest is
-  // node-env without jsdom (see IndicatorChoropleth.boundaries.test.ts
+  // node-env without jsdom (see boundaries.integration.test.ts
   // comment line 4).
 
   import type { Snippet } from "svelte";

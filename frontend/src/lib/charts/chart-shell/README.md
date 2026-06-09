@@ -74,7 +74,7 @@ two ways:
   behaviour, stable sort, defence-in-depth on unknown ids, and the
   filter+sort composition.
 - No vitest component test — the project's vitest is node-env without
-  jsdom (see [`frontend/src/lib/IndicatorChoropleth.boundaries.test.ts`](../../IndicatorChoropleth.boundaries.test.ts)
+  jsdom (see [`frontend/src/lib/boundaries.integration.test.ts`](../../boundaries.integration.test.ts)
   comment line 4). Component-level assertions land in Playwright after
   the first renderer adopts the shell.
 - No Playwright — the shell has zero callers in this PR (R-08).

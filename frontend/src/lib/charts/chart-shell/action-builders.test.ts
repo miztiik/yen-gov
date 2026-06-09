@@ -3,7 +3,7 @@
 // wiring).
 //
 // vitest is node-env across the frontend workspace (no jsdom — see the
-// comment in `IndicatorChoropleth.boundaries.test.ts:4`). DOM-touching
+// comment in `boundaries.integration.test.ts:4`). DOM-touching
 // helpers are exercised with hand-rolled stubs assigned to globalThis
 // for the duration of a `describe` block and torn down after.
 
