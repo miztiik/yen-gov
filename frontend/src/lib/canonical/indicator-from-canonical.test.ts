@@ -1204,8 +1204,11 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     // Wave-3 closes the state-grain fence: every state-grain descriptor
     // (single + facet-multiplexed) in the allowlist now routes through
     // the d3-geo SVG GeoChoropleth primitive. Districts + country grain
-    // are out of scope (the IndicatorChoropleth dispatch ignores the
-    // flag at non-state grain so the worst-case is a silent no-op).
+    // are out of scope. G30 wave-4 (2026-06-10) then retired the legacy
+    // maplibre arm of IndicatorChoropleth entirely; the dispatch is now
+    // gone (state grain always renders GeoChoropleth, non-state-grain
+    // renders a defensive empty-state) and the `renderer_override` field
+    // survives on these descriptors as a historical opt-in marker.
     const WAVE_3_LEGACY_IDS = [
       // energy (29 descriptors)
       "energy/state_peak_electricity_demand_mw",
