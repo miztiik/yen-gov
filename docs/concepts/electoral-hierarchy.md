@@ -177,6 +177,20 @@ The resolver normaliser at [`backend/yen_gov/canonical/name_normaliser.py`](../.
 
 Reference receipt: the G16 alias backfill PR added 36 aliases to PC rows from the LS2024 coverage receipt (originally 50 unbound — 36 publisher-name drift bound via this PR, 14 genuine spine gaps remaining: Delhi×7 + Chandigarh + A&N + Dadra-DNH + Mumbai South + Lucknow + Kolkata Dakshin/Uttar — those are out of scope and tracked separately as LGD-spine gaps). AC-grain alias backfill defers to a future AC-equivalent ingest (the 4189 AC rows currently carry no aliases; same reactive trigger applies).
 
+### LGD-export-gap fallback (`eci<eci_no>` suffix)
+
+When the LGD HTML export (`tools/lgd/parse_lgd_export.py` source) is demonstrably incomplete for a known-real-public-record electoral entity that ECI publishes, the project uses an existing on-disk fallback pattern: `entity_id` carries the suffix `eci<eci_no>` (lowercase `eci` prefix + the natural ECI ballot serial) instead of the standard LGD-code suffix. This is the documented on-disk precedent for 6 ACs:
+
+- `IN-AC-2008-uttar-pradesh-eci171` LUCKNOW WEST
+- `IN-AC-2008-uttar-pradesh-eci172` LUCKNOW NORTH
+- `IN-AC-2008-uttar-pradesh-eci173` LUCKNOW EAST
+- (+ LUCKNOW CENTRAL + LUCKNOW CANTT)
+- `IN-AC-2008-west-bengal-eci158` KOLKATA PORT
+
+The convention is round-7-compatible: round-7 prohibited *arithmetic* surrogate ids (e.g. `state_code * 1000 + eci_no`), not natural publisher ids with a provenance prefix. The `eci` prefix is self-describing - it visibly differs from the 3-digit LGD code shape, doubling as a migration trigger: when a future LGD HTML export covers these entities, a separate PR re-mints to the LGD-native id pattern and UPSERT-migrates downstream FKs in the same diff.
+
+**PC application (this PR, 2026-06-09)**: extends the convention to 4 PC rows surfaced by the LS2024 ECI Statement-33 ingest (G16, PR #844 unbound list): Mumbai South (MH, eci 31), Lucknow (UP, eci 35), Kolkata Dakshin (WB, eci 23), Kolkata Uttar (WB, eci 24). Citation: `src-bfb4e7fb9785` (ECI Statement-33 LS2024 vintage), reused per ADR-0042 one-row-per-(producer, title, vintage). LS2024 unbound count drops 14 -> 10 (irreducible spine gaps: Delhi x7 + Chandigarh + A&N + Dadra-DNH).
+
 ## See also
 
 - [data-model.md — Constituency hierarchy fields and status lifecycle](../architecture/data-model.md#constituency-hierarchy-and-status-lifecycle)

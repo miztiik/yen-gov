@@ -4,7 +4,7 @@ Source: ECI Statement 33 raw CSV (`datasets/ephemeral/2024_india_loksabha_33-Con
 
 | election | states | candidacies | summary PCs | unbound | raw rows |
 | --- | --- | --- | --- | --- | --- |
-| 2024 | 33 | 8105 | 528 | 14 | 8909 |
+| 2024 | 33 | 8161 | 532 | 10 | 8909 |
 
 ## Unbound (state_slug, ECI PC name)
 
@@ -18,8 +18,4 @@ Source: ECI Statement 33 raw CSV (`datasets/ephemeral/2024_india_loksabha_33-Con
 - `delhi` / `North-West Delhi`
 - `delhi` / `South Delhi`
 - `delhi` / `West Delhi`
-- `maharashtra` / `Mumbai South`
-- `uttar-pradesh` / `Lucknow`
-- `west-bengal` / `Kolkata Dakshin`
-- `west-bengal` / `Kolkata Uttar`
 
