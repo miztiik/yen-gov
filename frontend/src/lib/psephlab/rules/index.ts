@@ -11,10 +11,23 @@
 import type { CountingRule } from "../types";
 import { fptp } from "./fptp";
 import { sainteLague } from "./sainteLague";
+import { dhondt } from "./dhondt";
+import { hamilton } from "./hamilton";
 import { instantRunoff } from "./instantRunoff";
 import { approval } from "./approval";
 
-export const RULES: CountingRule[] = [fptp, sainteLague, instantRunoff, approval];
+// Round-2 (2026-06-09) expansion: 4 -> 6 rules. D'Hondt + Hamilton are
+// PR divisor variants (alongside Sainte-Lague) per Hans + Fowler
+// convergence verdict. Order in the array determines picker-card order
+// in the new MethodPicker drawer; FPTP first as the official baseline.
+export const RULES: CountingRule[] = [
+  fptp,
+  sainteLague,
+  dhondt,
+  hamilton,
+  instantRunoff,
+  approval,
+];
 
 export function ruleById(id: string): CountingRule {
   const r = RULES.find(x => x.id === id);
