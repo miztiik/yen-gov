@@ -48,6 +48,38 @@ FILE_CLASS = "datasets/data/entities/geo.csv"
 COUNTRY_ENTITY_ID = "IN"
 COUNTRY_NAME = "India"
 
+# Derived national-reference pseudo-entities (G31a, parent plan
+# section 20.11). These are NOT publisher-issued geographies -- they
+# are operator-computed aggregates of per-state values consumed by
+# chart renderers as the recessive grey reference line. They live in
+# geo.csv only because every observation row's ``entity_id`` must FK
+# into ``geo.csv.entity_id``; the IN-prefix namespace is reserved for
+# these aggregates so they cannot collide with publisher-issued slugs
+# (the only other IN-prefixed entity is the country root ``IN``).
+# parent=IN keeps the LGD ladder intact; entity_kind=country is the
+# closest semantic fit in the closed enum (the aggregates are
+# country-grain by construction).
+DERIVED_NATIONAL_REFERENCE_ENTITIES: tuple[dict[str, Any], ...] = (
+    {
+        "entity_id": "IN-pop-weighted",
+        "name": "India (population-weighted average)",
+        "parent": COUNTRY_ENTITY_ID,
+        "entity_kind": "country",
+        "aliases": None,
+        "census_2001_code": None,
+        "census_2011_code": None,
+    },
+    {
+        "entity_id": "IN-median",
+        "name": "India (median of states)",
+        "parent": COUNTRY_ENTITY_ID,
+        "entity_kind": "country",
+        "aliases": None,
+        "census_2001_code": None,
+        "census_2011_code": None,
+    },
+)
+
 
 def _read_json_list(path: Path, key: str) -> list[dict[str, Any]]:
     payload = json.loads(path.read_text(encoding="utf-8"))
@@ -164,6 +196,20 @@ def emit(
         }
     )
     seen.add(COUNTRY_ENTITY_ID)
+
+    # G31a: append the two operator-computed national-reference
+    # pseudo-entities. The IN-prefix namespace is reserved for these
+    # aggregates per parent plan section 20.11; chart renderers use
+    # them as the recessive grey reference line. See the module-level
+    # ``DERIVED_NATIONAL_REFERENCE_ENTITIES`` block for rationale.
+    for derived in DERIVED_NATIONAL_REFERENCE_ENTITIES:
+        if derived["entity_id"] in seen:
+            raise ValueError(
+                f"derived pseudo-entity id collides with existing entity: "
+                f"{derived['entity_id']!r}"
+            )
+        rows.append(dict(derived))
+        seen.add(str(derived["entity_id"]))
 
     state_slug_by_lgd_id: dict[int, str] = {}
     for entry in states:
