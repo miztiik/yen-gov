@@ -1,6 +1,6 @@
 # Electoral Hierarchy
 
-**Last Updated**: 2026-06-05
+**Last Updated**: 2026-06-09
 
 > Indian electoral geography is a layered hierarchy. Every Assembly Constituency (AC) sits inside exactly one Lok Sabha (Parliamentary) Constituency (PC), but its relationship to districts is many-valued: an AC usually lies within one district yet can span several (urban-rural boundary cases, and post-delimitation district carve-outs). yen-gov treats the AC->PC link as a single `parent`, and the AC/PC->district link as a 1:many membership table (`entities/electoral_district_membership.csv`, round-7). See the data-and-charting platform reset plan section 3.
 
@@ -164,6 +164,18 @@ pc_lookup: dict[tuple[str, str], tuple[str, int]] = {
 PC name is unique per `(state_slug, delim_year)` in the spine, so no collision. Emit `eci_no` verbatim into `candidacies.csv` (may be `0` if the spine doesn't know it) so the parity oracle can still bind. The same pattern applies to AC ingest (AC name is unique per `(state_slug, delim_year)`).
 
 Reference implementation: `backend/yen_gov/canonical/reingest/parliament_2024_eci.py` (G16, PR #836). The function `_build_pc_lookup` is the canonical example; copy it shape-for-shape for the next ECI raw cycle.
+
+### Alias policy (Hans verdict 2026-06-09)
+
+When the ECI raw publishes a PC under a name that does not match the LGD-canonical spine name (e.g. ECI `Bangalore North` vs spine `Bengaluru North`; ECI `JANJGIR-CHAMPA` vs spine `Janjgir Champa`; ECI `Patliputra` vs spine `Pataliputra`), the LGD name STAYS canonical in the `name` column on [`datasets/data/entities/electoral.csv`](../../datasets/data/entities/electoral.csv); the ECI-published variant is APPENDED pipe-delimited to the `aliases` column verbatim (preserve case + punctuation).
+
+The resolver normaliser at [`backend/yen_gov/canonical/name_normaliser.py`](../../backend/yen_gov/canonical/name_normaliser.py) handles case + whitespace + hyphen/underscore drift at query time (so `Mumbai North-East` and `Mumbai North East` and `MUMBAI NORTH EAST` all bind to the same spine row). Semantic content drift (rename, transliteration variant, publisher spelling) is bound via the `aliases` column — the normaliser deliberately does NOT bridge those.
+
+`_build_pc_lookup` walks BOTH the `name` column and each pipe-delimited entry in `aliases`, registering the same `(entity_id, eci_no)` payload under every normalised variant — so an ingest that emits an ECI-published alias resolves correctly without each adapter re-implementing alias-aware lookup.
+
+**Pre-emptive backfill of aliases is REJECTED**. Aliases are filled REACTIVELY per the named consumer: when a coverage receipt for an ingest run surfaces >5% unbound rows attributable to publisher-name drift (not genuine spine gaps), the BOUND subset is the trigger for the next alias backfill. Pre-mining publisher catalogues for hypothetical name variants is out of scope.
+
+Reference receipt: the G16 alias backfill PR added 36 aliases to PC rows from the LS2024 coverage receipt (originally 50 unbound — 36 publisher-name drift bound via this PR, 14 genuine spine gaps remaining: Delhi×7 + Chandigarh + A&N + Dadra-DNH + Mumbai South + Lucknow + Kolkata Dakshin/Uttar — those are out of scope and tracked separately as LGD-spine gaps). AC-grain alias backfill defers to a future AC-equivalent ingest (the 4189 AC rows currently carry no aliases; same reactive trigger applies).
 
 ## See also
 
