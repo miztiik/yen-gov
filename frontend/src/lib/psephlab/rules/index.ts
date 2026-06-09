@@ -4,8 +4,9 @@
 // Proportional (Sainte-Lague, state-wide), Ranked-choice (IRV with
 // uniform transfer), and Approval (cast = approval). Each carries a
 // `requires_banner: true` flag + a Hans-grade caveat that
-// HypotheticalRecountBanner surfaces above the seat panel; FPTP remains
-// the only rule that DOES NOT mount the banner.
+// ImaginingCard (the encouraging-tone successor to the retired
+// HypotheticalRecountBanner, 2026-06-09 redesign) surfaces above the
+// seat panel; FPTP remains the only rule that DOES NOT mount the card.
 
 import type { CountingRule } from "../types";
 import { fptp } from "./fptp";

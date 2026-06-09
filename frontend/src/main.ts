@@ -119,7 +119,26 @@ startRouter({
     // specific cohort's results in a specific state. Linked from the
     // `/s/<state>/t/elections` topic page's default-event card.
     { pattern: "/s/:state/elections/:event", component: StateElection },
+    // Method-first Psephlab route (2026-06-09 redesign, Fowler verdict).
+    // 4-segment pattern - distinct from the 3-segment bare lab route by
+    // segment count + literal `m`. The method_id is opaque to the router
+    // and resolved at render time via `ruleById(method_id)`. Placed
+    // BEFORE the 3-segment bare route so a more-specific match wins on
+    // any router ordering policy.
+    {
+      pattern: "/lab/:state/:event/m/:method",
+      component: Psephlab,
+      parse: ({ state, event, method }) => ({ state, event, method }),
+    },
     { pattern: "/lab/:state/:event", component: Psephlab },
+    // Method-aware Compare (2026-06-09 redesign). Same 4-segment shape
+    // as labMethod above; both sides share the active method per Fowler
+    // verdict (per-side method override deferred).
+    {
+      pattern: "/compare/:state/:event/m/:method",
+      component: Compare,
+      parse: ({ state, event, method }) => ({ state, event, method }),
+    },
     { pattern: "/compare/:state/:event", component: Compare },
     // Generic indicator Compare (P4) — sits alongside the more-specific
     // election Compare above; the two patterns don't overlap.
