@@ -229,7 +229,12 @@ export interface SeatAllocation {
    * Required by Mixed-Member Proportional (MMP), which keeps all
    * constituency winners AND adds list-tier seats - the chamber grows
    * by the list-tier count (round-2 addition). Every other rule omits
-   * this field; the host (Psephlab.svelte) reads it via\n   * `allocation.chamber_seats ?? tallies.acs.length` so ParliamentArc +\n   * majority math + summary strip stay consistent.\n   */\n  chamber_seats?: number;\n}
+   * this field; the host (Psephlab.svelte) reads it via
+   * `allocation.chamber_seats ?? tallies.acs.length` so ParliamentArc +
+   * majority math + summary strip stay consistent.
+   */
+  chamber_seats?: number;
+}
 
 /**
  * Validity tier for a counting rule. Surfaced inline on the MethodPicker

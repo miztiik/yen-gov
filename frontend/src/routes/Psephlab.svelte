@@ -37,8 +37,9 @@
   import { partyColourHex } from "../lib/psephlab/colour-bridge";
   import ParliamentArc from "../lib/ParliamentArc.svelte";
   import SwingSankey from "../lib/SwingSankey.svelte";
-  import ImaginingCard from "../lib/ImaginingCard.svelte";
-  import MethodTabs from "../lib/MethodTabs.svelte";
+  import MethodPickerPill from "../lib/MethodPickerPill.svelte";
+  import MethodDrawer from "../lib/MethodDrawer.svelte";
+  import HeroExplanation from "../lib/HeroExplanation.svelte";
   import ContextLabel from "../lib/ContextLabel.svelte";
   import GallagherDisproportionality from "../lib/charts/GallagherDisproportionality.svelte";
   import { states } from "../lib/states.svelte";
@@ -46,6 +47,7 @@
   import TopicIcon from "../lib/TopicIcon.svelte";
   import { docsUrl } from "../lib/repo";
   import { majorityFor } from "../lib/electoral";
+  import { fade } from "svelte/transition";
   import {
     fetchElectionEvents,
     findEvent,
@@ -127,9 +129,21 @@
       ? findEvent(event_catalogue, state_code, event)?.display ?? null
       : null,
   );
-  /** All 4 method options the tabs render. Empty array until the rule
-   *  registry resolves (always synchronous today). */
-  const method_tabs = $derived(RULES.map((r) => ({ id: r.id, label: r.label })));
+  /** All 12 method options the picker drawer renders. Carries each
+   *  rule's validity + headline + short_label so the drawer + pill
+   *  read the rule's own copy without a second translation layer. */
+  const method_options = $derived(
+    RULES.map((r) => ({
+      id: r.id,
+      label: r.label,
+      short_label: r.short_label,
+      headline: r.headline,
+      validity: r.validity,
+    })),
+  );
+
+  /** Drawer open/close state (host owns; drawer is purely controlled). */
+  let drawer_open = $state(false);
 
   // Persist scenario -> URL on every change. history.replaceState avoids
   // back-stack pollution; the path is owned by the router so we only
@@ -191,11 +205,19 @@
   });
 
   const total_seats = $derived(actuals?.acs.length ?? 0);
+  /** Active rule's effective chamber size (MMP grows past the
+   *  constituency count via overhang compensation; every other rule
+   *  uses total_seats as-is). Read from allocation.chamber_seats with
+   *  a fallback to constituency count. Used by ParliamentArc, the
+   *  majority computation, the summary strip, and the Actuals/Scenario
+   *  bar widths. */
+  const chamber_seats = $derived(result?.allocation.chamber_seats ?? total_seats);
   // Majority threshold = strictly more than half the seats (FPTP convention).
   // Shared helper from `lib/electoral` so Donut, Bar, ParliamentArc and
   // every Psephlab readout agree on the same number. For TN 234 it's 118;
-  // for Lok Sabha 543 it's 272.
-  const majority = $derived(majorityFor(total_seats));
+  // for Lok Sabha 543 it's 272. When MMP grows the chamber, majority
+  // adjusts (272 in 543 -> 353 in 705).
+  const majority = $derived(majorityFor(chamber_seats));
 
   // ----- Hide-party state (Phase 2 deselect) -----
   //
@@ -292,7 +314,7 @@
 </script>
 
 <div class="max-w-6xl mx-auto p-4 md:p-6 space-y-4">
-  <header class="space-y-2">
+  <header class="space-y-3">
     <p class="text-xs"><a class="text-slate-500 hover:underline" href={state_code ? url.state(state_code) : url.home()}>← {states.name(state_code)} overview</a></p>
     <div class="flex items-baseline justify-between gap-4 flex-wrap">
       <h1 class="text-2xl font-bold flex items-center gap-2">
@@ -301,21 +323,38 @@
       </h1>
     </div>
     <!--
-      Method-first nav (Jony + Fowler verdict, 2026-06-09). The counting
-      method moves from a footer dropdown to a top-of-page segmented
-      control: "a counting method is a room, not a setting." Selecting
-      a tab navigates to /lab/<state>/<event>/m/<method-id> via
-      url.labMethod (strangler-fig EXPAND; the bare 3-segment URL still
-      defaults to FPTP).
+      Method-first nav v2 (Jony + Fowler + Hans verdict round 2,
+      2026-06-09). The 4-method horizontal-scroll segmented control
+      (MethodTabs) retires - 12 methods do not fit that affordance.
+      The pill + drawer pattern scales: one button + categorised cards
+      in a native <dialog> bottom-sheet on mobile / modal-sheet on
+      desktop. URL still telegraphs the active method as
+      `/lab/<state>/<event>/m/<method-id>`.
     -->
-    <MethodTabs
-      methods={method_tabs}
+    <div class="flex items-center justify-between gap-3 flex-wrap">
+      <MethodPickerPill
+        active_label={current_rule.short_label ?? current_rule.label}
+        onopen={() => (drawer_open = true)}
+      />
+      <a
+        class="text-xs font-medium hover:underline inline-flex items-center gap-1"
+        style:color="var(--accent, #3538cd)"
+        href={url.docsLabMethod(current_rule.id)}
+      >
+        <span>Read about counting methods</span>
+        <span aria-hidden="true">-&gt;</span>
+      </a>
+    </div>
+    <MethodDrawer
+      methods={method_options}
       active_method_id={scenario.rule}
+      open={drawer_open}
       onpick={selectMethod}
+      onclose={() => (drawer_open = false)}
     />
     <ContextLabel
       election_display={election_display}
-      seat_count={total_seats}
+      seat_count={chamber_seats}
       rule_id={scenario.rule}
       rule_label={current_rule.label}
       mutation_count={scenario.mutations.length}
@@ -329,38 +368,136 @@
   {:else if !actuals || !result}
     <div class="text-slate-500 p-8 text-center">Loading actuals…</div>
   {:else}
-    <div class="grid lg:grid-cols-[360px_1fr] gap-4 items-start">
-      <!-- ============== What-ifs panel ============== -->
-      <section class="bg-white rounded-lg shadow-sm p-4 space-y-3 lg:sticky lg:top-4">
-        <div class="flex items-center justify-between gap-2">
-          <h2 class="text-sm font-semibold uppercase text-slate-500">What-ifs</h2>
-          <select
-            class="text-xs rounded border-slate-300 py-1 px-2"
-            value=""
-            onchange={(e) => {
-              const v = (e.target as HTMLSelectElement).value;
-              if (v) { addMutation(v); (e.target as HTMLSelectElement).value = ""; }
-            }}
-          >
-            <option value="">+ Add what-if...</option>
-            {#each applicable_mutations as m}
-              <option value={m.id}>{m.label}</option>
-            {/each}
-          </select>
+    <!--
+      Full-width hero explanation (Jony + Hans round-2 verdict). Sits
+      above the chamber so the citizen reads top-to-bottom: which
+      election, which rule, what it does, what it looks like. FPTP
+      gets the card too (round-1 missed this teaching moment); the
+      `is_official` flag drops the civic-indigo rail + validity badge
+      for the baseline rule.
+    -->
+    <HeroExplanation
+      method_label={current_rule.short_label ?? current_rule.label}
+      headline={current_rule.headline ?? `Explore the seats under ${current_rule.label}.`}
+      caveat={current_rule.caveat}
+      validity={current_rule.validity}
+      assumptions={current_rule.assumptions ?? []}
+      official_result_label={official_result_label}
+      docs_href={url.docsLabMethod(current_rule.id)}
+      is_official={current_rule.id === "fptp"}
+    />
+
+    <!--
+      Single-column chamber-first layout (Jony round-2 verdict). The
+      sticky 360px left rail retires; mutations move to a horizontal
+      Workbench below the arc. Full canvas width for the result.
+    -->
+    <section class="space-y-4 min-w-0">
+      <!-- Compact summary strip -->
+      <div class="bg-white rounded-lg shadow-sm p-4 grid grid-cols-3 gap-4 text-sm">
+        <div>
+          <div class="text-[10px] uppercase tracking-wide text-slate-500">Total seats</div>
+          <div class="text-lg font-semibold tabular-nums">{chamber_seats}</div>
+        </div>
+        <div>
+          <div class="text-[10px] uppercase tracking-wide text-slate-500">Majority mark</div>
+          <div class="text-lg font-semibold tabular-nums">{majority}</div>
+        </div>
+        <div>
+          <div class="text-[10px] uppercase tracking-wide text-slate-500">Total votes</div>
+          <div class="text-lg font-semibold tabular-nums">{result.allocation.total_votes.toLocaleString()}</div>
+        </div>
+      </div>
+
+      <!--
+        ParliamentArc - full width. {#key scenario.rule} forces a fresh
+        mount on method switch so Svelte's in:fade animates the new
+        chamber painting in. Duration token --dur (200ms); collapses
+        to ~1ms under prefers-reduced-motion via the same token
+        override that already governs --dur globally.
+      -->
+      <div class="bg-white rounded-lg shadow-sm p-4">
+        <div class="flex items-baseline justify-between mb-2 gap-2">
+          <h3 class="text-sm font-semibold uppercase text-slate-500">Scenario seats</h3>
+          {#if hidden_parties.size > 0}
+            <button
+              class="text-xs text-blue-600 hover:underline"
+              onclick={() => (hidden_parties = new Set())}
+            >Show all ({hidden_parties.size} muted)</button>
+          {:else}
+            <span class="text-xs text-slate-400">Click a legend chip to mute &middot; resets on first mutation</span>
+          {/if}
+        </div>
+        {#key scenario.rule}
+          <div in:fade={{ duration: 200 }}>
+            <ParliamentArc
+              parties={result.allocation.by_party}
+              total_seats={chamber_seats}
+              {hidden_parties}
+              onToggleHidden={togglePartyHidden}
+            />
+          </div>
+        {/key}
+      </div>
+
+      <!--
+        Horizontal Workbench (Jony round-2 verdict, user ask #5).
+        Mutation cards are flex-wrap items at ~280-360px wide; on lg
+        we get 2-3 columns; mobile stacks. Each card keeps its existing
+        per-mutation editor body - the layout change is the
+        container, not the editor surface.
+      -->
+      <section class="bg-white rounded-lg shadow-sm p-4 space-y-3" data-component="workbench">
+        <div class="flex items-center justify-between gap-2 flex-wrap">
+          <h2 class="text-sm font-semibold uppercase text-slate-500">
+            What-ifs <span class="text-slate-400 font-normal normal-case">({scenario.mutations.length} applied)</span>
+          </h2>
+          <div class="flex items-center gap-2">
+            <select
+              class="text-xs rounded border-slate-300 py-1 px-2"
+              value=""
+              onchange={(e) => {
+                const v = (e.target as HTMLSelectElement).value;
+                if (v) { addMutation(v); (e.target as HTMLSelectElement).value = ""; }
+              }}
+            >
+              <option value="">+ Add what-if...</option>
+              {#each applicable_mutations as m}
+                <option value={m.id}>{m.label}</option>
+              {/each}
+            </select>
+            <button
+              class="text-xs rounded border border-slate-300 py-1 px-3 hover:bg-slate-50"
+              onclick={copyShareUrl}
+              title="Copy the share URL with this scenario encoded"
+            >
+              {share_state === "copied" ? "Copied" : share_state === "failed" ? "Copy failed" : "Copy share URL"}
+            </button>
+            {#if scenario.mutations.length > 0}
+              <button
+                class="text-xs rounded border border-slate-300 py-1 px-3 hover:bg-slate-50"
+                onclick={resetScenario}
+              >Reset</button>
+            {/if}
+          </div>
         </div>
 
         {#if scenario.mutations.length === 0}
           <p class="text-xs text-slate-500 italic">
-            No what-ifs yet. The result mirrors the actuals; add one above to start exploring.
+            No what-ifs yet. Use the menu above to add a swing, threshold drop, or party bag - and watch the chamber re-paint.
           </p>
         {/if}
 
-        <ul class="space-y-3">
+        <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3" data-component="workbench-cards">
           {#each scenario.mutations as cfg, i (i + ':' + cfg.id)}
             {@const plug = mutationById(cfg.id)}
             {@const inert_reason = inertReasonFor(cfg, scenario.rule)}
             <li
-              class="border rounded p-2 space-y-2 {inert_reason ? 'bg-amber-50 border-amber-200' : 'bg-slate-50/50 border-slate-200'}"
+              class="border rounded p-2 space-y-2"
+              class:bg-amber-50={inert_reason !== null}
+              class:border-amber-200={inert_reason !== null}
+              class:bg-slate-50={inert_reason === null}
+              class:border-slate-200={inert_reason === null}
             >
               {#if inert_reason}
                 <p class="text-[11px] text-amber-900 leading-snug">
@@ -554,85 +691,14 @@
             </li>
           {/each}
         </ul>
-
-        <div class="pt-2 border-t border-slate-200 space-y-2">
-          <!--
-            Counting rule moved to the top-of-page MethodTabs (2026-06-09
-            redesign per Jony + Fowler verdict). Methods are now navigable
-            primary nav, not a footer setting; the URL telegraphs the
-            active method as `/lab/<state>/<event>/m/<method-id>`.
-          -->
-          <div class="flex gap-2">
-            <button
-              class="flex-1 text-xs rounded border border-slate-300 py-1.5 hover:bg-slate-50"
-              onclick={copyShareUrl}
-            >
-              {share_state === "copied" ? "Copied" : share_state === "failed" ? "Copy failed" : "Copy share URL"}
-            </button>
-            <button
-              class="text-xs rounded border border-slate-300 py-1.5 px-3 hover:bg-slate-50"
-              onclick={resetScenario}
-            >Reset</button>
-          </div>
-        </div>
       </section>
 
-      <!-- ============== Result canvas ============== -->
-      <section class="space-y-4 min-w-0">
-        <!-- Compact summary strip -->
-        <div class="bg-white rounded-lg shadow-sm p-4 grid grid-cols-3 gap-4 text-sm">
-          <div>
-            <div class="text-[10px] uppercase tracking-wide text-slate-500">Total seats</div>
-            <div class="text-lg font-semibold">{total_seats}</div>
-          </div>
-          <div>
-            <div class="text-[10px] uppercase tracking-wide text-slate-500">Majority mark</div>
-            <div class="text-lg font-semibold">{majority}</div>
-          </div>
-          <div>
-            <div class="text-[10px] uppercase tracking-wide text-slate-500">Mutated total votes</div>
-            <div class="text-lg font-semibold">{result.allocation.total_votes.toLocaleString()}</div>
-          </div>
-        </div>
-
-        <!-- Parliament arc -->
+      <!-- Vote-flow Sankey + E7 Gallagher disproportionality side by side -->
+      <div class="grid md:grid-cols-2 gap-4">
         <div class="bg-white rounded-lg shadow-sm p-4">
-          {#if current_rule.requires_banner}
-            <div class="mb-3">
-              <ImaginingCard
-                method={current_rule.label}
-                assumptions={current_rule.assumptions}
-                official_result_label={official_result_label}
-                docs_href={url.docsLabMethod(current_rule.id)}
-              />
-            </div>
-          {/if}
-          <div class="flex items-baseline justify-between mb-2 gap-2">
-            <h3 class="text-sm font-semibold uppercase text-slate-500">Scenario seats</h3>
-            {#if hidden_parties.size > 0}
-              <button
-                class="text-xs text-blue-600 hover:underline"
-                onclick={() => (hidden_parties = new Set())}
-              >Show all ({hidden_parties.size} muted)</button>
-            {:else}
-              <span class="text-xs text-slate-400">Click a legend chip to mute &middot; resets on first mutation</span>
-            {/if}
-          </div>
-          <ParliamentArc
-            parties={result.allocation.by_party}
-            total_seats={total_seats}
-            {hidden_parties}
-            onToggleHidden={togglePartyHidden}
-          />
-        </div>
-
-        <!-- Vote-flow Sankey -->
-        <div class="bg-white rounded-lg shadow-sm p-4">
-          <h3 class="text-sm font-semibold uppercase text-slate-500 mb-2">Vote flow (actuals → scenario)</h3>
+          <h3 class="text-sm font-semibold uppercase text-slate-500 mb-2">Vote flow (actuals -&gt; scenario)</h3>
           <SwingSankey actuals={result.actuals_allocation.by_party} scenario={result.allocation.by_party} />
         </div>
-
-        <!-- E7 Gallagher disproportionality of the official FPTP system -->
         {#if fptp_official}
           <div class="bg-white rounded-lg shadow-sm p-4">
             <h3 class="text-sm font-semibold uppercase text-slate-500 mb-3">
@@ -649,97 +715,97 @@
             />
           </div>
         {/if}
+      </div>
 
-        <!-- Before / After party bar -->
-        <div class="grid md:grid-cols-2 gap-4">
-          <div class="bg-white rounded-lg shadow-sm p-4">
-            <h3 class="text-sm font-semibold uppercase text-slate-500 mb-3">Actuals</h3>
-            <ul class="space-y-1.5">
-              {#each ranked_parties.act as p (p.party_eci_code)}
-                <li class="flex items-center gap-2 text-xs">
-                  <span class="w-16 text-right truncate font-medium" title={p.party_short}>{p.party_short}</span>
-                  <span class="relative flex-1 h-5 bg-slate-100 rounded">
-                    <span
-                      class="absolute inset-y-0 left-0 rounded transition-[width] duration-300"
-                      style:width="{(p.seats_won / Math.max(1, total_seats)) * 100}%"
-                      style:background-color={partyColourHex(p)}
-                    ></span>
-                    <span class="absolute inset-y-0 px-2 flex items-center text-[10px] font-semibold text-slate-900">{p.seats_won}</span>
-                  </span>
-                </li>
-              {/each}
-            </ul>
-          </div>
-
-          <div class="bg-white rounded-lg shadow-sm p-4">
-            <h3 class="text-sm font-semibold uppercase text-slate-500 mb-3">Scenario</h3>
-            <ul class="space-y-1.5">
-              {#each ranked_parties.mut as p (p.party_eci_code)}
-                {@const delta = deltaFor(p.party_eci_code)}
-                <li class="flex items-center gap-2 text-xs">
-                  <span class="w-16 text-right truncate font-medium" title={p.party_short}>{p.party_short}</span>
-                  <span class="relative flex-1 h-5 bg-slate-100 rounded">
-                    <span
-                      class="absolute inset-y-0 left-0 rounded transition-[width] duration-300"
-                      style:width="{(p.seats_won / Math.max(1, total_seats)) * 100}%"
-                      style:background-color={partyColourHex(p)}
-                    ></span>
-                    <span class="absolute inset-y-0 px-2 flex items-center text-[10px] font-semibold text-slate-900">{p.seats_won}</span>
-                  </span>
+      <!-- Before / After party bar -->
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white rounded-lg shadow-sm p-4">
+          <h3 class="text-sm font-semibold uppercase text-slate-500 mb-3">Actuals</h3>
+          <ul class="space-y-1.5">
+            {#each ranked_parties.act as p (p.party_eci_code)}
+              <li class="flex items-center gap-2 text-xs">
+                <span class="w-16 text-right truncate font-medium" title={p.party_short}>{p.party_short}</span>
+                <span class="relative flex-1 h-5 bg-slate-100 rounded">
                   <span
-                    class="w-10 text-right font-mono text-[11px]"
-                    class:text-emerald-700={delta > 0}
-                    class:text-rose-700={delta < 0}
-                    class:text-slate-400={delta === 0}
-                  >
-                    {delta > 0 ? '+' : ''}{delta}
-                  </span>
-                </li>
-              {/each}
-            </ul>
-          </div>
+                    class="absolute inset-y-0 left-0 rounded transition-[width] duration-300"
+                    style:width="{(p.seats_won / Math.max(1, total_seats)) * 100}%"
+                    style:background-color={partyColourHex(p)}
+                  ></span>
+                  <span class="absolute inset-y-0 px-2 flex items-center text-[10px] font-semibold text-slate-900">{p.seats_won}</span>
+                </span>
+              </li>
+            {/each}
+          </ul>
         </div>
 
-        <!-- Detailed delta table -->
-        <div class="bg-white rounded-lg shadow-sm p-4 overflow-x-auto">
-          <h3 class="text-sm font-semibold uppercase text-slate-500 mb-3">Party deltas</h3>
-          <table class="w-full text-xs">
-            <thead class="text-slate-500">
-              <tr class="border-b border-slate-200">
-                <th class="text-left py-1 pr-3">Party</th>
-                <th class="text-right py-1 px-2">Actual seats</th>
-                <th class="text-right py-1 px-2">Scenario seats</th>
-                <th class="text-right py-1 px-2">Δ seats</th>
-                <th class="text-right py-1 px-2">Scenario votes</th>
-                <th class="text-right py-1 pl-2">Scenario %</th>
-              </tr>
-            </thead>
-            <tbody>
-              {#each result.allocation.by_party.filter(p => p.seats_won > 0 || p.vote_share_pct >= 0.5) as p (p.party_eci_code)}
-                {@const delta = deltaFor(p.party_eci_code)}
-                {@const act = result.actuals_allocation.by_party.find(x => x.party_eci_code === p.party_eci_code)}
-                <tr class="border-b border-slate-100 hover:bg-slate-50">
-                  <td class="py-1 pr-3 font-medium" style:color={partyColourHex(p)}>
-                    {p.party_short}
-                  </td>
-                  <td class="text-right tabular-nums px-2">{act?.seats_won ?? 0}</td>
-                  <td class="text-right tabular-nums px-2 font-semibold">{p.seats_won}</td>
-                  <td
-                    class="text-right tabular-nums px-2"
-                    class:text-emerald-700={delta > 0}
-                    class:text-rose-700={delta < 0}
-                    class:text-slate-400={delta === 0}
-                  >
-                    {delta > 0 ? '+' : ''}{delta}
-                  </td>
-                  <td class="text-right tabular-nums px-2">{p.votes.toLocaleString()}</td>
-                  <td class="text-right tabular-nums pl-2">{p.vote_share_pct.toFixed(2)}</td>
-                </tr>
-              {/each}
-            </tbody>
-          </table>
+        <div class="bg-white rounded-lg shadow-sm p-4">
+          <h3 class="text-sm font-semibold uppercase text-slate-500 mb-3">Scenario</h3>
+          <ul class="space-y-1.5">
+            {#each ranked_parties.mut as p (p.party_eci_code)}
+              {@const delta = deltaFor(p.party_eci_code)}
+              <li class="flex items-center gap-2 text-xs">
+                <span class="w-16 text-right truncate font-medium" title={p.party_short}>{p.party_short}</span>
+                <span class="relative flex-1 h-5 bg-slate-100 rounded">
+                  <span
+                    class="absolute inset-y-0 left-0 rounded transition-[width] duration-300"
+                    style:width="{(p.seats_won / Math.max(1, chamber_seats)) * 100}%"
+                    style:background-color={partyColourHex(p)}
+                  ></span>
+                  <span class="absolute inset-y-0 px-2 flex items-center text-[10px] font-semibold text-slate-900">{p.seats_won}</span>
+                </span>
+                <span
+                  class="w-10 text-right font-mono text-[11px]"
+                  class:text-emerald-700={delta > 0}
+                  class:text-rose-700={delta < 0}
+                  class:text-slate-400={delta === 0}
+                >
+                  {delta > 0 ? '+' : ''}{delta}
+                </span>
+              </li>
+            {/each}
+          </ul>
         </div>
-      </section>
-    </div>
+      </div>
+
+      <!-- Detailed delta table -->
+      <div class="bg-white rounded-lg shadow-sm p-4 overflow-x-auto">
+        <h3 class="text-sm font-semibold uppercase text-slate-500 mb-3">Party deltas</h3>
+        <table class="w-full text-xs">
+          <thead class="text-slate-500">
+            <tr class="border-b border-slate-200">
+              <th class="text-left py-1 pr-3">Party</th>
+              <th class="text-right py-1 px-2">Actual seats</th>
+              <th class="text-right py-1 px-2">Scenario seats</th>
+              <th class="text-right py-1 px-2">Delta seats</th>
+              <th class="text-right py-1 px-2">Scenario votes</th>
+              <th class="text-right py-1 pl-2">Scenario %</th>
+            </tr>
+          </thead>
+          <tbody>
+            {#each result.allocation.by_party.filter(p => p.seats_won > 0 || p.vote_share_pct >= 0.5) as p (p.party_eci_code)}
+              {@const delta = deltaFor(p.party_eci_code)}
+              {@const act = result.actuals_allocation.by_party.find(x => x.party_eci_code === p.party_eci_code)}
+              <tr class="border-b border-slate-100 hover:bg-slate-50">
+                <td class="py-1 pr-3 font-medium" style:color={partyColourHex(p)}>
+                  {p.party_short}
+                </td>
+                <td class="text-right tabular-nums px-2">{act?.seats_won ?? 0}</td>
+                <td class="text-right tabular-nums px-2 font-semibold">{p.seats_won}</td>
+                <td
+                  class="text-right tabular-nums px-2"
+                  class:text-emerald-700={delta > 0}
+                  class:text-rose-700={delta < 0}
+                  class:text-slate-400={delta === 0}
+                >
+                  {delta > 0 ? '+' : ''}{delta}
+                </td>
+                <td class="text-right tabular-nums px-2">{p.votes.toLocaleString()}</td>
+                <td class="text-right tabular-nums pl-2">{p.vote_share_pct.toFixed(2)}</td>
+              </tr>
+            {/each}
+          </tbody>
+        </table>
+      </div>
+    </section>
   {/if}
 </div>
