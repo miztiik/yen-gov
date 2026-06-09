@@ -1,0 +1,151 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-puducherry-4104,puducherry,2026,1,MANNADIPET,A. Namassivayam,parties.IN.BJP,BJP,15918,53.96,1,won,M,56,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4104,puducherry,2026,1,MANNADIPET,T.p.r. Selvame,parties.IN.INC,INC,9808,33.25,2,lost,M,54,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4104,puducherry,2026,1,MANNADIPET,K. Bharathithasan,parties.IN.TVK,TVK,3032,10.28,3,lost,M,44,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4104,puducherry,2026,1,MANNADIPET,B. Venkatesan,parties.IN.NTK,NTK,260,0.88,4,lost,M,51,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4104,puducherry,2026,1,MANNADIPET,J. Yuvaraj,parties.IN.IND,IND,147,0.5,5,lost,M,29,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4117,puducherry,2026,2,THIRUBHUVANAI (SC),Ak. Sai J Saravanan Kumar,parties.IN.TVK,TVK,9740,32.15,1,won,M,53,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4117,puducherry,2026,2,THIRUBHUVANAI (SC),B. Kobiga,parties.IN.AINRC,AINRC,9039,29.83,2,lost,F,43,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4117,puducherry,2026,2,THIRUBHUVANAI (SC),P. Angalane,parties.IN.DMK,DMK,6630,21.88,3,lost,M,57,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4117,puducherry,2026,2,THIRUBHUVANAI (SC),K. Velu,parties.IN.INC,INC,3561,11.75,4,lost,M,49,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4117,puducherry,2026,2,THIRUBHUVANAI (SC),K. Ranjit,parties.IN.NTK,NTK,335,1.11,5,lost,M,30,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4113,puducherry,2026,3,OUSSUDU (SC),P. Karthikeyan,parties.IN.INC,INC,15400,49.2,1,won,M,50,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4113,puducherry,2026,3,OUSSUDU (SC),E. Theeppainthan,parties.IN.BJP,BJP,11382,36.36,2,lost,M,60,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4113,puducherry,2026,3,OUSSUDU (SC),S. Saraganabava,parties.IN.TVK,TVK,3698,11.81,3,lost,M,45,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4113,puducherry,2026,3,OUSSUDU (SC),Gowri,parties.IN.NTK,NTK,458,1.46,4,lost,F,30,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4113,puducherry,2026,3,OUSSUDU (SC),P. Ariapoutry,parties.IN.VCK,VCK,90,0.29,5,lost,M,65,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4103,puducherry,2026,4,MANGALAM,N. Rangasamy,parties.IN.AINRC,AINRC,17917,50.61,1,won,M,75,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4103,puducherry,2026,4,MANGALAM,S.s. Rangan,parties.IN.DMK,DMK,10867,30.69,2,lost,M,74,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4103,puducherry,2026,4,MANGALAM,M.k. Sathia Manikkavasagane,parties.IN.TVK,TVK,4202,11.87,3,lost,F,36,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4103,puducherry,2026,4,MANGALAM,K. Ragubady,parties.IN.INC,INC,1414,3.99,4,lost,M,45,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4103,puducherry,2026,4,MANGALAM,M. Subramani,parties.IN.NTK,NTK,447,1.26,5,lost,M,43,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4119,puducherry,2026,5,VILLIANUR,B.ravicoumar,parties.IN.AINRC,AINRC,16970,43.13,1,won,M,48,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4119,puducherry,2026,5,VILLIANUR,R.siva,parties.IN.DMK,DMK,15000,38.12,2,lost,M,59,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4119,puducherry,2026,5,VILLIANUR,R.ramesh,parties.IN.TVK,TVK,6248,15.88,3,lost,M,42,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4119,puducherry,2026,5,VILLIANUR,D.ramesh,parties.IN.NTK,NTK,518,1.32,4,lost,M,50,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4119,puducherry,2026,5,VILLIANUR,V.krishnamoorthy,parties.IN.PMK,PMK,82,0.21,5,lost,M,46,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4114,puducherry,2026,6,OZHUKARAI,K.narayanasamy Alias Nithyanandam,parties.IN.AINRC,AINRC,12635,35.2,1,won,M,37,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4114,puducherry,2026,6,OZHUKARAI,Sasibalan,parties.IN.TVK,TVK,8401,23.41,2,lost,M,42,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4114,puducherry,2026,6,OZHUKARAI,N. Saravanan,parties.IN.IND,IND,7446,20.74,3,lost,M,45,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4114,puducherry,2026,6,OZHUKARAI,M. Sivasankar,parties.IN.INC,INC,3709,10.33,4,lost,M,65,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4114,puducherry,2026,6,OZHUKARAI,Pushpalatha,parties.IN.VCK,VCK,1142,3.18,5,lost,F,43,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci7,puducherry,2026,7,KADIRGAMAM,Azhagu @ Azhaganantham,parties.IN.IND,IND,14633,51.35,1,won,M,46,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci7,puducherry,2026,7,KADIRGAMAM,K.s.p @ S. Ramesh,parties.IN.AINRC,AINRC,7629,26.77,2,lost,M,47,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci7,puducherry,2026,7,KADIRGAMAM,Jayanthi Rajavelu,parties.IN.TVK,TVK,3024,10.61,3,lost,F,51,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci7,puducherry,2026,7,KADIRGAMAM,A. P. R. Vadivel,parties.IN.DMK,DMK,2417,8.48,4,lost,M,45,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci7,puducherry,2026,7,KADIRGAMAM,T. Subasri Tamilselvan,parties.IN.NTK,NTK,427,1.5,5,lost,F,45,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci8,puducherry,2026,8,INDIRA NAGAR,P.v. Aroumougame @ Akd,parties.IN.AINRC,AINRC,12640,42.13,1,won,M,61,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci8,puducherry,2026,8,INDIRA NAGAR,S. Mourougane,parties.IN.TVK,TVK,12056,40.19,2,lost,M,58,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci8,puducherry,2026,8,INDIRA NAGAR,N. Rajakumar,parties.IN.INC,INC,2104,7.01,3,lost,M,46,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci8,puducherry,2026,8,INDIRA NAGAR,G. Robert Jesudass,parties.IN.IND,IND,1946,6.49,4,lost,M,55,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci8,puducherry,2026,8,INDIRA NAGAR,T. Devika,parties.IN.NTK,NTK,675,2.25,5,lost,F,53,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4116,puducherry,2026,9,THATTANCHAVADY,N. Rangasamy,parties.IN.AINRC,AINRC,10024,42.51,1,won,M,75,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4116,puducherry,2026,9,THATTANCHAVADY,E. Vinayagam,parties.IN.NYMK,NYMK,5583,23.68,2,lost,M,49,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4116,puducherry,2026,9,THATTANCHAVADY,K. Sethu @ Sethuselvam,parties.IN.IND,IND,3984,16.9,3,lost,M,54,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4116,puducherry,2026,9,THATTANCHAVADY,Ve. Vaithilingam,parties.IN.INC,INC,2990,12.68,4,lost,M,75,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4116,puducherry,2026,9,THATTANCHAVADY,S. Karthi Kumari,parties.IN.NTK,NTK,534,2.26,5,lost,F,40,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci10,puducherry,2026,10,KAMARAJ NAGAR,Jose Charles Martin,parties.IN.LJK,LJK,16592,53.14,1,won,M,37,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci10,puducherry,2026,10,KAMARAJ NAGAR,P.k. Devadoss,parties.IN.INC,INC,6387,20.45,2,lost,M,68,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci10,puducherry,2026,10,KAMARAJ NAGAR,Suman,parties.IN.TVK,TVK,6289,20.14,3,lost,M,39,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci10,puducherry,2026,10,KAMARAJ NAGAR,B. Cowri,parties.IN.NTK,NTK,693,2.22,4,lost,F,41,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci10,puducherry,2026,10,KAMARAJ NAGAR,S. Lenin Durai,parties.IN.SUCI,SUCI,299,0.96,5,lost,M,52,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4100,puducherry,2026,11,LAWSPET,V.p. Sivakolundhu,parties.IN.AINRC,AINRC,10578,39.52,1,won,M,74,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4100,puducherry,2026,11,LAWSPET,M. Vaithianathan,parties.IN.INC,INC,9161,34.23,2,lost,M,52,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4100,puducherry,2026,11,LAWSPET,V. Saminathan,parties.IN.TVK,TVK,5647,21.1,3,lost,M,56,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4100,puducherry,2026,11,LAWSPET,S. Jayachitra,parties.IN.NTK,NTK,433,1.62,4,lost,F,35,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4100,puducherry,2026,11,LAWSPET,R. Rajangam,parties.IN.CPIM,CPI(M),301,1.12,5,lost,M,63,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4096,puducherry,2026,12,KALAPET,Senthil @ Ramesh,parties.IN.DMK,DMK,12069,38.26,1,won,M,50,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4096,puducherry,2026,12,KALAPET,P.m.l. Kalyanasundaram,parties.IN.BJP,BJP,11622,36.84,2,lost,M,48,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4096,puducherry,2026,12,KALAPET,D. Sasikumar,parties.IN.TVK,TVK,4775,15.14,3,lost,M,45,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4096,puducherry,2026,12,KALAPET,M.o.h.f. Shahjahan,parties.IN.INC,INC,1990,6.31,4,lost,M,62,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4096,puducherry,2026,12,KALAPET,K. Kamaraj,parties.IN.NTK,NTK,639,2.03,5,lost,M,41,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci13,puducherry,2026,13,MUTHIALPET,Vaiyapuri Manikandan,parties.IN.AINRC,AINRC,8382,35.58,1,won,M,44,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci13,puducherry,2026,13,MUTHIALPET,Eeram G. Rajendran,parties.IN.INC,INC,7430,31.54,2,lost,M,52,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci13,puducherry,2026,13,MUTHIALPET,J. Prakash Kumar,parties.IN.TVK,TVK,3611,15.33,3,lost,M,44,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci13,puducherry,2026,13,MUTHIALPET,M. Prabagaran,parties.IN.IND,IND,3285,13.94,4,lost,M,54,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci13,puducherry,2026,13,MUTHIALPET,M. Faritha Begum,parties.IN.NTK,NTK,315,1.34,5,lost,F,39,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci14,puducherry,2026,14,RAJ BHAVAN,Vignesh Kannan,parties.IN.DMK,DMK,7304,39.03,1,won,M,27,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci14,puducherry,2026,14,RAJ BHAVAN,V. P. Ramalingame,parties.IN.BJP,BJP,7017,37.49,2,lost,M,64,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci14,puducherry,2026,14,RAJ BHAVAN,V.j. Chandran,parties.IN.TVK,TVK,2361,12.61,3,lost,M,62,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci14,puducherry,2026,14,RAJ BHAVAN,R Kumaran,parties.IN.INC,INC,1538,8.22,4,lost,M,51,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci14,puducherry,2026,14,RAJ BHAVAN,S. Karpagavalli,parties.IN.NTK,NTK,213,1.14,5,lost,F,29,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci15,puducherry,2026,15,OUPALAM,A Anbalagan,,ADMK,9099,39.51,1,won,M,68,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci15,puducherry,2026,15,OUPALAM,S Siva,parties.IN.TVK,TVK,8073,35.05,2,lost,M,46,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci15,puducherry,2026,15,OUPALAM,Annibal Kennedy,parties.IN.DMK,DMK,5327,23.13,3,lost,M,61,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci15,puducherry,2026,15,OUPALAM,V Devipriya,parties.IN.NTK,NTK,326,1.42,4,lost,F,42,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci15,puducherry,2026,15,OUPALAM,Subramaniyan,,TMTHK,28,0.12,5,lost,M,43,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4111,puducherry,2026,16,ORLEAMPETH,G. Nehru Alias Couppoussamy,parties.IN.NYMK,NYMK,9960,50.83,1,won,M,61,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4111,puducherry,2026,16,ORLEAMPETH,S. Gopal,parties.IN.DMK,DMK,8759,44.7,2,lost,M,51,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4111,puducherry,2026,16,ORLEAMPETH,A. Gandhi,,ADMK,300,1.53,3,lost,M,55,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4111,puducherry,2026,16,ORLEAMPETH,Anitha Veerapan,parties.IN.NTK,NTK,184,0.94,4,lost,F,28,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4111,puducherry,2026,16,ORLEAMPETH,V. Hariharane,parties.IN.IND,IND,55,0.28,5,lost,M,50,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4108,puducherry,2026,17,NELLITHOPE,V. Cartigueyane,parties.IN.DMK,DMK,8226,33.21,1,won,M,59,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4108,puducherry,2026,17,NELLITHOPE,Omsakthisekar,parties.IN.IND,IND,7376,29.78,2,lost,M,65,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4108,puducherry,2026,17,NELLITHOPE,S. Vigneshwaran,parties.IN.TVK,TVK,4763,19.23,3,lost,M,30,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4108,puducherry,2026,17,NELLITHOPE,A. Jayakumar,parties.IN.LJK,LJK,3311,13.37,4,lost,M,54,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4108,puducherry,2026,17,NELLITHOPE,Muth. Am. Sivakumar,parties.IN.NTK,NTK,392,1.58,5,lost,M,59,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4105,puducherry,2026,18,MUDALIARPET,A. Johnkumar,parties.IN.BJP,BJP,12945,41.49,1,won,M,60,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4105,puducherry,2026,18,MUDALIARPET,L. Sambath,parties.IN.DMK,DMK,10574,33.89,2,lost,M,46,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4105,puducherry,2026,18,MUDALIARPET,N. Manibalan,parties.IN.TVK,TVK,5906,18.93,3,lost,M,41,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4105,puducherry,2026,18,MUDALIARPET,M. Velavan,parties.IN.NTK,NTK,730,2.34,4,lost,M,33,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4105,puducherry,2026,18,MUDALIARPET,N. Annathurai,parties.IN.IND,IND,384,1.23,5,lost,M,43,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4091,puducherry,2026,19,ARIANKUPPAM,C. Aiyappan @ Mouttayappan,parties.IN.AINRC,AINRC,14210,41.18,1,won,M,49,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4091,puducherry,2026,19,ARIANKUPPAM,Vizayalakshmy Djeamourthy,parties.IN.INC,INC,13607,39.43,2,lost,F,55,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4091,puducherry,2026,19,ARIANKUPPAM,Kumaravelu,parties.IN.TVK,TVK,5424,15.72,3,lost,M,56,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4091,puducherry,2026,19,ARIANKUPPAM,K. Sundaravadivelu,parties.IN.NTK,NTK,462,1.34,4,lost,M,32,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4091,puducherry,2026,19,ARIANKUPPAM,Selvakumar .v,parties.IN.IND,IND,137,0.4,5,lost,M,49,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4102,puducherry,2026,20,MANAVELY,B.ramu,parties.IN.TVK,TVK,13822,42.68,1,won,M,65,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4102,puducherry,2026,20,MANAVELY,Embalam Selvam @ Selvam. R,parties.IN.BJP,BJP,10729,33.13,2,lost,M,61,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4102,puducherry,2026,20,MANAVELY,R K R. Anantharaman,parties.IN.INC,INC,5932,18.32,3,lost,M,53,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4102,puducherry,2026,20,MANAVELY,R. Perumal,parties.IN.IND,IND,754,2.33,4,lost,M,39,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4102,puducherry,2026,20,MANAVELY,M.s. Elangovan,parties.IN.NTK,NTK,589,1.82,5,lost,M,44,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4093,puducherry,2026,21,EMBALAM (SC),E. Mohandoss,parties.IN.AINRC,AINRC,16017,50.78,1,won,M,49,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4093,puducherry,2026,21,EMBALAM (SC),M. Candassamy,parties.IN.INC,INC,11956,37.91,2,lost,M,60,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4093,puducherry,2026,21,EMBALAM (SC),V. Tamilselvan,parties.IN.TVK,TVK,2708,8.59,3,lost,M,34,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4093,puducherry,2026,21,EMBALAM (SC),S. Manoj Chandar,parties.IN.NTK,NTK,303,0.96,4,lost,M,27,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4093,puducherry,2026,21,EMBALAM (SC),G. Ragu,parties.IN.IND,IND,232,0.74,5,lost,M,39,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4110,puducherry,2026,22,NETTAPAKKAM (SC),P. Rajavelu,parties.IN.AINRC,AINRC,13665,47.58,1,won,M,64,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4110,puducherry,2026,22,NETTAPAKKAM (SC),G. Anbarasan,parties.IN.INC,INC,6976,24.29,2,lost,M,39,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4110,puducherry,2026,22,NETTAPAKKAM (SC),L Periasamy,parties.IN.TVK,TVK,5382,18.74,3,lost,M,70,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4110,puducherry,2026,22,NETTAPAKKAM (SC),N Arikrishnan,parties.IN.IND,IND,1511,5.26,4,lost,M,62,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4110,puducherry,2026,22,NETTAPAKKAM (SC),S. Gnanapragash,parties.IN.NTK,NTK,309,1.08,5,lost,M,49,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4092,puducherry,2026,23,BAHOUR,R. Senthil Kumar,parties.IN.DMK,DMK,10520,38.32,1,won,M,47,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4092,puducherry,2026,23,BAHOUR,T. Thiagarajan,parties.IN.AINRC,AINRC,8123,29.59,2,lost,M,74,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4092,puducherry,2026,23,BAHOUR,N. Dhanavelou,parties.IN.TVK,TVK,8043,29.29,3,lost,M,59,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4092,puducherry,2026,23,BAHOUR,S. Naveena,parties.IN.NTK,NTK,265,0.97,4,lost,F,49,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4092,puducherry,2026,23,BAHOUR,A. Arulprakash @ Arul Oli,parties.IN.IND,IND,135,0.49,5,lost,M,37,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4107,puducherry,2026,24,NEDUNGADU (SC),Dr. V. Vigneswaran,parties.IN.IND,IND,14368,50.54,1,won,M,42,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4107,puducherry,2026,24,NEDUNGADU (SC),C. Chandira Priyanga,parties.IN.AINRC,AINRC,9869,34.71,2,lost,F,37,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4107,puducherry,2026,24,NEDUNGADU (SC),U. Kamaraj,parties.IN.TVK,TVK,1865,6.56,3,lost,M,39,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4107,puducherry,2026,24,NEDUNGADU (SC),Dinesh Kumar,parties.IN.INC,INC,1354,4.76,4,lost,M,42,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4107,puducherry,2026,24,NEDUNGADU (SC),A. Vignesh,parties.IN.NTK,NTK,510,1.79,5,lost,M,33,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4118,puducherry,2026,25,THIRUNALLAR,G.n.s. Rajasekaran,parties.IN.BJP,BJP,16829,60.18,1,won,M,58,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4118,puducherry,2026,25,THIRUNALLAR,R. Kamalakannan,parties.IN.INC,INC,7303,26.11,2,lost,M,68,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4118,puducherry,2026,25,THIRUNALLAR,A. Raja Mohamed,parties.IN.TVK,TVK,3201,11.45,3,lost,M,47,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4118,puducherry,2026,25,THIRUNALLAR,S. Vinoth,parties.IN.NTK,NTK,281,1,4,lost,M,41,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4118,puducherry,2026,25,THIRUNALLAR,Antho. John Peetter,parties.IN.IND,IND,77,0.28,5,lost,M,47,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4098,puducherry,2026,26,KARAIKAL NORTH,P.r.n. Thirumurugan,parties.IN.AINRC,AINRC,12731,43.59,1,won,M,54,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4098,puducherry,2026,26,KARAIKAL NORTH,A.m. Ranjith,parties.IN.INC,INC,10078,34.5,2,lost,M,29,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4098,puducherry,2026,26,KARAIKAL NORTH,A. Vengadesh,parties.IN.TVK,TVK,5033,17.23,3,lost,M,36,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4098,puducherry,2026,26,KARAIKAL NORTH,Muruganandam,parties.IN.IND,IND,516,1.77,4,lost,M,46,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4098,puducherry,2026,26,KARAIKAL NORTH,S. Anusuya,parties.IN.NTK,NTK,480,1.64,5,lost,F,39,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4099,puducherry,2026,27,KARAIKAL SOUTH,A.m.h. Nazeem,parties.IN.DMK,DMK,12543,49.15,1,won,M,63,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4099,puducherry,2026,27,KARAIKAL SOUTH,Avs Sakthivel Prabu,parties.IN.INC,INC,6681,26.18,2,lost,M,42,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4099,puducherry,2026,27,KARAIKAL SOUTH,K.a.u. Assana,parties.IN.TVK,TVK,4346,17.03,3,lost,M,71,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4099,puducherry,2026,27,KARAIKAL SOUTH,M. Arul Murugan,parties.IN.BJP,BJP,1354,5.31,4,lost,M,59,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4099,puducherry,2026,27,KARAIKAL SOUTH,S. Marie Anthuvan,parties.IN.NTK,NTK,283,1.11,5,lost,M,47,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4109,puducherry,2026,28,NERAVY-T.R.PATTINAM,Tksm Meenatchisundaram,parties.IN.BJP,BJP,10818,40.75,1,won,M,56,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4109,puducherry,2026,28,NERAVY-T.R.PATTINAM,M. Nagathiyagarajan (ntr),parties.IN.DMK,DMK,8800,33.15,2,lost,M,47,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4109,puducherry,2026,28,NERAVY-T.R.PATTINAM,V.m.c.s. Manoharen,parties.IN.IND,IND,3296,12.42,3,lost,M,49,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4109,puducherry,2026,28,NERAVY-T.R.PATTINAM,Ganesh @ Pranadarti Gareswaran,parties.IN.TVK,TVK,2878,10.84,4,lost,M,41,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4109,puducherry,2026,28,NERAVY-T.R.PATTINAM,M. Mala,parties.IN.NTK,NTK,334,1.26,5,lost,F,45,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4101,puducherry,2026,29,MAHE,Adv. T. Ashok Kumar,parties.IN.IND,IND,8375,35.19,1,won,M,61,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4101,puducherry,2026,29,MAHE,Ramesh Parambath,parties.IN.INC,INC,7260,30.5,2,lost,M,64,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4101,puducherry,2026,29,MAHE,A. Dinesan,parties.IN.BJP,BJP,6969,29.28,3,lost,M,53,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4101,puducherry,2026,29,MAHE,Mohamed Sameel,parties.IN.IUML,IUML,800,3.36,4,lost,M,34,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4101,puducherry,2026,29,MAHE,Prijesh. M,parties.IN.TVK,TVK,122,0.51,5,lost,M,42,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4120,puducherry,2026,30,YANAM,Malladi Krishna Rao,parties.IN.AINRC,AINRC,19863,55.44,1,won,M,62,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4120,puducherry,2026,30,YANAM,Gollapalli Srinivas Ashok,parties.IN.INC,INC,15295,42.69,2,lost,M,33,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4120,puducherry,2026,30,YANAM,Thota Raju,parties.IN.TVK,TVK,167,0.47,3,lost,M,59,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4120,puducherry,2026,30,YANAM,Surimilli Subba Rao,parties.IN.IND,IND,94,0.26,4,lost,M,69,,,,src-9b0bb5164d79
+IN-AC-2008-puducherry-4120,puducherry,2026,30,YANAM,Giddi Balaram,parties.IN.IND,IND,78,0.22,5,lost,M,63,,,,src-9b0bb5164d79

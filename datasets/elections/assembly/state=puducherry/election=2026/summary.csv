@@ -1,0 +1,31 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-2008-puducherry-4091,puducherry,2026,ARIANKUPPAM,37497,34510,92.03,C. Aiyappan @ Mouttayappan,parties.IN.AINRC,AINRC,14210,41.18,Vizayalakshmy Djeamourthy,parties.IN.INC,INC,13607,603,1.75,src-9b0bb5164d79
+IN-AC-2008-puducherry-4092,puducherry,2026,BAHOUR,28665,27456,95.78,R. Senthil Kumar,parties.IN.DMK,DMK,10520,38.32,T. Thiagarajan,parties.IN.AINRC,AINRC,8123,2397,8.73,src-9b0bb5164d79
+IN-AC-2008-puducherry-4093,puducherry,2026,EMBALAM (SC),33087,31542,95.33,E. Mohandoss,parties.IN.AINRC,AINRC,16017,50.78,M. Candassamy,parties.IN.INC,INC,11956,4061,12.87,src-9b0bb5164d79
+IN-AC-2008-puducherry-4096,puducherry,2026,KALAPET,33963,31545,92.88,Senthil @ Ramesh,parties.IN.DMK,DMK,12069,38.26,P.m.l. Kalyanasundaram,parties.IN.BJP,BJP,11622,447,1.42,src-9b0bb5164d79
+IN-AC-2008-puducherry-4098,puducherry,2026,KARAIKAL NORTH,33471,29208,87.26,P.r.n. Thirumurugan,parties.IN.AINRC,AINRC,12731,43.59,A.m. Ranjith,parties.IN.INC,INC,10078,2653,9.09,src-9b0bb5164d79
+IN-AC-2008-puducherry-4099,puducherry,2026,KARAIKAL SOUTH,30119,25522,84.74,A.m.h. Nazeem,parties.IN.DMK,DMK,12543,49.15,Avs Sakthivel Prabu,parties.IN.INC,INC,6681,5862,22.97,src-9b0bb5164d79
+IN-AC-2008-puducherry-4100,puducherry,2026,LAWSPET,29987,26766,89.26,V.p. Sivakolundhu,parties.IN.AINRC,AINRC,10578,39.52,M. Vaithianathan,parties.IN.INC,INC,9161,1417,5.29,src-9b0bb5164d79
+IN-AC-2008-puducherry-4101,puducherry,2026,MAHE,30256,23801,78.67,Adv. T. Ashok Kumar,parties.IN.IND,IND,8375,35.19,Ramesh Parambath,parties.IN.INC,INC,7260,1115,4.69,src-9b0bb5164d79
+IN-AC-2008-puducherry-4102,puducherry,2026,MANAVELY,34473,32386,93.95,B.ramu,parties.IN.TVK,TVK,13822,42.68,Embalam Selvam @ Selvam. R,parties.IN.BJP,BJP,10729,3093,9.55,src-9b0bb5164d79
+IN-AC-2008-puducherry-4103,puducherry,2026,MANGALAM,37131,35405,95.35,N. Rangasamy,parties.IN.AINRC,AINRC,17917,50.61,S.s. Rangan,parties.IN.DMK,DMK,10867,7050,19.92,src-9b0bb5164d79
+IN-AC-2008-puducherry-4104,puducherry,2026,MANNADIPET,31133,29502,94.76,A. Namassivayam,parties.IN.BJP,BJP,15918,53.96,T.p.r. Selvame,parties.IN.INC,INC,9808,6110,20.71,src-9b0bb5164d79
+IN-AC-2008-puducherry-4105,puducherry,2026,MUDALIARPET,34555,31199,90.29,A. Johnkumar,parties.IN.BJP,BJP,12945,41.49,L. Sambath,parties.IN.DMK,DMK,10574,2371,7.6,src-9b0bb5164d79
+IN-AC-2008-puducherry-4107,puducherry,2026,NEDUNGADU (SC),31687,28431,89.72,Dr. V. Vigneswaran,parties.IN.IND,IND,14368,50.54,C. Chandira Priyanga,parties.IN.AINRC,AINRC,9869,4499,15.83,src-9b0bb5164d79
+IN-AC-2008-puducherry-4108,puducherry,2026,NELLITHOPE,26858,24770,92.23,V. Cartigueyane,parties.IN.DMK,DMK,8226,33.21,Omsakthisekar,parties.IN.IND,IND,7376,850,3.43,src-9b0bb5164d79
+IN-AC-2008-puducherry-4109,puducherry,2026,NERAVY-T.R.PATTINAM,29877,26545,88.85,Tksm Meenatchisundaram,parties.IN.BJP,BJP,10818,40.75,M. Nagathiyagarajan (ntr),parties.IN.DMK,DMK,8800,2018,7.6,src-9b0bb5164d79
+IN-AC-2008-puducherry-4110,puducherry,2026,NETTAPAKKAM (SC),30257,28718,94.91,P. Rajavelu,parties.IN.AINRC,AINRC,13665,47.58,G. Anbarasan,parties.IN.INC,INC,6976,6689,23.29,src-9b0bb5164d79
+IN-AC-2008-puducherry-4111,puducherry,2026,ORLEAMPETH,21731,19594,90.17,G. Nehru Alias Couppoussamy,parties.IN.NYMK,NYMK,9960,50.83,S. Gopal,parties.IN.DMK,DMK,8759,1201,6.13,src-9b0bb5164d79
+IN-AC-2008-puducherry-4113,puducherry,2026,OUSSUDU (SC),32813,31301,95.39,P. Karthikeyan,parties.IN.INC,INC,15400,49.2,E. Theeppainthan,parties.IN.BJP,BJP,11382,4018,12.84,src-9b0bb5164d79
+IN-AC-2008-puducherry-4114,puducherry,2026,OZHUKARAI,40278,35893,89.11,K.narayanasamy Alias Nithyanandam,parties.IN.AINRC,AINRC,12635,35.2,Sasibalan,parties.IN.TVK,TVK,8401,4234,11.79,src-9b0bb5164d79
+IN-AC-2008-puducherry-4116,puducherry,2026,THATTANCHAVADY,26616,23578,88.59,N. Rangasamy,parties.IN.AINRC,AINRC,10024,42.51,E. Vinayagam,parties.IN.NYMK,NYMK,5583,4441,18.83,src-9b0bb5164d79
+IN-AC-2008-puducherry-4117,puducherry,2026,THIRUBHUVANAI (SC),31916,30299,94.93,Ak. Sai J Saravanan Kumar,parties.IN.TVK,TVK,9740,32.15,B. Kobiga,parties.IN.AINRC,AINRC,9039,701,2.32,src-9b0bb5164d79
+IN-AC-2008-puducherry-4118,puducherry,2026,THIRUNALLAR,31159,27966,89.75,G.n.s. Rajasekaran,parties.IN.BJP,BJP,16829,60.18,R. Kamalakannan,parties.IN.INC,INC,7303,9526,34.07,src-9b0bb5164d79
+IN-AC-2008-puducherry-4119,puducherry,2026,VILLIANUR,42884,39346,91.75,B.ravicoumar,parties.IN.AINRC,AINRC,16970,43.13,R.siva,parties.IN.DMK,DMK,15000,1970,5.01,src-9b0bb5164d79
+IN-AC-2008-puducherry-4120,puducherry,2026,YANAM,38000,35826,94.28,Malladi Krishna Rao,parties.IN.AINRC,AINRC,19863,55.44,Gollapalli Srinivas Ashok,parties.IN.INC,INC,15295,4568,12.75,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci10,puducherry,2026,KAMARAJ NAGAR,35314,31226,88.42,Jose Charles Martin,parties.IN.LJK,LJK,16592,53.14,P.k. Devadoss,parties.IN.INC,INC,6387,10205,32.69,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci13,puducherry,2026,MUTHIALPET,26129,23560,90.17,Vaiyapuri Manikandan,parties.IN.AINRC,AINRC,8382,35.58,Eeram G. Rajendran,parties.IN.INC,INC,7430,952,4.04,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci14,puducherry,2026,RAJ BHAVAN,21053,18716,88.9,Vignesh Kannan,parties.IN.DMK,DMK,7304,39.03,V. P. Ramalingame,parties.IN.BJP,BJP,7017,287,1.54,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci15,puducherry,2026,OUPALAM,25515,23030,90.26,A Anbalagan,,ADMK,9099,39.51,S Siva,parties.IN.TVK,TVK,8073,1026,4.46,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci7,puducherry,2026,KADIRGAMAM,31638,28497,90.07,Azhagu @ Azhaganantham,parties.IN.IND,IND,14633,51.35,K.s.p @ S. Ramesh,parties.IN.AINRC,AINRC,7629,7004,24.58,src-9b0bb5164d79
+IN-AC-2008-puducherry-eci8,puducherry,2026,INDIRA NAGAR,32577,30001,92.09,P.v. Aroumougame @ Akd,parties.IN.AINRC,AINRC,12640,42.13,S. Mourougane,parties.IN.TVK,TVK,12056,584,1.94,src-9b0bb5164d79

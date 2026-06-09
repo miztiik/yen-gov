@@ -1,0 +1,547 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-2008-assam-1792,assam,2026,1,GOSSAIGAON,Sabharam Basumatary,parties.IN.BOPF,BOPF,44394,44.35,1,won,M,67,,,,src-074239c7b852
+IN-AC-2008-assam-1792,assam,2026,1,GOSSAIGAON,Phedricson Hansdak,parties.IN.JMM,JMM,21417,21.4,2,lost,M,33,,,,src-074239c7b852
+IN-AC-2008-assam-1792,assam,2026,1,GOSSAIGAON,Aninda Basumatary,parties.IN.UPPL,UPPL,17431,17.41,3,lost,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1792,assam,2026,1,GOSSAIGAON,Joseph Hasda,parties.IN.INC,INC,15128,15.11,4,lost,M,57,,,,src-074239c7b852
+IN-AC-2008-assam-1792,assam,2026,1,GOSSAIGAON,Helen Murmu,parties.IN.IND,IND,600,0.6,5,lost,F,64,,,,src-074239c7b852
+IN-AC-2008-assam-1791,assam,2026,2,DOTMA (ST),Rabiram Narzary,parties.IN.BOPF,BOPF,48775,51.74,1,won,M,58,,,,src-074239c7b852
+IN-AC-2008-assam-1791,assam,2026,2,DOTMA (ST),Raju Kumar Narzary,parties.IN.UPPL,UPPL,24492,25.98,2,lost,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1791,assam,2026,2,DOTMA (ST),Birkhang Boro,parties.IN.INC,INC,15410,16.35,3,lost,M,50,,,,src-074239c7b852
+IN-AC-2008-assam-1791,assam,2026,2,DOTMA (ST),Fungkha Brahma,parties.IN.IND,IND,3740,3.97,4,lost,F,36,,,,src-074239c7b852
+IN-AC-2008-assam-1791,assam,2026,2,DOTMA (ST),Rananjay Narzary,parties.IN.IND,IND,719,0.76,5,lost,M,44,,,,src-074239c7b852
+IN-AC-2008-assam-1788,assam,2026,3,KOKRAJHAR (ST),Sewli Mohilary,parties.IN.BOPF,BOPF,74816,60.84,1,won,F,49,,,,src-074239c7b852
+IN-AC-2008-assam-1788,assam,2026,3,KOKRAJHAR (ST),Lawrence Islary,parties.IN.UPPL,UPPL,35183,28.61,2,lost,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1788,assam,2026,3,KOKRAJHAR (ST),Manik Chandra Brahma,parties.IN.INC,INC,7011,5.7,3,lost,M,69,,,,src-074239c7b852
+IN-AC-2008-assam-1788,assam,2026,3,KOKRAJHAR (ST),Tonon Daimary,,VPI,1446,1.18,4,lost,M,35,,,,src-074239c7b852
+IN-AC-2008-assam-1788,assam,2026,3,KOKRAJHAR (ST),Ranjoy Kr. Brahma,parties.IN.IND,IND,1437,1.17,5,lost,M,37,,,,src-074239c7b852
+IN-AC-2008-assam-1789,assam,2026,4,BAOKHUNGRI,Rupam Chandra Roy,parties.IN.BOPF,BOPF,62677,41.95,1,won,M,32,,,,src-074239c7b852
+IN-AC-2008-assam-1789,assam,2026,4,BAOKHUNGRI,Sapali Marak,parties.IN.INC,INC,38967,26.08,2,lost,F,31,,,,src-074239c7b852
+IN-AC-2008-assam-1789,assam,2026,4,BAOKHUNGRI,Pratibha Brahma,parties.IN.UPPL,UPPL,21245,14.22,3,lost,F,57,,,,src-074239c7b852
+IN-AC-2008-assam-1789,assam,2026,4,BAOKHUNGRI,Rajib Brahma,parties.IN.IND,IND,13037,8.72,4,lost,M,54,,,,src-074239c7b852
+IN-AC-2008-assam-1789,assam,2026,4,BAOKHUNGRI,Raajkar Beck,parties.IN.GGP,GGP,4393,2.94,5,lost,M,34,,,,src-074239c7b852
+IN-AC-2008-assam-1786,assam,2026,5,PARBATJHORA,Md Ashraful Islam Sheikh,parties.IN.INC,INC,77128,46.95,1,won,M,34,,,,src-074239c7b852
+IN-AC-2008-assam-1786,assam,2026,5,PARBATJHORA,Rezaul Karim,parties.IN.BOPF,BOPF,68106,41.46,2,lost,M,44,,,,src-074239c7b852
+IN-AC-2008-assam-1786,assam,2026,5,PARBATJHORA,Ayub Hussain Mondal,parties.IN.UPPL,UPPL,8920,5.43,3,lost,M,36,,,,src-074239c7b852
+IN-AC-2008-assam-1786,assam,2026,5,PARBATJHORA,Abu Taher Bepari,parties.IN.AIUDF,AIUDF,5641,3.43,4,lost,M,58,,,,src-074239c7b852
+IN-AC-2008-assam-1786,assam,2026,5,PARBATJHORA,Ajgar Ali Mondal,,TNRMPI,835,0.51,5,lost,M,38,,,,src-074239c7b852
+IN-AC-2008-assam-1787,assam,2026,6,GOLAKGANJ,Ashwini Ray Sarkar,parties.IN.BJP,BJP,110533,56.88,1,won,M,54,,,,src-074239c7b852
+IN-AC-2008-assam-1787,assam,2026,6,GOLAKGANJ,Kartik Chandra Ray,parties.IN.INC,INC,79751,41.04,2,lost,M,38,,,,src-074239c7b852
+IN-AC-2008-assam-1787,assam,2026,6,GOLAKGANJ,Jamsher Talukdar,parties.IN.AIUDF,AIUDF,2485,1.28,3,lost,M,53,,,,src-074239c7b852
+IN-AC-2008-assam-1787,assam,2026,6,GOLAKGANJ,Jakir Hussain,parties.IN.RUC,RUC,423,0.22,4,lost,M,54,,,,src-074239c7b852
+IN-AC-2008-assam-1790,assam,2026,7,GAURIPUR,Abdus Sobahan Ali Sarkar,parties.IN.INC,INC,182971,61.12,1,won,M,50,,,,src-074239c7b852
+IN-AC-2008-assam-1790,assam,2026,7,GAURIPUR,Nizanur Rahman,parties.IN.AIUDF,AIUDF,63874,21.34,2,lost,M,53,,,,src-074239c7b852
+IN-AC-2008-assam-1790,assam,2026,7,GAURIPUR,Mehetabul Haque,parties.IN.AGP,AGP,33142,11.07,3,lost,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1790,assam,2026,7,GAURIPUR,Abul Miah,parties.IN.RJRD,RJRD,12467,4.16,4,lost,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1790,assam,2026,7,GAURIPUR,Sheikh Monshur Rahman,parties.IN.CPI,CPI,2352,0.79,5,lost,M,66,,,,src-074239c7b852
+IN-AC-2008-assam-1785,assam,2026,8,DHUBRI,Baby Begum,parties.IN.INC,INC,118362,53.64,1,won,F,45,,,,src-074239c7b852
+IN-AC-2008-assam-1785,assam,2026,8,DHUBRI,Nazrul Hoque,parties.IN.AIUDF,AIUDF,49701,22.52,2,lost,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1785,assam,2026,8,DHUBRI,Uttam Prasad,parties.IN.BJP,BJP,49654,22.5,3,lost,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1785,assam,2026,8,DHUBRI,Omar Ali Sk.,parties.IN.RUC,RUC,970,0.44,4,lost,M,52,,,,src-074239c7b852
+IN-AC-2008-assam-1785,assam,2026,8,DHUBRI,Shahana Aktar,parties.IN.SUCI,SUCI,577,0.26,5,lost,F,35,,,,src-074239c7b852
+IN-AC-2008-assam-1835,assam,2026,9,BIRSING JARUA,Wazed Ali Choudhury,parties.IN.INC,INC,113901,41.53,1,won,M,63,,,,src-074239c7b852
+IN-AC-2008-assam-1835,assam,2026,9,BIRSING JARUA,Ali Akbar Miah,parties.IN.AIUDF,AIUDF,78016,28.45,2,lost,M,67,,,,src-074239c7b852
+IN-AC-2008-assam-1835,assam,2026,9,BIRSING JARUA,Reza Amin,parties.IN.IND,IND,68556,25,3,lost,M,50,,,,src-074239c7b852
+IN-AC-2008-assam-1835,assam,2026,9,BIRSING JARUA,Madhabi Das,parties.IN.BJP,BJP,8083,2.95,4,lost,F,29,,,,src-074239c7b852
+IN-AC-2008-assam-1835,assam,2026,9,BIRSING JARUA,Akbar Ali Mondal,,TNRMPI,1384,0.5,5,lost,M,29,,,,src-074239c7b852
+IN-AC-2008-assam-1836,assam,2026,10,BILASIPARA,Jibesh Roy,parties.IN.AGP,AGP,85937,48.09,1,won,M,41,,,,src-074239c7b852
+IN-AC-2008-assam-1836,assam,2026,10,BILASIPARA,Amrit Badsha,parties.IN.INC,INC,83243,46.59,2,lost,M,43,,,,src-074239c7b852
+IN-AC-2008-assam-1836,assam,2026,10,BILASIPARA,Sabana Aktar,parties.IN.AIUDF,AIUDF,4350,2.43,3,lost,F,51,,,,src-074239c7b852
+IN-AC-2008-assam-1836,assam,2026,10,BILASIPARA,Sheikh Hedayetullah,parties.IN.IND,IND,2134,1.19,4,lost,M,63,,,,src-074239c7b852
+IN-AC-2008-assam-1836,assam,2026,10,BILASIPARA,Mominur Islam,parties.IN.AITC,AITC,1241,0.69,5,lost,M,40,,,,src-074239c7b852
+IN-AC-2008-assam-1832,assam,2026,11,MANKACHAR,Mohibur Rohman (bappy),parties.IN.INC,INC,169036,56.57,1,won,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1832,assam,2026,11,MANKACHAR,Zabed Islam,parties.IN.AGP,AGP,115890,38.79,2,lost,M,57,,,,src-074239c7b852
+IN-AC-2008-assam-1832,assam,2026,11,MANKACHAR,Abdul Salam Shah,parties.IN.AIUDF,AIUDF,9974,3.34,3,lost,M,60,,,,src-074239c7b852
+IN-AC-2008-assam-1832,assam,2026,11,MANKACHAR,Shahidur Alam,parties.IN.SUCI,SUCI,1428,0.48,4,lost,M,68,,,,src-074239c7b852
+IN-AC-2008-assam-1832,assam,2026,11,MANKACHAR,Md. Murad Hussain,parties.IN.IND,IND,797,0.27,5,lost,M,52,,,,src-074239c7b852
+IN-AC-2008-assam-1837,assam,2026,12,JALESHWAR,Aftab Uddin Mollah,parties.IN.INC,INC,162174,69.19,1,won,M,63,,,,src-074239c7b852
+IN-AC-2008-assam-1837,assam,2026,12,JALESHWAR,Sheikh Shah Alam,parties.IN.AIUDF,AIUDF,52486,22.39,2,lost,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1837,assam,2026,12,JALESHWAR,Abu Sha Shadi Hossain,parties.IN.AGP,AGP,12954,5.53,3,lost,M,44,,,,src-074239c7b852
+IN-AC-2008-assam-1837,assam,2026,12,JALESHWAR,Sahab Uddin Ahmed,parties.IN.IND,IND,1839,0.78,4,lost,M,63,,,,src-074239c7b852
+IN-AC-2008-assam-1837,assam,2026,12,JALESHWAR,Arif Akhtar Ahmed,parties.IN.AITC,AITC,1776,0.76,5,lost,M,42,,,,src-074239c7b852
+IN-AC-2008-assam-1834,assam,2026,13,GOALPARA WEST (ST),Pabitra Rabha,parties.IN.BJP,BJP,92216,62.51,1,won,M,30,,,,src-074239c7b852
+IN-AC-2008-assam-1834,assam,2026,13,GOALPARA WEST (ST),Markline Marak,parties.IN.INC,INC,52299,35.45,2,lost,M,39,,,,src-074239c7b852
+IN-AC-2008-assam-1834,assam,2026,13,GOALPARA WEST (ST),Dhanjeep Prasad Rabha,parties.IN.IND,IND,961,0.65,3,lost,M,46,,,,src-074239c7b852
+IN-AC-2008-assam-1834,assam,2026,13,GOALPARA WEST (ST),Suresh Chandra Rabha,,VPI,598,0.41,4,lost,M,57,,,,src-074239c7b852
+IN-AC-2008-assam-1834,assam,2026,13,GOALPARA WEST (ST),Mritunjay Rabha,parties.IN.SUCI,SUCI,543,0.37,5,lost,M,35,,,,src-074239c7b852
+IN-AC-2008-assam-1831,assam,2026,14,GOALPARA EAST,Abul Kalam Rasheed Alam,parties.IN.INC,INC,102205,46.99,1,won,M,54,,,,src-074239c7b852
+IN-AC-2008-assam-1831,assam,2026,14,GOALPARA EAST,Abdur Rahim Zibran,parties.IN.AGP,AGP,50944,23.42,2,lost,M,43,,,,src-074239c7b852
+IN-AC-2008-assam-1831,assam,2026,14,GOALPARA EAST,Abdur Rashid Mandal,parties.IN.RJRD,RJRD,37520,17.25,3,lost,M,63,,,,src-074239c7b852
+IN-AC-2008-assam-1831,assam,2026,14,GOALPARA EAST,Abul Kalam Hussain,parties.IN.IND,IND,10196,4.69,4,lost,M,62,,,,src-074239c7b852
+IN-AC-2008-assam-1831,assam,2026,14,GOALPARA EAST,Hafiz Bashir Ahmed,parties.IN.AIUDF,AIUDF,7838,3.6,5,lost,M,64,,,,src-074239c7b852
+IN-AC-2008-assam-1833,assam,2026,15,DUDHNAI (ST),Tankeswar Rabha,parties.IN.BJP,BJP,100353,63.58,1,won,M,53,,,,src-074239c7b852
+IN-AC-2008-assam-1833,assam,2026,15,DUDHNAI (ST),Kishore Kumar Brahma,parties.IN.INC,INC,52716,33.4,2,lost,M,61,,,,src-074239c7b852
+IN-AC-2008-assam-1833,assam,2026,15,DUDHNAI (ST),Manoranjan Basumatari,,VPI,1757,1.11,3,lost,M,60,,,,src-074239c7b852
+IN-AC-2008-assam-1833,assam,2026,15,DUDHNAI (ST),Rohit Kachari,parties.IN.IND,IND,781,0.49,4,lost,M,27,,,,src-074239c7b852
+IN-AC-2008-assam-1833,assam,2026,15,DUDHNAI (ST),Randeepsing Marak,parties.IN.IND,IND,650,0.41,5,lost,M,57,,,,src-074239c7b852
+IN-AC-2008-assam-1724,assam,2026,16,ABHAYAPURI,Bhupen Roy,parties.IN.BJP,BJP,111154,66.22,1,won,M,62,,,,src-074239c7b852
+IN-AC-2008-assam-1724,assam,2026,16,ABHAYAPURI,Pradip Sarkar,parties.IN.INC,INC,52228,31.12,2,lost,M,43,,,,src-074239c7b852
+IN-AC-2008-assam-1724,assam,2026,16,ABHAYAPURI,Kaushik Ranjan Das,parties.IN.AITC,AITC,1497,0.89,3,lost,M,38,,,,src-074239c7b852
+IN-AC-2008-assam-1724,assam,2026,16,ABHAYAPURI,Jahidul Islam,parties.IN.VINPA,VINPA,977,0.58,4,lost,M,33,,,,src-074239c7b852
+IN-AC-2008-assam-1722,assam,2026,17,SRIJANGRAM,Md. Nurul Islam,parties.IN.INC,INC,106716,47.47,1,won,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1722,assam,2026,17,SRIJANGRAM,Rejaul Karim Sarkar,parties.IN.AIUDF,AIUDF,88411,39.33,2,lost,M,41,,,,src-074239c7b852
+IN-AC-2008-assam-1722,assam,2026,17,SRIJANGRAM,Shahidul Hoque,parties.IN.AGP,AGP,26671,11.86,3,lost,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1722,assam,2026,17,SRIJANGRAM,Nurul Amin Khan,parties.IN.VINPA,VINPA,1138,0.51,4,lost,M,31,,,,src-074239c7b852
+IN-AC-2008-assam-1722,assam,2026,17,SRIJANGRAM,Bhadreswar Barman,parties.IN.IND,IND,479,0.21,5,lost,M,51,,,,src-074239c7b852
+IN-AC-2008-assam-1725,assam,2026,18,BONGAIGAON,Diptimayee Choudhury,parties.IN.AGP,AGP,72247,46.08,1,won,F,65,,,,src-074239c7b852
+IN-AC-2008-assam-1725,assam,2026,18,BONGAIGAON,Girish Baruah,parties.IN.INC,INC,47249,30.14,2,lost,M,49,,,,src-074239c7b852
+IN-AC-2008-assam-1725,assam,2026,18,BONGAIGAON,Chakradhar Das,parties.IN.IND,IND,32093,20.47,3,lost,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1725,assam,2026,18,BONGAIGAON,Subrata Sarkar,parties.IN.IND,IND,1012,0.65,4,lost,M,31,,,,src-074239c7b852
+IN-AC-2008-assam-1725,assam,2026,18,BONGAIGAON,Rajan Gupta,parties.IN.IND,IND,964,0.61,5,lost,M,44,,,,src-074239c7b852
+IN-AC-2008-assam-1723,assam,2026,19,SIDLI CHIRANG (ST),Paniram Brahma,parties.IN.BOPF,BOPF,101275,53.58,1,won,M,58,,,,src-074239c7b852
+IN-AC-2008-assam-1723,assam,2026,19,SIDLI CHIRANG (ST),Ranjit Basumatary,parties.IN.UPPL,UPPL,62674,33.16,2,lost,M,53,,,,src-074239c7b852
+IN-AC-2008-assam-1723,assam,2026,19,SIDLI CHIRANG (ST),Matilal Narzary,parties.IN.INC,INC,18975,10.04,3,lost,M,36,,,,src-074239c7b852
+IN-AC-2008-assam-1723,assam,2026,19,SIDLI CHIRANG (ST),Banima Brahma,,VPI,2697,1.43,4,lost,F,37,,,,src-074239c7b852
+IN-AC-2008-assam-1721,assam,2026,20,BIJNI,Arup Kumar Dey,parties.IN.BJP,BJP,71708,43.44,1,won,M,42,,,,src-074239c7b852
+IN-AC-2008-assam-1721,assam,2026,20,BIJNI,Kamal Sing Narzary,parties.IN.UPPL,UPPL,37781,22.89,2,lost,M,66,,,,src-074239c7b852
+IN-AC-2008-assam-1721,assam,2026,20,BIJNI,Khalilur Rahman,parties.IN.IND,IND,26758,16.21,3,lost,M,59,,,,src-074239c7b852
+IN-AC-2008-assam-1721,assam,2026,20,BIJNI,Rajat Kanti Saha,parties.IN.INC,INC,9456,5.73,4,lost,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1721,assam,2026,20,BIJNI,Dimbeswar Boro,parties.IN.IND,IND,6338,3.84,5,lost,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1744,assam,2026,21,BHOWANIPUR-SORBHOG,Ranjeet Kumar Dass,parties.IN.BJP,BJP,113069,58,1,won,M,60,,,,src-074239c7b852
+IN-AC-2008-assam-1744,assam,2026,21,BHOWANIPUR-SORBHOG,Manoranjan Talukdar,parties.IN.CPIM,CPI(M),73917,37.91,2,lost,M,72,,,,src-074239c7b852
+IN-AC-2008-assam-1744,assam,2026,21,BHOWANIPUR-SORBHOG,Farhad Ali,parties.IN.AIUDF,AIUDF,3253,1.67,3,lost,M,36,,,,src-074239c7b852
+IN-AC-2008-assam-1744,assam,2026,21,BHOWANIPUR-SORBHOG,Faruque Abdullah Ahmed,parties.IN.IND,IND,1741,0.89,4,lost,M,44,,,,src-074239c7b852
+IN-AC-2008-assam-1744,assam,2026,21,BHOWANIPUR-SORBHOG,Shukur Ali,parties.IN.IND,IND,758,0.39,5,lost,M,34,,,,src-074239c7b852
+IN-AC-2008-assam-1745,assam,2026,22,MANDIA,Sherman Ali Ahmed,parties.IN.AITC,AITC,113480,43.07,1,won,M,59,,,,src-074239c7b852
+IN-AC-2008-assam-1745,assam,2026,22,MANDIA,Abdul Khaleque,parties.IN.INC,INC,85919,32.61,2,lost,M,51,,,,src-074239c7b852
+IN-AC-2008-assam-1745,assam,2026,22,MANDIA,Rafiqul Islam,parties.IN.AIUDF,AIUDF,49174,18.66,3,lost,M,46,,,,src-074239c7b852
+IN-AC-2008-assam-1745,assam,2026,22,MANDIA,Badal Chandra Arjya,parties.IN.BJP,BJP,9801,3.72,4,lost,M,43,,,,src-074239c7b852
+IN-AC-2008-assam-1745,assam,2026,22,MANDIA,Salim Khan,parties.IN.IND,IND,1575,0.6,5,lost,M,32,,,,src-074239c7b852
+IN-AC-2008-assam-1738,assam,2026,23,CHENGA,Abdur Rahim Ahmed,parties.IN.INC,INC,139167,56.85,1,won,M,43,,,,src-074239c7b852
+IN-AC-2008-assam-1738,assam,2026,23,CHENGA,Ashraful Hussain,parties.IN.AIUDF,AIUDF,51818,21.17,2,lost,M,32,,,,src-074239c7b852
+IN-AC-2008-assam-1738,assam,2026,23,CHENGA,Aftadur Ali Khan,parties.IN.IND,IND,44021,17.98,3,lost,M,26,,,,src-074239c7b852
+IN-AC-2008-assam-1738,assam,2026,23,CHENGA,Saddam Hussain,parties.IN.AGP,AGP,5879,2.4,4,lost,M,31,,,,src-074239c7b852
+IN-AC-2008-assam-1738,assam,2026,23,CHENGA,Abdul Rahman,parties.IN.IND,IND,1440,0.59,5,lost,M,35,,,,src-074239c7b852
+IN-AC-2008-assam-1739,assam,2026,24,BARPETA (SC),Dipak Kumar Das,parties.IN.AGP,AGP,94086,62.88,1,won,M,61,,,,src-074239c7b852
+IN-AC-2008-assam-1739,assam,2026,24,BARPETA (SC),Gagan Chandra Haloi,parties.IN.IND,IND,46684,31.2,2,lost,M,49,,,,src-074239c7b852
+IN-AC-2008-assam-1739,assam,2026,24,BARPETA (SC),Uddhab Chandra Das,parties.IN.IND,IND,3670,2.45,3,lost,M,67,,,,src-074239c7b852
+IN-AC-2008-assam-1742,assam,2026,25,PAKABETBARI,Jakir Hussain Sikdar,parties.IN.INC,INC,157748,60.06,1,won,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1742,assam,2026,25,PAKABETBARI,Minakshi Rahman,parties.IN.AIUDF,AIUDF,92481,35.21,2,lost,F,40,,,,src-074239c7b852
+IN-AC-2008-assam-1742,assam,2026,25,PAKABETBARI,Dr. Tara Prasad Das,parties.IN.AGP,AGP,9246,3.52,3,lost,M,68,,,,src-074239c7b852
+IN-AC-2008-assam-1742,assam,2026,25,PAKABETBARI,Sabbir Hussain Poramanik,parties.IN.IND,IND,950,0.36,4,lost,M,25,,,,src-074239c7b852
+IN-AC-2008-assam-1742,assam,2026,25,PAKABETBARI,Halima Khatun,parties.IN.SUCI,SUCI,752,0.29,5,lost,F,51,,,,src-074239c7b852
+IN-AC-2008-assam-1800,assam,2026,26,BAJALI,Dharmeswar Roy,parties.IN.AGP,AGP,80130,56.04,1,won,M,49,,,,src-074239c7b852
+IN-AC-2008-assam-1800,assam,2026,26,BAJALI,Dilip Baruah,,ASMJTYP,55684,38.94,2,lost,M,66,,,,src-074239c7b852
+IN-AC-2008-assam-1800,assam,2026,26,BAJALI,Kalyani Kalita,parties.IN.AITC,AITC,3617,2.53,3,lost,F,47,,,,src-074239c7b852
+IN-AC-2008-assam-1736,assam,2026,27,CHAMARIA,Rekibuddin Ahmed,parties.IN.INC,INC,149720,63.83,1,won,M,52,,,,src-074239c7b852
+IN-AC-2008-assam-1736,assam,2026,27,CHAMARIA,Imdad Hussain,parties.IN.AIUDF,AIUDF,71024,30.28,2,lost,M,35,,,,src-074239c7b852
+IN-AC-2008-assam-1736,assam,2026,27,CHAMARIA,Md. Nurul Islam,parties.IN.AGP,AGP,9570,4.08,3,lost,M,42,,,,src-074239c7b852
+IN-AC-2008-assam-1736,assam,2026,27,CHAMARIA,Delowara Hussain,parties.IN.SUCI,SUCI,1331,0.57,4,lost,F,52,,,,src-074239c7b852
+IN-AC-2008-assam-1736,assam,2026,27,CHAMARIA,Mohammad Sumair Laskar,parties.IN.IND,IND,973,0.41,5,lost,M,33,,,,src-074239c7b852
+IN-AC-2008-assam-1797,assam,2026,28,BOKO-CHAYGAON (ST),Raju Mesh,parties.IN.BJP,BJP,107113,63.77,1,won,M,47,,,,src-074239c7b852
+IN-AC-2008-assam-1797,assam,2026,28,BOKO-CHAYGAON (ST),Ramen Singh Rabha,parties.IN.INC,INC,47559,28.31,2,lost,M,54,,,,src-074239c7b852
+IN-AC-2008-assam-1797,assam,2026,28,BOKO-CHAYGAON (ST),Ganseng B. Sangma,,NPEP,7092,4.22,3,lost,M,59,,,,src-074239c7b852
+IN-AC-2008-assam-1797,assam,2026,28,BOKO-CHAYGAON (ST),Jamuna Rabha,parties.IN.IND,IND,1432,0.85,4,lost,F,38,,,,src-074239c7b852
+IN-AC-2008-assam-1797,assam,2026,28,BOKO-CHAYGAON (ST),Bhoglal Rabha,parties.IN.AITC,AITC,1178,0.7,5,lost,M,50,,,,src-074239c7b852
+IN-AC-2008-assam-1799,assam,2026,29,PALASBARI,Himangshu Shekhar Baishya,parties.IN.BJP,BJP,109301,58.58,1,won,M,35,,,,src-074239c7b852
+IN-AC-2008-assam-1799,assam,2026,29,PALASBARI,Pankaj Lochan Goswami,,ASMJTYP,65348,35.02,2,lost,M,62,,,,src-074239c7b852
+IN-AC-2008-assam-1799,assam,2026,29,PALASBARI,Jayanta Mahanta,parties.IN.IND,IND,3111,1.67,3,lost,M,52,,,,src-074239c7b852
+IN-AC-2008-assam-1799,assam,2026,29,PALASBARI,Elvin Baruah,,AAAP,2317,1.24,4,lost,M,40,,,,src-074239c7b852
+IN-AC-2008-assam-1799,assam,2026,29,PALASBARI,Jatin Mali,parties.IN.IND,IND,2250,1.21,5,lost,M,69,,,,src-074239c7b852
+IN-AC-2008-assam-1798,assam,2026,30,HAJO-SUALKUCHI (SC),Prakash Chandra Das,parties.IN.AGP,AGP,81699,47.84,1,won,M,52,,,,src-074239c7b852
+IN-AC-2008-assam-1798,assam,2026,30,HAJO-SUALKUCHI (SC),Nandita Das,parties.IN.INC,INC,80975,47.41,2,lost,F,56,,,,src-074239c7b852
+IN-AC-2008-assam-1798,assam,2026,30,HAJO-SUALKUCHI (SC),Rojy Ahmed,parties.IN.AITC,AITC,2768,1.62,3,lost,F,53,,,,src-074239c7b852
+IN-AC-2008-assam-1798,assam,2026,30,HAJO-SUALKUCHI (SC),Raju Patowary,parties.IN.IND,IND,2025,1.19,4,lost,M,36,,,,src-074239c7b852
+IN-AC-2008-assam-1798,assam,2026,30,HAJO-SUALKUCHI (SC),Siddhartha Das,parties.IN.IND,IND,929,0.54,5,lost,M,37,,,,src-074239c7b852
+IN-AC-2008-assam-1801,assam,2026,31,RANGIA,Bhabesh Kalita,parties.IN.BJP,BJP,107929,58.22,1,won,M,54,,,,src-074239c7b852
+IN-AC-2008-assam-1801,assam,2026,31,RANGIA,Pranjit Choudhury,parties.IN.INC,INC,73900,39.87,2,lost,M,49,,,,src-074239c7b852
+IN-AC-2008-assam-1730,assam,2026,32,KAMALPUR,Diganta Kalita,parties.IN.BJP,BJP,74455,45.33,1,won,M,57,,,,src-074239c7b852
+IN-AC-2008-assam-1730,assam,2026,32,KAMALPUR,Satyabrat Kalita,parties.IN.INC,INC,55006,33.49,2,lost,M,60,,,,src-074239c7b852
+IN-AC-2008-assam-1730,assam,2026,32,KAMALPUR,Ankur Das,parties.IN.IND,IND,31940,19.45,3,lost,M,51,,,,src-074239c7b852
+IN-AC-2008-assam-1730,assam,2026,32,KAMALPUR,Sisir Kumar Kakati,parties.IN.SUCI,SUCI,721,0.44,4,lost,M,64,,,,src-074239c7b852
+IN-AC-2008-assam-1730,assam,2026,32,KAMALPUR,Naba Kumar Nath,parties.IN.IND,IND,682,0.42,5,lost,M,54,,,,src-074239c7b852
+IN-AC-2008-assam-1795,assam,2026,33,DISPUR,Pradyut Bordoloi,parties.IN.BJP,BJP,103337,55.89,1,won,M,65,,,,src-074239c7b852
+IN-AC-2008-assam-1795,assam,2026,33,DISPUR,Mira Borthakur Goswami,parties.IN.INC,INC,53670,29.03,2,lost,F,53,,,,src-074239c7b852
+IN-AC-2008-assam-1795,assam,2026,33,DISPUR,Jayanta Kumar Das,parties.IN.IND,IND,22802,12.33,3,lost,M,57,,,,src-074239c7b852
+IN-AC-2008-assam-1795,assam,2026,33,DISPUR,Ballav Patra,,AAAP,1323,0.72,4,lost,M,51,,,,src-074239c7b852
+IN-AC-2008-assam-1795,assam,2026,33,DISPUR,Ayush Kumar Singh,parties.IN.IND,IND,817,0.44,5,lost,M,28,,,,src-074239c7b852
+IN-AC-2008-assam-1726,assam,2026,34,DIMORIA (SC),Dr. Tapan Das,parties.IN.AGP,AGP,116058,64.71,1,won,M,47,,,,src-074239c7b852
+IN-AC-2008-assam-1726,assam,2026,34,DIMORIA (SC),Shri Kishor Kumar Baruah,parties.IN.INC,INC,50673,28.25,2,lost,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1726,assam,2026,34,DIMORIA (SC),Kaberi Das Teran,parties.IN.IND,IND,5853,3.26,3,lost,F,47,,,,src-074239c7b852
+IN-AC-2008-assam-1726,assam,2026,34,DIMORIA (SC),Nitul Das,parties.IN.IND,IND,1865,1.04,4,lost,M,34,,,,src-074239c7b852
+IN-AC-2008-assam-1726,assam,2026,34,DIMORIA (SC),Bhaskar Jyoti Pathak,parties.IN.IND,IND,1593,0.89,5,lost,M,36,,,,src-074239c7b852
+IN-AC-2008-assam-1727,assam,2026,35,NEW GUWAHATI,Diplu Ranjan Sarmah,parties.IN.BJP,BJP,89636,64.13,1,won,M,50,,,,src-074239c7b852
+IN-AC-2008-assam-1727,assam,2026,35,NEW GUWAHATI,Santanu Bora,parties.IN.INC,INC,41968,30.03,2,lost,M,44,,,,src-074239c7b852
+IN-AC-2008-assam-1727,assam,2026,35,NEW GUWAHATI,Aditya Gogoi,,AAAP,1791,1.28,3,lost,M,38,,,,src-074239c7b852
+IN-AC-2008-assam-1727,assam,2026,35,NEW GUWAHATI,Kushal Kumar Sarmah,parties.IN.IND,IND,1680,1.2,4,lost,M,62,,,,src-074239c7b852
+IN-AC-2008-assam-1727,assam,2026,35,NEW GUWAHATI,Chinmoyee Bhuyan Bardoloi,,GNASURKP,1115,0.8,5,lost,F,46,,,,src-074239c7b852
+IN-AC-2008-assam-1759,assam,2026,36,GUWAHATI CENTRAL,Vijay Kumar Gupta,parties.IN.BJP,BJP,101297,68.87,1,won,M,70,,,,src-074239c7b852
+IN-AC-2008-assam-1759,assam,2026,36,GUWAHATI CENTRAL,Kunki Chowdhury,,ASMJTYP,39376,26.77,2,lost,F,27,,,,src-074239c7b852
+IN-AC-2008-assam-1759,assam,2026,36,GUWAHATI CENTRAL,Anurupa Dekaraja,,AAAP,1939,1.32,3,lost,F,48,,,,src-074239c7b852
+IN-AC-2008-assam-1759,assam,2026,36,GUWAHATI CENTRAL,Avijit Mazumdar,parties.IN.AITC,AITC,1061,0.72,4,lost,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1759,assam,2026,36,GUWAHATI CENTRAL,Achyut Kalita,parties.IN.IND,IND,535,0.36,5,lost,M,38,,,,src-074239c7b852
+IN-AC-2008-assam-1740,assam,2026,37,JALUKBARI,Himanta Biswa Sarma,parties.IN.BJP,BJP,127151,74.42,1,won,M,57,,,,src-074239c7b852
+IN-AC-2008-assam-1740,assam,2026,37,JALUKBARI,Bidisha Neog,parties.IN.INC,INC,37717,22.08,2,lost,F,34,,,,src-074239c7b852
+IN-AC-2008-assam-1740,assam,2026,37,JALUKBARI,Dipika Das,parties.IN.IND,IND,2546,1.49,3,lost,F,44,,,,src-074239c7b852
+IN-AC-2008-assam-1741,assam,2026,38,BARKHETRI,Narayan Deka,parties.IN.BJP,BJP,113001,56.07,1,won,M,58,,,,src-074239c7b852
+IN-AC-2008-assam-1741,assam,2026,38,BARKHETRI,Diganta Barman,parties.IN.INC,INC,84157,41.76,2,lost,M,62,,,,src-074239c7b852
+IN-AC-2008-assam-1741,assam,2026,38,BARKHETRI,Amirul Islam,parties.IN.AITC,AITC,1418,0.7,3,lost,M,43,,,,src-074239c7b852
+IN-AC-2008-assam-1741,assam,2026,38,BARKHETRI,Munindra Doley,parties.IN.SUCI,SUCI,959,0.48,4,lost,M,44,,,,src-074239c7b852
+IN-AC-2008-assam-1743,assam,2026,39,NALBARI,Jayanta Mallabaruah,parties.IN.BJP,BJP,118611,64.98,1,won,M,54,,,,src-074239c7b852
+IN-AC-2008-assam-1743,assam,2026,39,NALBARI,Ashok Kumar Sarma,parties.IN.INC,INC,58510,32.05,2,lost,M,60,,,,src-074239c7b852
+IN-AC-2008-assam-1743,assam,2026,39,NALBARI,Kenedi Pegu,parties.IN.SUCI,SUCI,995,0.55,3,lost,M,36,,,,src-074239c7b852
+IN-AC-2008-assam-1743,assam,2026,39,NALBARI,Muktar Hussain,parties.IN.IND,IND,954,0.52,4,lost,M,41,,,,src-074239c7b852
+IN-AC-2008-assam-1743,assam,2026,39,NALBARI,Samsul Haque,parties.IN.IND,IND,472,0.26,5,lost,M,38,,,,src-074239c7b852
+IN-AC-2008-assam-1735,assam,2026,40,TIHU,Chandramohan Patowary,parties.IN.BJP,BJP,100855,56.26,1,won,M,70,,,,src-074239c7b852
+IN-AC-2008-assam-1735,assam,2026,40,TIHU,Ratul Patowary,parties.IN.INC,INC,74359,41.48,2,lost,M,43,,,,src-074239c7b852
+IN-AC-2008-assam-1735,assam,2026,40,TIHU,Narayan Dutta Bhuyan,parties.IN.IND,IND,977,0.55,3,lost,M,63,,,,src-074239c7b852
+IN-AC-2008-assam-1735,assam,2026,40,TIHU,Sri Pramod Chandra Bhagabati,parties.IN.SUCI,SUCI,914,0.51,4,lost,M,66,,,,src-074239c7b852
+IN-AC-2008-assam-1794,assam,2026,41,MANAS,Thaneswar Basumatary,parties.IN.BOPF,BOPF,90060,50.95,1,won,M,59,,,,src-074239c7b852
+IN-AC-2008-assam-1794,assam,2026,41,MANAS,Anjan Talukdar,parties.IN.RJRD,RJRD,42650,24.13,2,lost,M,42,,,,src-074239c7b852
+IN-AC-2008-assam-1794,assam,2026,41,MANAS,Jwngsrang Brahma,parties.IN.UPPL,UPPL,27674,15.66,3,lost,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1794,assam,2026,41,MANAS,Md. Bilal Ahmed,parties.IN.AIUDF,AIUDF,7560,4.28,4,lost,M,46,,,,src-074239c7b852
+IN-AC-2008-assam-1794,assam,2026,41,MANAS,Nikunja Das,parties.IN.IND,IND,1855,1.05,5,lost,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-eci42,assam,2026,42,BAKSA (ST),Maneswar Brahma,parties.IN.BOPF,BOPF,88820,55.06,1,won,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-eci42,assam,2026,42,BAKSA (ST),Rakesh Brahma,parties.IN.UPPL,UPPL,39770,24.65,2,lost,M,50,,,,src-074239c7b852
+IN-AC-2008-assam-eci42,assam,2026,42,BAKSA (ST),Jagadish Madahi,parties.IN.INC,INC,10623,6.59,3,lost,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-eci42,assam,2026,42,BAKSA (ST),Ramesh Chandra Das,,GNASURKP,8118,5.03,4,lost,M,60,,,,src-074239c7b852
+IN-AC-2008-assam-eci42,assam,2026,42,BAKSA (ST),Hitesh Basumatary,parties.IN.IND,IND,5794,3.59,5,lost,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1729,assam,2026,43,TAMULPUR (ST),Biswajit Daimary,parties.IN.BJP,BJP,89308,49.92,1,won,M,52,,,,src-074239c7b852
+IN-AC-2008-assam-1729,assam,2026,43,TAMULPUR (ST),Pramod Boro,parties.IN.UPPL,UPPL,62565,34.97,2,lost,M,51,,,,src-074239c7b852
+IN-AC-2008-assam-1729,assam,2026,43,TAMULPUR (ST),Rafel Daimary,parties.IN.INC,INC,16777,9.38,3,lost,M,63,,,,src-074239c7b852
+IN-AC-2008-assam-1729,assam,2026,43,TAMULPUR (ST),Nabajit Sarania,,GNASURKP,2731,1.53,4,lost,M,30,,,,src-074239c7b852
+IN-AC-2008-assam-1729,assam,2026,43,TAMULPUR (ST),Hareswar Swargiary,parties.IN.IND,IND,1667,0.93,5,lost,M,53,,,,src-074239c7b852
+IN-AC-2008-assam-1733,assam,2026,44,GORESWAR,Victor Kumar Das,parties.IN.BJP,BJP,98108,57.54,1,won,M,37,,,,src-074239c7b852
+IN-AC-2008-assam-1733,assam,2026,44,GORESWAR,Pabitra Kumar Baro,parties.IN.UPPL,UPPL,28859,16.93,2,lost,M,54,,,,src-074239c7b852
+IN-AC-2008-assam-1733,assam,2026,44,GORESWAR,Bapuram Boro,parties.IN.CPIM,CPI(M),28273,16.58,3,lost,M,64,,,,src-074239c7b852
+IN-AC-2008-assam-1733,assam,2026,44,GORESWAR,Yaswanta Chauhan,parties.IN.IND,IND,2557,1.5,4,lost,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1733,assam,2026,44,GORESWAR,Rajan Chauhan,parties.IN.AITC,AITC,2278,1.34,5,lost,M,47,,,,src-074239c7b852
+IN-AC-2008-assam-1728,assam,2026,45,BHERGAON,Maheswar Baro,parties.IN.BOPF,BOPF,67105,50.22,1,won,M,58,,,,src-074239c7b852
+IN-AC-2008-assam-1728,assam,2026,45,BHERGAON,Nerswn Boro,parties.IN.UPPL,UPPL,29308,21.94,2,lost,M,49,,,,src-074239c7b852
+IN-AC-2008-assam-1728,assam,2026,45,BHERGAON,Prabhat Das Panika,parties.IN.JMM,JMM,21997,16.46,3,lost,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1728,assam,2026,45,BHERGAON,Anchula Gwra Daimary,parties.IN.INC,INC,8267,6.19,4,lost,M,49,,,,src-074239c7b852
+IN-AC-2008-assam-1728,assam,2026,45,BHERGAON,Dipak Rajbongshi,,GNASURKP,1476,1.1,5,lost,M,34,,,,src-074239c7b852
+IN-AC-2008-assam-1734,assam,2026,46,UDALGURI (ST),Rihon Daimari,parties.IN.BOPF,BOPF,76800,54.61,1,won,M,66,,,,src-074239c7b852
+IN-AC-2008-assam-1734,assam,2026,46,UDALGURI (ST),Dipen Boro,parties.IN.UPPL,UPPL,49246,35.01,2,lost,M,46,,,,src-074239c7b852
+IN-AC-2008-assam-1734,assam,2026,46,UDALGURI (ST),Suren Daimari,parties.IN.INC,INC,9429,6.7,3,lost,M,73,,,,src-074239c7b852
+IN-AC-2008-assam-1734,assam,2026,46,UDALGURI (ST),Unike Basumatary,,VPI,2583,1.84,4,lost,F,33,,,,src-074239c7b852
+IN-AC-2008-assam-1731,assam,2026,47,MAZBAT,Charan Boro,parties.IN.BOPF,BOPF,84718,53.48,1,won,M,46,,,,src-074239c7b852
+IN-AC-2008-assam-1731,assam,2026,47,MAZBAT,Priti Rekha Barla,parties.IN.JMM,JMM,29172,18.42,2,lost,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1731,assam,2026,47,MAZBAT,Narayan Adhikari,parties.IN.INC,INC,23558,14.87,3,lost,M,66,,,,src-074239c7b852
+IN-AC-2008-assam-1731,assam,2026,47,MAZBAT,Rabindra Basumatary,parties.IN.UPPL,UPPL,16903,10.67,4,lost,M,59,,,,src-074239c7b852
+IN-AC-2008-assam-1731,assam,2026,47,MAZBAT,Ashok Gayari,,VPI,1533,0.97,5,lost,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1756,assam,2026,48,TANGLA,Bikan Chandra Deka,parties.IN.BJP,BJP,84309,54.82,1,won,M,62,,,,src-074239c7b852
+IN-AC-2008-assam-1756,assam,2026,48,TANGLA,Rohit Pariga,parties.IN.INC,INC,29708,19.32,2,lost,M,40,,,,src-074239c7b852
+IN-AC-2008-assam-1756,assam,2026,48,TANGLA,Jayanta Kumar Rabha,parties.IN.UPPL,UPPL,28357,18.44,3,lost,M,50,,,,src-074239c7b852
+IN-AC-2008-assam-1756,assam,2026,48,TANGLA,Phulan Kachari,,VPI,3873,2.52,4,lost,M,52,,,,src-074239c7b852
+IN-AC-2008-assam-1756,assam,2026,48,TANGLA,Bishwadutta Tati,parties.IN.GGP,GGP,3087,2.01,5,lost,M,34,,,,src-074239c7b852
+IN-AC-2008-assam-1757,assam,2026,49,SIPAJHAR,Paramananda Rajbongshi,parties.IN.BJP,BJP,99720,55.83,1,won,M,67,,,,src-074239c7b852
+IN-AC-2008-assam-1757,assam,2026,49,SIPAJHAR,Binanda Kumar Saikia,parties.IN.INC,INC,74475,41.69,2,lost,M,61,,,,src-074239c7b852
+IN-AC-2008-assam-1757,assam,2026,49,SIPAJHAR,Mun Kumar Deka,parties.IN.SUCI,SUCI,1085,0.61,3,lost,M,46,,,,src-074239c7b852
+IN-AC-2008-assam-1757,assam,2026,49,SIPAJHAR,Harjyoti Buddha,parties.IN.IND,IND,946,0.53,4,lost,M,26,,,,src-074239c7b852
+IN-AC-2008-assam-1764,assam,2026,50,MANGALDAI,Nilima Devi,parties.IN.BJP,BJP,100078,54.77,1,won,F,61,,,,src-074239c7b852
+IN-AC-2008-assam-1764,assam,2026,50,MANGALDAI,Rijumoni Talukdar,parties.IN.INC,INC,76142,41.67,2,lost,F,46,,,,src-074239c7b852
+IN-AC-2008-assam-1764,assam,2026,50,MANGALDAI,Azizur Rahman,parties.IN.AIUDF,AIUDF,1961,1.07,3,lost,M,51,,,,src-074239c7b852
+IN-AC-2008-assam-1764,assam,2026,50,MANGALDAI,Prabin Kr. Deka,parties.IN.IND,IND,979,0.54,4,lost,M,39,,,,src-074239c7b852
+IN-AC-2008-assam-1764,assam,2026,50,MANGALDAI,Harekrishna Deka,parties.IN.AITC,AITC,907,0.5,5,lost,M,47,,,,src-074239c7b852
+IN-AC-2008-assam-1763,assam,2026,51,DALGAON,Mazibur Rahman,parties.IN.AIUDF,AIUDF,147555,48.5,1,won,M,51,,,,src-074239c7b852
+IN-AC-2008-assam-1763,assam,2026,51,DALGAON,Md Aynul Hoque,parties.IN.IND,IND,118675,39.01,2,lost,M,50,,,,src-074239c7b852
+IN-AC-2008-assam-1763,assam,2026,51,DALGAON,Azizur Rahman,parties.IN.RJRD,RJRD,17613,5.79,3,lost,M,44,,,,src-074239c7b852
+IN-AC-2008-assam-1763,assam,2026,51,DALGAON,Krishna Saha,parties.IN.BJP,BJP,17079,5.61,4,lost,F,45,,,,src-074239c7b852
+IN-AC-2008-assam-1758,assam,2026,52,JAGIROAD (SC),Pijush Hazarika,parties.IN.BJP,BJP,155129,70.64,1,won,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1758,assam,2026,52,JAGIROAD (SC),Sri Bubul Das,parties.IN.INC,INC,61545,28.03,2,lost,M,66,,,,src-074239c7b852
+IN-AC-2008-assam-1760,assam,2026,53,LAHARIGHAT,Dr Asif Mohammad Nazar,parties.IN.INC,INC,169212,57.78,1,won,M,37,,,,src-074239c7b852
+IN-AC-2008-assam-1760,assam,2026,53,LAHARIGHAT,Siddique Ahmed,parties.IN.AIUDF,AIUDF,102917,35.14,2,lost,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1760,assam,2026,53,LAHARIGHAT,Md Khalilur Rahman,parties.IN.AGP,AGP,16342,5.58,3,lost,M,50,,,,src-074239c7b852
+IN-AC-2008-assam-1760,assam,2026,53,LAHARIGHAT,Haresha Khanam,parties.IN.IND,IND,1699,0.58,4,lost,F,43,,,,src-074239c7b852
+IN-AC-2008-assam-1760,assam,2026,53,LAHARIGHAT,Omar Faruque,parties.IN.RUC,RUC,1014,0.35,5,lost,M,29,,,,src-074239c7b852
+IN-AC-2008-assam-1761,assam,2026,54,MORIGAON,Rama Kanta Dewri,parties.IN.BJP,BJP,117942,66.53,1,won,M,62,,,,src-074239c7b852
+IN-AC-2008-assam-1761,assam,2026,54,MORIGAON,Bani Kanta Das,,ASMJTYP,52453,29.59,2,lost,M,62,,,,src-074239c7b852
+IN-AC-2008-assam-1761,assam,2026,54,MORIGAON,Cheniram Konwar,parties.IN.RPPRINAT,RPPRINAT,2171,1.22,3,lost,M,47,,,,src-074239c7b852
+IN-AC-2008-assam-1761,assam,2026,54,MORIGAON,Amlesh Medhi,parties.IN.IND,IND,1248,0.7,4,lost,M,51,,,,src-074239c7b852
+IN-AC-2008-assam-1761,assam,2026,54,MORIGAON,Pradip Baruah,parties.IN.IND,IND,773,0.44,5,lost,M,63,,,,src-074239c7b852
+IN-AC-2008-assam-1762,assam,2026,55,DHING,Mehboob Muktar,parties.IN.RJRD,RJRD,131182,59.6,1,won,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1762,assam,2026,55,DHING,Matiur Rahman,parties.IN.AIUDF,AIUDF,59688,27.12,2,lost,M,57,,,,src-074239c7b852
+IN-AC-2008-assam-1762,assam,2026,55,DHING,Mukut Kumar Debnath,parties.IN.BJP,BJP,19572,8.89,3,lost,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1762,assam,2026,55,DHING,Hirak Jyoti Bora,parties.IN.RPPRINAT,RPPRINAT,3185,1.45,4,lost,M,32,,,,src-074239c7b852
+IN-AC-2008-assam-1762,assam,2026,55,DHING,Zakir Islam,,RCPI(R),3088,1.4,5,lost,M,38,,,,src-074239c7b852
+IN-AC-2008-assam-1814,assam,2026,56,RUPAHIHAT,Nurul Huda,parties.IN.INC,INC,135682,61.46,1,won,M,61,,,,src-074239c7b852
+IN-AC-2008-assam-1814,assam,2026,56,RUPAHIHAT,Aminul Islam,parties.IN.AIUDF,AIUDF,65916,29.86,2,lost,M,54,,,,src-074239c7b852
+IN-AC-2008-assam-1814,assam,2026,56,RUPAHIHAT,Jakir Hussain Faraji,parties.IN.AGP,AGP,14946,6.77,3,lost,M,52,,,,src-074239c7b852
+IN-AC-2008-assam-1814,assam,2026,56,RUPAHIHAT,Akibur Rahman,parties.IN.IND,IND,1087,0.49,4,lost,M,27,,,,src-074239c7b852
+IN-AC-2008-assam-1814,assam,2026,56,RUPAHIHAT,Habibur Rahman,parties.IN.IND,IND,585,0.27,5,lost,M,27,,,,src-074239c7b852
+IN-AC-2008-assam-1819,assam,2026,57,KALIABOR,Keshab Mahanta,parties.IN.AGP,AGP,74029,45.1,1,won,M,66,,,,src-074239c7b852
+IN-AC-2008-assam-1819,assam,2026,57,KALIABOR,Jiten Gour,parties.IN.IND,IND,56139,34.2,2,lost,M,43,,,,src-074239c7b852
+IN-AC-2008-assam-1819,assam,2026,57,KALIABOR,Pradip Kumar Baruah,parties.IN.RJRD,RJRD,30375,18.5,3,lost,M,67,,,,src-074239c7b852
+IN-AC-2008-assam-1819,assam,2026,57,KALIABOR,Jyotiska Ranjan Goswami,parties.IN.IND,IND,1562,0.95,4,lost,M,46,,,,src-074239c7b852
+IN-AC-2008-assam-1802,assam,2026,58,SAMAGURI,Tanzil Hussain,parties.IN.INC,INC,145212,68.09,1,won,M,27,,,,src-074239c7b852
+IN-AC-2008-assam-1802,assam,2026,58,SAMAGURI,Anil Saikia,parties.IN.BJP,BJP,36902,17.3,2,lost,M,47,,,,src-074239c7b852
+IN-AC-2008-assam-1802,assam,2026,58,SAMAGURI,Abdul Aziz,parties.IN.AIUDF,AIUDF,27904,13.08,3,lost,M,66,,,,src-074239c7b852
+IN-AC-2008-assam-1802,assam,2026,58,SAMAGURI,Ayub Khan,parties.IN.IND,IND,1063,0.5,4,lost,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1802,assam,2026,58,SAMAGURI,Sabina Eachamin,parties.IN.IND,IND,472,0.22,5,lost,F,34,,,,src-074239c7b852
+IN-AC-2008-assam-1817,assam,2026,59,BARHAMPUR,Jitu Goswami,parties.IN.BJP,BJP,117127,59.54,1,won,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1817,assam,2026,59,BARHAMPUR,Rajen Gohain,,ASMJTYP,60986,31,2,lost,M,76,,,,src-074239c7b852
+IN-AC-2008-assam-1817,assam,2026,59,BARHAMPUR,Mazibur Rahman,parties.IN.AIUDF,AIUDF,6522,3.32,3,lost,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1817,assam,2026,59,BARHAMPUR,Nazrul Islam,parties.IN.IND,IND,6176,3.14,4,lost,M,49,,,,src-074239c7b852
+IN-AC-2008-assam-1817,assam,2026,59,BARHAMPUR,Ranumai Teronpi,,AAAP,3158,1.61,5,lost,F,51,,,,src-074239c7b852
+IN-AC-2008-assam-1755,assam,2026,60,NAGAON-BATADRABA,Rupak Sarmah,parties.IN.BJP,BJP,113958,67.4,1,won,M,53,,,,src-074239c7b852
+IN-AC-2008-assam-1755,assam,2026,60,NAGAON-BATADRABA,Durlav Chamua,parties.IN.INC,INC,51974,30.74,2,lost,M,69,,,,src-074239c7b852
+IN-AC-2008-assam-1755,assam,2026,60,NAGAON-BATADRABA,Barnali Sarma,parties.IN.SUCI,SUCI,1073,0.63,3,lost,F,69,,,,src-074239c7b852
+IN-AC-2008-assam-1732,assam,2026,61,RAHA (SC),Sashi Kanta Das,parties.IN.BJP,BJP,111360,53.43,1,won,M,54,,,,src-074239c7b852
+IN-AC-2008-assam-1732,assam,2026,61,RAHA (SC),Utpal Bania,parties.IN.INC,INC,90766,43.55,2,lost,M,35,,,,src-074239c7b852
+IN-AC-2008-assam-1732,assam,2026,61,RAHA (SC),Mukut Das,parties.IN.AIUDF,AIUDF,2595,1.25,3,lost,M,58,,,,src-074239c7b852
+IN-AC-2008-assam-1732,assam,2026,61,RAHA (SC),Barun Bikash Das,,AAAP,1729,0.83,4,lost,M,42,,,,src-074239c7b852
+IN-AC-2008-assam-1793,assam,2026,62,BINNAKANDI,Mohammed Badruddin Ajmal,parties.IN.AIUDF,AIUDF,119721,50.54,1,won,M,70,,,,src-074239c7b852
+IN-AC-2008-assam-1793,assam,2026,62,BINNAKANDI,Rejaul Karim Chowdhury,,ASMJTYP,84341,35.6,2,lost,M,46,,,,src-074239c7b852
+IN-AC-2008-assam-1793,assam,2026,62,BINNAKANDI,Shahab Uddin Majumdar,parties.IN.AGP,AGP,20955,8.85,3,lost,M,65,,,,src-074239c7b852
+IN-AC-2008-assam-1793,assam,2026,62,BINNAKANDI,Mohammed Kabir Ahmed,parties.IN.IND,IND,2264,0.96,4,lost,M,33,,,,src-074239c7b852
+IN-AC-2008-assam-1793,assam,2026,62,BINNAKANDI,Forij Uddin,parties.IN.IND,IND,1543,0.65,5,lost,M,40,,,,src-074239c7b852
+IN-AC-2008-assam-1796,assam,2026,63,HOJAI,Shiladitya Dev,parties.IN.BJP,BJP,144361,64.24,1,won,M,57,,,,src-074239c7b852
+IN-AC-2008-assam-1796,assam,2026,63,HOJAI,Jhilli Chowdhury,parties.IN.INC,INC,77660,34.56,2,lost,F,59,,,,src-074239c7b852
+IN-AC-2008-assam-1818,assam,2026,64,LUMDING,Sibu Misra,parties.IN.BJP,BJP,115330,52.86,1,won,M,59,,,,src-074239c7b852
+IN-AC-2008-assam-1818,assam,2026,64,LUMDING,Swapan Kar,parties.IN.INC,INC,93216,42.72,2,lost,M,69,,,,src-074239c7b852
+IN-AC-2008-assam-1818,assam,2026,64,LUMDING,Jashada Dulal Rakshit,parties.IN.IND,IND,5444,2.49,3,lost,M,65,,,,src-074239c7b852
+IN-AC-2008-assam-1818,assam,2026,64,LUMDING,Ujjal Deb,,BGanP,1740,0.8,4,lost,M,49,,,,src-074239c7b852
+IN-AC-2008-assam-1813,assam,2026,65,DHEKIAJULI,Ashok Singhal,parties.IN.BJP,BJP,111880,59.63,1,won,M,57,,,,src-074239c7b852
+IN-AC-2008-assam-1813,assam,2026,65,DHEKIAJULI,Batash Orang,parties.IN.INC,INC,63711,33.96,2,lost,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1813,assam,2026,65,DHEKIAJULI,Ansuma Basumatary,parties.IN.IND,IND,4983,2.66,3,lost,M,28,,,,src-074239c7b852
+IN-AC-2008-assam-1813,assam,2026,65,DHEKIAJULI,Ranjoy Basumatary,,VPI,1957,1.04,4,lost,M,53,,,,src-074239c7b852
+IN-AC-2008-assam-1813,assam,2026,65,DHEKIAJULI,Tarcius Topno,parties.IN.IND,IND,1178,0.63,5,lost,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1820,assam,2026,66,BARCHALLA,Ritu Baran Sarmah,parties.IN.BJP,BJP,84495,53.15,1,won,M,58,,,,src-074239c7b852
+IN-AC-2008-assam-1820,assam,2026,66,BARCHALLA,Ripun Bora,parties.IN.INC,INC,59933,37.7,2,lost,M,70,,,,src-074239c7b852
+IN-AC-2008-assam-1820,assam,2026,66,BARCHALLA,Abul Majan,parties.IN.JMM,JMM,8558,5.38,3,lost,M,51,,,,src-074239c7b852
+IN-AC-2008-assam-1820,assam,2026,66,BARCHALLA,Baburam Basumatary,parties.IN.UPPL,UPPL,1714,1.08,4,lost,M,53,,,,src-074239c7b852
+IN-AC-2008-assam-1820,assam,2026,66,BARCHALLA,Mahendra Orang,,VPI,885,0.56,5,lost,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1815,assam,2026,67,TEZPUR,Prithiraj Rava,parties.IN.AGP,AGP,79140,53.39,1,won,M,67,,,,src-074239c7b852
+IN-AC-2008-assam-1815,assam,2026,67,TEZPUR,Alok Nath,parties.IN.RJRD,RJRD,59190,39.93,2,lost,M,59,,,,src-074239c7b852
+IN-AC-2008-assam-1815,assam,2026,67,TEZPUR,Pallabi Saikia,parties.IN.IND,IND,5698,3.84,3,lost,F,41,,,,src-074239c7b852
+IN-AC-2008-assam-1815,assam,2026,67,TEZPUR,Nayan Moni Choudhury,parties.IN.SUCI,SUCI,1485,1,4,lost,M,37,,,,src-074239c7b852
+IN-AC-2008-assam-1812,assam,2026,68,RANGAPARA,Krishna Kamal Tanti,parties.IN.BJP,BJP,81022,56.33,1,won,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1812,assam,2026,68,RANGAPARA,Kartik Chandra Kurmi,parties.IN.INC,INC,37707,26.22,2,lost,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1812,assam,2026,68,RANGAPARA,Mathew Topno,parties.IN.JMM,JMM,20067,13.95,3,lost,M,30,,,,src-074239c7b852
+IN-AC-2008-assam-1812,assam,2026,68,RANGAPARA,Girindra Kumar Bhuyan,parties.IN.IND,IND,1701,1.18,4,lost,M,64,,,,src-074239c7b852
+IN-AC-2008-assam-1812,assam,2026,68,RANGAPARA,Mahendra Orang,,VPI,1472,1.02,5,lost,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1821,assam,2026,69,NADUAR,Padma Hazarika,parties.IN.BJP,BJP,111125,64.55,1,won,M,63,,,,src-074239c7b852
+IN-AC-2008-assam-1821,assam,2026,69,NADUAR,Sunil Kumar Chhetri,parties.IN.INC,INC,58209,33.81,2,lost,M,44,,,,src-074239c7b852
+IN-AC-2008-assam-1816,assam,2026,70,BISWANATH,Pallab Lochan Das,parties.IN.BJP,BJP,84862,52.73,1,won,M,47,,,,src-074239c7b852
+IN-AC-2008-assam-1816,assam,2026,70,BISWANATH,Jayanta Borah,parties.IN.INC,INC,59092,36.72,2,lost,M,42,,,,src-074239c7b852
+IN-AC-2008-assam-1816,assam,2026,70,BISWANATH,Teharu Gour,parties.IN.JMM,JMM,12501,7.77,3,lost,M,41,,,,src-074239c7b852
+IN-AC-2008-assam-1816,assam,2026,70,BISWANATH,Ananta Gogoi,,AAAP,1471,0.91,4,lost,M,46,,,,src-074239c7b852
+IN-AC-2008-assam-1816,assam,2026,70,BISWANATH,Sahidul Alam,,GNASURKP,1153,0.72,5,lost,M,34,,,,src-074239c7b852
+IN-AC-2008-assam-1842,assam,2026,71,BEHALI (SC),Munindra Das (bapti),parties.IN.BJP,BJP,87224,65.86,1,won,M,44,,,,src-074239c7b852
+IN-AC-2008-assam-1842,assam,2026,71,BEHALI (SC),Gyanendra Sarkar,,CPI(ML)(L),26521,20.03,2,lost,M,66,,,,src-074239c7b852
+IN-AC-2008-assam-1842,assam,2026,71,BEHALI (SC),Ajoy Kumar Singha,parties.IN.IND,IND,13294,10.04,3,lost,M,57,,,,src-074239c7b852
+IN-AC-2008-assam-1842,assam,2026,71,BEHALI (SC),Paban Pran Rabidas,,GNASURKP,1999,1.51,4,lost,M,46,,,,src-074239c7b852
+IN-AC-2008-assam-1838,assam,2026,72,GOHPUR,Utpal Borah,parties.IN.BJP,BJP,96582,65.72,1,won,M,59,,,,src-074239c7b852
+IN-AC-2008-assam-1838,assam,2026,72,GOHPUR,Sankar Jyoti Kutum,parties.IN.INC,INC,43860,29.85,2,lost,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1838,assam,2026,72,GOHPUR,Nityananda Basumatary,parties.IN.UPPL,UPPL,3204,2.18,3,lost,M,61,,,,src-074239c7b852
+IN-AC-2008-assam-1838,assam,2026,72,GOHPUR,Hemanta Bijoy Mahanta,parties.IN.IND,IND,1435,0.98,4,lost,M,65,,,,src-074239c7b852
+IN-AC-2008-assam-1846,assam,2026,73,BIHPURIA,Bhupen Kumar Borah,parties.IN.BJP,BJP,73050,52.01,1,won,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1846,assam,2026,73,BIHPURIA,Narayan Bhuyan,parties.IN.INC,INC,64814,46.15,2,lost,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1846,assam,2026,73,BIHPURIA,Dr. Diganta Gogoi,,VPI,854,0.61,3,lost,M,62,,,,src-074239c7b852
+IN-AC-2008-assam-1846,assam,2026,73,BIHPURIA,Hemen Gogoi,parties.IN.IND,IND,532,0.38,4,lost,M,52,,,,src-074239c7b852
+IN-AC-2008-assam-1844,assam,2026,74,RONGONADI,Rishiraj Hazarika,parties.IN.BJP,BJP,82204,51.26,1,won,M,36,,,,src-074239c7b852
+IN-AC-2008-assam-1844,assam,2026,74,RONGONADI,Jayanta Khaund,parties.IN.INC,INC,62641,39.06,2,lost,M,58,,,,src-074239c7b852
+IN-AC-2008-assam-1844,assam,2026,74,RONGONADI,Pawan Sautal,parties.IN.JMM,JMM,11832,7.38,3,lost,M,40,,,,src-074239c7b852
+IN-AC-2008-assam-1844,assam,2026,74,RONGONADI,Kamal Barla,parties.IN.IND,IND,599,0.37,4,lost,M,32,,,,src-074239c7b852
+IN-AC-2008-assam-1844,assam,2026,74,RONGONADI,Tikendra Thapa,,AAAP,589,0.37,5,lost,M,69,,,,src-074239c7b852
+IN-AC-2008-assam-1845,assam,2026,75,NOWBOICHA (SC),Dr. Joy Prakash Das,parties.IN.INC,INC,86981,56.66,1,won,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1845,assam,2026,75,NOWBOICHA (SC),Basanta Das,parties.IN.AGP,AGP,63230,41.19,2,lost,M,37,,,,src-074239c7b852
+IN-AC-2008-assam-1845,assam,2026,75,NOWBOICHA (SC),Bikrom Das,,VPI,1176,0.77,3,lost,M,33,,,,src-074239c7b852
+IN-AC-2008-assam-1845,assam,2026,75,NOWBOICHA (SC),Achyut Das,,AAAP,1158,0.75,4,lost,M,29,,,,src-074239c7b852
+IN-AC-2008-assam-1841,assam,2026,76,LAKHIMPUR,Manab Deka,parties.IN.BJP,BJP,85726,60,1,won,M,50,,,,src-074239c7b852
+IN-AC-2008-assam-1841,assam,2026,76,LAKHIMPUR,Ghana Buragohain,parties.IN.INC,INC,53506,37.45,2,lost,M,60,,,,src-074239c7b852
+IN-AC-2008-assam-1841,assam,2026,76,LAKHIMPUR,Hemanta Boruah,parties.IN.IND,IND,809,0.57,3,lost,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1841,assam,2026,76,LAKHIMPUR,Nurul Ali,parties.IN.RUC,RUC,781,0.55,4,lost,M,41,,,,src-074239c7b852
+IN-AC-2008-assam-1841,assam,2026,76,LAKHIMPUR,Birinchi Pegu,parties.IN.SUCI,SUCI,530,0.37,5,lost,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1839,assam,2026,77,DHAKUAKHANA (ST),Shri Naba Kumar Doley,parties.IN.BJP,BJP,92123,67.51,1,won,M,54,,,,src-074239c7b852
+IN-AC-2008-assam-1839,assam,2026,77,DHAKUAKHANA (ST),Ananda Narah,parties.IN.INC,INC,42051,30.81,2,lost,M,35,,,,src-074239c7b852
+IN-AC-2008-assam-1839,assam,2026,77,DHAKUAKHANA (ST),Jutika Doley,parties.IN.SUCI,SUCI,1179,0.86,3,lost,F,44,,,,src-074239c7b852
+IN-AC-2008-assam-1843,assam,2026,78,DHEMAJI (ST),Dr. Ranoj Pegu,parties.IN.BJP,BJP,83649,58.51,1,won,M,64,,,,src-074239c7b852
+IN-AC-2008-assam-1843,assam,2026,78,DHEMAJI (ST),Sri Sailen Sonowal,parties.IN.INC,INC,51420,35.96,2,lost,M,52,,,,src-074239c7b852
+IN-AC-2008-assam-1843,assam,2026,78,DHEMAJI (ST),Sri Narendra Kumar Paw,parties.IN.AITC,AITC,3550,2.48,3,lost,M,67,,,,src-074239c7b852
+IN-AC-2008-assam-1843,assam,2026,78,DHEMAJI (ST),Sri Babul Sonowal,parties.IN.IND,IND,1675,1.17,4,lost,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1843,assam,2026,78,DHEMAJI (ST),Sri Lalit Pegu,,VPI,1091,0.76,5,lost,M,44,,,,src-074239c7b852
+IN-AC-2008-assam-1824,assam,2026,79,SISSIBARGAON,Jiban Gogoi,parties.IN.BJP,BJP,75758,52.07,1,won,M,51,,,,src-074239c7b852
+IN-AC-2008-assam-1824,assam,2026,79,SISSIBARGAON,Dulal Chandra Boruah,parties.IN.RJRD,RJRD,35165,24.17,2,lost,M,46,,,,src-074239c7b852
+IN-AC-2008-assam-1824,assam,2026,79,SISSIBARGAON,Nandigiri Bhuyan,parties.IN.IND,IND,26890,18.48,3,lost,M,41,,,,src-074239c7b852
+IN-AC-2008-assam-1824,assam,2026,79,SISSIBARGAON,Pranjal Borah,parties.IN.IND,IND,2512,1.73,4,lost,M,35,,,,src-074239c7b852
+IN-AC-2008-assam-1824,assam,2026,79,SISSIBARGAON,Ranjit Kumar Roy,parties.IN.IND,IND,2209,1.52,5,lost,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1828,assam,2026,80,JONAI (ST),Bhubon Pegu,parties.IN.BJP,BJP,128940,71.57,1,won,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1828,assam,2026,80,JONAI (ST),Raju Kumar Medok,parties.IN.INC,INC,48816,27.1,2,lost,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1826,assam,2026,81,SADIYA,Bolin Chetia,parties.IN.BJP,BJP,97087,60.74,1,won,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1826,assam,2026,81,SADIYA,Jagadish Bhuyan,,ASMJTYP,55338,34.62,2,lost,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1826,assam,2026,81,SADIYA,Abraham Tirkey,parties.IN.IND,IND,2006,1.26,3,lost,M,39,,,,src-074239c7b852
+IN-AC-2008-assam-1826,assam,2026,81,SADIYA,Lalit Deori,parties.IN.IND,IND,1410,0.88,4,lost,M,67,,,,src-074239c7b852
+IN-AC-2008-assam-1826,assam,2026,81,SADIYA,Dilip Bura Gohain,parties.IN.IND,IND,1344,0.84,5,lost,M,57,,,,src-074239c7b852
+IN-AC-2008-assam-1830,assam,2026,82,DOOMDOOMA,Rupesh Gowala,parties.IN.BJP,BJP,86009,70.79,1,won,M,47,,,,src-074239c7b852
+IN-AC-2008-assam-1830,assam,2026,82,DOOMDOOMA,Durga Bhumij,parties.IN.INC,INC,30627,25.21,2,lost,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1778,assam,2026,83,MARGHERITA,Bhaskar Sharma,parties.IN.BJP,BJP,86349,61.72,1,won,M,57,,,,src-074239c7b852
+IN-AC-2008-assam-1778,assam,2026,83,MARGHERITA,Rahul Chetry,parties.IN.RJRD,RJRD,31032,22.18,2,lost,M,30,,,,src-074239c7b852
+IN-AC-2008-assam-1778,assam,2026,83,MARGHERITA,Garnel Minze,parties.IN.JMM,JMM,19228,13.74,3,lost,M,43,,,,src-074239c7b852
+IN-AC-2008-assam-1775,assam,2026,84,DIGBOI,Suren Phukan,parties.IN.BJP,BJP,65690,56.27,1,won,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1775,assam,2026,84,DIGBOI,Dulal Moran,parties.IN.RJRD,RJRD,24617,21.09,2,lost,M,61,,,,src-074239c7b852
+IN-AC-2008-assam-1775,assam,2026,84,DIGBOI,Bharat Nayak,parties.IN.JMM,JMM,19638,16.82,3,lost,M,47,,,,src-074239c7b852
+IN-AC-2008-assam-1775,assam,2026,84,DIGBOI,Jiten Nag,parties.IN.AITC,AITC,2441,2.09,4,lost,M,41,,,,src-074239c7b852
+IN-AC-2008-assam-1775,assam,2026,84,DIGBOI,Lakheswar Moran,parties.IN.IND,IND,1666,1.43,5,lost,M,58,,,,src-074239c7b852
+IN-AC-2008-assam-1782,assam,2026,85,MAKUM,Sanjoy Kishan,parties.IN.BJP,BJP,74694,57.62,1,won,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1782,assam,2026,85,MAKUM,Sibanath Chetia,parties.IN.INC,INC,46418,35.81,2,lost,M,42,,,,src-074239c7b852
+IN-AC-2008-assam-1782,assam,2026,85,MAKUM,Dilip Moran,parties.IN.AITC,AITC,2186,1.69,3,lost,M,60,,,,src-074239c7b852
+IN-AC-2008-assam-1782,assam,2026,85,MAKUM,Lakhay Joti Rajkhowa,parties.IN.IND,IND,1836,1.42,4,lost,M,25,,,,src-074239c7b852
+IN-AC-2008-assam-1782,assam,2026,85,MAKUM,Padma Kanta Chutia,parties.IN.IND,IND,1440,1.11,5,lost,M,34,,,,src-074239c7b852
+IN-AC-2008-assam-1829,assam,2026,86,TINSUKIA,Pulok Gohain,parties.IN.BJP,BJP,85184,62.72,1,won,M,49,,,,src-074239c7b852
+IN-AC-2008-assam-1829,assam,2026,86,TINSUKIA,Devid Phukan,parties.IN.INC,INC,36687,27.01,2,lost,M,38,,,,src-074239c7b852
+IN-AC-2008-assam-1829,assam,2026,86,TINSUKIA,Jhony Kiron Nayak,parties.IN.IND,IND,5120,3.77,3,lost,M,43,,,,src-074239c7b852
+IN-AC-2008-assam-1829,assam,2026,86,TINSUKIA,Lalan Sahani,parties.IN.IND,IND,2313,1.7,4,lost,M,42,,,,src-074239c7b852
+IN-AC-2008-assam-1829,assam,2026,86,TINSUKIA,Gobinda Joishy,parties.IN.IND,IND,1336,0.98,5,lost,M,37,,,,src-074239c7b852
+IN-AC-2008-assam-1822,assam,2026,87,CHABUA-LAHOWAL,Binod Hazarika,parties.IN.BJP,BJP,89202,60.75,1,won,M,49,,,,src-074239c7b852
+IN-AC-2008-assam-1822,assam,2026,87,CHABUA-LAHOWAL,Pranjal Ghatowar,parties.IN.INC,INC,38288,26.08,2,lost,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1822,assam,2026,87,CHABUA-LAHOWAL,Bhupen Singh Murari,parties.IN.JMM,JMM,13265,9.03,3,lost,M,32,,,,src-074239c7b852
+IN-AC-2008-assam-1822,assam,2026,87,CHABUA-LAHOWAL,Inus Kumar Kandapan,parties.IN.AITC,AITC,2259,1.54,4,lost,M,39,,,,src-074239c7b852
+IN-AC-2008-assam-1783,assam,2026,88,DIBRUGARH,Prasanta Phukan,parties.IN.BJP,BJP,106803,67.79,1,won,M,71,,,,src-074239c7b852
+IN-AC-2008-assam-1783,assam,2026,88,DIBRUGARH,Mainak Patra,,ASMJTYP,34760,22.06,2,lost,M,63,,,,src-074239c7b852
+IN-AC-2008-assam-1783,assam,2026,88,DIBRUGARH,Kamal Hazarika,parties.IN.VINPA,VINPA,11699,7.43,3,lost,M,68,,,,src-074239c7b852
+IN-AC-2008-assam-1780,assam,2026,89,KHOWANG,Chakradhar Gogoi,parties.IN.BJP,BJP,67038,50.7,1,won,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1780,assam,2026,89,KHOWANG,Lurinjyoti Gogoi,,ASMJTYP,57054,43.15,2,lost,M,43,,,,src-074239c7b852
+IN-AC-2008-assam-1780,assam,2026,89,KHOWANG,Biju Dowarah,parties.IN.IND,IND,4361,3.3,3,lost,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1780,assam,2026,89,KHOWANG,Dr. Prabhakar Das,parties.IN.IND,IND,1761,1.33,4,lost,M,39,,,,src-074239c7b852
+IN-AC-2008-assam-1825,assam,2026,90,DULIAJAN,Rameswar Teli,parties.IN.BJP,BJP,71467,49.81,1,won,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1825,assam,2026,90,DULIAJAN,Dhruba Gogoi,parties.IN.INC,INC,61008,42.52,2,lost,M,46,,,,src-074239c7b852
+IN-AC-2008-assam-1825,assam,2026,90,DULIAJAN,Peter Minj,parties.IN.JMM,JMM,8389,5.85,3,lost,M,51,,,,src-074239c7b852
+IN-AC-2008-assam-1823,assam,2026,91,TINGKHONG,Bimal Borah,parties.IN.BJP,BJP,88912,61.19,1,won,M,50,,,,src-074239c7b852
+IN-AC-2008-assam-1823,assam,2026,91,TINGKHONG,Bipul Gogoi,parties.IN.INC,INC,39886,27.45,2,lost,M,58,,,,src-074239c7b852
+IN-AC-2008-assam-1823,assam,2026,91,TINGKHONG,Mahabir Baske,parties.IN.JMM,JMM,14205,9.78,3,lost,M,38,,,,src-074239c7b852
+IN-AC-2008-assam-1827,assam,2026,92,NAHARKATIA,Taranga Gogoi,parties.IN.BJP,BJP,87768,70.43,1,won,M,43,,,,src-074239c7b852
+IN-AC-2008-assam-1827,assam,2026,92,NAHARKATIA,Pranatee Phukan,parties.IN.INC,INC,25486,20.45,2,lost,F,62,,,,src-074239c7b852
+IN-AC-2008-assam-1827,assam,2026,92,NAHARKATIA,Sanjoy Bagh,parties.IN.JMM,JMM,7560,6.07,3,lost,M,41,,,,src-074239c7b852
+IN-AC-2008-assam-1827,assam,2026,92,NAHARKATIA,Mohendra Dhadumia,parties.IN.SUCI,SUCI,987,0.79,4,lost,M,78,,,,src-074239c7b852
+IN-AC-2008-assam-1827,assam,2026,92,NAHARKATIA,Michael Kujur,parties.IN.IND,IND,691,0.55,5,lost,M,54,,,,src-074239c7b852
+IN-AC-2008-assam-1776,assam,2026,93,SONARI,Dhormeswar Konwar,parties.IN.BJP,BJP,74833,52.06,1,won,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1776,assam,2026,93,SONARI,Utpal Gogoi,parties.IN.INC,INC,50699,35.27,2,lost,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1776,assam,2026,93,SONARI,Baldev Teli,parties.IN.JMM,JMM,14579,10.14,3,lost,M,40,,,,src-074239c7b852
+IN-AC-2008-assam-1776,assam,2026,93,SONARI,Raju Karuwa,parties.IN.IND,IND,1510,1.05,4,lost,M,50,,,,src-074239c7b852
+IN-AC-2008-assam-1784,assam,2026,94,MAHMORA,Suruj Dehingia,parties.IN.BJP,BJP,69530,55.2,1,won,M,50,,,,src-074239c7b852
+IN-AC-2008-assam-1784,assam,2026,94,MAHMORA,Jnyandip Mohan,parties.IN.INC,INC,53509,42.48,2,lost,M,49,,,,src-074239c7b852
+IN-AC-2008-assam-1779,assam,2026,95,DEMOW,Susanta Borgohain,parties.IN.BJP,BJP,89681,59.74,1,won,M,52,,,,src-074239c7b852
+IN-AC-2008-assam-1779,assam,2026,95,DEMOW,Ajoy Kumar Gogoi,parties.IN.INC,INC,56153,37.4,2,lost,M,53,,,,src-074239c7b852
+IN-AC-2008-assam-1779,assam,2026,95,DEMOW,Ajoy Bora,parties.IN.CPI,CPI,2575,1.72,3,lost,M,44,,,,src-074239c7b852
+IN-AC-2008-assam-1781,assam,2026,96,SIBSAGAR,Akhil Gogoi,parties.IN.RJRD,RJRD,86521,49.38,1,won,M,51,,,,src-074239c7b852
+IN-AC-2008-assam-1781,assam,2026,96,SIBSAGAR,Kushal Dowari,parties.IN.BJP,BJP,69249,39.52,2,lost,M,60,,,,src-074239c7b852
+IN-AC-2008-assam-1781,assam,2026,96,SIBSAGAR,Prodip Hazarika,parties.IN.AGP,AGP,14757,8.42,3,lost,M,73,,,,src-074239c7b852
+IN-AC-2008-assam-1781,assam,2026,96,SIBSAGAR,Bhabendra Nath Mohan,parties.IN.IND,IND,804,0.46,4,lost,M,53,,,,src-074239c7b852
+IN-AC-2008-assam-1781,assam,2026,96,SIBSAGAR,Tapan Gogoi,,AAAP,721,0.41,5,lost,M,47,,,,src-074239c7b852
+IN-AC-2008-assam-1777,assam,2026,97,NAZIRA,Mayur Borgohain,parties.IN.BJP,BJP,98198,62.64,1,won,M,44,,,,src-074239c7b852
+IN-AC-2008-assam-1777,assam,2026,97,NAZIRA,Debabrata Saikia,parties.IN.INC,INC,51497,32.85,2,lost,M,61,,,,src-074239c7b852
+IN-AC-2008-assam-1777,assam,2026,97,NAZIRA,Kanak Gogoi,parties.IN.CPI,CPI,2691,1.72,3,lost,M,50,,,,src-074239c7b852
+IN-AC-2008-assam-1777,assam,2026,97,NAZIRA,Pankaj Mahanta,parties.IN.IND,IND,1028,0.66,4,lost,M,39,,,,src-074239c7b852
+IN-AC-2008-assam-1777,assam,2026,97,NAZIRA,Dilwar Hussain,parties.IN.IND,IND,543,0.35,5,lost,M,49,,,,src-074239c7b852
+IN-AC-2008-assam-1766,assam,2026,98,MAJULI (ST),Bhuban Gam,parties.IN.BJP,BJP,78324,63.51,1,won,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1766,assam,2026,98,MAJULI (ST),Dr. Indraneel Pegu,parties.IN.INC,INC,43024,34.89,2,lost,M,40,,,,src-074239c7b852
+IN-AC-2008-assam-1766,assam,2026,98,MAJULI (ST),Bhaity Richong,parties.IN.SUCI,SUCI,1019,0.83,3,lost,M,33,,,,src-074239c7b852
+IN-AC-2008-assam-1809,assam,2026,99,TEOK,Bikash Saikia,parties.IN.AGP,AGP,90368,55.84,1,won,M,52,,,,src-074239c7b852
+IN-AC-2008-assam-1809,assam,2026,99,TEOK,Pallabi Saikia Gogoi,parties.IN.INC,INC,67696,41.83,2,lost,F,47,,,,src-074239c7b852
+IN-AC-2008-assam-1774,assam,2026,100,JORHAT,Hitendra Nath Goswami,parties.IN.BJP,BJP,69439,58.7,1,won,M,67,,,,src-074239c7b852
+IN-AC-2008-assam-1774,assam,2026,100,JORHAT,Gaurav Gogoi,parties.IN.INC,INC,46257,39.1,2,lost,M,43,,,,src-074239c7b852
+IN-AC-2008-assam-1774,assam,2026,100,JORHAT,Pranab Priyankush Dutta,,AAAP,701,0.59,3,lost,M,52,,,,src-074239c7b852
+IN-AC-2008-assam-1774,assam,2026,100,JORHAT,Hemanta Kumar Pegu,parties.IN.SUCI,SUCI,581,0.49,4,lost,M,44,,,,src-074239c7b852
+IN-AC-2008-assam-1768,assam,2026,101,MARIANI,Rupjyoti Kurmi,parties.IN.BJP,BJP,79632,58.45,1,won,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1768,assam,2026,101,MARIANI,Gyanashree Bora,parties.IN.RJRD,RJRD,52792,38.75,2,lost,F,34,,,,src-074239c7b852
+IN-AC-2008-assam-1768,assam,2026,101,MARIANI,Bijay Manjani,parties.IN.IND,IND,1188,0.87,3,lost,M,41,,,,src-074239c7b852
+IN-AC-2008-assam-1768,assam,2026,101,MARIANI,Siddhartha Bora,parties.IN.IND,IND,1045,0.77,4,lost,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1772,assam,2026,102,TITABOR,Dhiraj Gowala,parties.IN.BJP,BJP,78743,47.51,1,won,M,44,,,,src-074239c7b852
+IN-AC-2008-assam-1772,assam,2026,102,TITABOR,Pran Kurmi,parties.IN.INC,INC,55428,33.44,2,lost,M,60,,,,src-074239c7b852
+IN-AC-2008-assam-1772,assam,2026,102,TITABOR,Bhaskar Jyoti Baruah,parties.IN.IND,IND,27203,16.41,3,lost,M,65,,,,src-074239c7b852
+IN-AC-2008-assam-1772,assam,2026,102,TITABOR,Pallav Saikia,,AAAP,1876,1.13,4,lost,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-eci103,assam,2026,103,GOLAGHAT,Ajanta Neog,parties.IN.BJP,BJP,102212,61.88,1,won,F,62,,,,src-074239c7b852
+IN-AC-2008-assam-eci103,assam,2026,103,GOLAGHAT,Bitupan Saikia,parties.IN.INC,INC,58453,35.39,2,lost,M,59,,,,src-074239c7b852
+IN-AC-2008-assam-eci103,assam,2026,103,GOLAGHAT,Rubul Borah,parties.IN.IND,IND,2277,1.38,3,lost,M,51,,,,src-074239c7b852
+IN-AC-2008-assam-1769,assam,2026,104,DERGAON,Mridul Kumar Dutta,parties.IN.BJP,BJP,90049,60.59,1,won,M,65,,,,src-074239c7b852
+IN-AC-2008-assam-1769,assam,2026,104,DERGAON,Sagorika Bora,parties.IN.INC,INC,53096,35.72,2,lost,F,34,,,,src-074239c7b852
+IN-AC-2008-assam-1769,assam,2026,104,DERGAON,Pulin Gogoi,,AAAP,2902,1.95,3,lost,M,47,,,,src-074239c7b852
+IN-AC-2008-assam-1767,assam,2026,105,BOKAKHAT,Atul Bora,parties.IN.AGP,AGP,80987,59.66,1,won,M,65,,,,src-074239c7b852
+IN-AC-2008-assam-1767,assam,2026,105,BOKAKHAT,Hari Prasad Saikia,parties.IN.RJRD,RJRD,20450,15.06,2,lost,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1767,assam,2026,105,BOKAKHAT,Pranab Doley,parties.IN.IND,IND,14250,10.5,3,lost,M,40,,,,src-074239c7b852
+IN-AC-2008-assam-1767,assam,2026,105,BOKAKHAT,Jiten Gogoi,parties.IN.IND,IND,13231,9.75,4,lost,M,64,,,,src-074239c7b852
+IN-AC-2008-assam-1767,assam,2026,105,BOKAKHAT,Bibekananda Rajowar,parties.IN.GGP,GGP,2882,2.12,5,lost,M,35,,,,src-074239c7b852
+IN-AC-2008-assam-1771,assam,2026,106,KHUMTAI,Mrinal Saikia,parties.IN.BJP,BJP,91127,62.43,1,won,M,59,,,,src-074239c7b852
+IN-AC-2008-assam-1771,assam,2026,106,KHUMTAI,Roselina Tirkey,parties.IN.INC,INC,32715,22.41,2,lost,F,44,,,,src-074239c7b852
+IN-AC-2008-assam-1771,assam,2026,106,KHUMTAI,Amit Nag,parties.IN.JMM,JMM,17090,11.71,3,lost,M,42,,,,src-074239c7b852
+IN-AC-2008-assam-1771,assam,2026,106,KHUMTAI,Ashis Hazarika,,AAAP,1833,1.26,4,lost,M,36,,,,src-074239c7b852
+IN-AC-2008-assam-1771,assam,2026,106,KHUMTAI,Bhobeswar Dusad,parties.IN.IND,IND,1065,0.73,5,lost,M,40,,,,src-074239c7b852
+IN-AC-2008-assam-eci107,assam,2026,107,SARUPATHAR,Biswajit Phukan,parties.IN.BJP,BJP,96341,63.87,1,won,M,53,,,,src-074239c7b852
+IN-AC-2008-assam-eci107,assam,2026,107,SARUPATHAR,Jiban Chutia,,ASMJTYP,40261,26.69,2,lost,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-eci107,assam,2026,107,SARUPATHAR,Sahil Munda,parties.IN.JMM,JMM,11852,7.86,3,lost,M,31,,,,src-074239c7b852
+IN-AC-2008-assam-1770,assam,2026,108,BOKAJAN (ST),Surjya Rongphar,parties.IN.BJP,BJP,69851,54.48,1,won,M,54,,,,src-074239c7b852
+IN-AC-2008-assam-1770,assam,2026,108,BOKAJAN (ST),Raton Engti,parties.IN.INC,INC,52385,40.86,2,lost,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1770,assam,2026,108,BOKAJAN (ST),Raju Rongpi,parties.IN.IND,IND,1521,1.19,3,lost,M,30,,,,src-074239c7b852
+IN-AC-2008-assam-1770,assam,2026,108,BOKAJAN (ST),Renuka Timungpi,,AAAP,1500,1.17,4,lost,F,50,,,,src-074239c7b852
+IN-AC-2008-assam-1770,assam,2026,108,BOKAJAN (ST),Samuel Rongpi Ejang,parties.IN.IND,IND,1076,0.84,5,lost,M,42,,,,src-074239c7b852
+IN-AC-2008-assam-1840,assam,2026,109,HOWRAGHAT (ST),Lunsing Teron,parties.IN.BJP,BJP,106229,68.23,1,won,M,49,,,,src-074239c7b852
+IN-AC-2008-assam-1840,assam,2026,109,HOWRAGHAT (ST),Sanjeeb Teron,parties.IN.INC,INC,28123,18.06,2,lost,M,40,,,,src-074239c7b852
+IN-AC-2008-assam-1840,assam,2026,109,HOWRAGHAT (ST),Sarkiri Rongphar,parties.IN.IND,IND,14659,9.42,3,lost,M,36,,,,src-074239c7b852
+IN-AC-2008-assam-1840,assam,2026,109,HOWRAGHAT (ST),Rajen Timung,parties.IN.IND,IND,1943,1.25,4,lost,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1840,assam,2026,109,HOWRAGHAT (ST),Rabi Kumar Phangcho,,CPI(ML)(L),1414,0.91,5,lost,M,61,,,,src-074239c7b852
+IN-AC-2008-assam-1810,assam,2026,110,DIPHU (ST),Niso Terangpi,parties.IN.BJP,BJP,90866,62.95,1,won,F,46,,,,src-074239c7b852
+IN-AC-2008-assam-1810,assam,2026,110,DIPHU (ST),J. I Kathar,parties.IN.IND,IND,41126,28.49,2,lost,M,75,,,,src-074239c7b852
+IN-AC-2008-assam-1810,assam,2026,110,DIPHU (ST),Rajen Timung S/o Lt. Kangbura Timung,parties.IN.IND,IND,4072,2.82,3,lost,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1810,assam,2026,110,DIPHU (ST),Biresh Difoesa,,AAAP,3187,2.21,4,lost,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1810,assam,2026,110,DIPHU (ST),Rabindra Rongpi,parties.IN.IND,IND,1152,0.8,5,lost,M,59,,,,src-074239c7b852
+IN-AC-2008-assam-1808,assam,2026,111,RONGKHANG (ST),Tuliram Ronghang,parties.IN.BJP,BJP,83248,75.72,1,won,M,53,,,,src-074239c7b852
+IN-AC-2008-assam-1808,assam,2026,111,RONGKHANG (ST),Augustine Enghee,parties.IN.INC,INC,23005,20.93,2,lost,M,36,,,,src-074239c7b852
+IN-AC-2008-assam-1808,assam,2026,111,RONGKHANG (ST),Wilson Terang,parties.IN.IND,IND,1239,1.13,3,lost,M,46,,,,src-074239c7b852
+IN-AC-2008-assam-1808,assam,2026,111,RONGKHANG (ST),Pratima Engheepi,,CPI(ML)(L),1227,1.12,4,lost,F,52,,,,src-074239c7b852
+IN-AC-2008-assam-1804,assam,2026,112,AMRI (ST),Habbey Teron,parties.IN.BJP,BJP,50273,63.29,1,won,M,51,,,,src-074239c7b852
+IN-AC-2008-assam-1804,assam,2026,112,AMRI (ST),Bikram Hanse,parties.IN.IND,IND,26363,33.19,2,lost,M,38,,,,src-074239c7b852
+IN-AC-2008-assam-1804,assam,2026,112,AMRI (ST),Wilson Terang,parties.IN.IND,IND,972,1.22,3,lost,M,46,,,,src-074239c7b852
+IN-AC-2008-assam-1805,assam,2026,113,HAFLONG (ST),Rupali Langthasa,parties.IN.BJP,BJP,78674,59.38,1,won,F,33,,,,src-074239c7b852
+IN-AC-2008-assam-1805,assam,2026,113,HAFLONG (ST),Daniel Langthasa,,NPEP,28368,21.41,2,lost,M,42,,,,src-074239c7b852
+IN-AC-2008-assam-1805,assam,2026,113,HAFLONG (ST),Nandita Gorlosa,parties.IN.INC,INC,24084,18.18,3,lost,F,48,,,,src-074239c7b852
+IN-AC-2008-assam-1807,assam,2026,114,LAKHIPUR,Kaushik Rai,parties.IN.BJP,BJP,125302,81.49,1,won,M,51,,,,src-074239c7b852
+IN-AC-2008-assam-1807,assam,2026,114,LAKHIPUR,M. Santi Kumar Singha,parties.IN.INC,INC,25901,16.84,2,lost,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1751,assam,2026,115,UDHARBOND,Rajdeep Goala,parties.IN.BJP,BJP,103331,66.08,1,won,M,41,,,,src-074239c7b852
+IN-AC-2008-assam-1751,assam,2026,115,UDHARBOND,Ajit Singh,parties.IN.INC,INC,47867,30.61,2,lost,M,65,,,,src-074239c7b852
+IN-AC-2008-assam-1751,assam,2026,115,UDHARBOND,Tapas Das,parties.IN.AITC,AITC,2291,1.47,3,lost,M,65,,,,src-074239c7b852
+IN-AC-2008-assam-1751,assam,2026,115,UDHARBOND,Dilip Kumar Ree,parties.IN.SUCI,SUCI,1046,0.67,4,lost,M,41,,,,src-074239c7b852
+IN-AC-2008-assam-1746,assam,2026,116,KATIGORAH,Kamalakhya Dey Purkayastha,parties.IN.BJP,BJP,110758,58.21,1,won,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1746,assam,2026,116,KATIGORAH,Amar Chand Jain,parties.IN.INC,INC,73078,38.41,2,lost,M,69,,,,src-074239c7b852
+IN-AC-2008-assam-1746,assam,2026,116,KATIGORAH,Md. Fazlur Rahman Laskar,parties.IN.AITC,AITC,1989,1.05,3,lost,M,62,,,,src-074239c7b852
+IN-AC-2008-assam-1746,assam,2026,116,KATIGORAH,Sanju Munda,parties.IN.IND,IND,903,0.47,4,lost,M,29,,,,src-074239c7b852
+IN-AC-2008-assam-1746,assam,2026,116,KATIGORAH,Sandip Das,parties.IN.IND,IND,844,0.44,5,lost,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1749,assam,2026,117,BORKHOLA,Kishor Nath,parties.IN.BJP,BJP,102775,58.02,1,won,M,60,,,,src-074239c7b852
+IN-AC-2008-assam-1749,assam,2026,117,BORKHOLA,Amit Kumar Kalwar,parties.IN.INC,INC,66162,37.35,2,lost,M,47,,,,src-074239c7b852
+IN-AC-2008-assam-1749,assam,2026,117,BORKHOLA,Amalendu Das,parties.IN.IND,IND,3713,2.1,3,lost,M,53,,,,src-074239c7b852
+IN-AC-2008-assam-1749,assam,2026,117,BORKHOLA,Jahurul Islam Barbhuiya,parties.IN.IND,IND,1366,0.77,4,lost,M,43,,,,src-074239c7b852
+IN-AC-2008-assam-1749,assam,2026,117,BORKHOLA,Hifzur Rahman Laskar,parties.IN.IND,IND,891,0.5,5,lost,M,41,,,,src-074239c7b852
+IN-AC-2008-assam-1748,assam,2026,118,SILCHAR,Dr. Rajdeep Roy,parties.IN.BJP,BJP,110758,64.09,1,won,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1748,assam,2026,118,SILCHAR,Abhijit Paul,parties.IN.INC,INC,56761,32.85,2,lost,M,46,,,,src-074239c7b852
+IN-AC-2008-assam-1748,assam,2026,118,SILCHAR,Bhabotosh Chakraborty,parties.IN.SUCI,SUCI,707,0.41,3,lost,M,62,,,,src-074239c7b852
+IN-AC-2008-assam-1748,assam,2026,118,SILCHAR,Subrata Kr. Chanda,parties.IN.IND,IND,681,0.39,4,lost,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1748,assam,2026,118,SILCHAR,Ranu Das,parties.IN.IND,IND,367,0.21,5,lost,M,25,,,,src-074239c7b852
+IN-AC-2008-assam-1753,assam,2026,119,SONAI,Aminul Haque Laskar,parties.IN.INC,INC,89957,56.05,1,won,M,59,,,,src-074239c7b852
+IN-AC-2008-assam-1753,assam,2026,119,SONAI,Karim Uddin Barbhuiya,parties.IN.AGP,AGP,62787,39.12,2,lost,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1753,assam,2026,119,SONAI,Shahajahan Laskar,parties.IN.AITC,AITC,2280,1.42,3,lost,M,57,,,,src-074239c7b852
+IN-AC-2008-assam-1753,assam,2026,119,SONAI,Minar Hussain Mazarbhuiya,parties.IN.AIUDF,AIUDF,1178,0.73,4,lost,M,43,,,,src-074239c7b852
+IN-AC-2008-assam-1753,assam,2026,119,SONAI,Hassan Ahmed Barbhuiya,parties.IN.IND,IND,676,0.42,5,lost,M,38,,,,src-074239c7b852
+IN-AC-2008-assam-1752,assam,2026,120,DHOLAI (SC),Amiya Kanti Das,parties.IN.BJP,BJP,100634,62.82,1,won,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1752,assam,2026,120,DHOLAI (SC),Dhrubajyoti Purkayastha,parties.IN.INC,INC,56172,35.07,2,lost,M,59,,,,src-074239c7b852
+IN-AC-2008-assam-1752,assam,2026,120,DHOLAI (SC),Gour Chandra Das,parties.IN.SUCI,SUCI,1020,0.64,3,lost,M,41,,,,src-074239c7b852
+IN-AC-2008-assam-1752,assam,2026,120,DHOLAI (SC),Parimal Das,parties.IN.IND,IND,615,0.38,4,lost,M,58,,,,src-074239c7b852
+IN-AC-2008-assam-1803,assam,2026,121,HAILAKANDI,Milon Das,parties.IN.BJP,BJP,119591,63.57,1,won,M,35,,,,src-074239c7b852
+IN-AC-2008-assam-1803,assam,2026,121,HAILAKANDI,Rahul Roy,parties.IN.INC,INC,63774,33.9,2,lost,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1803,assam,2026,121,HAILAKANDI,Subash Goon,parties.IN.IND,IND,699,0.37,3,lost,M,52,,,,src-074239c7b852
+IN-AC-2008-assam-1803,assam,2026,121,HAILAKANDI,Mayukh Bhattacharjee,parties.IN.SUCI,SUCI,631,0.34,4,lost,M,49,,,,src-074239c7b852
+IN-AC-2008-assam-1803,assam,2026,121,HAILAKANDI,Bishal Singha Malakar,parties.IN.IND,IND,400,0.21,5,lost,M,28,,,,src-074239c7b852
+IN-AC-2008-assam-1754,assam,2026,122,ALGAPUR-KATLICHERRA,Zubair Anam Mazumder,parties.IN.INC,INC,145661,64.16,1,won,M,34,,,,src-074239c7b852
+IN-AC-2008-assam-1754,assam,2026,122,ALGAPUR-KATLICHERRA,Zakir Hussain Laskar,parties.IN.AGP,AGP,40213,17.71,2,lost,M,54,,,,src-074239c7b852
+IN-AC-2008-assam-1754,assam,2026,122,ALGAPUR-KATLICHERRA,Suzam Uddin Laskar S/o Lt. Tazamul Ali Laskar,parties.IN.IND,IND,29230,12.87,3,lost,M,59,,,,src-074239c7b852
+IN-AC-2008-assam-1754,assam,2026,122,ALGAPUR-KATLICHERRA,Nijam Uddin Choudhury,parties.IN.IND,IND,3391,1.49,4,lost,M,52,,,,src-074239c7b852
+IN-AC-2008-assam-1754,assam,2026,122,ALGAPUR-KATLICHERRA,Haydar Hussain Laskar,parties.IN.IND,IND,1954,0.86,5,lost,M,40,,,,src-074239c7b852
+IN-AC-2008-assam-1747,assam,2026,123,KARIMGANJ NORTH,Jakaria Ahmed,parties.IN.INC,INC,122356,54.17,1,won,M,41,,,,src-074239c7b852
+IN-AC-2008-assam-1747,assam,2026,123,KARIMGANJ NORTH,Subrata Bhattacharjee,parties.IN.BJP,BJP,96353,42.66,2,lost,M,47,,,,src-074239c7b852
+IN-AC-2008-assam-1747,assam,2026,123,KARIMGANJ NORTH,Choudhury Hibbur Rasul Usama Mabrur,parties.IN.AIUDF,AIUDF,2038,0.9,3,lost,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1747,assam,2026,123,KARIMGANJ NORTH,Samraj Banik,parties.IN.IND,IND,856,0.38,4,lost,M,40,,,,src-074239c7b852
+IN-AC-2008-assam-1747,assam,2026,123,KARIMGANJ NORTH,Sayed Sahab Uddin,parties.IN.IND,IND,773,0.34,5,lost,M,43,,,,src-074239c7b852
+IN-AC-2008-assam-1750,assam,2026,124,KARIMGANJ SOUTH,Aminur Rashid Choudhury,parties.IN.INC,INC,137257,57.78,1,won,M,56,,,,src-074239c7b852
+IN-AC-2008-assam-1750,assam,2026,124,KARIMGANJ SOUTH,Ekbal Hussain,parties.IN.AGP,AGP,50625,21.31,2,lost,M,54,,,,src-074239c7b852
+IN-AC-2008-assam-1750,assam,2026,124,KARIMGANJ SOUTH,Aziz Ahmed Khan,parties.IN.AITC,AITC,40016,16.85,3,lost,M,57,,,,src-074239c7b852
+IN-AC-2008-assam-1750,assam,2026,124,KARIMGANJ SOUTH,Shihab Uddin,parties.IN.AIUDF,AIUDF,2543,1.07,4,lost,M,50,,,,src-074239c7b852
+IN-AC-2008-assam-1750,assam,2026,124,KARIMGANJ SOUTH,Md Rizwan Ahmed,parties.IN.IND,IND,1396,0.59,5,lost,M,37,,,,src-074239c7b852
+IN-AC-2008-assam-1806,assam,2026,125,PATHARKANDI,Krishnendu Paul,parties.IN.BJP,BJP,98101,64.35,1,won,M,53,,,,src-074239c7b852
+IN-AC-2008-assam-1806,assam,2026,125,PATHARKANDI,Kartik Sena Sinha,parties.IN.INC,INC,51337,33.67,2,lost,M,55,,,,src-074239c7b852
+IN-AC-2008-assam-1806,assam,2026,125,PATHARKANDI,Md. Fazal Ahmed,parties.IN.IND,IND,666,0.44,3,lost,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1806,assam,2026,125,PATHARKANDI,Saynul Haque,,AAAP,543,0.36,4,lost,M,48,,,,src-074239c7b852
+IN-AC-2008-assam-1806,assam,2026,125,PATHARKANDI,Nurul Hassan Talukdar,parties.IN.IND,IND,259,0.17,5,lost,M,42,,,,src-074239c7b852
+IN-AC-2008-assam-1811,assam,2026,126,RAM KRISHNA NAGAR (SC),Bijoy Malakar,parties.IN.BJP,BJP,134013,70.7,1,won,M,45,,,,src-074239c7b852
+IN-AC-2008-assam-1811,assam,2026,126,RAM KRISHNA NAGAR (SC),Suruchi Roy,parties.IN.INC,INC,50248,26.51,2,lost,F,57,,,,src-074239c7b852
+IN-AC-2008-assam-1811,assam,2026,126,RAM KRISHNA NAGAR (SC),Anup Kumar Das Talukdar,parties.IN.AIUDF,AIUDF,1302,0.69,3,lost,M,64,,,,src-074239c7b852
+IN-AC-2008-assam-1811,assam,2026,126,RAM KRISHNA NAGAR (SC),Sourav Roy,parties.IN.IND,IND,647,0.34,4,lost,M,25,,,,src-074239c7b852
+IN-AC-2008-assam-1811,assam,2026,126,RAM KRISHNA NAGAR (SC),Uttam Das,parties.IN.IND,IND,590,0.31,5,lost,M,33,,,,src-074239c7b852
