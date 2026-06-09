@@ -25,7 +25,10 @@ def _party(**overrides) -> dict:
         "eci_codes": ["83"],
         "wikipedia_url": "https://en.wikipedia.org/wiki/Asom_Gana_Parishad",
         "brand_colour": {"hex": "#99CCFF"},
-        "election_symbol": {"asset_path": "party-symbols/elephant-agp.png"},
+        "election_symbol": {
+            "asset_path": "party-symbols/elephant-agp.png",
+            "symbol_status": "verified",
+        },
     }
     base.update(overrides)
     return base

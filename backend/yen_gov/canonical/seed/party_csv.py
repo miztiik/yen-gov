@@ -63,12 +63,26 @@ def _brand_colour_hex(block: Any) -> str | None:
 
 
 def _symbol_asset(block: Any) -> str | None:
+    """Return ``asset_path`` only when the symbol block is curator-verified.
+
+    Defensive filter (G11, 2026-06-09): the citizen UI renders the glyph
+    next to the PartyPill (plan section 25.3); only verified curator-vetted
+    assets are eligible. Unverified / placeholder / missing /
+    deferred_historical entries (whatever else taxonomy may carry in the
+    future) are projected as blank in the CSV so downstream consumers fall
+    back to text-only rendering. Today every populated election_symbol in
+    parties.json carries ``symbol_status: "verified"`` so this is a no-op
+    on the current corpus; the filter is a guard against silent leakage of
+    future unverified entries.
+    """
     if not block:
         return None
     if not isinstance(block, dict):
         raise ValueError(
             f"election_symbol must be an object, got {type(block).__name__}"
         )
+    if block.get("symbol_status") != "verified":
+        return None
     asset = block.get("asset_path")
     return str(asset) if asset else None
 
