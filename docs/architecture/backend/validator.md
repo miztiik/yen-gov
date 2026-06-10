@@ -248,7 +248,8 @@ corpus walks per CLAUDE.md §10 anti-pattern).
 
 | Function | What it forbids | Allowlist input | Tests |
 | --- | --- | --- | --- |
-| `tier_b_meadow_shard_contract` | New `*.json` files under `datasets/indicators/in/`. The 110 legacy folded-indicator shards (pre-canonical-pivot artifacts) retire family-by-family. New content must land on the canonical store. | `datasets/_ops/meadow-shard-contract.txt` (one POSIX path per line; `#`-comments + blank lines ignored). | 6 cases — passes when allowlisted, rejects new shard, rejects orphan allowlist entry, no-op when indicators dir absent, requires allowlist when indicators dir present, regression guard that `run()` chains the check. |
+| `tier_b_meadow_shard_contract` | New `*.json` files under `datasets/indicators/in/`. The legacy folded-indicator shards retire family-by-family. New content must land on the canonical CSV store under `datasets/data/`. | `datasets/_ops/meadow-shard-contract.txt` (one POSIX path per line; `#`-comments + blank lines ignored). | 6 cases - passes when allowlisted, rejects new shard, rejects orphan allowlist entry, no-op when indicators dir absent, requires allowlist when indicators dir present, regression guard that `run()` chains the check. |
+| `tier_b_legacy_boundary_sidecars` | Legacy boundary sidecars (`*.sources.json`, `*.metadata.json`, `*.unkeyed.json`) and per-state villages index manifests under `datasets/boundaries/`. Boundary metadata now lives in `datasets/data/entities/boundary_layer.csv`. | `datasets/_ops/legacy-boundary-sidecars.txt` | 7 cases - passes when allowlisted, rejects sidecars/indexes, rejects orphan allowlist entries, no-op when the boundary tree is absent, requires allowlist when needed, regression guard that `run()` chains the check. |
 
 ### Shape of a forbidden-path check
 
@@ -279,8 +280,8 @@ holds operational assets that are committed (vs `.runtime/`'s ephemeral
 gitignored state) but are NOT citizen-facing fact tables. A forbidden-path
 allowlist is exactly this shape: it documents WHICH files are permitted
 to exist under a forbidden subtree pending family-by-family retirement.
-Operators editing a P.* family retirement PR amend the allowlist as part
-of the same change. When the allowlist becomes empty AND the forbidden
+Operators editing a family retirement PR amend the allowlist as part of the
+same change. When the allowlist becomes empty AND the forbidden
 subtree is empty, the allowlist file deletes alongside the legacy code.
 
 Alternative homes considered and rejected:

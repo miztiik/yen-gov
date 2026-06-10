@@ -1,19 +1,18 @@
-"""CSV writer (sub-plan B1.2).
+"""Canonical CSV writer.
 
-Sole canonical CSV emission point for the post-rip world (replaces the parquet
-path of ``canonical/writer.py``; parquet writer survives until B3 per parent
-plan section 22.5 / 23.1). Reads the column contract from
-``yen_gov.canonical.csv_columns`` (B1.1, PR #629) and enforces it at write time.
+Sole canonical CSV emission point for tabular citizen-facing data. Reads the
+column contract from ``yen_gov.canonical.csv_columns`` and enforces it at write
+time; see ``docs/architecture/data/csv-column-contract.md``.
 
 Public surface:
 
     from yen_gov.canonical.csv_writer import write_csv
     write_csv(path=..., file_class="datasets/data/...", rows=[{...}, ...])
 
-Responsibilities (sub-plan B1.2 / parent 22.4 / csv-column-contract.md):
+Responsibilities:
 
 - file_class must be a known glob in ``columns.json``; else ``KeyError``.
-- Filename must not contain ``__`` (parent plan section 21.6 / 21.12).
+- Filename must not contain ``__``.
 - Every row's keys are a subset of the declared columns; missing non-nullable
   / pk columns raise ``ValueError``; extra (un-declared) keys raise too.
 - Per-column dtype coercion (``string`` / ``integer`` / ``number`` / ``boolean``).
@@ -30,7 +29,7 @@ Responsibilities (sub-plan B1.2 / parent 22.4 / csv-column-contract.md):
   produces a clean ``git status``. Value-level compare, NOT byte compare
   (mirrors ``core/io.write_artifact`` per CLAUDE.md section 10 amendment).
 
-DELIBERATELY NOT in scope here (lives in B1.3 ``csv_validator.py``):
+DELIBERATELY NOT in scope here (lives in ``csv_validator.py``):
 
 - FK existence checks against sibling CSV files.
 - Closed-enum membership.
@@ -39,10 +38,8 @@ DELIBERATELY NOT in scope here (lives in B1.3 ``csv_validator.py``):
 
 The writer is strict on shape; the validator is strict on cross-file integrity.
 
-Per-indicator facet columns (parent plan section 21.6) are NOT yet supported -
-the first ingest re-point that needs a facet (B1.4-B1.6) will lift this
-restriction in a follow-up PR. Until then, ``write_csv`` rejects any column
-not declared in the file class.
+Per-indicator facet columns are supported only when declared in the file class.
+Until a file class declares them, ``write_csv`` rejects undeclared columns.
 """
 
 from __future__ import annotations
@@ -96,7 +93,7 @@ def write_csv(
 
     if "__" in path.name:
         raise ValueError(
-            f"filename must not contain '__' (plan section 21.12): {path.name!r}"
+            f"filename must not contain '__': {path.name!r}"
         )
 
     declared_names: tuple[str, ...] = tuple(c.name for c in fc.columns)

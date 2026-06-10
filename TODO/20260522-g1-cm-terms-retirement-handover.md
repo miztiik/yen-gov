@@ -123,7 +123,7 @@ The T.0c-iii arc (district.json retirement) used exactly this shape: Phase A add
 - [ ] Update `docs/architecture/data/canonical-store.md §2b.3` row for `datasets/governments/in/states/` to past-tense.
 - [ ] Update `docs/research/state-government-history.md` to past-tense + cross-link entities.parquet.
 - [ ] Update `docs/reference/data-coverage-report.md:62` to point at Parquet path.
-- [ ] Update `docs/architecture/handover-2026-05-11.md` to past-tense (or archive if fully superseded).
+- [x] `docs/architecture/handover-2026-05-11.md` archived to `docs/archive/handover-2026-05-11.md` by PR #903.
 - [ ] `python -m yen_gov validate --root .` clean.
 - [ ] `cd backend; python -m pytest -q` clean.
 - [ ] §13 browser smoke: `/s/tamil-nadu` still shows "Your government" card.
