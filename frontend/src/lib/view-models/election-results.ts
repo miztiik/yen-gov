@@ -204,6 +204,11 @@ interface NationalPcRow {
   electors: number | null;
   votes_polled: number | null;
   winner_candidate_name: string | null;
+  /** Winner candidate's share of the votes_polled denominator (in
+   *  percent). Projected at STATE-AC scope (PR-W3b) from
+   *  summary.csv.winner_share_pct; null at NATIONAL-PC scope until
+   *  the parliament SQL also selects it. */
+  vote_share_pct?: number | null;
 }
 
 interface StateAcRow extends NationalPcRow {
@@ -318,6 +323,10 @@ async function runStateAcQuery(
 
   // One row per AC. Mirror of `loadStateAcWinners` SQL: winner-age via
   // LEFT JOIN on (entity_id, candidate_name=winner_candidate, position=1).
+  // PR-W3b (2026-06-10): additive projection of `electors` + `votes_polled`
+  // + `vote_share_pct` so the state event view's KPI strip + constituency
+  // table can read them from the same per-AC rows (mirroring the
+  // NATIONAL-PC arm extended in W3c).
   const sql = `
     SELECT
       e.entity_id                           AS entity_id,
@@ -334,6 +343,9 @@ async function runStateAcQuery(
       dp.election_symbol_asset_path         AS symbol_asset_path,
       s.margin_pct                          AS margin_pct,
       s.turnout_pct                         AS turnout_pct,
+      s.electors                            AS electors,
+      s.votes_polled                        AS votes_polled,
+      s.winner_share_pct                    AS vote_share_pct,
       ec.age                                AS winner_age,
       s.winner_candidate                    AS winner_candidate_name
     FROM read_csv('${sumUrl}', ${sumClause}) s
@@ -489,7 +501,7 @@ function toRow(
     candidate_name: r.winner_candidate_name ?? null,
     position: 1,
     votes: null, // not projected at winner-only scopes
-    vote_share_pct: null,
+    vote_share_pct: numOrNull(r.vote_share_pct),
     is_winner: true,
     party_id: r.party_id ?? null,
     party_eci_code: r.party_eci_code ?? null,
