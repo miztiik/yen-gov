@@ -1,23 +1,32 @@
-// URL prefix-drop Phase-0 redirect smoke test (PR-P1 of
-// TODO/20260609-url-prefix-drop-phase0-plan.md / ADR-0037 Phase 2-4).
+// URL prefix-drop post-P4 tombstone-behavior contract
+// (TODO/20260609-url-prefix-drop-phase0-plan.md PR-P4 / ADR-0037 Phase 4b).
 //
-// Covers the citizen-facing acceptance for PR-P1:
-//   1. Visiting a legacy Grammar B URL (`/s/<state>/...`) flips the
-//      URL bar to the Grammar A equivalent (`/<state>/...`) via the
-//      `RedirectLegacyUrl.svelte` `history.replaceState` hop.
-//   2. The same Grammar A URL visited directly renders the same page
-//      with no redirect (URL bar stays put).
-//   3. Both grammars route to the same component - tested by smoke-
-//      asserting that the resulting page contains the expected
-//      identifying copy (state name in <h1>) regardless of entry URL.
-//   4. No `pageerror` is thrown during the redirect hop.
+// PR-P4 (2026-06-10) deleted `RedirectLegacyUrl.svelte` + the `/s/*`
+// route entry + the `redirect-legacy-url.ts` pure helper, completing
+// the 4-phase URL-prefix-drop strangler-fig. The earlier P1 redirect
+// behaviour (`/s/<state>/...` -> `/<state>/...` via `history.replaceState`)
+// is GONE; legacy bookmarks now fall through to the NotFound page.
 //
-// Out of scope (PR-P2 / PR-P3 cover these):
-//   - AC slug shape change (`167-mylapore` -> `mylapore`).
-//   - Internal `<a href>` migration from `url.*` (Grammar B) to
-//     `link.*` (Grammar A). Existing anchors still emit Grammar B URLs
-//     after PR-P1; clicking one triggers the redirect (intentional
-//     one-hop overhead until PR-P2 sweeps the callers).
+// This spec is the tombstone-behaviour contract: it pins the
+// post-PR-P4 outcome so a future agent doesn't accidentally
+// re-introduce the redirect without first updating this contract.
+//
+// Covers:
+//   1. `/s/<state>` (1-of-many legacy shape) 404s with the NotFound
+//      surface (no replaceState, no Grammar A render).
+//   2. `/s/<state>/t/<topic>` (multi-segment legacy shape) also 404s.
+//   3. Grammar A direct URLs (`/<state>`, `/<state>/t/<topic>`)
+//      continue to render directly with no redirect.
+//   4. The chrome literals stay un-poached by the Grammar A `/:state`
+//      catch-all (regression guard).
+//
+// If this file goes red, the answer is one of:
+//   * A redirect was re-introduced (read PR-P4 in the plan + undo
+//     before merging).
+//   * The NotFound surface copy changed (update the assertions OR
+//     restore the original copy).
+//   * A new chrome literal was added but not registered in the route
+//     table BEFORE the Grammar A `/:state` catch-all.
 
 import { test, expect } from "@playwright/test";
 import { attachPageErrorTrap } from "./_helpers";
@@ -35,22 +44,32 @@ test.afterEach(() => {
   );
 });
 
-test.describe("URL prefix drop - Phase 0 (PR-P1)", () => {
-  test("/s/tamil-nadu redirects to /tamil-nadu (URL bar flips)", async ({
+test.describe("URL prefix drop - post-P4 tombstone behaviour", () => {
+  test("/s/tamil-nadu (legacy 2-segment) falls through to NotFound (no redirect)", async ({
     page,
   }) => {
     await page.goto("/s/tamil-nadu");
-    // The on-mount replaceState fires synchronously after Svelte
-    // mounts the component, so by the time we get back to here the URL
-    // should already be Grammar A.
-    await expect(page).toHaveURL(/\/tamil-nadu$/);
-    // The page should render StateOverview (Tamil Nadu is the state).
+    // URL bar must NOT flip (no redirect hop).
+    await expect(page).toHaveURL(/\/s\/tamil-nadu$/);
+    // NotFound surface must render.
     await expect(
-      page.getByRole("heading", { level: 1, name: /Tamil Nadu/i }),
+      page.getByRole("heading", { level: 1, name: "404" }),
+    ).toBeVisible();
+    await expect(page.getByText(/No route matches/i)).toBeVisible();
+    await expect(page.getByText(/This page has moved/i)).toBeVisible();
+  });
+
+  test("/s/karnataka/t/elections (legacy 4-segment) also falls through to NotFound", async ({
+    page,
+  }) => {
+    await page.goto("/s/karnataka/t/elections");
+    await expect(page).toHaveURL(/\/s\/karnataka\/t\/elections$/);
+    await expect(
+      page.getByRole("heading", { level: 1, name: "404" }),
     ).toBeVisible();
   });
 
-  test("/tamil-nadu renders directly (no redirect, URL bar stays)", async ({
+  test("/tamil-nadu (Grammar A direct) renders the state hub", async ({
     page,
   }) => {
     await page.goto("/tamil-nadu");
@@ -60,19 +79,7 @@ test.describe("URL prefix drop - Phase 0 (PR-P1)", () => {
     ).toBeVisible();
   });
 
-  test("/s/tamil-nadu/t/elections redirects to /tamil-nadu/t/elections", async ({
-    page,
-  }) => {
-    await page.goto("/s/tamil-nadu/t/elections");
-    await expect(page).toHaveURL(/\/tamil-nadu\/t\/elections$/);
-    // StateTopic for elections should render the topic title or its
-    // identifying copy.
-    await expect(
-      page.getByRole("heading", { level: 1 }).first(),
-    ).toBeVisible();
-  });
-
-  test("/tamil-nadu/t/elections renders directly (no redirect)", async ({
+  test("/tamil-nadu/t/elections (Grammar A direct) renders the state-topic page", async ({
     page,
   }) => {
     await page.goto("/tamil-nadu/t/elections");
@@ -82,62 +89,13 @@ test.describe("URL prefix drop - Phase 0 (PR-P1)", () => {
     ).toBeVisible();
   });
 
-  test("/s/karnataka/elections/AcGenMay2023 redirects to /karnataka/elections/AcGenMay2023", async ({
-    page,
-  }) => {
-    await page.goto("/s/karnataka/elections/AcGenMay2023");
-    await expect(page).toHaveURL(/\/karnataka\/elections\/AcGenMay2023$/);
-  });
-
-  test("/s/tamil-nadu/party/dmk-DMK redirects to /tamil-nadu/party/dmk-DMK", async ({
-    page,
-  }) => {
-    await page.goto("/s/tamil-nadu/party/dmk-DMK");
-    await expect(page).toHaveURL(/\/tamil-nadu\/party\/dmk-DMK$/);
-  });
-
-  test("/s/tamil-nadu/explore redirects to /tamil-nadu/explore", async ({
-    page,
-  }) => {
-    await page.goto("/s/tamil-nadu/explore");
-    await expect(page).toHaveURL(/\/tamil-nadu\/explore$/);
-  });
-
-  test("/s/tamil-nadu/d/chennai redirects to /tamil-nadu/d/chennai", async ({
-    page,
-  }) => {
-    await page.goto("/s/tamil-nadu/d/chennai");
-    await expect(page).toHaveURL(/\/tamil-nadu\/d\/chennai$/);
-  });
-
-  test("/s/tamil-nadu/ac/167-mylapore redirects preserving the AC slug shape", async ({
-    page,
-  }) => {
-    // PR-P1 does NOT collapse `167-mylapore` -> `mylapore`; PR-P2 ships
-    // that. This test pins the byte-for-byte path preservation through
-    // PR-P1's `/s/*` redirect. After that hop the bare-AC convenience
-    // entry then chains via ADR-0052 to the canonical event-nested URL
-    // (`/<state>/elections/<default-event>/ac/<ac>`); that second hop is
-    // pre-existing behaviour and out of PR-P1 scope. We assert only
-    // that the final URL preserves the prefixed `167-mylapore` slug.
-    await page.goto("/s/tamil-nadu/ac/167-mylapore");
-    await expect(page).toHaveURL(/\/ac\/167-mylapore$/);
-    // Confirm the leading `/s/` is gone (the PR-P1 redirect fired).
-    await expect(page).not.toHaveURL(/\/s\//);
-  });
-
-  test("query string is preserved across the redirect", async ({ page }) => {
-    await page.goto("/s/karnataka?yg_variant=treatment");
-    await expect(page).toHaveURL(/\/karnataka\?yg_variant=treatment$/);
-  });
-
   test("chrome routes are not poached by the /:state catch-all", async ({
     page,
   }) => {
     // The 1-segment Grammar A `/:state` catch-all comes AFTER every
     // chrome literal in the route table. Disjointness contract
-    // guarantees no state slug equals a chrome token. Smoke this end-to-
-    // end so a future route-ordering regression fails loud.
+    // guarantees no state slug equals a chrome token. Smoke this
+    // end-to-end so a future route-ordering regression fails loud.
     await page.goto("/about");
     await expect(page).toHaveURL(/\/about$/);
     await expect(
@@ -155,5 +113,20 @@ test.describe("URL prefix drop - Phase 0 (PR-P1)", () => {
 
     await page.goto("/settings");
     await expect(page).toHaveURL(/\/settings$/);
+  });
+
+  test("/no-such-route falls through to NotFound (Grammar A /:state catch-all is 404-gated)", async ({
+    page,
+  }) => {
+    // The Grammar A `/:state` route matches `/no-such-route` but
+    // StateOverview.svelte's `is_unknown_state` derived gate (PR-P2
+    // follow-up) re-renders the NotFound surface when `states.isLoaded
+    // === true` AND `state_code === null`. This test pins that gate.
+    await page.goto("/no-such-route-here");
+    await expect(page).toHaveURL(/\/no-such-route-here$/);
+    await expect(
+      page.getByRole("heading", { level: 1, name: "404" }),
+    ).toBeVisible();
+    await expect(page.getByText(/No route matches/i)).toBeVisible();
   });
 });

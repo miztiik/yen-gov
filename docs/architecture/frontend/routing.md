@@ -6,7 +6,7 @@
 
 The operational form of the URL scheme decided in [ADR-0028](../decisions/0028-url-scheme-place-first-flat-indicator-slug.md), as amended by [ADR-0037](../decisions/0037-url-grammar-drop-india-prefix.md). This doc is for the engineer wiring the router; the ADRs are for the reviewer asking "why this shape."
 
-> **Phase 4 shipped (2026-06-10).** Grammar A is the LIVE shape. The route table in [frontend/src/main.ts](../../../frontend/src/main.ts) declares the Grammar A patterns; every internal `<a href>` builder lives on `link.X()` in [frontend/src/lib/links.ts](../../../frontend/src/lib/links.ts). The legacy Grammar B `url.X()` builders + the 42-test contract in `frontend/src/lib/url.test.ts` were DELETED in PR #869. `RedirectLegacyUrl.svelte` stays mounted on `/s/*` for one release cycle to honour legacy bookmarks; it `history.replaceState`s every `/s/<state>/...` URL to the Grammar A equivalent (`/<state>/...`). Phase 4b (deferred indefinitely; user-triggered) deletes the redirect + drops `s` from `RESERVED_PATH_TOKENS`.
+> **Phase 4b shipped (2026-06-10).** The 4-phase URL-prefix-drop strangler-fig is COMPLETE. The route table in [frontend/src/main.ts](../../../frontend/src/main.ts) declares only Grammar A patterns; every internal `<a href>` builder lives on `link.X()` in [frontend/src/lib/links.ts](../../../frontend/src/lib/links.ts). PR #869 deleted the Grammar B `url.X()` builders + the 42-test contract; PR-P4 (this release) deleted `RedirectLegacyUrl.svelte` + the `/s/*` redirect route + dropped `s` from `RESERVED_PATH_TOKENS`. Legacy `/s/<state>/...` bookmarks now fall through to the NotFound page (404 with Home + Browse-topics recovery links).
 
 ## Mode
 

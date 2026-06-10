@@ -224,14 +224,14 @@ describe("Grammar A — reserved-path-token set (ADR-0037)", () => {
     }
   });
 
-  it("retains `s` as the legacy redirect anchor (RedirectLegacyUrl.svelte) until PR-P4", () => {
-    // PR-P3 (this PR) deletes the Grammar B builders + 42-test contract
-    // but keeps `RedirectLegacyUrl.svelte` mounted on `/s/*` so legacy
-    // bookmarks (`/s/<state>/...`) still redirect to Grammar A. The `s`
-    // token MUST stay reserved while that redirect catch-all is live.
-    // PR-P4 (deferred indefinitely; user-triggered) deletes the redirect
-    // + drops `s` from the reserved set.
-    expect(RESERVED_PATH_TOKENS).toContain("s" as never);
+  it("does NOT reserve `s` (PR-P4 freed the Grammar B prefix anchor)", () => {
+    // PR-P4 (2026-06-10) deleted `RedirectLegacyUrl.svelte` + the `/s/*`
+    // route entry, completing the 4-phase URL-prefix-drop strangler-fig.
+    // The `s` token is no longer a structural marker; freeing it means
+    // a state slug literally named `s` would be allowed (none exist).
+    // If PR-P4 ever needs to be reverted, restore `s` to the array AND
+    // re-mount RedirectLegacyUrl on `/s/*` in `main.ts`.
+    expect(RESERVED_PATH_TOKENS).not.toContain("s" as never);
   });
 
   it("pre-reserves the future indicator-marker `i` (Max's retrofit safety net)", () => {

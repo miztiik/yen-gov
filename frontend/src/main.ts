@@ -30,7 +30,6 @@ import DevChartsSandbox from "./routes/DevChartsSandbox.svelte";
 import Yenask from "./routes/Yenask.svelte";
 import IndicatorDoc from "./routes/IndicatorDoc.svelte";
 import CountingMethodDoc from "./routes/CountingMethodDoc.svelte";
-import RedirectLegacyUrl from "./routes/RedirectLegacyUrl.svelte";
 import NotFound from "./routes/NotFound.svelte";
 
 // Mount the persistent shell once. The router replaces the contents of
@@ -60,16 +59,16 @@ mount(LeftRail, { target: document.getElementById("rail")! });
 //   2. Multi-segment literal-rooted routes (`/lab/...`, `/compare/...`,
 //      `/docs/...`, `/t/...`) come next; they're segment-count + literal
 //      distinguished from Grammar A.
-//   3. The Grammar B legacy redirect `/s/*` catches every legacy URL
-//      before Grammar A inspects it.
-//   4. Grammar A routes follow, most-specific first; the 1-segment
+//   3. Grammar A routes follow, most-specific first; the 1-segment
 //      `/:state` catch-all is LAST so it never poaches a literal route.
 //
-// Per ADR-0037 / TODO/20260609-url-prefix-drop-phase0-plan.md PR-P1:
-// the legacy `/s/<state>/...` routes are no longer registered as
-// distinct entries - the single `/s/*` catch-all routes them all
-// through RedirectLegacyUrl, which rewrites the path to Grammar A
-// and replaceState-flips the URL bar.
+// Per ADR-0037 / TODO/20260609-url-prefix-drop-phase0-plan.md PR-P4
+// (shipped 2026-06-10): the Grammar B `/s/*` redirect catch-all and the
+// `RedirectLegacyUrl.svelte` tombstone are DELETED. Legacy bookmarks
+// for `/s/<state>/...` URLs now fall through to NotFound (404 with
+// recovery links). PRs #867/#868/#869 shipped Phases 2-4 of ADR-0037
+// (Grammar A live + caller sweep + Grammar B builder deletion); PR-P4
+// closes the strangler-fig.
 startRouter({
   target: document.getElementById("route")!,
   routes: [
@@ -153,15 +152,7 @@ startRouter({
       parse: ({ method }) => ({ method }),
     },
 
-    // === 3. Grammar B legacy redirect (catches `/s/...` for every
-    //        legacy state URL and replaceState-flips it to Grammar A).
-    //        Placed BEFORE Grammar A routes so the literal `/s/` wins
-    //        over the Grammar A `/:state` catch-all for citizens
-    //        landing on legacy bookmarks. Per ADR-0037 / TODO
-    //        20260609-url-prefix-drop-phase0-plan.md PR-P1. ===
-    { pattern: "/s/*", component: RedirectLegacyUrl },
-
-    // === 4. Grammar A: place-first cascade per ADR-0037, most-specific
+    // === 3. Grammar A: place-first cascade per ADR-0037, most-specific
     //        first. The 1-segment `/:state` catch-all MUST be last so
     //        every literal chrome route (above) wins on a name clash.
     //        Disjointness against chrome literals is guaranteed by
