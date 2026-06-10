@@ -224,6 +224,19 @@ After PR-P3 ships, the election experience overhaul plan (the dependent plan) st
 
 ---
 
+## Follow-up deferrals (NOT BLOCKING)
+
+| Row | Title | Owner | Status |
+| --- | --- | --- | --- |
+| FU-1 | **Optional corpus cleanup (Hans + Max)**: rename district-colliding ACs with a `-2` (or `-N`) suffix to enable bare-positional URLs `/<state>/<ac-name>` for those ACs. **NOT BLOCKING** — citizens reach those ACs today via the canonical event-nested URL `/<state>/elections/<event>/ac/<ac>` (ADR-0052). Verified baseline (2026-06-10): 401 (state, slug) pairs across 25 states have a district name equal to an AC name in the same state. Rationale: many ACs are legitimately named after their district HQ; renaming is a citizen-visible URL change touching the canonical data spine and belongs in a Hans + Max-signed-off PR, not a routing-PR. | Hans + Max | [ ] DEFERRED |
+
+The rationale for deferring this row is documented in:
+- [docs/architecture/frontend/routing.md](../docs/architecture/frontend/routing.md) § "Depth-2 dispatcher resolution rule" — the Option A doctrine + the 401-baseline.
+- [frontend/src/lib/state-sub-resolver.ts](../frontend/src/lib/state-sub-resolver.ts) module docstring — the resolution order + the Option A note.
+- [frontend/src/contracts/url-namespace-disjointness.test.ts](../frontend/src/contracts/url-namespace-disjointness.test.ts) `describe("Deferral 1 per-state resolver gate (districts vs ACs; Option A)", ...)` — the positive presence-of-collisions check that replaces the strict-disjointness draft.
+
+---
+
 ## Execution contract (autonomous; follow blindly, do not re-plan)
 
 Same as election plan's execution contract:

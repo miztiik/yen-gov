@@ -219,12 +219,23 @@ export const link = {
     );
   },
 
-  /** Per-state district landing (`/<state>/d/<district-slug>`). The
-   * `/d/` marker is retained as the disambiguator from the indicator
-   * slug namespace (per ADR-0037 routing.md: positional `<state>/<x>`
-   * dispatch is deferred; the `/d/` marker stays as the explicit form). */
+  /** Per-state district landing (`/<state>/<district-slug>`). Positional
+   * (no `/d/` literal marker) per Deferral 1 of
+   * TODO/20260609-url-prefix-drop-phase0-plan.md + Jony's verdict
+   * ("citizen forwarding yen-gov.in/tamil-nadu/d/chennai over WhatsApp
+   * is sharing a system internal"). The router dispatches via
+   * `StateSubRouter` (route pattern `/:state/:position2`) which
+   * resolves the second segment against three registries
+   * (reserved-chrome / district / AC). Under Option A (2026-06-10)
+   * the shipped corpus carries 401 (state, slug) pairs where a
+   * district name equals an AC name in the same state by design;
+   * the dispatcher resolves district-first per Jony rule #4 and the
+   * colliding AC stays reachable via the canonical event-nested URL
+   * `/<state>/elections/<event>/ac/<ac>` (ADR-0052). The `d` token
+   * stays in `RESERVED_PATH_TOKENS` per Jony rule #3 as a future
+   * escape-hatch. */
   district(stateCodeOrSlug: string, districtSlug: string): string {
-    return withBase(`/${stateSlug(stateCodeOrSlug)}/d/${districtSlug}`);
+    return withBase(`/${stateSlug(stateCodeOrSlug)}/${districtSlug}`);
   },
 
   /** Per-state per-event election landing (`/<state>/elections/<event>`).
@@ -366,6 +377,16 @@ export const link = {
  *   * `i`            — pre-reserved fallback for the future indicator-marker
  *                      retrofit Max named (when collision test first fires)
  *   * `explore`      — state-explore sub-surface marker (`/<state>/explore`)
+ *   * `d`            — Deferral 1 (2026-06-10) deleted the
+ *                      `/:state/d/:district` route entry and flipped
+ *                      district URLs to positional (`/<state>/<district>`).
+ *                      Per Jony rule #3, `d` STAYS reserved as a future
+ *                      escape-hatch so a citizen who types `/<state>/d`
+ *                      on the address bar lands on the 404 instead of
+ *                      being poached by a hypothetical future district
+ *                      named "D". To revert Deferral 1, restore the
+ *                      `/:state/d/:district` route entry in main.ts AND
+ *                      drop `d` from this array.
  *
  * Removed in PR-P4 (2026-06-10): `s` was the Grammar B prefix anchor
  * for `RedirectLegacyUrl.svelte`; both are deleted in PR-P4 and the
@@ -384,6 +405,7 @@ export const RESERVED_PATH_TOKENS = Object.freeze([
   "party",
   "i",
   "explore",
+  "d",
 ] as const);
 
 export type ReservedPathToken = (typeof RESERVED_PATH_TOKENS)[number];

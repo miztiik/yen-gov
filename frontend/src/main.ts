@@ -23,7 +23,12 @@ import TopicIndex from "./routes/TopicIndex.svelte";
 import TopicLanding from "./routes/TopicLanding.svelte";
 import StateTopic from "./routes/StateTopic.svelte";
 import StateElection from "./routes/StateElection.svelte";
-import District from "./routes/District.svelte";
+// District + Constituency + NotFound are mounted INSIDE StateSubRouter
+// (the depth-2 state-sub dispatcher) so main.ts no longer imports them
+// directly. The 1-segment `/:state` catch-all still mounts StateOverview;
+// the canonical 5-segment `/:state/elections/:event/ac/:ac` still mounts
+// Constituency directly via its own route entry below.
+import StateSubRouter from "./routes/StateSubRouter.svelte";
 import NationalElectionsAtlas from "./routes/NationalElectionsAtlas.svelte";
 import DataCompleteness from "./routes/DataCompleteness.svelte";
 import DevChartsSandbox from "./routes/DevChartsSandbox.svelte";
@@ -41,7 +46,6 @@ import {
   dataCompletenessCrumbs,
   devChartsSandboxCrumbs,
   disclaimerCrumbs,
-  districtCrumbs,
   exploreCrumbs,
   homeCrumbs,
   indicatorDocCrumbs,
@@ -85,8 +89,13 @@ mount(LeftRail, { target: document.getElementById("rail")! });
 //   2. Multi-segment literal-rooted routes (`/lab/...`, `/compare/...`,
 //      `/docs/...`, `/t/...`) come next; they're segment-count + literal
 //      distinguished from Grammar A.
-//   3. Grammar A routes follow, most-specific first; the 1-segment
-//      `/:state` catch-all is LAST so it never poaches a literal route.
+//   3. Grammar A routes follow, most-specific first; the 2-segment
+//      `/:state/:position2` depth-2 catch-all (StateSubRouter, dispatches
+//      district / AC / chrome-defensive / notfound per ADR-0037 + Deferral
+//      1) sits AFTER every literal-marker 2- or 3-segment Grammar A entry
+//      (`/:state/explore`, `/:state/ac/:ac`, `/:state/t/:topic`, etc.) and
+//      BEFORE the 1-segment `/:state` catch-all. The 1-segment `/:state`
+//      stays LAST so it never poaches a literal route.
 //
 // Per ADR-0037 / TODO/20260609-url-prefix-drop-phase0-plan.md PR-P4
 // (shipped 2026-06-10): the Grammar B `/s/*` redirect catch-all and the
@@ -220,23 +229,16 @@ startRouter({
       parse: ({ state, party }) => ({ state, party_slug: party }),
       crumbs: partyCrumbs,
     },
-    // Per-state per-district landing (U2 sub-plan U2a). Place-first geo
-    // axis lives in the PATH never the querystring (parent plan section
-    // 23.5 + 20.8). 3-segment pattern with literal `d`, distinct from
-    // every other 3-segment pattern by its literal. The `district` slug
-    // is opaque to the router and resolved at render time inside
-    // District.svelte against the LGD district `display_name` via slugify().
-    //
-    // Reserved (NOT registered): positional `/<state>/<district>` (no
-    // `/d/` marker) per ADR-0037 routing.md - requires a runtime
-    // depth-2 dispatcher with a district + indicator + AC registry,
-    // deferred to a follow-up.
-    {
-      pattern: "/:state/d/:district",
-      component: District,
-      parse: ({ state, district }) => ({ state, district_slug: district }),
-      crumbs: districtCrumbs,
-    },
+    // Per-state per-district landing - the LIVE route is now the
+    // 2-segment positional `/:state/:position2` dispatched by
+    // `StateSubRouter` (registered below). Deferral 1 of
+    // TODO/20260609-url-prefix-drop-phase0-plan.md dropped the
+    // `/d/` literal marker per Jony's verdict ("citizen forwarding
+    // yen-gov.in/tamil-nadu/d/chennai over WhatsApp is sharing a
+    // system internal"). The `d` token stays in `RESERVED_PATH_TOKENS`
+    // per Jony rule #3 as a future escape-hatch so a citizen who
+    // types `/<state>/d` on the address bar lands on the 404 instead
+    // of being poached by a hypothetical future district named "D".
     // Per-state topic page (IA-reset Step #2).
     { pattern: "/:state/t/:topic", component: StateTopic, crumbs: stateTopicCrumbs },
     // Per-state per-event election landing (ADR-0023, Q1 2026-05-24).
@@ -246,6 +248,32 @@ startRouter({
     { pattern: "/:state/elections/:event", component: StateElection, crumbs: stateElectionCrumbs },
     // Per-state explorer.
     { pattern: "/:state/explore", component: Explore, crumbs: exploreCrumbs },
+    // Depth-2 state-sub dispatcher (Deferral 1, 2026-06-10). Catches
+    // `/<state>/<position2>` and routes via the pure
+    // `state-sub-resolver` to District / Constituency / NotFound
+    // based on which registry the slug lands in. MUST come AFTER
+    // every literal-marker 2- or 3-segment Grammar A entry above
+    // (`/:state/explore`, `/:state/t/:topic`, `/:state/elections/:event`,
+    // `/:state/ac/:ac`, `/:state/party/:party`) so the more-specific
+    // routes win on a clash. MUST come BEFORE the 1-segment
+    // `/:state` catch-all so the catch-all does not poach the
+    // 2-segment path. Under Option A (2026-06-10) the dispatcher
+    // resolves district-first per Jony rule #4; the shipped corpus
+    // carries 401 (state, slug) pairs where a district name equals
+    // an AC name in the same state by design and the colliding AC
+    // stays reachable via the canonical event-nested URL
+    // `/<state>/elections/<event>/ac/<ac>` (ADR-0052). The build-time
+    // gate at `frontend/src/contracts/url-namespace-disjointness.test.ts`
+    // asserts a positive presence-of-collisions baseline, not
+    // strict disjointness. The crumb builder is intentionally
+    // `notFoundCrumbs` here - StateSubRouter mutates `route.crumbs`
+    // after dispatch so the mounted child's Breadcrumb sees the
+    // right per-kind shape.
+    {
+      pattern: "/:state/:position2",
+      component: StateSubRouter,
+      crumbs: notFoundCrumbs,
+    },
     // State hub (1-segment catch-all). MUST be the LAST 1-segment
     // pattern in the table - every chrome literal above this line will
     // win on a name clash, and the disjointness contract guarantees no

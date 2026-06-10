@@ -100,6 +100,8 @@ interface EntityRow {
   entity_type: string;
   display_name: string;
   entity_valid_to?: string | null;
+  parent_entity_id?: string | null;
+  entity_code?: string | null;
 }
 
 interface TopicRow {
@@ -154,6 +156,91 @@ function loadActiveAcSlugs(): string[] {
     slugs.add(slugify(name));
   }
   return [...slugs];
+}
+
+/**
+ * Per-state district slug map for the Deferral 1 disjointness gate.
+ *
+ * Returns `Map<stateSlug, Set<districtSlug>>` derived from the SAME
+ * `taxonomy/entities.json` rowset that `routes/StateSubRouter.svelte`
+ * loads at runtime. The runtime loader filters by `parent_entity_id
+ * === "IN-${eci_code}"`; this function mirrors that join (entity_id
+ * of the state row -> parent_entity_id of the district rows) so the
+ * test failure mode matches a runtime collision exactly.
+ *
+ * Only currently-valid (`entity_valid_to == null`) districts whose
+ * parent is a currently-valid state/UT are included; the disjointness
+ * concern is the live URL surface, not the historical entity set.
+ */
+function loadDistrictSlugsByState(): Map<string, Set<string>> {
+  const raw = JSON.parse(readFileSync(entitiesPath, "utf-8")) as {
+    entities: EntityRow[];
+  };
+  // Build state entity_id -> stateSlug once so the district loop is
+  // a single pass.
+  const stateSlugByEid = new Map<string, string>();
+  for (const r of raw.entities) {
+    if (
+      (r.entity_type === "state" || r.entity_type === "ut") &&
+      (r.entity_valid_to === null || r.entity_valid_to === undefined)
+    ) {
+      stateSlugByEid.set(r.entity_id, slugify(r.display_name));
+    }
+  }
+  const byState = new Map<string, Set<string>>();
+  for (const r of raw.entities) {
+    if (r.entity_type !== "district") continue;
+    if (r.entity_valid_to !== null && r.entity_valid_to !== undefined) continue;
+    if (!r.parent_entity_id) continue;
+    const parentSlug = stateSlugByEid.get(r.parent_entity_id);
+    if (!parentSlug) continue;
+    const slug = slugify(r.display_name);
+    if (!slug) continue;
+    let set = byState.get(parentSlug);
+    if (!set) {
+      set = new Set<string>();
+      byState.set(parentSlug, set);
+    }
+    set.add(slug);
+  }
+  return byState;
+}
+
+/**
+ * Per-state AC slug map for the Deferral 1 disjointness gate.
+ *
+ * Returns `Map<stateSlug, Set<acSlug>>` derived from the SAME
+ * `datasets/data/entities/electoral.csv` the runtime loader reads.
+ * The `state` column (index 4) is already in lower-case slug form
+ * (`tamil-nadu`, `andhra-pradesh`) so no extra normalisation is
+ * needed.
+ *
+ * Includes ALL AC rows across all delim_years (the runtime
+ * StateSubRouter loads them via fetchConstituencies which is
+ * per-state); for the disjointness gate the slug-set union per
+ * state is what matters.
+ */
+function loadAcSlugsByState(): Map<string, Set<string>> {
+  const csv = readFileSync(electoralCsvPath, "utf-8");
+  const lines = csv.split(/\r?\n/).filter((l) => l.length > 0);
+  lines.shift(); // header
+  const byState = new Map<string, Set<string>>();
+  for (const line of lines) {
+    const cols = line.split(",");
+    if (cols[2] !== "ac") continue;
+    const name = cols[1];
+    const stateSlug = cols[4];
+    if (!name || !stateSlug) continue;
+    const slug = slugify(name);
+    if (!slug) continue;
+    let set = byState.get(stateSlug);
+    if (!set) {
+      set = new Set<string>();
+      byState.set(stateSlug, set);
+    }
+    set.add(slug);
+  }
+  return byState;
 }
 
 function findDuplicates(slugs: string[]): string[] {
@@ -311,5 +398,132 @@ describe("PR-0 event-context disjointness (election experience overhaul plan)", 
     // an auto-rename. AC names are citizen-visible URL contracts.
     const overlap = intersection(acSlugs, EVENT_CONTEXT_LITERALS);
     expect(overlap).toEqual([]);
+  });
+});
+
+/**
+ * Deferral 1 per-state district vs AC resolver gate (Option A, ratified
+ * 2026-06-10 by the orchestrator after a STOP-AND-SURFACE).
+ *
+ * **What changed vs the original Jony rule #2 strict-disjointness draft**:
+ * the strict per-state `districts ⊥ ACs` assertion is DROPPED. The
+ * shipped corpus carries 401 collisions across 25 states (verified
+ * 2026-06-10) because Indian electoral geography names many ACs after
+ * their district HQ (e.g. an AC named `Coimbatore` inside Coimbatore
+ * district is the rule, not the exception). Forcing a strict gate
+ * would either:
+ *   1. Block PR-D1 on a Hans+Max-signed-off corpus rename of ~401
+ *      AC rows (a citizen-visible URL change touching the canonical
+ *      data spine — Holy Law-level work that does NOT belong inside a
+ *      routing PR), or
+ *   2. Auto-rename ACs without the data team's signoff (Anti-pattern
+ *      #1 in CLAUDE.md s10: silent demotion of a user-named artifact).
+ *
+ * Option A's verdict: the depth-2 state-sub dispatcher
+ * (`routes/StateSubRouter.svelte` + `lib/state-sub-resolver.ts`,
+ * shipped 2026-06-10) IS the gate. It resolves district-first per
+ * Jony rule #4 resolution order; the colliding AC stays reachable
+ * via the canonical event-nested URL `/<state>/elections/<event>/ac/<ac>`
+ * per ADR-0052 (bare positional AC was always a convenience entry,
+ * never a canonical resource). Citizens reach every AC; the
+ * positional URL `/<state>/<slug>` resolves deterministically.
+ *
+ * This describe block keeps the SANITY floors (catch "registry
+ * failed to load at all") + adds a positive presence-of-collisions
+ * check ("collisions exist by design — the resolver wins"). The
+ * absence of strict-disjointness is now a documented design choice,
+ * not an oversight: see
+ *   * `docs/architecture/frontend/routing.md` § "Depth-2 dispatcher
+ *     resolution rule" — the design choice + the canonical AC URL
+ *     escape hatch.
+ *   * `frontend/src/lib/state-sub-resolver.ts` module docstring —
+ *     resolution order + 401-baseline citation.
+ *   * `TODO/20260609-url-prefix-drop-phase0-plan.md` § "Follow-up
+ *     deferrals" — the optional Hans+Max corpus rename row that
+ *     would enable bare-positional AC URLs (NOT BLOCKING).
+ *
+ * Cross-state collisions remain NOT a concern: `/tamil-nadu/coimbatore`
+ * (district) and `/maharashtra/coimbatore` (hypothetical AC) live
+ * under different `<state>` segments and the dispatcher filters its
+ * registries to one state at a time before resolving. The
+ * pre-existing `acSlugs ⊥ stateSlugs` / `acSlugs ⊥ RESERVED_PATH_TOKENS`
+ * assertions above handle the cross-cutting concerns.
+ *
+ * The OTHER six pairwise disjointness contracts above (state⊥topic,
+ * state⊥reserved, topic⊥reserved, ac⊥state, ac⊥topic, ac⊥reserved)
+ * STAY STRICT — those collision classes are real bugs and Option A
+ * does not relax any of them. Option A applies SOLELY to the
+ * per-state district vs AC pair.
+ */
+describe("Deferral 1 per-state resolver gate (districts vs ACs; Option A)", () => {
+  const districtsByState = loadDistrictSlugsByState();
+  const acsByState = loadAcSlugsByState();
+  const stateSlugs = loadActiveStateSlugs();
+
+  it("loads districts for >=28 states (sanity: catches registry-load failure)", () => {
+    // India has 28 states + 8 UTs currently. Not every UT has
+    // districts ingested yet, but the floor of 28 catches the
+    // "entities.json failed to parse" or "wrong join key" failure
+    // mode where the per-state map collapses to empty.
+    expect(districtsByState.size).toBeGreaterThanOrEqual(28);
+  });
+
+  it("loads ACs for >=15 states (sanity: catches CSV-load failure)", () => {
+    // The corpus carries AC rows for every state with a published
+    // electoral catalogue (>20 states as of 2026-06-10). 15 is a
+    // conservative floor that catches "electoral.csv failed to load
+    // at all" without pinning a brittle exact count.
+    expect(acsByState.size).toBeGreaterThanOrEqual(15);
+  });
+
+  it("at least one state has both districts AND ACs loaded (sanity)", () => {
+    // Tamil Nadu has 38 districts + ~234 ACs and is the canonical
+    // first-slice state. If neither registry loaded for any state, the
+    // collision-counting loop below would be vacuously zero; this
+    // sanity anchor prevents a silently-passing test.
+    let bothFor = 0;
+    for (const s of stateSlugs) {
+      if ((districtsByState.get(s)?.size ?? 0) > 0 && (acsByState.get(s)?.size ?? 0) > 0) {
+        bothFor += 1;
+      }
+    }
+    expect(bothFor).toBeGreaterThanOrEqual(1);
+  });
+
+  it("district-AC name collisions exist; resolver wins per Jony rule #4 (this is by design)", () => {
+    // POSITIVE presence-of-collisions check (the OPPOSITE of strict
+    // disjointness). The shipped corpus has 401 (state, slug) pairs
+    // where a district name equals an AC name in the same state
+    // (verified 2026-06-10); this assertion catches the "corpus got
+    // accidentally renamed to remove all collisions" regression OR
+    // the "registry-loading silently collapsed" regression - either
+    // would surface as `collisions.length === 0` and be a real bug.
+    //
+    // On a real collision (the dominant case) the dispatcher
+    // resolves the bare positional URL `/<state>/<slug>` to the
+    // DISTRICT per Jony rule #4. The colliding AC remains reachable
+    // via the canonical event-nested URL
+    //   /<state>/elections/<event>/ac/<ac>
+    // per ADR-0052; the bare positional AC URL was always a
+    // convenience entry, never a canonical resource.
+    //
+    // If a future agent wants STRICT per-state disjointness back,
+    // that is a Hans+Max-signed-off corpus rename (~401 AC rows -> N
+    // suffix) - see the "Follow-up deferrals" row in
+    // TODO/20260609-url-prefix-drop-phase0-plan.md. It is NOT a
+    // routing-PR concern.
+    const collisions: { state: string; slug: string }[] = [];
+    for (const s of stateSlugs) {
+      const districts = districtsByState.get(s);
+      const acs = acsByState.get(s);
+      if (!districts || !acs) continue;
+      for (const slug of districts) {
+        if (acs.has(slug)) collisions.push({ state: s, slug });
+      }
+    }
+    expect(
+      collisions.length,
+      "expected the shipped corpus to carry >=1 district/AC name collision (Option A design baseline); zero collisions means either the corpus was renamed without signoff OR the registry-loading silently collapsed",
+    ).toBeGreaterThan(0);
   });
 });

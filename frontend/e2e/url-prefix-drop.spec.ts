@@ -130,3 +130,54 @@ test.describe("URL prefix drop - post-P4 tombstone behaviour", () => {
     await expect(page.getByText(/No route matches/i)).toBeVisible();
   });
 });
+
+test.describe("Deferral 1 - depth-2 state-sub dispatcher (drop /d/ marker)", () => {
+  // Deferral 1 of TODO/20260609-url-prefix-drop-phase0-plan.md
+  // (Jony's verdict): the live route was `/<state>/d/<district>`; the
+  // `/d/` literal marker is scaffolding noise. PR-#NNN dropped it and
+  // routes `/<state>/<position2>` via the StateSubRouter dispatcher.
+  //
+  // These two tests pin the post-Deferral-1 behaviour:
+  //   1. Positional district URL renders the District page.
+  //   2. The legacy `/<state>/d/<district>` URL 404s (no redirect -
+  //      district pages are ~3 weeks old and unlikely to have
+  //      external bookmarks; if telemetry surfaces complaints we can
+  //      add a redirect later).
+  //
+  // Coimbatore (not Chennai) is the smoke target because the entities
+  // catalogue display_name for Chennai is "Chennai (formerly Madras)"
+  // (slug = `chennai-formerly-madras`), so `/tamil-nadu/chennai`
+  // would 404 even after Deferral 1. Coimbatore's display_name is
+  // exactly "Coimbatore" (slug = `coimbatore`); the URL works.
+
+  test("/<state>/<district> (positional) renders the District page", async ({
+    page,
+  }) => {
+    await page.goto("/tamil-nadu/coimbatore");
+    await expect(page).toHaveURL(/\/tamil-nadu\/coimbatore$/);
+    // District.svelte renders an <h1> with the district name. The
+    // dispatcher's loading-chrome panel is a <p>, not an <h1>, so
+    // waiting for the heading proves the district rendered (not just
+    // the loading state).
+    await expect(
+      page.getByRole("heading", { level: 1, name: /Coimbatore/ }),
+    ).toBeVisible();
+  });
+
+  test("/<state>/d/<district> (legacy /d/ marker) 404s with NotFound (no redirect)", async ({
+    page,
+  }) => {
+    // Deferral 1 deleted the `/:state/d/:district` route entry.
+    // The `d` token stays in RESERVED_PATH_TOKENS per Jony rule #3,
+    // so `/tamil-nadu/d` resolves to chrome (notfound-defensive)
+    // and `/tamil-nadu/d/coimbatore` is a 3-segment URL with no
+    // matching route - falls through to the NotFound surface. By
+    // design: no redirect, no auto-rewrite, no preserved query.
+    await page.goto("/tamil-nadu/d/coimbatore");
+    await expect(page).toHaveURL(/\/tamil-nadu\/d\/coimbatore$/);
+    await expect(
+      page.getByRole("heading", { level: 1, name: "404" }),
+    ).toBeVisible();
+    await expect(page.getByText(/No route matches/i)).toBeVisible();
+  });
+});
