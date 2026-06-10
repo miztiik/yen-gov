@@ -1,42 +1,51 @@
 <script lang="ts">
-  // NationalElectionsAtlas — the all-India Parliamentary-Constituency results
-  // surface for one Parliament event (UK-style elections plan, PR-B4).
+  // NationalElection - rebuilt national event view for the election
+  // experience overhaul plan PR-W3c (2026-06-10).
   //
-  // Two presentations of the same national PC winners, mirroring the state
-  // ElectionMap (PR-B3):
-  //   * "Map"         → maplibre PC choropleth over INDIA_PC (true geography).
-  //   * "Equal seats" → the national PC TileCartogram (one hex per seat).
+  // Surface: `/t/elections/<event-slug>` (route table in main.ts).
+  // Layout:
+  //   1. Header           - citizen-facing event label + national chip.
+  //   2. KPIs strip       - Total seats / Total electors / Total polled /
+  //                         Turnout %. Derived from the W2b generic
+  //                         loader's per-PC rows (NATIONAL-PC dispatch
+  //                         was extended in the same PR with `electors`
+  //                         + `votes_polled` projections; see
+  //                         lib/view-models/election-results.ts).
+  //   3. India choropleth - one polygon per state, coloured by the party
+  //                         that won the most seats in that state. Click
+  //                         a state polygon to drill into the per-state
+  //                         event view (PR-W3b rebuilds the target page).
+  //   4. Top-parties bar  - top 10 parties by national seat count, with
+  //                         party-coloured horizontal bars sized against
+  //                         the leader.
   //
-  // The view persists to `?view=geo|hex`. A seat-total bar runs across the
-  // top so the citizen reads "who won how many" before scanning geography.
+  // Renamed from `NationalElectionsAtlas.svelte` in the same PR. The
+  // pre-rebuild surface was a "Map | Equal seats" toggle over the
+  // 543-PC national choropleth with a filter rail; that layout is gone,
+  // replaced by the citizen-readable summary above. The hex/tile
+  // cartogram + filter rail will return on PR-W4c (analyst-grade
+  // scatter + filters lab) and PR-W3d (firehose) respectively, not
+  // here.
   //
-  // Ships DARK: if PC results are not yet ingested, the boundary still draws
-  // and a "results pending" note shows in place of tinted seats. It lights up
-  // automatically once the PC parquet lands (PR-A4).
+  // Data path (one loader, three projections):
+  //   loadElectionResults({event}) -> ElectionResultRow[]
+  //     -> KPIs           : sum electors, sum votes_polled,
+  //                         avg turnout_pct, count rows
+  //     -> per-state lead : group_by(state_code, party) -> top
+  //     -> top-parties    : group_by(party) -> sort desc -> slice(10)
   //
-  // CARTOGRAPHY CONTRACT (sources.ts INDIA_PC): the 2 J&K-territory
-  // placeholders (ls_seat_code=999) carry no winner, so `hatch_unmapped`
-  // renders them with a diagonal hatch — never an election tint.
-  //
-  // CLAUDE.md §0: no aria/role beyond native; visible affordances only.
+  // The bespoke `loadIndiaLeadingParties` is intentionally NOT used here
+  // (the W2b loader carries the same rows in a richer shape). PR-W5a
+  // retires it once the surviving consumer (the home-page IndiaMap)
+  // also flips.
 
   import MapChoropleth from "../lib/maplibre/MapChoropleth.svelte";
-  import { INDIA_PC } from "../lib/maplibre/sources";
-  import { renderTooltipCard } from "../lib/maplibre/tooltip-card";
-  import { symbolAssetUrl } from "../lib/maplibre/symbol-asset";
-  import TileCartogram from "../lib/charts/TileCartogram.svelte";
+  import { INDIA_STATES } from "../lib/maplibre/sources";
   import {
-    fetchElectionTileLayouts,
-    selectLayout,
-    buildTileRows,
-    type TileLayoutRow,
-    type TileWinnerInput,
-    type TileRow,
-  } from "../lib/view-models/election-tile-layout";
-  import {
-    loadNationalPcWinners,
-    type NationalPcWinner,
-  } from "../lib/view-models/national-elections";
+    loadElectionResults,
+    type ElectionResultRow,
+  } from "../lib/view-models/election-results";
+  import { loadStates, type StateRow } from "../lib/view-models/states";
   import type { LoaderResult } from "../lib/loader-result";
   import {
     getPartyColor,
@@ -45,45 +54,31 @@
   } from "../lib/colors/resolver";
   import { navigate } from "../lib/url";
   import { link } from "../lib/links";
-  import ElectionFilterRail from "../lib/elections/ElectionFilterRail.svelte";
-  import {
-    DEFAULT_ELECTION_FILTERS,
-    parseElectionFilters,
-    serializeElectionFilters,
-    type ElectionFilters,
-  } from "../lib/election-filters";
-  import {
-    buildKeyedFills,
-    buildKeyedOpacities,
-    hasModeCoverage,
-    type PartyFill,
-  } from "../lib/elections/election-map-coloring";
 
   interface Props {
-    /** Route params; `event` is the Parliament event id (e.g. "LsGenJun2024"). */
+    /** Route params; `event` is the event slug (e.g. "general-2024"). */
     params: { event: string };
   }
   let { params }: Props = $props();
   const event = $derived(params.event);
 
-  const DELIM_YEAR = 2008;
-  // G13 (EL5): map demoted from hero to companion. Height shrunk from
-  // the original 560px so the seat-bar + ranked party list above it carry
-  // the primary visual weight.
-  const HEIGHT = "420px";
+  // ---- Loader (one call powers KPIs + choropleth + top-parties bar) ----
+  let result = $state<LoaderResult<ElectionResultRow[]>>({ status: "loading" });
+  let states_taxonomy = $state<StateRow[] | null>(null);
+  loadStates()
+    .then((s) => (states_taxonomy = s))
+    .catch(() => (states_taxonomy = []));
 
-  // ─── Winners load ───────────────────────────────────────────────────
-  let result = $state<LoaderResult<NationalPcWinner[]>>({ status: "loading" });
   $effect(() => {
     const ev = event;
     result = { status: "loading" };
-    loadNationalPcWinners(ev).then((r) => {
+    loadElectionResults({ event: ev }).then((r) => {
       // Guard against a stale event switch resolving after a newer one.
       if (ev === event) result = r;
     });
   });
 
-  const winners = $derived<NationalPcWinner[]>(
+  const winners = $derived<ElectionResultRow[]>(
     result.status === "ok" || result.status === "partial" ? result.data : [],
   );
   const pending = $derived(
@@ -91,83 +86,60 @@
       (result.status === "ok" && winners.length === 0),
   );
 
-  // ─── PR-B9 filter rail (party / margin band / colour-by) ────────────────
-  // Same URL grammar + typed translator as the state arm (PR-B8); the rail
-  // recolours the SAME PC choropleth/cartogram and dims out-of-filter seats.
-  function readSearch(): string {
-    return typeof window === "undefined" ? "" : window.location.search;
+  // ---- KPIs ------------------------------------------------------------
+  interface Kpis {
+    total_seats: number;
+    total_electors: number | null;
+    total_polled: number | null;
+    turnout_pct: number | null;
   }
-  let filter_search = $state<string>(readSearch());
-  const filters = $derived<ElectionFilters>(parseElectionFilters(filter_search));
-
-  function onFilterChange(next: ElectionFilters): void {
-    if (typeof window === "undefined") return;
-    const base = new URLSearchParams(window.location.search);
-    const qs = serializeElectionFilters(next, base);
-    const target =
-      window.location.pathname + (qs ? `?${qs}` : "") + window.location.hash;
-    navigate(target);
-    filter_search = qs ? `?${qs}` : "";
-  }
-
-  const party_options = $derived.by(() => {
-    const seen = new Map<string, { code: string; short: string; color: string }>();
-    for (const w of winners) {
-      const code = w.party_eci_code ?? w.party_short;
-      if (seen.has(code)) continue;
-      seen.set(code, {
-        code,
-        short: w.party_short,
-        color: fillFor(w),
-      });
+  const kpis = $derived.by<Kpis>(() => {
+    if (winners.length === 0) {
+      return {
+        total_seats: 0,
+        total_electors: null,
+        total_polled: null,
+        turnout_pct: null,
+      };
     }
-    return [...seen.values()];
+    let elec = 0;
+    let elec_known = 0;
+    let polled = 0;
+    let polled_known = 0;
+    let turn_sum = 0;
+    let turn_known = 0;
+    for (const w of winners) {
+      if (w.electors != null) {
+        elec += w.electors;
+        elec_known++;
+      }
+      if (w.votes_polled != null) {
+        polled += w.votes_polled;
+        polled_known++;
+      }
+      if (w.turnout_pct != null) {
+        turn_sum += w.turnout_pct;
+        turn_known++;
+      }
+    }
+    return {
+      total_seats: winners.length,
+      total_electors: elec_known > 0 ? elec : null,
+      total_polled: polled_known > 0 ? polled : null,
+      turnout_pct: turn_known > 0 ? turn_sum / turn_known : null,
+    };
   });
-  const mode_coverage = $derived({
-    turnout: hasModeCoverage(winners, "turnout"),
-    age: hasModeCoverage(winners, "age"),
-  });
 
-  // ─── View toggle (persisted to ?view) ───────────────────────────────
-  type ViewMode = "geo" | "hex";
-  function readView(): ViewMode {
-    if (typeof window === "undefined") return "geo";
-    return new URLSearchParams(window.location.search).get("view") === "hex"
-      ? "hex"
-      : "geo";
-  }
-  let view = $state<ViewMode>(readView());
-  function setView(next: ViewMode): void {
-    if (next === view) return;
-    view = next;
-    if (typeof window === "undefined") return;
-    const params = new URLSearchParams(window.location.search);
-    if (next === "geo") params.delete("view");
-    else params.set("view", "hex");
-    const qs = params.toString();
-    history.replaceState(
-      null,
-      "",
-      window.location.pathname + (qs ? `?${qs}` : "") + window.location.hash,
-    );
-  }
-
-
-  // ─── Palette (PR-SYM-6i-pre3: 3-tier resolver, keyed on party_id) ──
-  //
-  // NationalPcWinner carries `party_id` (from `pc-winner-party-id`
-  // observation) + the additive `brand_colour_hex` / `_confidence` mirror
-  // off the dim_parties LEFT JOIN, so we resolve through the canonical
-  // 3-tier `getPartyColor` / `resolvePartyPalette` path. Rows without
-  // `party_id` derive a stable `parties.IN.<UPPER(short)>` so the
-  // resolver still degrades to anchor / algorithmic tiers without losing
-  // identity stability. Mirrors ElectionMap (PR #589) precedent.
-  function partyIdFor(w: { party_id?: string | null; party_short: string }): string {
+  // ---- Palette (party_id -> hex via the canonical 3-tier resolver) ----
+  function partyIdFor(w: {
+    party_id: string | null;
+    party_short: string | null;
+  }): string {
     if (w.party_id) return w.party_id;
     const slug = (w.party_short ?? "UNK").trim().toUpperCase();
     return `parties.IN.${slug}`;
   }
-  function rowFor(pid: string, w: NationalPcWinner): PartyRowForResolver | null {
+  function rowFor(pid: string, w: ElectionResultRow): PartyRowForResolver | null {
     if (w.brand_colour_hex == null) return null;
     return {
       party_id: pid,
@@ -181,305 +153,323 @@
   const palette_bundle = $derived.by(() => {
     const ids: string[] = [];
     const rowMap = new Map<string, PartyRowForResolver | null>();
-    const pidByKey = new Map<string, string>();
+    const seen = new Set<string>();
     for (const w of winners) {
-      const key = w.party_eci_code ?? w.party_short;
-      if (pidByKey.has(key)) continue;
       const pid = partyIdFor(w);
-      pidByKey.set(key, pid);
-      if (!rowMap.has(pid)) {
-        ids.push(pid);
-        rowMap.set(pid, rowFor(pid, w));
-      }
+      if (seen.has(pid)) continue;
+      seen.add(pid);
+      ids.push(pid);
+      rowMap.set(pid, rowFor(pid, w));
     }
-    return { palette: resolvePartyPalette(ids, rowMap), pidByKey, rowMap };
+    return { palette: resolvePartyPalette(ids, rowMap), rowMap };
   });
-  function fillFor(w: NationalPcWinner): string {
-    const { palette, pidByKey, rowMap } = palette_bundle;
-    const key = w.party_eci_code ?? w.party_short;
-    const pid = pidByKey.get(key) ?? partyIdFor(w);
-    return palette.get(pid)?.hex ?? getPartyColor(pid, rowMap.get(pid) ?? null).hex;
+  function fillForParty(pid: string, w: ElectionResultRow): string {
+    const { palette, rowMap } = palette_bundle;
+    return (
+      palette.get(pid)?.hex ??
+      getPartyColor(pid, rowMap.get(pid) ?? null).hex
+    );
   }
 
-  // ─── Geographic (choropleth) arm ────────────────────────────────────
-  const party_fill = $derived.by<PartyFill>(() => {
-    const { palette, pidByKey, rowMap } = palette_bundle;
-    return (code, short) => {
-      const key = code ?? short;
-      const pid = pidByKey.get(key);
-      if (pid) {
-        return palette.get(pid)?.hex ?? getPartyColor(pid, rowMap.get(pid) ?? null).hex;
-      }
-      const fallback_pid = `parties.IN.${(short ?? "UNK").trim().toUpperCase()}`;
-      return getPartyColor(fallback_pid, null).hex;
-    };
-  });
-  const fills = $derived<Record<string, string>>(
-    buildKeyedFills(winners, filters.mode, party_fill, (w) => w.join_key),
-  );
-  const opacities = $derived<Record<string, number>>(
-    buildKeyedOpacities(winners, filters.mode, filters, (w) => w.join_key),
-  );
-  const tooltips = $derived.by(() => {
-    const out: Record<string, string> = {};
+  // ---- Per-state leading party (for state choropleth fills) ----------
+  interface StateLead {
+    state_code: string;
+    party_id: string;
+    party_short: string;
+    seats: number;
+    color: string;
+  }
+  const state_leads = $derived.by<Map<string, StateLead>>(() => {
+    const out = new Map<string, StateLead>();
+    if (winners.length === 0) return out;
+    // Group seats per (state_code, party_id). Track ONE sample row per
+    // party so the colour-resolver has the brand_colour mirror to read.
+    const by = new Map<
+      string,
+      Map<string, { seats: number; sample: ElectionResultRow }>
+    >();
     for (const w of winners) {
-      out[w.join_key] = renderTooltipCard({
-        title: w.pc_name,
-        candidateName: w.winner_candidate_name,
-        partyShort: w.party_short,
-        partyColorHex: fillFor(w),
-        symbolAsset: symbolAssetUrl(w.symbol_asset_path),
-        marginPct: w.margin_pct,
+      const sc = w.state_code;
+      const pid = partyIdFor(w);
+      const inner = by.get(sc) ?? new Map();
+      const cur = inner.get(pid) ?? { seats: 0, sample: w };
+      cur.seats += 1;
+      inner.set(pid, cur);
+      by.set(sc, inner);
+    }
+    for (const [sc, parties] of by) {
+      let top:
+        | { pid: string; seats: number; sample: ElectionResultRow }
+        | null = null;
+      for (const [pid, p] of parties) {
+        if (!top || p.seats > top.seats) {
+          top = { pid, seats: p.seats, sample: p.sample };
+        }
+      }
+      if (!top) continue;
+      out.set(sc, {
+        state_code: sc,
+        party_id: top.pid,
+        party_short: top.sample.party_short ?? "UNK",
+        seats: top.seats,
+        color: fillForParty(top.pid, top.sample),
       });
     }
     return out;
   });
 
-  function onSelectGeo(sel: { properties: Record<string, unknown> }): void {
-    const sc = sel.properties?.state_ut_code;
-    if (typeof sc === "string" && sc) navigate(link.stateElection(sc, event));
-  }
-
-  // ─── Equal-seats (hex) arm ──────────────────────────────────────────
-  let layout = $state<TileLayoutRow[] | null>(null);
-  let layout_error = $state(false);
-  let layout_requested = false;
-  $effect(() => {
-    if (view !== "hex" || layout_requested) return;
-    layout_requested = true;
-    fetchElectionTileLayouts()
-      .then((doc) => {
-        layout = selectLayout(doc, {
-          layout_kind: "pc",
-          scope: "national",
-          delim_year: DELIM_YEAR,
-        });
-      })
-      .catch(() => (layout_error = true));
-  });
-
-  const hex_winners = $derived<TileWinnerInput[]>(
-    winners.map((w) => ({
-      unit_id: w.unit_id,
-      party_key: w.party_eci_code,
-      party_short: w.party_short,
-      margin_pct: w.margin_pct,
-    })),
-  );
-  const raw_tile_rows = $derived<TileRow[]>(
-    layout == null ? [] : buildTileRows(layout, hex_winners),
-  );
-  // Re-skin the hex tiles with the same mode/filter colouring as the geo arm.
-  const hex_fills = $derived<Record<string, string>>(
-    buildKeyedFills(winners, filters.mode, party_fill, (w) => w.unit_id),
-  );
-  const hex_opacities = $derived<Record<string, number>>(
-    buildKeyedOpacities(winners, filters.mode, filters, (w) => w.unit_id),
-  );
-  const tile_rows = $derived<TileRow[]>(
-    raw_tile_rows.map((t) => ({
-      ...t,
-      fill: hex_fills[t.unit_id] ?? t.fill,
-      opacity: hex_opacities[t.unit_id] ?? t.opacity,
-    })),
-  );
-  function onSelectHex(unit_id: string): void {
-    // unit_id = IN-PC-<delim>-<state_code>-<pc_no>; drill to that state.
-    const parts = unit_id.split("-");
-    const sc = parts[3];
-    if (sc) navigate(link.stateElection(sc, event));
-  }
-  const layout_unavailable = $derived(
-    view === "hex" && (layout_error || (layout != null && layout.length === 0)),
-  );
-
-  // ─── Seat-total bar (winners grouped by party, desc) ────────────────
-  const seat_totals = $derived.by(() => {
-
-    const by = new Map<
-      string,
-      { label: string; color: string; seats: number }
-    >();
-    for (const w of winners) {
-      const key = w.party_eci_code ?? w.party_short;
-      const cur = by.get(key);
-      if (cur) cur.seats += 1;
-      else by.set(key, { label: w.party_short, color: fillFor(w), seats: 1 });
+  // ---- Choropleth fills + tooltips, keyed on the LGD boundary key ----
+  const fills = $derived.by<Record<string, string>>(() => {
+    const out: Record<string, string> = {};
+    if (!states_taxonomy) return out;
+    for (const s of states_taxonomy) {
+      const lead = state_leads.get(s.eci_code);
+      if (lead) out[s.boundary_join_key] = lead.color;
     }
-    return [...by.values()].sort((a, b) => b.seats - a.seats);
+    return out;
   });
-  const total_seats = $derived(winners.length);
+  const tooltips = $derived.by<Record<string, string>>(() => {
+    const out: Record<string, string> = {};
+    if (!states_taxonomy) return out;
+    for (const s of states_taxonomy) {
+      const lead = state_leads.get(s.eci_code);
+      if (!lead) {
+        out[s.boundary_join_key] =
+          `<div class="font-semibold">${escapeHtml(s.display_name)}</div>` +
+          `<div class="text-slate-500">no data</div>`;
+        continue;
+      }
+      out[s.boundary_join_key] =
+        `<div class="font-semibold">${escapeHtml(s.display_name)}</div>` +
+        `<div class="text-slate-600">Leading: ${escapeHtml(lead.party_short)} (${lead.seats} seats)</div>` +
+        `<div class="text-slate-400 text-[10px] mt-1">click to drill in &rarr;</div>`;
+    }
+    return out;
+  });
+  function escapeHtml(s: string): string {
+    return s.replace(/[&<>"']/g, (c) =>
+      c === "&"
+        ? "&amp;"
+        : c === "<"
+          ? "&lt;"
+          : c === ">"
+            ? "&gt;"
+            : c === '"'
+              ? "&quot;"
+              : "&#39;",
+    );
+  }
+
+  // Reverse-lookup boundary key -> ECI for click navigation.
+  const KEY_TO_ECI = $derived.by<Record<string, string>>(() => {
+    const out: Record<string, string> = {};
+    for (const s of states_taxonomy ?? []) {
+      out[s.boundary_join_key] = s.eci_code;
+    }
+    return out;
+  });
+
+  function onStateClick(sel: { key: string | number }): void {
+    const code = KEY_TO_ECI[String(sel.key)];
+    if (code) navigate(link.stateElection(code, event));
+  }
+
+  // ---- Top-parties bar (top 10 nationally by seats) ------------------
+  interface PartyTotal {
+    party_id: string;
+    party_short: string;
+    seats: number;
+    color: string;
+  }
+  const TOP_N = 10;
+  const top_parties = $derived.by<PartyTotal[]>(() => {
+    const by = new Map<string, PartyTotal>();
+    for (const w of winners) {
+      const pid = partyIdFor(w);
+      const cur = by.get(pid);
+      if (cur) {
+        cur.seats += 1;
+      } else {
+        by.set(pid, {
+          party_id: pid,
+          party_short: w.party_short ?? "UNK",
+          seats: 1,
+          color: fillForParty(pid, w),
+        });
+      }
+    }
+    return [...by.values()].sort((a, b) => b.seats - a.seats).slice(0, TOP_N);
+  });
+  const top_party_max = $derived(top_parties[0]?.seats ?? 1);
+
+  // ---- Display label for the citizen-facing H1 -----------------------
+  const event_pretty = $derived.by<string>(() => {
+    // general-2024 -> "Parliament Election 2024"; assembly-2023 ->
+    // "Assembly Election 2023". Bye-event + legacy ECI forms
+    // (LsGenJun2024) pass through verbatim.
+    const m = /^(general|assembly)-(\d{4})$/.exec(event);
+    if (m) {
+      const body_pretty = m[1] === "general" ? "Parliament" : "Assembly";
+      return `${body_pretty} Election ${m[2]}`;
+    }
+    return event;
+  });
+
+  // ---- Number formatters (Indian locale, compact for big numbers) ----
+  const INT_FMT = new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 });
+  const COMPACT_FMT = new Intl.NumberFormat("en-IN", {
+    notation: "compact",
+    maximumFractionDigits: 2,
+  });
+  function fmtInt(n: number | null): string {
+    return n == null ? "-" : INT_FMT.format(n);
+  }
+  function fmtCompact(n: number | null): string {
+    return n == null ? "-" : COMPACT_FMT.format(n);
+  }
+  function fmtPct(n: number | null): string {
+    return n == null ? "-" : `${n.toFixed(1)}%`;
+  }
 </script>
 
-<main class="mx-auto max-w-5xl space-y-5 p-4">
-  <header class="space-y-1">
-    <!-- G12 (EL4) in-page back-link to the India home. Citizen returns
-         from the national atlas to the all-India entry. -->
-    <p class="text-sm">
-      <a
-        href="/"
-        class="text-slate-500 hover:underline"
-        data-testid="back-to-india"
-      >← Back to India</a>
-    </p>
+<main class="mx-auto max-w-6xl space-y-6 p-4">
+  <header class="space-y-2">
     <h1 class="text-2xl font-semibold text-slate-900">
-      National results — Parliamentary Constituencies
+      India &middot; {event_pretty}
     </h1>
-    <p class="text-sm text-slate-500">
-      Parliament event <code class="text-slate-700">{event}</code>. Each seat is
-      one Member of Parliament; switch between true geography and an
-      equal-seats grid where every constituency counts the same.
-    </p>
+    <div class="flex flex-wrap items-center gap-2 text-xs">
+      <span
+        class="inline-block rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-600"
+        data-testid="national-event-chip"
+      >national</span>
+      <span class="text-slate-500">
+        Event slug <code class="text-slate-700">{event}</code>
+      </span>
+    </div>
   </header>
 
   {#if result.status === "failed"}
+    <!-- OWID precedent: chart frame still renders with a retry; no 404. -->
     <div
       class="rounded border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800"
+      data-testid="national-event-error"
     >
-      {result.reason}
+      <p class="mb-2">Data couldn't load: {result.reason}</p>
       {#if result.retry}
         <button
           type="button"
-          class="ml-2 underline"
+          class="rounded border border-amber-300 bg-white px-3 py-1 text-xs hover:bg-amber-100"
           onclick={() => result.status === "failed" && result.retry?.()}
           >Try again</button
         >
       {/if}
     </div>
   {:else}
-    <!-- Seat-total bar -->
-    {#if total_seats > 0}
-      <section
-        class="space-y-1"
-        data-testid="national-seat-total-bar"
-      >
-        <div class="flex h-5 w-full overflow-hidden rounded bg-slate-100">
-          {#each seat_totals as p (p.label)}
-            <div
-              class="h-full"
-              style:width="{(p.seats / total_seats) * 100}%"
-              style:background-color={p.color}
-              title="{p.label}: {p.seats} seats"
-            ></div>
-          {/each}
+    <!-- KPIs strip ------------------------------------------------------ -->
+    <section
+      class="grid grid-cols-2 gap-3 sm:grid-cols-4"
+      data-testid="national-event-kpis"
+    >
+      <div class="rounded border border-slate-200 bg-white p-3">
+        <div class="text-xs uppercase tracking-wide text-slate-500">
+          Total seats
         </div>
-        <!-- G13 (EL5): expanded per-party legend. The previous slice(0, 8)
-             truncated the ranked party list at 8; with the map demoted to a
-             companion, the seat-bar + FULL party list become the primary
-             surface. Wrapped in <details open> so the citizen can collapse
-             the long list when scrolling. -->
-        <details open data-testid="national-seat-ranked-list">
-          <summary class="cursor-pointer text-xs text-slate-500 mb-1">
-            All parties ranked by seats ({seat_totals.length})
-          </summary>
-          <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-600">
-            {#each seat_totals as p (p.label)}
-              <span class="inline-flex items-center gap-1">
-                <span
-                  class="inline-block h-2.5 w-2.5 rounded-sm"
-                  style:background-color={p.color}
-                ></span>
-                {p.label}
-                <span class="font-medium text-slate-900">{p.seats}</span>
-              </span>
-            {/each}
-          </div>
-        </details>
-      </section>
-    {/if}
-
-    <!-- G13 (EL5): view toggle + filter rail collapsed into a single thin
-         sub-header strip, right-aligned above the map. Visually demotes
-         these controls relative to the seat-bar + ranked-list block. -->
-    <div class="flex items-center justify-end gap-3 flex-wrap">
-      <p class="text-xs text-slate-500">
-        {view === "hex" ? "Each tile = one seat" : "Seats sized by geography"}
-      </p>
-      <div
-        class="inline-flex rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-sm"
-        role="group"
-        data-testid="election-map-toggle"
-      >
-        <button
-          type="button"
-          class="rounded-md px-3 py-1 transition-colors {view === 'geo'
-            ? 'bg-white font-medium text-slate-900 shadow-sm'
-            : 'text-slate-500 hover:text-slate-700'}"
-          aria-pressed={view === "geo"}
-          data-view="geo"
-          onclick={() => setView("geo")}
-        >
-          Map
-        </button>
-        <button
-          type="button"
-          class="rounded-md px-3 py-1 transition-colors {view === 'hex'
-            ? 'bg-white font-medium text-slate-900 shadow-sm'
-            : 'text-slate-500 hover:text-slate-700'}"
-          aria-pressed={view === "hex"}
-          data-view="hex"
-          onclick={() => setView("hex")}
-        >
-          Equal seats
-        </button>
+        <div class="mt-1 text-2xl font-semibold text-slate-900">
+          {fmtInt(kpis.total_seats)}
+        </div>
       </div>
-
-      {#if !pending && winners.length > 0}
-        <ElectionFilterRail
-          {filters}
-          parties={party_options}
-          coverage={mode_coverage}
-          onChange={onFilterChange}
-        />
-      {/if}
-    </div>
+      <div class="rounded border border-slate-200 bg-white p-3">
+        <div class="text-xs uppercase tracking-wide text-slate-500">
+          Total electors
+        </div>
+        <div class="mt-1 text-2xl font-semibold text-slate-900">
+          {fmtCompact(kpis.total_electors)}
+        </div>
+      </div>
+      <div class="rounded border border-slate-200 bg-white p-3">
+        <div class="text-xs uppercase tracking-wide text-slate-500">
+          Total polled
+        </div>
+        <div class="mt-1 text-2xl font-semibold text-slate-900">
+          {fmtCompact(kpis.total_polled)}
+        </div>
+      </div>
+      <div class="rounded border border-slate-200 bg-white p-3">
+        <div class="text-xs uppercase tracking-wide text-slate-500">
+          Turnout
+        </div>
+        <div class="mt-1 text-2xl font-semibold text-slate-900">
+          {fmtPct(kpis.turnout_pct)}
+        </div>
+      </div>
+    </section>
 
     {#if pending}
       <div
         class="rounded border border-dashed border-slate-300 bg-slate-50 p-3 text-center text-sm text-slate-500"
+        data-testid="national-event-pending"
       >
-        Results for this election are not published in the atlas yet — the
-        constituency map below shows the seat geography; winners will appear
-        here once the count is ingested.
+        Results for this election are not published yet - the boundary map
+        below still draws.
       </div>
     {/if}
 
-    {#if view === "geo"}
-      <!-- G13 (EL5): map container narrowed to max-w-4xl so the seat-bar
-           + ranked-list above retain primary visual weight. -->
-      <div class="max-w-4xl mx-auto" data-testid="national-election-map-geo">
-        <MapChoropleth
-          entry={INDIA_PC}
-          {fills}
-          {opacities}
-          {tooltips}
-          height={HEIGHT}
-          hatch_unmapped={true}
-          tap_to_pin
-          onSelect={onSelectGeo}
-        />
-      </div>
-    {:else}
-      <div class="max-w-4xl mx-auto" data-testid="national-election-map-hex">
-        {#if layout_unavailable}
-          <div
-            class="flex items-center justify-center rounded border border-dashed border-slate-300 bg-slate-50 p-6 text-center text-sm text-slate-500"
-            style:height={HEIGHT}
-          >
-            Equal-seats view isn't available yet — switch to
-            <button
-              type="button"
-              class="mx-1 underline hover:text-slate-700"
-              onclick={() => setView("geo")}>Map</button
+    <!-- India choropleth ----------------------------------------------- -->
+    <section class="space-y-2" data-testid="national-event-map">
+      <h2 class="text-sm font-medium text-slate-700">
+        Leading party by state
+      </h2>
+      <p class="text-xs text-slate-500">
+        Each state is coloured by the party that won the most seats in
+        that state. Click a state to drill into its per-state results.
+      </p>
+      <MapChoropleth
+        entry={INDIA_STATES}
+        {fills}
+        {tooltips}
+        height="520px"
+        onSelect={onStateClick}
+      />
+    </section>
+
+    <!-- Top-parties bar (top 10 nationally by seats) ------------------- -->
+    <section class="space-y-2" data-testid="national-event-top-parties">
+      <h2 class="text-sm font-medium text-slate-700">
+        Top parties by seats
+      </h2>
+      {#if top_parties.length === 0}
+        <p class="text-xs text-slate-500">
+          No party totals available for this event yet.
+        </p>
+      {:else}
+        <ol class="space-y-1.5">
+          {#each top_parties as p, i (p.party_id)}
+            <li
+              class="flex items-center gap-3 text-sm"
+              data-testid="national-event-top-parties-row"
             >
-            to see the constituency geography.
-          </div>
-        {:else if layout == null}
-          <p class="p-4 text-sm text-slate-500">Loading equal-seats layout…</p>
-        {:else}
-          <TileCartogram tiles={tile_rows} height={HEIGHT} onSelect={onSelectHex} />
-        {/if}
-      </div>
-    {/if}
+              <span class="w-5 text-right text-xs text-slate-500"
+                >{i + 1}.</span
+              >
+              <span
+                class="w-14 truncate font-medium text-slate-700"
+                title={p.party_short}>{p.party_short}</span
+              >
+              <div class="relative h-5 flex-1 rounded bg-slate-100">
+                <div
+                  class="h-full rounded"
+                  style:width="{(p.seats / top_party_max) * 100}%"
+                  style:background-color={p.color}
+                ></div>
+              </div>
+              <span
+                class="w-14 text-right font-medium tabular-nums text-slate-900"
+                >{p.seats}</span
+              >
+            </li>
+          {/each}
+        </ol>
+      {/if}
+    </section>
   {/if}
 </main>
