@@ -64,3 +64,20 @@ describe("G11 parties.csv symbol_asset citizen-bundle invariant", () => {
     expect(broken).toEqual([]);
   });
 });
+
+describe("PR-A placeholder + unverified glyph corpus", () => {
+  // The renderer (PartySymbolGlyph + maplibre tooltip) opts into one of
+  // these two neutral assets when a row carries an empty symbol_asset.
+  // Asserting the files exist on disk keeps the citizen bundle honest:
+  // a future PR cannot delete either without a contract-test failure.
+
+  it("placeholder.svg exists at frontend/public/party-symbols/placeholder.svg", () => {
+    const path = resolve(publicDir, "party-symbols", "placeholder.svg");
+    expect(existsSync(path)).toBe(true);
+  });
+
+  it("unverified.svg exists at frontend/public/party-symbols/unverified.svg", () => {
+    const path = resolve(publicDir, "party-symbols", "unverified.svg");
+    expect(existsSync(path)).toBe(true);
+  });
+});

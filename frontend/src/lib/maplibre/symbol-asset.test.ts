@@ -28,3 +28,50 @@ describe("symbolAssetUrl", () => {
     expect(url?.startsWith(BASE)).toBe(true);
   });
 });
+
+describe("symbolAssetUrl with fallback modes", () => {
+  it("returns null for null assetPath with default silent fallback", () => {
+    expect(symbolAssetUrl(null)).toBeNull();
+    expect(symbolAssetUrl(null, "silent")).toBeNull();
+  });
+
+  it("returns null for empty assetPath with default silent fallback", () => {
+    expect(symbolAssetUrl("")).toBeNull();
+    expect(symbolAssetUrl(undefined, "silent")).toBeNull();
+  });
+
+  it("returns placeholder URL for null assetPath when fallback=placeholder", () => {
+    expect(symbolAssetUrl(null, "placeholder")).toBe(
+      `${BASE}party-symbols/placeholder.svg`,
+    );
+    expect(symbolAssetUrl(undefined, "placeholder")).toBe(
+      `${BASE}party-symbols/placeholder.svg`,
+    );
+  });
+
+  it("returns placeholder URL for empty assetPath when fallback=placeholder", () => {
+    expect(symbolAssetUrl("", "placeholder")).toBe(
+      `${BASE}party-symbols/placeholder.svg`,
+    );
+  });
+
+  it("returns unverified URL for null/empty assetPath when fallback=unverified", () => {
+    expect(symbolAssetUrl(null, "unverified")).toBe(
+      `${BASE}party-symbols/unverified.svg`,
+    );
+    expect(symbolAssetUrl("", "unverified")).toBe(
+      `${BASE}party-symbols/unverified.svg`,
+    );
+  });
+
+  it("returns absolute path for populated assetPath regardless of fallback mode", () => {
+    const expected = `${BASE}party-symbols/lotus.svg`;
+    expect(symbolAssetUrl("party-symbols/lotus.svg", "silent")).toBe(expected);
+    expect(symbolAssetUrl("party-symbols/lotus.svg", "placeholder")).toBe(
+      expected,
+    );
+    expect(symbolAssetUrl("party-symbols/lotus.svg", "unverified")).toBe(
+      expected,
+    );
+  });
+});

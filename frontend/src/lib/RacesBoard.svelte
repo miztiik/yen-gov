@@ -235,7 +235,7 @@
           <header class="px-3 pt-2.5 pb-2 border-b border-slate-200 bg-white" style:border-top="3px solid {stripe}">
             <div class="flex items-center gap-1.5">
               {#if col.symbol_asset_path}
-                <PartySymbolGlyph assetPath={col.symbol_asset_path} size={16} />
+                <PartySymbolGlyph assetPath={col.symbol_asset_path} size={16} fallback="placeholder" />
               {/if}
               <div class="text-sm font-semibold text-slate-800 leading-tight">{col.title}</div>
             </div>
@@ -252,7 +252,7 @@
                   title="{r.name} (#{r.eci_no}) — {r.winner_party_short} won by {r.margin_pct?.toFixed(2) ?? '—'} pp"
                 >
                   <span class="inline-block w-1.5 h-1.5 rounded-full flex-shrink-0" style:background-color={fill} aria-hidden="true"></span>
-                  <PartySymbolGlyph assetPath={r.symbol_asset_path} size={12} />
+                  <PartySymbolGlyph assetPath={r.symbol_asset_path} size={12} fallback="silent" />
                   <span class="truncate text-slate-700 flex-1">{r.name}</span>
                   <span class="text-[10px] tabular-nums font-semibold" style:color={mc}>
                     {r.margin_pct?.toFixed(1) ?? "—"}

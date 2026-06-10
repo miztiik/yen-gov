@@ -8,13 +8,32 @@
  * root. Vite's `import.meta.env.BASE_URL` (always ends in '/') is the
  * documented seam for this — the same one `paths.ts` uses for data loads.
  *
- * Returns null when there is no asset, so the tooltip medallion degrades
- * silently (no placeholder).
+ * Fallback policy when `assetPath` is null / undefined / empty:
+ *   - "silent"      : return null (today's behaviour); tooltip degrades
+ *                     silently with no medallion.
+ *   - "placeholder" : return the URL of placeholder.svg (a neutral gray
+ *                     ring + center dot).
+ *   - "unverified"  : return the URL of unverified.svg (concentric rings).
+ *
+ * Mirrors `glyphUrlFor` in `$lib/PartySymbolGlyph.svelte` so the DOM and
+ * MapLibre tooltip surfaces share one fallback vocabulary.
  */
+
+export type SymbolAssetFallbackMode = "silent" | "placeholder" | "unverified";
+
 export function symbolAssetUrl(
   assetPath: string | null | undefined,
+  fallback: SymbolAssetFallbackMode = "silent",
 ): string | null {
-  if (!assetPath) return null;
   const base = import.meta.env.BASE_URL; // always ends in '/'
+  if (!assetPath) {
+    if (fallback === "placeholder") {
+      return `${base}party-symbols/placeholder.svg`;
+    }
+    if (fallback === "unverified") {
+      return `${base}party-symbols/unverified.svg`;
+    }
+    return null;
+  }
   return base + assetPath.replace(/^\/+/, "");
 }

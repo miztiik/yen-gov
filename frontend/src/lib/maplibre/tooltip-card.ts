@@ -100,8 +100,24 @@ function reservationTag(reservation: string | null | undefined): string {
   );
 }
 
-function symbolMedallion(symbolAsset: string | null | undefined): string {
-  const src = safeAssetPath(symbolAsset);
+function symbolMedallion(
+  symbolAsset: string | null | undefined,
+  fallback: "silent" | "placeholder" | "unverified" = "silent",
+): string {
+  // Two-stage dispatch so the security-degrade (a non-empty MALICIOUS
+  // path) cannot be laundered into a placeholder medallion:
+  //   1. Non-empty input -> sanitise. If safeAssetPath rejects, src stays
+  //      null and we silently emit nothing (no <img>).
+  //   2. Empty / null / undefined input -> fallback applies; emit a
+  //      placeholder / unverified medallion when caller opted in.
+  let src: string | null = null;
+  if (symbolAsset != null && symbolAsset.trim().length > 0) {
+    src = safeAssetPath(symbolAsset);
+  } else if (fallback === "placeholder") {
+    src = "party-symbols/placeholder.svg";
+  } else if (fallback === "unverified") {
+    src = "party-symbols/unverified.svg";
+  }
   if (!src) return "";
   return `<img src="${escapeHtml(src)}" alt="" width="16" height="16" class="h-4 w-4 shrink-0 object-contain" />`;
 }
@@ -119,7 +135,7 @@ function partyPill(partyShort: string, partyColorHex: string | null | undefined)
 export function renderTooltipCard(model: TooltipCardModel): string {
   const title = `<div class="font-semibold text-slate-900">${escapeHtml(model.title)}${reservationTag(model.reservation)}</div>`;
 
-  const medallion = symbolMedallion(model.symbolAsset);
+  const medallion = symbolMedallion(model.symbolAsset, "placeholder");
   const candidate = model.candidateName
     ? `<span class="text-slate-700">${escapeHtml(model.candidateName)}</span>`
     : "";
