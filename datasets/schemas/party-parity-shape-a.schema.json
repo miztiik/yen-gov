@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./party-parity-shape-a.schema.json",
+  "title": "Party-parity Shape-A row (intermediate adapter output)",
+  "description": "ONE ROW of the canonical Shape-A intermediate format every Tier-C parity adapter materialises before the Compare-Aggregator (backend/yen_gov/canonical/recon/aggregator.py) sees them. Created by PR-2 of the 2026-06-10 electoral-data-quality + party-catalogue plan (Wave 0 / Gregor section 5 verdict). The shape-A CSV lives under datasets/ephemeral/party-parity/<source>/<vintage>/<sha>/shape-a.csv per CLAUDE.md section 3 ephemeral tier; NOT a long-format canonical CSV under datasets/data/ and NOT walked by Tier-B. This schema documents the row-shape contract (CSV-column-contract style: each column declares name + dtype + nullability + optional enum); adapters MAY validate each emitted row against this schema via jsonschema, and read_shape_a_csv (backend/yen_gov/canonical/recon/shape_a.py) enforces the same header + enum invariants in-process. The 8 fields (external_key, external_short, external_full, external_scope, external_vintage, proposed_party_id, proposed_action, notes) are fixed by plan section 2.PR-2 brief; field rename / removal is a MAJOR schema bump per CLAUDE.md section 11.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-06-10",
+      "description": "Initial schema for the Tier-C parity Shape-A intermediate row (PR-2 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md). Eight fields per Wave 0 / Gregor section 5: external_key (publisher-side natural key, required), external_short (publisher short / abbreviation, required), external_full (publisher full / legal name, required), external_scope (the adapter's registered source identifier; distinct values count as distinct oracles in the Compare-Aggregator, required), external_vintage (ADR-0042 operator snapshot window pin: YYYY-MM-DD or YYYY, required), proposed_party_id (canonical parties.IN.<SLUG> the adapter believes this row resolves to; may be a NEW id when proposed_action == mint-new, required), proposed_action (closed enum match | enrich | mint-new | alias-add | conflict, required), notes (free-text adapter disambiguation hint, nullable). Wired into recon/shape_a.py ShapeARow + write_shape_a_csv + read_shape_a_csv; aggregator.py compare() consumes the resulting list. Schema is reference-only (shape-A files live under datasets/ephemeral/, not walked by Tier-B); adapters may opt into per-row jsonschema validation."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "external_key",
+    "external_short",
+    "external_full",
+    "external_scope",
+    "external_vintage",
+    "proposed_party_id",
+    "proposed_action"
+  ],
+  "properties": {
+    "external_key": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Adapter-side natural key (publisher's own row id - e.g. TCPD party_id, ECI registration number, Wikipedia list-page slug). Stable cross-reference back to the upstream record. CSV-column-contract dtype: string, nullable: false."
+    },
+    "external_short": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Short name / abbreviation AS PUBLISHED by the upstream (e.g. 'AIADMK' / 'ADMK' / 'A.I.A.D.M.K.'). Carried verbatim; the resolver normalises via parties.csv aliases. CSV-column-contract dtype: string, nullable: false."
+    },
+    "external_full": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Full / legal name AS PUBLISHED by the upstream. Carried verbatim; same normalisation contract as external_short. CSV-column-contract dtype: string, nullable: false."
+    },
+    "external_scope": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The source-family identifier the adapter is registered under in recon.adapters.REGISTRY (e.g. 'tcpd-parties' | 'eci-registered' | 'wikipedia-parties' | 'indiavotes-state' | 'bhukyavenkatamahesh-pc' | 'thecont1-state'). The Compare-Aggregator treats DISTINCT external_scope values within one proposed_party_id group as DISTINCT oracles when computing n_oracles_present. CSV-column-contract dtype: string, nullable: false."
+    },
+    "external_vintage": {
+      "type": "string",
+      "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$",
+      "description": "Upstream snapshot pin per ADR-0042 (CLAUDE.md section 12): YYYY, YYYY-MM, or YYYY-MM-DD. The operator snapshot window of the upstream observation, NOT wall-clock-now (CLAUDE.md section 10 anti-pattern). CSV-column-contract dtype: string, nullable: false."
+    },
+    "proposed_party_id": {
+      "type": "string",
+      "pattern": "^parties\\.IN\\.[A-Z][A-Z0-9_]*$",
+      "maxLength": 60,
+      "description": "Canonical yen-gov party_id (parties.IN.<SHORT_SLUG>) the adapter believes this upstream row resolves to. MUST already exist in datasets/data/entities/parties.csv when proposed_action is match | enrich | alias-add; MAY be a brand-new id when proposed_action is mint-new. CSV-column-contract dtype: string, nullable: false."
+    },
+    "proposed_action": {
+      "type": "string",
+      "enum": ["match", "enrich", "mint-new", "alias-add", "conflict"],
+      "description": "Closed enum (CSV-column-contract style: dtype string + enum {...}). match = upstream agrees with canonical row, no edit. enrich = upstream carries additional identity metadata (founded_year, recognition_scope, ...) the canonical row should gain. mint-new = upstream is a party absent from canonical roster; aggregator may downgrade to 'conflict' if proposed_party_id collides with an existing row. alias-add = upstream's published name should be added to the canonical row's aliases column. conflict = adapter spotted a publisher disagreement at parse-time. Aggregator MAY upgrade per-row 'mint-new' to 'conflict' at compare-time but never invents an action outside this set. CSV-column-contract dtype: string, nullable: false."
+    },
+    "notes": {
+      "type": ["string", "null"],
+      "description": "Free-text adapter disambiguation hint (e.g. 'ECI code 145 reassigned from AAP to XYZ in 2022'). Carried verbatim into the verdict CSV's curator_note column when the curator promotes the hint. CSV-column-contract dtype: string, nullable: true."
+    }
+  }
+}
