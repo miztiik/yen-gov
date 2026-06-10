@@ -409,23 +409,26 @@
 
   // ---- Scatter chart projection (PR-W4c) ------------------------------
   // The state filter is implicit (winners is already pre-filtered to
-  // `params.state` via the W2b loader's state-scope arm). The filter
-  // chips for state are therefore not surfaced; body is pre-set from
-  // the resolved event kind so a parliament event shows the parliament
-  // pill highlighted.
+  // `params.state` via the W2b loader's state-scope arm). The body
+  // filter chip on the scatter starts on the active event kind so the
+  // chart and the page agree on first paint; afterwards the citizen
+  // may toggle freely (toggling to the inactive body simply empties
+  // the chart, which is the correct UX given the loader is single-body
+  // scoped for this surface).
   let scatter_filters = $state<ScatterFilters>({
     reservation: "all",
     margin_band: "all",
   });
-  // Whenever the event/body resolves, lock the scatter body filter to
-  // match so the chart and the page agree.
+  let scatter_body_initialised = false;
   $effect(() => {
+    if (scatter_body_initialised) return;
     const b = body;
     if (!b) return;
-    const want: ScatterFilters["body"] = b === "pc" ? "parliament" : "assembly";
-    if (scatter_filters.body !== want) {
-      scatter_filters = { ...scatter_filters, body: want };
-    }
+    scatter_filters = {
+      ...scatter_filters,
+      body: b === "pc" ? "parliament" : "assembly",
+    };
+    scatter_body_initialised = true;
   });
   const scatter_data = $derived.by<ScatterDatum[]>(() => {
     const out: ScatterDatum[] = [];

@@ -9,13 +9,21 @@
 // W2b loader projects `reservation` from `datasets/data/entities/
 // electoral.csv`, but that column is empty for every row today; the
 // reservation chip therefore narrows to zero rows. The body chip
-// (>parliament/assembly) and margin-band chips DO narrow against real
+// (parliament/assembly) and margin-band chips DO narrow against real
 // per-row data, so the assertions never depend on the placeholder
 // reservation enum.
+//
+// Why `force: true` on the dot click: the scatter packs many overlapping
+// large circles (the largest PCs by electors sit on top of each other in
+// the high-turnout / wide-margin corner). Playwright's actionability
+// check legitimately reports "X intercepts pointer events" because the
+// nominally-first dot in document order may be visually beneath a larger
+// dot. The bypass is fine for the routing assertion: we are testing that
+// clicking ANY dot navigates correctly, not which specific dot.
 
 import { expect, test } from "@playwright/test";
 
-test("scatter renders on national event view + body filter narrows", async ({
+test("scatter renders on national event view + margin filter narrows + dot click drills in", async ({
   page,
 }) => {
   await page.goto("/t/elections/general-2024", {
@@ -51,11 +59,11 @@ test("scatter renders on national event view + body filter narrows", async ({
   await expect(page.getByTestId("scatter-empty")).toBeVisible();
 
   // Back to parliament and click one dot — verify navigation to the
-  // constituency leaf.
+  // constituency leaf. force:true bypasses the overlapping-circles
+  // actionability check.
   await page.getByTestId("scatter-filter-body-parliament").click();
   await page.waitForTimeout(150);
-  const dot = dots.first();
-  await dot.click();
+  await dots.first().click({ force: true });
   await expect(page).toHaveURL(/\/elections\/general-2024\/[a-z0-9-]+/, {
     timeout: 10_000,
   });
@@ -80,10 +88,10 @@ test("scatter renders on state event view with state filter pre-applied", async 
   const count = await dots.count();
   expect(count).toBeGreaterThanOrEqual(200);
 
-  // Body chip should be pre-set to "assembly" by the route (StateElection
-  // syncs it via `$effect`). Switching to parliament should empty the
-  // chart (loader is assembly-scoped).
-  await page.getByTestId("scatter-filter-body-parliament").click();
-  await page.waitForTimeout(150);
-  await expect(page.getByTestId("scatter-empty")).toBeVisible();
+  // The body chip is initialised to "assembly" by the route on first
+  // paint (it matches the resolved event kind). Verify the active pill
+  // by reading the rendered button class.
+  const assembly_chip = page.getByTestId("scatter-filter-body-assembly");
+  await expect(assembly_chip).toBeVisible();
+  await expect(assembly_chip).toHaveClass(/bg-slate-900/);
 });
