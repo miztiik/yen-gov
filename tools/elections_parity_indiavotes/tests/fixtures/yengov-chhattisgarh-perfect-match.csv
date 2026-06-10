@@ -1,0 +1,13 @@
+entity_id,year,period_label,period_seq,indicator_id,value_numeric,value_text,source_id,derivation
+IN-PC-2008-S26-R1,2024,LsGenJun2024,6,pc-winner-candidate-id,,IN-PC-2008-S26-R1-LsGenJun2024-C01,src-synthetic,argmax
+IN-PC-2008-S26-R1,2024,LsGenJun2024,6,pc-winner-party-id,,parties.IN.BJP,src-synthetic,join
+IN-PC-2008-S26-R1,2024,LsGenJun2024,6,pc-votes-polled,1050351.0,,src-synthetic,raw
+IN-PC-2008-S26-R1,2024,LsGenJun2024,6,pc-margin-votes,575285.0,,src-synthetic,diff
+IN-PC-2008-S26-B1,2024,LsGenJun2024,6,pc-winner-candidate-id,,IN-PC-2008-S26-B1-LsGenJun2024-C01,src-synthetic,argmax
+IN-PC-2008-S26-B1,2024,LsGenJun2024,6,pc-winner-party-id,,parties.IN.BJP,src-synthetic,join
+IN-PC-2008-S26-B1,2024,LsGenJun2024,6,pc-votes-polled,721310.0,,src-synthetic,raw
+IN-PC-2008-S26-B1,2024,LsGenJun2024,6,pc-margin-votes,164558.0,,src-synthetic,diff
+IN-PC-2008-S26-K1,2024,LsGenJun2024,6,pc-winner-candidate-id,,IN-PC-2008-S26-K1-LsGenJun2024-C01,src-synthetic,argmax
+IN-PC-2008-S26-K1,2024,LsGenJun2024,6,pc-winner-party-id,,parties.IN.INC,src-synthetic,join
+IN-PC-2008-S26-K1,2024,LsGenJun2024,6,pc-votes-polled,570182.0,,src-synthetic,raw
+IN-PC-2008-S26-K1,2024,LsGenJun2024,6,pc-margin-votes,43283.0,,src-synthetic,diff

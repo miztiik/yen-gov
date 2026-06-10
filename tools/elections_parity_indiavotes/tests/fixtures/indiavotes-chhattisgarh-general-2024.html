@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chhattisgarh - Lok Sabha 2024 - IndiaVotes (synthetic test fixture)</title>
+</head>
+<body>
+  <!--
+    Synthetic IndiaVotes-shaped fixture for the parity oracle's G1-EVIDENCE path.
+    Mirrors the table chrome IndiaVotes ships on state Lok Sabha landing pages
+    (verified 2026-06-10 against live https://www.indiavotes.com/lok-sabha/2024/chhattisgarh):
+    a single results <table> with the columns
+    ['Constituency', 'Winner', 'Vote share', 'Margin over runner-up']
+    where the winner cell carries party in parens ('MAHESH KASHYAP(BJP)')
+    and the constituency cell appends reservation as a no-separator suffix
+    ('BastarST'). Only 3 seats included; this is NOT a complete snapshot of
+    CG 2024 -- the diff engine is the oracle, not the row count.
+  -->
+  <header>
+    <h1>Chhattisgarh - Lok Sabha 2024</h1>
+  </header>
+  <main>
+    <table class="results">
+      <thead>
+        <tr>
+          <th>Constituency</th>
+          <th>Winner</th>
+          <th>Vote share</th>
+          <th>Margin over runner-up</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Raipur</td>
+          <td>BRIJMOHAN AGRAWAL(BJP)</td>
+          <td>62.7%</td>
+          <td>+30.0%vs INC</td>
+        </tr>
+        <tr>
+          <td>Bilaspur</td>
+          <td>TOKHAN SAHU(BJP)</td>
+          <td>56.6%</td>
+          <td>+12.9%vs INC</td>
+        </tr>
+        <tr>
+          <td>Korba</td>
+          <td>JYOTSNA CHARANDAS MAHANT(INC)</td>
+          <td>48.5%</td>
+          <td>+3.7%vs BJP</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>

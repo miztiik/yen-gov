@@ -49,6 +49,11 @@ tools/inspect_elections_corpus.py
 tools/inspect_state_event_matrix.py
 datasets/ephemeral/pre-regen-parquet-snapshot/
 
+# Parity oracle (PR-W1c): cached IndiaVotes HTML snapshots + the throwaway
+# operator venv the README tells operators to spin up. NEVER committed.
+datasets/ephemeral/indiavotes-snapshots/
+.venv-parity/
+
 
 # TopoJSON converter idempotency sidecars (local-only; cross-worktree re-emit is cheap and deterministic).
 *.topojson.meta.json
