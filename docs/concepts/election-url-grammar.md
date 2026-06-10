@@ -59,9 +59,12 @@ winner age is affidavit-sourced (dense for recent events, null for older ones).
 ## Example
 
 ```
-/t/elections/LsGenJun2024?party=BJP,INC&margin=lt2&mode=margin&view=hex
+/t/elections/general-2024?party=BJP,INC&margin=lt2&mode=margin&view=hex
 ```
 
-Filters are **modifiers on a fully-populated default view**, never
-preconditions: removing every query param always yields a complete, coherent
-map.
+The event slug is `general-2024` per PR-W2a (2026-06-10) - the citizen-readable
+form for the national Parliament 2024 event (previously the cohort id
+`LsGenJun2024`, still carried in `event_id_aliases` on the catalogue row for
+one-release readability). Filters are **modifiers on a fully-populated default
+view**, never preconditions: removing every query param always yields a
+complete, coherent map.
