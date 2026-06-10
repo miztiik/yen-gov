@@ -45,7 +45,9 @@ def test_shipped_columns_validates_against_schema_of_schemas(contract):
     # the artifact's own self-declared $schema points at the sibling validator.
     raw = json.loads(COLUMNS_PATH.read_text(encoding="utf-8"))
     assert raw["$schema"] == "./columns.schema.json"
-    assert raw["$schema_version"] == "1.0"
+    # 1.1 bump (PR-0 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md):
+    # 10 nullable identity-metadata columns appended to the parties.csv file-class.
+    assert raw["$schema_version"] == "1.1"
     assert len(contract.file_classes) >= 14
 
 

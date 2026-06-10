@@ -1,6 +1,6 @@
 {
   "$schema": "./columns.schema.json",
-  "$schema_version": "1.0",
+  "$schema_version": "1.1",
   "file_classes": {
     "datasets/data/variables.csv": {
       "notes": "Catalogue: one row per indicator (variable). Spec: csv-column-contract.md section 3.1.",
@@ -97,7 +97,7 @@
       ]
     },
     "datasets/data/entities/parties.csv": {
-      "notes": "Sole party key is party_id (plan section 20.3); eci_code is NOT a PK. aliases is a pipe-delimited list of UPPERCASE alternate shortcodes (e.g. TCPD's dialect: CPM, ADMK, AAAP for the canonical CPI(M), AIADMK, AAP) consumed by the elections writer's party_lookup expansion (G1, 2026-06-08). Spec: csv-column-contract.md section 3.2.",
+      "notes": "Sole party key is party_id (plan section 20.3); eci_code is NOT a PK. aliases is a pipe-delimited list of UPPERCASE alternate shortcodes (e.g. TCPD's dialect: CPM, ADMK, AAAP for the canonical CPI(M), AIADMK, AAP) consumed by the elections writer's party_lookup expansion (G1, 2026-06-08). v1.1 (PR-0 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md, 2026-06-10): 10 nullable identity-metadata columns appended (recognition_scope, home_state_codes, founded_year, dissolved_year, predecessor_party_ids, successor_party_ids, name_history, claims_to_parent_name, name_native_script, is_sentinel) per Hans + Gregor Wave 0 verdict; the 3 hardcoded resolver sentinels (parties.IN.UNK, parties.IN.IND, parties.IN.NOTA) are lifted into rows here so FK closure now includes them. is_sentinel marks the 3 resolver-fallback rows; recognition_scope=sentinel is reserved for them. name_history JSON-blob shape: [{\"from\": \"YYYY\", \"to\": \"YYYY\", \"short\": \"...\", \"full\": \"...\", \"source_id\": \"...\"}]. predecessor_party_ids / successor_party_ids are pipe-delimited lists of parties.IN.<X> slugs (lineage; not enforced as FK at v1.1 because the writer does not yet validate pipe-delimited FK refs). claims_to_parent_name = true for the ECI-favoured side of a contested split. Spec: csv-column-contract.md section 3.2.",
       "columns": [
         { "name": "party_id", "dtype": "string", "nullable": false, "pk": true },
         { "name": "short", "dtype": "string", "nullable": false },
@@ -106,7 +106,17 @@
         { "name": "brand_colour", "dtype": "string", "nullable": true },
         { "name": "symbol_asset", "dtype": "string", "nullable": true },
         { "name": "wikipedia", "dtype": "string", "nullable": true },
-        { "name": "aliases", "dtype": "string", "nullable": true }
+        { "name": "aliases", "dtype": "string", "nullable": true },
+        { "name": "recognition_scope", "dtype": "string", "nullable": true, "enum": ["national", "state", "unrecognised_registered", "defunct", "sentinel"] },
+        { "name": "home_state_codes", "dtype": "string", "nullable": true },
+        { "name": "founded_year", "dtype": "integer", "nullable": true },
+        { "name": "dissolved_year", "dtype": "integer", "nullable": true },
+        { "name": "predecessor_party_ids", "dtype": "string", "nullable": true },
+        { "name": "successor_party_ids", "dtype": "string", "nullable": true },
+        { "name": "name_history", "dtype": "string", "nullable": true },
+        { "name": "claims_to_parent_name", "dtype": "boolean", "nullable": true },
+        { "name": "name_native_script", "dtype": "string", "nullable": true },
+        { "name": "is_sentinel", "dtype": "boolean", "nullable": true }
       ]
     },
     "datasets/data/entities/party_alliances.csv": {
@@ -200,7 +210,7 @@
       ]
     },
     "datasets/data/datapoints/electoral/*.csv": {
-      "notes": "Per-state election-results long-format CSV. One file per state (filename <state_slug>_election_results.csv). 9-column mechanical transcode of the X1a-fu2-D-retired election_results.parquet (2026-06-07). entity_id is a synthetic state-event-party row id (e.g. IN-S22-AcGenMay2026-PARTY-DMK), NOT an electoral.csv FK; therefore no entity_id FK is declared. value_numeric / value_text carry the observation. period_label is the canonical event id (AcGenMay2026, AcByeOct1971, etc.). derivation describes the methodology (count, share, etc.).",
+      "notes": "Per-state election-results long-format CSV. One file per state (filename <state_slug>_election_results.csv). 9-column mechanical transcode of the X1a-fu2-D-retired election_results.parquet (2026-06-07). entity_id is a synthetic state-event-party row id (e.g. IN-S22-AcGenMay2026-PARTY-DMK), NOT an electoral.csv FK; therefore no entity_id FK is declared. value_numeric / value_text carry the observation. period_label is the canonical event id (AcGenMay2026, AcByeOct1971, etc.). derivation describes the methodology (count, share, etc.). For indicator_id rows ending in -winner-party-id / -leading-party-id / -runnerup-party-id, value_text carries an embedded parties.IN.<X> reference; the Tier-B FK validator special-cases this embedded-FK shape via per-indicator dispatch, so no column-level fk declaration is needed on value_text here (PR-0 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md).",
       "columns": [
         { "name": "entity_id", "dtype": "string", "nullable": false, "pk": true },
         { "name": "year", "dtype": "integer", "nullable": false },
