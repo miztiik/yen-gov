@@ -29,6 +29,29 @@ ASCII only: use plain keyboard characters; write "-", "->", ">=", "section", and
 - Citizen-visible route changes need frontend tests and integrated-browser smoke verification per [CLAUDE.md](../../CLAUDE.md#13-ui-verification-mandatory-for-frontend--admin-changes).
 - Catalogue-driven UI should read schemas/catalogues instead of hardcoding one-off dataset lists.
 
+## View-model collapse - `loadElectionResults(scope)` is canonical
+
+PR-W2b (2026-06-10) introduced the generic
+[view-models/election-results.ts](lib/view-models/election-results.ts):
+`loadElectionResults({event, state?, eci_no?})`. This is the canonical
+loader for any election-results query (NATIONAL-PC, STATE-AC, CONSTITUENCY
+drill-down). The three bespoke loaders covered by the golden-row oracle
+(`loadNationalPcWinners`, `loadStateAcWinners`, `loadConstituencyResult`)
+stay live for one release; call-sites flip in PR-W3b / PR-W3c / PR-W3d;
+bespoke loaders deleted in PR-W5a.
+
+Use `loadElectionResults` for any NEW code. The two projection helpers
+(`projectAsWinnersByEntity`, `projectAsConstituencyRanks`) narrow the
+union row shape to the bespoke-loader shapes when the caller needs them.
+Do not import the bespoke loaders in new files.
+
+`loadIndiaLeadingParties` is INTENTIONALLY OUT OF SCOPE for this collapse:
+it reads a different underlying table (the long-format party-aggregate
+CSV under `data/datapoints/electoral/`), takes a multi-event map, and
+answers a structurally different question. It stays bespoke until a
+future PR either widens the generic to a fourth scope shape or leaves
+it as a separate concern.
+
 ## Validation
 
 - Run `npm test` in `frontend/` for frontend code changes.
