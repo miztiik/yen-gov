@@ -193,6 +193,31 @@
       .sort((a, b) => Math.max(b.left, b.right) - Math.max(a.left, a.right));
   });
 
+  // PR-W4b migration banner (2026-06-10): the path-form event-vs-event
+  // compare cascade at `/compare/elections/<state>/<from>/<to>` replaces
+  // this legacy `elec` mode's `?eventb=` query encoding. Surface a
+  // banner deep-link so a citizen on the legacy URL can jump to the new
+  // surface without re-typing the state/event combination. Derives the
+  // to-event from `event_b` when the legacy elec picker has selected
+  // one; otherwise picks the most-recent OTHER event of the same kind
+  // from the catalogue (typically the LAST election the citizen would
+  // want to compare against). Null when no comparable event exists
+  // (single-event states or pre-catalogue load).
+  const new_compare_to_event = $derived.by<string | null>(() => {
+    // Prefer the legacy picker's active selection in elec mode.
+    if (mode === "elec" && event_b && event_b !== params.event) {
+      return event_b;
+    }
+    // Fall back to the catalogue's most-recent same-kind event (excludes
+    // the origin).
+    return compare_options[0]?.event_id ?? null;
+  });
+  const new_compare_url = $derived.by<string | null>(() => {
+    const to_ev = new_compare_to_event;
+    if (!to_ev || !state_code) return null;
+    return link.compareElections(state_code, params.event, to_ev);
+  });
+
   // Decode a pasted Psephlab share-URL fragment into a scenario for one side.
   function applyPasted(side: "a" | "b"): void {
     const raw = side === "a" ? pasted_a : pasted_b;
@@ -259,6 +284,37 @@
       </div>
     </div>
   </header>
+
+  <!--
+    PR-W4b (election experience overhaul, 2026-06-10) - migration
+    banner to the new path-form event-vs-event compare cascade. The
+    legacy `?a=&b=&mode=elec` URL grammar is retired in PR-W5a; this
+    banner is the one-release migration aid per binding constraint #9
+    in the parent plan-doc (user accepts the loss of `?a=&b=` URL
+    bookmarks). Only renders when (a) the catalogue has resolved AND
+    (b) a same-kind to-event exists in the state - i.e. when the new
+    cascade is a meaningful destination.
+  -->
+  {#if new_compare_url}
+    <aside
+      class="rounded border border-blue-200 bg-blue-50 p-3 text-sm text-blue-900 flex items-center justify-between gap-3 flex-wrap"
+      data-testid="compare-migration-banner"
+    >
+      <span>
+        <strong class="font-semibold">New:</strong> path-form compare for
+        <code class="font-mono">{params.event}</code>
+        {#if new_compare_to_event && new_compare_to_event !== params.event}
+          vs <code class="font-mono">{new_compare_to_event}</code>
+        {/if}
+        - cleaner URL, shareable on WhatsApp.
+      </span>
+      <a
+        class="rounded border border-blue-300 bg-white px-3 py-1 text-xs font-medium hover:bg-blue-100"
+        href={new_compare_url}
+        data-testid="compare-migration-banner-link"
+      >Open new compare &rarr;</a>
+    </aside>
+  {/if}
 
   {#if mode === 'scn'}
     <p class="text-xs text-slate-500">

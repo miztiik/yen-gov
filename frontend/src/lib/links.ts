@@ -295,6 +295,27 @@ export const link = {
     return withBase(`/compare/${stateSlug(stateCodeOrSlug)}/${event}`);
   },
 
+  /** Path-form election-vs-election compare cascade
+   * (`/compare/elections/<state>/<from-event>/<to-event>`).
+   *
+   * PR-W4b (election experience overhaul, 2026-06-10): body-tagged
+   * compare per the binding constraint #7 in the plan-doc preamble.
+   * The 4-segment shape (`compare` + literal `elections` + state +
+   * from + to) is segment-count + literal disambiguated from the
+   * legacy 3-segment `electionCompare()` cascade which is retained
+   * for one release as a strangler-fig (PR-W5a deletes it). Distinct
+   * from `compareIndicator()` (a different surface) by both literal
+   * `elections` in seg 2 and the path-form parameters. */
+  compareElections(
+    stateCodeOrSlug: string,
+    fromEvent: string,
+    toEvent: string,
+  ): string {
+    return withBase(
+      `/compare/elections/${stateSlug(stateCodeOrSlug)}/${encodeURIComponent(fromEvent)}/${encodeURIComponent(toEvent)}`,
+    );
+  },
+
   /** Method-aware election Compare (`/compare/<state>/<event>/m/<method>`).
    * Both sides share the active method (per-side override is deferred
    * per the 2026-06-09 Fowler verdict on the redesign). */
