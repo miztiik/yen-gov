@@ -51,7 +51,8 @@
   import UnionListBanner from "../lib/UnionListBanner.svelte";
   import { states } from "../lib/states.svelte";
   import { link } from "../lib/links";
-  import GeoBreadcrumb from "../lib/GeoBreadcrumb.svelte";
+  import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import { route } from "../lib/router.svelte";
   import {
     fetchElectionEvents,
     defaultEventForState,
@@ -120,9 +121,13 @@
   // catalogue handling.
   const states_loading = $derived(!states.isLoaded);
   const catalogue_loading = $derived(catalogue === null && load_error === null);
+
+  // PR-W1d: per-route crumb chain. Reactive on route navigation AND
+  // on async catalogue load (the builder reads states.svelte inside).
+  const crumbs = $derived(route.crumbs ? route.crumbs(route.params) : []);
 </script>
 
-<GeoBreadcrumb />
+<Breadcrumb {crumbs} />
 
 <section class="p-4 sm:p-6 space-y-6 max-w-6xl">
   {#if load_error}

@@ -35,8 +35,8 @@ The 22 glyphs listed below are the file set this directory carries. The
 21 originally migrated under U3 (plan chunk U3, 2026-06-05; the set was
 unchanged from the prior `frontend/src/lib/icons/` location — only the
 on-disk home moved per plan section 21.10) plus `chevron-right` (added
-under U2b, 2026-06-05) for the `GeoBreadcrumb` separator glyph between
-ascend crumbs (see [`frontend/src/lib/GeoBreadcrumb.svelte`](../../src/lib/GeoBreadcrumb.svelte)).
+under U2b, 2026-06-05) for the `Breadcrumb` separator glyph between
+ascend crumbs (see [`frontend/src/lib/Breadcrumb.svelte`](../../src/lib/Breadcrumb.svelte); the breadcrumb spine was renamed to its current shared form in PR-W1d, 2026-06-10).
 
 | Icon | Family | Source URL | Licence | Attribution | Modifications |
 | --- | --- | --- | --- | --- | --- |

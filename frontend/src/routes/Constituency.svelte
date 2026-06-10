@@ -21,7 +21,8 @@
   import { link } from "../lib/links";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import PartySymbolGlyph from "../lib/PartySymbolGlyph.svelte";
-  import GeoBreadcrumb from "../lib/GeoBreadcrumb.svelte";
+  import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import { route } from "../lib/router.svelte";
 
   // params.state is a slug; params.eci_no is the parsed AC number from
   // the AC slug (e.g. `167-mylapore` → 167). When the prefix is missing
@@ -124,9 +125,13 @@
   }
 
   function pct(n: number): string { return n.toFixed(2) + "%"; }
+
+  // PR-W1d: per-route crumb chain. Reactive on route navigation AND
+  // on async catalogue load (the builder reads states.svelte inside).
+  const crumbs = $derived(route.crumbs ? route.crumbs(route.params) : []);
 </script>
 
-<GeoBreadcrumb />
+<Breadcrumb {crumbs} />
 
 <main class="max-w-4xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
@@ -134,7 +139,7 @@
       <TopicIcon name="vote" cls="w-6 h-6 text-slate-500 shrink-0" />
       <span>{#if result}{result.constituency_name ?? `AC ${result.eci_no}`}{:else}AC {params.eci_no}{/if}</span>
     </h1>
-    <!-- G12 (EL4) in-page back-link. Duplicates the GeoBreadcrumb crumb on
+    <!-- G12 (EL4) in-page back-link. Duplicates the Breadcrumb crumb on
          purpose: the breadcrumb is chrome, this is contextual "I'm done with
          this AC, take me back to the state hub." -->
     {#if state_code}

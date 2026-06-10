@@ -31,6 +31,32 @@ import Yenask from "./routes/Yenask.svelte";
 import IndicatorDoc from "./routes/IndicatorDoc.svelte";
 import CountingMethodDoc from "./routes/CountingMethodDoc.svelte";
 import NotFound from "./routes/NotFound.svelte";
+import {
+  aboutCrumbs,
+  compareCrumbs,
+  compareIndicatorCrumbs,
+  constituencyBareCrumbs,
+  constituencyCanonicalCrumbs,
+  countingMethodDocCrumbs,
+  dataCompletenessCrumbs,
+  devChartsSandboxCrumbs,
+  disclaimerCrumbs,
+  districtCrumbs,
+  exploreCrumbs,
+  homeCrumbs,
+  indicatorDocCrumbs,
+  nationalElectionsAtlasCrumbs,
+  notFoundCrumbs,
+  partyCrumbs,
+  psephlabCrumbs,
+  settingsCrumbs,
+  stateElectionCrumbs,
+  stateOverviewCrumbs,
+  stateTopicCrumbs,
+  topicIndexCrumbs,
+  topicLandingCrumbs,
+  yenaskCrumbs,
+} from "./lib/route-crumbs";
 
 // Mount the persistent shell once. The router replaces the contents of
 // #route on every navigation; the rail at #rail stays mounted. Layout is
@@ -74,23 +100,23 @@ startRouter({
   routes: [
     // === 1. Root + chrome literals (single-segment, MUST come before
     //        the 1-segment Grammar A `/:state` catch-all). ===
-    { pattern: "/", component: Home },
-    { pattern: "/settings", component: Settings },
-    { pattern: "/about", component: About },
-    { pattern: "/disclaimer", component: Disclaimer },
+    { pattern: "/", component: Home, crumbs: homeCrumbs },
+    { pattern: "/settings", component: Settings, crumbs: settingsCrumbs },
+    { pattern: "/about", component: About, crumbs: aboutCrumbs },
+    { pattern: "/disclaimer", component: Disclaimer, crumbs: disclaimerCrumbs },
     // Topic Front Door (P3.3, ADR-0022).
-    { pattern: "/t", component: TopicIndex },
+    { pattern: "/t", component: TopicIndex, crumbs: topicIndexCrumbs },
     // Generic indicator Compare (P4) — sits alongside the more-specific
     // election Compare below; the two patterns don't overlap.
-    { pattern: "/compare", component: CompareIndicator },
+    { pattern: "/compare", component: CompareIndicator, crumbs: compareIndicatorCrumbs },
     // Citizen transparency surface (folded-indicator PR commit 10).
-    { pattern: "/data-completeness", component: DataCompleteness },
+    { pattern: "/data-completeness", component: DataCompleteness, crumbs: dataCompletenessCrumbs },
 
     // === 2. Multi-segment literal-rooted routes. ===
     // Phase 6 (charting modernisation plan) — dev sandbox that mounts
     // every Phase 1.6 / 3.5 generic renderer against synthetic fixture
     // data. Not citizen-discoverable; not linked from the left rail.
-    { pattern: "/dev/charts-sandbox", component: DevChartsSandbox },
+    { pattern: "/dev/charts-sandbox", component: DevChartsSandbox, crumbs: devChartsSandboxCrumbs },
     // YENASK (display name Yen-Ask) — browser governance insight
     // assistant. Mounted under /lab/ alongside the analyst lab routes
     // (/lab/:state/:event). Dev-only — not citizen-discoverable, not
@@ -99,12 +125,12 @@ startRouter({
     // Pattern-distinct from /lab/:state/:event (2 vs 3 segments) so
     // route order is not load-bearing. Removal = git rm of
     // routes/Yenask.svelte + lib/yenask/ + this entry.
-    { pattern: "/lab/yenask", component: Yenask },
+    { pattern: "/lab/yenask", component: Yenask, crumbs: yenaskCrumbs },
     // National Parliament PC results atlas (UK-style elections plan, PR-B4).
     // 3-segment pattern, distinct from /t/:topic (2 segments); placed first
     // so the more-specific route wins regardless of matcher order.
-    { pattern: "/t/elections/:event", component: NationalElectionsAtlas },
-    { pattern: "/t/:topic", component: TopicLanding },
+    { pattern: "/t/elections/:event", component: NationalElectionsAtlas, crumbs: nationalElectionsAtlasCrumbs },
+    { pattern: "/t/:topic", component: TopicLanding, crumbs: topicLandingCrumbs },
     // Method-first Psephlab route (2026-06-09 redesign, Fowler verdict).
     // 4-segment pattern - distinct from the 3-segment bare lab route by
     // segment count + literal `m`. The method_id is opaque to the router
@@ -115,8 +141,9 @@ startRouter({
       pattern: "/lab/:state/:event/m/:method",
       component: Psephlab,
       parse: ({ state, event, method }) => ({ state, event, method }),
+      crumbs: psephlabCrumbs,
     },
-    { pattern: "/lab/:state/:event", component: Psephlab },
+    { pattern: "/lab/:state/:event", component: Psephlab, crumbs: psephlabCrumbs },
     // Method-aware Compare (2026-06-09 redesign). Same 4-segment shape
     // as labMethod above; both sides share the active method per Fowler
     // verdict (per-side method override deferred).
@@ -124,8 +151,9 @@ startRouter({
       pattern: "/compare/:state/:event/m/:method",
       component: Compare,
       parse: ({ state, event, method }) => ({ state, event, method }),
+      crumbs: compareCrumbs,
     },
-    { pattern: "/compare/:state/:event", component: Compare },
+    { pattern: "/compare/:state/:event", component: Compare, crumbs: compareCrumbs },
     // Per-indicator documentation page (U5b, parent plan section 20.12
     // IndicatorDoc bullet). 4-segment pattern with the literal `/docs/`
     // + literal `indicator/` + 2 catalogue-key segments
@@ -137,7 +165,8 @@ startRouter({
     {
       pattern: "/docs/indicator/:topic/:id",
       component: IndicatorDoc,
-      parse: ({ topic, id }) => ({ indicator_id: `${topic}/${id}` }),
+      parse: ({ topic, id }) => ({ indicator_id: `${topic}/${id}`, topic, id }),
+      crumbs: indicatorDocCrumbs,
     },
     // Per-counting-method documentation page (2026-06-09 redesign,
     // Fowler verdict route topology). Mirrors /docs/indicator/ shape:
@@ -150,6 +179,7 @@ startRouter({
       pattern: "/docs/lab/:method",
       component: CountingMethodDoc,
       parse: ({ method }) => ({ method }),
+      crumbs: countingMethodDocCrumbs,
     },
 
     // === 3. Grammar A: place-first cascade per ADR-0037, most-specific
@@ -169,6 +199,7 @@ startRouter({
         ac_slug: ac,
         eci_no: parseAcSlug(ac) ?? -1,
       }),
+      crumbs: constituencyCanonicalCrumbs,
     },
     // Bare-AC convenience entry (ADR-0052). Not a canonical resource:
     // Constituency resolves the state's default event and
@@ -181,11 +212,13 @@ startRouter({
         ac_slug: ac,
         eci_no: parseAcSlug(ac) ?? -1,
       }),
+      crumbs: constituencyBareCrumbs,
     },
     {
       pattern: "/:state/party/:party",
       component: Party,
       parse: ({ state, party }) => ({ state, party_slug: party }),
+      crumbs: partyCrumbs,
     },
     // Per-state per-district landing (U2 sub-plan U2a). Place-first geo
     // axis lives in the PATH never the querystring (parent plan section
@@ -202,21 +235,22 @@ startRouter({
       pattern: "/:state/d/:district",
       component: District,
       parse: ({ state, district }) => ({ state, district_slug: district }),
+      crumbs: districtCrumbs,
     },
     // Per-state topic page (IA-reset Step #2).
-    { pattern: "/:state/t/:topic", component: StateTopic },
+    { pattern: "/:state/t/:topic", component: StateTopic, crumbs: stateTopicCrumbs },
     // Per-state per-event election landing (ADR-0023, Q1 2026-05-24).
     // Distinct from /lab/ (analyst surface) and /compare/ (cross-state
     // results compare) — this is the neutral citizen permalink for a
     // specific cohort's results in a specific state.
-    { pattern: "/:state/elections/:event", component: StateElection },
+    { pattern: "/:state/elections/:event", component: StateElection, crumbs: stateElectionCrumbs },
     // Per-state explorer.
-    { pattern: "/:state/explore", component: Explore },
+    { pattern: "/:state/explore", component: Explore, crumbs: exploreCrumbs },
     // State hub (1-segment catch-all). MUST be the LAST 1-segment
     // pattern in the table - every chrome literal above this line will
     // win on a name clash, and the disjointness contract guarantees no
     // state slug equals a chrome literal.
-    { pattern: "/:state", component: StateOverview },
+    { pattern: "/:state", component: StateOverview, crumbs: stateOverviewCrumbs },
   ],
-  notFound: { pattern: "*", component: NotFound },
+  notFound: { pattern: "*", component: NotFound, crumbs: notFoundCrumbs },
 });

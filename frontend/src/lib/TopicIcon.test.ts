@@ -86,7 +86,7 @@ describe("TopicIcon helpers", () => {
       // settings, shield) for the state-hub topic chips, Constituency,
       // Party, Compare, CompareIndicator, Psephlab, Explore, About,
       // Disclaimer, Settings, DataCompleteness routes. U2b (2026-06-05)
-      // added `chevron-right` for the GeoBreadcrumb separator glyph.
+      // added `chevron-right` for the Breadcrumb separator glyph.
       // 2026-06-06 added `factory` (referenced by canonical
       // indicator-allowlist for installed-capacity-* indicators) and
       // `electric-tower` (energy-infrastructure glyph staged for the
