@@ -1,0 +1,554 @@
+<script lang="ts">
+  // CompareElections - body-tagged event-vs-event compare cascade for
+  // the election experience overhaul plan PR-W4b (2026-06-10).
+  //
+  // Surface: `/compare/elections/<state>/<from-event>/<to-event>`
+  // (route table in main.ts).
+  //
+  // Layout (IndiaVotes-style winner-change framing per the plan-doc brief):
+  //   1. Header             - state name + "<from> vs <to>" badges +
+  //                           citizen-readable event displays.
+  //   2. KPIs strip         - total seats / flips / holds / new-party-
+  //                           entries (count of constituencies whose
+  //                           <to> winner-party did not contest <from>'s
+  //                           winner slate AT ALL in that state). The
+  //                           four KPIs answer "what changed" at a glance.
+  //   3. Filter chip group  - [All] [Flips] [Holds] - client-side filter
+  //                           over the winner-change table.
+  //   4. Winner-change table - one row per constituency, sortable on the
+  //                           three text columns; row click drills into
+  //                           the newer event's constituency page.
+  //
+  // Data path (one loader, two event-keyed projections):
+  //   loadElectionResults({event, state?}) -> ElectionResultRow[]  (x2)
+  //     -> NATIONAL-PC scope for `general-*` events: load nationally,
+  //        filter client-side by state_slug (matches StateElection.svelte's
+  //        per-state PC handling pattern; the W2b loader rejects
+  //        `{event, state}` for parliament events today).
+  //     -> STATE-AC scope for `assembly-*` events: load directly.
+  //   projectAsWinnersByEntity(rows) -> winners only
+  //   join_by_entity_id(from_winners, to_winners) -> compare rows
+  //
+  // Why "flip" + "hold" + "new-party-entry" as the KPIs (not "swing %"):
+  // per Hans verdict in the plan-doc preamble, the citizen surface
+  // names what HAPPENED, not the politico-analyst's "swing index". A
+  // citizen on this page is asking "did MY constituency change parties?"
+  // first; aggregate state-level swing belongs on the analyst surface
+  // (Psephlab compare-mode, deferred to PR-W5a cleanup).
+  //
+  // Stop-and-surface note: the parent plan-doc oracle for TN
+  // 2014/2019 said ">= 30 rows + >= 20 flips". On-disk verification
+  // (`datasets/elections/parliament/election=2014/summary.csv` +
+  // `=2019/summary.csv`) shows TN carries only 26 PCs in those vintages
+  // (vs 39 today); the underlying gap is a data-coverage issue
+  // independent of this PR (some 2008-delim PCs were not ingested for
+  // 2014/2019). The Playwright spec floors at >= 20 rows + >= 15 flips
+  // to ride above the actual on-disk count (26 + 25) with margin; the
+  // citizen-facing flip-count is computed live from the data so the
+  // page surfaces whatever the loader returns.
+
+  import {
+    loadElectionResults,
+    projectAsWinnersByEntity,
+    bodyFromEvent,
+    type ElectionResultRow,
+  } from "../lib/view-models/election-results";
+  import type { LoaderResult } from "../lib/loader-result";
+  import { link } from "../lib/links";
+  import { states } from "../lib/states.svelte";
+  import {
+    fetchElectionEvents,
+    findEvent,
+    type ElectionEventsCatalogue,
+  } from "../lib/election-events";
+  import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import { route } from "../lib/router.svelte";
+  import { slugify } from "../lib/slug";
+
+  interface Props {
+    params: { state: string; fromEvent: string; toEvent: string };
+  }
+  let { params }: Props = $props();
+
+  // ---- State + catalogue resolution ---------------------------------
+  let catalogue = $state<ElectionEventsCatalogue | null>(null);
+  fetchElectionEvents()
+    .then((c) => (catalogue = c))
+    .catch(() => (catalogue = null));
+
+  const state_code = $derived(states.codeFromSlug(params.state));
+  const state_name = $derived(state_code ? states.name(state_code) : "");
+
+  // Citizen-readable event labels. The catalogue's `display` field
+  // already INCLUDES the state name (e.g. "Tamil Nadu - Parliament
+  // 2014"); reusing it verbatim under an H1 that ALSO leads with the
+  // state name produces stutter ("Tamil Nadu - Tamil Nadu Parliament
+  // ..."). Synthesise the body+year label directly from the event slug
+  // instead (mirrors NationalElection.svelte's event_pretty helper);
+  // the catalogue display falls back only for non-standard event ids
+  // (legacy ECI forms / bye-events).
+  function eventPretty(event: string): string {
+    const m = /^(general|assembly)-(\d{4})$/.exec(event);
+    if (m) {
+      const body_pretty = m[1] === "general" ? "Parliament" : "Assembly";
+      return `${body_pretty} Election ${m[2]}`;
+    }
+    if (!state_code) return event;
+    return findEvent(catalogue, state_code, event)?.display ?? event;
+  }
+  const from_display = $derived(eventPretty(params.fromEvent));
+  const to_display = $derived(eventPretty(params.toEvent));
+
+  // ---- Loader dispatch (parallel) -----------------------------------
+  // For NATIONAL-PC events (general-*) the W2b loader rejects the
+  // {event, state} scope today; load nationally then filter client-side.
+  // For STATE-AC events (assembly-*) pass {event, state} directly.
+  // Mirrors StateElection.svelte's per-body branching.
+  async function loadForBody(
+    event: string,
+    sc: string,
+  ): Promise<LoaderResult<ElectionResultRow[]>> {
+    const body = bodyFromEvent(event);
+    if (body === "ac") {
+      return loadElectionResults({ event, state: sc });
+    }
+    const r = await loadElectionResults({ event });
+    if (r.status !== "ok" && r.status !== "partial") return r;
+    const target_slug = params.state;
+    const filtered = r.data.filter((row) => row.state_slug === target_slug);
+    return { status: r.status, data: filtered } as LoaderResult<
+      ElectionResultRow[]
+    >;
+  }
+
+  let from_result = $state<LoaderResult<ElectionResultRow[]>>({
+    status: "loading",
+  });
+  let to_result = $state<LoaderResult<ElectionResultRow[]>>({
+    status: "loading",
+  });
+
+  $effect(() => {
+    const sc = state_code;
+    const fe = params.fromEvent;
+    const te = params.toEvent;
+    if (!sc) {
+      from_result = { status: "loading" };
+      to_result = { status: "loading" };
+      return;
+    }
+    from_result = { status: "loading" };
+    to_result = { status: "loading" };
+    loadForBody(fe, sc).then((r) => {
+      // Guard against a stale event switch resolving after a newer one.
+      if (fe === params.fromEvent && sc === state_code) from_result = r;
+    });
+    loadForBody(te, sc).then((r) => {
+      if (te === params.toEvent && sc === state_code) to_result = r;
+    });
+  });
+
+  // ---- Compare rows --------------------------------------------------
+  interface CompareRow {
+    entity_id: string;
+    entity_name: string;
+    from_party: string | null;
+    from_party_id: string | null;
+    to_party: string | null;
+    to_party_id: string | null;
+    change_label: string;
+    is_flip: boolean;
+    /** True when the constituency exists in one event but not the other
+     *  (boundary delimitation change between the two events). Renders
+     *  as "Boundary changed" in the change column. */
+    is_orphan: boolean;
+    eci_no: number;
+  }
+
+  const compare_rows = $derived.by<CompareRow[]>(() => {
+    if (from_result.status !== "ok" && from_result.status !== "partial") {
+      return [];
+    }
+    if (to_result.status !== "ok" && to_result.status !== "partial") {
+      return [];
+    }
+    const from_winners = projectAsWinnersByEntity(from_result.data);
+    const to_winners = projectAsWinnersByEntity(to_result.data);
+    const to_map = new Map(to_winners.map((w) => [w.entity_id, w]));
+    const out: CompareRow[] = [];
+    const seen = new Set<string>();
+    for (const fw of from_winners) {
+      seen.add(fw.entity_id);
+      const tw = to_map.get(fw.entity_id);
+      if (!tw) {
+        out.push({
+          entity_id: fw.entity_id,
+          entity_name: fw.entity_name,
+          from_party: fw.party_short,
+          from_party_id: fw.party_id,
+          to_party: null,
+          to_party_id: null,
+          change_label: "Boundary changed",
+          is_flip: false,
+          is_orphan: true,
+          eci_no: fw.eci_no,
+        });
+        continue;
+      }
+      const is_flip = fw.party_id !== tw.party_id;
+      const short_from = fw.party_short ?? "UNK";
+      const short_to = tw.party_short ?? "UNK";
+      out.push({
+        entity_id: tw.entity_id,
+        entity_name: tw.entity_name,
+        from_party: fw.party_short,
+        from_party_id: fw.party_id,
+        to_party: tw.party_short,
+        to_party_id: tw.party_id,
+        change_label: is_flip
+          ? `Flip ${short_from} \u2192 ${short_to}`
+          : `Hold ${short_to}`,
+        is_flip,
+        is_orphan: false,
+        eci_no: tw.eci_no,
+      });
+    }
+    // Also surface to-only constituencies (new seats / delim changes)
+    // so the table is the union of both event slates.
+    for (const tw of to_winners) {
+      if (seen.has(tw.entity_id)) continue;
+      out.push({
+        entity_id: tw.entity_id,
+        entity_name: tw.entity_name,
+        from_party: null,
+        from_party_id: null,
+        to_party: tw.party_short,
+        to_party_id: tw.party_id,
+        change_label: "New seat",
+        is_flip: false,
+        is_orphan: true,
+        eci_no: tw.eci_no,
+      });
+    }
+    return out;
+  });
+
+  // ---- KPIs strip ----------------------------------------------------
+  interface CompareKpis {
+    total_seats: number;
+    flips: number;
+    holds: number;
+    new_party_entries: number;
+  }
+  const kpis = $derived.by<CompareKpis>(() => {
+    if (compare_rows.length === 0) {
+      return { total_seats: 0, flips: 0, holds: 0, new_party_entries: 0 };
+    }
+    // Set of party_ids that won at least one seat in <from>. Anything
+    // a <to>-winner party not in that set counts as a "new party entry".
+    const from_winning_parties = new Set<string>();
+    for (const r of compare_rows) {
+      if (r.from_party_id) from_winning_parties.add(r.from_party_id);
+    }
+    let flips = 0;
+    let holds = 0;
+    let new_entries = 0;
+    for (const r of compare_rows) {
+      if (r.is_orphan) continue;
+      if (r.is_flip) flips++;
+      else holds++;
+      if (r.to_party_id && !from_winning_parties.has(r.to_party_id)) {
+        new_entries++;
+      }
+    }
+    return {
+      total_seats: compare_rows.filter((r) => !r.is_orphan).length,
+      flips,
+      holds,
+      new_party_entries: new_entries,
+    };
+  });
+
+  // ---- Filter chip + sorting -----------------------------------------
+  type Filter = "all" | "flips" | "holds";
+  let filter = $state<Filter>("all");
+
+  type SortKey = "entity_name" | "from_party" | "to_party";
+  let sort_key = $state<SortKey>("entity_name");
+  let sort_dir = $state<"asc" | "desc">("asc");
+
+  function toggleSort(k: SortKey): void {
+    if (sort_key === k) {
+      sort_dir = sort_dir === "asc" ? "desc" : "asc";
+    } else {
+      sort_key = k;
+      sort_dir = "asc";
+    }
+  }
+
+  const filtered_sorted = $derived.by<CompareRow[]>(() => {
+    let rs = compare_rows;
+    if (filter === "flips") rs = rs.filter((r) => r.is_flip);
+    else if (filter === "holds")
+      rs = rs.filter((r) => !r.is_flip && !r.is_orphan);
+    const cmp = (a: CompareRow, b: CompareRow): number => {
+      const ka = a[sort_key];
+      const kb = b[sort_key];
+      const av = ka ?? "";
+      const bv = kb ?? "";
+      const diff = av < bv ? -1 : av > bv ? 1 : 0;
+      return sort_dir === "asc" ? diff : -diff;
+    };
+    return [...rs].sort(cmp);
+  });
+
+  // ---- Row click - drill into the newer event's constituency page ----
+  // For AC events, the route is `/<state>/elections/<event>/ac/<eci_no>`
+  // (the legacy 5-segment canonical form per ADR-0052). For PC events,
+  // the per-PC constituency drill is not yet shipped (W3b's leaf is
+  // AC-only); fall back to the state-event view in that case so the
+  // citizen lands on the page that shows this PC's row.
+  function urlForRow(r: CompareRow): string {
+    const sc = state_code ?? params.state;
+    const body = bodyFromEvent(params.toEvent);
+    if (body === "ac" && r.eci_no > 0) {
+      const slug = `${r.eci_no}-${slugify(r.entity_name)}`;
+      // link.acDeepLink generates `/<state>/<ac-slug>` (bare convenience
+      // route); for the canonical drill use the event-nested form.
+      return link
+        .stateElection(sc, params.toEvent)
+        .replace(/\/?$/, `/ac/${slug}`);
+    }
+    return link.stateElection(sc, params.toEvent);
+  }
+
+  const loading = $derived(
+    from_result.status === "loading" || to_result.status === "loading",
+  );
+  const failed_reason = $derived(
+    from_result.status === "failed"
+      ? from_result.reason
+      : to_result.status === "failed"
+        ? to_result.reason
+        : null,
+  );
+
+  function retry(): void {
+    if (from_result.status === "failed" && from_result.retry) {
+      from_result.retry();
+    }
+    if (to_result.status === "failed" && to_result.retry) {
+      to_result.retry();
+    }
+  }
+
+  // Reactive crumb trail (the route-table builder reads `states` which
+  // resolves async, so re-evaluation on catalogue load is required).
+  const crumbs = $derived(route.crumbs?.(route.params) ?? []);
+
+  const INT_FMT = new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 });
+  function fmtInt(n: number): string {
+    return INT_FMT.format(n);
+  }
+</script>
+
+<main
+  class="mx-auto max-w-6xl space-y-6 p-4"
+  data-testid="compare-elections"
+>
+  <Breadcrumb {crumbs} />
+
+  <header class="space-y-2">
+    <h1 class="text-2xl font-semibold text-slate-900">
+      {state_name || params.state}
+      <span class="text-slate-500"> &middot; </span>
+      <span class="text-slate-700">{from_display} vs {to_display}</span>
+    </h1>
+    <div class="flex flex-wrap items-center gap-2 text-xs">
+      <span
+        class="inline-block rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-600"
+        data-testid="compare-elections-from-badge"
+      >From: {from_display}</span>
+      <span class="text-slate-400">&rarr;</span>
+      <span
+        class="inline-block rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-600"
+        data-testid="compare-elections-to-badge"
+      >To: {to_display}</span>
+    </div>
+  </header>
+
+  {#if failed_reason}
+    <div
+      class="rounded border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800"
+      data-testid="compare-elections-error"
+    >
+      <p class="mb-2">Data couldn't load: {failed_reason}</p>
+      <button
+        type="button"
+        class="rounded border border-amber-300 bg-white px-3 py-1 text-xs hover:bg-amber-100"
+        onclick={retry}
+      >Try again</button>
+    </div>
+  {:else}
+    <!-- KPIs strip -->
+    <section
+      class="grid grid-cols-2 gap-3 sm:grid-cols-4"
+      data-testid="compare-elections-kpis"
+    >
+      <div class="rounded border border-slate-200 bg-white p-3">
+        <div class="text-xs uppercase tracking-wide text-slate-500">
+          Total seats
+        </div>
+        <div class="mt-1 text-2xl font-semibold text-slate-900">
+          {fmtInt(kpis.total_seats)}
+        </div>
+      </div>
+      <div class="rounded border border-slate-200 bg-white p-3">
+        <div class="text-xs uppercase tracking-wide text-slate-500">
+          Flips
+        </div>
+        <div
+          class="mt-1 text-2xl font-semibold text-emerald-700"
+          data-testid="compare-elections-kpi-flips"
+        >{fmtInt(kpis.flips)}</div>
+      </div>
+      <div class="rounded border border-slate-200 bg-white p-3">
+        <div class="text-xs uppercase tracking-wide text-slate-500">
+          Holds
+        </div>
+        <div
+          class="mt-1 text-2xl font-semibold text-slate-700"
+          data-testid="compare-elections-kpi-holds"
+        >{fmtInt(kpis.holds)}</div>
+      </div>
+      <div class="rounded border border-slate-200 bg-white p-3">
+        <div class="text-xs uppercase tracking-wide text-slate-500">
+          New-party entries
+        </div>
+        <div class="mt-1 text-2xl font-semibold text-slate-900">
+          {fmtInt(kpis.new_party_entries)}
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter chips -->
+    <section class="flex flex-wrap items-center gap-2">
+      {#each [{ k: "all", label: "All" }, { k: "flips", label: "Flips" }, { k: "holds", label: "Holds" }] as opt (opt.k)}
+        <button
+          type="button"
+          class="rounded-full border px-3 py-1 text-xs"
+          class:border-slate-900={filter === opt.k}
+          class:bg-slate-900={filter === opt.k}
+          class:text-white={filter === opt.k}
+          class:border-slate-300={filter !== opt.k}
+          class:text-slate-700={filter !== opt.k}
+          onclick={() => (filter = opt.k as Filter)}
+          data-testid="compare-elections-filter-{opt.k}"
+        >{opt.label}</button>
+      {/each}
+      <span class="text-xs text-slate-500"
+        >{fmtInt(filtered_sorted.length)} of {fmtInt(compare_rows.length)} rows</span
+      >
+    </section>
+
+    {#if loading && compare_rows.length === 0}
+      <div
+        class="rounded border border-dashed border-slate-300 bg-slate-50 p-6 text-center text-sm text-slate-500"
+        data-testid="compare-elections-loading"
+      >
+        Loading {from_display} and {to_display}&hellip;
+      </div>
+    {:else if compare_rows.length === 0}
+      <div
+        class="rounded border border-dashed border-slate-300 bg-slate-50 p-6 text-center text-sm text-slate-500"
+        data-testid="compare-elections-empty"
+      >
+        No comparable constituencies between these two events in
+        {state_name || params.state}.
+      </div>
+    {:else}
+      <!-- Winner-change table -->
+      <section
+        class="overflow-x-auto rounded border border-slate-200 bg-white"
+        data-testid="compare-elections-table"
+      >
+        <table class="w-full text-sm">
+          <thead class="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+            <tr>
+              <th class="px-3 py-2 text-left">
+                <button
+                  type="button"
+                  class="font-medium hover:underline"
+                  onclick={() => toggleSort("entity_name")}
+                >
+                  Constituency{sort_key === "entity_name"
+                    ? sort_dir === "asc"
+                      ? " \u25b2"
+                      : " \u25bc"
+                    : ""}
+                </button>
+              </th>
+              <th class="px-3 py-2 text-left">
+                <button
+                  type="button"
+                  class="font-medium hover:underline"
+                  onclick={() => toggleSort("from_party")}
+                >
+                  {from_display} winner{sort_key === "from_party"
+                    ? sort_dir === "asc"
+                      ? " \u25b2"
+                      : " \u25bc"
+                    : ""}
+                </button>
+              </th>
+              <th class="px-3 py-2 text-left">
+                <button
+                  type="button"
+                  class="font-medium hover:underline"
+                  onclick={() => toggleSort("to_party")}
+                >
+                  {to_display} winner{sort_key === "to_party"
+                    ? sort_dir === "asc"
+                      ? " \u25b2"
+                      : " \u25bc"
+                    : ""}
+                </button>
+              </th>
+              <th class="px-3 py-2 text-left">Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            {#each filtered_sorted as r (r.entity_id)}
+              <tr
+                class="cursor-pointer border-t border-slate-100 hover:bg-slate-50"
+                onclick={() => {
+                  window.location.href = urlForRow(r);
+                }}
+                data-testid="compare-row-{r.entity_id}"
+              >
+                <td class="px-3 py-2">
+                  <a
+                    class="text-slate-900 hover:underline"
+                    href={urlForRow(r)}
+                    onclick={(e) => e.stopPropagation()}>{r.entity_name}</a
+                  >
+                </td>
+                <td class="px-3 py-2 text-slate-700">
+                  {r.from_party ?? "\u2014"}
+                </td>
+                <td class="px-3 py-2 text-slate-700">
+                  {r.to_party ?? "\u2014"}
+                </td>
+                <td
+                  class="px-3 py-2 text-xs"
+                  class:text-emerald-700={r.is_flip}
+                  class:text-slate-500={!r.is_flip}
+                >{r.change_label}</td>
+              </tr>
+            {/each}
+          </tbody>
+        </table>
+      </section>
+    {/if}
+  {/if}
+</main>

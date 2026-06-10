@@ -211,6 +211,36 @@ export function compareCrumbs(params: Record<string, unknown>): Crumb[] {
   return [...chain, { label: "Compare", isLeaf: true }];
 }
 
+/**
+ * Path-form election-vs-election compare cascade
+ * (`/compare/elections/<state>/<from-event>/<to-event>`).
+ *
+ * PR-W4b (election experience overhaul, 2026-06-10): four-crumb trail
+ * matching the new compare surface. The middle crumbs ascend to the
+ * state hub + state-elections topic (parent of every event view) so a
+ * citizen on a compare page can drop back to the state's elections
+ * landing without re-typing the URL. The leaf label is "<from> vs
+ * <to>" so the breadcrumb reads as the page's title.
+ */
+export function compareElectionsCrumbs(
+  params: Record<string, unknown>,
+): Crumb[] {
+  const stateSlug = typeof params.state === "string" ? params.state : "";
+  const fromEvent =
+    typeof params.fromEvent === "string" ? params.fromEvent : "";
+  const toEvent = typeof params.toEvent === "string" ? params.toEvent : "";
+  const sName = stateLabel(stateSlug);
+  return [
+    ROOT_LINK,
+    { label: sName, href: link.stateHub(stateSlug) },
+    {
+      label: `${sName} elections`,
+      href: link.stateTopic(stateSlug, "elections"),
+    },
+    { label: `${fromEvent} vs ${toEvent}`, isLeaf: true },
+  ];
+}
+
 // =============================================================
 // Docs
 // =============================================================
