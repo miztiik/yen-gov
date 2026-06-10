@@ -38,7 +38,7 @@ The orchestrator stops ONLY at these triggers. Otherwise AUTO.
 1. **State-formation re-partition write (PR-W1b)** — Hans's verdict sanctions moving pre-formation election rows OUT of current-day state CSVs into historical-state CSVs (OWID USSR precedent). The WRITE is Hans+Max + user territory and touches data store contract ([CLAUDE.md](../CLAUDE.md) Holy Law #3). PR-W1b emits a DRY-RUN proposal CSV under `datasets/_ops/state-formation-repartition-proposal.csv` and STOPS for user sign-off before any move.
 2. **Schema MAJOR bump anywhere.** Per [CLAUDE.md section 11](../CLAUDE.md) MAJOR is a user sign-off gate. PR-W2a's MINOR bump on `election-events.schema.json` (adding `general_bye` + `assembly_bye` kinds + `event_id_aliases[]`) does NOT trigger this.
 3. **Persona verdict contradicts on-disk truth.** If any claim in this plan diverges from on-disk reality, surface and re-debate; do NOT silently re-author scope.
-4. **Phase 0 plan PR-P3 has not yet shipped.** This plan's URLs assume Grammar A. If an executing agent starts a row before PR-P3 lands, STOP-AND-SURFACE — the URL grammar will collide.
+4. **Phase 0 plan PR-P3 has not yet shipped.** RESOLVED 2026-06-10: PRs #867 / #868 / #869 / #871 shipped the 4-phase URL prefix-drop end-to-end. Grammar A is the live URL grammar; this trigger no longer fires.
 
 ### 0.3 Baked facts (verified 2026-06-09; do not re-derive)
 
