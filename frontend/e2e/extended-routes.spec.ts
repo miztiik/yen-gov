@@ -10,7 +10,7 @@
 //   /no-such-route                             — 404 fallback
 //   /tamil-nadu/party/dmk-DMK                — party page
 //   /lab/tamil-nadu/AcGenMay2026               — Psephlab simulator
-//   /compare/tamil-nadu/AcGenMay2026           — Compare surface
+//   /compare/elections/tamil-nadu/<from>/<to>  — Compare surface (PR-W4b)
 //
 // These routes are NOT pixel-asserted; they're smoke tests. Visual specs
 // (screenshot-diff) belong in a separate file when/if added (CLAUDE.md §15).
@@ -109,8 +109,12 @@ test.describe("extended routes", () => {
     await expect(page.locator("main").first()).toBeVisible();
   });
 
-  test("compare surface loads for tamil-nadu / AcGenMay2026", async ({ page }) => {
-    await page.goto("/compare/tamil-nadu/AcGenMay2026");
+  test("compare surface (PR-W4b path-form) loads for tamil-nadu / AcGenJun2021 vs AcGenMay2026", async ({ page }) => {
+    // PR-W5a (2026-06-10): the legacy 3-segment `/compare/<state>/<event>`
+    // surface (single-event scenario compare backed by `Compare.svelte`)
+    // retired alongside the W2b loader collapse. The new path-form
+    // 4-segment route is the event-vs-event compare cascade.
+    await page.goto("/compare/elections/tamil-nadu/AcGenJun2021/AcGenMay2026");
     await page.waitForLoadState("networkidle", { timeout: 30_000 });
     await expect(page.locator("main").first()).toBeVisible();
   });

@@ -162,16 +162,11 @@ describe("Grammar A — links.ts builder shapes (ADR-0037)", () => {
     );
   });
 
-  it("electionCompare is /compare/<state>/<event> (unchanged from url.ts)", () => {
-    const u = link.electionCompare("S22", "AcGenMay2026");
-    expect(u).toMatch(/^\/compare\/[a-z0-9-]+\/AcGenMay2026$/);
-  });
-
-  it("compareMethod is /compare/<state>/<event>/m/<method>", () => {
-    expect(link.compareMethod("S22", "AcGenMay2026", "proportional")).toMatch(
-      /^\/compare\/[a-z0-9-]+\/AcGenMay2026\/m\/proportional$/,
-    );
-  });
+  // PR-W5a (2026-06-10): `electionCompare` + `compareMethod` link tests
+  // retired. The corresponding link builders were deleted in this PR
+  // alongside the legacy `/compare/:state/:event` and
+  // `/compare/:state/:event/m/:method` routes; the new path-form
+  // `compareElections` builder + its test below is the replacement.
 
   it("compareIndicator is /compare with no querystring when empty", () => {
     expect(link.compareIndicator()).toBe("/compare");

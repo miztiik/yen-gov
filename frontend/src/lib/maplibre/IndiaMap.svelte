@@ -23,7 +23,7 @@
   import {
     loadIndiaLeadingParties,
     type IndiaLeadingPartiesViewModel,
-  } from "../view-models/india-leading-parties";
+  } from "../view-models/legacy/india-leading-parties";
   import type { LoaderResult } from "../loader-result";
   import {
     defaultEventForState,

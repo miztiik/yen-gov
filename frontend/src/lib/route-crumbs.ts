@@ -196,20 +196,11 @@ export function psephlabCrumbs(params: Record<string, unknown>): Crumb[] {
   return [...chain, { label: "Lab", isLeaf: true }];
 }
 
-export function compareCrumbs(params: Record<string, unknown>): Crumb[] {
-  const stateSlug = typeof params.state === "string" ? params.state : "";
-  const event = typeof params.event === "string" ? params.event : "";
-  const method = typeof params.method === "string" ? params.method : null;
-  const chain = stateElectionAscendChain(stateSlug, event);
-  if (method) {
-    return [
-      ...chain,
-      { label: "Compare", href: link.electionCompare(stateSlug, event) },
-      { label: method, isLeaf: true },
-    ];
-  }
-  return [...chain, { label: "Compare", isLeaf: true }];
-}
+// PR-W5a (2026-06-10): `compareCrumbs` retired. Its sole consumers were
+// the two legacy compare routes (`/compare/:state/:event` and
+// `/compare/:state/:event/m/:method`) that were deleted in the same PR
+// alongside `Compare.svelte`. The path-form `compareElectionsCrumbs`
+// below remains for `/compare/elections/<state>/<from>/<to>`.
 
 /**
  * Path-form election-vs-election compare cascade

@@ -1,3 +1,17 @@
+// LEGACY (kept under view-models/legacy/ in PR-W5a, 2026-06-10).
+//
+// Kept here, not deleted, because IndiaMap.svelte is its sole live
+// consumer AND the W2b generic `loadElectionResults({event, state?, eci_no?})`
+// does NOT yet support the `Record<state, event>` multi-event scope this
+// loader takes (one event per state on the home-page map, where the
+// default event varies by state). Folding in is a future PR that either
+// (a) adds a fourth scope shape `{events_by_state}` to the generic loader
+// or (b) leaves this as a separate concern. See [frontend/src/AGENTS.md]
+// section "View-model collapse" + the PR-W5a row in
+// TODO/20260609-election-experience-overhaul-plan.md.
+//
+// ----- Original module header (kept verbatim) -----
+//
 // Citizen view-model loader for the IndiaMap leading-party choropleth
 // (PR-G / Phase 1.3c).
 //
@@ -15,14 +29,14 @@
 // fetchResultSummary 404-tolerance on the old path). Any thrown error in
 // the bulk query → failed arm.
 
-import { describeFailure, type LoaderResult } from "../loader-result";
-import { query, registerCsvAsTable, registerCsvFile } from "../duckdb";
+import { describeFailure, type LoaderResult } from "../../loader-result";
+import { query, registerCsvAsTable, registerCsvFile } from "../../duckdb";
 import {
   ELECTION_RESULTS_COLUMNS_CLAUSE,
   electionResultsCsvUrl,
   electionResultsStateSlug,
-} from "../canonical/election-results-csv";
-import type { PartyTotals } from "../data";
+} from "../../canonical/election-results-csv";
+import type { PartyTotals } from "../../data";
 
 export interface IndiaLeadingPartiesEntry {
   event_id: string;
