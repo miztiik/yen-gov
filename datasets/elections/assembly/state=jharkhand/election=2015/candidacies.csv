@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-jharkhand-2195,jharkhand,2015,72,LOHARDAGA,Sukhdeo Bhagat,parties.IN.INC,INC,73859,50.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2195,jharkhand,2015,72,LOHARDAGA,Niru Shanti Bhagat,,AP,50571,34.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2195,jharkhand,2015,72,LOHARDAGA,Niru Shanti Bhagat,parties.IN.UNK,AP,50571,34.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2195,jharkhand,2015,72,LOHARDAGA,Bandu Tirkey,parties.IN.JVM,JVM,16951,11.58,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2195,jharkhand,2015,72,LOHARDAGA,Ajmel Oraon,parties.IN.CPI,CPI,1529,1.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2195,jharkhand,2015,72,LOHARDAGA,Ranjit Oraon,parties.IN.IND,IND,859,0.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

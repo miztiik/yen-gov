@@ -2,10 +2,10 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Jayalalithaa (E),parties.IN.AIADMK,ADMK,160432,89.6,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Mahendran . C,parties.IN.CPI,CPI,9710,5.42,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Ramaswamy K.R. T.R,parties.IN.IND,IND,4590,2.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Abraham Raja Mohan R,,PPI,746,0.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Abraham Raja Mohan R,parties.IN.UNK,PPI,746,0.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Ponraj P,parties.IN.IND,IND,537,0.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Abdul Rahim,parties.IN.IND,IND,357,0.2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Manimaran U.K,,TMDMK,312,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Manimaran U.K,parties.IN.UNK,TMDMK,312,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Prakash P,parties.IN.IND,IND,257,0.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Padmarajan k.Dr.,parties.IN.IND,IND,225,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Noor Muhamad A,parties.IN.IND,IND,164,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -16,7 +16,7 @@ IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Venugopal 
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Mohanraj J,parties.IN.JJ,JJ,118,0.07,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Ravi M.L.,parties.IN.IND,IND,113,0.06,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Vasantha Kumar M,parties.IN.IND,IND,107,0.06,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Paulraj T,,MMK,105,0.06,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Paulraj T,parties.IN.UNK,MMK,105,0.06,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Jayakumar J,parties.IN.IND,IND,103,0.06,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Marimuthu P,parties.IN.IND,IND,100,0.06,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2015,11,DR. RADHAKRISHNAN NAGAR,Ahamed ShahJahan M,parties.IN.IND,IND,79,0.04,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -46,7 +46,7 @@ IN-AC-2008-tamil-nadu-4045,tamil-nadu,2015,139,SRIRANGAM,Chandra Mohan M,parties
 IN-AC-2008-tamil-nadu-4045,tamil-nadu,2015,139,SRIRANGAM,Umar Ali M,parties.IN.IND,IND,153,0.07,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-4045,tamil-nadu,2015,139,SRIRANGAM,Sri Rama Chandran P.N,parties.IN.IND,IND,152,0.07,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-4045,tamil-nadu,2015,139,SRIRANGAM,Anand D,parties.IN.IND,IND,132,0.06,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-tamil-nadu-4045,tamil-nadu,2015,139,SRIRANGAM,James Paul R,,AIAMK,91,0.04,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tamil-nadu-4045,tamil-nadu,2015,139,SRIRANGAM,James Paul R,parties.IN.UNK,AIAMK,91,0.04,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-4045,tamil-nadu,2015,139,SRIRANGAM,Visvanathan A,parties.IN.IND,IND,85,0.04,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-4045,tamil-nadu,2015,139,SRIRANGAM,Ananthan E,parties.IN.IND,IND,78,0.04,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tamil-nadu-4045,tamil-nadu,2015,139,SRIRANGAM,Palraj M,parties.IN.IND,IND,78,0.04,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a

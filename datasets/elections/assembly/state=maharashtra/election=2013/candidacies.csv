@@ -2,7 +2,7 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-maharashtra-3158,maharashtra,2013,78,YAVATMAL,D.P. Nandini Nilesh (E),parties.IN.INC,INC,62509,53.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3158,maharashtra,2013,78,YAVATMAL,M.M. Yerawar,parties.IN.BJP,BJP,47278,40.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3158,maharashtra,2013,78,YAVATMAL,H.D. Meshram,parties.IN.IND,IND,3129,2.66,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3158,maharashtra,2013,78,YAVATMAL,U.B. Kamble,,PRP,1210,1.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3158,maharashtra,2013,78,YAVATMAL,U.B. Kamble,parties.IN.UNK,PRP,1210,1.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3158,maharashtra,2013,78,YAVATMAL,Dhale Manish,parties.IN.IND,IND,989,0.84,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3158,maharashtra,2013,78,YAVATMAL,V.L. Dhanorkar,parties.IN.GGP,GGP,671,0.57,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3158,maharashtra,2013,78,YAVATMAL,S.H.Q. Shsikh Wijir,parties.IN.IND,IND,671,0.57,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -11,4 +11,4 @@ IN-AC-2008-maharashtra-3158,maharashtra,2013,78,YAVATMAL,N.M. Vitthal,parties.IN
 IN-AC-2008-maharashtra-3158,maharashtra,2013,78,YAVATMAL,D.S. Madhu Karrao,parties.IN.IND,IND,240,0.2,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2979,maharashtra,2013,271,CHANDGAD,D.K.S.K. Rao,parties.IN.NCP,NCP,93486,50.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2979,maharashtra,2013,271,CHANDGAD,G.R. Shamarao,parties.IN.SP,SP,68639,37.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2979,maharashtra,2013,271,CHANDGAD,S.S. Arjun,,SS,22448,12.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2979,maharashtra,2013,271,CHANDGAD,S.S. Arjun,parties.IN.UNK,SS,22448,12.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a

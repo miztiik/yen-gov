@@ -2,11 +2,11 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2018,24,NOORPUR,Naimul Hasan,parties.IN.SP,SP,94875,50.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2018,24,NOORPUR,Avnish Singh,parties.IN.BJP,BJP,89213,47.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2018,24,NOORPUR,Gohar Iqbal,parties.IN.LD,LD,1197,0.63,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2018,24,NOORPUR,NOTA,,,1012,0.54,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2018,24,NOORPUR,NOTA,parties.IN.UNK,,1012,0.54,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2018,24,NOORPUR,Rajpal Singh,parties.IN.IND,IND,799,0.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2018,24,NOORPUR,Jaheer Alam,,RJSP,687,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2018,24,NOORPUR,Jaheer Alam,parties.IN.UNK,RJSP,687,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2018,24,NOORPUR,Amit Kumar Singh,parties.IN.IND,IND,391,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2018,24,NOORPUR,Begraj Singh,parties.IN.IND,IND,241,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2018,24,NOORPUR,Prabudh Kumar,parties.IN.IND,IND,168,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2018,24,NOORPUR,Maya,,BMF,161,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2018,24,NOORPUR,Ramratan,,UPRP,139,0.07,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2018,24,NOORPUR,Maya,parties.IN.UNK,BMF,161,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1024,uttar-pradesh,2018,24,NOORPUR,Ramratan,parties.IN.UNK,UPRP,139,0.07,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a

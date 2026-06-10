@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,Kalale.N.Keshavamur Thy,parties.IN.INC,INC,86212,55.75,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,V.Srivinasa Prasad,parties.IN.BJP,BJP,64878,41.95,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,M.Pradeep Kumar,,KP,703,0.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,M.Pradeep Kumar,parties.IN.UNK,KP,703,0.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,H.P.Sheshanna,parties.IN.IND,IND,678,0.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,Subbaiah,parties.IN.IND,IND,626,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3530,karnataka,2017,214,NANJANGUD,R.Prasanna Goluru,parties.IN.IND,IND,383,0.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -14,6 +14,6 @@ IN-AC-2008-karnataka-3526,karnataka,2017,224,GUNDLUPET,M.C.Mohan Kuimari Uruf Ge
 IN-AC-2008-karnataka-3526,karnataka,2017,224,GUNDLUPET,C.S. Niranjan Kumar,parties.IN.BJP,BJP,79383,45.79,2,lost,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3526,karnataka,2017,224,GUNDLUPET,Shivaraju.M,parties.IN.RPI,RPI,1512,0.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3526,karnataka,2017,224,GUNDLUPET,Kasomashekara,parties.IN.IND,IND,901,0.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3526,karnataka,2017,224,GUNDLUPET,M.Honnuraiah,,BDBRAJP,503,0.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3526,karnataka,2017,224,GUNDLUPET,M.Honnuraiah,parties.IN.UNK,BDBRAJP,503,0.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3526,karnataka,2017,224,GUNDLUPET,M.Shivaramu,parties.IN.IND,IND,470,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3526,karnataka,2017,224,GUNDLUPET,Mahadeva Prasad.B,parties.IN.IND,IND,330,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

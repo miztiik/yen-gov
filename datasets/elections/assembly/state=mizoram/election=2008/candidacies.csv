@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-mizoram-1577,mizoram,2008,1,HACHHEK,LALRINMAWIA RALTE,parties.IN.INC,INC,6990,51.96,1,won,U,45,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1577,mizoram,2008,1,HACHHEK,H.LALENVELA,parties.IN.MNF,MNF,4373,32.51,2,lost,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1577,mizoram,2008,1,HACHHEK,JOHN LALNGILNEIA,,MPC,1840,13.68,3,forfeit,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1577,mizoram,2008,1,HACHHEK,JOHN LALNGILNEIA,parties.IN.UNK,MPC,1840,13.68,3,forfeit,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1577,mizoram,2008,1,HACHHEK,LALDINLIANA,parties.IN.JDU,JD(U),139,1.03,4,forfeit,U,26,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1577,mizoram,2008,1,HACHHEK,P.C LALTHANPUIA,parties.IN.LJP,LJP,111,0.83,5,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1575,mizoram,2008,2,DAMPA,LALROBIAKA,parties.IN.INC,INC,5004,41.12,1,won,U,43,Graduate,,challenger,src-1b7bc1c9d39a
@@ -22,14 +22,14 @@ IN-AC-2008-mizoram-1587,mizoram,2008,3,MAMIT,SURESBIHARI,parties.IN.LB,LB,89,0.6
 IN-AC-2008-mizoram-1587,mizoram,2008,3,MAMIT,M.ZARZOLIANA,parties.IN.LJP,LJP,68,0.49,10,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1587,mizoram,2008,3,MAMIT,T.LALSANGA,parties.IN.JDU,JD(U),57,0.41,11,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1598,mizoram,2008,4,TUIRIAL,HMINGDAILOVA KHIANGTE,parties.IN.INC,INC,4717,39.58,1,won,U,64,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1598,mizoram,2008,4,TUIRIAL,SAILOTHANGA SAILO,,MPC,3695,31.01,2,lost,U,63,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1598,mizoram,2008,4,TUIRIAL,SAILOTHANGA SAILO,parties.IN.UNK,MPC,3695,31.01,2,lost,U,63,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1598,mizoram,2008,4,TUIRIAL,LALLIANKIMA,parties.IN.MNF,MNF,3204,26.89,3,lost,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1598,mizoram,2008,4,TUIRIAL,LALHLUNA,parties.IN.IND,IND,188,1.58,4,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1598,mizoram,2008,4,TUIRIAL,MOSES MALSAWMTLUANGA,parties.IN.IND,IND,78,0.65,5,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1598,mizoram,2008,4,TUIRIAL,ZORAMSANGZELA,parties.IN.LJP,LJP,35,0.29,6,forfeit,U,50,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1579,mizoram,2008,5,KOLASIB,P.C. ZORAM SANGLIANA,parties.IN.INC,INC,5510,40.92,1,won,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1579,mizoram,2008,5,KOLASIB,K. LALRINLIANA,parties.IN.MNF,MNF,4462,33.14,2,lost,U,48,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1579,mizoram,2008,5,KOLASIB,LALRAWNA SAILO,,MPC,2805,20.83,3,lost,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1579,mizoram,2008,5,KOLASIB,LALRAWNA SAILO,parties.IN.UNK,MPC,2805,20.83,3,lost,U,62,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1579,mizoram,2008,5,KOLASIB,LALFAMKIMA,parties.IN.IND,IND,471,3.5,4,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1579,mizoram,2008,5,KOLASIB,RAMFANGZAUVI,parties.IN.BJP,BJP,126,0.94,5,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1579,mizoram,2008,5,KOLASIB,R. LALRINAWMI,parties.IN.LJP,LJP,91,0.68,6,forfeit,U,46,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -46,7 +46,7 @@ IN-AC-2008-mizoram-1599,mizoram,2008,7,TUIVAWL,LALHUALTHANGA,parties.IN.BJP,BJP,
 IN-AC-2008-mizoram-1599,mizoram,2008,7,TUIVAWL,LALRINAWMA,parties.IN.LJP,LJP,67,0.57,5,forfeit,U,55,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1599,mizoram,2008,7,TUIVAWL,LALROSEMA,parties.IN.LB,LB,52,0.45,6,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1572,mizoram,2008,8,CHALFILH,CHAWNGTINTHANGA,parties.IN.INC,INC,4924,37.31,1,won,U,64,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1572,mizoram,2008,8,CHALFILH,LALVENHIMA HMAR,,MPC,4381,33.19,2,lost,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1572,mizoram,2008,8,CHALFILH,LALVENHIMA HMAR,parties.IN.UNK,MPC,4381,33.19,2,lost,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1572,mizoram,2008,8,CHALFILH,J.C.CHHUANLIANA,parties.IN.MNF,MNF,3374,25.56,3,lost,U,54,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1572,mizoram,2008,8,CHALFILH,C.RAMKINLOVA,parties.IN.BJP,BJP,374,2.83,4,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1572,mizoram,2008,8,CHALFILH,VANLALHMINGCHHUANGI,parties.IN.LB,LB,60,0.45,5,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -54,7 +54,7 @@ IN-AC-2008-mizoram-1572,mizoram,2008,8,CHALFILH,J.NEIHKHUMA,parties.IN.IND,IND,4
 IN-AC-2008-mizoram-1572,mizoram,2008,8,CHALFILH,K.ZOTHANSANGA,parties.IN.LJP,LJP,39,0.3,7,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1593,mizoram,2008,9,TAWI,R.LALZIRLIANA,parties.IN.INC,INC,4710,41.29,1,won,U,56,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1593,mizoram,2008,9,TAWI,LALCHHANDAMA RALTE,parties.IN.MNF,MNF,3499,30.67,2,lost,U,37,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1593,mizoram,2008,9,TAWI,DR. KENNETH CHAWNGLIANA,,MPC,3127,27.41,3,lost,U,62,Doctorate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1593,mizoram,2008,9,TAWI,DR. KENNETH CHAWNGLIANA,parties.IN.UNK,MPC,3127,27.41,3,lost,U,62,Doctorate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1593,mizoram,2008,9,TAWI,BIAKNGHETA,parties.IN.LJP,LJP,71,0.62,4,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1562,mizoram,2008,13,AIZAWL EAST - I,R.LALRINAWMA,parties.IN.INC,INC,5084,37.61,1,won,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1562,mizoram,2008,13,AIZAWL EAST - I,F.MALSAWMA,parties.IN.MNF,MNF,3995,29.55,2,lost,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -81,7 +81,7 @@ IN-AC-2008-mizoram-1595,mizoram,2008,22,TUICHANG,R.LALAWIA,parties.IN.MNF,MNF,32
 IN-AC-2008-mizoram-1595,mizoram,2008,22,TUICHANG,C.LAWMTHANGA,parties.IN.LJP,LJP,86,0.76,4,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1573,mizoram,2008,23,CHAMPHAI NORTH,T.T.ZOTHANSANGA,parties.IN.INC,INC,5699,44.75,1,won,U,41,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1573,mizoram,2008,23,CHAMPHAI NORTH,ZORAMTHANGA,parties.IN.MNF,MNF,4443,34.89,2,lost,U,62,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1573,mizoram,2008,23,CHAMPHAI NORTH,ZOSIAMA PACHUAU,,MPC,2022,15.88,3,forfeit,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1573,mizoram,2008,23,CHAMPHAI NORTH,ZOSIAMA PACHUAU,parties.IN.UNK,MPC,2022,15.88,3,forfeit,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1573,mizoram,2008,23,CHAMPHAI NORTH,P.C.ZAIREMTHANGA,parties.IN.IND,IND,378,2.97,4,forfeit,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1573,mizoram,2008,23,CHAMPHAI NORTH,NANGSIANMUNG,parties.IN.IND,IND,144,1.13,5,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1573,mizoram,2008,23,CHAMPHAI NORTH,LALTHUAMA SAILO,parties.IN.LJP,LJP,48,0.38,6,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -100,12 +100,12 @@ IN-AC-2008-mizoram-1590,mizoram,2008,26,SERCHHIP,C. LALRAMZAUVA,parties.IN.ZNP,Z
 IN-AC-2008-mizoram-1590,mizoram,2008,26,SERCHHIP,R. LALHNUNA,parties.IN.MNF,MNF,3338,27.92,3,lost,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1590,mizoram,2008,26,SERCHHIP,LALKULHLIANA,parties.IN.LJP,LJP,82,0.69,4,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1597,mizoram,2008,27,TUIKUM,K. LIANZUALA,parties.IN.INC,INC,4265,36.81,1,won,U,50,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1597,mizoram,2008,27,TUIKUM,VANLALHLANA,,MPC,3863,33.34,2,lost,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1597,mizoram,2008,27,TUIKUM,VANLALHLANA,parties.IN.UNK,MPC,3863,33.34,2,lost,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1597,mizoram,2008,27,TUIKUM,T.C. PACHHUNGA,parties.IN.MNF,MNF,2341,20.2,3,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1597,mizoram,2008,27,TUIKUM,T. LALHMINGTHANGA,parties.IN.IND,IND,605,5.22,4,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1597,mizoram,2008,27,TUIKUM,C. CHAWIMAWIA,parties.IN.IND,IND,453,3.91,5,forfeit,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1597,mizoram,2008,27,TUIKUM,H. LALTHANGMAWIA,parties.IN.LJP,LJP,60,0.52,6,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1578,mizoram,2008,28,HRANGTURZO,LALTHANSANGA,,MPC,4431,37.8,1,won,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1578,mizoram,2008,28,HRANGTURZO,LALTHANSANGA,parties.IN.UNK,MPC,4431,37.8,1,won,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1578,mizoram,2008,28,HRANGTURZO,RONALD SAPA TLAU,parties.IN.INC,INC,3979,33.95,2,lost,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1578,mizoram,2008,28,HRANGTURZO,LALHLIMPUII,parties.IN.MNF,MNF,3222,27.49,3,lost,U,57,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1578,mizoram,2008,28,HRANGTURZO,K. ZOLIANA,parties.IN.LJP,LJP,89,0.76,4,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -116,7 +116,7 @@ IN-AC-2008-mizoram-1592,mizoram,2008,29,SOUTH TUIPUI,L. REMLALA FANAI,parties.IN
 IN-AC-2008-mizoram-1592,mizoram,2008,29,SOUTH TUIPUI,LALRAMLIANA RALTE,parties.IN.LJP,LJP,44,0.41,5,forfeit,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1584,mizoram,2008,30,LUNGLEI NORTH,PC LALTHANLIANA,parties.IN.INC,INC,4914,40.55,1,won,U,42,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1584,mizoram,2008,30,LUNGLEI NORTH,C. LALRINSANGA,parties.IN.MNF,MNF,4209,34.74,2,lost,U,46,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1584,mizoram,2008,30,LUNGLEI NORTH,LALRINZUALA,,MPC,2948,24.33,3,lost,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1584,mizoram,2008,30,LUNGLEI NORTH,LALRINZUALA,parties.IN.UNK,MPC,2948,24.33,3,lost,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1584,mizoram,2008,30,LUNGLEI NORTH,B. ZATAWNA,parties.IN.LJP,LJP,46,0.38,4,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1583,mizoram,2008,31,LUNGLEI EAST,JOSEPH LALHIMPUIA,parties.IN.INC,INC,3898,39.8,1,won,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1583,mizoram,2008,31,LUNGLEI EAST,SAMSON ZORAMTHANGA,parties.IN.MNF,MNF,3475,35.48,2,lost,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -124,7 +124,7 @@ IN-AC-2008-mizoram-1583,mizoram,2008,31,LUNGLEI EAST,H. LALTHANSANGA,parties.IN.
 IN-AC-2008-mizoram-1583,mizoram,2008,31,LUNGLEI EAST,VANNEIA HNAMTE,parties.IN.ZNP,ZNP,657,6.71,4,forfeit,U,53,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1586,mizoram,2008,32,LUNGLEI WEST,DR. R. LALTHANGLIANA,parties.IN.MNF,MNF,4156,40.84,1,won,U,51,Doctorate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1586,mizoram,2008,32,LUNGLEI WEST,J. LAWMZUALA,parties.IN.INC,INC,3433,33.73,2,lost,U,64,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1586,mizoram,2008,32,LUNGLEI WEST,C.ZOKHUMA,,MPC,2588,25.43,3,lost,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1586,mizoram,2008,32,LUNGLEI WEST,C.ZOKHUMA,parties.IN.UNK,MPC,2588,25.43,3,lost,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1585,mizoram,2008,33,LUNGLEI SOUTH,S. LALDINGLIANA,parties.IN.INC,INC,5276,44.54,1,won,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1585,mizoram,2008,33,LUNGLEI SOUTH,Z.H ROPUIA,parties.IN.MNF,MNF,4235,35.75,2,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1585,mizoram,2008,33,LUNGLEI SOUTH,SAITLAWMA,parties.IN.ZNP,ZNP,2164,18.27,3,lost,U,65,,,challenger,src-1b7bc1c9d39a
@@ -160,9 +160,9 @@ IN-AC-2008-mizoram-1589,mizoram,2008,39,SAIHA,H.C. LALMALSAWMA ZASAI,parties.IN.
 IN-AC-2008-mizoram-1589,mizoram,2008,39,SAIHA,DR. K. BEICHHUA,parties.IN.IND,IND,3010,23.3,3,lost,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1589,mizoram,2008,39,SAIHA,F. LALHMACHHUANA,parties.IN.ZNP,ZNP,415,3.21,4,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1589,mizoram,2008,39,SAIHA,M.C. LALBUAIA,parties.IN.LJP,LJP,51,0.39,5,forfeit,U,60,5th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1588,mizoram,2008,40,PALAK,P.P. THAWLA,,MDF,4206,33.37,1,won,U,52,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1588,mizoram,2008,40,PALAK,P.P. THAWLA,parties.IN.UNK,MDF,4206,33.37,1,won,U,52,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1588,mizoram,2008,40,PALAK,T.T. VAKHU,parties.IN.INC,INC,4122,32.71,2,lost,U,49,Post Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1588,mizoram,2008,40,PALAK,LAICHO NOTLIA,parties.IN.IND,IND,2167,17.19,3,lost,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1588,mizoram,2008,40,PALAK,K.T. ROKHAW,parties.IN.IND,IND,1877,14.89,4,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1588,mizoram,2008,40,PALAK,N. BEIKHAI,,MPC,185,1.47,5,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-mizoram-1588,mizoram,2008,40,PALAK,N. BEIKHAI,parties.IN.UNK,MPC,185,1.47,5,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-mizoram-1588,mizoram,2008,40,PALAK,LALTHLAHLOVA,parties.IN.LJP,LJP,46,0.36,6,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a

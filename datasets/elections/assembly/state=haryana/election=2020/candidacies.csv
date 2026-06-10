@@ -1,16 +1,16 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-haryana-425,haryana,2020,33,BARODA,INDU RAJ,parties.IN.INC,INC,60636,49.26,1,won,M,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2020,33,BARODA,YOGESHWAR DUTT,parties.IN.BJP,BJP,50070,40.68,2,lost,M,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-425,haryana,2020,33,BARODA,RAJKUMAR SAINI,,Loktanter Suraksha Party,5611,4.56,3,forfeit,M,67,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2020,33,BARODA,RAJKUMAR SAINI,parties.IN.UNK,Loktanter Suraksha Party,5611,4.56,3,forfeit,M,67,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2020,33,BARODA,JOGINDER SINGH MALIK,parties.IN.INLD,INLD,5003,4.06,4,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-425,haryana,2020,33,BARODA,NOTA,,,529,0.43,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2020,33,BARODA,NOTA,parties.IN.UNK,,529,0.43,5,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2020,33,BARODA,SANT DHARAMVEER CHOTIVALA,parties.IN.IND,IND,328,0.27,6,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-425,haryana,2020,33,BARODA,INDER SINGH,,Rashtriya Mazdoor Ekta Party,288,0.23,7,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2020,33,BARODA,INDER SINGH,parties.IN.UNK,Rashtriya Mazdoor Ekta Party,288,0.23,7,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2020,33,BARODA,SHAKTI SINGH HOODA,parties.IN.IND,IND,158,0.13,8,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2020,33,BARODA,SAROJ BALA,parties.IN.IND,IND,153,0.12,9,forfeit,F,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-425,haryana,2020,33,BARODA,SUMIT CHAUDHARY,,Peoples Party of India (Democratic),92,0.07,10,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2020,33,BARODA,SUMIT CHAUDHARY,parties.IN.UNK,Peoples Party of India (Democratic),92,0.07,10,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2020,33,BARODA,RAMPHAL SHARMA,parties.IN.IND,IND,73,0.06,11,forfeit,M,71,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2020,33,BARODA,PARVEEN KUMAR,parties.IN.IND,IND,48,0.04,12,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2020,33,BARODA,KAMALJEET,parties.IN.IND,IND,46,0.04,13,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-425,haryana,2020,33,BARODA,SONU CHOPRA,,Bhartiya Janraj Party,32,0.03,14,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2020,33,BARODA,SONU CHOPRA,parties.IN.UNK,Bhartiya Janraj Party,32,0.03,14,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2020,33,BARODA,GULSHAN,parties.IN.IND,IND,27,0.02,15,forfeit,M,25,,,challenger,src-1b7bc1c9d39a

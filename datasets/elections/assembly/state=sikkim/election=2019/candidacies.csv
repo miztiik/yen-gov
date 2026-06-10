@@ -1,19 +1,19 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-sikkim-1380,sikkim,2019,1,YOKSAM-TASHIDING,SANGAY LEPCHA,parties.IN.SKM,SKM,5686,48.52,1,won,U,56,10th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1380,sikkim,2019,1,YOKSAM-TASHIDING,DICHEN WANGCHUK BHUTIA,parties.IN.SDF,SDF,5607,47.84,2,lost,U,59,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1380,sikkim,2019,1,YOKSAM-TASHIDING,PHURKIT LEPCHA,,HMSKP,158,1.35,3,forfeit,U,31,Literate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1380,sikkim,2019,1,YOKSAM-TASHIDING,PHURKIT LEPCHA,parties.IN.UNK,HMSKP,158,1.35,3,forfeit,U,31,Literate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1380,sikkim,2019,1,YOKSAM-TASHIDING,PEMA RINZING BHUTIA,parties.IN.INC,INC,137,1.17,4,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1379,sikkim,2019,2,YANGTHANG,BHIM HANG LIMBOO,parties.IN.SKM,SKM,5184,48.47,1,won,U,30,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1379,sikkim,2019,2,YANGTHANG,DAL BDR. SUBBA,parties.IN.SDF,SDF,5137,48.03,2,lost,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1379,sikkim,2019,2,YANGTHANG,DHAN SINGH LIMBOO,,HMSKP,115,1.08,3,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1379,sikkim,2019,2,YANGTHANG,BINAY LIMBOO (TSONG),,SKPP,93,0.87,4,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1379,sikkim,2019,2,YANGTHANG,DHAN SINGH LIMBOO,parties.IN.UNK,HMSKP,115,1.08,3,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1379,sikkim,2019,2,YANGTHANG,BINAY LIMBOO (TSONG),parties.IN.UNK,SKPP,93,0.87,4,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1379,sikkim,2019,2,YANGTHANG,MANGAL SUBBA (LIMBOO),parties.IN.INC,INC,93,0.87,5,forfeit,U,35,8th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1361,sikkim,2019,3,MANEYBUNG-DENTAM,NARENDRA KUMAR SUBBA,parties.IN.SDF,SDF,7134,55.15,1,won,U,51,Graduate Professional,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1361,sikkim,2019,3,MANEYBUNG-DENTAM,PURNA HANG SUBBA,parties.IN.SKM,SKM,5630,43.52,2,lost,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1357,sikkim,2019,4,GYALSHING-BARNYAK,LOK NATH SHARMA,parties.IN.SKM,SKM,5862,57.06,1,won,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1357,sikkim,2019,4,GYALSHING-BARNYAK,LAXUMAN SHARMA,parties.IN.SDF,SDF,4048,39.4,2,lost,U,53,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1357,sikkim,2019,4,GYALSHING-BARNYAK,BHANU BHAKTA DAHAL,parties.IN.BJP,BJP,217,2.11,3,forfeit,U,64,10th Pass,Ex Military,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1357,sikkim,2019,4,GYALSHING-BARNYAK,SUKUHANG SUBBA,,HMSKP,73,0.71,5,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1357,sikkim,2019,4,GYALSHING-BARNYAK,SUKUHANG SUBBA,parties.IN.UNK,HMSKP,73,0.71,5,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1370,sikkim,2019,5,RINCHENPONG,KARMA SONAM LEPCHA,parties.IN.SDF,SDF,6582,52.24,1,won,U,55,8th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1370,sikkim,2019,5,RINCHENPONG,PHURBA TSH. BHUTIA,parties.IN.SKM,SKM,5513,43.76,2,lost,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1370,sikkim,2019,5,RINCHENPONG,SANCHO LEPCHA,parties.IN.BJP,BJP,303,2.4,3,forfeit,U,26,5th Pass,Party Worker,challenger,src-1b7bc1c9d39a
@@ -22,99 +22,99 @@ IN-AC-2008-sikkim-1353,sikkim,2019,6,DARAMDIN,MINGMA NORBU SHERPA,parties.IN.SKM
 IN-AC-2008-sikkim-1353,sikkim,2019,6,DARAMDIN,PEM NORBU SHERPA,parties.IN.SDF,SDF,5883,46.43,2,lost,U,40,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1353,sikkim,2019,6,DARAMDIN,ROZER TASHO LEPCHA,parties.IN.BJP,BJP,317,2.5,3,forfeit,U,60,12th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1353,sikkim,2019,6,DARAMDIN,PASSANG GYALCHEN SHERPA,parties.IN.INC,INC,102,0.8,4,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1353,sikkim,2019,6,DARAMDIN,DATEMPA SHERPA,,SRMP,43,0.34,6,forfeit,U,58,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1353,sikkim,2019,6,DARAMDIN,SONAM GYATSO SHERPA,,HMSKP,30,0.24,7,forfeit,U,35,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1353,sikkim,2019,6,DARAMDIN,DATEMPA SHERPA,parties.IN.UNK,SRMP,43,0.34,6,forfeit,U,58,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1353,sikkim,2019,6,DARAMDIN,SONAM GYATSO SHERPA,parties.IN.UNK,HMSKP,30,0.24,7,forfeit,U,35,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1373,sikkim,2019,7,SOREONG-CHAKUNG,ADITYA GOLAY (TAMANG),parties.IN.SKM,SKM,6580,50.08,1,won,U,28,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1373,sikkim,2019,7,SOREONG-CHAKUNG,SANCHA RAJ SUBBA,parties.IN.SDF,SDF,6372,48.49,2,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1371,sikkim,2019,8,SALGHARI-ZOO,SUNITA GAJMER,parties.IN.SKM,SKM,4400,49.27,1,won,U,41,10th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1371,sikkim,2019,8,SALGHARI-ZOO,DHAN KUMARI KAMI,parties.IN.SDF,SDF,4307,48.23,2,lost,U,42,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1371,sikkim,2019,8,SALGHARI-ZOO,GANGA MAYA CINTURY,parties.IN.INC,INC,119,1.33,3,forfeit,U,40,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1371,sikkim,2019,8,SALGHARI-ZOO,PAHAL MAN KAMI,,HMSKP,34,0.38,5,forfeit,U,40,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1371,sikkim,2019,8,SALGHARI-ZOO,PAHAL MAN KAMI,parties.IN.UNK,HMSKP,34,0.38,5,forfeit,U,40,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1351,sikkim,2019,9,BARFUNG,TASHI THENDUP BHUTIA,parties.IN.SDF,SDF,5936,49.13,1,won,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1351,sikkim,2019,9,BARFUNG,LOBZANG BHUTIA,parties.IN.SKM,SKM,5839,48.32,2,lost,U,54,8th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1351,sikkim,2019,9,BARFUNG,MINGMA TSHRING SHERPA,,SKPP,169,1.4,3,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1351,sikkim,2019,9,BARFUNG,MINGMA TSHRING SHERPA,parties.IN.UNK,SKPP,169,1.4,3,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1367,sikkim,2019,10,POKLOK-KAMRANG,PREM SINGH TAMANG,parties.IN.SKM,SKM,10811,84,1,won,M,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1367,sikkim,2019,10,POKLOK-KAMRANG,MOSES RAI,,Sikkim Democratic Front,1858,14.44,2,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1367,sikkim,2019,10,POKLOK-KAMRANG,YADHU KUMAR RAI,,Sikkim Republican Party,125,0.97,3,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1367,sikkim,2019,10,POKLOK-KAMRANG,NOTA,,,76,0.59,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1367,sikkim,2019,10,POKLOK-KAMRANG,MOSES RAI,parties.IN.UNK,Sikkim Democratic Front,1858,14.44,2,forfeit,M,28,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1367,sikkim,2019,10,POKLOK-KAMRANG,YADHU KUMAR RAI,parties.IN.UNK,Sikkim Republican Party,125,0.97,3,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1367,sikkim,2019,10,POKLOK-KAMRANG,NOTA,parties.IN.UNK,,76,0.59,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1365,sikkim,2019,11,NAMCHI-SINGHITHANG,PAWAN CHAMLING,parties.IN.SDF,SDF,5054,50.31,1,won,U,68,Doctorate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1365,sikkim,2019,11,NAMCHI-SINGHITHANG,GANESH RAI,parties.IN.SKM,SKM,4677,46.56,2,lost,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1365,sikkim,2019,11,NAMCHI-SINGHITHANG,KAMALA RAI,parties.IN.INC,INC,87,0.87,3,forfeit,U,37,5th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1365,sikkim,2019,11,NAMCHI-SINGHITHANG,KHARGA BAHADUR RAI,,SRPP,83,0.83,4,forfeit,U,50,8th Pass,Self-employed,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1365,sikkim,2019,11,NAMCHI-SINGHITHANG,HUKUM CHANDRA RAI,,HMSKP,70,0.7,6,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1365,sikkim,2019,11,NAMCHI-SINGHITHANG,KHARGA BAHADUR RAI,parties.IN.UNK,SRPP,83,0.83,4,forfeit,U,50,8th Pass,Self-employed,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1365,sikkim,2019,11,NAMCHI-SINGHITHANG,HUKUM CHANDRA RAI,parties.IN.UNK,HMSKP,70,0.7,6,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1363,sikkim,2019,12,MELLI,FARWANTI TAMANG,parties.IN.SDF,SDF,6354,50.25,1,won,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1363,sikkim,2019,12,MELLI,TILAK BASNET,parties.IN.SKM,SKM,5489,43.41,2,lost,U,44,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1363,sikkim,2019,12,MELLI,BHOLA CHAWHAN,parties.IN.BJP,BJP,382,3.02,3,forfeit,U,43,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1363,sikkim,2019,12,MELLI,HARI BASNETT,parties.IN.INC,INC,121,0.96,5,forfeit,U,50,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1363,sikkim,2019,12,MELLI,BAL BIR TAMANG,,SKPP,70,0.55,6,forfeit,U,51,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1363,sikkim,2019,12,MELLI,LALL BAHADUR CHETTRI,,HMSKP,63,0.5,7,forfeit,U,59,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1363,sikkim,2019,12,MELLI,BAL BIR TAMANG,parties.IN.UNK,SKPP,70,0.55,6,forfeit,U,51,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1363,sikkim,2019,12,MELLI,LALL BAHADUR CHETTRI,parties.IN.UNK,HMSKP,63,0.5,7,forfeit,U,59,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1366,sikkim,2019,13,NAMTHANG-RATEYPANI,SANJEET KHAREL,parties.IN.SKM,SKM,6848,53.59,1,won,U,42,Graduate,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1366,sikkim,2019,13,NAMTHANG-RATEYPANI,BIRJAN TAMANG,parties.IN.SDF,SDF,5543,43.38,2,lost,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1366,sikkim,2019,13,NAMTHANG-RATEYPANI,SANCHA MAN CHETTRI,parties.IN.INC,INC,128,1,3,forfeit,U,31,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1366,sikkim,2019,13,NAMTHANG-RATEYPANI,GANGA RAM SHARMA,,SKPP,83,0.65,5,forfeit,U,48,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1366,sikkim,2019,13,NAMTHANG-RATEYPANI,MADAN TAMANG,,HMSKP,47,0.37,6,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1366,sikkim,2019,13,NAMTHANG-RATEYPANI,GANGA RAM SHARMA,parties.IN.UNK,SKPP,83,0.65,5,forfeit,U,48,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1366,sikkim,2019,13,NAMTHANG-RATEYPANI,MADAN TAMANG,parties.IN.UNK,HMSKP,47,0.37,6,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1366,sikkim,2019,13,NAMTHANG-RATEYPANI,USHA GURUNG,parties.IN.JMBP,JMBP,41,0.32,7,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1374,sikkim,2019,14,TEMI-NAMPHING,BEDU SINGH PANTH,parties.IN.SKM,SKM,6084,51.7,1,won,U,66,12th Pass,Self-employed,crossover,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1374,sikkim,2019,14,TEMI-NAMPHING,GARJAMAN GURUNG,parties.IN.SDF,SDF,5314,45.16,2,lost,U,53,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1374,sikkim,2019,14,TEMI-NAMPHING,DEEPAK KUMAR BHANDARI,parties.IN.INC,INC,146,1.24,3,forfeit,U,48,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1374,sikkim,2019,14,TEMI-NAMPHING,DURGA BAHADUR CHHETRI,,HMSKP,142,1.21,4,forfeit,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1374,sikkim,2019,14,TEMI-NAMPHING,DURGA BAHADUR CHHETRI,parties.IN.UNK,HMSKP,142,1.21,4,forfeit,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1368,sikkim,2019,15,RANGANG-YANGANG,RAJ KUMARI THAPA,parties.IN.SDF,SDF,6146,53.47,1,won,U,39,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1368,sikkim,2019,15,RANGANG-YANGANG,RAJ KUMAR BASNET,parties.IN.SKM,SKM,4621,40.2,2,lost,U,60,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1368,sikkim,2019,15,RANGANG-YANGANG,RUP NARAYAN CHAMLING,,SRMP,443,3.85,3,forfeit,U,51,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1368,sikkim,2019,15,RANGANG-YANGANG,RUP NARAYAN CHAMLING,parties.IN.UNK,SRMP,443,3.85,3,forfeit,U,51,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1368,sikkim,2019,15,RANGANG-YANGANG,TANKA NATH ADHIKARI,parties.IN.INC,INC,105,0.91,4,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1368,sikkim,2019,15,RANGANG-YANGANG,KAMALA RAI,,HMSKP,69,0.6,6,forfeit,U,37,8th Pass,Household,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1368,sikkim,2019,15,RANGANG-YANGANG,MOHAN GURUNG,,SRPP,41,0.36,7,forfeit,U,27,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1368,sikkim,2019,15,RANGANG-YANGANG,KAMALA RAI,parties.IN.UNK,HMSKP,69,0.6,6,forfeit,U,37,8th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1368,sikkim,2019,15,RANGANG-YANGANG,MOHAN GURUNG,parties.IN.UNK,SRPP,41,0.36,7,forfeit,U,27,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1375,sikkim,2019,16,TUMEN-LINGI,UGEN T. GYATSO BHUTIA,parties.IN.SDF,SDF,6615,49.89,1,won,U,59,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1375,sikkim,2019,16,TUMEN-LINGI,SAMDUP TSHERING BHUTIA,parties.IN.SKM,SKM,6295,47.47,2,lost,U,60,12th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1375,sikkim,2019,16,TUMEN-LINGI,BHAICHUNG BHUTIA,,HMSKP,234,1.76,3,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1375,sikkim,2019,16,TUMEN-LINGI,BHAICHUNG BHUTIA,parties.IN.UNK,HMSKP,234,1.76,3,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1359,sikkim,2019,17,KHAMDONG-SINGTAM,MANI KUMAR SHARMA,parties.IN.SKM,SKM,5347,50.39,1,won,U,48,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1359,sikkim,2019,17,KHAMDONG-SINGTAM,GARJAMAN GURUNG,parties.IN.SDF,SDF,4474,42.16,2,lost,U,48,8th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1359,sikkim,2019,17,KHAMDONG-SINGTAM,SHER BAHADUR KARKI,parties.IN.BJP,BJP,558,5.26,3,forfeit,U,45,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1359,sikkim,2019,17,KHAMDONG-SINGTAM,TULA RAM GURAGAI,parties.IN.INC,INC,72,0.68,4,forfeit,U,33,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1359,sikkim,2019,17,KHAMDONG-SINGTAM,NEERAJ ADHIKARI,,HMSKP,67,0.63,5,forfeit,U,31,Post Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1359,sikkim,2019,17,KHAMDONG-SINGTAM,NEERAJ ADHIKARI,parties.IN.UNK,HMSKP,67,0.63,5,forfeit,U,31,Post Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1359,sikkim,2019,17,KHAMDONG-SINGTAM,GOPAL KHATIWARA,parties.IN.IND,IND,31,0.29,7,forfeit,U,42,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1378,sikkim,2019,18,WEST PENDA,L .B DAS,parties.IN.SKM,SKM,5799,49.64,1,won,U,48,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1378,sikkim,2019,18,WEST PENDA,GOPAL BARAILY,parties.IN.SDF,SDF,4901,41.95,2,lost,U,53,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1378,sikkim,2019,18,WEST PENDA,BIRENDRA POURALI,parties.IN.BJP,BJP,597,5.11,3,forfeit,U,38,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1378,sikkim,2019,18,WEST PENDA,BINOD DARJEE,parties.IN.INC,INC,101,0.86,4,forfeit,U,60,5th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1378,sikkim,2019,18,WEST PENDA,SANTOSH BARDEWA,parties.IN.IND,IND,64,0.55,6,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1378,sikkim,2019,18,WEST PENDA,INDRA KR SUJI,,HMSKP,60,0.51,7,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1378,sikkim,2019,18,WEST PENDA,INDRA KR SUJI,parties.IN.UNK,HMSKP,60,0.51,7,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1378,sikkim,2019,18,WEST PENDA,BIKASH DARJEE,parties.IN.IND,IND,47,0.4,8,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1378,sikkim,2019,18,WEST PENDA,SONAM DARJEE,,SKPP,31,0.27,9,forfeit,U,31,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1378,sikkim,2019,18,WEST PENDA,SONAM DARJEE,parties.IN.UNK,SKPP,31,0.27,9,forfeit,U,31,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1369,sikkim,2019,19,RHENOCK,BISHNU KUMAR SHARMA,parties.IN.SKM,SKM,8039,56.44,1,won,U,64,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1369,sikkim,2019,19,RHENOCK,HEMENDRA ADHIKARI,parties.IN.SDF,SDF,4953,34.77,2,lost,U,61,12th Pass,Ex MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1369,sikkim,2019,19,RHENOCK,BHARAT KUMAR SHARMA,parties.IN.BJP,BJP,649,4.56,3,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1369,sikkim,2019,19,RHENOCK,DEO KR PRADHAN,parties.IN.INC,INC,192,1.35,4,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1369,sikkim,2019,19,RHENOCK,CHAKRAPANI SHARMA,,SKPP,122,0.86,6,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1369,sikkim,2019,19,RHENOCK,BIRAJ ADHIKARI,,HMSKP,85,0.6,7,forfeit,U,57,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1369,sikkim,2019,19,RHENOCK,RAMESH SHARMA,,SUTF,62,0.44,8,forfeit,U,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1369,sikkim,2019,19,RHENOCK,CHAKRAPANI SHARMA,parties.IN.UNK,SKPP,122,0.86,6,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1369,sikkim,2019,19,RHENOCK,BIRAJ ADHIKARI,parties.IN.UNK,HMSKP,85,0.6,7,forfeit,U,57,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1369,sikkim,2019,19,RHENOCK,RAMESH SHARMA,parties.IN.UNK,SUTF,62,0.44,8,forfeit,U,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1352,sikkim,2019,20,CHUJACHEN,KRISHNA BAHADUR RAI,parties.IN.SDF,SDF,7266,51.12,1,won,U,70,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1352,sikkim,2019,20,CHUJACHEN,DAMBER KUMAR PRADHAN,parties.IN.SKM,SKM,5939,41.79,2,lost,U,33,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1352,sikkim,2019,20,CHUJACHEN,MOHAN GURUNG,parties.IN.BJP,BJP,514,3.62,3,forfeit,U,76,Literate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1352,sikkim,2019,20,CHUJACHEN,GOPAL CHETTRI,parties.IN.INC,INC,177,1.25,4,forfeit,U,39,10th Pass,Party Worker,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1352,sikkim,2019,20,CHUJACHEN,ANIL KR RAI,,SKPP,107,0.75,5,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1352,sikkim,2019,20,CHUJACHEN,RUDRA KHATIWARA,,HMSKP,57,0.4,7,forfeit,U,46,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1352,sikkim,2019,20,CHUJACHEN,ANIL KR RAI,parties.IN.UNK,SKPP,107,0.75,5,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1352,sikkim,2019,20,CHUJACHEN,RUDRA KHATIWARA,parties.IN.UNK,HMSKP,57,0.4,7,forfeit,U,46,10th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1352,sikkim,2019,20,CHUJACHEN,RUDRA NARSING SAKYA,parties.IN.IND,IND,56,0.39,8,forfeit,U,47,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1356,sikkim,2019,21,GNATHANG-MACHONG,DORJEE TSHERING LEPCHA,parties.IN.SDF,SDF,6380,62.97,1,won,U,62,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1356,sikkim,2019,21,GNATHANG-MACHONG,TSHERING BHUTIA,parties.IN.SKM,SKM,3460,34.15,2,lost,U,69,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1356,sikkim,2019,21,GNATHANG-MACHONG,DORJEE ONGDEN BHUTIA,parties.IN.INC,INC,127,1.25,3,forfeit,U,76,5th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1356,sikkim,2019,21,GNATHANG-MACHONG,SANGAY CHOPEL BHUTIA,,HMSKP,79,0.78,5,forfeit,U,40,5th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1356,sikkim,2019,21,GNATHANG-MACHONG,SANGAY CHOPEL BHUTIA,parties.IN.UNK,HMSKP,79,0.78,5,forfeit,U,40,5th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1364,sikkim,2019,22,NAMCHEYBUNG,EM PRASAD SHARMA,parties.IN.SDF,SDF,6141,49.52,1,won,U,43,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1364,sikkim,2019,22,NAMCHEYBUNG,DENIS RAI,parties.IN.SKM,SKM,5170,41.69,2,lost,U,51,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1364,sikkim,2019,22,NAMCHEYBUNG,DEVI BASNETT,parties.IN.BJP,BJP,574,4.63,3,forfeit,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1364,sikkim,2019,22,NAMCHEYBUNG,KHARGA BAHADUR RAI,,SKPP,162,1.31,4,forfeit,U,50,8th Pass,Self-employed,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1364,sikkim,2019,22,NAMCHEYBUNG,PHIPRA HANG SUBBA,,SRMP,161,1.3,5,forfeit,U,39,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1364,sikkim,2019,22,NAMCHEYBUNG,ANUSH RAI,,HMSKP,102,0.82,6,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1364,sikkim,2019,22,NAMCHEYBUNG,KHARGA BAHADUR RAI,parties.IN.UNK,SKPP,162,1.31,4,forfeit,U,50,8th Pass,Self-employed,crossover,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1364,sikkim,2019,22,NAMCHEYBUNG,PHIPRA HANG SUBBA,parties.IN.UNK,SRMP,161,1.3,5,forfeit,U,39,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1364,sikkim,2019,22,NAMCHEYBUNG,ANUSH RAI,parties.IN.UNK,HMSKP,102,0.82,6,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1372,sikkim,2019,23,SHYARI,KUNGA NIMA LEPCHA,parties.IN.SKM,SKM,6638,54.31,1,won,U,71,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1372,sikkim,2019,23,SHYARI,KARMA WANGDI BHUTIA,parties.IN.SDF,SDF,5282,43.22,2,lost,U,49,5th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1372,sikkim,2019,23,SHYARI,CHEWANG DORJEE BHUTIA,parties.IN.INC,INC,170,1.39,3,forfeit,U,33,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1362,sikkim,2019,24,MARTAM-RUMTEK,SONAM TSH VENCHUNGPA,parties.IN.BJP,BJP,8204,65.47,1,won,M,47,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1362,sikkim,2019,24,MARTAM-RUMTEK,NUK TSHERING BHUTIA,,Sikkim Democratic Front,2054,16.39,2,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1362,sikkim,2019,24,MARTAM-RUMTEK,NIMA LEPCHA,,Hamro Sikkim Party,1235,9.86,3,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1362,sikkim,2019,24,MARTAM-RUMTEK,NUK TSHERING BHUTIA,parties.IN.UNK,Sikkim Democratic Front,2054,16.39,2,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1362,sikkim,2019,24,MARTAM-RUMTEK,NIMA LEPCHA,parties.IN.UNK,Hamro Sikkim Party,1235,9.86,3,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1362,sikkim,2019,24,MARTAM-RUMTEK,MECHUNG BHUTIA,parties.IN.IND,IND,439,3.5,4,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1362,sikkim,2019,24,MARTAM-RUMTEK,PASSANG GYALI SHERPA,parties.IN.IND,IND,272,2.17,5,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1362,sikkim,2019,24,MARTAM-RUMTEK,MINGMA TSHERING SHERPA,,Sikkim Republican Party,173,1.38,6,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1362,sikkim,2019,24,MARTAM-RUMTEK,NOTA,,,154,1.23,7,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1362,sikkim,2019,24,MARTAM-RUMTEK,MINGMA TSHERING SHERPA,parties.IN.UNK,Sikkim Republican Party,173,1.38,6,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1362,sikkim,2019,24,MARTAM-RUMTEK,NOTA,parties.IN.UNK,,154,1.23,7,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1350,sikkim,2019,26,ARITHANG,ARUN KUMAR UPRETI,parties.IN.SKM,SKM,3150,40.02,1,won,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1350,sikkim,2019,26,ARITHANG,ASHIS RAI,parties.IN.IND,IND,2676,33.99,2,lost,U,41,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1350,sikkim,2019,26,ARITHANG,SHYAM PRADHAN,parties.IN.SDF,SDF,1545,19.63,3,lost,U,47,12th Pass,,incumbent,src-1b7bc1c9d39a
@@ -123,8 +123,8 @@ IN-AC-2008-sikkim-1350,sikkim,2019,26,ARITHANG,SUMITRA RAI,parties.IN.INC,INC,42
 IN-AC-2008-sikkim-1376,sikkim,2019,28,UPPER BURTUK,DILLI RAM THAPA,parties.IN.SDF,SDF,6107,51.77,1,won,U,50,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1376,sikkim,2019,28,UPPER BURTUK,NAGENDRA BIKRAM GURUNG,parties.IN.SKM,SKM,5350,45.35,2,lost,U,68,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1376,sikkim,2019,28,UPPER BURTUK,AITA TAMANG,parties.IN.INC,INC,128,1.09,3,forfeit,U,47,5th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1376,sikkim,2019,28,UPPER BURTUK,DAL BAHADUR TAMANG,,SKPP,59,0.5,5,forfeit,U,41,5th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1376,sikkim,2019,28,UPPER BURTUK,Philip Lamichaney,,HMSKP,59,0.5,6,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1376,sikkim,2019,28,UPPER BURTUK,DAL BAHADUR TAMANG,parties.IN.UNK,SKPP,59,0.5,5,forfeit,U,41,5th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1376,sikkim,2019,28,UPPER BURTUK,Philip Lamichaney,parties.IN.UNK,HMSKP,59,0.5,6,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1358,sikkim,2019,29,KABI LUNGCHUK,KARMA LODAY BHUTIA,parties.IN.SKM,SKM,5705,55.07,1,won,U,54,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1358,sikkim,2019,29,KABI LUNGCHUK,UGEN NEDUP BHUTIA,parties.IN.SDF,SDF,4268,41.2,2,lost,U,51,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1358,sikkim,2019,29,KABI LUNGCHUK,PHURDEN TSHERING LEPCHA,parties.IN.IND,IND,152,1.47,3,forfeit,U,31,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -132,6 +132,6 @@ IN-AC-2008-sikkim-1358,sikkim,2019,29,KABI LUNGCHUK,GYURMIK YAUSEEL BHUTIA,parti
 IN-AC-2008-sikkim-1354,sikkim,2019,30,DJONGU,PINTSO NAMGYAL LEPCHA,parties.IN.SDF,SDF,5613,66.17,1,won,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1354,sikkim,2019,30,DJONGU,CHUNGKIPU LEPCHA,parties.IN.SKM,SKM,2612,30.79,2,lost,U,59,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1354,sikkim,2019,30,DJONGU,PENZONG LEPCHA,parties.IN.INC,INC,119,1.4,3,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1354,sikkim,2019,30,DJONGU,ATHUP LEPCHA,,HMSKP,88,1.04,4,forfeit,U,74,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1354,sikkim,2019,30,DJONGU,ATHUP LEPCHA,parties.IN.UNK,HMSKP,88,1.04,4,forfeit,U,74,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1360,sikkim,2019,31,LACHEN MANGAN,SAMDUP LEPCHA,parties.IN.SKM,SKM,3615,53.8,1,won,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1360,sikkim,2019,31,LACHEN MANGAN,TSHERING WANGDI LEPCHA,parties.IN.SDF,SDF,3031,45.11,2,lost,U,52,5th Pass,Party Worker,incumbent,src-1b7bc1c9d39a

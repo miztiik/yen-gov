@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-nagaland-eci10,nagaland,2017,10,NORTHERN ANGAMI-I,Dr. Shurhozelie Liezietsu,parties.IN.NPF,NPF,8038,63.4,1,won,U,,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-nagaland-eci10,nagaland,2017,10,NORTHERN ANGAMI-I,Kekhrielhoulie Yhome,parties.IN.IND,IND,4568,36.03,2,lost,U,,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-eci10,nagaland,2017,10,NORTHERN ANGAMI-I,NOTA,,,72,0.57,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-nagaland-eci10,nagaland,2017,10,NORTHERN ANGAMI-I,NOTA,parties.IN.UNK,,72,0.57,3,lost,U,,,,challenger,src-1b7bc1c9d39a
