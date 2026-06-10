@@ -29,31 +29,20 @@ walk is the contract (here: FK closure). The walk is bounded (only the
 ~300 files enumerated above) and the test fails fast on the first batch of
 ~20 offenders so a regression PR sees an actionable report.
 
-**At THIS PR (PR-1)** the test is marked ``xfail(strict=False)`` because
-PR-3 has not yet regenerated the TN-2026 + corpus-wide candidacies.csv rows
-that carry the empty-party_id bug class. The xfail reason carries the
-measured offending-count so the orchestrator's Status Reckoner can track the
-remediation. PR-3 flips the marker to a strict assert and the test enforces
-FK closure forever after.
+**At PR-3 (2026-06-10)** the xfail flipped to a strict assert. PR-3 fixed
+the writer Path B (4 modules in ``backend/yen_gov/canonical/reingest/``: every
+``"party_id": lookup.get(raw_party.upper()) if raw_party else None`` seam now
+emits ``parties.IN.UNK`` on a lookup miss instead of None) AND ran a
+one-time corpus regen (``python -m tools.elections_party_id_repair --apply``)
+that backfilled the on-disk historical rows to the post-fix contract. From
+PR-3 onward, FK closure is enforced as a contract.
 """
 
 from __future__ import annotations
 
 import csv
 import re
-from collections import defaultdict
 from pathlib import Path
-
-import pytest
-
-# Pre-PR-3 measurement (2026-06-10): 0 distinct unresolved party_id strings
-# (F2 category) AND 0 electoral-CSV empty value_text rows (F3 category) AND
-# 3332 candidacies rows with empty party_id + empty party_short_raw (the F1
-# TN-2026 bug class). ESCALATE #5 trigger (>50 distinct F2 strings from
-# electoral CSVs) is NOT fired; PR-3 regen is the structural fix.
-PRE_PR3_OFFENDING_F1_ROWS = 3332
-PRE_PR3_DISTINCT_F2_STRINGS = 0
-PRE_PR3_F3_EMPTY_ROWS = 0
 
 # The 3 party_id sentinels lifted into parties.csv by PR-0. Empty-string
 # party_id is NEVER one of these (sentinels are explicit ids); see brief
@@ -180,25 +169,22 @@ def _walk_corpus() -> tuple[
     return f1, f2, f3, n_files, n_rows, n_f1 + n_f2 + n_f3
 
 
-@pytest.mark.xfail(
-    strict=False,
-    reason=(
-        f"TN-2026 + corpus-wide empty party_id pending PR-3 regen "
-        f"[{PRE_PR3_OFFENDING_F1_ROWS} TN-2026-bug rows, "
-        f"{PRE_PR3_DISTINCT_F2_STRINGS} distinct unresolved party_id "
-        f"strings, {PRE_PR3_F3_EMPTY_ROWS} electoral empty-value rows]"
-    ),
-)
 def test_party_id_fk_closure() -> None:
     """Every party_id referenced anywhere FK-resolves to parties.csv.
 
     Sentinel ``parties.IN.UNK`` is allowed. Empty-string party_id is allowed
     ONLY if ``party_short_raw`` is present (citizen-UI fallback path with
     publisher label preserved). Empty party_id without raw label is the
-    TN-2026 AIADMK bug class and must be ZERO once PR-3 lands.
+    TN-2026 AIADMK bug class and must be ZERO.
 
-    PR-1 marks this xfail (TN-2026 + corpus-wide regen pending PR-3). PR-3
-    flips to a strict assert.
+    PR-1 staged this test under ``xfail`` while the TN-2026 + corpus-wide
+    regen was pending; PR-3 (2026-06-10) shipped the writer fix + the
+    corpus-wide regen and flipped this to a strict assert. From PR-3 onward
+    every empty-``party_id`` row is mechanically substituted with the
+    explicit ``parties.IN.UNK`` sentinel (PR-0 catalogue row); the publisher
+    label survives on ``party_short_raw``. PR-W-1's TCPD-bulk alias
+    enrichment + follow-up regen will flip 2471 distinct labels from UNK to
+    real party_ids; the test stays green throughout.
     """
     f1, f2, f3, n_files, _n_rows, n_offending = _walk_corpus()
 

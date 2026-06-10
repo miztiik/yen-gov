@@ -196,7 +196,10 @@ def build_candidacy_rows_from_eci_legacy(
                 "constituency_no": eci_no,
                 "constituency_name": _text_or_none(src.get("constituency_name")) or "",
                 "candidate_name": _text_or_none(src.get("candidate_name")) or "",
-                "party_id": lookup.get(raw_party.upper()) if raw_party else None,
+                # PR-3 (2026-06-10): every candidacy row carries a non-empty
+                # canonical party_id. See assembly_results.build_candidacy_rows
+                # for the rationale (mirror of party_resolver.SENTINELS['UNK']).
+                "party_id": lookup.get(raw_party.upper()) or "parties.IN.UNK",
                 "party_short_raw": raw_party or None,
                 "votes": _int_or_none(src.get("votes")) or 0,
                 "vote_share_pct": _float_or_none(src.get("vote_share_pct")),

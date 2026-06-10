@@ -70,7 +70,9 @@ def _stage_catalogue(root: Path, pcs: list[tuple[str, int]]) -> Path:
     (entities / "electoral.csv").write_text("\n".join(lines) + "\n", encoding="utf-8")
     (entities / "parties.csv").write_text(
         "party_id,short,full,eci_codes,brand_colour,symbol_asset,wikipedia\n"
-        "parties.IN.DMK,DMK,Dravida Munnetra Kazhagam,,,,\n",
+        "parties.IN.DMK,DMK,Dravida Munnetra Kazhagam,,,,\n"
+        # PR-0 sentinel; PR-3 writers emit this on lookup miss.
+        "parties.IN.UNK,UNK,Unresolved Party,,,,\n",
         encoding="utf-8",
     )
     (entities / "source.csv").write_text(

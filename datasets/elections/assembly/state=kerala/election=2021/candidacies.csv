@@ -2,14 +2,14 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-kerala-3769,kerala,2021,1,MANJESHWAR,A K M ASHRAF,parties.IN.IUML,IUML,65758,38.14,1,won,U,43,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3769,kerala,2021,1,MANJESHWAR,K SURENDRAN,parties.IN.BJP,BJP,65013,37.7,2,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3769,kerala,2021,1,MANJESHWAR,V V RAMESHAN,parties.IN.CPIM,CPM,40639,23.57,3,lost,U,54,12th Pass,Managerial Position,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3769,kerala,2021,1,MANJESHWAR,PRAVEEN KUMAR S,,Anna Democratic Human Rights Movement Party of India,251,0.15,5,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3769,kerala,2021,1,MANJESHWAR,PRAVEEN KUMAR S,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,251,0.15,5,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3769,kerala,2021,1,MANJESHWAR,SURENDRAN M S/o PADMAVATHI M,parties.IN.IND,IND,197,0.11,6,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3769,kerala,2021,1,MANJESHWAR,JOHN D SOUZA I,parties.IN.IND,IND,181,0.1,7,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3768,kerala,2021,2,KASARAGOD,N A NELLIKKUNNU,parties.IN.IUML,IUML,63296,43.8,1,won,U,67,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3768,kerala,2021,2,KASARAGOD,ADV K SHREEKANTH,parties.IN.BJP,BJP,50395,34.88,2,lost,U,45,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3768,kerala,2021,2,KASARAGOD,M A LATHEEF,parties.IN.INL,INL,28323,19.6,3,lost,U,55,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3768,kerala,2021,2,KASARAGOD,VIJAYA K P,parties.IN.BSP,BSP,679,0.47,4,forfeit,U,60,8th Pass,Coolie,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3768,kerala,2021,2,KASARAGOD,RANJITH RAJ M,,Anna Democratic Human Rights Movement Party of India,555,0.38,6,forfeit,U,28,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3768,kerala,2021,2,KASARAGOD,RANJITH RAJ M,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,555,0.38,6,forfeit,U,28,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3768,kerala,2021,2,KASARAGOD,NISHANTH KUMAR I B,parties.IN.IND,IND,417,0.29,7,forfeit,U,29,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3768,kerala,2021,2,KASARAGOD,SUDHAKARAN K,parties.IN.IND,IND,196,0.14,8,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3772,kerala,2021,3,UDMA,C H KUNHAMBU,parties.IN.CPIM,CPM,78664,47.58,1,won,U,61,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
@@ -26,17 +26,17 @@ IN-AC-2008-kerala-3767,kerala,2021,4,KANHANGAD,AUGUSTIN,parties.IN.IND,IND,532,0
 IN-AC-2008-kerala-3767,kerala,2021,4,KANHANGAD,KRISHNAN PARAPPACHAL,parties.IN.IND,IND,357,0.21,7,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3767,kerala,2021,4,KANHANGAD,SURESH. B C S/o CHENIYAN NAIK,parties.IN.IND,IND,277,0.17,8,forfeit,U,26,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3767,kerala,2021,4,KANHANGAD,SREENATH SASI. T C V,parties.IN.IND,IND,219,0.13,9,forfeit,U,37,Others,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3767,kerala,2021,4,KANHANGAD,RESHMA KARIVEDAKAM,,Anna Democratic Human Rights Movement Party of India,185,0.11,10,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3767,kerala,2021,4,KANHANGAD,RESHMA KARIVEDAKAM,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,185,0.11,10,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3767,kerala,2021,4,KANHANGAD,MANOJ THOMAS,parties.IN.IND,IND,105,0.06,11,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3767,kerala,2021,4,KANHANGAD,T ABDUL SAMAD S/o T KUNHIKOYA HAJI,parties.IN.JDU,JD(U),87,0.05,12,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3771,kerala,2021,5,TRIKARIPUR,M RAJAGOPALAN,parties.IN.CPIM,CPM,86151,53.71,1,won,U,60,12th Pass,"MLA, Party Worker",incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3771,kerala,2021,5,TRIKARIPUR,M P JOSEPH,parties.IN.KEC,KEC,60014,37.41,2,lost,U,67,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3771,kerala,2021,5,TRIKARIPUR,SHIBIN T V,parties.IN.BJP,BJP,10961,6.83,3,forfeit,U,35,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3771,kerala,2021,5,TRIKARIPUR,LIYAKATHALI P,parties.IN.SDPI,SDPI,1211,0.75,4,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3771,kerala,2021,5,TRIKARIPUR,T MAHESH MASTER,,Welfare Party Of India,817,0.51,5,forfeit,U,36,Graduate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3771,kerala,2021,5,TRIKARIPUR,T MAHESH MASTER,parties.IN.UNK,Welfare Party Of India,817,0.51,5,forfeit,U,36,Graduate,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3771,kerala,2021,5,TRIKARIPUR,JOY JOHN,parties.IN.IND,IND,362,0.23,7,forfeit,U,66,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3771,kerala,2021,5,TRIKARIPUR,M V JOSEPH,parties.IN.IND,IND,218,0.14,8,forfeit,U,67,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3771,kerala,2021,5,TRIKARIPUR,SUDHAN VELLARIKKUND,,Anna Democratic Human Rights Movement Party of India,116,0.07,9,forfeit,U,46,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3771,kerala,2021,5,TRIKARIPUR,SUDHAN VELLARIKKUND,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,116,0.07,9,forfeit,U,46,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3770,kerala,2021,6,PAYYANNUR,T  I MADHUSOODANAN,parties.IN.CPIM,CPM,93695,62.49,1,won,U,61,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3770,kerala,2021,6,PAYYANNUR,M PRADEEP KUMAR,parties.IN.INC,INC,43915,29.29,2,lost,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3770,kerala,2021,6,PAYYANNUR,Adv  K K SREEDHARAN,parties.IN.BJP,BJP,11308,7.54,3,forfeit,U,62,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -44,7 +44,7 @@ IN-AC-2008-kerala-3770,kerala,2021,6,PAYYANNUR,ABHILASH K V,parties.IN.IND,IND,3
 IN-AC-2008-kerala-3766,kerala,2021,7,KALLIASSERI,M VIJIN,parties.IN.CPIM,CPM,88252,60.62,1,won,U,31,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3766,kerala,2021,7,KALLIASSERI,ADV. BRIJESH KUMAR,parties.IN.INC,INC,43859,30.13,2,lost,U,42,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3766,kerala,2021,7,KALLIASSERI,ARUN KAITHAPRAM,parties.IN.BJP,BJP,11365,7.81,3,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3766,kerala,2021,7,KALLIASSERI,FAIZAL MADAYI,,Welfare Party Of India,1169,0.8,4,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3766,kerala,2021,7,KALLIASSERI,FAIZAL MADAYI,parties.IN.UNK,Welfare Party Of India,1169,0.8,4,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3766,kerala,2021,7,KALLIASSERI,BRIJESHKUMAR M.  S/o AMBU,parties.IN.IND,IND,274,0.19,6,forfeit,U,39,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3765,kerala,2021,8,TALIPARAMBA,M V GOVINDAN MASTER,parties.IN.CPIM,CPM,92870,52.14,1,won,U,69,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3765,kerala,2021,8,TALIPARAMBA,ADV. V P ABDUL RASHEED,parties.IN.INC,INC,70181,39.4,2,lost,U,30,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -68,11 +68,11 @@ IN-AC-2008-kerala-3759,kerala,2021,10,AZHIKODE,RESMI RAVI,parties.IN.SUCI,SUCI,2
 IN-AC-2008-kerala-3759,kerala,2021,10,AZHIKODE,Sumesh M (Mauvery House),parties.IN.IND,IND,180,0.12,8,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3759,kerala,2021,10,AZHIKODE,Prasad V P,parties.IN.IND,IND,104,0.07,9,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3759,kerala,2021,10,AZHIKODE,Pavithran Kurikkalot,parties.IN.IND,IND,48,0.03,10,forfeit,U,70,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3762,kerala,2021,11,KANNUR,RAMACHANDRAN KADANNAPPALLI,,C(S),60313,44.98,1,won,U,76,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3762,kerala,2021,11,KANNUR,RAMACHANDRAN KADANNAPPALLI,parties.IN.UNK,C(S),60313,44.98,1,won,U,76,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3762,kerala,2021,11,KANNUR,SATHEESHAN PACHENI,parties.IN.INC,INC,58568,43.68,2,lost,U,53,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3762,kerala,2021,11,KANNUR,ARCHANA VANDICHAL,parties.IN.BJP,BJP,11581,8.64,3,forfeit,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3762,kerala,2021,11,KANNUR,B SHAMSUDHEEN MOULAVI,parties.IN.SDPI,SDPI,2069,1.54,4,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3762,kerala,2021,11,KANNUR,T K GANESH BABU,,New Labour Party,716,0.53,5,forfeit,U,65,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3762,kerala,2021,11,KANNUR,T K GANESH BABU,parties.IN.UNK,New Labour Party,716,0.53,5,forfeit,U,65,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3762,kerala,2021,11,KANNUR,SATHEESAN P,parties.IN.IND,IND,147,0.11,7,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3762,kerala,2021,11,KANNUR,RAMACHANDRAN P V,parties.IN.IND,IND,107,0.08,8,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3762,kerala,2021,11,KANNUR,N K SURENDRAN,parties.IN.IND,IND,84,0.06,9,forfeit,U,64,5th Pass,,challenger,src-1b7bc1c9d39a
@@ -86,7 +86,7 @@ IN-AC-2008-kerala-3760,kerala,2021,12,DHARMADAM,C. P. Maharoof,parties.IN.IND,IN
 IN-AC-2008-kerala-3760,kerala,2021,12,DHARMADAM,Vadi Harindran,parties.IN.IND,IND,61,0.04,9,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3848,kerala,2021,13,THALASSERY,Adv. A. N. SHAMSEER,parties.IN.CPIM,CPM,81810,61.52,1,won,U,44,Post Graduate,Lawyer,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3848,kerala,2021,13,THALASSERY,M. P. ARAVINDAKSHAN,parties.IN.INC,INC,45009,33.84,2,lost,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3848,kerala,2021,13,THALASSERY,SHAMSEER IBRAHIM,,Welfare Party Of India,1963,1.48,4,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3848,kerala,2021,13,THALASSERY,SHAMSEER IBRAHIM,parties.IN.UNK,Welfare Party Of India,1963,1.48,4,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3848,kerala,2021,13,THALASSERY,C. O. T. NASEER,parties.IN.IND,IND,1163,0.87,5,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3848,kerala,2021,13,THALASSERY,ARAVINDHAKSHAN S/o KAUSU,parties.IN.IND,IND,533,0.4,6,forfeit,U,58,8th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3848,kerala,2021,13,THALASSERY,HARIDASAN,parties.IN.IND,IND,198,0.15,7,forfeit,U,55,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
@@ -108,8 +108,8 @@ IN-AC-2008-kerala-3764,kerala,2021,16,PERAVOOR,A C Jalaluddeen,parties.IN.SDPI,S
 IN-AC-2008-kerala-3764,kerala,2021,16,PERAVOOR,Sakkeer Hussain S/o Hamsa,parties.IN.IND,IND,243,0.17,6,forfeit,U,40,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3764,kerala,2021,16,PERAVOOR,Sunny Vazhakkamalayil,parties.IN.IND,IND,121,0.09,7,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3764,kerala,2021,16,PERAVOOR,Sakkeer E K   S/o Asiya,parties.IN.IND,IND,116,0.08,8,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3764,kerala,2021,16,PERAVOOR,P K Saji,,New Labour Party,106,0.07,9,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3764,kerala,2021,16,PERAVOOR,John Pallikkamalil,,Secular Democratic Congress,92,0.06,10,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3764,kerala,2021,16,PERAVOOR,P K Saji,parties.IN.UNK,New Labour Party,106,0.07,9,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3764,kerala,2021,16,PERAVOOR,John Pallikkamalil,parties.IN.UNK,Secular Democratic Congress,92,0.06,10,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3764,kerala,2021,16,PERAVOOR,Narayanakumar,parties.IN.IND,IND,60,0.04,11,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3764,kerala,2021,16,PERAVOOR,Sunny Muthukulathel,parties.IN.IND,IND,60,0.04,12,forfeit,U,55,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3852,kerala,2021,17,MANANTHAVADY,O.R.KELU,parties.IN.CPIM,CPM,72536,47.54,1,won,U,51,,,incumbent,src-1b7bc1c9d39a
@@ -128,7 +128,7 @@ IN-AC-2008-kerala-3851,kerala,2021,19,KALPETTA,M.V.SHREYAMSKUMAR,parties.IN.LJD,
 IN-AC-2008-kerala-3851,kerala,2021,19,KALPETTA,SUBEESH T M,parties.IN.BJP,BJP,14113,9.27,3,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3851,kerala,2021,19,KALPETTA,ASWIN BHIMNATH,parties.IN.BSP,BSP,928,0.61,4,forfeit,U,25,12th Pass,Qualified Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3851,kerala,2021,19,KALPETTA,T.SIDIQUE S/o ABDULLA,parties.IN.IND,IND,641,0.42,6,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3851,kerala,2021,19,KALPETTA,SUNIL VAIDYAR,,Anna Democratic Human Rights Movement Party of India,455,0.3,7,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3851,kerala,2021,19,KALPETTA,SUNIL VAIDYAR,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,455,0.3,7,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3851,kerala,2021,19,KALPETTA,SHYLESH.K,parties.IN.IND,IND,210,0.14,8,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3849,kerala,2021,20,VADAKARA,K.K.REMA,parties.IN.RMPOI,RMPOI,65093,47.63,1,won,U,50,Graduate,Managerial Position,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3849,kerala,2021,20,VADAKARA,MANAYATH CHANDRAN,parties.IN.LJD,LJD,57602,42.15,2,lost,U,65,Post Graduate,,crossover,src-1b7bc1c9d39a
@@ -151,7 +151,7 @@ IN-AC-2008-kerala-3845,kerala,2021,22,NADAPURAM,ADV. K. PRAVEEN KUMAR,parties.IN
 IN-AC-2008-kerala-3845,kerala,2021,22,NADAPURAM,M. P. RAJAN,parties.IN.BJP,BJP,10537,6,3,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3845,kerala,2021,22,NADAPURAM,K. K. NASAR MASTER,parties.IN.SDPI,SDPI,1676,0.95,4,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3845,kerala,2021,22,NADAPURAM,T.PRAVEEN KUMAR S/O KANNAN,parties.IN.IND,IND,258,0.15,6,forfeit,U,47,Others,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3845,kerala,2021,22,NADAPURAM,SREEDHARAN K K,,National Labour Party,165,0.09,7,forfeit,U,72,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3845,kerala,2021,22,NADAPURAM,SREEDHARAN K K,parties.IN.UNK,National Labour Party,165,0.09,7,forfeit,U,72,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3847,kerala,2021,23,QUILANDY,Kanathil Jameela,parties.IN.CPIM,CPM,75628,46.66,1,won,U,54,10th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3847,kerala,2021,23,QUILANDY,N. Subramaniyan,parties.IN.INC,INC,67156,41.43,2,lost,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3847,kerala,2021,23,QUILANDY,N.P. Radhakrishnan,parties.IN.BJP,BJP,17555,10.83,3,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -167,14 +167,14 @@ IN-AC-2008-kerala-3846,kerala,2021,24,PERAMBRA,V K CHANDRAN,parties.IN.IND,IND,2
 IN-AC-2008-kerala-3787,kerala,2021,25,BALUSSERI,Adv. K.M. SACHINDEV,parties.IN.CPIM,CPM,91839,50.47,1,won,U,27,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3787,kerala,2021,25,BALUSSERI,DHARMAJAN BOLGATTY,parties.IN.INC,INC,71467,39.28,2,lost,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3787,kerala,2021,25,BALUSSERI,LIBIN BALUSSERY,parties.IN.BJP,BJP,16490,9.06,3,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3787,kerala,2021,25,BALUSSERI,CHANDRIKA,,Welfare Party Of India,889,0.49,4,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3787,kerala,2021,25,BALUSSERI,CHANDRIKA,parties.IN.UNK,Welfare Party Of India,889,0.49,4,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3787,kerala,2021,25,BALUSSERI,JOBISH BALUSSERY,parties.IN.BSP,BSP,476,0.26,5,forfeit,U,32,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3787,kerala,2021,25,BALUSSERI,DHARMENDRAN,parties.IN.IND,IND,247,0.14,7,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3787,kerala,2021,25,BALUSSERI,MOHANDAS UNNIKULAM,,Republican Party of India (A),115,0.06,8,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3787,kerala,2021,25,BALUSSERI,MOHANDAS UNNIKULAM,parties.IN.UNK,Republican Party of India (A),115,0.06,8,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3789,kerala,2021,26,ELATHUR,A .K Saseendran,parties.IN.NCP,NCP,83639,50.89,1,won,U,75,10th Pass,Minister,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3789,kerala,2021,26,ELATHUR,Sulphikar Mayoori,parties.IN.IND,IND,45137,27.46,2,lost,U,53,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3789,kerala,2021,26,ELATHUR,T P Jayachandran Master,parties.IN.BJP,BJP,32010,19.48,3,lost,U,59,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3789,kerala,2021,26,ELATHUR,TAHIR MOKKANDI,,Welfare Party Of India,2000,1.22,4,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3789,kerala,2021,26,ELATHUR,TAHIR MOKKANDI,parties.IN.UNK,Welfare Party Of India,2000,1.22,4,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3789,kerala,2021,26,ELATHUR,RADHAKRISHNAN P K,parties.IN.IND,IND,580,0.35,6,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3791,kerala,2021,27,KOZHIKODE NORTH,Thottathil Ravindran,parties.IN.CPIM,CPM,59124,42.98,1,won,U,73,10th Pass,Private Company,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3791,kerala,2021,27,KOZHIKODE NORTH,K M ABHIJITH,parties.IN.INC,INC,46196,33.58,2,lost,U,26,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -188,7 +188,7 @@ IN-AC-2008-kerala-eci28,kerala,2021,28,KOZHIKODE SOUTH,AHAMMAD DEVARKOVIL,partie
 IN-AC-2008-kerala-eci28,kerala,2021,28,KOZHIKODE SOUTH,ADV. NOORBEENA RASHEED,parties.IN.IUML,IUML,40098,33.68,2,lost,U,58,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-eci28,kerala,2021,28,KOZHIKODE SOUTH,NAVYA HARIDAS,parties.IN.BJP,BJP,24873,20.89,3,lost,U,36,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-eci28,kerala,2021,28,KOZHIKODE SOUTH,ADV. MUBEENA,parties.IN.IND,IND,513,0.43,5,forfeit,U,34,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-eci28,kerala,2021,28,KOZHIKODE SOUTH,P. HAREENDRANATH,,Democratic Social Justice Party,410,0.34,6,forfeit,U,51,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-eci28,kerala,2021,28,KOZHIKODE SOUTH,P. HAREENDRANATH,parties.IN.UNK,Democratic Social Justice Party,410,0.34,6,forfeit,U,51,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3788,kerala,2021,29,BEYPORE,Adv. P. A  MOHAMED RIYAS,parties.IN.CPIM,CPM,82165,49.73,1,won,U,45,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3788,kerala,2021,29,BEYPORE,Adv. P. M NIYAS,parties.IN.INC,INC,53418,32.33,2,lost,U,55,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3788,kerala,2021,29,BEYPORE,Adv. PRAKASHBABU,parties.IN.BJP,BJP,26267,15.9,3,forfeit,U,41,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
@@ -201,7 +201,7 @@ IN-AC-2008-kerala-3793,kerala,2021,30,KUNNAMANGALAM,ADV. P. T. A RAHIM,parties.I
 IN-AC-2008-kerala-3793,kerala,2021,30,KUNNAMANGALAM,DINESH PERUMANNA,parties.IN.IND,IND,74862,38.62,2,lost,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3793,kerala,2021,30,KUNNAMANGALAM,ADV: V.K. SAJEEVAN,parties.IN.BJP,BJP,27672,14.28,3,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3793,kerala,2021,30,KUNNAMANGALAM,ABDUL VAHID,parties.IN.SDPI,SDPI,1299,0.67,4,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3793,kerala,2021,30,KUNNAMANGALAM,E. P. ANWAR SADATH,,Welfare Party Of India,1057,0.55,5,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3793,kerala,2021,30,KUNNAMANGALAM,E. P. ANWAR SADATH,parties.IN.UNK,Welfare Party Of India,1057,0.55,5,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3793,kerala,2021,30,KUNNAMANGALAM,DINESHAN PAKKATH,parties.IN.IND,IND,1021,0.53,6,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3793,kerala,2021,30,KUNNAMANGALAM,ABDUL RAHEEM S/o. HASSAN KOYA,parties.IN.IND,IND,738,0.38,8,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3793,kerala,2021,30,KUNNAMANGALAM,BABU K G,parties.IN.IND,IND,724,0.37,9,forfeit,U,75,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -217,7 +217,7 @@ IN-AC-2008-kerala-3790,kerala,2021,31,KODUVALLY,MUNEER  M.K  S/O  MUHAMMED,parti
 IN-AC-2008-kerala-3790,kerala,2021,31,KODUVALLY,LAKSHMANAN.K.P.THAMARASSERY,parties.IN.IND,IND,104,0.07,9,forfeit,U,63,10th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3790,kerala,2021,31,KODUVALLY,SALEEM NECHOLE,parties.IN.IND,IND,92,0.06,10,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3790,kerala,2021,31,KODUVALLY,ABDUL MUNEER,parties.IN.IND,IND,86,0.06,11,forfeit,U,41,8th Pass,Coolie,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3790,kerala,2021,31,KODUVALLY,SHAHIN K C,,Samajwadi Forward Bloc,74,0.05,12,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3790,kerala,2021,31,KODUVALLY,SHAHIN K C,parties.IN.UNK,Samajwadi Forward Bloc,74,0.05,12,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3855,kerala,2021,32,THIRUVAMBADY,Linto Joseph,parties.IN.CPIM,CPM,67867,47.46,1,won,U,28,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3855,kerala,2021,32,THIRUVAMBADY,C. P. Cheriya Muhammed,parties.IN.IUML,IUML,63224,44.21,2,lost,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3855,kerala,2021,32,THIRUVAMBADY,Baby Ambattu,parties.IN.BJP,BJP,7794,5.45,3,forfeit,U,66,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -229,7 +229,7 @@ IN-AC-2008-kerala-3855,kerala,2021,32,THIRUVAMBADY,Prof.George Mathew Thottathim
 IN-AC-2008-kerala-3794,kerala,2021,33,KONDOTTY,T V IBRAHIM,parties.IN.IUML,IUML,82759,50.42,1,won,U,55,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3794,kerala,2021,33,KONDOTTY,KATTUPARUTHY SULAIMAN HAJI,parties.IN.IND,IND,65093,39.66,2,lost,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3794,kerala,2021,33,KONDOTTY,SHEEBA UNNIKRISHNAN,parties.IN.BJP,BJP,11114,6.77,3,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3794,kerala,2021,33,KONDOTTY,Razak PALERI,,Welfare Party Of India,2579,1.57,4,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3794,kerala,2021,33,KONDOTTY,Razak PALERI,parties.IN.UNK,Welfare Party Of India,2579,1.57,4,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3794,kerala,2021,33,KONDOTTY,SIVADASAN T,parties.IN.BSP,BSP,908,0.55,5,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3794,kerala,2021,33,KONDOTTY,SULAIMAN HAJI,parties.IN.IND,IND,905,0.55,6,forfeit,U,60,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3794,kerala,2021,33,KONDOTTY,C V IBRAHIM S/o MUHAMMED,parties.IN.IND,IND,233,0.14,8,forfeit,U,51,Literate,,challenger,src-1b7bc1c9d39a
@@ -243,11 +243,11 @@ IN-AC-2008-kerala-3853,kerala,2021,35,NILAMBUR,ADV: V.V. PRAKASH,parties.IN.INC,
 IN-AC-2008-kerala-3853,kerala,2021,35,NILAMBUR,ADV. T. K ASHOKKUMAR,parties.IN.BJP,BJP,8595,4.96,3,forfeit,U,42,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3853,kerala,2021,35,NILAMBUR,K. BABU MANI,parties.IN.SDPI,SDPI,3281,1.89,4,forfeit,U,54,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3853,kerala,2021,35,NILAMBUR,SAJADURAHMAN.C.P,parties.IN.IND,IND,559,0.32,5,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3853,kerala,2021,35,NILAMBUR,ANILA MATHEW,,Indian Christian Secular Party,509,0.29,6,forfeit,U,52,10th Pass,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3853,kerala,2021,35,NILAMBUR,ANILA MATHEW,parties.IN.UNK,Indian Christian Secular Party,509,0.29,6,forfeit,U,52,10th Pass,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3856,kerala,2021,36,WANDOOR,A P ANILKUMAR,parties.IN.INC,INC,87415,51.44,1,won,U,56,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3856,kerala,2021,36,WANDOOR,MIDHUNA P,parties.IN.CPIM,CPM,71852,42.28,2,lost,U,28,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3856,kerala,2021,36,WANDOOR,Dr. P C VIJAYAN,parties.IN.BJP,BJP,7057,4.15,3,forfeit,U,63,Graduate Professional,Doctor,crossover,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3856,kerala,2021,36,WANDOOR,KRISHNAN C,,Welfare Party Of India,2943,1.73,4,forfeit,U,58,10th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3856,kerala,2021,36,WANDOOR,KRISHNAN C,parties.IN.UNK,Welfare Party Of India,2943,1.73,4,forfeit,U,58,10th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3796,kerala,2021,37,MANJERI,Adv. U.A. LATHEEF,parties.IN.IUML,IUML,78836,50.22,1,won,U,71,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3796,kerala,2021,37,MANJERI,NAZAR DEBONA,parties.IN.CPI,CPI,64263,40.93,2,lost,U,60,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3796,kerala,2021,37,MANJERI,P.R. RASMIL NATH,parties.IN.BJP,BJP,11350,7.23,3,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
@@ -270,16 +270,16 @@ IN-AC-2008-kerala-3797,kerala,2021,39,MANKADA,M.ALI,parties.IN.IND,IND,86,0.05,8
 IN-AC-2008-kerala-3795,kerala,2021,40,MALAPPURAM,P. UBAIDULLA,parties.IN.IUML,IUML,93166,57.57,1,won,U,61,8th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3795,kerala,2021,40,MALAPPURAM,PALOLI ABDURAHIMAN,parties.IN.CPIM,CPM,57958,35.82,2,lost,U,68,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3795,kerala,2021,40,MALAPPURAM,AREEKKAD SETHUMADHAVAN,parties.IN.BJP,BJP,5883,3.64,3,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3795,kerala,2021,40,MALAPPURAM,E.C. AYISHA,,Welfare Party Of India,3194,1.97,4,forfeit,U,60,Others,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3795,kerala,2021,40,MALAPPURAM,E.C. AYISHA,parties.IN.UNK,Welfare Party Of India,3194,1.97,4,forfeit,U,60,Others,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3795,kerala,2021,40,MALAPPURAM,PRASOBH .T,parties.IN.BSP,BSP,321,0.2,6,forfeit,U,28,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3795,kerala,2021,40,MALAPPURAM,T.K. BOSE,parties.IN.SUCI,SUCI,309,0.19,7,forfeit,U,60,12th Pass,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3800,kerala,2021,41,VENGARA,P.K KUNJHALIKUTTY,parties.IN.IUML,IUML,70381,53.5,1,won,U,69,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3800,kerala,2021,41,VENGARA,P. JIJI,parties.IN.CPIM,CPM,39785,30.24,2,lost,U,31,Post Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3800,kerala,2021,41,VENGARA,SABAH KUNDUPUZHAKKAL,parties.IN.IND,IND,11255,8.56,3,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3800,kerala,2021,41,VENGARA,PREMAN MASTER,parties.IN.BJP,BJP,5968,4.54,4,forfeit,U,57,Post Graduate,Retired Teacher,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3800,kerala,2021,41,VENGARA,E.K. KUNHAHAMEDKUTTY MASTER,,Welfare Party Of India,2051,1.56,5,forfeit,U,66,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3800,kerala,2021,41,VENGARA,E.K. KUNHAHAMEDKUTTY MASTER,parties.IN.UNK,Welfare Party Of India,2051,1.56,5,forfeit,U,66,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3800,kerala,2021,41,VENGARA,KEERAN,parties.IN.BSP,BSP,1060,0.81,6,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3800,kerala,2021,41,VENGARA,ANANNYAHKUMARI ALEX,,Democratic Social Justice Party,135,0.1,8,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3800,kerala,2021,41,VENGARA,ANANNYAHKUMARI ALEX,parties.IN.UNK,Democratic Social Justice Party,135,0.1,8,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3800,kerala,2021,41,VENGARA,ADIL ABDURAHIMAN THANGAL,parties.IN.IND,IND,129,0.1,9,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3799,kerala,2021,42,VALLIKKUNNU,ABDUL HAMEED MASTER,parties.IN.IUML,IUML,71823,47.43,1,won,U,73,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3799,kerala,2021,42,VALLIKKUNNU,Prof. A.P. ABDUL VAHAB,parties.IN.INL,INL,57707,38.11,2,lost,U,61,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -290,10 +290,10 @@ IN-AC-2008-kerala-3828,kerala,2021,43,TIRURANGADI,NIYAS PULIKKALAKATH,parties.IN
 IN-AC-2008-kerala-3828,kerala,2021,43,TIRURANGADI,KALLIYATH SATHAR HAJI,parties.IN.BJP,BJP,8314,5.63,3,forfeit,U,68,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3828,kerala,2021,43,TIRURANGADI,NIYAS,parties.IN.IND,IND,487,0.33,5,forfeit,U,35,12th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3828,kerala,2021,43,TIRURANGADI,ABDUL MAJEED PANAKKAL,parties.IN.BSP,BSP,303,0.21,6,forfeit,U,56,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3828,kerala,2021,43,TIRURANGADI,MOOSA JARATHINGAL,,Swaraj India,274,0.19,7,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3828,kerala,2021,43,TIRURANGADI,MOOSA JARATHINGAL,parties.IN.UNK,Swaraj India,274,0.19,7,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3828,kerala,2021,43,TIRURANGADI,CHANDRAN,parties.IN.IND,IND,132,0.09,8,forfeit,U,49,8th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3828,kerala,2021,43,TIRURANGADI,ABDURAHIM NAHA,parties.IN.IND,IND,120,0.08,9,forfeit,U,62,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3824,kerala,2021,44,TANUR,V.ABDURAHIMAN,,NSC,70704,46.34,1,won,U,59,10th Pass,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3824,kerala,2021,44,TANUR,V.ABDURAHIMAN,parties.IN.UNK,NSC,70704,46.34,1,won,U,59,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3824,kerala,2021,44,TANUR,P.K.FIROS,parties.IN.IUML,IUML,69719,45.7,2,lost,U,41,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3824,kerala,2021,44,TANUR,K.NARAYANAN MASTER,parties.IN.BJP,BJP,10590,6.94,3,forfeit,U,56,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3824,kerala,2021,44,TANUR,FIROZ S/o Kunhumarakkar,parties.IN.IND,IND,247,0.16,5,forfeit,U,50,10th Pass,Mechanic,challenger,src-1b7bc1c9d39a
@@ -334,7 +334,7 @@ IN-AC-2008-kerala-3823,kerala,2021,48,PONNANI,P NANDAKUMAR,parties.IN.CPIM,CPM,7
 IN-AC-2008-kerala-3823,kerala,2021,48,PONNANI,Adv. A.M. ROHITH,parties.IN.INC,INC,57625,39.63,2,lost,U,35,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3823,kerala,2021,48,PONNANI,SUBRAMANNIAN CHUNKAPPALLII,parties.IN.BDJS,BDJS,7419,5.1,3,forfeit,U,67,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3823,kerala,2021,48,PONNANI,ANVAR PAZHANJI,parties.IN.SDPI,SDPI,3065,2.11,4,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3823,kerala,2021,48,PONNANI,GANESH VADERI,,Welfare Party Of India,1863,1.28,5,forfeit,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3823,kerala,2021,48,PONNANI,GANESH VADERI,parties.IN.UNK,Welfare Party Of India,1863,1.28,5,forfeit,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3823,kerala,2021,48,PONNANI,Adv. ROSHITH. M.P.,parties.IN.IND,IND,168,0.12,7,forfeit,U,44,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3823,kerala,2021,48,PONNANI,K SADANANDAN,parties.IN.IND,IND,147,0.1,8,forfeit,U,69,8th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3826,kerala,2021,49,THRITHALA,M. B RAJESH,parties.IN.CPIM,CPM,69814,45.84,1,won,U,50,,,challenger,src-1b7bc1c9d39a
@@ -352,7 +352,7 @@ IN-AC-2008-kerala-3813,kerala,2021,50,PATTAMBI,Muhammed Muhassin,parties.IN.CPI,
 IN-AC-2008-kerala-3813,kerala,2021,50,PATTAMBI,Riyas Mukkoli,parties.IN.INC,INC,57337,37.74,2,lost,U,37,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3813,kerala,2021,50,PATTAMBI,K.M.Haridas,parties.IN.BJP,BJP,14578,9.6,3,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3813,kerala,2021,50,PATTAMBI,Ameer Ali .S.P,parties.IN.SDPI,SDPI,2975,1.96,4,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3813,kerala,2021,50,PATTAMBI,S. Mujeeb Rehman,,Welfare Party Of India,801,0.53,5,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3813,kerala,2021,50,PATTAMBI,S. Mujeeb Rehman,parties.IN.UNK,Welfare Party Of India,801,0.53,5,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3813,kerala,2021,50,PATTAMBI,Narayanan. T.P,parties.IN.BSP,BSP,517,0.34,6,forfeit,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3814,kerala,2021,51,SHORNUR,P. MAMMIKUTTY,parties.IN.CPIM,CPM,74400,48.98,1,won,U,69,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3814,kerala,2021,51,SHORNUR,FIROZ BABU.T.H,parties.IN.INC,INC,37726,24.83,2,lost,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -387,13 +387,13 @@ IN-AC-2008-kerala-3812,kerala,2021,56,PALAKKAD,SHAFI PARAMBIL,parties.IN.INC,INC
 IN-AC-2008-kerala-3812,kerala,2021,56,PALAKKAD,E. SREEDHARAN,parties.IN.BJP,BJP,50220,35.34,2,lost,U,88,Graduate Professional,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3812,kerala,2021,56,PALAKKAD,Adv.  C.P. PROMOD,parties.IN.CPIM,CPM,36433,25.64,3,lost,U,53,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3812,kerala,2021,56,PALAKKAD,E.T.K. VALSAN,parties.IN.BSP,BSP,359,0.25,5,forfeit,U,56,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3812,kerala,2021,56,PALAKKAD,JAYAPRAKASH. J,,Samajwadi Forward Bloc,221,0.16,6,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3812,kerala,2021,56,PALAKKAD,JAYAPRAKASH. J,parties.IN.UNK,Samajwadi Forward Bloc,221,0.16,6,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3812,kerala,2021,56,PALAKKAD,V. SACHIDANANDAN,parties.IN.IND,IND,159,0.11,7,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3812,kerala,2021,56,PALAKKAD,K. RAJESH,parties.IN.AKHIL_BHARAT_HINDU_MAHASABHA,Akhil Bharat Hindu Mahasabha,105,0.07,8,forfeit,U,35,12th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3729,kerala,2021,57,TARUR,P.P.SUMOD,parties.IN.CPIM,CPM,67744,51.58,1,won,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3729,kerala,2021,57,TARUR,K.A.SHEEBA,parties.IN.INC,INC,43213,32.9,2,lost,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3729,kerala,2021,57,TARUR,JAYAPRAKASAN K.P.,parties.IN.BJP,BJP,18465,14.06,3,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3729,kerala,2021,57,TARUR,C.A.USHAKUMARI,,Welfare Party Of India,985,0.75,4,forfeit,U,49,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3729,kerala,2021,57,TARUR,C.A.USHAKUMARI,parties.IN.UNK,Welfare Party Of India,985,0.75,4,forfeit,U,49,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3726,kerala,2021,58,CHITTUR,K. KRISHNANKUTTY,parties.IN.JDS,JD(S),84672,55.38,1,won,U,76,8th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3726,kerala,2021,58,CHITTUR,Adv. SUMESH ACHUTHAN,parties.IN.INC,INC,50794,33.22,2,lost,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3726,kerala,2021,58,CHITTUR,V. NATESAN,parties.IN.BJP,BJP,14458,9.46,3,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
@@ -401,7 +401,7 @@ IN-AC-2008-kerala-3726,kerala,2021,58,CHITTUR,A. CHANDRAN,parties.IN.BSP,BSP,918
 IN-AC-2008-kerala-3726,kerala,2021,58,CHITTUR,PRAMEELA. K,parties.IN.IND,IND,552,0.36,6,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3726,kerala,2021,58,CHITTUR,NSK PURAM SASIKUMAR,parties.IN.IND,IND,226,0.15,7,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3728,kerala,2021,59,NENMARA,K. Babu,parties.IN.CPIM,CPM,80145,52.89,1,won,U,57,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3728,kerala,2021,59,NENMARA,C.N.Vijayakrishnan,,Communist Marxist Party Kerala State Committee,51441,33.95,2,lost,U,61,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3728,kerala,2021,59,NENMARA,C.N.Vijayakrishnan,parties.IN.UNK,Communist Marxist Party Kerala State Committee,51441,33.95,2,lost,U,61,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3728,kerala,2021,59,NENMARA,Anurag .A.N,parties.IN.BDJS,BDJS,16666,11,3,forfeit,U,42,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3728,kerala,2021,59,NENMARA,Prakash.C,parties.IN.BSP,BSP,1350,0.89,4,forfeit,U,29,12th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3728,kerala,2021,59,NENMARA,Babu S/o Kunchu,parties.IN.IND,IND,863,0.57,6,forfeit,U,47,5th Pass,,challenger,src-1b7bc1c9d39a
@@ -423,7 +423,7 @@ IN-AC-2008-kerala-3727,kerala,2021,62,KUNNAMKULAM,JAMES PANADAN,parties.IN.IND,I
 IN-AC-2008-kerala-3727,kerala,2021,62,KUNNAMKULAM,A.K.MOIDHEENKUTTY,parties.IN.IND,IND,120,0.08,8,forfeit,U,52,5th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3836,kerala,2021,63,GURUVAYOOR,N.K.AKBAR,parties.IN.CPIM,CPM,77072,52.52,1,won,U,51,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3836,kerala,2021,63,GURUVAYOOR,Adv.K N A KHADER,parties.IN.IUML,IUML,58804,40.07,2,lost,U,71,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3836,kerala,2021,63,GURUVAYOOR,DILEEP NAIR,,Democratic Social Justice Party,6294,4.29,3,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3836,kerala,2021,63,GURUVAYOOR,DILEEP NAIR,parties.IN.UNK,Democratic Social Justice Party,6294,4.29,3,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3836,kerala,2021,63,GURUVAYOOR,ASHARAF VADAKKOOT,parties.IN.SDPI,SDPI,2889,1.97,4,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3836,kerala,2021,63,GURUVAYOOR,ANTONY,parties.IN.IND,IND,392,0.27,6,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3836,kerala,2021,63,GURUVAYOOR,M.KUMAR,parties.IN.SUCI,SUCI,301,0.21,7,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -447,7 +447,7 @@ IN-AC-2008-kerala-3842,kerala,2021,67,THRISSUR,P BALACHANDRAN,parties.IN.CPI,CPI
 IN-AC-2008-kerala-3842,kerala,2021,67,THRISSUR,PADMAJA VENUGOPAL,parties.IN.INC,INC,43317,33.52,2,lost,U,60,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3842,kerala,2021,67,THRISSUR,SURESH GOPI,parties.IN.BJP,BJP,40457,31.3,3,lost,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3842,kerala,2021,67,THRISSUR,AJITH MENON PONNEMKATTIL,parties.IN.IND,IND,252,0.19,5,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3842,kerala,2021,67,THRISSUR,THRISSUR MUKUNDAN,,Indian Gandhiyan Party,225,0.17,6,forfeit,U,75,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3842,kerala,2021,67,THRISSUR,THRISSUR MUKUNDAN,parties.IN.UNK,Indian Gandhiyan Party,225,0.17,6,forfeit,U,75,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3839,kerala,2021,68,NATTIKA,C C MUKUNDHAN,parties.IN.CPI,CPI,72930,47.49,1,won,U,62,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3839,kerala,2021,68,NATTIKA,ADV. SUNIL LALOOR,parties.IN.INC,INC,44499,28.98,2,lost,U,40,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3839,kerala,2021,68,NATTIKA,LOJANAN AMBATT,parties.IN.BJP,BJP,33716,21.96,3,lost,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -457,7 +457,7 @@ IN-AC-2008-kerala-3839,kerala,2021,68,NATTIKA,VIMAL MALLIKA VIJAYAN,parties.IN.B
 IN-AC-2008-kerala-3741,kerala,2021,69,KAIPAMANGALAM,E T TAISON MASTER,parties.IN.CPI,CPI,73161,53.76,1,won,U,56,Others,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3741,kerala,2021,69,KAIPAMANGALAM,SOBHA SUBIN,parties.IN.INC,INC,50463,37.08,2,lost,U,35,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3741,kerala,2021,69,KAIPAMANGALAM,C D SREELAL,parties.IN.BDJS,BDJS,9066,6.66,3,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3741,kerala,2021,69,KAIPAMANGALAM,M K ASLAM,,Welfare Party Of India,1671,1.23,4,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3741,kerala,2021,69,KAIPAMANGALAM,M K ASLAM,parties.IN.UNK,Welfare Party Of India,1671,1.23,4,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3741,kerala,2021,69,KAIPAMANGALAM,M K SHAMEER,parties.IN.SDPI,SDPI,814,0.6,5,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3741,kerala,2021,69,KAIPAMANGALAM,THANKAMANY THARAYIL,parties.IN.BSP,BSP,442,0.32,7,forfeit,U,63,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3837,kerala,2021,70,IRINJALAKKUDA,R Bindu,parties.IN.CPIM,CPM,62493,40.27,1,won,U,53,Doctorate,Retired Teacher,challenger,src-1b7bc1c9d39a
@@ -470,7 +470,7 @@ IN-AC-2008-kerala-3837,kerala,2021,70,IRINJALAKKUDA,Bindu,parties.IN.IND,IND,162
 IN-AC-2008-kerala-3841,kerala,2021,71,PUTHUKKAD,K.K. Ramachandran,parties.IN.CPIM,CPM,73365,46.94,1,won,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3841,kerala,2021,71,PUTHUKKAD,Sunil Anthikkad (Sunilkumar. P.V),parties.IN.INC,INC,46012,29.44,2,lost,U,54,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3841,kerala,2021,71,PUTHUKKAD,A. Nagesh (Parameswaran.A),parties.IN.BJP,BJP,34893,22.33,3,lost,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3841,kerala,2021,71,PUTHUKKAD,Rajesh Appatt,,Communist Party of India (Marxist-Leninist) Red Star,489,0.31,5,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3841,kerala,2021,71,PUTHUKKAD,Rajesh Appatt,parties.IN.UNK,Communist Party of India (Marxist-Leninist) Red Star,489,0.31,5,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3841,kerala,2021,71,PUTHUKKAD,P.C. Pushpakaran,parties.IN.BSP,BSP,455,0.29,6,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3740,kerala,2021,72,CHALAKKUDY,Saneeshkumar Joseph,parties.IN.INC,INC,61888,43.23,1,won,U,42,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3740,kerala,2021,72,CHALAKKUDY,DENNIES K ANTONY,parties.IN.KECM,KEC(M),60831,42.49,2,lost,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -489,10 +489,10 @@ IN-AC-2008-kerala-3742,kerala,2021,73,KODUNGALLUR,O. M. SREEJA,parties.IN.SUCI,S
 IN-AC-2008-kerala-3742,kerala,2021,73,KODUNGALLUR,RAJAN PAINAT,parties.IN.IND,IND,171,0.11,7,forfeit,U,68,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3744,kerala,2021,74,PERUMBAVOOR,Adv ELDOSE P KUNNAPILLIL,parties.IN.INC,INC,53484,37.1,1,won,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3744,kerala,2021,74,PERUMBAVOOR,BABU JOSEPH PERUMBAVOOR,parties.IN.KECM,KEC(M),50585,35.09,2,lost,U,65,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3744,kerala,2021,74,PERUMBAVOOR,Chithra Sukumaran,,Twenty 20 Party,20536,14.24,3,forfeit,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3744,kerala,2021,74,PERUMBAVOOR,Chithra Sukumaran,parties.IN.UNK,Twenty 20 Party,20536,14.24,3,forfeit,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3744,kerala,2021,74,PERUMBAVOOR,Adv.T P SINDHUMOL,parties.IN.BJP,BJP,15135,10.5,4,forfeit,U,44,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3744,kerala,2021,74,PERUMBAVOOR,AJMAL K MUJEEB,parties.IN.SDPI,SDPI,2494,1.73,5,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3744,kerala,2021,74,PERUMBAVOOR,ARSHAD K M,,Welfare Party Of India,1038,0.72,6,forfeit,U,41,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3744,kerala,2021,74,PERUMBAVOOR,ARSHAD K M,parties.IN.UNK,Welfare Party Of India,1038,0.72,6,forfeit,U,41,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3744,kerala,2021,74,PERUMBAVOOR,BABU JOSEPH ERUMALA,parties.IN.IND,IND,196,0.14,8,forfeit,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3739,kerala,2021,75,ANGAMALY,ROJI M JOHN,parties.IN.INC,INC,71562,51.86,1,won,U,38,Post Graduate,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3739,kerala,2021,75,ANGAMALY,Adv. JOSE THETTAYIL,parties.IN.JDS,JD(S),55633,40.31,2,lost,U,70,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -505,9 +505,9 @@ IN-AC-2008-kerala-3738,kerala,2021,76,ALUVA,ANWAR SADATH,parties.IN.INC,INC,7370
 IN-AC-2008-kerala-3738,kerala,2021,76,ALUVA,Ar SHELNA NISHAD,parties.IN.IND,IND,54817,36.44,2,lost,U,34,Graduate Professional,Architect,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3738,kerala,2021,76,ALUVA,M.N. GOPI,parties.IN.BJP,BJP,15893,10.57,3,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3738,kerala,2021,76,ALUVA,V.A RASHEED,parties.IN.SDPI,SDPI,2224,1.48,4,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3738,kerala,2021,76,ALUVA,K.M. SHEFRIN,,Welfare Party Of India,1713,1.14,5,forfeit,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3738,kerala,2021,76,ALUVA,K.M. SHEFRIN,parties.IN.UNK,Welfare Party Of India,1713,1.14,5,forfeit,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3738,kerala,2021,76,ALUVA,K.V. SARALA,parties.IN.IND,IND,569,0.38,7,forfeit,U,67,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3738,kerala,2021,76,ALUVA,VISWAKALA THANKAPPAN,,Marxist Communist Party of India (United),342,0.23,8,forfeit,U,66,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3738,kerala,2021,76,ALUVA,VISWAKALA THANKAPPAN,parties.IN.UNK,Marxist Communist Party of India (United),342,0.23,8,forfeit,U,66,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3738,kerala,2021,76,ALUVA,A.G. AJAYAN,parties.IN.SUCI,SUCI,228,0.15,9,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3746,kerala,2021,77,KALAMASSERY,P. RAJEEVE,parties.IN.CPIM,CPM,77141,49.49,1,won,U,53,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3746,kerala,2021,77,KALAMASSERY,ADV. V. E. ABDUL GAFOOR,parties.IN.IUML,IUML,61805,39.65,2,lost,U,44,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -524,12 +524,12 @@ IN-AC-2008-kerala-3748,kerala,2021,78,PARAVUR,SATHYANESAN EZHIKKARA,parties.IN.I
 IN-AC-2008-kerala-3748,kerala,2021,78,PARAVUR,PRASANTH,parties.IN.IND,IND,279,0.18,7,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3751,kerala,2021,79,VYPEN,K.N. Unnikrishnan,parties.IN.CPIM,CPM,53858,41.24,1,won,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3751,kerala,2021,79,VYPEN,Deepak Joy,parties.IN.INC,INC,45657,34.96,2,lost,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3751,kerala,2021,79,VYPEN,Dr.Job Chakalakal,,Twenty 20 Party,16707,12.79,3,forfeit,U,62,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3751,kerala,2021,79,VYPEN,Dr.Job Chakalakal,parties.IN.UNK,Twenty 20 Party,16707,12.79,3,forfeit,U,62,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3751,kerala,2021,79,VYPEN,Adv.K.S. Shaiju,parties.IN.BJP,BJP,13540,10.37,4,forfeit,U,44,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3751,kerala,2021,79,VYPEN,Dr.M.K. Mukundan,parties.IN.IND,IND,309,0.24,6,forfeit,U,73,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3747,kerala,2021,80,KOCHI,K.J. MAXY,parties.IN.CPIM,CPM,54632,42.45,1,won,U,58,8th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3747,kerala,2021,80,KOCHI,TONY CHAMMANY,parties.IN.INC,INC,40553,31.51,2,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3747,kerala,2021,80,KOCHI,SHINY ANTONY,,Twenty 20 Party,19676,15.29,3,forfeit,U,44,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3747,kerala,2021,80,KOCHI,SHINY ANTONY,parties.IN.UNK,Twenty 20 Party,19676,15.29,3,forfeit,U,44,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3747,kerala,2021,80,KOCHI,C.G.RAJAGOPAL,parties.IN.BJP,BJP,10991,8.54,4,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3747,kerala,2021,80,KOCHI,Nipun Cherian,parties.IN.IND,IND,2149,1.67,5,forfeit,U,35,Graduate Professional,Engineer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3747,kerala,2021,80,KOCHI,RAJANEESH BABU,parties.IN.IND,IND,228,0.18,7,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -543,7 +543,7 @@ IN-AC-2008-kerala-3750,kerala,2021,81,THRIPUNITHURA,K. P. AYAPPEN,parties.IN.IND
 IN-AC-2008-kerala-3745,kerala,2021,82,ERANAKULAM,T. J. Vinod,parties.IN.INC,INC,45930,41.72,1,won,U,57,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3745,kerala,2021,82,ERANAKULAM,SHAJI GEORGE PRANATHA,parties.IN.IND,IND,34960,31.75,2,lost,U,51,Others,Journalist or Editor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3745,kerala,2021,82,ERANAKULAM,Padmaja S. Menon,parties.IN.BJP,BJP,16043,14.57,3,forfeit,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3745,kerala,2021,82,ERANAKULAM,Prof. Leslie Pallath,,Twenty 20 Party,10634,9.66,4,forfeit,U,69,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3745,kerala,2021,82,ERANAKULAM,Prof. Leslie Pallath,parties.IN.UNK,Twenty 20 Party,10634,9.66,4,forfeit,U,69,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3745,kerala,2021,82,ERANAKULAM,Sujith C. Sukumaran,parties.IN.IND,IND,1042,0.95,5,forfeit,U,42,Graduate Professional,Qualified Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3745,kerala,2021,82,ERANAKULAM,Shaji George Plakkil,parties.IN.IND,IND,305,0.28,7,forfeit,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3745,kerala,2021,82,ERANAKULAM,K. S. Anilkumar,parties.IN.IND,IND,225,0.2,8,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -552,16 +552,16 @@ IN-AC-2008-kerala-3745,kerala,2021,82,ERANAKULAM,Siciliamma Teacher,parties.IN.I
 IN-AC-2008-kerala-3749,kerala,2021,83,THRIKKAKARA,Adv.P.T.THOMAS,parties.IN.INC,INC,59839,43.82,1,won,U,70,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3749,kerala,2021,83,THRIKKAKARA,Dr.J.JACOB,parties.IN.IND,IND,45510,33.32,2,lost,U,47,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3749,kerala,2021,83,THRIKKAKARA,S SAJI,parties.IN.BJP,BJP,15483,11.34,3,forfeit,U,50,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3749,kerala,2021,83,THRIKKAKARA,Dr.TERRY THOMAS,,Twenty 20 Party,13897,10.18,4,forfeit,U,44,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3749,kerala,2021,83,THRIKKAKARA,Dr.TERRY THOMAS,parties.IN.UNK,Twenty 20 Party,13897,10.18,4,forfeit,U,44,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3749,kerala,2021,83,THRIKKAKARA,P.M.SHIBU,parties.IN.BSP,BSP,331,0.24,6,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3749,kerala,2021,83,THRIKKAKARA,RIYAS YUSUF,parties.IN.IND,IND,298,0.22,7,forfeit,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3749,kerala,2021,83,THRIKKAKARA,KRISHNAPRASAD,,Democratic Social Justice Party,181,0.13,8,forfeit,U,68,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3749,kerala,2021,83,THRIKKAKARA,KRISHNAPRASAD,parties.IN.UNK,Democratic Social Justice Party,181,0.13,8,forfeit,U,68,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3749,kerala,2021,83,THRIKKAKARA,JINU,parties.IN.IND,IND,143,0.1,9,forfeit,U,37,12th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3749,kerala,2021,83,THRIKKAKARA,BINOJ,parties.IN.IND,IND,134,0.1,10,forfeit,U,40,10th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3749,kerala,2021,83,THRIKKAKARA,SUBIN,parties.IN.IND,IND,59,0.04,11,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3743,kerala,2021,84,KUNNATHUNAD,ADV. P.V.SREENIJIN,parties.IN.CPIM,CPM,52351,33.79,1,won,U,45,Post Graduate,Lawyer,crossover,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3743,kerala,2021,84,KUNNATHUNAD,V.P.SAJEENDRAN,parties.IN.INC,INC,49636,32.04,2,lost,U,51,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3743,kerala,2021,84,KUNNATHUNAD,DR. SUJITH.P.SURENDRAN,,Twenty 20 Party,42701,27.56,3,lost,U,37,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3743,kerala,2021,84,KUNNATHUNAD,DR. SUJITH.P.SURENDRAN,parties.IN.UNK,Twenty 20 Party,42701,27.56,3,lost,U,37,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3743,kerala,2021,84,KUNNATHUNAD,RENU SURESH,parties.IN.BJP,BJP,7218,4.66,4,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3743,kerala,2021,84,KUNNATHUNAD,KRISHNAN ERANHIKAL,parties.IN.SDPI,SDPI,1294,0.84,5,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3743,kerala,2021,84,KUNNATHUNAD,SUJITH.K.SURENDRAN,parties.IN.IND,IND,786,0.51,6,forfeit,U,36,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
@@ -575,12 +575,12 @@ IN-AC-2008-kerala-3784,kerala,2021,85,PIRAVOM,C N MUKUNDAN,parties.IN.SUCI,SUCI,
 IN-AC-2008-kerala-3784,kerala,2021,85,PIRAVOM,RENJU P B,parties.IN.IND,IND,202,0.13,7,forfeit,U,30,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3755,kerala,2021,86,MUVATTUPUZHA,Dr. MATHEW KUZHALNADAN,parties.IN.INC,INC,64425,44.63,1,won,U,43,Doctorate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3755,kerala,2021,86,MUVATTUPUZHA,ELDHO ABRAHAM,parties.IN.CPI,CPI,58264,40.36,2,lost,U,45,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3755,kerala,2021,86,MUVATTUPUZHA,Adv. C.N. PRAKASH,,Twenty 20 Party,13535,9.38,3,forfeit,U,42,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3755,kerala,2021,86,MUVATTUPUZHA,Adv. C.N. PRAKASH,parties.IN.UNK,Twenty 20 Party,13535,9.38,3,forfeit,U,42,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3755,kerala,2021,86,MUVATTUPUZHA,JIJI JOSEPH,parties.IN.BJP,BJP,7527,5.21,4,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3755,kerala,2021,86,MUVATTUPUZHA,C. K. THAMPI,parties.IN.SUCI,SUCI,176,0.12,6,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3754,kerala,2021,87,KOTHAMANGALAM,ANTONY JOHN,parties.IN.CPIM,CPM,64234,46.99,1,won,U,38,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3754,kerala,2021,87,KOTHAMANGALAM,Shibu Thekkumpuram,parties.IN.KEC,KEC,57629,42.16,2,lost,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3754,kerala,2021,87,KOTHAMANGALAM,Dr. JOE JOSEPH,,Twenty 20 Party,7978,5.84,3,forfeit,U,52,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3754,kerala,2021,87,KOTHAMANGALAM,Dr. JOE JOSEPH,parties.IN.UNK,Twenty 20 Party,7978,5.84,3,forfeit,U,52,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3754,kerala,2021,87,KOTHAMANGALAM,SHINE  K KRISHNAN,parties.IN.BDJS,BDJS,4638,3.39,4,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3754,kerala,2021,87,KOTHAMANGALAM,T.M. MOOSA,parties.IN.SDPI,SDPI,1286,0.94,5,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3754,kerala,2021,87,KOTHAMANGALAM,Shibu Thekkan,parties.IN.IND,IND,276,0.2,7,forfeit,U,43,Others,Party Worker,challenger,src-1b7bc1c9d39a
@@ -629,7 +629,7 @@ IN-AC-2008-kerala-3781,kerala,2021,94,KADUTHURUTHY,Stephen George,parties.IN.KEC
 IN-AC-2008-kerala-3781,kerala,2021,94,KADUTHURUTHY,Ligin Lal,parties.IN.BJP,BJP,11670,8.88,3,forfeit,U,38,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3781,kerala,2021,94,KADUTHURUTHY,Vinod K Jose,parties.IN.IND,IND,2425,1.85,4,forfeit,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3781,kerala,2021,94,KADUTHURUTHY,Adv. Anju Mathew,parties.IN.BSP,BSP,1207,0.92,5,forfeit,U,28,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3781,kerala,2021,94,KADUTHURUTHY,Adv. Jaimon Thankachan,,Samajwadi Jan Parishad,302,0.23,7,forfeit,U,51,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3781,kerala,2021,94,KADUTHURUTHY,Adv. Jaimon Thankachan,parties.IN.UNK,Samajwadi Jan Parishad,302,0.23,7,forfeit,U,51,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3786,kerala,2021,95,VAIKOM,C.K Asha,parties.IN.CPI,CPI,71388,55.96,1,won,U,44,Graduate,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3786,kerala,2021,95,VAIKOM,Dr.P.R Sona,parties.IN.INC,INC,42266,33.13,2,lost,U,42,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3786,kerala,2021,95,VAIKOM,Ajitha Sabu,parties.IN.BDJS,BDJS,11953,9.37,3,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -671,22 +671,22 @@ IN-AC-2008-kerala-3817,kerala,2021,100,KANJIRAPPALLY,ALPHONS KANNANTHANAM,partie
 IN-AC-2008-kerala-3817,kerala,2021,100,KANJIRAPPALLY,ASHIK M M,parties.IN.BSP,BSP,727,0.53,4,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3817,kerala,2021,100,KANJIRAPPALLY,MAYAMOL K P,parties.IN.SUCI,SUCI,300,0.22,6,forfeit,U,26,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3819,kerala,2021,101,POONJAR,Adv. Sebastian Kulathunkal,parties.IN.KECM,KEC(M),58668,41.94,1,won,U,55,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3819,kerala,2021,101,POONJAR,P.C.George Plathottam,,"Kerala Janapaksham (Secular),",41851,29.92,2,lost,U,70,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3819,kerala,2021,101,POONJAR,P.C.George Plathottam,parties.IN.UNK,"Kerala Janapaksham (Secular),",41851,29.92,2,lost,U,70,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3819,kerala,2021,101,POONJAR,Adv. Tomy Kallany,parties.IN.INC,INC,34633,24.76,3,lost,U,62,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3819,kerala,2021,101,POONJAR,M. P. Sen,parties.IN.BDJS,BDJS,2965,2.12,4,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3819,kerala,2021,101,POONJAR,Ancy George,parties.IN.BSP,BSP,596,0.43,5,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3819,kerala,2021,101,POONJAR,M. V. George,parties.IN.IND,IND,278,0.2,7,forfeit,U,63,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3819,kerala,2021,101,POONJAR,Abdu Samad,,Kerala Janatha Party,259,0.19,8,forfeit,U,62,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3819,kerala,2021,101,POONJAR,Abdu Samad,parties.IN.UNK,Kerala Janatha Party,259,0.19,8,forfeit,U,62,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3819,kerala,2021,101,POONJAR,Albin Mathew,parties.IN.IND,IND,205,0.15,9,forfeit,U,26,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3819,kerala,2021,101,POONJAR,Tomy Chemarapallil,parties.IN.IND,IND,94,0.07,10,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3719,kerala,2021,102,AROOR,DALEEMA,parties.IN.CPIM,CPM,75617,45.97,1,won,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3719,kerala,2021,102,AROOR,Adv. SHANIMOL OSMAN,parties.IN.INC,INC,68604,41.71,2,lost,U,54,Post Graduate,Lawyer,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3719,kerala,2021,102,AROOR,ANIYAPPAN,parties.IN.BDJS,BDJS,17479,10.63,3,forfeit,U,49,Post Graduate,Accountant,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3719,kerala,2021,102,AROOR,RUGMA PRADEEP,parties.IN.BSP,BSP,682,0.41,5,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3719,kerala,2021,102,AROOR,AMBIKA K N  (PRIYANKA ANUP),,Democratic Social Justice Party,475,0.29,6,forfeit,U,50,10th Pass,Actor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3719,kerala,2021,102,AROOR,AMBIKA K N  (PRIYANKA ANUP),parties.IN.UNK,Democratic Social Justice Party,475,0.29,6,forfeit,U,50,10th Pass,Actor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3719,kerala,2021,102,AROOR,K  PRATHAPAN,parties.IN.SUCI,SUCI,374,0.23,7,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3719,kerala,2021,102,AROOR,VAYALAR RAJEEVAN,parties.IN.BAHUJAN_DRAVIDA_PARTY,Bahujan Dravida Party,164,0.1,8,forfeit,U,48,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3719,kerala,2021,102,AROOR,PRAMOD PERUMPUZHA,,Anna Democratic Human Rights Movement Party of India,161,0.1,9,forfeit,U,32,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3719,kerala,2021,102,AROOR,PRAMOD PERUMPUZHA,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,161,0.1,9,forfeit,U,32,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3719,kerala,2021,102,AROOR,CHANDRAN,parties.IN.IND,IND,89,0.05,10,forfeit,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3720,kerala,2021,103,CHERTHALA,P PRASAD,parties.IN.CPI,CPI,83702,47,1,won,U,51,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3720,kerala,2021,103,CHERTHALA,ADV.S SARATH,parties.IN.INC,INC,77554,43.55,2,lost,U,37,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
@@ -706,12 +706,12 @@ IN-AC-2008-kerala-3718,kerala,2021,105,AMBALAPUZHA,H.Salam,parties.IN.CPIM,CPM,6
 IN-AC-2008-kerala-3718,kerala,2021,105,AMBALAPUZHA,Adv.M.Liju,parties.IN.INC,INC,50240,36.67,2,lost,U,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3718,kerala,2021,105,AMBALAPUZHA,Anoop Antony,parties.IN.BJP,BJP,22389,16.34,3,forfeit,U,36,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3718,kerala,2021,105,AMBALAPUZHA,M.M.Thahir,parties.IN.SDPI,SDPI,1690,1.23,4,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3718,kerala,2021,105,AMBALAPUZHA,Subhadramma Thottappally,,Welfare Party Of India,525,0.38,6,forfeit,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3718,kerala,2021,105,AMBALAPUZHA,Subhadramma Thottappally,parties.IN.UNK,Welfare Party Of India,525,0.38,6,forfeit,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3718,kerala,2021,105,AMBALAPUZHA,Subaida,parties.IN.SUCI,SUCI,221,0.16,7,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3805,kerala,2021,106,KUTTANAD,THOMAS K THOMAS,parties.IN.NCP,NCP,57379,45.67,1,won,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3805,kerala,2021,106,KUTTANAD,Adv. JACOB ABRAHAM,parties.IN.KEC,KEC,51863,41.28,2,lost,U,64,Graduate Professional,Lawyer,crossover,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3805,kerala,2021,106,KUTTANAD,THAMPI METTUTHARA,parties.IN.BDJS,BDJS,14946,11.9,3,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3805,kerala,2021,106,KUTTANAD,Dr. VINU,,Democratic Social Justice Party,533,0.42,4,forfeit,U,44,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3805,kerala,2021,106,KUTTANAD,Dr. VINU,parties.IN.UNK,Democratic Social Justice Party,533,0.42,4,forfeit,U,44,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3805,kerala,2021,106,KUTTANAD,BIJU XAVIER,parties.IN.SUCI,SUCI,392,0.31,6,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3721,kerala,2021,107,HARIPAD,RAMESH CHENNITHALA,parties.IN.INC,INC,72768,48.31,1,won,U,64,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3721,kerala,2021,107,HARIPAD,Adv. R. SAJILAL,parties.IN.CPI,CPI,59102,39.24,2,lost,U,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
@@ -737,14 +737,14 @@ IN-AC-2008-kerala-3802,kerala,2021,110,CHENGANNUR,M. MURALI,parties.IN.INC,INC,3
 IN-AC-2008-kerala-3802,kerala,2021,110,CHENGANNUR,M. V. GOPAKUMAR,parties.IN.BJP,BJP,34620,23.52,3,lost,U,48,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3802,kerala,2021,110,CHENGANNUR,SHAJI T. GEORGE,parties.IN.BSP,BSP,534,0.36,4,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3802,kerala,2021,110,CHENGANNUR,T. K. GOPINATHAN,parties.IN.SUCI,SUCI,316,0.21,6,forfeit,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3802,kerala,2021,110,CHENGANNUR,MELVIN. K. MATHEW,,Democratic Social Justice Party,198,0.13,7,forfeit,U,36,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3802,kerala,2021,110,CHENGANNUR,MELVIN. K. MATHEW,parties.IN.UNK,Democratic Social Justice Party,198,0.13,7,forfeit,U,36,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3802,kerala,2021,110,CHENGANNUR,POULOSE,parties.IN.IND,IND,101,0.07,8,forfeit,U,85,Graduate Professional,Ex Military,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3821,kerala,2021,111,THIRUVALLA,Adv. MATHEW T THOMAS,parties.IN.JDS,JD(S),62178,44.56,1,won,U,59,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3821,kerala,2021,111,THIRUVALLA,KUNJU KOSHY PAUL,parties.IN.KEC,KEC,50757,36.37,2,lost,U,61,12th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3821,kerala,2021,111,THIRUVALLA,ASHOKAN KULANADA,parties.IN.BJP,BJP,22674,16.25,3,forfeit,U,56,Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3821,kerala,2021,111,THIRUVALLA,Adv. THOMAS MATHEW (ROY),parties.IN.IND,IND,1461,1.05,4,forfeit,U,69,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3821,kerala,2021,111,THIRUVALLA,RAJENDRADAS,parties.IN.BSP,BSP,1074,0.77,5,forfeit,U,54,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3821,kerala,2021,111,THIRUVALLA,VINOD KUMAR,,Democratic Social Justice Party,380,0.27,7,forfeit,U,47,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3821,kerala,2021,111,THIRUVALLA,VINOD KUMAR,parties.IN.UNK,Democratic Social Justice Party,380,0.27,7,forfeit,U,47,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3821,kerala,2021,111,THIRUVALLA,SURENDRAN KOTTOORATHIL,parties.IN.IND,IND,216,0.15,8,forfeit,U,59,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3821,kerala,2021,111,THIRUVALLA,K .P YESUDAS,parties.IN.IND,IND,196,0.14,9,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3820,kerala,2021,112,RANNI,Adv. Pramod Narayan,parties.IN.KECM,KEC(M),52669,41.22,1,won,U,44,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -762,13 +762,13 @@ IN-AC-2008-kerala-3816,kerala,2021,113,ARANMULA,BIJU MATHEW,parties.IN.BJP,BJP,2
 IN-AC-2008-kerala-3816,kerala,2021,113,ARANMULA,SIVADASAN NAIR S/o RAGHAVAN NAIR,parties.IN.IND,IND,629,0.39,4,forfeit,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3816,kerala,2021,113,ARANMULA,OMALLOOR RAMACHANDRAN,parties.IN.AMBEDKARITE_PARTY_OF_INDIA,Ambedkarite Party of India,236,0.15,6,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3816,kerala,2021,113,ARANMULA,PRASANTH ARANMULA,parties.IN.IND,IND,143,0.09,7,forfeit,U,40,Graduate,Ex Military,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3816,kerala,2021,113,ARANMULA,SANTHI OMALLOOR,,Anna Democratic Human Rights Movement Party of India,133,0.08,8,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3816,kerala,2021,113,ARANMULA,SANTHI OMALLOOR,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,133,0.08,8,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3816,kerala,2021,113,ARANMULA,G. SUGATHAN,parties.IN.IND,IND,87,0.05,9,forfeit,U,65,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3816,kerala,2021,113,ARANMULA,ARJUNAN C. K,parties.IN.IND,IND,67,0.04,10,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3818,kerala,2021,114,KONNI,Adv. K.U JENISH KUMAR,parties.IN.CPIM,CPM,62318,41.62,1,won,U,37,Graduate Professional,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3818,kerala,2021,114,KONNI,ROBIN PETER,parties.IN.INC,INC,53810,35.94,2,lost,U,50,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3818,kerala,2021,114,KONNI,K. SURENDRAN,parties.IN.BJP,BJP,32811,21.91,3,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3818,kerala,2021,114,KONNI,RAGHU P,,Anna Democratic Human Rights Movement Party of India,214,0.14,5,forfeit,U,43,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3818,kerala,2021,114,KONNI,RAGHU P,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,214,0.14,5,forfeit,U,43,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3818,kerala,2021,114,KONNI,SUKU BALAN,parties.IN.AMBEDKARITE_PARTY_OF_INDIA,Ambedkarite Party of India,122,0.08,6,forfeit,U,52,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3818,kerala,2021,114,KONNI,MANOHARAN,parties.IN.IND,IND,75,0.05,7,forfeit,U,48,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3815,kerala,2021,115,ADOOR,Chittayam Gopakumar,parties.IN.CPI,CPI,66569,42.83,1,won,U,55,12th Pass,,incumbent,src-1b7bc1c9d39a
@@ -777,13 +777,13 @@ IN-AC-2008-kerala-3815,kerala,2021,115,ADOOR,Adv. Pandalam Prathapan,parties.IN.
 IN-AC-2008-kerala-3815,kerala,2021,115,ADOOR,R. Kannan S/o Rajan,parties.IN.IND,IND,218,0.14,5,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3815,kerala,2021,115,ADOOR,Vipin Kanikonathu,parties.IN.BSP,BSP,178,0.11,6,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3815,kerala,2021,115,ADOOR,Saranyaraj,parties.IN.SUCI,SUCI,127,0.08,7,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3815,kerala,2021,115,ADOOR,Rajankulakkada,,Anna Democratic Human Rights Movement Party of India,95,0.06,8,forfeit,U,48,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3815,kerala,2021,115,ADOOR,Rajankulakkada,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,95,0.06,8,forfeit,U,48,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3722,kerala,2021,116,KARUNAGAPPALLY,C. R Mahesh,parties.IN.INC,INC,94225,54.38,1,won,U,42,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3722,kerala,2021,116,KARUNAGAPPALLY,R. Ramachandran,parties.IN.CPI,CPI,65017,37.52,2,lost,U,68,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3722,kerala,2021,116,KARUNAGAPPALLY,Bitty Sudheer,parties.IN.BJP,BJP,12144,7.01,3,forfeit,U,39,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3722,kerala,2021,116,KARUNAGAPPALLY,Adv. Sumayya Najeeb,parties.IN.SDPI,SDPI,1037,0.6,4,forfeit,U,37,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3722,kerala,2021,116,KARUNAGAPPALLY,Bhargavan S,parties.IN.SUCI,SUCI,283,0.16,6,forfeit,U,55,12th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3722,kerala,2021,116,KARUNAGAPPALLY,Madhu,,Anna Democratic Human Rights Movement Party of India,128,0.07,7,forfeit,U,48,8th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3722,kerala,2021,116,KARUNAGAPPALLY,Madhu,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,128,0.07,7,forfeit,U,48,8th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3775,kerala,2021,117,CHAVARA,Dr.SUJITH VIJAYANPILLAI,parties.IN.IND,IND,63282,44.29,1,won,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3775,kerala,2021,117,CHAVARA,SHIBU BABY JOHN,parties.IN.RSP,RSP,62186,43.52,2,lost,U,57,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3775,kerala,2021,117,CHAVARA,VIVEK GOPAN,parties.IN.BJP,BJP,14211,9.95,3,forfeit,U,37,12th Pass,Actor,challenger,src-1b7bc1c9d39a
@@ -795,65 +795,65 @@ IN-AC-2008-kerala-3804,kerala,2021,118,KUNNATHUR,ULLAS KOVOOR,parties.IN.RSP,RSP
 IN-AC-2008-kerala-3804,kerala,2021,118,KUNNATHUR,RAJIPRASAD,parties.IN.BJP,BJP,21760,13.52,3,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3804,kerala,2021,118,KUNNATHUR,R.S. ANJU,parties.IN.BSP,BSP,946,0.59,4,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3804,kerala,2021,118,KUNNATHUR,MANTHARA VELAYUDHAN,parties.IN.IND,IND,623,0.39,6,forfeit,U,50,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3804,kerala,2021,118,KUNNATHUR,R. SUKUMARAN,,Anna Democratic Human Rights Movement Party of India,326,0.2,7,forfeit,U,64,10th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3804,kerala,2021,118,KUNNATHUR,R. SUKUMARAN,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,326,0.2,7,forfeit,U,64,10th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3804,kerala,2021,118,KUNNATHUR,ARUNKUMAR S ULIYACOVIL,parties.IN.IND,IND,325,0.2,8,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3803,kerala,2021,119,KOTTARAKKARA,K N BALAGOPAL,parties.IN.CPIM,CPM,68770,45.98,1,won,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3803,kerala,2021,119,KOTTARAKKARA,R RESMI,parties.IN.INC,INC,57956,38.75,2,lost,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3803,kerala,2021,119,KOTTARAKKARA,Adv. VAYAKKAL SOMAN,parties.IN.BJP,BJP,21223,14.19,3,forfeit,U,46,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3803,kerala,2021,119,KOTTARAKKARA,USHA KOTTARAKKARA,,Anna Democratic Human Rights Movement Party of India,460,0.31,5,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3803,kerala,2021,119,KOTTARAKKARA,USHA KOTTARAKKARA,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,460,0.31,5,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3803,kerala,2021,119,KOTTARAKKARA,MATHEWS K LUKOSE,parties.IN.IND,IND,136,0.09,6,forfeit,U,47,Others,Journalist or Editor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3803,kerala,2021,119,KOTTARAKKARA,LAL VISWAN,parties.IN.IND,IND,103,0.07,7,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3803,kerala,2021,119,KOTTARAKKARA,V VENUGOPAL,,Democratic Social Justice Party,96,0.06,8,forfeit,U,57,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3803,kerala,2021,119,KOTTARAKKARA,V VENUGOPAL,parties.IN.UNK,Democratic Social Justice Party,96,0.06,8,forfeit,U,57,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3803,kerala,2021,119,KOTTARAKKARA,EYYAMKODU MANIKUTTAN,parties.IN.IND,IND,90,0.06,9,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3803,kerala,2021,119,KOTTARAKKARA,E. KUNJUMON,parties.IN.SUCI,SUCI,87,0.06,10,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3803,kerala,2021,119,KOTTARAKKARA,JAINEENDRAN T,parties.IN.SHS,SHS,57,0.04,11,forfeit,U,46,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3807,kerala,2021,120,PATHANAPURAM,K.B. GANESH KUMAR,,KEC(B),67276,49.09,1,won,U,54,12th Pass,Actor,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3807,kerala,2021,120,PATHANAPURAM,K.B. GANESH KUMAR,parties.IN.UNK,KEC(B),67276,49.09,1,won,U,54,12th Pass,Actor,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3807,kerala,2021,120,PATHANAPURAM,JYOTHIKUMAR CHAMAKKALA,parties.IN.INC,INC,52940,38.63,2,lost,U,48,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3807,kerala,2021,120,PATHANAPURAM,V.S. JITHIN DEV,parties.IN.BJP,BJP,12398,9.05,3,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3807,kerala,2021,120,PATHANAPURAM,P. KRISHNAMMAL,,Marxist Communist Party of India (United),2091,1.53,4,forfeit,U,71,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3807,kerala,2021,120,PATHANAPURAM,P. KRISHNAMMAL,parties.IN.UNK,Marxist Communist Party of India (United),2091,1.53,4,forfeit,U,71,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3807,kerala,2021,120,PATHANAPURAM,ADV. FAIZY. M. PASHA,parties.IN.SDPI,SDPI,1192,0.87,5,forfeit,U,35,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3807,kerala,2021,120,PATHANAPURAM,BAIJU PATHANAPURAM,,Anna Democratic Human Rights Movement Party of India,411,0.3,7,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3807,kerala,2021,120,PATHANAPURAM,BAIJU PATHANAPURAM,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,411,0.3,7,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3807,kerala,2021,120,PATHANAPURAM,AJI KADASSERY,parties.IN.IND,IND,254,0.19,8,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3779,kerala,2021,121,PUNALUR,P S SUPAL,parties.IN.CPI,CPI,80428,54.99,1,won,U,51,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3779,kerala,2021,121,PUNALUR,ABDURAHIMAN RANDATHANI,parties.IN.IUML,IUML,43371,29.66,2,lost,U,60,10th Pass,Ex MLA,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3779,kerala,2021,121,PUNALUR,AYOOR MURALI,parties.IN.BJP,BJP,20069,13.72,3,forfeit,U,60,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3779,kerala,2021,121,PUNALUR,SHIBU M SKARIA,parties.IN.IND,IND,617,0.42,5,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3779,kerala,2021,121,PUNALUR,PRAKASH ANCHAL,,Anna Democratic Human Rights Movement Party of India,407,0.28,6,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3779,kerala,2021,121,PUNALUR,PRAKASH ANCHAL,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,407,0.28,6,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3779,kerala,2021,121,PUNALUR,K MAHESH,parties.IN.SUCI,SUCI,407,0.28,7,forfeit,U,43,12th Pass,Musician or Artist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3779,kerala,2021,121,PUNALUR,THENMALA NAGARAJAN,parties.IN.IND,IND,264,0.18,8,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3773,kerala,2021,122,CHADAYAMANGALAM,J.Chinchurani,parties.IN.CPI,CPI,67252,45.69,1,won,U,58,10th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3773,kerala,2021,122,CHADAYAMANGALAM,M.M.Naseer,parties.IN.INC,INC,53574,36.4,2,lost,U,53,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3773,kerala,2021,122,CHADAYAMANGALAM,Vishnu Pattathanam,parties.IN.BJP,BJP,22238,15.11,3,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3773,kerala,2021,122,CHADAYAMANGALAM,Sharafath Mallam,parties.IN.SDPI,SDPI,1879,1.28,4,forfeit,U,40,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3773,kerala,2021,122,CHADAYAMANGALAM,Archana Prajith,,Welfare Party Of India,605,0.41,6,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3773,kerala,2021,122,CHADAYAMANGALAM,Archana Prajith,parties.IN.UNK,Welfare Party Of India,605,0.41,6,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3773,kerala,2021,122,CHADAYAMANGALAM,Lalu,parties.IN.BSP,BSP,406,0.28,7,forfeit,U,36,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3773,kerala,2021,122,CHADAYAMANGALAM,Ratheesh Kadakkal,,Anna Democratic Human Rights Movement Party of India,280,0.19,8,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3773,kerala,2021,122,CHADAYAMANGALAM,Ratheesh Kadakkal,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,280,0.19,8,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3773,kerala,2021,122,CHADAYAMANGALAM,Shibu.K.Chadayamangalam,parties.IN.IND,IND,258,0.18,9,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3778,kerala,2021,123,KUNDARA,P.C.Vishnunadh,parties.IN.INC,INC,76405,48.85,1,won,U,43,Graduate,Ex MLA,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3778,kerala,2021,123,KUNDARA,J.Mercykutty Amma,parties.IN.CPIM,CPM,71882,45.96,2,lost,U,65,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3778,kerala,2021,123,KUNDARA,Vanaja Vidyadharan,parties.IN.BDJS,BDJS,6100,3.9,3,forfeit,U,49,10th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3778,kerala,2021,123,KUNDARA,R.Rahul,parties.IN.SUCI,SUCI,457,0.29,5,forfeit,U,28,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3778,kerala,2021,123,KUNDARA,Santhosh Adooran,parties.IN.IND,IND,260,0.17,6,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3778,kerala,2021,123,KUNDARA,Sibu Karamcodu,,Anna Democratic Human Rights Movement Party of India,229,0.15,7,forfeit,U,34,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3778,kerala,2021,123,KUNDARA,Shiju M Varghese,,Democratic Social Justice Party,186,0.12,8,forfeit,U,48,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3778,kerala,2021,123,KUNDARA,Sibu Karamcodu,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,229,0.15,7,forfeit,U,34,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3778,kerala,2021,123,KUNDARA,Shiju M Varghese,parties.IN.UNK,Democratic Social Justice Party,186,0.12,8,forfeit,U,48,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3778,kerala,2021,123,KUNDARA,Vinod Bahuleyan,parties.IN.RJD,RJD,172,0.11,9,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3777,kerala,2021,124,KOLLAM,M Mukesh,parties.IN.CPIM,CPM,58524,44.86,1,won,U,64,Graduate,Actor,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3777,kerala,2021,124,KOLLAM,Adv. BINDHU KRISHNA,parties.IN.INC,INC,56452,43.27,2,lost,U,48,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3777,kerala,2021,124,KOLLAM,Sunil M,parties.IN.BJP,BJP,14252,10.93,3,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3777,kerala,2021,124,KOLLAM,REMANAN,parties.IN.BSP,BSP,290,0.22,5,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3777,kerala,2021,124,KOLLAM,BABY S,,Anna Democratic Human Rights Movement Party of India,183,0.14,6,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3777,kerala,2021,124,KOLLAM,BABY S,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,183,0.14,6,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3776,kerala,2021,125,ERAVIPURAM,M. Noushad,parties.IN.CPIM,CPM,71573,56.25,1,won,U,56,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3776,kerala,2021,125,ERAVIPURAM,Babudivakaran,parties.IN.RSP,RSP,43452,34.15,2,lost,U,68,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3776,kerala,2021,125,ERAVIPURAM,Renjith Ravindran,parties.IN.BDJS,BDJS,8468,6.66,3,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3776,kerala,2021,125,ERAVIPURAM,Ayathil Riyas,parties.IN.SDPI,SDPI,1444,1.13,4,forfeit,U,38,10th Pass,Trader,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3776,kerala,2021,125,ERAVIPURAM,Mohanan Mayyanad,parties.IN.BSP,BSP,543,0.43,6,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3776,kerala,2021,125,ERAVIPURAM,M. Unnikrishnan,,Anna Democratic Human Rights Movement Party of India,430,0.34,7,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3776,kerala,2021,125,ERAVIPURAM,M. Unnikrishnan,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,430,0.34,7,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3776,kerala,2021,125,ERAVIPURAM,S. Sudhilal,parties.IN.SUCI,SUCI,213,0.17,8,forfeit,U,66,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3776,kerala,2021,125,ERAVIPURAM,N. Shihabudeen,parties.IN.IND,IND,187,0.15,9,forfeit,U,57,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3774,kerala,2021,126,CHATHANNUR,G.S. JAYALAL,parties.IN.CPI,CPI,59296,43.12,1,won,U,48,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3774,kerala,2021,126,CHATHANNUR,B. B. GOPAKUMAR,parties.IN.BJP,BJP,42090,30.61,2,lost,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3774,kerala,2021,126,CHATHANNUR,N. PEETHAMBARAKURUP,parties.IN.INC,INC,34280,24.93,3,lost,U,78,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3774,kerala,2021,126,CHATHANNUR,SHANMUGHAN PARAVUR,,Anna Democratic Human Rights Movement Party of India,524,0.38,5,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3774,kerala,2021,126,CHATHANNUR,SHANMUGHAN PARAVUR,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,524,0.38,5,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3774,kerala,2021,126,CHATHANNUR,SUNU BHASKARAN,parties.IN.BSP,BSP,364,0.26,6,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3774,kerala,2021,126,CHATHANNUR,SETHU,parties.IN.IND,IND,172,0.13,7,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3774,kerala,2021,126,CHATHANNUR,VARINJAM RAJEEV,parties.IN.IND,IND,135,0.1,8,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -862,19 +862,19 @@ IN-AC-2008-kerala-3737,kerala,2021,127,VARKALA,Adv. BRM Shafeer,parties.IN.INC,I
 IN-AC-2008-kerala-3737,kerala,2021,127,VARKALA,Aji S,parties.IN.BDJS,BDJS,11214,8.29,3,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3737,kerala,2021,127,VARKALA,Anu M.C,parties.IN.BSP,BSP,1948,1.44,4,forfeit,U,25,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3737,kerala,2021,127,VARKALA,Prince,parties.IN.IND,IND,658,0.49,6,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3737,kerala,2021,127,VARKALA,Anilkumar P,,Democratic Human Rights Movement Party,460,0.34,7,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3737,kerala,2021,127,VARKALA,Anilkumar P,parties.IN.UNK,Democratic Human Rights Movement Party,460,0.34,7,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3737,kerala,2021,127,VARKALA,Shefeer,parties.IN.IND,IND,323,0.24,8,forfeit,U,38,8th Pass,Auto-rickshaw Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3732,kerala,2021,128,ATTINGAL,O S AMBIKA,parties.IN.CPIM,CPM,69898,47.35,1,won,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3732,kerala,2021,128,ATTINGAL,ADV. P SUDHEER,parties.IN.BJP,BJP,38262,25.92,2,lost,U,39,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3732,kerala,2021,128,ATTINGAL,ADV. A SREEDHARAN,parties.IN.RSP,RSP,36938,25.02,3,lost,U,69,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3732,kerala,2021,128,ATTINGAL,VIPINLAL VIDHYADHARAN,parties.IN.BSP,BSP,927,0.63,5,forfeit,U,32,Post Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3732,kerala,2021,128,ATTINGAL,ASHA PRAKASH,,Anna Democratic Human Rights Movement Party of India,339,0.23,6,forfeit,U,29,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3732,kerala,2021,128,ATTINGAL,ASHA PRAKASH,parties.IN.UNK,Anna Democratic Human Rights Movement Party of India,339,0.23,6,forfeit,U,29,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3732,kerala,2021,128,ATTINGAL,AMBILI,parties.IN.IND,IND,191,0.13,7,forfeit,U,46,10th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3733,kerala,2021,129,CHIRAYINKEEZHU,V. Sasi,parties.IN.CPI,CPI,62634,43.17,1,won,U,70,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3733,kerala,2021,129,CHIRAYINKEEZHU,B. S. Anoop,parties.IN.INC,INC,48617,33.51,2,lost,U,35,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3733,kerala,2021,129,CHIRAYINKEEZHU,Ashanath G. S,parties.IN.BJP,BJP,30986,21.36,3,lost,U,32,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3733,kerala,2021,129,CHIRAYINKEEZHU,Anil Mangalapuram,parties.IN.BSP,BSP,1097,0.76,4,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3733,kerala,2021,129,CHIRAYINKEEZHU,Advocate G. Anil Kumar,,Welfare Party Of India,616,0.42,6,forfeit,U,52,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3733,kerala,2021,129,CHIRAYINKEEZHU,Advocate G. Anil Kumar,parties.IN.UNK,Welfare Party Of India,616,0.42,6,forfeit,U,52,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3733,kerala,2021,129,CHIRAYINKEEZHU,Anoop Gangan,parties.IN.IND,IND,372,0.26,7,forfeit,U,25,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3735,kerala,2021,130,NEDUMANGAD,Adv. G. R. ANIL,parties.IN.CPI,CPI,72742,47.54,1,won,U,58,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3735,kerala,2021,130,NEDUMANGAD,P. S. PRASANTH,parties.IN.INC,INC,49433,32.31,2,lost,U,43,Graduate Professional,School Teacher,challenger,src-1b7bc1c9d39a
@@ -908,7 +908,7 @@ IN-AC-2008-kerala-3835,kerala,2021,133,VATTIYOORKAVU,Adv.V.V.RAJESH,parties.IN.B
 IN-AC-2008-kerala-3835,kerala,2021,133,VATTIYOORKAVU,Adv.VEENA.S.NAIR,parties.IN.INC,INC,35455,25.76,3,lost,U,31,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3835,kerala,2021,133,VATTIYOORKAVU,N.MURALI,parties.IN.BSP,BSP,419,0.3,5,forfeit,U,60,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3835,kerala,2021,133,VATTIYOORKAVU,A.SHYJU,parties.IN.SUCI,SUCI,201,0.15,6,forfeit,U,36,12th Pass,Activist,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3834,kerala,2021,134,THIRUVANANTHAPURAM,Adv.ANTONY RAJU,,Janadhipathiya Kerala Congress,48748,38.01,1,won,U,66,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3834,kerala,2021,134,THIRUVANANTHAPURAM,Adv.ANTONY RAJU,parties.IN.UNK,Janadhipathiya Kerala Congress,48748,38.01,1,won,U,66,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3834,kerala,2021,134,THIRUVANANTHAPURAM,V .S .Sivakumar,parties.IN.INC,INC,41659,32.49,2,lost,U,60,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3834,kerala,2021,134,THIRUVANANTHAPURAM,KRISHNAKUMAR G,parties.IN.BJP,BJP,34996,27.29,3,lost,U,53,Graduate,Actor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3834,kerala,2021,134,THIRUVANANTHAPURAM,ABHILASH VADAKKAN,parties.IN.IND,IND,436,0.34,5,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a

@@ -2,7 +2,7 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-kerala-3769,kerala,2016,1,MANJESHWAR,P B ABDUL RAZAK,parties.IN.IUML,IUML,56870,35.79,1,won,U,60,Literate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3769,kerala,2016,1,MANJESHWAR,K SURENDRAN,parties.IN.BJP,BJP,56781,35.74,2,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3769,kerala,2016,1,MANJESHWAR,ADV. C.H.KUNHAMBU,parties.IN.CPIM,CPM,42565,26.79,3,lost,U,56,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3769,kerala,2016,1,MANJESHWAR,BASHEER AHAMMAD S M,,PDP,759,0.48,4,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3769,kerala,2016,1,MANJESHWAR,BASHEER AHAMMAD S M,parties.IN.UNK,PDP,759,0.48,4,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3769,kerala,2016,1,MANJESHWAR,SUNDARA K,parties.IN.IND,IND,467,0.29,6,forfeit,U,47,8th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3769,kerala,2016,1,MANJESHWAR,RAVICHANDRA,parties.IN.BSP,BSP,365,0.23,7,forfeit,U,38,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3769,kerala,2016,1,MANJESHWAR,K P MUNEER,parties.IN.IND,IND,224,0.14,8,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -17,7 +17,7 @@ IN-AC-2008-kerala-3768,kerala,2016,2,KASARAGOD,MUNEER MUNAMBAM,parties.IN.IND,IN
 IN-AC-2008-kerala-3772,kerala,2016,3,UDMA,K KUNHIRAMAN,parties.IN.CPIM,CPM,70679,43.94,1,won,U,68,8th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3772,kerala,2016,3,UDMA,K SUDHAKARAN,parties.IN.INC,INC,66847,41.55,2,lost,U,67,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3772,kerala,2016,3,UDMA,ADV. K SHREEKANTH,parties.IN.BJP,BJP,21231,13.2,3,forfeit,U,40,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3772,kerala,2016,3,UDMA,GOPI KUTHIRAKALLU,,PDP,353,0.22,5,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3772,kerala,2016,3,UDMA,GOPI KUTHIRAKALLU,parties.IN.UNK,PDP,353,0.22,5,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3772,kerala,2016,3,UDMA,DAMODARAN P,parties.IN.IND,IND,349,0.22,6,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3772,kerala,2016,3,UDMA,MOHAMMED PAKYARA,parties.IN.SDPI,SDPI,331,0.21,7,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3772,kerala,2016,3,UDMA,SUDHAKARAN CHERUKANAM,parties.IN.IND,IND,208,0.13,8,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -28,7 +28,7 @@ IN-AC-2008-kerala-3767,kerala,2016,4,KANHANGAD,E.CHANDRASHEKARAN,parties.IN.CPI,
 IN-AC-2008-kerala-3767,kerala,2016,4,KANHANGAD,DHANYA SURESH,parties.IN.INC,INC,54547,33.84,2,lost,U,36,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3767,kerala,2016,4,KANHANGAD,M P RAGHAVAN,parties.IN.BDJS,BDJS,21104,13.09,3,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3767,kerala,2016,4,KANHANGAD,CHANDRAN PARAPPA,parties.IN.BSP,BSP,965,0.6,4,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3767,kerala,2016,4,KANHANGAD,ASSAINAR MUTTUMTHALA,,PDP,959,0.59,5,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3767,kerala,2016,4,KANHANGAD,ASSAINAR MUTTUMTHALA,parties.IN.UNK,PDP,959,0.59,5,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3767,kerala,2016,4,KANHANGAD,SAJEEVAN R,parties.IN.IND,IND,663,0.41,7,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3767,kerala,2016,4,KANHANGAD,MUHAMMED ALI V V,parties.IN.IND,IND,420,0.26,8,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3767,kerala,2016,4,KANHANGAD,KOOKKAL BALAKRISHNAN,parties.IN.IND,IND,294,0.18,9,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
@@ -82,7 +82,7 @@ IN-AC-2008-kerala-3759,kerala,2016,10,AZHIKODE,ADV. P C VIVEK,parties.IN.SUCI,SU
 IN-AC-2008-kerala-3759,kerala,2016,10,AZHIKODE,SHAJI K M THOLAMBRA,parties.IN.IND,IND,196,0.14,9,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3759,kerala,2016,10,AZHIKODE,K M SHAJI MAMBA,parties.IN.IND,IND,160,0.11,10,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3759,kerala,2016,10,AZHIKODE,PRASAD V P,parties.IN.IND,IND,87,0.06,11,forfeit,U,60,10th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3762,kerala,2016,11,KANNUR,RAMACHANDRAN KADANNAPPALLI,,C(S),54347,43.06,1,won,U,71,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3762,kerala,2016,11,KANNUR,RAMACHANDRAN KADANNAPPALLI,parties.IN.UNK,C(S),54347,43.06,1,won,U,71,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3762,kerala,2016,11,KANNUR,SATHEESAN PACHENI,parties.IN.INC,INC,53151,42.11,2,lost,U,48,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3762,kerala,2016,11,KANNUR,K.G. BABU,parties.IN.BJP,BJP,13215,10.47,3,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3762,kerala,2016,11,KANNUR,SUFIRA K P,parties.IN.SDPI,SDPI,2551,2.02,4,forfeit,U,40,10th Pass,Household,challenger,src-1b7bc1c9d39a
@@ -178,7 +178,7 @@ IN-AC-2008-kerala-3844,kerala,2016,21,KUTTIADI,RAMADAS MANALERI,parties.IN.BJP,B
 IN-AC-2008-kerala-3844,kerala,2016,21,KUTTIADI,P.C. BHASKARAN,parties.IN.WPOI,WPOI,1125,0.71,4,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3844,kerala,2016,21,KUTTIADI,SABU KAKKATTIL,parties.IN.SP,SP,860,0.54,5,forfeit,U,38,Post Graduate,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3844,kerala,2016,21,KUTTIADI,K.C. KUMARAN,parties.IN.IND,IND,220,0.14,7,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3844,kerala,2016,21,KUTTIADI,NARANATHU MUHAMMAD,,PDP,118,0.07,8,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3844,kerala,2016,21,KUTTIADI,NARANATHU MUHAMMAD,parties.IN.UNK,PDP,118,0.07,8,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3844,kerala,2016,21,KUTTIADI,PARAKKAL ABDULLA PALLIYATH,parties.IN.IND,IND,85,0.05,9,forfeit,U,67,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3844,kerala,2016,21,KUTTIADI,S.R. KHAN MANIYOOR,parties.IN.IND,IND,76,0.05,10,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3844,kerala,2016,21,KUTTIADI,PALLIYIL ABDULLA,parties.IN.IND,IND,62,0.04,11,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -197,7 +197,7 @@ IN-AC-2008-kerala-3847,kerala,2016,23,QUILANDY,K.DASAN,parties.IN.CPIM,CPM,70593
 IN-AC-2008-kerala-3847,kerala,2016,23,QUILANDY,N.SUBRAMANIAN,parties.IN.INC,INC,57224,37.24,2,lost,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3847,kerala,2016,23,QUILANDY,K. RAJINESH BABU,parties.IN.BJP,BJP,22087,14.37,3,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3847,kerala,2016,23,QUILANDY,ISMAYIL KAMMANA,parties.IN.SDPI,SDPI,798,0.52,4,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3847,kerala,2016,23,QUILANDY,RASAL M K,,PDP,703,0.46,5,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3847,kerala,2016,23,QUILANDY,RASAL M K,parties.IN.UNK,PDP,703,0.46,5,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3847,kerala,2016,23,QUILANDY,PARAPPIL BALAKRISHNAN,parties.IN.BSP,BSP,678,0.44,6,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3847,kerala,2016,23,QUILANDY,M.N.SUBRAHMANIAN KAKKUDUMBIL MEETHAL,parties.IN.IND,IND,489,0.32,8,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3847,kerala,2016,23,QUILANDY,P.K. DASAN PAZHUNTHUM KOOTTATHIL,parties.IN.IND,IND,167,0.11,9,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
@@ -233,7 +233,7 @@ IN-AC-2008-kerala-3791,kerala,2016,27,KOZHIKODE NORTH,ABDUL VAHID,parties.IN.SDP
 IN-AC-2008-kerala-3791,kerala,2016,27,KOZHIKODE NORTH,S JENNIFER,parties.IN.SUCI,SUCI,208,0.16,7,forfeit,U,31,Post Graduate,Medical Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3791,kerala,2016,27,KOZHIKODE NORTH,E PRADEEP KUMAR PEEDIKATHODI,parties.IN.IND,IND,187,0.14,8,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3791,kerala,2016,27,KOZHIKODE NORTH,T SURESH BABU KAMALADHALAM,parties.IN.IND,IND,151,0.11,9,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3791,kerala,2016,27,KOZHIKODE NORTH,ABDU SAMAD,,KLJP,122,0.09,10,forfeit,U,57,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3791,kerala,2016,27,KOZHIKODE NORTH,ABDU SAMAD,parties.IN.UNK,KLJP,122,0.09,10,forfeit,U,57,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-eci28,kerala,2016,28,KOZHIKODE SOUTH,DR. M.K.MUNEER,parties.IN.IUML,IUML,49863,43.13,1,won,U,53,Graduate Professional,Panchayat Head,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-eci28,kerala,2016,28,KOZHIKODE SOUTH,PROF.A. P. ABDUL VAHAB,parties.IN.INL,INL,43536,37.66,2,lost,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-eci28,kerala,2016,28,KOZHIKODE SOUTH,SATHEESH KUTTIYIL,parties.IN.BDJS,BDJS,19146,16.56,3,forfeit,U,63,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -277,7 +277,7 @@ IN-AC-2008-kerala-3855,kerala,2016,32,THIRUVAMBADY,GIRI PAMBANAL,parties.IN.BDJS
 IN-AC-2008-kerala-3855,kerala,2016,32,THIRUVAMBADY,RAJU PUNNAKKAL,parties.IN.WPOI,WPOI,2226,1.64,4,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3855,kerala,2016,32,THIRUVAMBADY,SIMON THONAKKARA,parties.IN.IND,IND,641,0.47,6,forfeit,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3855,kerala,2016,32,THIRUVAMBADY,T P MOHAMMED,parties.IN.SDPI,SDPI,569,0.42,7,forfeit,U,49,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3855,kerala,2016,32,THIRUVAMBADY,NOUSHAD KODIYATHOOR,,PDP,517,0.38,8,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3855,kerala,2016,32,THIRUVAMBADY,NOUSHAD KODIYATHOOR,parties.IN.UNK,PDP,517,0.38,8,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3855,kerala,2016,32,THIRUVAMBADY,SIBI VAYALIL,parties.IN.IND,IND,426,0.31,9,forfeit,U,45,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3855,kerala,2016,32,THIRUVAMBADY,C M UMMER CHOKLIYIL,parties.IN.IND,IND,77,0.06,10,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3855,kerala,2016,32,THIRUVAMBADY,UMMAR VILANGOT,parties.IN.IND,IND,65,0.05,11,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
@@ -286,7 +286,7 @@ IN-AC-2008-kerala-3794,kerala,2016,33,KONDOTTY,K.P. BEERANKUTTY,parties.IN.IND,I
 IN-AC-2008-kerala-3794,kerala,2016,33,KONDOTTY,K.RAMACHANDRAN,parties.IN.BJP,BJP,12513,8.37,3,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3794,kerala,2016,33,KONDOTTY,NAZARUDHEEN ELAMARAM,parties.IN.SDPI,SDPI,3667,2.45,4,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3794,kerala,2016,33,KONDOTTY,SALEEM VAZHAKKAD,parties.IN.WPOI,WPOI,2344,1.57,5,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3794,kerala,2016,33,KONDOTTY,ABDUL GAFFOOR VAVOOR,,PDP,566,0.38,7,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3794,kerala,2016,33,KONDOTTY,ABDUL GAFFOOR VAVOOR,parties.IN.UNK,PDP,566,0.38,7,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3794,kerala,2016,33,KONDOTTY,K.P. VEERANKUTTY,parties.IN.IND,IND,442,0.3,8,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3794,kerala,2016,33,KONDOTTY,SULFIKAR ALI AMBAL,parties.IN.IND,IND,316,0.21,9,forfeit,U,43,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3794,kerala,2016,33,KONDOTTY,KADEEJA,parties.IN.IND,IND,267,0.18,10,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -297,7 +297,7 @@ IN-AC-2008-kerala-3850,kerala,2016,34,ERANAD,K P BABURAJ MASTER THUNDATHIL,parti
 IN-AC-2008-kerala-3850,kerala,2016,34,ERANAD,ADV. UMMER CHELAKKODE,parties.IN.SP,SP,1298,0.96,4,forfeit,U,46,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3850,kerala,2016,34,ERANAD,VELAYUDHAN,parties.IN.BSP,BSP,885,0.65,5,forfeit,U,58,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3850,kerala,2016,34,ERANAD,K.T. ABDUL RAHIMAN,parties.IN.IND,IND,825,0.61,6,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3850,kerala,2016,34,ERANAD,FAROOQ CHENGARA,,PDP,536,0.39,7,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3850,kerala,2016,34,ERANAD,FAROOQ CHENGARA,parties.IN.UNK,PDP,536,0.39,7,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3850,kerala,2016,34,ERANAD,V. K. BASHEER VALLAKKAATT THODI,parties.IN.IND,IND,245,0.18,9,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3850,kerala,2016,34,ERANAD,SHAHANAS,parties.IN.IND,IND,193,0.14,10,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3850,kerala,2016,34,ERANAD,P. K. BASHEER PALATTUKUYYAN,parties.IN.IND,IND,149,0.11,11,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
@@ -310,13 +310,13 @@ IN-AC-2008-kerala-3856,kerala,2016,36,WANDOOR,K.NISHANTH,parties.IN.CPIM,CPM,581
 IN-AC-2008-kerala-3856,kerala,2016,36,WANDOOR,SUNITHA MOHANDAS,parties.IN.BJP,BJP,9471,6.08,3,forfeit,U,42,10th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3856,kerala,2016,36,WANDOOR,KRISHNAN KUNIYIL,parties.IN.WPOI,WPOI,3399,2.18,4,forfeit,U,53,10th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3856,kerala,2016,36,WANDOOR,KRISHNAN ERANHIKKAL,parties.IN.SDPI,SDPI,1178,0.76,5,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3856,kerala,2016,36,WANDOOR,VELAYUDHAN VENNIYUR,,PDP,920,0.59,6,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3856,kerala,2016,36,WANDOOR,VELAYUDHAN VENNIYUR,parties.IN.UNK,PDP,920,0.59,6,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3796,kerala,2016,37,MANJERI,ADV. M UMMER,parties.IN.IUML,IUML,69779,50.22,1,won,U,62,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3796,kerala,2016,37,MANJERI,ADV. K.MOHANDAS,parties.IN.CPI,CPI,50163,36.1,2,lost,U,50,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3796,kerala,2016,37,MANJERI,ADV. C.DINESH,parties.IN.BJP,BJP,11223,8.08,3,forfeit,U,40,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3796,kerala,2016,37,MANJERI,K.A. SAVAD,parties.IN.WPOI,WPOI,2503,1.8,4,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3796,kerala,2016,37,MANJERI,DR.C.H. ASHRAF,parties.IN.SDPI,SDPI,2357,1.7,5,forfeit,U,50,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3796,kerala,2016,37,MANJERI,MOYIN BAPPU,,PDP,1121,0.81,6,forfeit,U,86,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3796,kerala,2016,37,MANJERI,MOYIN BAPPU,parties.IN.UNK,PDP,1121,0.81,6,forfeit,U,86,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3796,kerala,2016,37,MANJERI,V.M. MUSTHAFA,parties.IN.IND,IND,887,0.64,8,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3798,kerala,2016,38,PERINTHALMANNA,MANJALAMKUZHI ALI,parties.IN.IUML,IUML,70990,46.89,1,won,U,63,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3798,kerala,2016,38,PERINTHALMANNA,V.SASIKUMAR,parties.IN.CPIM,CPM,70411,46.5,2,lost,U,54,Graduate,,challenger,src-1b7bc1c9d39a
@@ -324,14 +324,14 @@ IN-AC-2008-kerala-3798,kerala,2016,38,PERINTHALMANNA,ADV. M.K. SUNIL,parties.IN.
 IN-AC-2008-kerala-3798,kerala,2016,38,PERINTHALMANNA,SALEEM MAMPAD,parties.IN.WPOI,WPOI,1757,1.16,4,forfeit,U,44,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3798,kerala,2016,38,PERINTHALMANNA,SUNIYA SIRAJ,parties.IN.SDPI,SDPI,698,0.46,5,forfeit,U,38,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3798,kerala,2016,38,PERINTHALMANNA,PALATHINGAL ABOOBACKER,parties.IN.IND,IND,671,0.44,6,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3798,kerala,2016,38,PERINTHALMANNA,SAYYID MUSTHAFA POOKOYA THANGAL,,PDP,335,0.22,8,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3798,kerala,2016,38,PERINTHALMANNA,SAYYID MUSTHAFA POOKOYA THANGAL,parties.IN.UNK,PDP,335,0.22,8,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3798,kerala,2016,38,PERINTHALMANNA,ANWAR SHAKEEL OMAR,parties.IN.IND,IND,125,0.08,9,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3797,kerala,2016,39,MANKADA,T A AHAMMED KABEER,parties.IN.IUML,IUML,69165,46.08,1,won,U,60,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3797,kerala,2016,39,MANKADA,ADV. T K RASHEED ALI,parties.IN.CPIM,CPM,67657,45.07,2,lost,U,45,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3797,kerala,2016,39,MANKADA,B RATHEESH,parties.IN.BJP,BJP,6641,4.42,3,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3797,kerala,2016,39,MANKADA,HAMEED VANIYAMBALAM,parties.IN.WPOI,WPOI,3999,2.66,4,forfeit,U,46,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3797,kerala,2016,39,MANKADA,A A RAHEEM,parties.IN.SDPI,SDPI,1456,0.97,5,forfeit,U,41,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3797,kerala,2016,39,MANKADA,O T SHIHAB,,PDP,273,0.18,7,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3797,kerala,2016,39,MANKADA,O T SHIHAB,parties.IN.UNK,PDP,273,0.18,7,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3797,kerala,2016,39,MANKADA,AHAMED KABEER MUTTENGADAN,parties.IN.IND,IND,218,0.15,8,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3797,kerala,2016,39,MANKADA,M.K AHAMMEDUL KABEER,parties.IN.IND,IND,119,0.08,9,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3797,kerala,2016,39,MANKADA,ANWAR SHAKEEL OMAR,parties.IN.IND,IND,92,0.06,10,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
@@ -340,17 +340,17 @@ IN-AC-2008-kerala-3795,kerala,2016,40,MALAPPURAM,ADV. K P SUMATHI,parties.IN.CPI
 IN-AC-2008-kerala-3795,kerala,2016,40,MALAPPURAM,BADUSHA THANGAL K.N,parties.IN.BJP,BJP,7211,5.08,3,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3795,kerala,2016,40,MALAPPURAM,E.C. AYISHA,parties.IN.WPOI,WPOI,3330,2.35,4,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3795,kerala,2016,40,MALAPPURAM,JALEEL NEELAMBRA,parties.IN.SDPI,SDPI,2444,1.72,5,forfeit,U,60,Graduate,Workshop or Small Manufacturer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3795,kerala,2016,40,MALAPPURAM,ASHRAF PULPATTA,,PDP,1550,1.09,6,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3795,kerala,2016,40,MALAPPURAM,ASHRAF PULPATTA,parties.IN.UNK,PDP,1550,1.09,6,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3800,kerala,2016,41,VENGARA,P.K. KUNHALIKKUTTY,parties.IN.IUML,IUML,72181,60.01,1,won,U,64,Graduate,Minister,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3800,kerala,2016,41,VENGARA,ADV. P.P. BASHEER,parties.IN.CPIM,CPM,34124,28.37,2,lost,U,49,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3800,kerala,2016,41,VENGARA,P.T. ALI HAJI,parties.IN.BJP,BJP,7055,5.87,3,forfeit,U,66,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3800,kerala,2016,41,VENGARA,KALLAN ABOOBACKER MASTER,parties.IN.SDPI,SDPI,3049,2.54,4,forfeit,U,48,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3800,kerala,2016,41,VENGARA,SURENDRAN KARIPPUZHA,parties.IN.WPOI,WPOI,1864,1.55,5,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3800,kerala,2016,41,VENGARA,SUBAIR SWABAHI,,PDP,1472,1.22,6,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3800,kerala,2016,41,VENGARA,SUBAIR SWABAHI,parties.IN.UNK,PDP,1472,1.22,6,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3799,kerala,2016,42,VALLIKKUNNU,ABDUL HAMEED MASTER,parties.IN.IUML,IUML,59720,43.44,1,won,U,68,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3799,kerala,2016,42,VALLIKKUNNU,ADV. O.K. THANGAL,parties.IN.INL,INL,47110,34.27,2,lost,U,53,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3799,kerala,2016,42,VALLIKKUNNU,JANACHANDRAN MASTER,parties.IN.BJP,BJP,22887,16.65,3,forfeit,U,64,Graduate Professional,Retired Teacher,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3799,kerala,2016,42,VALLIKKUNNU,NISSAR METHAR,,PDP,2975,2.16,4,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3799,kerala,2016,42,VALLIKKUNNU,NISSAR METHAR,parties.IN.UNK,PDP,2975,2.16,4,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3799,kerala,2016,42,VALLIKKUNNU,HANEEFA HAJI,parties.IN.SDPI,SDPI,2499,1.82,5,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3799,kerala,2016,42,VALLIKKUNNU,PRAVEEN KUMAR,parties.IN.BSP,BSP,705,0.51,7,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3799,kerala,2016,42,VALLIKKUNNU,ANSAS KODAKKATTAKATH,parties.IN.CPIM,CPIM,262,0.19,8,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
@@ -362,18 +362,18 @@ IN-AC-2008-kerala-3828,kerala,2016,43,TIRURANGADI,P.K ABDU RABB,parties.IN.IUML,
 IN-AC-2008-kerala-3828,kerala,2016,43,TIRURANGADI,NIYAS PULIKKALAKATH,parties.IN.IND,IND,56884,42.06,2,lost,U,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3828,kerala,2016,43,TIRURANGADI,P.V GEETHA MADHAVAN,parties.IN.BJP,BJP,8046,5.95,3,forfeit,U,61,10th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3828,kerala,2016,43,TIRURANGADI,ADV. K.C NASEER,parties.IN.SDPI,SDPI,2478,1.83,4,forfeit,U,37,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3828,kerala,2016,43,TIRURANGADI,MALIYATT ABDURAZAK HAJI,,PDP,1902,1.41,5,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3828,kerala,2016,43,TIRURANGADI,MALIYATT ABDURAZAK HAJI,parties.IN.UNK,PDP,1902,1.41,5,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3828,kerala,2016,43,TIRURANGADI,MINU MUMTHAZ,parties.IN.WPOI,WPOI,1270,0.94,6,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3828,kerala,2016,43,TIRURANGADI,NIYAS PAROLI,parties.IN.IND,IND,541,0.4,8,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3828,kerala,2016,43,TIRURANGADI,HANEEFA,parties.IN.IND,IND,294,0.22,9,forfeit,U,34,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3828,kerala,2016,43,TIRURANGADI,NIYAS THAZHATHETHIL,parties.IN.IND,IND,181,0.13,10,forfeit,U,28,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3828,kerala,2016,43,TIRURANGADI,YOONUS SALEEM POOZHITHARA,parties.IN.CPIM,CPIM,93,0.07,11,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3824,kerala,2016,44,TANUR,V ABDURAHIMAN,,NSC,64472,45.78,1,won,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3824,kerala,2016,44,TANUR,V ABDURAHIMAN,parties.IN.UNK,NSC,64472,45.78,1,won,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3824,kerala,2016,44,TANUR,ABDURAHIMAN RANDATHANI,parties.IN.IUML,IUML,59554,42.29,2,lost,U,55,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3824,kerala,2016,44,TANUR,P.R.RASMILNATH,parties.IN.BJP,BJP,11051,7.85,3,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3824,kerala,2016,44,TANUR,ASHARAF VAILATHUR,parties.IN.WPOI,WPOI,1291,0.92,4,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3824,kerala,2016,44,TANUR,K.K. MAJEED KHASIMI,parties.IN.SDPI,SDPI,1151,0.82,5,forfeit,U,42,12th Pass,Religious Teacher,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3824,kerala,2016,44,TANUR,ANWAR PANNIKKANDATHIL,,PDP,858,0.61,6,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3824,kerala,2016,44,TANUR,ANWAR PANNIKKANDATHIL,parties.IN.UNK,PDP,858,0.61,6,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3824,kerala,2016,44,TANUR,P.T. UNNI,parties.IN.IND,IND,708,0.5,7,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3824,kerala,2016,44,TANUR,V ABDURAHIMAN VAYANGATIL,parties.IN.IND,IND,672,0.48,8,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3824,kerala,2016,44,TANUR,V.ABDURAHIMAN VARIKKOTTIL,parties.IN.IND,IND,172,0.12,10,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
@@ -382,11 +382,11 @@ IN-AC-2008-kerala-3824,kerala,2016,44,TANUR,THAMI,parties.IN.IND,IND,81,0.06,12,
 IN-AC-2008-kerala-3824,kerala,2016,44,TANUR,V ABDURAHIMAN VAYARAKATH,parties.IN.IND,IND,66,0.05,13,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3824,kerala,2016,44,TANUR,ABDURAHIMAN PUTHANMALIYEKKAL,parties.IN.IND,IND,54,0.04,14,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3827,kerala,2016,45,TIRUR,C. MAMMUTTY (E),parties.IN.IUML,IUML,73432,46.85,1,won,U,56,Post Graduate,MLA,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3827,kerala,2016,45,TIRUR,GAFOOR P LILLIS,,NSC,66371,42.34,2,lost,U,46,Post Graduate,Managerial Position,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3827,kerala,2016,45,TIRUR,GAFOOR P LILLIS,parties.IN.UNK,NSC,66371,42.34,2,lost,U,46,Post Graduate,Managerial Position,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3827,kerala,2016,45,TIRUR,M.K. DEVIDASAN,parties.IN.BJP,BJP,9083,5.79,3,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3827,kerala,2016,45,TIRUR,GANESH VADERI,parties.IN.WPOI,WPOI,2001,1.28,4,forfeit,U,45,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3827,kerala,2016,45,TIRUR,IBRAHIM TIRUR,parties.IN.SDPI,SDPI,1828,1.17,5,forfeit,U,62,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3827,kerala,2016,45,TIRUR,ADV. SHAMEER PAYYANANGADI,,PDP,1276,0.81,6,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3827,kerala,2016,45,TIRUR,ADV. SHAMEER PAYYANANGADI,parties.IN.UNK,PDP,1276,0.81,6,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3827,kerala,2016,45,TIRUR,E.K. GAFOOR,parties.IN.IND,IND,791,0.5,7,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3827,kerala,2016,45,TIRUR,MAMMUTTY MUYYARIKANDI,parties.IN.IND,IND,485,0.31,9,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3827,kerala,2016,45,TIRUR,SAHADEVAN,parties.IN.IND,IND,402,0.26,10,forfeit,U,52,,Lawyer,challenger,src-1b7bc1c9d39a
@@ -396,7 +396,7 @@ IN-AC-2008-kerala-3827,kerala,2016,45,TIRUR,BAPPU VADAKKAYIL,parties.IN.IND,IND,
 IN-AC-2008-kerala-3822,kerala,2016,46,KOTTAKKAL,ABID HUSSAIN THANGAL,parties.IN.IUML,IUML,71768,48.34,1,won,U,55,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3822,kerala,2016,46,KOTTAKKAL,N.A. MUHAMMED KUTTY (MAMMOOTY),parties.IN.NCP,NCP,56726,38.21,2,lost,U,56,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3822,kerala,2016,46,KOTTAKKAL,V. UNNIKRISHNAN MASTER,parties.IN.BJP,BJP,13205,8.89,3,forfeit,U,50,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3822,kerala,2016,46,KOTTAKKAL,NEYYATHOOR KUNHIMOHAMED,,PDP,2763,1.86,4,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3822,kerala,2016,46,KOTTAKKAL,NEYYATHOOR KUNHIMOHAMED,parties.IN.UNK,PDP,2763,1.86,4,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3822,kerala,2016,46,KOTTAKKAL,K.P.O RAHMATHULLA,parties.IN.SDPI,SDPI,1719,1.16,5,forfeit,U,52,10th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3822,kerala,2016,46,KOTTAKKAL,C. MUHAMMED KUTTY,parties.IN.IND,IND,579,0.39,7,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3822,kerala,2016,46,KOTTAKKAL,VILLAN MOHAMMED KUTTY,parties.IN.IND,IND,429,0.29,8,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
@@ -407,7 +407,7 @@ IN-AC-2008-kerala-3825,kerala,2016,47,THAVANUR,DR. K.T. JALEEL,parties.IN.IND,IN
 IN-AC-2008-kerala-3825,kerala,2016,47,THAVANUR,IFTHIQUARUDHEEN. MASTER,parties.IN.INC,INC,51115,35.96,2,lost,U,37,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3825,kerala,2016,47,THAVANUR,RAVI THELATH,parties.IN.BJP,BJP,15801,11.12,3,forfeit,U,40,Graduate,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3825,kerala,2016,47,THAVANUR,P.K. JALEEL PARAKKUZHIYIL,parties.IN.SDPI,SDPI,2649,1.86,4,forfeit,U,45,8th Pass,Managerial Position,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3825,kerala,2016,47,THAVANUR,ALI KADAMPUZHA,,PDP,1077,0.76,5,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3825,kerala,2016,47,THAVANUR,ALI KADAMPUZHA,parties.IN.UNK,PDP,1077,0.76,5,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3825,kerala,2016,47,THAVANUR,MUHAMMED PONNANI,parties.IN.WPOI,WPOI,1007,0.71,6,forfeit,U,55,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3825,kerala,2016,47,THAVANUR,IFTHIKARUDHEEN P. P,parties.IN.IND,IND,601,0.42,7,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3825,kerala,2016,47,THAVANUR,APPUNNI. O.V,parties.IN.IND,IND,443,0.31,9,forfeit,U,61,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
@@ -419,7 +419,7 @@ IN-AC-2008-kerala-3823,kerala,2016,48,PONNANI,P. SREERAMAKRISHNAN,parties.IN.CPI
 IN-AC-2008-kerala-3823,kerala,2016,48,PONNANI,P.T.AJAI MOHAN,parties.IN.INC,INC,53692,37.87,2,lost,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3823,kerala,2016,48,PONNANI,K.K. SURENDRAN,parties.IN.BJP,BJP,11662,8.23,3,forfeit,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3823,kerala,2016,48,PONNANI,M.M. SHAKKIR,parties.IN.WPOI,WPOI,2048,1.44,4,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3823,kerala,2016,48,PONNANI,M. MOIDUNNI HAJI,,PDP,1857,1.31,5,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3823,kerala,2016,48,PONNANI,M. MOIDUNNI HAJI,parties.IN.UNK,PDP,1857,1.31,5,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3823,kerala,2016,48,PONNANI,ABDUL FATHAH,parties.IN.SDPI,SDPI,1659,1.17,6,forfeit,U,40,10th Pass,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3823,kerala,2016,48,PONNANI,SINDHUKUMARI P S,parties.IN.IND,IND,386,0.27,8,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3823,kerala,2016,48,PONNANI,AJAY MOHAN,parties.IN.IND,IND,240,0.17,9,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
@@ -431,7 +431,7 @@ IN-AC-2008-kerala-3826,kerala,2016,49,THRITHALA,SUBAIDA ISHAC,parties.IN.CPIM,CP
 IN-AC-2008-kerala-3826,kerala,2016,49,THRITHALA,PROF.V.T.REMA,parties.IN.BJP,BJP,14510,10.29,3,forfeit,U,58,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3826,kerala,2016,49,THRITHALA,C.P.MOHAMMEDALI,parties.IN.SDPI,SDPI,1313,0.93,4,forfeit,U,40,12th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3826,kerala,2016,49,THRITHALA,SUBAIDA,parties.IN.IND,IND,1080,0.77,5,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3826,kerala,2016,49,THRITHALA,MOIDEENKUTTY POOKKATH,,PDP,541,0.38,7,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3826,kerala,2016,49,THRITHALA,MOIDEENKUTTY POOKKATH,parties.IN.UNK,PDP,541,0.38,7,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3826,kerala,2016,49,THRITHALA,VINOD PERUMANNOOR,parties.IN.BSP,BSP,366,0.26,8,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3826,kerala,2016,49,THRITHALA,BALARAM,parties.IN.IND,IND,199,0.14,9,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3813,kerala,2016,50,PATTAMBI,MUHAMMED MUHASSIN,parties.IN.CPI,CPI,64025,45.69,1,won,U,30,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -440,7 +440,7 @@ IN-AC-2008-kerala-3813,kerala,2016,50,PATTAMBI,ADV.P. MANOJ,parties.IN.BJP,BJP,1
 IN-AC-2008-kerala-3813,kerala,2016,50,PATTAMBI,ABDUL RAOOF C,parties.IN.SDPI,SDPI,1848,1.32,4,forfeit,U,31,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3813,kerala,2016,50,PATTAMBI,M A MOIDEENKUTTY MASTER,parties.IN.WPOI,WPOI,815,0.58,5,forfeit,U,42,Graduate Professional,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3813,kerala,2016,50,PATTAMBI,MUHSIN,parties.IN.IND,IND,525,0.37,6,forfeit,U,26,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3813,kerala,2016,50,PATTAMBI,ABOOBACKER P,,PDP,422,0.3,8,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3813,kerala,2016,50,PATTAMBI,ABOOBACKER P,parties.IN.UNK,PDP,422,0.3,8,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3813,kerala,2016,50,PATTAMBI,MUHASIN,parties.IN.IND,IND,315,0.22,9,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3813,kerala,2016,50,PATTAMBI,MUHAMMED CHERUVASSERI PALLIYALIL,parties.IN.IND,IND,126,0.09,10,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3813,kerala,2016,50,PATTAMBI,MOHAMED MUSHIN P,parties.IN.IND,IND,101,0.07,11,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
@@ -528,14 +528,14 @@ IN-AC-2008-kerala-3727,kerala,2016,62,KUNNAMKULAM,A C MOIDEEN(E),parties.IN.CPIM
 IN-AC-2008-kerala-3727,kerala,2016,62,KUNNAMKULAM,C P JOHN,parties.IN.CMPKSC,CMPKSC,55492,36.77,2,lost,U,59,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3727,kerala,2016,62,KUNNAMKULAM,ANEESHKUMAR K K,parties.IN.BJP,BJP,29325,19.43,3,lost,U,37,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3727,kerala,2016,62,KUNNAMKULAM,JILEEF,parties.IN.SDPI,SDPI,1204,0.8,4,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3727,kerala,2016,62,KUNNAMKULAM,SULAIMAN,,PDP,710,0.47,5,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3727,kerala,2016,62,KUNNAMKULAM,SULAIMAN,parties.IN.UNK,PDP,710,0.47,5,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3727,kerala,2016,62,KUNNAMKULAM,SCHARIACHAN P C,parties.IN.IND,IND,267,0.18,7,forfeit,U,52,8th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3836,kerala,2016,63,GURUVAYOOR,K.V. ABDUL KHADER,parties.IN.CPIM,CPM,66088,44.76,1,won,U,52,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3836,kerala,2016,63,GURUVAYOOR,ADV. P.M. SADIQALI,parties.IN.IUML,IUML,50990,34.53,2,lost,U,45,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3836,kerala,2016,63,GURUVAYOOR,ADV. NIVEDIDA,parties.IN.BJP,BJP,25490,17.26,3,lost,U,45,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3836,kerala,2016,63,GURUVAYOOR,P.R. SIYAD,parties.IN.SDPI,SDPI,1406,0.95,4,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3836,kerala,2016,63,GURUVAYOOR,K.G.MOHANAN,parties.IN.WPOI,WPOI,1382,0.94,5,forfeit,U,58,10th Pass,Doctor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3836,kerala,2016,63,GURUVAYOOR,MUHAMMED RASHEED ARAKKAL,,PDP,915,0.62,6,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3836,kerala,2016,63,GURUVAYOOR,MUHAMMED RASHEED ARAKKAL,parties.IN.UNK,PDP,915,0.62,6,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3836,kerala,2016,63,GURUVAYOOR,C.V. PREMRAJ,parties.IN.SUCI,SUCI,314,0.21,8,forfeit,U,48,10th Pass,Painter,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3836,kerala,2016,63,GURUVAYOOR,ABDUL KHADER KUMBILAVALAPPIL,parties.IN.IND,IND,256,0.17,9,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3836,kerala,2016,63,GURUVAYOOR,SASI ANJOOR,parties.IN.IND,IND,204,0.14,10,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
@@ -544,7 +544,7 @@ IN-AC-2008-kerala-3838,kerala,2016,64,MANALUR,O.ABDU RAHIMANKUTTY,parties.IN.INC
 IN-AC-2008-kerala-3838,kerala,2016,64,MANALUR,A.N.RADHAKRISHNAN,parties.IN.BJP,BJP,37680,23.17,3,lost,U,55,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3838,kerala,2016,64,MANALUR,HUSSAIR.K.K,parties.IN.SDPI,SDPI,1180,0.73,4,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3838,kerala,2016,64,MANALUR,ABHAYAN.N.A,parties.IN.BSP,BSP,588,0.36,6,forfeit,U,39,12th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3838,kerala,2016,64,MANALUR,MOIDUTTY HAJI,,PDP,529,0.33,7,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3838,kerala,2016,64,MANALUR,MOIDUTTY HAJI,parties.IN.UNK,PDP,529,0.33,7,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3838,kerala,2016,64,MANALUR,SHAJI KURIYAN. PANANGHAT,parties.IN.IND,IND,262,0.16,8,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3838,kerala,2016,64,MANALUR,SOMAN PILLAI,parties.IN.IND,IND,132,0.08,9,forfeit,U,64,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3730,kerala,2016,65,WADAKKANCHERY,ANIL AKKARA,parties.IN.INC,INC,65535,41.02,1,won,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -556,7 +556,7 @@ IN-AC-2008-kerala-3730,kerala,2016,65,WADAKKANCHERY,ANIL,parties.IN.IND,IND,237,
 IN-AC-2008-kerala-3840,kerala,2016,66,OLLUR,ADV. K. RAJAN,parties.IN.CPI,CPI,71666,47.55,1,won,U,42,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3840,kerala,2016,66,OLLUR,M P VINCENT,parties.IN.INC,INC,58418,38.76,2,lost,U,52,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3840,kerala,2016,66,OLLUR,P.K. SANTHOSH (LALA),parties.IN.BDJS,BDJS,17694,11.74,3,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3840,kerala,2016,66,OLLUR,MAJEED MULLAKARA,,PDP,696,0.46,5,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3840,kerala,2016,66,OLLUR,MAJEED MULLAKARA,parties.IN.UNK,PDP,696,0.46,5,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3840,kerala,2016,66,OLLUR,SAJIMON MANJAMATTAM,parties.IN.CPIM,CPIM,334,0.22,6,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3840,kerala,2016,66,OLLUR,VINCENT M D. MAROTTIKKAL,parties.IN.IND,IND,279,0.19,7,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3840,kerala,2016,66,OLLUR,K. G. RAJAN,parties.IN.IND,IND,267,0.18,8,forfeit,U,63,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -566,25 +566,25 @@ IN-AC-2008-kerala-3842,kerala,2016,67,THRISSUR,PADMAJA VENUGOPAL,parties.IN.INC,
 IN-AC-2008-kerala-3842,kerala,2016,67,THRISSUR,ADV. B GOPALAKRISHNAN,parties.IN.BJP,BJP,24748,19.46,3,lost,U,53,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3842,kerala,2016,67,THRISSUR,DR. ANTONY J MALIAKAL,parties.IN.IND,IND,256,0.2,5,forfeit,U,82,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3842,kerala,2016,67,THRISSUR,P.S.UNNIKRISHNAN,parties.IN.SP,SP,226,0.18,6,forfeit,U,50,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3842,kerala,2016,67,THRISSUR,RAJI MANI,,PDP,154,0.12,7,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3842,kerala,2016,67,THRISSUR,RAJI MANI,parties.IN.UNK,PDP,154,0.12,7,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3842,kerala,2016,67,THRISSUR,S T PARAMASIVAN,parties.IN.IND,IND,153,0.12,8,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3842,kerala,2016,67,THRISSUR,M PRADEEPAN,parties.IN.SUCI,SUCI,111,0.09,9,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3842,kerala,2016,67,THRISSUR,SANTHAKUMARI K V,,IGP,74,0.06,10,forfeit,U,57,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3842,kerala,2016,67,THRISSUR,SANTHAKUMARI K V,parties.IN.UNK,IGP,74,0.06,10,forfeit,U,57,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3839,kerala,2016,68,NATTIKA,GEETHA GOPI,parties.IN.CPI,CPI,70218,46.65,1,won,U,42,12th Pass,"MLA, Party Worker",incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3839,kerala,2016,68,NATTIKA,K.V. DASAN,parties.IN.INC,INC,43441,28.86,2,lost,U,56,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3839,kerala,2016,68,NATTIKA,T.V. BABU,parties.IN.BDJS,BDJS,33650,22.36,3,lost,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3839,kerala,2016,68,NATTIKA,ARUMUGHAN SNEHATHEERAM,,PDP,534,0.35,5,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3839,kerala,2016,68,NATTIKA,ARUMUGHAN SNEHATHEERAM,parties.IN.UNK,PDP,534,0.35,5,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3839,kerala,2016,68,NATTIKA,A.K. SANTHOSH,parties.IN.BSP,BSP,530,0.35,6,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3839,kerala,2016,68,NATTIKA,T.K.PRASAD,parties.IN.IND,IND,502,0.33,7,forfeit,U,48,10th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3839,kerala,2016,68,NATTIKA,N.M. PUSHPANGADHAN,parties.IN.CPIM,CPIM,253,0.17,8,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3839,kerala,2016,68,NATTIKA,CHANDRAN VAKEEL,parties.IN.IND,IND,168,0.11,9,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3839,kerala,2016,68,NATTIKA,NINU K. B.,parties.IN.IND,IND,163,0.11,10,forfeit,U,26,12th Pass,Household,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3839,kerala,2016,68,NATTIKA,SIVADAS N,,IGP,150,0.1,11,forfeit,U,69,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3839,kerala,2016,68,NATTIKA,SIVADAS N,parties.IN.UNK,IGP,150,0.1,11,forfeit,U,69,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3741,kerala,2016,69,KAIPAMANGALAM,E T TAISON MASTER,parties.IN.CPI,CPI,66824,49.6,1,won,U,51,12th Pass,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3741,kerala,2016,69,KAIPAMANGALAM,M T MUHAMMED NAHAS,parties.IN.RSP,RSP,33384,24.78,2,lost,U,30,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3741,kerala,2016,69,KAIPAMANGALAM,UNNIKRISHNAN THASHNATH,parties.IN.BDJS,BDJS,30041,22.3,3,lost,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3741,kerala,2016,69,KAIPAMANGALAM,K K SHAJAHAN,parties.IN.WPOI,WPOI,2002,1.49,4,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3741,kerala,2016,69,KAIPAMANGALAM,ABDUL KAREEM P M,,PDP,624,0.46,5,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3741,kerala,2016,69,KAIPAMANGALAM,ABDUL KAREEM P M,parties.IN.UNK,PDP,624,0.46,5,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3741,kerala,2016,69,KAIPAMANGALAM,K H MOHAMMED RAFEEK,parties.IN.SDP,SDP,564,0.42,7,forfeit,U,45,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3741,kerala,2016,69,KAIPAMANGALAM,P A KUTTAPPAN,parties.IN.IND,IND,257,0.19,8,forfeit,U,59,5th Pass,Carpenter,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3741,kerala,2016,69,KAIPAMANGALAM,BIJU ITTITHARA,parties.IN.IND,IND,238,0.18,9,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
@@ -598,7 +598,7 @@ IN-AC-2008-kerala-3837,kerala,2016,70,IRINJALAKKUDA,AYYAPPAN MANAYKAL,parties.IN
 IN-AC-2008-kerala-3841,kerala,2016,71,PUTHUKKAD,PROF.C.RAVEENDRANATH,parties.IN.CPIM,CPM,79464,50.07,1,won,U,60,Post Graduate,Retired Teacher,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3841,kerala,2016,71,PUTHUKKAD,SUNDARAN KUNNATHULLY,parties.IN.INC,INC,40986,25.82,2,lost,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3841,kerala,2016,71,PUTHUKKAD,A NAGESH(PARAMESWARAN),parties.IN.BJP,BJP,35833,22.58,3,lost,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3841,kerala,2016,71,PUTHUKKAD,ASIF NIYAS,,PDP,519,0.33,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3841,kerala,2016,71,PUTHUKKAD,ASIF NIYAS,parties.IN.UNK,PDP,519,0.33,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3841,kerala,2016,71,PUTHUKKAD,C.V.VIJAYAN,parties.IN.IND,IND,431,0.27,6,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3841,kerala,2016,71,PUTHUKKAD,SANTHOSH POLAKULATH,parties.IN.SHS,SHS,239,0.15,7,forfeit,U,47,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3841,kerala,2016,71,PUTHUKKAD,JAYAN KONIKKARA,parties.IN.CPIM,CPIM,237,0.15,8,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
@@ -642,7 +642,7 @@ IN-AC-2008-kerala-3738,kerala,2016,76,ALUVA,LATHA GANGADHARAN,parties.IN.BJP,BJP
 IN-AC-2008-kerala-3738,kerala,2016,76,ALUVA,SAMAD P I,parties.IN.WPOI,WPOI,2031,1.38,4,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3738,kerala,2016,76,ALUVA,JOSE MAVELY,parties.IN.IND,IND,1726,1.18,5,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3738,kerala,2016,76,ALUVA,AJMAL ISMAIL,parties.IN.SDPI,SDPI,1716,1.17,6,forfeit,U,32,Graduate Professional,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3738,kerala,2016,76,ALUVA,NAZAR KODIKUTHUMALA,,PDP,480,0.33,8,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3738,kerala,2016,76,ALUVA,NAZAR KODIKUTHUMALA,parties.IN.UNK,PDP,480,0.33,8,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3738,kerala,2016,76,ALUVA,SHAMSUDHEEN C A,parties.IN.IND,IND,138,0.09,9,forfeit,U,58,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3738,kerala,2016,76,ALUVA,REJIMON,parties.IN.IND,IND,114,0.08,10,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3738,kerala,2016,76,ALUVA,A BRAHMAKUMAR,parties.IN.SUCI,SUCI,114,0.08,11,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
@@ -652,7 +652,7 @@ IN-AC-2008-kerala-3746,kerala,2016,77,KALAMASSERY,A M YOUSAF,parties.IN.CPIM,CPM
 IN-AC-2008-kerala-3746,kerala,2016,77,KALAMASSERY,V GOPAKUMAR,parties.IN.BDJS,BDJS,24244,15.65,3,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3746,kerala,2016,77,KALAMASSERY,SHAFEER MUHAMMED,parties.IN.SDPI,SDPI,1706,1.1,4,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3746,kerala,2016,77,KALAMASSERY,PREMA G PISHARADY,parties.IN.WPOI,WPOI,1391,0.9,5,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3746,kerala,2016,77,KALAMASSERY,V M ALIYAR,,PDP,634,0.41,7,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3746,kerala,2016,77,KALAMASSERY,V M ALIYAR,parties.IN.UNK,PDP,634,0.41,7,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3746,kerala,2016,77,KALAMASSERY,UNNIKRISHNAN N A,parties.IN.IND,IND,182,0.12,8,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3746,kerala,2016,77,KALAMASSERY,YUSSUF KODOPPILLY,parties.IN.IND,IND,155,0.1,9,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3746,kerala,2016,77,KALAMASSERY,P K YOUSEF PANTHALAKKODATH,parties.IN.IND,IND,155,0.1,10,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
@@ -663,7 +663,7 @@ IN-AC-2008-kerala-3748,kerala,2016,78,PARAVUR,FAIZAL,parties.IN.SDPI,SDPI,923,0.
 IN-AC-2008-kerala-3748,kerala,2016,78,PARAVUR,SIJIKUMAR K K,parties.IN.BSP,BSP,557,0.35,6,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3748,kerala,2016,78,PARAVUR,SHINSA SELVARAJ,parties.IN.IND,IND,302,0.19,7,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3748,kerala,2016,78,PARAVUR,SATHYANESAN,parties.IN.IND,IND,261,0.16,8,forfeit,U,49,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3748,kerala,2016,78,PARAVUR,JOSE THOMAS,,MCPI,200,0.12,9,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3748,kerala,2016,78,PARAVUR,JOSE THOMAS,parties.IN.UNK,MCPI,200,0.12,9,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3751,kerala,2016,79,VYPEN,S SARMA,parties.IN.CPIM,CPM,68526,52.24,1,won,U,62,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3751,kerala,2016,79,VYPEN,K R SUBHASH,parties.IN.INC,INC,49173,37.49,2,lost,U,57,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3751,kerala,2016,79,VYPEN,VAMALOCHANAN K K,parties.IN.BDJS,BDJS,10051,7.66,3,forfeit,U,67,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -671,7 +671,7 @@ IN-AC-2008-kerala-3751,kerala,2016,79,VYPEN,JYOTHIVAS PARAVUR,parties.IN.WPOI,WP
 IN-AC-2008-kerala-3751,kerala,2016,79,VYPEN,MANJULADEVI,parties.IN.CPIM,CPIM,248,0.19,6,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3751,kerala,2016,79,VYPEN,RAJEEV NAAGAN,parties.IN.APOI,APOI,231,0.18,7,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3751,kerala,2016,79,VYPEN,SUBHASH K S,parties.IN.IND,IND,217,0.17,8,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3751,kerala,2016,79,VYPEN,K D VISWANATHAN,,PDP,183,0.14,9,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3751,kerala,2016,79,VYPEN,K D VISWANATHAN,parties.IN.UNK,PDP,183,0.14,9,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3751,kerala,2016,79,VYPEN,KODICKAL SADASIVAN,parties.IN.IND,IND,136,0.1,10,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3751,kerala,2016,79,VYPEN,S D SATHEESH,parties.IN.IND,IND,88,0.07,11,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3747,kerala,2016,80,KOCHI,K J MAXY,parties.IN.CPIM,CPM,47967,38.7,1,won,U,53,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -680,7 +680,7 @@ IN-AC-2008-kerala-3747,kerala,2016,80,KOCHI,PRAVEEN DHAMODARA PRABHU,parties.IN.
 IN-AC-2008-kerala-3747,kerala,2016,80,KOCHI,K J LEENUS,parties.IN.IND,IND,7588,6.12,4,forfeit,U,63,Graduate,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3747,kerala,2016,80,KOCHI,A S MUHAMMED,parties.IN.WPOI,WPOI,2357,1.9,5,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3747,kerala,2016,80,KOCHI,SULFIKAR ALI,parties.IN.SDPI,SDPI,2108,1.7,6,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3747,kerala,2016,80,KOCHI,T P ANTONY,,PDP,386,0.31,8,forfeit,U,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3747,kerala,2016,80,KOCHI,T P ANTONY,parties.IN.UNK,PDP,386,0.31,8,forfeit,U,66,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3747,kerala,2016,80,KOCHI,JOHNY STEPHEN,parties.IN.IND,IND,180,0.15,9,forfeit,U,32,8th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3747,kerala,2016,80,KOCHI,JAYARAJ K S,parties.IN.IND,IND,172,0.14,10,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3747,kerala,2016,80,KOCHI,ABDUL SAMAD,parties.IN.IND,IND,101,0.08,11,forfeit,U,54,5th Pass,,challenger,src-1b7bc1c9d39a
@@ -689,7 +689,7 @@ IN-AC-2008-kerala-3750,kerala,2016,81,THRIPUNITHURA,K BABU,parties.IN.INC,INC,58
 IN-AC-2008-kerala-3750,kerala,2016,81,THRIPUNITHURA,PROF. THURAVOOR VISWAMBHARAN,parties.IN.BJP,BJP,29843,19.29,3,lost,U,72,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3750,kerala,2016,81,THRIPUNITHURA,T A KAMARUDHEEN,parties.IN.BSP,BSP,683,0.44,5,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3750,kerala,2016,81,THRIPUNITHURA,SUDHEER YOUSAF,parties.IN.SDPI,SDPI,594,0.38,6,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3750,kerala,2016,81,THRIPUNITHURA,PADMINI D NETTOOR,,PDP,410,0.27,7,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3750,kerala,2016,81,THRIPUNITHURA,PADMINI D NETTOOR,parties.IN.UNK,PDP,410,0.27,7,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3750,kerala,2016,81,THRIPUNITHURA,SWARAJ MANICKATHAN,parties.IN.IND,IND,394,0.25,8,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3750,kerala,2016,81,THRIPUNITHURA,SAJU KOLATTUKUDY,parties.IN.IND,IND,172,0.11,9,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3750,kerala,2016,81,THRIPUNITHURA,SUDHA M P,parties.IN.SUCI,SUCI,156,0.1,10,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
@@ -720,27 +720,27 @@ IN-AC-2008-kerala-3743,kerala,2016,84,KUNNATHUNAD,V P SAJEENDRAN,parties.IN.INC,
 IN-AC-2008-kerala-3743,kerala,2016,84,KUNNATHUNAD,ADV. SHIJI SIVAJI,parties.IN.CPIM,CPM,62766,42.32,2,lost,U,37,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3743,kerala,2016,84,KUNNATHUNAD,THURAVOOR SURESH,parties.IN.BDJS,BDJS,16459,11.1,3,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3743,kerala,2016,84,KUNNATHUNAD,N O KUTTAPPAN,parties.IN.SP,SP,1263,0.85,4,forfeit,U,59,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3743,kerala,2016,84,KUNNATHUNAD,ORNA KRISHNANKUTTY,,PDP,653,0.44,6,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3743,kerala,2016,84,KUNNATHUNAD,ORNA KRISHNANKUTTY,parties.IN.UNK,PDP,653,0.44,6,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3743,kerala,2016,84,KUNNATHUNAD,SAJEENDRAN PARAPPURATH,parties.IN.IND,IND,436,0.29,7,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3743,kerala,2016,84,KUNNATHUNAD,MANOJ,parties.IN.CPIMLL,CPI(ML)(L),116,0.08,8,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3784,kerala,2016,85,PIRAVOM,ANOOP JACOB,parties.IN.KECJ,KEC(J),73770,45.77,1,won,U,38,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3784,kerala,2016,85,PIRAVOM,M.J.JACOB,parties.IN.CPIM,CPM,67575,41.93,2,lost,U,74,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3784,kerala,2016,85,PIRAVOM,C.P.SATHYAN,parties.IN.BDJS,BDJS,17503,10.86,3,forfeit,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3784,kerala,2016,85,PIRAVOM,GIREESH,,PPGP,485,0.3,5,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3784,kerala,2016,85,PIRAVOM,GIREESH,parties.IN.UNK,PPGP,485,0.3,5,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3784,kerala,2016,85,PIRAVOM,K.O.SUDHEER,parties.IN.SUCI,SUCI,342,0.21,6,forfeit,U,45,Graduate,Hospitality,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3784,kerala,2016,85,PIRAVOM,ANOOP,parties.IN.IND,IND,298,0.18,7,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3784,kerala,2016,85,PIRAVOM,RAJAN,parties.IN.IND,IND,233,0.14,8,forfeit,U,45,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3755,kerala,2016,86,MUVATTUPUZHA,ELDHO ABRAHAM,parties.IN.CPI,CPI,70269,49.27,1,won,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3755,kerala,2016,86,MUVATTUPUZHA,JOSEPH VAZHACKAN,parties.IN.INC,INC,60894,42.7,2,lost,U,59,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3755,kerala,2016,86,MUVATTUPUZHA,ADV. P J THOMAS,parties.IN.BJP,BJP,9759,6.84,3,forfeit,U,56,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3755,kerala,2016,86,MUVATTUPUZHA,P K ABOOBACKAR THANGAL (KHAMARUDHEEN THANGAL),,PDP,512,0.36,5,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3755,kerala,2016,86,MUVATTUPUZHA,P K ABOOBACKAR THANGAL (KHAMARUDHEEN THANGAL),parties.IN.UNK,PDP,512,0.36,5,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3755,kerala,2016,86,MUVATTUPUZHA,P P MOIDEENKUNJU,parties.IN.SDPI,SDPI,426,0.3,6,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3755,kerala,2016,86,MUVATTUPUZHA,JUSTIN T D,parties.IN.IND,IND,121,0.08,7,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3754,kerala,2016,87,KOTHAMANGALAM,ANTONY JOHN,parties.IN.CPIM,CPM,65467,50.98,1,won,U,33,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3754,kerala,2016,87,KOTHAMANGALAM,CHEV. T.U.KURUVILLA,parties.IN.KECM,KEC(M),46185,35.96,2,lost,U,79,Others,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3754,kerala,2016,87,KOTHAMANGALAM,P C CYRIAC I.A.S.(RETD),parties.IN.IND,IND,12926,10.06,3,forfeit,U,73,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3754,kerala,2016,87,KOTHAMANGALAM,PROF. ANAS N A,parties.IN.SDPI,SDPI,1490,1.16,4,forfeit,U,35,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3754,kerala,2016,87,KOTHAMANGALAM,YAHIYA THANGAL,,PDP,775,0.6,6,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3754,kerala,2016,87,KOTHAMANGALAM,YAHIYA THANGAL,parties.IN.UNK,PDP,775,0.6,6,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3754,kerala,2016,87,KOTHAMANGALAM,T.K.KURUVILA THOTTATHIL,parties.IN.IND,IND,357,0.28,7,forfeit,U,70,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3754,kerala,2016,87,KOTHAMANGALAM,ADV. CHERIAN ABRAHAM,parties.IN.IND,IND,261,0.2,8,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3754,kerala,2016,87,KOTHAMANGALAM,ANTO JOHNY,parties.IN.IND,IND,163,0.13,9,forfeit,U,25,Graduate Professional,,challenger,src-1b7bc1c9d39a
@@ -749,7 +749,7 @@ IN-AC-2008-kerala-3752,kerala,2016,88,DEVIKULAM,A K MONY,parties.IN.INC,INC,4372
 IN-AC-2008-kerala-3752,kerala,2016,88,DEVIKULAM,R M DHANALAKSHMY,parties.IN.AIADMK,ADMK,11613,9.89,3,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3752,kerala,2016,88,DEVIKULAM,N CHANDRAN,parties.IN.BJP,BJP,9592,8.17,4,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3752,kerala,2016,88,DEVIKULAM,J RAJESWARY,parties.IN.IND,IND,650,0.55,6,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3752,kerala,2016,88,DEVIKULAM,RAJENDRAN R,,PDP,485,0.41,7,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3752,kerala,2016,88,DEVIKULAM,RAJENDRAN R,parties.IN.UNK,PDP,485,0.41,7,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3752,kerala,2016,88,DEVIKULAM,C K GOVINDHAN,parties.IN.IND,IND,303,0.26,8,forfeit,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3752,kerala,2016,88,DEVIKULAM,K MANIKANDAN,parties.IN.IND,IND,267,0.23,9,forfeit,U,41,12th Pass,Accountant,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3752,kerala,2016,88,DEVIKULAM,PANDIRAJ,parties.IN.IND,IND,184,0.16,10,forfeit,U,51,Post Graduate,Yoga or Meditation Teacher,challenger,src-1b7bc1c9d39a
@@ -766,7 +766,7 @@ IN-AC-2008-kerala-3757,kerala,2016,90,THODUPUZHA,ADV. ROY VARICATTU,parties.IN.I
 IN-AC-2008-kerala-3757,kerala,2016,90,THODUPUZHA,ADV. S. PRAVEEN,parties.IN.BDJS,BDJS,28845,20.37,3,lost,U,40,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3757,kerala,2016,90,THODUPUZHA,ROY ARACKAL,parties.IN.SDPI,SDPI,1294,0.91,4,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3757,kerala,2016,90,THODUPUZHA,NISHA JIMMY,parties.IN.SUCI,SUCI,811,0.57,6,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3757,kerala,2016,90,THODUPUZHA,NAJEEB KALARICKAL,,PDP,710,0.5,7,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3757,kerala,2016,90,THODUPUZHA,NAJEEB KALARICKAL,parties.IN.UNK,PDP,710,0.5,7,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3757,kerala,2016,90,THODUPUZHA,P.J. AMBILY,parties.IN.BSP,BSP,440,0.31,8,forfeit,U,44,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3757,kerala,2016,90,THODUPUZHA,SANTHOSH P K,parties.IN.IND,IND,292,0.21,9,forfeit,U,44,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3757,kerala,2016,90,THODUPUZHA,K M VEENAS,parties.IN.IND,IND,228,0.16,10,forfeit,U,65,Literate,,challenger,src-1b7bc1c9d39a
@@ -794,16 +794,16 @@ IN-AC-2008-kerala-3783,kerala,2016,93,PALA,SHAIJU PONKUNNAM,parties.IN.IND,IND,1
 IN-AC-2008-kerala-3783,kerala,2016,93,PALA,HASSAN KUNJU P S,parties.IN.IND,IND,90,0.06,8,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3783,kerala,2016,93,PALA,BABU,parties.IN.IND,IND,83,0.06,9,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3781,kerala,2016,94,KADUTHURUTHY,ADV. MONS JOSEPH,parties.IN.KECM,KEC(M),73793,58.03,1,won,U,51,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3781,kerala,2016,94,KADUTHURUTHY,SCARIA THOMAS,,KCST,31537,24.8,2,lost,U,70,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3781,kerala,2016,94,KADUTHURUTHY,SCARIA THOMAS,parties.IN.UNK,KCST,31537,24.8,2,lost,U,70,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3781,kerala,2016,94,KADUTHURUTHY,STEPHEN CHAZHIKADAN,parties.IN.KEC,KEC,17536,13.79,3,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3781,kerala,2016,94,KADUTHURUTHY,GINISH JOHN M,parties.IN.BSP,BSP,1473,1.16,5,forfeit,U,40,10th Pass,Musician or Artist,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3781,kerala,2016,94,KADUTHURUTHY,T P KUTTAPPAN KURUPPANTHARA,,KLJP,968,0.76,6,forfeit,U,63,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3781,kerala,2016,94,KADUTHURUTHY,T P KUTTAPPAN KURUPPANTHARA,parties.IN.UNK,KLJP,968,0.76,6,forfeit,U,63,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3781,kerala,2016,94,KADUTHURUTHY,RAJEEV KIDANGOOR,parties.IN.IND,IND,332,0.26,7,forfeit,U,36,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3786,kerala,2016,95,VAIKOM,C K ASHA,parties.IN.CPI,CPI,61997,46.95,1,won,U,40,Graduate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3786,kerala,2016,95,VAIKOM,ADV. A SANEESHKUMAR,parties.IN.INC,INC,37413,28.33,2,lost,U,39,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3786,kerala,2016,95,VAIKOM,N K NEELAKANDAN MASTER,parties.IN.BDJS,BDJS,30067,22.77,3,lost,U,66,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3786,kerala,2016,95,VAIKOM,K C CHANDRASEKHARAN,parties.IN.BSP,BSP,540,0.41,5,forfeit,U,51,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3786,kerala,2016,95,VAIKOM,SUBEESH SURENDRAN,,PDP,489,0.37,6,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3786,kerala,2016,95,VAIKOM,SUBEESH SURENDRAN,parties.IN.UNK,PDP,489,0.37,6,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3786,kerala,2016,95,VAIKOM,ANILA BOSE,parties.IN.SUCI,SUCI,420,0.32,7,forfeit,U,25,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3786,kerala,2016,95,VAIKOM,K C PRAKASH,parties.IN.CPIM,CPIM,204,0.15,8,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3786,kerala,2016,95,VAIKOM,KUTTAN KATTACHIRA,parties.IN.IND,IND,118,0.09,9,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
@@ -813,7 +813,7 @@ IN-AC-2008-kerala-3780,kerala,2016,96,ETTUMANOOR,A G THANKAPPAN,parties.IN.BDJS,
 IN-AC-2008-kerala-3780,kerala,2016,96,ETTUMANOOR,JOSEMON MUNDACKAL,parties.IN.IND,IND,3774,2.85,4,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3780,kerala,2016,96,ETTUMANOOR,ABDUL NAZAR,parties.IN.SDPI,SDPI,706,0.53,5,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3780,kerala,2016,96,ETTUMANOOR,ADV. C P RAJESH,parties.IN.BSP,BSP,453,0.34,7,forfeit,U,44,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3780,kerala,2016,96,ETTUMANOOR,M S NOUSHAD,,PDP,338,0.26,8,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3780,kerala,2016,96,ETTUMANOOR,M S NOUSHAD,parties.IN.UNK,PDP,338,0.26,8,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3780,kerala,2016,96,ETTUMANOOR,ASHARAJ,parties.IN.SUCI,SUCI,182,0.14,9,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3782,kerala,2016,97,KOTTAYAM,THIRUVANCHOOR RADHAKRISHNAN,parties.IN.INC,INC,73894,57.46,1,won,U,66,Graduate Professional,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3782,kerala,2016,97,KOTTAYAM,ADV. REJI SAKHARIYA,parties.IN.CPIM,CPM,40262,31.31,2,lost,U,49,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -840,7 +840,7 @@ IN-AC-2008-kerala-3801,kerala,2016,99,CHANGANASSERY,ADV. SOJAN PAVIYANOSE,partie
 IN-AC-2008-kerala-3801,kerala,2016,99,CHANGANASSERY,RAJI RAJAN,parties.IN.BSP,BSP,676,0.54,6,forfeit,U,41,10th Pass,Ex Civil Service,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3801,kerala,2016,99,CHANGANASSERY,SURESH K,parties.IN.IND,IND,596,0.47,7,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3801,kerala,2016,99,CHANGANASSERY,K N RAJAN,parties.IN.SUCI,SUCI,312,0.25,9,forfeit,U,53,8th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3801,kerala,2016,99,CHANGANASSERY,BABU VARGESE,,KCS,292,0.23,10,forfeit,U,44,Post Graduate,School Teacher,crossover,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3801,kerala,2016,99,CHANGANASSERY,BABU VARGESE,parties.IN.UNK,KCS,292,0.23,10,forfeit,U,44,Post Graduate,School Teacher,crossover,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3801,kerala,2016,99,CHANGANASSERY,KUNJUMON ABRAHAM,parties.IN.IND,IND,151,0.12,11,forfeit,U,54,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3817,kerala,2016,100,KANJIRAPPALLY,DR. N JAYARAJ,parties.IN.KECM,KEC(M),53126,38.86,1,won,U,60,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3817,kerala,2016,100,KANJIRAPPALLY,ADV. V B BINU,parties.IN.CPI,CPI,49236,36.02,2,lost,U,56,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -855,7 +855,7 @@ IN-AC-2008-kerala-3819,kerala,2016,101,POONJAR,GEORGEKUTTY AUGUSTY,parties.IN.KE
 IN-AC-2008-kerala-3819,kerala,2016,101,POONJAR,ADV. P C JOSEPH PONNATTU,parties.IN.IND,IND,22270,15.28,3,forfeit,U,66,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3819,kerala,2016,101,POONJAR,M R ULLAS,parties.IN.BDJS,BDJS,19966,13.7,4,forfeit,U,34,Graduate Professional,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3819,kerala,2016,101,POONJAR,P A ABDUL HAKKIM,parties.IN.WPOI,WPOI,804,0.55,5,forfeit,U,67,10th Pass,Retired Teacher,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3819,kerala,2016,101,POONJAR,NISHAD NADAKAL,,PDP,530,0.36,6,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3819,kerala,2016,101,POONJAR,NISHAD NADAKAL,parties.IN.UNK,PDP,530,0.36,6,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3819,kerala,2016,101,POONJAR,SAINULLAUDEEN,parties.IN.IND,IND,525,0.36,7,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3819,kerala,2016,101,POONJAR,ADV. INDULEKHA JOSEPH,parties.IN.IND,IND,397,0.27,8,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3819,kerala,2016,101,POONJAR,GEORGEKUTTY SEBASTIAN,parties.IN.IND,IND,375,0.26,9,forfeit,U,28,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -864,7 +864,7 @@ IN-AC-2008-kerala-3819,kerala,2016,101,POONJAR,SIYAM P ASHRAF,parties.IN.IND,IND
 IN-AC-2008-kerala-3819,kerala,2016,101,POONJAR,GEORGE CHACKO,parties.IN.IND,IND,166,0.11,13,forfeit,U,52,12th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3819,kerala,2016,101,POONJAR,RAJU VATTAPPARA,parties.IN.SUCI,SUCI,148,0.1,14,forfeit,U,56,8th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3819,kerala,2016,101,POONJAR,JAMES JOSEPH,parties.IN.IND,IND,143,0.1,15,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3819,kerala,2016,101,POONJAR,SANTHOSH CHENNADU,,KLJP,96,0.07,16,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3819,kerala,2016,101,POONJAR,SANTHOSH CHENNADU,parties.IN.UNK,KLJP,96,0.07,16,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3819,kerala,2016,101,POONJAR,T M SURENDRAN,parties.IN.CPIM,CPIM,94,0.06,17,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3819,kerala,2016,101,POONJAR,ABRAHAM,parties.IN.IND,IND,77,0.05,18,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3719,kerala,2016,102,AROOR,ADV.A.M.ARIFF,parties.IN.CPIM,CPM,84720,52.34,1,won,U,51,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
@@ -873,7 +873,7 @@ IN-AC-2008-kerala-3719,kerala,2016,102,AROOR,ANIYAPPAN,parties.IN.BDJS,BDJS,2775
 IN-AC-2008-kerala-3719,kerala,2016,102,AROOR,MOHAN CHACKO,parties.IN.WPOI,WPOI,761,0.47,4,forfeit,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3719,kerala,2016,102,AROOR,K.PRATHAPAN,parties.IN.SUCI,SUCI,556,0.34,6,forfeit,U,43,12th Pass,Designer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3719,kerala,2016,102,AROOR,LIYAKKATHALI,parties.IN.SDPI,SDPI,434,0.27,7,forfeit,U,45,10th Pass,Trader,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3719,kerala,2016,102,AROOR,FAIZAL,,PDP,433,0.27,8,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3719,kerala,2016,102,AROOR,FAIZAL,parties.IN.UNK,PDP,433,0.27,8,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3719,kerala,2016,102,AROOR,THURAVOOR RAJASEKHARAN,parties.IN.IND,IND,281,0.17,9,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3720,kerala,2016,103,CHERTHALA,P.THILOTHAMAN,parties.IN.CPI,CPI,81197,45.7,1,won,U,58,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3720,kerala,2016,103,CHERTHALA,ADV.S.SARATH,parties.IN.INC,INC,74001,41.65,2,lost,U,32,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
@@ -887,7 +887,7 @@ IN-AC-2008-kerala-3717,kerala,2016,104,ALAPPUZHA,DR.T.M.THOMAS ISAAC,parties.IN.
 IN-AC-2008-kerala-3717,kerala,2016,104,ALAPPUZHA,ADV.LALY VINCENT,parties.IN.INC,INC,52179,33.42,2,lost,U,55,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3717,kerala,2016,104,ALAPPUZHA,ADV.RANJITH SREENIVAS,parties.IN.BJP,BJP,18214,11.66,3,forfeit,U,40,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3717,kerala,2016,104,ALAPPUZHA,P.A.SULAIMAN KUNJU,parties.IN.SDPI,SDPI,703,0.45,5,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3717,kerala,2016,104,ALAPPUZHA,K.MUJEEB,,PDP,481,0.31,6,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3717,kerala,2016,104,ALAPPUZHA,K.MUJEEB,parties.IN.UNK,PDP,481,0.31,6,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3717,kerala,2016,104,ALAPPUZHA,K.A.VINOD,parties.IN.SUCI,SUCI,244,0.16,7,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3717,kerala,2016,104,ALAPPUZHA,PREMJI.K.P,parties.IN.IND,IND,149,0.1,8,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3717,kerala,2016,104,ALAPPUZHA,ADV.PRASANTH,parties.IN.IND,IND,113,0.07,9,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
@@ -897,7 +897,7 @@ IN-AC-2008-kerala-3718,kerala,2016,105,AMBALAPUZHA,L.P.JAYACHANDRAN,parties.IN.B
 IN-AC-2008-kerala-3718,kerala,2016,105,AMBALAPUZHA,K.S.SHAN,parties.IN.SDPI,SDPI,1622,1.22,4,forfeit,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3718,kerala,2016,105,AMBALAPUZHA,R.ARJUNAN,parties.IN.SUCI,SUCI,1439,1.08,5,forfeit,U,52,Others,Qualified Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3718,kerala,2016,105,AMBALAPUZHA,ADV.NASSAR.M.PYNGAMADO M,parties.IN.IND,IND,1053,0.79,6,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3718,kerala,2016,105,AMBALAPUZHA,A.ANSARI,,PDP,931,0.7,7,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3718,kerala,2016,105,AMBALAPUZHA,A.ANSARI,parties.IN.UNK,PDP,931,0.7,7,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3718,kerala,2016,105,AMBALAPUZHA,NASAR ARATTUPUZHA,parties.IN.WPOI,WPOI,878,0.66,8,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3718,kerala,2016,105,AMBALAPUZHA,JOSEPH KUTTIKKADAN,parties.IN.IND,IND,266,0.2,10,forfeit,U,51,10th Pass,Workshop or Small Manufacturer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3718,kerala,2016,105,AMBALAPUZHA,P.G.SUGUNAN,parties.IN.IND,IND,231,0.17,11,forfeit,U,61,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -912,7 +912,7 @@ IN-AC-2008-kerala-3805,kerala,2016,106,KUTTANAD,MOHANAN,parties.IN.IND,IND,105,0
 IN-AC-2008-kerala-3721,kerala,2016,107,HARIPAD,RAMESH CHENNITHALA,parties.IN.INC,INC,75980,51.05,1,won,U,59,Graduate,Minister,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3721,kerala,2016,107,HARIPAD,P.PRASAD,parties.IN.CPI,CPI,57359,38.54,2,lost,U,47,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3721,kerala,2016,107,HARIPAD,D.ASWANIDEV,parties.IN.BJP,BJP,12985,8.72,3,forfeit,U,50,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3721,kerala,2016,107,HARIPAD,VARKALA RAJ,,PDP,623,0.42,4,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3721,kerala,2016,107,HARIPAD,VARKALA RAJ,parties.IN.UNK,PDP,623,0.42,4,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3721,kerala,2016,107,HARIPAD,ASHABUL HAQ,parties.IN.SDPI,SDPI,512,0.34,5,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3721,kerala,2016,107,HARIPAD,C.BALAKRISHNAN,parties.IN.BSP,BSP,417,0.28,6,forfeit,U,55,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3721,kerala,2016,107,HARIPAD,SIDHARTHAN KARUVATTA,parties.IN.IND,IND,149,0.1,8,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
@@ -925,7 +925,7 @@ IN-AC-2008-kerala-3721,kerala,2016,107,HARIPAD,PRASAD UNIKKANTHARA,parties.IN.IN
 IN-AC-2008-kerala-3723,kerala,2016,108,KAYAMKULAM,ADV.U.PRATHIBHA HARI,parties.IN.CPIM,CPM,72956,46.53,1,won,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3723,kerala,2016,108,KAYAMKULAM,ADV.M.LIJU,parties.IN.INC,INC,61099,38.96,2,lost,U,36,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3723,kerala,2016,108,KAYAMKULAM,SHAJI.M.PANICKER,parties.IN.BDJS,BDJS,20000,12.75,3,forfeit,U,57,Others,Retired or Pension,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3723,kerala,2016,108,KAYAMKULAM,ADV.MUTTAM NAZAR,,PDP,1125,0.72,4,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3723,kerala,2016,108,KAYAMKULAM,ADV.MUTTAM NAZAR,parties.IN.UNK,PDP,1125,0.72,4,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3723,kerala,2016,108,KAYAMKULAM,P.MANIYAPPAN ACHARI,parties.IN.IND,IND,739,0.47,5,forfeit,U,70,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3723,kerala,2016,108,KAYAMKULAM,G.VEENA,parties.IN.IND,IND,177,0.11,7,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3723,kerala,2016,108,KAYAMKULAM,AJITH P,parties.IN.IND,IND,159,0.1,8,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -962,7 +962,7 @@ IN-AC-2008-kerala-3816,kerala,2016,113,ARANMULA,T AMRITHAKUMAR,parties.IN.BSP,BS
 IN-AC-2008-kerala-3816,kerala,2016,113,ARANMULA,SREEKANTH M VALLAKKOTTU,parties.IN.SP,SP,252,0.16,6,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3816,kerala,2016,113,ARANMULA,CHANDRAN,parties.IN.IND,IND,249,0.15,7,forfeit,U,59,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3816,kerala,2016,113,ARANMULA,ANIL KUMAR K G,parties.IN.SUCI,SUCI,217,0.13,8,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3816,kerala,2016,113,ARANMULA,HABEEB RAHMAN,,PDP,187,0.12,9,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3816,kerala,2016,113,ARANMULA,HABEEB RAHMAN,parties.IN.UNK,PDP,187,0.12,9,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3816,kerala,2016,113,ARANMULA,SHAJI MEZHUVELI,parties.IN.IND,IND,104,0.06,10,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3818,kerala,2016,114,KONNI,ADOOR PRAKASH,parties.IN.INC,INC,72800,50.81,1,won,U,60,Post Graduate,Lawyer,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3818,kerala,2016,114,KONNI,ADV. R. SANAL KUMAR,parties.IN.CPIM,CPM,52052,36.33,2,lost,U,47,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
@@ -978,18 +978,18 @@ IN-AC-2008-kerala-3815,kerala,2016,115,ADOOR,ADV P SUDHEER,parties.IN.BJP,BJP,25
 IN-AC-2008-kerala-3815,kerala,2016,115,ADOOR,JYOTHISH PERUMPULICKAL,parties.IN.SDPI,SDPI,673,0.43,4,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3815,kerala,2016,115,ADOOR,PLAVINAL SANTHOSH,parties.IN.BSP,BSP,410,0.26,6,forfeit,U,40,12th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3815,kerala,2016,115,ADOOR,AJITHA P,parties.IN.IND,IND,408,0.26,7,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3815,kerala,2016,115,ADOOR,VISHNU RAJ T,,PDP,307,0.2,8,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3815,kerala,2016,115,ADOOR,VISHNU RAJ T,parties.IN.UNK,PDP,307,0.2,8,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3722,kerala,2016,116,KARUNAGAPPALLY,R.RAMACHANDRAN,parties.IN.CPI,CPI,69902,43.06,1,won,U,63,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3722,kerala,2016,116,KARUNAGAPPALLY,C.R.MAHESH,parties.IN.INC,INC,68143,41.97,2,lost,U,37,Graduate,Activist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3722,kerala,2016,116,KARUNAGAPPALLY,V.SADASIVAN,parties.IN.BDJS,BDJS,19115,11.77,3,forfeit,U,69,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3722,kerala,2016,116,KARUNAGAPPALLY,A.K.SALAHUDHEEN,parties.IN.SDPI,SDPI,1738,1.07,4,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3722,kerala,2016,116,KARUNAGAPPALLY,MYLAKKADU SHAH,,PDP,1620,1,5,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3722,kerala,2016,116,KARUNAGAPPALLY,MYLAKKADU SHAH,parties.IN.UNK,PDP,1620,1,5,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3722,kerala,2016,116,KARUNAGAPPALLY,GOPALAKRISHNAN,parties.IN.BSP,BSP,649,0.4,6,forfeit,U,66,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3722,kerala,2016,116,KARUNAGAPPALLY,RAMACHANDRAN,parties.IN.IND,IND,594,0.37,7,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3775,kerala,2016,117,CHAVARA,N.VIJAYAN PILLAI,parties.IN.CMPKSC,CMPKSC,64666,46.8,1,won,U,65,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3775,kerala,2016,117,CHAVARA,SHIBU BABYJOHN,parties.IN.RSP,RSP,58477,42.32,2,lost,U,52,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3775,kerala,2016,117,CHAVARA,M.SUNIL,parties.IN.BJP,BJP,10276,7.44,3,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3775,kerala,2016,117,CHAVARA,SHAHUL THENGUMTHARA,,PDP,1439,1.04,4,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3775,kerala,2016,117,CHAVARA,SHAHUL THENGUMTHARA,parties.IN.UNK,PDP,1439,1.04,4,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3775,kerala,2016,117,CHAVARA,ANSAR THEVALAKKARA,parties.IN.SDPI,SDPI,1106,0.8,5,forfeit,U,32,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3775,kerala,2016,117,CHAVARA,SHIBU,parties.IN.IND,IND,427,0.31,7,forfeit,U,35,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3775,kerala,2016,117,CHAVARA,THEVALAKKARA MANOJ,parties.IN.BSP,BSP,403,0.29,8,forfeit,U,31,12th Pass,Coolie,challenger,src-1b7bc1c9d39a
@@ -1003,7 +1003,7 @@ IN-AC-2008-kerala-3804,kerala,2016,118,KUNNATHUR,ULLAS KOVUR,parties.IN.RSP,RSP,
 IN-AC-2008-kerala-3804,kerala,2016,118,KUNNATHUR,THAZHAVA SAHADEVAN,parties.IN.BDJS,BDJS,21742,13.61,3,forfeit,U,60,10th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3804,kerala,2016,118,KUNNATHUR,THULASEEDHARAN PALLICKAL,parties.IN.SDPI,SDPI,1698,1.06,4,forfeit,U,47,12th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3804,kerala,2016,118,KUNNATHUR,KUNJUMON,parties.IN.IND,IND,1516,0.95,5,forfeit,U,42,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3804,kerala,2016,118,KUNNATHUR,C.K GOPI,,PDP,1422,0.89,6,forfeit,U,66,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3804,kerala,2016,118,KUNNATHUR,C.K GOPI,parties.IN.UNK,PDP,1422,0.89,6,forfeit,U,66,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3804,kerala,2016,118,KUNNATHUR,V. REMADEVI,parties.IN.BSP,BSP,740,0.46,8,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3804,kerala,2016,118,KUNNATHUR,MANILAL M.R,parties.IN.IND,IND,718,0.45,9,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3803,kerala,2016,119,KOTTARAKKARA,ADV. P.AISHA POTTY,parties.IN.CPIM,CPM,83443,55.44,1,won,U,57,Post Graduate,,incumbent,src-1b7bc1c9d39a
@@ -1014,7 +1014,7 @@ IN-AC-2008-kerala-3803,kerala,2016,119,KOTTARAKKARA,R.SUKUMARAN,parties.IN.BSP,B
 IN-AC-2008-kerala-3803,kerala,2016,119,KOTTARAKKARA,VELIYAM SHAJI,parties.IN.SHS,SHS,325,0.22,7,forfeit,U,51,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3803,kerala,2016,119,KOTTARAKKARA,HARIPRASAD,parties.IN.IND,IND,173,0.11,8,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3803,kerala,2016,119,KOTTARAKKARA,AJAYAKUMAR THANKAPPAN,parties.IN.IND,IND,80,0.05,9,forfeit,U,54,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3807,kerala,2016,120,PATHANAPURAM,K.B. GANESH KUMAR,,KEC(B),74429,52.39,1,won,U,49,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3807,kerala,2016,120,PATHANAPURAM,K.B. GANESH KUMAR,parties.IN.UNK,KEC(B),74429,52.39,1,won,U,49,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3807,kerala,2016,120,PATHANAPURAM,P.V JAGADISH KUMAR,parties.IN.INC,INC,49867,35.1,2,lost,U,61,Post Graduate,"Actor, Film Director",challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3807,kerala,2016,120,PATHANAPURAM,REGHU DAMODHARAN (BHEEMAN REGHU),parties.IN.BJP,BJP,11700,8.24,3,forfeit,U,62,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3807,kerala,2016,120,PATHANAPURAM,ADV. FAIZY M PASHA,parties.IN.SDPI,SDPI,3843,2.71,4,forfeit,U,30,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -1035,14 +1035,14 @@ IN-AC-2008-kerala-3773,kerala,2016,122,CHADAYAMANGALAM,M.M. HASSAN,parties.IN.IN
 IN-AC-2008-kerala-3773,kerala,2016,122,CHADAYAMANGALAM,K.SIVADASAN,parties.IN.BJP,BJP,19259,13.27,3,forfeit,U,65,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3773,kerala,2016,122,CHADAYAMANGALAM,JALEEL KADAKKAL,parties.IN.SDPI,SDPI,1445,1,4,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3773,kerala,2016,122,CHADAYAMANGALAM,SAJEED KHALEEDU,parties.IN.WPOI,WPOI,1222,0.84,5,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3773,kerala,2016,122,CHADAYAMANGALAM,MUHAMMED NAJIM.S,,PDP,1098,0.76,6,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3773,kerala,2016,122,CHADAYAMANGALAM,MUHAMMED NAJIM.S,parties.IN.UNK,PDP,1098,0.76,6,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3773,kerala,2016,122,CHADAYAMANGALAM,SUNNY ITTIVA,parties.IN.IND,IND,538,0.37,8,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3773,kerala,2016,122,CHADAYAMANGALAM,SREEJITH.S,parties.IN.SHS,SHS,284,0.2,9,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3778,kerala,2016,123,KUNDARA,J.MERCY KUTTY AMMA,parties.IN.CPIM,CPM,79047,51.81,1,won,U,60,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3778,kerala,2016,123,KUNDARA,RAJMOHAN UNNITHAN,parties.IN.INC,INC,48587,31.85,2,lost,U,62,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3778,kerala,2016,123,KUNDARA,M S SYAM KUMAR,parties.IN.BJP,BJP,20257,13.28,3,forfeit,U,60,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3778,kerala,2016,123,KUNDARA,SHARAFATH MALLAM,parties.IN.SDPI,SDPI,1325,0.87,4,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3778,kerala,2016,123,KUNDARA,KABEER KUTTY.I.PUTHEZHAM,,PDP,1132,0.74,5,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3778,kerala,2016,123,KUNDARA,KABEER KUTTY.I.PUTHEZHAM,parties.IN.UNK,PDP,1132,0.74,5,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3778,kerala,2016,123,KUNDARA,S.M.JABER,parties.IN.BSP,BSP,698,0.46,6,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3778,kerala,2016,123,KUNDARA,VIJAYAKUMAR,parties.IN.IND,IND,485,0.32,8,forfeit,U,43,8th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3778,kerala,2016,123,KUNDARA,V.ANTONY,parties.IN.SUCI,SUCI,340,0.22,9,forfeit,U,56,12th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
@@ -1057,7 +1057,7 @@ IN-AC-2008-kerala-3776,kerala,2016,125,ERAVIPURAM,M. NOUSHAD,parties.IN.CPIM,CPM
 IN-AC-2008-kerala-3776,kerala,2016,125,ERAVIPURAM,A.A.AZEEZ,parties.IN.RSP,RSP,36589,29.28,2,lost,U,74,8th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3776,kerala,2016,125,ERAVIPURAM,AKKAVILA SATHEEK,parties.IN.BDJS,BDJS,19714,15.77,3,forfeit,U,59,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3776,kerala,2016,125,ERAVIPURAM,AYATHIL RAZAK,parties.IN.SDPI,SDPI,988,0.79,4,forfeit,U,60,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3776,kerala,2016,125,ERAVIPURAM,MUHAMMED ISMAIL,,PDP,643,0.51,6,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3776,kerala,2016,125,ERAVIPURAM,MUHAMMED ISMAIL,parties.IN.UNK,PDP,643,0.51,6,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3776,kerala,2016,125,ERAVIPURAM,MANOJ,parties.IN.IND,IND,463,0.37,7,forfeit,U,31,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3776,kerala,2016,125,ERAVIPURAM,VINOD B.,parties.IN.SUCI,SUCI,232,0.19,8,forfeit,U,43,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3774,kerala,2016,126,CHATHANNUR,G.S.JAYALAL,parties.IN.CPI,CPI,67606,50.76,1,won,U,43,10th Pass,,incumbent,src-1b7bc1c9d39a
@@ -1074,7 +1074,7 @@ IN-AC-2008-kerala-3737,kerala,2016,127,VARKALA,VARKALA.R. LINEES,parties.IN.BSP,
 IN-AC-2008-kerala-3737,kerala,2016,127,VARKALA,ABDUL SALAM,parties.IN.SDPI,SDPI,466,0.36,6,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3737,kerala,2016,127,VARKALA,SUNIL KUMAR.S,parties.IN.IND,IND,357,0.28,7,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3737,kerala,2016,127,VARKALA,SUDEVAN,parties.IN.IND,IND,351,0.27,8,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3737,kerala,2016,127,VARKALA,NADAYARA JABBAR,,PDP,297,0.23,9,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3737,kerala,2016,127,VARKALA,NADAYARA JABBAR,parties.IN.UNK,PDP,297,0.23,9,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3737,kerala,2016,127,VARKALA,BHASIDHARAN NAIR,parties.IN.IND,IND,138,0.11,10,forfeit,U,59,5th Pass,Auto-rickshaw Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3737,kerala,2016,127,VARKALA,SALU. R,parties.IN.IND,IND,135,0.11,11,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3737,kerala,2016,127,VARKALA,VARKALA SABESAN,parties.IN.IND,IND,126,0.1,12,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
@@ -1093,7 +1093,7 @@ IN-AC-2008-kerala-3733,kerala,2016,129,CHIRAYINKEEZHU,K.S.AJITH KUMAR,parties.IN
 IN-AC-2008-kerala-3733,kerala,2016,129,CHIRAYINKEEZHU,DR. P.P. VAVA,parties.IN.BJP,BJP,19478,14.08,3,forfeit,U,71,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3733,kerala,2016,129,CHIRAYINKEEZHU,SASI PANTHALAM,parties.IN.WPOI,WPOI,955,0.69,5,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3733,kerala,2016,129,CHIRAYINKEEZHU,SANTHINI,parties.IN.IND,IND,639,0.46,6,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3733,kerala,2016,129,CHIRAYINKEEZHU,AMBILI.V,,PDP,589,0.43,7,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3733,kerala,2016,129,CHIRAYINKEEZHU,AMBILI.V,parties.IN.UNK,PDP,589,0.43,7,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3733,kerala,2016,129,CHIRAYINKEEZHU,AJITH NANDANCODE,parties.IN.IND,IND,226,0.16,8,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3733,kerala,2016,129,CHIRAYINKEEZHU,SHIBU (ROY KORANI),parties.IN.IND,IND,206,0.15,9,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3733,kerala,2016,129,CHIRAYINKEEZHU,AJITH,parties.IN.IND,IND,133,0.1,10,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -1102,7 +1102,7 @@ IN-AC-2008-kerala-3735,kerala,2016,130,NEDUMANGAD,PALODE RAVI,parties.IN.INC,INC
 IN-AC-2008-kerala-3735,kerala,2016,130,NEDUMANGAD,ADV. V.V.RAJESH,parties.IN.BJP,BJP,35139,23.22,3,lost,U,40,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3735,kerala,2016,130,NEDUMANGAD,ABDUL SALAM.A,parties.IN.SDPI,SDPI,1039,0.69,4,forfeit,U,66,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3735,kerala,2016,130,NEDUMANGAD,BIPIN .M.I,parties.IN.BSP,BSP,910,0.6,5,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3735,kerala,2016,130,NEDUMANGAD,ANDOORKONAM SULFI,,PDP,503,0.33,7,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3735,kerala,2016,130,NEDUMANGAD,ANDOORKONAM SULFI,parties.IN.UNK,PDP,503,0.33,7,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3735,kerala,2016,130,NEDUMANGAD,SHIBU. G,parties.IN.IND,IND,318,0.21,8,forfeit,U,29,10th Pass,Truck Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3735,kerala,2016,130,NEDUMANGAD,PERINGAMMALA AJI,parties.IN.SHS,SHS,251,0.17,9,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3735,kerala,2016,130,NEDUMANGAD,SOMAN.C,parties.IN.IND,IND,217,0.14,10,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
@@ -1156,7 +1156,7 @@ IN-AC-2008-kerala-3834,kerala,2016,134,THIRUVANANTHAPURAM,SIVAKUMAR PUSHKARAN,pa
 IN-AC-2008-kerala-eci135,kerala,2016,135,NEMOM,O.RAJAGOPAL,parties.IN.BJP,BJP,67813,47.46,1,won,U,85,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-eci135,kerala,2016,135,NEMOM,V.SIVANKUTTY,parties.IN.CPIM,CPM,59142,41.39,2,lost,U,61,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-kerala-eci135,kerala,2016,135,NEMOM,V.SURENDRAN PILLAI,parties.IN.JDU,JD(U),13860,9.7,3,forfeit,U,60,Others,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-kerala-eci135,kerala,2016,135,NEMOM,A.NOUSHAD,,AKTP,406,0.28,5,forfeit,U,51,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-eci135,kerala,2016,135,NEMOM,A.NOUSHAD,parties.IN.UNK,AKTP,406,0.28,5,forfeit,U,51,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-eci135,kerala,2016,135,NEMOM,SHAMLAJA BEEVI.B,parties.IN.IND,IND,330,0.23,6,forfeit,U,37,5th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-eci135,kerala,2016,135,NEMOM,J.VIKRAMAN PACHALLOOR,parties.IN.IND,IND,170,0.12,7,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-eci135,kerala,2016,135,NEMOM,JAIN WILSON,parties.IN.IND,IND,163,0.11,8,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
@@ -1193,8 +1193,8 @@ IN-AC-2008-kerala-3830,kerala,2016,139,KOVALAM,KOVALAM T.N. SURESH,parties.IN.BD
 IN-AC-2008-kerala-3830,kerala,2016,139,KOVALAM,ADV.K.R.ANISH,parties.IN.BSP,BSP,996,0.65,4,forfeit,U,39,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3830,kerala,2016,139,KOVALAM,M.C.JAYALAL,parties.IN.IND,IND,933,0.61,5,forfeit,U,52,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3830,kerala,2016,139,KOVALAM,PRAMOD KUMAR,parties.IN.IND,IND,564,0.37,7,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3830,kerala,2016,139,KOVALAM,SARASAMMA.T,,IGP,558,0.36,8,forfeit,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3830,kerala,2016,139,KOVALAM,S. SHAJI,,AKTP,400,0.26,9,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3830,kerala,2016,139,KOVALAM,SARASAMMA.T,parties.IN.UNK,IGP,558,0.36,8,forfeit,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3830,kerala,2016,139,KOVALAM,S. SHAJI,parties.IN.UNK,AKTP,400,0.26,9,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3830,kerala,2016,139,KOVALAM,M. SUGATHAN,parties.IN.IND,IND,389,0.25,10,forfeit,U,44,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3830,kerala,2016,139,KOVALAM,SILVASTER,parties.IN.IND,IND,373,0.24,11,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3832,kerala,2016,140,NEYYATTINKARA,K.ANSALAN,parties.IN.CPIM,CPM,63559,47.2,1,won,U,59,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a

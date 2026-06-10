@@ -1,11 +1,11 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Simon Marandi,parties.IN.JMM,JMM,65551,47.28,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Hemlal Murmu,parties.IN.BJP,BJP,52651,37.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Kistu Soren,,JVM(Prajatankrik),9208,6.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Jyotish Baski,,INDEPENDENT,2190,1.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Jantu Soren,,INDEPENDENT,2033,1.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Shivcharan Malto,,INDEPENDENT,1893,1.37,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Dr. Shrilal Kisku,,INDEPENDENT,1652,1.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Kistu Soren,parties.IN.UNK,JVM(Prajatankrik),9208,6.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Jyotish Baski,parties.IN.UNK,INDEPENDENT,2190,1.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Jantu Soren,parties.IN.UNK,INDEPENDENT,2033,1.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Shivcharan Malto,parties.IN.UNK,INDEPENDENT,1893,1.37,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Dr. Shrilal Kisku,parties.IN.UNK,INDEPENDENT,1652,1.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Harishchand Hansda,parties.IN.SP,SP,1634,1.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Gupin Hembrom,,INDEPENDENT,983,0.71,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Gupin Hembrom,parties.IN.UNK,INDEPENDENT,983,0.71,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2206,jharkhand,2017,4,LITIPARA,Gayalal Dehri,parties.IN.IND,IND,848,0.61,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a

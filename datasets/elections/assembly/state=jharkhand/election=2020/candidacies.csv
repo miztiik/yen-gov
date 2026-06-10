@@ -1,14 +1,14 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,BASANT SOREN,parties.IN.JMM,JMM,80559,48.79,1,won,M,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,LOIS MARANDI,parties.IN.BJP,BJP,73717,44.65,2,lost,F,55,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,NOTA,,,3665,2.22,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,NOTA,parties.IN.UNK,,3665,2.22,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,SUNITA MURMU,parties.IN.IND,IND,1864,1.13,4,forfeit,F,33,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,DULAR MARANDI,parties.IN.AMBEDKARITE_PARTY_OF_INDIA,Ambedkarite Party of India,1498,0.91,5,forfeit,F,25,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,SANJAY TUDU,parties.IN.IND,IND,838,0.51,6,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,DR. SRILAL KISKU,parties.IN.IND,IND,609,0.37,7,forfeit,M,61,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,BABUDHAN MURMU,parties.IN.IND,IND,487,0.29,8,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,MAYKAL HEMBRAM,parties.IN.IND,IND,469,0.28,9,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,SURYA SINGH BESRA,,Jharkhand People's Party,467,0.28,10,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,SURYA SINGH BESRA,parties.IN.UNK,Jharkhand People's Party,467,0.28,10,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,MUKESH KUMAR DEHRI,parties.IN.IND,IND,371,0.22,11,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,JAGARNATH PUJHAR,parties.IN.IND,IND,354,0.21,12,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2152,jharkhand,2020,10,DUMKA,PRADIP TUDU,parties.IN.IND,IND,219,0.13,13,forfeit,M,25,,,challenger,src-1b7bc1c9d39a
@@ -17,15 +17,15 @@ IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Yogeshwar Mahto 'Batul',partie
 IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Lal Chand Mahto,parties.IN.BSP,BSP,4281,2.25,3,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Baidya Nath Mahto,parties.IN.CPI,CPI,2643,1.39,4,forfeit,M,64,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Sunita Tudu,parties.IN.IND,IND,2540,1.33,5,forfeit,F,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,NOTA,,,2108,1.11,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,NOTA,parties.IN.UNK,,2108,1.11,6,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Dwarka Prasad Lala,parties.IN.IND,IND,1439,0.76,7,forfeit,M,69,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Sameer Kumar Das,parties.IN.IND,IND,585,0.31,8,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Dinesh Kumar Munda,parties.IN.IND,IND,539,0.28,9,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Sujit Kumar Barnwal,,Right to Recall Party,402,0.21,10,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Shankar Ghasi,,Marxist Co-Ordination,385,0.2,11,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Kaleshwar Ravidas,,Republican Party of India (A),385,0.2,12,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Sujit Kumar Barnwal,parties.IN.UNK,Right to Recall Party,402,0.21,10,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Shankar Ghasi,parties.IN.UNK,Marxist Co-Ordination,385,0.2,11,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Kaleshwar Ravidas,parties.IN.UNK,Republican Party of India (A),385,0.2,12,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Kailash Chandra Mahto,parties.IN.IND,IND,315,0.17,13,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Khirodhar Kisku,parties.IN.IND,IND,309,0.16,14,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Ajay Renjan,parties.IN.IND,IND,281,0.15,15,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Baijnath Gorain,,Peoples Party of India (Democratic),277,0.15,16,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Pankaj Prasad,,Rashtriya Jansangharsh Swaraj Party,190,0.1,17,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Baijnath Gorain,parties.IN.UNK,Peoples Party of India (Democratic),277,0.15,16,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2020,35,BERMO,Pankaj Prasad,parties.IN.UNK,Rashtriya Jansangharsh Swaraj Party,190,0.1,17,forfeit,M,40,,,challenger,src-1b7bc1c9d39a

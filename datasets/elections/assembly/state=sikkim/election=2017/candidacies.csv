@@ -1,8 +1,8 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-sikkim-1376,sikkim,2017,28,UPPER BURTUK,Dr. Thapa,parties.IN.SDF,SDF,8406,90.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1376,sikkim,2017,28,UPPER BURTUK,Suresh Khanal Sharma,parties.IN.BJP,BJP,374,4.01,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1376,sikkim,2017,28,UPPER BURTUK,Shekhar Chettri,,INDEPENDENT,168,1.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1376,sikkim,2017,28,UPPER BURTUK,Nawin Kiran Pradhan,,INDEPENDENT,148,1.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1376,sikkim,2017,28,UPPER BURTUK,Shanti Kumar Basnett,,INDEPENDENT,106,1.14,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1376,sikkim,2017,28,UPPER BURTUK,Shekhar Chettri,parties.IN.UNK,INDEPENDENT,168,1.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1376,sikkim,2017,28,UPPER BURTUK,Nawin Kiran Pradhan,parties.IN.UNK,INDEPENDENT,148,1.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1376,sikkim,2017,28,UPPER BURTUK,Shanti Kumar Basnett,parties.IN.UNK,INDEPENDENT,106,1.14,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-sikkim-1376,sikkim,2017,28,UPPER BURTUK,Sumitra Rai,parties.IN.INC,INC,98,1.05,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-sikkim-1376,sikkim,2017,28,UPPER BURTUK,Wang Tashi Bhutia,,INDEPENDENT,27,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-sikkim-1376,sikkim,2017,28,UPPER BURTUK,Wang Tashi Bhutia,parties.IN.UNK,INDEPENDENT,27,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

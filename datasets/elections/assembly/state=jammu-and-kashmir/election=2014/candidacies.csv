@@ -2,16 +2,16 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2014,1,KARNAH,RAJA MANZOOR AHMAD,parties.IN.JKPDP,JKPDP,12371,47.75,1,won,U,59,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2014,1,KARNAH,KIFIL UR REHMAN KHAN,parties.IN.JKNC,JKN,6596,25.46,2,lost,U,59,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2014,1,KARNAH,ALI ASGAR KHAN,parties.IN.INC,INC,2894,11.17,3,forfeit,U,75,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2014,1,KARNAH,MOHAMMAD SALEEM MIR,,JPC,2359,9.1,4,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2014,1,KARNAH,MOHAMMAD SALEEM MIR,parties.IN.UNK,JPC,2359,9.1,4,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2014,1,KARNAH,ISHFAQ UR REHMAN,parties.IN.BJP,BJP,654,2.52,5,forfeit,U,42,12th Pass,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2014,1,KARNAH,JAHANGIR KHAN,parties.IN.JKNPP,JKNPP,453,1.75,6,forfeit,U,41,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2014,1,KARNAH,AIJAZ AHMAD BADANA,,AJKMP,339,1.31,7,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2014,2,KUPWARA,BASHIR AHMAD DAR,,JPC,24754,34.47,1,won,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-22,jammu-and-kashmir,2014,1,KARNAH,AIJAZ AHMAD BADANA,parties.IN.UNK,AJKMP,339,1.31,7,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2014,2,KUPWARA,BASHIR AHMAD DAR,parties.IN.UNK,JPC,24754,34.47,1,won,U,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2014,2,KUPWARA,MIR MOHD FAYAZ,parties.IN.JKPDP,JKPDP,24603,34.26,2,lost,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2014,2,KUPWARA,MIR SAIFULLAH,parties.IN.JKNC,JKN,17390,24.21,3,lost,U,54,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2014,2,KUPWARA,AB REHMAN LONE,parties.IN.BJP,BJP,790,1.1,4,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2014,2,KUPWARA,WALI MOHD KHAN,parties.IN.JKNPP,JKNPP,672,0.94,5,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2014,2,KUPWARA,GH HASSAN SHEIKH,,AJKMP,598,0.83,7,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2014,2,KUPWARA,GH HASSAN SHEIKH,parties.IN.UNK,AJKMP,598,0.83,7,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2014,2,KUPWARA,ADV. MOHD AMIN PEER,parties.IN.IND,IND,582,0.81,8,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2014,2,KUPWARA,GH RASOOL MALIK,parties.IN.INC,INC,561,0.78,9,forfeit,U,65,8th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2014,2,KUPWARA,JAVID AHMAD WANI,parties.IN.IND,IND,412,0.57,10,forfeit,U,38,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
@@ -21,27 +21,27 @@ IN-AC-2008-jammu-and-kashmir-23,jammu-and-kashmir,2014,2,KUPWARA,SAIFULLAH KHAN,
 IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2014,3,LOLAB,ABDUL HAQ KHAN,parties.IN.JKPDP,JKPDP,29408,41.06,1,won,U,61,Graduate Professional,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2014,3,LOLAB,QAISER JAMSHEED LONE,parties.IN.JKNC,JKN,26538,37.06,2,lost,U,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2014,3,LOLAB,HAJI FAROOQ AHMAD MIR,parties.IN.INC,INC,7629,10.65,3,forfeit,U,51,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2014,3,LOLAB,ABDUL REHMAN WANI,,JPC,3981,5.56,4,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2014,3,LOLAB,ABDUL REHMAN WANI,parties.IN.UNK,JPC,3981,5.56,4,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2014,3,LOLAB,AB RASHID ZARGAR,parties.IN.BJP,BJP,1092,1.52,6,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2014,3,LOLAB,SURIAYA BANO,parties.IN.RPI,RPI,765,1.07,7,forfeit,U,36,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2014,3,LOLAB,MOHAMMAD SULTAN MAGRAY,,AJKMP,458,0.64,8,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2014,3,LOLAB,MOHAMMAD SULTAN MAGRAY,parties.IN.UNK,AJKMP,458,0.64,8,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2014,3,LOLAB,GHULAM AHMAD MALIK,parties.IN.JKNPP,JKNPP,268,0.37,9,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-25,jammu-and-kashmir,2014,3,LOLAB,GH NABI SHAH,parties.IN.BSP,BSP,256,0.36,10,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2014,4,HANDWARA,SAJAD GANI LONE,,JPC,29355,43.19,1,won,U,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2014,4,HANDWARA,SAJAD GANI LONE,parties.IN.UNK,JPC,29355,43.19,1,won,U,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2014,4,HANDWARA,CHOWDRY MOHAMAD RAMZAN,parties.IN.JKNC,JKN,23932,35.21,2,lost,U,65,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2014,4,HANDWARA,GHULAM MOHI-UI-DIN SOFI,parties.IN.JKPDP,JKPDP,9849,14.49,3,forfeit,U,64,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2014,4,HANDWARA,MOHD YASEEN BHAT,parties.IN.INC,INC,1119,1.65,4,forfeit,U,70,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2014,4,HANDWARA,ABDUL RAHMAN TANTRY,parties.IN.IND,IND,747,1.1,6,forfeit,U,65,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2014,4,HANDWARA,SAJAD AHMAD PIR,parties.IN.BSP,BSP,492,0.72,7,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2014,4,HANDWARA,AJAZ AHMAD SOFI,parties.IN.IND,IND,397,0.58,8,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2014,4,HANDWARA,GH. QADIR MIRCHA,,AJKMP,390,0.57,9,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2014,4,HANDWARA,GH. QADIR MIRCHA,parties.IN.UNK,AJKMP,390,0.57,9,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2014,4,HANDWARA,ANAYTULLAH LOHAR,parties.IN.IND,IND,302,0.44,10,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2014,4,HANDWARA,HILAL AHMAD TANTRY,parties.IN.IND,IND,228,0.34,11,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2014,4,HANDWARA,HANEEFA BEGUM,parties.IN.IND,IND,198,0.29,12,forfeit,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-21,jammu-and-kashmir,2014,4,HANDWARA,MOHD ABDULLAH BHAT,parties.IN.JKNPP,JKNPP,189,0.28,13,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2014,5,LANGATE,ABDUL RASHID SHEIKH,parties.IN.IND,IND,18172,35.49,1,won,U,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2014,5,LANGATE,GHULAM NABI GANAI,parties.IN.JKPDP,JKPDP,15667,30.6,2,lost,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2014,5,LANGATE,MOHD ABDULLAH MIR,,JPC,10015,19.56,3,lost,U,63,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2014,5,LANGATE,MOHD ABDULLAH MIR,parties.IN.UNK,JPC,10015,19.56,3,lost,U,63,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2014,5,LANGATE,IRSHAD HUSSAIN GANAIE,parties.IN.IND,IND,1819,3.55,4,forfeit,U,32,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2014,5,LANGATE,WALI MOHD BHAT,parties.IN.JKNC,JKN,1645,3.21,5,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-24,jammu-and-kashmir,2014,5,LANGATE,BASHIR AHMAD WANI,parties.IN.INC,INC,983,1.92,6,forfeit,U,59,Post Graduate,Ex Civil Service,crossover,src-1b7bc1c9d39a
@@ -54,11 +54,11 @@ IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2014,6,URI,MOHAMMAD SHAFI,part
 IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2014,6,URI,AIJAZ ALI KHAN,parties.IN.JKPDP,JKPDP,18567,29.92,2,lost,U,62,Graduate Professional,Ex Military,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2014,6,URI,TAJ MOHI-UD-DIN,parties.IN.INC,INC,16588,26.73,3,lost,U,69,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2014,6,URI,MUSHTAQ AHMAD MIR,parties.IN.BJP,BJP,1269,2.04,4,forfeit,U,57,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2014,6,URI,WASEEM RAJA,,AJKMP,549,0.88,6,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-31,jammu-and-kashmir,2014,6,URI,WASEEM RAJA,parties.IN.UNK,AJKMP,549,0.88,6,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-27,jammu-and-kashmir,2014,7,RAFIABAD,YAWAR AHMAD MIR,parties.IN.JKPDP,JKPDP,17918,32.31,1,won,U,27,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-27,jammu-and-kashmir,2014,7,RAFIABAD,ABDUL GANI VAKIL,parties.IN.INC,INC,15584,28.1,2,lost,U,56,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-27,jammu-and-kashmir,2014,7,RAFIABAD,JAVED AHMAD DAR,parties.IN.JKNC,JKN,14980,27.01,3,lost,U,40,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-27,jammu-and-kashmir,2014,7,RAFIABAD,KHURSHEED AHMAD KHAN,,JPC,3080,5.55,4,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-27,jammu-and-kashmir,2014,7,RAFIABAD,KHURSHEED AHMAD KHAN,parties.IN.UNK,JPC,3080,5.55,4,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-27,jammu-and-kashmir,2014,7,RAFIABAD,FAYAZ AHMAD MALIK,parties.IN.IND,IND,776,1.4,5,forfeit,U,52,10th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-27,jammu-and-kashmir,2014,7,RAFIABAD,DESH KUMAR NEHRU,parties.IN.BJP,BJP,634,1.14,6,forfeit,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-27,jammu-and-kashmir,2014,7,RAFIABAD,AB MAJEED DAR,parties.IN.JKNPP,JKNPP,483,0.87,8,forfeit,U,51,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -71,7 +71,7 @@ IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2014,8,SOPORE,ABDUL RASHID DAR
 IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2014,8,SOPORE,NAZIR AHMAD NAIKOO,parties.IN.JKPDP,JKPDP,5674,17.76,2,lost,U,60,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2014,8,SOPORE,IRSHAD RASOOL KAR,parties.IN.IND,IND,5324,16.66,3,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2014,8,SOPORE,MOHD. ASHRAF GANIE,parties.IN.JKNC,JKN,4079,12.77,4,forfeit,U,73,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2014,8,SOPORE,MOHMMAD RAMZAN BABA,,JPC,1567,4.9,5,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2014,8,SOPORE,MOHMMAD RAMZAN BABA,parties.IN.UNK,JPC,1567,4.9,5,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2014,8,SOPORE,SHAHZAD AASIM,parties.IN.IND,IND,1394,4.36,6,forfeit,U,36,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2014,8,SOPORE,MOHAMAD ABDULLAH DAR,parties.IN.IND,IND,1208,3.78,7,forfeit,U,63,Graduate,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-30,jammu-and-kashmir,2014,8,SOPORE,GH. MOHMAD WAR,parties.IN.IND,IND,1182,3.7,8,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
@@ -90,7 +90,7 @@ IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2014,10,BANDIPORA,USMAN ABDUL 
 IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2014,10,BANDIPORA,NIZAM-U-DIN BHAT,parties.IN.JKPDP,JKPDP,21341,32.06,2,lost,U,67,Graduate Professional,"Lawyer, Journalist or Editor",incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2014,10,BANDIPORA,ABDULLAH WANI,parties.IN.JKNC,JKN,6754,10.15,3,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2014,10,BANDIPORA,NAZIR AHMAD MALIK,parties.IN.IND,IND,4200,6.31,4,forfeit,U,52,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2014,10,BANDIPORA,MOHAMMAD ISMAIL BHAT,,JPC,1580,2.37,6,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2014,10,BANDIPORA,MOHAMMAD ISMAIL BHAT,parties.IN.UNK,JPC,1580,2.37,6,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2014,10,BANDIPORA,MOHD SHAFI KHAN,parties.IN.IND,IND,1137,1.71,7,forfeit,U,36,8th Pass,Panchayat Member,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2014,10,BANDIPORA,MOHD. SHAFI MIR,parties.IN.IND,IND,1123,1.69,8,forfeit,U,61,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2014,10,BANDIPORA,JAVID AHMAD SHAH,parties.IN.BSP,BSP,816,1.23,9,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -98,11 +98,11 @@ IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2014,10,BANDIPORA,SHEIKH WASEE
 IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2014,10,BANDIPORA,GH AHMAD BHAT,parties.IN.IND,IND,691,1.04,11,forfeit,U,61,10th Pass,Ex Civil Service,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2014,10,BANDIPORA,ABDUL REHMAN,parties.IN.BJP,BJP,565,0.85,12,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2014,10,BANDIPORA,MOHMMAD IQBAL ZARGAR,parties.IN.AIFB,AIFB,492,0.74,13,forfeit,U,29,8th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2014,10,BANDIPORA,MANZOOR AHMAD BABA,,AJKMP,340,0.51,14,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-17,jammu-and-kashmir,2014,10,BANDIPORA,MANZOOR AHMAD BABA,parties.IN.UNK,AJKMP,340,0.51,14,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2014,11,SONAWARI,MOHAMMAD AKBAR LONE,parties.IN.JKNC,JKN,32567,40.53,1,won,U,67,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2014,11,SONAWARI,YASIR RESHI,parties.IN.JKPDP,JKPDP,32161,40.02,2,lost,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2014,11,SONAWARI,IMTIYAZ AHMAD PARRAY,parties.IN.INC,INC,12065,15.01,3,forfeit,U,29,12th Pass,Party Worker,crossover,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2014,11,SONAWARI,QAWAMUDIN SHEIKH,,JPC,1174,1.46,4,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2014,11,SONAWARI,QAWAMUDIN SHEIKH,parties.IN.UNK,JPC,1174,1.46,4,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2014,11,SONAWARI,GH MOHAMMAD PARRAY,parties.IN.IND,IND,529,0.66,6,forfeit,U,46,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2014,11,SONAWARI,NAZIR AHMAD WANI,parties.IN.IND,IND,475,0.59,7,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-29,jammu-and-kashmir,2014,11,SONAWARI,GH RASOOL MALIK,parties.IN.JKNPP,JKNPP,313,0.39,8,forfeit,U,55,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
@@ -111,34 +111,34 @@ IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2014,12,SANGRAMA,SHUIB NABI LO
 IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2014,12,SANGRAMA,KHWAJA MOHAMMAD YAQOOB WANI,parties.IN.JKNC,JKN,6696,17.29,3,lost,U,76,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2014,12,SANGRAMA,IRFAN HAFIZ LONE,parties.IN.IND,IND,3829,9.89,4,forfeit,U,37,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2014,12,SANGRAMA,FAZAL MAHMOOD BAIG,parties.IN.IND,IND,1970,5.09,5,forfeit,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2014,12,SANGRAMA,GH. MOHI-UD-DIN BHAT,,JPC,856,2.21,6,forfeit,U,68,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2014,12,SANGRAMA,GH. MOHI-UD-DIN BHAT,parties.IN.UNK,JPC,856,2.21,6,forfeit,U,68,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2014,12,SANGRAMA,FAROOQ AHMAD BHAT,parties.IN.JKNPP,JKNPP,850,2.2,7,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2014,12,SANGRAMA,HILAL AHMAD BHAT,parties.IN.IND,IND,796,2.06,8,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2014,12,SANGRAMA,GH. MOHI-UD-DIN SOFI,parties.IN.IND,IND,575,1.48,9,forfeit,U,46,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2014,12,SANGRAMA,NISAR AHMAD SHAH,,AJKMP,156,0.4,11,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-28,jammu-and-kashmir,2014,12,SANGRAMA,NISAR AHMAD SHAH,parties.IN.UNK,AJKMP,156,0.4,11,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2014,13,BARAMULLA,JAVID HASSAN BAIG,parties.IN.JKPDP,JKPDP,14418,43.75,1,won,U,50,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2014,13,BARAMULLA,GH. HASSAN RAHI,parties.IN.JKNC,JKN,7401,22.46,2,lost,U,57,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2014,13,BARAMULLA,SALMAN ANEES SOZ,parties.IN.INC,INC,6805,20.65,3,lost,U,44,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2014,13,BARAMULLA,MOHD. YOUSF DAR,,JPC,1164,3.53,4,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2014,13,BARAMULLA,MOHD. YOUSF DAR,parties.IN.UNK,JPC,1164,3.53,4,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2014,13,BARAMULLA,GULAM UD DIN GULSHAN,parties.IN.IND,IND,850,2.58,5,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2014,13,BARAMULLA,MOHD. MAQBOOL MIR,parties.IN.IND,IND,570,1.73,7,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2014,13,BARAMULLA,MOHD. ASLAM DEEDAR,parties.IN.IND,IND,381,1.16,8,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2014,13,BARAMULLA,ALTAF JAMEEL LONE,parties.IN.IND,IND,209,0.63,9,forfeit,U,30,Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2014,13,BARAMULLA,GULSHAN SANHOTRA,parties.IN.JKNPP,JKNPP,176,0.53,10,forfeit,U,60,8th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2014,13,BARAMULLA,ASHIQ HUSSIAN GANAIE,parties.IN.IND,IND,134,0.41,11,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2014,13,BARAMULLA,MOHD AFSAR KHAN,,AJKMP,88,0.27,12,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-18,jammu-and-kashmir,2014,13,BARAMULLA,MOHD AFSAR KHAN,parties.IN.UNK,AJKMP,88,0.27,12,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2014,14,GULMARG,MOHD. ABASS WANI,parties.IN.JKPDP,JKPDP,22957,33.81,1,won,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2014,14,GULMARG,GHULAM HASSAN MIR,,JKDPN,20146,29.67,2,lost,U,64,Graduate Professional,Lawyer,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2014,14,GULMARG,GHULAM HASSAN MIR,parties.IN.UNK,JKDPN,20146,29.67,2,lost,U,64,Graduate Professional,Lawyer,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2014,14,GULMARG,SHABIR AHMAD MIR,parties.IN.IND,IND,11083,16.32,3,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2014,14,GULMARG,SHEIKH MUSTAFA KAMAL,parties.IN.JKNC,JKN,9275,13.66,4,forfeit,U,71,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2014,14,GULMARG,TEJINDER SINGH,parties.IN.IND,IND,1939,2.86,5,forfeit,U,36,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2014,14,GULMARG,AB AHAD SHEIKH,,AJKMP,645,0.95,7,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2014,14,GULMARG,AB AHAD SHEIKH,parties.IN.UNK,AJKMP,645,0.95,7,forfeit,U,62,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2014,14,GULMARG,MOHD. AKRAM MIR,parties.IN.IND,IND,547,0.81,8,forfeit,U,70,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-19,jammu-and-kashmir,2014,14,GULMARG,GH. MOHI UD DIN MALLA,parties.IN.JKNPP,JKNPP,396,0.58,9,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2014,15,PATTAN,IMRAN RAZA ANSARI,parties.IN.JKPDP,JKPDP,21218,40.41,1,won,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2014,15,PATTAN,AGA SYED MEHMOOD AL MOSAVI,parties.IN.JKNC,JKN,11884,22.63,2,lost,U,59,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2014,15,PATTAN,REYAZ AHMAD,parties.IN.INC,INC,6629,12.62,3,forfeit,U,34,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2014,15,PATTAN,BASHARAT HUSSAIN NAJAR,,JKDPN,4666,8.89,4,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2014,15,PATTAN,BASHARAT HUSSAIN NAJAR,parties.IN.UNK,JKDPN,4666,8.89,4,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2014,15,PATTAN,AB. RASHID SHAHEEN,parties.IN.IND,IND,2466,4.7,5,forfeit,U,61,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2014,15,PATTAN,ABDUL AHAD YATOO,parties.IN.IND,IND,2280,4.34,6,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2014,15,PATTAN,FAROOQ AHMAD GANIE,parties.IN.IND,IND,1567,2.98,7,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
@@ -146,7 +146,7 @@ IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2014,15,PATTAN,ASHIQ HUSSAIN L
 IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2014,15,PATTAN,BASHIR AHMAD GANAI,parties.IN.IND,IND,239,0.46,10,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2014,15,PATTAN,ASHIQ AHMAD DAR,parties.IN.IND,IND,215,0.41,11,forfeit,U,26,8th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2014,15,PATTAN,TARIQ AHMAD PARRY,parties.IN.IND,IND,151,0.29,12,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2014,15,PATTAN,WALI MOHAMAD WANI,,AJKMP,144,0.27,13,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-26,jammu-and-kashmir,2014,15,PATTAN,WALI MOHAMAD WANI,parties.IN.UNK,AJKMP,144,0.27,13,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2014,16,KANGAN,ALTAF AHMAD,parties.IN.JKNC,JKN,25812,47.12,1,won,U,57,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2014,16,KANGAN,BASHIR AHMAD MIR,parties.IN.JKPDP,JKPDP,24380,44.5,2,lost,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2014,16,KANGAN,AJAZ AHMAD SHEIKH,parties.IN.INC,INC,889,1.62,3,forfeit,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -154,8 +154,8 @@ IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2014,16,KANGAN,SHOWKAT HUSSAIN
 IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2014,16,KANGAN,GHULAM HASSAN RATHER,parties.IN.IND,IND,608,1.11,6,forfeit,U,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2014,16,KANGAN,NAZIR AHMAD RAINA,parties.IN.BJP,BJP,583,1.06,7,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2014,16,KANGAN,ABDUL RASHID GANAIE,parties.IN.JKNPP,JKNPP,481,0.88,8,forfeit,U,38,5th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2014,16,KANGAN,MUSHTAQ AHMAD SHAH,,JPC,373,0.68,9,forfeit,U,42,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2014,16,KANGAN,SHABIR AHMAD MIR,,AJKMP,139,0.25,10,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2014,16,KANGAN,MUSHTAQ AHMAD SHAH,parties.IN.UNK,JPC,373,0.68,9,forfeit,U,42,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2014,16,KANGAN,SHABIR AHMAD MIR,parties.IN.UNK,AJKMP,139,0.25,10,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-66,jammu-and-kashmir,2014,16,KANGAN,MOHD SULTAN LONE,parties.IN.BSP,BSP,97,0.18,11,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2014,17,GANDERBAL,ISHFAQ AHMAD SHEIKH,parties.IN.JKNC,JKN,19478,36.38,1,won,U,45,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2014,17,GANDERBAL,QAZI MOHAMMAD AFZAL,parties.IN.JKPDP,JKPDP,18881,35.27,2,lost,U,71,Illiterate,,challenger,src-1b7bc1c9d39a
@@ -166,7 +166,7 @@ IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2014,17,GANDERBAL,BILAL AHMAD 
 IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2014,17,GANDERBAL,SHEIKH ABDUL RASHEED,parties.IN.BJP,BJP,671,1.25,8,forfeit,U,51,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2014,17,GANDERBAL,JAVED AHMAD KHAN,parties.IN.IND,IND,660,1.23,9,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2014,17,GANDERBAL,HILAL AHMAD DAR,parties.IN.IND,IND,489,0.91,10,forfeit,U,34,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2014,17,GANDERBAL,ABDUL MAJEED DHOBI,,JPC,321,0.6,11,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2014,17,GANDERBAL,ABDUL MAJEED DHOBI,parties.IN.UNK,JPC,321,0.6,11,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2014,17,GANDERBAL,SYED ALI MOHAMMAD SHAH,parties.IN.IND,IND,289,0.54,12,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2014,17,GANDERBAL,NAZIR AHMAD LONE,parties.IN.IND,IND,230,0.43,13,forfeit,U,41,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-63,jammu-and-kashmir,2014,17,GANDERBAL,ALI MOHAMMAD BABA,parties.IN.JKNPP,JKNPP,228,0.43,14,forfeit,U,66,10th Pass,Party Worker,crossover,src-1b7bc1c9d39a
@@ -174,10 +174,10 @@ IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2014,20,EIDGAH,MUBARIK AHMAD G
 IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2014,20,EIDGAH,ALI MOHAMMAD WANI,parties.IN.JKPDP,JKPDP,6158,37.66,2,lost,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2014,20,EIDGAH,IMTIYAZ AHMAD KHAN,parties.IN.INC,INC,1274,7.79,3,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2014,20,EIDGAH,FAYAZ AHMAD BHAT,parties.IN.IND,IND,1238,7.57,4,forfeit,U,51,Illiterate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2014,20,EIDGAH,IRFAN AHMAD MATTOO,,JPC,385,2.35,5,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2014,20,EIDGAH,IRFAN AHMAD MATTOO,parties.IN.UNK,JPC,385,2.35,5,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2014,20,EIDGAH,MEHRAJ UD DIN BHAT,parties.IN.IND,IND,213,1.3,6,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2014,20,EIDGAH,GHULAM MOHAMMAD RATHER,parties.IN.IND,IND,97,0.59,8,forfeit,U,59,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2014,20,EIDGAH,MOHAMMAD ASHRAF KHAN,,AJKMP,44,0.27,9,forfeit,U,38,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-62,jammu-and-kashmir,2014,20,EIDGAH,MOHAMMAD ASHRAF KHAN,parties.IN.UNK,AJKMP,44,0.27,9,forfeit,U,38,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2014,22,HABBA KADAL,SHAMIM FIRDOUS,parties.IN.JKNC,JKN,4955,42.4,1,won,U,48,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2014,22,HABBA KADAL,MOTI KOUL,parties.IN.BJP,BJP,2596,22.21,2,lost,U,67,Graduate Professional,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2014,22,HABBA KADAL,ZAFAR MERAJ,parties.IN.JKPDP,JKPDP,992,8.49,3,forfeit,U,62,Graduate Professional,Journalist or Editor,challenger,src-1b7bc1c9d39a
@@ -192,7 +192,7 @@ IN-AC-2008-jammu-and-kashmir-64,jammu-and-kashmir,2014,22,HABBA KADAL,ZAHID BASH
 IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2014,24,SONAWAR,MOHAMMAD ASHRAF MIR,parties.IN.JKPDP,JKPDP,14283,41.88,1,won,U,45,Post Graduate,MLA,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2014,24,SONAWAR,OMAR ABDULLAH,parties.IN.JKNC,JKN,9500,27.85,2,lost,U,44,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2014,24,SONAWAR,PEER BILAL AHMAD,parties.IN.IND,IND,4394,12.88,3,forfeit,U,42,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2014,24,SONAWAR,LALDIN MIR,,JPC,1996,5.85,4,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2014,24,SONAWAR,LALDIN MIR,parties.IN.UNK,JPC,1996,5.85,4,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2014,24,SONAWAR,DARAKHSHAN ANDRABI,parties.IN.BJP,BJP,1100,3.23,5,forfeit,U,40,Doctorate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2014,24,SONAWAR,KHEM LATA WAKHLU,parties.IN.INC,INC,808,2.37,6,forfeit,U,74,Graduate,Author,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2014,24,SONAWAR,PARVEZ JAMAL,parties.IN.IND,IND,458,1.34,7,forfeit,U,52,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
@@ -202,23 +202,23 @@ IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2014,24,SONAWAR,GOWHAR AHMAD M
 IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2014,24,SONAWAR,FAROOQ AHMAD DAR,parties.IN.JKNPP,JKNPP,161,0.47,12,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2014,24,SONAWAR,AMJAD ALI BUHROO,parties.IN.AIFB,AIFB,141,0.41,13,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2014,24,SONAWAR,ABDUL RASHID LONE,parties.IN.RPIA,RPI(A),89,0.26,14,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2014,24,SONAWAR,RIYAZ AHMAD WANI,,AJKMP,57,0.17,15,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-69,jammu-and-kashmir,2014,24,SONAWAR,RIYAZ AHMAD WANI,parties.IN.UNK,AJKMP,57,0.17,15,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,NOOR MOHD SHEIKH,parties.IN.JKPDP,JKPDP,12542,42.56,1,won,U,48,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,MOHD IRFAN SHAH,parties.IN.JKNC,JKN,8215,27.88,2,lost,U,47,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,ABDUL QAYOOM BHAT,,JKDPN,1409,4.78,3,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,ABDUL QAYOOM BHAT,parties.IN.UNK,JKDPN,1409,4.78,3,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,MOHD MAQBOOL SHIEKH,parties.IN.IND,IND,1399,4.75,4,forfeit,U,39,8th Pass,Musician or Artist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,ZUBAIR NAZIR WANI,parties.IN.BJP,BJP,1304,4.43,5,forfeit,U,26,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,ABDUL HAMID RATHER,parties.IN.INC,INC,1204,4.09,6,forfeit,U,54,8th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,MUZZAFFAR AHMAD GAZI,,JPC,942,3.2,7,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,MUZZAFFAR AHMAD GAZI,parties.IN.UNK,JPC,942,3.2,7,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,REYAZ AHMAD MIR,parties.IN.IND,IND,764,2.59,8,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,GULZAR AHMAD BANGROO,parties.IN.SP,SP,458,1.55,9,forfeit,U,27,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,MOHD MAQBOOL RATHER,parties.IN.BSP,BSP,252,0.86,10,forfeit,U,54,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,JAVAID AHMAD DANDRU,parties.IN.IND,IND,209,0.71,11,forfeit,U,30,Graduate,Accountant,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,SAJAD AH RESHI,,JKPPS,190,0.64,12,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,SAJAD AH RESHI,parties.IN.UNK,JKPPS,190,0.64,12,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,MOHD ADIL HUSSAIN DAR,parties.IN.IND,IND,164,0.56,13,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,MEHBOOBA SHADAB,parties.IN.IND,IND,134,0.45,14,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,BASHIR AHMAD WANI,parties.IN.JKNPP,JKNPP,115,0.39,15,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,SHOWKAT AHMAD BHAT,,AJKMP,79,0.27,17,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-57,jammu-and-kashmir,2014,25,BATMALOO,SHOWKAT AHMAD BHAT,parties.IN.UNK,AJKMP,79,0.27,17,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2014,26,CHADOORA,JAVAID MUSTAFA MIR,parties.IN.JKPDP,JKPDP,25770,48.26,1,won,U,44,12th Pass,"MLA, Party Worker",incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2014,26,CHADOORA,ALI MOHAMMAD DAR,parties.IN.JKNC,JKN,24077,45.09,2,lost,U,57,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2014,26,CHADOORA,GULAM MOHAMAD BHAT,parties.IN.IND,IND,1261,2.36,3,forfeit,U,54,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
@@ -228,18 +228,18 @@ IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2014,26,CHADOORA,GH MOHD PAUL,
 IN-AC-2008-jammu-and-kashmir-60,jammu-and-kashmir,2014,26,CHADOORA,RIYAZ AHMAD RATHER,parties.IN.JKNPP,JKNPP,344,0.64,8,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2014,27,BUDGAM,AGA SYED RUHULLAH MEHDI,parties.IN.JKNC,JKN,30090,43.76,1,won,U,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2014,27,BUDGAM,GH MOHI-UD-DIN BHAT (MUNTAZIR),parties.IN.JKPDP,JKPDP,27303,39.71,2,lost,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2014,27,BUDGAM,FAYAZ AHMAD DAR,,JKPDF,6387,9.29,3,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2014,27,BUDGAM,MOHAMMAD KAMAL MALIK,,JPC,2342,3.41,4,forfeit,U,59,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2014,27,BUDGAM,FAYAZ AHMAD DAR,parties.IN.UNK,JKPDF,6387,9.29,3,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2014,27,BUDGAM,MOHAMMAD KAMAL MALIK,parties.IN.UNK,JPC,2342,3.41,4,forfeit,U,59,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2014,27,BUDGAM,MIR FAYAZ RAHAT,parties.IN.BJP,BJP,880,1.28,5,forfeit,U,67,8th Pass,Party Worker,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2014,27,BUDGAM,RAFIQ AHMAD DAR,parties.IN.IND,IND,872,1.27,6,forfeit,U,63,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-59,jammu-and-kashmir,2014,27,BUDGAM,GHULAM HUSSAIN GEELANI,parties.IN.INC,INC,520,0.76,7,forfeit,U,71,10th Pass,Party Worker,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2014,28,BEERWAH,OMAR ABDULLAH,parties.IN.JKNC,JKN,23717,34.18,1,won,U,44,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2014,28,BEERWAH,NAZIR AHMAD KHAN,parties.IN.INC,INC,22807,32.86,2,lost,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2014,28,BEERWAH,SHAFI AHMAD WANI,parties.IN.JKPDP,JKPDP,17554,25.3,3,lost,U,61,Graduate Professional,"MLA, Party Worker",incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2014,28,BEERWAH,DAWOOD KHAN LODHI,,JPC,3103,4.47,4,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2014,28,BEERWAH,DAWOOD KHAN LODHI,parties.IN.UNK,JPC,3103,4.47,4,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2014,28,BEERWAH,ABDUL RASHID BANDAY,parties.IN.BJP,BJP,1142,1.65,5,forfeit,U,64,10th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-58,jammu-and-kashmir,2014,28,BEERWAH,AIJAZ AHMAD LONE,parties.IN.IND,IND,364,0.52,7,forfeit,U,29,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-67,jammu-and-kashmir,2014,29,KHAN SAHIB,HAKEEM MOHAMMAD YASEEN SHAH,,JKPDF,26649,38.16,1,won,U,66,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-67,jammu-and-kashmir,2014,29,KHAN SAHIB,HAKEEM MOHAMMAD YASEEN SHAH,parties.IN.UNK,JKPDF,26649,38.16,1,won,U,66,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-67,jammu-and-kashmir,2014,29,KHAN SAHIB,SAIF-U-DIN BHAT,parties.IN.JKPDP,JKPDP,25540,36.58,2,lost,U,61,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-67,jammu-and-kashmir,2014,29,KHAN SAHIB,MANZOOR AHMAD WANI,parties.IN.JKNC,JKN,15397,22.05,3,lost,U,53,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-67,jammu-and-kashmir,2014,29,KHAN SAHIB,BASHIR AHMAD KHAN,parties.IN.IND,IND,697,1,4,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -249,10 +249,10 @@ IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2014,30,CHRAR,GHULAM NABI LONE
 IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2014,30,CHRAR,ABDUL RAHIM RATHER,parties.IN.JKNC,JKN,27682,42.85,2,lost,U,59,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2014,30,CHRAR,ZAHID HUSSAIN,parties.IN.INC,INC,922,1.43,3,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2014,30,CHRAR,GHULAM MOHAMAD CHOPAN,parties.IN.BJP,BJP,845,1.31,4,forfeit,U,50,Illiterate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2014,30,CHRAR,MOHAMMAD LATEEF LONE,,JPC,727,1.13,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2014,30,CHRAR,MOHAMMAD LATEEF LONE,parties.IN.UNK,JPC,727,1.13,5,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2014,30,CHRAR,SHOWKAT AHMAD RAINA,parties.IN.IND,IND,579,0.9,6,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2014,30,CHRAR,NAZIR AHMAD RATHER,parties.IN.IND,IND,362,0.56,8,forfeit,U,59,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2014,30,CHRAR,MUSHTAQ AHMAD BABA,,AJKMP,271,0.42,9,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-61,jammu-and-kashmir,2014,30,CHRAR,MUSHTAQ AHMAD BABA,parties.IN.UNK,AJKMP,271,0.42,9,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2014,31,TRAL,MUSHTAQ AHMAD SHAH,parties.IN.JKPDP,JKPDP,12415,38.56,1,won,U,51,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2014,31,TRAL,MOHD ASHRAF BHAT,parties.IN.JKNC,JKN,8305,25.8,2,lost,U,64,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-15,jammu-and-kashmir,2014,31,TRAL,GH MOHD MIR,parties.IN.INC,INC,3649,11.33,3,forfeit,U,60,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
@@ -268,12 +268,12 @@ IN-AC-2008-jammu-and-kashmir-10,jammu-and-kashmir,2014,32,PAMPORE,GHULAM MOHD YA
 IN-AC-2008-jammu-and-kashmir-10,jammu-and-kashmir,2014,32,PAMPORE,MOHD IQBAL SOFI,parties.IN.IND,IND,365,1,7,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2014,33,PULWAMA,MOHD. KHALIL BAND,parties.IN.JKPDP,JKPDP,11631,38.55,1,won,U,60,10th Pass,Rent,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2014,33,PULWAMA,GHULAM NABI WANI,parties.IN.JKNC,JKN,10599,35.13,2,lost,U,60,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2014,33,PULWAMA,AB. QUYOOM MIR,,JKPDF,1850,6.13,3,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2014,33,PULWAMA,AB. QUYOOM MIR,parties.IN.UNK,JKPDF,1850,6.13,3,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2014,33,PULWAMA,SANA ULLAH DAR,parties.IN.IND,IND,1760,5.83,4,forfeit,U,80,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2014,33,PULWAMA,BASHIR AHMAD MAGREY,parties.IN.INC,INC,1558,5.16,5,forfeit,U,68,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2014,33,PULWAMA,RIYAZ AHMAD MIR,parties.IN.BJP,BJP,672,2.23,6,forfeit,U,34,Graduate,Rent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2014,33,PULWAMA,BASHIR AHMAD MALIK,parties.IN.IND,IND,669,2.22,7,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2014,33,PULWAMA,FAROOQ AHMAD MIR,,JPC,661,2.19,8,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2014,33,PULWAMA,FAROOQ AHMAD MIR,parties.IN.UNK,JPC,661,2.19,8,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2014,33,PULWAMA,MASUOD HUSSAIN WANI,parties.IN.IND,IND,260,0.86,10,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-11,jammu-and-kashmir,2014,33,PULWAMA,ABDUL GANI SHAH,parties.IN.IND,IND,219,0.73,11,forfeit,U,71,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-12,jammu-and-kashmir,2014,34,RAJPORA,HASEEB A DRABU,parties.IN.JKPDP,JKPDP,18103,36.95,1,won,U,53,Post Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
@@ -289,10 +289,10 @@ IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2014,35,WACHI,SHOWKAT HUSSAIN 
 IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2014,35,WACHI,ZAHOOR AHMAD RATHER,parties.IN.CPIM,CPM,2779,7.56,3,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2014,35,WACHI,TARIQ AHMAD MIR,parties.IN.BJP,BJP,1047,2.85,4,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2014,35,WACHI,MAROOF AHMAD WANI,parties.IN.INC,INC,920,2.5,5,forfeit,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2014,35,WACHI,AHSAN UL HAQ,,JPC,553,1.5,7,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2014,35,WACHI,AHSAN UL HAQ,parties.IN.UNK,JPC,553,1.5,7,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2014,35,WACHI,MOHD KHALIL NAIK,parties.IN.IND,IND,473,1.29,8,forfeit,U,67,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2014,35,WACHI,KULBUSHAN KAW,parties.IN.IND,IND,421,1.15,9,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2014,35,WACHI,MOHD YAQOOB MALIK,,AKAKRP,355,0.97,10,forfeit,U,45,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2014,35,WACHI,MOHD YAQOOB MALIK,parties.IN.UNK,AKAKRP,355,0.97,10,forfeit,U,45,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-16,jammu-and-kashmir,2014,35,WACHI,MOHD YOUSUF MIR,parties.IN.JKNPP,JKNPP,167,0.45,11,forfeit,U,47,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2014,36,SHOPIAN,MOHD YOUSUF BHAT,parties.IN.JKPDP,JKPDP,14262,34.2,1,won,U,66,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2014,36,SHOPIAN,SHABIR AHMAD KULLAY,parties.IN.IND,IND,11896,28.52,2,lost,U,53,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -301,7 +301,7 @@ IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2014,36,SHOPIAN,JAVID AHMAD QA
 IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2014,36,SHOPIAN,MUSHTAQ AHMAD KHANDAY,parties.IN.INC,INC,2642,6.33,5,forfeit,U,38,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2014,36,SHOPIAN,TARIQ AHMAD AHANGER,parties.IN.IND,IND,894,2.14,6,forfeit,U,40,10th Pass,Panchayat Head,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2014,36,SHOPIAN,AB RASHID PANDIT,parties.IN.CPI,CPI,849,2.04,7,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2014,36,SHOPIAN,MOHD YAQOOB RATHER,,AKAKRP,648,1.55,9,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2014,36,SHOPIAN,MOHD YAQOOB RATHER,parties.IN.UNK,AKAKRP,648,1.55,9,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2014,36,SHOPIAN,MOHD YOUSUF HAJI,parties.IN.IND,IND,533,1.28,10,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-14,jammu-and-kashmir,2014,36,SHOPIAN,SHAH FAYAZ AHMAD,parties.IN.JKNPP,JKNPP,499,1.2,11,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-8,jammu-and-kashmir,2014,37,NOORABAD,ABDUL MAJID PADDER,parties.IN.JKPDP,JKPDP,28698,48.36,1,won,U,55,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
@@ -340,7 +340,7 @@ IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2014,40,ANANTNAG,HILAL AHMAD SH
 IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2014,40,ANANTNAG,IFTIKHAR HUSSAIN MISGER,parties.IN.JKNC,JKN,2403,7.24,3,forfeit,U,45,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2014,40,ANANTNAG,MOHD RAFIQ WANI,parties.IN.BJP,BJP,1275,3.84,4,forfeit,U,45,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2014,40,ANANTNAG,NASIR ALI KOCHAK,parties.IN.IND,IND,428,1.29,5,forfeit,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2014,40,ANANTNAG,MOHD SHAFI MIR,,AKAKRP,399,1.2,6,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2014,40,ANANTNAG,MOHD SHAFI MIR,parties.IN.UNK,AKAKRP,399,1.2,6,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2014,40,ANANTNAG,GHULAM RASOOL DAR,parties.IN.IND,IND,306,0.92,8,forfeit,U,70,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2014,40,ANANTNAG,FAROOQ AHMAD MIR,parties.IN.BSP,BSP,114,0.34,9,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-3,jammu-and-kashmir,2014,41,DEVSAR,MOHAMMAD AMIN BHAT,parties.IN.INC,INC,20162,35.08,1,won,U,48,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
@@ -356,18 +356,18 @@ IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2014,42,DOORU,GHULAM AHMAD MIR,
 IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2014,42,DOORU,FAROOQ AHMAD GANAI,parties.IN.JKNC,JKN,8251,17.08,3,lost,U,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2014,42,DOORU,GULL MOHAMMAD MIR,parties.IN.BJP,BJP,1030,2.13,4,forfeit,U,52,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2014,42,DOORU,SYED SHARIQ HUSSAIN,parties.IN.IND,IND,734,1.52,6,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2014,42,DOORU,SUHAIL MALIK,,JPC,500,1.04,7,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2014,42,DOORU,SUHAIL MALIK,parties.IN.UNK,JPC,500,1.04,7,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2014,42,DOORU,SYED RASHEED AHMAD,parties.IN.IND,IND,329,0.68,8,forfeit,U,46,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2014,42,DOORU,FAROOQ AHMAD GASHROO,parties.IN.HJP,HJP,164,0.34,9,forfeit,U,34,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2014,42,DOORU,MOHD YOUSUF GANAI,parties.IN.JKNPP,JKNPP,86,0.18,10,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2014,42,DOORU,ABDUL AHAD MIR,,IPCP,73,0.15,11,forfeit,U,48,12th Pass,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-4,jammu-and-kashmir,2014,42,DOORU,ABDUL AHAD MIR,parties.IN.UNK,IPCP,73,0.15,11,forfeit,U,48,12th Pass,Party Worker,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2014,43,KOKERNAG,ABDUL RAHIM RATHER,parties.IN.JKPDP,JKPDP,24284,42.3,1,won,U,57,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2014,43,KOKERNAG,PEERZADA MOHAMMAD SYED,parties.IN.INC,INC,19713,34.33,2,lost,U,61,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2014,43,KOKERNAG,GHULAM NABI BHAT,parties.IN.JKNC,JKN,8248,14.37,3,forfeit,U,73,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2014,43,KOKERNAG,KHURSHID AHMAD MALIK,parties.IN.BJP,BJP,1842,3.21,4,forfeit,U,39,Post Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2014,43,KOKERNAG,GHULAM HASSAN KHANDAY,parties.IN.IND,IND,1131,1.97,5,forfeit,U,62,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2014,43,KOKERNAG,MOHAMMAD YOUSUF GANIE,parties.IN.JKNPP,JKNPP,790,1.38,7,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2014,43,KOKERNAG,JAVAID AHMAD RATHER,,AKAKRP,451,0.79,8,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-6,jammu-and-kashmir,2014,43,KOKERNAG,JAVAID AHMAD RATHER,parties.IN.UNK,AKAKRP,451,0.79,8,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2014,44,SHANGUS,GULZAR AHMAD WANI,parties.IN.INC,INC,21085,37.08,1,won,U,52,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2014,44,SHANGUS,PEERZADA MANSOOR HUSSAIN,parties.IN.JKPDP,JKPDP,18896,33.23,2,lost,U,52,Others,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-13,jammu-and-kashmir,2014,44,SHANGUS,REYAZ AHMAD KHAN,parties.IN.JKNC,JKN,10892,19.15,3,lost,U,50,,,challenger,src-1b7bc1c9d39a
@@ -388,7 +388,7 @@ IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2014,46,PAHALGAM,IRFAN ABID,par
 IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2014,46,PAHALGAM,SOFI YOUSUF,parties.IN.BJP,BJP,1943,3.44,4,forfeit,U,47,Illiterate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2014,46,PAHALGAM,FAROOQ AHMAD RATHER,parties.IN.IND,IND,788,1.39,6,forfeit,U,40,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2014,46,PAHALGAM,SHABIR AHMAD SHAH,parties.IN.BSP,BSP,503,0.89,7,forfeit,U,32,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2014,46,PAHALGAM,ANWAR JAN,,JPC,492,0.87,8,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-9,jammu-and-kashmir,2014,46,PAHALGAM,ANWAR JAN,parties.IN.UNK,JPC,492,0.87,8,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-83,jammu-and-kashmir,2014,51,KISHTWAR,SUNIL KUMAR SHARMA,parties.IN.BJP,BJP,28054,45.37,1,won,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-83,jammu-and-kashmir,2014,51,KISHTWAR,SAJJAD AHMED KICHLOO,parties.IN.JKNC,JKN,25202,40.76,2,lost,U,49,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-83,jammu-and-kashmir,2014,51,KISHTWAR,FIRDOUS AHMED TAK,parties.IN.JKPDP,JKPDP,6432,10.4,3,forfeit,U,37,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -537,7 +537,7 @@ IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2014,65,KATHUA,KISHOR KUMAR,pa
 IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2014,65,KATHUA,BALBIR SINGH,parties.IN.JKNPP,JKNPP,505,0.55,9,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2014,65,KATHUA,S. JAMIT SINGH,parties.IN.IND,IND,411,0.45,10,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2014,65,KATHUA,NARESH KUMAR SHARMA,parties.IN.IND,IND,386,0.42,11,forfeit,U,41,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2014,65,KATHUA,GURNAM SINGH,,AJKMP,227,0.25,13,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2014,65,KATHUA,GURNAM SINGH,parties.IN.UNK,AJKMP,227,0.25,13,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2014,65,KATHUA,KASTURI LAL,parties.IN.BMUP,BMUP,212,0.23,14,forfeit,U,60,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2014,65,KATHUA,SUDESH KUMAR,parties.IN.IND,IND,201,0.22,15,forfeit,U,37,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-82,jammu-and-kashmir,2014,65,KATHUA,HARISH CHANDER SHARMA,parties.IN.IND,IND,165,0.18,16,forfeit,U,61,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -587,9 +587,9 @@ IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2014,70,NAGROTA,CH HUSSAIN ALI
 IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2014,70,NAGROTA,NAZAKAT ALI KHATANA,parties.IN.IND,IND,616,1.02,6,forfeit,U,42,10th Pass,Activist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2014,70,NAGROTA,VILAKSHANA SINGH,parties.IN.JKNPP,JKNPP,286,0.47,8,forfeit,U,35,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2014,70,NAGROTA,KAMAL KUMAR,parties.IN.IND,IND,179,0.3,9,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2014,70,NAGROTA,RIAZ AHMED,,JPC,151,0.25,10,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2014,70,NAGROTA,ABDUL GANI,,JSM(P),118,0.19,11,forfeit,U,51,10th Pass,Self-employed,crossover,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2014,70,NAGROTA,BANSI LAL,,AJKMP,95,0.16,12,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2014,70,NAGROTA,RIAZ AHMED,parties.IN.UNK,JPC,151,0.25,10,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2014,70,NAGROTA,ABDUL GANI,parties.IN.UNK,JSM(P),118,0.19,11,forfeit,U,51,10th Pass,Self-employed,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-42,jammu-and-kashmir,2014,70,NAGROTA,BANSI LAL,parties.IN.UNK,AJKMP,95,0.16,12,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2014,71,GANDHI NAGAR,KAVINDER GUPTA,parties.IN.BJP,BJP,56679,51.17,1,won,U,55,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2014,71,GANDHI NAGAR,RAMAN BHALLA,parties.IN.INC,INC,39902,36.02,2,lost,U,52,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2014,71,GANDHI NAGAR,AMRIK SINGH,parties.IN.JKPDP,JKPDP,9815,8.86,3,forfeit,U,57,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -600,7 +600,7 @@ IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2014,71,GANDHI NAGAR,GOURAV KA
 IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2014,71,GANDHI NAGAR,MADHU BALA,parties.IN.IND,IND,277,0.25,9,forfeit,U,40,8th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2014,71,GANDHI NAGAR,ANITA KUMARI,parties.IN.JKNPP,JKNPP,180,0.16,10,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2014,71,GANDHI NAGAR,PRABODH CHANDER SHARMA,parties.IN.IND,IND,143,0.13,11,forfeit,U,67,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2014,71,GANDHI NAGAR,KANCHAN SHARMA,,BHBP,124,0.11,12,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-36,jammu-and-kashmir,2014,71,GANDHI NAGAR,KANCHAN SHARMA,parties.IN.UNK,BHBP,124,0.11,12,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2014,74,BISHNAH,KAMAL VERMA,parties.IN.JKNC,JKN,29380,41.62,1,won,U,53,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2014,74,BISHNAH,ASHWANI KUMAR SHARMA,parties.IN.BJP,BJP,26394,37.39,2,lost,U,54,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-33,jammu-and-kashmir,2014,74,BISHNAH,FAQIR CHAND,parties.IN.JKPDP,JKPDP,8112,11.49,3,forfeit,U,58,Graduate Professional,Ex Civil Service,crossover,src-1b7bc1c9d39a
@@ -640,7 +640,7 @@ IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2014,77,MARH,BALWAN SINGH,part
 IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2014,77,MARH,SURAM SINGH,parties.IN.JKPDP,JKPDP,4886,8.15,4,forfeit,U,51,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2014,77,MARH,ASHOK KUMAR,parties.IN.BSP,BSP,2972,4.96,5,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2014,77,MARH,SANDEEP SINGH,parties.IN.NCP,NCP,448,0.75,7,forfeit,U,30,Graduate,Contractor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2014,77,MARH,VIJAY KUMAR,,AJKMP,272,0.45,8,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2014,77,MARH,VIJAY KUMAR,parties.IN.UNK,AJKMP,272,0.45,8,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2014,77,MARH,DARSHAN LAL,parties.IN.IND,IND,236,0.39,9,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-40,jammu-and-kashmir,2014,77,MARH,SHANKER SINGH,parties.IN.JKNPP,JKNPP,202,0.34,10,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2014,78,RAIPUR DOMANA,BALI BHAGAT,parties.IN.BJP,BJP,49134,66.99,1,won,U,50,12th Pass,Activist,challenger,src-1b7bc1c9d39a
@@ -653,7 +653,7 @@ IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2014,78,RAIPUR DOMANA,NARESH S
 IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2014,78,RAIPUR DOMANA,HARBANS LAL BHAGAT,parties.IN.AAP,AAAP,215,0.29,9,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2014,78,RAIPUR DOMANA,ANIL KUMAR,parties.IN.IND,IND,196,0.27,10,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2014,78,RAIPUR DOMANA,RAJ KUMAR,parties.IN.IND,IND,155,0.21,11,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2014,78,RAIPUR DOMANA,SURJIT KUMAR,,BHBP,129,0.18,12,forfeit,U,29,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-45,jammu-and-kashmir,2014,78,RAIPUR DOMANA,SURJIT KUMAR,parties.IN.UNK,BHBP,129,0.18,12,forfeit,U,29,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2014,79,AKHNOOR,RAJEEV SHARMA,parties.IN.BJP,BJP,41901,53.19,1,won,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2014,79,AKHNOOR,SHAM LAL SHARMA,parties.IN.INC,INC,32521,41.29,2,lost,U,55,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-32,jammu-and-kashmir,2014,79,AKHNOOR,DEV RAJ,parties.IN.JKPDP,JKPDP,1291,1.64,3,forfeit,U,58,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -671,7 +671,7 @@ IN-AC-2008-jammu-and-kashmir-34,jammu-and-kashmir,2014,80,CHHAMB,JANAK RAJ,parti
 IN-AC-2008-jammu-and-kashmir-34,jammu-and-kashmir,2014,80,CHHAMB,BHAJAN LAL,parties.IN.NCP,NCP,215,0.36,8,forfeit,U,29,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-34,jammu-and-kashmir,2014,80,CHHAMB,MOHINDER LAL,parties.IN.IND,IND,199,0.33,9,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-34,jammu-and-kashmir,2014,80,CHHAMB,BIRU MAL,parties.IN.IND,IND,139,0.23,10,forfeit,U,65,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-34,jammu-and-kashmir,2014,80,CHHAMB,SUBASH CHANDER,,AJKMP,123,0.21,11,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-34,jammu-and-kashmir,2014,80,CHHAMB,SUBASH CHANDER,parties.IN.UNK,AJKMP,123,0.21,11,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-43,jammu-and-kashmir,2014,81,NOWSHERA,RAVINDER RAINA,parties.IN.BJP,BJP,37374,49.51,1,won,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-43,jammu-and-kashmir,2014,81,NOWSHERA,SURINDER CHOUDHARY,parties.IN.JKPDP,JKPDP,27871,36.92,2,lost,U,59,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-43,jammu-and-kashmir,2014,81,NOWSHERA,RAVINDER KUMAR SHARMA,parties.IN.INC,INC,5342,7.08,3,forfeit,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -691,7 +691,7 @@ IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2014,82,DARHAL,NAZIR HUSSAIN,p
 IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2014,82,DARHAL,MANIR HUSSAIN,parties.IN.IND,IND,645,0.84,6,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2014,82,DARHAL,SHERAZ BEGUM,parties.IN.BSP,BSP,421,0.55,8,forfeit,U,40,12th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2014,82,DARHAL,MOHD RAKIZ,parties.IN.JKNPP,JKNPP,366,0.47,9,forfeit,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2014,82,DARHAL,RAFAQAT AJAZ CHOUDHARY,,HKRD,167,0.22,10,forfeit,U,28,Graduate Professional,Engineer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2014,82,DARHAL,RAFAQAT AJAZ CHOUDHARY,parties.IN.UNK,HKRD,167,0.22,10,forfeit,U,28,Graduate Professional,Engineer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2014,82,DARHAL,GHULAM HEADER ATISH,parties.IN.IND,IND,136,0.18,11,forfeit,U,59,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-35,jammu-and-kashmir,2014,82,DARHAL,ABDUL MANAF,parties.IN.IND,IND,108,0.14,12,forfeit,U,44,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-46,jammu-and-kashmir,2014,83,RAJOURI,QAMAR HUSSAIN,parties.IN.JKPDP,JKPDP,26954,30.63,1,won,U,52,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -731,7 +731,7 @@ IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2014,86,MENDHAR,ZULFQAR HUSSAI
 IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2014,86,MENDHAR,MOHD SHARIEF KHAN,parties.IN.IND,IND,830,1.27,5,forfeit,U,59,Post Graduate,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2014,86,MENDHAR,NISAR AHMED KHAN,parties.IN.IND,IND,534,0.82,6,forfeit,U,58,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2014,86,MENDHAR,NISAR HUSSAIN SHAH,parties.IN.IND,IND,495,0.76,7,forfeit,U,54,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2014,86,MENDHAR,MUSHTAQ AHMED,,JKPPAP,345,0.53,9,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2014,86,MENDHAR,MUSHTAQ AHMED,parties.IN.UNK,JKPPAP,345,0.53,9,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2014,86,MENDHAR,ABDUL MAJEED CHOWAN,parties.IN.IND,IND,343,0.53,10,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2014,86,MENDHAR,MOHD TARIQ KHAN,parties.IN.JKNPP,JKNPP,212,0.32,11,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-41,jammu-and-kashmir,2014,86,MENDHAR,MOHD SHAFEEQ KHAN,parties.IN.BSP,BSP,133,0.2,12,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -740,7 +740,7 @@ IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2014,87,POONCH HAVELI,AJAZ AHM
 IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2014,87,POONCH HAVELI,CHAUDHARY ABDUL GHANI,parties.IN.IND,IND,15110,19.83,3,lost,U,48,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2014,87,POONCH HAVELI,PARDEEP SHARMA,parties.IN.BJP,BJP,11292,14.82,4,forfeit,U,41,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2014,87,POONCH HAVELI,CH BASHIR AHMED NAAZ,parties.IN.INC,INC,10289,13.5,5,forfeit,U,58,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2014,87,POONCH HAVELI,MOHD YOUNIS,,JKPPAP,1351,1.77,6,forfeit,U,49,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2014,87,POONCH HAVELI,MOHD YOUNIS,parties.IN.UNK,JKPPAP,1351,1.77,6,forfeit,U,49,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2014,87,POONCH HAVELI,MOHD KABIR QURESHI,parties.IN.IND,IND,682,0.89,7,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2014,87,POONCH HAVELI,JAVID IQBAL RESHI,parties.IN.IND,IND,543,0.71,9,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-44,jammu-and-kashmir,2014,87,POONCH HAVELI,MOHD RASHID,parties.IN.JKNPP,JKNPP,417,0.55,10,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a

@@ -2,7 +2,7 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-kerala-3769,kerala,2019,1,MANJESHWAR,M C Kamaruddin,parties.IN.IUML,IUML,65407,40.19,1,won,M,59,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3769,kerala,2019,1,MANJESHWAR,Raveesh Thanthri Kuntar,parties.IN.BJP,BJP,57484,35.32,2,lost,M,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3769,kerala,2019,1,MANJESHWAR,M Shankara Rai Master,parties.IN.CPIM,CPM,38233,23.49,3,lost,M,59,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3769,kerala,2019,1,MANJESHWAR,NOTA,,,574,0.35,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3769,kerala,2019,1,MANJESHWAR,NOTA,parties.IN.UNK,,574,0.35,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3769,kerala,2019,1,MANJESHWAR,Govindan B Alinthazhe,parties.IN.AMBEDKARITE_PARTY_OF_INDIA,Ambedkarite Party of India,337,0.21,5,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3769,kerala,2019,1,MANJESHWAR,John D Souza I,parties.IN.IND,IND,277,0.17,6,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3769,kerala,2019,1,MANJESHWAR,Rajesh B,parties.IN.IND,IND,232,0.14,7,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
@@ -11,9 +11,9 @@ IN-AC-2008-kerala-3745,kerala,2019,82,ERANAKULAM,T.J. VINOD,parties.IN.INC,INC,3
 IN-AC-2008-kerala-3745,kerala,2019,82,ERANAKULAM,Adv. MANU ROY,parties.IN.IND,IND,34141,37.96,2,lost,M,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3745,kerala,2019,82,ERANAKULAM,C.G. RAJAGOPAL,parties.IN.BJP,BJP,13351,14.85,3,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3745,kerala,2019,82,ERANAKULAM,MANU K. M.,parties.IN.IND,IND,2572,2.86,4,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3745,kerala,2019,82,ERANAKULAM,NOTA,,,1309,1.46,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3745,kerala,2019,82,ERANAKULAM,NOTA,parties.IN.UNK,,1309,1.46,5,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3745,kerala,2019,82,ERANAKULAM,VINOD A. P. S/o A.I. PARAMU,parties.IN.IND,IND,206,0.23,6,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3745,kerala,2019,82,ERANAKULAM,ABDUL KHADER VAZHAKKALA,,Samajwadi Forward Bloc,175,0.19,7,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3745,kerala,2019,82,ERANAKULAM,ABDUL KHADER VAZHAKKALA,parties.IN.UNK,Samajwadi Forward Bloc,175,0.19,7,forfeit,M,59,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3745,kerala,2019,82,ERANAKULAM,JAISEN THOMAS,parties.IN.IND,IND,116,0.13,8,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3745,kerala,2019,82,ERANAKULAM,BOSCO KALAMASSERY,parties.IN.IND,IND,93,0.1,9,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3745,kerala,2019,82,ERANAKULAM,ASHOKAN,parties.IN.IND,IND,78,0.09,10,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
@@ -22,7 +22,7 @@ IN-AC-2008-kerala-3783,kerala,2019,93,PALA,Adv.Jose Tom,parties.IN.IND,IND,51194
 IN-AC-2008-kerala-3783,kerala,2019,93,PALA,Hari.N,parties.IN.BJP,BJP,18044,14.1,3,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3783,kerala,2019,93,PALA,C.J.Philip,parties.IN.IND,IND,1085,0.85,4,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3783,kerala,2019,93,PALA,Maju Puthenkandam,parties.IN.IND,IND,1012,0.79,5,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3783,kerala,2019,93,PALA,NOTA,,,742,0.58,6,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3783,kerala,2019,93,PALA,NOTA,parties.IN.UNK,,742,0.58,6,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3783,kerala,2019,93,PALA,George Pooveli,parties.IN.IND,IND,565,0.44,7,forfeit,M,66,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3783,kerala,2019,93,PALA,Tom Thomas,parties.IN.IND,IND,303,0.24,8,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3783,kerala,2019,93,PALA,Ignatious Illimoottil,parties.IN.IND,IND,233,0.18,9,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
@@ -34,20 +34,20 @@ IN-AC-2008-kerala-3783,kerala,2019,93,PALA,Sunilkumar,parties.IN.IND,IND,97,0.08
 IN-AC-2008-kerala-3719,kerala,2019,102,AROOR,Adv.SHANIMOL OSMAN,parties.IN.INC,INC,69356,44.88,1,won,F,53,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3719,kerala,2019,102,AROOR,Adv.Manu.C.Pulickal,parties.IN.CPIM,CPM,67277,43.54,2,lost,M,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3719,kerala,2019,102,AROOR,Adv.PRAKASH BABU,parties.IN.BJP,BJP,16289,10.54,3,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3719,kerala,2019,102,AROOR,NOTA,,,840,0.54,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3719,kerala,2019,102,AROOR,NOTA,parties.IN.UNK,,840,0.54,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3719,kerala,2019,102,AROOR,GEETHA ASOKAN,parties.IN.IND,IND,352,0.23,5,forfeit,F,40,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3719,kerala,2019,102,AROOR,Adv. K B SUNIL KUMAR,parties.IN.IND,IND,278,0.18,6,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3719,kerala,2019,102,AROOR,ALLEPPY SUGUNAN,parties.IN.IND,IND,142,0.09,7,forfeit,M,69,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3818,kerala,2019,114,KONNI,Adv. K.U.JENISH KUMAR,parties.IN.CPIM,CPM,54099,38.96,1,won,M,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3818,kerala,2019,114,KONNI,P. MOHANRAJ,parties.IN.INC,INC,44146,31.79,2,lost,M,64,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3818,kerala,2019,114,KONNI,K.SURENDRAN,parties.IN.BJP,BJP,39786,28.65,3,lost,M,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3818,kerala,2019,114,KONNI,NOTA,,,469,0.34,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3818,kerala,2019,114,KONNI,NOTA,parties.IN.UNK,,469,0.34,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3818,kerala,2019,114,KONNI,JOEMON JOSEPH SRAMPICKAL,parties.IN.IND,IND,235,0.17,5,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3818,kerala,2019,114,KONNI,SIVANANDAN,parties.IN.IND,IND,124,0.09,6,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3835,kerala,2019,133,VATTIYOORKAVU,Adv. V.K.Prasanth,parties.IN.CPIM,CPM,54830,44.25,1,won,M,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3835,kerala,2019,133,VATTIYOORKAVU,Dr. K.Mohankumar,parties.IN.INC,INC,40365,32.58,2,lost,M,63,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3835,kerala,2019,133,VATTIYOORKAVU,Adv. S.Suresh,parties.IN.BJP,BJP,27453,22.16,3,lost,M,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3835,kerala,2019,133,VATTIYOORKAVU,NOTA,,,820,0.66,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3835,kerala,2019,133,VATTIYOORKAVU,NOTA,parties.IN.UNK,,820,0.66,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3835,kerala,2019,133,VATTIYOORKAVU,A.Mohanakumar S/o Appukuttan Pillai,parties.IN.IND,IND,135,0.11,5,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3835,kerala,2019,133,VATTIYOORKAVU,Nagaraj.G,parties.IN.IND,IND,100,0.08,6,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3835,kerala,2019,133,VATTIYOORKAVU,Suresh S.S S/o Sundaresan,parties.IN.IND,IND,93,0.08,7,forfeit,M,43,,,challenger,src-1b7bc1c9d39a

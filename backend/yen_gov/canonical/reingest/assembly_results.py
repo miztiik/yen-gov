@@ -31,17 +31,17 @@ section 0 + the B2b.5.2 row):
 - **One file per distinct election year.** Each ``Year`` is its own self-contained
   election directory (general elections carry the full slate; by-elections carry
   the contested subset). Cross-year reads glob ``election=*`` at read time.
-- **party_id resolution at v1.1 (F1.3a, 2026-06-06).** The B2b.5.x v1 writer left
-  ``party_id`` null because TCPD's internal ``Party_ID`` does not crosswalk into
-  ``entities/parties.csv``. F1.3a closes the gap with a *shortcode* lookup:
-  ``parties.csv.short`` (case-insensitive) -> ``parties.csv.party_id``. This
-  resolves ~95% of votes-weighted rows (every major recognised party) without
-  fabricating an FK (Holy Law #9). Long-tail shorts absent from ``parties.csv``
-  stay null - the column + the summary party columns remain nullable, and the
-  citizen UI degrades to "IND" / blank for those rows. The crosswalk lives at
-  the writer boundary (one lookup per emit, not per row) so a future enrichment
-  to ``parties.csv`` is picked up by a simple re-emit. NOTA rows are filtered
-  out before this resolution runs so NOTA never collides with the lookup.
+- **party_id resolution at v1.2 (PR-3, 2026-06-10).** The B2b.5.x v1 writer left
+  ``party_id`` null whenever TCPD's ``Party`` shortcode did not crosswalk into
+  ``entities/parties.csv``; F1.3a (v1.1) added a *shortcode + alias* lookup
+  but still produced null on miss. PR-3 closes the empty-``party_id`` bug class
+  by making the miss path produce the explicit ``parties.IN.UNK`` sentinel
+  (CLAUDE.md section 10 "no silent demotion"; ADR-0044 grain-over-entity). The
+  publisher label survives on ``party_short_raw`` so a future ``parties.csv``
+  alias enrichment (PR-W-1, TCPD bulk) re-resolves the row via a simple
+  re-emit. NOTA rows are filtered out before this resolution runs so NOTA
+  never collides with the lookup. The shortcode crosswalk lives at the writer
+  boundary (one lookup per emit, not per row).
 
 No network, no parquet, no ``urls.py`` / ``core.http`` import (a reference would be
 a B4-blocking regression). The pure helpers (``build_candidacy_rows``,
@@ -250,8 +250,10 @@ def build_candidacy_rows(
         party_lookup: optional ``upper(short) -> party_id`` map (F1.3a v1.1).
             When provided, the TCPD ``Party`` shortcode is upper-cased and
             looked up; matches yield the canonical ``parties.IN.*`` id; misses
-            stay null. When ``None`` (back-compat for tests + the v1 writer),
-            every ``party_id`` is null. Built via
+            fall through to the ``parties.IN.UNK`` sentinel (PR-3 v1.2). When
+            ``None`` (back-compat for tests + the v1 writer), every
+            ``party_id`` ALSO becomes ``parties.IN.UNK`` (uniform sentinel;
+            the column is no longer nullable in practice). Built via
             :func:`party_lookup_from_parties_csv` at the driver layer.
 
     Returns:
@@ -283,7 +285,15 @@ def build_candidacy_rows(
                 "constituency_no": eci_no,
                 "constituency_name": _text_or_none(src.get("Constituency_Name")) or "",
                 "candidate_name": _text_or_none(src.get("Candidate")) or "",
-                "party_id": lookup.get(raw_party.upper()) if raw_party else None,
+                # PR-3 (2026-06-10): every candidacy row carries a non-empty
+                # canonical party_id. A lookup miss (publisher short absent
+                # from parties.csv aliases) and an empty publisher short both
+                # fall through to the parties.IN.UNK sentinel; the upstream
+                # label survives on party_short_raw (CLAUDE.md section 10 "no
+                # silent demotion"). Mirror of party_resolver.SENTINELS['UNK'];
+                # inlined here to keep canonical/reingest free of a hard
+                # import edge to canonical/party_resolver at module load.
+                "party_id": lookup.get(raw_party.upper()) or "parties.IN.UNK",
                 "party_short_raw": raw_party or None,
                 "votes": _int_or_none(src.get("Votes")) or 0,
                 "vote_share_pct": _float_or_none(src.get("Vote_Share_Percentage")),
@@ -391,7 +401,7 @@ def emit_state_assembly(
             :func:`party_lookup_from_parties_csv` and the resolved
             ``parties.IN.*`` id is written to every candidacy + summary row.
             When ``None`` (back-compat for tests + the v1 writer), every
-            ``party_id`` is null.
+            ``party_id`` is the ``parties.IN.UNK`` sentinel (PR-3 v1.2).
 
     Returns:
         ``{year: {"candidacies": Path, "summary": Path, "n_candidacies": int,

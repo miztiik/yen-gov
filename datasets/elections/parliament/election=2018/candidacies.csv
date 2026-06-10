@@ -1,22 +1,22 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-PC-2008-bihar-190,bihar,2018,9,ARARIA,Sarfaraz Alam,parties.IN.RJD,RJD,509334,49.15,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-bihar-190,bihar,2018,9,ARARIA,Pradeep Kumar Singh,parties.IN.BJP,BJP,447546,43.19,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-bihar-190,bihar,2018,9,ARARIA,Prince Victor,,Jan Adhikar Party (Loktantrik),20922,2.02,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-bihar-190,bihar,2018,9,ARARIA,Upendra Sahani,,RJSP,18772,1.81,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-bihar-190,bihar,2018,9,ARARIA,NOTA,,,17607,1.7,5,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-bihar-190,bihar,2018,9,ARARIA,Prince Victor,parties.IN.UNK,Jan Adhikar Party (Loktantrik),20922,2.02,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-bihar-190,bihar,2018,9,ARARIA,Upendra Sahani,parties.IN.UNK,RJSP,18772,1.81,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-bihar-190,bihar,2018,9,ARARIA,NOTA,parties.IN.UNK,,17607,1.7,5,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-bihar-190,bihar,2018,9,ARARIA,Sudama Singh,parties.IN.IND,IND,11347,1.1,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-bihar-190,bihar,2018,9,ARARIA,Maheshwar Rishi,parties.IN.IND,IND,5984,0.58,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-bihar-190,bihar,2018,9,ARARIA,Binit Prakash,parties.IN.IND,IND,4682,0.45,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-karnataka-462,karnataka,2018,9,BELLORY,V.S. Ugrappa,,Hand,628365,59.99,1,won,U,,,,crossover,src-31c65dbec869
-IN-PC-2008-karnataka-462,karnataka,2018,9,BELLORY,J. Shantha,,Lotus,385204,36.78,2,lost,U,,,,crossover,src-31c65dbec869
+IN-PC-2008-karnataka-462,karnataka,2018,9,BELLORY,V.S. Ugrappa,parties.IN.UNK,Hand,628365,59.99,1,won,U,,,,crossover,src-31c65dbec869
+IN-PC-2008-karnataka-462,karnataka,2018,9,BELLORY,J. Shantha,parties.IN.UNK,Lotus,385204,36.78,2,lost,U,,,,crossover,src-31c65dbec869
 IN-PC-2008-karnataka-462,karnataka,2018,9,BELLORY,Dr. Srinivas T.R,parties.IN.IND,IND,13714,1.31,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-karnataka-462,karnataka,2018,9,BELLORY,NOTA,,,12413,1.19,4,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-462,karnataka,2018,9,BELLORY,NOTA,parties.IN.UNK,,12413,1.19,4,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-karnataka-462,karnataka,2018,9,BELLORY,Y. Pampapathi,parties.IN.IND,IND,7697,0.73,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-karnataka-473,karnataka,2018,14,SHIMOGA,B.Y. Raghavendra 'E',parties.IN.BJP,Bhartiya Janta Party,543306,50.73,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-karnataka-473,karnataka,2018,14,SHIMOGA,S. Madhubangarappa,parties.IN.JDS,Janta Dal (Secular),491158,45.86,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-karnataka-473,karnataka,2018,14,SHIMOGA,Shashi Kumar S. Gowda,parties.IN.IND,IND,17189,1.6,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-karnataka-473,karnataka,2018,14,SHIMOGA,NOTA,,,10687,1,4,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-karnataka-473,karnataka,2018,14,SHIMOGA,Mahima J. Patel,,Janta Dal (United),8713,0.81,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-473,karnataka,2018,14,SHIMOGA,NOTA,parties.IN.UNK,,10687,1,4,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-karnataka-473,karnataka,2018,14,SHIMOGA,Mahima J. Patel,parties.IN.UNK,Janta Dal (United),8713,0.81,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Kukade Madhukrao Yashwantrao,parties.IN.NCP,NCP,442213,46.61,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Hemant [Tanubhau] Patle,parties.IN.BJP,BJP,394116,41.54,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,L.K. Madavi,parties.IN.BBM,BBM,40326,4.25,3,forfeit,U,,,,challenger,src-31c65dbec869
@@ -25,56 +25,56 @@ IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Kashiram Jagan
 IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Suhas Anil Funde,parties.IN.IND,IND,8103,0.85,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Ajablal Tularam,parties.IN.IND,IND,7453,0.79,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Rakesh H.Tembhare,parties.IN.IND,IND,6893,0.73,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,NOTA,,,6602,0.7,9,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Borkar Rafesh Purushottam,,BPSP,6362,0.67,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,NOTA,parties.IN.UNK,,6602,0.7,9,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Borkar Rafesh Purushottam,parties.IN.UNK,BPSP,6362,0.67,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Akshay Yogesh Pandey,parties.IN.VMP,VMP,4312,0.45,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Purushottam Narayanrao Kawale,parties.IN.IND,IND,2711,0.29,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Gopal Tukarammuikey,parties.IN.IND,IND,2476,0.26,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Kishor Manohar Panchbhai,parties.IN.IND,IND,1963,0.21,14,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Dr. Chandramani Hiralal Kamble,,API,1758,0.19,15,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Dharmaraj Ramchandra Bhalavi,,BMP,1715,0.18,16,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Dr. Chandramani Hiralal Kamble,parties.IN.UNK,API,1758,0.19,15,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Dharmaraj Ramchandra Bhalavi,parties.IN.UNK,BMP,1715,0.18,16,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Chaniram Laxman Meshram,parties.IN.IND,IND,1644,0.17,17,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Jitendra Adaku Raut,parties.IN.ABMP,ABMP,1191,0.13,18,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Nandlal Dikshit Kadgaye,,BP,1154,0.12,19,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-maharashtra-368,maharashtra,2018,11,BHANDARA - GONDIYA,Nandlal Dikshit Kadgaye,parties.IN.UNK,BP,1154,0.12,19,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-395,maharashtra,2018,22,PALGHAR,Gavit Rajendra Dhedya E,parties.IN.BJP,BJP,272782,30.76,1,won,U,,,,crossover,src-31c65dbec869
-IN-PC-2008-maharashtra-395,maharashtra,2018,22,PALGHAR,Shrinivas Chintaman Vanag,,SS,243210,27.42,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-maharashtra-395,maharashtra,2018,22,PALGHAR,Shrinivas Chintaman Vanag,parties.IN.UNK,SS,243210,27.42,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-395,maharashtra,2018,22,PALGHAR,Baliram Sukur Jadhav,parties.IN.BVA,BVA,222838,25.13,3,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-395,maharashtra,2018,22,PALGHAR,Gahala Kiran Raja,parties.IN.CPIM,CPI(Marxist),71887,8.11,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-395,maharashtra,2018,22,PALGHAR,Damodar Barku Shingada,parties.IN.INC,INC,47714,5.38,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-395,maharashtra,2018,22,PALGHAR,NOTA,,,16884,1.9,6,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-maharashtra-395,maharashtra,2018,22,PALGHAR,NOTA,parties.IN.UNK,,16884,1.9,6,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-395,maharashtra,2018,22,PALGHAR,Sandeep Ramesh Jadhav,parties.IN.IND,IND,6670,0.75,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-395,maharashtra,2018,22,PALGHAR,Com. Shankar Bahaga Badade,,MLPI(Red Flag),4884,0.55,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-maharashtra-395,maharashtra,2018,22,PALGHAR,Com. Shankar Bahaga Badade,parties.IN.UNK,MLPI(Red Flag),4884,0.55,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-nagaland-195,nagaland,2018,1,NAGALAND,Tokheho,parties.IN.NDPP,NDPP,594205,58.33,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-nagaland-195,nagaland,2018,1,NAGALAND,C. Apol Jamir,,NCF,420459,41.28,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-nagaland-195,nagaland,2018,1,NAGALAND,NOTA,,,3991,0.39,3,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-nagaland-195,nagaland,2018,1,NAGALAND,C. Apol Jamir,parties.IN.UNK,NCF,420459,41.28,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-nagaland-195,nagaland,2018,1,NAGALAND,NOTA,parties.IN.UNK,,3991,0.39,3,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-48,rajasthan,2018,8,ALWAR,Dr.Karan Singh Yadav,parties.IN.INC,INC,642416,56.96,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-48,rajasthan,2018,8,ALWAR,Dr. Jaswant Singh Yadav,parties.IN.BJP,BJP,445920,39.54,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-rajasthan-48,rajasthan,2018,8,ALWAR,NOTA,,,15093,1.34,3,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-rajasthan-48,rajasthan,2018,8,ALWAR,NOTA,parties.IN.UNK,,15093,1.34,3,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-48,rajasthan,2018,8,ALWAR,Daya Singh,parties.IN.IND,IND,6486,0.58,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-48,rajasthan,2018,8,ALWAR,Chaman Lal,parties.IN.RPIA,RPI(A),3573,0.32,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-48,rajasthan,2018,8,ALWAR,Amit Kumar Gupta,parties.IN.IND,IND,2990,0.27,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-48,rajasthan,2018,8,ALWAR,Anand Kumar Sain,parties.IN.IND,IND,2314,0.21,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-48,rajasthan,2018,8,ALWAR,Khemraj Gurjar,parties.IN.IND,IND,2242,0.2,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-48,rajasthan,2018,8,ALWAR,Jaswant Singh,parties.IN.IND,IND,2028,0.18,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-rajasthan-48,rajasthan,2018,8,ALWAR,Ramnath Meghwal,,IVD,2021,0.18,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-rajasthan-48,rajasthan,2018,8,ALWAR,Ramnath Meghwal,parties.IN.UNK,IVD,2021,0.18,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-48,rajasthan,2018,8,ALWAR,Jamaludeen,parties.IN.IND,IND,1791,0.16,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-48,rajasthan,2018,8,ALWAR,Ibrahim Khan,parties.IN.IND,IND,958,0.08,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Raghu Sharma,parties.IN.INC,INC,611514,50.64,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Ramswaroop Lamba,parties.IN.BJP,BJP,527100,43.65,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Mukesh Gena,parties.IN.IND,IND,12084,1,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Mohammad Nasim,parties.IN.IND,IND,9993,0.83,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,NOTA,,,8160,0.68,5,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,NOTA,parties.IN.UNK,,8160,0.68,5,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Manohar Gurjar,parties.IN.HSS,HSS,6758,0.56,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Peer Dan Singh,parties.IN.IND,IND,5094,0.42,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Ravinder Singh Shekhawat,parties.IN.IND,IND,4171,0.35,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Hina,parties.IN.IND,IND,2727,0.23,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Krishna Kumar Dadhich,parties.IN.IND,IND,2535,0.21,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Kamala Rawat,parties.IN.IND,IND,2400,0.2,11,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Shivbhagwan,,DSPVAD,2115,0.18,12,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Shivbhagwan,parties.IN.UNK,DSPVAD,2115,0.18,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Naim Khan,parties.IN.IND,IND,1904,0.16,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Jagdish Bairwa,parties.IN.IND,IND,1612,0.13,14,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Danaram Meharara Meghwanshi,parties.IN.IND,IND,1388,0.11,15,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Advocate Ranjeeta Rawat,,ABAP,1274,0.11,16,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Advocate Ranjeeta Rawat,parties.IN.UNK,ABAP,1274,0.11,16,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Shahid Khan,parties.IN.IND,IND,1120,0.09,17,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Gajendra Singh,parties.IN.IND,IND,1003,0.08,18,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-rajasthan-70,rajasthan,2018,13,AJMER,Gul Mohammad,parties.IN.IND,IND,915,0.08,19,forfeit,U,,,,challenger,src-31c65dbec869
@@ -87,11 +87,11 @@ IN-PC-2008-uttar-pradesh-78,uttar-pradesh,2018,2,KAIRANA,Tabassum Begum €,part
 IN-PC-2008-uttar-pradesh-78,uttar-pradesh,2018,2,KAIRANA,Mriganka Singh,parties.IN.BJP,BJP,426648,46.85,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-78,uttar-pradesh,2018,2,KAIRANA,Ravinder Kumar,parties.IN.IND,IND,3450,0.38,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-78,uttar-pradesh,2018,2,KAIRANA,Sanjeev,parties.IN.IND,IND,2702,0.3,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-78,uttar-pradesh,2018,2,KAIRANA,Inderjeet,,BMP,2326,0.26,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-78,uttar-pradesh,2018,2,KAIRANA,Inderjeet,parties.IN.UNK,BMP,2326,0.26,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-78,uttar-pradesh,2018,2,KAIRANA,Yajpal Singh Rathi,parties.IN.IND,IND,1526,0.17,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-78,uttar-pradesh,2018,2,KAIRANA,Randhir Singh Duhan,parties.IN.IND,IND,1360,0.15,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-78,uttar-pradesh,2018,2,KAIRANA,Ramsharan,parties.IN.IND,IND,1216,0.13,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-78,uttar-pradesh,2018,2,KAIRANA,Kumari Priti Kashyap,,JHJBP,1084,0.12,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-78,uttar-pradesh,2018,2,KAIRANA,Kumari Priti Kashyap,parties.IN.UNK,JHJBP,1084,0.12,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-78,uttar-pradesh,2018,2,KAIRANA,Mohd. Saleem,parties.IN.IND,IND,1011,0.11,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-78,uttar-pradesh,2018,2,KAIRANA,Sethpal,parties.IN.IND,IND,869,0.1,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-78,uttar-pradesh,2018,2,KAIRANA,Kanwar Hasan,parties.IN.LD,LD,609,0.07,12,forfeit,U,,,,challenger,src-31c65dbec869
@@ -103,39 +103,39 @@ IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Dr. Neeraj,parties.IN
 IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Sarvesh,parties.IN.IND,IND,4000,0.55,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Dr. Ramesh Prakash Verma,parties.IN.IND,IND,3073,0.42,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Rajendra Prasad,parties.IN.IND,IND,3031,0.41,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Kanhaiya Lal,,BMP,3021,0.41,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,NOTA,,,2724,0.37,10,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Kanhaiya Lal,parties.IN.UNK,BMP,3021,0.41,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,NOTA,parties.IN.UNK,,2724,0.37,10,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Ashok Kumar,parties.IN.IND,IND,2100,0.29,11,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Varun Dev Pal,,PSSP,1661,0.23,12,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Varun Dev Pal,parties.IN.UNK,PSSP,1661,0.23,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Patrakar Rais Ahmad Khan,parties.IN.PSP,PSP,1517,0.21,13,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Suresh chandra Upadhyay,,BKSL,1457,0.2,14,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Shamsher Bahadur Patel,,BKP,1434,0.2,15,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Suresh chandra Upadhyay,parties.IN.UNK,BKSL,1457,0.2,14,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Shamsher Bahadur Patel,parties.IN.UNK,BKP,1434,0.2,15,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Rajesh Yadav,parties.IN.IND,IND,1421,0.19,16,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Ramesh Kumar,,LSSP,1298,0.18,17,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Sudha Patel,,Bhartiya Sangam Party,1157,0.16,18,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Ramesh Kumar,parties.IN.UNK,LSSP,1298,0.18,17,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Sudha Patel,parties.IN.UNK,Bhartiya Sangam Party,1157,0.16,18,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Hasan Akhlak URF Rijwan Neewan,parties.IN.IND,IND,1138,0.16,19,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Ganesh Ji Tripathi,,RBP,1050,0.14,20,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Kamala Prasad,,AYP,929,0.13,21,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,D.D. Gupta,,NDAPF,809,0.11,22,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Ganesh Ji Tripathi,parties.IN.UNK,RBP,1050,0.14,20,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Kamala Prasad,parties.IN.UNK,AYP,929,0.13,21,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,D.D. Gupta,parties.IN.UNK,NDAPF,809,0.11,22,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-136,uttar-pradesh,2018,51,PHULPUR,Ram Manohar Singh,parties.IN.IND,IND,529,0.07,23,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-100,uttar-pradesh,2018,64,GORAKHPUR,Pravin Kumar Nishad,parties.IN.SP,SP,456589,48.87,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-100,uttar-pradesh,2018,64,GORAKHPUR,Upendra Dutt Shukla,parties.IN.BJP,BJP,434788,46.54,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-100,uttar-pradesh,2018,64,GORAKHPUR,Dr. Surheeta Kareem,parties.IN.INC,INC,18872,2.02,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-100,uttar-pradesh,2018,64,GORAKHPUR,NOTA,,,8331,0.89,4,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-100,uttar-pradesh,2018,64,GORAKHPUR,NOTA,parties.IN.UNK,,8331,0.89,4,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-100,uttar-pradesh,2018,64,GORAKHPUR,Sarvan Kumar Nishad,parties.IN.IND,IND,3254,0.35,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-100,uttar-pradesh,2018,64,GORAKHPUR,Awadhesh Nishad,,Bahujan Mukt Party,2833,0.3,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-100,uttar-pradesh,2018,64,GORAKHPUR,Awadhesh Nishad,parties.IN.UNK,Bahujan Mukt Party,2833,0.3,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-100,uttar-pradesh,2018,64,GORAKHPUR,Malti Devi,parties.IN.IND,IND,2427,0.26,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-100,uttar-pradesh,2018,64,GORAKHPUR,Radhe Shyam Sehra,parties.IN.IND,IND,2003,0.21,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-100,uttar-pradesh,2018,64,GORAKHPUR,Vijay Kumar Rai,parties.IN.IND,IND,1822,0.2,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-100,uttar-pradesh,2018,64,GORAKHPUR,Narendra Kumar Mahantha,parties.IN.IND,IND,1721,0.18,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-100,uttar-pradesh,2018,64,GORAKHPUR,Girisnarayan Pande,,Sarvodaya Bharat Party,1680,0.18,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-100,uttar-pradesh,2018,64,GORAKHPUR,Girisnarayan Pande,parties.IN.UNK,Sarvodaya Bharat Party,1680,0.18,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-west-bengal-256,west-bengal,2018,26,ULUBERIA,Sajda Ahmed,parties.IN.AITC,AITC,767556,61,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-west-bengal-256,west-bengal,2018,26,ULUBERIA,Anupam Mallik,parties.IN.BJP,BJP,293046,23.29,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-west-bengal-256,west-bengal,2018,26,ULUBERIA,Sabiruddin Molla,parties.IN.CPIM,CPM,138892,11.04,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-west-bengal-256,west-bengal,2018,26,ULUBERIA,SK Madassar Hossain Warsi,parties.IN.INC,INC,23109,1.84,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-256,west-bengal,2018,26,ULUBERIA,NOTA,,,11757,0.93,5,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-256,west-bengal,2018,26,ULUBERIA,NOTA,parties.IN.UNK,,11757,0.93,5,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-west-bengal-256,west-bengal,2018,26,ULUBERIA,Tapas Mondal,parties.IN.IND,IND,7682,0.61,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-256,west-bengal,2018,26,ULUBERIA,Simal Saren,,IUC,5383,0.43,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-256,west-bengal,2018,26,ULUBERIA,Simal Saren,parties.IN.UNK,IUC,5383,0.43,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-west-bengal-256,west-bengal,2018,26,ULUBERIA,Kamal Krishna Malick,parties.IN.IND,IND,4566,0.36,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-west-bengal-256,west-bengal,2018,26,ULUBERIA,Sanjib Karmakar,parties.IN.IND,IND,3684,0.29,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-west-bengal-256,west-bengal,2018,26,ULUBERIA,Amal Barman,parties.IN.IND,IND,2560,0.2,10,forfeit,U,,,,challenger,src-31c65dbec869

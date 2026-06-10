@@ -2,4 +2,4 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-gujarat-2812,gujarat,2021,125,MORVA HADAF,SUTHAR NIMISHABEN MANHARSINH,parties.IN.BJP,BJP,67457,72.41,1,won,F,38,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-gujarat-2812,gujarat,2021,125,MORVA HADAF,KATARA SURESHBHAI CHHAGANBHAI,parties.IN.INC,INC,21808,23.41,2,lost,M,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-gujarat-2812,gujarat,2021,125,MORVA HADAF,SUSHILABEN PARSOTTAMBHAI MAIDA,parties.IN.IND,IND,2371,2.55,3,forfeit,F,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2812,gujarat,2021,125,MORVA HADAF,NOTA,,,1527,1.64,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-gujarat-2812,gujarat,2021,125,MORVA HADAF,NOTA,parties.IN.UNK,,1527,1.64,4,lost,U,,,,challenger,src-1b7bc1c9d39a
