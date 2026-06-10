@@ -1,6 +1,6 @@
 {
   "$schema": "https://yen-gov.github.io/schemas/election-events.schema.json",
-  "$schema_version": "1.1",
+  "$schema_version": "1.2",
   "sources": [],
   "states": {
     "S01": [
