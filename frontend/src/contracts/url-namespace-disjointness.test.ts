@@ -180,6 +180,32 @@ function loadActiveAcSlugs(): string[] {
 }
 
 /**
+ * Load the deduped set of PC (Parliament constituency) name-slugs from
+ * the canonical electoral entities CSV. PR-W3b (election experience
+ * overhaul, 2026-06-10): the new 4-segment leaf route
+ * `/<state>/elections/<event>/<constituency>` dispatches AC vs PC from
+ * the event-slug body prefix and resolves the bare name slug against
+ * electoral.csv. PC name-slugs must therefore be disjoint from the
+ * event-slug regex for the same reason AC name-slugs are - a
+ * constituency named `general-2024` would mis-route as an event
+ * cascade rather than a leaf.
+ */
+function loadActivePcSlugs(): string[] {
+  const csv = readFileSync(electoralCsvPath, "utf-8");
+  const lines = csv.split(/\r?\n/).filter((l) => l.length > 0);
+  lines.shift(); // header
+  const slugs = new Set<string>();
+  for (const line of lines) {
+    const cols = line.split(",");
+    if (cols[2] !== "pc") continue;
+    const name = cols[1];
+    if (!name) continue;
+    slugs.add(slugify(name));
+  }
+  return [...slugs];
+}
+
+/**
  * Per-state district slug map for the Deferral 1 disjointness gate.
  *
  * Returns `Map<stateSlug, Set<districtSlug>>` derived from the SAME
@@ -449,6 +475,24 @@ describe("PR-0 event-context disjointness (election experience overhaul plan)", 
     // an auto-rename. AC names are citizen-visible URL contracts.
     const overlap = intersection(acSlugs, EVENT_CONTEXT_LITERALS);
     expect(overlap).toEqual([]);
+  });
+
+  it("constituency name-slugs (AC + PC) do not match the event-slug regex", () => {
+    // PR-W3b (election experience overhaul, 2026-06-10): the new
+    // 4-segment leaf route `/<state>/elections/<event>/<constituency>`
+    // shares a path segment with the event-slug position one segment
+    // up. A constituency named e.g. "general-2024" would slugify to
+    // exactly the event-slug shape and the router would lose the
+    // ability to tell them apart. STOP-AND-SURFACE: a real such name
+    // is escalation (rename the seat in electoral.csv with
+    // Hans+Max signoff, NOT a router-side workaround).
+    const acSlugs = loadActiveAcSlugs();
+    const pcSlugs = loadActivePcSlugs();
+    const constituency_slugs = [...new Set([...acSlugs, ...pcSlugs])];
+    const collisions = constituency_slugs.filter((s) =>
+      EVENT_SLUG_REGEX.test(s),
+    );
+    expect(collisions).toEqual([]);
   });
 });
 

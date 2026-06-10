@@ -280,6 +280,30 @@ export function constituencyBareCrumbs(
   ];
 }
 
+/** PR-W3b constituency leaf: /<state>/elections/<event>/<constituency>.
+ *  Five crumbs ending in the bare constituency-name slug. Mirrors the
+ *  ascend chain of `constituencyCanonicalCrumbs` (the same route's
+ *  legacy 5-segment AC-only sibling) so a citizen who arrives via the
+ *  bare-slug URL sees the same breadcrumb shape. */
+export function constituencyLeafCrumbs(
+  params: Record<string, unknown>,
+): Crumb[] {
+  const stateSlug = typeof params.state === "string" ? params.state : "";
+  const event = typeof params.event === "string" ? params.event : "";
+  const constituency =
+    typeof params.constituency_slug === "string"
+      ? params.constituency_slug
+      : "";
+  const sName = stateLabel(stateSlug);
+  return [
+    ROOT_LINK,
+    { label: sName, href: link.stateHub(stateSlug) },
+    { label: `${sName} elections`, href: link.stateTopic(stateSlug, "elections") },
+    { label: event, href: link.stateElection(stateSlug, event) },
+    { label: slugToTitle(constituency), isLeaf: true },
+  ];
+}
+
 export function partyCrumbs(params: Record<string, unknown>): Crumb[] {
   const stateSlug = typeof params.state === "string" ? params.state : "";
   const partySlug = typeof params.party_slug === "string" ? params.party_slug : "";

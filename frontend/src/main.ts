@@ -43,6 +43,7 @@ import {
   compareIndicatorCrumbs,
   constituencyBareCrumbs,
   constituencyCanonicalCrumbs,
+  constituencyLeafCrumbs,
   countingMethodDocCrumbs,
   dataCompletenessCrumbs,
   devChartsSandboxCrumbs,
@@ -264,6 +265,27 @@ startRouter({
     // results compare) — this is the neutral citizen permalink for a
     // specific cohort's results in a specific state.
     { pattern: "/:state/elections/:event", component: StateElection, crumbs: stateElectionCrumbs },
+    // PR-W3b (election experience overhaul, 2026-06-10): bare-slug
+    // constituency leaf at /<state>/elections/<event>/<constituency>.
+    // Dispatches AC vs PC inside `Constituency.svelte` from the
+    // event-slug body prefix (`general-` -> PC; `assembly-` -> AC).
+    // The W3b-doctrinal shape; the legacy 5-segment
+    // `/:state/elections/:event/ac/:ac` (ADR-0052) registered ABOVE
+    // remains live for one release as the strangler-fig for legacy
+    // bookmarks (segment count distinguishes; the more-specific
+    // 5-segment wins on routes that carry the explicit `/ac/`
+    // literal). Place after the 3-segment state event view so
+    // most-specific-first ordering is preserved by segment count.
+    {
+      pattern: "/:state/elections/:event/:constituency",
+      component: Constituency,
+      parse: ({ state, event, constituency }) => ({
+        state,
+        event,
+        constituency_slug: constituency,
+      }),
+      crumbs: constituencyLeafCrumbs,
+    },
     // Per-state explorer.
     { pattern: "/:state/explore", component: Explore, crumbs: exploreCrumbs },
     // Depth-2 state-sub dispatcher (Deferral 1, 2026-06-10). Catches
