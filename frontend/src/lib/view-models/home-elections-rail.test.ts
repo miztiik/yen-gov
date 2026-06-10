@@ -26,9 +26,11 @@ vi.mock("./election-results", () => ({
 
 import {
   buildHomeElectionsRail,
+  buildHomeElectionsRailFast,
   composeRail,
   pickAnchorEvent,
   pickClosestRace,
+  refineHookCard,
 } from "./home-elections-rail";
 
 // ---------------- fixtures ----------------
@@ -216,7 +218,7 @@ describe("composeRail", () => {
     const payload = composeRail(catalogue, anchor, rows);
     expect(payload.hook.title).toBe("2024's closest seat");
     expect(payload.hook.subtitle).toContain("Mumbai South-Central");
-    expect(payload.hook.subtitle).toContain("0.5%");
+    expect(payload.hook.subtitle).toContain("0.45%");
     expect(payload.hook.href).toBe("/maharashtra/elections/general-2024");
   });
 
@@ -225,6 +227,18 @@ describe("composeRail", () => {
     expect(payload.hook.title).toBe("Parliament 2024");
     expect(payload.hook.subtitle).toBe("Latest event highlights");
     expect(payload.hook.href).toBe("/t/elections/general-2024");
+  });
+
+  it("hook subtitle floors sub-0.01% margins to '< 0.01%' so they don't look broken", () => {
+    const rows = [
+      makeRow({
+        entity_name: "Mumbai North-West",
+        state_slug: "maharashtra",
+        margin_pct: 0.0093, // real 2024 PC margin: 48 votes / ~518k
+      }),
+    ];
+    const payload = composeRail(catalogue, anchor, rows);
+    expect(payload.hook.subtitle).toBe("Mumbai North-West - margin < 0.01%");
   });
 
   it("door card is a static link to /t/elections", () => {
@@ -289,5 +303,84 @@ describe("buildHomeElectionsRail", () => {
     await expect(buildHomeElectionsRail()).rejects.toThrow(
       /no parliament event with data_status='complete'/,
     );
+  });
+});
+
+// ---------------- buildHomeElectionsRailFast ----------------
+
+describe("buildHomeElectionsRailFast", () => {
+  it("returns a degraded-hook payload without calling the loader", async () => {
+    mockFetchElectionEvents.mockResolvedValue(
+      makeCatalogue({
+        S13: [makeEvent({ event_id: "general-2024", polled_on: "2024-06-01", data_status: "complete" })],
+      }),
+    );
+    const payload = await buildHomeElectionsRailFast();
+    expect(payload.anchor.href).toBe("/t/elections/general-2024");
+    expect(payload.hook.subtitle).toBe("Latest event highlights");
+    expect(payload.door.href).toBe("/t/elections");
+    // Fast path MUST NOT touch the slow loader.
+    expect(mockLoadElectionResults).not.toHaveBeenCalled();
+  });
+
+  it("throws on the same catalogue shapes as the full builder", async () => {
+    mockFetchElectionEvents.mockResolvedValue(makeCatalogue({}));
+    await expect(buildHomeElectionsRailFast()).rejects.toThrow(
+      /no parliament event with data_status='complete'/,
+    );
+  });
+});
+
+// ---------------- refineHookCard ----------------
+
+describe("refineHookCard", () => {
+  const fast = composeRail(
+    makeCatalogue({}),
+    makeEvent({ event_id: "general-2024", polled_on: "2024-06-01" }),
+    [],
+  );
+
+  it("upgrades the hook when the loader returns a margin-carrying row", async () => {
+    const okResult: LoaderResult<ElectionResultRow[]> = {
+      status: "ok",
+      data: [
+        makeRow({
+          entity_name: "Mumbai South-Central",
+          state_slug: "maharashtra",
+          margin_pct: 0.45,
+        }),
+      ],
+    };
+    mockLoadElectionResults.mockResolvedValue(okResult);
+    const refined = await refineHookCard(fast, "general-2024");
+    expect(refined.hook.title).toBe("2024's closest seat");
+    expect(refined.hook.subtitle).toContain("Mumbai South-Central");
+    expect(refined.hook.href).toBe("/maharashtra/elections/general-2024");
+    // Anchor + door cards are untouched by the refine pass.
+    expect(refined.anchor).toEqual(fast.anchor);
+    expect(refined.door).toEqual(fast.door);
+  });
+
+  it("returns the input payload unchanged when the loader fails", async () => {
+    const failedResult: LoaderResult<ElectionResultRow[]> = {
+      status: "failed",
+      reason: "data_unavailable",
+      retry: () => Promise.resolve(failedResult),
+    };
+    mockLoadElectionResults.mockResolvedValue(failedResult);
+    const refined = await refineHookCard(fast, "general-2024");
+    expect(refined).toEqual(fast);
+  });
+
+  it("returns the input payload unchanged when no row carries a margin", async () => {
+    mockLoadElectionResults.mockResolvedValue({ status: "ok", data: [] });
+    const refined = await refineHookCard(fast, "general-2024");
+    expect(refined).toEqual(fast);
+  });
+
+  it("swallows loader exceptions silently", async () => {
+    mockLoadElectionResults.mockRejectedValue(new Error("boom"));
+    const refined = await refineHookCard(fast, "general-2024");
+    expect(refined).toEqual(fast);
   });
 });

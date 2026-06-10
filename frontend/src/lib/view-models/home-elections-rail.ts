@@ -113,9 +113,15 @@ export function pickClosestRace(
   return best;
 }
 
-/** Format a margin percentage for citizen display (1 decimal place). */
+/** Format a margin percentage for citizen display. Two decimal places
+ *  so sub-percent margins (e.g. Mumbai North-West 2024's ~0.04% winning
+ *  margin) read as "0.04%" rather than "0.0%" - the latter looks broken.
+ *  Margins below 0.01% (rare but real - some 2024 PCs were ~48 votes
+ *  out of ~5 lakh) show as "< 0.01%" so the citizen sees that the seat
+ *  was extraordinarily close, not that the data is missing. */
 function formatMargin(margin_pct: number): string {
-  return `${margin_pct.toFixed(1)}%`;
+  if (margin_pct < 0.01) return "< 0.01%";
+  return `${margin_pct.toFixed(2)}%`;
 }
 
 /** Compose the 3-card payload. Pure; consumes the catalogue + loader
@@ -159,7 +165,15 @@ export function composeRail(
   return { anchor, hook, door };
 }
 
-/** End-to-end builder: load the catalogue + national results, compose. */
+/** End-to-end builder: load the catalogue + national results, compose.
+ *
+ *  Single-await convenience used by tests + any caller that wants the
+ *  fully-resolved payload in one promise. The Home.svelte mount uses the
+ *  two-phase variants below so the anchor + door cards ship at catalogue
+ *  speed (~200ms) and the hook refines silently in the background after
+ *  the NATIONAL-PC loader returns (cold DuckDB-WASM at this scope is
+ *  10-30s; not blocking the rail on it is a citizen-UX win and matches
+ *  the brief's "the hook can degrade" guidance). */
 export async function buildHomeElectionsRail(): Promise<HomeElectionsRailPayload> {
   const catalogue = await fetchElectionEvents();
   const anchor_event = pickAnchorEvent(catalogue);
@@ -171,4 +185,47 @@ export async function buildHomeElectionsRail(): Promise<HomeElectionsRailPayload
   const result = await loadElectionResults({ event: anchor_event.event_id });
   const rows = result.status === "ok" ? result.data : [];
   return composeRail(catalogue, anchor_event, rows);
+}
+
+/** Fast phase: catalogue-only build. Returns the anchor + door cards
+ *  immediately and a degraded hook ("Latest event highlights"). Cheap;
+ *  ~200ms cold (single JSON fetch). Used by Home.svelte so the rail
+ *  paints within the first frame after the catalogue resolves. */
+export async function buildHomeElectionsRailFast(): Promise<HomeElectionsRailPayload> {
+  const catalogue = await fetchElectionEvents();
+  const anchor_event = pickAnchorEvent(catalogue);
+  if (anchor_event === null) {
+    throw new Error(
+      "home-elections-rail: no parliament event with data_status='complete' in catalogue",
+    );
+  }
+  return composeRail(catalogue, anchor_event, []);
+}
+
+/** Refine phase: re-run the hook calculation against the slow loader and
+ *  return a fresh payload with the upgraded hook. The caller passes the
+ *  fast-phase payload back in so this never re-runs the catalogue fetch.
+ *  Silent on failure - returns the input payload unchanged so the caller
+ *  can swap blindly. */
+export async function refineHookCard(
+  fast: HomeElectionsRailPayload,
+  anchor_event_id: string,
+): Promise<HomeElectionsRailPayload> {
+  try {
+    const result = await loadElectionResults({ event: anchor_event_id });
+    if (result.status !== "ok") return fast;
+    const closest = pickClosestRace(result.data);
+    if (closest === null) return fast;
+    const year = anchor_event_id.match(/(\d{4})/)?.[1] ?? "";
+    return {
+      ...fast,
+      hook: {
+        title: `${year}'s closest seat`,
+        subtitle: `${closest.entity_name} - margin ${formatMargin(closest.margin_pct as number)}`,
+        href: link.stateElection(closest.state_slug, anchor_event_id),
+      },
+    };
+  } catch {
+    return fast;
+  }
 }
