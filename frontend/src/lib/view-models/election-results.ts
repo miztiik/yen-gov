@@ -264,9 +264,11 @@ async function runNationalPcQuery(
   // still emits a row with null brand metadata. PR-W3c (2026-06-10):
   // additive projection of `electors` + `votes_polled` so the National
   // event view can derive the citizen-facing Total electors / Total
-  // polled KPIs directly from the per-PC rows. STATE-AC + CONSTITUENCY
-  // dispatches still pass null for these fields (assembly summary.csv
-  // carries the same columns; surfacing them is a future-PR concern).
+  // polled KPIs directly from the per-PC rows. PR-W4a (2026-06-10):
+  // additive projection of `winner_share_pct` so the constituency-
+  // history bar in `frontend/src/lib/elections/ConstituencyHistoryBar.svelte`
+  // can render per-event winner vote-share bars at NATIONAL-PC scope
+  // (mirrors the STATE-AC arm extended in W3b).
   const sql = `
     SELECT
       e.entity_id                   AS entity_id,
@@ -285,6 +287,7 @@ async function runNationalPcQuery(
       s.turnout_pct                 AS turnout_pct,
       s.electors                    AS electors,
       s.votes_polled                AS votes_polled,
+      s.winner_share_pct            AS vote_share_pct,
       s.winner_candidate            AS winner_candidate_name
     FROM read_csv('${sumUrl}', ${sumClause}) s
     JOIN read_csv('${electoralUrl}', ${electoralClause}) e
