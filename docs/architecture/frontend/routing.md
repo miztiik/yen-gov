@@ -1,12 +1,12 @@
 # Frontend routing
 
-**Last Updated**: 2026-05-26
+**Last Updated**: 2026-06-10
 
 ## What this is
 
 The operational form of the URL scheme decided in [ADR-0028](../decisions/0028-url-scheme-place-first-flat-indicator-slug.md), as amended by [ADR-0037](../decisions/0037-url-grammar-drop-india-prefix.md). This doc is for the engineer wiring the router; the ADRs are for the reviewer asking "why this shape."
 
-> **Phase 1 status (2026-05-25).** Grammar A end-state is documented here but not yet wired into `frontend/src/main.ts`. The live code currently routes Grammar B (`/s/<state>/...`); see [ADR-0037](../decisions/0037-url-grammar-drop-india-prefix.md) for the binding decision, the three-voice digest, the four-phase strangler-fig, and the open user-gate questions blocking Phase 2/3/4. Phase 1 shipped `frontend/src/lib/links.ts` (Grammar A builders, zero call-sites) plus the three Tier-A contract tests in PR #173. Phase 2 adds the route table; Phase 3 lands the legacy redirect; Phase 4 deletes Grammar B.
+> **Phase 4 shipped (2026-06-10).** Grammar A is the LIVE shape. The route table in [frontend/src/main.ts](../../../frontend/src/main.ts) declares the Grammar A patterns; every internal `<a href>` builder lives on `link.X()` in [frontend/src/lib/links.ts](../../../frontend/src/lib/links.ts). The legacy Grammar B `url.X()` builders + the 42-test contract in `frontend/src/lib/url.test.ts` were DELETED in PR #869. `RedirectLegacyUrl.svelte` stays mounted on `/s/*` for one release cycle to honour legacy bookmarks; it `history.replaceState`s every `/s/<state>/...` URL to the Grammar A equivalent (`/<state>/...`). Phase 4b (deferred indefinitely; user-triggered) deletes the redirect + drops `s` from `RESERVED_PATH_TOKENS`.
 
 ## Mode
 

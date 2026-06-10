@@ -224,10 +224,14 @@ describe("Grammar A — reserved-path-token set (ADR-0037)", () => {
     }
   });
 
-  it("retains the Phase-4b legacy redirect anchors (s, ac, party)", () => {
-    for (const anchor of ["s", "ac", "party"] as const) {
-      expect(RESERVED_PATH_TOKENS).toContain(anchor as never);
-    }
+  it("retains `s` as the legacy redirect anchor (RedirectLegacyUrl.svelte) until PR-P4", () => {
+    // PR-P3 (this PR) deletes the Grammar B builders + 42-test contract
+    // but keeps `RedirectLegacyUrl.svelte` mounted on `/s/*` so legacy
+    // bookmarks (`/s/<state>/...`) still redirect to Grammar A. The `s`
+    // token MUST stay reserved while that redirect catch-all is live.
+    // PR-P4 (deferred indefinitely; user-triggered) deletes the redirect
+    // + drops `s` from the reserved set.
+    expect(RESERVED_PATH_TOKENS).toContain("s" as never);
   });
 
   it("pre-reserves the future indicator-marker `i` (Max's retrofit safety net)", () => {
