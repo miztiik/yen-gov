@@ -1229,3 +1229,161 @@ def canonical_backfill_eci(
     if res.failed_slices:
         raise typer.Exit(code=1)
 
+
+@app.command("parity")
+def parity(
+    source: str = typer.Option(
+        ...,
+        "--source",
+        help=(
+            "Source adapter id registered in recon.adapters.REGISTRY "
+            "(e.g. tcpd-parties | eci-registered | wikipedia-parties | "
+            "indiavotes-state | bhukyavenkatamahesh-pc | thecont1-state). "
+            "PR-2 ships ZERO adapters; PR-W-1 + W-2 + W-3 + Stream X PRs "
+            "register theirs."
+        ),
+    ),
+    vintage: str = typer.Option(
+        ...,
+        "--vintage",
+        help=(
+            "Upstream snapshot pin per ADR-0042: YYYY, YYYY-MM, or "
+            "YYYY-MM-DD. Operator snapshot window of the upstream "
+            "observation; NOT wall-clock-now (CLAUDE.md section 10)."
+        ),
+    ),
+    state: str | None = typer.Option(
+        None,
+        "--state",
+        help="Optional state slug for state-scoped sources (e.g. 'tamil-nadu').",
+    ),
+    event: str | None = typer.Option(
+        None,
+        "--event",
+        help="Optional ECI event id for event-scoped sources (e.g. 'AcGenMay2026').",
+    ),
+    kind: str | None = typer.Option(
+        None,
+        "--kind",
+        help="Optional election kind for kind-scoped sources (assembly | parliament).",
+    ),
+    report: Path = typer.Option(
+        ...,
+        "--report",
+        help=(
+            "Output verdict CSV path. Convention per plan section 0.4 Q3: "
+            "datasets/ephemeral/party-parity/<source>/<vintage>/<sha>/verdict.csv "
+            "for the first run of a (source, vintage); subsequent re-runs "
+            "are gitignored."
+        ),
+        file_okay=True,
+        dir_okay=False,
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Tier-C cross-source party parity (Wave 0 / Gregor section 6 verdict).
+
+    Runs the named source adapter (registered under
+    backend/yen_gov/canonical/recon/adapters/) to produce shape-A rows,
+    runs the Compare-Aggregator against the canonical parties roster
+    (datasets/data/entities/parties.csv), and writes a verdict CSV to
+    --report.
+
+    \b
+    Tier-C contract per Wave 0 / Gregor section 6:
+      - NEVER runs in CI; operator-run only.
+      - Tier-A + Tier-B keep the always-on FK closure safety net.
+
+    PR-2 ships the dispatch infrastructure ONLY; the adapter registry is
+    empty. Calling --source <not-registered> exits non-zero with a
+    `no adapter registered for source ...` message.
+    """
+    from yen_gov.canonical.recon.adapters import REGISTRY
+    from yen_gov.canonical.recon.aggregator import compare, write_verdict_csv
+
+    adapter = REGISTRY.get(source)
+    if adapter is None:
+        available = sorted(REGISTRY.keys())
+        available_str = ", ".join(available) if available else "(none registered)"
+        typer.echo(
+            f"parity: no adapter registered for source {source!r}; "
+            f"available: {available_str}",
+            err=True,
+        )
+        raise typer.Exit(code=2)
+
+    shape_a_rows = list(
+        adapter(
+            root=root,
+            vintage=vintage,
+            state=state,
+            event=event,
+            kind=kind,
+        )
+    )
+
+    canonical_parties = _load_canonical_parties_for_parity(root)
+
+    verdicts = compare(shape_a_rows, canonical_parties)
+    n_written = write_verdict_csv(verdicts, report)
+
+    # Per-verdict roll-up for the operator (mirrors check-overlap +
+    # pre-flight-ingest summary lines).
+    by_verdict: dict[str, int] = {}
+    by_action: dict[str, int] = {}
+    for v in verdicts:
+        by_verdict[v.verdict] = by_verdict.get(v.verdict, 0) + 1
+        by_action[v.action] = by_action.get(v.action, 0) + 1
+
+    typer.echo(
+        f"parity: wrote {n_written} verdict row(s) to {report.as_posix()}"
+    )
+    typer.echo(
+        f"  shape-A rows in:  {len(shape_a_rows)} (from source {source!r}, vintage {vintage!r})"
+    )
+    typer.echo(
+        f"  verdicts:         "
+        + ", ".join(f"{k}={by_verdict.get(k, 0)}" for k in ("VERIFIED", "DISPUTED", "UNVERIFIED"))
+    )
+    if by_action:
+        typer.echo(
+            f"  actions:          "
+            + ", ".join(f"{k}={v}" for k, v in sorted(by_action.items()))
+        )
+
+    raise typer.Exit(0)
+
+
+def _load_canonical_parties_for_parity(root: Path) -> dict[str, dict[str, str]]:
+    """Project datasets/data/entities/parties.csv to a party_id -> row dict.
+
+    Used by the ``parity`` command to determine whether a shape-A row's
+    proposed_party_id already exists in the canonical roster (drives the
+    ``current_party_id`` column on the verdict CSV and the mint-new vs
+    conflict precedence on the action column).
+
+    Kept local to cli.py (not in recon.aggregator) so the aggregator stays
+    a pure function over its inputs and remains trivially unit-testable
+    without disk.
+    """
+    import csv as _csv
+
+    parties_csv = root / "datasets" / "data" / "entities" / "parties.csv"
+    out: dict[str, dict[str, str]] = {}
+    with parties_csv.open(encoding="utf-8", newline="") as fh:
+        reader = _csv.DictReader(fh)
+        for row in reader:
+            pid = (row.get("party_id") or "").strip()
+            if not pid:
+                continue
+            out[pid] = dict(row)
+    return out
+
