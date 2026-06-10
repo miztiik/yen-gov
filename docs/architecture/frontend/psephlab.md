@@ -335,7 +335,7 @@ Deferred to next pass: per-mutation labels in URL (currently only IDs); persiste
 
 ### Majority-mark convention (2026-05-10)
 
-The summary strip's "Majority mark" is computed as `Math.floor(total_seats / 2) + 1` — the Indian legislature convention that a winning side needs *more than half* the seats, not merely half. For a 234-seat assembly (Tamil Nadu) the magic number is **118**, not 117. The same rule governs the Lok Sabha (543 → 272) and every state legislative assembly.
+The summary strip's "Majority mark" is computed as `Math.floor(total_seats / 2) + 1` — the Indian legislature convention that a winning side needs *more than half* the seats, not merely half. For a 234-seat assembly (Tamil Nadu) the magic number is **118**, not 117. The same rule governs the Parliament (543 → 272) and every state legislative assembly.
 
 An earlier version used `Math.ceil(total_seats / 2)`, which gives the right answer for odd-N houses but is off by one for even-N houses (the common case for Indian assemblies). Fixed in this commit. The `ParliamentArc` midline already reads `majority` from the same prop, so the visual midline now matches the published convention without a separate change.
 

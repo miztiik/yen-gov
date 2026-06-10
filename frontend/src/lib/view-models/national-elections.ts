@@ -1,7 +1,7 @@
 // Citizen view-model loader for the National Elections Atlas (F1.3b CSV cutover).
 //
 // Cross-state companion to `loadStateAcWinners` (state-overview.ts): assembles
-// the per-Parliamentary-Constituency winning party + margin for ONE Lok Sabha
+// the per-Parliamentary-Constituency winning party + margin for ONE Parliament
 // event across every state on disk, in a single national scan.
 //
 // What is JOINed:

@@ -1,9 +1,9 @@
-"""Tier-A pins for the Lok Sabha PC grain (PR-A2, Model C).
+"""Tier-A pins for the Parliament PC grain (PR-A2, Model C).
 
 The 13 ``pc-*`` election indicators (TODO/20260531-uk-style-elections-experience-plan.md)
 each FK to their OWN per-grain sibling concept with ``entity_kinds == ['pc']`` --
 the Model C resolution of the grain-prefix fork (Gregor, 2026-06-01). PC (MP /
-Lok Sabha) is a genuinely new grain: a different office on a different boundary
+Parliament) is a genuinely new grain: a different office on a different boundary
 than AC (MLA / assembly). Per ADR-0044 + cluster-8 (guardrail #13) the PC measures
 get their own concepts mirroring the ``winning-party-ac`` / ``winning-party-state``
 precedent -- they do NOT share concept_ids with the ``ac-*`` siblings (Option B,

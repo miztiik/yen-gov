@@ -101,9 +101,9 @@
       ? findEvent(event_catalogue, state_code, params.event)?.display ?? params.event
       : params.event,
   );
-  /** Origin event's kind ('assembly' / 'lok_sabha' / 'by_election'). The
+  /** Origin event's kind ('assembly' / 'parliament' / 'by_election'). The
    *  Compare picker filters Side B to events of the SAME kind so a citizen
-   *  who started in an assembly election never sees Lok Sabha events in the
+   *  who started in an assembly election never sees Parliament events in the
    *  dropdown (user ask #4). Falls back to 'assembly' before the catalogue
    *  resolves so the picker has a sensible default. */
   const origin_kind = $derived<EventKind>(
@@ -354,7 +354,7 @@
 
   {:else}
     <p class="text-xs text-slate-500">
-      Compare actuals across two {origin_kind === "lok_sabha" ? "Lok Sabha" : origin_kind === "by_election" ? "by-election" : "assembly"} events for {states.name(state_code)}.
+      Compare actuals across two {origin_kind === "parliament" ? "Parliament" : origin_kind === "by_election" ? "by-election" : "assembly"} events for {states.name(state_code)}.
     </p>
 
     <div class="flex flex-wrap items-end gap-3">
@@ -366,7 +366,7 @@
       <label class="text-xs flex flex-col gap-1">
         <span class="text-[10px] uppercase tracking-wide text-slate-500">Side B</span>
         {#if compare_options.length === 0}
-          <span class="text-amber-700 text-xs">No other {origin_kind === "lok_sabha" ? "Lok Sabha" : "assembly"} events on record for {states.name(state_code)}.</span>
+          <span class="text-amber-700 text-xs">No other {origin_kind === "parliament" ? "Parliament" : "assembly"} events on record for {states.name(state_code)}.</span>
         {:else}
           <select
             class="rounded border-slate-300 py-1 px-2 text-xs min-w-[16rem]"

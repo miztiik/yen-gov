@@ -67,7 +67,7 @@
   const event_row = $derived(findEvent(catalogue, state_code, params.event));
 
   // PR-B6 — snapping time-slider stops. Same-grain only: the AC map scrubs
-  // across this state's ASSEMBLY elections (Lok Sabha slices drill into the
+  // across this state's ASSEMBLY elections (Parliament slices drill into the
   // national atlas, not this per-state surface). Chronologically ascending.
   const slider_stops = $derived(
     buildSliderStops(
@@ -85,7 +85,7 @@
   const states_loading = $derived(!states.isLoaded);
   const catalogue_loading = $derived(catalogue === null && load_error === null);
 
-  // Assembly results power the map+toggle surface. Lok Sabha (national)
+  // Assembly results power the map+toggle surface. Parliament (national)
   // events drill into the national atlas (PR-B4), not this per-state AC map,
   // so we only load AC winners for assembly events. `null` = loading.
   let ac_winners = $state<AcWinner[] | null>(null);
@@ -247,8 +247,8 @@
       <p class="text-sm text-slate-600">
         {ev.kind === "assembly"
           ? `${state_name} Assembly election`
-          : ev.kind === "lok_sabha"
-            ? `Lok Sabha (national) election — ${state_name} slice`
+          : ev.kind === "parliament"
+            ? `Parliament (national) election — ${state_name} slice`
             : `${state_name} by-election`}
         — polled {ev.polled_on}.
       </p>

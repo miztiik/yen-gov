@@ -100,7 +100,7 @@ startRouter({
     // route order is not load-bearing. Removal = git rm of
     // routes/Yenask.svelte + lib/yenask/ + this entry.
     { pattern: "/lab/yenask", component: Yenask },
-    // National Lok Sabha PC results atlas (UK-style elections plan, PR-B4).
+    // National Parliament PC results atlas (UK-style elections plan, PR-B4).
     // 3-segment pattern, distinct from /t/:topic (2 segments); placed first
     // so the more-specific route wins regardless of matcher order.
     { pattern: "/t/elections/:event", component: NationalElectionsAtlas },

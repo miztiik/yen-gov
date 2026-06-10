@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "./lgd-pcs.schema.json",
   "title": "LGD Parliamentary Constituency register",
-  "description": "Authoritative register of Lok Sabha Parliamentary Constituencies keyed on the LGD numeric pc_id (Ministry of Panchayati Raj). FK to lgd_states.json on lgd_state_id. ECI pc_no is NOT carried here (ECI<->LGD PC join lives elsewhere per the same pattern as ADR-0049 for ACs).",
+  "description": "Authoritative register of Parliament Parliamentary Constituencies keyed on the LGD numeric pc_id (Ministry of Panchayati Raj). FK to lgd_states.json on lgd_state_id. ECI pc_no is NOT carried here (ECI<->LGD PC join lives elsewhere per the same pattern as ADR-0049 for ACs).",
   "x-version": "1.0",
   "x-changelog": [
     {"version": "1.0", "date": "2026-06-01", "summary": "Initial schema. 533 PCs from LGD Constituency Coverage Report snapshot 2026-06-01. Delhi (7 PCs), Lakshadweep (1 PC), Ladakh (1 PC) missing from source report - documented gaps."}

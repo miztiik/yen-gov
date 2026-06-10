@@ -50,7 +50,7 @@ test("@elections selecting a seat on the cartogram navigates to that constituenc
   await expect(page).toHaveURL(/\/s\/maharashtra\/elections\/[^/]+\/ac\/\d+/);
 });
 
-// National Lok Sabha PC atlas (PR-B4). LsGenJun2024 PC results were ingested
+// National Parliament PC atlas (PR-B4). LsGenJun2024 PC results were ingested
 // in PR-A4, so the choropleth lights up with winners + a seat-total bar.
 const NATIONAL_ROUTE = "/t/elections/LsGenJun2024";
 

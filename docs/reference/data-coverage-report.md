@@ -47,7 +47,7 @@ The May 2026 wave (the project's primary "live" target — TN, WB, Kerala, Assam
 | Group | What ships | Notes |
 | ----- | ---------- | ----- |
 | `taxonomy/entities.json` | 28 states + 8 UTs (and historical predecessors + districts) | ECI codes (S01..S29, U01..U09) for the state+UT slice; filter `entity_type IN ('state','ut') AND entity_valid_to IS NULL`. Replaced `reference/in/states.json` in Phase C of the strangler-fig closeout (`TODO/20260521-states-json-port-blocker-entities-ut-gap.md`). |
-| `reference/in/state-tiers.json` | State grouping for the IA | Tiered by Lok Sabha seat count |
+| `reference/in/state-tiers.json` | State grouping for the IA | Tiered by Parliament seat count |
 | `taxonomy/parties.json` | Canonical party roster (was `reference/in/parties.json` + `parties-discovered.json`, both retired in PR-R.3 / row 1.8e) | 108 parties; primary + aliases; `eci_codes[]` per party |
 | `reference/in/election-events.json` | Master event index | Event id, name, dates |
 | `taxonomy/topics.json` | UI topic taxonomy | Indicator-id → topic |
@@ -193,8 +193,8 @@ Plus **extend** existing topics: `economy` gets the 4 RBI-spliced state NSDP / p
 | Run the full backend test suite | `cd backend && pytest -q` (the two LGD tests above will fail until that pipeline lands; `--deselect` if needed) |
 | Run the frontend contract tests (every dataset) | `cd frontend && npm test -- src/contracts/datasets-conform.test.ts` (9,312 tests) |
 | Ingest a new assembly-election panel (frozen CSV) | `python -m yen_gov ingest-eci-ae-panel --input <csv> --state <S##> [--delim-id 3 --delim-id 4]` |
-| Ingest the 2024 Lok Sabha result | `python -m yen_gov ingest-eci-ls --input <Report-33.csv> --crosswalk <Report-34.csv>` |
-| Ingest one historical Lok Sabha year (TCPD panel) | `python -m yen_gov ingest-ls-ge-tcpd --input All_States_GE.csv --year 2019` |
+| Ingest the 2024 Parliament result | `python -m yen_gov ingest-eci-ls --input <Report-33.csv> --crosswalk <Report-34.csv>` |
+| Ingest one historical Parliament year (TCPD panel) | `python -m yen_gov ingest-ls-ge-tcpd --input All_States_GE.csv --year 2019` |
 | Ingest a hand-downloaded Section 10 XLSX (2016-2023 AE backfill) | `python -m yen_gov eci-statreport-emit-local <xlsx>` |
 | Refill the canonical election-results table from a per-AC JSON corpus | `python -m yen_gov canonical-backfill-eci [--event <id>] [--state <S##>] [--corpus-root <dir>]` |
 | Regenerate hand-authored taxonomy CSV bundles | `python -m yen_gov emit-taxonomy` |

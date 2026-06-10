@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-18
 
-Authoritative list of indicators yen-gov emits in `family: "elections"` into the canonical store. Phase 1.1 scope: AC-level legislative-assembly results for the 28 backfilled elections. Lok Sabha follows in Phase 2; PRI/ULB later.
+Authoritative list of indicators yen-gov emits in `family: "elections"` into the canonical store. Phase 1.1 scope: AC-level legislative-assembly results for the 28 backfilled elections. Parliament follows in Phase 2; PRI/ULB later.
 
 Decided 2026-05-18 by Max (indicator-scout pass) + Hans (governance pass), user-approved with Max's "aggressive materialisation" stance. Sibling doc: [canonical-store.md §3a](canonical-store.md#3a-election-entity-identity-d-elections-phase-11) for entity IDs, [§11.4](canonical-store.md#114-materialisation-rule-d-elections-phase-11) for the materialisation contract.
 
@@ -75,9 +75,9 @@ Candidate dim attributes (name, party_id, gender, age, education, profession, cr
 | `winning-party-seats` | ACs | max `party-seats-won` | |
 | `majority-threshold-acs` | ACs | `floor(total_acs / 2) + 1` | constant per state per delim cycle, but emitted so the citizen doesn't have to look it up |
 
-## Lok Sabha / PC scope (Phase 2)
+## Parliament / PC scope (Phase 2)
 
-Lok Sabha (parliamentary-constituency, PC) results mirror the AC catalogue at PC grain. Per [ADR-0048](../decisions/0048-elections-drill-ia-and-tile-cartogram.md) and [ADR-0044](../decisions/0044-grain-over-entity.md), `pc-*` indicators are a sanctioned fact-grain prefix (the grain gate `^(state|district|national)-` never matches `pc-`). PC observation rows share the `elections` family and the existing `datasets/elections/state=<key>/election_results.parquet`, discriminated by `entity_id` prefix (`IN-PC-<delim_year>-<state_code>-<pc_no>`, globally unique because ECI `pc_no` is per-state) and `indicator_id` (`pc-*`). The national query is `WHERE indicator_id='pc-winner-party-id' AND entity_id LIKE 'IN-PC-%'`.
+Parliament (parliamentary-constituency, PC) results mirror the AC catalogue at PC grain. Per [ADR-0048](../decisions/0048-elections-drill-ia-and-tile-cartogram.md) and [ADR-0044](../decisions/0044-grain-over-entity.md), `pc-*` indicators are a sanctioned fact-grain prefix (the grain gate `^(state|district|national)-` never matches `pc-`). PC observation rows share the `elections` family and the existing `datasets/elections/state=<key>/election_results.parquet`, discriminated by `entity_id` prefix (`IN-PC-<delim_year>-<state_code>-<pc_no>`, globally unique because ECI `pc_no` is per-state) and `indicator_id` (`pc-*`). The national query is `WHERE indicator_id='pc-winner-party-id' AND entity_id LIKE 'IN-PC-%'`.
 
 Every `pc-*` measure that also exists at AC grain shares ONE `concept_id` (in `datasets/taxonomy/concepts.json`) whose `entity_kinds` lists both `ac` and `pc` (Option B concept-binding). The candidate-scope and party/state rollup indicators are grain-neutral and are reused as-is.
 
@@ -99,7 +99,7 @@ Every `pc-*` measure that also exists at AC grain shares ONE `concept_id` (in `d
 | `pc-others-votes` | votes | `sum(votes) of tail` | absent when no tail | `others-votes` |
 | `pc-others-pct` | % of votes_polled | `sum(share_pct) of tail` | 2 dp; absent when no tail | `others-pct` |
 
-Party-scope rollups for Lok Sabha reuse `party-seats-won` / `party-vote-share-pct` / `party-strike-rate-pct` (the entity_id event token `LsGen...` discriminates the contest), with `party-contested-pcs` as the PC denominator analogue of `party-contested-acs`. PC events carry `kind: "lok_sabha"` in `datasets/taxonomy/election_events.json`.
+Party-scope rollups for Parliament reuse `party-seats-won` / `party-vote-share-pct` / `party-strike-rate-pct` (the entity_id event token `LsGen...` discriminates the contest), with `party-contested-pcs` as the PC denominator analogue of `party-contested-acs`. PC events carry `kind: "parliament"` in `datasets/taxonomy/election_events.json`.
 
 ## Dimension tables (Phase 1.2b — denormalised strings, not observations)
 
@@ -117,7 +117,7 @@ Per [canonical-store §11.5](canonical-store.md#115-dimension-tables-phase-12b):
 - ~~Per-AC top-N candidate cutoffs ("top 5 + NOTA + others"). The cutoff is a UX concern (§14 open question), not a fact. Frontend computes it from `candidate-*` rows on demand.~~ **Resolved Phase 1.6 (2026-05-18)**: the cutoff is still a UX concern, but the *consequences* of the cutoff are facts. `ac-candidates-total` + `ac-others-{votes,pct}` are now materialised so the citizen can see field size and aggregate tail without the canonical store having to keep every losing candidate row.
 - Demographic cross-tabs ("votes by candidate age band"). Open-ended; combinatorial explosion.
 - Cross-election personal histories ("every contest candidate X ran"). Blocked by candidate-identity being per-contest only (§3a).
-- Geographic aggregates above state (regional, all-India party shares from AC data). Phase 2 once Lok Sabha is in.
+- Geographic aggregates above state (regional, all-India party shares from AC data). Phase 2 once Parliament is in.
 
 ## Comparability traps (citizen-facing)
 

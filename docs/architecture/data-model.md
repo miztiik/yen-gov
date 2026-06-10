@@ -63,7 +63,7 @@ When a future event reuses a party, it gets a new snapshot. ECI's numeric code t
 
 ## Why districts and constituencies are state-scoped
 
-Districts belong to a state by definition. Constituencies (for a given body — Assembly or Lok Sabha) are also numbered within a state.
+Districts belong to a state by definition. Constituencies (for a given body — Assembly or Parliament) are also numbered within a state.
 
 Districts now live as `entity_type='district'` rows on `datasets/taxonomy/entities.json` (LGD-sourced; see [ADR-0033](decisions/0033-retire-wikipedia-districts-adapter.md) for the wikipedia districts adapter retirement). The 6 per-state `datasets/reference/in/states/<S>/districts.json` files and `datasets/schemas/district.schema.json` were deleted in T.0c-iii Phase D.3 once the adapter (D.1) + LGD backfill tool (D.2) had been retired and no code path referenced them.
 
@@ -146,7 +146,7 @@ Acknowledged costs:
 ### Hierarchy & lifecycle — alternatives considered
 
 - **Make `district_id` and `pc_id` unconditionally required.** Rejected: forces ECI cross-check before any reference file can land, blocking the entire frontend on the slowest data path. The two-commit rollout (`status=provisional` → `status=complete`) operationalizes the user-approved plan cleanly.
-- **Embed Lok Sabha constituency by *name* rather than id.** Rejected: PC names are not unique across states (e.g. multiple "Bangalore"s historically), and they are renamed more often than ECI numbers change. An id-based reference is a foreign key; a name is a label.
+- **Embed Parliament constituency by *name* rather than id.** Rejected: PC names are not unique across states (e.g. multiple "Bangalore"s historically), and they are renamed more often than ECI numbers change. An id-based reference is a foreign key; a name is a label.
 - **Add `previous_name` / `succeeded_by` lineage fields now.** Rejected as scope creep. Useful but not requested; can land in a future minor bump.
 - **Put `electors` and "change from previous" both on the constituency object.** Rejected: see "where does change-from-previous live" above. Conflating entity and event always rots.
 - **Use a separate `hierarchy.json` file mapping AC→PC→district instead of inline fields.** Rejected: one more file to keep in sync, no real upside. The hierarchy IS the constituency definition; splitting it across files is bureaucracy.

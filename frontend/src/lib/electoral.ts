@@ -6,7 +6,7 @@
 // than half* the seats. For an even-sized house (e.g. TN 234) that means
 // 118, not 117 — `Math.ceil(N/2)` would be wrong because 234/2 = 117 is
 // only "half", not "more than half". `Math.floor(N/2) + 1` is correct for
-// both even and odd N (Lok Sabha 543 → 272; TN 234 → 118).
+// both even and odd N (Parliament 543 → 272; TN 234 → 118).
 //
 // Keeping this trivially small + dependency-free so it can be unit-tested
 // or imported from any layer without cycles.

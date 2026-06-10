@@ -3,17 +3,22 @@
   "$id": "https://yen-gov.github.io/schemas/election-events.schema.json",
   "title": "Per-state election event inventory",
   "description": "The frontend-readable catalogue of which election events exist for each state. The backend's events.py registry is the source of truth at backend-build time; this JSON is the static-app view, hand-authored and kept consistent via CI test (backend/tests/test_election_events_consistency.py). Per-state arrays let route components resolve `defaultEventForState(stateCode)` without bundling Python. National events (e.g. LsGenApr2024) appear in every relevant state's array as a 'slice' — same event_id, same artifact directory, the per-state read just selects the right row. Per ADR-0023.",
-  "x-version": "1.1",
+  "x-version": "1.2",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-05-11",
-      "description": "Initial schema. Per-state event inventory keyed by ECI state code. Each event entry: event_id, kind (assembly/lok_sabha/by_election), display, polled_on, optional default flag (at most one default per state \u2014 defines what /s/<state>/elections resolves to)."
+      "description": "Initial schema. Per-state event inventory keyed by ECI state code. Each event entry: event_id, kind (assembly/parliament/by_election; the parliament kind was named `lok_sabha` in v1.0 / v1.1), display, polled_on, optional default flag (at most one default per state \u2014 defines what /s/<state>/elections resolves to)."
     },
     {
       "version": "1.1",
       "date": "2026-05-24",
       "description": "Breaking: removed the `default` boolean property. The per-state default event is now derived from `max(polled_on)` in `defaultEventForState()` (frontend/src/lib/election-events.ts) and in the backend's election-events Parquet writer; the hand-authored flag was a shadow of a computable fact and backfills routinely forgot to set it, causing Meghalaya/Tripura/UP/etc. to fall through to the rows[0] = oldest-event fallback. PR #191 fixed the rendering by making polled_on canonical; this PR retires the now-dead field across the schema, the 23 on-disk entries, the Pydantic seed (`_Event.default`, `is_default` Parquet column, the at-most-one-default raise), and the Tier-A test `test_election_events_default_uniqueness`. Adapter and reader code that touched `default` was updated in the same commit; readers that ignored the field are unaffected. See ADR-0023 \u00a7latest and TODO/20260524-elections-topic-and-default-cleanup-plan.md (if filed) for the full rationale."
+    },
+    {
+      "version": "1.2",
+      "date": "2026-06-10",
+      "description": "MINOR additive on the consumer side, rename within the kind enum: `lok_sabha` -> `parliament`. Per the PR-0 No-Hindi policy locked in docs/architecture/frontend/url-grammar.md section No-Hindi policy (PR-0 2026-06-09), the kind enum now uses the English noun `parliament` for the national lower-house cohort. Citizen chrome, code identifiers, URL slugs, and the kind enum are all English-only after this PR (PR-W1a of TODO/20260609-election-experience-overhaul-plan.md). The publisher-verbatim attribution titles in datasets/data/entities/source.csv (`General Election to Lok Sabha YYYY ...`) are preserved as a documented carve-out: those titles feed datasets/schemas/source.schema.json + backend.yen_gov.canonical.citation.derive_source_id (SHA-stable identity per ADR-0032 / ADR-0042); changing them would re-derive every src-* id and break FK closure across the 36 per-state election_results.csv shards. The kind enum and chrome strings carry the English noun; the publisher-credit titles remain verbatim. Description prose on `kind`, `display`, `term_end_estimated`, and `notes` is updated in lock-step. Consumer datasets/taxonomy/election_events.json stamp bumped 1.1 -> 1.2 to satisfy the Tier-B `$schema_version == x-version` invariant."
     }
   ],
   "type": "object",
@@ -57,12 +62,12 @@
                 "pattern": "^[A-Za-z0-9]+$"
               },
               "kind": {
-                "enum": ["assembly", "lok_sabha", "by_election"],
-                "description": "Political body the event elected. 'assembly' is the state Vidhan Sabha (citizen's primary state government); 'lok_sabha' is the national Lok Sabha (the state's MPs sent to Delhi — kept separate per the cause/consequence doctrine in ADR-0023, never co-mingled with assembly results); 'by_election' is a partial mid-term."
+                "enum": ["assembly", "parliament", "by_election"],
+                "description": "Political body the event elected. 'assembly' is the state assembly (the citizen's primary state government); 'parliament' is the national lower-house cohort (the state's MPs sent to Delhi — kept separate per the cause/consequence doctrine in ADR-0023, never co-mingled with assembly results); 'by_election' is a partial mid-term. The 'parliament' value was named `lok_sabha` in v1.0 / v1.1; renamed in v1.2 per the PR-0 No-Hindi policy locked at docs/architecture/frontend/url-grammar.md."
               },
               "display": {
                 "type": "string",
-                "description": "Citizen-facing label. Cohort codes (e.g. AcGenJun2024) MUST NOT appear in this string — citizens think in (state, year), not ECI cohort artifact. Format guideline: '<State> Assembly · <Month YYYY>' or '<State> · Lok Sabha <YYYY>'.",
+                "description": "Citizen-facing label. Cohort codes (e.g. AcGenJun2024) MUST NOT appear in this string — citizens think in (state, year), not ECI cohort artifact. Format guideline: '<State> Assembly · <Month YYYY>' or '<State> · Parliament <YYYY>'.",
                 "pattern": "^[^|]+$"
               },
               "polled_on": {
@@ -73,7 +78,7 @@
               "term_end_estimated": {
                 "type": ["string", "null"],
                 "format": "date",
-                "description": "Estimated term-end (typically polled_on + 5 years per Article 172). Null for Lok Sabha slices and by-elections. Used to surface 'next election due' chrome in the final year of term."
+                "description": "Estimated term-end (typically polled_on + 5 years per Article 172). Null for Parliament slices and by-elections. Used to surface 'next election due' chrome in the final year of term."
               },
               "data_status": {
                 "enum": ["complete", "partial", "pending_upstream"],
@@ -81,7 +86,7 @@
               },
               "notes": {
                 "type": "string",
-                "description": "Optional context for citizen-facing display (e.g. 'Held concurrently with Lok Sabha 2024')."
+                "description": "Optional context for citizen-facing display (e.g. 'Held concurrently with Parliament 2024')."
               }
             }
           }

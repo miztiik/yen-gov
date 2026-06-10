@@ -233,7 +233,7 @@
   // Majority threshold = strictly more than half the seats (FPTP convention).
   // Shared helper from `lib/electoral` so Donut, Bar, ParliamentArc and
   // every Psephlab readout agree on the same number. For TN 234 it's 118;
-  // for Lok Sabha 543 it's 272. When MMP grows the chamber, majority
+  // for Parliament 543 it's 272. When MMP grows the chamber, majority
   // adjusts (272 in 543 -> 353 in 705).
   const majority = $derived(majorityFor(chamber_seats));
 

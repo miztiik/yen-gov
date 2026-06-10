@@ -61,7 +61,7 @@ alliance discipline matters most to the final result.
 
 Alliances change every election cycle in India. The DMK + INC + CPI
 + CPI(M) + MDMK + VCK + ... combination that contests as the SPA
-in Tamil Nadu AcGenMay2026 is different from the 2019 Lok Sabha
+in Tamil Nadu AcGenMay2026 is different from the 2019 Parliament
 INDIA bloc and different again from the UPA combinations of 2009 and
 2014.
 

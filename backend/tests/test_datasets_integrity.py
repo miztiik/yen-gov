@@ -147,18 +147,18 @@ def test_election_events_catalogue_matches_backend_registry():
     have data for a state that's never been ingested.
 
     The backend has TWO authoritative registries by grain, because assembly
-    and Lok Sabha are different offices on different boundaries:
+    and Parliament are different offices on different boundaries:
 
       * ASSEMBLY (kind == "assembly"/"by_election"): the per-state
         (state, year) -> EventInfo registry in
         ``backend/yen_gov/sources/eci/events.py``. Bidirectional parity is
         enforced here -- a state in one but not the other is a drift bug.
 
-      * LOK SABHA (kind == "lok_sabha"): a single NATIONAL event constant
+      * PARLIAMENT (kind == "parliament"): a single NATIONAL event constant
         (``LS_2024_EVENT`` in ``canonical/adapters/eci_ls.py``) applied to
         every state with PC data. There is no per-state assembly-style
         registry to parity-check against, so the contract is that every
-        lok_sabha catalogue event_id equals the canonical backend LS id.
+        parliament catalogue event_id equals the canonical backend LS id.
         A typo'd id would make the frontend fetch a nonexistent PC artifact.
         Importing the constant keeps this a single-source-of-truth check,
         not a hardcoded magic string.
@@ -173,7 +173,7 @@ def test_election_events_catalogue_matches_backend_registry():
     for state_code, entries in catalogue["states"].items():
         for entry in entries:
             event_id = str(entry["event_id"])
-            if entry.get("kind") == "lok_sabha":
+            if entry.get("kind") == "parliament":
                 ls_event_ids.add(event_id)
             else:
                 assembly_pairs.add((state_code, event_id))
@@ -201,7 +201,7 @@ def test_election_events_catalogue_matches_backend_registry():
 
     unknown_ls = sorted(ls_event_ids - {LS_2024_EVENT.period_label})
     assert not unknown_ls, (
-        "election_events.json declares lok_sabha event_ids that do not match "
+        "election_events.json declares parliament event_ids that do not match "
         f"the canonical backend LS event ({LS_2024_EVENT.period_label!r} in "
         "canonical/adapters/eci_ls.py) — frontend will 404 trying to fetch "
         f"nonexistent PC artifacts: {unknown_ls}"

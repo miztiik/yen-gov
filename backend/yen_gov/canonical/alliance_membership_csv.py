@@ -129,7 +129,7 @@ def load_event_id_to_polled_on(election_events_json: Path) -> dict[str, str]:
 
     We walk every state's events and harvest the (event_id, polled_on) pairs.
     When the same event_id appears under multiple states (e.g. national
-    Lok Sabha events), the polled_on values agree by construction, so
+    Parliament events), the polled_on values agree by construction, so
     last-write-wins is safe.
     """
     out: dict[str, str] = {}

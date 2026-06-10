@@ -46,7 +46,7 @@
   //     unless the parent passes a controlled `window` + change
   //     handler. Routes with stable editorial copy can serialise
   //     under ADR-0028 path-segment grammar (e.g.
-  //     `/elections/lok-sabha/since-1977`). NEVER query strings or
+  //     `/elections/parliament/since-1977`). NEVER query strings or
   //     matrix URIs (R-07).
   //
   // Doctrine ties:

@@ -4,7 +4,7 @@
 // (`datasets/grapher/election_tile_layouts.json`) and a winners array
 // (`AcWinner[]` today, `PcWinner[]` later). The join key is the canonical
 // `unit_id` carried on every layout tile, so the same code path serves AC
-// (state assembly) and PC (Lok Sabha) cartograms.
+// (state assembly) and PC (Parliament) cartograms.
 //
 // This module owns the party-colour + margin->opacity semantics (mirrors
 // StateAcMap.svelte) so neither caller nor the presentational

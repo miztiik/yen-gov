@@ -1,4 +1,4 @@
-"""Historical Lok Sabha (PC) constituency-identity resolver (EGC-B2 Phase 2).
+"""Historical Parliament (PC) constituency-identity resolver (EGC-B2 Phase 2).
 
 Maps a TCPD ``(ge_year, State_Name, Constituency_No)`` triple to the canonical
 ``(state_code, pc_no, delim_year)`` so a historical seat shares its ``pc_id``
@@ -36,7 +36,7 @@ from yen_gov.sources.eci.ls_constituencywise import _norm, load_state_code_looku
 
 CROSSWALK_RELPATH = "data/entities/pc_historical_crosswalk.csv"
 
-# Delimitation cycle in force for each Lok Sabha general election. The
+# Delimitation cycle in force for each Parliament general election. The
 # 1976 delimitation governed 1999 + 2004; the 2008 delimitation governs
 # every election from 2009. Never overridden by the crosswalk.
 DELIM_BY_GE_YEAR: dict[int, int] = {
@@ -69,7 +69,7 @@ def delim_year_for_ge(ge_year: int) -> int:
         return DELIM_BY_GE_YEAR[ge_year]
     except KeyError as exc:
         raise PcCrosswalkError(
-            f"no delimitation mapping for Lok Sabha year {ge_year!r}; "
+            f"no delimitation mapping for Parliament year {ge_year!r}; "
             "extend DELIM_BY_GE_YEAR when adding a new election"
         ) from exc
 

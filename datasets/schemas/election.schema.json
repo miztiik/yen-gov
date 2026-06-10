@@ -96,7 +96,7 @@
         "AC",
         "PC"
       ],
-      "description": "AC = Legislative Assembly. PC = Lok Sabha."
+      "description": "AC = Legislative Assembly. PC = Parliament."
     },
     "year": {
       "type": "integer",

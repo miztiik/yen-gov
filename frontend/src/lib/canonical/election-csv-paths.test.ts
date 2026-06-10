@@ -28,7 +28,7 @@ describe("eventYear", () => {
     expect(eventYear("AcGenMay2026")).toBe(2026);
   });
 
-  it("extracts the trailing 4-digit year from a Lok Sabha event id", () => {
+  it("extracts the trailing 4-digit year from a Parliament event id", () => {
     expect(eventYear("LsGenJun2024")).toBe(2024);
     expect(eventYear("LsGenApr2019")).toBe(2019);
   });

@@ -17,7 +17,7 @@
 //   - R-07 (URL grammar): the temporal window is local component
 //     state by default. Where shareable state is genuinely needed it
 //     rides ADR-0028 place-first cascade as a path segment (e.g.
-//     `/elections/lok-sabha/since-1977`); query strings and matrix
+//     `/elections/parliament/since-1977`); query strings and matrix
 //     URIs are explicitly REJECTED. This contract is URL-agnostic so
 //     callers can serialise / not as the route demands.
 //

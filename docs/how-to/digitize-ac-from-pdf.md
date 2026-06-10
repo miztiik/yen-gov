@@ -140,7 +140,7 @@ documented in the boundary-plan followups inventory under "carve-outs
 shipped with quality compromise".
 
 The current open T3 candidate (Assam 2023) sits at YES on 1+2+3 but
-NO on 4 (no budget authorised); deferred until either Lok Sabha
+NO on 4 (no budget authorised); deferred until either Parliament
 election cycle pings it OR ramSeraph / Delimitation Commission
 publishes the machine-readable shapefile.
 

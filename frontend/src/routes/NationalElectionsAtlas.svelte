@@ -1,6 +1,6 @@
 <script lang="ts">
   // NationalElectionsAtlas — the all-India Parliamentary-Constituency results
-  // surface for one Lok Sabha event (UK-style elections plan, PR-B4).
+  // surface for one Parliament event (UK-style elections plan, PR-B4).
   //
   // Two presentations of the same national PC winners, mirroring the state
   // ElectionMap (PR-B3):
@@ -60,7 +60,7 @@
   } from "../lib/elections/election-map-coloring";
 
   interface Props {
-    /** Route params; `event` is the Lok Sabha event id (e.g. "LsGenJun2024"). */
+    /** Route params; `event` is the Parliament event id (e.g. "LsGenJun2024"). */
     params: { event: string };
   }
   let { params }: Props = $props();
@@ -326,7 +326,7 @@
       National results — Parliamentary Constituencies
     </h1>
     <p class="text-sm text-slate-500">
-      Lok Sabha event <code class="text-slate-700">{event}</code>. Each seat is
+      Parliament event <code class="text-slate-700">{event}</code>. Each seat is
       one Member of Parliament; switch between true geography and an
       equal-seats grid where every constituency counts the same.
     </p>

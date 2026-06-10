@@ -17,7 +17,7 @@ This page covers the bottom-up composition rule (district → state → country)
 
 ## Bottom-up composition
 
-Pipeline orchestration is strictly bottom-up. The smallest unit that produces an emit-worthy artifact is the **constituency** (an Assembly Constituency in a state election, a Parliamentary Constituency in a Lok Sabha election). District scaffolding is taxonomy, not an election unit.
+Pipeline orchestration is strictly bottom-up. The smallest unit that produces an emit-worthy artifact is the **constituency** (an Assembly Constituency in a state election, a Parliamentary Constituency in a Parliament election). District scaffolding is taxonomy, not an election unit.
 
 1. **Constituency level** — for one `(election, state, body, eci_no)`, fetch + parse + validate + emit one `result.constituency.schema.json` artifact under `datasets/elections/<event>/<state>/<body>/<eci_no>.json`.
 2. **State level** — for one `(election, state)`, read the constituency artifacts produced by step 1, plus ECI's partywise summary, and emit one `result.summary.schema.json` artifact at the state level.

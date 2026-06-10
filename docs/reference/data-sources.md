@@ -29,7 +29,7 @@ https://www.eci.gov.in/statistical-report/{body}/{year}/{category_id}
 
 | Token | Meaning | Example |
 | ----- | ------- | ------- |
-| `{body}` | `ae` for Assembly Election, `ge` for General (Lok Sabha) Election | `ae` |
+| `{body}` | `ae` for Assembly Election, `ge` for General (Parliament) Election | `ae` |
 | `{year}` | Year the election concluded | `2026` |
 | `{category_id}` | Cleartext ECI catalogue id; same integer used by `/eci-backend/public/api/election-result?category_id=<id>` | `26` for Tamil Nadu 2026 |
 
@@ -65,7 +65,7 @@ Example: `https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseS22167.h
 
 <https://www.eci.gov.in/term-of-the-houses/>
 
-Lists current Lok Sabha and every state Assembly with constitution and dissolution dates. Use to confirm: "when did the 2021 TN assembly's term end" / "when does the 2026 TN assembly start". Critical for naming election events correctly.
+Lists current Parliament and every state Assembly with constitution and dissolution dates. Use to confirm: "when did the 2021 TN assembly's term end" / "when does the 2026 TN assembly start". Critical for naming election events correctly.
 
 ## ECI Delimitation Order 2008
 

@@ -860,7 +860,7 @@ def ingest_eci_ls(
         help="Re-ingest even when datasets/elections/_inventory.json already records the event.",
     ),
 ) -> None:
-    """Ingest the ECI 2024 Lok Sabha constituency-wise result into canonical Parquet."""
+    """Ingest the ECI 2024 Parliament constituency-wise result into canonical Parquet."""
     from yen_gov.canonical.adapters.eci_ls import ingest_ls
 
     result = ingest_ls(
@@ -928,7 +928,7 @@ def ingest_ls_ge_tcpd_cmd(
         help="Re-ingest even when datasets/elections/_inventory.json already records the event.",
     ),
 ) -> None:
-    """Ingest one historical Lok Sabha GE year from the TCPD panel into Parquet."""
+    """Ingest one historical Parliament GE year from the TCPD panel into Parquet."""
     from yen_gov.canonical.adapters.eci_ls import EVENT_BY_GE_YEAR, ingest_ls_tcpd
 
     event = EVENT_BY_GE_YEAR.get(year)

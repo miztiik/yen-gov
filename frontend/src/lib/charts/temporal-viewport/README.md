@@ -57,7 +57,7 @@ brush UI selects. Both are typed in [`types.ts`](./types.ts).
   primitive precedes per-renderer adoption.
 - **R-07 (URL grammar)** — temporal window is local component state
   by default; if shareable, rides ADR-0028 place-first cascade as a
-  path segment (`/elections/lok-sabha/since-1977`), NEVER query
+  path segment (`/elections/parliament/since-1977`), NEVER query
   strings or matrix URIs. This module is URL-agnostic.
 - **CLAUDE.md §10 (closed enums)** — `TemporalDomainKind` and
   `TemporalPreset` are closed string unions; adding a value requires

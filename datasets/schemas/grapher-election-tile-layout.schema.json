@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "./grapher-election-tile-layout.schema.json",
   "title": "Grapher election tile-cartogram layout (frontend-owned)",
-  "description": "Persisted tile-cartogram (equal-area hex) layouts for election constituencies, owned by the frontend per ADR-0045. One row per (layout_kind, scope, delim_year, unit_id) tile. Coordinates are pre-computed and PERSISTED so citizens see stable seat positions (no browser-side layout compute). Grain-agnostic: serves AC (state assembly) and PC (Lok Sabha) cartograms from the same contract. Derived from boundary centroids via a one-time hexbin pass (derivation_method=centroid-hexbin) or hand-authored cleanup (derivation_method=hand-authored).",
+  "description": "Persisted tile-cartogram (equal-area hex) layouts for election constituencies, owned by the frontend per ADR-0045. One row per (layout_kind, scope, delim_year, unit_id) tile. Coordinates are pre-computed and PERSISTED so citizens see stable seat positions (no browser-side layout compute). Grain-agnostic: serves AC (state assembly) and PC (Parliament) cartograms from the same contract. Derived from boundary centroids via a one-time hexbin pass (derivation_method=centroid-hexbin) or hand-authored cleanup (derivation_method=hand-authored).",
   "x-version": "1.0",
   "x-changelog": [
     {
@@ -38,7 +38,7 @@
           "layout_kind": {
             "type": "string",
             "enum": ["ac", "pc"],
-            "description": "Constituency grain: 'ac' = state assembly, 'pc' = Lok Sabha parliamentary."
+            "description": "Constituency grain: 'ac' = state assembly, 'pc' = Parliament parliamentary."
           },
           "scope": {
             "type": "string",

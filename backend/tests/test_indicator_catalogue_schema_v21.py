@@ -76,7 +76,7 @@ def test_named_cadence_rows_match_canonical_period():
     must be permanent: they are NEVER on a fixed cycle. A government can
     collapse, an assembly can be dissolved early, or President's rule can
     force a poll years ahead of the nominal term. So an election indicator's
-    update_period_days (e.g. the pc-* Lok Sabha rows carry 1825) is a NOMINAL
+    update_period_days (e.g. the pc-* Parliament rows carry 1825) is a NOMINAL
     upper-bound, never a staleness deadline -- no ``N-month / 2 * cadence``
     freshness check may ever be applied to an ad_hoc / election series.
     Presence + positivity for ad_hoc rows is covered by

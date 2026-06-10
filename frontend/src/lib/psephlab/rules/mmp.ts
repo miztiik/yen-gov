@@ -28,7 +28,7 @@
 //
 // The host (Psephlab.svelte) reads `allocation.chamber_seats` to
 // resize ParliamentArc + recompute the majority threshold (272 for a
-// 543-Lok-Sabha that grows to ~705, etc.).
+// 543-Parliament that grows to ~705, etc.).
 
 import type {
   AcOutcome,
@@ -40,7 +40,7 @@ import type {
 import { fptp } from "./fptp";
 
 /** Default list-tier ratio: 30% of constituency count, rounded down.
- *  TN 234 ACs -> 70 list seats -> 304 chamber. Lok Sabha 543 -> 162
+ *  TN 234 ACs -> 70 list seats -> 304 chamber. Parliament 543 -> 162
  *  list -> 705 chamber. Visible enough to be interesting, conservative
  *  enough to stay below the German Bundestag's 50-50 split. */
 const LIST_TIER_RATIO = 0.3;

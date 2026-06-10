@@ -95,7 +95,7 @@ def _ensure_source_row(source_csv: Path, source_id: str) -> bool:
 
 def _write_coverage(receipt_path: Path, info: dict) -> None:
     lines = [
-        "# Parliament (Lok Sabha) 2024 ingest coverage (G16, 2026-06-09)",
+        "# Parliament 2024 ingest coverage (G16, 2026-06-09)",
         "",
         "Source: ECI Statement 33 raw CSV "
         "(`datasets/ephemeral/2024_india_loksabha_33-Constituency-Wise-Detailed-Result.csv`). "

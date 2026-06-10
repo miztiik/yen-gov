@@ -29,8 +29,8 @@ All four ingest commands read a frozen CSV/XLSX off disk and write directly into
 | Command | Source shape | Writes |
 | ------- | ------------ | ------ |
 | `ingest-eci-ae-panel --input <csv> --state <S##>` | All-states ECI Assembly Election panel CSV, filtered to one state code. Supports `--delim-id` repetition, `--min-year/--max-year`, `--dry-run` preflight, `--allow-unknown-parties`. | `dim_persons` + `elections_candidacies` + `dim_acs` + party dims + election observations + inventory row. |
-| `ingest-eci-ls --input <Report-33.csv> --crosswalk <Report-34.csv>` | ECI 2024 Lok Sabha Report-33 (constituency-wise detailed result) + Report-34 (AC→PC crosswalk). | `dim_pcs` + observations across rewritten per-state shards. |
-| `ingest-ls-ge-tcpd --input All_States_GE.csv --year <YYYY>` | One historical Lok Sabha year from the TCPD All-States GE panel. Year must resolve via the `(year → event_id)` registry in `eci_ls.EVENT_BY_GE_YEAR`. | Same shape as `ingest-eci-ls`, scoped to the one historical year. |
+| `ingest-eci-ls --input <Report-33.csv> --crosswalk <Report-34.csv>` | ECI 2024 Parliament Report-33 (constituency-wise detailed result) + Report-34 (AC→PC crosswalk). | `dim_pcs` + observations across rewritten per-state shards. |
+| `ingest-ls-ge-tcpd --input All_States_GE.csv --year <YYYY>` | One historical Parliament year from the TCPD All-States GE panel. Year must resolve via the `(year → event_id)` registry in `eci_ls.EVENT_BY_GE_YEAR`. | Same shape as `ingest-eci-ls`, scoped to the one historical year. |
 | `eci-statreport-emit-local <xlsx>` | Hand-downloaded Section 10 XLSX (filename pattern `YYYY_state_<name>_*.xlsx`; state/year auto-detected). | `datasets/elections/<event>/<state>/results.csv` (researcher-facing CSV bundle, the only post-B4-pt3 emit). |
 | `canonical-backfill-eci [--event <id>] [--state <S##>] [--corpus-root <dir>]` | Backfills `datasets/elections/election_results.parquet` from a per-AC JSON corpus (typically a restored snapshot under `datasets/ephemeral/legacy-corpus/elections`). | Re-emits the canonical Parquet's per-state shards. |
 

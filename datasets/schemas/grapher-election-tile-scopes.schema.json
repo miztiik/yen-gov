@@ -27,7 +27,7 @@
           "layout_kind": {
             "type": "string",
             "enum": ["ac", "pc"],
-            "description": "Constituency grain: 'ac' = state assembly, 'pc' = Lok Sabha parliamentary."
+            "description": "Constituency grain: 'ac' = state assembly, 'pc' = Parliament parliamentary."
           },
           "scope": {
             "type": "string",

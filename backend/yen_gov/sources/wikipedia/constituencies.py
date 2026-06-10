@@ -9,7 +9,7 @@ The article's first wikitable enumerates all N ACs with at minimum these
 columns: number, name (which Wikipedia variously labels "Constituency" or
 "Name"), and reservation. Columns are matched by header text rather than
 fixed position so the parser handles both the TN layout (#|Constituency|
-Reserved) and the Kerala layout (No.|Name|Reservation|District|Lok Sabha|
+Reserved) and the Kerala layout (No.|Name|Reservation|District|Parliament|
 Electorate). District / PC name columns, when present, are not currently
 mapped into the schema's `district_id` / `pc_id` — that requires cross-file
 resolution (district name → entities.json district legacy_id, PC name → PC
@@ -67,7 +67,7 @@ def parse_ac_constituencies(
     ``ConstituencyEntry.district_id``. Unmatched names are left absent —
     the entry stays valid under the provisional schema. Status remains
     ``"provisional"`` regardless: promoting to ``"complete"`` also requires
-    ``pc_id``, which needs a separate Lok-Sabha-↔-AC mapping (out of scope
+    ``pc_id``, which needs a separate Parliament-↔-AC mapping (out of scope
     for the Wikipedia AC table alone).
     """
     doc = lxml_html.fromstring(content)
@@ -215,7 +215,7 @@ def _parse_rows(table, cols: dict[str, int]) -> list[_Row]:
 def _expand_rowspans(table) -> list[list[str]]:
     """Materialise the table as a dense 2D grid honouring rowspan/colspan.
 
-    Wikipedia tables (Kerala AC list) use rowspan on the District / Lok Sabha /
+    Wikipedia tables (Kerala AC list) use rowspan on the District / Parliament /
     Reservation columns when consecutive ACs share a value, so a naive
     cell-by-position read sees later rows with fewer cells than the header.
     """
