@@ -72,5 +72,9 @@ from .tcpd_parties import ADAPTER as _TCPD_PARTIES_ADAPTER
 
 REGISTRY["tcpd-parties"] = _TCPD_PARTIES_ADAPTER
 
+from .eci_registered import ADAPTER as _ECI_REGISTERED_ADAPTER
+
+REGISTRY["eci-registered"] = _ECI_REGISTERED_ADAPTER
+
 
 __all__ = ["ParityAdapter", "REGISTRY"]
