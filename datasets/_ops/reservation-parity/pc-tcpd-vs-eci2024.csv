@@ -1,0 +1,611 @@
+state_slug,pc_name_normalized,tcpd_reservation,eci_2024_derived_reservation,agreement
+andaman-and-nicobar-islands,andaman & nicobar islands,GEN,GEN,AGREE
+andhra-pradesh,adilabad,ST,,TCPD_ONLY
+andhra-pradesh,amalapuram,SC,SC,AGREE
+andhra-pradesh,anakapalle,,GEN,ECI_ONLY
+andhra-pradesh,anakapalli,GEN,,TCPD_ONLY
+andhra-pradesh,anantapur,GEN,,TCPD_ONLY
+andhra-pradesh,ananthapur,,GEN,ECI_ONLY
+andhra-pradesh,araku,,ST,ECI_ONLY
+andhra-pradesh,aruku,ST,,TCPD_ONLY
+andhra-pradesh,bapatla,SC,SC,AGREE
+andhra-pradesh,bhongir,GEN,,TCPD_ONLY
+andhra-pradesh,chelvella,GEN,,TCPD_ONLY
+andhra-pradesh,chittoor,SC,SC,AGREE
+andhra-pradesh,eluru,GEN,GEN,AGREE
+andhra-pradesh,guntur,GEN,GEN,AGREE
+andhra-pradesh,hindupur,GEN,GEN,AGREE
+andhra-pradesh,hyderabad,GEN,,TCPD_ONLY
+andhra-pradesh,kadapa,GEN,GEN,AGREE
+andhra-pradesh,kakinada,GEN,GEN,AGREE
+andhra-pradesh,karimnagar,GEN,,TCPD_ONLY
+andhra-pradesh,khammam,GEN,,TCPD_ONLY
+andhra-pradesh,kurnool,GEN,,TCPD_ONLY
+andhra-pradesh,kurnoolu,,GEN,ECI_ONLY
+andhra-pradesh,machilipatnam,GEN,GEN,AGREE
+andhra-pradesh,mahabubabad,ST,,TCPD_ONLY
+andhra-pradesh,mahbubnagar,GEN,,TCPD_ONLY
+andhra-pradesh,malkajgiri,GEN,,TCPD_ONLY
+andhra-pradesh,medak,GEN,,TCPD_ONLY
+andhra-pradesh,nagarkurnool,SC,,TCPD_ONLY
+andhra-pradesh,nalgonda,GEN,,TCPD_ONLY
+andhra-pradesh,nandyal,GEN,GEN,AGREE
+andhra-pradesh,narasaraopet,GEN,,TCPD_ONLY
+andhra-pradesh,narsapuram,GEN,GEN,AGREE
+andhra-pradesh,narsaraopet,,GEN,ECI_ONLY
+andhra-pradesh,nellore,GEN,GEN,AGREE
+andhra-pradesh,nizamabad,GEN,,TCPD_ONLY
+andhra-pradesh,ongole,GEN,GEN,AGREE
+andhra-pradesh,peddapalle,SC,,TCPD_ONLY
+andhra-pradesh,rajahmundry,GEN,GEN,AGREE
+andhra-pradesh,rajampet,GEN,GEN,AGREE
+andhra-pradesh,secundrabad,GEN,,TCPD_ONLY
+andhra-pradesh,srikakulam,GEN,GEN,AGREE
+andhra-pradesh,thirupathi,,SC,ECI_ONLY
+andhra-pradesh,tirupati,SC,,TCPD_ONLY
+andhra-pradesh,vijayawada,GEN,GEN,AGREE
+andhra-pradesh,visakhapatnam,GEN,GEN,AGREE
+andhra-pradesh,vizianagaram,GEN,GEN,AGREE
+andhra-pradesh,warangal,SC,,TCPD_ONLY
+andhra-pradesh,warangal(sc),SC,,TCPD_ONLY
+andhra-pradesh,zahirabad,GEN,,TCPD_ONLY
+arunachal-pradesh,arunachal east,GEN,ST,DISAGREE
+arunachal-pradesh,arunachal west,GEN,ST,DISAGREE
+assam,autonomous district,ST,,TCPD_ONLY
+assam,barpeta,GEN,GEN,AGREE
+assam,darrang udalguri,,GEN,ECI_ONLY
+assam,dhubri,GEN,GEN,AGREE
+assam,dibrugarh,GEN,GEN,AGREE
+assam,diphu,,ST,ECI_ONLY
+assam,gauhati,GEN,,TCPD_ONLY
+assam,guwahati,,GEN,ECI_ONLY
+assam,jorhat,GEN,GEN,AGREE
+assam,kaliabor,GEN,,TCPD_ONLY
+assam,karimganj,SC,GEN,DISAGREE
+assam,kaziranga,,GEN,ECI_ONLY
+assam,kokrajhar,ST,ST,AGREE
+assam,lakhimpur,GEN,GEN,AGREE
+assam,"lakhimpur , district, lakhimpur",GEN,,TCPD_ONLY
+assam,mangaldoi,GEN,,TCPD_ONLY
+assam,nagaon,,GEN,ECI_ONLY
+assam,nowgong,GEN,,TCPD_ONLY
+assam,silchar,GEN,SC,DISAGREE
+assam,sonitpur,,GEN,ECI_ONLY
+assam,tezpur,GEN,,TCPD_ONLY
+bihar,araria,GEN,GEN,AGREE
+bihar,arrah,GEN,GEN,AGREE
+bihar,aurangabad,GEN,GEN,AGREE
+bihar,banka,GEN,GEN,AGREE
+bihar,begusarai,GEN,GEN,AGREE
+bihar,bhagalpur,GEN,GEN,AGREE
+bihar,buxar,GEN,GEN,AGREE
+bihar,darbhanga,GEN,GEN,AGREE
+bihar,gaya,SC,SC,AGREE
+bihar,gaya (sc),SC,,TCPD_ONLY
+bihar,gopalganj,SC,SC,AGREE
+bihar,gopalganj (sc),SC,,TCPD_ONLY
+bihar,hajipur,SC,SC,AGREE
+bihar,hajipur (sc),SC,,TCPD_ONLY
+bihar,jahanabad,GEN,GEN,AGREE
+bihar,jamui,SC,SC,AGREE
+bihar,jamui (sc),SC,,TCPD_ONLY
+bihar,jhanjharpur,GEN,GEN,AGREE
+bihar,karakat,GEN,GEN,AGREE
+bihar,katihar,GEN,GEN,AGREE
+bihar,khagaria,GEN,GEN,AGREE
+bihar,kishanganj,GEN,GEN,AGREE
+bihar,madhepura,GEN,GEN,AGREE
+bihar,madhubani,GEN,GEN,AGREE
+bihar,maharajganj,GEN,GEN,AGREE
+bihar,munger,GEN,GEN,AGREE
+bihar,muzaffarpur,GEN,GEN,AGREE
+bihar,nalanda,GEN,GEN,AGREE
+bihar,nawada,GEN,GEN,AGREE
+bihar,paschim champaran,GEN,GEN,AGREE
+bihar,pataliputra,GEN,,TCPD_ONLY
+bihar,patliputra,,GEN,ECI_ONLY
+bihar,patna sahib,GEN,GEN,AGREE
+bihar,purnia,GEN,GEN,AGREE
+bihar,purvi champaran,GEN,GEN,AGREE
+bihar,samastipur,SC,SC,AGREE
+bihar,samastipur (sc),SC,,TCPD_ONLY
+bihar,saran,GEN,GEN,AGREE
+bihar,sasaram,SC,SC,AGREE
+bihar,sasaram (sc),SC,,TCPD_ONLY
+bihar,sheohar,GEN,GEN,AGREE
+bihar,sitamarhi,GEN,GEN,AGREE
+bihar,siwan,GEN,GEN,AGREE
+bihar,supaul,GEN,GEN,AGREE
+bihar,ujiarpur,GEN,GEN,AGREE
+bihar,vaishali,GEN,GEN,AGREE
+bihar,valmiki nagar,GEN,GEN,AGREE
+chandigarh,chandigarh,GEN,GEN,AGREE
+chhattisgarh,bastar,ST,ST,AGREE
+chhattisgarh,bilaspur,GEN,GEN,AGREE
+chhattisgarh,durg,GEN,GEN,AGREE
+chhattisgarh,janjgir champa,SC,SC,AGREE
+chhattisgarh,kanker,ST,ST,AGREE
+chhattisgarh,korba,GEN,GEN,AGREE
+chhattisgarh,mahasamund,GEN,GEN,AGREE
+chhattisgarh,raigarh,ST,ST,AGREE
+chhattisgarh,raipur,GEN,GEN,AGREE
+chhattisgarh,rajnandgaon,GEN,GEN,AGREE
+chhattisgarh,sarguja,ST,,TCPD_ONLY
+chhattisgarh,surguja,,ST,ECI_ONLY
+dadra-and-nagar-haveli-and-daman-and-diu,dadar & nagar haveli,ST,ST,AGREE
+dadra-and-nagar-haveli-and-daman-and-diu,dadra and nagar haveli,ST,,TCPD_ONLY
+dadra-and-nagar-haveli-and-daman-and-diu,daman & diu,GEN,GEN,AGREE
+delhi,chandni chowk,GEN,GEN,AGREE
+delhi,east delhi,GEN,GEN,AGREE
+delhi,new delhi,GEN,GEN,AGREE
+delhi,north east delhi,GEN,GEN,AGREE
+delhi,north west delhi,SC,SC,AGREE
+delhi,south delhi,GEN,GEN,AGREE
+delhi,west delhi,GEN,GEN,AGREE
+goa,north goa,GEN,GEN,AGREE
+goa,south goa,GEN,GEN,AGREE
+gujarat,ahmedabad east,GEN,GEN,AGREE
+gujarat,ahmedabad west,SC,SC,AGREE
+gujarat,amreli,GEN,GEN,AGREE
+gujarat,anand,GEN,GEN,AGREE
+gujarat,banaskantha,GEN,GEN,AGREE
+gujarat,bardoli,ST,ST,AGREE
+gujarat,bharuch,GEN,GEN,AGREE
+gujarat,bhavnagar,GEN,GEN,AGREE
+gujarat,chhota udaipur,ST,ST,AGREE
+gujarat,dahod,ST,ST,AGREE
+gujarat,gandhinagar,GEN,GEN,AGREE
+gujarat,jamnagar,GEN,GEN,AGREE
+gujarat,junagadh,GEN,GEN,AGREE
+gujarat,kachchh,SC,SC,AGREE
+gujarat,kheda,GEN,GEN,AGREE
+gujarat,mahesana,GEN,GEN,AGREE
+gujarat,navsari,GEN,GEN,AGREE
+gujarat,panchmahal,GEN,GEN,AGREE
+gujarat,patan,GEN,GEN,AGREE
+gujarat,porbandar,GEN,GEN,AGREE
+gujarat,rajkot,GEN,GEN,AGREE
+gujarat,sabarkantha,GEN,GEN,AGREE
+gujarat,surat,GEN,,TCPD_ONLY
+gujarat,surendranagar,GEN,GEN,AGREE
+gujarat,vadodara,GEN,GEN,AGREE
+gujarat,valsad,ST,ST,AGREE
+haryana,ambala,SC,SC,AGREE
+haryana,bhiwani mahendragarh,GEN,GEN,AGREE
+haryana,faridabad,GEN,GEN,AGREE
+haryana,gurgaon,GEN,GEN,AGREE
+haryana,hisar,GEN,GEN,AGREE
+haryana,karnal,GEN,GEN,AGREE
+haryana,kurukshetra,GEN,GEN,AGREE
+haryana,rohtak,GEN,GEN,AGREE
+haryana,sirsa,SC,SC,AGREE
+haryana,sonipat,GEN,GEN,AGREE
+himachal-pradesh,hamirpur,GEN,GEN,AGREE
+himachal-pradesh,kangra,GEN,GEN,AGREE
+himachal-pradesh,mandi,GEN,GEN,AGREE
+himachal-pradesh,shimla,SC,SC,AGREE
+jammu-and-kashmir,anantnag,GEN,,TCPD_ONLY
+jammu-and-kashmir,anantnag rajouri,,GEN,ECI_ONLY
+jammu-and-kashmir,baramulla,GEN,GEN,AGREE
+jammu-and-kashmir,jammu,GEN,GEN,AGREE
+jammu-and-kashmir,ladakh,GEN,,TCPD_ONLY
+jammu-and-kashmir,srinagar,GEN,GEN,AGREE
+jammu-and-kashmir,udhampur,GEN,GEN,AGREE
+jharkhand,chatra,GEN,GEN,AGREE
+jharkhand,dhanbad,GEN,GEN,AGREE
+jharkhand,dumka,ST,ST,AGREE
+jharkhand,giridih,GEN,GEN,AGREE
+jharkhand,godda,GEN,GEN,AGREE
+jharkhand,hazaribagh,GEN,GEN,AGREE
+jharkhand,jamshedpur,GEN,GEN,AGREE
+jharkhand,khunti,ST,ST,AGREE
+jharkhand,kodarma,GEN,GEN,AGREE
+jharkhand,lohardaga,ST,ST,AGREE
+jharkhand,palamau,SC,,TCPD_ONLY
+jharkhand,palamu,,SC,ECI_ONLY
+jharkhand,rajmahal,ST,ST,AGREE
+jharkhand,ranchi,GEN,GEN,AGREE
+jharkhand,singhbhum,ST,ST,AGREE
+karnataka,bagalkot,GEN,GEN,AGREE
+karnataka,bangalore central,GEN,GEN,AGREE
+karnataka,bangalore north,GEN,GEN,AGREE
+karnataka,bangalore rural,GEN,GEN,AGREE
+karnataka,bangalore south,GEN,GEN,AGREE
+karnataka,belgaum,GEN,GEN,AGREE
+karnataka,bellary,ST,ST,AGREE
+karnataka,bellory,ST,,TCPD_ONLY
+karnataka,bidar,GEN,GEN,AGREE
+karnataka,bijapur,SC,SC,AGREE
+karnataka,chamarajanagar,SC,SC,AGREE
+karnataka,chikkballapur,GEN,GEN,AGREE
+karnataka,chikkodi,GEN,GEN,AGREE
+karnataka,chitradurga,SC,SC,AGREE
+karnataka,dakshina kannada,GEN,GEN,AGREE
+karnataka,davanagere,GEN,GEN,AGREE
+karnataka,dharwad,GEN,GEN,AGREE
+karnataka,gulbarga,SC,SC,AGREE
+karnataka,hassan,GEN,GEN,AGREE
+karnataka,haveri,GEN,GEN,AGREE
+karnataka,kolar,SC,SC,AGREE
+karnataka,koppal,GEN,GEN,AGREE
+karnataka,mandya,GEN,GEN,AGREE
+karnataka,mysore,GEN,GEN,AGREE
+karnataka,raichur,ST,ST,AGREE
+karnataka,shimoga,GEN,GEN,AGREE
+karnataka,tumkur,GEN,GEN,AGREE
+karnataka,udupi chikmagalur,GEN,GEN,AGREE
+karnataka,uttara kannada,GEN,GEN,AGREE
+kerala,alappuzha,GEN,GEN,AGREE
+kerala,alathur,SC,SC,AGREE
+kerala,attingal,GEN,GEN,AGREE
+kerala,chalakudy,GEN,GEN,AGREE
+kerala,ernakulam,GEN,GEN,AGREE
+kerala,idukki,GEN,GEN,AGREE
+kerala,kannur,GEN,GEN,AGREE
+kerala,kasaragod,GEN,GEN,AGREE
+kerala,kollam,GEN,GEN,AGREE
+kerala,kottayam,GEN,GEN,AGREE
+kerala,kozhikode,GEN,GEN,AGREE
+kerala,malappuram,GEN,GEN,AGREE
+kerala,"malappuram , district, malappuram",GEN,,TCPD_ONLY
+kerala,mavelikkara,SC,SC,AGREE
+kerala,palakkad,GEN,GEN,AGREE
+kerala,pathanamthitta,GEN,GEN,AGREE
+kerala,ponnani,GEN,GEN,AGREE
+kerala,thiruvananthapuram,GEN,GEN,AGREE
+kerala,thrissur,GEN,GEN,AGREE
+kerala,vadakara,GEN,GEN,AGREE
+kerala,wayanad,GEN,GEN,AGREE
+ladakh,ladakh,,ST,ECI_ONLY
+lakshadweep,lakshadweep,ST,ST,AGREE
+madhya-pradesh,balaghat,GEN,GEN,AGREE
+madhya-pradesh,betul,ST,ST,AGREE
+madhya-pradesh,bhind,SC,SC,AGREE
+madhya-pradesh,bhopal,GEN,GEN,AGREE
+madhya-pradesh,chhindwara,GEN,GEN,AGREE
+madhya-pradesh,damoh,GEN,GEN,AGREE
+madhya-pradesh,dewas,SC,SC,AGREE
+madhya-pradesh,dhar,ST,ST,AGREE
+madhya-pradesh,guna,GEN,GEN,AGREE
+madhya-pradesh,gwalior,GEN,GEN,AGREE
+madhya-pradesh,hoshangabad,GEN,GEN,AGREE
+madhya-pradesh,indore,GEN,GEN,AGREE
+madhya-pradesh,jabalpur,GEN,GEN,AGREE
+madhya-pradesh,khajuraho,GEN,GEN,AGREE
+madhya-pradesh,khandwa,GEN,GEN,AGREE
+madhya-pradesh,khargone,ST,ST,AGREE
+madhya-pradesh,mandla,ST,ST,AGREE
+madhya-pradesh,mandsour,GEN,GEN,AGREE
+madhya-pradesh,morena,GEN,GEN,AGREE
+madhya-pradesh,rajgarh,GEN,GEN,AGREE
+madhya-pradesh,ratlam,ST,ST,AGREE
+madhya-pradesh,ratlam(st) jhabua,ST,,TCPD_ONLY
+madhya-pradesh,rewa,GEN,GEN,AGREE
+madhya-pradesh,sagar,GEN,GEN,AGREE
+madhya-pradesh,satna,GEN,GEN,AGREE
+madhya-pradesh,shahdol,ST,ST,AGREE
+madhya-pradesh,"shahdol(st) , district, anooppur",ST,,TCPD_ONLY
+madhya-pradesh,sidhi,GEN,GEN,AGREE
+madhya-pradesh,tikamgarh,SC,SC,AGREE
+madhya-pradesh,ujjain,SC,SC,AGREE
+madhya-pradesh,vidisha,GEN,GEN,AGREE
+maharashtra,ahmadnagar,GEN,,TCPD_ONLY
+maharashtra,ahmednagar,,GEN,ECI_ONLY
+maharashtra,akola,GEN,GEN,AGREE
+maharashtra,amravati,SC,SC,AGREE
+maharashtra,aurangabad,GEN,GEN,AGREE
+maharashtra,baramati,GEN,GEN,AGREE
+maharashtra,beed,GEN,GEN,AGREE
+maharashtra,bhandara gondiya,GEN,GEN,AGREE
+maharashtra,bhiwandi,GEN,GEN,AGREE
+maharashtra,buldhana,GEN,GEN,AGREE
+maharashtra,chandrapur,GEN,GEN,AGREE
+maharashtra,dhule,GEN,GEN,AGREE
+maharashtra,dindori,ST,ST,AGREE
+maharashtra,gadchiroli chimur,ST,ST,AGREE
+maharashtra,hatkanangale,,GEN,ECI_ONLY
+maharashtra,hatkanangle,GEN,,TCPD_ONLY
+maharashtra,hingoli,GEN,GEN,AGREE
+maharashtra,jalgaon,GEN,GEN,AGREE
+maharashtra,jalna,GEN,GEN,AGREE
+maharashtra,kalyan,GEN,GEN,AGREE
+maharashtra,kolhapur,GEN,GEN,AGREE
+maharashtra,latur,SC,SC,AGREE
+maharashtra,madha,GEN,GEN,AGREE
+maharashtra,maval,GEN,GEN,AGREE
+maharashtra,mumbai north,GEN,GEN,AGREE
+maharashtra,mumbai north central,GEN,GEN,AGREE
+maharashtra,mumbai north east,GEN,GEN,AGREE
+maharashtra,mumbai north west,GEN,GEN,AGREE
+maharashtra,mumbai south,GEN,GEN,AGREE
+maharashtra,mumbai south central,GEN,GEN,AGREE
+maharashtra,nagpur,GEN,GEN,AGREE
+maharashtra,nanded,GEN,GEN,AGREE
+maharashtra,nandurbar,ST,ST,AGREE
+maharashtra,nashik,GEN,GEN,AGREE
+maharashtra,osmanabad,GEN,GEN,AGREE
+maharashtra,palghar,ST,ST,AGREE
+maharashtra,parbhani,GEN,GEN,AGREE
+maharashtra,pune,GEN,GEN,AGREE
+maharashtra,raigad,GEN,GEN,AGREE
+maharashtra,ramtek,SC,SC,AGREE
+maharashtra,ratnagiri sindhudurg,GEN,GEN,AGREE
+maharashtra,raver,GEN,GEN,AGREE
+maharashtra,sangli,GEN,GEN,AGREE
+maharashtra,satara,GEN,GEN,AGREE
+maharashtra,shirdi,SC,SC,AGREE
+maharashtra,shirur,GEN,GEN,AGREE
+maharashtra,solapur,SC,SC,AGREE
+maharashtra,thane,GEN,GEN,AGREE
+maharashtra,wardha,GEN,GEN,AGREE
+maharashtra,yavatmal washim,GEN,GEN,AGREE
+manipur,inner manipur,GEN,GEN,AGREE
+manipur,outer manipur,ST,ST,AGREE
+meghalaya,shillong,ST,ST,AGREE
+meghalaya,tura,ST,ST,AGREE
+meghalaya,"tura(st), district,west garo hills",ST,,TCPD_ONLY
+mizoram,mizoram,ST,ST,AGREE
+nagaland,nagaland,GEN,ST,DISAGREE
+odisha,aska,GEN,GEN,AGREE
+odisha,balasore,GEN,GEN,AGREE
+odisha,bargarh,GEN,GEN,AGREE
+odisha,berhampur,GEN,GEN,AGREE
+odisha,bhadrak,SC,SC,AGREE
+odisha,bhubaneswar,GEN,GEN,AGREE
+odisha,bolangir,GEN,GEN,AGREE
+odisha,cuttack,GEN,GEN,AGREE
+odisha,dhenkanal,GEN,GEN,AGREE
+odisha,jagatsinghpur,SC,SC,AGREE
+odisha,jajpur,SC,SC,AGREE
+odisha,kalahandi,GEN,GEN,AGREE
+odisha,kandhamal,GEN,GEN,AGREE
+odisha,kendrapara,GEN,GEN,AGREE
+odisha,keonjhar,ST,ST,AGREE
+odisha,koraput,ST,ST,AGREE
+odisha,mayurbhanj,ST,ST,AGREE
+odisha,nabarangpur,ST,ST,AGREE
+odisha,puri,GEN,GEN,AGREE
+odisha,sambalpur,GEN,GEN,AGREE
+odisha,sundargarh,ST,ST,AGREE
+puducherry,puducherry,GEN,GEN,AGREE
+punjab,amritsar,GEN,GEN,AGREE
+punjab,anandpur sahib,GEN,GEN,AGREE
+punjab,bathinda,GEN,GEN,AGREE
+punjab,faridkot,SC,SC,AGREE
+punjab,fatehgarh sahib,SC,SC,AGREE
+punjab,ferozpur,GEN,,TCPD_ONLY
+punjab,firozpur,GEN,GEN,AGREE
+punjab,gurdashpur,GEN,,TCPD_ONLY
+punjab,gurdaspur,GEN,GEN,AGREE
+punjab,hoshiarpur,SC,SC,AGREE
+punjab,jalandhar,SC,SC,AGREE
+punjab,khadoor sahib,GEN,GEN,AGREE
+punjab,ludhiana,GEN,GEN,AGREE
+punjab,patiala,GEN,GEN,AGREE
+punjab,sangrur,GEN,GEN,AGREE
+rajasthan,ajmer,GEN,GEN,AGREE
+rajasthan,alwar,GEN,GEN,AGREE
+rajasthan,banswara,ST,ST,AGREE
+rajasthan,barmer,GEN,GEN,AGREE
+rajasthan,bharatpur,SC,SC,AGREE
+rajasthan,bhilwara,GEN,GEN,AGREE
+rajasthan,bikaner,SC,SC,AGREE
+rajasthan,bikaner (sc),SC,,TCPD_ONLY
+rajasthan,chittorgarh,GEN,GEN,AGREE
+rajasthan,churu,GEN,GEN,AGREE
+rajasthan,dausa,ST,ST,AGREE
+rajasthan,ganganagar,SC,SC,AGREE
+rajasthan,jaipur,GEN,GEN,AGREE
+rajasthan,jaipur rural,GEN,GEN,AGREE
+rajasthan,jalore,GEN,GEN,AGREE
+rajasthan,jhalawar baran,GEN,GEN,AGREE
+rajasthan,jhunjhunu,GEN,GEN,AGREE
+rajasthan,jodhpur,GEN,GEN,AGREE
+rajasthan,karauli dholpur,SC,SC,AGREE
+rajasthan,kota,GEN,GEN,AGREE
+rajasthan,nagaur,GEN,GEN,AGREE
+rajasthan,pali,GEN,GEN,AGREE
+rajasthan,rajsamand,GEN,GEN,AGREE
+rajasthan,sikar,GEN,GEN,AGREE
+rajasthan,tonk sawai madhopur,GEN,GEN,AGREE
+rajasthan,udaipur,ST,ST,AGREE
+sikkim,sikkim,GEN,GEN,AGREE
+tamil-nadu,arakkonam,GEN,GEN,AGREE
+tamil-nadu,arani,GEN,GEN,AGREE
+tamil-nadu,chennai central,GEN,GEN,AGREE
+tamil-nadu,chennai north,GEN,GEN,AGREE
+tamil-nadu,chennai south,GEN,GEN,AGREE
+tamil-nadu,chidambaram,SC,SC,AGREE
+tamil-nadu,coimbatore,GEN,GEN,AGREE
+tamil-nadu,cuddalore,GEN,GEN,AGREE
+tamil-nadu,dharmapuri,GEN,GEN,AGREE
+tamil-nadu,dindigul,GEN,GEN,AGREE
+tamil-nadu,erode,GEN,GEN,AGREE
+tamil-nadu,kallakurichi,GEN,GEN,AGREE
+tamil-nadu,kancheepuram,SC,SC,AGREE
+tamil-nadu,kanniyakumari,GEN,GEN,AGREE
+tamil-nadu,karur,GEN,GEN,AGREE
+tamil-nadu,krishnagiri,GEN,GEN,AGREE
+tamil-nadu,madurai,GEN,GEN,AGREE
+tamil-nadu,mayiladuthurai,GEN,GEN,AGREE
+tamil-nadu,nagapattinam,SC,SC,AGREE
+tamil-nadu,namakkal,GEN,GEN,AGREE
+tamil-nadu,nilgiris,SC,SC,AGREE
+tamil-nadu,perambalur,GEN,GEN,AGREE
+tamil-nadu,pollachi,GEN,GEN,AGREE
+tamil-nadu,ramanathapuram,GEN,GEN,AGREE
+tamil-nadu,salem,GEN,GEN,AGREE
+tamil-nadu,sivaganga,GEN,GEN,AGREE
+tamil-nadu,sriperumbudur,GEN,GEN,AGREE
+tamil-nadu,tenkasi,SC,SC,AGREE
+tamil-nadu,thanjavur,GEN,GEN,AGREE
+tamil-nadu,theni,GEN,GEN,AGREE
+tamil-nadu,thiruvallur,SC,,TCPD_ONLY
+tamil-nadu,thoothukkudi,GEN,GEN,AGREE
+tamil-nadu,tiruchirappalli,GEN,GEN,AGREE
+tamil-nadu,tirunelveli,GEN,GEN,AGREE
+tamil-nadu,tiruppur,GEN,GEN,AGREE
+tamil-nadu,tiruvallur,,SC,ECI_ONLY
+tamil-nadu,tiruvannamalai,GEN,GEN,AGREE
+tamil-nadu,vellore,GEN,GEN,AGREE
+tamil-nadu,viluppuram,SC,SC,AGREE
+tamil-nadu,virudhunagar,GEN,GEN,AGREE
+telangana,adilabad,ST,ST,AGREE
+telangana,bhongir,GEN,GEN,AGREE
+telangana,chevella,GEN,GEN,AGREE
+telangana,hyderabad,GEN,GEN,AGREE
+telangana,karimnagar,GEN,GEN,AGREE
+telangana,khammam,GEN,GEN,AGREE
+telangana,mahabubabad,ST,ST,AGREE
+telangana,mahbubnagar,GEN,GEN,AGREE
+telangana,malkajgiri,GEN,GEN,AGREE
+telangana,medak,GEN,GEN,AGREE
+telangana,nagarkurnool,SC,SC,AGREE
+telangana,nalgonda,GEN,GEN,AGREE
+telangana,nizamabad,GEN,GEN,AGREE
+telangana,peddapalle,SC,SC,AGREE
+telangana,secunderabad,,GEN,ECI_ONLY
+telangana,secundrabad,GEN,,TCPD_ONLY
+telangana,warangal,SC,SC,AGREE
+telangana,zahirabad,GEN,GEN,AGREE
+tripura,tripura east,ST,ST,AGREE
+tripura,tripura west,GEN,GEN,AGREE
+uttar-pradesh,agra,SC,SC,AGREE
+uttar-pradesh,akbarpur,GEN,GEN,AGREE
+uttar-pradesh,aligarh,GEN,GEN,AGREE
+uttar-pradesh,allahabad,GEN,GEN,AGREE
+uttar-pradesh,ambedkar nagar,GEN,GEN,AGREE
+uttar-pradesh,amethi,GEN,GEN,AGREE
+uttar-pradesh,amroha,GEN,GEN,AGREE
+uttar-pradesh,aonla,GEN,GEN,AGREE
+uttar-pradesh,azamgarh,GEN,GEN,AGREE
+uttar-pradesh,badaun,GEN,GEN,AGREE
+uttar-pradesh,baghpat,GEN,GEN,AGREE
+uttar-pradesh,baharaich,,SC,ECI_ONLY
+uttar-pradesh,bahraich,SC,,TCPD_ONLY
+uttar-pradesh,ballia,GEN,GEN,AGREE
+uttar-pradesh,banda,GEN,GEN,AGREE
+uttar-pradesh,bansgaon,SC,SC,AGREE
+uttar-pradesh,barabanki,SC,SC,AGREE
+uttar-pradesh,bareilly,GEN,GEN,AGREE
+uttar-pradesh,basti,GEN,GEN,AGREE
+uttar-pradesh,bhadohi,GEN,GEN,AGREE
+uttar-pradesh,bijnor,GEN,GEN,AGREE
+uttar-pradesh,bulandshahr,SC,SC,AGREE
+uttar-pradesh,chandauli,GEN,GEN,AGREE
+uttar-pradesh,deoria,GEN,GEN,AGREE
+uttar-pradesh,dhaurahra,GEN,GEN,AGREE
+uttar-pradesh,domariyaganj,GEN,GEN,AGREE
+uttar-pradesh,etah,GEN,GEN,AGREE
+uttar-pradesh,etawah,SC,SC,AGREE
+uttar-pradesh,faizabad,GEN,GEN,AGREE
+uttar-pradesh,farrukhabad,GEN,GEN,AGREE
+uttar-pradesh,fatehpur,GEN,GEN,AGREE
+uttar-pradesh,fatehpur sikri,GEN,GEN,AGREE
+uttar-pradesh,firozabad,GEN,GEN,AGREE
+uttar-pradesh,gautam buddh nagar,GEN,,TCPD_ONLY
+uttar-pradesh,gautam buddha nagar,GEN,GEN,AGREE
+uttar-pradesh,ghaziabad,GEN,GEN,AGREE
+uttar-pradesh,ghazipur,GEN,GEN,AGREE
+uttar-pradesh,ghosi,GEN,GEN,AGREE
+uttar-pradesh,gonda,GEN,GEN,AGREE
+uttar-pradesh,gorakhpur,GEN,GEN,AGREE
+uttar-pradesh,hamirpur,GEN,GEN,AGREE
+uttar-pradesh,hardoi,SC,SC,AGREE
+uttar-pradesh,hathras,SC,SC,AGREE
+uttar-pradesh,jalaun,SC,SC,AGREE
+uttar-pradesh,jaunpur,GEN,GEN,AGREE
+uttar-pradesh,jhansi,GEN,GEN,AGREE
+uttar-pradesh,kairana,GEN,GEN,AGREE
+uttar-pradesh,kaiserganj,GEN,GEN,AGREE
+uttar-pradesh,kannauj,GEN,GEN,AGREE
+uttar-pradesh,kanpur,GEN,GEN,AGREE
+uttar-pradesh,kaushambi,SC,SC,AGREE
+uttar-pradesh,kheri,GEN,GEN,AGREE
+uttar-pradesh,kushi nagar,GEN,GEN,AGREE
+uttar-pradesh,lalganj,SC,SC,AGREE
+uttar-pradesh,lucknow,GEN,GEN,AGREE
+uttar-pradesh,machhlishahr,SC,SC,AGREE
+uttar-pradesh,maharajganj,GEN,GEN,AGREE
+uttar-pradesh,mainpuri,GEN,GEN,AGREE
+uttar-pradesh,mainpuri(gen),GEN,,TCPD_ONLY
+uttar-pradesh,mathura,GEN,GEN,AGREE
+uttar-pradesh,meerut,GEN,GEN,AGREE
+uttar-pradesh,mirzapur,GEN,GEN,AGREE
+uttar-pradesh,misrikh,SC,SC,AGREE
+uttar-pradesh,mohanlalganj,SC,SC,AGREE
+uttar-pradesh,moradabad,GEN,GEN,AGREE
+uttar-pradesh,muzaffarnagar,GEN,GEN,AGREE
+uttar-pradesh,nagina,SC,SC,AGREE
+uttar-pradesh,phulpur,GEN,GEN,AGREE
+uttar-pradesh,pilibhit,GEN,GEN,AGREE
+uttar-pradesh,pratapgarh,GEN,GEN,AGREE
+uttar-pradesh,rae bareli,GEN,GEN,AGREE
+uttar-pradesh,rampur,GEN,GEN,AGREE
+uttar-pradesh,robertsganj,SC,SC,AGREE
+uttar-pradesh,saharanpur,GEN,GEN,AGREE
+uttar-pradesh,salempur,GEN,GEN,AGREE
+uttar-pradesh,sambhal,GEN,GEN,AGREE
+uttar-pradesh,sant kabir nagar,GEN,GEN,AGREE
+uttar-pradesh,shahjahanpur,SC,SC,AGREE
+uttar-pradesh,shrawasti,GEN,GEN,AGREE
+uttar-pradesh,sitapur,GEN,GEN,AGREE
+uttar-pradesh,sultanpur,GEN,GEN,AGREE
+uttar-pradesh,unnao,GEN,GEN,AGREE
+uttar-pradesh,varanasi,GEN,GEN,AGREE
+uttarakhand,almora,SC,SC,AGREE
+uttarakhand,garhwal,GEN,GEN,AGREE
+uttarakhand,hardwar,GEN,,TCPD_ONLY
+uttarakhand,haridwar,,GEN,ECI_ONLY
+uttarakhand,nainital udhamsingh nagar,GEN,GEN,AGREE
+uttarakhand,tehri garhwal,GEN,GEN,AGREE
+west-bengal,alipurduars,ST,ST,AGREE
+west-bengal,arambag,,SC,ECI_ONLY
+west-bengal,arambagh,SC,,TCPD_ONLY
+west-bengal,asansol,GEN,GEN,AGREE
+west-bengal,baharampur,GEN,GEN,AGREE
+west-bengal,balurghat,GEN,GEN,AGREE
+west-bengal,bangaon,SC,SC,AGREE
+west-bengal,bankura,GEN,GEN,AGREE
+west-bengal,barasat,GEN,GEN,AGREE
+west-bengal,bardhaman durgapur,GEN,GEN,AGREE
+west-bengal,bardhaman purba,SC,SC,AGREE
+west-bengal,barrackpore,GEN,,TCPD_ONLY
+west-bengal,barrackpur,,GEN,ECI_ONLY
+west-bengal,basirhat,GEN,GEN,AGREE
+west-bengal,birbhum,GEN,GEN,AGREE
+west-bengal,bishnupur,SC,SC,AGREE
+west-bengal,bolpur,SC,SC,AGREE
+west-bengal,burdwan durgapur,GEN,,TCPD_ONLY
+west-bengal,cooch behar,SC,,TCPD_ONLY
+west-bengal,coochbehar,,SC,ECI_ONLY
+west-bengal,"coochbehar(sc), district, coochbehar",SC,,TCPD_ONLY
+west-bengal,darjeeling,GEN,GEN,AGREE
+west-bengal,diamond harbour,GEN,GEN,AGREE
+west-bengal,dum dum,GEN,GEN,AGREE
+west-bengal,ghatal,GEN,GEN,AGREE
+west-bengal,hooghly,GEN,GEN,AGREE
+west-bengal,howrah,GEN,GEN,AGREE
+west-bengal,jadavpur,GEN,GEN,AGREE
+west-bengal,jalpaiguri,SC,SC,AGREE
+west-bengal,jangipur,GEN,GEN,AGREE
+west-bengal,jaynagar,SC,SC,AGREE
+west-bengal,jhargram,ST,ST,AGREE
+west-bengal,joynagar,SC,,TCPD_ONLY
+west-bengal,kanthi,GEN,GEN,AGREE
+west-bengal,kolkata dakshin,GEN,GEN,AGREE
+west-bengal,kolkata uttar,GEN,GEN,AGREE
+west-bengal,krishnanagar,GEN,GEN,AGREE
+west-bengal,maldaha dakshin,GEN,GEN,AGREE
+west-bengal,maldaha uttar,GEN,GEN,AGREE
+west-bengal,mathurapur,SC,SC,AGREE
+west-bengal,medinipur,GEN,GEN,AGREE
+west-bengal,murshidabad,GEN,GEN,AGREE
+west-bengal,purulia,GEN,GEN,AGREE
+west-bengal,raiganj,GEN,GEN,AGREE
+west-bengal,ranaghat,SC,SC,AGREE
+west-bengal,sreerampur,,GEN,ECI_ONLY
+west-bengal,srerampur,GEN,,TCPD_ONLY
+west-bengal,tamluk,GEN,GEN,AGREE
+west-bengal,"tamluk(gen), district, purba medinipur",GEN,,TCPD_ONLY
+west-bengal,uluberia,GEN,GEN,AGREE

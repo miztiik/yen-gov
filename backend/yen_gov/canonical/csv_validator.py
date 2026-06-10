@@ -64,6 +64,7 @@ __all__ = ["validate_csv", "CsvValidationError"]
 
 _DATAPOINTS_GLOB = "datasets/data/datapoints/"
 _VARIABLES_FILE = "datasets/data/variables.csv"
+_ELECTORAL_CSV = "datasets/data/entities/electoral.csv"
 
 
 class CsvValidationError(ValueError):
@@ -156,6 +157,9 @@ def validate_csv(
             prev_key = key
 
     _check_fks(fc, parsed_rows, path=path, repo_root=repo_root, contract=resolved)
+
+    if file_class == _ELECTORAL_CSV:
+        _check_electoral_reservation_populated(parsed_rows, path=path)
 
     if file_class.startswith(_DATAPOINTS_GLOB) and file_class.endswith("/*.csv"):
         _check_datapoint_filename(fc, path, repo_root=repo_root)
@@ -296,3 +300,37 @@ def _check_datapoint_filename(
 def clear_caches() -> None:
     """Clear the FK-target cache (test fixtures recycle ``tmp_path`` dirs)."""
     _load_fk_targets_cached.cache_clear()
+
+
+def _check_electoral_reservation_populated(
+    parsed_rows: list[dict[str, Any]],
+    *,
+    path: Path,
+) -> None:
+    """PR-E-R (2026-06-10): every AC + PC row MUST have reservation populated.
+
+    Per the brief's Tier-B extension: ``electoral.csv.reservation`` is
+    non-null for ``entity_kind in ('ac', 'pc')``. The existing closed-enum
+    check on the column already rejects values outside ``{GEN, SC, ST}``;
+    this helper additionally rejects ``None`` (empty cell) so the writer-
+    chain cannot regress the PR-E-R backfill.
+
+    Rationale: ``electoral.csv`` contains ONLY ac/pc rows (no country /
+    state / district rows), so the brief's "NULL permitted only for non-
+    electoral rows" carve-out is vacuous - the rule simplifies to
+    "reservation is non-null on every row".
+    """
+    missing = [
+        row
+        for row in parsed_rows
+        if row.get("entity_kind") in ("ac", "pc")
+        and row.get("reservation") is None
+    ]
+    if missing:
+        sample = ", ".join(
+            f"{r.get('entity_id')!r}" for r in missing[:5]
+        )
+        raise CsvValidationError(
+            f"{path.name}: {len(missing)} AC/PC row(s) missing reservation "
+            f"(must be in {{GEN, SC, ST}}); sample: {sample}"
+        )
