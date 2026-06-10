@@ -1,7 +1,7 @@
 """Parse the TCPD All-States General-Election panel into PC results.
 
 The Trivedi Centre for Political Data (TCPD) ``All_States_GE.csv`` is a
-candidate-level panel covering every Lok Sabha general election: one row per
+candidate-level panel covering every Parliament general election: one row per
 ``(constituency, candidate)``. This module filters the panel to a single GE
 year and the *original* poll, resolves each constituency to a canonical
 ``pc_id`` via the historical crosswalk
@@ -45,7 +45,7 @@ from yen_gov.sources.eci.people_panel import (
 )
 
 #: The only ``Election_Type`` value we ingest from the panel.
-GE_ELECTION_TYPE = "Lok Sabha Election (GE)"
+GE_ELECTION_TYPE = "Parliament Election (GE)"
 
 #: ``Poll_No`` of the original general-election poll (re-polls are ``1+``).
 ORIGINAL_POLL = "0"

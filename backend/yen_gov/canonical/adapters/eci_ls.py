@@ -1,4 +1,4 @@
-"""ECI Lok Sabha (PC) constituency-wise results adapter / driver.
+"""ECI Parliament (PC) constituency-wise results adapter / driver.
 
 Reads the frozen ECI Report-33 constituency-wise detailed-result CSV plus the
 Report-34 AC→PC crosswalk and emits canonical PC-grain Parquet rows through
@@ -47,11 +47,11 @@ from yen_gov.sources.eci.ls_constituencywise import parse_ls_constituencywise
 from yen_gov.sources.eci.ls_ge_tcpd import parse_ls_ge_tcpd
 from yen_gov.canonical.adapters.eci.pc_crosswalk import load_crosswalk_and_lookup
 
-# The 2024 Lok Sabha general election: results declared 2024-06-04. The
+# The 2024 Parliament general election: results declared 2024-06-04. The
 # event_id MUST be parseable by ``parse_period_label`` (body+month+year), so
 # the polling-month-style ``LsGenJun2024`` is the canonical id.
 LS_2024_EVENT = Period(period_label="LsGenJun2024", year=2024, period_seq=6)
-# Current Lok Sabha boundaries are the 2008 delimitation.
+# Current Parliament boundaries are the 2008 delimitation.
 LS_2024_DELIM_YEAR = 2008
 SOURCE_INPUT_ID = "eci_ls"
 INVENTORY_PATH_REL = ("datasets", "elections", "_inventory.json")
@@ -75,7 +75,7 @@ class PcGeEvent:
     source_input_id: str = SOURCE_INPUT_ID
 
 
-# Default event: the already-ingested 2024 Lok Sabha general election.
+# Default event: the already-ingested 2024 Parliament general election.
 LS_2024 = PcGeEvent(
     period=LS_2024_EVENT,
     delim_year=LS_2024_DELIM_YEAR,
@@ -87,7 +87,7 @@ LS_2024 = PcGeEvent(
 )
 
 
-# The 2019 Lok Sabha general election: results declared 2019-05-23. Ingested
+# The 2019 Parliament general election: results declared 2019-05-23. Ingested
 # from the TCPD All-States GE panel (EGC-B2 Phase 2). Same 2008 delimitation
 # as 2024, so the constituency boundaries (and therefore ``pc_id`` grammar)
 # match the current map.
@@ -104,7 +104,7 @@ LS_2019 = PcGeEvent(
 )
 
 
-# The 2014 Lok Sabha general election: results declared 2014-05-16. Same 2008
+# The 2014 Parliament general election: results declared 2014-05-16. Same 2008
 # delimitation as 2019/2024. Andhra Pradesh still contested as the undivided
 # 42-seat state (Telangana split takes effect 2014-06-02, after polling), so
 # the crosswalk maps the 2014 AP rows onto the modern S01/S29 successors.
@@ -121,7 +121,7 @@ LS_2014 = PcGeEvent(
 )
 
 
-# The 2009 Lok Sabha general election: results declared 2009-05-16. First GE
+# The 2009 Parliament general election: results declared 2009-05-16. First GE
 # fought on the 2008 delimitation, so the constituency boundaries match the
 # current map. Andhra Pradesh contested as the undivided 42-seat state.
 LS_2009_EVENT = Period(period_label="LsGenMay2009", year=2009, period_seq=3)
@@ -137,7 +137,7 @@ LS_2009 = PcGeEvent(
 )
 
 
-# The 2004 Lok Sabha general election (14th Lok Sabha): polling Apr-May 2004,
+# The 2004 Parliament general election (14th Parliament): polling Apr-May 2004,
 # results declared 2004-05-13. Contested on the **1976 delimitation** — the
 # constituency boundaries differ from the current (2008) map, so 2004 is a
 # table/timeseries-only year (no choropleth painting). Chhattisgarh, Jharkhand
@@ -157,7 +157,7 @@ LS_2004 = PcGeEvent(
 )
 
 
-# The 1999 Lok Sabha general election (13th Lok Sabha): polling Sep-Oct 1999,
+# The 1999 Parliament general election (13th Parliament): polling Sep-Oct 1999,
 # results declared 1999-10-06. Contested on the **1976 delimitation** (table/
 # timeseries-only year). Chhattisgarh, Jharkhand and Uttarakhand did not yet
 # exist (created 2000); their seats were polled inside Madhya Pradesh, Bihar
@@ -494,7 +494,7 @@ def _upsert_inventory(
             and row.get("source_input") == event.source_input_id
         )
     ]
-    # National Lok Sabha event recorded as one inventory slice per state.
+    # National Parliament event recorded as one inventory slice per state.
     # Schema v2.0 (ADR-0050): state field carries LGD-name slug, not ECI st_code.
     # Callers pass ECI st_code (relational join-key); translate at the write boundary.
     for state in states:

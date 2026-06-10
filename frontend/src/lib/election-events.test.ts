@@ -42,7 +42,7 @@ const CATALOGUE: ElectionEventsCatalogue = {
       { event_id: "AcGenNov2022", kind: "assembly", display: "HP AC Nov 2022", polled_on: "2022-11-12" },
     ],
     S04: [], // empty array — explicit "no data" signal
-    // PR #525 shape: the Lok Sabha LsGenJun2024 event (2024-06-01) is the
+    // PR #525 shape: the Parliament LsGenJun2024 event (2024-06-01) is the
     // most-recent event by polled_on, but it sits ABOVE the latest assembly
     // election (AcGenMay2023). Every consumer of defaultEventForState is an
     // assembly-house view, so the default must stay on the latest assembly —
@@ -51,12 +51,12 @@ const CATALOGUE: ElectionEventsCatalogue = {
     S10: [
       { event_id: "AcGenMay2018", kind: "assembly", display: "KA AC May 2018", polled_on: "2018-05-12" },
       { event_id: "AcGenMay2023", kind: "assembly", display: "KA AC May 2023", polled_on: "2023-05-10" },
-      { event_id: "LsGenJun2024", kind: "lok_sabha", display: "Lok Sabha Jun 2024", polled_on: "2024-06-01" },
+      { event_id: "LsGenJun2024", kind: "parliament", display: "Parliament Jun 2024", polled_on: "2024-06-01" },
     ],
-    // Degenerate fallback: a state with ONLY a lok_sabha event must still
+    // Degenerate fallback: a state with ONLY a parliament event must still
     // resolve (most-recent-of-any-kind) rather than 404.
     U99: [
-      { event_id: "LsGenJun2024", kind: "lok_sabha", display: "Lok Sabha Jun 2024", polled_on: "2024-06-01" },
+      { event_id: "LsGenJun2024", kind: "parliament", display: "Parliament Jun 2024", polled_on: "2024-06-01" },
     ],
   },
 };
@@ -85,7 +85,7 @@ describe("defaultEventForState", () => {
     expect(defaultEventForState(CATALOGUE, null)).toBeNull();
   });
 
-  it("PR #525: skips a newer lok_sabha event and defaults to the latest assembly", () => {
+  it("PR #525: skips a newer parliament event and defaults to the latest assembly", () => {
     // LsGenJun2024 (2024-06-01) is the most-recent event by polled_on, but
     // the assembly-house default must stay on AcGenMay2023.
     expect(defaultEventForState(CATALOGUE, "S10")?.event_id).toBe("AcGenMay2023");
@@ -120,13 +120,13 @@ describe("listEventsForState", () => {
   });
 
   it("filters by kind when the optional kind arg is supplied (2026-06-09 Compare kind-constraint)", () => {
-    // S10 has 2 assembly + 1 lok_sabha; filter must keep only the
+    // S10 has 2 assembly + 1 parliament; filter must keep only the
     // matching kind and stay sorted most-recent-first.
     expect(
       listEventsForState(CATALOGUE, "S10", "assembly").map((e) => e.event_id),
     ).toEqual(["AcGenMay2023", "AcGenMay2018"]);
     expect(
-      listEventsForState(CATALOGUE, "S10", "lok_sabha").map((e) => e.event_id),
+      listEventsForState(CATALOGUE, "S10", "parliament").map((e) => e.event_id),
     ).toEqual(["LsGenJun2024"]);
     // by_election kind has no rows -> empty.
     expect(

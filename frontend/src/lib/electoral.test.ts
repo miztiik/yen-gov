@@ -5,7 +5,7 @@ describe("majorityFor", () => {
   it("uses floor(N/2)+1 — strictly more than half", () => {
     // TN Legislative Assembly: 234 seats → 118 (not 117).
     expect(majorityFor(234)).toBe(118);
-    // Lok Sabha: 543 seats → 272.
+    // Parliament: 543 seats → 272.
     expect(majorityFor(543)).toBe(272);
     // Karnataka: 224 → 113.
     expect(majorityFor(224)).toBe(113);

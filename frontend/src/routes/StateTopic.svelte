@@ -202,8 +202,8 @@
             <p class="text-xs text-slate-600">
               {ev.kind === "assembly"
                 ? "State Assembly election"
-                : ev.kind === "lok_sabha"
-                  ? "Lok Sabha (national) election slice for this state"
+                : ev.kind === "parliament"
+                  ? "Parliament (national) election slice for this state"
                   : "By-election"}{ev.data_status === "pending_upstream"
                 ? " — awaiting publication by ECI."
                 : ev.data_status === "partial"

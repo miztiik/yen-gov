@@ -84,7 +84,7 @@ class SliceCoverage:
     (``"PC"``); see G14 (plan section 23.4 EL7). It defaults to ``"AC"``
     so callers built before the CSV-walker rewrite remain byte-compatible.
     For declared-only slices, ``body`` is derived from the catalogue
-    ``kind`` field (``assembly`` -> ``AC``, ``lok_sabha`` -> ``PC``).
+    ``kind`` field (``assembly`` -> ``AC``, ``parliament`` -> ``PC``).
     For on-disk slices, it comes from which subdirectory the walker
     found the CSV in (``assembly/`` vs ``parliament/``).
 
@@ -217,13 +217,13 @@ def _slug_to_state_code(geo_csv: Path) -> dict[str, str]:
 def _body_from_kind(kind: str | None) -> str:
     """Translate catalogue ``kind`` to the SliceCoverage ``body`` field.
 
-    ``assembly`` -> ``"AC"`` (state legislative assembly); ``lok_sabha``
-    -> ``"PC"`` (parliamentary constituency / Lok Sabha). Any other
+    ``assembly`` -> ``"AC"`` (state legislative assembly); ``parliament``
+    -> ``"PC"`` (parliamentary constituency / Parliament). Any other
     value (``rajya_sabha`` etc.) currently degrades to ``"AC"`` since
-    only Lok-Sabha-style PC data flows through the citizen surface today;
+    only Parliament-style PC data flows through the citizen surface today;
     widen the enum if/when that changes.
     """
-    if kind == "lok_sabha":
+    if kind == "parliament":
         return "PC"
     return "AC"
 
@@ -235,12 +235,12 @@ def _polled_year_to_event(
 
     Used by both CSV walkers to back-resolve the event id when all we have
     on disk is ``state=<slug>/election=<year>/`` (no full ECI event_id is
-    encoded in the path). For Lok Sabha (PC) by-elections that have no
+    encoded in the path). For Parliament (PC) by-elections that have no
     catalogue entry, the walker synthesises a sentinel id of the shape
     ``Pc<year>`` so the slice still surfaces in the inventory under the
     "undeclared on-disk" lane.
     """
-    kind_match = "assembly" if body == "AC" else "lok_sabha"
+    kind_match = "assembly" if body == "AC" else "parliament"
     out: dict[tuple[str, int], str] = {}
     for state_code, events in (catalogue.get("states") or {}).items():
         for ev in events or []:

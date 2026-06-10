@@ -1,4 +1,4 @@
-"""PR-A3 tests — ECI Lok Sabha (PC) parser + pc-* observation adapter.
+"""PR-A3 tests — ECI Parliament (PC) parser + pc-* observation adapter.
 
 Uses tiny synthetic Report-33 / Report-34 fixtures (NOT the real corpus per
 CLAUDE.md §10). Entity/party resolution reads the real

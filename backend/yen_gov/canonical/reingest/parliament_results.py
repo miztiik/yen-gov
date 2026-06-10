@@ -1,4 +1,4 @@
-"""B2b.5.4 parliament (Lok Sabha) election-results emitter.
+"""B2b.5.4 parliament election-results emitter.
 
 Reads the local TCPD general-election compilation (``All_States_GE.csv``,
 candidate-grain) and emits the two per-election parliament CSV file classes:

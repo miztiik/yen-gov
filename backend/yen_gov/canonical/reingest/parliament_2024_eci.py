@@ -1,4 +1,4 @@
-"""G16 parliament Lok Sabha 2024 election emitter (ECI raw, plan section 21.3 row 37).
+"""G16 parliament 2024 election emitter (ECI raw, plan section 21.3 row 37).
 
 Reads the local Election Commission of India "Statement 33" raw CSV
 (``2024_india_loksabha_33-Constituency-Wise-Detailed-Result.csv``,

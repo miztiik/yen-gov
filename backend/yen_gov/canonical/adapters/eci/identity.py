@@ -70,7 +70,7 @@ def ac_entity_id(state_code: str, delim_year: int, eci_no: int) -> str:
 
 
 def pc_entity_id(state_code: str, delim_year: int, pc_no: int) -> str:
-    """Build a PC (Lok Sabha) entity_id: ``IN-PC-<delim_year>-<state_code>-<pc_no>``.
+    """Build a PC (Parliament) entity_id: ``IN-PC-<delim_year>-<state_code>-<pc_no>``.
 
     The leading ``IN-PC-`` prefix lets the national atlas prune with a clean
     ``entity_id LIKE 'IN-PC-%'`` filter. ``state_code`` is load-bearing for
@@ -134,7 +134,7 @@ def layer1_person_id_for_pc(
     election_id: str,
     candidate_name: str | None,
 ) -> str:
-    """Lok Sabha (PC) sibling of :func:`layer1_person_id`.
+    """Parliament (PC) sibling of :func:`layer1_person_id`.
 
     Mirrors the AC formula with ``pc_id`` substituted for ``ac_id`` so a PC
     candidacy gets a stable Layer-1 person_id. Day-one ADR-0035 identity is

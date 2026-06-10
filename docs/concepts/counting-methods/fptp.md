@@ -2,8 +2,8 @@
 
 **Last Updated**: 2026-06-09
 
-First-Past-The-Post is the counting rule India uses for every Lok Sabha
-seat and every Vidhan Sabha seat. The candidate with the most votes in a
+First-Past-The-Post is the counting rule India uses for every Parliament
+seat and every Assembly seat. The candidate with the most votes in a
 constituency wins that seat; the party with the most seats forms the
 government. This is the OFFICIAL rule. The Election Studio uses it as
 the baseline against which every other method is compared.

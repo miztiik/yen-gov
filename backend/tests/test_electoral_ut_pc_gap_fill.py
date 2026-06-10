@@ -10,7 +10,7 @@ Real-file tests: this is a contract test against the live spine on disk + the
 live LS2024 ingest artifacts. Modelled on
 ``test_electoral_lgd_export_gap_pcs.py`` (the metro-PC sibling backfill).
 
-Background: the upstream LGD register omits Lok Sabha seats for UTs with
+Background: the upstream LGD register omits Parliament seats for UTs with
 limited Assembly status entirely from its PC enumeration (Delhi has an
 Assembly but its 7 PCs were absent at delim=2008; Chandigarh + A&N + DNH+DD
 have no Assembly and their PC entries were also absent). The same on-disk
@@ -160,7 +160,7 @@ def test_ten_ut_pcs_present_with_eci_suffix_pattern() -> None:
         # Hans Q3 PR #849 verdict: NO data_quality column / NO citizen-facing
         # flag. The eci<N> suffix IS self-describing. Reservation stays blank
         # (all 10 PCs are General; UTs do not currently host SC/ST-reserved
-        # Lok Sabha seats in the 2008 delimitation).
+        # Parliament seats in the 2008 delimitation).
         assert row["reservation"] == "", (
             f"{eid}: reservation should be blank (all 10 UT PCs are General); "
             f"got {row['reservation']!r}"

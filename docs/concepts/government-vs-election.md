@@ -39,7 +39,7 @@ When you write a route or component that touches `/s/<state>`:
 1. **Lead with the government, not the election.** The "Your government" card (current CM, party, alliance, term-start) is the citizen's primary anchor.
 2. **Use the recency rule for the election.** If the most recent `polled_on` for the state's default event is within 90 days, surface a slim "Latest election" banner above the government card. Otherwise the election section is collapsed-by-default below the government card.
 3. **Render regime gaps explicitly.** A `regime: presidents_rule` term is a government term, not a missing election. Render it with the President's Rule banner; do not show "no government" or "election overdue".
-4. **Never co-mingle assembly and Lok Sabha.** They elect different bodies. A state's MPs go to Delhi; the state government is not affected by Lok Sabha results. Keep the two artifact families on separate sub-routes (`/s/<state>/elections` for assembly; Lok Sabha gets its own surface when ingested).
+4. **Never co-mingle assembly and Parliament.** They elect different bodies. A state's MPs go to Delhi; the state government is not affected by Parliament results. Keep the two artifact families on separate sub-routes (`/s/<state>/elections` for assembly; Parliament gets its own surface when ingested).
 5. **Cohort codes are invisible.** `AcGenMay2026` never appears in citizen-facing chrome. The `display` field in `election-events.json` (e.g. *"Tamil Nadu Assembly · May 2026"*) is the only label.
 
 ## Authoring implications

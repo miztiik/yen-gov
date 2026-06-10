@@ -13,7 +13,7 @@
     {
       "version": "1.1",
       "date": "2026-05-31",
-      "description": "PR-A2 Lok Sabha PC ingest (TODO/20260531-uk-style-elections-experience-plan.md). ADDITIVE MINOR: widen the entity_kinds[].items enum from {country,state,district,ac,party,candidate} to add 'pc' (parliamentary constituency / Lok Sabha grain). Nothing removed/narrowed. Unlocks the 13 per-grain PC sibling concepts (Model C, Gregor 2026-06-01) -- each entity_kinds:[pc] -- mirroring the deliberate per-grain split precedent (winning-party-ac / winning-party-state). v1.0 rows validate unchanged under v1.1; consumer datasets/taxonomy/concepts.json stamp bumped 1.0 -> 1.1."
+      "description": "PR-A2 Parliament PC ingest (TODO/20260531-uk-style-elections-experience-plan.md). ADDITIVE MINOR: widen the entity_kinds[].items enum from {country,state,district,ac,party,candidate} to add 'pc' (parliamentary constituency / Parliament grain). Nothing removed/narrowed. Unlocks the 13 per-grain PC sibling concepts (Model C, Gregor 2026-06-01) -- each entity_kinds:[pc] -- mirroring the deliberate per-grain split precedent (winning-party-ac / winning-party-state). v1.0 rows validate unchanged under v1.1; consumer datasets/taxonomy/concepts.json stamp bumped 1.0 -> 1.1."
     }
   ],
   "type": "object",

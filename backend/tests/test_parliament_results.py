@@ -1,4 +1,4 @@
-"""Tests for B2b.5.4 parliament (Lok Sabha) election-results emitter.
+"""Tests for B2b.5.4 parliament (Parliament) election-results emitter.
 
 No real-corpus walk: each test stages a synthetic TCPD-GE slice + a minimal
 electoral (PC) / parties / source catalogue under tmp_path and asserts the

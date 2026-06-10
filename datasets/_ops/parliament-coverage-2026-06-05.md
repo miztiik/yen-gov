@@ -1,4 +1,4 @@
-# Parliament (Lok Sabha) coverage (B2b.5.4, 2026-06-05)
+# Parliament (Parliament) coverage (B2b.5.4, 2026-06-05)
 
 Per-cycle PC bind coverage for the in-force (2008) delimitation. `unbound` counts (state, pc_no) pairs that did not resolve to an `electoral.csv` PC entity - state-reorganisation artefacts + the small LGD-spine gap + Delhi's PCs (Delhi has no `electoral.csv` constituencies; deferred with the assembly Delhi gap).
 

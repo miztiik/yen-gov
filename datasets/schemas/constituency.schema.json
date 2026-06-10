@@ -96,7 +96,7 @@
         "AC",
         "PC"
       ],
-      "description": "AC = Legislative Assembly Constituency. PC = Parliamentary Constituency (Lok Sabha)."
+      "description": "AC = Legislative Assembly Constituency. PC = Parliamentary Constituency (Parliament)."
     },
     "status": {
       "enum": [
@@ -139,7 +139,7 @@
           "pc_id": {
             "type": "string",
             "pattern": "^[SU]\\d{2}-PC-\\d+$",
-            "description": "Composite id of the Lok Sabha (Parliamentary) constituency this AC falls within, of the form '<state>-PC-<eci_no>' (e.g. 'S22-PC-2'). Hierarchical: every AC belongs to exactly one PC per the Delimitation Order. Forbidden on PC items (a PC does not nest inside another PC)."
+            "description": "Composite id of the Parliament (Parliamentary) constituency this AC falls within, of the form '<state>-PC-<eci_no>' (e.g. 'S22-PC-2'). Hierarchical: every AC belongs to exactly one PC per the Delimitation Order. Forbidden on PC items (a PC does not nest inside another PC)."
           },
           "electors": {
             "type": "integer",

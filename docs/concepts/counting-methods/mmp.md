@@ -11,7 +11,7 @@ parties under-represented in the FPTP outcome.
 
 1. Run FPTP across the state. Each AC elects its plurality winner.
 2. List-tier target = floor(constituency_count * 0.3). For a TN
-   234-AC Assembly that is 70 list seats; for a 543-seat Lok Sabha
+   234-AC Assembly that is 70 list seats; for a 543-seat Parliament
    that would be 162 list seats.
 3. Ideal chamber size = constituency_count + list_target.
 4. Compute the IDEAL proportional allocation across the ideal chamber

@@ -64,7 +64,7 @@ The SQLite tier was retired in PR-R.3 (TODO row `1.8e`, 2026-05-19). Researchers
 | --- | --- | --- |
 | Today (21 elections ingested) | 4,475 per-AC JSON + 21 summaries + 21 SQLite | ~8.7 MB JSON, ~5 MB SQLite |
 | Full 30-state × ~5 cycles × ~150 ACs | ~22,500 per-AC JSON + ~150 summaries + ~150 SQLite | ~50 MB JSON, ~30 MB SQLite |
-| + Lok Sabha cycles | +~3,000 per-AC JSON | +~6 MB |
+| + Parliament cycles | +~3,000 per-AC JSON | +~6 MB |
 
 GitHub Pages serves whatever the repo commits; git handles 25k small files comfortably; Vite's `vite-plugin-static-copy` ships them. The CDN edge cost is identical to one big file. Cognitive cost differs — see PR-review point above.
 

@@ -56,7 +56,7 @@ Three reasons for the 7×3 shape:
 - **7 cells = one screen-readable line.** A fixed-width meter (`● ● ● ○ ○ ○ ○ 3/7`)
   is comparable across rows in a Markdown table without horizontal scroll.
   More than 7 cells starts to wrap on hub-page widths.
-- **3 fiscal years per cell ≈ one Indian Lok Sabha cycle / Finance Commission
+- **3 fiscal years per cell ≈ one Indian Parliament cycle / Finance Commission
   award gap.** Coarse enough that a one-year fetch hiccup doesn't move the
   needle; fine enough to expose multi-year publication freezes.
 - **FY06 as the floor** — RBI national series start at FY07; one bucket of
@@ -65,7 +65,7 @@ Three reasons for the 7×3 shape:
   FY27 is the next pending Finance Commission window — pushing right requires
   re-justifying the bucket count, not just shifting it.
 
-If a future change demands a different window (e.g. one bucket per Lok Sabha,
+If a future change demands a different window (e.g. one bucket per Parliament,
 or buckets keyed off the Finance Commission award periods), edit
 `BUCKET_EDGES`/`BUCKET_LABELS` together and bump this rationale section.
 

@@ -63,7 +63,7 @@ _HEADER = [
     "TCPD_Prof_Main",
 ]
 
-GE = "Lok Sabha Election (GE)"
+GE = "Parliament Election (GE)"
 
 
 def _row(**kw: object) -> list[str]:

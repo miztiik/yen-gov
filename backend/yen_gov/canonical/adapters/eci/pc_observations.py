@@ -6,7 +6,7 @@ the pc-grain measures are SIBLING concepts of the ac-grain ones, sharing one
 ``concept_id`` whose ``entity_kinds`` lists both ``ac`` and ``pc``).
 
 EGC-B2 (elections-candidacies v1.2, Option 1) additionally reuses the unified
-person/candidacy model for Lok Sabha (PC) candidates: ``persons_and_candidacies_from_pc``
+person/candidacy model for Parliament (PC) candidates: ``persons_and_candidacies_from_pc``
 emits ``PersonDimRow`` + ``CandidacyRow`` payloads with ``pc_id`` set and
 ``ac_id`` null, so national candidates are enriched through the SAME
 ``dim_persons`` + ``elections_candidacies`` tables as Assembly candidates
@@ -59,13 +59,13 @@ def observations_from_pc(
     source_id: str,
     nota_introduced_year: int = 2013,
 ) -> list[ObservationRow]:
-    """Emit candidate-* + pc-* rows for one Lok Sabha (PC) contest.
+    """Emit candidate-* + pc-* rows for one Parliament (PC) contest.
 
     Args:
         result: parsed PcResultRaw from ECI Report 33.
         period: decoded period (year, period_seq, period_label).
         delim_year: the delimitation cycle the PC belongs to (2008 for the
-            current Lok Sabha boundaries).
+            current Parliament boundaries).
         party_lookup: resolves party strings to canonical party_ids.
         source_id: FK to taxonomy/sources.parquet for the underlying ECI report.
         nota_introduced_year: year before which pc-nota-* must be null.

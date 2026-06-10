@@ -1788,7 +1788,7 @@
       "entity_kinds": [
         "pc"
       ],
-      "description_short": "Total enrolled electors in a single Lok Sabha parliamentary constituency contest.",
+      "description_short": "Total enrolled electors in a single Parliament parliamentary constituency contest.",
       "sources": []
     },
     {
@@ -1799,7 +1799,7 @@
       "entity_kinds": [
         "pc"
       ],
-      "description_short": "Sum of all candidate votes plus NOTA in this Lok Sabha parliamentary constituency contest.",
+      "description_short": "Sum of all candidate votes plus NOTA in this Parliament parliamentary constituency contest.",
       "sources": []
     },
     {
@@ -1810,7 +1810,7 @@
       "entity_kinds": [
         "pc"
       ],
-      "description_short": "Votes polled as a percentage of total enrolled electors in a Lok Sabha parliamentary constituency.",
+      "description_short": "Votes polled as a percentage of total enrolled electors in a Parliament parliamentary constituency.",
       "sources": []
     },
     {
@@ -1821,7 +1821,7 @@
       "entity_kinds": [
         "pc"
       ],
-      "description_short": "None-of-the-above votes cast in a Lok Sabha parliamentary constituency. Null before NOTA was introduced (2013).",
+      "description_short": "None-of-the-above votes cast in a Parliament parliamentary constituency. Null before NOTA was introduced (2013).",
       "sources": []
     },
     {
@@ -1832,7 +1832,7 @@
       "entity_kinds": [
         "pc"
       ],
-      "description_short": "NOTA votes as a percentage of total votes polled in a Lok Sabha parliamentary constituency. Null before 2013.",
+      "description_short": "NOTA votes as a percentage of total votes polled in a Parliament parliamentary constituency. Null before 2013.",
       "sources": []
     },
     {
@@ -1843,7 +1843,7 @@
       "entity_kinds": [
         "pc"
       ],
-      "description_short": "entity_id of the candidate who received the most votes in a Lok Sabha parliamentary constituency. Stored in value_text.",
+      "description_short": "entity_id of the candidate who received the most votes in a Parliament parliamentary constituency. Stored in value_text.",
       "sources": []
     },
     {
@@ -1854,7 +1854,7 @@
       "entity_kinds": [
         "pc"
       ],
-      "description_short": "party_id of the winning candidate in a single Lok Sabha parliamentary constituency contest (seat-level outcome; parties.IN.IND for independents).",
+      "description_short": "party_id of the winning candidate in a single Parliament parliamentary constituency contest (seat-level outcome; parties.IN.IND for independents).",
       "sources": []
     },
     {
@@ -1865,7 +1865,7 @@
       "entity_kinds": [
         "pc"
       ],
-      "description_short": "Vote margin between the winner and the runner-up in a Lok Sabha parliamentary constituency.",
+      "description_short": "Vote margin between the winner and the runner-up in a Parliament parliamentary constituency.",
       "sources": []
     },
     {
@@ -1876,7 +1876,7 @@
       "entity_kinds": [
         "pc"
       ],
-      "description_short": "Winner-minus-runner-up margin as a percentage of total votes polled in a Lok Sabha parliamentary constituency.",
+      "description_short": "Winner-minus-runner-up margin as a percentage of total votes polled in a Parliament parliamentary constituency.",
       "sources": []
     },
     {
@@ -1887,7 +1887,7 @@
       "entity_kinds": [
         "pc"
       ],
-      "description_short": "Votes for all candidates outside the top finishers, aggregated, in a Lok Sabha parliamentary constituency.",
+      "description_short": "Votes for all candidates outside the top finishers, aggregated, in a Parliament parliamentary constituency.",
       "sources": []
     },
     {
@@ -1898,7 +1898,7 @@
       "entity_kinds": [
         "pc"
       ],
-      "description_short": "Aggregated 'others' votes as a percentage of total votes polled in a Lok Sabha parliamentary constituency.",
+      "description_short": "Aggregated 'others' votes as a percentage of total votes polled in a Parliament parliamentary constituency.",
       "sources": []
     },
     {
@@ -1909,7 +1909,7 @@
       "entity_kinds": [
         "pc"
       ],
-      "description_short": "Total number of candidates contesting a Lok Sabha parliamentary constituency.",
+      "description_short": "Total number of candidates contesting a Parliament parliamentary constituency.",
       "sources": []
     },
     {
@@ -1920,7 +1920,7 @@
       "entity_kinds": [
         "pc"
       ],
-      "description_short": "Laakso-Taagepera effective number of candidates (inverse Herfindahl of vote shares) in a Lok Sabha parliamentary constituency.",
+      "description_short": "Laakso-Taagepera effective number of candidates (inverse Herfindahl of vote shares) in a Parliament parliamentary constituency.",
       "sources": []
     },
     {

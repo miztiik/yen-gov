@@ -13,7 +13,7 @@ buffalo,Buffalo,animals,absolute,district state,"Number of buffaloes tagged with
 calves-born,Calves born,calves,absolute,district state,Count of calves born per district from NAIP IV inseminations during FY 2024-25. Publisher reports sex split (male/female); this lift collapses sex via SUM.
 candidate-votes,Candidate votes,votes,absolute,candidate,Absolute number of votes a candidate received in a single AC contest.
 candidates-contested,Candidates contested,candidates,absolute,ac,Full field size: kept candidates plus those collapsed into the 'others' tail by the top-N cutoff.
-candidates-total-pc,Candidates (PC),candidates,absolute,pc,Total number of candidates contesting a Lok Sabha parliamentary constituency.
+candidates-total-pc,Candidates (PC),candidates,absolute,pc,Total number of candidates contesting a Parliament parliamentary constituency.
 capacity-allocated-to-state,Capacity allocated to state,MW,share,state,"Same as the geographical-location capacity, but each state credited its share of joint-sector and central-sector plants per regional allocation formulas. Use this when comparing 'rights to electricity' rather than 'physical assets sited here'."
 capacity-allocated-to-state-2,Capacity allocated to state,MW,absolute,state,Auto-minted stub for indicator state-installed-capacity-allocated-mw.
 capacity-sited-in-state,Capacity sited in state,MW,absolute,state,"Total installed capacity physically located in the state, summed across all fuels. 'Geographical' means every plant counts toward the state where it sits, regardless of who owns it or where the power is dispatched."
@@ -39,10 +39,10 @@ diesel-purchase-share,Diesel purchase share,percent,share,state,"Diesel-genset p
 distribution-efficiency,Distribution efficiency,%,share,state,"Compute-on-read parent: the three citizen-readable sub-indicators of distribution-side efficiency â€” billing efficiency, collection efficiency, and T&D loss. The first two decompose the COMMERCIAL half of AT&C losses; the third is the TECHNICAL half."
 donkey,Donkey,animals,absolute,district state,"Number of donkeys tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual donkeys population."
 effective-candidates,Effective candidates,count,index,ac,1 / sum(vote_share_squared). Higher = more fragmented contest.
-effective-candidates-pc,Effective candidates (PC),index,index,pc,Laakso-Taagepera effective number of candidates (inverse Herfindahl of vote shares) in a Lok Sabha parliamentary constituency.
+effective-candidates-pc,Effective candidates (PC),index,index,pc,Laakso-Taagepera effective number of candidates (inverse Herfindahl of vote shares) in a Parliament parliamentary constituency.
 effective-parties,Effective parties,count,index,state,1 / sum(seat_share_squared) across parties. Higher = more fragmented legislature.
 electors,Electors,persons,absolute,ac,Number of voters on the electoral roll for this AC as of election day.
-electors-pc,Electors (PC),persons,absolute,pc,Total enrolled electors in a single Lok Sabha parliamentary constituency contest.
+electors-pc,Electors (PC),persons,absolute,pc,Total enrolled electors in a single Parliament parliamentary constituency contest.
 farmers-benefitted,Farmers benefitted,farmers,absolute,district state,Count of unique farmers in each district reached by NAIP IV inseminations during FY 2024-25.
 final-energy-consumption,Final energy consumption,mtoe,absolute,country,"Final energy consumption in India broken down by end-use sector x fuel (18 pairs). Final = what households / industry actually USE (post-conversion losses), distinct from TPES (primary supply)."
 forfeitures,Forfeitures,ACs,absolute,party,"Number of ACs where the party's candidate received less than 1/6 of valid votes (Section 158, Representation of the People Act)."
@@ -77,8 +77,8 @@ lpg,LPG,kt,absolute,state,Liquefied petroleum gas: household cooking-fuel after 
 majority-threshold,Majority threshold,ACs,absolute,state,floor(total_acs / 2) + 1. Constant per state per delimitation cycle.
 margin,Margin %,%,share,ac,Vote-margin between winner and runner-up as a percentage of total votes polled.
 margin-absolute,Margin,votes,absolute,ac,Winner's votes minus runner-up's votes.
-margin-absolute-pc,Margin (PC),votes,absolute,pc,Vote margin between the winner and the runner-up in a Lok Sabha parliamentary constituency.
-margin-pc,Margin % (PC),%,share,pc,Winner-minus-runner-up margin as a percentage of total votes polled in a Lok Sabha parliamentary constituency.
+margin-absolute-pc,Margin (PC),votes,absolute,pc,Vote margin between the winner and the runner-up in a Parliament parliamentary constituency.
+margin-pc,Margin % (PC),%,share,pc,Winner-minus-runner-up margin as a percentage of total votes polled in a Parliament parliamentary constituency.
 medium-4-0-9-99-ha,Medium (4.0-9.99 Ha),owners,absolute,district state,"Owners in the medium bracket (4.0-9.99 Ha) registered on Bharat Pashudhan. Registered count, NOT all owning households."
 mithun,Mithun,animals,absolute,district state,"Number of mithun tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual mithun population."
 mule,Mule,animals,absolute,district state,"Number of mules tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual mules population."
@@ -89,9 +89,9 @@ non-energy-oil,Non Energy (oil),mtoe,absolute,country,"Final energy consumed in 
 non-solar-rpo,Non-solar RPO,%,share,state,"Share of the state's non-solar (wind + biomass + small-hydro) RPO target actually met. The 'other-renewables' segment of the obligation, regulated separately from the solar segment."
 not-specified,Not specified,owners,absolute,district state,"Owners who did not declare a land-holding bracket while registering on Bharat Pashudhan. Preserved verbatim, not imputed."
 nota-share,NOTA share,%,share,ac,NOTA votes as a percentage of votes polled. Null pre-2013.
-nota-share-pc,NOTA share (PC),%,share,pc,NOTA votes as a percentage of total votes polled in a Lok Sabha parliamentary constituency. Null before 2013.
+nota-share-pc,NOTA share (PC),%,share,pc,NOTA votes as a percentage of total votes polled in a Parliament parliamentary constituency. Null before 2013.
 nota-votes,NOTA votes,votes,absolute,ac,Absolute number of NOTA (None of the Above) votes. Null pre-2013.
-nota-votes-pc,NOTA votes (PC),votes,absolute,pc,None-of-the-above votes cast in a Lok Sabha parliamentary constituency. Null before NOTA was introduced (2013).
+nota-votes-pc,NOTA votes (PC),votes,absolute,pc,None-of-the-above votes cast in a Parliament parliamentary constituency. Null before NOTA was introduced (2013).
 nuclear,Nuclear,GWh,absolute,state,Nuclear generation. Small share but rising as new units commission.
 nuclear-absolute,Nuclear,mtoe,absolute,country,Nuclear share of TPES. Small fleet (~7 GW operational); structurally flat with episodic step changes when a new reactor commissions.
 nuclear-mw-absolute,Nuclear,MW,absolute,country,"Nuclear capacity (country-grain CEA national snapshot). Central-sector PSU plants (NPCIL). State-grain attribution variants live under nuclear-mw-{geographical,allocated,snapshot}."
@@ -107,9 +107,9 @@ other-oil,Other (oil),mtoe,absolute,country,"Final energy consumed in the other 
 other-re-purchase-share,Other-RE purchase share,percent,share,state,Other-renewables procurement share (publisher 'other-res' bucket): waste-to-energy and small uncategorised RE. Typically <1-2% across most states.
 others,Others,kt,absolute,state,"Publisher catch-all for products outside the 6 named buckets (fuel oil, ATF, lubricants, bitumen, etc.). Preserved verbatim, never imputed into a named bucket."
 others-share,Others (% share),%,share,ac,Aggregate % vote-share for the collapsed tail. Absent when no tail exists.
-others-share-pc,Others share (PC),%,share,pc,Aggregated 'others' votes as a percentage of total votes polled in a Lok Sabha parliamentary constituency.
+others-share-pc,Others share (PC),%,share,pc,Aggregated 'others' votes as a percentage of total votes polled in a Parliament parliamentary constituency.
 others-votes,Others (votes),votes,absolute,ac,Sum of votes for candidates below the top-N cutoff. Absent when no tail exists.
-others-votes-pc,Others votes (PC),votes,absolute,pc,"Votes for all candidates outside the top finishers, aggregated, in a Lok Sabha parliamentary constituency."
+others-votes-pc,Others votes (PC),votes,absolute,pc,"Votes for all candidates outside the top finishers, aggregated, in a Parliament parliamentary constituency."
 party-votes,Party votes,votes,absolute,party,Sum of all votes received by the party's candidates across the state.
 pashu-aadhaar-tagged,Pashu Aadhaar tagged,animals,absolute,district state,"Count of animals issued a 12-digit Pashu Aadhaar tag in each district. Tagged count, NOT actual population."
 peak-demand,Peak demand,MW,absolute,state,"Highest single-instant electricity demand observed in the state during the fiscal year (MW). 'Peak' is system-wide simultaneous demand recorded by the State Load Despatch Centre â€” typically a summer afternoon (north / west) or winter evening (Punjab, Delhi)."
@@ -162,18 +162,18 @@ trading-others-share,Trading & others share,percent,share,state,"Procurement via
 transport-electricity,Transport (electricity),mtoe,absolute,country,"Final energy consumed in the transport sector via electricity, in mtoe per fiscal year."
 transport-oil,Transport (oil),mtoe,absolute,country,"Final energy consumed in the transport sector via oil, in mtoe per fiscal year."
 turnout,Turnout,%,share,ac,Votes polled as a percentage of total enrolled electors.
-turnout-pc,Turnout (PC),%,share,pc,Votes polled as a percentage of total enrolled electors in a Lok Sabha parliamentary constituency.
+turnout-pc,Turnout (PC),%,share,pc,Votes polled as a percentage of total enrolled electors in a Parliament parliamentary constituency.
 under-construction-capacity,Under-construction generation capacity,GW,absolute,country,"Power generation capacity in active construction (post-financial-close, pre-commissioning), by expected commission calendar-year. Distinct from commissioned installed capacity and from retired capacity; this measures FUTURE additions not yet generating."
 vote-share-candidate,Vote share (candidate),%,share,candidate,A single candidate's votes as a percentage of total votes polled in their AC (including NOTA).
 vote-share-party,Vote share (party),%,share,party,A party's votes summed across all its candidates as a percentage of total votes polled in the state.
 votes-polled,Votes polled,votes,absolute,ac,Sum of all candidate votes plus NOTA in this AC contest.
-votes-polled-pc,Votes polled (PC),votes,absolute,pc,Sum of all candidate votes plus NOTA in this Lok Sabha parliamentary constituency contest.
+votes-polled-pc,Votes polled (PC),votes,absolute,pc,Sum of all candidate votes plus NOTA in this Parliament parliamentary constituency contest.
 wind-plf,Wind PLF,percent,share,state,"Wind PLF. Resource-bounded by site quality (Tamil Nadu, Gujarat, Rajasthan, Karnataka coastal/desert zones are wind-rich). A 25% wind PLF in Tamil Nadu is excellent; same number in a low-wind state could be aspirational siting."
 wind-purchase-share,Wind purchase share,percent,share,state,"Wind procurement share. Resource-bounded; Tamil Nadu, Gujarat, Maharashtra, Karnataka, Rajasthan dominate as both producers AND consumers (sold within state and via inter-state PPAs)."
 winner,Winner,entity_id,absolute,ac,entity_id of the candidate who received the most votes. Stored in value_text.
-winner-pc,Winner (PC),entity_id,absolute,pc,entity_id of the candidate who received the most votes in a Lok Sabha parliamentary constituency. Stored in value_text.
+winner-pc,Winner (PC),entity_id,absolute,pc,entity_id of the candidate who received the most votes in a Parliament parliamentary constituency. Stored in value_text.
 winning-party-ac,Winning party (AC),entity_id,absolute,ac,party_id of the winning candidate in a single Assembly Constituency contest (seat-level outcome; parties.IN.IND for independents).
-winning-party-pc,Winning party (PC),entity_id,absolute,pc,party_id of the winning candidate in a single Lok Sabha parliamentary constituency contest (seat-level outcome; parties.IN.IND for independents).
+winning-party-pc,Winning party (PC),entity_id,absolute,pc,party_id of the winning candidate in a single Parliament parliamentary constituency contest (seat-level outcome; parties.IN.IND for independents).
 winning-party-state,Winning party (state),entity_id,absolute,state,party_id with the most seats statewide (state-aggregate majority outcome; null on a hung house).
 winning-seats,Winning seats,ACs,absolute,state,Seats held by the state's winning party.
 yak,Yak,animals,absolute,district state,"Number of yaks tagged with Pashu Aadhaar (NDLM) in each district. Tagged count, NOT actual yaks population."

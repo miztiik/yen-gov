@@ -70,7 +70,7 @@ These are point-in-time and need a follow-up time series. Marked as snapshot in 
 | `energy/installed_capacity_*_mw` (8 by-fuel + total + by-state) | 2026-03 | CEA | CEA monthly Executive Summary archive (every month back to ~2010) |
 | `energy/installed_mw_by_state` | 2019 | community fork | replace with CEA monthly archive |
 | `energy/national_renewable_potential_vs_installed_mw` | 2026-05-14 | NITI iced | inherently snapshot — potential + present-day stack |
-| `fiscal/state_external_debt_inr_crore` | 2026-05-14 | sansad.in | Lok Sabha PQs are episodic; not a true series |
+| `fiscal/state_external_debt_inr_crore` | 2026-05-14 | sansad.in | Parliament PQs are episodic; not a true series |
 
 ---
 
@@ -95,7 +95,7 @@ These are point-in-time and need a follow-up time series. Marked as snapshot in 
 | `www.data.gov.in` (MoSPI / open-data portal) | 4 | quarterly + annual |
 | `www.rbi.org.in` (RBI direct) | 8 | annual (national fiscal aggregates) |
 | `cea.nic.in` | 8 | monthly (currently only one snapshot ingested) |
-| `sansad.in` (Lok Sabha PQ replies) | 7 | episodic — depends on which MP asked when |
+| `sansad.in` (Parliament PQ replies) | 7 | episodic — depends on which MP asked when |
 | Other (raw.githubusercontent.com community fork) | 1 | replace with primary |
 
 ---

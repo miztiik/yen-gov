@@ -339,7 +339,7 @@ Three states (per Gregor M3):
 
 Visual treatment (per UI-UX M3): **diagonal-hatched empty rectangle** at the colour-key position in the stack, light-grey 45° hatch (`#e5e7eb` over `#f9fafb`) for both `missing` and `not_applicable`, with a `*` marker at the X-tick footnoting the difference. A true `value: 0` with `availability: "present"` draws as a 0-height bar (different signal). The legend's per-category badge uses the citizen-validated phrasing: "Contested 3 of 5" (per Citizen #3) for elections, "Present in 30 of 35 states" for the spatial case, etc.
 
-### Mixed period kinds (Lok Sabha + Assembly)
+### Mixed period kinds (Parliament + Assembly)
 
 The component does NOT enforce "don't mix LS and AC". That's a **page** decision: the page using `StackedTrend` for elections instantiates two charts (one for LS, one for AC) or renders a kind-toggle. The component DOES use `bar.kind` for the under-tick label ("2026\nAssembly") and as a hook for future kind-grouped backgrounds; v1 ships only the label.
 

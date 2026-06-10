@@ -1,6 +1,6 @@
 """Driver-parameterisation regression tests for the PC ingest (EGC-B2).
 
-PR-2 generalised the Lok Sabha PC driver from hardcoded 2024 constants to a
+PR-2 generalised the Parliament PC driver from hardcoded 2024 constants to a
 :class:`PcGeEvent` parameter object so later general elections can reuse the
 same code path. These tests lock the 2024 default so the structural refactor
 provably keeps the 2024 ingest byte-identical: every driver function called

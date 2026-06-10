@@ -74,7 +74,7 @@ Historical context (rejected alternatives, R-rules, decision log, persona review
 
 **Why deferred**: structurally separate from the composition question. Composition answers "what did one state decide?"; categorical choropleth answers "who won where across the country/state map?" Bundling them would force premature decisions on hung-verdict treatment (striped fill, outline, separate swatch, no fill?) and on swatch-legend density (8 parties? 15? collapse to "Other"?). Both are non-trivial design questions that deserve dedicated debate.
 
-**Re-entry trigger**: when there is a route that needs a "largest party by state" map view — typically a post-election results page (`/elections/<event>/map`) or a historical-trajectory page (`/elections/trajectory/lok-sabha`) with a time stepper. Spec must cover:
+**Re-entry trigger**: when there is a route that needs a "largest party by state" map view — typically a post-election results page (`/elections/<event>/map`) or a historical-trajectory page (`/elections/trajectory/parliament`) with a time stepper. Spec must cover:
 
 - nominal fill from the party-anchor palette;
 - hung-verdict treatment (Hans);

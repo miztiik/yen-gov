@@ -1765,7 +1765,7 @@ export async function resolveSource(entry: BoundaryEntry): Promise<ResolvedSourc
 }
 
 // ---------------------------------------------------------------------------
-// National Lok Sabha Parliamentary Constituency layer (PR-B4 of the UK-style
+// National Parliament Parliamentary Constituency layer (PR-B4 of the UK-style
 // elections experience plan). APPEND-ONLY — added at EOF so the topojson /
 // boundary migration running in sibling worktrees never conflicts on the
 // per-state AC entries above.

@@ -18,7 +18,7 @@
 
 import { DATA_BASE } from "./paths";
 
-export type EventKind = "assembly" | "lok_sabha" | "by_election";
+export type EventKind = "assembly" | "parliament" | "by_election";
 export type DataStatus = "complete" | "partial" | "pending_upstream";
 
 export interface ElectionEventRow {
@@ -66,10 +66,10 @@ export function fetchElectionEvents(): Promise<ElectionEventsCatalogue> {
  * Why assembly-only: every consumer of this helper (StateOverview,
  * StateTopic, Party, Explore, Constituency) is an assembly-house view —
  * AC map, house composition, seats-by-party, per-constituency drill-in.
- * PR #525 added the `LsGenJun2024` lok_sabha event to every state's
+ * PR #525 added the `LsGenJun2024` parliament event to every state's
  * catalogue. For any state whose last assembly election predates June 2024
  * (e.g. Karnataka AcGenMay2023), a naive most-recent-by-polled_on default
- * now resolves to the Lok Sabha event, whose `IN-<state>-LsGenJun2024-PARTY-*`
+ * now resolves to the Parliament event, whose `IN-<state>-LsGenJun2024-PARTY-*`
  * rows the assembly query does not match — so the page falls into the
  * "not yet in the canonical store" arm and the donut / seats-by-party /
  * seat-composition sections vanish. Filtering to `kind === "assembly"`
@@ -117,12 +117,12 @@ export function defaultEventForState(
  * adapters (ElectionSeatsTrend, etc.) re-sort by their own axis.
  *
  * Optional `kind` arg filters to a single event class (assembly /
- * lok_sabha / by_election). Per Fowler verdict (2026-06-09 debate):
+ * parliament / by_election). Per Fowler verdict (2026-06-09 debate):
  * the Compare 'elec' mode uses this to constrain the cross-event
  * picker to the same kind as the origin event - if the user started
  * in an assembly election (kind === 'assembly') the dropdown lists
  * only assembly events; if they started in a parliament election
- * (kind === 'lok_sabha') only LS events show. Cross-kind compare is
+ * (kind === 'parliament') only LS events show. Cross-kind compare is
  * impossible by construction.
  */
 export function listEventsForState(

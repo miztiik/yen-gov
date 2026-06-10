@@ -1,4 +1,4 @@
-"""One-off driver for B2b.5.4: emit the parliament (Lok Sabha) election results
+"""One-off driver for B2b.5.4: emit the parliament election results
 from the local TCPD ``All_States_GE.csv``, ensure the TCPD GE source row exists
 in ``source.csv``, and append a coverage note under ``datasets/_ops/``.
 
@@ -69,7 +69,7 @@ def _ensure_source_row(source_csv: Path, source_id: str) -> None:
 
 def _write_coverage(receipt_path: Path, emitted: dict) -> None:
     lines = [
-        "# Parliament (Lok Sabha) coverage (B2b.5.4, 2026-06-05)",
+        "# Parliament coverage (B2b.5.4, 2026-06-05)",
         "",
         "Per-cycle PC bind coverage for the in-force (2008) delimitation. "
         "`unbound` counts (state, pc_no) pairs that did not resolve to an "

@@ -172,7 +172,7 @@ def _partition_cols(family: str) -> list[str]:
 # without ``IN-`` prefix (none today, but defensive) collapse to the
 # entity_id verbatim lower-cased. Locked grammar from TODO §0e.10 lock A.
 #
-# PC (Lok Sabha) entity_ids carry the state in segment FOUR, not two
+# PC (Parliament) entity_ids carry the state in segment FOUR, not two
 # (``IN-PC-<delim>-<state>-<pc_no>`` e.g. ``IN-PC-2008-S22-39``): the naive
 # first-two-segments rule would derive ``in_pc`` and dump every PC row into
 # one bogus partition. The leading ``IN-PC-<delim>-<state>`` branch routes
@@ -570,7 +570,7 @@ _DERIVED_ENTITY_PATTERNS = (
                r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}$"),
     re.compile(r"^IN-[SU]\d{2}-(?:AcGen|LsGen|AcBye|LsBye)"
                r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}-PARTY-[A-Z][A-Z0-9_]*$"),
-    # PC (Lok Sabha constituency) seat + per-candidate ids, compiled from
+    # PC (Parliament constituency) seat + per-candidate ids, compiled from
     # dim_pcs.parquet. Seat: IN-PC-<delim>-<state>-<pc_no>; candidate appends
     # the event period + ballot serial (IN-PC-2008-S01-1-LsGenJun2024-C01).
     re.compile(r"^IN-PC-\d{4}-[SU]\d{2}-\d+$"),

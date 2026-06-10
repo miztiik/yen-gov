@@ -1,4 +1,4 @@
-"""ECI 2024 Lok Sabha (PC) constituency-wise result CSV parser.
+"""ECI 2024 Parliament (PC) constituency-wise result CSV parser.
 
 Reads the frozen ECI Report 33 ("Constituency Wise Detailed Result") CSV and
 the Report 34 ("Details Of Assembly Segment Of PC") crosswalk, both stdlib
