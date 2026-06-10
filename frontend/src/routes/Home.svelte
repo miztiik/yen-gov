@@ -10,6 +10,12 @@
   import { link } from "../lib/links";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import { route } from "../lib/router.svelte";
+  import HomeElectionsRail from "../lib/elections/HomeElectionsRail.svelte";
+  import {
+    buildHomeElectionsRailFast,
+    refineHookCard,
+    type HomeElectionsRailPayload,
+  } from "../lib/view-models/home-elections-rail";
   import {
     defaultHomeTheme,
     homeThemeOptions,
@@ -155,6 +161,32 @@
   // PR-W1d: per-route crumb chain. Reactive on route navigation AND
   // on async catalogue load (the builder reads states.svelte inside).
   const crumbs = $derived(route.crumbs ? route.crumbs(route.params) : []);
+
+  // PR-W4d (2026-06-10): 3-card elections rail (anchor + hook + door).
+  // Replaces the prior "almost useless, hangs without context" elections
+  // experience on Home per Jony Q4 verdict. Two-phase load:
+  //   1. Fast phase (catalogue only, ~200ms): renders anchor + door cards
+  //      immediately with a degraded "Latest event highlights" hook.
+  //   2. Refine phase (NATIONAL-PC loader, 10-30s cold DuckDB-WASM): swaps
+  //      in the closest-race hook silently when the loader returns.
+  // Builder failure (e.g. no eligible parliament event in the catalogue)
+  // is swallowed; the skeleton stays mounted rather than throwing.
+  let rail = $state<HomeElectionsRailPayload | null>(null);
+  buildHomeElectionsRailFast()
+    .then((p) => {
+      rail = p;
+      // Anchor event_id is encoded in the anchor card's href:
+      //   /t/elections/<event_id>
+      // Extract it for the refine call rather than threading a second
+      // state field.
+      const event_id = p.anchor.href.split("/").pop() ?? "";
+      if (event_id) {
+        refineHookCard(p, event_id)
+          .then((refined) => (rail = refined))
+          .catch((e) => console.warn("[home-elections-rail] refine failed:", e));
+      }
+    })
+    .catch((e) => console.warn("[home-elections-rail] fast build failed:", e));
 </script>
 
 <Breadcrumb {crumbs} />
@@ -210,6 +242,16 @@
       </div>
     {/key}
   </section>
+
+  {#if rail}
+    <HomeElectionsRail anchor={rail.anchor} hook={rail.hook} door={rail.door} />
+  {:else}
+    <div
+      class="h-24 bg-slate-50 rounded animate-pulse"
+      data-testid="home-elections-rail-loading"
+      aria-hidden="true"
+    ></div>
+  {/if}
 
   {#if error}
     <div class="p-4 bg-rose-50 border border-rose-200 rounded text-rose-900">
