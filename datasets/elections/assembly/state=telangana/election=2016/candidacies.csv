@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-telangana-3450,telangana,2016,35,NARAYANKHED,Sh. Mahareddy Bhupal Reddy,parties.IN.BRS,TRS,93076,60.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3450,telangana,2016,35,NARAYANKHED,Sh. Patlolla Sanjeeva Reddy,parties.IN.INC,INC,39451,25.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3450,telangana,2016,35,NARAYANKHED,Sh. M. Vijaypal Reddy,parties.IN.UNK,TD,14787,9.6,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3450,telangana,2016,35,NARAYANKHED,Sh. M. Vijaypal Reddy,parties.IN.TDP,TD,14787,9.6,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3450,telangana,2016,35,NARAYANKHED,Sh. Jajula Bhaskar,parties.IN.SP,SP,5377,3.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3450,telangana,2016,35,NARAYANKHED,Sh. Borancha Sanga Reddy,parties.IN.IND,IND,509,0.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3450,telangana,2016,35,NARAYANKHED,Sh. Murali Govind,parties.IN.IND,IND,333,0.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -11,12 +11,12 @@ IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Tummala Nageswara Rao,partie
 IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Sucharitha Ram Reddy,parties.IN.INC,INC,49258,29.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Pothineni Sudarsan Rao,parties.IN.CPI,CPI,15538,9.23,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Jajula Bhaskar,parties.IN.UNK,SO,3578,2.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Sunkari Rammurthy,parties.IN.UNK,INDEPENDENT,2348,1.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Timmidi Hanamantha Rao,parties.IN.UNK,INDEPENDENT,569,0.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Veeri Upendar,parties.IN.UNK,INDEPENDENT,457,0.27,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Boddo Sreeenu,parties.IN.UNK,INDEPENDENT,393,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Papetla Saritha,parties.IN.UNK,INDEPENDENT,290,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Lingala Ravi Kumar,parties.IN.UNK,INDEPENDENT,271,0.16,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Devarakonda Uday Bhaskar,parties.IN.UNK,INDEPENDENT,223,0.13,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Banoth Laxma Naik,parties.IN.UNK,INDEPENDENT,212,0.13,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Nakirikanti Jeevan sagar,parties.IN.UNK,INDEPENDENT,211,0.13,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Sunkari Rammurthy,parties.IN.IND,INDEPENDENT,2348,1.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Timmidi Hanamantha Rao,parties.IN.IND,INDEPENDENT,569,0.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Veeri Upendar,parties.IN.IND,INDEPENDENT,457,0.27,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Boddo Sreeenu,parties.IN.IND,INDEPENDENT,393,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Papetla Saritha,parties.IN.IND,INDEPENDENT,290,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Lingala Ravi Kumar,parties.IN.IND,INDEPENDENT,271,0.16,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Devarakonda Uday Bhaskar,parties.IN.IND,INDEPENDENT,223,0.13,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Banoth Laxma Naik,parties.IN.IND,INDEPENDENT,212,0.13,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-telangana-3275,telangana,2016,113,PALAIR,Nakirikanti Jeevan sagar,parties.IN.IND,INDEPENDENT,211,0.13,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -2,7 +2,7 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-madhya-pradesh-2569,madhya-pradesh,2014,92,VIJAYRAGHAVGARH,Sanjay Pathak,parties.IN.BJP,BJP,90084,67.79,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2569,madhya-pradesh,2014,92,VIJAYRAGHAVGARH,Vijendra Pt. Vijay Prakash Mishra,parties.IN.INC,INC,36687,27.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2569,madhya-pradesh,2014,92,VIJAYRAGHAVGARH,Hetram Kanoujia,parties.IN.IND,IND,2079,1.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2569,madhya-pradesh,2014,92,VIJAYRAGHAVGARH,Mathura Prasad Kewat,parties.IN.UNK,AD,1742,1.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2569,madhya-pradesh,2014,92,VIJAYRAGHAVGARH,Mathura Prasad Kewat,parties.IN.SAD,AD,1742,1.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2569,madhya-pradesh,2014,92,VIJAYRAGHAVGARH,Vinod,parties.IN.IND,IND,550,0.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2569,madhya-pradesh,2014,92,VIJAYRAGHAVGARH,Moti Lal Kol,parties.IN.IND,IND,438,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2569,madhya-pradesh,2014,92,VIJAYRAGHAVGARH,Vijendra Mishra Raja Bhaiya,parties.IN.IND,IND,420,0.32,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -28,7 +28,7 @@ IN-AC-2008-madhya-pradesh-2688,madhya-pradesh,2014,144,VIDISHA,Lakshman Rao Nawl
 IN-AC-2008-madhya-pradesh-2688,madhya-pradesh,2014,144,VIDISHA,Nounitram Kushva,parties.IN.UNK,MP,382,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2688,madhya-pradesh,2014,144,VIDISHA,R.S. Raghuwanshi,parties.IN.IND,IND,336,0.26,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2688,madhya-pradesh,2014,144,VIDISHA,Thakur Tulsi Ram,parties.IN.IND,IND,217,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2688,madhya-pradesh,2014,144,VIDISHA,Hukam Singh,parties.IN.UNK,BMP,157,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2688,madhya-pradesh,2014,144,VIDISHA,Hukam Singh,parties.IN.BMUP,BMP,157,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2688,madhya-pradesh,2014,144,VIDISHA,Kalyan Singh Thakur,parties.IN.IND,IND,153,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2506,madhya-pradesh,2014,166,AGAR,Gopal Parmar,parties.IN.BJP,BJP,78178,58.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2506,madhya-pradesh,2014,166,AGAR,Rajkumar Goure,parties.IN.INC,INC,50476,37.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a

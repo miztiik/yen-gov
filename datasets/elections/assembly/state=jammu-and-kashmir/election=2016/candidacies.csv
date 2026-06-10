@@ -2,8 +2,8 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Mehbooba Mufti (E),parties.IN.UNK,JPDP,17701,63.01,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Hilal Ahmad Shah,parties.IN.INC,INC,5616,19.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Iftikhar Hussain  Misger,parties.IN.UNK,JNC,2811,10.01,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Mujieb-UR-Rehman,parties.IN.UNK,INDEPENDENT,642,2.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Manzoor Ahmad Khan,parties.IN.UNK,INDEPENDENT,541,1.93,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Mushtaq Ahmad Shah,parties.IN.UNK,INDEPENDENT,333,1.19,6,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Tejinder Singh,parties.IN.UNK,INDEPENDENT,240,0.85,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Masroor Ahmad Mir,parties.IN.UNK,INDEPENDENT,209,0.74,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Mujieb-UR-Rehman,parties.IN.IND,INDEPENDENT,642,2.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Manzoor Ahmad Khan,parties.IN.IND,INDEPENDENT,541,1.93,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Mushtaq Ahmad Shah,parties.IN.IND,INDEPENDENT,333,1.19,6,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Tejinder Singh,parties.IN.IND,INDEPENDENT,240,0.85,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jammu-and-kashmir-1,jammu-and-kashmir,2016,40,ANANTNAG,Masroor Ahmad Mir,parties.IN.IND,INDEPENDENT,209,0.74,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -53,10 +53,24 @@ class ParityAdapter(Protocol):
         ...
 
 
-#: Source-id -> adapter map. PR-2 ships EMPTY; future Wave B + Stream X PRs
+#: Source-id -> adapter map. PR-2 shipped EMPTY; Wave B + Stream X PRs
 #: extend it by appending ``REGISTRY["<source>"] = ADAPTER`` to their own
-#: adapter module.
+#: adapter module (PR-W-1 onwards).
 REGISTRY: dict[str, ParityAdapter] = {}
+
+
+# --- Adapter registrations (one import line per Wave B + Stream X PR) -------
+#
+# Each adapter module exports ADAPTER (a ParityAdapter instance) and we
+# register it here. Import order is significant only inasmuch as registry
+# duplicates would raise — adapter modules MUST NOT register a duplicate
+# source-id. Import errors here surface at first use of `python -m yen_gov
+# parity --source ...` (the CLI imports this module), not at module-load
+# time of the wider canonical namespace.
+
+from .tcpd_parties import ADAPTER as _TCPD_PARTIES_ADAPTER
+
+REGISTRY["tcpd-parties"] = _TCPD_PARTIES_ADAPTER
 
 
 __all__ = ["ParityAdapter", "REGISTRY"]
