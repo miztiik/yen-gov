@@ -54,6 +54,12 @@
   } from "../lib/colors/resolver";
   import { navigate } from "../lib/url";
   import { link } from "../lib/links";
+  import Scatter from "../lib/charts/Scatter.svelte";
+  import type {
+    ScatterDatum,
+    ScatterFilters,
+  } from "../lib/charts/scatter-model";
+  import { slugify } from "../lib/slug";
 
   interface Props {
     /** Route params; `event` is the event slug (e.g. "general-2024"). */
@@ -330,8 +336,48 @@
   function fmtPct(n: number | null): string {
     return n == null ? "-" : `${n.toFixed(1)}%`;
   }
-</script>
 
+  // ---- Scatter chart projection (PR-W4c) ------------------------------
+  // Project the loader's per-PC winners into the chart's row shape; the
+  // chart owns its own d3 scales + filter dispatch + click handler. The
+  // chart is invariant on the loader output that it does not consume —
+  // it ignores `entity_name` vs `constituency_name` mismatch and the
+  // `period_label` -> `event_id` rename happens here once.
+  let scatter_filters = $state<ScatterFilters>({
+    body: "parliament",
+    reservation: "all",
+    margin_band: "all",
+  });
+  const scatter_data = $derived.by<ScatterDatum[]>(() => {
+    const out: ScatterDatum[] = [];
+    for (const w of winners) {
+      if (w.turnout_pct == null || w.margin_pct == null) continue;
+      out.push({
+        entity_id: w.entity_id,
+        state_slug: w.state_slug,
+        constituency_slug: slugify(w.entity_name),
+        constituency_name: w.entity_name,
+        event_id: event,
+        turnout_pct: w.turnout_pct,
+        margin_pct: w.margin_pct,
+        // PCs without an `electors` figure (long-tail) get a tiny
+        // placeholder so the dot still paints; the radius scale clamps
+        // to the floor at render time.
+        electors: w.electors ?? 0,
+        winner_party_id: partyIdFor(w),
+        winner_party_short: w.party_short ?? "UNK",
+        reservation: w.reservation,
+        body: "parliament",
+      });
+    }
+    return out;
+  });
+  function onScatterDotClick(d: ScatterDatum): void {
+    navigate(
+      `${link.stateElection(d.state_slug, d.event_id)}/${d.constituency_slug}`,
+    );
+  }
+</script>
 <main class="mx-auto max-w-6xl space-y-6 p-4">
   <header class="space-y-2">
     <h1 class="text-2xl font-semibold text-slate-900">
@@ -470,6 +516,19 @@
           {/each}
         </ol>
       {/if}
+    </section>
+
+    <!-- Scatter chart (PR-W4c MUST-FEATURE) ---------------------------- -->
+    <section class="space-y-2" data-testid="national-event-scatter">
+      <h2 class="text-sm font-medium text-slate-700">
+        Turnout vs winning margin &middot; all constituencies
+      </h2>
+      <Scatter
+        data={scatter_data}
+        filters={scatter_filters}
+        onFiltersChange={(next) => (scatter_filters = next)}
+        onDotClick={onScatterDotClick}
+      />
     </section>
   {/if}
 </main>

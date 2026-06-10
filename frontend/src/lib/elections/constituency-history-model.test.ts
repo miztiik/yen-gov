@@ -64,6 +64,7 @@ function resultRow(
     votes_polled: null,
     winner_age: null,
     winner_candidate_name: null,
+    reservation: "GEN",
   };
   return { ...base, ...overrides };
 }

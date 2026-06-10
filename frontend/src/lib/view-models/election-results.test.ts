@@ -408,6 +408,7 @@ describe("projection helpers", () => {
       votes_polled: null,
       winner_age: null,
       winner_candidate_name: null,
+      reservation: "GEN",
     },
     {
       entity_id: "A",
@@ -436,6 +437,7 @@ describe("projection helpers", () => {
       votes_polled: null,
       winner_age: null,
       winner_candidate_name: null,
+      reservation: "GEN",
     },
   ];
 
