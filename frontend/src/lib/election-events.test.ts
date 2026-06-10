@@ -58,6 +58,30 @@ const CATALOGUE: ElectionEventsCatalogue = {
     U99: [
       { event_id: "LsGenJun2024", kind: "parliament", display: "Parliament Jun 2024", polled_on: "2024-06-01" },
     ],
+    // PR-W2a (2026-06-10): bye-event fixture. The new `assembly_bye` kind
+    // (added to EventKind in the same PR) exercises the bye-slug grammar
+    // locked in PR-0 (`assembly-bye-<YYYY>-<seat-slug>`). The on-disk
+    // catalogue ships one real-world bye fixture under S29 Karnataka
+    // (Channapatna 2024); this inline fixture uses S29 too to mirror the
+    // production shape. event_id_aliases is empty for new rows -- the
+    // strangler array only carries prior cohort codes for renamed rows.
+    S29: [
+      {
+        event_id: "assembly-bye-2024-channapatna",
+        event_id_aliases: [],
+        kind: "assembly_bye",
+        display: "Karnataka Assembly - Channapatna by-election - November 2024",
+        polled_on: "2024-11-13",
+        data_status: "pending_upstream",
+      },
+      {
+        event_id: "assembly-2023",
+        event_id_aliases: ["AcGenMay2023"],
+        kind: "assembly",
+        display: "Karnataka Assembly - May 2023",
+        polled_on: "2023-05-10",
+      },
+    ],
   },
 };
 
@@ -156,5 +180,30 @@ describe("daysSincePolled", () => {
     const row = { event_id: "x", kind: "assembly", display: "x", polled_on: "2026-12-31" } as const;
     const now = new Date("2026-05-01T00:00:00Z");
     expect(daysSincePolled(row, now)).toBeLessThan(0);
+  });
+});
+
+describe("PR-W2a bye-kind fixture (G5)", () => {
+  it("S29 has at least one assembly_bye event", () => {
+    // G5 oracle from TODO/20260609-election-experience-overhaul-plan.md
+    // PR-W2a row: the new bye kind exists in the catalogue.
+    const events = listEventsForState(CATALOGUE, "S29");
+    expect(events.filter((e) => e.kind === "assembly_bye").length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("the bye row carries the new event-slug shape `assembly-bye-<YYYY>-<seat-slug>`", () => {
+    const bye = listEventsForState(CATALOGUE, "S29").find((e) => e.kind === "assembly_bye");
+    expect(bye).toBeDefined();
+    expect(bye?.event_id).toMatch(/^assembly-bye-\d{4}-[a-z0-9-]+$/);
+  });
+
+  it("ElectionEventRow accepts the optional event_id_aliases[] strangler field", () => {
+    // S29's assembly-2023 row carries the legacy AcGenMay2023 cohort id in
+    // event_id_aliases (one-release strangler per PR-W2a). The renamed
+    // event_id resolves, and the alias preserves the legacy cohort id for
+    // any consumer still typed against it.
+    const ev = findEvent(CATALOGUE, "S29", "assembly-2023");
+    expect(ev).toBeDefined();
+    expect(ev?.event_id_aliases).toContain("AcGenMay2023");
   });
 });

@@ -3,7 +3,7 @@
   "$id": "https://yen-gov.github.io/schemas/election-events.schema.json",
   "title": "Per-state election event inventory",
   "description": "The frontend-readable catalogue of which election events exist for each state. The backend's events.py registry is the source of truth at backend-build time; this JSON is the static-app view, hand-authored and kept consistent via CI test (backend/tests/test_election_events_consistency.py). Per-state arrays let route components resolve `defaultEventForState(stateCode)` without bundling Python. National events (e.g. LsGenApr2024) appear in every relevant state's array as a 'slice' — same event_id, same artifact directory, the per-state read just selects the right row. Per ADR-0023.",
-  "x-version": "1.2",
+  "x-version": "1.3",
   "x-changelog": [
     {
       "version": "1.0",
@@ -19,6 +19,11 @@
       "version": "1.2",
       "date": "2026-06-10",
       "description": "MINOR additive on the consumer side, rename within the kind enum: `lok_sabha` -> `parliament`. Per the PR-0 No-Hindi policy locked in docs/architecture/frontend/url-grammar.md section No-Hindi policy (PR-0 2026-06-09), the kind enum now uses the English noun `parliament` for the national lower-house cohort. Citizen chrome, code identifiers, URL slugs, and the kind enum are all English-only after this PR (PR-W1a of TODO/20260609-election-experience-overhaul-plan.md). The publisher-verbatim attribution titles in datasets/data/entities/source.csv (`General Election to Lok Sabha YYYY ...`) are preserved as a documented carve-out: those titles feed datasets/schemas/source.schema.json + backend.yen_gov.canonical.citation.derive_source_id (SHA-stable identity per ADR-0032 / ADR-0042); changing them would re-derive every src-* id and break FK closure across the 36 per-state election_results.csv shards. The kind enum and chrome strings carry the English noun; the publisher-credit titles remain verbatim. Description prose on `kind`, `display`, `term_end_estimated`, and `notes` is updated in lock-step. Consumer datasets/taxonomy/election_events.json stamp bumped 1.1 -> 1.2 to satisfy the Tier-B `$schema_version == x-version` invariant."
+    },
+    {
+      "version": "1.3",
+      "date": "2026-06-10",
+      "description": "Additive: extend kind enum with `general_bye` + `assembly_bye` per the PR-0 bye-slug doctrine locked in docs/architecture/frontend/url-grammar.md (event-slug grammar `assembly-bye-<YYYY>-<seat-slug>` and `general-bye-<YYYY>-<state-slug>-<seat-slug>`); add optional `event_id_aliases: string[]` field carrying legacy event_id values for one-release readability of pre-W2a bookmarks and stored data (rows in datasets/data/datapoints/electoral/*.csv still carry the cohort-format period_label values, resolved back to the renamed event_id via this alias array). Widen the event_id pattern from `^[A-Za-z0-9]+$` to `^[A-Za-z0-9_-]+$` so the new citizen-readable slugs (`general-2024`, `assembly-2024`, `assembly-bye-2024-channapatna`) validate; the old cohort-format ids (`LsGenJun2024`, `AcGenMay2026`) still match the widened pattern. After W3+ surfaces flip to the new slug, event_id_aliases becomes a curiosity and eventual deletion is a Phase 5+ concern. See PR-W2a row in TODO/20260609-election-experience-overhaul-plan.md."
     }
   ],
   "type": "object",
@@ -58,12 +63,20 @@
             "properties": {
               "event_id": {
                 "type": "string",
-                "description": "ECI event identifier matching the on-disk grouping under datasets/elections/<event_id>/<state_code>/. Mirrors the value emitted by events.py event_id_for(state, year).",
-                "pattern": "^[A-Za-z0-9]+$"
+                "description": "Citizen-readable event identifier: `general-<YYYY>` for national Parliament (the state slice of an all-India event), `assembly-<YYYY>` for the state assembly, `assembly-bye-<YYYY>-<seat-slug>` for an assembly by-election (state is in the URL path), `general-bye-<YYYY>-<state-slug>-<seat-slug>` for a national by-election. The pre-W2a cohort-format ids (`LsGenJun2024`, `AcGenMay2026`, `LsByeJan2021`, `AcByeDec2019`) are preserved in `event_id_aliases[]` for one-release readability of legacy bookmarks and stored data (the cohort form is still the on-disk period_label in datasets/data/datapoints/electoral/*.csv, which the alias array maps back to this id). The backend's events.py registry retains the cohort form internally as the write-time period_label tied to parse_period_label; the alias bridges the two surfaces. See PR-W2a row in TODO/20260609-election-experience-overhaul-plan.md and the bye-slug grammar in docs/architecture/frontend/url-grammar.md.",
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              "event_id_aliases": {
+                "type": "array",
+                "description": "Legacy event_id values that ALSO resolve to this row. Strangler-fig for one release cycle: covers (a) old bookmarks (a citizen who saved `/state/elections/LsGenJun2024` before W2a still finds the right page), (b) write-time identifiers persisted in `datasets/data/datapoints/electoral/*.csv` `period_label` values which are still in cohort form (the backend's parse_period_label contract makes them invariant for now). After W3+ surfaces flip to the renamed slug and the per-row aliases are no longer queried, this array becomes a curiosity; eventual deletion is a Phase 5+ concern.",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_-]+$"
+                }
               },
               "kind": {
-                "enum": ["assembly", "parliament", "by_election"],
-                "description": "Political body the event elected. 'assembly' is the state assembly (the citizen's primary state government); 'parliament' is the national lower-house cohort (the state's MPs sent to Delhi — kept separate per the cause/consequence doctrine in ADR-0023, never co-mingled with assembly results); 'by_election' is a partial mid-term. The 'parliament' value was named `lok_sabha` in v1.0 / v1.1; renamed in v1.2 per the PR-0 No-Hindi policy locked at docs/architecture/frontend/url-grammar.md."
+                "enum": ["assembly", "parliament", "general_bye", "assembly_bye", "by_election"],
+                "description": "Political body and event-type the event elected. 'assembly' = state assembly (the citizen's primary state government), event_id `assembly-<YYYY>`; 'parliament' = national lower-house cohort (the state's MPs sent to Delhi - kept separate per the cause/consequence doctrine in ADR-0023, never co-mingled with assembly results), event_id `general-<YYYY>`; 'assembly_bye' = single-seat assembly by-election, event_id `assembly-bye-<YYYY>-<seat-slug>` (state is in URL path); 'general_bye' = single-seat Parliament by-election, event_id `general-bye-<YYYY>-<state-slug>-<seat-slug>`; 'by_election' = pre-W2a legacy kind retained for backwards-compatibility with any catalogue rows that have not yet been classified into the more specific assembly_bye / general_bye kinds. The 'parliament' value was named `lok_sabha` in v1.0 / v1.1; renamed in v1.2 per the PR-0 No-Hindi policy locked at docs/architecture/frontend/url-grammar.md. The `general_bye` + `assembly_bye` kinds were added in v1.3 per the PR-0 bye-slug doctrine."
               },
               "display": {
                 "type": "string",

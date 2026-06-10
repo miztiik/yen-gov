@@ -18,11 +18,35 @@
 
 import { DATA_BASE } from "./paths";
 
-export type EventKind = "assembly" | "parliament" | "by_election";
+// PR-W2a (2026-06-10): the kind enum is extended with `general_bye` +
+// `assembly_bye` per the PR-0 bye-slug doctrine locked in
+// docs/architecture/frontend/url-grammar.md. `by_election` is the legacy
+// catch-all retained for backwards-compatibility with any catalogue rows
+// not yet reclassified into the more specific assembly_bye / general_bye
+// kinds. EventKind is a string union, not an exhaustive switch target;
+// adding variants does not break the few `kind === "..."` equality
+// checks in routes (StateElection / StateTopic / Compare).
+export type EventKind =
+  | "assembly"
+  | "parliament"
+  | "general_bye"
+  | "assembly_bye"
+  | "by_election";
 export type DataStatus = "complete" | "partial" | "pending_upstream";
 
 export interface ElectionEventRow {
   event_id: string;
+  /**
+   * Strangler-fig for one release cycle (PR-W2a, 2026-06-10): prior
+   * cohort-form event_ids (e.g. `LsGenJun2024`, `AcGenMay2026`) that ALSO
+   * resolve to this row. Covers (a) old bookmarks, (b) the on-disk
+   * period_label values in datasets/data/datapoints/electoral/*.csv which
+   * are still in cohort form (the backend's parse_period_label contract
+   * makes them invariant). See backend/tests/test_election_event_alias_resolution.py
+   * for the alias-index oracle. After W3+ surfaces flip to the renamed
+   * slug this becomes a curiosity; deletion is a Phase 5+ concern.
+   */
+  event_id_aliases?: string[];
   kind: EventKind;
   display: string;
   polled_on: string;        // ISO date (YYYY-MM-DD)

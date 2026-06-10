@@ -57,7 +57,9 @@ https://results.eci.gov.in/ResultAcGenMay2026/partywisewinresult-2866S22.htm
 Stored as a string (not an integer) to preserve any leading zeros and to keep the type consistent with how ECI emits it.
 
 ### ECI event slugs
-Used as the path segment after `/Result` in result URLs. `AcGenMay2026` = "Assembly (AC) General election, May 2026". yen-gov adopts the upstream slug verbatim — translation tables are bug magnets.
+Used as the path segment after `/Result` in result URLs. `AcGenMay2026` = "Assembly (AC) General election, May 2026". yen-gov adopts the upstream slug verbatim as the **backend cohort identifier** (`backend/yen_gov/sources/eci/events.py` `EventInfo.event_id`, the `period_label` column in `datasets/data/datapoints/electoral/*.csv`, and the parse target of `parse_period_label`). Translation tables are bug magnets.
+
+**Citizen-facing event slug (PR-W2a, 2026-06-10).** The citizen-facing `datasets/taxonomy/election_events.json` catalogue exposes a separate **citizen-readable slug** for the same event: `assembly-<YYYY>` for state assemblies, `general-<YYYY>` for national Parliament, `assembly-bye-<YYYY>-<seat-slug>` for assembly by-elections (state is in URL path), `general-bye-<YYYY>-<state-slug>-<seat-slug>` for Parliament by-elections. The catalogue carries the prior cohort id in a per-row `event_id_aliases[]` array (one-release strangler so legacy bookmarks still resolve). For example, `AcGenMay2026` (the backend cohort id) maps to `assembly-2026` (the citizen slug) on the catalogue, while the on-disk `period_label` value remains `AcGenMay2026`. The alias array is the bridge; see [docs/architecture/frontend/url-grammar.md](../architecture/frontend/url-grammar.md) for the URL contract.
 
 ## Composite paths
 

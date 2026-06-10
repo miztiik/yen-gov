@@ -40,7 +40,7 @@ When you write a route or component that touches `/s/<state>`:
 2. **Use the recency rule for the election.** If the most recent `polled_on` for the state's default event is within 90 days, surface a slim "Latest election" banner above the government card. Otherwise the election section is collapsed-by-default below the government card.
 3. **Render regime gaps explicitly.** A `regime: presidents_rule` term is a government term, not a missing election. Render it with the President's Rule banner; do not show "no government" or "election overdue".
 4. **Never co-mingle assembly and Parliament.** They elect different bodies. A state's MPs go to Delhi; the state government is not affected by Parliament results. Keep the two artifact families on separate sub-routes (`/s/<state>/elections` for assembly; Parliament gets its own surface when ingested).
-5. **Cohort codes are invisible.** `AcGenMay2026` never appears in citizen-facing chrome. The `display` field in `election-events.json` (e.g. *"Tamil Nadu Assembly · May 2026"*) is the only label.
+5. **Cohort codes are invisible.** `AcGenMay2026` (the backend cohort id in `events.py` and the on-disk CSV `period_label`) never appears in citizen-facing chrome. Per PR-W2a (2026-06-10) the catalogue at `datasets/taxonomy/election_events.json` exposes the citizen-readable `event_id` (`assembly-2026`) plus a `display` field (*"Tamil Nadu Assembly - May 2026"*); the prior cohort id lives in `event_id_aliases` as a one-release strangler.
 
 ## Authoring implications
 
