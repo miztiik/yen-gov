@@ -76,5 +76,9 @@ from .eci_registered import ADAPTER as _ECI_REGISTERED_ADAPTER
 
 REGISTRY["eci-registered"] = _ECI_REGISTERED_ADAPTER
 
+from .wikipedia_parties import ADAPTER as _WIKIPEDIA_PARTIES_ADAPTER
+
+REGISTRY["wikipedia-parties"] = _WIKIPEDIA_PARTIES_ADAPTER
+
 
 __all__ = ["ParityAdapter", "REGISTRY"]
