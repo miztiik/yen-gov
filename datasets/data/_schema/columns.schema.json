@@ -3,12 +3,17 @@
   "$id": "./columns.schema.json",
   "title": "CSV column contract (schema-of-schemas)",
   "description": "Validates datasets/data/_schema/columns.json - the one machine-readable home for the per-file-class CSV column contract. Spec: docs/architecture/data/csv-column-contract.md (D-DOC0). Consumed by the backend write-time validator (B1.3), the frontend typed-read codegen (F1), and the cross-format drift test.",
-  "x-version": "1.0",
+  "x-version": "1.1",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-06-04",
       "description": "Initial sub-plan B1.1 schema for the columns.json artifact. Mirrors csv-column-contract.md sections 2-4: file-class keyed by canonical-tree glob; per-column {name, dtype, nullable, pk?, fk?, enum?, derived?}; closed-enum membership; no second hand-typed column-name copy permitted."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-06-10",
+      "description": "Companion bump for columns.json $schema_version 1.0 -> 1.1 (PR-0 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md). No structural change to the schema-of-schemas itself; pure-additive minor on the data file: 10 nullable identity-metadata columns appended to the datasets/data/entities/parties.csv file-class (recognition_scope, home_state_codes, founded_year, dissolved_year, predecessor_party_ids, successor_party_ids, name_history, claims_to_parent_name, name_native_script, is_sentinel) per Hans + Gregor Wave 0 verdict (plan section 2.1). Existing rows unchanged in shape; 3 sentinel rows (parties.IN.UNK / parties.IN.IND / parties.IN.NOTA) lifted from adapter hardcodes into the CSV so FK closure now includes them (Hans Wave 0 / section 2.1)."
     }
   ],
   "type": "object",
