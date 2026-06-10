@@ -10,6 +10,11 @@
   import { link } from "../lib/links";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import { route } from "../lib/router.svelte";
+  import HomeElectionsRail from "../lib/elections/HomeElectionsRail.svelte";
+  import {
+    buildHomeElectionsRail,
+    type HomeElectionsRailPayload,
+  } from "../lib/view-models/home-elections-rail";
   import {
     defaultHomeTheme,
     homeThemeOptions,
@@ -155,6 +160,19 @@
   // PR-W1d: per-route crumb chain. Reactive on route navigation AND
   // on async catalogue load (the builder reads states.svelte inside).
   const crumbs = $derived(route.crumbs ? route.crumbs(route.params) : []);
+
+  // PR-W4d (2026-06-10): 3-card elections rail (anchor + hook + door).
+  // Replaces the prior "almost useless, hangs without context" elections
+  // experience on Home per Jony Q4 verdict. Loads lazily; renders a
+  // skeleton arm while pending; silently degrades the hook card when
+  // the closest-race query is unavailable. Failure of buildHomeElectionsRail
+  // (e.g. no eligible parliament event in the catalogue) is swallowed -
+  // the skeleton stays mounted rather than throwing, so the rest of
+  // Home (IndiaMap + states list) is unaffected.
+  let rail = $state<HomeElectionsRailPayload | null>(null);
+  buildHomeElectionsRail()
+    .then((p) => (rail = p))
+    .catch((e) => console.warn("[home-elections-rail] build failed:", e));
 </script>
 
 <Breadcrumb {crumbs} />
@@ -210,6 +228,16 @@
       </div>
     {/key}
   </section>
+
+  {#if rail}
+    <HomeElectionsRail anchor={rail.anchor} hook={rail.hook} door={rail.door} />
+  {:else}
+    <div
+      class="h-24 bg-slate-50 rounded animate-pulse"
+      data-testid="home-elections-rail-loading"
+      aria-hidden="true"
+    ></div>
+  {/if}
 
   {#if error}
     <div class="p-4 bg-rose-50 border border-rose-200 rounded text-rose-900">
