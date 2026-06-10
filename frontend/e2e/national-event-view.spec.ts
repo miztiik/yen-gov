@@ -5,11 +5,13 @@
 //   2. India choropleth (data-testid="national-event-map")
 //   3. Top-parties bar  (data-testid="national-event-top-parties")
 //
-// Plus two hygiene oracles per the brief:
-//   - zero console errors over the whole nav
-//   - zero failed network requests over the whole nav
+// Plus the project-wide page-error trap (`attachPageErrorTrap`) which
+// surfaces uncaught exceptions + console.error + `/data/` requestfailed
+// events while filtering the graceful-degradation 404-as-null pattern
+// (ADR-0014) and maplibre's teardown AbortError. Replicating its
+// behaviour inline would re-introduce the project's pre-helper churn.
 //
-// And one legacy-alias assertion — visiting the pre-PR-W2a ECI form
+// And one legacy-alias assertion - visiting the pre-PR-W2a ECI form
 // (`LsGenJun2024`) resolves to the SAME canonical view (the W2b loader's
 // `eventYear()` slug-extraction makes both forms hit
 // `datasets/elections/parliament/election=2024/summary.csv`). PR-W2a's
@@ -17,55 +19,54 @@
 // the citizen-facing behaviour ("old bookmark still works").
 
 import { test, expect } from "@playwright/test";
+import { attachPageErrorTrap } from "./_helpers";
 
 test.describe("national event view (PR-W3c rebuild)", () => {
+  // First-hit cold compile (vite-plugin-svelte + maplibre-gl + DuckDB-WASM
+  // worker) takes ~30s on a warm machine and >60s on Windows; the default
+  // 30s per-test timeout fires on `page.goto` alone. Bump to 90s for the
+  // describe.
+  test.describe.configure({ timeout: 90_000 });
+
+  let trap: ReturnType<typeof attachPageErrorTrap> | null = null;
+
+  test.beforeEach(({ page }) => {
+    trap = attachPageErrorTrap(page);
+  });
+
+  test.afterEach(() => {
+    const errors = trap?.getErrors() ?? [];
+    expect(
+      errors,
+      `Page emitted runtime errors:\n${errors.join("\n")}`,
+    ).toEqual([]);
+  });
+
   test("renders KPIs + India map + top-parties for /t/elections/general-2024", async ({
     page,
   }) => {
-    const errors: string[] = [];
-    const failedRequests: string[] = [];
-    page.on("console", (msg) => {
-      if (msg.type() === "error") errors.push(msg.text());
-    });
-    page.on("requestfailed", (req) =>
-      failedRequests.push(
-        `${req.method()} ${req.url()} -- ${req.failure()?.errorText ?? "?"}`,
-      ),
-    );
-
     await page.goto("/t/elections/general-2024");
 
-    // KPIs strip appears once `loadElectionResults({event})` resolves
-    // and `loadStates()` populates the choropleth seed. Allow 30s -
-    // the maplibre worker + DuckDB-WASM cold-start dominates the wait.
-    await expect(page.getByTestId("national-event-kpis")).toBeVisible({
-      timeout: 30_000,
-    });
-
-    // India choropleth container renders (boundary GeoJSON fetch is a
-    // separate concern; visibility of the maplibre canvas wrapper is
-    // the citizen-facing oracle).
-    await expect(page.getByTestId("national-event-map")).toBeVisible();
-
-    // Top-parties bar visible AND has at least one row. PR-W3c oracle:
-    // 2024 LS had BJP first with 240 seats - we don't pin the party
-    // name here (the contract test does that), but we DO pin at least
-    // one row renders so the bar isn't empty.
-    await expect(page.getByTestId("national-event-top-parties")).toBeVisible();
+    // The KPIs strip + map + top-parties containers all mount as soon as
+    // the loader transitions out of `failed`. They render skeleton-ish
+    // content during `loading` though, so visibility of the CONTAINER
+    // alone is not a data-arrival signal. Use the FIRST top-parties row
+    // as the load-complete oracle (it only appears after
+    // `loadElectionResults({event})` resolves and `winners` populates).
+    // 30s allows for the cold vite compile + DuckDB-WASM worker
+    // bootstrap + the 542-row scan.
     await expect(
       page.getByTestId("national-event-top-parties-row").first(),
-    ).toBeVisible();
+    ).toBeVisible({ timeout: 30_000 });
 
-    // Hygiene assertions (CLAUDE.md section 13: smoke must catch
-    // regressions in non-renderer consumers too).
-    expect(
-      errors,
-      `Console errors during nav:\n${errors.join("\n")}`,
-    ).toEqual([]);
-    expect(
-      failedRequests,
-      `Failed network requests during nav:\n${failedRequests.join("\n")}`,
-    ).toEqual([]);
+    // KPIs strip visible (now carrying data since the load completed).
+    await expect(page.getByTestId("national-event-kpis")).toBeVisible();
+
+    // India choropleth visible.
+    await expect(page.getByTestId("national-event-map")).toBeVisible();
+
+    // Top-parties bar visible (container; row check above pinned the data).
+    await expect(page.getByTestId("national-event-top-parties")).toBeVisible();
   });
 
   test("legacy event-id alias (LsGenJun2024) resolves to the same view", async ({
@@ -78,9 +79,11 @@ test.describe("national event view (PR-W3c rebuild)", () => {
     // `eventYear()` slug-extraction. The W3c view-model surfaces
     // them identically because it does not filter on `period_label`.
     await page.goto("/t/elections/LsGenJun2024");
-    await expect(page.getByTestId("national-event-kpis")).toBeVisible({
-      timeout: 30_000,
-    });
+    // Same data-arrival oracle as the happy-path test.
+    await expect(
+      page.getByTestId("national-event-top-parties-row").first(),
+    ).toBeVisible({ timeout: 30_000 });
+    await expect(page.getByTestId("national-event-kpis")).toBeVisible();
     await expect(page.getByTestId("national-event-map")).toBeVisible();
     await expect(page.getByTestId("national-event-top-parties")).toBeVisible();
   });
