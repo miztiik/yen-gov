@@ -260,6 +260,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "energy.energy_demand_supply",
     // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
     renderer_override: "geo-choropleth-f2b",
+    // G31 Class A rollout (Row 10, this PR): pop-weighted national +
+    // median-of-states reference rows emitted by derive-national-reference
+    // CLI to per-capita-electricity-consumption-kwh-national.csv (sibling).
+    has_national_reference: true,
     meta: {
       id: "per-capita-electricity-consumption-kwh",
       title: "Electricity used per person (kWh/year)",
@@ -323,6 +327,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "energy.energy_distribution_performance",
     // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
     renderer_override: "geo-choropleth-f2b",
+    // G31 Class A rollout (Row 10, this PR): pop-weighted national +
+    // median-of-states reference rows emitted by derive-national-reference
+    // CLI to atc-losses-pct-national.csv (sibling).
+    has_national_reference: true,
     meta: {
       id: "atc-losses-pct",
       title: "Power lost to leaks and theft (%)",
@@ -682,6 +690,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "energy.energy_distribution_performance",
     // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
     renderer_override: "geo-choropleth-f2b",
+    // G31 Class A rollout (Row 10, this PR): pop-weighted national +
+    // median-of-states reference rows emitted by derive-national-reference
+    // CLI to acs-arr-gap-inr-per-kwh-national.csv (sibling).
+    has_national_reference: true,
     meta: {
       id: "acs-arr-gap-inr-per-kwh",
       title: "ACS-ARR gap on electricity sales (₹/kWh, by state)",
@@ -2320,6 +2332,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     // allowlist seam doctrine; reversible by removing this field.
     // Subsequent indicators get their own PRs.
     renderer_override: "geo-choropleth-f2b",
+    // G31 Class A rollout (Row 10, this PR): pop-weighted national +
+    // median-of-states reference rows emitted by derive-national-reference
+    // CLI to per-capita-nsdp-constant-inr-national.csv (sibling).
+    has_national_reference: true,
     meta: {
       id: "per-capita-nsdp-constant-inr",
       title: "Per-capita NSDP (constant prices, INR)",
@@ -2352,6 +2368,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "economy.economy_canonical",
     // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
     renderer_override: "geo-choropleth-f2b",
+    // G31 Class A rollout (Row 10, this PR): pop-weighted national +
+    // median-of-states reference rows emitted by derive-national-reference
+    // CLI to per-capita-nsdp-current-inr-national.csv (sibling).
+    has_national_reference: true,
     meta: {
       id: "per-capita-nsdp-current-inr",
       title: "Per-capita NSDP (current prices, INR)",
@@ -2460,6 +2480,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "economy.economy_canonical",
     // G30 wave-3 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
     renderer_override: "geo-choropleth-f2b",
+    // G31 Class A rollout (Row 10, this PR): pop-weighted national +
+    // median-of-states reference rows emitted by derive-national-reference
+    // CLI to per-capita-consumption-inr-national.csv (sibling).
+    has_national_reference: true,
     meta: {
       id: "per-capita-consumption-inr",
       title: "State per-capita private consumption (INR per person per year)",
@@ -2707,6 +2731,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "environment.environment_canonical",
     // G30 wave-2 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
     renderer_override: "geo-choropleth-f2b",
+    // G31 Class A rollout (Row 10, this PR): pop-weighted national +
+    // median-of-states reference rows emitted by derive-national-reference
+    // CLI to no2-annual-mean-ug-m3-national.csv (sibling).
+    has_national_reference: true,
     meta: {
       id: "no2-annual-mean-ug-m3",
       title: "State annual mean NO2 (ug/m3)",
@@ -2740,6 +2768,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "environment.environment_canonical",
     // G30 wave-2 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
     renderer_override: "geo-choropleth-f2b",
+    // G31 Class A rollout (Row 10, this PR): pop-weighted national +
+    // median-of-states reference rows emitted by derive-national-reference
+    // CLI to pm10-annual-mean-ug-m3-national.csv (sibling).
+    has_national_reference: true,
     meta: {
       id: "pm10-annual-mean-ug-m3",
       title: "State annual mean PM10 (ug/m3)",
@@ -2773,6 +2805,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "environment.environment_canonical",
     // G30 wave-2 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
     renderer_override: "geo-choropleth-f2b",
+    // G31 Class A rollout (Row 10, this PR): pop-weighted national +
+    // median-of-states reference rows emitted by derive-national-reference
+    // CLI to pm25-annual-mean-ug-m3-national.csv (sibling).
+    has_national_reference: true,
     meta: {
       id: "pm25-annual-mean-ug-m3",
       title: "State annual mean PM2.5 (ug/m3)",
@@ -2850,6 +2886,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "environment.environment_canonical",
     // G30 wave-2 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
     renderer_override: "geo-choropleth-f2b",
+    // G31 Class A rollout (Row 10, this PR): pop-weighted national +
+    // median-of-states reference rows emitted by derive-national-reference
+    // CLI to so2-annual-mean-ug-m3-national.csv (sibling).
+    has_national_reference: true,
     meta: {
       id: "so2-annual-mean-ug-m3",
       title: "State annual mean SO2 (ug/m3)",
@@ -2883,6 +2923,10 @@ export const CANONICAL_BACKED_INDICATORS: ReadonlyArray<CanonicalIndicatorDescri
     table_id: "environment.environment_canonical",
     // G30 wave-2 (2026-06-09): mirrors G29 pilot (PR #855) per parent plan section 14.5.
     renderer_override: "geo-choropleth-f2b",
+    // G31 Class A rollout (Row 10, this PR): pop-weighted national +
+    // median-of-states reference rows emitted by derive-national-reference
+    // CLI to thermal-fgd-installed-share-pct-national.csv (sibling).
+    has_national_reference: true,
     meta: {
       id: "thermal-fgd-installed-share-pct",
       title: "State thermal FGD installed share (%)",
