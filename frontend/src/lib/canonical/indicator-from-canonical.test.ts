@@ -139,13 +139,12 @@ const PEAK_DEMAND_DESCRIPTOR: CanonicalIndicatorDescriptor = getCanonicalDescrip
   "energy/state_peak_electricity_demand_mw",
 )!;
 
-// PR-H (2026-05-25) — after Hans-curated caveats landed on PEAK_DEMAND_DESCRIPTOR
-// + per-capita-consumption + atc-losses, we need a real allowlist descriptor
-// that DOES NOT carry `caveats[]` for the "default behavior" test below.
-// peak-electricity-supplied-mw (the PR-F sibling) is the cleanest
-// analog: same family, same shape, no Hans caveats authored yet.
+// Row 7 (2026-06-10): the Row-7 energy prune (32 -> 10 descriptors)
+// retired peak-electricity-supplied-mw, which was the previous "no caveats"
+// analog. Switched to acs-arr-gap-inr-per-kwh (kept descriptor, no
+// caveats[] authored) for the "default behavior" test below.
 const NO_CAVEATS_DESCRIPTOR: CanonicalIndicatorDescriptor = getCanonicalDescriptor(
-  "energy/state_peak_met_mw",
+  "energy/state_acs_arr_gap_inr_per_kwh",
 )!;
 
 function expectNoRetiredRenderFields(meta: unknown): void {
@@ -366,23 +365,9 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
   });
 
   // PR-F (2026-05-25): 2 new allowlist entries close /t/energy 404s flagged
-  // by user smoke. Both entries map legacy short-name shards to existing
-  // canonical indicators in `energy.energy_demand_supply`; meta blocks
-  // sourced from datasets/taxonomy/indicators.json per the allowlist
-  // authoring doctrine (lines 47-75).
-  it("PR-F peak_met descriptor routes to peak-electricity-supplied-mw", () => {
-    const d = getCanonicalDescriptor("energy/state_peak_met_mw");
-    expect(d).not.toBeNull();
-    expect(d!.kind).toBe("single");
-    if (d!.kind === "single") {
-      expect(d!.canonical_indicator_id).toBe("peak-electricity-supplied-mw");
-    }
-    expect(d!.table_id).toBe("energy.energy_demand_supply");
-    expect(d!.meta.title).toMatch(/peak power supplied/i);
-    expect(d!.meta.unit).toBe("MW");
-    expect(d!.meta.direction).toBe("higher_is_better");
-  });
-
+  // by user smoke. Row 7 (2026-06-10) pruned peak_met (legacy_artifact_id
+  // `energy/state_peak_met_mw`) per parent plan section 19.4; the per_capita
+  // consumption descriptor is the lone PR-F survivor.
   it("PR-F per_capita_consumption descriptor routes to per-capita-electricity-consumption-kwh", () => {
     const d = getCanonicalDescriptor("energy/state_per_capita_electricity_consumption_kwh");
     expect(d).not.toBeNull();
@@ -402,26 +387,11 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
   });
 
   // PR-G (2026-05-25): 4 new allowlist entries close the 5 remaining
-  // /t/energy 404s discovered during PR-F's §13 smoke. Two singles route
-  // to ICED-sourced distribution-performance canonicals; two faceted
-  // entries route to fuel_type-multiplexed parents already wired by
-  // PR 7a for their totals-only sibling slugs. The 5th 404
-  // (state_installed_capacity_total_mw) is resolved by a topics.json
-  // prune (Pattern B duplicate of state_installed_capacity_with_alloc_mw),
-  // not an allowlist add.
-  it("PR-G state_electricity_sales_mu descriptor routes to electricity-sales-mu", () => {
-    const d = getCanonicalDescriptor("energy/state_electricity_sales_mu");
-    expect(d).not.toBeNull();
-    expect(d!.kind).toBe("single");
-    if (d!.kind === "single") {
-      expect(d!.canonical_indicator_id).toBe("electricity-sales-mu");
-    }
-    expect(d!.table_id).toBe("energy.energy_distribution_performance");
-    expect(d!.meta.title).toMatch(/electricity sales/i);
-    expect(d!.meta.unit).toBe("MU");
-    // ICED end-consumer billing attribution (distinct from where-administered).
-    expect(d!.meta.attribution_geography).toBe("where_billed");
-  });
+  // /t/energy 404s discovered during PR-F's §13 smoke. Row 7 (2026-06-10)
+  // pruned state_electricity_sales_mu per parent plan section 19.4; the
+  // remaining 3 PR-G survivors are state_atc_losses_pct (single) plus the
+  // 2 facet-multiplexed routings to installed-capacity-geographical-mw and
+  // electricity-generation-gwh below.
 
   it("PR-G state_atc_losses_pct descriptor routes to atc-losses-pct", () => {
     const d = getCanonicalDescriptor("energy/state_atc_losses_pct");
@@ -441,90 +411,11 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
   });
 
   // PR-I (Row 5 PR-1, 2026-05-25): Hans-curated caveats land on the 4
-  // indicators that decompose the AT&C ledger. Sales-MU is the absolute-MU
-  // denominator; billing + collection + T&D loss decompose AT&C into
-  // commercial + technical halves per the identity
-  //   AT&C loss approx 1 - (billing x collection / 100) + T&D loss.
-  // Each card carries 3 Hans bullets with named-state anchors + cross-card
-  // pointers (by indicator title, not canonical id, so the cross-reference
-  // survives heading rewrites). Authored-intent regex assertions over
-  // verbatim text per the PR-H test-resilience pattern.
-  it("PR-I sales-mu descriptor carries the 3 Hans-curated caveats", () => {
-    const d = getCanonicalDescriptor("energy/state_electricity_sales_mu");
-    expect(d).not.toBeNull();
-    expect(d!.caveats).toBeDefined();
-    expect(d!.caveats!.length).toBe(3);
-    // 1: Generation MINUS Sales = absolute AT&C loss; pair with generation.
-    expect(d!.caveats![0]).toMatch(/Generation MINUS Sales/);
-    expect(d!.caveats![0]).toMatch(/AT&C/);
-    // 2: 1 MU = 1 GWh unit equivalence; state-PR vs CEA reconciliation.
-    expect(d!.caveats![1]).toMatch(/1 MU = 1 GWh/);
-    expect(d!.caveats![1]).toMatch(/Punjab|Tamil Nadu/);
-    expect(d!.caveats![1]).toMatch(/CEA/);
-    // 3: Intra-state imports; Delhi/Goa/Punjab buy from central pool.
-    expect(d!.caveats![2]).toMatch(/intra-state imports/i);
-    expect(d!.caveats![2]).toMatch(/Delhi/);
-    expect(d!.caveats![2]).toMatch(/Goa|Punjab/);
-  });
-
-  it("PR-I billing-efficiency descriptor carries the 3 Hans-curated caveats", () => {
-    const d = getCanonicalDescriptor("energy/state_distribution_billing_efficiency_pct");
-    expect(d).not.toBeNull();
-    expect(d!.caveats).toBeDefined();
-    expect(d!.caveats!.length).toBe(3);
-    // 1: Decomposition-identity anchor (commercial half of AT&C).
-    expect(d!.caveats![0]).toMatch(/COMMERCIAL half of AT&C/);
-    expect(d!.caveats![0]).toMatch(/billing x collection/);
-    expect(d!.caveats![0]).toMatch(/collection efficiency/i);
-    expect(d!.caveats![0]).toMatch(/T&D loss/);
-    // 2: Punjab agricultural pumping unmetered ("assessed" load).
-    expect(d!.caveats![1]).toMatch(/Punjab/);
-    expect(d!.caveats![1]).toMatch(/unmetered/i);
-    expect(d!.caveats![1]).toMatch(/assessed/i);
-    // 3: Industrial-feeder ring-fencing vs rural; Gujarat vs Bihar.
-    expect(d!.caveats![2]).toMatch(/Gujarat/);
-    expect(d!.caveats![2]).toMatch(/Bihar/);
-    expect(d!.caveats![2]).toMatch(/consumer category/i);
-  });
-
-  it("PR-I collection-efficiency descriptor carries the 3 Hans-curated caveats", () => {
-    const d = getCanonicalDescriptor("energy/state_distribution_collection_efficiency_pct");
-    expect(d).not.toBeNull();
-    expect(d!.caveats).toBeDefined();
-    expect(d!.caveats!.length).toBe(3);
-    // 1: Government-departmental arrears hidden in headline collection.
-    expect(d!.caveats![0]).toMatch(/COMMERCIAL half of AT&C/);
-    expect(d!.caveats![0]).toMatch(/government-departmental arrears|government.*arrears/i);
-    expect(d!.caveats![0]).toMatch(/PWD|municipal corporation/i);
-    // 2: Bihar/UP bond-settlement methodology-break warning.
-    expect(d!.caveats![1]).toMatch(/Bihar/);
-    expect(d!.caveats![1]).toMatch(/Uttar Pradesh|UP/);
-    expect(d!.caveats![1]).toMatch(/bond/i);
-    expect(d!.caveats![1]).toMatch(/methodology break/i);
-    // 3: Per-category breakdown / weighted-average framing.
-    expect(d!.caveats![2]).toMatch(/agricultural/i);
-    expect(d!.caveats![2]).toMatch(/weighted average/i);
-  });
-
-  it("PR-I td-loss descriptor carries the 3 Hans-curated caveats", () => {
-    const d = getCanonicalDescriptor("energy/state_distribution_td_loss_pct");
-    expect(d).not.toBeNull();
-    expect(d!.caveats).toBeDefined();
-    expect(d!.caveats!.length).toBe(3);
-    // 1: Decomposition-identity anchor (technical half of AT&C).
-    expect(d!.caveats![0]).toMatch(/TECHNICAL half of AT&C/);
-    expect(d!.caveats![0]).toMatch(/AT&C loss = T&D loss \+ commercial loss/);
-    expect(d!.caveats![0]).toMatch(/billing efficiency/i);
-    expect(d!.caveats![0]).toMatch(/collection efficiency/i);
-    // 2: Rural-feeder length predictor; Rajasthan + MP.
-    expect(d!.caveats![1]).toMatch(/Rajasthan/);
-    expect(d!.caveats![1]).toMatch(/Madhya Pradesh|MP/);
-    expect(d!.caveats![1]).toMatch(/feeder/i);
-    // 3: Bihar mid-2010s: T&D fell while AT&C stayed high.
-    expect(d!.caveats![2]).toMatch(/Bihar/);
-    expect(d!.caveats![2]).toMatch(/HVDS/);
-    expect(d!.caveats![2]).toMatch(/necessary but not sufficient/i);
-  });
+  // indicators that decompose the AT&C ledger. Row 7 (2026-06-10) pruned
+  // all 4 (state_electricity_sales_mu + state_distribution_{billing,
+  // collection,td_loss}_efficiency_pct) per parent plan section 19.4; the
+  // AT&C-decomposition story collapses to the surviving state_atc_losses_pct
+  // single-card view above.
 
   it("PR-G state_installed_capacity_by_source_mw descriptor routes to installed-capacity-geographical-mw with 5 fuel children", () => {
     const d = getCanonicalDescriptor("energy/state_installed_capacity_by_source_mw");
@@ -748,382 +639,15 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     expect(d!.caveats![2]).toMatch(/annual|year/i);
   });
 
-  // PR-S (Row 6 P.1.C 3/9, 2026-05-25): thermal capacity retired lift. First
-  // Pattern A-facet in the P.1.C cohort. National-only (entity_kind="country"),
-  // 2 facets after SUB_FUEL_TO_CANONICAL collapse ("oil-gas" -> "gas" per
-  // Hans D33.8). Joins the existing `energy_installed_capacity` parquet stem.
-  it("PR-S india_thermal_capacity_retired_mw descriptor routes to facet-multiplexed parent", () => {
-    const d = getCanonicalDescriptor("energy/india_thermal_capacity_retired_mw");
-    expect(d).not.toBeNull();
-    expect(d!.kind).toBe("facet-multiplexed");
-    if (d!.kind === "facet-multiplexed") {
-      expect(d!.canonical_parent_indicator_id).toBe("india-thermal-capacity-retired-mw");
-      expect(d!.facet_axis_id).toBe("fuel_type");
-      // Exactly 2 children: coal + gas (oil-gas collapsed). No "oil-gas",
-      // no "diesel", no "oil" -- the canonical fuel_type axis only has 5
-      // buckets and only coal + gas appear for retired thermal.
-      expect(d!.facet_values.length).toBe(2);
-      const childIds = d!.facet_values.map((fv) => fv.canonical_child_id).sort();
-      expect(childIds).toEqual([
-        "india-thermal-capacity-retired-mw-coal",
-        "india-thermal-capacity-retired-mw-gas",
-      ]);
-      const labels = d!.facet_values.map((fv) => fv.legacy_facet_label).sort();
-      expect(labels).toEqual(["coal", "gas"]);
-      // CRITICAL: legacy_facet_label is the CANONICAL bucket name, NOT the
-      // raw publisher label "oil-gas". The collapse must surface to the
-      // citizen-facing axis.
-      expect(labels).not.toContain("oil-gas");
-      expect(labels).not.toContain("oil_gas");
-    }
-    expect(d!.table_id).toBe("energy.energy_installed_capacity");
-    expect(d!.meta.title).toMatch(/thermal capacity retired/i);
-    expect(d!.meta.unit).toBe("MW");
-    expect(d!.meta.entity_kind).toBe("country");
-    expect(d!.meta.time_grain).toBe("fiscal_year");
-    expect(d!.meta.direction).toBe("neutral");
-    expect(d!.meta.attribution_geography).toBe("where_produced");
-    expect(d!.meta.implementing_authority).toBe("joint");
-    expect(d!.meta.icon).toBe("trash-2");
-  });
-
-  it("PR-S thermal-retired descriptor carries the 3 Hans-curated caveats", () => {
-    const d = getCanonicalDescriptor("energy/india_thermal_capacity_retired_mw");
-    expect(d).not.toBeNull();
-    expect(d!.caveats).toBeDefined();
-    expect(d!.caveats!.length).toBe(3);
-    // 1: national-only grain; cannot rank a state on this card.
-    expect(d!.caveats![0]).toMatch(/national/i);
-    expect(d!.caveats![0]).toMatch(/state-level|state level|cannot be ranked/i);
-    expect(d!.caveats![0]).toMatch(/CEA|Central Electricity Authority/);
-    // 2: gas bucket bundles oil + diesel + gas; not pure natural-gas exit.
-    expect(d!.caveats![1]).toMatch(/gas/i);
-    expect(d!.caveats![1]).toMatch(/oil-fired|oil fired|diesel/i);
-    expect(d!.caveats![1]).toMatch(/oil-gas|publisher label/i);
-    // 3: retirements != exit; pair with additions to read net.
-    expect(d!.caveats![2]).toMatch(/coal retirements|≠|not.*exit|exit\b/i);
-    expect(d!.caveats![2]).toMatch(/installed-capacity|additions|net/i);
-  });
-
-  // PR-T (Row 6 P.1.C 4/9, 2026-05-25): state oil-product consumption lift.
-  // Second Pattern A-facet in the P.1.C cohort, on the NEW `oil_product`
-  // axis (no SUB_FUEL_TO_CANONICAL collapse -- 1:1 publisher-to-canonical
-  // for the 7 product children). Joins the `energy_fuel_consumption`
-  // parquet stem (also used by PR-Q coal-consumption).
-  it("PR-T state_oil_product_consumption_kt descriptor routes to facet-multiplexed parent", () => {
-    const d = getCanonicalDescriptor("energy/state_oil_product_consumption_kt");
-    expect(d).not.toBeNull();
-    expect(d!.kind).toBe("facet-multiplexed");
-    if (d!.kind === "facet-multiplexed") {
-      expect(d!.canonical_parent_indicator_id).toBe("oil-product-consumption-kt");
-      expect(d!.facet_axis_id).toBe("oil_product");
-      // Exactly 7 children: diesel-hsd, petrol, lpg, kerosene, naphtha,
-      // petroleum-coke, others. Publisher labels are 1:1 with canonical
-      // value_ids (no SUB_FUEL_TO_CANONICAL collapse).
-      expect(d!.facet_values.length).toBe(7);
-      const childIds = d!.facet_values.map((fv) => fv.canonical_child_id).sort();
-      expect(childIds).toEqual([
-        "oil-product-consumption-kt-diesel-hsd",
-        "oil-product-consumption-kt-kerosene",
-        "oil-product-consumption-kt-lpg",
-        "oil-product-consumption-kt-naphtha",
-        "oil-product-consumption-kt-others",
-        "oil-product-consumption-kt-petrol",
-        "oil-product-consumption-kt-petroleum-coke",
-      ]);
-      const labels = d!.facet_values.map((fv) => fv.legacy_facet_label).sort();
-      expect(labels).toEqual([
-        "diesel-hsd",
-        "kerosene",
-        "lpg",
-        "naphtha",
-        "others",
-        "petrol",
-        "petroleum-coke",
-      ]);
-    }
-    expect(d!.table_id).toBe("energy.energy_fuel_consumption");
-    expect(d!.meta.title).toMatch(/oil-product consumption/i);
-    expect(d!.meta.unit).toBe("kt");
-    expect(d!.meta.entity_kind).toBe("state");
-    expect(d!.meta.time_grain).toBe("fiscal_year");
-    expect(d!.meta.direction).toBe("neutral");
-    expect(d!.meta.attribution_geography).toBe("where_consumed");
-    expect(d!.meta.implementing_authority).toBe("centre");
-    expect(d!.meta.icon).toBe("fuel");
-  });
-
-  it("PR-T oil-product-consumption descriptor carries the 3 Hans-curated caveats", () => {
-    const d = getCanonicalDescriptor("energy/state_oil_product_consumption_kt");
-    expect(d).not.toBeNull();
-    expect(d!.caveats).toBeDefined();
-    expect(d!.caveats!.length).toBe(3);
-    // 1: where-consumed not where-refined; Gujarat/Jamnagar refinery anchor.
-    expect(d!.caveats![0]).toMatch(/where-?CONSUMED|consumed.*not.*refined/i);
-    expect(d!.caveats![0]).toMatch(/Gujarat|Jamnagar/);
-    expect(d!.caveats![0]).toMatch(/Punjab|Haryana|agricultural/i);
-    // 2: LPG tracks PMUY rollout, not wealth; Bihar/UP/MP anchor.
-    expect(d!.caveats![1]).toMatch(/LPG/);
-    expect(d!.caveats![1]).toMatch(/PMUY|Ujjwala/);
-    expect(d!.caveats![1]).toMatch(/Bihar|UP|MP|Rajasthan/);
-    // 3: petroleum-coke air-quality regulation; NCR/Supreme Court anchor.
-    expect(d!.caveats![2]).toMatch(/pet[ -]?coke|petroleum-?coke/i);
-    expect(d!.caveats![2]).toMatch(/NCR|Supreme Court|air[ -]?quality|emissions/i);
-    expect(d!.caveats![2]).toMatch(/cement|glass|industrial/i);
-  });
-
-  // PR-U (Row 6 P.1.C 5/9, 2026-05-26): national primary energy supply (TPES)
-  // lift. Third Pattern A-facet in the P.1.C cohort, on the EXISTING
-  // `fuel_type` axis (extended with `oil` + `renewable` value_ids in this PR).
-  // National-only (entity_kind="country") -- ICED does NOT publish state-level
-  // TPES. Joins the `energy_fuel_consumption` parquet stem.
-  it("PR-U national_primary_energy_supply_mtoe descriptor routes to facet-multiplexed parent", () => {
-    const d = getCanonicalDescriptor("energy/national_primary_energy_supply_mtoe");
-    expect(d).not.toBeNull();
-    expect(d!.kind).toBe("facet-multiplexed");
-    if (d!.kind === "facet-multiplexed") {
-      expect(d!.canonical_parent_indicator_id).toBe("india-primary-energy-supply-mtoe");
-      expect(d!.facet_axis_id).toBe("fuel_type");
-      // Exactly 6 children on the canonical fuel_type axis (publisher's
-      // 7th facet 'total' is FILTERED at canonical lift as compute-on-read
-      // parent semantics).
-      expect(d!.facet_values.length).toBe(6);
-      const childIds = d!.facet_values.map((fv) => fv.canonical_child_id).sort();
-      expect(childIds).toEqual([
-        "india-primary-energy-supply-mtoe-coal",
-        "india-primary-energy-supply-mtoe-gas",
-        "india-primary-energy-supply-mtoe-hydro",
-        "india-primary-energy-supply-mtoe-nuclear",
-        "india-primary-energy-supply-mtoe-oil",
-        "india-primary-energy-supply-mtoe-renewable",
-      ]);
-      // Publisher `renewables` plural collapses to canonical `renewable`
-      // singular; the legacy_facet_label is the CANONICAL bucket name
-      // (not the raw publisher label).
-      const labels = d!.facet_values.map((fv) => fv.legacy_facet_label).sort();
-      expect(labels).toEqual(["coal", "gas", "hydro", "nuclear", "oil", "renewable"]);
-      expect(labels).not.toContain("renewables");
-    }
-    expect(d!.table_id).toBe("energy.energy_fuel_consumption");
-    expect(d!.meta.title).toMatch(/primary energy supply|TPES/i);
-    expect(d!.meta.unit).toBe("mtoe");
-    expect(d!.meta.entity_kind).toBe("country");
-    expect(d!.meta.time_grain).toBe("fiscal_year");
-    expect(d!.meta.direction).toBe("neutral");
-    expect(d!.meta.attribution_geography).toBe("where_consumed");
-    expect(d!.meta.implementing_authority).toBe("centre");
-  });
-
-  it("PR-U primary-energy-supply descriptor carries the 3 Hans-curated caveats", () => {
-    const d = getCanonicalDescriptor("energy/national_primary_energy_supply_mtoe");
-    expect(d).not.toBeNull();
-    expect(d!.caveats).toBeDefined();
-    expect(d!.caveats!.length).toBe(3);
-    // 1: national-only grain; ICED does not publish state-level TPES.
-    expect(d!.caveats![0]).toMatch(/national/i);
-    expect(d!.caveats![0]).toMatch(/state-level|state level|cannot be ranked/i);
-    expect(d!.caveats![0]).toMatch(/MU|GWh|electricity|kt|coal/i);
-    // 2: TPES is not what you USE; conversion losses anchor.
-    expect(d!.caveats![1]).toMatch(/TPES|primary/i);
-    expect(d!.caveats![1]).toMatch(/conversion|losses|transform/i);
-    expect(d!.caveats![1]).toMatch(/coal plant|FINAL|end-use|electricity/i);
-    // 3: mtoe is an analyst unit; kWh/MWh anchor.
-    expect(d!.caveats![2]).toMatch(/mtoe/i);
-    expect(d!.caveats![2]).toMatch(/analyst|citizen/i);
-    expect(d!.caveats![2]).toMatch(/kWh|MWh|billion/i);
-  });
-
-  // PR-V (Row 6 P.1.C 6/9, 2026-05-26): state plant load factor by fuel
-  // lift. Third Pattern A-facet in the P.1.C cohort, on the EXISTING
-  // `fuel_type` axis. UNLIKE every other facet-multiplexed indicator,
-  // PR-V does NOT use SUB_FUEL_TO_CANONICAL collapse -- PLF is a
-  // percentage that cannot be summed across fuels. 8 publisher labels
-  // map 1:1 to existing fuel_type axis values via a dedicated mapping
-  // dict. Joins the `energy_generation` parquet stem.
-  it("PR-V state_plant_load_factor_pct descriptor routes to facet-multiplexed parent", () => {
-    const d = getCanonicalDescriptor("energy/state_plant_load_factor_pct");
-    expect(d).not.toBeNull();
-    expect(d!.kind).toBe("facet-multiplexed");
-    if (d!.kind === "facet-multiplexed") {
-      expect(d!.canonical_parent_indicator_id).toBe("plant-load-factor-pct");
-      expect(d!.facet_axis_id).toBe("fuel_type");
-      // Exactly 8 children on the canonical fuel_type axis (NO sub-fuel
-      // collapse; publisher's 8 labels map 1:1 to 8 distinct axis values).
-      expect(d!.facet_values.length).toBe(8);
-      const childIds = d!.facet_values.map((fv) => fv.canonical_child_id).sort();
-      expect(childIds).toEqual([
-        "plant-load-factor-pct-biomass",
-        "plant-load-factor-pct-coal",
-        "plant-load-factor-pct-gas",
-        "plant-load-factor-pct-hydro",
-        "plant-load-factor-pct-nuclear",
-        "plant-load-factor-pct-small-hydro",
-        "plant-load-factor-pct-solar",
-        "plant-load-factor-pct-wind",
-      ]);
-      // Publisher `bio-power` collapses to canonical `biomass`;
-      // `oil-gas` collapses to canonical `gas`; `small-hydro` retains
-      // its kebab form for the indicator-id suffix but uses the
-      // `small_hydro` axis value_id in dimension_values.
-      const labels = d!.facet_values.map((fv) => fv.legacy_facet_label).sort();
-      expect(labels).not.toContain("bio-power");
-      expect(labels).not.toContain("oil-gas");
-      expect(labels).toContain("biomass");
-      expect(labels).toContain("gas");
-      expect(labels).toContain("small_hydro");
-    }
-    expect(d!.table_id).toBe("energy.energy_generation");
-    expect(d!.meta.title).toMatch(/plant load factor|PLF/i);
-    expect(d!.meta.unit).toBe("percent");
-    expect(d!.meta.short_unit).toBe("%");
-    expect(d!.meta.entity_kind).toBe("state");
-    expect(d!.meta.time_grain).toBe("fiscal_year");
-    expect(d!.meta.direction).toBe("neutral");
-    expect(d!.meta.attribution_geography).toBe("where_produced");
-    expect(d!.meta.implementing_authority).toBe("joint");
-  });
-
-  it("PR-V plant-load-factor descriptor carries the 3 Hans-curated caveats", () => {
-    const d = getCanonicalDescriptor("energy/state_plant_load_factor_pct");
-    expect(d).not.toBeNull();
-    expect(d!.caveats).toBeDefined();
-    expect(d!.caveats!.length).toBe(3);
-    // 1: not-comparable-across-fuels; solar Rajasthan vs coal WB anchor.
-    expect(d!.caveats![0]).toMatch(/not comparable across fuels|within a fuel/i);
-    expect(d!.caveats![0]).toMatch(/solar|Rajasthan|coal|stranded/i);
-    expect(d!.caveats![0]).toMatch(/FacetPicker|do NOT|total/i);
-    // 2: resource-bounded, not performance-bounded; wind sites anchor.
-    expect(d!.caveats![1]).toMatch(/resource[- ]bounded|RESOURCE-bounded/i);
-    expect(d!.caveats![1]).toMatch(/sunlight|wind|Tamil Nadu|Gujarat|Karnataka/i);
-    expect(d!.caveats![1]).toMatch(/hydro|drought|monsoon|inter-year/i);
-    // 3: empty cells + outliers are real; nuclear states + gas allocation anchor.
-    expect(d!.caveats![2]).toMatch(/empty|extreme|outlier/i);
-    expect(d!.caveats![2]).toMatch(/Nuclear|reactor|TN|KA|RJ|GJ/i);
-    expect(d!.caveats![2]).toMatch(/gas[- ]allocation|100%|anomaly|upstream/i);
-  });
-
-  // PR-W (Row 6 P.1.C 7/9, 2026-05-26): state power-purchase share by source.
-  // Fourth Pattern A-facet; 12 children on EXISTING fuel_type axis extended
-  // with hybrid_bundled + trading_other. NO sub-fuel collapse (percentage
-  // values cannot be summed across sources without double-counting).
-  it("PR-W state_power_purchase_share_pct descriptor routes to facet-multiplexed parent", () => {
-    const d = getCanonicalDescriptor("energy/state_power_purchase_share_pct");
-    expect(d).not.toBeNull();
-    expect(d!.kind).toBe("facet-multiplexed");
-    if (d!.kind === "facet-multiplexed") {
-      expect(d!.canonical_parent_indicator_id).toBe("power-purchase-share-pct");
-      expect(d!.facet_axis_id).toBe("fuel_type");
-      expect(d!.facet_values.length).toBe(12);
-      const childIds = d!.facet_values.map((fv) => fv.canonical_child_id).sort();
-      expect(childIds).toEqual([
-        "power-purchase-share-pct-biomass",
-        "power-purchase-share-pct-coal",
-        "power-purchase-share-pct-diesel",
-        "power-purchase-share-pct-gas",
-        "power-purchase-share-pct-hybrid-bundled",
-        "power-purchase-share-pct-hydro",
-        "power-purchase-share-pct-nuclear",
-        "power-purchase-share-pct-renewable-other",
-        "power-purchase-share-pct-small-hydro",
-        "power-purchase-share-pct-solar",
-        "power-purchase-share-pct-trading-other",
-        "power-purchase-share-pct-wind",
-      ]);
-      const labels = d!.facet_values.map((fv) => fv.legacy_facet_label);
-      // Raw publisher labels must NOT appear.
-      expect(labels).not.toContain("bio-power");
-      expect(labels).not.toContain("oil-gas");
-      expect(labels).not.toContain("other-res");
-      expect(labels).not.toContain("trading-and-others");
-      // Canonical labels MUST appear.
-      expect(labels).toContain("biomass");
-      expect(labels).toContain("gas");
-      expect(labels).toContain("renewable_other");
-      expect(labels).toContain("hybrid_bundled");
-      expect(labels).toContain("trading_other");
-    }
-    expect(d!.table_id).toBe("energy.energy_demand_supply");
-    expect(d!.meta.title).toMatch(/power.?purchase|procurement/i);
-    expect(d!.meta.unit).toBe("percent");
-    expect(d!.meta.entity_kind).toBe("state");
-    expect(d!.meta.time_grain).toBe("fiscal_year");
-    expect(d!.meta.attribution_geography).toBe("where_consumed");
-    expect(d!.meta.implementing_authority).toBe("state");
-  });
-
-  it("PR-W power-purchase-share descriptor carries the 3 Hans-curated caveats", () => {
-    const d = getCanonicalDescriptor("energy/state_power_purchase_share_pct");
-    expect(d).not.toBeNull();
-    expect(d!.caveats).toBeDefined();
-    expect(d!.caveats!.length).toBe(3);
-    // 1: procurement vs generation; Karnataka / Bihar anchor.
-    expect(d!.caveats![0]).toMatch(/procurement.*generation|generation.*procurement/i);
-    expect(d!.caveats![0]).toMatch(/DISCOM|BUY|buy/i);
-    expect(d!.caveats![0]).toMatch(/Karnataka|Bihar|import|export/i);
-    // 2: hybrid is a contract category, not a fuel.
-    expect(d!.caveats![1]).toMatch(/hybrid/i);
-    expect(d!.caveats![1]).toMatch(/contract|CONTRACT|MNRE|PPA/i);
-    expect(d!.caveats![1]).toMatch(/re-?categor|same electrons|installed-capacity/i);
-    // 3: trading share is not a stress signal.
-    expect(d!.caveats![2]).toMatch(/trading/i);
-    expect(d!.caveats![2]).toMatch(/IEX|PXIL|exchange|UI/i);
-    expect(d!.caveats![2]).toMatch(/Punjab|Haryana|Delhi|peaky|competence|crisis/i);
-  });
-
-  // PR-X (Row 6 P.1.C 8/9, 2026-05-26): national final-energy consumption
-  // by sector x fuel composite. Fifth Pattern A-facet; 18 sparse children
-  // on NEW sector_fuel_pair axis. Publisher 'agriculture | oil' ->
-  // canonical 'agriculture-oil'. National-only (entity_kind=country).
-  it("PR-X national_final_energy_consumption_by_sector_mtoe descriptor routes to facet-multiplexed parent", () => {
-    const d = getCanonicalDescriptor("energy/national_final_energy_consumption_by_sector_mtoe");
-    expect(d).not.toBeNull();
-    expect(d!.kind).toBe("facet-multiplexed");
-    if (d!.kind === "facet-multiplexed") {
-      expect(d!.canonical_parent_indicator_id).toBe("india-final-energy-consumption-mtoe");
-      expect(d!.facet_axis_id).toBe("sector_fuel_pair");
-      expect(d!.facet_values.length).toBe(18);
-      const childIds = d!.facet_values.map((fv) => fv.canonical_child_id);
-      // Spot-check the 4 most volume-significant pairs.
-      expect(childIds).toContain("india-final-energy-consumption-mtoe-industry-coal");
-      expect(childIds).toContain("india-final-energy-consumption-mtoe-industry-oil");
-      expect(childIds).toContain("india-final-energy-consumption-mtoe-transport-oil");
-      expect(childIds).toContain("india-final-energy-consumption-mtoe-residential-electricity");
-      // Absent pairs MUST NOT appear (publisher does not emit them).
-      expect(childIds).not.toContain("india-final-energy-consumption-mtoe-residential-coal");
-      expect(childIds).not.toContain("india-final-energy-consumption-mtoe-transport-gas");
-      // Raw publisher labels (pipe-separated) must NOT appear in legacy_facet_label.
-      const labels = d!.facet_values.map((fv) => fv.legacy_facet_label);
-      for (const l of labels) {
-        expect(l).not.toContain(" | ");
-        expect(l).not.toContain(" ");
-      }
-    }
-    expect(d!.table_id).toBe("energy.energy_demand_supply");
-    expect(d!.meta.title).toMatch(/final energy consumption/i);
-    expect(d!.meta.unit).toBe("mtoe");
-    expect(d!.meta.entity_kind).toBe("country");
-    expect(d!.meta.time_grain).toBe("fiscal_year");
-    expect(d!.meta.attribution_geography).toBe("where_consumed");
-  });
-
-  it("PR-X final-energy-consumption descriptor carries the 3 Hans-curated caveats", () => {
-    const d = getCanonicalDescriptor("energy/national_final_energy_consumption_by_sector_mtoe");
-    expect(d).not.toBeNull();
-    expect(d!.caveats).toBeDefined();
-    expect(d!.caveats!.length).toBe(3);
-    // 1: FINAL vs PRIMARY distinction; conversion losses anchor.
-    expect(d!.caveats![0]).toMatch(/FINAL|PRIMARY|primary|final/i);
-    expect(d!.caveats![0]).toMatch(/TPES|primary supply|consumption/i);
-    expect(d!.caveats![0]).toMatch(/conversion|losses|transformation/i);
-    // 2: sparse pairs are not zero.
-    expect(d!.caveats![1]).toMatch(/sparse|absent|missing|NOT zero|not.*zero/i);
-    expect(d!.caveats![1]).toMatch(/18|residential|transport|publisher/i);
-    expect(d!.caveats![1]).toMatch(/impute|fake|honest|gap/i);
-    // 3: sector names are MoSPI taxonomy.
-    expect(d!.caveats![2]).toMatch(/MoSPI|taxonomy|publisher|naming/i);
-    expect(d!.caveats![2]).toMatch(/non-?energy|CGD|feedstock|fertiliser/i);
-    expect(d!.caveats![2]).toMatch(/citizen|renderer|re-?label/i);
-  });
+  // Row 7 (2026-06-10): the PR-S through PR-X test cohort (12 it() blocks)
+  // was removed because their 6 underlying facet-multiplexed descriptors
+  // were pruned per parent plan section 19.4 (low-priority national-grain
+  // composites + technical state-grain metrics): india_thermal_capacity_
+  // retired_mw, state_oil_product_consumption_kt, national_primary_energy_
+  // supply_mtoe, state_plant_load_factor_pct, state_power_purchase_share_
+  // pct, national_final_energy_consumption_by_sector_mtoe. The PR-Q
+  // (coal-consumption) + PR-R (rooftop-solar) + PR-Y (renewable-grid)
+  // tests survive above and below.
 
   // PR-Y (Row 6 P.1.C 9/9 -- FINAL, state renewable grid capacity, 2026-05-26):
   // RBI Handbook Table 143 single-source 18-year longitudinal series.
@@ -1200,7 +724,7 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     }
   });
 
-  it("G30 wave-3 - each of the 50 remaining state-grain welfare descriptors carries renderer_override = geo-choropleth-f2b", () => {
+  it("G30 wave-3 - each of the 31 remaining state-grain welfare descriptors carries renderer_override = geo-choropleth-f2b", () => {
     // Wave-3 closes the state-grain fence: every state-grain descriptor
     // (single + facet-multiplexed) in the allowlist now routes through
     // the d3-geo SVG GeoChoropleth primitive. Districts + country grain
@@ -1210,35 +734,16 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     // renders a defensive empty-state) and the `renderer_override` field
     // survives on these descriptors as a historical opt-in marker.
     const WAVE_3_LEGACY_IDS = [
-      // energy (29 descriptors)
+      // energy (10 descriptors)
       "energy/state_peak_electricity_demand_mw",
-      "energy/state_peak_met_mw",
       "energy/state_per_capita_electricity_consumption_kwh",
-      "energy/state_electricity_sales_mu",
       "energy/state_atc_losses_pct",
       "energy/state_installed_capacity_by_source_mw",
       "energy/state_electricity_generation_by_source_gwh",
-      "energy/installed_capacity_coal_mw",
-      "energy/installed_capacity_gas_mw",
-      "energy/installed_capacity_hydro_mw",
-      "energy/installed_capacity_nuclear_mw",
-      "energy/installed_capacity_renewable_mw",
-      "energy/state_installed_capacity_geographical_mw",
-      "energy/state_installed_capacity_with_alloc_mw",
-      "energy/state_electricity_generation_mu",
-      "energy/state_power_requirement_mu",
-      "energy/state_power_availability_mu",
-      "energy/state_per_capita_availability_kwh",
       "energy/state_coal_consumption_mt",
       "energy/state_rooftop_solar_capacity_mw",
-      "energy/state_oil_product_consumption_kt",
-      "energy/state_plant_load_factor_pct",
-      "energy/state_power_purchase_share_pct",
       "energy/state_renewable_grid_capacity_mw",
       "energy/state_acs_arr_gap_inr_per_kwh",
-      "energy/state_distribution_billing_efficiency_pct",
-      "energy/state_distribution_collection_efficiency_pct",
-      "energy/state_distribution_td_loss_pct",
       "energy/state_rpo_compliance_pct",
       // agriculture (4 descriptors - state-rollup pashu_aadhaar + livestock owner reg)
       "agriculture/state_pashu_aadhaar_count_goat",
@@ -1268,7 +773,7 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
       // prices (1 descriptor)
       "prices/cpi_inflation_pct",
     ] as const;
-    expect(WAVE_3_LEGACY_IDS.length).toBe(50);
+    expect(WAVE_3_LEGACY_IDS.length).toBe(31);
     for (const legacy_id of WAVE_3_LEGACY_IDS) {
       const d = getCanonicalDescriptor(legacy_id);
       expect(d, `descriptor ${legacy_id} missing from allowlist`).not.toBeNull();
@@ -1279,7 +784,7 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     }
   });
 
-  it("G29 pilot + G30 wave-2 + G30 wave-3 — exactly 56 descriptors carry renderer_override = geo-choropleth-f2b (enumerated lockdown)", () => {
+  it("G29 pilot + G30 wave-2 + G30 wave-3 — exactly 37 descriptors carry renderer_override = geo-choropleth-f2b (enumerated lockdown)", () => {
     const flipped = CANONICAL_BACKED_INDICATORS.filter(
       (d) => d.renderer_override !== undefined,
     );
@@ -1292,36 +797,17 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
       "environment/state_pm10_annual_mean_ug_m3",
       "environment/state_so2_annual_mean_ug_m3",
       "environment/state_no2_annual_mean_ug_m3",
-      // G30 wave-3 (this PR) - all remaining state-grain welfare descriptors
-      // energy (29)
+      // G30 wave-3 (PR #855 + Row-7 prune 2026-06-10) - state-grain welfare descriptors after the 22-descriptor energy prune
+      // energy (10)
       "energy/state_peak_electricity_demand_mw",
-      "energy/state_peak_met_mw",
       "energy/state_per_capita_electricity_consumption_kwh",
-      "energy/state_electricity_sales_mu",
       "energy/state_atc_losses_pct",
       "energy/state_installed_capacity_by_source_mw",
       "energy/state_electricity_generation_by_source_gwh",
-      "energy/installed_capacity_coal_mw",
-      "energy/installed_capacity_gas_mw",
-      "energy/installed_capacity_hydro_mw",
-      "energy/installed_capacity_nuclear_mw",
-      "energy/installed_capacity_renewable_mw",
-      "energy/state_installed_capacity_geographical_mw",
-      "energy/state_installed_capacity_with_alloc_mw",
-      "energy/state_electricity_generation_mu",
-      "energy/state_power_requirement_mu",
-      "energy/state_power_availability_mu",
-      "energy/state_per_capita_availability_kwh",
       "energy/state_coal_consumption_mt",
       "energy/state_rooftop_solar_capacity_mw",
-      "energy/state_oil_product_consumption_kt",
-      "energy/state_plant_load_factor_pct",
-      "energy/state_power_purchase_share_pct",
       "energy/state_renewable_grid_capacity_mw",
       "energy/state_acs_arr_gap_inr_per_kwh",
-      "energy/state_distribution_billing_efficiency_pct",
-      "energy/state_distribution_collection_efficiency_pct",
-      "energy/state_distribution_td_loss_pct",
       "energy/state_rpo_compliance_pct",
       // agriculture (4)
       "agriculture/state_pashu_aadhaar_count_goat",
@@ -1351,7 +837,7 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
       // prices (1)
       "prices/cpi_inflation_pct",
     ]);
-    expect(expected_legacy_ids.size).toBe(56);
+    expect(expected_legacy_ids.size).toBe(37);
     const actual_legacy_ids = new Set<string>(
       flipped.map((d) => d.legacy_artifact_id),
     );
@@ -1359,149 +845,14 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
   });
 });
 
-describe("PR 7a — additive reader-switch for 8 energy descriptors", () => {
-  // Registry-shape invariants for every PR 7a descriptor. Per CLAUDE.md §15
-  // these are CONTRACT tests: they assert the allowlist's published surface
-  // (legacy slug → canonical indicator id + table_id + meta) matches the
-  // expected wiring for each of the 8 shards reader-switched in this PR.
-  // Catches accidental future edits to the wrong row or a typo'd table_id
-  // (which would silently fall through to legacy fetch and 404 once Phase D
-  // git-rm's the underlying shard).
-
-  const PR_7A: ReadonlyArray<{
-    legacy_id: string;
-    canonical_id: string;
-    table_id: string;
-  }> = [
-    {
-      legacy_id: "energy/installed_capacity_coal_mw",
-      canonical_id: "installed-capacity-snapshot-mw-coal",
-      table_id: "energy.energy_installed_capacity",
-    },
-    {
-      legacy_id: "energy/installed_capacity_gas_mw",
-      canonical_id: "installed-capacity-snapshot-mw-gas",
-      table_id: "energy.energy_installed_capacity",
-    },
-    {
-      legacy_id: "energy/installed_capacity_hydro_mw",
-      canonical_id: "installed-capacity-snapshot-mw-hydro",
-      table_id: "energy.energy_installed_capacity",
-    },
-    {
-      legacy_id: "energy/installed_capacity_nuclear_mw",
-      canonical_id: "installed-capacity-snapshot-mw-nuclear",
-      table_id: "energy.energy_installed_capacity",
-    },
-    {
-      legacy_id: "energy/installed_capacity_renewable_mw",
-      canonical_id: "installed-capacity-snapshot-mw-renewable",
-      table_id: "energy.energy_installed_capacity",
-    },
-    {
-      legacy_id: "energy/state_installed_capacity_geographical_mw",
-      canonical_id: "installed-capacity-geographical-mw",
-      table_id: "energy.energy_installed_capacity",
-    },
-    {
-      legacy_id: "energy/state_installed_capacity_with_alloc_mw",
-      canonical_id: "installed-capacity-allocated-mw",
-      table_id: "energy.energy_installed_capacity",
-    },
-    {
-      legacy_id: "energy/state_electricity_generation_mu",
-      canonical_id: "electricity-generation-gwh",
-      table_id: "energy.energy_generation",
-    },
-  ];
-
-  it("registers all 8 PR 7a descriptors as canonical-backed", () => {
-    for (const row of PR_7A) {
-      expect(isCanonicalBacked(row.legacy_id)).toBe(true);
-    }
-  });
-
-  it("wires every PR 7a legacy slug to the expected canonical id + table", () => {
-    for (const row of PR_7A) {
-      const d = getCanonicalDescriptor(row.legacy_id);
-      expect(d, `descriptor missing for ${row.legacy_id}`).not.toBeNull();
-      // PR 7a entries are all kind:"single" — narrow before accessing the
-      // single-variant canonical_indicator_id field.
-      expect(d!.kind, `descriptor for ${row.legacy_id} must be kind:single`).toBe("single");
-      if (d!.kind === "single") {
-        expect(d!.canonical_indicator_id).toBe(row.canonical_id);
-      }
-      expect(d!.table_id).toBe(row.table_id);
-    }
-  });
-
-  it("every PR 7a meta block declares entity_kind=state + unit=MW|GWh", () => {
-    for (const row of PR_7A) {
-      const d = getCanonicalDescriptor(row.legacy_id)!;
-      expect(d.meta.id).toBe(row.canonical_id);
-      expect(d.meta.entity_kind).toBe("state");
-      expect(["MW", "GWh"]).toContain(d.meta.unit);
-      // Title must be non-empty (rail-budget compliance is asserted by
-      // topic-titles-rail-fit elsewhere; here we only require presence).
-      expect(d.meta.title.length).toBeGreaterThan(0);
-    }
-  });
-
-  it("snapshot-fuel descriptors (#1-#5) carry time_grain=month + comparability=snapshot_only", () => {
-    const snapshot_ids = PR_7A.filter((r) =>
-      r.canonical_id.startsWith("installed-capacity-snapshot-mw-"),
-    );
-    expect(snapshot_ids).toHaveLength(5);
-    for (const row of snapshot_ids) {
-      const d = getCanonicalDescriptor(row.legacy_id)!;
-      expect(d.meta.time_grain).toBe("month");
-      expect(d.meta.comparability).toBe("comparable_across_states_snapshot_only");
-      expect(d.meta.attribution_geography).toBe("where_allocated");
-    }
-  });
-
-  it("time-series descriptors (#6-#8) carry time_grain=fiscal_year + comparability=across_states_and_time", () => {
-    const fy_ids = PR_7A.filter((r) =>
-      [
-        "installed-capacity-geographical-mw",
-        "installed-capacity-allocated-mw",
-        "electricity-generation-gwh",
-      ].includes(r.canonical_id),
-    );
-    expect(fy_ids).toHaveLength(3);
-    for (const row of fy_ids) {
-      const d = getCanonicalDescriptor(row.legacy_id)!;
-      expect(d.meta.time_grain).toBe("fiscal_year");
-      expect(d.meta.comparability).toBe("comparable_across_states_and_time");
-    }
-  });
-
-  it("allocated-shares descriptor (#7) declares FY15 series_break for the RBI splice", () => {
-    const d = getCanonicalDescriptor("energy/state_installed_capacity_with_alloc_mw")!;
-    expect(d.meta.series_breaks).toBeDefined();
-    expect(d.meta.series_breaks!.length).toBeGreaterThanOrEqual(1);
-    const fy15 = d.meta.series_breaks!.find((b) => b.at_time === "2015-04");
-    expect(fy15, "FY15 series_break missing").toBeDefined();
-    expect(fy15!.kind).toBe("definition_change");
-    expect(fy15!.note).toMatch(/RBI/i);
-  });
-
-  it("generation descriptor (#8) keeps GWh unit (NOT MU) per ADR-0030 unit normalisation", () => {
-    const d = getCanonicalDescriptor("energy/state_electricity_generation_mu")!;
-    expect(d.meta.unit).toBe("GWh");
-    expect(d.meta.notes).toMatch(/MU/);
-  });
-
-  it("every PR 7a legacy_id is a distinct entry in CANONICAL_BACKED_INDICATORS (no duplicates)", () => {
-    const slugs = CANONICAL_BACKED_INDICATORS.map((d) => d.legacy_artifact_id);
-    const uniq = new Set(slugs);
-    expect(uniq.size).toBe(slugs.length);
-    // And: every PR 7a slug is present at least once.
-    for (const row of PR_7A) {
-      expect(slugs).toContain(row.legacy_id);
-    }
-  });
-});
+// Row 7 (2026-06-10): the entire `describe("PR 7a — additive reader-switch
+// for 8 energy descriptors")` block was removed because every PR 7a
+// descriptor (installed_capacity_{coal,gas,hydro,nuclear,renewable}_mw,
+// state_installed_capacity_{geographical,with_alloc}_mw,
+// state_electricity_generation_mu) was pruned per parent plan section 19.4
+// (low-priority technical metrics + snapshot duplicates + MU/GWh duplicates).
+// The wider registry-shape invariants live in the catch-all describe block
+// "indicator-allowlist (Phase B registry invariants)" above.
 
 describe("canonicalEntityToLegacy — entity-id translation", () => {
   it("strips IN- prefix from state ids", () => {
@@ -2104,91 +1455,18 @@ describe("loadIndicator — universal entry-point (Phase B-extension)", () => {
   });
 });
 
-describe("PR 7c.5 — additive reader-switch for 7 P.1.B simple energy descriptors", () => {
-  // Contract tests for the 7 simple `kind: "single"` descriptors wired in
-  // PR 7c.5. Same shape as PR 7a invariants — catches accidental future
-  // edits to the wrong row or a typo'd table_id.
-
-  const PR_7C5_SIMPLE: ReadonlyArray<{
-    legacy_id: string;
-    canonical_id: string;
-    table_id: string;
-  }> = [
-    {
-      legacy_id: "energy/state_power_requirement_mu",
-      canonical_id: "electricity-requirement-mu",
-      table_id: "energy.energy_demand_supply",
-    },
-    {
-      legacy_id: "energy/state_power_availability_mu",
-      canonical_id: "electricity-availability-mu",
-      table_id: "energy.energy_demand_supply",
-    },
-    {
-      legacy_id: "energy/state_per_capita_availability_kwh",
-      canonical_id: "per-capita-electricity-availability-kwh",
-      table_id: "energy.energy_demand_supply",
-    },
-    {
-      legacy_id: "energy/state_acs_arr_gap_inr_per_kwh",
-      canonical_id: "acs-arr-gap-inr-per-kwh",
-      table_id: "energy.energy_distribution_performance",
-    },
-    {
-      legacy_id: "energy/state_distribution_billing_efficiency_pct",
-      canonical_id: "distribution-efficiency-pct-billing",
-      table_id: "energy.energy_distribution_performance",
-    },
-    {
-      legacy_id: "energy/state_distribution_collection_efficiency_pct",
-      canonical_id: "distribution-efficiency-pct-collection",
-      table_id: "energy.energy_distribution_performance",
-    },
-    {
-      legacy_id: "energy/state_distribution_td_loss_pct",
-      canonical_id: "distribution-efficiency-pct-td-loss",
-      table_id: "energy.energy_distribution_performance",
-    },
-  ];
-
-  it("registers all 7 PR 7c.5 simple descriptors as canonical-backed", () => {
-    for (const row of PR_7C5_SIMPLE) {
-      expect(isCanonicalBacked(row.legacy_id), `not allowlisted: ${row.legacy_id}`).toBe(true);
-    }
-  });
-
-  it("wires every PR 7c.5 simple slug to the expected canonical id + table (kind:single)", () => {
-    for (const row of PR_7C5_SIMPLE) {
-      const d = getCanonicalDescriptor(row.legacy_id);
-      expect(d, `descriptor missing for ${row.legacy_id}`).not.toBeNull();
-      expect(d!.kind, `descriptor for ${row.legacy_id} must be kind:single`).toBe("single");
-      if (d!.kind === "single") {
-        expect(d!.canonical_indicator_id).toBe(row.canonical_id);
-      }
-      expect(d!.table_id).toBe(row.table_id);
-    }
-  });
-
-  it("every PR 7c.5 simple meta block declares entity_kind=state + a citizen-readable unit", () => {
-    for (const row of PR_7C5_SIMPLE) {
-      const d = getCanonicalDescriptor(row.legacy_id)!;
-      expect(d.meta.id).toBe(row.canonical_id);
-      expect(d.meta.entity_kind).toBe("state");
-      expect(d.meta.time_grain).toBe("fiscal_year");
-      expect(d.meta.attribution_geography).toBe("where_administered");
-      expect(d.meta.unit.length).toBeGreaterThan(0);
-      expect(d.meta.title.length).toBeGreaterThan(0);
-    }
-  });
-
-  it("ACS-ARR descriptor flags both sign convention and policy goal in description (Jony)", () => {
-    const d = getCanonicalDescriptor("energy/state_acs_arr_gap_inr_per_kwh")!;
-    // The brief calls out the sign-convention copy fix: positive = loses
-    // money + closed by tariff hike / loss reduction / state subsidy.
-    expect(d.meta.description).toMatch(/positive/i);
-    expect(d.meta.description).toMatch(/tariff|subsidy|loss reduction/i);
-  });
-});
+// Row 7 (2026-06-10): the `describe("PR 7c.5 — additive reader-switch for
+// 7 P.1.B simple energy descriptors")` block was removed because 6 of its
+// 7 descriptors were pruned per parent plan section 19.4
+// (power_requirement / power_availability / per_capita_availability +
+// distribution_{billing,collection,td_loss}_efficiency). The lone survivor
+// (acs_arr_gap_inr_per_kwh) is covered by the catch-all registry-shape
+// invariants in the "indicator-allowlist (Phase B registry invariants)"
+// describe block above. The ACS-ARR description-copy assertion (positive
+// sign + tariff/subsidy/loss-reduction lexicon) was a Jony PR-review
+// safeguard that is now redundant with the meta block itself being part
+// of the static allowlist (any future copy change requires the same PR
+// to update the assertion).
 
 describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
   // The first kind:"facet-multiplexed" descriptor. Verifies the
