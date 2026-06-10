@@ -83,4 +83,3 @@ When an agent debate is split on a data-shape question (Gregor vs Fowler / Max v
 - [`../architecture/data/canonical-store.md`](../architecture/data/canonical-store.md) - the operational spec for non-negotiable #5 (where the CSV lives, what the columns are).
 - [`../reference/chart-index.md`](../reference/chart-index.md) - the closed renderer set that non-negotiable #5 produces.
 - [`../../CLAUDE.md`](../../CLAUDE.md) - the engineering contract; [section 0a "The One Rule"](../../CLAUDE.md) cross-links here.
-- [`../../TODO/20260603-data-and-charting-platform-reset-plan.md`](../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 21.1 - the user-ratified derivation.

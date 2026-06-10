@@ -4,7 +4,7 @@
 
 > Government office, electoral alliances, and CM / PM / cabinet appointments are all the same Canonical Data Model entity: **a role held by a person or party over a term.** The office-holders family models this term-shape uniformly across elected Chief Ministers, constitutional Presidents and Vice Presidents, cabinet members, and political alliances.
 
-This concept doc captures the design decision from [TODO/20260603-data-and-charting-platform-reset-plan.md](../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 20.4, folded in per [CLAUDE.md](../../CLAUDE.md) section 9 (ADR-retire-keep-receipts rule) + [docs/concepts/documentation-discipline.md](documentation-discipline.md) (ADR-0034 routing-contract). The originating ADR fully retires into this file: the `## Design rationale` and `## Rejected alternatives` sections below are the immutable anti-re-litigation record.
+The originating ADR record is preserved below; the `## Design rationale` and `## Rejected alternatives` sections are the immutable anti-re-litigation record.
 
 ## What an office-holder is
 
@@ -18,7 +18,7 @@ Two worked examples:
 
 ## Three-CSV model
 
-The office-holders family stores term-shape data as three CSV files under `datasets/data/` per plan section 20.4:
+The office-holders family stores term-shape data as three CSV files under `datasets/data/`:
 
 - **`entities/office.csv`** - the office register. One row per office identity. Columns: `office_id, name, office_kind, jurisdiction_entity_id, portfolio`. Example: `IN-S22-CM, Chief Minister of Tamil Nadu, cm, tamil-nadu, <null>`. `office_kind` is intentionally open-ended (`cm | pm | president | vice_president | cabinet_minister | ...`) so new office types land without a schema bump. `portfolio` (e.g. "Finance", "Defence") is reserved for future cabinet rows.
 
@@ -37,7 +37,7 @@ The column contract is enforced at write time by [backend/yen_gov/canonical/csv_
 
 ## Provenance
 
-Every observation row carries a `source_id` FK to `datasets/data/entities/source.csv` per Holy Law #9. The citation ledger stores the four optional fields per plan section 7: `owner` (publisher), `title` (report or list name), `vintage` (edition or snapshot window), and `url`.
+Every observation row carries a `source_id` FK to `datasets/data/entities/source.csv` per Holy Law #9. The citation ledger stores the four optional fields: `owner` (publisher), `title` (report or list name), `vintage` (edition or snapshot window), and `url`.
 
 The seed file `datasets/taxonomy/office_holdings.json` supports two complementary citation mechanisms:
 
@@ -60,7 +60,7 @@ The alliance datapoint lives at `datasets/data/datapoints/alliance_membership.cs
 
 ## Design rationale
 
-This section folds in the rationale from the originating design decision [TODO/20260603-data-and-charting-platform-reset-plan.md](../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 20.4 (Gregor verdict Q4, 2026-06-04).
+Design rationale (Gregor verdict Q4, 2026-06-04):
 
 ### Why a term-shape datapoint instead of a one-row-per-office snapshot
 
@@ -90,7 +90,7 @@ The following designs were rejected. They are preserved here as an anti-re-litig
 
 4. **Emit one `office_citations` row per `(office_id, citation_role)`** to anticipate per-role citation overrides. YAGNI - today every office has exactly one citation (the Wikipedia list). When DCM / Gov / PM land, the per-role template plus this map handles them. Schema-evolve later if needed.
 
-5. **Have this seed OVERWRITE `sources.parquet`** rather than upsert. Moot post-B3-pt2 (2026-06-06) - this seed no longer writes to `sources.parquet` at all. The citation rows live in `datasets/data/entities/source.csv` seeded once via the B2a/source_csv path; the canonical singleton-ledger contract still requires accumulation (B2a uses CSV-row UPSERT keyed on `source_id`, not overwrite).
+5. **Have this seed OVERWRITE `source.csv`** rather than upsert. Rejected - the canonical singleton-ledger contract requires accumulation (CSV-row UPSERT keyed on `source_id`, not overwrite). The citation rows live in `datasets/data/entities/source.csv` seeded once via the B2a/source_csv path; the canonical singleton-ledger contract still requires accumulation (B2a uses CSV-row UPSERT keyed on `source_id`, not overwrite).
 
 6. **Materialise one office row per regime** (separate `office_id` for "elected-CM" vs "presidents_rule-Governor"). The OFFICE is the CM seat in both cases; the regime difference is captured on the holding row, not by inventing parallel offices. Unchanged from cm_terms_seed.py rejected #5.
 
@@ -99,7 +99,6 @@ The following designs were rejected. They are preserved here as an anti-re-litig
 - [docs/architecture/data/canonical-store.md](../architecture/data/canonical-store.md) - the canonical data store design; governs the CSV column contract for every family including office-holders.
 - [docs/concepts/data-provenance.md](data-provenance.md) - the source.csv citation ledger, mandatory for every observation row per Holy Law #9.
 - [docs/concepts/electoral-hierarchy.md](electoral-hierarchy.md) - parallel concept for electoral entities; same LGD-joinable spine architecture.
-- [TODO/20260603-data-and-charting-platform-reset-plan.md](../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 20.4 - the binding design decision.
 - [backend/yen_gov/canonical/office_holdings_seed.py](../../backend/yen_gov/canonical/office_holdings_seed.py) - compiler reading `datasets/taxonomy/office_holdings.json` and emitting the in-process parquets that feed the term-shape CSV emitter.
 - [backend/yen_gov/canonical/reingest/governments_term_shape.py](../../backend/yen_gov/canonical/reingest/governments_term_shape.py) - the 3-CSV term-shape emitter (office.csv + holder.csv + datapoints/office_holdings.csv).
 - [backend/yen_gov/canonical/alliance_membership_csv.py](../../backend/yen_gov/canonical/alliance_membership_csv.py) - the alliance_membership.csv emitter; back-fills from office_holdings.json (per-CM-tenure alliance) and party_alliances.csv (per-event snapshot).

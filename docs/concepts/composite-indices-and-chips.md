@@ -1,7 +1,6 @@
 # Composite indices: when to ingest, when to recompute, when to refuse
 
 > **Status**: Locked doctrine (Hans + Max verdict, 2026-06-03).
-> Distilled from [TODO/20260603-data-and-charting-platform-reset-plan.md](../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 18.
 > **Acquisition status**: methodology annexure not yet obtained; ingest gated on the pre-ingest blockers below.
 
 ## Why this doc exists
@@ -18,7 +17,7 @@ When a composite index is published by a credible body - government, think-tank,
 
 2. **The composite IS a methodology; the methodology shifts edition-to-edition.** Weights, indicator lists, and base years are renegotiated each year. A recomputation in yen-gov would freeze ONE edition's recipe and silently overwrite next year's. The honest model: each edition is its own series; methodology breaks are explicit; trends across breaks are not smoothed.
 
-This is OWID's "methodology-stable comparability" rule (parent plan section 21.1, non-negotiable #3) applied to composites.
+This is OWID's "methodology-stable comparability" rule (OWID-aligned comparability doctrine, non-negotiable #3) applied to composites.
 
 ## Standing rules every composite-index view MUST honour
 
@@ -55,18 +54,18 @@ If any of the above are missing for a given edition, that edition is not ingeste
 
 - **Default sub-pillar compare**: `HorizontalGroupedBar`. Reads cleanly on mid-tier Android, supports the score-and-score-gap rule (4), allows side-by-side compare across small-state + large-state pools without merging them.
 - **Optional secondary view**: `Radar` (the "spider chart" pattern the user has asked for). Allowed only as a SECONDARY view; never the default. Radar charts read poorly on small screens, the spoke-ordering arbitrarily privileges certain pillars, and most citizen audiences misread radar-area as a single-number ranking - recreating exactly the rank-only error rule 4 forbids.
-- **Composite-vs-context scatter** (e.g. CHIPS vs per-capita NSDP): `Scatter` with the size axis empty (one indicator pair per chart per parent plan section 15 Jony doctrine; no bubble redundancy).
+- **Composite-vs-context scatter** (e.g. CHIPS vs per-capita NSDP): `Scatter` with the size axis empty (one indicator pair per chart per the closed-renderer-set doctrine; no bubble redundancy).
 
-`Radar` is NOT part of the parent plan's base renderer set (section 15 explicit) - keeping it as a secondary-view-only option here is a deliberate fence, not an extension.
+`Radar` is NOT part of the base renderer set - keeping it as a secondary-view-only option here is a deliberate fence, not an extension.
 
 ## What this doc does NOT do
 
 - It does NOT ingest any composite-index data. That is gated on the pre-ingest blockers above.
 - It does NOT commit yen-gov to ever ingesting CHIPS / SIDE specifically. It commits to running every composite-index proposal through these rules.
-- It does NOT compute or display a yen-gov-original composite index. We are a re-curation platform, not an index-publisher (parent plan section 21.1).
+- It does NOT compute or display a yen-gov-original composite index. We are a re-curation platform, not an index-publisher.
 
 ## Cross-references
 
-- Parent plan: [TODO/20260603-data-and-charting-platform-reset-plan.md](../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 18 (origin verdict), section 15 (renderer set including `Radar` as optional), section 21.1 (methodology-stable comparability rule).
+- [docs/concepts/schema-is-the-design-system.md](schema-is-the-design-system.md) -- closed renderer set and one-card-per-measure doctrine.
 - Doctrine: [CLAUDE.md](../../CLAUDE.md) section 5 (design decisions live in `docs/`).
 - OWID precedent: composite indices like HDI are ingested-as-published from UNDP; OWID does not recompute them.

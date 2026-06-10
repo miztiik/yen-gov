@@ -17,7 +17,7 @@ fiscal/<actor>_<flow>_<qualifier>
 | `centre_*` | The Union (Central) Government as the fiscal actor. | `fiscal/centre_transfers_to_states_net` |
 | `state_*` | A single state government's own number (per-row entity is the state). | `fiscal/state_own_tax_revenue_inr_crore` |
 | `states_combined_*` | All state governments aggregated to an all-India number (per-row entity is `IN`). | `fiscal/states_combined_gross_fiscal_deficit` |
-| `union_*` | Reserved for the Union Government's *own* fiscal balances (deficit, revenue, expenditure) — distinct from `centre_*` which is reserved for flows from Centre to other actors. | *(planned — see TODO/SOCIO-ECONOMIC-EXPANSION.md §Open gap)* |
+| `union_*` | Reserved for the Union Government's *own* fiscal balances (deficit, revenue, expenditure) -- distinct from `centre_*` which is reserved for flows from Centre to other actors. | *(planned; open gap -- no ingest yet)* |
 | `consolidated_*` | Reserved for Centre + states combined (the "general government" view in IMF/IFS terminology). | *(none yet)* |
 
 **Granularity is NOT in the slug.** A series whose `entity_kind` is `country` is not labelled `national_*`; the data model already says `entity_kind: "country"`. Repeating it in the slug is noise; worse, "national" sometimes connotes "aggregate of states", sometimes "Union Government", sometimes "country-as-subject-of-comparison" — three different things. The actor segment names *who*, the data model says *at what granularity*, and there is no overlap.
@@ -87,4 +87,4 @@ union_*  (when added)
 - [ADR-0025 — Rename `national_*` fiscal indicators to fiscal-actor prefixes](indicator-naming.md#adr-0025-rename-national-to-fiscal-actor-prefixes) — the decision and its rejected alternatives.
 - [docs/architecture/backend/sources-rbi-appendix-national.md](../architecture/backend/sources-rbi-appendix-national.md) — `centre_transfers_to_states_*` adapter.
 - [docs/architecture/backend/sources-rbi-appendix-deficits.md](../architecture/backend/sources-rbi-appendix-deficits.md) — `states_combined_*_deficit` adapter.
-- [TODO/SOCIO-ECONOMIC-EXPANSION.md](../../TODO/SOCIO-ECONOMIC-EXPANSION.md) §Open gap — when `union_*_deficit` ships and what to caveat in the meantime.
+- **`union_*` open gap**: Union Government's own fiscal deficit is not yet ingested. When it ships, this section will reference the ingest handover doc.

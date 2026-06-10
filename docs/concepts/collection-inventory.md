@@ -1,7 +1,7 @@
 # Collection inventory
 
 **Last Updated**: 2026-05-17
-**Status**: ⚠️ **OBSOLETE under [ADR-0030](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm)**. Superseded by [canonical store (Parquet + DuckDB-WASM)](../architecture/data/canonical-store.md). Under the canonical pivot, "what we have collected" is a `SELECT DISTINCT entity_id, year FROM <family>` query against the canonical Parquet — no separate inventory file. Operator state (frozen / refetch_requested / unavailable) becomes an `operator_state.parquet` table keyed by `indicator_id`. The opaque `{key, label, frequency}` period-token rule is **withdrawn**: under OWID, time is `year:int` and `period_label` is the verbatim publisher string on every observation row. Retained only so agents can interpret legacy `datasets/_old/reference/in/indicators-*.json` artifacts.
+**Status**: ⚠️ **OBSOLETE under [ADR-0030](../architecture/data/canonical-store.md#adr-0030-canonical-store-duckdb-wasm)**. Superseded by [canonical store (long-format CSV + DuckDB-WASM)](../architecture/data/canonical-store.md). Under the canonical pivot, "what we have collected" is a `SELECT DISTINCT entity_id, year FROM <family>` query against the canonical CSV — no separate inventory file. Operator state (frozen / refetch_requested / unavailable) lives in `datasets/_ops/indicators-operator-state.json` keyed by `indicator_id`. The opaque `{key, label, frequency}` period-token rule is **withdrawn**: under OWID, time is `year:int` and `period_label` is the verbatim publisher string on every observation row. Retained only so agents can interpret legacy `datasets/_old/reference/in/indicators-*.json` artifacts.
 
 ---
 

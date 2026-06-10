@@ -61,7 +61,7 @@ decoded by `topojson-client.feature()` -- the consumer gets a standard
 GeoJSON `FeatureCollection` back.
 
 **Status**: planned, not shipped. Plan-doc:
-[TODO/20260525-topojson-frontend-perf-plan.md](../../TODO/20260525-topojson-frontend-perf-plan.md).
+[docs/archive/plans/20260525-topojson-frontend-perf-plan.md](../../docs/archive/plans/20260525-topojson-frontend-perf-plan.md).
 Phases: P0 prove -> P1 write `quantize.py` alongside GeoJSON -> P2 read
 branch in `boundaries.ts` -> P3 swap states + districts shards + retire
 the matching GeoJSON via `git rm` -> P4 measure 4G-slow paint on
@@ -126,7 +126,7 @@ What we use instead, by level:
 When a future agent re-asks "can we just pull GADM for the missing
 states?", the answer is no -- the reasons above are structural, not
 preferences, and re-litigating them is descoped per
-[TODO/20260524-boundary-coverage-expansion-plan.md](../../TODO/20260524-boundary-coverage-expansion-plan.md)
+[docs/archive/plans/20260524-boundary-coverage-expansion-plan.md](../../docs/archive/plans/20260524-boundary-coverage-expansion-plan.md)
 section "Not in this plan (descoped)".
 
 ## DIGIPIN deferral
@@ -166,7 +166,7 @@ yet shipped. They are not. The 20 HTL states are **deliberately kept
 on HTL** per the Phase D.1 recon verdict.
 
 Phase D of the
-[boundary-coverage-expansion plan](../../TODO/20260524-boundary-coverage-expansion-plan.md)
+[boundary-coverage-expansion plan](../../docs/archive/plans/20260524-boundary-coverage-expansion-plan.md)
 runs as follows. The ramSeraph `LGD_Assembly_Constituencies` release
 is the consolidation candidate for AC layers; D.1 (recon, per state)
 parity-checks ramSeraph against the existing HTL polygons on two
@@ -221,14 +221,14 @@ status is "kept on HTL on purpose", not "pending TODO".
   -- how the frontend consumes the boundary layers via MapLibre.
 - [docs/architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy](../architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy)
   -- the ADR establishing boundary geometry as a sibling family
-  (GeoJSON + PMTiles) outside the canonical Parquet store, plus the
-  T.0d amendment introducing `boundary_layers.parquet`.
+  (GeoJSON + PMTiles) outside the canonical store, plus the
+  T.0d amendment introducing `data/entities/boundary_layer.csv` (via `boundary_layers.parquet`, retired).
 - [tools/boundaries/README.md](../../tools/boundaries/README.md) --
   the operational pipeline + source format dispatch.
-- [TODO/20260524-boundary-coverage-expansion-plan.md](../../TODO/20260524-boundary-coverage-expansion-plan.md)
+- [docs/archive/plans/20260524-boundary-coverage-expansion-plan.md](../../docs/archive/plans/20260524-boundary-coverage-expansion-plan.md)
   -- the phased coverage-gap closure plan (Phase A pincode through
   Phase E Census 2011 polygons).
-- [TODO/20260525-topojson-frontend-perf-plan.md](../../TODO/20260525-topojson-frontend-perf-plan.md)
+- [docs/archive/plans/20260525-topojson-frontend-perf-plan.md](../../docs/archive/plans/20260525-topojson-frontend-perf-plan.md)
   -- the queued TopoJSON adoption plan referenced in the
   "TopoJSON adoption status" section above.
 - [docs/concepts/disclaimer.md](disclaimer.md) -- the user-facing

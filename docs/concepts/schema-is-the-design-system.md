@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-27
 
-This is a permanent guardrail for yen-gov. It captures the UI/UX standing position formalised during the [IA reset](../../TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md) (2026-05-11) and made structural by [ADR-0022](place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue).
+This is a permanent guardrail for yen-gov. It captures the UI/UX standing position formalised during the the IA reset (2026-05-11) and made structural by [ADR-0022](place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue).
 
 ## Companion doctrine: elections are one indicator family among many
 
@@ -26,7 +26,7 @@ If a chart needs custom code, the metadata is incomplete — extend the schema, 
 
 > **A topic page MUST have at most ONE artifact ref per `(canonical_indicator_id, entity_kind)` tuple.**
 
-Added 2026-05-26 per [ADR-0044](indicator-naming.md#adr-0044-grain-over-entity) + [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md) §C3. Facets (species, fuel, sector, basis, kind) live INSIDE the card via a facet picker, not as separate cards. The `/t/agriculture` page that shipped 18 stacked species cards is the cautionary tale — one Pashu Aadhaar measure became 11 species × 2 grains = 22 catalogue rows × 18 surface cards. The collapse target (PR-C2) is 1 cattle card with a species picker + (after grain sub-pages from PR-C1) a grain sub-page link.
+Added 2026-05-26 per [ADR-0044](indicator-naming.md#adr-0044-grain-over-entity). Facets (species, fuel, sector, basis, kind) live INSIDE the card via a facet picker, not as separate cards. The `/t/agriculture` page that shipped 18 stacked species cards is the cautionary tale — one Pashu Aadhaar measure became 11 species × 2 grains = 22 catalogue rows × 18 surface cards. The collapse target (PR-C2) is 1 cattle card with a species picker + (after grain sub-pages from PR-C1) a grain sub-page link.
 
 Enforced by [frontend/src/contracts/topic-card-uniqueness.test.ts](../../frontend/src/contracts/topic-card-uniqueness.test.ts) (live as of PR #411): for each topic, no two artifact refs share `(canonical_indicator_id, entity_kind)`. Violations fail CI.
 
@@ -115,7 +115,7 @@ Concretely:
 
 The indicator artifact carries the unit in the `unit` field (free-form: `"%"`, `"INR (crore)"`, `"MW"`, `"per 100k"`, `"years"`). The renderer's legend / axis formatter is responsible for displaying it. A future "show in ₹ Lakh" or "show in USD" toggle is a thin chrome affordance that mutates a render-time prop; it never swaps the indicator id, never breaks a URL, never forks the artifact.
 
-The test that settles edge cases: *can these two artifacts coexist as different rows in `datasets/indicators/in/`?* `_crore` and `_lakh` cannot — they're the same fact table multiplied by 100. So they must not differ in id. `_per_capita` and `_pct_gsdp` can — they're different numerator-over-denominator constructs with their own honesty fields. So they earn distinct ids.
+The test that settles edge cases: *can these two artifacts coexist as different rows in the canonical indicator catalogue?* `_crore` and `_lakh` cannot — they're the same fact table multiplied by 100. So they must not differ in id. `_per_capita` and `_pct_gsdp` can — they're different numerator-over-denominator constructs with their own honesty fields. So they earn distinct ids.
 
 This rule is part of the design-system contract. A renderer that special-cases on unit (instead of reading `unit` from the artifact) violates this section as much as a renderer that special-cases on indicator id violates *The rule* above.
 
