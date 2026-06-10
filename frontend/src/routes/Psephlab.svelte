@@ -4,11 +4,11 @@
   // Loads actuals (Tallies) for the (event, state) and runs the engine on
   // every scenario change. PR-W5a (2026-06-10): scenarios are now
   // EPHEMERAL component-local state per the election-experience-overhaul
-  // plan binding constraint #8 ("No `?s=<b64>` URL. No localStorage.
-  // Refresh = fresh start."). The previous URL-hydration helpers
-  // (`decodeScenario` / `writeScenarioToHash`) are gone; the only
-  // surviving URL coupling is the optional `/m/:method` path segment
-  // that pre-selects the counting rule at mount time.
+  // plan binding constraint #8 ("No URL-encoded scenario blob. No
+  // localStorage. Refresh = fresh start."). The previous URL-hydration
+  // helpers (`decodeScenario` / `writeScenarioToHash`) are gone; the
+  // only surviving URL coupling is the optional `/m/:method` path
+  // segment that pre-selects the counting rule at mount time.
 
   // PR-R.2 (Phase 1.8e): switched from legacy `psephlab/actuals` (sql.js +
   // per-state results.sqlite) to `psephlab/canonical-loaders` (DuckDB-WASM
@@ -60,8 +60,8 @@
    *  (`/lab/:state/:event/m/:method`). When present it pre-selects the
    *  counting rule at mount time. PR-W5a (2026-06-10) collapsed the
    *  prior strangler-fig fallback: scenarios no longer hydrate from a
-   *  `?s=<...>` URL blob, so the path segment is the SOLE rule source
-   *  for the initial scenario. */
+   *  URL-encoded scenario blob, so the path segment is the SOLE rule
+   *  source for the initial scenario. */
   interface Props {
     params: { state: string; event: string; method?: string };
   }
