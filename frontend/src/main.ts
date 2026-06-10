@@ -24,7 +24,7 @@ import TopicLanding from "./routes/TopicLanding.svelte";
 import StateTopic from "./routes/StateTopic.svelte";
 import StateElection from "./routes/StateElection.svelte";
 import District from "./routes/District.svelte";
-import NationalElectionsAtlas from "./routes/NationalElectionsAtlas.svelte";
+import NationalElection from "./routes/NationalElection.svelte";
 import DataCompleteness from "./routes/DataCompleteness.svelte";
 import DevChartsSandbox from "./routes/DevChartsSandbox.svelte";
 import Yenask from "./routes/Yenask.svelte";
@@ -45,7 +45,7 @@ import {
   exploreCrumbs,
   homeCrumbs,
   indicatorDocCrumbs,
-  nationalElectionsAtlasCrumbs,
+  nationalElectionCrumbs,
   notFoundCrumbs,
   partyCrumbs,
   psephlabCrumbs,
@@ -126,10 +126,15 @@ startRouter({
     // route order is not load-bearing. Removal = git rm of
     // routes/Yenask.svelte + lib/yenask/ + this entry.
     { pattern: "/lab/yenask", component: Yenask, crumbs: yenaskCrumbs },
-    // National Parliament PC results atlas (UK-style elections plan, PR-B4).
+    // National event view (election experience overhaul, PR-W3c).
     // 3-segment pattern, distinct from /t/:topic (2 segments); placed first
-    // so the more-specific route wins regardless of matcher order.
-    { pattern: "/t/elections/:event", component: NationalElectionsAtlas, crumbs: nationalElectionsAtlasCrumbs },
+    // so the more-specific route wins regardless of matcher order. The
+    // PR-W3c rebuild dropped the per-PC "Map | Equal seats" atlas in favour
+    // of a KPIs + per-state choropleth + top-parties summary; the renamed
+    // component is `NationalElection.svelte` and the new crumb builder is
+    // `nationalElectionCrumbs` (3-crumb trail, drops the intermediate
+    // "Topics" crumb the atlas inherited from the topic-landing chain).
+    { pattern: "/t/elections/:event", component: NationalElection, crumbs: nationalElectionCrumbs },
     { pattern: "/t/:topic", component: TopicLanding, crumbs: topicLandingCrumbs },
     // Method-first Psephlab route (2026-06-09 redesign, Fowler verdict).
     // 4-segment pattern - distinct from the 3-segment bare lab route by

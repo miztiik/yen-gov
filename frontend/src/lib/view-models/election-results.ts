@@ -1,6 +1,14 @@
 // Generic election-results view-model (PR-W2b of the election-experience
 // overhaul plan, 2026-06-10).
 //
+// PR-W3c (2026-06-10): additive extension of the NATIONAL-PC dispatch to
+// project `electors` + `votes_polled` from parliament summary.csv. The
+// fields live on `ElectionResultRow` and are populated at NATIONAL-PC
+// scope only (STATE-AC + CONSTITUENCY mappers pass null). Enables
+// `NationalElection.svelte` to derive Total electors / Total polled /
+// Turnout % KPIs from the same per-PC rows that drive the choropleth +
+// top-parties bar, with no second loader call.
+//
 // Collapses three bespoke per-shape loaders behind ONE typed scope:
 //
 //   {event}                       -> NATIONAL-PC (parliament summary.csv,
@@ -132,6 +140,15 @@ export interface ElectionResultRow {
   // CONSTITUENCY scope):
   margin_pct: number | null;
   turnout_pct: number | null;
+  /** Registered electors for the seat (W3c KPI strip input). Populated at
+   *  NATIONAL-PC scope from parliament summary.csv.electors; null at
+   *  STATE-AC + CONSTITUENCY scopes until the assembly SQL projects it.
+   *  Long-tail PCs whose upstream omitted the figure also surface null. */
+  electors: number | null;
+  /** Votes polled for the seat (W3c KPI strip input). Populated at
+   *  NATIONAL-PC scope from parliament summary.csv.votes_polled; same
+   *  null-arm contract as `electors`. */
+  votes_polled: number | null;
   /** Winning candidate's age. Always null at NATIONAL-PC scope (the
    *  bespoke `loadNationalPcWinners` doesn't JOIN candidacies; F1.3b
    *  regression). Populated at STATE-AC + CONSTITUENCY scopes via the
@@ -184,6 +201,8 @@ interface NationalPcRow {
   symbol_asset_path: string | null;
   margin_pct: number | null;
   turnout_pct: number | null;
+  electors: number | null;
+  votes_polled: number | null;
   winner_candidate_name: string | null;
 }
 
@@ -237,7 +256,12 @@ async function runNationalPcQuery(
   ]);
 
   // One row per PC. LEFT JOIN dim_parties so an UNK winner_party_id
-  // still emits a row with null brand metadata.
+  // still emits a row with null brand metadata. PR-W3c (2026-06-10):
+  // additive projection of `electors` + `votes_polled` so the National
+  // event view can derive the citizen-facing Total electors / Total
+  // polled KPIs directly from the per-PC rows. STATE-AC + CONSTITUENCY
+  // dispatches still pass null for these fields (assembly summary.csv
+  // carries the same columns; surfacing them is a future-PR concern).
   const sql = `
     SELECT
       e.entity_id                   AS entity_id,
@@ -254,6 +278,8 @@ async function runNationalPcQuery(
       dp.election_symbol_asset_path AS symbol_asset_path,
       s.margin_pct                  AS margin_pct,
       s.turnout_pct                 AS turnout_pct,
+      s.electors                    AS electors,
+      s.votes_polled                AS votes_polled,
       s.winner_candidate            AS winner_candidate_name
     FROM read_csv('${sumUrl}', ${sumClause}) s
     JOIN read_csv('${electoralUrl}', ${electoralClause}) e
@@ -432,6 +458,11 @@ async function runConstituencyQuery(
     symbol_asset_path: r.symbol_asset_path ?? null,
     margin_pct: numOrNull(summary?.margin_pct),
     turnout_pct: numOrNull(summary?.turnout_pct),
+    // CONSTITUENCY scope does not project electors / votes_polled today;
+    // they live on the assembly summary.csv but the assembly SQL doesn't
+    // SELECT them (W3c only needs the NATIONAL-PC arm to surface KPIs).
+    electors: null,
+    votes_polled: null,
     winner_age: numOrNull(summary?.winner_age),
     winner_candidate_name: summary?.winner_candidate ?? null,
   }));
@@ -440,7 +471,7 @@ async function runConstituencyQuery(
 // -------------------- shared row mapper (winner-only scopes) --------------------
 
 function toRow(
-  r: NationalPcRow,
+  r: NationalPcRow & { electors?: number | null; votes_polled?: number | null },
   event: string,
   body: ElectionBody,
   winner_age: number | null,
@@ -469,6 +500,8 @@ function toRow(
     symbol_asset_path: r.symbol_asset_path ?? null,
     margin_pct: numOrNull(r.margin_pct),
     turnout_pct: numOrNull(r.turnout_pct),
+    electors: numOrNull(r.electors),
+    votes_polled: numOrNull(r.votes_polled),
     winner_age,
     winner_candidate_name: r.winner_candidate_name ?? null,
   };
