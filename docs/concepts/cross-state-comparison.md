@@ -1,6 +1,6 @@
 # Cross-state comparison
 
-> **Status**: design rationale, written 2026-05-11. The comparison view itself is in Phase 6D — see [`TODO/PLAN.md`](../../TODO/PLAN.md). This doc captures what fair comparison *means* before we commit to widgets.
+> **Status**: design rationale, written 2026-05-11. This doc captures what fair comparison *means* before we commit to widgets.
 
 ## The mandate
 
@@ -24,7 +24,7 @@ A "states ranked on health" map credits or blames the state government. Reality:
 
 ### 3. Fiscal devolution baseline
 
-Bihar receives roughly ₹1.30 from the divisible pool for every ₹1 it raises in own-tax revenue; Maharashtra receives roughly ₹0.15. Comparing their "social-sector spend per capita" without showing the fiscal context credits/blames the wrong actor. Until the `fiscal/` baseline is ingested (see Phase 6.0 in PLAN.md), every economic and social indicator is missing the context that makes it interpretable.
+Bihar receives roughly ₹1.30 from the divisible pool for every ₹1 it raises in own-tax revenue; Maharashtra receives roughly ₹0.15. Comparing their "social-sector spend per capita" without showing the fiscal context credits/blames the wrong actor. Until the `fiscal/` baseline is fully ingested, every economic and social indicator is missing the context that makes it interpretable.
 
 **What we will do**: ingest RBI *State Finances: A Study of Budgets* as the first new indicator family. Then on every economic/social indicator's page, render a one-line strip: *"TN: own-tax 6.8% of GSDP, devolution ₹4,200/capita, CSS ₹3,800/capita (FY 2024-25, RBI)."* This is the single most powerful fairness intervention the site can make.
 
@@ -92,7 +92,7 @@ Notes:
 
 ## Visualisations beyond the choropleth
 
-The IndicatorChoropleth is the entry point. The following are planned for Phase 6D, each driven by the same indicator metadata so no per-indicator code is needed:
+The IndicatorChoropleth is the entry point. The following are planned, each driven by the same indicator metadata so no per-indicator code is needed:
 
 1. **Stacked-area "where the money comes from"** — for budget indicators, with `funding_split` driving the segments. Citizen reads "of every ₹100 spent on X in TN, ₹60 came from the Centre".
 2. **Decile strip with home-state pin** — companion to the ranked table; one tall bar showing the national distribution with a marker where "your" state sits.
@@ -101,7 +101,7 @@ The IndicatorChoropleth is the entry point. The following are planned for Phase 
 
 ## Five questions a policy researcher would ask
 
-These are the questions yen-gov should be able to answer end-to-end. The first two are addressable with already-planned data; the last three motivate Phase 6E indicator depth.
+These are the questions yen-gov should be able to answer end-to-end. The first two are addressable with already-ingested data; the last three motivate additional indicator depth.
 
 1. *"For TN, of every ₹100 the state government spends on health, how much originates from the Centre vs own revenue, and how has that mix changed across the last three CMs?"* — needs `fiscal/`, state-budget functional classification, and CM-term overlay (already in `governments/`).
 2. *"Which states have improved IMR fastest after controlling for their starting level?"* — needs NFHS rounds + convergence-panel viz.

@@ -18,7 +18,7 @@ Every entity has:
 
 Every non-electoral indicator that the Government of India publishes - NFHS health rounds, MoSPI NSO surveys, Census, RBI Handbook fiscal, NDLM air-quality, Bhuvan landcover, data.gov.in district-keyed datasets - references entities by **LGD id**. The LGD portal IS the authoritative spine for indicator joins.
 
-If yen-gov adopted any other identity (ECI state codes, Census2001 numbering, OWID country codes adapted-to-states) as the internal join key, every future indicator would need a per-indicator translation table. That tax compounds. Within a year, yen-gov's adapter layer would be a pile of `lookup(eci_to_lgd[st_code])` translators scattered across every indicator family. This is the "chasing tails" failure mode the [LGD-canonical plan](../../docs/archive/plans/20260601-lgd-canonical-plan.md) exists to escape.
+If yen-gov adopted any other identity (ECI state codes, Census2001 numbering, OWID country codes adapted-to-states) as the internal join key, every future indicator would need a per-indicator translation table. That tax compounds. Within a year, yen-gov's adapter layer would be a pile of `lookup(eci_to_lgd[st_code])` translators scattered across every indicator family. This is the "chasing tails" failure mode that the LGD-canonical strategy was adopted to escape.
 
 The strategic call (locked 2026-06-01): **LGD is the canonical internal join key for every geographic entity** in yen-gov. ECI codes survive only as election-domain display labels.
 
@@ -36,9 +36,9 @@ ECI is canonical for what it issues - elections. LGD is canonical for what IT is
 
 ## How LGD looks in yen-gov data
 
-- **Folder partitions** (per [ADR-0050](../architecture/data/canonical-store.md#adr-0050-folder-naming-lgd-slug)): `state=<lgd-name-slug>`, e.g. `datasets/boundaries/electoral/delim=2008/ac/state=haryana/all.geojson` (electoral AC subtree per G10 of [TODO/20260603-data-and-charting-platform-reset-plan.md](../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 4 EL2) or `datasets/boundaries/in/subdistricts/state=haryana/all.geojson` (admin spine).
+- **Folder partitions** (per [ADR-0050](../architecture/data/canonical-store.md#adr-0050-folder-naming-lgd-slug)): `state=<lgd-name-slug>`, e.g. `datasets/boundaries/electoral/delim=2008/ac/state=haryana/all.geojson` (electoral AC subtree) or `datasets/boundaries/in/subdistricts/state=haryana/all.geojson` (admin spine).
 - **Row columns**: every observation row carries an `lgd_state_id` / `lgd_district_id` / `lgd_ac_id` as the join attribute. The display-only `state_code` (ECI form) survives for citizen readability where it matters (URL slugs, election results pages).
-- **Taxonomy authority**: `datasets/taxonomy/lgd_states.json` (37 entries) + `datasets/taxonomy/lgd_districts.json` (~780 entries) + `datasets/taxonomy/lgd_acs.json` (~4123 entries) hold the master register snapshot. Every join in yen-gov resolves through one of these three files.
+- **Taxonomy authority**: `datasets/data/entities/lgd/` holds LGD snapshot CSVs (states, districts, ACs). Every join in yen-gov resolves through one of these files.
 
 ## How LGD looks to a citizen
 
@@ -53,15 +53,14 @@ The folder partition (`state=haryana`) coincidentally is also citizen-legible be
 
 ## What "GoI-only single source" means in practice
 
-The execution handover ([docs/archive/plans/20260601-lgd-execution-handover.md](../../docs/archive/plans/20260601-lgd-execution-handover.md)) tightened the source doctrine: every entity row written into the canonical store traces to a Government of India source. Concretely:
+The GoI-only single-source doctrine tightened the source requirements: every entity row written into the canonical store traces to a Government of India source. Concretely:
 
 - **Use** LGD portal for entity codes + names + parent pointers.
 - **Use** ECI for election artefacts (events, results, candidates).
 - **Use** Survey of India for geometry where it publishes; otherwise Bhuvan/NRSC; otherwise Census of India vintage.
-- **Demote** community mirrors (ramSeraph, shijithpk, Garuda), academic compilations (Susewind), and Wikimedia overlays to **verification-only** Tier-3 references. They appear in source-hunt notes; they never get written into `datasets/taxonomy/sources.parquet` as the citation of record.
+- **Demote** community mirrors (ramSeraph, shijithpk, Garuda), academic compilations (Susewind), and Wikimedia overlays to **verification-only** Tier-3 references. They appear in research notes; they never get written into `datasets/data/entities/source.csv` as the citation of record.
 - **Exception**: when GoI has not yet published a layer (e.g. J&K post-2022 AC geometry), use the best Tier-2 source AND open a follow-up ticket to ingest the GoI artefact when it appears.
 
-This is the OWID-aligned discipline: one authoritative citation per fact, chosen by who issues that fact.
 
 ## For future LLM agents reading this
 
@@ -70,14 +69,12 @@ If you (an LLM agent) are about to mint a new identity (a new state / district /
 1. The join key is the LGD id at the relevant level (`lgd_state_id` / `lgd_district_id` / `lgd_ac_id`).
 2. The folder partition is `state=<lgd-name-slug>` (kebab-case English name from `lgd_states.json`).
 3. The URL slug a citizen sees is the same kebab-case name. The ECI ballot number rides as a route segment (e.g. `/s/haryana/ac/42-rohtak`).
-4. The citation row in `sources.parquet` names the GoI authority that issued the fact (LGD for entity identity, ECI for election artefact, SoI/Bhuvan/Census for geometry).
-5. If a community mirror snapshot was used to obtain the data, that goes in the source-hunt note (`notes/<date>-<topic>-source-verdict.md`), not in `sources.parquet`.
+4. The citation row in `datasets/data/entities/source.csv` names the GoI authority that issued the fact (LGD for entity identity, ECI for election artefact, SoI/Bhuvan/Census for geometry).
+5. If a community mirror snapshot was used to obtain the data, that goes in the source-hunt note under `docs/research/` or the relevant handover doc, not in `source.csv`.
 
 ## See also
 
 - [ADR-0049](electoral-hierarchy.md#adr-0049-canonical-ac-join-key) - lgd_ac_id as canonical internal AC join key
 - [ADR-0050](../architecture/data/canonical-store.md#adr-0050-folder-naming-lgd-slug) - folder convention `state=<lgd-name-slug>`
-- [docs/archive/plans/20260601-lgd-canonical-plan.md](../../docs/archive/plans/20260601-lgd-canonical-plan.md) - parent strategic plan
-- [docs/archive/plans/20260601-lgd-execution-handover.md](../../docs/archive/plans/20260601-lgd-execution-handover.md) - per-row execution split
 - [docs/concepts/admin-level-sourcing.md](admin-level-sourcing.md) - LGD-golden doctrine context
 - [docs/architecture/data/canonical-store.md](../architecture/data/canonical-store.md) - how taxonomy seeds plug in

@@ -15,13 +15,13 @@ The migration tracker for consumers still on legacy keying lives in [frontend/sr
 | Tier | Source | Hard contract |
 | --- | --- | --- |
 | 1. Anchor | Hand-curated anchor map keyed by `party_id` | Returns hex as-is; no mutation. Used for the ~15 parties whose colour is a recognisable brand signal (INC, BJP, AAP, TMC, DMK, AIADMK, etc.). |
-| 2. Brand | `row.brand_colour` (mirrored from `dim_parties.parquet`) | Returns hex as-is only if `brand_confidence >= 0.6`. Low-confidence brand entries fall through to tier 3 (treated as absent). |
+| 2. Brand | `row.brand_colour` (mirrored from `data/entities/parties.csv`) | Returns hex as-is only if `brand_confidence >= 0.6`. Low-confidence brand entries fall through to tier 3 (treated as absent). |
 | 3. Fallback | Deterministic hash of `party_id` → palette index | Stable across reloads (pure function of `party_id`). Palette is a fixed 24-colour set tuned for choropleth + stacked-bar legibility. |
 
 ## Data flow
 
 ```
-parties.json  ──►  dim_parties.parquet  ──►  loader (SQL projection)  ──►  row { party_id, brand_colour, brand_confidence, ... }  ──►  resolver  ──►  hex
+parties.json  ──►  data/entities/parties.csv  ──►  loader (SQL projection)  ──►  row { party_id, brand_colour, brand_confidence, ... }  ──►  resolver  ──►  hex
                        (schema v1.1)              (adapter-elections)             (consumer component)                                      
 ```
 
@@ -72,7 +72,7 @@ The 3-tier chain gives high-recognition stability (anchor), broad coverage (bran
 
 ## Migration status
 
-5 PRs in the PR-SYM-6 series migrated 4 consumers (`AcStackedBar`, `MarginHistogram`, `StateAcMap`, `RacesBoard`) and the supporting data spine (`dim_parties` schema v1.1 + loader projection). 12 grandfathered consumers remain on the legacy `colors.fill(eci_code, party_short)` path; each is a separate one-PR follow-up gated by its own loader/SQL/data-contract change. The legacy modules (`party-colour.ts`, `anchors.ts`, `store.svelte.ts`, `category-colour.ts`) delete when the ALLOWLIST in the contract test goes empty.
+5 PRs in the PR-SYM-6 series migrated 4 consumers (`AcStackedBar`, `MarginHistogram`, `StateAcMap`, `RacesBoard`) and the supporting data spine (`parties.csv` schema v1.1 + loader projection). 12 grandfathered consumers remain on the legacy `colors.fill(eci_code, party_short)` path; each is a separate one-PR follow-up gated by its own loader/SQL/data-contract change. The legacy modules (`party-colour.ts`, `anchors.ts`, `store.svelte.ts`, `category-colour.ts`) delete when the ALLOWLIST in the contract test goes empty.
 
 ## Recipe to migrate a consumer
 
@@ -119,7 +119,6 @@ the 3-tier resolver picks anchor / brand / fallback automatically.
 
 ## References
 
-- [TODO/20260527-party-symbol-assets-plan.md](../../TODO/20260527-party-symbol-assets-plan.md) — original plan-doc with one-identity doctrine in §11
 - [frontend/src/lib/colors/resolver.ts](../../frontend/src/lib/colors/resolver.ts) — resolver module + module-header contract (now also owns the anchor map)
 - [frontend/src/contracts/party-colour-import-allowlist.test.ts](../../frontend/src/contracts/party-colour-import-allowlist.test.ts) — permanent re-introduction sentinel
 - [datasets/schemas/dim-parties.schema.json](../../datasets/schemas/dim-parties.schema.json) — dim_parties v1.1 schema

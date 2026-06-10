@@ -4,7 +4,7 @@
 
 The per-state card primitive used on `/s/<state>`. One card per indicator artifact in the catalogued topic — replaces the per-artifact `IndicatorChoropleth + IndicatorRanked + IndicatorSmallMultiples` triple that previously rendered on the state hub.
 
-This doc is the formal contract for the card. The component lives at [frontend/src/lib/IndicatorCard.svelte](../../frontend/src/lib/IndicatorCard.svelte) with pure helpers in [frontend/src/lib/indicator-card.ts](../../frontend/src/lib/indicator-card.ts). The plan that motivated it is [TODO/20260515-state-page-ia-rework-plan.md](../../TODO/20260515-state-page-ia-rework-plan.md) §2.
+This doc is the formal contract for the card. The component lives at [frontend/src/lib/IndicatorCard.svelte](../../frontend/src/lib/IndicatorCard.svelte) with pure helpers in [frontend/src/lib/indicator-card.ts](../../frontend/src/lib/indicator-card.ts).
 
 ## Why a card, not the triple
 

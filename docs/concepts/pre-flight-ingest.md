@@ -68,7 +68,7 @@ The report is JSON validated against [preflight-report.schema.json](../../datase
 
 ## How agents cite it
 
-Drop the proposal next to the handover-doc as `TODO/<date>-<source>-ingest/proposal.json`. Run the gate; commit the report alongside. The handover-doc §3 cites both paths. CI's `indicator-add-gate` workflow validates that any `proposal.json` shipped under `TODO/` has a report with verdict != `abort`.
+Drop the proposal alongside the handover doc. Run the gate; commit the report alongside. The handover-doc §3 cites both paths. CI's `indicator-add-gate` workflow validates that any `proposal.json` shipped alongside a handover has a report with verdict != `abort`.
 
 ## See also
 

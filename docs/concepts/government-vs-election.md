@@ -46,7 +46,7 @@ When you write a route or component that touches `/s/<state>`:
 
 When you add a new state's data:
 
-1. **Add the election event** to `datasets/reference/in/election-events.json` with the citizen-facing `display`, the polling date, and a `data_status`. The CI test will hold the catalogue in sync with `backend/yen_gov/sources/eci/events.py`.
+1. **Add the election event** to `datasets/taxonomy/election_events.json` with the citizen-facing `display`, the polling date, and a `data_status`. The CI test will hold the catalogue in sync with `backend/yen_gov/sources/eci/events.py`.
 2. **Add the government term(s)** to `datasets/taxonomy/office_holdings.json` (long-form `holdings[]` array; G.1.c 2026-05-22). At minimum, add the current term (start_date = swearing-in date, regime = `elected`, party_eci_code, alliance, person_name). Earlier terms can be backfilled later; the file degrades gracefully.
 3. **Don't author from memory.** CM rows still use the legacy `office_citations` path plus per-term `references[]` where useful. National constitutional-office rows must cite official Government of India `citation_groups`; TCPD can seed and QA candidate rows, but it is not canonical citizen-facing provenance while official sources exist.
 
@@ -67,6 +67,6 @@ When you add a new state's data:
 - [ADR-0022](place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue) — place-first IA spine; elections-are-one-of-many doctrine.
 - [ADR-0023](electoral-hierarchy.md#adr-0023-election-event-identity-per-place) — the structural decision this doc supports.
 - `datasets/schemas/election-events.schema.json` v1.0 — per-state election inventory contract.
-- [canonical-store.md](../architecture/data/canonical-store.md) — canonical Parquet table shape.
+- [docs/architecture/data/canonical-store.md](../architecture/data/canonical-store.md) -- canonical store for election-results and government-tenure CSVs.
 - [governments.md](../architecture/data/governments.md) — governments family authoring and compile contract.
 - `datasets/schemas/office-holdings.schema.json` v1.1 — government-office holdings contract (replaces the retired `state_government.schema.json`; G.1.c 2026-05-22).

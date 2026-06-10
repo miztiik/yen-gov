@@ -3,7 +3,7 @@
 A *peer set* is a named subset of Indian states/UTs that the catalogue can
 declare as the default comparison group for a topic or an artifact. The
 canonical taxonomy lives in
-[`datasets/reference/in/state-tiers.json`](../../datasets/reference/in/state-tiers.json),
+[`datasets/taxonomy/state-tiers.json`](../../datasets/taxonomy/state-tiers.json),
 validated against
 [`datasets/schemas/state-tiers.schema.json`](../../datasets/schemas/state-tiers.schema.json).
 
