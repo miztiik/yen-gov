@@ -3,9 +3,8 @@
 **Last Updated**: 2026-05-17
 
 > **Status (2026-05-17):** the per-indicator markdown surface
-> previously emitted under `docs/reference/indicators/` (Phase 1 of
-> the old PER-INDICATOR-DOCS-PLAN) has been **retired** in Phase #4a
-> of [TODO/20260517-coverage-temporal-range-plan.md](../../../TODO/20260517-coverage-temporal-range-plan.md).
+> previously emitted under `docs/reference/indicators/` has been
+> **retired** (PRs #517-#519, 2026-05-17).
 > Structured temporal range data now lives on
 > [`datasets/_ops/indicators-completeness.json`](../../../datasets/_ops/indicators-completeness.json)
 > (schema [`indicators-completeness.schema.json`](../../../datasets/schemas/indicators-completeness.schema.json)

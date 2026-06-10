@@ -7,9 +7,9 @@ The canonical writer is the sole entry point that persists observation rows into
 ## Purpose
 
 - UPSERT observation rows into `datasets/<family>/<family>_<role>.parquet` keyed by the canonical primary key `(entity_id, year, period_label, indicator_id)`.
-- Re-write of an existing PK = replace the row (new vintage of the same fact). Mint of a new `indicator_id` is NOT a writer concern -- see [ADR-0044](../decisions/0044-grain-over-entity.md) "grain over entity" and the indicator-catalogue minting rules in [CLAUDE.md section 10](../../../CLAUDE.md).
-- Attach `source_id` FK on every row per Holy Law #9 (citation ledger -- see [ADR-0032](../decisions/0032-sources-citation-ledger.md)).
-- Reject rows that violate the meadow grammar (see [ADR-0041](../decisions/0041-meadow-tier.md)) or that lack a declared `indicator_id` in `datasets/taxonomy/indicators.json`.
+- Re-write of an existing PK = replace the row (new vintage of the same fact). Mint of a new `indicator_id` is NOT a writer concern -- see [ADR-0044](../../reference/decision-index.md) "grain over entity" and the indicator-catalogue minting rules in [CLAUDE.md section 10](../../../CLAUDE.md).
+- Attach `source_id` FK on every row per Holy Law #9 (citation ledger -- see [ADR-0032](../../reference/decision-index.md)).
+- Reject rows that violate the meadow grammar (see [ADR-0041](../../reference/decision-index.md)) or that lack a declared `indicator_id` in `datasets/taxonomy/indicators.json`.
 
 ## `--dry-run` flag (PR #338)
 
@@ -41,9 +41,9 @@ When to use:
 
 ## See also
 
-- [ADR-0044](../decisions/0044-grain-over-entity.md) -- grain dispatched at read time, not encoded in `indicator_id`.
-- [ADR-0041](../decisions/0041-meadow-tier.md) -- meadow tier path grammar (input side of the writer).
-- [ADR-0032](../decisions/0032-sources-citation-ledger.md) -- `source_id` FK requirement on every observation row.
+- [ADR-0044](../../reference/decision-index.md) -- grain dispatched at read time, not encoded in `indicator_id`.
+- [ADR-0041](../../reference/decision-index.md) -- meadow tier path grammar (input side of the writer).
+- [ADR-0032](../../reference/decision-index.md) -- `source_id` FK requirement on every observation row.
 - [lifting.md](lifting.md) -- per-family lift commands that call the writer.
 - [validator.md](validator.md) -- Tier A / Tier B validation that runs after a real write.
 - [../data/canonical-store.md](../data/canonical-store.md) -- canonical store schema and Hive partitioning.

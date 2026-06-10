@@ -8,7 +8,7 @@ Phase 2 of the [charting modernisation plan](../../../../docs/archive/20260518-f
 
 A generic stacked-trend renderer at [`frontend/src/lib/charts/StackedTrendV2.svelte`](../../../../frontend/src/lib/charts/StackedTrendV2.svelte) backed by:
 
-- **Zod model** — [`frontend/src/lib/charts/stacked-trend-v2/types.ts`](../../../../frontend/src/lib/charts/stacked-trend-v2/types.ts) defines `StackedTrendV2Model` (root `schema_version: "2.0"`) and `StackedTrendV2Source` (11-column [ADR-0032](../../decisions/0032-sources-citation-ledger.md) ledger).
+- **Zod model** — [`frontend/src/lib/charts/stacked-trend-v2/types.ts`](../../../../frontend/src/lib/charts/stacked-trend-v2/types.ts) defines `StackedTrendV2Model` (root `schema_version: "2.0"`) and `StackedTrendV2Source` (11-column [ADR-0032](../../../reference/decision-index.md) ledger).
 - **View-model helpers** — [`frontend/src/lib/charts/stacked-trend-v2/helpers.ts`](../../../../frontend/src/lib/charts/stacked-trend-v2/helpers.ts) ships pure helpers for segmented mode, pinned readout, inline labels overlay, missing/`not_applicable` hatch, motion, and SVG export. `MODE_LABELS = { percent: "Share", absolute: "Total" }` — the renderer paints from this constant.
 - **Adopters** — [`ElectionSeatsTrend.svelte`](../../../../frontend/src/lib/ElectionSeatsTrend.svelte) and `StackedTrendArtifact.svelte` (Track-D D10–D12). The v1 `StackedTrend.svelte` was deleted in D13 once both adopters migrated.
 
@@ -34,7 +34,7 @@ A generic stacked-trend renderer at [`frontend/src/lib/charts/StackedTrendV2.sve
 - [`source-list-v2.md`](source-list-v2.md) — ledger renderer that StackedTrendV2's footer mounts.
 - [`temporal-viewport.md`](temporal-viewport.md) — brush helpers driving the temporal-window control.
 - [`sort-policy-and-builders.md`](sort-policy-and-builders.md) — view-model builders that StackedTrendV2 consumes for category ordering.
-- [ADR-0032](../../decisions/0032-sources-citation-ledger.md) — sources citation-ledger contract (the v2 source shape).
+- [ADR-0032](../../../reference/decision-index.md) — sources citation-ledger contract (the v2 source shape).
 
 ## Historical citations
 

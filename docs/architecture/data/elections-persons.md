@@ -2,13 +2,13 @@
 
 **Last Updated**: 2026-06-05
 
-This page is the keep-receipts home for the persons + candidacies data model under `family: "elections"` per [parent plan section 9](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) (Hans-finalised 2026-06-03) and [decision-index.md](../../reference/decision-index.md). It carries the condensed Context + Decision + Consequences for the one live ADR that pinned the model (0035) and the verbatim rejected-alternatives trace. The operational view-model loaders and the run-time joins live in the sibling subsystem doc [elections-indicators.md](elections-indicators.md); this page carries only the architectural-decision receipts.
+This page is the keep-receipts home for the persons + candidacies data model under `family: "elections"` per the ADR retirement contract ([decision-index.md](../../reference/decision-index.md)). It carries the condensed Context + Decision + Consequences for the one live ADR that pinned the model (0035) and the verbatim rejected-alternatives trace. The operational view-model loaders and the run-time joins live in the sibling subsystem doc [elections-indicators.md](elections-indicators.md); this page carries only the architectural-decision receipts.
 
 > **DOCTRINE NOTE (2026-06-04, plan section 22.7).** The persons + candidacies split survives the canonical-store CSV cutover unchanged. What MIGRATES is the storage form (long-format CSV under `datasets/data/` rather than the retiring Parquet tree per plan chunks B2 / F1 / X1a); the identity grammar's load-bearing invariants (one person per distinct human, candidacy as the per-event fact, hash-content-addressable cluster identity, hand-authored merge overlay, bronze/silver/gold confidence tiers) are invariant to the storage format. References below to `.parquet` files MIGRATE to their long-format CSV equivalents under `datasets/data/` per the rip-and-replace; the doc is updated in lockstep as the writer cutover lands.
 
 ## Design rationale
 
-This section folds in the receipt from the originating ADR that pinned the persons + candidacies model (`docs/elections-persons.md#adr-0035-persons-fork-option-b` deleted in D-DOC3.10 closure), per parent plan section 9 (keep-receipts ADR retirement) and [decision-index.md](../../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
+This section folds in the receipt from the originating ADR that pinned the persons + candidacies model (`docs/elections-persons.md#adr-0035-persons-fork-option-b` deleted in D-DOC3.10 closure), per the ADR retirement contract ([decision-index.md](../../reference/decision-index.md)). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
 
 ### ADR-0035: persons-fork-option-b
 
@@ -45,11 +45,11 @@ datasets/taxonomy/
 
 ## Rejected alternatives
 
-This section preserves the rejected-alternatives receipts for the ADR whose rationale is folded above, verbatim and append-only per [parent plan section 9](../../../TODO/20260603-data-and-charting-platform-reset-plan.md). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
+This section preserves the rejected-alternatives receipts for the ADR whose rationale is folded above, verbatim and append-only per the ADR retirement contract ([decision-index.md](../../reference/decision-index.md)). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
 
 ### ADR-0035 rejected alternatives
 
-Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-receipts).
+Verbatim from the originating ADR. Append-only per ADR retirement contract.
 
 - **A. Smallest reversible step: keep `dim_candidates`, add separate `dim_persons` for governments only.** The agent panel's first-round default (2026-05-19, PR #56). Add `dim_persons.parquet` for the government side only; leave `dim_candidates` untouched; accept the duplication; revisit later. Rejected by user override. Three reasons converged: (1) the duplication has a known cost (every "who is this person?" question forks at the loader, with no canonical answer) and an unknown ceiling (every new family that mentions a person - affidavits, ITR disclosures, CAG audit findings - re-asks the same question and the parallel-tree pattern compounds); (2) the TCPD seed has no home in Option A - half the corpus would land on `dim_candidates` (for election queries) and half on `dim_persons` (for government queries), a permanent two-tier where the citizen surface shows different names depending on which page they enter from; (3) reversibility is asymmetric - Option B -> Option A is one commit (drop `elections_candidacies`, fold back into `dim_candidates`); Option A -> Option B is many commits across two families because both families have evolved consumers in the meantime. Take the harder step while the consumer count is small.
 - **C. `dim_persons` keyed on an upstream-provided ID (no own grammar).** Adopt TCPD `Candidate_ID` as `person_id` directly. Skip the layer-1 default; only persons with a TCPD cluster get a row. Rejected because TCPD coverage is non-uniform - strong on Parliament and TN-AE; thin on other state AEs; absent on municipal and panchayat elections. Keying on TCPD strands every non-TCPD person without identity, breaking the loader for the long tail. The layer-1 default + TCPD seed is the right shape: every person gets identity day-one, TCPD evidence promotes a subset to merged identity.

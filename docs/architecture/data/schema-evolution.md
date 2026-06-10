@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-31
 
-This document is the operational policy for evolving yen-gov schema contracts without unnecessary data rebuilds. [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md) records the decision; this page records the working rules.
+This document is the operational policy for evolving yen-gov schema contracts without unnecessary data rebuilds. [ADR-0047](../../reference/decision-index.md) records the decision; this page records the working rules.
 
 ## Scope
 
@@ -170,7 +170,7 @@ Stop and escalate if a proposed compatibility path would:
 
 ## Design rationale
 
-This section consolidates the rationale (Context + Decision + Consequences, condensed) of the originating ADR that pinned the cross-cutting choice for this subsystem (the schema-version compatibility contract); the originating ADR file under `docs/architecture/decisions/` was deleted in [docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md](../../archive/plans/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.10 closure. The redirect map lives at [decision-index.md](../../reference/decision-index.md). Folded into this doc per D-DOC3.8 (2026-06-04).
+This section consolidates the rationale (Context + Decision + Consequences, condensed) of the originating ADR that pinned the cross-cutting choice for this subsystem (the schema-version compatibility contract). The redirect lives in [decision-index.md](../../reference/decision-index.md).
 
 ### ADR-0047: schema-version-compatibility-contract
 
@@ -199,11 +199,11 @@ The operational rules (writers strict, readers compatible by contract, reader-be
 
 ## Rejected alternatives
 
-This section preserves the rejected-alternatives receipts from the ADR whose rationale is folded above, verbatim and append-only per [docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md](../../archive/plans/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.8 (2026-06-04). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
+This section preserves the rejected-alternatives receipts from the ADR whose rationale is folded above, verbatim and append-only per the ADR retirement contract ([decision-index.md](../../reference/decision-index.md)). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
 
 ### ADR-0047 rejected alternatives
 
-Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-receipts).
+Verbatim from the originating ADR. Append-only per ADR retirement contract.
 
 - **A. Current-only equality forever.** Rejected. It keeps validation simple, but it turns every additive schema bump into potential data churn. That is bad public-data hygiene because a changed artifact timestamp or version string can look like a factual update when no value changed.
 - **B. Accept any older version with the same major.** Rejected. Semver-like ranges are too loose for public data. A minor bump can be technically additive while still requiring reader knowledge to interpret a new enum value, table footer, or manifest field.
@@ -216,7 +216,7 @@ Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-r
 
 ## See also
 
-- [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md)
+- [ADR-0047](../../reference/decision-index.md)
 - [docs/reference/schemas.md](../../reference/schemas.md)
 - [docs/architecture/backend/validator.md](../backend/validator.md)
 - [docs/architecture/data/canonical-store.md](canonical-store.md)

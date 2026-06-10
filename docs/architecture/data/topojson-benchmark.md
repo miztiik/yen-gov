@@ -6,9 +6,7 @@
 This doc captures the per-route benchmark protocol used to validate the
 GeoJSON-to-TopoJSON migration of `datasets/boundaries/in/states/all.*`.
 It is the durable home for two reconnaissance notes lifted from `notes/`
-during the G4 working-docs-home retirement (see
-[TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md)
-§9 row "notes/ + TODO/"). The two dated sections below are historical
+during the G4 working-docs-home retirement (2026-06-08). The two dated sections below are historical
 receipts captured verbatim so future benchmark runs can be checked
 against the same harness contract.
 
@@ -16,7 +14,7 @@ Pointers:
 
 - Harness: [frontend/e2e/boundary-benchmark.spec.ts](../../../frontend/e2e/boundary-benchmark.spec.ts).
 - Loader instrumentation: [frontend/src/lib/boundaries.ts](../../../frontend/src/lib/boundaries.ts) (VITE_BENCH=1 guard).
-- Plan-doc this benchmark closed: [docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md](../../archive/plans/20260531-geojson-to-topojson-migration-plan.md).
+- Benchmark for the geojson-to-topojson migration (2026-05-31).
 
 ---
 
@@ -53,11 +51,11 @@ Per-run loop:
 Cold = simulated fresh-arrival via the cache/cookie/storage wipe.
 Warm = re-navigation with everything cached.
 
-#### Methodology deviations from the plan-doc spec
+#### Methodology deviations from spec
 
 - **5 + 5 runs** instead of 10 + 10. Cold runs measured ~60 s wall each
   under the throttle (full goto-to-load + 20 s lazy window + cache wipe);
-  10 + 10 would have crossed the 20-min wall budget the plan-doc itself
+  10 + 10 would have crossed the 20-min wall budget the spec
   cites. 5 + 5 still gives stable median + p95 + noise-floor (p95 - median)
   and is reproducible: the cold-run wire_bytes column is bit-identical
   across all 5 runs.
@@ -118,7 +116,7 @@ Notes:
 
 ### 3. STOP CONDITION (derived for P1.4)
 
-Per plan-doc P1.4 spec, the per-metric STOP CONDITION for a candidate
+Per the P1.4 spec, the per-metric STOP CONDITION for a candidate
 topojson run vs this geojson baseline is `delta >= 3 * noise_floor`,
 applied to the warm-median (the citizen-felt steady state).
 

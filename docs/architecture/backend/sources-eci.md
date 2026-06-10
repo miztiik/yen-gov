@@ -75,7 +75,7 @@ Acknowledged costs:
 - The two-step pattern is more boilerplate than a one-call `fetch_and_parse`. Worth it because the pipeline reuses `to_*` with cached HTML during reprocessing.
 - Party-name resolution is a runtime concern, not a parser concern — `party_short` may temporarily equal the full name during single-page testing. The pipeline always passes a lookup in production runs.
 
-The following h3 subsections fold in the source-authority + current-year-scope rationale from the originating ADRs (`docs/architecture/decisions/` files deleted in D-DOC3.10 closure) per [parent plan section 9](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) (keep-receipts ADR retirement) and [decision-index.md](../../reference/decision-index.md). The verbatim rejected alternatives live under [Alternatives considered](#alternatives-considered) below as additional h3 subsections.
+The following h3 subsections fold in the source-authority + current-year-scope rationale from the originating ADRs per the ADR retirement contract ([decision-index.md](../../reference/decision-index.md)). The verbatim rejected alternatives live under [Alternatives considered](#alternatives-considered) below as additional h3 subsections.
 
 ### ADR-0016: eci-statistical-reports-canonical
 
@@ -101,11 +101,11 @@ The following h3 subsections fold in the source-authority + current-year-scope r
 - **Save HTML fixtures under `tests/fixtures/eci/` and run tests offline**. Rejected: fixtures drift from reality and create false confidence. We accept the live-test cost in exchange for early warning when ECI changes a page.
 - **Build `ResultSummary` from partywise alone**. Rejected: the partywise page gives seats, not votes. Emitting a summary with `votes=0` everywhere would technically pass schema but would silently mislead consumers.
 
-The following h3 subsections fold in the verbatim rejected-alternatives traces from the source-authority + current-year-scope ADRs (companions to the [Design rationale](#design-rationale) h3 subsections above) per [parent plan section 9](../../../TODO/20260603-data-and-charting-platform-reset-plan.md). Append-only.
+The following h3 subsections fold in the verbatim rejected-alternatives traces from the source-authority + current-year-scope ADRs (companions to the [Design rationale](#design-rationale) h3 subsections above) per the ADR retirement contract. Append-only.
 
 ### ADR-0016 rejected alternatives
 
-Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-receipts).
+Verbatim from the originating ADR. Append-only per ADR retirement contract.
 
 - **Treat all ECI surfaces (Statistical Reports, Results portal, Delimitation Order, CEO sites) as one undifferentiated "ECI source".** Rejected: they differ in authority, freshness, and format. Saying "any ECI URL satisfies `status: complete`" loses meaning.
 - **Combine recon and enrichment in one workstream.** Rejected: recon's purpose is to surface unknowns; tying it to a parser commits us to a parser shape before we know what we're parsing. CLAUDE.md section 6 explicitly: "Level 4+ - propose breakdown first."
@@ -114,7 +114,7 @@ Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-r
 
 ### ADR-0017 rejected alternatives
 
-Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-receipts).
+Verbatim from the originating ADR. Append-only per ADR retirement contract.
 
 - **Auto-discovery via `extract_hub_table()` at ingestion time.** Rejected: makes ingestion non-deterministic, couples the parser to a regex over a minified JS bundle, and means a malformed bundle takes the pipeline down rather than failing recon visibly.
 - **Phase B = "everything in the hub table" in one go.** Rejected: blocked on `old.eci.gov.in` reachability and would conflate two different network/parsing risk profiles into a single change.
@@ -156,7 +156,7 @@ https://www.eci.gov.in/eci-backend/public/api/election-result?category_id=<categ
 https://www.eci.gov.in/eci-backend/public/api/download?url=<base64-blob>
 ```
 
-These signed URLs expire. We re-resolve them from the landing/catalogue on every fetch. The intermediate downloaded XLSX/PDF lives in `.runtime/raw/eci/...` per [no fetch cache](../decisions/0003-no-fetch-cache.md) — not a contract surface, gitignored, throwaway.
+These signed URLs expire. We re-resolve them from the landing/catalogue on every fetch. The intermediate downloaded XLSX/PDF lives in `.runtime/raw/eci/...` per [no fetch cache](../../reference/decision-index.md) — not a contract surface, gitignored, throwaway.
 
 The 2021-and-earlier archive is different: the hub table points directly at `https://old.eci.gov.in/files/file/<id>-<slug>/` landing pages. Those permalinks are also safe for provenance, but they are not `category_id` catalogues.
 
@@ -173,7 +173,7 @@ The 2021-and-earlier archive is different: the hub table points directly at `htt
 **Phase B — Enrichment**. The first slice was the May-2026 assembly cohort; the same Section 10 path now handles the pinned 2024-2026 assembly catalogues and the 2023 static-catalog cohort. Pipeline shape:
 
 1. **Catalog**: call `GET /api/election-result?category_id=<id>` per state/year when a 2024+ pin exists. Historical context: `(state, year) -> category_id` values lived in `config/eci-pins.json` (validated by `eci_pins.schema.json`, loaded by `categories.py`); all three were retired in G9 (2026-06-08) as orphan code after the network-fetch CLIs that consumed them retired in B4-pt2.2 (#826). Extending the map is no longer applicable - the operator now hand-loads the resolved XLSX into `eci-statreport-emit-local` directly.
-2. **Download**: every listed `xlsx_url` (and the matching `pdf_zip_url` for human cross-check) to `.runtime/raw/eci/<state>/<year>/<slug>.xlsx` per [no fetch cache](../decisions/0003-no-fetch-cache.md). The landing-page permalink — *not* the path under `.runtime/raw/` — goes into `sources[]` with the fetch timestamp.
+2. **Download**: every listed `xlsx_url` (and the matching `pdf_zip_url` for human cross-check) to `.runtime/raw/eci/<state>/<year>/<slug>.xlsx` per [no fetch cache](../../reference/decision-index.md). The landing-page permalink — *not* the path under `.runtime/raw/` — goes into `sources[]` with the fetch timestamp.
 3. **Parse**: with `openpyxl` directly. `pandas.read_excel` would pull a 50MB wheel for 90% unused functionality; the read-only XLSX surface fits openpyxl cleanly. Each report section becomes its own emitted artifact under `datasets/results/in/<state>/<year>/<section>.json`, validated against the appropriate result schema.
 4. **No `jl()` on the canonical path.** The 2024+ endpoint is cleartext; the helper stays in `tools/eci_recon/` for future legacy probing only.
 5. **Hand-curated pins, not auto-discovery at ingest time.** Recon is the discovery mechanism; ingestion uses pinned ids. A "figure it out at runtime" approach makes the pipeline non-deterministic and silently breaks when ECI reshuffles the bundle. Mismatch between the pin and the next recon run is the early-warning signal.
@@ -246,7 +246,7 @@ For the all-states AE panel at `datasets/ephemeral/All_States_AE.csv`, ingestion
 
 `python -m yen_gov ingest-eci-ae-panel --input datasets/ephemeral/All_States_AE.csv --state <S##> --delim-id 3 --delim-id 4 --dry-run`
 
-The dry-run reports rows by delimitation, registered/missing events, unresolved party tokens, and skipped rows without writing Parquet or inventory. Actual state PRs then ingest exactly one state, merge that state, and only then move to the next state. The state PR sequence and gates live in [`TODO/20260524-ae-panel-statewise-delim3-4-plan.md`](../../../TODO/20260524-ae-panel-statewise-delim3-4-plan.md).
+The dry-run reports rows by delimitation, registered/missing events, unresolved party tokens, and skipped rows without writing Parquet or inventory. Actual state PRs then ingest exactly one state, merge that state, and only then move to the next state.
 
 The rollout has three explicit state-token classes:
 
@@ -325,7 +325,7 @@ Acknowledged costs: recon discovers reality. If a state's report is published as
 
 - **Treat all ECI surfaces (Statistical Reports, Results portal, Delimitation Order, CEO sites) as one undifferentiated "ECI source".** Rejected: they differ in authority, freshness, and format. "Any ECI URL satisfies `status: complete`" loses meaning.
 - **Combine recon and enrichment in one workstream.** Rejected: recon's purpose is to surface unknowns; tying it to a parser commits us to a parser shape before we know what we're parsing.
-- **Keep recon findings only in `notes/` / TODO files.** Rejected: `notes/` and `TODO/` are working memory. Durable ingest mechanics belong here, with historical trace in `docs/archive/` if useful.
+- **Keep recon findings only in working notes.** Rejected: working notes directories are ephemeral. Durable ingest mechanics belong here, with historical trace in `docs/archive/` if useful.
 - **Persist signed download URLs in `sources[]` "for traceability".** Rejected: they expire.
 
 ## See also
@@ -333,5 +333,5 @@ Acknowledged costs: recon discovers reality. If a state's report is published as
 - [Backend overview](overview.md), [Pipeline orchestration](pipeline.md), [Wikipedia adapter](sources-wikipedia.md)
 - [`docs/reference/data-sources.md`](../../reference/data-sources.md) — live catalogue of sources and URL grammars.
 - [`tools/eci_recon/`](../../../tools/eci_recon/) — Phase A reconnaissance tool.
-- [ADR-0003 — No fetch cache](../decisions/0003-no-fetch-cache.md) — `.runtime/raw/` placement for intermediate downloads.
+- [ADR-0003 — No fetch cache](../../reference/decision-index.md) — `.runtime/raw/` placement for intermediate downloads.
 - [Constituency hierarchy & status lifecycle](../data-model.md#constituency-hierarchy-and-status-lifecycle).

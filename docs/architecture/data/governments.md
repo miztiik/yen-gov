@@ -81,4 +81,4 @@ This refreshes `taxonomy/entities.parquet`, the 3 CSV term-shape files under `da
 - [canonical-store.md](canonical-store.md) - canonical Parquet store and family layout.
 - [government-vs-election.md](../../concepts/government-vs-election.md) - concept boundary between governments, elections, and constitutional office tenures.
 - [data-provenance.md](../../concepts/data-provenance.md) - source ledger semantics.
-- [ADR-0032](../decisions/0032-sources-citation-ledger.md) - citation-ledger rationale.
+- [ADR-0032](../../reference/decision-index.md) - citation-ledger rationale.

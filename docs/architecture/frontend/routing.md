@@ -4,7 +4,7 @@
 
 ## What this is
 
-The operational form of the URL scheme decided in [ADR-0028](../decisions/0028-url-scheme-place-first-flat-indicator-slug.md), as amended by [ADR-0037](../decisions/0037-url-grammar-drop-india-prefix.md). This doc is for the engineer wiring the router; the ADRs are for the reviewer asking "why this shape."
+The operational form of the URL scheme decided in [ADR-0028](../../reference/decision-index.md), as amended by [ADR-0037](../../reference/decision-index.md). This doc is for the engineer wiring the router; the ADRs are for the reviewer asking "why this shape."
 
 > **Phase 4b shipped (2026-06-10).** The 4-phase URL-prefix-drop strangler-fig is COMPLETE. The route table in [frontend/src/main.ts](../../../frontend/src/main.ts) declares only Grammar A patterns; every internal `<a href>` builder lives on `link.X()` in [frontend/src/lib/links.ts](../../../frontend/src/lib/links.ts). PR #869 deleted the Grammar B `url.X()` builders + the 42-test contract; PR-P4 (this release) deleted `RedirectLegacyUrl.svelte` + the `/s/*` redirect route + dropped `s` from `RESERVED_PATH_TOKENS`. Legacy `/s/<state>/...` bookmarks now fall through to the NotFound page (404 with Home + Browse-topics recovery links).
 
@@ -41,7 +41,7 @@ The fallback file is regenerated as part of the Vite build (`postbuild` step cop
 /about, /settings, /disclaimer, /data-completeness    chrome
 ```
 
-The indicator is always the **last segment**. Position disambiguates — no `/i/` marker, no `?i=` query string. (`/i` is pre-reserved as a marker retrofit if the disjointness test starts firing at scale — see [ADR-0037 §rejected](../decisions/0037-url-grammar-drop-india-prefix.md) and Max §10k-scaling for the threshold rationale.)
+The indicator is always the **last segment**. Position disambiguates — no `/i/` marker, no `?i=` query string. (`/i` is pre-reserved as a marker retrofit if the disjointness test starts firing at scale — see [ADR-0037 §rejected](../../reference/decision-index.md) and Max §10k-scaling for the threshold rationale.)
 
 ## Slug shapes
 
@@ -51,13 +51,13 @@ The indicator is always the **last segment**. Position disambiguates — no `/i/
 | District | lowercase hyphenated (`chennai`) | `datasets/taxonomy/entities.json` (filter `entity_type='district' AND parent_entity_id=f'IN-{state}'`) |
 | AC | lowercase hyphenated name, **no number prefix** (`mylapore`, not `167-mylapore`) | `datasets/elections/dim_acs.parquet` (`name` column). Collision fallback `<name>-2` enforced at emit. |
 | Topic | the `id` field from the topic catalogue (`fiscal`, `energy`, `health`) | `datasets/taxonomy/topics.json` |
-| Indicator | lowercase hyphenated flat slug (`installed-capacity`, `per-capita-income`) | Future `url_slug` field on `datasets/taxonomy/indicators.parquet` (Phase 3 per [ADR-0037](../decisions/0037-url-grammar-drop-india-prefix.md) §Max-3i). |
+| Indicator | lowercase hyphenated flat slug (`installed-capacity`, `per-capita-income`) | Future `url_slug` field on `datasets/taxonomy/indicators.parquet` (Phase 3 per [ADR-0037](../../reference/decision-index.md) §Max-3i). |
 
 Indian-citizen-readable. Read-aloud test (Jony): `tamil-nadu/mylapore/installed-capacity` → "Tamil Nadu, Mylapore, installed capacity." Three nouns. No scaffolding.
 
 ### Entity-type framing (page chrome contract)
 
-Constitutional honesty is carried by the page chrome, not the URL. The state-hub page MUST render an `entity_type` badge (`state` | `UT`) directly under the H1, with the legislative-scope note where applicable (Delhi NCT, J&K UT-since-2019, Chandigarh / Lakshadweep / Ladakh UTs without legislature). The URL `/<state-slug>` reads as a place-fact (Wikipedia-trained mental model); the page chrome closes the constitutional loop. See [ADR-0022](../decisions/0022-place-first-ia-with-topic-catalogue.md) §constitutional-honesty.
+Constitutional honesty is carried by the page chrome, not the URL. The state-hub page MUST render an `entity_type` badge (`state` | `UT`) directly under the H1, with the legislative-scope note where applicable (Delhi NCT, J&K UT-since-2019, Chandigarh / Lakshadweep / Ladakh UTs without legislature). The URL `/<state-slug>` reads as a place-fact (Wikipedia-trained mental model); the page chrome closes the constitutional loop. See [ADR-0022](../../reference/decision-index.md) §constitutional-honesty.
 
 ## Resolver contract
 
@@ -141,7 +141,7 @@ The colliding AC is **still reachable** via the canonical event-nested URL:
 /<state>/elections/<event>/ac/<ac>
 ```
 
-per [ADR-0052](../decisions/0052-event-context-in-ac-url.md). The bare positional URL `/<state>/<slug>` was always a CONVENIENCE entry for the AC, never a canonical resource — Option A formalises that. Bare-AC links in citizen-facing copy SHOULD use the canonical event-nested form so the AC is always reachable regardless of district name collisions.
+per [ADR-0052](../../reference/decision-index.md). The bare positional URL `/<state>/<slug>` was always a CONVENIENCE entry for the AC, never a canonical resource — Option A formalises that. Bare-AC links in citizen-facing copy SHOULD use the canonical event-nested form so the AC is always reachable regardless of district name collisions.
 
 The bare-AC route entry (`/<state>/ac/<ac>`) also stays alive for callers that have an `eci_no` but no event id; it `replaceState`-redirects to the state's default event per ADR-0052.
 
@@ -152,7 +152,7 @@ The original PR-D1 draft attempted to enforce strict per-state `districts ⊥ AC
 1. **Block PR-D1 on a Hans+Max-signed-off corpus rename** of ~401 AC rows with a `-N` suffix. That is a citizen-visible URL change touching the canonical data spine — Holy Law-level work that does NOT belong inside a routing-PR scope.
 2. **Auto-rename ACs without the data team's signoff.** That violates CLAUDE.md s10 Anti-pattern #1: silent demotion of a user-named artifact.
 
-Option A picks neither. The dispatcher's deterministic first-wins resolution order IS the gate; the AC stays reachable via its canonical URL; the optional corpus cleanup is documented as a follow-up (see [TODO/20260609-url-prefix-drop-phase0-plan.md](../../../TODO/20260609-url-prefix-drop-phase0-plan.md) § "Follow-up deferrals"), NOT a blocker.
+Option A picks neither. The dispatcher's deterministic first-wins resolution order IS the gate; the AC stays reachable via its canonical URL; the optional corpus cleanup is documented as a follow-up (documented as a follow-up, not a blocker).
 
 ### What the build-time gate still asserts
 
@@ -179,7 +179,7 @@ After PR #871 the redirect component + the `/s/*` route + `s` from `RESERVED_PAT
 
 ## Cross-state indicator-compare surface
 
-Lives ON the indicator page itself in Phase 3+, not at a separate URL. OWID precedent: `/grapher/co2-emissions-per-capita` IS the compare surface — the country-picker is a control on the chart, not a separate URL. The existing election-compare surface at `/compare/<state>/<event>` is a different beast (compares one event outcome across many states) and stays. See [ADR-0037 §cross-state](../decisions/0037-url-grammar-drop-india-prefix.md).
+Lives ON the indicator page itself in Phase 3+, not at a separate URL. OWID precedent: `/grapher/co2-emissions-per-capita` IS the compare surface — the country-picker is a control on the chart, not a separate URL. The existing election-compare surface at `/compare/<state>/<event>` is a different beast (compares one event outcome across many states) and stays. See [ADR-0037 §cross-state](../../reference/decision-index.md).
 
 ## Pre-built routes file
 
@@ -216,7 +216,7 @@ The `RootResolver` consults RESERVED + state-registry + indicator-registry to de
 
 ## See also
 
-- [ADR-0028 — URL scheme](../decisions/0028-url-scheme-place-first-flat-indicator-slug.md) — amended on the country-prefix question.
-- [ADR-0037 — drop /india/ prefix](../decisions/0037-url-grammar-drop-india-prefix.md) — the binding 2026-05-25 amendment; carries the three-voice digest, the four-phase plan, and the open user-gate questions.
+- [ADR-0028 — URL scheme](../../reference/decision-index.md) — amended on the country-prefix question.
+- [ADR-0037 — drop /india/ prefix](../../reference/decision-index.md) — the binding 2026-05-25 amendment; carries the three-voice digest, the four-phase plan, and the open user-gate questions.
 - [ADR-0016 — hash routing](../../archive/decisions/0016-frontend-hash-routing.md) — superseded (archived 2026-06-04 per D-DOC3.6; trace folded into [url-grammar.md](url-grammar.md#adr-0016-frontend-rejected-alternatives)).
 - [docs/concepts/owid-alignment.md](../../concepts/owid-alignment.md) — the fallback doctrine this scheme exemplifies.

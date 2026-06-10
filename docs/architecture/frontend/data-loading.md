@@ -376,7 +376,7 @@ Verified pre-merge against `datasets/elections/observations/**/*.parquet` and `d
 
 ### Phase 1.6 — top-N field-size honesty (PR-K)
 
-**Status (2026-05-18)**: live. Resolves Q5 in docs/archive/plans/20260517-canonical-long-format-pivot.md.
+**Status (2026-05-18)**: live. Resolves Q5 from the canonical long-format pivot design.
 
 The canonical observations now carry three new `ac-*` indicators:
 
@@ -392,7 +392,7 @@ The canonical observations now carry three new `ac-*` indicators:
 
 ## CSV loader seam (F1.1 - F1.3, distilled 2026-06-06)
 
-The frontend's path from `read_parquet(...)` to `read_csv(columns=...)` shipped as four PRs under sub-plan [docs/archive/plans/20260605-f1-csv-loaders-and-oracle-rewrite-subplan.md](../../archive/plans/20260605-f1-csv-loaders-and-oracle-rewrite-subplan.md). The seam is now stable; X1a will atomically retire the surviving Parquet readers (`dim_parties`, `taxonomy.sources`, `dim_party_alliances`).
+The frontend's path from `read_parquet(...)` to `read_csv(columns=...)` shipped as four PRs under sub-plan F1 (2026-06-05). The seam is now stable; X1a will atomically retire the surviving Parquet readers (`dim_parties`, `taxonomy.sources`, `dim_party_alliances`).
 
 ### Backend parity oracle reading CSV (F1.1, PR #791)
 
@@ -416,11 +416,11 @@ Six view-model files moved from `read_parquet(...)` joining `dim_persons` + `dim
 | F1.3a #803 | [`view-models/constituency.ts`](../../../frontend/src/lib/view-models/constituency.ts), [`view-models/state-overview.ts`](../../../frontend/src/lib/view-models/state-overview.ts), [`psephlab/canonical-loaders.ts`](../../../frontend/src/lib/psephlab/canonical-loaders.ts) |
 | F1.3b #806 | [`view-models/national-elections.ts`](../../../frontend/src/lib/view-models/national-elections.ts), [`yenask/concepts.ts`](../../../frontend/src/lib/yenask/concepts.ts), [`explore/duckdb-views.ts`](../../../frontend/src/lib/explore/duckdb-views.ts) |
 
-Biographic columns (`sex, age, education, profession`) now ride INLINE on `candidacies.csv` per parent plan section 21.3; the `dim_persons` JOIN that pre-F1 view-models carried is gone from these six callers. `dim_parties` + `taxonomy.sources` + `dim_party_alliances` stay on Parquet through F1 and flip in X1a. One known regression: `winner_age` reads null on National PC tooltips (the `dim_persons.age` JOIN retired) - recovery deferred to X1a or a follow-up via candidacies.csv JOIN on `(entity_id, candidate_name=winner_candidate)`.
+Biographic columns (`sex, age, education, profession`) now ride INLINE on `candidacies.csv` per the canonical store column contract; the `dim_persons` JOIN that pre-F1 view-models carried is gone from these six callers. `dim_parties` + `taxonomy.sources` + `dim_party_alliances` stay on Parquet through F1 and flip in X1a. One known regression: `winner_age` reads null on National PC tooltips (the `dim_persons.age` JOIN retired) - recovery deferred to X1a or a follow-up via candidacies.csv JOIN on `(entity_id, candidate_name=winner_candidate)`.
 
 ### CSV column contract
 
-The single authoritative home for every file's column schema (name + dtype + nullability + sort key) is `datasets/data/_schema/columns.json`, per parent plan section 21.2. The writer/reader/drift-test triangle that pins the seam:
+The single authoritative home for every file's column schema (name + dtype + nullability + sort key) is `datasets/data/_schema/columns.json`, per the canonical store column contract. The writer/reader/drift-test triangle that pins the seam:
 
 - **Writer** (`yen_gov.canonical.csv_writer.write_csv`) - rejects undeclared columns + wrong dtypes at emit time.
 - **Reader** (`csvColumnsClause(fileClass)` above) - issues a typed `read_csv(columns={...})` per file class; never `read_csv_auto`.
@@ -434,7 +434,7 @@ See [Canonical CSV writer](../backend/canonical-writer.md) for the writer side o
 - [`docs/how-to/release.md`](../../how-to/release.md)
 - [Canonical store](../data/canonical-store.md) — the Parquet store the new loader reads.
 - [Schema evolution](../data/schema-evolution.md) - writer-strict / reader-compatible policy.
-- [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md) - schema-version compatibility contract.
+- [ADR-0047](../../reference/decision-index.md) - schema-version compatibility contract.
 - CLAUDE.md §1 (static-first), §4 (layer rules).
 
 ## DuckDB-WASM loader (Phase 0.8 — isolated harness)

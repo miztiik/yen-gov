@@ -1,7 +1,7 @@
 # State Health Sources And Ingest Boundaries
 
 **Last Updated**: 2026-05-26
-**Status**: SUPERSEDED — health family retired in PR-D6. See [docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md](../../../docs/archive/plans/20260526-grain-over-entity-and-storage-decoupling-plan.md) §D6 and [docs/reference/topics/health.md](../../reference/topics/health.md).
+**Status**: SUPERSEDED — health family retired in PR-D6. See [docs/reference/topics/health.md](../../reference/topics/health.md).
 
 Historical source recon below — kept as architectural reference for the future canonical health adapter; not authoritative for any current artifact.
 
@@ -12,7 +12,7 @@ See also:
 - [data-sources.md](../../reference/data-sources.md)
 - [data-coverage-report.md](../../reference/data-coverage-report.md)
 - [cross-state-comparison.md](../../concepts/cross-state-comparison.md)
-- [20260515-health-ingest-handover.md](../../../TODO/20260515-health-ingest-handover.md)
+- health ingest handover (2026-05-15, archived)
 
 This note fixes the source hierarchy and ingest boundaries for state-level health indicators before another agent starts downloading and parsing more files. The key design choice is concept-first, not publisher-first: health financing, health outcomes, and health system capacity are separate contract families and should not be merged just because RBI and CBHI surface them on adjacent pages.
 

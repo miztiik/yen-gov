@@ -88,7 +88,7 @@ Margin shading uses opacity, not hue: a 51%–49% AC paints the winning party at
 
 ## Map / Equal seats mode (election mounts)
 
-Per [ADR-0048](../decisions/0048-elections-drill-ia-and-tile-cartogram.md), election surfaces carry a segmented toggle labelled **`Map`** / **`Equal seats`** — never the jargon "choropleth" / "cartogram". Default is geographic (`Map`) at every level. The mode persists to the URL as `?view=geo|hex`. The `Equal seats` arm renders a tile cartogram (`frontend/src/lib/charts/TileCartogram.svelte`) where each tile is one constituency, sized equally, fed by a layout dataset under `datasets/grapher/election_tile_layouts.json` ([ADR-0045](../decisions/0045-grapher-catalogue-split.md): render data is frontend-owned). The legend line reads **"Each tile = one seat."**
+Per [ADR-0048](../../reference/decision-index.md), election surfaces carry a segmented toggle labelled **`Map`** / **`Equal seats`** — never the jargon "choropleth" / "cartogram". Default is geographic (`Map`) at every level. The mode persists to the URL as `?view=geo|hex`. The `Equal seats` arm renders a tile cartogram (`frontend/src/lib/charts/TileCartogram.svelte`) where each tile is one constituency, sized equally, fed by a layout dataset under `datasets/grapher/election_tile_layouts.json` ([ADR-0045](../../reference/decision-index.md): render data is frontend-owned). The legend line reads **"Each tile = one seat."**
 
 The cartogram is grain-agnostic: the same primitive renders AC tiles (state surface) and PC tiles (national `/t/elections/:event` atlas), dispatched from the row's `entity_kind`. The toggle and `TileCartogram` are fenced to **election mounts only** in v1 — equal-sizing welfare indicators is misleading and is rejected on doctrinal grounds (Hans + Max veto; see [schema-is-the-design-system.md](../../concepts/schema-is-the-design-system.md)).
 
@@ -374,7 +374,7 @@ The following were deleted in PR #455:
 
 ## Rejected alternatives
 
-This section folds in receipts for the moved-to-archive ADRs whose rejected-alternative trace pins to this subsystem (originating `docs/architecture/decisions/` files deleted in D-DOC3.10 closure), per parent plan section 9 (keep-receipts ADR retirement) and [decision-index.md](../../reference/decision-index.md). Append-only.
+This section folds in receipts for the moved-to-archive ADRs whose rejected-alternative trace pins to this subsystem, per the ADR retirement contract ([decision-index.md](../../reference/decision-index.md)). Append-only.
 
 ### ADR-0029 rejected alternatives
 

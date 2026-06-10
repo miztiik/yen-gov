@@ -18,7 +18,7 @@ For the per-row column list, FK contracts, and coverage rollup mechanics, read [
 
 ## Design rationale
 
-This section consolidates the rationale (Context + Decision + key Consequences, condensed) of the ADRs that define the indicator catalogue. Each ADR's full body lives EITHER as the receipts folded below + verbatim under [Rejected alternatives](#rejected-alternatives), OR in `docs/archive/decisions/` (superseded). The originating `docs/architecture/decisions/` files were deleted in D-DOC3.10 closure; the redirect map lives at [`docs/reference/decision-index.md`](../../reference/decision-index.md). Folded into this doc per [docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md](../../archive/plans/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.4 (2026-06-04).
+This section consolidates the rationale (Context + Decision + key Consequences, condensed) of the ADRs that define the indicator catalogue. Each ADR's full body lives either as the receipts folded below + verbatim under [Rejected alternatives](#rejected-alternatives), or in `docs/archive/decisions/` when superseded. Redirects live in [decision-index.md](../../reference/decision-index.md); routing rules live in [documentation-discipline.md#adr-0034-documentation-routing-contract](../../concepts/documentation-discipline.md#adr-0034-documentation-routing-contract).
 
 ### ADR-0020: indicator-artifact-as-data-contract
 
@@ -90,7 +90,7 @@ Permanent guardrails (shipped in PR-Z1): Guardrail #2 - `indicator-catalogue.sch
 
 ## Rejected alternatives
 
-This section preserves the rejected-alternatives receipts from the ADRs whose rationale is folded above, verbatim and append-only per [docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md](../../archive/plans/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.4 (2026-06-04). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
+This section preserves the rejected-alternatives receipts from the ADRs whose rationale is folded above, verbatim and append-only per the ADR retirement contract ([docs/reference/decision-index.md](../../reference/decision-index.md)). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
 
 ### ADR-0020 rejected alternatives
 

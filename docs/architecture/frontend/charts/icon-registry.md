@@ -35,15 +35,13 @@ The party-symbol asset registry under `frontend/public/party-symbols/*.svg` reus
 
 - [`frontend/src/lib/party-symbols/sanitizer.ts`](../../../../frontend/src/lib/party-symbols/sanitizer.ts) imports `parseIcon` from this icon registry and wraps it with a SHA-256 hash (`node:crypto`) for the `election_symbol.asset_sha256` field on `datasets/taxonomy/parties.json` per [taxonomy-parties.schema.json v2.2](../../../../datasets/schemas/taxonomy-parties.schema.json).
 - Walks `frontend/public/party-symbols/*.svg` in vitest ([`sanitizer.test.ts`](../../../../frontend/src/lib/party-symbols/sanitizer.test.ts), 18 cases) and rejects the same 15 forbidden elements + 4 forbidden attribute patterns this doc enumerates above.
-- Lives under `frontend/public/`, not `datasets/`, as a deliberate exception: SVG bytes are static public media served from `/party-symbols/<slug>.svg`. Metadata (symbol_name, source_id FK to `sources.parquet` per [ADR-0032](../../decisions/0032-sources-citation-ledger.md), license_label) stays party-data on `taxonomy/parties.json`.
+- Lives under `frontend/public/`, not `datasets/`, as a deliberate exception: SVG bytes are static public media served from `/party-symbols/<slug>.svg`. Metadata (symbol_name, source_id FK to `sources.parquet` per [ADR-0032](../../../reference/decision-index.md), license_label) stays party-data on `taxonomy/parties.json`.
 
 If a future asset class needs the same shape (any closed-set SVG registry), import `parseIcon` rather than copy the allowlist. Two divergent allowlists is the failure mode this whole module exists to prevent.
 
 ## See also
 
 - [`overview.md`](../overview.md) — visualization catalog.
-- [Phase 1.3 plan section](../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md) — rollout sequence 1.3a (foundation) through 1.3g (legacy `IndicatorIcon.svelte` deletion).
-- [`TODO/20260527-party-symbol-assets-plan.md`](../../../../TODO/20260527-party-symbol-assets-plan.md) - party-symbol registry plan-doc (uses this allowlist; first sister registry to import it).
 
 ## Historical citations
 

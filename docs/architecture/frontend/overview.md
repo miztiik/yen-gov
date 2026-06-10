@@ -32,7 +32,7 @@ Default landing is the **Citizen** path: India choropleth at `#/`, with a toolti
 
 ## Information architecture
 
-Layout is **pinned scope pill on top + four IA groups below**, in the left rail. Replaces the previous "tools-in-rail" model on 2026-05-13 (P3.3c, see TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md). The pill collapses the scope selector to a single line ("You're looking at: <State> ▾" / "Pick your state ▾") so the rail's visual weight goes to the IA groups.
+Layout is **pinned scope pill on top + four IA groups below**, in the left rail. Replaces the previous "tools-in-rail" model (2026-05-13). The pill collapses the scope selector to a single line ("You're looking at: <State> ▾" / "Pick your state ▾") so the rail's visual weight goes to the IA groups.
 
 ```
 ┌───────────────────────┬───────────────────────────────────────┐
