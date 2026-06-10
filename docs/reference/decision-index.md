@@ -117,10 +117,9 @@ Each archived ADR's body moves verbatim to `docs/archive/decisions/`. A one-line
 - A new numbered ADR file MUST NOT be authored. New rationale + rejected alternatives go directly into the relevant subsystem or concept doc per [ADR-0034](#adr-0034) routing rule.
 - ADR numbers MUST NOT be reused. This index is the permanent reservation list; an `ADR-NNNN` reference always means "the historical ADR with number NNNN" regardless of where the body now lives.
 - Receipt blocks (`## Rejected alternatives`) are append-only inside the destination doc. A fold-row MUST NOT delete an existing rejected-alternative entry; it adds the receipt being lifted.
-- Cross-references inside ALREADY-ARCHIVED plan-docs under `docs/archive/plans/` are NOT rewritten - they are frozen historical artifacts (per sub-plan scope).
+- Cross-references inside already archived working docs are not rewritten; they are frozen historical artifacts.
 
 ## See also
 
-- Sub-plan: [docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md](../archive/plans/20260604-d-doc3-adr-retire-subplan.md) -- the 10-row execution ledger that consumes this index.
 - Routing contract that this index honours: [ADR-0034](../concepts/documentation-discipline.md#adr-0034-documentation-routing-contract).
 - Doc class catalogue: [docs/reference/documentation-structure.md](documentation-structure.md) section 7 (the four-class routing standard).

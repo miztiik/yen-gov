@@ -55,7 +55,7 @@ Recommended root topology. The boundaries between these directories are real and
 | `docs/` | Canonical long-term project knowledge | Tracked |
 | `tools/` | Standalone operational/dev tooling (must NOT import from backend/) | Tracked |
 | `.runtime/` | Ephemeral run state, logs, staging | Gitignored |
-| `TODO/` | Working scratchpads, plans-in-flight | Tracked but non-authoritative (the legacy `notes/` directory was retired 2026-06-08; `TODO/` is now the sole working-docs home) |
+| `TODO` | Working scratchpads, plans-in-flight | Tracked but non-authoritative (the legacy `notes` directory was retired 2026-06-08; `TODO` is now the sole working-docs home) |
 | `/memories/` | Agent memory (cross-session notes, scoped) | Tool-managed |
 
 ### 3.1 Memory Hierarchy
@@ -66,10 +66,10 @@ Four distinct memory tiers exist; do not blur them:
 | --- | --- | --- | --- |
 | Canonical | `docs/` | Highest — source of truth | Durable knowledge, decisions, contracts |
 | Agent | `/memories/` | Per-agent, scoped | Cross-session preferences, lessons, repo facts |
-| Working | `TODO/` | Non-authoritative | In-progress plans, drafts, handoff memos (the legacy `notes/` directory was retired 2026-06-08) |
+| Working | `TODO` | Non-authoritative | In-progress plans, drafts, handoff memos (the legacy `notes` directory was retired 2026-06-08) |
 | Runtime | `.runtime/`, logs | Ephemeral | State, logs, staging — operational only |
 
-Rule: distill durable insights from Working/Agent into Canonical. Never let `TODO/`, `AGENTS.md`, or `/memories/` become the source of truth for architecture. `AGENTS.md` and repo memory are derived indexes that link to canonical docs for rationale and contracts.
+Rule: distill durable insights from Working/Agent into Canonical. Never let `TODO`, `AGENTS.md`, or `/memories/` become the source of truth for architecture. `AGENTS.md` and repo memory are derived indexes that link to canonical docs for rationale and contracts.
 
 ## 4. Architecture Contracts
 
@@ -225,7 +225,7 @@ Within the Diataxis tiers, **architectural** documentation splits further into f
 | **ADR** | `docs/architecture/decisions/NNNN-*.md` | Future agent debugging *why* | Immutable once Accepted (Status field flips only) | One decision + rejected alternatives + reversal cost + consequences | Implementation detail; current-state snapshot |
 | **Subsystem doc** | `docs/architecture/<area>/*.md` | Engineer extending the subsystem | Living snapshot (edit in place) | Shape, disk layout, contracts, invariants, write/read paths | Rationale prose; rejected alternatives |
 | **Concept doc** | `docs/concepts/*.md` | Anyone learning project vocabulary | Living, terse | One term, defined once, with cross-links | Duplication of any term defined elsewhere |
-| **Plan-doc** | `TODO/<YYYY-MM-DD>-<slug>.md` | Next person picking up work | Single-snapshot (no stacked headers) | Phase status, active PR breakdown, TBD list, pointers | Rationale prose; decisions; rejected alternatives |
+| **Plan-doc** | Working-doc path under `TODO` | Next person picking up work | Single-snapshot (no stacked headers) | Phase status, active PR breakdown, TBD list, pointers | Rationale prose; decisions; rejected alternatives |
 
 **Routing rules (decide a new statement's home):**
 
@@ -241,7 +241,7 @@ Within the Diataxis tiers, **architectural** documentation splits further into f
 - Plan-docs link ACROSS to both (`**Spec**:` + `**Decision rationale**:`).
 - Concept docs link laterally and DOWN to operationalising subsystem docs.
 
-**Single-snapshot header rule (plan-docs):** the top of a plan-doc is exactly one block — title, Last Updated, and one-paragraph Status. Previous status text is **deleted** at every phase boundary. Stacked "previous header" layers are a band-aid for missing snapshot semantics and forbidden by CLAUDE.md Holy Law #5. History lives in `git blame` and merge-commit titles.
+**Single-snapshot header rule:** the top of a working doc is exactly one block: title, Last Updated, and one-paragraph Status. Previous status text is **deleted** at every phase boundary. Stacked "previous header" layers are a band-aid for missing snapshot semantics and forbidden by CLAUDE.md Holy Law #5. History lives in `git blame` and merge-commit titles.
 
 ## 8. Correction Levels (Change Severity)
 
@@ -432,7 +432,7 @@ Generic don't-do list to copy into a new project's `CLAUDE.md`:
 - Mocking in tests unless explicitly requested.
 - Skipping logs, skipping docs, skipping schema bumps.
 - Using broad, lossy, or history-rewriting git commands instead of the scoped workflow.
-- Letting `TODO/` or chat logs become the source of truth.
+- Letting `TODO` or chat logs become the source of truth.
 - Assuming context — ask first when uncertain.
 
 ## 15. Optional Architectural Blueprints

@@ -185,7 +185,7 @@ The Department of Animal Husbandry & Dairying (DAHD) ships the Bharat Pashudhan 
 | Pashu Aadhaar (UID-tagged animals) | `src-7e5d4aac4995` | **Honest-renderer caveat (Hans)**: counts TAGGED animals only, NOT the underlying livestock population. Curve is monotone-non-decreasing (no de-registration event). Indicator-row will carry `comparability: directional_only` + `renderer_rules: ["no_rank_table"]`. |
 | NADCP Vaccination Coverage | `src-1d0c0fbf96e3` | Doses administered per district per FY (National Animal Disease Control Programme). |
 | Breeding Interventions (ABIP+RGM) | `src-fb1694ab6a11` | Accelerated Breed Improvement Programme + Rashtriya Gokul Mission, aggregated to district. |
-| NAIP IV (AI Coverage, Pregnancies, Calves) | `src-93a2a72db482` | National Artificial Insemination Programme Phase IV. CY/FY duality verified at recon (TN FY24-25: 1,529,434 vs CY24: 1,396,453). |
+| NAIP-IV (AI Coverage, Pregnancies, Calves) | `src-93a2a72db482` | National Artificial Insemination Programme fourth phase. CY/FY duality verified at recon (TN FY24-25: 1,529,434 vs CY24: 1,396,453). |
 
 All five share producer = "Department of Animal Husbandry & Dairying, Ministry of Fisheries, Animal Husbandry & Dairying, Government of India", vintage = "2024-25", license = OGL-IN-1.0, confidence_tier = gold (DAHD is the issuing authority for each series), verification_method = live-fetch (continuously-updated JSON APIs).
 
