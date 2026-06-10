@@ -1,0 +1,57 @@
+{
+  "$schema": "../schemas/state-formation-events.schema.json",
+  "$schema_version": "1.0",
+  "sources": [],
+  "events": [
+    {
+      "event_id": "mp-cg-2000-bifurcation",
+      "parent_state_ids": ["S12"],
+      "successor_state_ids": ["S12", "S26"],
+      "event_date": "2000-11-01",
+      "parent_window_start_year": 1947,
+      "source_id": "src-formation-mp-cg-2000",
+      "event_label": "Madhya Pradesh / Chhattisgarh split, 1 November 2000",
+      "notes": "Madhya Pradesh Reorganisation Act, 2000. Chhattisgarh (ECI S26, ISO IN-CG, LGD 22) carved from Madhya Pradesh (ECI S12, ISO IN-MP, LGD 23). Codes verified against datasets/taxonomy/entities.json + datasets/data/entities/geo.csv on 2026-06-10. The PR-W1b brief listed parent=[S26], successor=[S26,S25]; corrected here to parent=[S12], successor=[S12,S26] per on-disk taxonomy (S25 is West Bengal on the spine, not a CG synonym)."
+    },
+    {
+      "event_id": "up-uk-2000-bifurcation",
+      "parent_state_ids": ["S24"],
+      "successor_state_ids": ["S24", "S28"],
+      "event_date": "2000-11-09",
+      "parent_window_start_year": 1947,
+      "source_id": "src-formation-up-uk-2000",
+      "event_label": "Uttar Pradesh / Uttarakhand split, 9 November 2000",
+      "notes": "Uttar Pradesh Reorganisation Act, 2000. Uttarakhand (ECI S28, ISO IN-UK, LGD 05; initially named Uttaranchal, renamed 2007) carved from Uttar Pradesh (ECI S24, ISO IN-UP, LGD 09). The PR-W1b brief listed successor=[S24,S27]; corrected here to [S24,S28] per on-disk taxonomy (S27 is Jharkhand on the spine)."
+    },
+    {
+      "event_id": "bihar-jharkhand-2000-bifurcation",
+      "parent_state_ids": ["S04"],
+      "successor_state_ids": ["S04", "S27"],
+      "event_date": "2000-11-15",
+      "parent_window_start_year": 1947,
+      "source_id": "src-formation-bihar-jharkhand-2000",
+      "event_label": "Bihar / Jharkhand split, 15 November 2000",
+      "notes": "Bihar Reorganisation Act, 2000. Jharkhand (ECI S27, ISO IN-JH, LGD 20) carved from Bihar (ECI S04, ISO IN-BR, LGD 10). The PR-W1b brief listed successor=[S04,S20]; corrected here to [S04,S27] per on-disk taxonomy (S20 is Rajasthan on the spine)."
+    },
+    {
+      "event_id": "ap-telangana-2014-bifurcation",
+      "parent_state_ids": ["S01"],
+      "successor_state_ids": ["S01", "S29"],
+      "event_date": "2014-06-02",
+      "parent_window_start_year": 1956,
+      "source_id": "src-formation-ap-telangana-2014",
+      "event_label": "Andhra Pradesh / Telangana split, 2 June 2014",
+      "notes": "Andhra Pradesh Reorganisation Act, 2014. Telangana (ECI S29, ISO IN-TG, LGD 36) carved from undivided Andhra Pradesh (ECI S01, ISO IN-AP, LGD 28). Codes match the brief verbatim."
+    },
+    {
+      "event_id": "goa-daman-diu-1987-bifurcation",
+      "parent_state_ids": ["U06"],
+      "successor_state_ids": ["S05", "U03"],
+      "event_date": "1987-05-30",
+      "parent_window_start_year": 1962,
+      "source_id": "src-formation-goa-daman-diu-1987",
+      "event_label": "Goa, Daman & Diu UT trifurcation: Goa state + Daman & Diu UT, 30 May 1987",
+      "notes": "Goa, Daman and Diu Reorganisation Act, 1987. Goa attained full statehood (ECI S05, ISO IN-GA, LGD 30); Daman & Diu remained a UT. The PR-W1b brief used `trifurcation` in the event_id and labelled S30 + U03 as successors; renamed to `bifurcation` here (the 1987 event produced 2 successors: 1 state + 1 UT) and S05 substituted for the non-existent S30. The U03 successor reuses the modern Dadra and Nagar Haveli and Daman and Diu code (post-2020 merger of D&D with DNH per the 2019 Act); the 1987-2020 Daman & Diu UT carried its own ECI code which is no longer current on the spine, and U03 is the lineage successor."
+    }
+  ]
+}

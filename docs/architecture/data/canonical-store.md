@@ -1,6 +1,6 @@
 # Canonical store — target architecture
 
-**Last Updated**: 2026-05-30
+**Last Updated**: 2026-06-10
 **Owner**: data layer (Hans + Max own shape; Gregor owns contracts; Fowler owns write seam)
 **ADR**: [ADR-0030](../decisions/0030-canonical-store-duckdb-wasm.md) (canonical store rationale + rejected alternatives); [ADR-0036](../decisions/0036-state-identity-and-slice-registration.md) (state aliases + slice registration); [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md) (schema-version compatibility)
 **Plan**: [`docs/archive/plans/20260517-canonical-long-format-pivot.md`](../../archive/plans/20260517-canonical-long-format-pivot.md) (THE PLAN, R11)
@@ -488,6 +488,29 @@ Candidate attributes (name, party_id, gender, age, education, profession) live i
 Auto-compilation is deterministic from ECI artefacts (Holy Law #10 byte-stability). The delimitation-lineage Python seed (when authoring begins) lives in a separate module from the ECI compiler so re-compile never clobbers editorial judgment.
 
 **Comparability across reorganisations**: when a query spans a year in which an AC did not exist (Telangana ACs pre-2014, post-2008-delimitation Mylapore in 1991), the answer is **null** — not zero, not extrapolated. Choropleth: render the geography greyed with tooltip "constituency did not exist under the YYYY delimitation". Time-series: render a gap with a dated annotation. This is the single most common trap in published electoral charts and the one citizens are least equipped to detect.
+
+---
+
+## 3b. State-formation events (PR-W1b, 2026-06-10)
+
+Post-Independence state-formation events (Madhya Pradesh -> MP + Chhattisgarh 2000-11-01, Uttar Pradesh -> UP + Uttarakhand 2000-11-09, Bihar -> Bihar + Jharkhand 2000-11-15, Andhra Pradesh -> AP + Telangana 2014-06-02, Goa-Daman-Diu UT -> Goa state + Daman & Diu UT 1987-05-30) are first-class typed rows on `datasets/taxonomy/state_formation_events.json` (schema `datasets/schemas/state-formation-events.schema.json` v1.0). Authored for PR-W1b of [TODO/20260609-election-experience-overhaul-plan.md](../../../TODO/20260609-election-experience-overhaul-plan.md). Hans + Max + user authority per CLAUDE.md section 0a (data shape).
+
+**Row shape** (6 required + 2 optional fields):
+
+- `event_id` — kebab-case slug, e.g. `mp-cg-2000-bifurcation`.
+- `parent_state_ids[]` — ECI code(s) of the pre-event entity. `minItems: 1`. May reference a historical code that no longer carries a row in `taxonomy/entities.json` (e.g. `U06` for the pre-1987 Goa-Daman-Diu UT).
+- `successor_state_ids[]` — ECI codes of post-event successors. `minItems: 2`.
+- `event_date` — ISO date the new entity took effect.
+- `parent_window_start_year` — editorial start year for the historical-state slug window. Set per the citizen-trust framing: 1947 (post-Independence continuity) for MP / UP / Bihar; 1956 (States Reorganisation Act) for AP; 1962 (liberation from Portuguese rule) for Goa-Daman-Diu.
+- `source_id` — FK to a row in `datasets/data/entities/source.csv` (CLAUDE.md section 12). Placeholder ids of the shape `src-formation-<event_id>` ship in PR-W1b; the operator-authored citation rows (Gazette of India notifications, Acts of Parliament: MP Reorganisation Act 2000, AP Reorganisation Act 2014, etc.) are added in a follow-on PR per ADR-0032 / ADR-0042.
+- Optional `event_label` — citizen-facing display string.
+- Optional `notes` — operator context (statutory basis + any ECI-code reconciliation).
+
+**Canonical translator**: `backend/yen_gov/canonical/historical_state_slug.py` exposes the pure function `historical_state_slug(constituency_entity_id, event_year) -> str`. Reads the events catalogue once (LRU-cached), parses the ECI state code from the entity_id (`IN-(PC|AC)-<delim>-<state>-<eci_no>`), and returns either the historical-state slug shape `<parent-modern-slug>-<parent_window_start_year>-<year(event_date) - 1>` (e.g. `madhya-pradesh-1947-1999`) or the modern slug when no formation event applies (e.g. `tamil-nadu`). Unit-tested by `backend/tests/test_historical_state_slug.py`.
+
+**Operator workflow** (DRY-RUN gate): `python -m tools.elections_state_formation.repartition_dry_run --output datasets/_ops/state-formation-repartition-proposal.csv` walks every per-state CSV under `datasets/data/datapoints/electoral/` and emits one row per `(entity_id, year)` pair that the helper proposes to move into a historical-state file. The output schema is `entity_id, year, current_file, proposed_file, formation_event_id`. **NO writes** to `datasets/data/datapoints/electoral/*.csv` are performed by this PR.
+
+**ESCALATE gate**: the actual REPARTITIONING WRITE is the ESCALATE trigger #1 of the parent plan-doc ([TODO/20260609-election-experience-overhaul-plan.md](../../../TODO/20260609-election-experience-overhaul-plan.md) section 0.2). User sign-off on the proposal CSV is required before any operator promotes the dry-run to a per-state CSV row move. Path-B (leave current-day partitioning, resolve historical state only in URL routing) is the documented alternative.
 
 ---
 

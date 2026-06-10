@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./state-formation-events.schema.json",
+  "title": "State-formation events table",
+  "description": "Hand-authored typed catalogue of post-Independence state-formation events that bifurcated or trifurcated an Indian state or Union Territory (e.g. Madhya Pradesh -> Madhya Pradesh + Chhattisgarh on 2000-11-01, Andhra Pradesh -> Andhra Pradesh + Telangana on 2014-06-02). Consumed by backend.yen_gov.canonical.historical_state_slug to resolve, for any (constituency_entity_id, event_year) pair, which state owned the constituency at that historical moment. Surfaces as the historical-state slug shape `<parent-state-slug>-<startyear>-<endyear>` (e.g. `madhya-pradesh-1947-1999`) for any year strictly before the event_date; otherwise the modern slug. The per-row source_id is a forward reference to a row in datasets/data/entities/source.csv (placeholder ids are accepted today; the operator-snapshot ledger is populated in a follow-on PR per ADR-0032 / ADR-0042). Authored for PR-W1b of TODO/20260609-election-experience-overhaul-plan.md; Hans + Max + user authority per CLAUDE.md section 0a (data shape).",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-06-10",
+      "description": "Initial schema. Five-column row shape: event_id (kebab-case slug), parent_state_ids[] (>=1 ECI code matching ^[SU]\\d{2}$), successor_state_ids[] (>=2 ECI codes), event_date (ISO date, the day the new entity took effect), source_id (free-form string to permit src-* hashes or placeholder ids during the early seed window). Two optional fields: event_label (citizen-facing display) and notes (operator context). additionalProperties: false everywhere. Authored for PR-W1b of TODO/20260609-election-experience-overhaul-plan.md; binds to the on-disk ECI codes recorded on datasets/taxonomy/entities.json (Holy Law #3)."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "sources", "events"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "sources": {
+      "type": "array",
+      "description": "Provenance per CLAUDE.md section 12 / ADR-0032. Empty array signals hand-authored content (the canonical case here -- mirrors datasets/taxonomy/election_events.json). Per-row source_id below carries the citation FK target.",
+      "items": {
+        "type": "object",
+        "required": ["url", "fetched_at"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "fetched_at": { "type": "string", "format": "date-time" },
+          "name": { "type": "string" },
+          "authority": { "type": "string" }
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["event_id", "parent_state_ids", "successor_state_ids", "event_date", "parent_window_start_year", "source_id"],
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+            "description": "Stable kebab-case slug, e.g. `mp-cg-2000-bifurcation`, `ap-telangana-2014-bifurcation`. Used as the join key from datasets/_ops/state-formation-repartition-proposal.csv and (post sign-off) from the re-partitioned row provenance."
+          },
+          "parent_state_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^[SU]\\d{2}$",
+              "description": "ECI state/UT code of the pre-event entity. May reference a historical code that no longer appears in datasets/taxonomy/entities.json as a current row (e.g. U06 for the pre-1987 Goa-Daman-Diu UT)."
+            },
+            "description": "ECI code(s) of the state(s) that existed BEFORE the formation event. Length 1 for ordinary bifurcations; the array shape leaves room for the rare merger case (multiple parents -> one successor) without a schema bump."
+          },
+          "successor_state_ids": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "string",
+              "pattern": "^[SU]\\d{2}$",
+              "description": "ECI state/UT code of a post-event successor. MUST resolve to a current row in datasets/taxonomy/entities.json (or to a historical successor where on-disk lineage records it)."
+            },
+            "description": "ECI codes of every successor state/UT created or carved by the event. minItems=2 -- by definition every formation event creates at least one new entity alongside the surviving parent."
+          },
+          "event_date": {
+            "type": "string",
+            "format": "date",
+            "description": "ISO date the new entity (or entities) took effect. Used by historical_state_slug to compare against event_year: any constituency assigned to a successor_state_id whose election year is strictly less than year(event_date) belongs to the parent state on that date."
+          },
+          "parent_window_start_year": {
+            "type": "integer",
+            "minimum": 1900,
+            "maximum": 2100,
+            "description": "Editorial start year for the historical-state slug window `<parent-slug>-<startyear>-<endyear>`. Set per the citizen-trust framing: the year from which the parent state covered the carved-out territory in a continuous way that citizens would recognise. For the three 2000 carve-outs (MP, UP, Bihar) the brief anchors to 1947 (post-Independence continuity); for AP the brief anchors to 1956 (States Reorganisation Act); for Goa-Daman-Diu the brief anchors to 1962 (liberation from Portuguese rule). The endyear is computed as year(event_date) - 1 and is not stored on the row."
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "FK to a row in datasets/data/entities/source.csv (CLAUDE.md section 12). Today this PR seeds placeholder ids of the shape `src-formation-<event_id>` -- the operator-authored citation rows (Gazette of India notifications, Acts of Parliament: MP Reorganisation Act 2000, etc.) are added in a follow-on PR per ADR-0032 / ADR-0042. The free-form string shape (no pattern guard) accepts both the placeholder and the eventual `src-<12-char-hash>` shape derive_source_id will mint."
+          },
+          "event_label": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Optional citizen-facing display string, e.g. 'Andhra Pradesh / Telangana split, 2 June 2014'. UI MAY surface on the historical-state landing or in the time-axis annotation; never used as a key."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Optional operator context. Cite the statutory basis (Act of Parliament + year), record any non-obvious ECI-code choice (e.g. 'historical UT carried U06; modern Dadra and Nagar Haveli and Daman and Diu carries U03'), and any deviation from the brief's hand-typed codes pinned against on-disk truth."
+          }
+        }
+      }
+    }
+  }
+}
