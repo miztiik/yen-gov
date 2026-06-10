@@ -110,6 +110,63 @@ urlIndicatorSlugs ⊥ stateSlugs ⊥ topicSlugs ⊥ acSlugsAcrossAllStates ⊥ R
 
 When the test goes red, the answer is to rename the colliding slug, never to add an exception to the test. Doctrine: slugs are part of the citizen contract; collisions are slug-quality bugs.
 
+## Depth-2 dispatcher resolution rule (Option A, 2026-06-10)
+
+The collision contract above runs STRICT for six pairwise registry pairs (state ⊥ topic, state ⊥ reserved, topic ⊥ reserved, ac ⊥ state, ac ⊥ topic, ac ⊥ reserved). **It does NOT run strict for per-state district vs AC name collisions** — that collision class is a design baseline on the Indian electoral corpus, not a bug to be renamed away.
+
+### The 401-collision baseline
+
+Verified against the shipped corpus (`datasets/taxonomy/entities.json` district rows + `datasets/data/entities/electoral.csv` AC rows) on 2026-06-10:
+
+> **401 (state, slug) pairs across 25 states** have a district name equal to an AC name in the same state.
+
+This is the rule, not the exception. Many Indian ACs are named after their district HQ (`Coimbatore` AC inside Coimbatore district; `Mysore` AC inside Mysore district; etc.). The data spine reflects the underlying electoral geography honestly; the URL surface honours that by **resolving district-first at depth 2**.
+
+### Dispatcher resolution rule for `/<state>/<position2>`
+
+The depth-2 state-sub dispatcher ([frontend/src/routes/StateSubRouter.svelte](../../../frontend/src/routes/StateSubRouter.svelte) + the pure [frontend/src/lib/state-sub-resolver.ts](../../../frontend/src/lib/state-sub-resolver.ts)) resolves the second positional segment against three registries in this LOAD-BEARING order (Jony rule #4):
+
+| Step | Registry | Win condition |
+| --- | --- | --- |
+| 1 | `RESERVED_PATH_TOKENS` chrome | Always wins — chrome surfaces are never poached by data slugs. |
+| 2 | per-state district slugs (entities.json, filtered to `parent_entity_id == "IN-${eci_code}"`) | First-registered slug wins. **On a same-slug collision, the district wins.** |
+| 3 | per-state AC slugs (electoral.csv, filtered to this state) | Only reached when steps 1+2 miss. |
+| 4 | `notfound` | Falls through to the NotFound surface. |
+
+### Where does the colliding AC live?
+
+The colliding AC is **still reachable** via the canonical event-nested URL:
+
+```
+/<state>/elections/<event>/ac/<ac>
+```
+
+per [ADR-0052](../decisions/0052-event-context-in-ac-url.md). The bare positional URL `/<state>/<slug>` was always a CONVENIENCE entry for the AC, never a canonical resource — Option A formalises that. Bare-AC links in citizen-facing copy SHOULD use the canonical event-nested form so the AC is always reachable regardless of district name collisions.
+
+The bare-AC route entry (`/<state>/ac/<ac>`) also stays alive for callers that have an `eci_no` but no event id; it `replaceState`-redirects to the state's default event per ADR-0052.
+
+### Why Option A (resolver-as-gate) over the strict-disjointness draft
+
+The original PR-D1 draft attempted to enforce strict per-state `districts ⊥ ACs` disjointness as a build gate (Jony rule #2). The STOP-AND-SURFACE on the 401-collision count surfaced two equally unattractive options:
+
+1. **Block PR-D1 on a Hans+Max-signed-off corpus rename** of ~401 AC rows with a `-N` suffix. That is a citizen-visible URL change touching the canonical data spine — Holy Law-level work that does NOT belong inside a routing-PR scope.
+2. **Auto-rename ACs without the data team's signoff.** That violates CLAUDE.md s10 Anti-pattern #1: silent demotion of a user-named artifact.
+
+Option A picks neither. The dispatcher's deterministic first-wins resolution order IS the gate; the AC stays reachable via its canonical URL; the optional corpus cleanup is documented as a follow-up (see [TODO/20260609-url-prefix-drop-phase0-plan.md](../../../TODO/20260609-url-prefix-drop-phase0-plan.md) § "Follow-up deferrals"), NOT a blocker.
+
+### What the build-time gate still asserts
+
+The Deferral 1 describe block in [frontend/src/contracts/url-namespace-disjointness.test.ts](../../../frontend/src/contracts/url-namespace-disjointness.test.ts) (under the heading "Deferral 1 per-state resolver gate (districts vs ACs; Option A)") now carries:
+
+- **SANITY floors** (catches registry-load failure):
+  - `>=28 states have districts loaded`
+  - `>=15 states have ACs loaded`
+  - `>=1 state has both districts AND ACs loaded`
+- **POSITIVE presence-of-collisions check** (the OPPOSITE of strict disjointness):
+  - `"district-AC name collisions exist; resolver wins per Jony rule #4 (this is by design)"` — asserts `collisions.length > 0` so the regression "corpus accidentally renamed all collisions away" OR "registry-loading silently collapsed" still fails the build.
+
+The other six pairwise disjointness assertions in the same file STAY STRICT.
+
 ## Strangler-fig for legacy URLs (RETIRED 2026-06-10 in PR #871)
 
 The 4-phase URL-prefix-drop strangler-fig has shipped end-to-end (PRs #867 / #868 / #869 / #871). The summary that follows is HISTORICAL:
