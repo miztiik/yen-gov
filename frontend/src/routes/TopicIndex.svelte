@@ -21,7 +21,7 @@
   } from "../lib/catalogue";
   import ListBadge from "../lib/ListBadge.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
-  import { url } from "../lib/url";
+  import { link } from "../lib/links";
 
   let catalogue = $state<TopicCatalogue | null>(null);
   let load_error = $state<string | null>(null);
@@ -108,7 +108,7 @@
               {@const ele = election_count(topic)}
               <li>
                 <a
-                  href={url.topic(topic.id)}
+                  href={link.topic(topic.id)}
                   class="block h-full rounded-lg border border-slate-200 bg-white p-4 hover:border-sky-400 hover:shadow-sm transition"
                 >
                   <h3 class="text-sm font-semibold mb-1 flex items-center gap-2">

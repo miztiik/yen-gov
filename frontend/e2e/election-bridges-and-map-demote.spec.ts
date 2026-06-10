@@ -9,9 +9,9 @@
 //         EL5 + the brief's prior-recon item 6).
 //
 // Test 1: constituency route renders "Back to <state>" link under H1.
-// Test 2: indicator card on /s/<state> exposes the latest-election link
+// Test 2: indicator card on /<state> exposes the latest-election link
 //         (graceful: tolerates absence when no event resolves).
-// Test 3: /s/<state> renders RacesBoard BEFORE state-ac-map in DOM order
+// Test 3: /<state> renders RacesBoard BEFORE state-ac-map in DOM order
 //         when both mount. Best-effort: if the canonical store fails
 //         to load in the dev server (the page shows "This data could
 //         not load right now") the test verifies the page mounts and
@@ -22,7 +22,7 @@
 //         expanded ranked party list inside <details open
 //         data-testid="national-seat-ranked-list"> (best-effort,
 //         same graceful contract as Test 3).
-// Test 5: mobile viewport (360x800) fullPage screenshot of /s/<state>;
+// Test 5: mobile viewport (360x800) fullPage screenshot of /<state>;
 //         smoke artifact saved to test-results/, not a pixel-match
 //         assertion.
 //
@@ -49,18 +49,18 @@ test.describe("G12 election <-> place bridges + G13 map demote", () => {
     // Bare-AC entry resolves the default event and replaceState-redirects
     // to the canonical 6-segment URL (see Constituency.svelte ADR-0052
     // redirect). Either form renders the back-to-state link.
-    await page.goto("/s/tamil-nadu/ac/1");
+    await page.goto("/tamil-nadu/ac/1");
     const back = page.getByTestId("back-to-state");
     await expect(back).toBeVisible({ timeout: 15_000 });
     await expect(back).toHaveText(/Back to Tamil Nadu/i);
     const href = await back.getAttribute("href");
-    expect(href, "back-to-state must link to /s/tamil-nadu").toMatch(
+    expect(href, "back-to-state must link to /tamil-nadu").toMatch(
       /\/s\/tamil-nadu$/,
     );
   });
 
-  test("indicator card exposes latest-election link on /s/tamil-nadu (graceful)", async ({ page }) => {
-    await page.goto("/s/tamil-nadu");
+  test("indicator card exposes latest-election link on /tamil-nadu (graceful)", async ({ page }) => {
+    await page.goto("/tamil-nadu");
     // The page renders many IndicatorCards; wait for the first to mount.
     await expect(page.getByTestId("indicator-card").first()).toBeVisible({
       timeout: 30_000,
@@ -79,12 +79,12 @@ test.describe("G12 election <-> place bridges + G13 map demote", () => {
       const href = await link.getAttribute("href");
       expect(
         href,
-        "latest-election link must target /s/tamil-nadu/elections/<event>",
+        "latest-election link must target /tamil-nadu/elections/<event>",
       ).toMatch(/\/s\/tamil-nadu\/elections\/[A-Za-z0-9_-]+/);
     }
   });
 
-  test("/s/<state> renders RacesBoard before state-ac-map in DOM order (when loaded)", async ({ page }) => {
+  test("/<state> renders RacesBoard before state-ac-map in DOM order (when loaded)", async ({ page }) => {
     // Both data-testids sit downstream of the canonical store load
     // (DuckDB-WASM + summary fetch). When the store loads cleanly,
     // assert the G13 reorder: RacesBoard precedes state-ac-map in
@@ -93,7 +93,7 @@ test.describe("G12 election <-> place bridges + G13 map demote", () => {
     // structural reorder is verified by svelte-check + source review
     // and we do NOT fail the spec on environment.
     test.setTimeout(180_000);
-    await page.goto("/s/tamil-nadu");
+    await page.goto("/tamil-nadu");
     // Always verifiable: the page H1 renders without the canonical store.
     await expect(page.getByRole("heading", { name: /Tamil Nadu/i, level: 1 })).toBeVisible({
       timeout: 30_000,
@@ -156,10 +156,10 @@ test.describe("G12 election <-> place bridges + G13 map demote", () => {
     }
   });
 
-  test("mobile viewport (360x800) fullPage screenshot of /s/tamil-nadu", async ({ page }) => {
+  test("mobile viewport (360x800) fullPage screenshot of /tamil-nadu", async ({ page }) => {
     test.setTimeout(180_000);
     await page.setViewportSize({ width: 360, height: 800 });
-    await page.goto("/s/tamil-nadu");
+    await page.goto("/tamil-nadu");
     // Smoke artifact: wait for a fast signal (the state H1) instead of
     // gating on the slow canonical store. The screenshot captures
     // whatever has rendered by the time the H1 appears + a short settle.

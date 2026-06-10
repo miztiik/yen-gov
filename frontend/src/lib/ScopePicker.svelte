@@ -14,7 +14,8 @@
   import { fetchTopicCatalogue, type TopicCatalogue } from "../lib/catalogue";
   import { scope, COUNTRIES } from "./scope.svelte";
   import { loadStates, type StateRow } from "./view-models/states";
-  import { navigate, url } from "./url";
+  import { navigate } from "./url";
+  import { link } from "./links";
 
   // P2.3 of IA reset (ADR-0022): state availability is decoupled from
   // election-data presence. When the catalogue exposes any national-scope
@@ -59,7 +60,7 @@
 
   function on_state_change(e: Event): void {
     const v = (e.target as HTMLSelectElement).value;
-    navigate(v === "" ? url.home() : url.state(v));
+    navigate(v === "" ? link.home() : link.state(v));
   }
 </script>
 

@@ -28,7 +28,7 @@
 
   import { route } from "./router.svelte";
   import { scope } from "./scope.svelte";
-  import { url } from "./url";
+  import { link } from "./links";
   import { REPO_URL } from "./repo";
   import StatePill from "./StatePill.svelte";
   import { buildRailGroups } from "./rail-groups";
@@ -184,7 +184,7 @@
     >
       {#if mobile_open}X{:else}={/if}
     </button>
-    <a href={url.home()} class="brand-wordmark" aria-label="Yen Gov home">
+    <a href={link.home()} class="brand-wordmark" aria-label="Yen Gov home">
       <span class="brand-yen">Yen</span><span class="brand-chakra" aria-hidden="true">{@html chakraSvg}</span><span class="brand-gov">Gov</span>
     </a>
   </div>
@@ -230,7 +230,7 @@
   class:-translate-x-full={!mobile_open}
 >
   <!-- Brand (lg+ only — cramped widths use the header above). -->
-  <a href={url.home()} class="brand-wordmark hidden lg:flex items-center px-4 h-12 border-b border-slate-200 hover:bg-slate-50" aria-label="Yen Gov home">
+  <a href={link.home()} class="brand-wordmark hidden lg:flex items-center px-4 h-12 border-b border-slate-200 hover:bg-slate-50" aria-label="Yen Gov home">
     <span class="brand-yen">Yen</span><span class="brand-chakra" aria-hidden="true">{@html chakraSvg}</span><span class="brand-gov">Gov</span>
   </a>
 

@@ -36,7 +36,7 @@ test.afterEach(() => {
 
 test.describe("temporal viewport brush — StackedTrendV2 adopter", () => {
   test("karnataka renders the brush below the seat-composition chart", async ({ page }) => {
-    await page.goto("/s/karnataka");
+    await page.goto("/karnataka");
 
     // Wait for the chart shell to mount — the brush sits inside the
     // same ElectionSeatsTrend wrapper.
@@ -77,7 +77,7 @@ test.describe("temporal viewport brush — StackedTrendV2 adopter", () => {
   });
 
   test("strip click narrows the chart to one period and Reset restores it", async ({ page }) => {
-    await page.goto("/s/karnataka");
+    await page.goto("/karnataka");
     await expect(
       page.getByRole("heading", { name: /Seat composition over time/i }),
     ).toBeVisible({ timeout: 20_000 });

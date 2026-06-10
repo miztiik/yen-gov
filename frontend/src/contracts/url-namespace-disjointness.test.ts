@@ -7,28 +7,31 @@
  * registries don't overlap — a slug that appears in two registries is
  * an ambiguous URL.
  *
- * ## Phase 1 scope (this file)
+ * ## Phase 2 scope (this file, as of PR-P2)
  *
- * Phase 1 asserts disjointness for the THREE registries currently
- * verifiable from the on-disk JSON corpus, against the RESERVED set
+ * Phase 2 asserts disjointness for the FOUR registries currently
+ * verifiable from the on-disk corpus, against the RESERVED set
  * defined in `frontend/src/lib/links.ts`:
  *
  *   1. State slugs   — slugified `display_name` from `datasets/taxonomy/entities.json`
  *   2. Topic slugs   — `id` field from `datasets/taxonomy/topics.json`
- *   3. RESERVED      — `RESERVED_PATH_TOKENS` from `links.ts`
+ *   3. AC slugs      — slugified `name` from `datasets/data/entities/electoral.csv`
+ *                      where `entity_kind === "ac"`. The set is deduped
+ *                      across states + delim years; collision is the
+ *                      concern, not currency.
+ *   4. RESERVED      — `RESERVED_PATH_TOKENS` from `links.ts`
  *
  * Pairwise disjointness asserted:
  *
  *   * stateSlugs ⊥ topicSlugs
  *   * stateSlugs ⊥ RESERVED
  *   * topicSlugs ⊥ RESERVED
+ *   * acSlugs    ⊥ stateSlugs
+ *   * acSlugs    ⊥ topicSlugs
+ *   * acSlugs    ⊥ RESERVED
  *
- * ## Deferred registries (Phase 2 / Phase 3)
+ * ## Deferred registries (Phase 3)
  *
- *   * **AC slugs across all states** (~4,112 names in `datasets/elections/dim_acs.parquet`).
- *     Vitest doesn't currently read Parquet — pulling in DuckDB-WASM just
- *     for one test is a Phase 2 expansion. Wired in alongside the route-table
- *     change in Phase 2 (per the strangler-fig plan).
  *   * **Indicator url_slug** (Max §3i on ADR-0037). The `url_slug` field
  *     does not yet exist on `datasets/taxonomy/indicators.parquet` or
  *     `datasets/_ops/indicators-completeness.json`. Phase 3 adds
@@ -60,6 +63,10 @@ const repoRoot = resolve(
 );
 const entitiesPath = resolve(repoRoot, "datasets/taxonomy/entities.json");
 const topicsPath = resolve(repoRoot, "datasets/taxonomy/topics.json");
+const electoralCsvPath = resolve(
+  repoRoot,
+  "datasets/data/entities/electoral.csv",
+);
 
 interface EntityRow {
   entity_id: string;
@@ -93,6 +100,35 @@ function loadTopicSlugs(): string[] {
   return raw.topics.map((t) => t.id);
 }
 
+/**
+ * Load the deduped set of AC name-slugs from the canonical electoral
+ * entities CSV. The CSV column order is
+ * `entity_id, name, entity_kind, delim_year, state, parent, eci_no, aliases, reservation`
+ * (verified 2026-06-10: 4734 rows, all 9 columns, zero quoted fields,
+ * so the naive `split(",")` is safe — no name in the corpus contains a
+ * comma).
+ *
+ * Include ALL AC rows across all delim_years; the disjointness concern
+ * is the unique slug set, not which delimitation cohort emitted it. Two
+ * ACs with the same name across states / delim cohorts collapse to one
+ * slug — exactly the case we need to test against the state / topic /
+ * RESERVED registries.
+ */
+function loadActiveAcSlugs(): string[] {
+  const csv = readFileSync(electoralCsvPath, "utf-8");
+  const lines = csv.split(/\r?\n/).filter((l) => l.length > 0);
+  lines.shift(); // header
+  const slugs = new Set<string>();
+  for (const line of lines) {
+    const cols = line.split(",");
+    if (cols[2] !== "ac") continue;
+    const name = cols[1];
+    if (!name) continue;
+    slugs.add(slugify(name));
+  }
+  return [...slugs];
+}
+
 function findDuplicates(slugs: string[]): string[] {
   const seen = new Set<string>();
   const dupes: string[] = [];
@@ -108,9 +144,10 @@ function intersection<T>(a: readonly T[], b: readonly T[]): T[] {
   return a.filter((x) => bSet.has(x));
 }
 
-describe("Phase 1 URL namespace disjointness (ADR-0037)", () => {
+describe("Phase 2 URL namespace disjointness (ADR-0037)", () => {
   const stateSlugs = loadActiveStateSlugs();
   const topicSlugs = loadTopicSlugs();
+  const acSlugs = loadActiveAcSlugs();
 
   it("loads ≥28 active state+UT slugs (sanity)", () => {
     // India has 28 states + 8 UTs = 36 currently active; older snapshots
@@ -121,6 +158,13 @@ describe("Phase 1 URL namespace disjointness (ADR-0037)", () => {
 
   it("loads ≥1 topic slug (sanity)", () => {
     expect(topicSlugs.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("loads ≥3000 unique AC name-slugs (sanity)", () => {
+    // 4189 AC rows across all delim_years dedupe to ~3960 unique slugs
+    // as of 2026-06-10. The floor catches "CSV failed to load at all"
+    // without pinning a brittle exact count that future ingest will move.
+    expect(acSlugs.length).toBeGreaterThanOrEqual(3000);
   });
 
   it("state slugs are internally unique", () => {
@@ -143,6 +187,25 @@ describe("Phase 1 URL namespace disjointness (ADR-0037)", () => {
 
   it("topicSlugs ⊥ RESERVED_PATH_TOKENS", () => {
     const overlap = intersection(topicSlugs, RESERVED_PATH_TOKENS);
+    expect(overlap).toEqual([]);
+  });
+
+  it("acSlugs ⊥ stateSlugs", () => {
+    // STOP-AND-SURFACE rule (PR-P2 spec): if this fires with real
+    // collisions, do NOT auto-rename ACs. List the colliding slugs
+    // and escalate to the orchestrator — renaming an AC is a citizen-
+    // visible URL change, not a mechanical fix.
+    const overlap = intersection(acSlugs, stateSlugs);
+    expect(overlap).toEqual([]);
+  });
+
+  it("acSlugs ⊥ topicSlugs", () => {
+    const overlap = intersection(acSlugs, topicSlugs);
+    expect(overlap).toEqual([]);
+  });
+
+  it("acSlugs ⊥ RESERVED_PATH_TOKENS", () => {
+    const overlap = intersection(acSlugs, RESERVED_PATH_TOKENS);
     expect(overlap).toEqual([]);
   });
 });

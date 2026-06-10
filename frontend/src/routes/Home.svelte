@@ -7,7 +7,7 @@
   import IndiaMap from "../lib/maplibre/IndiaMap.svelte";
   import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
   import { loadStates, type StateRow } from "../lib/view-models/states";
-  import { url } from "../lib/url";
+  import { link } from "../lib/links";
   import GeoBreadcrumb from "../lib/GeoBreadcrumb.svelte";
   import {
     defaultHomeTheme,
@@ -160,7 +160,7 @@
     <p class="text-sm text-slate-500">
       Indian civic data — fiscal capacity, energy, elections, and more,
       compared across states. Click a state to drill in.
-      <a href={url.about()} class="text-sky-700 hover:underline">What is this?</a>
+      <a href={link.about()} class="text-sky-700 hover:underline">What is this?</a>
     </p>
   </header>
 
@@ -219,7 +219,7 @@
         {#each available as st}
           <li>
             <a class="flex justify-between items-center px-2 py-3 hover:bg-slate-50 rounded"
-               href={url.state(st.eci_code)}>
+               href={link.state(st.eci_code)}>
               <span class="font-medium">{st.name}</span>
               <span class="text-xs font-mono text-slate-500">{st.eci_code} · {st.iso_3166_2}</span>
             </a>

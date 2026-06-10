@@ -32,7 +32,8 @@
   import { getPartyColor, resolvePartyPalette } from "../colors/resolver";
   import type { PartyRowForResolver } from "../colors/resolver";
   import type { PartyTotals } from "../data";
-  import { navigate, url } from "../url";
+  import { navigate } from "../url";
+  import { link } from "../links";
 
   interface Props {
     /** Optional cohort to force every state into. When omitted, each
@@ -185,7 +186,7 @@
 
   function on_select(sel: { key: string | number }): void {
     const code = KEY_TO_ECI[String(sel.key)];
-    if (code) navigate(url.state(code));
+    if (code) navigate(link.state(code));
   }
 </script>
 

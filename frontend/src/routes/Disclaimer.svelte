@@ -5,7 +5,7 @@
   // TODO/20260517-folded-indicator-and-collection-inventory-handover.md §8.2.
   // When that canonical doc changes, this page must update in the same
   // commit (CLAUDE.md Holy Law #4).
-  import { url } from "../lib/url";
+  import { link } from "../lib/links";
   import TopicIcon from "../lib/TopicIcon.svelte";
 </script>
 
@@ -60,7 +60,7 @@
       we have documented these, they appear on the indicator's About this
       data panel. Absence of a documented break does <strong>NOT</strong>
       mean none exists — only that we have not yet documented it. See
-      <a class="text-sky-700 hover:underline" href={url.dataCompleteness()}>/data-completeness</a>.
+      <a class="text-sky-700 hover:underline" href={link.dataCompleteness()}>/data-completeness</a>.
     </p>
   </section>
 

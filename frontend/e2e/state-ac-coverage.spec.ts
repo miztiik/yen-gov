@@ -150,7 +150,7 @@ test.describe("STATE_AC per-state coverage", () => {
       });
       continue;
     }
-    test(`${code} (${slug}) /s/${slug}/ac/1 renders cleanly`, async ({ page }) => {
+    test(`${code} (${slug}) /${slug}/ac/1 renders cleanly`, async ({ page }) => {
       // The AC boundary shard partition is keyed by the canonical LGD
       // slug (ADR-0048 LGD-canonical rename, e.g. `state=delhi`,
       // `state=uttar-pradesh`), which is NOT always the same as the
@@ -175,7 +175,7 @@ test.describe("STATE_AC per-state coverage", () => {
         )
         .catch(() => null);
 
-      await page.goto(`/s/${slug}/ac/1`);
+      await page.goto(`/${slug}/ac/1`);
       await page.waitForLoadState("networkidle", { timeout: 30_000 });
 
       // H1 must resolve to a real SoT name (not the loading placeholder).

@@ -29,7 +29,7 @@
   import { loadAllDistrictEntities, type DistrictEntity } from "../lib/view-models/districts";
   import { slugify } from "../lib/slug";
   import { states } from "../lib/states.svelte";
-  import { url } from "../lib/url";
+  import { link } from "../lib/links";
   import GeoBreadcrumb from "../lib/GeoBreadcrumb.svelte";
 
   interface Props {
@@ -78,18 +78,18 @@
   {:else if !state_code}
     <div class="space-y-2">
       <p class="text-sm">
-        <a href={url.home()} class="text-sky-700 hover:underline">&larr; Home</a>
+        <a href={link.home()} class="text-sky-700 hover:underline">&larr; Home</a>
       </p>
       <h1 class="text-2xl font-semibold">State not found</h1>
       <p class="text-sm text-slate-600">
         No state with slug <code class="rounded bg-slate-100 px-1">{params.state}</code>.
-        Pick a state from the <a href={url.home()} class="text-sky-700 hover:underline">home page</a>.
+        Pick a state from the <a href={link.home()} class="text-sky-700 hover:underline">home page</a>.
       </p>
     </div>
   {:else if !district}
     <div class="space-y-2">
       <p class="text-sm">
-        <a href={url.state(state_code)} class="text-sky-700 hover:underline"
+        <a href={link.state(state_code)} class="text-sky-700 hover:underline"
           >&larr; {state_name}</a
         >
       </p>

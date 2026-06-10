@@ -8,7 +8,7 @@
 
 import { test, expect } from "@playwright/test";
 
-const ROUTE = "/s/maharashtra/elections/AcGenOct2019";
+const ROUTE = "/maharashtra/elections/AcGenOct2019";
 
 test("@elections state election map toggles geo <-> equal-seats and persists to URL", async ({
   page,

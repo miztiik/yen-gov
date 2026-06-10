@@ -10,8 +10,8 @@
 //
 // The smoke routes are the two assembly-side citizen surfaces:
 //
-//   /s/tamil-nadu                        - StateOverview view-model
-//   /s/tamil-nadu/.../ac/<some-AC-slug>  - Constituency view-model
+//   /tamil-nadu                        - StateOverview view-model
+//   /tamil-nadu/.../ac/<some-AC-slug>  - Constituency view-model
 //
 // What this CANNOT cleanly prove
 // ------------------------------
@@ -110,12 +110,12 @@ test.afterEach(() => {
 });
 
 test.describe("F1.3a Path A - CSV reader cutover smoke", () => {
-  test("StateOverview /s/tamil-nadu (AcGenApr2021) fetches per-(state, year) CSV from the rewritten loaders", async ({
+  test("StateOverview /tamil-nadu (AcGenApr2021) fetches per-(state, year) CSV from the rewritten loaders", async ({
     page,
   }) => {
     const audit = attachRequestAudit(page);
 
-    await page.goto("/s/tamil-nadu");
+    await page.goto("/tamil-nadu");
 
     // Switch to the 2021 cohort - the latest TN assembly TCPD has data
     // for. AcGenMay2026 (the default) has NO on-disk TCPD CSV yet
@@ -136,7 +136,7 @@ test.describe("F1.3a Path A - CSV reader cutover smoke", () => {
     // surfaces my rewritten loader expects.
     expect(
       audit.cands,
-      `Expected >=1 candidacies.csv response on /s/tamil-nadu (AcGenApr2021);\nAll URLs captured (last 30):\n${audit.urls.slice(-30).join("\n")}`,
+      `Expected >=1 candidacies.csv response on /tamil-nadu (AcGenApr2021);\nAll URLs captured (last 30):\n${audit.urls.slice(-30).join("\n")}`,
     ).not.toHaveLength(0);
     expect(audit.summary, "Expected >=1 summary.csv response").not.toHaveLength(0);
     expect(
@@ -155,20 +155,20 @@ test.describe("F1.3a Path A - CSV reader cutover smoke", () => {
     }
   });
 
-  test("Constituency /s/tamil-nadu/.../ac/<slug> (AcGenApr2021) fetches per-(state, year) CSV from the rewritten loader", async ({
+  test("Constituency /tamil-nadu/.../ac/<slug> (AcGenApr2021) fetches per-(state, year) CSV from the rewritten loader", async ({
     page,
   }) => {
     // Land on StateOverview, switch to AcGenApr2021 so the AC links
     // carry the event in the URL (the AC URL builder nests the event
-    // per ADR-0052: /s/<slug>/elections/<event>/ac/<slug>).
-    await page.goto("/s/tamil-nadu");
+    // per ADR-0052: /<slug>/elections/<event>/ac/<slug>).
+    await page.goto("/tamil-nadu");
     const picker = page.getByTestId("event-picker");
     await expect(picker).toBeVisible({ timeout: 15_000 });
     await picker.selectOption("AcGenApr2021");
     await expect(page.getByText(/DMK/).first()).toBeVisible({ timeout: 30_000 });
 
     const firstAcHref = await page
-      .locator('a[href*="/s/tamil-nadu/elections/AcGenApr2021/ac/"]')
+      .locator('a[href*="/tamil-nadu/elections/AcGenApr2021/ac/"]')
       .first()
       .getAttribute("href");
     expect(

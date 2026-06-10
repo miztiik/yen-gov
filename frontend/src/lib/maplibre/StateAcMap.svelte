@@ -20,7 +20,8 @@
     resolvePartyPalette,
     type PartyRowForResolver,
   } from "../colors/resolver";
-  import { navigate, url } from "../url";
+  import { navigate } from "../url";
+  import { link } from "../links";
   import type { AcWinner } from "../view-models/state-overview";
   import { loadAcLgdLookup } from "../view-models/ac-crosswalk";
   import { mirrorLgdKeys } from "../elections/election-map-coloring";
@@ -334,9 +335,9 @@
   );
 
   // Row URL (ADR-0049): the AC link grammar carries a readable name suffix
-  // (`/s/<state>/ac/<eci_no>-<name-slug>`). Map the selected eci_no back to
-  // its AC name from `rows`; an absent name makes `url.ac` fall back to the
-  // bare eci_no (still parse-tolerant).
+  // (`/<state>/ac/<name-slug>`). Map the selected eci_no back to its AC name
+  // from `rows`; an absent name makes `link.ac` fall back to a placeholder
+  // slug (still parse-tolerant).
   const name_by_eci = $derived.by(() => {
     const m = new Map<number, string>();
     for (const r of rows ?? []) m.set(r.eci_no, r.name);
@@ -394,7 +395,7 @@
     // are already eci_no/seat values).
     const eci_no = recoverEciNo(sel.key, sel.properties, reverse_lookup);
     if (Number.isFinite(eci_no))
-      navigate(url.ac(state_code, eci_no, name_by_eci.get(eci_no) ?? "", event));
+      navigate(link.ac(state_code, name_by_eci.get(eci_no) ?? "", event));
   }
 </script>
 

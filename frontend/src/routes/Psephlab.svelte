@@ -44,7 +44,8 @@
   import ContextLabel from "../lib/ContextLabel.svelte";
   import GallagherDisproportionality from "../lib/charts/GallagherDisproportionality.svelte";
   import { states } from "../lib/states.svelte";
-  import { url, navigate } from "../lib/url";
+  import { navigate } from "../lib/url";
+  import { link } from "../lib/links";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import { docsUrl } from "../lib/repo";
   import { majorityFor } from "../lib/electoral";
@@ -120,7 +121,7 @@
     if (method_id === scenario.rule) return;
     scenario = { ...scenario, rule: method_id };
     if (state_code) {
-      navigate(url.labMethod(state_code, event, method_id), { replace: true });
+      navigate(link.labMethod(state_code, event, method_id), { replace: true });
     }
   }
 
@@ -332,7 +333,7 @@
 
 <div class="max-w-6xl mx-auto p-4 md:p-6 space-y-4">
   <header class="space-y-3">
-    <p class="text-xs"><a class="text-slate-500 hover:underline" href={state_code ? url.state(state_code) : url.home()}>← {states.name(state_code)} overview</a></p>
+    <p class="text-xs"><a class="text-slate-500 hover:underline" href={state_code ? link.state(state_code) : link.home()}>← {states.name(state_code)} overview</a></p>
     <div class="flex items-baseline justify-between gap-4 flex-wrap">
       <h1 class="text-2xl font-bold flex items-center gap-2">
         <TopicIcon name="flask" cls="w-6 h-6 text-slate-500 shrink-0" />
@@ -356,7 +357,7 @@
       <a
         class="text-xs font-medium hover:underline inline-flex items-center gap-1"
         style:color="var(--accent, #3538cd)"
-        href={url.docsLabMethod(current_rule.id)}
+        href={link.docsLabMethod(current_rule.id)}
       >
         <span>Read about counting methods</span>
         <span aria-hidden="true">-&gt;</span>
@@ -400,7 +401,7 @@
       validity={current_rule.validity}
       assumptions={current_rule.assumptions ?? []}
       official_result_label={official_result_label}
-      docs_href={url.docsLabMethod(current_rule.id)}
+      docs_href={link.docsLabMethod(current_rule.id)}
       is_official={current_rule.id === "fptp"}
     />
 

@@ -72,7 +72,7 @@
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
   import { getPartyColor } from "../lib/colors/resolver";
-  import { url } from "../lib/url";
+  import { link } from "../lib/links";
   import GeoBreadcrumb from "../lib/GeoBreadcrumb.svelte";
   import {
     fetchElectionEvents,
@@ -548,9 +548,9 @@
         {#if event}· event <code class="font-mono">{event}</code>{/if}
       </span>
       {#if state_code}
-        · <a class="text-blue-600 hover:underline" href={url.explore(state_code)}>Data explorer →</a>
+        · <a class="text-blue-600 hover:underline" href={link.explore(state_code)}>Data explorer →</a>
         {#if event}
-          · <a class="text-blue-600 hover:underline" href={url.lab(state_code, event)}>Psephlab →</a>
+          · <a class="text-blue-600 hover:underline" href={link.lab(state_code, event)}>Psephlab →</a>
         {/if}
       {/if}
     </p>
@@ -929,7 +929,7 @@
           {#each filtered_parties as p}
             {#if p.party_eci_code}
               <li>
-                <a class="hover:underline" href={url.party(state_code, p.party_eci_code, p.party_short)}>
+                <a class="hover:underline" href={link.party(state_code, p.party_eci_code, p.party_short)}>
                   <span class="font-medium">{p.party_short}</span>
                   <span class="text-slate-400 text-xs"> · {p.seats_won} seats · {p.vote_share_pct.toFixed(1)}%</span>
                 </a>
@@ -1005,7 +1005,7 @@
                 {#each g.acs as ac}
                   {@const w = winners.get(ac.eci_no)}
                   <li>
-                    <a class="hover:underline flex items-center gap-1.5" href={url.ac(state_code, ac.eci_no, ac.name, event)}>
+                    <a class="hover:underline flex items-center gap-1.5" href={link.ac(state_code, ac.name, event)}>
                       <span class="text-slate-400 inline-block w-8 text-right pr-1">{ac.eci_no}</span>
                       {#if w}
                         <span

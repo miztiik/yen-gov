@@ -197,7 +197,7 @@
     lookupIndicatorRender,
     type IndicatorRender,
   } from "./grapher/catalogue";
-  import { url } from "./url";
+  import { link } from "./links";
   // G12 (EL4) indicator -> election bridge. The per-state indicator card
   // gets a thin "View latest election for <state>" footer line when
   // home_state is set. We resolve the latest event via the existing
@@ -446,8 +446,8 @@
   });
 
   // Link to the topic page until /i/<indicator> exists (per plan §2:
-  // "See all states →" → `url.topic(topic.id)`).
-  const see_all_href = $derived(url.topic(topic.id));
+  // "See all states →" → `link.topic(topic.id)`).
+  const see_all_href = $derived(link.topic(topic.id));
 
   // G12 (EL4) bridge state. Lazy-loaded once per IndicatorCard mount via
   // the shared cached fetcher in election-events.ts. The catalogue is
@@ -608,7 +608,7 @@
       <p class="text-xs">
         <a
           class="text-blue-600 hover:underline"
-          href={url.stateElection(home_state, latest_event_for_state.event_id)}
+          href={link.stateElection(home_state, latest_event_for_state.event_id)}
           data-testid="indicator-card-latest-election"
         >View latest election for {states.name(home_state)} →</a>
       </p>

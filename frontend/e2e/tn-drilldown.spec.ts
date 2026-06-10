@@ -25,7 +25,7 @@ test.afterEach(() => {
 
 test.describe("TN drill-down", () => {
   test("Tamil Nadu hub renders without a drill breadcrumb in the initial state", async ({ page }) => {
-    await page.goto("/s/tamil-nadu");
+    await page.goto("/tamil-nadu");
     // Use the more-specific heading text — bare /Assembly election/i now
     // matches both the state-hub heading ("Most recent assembly election")
     // and a downstream caption ("Each bar = one assembly election …"),
@@ -47,7 +47,7 @@ test.describe("TN drill-down", () => {
     // landmark is wired to the DOM by mounting an IndicatorChoropleth
     // route — actual click-to-drill is exercised in the vitest integration
     // test (`IndicatorChoropleth.boundaries.test.ts`).
-    await page.goto("/s/tamil-nadu");
+    await page.goto("/tamil-nadu");
     await expect(page.locator("section.bg-white").first()).toBeVisible({ timeout: 15_000 });
   });
 });

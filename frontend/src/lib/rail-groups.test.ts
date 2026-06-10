@@ -129,16 +129,17 @@ describe("buildRailGroups (scoped state, no event)", () => {
     ]);
   });
 
-  it("Every This state topic entry targets the per-state /s/<slug>/t/<id> page (IA-reset Step #2)", () => {
+  it("Every This state topic entry targets the per-state /<slug>/t/<id> page (IA-reset Step #2)", () => {
     const my = find(groups, "this-state");
     const topic_items = my.items.filter(i => i.id.startsWith("this-state.topic."));
     expect(topic_items.length).toBeGreaterThan(0);
     for (const item of topic_items) {
-      // Must point under /s/<some-slug>/t/<topic-id>, NOT the national
-      // /t/<id> page. The state-S22 mock resolves to slug "tamil-nadu"
-      // once states.json is loaded; before then the slug falls back to
-      // the lower-cased ECI code (still under /s/ — verified below).
-      expect(item.href).toMatch(/\/s\/[a-z0-9-]+\/t\/[a-z][a-z0-9-]*$/);
+      // Must point under /<some-slug>/t/<topic-id> (Grammar A per ADR-0037),
+      // NOT the national /t/<id> page. The state-S22 mock resolves to slug
+      // "tamil-nadu" once states.json is loaded; before then the slug falls
+      // back to the lower-cased ECI code (still emitted at root — verified
+      // below).
+      expect(item.href).toMatch(/^\/?(yen-gov\/)?[a-z0-9-]+\/t\/[a-z][a-z0-9-]*$/);
       expect(item.href).not.toMatch(/^\/?(yen-gov\/)?t\//);
     }
   });
@@ -153,7 +154,9 @@ describe("buildRailGroups (scoped state, no event)", () => {
 
   it("hrefs are concrete URLs (no template-string leakage)", () => {
     const overview = find(groups, "this-state").items[0];
-    expect(overview.href).toMatch(/^\/?(yen-gov\/)?s\//);
+    // Grammar A per ADR-0037: state overview lives at /<slug> at the path
+    // root, not under the legacy /s/ marker.
+    expect(overview.href).toMatch(/^\/?(yen-gov\/)?[a-z0-9-]+$/);
     expect(overview.href).not.toContain("undefined");
   });
 

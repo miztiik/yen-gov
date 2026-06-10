@@ -12,7 +12,7 @@
   catalogue at /t is the discovery surface.
 -->
 <script lang="ts">
-  import { url } from "../lib/url";
+  import { link } from "../lib/links";
   interface Props { params: { path: string } }
   let { params }: Props = $props();
 </script>
@@ -26,7 +26,7 @@
     No route matches <code class="font-mono">{params.path}</code>.
   </p>
   <nav class="flex justify-center gap-4 pt-2">
-    <a class="text-blue-600 hover:underline" href={url.home()}>← Home</a>
-    <a class="text-blue-600 hover:underline" href={url.topics()}>Browse topics</a>
+    <a class="text-blue-600 hover:underline" href={link.home()}>← Home</a>
+    <a class="text-blue-600 hover:underline" href={link.topics()}>Browse topics</a>
   </nav>
 </main>

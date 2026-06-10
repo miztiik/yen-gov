@@ -29,7 +29,7 @@
   //     on mobile (under the 48px LeftRail mobile header) and
   //     `lg:top-0` on desktop (no mobile header above lg:1024px).
 
-  import { url } from "./url";
+  import { link } from "./links";
   import { parseAcSlug } from "./slug";
 
   export type Crumb = {
@@ -96,7 +96,7 @@
       return [{ label: "India", href: null }];
     }
 
-    const india: Crumb = { label: "India", href: url.home() };
+    const india: Crumb = { label: "India", href: link.home() };
 
     // State context not yet resolved - graceful degradation.
     if (!stateCode || !stateName) {
@@ -121,7 +121,7 @@
     // Deeper grain: state crumb is an ascend link.
     const stateCrumb: Crumb = {
       label: stateName,
-      href: url.state(stateCode),
+      href: link.state(stateCode),
     };
 
     if (districtSlug) {

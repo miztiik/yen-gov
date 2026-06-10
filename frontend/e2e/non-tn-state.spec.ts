@@ -25,7 +25,7 @@ test.afterEach(() => {
 
 test.describe("non-TN states", () => {
   test("kerala (S11) renders state overview with provenance", async ({ page }) => {
-    await page.goto("/s/kerala");
+    await page.goto("/kerala");
     await page.waitForLoadState("networkidle", { timeout: 15_000 });
     // SourceList now sits inside the AboutThisData <details> accordion
     // (default collapsed), so it is attached to the DOM but not visible
@@ -39,7 +39,7 @@ test.describe("non-TN states", () => {
     // without throwing; the `attachPageErrorTrap` afterEach asserts that.
     // We do NOT assert specific copy because the empty-state surface is
     // expected to evolve as we wire up the per-topic graceful-empty UI.
-    await page.goto("/s/bihar");
+    await page.goto("/bihar");
     await expect(page.locator("main").first()).toBeVisible({ timeout: 45_000 });
   });
 });

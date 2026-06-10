@@ -37,7 +37,7 @@
     resolvePeerSet,
     type StateTiersFile,
   } from "../lib/state-tiers";
-  import { url } from "../lib/url";
+  import { link } from "../lib/links";
   import { parseTopicQuery, serializeTopicQuery } from "../lib/topic-query";
 
   interface Props {
@@ -148,12 +148,12 @@
   {:else if !topic}
     <div class="space-y-2">
       <p class="text-sm">
-        <a href={url.topics()} class="text-sky-700 hover:underline">← All topics</a>
+        <a href={link.topics()} class="text-sky-700 hover:underline">← All topics</a>
       </p>
       <h1 class="text-2xl font-semibold">Topic not found</h1>
       <p class="text-sm text-slate-600">
         No topic with id <code class="rounded bg-slate-100 px-1">{params.topic}</code> in the catalogue.
-        See the <a href={url.topics()} class="text-sky-700 hover:underline">topic index</a> for the
+        See the <a href={link.topics()} class="text-sky-700 hover:underline">topic index</a> for the
         full list.
       </p>
     </div>
@@ -161,7 +161,7 @@
     <header class="space-y-2">
       <nav aria-label="Breadcrumb" class="text-xs text-slate-500">
         <ol class="flex items-center gap-1 list-none p-0 m-0">
-          <li><a href={url.topics()} class="hover:text-sky-700 hover:underline">Topics</a></li>
+          <li><a href={link.topics()} class="hover:text-sky-700 hover:underline">Topics</a></li>
           <li aria-hidden="true" class="text-slate-400">›</li>
           <li class="text-slate-700" aria-current="page">{topic.title}</li>
         </ol>

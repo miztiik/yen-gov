@@ -43,7 +43,8 @@
     resolvePartyPalette,
     type PartyRowForResolver,
   } from "../lib/colors/resolver";
-  import { navigate, url } from "../lib/url";
+  import { navigate } from "../lib/url";
+  import { link } from "../lib/links";
   import ElectionFilterRail from "../lib/elections/ElectionFilterRail.svelte";
   import {
     DEFAULT_ELECTION_FILTERS,
@@ -236,7 +237,7 @@
 
   function onSelectGeo(sel: { properties: Record<string, unknown> }): void {
     const sc = sel.properties?.state_ut_code;
-    if (typeof sc === "string" && sc) navigate(url.stateElection(sc, event));
+    if (typeof sc === "string" && sc) navigate(link.stateElection(sc, event));
   }
 
   // ─── Equal-seats (hex) arm ──────────────────────────────────────────
@@ -286,7 +287,7 @@
     // unit_id = IN-PC-<delim>-<state_code>-<pc_no>; drill to that state.
     const parts = unit_id.split("-");
     const sc = parts[3];
-    if (sc) navigate(url.stateElection(sc, event));
+    if (sc) navigate(link.stateElection(sc, event));
   }
   const layout_unavailable = $derived(
     view === "hex" && (layout_error || (layout != null && layout.length === 0)),

@@ -69,7 +69,7 @@ test.describe("golden path", () => {
   });
 
   test("state overview renders party totals and AC list for Tamil Nadu", async ({ page }) => {
-    await page.goto("/s/tamil-nadu");
+    await page.goto("/tamil-nadu");
     // result.summary.json fetch + render. Target the recency heading
     // explicitly — `/Assembly election/i` alone now matches both the H1
     // ("Most recent assembly election: …") and a downstream chart caption
@@ -137,7 +137,7 @@ test.describe("golden path", () => {
   });
 
   test("state overview never flashes the bootstrap notice during slow constituencies load (race-condition guard)", async ({ page }) => {
-    // Regression for the 2026-05-23 bug where /s/tamil-nadu briefly showed
+    // Regression for the 2026-05-23 bug where /tamil-nadu briefly showed
     // "Per-constituency directory for Tamil Nadu Assembly · May 2026 isn't
     // available yet — the constituencies reference file for this state still
     // needs to be bootstrapped" even though the JSON existed on disk and was
@@ -154,7 +154,7 @@ test.describe("golden path", () => {
       await new Promise((r) => setTimeout(r, 1500));
       await route.continue();
     });
-    await page.goto("/s/tamil-nadu");
+    await page.goto("/tamil-nadu");
     // Summary should land first (DuckDB-WASM JOIN against the canonical
     // store), establishing the race window.
     await expect(page.getByText(/Most recent assembly election/i)).toBeVisible({ timeout: 15_000 });
@@ -173,10 +173,10 @@ test.describe("golden path", () => {
     // than per-shard JSON. AC #1 (Gummidipoondi) is the slice the live
     // backend test covers; the canonical dim_candidates table holds the
     // AcGenMay2026 contest (TN's default event).
-    await page.goto("/s/tamil-nadu/ac/1-gummidipoondi");
+    await page.goto("/tamil-nadu/ac/1-gummidipoondi");
     // ADR-0051: the bare /ac/ entry is not canonical — it replaceState-
     // redirects to the identity-complete nested form
-    // /s/<state>/elections/<event>/ac/<n-slug>. Assert the address bar
+    // /<state>/elections/<event>/ac/<n-slug>. Assert the address bar
     // settled on the nested shape before checking content.
     await expect
       .poll(() => new URL(page.url()).pathname, { timeout: 30_000 })
@@ -239,7 +239,7 @@ test.describe("golden path", () => {
     ["West Bengal", "west-bengal", "1-mekliganj-sc"],
   ] as const) {
     test(`constituency page renders via canonical loader for ${state_label} AC#1`, async ({ page }) => {
-      await page.goto(`/s/${state_slug}/ac/${ac_slug}`);
+      await page.goto(`/${state_slug}/ac/${ac_slug}`);
       // Same Phase 1.6 (PR-K) "Top N of M candidates" heading shape the TN
       // test asserts; the loader's reconstruction of `others` (when the
       // canonical adapter ships an `ac-others-{votes,pct}` pair) is what
@@ -273,15 +273,15 @@ test.describe("golden path", () => {
     // shows an error banner rather than crashing. The beforeEach pageerror
     // trap covers the failure mode; here we just wait for network idle to
     // confirm the wasm + Parquet HTTP-range reads both succeeded.
-    await page.goto("/s/tamil-nadu/explore");
+    await page.goto("/tamil-nadu/explore");
     await page.waitForLoadState("networkidle", { timeout: 30_000 });
   });
 
-  test("per-state topic page (/s/:state/t/:topic) renders cards + breadcrumb", async ({ page }) => {
+  test("per-state topic page (/:state/t/:topic) renders cards + breadcrumb", async ({ page }) => {
     // IA-reset Step #2: pick a state → click a topic in the rail → land
     // here. Asserts the route shell (breadcrumb + heading), at least one
     // IndicatorCard rendered, and SourceList provenance per CLAUDE.md §15.
-    await page.goto("/s/tamil-nadu/t/fiscal");
+    await page.goto("/tamil-nadu/t/fiscal");
 
     // Breadcrumb: "Tamil Nadu" is clickable, "Money & debt"-equivalent
     // (catalogue title for `fiscal`) is current. We assert the structural
@@ -289,7 +289,7 @@ test.describe("golden path", () => {
     // states.json drives the display name.
     const breadcrumb = page.getByRole("navigation", { name: "Breadcrumb" });
     await expect(breadcrumb).toBeVisible({ timeout: 15_000 });
-    await expect(breadcrumb.locator('a[href$="/s/tamil-nadu"]')).toBeVisible();
+    await expect(breadcrumb.locator('a[href$="/tamil-nadu"]')).toBeVisible();
 
     // At least one IndicatorCard renders with TN data.
     await expect(page.locator('[data-testid="indicator-card"]').first())
@@ -308,13 +308,13 @@ test.describe("golden path", () => {
   });
 
   test("per-state topic page 404s cleanly on unknown topic", async ({ page }) => {
-    await page.goto("/s/tamil-nadu/t/nonsense-topic-slug");
+    await page.goto("/tamil-nadu/t/nonsense-topic-slug");
     await expect(page.getByRole("heading", { name: /Topic not found/i }))
       .toBeVisible({ timeout: 15_000 });
   });
 
   test("per-state topic page 404s cleanly on unknown state slug", async ({ page }) => {
-    await page.goto("/s/nonsense-state-slug/t/fiscal");
+    await page.goto("/nonsense-state-slug/t/fiscal");
     await expect(page.getByRole("heading", { name: /State not found/i }))
       .toBeVisible({ timeout: 15_000 });
   });
