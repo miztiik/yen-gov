@@ -6,6 +6,7 @@
   import { loadConstituencyResult } from "../lib/view-models/constituency";
   import { loadStateAcWinners, type AcWinner } from "../lib/view-models/state-overview";
   import {
+    bodyFromEvent,
     loadElectionResults,
     type ElectionResultRow,
   } from "../lib/view-models/election-results";
@@ -14,7 +15,9 @@
     fetchElectionEvents,
     defaultEventForState,
     findEvent,
+    listEventsForState,
     type ElectionEventsCatalogue,
+    type ElectionEventRow,
   } from "../lib/election-events";
   import AcStackedBar from "../lib/AcStackedBar.svelte";
   import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
@@ -28,6 +31,13 @@
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import { route } from "../lib/router.svelte";
   import { findConstituencyBySlug } from "../lib/elections/constituency-lookup";
+  import YearPillStrip from "../lib/elections/YearPillStrip.svelte";
+  import ConstituencyHistoryBar from "../lib/elections/ConstituencyHistoryBar.svelte";
+  import {
+    buildHistoryRows,
+    type EventResultEntry,
+    type HistoryRow,
+  } from "../lib/elections/constituency-history-model";
 
   // Three valid props shapes:
   //
@@ -91,14 +101,19 @@
   // PR-W3b: bare-name-slug lookup. Populates `resolved_pc_entity` /
   // `resolved_ac_eci_no` once the canonical electoral.csv reaches the
   // browser. Skipped entirely on shapes #1 / #2 (eci_no already known).
+  // PR-W4a (2026-06-10) additive: also surface `resolved_entity_id` so
+  // the YearPillStrip + ConstituencyHistoryBar can JOIN per-event
+  // loader rows on the canonical entity key.
   let resolved_eci_no = $state<number | null>(null);
   let resolved_entity_name = $state<string | null>(null);
+  let resolved_entity_id = $state<string | null>(null);
   let resolved_pc_winner = $state<ElectionResultRow | null>(null);
   let resolved_lookup_pending = $state(false);
 
   $effect(() => {
     resolved_eci_no = null;
     resolved_entity_name = null;
+    resolved_entity_id = null;
     resolved_pc_winner = null;
     resolved_lookup_pending = false;
     const slug = params.constituency_slug;
@@ -113,6 +128,7 @@
       if (!hit) return;
       resolved_eci_no = hit.eci_no;
       resolved_entity_name = hit.name;
+      resolved_entity_id = hit.entity_id;
       // For PC drill-down, also project the winner row from the
       // NATIONAL-PC W2b loader. The AC drill-down keeps using its
       // bespoke per-AC loader below.
@@ -226,6 +242,69 @@
   // PR-W1d: per-route crumb chain. Reactive on route navigation AND
   // on async catalogue load (the builder reads states.svelte inside).
   const crumbs = $derived(route.crumbs ? route.crumbs(route.params) : []);
+
+  // PR-W4a (2026-06-10): YearPillStrip + ConstituencyHistoryBar mounts.
+  // Only the bare-slug (W3b shape #3) route exposes both because that is
+  // the only shape that resolves the canonical `entity_id` from a slug
+  // lookup; the legacy AC eci_no shapes (#1 / #2) ship without the
+  // history strip per the PR-W4a plan-doc scope ("mount on the
+  // constituency drill page rebuilt by PR-W3b"). When the lookup misses
+  // (resolved_entity_id stays null) the components do not render at all.
+  const history_events = $derived.by<ElectionEventRow[]>(() => {
+    if (!election_catalogue || !state_code || !resolved_entity_id) return [];
+    const all = listEventsForState(election_catalogue, state_code);
+    const body = constituency_kind;
+    return all.filter((row) => {
+      try {
+        return bodyFromEvent(row.event_id) === body;
+      } catch {
+        // Catalogue rows with a non-standard prefix slip past bodyFromEvent;
+        // drop them from the strip rather than throwing in render.
+        return false;
+      }
+    });
+  });
+
+  let history_rows = $state<HistoryRow[]>([]);
+
+  $effect(() => {
+    const events = history_events;
+    const entity_id = resolved_entity_id;
+    const body = constituency_kind;
+    const sc = state_code;
+    history_rows = [];
+    if (events.length === 0 || !entity_id) return;
+    let cancelled = false;
+    Promise.all(
+      events.map(async (ev) => {
+        try {
+          const scope =
+            body === "ac" && sc
+              ? { event: ev.event_id, state: sc }
+              : { event: ev.event_id };
+          const r = await loadElectionResults(scope);
+          const rows =
+            r.status === "ok" || r.status === "partial" ? r.data : [];
+          return { event: ev, rows } as EventResultEntry;
+        } catch {
+          return { event: ev, rows: [] } as EventResultEntry;
+        }
+      }),
+    ).then((entries) => {
+      if (cancelled) return;
+      history_rows = buildHistoryRows(entries, entity_id);
+    });
+    return () => {
+      cancelled = true;
+    };
+  });
+
+  function onPillSelect(event_id: string): void {
+    const st = params.state;
+    const slug = params.constituency_slug;
+    if (!st || !slug) return;
+    navigate(`/${st}/elections/${encodeURIComponent(event_id)}/${slug}`);
+  }
 </script>
 
 <Breadcrumb {crumbs} />
@@ -488,6 +567,33 @@
           <li><a class="font-mono hover:underline break-all" href={s.url} target="_blank" rel="noreferrer">{s.url}</a></li>
         {/each}
       </ul>
+    </section>
+  {/if}
+
+  <!-- PR-W4a (2026-06-10): YearPillStrip + ConstituencyHistoryBar.
+       Renders only on the bare-slug (W3b shape #3) leaf route - the
+       legacy AC eci_no shapes pre-date this PR and stay simple. The
+       strip + bar sit outside the AC/PC dispatch so both arms get
+       them once `resolved_entity_id` is known. -->
+  {#if resolved_entity_id && event && history_events.length > 0}
+    <section
+      class="bg-white rounded-lg shadow-sm p-5 space-y-4"
+      data-testid="constituency-history-strip"
+    >
+      <div class="space-y-2">
+        <h2 class="text-sm font-semibold uppercase text-slate-500">
+          Jump to year
+        </h2>
+        <YearPillStrip
+          events={history_events}
+          active={event}
+          onSelect={onPillSelect}
+        />
+      </div>
+      <div class="space-y-2">
+        <h3 class="text-lg font-medium">Across elections</h3>
+        <ConstituencyHistoryBar rows={history_rows} />
+      </div>
     </section>
   {/if}
 </main>
