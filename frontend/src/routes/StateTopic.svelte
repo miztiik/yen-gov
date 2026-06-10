@@ -60,6 +60,11 @@
     type ElectionEventsCatalogue,
     type ElectionEventRow,
   } from "../lib/election-events";
+  // PR-W3a (2026-06-10): /<state>/t/elections rebuilt as a chronological
+  // event hub. The mount lives on the `topic.id === "elections"` branch
+  // below; the URL is unchanged. See TODO/20260609-election-experience-
+  // overhaul-plan.md PR-W3a.
+  import StateElectionsHub from "./StateElectionsHub.svelte";
 
   interface Props {
     params: { state: string; topic: string };
@@ -160,6 +165,17 @@
         See the <a href={link.topics()} class="text-sky-700 hover:underline">topic index</a> for the full list.
       </p>
     </div>
+  {:else if topic.id === "elections"}
+    <!--
+      PR-W3a (2026-06-10): repurpose /<state>/t/elections from the
+      "horrible page" (List: N/A + How <state> compares + single default-
+      event card) into the chronological elections hub. The URL is
+      unchanged; the body is a separate component so the diff bounds
+      cleanly to the elections branch (see PR-W3a G5 acceptance gate).
+      All other topic branches fall through to the generic renderer
+      below, byte-identical to pre-W3a behaviour.
+    -->
+    <StateElectionsHub state_slug={params.state} />
   {:else}
     <header class="space-y-2">
       <div class="flex items-baseline gap-3 flex-wrap">
