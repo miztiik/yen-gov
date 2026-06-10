@@ -321,11 +321,14 @@ def test_cli_parity_help_lists_the_subcommand():
 
 def test_cli_parity_unknown_source_exits_non_zero(tmp_path):
     """An un-registered --source exits non-zero with the expected message."""
-    # Empty registry is the PR-2 invariant; defensive guard against a future
-    # PR self-registering at import time and silently invalidating this test.
-    assert REGISTRY == {}, (
-        "recon.adapters.REGISTRY must be empty at PR-2; "
-        f"got pre-populated: {sorted(REGISTRY)}"
+    # PR-W-1 onwards: REGISTRY carries one adapter per Wave B / Stream X PR.
+    # Defensive guard: confirm REGISTRY only contains the published PR set
+    # (each PR adds one source-id), so an accidental over-registration is
+    # caught here. Update the expected set when a new Wave B PR lands.
+    expected_sources: set[str] = {"tcpd-parties"}
+    assert set(REGISTRY) >= expected_sources, (
+        f"recon.adapters.REGISTRY missing expected adapter(s); "
+        f"got: {sorted(REGISTRY)}, expected superset of: {sorted(expected_sources)}"
     )
 
     report_path = tmp_path / "verdict.csv"

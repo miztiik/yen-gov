@@ -2,5 +2,5 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-assam-1805,assam,2017,113,DHEMAJI,Ranoj Pegu,parties.IN.BJP,BJP,75217,50.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-assam-1805,assam,2017,113,DHEMAJI,Babul Sonowal,parties.IN.INC,INC,65932,44.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-assam-1805,assam,2017,113,DHEMAJI,Jadu Hazarika,parties.IN.CPIM,CPI(Marxist),4944,3.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-assam-1805,assam,2017,113,DHEMAJI,Rajkumar Doley,parties.IN.UNK,INDEPENDENT,1347,0.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-assam-1805,assam,2017,113,DHEMAJI,Hem Kanta Miri,parties.IN.UNK,SUCI(Communist),1218,0.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1805,assam,2017,113,DHEMAJI,Rajkumar Doley,parties.IN.IND,INDEPENDENT,1347,0.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1805,assam,2017,113,DHEMAJI,Hem Kanta Miri,parties.IN.SUCI,SUCI(Communist),1218,0.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

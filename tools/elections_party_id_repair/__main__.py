@@ -29,6 +29,15 @@ to strict.
 
 Dry-run (default) prints stats without touching files; pass ``--apply`` to
 write.
+
+Use ``--reresolve-unk`` to ALSO retry the ``parties.IN.UNK`` fallback rows
+when new aliases have been added to parties.csv (e.g. after PR-W-1's TCPD
+enrichment lifts 1,500+ previously-unresolved publisher labels into the
+resolver). Without this flag the tool only handles empty-party_id rows;
+with it, both empty + UNK paths get re-resolved through the current alias
+table. Per Wave 0 / Hans rule ("no silent demotion"), UNK rows that still
+fail to resolve are LEFT as UNK (the party_short_raw is preserved for
+citizen UI fallback).
 """
 
 from __future__ import annotations
@@ -108,13 +117,27 @@ def _repair_candidacy_row(
     row: dict[str, str],
     resolver,
     stats: dict,
+    *,
+    reresolve_unk: bool = False,
 ) -> bool:
-    """Repair ``party_id`` if empty. Returns True if the row was changed."""
+    """Repair ``party_id`` if empty (or UNK when reresolve_unk=True).
+
+    Returns True if the row was changed.
+
+    The ``reresolve_unk`` flag is the PR-W-1 follow-up path: after new
+    aliases are added to parties.csv, ``parties.IN.UNK`` rows whose
+    ``party_short_raw`` now hits an alias get promoted to a real
+    ``party_id``. UNK rows that still miss STAY UNK (Hans no-silent-
+    demotion rule preserves the raw publisher label).
+    """
     pid = (row.get(CANDIDACY_PID_COL) or "").strip()
-    if pid != "":
+    if pid != "" and not (reresolve_unk and pid == UNK):
         return False
     raw = (row.get(CANDIDACY_RAW_COL) or "").strip()
     resolved = resolver.resolve(party_short=raw, eci_code=None) if raw else UNK
+    # No-op when reresolve_unk leaves an UNK as UNK (no actual cell change).
+    if pid == resolved:
+        return False
     row[CANDIDACY_PID_COL] = resolved
     if resolved == UNK:
         stats["unk_rows"] += 1
@@ -132,8 +155,15 @@ def _repair_summary_row(
     row: dict[str, str],
     resolver,
     stats: dict,
+    *,
+    reresolve_unk: bool = False,
 ) -> bool:
-    """Repair winner_party_id + runnerup_party_id if empty."""
+    """Repair winner_party_id + runnerup_party_id if empty (or UNK).
+
+    Mirrors ``_repair_candidacy_row``'s ``reresolve_unk`` semantics for
+    the two summary id columns; preserves the uncontested-seat carve-out
+    on the runnerup column.
+    """
     changed = False
     for pid_col, raw_col, kind in (
         (SUMMARY_WPID_COL, SUMMARY_WRAW_COL, "winner"),
@@ -142,10 +172,12 @@ def _repair_summary_row(
         if pid_col not in row:
             continue
         pid = (row.get(pid_col) or "").strip()
-        if pid != "":
+        if pid != "" and not (reresolve_unk and pid == UNK):
             continue
         raw = (row.get(raw_col) or "").strip()
         resolved = resolver.resolve(party_short=raw, eci_code=None) if raw else UNK
+        if pid == resolved:
+            continue
         # Summary's runnerup_party_id may legitimately be empty for an
         # uncontested seat (no runner-up exists). The candidacies for that
         # AC will have only one real row; if there's no runnerup, the
@@ -186,6 +218,16 @@ def main() -> int:
         action="store_true",
         help="Apply repairs to disk. Default is dry-run (stats only).",
     )
+    parser.add_argument(
+        "--reresolve-unk",
+        action="store_true",
+        help=(
+            "Also retry parties.IN.UNK rows against the current alias "
+            "table. PR-W-1 follow-up: after TCPD enrichment lifts new "
+            "aliases into parties.csv, previously-UNK rows may now "
+            "resolve to real party_ids."
+        ),
+    )
     args = parser.parse_args()
 
     resolver = load_resolver()
@@ -214,7 +256,9 @@ def main() -> int:
         cand_stats["rows_scanned"] += len(rows)
         file_changed = False
         for row in rows:
-            if _repair_candidacy_row(row, resolver, cand_stats):
+            if _repair_candidacy_row(
+                row, resolver, cand_stats, reresolve_unk=args.reresolve_unk
+            ):
                 cand_stats["rows_changed"] += 1
                 file_changed = True
         if file_changed:
@@ -228,7 +272,9 @@ def main() -> int:
         summ_stats["rows_scanned"] += len(rows)
         file_changed = False
         for row in rows:
-            if _repair_summary_row(row, resolver, summ_stats):
+            if _repair_summary_row(
+                row, resolver, summ_stats, reresolve_unk=args.reresolve_unk
+            ):
                 summ_stats["rows_changed"] += 1
                 file_changed = True
         if file_changed:

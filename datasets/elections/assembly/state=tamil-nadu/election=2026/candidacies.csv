@@ -1,22 +1,22 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-tamil-nadu-4062,tamil-nadu,2026,1,GUMMIDIPOONDI,S.vijayakumar,parties.IN.TVK,TVK,94320,40.56,1,won,M,56,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4062,tamil-nadu,2026,1,GUMMIDIPOONDI,Sudhakar.v,parties.IN.UNK,ADMK,66375,28.55,2,lost,M,40,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4062,tamil-nadu,2026,1,GUMMIDIPOONDI,Sudhakar.v,parties.IN.AIADMK,ADMK,66375,28.55,2,lost,M,40,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4062,tamil-nadu,2026,1,GUMMIDIPOONDI,T.j.govindarajan,parties.IN.DMK,DMK,62492,26.88,3,lost,M,65,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4062,tamil-nadu,2026,1,GUMMIDIPOONDI,"R.sridar. B.l.,",parties.IN.NTK,NTK,4756,2.05,4,lost,M,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4062,tamil-nadu,2026,1,GUMMIDIPOONDI,M.jagadeesan,parties.IN.BSP,BSP,697,0.3,5,lost,M,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4064,tamil-nadu,2026,2,PONNERI (SC),Dr.ravi.m.s,parties.IN.TVK,TVK,110439,48.69,1,won,M,67,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4064,tamil-nadu,2026,2,PONNERI (SC),Durai Chandrasekar,parties.IN.INC,INC,54671,24.1,2,lost,M,53,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4064,tamil-nadu,2026,2,PONNERI (SC),Balaraman.p,parties.IN.UNK,ADMK,51468,22.69,3,lost,M,64,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4064,tamil-nadu,2026,2,PONNERI (SC),Balaraman.p,parties.IN.AIADMK,ADMK,51468,22.69,3,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4064,tamil-nadu,2026,2,PONNERI (SC),Rajathi.m,parties.IN.NTK,NTK,6676,2.94,4,lost,F,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4064,tamil-nadu,2026,2,PONNERI (SC),Santhoshkumar.j,parties.IN.BSP,BSP,615,0.27,5,lost,M,46,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3862,tamil-nadu,2026,3,TIRUTTANI,G.hari,parties.IN.UNK,ADMK,89169,37.34,1,won,M,65,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3862,tamil-nadu,2026,3,TIRUTTANI,G.hari,parties.IN.AIADMK,ADMK,89169,37.34,1,won,M,65,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3862,tamil-nadu,2026,3,TIRUTTANI,M.sathya Kumar,parties.IN.TVK,TVK,83376,34.91,2,lost,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3862,tamil-nadu,2026,3,TIRUTTANI,D.krishnamurthy,parties.IN.DMDK,DMDK,54863,22.97,3,lost,M,63,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3862,tamil-nadu,2026,3,TIRUTTANI,Chandran .s.s,parties.IN.NTK,NTK,6704,2.81,4,lost,M,27,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3862,tamil-nadu,2026,3,TIRUTTANI,Krishnamoorthy.m,parties.IN.IND,IND,946,0.4,5,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4066,tamil-nadu,2026,4,THIRUVALLUR,Dr. T. Arunkumar,parties.IN.TVK,TVK,92190,40.71,1,won,M,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4066,tamil-nadu,2026,4,THIRUVALLUR,V.g. Raajendran,parties.IN.DMK,DMK,67430,29.78,2,lost,M,58,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4066,tamil-nadu,2026,4,THIRUVALLUR,Be Vee Ramanah,parties.IN.UNK,ADMK,56562,24.98,3,lost,M,58,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4066,tamil-nadu,2026,4,THIRUVALLUR,Be Vee Ramanah,parties.IN.AIADMK,ADMK,56562,24.98,3,lost,M,58,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4066,tamil-nadu,2026,4,THIRUVALLUR,K. Senthilkumar,parties.IN.NTK,NTK,5513,2.43,4,lost,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4066,tamil-nadu,2026,4,THIRUVALLUR,S. Rajendran,parties.IN.IND,IND,868,0.38,5,lost,M,62,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4065,tamil-nadu,2026,5,POONAMALLEE (SC),Prakasam.r,parties.IN.TVK,TVK,161309,52.22,1,won,M,44,,,,src-3da941c21223
@@ -31,7 +31,7 @@ IN-AC-2008-tamil-nadu-4061,tamil-nadu,2026,6,AVADI,Punitha Shanmugam,parties.IN.
 IN-AC-2008-tamil-nadu-4061,tamil-nadu,2026,6,AVADI,S. Charles,parties.IN.BSP,BSP,761,0.22,5,lost,M,40,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4015,tamil-nadu,2026,7,MADURAVOYAL,Rhevanth Charan,parties.IN.TVK,TVK,141725,48.26,1,won,M,30,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4015,tamil-nadu,2026,7,MADURAVOYAL,Ganapathy. K,parties.IN.DMK,DMK,80216,27.31,2,lost,M,67,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4015,tamil-nadu,2026,7,MADURAVOYAL,P. Benjamin,parties.IN.UNK,ADMK,54705,18.63,3,lost,M,56,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4015,tamil-nadu,2026,7,MADURAVOYAL,P. Benjamin,parties.IN.AIADMK,ADMK,54705,18.63,3,lost,M,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4015,tamil-nadu,2026,7,MADURAVOYAL,Revathi L,parties.IN.NTK,NTK,13024,4.43,4,lost,F,32,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4015,tamil-nadu,2026,7,MADURAVOYAL,R. Siva,parties.IN.IND,IND,322,0.11,5,lost,M,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4014,tamil-nadu,2026,8,AMBATTUR,Balamurugan.g,parties.IN.TVK,TVK,133339,51.29,1,won,M,44,,,,src-3da941c21223
@@ -41,17 +41,17 @@ IN-AC-2008-tamil-nadu-4014,tamil-nadu,2026,8,AMBATTUR,Silambarasan,parties.IN.NT
 IN-AC-2008-tamil-nadu-4014,tamil-nadu,2026,8,AMBATTUR,A.kalyanasundaram,parties.IN.NJANP,NJANP,588,0.23,5,lost,M,70,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4063,tamil-nadu,2026,9,MADAVARAM,M.l.vijayprabhu,parties.IN.TVK,TVK,190462,52.61,1,won,M,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4063,tamil-nadu,2026,9,MADAVARAM,S.sudharsanam,parties.IN.DMK,DMK,95477,26.38,2,lost,M,67,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4063,tamil-nadu,2026,9,MADAVARAM,Madhavaram V.moorthy,parties.IN.UNK,ADMK,59290,16.38,3,lost,M,67,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4063,tamil-nadu,2026,9,MADAVARAM,Madhavaram V.moorthy,parties.IN.AIADMK,ADMK,59290,16.38,3,lost,M,67,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4063,tamil-nadu,2026,9,MADAVARAM,E.krithika,parties.IN.NTK,NTK,12637,3.49,4,lost,F,28,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4063,tamil-nadu,2026,9,MADAVARAM,I.raffik,parties.IN.UNK,NADLMMKLK,676,0.19,5,lost,M,40,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3880,tamil-nadu,2026,10,THIRUVOTTIYUR,Senthil Kumar. N,parties.IN.TVK,TVK,110067,53.15,1,won,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3880,tamil-nadu,2026,10,THIRUVOTTIYUR,Sundararaj. L,parties.IN.CPIM,CPI(M),56503,27.28,2,lost,M,59,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3880,tamil-nadu,2026,10,THIRUVOTTIYUR,Kuppan. K,parties.IN.UNK,ADMK,28320,13.68,3,lost,M,72,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3880,tamil-nadu,2026,10,THIRUVOTTIYUR,Kuppan. K,parties.IN.AIADMK,ADMK,28320,13.68,3,lost,M,72,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3880,tamil-nadu,2026,10,THIRUVOTTIYUR,Sathya. B,parties.IN.NTK,NTK,8413,4.06,4,lost,F,40,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3880,tamil-nadu,2026,10,THIRUVOTTIYUR,Michaelraj. M. A,parties.IN.IND,IND,838,0.4,5,lost,M,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2026,11,DR.RADHAKRISHNAN NAGAR,N. Marie Wilson,parties.IN.TVK,TVK,97800,53.97,1,won,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2026,11,DR.RADHAKRISHNAN NAGAR,J. John Ebenezer,parties.IN.DMK,DMK,48132,26.56,2,lost,M,50,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3875,tamil-nadu,2026,11,DR.RADHAKRISHNAN NAGAR,R.s.raajesh,parties.IN.UNK,ADMK,26892,14.84,3,lost,M,54,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3875,tamil-nadu,2026,11,DR.RADHAKRISHNAN NAGAR,R.s.raajesh,parties.IN.AIADMK,ADMK,26892,14.84,3,lost,M,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2026,11,DR.RADHAKRISHNAN NAGAR,Vennila.t,parties.IN.NTK,NTK,5364,2.96,4,lost,F,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3875,tamil-nadu,2026,11,DR.RADHAKRISHNAN NAGAR,B.navin,parties.IN.UNK,tavk,338,0.19,5,lost,M,30,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3877,tamil-nadu,2026,12,PERAMBUR,C. Joseph Vijay,parties.IN.TVK,TVK,120365,58.89,1,won,M,52,,,,src-3da941c21223
@@ -61,52 +61,52 @@ IN-AC-2008-tamil-nadu-3877,tamil-nadu,2026,12,PERAMBUR,S. Vetri Thamizhan,partie
 IN-AC-2008-tamil-nadu-3877,tamil-nadu,2026,12,PERAMBUR,A. Rajaram,parties.IN.RPPRINAT,RPPRINAT,256,0.13,5,lost,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3876,tamil-nadu,2026,13,KOLATHUR,V. S. Babu,parties.IN.TVK,TVK,82997,45.09,1,won,M,75,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3876,tamil-nadu,2026,13,KOLATHUR,M. K. Stalin,parties.IN.DMK,DMK,74202,40.32,2,lost,M,72,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3876,tamil-nadu,2026,13,KOLATHUR,P. Santhana Krishnan,parties.IN.UNK,ADMK,18430,10.01,3,lost,M,51,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3876,tamil-nadu,2026,13,KOLATHUR,P. Santhana Krishnan,parties.IN.AIADMK,ADMK,18430,10.01,3,lost,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3876,tamil-nadu,2026,13,KOLATHUR,Soundara Pandian Luder Seth,parties.IN.NTK,NTK,5046,2.74,4,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3876,tamil-nadu,2026,13,KOLATHUR,S.y. Syed Yusuf,parties.IN.RPPRINAT,RPPRINAT,484,0.26,5,lost,M,32,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3874,tamil-nadu,2026,14,VILLIVAKKAM,Aadhav Arjuna,parties.IN.TVK,TVK,66445,46.97,1,won,M,43,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3874,tamil-nadu,2026,14,VILLIVAKKAM,Karthik Mohan,parties.IN.DMK,DMK,49143,34.74,2,lost,M,45,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3874,tamil-nadu,2026,14,VILLIVAKKAM,Vijayakumar S.r,parties.IN.UNK,ADMK,19338,13.67,3,lost,M,52,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3874,tamil-nadu,2026,14,VILLIVAKKAM,Vijayakumar S.r,parties.IN.AIADMK,ADMK,19338,13.67,3,lost,M,52,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3874,tamil-nadu,2026,14,VILLIVAKKAM,Roshini S,parties.IN.NTK,NTK,4310,3.05,4,lost,U,30,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3874,tamil-nadu,2026,14,VILLIVAKKAM,Dhayanidhi D,parties.IN.IND,IND,184,0.13,5,lost,M,30,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3879,tamil-nadu,2026,15,THIRU-VI-KA-NAGAR (SC),M. R. Pallavi,parties.IN.TVK,TVK,69125,48.04,1,won,F,36,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3879,tamil-nadu,2026,15,THIRU-VI-KA-NAGAR (SC),K. S. Ravichandran,parties.IN.DMK,DMK,46792,32.52,2,lost,M,55,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3879,tamil-nadu,2026,15,THIRU-VI-KA-NAGAR (SC),Porkodi Armstrong,parties.IN.UNK,ADMK,23304,16.19,3,lost,F,51,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3879,tamil-nadu,2026,15,THIRU-VI-KA-NAGAR (SC),Porkodi Armstrong,parties.IN.AIADMK,ADMK,23304,16.19,3,lost,F,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3879,tamil-nadu,2026,15,THIRU-VI-KA-NAGAR (SC),Jagadesh Chander .m,parties.IN.NTK,NTK,2658,1.85,4,lost,M,39,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3879,tamil-nadu,2026,15,THIRU-VI-KA-NAGAR (SC),S Jayakalpana,parties.IN.RPPRINAT,RPPRINAT,350,0.24,5,lost,F,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3871,tamil-nadu,2026,16,EGMORE (SC),Rajmohan,parties.IN.TVK,TVK,53901,45.02,1,won,M,39,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3871,tamil-nadu,2026,16,EGMORE (SC),Tamilan Prasanna,parties.IN.DMK,DMK,43097,35.99,2,lost,M,43,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3871,tamil-nadu,2026,16,EGMORE (SC),Abishek. R,parties.IN.UNK,ADMK,18191,15.19,3,lost,M,36,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3871,tamil-nadu,2026,16,EGMORE (SC),Abishek. R,parties.IN.AIADMK,ADMK,18191,15.19,3,lost,M,36,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3871,tamil-nadu,2026,16,EGMORE (SC),Saranya Imran,parties.IN.NTK,NTK,2522,2.11,4,lost,F,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3871,tamil-nadu,2026,16,EGMORE (SC),Dr.n. Gunasekar,parties.IN.RPPRINAT,RPPRINAT,209,0.17,5,lost,M,36,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-eci17,tamil-nadu,2026,17,ROYAPURAM,K.v. Vijay Damu,parties.IN.TVK,TVK,59091,46.4,1,won,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-eci17,tamil-nadu,2026,17,ROYAPURAM,Dr. A. Subair Khan,parties.IN.DMK,DMK,44842,35.21,2,lost,M,49,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-eci17,tamil-nadu,2026,17,ROYAPURAM,D. Jayakumar,parties.IN.UNK,ADMK,18420,14.46,3,lost,M,65,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-eci17,tamil-nadu,2026,17,ROYAPURAM,D. Jayakumar,parties.IN.AIADMK,ADMK,18420,14.46,3,lost,M,65,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-eci17,tamil-nadu,2026,17,ROYAPURAM,A. Babu Mailan,parties.IN.NTK,NTK,2947,2.31,4,lost,M,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-eci17,tamil-nadu,2026,17,ROYAPURAM,M. Jayarajkumar,parties.IN.BSP,BSP,222,0.17,5,lost,M,29,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3872,tamil-nadu,2026,18,HARBOUR,P K Sekarbabu,parties.IN.DMK,DMK,45254,45.43,1,won,M,63,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3872,tamil-nadu,2026,18,HARBOUR,Sinora P S Ashok,parties.IN.TVK,TVK,33504,33.63,2,lost,M,59,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3872,tamil-nadu,2026,18,HARBOUR,R Manohar,parties.IN.UNK,ADMK,17256,17.32,3,lost,M,59,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3872,tamil-nadu,2026,18,HARBOUR,R Manohar,parties.IN.AIADMK,ADMK,17256,17.32,3,lost,M,59,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3872,tamil-nadu,2026,18,HARBOUR,R Fouzan Shariff,parties.IN.NTK,NTK,1607,1.61,4,lost,M,27,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3872,tamil-nadu,2026,18,HARBOUR,Sivalingam Ashok,parties.IN.IND,IND,291,0.29,5,lost,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3870,tamil-nadu,2026,19,CHEPAUK-THIRUVALLIKENI,Udhayanidhi Stalin,parties.IN.DMK,DMK,62992,44.76,1,won,M,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3870,tamil-nadu,2026,19,CHEPAUK-THIRUVALLIKENI,Selvam. D,parties.IN.TVK,TVK,55852,39.68,2,lost,M,61,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3870,tamil-nadu,2026,19,CHEPAUK-THIRUVALLIKENI,Aadirajaram,parties.IN.UNK,ADMK,16507,11.73,3,lost,M,67,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3870,tamil-nadu,2026,19,CHEPAUK-THIRUVALLIKENI,Aadirajaram,parties.IN.AIADMK,ADMK,16507,11.73,3,lost,M,67,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3870,tamil-nadu,2026,19,CHEPAUK-THIRUVALLIKENI,Aysha,parties.IN.NTK,NTK,2971,2.11,4,lost,F,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3870,tamil-nadu,2026,19,CHEPAUK-THIRUVALLIKENI,Mohammed Yasser,parties.IN.BSP,BSP,244,0.17,5,lost,M,40,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3873,tamil-nadu,2026,20,THOUSAND LIGHTS,Prabhakar.j.c.d,parties.IN.TVK,TVK,58965,44.73,1,won,M,73,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3873,tamil-nadu,2026,20,THOUSAND LIGHTS,Ezhilan Naganathan,parties.IN.DMK,DMK,43824,33.24,2,lost,M,46,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3873,tamil-nadu,2026,20,THOUSAND LIGHTS,Valarmathi.b,parties.IN.UNK,ADMK,23320,17.69,3,lost,F,68,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3873,tamil-nadu,2026,20,THOUSAND LIGHTS,Valarmathi.b,parties.IN.AIADMK,ADMK,23320,17.69,3,lost,F,68,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3873,tamil-nadu,2026,20,THOUSAND LIGHTS,Kalanchiyam.mu,parties.IN.NTK,NTK,3717,2.82,4,lost,M,58,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3873,tamil-nadu,2026,20,THOUSAND LIGHTS,Valarmathi.e,parties.IN.IND,IND,245,0.19,5,lost,F,62,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3869,tamil-nadu,2026,21,ANNA NAGAR,V.k.ramkumar,parties.IN.TVK,TVK,71375,43.7,1,won,M,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3869,tamil-nadu,2026,21,ANNA NAGAR,N.chitrarasu,parties.IN.DMK,DMK,50012,30.62,2,lost,M,47,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3869,tamil-nadu,2026,21,ANNA NAGAR,S.gokula Indira,parties.IN.UNK,ADMK,34382,21.05,3,lost,F,59,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3869,tamil-nadu,2026,21,ANNA NAGAR,S.gokula Indira,parties.IN.AIADMK,ADMK,34382,21.05,3,lost,F,59,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3869,tamil-nadu,2026,21,ANNA NAGAR,S.shankar,parties.IN.NTK,NTK,4839,2.96,4,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3869,tamil-nadu,2026,21,ANNA NAGAR,S Vinesh Kumar,parties.IN.IND,IND,289,0.18,5,lost,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3886,tamil-nadu,2026,22,VIRUGAMPAKKAM,Sabarinathan.r,parties.IN.TVK,TVK,76092,44.03,1,won,M,30,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3886,tamil-nadu,2026,22,VIRUGAMPAKKAM,Prabhakara Raja.a.m.v,parties.IN.DMK,DMK,49006,28.35,2,lost,M,38,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3886,tamil-nadu,2026,22,VIRUGAMPAKKAM,Virugai V.n.ravi,parties.IN.UNK,ADMK,38767,22.43,3,lost,M,63,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3886,tamil-nadu,2026,22,VIRUGAMPAKKAM,Virugai V.n.ravi,parties.IN.AIADMK,ADMK,38767,22.43,3,lost,M,63,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3886,tamil-nadu,2026,22,VIRUGAMPAKKAM,Santhosh,parties.IN.NTK,NTK,6056,3.5,4,lost,M,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3886,tamil-nadu,2026,22,VIRUGAMPAKKAM,Jagadish.s,parties.IN.RPPRINAT,RPPRINAT,462,0.27,5,lost,M,28,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3882,tamil-nadu,2026,23,SAIDAPET,Arul Prakasam. M,parties.IN.TVK,TVK,81205,50.63,1,won,M,44,,,,src-3da941c21223
@@ -115,7 +115,7 @@ IN-AC-2008-tamil-nadu-3882,tamil-nadu,2026,23,SAIDAPET,Senthamizhan. G,parties.I
 IN-AC-2008-tamil-nadu-3882,tamil-nadu,2026,23,SAIDAPET,Srividya. G,parties.IN.NTK,NTK,5918,3.69,4,lost,F,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3882,tamil-nadu,2026,23,SAIDAPET,Kumaran. G.p,parties.IN.BSP,BSP,571,0.36,5,lost,M,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3884,tamil-nadu,2026,24,THIYAGARAYANAGAR,Anand N,parties.IN.TVK,TVK,51632,38.55,1,won,M,62,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3884,tamil-nadu,2026,24,THIYAGARAYANAGAR,Sathiyanarayanan B,parties.IN.UNK,ADMK,38605,28.83,2,lost,M,62,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3884,tamil-nadu,2026,24,THIYAGARAYANAGAR,Sathiyanarayanan B,parties.IN.AIADMK,ADMK,38605,28.83,2,lost,M,62,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3884,tamil-nadu,2026,24,THIYAGARAYANAGAR,Raja Anbazhagan,parties.IN.DMK,DMK,37017,27.64,3,lost,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3884,tamil-nadu,2026,24,THIYAGARAYANAGAR,Anusha V,parties.IN.NTK,NTK,4554,3.4,4,lost,F,41,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3884,tamil-nadu,2026,24,THIYAGARAYANAGAR,Padmini Narasimhan,parties.IN.IND,IND,124,0.09,5,lost,F,64,,,,src-3da941c21223
@@ -125,38 +125,38 @@ IN-AC-2008-tamil-nadu-3881,tamil-nadu,2026,25,MYLAPORE,Dr. Tamilisai Soundararaj
 IN-AC-2008-tamil-nadu-3881,tamil-nadu,2026,25,MYLAPORE,Arun. R.l,parties.IN.NTK,NTK,4499,2.99,4,lost,M,33,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3881,tamil-nadu,2026,25,MYLAPORE,Balaji. V,parties.IN.BSP,BSP,267,0.18,5,lost,M,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3885,tamil-nadu,2026,26,VELACHERY,Kumar. R,parties.IN.TVK,TVK,80430,43.52,1,won,M,60,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3885,tamil-nadu,2026,26,VELACHERY,Ashok. M.k,parties.IN.UNK,ADMK,47125,25.5,2,lost,M,54,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3885,tamil-nadu,2026,26,VELACHERY,Ashok. M.k,parties.IN.AIADMK,ADMK,47125,25.5,2,lost,M,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3885,tamil-nadu,2026,26,VELACHERY,Aassan Maulaana J.m.h,parties.IN.INC,INC,45928,24.85,3,lost,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3885,tamil-nadu,2026,26,VELACHERY,Keerthana. M,parties.IN.NTK,NTK,7697,4.16,4,lost,F,33,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3885,tamil-nadu,2026,26,VELACHERY,Mohanraj. K,parties.IN.BSP,BSP,239,0.13,5,lost,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3883,tamil-nadu,2026,27,SHOZHINGANALLUR,Ecr P Saravanan,parties.IN.TVK,TVK,220382,49.27,1,won,M,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3883,tamil-nadu,2026,27,SHOZHINGANALLUR,S. Aravind Ramesh,parties.IN.DMK,DMK,123602,27.63,2,lost,M,58,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3883,tamil-nadu,2026,27,SHOZHINGANALLUR,K.p.kandan,parties.IN.UNK,ADMK,74112,16.57,3,lost,M,63,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3883,tamil-nadu,2026,27,SHOZHINGANALLUR,K.p.kandan,parties.IN.AIADMK,ADMK,74112,16.57,3,lost,M,63,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3883,tamil-nadu,2026,27,SHOZHINGANALLUR,R Jayalakshmi,parties.IN.NTK,NTK,21919,4.9,4,lost,F,39,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3883,tamil-nadu,2026,27,SHOZHINGANALLUR,N.prashantha Rao,parties.IN.IND,IND,527,0.12,5,lost,M,33,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4013,tamil-nadu,2026,28,ALANDUR,M.harish,parties.IN.TVK,TVK,112205,42.9,1,won,M,31,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4013,tamil-nadu,2026,28,ALANDUR,T.m.anbarasan,parties.IN.DMK,DMK,82596,31.58,2,lost,M,66,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4013,tamil-nadu,2026,28,ALANDUR,S.saravanan,parties.IN.UNK,ADMK,52243,19.97,3,lost,M,53,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4013,tamil-nadu,2026,28,ALANDUR,S.saravanan,parties.IN.AIADMK,ADMK,52243,19.97,3,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4013,tamil-nadu,2026,28,ALANDUR,Y.g.mahalakshmi,parties.IN.NTK,NTK,10405,3.98,4,lost,F,33,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4013,tamil-nadu,2026,28,ALANDUR,M.harish,parties.IN.IND,IND,853,0.33,5,lost,M,25,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4017,tamil-nadu,2026,29,SRIPERUMBUDUR (SC),Thennarasu.k,parties.IN.TVK,TVK,147611,44.58,1,won,M,36,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4017,tamil-nadu,2026,29,SRIPERUMBUDUR (SC),K. Selvaperunthagai,parties.IN.INC,INC,93365,28.2,2,lost,M,65,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4017,tamil-nadu,2026,29,SRIPERUMBUDUR (SC),K. Palani,parties.IN.UNK,ADMK,73182,22.1,3,lost,M,64,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4017,tamil-nadu,2026,29,SRIPERUMBUDUR (SC),K. Palani,parties.IN.AIADMK,ADMK,73182,22.1,3,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4017,tamil-nadu,2026,29,SRIPERUMBUDUR (SC),M. Sindhu Ezhilarasan,parties.IN.NTK,NTK,13150,3.97,4,lost,F,32,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4017,tamil-nadu,2026,29,SRIPERUMBUDUR (SC),M.tamilarasan,parties.IN.UNK,CPI(ML)(L),511,0.15,5,lost,M,30,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4017,tamil-nadu,2026,29,SRIPERUMBUDUR (SC),M.tamilarasan,parties.IN.CPIMLL,CPI(ML)(L),511,0.15,5,lost,M,30,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4016,tamil-nadu,2026,30,PALLAVARAM,J.kamatchi,parties.IN.TVK,TVK,133611,47.1,1,won,F,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4016,tamil-nadu,2026,30,PALLAVARAM,D.murugesan,parties.IN.DMDK,DMDK,78918,27.82,2,lost,M,60,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4016,tamil-nadu,2026,30,PALLAVARAM,V.venkatesan,parties.IN.UNK,ADMK,48921,17.25,3,lost,M,54,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4016,tamil-nadu,2026,30,PALLAVARAM,V.venkatesan,parties.IN.AIADMK,ADMK,48921,17.25,3,lost,M,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4016,tamil-nadu,2026,30,PALLAVARAM,Dr.r.karthikeyan,parties.IN.NTK,NTK,14065,4.96,4,lost,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4016,tamil-nadu,2026,30,PALLAVARAM,Rajesh T R,parties.IN.IND,IND,1277,0.45,5,lost,M,33,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4018,tamil-nadu,2026,31,TAMBARAM,D.sarathkumar,parties.IN.TVK,TVK,118967,42.67,1,won,M,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4018,tamil-nadu,2026,31,TAMBARAM,R.s.kiruthika Devi,parties.IN.DMK,DMK,83346,29.89,2,lost,F,55,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4018,tamil-nadu,2026,31,TAMBARAM,C.rajendran,parties.IN.UNK,ADMK,61991,22.23,3,lost,M,65,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4018,tamil-nadu,2026,31,TAMBARAM,C.rajendran,parties.IN.AIADMK,ADMK,61991,22.23,3,lost,M,65,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4018,tamil-nadu,2026,31,TAMBARAM,S.tamilchelvi,parties.IN.NTK,NTK,11627,4.17,4,lost,F,63,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4018,tamil-nadu,2026,31,TAMBARAM,M.raja,parties.IN.BSP,BSP,290,0.1,5,lost,M,27,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3929,tamil-nadu,2026,32,CHENGALPATTU,S. Thiyagarajan,parties.IN.TVK,TVK,137136,42.32,1,won,M,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3929,tamil-nadu,2026,32,CHENGALPATTU,Karthik Dhandapani,parties.IN.DMK,DMK,101495,31.32,2,lost,M,43,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3929,tamil-nadu,2026,32,CHENGALPATTU,M. Gajendran,parties.IN.UNK,ADMK,69763,21.53,3,lost,M,47,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3929,tamil-nadu,2026,32,CHENGALPATTU,M. Gajendran,parties.IN.AIADMK,ADMK,69763,21.53,3,lost,M,47,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3929,tamil-nadu,2026,32,CHENGALPATTU,Amutha. N,parties.IN.NTK,NTK,12032,3.71,4,lost,F,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3929,tamil-nadu,2026,32,CHENGALPATTU,S.selvam (a) Chella,parties.IN.UNK,tavk,381,0.12,5,lost,M,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3933,tamil-nadu,2026,33,THIRUPORUR,B.vijayaraj,parties.IN.TVK,TVK,110095,41.96,1,won,M,32,,,,src-3da941c21223
@@ -164,12 +164,12 @@ IN-AC-2008-tamil-nadu-3933,tamil-nadu,2026,33,THIRUPORUR,R. Panneerdoss,parties.
 IN-AC-2008-tamil-nadu-3933,tamil-nadu,2026,33,THIRUPORUR,K. Balu,parties.IN.PMK,PMK,67392,25.68,3,lost,M,55,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3933,tamil-nadu,2026,33,THIRUPORUR,Ambeth Rajan,parties.IN.NTK,NTK,9616,3.66,4,lost,M,70,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3933,tamil-nadu,2026,33,THIRUPORUR,D. Panneerselvam,parties.IN.IND,IND,784,0.3,5,lost,M,48,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3930,tamil-nadu,2026,34,CHEYYUR (SC),Rajasekar. E,parties.IN.UNK,ADMK,63809,34.02,1,won,M,64,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3930,tamil-nadu,2026,34,CHEYYUR (SC),Rajasekar. E,parties.IN.AIADMK,ADMK,63809,34.02,1,won,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3930,tamil-nadu,2026,34,CHEYYUR (SC),Mohan Raja.m.g.k,parties.IN.TVK,TVK,58141,30.99,2,lost,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3930,tamil-nadu,2026,34,CHEYYUR (SC),Sinthanai Selvan,parties.IN.VCK,VCK,57909,30.87,3,lost,M,61,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3930,tamil-nadu,2026,34,CHEYYUR (SC),Swathilakshmi Sekar,parties.IN.NTK,NTK,4853,2.59,4,lost,F,31,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3930,tamil-nadu,2026,34,CHEYYUR (SC),Murugavel. A,parties.IN.AIPTMMK,AIPTMMK,408,0.22,5,lost,M,49,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3932,tamil-nadu,2026,35,MADURANTAKAM (SC),Maragatham Kumaravel.k,parties.IN.UNK,ADMK,69284,34.95,1,won,F,44,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3932,tamil-nadu,2026,35,MADURANTAKAM (SC),Maragatham Kumaravel.k,parties.IN.AIADMK,ADMK,69284,34.95,1,won,F,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3932,tamil-nadu,2026,35,MADURANTAKAM (SC),Ezhil Katharine Ezhilmalai,parties.IN.TVK,TVK,62090,31.32,2,lost,F,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3932,tamil-nadu,2026,35,MADURANTAKAM (SC),S.amulu Ponmalar,parties.IN.DMK,DMK,59838,30.18,3,lost,F,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3932,tamil-nadu,2026,35,MADURANTAKAM (SC),G.janakiraman,parties.IN.NTK,NTK,4950,2.5,4,lost,M,33,,,,src-3da941c21223
@@ -180,13 +180,13 @@ IN-AC-2008-tamil-nadu-3934,tamil-nadu,2026,36,UTHIRAMERUR,Mageshkumar.p,parties.
 IN-AC-2008-tamil-nadu-3934,tamil-nadu,2026,36,UTHIRAMERUR,Maram Masilamani.b.s,parties.IN.NTK,NTK,5783,2.54,4,lost,M,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3934,tamil-nadu,2026,36,UTHIRAMERUR,Devarajan.c,parties.IN.IND,IND,551,0.24,5,lost,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3931,tamil-nadu,2026,37,KANCHEEPURAM,R.v. Ranjithkumar,parties.IN.TVK,TVK,91350,37.09,1,won,M,50,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3931,tamil-nadu,2026,37,KANCHEEPURAM,V. Somasundaram,parties.IN.UNK,ADMK,75862,30.8,2,lost,M,61,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3931,tamil-nadu,2026,37,KANCHEEPURAM,V. Somasundaram,parties.IN.AIADMK,ADMK,75862,30.8,2,lost,M,61,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3931,tamil-nadu,2026,37,KANCHEEPURAM,Nithya Sugumar,parties.IN.DMK,DMK,69344,28.15,3,lost,F,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3931,tamil-nadu,2026,37,KANCHEEPURAM,Vetriselvi,parties.IN.NTK,NTK,6950,2.82,4,lost,F,52,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3931,tamil-nadu,2026,37,KANCHEEPURAM,G. Babu,parties.IN.IND,IND,364,0.15,5,lost,M,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3857,tamil-nadu,2026,38,ARAKKONAM (SC),V. Gandhiraj,parties.IN.TVK,TVK,73776,40.46,1,won,M,52,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3857,tamil-nadu,2026,38,ARAKKONAM (SC),Ezhil Caroline,parties.IN.VCK,VCK,50655,27.78,2,lost,F,56,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3857,tamil-nadu,2026,38,ARAKKONAM (SC),S. Ravi,parties.IN.UNK,ADMK,50052,27.45,3,lost,M,62,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3857,tamil-nadu,2026,38,ARAKKONAM (SC),S. Ravi,parties.IN.AIADMK,ADMK,50052,27.45,3,lost,M,62,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3857,tamil-nadu,2026,38,ARAKKONAM (SC),K. Rajkumar,parties.IN.NTK,NTK,5191,2.85,4,lost,M,29,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3857,tamil-nadu,2026,38,ARAKKONAM (SC),P. Sudhakar,parties.IN.BSP,BSP,451,0.25,5,lost,M,47,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3861,tamil-nadu,2026,39,SHOLINGUR,G.kapil,parties.IN.TVK,TVK,84506,36.16,1,won,M,32,,,,src-3da941c21223
@@ -195,7 +195,7 @@ IN-AC-2008-tamil-nadu-3861,tamil-nadu,2026,39,SHOLINGUR,A.m.munirathinam,parties
 IN-AC-2008-tamil-nadu-3861,tamil-nadu,2026,39,SHOLINGUR,A.ashok Kumar,parties.IN.NTK,NTK,6468,2.77,4,lost,M,36,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3861,tamil-nadu,2026,39,SHOLINGUR,M.vijayan,parties.IN.IND,IND,548,0.23,5,lost,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3859,tamil-nadu,2026,40,KATPADI,Dr M Sudhakar,parties.IN.TVK,TVK,69868,34.33,1,won,M,52,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3859,tamil-nadu,2026,40,KATPADI,V. Ramu,parties.IN.UNK,ADMK,63998,31.45,2,lost,M,53,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3859,tamil-nadu,2026,40,KATPADI,V. Ramu,parties.IN.AIADMK,ADMK,63998,31.45,2,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3859,tamil-nadu,2026,40,KATPADI,Duraimurugan,parties.IN.DMK,DMK,62225,30.58,3,lost,M,87,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3859,tamil-nadu,2026,40,KATPADI,S. Thirukkumaran,parties.IN.NTK,NTK,4625,2.27,4,lost,M,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3859,tamil-nadu,2026,40,KATPADI,J. Ramesh,parties.IN.BSP,BSP,407,0.2,5,lost,M,53,,,,src-3da941c21223
@@ -204,42 +204,42 @@ IN-AC-2008-tamil-nadu-3860,tamil-nadu,2026,41,RANIPET,R. Gandhi,parties.IN.DMK,D
 IN-AC-2008-tamil-nadu-3860,tamil-nadu,2026,41,RANIPET,V.m. Karthikeyan,parties.IN.BJP,BJP,32060,14.5,3,lost,M,55,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3860,tamil-nadu,2026,41,RANIPET,Thaarikha Salman,parties.IN.NTK,NTK,7236,3.27,4,lost,F,27,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3860,tamil-nadu,2026,41,RANIPET,A. Nareshkumar,parties.IN.IND,IND,754,0.34,5,lost,M,42,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3858,tamil-nadu,2026,42,ARCOT,S.m.sukumar,parties.IN.UNK,ADMK,105608,46.77,1,won,M,65,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3858,tamil-nadu,2026,42,ARCOT,S.m.sukumar,parties.IN.AIADMK,ADMK,105608,46.77,1,won,M,65,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3858,tamil-nadu,2026,42,ARCOT,G.vijay Mohan,parties.IN.TVK,TVK,62888,27.85,2,lost,M,41,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3858,tamil-nadu,2026,42,ARCOT,J.l.eswarappan,parties.IN.DMK,DMK,48840,21.63,3,lost,M,47,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3858,tamil-nadu,2026,42,ARCOT,Archana Narasimman,parties.IN.NTK,NTK,5518,2.44,4,lost,F,32,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3858,tamil-nadu,2026,42,ARCOT,M.vasanthakumar,parties.IN.BSP,BSP,468,0.21,5,lost,M,33,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4078,tamil-nadu,2026,43,VELLORE,M.m.vinoth Kannan,parties.IN.TVK,TVK,73032,38.33,1,won,M,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4078,tamil-nadu,2026,43,VELLORE,P.karthikeyan,parties.IN.DMK,DMK,66255,34.77,2,lost,M,65,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4078,tamil-nadu,2026,43,VELLORE,S R K Appu,parties.IN.UNK,ADMK,45458,23.86,3,lost,M,48,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4078,tamil-nadu,2026,43,VELLORE,S R K Appu,parties.IN.AIADMK,ADMK,45458,23.86,3,lost,M,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4078,tamil-nadu,2026,43,VELLORE,A.soniya,parties.IN.NTK,NTK,3793,1.99,4,lost,F,25,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4078,tamil-nadu,2026,43,VELLORE,K.vimala,parties.IN.UNK,NIDP,195,0.1,5,lost,F,41,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4074,tamil-nadu,2026,44,ANAIKATTU,D.velazhagan,parties.IN.UNK,ADMK,76302,35.27,1,won,M,56,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4078,tamil-nadu,2026,43,VELLORE,K.vimala,parties.IN.NAAM_INDIAR_PARTY,NIDP,195,0.1,5,lost,F,41,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4074,tamil-nadu,2026,44,ANAIKATTU,D.velazhagan,parties.IN.AIADMK,ADMK,76302,35.27,1,won,M,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4074,tamil-nadu,2026,44,ANAIKATTU,A.p.nandakumar,parties.IN.DMK,DMK,69221,32,2,lost,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4074,tamil-nadu,2026,44,ANAIKATTU,R.velmurugan,parties.IN.TVK,TVK,63287,29.26,3,lost,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4074,tamil-nadu,2026,44,ANAIKATTU,M.ravikumar,parties.IN.NTK,NTK,4746,2.19,4,lost,M,29,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4074,tamil-nadu,2026,44,ANAIKATTU,R.saravanan,parties.IN.NMK,NMK,351,0.16,5,lost,M,47,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4076,tamil-nadu,2026,45,KILVAITHINANKUPPAM (SC),Thenral Kumar. E,parties.IN.TVK,TVK,74305,39.13,1,won,M,34,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4076,tamil-nadu,2026,45,KILVAITHINANKUPPAM (SC),Jegan Moorthy. M,parties.IN.UNK,ADMK,54050,28.46,2,lost,M,59,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4076,tamil-nadu,2026,45,KILVAITHINANKUPPAM (SC),Jegan Moorthy. M,parties.IN.AIADMK,ADMK,54050,28.46,2,lost,M,59,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4076,tamil-nadu,2026,45,KILVAITHINANKUPPAM (SC),Dr. Rajeswari. R,parties.IN.DMK,DMK,53898,28.38,3,lost,F,50,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4076,tamil-nadu,2026,45,KILVAITHINANKUPPAM (SC),Kalaiyenthiri. R,parties.IN.NTK,NTK,5183,2.73,4,lost,F,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4076,tamil-nadu,2026,45,KILVAITHINANKUPPAM (SC),Anandalai Thangaraj. M,parties.IN.AIPTMMK,AIPTMMK,482,0.25,5,lost,M,67,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4075,tamil-nadu,2026,46,GUDIYATTAM (SC),K.sindu,parties.IN.TVK,TVK,82858,36.17,1,won,F,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4075,tamil-nadu,2026,46,GUDIYATTAM (SC),K.b.pradap,parties.IN.DMDK,DMDK,72761,31.76,2,lost,M,46,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4075,tamil-nadu,2026,46,GUDIYATTAM (SC),Paritha Purushothaman.g,parties.IN.UNK,ADMK,64122,27.99,3,lost,F,42,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4075,tamil-nadu,2026,46,GUDIYATTAM (SC),Paritha Purushothaman.g,parties.IN.AIADMK,ADMK,64122,27.99,3,lost,F,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4075,tamil-nadu,2026,46,GUDIYATTAM (SC),J.emalan,parties.IN.NTK,NTK,5802,2.53,4,lost,M,73,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4075,tamil-nadu,2026,46,GUDIYATTAM (SC),T.poovarasan,parties.IN.BSP,BSP,697,0.3,5,lost,M,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4077,tamil-nadu,2026,47,VANIYAMBADI,Syed Farooq Basha Ssb,parties.IN.IUML,IUML,73181,34.43,1,won,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4077,tamil-nadu,2026,47,VANIYAMBADI,Syed Bhurhanudeen,parties.IN.TVK,TVK,70199,33.03,2,lost,M,36,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4077,tamil-nadu,2026,47,VANIYAMBADI,Sendhil Kumar.g,parties.IN.UNK,ADMK,61055,28.73,3,lost,M,42,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4077,tamil-nadu,2026,47,VANIYAMBADI,Sendhil Kumar.g,parties.IN.AIADMK,ADMK,61055,28.73,3,lost,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4077,tamil-nadu,2026,47,VANIYAMBADI,Murugesan.g,parties.IN.NTK,NTK,4849,2.28,4,lost,M,33,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4077,tamil-nadu,2026,47,VANIYAMBADI,Subramani.p,parties.IN.BSP,BSP,609,0.29,5,lost,M,63,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4073,tamil-nadu,2026,48,AMBUR,Vilwanathan. A.c.,parties.IN.DMK,DMK,74102,37.89,1,won,M,66,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4073,tamil-nadu,2026,48,AMBUR,Imthiyaz Pandarattudu Abdu,parties.IN.TVK,TVK,66971,34.24,2,lost,M,41,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4073,tamil-nadu,2026,48,AMBUR,Venkatesan. R,parties.IN.UNK,ADMK,47100,24.08,3,lost,M,61,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4073,tamil-nadu,2026,48,AMBUR,Venkatesan. R,parties.IN.AIADMK,ADMK,47100,24.08,3,lost,M,61,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4073,tamil-nadu,2026,48,AMBUR,Afshia Nasrin. S,parties.IN.NTK,NTK,4185,2.14,4,lost,F,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4073,tamil-nadu,2026,48,AMBUR,Viswanathan. J,parties.IN.IND,IND,490,0.25,5,lost,M,46,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4068,tamil-nadu,2026,49,JOLARPET,Veeramani K.c.,parties.IN.UNK,ADMK,78633,36.91,1,won,M,61,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4068,tamil-nadu,2026,49,JOLARPET,Veeramani K.c.,parties.IN.AIADMK,ADMK,78633,36.91,1,won,M,61,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4068,tamil-nadu,2026,49,JOLARPET,Munisamy C,parties.IN.TVK,TVK,62550,29.36,2,lost,M,40,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4068,tamil-nadu,2026,49,JOLARPET,Kavithadhandapani,parties.IN.DMK,DMK,61977,29.09,3,lost,F,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4068,tamil-nadu,2026,49,JOLARPET,Sasirekha K,parties.IN.NTK,NTK,5974,2.8,4,lost,F,37,,,,src-3da941c21223
@@ -250,26 +250,26 @@ IN-AC-2008-tamil-nadu-4071,tamil-nadu,2026,50,TIRUPPATTUR,Gnanasekar. A,parties.
 IN-AC-2008-tamil-nadu-4071,tamil-nadu,2026,50,TIRUPPATTUR,Arumugam. V,parties.IN.NTK,NTK,5482,2.7,4,lost,M,47,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4071,tamil-nadu,2026,50,TIRUPPATTUR,Rajesh. S,parties.IN.UNK,tavk,486,0.24,5,lost,M,30,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3951,tamil-nadu,2026,51,UTHANGARAI (SC),N Elaiyaraja,parties.IN.TVK,TVK,70201,34.16,1,won,M,47,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3951,tamil-nadu,2026,51,UTHANGARAI (SC),T M Tamilselvam,parties.IN.UNK,ADMK,65003,31.63,2,lost,M,52,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3951,tamil-nadu,2026,51,UTHANGARAI (SC),T M Tamilselvam,parties.IN.AIADMK,ADMK,65003,31.63,2,lost,M,52,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3951,tamil-nadu,2026,51,UTHANGARAI (SC),R Kuppusamy,parties.IN.INC,INC,60993,29.68,3,lost,M,74,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3951,tamil-nadu,2026,51,UTHANGARAI (SC),Mekala,parties.IN.NTK,NTK,6629,3.23,4,lost,F,31,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3951,tamil-nadu,2026,51,UTHANGARAI (SC),K Thavaraj,parties.IN.UNK,tavk,291,0.14,5,lost,M,41,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3947,tamil-nadu,2026,52,BARGUR,E.c. Govindarasan,parties.IN.UNK,ADMK,71240,33.3,1,won,M,56,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3947,tamil-nadu,2026,52,BARGUR,E.c. Govindarasan,parties.IN.AIADMK,ADMK,71240,33.3,1,won,M,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3947,tamil-nadu,2026,52,BARGUR,E. Muralidharan,parties.IN.TVK,TVK,66999,31.31,2,lost,M,32,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3947,tamil-nadu,2026,52,BARGUR,D. Mathiazhagan,parties.IN.DMK,DMK,65228,30.49,3,lost,M,59,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3947,tamil-nadu,2026,52,BARGUR,Kavinkumar. S,parties.IN.NTK,NTK,5462,2.55,4,lost,M,31,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3947,tamil-nadu,2026,52,BARGUR,D. Sivasankaran,parties.IN.BSP,BSP,708,0.33,5,lost,M,63,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3949,tamil-nadu,2026,53,KRISHNAGIRI,Mukundhan.p,parties.IN.TVK,TVK,89374,38.83,1,won,M,41,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3949,tamil-nadu,2026,53,KRISHNAGIRI,Ashokkumar.k,parties.IN.UNK,ADMK,70530,30.64,2,lost,M,73,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3949,tamil-nadu,2026,53,KRISHNAGIRI,Ashokkumar.k,parties.IN.AIADMK,ADMK,70530,30.64,2,lost,M,73,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3949,tamil-nadu,2026,53,KRISHNAGIRI,Chellakumar.a,parties.IN.INC,INC,59597,25.89,3,lost,M,66,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3949,tamil-nadu,2026,53,KRISHNAGIRI,Suganthi,parties.IN.NTK,NTK,6398,2.78,4,lost,F,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3949,tamil-nadu,2026,53,KRISHNAGIRI,Sivakumar.s,parties.IN.BSP,BSP,608,0.26,5,lost,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3952,tamil-nadu,2026,54,VEPPANAHALLI,Srinivasan.p.s,parties.IN.DMK,DMK,74691,33.55,1,won,M,49,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3952,tamil-nadu,2026,54,VEPPANAHALLI,Munusamy.k.p,parties.IN.UNK,ADMK,74553,33.49,2,lost,M,75,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3952,tamil-nadu,2026,54,VEPPANAHALLI,Munusamy.k.p,parties.IN.AIADMK,ADMK,74553,33.49,2,lost,M,75,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3952,tamil-nadu,2026,54,VEPPANAHALLI,Sampangi.s.r,parties.IN.TVK,TVK,63907,28.71,3,lost,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3952,tamil-nadu,2026,54,VEPPANAHALLI,Nagaraj.r,parties.IN.NTK,NTK,4519,2.03,4,lost,M,27,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3952,tamil-nadu,2026,54,VEPPANAHALLI,Iyappan.l,parties.IN.UNK,tavk,871,0.39,5,lost,M,39,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3948,tamil-nadu,2026,55,HOSUR,Balakrishnareddy. P,parties.IN.UNK,ADMK,109867,39.55,1,won,M,57,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3948,tamil-nadu,2026,55,HOSUR,Balakrishnareddy. P,parties.IN.AIADMK,ADMK,109867,39.55,1,won,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3948,tamil-nadu,2026,55,HOSUR,Vendarkarasan.s,parties.IN.TVK,TVK,82064,29.54,2,lost,M,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3948,tamil-nadu,2026,55,HOSUR,Sathya.s.a.,parties.IN.DMK,DMK,73773,26.56,3,lost,M,55,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3948,tamil-nadu,2026,55,HOSUR,Stalin.r,parties.IN.NTK,NTK,7632,2.75,4,lost,M,29,,,,src-3da941c21223
@@ -279,7 +279,7 @@ IN-AC-2008-tamil-nadu-3950,tamil-nadu,2026,56,THALLI,Dr.nagesh Kumar. C,parties.
 IN-AC-2008-tamil-nadu-3950,tamil-nadu,2026,56,THALLI,Suresh. G,parties.IN.TVK,TVK,45245,21.98,3,lost,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3950,tamil-nadu,2026,56,THALLI,Narasimma Reddy Alias Narasimman. R,parties.IN.NTK,NTK,4107,1.99,4,lost,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3950,tamil-nadu,2026,56,THALLI,Ajith. G,parties.IN.UNK,tavk,1017,0.49,5,lost,M,31,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3908,tamil-nadu,2026,57,PALACODU,Anbalagan. K.p.,parties.IN.UNK,ADMK,102807,45.64,1,won,M,67,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3908,tamil-nadu,2026,57,PALACODU,Anbalagan. K.p.,parties.IN.AIADMK,ADMK,102807,45.64,1,won,M,67,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3908,tamil-nadu,2026,57,PALACODU,Gopi. R.,parties.IN.TVK,TVK,63765,28.31,2,lost,M,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3908,tamil-nadu,2026,57,PALACODU,Dr. Dnv Senthilkumar. S.,parties.IN.DMK,DMK,50043,22.22,3,lost,M,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3908,tamil-nadu,2026,57,PALACODU,Boopathi. R.,parties.IN.NTK,NTK,5598,2.49,4,lost,M,50,,,,src-3da941c21223
@@ -294,17 +294,17 @@ IN-AC-2008-tamil-nadu-3905,tamil-nadu,2026,59,DHARMAPURI,Sivan. M.,parties.IN.TV
 IN-AC-2008-tamil-nadu-3905,tamil-nadu,2026,59,DHARMAPURI,Dr. Elangovan. V.,parties.IN.DMDK,DMDK,56905,23.85,3,lost,M,76,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3905,tamil-nadu,2026,59,DHARMAPURI,Shanthalakshmi. K.,parties.IN.NTK,NTK,6758,2.83,4,lost,F,50,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3905,tamil-nadu,2026,59,DHARMAPURI,Saravanan. A.,parties.IN.UNK,AJPK,1078,0.45,5,lost,M,55,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3909,tamil-nadu,2026,60,PAPPIREDDIPATTI,Maragatham Vetrivel,parties.IN.UNK,ADMK,101829,43.03,1,won,F,49,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3909,tamil-nadu,2026,60,PAPPIREDDIPATTI,Maragatham Vetrivel,parties.IN.AIADMK,ADMK,101829,43.03,1,won,F,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3909,tamil-nadu,2026,60,PAPPIREDDIPATTI,Palaniappan. P,parties.IN.DMK,DMK,68715,29.04,2,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3909,tamil-nadu,2026,60,PAPPIREDDIPATTI,Thilagavathi. S,parties.IN.TVK,TVK,57619,24.35,3,lost,F,33,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3909,tamil-nadu,2026,60,PAPPIREDDIPATTI,Archana Tamilaruvi,parties.IN.NTK,NTK,5216,2.2,4,lost,F,30,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3909,tamil-nadu,2026,60,PAPPIREDDIPATTI,Ganesan. S,parties.IN.UNK,VSHWTMLK,770,0.33,5,lost,M,45,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3906,tamil-nadu,2026,61,HARUR (SC),Sampathkumar. V,parties.IN.UNK,ADMK,75523,34.32,1,won,M,52,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3906,tamil-nadu,2026,61,HARUR (SC),Sampathkumar. V,parties.IN.AIADMK,ADMK,75523,34.32,1,won,M,52,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3906,tamil-nadu,2026,61,HARUR (SC),Shanmugam. A,parties.IN.DMK,DMK,72194,32.81,2,lost,M,62,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3906,tamil-nadu,2026,61,HARUR (SC),Rakesh. K,parties.IN.TVK,TVK,62756,28.52,3,lost,M,40,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3906,tamil-nadu,2026,61,HARUR (SC),Anitha. A,parties.IN.NTK,NTK,5245,2.38,4,lost,F,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3906,tamil-nadu,2026,61,HARUR (SC),Nehru. G,parties.IN.BSP,BSP,696,0.32,5,lost,M,51,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4067,tamil-nadu,2026,62,CHENGAM (SC),S.velu,parties.IN.UNK,ADMK,87802,36.15,1,won,M,53,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4067,tamil-nadu,2026,62,CHENGAM (SC),S.velu,parties.IN.AIADMK,ADMK,87802,36.15,1,won,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4067,tamil-nadu,2026,62,CHENGAM (SC),K Bharathidhasan,parties.IN.TVK,TVK,74524,30.68,2,lost,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4067,tamil-nadu,2026,62,CHENGAM (SC),M.p.giri,parties.IN.DMK,DMK,70346,28.96,3,lost,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4067,tamil-nadu,2026,62,CHENGAM (SC),J.shoba,parties.IN.NTK,NTK,6335,2.61,4,lost,F,31,,,,src-3da941c21223
@@ -314,12 +314,12 @@ IN-AC-2008-tamil-nadu-4072,tamil-nadu,2026,63,TIRUVANNAMALAI,Arul Arumugam,parti
 IN-AC-2008-tamil-nadu-4072,tamil-nadu,2026,63,TIRUVANNAMALAI,Elumalai. C,parties.IN.BJP,BJP,34280,15.58,3,lost,M,67,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4072,tamil-nadu,2026,63,TIRUVANNAMALAI,Vignesh. S,parties.IN.NTK,NTK,6011,2.73,4,lost,M,33,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4072,tamil-nadu,2026,63,TIRUVANNAMALAI,Benny Rajan. C.j,parties.IN.RPPRINAT,RPPRINAT,627,0.28,5,lost,M,47,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4070,tamil-nadu,2026,64,KILPENNATHUR,Ramachandran.s,parties.IN.UNK,ADMK,90503,41.18,1,won,M,65,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4070,tamil-nadu,2026,64,KILPENNATHUR,Ramachandran.s,parties.IN.AIADMK,ADMK,90503,41.18,1,won,M,65,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4070,tamil-nadu,2026,64,KILPENNATHUR,Pitchandi.k,parties.IN.DMK,DMK,60038,27.32,2,lost,M,71,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4070,tamil-nadu,2026,64,KILPENNATHUR,Raja.d,parties.IN.TVK,TVK,59130,26.9,3,lost,M,33,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4070,tamil-nadu,2026,64,KILPENNATHUR,Loganathan.v,parties.IN.NTK,NTK,6184,2.81,4,lost,M,40,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4070,tamil-nadu,2026,64,KILPENNATHUR,Pichandi.r,parties.IN.IND,IND,604,0.27,5,lost,M,55,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4069,tamil-nadu,2026,65,KALASAPAKKAM,Agri Krishnamurthy. S S,parties.IN.UNK,ADMK,89629,41.86,1,won,M,66,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4069,tamil-nadu,2026,65,KALASAPAKKAM,Agri Krishnamurthy. S S,parties.IN.AIADMK,ADMK,89629,41.86,1,won,M,66,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4069,tamil-nadu,2026,65,KALASAPAKKAM,Saravanan. P.s.t,parties.IN.DMK,DMK,62889,29.37,2,lost,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4069,tamil-nadu,2026,65,KALASAPAKKAM,Elumalai. P,parties.IN.TVK,TVK,51666,24.13,3,lost,M,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4069,tamil-nadu,2026,65,KALASAPAKKAM,Seetha Sivanandam. P,parties.IN.NTK,NTK,5312,2.48,4,lost,F,36,,,,src-3da941c21223
@@ -329,18 +329,18 @@ IN-AC-2008-tamil-nadu-3867,tamil-nadu,2026,66,POLUR,Saravanan. P,parties.IN.DMDK
 IN-AC-2008-tamil-nadu-3867,tamil-nadu,2026,66,POLUR,Baskaran. C. R,parties.IN.PMK,PMK,61444,29.02,3,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3867,tamil-nadu,2026,66,POLUR,Umadevi. A,parties.IN.NTK,NTK,6425,3.03,4,lost,F,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3867,tamil-nadu,2026,66,POLUR,Purusothaman. M,parties.IN.IND,IND,1674,0.79,5,lost,M,43,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3863,tamil-nadu,2026,67,ARANI,Jayasudha. L,parties.IN.UNK,ADMK,76735,33.34,1,won,F,51,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3863,tamil-nadu,2026,67,ARANI,Jayasudha. L,parties.IN.AIADMK,ADMK,76735,33.34,1,won,F,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3863,tamil-nadu,2026,67,ARANI,Mahalakshmi Govarthanan,parties.IN.DMK,DMK,71104,30.89,2,lost,F,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3863,tamil-nadu,2026,67,ARANI,Venkatesh Kumar. D,parties.IN.TVK,TVK,70857,30.79,3,lost,M,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3863,tamil-nadu,2026,67,ARANI,Dhavamani. R,parties.IN.NTK,NTK,6888,2.99,4,lost,F,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3863,tamil-nadu,2026,67,ARANI,Baskaran. S,parties.IN.IND,IND,424,0.18,5,lost,M,47,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3864,tamil-nadu,2026,68,CHEYYAR,Mukkur N. Subramanian,parties.IN.UNK,ADMK,86680,38.95,1,won,M,67,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3864,tamil-nadu,2026,68,CHEYYAR,Mukkur N. Subramanian,parties.IN.AIADMK,ADMK,86680,38.95,1,won,M,67,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3864,tamil-nadu,2026,68,CHEYYAR,Dusi K Mohan,parties.IN.TVK,TVK,65599,29.47,2,lost,M,68,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3864,tamil-nadu,2026,68,CHEYYAR,Jothi. O,parties.IN.DMK,DMK,59894,26.91,3,lost,M,55,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3864,tamil-nadu,2026,68,CHEYYAR,Tamilselvan. M,parties.IN.NTK,NTK,7043,3.16,4,lost,M,25,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3864,tamil-nadu,2026,68,CHEYYAR,Kuttimani. S,parties.IN.UNK,VTVTK,401,0.18,5,lost,M,41,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3868,tamil-nadu,2026,69,VANDAVASI (SC),Ambethkumar. S,parties.IN.DMK,DMK,63805,33.37,1,won,M,49,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3868,tamil-nadu,2026,69,VANDAVASI (SC),Rani. P,parties.IN.UNK,ADMK,60472,31.63,2,lost,F,54,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3868,tamil-nadu,2026,69,VANDAVASI (SC),Rani. P,parties.IN.AIADMK,ADMK,60472,31.63,2,lost,F,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3868,tamil-nadu,2026,69,VANDAVASI (SC),Udhayakumar. M,parties.IN.TVK,TVK,58174,30.43,3,lost,M,32,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3868,tamil-nadu,2026,69,VANDAVASI (SC),Ganesh. R,parties.IN.NTK,NTK,5495,2.87,4,lost,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3868,tamil-nadu,2026,69,VANDAVASI (SC),Rani. A,parties.IN.IND,IND,674,0.35,5,lost,F,53,,,,src-3da941c21223
@@ -349,24 +349,24 @@ IN-AC-2008-tamil-nadu-3865,tamil-nadu,2026,70,GINGEE,Gingee Masthan K S,parties.
 IN-AC-2008-tamil-nadu-3865,tamil-nadu,2026,70,GINGEE,Chandrasekaran B,parties.IN.TVK,TVK,61609,28.44,3,lost,M,41,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3865,tamil-nadu,2026,70,GINGEE,Advocate Krishnan E,parties.IN.NTK,NTK,6371,2.94,4,lost,M,36,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3865,tamil-nadu,2026,70,GINGEE,Ramesh R,parties.IN.IND,IND,483,0.22,5,lost,M,30,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3866,tamil-nadu,2026,71,MAILAM,Shanmugam C Ve,parties.IN.UNK,ADMK,82353,43.52,1,won,M,61,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3866,tamil-nadu,2026,71,MAILAM,Shanmugam C Ve,parties.IN.AIADMK,ADMK,82353,43.52,1,won,M,61,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3866,tamil-nadu,2026,71,MAILAM,Vijay Niranjan A,parties.IN.TVK,TVK,52312,27.65,2,lost,M,28,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3866,tamil-nadu,2026,71,MAILAM,Venkatesan L,parties.IN.DMDK,DMDK,46267,24.45,3,lost,M,58,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3866,tamil-nadu,2026,71,MAILAM,Vidjaivikram S,parties.IN.NTK,NTK,4383,2.32,4,lost,M,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3866,tamil-nadu,2026,71,MAILAM,Siva S,parties.IN.IND,IND,552,0.29,5,lost,M,50,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4080,tamil-nadu,2026,72,TINDIVANAM (SC),Vanni Arasu,parties.IN.VCK,VCK,63833,32.56,1,won,M,55,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4080,tamil-nadu,2026,72,TINDIVANAM (SC),Arjunan. P,parties.IN.UNK,ADMK,63099,32.19,2,lost,M,56,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4080,tamil-nadu,2026,72,TINDIVANAM (SC),Arjunan. P,parties.IN.AIADMK,ADMK,63099,32.19,2,lost,M,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4080,tamil-nadu,2026,72,TINDIVANAM (SC),Sakthivel. S,parties.IN.TVK,TVK,61159,31.2,3,lost,M,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4080,tamil-nadu,2026,72,TINDIVANAM (SC),Pachimuthu. P,parties.IN.NTK,NTK,5242,2.67,4,lost,M,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4080,tamil-nadu,2026,72,TINDIVANAM (SC),Vinoth. S,parties.IN.IND,IND,435,0.22,5,lost,M,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4082,tamil-nadu,2026,73,VANUR (SC),Gowtham D,parties.IN.DMK,DMK,68873,35.85,1,won,M,32,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4082,tamil-nadu,2026,73,VANUR (SC),Suresh P,parties.IN.TVK,TVK,61839,32.19,2,lost,M,41,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4082,tamil-nadu,2026,73,VANUR (SC),Murugan P,parties.IN.UNK,ADMK,54193,28.21,3,lost,M,58,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4082,tamil-nadu,2026,73,VANUR (SC),Murugan P,parties.IN.AIADMK,ADMK,54193,28.21,3,lost,M,58,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4082,tamil-nadu,2026,73,VANUR (SC),Karikalan B,parties.IN.NTK,NTK,4697,2.44,4,lost,M,28,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4082,tamil-nadu,2026,73,VANUR (SC),Vetrivel G,parties.IN.IND,IND,572,0.3,5,lost,M,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4084,tamil-nadu,2026,74,VILUPPURAM,Lakshmanan R,parties.IN.DMK,DMK,72982,33.88,1,won,M,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4084,tamil-nadu,2026,74,VILUPPURAM,Mohanraj N,parties.IN.TVK,TVK,68863,31.97,2,lost,M,42,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4084,tamil-nadu,2026,74,VILUPPURAM,Vijayasureshbabu,parties.IN.UNK,ADMK,63808,29.62,3,lost,F,54,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4084,tamil-nadu,2026,74,VILUPPURAM,Vijayasureshbabu,parties.IN.AIADMK,ADMK,63808,29.62,3,lost,F,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4084,tamil-nadu,2026,74,VILUPPURAM,Abinaya Ponnivalavan,parties.IN.NTK,NTK,5786,2.69,4,lost,F,30,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4084,tamil-nadu,2026,74,VILUPPURAM,Kumaran R,parties.IN.UNK,tavk,440,0.2,5,lost,M,52,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4083,tamil-nadu,2026,75,VIKRAVANDI,Sivakumar C,parties.IN.PMK,PMK,69727,33.33,1,won,M,52,,,,src-3da941c21223
@@ -374,13 +374,13 @@ IN-AC-2008-tamil-nadu-4083,tamil-nadu,2026,75,VIKRAVANDI,Vijai Vadivel A,parties
 IN-AC-2008-tamil-nadu-4083,tamil-nadu,2026,75,VIKRAVANDI,Anniyur Siva @ Sivashanmugam A,parties.IN.DMK,DMK,60941,29.13,3,lost,M,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4083,tamil-nadu,2026,75,VIKRAVANDI,Subha Chandrasekaran A,parties.IN.NTK,NTK,4979,2.38,4,lost,F,36,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4083,tamil-nadu,2026,75,VIKRAVANDI,Settu C,parties.IN.UNK,tavk,592,0.28,5,lost,M,43,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4079,tamil-nadu,2026,76,TIRUKKOYILUR,Palanisamy S,parties.IN.UNK,ADMK,73033,33.61,1,won,M,64,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4079,tamil-nadu,2026,76,TIRUKKOYILUR,Palanisamy S,parties.IN.AIADMK,ADMK,73033,33.61,1,won,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4079,tamil-nadu,2026,76,TIRUKKOYILUR,Vijay R Baranibalaaji,parties.IN.TVK,TVK,72748,33.48,2,lost,M,50,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4079,tamil-nadu,2026,76,TIRUKKOYILUR,Dr Pon Gauthamsigamani,parties.IN.DMK,DMK,62452,28.74,3,lost,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4079,tamil-nadu,2026,76,TIRUKKOYILUR,Hemarajan K,parties.IN.NTK,NTK,5791,2.66,4,lost,M,39,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4079,tamil-nadu,2026,76,TIRUKKOYILUR,Ramakrishnan M,parties.IN.IND,IND,589,0.27,5,lost,M,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4081,tamil-nadu,2026,77,ULUNDURPETTAI,Vasanthavel G R,parties.IN.DMK,DMK,98471,36.34,1,won,M,60,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4081,tamil-nadu,2026,77,ULUNDURPETTAI,Kumaraguru R,parties.IN.UNK,ADMK,96194,35.5,2,lost,M,64,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4081,tamil-nadu,2026,77,ULUNDURPETTAI,Kumaraguru R,parties.IN.AIADMK,ADMK,96194,35.5,2,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4081,tamil-nadu,2026,77,ULUNDURPETTAI,Sudhakar M,parties.IN.TVK,TVK,66208,24.43,3,lost,M,39,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4081,tamil-nadu,2026,77,ULUNDURPETTAI,Logeshwari S,parties.IN.NTK,NTK,6525,2.41,4,lost,F,30,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4081,tamil-nadu,2026,77,ULUNDURPETTAI,Manikandan P,parties.IN.IND,IND,642,0.24,5,lost,M,34,,,,src-3da941c21223
@@ -389,47 +389,47 @@ IN-AC-2008-tamil-nadu-3926,tamil-nadu,2026,78,RISHIVANDIYAM,Ashok Kumar G,partie
 IN-AC-2008-tamil-nadu-3926,tamil-nadu,2026,78,RISHIVANDIYAM,Chezhiyan P,parties.IN.PMK,PMK,56488,23.08,3,lost,M,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3926,tamil-nadu,2026,78,RISHIVANDIYAM,Radhika P,parties.IN.NTK,NTK,7247,2.96,4,lost,F,32,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3926,tamil-nadu,2026,78,RISHIVANDIYAM,Senthikumar V N,parties.IN.IND,IND,1071,0.44,5,lost,M,59,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3927,tamil-nadu,2026,79,SANKARAPURAM,Rakesh R,parties.IN.UNK,ADMK,80250,34.07,1,won,M,38,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3927,tamil-nadu,2026,79,SANKARAPURAM,Rakesh R,parties.IN.AIADMK,ADMK,80250,34.07,1,won,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3927,tamil-nadu,2026,79,SANKARAPURAM,Udhayasuriyan T,parties.IN.DMK,DMK,76810,32.61,2,lost,M,62,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3927,tamil-nadu,2026,79,SANKARAPURAM,Jagadesan A,parties.IN.TVK,TVK,67624,28.71,3,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3927,tamil-nadu,2026,79,SANKARAPURAM,Ramesh K,parties.IN.NTK,NTK,5567,2.36,4,lost,M,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3927,tamil-nadu,2026,79,SANKARAPURAM,Ramachandiran M,parties.IN.UNK,tavk,677,0.29,5,lost,M,47,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3925,tamil-nadu,2026,80,KALLAKURICHI (SC),Arul Vignesh C,parties.IN.TVK,TVK,81132,32.5,1,won,M,35,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3925,tamil-nadu,2026,80,KALLAKURICHI (SC),Rajeevgandhi S,parties.IN.UNK,ADMK,80334,32.18,2,lost,M,41,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3925,tamil-nadu,2026,80,KALLAKURICHI (SC),Rajeevgandhi S,parties.IN.AIADMK,ADMK,80334,32.18,2,lost,M,41,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3925,tamil-nadu,2026,80,KALLAKURICHI (SC),Malathi K,parties.IN.VCK,VCK,77666,31.11,3,lost,F,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3925,tamil-nadu,2026,80,KALLAKURICHI (SC),Nagammal Rajkodi,parties.IN.NTK,NTK,7494,3,4,lost,F,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3925,tamil-nadu,2026,80,KALLAKURICHI (SC),Vignesh G,parties.IN.IND,IND,653,0.26,5,lost,M,31,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3924,tamil-nadu,2026,81,GANGAVALLI (SC),Nallathambi. A,parties.IN.UNK,ADMK,73167,37.2,1,won,M,61,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3924,tamil-nadu,2026,81,GANGAVALLI (SC),Nallathambi. A,parties.IN.AIADMK,ADMK,73167,37.2,1,won,M,61,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3924,tamil-nadu,2026,81,GANGAVALLI (SC),Chinnadurai. K,parties.IN.DMK,DMK,58763,29.88,2,lost,M,59,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3924,tamil-nadu,2026,81,GANGAVALLI (SC),Sujatha. V,parties.IN.TVK,TVK,55291,28.11,3,lost,F,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3924,tamil-nadu,2026,81,GANGAVALLI (SC),Abirami. A,parties.IN.NTK,NTK,6242,3.17,4,lost,F,31,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3924,tamil-nadu,2026,81,GANGAVALLI (SC),Balakrishnan. P,parties.IN.BSP,BSP,533,0.27,5,lost,M,37,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3923,tamil-nadu,2026,82,ATTUR (SC),Jayasankaran. A.p.,parties.IN.UNK,ADMK,80843,38.81,1,won,M,55,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3923,tamil-nadu,2026,82,ATTUR (SC),Jayasankaran. A.p.,parties.IN.AIADMK,ADMK,80843,38.81,1,won,M,55,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3923,tamil-nadu,2026,82,ATTUR (SC),Selvabharathi. R.,parties.IN.TVK,TVK,65525,31.46,2,lost,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3923,tamil-nadu,2026,82,ATTUR (SC),Arthanari. S.k.,parties.IN.INC,INC,51896,24.91,3,lost,M,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3923,tamil-nadu,2026,82,ATTUR (SC),Monisha Chinnadurai.,parties.IN.NTK,NTK,6532,3.14,4,lost,F,36,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3923,tamil-nadu,2026,82,ATTUR (SC),Rajeshkannan. K.,parties.IN.IND,IND,511,0.25,5,lost,M,34,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3928,tamil-nadu,2026,83,YERCAUD (ST),Usharani. P,parties.IN.UNK,ADMK,87772,34.61,1,won,F,54,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3928,tamil-nadu,2026,83,YERCAUD (ST),Usharani. P,parties.IN.AIADMK,ADMK,87772,34.61,1,won,F,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3928,tamil-nadu,2026,83,YERCAUD (ST),Lakshmi Janarthanan. J,parties.IN.TVK,TVK,85583,33.75,2,lost,F,30,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3928,tamil-nadu,2026,83,YERCAUD (ST),Revathi. T.m,parties.IN.DMK,DMK,68045,26.83,3,lost,F,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3928,tamil-nadu,2026,83,YERCAUD (ST),Palanisamy. M,parties.IN.NTK,NTK,7601,3,4,lost,M,26,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3928,tamil-nadu,2026,83,YERCAUD (ST),Palanisamy. K,parties.IN.BSP,BSP,910,0.36,5,lost,M,54,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4002,tamil-nadu,2026,84,OMALUR,Mani. R,parties.IN.UNK,ADMK,112246,41.4,1,won,M,48,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4002,tamil-nadu,2026,84,OMALUR,Mani. R,parties.IN.AIADMK,ADMK,112246,41.4,1,won,M,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4002,tamil-nadu,2026,84,OMALUR,Adhiyamaan. R.v,parties.IN.TVK,TVK,97707,36.04,2,lost,M,29,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4002,tamil-nadu,2026,84,OMALUR,Elangovan. A.r,parties.IN.DMDK,DMDK,46917,17.3,3,lost,M,59,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4002,tamil-nadu,2026,84,OMALUR,Sivasakthi. M,parties.IN.NTK,NTK,8370,3.09,4,lost,M,27,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4002,tamil-nadu,2026,84,OMALUR,Gobinathan. R,parties.IN.IND,IND,1544,0.57,5,lost,M,35,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3907,tamil-nadu,2026,85,METTUR,Venkatachalam. G,parties.IN.UNK,ADMK,86498,37.43,1,won,M,61,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3907,tamil-nadu,2026,85,METTUR,Venkatachalam. G,parties.IN.AIADMK,ADMK,86498,37.43,1,won,M,61,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3907,tamil-nadu,2026,85,METTUR,Midhun Chakravarthy. M,parties.IN.DMK,DMK,67393,29.16,2,lost,M,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3907,tamil-nadu,2026,85,METTUR,Selvam. K,parties.IN.TVK,TVK,65260,28.24,3,lost,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3907,tamil-nadu,2026,85,METTUR,Vidhya Veerappan,parties.IN.NTK,NTK,7109,3.08,4,lost,F,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3907,tamil-nadu,2026,85,METTUR,Ramkumar. D.m,parties.IN.IND,IND,706,0.31,5,lost,M,34,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4001,tamil-nadu,2026,86,EDAPPADI,Edappadi Palaniswami. K,parties.IN.UNK,ADMK,148933,57.67,1,won,M,72,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4001,tamil-nadu,2026,86,EDAPPADI,Edappadi Palaniswami. K,parties.IN.AIADMK,ADMK,148933,57.67,1,won,M,72,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4001,tamil-nadu,2026,86,EDAPPADI,Premkumar. K,parties.IN.IND,IND,50823,19.68,2,lost,M,43,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4001,tamil-nadu,2026,86,EDAPPADI,Kasi. C,parties.IN.DMK,DMK,44011,17.04,3,lost,M,66,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4001,tamil-nadu,2026,86,EDAPPADI,Priyadharshini. A,parties.IN.NTK,NTK,8450,3.27,4,lost,F,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4001,tamil-nadu,2026,86,EDAPPADI,Govindaraj.v,parties.IN.UNK,tavk,1662,0.64,5,lost,M,36,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3974,tamil-nadu,2026,87,SANKARI,Vetrivel. S,parties.IN.UNK,ADMK,87342,35.83,1,won,M,54,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3974,tamil-nadu,2026,87,SANKARI,Vetrivel. S,parties.IN.AIADMK,ADMK,87342,35.83,1,won,M,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3974,tamil-nadu,2026,87,SANKARI,Senthilkumar. K,parties.IN.TVK,TVK,77825,31.92,2,lost,M,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3974,tamil-nadu,2026,87,SANKARI,Manikandan. M,parties.IN.DMK,DMK,65716,26.96,3,lost,M,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3974,tamil-nadu,2026,87,SANKARI,Nithya. A,parties.IN.NTK,NTK,7534,3.09,4,lost,F,36,,,,src-3da941c21223
@@ -446,11 +446,11 @@ IN-AC-2008-tamil-nadu-4003,tamil-nadu,2026,89,SALEM (NORTH),Gunaseela. M,parties
 IN-AC-2008-tamil-nadu-4003,tamil-nadu,2026,89,SALEM (NORTH),Mohanraj. S,parties.IN.UNK,tavk,338,0.16,5,lost,M,36,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4004,tamil-nadu,2026,90,SALEM (SOUTH),Vijay Tamilan Parthiban. A,parties.IN.TVK,TVK,91371,43.95,1,won,M,50,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4004,tamil-nadu,2026,90,SALEM (SOUTH),Loganathan. M,parties.IN.DMK,DMK,58002,27.9,2,lost,M,69,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4004,tamil-nadu,2026,90,SALEM (SOUTH),Vinoth. J,parties.IN.UNK,ADMK,50216,24.15,3,lost,M,44,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4004,tamil-nadu,2026,90,SALEM (SOUTH),Vinoth. J,parties.IN.AIADMK,ADMK,50216,24.15,3,lost,M,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4004,tamil-nadu,2026,90,SALEM (SOUTH),Sofia. S,parties.IN.NTK,NTK,5819,2.8,4,lost,F,33,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4004,tamil-nadu,2026,90,SALEM (SOUTH),Bas Madheswaran,parties.IN.UNK,tavk,407,0.2,5,lost,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4006,tamil-nadu,2026,91,VEERAPANDI,Palanivel. M.s,parties.IN.TVK,TVK,79907,33.88,1,won,M,57,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4006,tamil-nadu,2026,91,VEERAPANDI,Sri Balaji Sugumar. S,parties.IN.UNK,ADMK,75836,32.15,2,lost,M,31,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4006,tamil-nadu,2026,91,VEERAPANDI,Sri Balaji Sugumar. S,parties.IN.AIADMK,ADMK,75836,32.15,2,lost,M,31,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4006,tamil-nadu,2026,91,VEERAPANDI,Tharun. A.k,parties.IN.DMK,DMK,69296,29.38,3,lost,M,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4006,tamil-nadu,2026,91,VEERAPANDI,Rajeshkumar. S,parties.IN.NTK,NTK,6820,2.89,4,lost,M,32,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4006,tamil-nadu,2026,91,VEERAPANDI,Bramamoorthi. M,parties.IN.UNK,tavk,642,0.27,5,lost,M,33,,,,src-3da941c21223
@@ -460,33 +460,33 @@ IN-AC-2008-tamil-nadu-3973,tamil-nadu,2026,92,RASIPURAM (SC),Mathiventhan M Dr,p
 IN-AC-2008-tamil-nadu-3973,tamil-nadu,2026,92,RASIPURAM (SC),Sasikala S,parties.IN.NTK,NTK,6415,3.13,4,lost,F,36,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3973,tamil-nadu,2026,92,RASIPURAM (SC),Murugesan A,parties.IN.IND,IND,1292,0.63,5,lost,M,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3975,tamil-nadu,2026,93,SENTHAMANGALAM (ST),P Chandrasekar,parties.IN.TVK,TVK,68815,32.82,1,won,M,52,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3975,tamil-nadu,2026,93,SENTHAMANGALAM (ST),C Chandrasekaran,parties.IN.UNK,ADMK,66160,31.55,2,lost,M,59,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3975,tamil-nadu,2026,93,SENTHAMANGALAM (ST),C Chandrasekaran,parties.IN.AIADMK,ADMK,66160,31.55,2,lost,M,59,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3975,tamil-nadu,2026,93,SENTHAMANGALAM (ST),P Poomalar,parties.IN.DMK,DMK,64951,30.98,3,lost,F,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3975,tamil-nadu,2026,93,SENTHAMANGALAM (ST),Ponnumani C,parties.IN.NTK,NTK,6478,3.09,4,lost,F,26,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3975,tamil-nadu,2026,93,SENTHAMANGALAM (ST),K Ramesh,parties.IN.IND,IND,605,0.29,5,lost,M,40,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3971,tamil-nadu,2026,94,NAMAKKAL,Dilip C S,parties.IN.TVK,TVK,79744,37.56,1,won,M,33,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3971,tamil-nadu,2026,94,NAMAKKAL,Sridevi Mohan P S,parties.IN.UNK,ADMK,68736,32.38,2,lost,M,53,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3971,tamil-nadu,2026,94,NAMAKKAL,Sridevi Mohan P S,parties.IN.AIADMK,ADMK,68736,32.38,2,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3971,tamil-nadu,2026,94,NAMAKKAL,Rani P,parties.IN.DMK,DMK,52808,24.88,3,lost,F,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3971,tamil-nadu,2026,94,NAMAKKAL,Praveenkumar K,parties.IN.NTK,NTK,6286,2.96,4,lost,M,39,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3971,tamil-nadu,2026,94,NAMAKKAL,Chandra P,parties.IN.IND,IND,322,0.15,5,lost,F,60,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3972,tamil-nadu,2026,95,PARAMATHI-VELUR,Sekar S,parties.IN.UNK,ADMK,61349,32.49,1,won,M,55,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3972,tamil-nadu,2026,95,PARAMATHI-VELUR,Sekar S,parties.IN.AIADMK,ADMK,61349,32.49,1,won,M,55,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3972,tamil-nadu,2026,95,PARAMATHI-VELUR,Moorthiy K S,parties.IN.DMK,DMK,61041,32.32,2,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3972,tamil-nadu,2026,95,PARAMATHI-VELUR,Nandakumar A,parties.IN.TVK,TVK,56067,29.69,3,lost,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3972,tamil-nadu,2026,95,PARAMATHI-VELUR,Aravind M,parties.IN.NTK,NTK,5727,3.03,4,lost,M,33,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3972,tamil-nadu,2026,95,PARAMATHI-VELUR,Shailaja,parties.IN.UNK,tavk,444,0.24,5,lost,F,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3976,tamil-nadu,2026,96,TIRUCHENGODU,Arunraj K G,parties.IN.TVK,TVK,79500,41.6,1,won,M,46,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3976,tamil-nadu,2026,96,TIRUCHENGODU,Srmt Sekar (a) Chandrasekar R,parties.IN.UNK,ADMK,51328,26.86,2,lost,M,58,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3976,tamil-nadu,2026,96,TIRUCHENGODU,Srmt Sekar (a) Chandrasekar R,parties.IN.AIADMK,ADMK,51328,26.86,2,lost,M,58,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3976,tamil-nadu,2026,96,TIRUCHENGODU,Eswaran E R,parties.IN.DMK,DMK,49465,25.88,3,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3976,tamil-nadu,2026,96,TIRUCHENGODU,Revathi K,parties.IN.NTK,NTK,6085,3.18,4,lost,F,28,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3976,tamil-nadu,2026,96,TIRUCHENGODU,Saravanasundaram S,parties.IN.IND,IND,1190,0.62,5,lost,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3921,tamil-nadu,2026,97,KUMARAPALAYAM,C.vijayalakshmi,parties.IN.TVK,TVK,81179,39.54,1,won,F,50,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3921,tamil-nadu,2026,97,KUMARAPALAYAM,P.thangamani,parties.IN.UNK,ADMK,73483,35.79,2,lost,M,65,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3921,tamil-nadu,2026,97,KUMARAPALAYAM,P.thangamani,parties.IN.AIADMK,ADMK,73483,35.79,2,lost,M,65,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3921,tamil-nadu,2026,97,KUMARAPALAYAM,S.balu,parties.IN.DMK,DMK,39993,19.48,3,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3921,tamil-nadu,2026,97,KUMARAPALAYAM,Uvarani Suresh,parties.IN.NTK,NTK,7663,3.73,4,lost,F,39,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3921,tamil-nadu,2026,97,KUMARAPALAYAM,Selvaraj,parties.IN.IND,IND,437,0.21,5,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3918,tamil-nadu,2026,98,ERODE (EAST),M.vijay Balaji,parties.IN.TVK,TVK,69747,42.93,1,won,M,39,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3918,tamil-nadu,2026,98,ERODE (EAST),Gopinath Palaniyappan,parties.IN.INC,INC,45781,28.18,2,lost,M,51,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3918,tamil-nadu,2026,98,ERODE (EAST),R.manoharan,parties.IN.UNK,ADMK,38183,23.5,3,lost,M,65,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3918,tamil-nadu,2026,98,ERODE (EAST),R.manoharan,parties.IN.AIADMK,ADMK,38183,23.5,3,lost,M,65,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3918,tamil-nadu,2026,98,ERODE (EAST),S.thandavamoorthy,parties.IN.NTK,NTK,4987,3.07,4,lost,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3918,tamil-nadu,2026,98,ERODE (EAST),J.muthu Bava,parties.IN.IND,IND,858,0.53,5,lost,M,32,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3919,tamil-nadu,2026,99,ERODE (WEST),Ananth Moghan K.k.,parties.IN.TVK,TVK,96836,43.74,1,won,M,38,,,,src-3da941c21223
@@ -499,38 +499,38 @@ IN-AC-2008-tamil-nadu-3922,tamil-nadu,2026,100,MODAKKURICHI,S.kirthika,parties.I
 IN-AC-2008-tamil-nadu-3922,tamil-nadu,2026,100,MODAKKURICHI,S.senthilnathan,parties.IN.DMK,DMK,58236,30.53,3,lost,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3922,tamil-nadu,2026,100,MODAKKURICHI,M.arunkumar,parties.IN.NTK,NTK,6723,3.52,4,lost,M,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3922,tamil-nadu,2026,100,MODAKKURICHI,R.karthikeyan,parties.IN.UNK,tavk,2239,1.17,5,lost,M,42,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3917,tamil-nadu,2026,101,DHARAPURAM (SC),Sathyabama.p,parties.IN.UNK,ADMK,81100,40.56,1,won,F,51,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3917,tamil-nadu,2026,101,DHARAPURAM (SC),Sathyabama.p,parties.IN.AIADMK,ADMK,81100,40.56,1,won,F,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3917,tamil-nadu,2026,101,DHARAPURAM (SC),Indirani.t,parties.IN.DMK,DMK,64373,32.2,2,lost,F,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3917,tamil-nadu,2026,101,DHARAPURAM (SC),Gowri Chitra,parties.IN.TVK,TVK,46438,23.23,3,lost,F,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3917,tamil-nadu,2026,101,DHARAPURAM (SC),Dhivya,parties.IN.NTK,NTK,6026,3.01,4,lost,F,28,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3917,tamil-nadu,2026,101,DHARAPURAM (SC),Rohini.s,parties.IN.IND,IND,357,0.18,5,lost,F,27,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3920,tamil-nadu,2026,102,KANGAYAM,Nsn Nataraj,parties.IN.UNK,ADMK,71122,34.94,1,won,M,68,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3920,tamil-nadu,2026,102,KANGAYAM,Nsn Nataraj,parties.IN.AIADMK,ADMK,71122,34.94,1,won,M,68,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3920,tamil-nadu,2026,102,KANGAYAM,Mani Gounder,parties.IN.TVK,TVK,62989,30.95,2,lost,M,72,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3920,tamil-nadu,2026,102,KANGAYAM,M.p.saminathan,parties.IN.DMK,DMK,59230,29.1,3,lost,M,61,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3920,tamil-nadu,2026,102,KANGAYAM,Karmegan.m,parties.IN.NTK,NTK,7068,3.47,4,lost,M,68,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3920,tamil-nadu,2026,102,KANGAYAM,P.thirugnanasambantham,parties.IN.UNK,PFTROOBC,499,0.25,5,lost,M,50,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4058,tamil-nadu,2026,103,PERUNDURAI,Jayakumar. S,parties.IN.UNK,ADMK,70302,35.03,1,won,M,46,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4058,tamil-nadu,2026,103,PERUNDURAI,Jayakumar. S,parties.IN.AIADMK,ADMK,70302,35.03,1,won,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4058,tamil-nadu,2026,103,PERUNDURAI,Thoppu Venkatachalam (alias) N.d. Venkatachalam,parties.IN.DMK,DMK,60609,30.2,2,lost,M,62,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4058,tamil-nadu,2026,103,PERUNDURAI,Arunachalam. V. P,parties.IN.TVK,TVK,59483,29.64,3,lost,M,73,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4058,tamil-nadu,2026,103,PERUNDURAI,Ingur. C. Loganathan,parties.IN.NTK,NTK,6468,3.22,4,lost,M,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4058,tamil-nadu,2026,103,PERUNDURAI,Venkatachalam. C,parties.IN.IND,IND,878,0.44,5,lost,M,70,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4056,tamil-nadu,2026,104,BHAVANI,Karuppanan. K.c,parties.IN.UNK,ADMK,75577,36.28,1,won,M,69,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4056,tamil-nadu,2026,104,BHAVANI,Karuppanan. K.c,parties.IN.AIADMK,ADMK,75577,36.28,1,won,M,69,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4056,tamil-nadu,2026,104,BHAVANI,Balakrishnan,parties.IN.TVK,TVK,68181,32.73,2,lost,M,70,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4056,tamil-nadu,2026,104,BHAVANI,Chandrasekar. K.a,parties.IN.DMK,DMK,54087,25.96,3,lost,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4056,tamil-nadu,2026,104,BHAVANI,Mohanadevi. R,parties.IN.NTK,NTK,6195,2.97,4,lost,F,25,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4056,tamil-nadu,2026,104,BHAVANI,Manikkam. P,parties.IN.IND,IND,526,0.25,5,lost,M,39,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4055,tamil-nadu,2026,105,ANTHIYUR,Haribaskar.p,parties.IN.UNK,ADMK,60042,32.32,1,won,M,39,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4055,tamil-nadu,2026,105,ANTHIYUR,Haribaskar.p,parties.IN.AIADMK,ADMK,60042,32.32,1,won,M,39,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4055,tamil-nadu,2026,105,ANTHIYUR,Sivabalan.m,parties.IN.DMK,DMK,58782,31.64,2,lost,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4055,tamil-nadu,2026,105,ANTHIYUR,Vijay Venkatesh.m,parties.IN.TVK,TVK,56372,30.34,3,lost,M,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4055,tamil-nadu,2026,105,ANTHIYUR,Aalangattur Anandhi,parties.IN.NTK,NTK,5287,2.85,4,lost,F,40,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4055,tamil-nadu,2026,105,ANTHIYUR,Veeran.k,parties.IN.IND,IND,990,0.53,5,lost,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4057,tamil-nadu,2026,106,GOBICHETTIPALAYAM,Sengottaiyan.k.a,parties.IN.TVK,TVK,82612,37.6,1,won,M,78,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4057,tamil-nadu,2026,106,GOBICHETTIPALAYAM,Nallasivam.n,parties.IN.DMK,DMK,65992,30.03,2,lost,M,58,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4057,tamil-nadu,2026,106,GOBICHETTIPALAYAM,Prabhu.v.b,parties.IN.UNK,ADMK,56232,25.59,3,lost,M,43,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4057,tamil-nadu,2026,106,GOBICHETTIPALAYAM,Prabhu.v.b,parties.IN.AIADMK,ADMK,56232,25.59,3,lost,M,43,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4057,tamil-nadu,2026,106,GOBICHETTIPALAYAM,Seethalakshmi.m.k,parties.IN.NTK,NTK,8137,3.7,4,lost,F,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4057,tamil-nadu,2026,106,GOBICHETTIPALAYAM,Thiruvengatesh.m,parties.IN.UNK,tavk,1746,0.79,5,lost,M,28,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3978,tamil-nadu,2026,107,BHAVANISAGAR (SC),V.p.tamilselvi,parties.IN.TVK,TVK,72391,33.73,1,won,F,57,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3978,tamil-nadu,2026,107,BHAVANISAGAR (SC),A.bannari,parties.IN.UNK,ADMK,67822,31.6,2,lost,M,47,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3978,tamil-nadu,2026,107,BHAVANISAGAR (SC),A.bannari,parties.IN.AIADMK,ADMK,67822,31.6,2,lost,M,47,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3978,tamil-nadu,2026,107,BHAVANISAGAR (SC),P.l.sundaram,parties.IN.CPI,CPI,63107,29.41,3,lost,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3978,tamil-nadu,2026,107,BHAVANISAGAR (SC),S.soundarya,parties.IN.NTK,NTK,5832,2.72,4,lost,F,26,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3978,tamil-nadu,2026,107,BHAVANISAGAR (SC),B.palaniswamy,parties.IN.BSP,BSP,1029,0.48,5,lost,M,34,,,,src-3da941c21223
@@ -540,18 +540,18 @@ IN-AC-2008-tamil-nadu-3982,tamil-nadu,2026,108,UDHAGAMANDALAM,Ramachandran.b,par
 IN-AC-2008-tamil-nadu-3982,tamil-nadu,2026,108,UDHAGAMANDALAM,Ragupathy.b,parties.IN.NTK,NTK,4641,3.12,4,lost,M,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3982,tamil-nadu,2026,108,UDHAGAMANDALAM,Manian.r,parties.IN.IND,IND,462,0.31,5,lost,M,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3980,tamil-nadu,2026,109,GUDALUR (SC),Dhravidamani.m,parties.IN.DMK,DMK,65590,43.37,1,won,M,66,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3980,tamil-nadu,2026,109,GUDALUR (SC),Pon.jayaseelan,parties.IN.UNK,ADMK,42757,28.27,2,lost,M,53,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3980,tamil-nadu,2026,109,GUDALUR (SC),Pon.jayaseelan,parties.IN.AIADMK,ADMK,42757,28.27,2,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3980,tamil-nadu,2026,109,GUDALUR (SC),Deepak Sai Kishore.a,parties.IN.TVK,TVK,34962,23.12,3,lost,M,47,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3980,tamil-nadu,2026,109,GUDALUR (SC),Karthik.r,parties.IN.NTK,NTK,6199,4.1,4,lost,M,31,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3980,tamil-nadu,2026,109,GUDALUR (SC),Thilagaraj.n,parties.IN.IND,IND,443,0.29,5,lost,M,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3979,tamil-nadu,2026,110,COONOOR,M. Raju,parties.IN.DMK,DMK,50470,35.69,1,won,M,60,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3979,tamil-nadu,2026,110,COONOOR,A. Ramu,parties.IN.UNK,ADMK,42371,29.97,2,lost,M,62,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3979,tamil-nadu,2026,110,COONOOR,A. Ramu,parties.IN.AIADMK,ADMK,42371,29.97,2,lost,M,62,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3979,tamil-nadu,2026,110,COONOOR,C. Thangaraju,parties.IN.TVK,TVK,42225,29.86,3,lost,M,58,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3979,tamil-nadu,2026,110,COONOOR,K. Deenu,parties.IN.NTK,NTK,4695,3.32,4,lost,F,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3979,tamil-nadu,2026,110,COONOOR,C. Dinesh Kumar,parties.IN.IND,IND,573,0.41,5,lost,M,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3981,tamil-nadu,2026,111,METTUPPALAYAM,Sunilanand,parties.IN.TVK,TVK,75664,30.97,1,won,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3981,tamil-nadu,2026,111,METTUPPALAYAM,Smt.kavitha Kalyanasundaram,parties.IN.DMK,DMK,67896,27.79,2,lost,F,47,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3981,tamil-nadu,2026,111,METTUPPALAYAM,O.k.chinnaraj,parties.IN.UNK,ADMK,61736,25.27,3,lost,M,72,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3981,tamil-nadu,2026,111,METTUPPALAYAM,O.k.chinnaraj,parties.IN.AIADMK,ADMK,61736,25.27,3,lost,M,72,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3981,tamil-nadu,2026,111,METTUPPALAYAM,T.r.shanmugasundaram,parties.IN.IND,IND,26756,10.95,4,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3981,tamil-nadu,2026,111,METTUPPALAYAM,S.gopalakrishnan,parties.IN.NTK,NTK,6508,2.66,5,lost,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3977,tamil-nadu,2026,112,AVANASHI (SC),Kamali.s,parties.IN.TVK,TVK,84209,36.36,1,won,F,28,,,,src-3da941c21223
@@ -560,7 +560,7 @@ IN-AC-2008-tamil-nadu-3977,tamil-nadu,2026,112,AVANASHI (SC),Dr. Gokilamani.v,pa
 IN-AC-2008-tamil-nadu-3977,tamil-nadu,2026,112,AVANASHI (SC),Menaka. V,parties.IN.NTK,NTK,7704,3.33,4,lost,F,28,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3977,tamil-nadu,2026,112,AVANASHI (SC),Gokilamani. M,parties.IN.IND,IND,652,0.28,5,lost,F,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4059,tamil-nadu,2026,113,TIRUPPUR (NORTH),V.sathyabama,parties.IN.TVK,TVK,131401,49.88,1,won,F,54,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4059,tamil-nadu,2026,113,TIRUPPUR (NORTH),M.s.m.anandan,parties.IN.UNK,ADMK,61409,23.31,2,lost,M,64,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4059,tamil-nadu,2026,113,TIRUPPUR (NORTH),M.s.m.anandan,parties.IN.AIADMK,ADMK,61409,23.31,2,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4059,tamil-nadu,2026,113,TIRUPPUR (NORTH),M.ravi Alias M.subramanian,parties.IN.CPI,CPI,53964,20.48,3,lost,M,70,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4059,tamil-nadu,2026,113,TIRUPPUR (NORTH),R.abinaya,parties.IN.NTK,NTK,13157,4.99,4,lost,F,29,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4059,tamil-nadu,2026,113,TIRUPPUR (NORTH),L.james Reynold,parties.IN.BSP,BSP,380,0.14,5,lost,M,47,,,,src-3da941c21223
@@ -570,17 +570,17 @@ IN-AC-2008-tamil-nadu-4060,tamil-nadu,2026,114,TIRUPPUR (SOUTH),Thangaraj. S,par
 IN-AC-2008-tamil-nadu-4060,tamil-nadu,2026,114,TIRUPPUR (SOUTH),Dinesh. P.n,parties.IN.NTK,NTK,6956,3.87,4,lost,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4060,tamil-nadu,2026,114,TIRUPPUR (SOUTH),Kalimuthu. K,parties.IN.AIFB,AIFB,626,0.35,5,lost,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3896,tamil-nadu,2026,115,PALLADAM,K.ramkumar,parties.IN.TVK,TVK,121297,40.3,1,won,M,38,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3896,tamil-nadu,2026,115,PALLADAM,K.p.paramasivam,parties.IN.UNK,ADMK,83400,27.71,2,lost,M,70,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3896,tamil-nadu,2026,115,PALLADAM,K.p.paramasivam,parties.IN.AIADMK,ADMK,83400,27.71,2,lost,M,70,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3896,tamil-nadu,2026,115,PALLADAM,K.selvaraj,parties.IN.DMK,DMK,78625,26.12,3,lost,M,70,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3896,tamil-nadu,2026,115,PALLADAM,K.v.thamiliniyan,parties.IN.NTK,NTK,13141,4.37,4,lost,M,28,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3896,tamil-nadu,2026,115,PALLADAM,K.rathinasamy,parties.IN.BSP,BSP,578,0.19,5,lost,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3898,tamil-nadu,2026,116,SULUR,Nm.sukumar,parties.IN.TVK,TVK,90531,33.1,1,won,M,56,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3898,tamil-nadu,2026,116,SULUR,V.p.kandasamy,parties.IN.UNK,ADMK,85741,31.34,2,lost,M,66,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2026,116,SULUR,V.p.kandasamy,parties.IN.AIADMK,ADMK,85741,31.34,2,lost,M,66,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3898,tamil-nadu,2026,116,SULUR,Thalapathy Murugesan,parties.IN.DMK,DMK,83654,30.58,3,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3898,tamil-nadu,2026,116,SULUR,Dr.s.rajasekaran,parties.IN.NTK,NTK,10147,3.71,4,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3898,tamil-nadu,2026,116,SULUR,Murugesh.r.,parties.IN.IND,IND,437,0.16,5,lost,M,50,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3895,tamil-nadu,2026,117,KAVUNDAMPALAYAM,Kanimozhi Santhosh,parties.IN.TVK,TVK,146466,40.24,1,won,F,37,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3895,tamil-nadu,2026,117,KAVUNDAMPALAYAM,Arunkumar Prg,parties.IN.UNK,ADMK,104326,28.66,2,lost,M,64,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3895,tamil-nadu,2026,117,KAVUNDAMPALAYAM,Arunkumar Prg,parties.IN.AIADMK,ADMK,104326,28.66,2,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3895,tamil-nadu,2026,117,KAVUNDAMPALAYAM,Surya Prakash K.p,parties.IN.INC,INC,90726,24.93,3,lost,M,29,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3895,tamil-nadu,2026,117,KAVUNDAMPALAYAM,Kalamani Jaganathan,parties.IN.NTK,NTK,16834,4.62,4,lost,F,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3895,tamil-nadu,2026,117,KAVUNDAMPALAYAM,Kanimozhi.k,parties.IN.IND,IND,567,0.16,5,lost,F,37,,,,src-3da941c21223
@@ -589,38 +589,38 @@ IN-AC-2008-tamil-nadu-3893,tamil-nadu,2026,118,COIMBATORE (NORTH),Durai. Sentham
 IN-AC-2008-tamil-nadu-3893,tamil-nadu,2026,118,COIMBATORE (NORTH),Vanathi Srinivasan,parties.IN.BJP,BJP,49722,21.99,3,lost,F,55,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3893,tamil-nadu,2026,118,COIMBATORE (NORTH),Narmadha. G.,parties.IN.NTK,NTK,9036,4,4,lost,F,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3893,tamil-nadu,2026,118,COIMBATORE (NORTH),P. Krishnasamy,parties.IN.BSP,BSP,383,0.17,5,lost,M,59,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3992,tamil-nadu,2026,119,THONDAMUTHUR,S.p.velumani,parties.IN.UNK,ADMK,93316,36.09,1,won,M,56,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3992,tamil-nadu,2026,119,THONDAMUTHUR,S.p.velumani,parties.IN.AIADMK,ADMK,93316,36.09,1,won,M,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3992,tamil-nadu,2026,119,THONDAMUTHUR,Sathish Raju (alias) K.p.r. Sathish,parties.IN.TVK,TVK,78591,30.4,2,lost,M,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3992,tamil-nadu,2026,119,THONDAMUTHUR,N.r.karthikeyan,parties.IN.DMK,DMK,75917,29.36,3,lost,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3992,tamil-nadu,2026,119,THONDAMUTHUR,Rajabu Nisha.z,parties.IN.NTK,NTK,6976,2.7,4,lost,F,25,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3992,tamil-nadu,2026,119,THONDAMUTHUR,Rafeeq.a.m.,parties.IN.IND,IND,317,0.12,5,lost,M,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3894,tamil-nadu,2026,120,COIMBATORE (SOUTH),V Senthilbalaji,parties.IN.DMK,DMK,59724,38.16,1,won,M,50,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3894,tamil-nadu,2026,120,COIMBATORE (SOUTH),V. Senthilkumar,parties.IN.TVK,TVK,57453,36.71,2,lost,M,42,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3894,tamil-nadu,2026,120,COIMBATORE (SOUTH),Amman K.arjunan,parties.IN.UNK,ADMK,31689,20.25,3,lost,M,68,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3894,tamil-nadu,2026,120,COIMBATORE (SOUTH),Amman K.arjunan,parties.IN.AIADMK,ADMK,31689,20.25,3,lost,M,68,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3894,tamil-nadu,2026,120,COIMBATORE (SOUTH),Perarivalan. V,parties.IN.NTK,NTK,5062,3.23,4,lost,M,25,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3894,tamil-nadu,2026,120,COIMBATORE (SOUTH),J. Praveenkumar,parties.IN.IND,IND,170,0.11,5,lost,M,28,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3897,tamil-nadu,2026,121,SINGANALLUR,K.s.sri Giri Prasath,parties.IN.TVK,TVK,84163,38.08,1,won,M,43,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3897,tamil-nadu,2026,121,SINGANALLUR,V.srinidhi,parties.IN.INC,INC,65024,29.42,2,lost,F,37,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3897,tamil-nadu,2026,121,SINGANALLUR,K.r.jayaram,parties.IN.UNK,ADMK,57783,26.14,3,lost,M,53,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3897,tamil-nadu,2026,121,SINGANALLUR,K.r.jayaram,parties.IN.AIADMK,ADMK,57783,26.14,3,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3897,tamil-nadu,2026,121,SINGANALLUR,Nehruji Gunasekaran,parties.IN.NTK,NTK,9203,4.16,4,lost,M,32,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3897,tamil-nadu,2026,121,SINGANALLUR,Sivaji Perumal,parties.IN.BSP,BSP,428,0.19,5,lost,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3989,tamil-nadu,2026,122,KINATHUKADAVU,Vignesh K,parties.IN.TVK,TVK,99950,37.31,1,won,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3989,tamil-nadu,2026,122,KINATHUKADAVU,Sabari Karthikeyan K.v.k.s,parties.IN.DMK,DMK,88240,32.94,2,lost,M,46,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3989,tamil-nadu,2026,122,KINATHUKADAVU,Damodaran S,parties.IN.UNK,ADMK,67789,25.3,3,lost,M,75,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3989,tamil-nadu,2026,122,KINATHUKADAVU,Damodaran S,parties.IN.AIADMK,ADMK,67789,25.3,3,lost,M,75,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3989,tamil-nadu,2026,122,KINATHUKADAVU,Banupriya M,parties.IN.NTK,NTK,9667,3.61,4,lost,F,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3989,tamil-nadu,2026,122,KINATHUKADAVU,Mariyappan R,parties.IN.GPI,GPI,554,0.21,5,lost,M,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3991,tamil-nadu,2026,123,POLLACHI,K. Nithyanandhan,parties.IN.DMK,DMK,62013,34.22,1,won,M,54,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3991,tamil-nadu,2026,123,POLLACHI,Pollachi V. Jayaraman,parties.IN.UNK,ADMK,57386,31.67,2,lost,M,73,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3991,tamil-nadu,2026,123,POLLACHI,Pollachi V. Jayaraman,parties.IN.AIADMK,ADMK,57386,31.67,2,lost,M,73,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3991,tamil-nadu,2026,123,POLLACHI,G. Ramanathan,parties.IN.TVK,TVK,53819,29.7,3,lost,M,33,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3991,tamil-nadu,2026,123,POLLACHI,N. Senthil Kumar,parties.IN.NTK,NTK,4866,2.69,4,lost,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3991,tamil-nadu,2026,123,POLLACHI,M. Jayaram,parties.IN.IND,IND,596,0.33,5,lost,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3994,tamil-nadu,2026,124,VALPARAI (SC),Kutty (alias) Sudhakar. A,parties.IN.DMK,DMK,54671,36.34,1,won,M,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3994,tamil-nadu,2026,124,VALPARAI (SC),Dr. Sridharan. A,parties.IN.TVK,TVK,45300,30.11,2,lost,M,69,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3994,tamil-nadu,2026,124,VALPARAI (SC),Lekshmana Singh. D,parties.IN.UNK,ADMK,43728,29.07,3,lost,M,57,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3994,tamil-nadu,2026,124,VALPARAI (SC),Lekshmana Singh. D,parties.IN.AIADMK,ADMK,43728,29.07,3,lost,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3994,tamil-nadu,2026,124,VALPARAI (SC),Umadevi. P,parties.IN.NTK,NTK,5256,3.49,4,lost,F,29,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3994,tamil-nadu,2026,124,VALPARAI (SC),Perumal. K,parties.IN.IND,IND,479,0.32,5,lost,M,30,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3993,tamil-nadu,2026,125,UDUMALAIPETTAI,Jayakumar M.,parties.IN.DMK,DMK,68549,33.67,1,won,M,50,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3993,tamil-nadu,2026,125,UDUMALAIPETTAI,Radhakrishnan K.,parties.IN.UNK,ADMK,65667,32.26,2,lost,M,60,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3993,tamil-nadu,2026,125,UDUMALAIPETTAI,Radhakrishnan K.,parties.IN.AIADMK,ADMK,65667,32.26,2,lost,M,60,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3993,tamil-nadu,2026,125,UDUMALAIPETTAI,Sankar K.,parties.IN.TVK,TVK,59831,29.39,3,lost,M,50,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3993,tamil-nadu,2026,125,UDUMALAIPETTAI,Ram Kumar M.,parties.IN.NTK,NTK,6702,3.29,4,lost,M,30,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3993,tamil-nadu,2026,125,UDUMALAIPETTAI,Padmendraprakash A.,parties.IN.IND,IND,470,0.23,5,lost,M,48,,,,src-3da941c21223
@@ -629,7 +629,7 @@ IN-AC-2008-tamil-nadu-3990,tamil-nadu,2026,126,MADATHUKULAM,C Shanmugavelu,parti
 IN-AC-2008-tamil-nadu-3990,tamil-nadu,2026,126,MADATHUKULAM,R Thirumalai,parties.IN.TVK,TVK,52684,27.99,3,lost,M,33,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3990,tamil-nadu,2026,126,MADATHUKULAM,M Radhamani,parties.IN.NTK,NTK,6578,3.49,4,lost,F,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3990,tamil-nadu,2026,126,MADATHUKULAM,K Vadivazhagan Balaji,parties.IN.IND,IND,664,0.35,5,lost,M,38,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3916,tamil-nadu,2026,127,PALANI,Ravimanoharan. K,parties.IN.UNK,ADMK,66986,32.11,1,won,M,57,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3916,tamil-nadu,2026,127,PALANI,Ravimanoharan. K,parties.IN.AIADMK,ADMK,66986,32.11,1,won,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3916,tamil-nadu,2026,127,PALANI,Dr. Praveen Kumar. M,parties.IN.TVK,TVK,66293,31.78,2,lost,M,40,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3916,tamil-nadu,2026,127,PALANI,Pandi. N,parties.IN.CPIM,CPI(M),65534,31.41,3,lost,M,68,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3916,tamil-nadu,2026,127,PALANI,Murugeswari. B,parties.IN.NTK,NTK,6300,3.02,4,lost,F,27,,,,src-3da941c21223
@@ -641,57 +641,57 @@ IN-AC-2008-tamil-nadu-3915,tamil-nadu,2026,128,ODDANCHATRAM,Ragupathi. P,parties
 IN-AC-2008-tamil-nadu-3915,tamil-nadu,2026,128,ODDANCHATRAM,Prabaharan. M,parties.IN.IND,IND,646,0.32,5,lost,M,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3911,tamil-nadu,2026,129,ATHOOR,I. Periasamy,parties.IN.DMK,DMK,106240,44.79,1,won,M,73,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3911,tamil-nadu,2026,129,ATHOOR,N. Kalaiselvi,parties.IN.TVK,TVK,83872,35.36,2,lost,F,50,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3911,tamil-nadu,2026,129,ATHOOR,A. Viswanathan,parties.IN.UNK,ADMK,32477,13.69,3,lost,M,72,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3911,tamil-nadu,2026,129,ATHOOR,A. Viswanathan,parties.IN.AIADMK,ADMK,32477,13.69,3,lost,M,72,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3911,tamil-nadu,2026,129,ATHOOR,Dr. A. Simon Justin,parties.IN.NTK,NTK,9946,4.19,4,lost,M,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3911,tamil-nadu,2026,129,ATHOOR,D. Sankar,parties.IN.UNK,NADLMMKLK,720,0.3,5,lost,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3914,tamil-nadu,2026,130,NILAKKOTTAI (SC),Ayyanar.r,parties.IN.TVK,TVK,68580,34.71,1,won,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3914,tamil-nadu,2026,130,NILAKKOTTAI (SC),Nagajothi.s,parties.IN.DMK,DMK,65655,33.23,2,lost,F,42,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3914,tamil-nadu,2026,130,NILAKKOTTAI (SC),Thenmozhi.s,parties.IN.UNK,ADMK,49924,25.27,3,lost,F,64,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2026,130,NILAKKOTTAI (SC),Thenmozhi.s,parties.IN.AIADMK,ADMK,49924,25.27,3,lost,F,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3914,tamil-nadu,2026,130,NILAKKOTTAI (SC),Dr.kailai Rajan.d,parties.IN.NTK,NTK,8615,4.36,4,lost,M,74,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3914,tamil-nadu,2026,130,NILAKKOTTAI (SC),Selvam.p B.a. B.l.,parties.IN.RPIA,RPI(A),763,0.39,5,lost,M,45,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3913,tamil-nadu,2026,131,NATHAM,Natham Viswanathan R,parties.IN.UNK,ADMK,85708,35.84,1,won,M,76,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3913,tamil-nadu,2026,131,NATHAM,Natham Viswanathan R,parties.IN.AIADMK,ADMK,85708,35.84,1,won,M,76,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3913,tamil-nadu,2026,131,NATHAM,Selvakumar K,parties.IN.DMK,DMK,73839,30.88,2,lost,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3913,tamil-nadu,2026,131,NATHAM,Ramesh L N,parties.IN.TVK,TVK,64997,27.18,3,lost,M,47,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3913,tamil-nadu,2026,131,NATHAM,Alagammal A,parties.IN.NTK,NTK,9677,4.05,4,lost,F,36,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3913,tamil-nadu,2026,131,NATHAM,Alex S,parties.IN.UNK,tavk,715,0.3,5,lost,M,43,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3912,tamil-nadu,2026,132,DINDIGUL,Senthilkumar. I.p,parties.IN.DMK,DMK,74489,35.13,1,won,M,47,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3912,tamil-nadu,2026,132,DINDIGUL,Nazeer Raja. G,parties.IN.TVK,TVK,73358,34.6,2,lost,M,49,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3912,tamil-nadu,2026,132,DINDIGUL,Sreenivasan. C,parties.IN.UNK,ADMK,53986,25.46,3,lost,M,78,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3912,tamil-nadu,2026,132,DINDIGUL,Sreenivasan. C,parties.IN.AIADMK,ADMK,53986,25.46,3,lost,M,78,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3912,tamil-nadu,2026,132,DINDIGUL,Mutharasi. S,parties.IN.NTK,NTK,7299,3.44,4,lost,F,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3912,tamil-nadu,2026,132,DINDIGUL,Selvadhayanithi. M,parties.IN.IND,IND,252,0.12,5,lost,M,28,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3945,tamil-nadu,2026,133,VEDASANDUR,Saminathan. T,parties.IN.DMK,DMK,84948,37.5,1,won,M,56,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3945,tamil-nadu,2026,133,VEDASANDUR,Paramasivam. V.p.b.,parties.IN.UNK,ADMK,74885,33.05,2,lost,M,45,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3945,tamil-nadu,2026,133,VEDASANDUR,Paramasivam. V.p.b.,parties.IN.AIADMK,ADMK,74885,33.05,2,lost,M,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3945,tamil-nadu,2026,133,VEDASANDUR,Dr.nakajothi. N,parties.IN.TVK,TVK,56804,25.07,3,lost,F,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3945,tamil-nadu,2026,133,VEDASANDUR,Khaja Hussain Ahamed. A,parties.IN.NTK,NTK,7095,3.13,4,lost,M,27,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3945,tamil-nadu,2026,133,VEDASANDUR,Murugan. V,parties.IN.IND,IND,727,0.32,5,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3941,tamil-nadu,2026,134,ARAVAKURICHI,Elango. R,parties.IN.DMK,DMK,70827,39.11,1,won,M,55,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3941,tamil-nadu,2026,134,ARAVAKURICHI,Karthikeyan. P,parties.IN.TVK,TVK,51445,28.41,2,lost,M,58,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3941,tamil-nadu,2026,134,ARAVAKURICHI,Selvakumar. K,parties.IN.UNK,ADMK,49289,27.22,3,lost,M,41,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2026,134,ARAVAKURICHI,Selvakumar. K,parties.IN.AIADMK,ADMK,49289,27.22,3,lost,M,41,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3941,tamil-nadu,2026,134,ARAVAKURICHI,Naren. S,parties.IN.NTK,NTK,5154,2.85,4,lost,M,28,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3941,tamil-nadu,2026,134,ARAVAKURICHI,Ravi. Ag,parties.IN.UNK,tavk,398,0.22,5,lost,M,56,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3942,tamil-nadu,2026,135,KARUR,M.r. Vijayabhaskar,parties.IN.UNK,ADMK,71542,32.99,1,won,M,62,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3942,tamil-nadu,2026,135,KARUR,M.r. Vijayabhaskar,parties.IN.AIADMK,ADMK,71542,32.99,1,won,M,62,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3942,tamil-nadu,2026,135,KARUR,Mathiyalagan V.p,parties.IN.TVK,TVK,69721,32.15,2,lost,M,50,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3942,tamil-nadu,2026,135,KARUR,Aasee.m. Thiagarajan,parties.IN.DMK,DMK,67256,31.02,3,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3942,tamil-nadu,2026,135,KARUR,Karuppaiya. R,parties.IN.NTK,NTK,5465,2.52,4,lost,M,60,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3942,tamil-nadu,2026,135,KARUR,Jayagopal. P,parties.IN.BSP,BSP,302,0.14,5,lost,M,61,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3943,tamil-nadu,2026,136,KRISHNARAYAPURAM (SC),Sathya. M,parties.IN.TVK,TVK,62378,32.94,1,won,F,39,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3943,tamil-nadu,2026,136,KRISHNARAYAPURAM (SC),Dr. Dhivya. S,parties.IN.UNK,ADMK,58875,31.09,2,lost,F,38,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3943,tamil-nadu,2026,136,KRISHNARAYAPURAM (SC),Dr. Dhivya. S,parties.IN.AIADMK,ADMK,58875,31.09,2,lost,F,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3943,tamil-nadu,2026,136,KRISHNARAYAPURAM (SC),Raja. C.k,parties.IN.DMK,DMK,57292,30.26,3,lost,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3943,tamil-nadu,2026,136,KRISHNARAYAPURAM (SC),Sathiya. V,parties.IN.NTK,NTK,6102,3.22,4,lost,F,32,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3943,tamil-nadu,2026,136,KRISHNARAYAPURAM (SC),Parameswaran. M,parties.IN.IND,IND,376,0.2,5,lost,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3983,tamil-nadu,2026,137,KULITHALAI,Suriyanur. A. Chandran,parties.IN.DMK,DMK,68138,32.59,1,won,M,59,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3983,tamil-nadu,2026,137,KULITHALAI,G.balasubramani,parties.IN.TVK,TVK,67559,32.31,2,lost,M,49,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3983,tamil-nadu,2026,137,KULITHALAI,S.karunakaran,parties.IN.UNK,ADMK,60317,28.85,3,lost,M,65,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3983,tamil-nadu,2026,137,KULITHALAI,S.karunakaran,parties.IN.AIADMK,ADMK,60317,28.85,3,lost,M,65,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3983,tamil-nadu,2026,137,KULITHALAI,Selva.nanmaaran,parties.IN.NTK,NTK,7978,3.82,4,lost,M,43,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3983,tamil-nadu,2026,137,KULITHALAI,S.senthilkumar,parties.IN.IND,IND,607,0.29,5,lost,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3944,tamil-nadu,2026,138,MANAPPARAI,R. Kathiravan,parties.IN.TVK,TVK,83041,34.43,1,won,M,33,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3944,tamil-nadu,2026,138,MANAPPARAI,Dr. Pl. Vijayakumar,parties.IN.UNK,ADMK,81615,33.83,2,lost,M,48,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3944,tamil-nadu,2026,138,MANAPPARAI,Dr. Pl. Vijayakumar,parties.IN.AIADMK,ADMK,81615,33.83,2,lost,M,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3944,tamil-nadu,2026,138,MANAPPARAI,P. Abdul Samed,parties.IN.DMK,DMK,61355,25.44,3,lost,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3944,tamil-nadu,2026,138,MANAPPARAI,M. Arunagiri,parties.IN.NTK,NTK,10070,4.17,4,lost,M,36,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3944,tamil-nadu,2026,138,MANAPPARAI,Arockiaraj .a,parties.IN.UNK,SMKNK,721,0.3,5,lost,M,47,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4045,tamil-nadu,2026,139,SRIRANGAM,Ramesh,parties.IN.TVK,TVK,103235,40.49,1,won,M,31,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4045,tamil-nadu,2026,139,SRIRANGAM,S. Durairaj,parties.IN.DMK,DMK,69645,27.31,2,lost,M,49,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4045,tamil-nadu,2026,139,SRIRANGAM,R.manoharan,parties.IN.UNK,ADMK,65819,25.81,3,lost,M,69,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4045,tamil-nadu,2026,139,SRIRANGAM,R.manoharan,parties.IN.AIADMK,ADMK,65819,25.81,3,lost,M,69,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4045,tamil-nadu,2026,139,SRIRANGAM,Dharmaraj. M,parties.IN.NTK,NTK,11026,4.32,4,lost,M,25,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4045,tamil-nadu,2026,139,SRIRANGAM,Vijay .a,parties.IN.AIPTMMK,AIPTMMK,438,0.17,5,lost,M,43,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4048,tamil-nadu,2026,140,TIRUCHIRAPPALLI (WEST),K.n.nehru,parties.IN.DMK,DMK,88235,44.94,1,won,M,73,,,,src-3da941c21223
@@ -701,45 +701,45 @@ IN-AC-2008-tamil-nadu-4048,tamil-nadu,2026,140,TIRUCHIRAPPALLI (WEST),K.bhuvanes
 IN-AC-2008-tamil-nadu-4048,tamil-nadu,2026,140,TIRUCHIRAPPALLI (WEST),Chinnaiyan Poosari,parties.IN.BSP,BSP,453,0.23,5,lost,M,41,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4047,tamil-nadu,2026,141,TIRUCHIRAPPALLI (EAST),C. Joseph Vijay,parties.IN.TVK,TVK,91381,50.07,1,won,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4047,tamil-nadu,2026,141,TIRUCHIRAPPALLI (EAST),S. Inigo Irudayaraj,parties.IN.DMK,DMK,63965,35.05,2,lost,M,53,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4047,tamil-nadu,2026,141,TIRUCHIRAPPALLI (EAST),G. Rajasekaran,parties.IN.UNK,ADMK,19715,10.8,3,lost,M,53,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4047,tamil-nadu,2026,141,TIRUCHIRAPPALLI (EAST),G. Rajasekaran,parties.IN.AIADMK,ADMK,19715,10.8,3,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4047,tamil-nadu,2026,141,TIRUCHIRAPPALLI (EAST),Dr.krishnasamy .v,parties.IN.NTK,NTK,4790,2.62,4,lost,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4047,tamil-nadu,2026,141,TIRUCHIRAPPALLI (EAST),P. Charles Sagayaraj,parties.IN.IND,IND,390,0.21,5,lost,M,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4046,tamil-nadu,2026,142,THIRUVERUMBUR,Vijayakumar (a) Navalpattu S. Viji,parties.IN.TVK,TVK,89837,42.06,1,won,M,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4046,tamil-nadu,2026,142,THIRUVERUMBUR,Anbil Mahesh Poyyamozhi,parties.IN.DMK,DMK,81132,37.99,2,lost,M,48,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4046,tamil-nadu,2026,142,THIRUVERUMBUR,Kumar. P,parties.IN.UNK,ADMK,29473,13.8,3,lost,M,54,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4046,tamil-nadu,2026,142,THIRUVERUMBUR,Kumar. P,parties.IN.AIADMK,ADMK,29473,13.8,3,lost,M,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4046,tamil-nadu,2026,142,THIRUVERUMBUR,Rajessh. T,parties.IN.NTK,NTK,9311,4.36,4,lost,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4046,tamil-nadu,2026,142,THIRUVERUMBUR,Muruganantham. G,parties.IN.IND,IND,441,0.21,5,lost,M,46,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3984,tamil-nadu,2026,143,LALGUDI,Leemarose Martin,parties.IN.UNK,ADMK,60795,32.82,1,won,F,58,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3984,tamil-nadu,2026,143,LALGUDI,Leemarose Martin,parties.IN.AIADMK,ADMK,60795,32.82,1,won,F,58,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3984,tamil-nadu,2026,143,LALGUDI,Ku Pa Krishnan,parties.IN.TVK,TVK,58056,31.35,2,lost,M,76,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3984,tamil-nadu,2026,143,LALGUDI,T. Parivallal,parties.IN.DMK,DMK,55565,30,3,lost,M,50,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3984,tamil-nadu,2026,143,LALGUDI,N. Madhan,parties.IN.NTK,NTK,6992,3.78,4,lost,M,30,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3984,tamil-nadu,2026,143,LALGUDI,R. Dineshkumar,parties.IN.IND,IND,403,0.22,5,lost,M,36,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3985,tamil-nadu,2026,144,MANACHANALLUR,Kathiravan. S,parties.IN.DMK,DMK,81447,38.82,1,won,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3985,tamil-nadu,2026,144,MANACHANALLUR,V.saravanan,parties.IN.TVK,TVK,69083,32.93,2,lost,M,42,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3985,tamil-nadu,2026,144,MANACHANALLUR,R.v. Bharathan,parties.IN.UNK,ADMK,46066,21.96,3,lost,M,44,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3985,tamil-nadu,2026,144,MANACHANALLUR,R.v. Bharathan,parties.IN.AIADMK,ADMK,46066,21.96,3,lost,M,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3985,tamil-nadu,2026,144,MANACHANALLUR,Thenmozhi. R,parties.IN.NTK,NTK,9289,4.43,4,lost,F,31,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3985,tamil-nadu,2026,144,MANACHANALLUR,Ramesh Kumar. G,parties.IN.IND,IND,498,0.24,5,lost,M,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3986,tamil-nadu,2026,145,MUSIRI,M.vignesh,parties.IN.TVK,TVK,71281,37.69,1,won,M,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3986,tamil-nadu,2026,145,MUSIRI,N.s.karunairaaja,parties.IN.DMK,DMK,53839,28.47,2,lost,M,51,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3986,tamil-nadu,2026,145,MUSIRI,N.yoganathan,parties.IN.UNK,ADMK,52061,27.52,3,lost,M,56,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3986,tamil-nadu,2026,145,MUSIRI,N.yoganathan,parties.IN.AIADMK,ADMK,52061,27.52,3,lost,M,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3986,tamil-nadu,2026,145,MUSIRI,G. Bakiyalakshmi,parties.IN.NTK,NTK,8357,4.42,4,lost,F,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3986,tamil-nadu,2026,145,MUSIRI,M.chinnaiyan,parties.IN.PT,PT,677,0.36,5,lost,M,52,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3988,tamil-nadu,2026,146,THURAIYUR (SC),Ravisankar.m,parties.IN.TVK,TVK,66263,35.93,1,won,M,41,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3988,tamil-nadu,2026,146,THURAIYUR (SC),E.saroja,parties.IN.UNK,ADMK,56649,30.72,2,lost,F,51,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3988,tamil-nadu,2026,146,THURAIYUR (SC),E.saroja,parties.IN.AIADMK,ADMK,56649,30.72,2,lost,F,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3988,tamil-nadu,2026,146,THURAIYUR (SC),M.lenin Prasath,parties.IN.INC,INC,49222,26.69,3,lost,M,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3988,tamil-nadu,2026,146,THURAIYUR (SC),S Kowsalya,parties.IN.NTK,NTK,8436,4.57,4,lost,F,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3988,tamil-nadu,2026,146,THURAIYUR (SC),P.srinivasan,parties.IN.BSP,BSP,588,0.32,5,lost,M,71,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3987,tamil-nadu,2026,147,PERAMBALUR (SC),Sivakumar. K,parties.IN.TVK,TVK,90882,35.83,1,won,M,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3987,tamil-nadu,2026,147,PERAMBALUR (SC),Dr. Jayalakshmi. S.t,parties.IN.DMK,DMK,76489,30.15,2,lost,F,49,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3987,tamil-nadu,2026,147,PERAMBALUR (SC),Thamizhselvan. R,parties.IN.UNK,ADMK,72716,28.67,3,lost,M,52,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3987,tamil-nadu,2026,147,PERAMBALUR (SC),Thamizhselvan. R,parties.IN.AIADMK,ADMK,72716,28.67,3,lost,M,52,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3987,tamil-nadu,2026,147,PERAMBALUR (SC),Suganya. J,parties.IN.NTK,NTK,9474,3.74,4,lost,F,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3987,tamil-nadu,2026,147,PERAMBALUR (SC),Arivazhagan. D,parties.IN.BSP,BSP,678,0.27,5,lost,M,40,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3892,tamil-nadu,2026,148,KUNNAM,Sivasankar. S.s,parties.IN.DMK,DMK,87237,37.84,1,won,M,56,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3892,tamil-nadu,2026,148,KUNNAM,Saranya. A,parties.IN.UNK,ADMK,71680,31.09,2,lost,F,36,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3892,tamil-nadu,2026,148,KUNNAM,Saranya. A,parties.IN.AIADMK,ADMK,71680,31.09,2,lost,F,36,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3892,tamil-nadu,2026,148,KUNNAM,Revathi Muthamilselvan,parties.IN.TVK,TVK,59170,25.66,3,lost,F,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3892,tamil-nadu,2026,148,KUNNAM,Keerthivasan. R,parties.IN.NTK,NTK,7482,3.25,4,lost,M,26,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3892,tamil-nadu,2026,148,KUNNAM,Thanasekar. R,parties.IN.IND,IND,677,0.29,5,lost,M,38,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3887,tamil-nadu,2026,149,ARIYALUR,Rajendran S,parties.IN.UNK,ADMK,95219,40.37,1,won,M,66,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3887,tamil-nadu,2026,149,ARIYALUR,Rajendran S,parties.IN.AIADMK,ADMK,95219,40.37,1,won,M,66,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3887,tamil-nadu,2026,149,ARIYALUR,Latha Balu,parties.IN.DMK,DMK,70721,29.98,2,lost,F,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3887,tamil-nadu,2026,149,ARIYALUR,Sivakumar M,parties.IN.TVK,TVK,57359,24.32,3,lost,M,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3887,tamil-nadu,2026,149,ARIYALUR,Pugazhendhi D,parties.IN.NTK,NTK,8527,3.62,4,lost,M,26,,,,src-3da941c21223
@@ -751,7 +751,7 @@ IN-AC-2008-tamil-nadu-3890,tamil-nadu,2026,150,JAYANKONDAM,Revathi K.,parties.IN
 IN-AC-2008-tamil-nadu-3890,tamil-nadu,2026,150,JAYANKONDAM,Ravisankar N.,parties.IN.UNK,AJPK,1203,0.53,5,lost,M,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3903,tamil-nadu,2026,151,TITTAKUDI (SC),Ganesan C.v,parties.IN.DMK,DMK,63106,35.91,1,won,M,67,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3903,tamil-nadu,2026,151,TITTAKUDI (SC),Rajasekar A,parties.IN.TVK,TVK,60477,34.41,2,lost,M,46,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3903,tamil-nadu,2026,151,TITTAKUDI (SC),Murugumaran N,parties.IN.UNK,ADMK,42502,24.18,3,lost,M,54,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3903,tamil-nadu,2026,151,TITTAKUDI (SC),Murugumaran N,parties.IN.AIADMK,ADMK,42502,24.18,3,lost,M,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3903,tamil-nadu,2026,151,TITTAKUDI (SC),Mahalakshmi V,parties.IN.NTK,NTK,5709,3.25,4,lost,F,27,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3903,tamil-nadu,2026,151,TITTAKUDI (SC),Velmurugan G,parties.IN.IND,IND,549,0.31,5,lost,M,31,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3904,tamil-nadu,2026,152,VRIDDHACHALAM,Premallatha Vijayakant,parties.IN.DMDK,DMDK,69351,33.15,1,won,F,60,,,,src-3da941c21223
@@ -759,33 +759,33 @@ IN-AC-2008-tamil-nadu-3904,tamil-nadu,2026,152,VRIDDHACHALAM,Vijay.s,parties.IN.
 IN-AC-2008-tamil-nadu-3904,tamil-nadu,2026,152,VRIDDHACHALAM,Dr.tamizharasi.p,parties.IN.PMK,PMK,59791,28.58,3,lost,F,71,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3904,tamil-nadu,2026,152,VRIDDHACHALAM,Ananthi Dhandapani,parties.IN.NTK,NTK,6047,2.89,4,lost,F,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3904,tamil-nadu,2026,152,VRIDDHACHALAM,Arivazhagan.e.n,parties.IN.UNK,tavk,1896,0.91,5,lost,M,50,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3901,tamil-nadu,2026,153,NEYVELI,Rajendran.r,parties.IN.UNK,ADMK,63731,37.76,1,won,M,65,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3901,tamil-nadu,2026,153,NEYVELI,Rajendran.r,parties.IN.AIADMK,ADMK,63731,37.76,1,won,M,65,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3901,tamil-nadu,2026,153,NEYVELI,Saba.rajendran,parties.IN.DMK,DMK,52769,31.26,2,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3901,tamil-nadu,2026,153,NEYVELI,Anand.k,parties.IN.TVK,TVK,34291,20.32,3,lost,M,40,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3901,tamil-nadu,2026,153,NEYVELI,Thirumalvalavan.t,parties.IN.UNK,tavk,11381,6.74,4,lost,M,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3901,tamil-nadu,2026,153,NEYVELI,Veeramani.b,parties.IN.NTK,NTK,4444,2.63,5,lost,M,46,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3902,tamil-nadu,2026,154,PANRUTI,Mohan. K,parties.IN.UNK,ADMK,78398,37.2,1,won,M,43,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3902,tamil-nadu,2026,154,PANRUTI,Mohan. K,parties.IN.AIADMK,ADMK,78398,37.2,1,won,M,43,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3902,tamil-nadu,2026,154,PANRUTI,Abdur Rahman. A.r,parties.IN.VCK,VCK,67735,32.14,2,lost,M,61,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3902,tamil-nadu,2026,154,PANRUTI,Manikandan. M,parties.IN.TVK,TVK,56022,26.58,3,lost,M,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3902,tamil-nadu,2026,154,PANRUTI,Banupriya. M,parties.IN.NTK,NTK,4884,2.32,4,lost,F,32,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3902,tamil-nadu,2026,154,PANRUTI,Surendar. R,parties.IN.UNK,tavk,1449,0.69,5,lost,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3899,tamil-nadu,2026,155,CUDDALORE,B.rajkumar,parties.IN.TVK,TVK,70856,37.22,1,won,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3899,tamil-nadu,2026,155,CUDDALORE,A.s.chandarasekaran,parties.IN.INC,INC,55337,29.07,2,lost,M,58,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3899,tamil-nadu,2026,155,CUDDALORE,M.c.sampath,parties.IN.UNK,ADMK,55258,29.03,3,lost,M,67,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3899,tamil-nadu,2026,155,CUDDALORE,M.c.sampath,parties.IN.AIADMK,ADMK,55258,29.03,3,lost,M,67,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3899,tamil-nadu,2026,155,CUDDALORE,S.sarasu,parties.IN.NTK,NTK,5766,3.03,4,lost,F,40,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3899,tamil-nadu,2026,155,CUDDALORE,K.lenin,parties.IN.UNK,tavk,623,0.33,5,lost,M,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3900,tamil-nadu,2026,156,KURINJIPADI,M.r.k.panneerselvam,parties.IN.DMK,DMK,76695,35.84,1,won,M,68,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3900,tamil-nadu,2026,156,KURINJIPADI,A Bhuvanenthiran,parties.IN.UNK,ADMK,69106,32.3,2,lost,M,60,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3900,tamil-nadu,2026,156,KURINJIPADI,A Bhuvanenthiran,parties.IN.AIADMK,ADMK,69106,32.3,2,lost,M,60,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3900,tamil-nadu,2026,156,KURINJIPADI,Rajkumar D,parties.IN.TVK,TVK,53110,24.82,3,lost,M,40,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3900,tamil-nadu,2026,156,KURINJIPADI,T Kannan,parties.IN.UNK,tavk,7113,3.32,4,lost,M,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3900,tamil-nadu,2026,156,KURINJIPADI,Kavitha Renganathan,parties.IN.NTK,NTK,4813,2.25,5,lost,F,48,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3888,tamil-nadu,2026,157,BHUVANAGIRI,Arunmozhithevan . A,parties.IN.UNK,ADMK,75707,36.52,1,won,M,57,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3888,tamil-nadu,2026,157,BHUVANAGIRI,Arunmozhithevan . A,parties.IN.AIADMK,ADMK,75707,36.52,1,won,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3888,tamil-nadu,2026,157,BHUVANAGIRI,Saravanan. Durai . K,parties.IN.DMK,DMK,73220,35.32,2,lost,M,59,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3888,tamil-nadu,2026,157,BHUVANAGIRI,Mahalingam . T,parties.IN.TVK,TVK,49904,24.07,3,lost,M,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3888,tamil-nadu,2026,157,BHUVANAGIRI,Sumathi . S,parties.IN.NTK,NTK,5105,2.46,4,lost,F,52,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3888,tamil-nadu,2026,157,BHUVANAGIRI,Muthamizhan . Seva,parties.IN.UNK,tavk,912,0.44,5,lost,M,32,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3889,tamil-nadu,2026,158,CHIDAMBARAM,Thamimun Ansari. M,parties.IN.DMK,DMK,69739,35.48,1,won,M,50,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3889,tamil-nadu,2026,158,CHIDAMBARAM,Pandian. K.a,parties.IN.UNK,ADMK,63992,32.55,2,lost,M,64,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3889,tamil-nadu,2026,158,CHIDAMBARAM,Pandian. K.a,parties.IN.AIADMK,ADMK,63992,32.55,2,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3889,tamil-nadu,2026,158,CHIDAMBARAM,Nedunchezhiyan,parties.IN.TVK,TVK,54584,27.77,3,lost,M,75,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3889,tamil-nadu,2026,158,CHIDAMBARAM,Thamizh,parties.IN.NTK,NTK,6169,3.14,4,lost,M,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3889,tamil-nadu,2026,158,CHIDAMBARAM,Dhanasekaran. M,parties.IN.AIPTMMK,AIPTMMK,339,0.17,5,lost,M,71,,,,src-3da941c21223
@@ -795,7 +795,7 @@ IN-AC-2008-tamil-nadu-3891,tamil-nadu,2026,159,KATTUMANNARKOIL (SC),S. Seenuvasa
 IN-AC-2008-tamil-nadu-3891,tamil-nadu,2026,159,KATTUMANNARKOIL (SC),Sivajothi .m,parties.IN.NTK,NTK,4563,2.43,4,lost,M,41,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3891,tamil-nadu,2026,159,KATTUMANNARKOIL (SC),Alavanthar .m,parties.IN.UNK,tavk,563,0.3,5,lost,M,55,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3963,tamil-nadu,2026,160,SIRKAZHI (SC),Senthilselvan.r,parties.IN.DMK,DMK,71449,35.64,1,won,M,58,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3963,tamil-nadu,2026,160,SIRKAZHI (SC),Sakthi.m,parties.IN.UNK,ADMK,60032,29.95,2,lost,F,51,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3963,tamil-nadu,2026,160,SIRKAZHI (SC),Sakthi.m,parties.IN.AIADMK,ADMK,60032,29.95,2,lost,F,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3963,tamil-nadu,2026,160,SIRKAZHI (SC),Gopinath.s,parties.IN.TVK,TVK,59149,29.51,3,lost,M,36,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3963,tamil-nadu,2026,160,SIRKAZHI (SC),Subash.r,parties.IN.NTK,NTK,7397,3.69,4,lost,M,28,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3963,tamil-nadu,2026,160,SIRKAZHI (SC),Gajendran.kanaga,parties.IN.BSP,BSP,640,0.32,5,lost,M,48,,,,src-3da941c21223
@@ -805,13 +805,13 @@ IN-AC-2008-tamil-nadu-3960,tamil-nadu,2026,161,MAYILADUTHURAI,Haroon Rasheed. S.
 IN-AC-2008-tamil-nadu-3960,tamil-nadu,2026,161,MAYILADUTHURAI,Kasiraman. K,parties.IN.NTK,NTK,6886,3.65,4,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3960,tamil-nadu,2026,161,MAYILADUTHURAI,Aravaazhi. K,parties.IN.UNK,AIJYMKG,361,0.19,5,lost,M,60,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3962,tamil-nadu,2026,162,POOMPUHAR,Nivedha M Murugan,parties.IN.DMK,DMK,81096,36.98,1,won,M,61,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3962,tamil-nadu,2026,162,POOMPUHAR,Pavunraj. S,parties.IN.UNK,ADMK,72836,33.21,2,lost,M,69,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3962,tamil-nadu,2026,162,POOMPUHAR,Pavunraj. S,parties.IN.AIADMK,ADMK,72836,33.21,2,lost,M,69,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3962,tamil-nadu,2026,162,POOMPUHAR,Vijayalaiyan. J,parties.IN.TVK,TVK,55902,25.49,3,lost,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3962,tamil-nadu,2026,162,POOMPUHAR,Ilayanagulan. K,parties.IN.NTK,NTK,6353,2.9,4,lost,M,41,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3962,tamil-nadu,2026,162,POOMPUHAR,Maya Venkatesan. M,parties.IN.IND,IND,730,0.33,5,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3966,tamil-nadu,2026,163,NAGAPATTINAM,M.h.jawahirullah,parties.IN.DMK,DMK,56305,37.21,1,won,M,66,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3966,tamil-nadu,2026,163,NAGAPATTINAM,M.sugumar,parties.IN.TVK,TVK,46524,30.74,2,lost,M,48,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3966,tamil-nadu,2026,163,NAGAPATTINAM,Thanka.kathiravan,parties.IN.UNK,ADMK,41586,27.48,3,lost,M,56,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3966,tamil-nadu,2026,163,NAGAPATTINAM,Thanka.kathiravan,parties.IN.AIADMK,ADMK,41586,27.48,3,lost,M,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3966,tamil-nadu,2026,163,NAGAPATTINAM,Fathima Farhana.s,parties.IN.NTK,NTK,5348,3.53,4,lost,F,31,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3966,tamil-nadu,2026,163,NAGAPATTINAM,J.v.durai,parties.IN.UNK,AIYDPMP,207,0.14,5,lost,M,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3965,tamil-nadu,2026,164,KILVELUR (SC),Latha. T,parties.IN.CPIM,CPI(M),56108,37,1,won,F,46,,,,src-3da941c21223
@@ -819,14 +819,14 @@ IN-AC-2008-tamil-nadu-3965,tamil-nadu,2026,164,KILVELUR (SC),Senthil Pandian. P,
 IN-AC-2008-tamil-nadu-3965,tamil-nadu,2026,164,KILVELUR (SC),Vadivel Ravanan. S,parties.IN.PMK,PMK,31675,20.89,3,lost,M,73,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3965,tamil-nadu,2026,164,KILVELUR (SC),Karthika. M,parties.IN.NTK,NTK,8069,5.32,4,lost,F,36,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3965,tamil-nadu,2026,164,KILVELUR (SC),Surenthar. K,parties.IN.PT,PT,563,0.37,5,lost,M,32,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3970,tamil-nadu,2026,165,VEDARANYAM,Manian. O.s,parties.IN.UNK,ADMK,59172,36.48,1,won,M,72,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3970,tamil-nadu,2026,165,VEDARANYAM,Manian. O.s,parties.IN.AIADMK,ADMK,59172,36.48,1,won,M,72,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3970,tamil-nadu,2026,165,VEDARANYAM,Pugazhendi. M,parties.IN.DMK,DMK,51841,31.96,2,lost,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3970,tamil-nadu,2026,165,VEDARANYAM,Kingsly Gerald. A,parties.IN.TVK,TVK,38347,23.64,3,lost,M,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3970,tamil-nadu,2026,165,VEDARANYAM,Karthick. T,parties.IN.NTK,NTK,10396,6.41,4,lost,M,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3970,tamil-nadu,2026,165,VEDARANYAM,Lingeswaran. M,parties.IN.AIPTMMK,AIPTMMK,382,0.24,5,lost,M,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3968,tamil-nadu,2026,166,THIRUTHURAIPOONDI (SC),Marimuthu.k,parties.IN.CPI,CPI,74062,38.77,1,won,M,55,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3968,tamil-nadu,2026,166,THIRUTHURAIPOONDI (SC),Pandiyan.s,parties.IN.TVK,TVK,61140,32.01,2,lost,M,42,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3968,tamil-nadu,2026,166,THIRUTHURAIPOONDI (SC),Balathandayutham.u,parties.IN.UNK,ADMK,43073,22.55,3,lost,M,51,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3968,tamil-nadu,2026,166,THIRUTHURAIPOONDI (SC),Balathandayutham.u,parties.IN.AIADMK,ADMK,43073,22.55,3,lost,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3968,tamil-nadu,2026,166,THIRUTHURAIPOONDI (SC),Vinothini.r,parties.IN.NTK,NTK,10176,5.33,4,lost,F,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3968,tamil-nadu,2026,166,THIRUTHURAIPOONDI (SC),Vimala.a,parties.IN.BSP,BSP,525,0.27,5,lost,F,40,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4025,tamil-nadu,2026,167,MANNARGUDI,Kamaraj. S,parties.IN.UNK,AMMKMNKZ,68416,35.25,1,won,M,59,,,,src-3da941c21223
@@ -839,14 +839,14 @@ IN-AC-2008-tamil-nadu-3969,tamil-nadu,2026,168,THIRUVARUR,Veeramani V,parties.IN
 IN-AC-2008-tamil-nadu-3969,tamil-nadu,2026,168,THIRUVARUR,Chandrasekaran Govi,parties.IN.BJP,BJP,36387,16.7,3,lost,M,63,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3969,tamil-nadu,2026,168,THIRUVARUR,Aswini B,parties.IN.NTK,NTK,10031,4.6,4,lost,F,29,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3969,tamil-nadu,2026,168,THIRUVARUR,Sahul Hameed M,parties.IN.IND,IND,593,0.27,5,lost,M,34,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3967,tamil-nadu,2026,169,NANNILAM,Kamaraj. R,parties.IN.UNK,ADMK,103462,44.7,1,won,M,65,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3967,tamil-nadu,2026,169,NANNILAM,Kamaraj. R,parties.IN.AIADMK,ADMK,103462,44.7,1,won,M,65,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3967,tamil-nadu,2026,169,NANNILAM,Mohamed Mubarak,parties.IN.DMK,DMK,61738,26.68,2,lost,M,47,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3967,tamil-nadu,2026,169,NANNILAM,Prabhakaran. S,parties.IN.TVK,TVK,54530,23.56,3,lost,M,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3967,tamil-nadu,2026,169,NANNILAM,Thenmozhi Dilipkumar,parties.IN.NTK,NTK,8446,3.65,4,lost,F,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3967,tamil-nadu,2026,169,NANNILAM,Raja. S,parties.IN.AIPTMMK,AIPTMMK,861,0.37,5,lost,M,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3964,tamil-nadu,2026,170,THIRUVIDAIMARUDUR (SC),Govi.chezhiaan,parties.IN.DMK,DMK,79951,38.26,1,won,M,60,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3964,tamil-nadu,2026,170,THIRUVIDAIMARUDUR (SC),S.prabakaran,parties.IN.TVK,TVK,65835,31.51,2,lost,M,42,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3964,tamil-nadu,2026,170,THIRUVIDAIMARUDUR (SC),Elamathi Subramanian,parties.IN.UNK,ADMK,52922,25.33,3,lost,F,55,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3964,tamil-nadu,2026,170,THIRUVIDAIMARUDUR (SC),Elamathi Subramanian,parties.IN.AIADMK,ADMK,52922,25.33,3,lost,F,55,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3964,tamil-nadu,2026,170,THIRUVIDAIMARUDUR (SC),M.divya Bharathi,parties.IN.NTK,NTK,6363,3.05,4,lost,F,30,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3964,tamil-nadu,2026,170,THIRUVIDAIMARUDUR (SC),T.m.puratchi Mani,parties.IN.BSP,BSP,1043,0.5,5,lost,M,43,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3959,tamil-nadu,2026,171,KUMBAKONAM,Vinoth,parties.IN.TVK,TVK,78650,37.76,1,won,M,32,,,,src-3da941c21223
@@ -856,7 +856,7 @@ IN-AC-2008-tamil-nadu-3959,tamil-nadu,2026,171,KUMBAKONAM,Anandh M,parties.IN.NT
 IN-AC-2008-tamil-nadu-3959,tamil-nadu,2026,171,KUMBAKONAM,Stalin Ma Ka,parties.IN.IND,IND,1405,0.67,5,lost,M,55,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3961,tamil-nadu,2026,172,PAPANASAM,A.m. Shahjahan,parties.IN.IUML,IUML,69284,33.35,1,won,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3961,tamil-nadu,2026,172,PAPANASAM,Azarudeen Uduman Ali,parties.IN.TVK,TVK,68219,32.84,2,lost,M,39,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3961,tamil-nadu,2026,172,PAPANASAM,Dorai. Shanmuga Prabu,parties.IN.UNK,ADMK,57072,27.48,3,lost,M,38,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3961,tamil-nadu,2026,172,PAPANASAM,Dorai. Shanmuga Prabu,parties.IN.AIADMK,ADMK,57072,27.48,3,lost,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3961,tamil-nadu,2026,172,PAPANASAM,Anis Fathima,parties.IN.NTK,NTK,9604,4.62,4,lost,F,25,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3961,tamil-nadu,2026,172,PAPANASAM,C. Chandrasekaran,parties.IN.UNK,TDMK,524,0.25,5,lost,M,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4030,tamil-nadu,2026,173,THIRUVAIYARU,Durai. Chandrasekaran,parties.IN.DMK,DMK,80425,36.21,1,won,M,66,,,,src-3da941c21223
@@ -871,16 +871,16 @@ IN-AC-2008-tamil-nadu-4029,tamil-nadu,2026,174,THANJAVUR,N. Krishnakumar,parties
 IN-AC-2008-tamil-nadu-4029,tamil-nadu,2026,174,THANJAVUR,R. Muralidharan,parties.IN.IND,IND,844,0.42,5,lost,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4026,tamil-nadu,2026,175,ORATHANADU,R. Vaithilingam,parties.IN.DMK,DMK,86759,44.42,1,won,M,71,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4026,tamil-nadu,2026,175,ORATHANADU,Dr. K. Arvind,parties.IN.TVK,TVK,51731,26.49,2,lost,M,31,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4026,tamil-nadu,2026,175,ORATHANADU,M. Sekar,parties.IN.UNK,ADMK,44260,22.66,3,lost,M,63,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4026,tamil-nadu,2026,175,ORATHANADU,M. Sekar,parties.IN.AIADMK,ADMK,44260,22.66,3,lost,M,63,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4026,tamil-nadu,2026,175,ORATHANADU,S.thirumurugan,parties.IN.NTK,NTK,10135,5.19,4,lost,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4026,tamil-nadu,2026,175,ORATHANADU,M. Selvaraj,parties.IN.UNK,PFTROOBC,548,0.28,5,lost,M,62,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4027,tamil-nadu,2026,176,PATTUKKOTTAI,Annadurai K,parties.IN.DMK,DMK,65963,35.9,1,won,M,68,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4027,tamil-nadu,2026,176,PATTUKKOTTAI,Mathan C,parties.IN.TVK,TVK,52209,28.41,2,lost,M,44,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4027,tamil-nadu,2026,176,PATTUKKOTTAI,Sekar C V,parties.IN.UNK,ADMK,49575,26.98,3,lost,M,63,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4027,tamil-nadu,2026,176,PATTUKKOTTAI,Sekar C V,parties.IN.AIADMK,ADMK,49575,26.98,3,lost,M,63,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4027,tamil-nadu,2026,176,PATTUKKOTTAI,Kannan S,parties.IN.NTK,NTK,13145,7.15,4,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4027,tamil-nadu,2026,176,PATTUKKOTTAI,Gurumoorthy M,parties.IN.PT,PT,521,0.28,5,lost,M,59,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4028,tamil-nadu,2026,177,PERAVURANI,Ashokkumar. N,parties.IN.DMK,DMK,60919,34.56,1,won,M,68,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4028,tamil-nadu,2026,177,PERAVURANI,Govi.elango,parties.IN.UNK,ADMK,57757,32.77,2,lost,M,41,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4028,tamil-nadu,2026,177,PERAVURANI,Govi.elango,parties.IN.AIADMK,ADMK,57757,32.77,2,lost,M,41,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4028,tamil-nadu,2026,177,PERAVURANI,D.chandrakandeeban,parties.IN.TVK,TVK,45576,25.86,3,lost,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4028,tamil-nadu,2026,177,PERAVURANI,Bhuvana Maniyarasan,parties.IN.NTK,NTK,9122,5.17,4,lost,F,32,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4028,tamil-nadu,2026,177,PERAVURANI,R.ravi,parties.IN.AIPTMMK,AIPTMMK,560,0.32,5,lost,M,45,,,,src-3da941c21223
@@ -889,7 +889,7 @@ IN-AC-2008-tamil-nadu-4043,tamil-nadu,2026,178,GANDHARVAKOTTAI (SC),C. Uthayakum
 IN-AC-2008-tamil-nadu-4043,tamil-nadu,2026,178,GANDHARVAKOTTAI (SC),M. Chinnadurai,parties.IN.CPIM,CPI(M),46734,27.88,3,lost,M,59,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4043,tamil-nadu,2026,178,GANDHARVAKOTTAI (SC),Nathiya,parties.IN.NTK,NTK,10189,6.08,4,lost,F,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4043,tamil-nadu,2026,178,GANDHARVAKOTTAI (SC),Arunkumar . S,parties.IN.IND,IND,653,0.39,5,lost,M,30,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3946,tamil-nadu,2026,179,VIRALIMALAI,Vijayabaskar. C,parties.IN.UNK,ADMK,105773,51.87,1,won,M,52,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3946,tamil-nadu,2026,179,VIRALIMALAI,Vijayabaskar. C,parties.IN.AIADMK,ADMK,105773,51.87,1,won,M,52,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3946,tamil-nadu,2026,179,VIRALIMALAI,Murugesan. P,parties.IN.TVK,TVK,43700,21.43,2,lost,M,43,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3946,tamil-nadu,2026,179,VIRALIMALAI,Chellapandiyan. K.k,parties.IN.DMK,DMK,40397,19.81,3,lost,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3946,tamil-nadu,2026,179,VIRALIMALAI,Sathyalakshmi. K,parties.IN.NTK,NTK,9467,4.64,4,lost,F,38,,,,src-3da941c21223
@@ -901,12 +901,12 @@ IN-AC-2008-tamil-nadu-4044,tamil-nadu,2026,180,PUDUKKOTTAI,Ezhilarasi Vijayendra
 IN-AC-2008-tamil-nadu-4044,tamil-nadu,2026,180,PUDUKKOTTAI,K. Kailasakumar,parties.IN.IND,IND,669,0.35,5,lost,M,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4011,tamil-nadu,2026,181,THIRUMAYAM,Regupathy.s,parties.IN.DMK,DMK,58201,31.87,1,won,M,75,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4011,tamil-nadu,2026,181,THIRUMAYAM,Chinthamani.c,parties.IN.TVK,TVK,56709,31.05,2,lost,F,37,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4011,tamil-nadu,2026,181,THIRUMAYAM,Vairamuthu.pk,parties.IN.UNK,ADMK,55464,30.37,3,lost,M,71,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4011,tamil-nadu,2026,181,THIRUMAYAM,Vairamuthu.pk,parties.IN.AIADMK,ADMK,55464,30.37,3,lost,M,71,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4011,tamil-nadu,2026,181,THIRUMAYAM,Lakshmi Srinivasan,parties.IN.NTK,NTK,9102,4.98,4,lost,F,43,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4011,tamil-nadu,2026,181,THIRUMAYAM,Subbiah.a,parties.IN.PT,PT,359,0.2,5,lost,M,55,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4007,tamil-nadu,2026,182,ALANGUDI,Siva.v.meyyanathan,parties.IN.DMK,DMK,64929,35.98,1,won,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4007,tamil-nadu,2026,182,ALANGUDI,Kandasamy,parties.IN.TVK,TVK,51952,28.78,2,lost,M,44,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4007,tamil-nadu,2026,182,ALANGUDI,Dhana Vimal,parties.IN.UNK,ADMK,50063,27.74,3,lost,M,44,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4007,tamil-nadu,2026,182,ALANGUDI,Dhana Vimal,parties.IN.AIADMK,ADMK,50063,27.74,3,lost,M,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4007,tamil-nadu,2026,182,ALANGUDI,R.rajaram,parties.IN.NTK,NTK,10652,5.9,4,lost,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4007,tamil-nadu,2026,182,ALANGUDI,D.pushparaj,parties.IN.AIPTMMK,AIPTMMK,618,0.34,5,lost,M,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3995,tamil-nadu,2026,183,ARANTHANGI,Mohamed Farvas. J,parties.IN.TVK,TVK,73244,40.08,1,won,M,31,,,,src-3da941c21223
@@ -925,7 +925,7 @@ IN-AC-2008-tamil-nadu-4012,tamil-nadu,2026,185,TIRUPPATTUR,Thirumaran. K.c,parti
 IN-AC-2008-tamil-nadu-4012,tamil-nadu,2026,185,TIRUPPATTUR,Ramya Mohan,parties.IN.NTK,NTK,15291,7.09,4,lost,F,32,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4012,tamil-nadu,2026,185,TIRUPPATTUR,Raja. K.p.m,parties.IN.IND,IND,753,0.35,5,lost,M,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4010,tamil-nadu,2026,186,SIVAGANGA,Kulanthai Rani A,parties.IN.TVK,TVK,73737,34.45,1,won,F,55,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4010,tamil-nadu,2026,186,SIVAGANGA,Senthilnathan Pr,parties.IN.UNK,ADMK,58656,27.4,2,lost,M,58,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4010,tamil-nadu,2026,186,SIVAGANGA,Senthilnathan Pr,parties.IN.AIADMK,ADMK,58656,27.4,2,lost,M,58,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4010,tamil-nadu,2026,186,SIVAGANGA,Karunaas S,parties.IN.DMK,DMK,57300,26.77,3,lost,M,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4010,tamil-nadu,2026,186,SIVAGANGA,Indhuja R,parties.IN.NTK,NTK,19021,8.89,4,lost,F,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4010,tamil-nadu,2026,186,SIVAGANGA,Muruganantham Guru,parties.IN.AIPTMMK,AIPTMMK,1186,0.55,5,lost,M,44,,,,src-3da941c21223
@@ -936,22 +936,22 @@ IN-AC-2008-tamil-nadu-4009,tamil-nadu,2026,187,MANAMADURAI (SC),Shanmugapriya.m,
 IN-AC-2008-tamil-nadu-4009,tamil-nadu,2026,187,MANAMADURAI (SC),Arumugam.v,parties.IN.RPI,RPI,1692,0.81,5,lost,M,58,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3958,tamil-nadu,2026,188,MELUR,P.viswanathan,parties.IN.INC,INC,60080,31.5,1,won,M,61,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3958,tamil-nadu,2026,188,MELUR,A.maduraiveeran,parties.IN.TVK,TVK,57356,30.07,2,lost,M,50,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3958,tamil-nadu,2026,188,MELUR,P.periyapullan (a) Selvam,parties.IN.UNK,ADMK,56744,29.75,3,lost,M,54,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3958,tamil-nadu,2026,188,MELUR,P.periyapullan (a) Selvam,parties.IN.AIADMK,ADMK,56744,29.75,3,lost,M,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3958,tamil-nadu,2026,188,MELUR,Kottaikumar,parties.IN.NTK,NTK,9570,5.02,4,lost,M,58,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3958,tamil-nadu,2026,188,MELUR,Soniagandhi,parties.IN.AIPTMMK,AIPTMMK,2628,1.38,5,lost,F,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3954,tamil-nadu,2026,189,MADURAI EAST,Karthikeyan S,parties.IN.TVK,TVK,118777,43.74,1,won,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3954,tamil-nadu,2026,189,MADURAI EAST,Moorthy P,parties.IN.DMK,DMK,102230,37.64,2,lost,M,67,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3954,tamil-nadu,2026,189,MADURAI EAST,Mahendran K,parties.IN.UNK,ADMK,31016,11.42,3,lost,M,68,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3954,tamil-nadu,2026,189,MADURAI EAST,Mahendran K,parties.IN.AIADMK,ADMK,31016,11.42,3,lost,M,68,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3954,tamil-nadu,2026,189,MADURAI EAST,Selvam K,parties.IN.NTK,NTK,13629,5.02,4,lost,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3954,tamil-nadu,2026,189,MADURAI EAST,Prince S,parties.IN.RPPRINAT,RPPRINAT,1591,0.59,5,lost,M,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4035,tamil-nadu,2026,190,SHOLAVANDAN (SC),Karuppaiah.m.v,parties.IN.TVK,TVK,63907,33.8,1,won,M,61,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4035,tamil-nadu,2026,190,SHOLAVANDAN (SC),Venkatesan.a,parties.IN.DMK,DMK,61229,32.38,2,lost,M,50,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4035,tamil-nadu,2026,190,SHOLAVANDAN (SC),Manickam.k,parties.IN.UNK,ADMK,49494,26.18,3,lost,M,60,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4035,tamil-nadu,2026,190,SHOLAVANDAN (SC),Manickam.k,parties.IN.AIADMK,ADMK,49494,26.18,3,lost,M,60,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4035,tamil-nadu,2026,190,SHOLAVANDAN (SC),Nagalakshmi Thirumaran.t,parties.IN.NTK,NTK,10430,5.52,4,lost,F,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4035,tamil-nadu,2026,190,SHOLAVANDAN (SC),Balamurugan.k,parties.IN.AIPTMMK,AIPTMMK,2091,1.11,5,lost,M,52,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3955,tamil-nadu,2026,191,MADURAI NORTH,A.kallanai,parties.IN.TVK,TVK,72853,45.03,1,won,M,41,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3955,tamil-nadu,2026,191,MADURAI NORTH,G.thalapathi,parties.IN.DMK,DMK,54815,33.88,2,lost,M,70,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3955,tamil-nadu,2026,191,MADURAI NORTH,P.saravanan,parties.IN.UNK,ADMK,24982,15.44,3,lost,M,56,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3955,tamil-nadu,2026,191,MADURAI NORTH,P.saravanan,parties.IN.AIADMK,ADMK,24982,15.44,3,lost,M,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3955,tamil-nadu,2026,191,MADURAI NORTH,V Thirunavukkarasu,parties.IN.NTK,NTK,7415,4.58,4,lost,M,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3955,tamil-nadu,2026,191,MADURAI NORTH,D.mohamed Ismail,parties.IN.IND,IND,164,0.1,5,lost,M,43,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-eci192,tamil-nadu,2026,192,MADURAI SOUTH,M.m.gopison,parties.IN.TVK,TVK,62415,44.11,1,won,M,40,,,,src-3da941c21223
@@ -961,32 +961,32 @@ IN-AC-2008-tamil-nadu-eci192,tamil-nadu,2026,192,MADURAI SOUTH,B.m.sumathy,parti
 IN-AC-2008-tamil-nadu-eci192,tamil-nadu,2026,192,MADURAI SOUTH,S.iruthyaraj,parties.IN.UNK,tavk,370,0.26,5,lost,M,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3953,tamil-nadu,2026,193,MADURAI CENTRAL,Madhar Badhurudeen,parties.IN.TVK,TVK,63414,42.68,1,won,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3953,tamil-nadu,2026,193,MADURAI CENTRAL,Palanivel Thiaga Rajan,parties.IN.DMK,DMK,44286,29.8,2,lost,M,60,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3953,tamil-nadu,2026,193,MADURAI CENTRAL,Sundar C,parties.IN.UNK,ADMK,33538,22.57,3,lost,M,58,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3953,tamil-nadu,2026,193,MADURAI CENTRAL,Sundar C,parties.IN.AIADMK,ADMK,33538,22.57,3,lost,M,58,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3953,tamil-nadu,2026,193,MADURAI CENTRAL,Abdul Hakeem K,parties.IN.NTK,NTK,5549,3.73,4,lost,M,39,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3953,tamil-nadu,2026,193,MADURAI CENTRAL,Sakkaravarthy P,parties.IN.AIPTMMK,AIPTMMK,313,0.21,5,lost,M,65,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3957,tamil-nadu,2026,194,MADURAI WEST,Thangapandi Sr,parties.IN.TVK,TVK,88250,40.78,1,won,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3957,tamil-nadu,2026,194,MADURAI WEST,Balaji R,parties.IN.DMK,DMK,76319,35.27,2,lost,M,44,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3957,tamil-nadu,2026,194,MADURAI WEST,Sellur K Raju,parties.IN.UNK,ADMK,38961,18,3,lost,M,73,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3957,tamil-nadu,2026,194,MADURAI WEST,Sellur K Raju,parties.IN.AIADMK,ADMK,38961,18,3,lost,M,73,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3957,tamil-nadu,2026,194,MADURAI WEST,Vigneshkumar S,parties.IN.NTK,NTK,10574,4.89,4,lost,M,29,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3957,tamil-nadu,2026,194,MADURAI WEST,Rajkumar S,parties.IN.IND,IND,257,0.12,5,lost,M,30,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4089,tamil-nadu,2026,195,THIRUPARANKUNDRAM,Nirmalkumar. R.,parties.IN.TVK,TVK,114316,44.75,1,won,M,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4089,tamil-nadu,2026,195,THIRUPARANKUNDRAM,Kiruthiga Thangapandi,parties.IN.DMK,DMK,72763,28.48,2,lost,F,35,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4089,tamil-nadu,2026,195,THIRUPARANKUNDRAM,Rajanchellappa. V.v.,parties.IN.UNK,ADMK,49865,19.52,3,lost,M,75,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2026,195,THIRUPARANKUNDRAM,Rajanchellappa. V.v.,parties.IN.AIADMK,ADMK,49865,19.52,3,lost,M,75,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4089,tamil-nadu,2026,195,THIRUPARANKUNDRAM,Sathyadevi. T.,parties.IN.NTK,NTK,14350,5.62,4,lost,F,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4089,tamil-nadu,2026,195,THIRUPARANKUNDRAM,Thanapandian. T.,parties.IN.AIPTMMK,AIPTMMK,1088,0.43,5,lost,M,54,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4088,tamil-nadu,2026,196,THIRUMANGALAM,Manimaran.m,parties.IN.DMK,DMK,88291,38.22,1,won,M,51,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4088,tamil-nadu,2026,196,THIRUMANGALAM,Udhayakumar.r.b,parties.IN.UNK,ADMK,64484,27.92,2,lost,M,52,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4088,tamil-nadu,2026,196,THIRUMANGALAM,Udhayakumar.r.b,parties.IN.AIADMK,ADMK,64484,27.92,2,lost,M,52,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4088,tamil-nadu,2026,196,THIRUMANGALAM,Sathishkumar.n,parties.IN.TVK,TVK,60826,26.33,3,lost,M,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4088,tamil-nadu,2026,196,THIRUMANGALAM,Munish.n,parties.IN.NTK,NTK,11139,4.82,4,lost,M,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4088,tamil-nadu,2026,196,THIRUMANGALAM,Jeevitha Nachiyar.b,parties.IN.AIPTMMK,AIPTMMK,2851,1.23,5,lost,F,29,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4036,tamil-nadu,2026,197,USILAMPATTI,Vijay. M,parties.IN.TVK,TVK,65743,29.34,1,won,M,40,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4036,tamil-nadu,2026,197,USILAMPATTI,Mahendran. I,parties.IN.UNK,ADMK,63938,28.54,2,lost,M,61,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4036,tamil-nadu,2026,197,USILAMPATTI,Mahendran. I,parties.IN.AIADMK,ADMK,63938,28.54,2,lost,M,61,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4036,tamil-nadu,2026,197,USILAMPATTI,Saravanakumar. T,parties.IN.INC,INC,59465,26.54,3,lost,M,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4036,tamil-nadu,2026,197,USILAMPATTI,Ayyappan. P,parties.IN.AIPTMMK,AIPTMMK,16620,7.42,4,lost,M,60,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4036,tamil-nadu,2026,197,USILAMPATTI,Abirami. D,parties.IN.NTK,NTK,15185,6.78,5,lost,F,25,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4031,tamil-nadu,2026,198,ANDIPATTI,Maharajan.a,parties.IN.DMK,DMK,74324,34.2,1,won,M,72,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4031,tamil-nadu,2026,198,ANDIPATTI,Pandi.v,parties.IN.TVK,TVK,64770,29.8,2,lost,M,46,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4031,tamil-nadu,2026,198,ANDIPATTI,Logirajan.a,parties.IN.UNK,ADMK,63343,29.15,3,lost,M,66,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2026,198,ANDIPATTI,Logirajan.a,parties.IN.AIADMK,ADMK,63343,29.15,3,lost,M,66,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4031,tamil-nadu,2026,198,ANDIPATTI,Gomathi .m,parties.IN.NTK,NTK,10346,4.76,4,lost,F,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4031,tamil-nadu,2026,198,ANDIPATTI,Chellapandiyan.s,parties.IN.AIPTMMK,AIPTMMK,586,0.27,5,lost,M,59,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4034,tamil-nadu,2026,199,PERIYAKULAM (SC),Sabari Iyngaran G.,parties.IN.TVK,TVK,85656,40.56,1,won,M,28,,,,src-3da941c21223
@@ -996,12 +996,12 @@ IN-AC-2008-tamil-nadu-4034,tamil-nadu,2026,199,PERIYAKULAM (SC),Vimala R.,partie
 IN-AC-2008-tamil-nadu-4034,tamil-nadu,2026,199,PERIYAKULAM (SC),Marisamy V.,parties.IN.PT,PT,1161,0.55,5,lost,M,39,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4032,tamil-nadu,2026,200,BODINAYAKANUR,Panneerselvam.o,parties.IN.DMK,DMK,85206,38.62,1,won,M,75,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4032,tamil-nadu,2026,200,BODINAYAKANUR,Prakash.s,parties.IN.TVK,TVK,78401,35.54,2,lost,M,38,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4032,tamil-nadu,2026,200,BODINAYAKANUR,Narayanasamy V.t.,parties.IN.UNK,ADMK,41286,18.71,3,lost,M,65,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4032,tamil-nadu,2026,200,BODINAYAKANUR,Narayanasamy V.t.,parties.IN.AIADMK,ADMK,41286,18.71,3,lost,M,65,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4032,tamil-nadu,2026,200,BODINAYAKANUR,Kalaiarasu.s,parties.IN.NTK,NTK,11455,5.19,4,lost,M,61,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4032,tamil-nadu,2026,200,BODINAYAKANUR,Padmanabhan.n,parties.IN.AIPTMMK,AIPTMMK,659,0.3,5,lost,M,71,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4033,tamil-nadu,2026,201,CUMBUM,Jeganathmishra Pla,parties.IN.TVK,TVK,85394,40.55,1,won,M,50,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4033,tamil-nadu,2026,201,CUMBUM,Eramakrishnan N,parties.IN.DMK,DMK,84643,40.2,2,lost,M,77,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4033,tamil-nadu,2026,201,CUMBUM,Jakkaiyan S.t.k.,parties.IN.UNK,ADMK,27307,12.97,3,lost,M,75,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4033,tamil-nadu,2026,201,CUMBUM,Jakkaiyan S.t.k.,parties.IN.AIADMK,ADMK,27307,12.97,3,lost,M,75,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4033,tamil-nadu,2026,201,CUMBUM,Anbuselvi A,parties.IN.NTK,NTK,9599,4.56,4,lost,F,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4033,tamil-nadu,2026,201,CUMBUM,Muthu Bagavathi M.,parties.IN.UNK,tavk,431,0.2,5,lost,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4020,tamil-nadu,2026,202,RAJAPALAYAM,Jegadeshwari. K,parties.IN.TVK,TVK,65548,35.81,1,won,F,40,,,,src-3da941c21223
@@ -1011,7 +1011,7 @@ IN-AC-2008-tamil-nadu-4020,tamil-nadu,2026,202,RAJAPALAYAM,Dr. Karthikeyan. T.e.
 IN-AC-2008-tamil-nadu-4020,tamil-nadu,2026,202,RAJAPALAYAM,Ramadevi. T,parties.IN.PT,PT,2544,1.39,5,lost,F,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4022,tamil-nadu,2026,203,SRIVILLIPUTHUR (SC),Karthik.a,parties.IN.TVK,TVK,65653,33.93,1,won,M,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4022,tamil-nadu,2026,203,SRIVILLIPUTHUR (SC),Mahalingam.p,parties.IN.CPI,CPI,57072,29.5,2,lost,M,53,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4022,tamil-nadu,2026,203,SRIVILLIPUTHUR (SC),Chandraprabha.m,parties.IN.UNK,ADMK,42839,22.14,3,lost,F,44,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4022,tamil-nadu,2026,203,SRIVILLIPUTHUR (SC),Chandraprabha.m,parties.IN.AIADMK,ADMK,42839,22.14,3,lost,F,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4022,tamil-nadu,2026,203,SRIVILLIPUTHUR (SC),Karikalapandiyan.a,parties.IN.NTK,NTK,13274,6.86,4,lost,M,46,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4022,tamil-nadu,2026,203,SRIVILLIPUTHUR (SC),Dr. Shyam Krishnasamy,parties.IN.PT,PT,9522,4.92,5,lost,M,33,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4086,tamil-nadu,2026,204,SATTUR,Kadarkarairaj. A,parties.IN.DMK,DMK,62060,31.23,1,won,M,67,,,,src-3da941c21223
@@ -1021,32 +1021,32 @@ IN-AC-2008-tamil-nadu-4086,tamil-nadu,2026,204,SATTUR,Esakkiraja. K,parties.IN.A
 IN-AC-2008-tamil-nadu-4086,tamil-nadu,2026,204,SATTUR,Anandharaja. D.,parties.IN.NTK,NTK,9235,4.65,5,lost,M,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4087,tamil-nadu,2026,205,SIVAKASI,Keerthana S,parties.IN.TVK,TVK,68709,35.51,1,won,F,29,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4087,tamil-nadu,2026,205,SIVAKASI,Ashokan G,parties.IN.INC,INC,57039,29.47,2,lost,M,67,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4087,tamil-nadu,2026,205,SIVAKASI,Rajenthrabhalaji K T,parties.IN.UNK,ADMK,51078,26.39,3,lost,M,62,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4087,tamil-nadu,2026,205,SIVAKASI,Rajenthrabhalaji K T,parties.IN.AIADMK,ADMK,51078,26.39,3,lost,M,62,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4087,tamil-nadu,2026,205,SIVAKASI,Esther Mary Diana A,parties.IN.NTK,NTK,10191,5.27,4,lost,F,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4087,tamil-nadu,2026,205,SIVAKASI,Kanipandi M,parties.IN.PT,PT,2513,1.3,5,lost,M,28,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4090,tamil-nadu,2026,206,VIRUDHUNAGAR,Selvam P,parties.IN.TVK,TVK,63653,37.93,1,won,M,31,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4090,tamil-nadu,2026,206,VIRUDHUNAGAR,Vijayaprabhakar,parties.IN.DMDK,DMDK,54262,32.33,2,lost,M,35,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4090,tamil-nadu,2026,206,VIRUDHUNAGAR,Ganesan V.g.,parties.IN.UNK,ADMK,34212,20.38,3,lost,M,51,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4090,tamil-nadu,2026,206,VIRUDHUNAGAR,Ganesan V.g.,parties.IN.AIADMK,ADMK,34212,20.38,3,lost,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4090,tamil-nadu,2026,206,VIRUDHUNAGAR,Lakshmanan,parties.IN.NTK,NTK,10120,6.03,4,lost,M,27,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4090,tamil-nadu,2026,206,VIRUDHUNAGAR,Balasubramaniam M,parties.IN.PT,PT,2217,1.32,5,lost,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4085,tamil-nadu,2026,207,ARUPPUKKOTTAI,Ramachandran. K.k.s.s.r,parties.IN.DMK,DMK,65104,36.49,1,won,M,76,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4085,tamil-nadu,2026,207,ARUPPUKKOTTAI,Karthik Kumar. K,parties.IN.TVK,TVK,60161,33.72,2,lost,M,31,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4085,tamil-nadu,2026,207,ARUPPUKKOTTAI,Sethupathy. S,parties.IN.UNK,ADMK,37190,20.84,3,lost,M,53,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4085,tamil-nadu,2026,207,ARUPPUKKOTTAI,Sethupathy. S,parties.IN.AIADMK,ADMK,37190,20.84,3,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4085,tamil-nadu,2026,207,ARUPPUKKOTTAI,Manimaran. G,parties.IN.NTK,NTK,8499,4.76,4,lost,M,41,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4085,tamil-nadu,2026,207,ARUPPUKKOTTAI,Ragupathi. K,parties.IN.PT,PT,2179,1.22,5,lost,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3999,tamil-nadu,2026,208,TIRUCHULI,Thangam Thenarasu,parties.IN.DMK,DMK,75085,41.43,1,won,M,59,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3999,tamil-nadu,2026,208,TIRUCHULI,Samayan.s,parties.IN.TVK,TVK,61600,33.99,2,lost,M,35,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3999,tamil-nadu,2026,208,TIRUCHULI,Rajavarman.m.s.r,parties.IN.UNK,ADMK,25581,14.11,3,lost,M,53,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3999,tamil-nadu,2026,208,TIRUCHULI,Rajavarman.m.s.r,parties.IN.AIADMK,ADMK,25581,14.11,3,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3999,tamil-nadu,2026,208,TIRUCHULI,Avarangadu Karthik Raja,parties.IN.NTK,NTK,12763,7.04,4,lost,M,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3999,tamil-nadu,2026,208,TIRUCHULI,Gunasekaran.g,parties.IN.PT,PT,1248,0.69,5,lost,M,53,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3997,tamil-nadu,2026,209,PARAMAKUDI (SC),Advocate. Kathiravan. K.k,parties.IN.DMK,DMK,59161,31.18,1,won,M,40,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3997,tamil-nadu,2026,209,PARAMAKUDI (SC),Gopirajan. G,parties.IN.TVK,TVK,55613,29.31,2,lost,M,48,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3997,tamil-nadu,2026,209,PARAMAKUDI (SC),Dr. Muthiah. S,parties.IN.UNK,ADMK,54099,28.51,3,lost,M,69,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3997,tamil-nadu,2026,209,PARAMAKUDI (SC),Dr. Muthiah. S,parties.IN.AIADMK,ADMK,54099,28.51,3,lost,M,69,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3997,tamil-nadu,2026,209,PARAMAKUDI (SC),Ezhil Elavarasi. R,parties.IN.NTK,NTK,15363,8.1,4,lost,F,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3997,tamil-nadu,2026,209,PARAMAKUDI (SC),Amirtha. M,parties.IN.AIPTMMK,AIPTMMK,2239,1.18,5,lost,F,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4000,tamil-nadu,2026,210,TIRUVADANAI,Rajeev,parties.IN.TVK,TVK,69551,31.57,1,won,M,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4000,tamil-nadu,2026,210,TIRUVADANAI,Rm. Karumanickam,parties.IN.INC,INC,67038,30.43,2,lost,M,39,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4000,tamil-nadu,2026,210,TIRUVADANAI,M.keerthika,parties.IN.UNK,ADMK,63879,29,3,lost,F,49,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4000,tamil-nadu,2026,210,TIRUVADANAI,M.keerthika,parties.IN.AIADMK,ADMK,63879,29,3,lost,F,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4000,tamil-nadu,2026,210,TIRUVADANAI,N Premnath,parties.IN.NTK,NTK,13389,6.08,4,lost,M,32,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4000,tamil-nadu,2026,210,TIRUVADANAI,S Suresh Kasini Venthan,parties.IN.AIFB,AIFB,1482,0.67,5,lost,M,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3998,tamil-nadu,2026,211,RAMANATHAPURAM,Katharbatcha Muthuramalingam,parties.IN.DMK,DMK,89137,37.52,1,won,M,54,,,,src-3da941c21223
@@ -1056,17 +1056,17 @@ IN-AC-2008-tamil-nadu-3998,tamil-nadu,2026,211,RAMANATHAPURAM,S.m. Muthu Kesavan
 IN-AC-2008-tamil-nadu-3998,tamil-nadu,2026,211,RAMANATHAPURAM,Dr.j. Abubakkar Sithick,parties.IN.UNK,APTADMK,359,0.15,5,lost,M,51,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3996,tamil-nadu,2026,212,MUDHUKULATHUR,R.s.rajakannappan,parties.IN.DMK,DMK,68003,29.39,1,won,M,77,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3996,tamil-nadu,2026,212,MUDHUKULATHUR,Malarvizhi. B,parties.IN.TVK,TVK,51405,22.22,2,lost,F,48,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3996,tamil-nadu,2026,212,MUDHUKULATHUR,S.pandi,parties.IN.UNK,ADMK,47501,20.53,3,lost,M,79,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3996,tamil-nadu,2026,212,MUDHUKULATHUR,S.pandi,parties.IN.AIADMK,ADMK,47501,20.53,3,lost,M,79,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3996,tamil-nadu,2026,212,MUDHUKULATHUR,Dr.r.ramkumar,parties.IN.AIPTMMK,AIPTMMK,40422,17.47,4,lost,M,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3996,tamil-nadu,2026,212,MUDHUKULATHUR,Chandra Prabha Jeyapal,parties.IN.NTK,NTK,15112,6.53,5,lost,F,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4042,tamil-nadu,2026,213,VILATHIKULAM,Markandayan G V,parties.IN.DMK,DMK,58395,33.4,1,won,M,49,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4042,tamil-nadu,2026,213,VILATHIKULAM,P. Kasiram,parties.IN.TVK,TVK,50167,28.7,2,lost,M,44,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4042,tamil-nadu,2026,213,VILATHIKULAM,R. Sathya,parties.IN.UNK,ADMK,48879,27.96,3,lost,F,48,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4042,tamil-nadu,2026,213,VILATHIKULAM,R. Sathya,parties.IN.AIADMK,ADMK,48879,27.96,3,lost,F,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4042,tamil-nadu,2026,213,VILATHIKULAM,Balaji Ramachandran,parties.IN.NTK,NTK,11780,6.74,4,lost,M,36,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4042,tamil-nadu,2026,213,VILATHIKULAM,P.madasamy,parties.IN.PT,PT,2057,1.18,5,lost,M,50,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4040,tamil-nadu,2026,214,THOOTHUKKUDI,Srinath,parties.IN.TVK,TVK,100536,49.11,1,won,M,52,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4040,tamil-nadu,2026,214,THOOTHUKKUDI,P. Geetha Jeevan,parties.IN.DMK,DMK,62805,30.68,2,lost,F,55,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4040,tamil-nadu,2026,214,THOOTHUKKUDI,Chellapandian S.t.,parties.IN.UNK,ADMK,26213,12.8,3,lost,M,70,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4040,tamil-nadu,2026,214,THOOTHUKKUDI,Chellapandian S.t.,parties.IN.AIADMK,ADMK,26213,12.8,3,lost,M,70,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4040,tamil-nadu,2026,214,THOOTHUKKUDI,Jacob Devadoss Abisheak R.,parties.IN.NTK,NTK,11752,5.74,4,lost,M,25,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4040,tamil-nadu,2026,214,THOOTHUKKUDI,Yesadurai S.,parties.IN.AIPTMMK,AIPTMMK,689,0.34,5,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4041,tamil-nadu,2026,215,TIRUCHENDUR,Anitha R. Radhakrishnan,parties.IN.DMK,DMK,72723,39.09,1,won,M,73,,,,src-3da941c21223
@@ -1075,7 +1075,7 @@ IN-AC-2008-tamil-nadu-4041,tamil-nadu,2026,215,TIRUCHENDUR,K R M Radhakrishnan,p
 IN-AC-2008-tamil-nadu-4041,tamil-nadu,2026,215,TIRUCHENDUR,Ophiliya,parties.IN.NTK,NTK,9794,5.26,4,lost,F,33,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4041,tamil-nadu,2026,215,TIRUCHENDUR,Gopalakrishnan,parties.IN.AIPTMMK,AIPTMMK,442,0.24,5,lost,M,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4039,tamil-nadu,2026,216,SRIVAIKUNTAM,Saravanan. G,parties.IN.TVK,TVK,58814,33.34,1,won,M,35,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4039,tamil-nadu,2026,216,SRIVAIKUNTAM,Shanmuganathan. S. P,parties.IN.UNK,ADMK,57628,32.67,2,lost,M,71,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4039,tamil-nadu,2026,216,SRIVAIKUNTAM,Shanmuganathan. S. P,parties.IN.AIADMK,ADMK,57628,32.67,2,lost,M,71,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4039,tamil-nadu,2026,216,SRIVAIKUNTAM,Oorvasi Amirtharaj. S,parties.IN.INC,INC,41277,23.4,3,lost,M,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4039,tamil-nadu,2026,216,SRIVAIKUNTAM,Shunmugasundaram. S,parties.IN.NTK,NTK,13153,7.46,4,lost,M,29,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4039,tamil-nadu,2026,216,SRIVAIKUNTAM,Muthuramalingam. S,parties.IN.AIFB,AIFB,2347,1.33,5,lost,M,49,,,,src-3da941c21223
@@ -1086,10 +1086,10 @@ IN-AC-2008-tamil-nadu-4038,tamil-nadu,2026,217,OTTAPIDARAM (SC),M. Anusiya,parti
 IN-AC-2008-tamil-nadu-4038,tamil-nadu,2026,217,OTTAPIDARAM (SC),Dr.k. Krishnasamy,parties.IN.PT,PT,15050,7.67,5,lost,M,74,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4037,tamil-nadu,2026,218,KOVILPATTI,Karunanithi.k,parties.IN.DMK,DMK,61643,31.74,1,won,M,50,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4037,tamil-nadu,2026,218,KOVILPATTI,Balasubramanian.s,parties.IN.TVK,TVK,60800,31.3,2,lost,M,41,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4037,tamil-nadu,2026,218,KOVILPATTI,Kadambur Raju.c,parties.IN.UNK,ADMK,53014,27.29,3,lost,M,66,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4037,tamil-nadu,2026,218,KOVILPATTI,Kadambur Raju.c,parties.IN.AIADMK,ADMK,53014,27.29,3,lost,M,66,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4037,tamil-nadu,2026,218,KOVILPATTI,Pandi.p,parties.IN.NTK,NTK,11919,6.14,4,lost,M,35,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4037,tamil-nadu,2026,218,KOVILPATTI,Athikumar Kudumbar.b,parties.IN.IND,IND,2992,1.54,5,lost,M,49,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4021,tamil-nadu,2026,219,SANKARANKOVIL (SC),Dr. Dhilipan Jaishankar,parties.IN.UNK,ADMK,64865,33.01,1,won,M,29,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4021,tamil-nadu,2026,219,SANKARANKOVIL (SC),Dr. Dhilipan Jaishankar,parties.IN.AIADMK,ADMK,64865,33.01,1,won,M,29,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4021,tamil-nadu,2026,219,SANKARANKOVIL (SC),C. Ramarajan,parties.IN.TVK,TVK,58376,29.71,2,lost,M,41,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4021,tamil-nadu,2026,219,SANKARANKOVIL (SC),Sangai. Ganesan,parties.IN.INC,INC,42567,21.66,3,lost,M,57,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4021,tamil-nadu,2026,219,SANKARANKOVIL (SC),M. Kavitha,parties.IN.NTK,NTK,12767,6.5,4,lost,F,41,,,,src-3da941c21223
@@ -1100,33 +1100,33 @@ IN-AC-2008-tamil-nadu-4024,tamil-nadu,2026,220,VASUDEVANALLUR (SC),R. Amutharani
 IN-AC-2008-tamil-nadu-4024,tamil-nadu,2026,220,VASUDEVANALLUR (SC),Esai Mathivanan,parties.IN.NTK,NTK,12856,6.77,4,lost,M,39,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4024,tamil-nadu,2026,220,VASUDEVANALLUR (SC),K. Paulraj,parties.IN.PT,PT,4119,2.17,5,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4019,tamil-nadu,2026,221,KADAYANALLUR,Rajendran. T. M,parties.IN.DMK,DMK,79832,35.97,1,won,M,61,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4019,tamil-nadu,2026,221,KADAYANALLUR,C. Krishnamurali,parties.IN.UNK,ADMK,73579,33.15,2,lost,M,44,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4019,tamil-nadu,2026,221,KADAYANALLUR,C. Krishnamurali,parties.IN.AIADMK,ADMK,73579,33.15,2,lost,M,44,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4019,tamil-nadu,2026,221,KADAYANALLUR,Abdul Jaleel. R. K,parties.IN.TVK,TVK,49254,22.19,3,lost,M,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4019,tamil-nadu,2026,221,KADAYANALLUR,Abubacker Siddheeq,parties.IN.NTK,NTK,10965,4.94,4,lost,M,27,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4019,tamil-nadu,2026,221,KADAYANALLUR,Kavitha. R,parties.IN.PT,PT,2882,1.3,5,lost,F,39,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4023,tamil-nadu,2026,222,TENKASI,Dr.kalai Kathiravan,parties.IN.DMK,DMK,79699,33.92,1,won,M,38,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4023,tamil-nadu,2026,222,TENKASI,S.selva Mohandas Pandian,parties.IN.UNK,ADMK,69400,29.53,2,lost,M,56,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4023,tamil-nadu,2026,222,TENKASI,S.selva Mohandas Pandian,parties.IN.AIADMK,ADMK,69400,29.53,2,lost,M,56,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4023,tamil-nadu,2026,222,TENKASI,A. Rajaprakash,parties.IN.TVK,TVK,55543,23.64,3,lost,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4023,tamil-nadu,2026,222,TENKASI,P. Pushpalatha,parties.IN.NTK,NTK,16394,6.98,4,lost,F,41,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4023,tamil-nadu,2026,222,TENKASI,M.poosa Durai,parties.IN.AIPTMMK,AIPTMMK,7715,3.28,5,lost,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4049,tamil-nadu,2026,223,ALANGULAM,Paul Manoj Pandian,parties.IN.DMK,DMK,69170,31.32,1,won,M,54,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4049,tamil-nadu,2026,223,ALANGULAM,K R P Prabakaran,parties.IN.UNK,ADMK,61372,27.79,2,lost,M,45,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4049,tamil-nadu,2026,223,ALANGULAM,K R P Prabakaran,parties.IN.AIADMK,ADMK,61372,27.79,2,lost,M,45,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4049,tamil-nadu,2026,223,ALANGULAM,Vibin Chakkaravarthy,parties.IN.TVK,TVK,60684,27.48,3,lost,M,28,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4049,tamil-nadu,2026,223,ALANGULAM,R Paulraj,parties.IN.NTK,NTK,23380,10.59,4,lost,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4049,tamil-nadu,2026,223,ALANGULAM,Madasamy,parties.IN.AIPTMMK,AIPTMMK,2158,0.98,5,lost,M,47,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4054,tamil-nadu,2026,224,TIRUNELVELI,Murughan.r.s.,parties.IN.TVK,TVK,75840,34.72,1,won,M,58,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4054,tamil-nadu,2026,224,TIRUNELVELI,Subramanian.s,parties.IN.DMK,DMK,64426,29.5,2,lost,M,50,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4054,tamil-nadu,2026,224,TIRUNELVELI,Thachai Ganesaraja,parties.IN.UNK,ADMK,47504,21.75,3,lost,M,64,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4054,tamil-nadu,2026,224,TIRUNELVELI,Thachai Ganesaraja,parties.IN.AIADMK,ADMK,47504,21.75,3,lost,M,64,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4054,tamil-nadu,2026,224,TIRUNELVELI,Sathya. B.,parties.IN.NTK,NTK,15108,6.92,4,lost,F,48,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4054,tamil-nadu,2026,224,TIRUNELVELI,Dr.shyam Krishnasamy,parties.IN.PT,PT,10634,4.87,5,lost,M,33,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4050,tamil-nadu,2026,225,AMBASAMUDRAM,Dr.esakki Subaya,parties.IN.UNK,ADMK,65589,34.3,1,won,M,61,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4050,tamil-nadu,2026,225,AMBASAMUDRAM,Dr.esakki Subaya,parties.IN.AIADMK,ADMK,65589,34.3,1,won,M,61,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4050,tamil-nadu,2026,225,AMBASAMUDRAM,V.p.durai,parties.IN.INC,INC,55344,28.95,2,lost,M,43,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4050,tamil-nadu,2026,225,AMBASAMUDRAM,S.rajagopal,parties.IN.TVK,TVK,53611,28.04,3,lost,M,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4050,tamil-nadu,2026,225,AMBASAMUDRAM,Dr.v.sivasankaran,parties.IN.NTK,NTK,14906,7.8,4,lost,M,38,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4050,tamil-nadu,2026,225,AMBASAMUDRAM,R.esaikannan,parties.IN.BSP,BSP,685,0.36,5,lost,M,32,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4052,tamil-nadu,2026,226,PALAYAMKOTTAI,M.abdul Wahab,parties.IN.DMK,DMK,79744,44.15,1,won,M,59,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4052,tamil-nadu,2026,226,PALAYAMKOTTAI,Maria John,parties.IN.TVK,TVK,65939,36.51,2,lost,M,69,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-4052,tamil-nadu,2026,226,PALAYAMKOTTAI,Syed Sulthan Samsudeen,parties.IN.UNK,ADMK,19732,10.92,3,lost,M,34,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-4052,tamil-nadu,2026,226,PALAYAMKOTTAI,Syed Sulthan Samsudeen,parties.IN.AIADMK,ADMK,19732,10.92,3,lost,M,34,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4052,tamil-nadu,2026,226,PALAYAMKOTTAI,Sankara Narayanan Alias Saran,parties.IN.NTK,NTK,10465,5.79,4,lost,M,27,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4052,tamil-nadu,2026,226,PALAYAMKOTTAI,Paulraj.v,parties.IN.IND,IND,717,0.4,5,lost,M,37,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4051,tamil-nadu,2026,227,NANGUNERI,Reddiarpatti V. Narayanan,parties.IN.TVK,TVK,74952,35.79,1,won,M,58,,,,src-3da941c21223
@@ -1139,7 +1139,7 @@ IN-AC-2008-tamil-nadu-4053,tamil-nadu,2026,228,RADHAPURAM,Appavu.m,parties.IN.DM
 IN-AC-2008-tamil-nadu-4053,tamil-nadu,2026,228,RADHAPURAM,Balakrishnan.s.p,parties.IN.BJP,BJP,52637,26.33,3,lost,M,58,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4053,tamil-nadu,2026,228,RADHAPURAM,Girija Thamaraipandian.d,parties.IN.NTK,NTK,15370,7.69,4,lost,F,42,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-4053,tamil-nadu,2026,228,RADHAPURAM,Daniel.a,parties.IN.IND,IND,819,0.41,5,lost,M,61,,,,src-3da941c21223
-IN-AC-2008-tamil-nadu-3936,tamil-nadu,2026,229,KANNIYAKUMARI,Thalavai Sundaram. N,parties.IN.UNK,ADMK,75045,31.38,1,won,M,67,,,,src-3da941c21223
+IN-AC-2008-tamil-nadu-3936,tamil-nadu,2026,229,KANNIYAKUMARI,Thalavai Sundaram. N,parties.IN.AIADMK,ADMK,75045,31.38,1,won,M,67,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3936,tamil-nadu,2026,229,KANNIYAKUMARI,Mahesh.r,parties.IN.DMK,DMK,74831,31.29,2,lost,M,60,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3936,tamil-nadu,2026,229,KANNIYAKUMARI,Madhavan.s.r,parties.IN.TVK,TVK,72977,30.52,3,lost,M,47,,,,src-3da941c21223
 IN-AC-2008-tamil-nadu-3936,tamil-nadu,2026,229,KANNIYAKUMARI,Maria Jennifer,parties.IN.NTK,NTK,13689,5.72,4,lost,F,44,,,,src-3da941c21223

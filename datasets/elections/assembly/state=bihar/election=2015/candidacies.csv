@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-bihar-1349,bihar,2015,1,VALMIKI NAGAR,DHIRENDRA PRATAP SINGH ALIAS RINKU SINGH,parties.IN.IND,IND,66860,36.17,1,won,U,35,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1349,bihar,2015,1,VALMIKI NAGAR,IRSHAD HUSSAIN,parties.IN.INC,INC,33280,18.01,2,lost,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1349,bihar,2015,1,VALMIKI NAGAR,SURENDRA PRASAD,parties.IN.UNK,BLSP,32855,17.78,3,lost,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1349,bihar,2015,1,VALMIKI NAGAR,SURENDRA PRASAD,parties.IN.RLSP,BLSP,32855,17.78,3,lost,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1349,bihar,2015,1,VALMIKI NAGAR,RAJESH SINGH,parties.IN.SP,SP,11472,6.21,4,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1349,bihar,2015,1,VALMIKI NAGAR,ALTAF HUSSAIN,parties.IN.BSP,BSP,11097,6,5,forfeit,U,58,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1349,bihar,2015,1,VALMIKI NAGAR,DIP NARAYAN MAHATO,parties.IN.IND,IND,8355,4.52,6,forfeit,U,70,Graduate Professional,,challenger,src-1b7bc1c9d39a
@@ -141,7 +141,7 @@ IN-AC-2008-bihar-1265,bihar,2015,11,SUGAULI,AWADHESH KUMAR,parties.IN.IND,IND,73
 IN-AC-2008-bihar-1265,bihar,2015,11,SUGAULI,ANITA DEVI,parties.IN.IND,IND,617,0.4,14,forfeit,U,51,10th Pass,Rent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1265,bihar,2015,11,SUGAULI,ANGAD CHAUDHARY,parties.IN.IND,IND,390,0.25,15,forfeit,U,35,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1262,bihar,2015,12,NARKATIA,SHAMIM AHMAD,parties.IN.RJD,RJD,75118,45.96,1,won,U,43,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1262,bihar,2015,12,NARKATIA,SANT SINGH KUSHWAHA,parties.IN.UNK,BLSP,55136,33.73,2,lost,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1262,bihar,2015,12,NARKATIA,SANT SINGH KUSHWAHA,parties.IN.RLSP,BLSP,55136,33.73,2,lost,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1262,bihar,2015,12,NARKATIA,SONU KUMAR,parties.IN.IND,IND,12890,7.89,3,forfeit,U,31,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1262,bihar,2015,12,NARKATIA,SUNIL KUMAR,parties.IN.IND,IND,2750,1.68,5,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1262,bihar,2015,12,NARKATIA,DINESH PRASAD,parties.IN.CPIMLL,CPI(ML)(L),2177,1.33,6,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
@@ -194,7 +194,7 @@ IN-AC-2008-bihar-1289,bihar,2015,17,PIPRA,SUBHASH CHANDRA GUPTA,parties.IN.NCP,N
 IN-AC-2008-bihar-1289,bihar,2015,17,PIPRA,VIKRAM KUMAR,parties.IN.IND,IND,3126,1.81,7,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1289,bihar,2015,17,PIPRA,SADHU YADAV,parties.IN.UNK,GJDS,2604,1.51,8,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1289,bihar,2015,17,PIPRA,NAGENDRA SAHANI,parties.IN.BSP,BSP,1847,1.07,9,forfeit,U,39,Post Graduate,Lawyer,crossover,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1289,bihar,2015,17,PIPRA,RAMAYAN PASWAN,parties.IN.UNK,BKP,1661,0.96,10,forfeit,U,45,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1289,bihar,2015,17,PIPRA,RAMAYAN PASWAN,parties.IN.BPI,BKP,1661,0.96,10,forfeit,U,45,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1289,bihar,2015,17,PIPRA,RAMADHAR SAH,parties.IN.UNK,SKLP,1613,0.94,11,forfeit,U,53,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1289,bihar,2015,17,PIPRA,BHAGYA NARAYAN PRASAD YADAV,parties.IN.SP,SP,1560,0.9,12,forfeit,U,41,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1289,bihar,2015,17,PIPRA,PAVAN KUMAR RAY,parties.IN.JAPL,JAPL,1542,0.89,13,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -242,7 +242,7 @@ IN-AC-2008-bihar-1310,bihar,2015,21,DHAKA,RAM PUKAR SINHA,parties.IN.IND,IND,201
 IN-AC-2008-bihar-1310,bihar,2015,21,DHAKA,NEK MOHAMMAD,parties.IN.NCP,NCP,1868,1,5,forfeit,U,61,10th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1310,bihar,2015,21,DHAKA,MANJUR AHMAD,parties.IN.IND,IND,1637,0.88,6,forfeit,U,56,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1310,bihar,2015,21,DHAKA,RAMKRIT PASWAN,parties.IN.BSP,BSP,1434,0.77,7,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1310,bihar,2015,21,DHAKA,VEERCHANDRA PRASAD,parties.IN.UNK,RPP,985,0.53,8,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1310,bihar,2015,21,DHAKA,VEERCHANDRA PRASAD,parties.IN.RPPI,RPP,985,0.53,8,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1310,bihar,2015,21,DHAKA,PRABHU NARAIN,parties.IN.IND,IND,952,0.51,9,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1310,bihar,2015,21,DHAKA,MOHMMAD ALAM,parties.IN.UNK,GJDS,480,0.26,10,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1310,bihar,2015,21,DHAKA,ANIL KUMAR MEHATA,parties.IN.IND,IND,431,0.23,11,forfeit,U,37,Literate,,challenger,src-1b7bc1c9d39a
@@ -320,7 +320,7 @@ IN-AC-2008-bihar-1319,bihar,2015,26,SURSAND,SANTOSH KUMAR,parties.IN.UNK,BNDL,10
 IN-AC-2008-bihar-1319,bihar,2015,26,SURSAND,SACHIN SHEKHAR,parties.IN.IND,IND,1068,0.68,18,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1319,bihar,2015,26,SURSAND,MUKESH KUMAR SINGH,parties.IN.BSP,BSP,970,0.62,19,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1314,bihar,2015,27,BAJPATTI,DR. RANJU GEETA,parties.IN.JDU,JD(U),67194,43.3,1,won,U,41,Doctorate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1314,bihar,2015,27,BAJPATTI,REKHA KUMARI,parties.IN.UNK,BLSP,50248,32.38,2,lost,U,32,Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1314,bihar,2015,27,BAJPATTI,REKHA KUMARI,parties.IN.RLSP,BLSP,50248,32.38,2,lost,U,32,Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1314,bihar,2015,27,BAJPATTI,RABINDRA KUMAR SHAHI,parties.IN.IND,IND,8033,5.18,3,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1314,bihar,2015,27,BAJPATTI,VIJAY KUMAR JHA,parties.IN.IND,IND,4190,2.7,4,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1314,bihar,2015,27,BAJPATTI,SHYAM BABU CHAUDHARY,parties.IN.IND,IND,3372,2.17,6,forfeit,U,47,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
@@ -357,7 +357,7 @@ IN-AC-2008-bihar-1318,bihar,2015,28,SITAMARHI,VINOD SAH,parties.IN.HND,HND,466,0
 IN-AC-2008-bihar-1318,bihar,2015,28,SITAMARHI,RAMESH SAH,parties.IN.UNK,GJDS,390,0.24,15,forfeit,U,53,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1318,bihar,2015,28,SITAMARHI,RAM VINAY SINGH KUSHWAHA,parties.IN.BMUP,BMUP,374,0.23,16,forfeit,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1317,bihar,2015,29,RUNISAIDPUR,MANGITA DEVI,parties.IN.RJD,RJD,55699,40.52,1,won,U,35,Graduate,Household,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1317,bihar,2015,29,RUNISAIDPUR,PANKAJ KUMAR MISHRA,parties.IN.UNK,BLSP,41589,30.25,2,lost,U,44,Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1317,bihar,2015,29,RUNISAIDPUR,PANKAJ KUMAR MISHRA,parties.IN.RLSP,BLSP,41589,30.25,2,lost,U,44,Graduate,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1317,bihar,2015,29,RUNISAIDPUR,GUDDI DEVI,parties.IN.SP,SP,16038,11.67,3,forfeit,U,36,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1317,bihar,2015,29,RUNISAIDPUR,LAL BABU ROY,parties.IN.IND,IND,5024,3.65,5,forfeit,U,49,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1317,bihar,2015,29,RUNISAIDPUR,VIJAY KUMAR SAH,parties.IN.IND,IND,2821,2.05,6,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -388,7 +388,7 @@ IN-AC-2008-bihar-1308,bihar,2015,30,BELSAND,RAMGYAN KUMAR,parties.IN.UNK,BHNP,11
 IN-AC-2008-bihar-1308,bihar,2015,30,BELSAND,MD NOOR ALAM,parties.IN.UNK,VIP,1140,0.93,17,forfeit,U,55,Literate,Shop Keeper,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1308,bihar,2015,30,BELSAND,DILIP KUMAR MISHRA,parties.IN.UNK,NJPI,944,0.77,18,forfeit,U,50,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1308,bihar,2015,30,BELSAND,SUNITA SINGH,parties.IN.IND,IND,729,0.6,19,forfeit,U,38,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1225,bihar,2015,31,HARLAKHI,BASANT KUMAR,parties.IN.UNK,BLSP,40468,27.93,1,won,U,54,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1225,bihar,2015,31,HARLAKHI,BASANT KUMAR,parties.IN.RLSP,BLSP,40468,27.93,1,won,U,54,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1225,bihar,2015,31,HARLAKHI,MOHAMMAD SHABBIR,parties.IN.INC,INC,36576,25.25,2,lost,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1225,bihar,2015,31,HARLAKHI,RAM NARESH PANDEY,parties.IN.CPI,CPI,22709,15.68,3,forfeit,U,71,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1225,bihar,2015,31,HARLAKHI,RAMASHISH YADAV,parties.IN.IND,IND,21670,14.96,4,forfeit,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -450,7 +450,7 @@ IN-AC-2008-bihar-1187,bihar,2015,34,BABUBARHI,MEENA DEVI,parties.IN.ABHM,ABHM,13
 IN-AC-2008-bihar-1187,bihar,2015,34,BABUBARHI,DILIP KUMAR JHA,parties.IN.RAJPA,RAJPA,1328,0.81,13,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1187,bihar,2015,34,BABUBARHI,BRAJENDRA JHA,parties.IN.UNK,HCP,1264,0.77,14,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1224,bihar,2015,35,BISFI,FAIYAZ AHMAD,parties.IN.RJD,RJD,70975,44.37,1,won,U,52,Doctorate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1224,bihar,2015,35,BISFI,MANOJ KUMAR YADAV (BHOJ PANDAUL),parties.IN.UNK,BLSP,35650,22.29,2,lost,U,44,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1224,bihar,2015,35,BISFI,MANOJ KUMAR YADAV (BHOJ PANDAUL),parties.IN.RLSP,BLSP,35650,22.29,2,lost,U,44,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1224,bihar,2015,35,BISFI,HARI BHUSHAN THAKUR ''''''''BACHAUL'''''''',parties.IN.IND,IND,25796,16.13,3,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1224,bihar,2015,35,BISFI,MITHILESH KUMAR JHA,parties.IN.CPI,CPI,9309,5.82,4,forfeit,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1224,bihar,2015,35,BISFI,MAHESHWAR PRASAD CHAUDHARY,parties.IN.IND,IND,3389,2.12,5,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -737,7 +737,7 @@ IN-AC-2008-bihar-1213,bihar,2015,57,BAISI,ABDUS SUBHAN,parties.IN.RJD,RJD,67022,
 IN-AC-2008-bihar-1213,bihar,2015,57,BAISI,BINOD KUMAR,parties.IN.IND,IND,28282,17.53,2,lost,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1213,bihar,2015,57,BAISI,SYED RUKNUDDIN AHMAD,parties.IN.JAPL,JAPL,21404,13.27,3,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1213,bihar,2015,57,BAISI,GHULAM SARWAR,parties.IN.AIMIM,AIMIM,16723,10.37,4,forfeit,U,42,Graduate,Rent,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1213,bihar,2015,57,BAISI,AZIZUR RAHMAN,parties.IN.UNK,BLSP,9573,5.93,5,forfeit,U,46,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1213,bihar,2015,57,BAISI,AZIZUR RAHMAN,parties.IN.RLSP,BLSP,9573,5.93,5,forfeit,U,46,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1213,bihar,2015,57,BAISI,KHURSHEED ALAM,parties.IN.IND,IND,3361,2.08,7,forfeit,U,49,Doctorate,Author,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1213,bihar,2015,57,BAISI,MUKESH KUMAR YADAV,parties.IN.SP,SP,2875,1.78,8,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1213,bihar,2015,57,BAISI,RIZWAN AHAMAD NOORI,parties.IN.UNK,IEMC,2559,1.59,9,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -799,7 +799,7 @@ IN-AC-2008-bihar-1283,bihar,2015,60,RUPAULI,UDALI DEVI,parties.IN.IND,IND,1087,0
 IN-AC-2008-bihar-1283,bihar,2015,60,RUPAULI,ASHOK KUMAR JAISWAL,parties.IN.IND,IND,921,0.51,20,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1283,bihar,2015,60,RUPAULI,NITYANAND GUPTA,parties.IN.UNK,AAHPTY,858,0.47,21,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1279,bihar,2015,61,DHAMDAHA,LESHI SINGH,parties.IN.JDU,JD(U),76027,40.15,1,won,U,41,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1279,bihar,2015,61,DHAMDAHA,SHIV SHANKAR THAKUR ALLIAS SHANKAR AZAD,parties.IN.UNK,BLSP,45736,24.15,2,lost,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1279,bihar,2015,61,DHAMDAHA,SHIV SHANKAR THAKUR ALLIAS SHANKAR AZAD,parties.IN.RLSP,BLSP,45736,24.15,2,lost,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1279,bihar,2015,61,DHAMDAHA,DILIP KUMAR YADAV,parties.IN.JAPL,JAPL,12667,6.69,3,forfeit,U,52,Graduate,Household,crossover,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1279,bihar,2015,61,DHAMDAHA,MITHLESH KUMAR SINGH,parties.IN.CPIM,CPM,4991,2.64,5,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1279,bihar,2015,61,DHAMDAHA,JYOTI RANI,parties.IN.IND,IND,4144,2.19,6,forfeit,U,37,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -854,7 +854,7 @@ IN-AC-2008-bihar-1202,bihar,2015,63,KATIHAR,DR. RAM PRAKASH MAHTO,parties.IN.NCP
 IN-AC-2008-bihar-1202,bihar,2015,63,KATIHAR,JAYNANDAN PASWAN,parties.IN.IND,IND,1801,1.17,4,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1202,bihar,2015,63,KATIHAR,SAMRENDRA KUNAL,parties.IN.IND,IND,1777,1.16,5,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1202,bihar,2015,63,KATIHAR,ASHOK KUMAR BHAGAT,parties.IN.IND,IND,1274,0.83,6,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1202,bihar,2015,63,KATIHAR,ASGHAR ALI,parties.IN.UNK,CPI(M (L)L),1247,0.81,7,forfeit,U,72,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1202,bihar,2015,63,KATIHAR,ASGHAR ALI,parties.IN.CPIMLL,CPI(M (L)L),1247,0.81,7,forfeit,U,72,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1202,bihar,2015,63,KATIHAR,RAM LAKHAN SAH,parties.IN.IND,IND,1069,0.7,9,forfeit,U,57,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1202,bihar,2015,63,KATIHAR,NASIM,parties.IN.SDPI,SDPI,1062,0.69,10,forfeit,U,33,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1202,bihar,2015,63,KATIHAR,JANARDAN SINGH,parties.IN.IND,IND,998,0.65,11,forfeit,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -927,7 +927,7 @@ IN-AC-2008-bihar-1204,bihar,2015,66,PRANPUR,JYOTISH CHANDRA KARMAKAR,parties.IN.
 IN-AC-2008-bihar-1204,bihar,2015,66,PRANPUR,PRADIP KUMAR RAY,parties.IN.CPIMLL,CPI(ML)(L),873,0.49,21,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1204,bihar,2015,66,PRANPUR,SHAMBHU BUBNA,parties.IN.IND,IND,838,0.47,22,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1204,bihar,2015,66,PRANPUR,CHANDRA MOHAN MANDAL,parties.IN.UNK,BHNP,765,0.43,23,forfeit,U,62,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1204,bihar,2015,66,PRANPUR,LAKHAN YADAV,parties.IN.UNK,BKP,748,0.42,24,forfeit,U,44,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1204,bihar,2015,66,PRANPUR,LAKHAN YADAV,parties.IN.BPI,BKP,748,0.42,24,forfeit,U,44,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1203,bihar,2015,67,MANIHARI,MANOHAR PRASAD SINGH,parties.IN.INC,INC,61704,38.69,1,won,U,66,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1203,bihar,2015,67,MANIHARI,ANIL KUMAR ORAON,parties.IN.LJP,LJP,48024,30.12,2,lost,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1203,bihar,2015,67,MANIHARI,GITA KISKU,parties.IN.NCP,NCP,7009,4.4,3,forfeit,U,54,Literate,Artisan,challenger,src-1b7bc1c9d39a
@@ -1051,7 +1051,7 @@ IN-AC-2008-bihar-1221,bihar,2015,75,SAHARSA,RANVEER KUMAR,parties.IN.IND,IND,187
 IN-AC-2008-bihar-1221,bihar,2015,75,SAHARSA,NIRMAL MISHRA,parties.IN.UNK,AKBMP,1125,0.58,8,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1221,bihar,2015,75,SAHARSA,MADHAV PRASAD MUKHIYA,parties.IN.UNK,SKLP,938,0.48,9,forfeit,U,33,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1221,bihar,2015,75,SAHARSA,RAM SHANKAR KUMAR,parties.IN.UNK,GJDS,891,0.46,10,forfeit,U,27,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1221,bihar,2015,75,SAHARSA,BADRI SHARMA,parties.IN.UNK,BKP,869,0.45,11,forfeit,U,53,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1221,bihar,2015,75,SAHARSA,BADRI SHARMA,parties.IN.BPI,BKP,869,0.45,11,forfeit,U,53,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1221,bihar,2015,75,SAHARSA,KUMAR GAJENDRA SINGH,parties.IN.IND,IND,866,0.45,12,forfeit,U,62,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1221,bihar,2015,75,SAHARSA,SHAMBHU SAH,parties.IN.BSP,BSP,809,0.42,13,forfeit,U,28,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1221,bihar,2015,75,SAHARSA,NARESH PRASAD SAH,parties.IN.BMUP,BMUP,579,0.3,14,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -1071,7 +1071,7 @@ IN-AC-2008-bihar-1210,bihar,2015,76,SIMRI BAKHTIARPUR,UMESH CHANDRA BHARTI,parti
 IN-AC-2008-bihar-1210,bihar,2015,76,SIMRI BAKHTIARPUR,SANJAY SINGH CHAUHAN,parties.IN.CPIMLL,CPI(ML)(L),937,0.57,14,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1210,bihar,2015,76,SIMRI BAKHTIARPUR,SRI KANT PODDAR,parties.IN.RVNP,RVNP,838,0.51,15,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1220,bihar,2015,77,MAHISHI,DR. ABDUL GHAFOOR,parties.IN.RJD,RJD,56436,38.77,1,won,U,56,Doctorate,College Professor or Lecturer,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1220,bihar,2015,77,MAHISHI,CHANDAN KUMAR SAH,parties.IN.UNK,BLSP,30301,20.81,2,lost,U,39,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1220,bihar,2015,77,MAHISHI,CHANDAN KUMAR SAH,parties.IN.RLSP,BLSP,30301,20.81,2,lost,U,39,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1220,bihar,2015,77,MAHISHI,GAUTAM KRISHNA,parties.IN.JAPL,JAPL,19958,13.71,3,forfeit,U,30,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1220,bihar,2015,77,MAHISHI,PUNAM DEO,parties.IN.IND,IND,11361,7.8,4,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1220,bihar,2015,77,MAHISHI,SURENDRA YADAV,parties.IN.IND,IND,6281,4.31,6,forfeit,U,62,12th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
@@ -1233,7 +1233,7 @@ IN-AC-2008-bihar-1243,bihar,2015,88,GAIGHAT,SURAJ SAHNI,parties.IN.IND,IND,891,0
 IN-AC-2008-bihar-1243,bihar,2015,88,GAIGHAT,SURESH KUMAR,parties.IN.IND,IND,713,0.43,17,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1243,bihar,2015,88,GAIGHAT,BRAJKISHORE RAY,parties.IN.UNK,BHASP,701,0.42,18,forfeit,U,54,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1243,bihar,2015,88,GAIGHAT,JIVNESHWAR JHA,parties.IN.AIFB,AIFB,619,0.38,19,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1243,bihar,2015,88,GAIGHAT,KAPILDEV SINGH,parties.IN.UNK,BKP,566,0.34,20,forfeit,U,64,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1243,bihar,2015,88,GAIGHAT,KAPILDEV SINGH,parties.IN.BPI,BKP,566,0.34,20,forfeit,U,64,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1243,bihar,2015,88,GAIGHAT,KAMESHWAR THAKUR,parties.IN.UNK,BJND,489,0.3,21,forfeit,U,57,10th Pass,Author,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1243,bihar,2015,88,GAIGHAT,KAMALDEV RAM,parties.IN.BMUP,BMUP,456,0.28,22,forfeit,U,26,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1241,bihar,2015,89,AURAI,SURENDRA KUMAR,parties.IN.RJD,RJD,66958,43.44,1,won,U,45,Doctorate,School Teacher,challenger,src-1b7bc1c9d39a
@@ -1309,7 +1309,7 @@ IN-AC-2008-bihar-1244,bihar,2015,93,KURHANI,ABHAY KUMAR,parties.IN.IND,IND,1428,
 IN-AC-2008-bihar-1244,bihar,2015,93,KURHANI,AKBAR ALI PARWEZ,parties.IN.JAPL,JAPL,1386,0.8,12,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1244,bihar,2015,93,KURHANI,POOJA KUMARI,parties.IN.RVNP,RVNP,1358,0.78,13,forfeit,U,26,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1244,bihar,2015,93,KURHANI,BIRENDRA KUMAR @ BIRENDRA KUMAR VISHWAS,parties.IN.IND,IND,1328,0.77,14,forfeit,U,43,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1244,bihar,2015,93,KURHANI,SHIVCHANDRA PANDIT,parties.IN.UNK,BKP,1225,0.71,15,forfeit,U,39,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1244,bihar,2015,93,KURHANI,SHIVCHANDRA PANDIT,parties.IN.BPI,BKP,1225,0.71,15,forfeit,U,39,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1244,bihar,2015,93,KURHANI,SAKAL BALMUA,parties.IN.UNK,NJPI,1186,0.69,16,forfeit,U,31,Literate,Musician or Artist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1244,bihar,2015,93,KURHANI,MOHAMMAD MOFIZ,parties.IN.IND,IND,1089,0.63,17,forfeit,U,46,Literate,Auto-rickshaw Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1244,bihar,2015,93,KURHANI,SANJAY THAKUR,parties.IN.UNK,AKBMP,1066,0.62,18,forfeit,U,34,Literate,,challenger,src-1b7bc1c9d39a
@@ -1460,14 +1460,14 @@ IN-AC-2008-bihar-1168,bihar,2015,102,KUCHAIKOTE,OM PRAKASH PRASAD,parties.IN.IND
 IN-AC-2008-bihar-1168,bihar,2015,102,KUCHAIKOTE,SADMAN ALI,parties.IN.BSP,BSP,1801,1.08,7,forfeit,U,26,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1168,bihar,2015,102,KUCHAIKOTE,ARJUN PRASAD KUSHWAHA,parties.IN.UNK,GJDS,1550,0.93,8,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1168,bihar,2015,102,KUCHAIKOTE,DEVENDRA RAY,parties.IN.UNK,LAD,1209,0.72,9,forfeit,U,57,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1168,bihar,2015,102,KUCHAIKOTE,ABHAY KUMAR KUSHWAHA,parties.IN.UNK,BKP,1161,0.7,10,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1168,bihar,2015,102,KUCHAIKOTE,ABHAY KUMAR KUSHWAHA,parties.IN.BPI,BKP,1161,0.7,10,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1168,bihar,2015,102,KUCHAIKOTE,ENGINEER PRASAD,parties.IN.SP,SP,867,0.52,11,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1165,bihar,2015,103,BHOREY,ANIL KUMAR,parties.IN.INC,INC,74365,44.32,1,won,U,47,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1165,bihar,2015,103,BHOREY,INDRADEV MANJHI,parties.IN.BJP,BJP,59494,35.46,2,lost,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1165,bihar,2015,103,BHOREY,JITENDRA PASWAN,parties.IN.CPIMLL,CPI(ML)(L),14011,8.35,3,forfeit,U,25,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1165,bihar,2015,103,BHOREY,SATYAJEET KUMAR,parties.IN.IND,IND,3525,2.1,5,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1165,bihar,2015,103,BHOREY,RAJENDRA RAM,parties.IN.BSP,BSP,1764,1.05,6,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1165,bihar,2015,103,BHOREY,SHARMA DEVI,parties.IN.UNK,BKP,1477,0.88,7,forfeit,U,39,Literate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1165,bihar,2015,103,BHOREY,SHARMA DEVI,parties.IN.BPI,BKP,1477,0.88,7,forfeit,U,39,Literate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1165,bihar,2015,103,BHOREY,VINDHYACHAL RAM,parties.IN.IND,IND,1452,0.87,8,forfeit,U,57,8th Pass,Service,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1165,bihar,2015,103,BHOREY,LALAN MANJHI,parties.IN.SP,SP,1115,0.66,9,forfeit,U,50,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1165,bihar,2015,103,BHOREY,DINANATH MANJHI,parties.IN.IND,IND,1082,0.64,10,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
@@ -1792,7 +1792,7 @@ IN-AC-2008-bihar-1171,bihar,2015,126,MAHUA,MANOJ KUMAR,parties.IN.UNK,JRVP,1266,
 IN-AC-2008-bihar-1171,bihar,2015,126,MAHUA,RATNESH KUMAR SINGH,parties.IN.UNK,KSJP,1119,0.72,15,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1171,bihar,2015,126,MAHUA,RATNESH KUMAR,parties.IN.UNK,BMF,1110,0.72,16,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1171,bihar,2015,126,MAHUA,DR. SUMAN SINHA,parties.IN.GAAP,GAAP,919,0.6,17,forfeit,U,54,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1171,bihar,2015,126,MAHUA,AMAR KANT SAH,parties.IN.UNK,RPP,908,0.59,18,forfeit,U,50,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1171,bihar,2015,126,MAHUA,AMAR KANT SAH,parties.IN.RPPI,RPP,908,0.59,18,forfeit,U,50,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1171,bihar,2015,126,MAHUA,ARBIND KUMAR SINGH,parties.IN.IND,IND,809,0.52,19,forfeit,U,31,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1171,bihar,2015,126,MAHUA,NILOFAR MALIKA,parties.IN.UNK,NJPI,706,0.46,20,forfeit,U,30,Graduate Professional,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1171,bihar,2015,126,MAHUA,DEENANATH SAHNI,parties.IN.UNK,SKLP,661,0.43,21,forfeit,U,26,Literate,,challenger,src-1b7bc1c9d39a
@@ -1911,7 +1911,7 @@ IN-AC-2008-bihar-1295,bihar,2015,132,WARISNAGAR,MD. ISHAKH,parties.IN.BSP,BSP,15
 IN-AC-2008-bihar-1295,bihar,2015,132,WARISNAGAR,SHIV SHANKAR MAHTO,parties.IN.JMM,JMM,1546,0.91,10,forfeit,U,31,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1295,bihar,2015,132,WARISNAGAR,ASHOK PRASAD VERMA,parties.IN.JAPL,JAPL,1539,0.91,11,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1295,bihar,2015,132,WARISNAGAR,DIGAMBER KUMAR RAY,parties.IN.UNK,GJDS,1334,0.79,12,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1295,bihar,2015,132,WARISNAGAR,MANOJ KUMAR SINGH,parties.IN.UNK,RPP,975,0.57,13,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1295,bihar,2015,132,WARISNAGAR,MANOJ KUMAR SINGH,parties.IN.RPPI,RPP,975,0.57,13,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1295,bihar,2015,132,WARISNAGAR,RANVIR SINGH,parties.IN.UNK,SKLP,964,0.57,14,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1295,bihar,2015,132,WARISNAGAR,ARMAN AHMAD,parties.IN.RAJPA,RAJPA,882,0.52,15,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1295,bihar,2015,132,WARISNAGAR,BASUDEO SAH,parties.IN.UNK,BHNP,757,0.45,16,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -1925,7 +1925,7 @@ IN-AC-2008-bihar-1294,bihar,2015,133,SAMASTIPUR,AVADHESH KUMAR,parties.IN.IND,IN
 IN-AC-2008-bihar-1294,bihar,2015,133,SAMASTIPUR,ALLAMA SHIBLI NOMANI HALAMI,parties.IN.BSP,BSP,1120,0.74,8,forfeit,U,47,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1294,bihar,2015,133,SAMASTIPUR,UPENDRA SINHA,parties.IN.BMUP,BMUP,870,0.58,10,forfeit,U,47,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1294,bihar,2015,133,SAMASTIPUR,MD. IQBAL FIROZ,parties.IN.UNK,JDR,554,0.37,11,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1294,bihar,2015,133,SAMASTIPUR,SUBODH KUMAR PRASAD,parties.IN.UNK,RPP,542,0.36,12,forfeit,U,61,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1294,bihar,2015,133,SAMASTIPUR,SUBODH KUMAR PRASAD,parties.IN.RPPI,RPP,542,0.36,12,forfeit,U,61,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1294,bihar,2015,133,SAMASTIPUR,POONAM DEVI,parties.IN.SP,SP,398,0.26,13,forfeit,U,37,Graduate,District Council,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1294,bihar,2015,133,SAMASTIPUR,SHAD AHMED,parties.IN.UNK,HCP,389,0.26,14,forfeit,U,27,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1294,bihar,2015,133,SAMASTIPUR,PREMJEET KUMAR,parties.IN.UNK,AKBMP,381,0.25,15,forfeit,U,26,Literate,,challenger,src-1b7bc1c9d39a
@@ -1933,7 +1933,7 @@ IN-AC-2008-bihar-1294,bihar,2015,133,SAMASTIPUR,VICKY KUMAR,parties.IN.UNK,NJPI,
 IN-AC-2008-bihar-1294,bihar,2015,133,SAMASTIPUR,RAM NATH PRASAD,parties.IN.UNK,GJDS,258,0.17,17,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1294,bihar,2015,133,SAMASTIPUR,MD. TAHIR ARMAN,parties.IN.UNK,NADP,230,0.15,18,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1337,bihar,2015,134,UJIARPUR,ALOK KUMAR MEHTA,parties.IN.RJD,RJD,85466,52.24,1,won,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1337,bihar,2015,134,UJIARPUR,KUMAR ANANT,parties.IN.UNK,BLSP,38006,23.23,2,lost,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1337,bihar,2015,134,UJIARPUR,KUMAR ANANT,parties.IN.RLSP,BLSP,38006,23.23,2,lost,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1337,bihar,2015,134,UJIARPUR,AJAY KUMAR,parties.IN.CPIM,CPM,18973,11.6,3,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1337,bihar,2015,134,UJIARPUR,VINOD KUMAR RAY,parties.IN.IND,IND,3727,2.28,5,forfeit,U,30,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1337,bihar,2015,134,UJIARPUR,BAIJU KUMAR RAY,parties.IN.IND,IND,3156,1.93,6,forfeit,U,36,5th Pass,Agricultural Business,challenger,src-1b7bc1c9d39a
@@ -2012,7 +2012,7 @@ IN-AC-2008-bihar-1293,bihar,2015,139,ROSERA,SHATRUDHAN KUMAR PASWAN,parties.IN.S
 IN-AC-2008-bihar-1293,bihar,2015,139,ROSERA,VIJAY LAXMY DEVI,parties.IN.UNK,NJPI,769,0.47,10,forfeit,U,36,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1293,bihar,2015,139,ROSERA,BAIDYANATH KUMAR,parties.IN.UNK,GJDS,736,0.45,11,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1207,bihar,2015,140,HASANPUR,RAJ KUMAR RAY,parties.IN.JDU,JD(U),63094,43,1,won,U,43,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1207,bihar,2015,140,HASANPUR,VINOD CHOUDHARY,parties.IN.UNK,BLSP,33494,22.83,2,lost,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1207,bihar,2015,140,HASANPUR,VINOD CHOUDHARY,parties.IN.RLSP,BLSP,33494,22.83,2,lost,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1207,bihar,2015,140,HASANPUR,SUNIL KUMAR PUSHPAM,parties.IN.JAPL,JAPL,19756,13.46,3,forfeit,U,65,Post Graduate,Party Worker,crossover,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1207,bihar,2015,140,HASANPUR,GANGADHAR JHA,parties.IN.CPIM,CPM,5589,3.81,5,forfeit,U,66,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1207,bihar,2015,140,HASANPUR,JITENDRA KUMAR YADAV,parties.IN.RVNP,RVNP,4850,3.31,6,forfeit,U,34,Literate,,challenger,src-1b7bc1c9d39a
@@ -2201,7 +2201,7 @@ IN-AC-2008-bihar-1139,bihar,2015,156,BHAGALPUR,MUNSHI DAS,parties.IN.IND,IND,479
 IN-AC-2008-bihar-1139,bihar,2015,156,BHAGALPUR,DAYARAM MANDAL,parties.IN.BMUP,BMUP,268,0.18,11,forfeit,U,39,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1139,bihar,2015,156,BHAGALPUR,GOPAL BHARTI,parties.IN.SP,SP,235,0.15,12,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1131,bihar,2015,157,SULTANGANJ,SUBODH ROY,parties.IN.JDU,JD(U),63345,40.94,1,won,U,71,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1131,bihar,2015,157,SULTANGANJ,HIMANSHU PRASAD,parties.IN.UNK,BLSP,49312,31.87,2,lost,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1131,bihar,2015,157,SULTANGANJ,HIMANSHU PRASAD,parties.IN.RLSP,BLSP,49312,31.87,2,lost,U,31,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1131,bihar,2015,157,SULTANGANJ,LALAN KUMAR,parties.IN.IND,IND,14073,9.1,3,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1131,bihar,2015,157,SULTANGANJ,RAKESH KUMAR SAH,parties.IN.IND,IND,4041,2.61,5,forfeit,U,34,12th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1131,bihar,2015,157,SULTANGANJ,CHAKRAPANI HIMANSHU,parties.IN.JAPL,JAPL,3186,2.06,6,forfeit,U,34,Doctorate,Lawyer,challenger,src-1b7bc1c9d39a
@@ -2240,7 +2240,7 @@ IN-AC-2008-bihar-1126,bihar,2015,159,AMARPUR,PRAVIN KUMAR,parties.IN.IND,IND,314
 IN-AC-2008-bihar-1126,bihar,2015,159,AMARPUR,KUMARI SHYAMA PANDEY,parties.IN.UNK,GJDS,308,0.2,14,forfeit,U,43,10th Pass,Agricultural Business,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1126,bihar,2015,159,AMARPUR,MITHILESH KUMAR SINGH,parties.IN.UNK,SASAPT,277,0.18,15,forfeit,U,25,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1129,bihar,2015,160,DHURAIYA,MANISH KUMAR,parties.IN.JDU,JD(U),68858,44.41,1,won,U,41,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1129,bihar,2015,160,DHURAIYA,BHUDEO CHOUDHARY,parties.IN.UNK,BLSP,44704,28.83,2,lost,U,52,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1129,bihar,2015,160,DHURAIYA,BHUDEO CHOUDHARY,parties.IN.RLSP,BLSP,44704,28.83,2,lost,U,52,Graduate Professional,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1129,bihar,2015,160,DHURAIYA,MUNILAL PASWAN,parties.IN.CPI,CPI,24501,15.8,3,forfeit,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1129,bihar,2015,160,DHURAIYA,VIJAY PASWAN,parties.IN.UNK,SKLP,3345,2.16,5,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1129,bihar,2015,160,DHURAIYA,PUSHPALATA KUMARI,parties.IN.BSP,BSP,2642,1.7,6,forfeit,U,36,Literate,,challenger,src-1b7bc1c9d39a
@@ -2360,7 +2360,7 @@ IN-AC-2008-bihar-1184,bihar,2015,169,SHEIKHPURA,MANOJ RAM,parties.IN.UNK,GJDS,10
 IN-AC-2008-bihar-1184,bihar,2015,169,SHEIKHPURA,SHIV NARAYAN TANTI,parties.IN.IND,IND,878,0.69,16,forfeit,U,42,Literate,Shop Keeper,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1184,bihar,2015,169,SHEIKHPURA,BALESHWAR PANDIT,parties.IN.BSP,BSP,647,0.51,17,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1254,bihar,2015,170,BARBIGHA,SUDARSHAN KUMAR,parties.IN.INC,INC,46406,41.67,1,won,U,34,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1254,bihar,2015,170,BARBIGHA,SHEO KUMAR,parties.IN.UNK,BLSP,30689,27.55,2,lost,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1254,bihar,2015,170,BARBIGHA,SHEO KUMAR,parties.IN.RLSP,BLSP,30689,27.55,2,lost,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1254,bihar,2015,170,BARBIGHA,RADHEY SHARMA,parties.IN.IND,IND,8122,7.29,3,forfeit,U,41,12th Pass,Agricultural Business,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1254,bihar,2015,170,BARBIGHA,RAVI CHAUDHARY,parties.IN.IND,IND,5789,5.2,4,forfeit,U,53,Graduate Professional,Activist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1254,bihar,2015,170,BARBIGHA,ANIL SHANKAR SINHA,parties.IN.NCP,NCP,4420,3.97,6,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
@@ -2709,7 +2709,7 @@ IN-AC-2008-bihar-1270,bihar,2015,190,PALIGANJ,MANISH KUMAR,parties.IN.SHS,SHS,12
 IN-AC-2008-bihar-1270,bihar,2015,190,PALIGANJ,DHANANJAY KUMAR,parties.IN.UNK,LAD,854,0.58,11,forfeit,U,37,10th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1270,bihar,2015,190,PALIGANJ,AJAY KUMAR,parties.IN.IND,IND,637,0.44,12,forfeit,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1270,bihar,2015,190,PALIGANJ,SUNIL SANAND,parties.IN.UNK,HMSP,446,0.3,13,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1270,bihar,2015,190,PALIGANJ,SHAMBHU KUMAR SHAH,parties.IN.UNK,RPP,404,0.28,14,forfeit,U,37,12th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1270,bihar,2015,190,PALIGANJ,SHAMBHU KUMAR SHAH,parties.IN.RPPI,RPP,404,0.28,14,forfeit,U,37,12th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1270,bihar,2015,190,PALIGANJ,MEJNARAYAN DAS,parties.IN.UNK,SABP,319,0.22,15,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1266,bihar,2015,191,BIKRAM,SIDDHARTH,parties.IN.INC,INC,94088,54.44,1,won,U,34,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1266,bihar,2015,191,BIKRAM,ANIL KUMAR,parties.IN.BJP,BJP,49777,28.8,2,lost,U,53,Graduate,,incumbent,src-1b7bc1c9d39a
@@ -2786,7 +2786,7 @@ IN-AC-2008-bihar-1119,bihar,2015,196,TARARI,KAMESHWAR SINGH,parties.IN.BSP,BSP,8
 IN-AC-2008-bihar-1119,bihar,2015,196,TARARI,NAND KISHOR SINGH,parties.IN.BMUP,BMUP,670,0.44,14,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1119,bihar,2015,196,TARARI,RAVISH TIWARI,parties.IN.IND,IND,594,0.39,15,forfeit,U,27,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1116,bihar,2015,197,JAGDISHPUR,RAM VISHUN SINGH,parties.IN.RJD,RJD,49020,33.82,1,won,U,61,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1116,bihar,2015,197,JAGDISHPUR,RAKESH RAUSHAN,parties.IN.UNK,BLSP,38825,26.79,2,lost,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1116,bihar,2015,197,JAGDISHPUR,RAKESH RAUSHAN,parties.IN.RLSP,BLSP,38825,26.79,2,lost,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1116,bihar,2015,197,JAGDISHPUR,CHANDRADIP SINGH,parties.IN.CPIMLL,CPI(ML)(L),18154,12.53,3,forfeit,U,59,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1116,bihar,2015,197,JAGDISHPUR,DINESH KUMAR SINGH,parties.IN.IND,IND,9124,6.3,4,forfeit,U,41,Doctorate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1116,bihar,2015,197,JAGDISHPUR,KANHAIYA PRASAD SINGH,parties.IN.JAPL,JAPL,6410,4.42,5,forfeit,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -2864,7 +2864,7 @@ IN-AC-2008-bihar-1146,bihar,2015,200,BUXAR,NIRMALA DEVI,parties.IN.IND,IND,319,0
 IN-AC-2008-bihar-1146,bihar,2015,200,BUXAR,MAHESH CHAUBEY,parties.IN.IND,IND,317,0.2,29,forfeit,U,62,Post Graduate,Retired Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1146,bihar,2015,200,BUXAR,GOVIND SINGH,parties.IN.IND,IND,311,0.19,30,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1148,bihar,2015,201,DUMRAON,DADAN YADAV,parties.IN.JDU,JD(U),81081,47.9,1,won,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1148,bihar,2015,201,DUMRAON,RAM BIHARI SINGH,parties.IN.UNK,BLSP,50742,29.98,2,lost,U,55,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1148,bihar,2015,201,DUMRAON,RAM BIHARI SINGH,parties.IN.RLSP,BLSP,50742,29.98,2,lost,U,55,Graduate Professional,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1148,bihar,2015,201,DUMRAON,SRIKANT SINGH,parties.IN.IND,IND,14656,8.66,3,forfeit,U,45,8th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1148,bihar,2015,201,DUMRAON,DAUD ALI,parties.IN.JAPL,JAPL,4216,2.49,4,forfeit,U,50,Others,Doctor,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1148,bihar,2015,201,DUMRAON,SUSHILA DEVI,parties.IN.CPIMLL,CPI(ML)(L),4216,2.49,5,forfeit,U,46,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -2955,7 +2955,7 @@ IN-AC-2008-bihar-1303,bihar,2015,206,CHAINPUR,PRABHU NARAYAN SINGH,parties.IN.IN
 IN-AC-2008-bihar-1303,bihar,2015,206,CHAINPUR,SHRAWAN BIND,parties.IN.IND,IND,855,0.48,13,forfeit,U,55,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1303,bihar,2015,206,CHAINPUR,TRIPURARI TIWARI,parties.IN.UNK,ATBP,834,0.47,14,forfeit,U,50,10th Pass,Medical Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1303,bihar,2015,206,CHAINPUR,DEENDAYAL SINGH KUSHWAHA,parties.IN.IND,IND,512,0.29,15,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1304,bihar,2015,207,CHENARI,LALAN PASWAN,parties.IN.UNK,BLSP,68148,45.11,1,won,U,51,Graduate,Ex MLA,crossover,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1304,bihar,2015,207,CHENARI,LALAN PASWAN,parties.IN.RLSP,BLSP,68148,45.11,1,won,U,51,Graduate,Ex MLA,crossover,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1304,bihar,2015,207,CHENARI,MANGAL RAM,parties.IN.INC,INC,58367,38.64,2,lost,U,43,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1304,bihar,2015,207,CHENARI,RAMENDRA RAM,parties.IN.BSP,BSP,5455,3.61,4,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1304,bihar,2015,207,CHENARI,AMAN KUMAR,parties.IN.IND,IND,2589,1.71,5,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -2963,7 +2963,7 @@ IN-AC-2008-bihar-1304,bihar,2015,207,CHENARI,RAVI PASWAN,parties.IN.SP,SP,1752,1
 IN-AC-2008-bihar-1304,bihar,2015,207,CHENARI,MAHENDRA BAITHA,parties.IN.IND,IND,1369,0.91,7,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1304,bihar,2015,207,CHENARI,CHINTA DEVI,parties.IN.UNK,RSWD,1240,0.82,8,forfeit,U,30,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1304,bihar,2015,207,CHENARI,BIPIN RAM,parties.IN.CPIMLL,CPI(ML)(L),854,0.57,9,forfeit,U,42,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1304,bihar,2015,207,CHENARI,SATYANARAYAN PASWAN,parties.IN.UNK,AD,804,0.53,10,forfeit,U,60,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1304,bihar,2015,207,CHENARI,SATYANARAYAN PASWAN,parties.IN.SAD,AD,804,0.53,10,forfeit,U,60,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1304,bihar,2015,207,CHENARI,RAMASHISH RAM,parties.IN.SSD,SSD,659,0.44,11,forfeit,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1304,bihar,2015,207,CHENARI,RAVISHANKAR PRASAD,parties.IN.UNK,JPS,533,0.35,12,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1304,bihar,2015,207,CHENARI,PRADEEP KUMAR,parties.IN.BMUP,BMUP,421,0.28,13,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -2982,7 +2982,7 @@ IN-AC-2008-bihar-1307,bihar,2015,208,SASARAM,ARJUN KUMAR SINGH,parties.IN.IND,IN
 IN-AC-2008-bihar-1307,bihar,2015,208,SASARAM,PARMANAND SINGH KUSHWAHA,parties.IN.UNK,RSMD,610,0.35,14,forfeit,U,48,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1307,bihar,2015,208,SASARAM,MOHAMMAD SATAR ANSARI,parties.IN.CPIM,CPM,577,0.33,15,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1305,bihar,2015,209,KARGAHAR,BASHISHT SINGH,parties.IN.JDU,JD(U),57018,32.08,1,won,U,41,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1305,bihar,2015,209,KARGAHAR,BIRENDRA KUMAR SINGH,parties.IN.UNK,BLSP,44111,24.82,2,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1305,bihar,2015,209,KARGAHAR,BIRENDRA KUMAR SINGH,parties.IN.RLSP,BLSP,44111,24.82,2,lost,U,46,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1305,bihar,2015,209,KARGAHAR,ALOK KUMAR SINGH,parties.IN.IND,IND,27454,15.45,3,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1305,bihar,2015,209,KARGAHAR,MD. SHAMIM SHAH,parties.IN.BSP,BSP,23677,13.32,4,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1305,bihar,2015,209,KARGAHAR,RAM DHANI SINGH,parties.IN.SP,SP,6121,3.44,5,forfeit,U,77,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -2998,7 +2998,7 @@ IN-AC-2008-bihar-1305,bihar,2015,209,KARGAHAR,RAM AVTAR GUPTA,parties.IN.UNK,JPS
 IN-AC-2008-bihar-1305,bihar,2015,209,KARGAHAR,AKHILESH RAI,parties.IN.MAJP,MAJP,602,0.34,16,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1305,bihar,2015,209,KARGAHAR,MD. DILBAS ANSARI,parties.IN.IND,IND,565,0.32,17,forfeit,U,54,Post Graduate,Retired Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1305,bihar,2015,209,KARGAHAR,RAMA PRSAD SINGH,parties.IN.BMUP,BMUP,453,0.25,18,forfeit,U,65,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1305,bihar,2015,209,KARGAHAR,DEV BRAT ARYA,parties.IN.UNK,AD,227,0.13,19,forfeit,U,38,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1305,bihar,2015,209,KARGAHAR,DEV BRAT ARYA,parties.IN.SAD,AD,227,0.13,19,forfeit,U,38,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1147,bihar,2015,210,DINARA,JAI KUMAR SINGH,parties.IN.JDU,JD(U),64699,42.98,1,won,U,46,Graduate Professional,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1147,bihar,2015,210,DINARA,RAJENDRA PRASAD SINGH,parties.IN.BJP,BJP,62008,41.19,2,lost,U,49,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1147,bihar,2015,210,DINARA,BINOD KUMAR CHOUBEY,parties.IN.SHS,SHS,4265,2.83,3,forfeit,U,55,Post Graduate,Consultant,challenger,src-1b7bc1c9d39a
@@ -3029,10 +3029,10 @@ IN-AC-2008-bihar-1197,bihar,2015,211,NOKHA,RAM DAYAL SINGH,parties.IN.IND,IND,77
 IN-AC-2008-bihar-1197,bihar,2015,211,NOKHA,MADHAV MURARI GUPTA,parties.IN.SP,SP,500,0.35,12,forfeit,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1197,bihar,2015,211,NOKHA,HIMANSHU KUMAR,parties.IN.UNK,RSWD,430,0.3,13,forfeit,U,31,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1197,bihar,2015,211,NOKHA,JAY PRAKASH SINGH,parties.IN.UNK,SASAPT,352,0.25,14,forfeit,U,34,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1197,bihar,2015,211,NOKHA,AARTI DEVI,parties.IN.UNK,AD,317,0.22,15,forfeit,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1197,bihar,2015,211,NOKHA,AARTI DEVI,parties.IN.SAD,AD,317,0.22,15,forfeit,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1197,bihar,2015,211,NOKHA,KANHAIYA SAH,parties.IN.NYP,NYP,242,0.17,16,forfeit,U,45,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1193,bihar,2015,212,DEHRI,MOHAMMAD ILIYAS HUSSAIN,parties.IN.RJD,RJD,49402,33.92,1,won,U,71,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1193,bihar,2015,212,DEHRI,JITENDRA KUMAR @ RINKU SONI,parties.IN.UNK,BLSP,45504,31.24,2,lost,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1193,bihar,2015,212,DEHRI,JITENDRA KUMAR @ RINKU SONI,parties.IN.RLSP,BLSP,45504,31.24,2,lost,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1193,bihar,2015,212,DEHRI,PRADEEP KUMAR JOSHI,parties.IN.UNK,RSWD,29541,20.28,3,lost,U,46,12th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1193,bihar,2015,212,DEHRI,ASHOK KUMAR SINGH,parties.IN.CPIMLL,CPI(ML)(L),2197,1.51,5,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1193,bihar,2015,212,DEHRI,SANTOSH KUMAR PANDEY,parties.IN.BSP,BSP,2154,1.48,6,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
@@ -3070,7 +3070,7 @@ IN-AC-2008-bihar-1175,bihar,2015,214,ARWAL,MANOJ KUMAR ''''SANTOSH'''',parties.I
 IN-AC-2008-bihar-1175,bihar,2015,214,ARWAL,LALIT MOHAN SINGH,parties.IN.UNK,AVIRP,774,0.6,11,forfeit,U,64,Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1175,bihar,2015,214,ARWAL,PRABHAT KUMAR,parties.IN.UNK,RSPTY,770,0.59,12,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1179,bihar,2015,215,KURTHA,SATYADEO SINGH,parties.IN.JDU,JD(U),43676,37.79,1,won,U,56,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1179,bihar,2015,215,KURTHA,ASHOK KUMAR VERMA,parties.IN.UNK,BLSP,29557,25.57,2,lost,U,46,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1179,bihar,2015,215,KURTHA,ASHOK KUMAR VERMA,parties.IN.RLSP,BLSP,29557,25.57,2,lost,U,46,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1179,bihar,2015,215,KURTHA,RAJENDRA YADAV,parties.IN.BSP,BSP,8896,7.7,3,forfeit,U,41,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1179,bihar,2015,215,KURTHA,PROF. RAM JATAN SINHA,parties.IN.IND,IND,6285,5.44,4,forfeit,U,59,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1179,bihar,2015,215,KURTHA,BINDAL KUMAR ALIAS INDAL YADAV,parties.IN.SHS,SHS,5868,5.08,5,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
@@ -3092,7 +3092,7 @@ IN-AC-2008-bihar-1179,bihar,2015,215,KURTHA,RAM PRABESH YADAV,parties.IN.SSD,SSD
 IN-AC-2008-bihar-1179,bihar,2015,215,KURTHA,SHIV KUMAR SINGH,parties.IN.IND,IND,487,0.42,22,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1179,bihar,2015,215,KURTHA,KAUSHLENDRA KUMAR,parties.IN.UNK,PMS,356,0.31,23,forfeit,U,46,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1178,bihar,2015,216,JAHANABAD,MUNDRIKA SINGH YADAV,parties.IN.RJD,RJD,76458,50.87,1,won,U,65,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2015,216,JAHANABAD,PRAVEEN KUMAR,parties.IN.UNK,BLSP,46137,30.69,2,lost,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2015,216,JAHANABAD,PRAVEEN KUMAR,parties.IN.RLSP,BLSP,46137,30.69,2,lost,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1178,bihar,2015,216,JAHANABAD,SANTOSH KESHARI,parties.IN.CPIMLL,CPI(ML)(L),6716,4.47,3,forfeit,U,38,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1178,bihar,2015,216,JAHANABAD,GOPAL SHARMA,parties.IN.IND,IND,3065,2.04,5,forfeit,U,53,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1178,bihar,2015,216,JAHANABAD,BAJRANGI YADAV,parties.IN.IND,IND,2171,1.44,6,forfeit,U,48,Literate,,challenger,src-1b7bc1c9d39a
@@ -3146,7 +3146,7 @@ IN-AC-2008-bihar-1194,bihar,2015,219,GOH,SURESH PASWAN,parties.IN.IND,IND,567,0.
 IN-AC-2008-bihar-1194,bihar,2015,219,GOH,ABHIRAM PRIYADARSHI,parties.IN.IND,IND,439,0.29,21,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1194,bihar,2015,219,GOH,HARI PRASAD SINGH,parties.IN.UNK,AHFBK,403,0.26,22,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1198,bihar,2015,220,OBRA,BIRENDRA KUMAR SINHA,parties.IN.RJD,RJD,56042,34.86,1,won,U,48,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1198,bihar,2015,220,OBRA,CHANDRA BHUSHAN VERMA,parties.IN.UNK,BLSP,44646,27.77,2,lost,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1198,bihar,2015,220,OBRA,CHANDRA BHUSHAN VERMA,parties.IN.RLSP,BLSP,44646,27.77,2,lost,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1198,bihar,2015,220,OBRA,RAJA RAM SINGH,parties.IN.CPIMLL,CPI(ML)(L),22801,14.18,3,forfeit,U,59,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1198,bihar,2015,220,OBRA,SOM PRAKASH,parties.IN.UNK,SPL,10114,6.29,4,forfeit,U,43,Graduate,MLA,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1198,bihar,2015,220,OBRA,RAM AUTAR CHAUDHARI,parties.IN.BSP,BSP,6561,4.08,5,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -3267,7 +3267,7 @@ IN-AC-2008-bihar-1157,bihar,2015,228,BARACHATTI,SREECHAND DAS,parties.IN.CPIMLL,
 IN-AC-2008-bihar-1157,bihar,2015,228,BARACHATTI,DILEEP PASWAN,parties.IN.BMUP,BMUP,2303,1.48,9,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1157,bihar,2015,228,BARACHATTI,PRAMOD MANZI,parties.IN.UNK,PMS,1346,0.86,10,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1157,bihar,2015,228,BARACHATTI,MUNNI DEVI,parties.IN.UNK,KVD,1307,0.84,11,forfeit,U,35,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1157,bihar,2015,228,BARACHATTI,BALKUNWAR MANJHI,parties.IN.UNK,AD,1059,0.68,12,forfeit,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1157,bihar,2015,228,BARACHATTI,BALKUNWAR MANJHI,parties.IN.SAD,AD,1059,0.68,12,forfeit,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1159,bihar,2015,229,BODH GAYA,KUMAR SARVJEET,parties.IN.RJD,RJD,82656,49.98,1,won,U,40,Graduate Professional,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1159,bihar,2015,229,BODH GAYA,SHYAMDEO PASWAN,parties.IN.BJP,BJP,52183,31.55,2,lost,U,43,Doctorate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1159,bihar,2015,229,BODH GAYA,DEVENDRA MANJHI,parties.IN.IND,IND,4265,2.58,4,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
@@ -3294,7 +3294,7 @@ IN-AC-2008-bihar-1160,bihar,2015,230,GAYA TOWN,ABUL FARHA,parties.IN.BSP,BSP,672
 IN-AC-2008-bihar-1160,bihar,2015,230,GAYA TOWN,AJAY YADAV,parties.IN.SP,SP,578,0.45,10,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1160,bihar,2015,230,GAYA TOWN,RANJEET PRASAD,parties.IN.UNK,BBMP,520,0.4,11,forfeit,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1160,bihar,2015,230,GAYA TOWN,SHISHUPAL KUMAR,parties.IN.UNK,SWAP,455,0.35,12,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1160,bihar,2015,230,GAYA TOWN,RAM PARSAD GUPTA,parties.IN.UNK,RPP,370,0.29,13,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1160,bihar,2015,230,GAYA TOWN,RAM PARSAD GUPTA,parties.IN.RPPI,RPP,370,0.29,13,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1160,bihar,2015,230,GAYA TOWN,MALTI DEVI,parties.IN.IND,IND,329,0.25,14,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1160,bihar,2015,230,GAYA TOWN,VIJAY SINGH,parties.IN.UNK,PMS,321,0.25,15,forfeit,U,58,Post Graduate,MP,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1160,bihar,2015,230,GAYA TOWN,NARESH PRASAD,parties.IN.IND,IND,255,0.2,16,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -3372,7 +3372,7 @@ IN-AC-2008-bihar-1256,bihar,2015,236,HISUA,LOVE KUMAR SINGH,parties.IN.BSP,BSP,1
 IN-AC-2008-bihar-1256,bihar,2015,236,HISUA,MANISH KUMAR,parties.IN.IND,IND,935,0.51,9,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1256,bihar,2015,236,HISUA,RAJESH KUMAR,parties.IN.UNK,GJDS,728,0.4,10,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1257,bihar,2015,237,NAWADA,RAJBALLABH PRASAD,parties.IN.RJD,RJD,88235,50.12,1,won,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1257,bihar,2015,237,NAWADA,INDRADEO PRASAD,parties.IN.UNK,BLSP,71509,40.62,2,lost,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1257,bihar,2015,237,NAWADA,INDRADEO PRASAD,parties.IN.RLSP,BLSP,71509,40.62,2,lost,U,49,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1257,bihar,2015,237,NAWADA,SUDHIR KUMAR,parties.IN.IND,IND,2435,1.38,4,forfeit,U,45,Graduate,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1257,bihar,2015,237,NAWADA,RANJEET KUMAR,parties.IN.SHS,SHS,1500,0.85,5,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1257,bihar,2015,237,NAWADA,RAM JATAN YADAV,parties.IN.BSP,BSP,1442,0.82,6,forfeit,U,67,10th Pass,,challenger,src-1b7bc1c9d39a
