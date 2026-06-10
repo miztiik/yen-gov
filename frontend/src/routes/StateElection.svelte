@@ -66,6 +66,11 @@
   import AllianceTotals from "../lib/elections/AllianceTotals.svelte";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import { route } from "../lib/router.svelte";
+  import Scatter from "../lib/charts/Scatter.svelte";
+  import type {
+    ScatterDatum,
+    ScatterFilters,
+  } from "../lib/charts/scatter-model";
 
   interface Props {
     params: { state: string; event: string };
@@ -401,6 +406,63 @@
   }
 
   const crumbs = $derived(route.crumbs ? route.crumbs(route.params) : []);
+
+  // ---- Scatter chart projection (PR-W4c) ------------------------------
+  // The state filter is implicit (winners is already pre-filtered to
+  // `params.state` via the W2b loader's state-scope arm). The body
+  // filter chip on the scatter starts on the active event kind so the
+  // chart and the page agree on first paint; afterwards the citizen
+  // may toggle freely (toggling to the inactive body simply empties
+  // the chart, which is the correct UX given the loader is single-body
+  // scoped for this surface).
+  let scatter_filters = $state<ScatterFilters>({
+    reservation: "all",
+    margin_band: "all",
+  });
+  let scatter_body_initialised = false;
+  $effect(() => {
+    if (scatter_body_initialised) return;
+    const b = body;
+    if (!b) return;
+    scatter_filters = {
+      ...scatter_filters,
+      body: b === "pc" ? "parliament" : "assembly",
+    };
+    scatter_body_initialised = true;
+  });
+  const scatter_data = $derived.by<ScatterDatum[]>(() => {
+    const out: ScatterDatum[] = [];
+    const ev = event_row?.event_id ?? params.event;
+    const body_lit: "parliament" | "assembly" =
+      body === "pc" ? "parliament" : "assembly";
+    for (const w of winners) {
+      if (w.turnout_pct == null || w.margin_pct == null) continue;
+      out.push({
+        entity_id: w.entity_id,
+        state_slug: w.state_slug,
+        constituency_slug: slugify(w.entity_name),
+        constituency_name: w.entity_name,
+        event_id: ev,
+        turnout_pct: w.turnout_pct,
+        margin_pct: w.margin_pct,
+        electors: w.electors ?? 0,
+        winner_party_id: (function () {
+          if (w.party_id) return w.party_id;
+          const slug = (w.party_short ?? "UNK").trim().toUpperCase();
+          return `parties.IN.${slug}`;
+        })(),
+        winner_party_short: w.party_short ?? "UNK",
+        reservation: w.reservation,
+        body: body_lit,
+      });
+    }
+    return out;
+  });
+  function onScatterDotClick(d: ScatterDatum): void {
+    navigate(
+      `${link.stateElection(d.state_slug, d.event_id)}/${d.constituency_slug}`,
+    );
+  }
 </script>
 
 <Breadcrumb {crumbs} />
@@ -694,6 +756,19 @@
           >Compare with {previous_same_body.display} →</a>
         </nav>
       {/if}
+
+      <!-- Scatter chart (PR-W4c MUST-FEATURE; state filter pre-applied via loader) -->
+      <section class="space-y-2" data-testid="state-event-scatter">
+        <h2 class="text-sm font-medium text-slate-700">
+          Turnout vs winning margin &middot; {state_name} constituencies
+        </h2>
+        <Scatter
+          data={scatter_data}
+          filters={scatter_filters}
+          onFiltersChange={(next) => (scatter_filters = next)}
+          onDotClick={onScatterDotClick}
+        />
+      </section>
     {/if}
   {/if}
 </main>

@@ -87,6 +87,7 @@ function makeRow(overrides: Partial<ElectionResultRow>): ElectionResultRow {
     votes_polled: null,
     winner_age: null,
     winner_candidate_name: null,
+    reservation: "GEN",
   };
 }
 

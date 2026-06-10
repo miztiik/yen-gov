@@ -156,6 +156,14 @@ export interface ElectionResultRow {
   winner_age: number | null;
   /** Display name of the winning candidate (mirrors summary.winner_candidate). */
   winner_candidate_name: string | null;
+  /** SC / ST reservation status of the constituency, sourced from
+   *  `datasets/data/entities/electoral.csv.reservation`. The on-disk
+   *  column is empty for every row today (PR-W4c scatter audit); the
+   *  loader maps NULL/empty to `"GEN"` so the scatter's reservation
+   *  filter has a stable enum to render against. A future PR backfilling
+   *  the column will start surfacing SC / ST verbatim with zero code
+   *  changes. Projected at every scope. */
+  reservation: "GEN" | "SC" | "ST";
 }
 
 /** Infer the election body from the event id / slug. */
@@ -183,6 +191,17 @@ const confidenceOrNull = (
 const numOrNull = (v: unknown): number | null =>
   v == null ? null : Number(v);
 
+/** Normalise the on-disk `reservation` cell to the closed enum the
+ *  scatter chart (PR-W4c) consumes. Empty / null / unknown -> `"GEN"`
+ *  (the on-disk column is empty for every row today, so this is the
+ *  dominant arm). */
+const reservationOrGen = (v: unknown): "GEN" | "SC" | "ST" => {
+  if (typeof v !== "string") return "GEN";
+  const trimmed = v.trim().toUpperCase();
+  if (trimmed === "SC" || trimmed === "ST") return trimmed;
+  return "GEN";
+};
+
 const stateCodeOf = (state_slug: string): string =>
   SLUG_TO_ECI[state_slug] ?? state_slug.toUpperCase();
 
@@ -205,10 +224,13 @@ interface NationalPcRow {
   votes_polled: number | null;
   winner_candidate_name: string | null;
   /** Winner candidate's share of the votes_polled denominator (in
-   *  percent). Projected at STATE-AC scope (PR-W3b) from
+   *  percent). Projected at STATE-AC scope (PR-W4a) from
    *  summary.csv.winner_share_pct; null at NATIONAL-PC scope until
    *  the parliament SQL also selects it. */
   vote_share_pct?: number | null;
+  /** Reservation literal from electoral.csv; nullable on the SQL row
+   *  shape, normalised to `"GEN" | "SC" | "ST"` at mapping time. */
+  reservation: string | null;
 }
 
 interface StateAcRow extends NationalPcRow {
@@ -233,6 +255,7 @@ interface ConstituencyCandRow {
   votes: number | null;
   vote_share_pct: number | null;
   age: number | null;
+  reservation: string | null;
 }
 
 interface ConstituencySummaryRow {
@@ -268,7 +291,9 @@ async function runNationalPcQuery(
   // additive projection of `winner_share_pct` so the constituency-
   // history bar in `frontend/src/lib/elections/ConstituencyHistoryBar.svelte`
   // can render per-event winner vote-share bars at NATIONAL-PC scope
-  // (mirrors the STATE-AC arm extended in W3b).
+  // (mirrors the STATE-AC arm extended in W3b). PR-W4c (2026-06-10):
+  // additive projection of `reservation` so the scatter chart's
+  // reservation filter chip can narrow rows without a second loader.
   const sql = `
     SELECT
       e.entity_id                   AS entity_id,
@@ -276,6 +301,7 @@ async function runNationalPcQuery(
       e.eci_no                      AS eci_no,
       e.delim_year                  AS delim_year,
       e.name                        AS entity_name,
+      e.reservation                 AS reservation,
       s.winner_party_id             AS party_id,
       dp.eci_code                   AS party_eci_code,
       dp.short_name                 AS party_short,
@@ -329,7 +355,8 @@ async function runStateAcQuery(
   // PR-W3b (2026-06-10): additive projection of `electors` + `votes_polled`
   // + `vote_share_pct` so the state event view's KPI strip + constituency
   // table can read them from the same per-AC rows (mirroring the
-  // NATIONAL-PC arm extended in W3c).
+  // NATIONAL-PC arm extended in W3c). PR-W4c (2026-06-10): additive
+  // projection of `reservation` for the scatter filter chip.
   const sql = `
     SELECT
       e.entity_id                           AS entity_id,
@@ -337,6 +364,7 @@ async function runStateAcQuery(
       e.eci_no                              AS eci_no,
       e.delim_year                          AS delim_year,
       e.name                                AS entity_name,
+      e.reservation                         AS reservation,
       s.winner_party_id                     AS party_id,
       dp.eci_code                           AS party_eci_code,
       dp.short_name                         AS party_short,
@@ -397,7 +425,10 @@ async function runConstituencyQuery(
   // Query 1: per-candidate rows for the AC. Mirror of
   // `loadConstituencyResult`'s candidatesSql but without the state-slug
   // WHERE (the entity_id JOIN to electoral.csv already pins state/eci_no
-  // when combined with the explicit WHERE below).
+  // when combined with the explicit WHERE below). PR-W4c (2026-06-10):
+  // additive projection of `reservation` so a downstream consumer
+  // (today: none; tomorrow: a per-candidate scatter facet) has
+  // symmetry with the NATIONAL-PC + STATE-AC arms.
   const candidatesSql = `
     SELECT
       e.entity_id                   AS entity_id,
@@ -405,6 +436,7 @@ async function runConstituencyQuery(
       e.eci_no                      AS eci_no,
       e.delim_year                  AS delim_year,
       e.name                        AS entity_name,
+      e.reservation                 AS reservation,
       ec.candidate_name             AS candidate_name,
       ec.party_id                   AS party_id,
       dp.eci_code                   AS party_eci_code,
@@ -480,6 +512,7 @@ async function runConstituencyQuery(
     votes_polled: null,
     winner_age: numOrNull(summary?.winner_age),
     winner_candidate_name: summary?.winner_candidate ?? null,
+    reservation: reservationOrGen(r.reservation),
   }));
 }
 
@@ -519,6 +552,7 @@ function toRow(
     votes_polled: numOrNull(r.votes_polled),
     winner_age,
     winner_candidate_name: r.winner_candidate_name ?? null,
+    reservation: reservationOrGen(r.reservation),
   };
 }
 
