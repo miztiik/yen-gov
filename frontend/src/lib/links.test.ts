@@ -118,16 +118,24 @@ describe("Grammar A — links.ts builder shapes (ADR-0037)", () => {
     );
   });
 
-  it("district is /<state>/d/<slug>", () => {
+  it("district is /<state>/<slug> (positional, no `/d/` marker)", () => {
+    // Deferral 1 of TODO/20260609-url-prefix-drop-phase0-plan.md
+    // (Jony's verdict) dropped the `/d/` literal marker. The router
+    // now dispatches via StateSubRouter at `/:state/:position2`.
+    // Under Option A (2026-06-10) the dispatcher resolves
+    // district-first per Jony rule #4; on a same-slug collision the
+    // AC stays reachable via the canonical event-nested URL
+    // `/<state>/elections/<event>/ac/<ac>` (ADR-0052).
     expect(link.district("S22", "coimbatore")).toMatch(
-      /^\/[a-z0-9-]+\/d\/coimbatore$/,
+      /^\/[a-z0-9-]+\/coimbatore$/,
     );
     expect(link.district("S22", "coimbatore")).not.toMatch(/^\/s\//);
+    expect(link.district("S22", "coimbatore")).not.toMatch(/\/d\//);
   });
 
   it("district passes through an LGD state slug as the state segment", () => {
     expect(link.district("tamil-nadu", "coimbatore")).toBe(
-      "/tamil-nadu/d/coimbatore",
+      "/tamil-nadu/coimbatore",
     );
   });
 
@@ -232,6 +240,17 @@ describe("Grammar A — reserved-path-token set (ADR-0037)", () => {
     // If PR-P4 ever needs to be reverted, restore `s` to the array AND
     // re-mount RedirectLegacyUrl on `/s/*` in `main.ts`.
     expect(RESERVED_PATH_TOKENS).not.toContain("s" as never);
+  });
+
+  it("reserves `d` (Deferral 1 future escape-hatch per Jony rule #3)", () => {
+    // Deferral 1 (2026-06-10) dropped the `/:state/d/:district` route
+    // entry and flipped districts to positional `/<state>/<district>`.
+    // Per Jony rule #3, `d` STAYS reserved so a citizen who types
+    // `/<state>/d` on the address bar lands on the 404 instead of
+    // being poached by a hypothetical future district named "D". To
+    // revert Deferral 1, restore the route entry AND drop `d` from
+    // `RESERVED_PATH_TOKENS`.
+    expect(RESERVED_PATH_TOKENS).toContain("d" as never);
   });
 
   it("pre-reserves the future indicator-marker `i` (Max's retrofit safety net)", () => {
