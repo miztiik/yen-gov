@@ -1,7 +1,7 @@
 # URL Prefix Drop — Phase 0 execution plan (ADR-0037 Phases 2-4)
 
 **Last Updated**: 2026-06-10
-**Status**: ACTIVE PHASES (PR-P1 / PR-P2 / PR-P3) **SHIPPED** in PRs [#867](https://github.com/miztiik/yen-gov/pull/867) + [#868](https://github.com/miztiik/yen-gov/pull/868) + [#869](https://github.com/miztiik/yen-gov/pull/869). PR-P4 (redirect-tombstone delete) DEFERRED indefinitely; user-triggered after one-cycle soak + zero redirect-hit telemetry. **Grammar A is the live URL grammar; Grammar B `/s/<state>/...` URLs redirect via `RedirectLegacyUrl.svelte`.**
+**Status**: **CLOSED** — all 4 PRs shipped in [#867](https://github.com/miztiik/yen-gov/pull/867) (PR-P1) + [#868](https://github.com/miztiik/yen-gov/pull/868) (PR-P2) + [#869](https://github.com/miztiik/yen-gov/pull/869) (PR-P3) + [#871](https://github.com/miztiik/yen-gov/pull/871) (PR-P4). **Grammar A is the live URL grammar.** Grammar B `/s/<state>/...` URLs now 404 with the NotFound recovery surface (the `RedirectLegacyUrl.svelte` tombstone shipped in PR-P1 was deleted in PR-P4 after the user-triggered soak window). The 4-phase strangler-fig is complete.
 **Level**: 3 (cross-cutting; 4 PRs; URL grammar = citizen contract).
 **Strategy**: execute ADR-0037 Phases 2-4 (already-locked decision; not a new debate). Drop the `/s/` prefix so every URL reads as bare `/<state>/...`. Prerequisite for the [election experience overhaul plan](20260609-election-experience-overhaul-plan.md).
 
@@ -85,7 +85,7 @@ Plan complete when PR-P3 ships (Grammar B fully retired except for `RedirectLega
 | PR-P1 | Add Grammar A routes alongside `/s/*` in `main.ts` + land `RedirectLegacyUrl.svelte` for `/s/<state>*` -> `/<state>*` 301. Both grammars work simultaneously. | none | [x] MERGED + PUSHED | [#867](https://github.com/miztiik/yen-gov/pull/867) | M |
 | PR-P2 | Mechanical caller-migration sweep: replace `url.*(...)` Grammar B builders with `links.*(...)` Grammar A builders across `frontend/src/**`. AC slug shape change (`167-mylapore` -> `mylapore`) ships here. AC namespace + indicator slugs join the disjointness contract. | PR-P1 | [x] MERGED + PUSHED | [#868](https://github.com/miztiik/yen-gov/pull/868) | L |
 | PR-P3 | Delete Grammar B from `main.ts` routes + delete `url.ts` legacy builders + delete the 42-test PR #172 Grammar B contract + reverse the dependency in any test that still references `/s/<state>`. `RedirectLegacyUrl.svelte` STAYS for one release. | PR-P2 | [x] MERGED + PUSHED | [#869](https://github.com/miztiik/yen-gov/pull/869) | M |
-| PR-P4 | Delete `RedirectLegacyUrl.svelte` after one-release soak + zero redirect-hit telemetry. **User-triggered, not date-gated.** | PR-P3 + soak | [ ] PENDING (deferred) | — | XS |
+| PR-P4 | Delete `RedirectLegacyUrl.svelte` after one-release soak + zero redirect-hit telemetry. **User-triggered, not date-gated.** | PR-P3 + soak | [x] MERGED + PUSHED | [#871](https://github.com/miztiik/yen-gov/pull/871) | XS |
 
 **Effort key**: XS = <1h • S = 1-3h • M = half-day • L = full-day.
 
