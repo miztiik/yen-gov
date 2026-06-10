@@ -152,6 +152,18 @@ export function topicLandingCrumbs(
   ];
 }
 
+/**
+ * Elections firehose (`/t/elections`). PR-W3d (2026-06-10): the bare
+ * `/t/elections` path now resolves to the firehose route (registered
+ * BEFORE `/t/elections/:event` in main.ts), not the generic
+ * TopicLanding. Two-crumb trail (Home -> Elections leaf) matches the
+ * nationalElection chain's middle crumb so the firehose visually sits
+ * between Home and a specific event view.
+ */
+export function electionsFirehoseCrumbs(): Crumb[] {
+  return [ROOT_LINK, { label: "Elections", isLeaf: true }];
+}
+
 // =============================================================
 // Election lab / compare (state + event scoped)
 // =============================================================
