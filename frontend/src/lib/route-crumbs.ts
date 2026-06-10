@@ -121,13 +121,21 @@ export function notFoundCrumbs(): Crumb[] {
 // National election + topic surfaces
 // =============================================================
 
-export function nationalElectionsAtlasCrumbs(
+export function nationalElectionCrumbs(
   params: Record<string, unknown>,
 ): Crumb[] {
+  // PR-W3c (2026-06-10): 3-crumb trail per the election experience
+  // overhaul plan brief. Drops the intermediate "Topics" crumb the
+  // pre-rebuild atlas carried (it descended via the topic-landing
+  // ascend chain); the citizen's mental model on a national event view
+  // is "Home -> Elections firehose -> this event", not "Home -> Topics
+  // -> Elections -> this event". The middle crumb links to
+  // /t/elections; PR-W3d ships the firehose there - until then the
+  // existing TopicLanding handles `/t/elections` as the elections topic
+  // page, which is a sensible parent for now.
   const event = typeof params.event === "string" ? params.event : "";
   return [
     ROOT_LINK,
-    { label: "Topics", href: link.topicsIndex() },
     { label: "Elections", href: link.topicLanding("elections") },
     { label: event, isLeaf: true },
   ];
