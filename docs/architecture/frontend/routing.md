@@ -110,17 +110,15 @@ urlIndicatorSlugs ⊥ stateSlugs ⊥ topicSlugs ⊥ acSlugsAcrossAllStates ⊥ R
 
 When the test goes red, the answer is to rename the colliding slug, never to add an exception to the test. Doctrine: slugs are part of the citizen contract; collisions are slug-quality bugs.
 
-## Strangler-fig for legacy URLs
+## Strangler-fig for legacy URLs (RETIRED 2026-06-10 in PR #871)
 
-Legacy URL grammars to be redirected forward to Grammar A:
+The 4-phase URL-prefix-drop strangler-fig has shipped end-to-end (PRs #867 / #868 / #869 / #871). The summary that follows is HISTORICAL:
 
-- `#/`, `#/s/<state>`, `#/s/<state>/ac/<ac>` (hash-routed per superseded ADR-0016)
-- `/s/<state>`, `/s/<state>/t/<topic>`, `/s/<state>/ac/<ac>` (Grammar B — currently shipping, locked by PR #172)
-- `/india/<state>/...` (Grammar C — ADR-0028 as originally written; never implemented but documented for one release cycle in case any external bookmark made it that far)
+- `#/`, `#/s/<state>`, `#/s/<state>/ac/<ac>` (hash-routed per superseded ADR-0016) — never had a runtime redirect in this plan; superseded long before.
+- `/s/<state>`, `/s/<state>/t/<topic>`, `/s/<state>/ac/<ac>` (Grammar B — was the live shape through PR #173) — redirected by `RedirectLegacyUrl.svelte` from PR #867 (2026-06-09) until PR #871 (2026-06-10).
+- `/india/<state>/...` (Grammar C — ADR-0028 as originally written) — never implemented; no redirect ever shipped.
 
-Migration: a `RedirectLegacyUrl.svelte` component mounted on the legacy patterns rewrites `window.location` via `history.replaceState` to the matching Grammar A path on mount. Lifetime: one release cycle, then deleted in Phase 4b. Documented sunset date in the component comment.
-
-External bookmarks and search-engine index entries are real consumers of the old URLs; the ~50-line redirect component is cheaper than link rot.
+After PR #871 the redirect component + the `/s/*` route + `s` from `RESERVED_PATH_TOKENS` are all deleted. Legacy `/s/<state>/...` bookmarks now render the NotFound page (404 with Home + Browse-topics recovery links).
 
 ## Cross-state indicator-compare surface
 
@@ -132,9 +130,9 @@ Not used. With ~36 states × ~150 indicators × 3 geography depths ≈ 16,000 co
 
 If a future need (sitemap.xml, OG-meta pre-rendering for shareable top-N pages) earns it, that's a Vite build step emitting a small file — separate ADR, not this one.
 
-## Router patterns (Phase 2 target)
+## Router patterns (shipped 2026-06-10)
 
-The route table in `frontend/src/main.ts` will declare these patterns once Phase 2 wires Grammar A in alongside the current Grammar B routes:
+The live route table is in [frontend/src/main.ts](../../../frontend/src/main.ts):
 
 ```svelte
 <Route path="/" component={CountryHome} />
@@ -149,16 +147,15 @@ The `RootResolver` consults RESERVED + state-registry + indicator-registry to de
 
 ## What lives where
 
-- [frontend/src/lib/links.ts](../../../frontend/src/lib/links.ts) — Grammar A URL builders: `link.stateHub`, `link.acDeepLink`, `link.stateIndicator`, etc. Future single source for every internal `<a href>`. Also exports `RESERVED_PATH_TOKENS`.
-- [frontend/src/lib/links.test.ts](../../../frontend/src/lib/links.test.ts) — Phase 1 positive shape contract for `links.ts`.
-- [frontend/src/lib/url.ts](../../../frontend/src/lib/url.ts) — LEGACY Grammar B builders. Live today; deleted in Phase 4.
-- [frontend/src/lib/url.test.ts](../../../frontend/src/lib/url.test.ts) — 42-test contract locking Grammar B (PR #172). Deleted in Phase 4 alongside `url.ts`.
+- [frontend/src/lib/links.ts](../../../frontend/src/lib/links.ts) — Grammar A URL builders: `link.stateHub`, `link.acDeepLink`, `link.stateIndicator`, etc. The SOLE source of every internal `<a href>` after PR #869. Also exports `RESERVED_PATH_TOKENS`.
+- [frontend/src/lib/links.test.ts](../../../frontend/src/lib/links.test.ts) — the positive shape contract for `links.ts`.
+- [frontend/src/lib/url.ts](../../../frontend/src/lib/url.ts) — URL utility primitives only after PR #869 (`withBase`, `stripBase`, `navigate`). The Grammar B `url.X()` builders + their 42-test contract have been deleted.
 - [frontend/src/contracts/url-namespace-disjointness.test.ts](../../../frontend/src/contracts/url-namespace-disjointness.test.ts) — namespace disjointness across state/topic/AC/indicator/RESERVED.
 - [frontend/src/contracts/state-slugs-full-name.test.ts](../../../frontend/src/contracts/state-slugs-full-name.test.ts) — Hans's full-name state-slug invariant.
 - [frontend/src/lib/paths.ts](../../../frontend/src/lib/paths.ts) — UNRELATED to URL grammar; holds `DATA_BASE` (runtime data-fetch prefix). Not the place to add new route-URL builders.
-- `frontend/src/main.ts` — route table (Phase 2 work).
-- `RedirectLegacyUrl.svelte` — strangler-fig (Phase 3 work).
-- `indicator-slug-registry.ts` — loads `indicators-completeness.json` once, exposes `slugToId(slug) → indicator_id` and `idToSlug(id) → slug` (Phase 3 work, when `url_slug` field lands).
+- [frontend/src/main.ts](../../../frontend/src/main.ts) — the live route table.
+- `RedirectLegacyUrl.svelte` — DELETED in PR #871 (2026-06-10) after the user-triggered soak window. Legacy `/s/*` URLs now fall through to NotFound.
+- `indicator-slug-registry.ts` — PENDING; lands when the `url_slug` field is added to the catalogue.
 
 ## See also
 
