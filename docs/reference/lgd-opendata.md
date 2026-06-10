@@ -1,10 +1,10 @@
 # LGD opendata source catalogue
 
-**Last Updated**: 2026-05-24
+**Last Updated**: 2026-06-11
 
 Catalogue + adoption stance for the **Local Government Directory (LGD)** mirror at [`ramseraph.github.io/opendata/lgd/`](https://ramseraph.github.io/opendata/lgd/). Companion to [boundary-data-sources.md](boundary-data-sources.md) — that doc is geometry, this one is the *registry tables* that issue the identifiers (LGD codes) the rest of yen-gov pivots on.
 
-For the current production inventory of boundary geometry shards (74 GeoJSONs across 6 producers) and the cross-walk to the LGD ⇔ Census ⇔ Constituency ⇔ PIN code alignment matrix, see [boundary-data-sources.md §"Current inventory"](boundary-data-sources.md#current-inventory-74-shards-on-disk) and [§"Cross-walk to the alignment matrix"](boundary-data-sources.md#cross-walk-to-the-lgd--census--constituency--pin-code-alignment-matrix). The phased plan for filling the sub-district / village / AC-consolidation / pincode / census-2011 gaps lives in [TODO/20260524-boundary-coverage-expansion-plan.md](../../TODO/20260524-boundary-coverage-expansion-plan.md).
+For the current production inventory of boundary geometry shards and the cross-walk to the LGD ⇔ Census ⇔ Constituency ⇔ PIN code alignment matrix, see [boundary-data-sources.md](boundary-data-sources.md). Current coverage gaps and swap candidates are recorded there.
 
 ## Terminology recap
 
@@ -51,14 +51,14 @@ Grouped by yen-gov decision verdict. The **Verdict** column is binding: do not i
 | Component                  | Use                                                                                                                                                  | Verdict                                |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
 | `states`                   | LGD numeric code ↔ canonical English state name. Bridge table for joining LGD entities to our ECI `S22`/`U05`-style codes (match by name).           | **Adopt.** Required to backfill anything else. |
-| `districts`                | LGD numeric district code + state code + canonical district name + Census 2001/2011 codes.                                                          | **Adopted.** District identity lives on `datasets/taxonomy/entities.json` (`entity_type='district'` rows) with `lgd_code` as the join key per [ADR-0015](../concepts/electoral-hierarchy.md#adr-0015-constituency-hierarchy-fields). |
-| `assembly_constituencies`  | LGD AC code + name + state. The CSV-side counterpart to the `LGD_Assembly_Constituencies` geometry release used in the [AC consolidation plan](../../TODO/20260524-boundary-coverage-expansion-plan.md#phase-d--ac-consolidation-onto-ramseraph). Lets us cross-check our ECI `acN`-prefixed IDs against the LGD-issued ones during per-state parity verification. | **Adopt alongside geometry consolidation (Phase D of the plan).** Until the first AC swap promotes, *catalogue only* — ECI's own AC codes already join HTL boundaries cleanly. |
+| `districts`                | LGD numeric district code + state code + canonical district name + Census 2001/2011 codes.                                                          | **Adopted.** District identity lives on `datasets/data/entities/geo.csv` (`entity_type='district'` rows) with `lgd_code` as the join key per [ADR-0015](../concepts/electoral-hierarchy.md#adr-0015-constituency-hierarchy-fields). |
+| `assembly_constituencies`  | LGD AC code + name + state. The CSV-side counterpart to the `LGD_Assembly_Constituencies` geometry release. Lets us cross-check our ECI `acN`-prefixed IDs against the LGD-issued ones during per-state parity verification. | **Adopt alongside geometry consolidation.** Until the first AC swap promotes, *catalogue only* — ECI's own AC codes already join HTL boundaries cleanly. |
 | `parliament_constituencies`| LGD PC code + name + state. Same role as ACs but at the national level (Members of Parliament).                                                       | **Adopt when a national-election cycle enters scope.** Currently *catalogue only.*  |
-| `subdistricts`             | LGD sub-district (tehsil/taluk/mandal) numeric code under each district.                                                                            | **Adopted countrywide in [Phase B of the plan](../../TODO/20260524-boundary-coverage-expansion-plan.md#phase-b--sub-district-national-lift).** |
+| `subdistricts`             | LGD sub-district (tehsil/taluk/mandal) numeric code under each district.                                                                            | **Adopted countrywide (PR #257).** |
 
 ### Adopt when scope expands (PRI / urban / scheme-delivery panels)
 
-Most rows below are *catalogue only* — they become required the moment yen-gov ships a citizen surface that pivots on local bodies or schemes. Three rows (`villages`, `pincode_urban`, `pincode_villages`) are **already promoted** to the [boundary coverage-expansion plan](../../TODO/20260524-boundary-coverage-expansion-plan.md) and are called out in their cells.
+Most rows below are *catalogue only* -- they become required the moment yen-gov ships a citizen surface that pivots on local bodies or schemes.
 
 | Component                                | Pulls in                                                                                  |
 | ---------------------------------------- | ----------------------------------------------------------------------------------------- |
@@ -72,12 +72,12 @@ Most rows below are *catalogue only* — they become required the moment yen-gov
 | `statewise_ulbs_coverage`                | Coverage roll-up: which ULBs cover which territory per state.                              |
 | `traditional_local_bodies`               | Sixth Schedule / customary bodies (esp. NE states).                                       |
 | `tlb_villages`                           | Village ↔ Traditional Local Body mapping.                                                 |
-| `villages`                               | LGD village code (the leaf node of the rural hierarchy). Large file — verify size before ingestion. The CSV-side counterpart to the `LGD_Villages` geometry release used in [Phase C of the plan](../../TODO/20260524-boundary-coverage-expansion-plan.md#phase-c--village-national-lift). |
+| `villages`                               | LGD village code (the leaf node of the rural hierarchy). Large file — verify size before ingestion. The CSV-side counterpart to the `LGD_Villages` geometry release (27/36 states live; 9 gap states tracked in [boundary-data-sources.md](boundary-data-sources.md)). |
 | `villages_by_blocks`                     | Village ↔ block mapping (alternate slice of `villages`).                                  |
 | `invalidated_census_villages`            | Census 2011 villages that LGD has since retired (deduplicated, merged, etc.).             |
 | `nofn_panchayats`                        | Panchayats covered by the National Optical Fibre Network rollout. Useful if a digital-infrastructure indicator ships. |
-| `pincode_urban`                          | India Post pincode ↔ ULB mapping. **Adopt as Phase A lookup table** (the search-affordance unlock; runs ahead of pincode polygons). See [Phase A of the plan](../../TODO/20260524-boundary-coverage-expansion-plan.md#phase-a--pincode-lookup-table--then-polygons). |
-| `pincode_villages`                       | India Post pincode ↔ village mapping. Phase A companion to `pincode_urban`. |
+| `pincode_urban`                          | India Post pincode ↔ ULB mapping. **Adopt as lookup table** when pincode search-affordance UI ships (runs ahead of pincode polygons). |
+| `pincode_villages`                       | India Post pincode ↔ village mapping. Companion to `pincode_urban`. |
 | `constituencies_mapping_pri`             | AC/PC ↔ PRI local body coverage (which panchayats fall in which constituency).            |
 | `constituencies_mapping_urban`           | AC/PC ↔ ULB coverage.                                                                     |
 | `constituency_coverage`                  | Combined (rural + urban) coverage roll-up per constituency.                               |
@@ -97,13 +97,13 @@ These are bureaucratic-org charts: which department exists at the centre/state, 
 
 ## How yen-gov uses it
 
-Today: district identity lives on `datasets/taxonomy/entities.json` (`entity_type='district'` rows) with `lgd_code` populated as the LGD-issued canonical key per [ADR-0015](../concepts/electoral-hierarchy.md#adr-0015-constituency-hierarchy-fields) and [ADR-0033](../architecture/backend/sources-wikipedia.md#adr-0033-retire-wikipedia-districts-adapter). The legacy per-state `districts.json` files + `district.schema.json` that originally seeded these rows were retired in T.0c-iii Phase D.3.
+Today: district identity lives on `datasets/data/entities/geo.csv` (`entity_type='district'` rows) with `lgd_code` populated as the LGD-issued canonical key per [ADR-0015](../concepts/electoral-hierarchy.md#adr-0015-constituency-hierarchy-fields) and [ADR-0033](../architecture/backend/sources-wikipedia.md#adr-0033-retire-wikipedia-districts-adapter). The legacy per-state `districts.json` files + `district.schema.json` that originally seeded these rows were retired in T.0c-iii.
 
 Planned (next implementation pass, tracked under `tools/lgd/`):
 
 1. **Snapshot.** Download the latest `states.<DDMmmYYYY>.csv.7z` and `districts.<DDMmmYYYY>.csv.7z` from `lgd-latest-extra1` to `.runtime/raw/lgd/`. Date-discover by walking back day-by-day from `Get-Date -Format "ddMMMyyyy"` until a 200 OK lands.
-2. **State-code bridge.** Build `datasets/taxonomy/lgd/lgd-to-eci-states.json` by joining LGD `State Name (In English)` to the canonical state names already in `datasets/taxonomy/entities.json` (which carry `entity_code` — the ECI code). LGD numeric state code → ECI `S22`/`U05` code. (Pre-Phase-C the comparable file was `datasets/reference/in/states.json`; the join logic is unchanged.)
-3. **District backfill.** For each `entity_type='district'` row on `datasets/taxonomy/entities.json` (carrying a `legacy_id` Wikipedia-slug fallback from the Phase-A fold-in), normalise the display name (lowercase, strip whitespace, drop trailing " District"), match against LGD `districts.csv` filtered to that state's LGD code, write the resolved `lgd_code`, and surface unmatched names for manual review. Today most of the 145 Phase-A district rows already carry `lgd_code` from the original wikipedia-scraped fields; the long tail (~600 LGD-only districts for states with no hand-authored seed) lands via this pass.
+2. **State-code bridge.** Build `datasets/data/entities/lgd/lgd-to-eci-states.json` by joining LGD `State Name (In English)` to the canonical state names already in `datasets/data/entities/geo.csv` (which carry `entity_code` -- the ECI code). LGD numeric state code -> ECI `S22`/`U05` code.
+3. **District backfill.** For each `entity_type='district'` row on `datasets/data/entities/geo.csv` (carrying a `legacy_id` Wikipedia-slug fallback from the Phase-A fold-in), normalise the display name (lowercase, strip whitespace, drop trailing " District"), match against LGD `districts.csv` filtered to that state's LGD code, write the resolved `lgd_code`, and surface unmatched names for manual review. Today most of the 145 Phase-A district rows already carry `lgd_code` from the original wikipedia-scraped fields; the long tail (~600 LGD-only districts for states with no hand-authored seed) lands via this pass.
 4. **Provenance.** Each generated artifact carries a `sources` array per CLAUDE.md §12 with the exact ramSeraph release URL and `fetched_at`. Reference materials (the data.gov.in mirror, the LGD portal itself) belong in commit messages, not `sources` (which only lists URLs the pipeline actually fetched).
 
 The geometry side (LGD-derived district polygons) is a separate workstream — see [boundary-data-sources.md](boundary-data-sources.md) §"Format gap: geojsonl.7z" and the `staged_inputs` entry in [`tools/boundaries/pipeline.json`](../../tools/boundaries/pipeline.json).

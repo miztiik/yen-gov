@@ -1,12 +1,10 @@
 # Data Sources
 
-**Last Updated**: 2026-05-25
+**Last Updated**: 2026-06-11
 
-> The "look here first" catalogue. Every external place yen-gov pulls — or might pull — data from is listed below, with what it covers, what format it ships, and when to use (or avoid) it. When enriching data in future, start here.
+> The "look here first" catalogue. Every external place yen-gov pulls -- or might pull -- data from is listed below, with what it covers, what format it ships, and when to use (or avoid) it. When enriching data in future, start here.
 >
-> The hierarchy for **election data** is enforced by the [authority hierarchy for past elections](../architecture/backend/sources-eci.md#authority-hierarchy-for-past-elections): **ECI is the canonical source**; everything else is bootstrap, enrichment, or cross-check. Non-election data (fiscal, energy, demographics) follow per-domain authority — see the per-source sections below.
-
-> **Machine-readable peer**: [`datasets/reference/in/upstream-sources.json`](../../datasets/reference/in/upstream-sources.json) (validated by [`upstream-sources.schema.json`](../../datasets/schemas/upstream-sources.schema.json)) is the canonical, queryable registry. Every upstream — `ingested` / `recon_done` / `candidate` / `skipped` — has one row there with the landing URL, asset URL pattern, format, coverage, ingest status, the backend adapter (when shipped), the indicator ids it produces, and a `skip_reason` when we consciously chose not to ingest. **When in doubt, the JSON wins**; this Markdown is the human reading-room view of the same facts.
+> The hierarchy for **election data** is enforced by the [authority hierarchy for past elections](../architecture/backend/sources-eci.md#authority-hierarchy-for-past-elections): **ECI is the canonical source**; everything else is bootstrap, enrichment, or cross-check. Non-election data (fiscal, energy, demographics) follow per-domain authority -- see the per-source sections below.
 
 ## Source authority order
 
@@ -178,9 +176,8 @@ Currently shipped: `fiscal/centre_transfers_gross` (RS Q1323/2023, FY17–FY23 a
 **Hub**: <https://bharatpashudhan.gov.in/>
 **API host**: `https://bharatpashudhan-api.ndlm.co.in/`
 **How-to**: [docs/how-to/ndlm-data-download.md](../how-to/ndlm-data-download.md)
-**Plan**: [TODO/20260525-livestock-ndlm-ingest-plan.md](../../TODO/20260525-livestock-ndlm-ingest-plan.md)
 
-The Department of Animal Husbandry & Dairying (DAHD) ships the Bharat Pashudhan portal as the official India-wide livestock data product. Five district-wise JSON endpoints are seeded as citation rows in `datasets/taxonomy/sources.parquet` (PR 1, 2026-05-25):
+The Department of Animal Husbandry & Dairying (DAHD) ships the Bharat Pashudhan portal as the official India-wide livestock data product. Five district-wise JSON endpoints are seeded as citation rows in `datasets/data/entities/source.csv` (PR 1, 2026-05-25):
 
 | Endpoint | source_id | Notes |
 | -------- | --------- | ----- |
@@ -188,11 +185,11 @@ The Department of Animal Husbandry & Dairying (DAHD) ships the Bharat Pashudhan 
 | Pashu Aadhaar (UID-tagged animals) | `src-7e5d4aac4995` | **Honest-renderer caveat (Hans)**: counts TAGGED animals only, NOT the underlying livestock population. Curve is monotone-non-decreasing (no de-registration event). Indicator-row will carry `comparability: directional_only` + `renderer_rules: ["no_rank_table"]`. |
 | NADCP Vaccination Coverage | `src-1d0c0fbf96e3` | Doses administered per district per FY (National Animal Disease Control Programme). |
 | Breeding Interventions (ABIP+RGM) | `src-fb1694ab6a11` | Accelerated Breed Improvement Programme + Rashtriya Gokul Mission, aggregated to district. |
-| NAIP IV (AI Coverage, Pregnancies, Calves) | `src-93a2a72db482` | National Artificial Insemination Programme Phase IV. CY/FY duality verified at recon (TN FY24-25: 1,529,434 vs CY24: 1,396,453). |
+| NAIP-IV (AI Coverage, Pregnancies, Calves) | `src-93a2a72db482` | National Artificial Insemination Programme fourth phase. CY/FY duality verified at recon (TN FY24-25: 1,529,434 vs CY24: 1,396,453). |
 
 All five share producer = "Department of Animal Husbandry & Dairying, Ministry of Fisheries, Animal Husbandry & Dairying, Government of India", vintage = "2024-25", license = OGL-IN-1.0, confidence_tier = gold (DAHD is the issuing authority for each series), verification_method = live-fetch (continuously-updated JSON APIs).
 
-**Identifier contract**: the `stateCode` parameter and the district `code` field on response rows ARE the LGD (Local Government Directory, MoHA) codes verbatim. Recon (PR 0 of the umbrella, [tools/ndlm_recon_lgd_districts.py](../../tools/ndlm_recon_lgd_districts.py)) verified 588 / 588 districts join cleanly against `datasets/taxonomy/entities.parquet` with zero FK-drops. No state-code translation table is required.
+**Identifier contract**: the `stateCode` parameter and the district `code` field on response rows ARE the LGD (Local Government Directory, MoHA) codes verbatim. Recon (PR 0 of the umbrella, [tools/ndlm_recon_lgd_districts.py](../../tools/ndlm_recon_lgd_districts.py)) verified 588 / 588 districts join cleanly against `datasets/data/entities/geo.csv` with zero FK-drops. No state-code translation table is required.
 
 **Period-basis duality**: each endpoint accepts a `period` discriminator (CY or FY) on the request payload, so the same indicator row can carry both bases. Per CLAUDE.md section 12 the canonical observation row carries `period_label` ("CY24" or "FY24-25") on the PK and the citizen surface defaults to FY with a URL toggle (`?period_basis=cy`). The citation row is one per endpoint (not per period-basis).
 
@@ -211,14 +208,13 @@ All five share producer = "Department of Animal Husbandry & Dairying, Ministry o
 
 ## See also
 
-- [data-coverage-report.md](data-coverage-report.md) — what's actually loaded today, per indicator, with time spans, gaps, and next-step hints. Read this when you want to know *"have we got X yet, and how deep does it go?"*
-- [`datasets/reference/in/upstream-sources.json`](../../datasets/reference/in/upstream-sources.json) — machine-readable peer of this doc; the canonical registry.
-- [`datasets/schemas/upstream-sources.schema.json`](../../datasets/schemas/upstream-sources.schema.json) — registry schema (v1.0).
-- [`docs/concepts/disclaimer.md`](../concepts/disclaimer.md) — user-facing disclaimer wording (boundaries are community-contributed, data is best-effort, etc.); rendered by the app's About page.
-- [backend/sources-eci.md](../architecture/backend/sources-eci.md) — ECI results portal adapter conventions and authority hierarchy for past elections.
-- [backend/sources-wikipedia.md](../architecture/backend/sources-wikipedia.md) — Wikipedia adapter scope.
-- [backend/sources-rbi.md](../architecture/backend/sources-rbi.md) — RBI *State Finances* adapter contract, per-Statement → indicator mapping, recon procedure for new editions.
-- [data-model.md](../architecture/data-model.md#constituency-hierarchy-and-status-lifecycle) — `status: complete` requires an ECI source.
+- [data-coverage-report.md](data-coverage-report.md) -- what's actually loaded today, per indicator, with time spans, gaps, and next-step hints. Read this when you want to know *"have we got X yet, and how deep does it go?"*
+- [`datasets/schemas/upstream-sources.schema.json`](../../datasets/schemas/upstream-sources.schema.json) -- registry schema (v1.0).
+- [`docs/concepts/disclaimer.md`](../concepts/disclaimer.md) -- user-facing disclaimer wording (boundaries are community-contributed, data is best-effort, etc.); rendered by the app's About page.
+- [backend/sources-eci.md](../architecture/backend/sources-eci.md) -- ECI results portal adapter conventions and authority hierarchy for past elections.
+- [backend/sources-wikipedia.md](../architecture/backend/sources-wikipedia.md) -- Wikipedia adapter scope.
+- [backend/sources-rbi.md](../architecture/backend/sources-rbi.md) -- RBI *State Finances* adapter contract, per-Statement -> indicator mapping, recon procedure for new editions.
+- [data-model.md](../architecture/data-model.md#constituency-hierarchy-and-status-lifecycle) -- `status: complete` requires an ECI source.
 - [`docs/concepts/data-provenance.md`](../concepts/data-provenance.md) — `sources[]` contract.
 - [`docs/concepts/electoral-hierarchy.md`](../concepts/electoral-hierarchy.md) — what each source can authoritatively tell us about.
 - [`docs/reference/identifiers.md`](identifiers.md) — `S22` ↔ display-code mapping (populated as recon confirms).
