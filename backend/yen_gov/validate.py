@@ -50,12 +50,10 @@ CURRENT_SCHEMA_VALIDATION = "current_schema"
 
 # Legacy per-indicator JSON shard tree (CLAUDE.md §10 anti-pattern).
 # The 110 shards under `datasets/indicators/in/<topic>/<id>.json` pre-date
-# the canonical-long-format pivot (TODO/20260517 §0e.7 P.*). New shards
-# are forbidden; existing shards retire family-by-family. The allowlist
-# enumerates the legacy set; the Tier-B check
+# the canonical long-format CSV store. New shards are forbidden; existing
+# shards retire family-by-family. The allowlist enumerates the legacy set;
 # `tier_b_meadow_shard_contract` enforces the doctrine. See
-# docs/architecture/backend/validator.md and
-# docs/architecture/canonical-pivot-deletion-manifest.md §6a.
+# docs/architecture/backend/validator.md.
 LEGACY_INDICATOR_SHARDS_DIR = Path("datasets/indicators/in")
 LEGACY_INDICATOR_SHARDS_ALLOWLIST = Path("datasets/_ops/meadow-shard-contract.txt")
 
@@ -196,12 +194,12 @@ MEADOW_PRODUCER_REGISTRY: dict[str, str] = {
 #                    that are NOT contract surfaces.
 #
 # Historical note: `_test` was previously exempt as a cross-language
-# test-fixture subtree. T.1 (TODO/20260517 §0e.7) deleted that subtree;
-# shared cross-language fixtures now live under `backend/tests/fixtures/`
-# (Python-owned, single source of truth) and are pointed at by both
-# pytest and vitest. Any future underscore-prefixed subtree under
-# `datasets/` is NOT auto-exempt and MUST raise Tier-B loudly. The
-# regression guard is `test_tier_b_does_not_silently_skip_unknown_underscore_dirs`.
+# test-fixture subtree. That subtree is gone; shared cross-language fixtures
+# now live under `backend/tests/fixtures/` (Python-owned, single source of
+# truth) and are pointed at by both pytest and vitest. Any future
+# underscore-prefixed subtree under `datasets/` is NOT auto-exempt and MUST
+# raise Tier-B loudly. The regression guard is
+# `test_tier_b_does_not_silently_skip_unknown_underscore_dirs`.
 _EXCLUDED_PATH_SEGMENTS: frozenset[str] = frozenset({"ephemeral"})
 VERSION_RE = re.compile(r"\d+\.\d+")
 
@@ -445,20 +443,16 @@ def _load_allowlist(path: Path) -> set[str]:
 def tier_b_meadow_shard_contract(root: Path) -> list[Failure]:
     """Forbid new per-indicator JSON shards under datasets/indicators/in/.
 
-    Per CLAUDE.md §10 anti-pattern and Gregor's Phase-2 pre-flight audit
-    (TODO/20260521-phase-2-preflight-audit-gregor.md finding #1), the 110
-    legacy folded-indicator shards retire family-by-family per
-    TODO/20260517 §0e.7 P.*. New content must land directly on the
-    canonical Parquet store -- `datasets/<family>/<family>_<role>.parquet`
-    + ``datasets/data/variables.csv``. This Tier-B check makes the
-    doctrine computationally enforced rather than purely textual.
+    Per CLAUDE.md §10 anti-pattern, the legacy folded-indicator shards retire
+    family-by-family. New content must land directly on the canonical CSV
+    store under `datasets/data/`. This Tier-B check makes the doctrine
+    computationally enforced rather than purely textual.
 
     The allowlist `datasets/_ops/meadow-shard-contract.txt`
-    enumerates the legacy set. When a P.* PR retires a family, that PR
-    `git rm`s the family's shards AND removes the matching lines from the
-    allowlist in the same Tier-A commit. When the final P.* family ships,
-    the directory disappears, the allowlist file disappears, and this
-    check disappears alongside `backend/yen_gov/legacy/folded_indicator_writer.py`.
+    enumerates the legacy set. When a family retires, that PR `git rm`s the
+    family's shards and removes the matching lines from the allowlist in the
+    same commit. When the legacy tree is empty, the directory, allowlist, and
+    check disappear together.
 
     Two symmetric failure modes:
       1. Forbidden new shard: file on disk under `datasets/indicators/in/`
@@ -466,8 +460,8 @@ def tier_b_meadow_shard_contract(root: Path) -> list[Failure]:
       2. Orphan allowlist entry: path listed in the allowlist but not
          present on disk (allowlist out-of-sync with the legacy set).
 
-    If `datasets/indicators/in/` does not exist (final P.* PR has shipped),
-    the check is a no-op and the allowlist may be deleted.
+    If `datasets/indicators/in/` does not exist, the check is a no-op and the
+    allowlist may be deleted.
     """
     failures: list[Failure] = []
     indicators_dir = root / LEGACY_INDICATOR_SHARDS_DIR
@@ -475,7 +469,7 @@ def tier_b_meadow_shard_contract(root: Path) -> list[Failure]:
     allowlist_rel = LEGACY_INDICATOR_SHARDS_ALLOWLIST.as_posix()
 
     if not indicators_dir.exists():
-        # Final P.* family has shipped; the legacy tree is gone. No-op.
+        # Legacy tree is gone. No-op.
         return failures
 
     if not allowlist_path.exists():
@@ -503,10 +497,9 @@ def tier_b_meadow_shard_contract(root: Path) -> list[Failure]:
                 new_shard,
                 "B",
                 "forbidden new indicator shard: per CLAUDE.md §10, new content must land "
-                "on the canonical Parquet store (datasets/<family>/<family>_<role>.parquet "
-                "+ datasets/data/variables.csv). To retire an existing family, "
+                "on the canonical CSV store under datasets/data/. To retire an existing family, "
                 "remove its lines from datasets/_ops/meadow-shard-contract.txt "
-                "in the same PR as the per-family P.* pivot.",
+                "in the same PR as the shard deletion.",
             )
         )
 
@@ -557,7 +550,7 @@ def tier_b_legacy_boundary_sidecars(root: Path) -> list[Failure]:
     `source_id` FK to `datasets/data/entities/source.csv`). The X1a-fu2-E
     rip (2026-06-07) replaced the prior parquet form of the ledger
     (`datasets/boundaries/boundary_layers.parquet`) with the long-format
-    CSV per the platform-reset plan.
+    CSV in the current canonical store.
 
     Two symmetric failure modes (mirroring
     `tier_b_meadow_shard_contract`):

@@ -1,17 +1,18 @@
-"""CSV validator (sub-plan B1.3).
+"""Canonical CSV validator.
 
 Read-time validator for canonical CSV artifacts: dtype + nullability + sort
 determinism are enforced by the writer (B1.2), but cross-file integrity
 (FK existence, closed-enum membership, datapoint filename-equals-indicator_id)
 can only be checked once sibling files exist on disk. ``validate_csv`` is the
-read-time half of the fk-validator gate (parent plan section 22.6).
+read-time half of the CSV contract described in
+``docs/architecture/data/csv-column-contract.md``.
 
 Public surface:
 
     from yen_gov.canonical.csv_validator import validate_csv
     validate_csv(path=..., file_class=..., repo_root=...)
 
-Responsibilities (sub-plan B1.3 + parent 22.6 fk-validator):
+Responsibilities:
 
 - Header equals the declared column names exactly, in order.
 - Per-cell dtype parses + nullability honoured (empty field iff column is
@@ -21,23 +22,19 @@ Responsibilities (sub-plan B1.3 + parent 22.6 fk-validator):
   declared FK target column (loaded relative to ``repo_root``).
 - Rows sorted ascending by the file class's PK columns in declaration order
   (matches what ``csv_writer.write_csv`` emits).
-- Filename has no ``__`` (parent plan section 21.12).
+- Filename has no ``__``.
 - For datapoint file classes (``datasets/data/datapoints/**/*.csv``) the file
-  stem MUST equal a row's ``indicator_id`` in ``variables.csv`` when present
-  (sub-plan B1.3 spec). If ``variables.csv`` is absent in ``repo_root`` the
-  check is skipped (fixture trees may omit it; B2a will land it).
+    stem MUST equal a row's ``indicator_id`` in ``variables.csv`` when present.
+    If ``variables.csv`` is absent in ``repo_root`` the check is skipped because
+    small fixture trees may omit it.
 
-Out of scope for B1.3 (follow-ups, noted here so future agents do not
-re-discover them):
+Out of scope (noted here so future agents do not re-discover them):
 
-- "No wall-clock value in content columns": parent 22.6 calls this out for the
-  fk-validator gate, but a defensible detector needs a content-column
-  taxonomy that the column contract does not yet carry. Land alongside the
-  first ingest that would benefit (B1.4 or later).
-- Per-indicator facet columns extending the declared list at write time
-  (parent 21.6): the validator follows the writer's strictness and rejects
-  undeclared columns. Both surfaces will relax together when the first facet
-  ingest needs it.
+- "No wall-clock value in content columns": a defensible detector needs a
+    content-column taxonomy that the column contract does not yet carry.
+- Per-indicator facet columns extending the declared list at write time: the
+    validator follows the writer's strictness and rejects undeclared columns.
+    Both surfaces relax together when the file class declares the facet columns.
 
 No mocks (Holy Law #7). Caller owns ``repo_root`` so tests can stage fixture
 trees under ``tmp_path`` (CLAUDE.md anti-pattern: validators MUST NOT walk the
@@ -99,7 +96,7 @@ def validate_csv(
 
     if "__" in path.name:
         raise CsvValidationError(
-            f"filename must not contain '__' (plan section 21.12): {path.name!r}"
+            f"filename must not contain '__': {path.name!r}"
         )
 
     if not path.exists():
@@ -152,7 +149,7 @@ def validate_csv(
             if prev_key is not None and key < prev_key:
                 raise CsvValidationError(
                     f"{path.name}: rows not sorted by PK {list(pk_names)} "
-                    f"at row {index + 2} (parent plan 22.4 invariant 5)"
+                    f"at row {index + 2}"
                 )
             prev_key = key
 

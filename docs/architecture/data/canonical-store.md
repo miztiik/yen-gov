@@ -142,7 +142,7 @@ datasets/demography/demography_census_2011.parquet   datasets/demography/demogra
 
 **Indicator-id grain is enforced inside the file, not at the filename level.** A single `energy_generation.parquet` can carry every indicator whose row grain is (plant × month × fuel); the indicator_id column distinguishes them. The rule is about row grain, not about indicator count.
 
-**Migration sequencing** (Fowler): the rename is a *Tidy First* structural change (byte-identical content, only paths and string identifiers move). Per family it lands big-bang in that family's 1.8 sub-PR (no strangler ceremony — yen-gov owns every consumer). The cross-cutting decoupling (manifest `table_name` field + `duckdb.ts` rewrite + `_DIM_SPECS` audit) is the Parquet naming migration row 1.8a-bis and lands BEFORE 1.8b.
+**Migration sequencing** (Fowler): the rename is a *Tidy First* structural change (byte-identical content, only paths and string identifiers move). Per family it lands big-bang when yen-gov owns every consumer. The cross-cutting decoupling (manifest `table_name` field + `duckdb.ts` rewrite + `_DIM_SPECS` audit) must land before any physical filename rename.
 
 ---
 
@@ -152,7 +152,7 @@ datasets/demography/demography_census_2011.parquet   datasets/demography/demogra
 
 **Authority**: Max (Indicator Scout — OWID precedent) is the lead voice for indicator identity / topic taxonomy / directory shape per CLAUDE.md §0a, with Hans (Governance) on Indian-citizen framing and Fowler (Engineering) on refactor safety. User direction 2026-05-19: *"For all the questions … you should accept Max's recommendation."*
 
-**Cross-ref**: The canonical store migration covered the migration sequence (T.1 -> T.2 -> T.3 -> S.1 -> G.1 -> P.*), the persons-fork resolution, the override decisions, and the debate cross-ref. This doc (§2b) is the disk-layout contract.
+**Cross-ref**: This section is the disk-layout contract. Historical sequencing and debate receipts live in git history and archived plans, not in the current architecture contract.
 
 ### §2b.1 — Top-level families (locked)
 
@@ -237,7 +237,7 @@ datasets/
     dim_panchayats.parquet                            # LGD-coded panchayat dim
     dim_ulbs.parquet                                  # LGD-coded urban-local-body dim
 
-  fiscal/                             # P.* — pivots from indicators/in/fiscal/
+  fiscal/                             # legacy indicator-family migration target
     fiscal_state_finances.parquet
     fiscal_centre_transfers.parquet
     fiscal_union_deficit.parquet
@@ -281,19 +281,19 @@ datasets/
     work_self_employment.parquet
     work_migration.parquet
 
-  demography/                         # P.*
+  demography/                         # legacy indicator-family migration target
     demography_population.parquet
     demography_age_structure.parquet
     demography_migration.parquet
     demography_sex_ratio.parquet
 
-  economy/                            # P.*
+  economy/                            # legacy indicator-family migration target
     economy_gdp_gva.parquet
     economy_household_consumption.parquet     # HCES 2022-23 (Max Q7 sequencing — MAJOR)
     economy_poverty.parquet                   # NITI MPI + HCES-derived
     economy_inflation.parquet                 # CPI/WPI from prices/ if not cross-tagged
 
-  prices/                             # P.*
+  prices/                             # legacy indicator-family migration target
     prices_cpi.parquet
     prices_wpi.parquet
     prices_food_retail.parquet
@@ -312,12 +312,12 @@ datasets/
     technology_trai_telecom.parquet
     technology_nfhs_ict.parquet
 
-  environment/                        # P.* — AQ already in via legacy
+  environment/                        # legacy indicator-family migration target
     environment_air_quality.parquet
     environment_ghg_emissions.parquet
     environment_water_quality.parquet
 
-  transport/                          # P.*
+  transport/                          # legacy indicator-family migration target
     transport_road_network.parquet
     transport_road_accidents.parquet
 
@@ -1302,7 +1302,7 @@ Status: accepted 2026-05-23. Authority: User approval of the DuckDB slicing plan
 
 **Consequences (bad).** `registerSlice` callers must know which table they are slicing and may need small table-specific alias helpers until SemanticCatalogue exists. Current `entity_code` remains overloaded for state rows - a normalised `taxonomy.entity_aliases` table is still desirable but intentionally not in scope. Existing documentation and tests must be precise about `/s/tamil-nadu` being a current legacy smoke route, while `/india/tamil-nadu` is the target citizen route.
 
-> **DOCTRINE NOTE (2026-06-04, plan section 22.7).** The state-identity rule survives the CSV cutover. The partition-token policy MIGRATES with the rip-and-replace: long-format CSV under `datasets/data/` uses LGD-slug folder naming (per [ADR-0050](#adr-0050-folder-naming-lgd-slug) folded at D-DOC3.6 below) rather than ECI / ISO partition tokens. `registerSlice`'s manifest-native contract is unchanged in shape; the manifest itself moves to enumerate CSV files in place of Parquet files per plan chunks B2b / X1.
+> **DOCTRINE NOTE (2026-06-04).** The state-identity rule survives the CSV cutover. Long-format CSV under `datasets/data/` uses LGD-slug folder naming (per [ADR-0050](#adr-0050-folder-naming-lgd-slug) folded below) rather than ECI / ISO partition tokens. `registerSlice`'s manifest-native contract is unchanged in shape; the manifest enumerates current CSV files instead of retired Parquet files.
 
 ### ADR-0050: folder-naming-lgd-slug
 
@@ -1312,7 +1312,7 @@ Status: accepted 2026-06-01. Authority: User (locked 2026-06-01, supersedes per 
 
 **Decision.** Adopt `state=<lgd-name-slug>` as the canonical partition-key shape across every dataset partition that today uses `state=in_sXX` / `state=in_uXX`. `<lgd-name-slug>` is the kebab-case ASCII slug of the canonical LGD `state_name` (English): `haryana`, `himachal-pradesh`, `tamil-nadu`, `jammu-and-kashmir`, `andaman-and-nicobar-islands`. Disambiguator: there are no collisions among the 36 current state/UT names; if a future split produces a name collision, the slug carries the disambiguating suffix. Authority list: `datasets/taxonomy/lgd_states.json` is the single source for the canonical slug.
 
-**What changes** (boundary partitions `datasets/boundaries/in/ac/state=in_s07/...` -> `state=haryana/...`; election partitions `datasets/elections/state=in_s07/...` -> `state=haryana/...`; indicator partitions `datasets/indicators/in/<topic>/state=in_s07/...` -> `state=haryana/...`). The AC + PC subtrees were further moved to the electoral peer of the admin spine in G10 (2026-06-09, plan section 4 EL2): `boundaries/in/ac/state=<slug>/...` -> `boundaries/electoral/delim=2008/ac/state=<slug>/...` and `boundaries/in/pc/delim=2024/all.geojson` -> `boundaries/electoral/delim=2024/pc/all.geojson`. **What does NOT change** (URL slugs `/<state-slug>` already name-slug, unaffected; in-row columns `state_code = "S07"` for display + `lgd_state_id = 7` for join, unchanged - this ADR addresses partition KEYS, not column values; `entity_id` shape `IN-<state>-AC-<delim>-<eci_no>` per [ADR-0044](../../reference/decision-index.md#) unchanged).
+**What changes** (boundary partitions `datasets/boundaries/in/ac/state=in_s07/...` -> `state=haryana/...`; election partitions `datasets/elections/state=in_s07/...` -> `state=haryana/...`; indicator partitions `datasets/indicators/in/<topic>/state=in_s07/...` -> `state=haryana/...`). The AC + PC subtrees now live under the electoral peer of the admin spine: `boundaries/electoral/delim=2008/ac/state=<slug>/...` and `boundaries/electoral/delim=2024/pc/all.geojson`. **What does NOT change** (URL slugs `/<state-slug>` already name-slug, unaffected; in-row columns `state_code = "S07"` for display + `lgd_state_id = 7` for join, unchanged - this ADR addresses partition KEYS, not column values; `entity_id` shape `IN-<state>-AC-<delim>-<eci_no>` per [ADR-0044](../../reference/decision-index.md#) unchanged).
 
 **Rationale - why name-slug rather than `lgd_state_id` numeric.** User's verbatim load-bearing argument (2026-06-01): "State names rarely change; LGD numbers historically do." A partition key written into thousands of files is the most expensive thing in the repo to rewrite. Picking the slug-stable axis over the id-stable axis is the OWID precedent (their dataset partition keys use ISO country names + slug variants, not ISO numeric).
 
