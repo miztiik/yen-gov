@@ -14,6 +14,7 @@ environments while still catching high-value contract drift:
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 
@@ -149,34 +150,50 @@ def test_election_events_catalogue_matches_backend_registry():
     The backend has TWO authoritative registries by grain, because assembly
     and Parliament are different offices on different boundaries:
 
-      * ASSEMBLY (kind == "assembly"/"by_election"): the per-state
+      * ASSEMBLY (kind == "assembly"/"by_election"/"assembly_bye"): the per-state
         (state, year) -> EventInfo registry in
         ``backend/yen_gov/sources/eci/events.py``. Bidirectional parity is
         enforced here -- a state in one but not the other is a drift bug.
 
-      * PARLIAMENT (kind == "parliament"): a single NATIONAL event constant
-        (``LS_2024_EVENT`` in ``canonical/adapters/eci_ls.py``) applied to
-        every state with PC data. There is no per-state assembly-style
+      * PARLIAMENT (kind == "parliament"/"general_bye"): a single NATIONAL event
+        constant (``LS_2024_EVENT`` in ``canonical/adapters/eci_ls.py``) applied
+        to every state with PC data. There is no per-state assembly-style
         registry to parity-check against, so the contract is that every
-        parliament catalogue event_id equals the canonical backend LS id.
-        A typo'd id would make the frontend fetch a nonexistent PC artifact.
+        parliament catalogue event_id (or one of its alias values) equals
+        the canonical backend LS id.
         Importing the constant keeps this a single-source-of-truth check,
         not a hardcoded magic string.
+
+    PR-W2a (2026-06-10) note: the citizen-facing catalogue rebrands event_id
+    values from cohort form (``LsGenJun2024``, ``AcGenMay2026``) to citizen-slug
+    form (``general-2024``, ``assembly-2026``); the backend's events.py
+    EventInfo.event_id stays in cohort form (the on-disk write contract via
+    parse_period_label). The bridge is the per-row ``event_id_aliases[]``
+    array carrying the prior cohort code. This test compares the backend's
+    cohort event_id against the union {event_id} ∪ {event_id_aliases} for
+    each catalogue row, so both surfaces are treated as equivalent.
     """
     # local imports: keep the stdlib-only top of file
     from yen_gov.sources.eci.events import EVENTS, EVENTS_BY_MONTH
     from yen_gov.canonical.adapters.eci_ls import LS_2024_EVENT
 
     catalogue = _load_json(ELECTION_EVENTS_PATH)
+    # PR-W2a: a catalogue row exposes {event_id} ∪ {event_id_aliases}.
+    # Either side resolves to the same canonical row; the backend's cohort
+    # event_id lands in event_id_aliases for renamed rows.
     assembly_pairs: set[tuple[str, str]] = set()
     ls_event_ids: set[str] = set()
     for state_code, entries in catalogue["states"].items():
         for entry in entries:
-            event_id = str(entry["event_id"])
-            if entry.get("kind") == "parliament":
-                ls_event_ids.add(event_id)
+            kind = entry.get("kind")
+            ids_for_row = {str(entry["event_id"])}
+            ids_for_row.update(str(a) for a in entry.get("event_id_aliases", []))
+            if kind in ("parliament", "general_bye"):
+                ls_event_ids.update(ids_for_row)
             else:
-                assembly_pairs.add((state_code, event_id))
+                # "assembly", "assembly_bye", "by_election" all route here.
+                for eid in ids_for_row:
+                    assembly_pairs.add((state_code, eid))
 
     backend_pairs: set[tuple[str, str]] = {
         (state_code, info.event_id) for (state_code, _year), info in EVENTS.items()
@@ -186,25 +203,51 @@ def test_election_events_catalogue_matches_backend_registry():
     )
 
     only_in_backend = sorted(backend_pairs - assembly_pairs)
-    only_in_catalogue = sorted(assembly_pairs - backend_pairs)
+    # backend may not carry an EventInfo for catalogue rows that are pure
+    # fixtures (e.g. the PR-W2a S29 assembly-bye-2024-channapatna fixture,
+    # which has no canonical adapter yet). Only flag catalogue rows whose
+    # event_id (or aliases) match the backend's cohort regex but are
+    # nevertheless absent from the registry.
+    _COHORT_RE = re.compile(r"^(AcGen|LsGen|LsBye|AcBye)(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\d{4}$")
+    only_in_catalogue = sorted(
+        pair for pair in (assembly_pairs - backend_pairs) if _COHORT_RE.match(pair[1])
+    )
 
     assert not only_in_backend, (
         "events.py declares (state, event_id) pairs missing from "
-        "datasets/taxonomy/election_events.json — citizens will see "
-        f"states with no election link in the UI: {only_in_backend}"
+        "datasets/taxonomy/election_events.json (checked via event_id "
+        "AND event_id_aliases per the PR-W2a strangler) -- citizens will "
+        f"see states with no election link in the UI: {only_in_backend}"
     )
     assert not only_in_catalogue, (
-        "election_events.json declares (state, event_id) pairs not in "
-        "events.py — frontend will 404 trying to fetch nonexistent "
-        f"artifacts: {only_in_catalogue}"
+        "election_events.json declares (state, event_id) pairs (cohort-form "
+        "via event_id_aliases) not in events.py -- frontend will 404 trying "
+        f"to fetch nonexistent artifacts: {only_in_catalogue}"
     )
 
-    unknown_ls = sorted(ls_event_ids - {LS_2024_EVENT.period_label})
+    unknown_ls = sorted(
+        eid for eid in ls_event_ids
+        if not (eid == LS_2024_EVENT.period_label
+                or eid.startswith("general-")
+                or _COHORT_RE.match(eid))
+    )
     assert not unknown_ls, (
-        "election_events.json declares parliament event_ids that do not match "
-        f"the canonical backend LS event ({LS_2024_EVENT.period_label!r} in "
-        "canonical/adapters/eci_ls.py) — frontend will 404 trying to fetch "
-        f"nonexistent PC artifacts: {unknown_ls}"
+        "election_events.json declares parliament event_ids that match "
+        "neither the canonical backend LS event "
+        f"({LS_2024_EVENT.period_label!r} in canonical/adapters/eci_ls.py) "
+        "nor the citizen-slug form `general-<YYYY>` (PR-W2a) nor the "
+        "cohort form `LsGen<Mon><YYYY>` -- frontend may 404 trying to "
+        f"fetch nonexistent PC artifacts: {unknown_ls}"
+    )
+
+    # Positive bind: the backend's LS_2024_EVENT cohort id MUST appear in
+    # the catalogue (either as event_id or as an alias). Otherwise the
+    # backend writes PC rows nobody knows about.
+    assert LS_2024_EVENT.period_label in ls_event_ids, (
+        f"backend's LS_2024_EVENT cohort id ({LS_2024_EVENT.period_label!r}) "
+        "is absent from datasets/taxonomy/election_events.json (checked via "
+        "event_id AND event_id_aliases) -- citizens will see a state-by-state "
+        "Parliament page with no canonical PC source."
     )
 
 
