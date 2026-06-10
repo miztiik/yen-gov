@@ -30,6 +30,33 @@
  *   * acSlugs    ⊥ topicSlugs
  *   * acSlugs    ⊥ RESERVED
  *
+ * ## PR-0 event-context disjointness (election experience overhaul plan)
+ *
+ * The election experience overhaul plan (2026-06-09) locks the new
+ * election URL cascade:
+ *
+ *   /t/elections                                         (firehose)
+ *   /t/elections/<event-slug>                            (national)
+ *   /<state>/elections/<event-slug>                      (state slice)
+ *   /<state>/elections/<event-slug>/<constituency-slug>  (constituency)
+ *   /compare/elections/<state>/<from>/<to>               (compare)
+ *
+ * The path-segment literals `{"general", "assembly", "elections"}`
+ * carry event-context identity at depths 2-3 of the cascade
+ * (`general-` / `assembly-` as event-slug body prefixes; `elections`
+ * as the middle-segment literal). PR-0 asserts no state slug, topic
+ * slug, or AC name slug equals any literal in that set, so a
+ * 1-segment URL like `/general` cannot be misread as a state hub.
+ *
+ * Event-slug grammar is regex-pinned:
+ *
+ *   ^(general|assembly)(-bye-[a-z0-9-]+|-\d{4})$
+ *
+ * `elections` is deliberately NOT added to `RESERVED_PATH_TOKENS`
+ * because the firehose stays at the existing `/t/elections` (top-
+ * level reservation `t` covers it). The event-context literals are
+ * a separate concern from chrome reservations.
+ *
  * ## Deferred registries (Phase 3)
  *
  *   * **Indicator url_slug** (Max §3i on ADR-0037). The `url_slug` field
@@ -206,6 +233,83 @@ describe("Phase 2 URL namespace disjointness (ADR-0037)", () => {
 
   it("acSlugs ⊥ RESERVED_PATH_TOKENS", () => {
     const overlap = intersection(acSlugs, RESERVED_PATH_TOKENS);
+    expect(overlap).toEqual([]);
+  });
+});
+
+/**
+ * PR-0 event-context disjointness (election experience overhaul plan,
+ * 2026-06-09). Three pairwise disjointness assertions + one regex
+ * sanity pin for the locked event-slug grammar. See the file header
+ * `## PR-0 event-context disjointness` block for the rationale.
+ *
+ * Note: deliberately mounted as a separate `describe` block so the
+ * Phase 2 invariants above survive an event-context regression and
+ * vice versa - either failure surfaces independently.
+ */
+describe("PR-0 event-context disjointness (election experience overhaul plan)", () => {
+  // The full set carries the three path-segment literals that appear
+  // in the locked elections cascade. `general` + `assembly` are
+  // event-slug BODY PREFIXES (`general-2024`, `assembly-2023`) and
+  // never appear as bare segments. `elections` is the MIDDLE-segment
+  // literal at `/<state>/elections/<event>` and the firehose path
+  // `/t/elections`.
+  const EVENT_BODY_PREFIXES = ["general", "assembly"] as const;
+  const EVENT_CONTEXT_LITERALS = ["general", "assembly", "elections"] as const;
+  const EVENT_SLUG_REGEX = /^(general|assembly)(-bye-[a-z0-9-]+|-\d{4})$/;
+
+  const stateSlugs = loadActiveStateSlugs();
+  const topicSlugs = loadTopicSlugs();
+  const acSlugs = loadActiveAcSlugs();
+
+  it("event-slug regex accepts the four canonical shapes", () => {
+    // Sanity-pin the locked grammar so a typo in the regex itself
+    // surfaces here instead of letting a malformed event-slug land in
+    // datasets/taxonomy/election_events.json.
+    expect("general-2024").toMatch(EVENT_SLUG_REGEX);
+    expect("assembly-2023").toMatch(EVENT_SLUG_REGEX);
+    expect("general-bye-2024-bihar-bastar").toMatch(EVENT_SLUG_REGEX);
+    expect("assembly-bye-2024-tarikere").toMatch(EVENT_SLUG_REGEX);
+  });
+
+  it("event-slug regex rejects malformed and Hindi-token shapes", () => {
+    // The No-Hindi policy (see docs/architecture/frontend/url-grammar.md
+    // section "No-Hindi policy") forbids `lok-sabha` / `vidhan-sabha`
+    // body prefixes. The regex must reject them so a future agent can
+    // not silently reintroduce them.
+    expect("lok-sabha-2024").not.toMatch(EVENT_SLUG_REGEX);
+    expect("vidhan-sabha-2023").not.toMatch(EVENT_SLUG_REGEX);
+    expect("LsGenJun2024").not.toMatch(EVENT_SLUG_REGEX); // legacy id form
+    expect("general").not.toMatch(EVENT_SLUG_REGEX); // missing year
+    expect("general-24").not.toMatch(EVENT_SLUG_REGEX); // 2-digit year
+    expect("parliament-2024").not.toMatch(EVENT_SLUG_REGEX); // wrong body prefix
+  });
+
+  it("stateSlugs ⊥ {general, assembly, elections}", () => {
+    const overlap = intersection(stateSlugs, EVENT_CONTEXT_LITERALS);
+    expect(overlap).toEqual([]);
+  });
+
+  it("topicSlugs ⊥ {general, assembly}", () => {
+    // CARVE-OUT: the topic id `elections` IS in topics.json today
+    // (the elections topic family). Its `/t/elections` landing is
+    // superseded by the firehose route registered ahead of
+    // `/t/:topic` in main.ts (PR-W3d). The topic id stays valid for
+    // discoverability + indicator-to-topic mapping; only the route
+    // dispatch changes. So this assertion narrows to the two event-
+    // body prefixes that have no legitimate topic identity. If a
+    // future PR mints `general` or `assembly` as a topic id, that is
+    // a real collision - rename the topic, never relax this test.
+    const overlap = intersection(topicSlugs, EVENT_BODY_PREFIXES);
+    expect(overlap).toEqual([]);
+  });
+
+  it("acSlugs ⊥ {general, assembly, elections}", () => {
+    // STOP-AND-SURFACE rule (matching the Phase 2 acSlugs ⊥ stateSlugs
+    // assertion above): if a real AC ever exists named `General`,
+    // `Assembly`, or `Elections`, the resolution is escalation, not
+    // an auto-rename. AC names are citizen-visible URL contracts.
+    const overlap = intersection(acSlugs, EVENT_CONTEXT_LITERALS);
     expect(overlap).toEqual([]);
   });
 });

@@ -148,6 +148,55 @@ Verbatim from the archived [ADR-0016 frontend-hash-routing](../../archive/decisi
 - **History-mode custom router + 404.html shim (rejected at ADR-0016 time; ADOPTED by ADR-0028).** Pretty URLs, but every deep-link load goes through a redirect. Rejected on the brittleness called out in Context. (Context-of-rejection note: ADR-0028 explicitly reverses this rejection - the shim's "perpetual footgun" framing was wrong at present scale, and the OWID precedent + the shareability contract make path routing the load-bearing choice. The 5-line shim cost is less than the link-unfurl cost of hash routing. This bullet remains as the original rejected alternative for trace integrity.)
 - **Hash routing itself (the ADR-0016 decision, now superseded).** Rejected by ADR-0028 on three grounds preserved here for the trace: (i) breaks link unfurls (Telegram/WhatsApp/Slack OG scrapers see only `/`); (ii) inconsistently indexed by search engines; (iii) reads as "broken" to citizens copying URLs. Jony's read-aloud test fails for hash routing ("hash slash India"). One-release-cycle strangler-fig redirect (`#/...` -> path form) covers the migration; deleted after.
 
+## Named divergences from canonical URL grammar
+
+Two narrow elections-only divergences from ADR-0028 / ADR-0037 are locked here. Both are scoped to the elections surface and do not relax any invariant the canonical grammar holds for socio-econ indicators.
+
+### Event-grain URLs (elections-only exception, PR-0 2026-06-09)
+
+**Context.** ADR-0028 rejected vintage-in-URL ("no vintage in path; `?as_of=` for citation only"). The election-cohort identifier (`general-2024`, `assembly-2023`) reads superficially like vintage but is not. Vintage is "which snapshot of the same fact" - re-publishing the 2011 Census tomorrow at a new vintage MUST not produce a new URL because it is the same fact. Election cohort is "which dated act of voting produced this result" - the May 2026 Tamil Nadu Assembly contest is a different event from the May 2021 contest; one URL describing both is the federal falsehood ADR-0023 already rejected. Event is identity, not vintage.
+
+**Decision.** Event-cohort identifier is a permitted path segment on the elections surface only. The full cascades, the citizen contract:
+
+```
+/t/elections                                                  -> firehose (all events ever, sortable)
+/t/elections/<event-slug>                                     -> national event view
+/<state>/elections/<event-slug>                               -> state slice of one event
+/<state>/elections/<event-slug>/<constituency-slug>           -> constituency drill (no /pc/, no /ac/)
+/compare/elections/<state>/<from-event-slug>/<to-event-slug>  -> body-tagged event-vs-event compare
+/lab/<state>/<event-slug>                                     -> analyst surface (scenarios ephemeral; no ?s=<b64>)
+```
+
+Event-slug grammar (locked):
+
+```
+general-<YYYY>                                  e.g. general-2024
+assembly-<YYYY>                                 e.g. assembly-2023
+general-bye-<YYYY>-<state-slug>-<seat-slug>     e.g. general-bye-2024-bihar-bastar
+assembly-bye-<YYYY>-<seat-slug>                 e.g. assembly-bye-2024-tarikere  (state in path)
+```
+
+Regex pin (enforced by [url-namespace-disjointness.test.ts](../../../frontend/src/contracts/url-namespace-disjointness.test.ts) since PR-0): `^(general|assembly)(-bye-[a-z0-9-]+|-\d{4})$`. Body prefix (`general-` / `assembly-`) carries the constituency type at the leaf - the legacy `/pc/` and `/ac/` literals are dropped. Body roots `/parliament/` and `/assembly/` are NOT minted; body distinction lives only in the slug prefix.
+
+**Disjointness against the event-context literals.** The set `{"general", "assembly", "elections"}` appears as path segments in the elections cascade (literal `/elections/` middle segment and event-slug body prefixes). State slugs and AC slugs MUST be pairwise disjoint from the full set so a 1-segment URL like `/general` cannot be misread as a state hub. Topic slugs are disjoint from the narrower `{"general", "assembly"}` set only - the topic id `elections` IS valid today (the elections topic family is a real topic) and its `/t/elections` URL is superseded by the firehose via route-table order (PR-W3d registers `/t/elections` ahead of `/t/:topic`); only `general` and `assembly` have no legitimate topic identity. The disjointness contract test extends to assert this since PR-0; `elections` is NOT added to `RESERVED_PATH_TOKENS` because the firehose stays at the existing `/t/elections` (top-level reservation `t` covers it).
+
+**No legacy-URL absorber.** Per user-mandated binding constraint in the [election experience overhaul plan](../../../TODO/20260609-election-experience-overhaul-plan.md) section 0, old `?s=<b64>` and `LsGenJun2024`-style URLs are not redirected; bookmarks lose work. Acceptable today; revisit when a real citizen complaint surfaces.
+
+### No-Hindi policy (PR-0 2026-06-09)
+
+**Context.** Pre-2026-06 the elections surface mixed English and Hindi tokens: `kind: "lok_sabha"` / `"vidhan_sabha"` in TypeScript enums + JSON schema + Python labels; "Lok Sabha" / "Vidhan Sabha" in citizen-facing chrome strings. Hindi tokens in URLs / chrome / code break the read-aloud test for the median Indian citizen (who reads English on the web but speaks one of 22 scheduled languages at home; Hindi is one), break URL-slug derivation (`lok_sabha` is not a stable slug; ECI Tamil-script editions exist), and bake one language's vocabulary into the spine of an India-wide federal site. Hans-led debate converged: English nouns for code + URL, Hindi tokens allowed only as one Glossary line in page body (never slug / heading / code).
+
+**Decision.** English-only across:
+
+- **URLs** - event-slug body uses `general` (Parliament cohort) / `assembly` (state Assembly cohort); never `lok-sabha` / `vidhan-sabha`. Slug grammar locked above.
+- **Chrome strings** - page titles, KPI labels, chart axes, button captions use "Parliament", "Assembly", "General Election YYYY", "<State> Assembly Election YYYY". Never "Lok Sabha" / "Vidhan Sabha" / "Vidhan Parishad".
+- **Code identifiers** - `kind` enum on `election-events.schema.json` is `"parliament" | "assembly" | "general_bye" | "assembly_bye"`. TypeScript `EventKind` union, Python adapter labels, test fixtures, comment prose all match.
+- **Event-id literals** - `general-2024` / `assembly-2023` per slug grammar above.
+
+**Carve-outs.** Constituency-unit nouns "Parliament constituency" / "Assembly constituency" appear in chrome where the per-seat context is needed; the short forms "PC" / "AC" survive in URL slugs (the `<constituency-slug>` leaf), CSV column names (`entity_kind: "ac" | "pc"`), and chart axes. One Glossary line in page body MAY name the local-language synonym ("Parliament constituency (Lok Sabha)", "Assembly constituency (Vidhan Sabha)") for citizens who learned the Hindi term first; never in slug, heading, or code.
+
+**Mechanical scrub gate.** PR-W1a executes the repo-wide rename + ships a grep gate: `git grep -iE "lok.sabha|vidhan.sabha"` MUST return zero matches across `frontend/src/`, `backend/yen_gov/`, `datasets/schemas/`, `datasets/taxonomy/`, and `docs/`. After PR-W1a the gate is the doctrine; doctrinal rejection of any PR that reintroduces a Hindi token in slug / chrome / code (one-line Glossary body carve-out aside).
+
 ## See also
 
 - [docs/architecture/frontend/routing.md](routing.md) - the operational route resolver (router patterns, registry lookups, RESERVED_PATH_TOKENS, missing-scope stub behaviour).
