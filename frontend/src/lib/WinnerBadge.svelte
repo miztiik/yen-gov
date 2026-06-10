@@ -82,6 +82,7 @@
         assetPath={winner.election_symbol_asset_path}
         size={20}
         class="w-5 h-5"
+        fallback="placeholder"
       />
       <span class="text-slate-500 text-sm truncate">{winner.party_short}</span>
     </div>

@@ -566,7 +566,7 @@
               </td>
               <td class="align-top">
                 <div class="flex items-center gap-1.5">
-                  <PartySymbolGlyph assetPath={c.election_symbol_asset_path} size={16} />
+                  <PartySymbolGlyph assetPath={c.election_symbol_asset_path} size={16} fallback="placeholder" />
                   {#if c.party_eci_code && state_code}
                     <a class="hover:underline" href={link.party(state_code, c.party_eci_code, c.party_short)}>{c.party_short}</a>
                   {:else}{c.party_short}{/if}

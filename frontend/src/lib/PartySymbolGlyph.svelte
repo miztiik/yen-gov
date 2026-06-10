@@ -20,20 +20,53 @@
 -->
 <script lang="ts" module>
   /**
+   * Fallback policy when `assetPath` is null / undefined / empty.
+   *   - "silent"      : return null; the component renders nothing
+   *                     (today's behaviour for every caller that does
+   *                     not opt in).
+   *   - "placeholder" : return the URL of placeholder.svg (a neutral
+   *                     gray ring + center dot) so the empty slot is
+   *                     visible as a "party token here, no symbol yet"
+   *                     marker.
+   *   - "unverified"  : return the URL of unverified.svg (concentric
+   *                     gray rings) so the empty slot reads as "we
+   *                     have symbol metadata but it is not yet
+   *                     verified". Not wired to any consumer today;
+   *                     ships forward-compatibly so a future writer
+   *                     can flip rows into this state without a
+   *                     renderer change.
+   *
+   * The placeholder + unverified assets are committed under
+   * `frontend/public/party-symbols/` and pass the build-time SVG
+   * sanitizer (icons allowlist).
+   */
+  export type GlyphFallbackMode = "silent" | "placeholder" | "unverified";
+
+  /**
    * Resolve a `dim_parties.election_symbol_asset_path` value to a runtime
-   * URL the browser can fetch. Returns `null` when the path is absent so
-   * callers can branch on truthiness without re-implementing the
-   * BASE_URL join.
+   * URL the browser can fetch. Returns `null` when the path is absent AND
+   * `fallback === "silent"` so callers can branch on truthiness without
+   * re-implementing the BASE_URL join. When `fallback` is "placeholder"
+   * or "unverified", returns the URL of the corresponding neutral asset
+   * instead of null.
    *
    * Pure (no DOM, no fetch) so vitest pins the contract in node.
    */
   export function glyphUrlFor(
     assetPath: string | null | undefined,
+    fallback: GlyphFallbackMode = "silent",
   ): string | null {
-    if (assetPath == null) return null;
-    const trimmed = assetPath.trim();
-    if (trimmed.length === 0) return null;
-    return `${import.meta.env.BASE_URL}${trimmed.replace(/^\/+/, "")}`;
+    const base = import.meta.env.BASE_URL;
+    if (assetPath == null || assetPath.trim().length === 0) {
+      if (fallback === "placeholder") {
+        return `${base}party-symbols/placeholder.svg`;
+      }
+      if (fallback === "unverified") {
+        return `${base}party-symbols/unverified.svg`;
+      }
+      return null;
+    }
+    return `${base}${assetPath.trim().replace(/^\/+/, "")}`;
   }
 </script>
 
@@ -42,9 +75,15 @@
     assetPath: string | null | undefined;
     size?: number;
     class?: string;
+    fallback?: GlyphFallbackMode;
   }
-  let { assetPath, size = 16, class: extraClass = "" }: Props = $props();
-  const url = $derived(glyphUrlFor(assetPath));
+  let {
+    assetPath,
+    size = 16,
+    class: extraClass = "",
+    fallback = "silent",
+  }: Props = $props();
+  const url = $derived(glyphUrlFor(assetPath, fallback));
 </script>
 
 {#if url}

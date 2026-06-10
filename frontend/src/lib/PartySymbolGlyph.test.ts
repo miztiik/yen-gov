@@ -26,3 +26,51 @@ describe("glyphUrlFor", () => {
     expect(url!.endsWith("party-symbols/hand.svg")).toBe(true);
   });
 });
+
+describe("glyphUrlFor with fallback modes", () => {
+  const BASE = import.meta.env.BASE_URL;
+
+  it("returns null for null assetPath with default silent fallback", () => {
+    expect(glyphUrlFor(null)).toBeNull();
+    expect(glyphUrlFor(null, "silent")).toBeNull();
+  });
+
+  it("returns null for empty assetPath with default silent fallback", () => {
+    expect(glyphUrlFor("")).toBeNull();
+    expect(glyphUrlFor("   ", "silent")).toBeNull();
+  });
+
+  it("returns placeholder URL for null assetPath when fallback=placeholder", () => {
+    expect(glyphUrlFor(null, "placeholder")).toBe(
+      `${BASE}party-symbols/placeholder.svg`,
+    );
+    expect(glyphUrlFor(undefined, "placeholder")).toBe(
+      `${BASE}party-symbols/placeholder.svg`,
+    );
+  });
+
+  it("returns placeholder URL for empty assetPath when fallback=placeholder", () => {
+    expect(glyphUrlFor("", "placeholder")).toBe(
+      `${BASE}party-symbols/placeholder.svg`,
+    );
+    expect(glyphUrlFor("   ", "placeholder")).toBe(
+      `${BASE}party-symbols/placeholder.svg`,
+    );
+  });
+
+  it("returns unverified URL for null assetPath when fallback=unverified", () => {
+    expect(glyphUrlFor(null, "unverified")).toBe(
+      `${BASE}party-symbols/unverified.svg`,
+    );
+    expect(glyphUrlFor("", "unverified")).toBe(
+      `${BASE}party-symbols/unverified.svg`,
+    );
+  });
+
+  it("returns absolute path for populated assetPath regardless of fallback mode", () => {
+    const expected = `${BASE}party-symbols/lotus.svg`;
+    expect(glyphUrlFor("party-symbols/lotus.svg", "silent")).toBe(expected);
+    expect(glyphUrlFor("party-symbols/lotus.svg", "placeholder")).toBe(expected);
+    expect(glyphUrlFor("party-symbols/lotus.svg", "unverified")).toBe(expected);
+  });
+});

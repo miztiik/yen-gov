@@ -110,7 +110,7 @@
     {#each segments as s (s.label)}
       <li class="flex items-center gap-1.5">
         <span class="inline-block w-2.5 h-2.5 rounded-sm" style:background-color={color_for(s)}></span>
-        <PartySymbolGlyph assetPath={s.election_symbol_asset_path} size={14} />
+        <PartySymbolGlyph assetPath={s.election_symbol_asset_path} size={14} fallback="placeholder" />
         <span class="font-medium">{s.party_short}</span>
         <span class="text-slate-400">{s.pct.toFixed(2)}%</span>
       </li>
