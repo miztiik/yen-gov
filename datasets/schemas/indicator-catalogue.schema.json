@@ -3,7 +3,7 @@
   "$id": "./indicator-catalogue.schema.json",
   "title": "Indicator catalogue (canonical)",
   "description": "Hand-authored canonical indicator catalogue (taxonomy/indicators.json). One row per indicator_id. Carries the full Hans honesty surface (D15) plus D29 catalogue additions (parent_indicator_id self-FK, dimension_values:STRUCT for facet-explode children, per-child source_id, methodology_version FK). id field enforces the D30 naming convention. Pipeline compiles to taxonomy/indicators.parquet. NOTE: this is the canonical replacement for the pre-pivot datasets/schemas/indicator.schema.json (which validates per-shard JSON under datasets/indicators/in/). The legacy file stays in place through Phase 0.13; rename of this file to indicator.schema.json happens when the pre-pivot artifacts move to _old/.",
-  "x-version": "2.5",
+  "x-version": "3.0",
   "x-changelog": [
     {
       "version": "1.0",
@@ -44,6 +44,11 @@
       "version": "2.5",
       "date": "2026-05-31",
       "description": "PR-A2 Parliament PC ingest (TODO/20260531-uk-style-elections-experience-plan.md). ADDITIVE MINOR: widen the entity_kinds[].items enum and the default_entity_kind enum from {country,state,district,ac,party,candidate} to add 'pc' (parliamentary constituency / Parliament grain). Nothing removed/renamed/narrowed. MP (PC) seats are a genuinely new fact-grain (different office, different boundary than MLA/AC) per ADR-0044; pc-* indicators FK to per-grain sibling concepts (Model C, Gregor 2026-06-01) mirroring the winning-party-ac / winning-party-state precedent. v2.4 rows validate unchanged under v2.5; consumer datasets/taxonomy/indicators.json stamp bumped 2.4 -> 2.5 to satisfy the Tier-B `$schema_version == x-version` invariant."
+    },
+    {
+      "version": "3.0",
+      "date": "2026-06-10",
+      "description": "Deferral 2 of TODO/20260609-url-prefix-drop-phase0-plan.md (Hans + Max + Gregor unanimous verdict 2026-06-10; user-ratified MAJOR bump). MAJOR BREAKING: (a) ADD required string property url_slug -- citizen-facing URL slug at the position-2 segment (/<state>/<url_slug>); single-segment kebab, maxLength 60, same pattern as indicator_id. Per Hans: this is the citizen-attribution field and MUST be hand-authored at catalogue-row creation time (no silent derivation -- Factfulness single-perspective trap). Uniqueness is enforced cross-catalogue by Tier-B tier_b_indicator_url_slug_unique + the 5-way URL namespace disjointness contract at frontend/src/contracts/url-namespace-disjointness.test.ts. (b) ADD optional array property url_slug_history -- append-only ledger of previous url_slug values for the indicator. Permanent, NO TTL (per Max OWID precedent: WhatsApp forwards, RTI citations, researcher bibliographies cannot be updated, ever -- distinct from the 60-day id_aliases window that v2.0 retired). Rename rule: set new url_slug + APPEND old url_slug to this array in the SAME commit. Route layer reads this array to issue 301 redirects to the current url_slug forever. NEVER reuse an entry across catalogue rows -- enforced by Tier-B. All 175 v2.5 catalogue rows are backfilled in the same commit with url_slug = indicator_id verbatim (mechanical seed; editorial sweep for citizen-friendlier names like 'gdp-growth' deferred to a future PR). v2.5 rows DO NOT validate under v3.0; consumer datasets/taxonomy/indicators.json stamp bumped 2.5 -> 3.0 to satisfy the Tier-B `$schema_version == x-version` invariant. Ships atomically (Gregor verdict i -- born-mature contract; no strangler-fig) with the Zod schema extension in frontend/src/lib/indicator-catalogue.ts, the bySlug runtime index, the 5-way disjointness contract, and Tier-B tier_b_indicator_url_slug_unique chained live in run()."
     }
   ],
   "type": "object",
@@ -72,7 +77,8 @@
           "comparability",
           "parent_indicator_id",
           "entity_kinds",
-          "default_entity_kind"
+          "default_entity_kind",
+          "url_slug"
         ],
         "properties": {
           "indicator_id": {
@@ -276,6 +282,21 @@
               }
             },
             "description": "v2.3 (PR-Zjust 2026-05-26). Free-form structured metadata. Today only carries justification (guardrail #15); future fields will be added additively."
+          },
+          "url_slug": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+            "maxLength": 60,
+            "description": "v3.0 (Deferral 2 of TODO/20260609-url-prefix-drop-phase0-plan.md, 2026-06-10). REQUIRED. Citizen-facing URL slug at the position-2 URL segment (/<state>/<url_slug>); single-segment kebab, max 60 chars, same pattern as indicator_id. Per Hans 2026-06-10: this is the citizen-attribution field and MUST be hand-authored at catalogue-row creation time -- no silent derivation (Factfulness single-perspective trap). Backfilled mechanically as url_slug = indicator_id verbatim for the v2.5 -> v3.0 transition; editorial sweep for citizen-friendlier names (e.g. 'gdp-growth' vs 'state-gross-state-domestic-product-pct-change-yoy') deferred to a future PR. Cross-row uniqueness enforced by Tier-B tier_b_indicator_url_slug_unique. Cross-namespace disjointness (state slugs / topic slugs / AC slugs / RESERVED_PATH_TOKENS) enforced by frontend/src/contracts/url-namespace-disjointness.test.ts Phase 3 describe-block. Naming rule: subject-first, kebab-case, vintage-free."
+          },
+          "url_slug_history": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+              "maxLength": 60
+            },
+            "description": "v3.0 (Deferral 2 of TODO/20260609-url-prefix-drop-phase0-plan.md, 2026-06-10). OPTIONAL. Append-only ledger of previous url_slug values for this indicator. Permanent, NO TTL -- per Max 2026-06-10 OWID precedent: WhatsApp forwards, RTI citations, and researcher bibliographies cannot be updated, ever (distinct from the 60-day id_aliases window that v2.0 retired). Rename rule: set new url_slug + APPEND old url_slug to this array in the SAME commit. The route layer reads this array to issue 301 redirects to the current url_slug forever. NEVER reuse an entry across catalogue rows -- Tier-B tier_b_indicator_url_slug_unique rejects a row whose url_slug or any url_slug_history entry collides with the union of url_slug + url_slug_history across all other rows."
           }
         }
       }

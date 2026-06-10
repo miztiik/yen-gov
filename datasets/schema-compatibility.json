@@ -79,11 +79,10 @@
       "surface": "canonical-manifest-reader",
       "schema": "indicator-catalogue.schema.json",
       "accepted_versions": [
-        "2.4",
-        "2.5"
+        "3.0"
       ],
       "validation": "current_schema",
-      "rationale": "Row G2 makes runtime table registration fail loud on unsupported schema versions; current taxonomy.indicators uses v2.5 (additive minor bump over v2.4 adding the Parliament PC indicator family for the UK-style elections plan)."
+      "rationale": "Row G2 makes runtime table registration fail loud on unsupported schema versions; current taxonomy.indicators uses v3.0 (MAJOR breaking bump per Deferral 2 of TODO/20260609-url-prefix-drop-phase0-plan.md: adds REQUIRED url_slug + OPTIONAL url_slug_history (append-only redirect ledger). v2.5 rows do not validate under v3.0, so the older accepted versions retire here — Hans + Max + Gregor 2026-06-10 verdict: current_only compatibility, no shim)."
     },
     {
       "surface": "canonical-manifest-reader",
