@@ -57,13 +57,27 @@
  * level reservation `t` covers it). The event-context literals are
  * a separate concern from chrome reservations.
  *
- * ## Deferred registries (Phase 3)
+ * ## Phase 3 — indicator url_slug (live as of Deferral 2, 2026-06-10)
  *
- *   * **Indicator url_slug** (Max §3i on ADR-0037). The `url_slug` field
- *     does not yet exist on `datasets/taxonomy/indicators.parquet` or
- *     `datasets/_ops/indicators-completeness.json`. Phase 3 adds
- *     the field + extends this test to assert the 5-way disjointness Max
- *     ratified.
+ * The `url_slug` field landed on
+ * `datasets/schemas/indicator-catalogue.schema.json` v3.0 +
+ * `datasets/taxonomy/indicators.json` (per Deferral 2 of
+ * `TODO/20260609-url-prefix-drop-phase0-plan.md`, Hans + Max + Gregor
+ * unanimous 2026-06-10). This file's Phase 3 describe-block extends the
+ * 4-way disjointness above to the FIVE registries the place-first URL
+ * grammar dispatches on:
+ *
+ *   1. State slugs        — from `entities.json`
+ *   2. Topic slugs        — from `topics.json`
+ *   3. AC slugs           — from `electoral.csv`
+ *   4. Indicator url_slug — from `indicators.json` (current + every
+ *                            `url_slug_history[]` entry, since
+ *                            historical slugs continue to resolve via
+ *                            the forever-redirect ledger)
+ *   5. RESERVED           — `RESERVED_PATH_TOKENS` from `links.ts`
+ *
+ * Pairwise: indicator slugs are disjoint from each of the other four
+ * registries, AND internally unique across current + historical entries.
  *
  * When this test goes red, the answer is to rename the colliding slug,
  * never to add an exception to the test. Doctrine: slugs are part of the
@@ -94,6 +108,7 @@ const electoralCsvPath = resolve(
   repoRoot,
   "datasets/data/entities/electoral.csv",
 );
+const indicatorsPath = resolve(repoRoot, "datasets/taxonomy/indicators.json");
 
 interface EntityRow {
   entity_id: string;
@@ -106,6 +121,12 @@ interface EntityRow {
 
 interface TopicRow {
   id: string;
+}
+
+interface IndicatorRow {
+  indicator_id: string;
+  url_slug: string;
+  url_slug_history?: string[];
 }
 
 function loadActiveStateSlugs(): string[] {
@@ -241,6 +262,36 @@ function loadAcSlugsByState(): Map<string, Set<string>> {
     set.add(slug);
   }
   return byState;
+}
+
+/**
+ * Load the union of every `url_slug` AND every `url_slug_history[]`
+ * entry from `datasets/taxonomy/indicators.json`. v3.0 of the catalogue
+ * (Deferral 2 of `TODO/20260609-url-prefix-drop-phase0-plan.md`, 2026-06-10)
+ * makes `url_slug` REQUIRED on every row; `url_slug_history` is OPTIONAL
+ * but ALSO disjointness-relevant because historical slugs continue to
+ * resolve via the forever-redirect ledger.
+ *
+ * Returns the FULL list (with duplicates) so the internal-uniqueness
+ * assertion can name the colliding slug. The disjointness pairings
+ * intersect against this list directly.
+ */
+function loadIndicatorUrlSlugs(): string[] {
+  const raw = JSON.parse(readFileSync(indicatorsPath, "utf-8")) as {
+    indicators: IndicatorRow[];
+  };
+  const slugs: string[] = [];
+  for (const row of raw.indicators) {
+    if (typeof row.url_slug === "string" && row.url_slug.length > 0) {
+      slugs.push(row.url_slug);
+    }
+    if (Array.isArray(row.url_slug_history)) {
+      for (const slug of row.url_slug_history) {
+        if (typeof slug === "string" && slug.length > 0) slugs.push(slug);
+      }
+    }
+  }
+  return slugs;
 }
 
 function findDuplicates(slugs: string[]): string[] {
@@ -525,5 +576,82 @@ describe("Deferral 1 per-state resolver gate (districts vs ACs; Option A)", () =
       collisions.length,
       "expected the shipped corpus to carry >=1 district/AC name collision (Option A design baseline); zero collisions means either the corpus was renamed without signoff OR the registry-loading silently collapsed",
     ).toBeGreaterThan(0);
+  });
+});
+
+/**
+ * Phase 3 URL namespace disjointness — indicator url_slug (Deferral 2 of
+ * TODO/20260609-url-prefix-drop-phase0-plan.md, 2026-06-10). Five-way
+ * disjointness: indicator url_slug (union of current + every
+ * url_slug_history[] entry) is disjoint from each of the FOUR earlier
+ * registries AND internally unique.
+ *
+ * Reads the real `datasets/taxonomy/indicators.json` -- mirrors the
+ * Phase 2 + PR-0 corpus-walking pattern above. The bet is "the data
+ * conforms to the contract" against shipped artefacts, not synthetic
+ * fixtures.
+ *
+ * Mounted as a separate `describe` block (matching Phase 2 vs PR-0) so
+ * a Phase 3 regression surfaces independently of the four earlier
+ * registries.
+ */
+describe("Phase 3 URL namespace disjointness — indicator url_slug (Deferral 2)", () => {
+  const stateSlugs = loadActiveStateSlugs();
+  const topicSlugs = loadTopicSlugs();
+  const acSlugs = loadActiveAcSlugs();
+  const indicatorSlugs = loadIndicatorUrlSlugs();
+
+  it("loads ≥100 indicator url_slugs (sanity)", () => {
+    // 175 rows in the v3.0 catalogue at landing time; floor catches
+    // "catalogue failed to load at all" without pinning a brittle
+    // exact count that future PRs will move.
+    expect(indicatorSlugs.length).toBeGreaterThanOrEqual(100);
+  });
+
+  it("indicator url_slugs are internally unique (current + historical)", () => {
+    // Mirrors the per-row uniqueness throw in
+    // `buildIndicatorCatalogueIndex` (frontend/src/lib/indicator-catalogue.ts
+    // v3.0). The runtime index would throw at load time on any duplicate;
+    // surfacing it here as a static check gives the operator a faster
+    // signal than waiting for a page-load failure.
+    expect(findDuplicates(indicatorSlugs)).toEqual([]);
+  });
+
+  it("indicatorSlugs ⊥ stateSlugs", () => {
+    // A 1-segment URL `/<state>` MUST never collide with an indicator
+    // url_slug at depth 2 (`/<state>/<slug>`); if it did, a state-hub
+    // bookmark would silently resolve to an indicator page when the
+    // route table dispatches at depth-1.
+    const overlap = intersection(indicatorSlugs, stateSlugs);
+    expect(overlap).toEqual([]);
+  });
+
+  it("indicatorSlugs ⊥ topicSlugs", () => {
+    // Topic slugs at `/t/<topic>` could otherwise collide with indicator
+    // slugs at `/<state>/<slug>` and confuse the discovery surface (the
+    // citizen sees the same name for two different things).
+    const overlap = intersection(indicatorSlugs, topicSlugs);
+    expect(overlap).toEqual([]);
+  });
+
+  it("indicatorSlugs ⊥ acSlugs", () => {
+    // STOP-AND-SURFACE rule (matching Phase 2 acSlugs ⊥ stateSlugs): if
+    // an indicator url_slug collides with an AC name slug, the
+    // resolution is to RENAME THE INDICATOR'S url_slug (operator-side,
+    // single editorial change) rather than rename the AC (citizen-side,
+    // boundary-data change). The Hans + Max + Gregor 2026-06-10 verdict
+    // pinned url_slug as hand-authored precisely so collisions can be
+    // resolved by the operator without disturbing the on-disk corpus.
+    const overlap = intersection(indicatorSlugs, acSlugs);
+    expect(overlap).toEqual([]);
+  });
+
+  it("indicatorSlugs ⊥ RESERVED_PATH_TOKENS", () => {
+    // RESERVED_PATH_TOKENS holds chrome paths (`about`, `t`, `compare`,
+    // `settings`, `disclaimer`, etc.). An indicator url_slug colliding
+    // with any of these would mask the chrome route at depth 2 of
+    // `/<state>/<slug>`.
+    const overlap = intersection(indicatorSlugs, RESERVED_PATH_TOKENS);
+    expect(overlap).toEqual([]);
   });
 });

@@ -1,5 +1,5 @@
 // Typed view of `datasets/taxonomy/indicators.parquet` rows + Zod schema.
-// Mirrors `datasets/schemas/indicator-catalogue.schema.json` v2.0 column-for-column.
+// Mirrors `datasets/schemas/indicator-catalogue.schema.json` v3.0 column-for-column.
 //
 // SEPARATE from `frontend/src/lib/indicators.ts`. That file's `IndicatorMeta`
 // mirrors the LEGACY per-shard `indicator.schema.json` v1.5 which describes
@@ -15,6 +15,16 @@
 // `entity_kinds: EntityKind[]` + `default_entity_kind: EntityKind`. Drops
 // `id_aliases` + `deprecated_in` -- per-PR rename scripts under
 // `tools/migrate/` replace the one-release alias window.
+//
+// v3.0 (Deferral 2 of TODO/20260609-url-prefix-drop-phase0-plan.md, 2026-06-10):
+// adds required `url_slug: string` (citizen-facing URL slug at the position-2
+// URL segment /<state>/<url_slug>, single-segment kebab, max 60 chars) +
+// optional `url_slug_history: string[]` (append-only, NO TTL, permanent
+// redirect ledger per Max OWID precedent). Extends the runtime index with
+// `bySlug` map + cross-row + cross-history collision throw at index-build
+// time (so a rename PR that forgets to append to url_slug_history surfaces
+// loudly instead of silently breaking shared bookmarks). Atomic ship per
+// Gregor verdict i (born-mature contract; no strangler-fig).
 
 import { z } from "zod";
 
@@ -174,6 +184,25 @@ export const IndicatorCatalogueRowSchema = z
     // carry e.g. [country, state, district].
     entity_kinds: z.array(z.enum(ENTITY_KIND_VALUES)).min(1),
     default_entity_kind: z.enum(ENTITY_KIND_VALUES),
+    // v3.0 (Deferral 2 of TODO/20260609-url-prefix-drop-phase0-plan.md,
+    // 2026-06-10). REQUIRED. Citizen-facing URL slug at the position-2 URL
+    // segment (/<state>/<url_slug>); same single-segment kebab pattern as
+    // indicator_id. Per Hans: this is the citizen-attribution field and
+    // MUST be hand-authored at catalogue-row creation time. Uniqueness
+    // enforced by `buildIndicatorCatalogueIndex` + Tier-B
+    // `tier_b_indicator_url_slug_unique`; cross-namespace disjointness
+    // enforced by the 5-way contract at
+    // `frontend/src/contracts/url-namespace-disjointness.test.ts`.
+    url_slug: z.string().regex(D30_KEBAB_PATTERN).max(60),
+    // v3.0 (Deferral 2). OPTIONAL. Append-only ledger of previous url_slug
+    // values for this indicator. Permanent, NO TTL -- per Max OWID precedent.
+    // Rename rule: set new url_slug + APPEND old url_slug to this array in
+    // the SAME commit. Route layer reads this array to issue 301 redirects
+    // to the current url_slug forever. NEVER reuse an entry across
+    // catalogue rows -- enforced at index-build time.
+    url_slug_history: z
+      .array(z.string().regex(D30_KEBAB_PATTERN).max(60))
+      .optional(),
   })
   .strict();
 export type IndicatorCatalogueRow = z.infer<typeof IndicatorCatalogueRowSchema>;
@@ -192,21 +221,41 @@ export type IndicatorCatalogueRow = z.infer<typeof IndicatorCatalogueRowSchema>;
  * id_aliases; per-PR rename scripts under `tools/migrate/` rewrite stale
  * ids at observation level rather than carrying them as a runtime resolve
  * surface. Use `index.byId.get(id)` for lookups.
+ *
+ * v3.0 (Deferral 2 of TODO/20260609-url-prefix-drop-phase0-plan.md,
+ * 2026-06-10): adds `bySlug` -- map from `url_slug` AND every
+ * `url_slug_history[]` entry -> the canonical row. The route layer uses
+ * this for forever-redirects: a citizen visiting `/<state>/<old-slug>`
+ * lands on a row whose current `url_slug` is `<new-slug>`, and the route
+ * issues a 301 to `/<state>/<new-slug>`. Cross-row collisions throw at
+ * build time so a rename PR that forgets to append to `url_slug_history`
+ * surfaces loudly instead of silently breaking shared bookmarks.
  */
 export interface IndicatorCatalogueIndex {
   /** Map from canonical `indicator_id` -> row. */
   readonly byId: ReadonlyMap<string, IndicatorCatalogueRow>;
+  /**
+   * Map from `url_slug` AND every `url_slug_history[]` entry -> row.
+   * Lookups by current OR historical slug both land on the same canonical
+   * row; the caller checks `row.url_slug` to decide whether to render
+   * (current slug) or 301-redirect (historical slug). v3.0.
+   */
+  readonly bySlug: ReadonlyMap<string, IndicatorCatalogueRow>;
 }
 
 /**
- * Build a lookup index. Throws on duplicate `indicator_id` (operator
- * authoring bug that would lead to silent wrong-row dereferences at
- * runtime).
+ * Build a lookup index. Throws on:
+ *   - duplicate `indicator_id` (operator authoring bug that would lead to
+ *     silent wrong-row dereferences at runtime),
+ *   - duplicate `url_slug` across rows, OR `url_slug` of one row
+ *     colliding with `url_slug_history[]` of any other row -- both shapes
+ *     would silently break the forever-redirect ledger (v3.0).
  */
 export function buildIndicatorCatalogueIndex(
   rows: readonly IndicatorCatalogueRow[],
 ): IndicatorCatalogueIndex {
   const byId = new Map<string, IndicatorCatalogueRow>();
+  const bySlug = new Map<string, IndicatorCatalogueRow>();
   for (const row of rows) {
     if (byId.has(row.indicator_id)) {
       throw new Error(
@@ -214,8 +263,26 @@ export function buildIndicatorCatalogueIndex(
       );
     }
     byId.set(row.indicator_id, row);
+
+    // v3.0: register the current url_slug + every historical slug. A
+    // collision means either two indicators claim the same citizen-facing
+    // slug (current) OR an indicator's old slug was reused for a different
+    // row's current/historical slug -- both break shared bookmarks.
+    const slugs: string[] = [row.url_slug, ...(row.url_slug_history ?? [])];
+    for (const slug of slugs) {
+      if (bySlug.has(slug) && bySlug.get(slug) !== row) {
+        throw new Error(
+          `url_slug collision: ${slug!} appears in two catalogue rows ` +
+            `(${bySlug.get(slug)!.indicator_id} and ${row.indicator_id}). ` +
+            `url_slug + url_slug_history entries must be globally unique ` +
+            `across the catalogue -- never reuse a retired slug for a ` +
+            `different indicator.`,
+        );
+      }
+      bySlug.set(slug, row);
+    }
   }
-  return { byId };
+  return { byId, bySlug };
 }
 
 /**
@@ -228,4 +295,23 @@ export function resolveIndicatorId(
 ): IndicatorCatalogueRow | null {
   if (!id) return null;
   return index.byId.get(id) ?? null;
+}
+
+/**
+ * Dereference a `url_slug` (current OR historical) to the canonical
+ * catalogue row. Returns null when the slug is unknown.
+ *
+ * v3.0 (Deferral 2 of TODO/20260609-url-prefix-drop-phase0-plan.md,
+ * 2026-06-10). The route layer at the position-2 URL segment
+ * (/<state>/<slug>) calls this and:
+ *   - renders the indicator when `row.url_slug === slug` (current),
+ *   - issues a 301 redirect to `row.url_slug` when the slug appears in
+ *     `row.url_slug_history` (historical, forever-redirect ledger).
+ */
+export function resolveBySlug(
+  slug: string,
+  index: IndicatorCatalogueIndex,
+): IndicatorCatalogueRow | null {
+  if (!slug) return null;
+  return index.bySlug.get(slug) ?? null;
 }

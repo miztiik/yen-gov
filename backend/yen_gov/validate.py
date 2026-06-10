@@ -1232,6 +1232,91 @@ def tier_b_indicator_has_justification(root: Path) -> list[Failure]:
 
 
 
+def tier_b_indicator_url_slug_unique(root: Path) -> list[Failure]:
+    """Reject indicator catalogue rows whose ``url_slug`` (or any
+    ``url_slug_history[]`` entry) collides with another row.
+
+    v3.0 (Deferral 2 of TODO/20260609-url-prefix-drop-phase0-plan.md,
+    Hans + Max + Gregor unanimous verdict 2026-06-10). The catalogue's
+    ``url_slug`` field is the citizen-facing URL slug at the position-2
+    URL segment (``/<state>/<url_slug>``). Two rows sharing the same
+    current ``url_slug``, or one row's current slug equalling another
+    row's historical slug, would silently break shared bookmarks +
+    forever-redirect chains. The right action is to RENAME the
+    operator-side slug (single editorial change) -- never reuse a
+    retired slug for a different indicator.
+
+    Mirrors the cross-row + cross-history collision throw in
+    ``buildIndicatorCatalogueIndex`` (frontend/src/lib/indicator-catalogue.ts
+    v3.0). Surfacing this server-side in Tier-B gives the operator a
+    pre-publish signal that bypasses the need to load the catalogue in
+    the browser to discover the collision.
+
+    No-ops when ``datasets/taxonomy/indicators.json`` is absent or fails
+    to parse.
+    """
+    failures: list[Failure] = []
+    catalogue_path = root / INDICATOR_CATALOGUE_JSON
+    catalogue_rel = INDICATOR_CATALOGUE_JSON.as_posix()
+
+    if not catalogue_path.exists():
+        return failures
+
+    try:
+        payload = _load_json(catalogue_path)
+    except json.JSONDecodeError:
+        return failures
+    if not isinstance(payload, dict):
+        return failures
+    rows = payload.get("indicators")
+    if not isinstance(rows, list):
+        return failures
+
+    # Map slug -> first indicator_id that claimed it. Both the current
+    # url_slug AND every url_slug_history[] entry land in the same map
+    # so a current-vs-historical collision surfaces too.
+    seen: dict[str, str] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        indicator_id = row.get("indicator_id")
+        if not isinstance(indicator_id, str):
+            continue
+        slugs: list[str] = []
+        url_slug = row.get("url_slug")
+        if isinstance(url_slug, str) and url_slug:
+            slugs.append(url_slug)
+        history = row.get("url_slug_history")
+        if isinstance(history, list):
+            for entry in history:
+                if isinstance(entry, str) and entry:
+                    slugs.append(entry)
+        for slug in slugs:
+            prior = seen.get(slug)
+            if prior is not None and prior != indicator_id:
+                failures.append(
+                    Failure(
+                        catalogue_rel,
+                        "B",
+                        f"indicators[indicator_id={indicator_id!r}]: "
+                        f"url_slug or url_slug_history entry {slug!r} "
+                        f"collides with the same slug already claimed by "
+                        f"indicator_id={prior!r}. Per Deferral 2 of "
+                        f"TODO/20260609-url-prefix-drop-phase0-plan.md "
+                        f"(Hans + Max + Gregor 2026-06-10), the union of "
+                        f"url_slug + url_slug_history MUST be globally "
+                        f"unique across the catalogue -- a retired slug "
+                        f"may NEVER be reused for a different indicator "
+                        f"(forever-redirect ledger contract). Rename the "
+                        f"operator-side slug; never relax this check.",
+                    )
+                )
+            else:
+                seen[slug] = indicator_id
+
+    return failures
+
+
 def run(root: Path) -> list[Failure]:
     """Run Tier A then Tier B against a repo root."""
     schemas, parse_failures = load_schemas(root / SCHEMAS_SUBDIR)
@@ -1248,4 +1333,5 @@ def run(root: Path) -> list[Failure]:
         + tier_b_one_indicator_per_concept(root)
         + tier_b_no_hand_typed_source_id(root)
         + tier_b_indicator_id_no_grain_prefix(root)
+        + tier_b_indicator_url_slug_unique(root)
     )
