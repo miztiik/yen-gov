@@ -1,8 +1,8 @@
 # URL Prefix Drop — Phase 0 execution plan (ADR-0037 Phases 2-4)
 
 **Last Updated**: 2026-06-10
-**Status**: **CLOSED** — all 4 PRs shipped in [#867](https://github.com/miztiik/yen-gov/pull/867) (PR-P1) + [#868](https://github.com/miztiik/yen-gov/pull/868) (PR-P2) + [#869](https://github.com/miztiik/yen-gov/pull/869) (PR-P3) + [#871](https://github.com/miztiik/yen-gov/pull/871) (PR-P4). **Grammar A is the live URL grammar.** Grammar B `/s/<state>/...` URLs now 404 with the NotFound recovery surface (the `RedirectLegacyUrl.svelte` tombstone shipped in PR-P1 was deleted in PR-P4 after the user-triggered soak window). The 4-phase strangler-fig is complete.
-**Level**: 3 (cross-cutting; 4 PRs; URL grammar = citizen contract).
+**Status**: **CLOSED** - all 4 PR-P* PRs + Deferral 1 shipped: [#867](https://github.com/miztiik/yen-gov/pull/867) (PR-P1) + [#868](https://github.com/miztiik/yen-gov/pull/868) (PR-P2) + [#869](https://github.com/miztiik/yen-gov/pull/869) (PR-P3) + [#871](https://github.com/miztiik/yen-gov/pull/871) (PR-P4) + [#883](https://github.com/miztiik/yen-gov/pull/883) (D1, Option A ratified). **Grammar A is the live URL grammar.** Grammar B `/s/<state>/...` URLs now 404 with the NotFound recovery surface. District URLs are positional `/<state>/<district>` (no `/d/` literal marker). The 4-phase strangler-fig + Deferral 1 are complete; FU-1 (optional Hans + Max corpus rename of district-colliding ACs) remains deferred under "Follow-up deferrals".
+**Level**: 3 (cross-cutting; 4 PRs + 1 deferral; URL grammar = citizen contract).
 **Strategy**: execute ADR-0037 Phases 2-4 (already-locked decision; not a new debate). Drop the `/s/` prefix so every URL reads as bare `/<state>/...`. Prerequisite for the [election experience overhaul plan](20260609-election-experience-overhaul-plan.md).
 
 > This plan is NOT a new design decision. The decision is locked in [ADR-0037](../docs/architecture/frontend/url-grammar.md#adr-0037-url-grammar-drop-india-prefix). Phase 1 of ADR-0037 shipped in PR #173 (2026-05-25): `frontend/src/lib/links.ts` Grammar A builders + 3 Tier-A contract tests, zero call-sites. Phases 2-4 are mechanical execution against an existing contract.
@@ -86,10 +86,11 @@ Plan complete when PR-P3 ships (Grammar B fully retired except for `RedirectLega
 | PR-P2 | Mechanical caller-migration sweep: replace `url.*(...)` Grammar B builders with `links.*(...)` Grammar A builders across `frontend/src/**`. AC slug shape change (`167-mylapore` -> `mylapore`) ships here. AC namespace + indicator slugs join the disjointness contract. | PR-P1 | [x] MERGED + PUSHED | [#868](https://github.com/miztiik/yen-gov/pull/868) | L |
 | PR-P3 | Delete Grammar B from `main.ts` routes + delete `url.ts` legacy builders + delete the 42-test PR #172 Grammar B contract + reverse the dependency in any test that still references `/s/<state>`. `RedirectLegacyUrl.svelte` STAYS for one release. | PR-P2 | [x] MERGED + PUSHED | [#869](https://github.com/miztiik/yen-gov/pull/869) | M |
 | PR-P4 | Delete `RedirectLegacyUrl.svelte` after one-release soak + zero redirect-hit telemetry. **User-triggered, not date-gated.** | PR-P3 + soak | [x] MERGED + PUSHED | [#871](https://github.com/miztiik/yen-gov/pull/871) | XS |
+| D1 | Drop `/d/` literal marker + ship depth-2 state-sub dispatcher (`StateSubRouter.svelte` + pure `state-sub-resolver.ts`). District URL becomes positional `/<state>/<district>`; `/<state>/<position2>` resolves against three registries (reserved chrome / districts / ACs) with district-first resolution per Jony rule #4. **Option A ratified** (2026-06-10): the dispatcher IS the gate; the 401 (state, slug) per-state district/AC name collisions in the shipped corpus are by design; colliding ACs stay reachable via the canonical event-nested URL `/<state>/elections/<event>/ac/<ac>` (ADR-0052). Doctrine documented at [docs/architecture/frontend/routing.md § "Depth-2 dispatcher resolution rule"](../docs/architecture/frontend/routing.md#depth-2-dispatcher-resolution-rule-option-a-2026-06-10). | PR-P4 | [x] MERGED + PUSHED | [#883](https://github.com/miztiik/yen-gov/pull/883) | M |
 
-**Effort key**: XS = <1h • S = 1-3h • M = half-day • L = full-day.
+**Effort key**: XS = <1h * S = 1-3h * M = half-day * L = full-day.
 
-**Critical path:** PR-P1 -> PR-P2 -> PR-P3. PR-P4 deferred indefinitely until user trigger. **Total active work: 3 sequential PRs.**
+**Critical path:** PR-P1 -> PR-P2 -> PR-P3 -> D1. PR-P4 deferred indefinitely until user trigger. **Total active work: 4 sequential PRs.**
 
 ---
 
