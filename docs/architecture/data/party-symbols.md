@@ -4,9 +4,7 @@
 **Owner**: data layer (party-symbol pipeline; `frontend/src/lib/party-symbols/` + `datasets/taxonomy/parties.json`)
 
 This doc is the durable home for three reconnaissance notes lifted from
-`notes/` during the G4 working-docs-home retirement (see
-[TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md)
-§9 row "notes/ + TODO/"). The three dated sections below are
+`notes/` during the G4 working-docs-home retirement (2026-06-08). The three dated sections below are
 historical receipts captured verbatim:
 
 1. **Roster (PR-SYM-2)** — the Tier 0/1/2 target list, DuckDB top-winner
@@ -18,9 +16,8 @@ historical receipts captured verbatim:
    inventory the operator pass eventually shipped, plus the slug-rename
    pass and the brand-colour enrichment (PR-SYM-4c).
 
-Operating context: the underlying plan-doc
-[TODO/20260527-party-symbol-assets-plan.md](../../../TODO/20260527-party-symbol-assets-plan.md)
-remains the active plan-doc for any future PR-SYM-* work; this doc is
+Operating context: party symbol work is tracked under the party symbol assets plan
+for any future PR-SYM-* work; this doc is
 its reference companion (target list + inventory + handover doctrine).
 
 ---
@@ -216,7 +213,7 @@ Each accepted asset becomes one `sources.parquet` row (per producer) referenced 
 
 | PR | What landed |
 | --- | --- |
-| #524 | Plan-doc with Status Reckoner + Gregor sequencing (PR-SYM-0). |
+| #524 | Status Reckoner doc + Gregor sequencing (PR-SYM-0). |
 | #526 | `taxonomy-parties.schema.json` v2.1 -> v2.2 + 13 schema-fixture tests (PR-SYM-1). |
 | #527 | The Tier 0..3 target list + DuckDB query + alias-trap rules (PR-SYM-2; lifted above). |
 | #528 | `frontend/src/lib/party-symbols/sanitizer.ts` + 18 vitest cases + `frontend/public/party-symbols/placeholder.svg` (PR-SYM-3). |
@@ -241,7 +238,7 @@ The reasoning, in three points:
 
 Working from the Tier 0 list in the roster section above (~43 parties), for each party:
 
-1. **Identify the current reserved/allotted ECI symbol.** Source order from section 4 of the plan-doc: ECI list-of-political-parties notification > ECI recognition/de-recognition orders > ECI election-symbol detail pages > State CEO Form 7A.
+1. **Identify the current reserved/allotted ECI symbol.** Source order: ECI list-of-political-parties notification > ECI recognition/de-recognition orders > ECI election-symbol detail pages > State CEO Form 7A.
 2. **Find an SVG of that glyph.** First check whether the Commons category https://commons.wikimedia.org/wiki/Category:Symbols_of_political_parties_in_India has a clean, monochrome, accurately-shaped file. If not, hand-trace from the ECI PDF source (the placeholder.svg under `frontend/public/party-symbols/` shows the path/line/circle/currentColor style the allowlist permits).
 3. **Sanitise and hash.** Use `frontend/src/lib/party-symbols/sanitizer.ts` from PR-SYM-3. Author a small CLI wrapper if useful (`tools/party-symbols/sanitise.ts` is a fine new home; not yet built).
 4. **Commit the SVG bytes** under `frontend/public/party-symbols/<kebab-case-symbol>.svg`.
@@ -272,11 +269,11 @@ Once PR-SYM-4a is merged (SVGs + sources.parquet exist on main):
 
 Every PR shipped so far has a closed contract: the schema enforces every later step; the sanitizer rejects every malicious byte; the placeholder is the only asset that needs to exist for the renderer to test its fallback path; the roster section above pins the target list reproducibly. A reviewer in three months can pick up PR-SYM-4a without re-deriving any of those decisions.
 
-The only thing missing is the operator-judgment-bound batch of bytes. That bound was always going to be a user surface, regardless of automation level - the plan-doc anticipated this in section 2 ("No symbol is better than a guessed symbol") and section 4 ("Wikipedia and the corpus winners list are NOT recognition sources by themselves").
+The only thing missing is the operator-judgment-bound batch of bytes. That bound was always going to be a user surface, regardless of automation level — the original design anticipated this in section 2 ("No symbol is better than a guessed symbol") and section 4 ("Wikipedia and the corpus winners list are NOT recognition sources by themselves").
 
 ### Pick-up checklist for the next agent or operator
 
-- [ ] Read this section + [the plan-doc](../../../TODO/20260527-party-symbol-assets-plan.md) + the roster section above end-to-end.
+- [ ] Read this section + the party symbol assets plan + the roster section above end-to-end.
 - [ ] Confirm the current ECI national-party + state-recognised-party notification dates; record in the PR-SYM-4b body.
 - [ ] Start the SVG collection pass for Tier 0; commit in batches of 10-15 SVGs at a time if 40+ in one PR is too review-heavy (per the plan, PR-SYM-4a may itself split into 4a.i / 4a.ii / 4a.iii without renaming the plan rows).
 - [ ] Land PR-SYM-4b once all Tier 0 SVGs are on main.
@@ -294,7 +291,7 @@ The only thing missing is the operator-judgment-bound batch of bytes. That bound
 
 Source: <https://en.wikipedia.org/wiki/List_of_political_parties_in_India>.
 
-Per plan TODO/20260527-party-symbol-assets-plan.md: filenames use ECI symbol-noun (lotus, hand, elephant, broom...), kebab-case, English. Format = whatever Commons serves (SVG/PNG/JPG/WEBP).
+Per the naming spec: filenames use ECI symbol-noun (lotus, hand, elephant, broom...), kebab-case, English. Format = whatever Commons serves (SVG/PNG/JPG/WEBP).
 
 ### Pipeline
 
@@ -386,7 +383,7 @@ None.
 
 ### Slug rename pass (post-merge fixup)
 
-Renames applied to align filenames with ECI-symbol-noun (per plan-doc):
+Renames applied to align filenames with ECI-symbol-noun (per the naming convention):
 
 - `aap` → `broom`: AAP ECI symbol = broom (jhadu)
 - `hand-inc` → `hand`: INC ECI symbol = hand; INC is sole holder
@@ -447,7 +444,7 @@ Renames applied to align filenames with ECI-symbol-noun (per plan-doc):
 
 Date: 2026-06-01. Source: same list-page snapshot as PR-SYM-4a-redo (`src.wikipedia.list-of-political-parties-in-india.2026-06-01`).
 
-Per Section 11 of the plan-doc + Hans/Jony red-team verdicts:
+Per the party-symbol naming rule + Hans/Jony red-team verdicts:
 
 - `brand_colour` is Wikipedia editorial consensus, NOT party identity (ECI does not register party colours).
 - `wikipedia_url` = party article URL (the list page is already pinned via source_id).

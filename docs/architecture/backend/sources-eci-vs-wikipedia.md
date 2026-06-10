@@ -128,5 +128,4 @@ After running `python tools/bootstrap_constituencies_from_results.py --all`:
 Karnataka, Gujarat, Rajasthan, Punjab, Telangana, Chhattisgarh, MP,
 Goa, HP, Tripura, Mizoram, Meghalaya, Nagaland, Manipur, Uttarakhand,
 the remaining UTs) need either ECI Statistical Report ingest *or*
-hand-authored bootstrap from the Delimitation Order. This is tracked as
-[IA-RESET §P2.8](../../TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md).
+hand-authored bootstrap from the Delimitation Order.

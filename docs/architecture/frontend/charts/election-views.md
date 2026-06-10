@@ -2,13 +2,13 @@
 
 **Last Updated**: 2026-06-05
 
-This page is the keep-receipts home for the elections-renderer fence + the generic TileCartogram primitive per [parent plan section 9](../../../../TODO/20260603-data-and-charting-platform-reset-plan.md) (Hans-finalised 2026-06-03) and [decision-index.md](../../../reference/decision-index.md). It carries the condensed Context + Decision + Consequences for the one live ADR that pinned the elections-drill IA (0048) and the verbatim rejected-alternatives trace. The operational `TileCartogram.svelte` primitive + layout-dataset shape + filter-state plumbing live in the sibling component docs ([chart-shell.md](chart-shell.md), [generic-renderers.md](generic-renderers.md)) and `frontend/src/lib/charts/`; this page carries only the architectural-decision receipts.
+This page is the keep-receipts home for the elections-renderer fence + the generic TileCartogram primitive per [decision-index.md](../../../reference/decision-index.md). It carries the condensed Context + Decision + Consequences for the one live ADR that pinned the elections-drill IA (0048) and the verbatim rejected-alternatives trace. The operational `TileCartogram.svelte` primitive + layout-dataset shape + filter-state plumbing live in the sibling component docs ([chart-shell.md](chart-shell.md), [generic-renderers.md](generic-renderers.md)) and `frontend/src/lib/charts/`; this page carries only the architectural-decision receipts.
 
-> **DOCTRINE NOTE (2026-06-04, plan section 22.7).** The drill IA, grain-split, TileCartogram fence, and filter URL grammar survive the canonical-store CSV cutover unchanged. Layout datasets (tile-cartogram geometries) are frontend-owned render data per [ADR-0045](../../data/indicator-catalogue.md#adr-0045-grapher-catalogue-split) (lives under `datasets/grapher/`, not canonical election data); the canonical observation rows the cartogram colours come from MIGRATE to long-format CSV under `datasets/data/datapoints/electoral/` (per plan chunks B2 / F1 / X1a), but the render contract (grain-agnostic SVG primitive, fed by a layout dataset, election-mount-only in v1) is invariant to the storage format.
+> **DOCTRINE NOTE (2026-06-04).** The drill IA, grain-split, TileCartogram fence, and filter URL grammar survive the canonical-store CSV cutover unchanged. Layout datasets (tile-cartogram geometries) are frontend-owned render data per [ADR-0045](../../data/indicator-catalogue.md#adr-0045-grapher-catalogue-split) (lives under `datasets/grapher/`, not canonical election data); the canonical observation rows the cartogram colours come from migrate to long-format CSV under `datasets/data/datapoints/electoral/` (via the canonical CSV migration), but the render contract (grain-agnostic SVG primitive, fed by a layout dataset, election-mount-only in v1) is invariant to the storage format.
 
 ## Design rationale
 
-This section folds in the receipt from the originating ADR that pinned the elections-drill IA + generic-cartogram fence + filter URL grammar (`docs/election-views.md#adr-0048-elections-drill-ia-and-tile-cartogram` deleted in D-DOC3.10 closure), per parent plan section 9 (keep-receipts ADR retirement) and [decision-index.md](../../../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
+This section folds in the receipt from the originating ADR that pinned the elections-drill IA + generic-cartogram fence + filter URL grammar (`docs/election-views.md#adr-0048-elections-drill-ia-and-tile-cartogram` deleted in D-DOC3.10 closure), per the ADR retirement contract ([decision-index.md](../../../reference/decision-index.md)). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
 
 ### ADR-0048: elections-drill-ia-and-tile-cartogram
 
@@ -55,11 +55,11 @@ This section folds in the receipt from the originating ADR that pinned the elect
 
 ## Rejected alternatives
 
-This section preserves the rejected-alternatives receipts for the ADR whose rationale is folded above, verbatim and append-only per [parent plan section 9](../../../../TODO/20260603-data-and-charting-platform-reset-plan.md). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
+This section preserves the rejected-alternatives receipts for the ADR whose rationale is folded above, verbatim and append-only per the ADR retirement contract ([decision-index.md](../../../reference/decision-index.md)). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
 
 ### ADR-0048 rejected alternatives
 
-ADR-0048's body is structured around POSITIVE decisions + an explicit "Do-not-build list (v1)" rather than a separate `## Alternatives considered` section. The receipts that survive as rejected approaches are the v1 do-not-build items below, preserved verbatim from the originating ADR. Append-only per parent plan section 9 (keep-receipts).
+ADR-0048's body is structured around POSITIVE decisions + an explicit "Do-not-build list (v1)" rather than a separate `## Alternatives considered` section. The receipts that survive as rejected approaches are the v1 do-not-build items below, preserved verbatim from the originating ADR. Append-only per ADR retirement contract.
 
 - **Village / sub-district levels for results.** Rejected for v1: constituencies do NOT nest into villages or sub-districts; the honest drill stops at the constituency leaf.
 - **Full (>2-election) sankey.** Rejected for v1: the opt-in 2-election capped sankey (top-6 parties + merged "Others"), labelled "Flow (beta)", collapsed by default, is the v1 shape. A full N-election sankey is deferred until v1 ships and citizen usage signals demand.

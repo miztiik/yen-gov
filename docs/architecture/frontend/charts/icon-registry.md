@@ -42,8 +42,6 @@ If a future asset class needs the same shape (any closed-set SVG registry), impo
 ## See also
 
 - [`overview.md`](../overview.md) — visualization catalog.
-- [Phase 1.3 plan section](../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md) — rollout sequence 1.3a (foundation) through 1.3g (legacy `IndicatorIcon.svelte` deletion).
-- [`TODO/20260527-party-symbol-assets-plan.md`](../../../../TODO/20260527-party-symbol-assets-plan.md) - party-symbol registry plan-doc (uses this allowlist; first sister registry to import it).
 
 ## Historical citations
 

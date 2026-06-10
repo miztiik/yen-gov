@@ -4,7 +4,7 @@
 
 `backend/yen_gov/core/` is the upstream-agnostic foundation of the backend. It contains the pydantic models that mirror published schemas, the schema registry + evolution helpers, the event types emitted at each pipeline stage, and the structured logger. Nothing in `core/` knows that ECI or Wikipedia exist.
 
-This page covers two load-bearing decisions: pydantic models mirror schemas 1:1, and pipeline events are frozen dataclasses (not pydantic). The legacy `http.py` (httpx + tenacity Fetcher) and `io.py` (`write_artifact` chokepoint) modules were retired in B4-pt2.4 / B4-pt3 (2026-06-06 / 2026-06-07) per [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 21.4: production runtime no longer fetches over the network, and canonical long-format CSV is emitted via `yen_gov.canonical.csv_writer.write_csv` against the per-file column contract under `datasets/data/_schema/columns.json`.
+This page covers two load-bearing decisions: pydantic models mirror schemas 1:1, and pipeline events are frozen dataclasses (not pydantic). The legacy `http.py` (httpx + tenacity Fetcher) and `io.py` (`write_artifact` chokepoint) modules were retired in B4-pt2.4 / B4-pt3 (2026-06-06 / 2026-06-07): production runtime no longer fetches over the network, and canonical long-format CSV is emitted via `yen_gov.canonical.csv_writer.write_csv` against the per-file column contract under `datasets/data/_schema/columns.json`.
 
 ## Modules
 

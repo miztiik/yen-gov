@@ -374,7 +374,7 @@ The following were deleted in PR #455:
 
 ## Rejected alternatives
 
-This section folds in receipts for the moved-to-archive ADRs whose rejected-alternative trace pins to this subsystem (originating `docs/architecture/decisions/` files deleted in D-DOC3.10 closure), per parent plan section 9 (keep-receipts ADR retirement) and [decision-index.md](../../reference/decision-index.md). Append-only.
+This section folds in receipts for the moved-to-archive ADRs whose rejected-alternative trace pins to this subsystem (originating `docs/architecture/decisions/` files deleted in D-DOC3.10 closure), per the ADR retirement contract ([decision-index.md](../../reference/decision-index.md)). Append-only.
 
 ### ADR-0029 rejected alternatives
 

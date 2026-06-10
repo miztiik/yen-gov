@@ -2,8 +2,8 @@
 
 **Last Updated**: 2026-06-04
 **Owner**: Hans + Max (data shape) / Gregor (contract surface) per CLAUDE.md section 0a
-**Status**: BINDING from D-DOC0 onward. Authoritative spec for every CSV under `datasets/data/` and `datasets/elections/`. Supersedes the Parquet-era column rules in [canonical-store.md](canonical-store.md) for CSV file classes (canonical-store.md itself is being rewritten in chunks B2b / X1b per [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md)).
-**Plan**: [`TODO/20260603-data-and-charting-platform-reset-plan.md`](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) chunk D-DOC0; ripple-corrected per plan section 23.2.
+**Status**: BINDING from D-DOC0 onward. Authoritative spec for every CSV under `datasets/data/` and `datasets/elections/`. Supersedes the Parquet-era column rules in [canonical-store.md](canonical-store.md) for CSV file classes.
+**Status**: BINDING from D-DOC0 onward (chunk D-DOC0); ripple-corrected per the column-contract single-home rule.
 
 ---
 
@@ -232,7 +232,6 @@ The frontend `read_csv(columns={...})` map is generated from `columns.json` (one
 
 ## 7. See also
 
-- [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) sections 3 (storage model), 7 (provenance diet), 21.3 (elections layout), 21.6 (double-underscore ban), 22.4 (invariants), 23.2 (column-contract single home), 23.4 (elections sharpening).
 - [canonical-store.md](canonical-store.md) - operational spec for the legacy Parquet store; being rewritten in B2b / X1b.
 - [../../reference/identifiers.md](../../reference/identifiers.md) - issuing-authority id grammar.
 - [../../concepts/indicator-naming.md](../../concepts/indicator-naming.md) - kebab id grammar + F2 facet-legitimacy gates.

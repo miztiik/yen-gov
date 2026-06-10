@@ -3,7 +3,7 @@
 **Last Updated**: 2026-05-25
 **Owner**: data layer (`backend/yen_gov/pipelines/boundaries_*` + `tools/lgd/` + `tools/boundaries/`)
 
-This doc captures the rationale behind every design choice that touched the boundary stack as it evolved from "one `india.geojson` outline" through "LGD-coded states + districts" to TN-granular sub-district + village layers (TODO/TN-GRANULAR-GEO-PLAN.md), and through the T.0d consolidation (2026-05-22) that moved the tree to Hive partitioning and retired the per-shard sidecars. When the plan and this doc disagree, **this doc wins** (Holy Law #4 — docs are agent memory; the plan is a working artifact).
+This doc captures the rationale behind every design choice that touched the boundary stack as it evolved from "one `india.geojson` outline" through "LGD-coded states + districts" to TN-granular sub-district + village layers, and through the T.0d consolidation (2026-05-22) that moved the tree to Hive partitioning and retired the per-shard sidecars. When this doc disagrees with a plan artifact, **this doc wins** (Holy Law #4 - docs are agent memory; the plan is a working artifact).
 
 > **Canonical pivot stance (2026-05-22, T.0d amendment)**: under the canonical long-format pivot ([ADR-0030](../decisions/0030-canonical-store-duckdb-wasm.md)), the boundary tree remains a **sibling family** to the canonical Parquet store. Geometry stays in GeoJSON / PMTiles (per-layer cutover spec in [ADR-0031 + Amendment 2026-05-22](../decisions/0031-boundary-geometry-strategy.md)). `datasets/boundaries/` is **excluded from any `_old/` sweep and any deletion step** (R25 of ADR-0030 + ADR-0031). T.0d normalised on-disk layout to Hive partitioning and consolidated the three sidecar families (`*.sources.json` / `*.metadata.json` / `*.unkeyed.json`) plus the per-state `<eci>-villages-index.json` manifests into a single parquet ledger at `datasets/boundaries/boundary_layers.parquet` (FK to `taxonomy/sources.parquet` v2.0).
 
@@ -69,7 +69,7 @@ Pincodes are **postal delivery zones**, not administrative units. They cross blo
 
 Two distinct things:
 
-- **LGD = registry**: the Local Government Directory CSVs (`datasets/taxonomy/lgd/{states,districts,subdistricts,villages}-latest.csv` plus dated immutable snapshots `<role>-YYYY-MM-DD.csv` per plan docs/archive/plans/20260517-canonical-long-format-pivot.md §0e.10.2-C; moved from `datasets/reference/in/lgd/` in T.0c-ii closeout, 2026-05-21). These are *codes + hierarchy + names*, no geometry. Maintained by `tools/lgd/snapshot.py` from `ramSeraph/opendata` release `lgd-latest-extra1`.
+- **LGD = registry**: the Local Government Directory CSVs (`datasets/taxonomy/lgd/{states,districts,subdistricts,villages}-latest.csv` plus dated immutable snapshots `<role>-YYYY-MM-DD.csv`; moved from `datasets/reference/in/lgd/` in T.0c-ii closeout, 2026-05-21). These are *codes + hierarchy + names*, no geometry. Maintained by `tools/lgd/snapshot.py` from `ramSeraph/opendata` release `lgd-latest-extra1`.
 - **LGD-keyed geometry**: the Hive-partitioned GeoJSONs above. Each feature carries the **same LGD code** as the registry, so the join is one column (`State_LGD` / `dist_lgd` / `subdist_lgd` / `village_lgd`).
 
 This split lets us (a) refresh the registry independently of geometry, (b) detect drift (any feature whose LGD code is not in the current registry → increments `unkeyed_count` on the ledger row), and (c) carry name changes without re-emitting geometry (the registry has the new name; the polygon is unchanged).
@@ -115,7 +115,7 @@ The live, per-level coverage status — what we have, what we don't have, and wh
 
 Three gap categories matter today and are tracked there:
 
-1. **District entity backfill** — 145/784 districts curated in `entities.json`; 639 missing. Closed by [Plan Phase 0.2](../../../TODO/20260524-boundary-coverage-expansion-plan.md) via LGD master + Census-2011 cross-enrichment.
+1. **District entity backfill** — 145/784 districts curated in `entities.json`; 639 missing. Closed via LGD master + Census-2011 cross-enrichment (boundary coverage expansion, 2026-05-24).
 2. **Village upstream gap** — 9 of 36 states/UTs (S02 / S08 / S14 / S15 / S16 / S17 / S21 / U08 / U09) have no village polygons from `LGD_Villages`. Closed per-state via the bhuvan fall-back ONLY when a village-keyed citizen indicator demands it; not in the active sprint.
 3. **Survey-grade swaps** — state polygon (DataMeet → ramSeraph `LGD_States`), PC polygon (shijithpk → ramSeraph `LGD_Parliament_Constituencies`), and AC consolidation (HTL+shijithpk → ramSeraph `LGD_Assembly_Constituencies`) are upgrade tracks, not coverage gaps. Plan Phases D.0 / D.6 / D.1→D.5.
 
@@ -154,9 +154,7 @@ Disk layout sits OUTSIDE the LGD administrative tree to make the orthogonality v
 > `udit-001/india-maps` as a canonical or render-only boundary source;
 > future agents should consult it before re-litigating either source.
 > Original verdict was authored by Max (data-shape authority per CLAUDE.md
-> section 0a). Plan-doc the audit closed:
-> [docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md](../../archive/plans/20260531-geojson-to-topojson-migration-plan.md)
-> P0.2.
+> section 0a).
 
 **Verdict**: NO-GO for both candidates as canonical or as render-only layer.
 
@@ -220,7 +218,7 @@ Every boundary row in `boundary_layers.parquet` joins to indicator observations 
 
 ### 5. Decision (locked by user 2026-05-31)
 
-All 10 in-scope boundary layers in the TopoJSON migration plan-doc convert IN-PLACE from existing LGD-keyed GeoJSON. No external source is adopted. The encoding swap (GeoJSON to TopoJSON) is a derivative transform; the canonical `source_id` of each layer is unchanged. `boundary_layers.parquet` rows are byte-identical across the conversion. Holy Law section 9 satisfied: encoding is not provenance (see [docs/concepts/data-provenance.md](../../concepts/data-provenance.md)).
+All 10 in-scope boundary layers in the TopoJSON migration convert IN-PLACE from existing LGD-keyed GeoJSON. No external source is adopted. The encoding swap (GeoJSON to TopoJSON) is a derivative transform; the canonical `source_id` of each layer is unchanged. `boundary_layers.parquet` rows are byte-identical across the conversion. Holy Law section 9 satisfied: encoding is not provenance (see [docs/concepts/data-provenance.md](../../concepts/data-provenance.md)).
 
 ### 6. Future agents — do not re-litigate
 
@@ -236,7 +234,7 @@ Frontend has a paired contract test at `frontend/src/contracts/boundaries-confor
 
 ## Design rationale
 
-This section folds in receipts from the originating ADRs that pinned design choices for this subsystem (`docs/architecture/decisions/` files deleted in D-DOC3.10 closure), per parent plan section 9 (keep-receipts ADR retirement) and [decision-index.md](../../reference/decision-index.md). Each receipt below is condensed Context + Decision + Consequences from the originating ADR; the verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
+This section folds in receipts from the originating ADRs that pinned design choices for this subsystem (`docs/architecture/decisions/` files deleted in D-DOC3.10 closure), per the ADR retirement contract ([decision-index.md](../../reference/decision-index.md)). Each receipt below is condensed Context + Decision + Consequences from the originating ADR; the verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
 
 ### ADR-0031: boundary-geometry-strategy
 
@@ -258,13 +256,13 @@ Primary fold lives at [canonical-store.md#adr-0036-state-identity-and-slice-regi
 
 ### ADR-0047: topojson-as-render-encoding
 
-The 2026-05-31 topojson migration **partially supersedes** ADR-0031's format-split-by-layer-size table for the 8 in-scope Track-A boundary layers (country, state, district, subdistrict, AC, PC, ULB-wards, panchayats). The GeoJSON cells in ADR-0031's table become TopoJSON post-PR-Z4; the PMTiles trigger column is unchanged. ADR-0031's other decisions (sibling-family, manifest discovery, no-move rule, deletion exclusion) remain in force. The TopoJSON fold itself lives at [topojson-loader.md#adr-0047-topojson-as-render-encoding](../frontend/topojson-loader.md#adr-0047-topojson-as-render-encoding). Villages and pincodes are out-of-scope (their bottleneck is render cost, not file format - they get the Track A2 PMTiles successor at [TODO/2026-05-31-village-pincode-vector-tiles-plan.md](../../../TODO/2026-05-31-village-pincode-vector-tiles-plan.md)).
+The 2026-05-31 topojson migration **partially supersedes** ADR-0031's format-split-by-layer-size table for the 8 in-scope Track-A boundary layers (country, state, district, subdistrict, AC, PC, ULB-wards, panchayats). The GeoJSON cells in ADR-0031's table become TopoJSON post-PR-Z4; the PMTiles trigger column is unchanged. ADR-0031's other decisions (sibling-family, manifest discovery, no-move rule, deletion exclusion) remain in force. The TopoJSON fold itself lives at [topojson-loader.md#adr-0047-topojson-as-render-encoding](../frontend/topojson-loader.md#adr-0047-topojson-as-render-encoding). Villages and pincodes are out-of-scope (their bottleneck is render cost, not file format - they get the Track A2 PMTiles successor).
 
 ## Rejected alternatives
 
 ### ADR-0031 rejected alternatives
 
-Verbatim from the originating ADR (B1-B11). Append-only per parent plan section 9 (keep-receipts).
+Verbatim from the originating ADR (B1-B11). Append-only per ADR retirement contract.
 
 | # | Rejected | Why |
 | --- | --- | --- |
@@ -283,7 +281,6 @@ Verbatim from the originating ADR (B1-B11). Append-only per parent plan section 
 ## See also
 
 - [docs/concepts/boundary-data-philosophy.md](../../concepts/boundary-data-philosophy.md) -- the "why" behind every boundary-data choice (polygons vs topographic raster, GADM rejection, TopoJSON adoption status, DIGIPIN deferral, HTL kept on purpose).
-- [TODO/TN-GRANULAR-GEO-PLAN.md](../../../TODO/TN-GRANULAR-GEO-PLAN.md) — implementation plan that drove the original tree.
 - [ADR-0030 — canonical store on Parquet + DuckDB-WASM](../decisions/0030-canonical-store-duckdb-wasm.md) — sibling-family rationale (D25).
 - [ADR-0031 — boundary geometry strategy + Amendment 2026-05-22](../decisions/0031-boundary-geometry-strategy.md) — format-per-layer, GeoJSON→PMTiles cutover, no-move rule, Hive layout + parquet ledger.
 - [ADR-0032 — sources citation ledger v2.0](../decisions/0032-sources-citation-ledger.md) — the FK target for `boundary_layers.source_id`.

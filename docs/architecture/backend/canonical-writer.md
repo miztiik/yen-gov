@@ -4,7 +4,7 @@
 
 The canonical CSV writer is the sole entry point that persists observation rows into the long-format CSV store under `datasets/data/` (and `datasets/elections/**`). It is the write seam referenced by Holy Law #2 ("backend is the only writer to `datasets/`") and the contract surface every re-pointed ingest (B1.4-B1.6 waves) funnels through, replacing the historical `core/io.write_artifact` meadow-tier path.
 
-Distilled from sub-plan [docs/archive/plans/20260604-b1-csv-writer-subplan.md](../../archive/plans/20260604-b1-csv-writer-subplan.md) (sub-rows B1.1..B1.7, PRs #629-B1.7-closure) on 2026-06-04.
+Distilled from sub-plan B1 (sub-rows B1.1..B1.7, PRs #629-B1.7-closure) on 2026-06-04.
 
 > The legacy Parquet writer at `backend/yen_gov/canonical/writer.py` (see [writer.md](writer.md)) survives in-tree until grandparent chunk B3 deletes it. Until then both writers coexist; new ingest re-points emit CSV via `csv_writer.write_csv`, never via the legacy `core/io.write_artifact` path.
 
@@ -19,7 +19,7 @@ Distilled from sub-plan [docs/archive/plans/20260604-b1-csv-writer-subplan.md](.
 
 | Module | Role | Public API |
 | --- | --- | --- |
-| `yen_gov.canonical.csv_columns` (B1.1, PR #629) | Loads + caches the column contract from `datasets/data/_schema/columns.json`; validates the contract itself against `_schema/columns.schema.json` (D6 escape-hatch retained per grandparent plan section 8). | `load_columns()`, `file_class_for(path)` |
+| `yen_gov.canonical.csv_columns` (B1.1, PR #629) | Loads + caches the column contract from `datasets/data/_schema/columns.json`; validates the contract itself against `_schema/columns.schema.json` (D6 escape-hatch retained per the column contract escape-hatch rule). | `load_columns()`, `file_class_for(path)` |
 | `yen_gov.canonical.csv_writer` (B1.2, PR #631) | Sole CSV emission point. Strict on shape (header, dtype, nullability, sort, filename `__` ban). | `write_csv(*, path, file_class, rows) -> Path` |
 | `yen_gov.canonical.csv_validator` (B1.3, PR #633) | Read-time cross-file integrity check. Strict on FK + closed-enum + sort + filename-equals-variable_id. No mocks (Holy Law #7); caller owns `repo_root` so fixtures stage under `tmp_path` (CLAUDE.md anti-pattern: validators MUST NOT walk the real on-disk corpus from pytest). | `validate_csv(*, path, file_class, repo_root) -> None` |
 
@@ -27,14 +27,14 @@ Division of labour: the writer is strict on per-row shape; the validator is stri
 
 ## Contract invariants enforced
 
-Inherited from grandparent plan section 22.4 and CLAUDE.md Holy Laws #3, #6, #9:
+Inherited from CLAUDE.md Holy Laws #3, #6, #9:
 
 1. **Provenance FK mandatory.** Every datapoint + candidacy row carries `source_id` -> `datasets/data/entities/source.csv` (validator-enforced).
 2. **One-indicator-per-concept.** Each `variable_id` in `variables.csv` binds to one `concept_id` -> `concepts.csv` (validator-enforced FK).
 3. **LGD/ECI key separation preserved.** The writer never invents a shared parent; election rows key on ECI codes per existing parser output, observation rows key on LGD ids per the entity file declared by the file class.
 4. **Schema-per-file typed.** Callers pass `file_class` explicitly; there is no `read_csv_auto` round-trip. The writer is the strict half of the same typed-read contract F1 codegen will materialise on the frontend.
 5. **Static-first deterministic read.** Rows sorted by the file class's PK columns in declaration order; no `datetime.now` in content columns; UTF-8 + LF + trailing newline + no BOM.
-6. **Double-underscore ban.** Filenames containing `__` are rejected at write time (grandparent plan section 21.6 / 21.12).
+6. **Double-underscore ban.** Filenames containing `__` are rejected at write time (CLAUDE.md section 10 anti-pattern).
 
 ## Re-point pattern for ingest callers
 
@@ -49,7 +49,7 @@ The B1.4-B1.6 waves re-pointed ~17 surviving `core/io.write_artifact` call-sites
 
 ## Seed emitters (B2a, PRs #673-#688)
 
-Sub-plan [docs/archive/plans/20260604-b2a-csv-catalogue-subplan.md](../../archive/plans/20260604-b2a-csv-catalogue-subplan.md) delivered eight one-shot emitters under `backend/yen_gov/canonical/seed/` that lift the existing taxonomy artifacts under `datasets/taxonomy/` into the canonical CSV catalogue rows every downstream reader (B2b datapoint reingest, F1 frontend loaders, YA yen-ask grounding) joins against. Each emitter reads ONE taxonomy artifact and writes ONE CSV file class via `csv_writer.write_csv`; the validator (`csv_validator.validate_csv`) enforces FK + enum + sort across the emitted files.
+Sub-plan B2a (PRs #673-#688) delivered eight one-shot emitters under `backend/yen_gov/canonical/seed/` that lift the existing taxonomy artifacts under `datasets/taxonomy/` into the canonical CSV catalogue rows every downstream reader (B2b datapoint reingest, F1 frontend loaders, YA yen-ask grounding) joins against. Each emitter reads ONE taxonomy artifact and writes ONE CSV file class via `csv_writer.write_csv`; the validator (`csv_validator.validate_csv`) enforces FK + enum + sort across the emitted files.
 
 | Emitter module | Reads | Emits | File class | PR |
 | --- | --- | --- | --- | --- |
@@ -69,7 +69,7 @@ Each emitter is paired with `backend/tests/test_seed_<name>_csv.py` covering: de
 - **`source_id`** is re-derived inside `seed/source_csv.py` via `canonical.citation.derive_source_id` (chicken-and-egg seed path); downstream callers (B2b reingest) MUST use `citation.lookup_source_id` against the emitted CSV, never re-derive.
 - **`topic.parent`** is a self-FK; emit order sorts parents-before-children so the validator passes without a deferred-FK pass.
 - **`variables.concept_id`** binds to `concepts.csv` per ADR-0044 one-indicator-per-concept; `check-overlap` may be re-run as a post-emit audit (see canonical-writer `## Re-point pattern` for the binding rule on B2b ingest).
-- **`variables.time_min` / `time_max` / `entity_kinds`** are nullable at B2a (no datapoints yet) and back-filled by B2b reingest per plan section 20.10.
+- **`variables.time_min` / `time_max` / `entity_kinds`** are nullable at B2a (no datapoints yet) and back-filled by B2b reingest.
 - **`electoral.parent`** uses AC -> PC-of-same-delim_year, PC -> state; the LGD/ECI key separation invariant (#3 above) means `entities/electoral.csv` carries NO district FK - the only meeting point is `entities/electoral_lgd_xwalk.csv`.
 
 ### Parquet sibling lifecycle
@@ -78,7 +78,7 @@ Each emitter targets a CSV under `datasets/data/`; the legacy parquet sibling un
 
 ## Taxonomy datapoint reingest (B2b.4, PRs #698-#708 + DROP #774)
 
-Sub-plan [docs/archive/plans/20260604-b2b4-taxonomy-subplan.md](../../archive/plans/20260604-b2b4-taxonomy-subplan.md) delivered six emitters lifting the datapoint-shape parquets B2a left behind (election_events, facet_axes, state_tiers, indicator_topic_tags, methodology_breaks, ac_crosswalk) into long-format CSV siblings under `datasets/data/`. The seventh planned row (`entities/person.csv` from `persons.parquet`) was DROPPED per converged Fowler+Hans persona-debate verdict (PR #774): the audit-only parquet has zero frontend consumers, biographic `dim_persons` cols migrate inline via B2b.5.x candidacies, and the cross-format-parity gate is N/A for an unconsumed parquet. Per-row emit map:
+Sub-plan B2b.4 (PRs #698-#708 + DROP #774) delivered six emitters lifting the datapoint-shape parquets B2a left behind (election_events, facet_axes, state_tiers, indicator_topic_tags, methodology_breaks, ac_crosswalk) into long-format CSV siblings under `datasets/data/`. The seventh planned row (`entities/person.csv` from `persons.parquet`) was DROPPED per converged Fowler+Hans persona-debate verdict (PR #774): the audit-only parquet has zero frontend consumers, biographic `dim_persons` cols migrate inline via B2b.5.x candidacies, and the cross-format-parity gate is N/A for an unconsumed parquet. Per-row emit map:
 
 | Source parquet | Emitter | Writes | PR | Notes |
 | --- | --- | --- | --- | --- |
@@ -94,7 +94,7 @@ Binding doctrine (shared by all six emitted CSVs): each emitter projects the par
 
 ## Elections datapoint reingest (B2b.5, PRs #762-772)
 
-Sub-plan [TODO/20260604-b2b5-elections-reingest-subplan.md](../../../TODO/20260604-b2b5-elections-reingest-subplan.md) delivered the elections clean-start: an LGD-spine reset (PR-stages 0a-0e) plus the two Tier-R result axes (assembly + parliament). The spine is sourced from a committed LGD parsed snapshot under `datasets/data/entities/lgd/` (relocated from `datasets/reference/lgd/` by G8-finish 2026-06-08, plan section 9); the results are re-parsed from the local TCPD compilations in `datasets/ephemeral/` (never the surviving parquet). Per-row emit map:
+Sub-plan B2b.5 (PRs #762-772) delivered the elections clean-start: an LGD-spine reset (PR-stages 0a-0e) plus the two Tier-R result axes (assembly + parliament). The spine is sourced from a committed LGD parsed snapshot under `datasets/data/entities/lgd/` (relocated from `datasets/reference/lgd/` by G8-finish 2026-06-08, plan section 9); the results are re-parsed from the local TCPD compilations in `datasets/ephemeral/` (never the surviving parquet). Per-row emit map:
 
 | Source (ephemeral, INPUT-only) | Emitter | Writes | Key shape |
 | --- | --- | --- | --- |
@@ -115,7 +115,7 @@ Binding doctrine (shared by both result axes): only the in-force 2008 delimitati
 datasets/elections/assembly/state=<lgd-slug>/election=<yyyy>/candidacies.csv
 ```
 
-The reader is a typed `read_csv(columns={...})` matching the `candidacies.csv` header shipped by B2b.5.x (17 columns including `entity_id`, `state`, `election_year`, `constituency_no`, `candidate_name`, `party_id`, `votes`, `vote_share_pct`, `position`, `result`, biographics, `candidate_type`, `source_id`). Sub-plan: [docs/archive/plans/20260605-f1-csv-loaders-and-oracle-rewrite-subplan.md](../../archive/plans/20260605-f1-csv-loaders-and-oracle-rewrite-subplan.md).
+The reader is a typed `read_csv(columns={...})` matching the `candidacies.csv` header shipped by B2b.5.x (17 columns including `entity_id`, `state`, `election_year`, `constituency_no`, `candidate_name`, `party_id`, `votes`, `vote_share_pct`, `position`, `result`, biographics, `candidate_type`, `source_id`). Sub-plan F1 (PR #791, distilled in F1.4).
 
 ### Path A backfill (mash from TCPD + parquet + LGD-spine)
 
@@ -130,7 +130,7 @@ The user verdict on the fixture-vs-CSV drift surfaced by the initial rewrite was
 
 ### Gates
 
-- `test_oracle_non_skip_gate` (per parent plan section 22.6 `oracle-non-skip`): hard FAILS if the per-slice run-set drops below 35. This is the false-green guard for the post-X1b world - a blanket `skipif csv absent` skip would mask a real deletion regression.
+- `test_oracle_non_skip_gate` (CLAUDE.md section 22.6 `oracle-non-skip`): hard FAILS if the per-slice run-set drops below 35. This is the false-green guard for the post-X1b world - a blanket `skipif csv absent` skip would mask a real deletion regression.
 - 35 `test_per_ac_fptp_winner_matches_fixture[<event_id>-<state_slug>]` parametrize cases: one per on-disk slice; together with the gate this is 36/36 pass byte-exact.
 
 Holy Law #7: the oracle reads the REAL on-disk CSV + a checked-in real-data fixture - no mocks. The Path A backfill tool (`tools/elections/backfill_from_legacy.py`) is committed for provenance + reproducibility per the `tools/` convention.
@@ -148,20 +148,20 @@ Holy Law #7: the oracle reads the REAL on-disk CSV + a checked-in real-data fixt
 
 These surfaced during B1 execution and are recorded here so future agents do not re-discover them:
 
-- **Per-indicator facet columns** (grandparent plan section 21.6). Writer + validator both reject undeclared columns today. Both surfaces will relax together when the first facet ingest (likely under B2b or a later family re-ingest) needs it.
-- **Wall-clock-in-content-columns detector** (grandparent plan 22.6 fk-validator gate calls it out). A defensible detector needs a content-column taxonomy that `columns.json` does not yet carry. Land alongside the first ingest that would benefit.
+- **Per-indicator facet columns** (column contract, CLAUDE.md section 10). Writer + validator both reject undeclared columns today. Both surfaces will relax together when the first facet ingest needs it.
+- **Wall-clock-in-content-columns detector** (CLAUDE.md section 10 anti-pattern). A defensible detector needs a content-column taxonomy that `columns.json` does not yet carry. Land alongside the first ingest that would benefit.
 - **Null-vs-empty-string distinction for string columns** (writer module docstring notes this). B1.2 emits `None` as the empty CSV field uniformly; a richer encoding will land if a downstream consumer needs to distinguish.
 - **Parquet writer + `core/io.write_artifact` deletion.** Both survive in-tree until grandparent chunk B3. New code MUST NOT call either; the import-allowlist pattern from PR-SYM-6f is the model for B3's enforcement test.
 
 ## See also
 
 - [../data/csv-column-contract.md](../data/csv-column-contract.md) - the binding column spec (D-DOC0, PR #627).
-- [docs/archive/plans/20260604-b1-csv-writer-subplan.md](../../archive/plans/20260604-b1-csv-writer-subplan.md) - the sub-plan that delivered this writer + validator (B1.1..B1.7).
-- [docs/archive/plans/20260604-b1.4-iced-repoint-subplan.md](../../archive/plans/20260604-b1.4-iced-repoint-subplan.md) - wave 1 (iced_*) per-family re-point precedent (PRs #634-#644).
-- [docs/archive/plans/20260604-b1.5-rbi-repoint-subplan.md](../../archive/plans/20260604-b1.5-rbi-repoint-subplan.md) - wave 2 (rbi_*) precedent (PRs #645-#656).
-- [docs/archive/plans/20260604-b1.6-misc-repoint-subplan.md](../../archive/plans/20260604-b1.6-misc-repoint-subplan.md) - wave 3 (misc) precedent including four alongside-NEITHER carve-outs (PRs #657-#669).
-- [docs/archive/plans/20260604-b2a-csv-catalogue-subplan.md](../../archive/plans/20260604-b2a-csv-catalogue-subplan.md) - the eight seed emitters (B2a.1..B2a.8, PRs #673-#686).
-- [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) sections 22 (execution model), 23.1 (deletion blast radius), 24.5 (sub-plan spawning).
+- Sub-plan B1 (PRs #629-B1.7-closure) delivered this writer + validator.
+- Sub-plan B1.4 (PRs #634-#644) - wave 1 (iced_*) per-family re-point precedent.
+- Sub-plan B1.5 (PRs #645-#656) - wave 2 (rbi_*) precedent.
+- Sub-plan B1.6 (PRs #657-#669) - wave 3 (misc) including four alongside-NEITHER carve-outs.
+- Sub-plan B2a (PRs #673-#686) - the eight seed emitters.
+- Sub-plan B2b.5 (PRs #762-#772) - elections clean-start.
 - [writer.md](writer.md) - legacy Parquet writer (survives until grandparent chunk B3).
 - [ADR-0032](../decisions/0032-sources-citation-ledger.md) - `source_id` FK requirement.
 - [ADR-0042](../decisions/0042-sources-schema-v3-vintage-as-period-anchor.md) - `vintage` semantics for `derive_source_id`.

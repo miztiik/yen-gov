@@ -2,13 +2,13 @@
 
 **Last Updated**: 2026-06-04
 
-This page is the keep-receipts home for the project's URL grammar decisions per [parent plan section 9](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) (Hans-finalised 2026-06-03) and [decision-index.md](../../reference/decision-index.md). It carries the condensed Context + Decision + Consequences for the two live ADRs that lock the grammar (0028 + 0037) and the verbatim rejected-alternatives traces for both the live and the archived ADRs (0028, 0037, and archived 0016-frontend-hash-routing). The operational form of the route resolver lives in the sibling subsystem doc [routing.md](routing.md); this page carries only the architectural-decision receipts.
+This page is the keep-receipts home for the project's URL grammar decisions per [decision-index.md](../../reference/decision-index.md). It carries the condensed Context + Decision + Consequences for the two live ADRs that lock the grammar (0028 + 0037) and the verbatim rejected-alternatives traces for both the live and the archived ADRs (0028, 0037, and archived 0016-frontend-hash-routing). The operational form of the route resolver lives in the sibling subsystem doc [routing.md](routing.md); this page carries only the architectural-decision receipts.
 
-> **DOCTRINE NOTE (2026-06-04, plan section 22.7).** The URL grammar (place-first cascade, flat indicator slug, path routing on Pages, no-vintage-in-URL, 5-way namespace disjointness, full-name state slug, entity-type page chrome) survives the canonical-store CSV cutover unchanged. URLs are a citizen contract and a frontend concern; the underlying storage format does not reach them. What MIGRATES is the read seam (`read_csv(columns=...)` over long-format CSV under `datasets/data/` rather than over the retiring Parquet tree per plan chunks F1 / X1a); the URL grammar's load-bearing invariants (OWID-alignment, Wikipedia-alignment on slug-as-entity, read-aloud test, one-segment state-swap) are invariant to the storage format.
+> **DOCTRINE NOTE (2026-06-04).** The URL grammar (place-first cascade, flat indicator slug, path routing on Pages, no-vintage-in-URL, 5-way namespace disjointness, full-name state slug, entity-type page chrome) survives the canonical-store CSV cutover unchanged. URLs are a citizen contract and a frontend concern; the underlying storage format does not reach them. What MIGRATES is the read seam (`read_csv(columns=...)` over long-format CSV under `datasets/data/` rather than over the retiring Parquet tree per plan chunks F1 / X1a); the URL grammar's load-bearing invariants (OWID-alignment, Wikipedia-alignment on slug-as-entity, read-aloud test, one-segment state-swap) are invariant to the storage format.
 
 ## Design rationale
 
-This section folds in the receipts from the originating ADRs that pinned the URL grammar for this project (`docs/architecture/decisions/` originating files deleted in D-DOC3.10 closure), per parent plan section 9 (keep-receipts ADR retirement) and [decision-index.md](../../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives). The archived [ADR-0016 (frontend-hash-routing)](../../archive/decisions/0016-frontend-hash-routing.md) trace also lives in that section per [decision-index.md](../../reference/decision-index.md).
+This section folds in the receipts from the originating ADRs that pinned the URL grammar for this project (`docs/architecture/decisions/` originating files deleted in D-DOC3.10 closure), per the ADR retirement contract ([decision-index.md](../../reference/decision-index.md)). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives). The archived [ADR-0016 (frontend-hash-routing)](../../archive/decisions/0016-frontend-hash-routing.md) trace also lives in that section per [decision-index.md](../../reference/decision-index.md).
 
 ### ADR-0028: url-scheme-place-first-flat-indicator-slug
 
@@ -108,11 +108,11 @@ A constituency is NEVER addressable outside an election context. (3) **Bare `/s/
 
 ## Rejected alternatives
 
-This section preserves the rejected-alternatives receipts for the ADRs whose rationale is folded above, verbatim and append-only per [parent plan section 9](../../../TODO/20260603-data-and-charting-platform-reset-plan.md). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` (or `#adr-NNNN-<disambiguator>-rejected-alternatives` for the disambiguated 0016) for the redirect index. The archived [ADR-0016 frontend-hash-routing](../../archive/decisions/0016-frontend-hash-routing.md) trace lives here per [decision-index.md](../../reference/decision-index.md) (the archived body is preserved verbatim under `docs/archive/decisions/`).
+This section preserves the rejected-alternatives receipts for the ADRs whose rationale is folded above, verbatim and append-only per the ADR retirement contract ([decision-index.md](../../reference/decision-index.md)). Each subsection is anchored as `#adr-NNNN-rejected-alternatives` (or `#adr-NNNN-<disambiguator>-rejected-alternatives` for the disambiguated 0016) for the redirect index. The archived [ADR-0016 frontend-hash-routing](../../archive/decisions/0016-frontend-hash-routing.md) trace lives here per [decision-index.md](../../reference/decision-index.md) (the archived body is preserved verbatim under `docs/archive/decisions/`).
 
 ### ADR-0028 rejected alternatives
 
-Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-receipts).
+Verbatim from the originating ADR. Append-only per ADR retirement contract.
 
 1. **Original `/c/<country>/s/<state>/[d|ac]/<seat>/i/<id>` cascade.** Rejected by user as "over complicating"; markers don't earn their place when slug shapes already disambiguate.
 2. **`?i=<indicator>` query-string projection.** Rejected by user explicitly - indicator must live in the path.
@@ -123,7 +123,7 @@ Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-r
 
 ### ADR-0037 rejected alternatives
 
-Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-receipts).
+Verbatim from the originating ADR. Append-only per ADR retirement contract.
 
 1. **Keep ADR-0028 verbatim (`/india/<state>/...`).** Rejected - on a `.in` domain `/india/` reads as a stutter; yen-gov is India-only by [CLAUDE.md section 0 non-goals](../../../CLAUDE.md); paying one segment of URL tax on every page for an optionality we don't have is what gets deleted.
 2. **Keep the shipped `/s/<state>/...` grammar (Grammar B).** Rejected - `/s/` and `/ac/` are positional markers that don't disambiguate (state slugs are disjoint from AC slugs by construction); markers that don't disambiguate read as scaffolding.
@@ -133,7 +133,7 @@ Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-r
 
 ### ADR-0052 rejected alternatives
 
-ADR-0052's body is structured around POSITIVE decisions (path-encodes-identity rule + four numbered sub-decisions) rather than a separate `## Alternatives considered` section. The receipts that survive as rejected approaches are the two-grammar status quo + the one-release legacy-honour shape, preserved verbatim from the originating ADR context. Append-only per parent plan section 9 (keep-receipts).
+ADR-0052's body is structured around POSITIVE decisions (path-encodes-identity rule + four numbered sub-decisions) rather than a separate `## Alternatives considered` section. The receipts that survive as rejected approaches are the two-grammar status quo + the one-release legacy-honour shape, preserved verbatim from the originating ADR context. Append-only per ADR retirement contract.
 
 - **Keep two URL grammars for one election resource** (`/s/<state>/ac/<n-slug>?event=<event>` for the constituency drill-down AND `/s/<state>/elections/<event>` for the state overview, with event in the query string on one and the path on the other). Rejected by user: "I don't see a reason for having two url patterns for the same data, it makes it harder to maintain two surfaces." Two URL grammars for one logical thing is more to maintain and reason about, and blurs the line between "which resource am I looking at" (identity) and "how am I looking at it" (view-state).
 - **Treat the bare `/s/<state>/ac/<n-slug>` as a canonical resource (no redirect).** Rejected: it carries no election in its path, so it is not identity-complete. Allowing it as canonical would mean every constituency page implicitly answers for whatever the state's current default event is, with no shared-URL stability across cohort transitions. Keeping it as a convenience entry that `replaceState`-redirects to the nested canonical form preserves the path-encodes-identity invariant while giving citizens a short-URL on-ramp.
@@ -141,7 +141,7 @@ ADR-0052's body is structured around POSITIVE decisions (path-encodes-identity r
 
 ### ADR-0016 frontend rejected alternatives
 
-Verbatim from the archived [ADR-0016 frontend-hash-routing](../../archive/decisions/0016-frontend-hash-routing.md) (body preserved verbatim under `docs/archive/decisions/`). Append-only per parent plan section 9 (keep-receipts). ADR-0016 itself is superseded by ADR-0028 on the routing-mode question (path routing on GitHub Pages via the standard `404.html -> index.html` SPA shim). Hash-routing on the frontend is the rejected approach folded here per [decision-index.md](../../reference/decision-index.md). The receipt is preserved as a guard against re-litigation (a future agent proposing hash routing as a hedge against the 404.html shim should land here first).
+Verbatim from the archived [ADR-0016 frontend-hash-routing](../../archive/decisions/0016-frontend-hash-routing.md) (body preserved verbatim under `docs/archive/decisions/`). Append-only per ADR retirement contract.
 
 - **svelte-routing / svelte-spa-router (rejected at ADR-0016 time as router-lib choice).** Viable, but adds a dependency and an opinion (slot-based routing, named params with `:slug` syntax, etc.) for a 4-route app. Rejected on YAGNI. (Context-of-rejection note: when ADR-0028 superseded the routing-mode decision, the project DID adopt `svelte-spa-router` for its pattern-based dispatch - the YAGNI rejection at the 4-route scale flipped at the 50-route scale, which is the same logic that flipped the 404.html shim.)
 - **SvelteKit with adapter-static (rejected at ADR-0016 time).** Gives us file-system routing and SSG. Rejected because (a) Holy Law #1 forbids assuming any backend, and adapter-static is a heavy migration path; (b) we already have a working Vite + plain-Svelte setup; (c) routing is the only thing SvelteKit would buy us right now. This rejection still stands at ADR-0028 time and beyond - the project remains Vite + plain-Svelte for the canonical SPA setup.
@@ -180,7 +180,7 @@ Regex pin (enforced by [url-namespace-disjointness.test.ts](../../../frontend/sr
 
 **Disjointness against the event-context literals.** The set `{"general", "assembly", "elections"}` appears as path segments in the elections cascade (literal `/elections/` middle segment and event-slug body prefixes). State slugs and AC slugs MUST be pairwise disjoint from the full set so a 1-segment URL like `/general` cannot be misread as a state hub. Topic slugs are disjoint from the narrower `{"general", "assembly"}` set only - the topic id `elections` IS valid today (the elections topic family is a real topic) and its `/t/elections` URL is superseded by the firehose via route-table order (PR-W3d registers `/t/elections` ahead of `/t/:topic`); only `general` and `assembly` have no legitimate topic identity. The disjointness contract test extends to assert this since PR-0; `elections` is NOT added to `RESERVED_PATH_TOKENS` because the firehose stays at the existing `/t/elections` (top-level reservation `t` covers it).
 
-**No legacy-URL absorber.** Per user-mandated binding constraint in the [election experience overhaul plan](../../../TODO/20260609-election-experience-overhaul-plan.md) section 0, old `?s=<b64>` and `LsGenJun2024`-style URLs are not redirected; bookmarks lose work. Acceptable today; revisit when a real citizen complaint surfaces.
+**No legacy-URL absorber.** Old `?s=<b64>` and `LsGenJun2024`-style URLs are not redirected; bookmarks lose work. Acceptable today; revisit when a real citizen complaint surfaces.
 
 ### No-Hindi policy (PR-0 2026-06-09)
 

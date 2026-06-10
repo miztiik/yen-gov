@@ -212,7 +212,7 @@ Currently exempt:
 
 Historical note: `_test` was previously exempt as a cross-language
 test-fixture subtree (`datasets/_test/temporal-range-fixtures/cases.json`).
-T.1 (TODO/20260517 §0e.7) deleted that subtree — shared cross-language
+T.1 deleted that subtree — shared cross-language
 fixtures now live under `backend/tests/fixtures/` (Python-owned, single
 source of truth) pointed at by both pytest (`backend/tests/test_derive_temporal_range.py`)
 and vitest (`frontend/src/lib/indicators.test.ts`). `_ops/` is NOT in the
@@ -248,7 +248,7 @@ corpus walks per CLAUDE.md §10 anti-pattern).
 
 | Function | What it forbids | Allowlist input | Tests |
 | --- | --- | --- | --- |
-| `tier_b_meadow_shard_contract` | New `*.json` files under `datasets/indicators/in/`. The 110 legacy folded-indicator shards (pre-canonical-pivot artifacts) retire family-by-family per TODO/20260517 §0e.7 P.*. New content must land on the canonical Parquet store. | `datasets/_ops/meadow-shard-contract.txt` (one POSIX path per line; `#`-comments + blank lines ignored). | 6 cases — passes when allowlisted, rejects new shard, rejects orphan allowlist entry, no-op when indicators dir absent, requires allowlist when indicators dir present, regression guard that `run()` chains the check. |
+| `tier_b_meadow_shard_contract` | New `*.json` files under `datasets/indicators/in/`. The 110 legacy folded-indicator shards (pre-canonical-pivot artifacts) retire family-by-family. New content must land on the canonical store. | `datasets/_ops/meadow-shard-contract.txt` (one POSIX path per line; `#`-comments + blank lines ignored). | 6 cases — passes when allowlisted, rejects new shard, rejects orphan allowlist entry, no-op when indicators dir absent, requires allowlist when indicators dir present, regression guard that `run()` chains the check. |
 
 ### Shape of a forbidden-path check
 

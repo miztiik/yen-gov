@@ -19,4 +19,4 @@
 >
 > **Why retired:** the JSON sidecar tree was 3,983 files across one election (TN 2021) on the way to ~100k+ if extended to every state × every year. Reading it forced one HTTP fetch per candidate from the citizen browser. Lifting bio onto `dim_candidates` collapsed that to a single Parquet HTTP range request alongside the result rows the page already loads (canonical pivot §0a/0b — OWID-style long-format wins on URL economy and on schema simplicity).
 >
-> **Inbound links:** [`TODO/20260517-tcpd-tn-ae-people-sidecar-plan.md`](../../../TODO/20260517-tcpd-tn-ae-people-sidecar-plan.md) (historical plan; do not implement). [`docs/architecture/canonical-pivot-deletion-manifest.md`](../canonical-pivot-deletion-manifest.md) row 1.8f marks the family ✅.
+> **Inbound links:** The people sidecar plan (TCPD TN AE 2026-05-17, historical; do not implement). The canonical-pivot deletion manifest row 1.8f marks the family done.

@@ -32,7 +32,7 @@ A fourth rule — every allowlist entry has a non-empty `reason` — exists so t
 Adding a new indicator artifact:
 
 - **Citizen-facing now**: add an `{ "kind": "indicator", "id": "..." }` entry under the right topic in `topic-catalogue.json`. Done.
-- **Not yet ready**: add `{ "id": "...", "reason": "..." }` to the allowlist. The reason is plain English; tag it with the phase from [`TODO/VIZ-LAYER-GAPS-PLAN.md`](../../../TODO/VIZ-LAYER-GAPS-PLAN.md) it is blocked on (e.g. `phase3-pending (new topic: prices): blocked on RebaseBanner (Phase 2)`).
+- **Not yet ready**: add `{ "id": "...", "reason": "..." }` to the allowlist. The reason is plain English; tag it with the blocking phase (e.g. `phase3-pending (new topic: prices): blocked on RebaseBanner (Phase 2)`).
 
 Closing the gap:
 
@@ -55,7 +55,6 @@ The allowlist makes the deferral visible and reviewable. "Why is this still unwi
 
 ## See also
 
-- [`TODO/VIZ-LAYER-GAPS-PLAN.md`](../../../TODO/VIZ-LAYER-GAPS-PLAN.md) — the phased plan this test is Phase 0 of.
 - [`docs/reference/data-coverage-report.md`](../../reference/data-coverage-report.md) §6 — Fowler/Jony/Hans audit findings.
 - [`docs/reference/data-inventory.md`](../../reference/data-inventory.md) §1Z — auto-generated inventory of the same unwired set.
 - CLAUDE.md §15 — test-tier policy (this is a Tier 2 contract test).

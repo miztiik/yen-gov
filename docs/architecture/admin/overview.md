@@ -1,8 +1,6 @@
 # Admin app — overview
 
-**Last Updated**: 2026-05-18 (status: Phase 1.7 — Inventory rewritten family-agnostic for the canonical Parquet store; ECI Recon panel retired)
-
-> **Status note.** Phase 4 v0 has landed: `admin/` Svelte app, `backend/yen_gov/admin/` FastAPI module, and the **Inventory**, **Indicators**, **Schemas**, and **Pipeline** panels are live. **Phase 1.7 (2026-05-18)** rewrote Inventory to walk the canonical `datasets/<family>/observations.parquet` store via DuckDB introspection (family-agnostic — elections today, energy / demography / fiscal / health automatic when their parquets land) and retired the **ECI Recon** panel + `tools/eci_recon/` scanner entirely (operator now hand-loads upstream XLS/CSV into the ingest path; no live website scan). **Patches panel is still design-only.** When it lands, promote its subsection in this doc into a sibling file (`admin/patches.md`).
+**Last Updated**: 2026-05-18
 
 The admin app is a **separate, dev-only Svelte application** that lives alongside the public frontend but ships in its own bundle, talks to a local **FastAPI** wrapper around the existing pipeline, and is **never deployed to GitHub Pages**. It is the operator's cockpit: dataset inventory, schema health, pipeline status, and a patch-file editor for data corrections.
 
@@ -163,73 +161,9 @@ The **Trigger** form spawns `python -m yen_gov <command> <args...>` as a subproc
 
 Uvicorn restart edge case: if uvicorn dies while a subprocess is alive, the watcher thread dies with it and `meta.json` would otherwise stay `running` forever. On startup, `_sweep_orphans()` scans every meta and demotes any `running` entries to `abandoned` (the live subprocess is unrecoverable across server restarts — Popen is process-scoped).
 
-### Patches (planned)
+## Future work
 
-- **Last runs** — table of recent `.runtime/logs/<run-id>/` directories, with status, duration, source, and log links.
-- **Trigger** — buttons to run sources (e.g. `yen-gov pipeline run --source eci --election AcGenMay2026 --state S22`). Streams the run's stdout/stderr to the page via Server-Sent Events from the FastAPI handler.
-- Read-only panel by default; the trigger buttons are gated by a `ADMIN_ALLOW_RUN=1` env var on the uvicorn process to avoid accidental scrapes during exploration.
-
-### Patches (planned)
-
-Editor for the patch-file model (below). Loads a dataset, lets the operator edit specific fields, emits a structured patch under `datasets/patches/`, shows the diff, and offers a "stage in git" button.
-
-## Patch-file model for data massaging
-
-Direct edits to `datasets/` would lose the audit trail and conflate "the upstream said this" with "we corrected it to this". The patch-file model keeps both visible.
-
-### Shape
-
-Every patch is a JSON file under `datasets/patches/<election>/<timestamp>_<kind>.json`:
-
-```json
-{
-  "$schema": "https://yen-gov.in/schemas/patch.schema.json",
-  "$schema_version": "1.0",
-  "applies_to": {
-    "election": "AcGenMay2026",
-    "state": "S22",
-    "ac": "167"
-  },
-  "kind": "rename_party",
-  "rationale": "ECI portal lists the same party under two spellings on different pages; canonicalising to the form used in datasets/taxonomy/parties.json",
-  "operations": [
-    { "op": "replace", "path": "/results/167/candidates/3/party_eci_code", "from": "AIDMK", "to": "AIADMK" }
-  ],
-  "sources": []
-}
-```
-
-- `$schema` / `$schema_version` — patches are themselves a versioned contract surface (CLAUDE.md §11).
-- `applies_to` — scope; the apply step only loads the named files.
-- `kind` — one of `rename_party`, `merge_candidates`, `fix_typo`, `correct_vote`, etc. Drives validation rules (e.g. `correct_vote` MUST cite a `sources` URL; `fix_typo` MAY be empty).
-- `rationale` — human prose required by CLAUDE.md Holy Law #4 (rationale ships with the change).
-- `operations` — RFC 6902 JSON Patch operations. Choosing a standard means the apply step is a one-liner (`fast-json-patch` or `jsonpatch` in Python).
-- `sources` — provenance for the patch itself per CLAUDE.md §12. Empty array = hand-correction; the rationale field carries the why.
-
-### Apply step
-
-The pipeline's emit phase applies all patches under `datasets/patches/<election>/` in timestamp order to the canonical artifact, *after* the upstream parse and *before* the schema validation. Result: the on-disk artifact is always consistent with `(upstream + patches)`. The patch files themselves stay in git, so anyone reading the repo sees both the upstream-faithful version (in `.runtime/raw/`) and the corrections (in `datasets/patches/`).
-
-### Why patches, not direct edits
-
-- **Auditable.** Each correction is a discrete file with rationale and (where required) a citation. Git diff alone shows what *changed* but not *why*.
-- **Reversible.** Delete the patch file → next pipeline run produces the upstream-faithful artifact. No git revert archaeology.
-- **Cumulative.** Multiple corrections to the same file compose without merge conflicts (they're separate files).
-- **Honest.** The published artifact's `sources[]` still cites the upstream URL; readers who care can diff against `.runtime/raw/` to see exactly what we changed.
-
-### Patch model — alternatives considered
-
-- **Direct edits to `datasets/` JSON, git diff as audit trail.** Rejected: loses the upstream-faithful version, makes "rerun the pipeline" destructive, hides rationale.
-- **A single patches.json per election with all corrections.** Rejected: turns into a merge-conflict magnet; hard to attribute rationale per correction.
-- **Database of corrections + emit on build.** Adds a backend, violates Holy Law #2.
-
-## Provenance and the admin app
-
-The admin **never** strips or weakens provenance. Patch files have their own `sources[]` (per CLAUDE.md §12). When patches are applied to a downstream artifact, the resulting artifact's `sources[]` is the union of (upstream + patch) provenance. The admin panel surfaces both halves so the operator sees what they're about to publish.
-
-## Phase plan
-
-Admin lands in **Phase 4** of the [frontend phasing](../frontend/overview.md#phasing). Phases 1–3 (public Explore, Psephlab, Compare) are higher priority because they are user-facing; the admin shortens *our own* loop and is built once we have enough data variety to need it.
+- **Patches editor**: operator-facing panel to author, review, and stage structured patch files under `datasets/patches/`. Design spec is deferred; the patch-file model (RFC 6902 JSON Patch operations, rationale-required, per-election scoped) is documented in `docs/archive/` for reference.
 
 ## See also
 

@@ -6,7 +6,7 @@ YENASK is a dev-only browser lab mounted at `/lab/yenask`. It turns a citizen go
 
 **Display name vs identifier**: the citizen-visible logo and `<title>` reads **Yen-Ask** (with hyphen) per [ADR-0040](../decisions/0040-yenask-brand-and-lab-route.md). The library / module / route-slug / LS-key identifier is `yenask` (unchanged). The two are separately tunable: the brand-mark is a citizen-facing affordance, the identifier is an engineering affordance. Do not rename `frontend/src/lib/yenask/`, `Yenask.svelte`, the `/yenask` URL slug, `yenask.model.id.v1`, or `data-route="yenask"` — only the on-screen display strings change.
 
-This page covers **what is currently on disk** as of the ABCD sprint (PRs #225 / #227 / #228 / #229, all merged onto `main` 2026-05-24): the module layout, the contracts the modules pass between each other, the readiness state machine, the observability surface, the per-row picker, the graduated download friction by size tier, and the test seams. It does **not** cover rationale-as-it-was-made — that lives in the plan-doc [`TODO/20260518-browser-governance-insight-assistant-plan.md`](../../../TODO/20260518-browser-governance-insight-assistant-plan.md) §17 (entries D-01 through D-33) and in the keep-receipts homes [`yenask/pipeline.md`](yenask/pipeline.md) (the live ADR-0039 fold + the archived [ADR-0038](../../archive/decisions/0038-yenask-two-stage-llm-pipeline-rejected.md) two-LLM rejection trace, both via D-DOC3.9) and [`yenask/brand-and-route.md`](yenask/brand-and-route.md) (the live ADR-0040 brand-and-route fold). Every section here cites the relevant D-NN entry or the receipt doc instead of restating it (per CLAUDE.md §5 doc-class routing contract).
+This page covers **what is currently on disk** as of the ABCD sprint (PRs #225 / #227 / #228 / #229, all merged onto `main` 2026-05-24): the module layout, the contracts the modules pass between each other, the readiness state machine, the observability surface, the per-row picker, the graduated download friction by size tier, and the test seams. It does **not** cover rationale-as-it-was-made — that lives in the keep-receipts homes [`yenask/pipeline.md`](yenask/pipeline.md) (the live ADR-0039 fold + the archived [ADR-0038](../../archive/decisions/0038-yenask-two-stage-llm-pipeline-rejected.md) two-LLM rejection trace, both via D-DOC3.9) and [`yenask/brand-and-route.md`](yenask/brand-and-route.md) (the live ADR-0040 brand-and-route fold). Every section here cites the relevant D-NN entry or the receipt doc instead of restating it (per CLAUDE.md §5 doc-class routing contract).
 
 **Slice E status**: ADR-0039 locks the direction; Slice E.1 (embeddings module + registry entry + eval fixture) and Slice E.2 (integration + `embed_ms` observability + browser smoke) are the active rollout PRs that follow this freeze. Until those land, the [Pipeline](#pipeline) section below describes the on-disk single-stage shape. The [Approved evolution — Slice E pipeline](#approved-evolution--slice-e-pipeline-adr-0039) section describes what those PRs will change.
 
@@ -17,8 +17,6 @@ For the lab's removal contract and the "what lives where" map, see [`frontend/sr
 The lab ships as `frontend/src/routes/Yenask.svelte` mounted at `/lab/yenask`, with lab-internal libs under `frontend/src/lib/yenask/`. There is **no** standalone `labs/yenask/` Vite app, no separate dev port, no duplicated `serveDatasets()` middleware. The lab reads from the same `/data/` URLs production reads from, runs the same DuckDB-WASM init the production app runs, and shares the `/lab/` namespace with the analyst routes (`/lab/:state/:event` = Psephlab) — the patterns are segment-distinct (2 vs 3 segments) so route order is not load-bearing. Per [ADR-0040](../decisions/0040-yenask-brand-and-lab-route.md), `/lab/` is the canonical namespace for analyst + research surfaces; `/dev/` is reserved for narrow runtime-failure sandboxes (`/dev/charts-sandbox` today; `/dev/duckdb-harness` retired in X1a-followup 2026-06-06).
 
 Removing the lab is `git rm` of `frontend/src/routes/Yenask.svelte` + `frontend/src/lib/yenask/` + two lines from `frontend/src/main.ts`. Nothing in the production surface imports from `lib/yenask/`. The reverse is encouraged: `lib/yenask/` imports freely from production helpers (`../duckdb`, `../charts/*`, `../SourceListV2`, `../format`, `../url`).
-
-Rationale: plan-doc §17 [D-01](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-01--lab-lives-inside-frontend-as-a-dev-route-not-as-a-standalone-labsyenask-vite-app), [D-02](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-02--reuse-existing-frontend-primitives-instead-of-rebuilding).
 
 ## Pipeline
 
@@ -175,7 +173,7 @@ The lab is held together by five contracts. Modules MUST pass typed values acros
 }
 ```
 
-The model is constrained to emit ONLY this shape. Anything else fails Zod validation and triggers a retry (D-17). The Zod schema is the entire safety boundary between citizen free text and DuckDB SQL — there is no other sanitisation layer. Rationale: plan-doc §17 [D-03](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-03--insightintent-contract-is-ts-zod-only-no-datasetsschemas-json-schema-mirror), [D-06](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-06--provenance-is-required-non-empty-at-the-zod-type-level-3-test-cases-enforce).
+The model is constrained to emit ONLY this shape. Anything else fails Zod validation and triggers a retry (D-17). The Zod schema is the entire safety boundary between citizen free text and DuckDB SQL — there is no other sanitisation layer.
 
 ### `DuckDBPlan` (compile output → execute input)
 
@@ -276,9 +274,7 @@ Each call to `extractIntent()` returns `diagnostics.attempts_log: readonly Extra
               └─────────────────────────────────────────┘
 ```
 
-The state transitions are captured into `Yenask.svelte`'s `statusHistory: StatusEvent[]` ring buffer (cap 50, consecutive same-file `downloading` ticks coalesce). The Debug log renders the timeline so an operator can see "downloaded model.onnx (12 MB) → downloaded tokenizer.json (1 MB) → compiling → ready" with timestamps.
-
-Rationale: plan-doc §17 [D-11](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-11--model-registry-is-config-driven-multiple-models-are-first-class), [D-15](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-15--transformersjs-provider-locked-model-is-config-driven-and-swappable), [D-20](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-20--generate-exposes-tokens-inout--wall_ms-per-attempt-diagnostics-surface-as-first-class-observability).
+The state transitions are captured into `Yenask.svelte`'s `statusHistory: StatusEvent[]` ring buffer (cap 50, consecutive same-file `downloading` ticks coalesce).
 
 ## Model registry — adding / swapping a model
 
@@ -293,17 +289,17 @@ Rationale: plan-doc §17 [D-11](../../../TODO/20260518-browser-governance-insigh
 | `repo_id` | HuggingFace repo id (e.g. `"HuggingFaceTB/SmolLM2-135M-Instruct"`). |
 | `dtype` | Quantisation tag (`"q4f16"`, `"q8"`, `"fp16"`, `"fp32"`, ...). |
 | `device` | `"wasm"` (stable, slower) \| `"webgpu"` (fast, currently crashes on q4f16) \| `"auto"`. |
-| `estimated_download_mb` | Used for the picker's expectation copy. Citizens see `"Download · ~N MB"` (or `"~N.N GB"` once ≥1024 MB per [D-24](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-24--graduated-download-friction-by-size-tier-recommended-rejected-size-driven-row-tinting-rejected-per-jony-slice-c)). Values >1024 MB also trigger the Large-tier two-step inline confirm. |
-| `estimated_ram_mb` (optional) | Peak-RAM estimate. When present, picker renders `"Needs ~N MB RAM"` (or `"~N.N GB"`). When absent, picker renders nothing. Added per [D-24](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-24--graduated-download-friction-by-size-tier-recommended-rejected-size-driven-row-tinting-rejected-per-jony-slice-c). |
+| `estimated_download_mb` | Used for the picker's expectation copy. Citizens see `"Download · ~N MB"` (or `"~N.N GB"` once >=1024 MB). Values >1024 MB also trigger the Large-tier two-step inline confirm. |
+| `estimated_ram_mb` (optional) | Peak-RAM estimate. When present, picker renders `"Needs ~N MB RAM"` (or `"~N.N GB"`). When absent, picker renders nothing. |
 | `notes` | Operator-facing free text shown in the picker helper. |
 
 **Swap the default**: change `DEFAULT_MODEL_ID` in the same file. No other code edit needed.
 
 **Add an alternative**: append a new `ModelEntry` to the array. The picker (Slice B + Slice C) already iterates over the registry and applies tier-aware friction automatically. New providers (e.g. `"litert-mediapipe"`) need a new dispatch arm in `createAdapter()` in [`model-adapter.ts`](../../../frontend/src/lib/yenask/model-adapter.ts) — rule of three; don't pre-create empty providers.
 
-**Today's seed**: `smollm2-360m-instruct`, `dtype: "q4f16"`, `device: "wasm"`, ~273 MB cold-load. Promoted from `smollm2-135m-instruct` per [D-26](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-26--default-model-upgrade-smollm2-135m--smollm2-360m-smollm2-135m-size-corrected-88--118-mb-per-max-slice-d-1) (Slice D-1) — strict upgrade: ~3× better instruction-following at ~2.3× the download size, same Apache-2.0 family. Stays under the [D-24](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-24--graduated-download-friction-by-size-tier-recommended-rejected-size-driven-row-tinting-rejected-per-jony-slice-c) Small-tier 500-MB threshold so first-run citizens see no download friction. Pinned to wasm because `onnxruntime-web` WebGPU crashes on q4f16 SmolLM2 with `Mapping WebGPU buffer failed: Invalid buffer`. Rationale: plan-doc §17 [D-19](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-19--seed-model-device-pinned-to-wasm-webgpu-stays-opt-in-until-upstream-is-stable). The former 135M default (118 MB) is retained in the registry as a low-RAM-device fallback.
+**Today's seed**: `smollm2-360m-instruct`, `dtype: "q4f16"`, `device: "wasm"`, ~273 MB cold-load. Promoted from `smollm2-135m-instruct` (Slice D-1) — strict upgrade: ~3x better instruction-following at ~2.3x the download size, same Apache-2.0 family. Stays under the Small-tier 500-MB threshold so first-run citizens see no download friction. Pinned to wasm because `onnxruntime-web` WebGPU crashes on q4f16 SmolLM2 with `Mapping WebGPU buffer failed: Invalid buffer`. The former 135M default (118 MB) is retained in the registry as a low-RAM-device fallback.
 
-**Slice C registry expansion**: per [D-24](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-24--graduated-download-friction-by-size-tier-recommended-rejected-size-driven-row-tinting-rejected-per-jony-slice-c), the registry ships five entries: `smollm2-360m-instruct` (273 MB, small tier, default), `smollm2-135m-instruct` (118 MB, small tier), `tinyllama-1-1b-chat` (600 MB, medium tier), `qwen2-5-1-5b-instruct` (1.2 GB, large tier, two-step confirm), `phi-3-5-mini-instruct` (2.3 GB, large tier, two-step confirm). Size-tier classification + label formatting + OOM-error detection live in [`size-tier.ts`](../../../frontend/src/lib/yenask/size-tier.ts) (pure helpers; vitest-covered).
+**Slice C registry expansion**: the registry ships five entries: `smollm2-360m-instruct` (273 MB, small tier, default), `smollm2-135m-instruct` (118 MB, small tier), `tinyllama-1-1b-chat` (600 MB, medium tier), `qwen2-5-1-5b-instruct` (1.2 GB, large tier, two-step confirm), `phi-3-5-mini-instruct` (2.3 GB, large tier, two-step confirm). Size-tier classification + label formatting + OOM-error detection live in [`size-tier.ts`](../../../frontend/src/lib/yenask/size-tier.ts) (pure helpers; vitest-covered).
 
 ## Observability surface (PR-3)
 
@@ -342,12 +338,12 @@ Testids: `yenask-debug-turns`, `yenask-debug-attempts`, `yenask-computation` (re
 ### What is NOT exposed
 
 - The full prompt sent to the model — sensitive surface (system prompt + few-shot is hand-tuned); kept inside `extract-intent.ts` and not surfaced to the UI. If you need to inspect it during dev, hardcode a `console.log` in `extract-intent.ts` and remove before commit (per CLAUDE.md §7).
-- Per-token streaming. Transformers.js supports streaming via `TextStreamer`; the current adapter does not subscribe. Generate is one round-trip — which is why the four per-attempt phase-timing columns (`encode_ms`, `generate_ms`, `decode_ms`, `ttft_ms`) all render as `—` for the current adapter, per [D-27](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-27--slice-a-shipped-pr-225-merge-04cbbad2-per-attempt-timing-observability-landed-transformersjs-returns-null-for-all-4-phases-black-box-round-trip). A future provider that streams (LiteRT/MediaPipe, or transformers.js with `TextStreamer`) populates the columns with real numbers and the rendering path already plumbs them through.
-- Per-row cache-management UI is shipped (per [D-23](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-23--model-picker-is-a-list-with-per-row-actions-remove-from-dropdown-rejected-cache-clear-is-per-repo_id-with-two-step-inline-confirm), Slice B / PR #227): each row in the picker exposes a per-`repo_id` cache delete with two-step inline confirm. Implemented against the Cache Storage API (`caches.open("transformers-cache")`) — see [`model-cache.ts`](../../../frontend/src/lib/yenask/model-cache.ts). DevTools → Application → Cache Storage remains the manual escape hatch.
+- Per-token streaming. Transformers.js supports streaming via `TextStreamer`; the current adapter does not subscribe. Generate is one round-trip — which is why the four per-attempt phase-timing columns (`encode_ms`, `generate_ms`, `decode_ms`, `ttft_ms`) all render as `-` for the current adapter. A future provider that streams populates the columns with real numbers and the rendering path already plumbs them through.
+- Per-row cache-management UI is shipped (Slice B / PR #227): each row in the picker exposes a per-`repo_id` cache delete with two-step inline confirm. Implemented against the Cache Storage API (`caches.open("transformers-cache")`) — see [`model-cache.ts`](../../../frontend/src/lib/yenask/model-cache.ts). DevTools -> Application -> Cache Storage remains the manual escape hatch.
 
 ## Test seam
 
-Per plan-doc §17 [D-08](../../../TODO/20260518-browser-governance-insight-assistant-plan.md#d-08--test-seam-vimockduckdb-for-vitest-playwright-e2e-owns-real-duckdb-wasm-round-trip), the lab uses a tiered test strategy:
+The lab uses a tiered test strategy:
 
 | Tier | What it asserts | Where | Mocks |
 | --- | --- | --- | --- |
@@ -384,7 +380,6 @@ The Playwright spec asserts the `yenask-computation` testid is visible and conta
 
 ## See also
 
-- Plan-doc with full design-decision log (D-01 through D-30) + sprint status header: [`TODO/20260518-browser-governance-insight-assistant-plan.md`](../../../TODO/20260518-browser-governance-insight-assistant-plan.md)
 - [yenask/pipeline.md#adr-0038-rejected-alternatives](yenask/pipeline.md#adr-0038-rejected-alternatives) — trace from archived [ADR-0038](../../archive/decisions/0038-yenask-two-stage-llm-pipeline-rejected.md) (the Slice D-2 / two-model rejection, with four rejected alternatives and reversal cost)
 - Internal map of `lib/yenask/`: [`frontend/src/lib/yenask/AGENTS.md`](../../../frontend/src/lib/yenask/AGENTS.md)
 - Holy Law #1 (static-first): [CLAUDE.md](../../../CLAUDE.md)
@@ -394,15 +389,15 @@ The Playwright spec asserts the `yenask-computation` testid is visible and conta
 
 ## YA cutover (2026-06-06)
 
-The YA chunk per parent plan [`TODO/20260603-data-and-charting-platform-reset-plan.md`](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 22.5 retires the last two parquet reads in the lab's startup catalogue (`elections.dim_acs` + `elections.elections_candidacies`) and brings the executor's source-row coercer in line with the post-X1a 5-field `data/entities/source.csv` shape.
+The YA chunk (2026-06-06) retires the last two parquet reads in the lab's startup catalogue (`elections.dim_acs` + `elections.elections_candidacies`) and brings the executor's source-row coercer in line with the post-X1a 5-field `data/entities/source.csv` shape.
 
 **State enumeration** moved from `SELECT DISTINCT state_code FROM dim_acs` to an inline `read_csv('datasets/data/entities/electoral.csv', columns={...}) WHERE entity_kind='ac'` (typed via `csvColumnsClause`). Slug-form `state` (e.g. `tamil-nadu`) is read directly and inverted through `ECI_TO_LGD_SLUG` to recover the `eci_code` field on `CatalogueState`.
 
-**Election-period enumeration** moved from a JOIN of `dim_acs` + `elections_candidacies` to the existing `fetchElectionEvents()` helper at [`frontend/src/lib/election-events.ts`](../../../frontend/src/lib/election-events.ts) reading `datasets/taxonomy/election_events.json`. This is **Andre's deviation** from the literal plan-doc spec ("UNION ALL of N candidacies.csv URLs"), orchestrator-approved per [CLAUDE.md section 0a](../../../CLAUDE.md) authority assignment. Rationale: `election_events.json` is the 297-row hand-curated authoritative catalogue of which elections happened where (covering 37 states/UTs back to 1971 in the Tamil Nadu case). Sourcing election periods from the catalogue rather than reconstructing them from a fact-table aggregate honours D-04 (the catalogue IS the catalogue; no fact-scan) more cleanly than the literal interpretation, with zero new URL-enumeration burden and the same constraint surface for the LLM. Backed by the existing `test_election_events_catalogue_matches_backend_registry` parity oracle.
+**Election-period enumeration** moved from a JOIN of `dim_acs` + `elections_candidacies` to the existing `fetchElectionEvents()` helper at [`frontend/src/lib/election-events.ts`](../../../frontend/src/lib/election-events.ts) reading `datasets/taxonomy/election_events.json`. Rationale: `election_events.json` is the 297-row hand-curated authoritative catalogue of which elections happened where (covering 37 states/UTs back to 1971 in the Tamil Nadu case). Sourcing election periods from the catalogue rather than reconstructing them from a fact-table aggregate honours D-04 (the catalogue IS the catalogue; no fact-scan) more cleanly, with zero new URL-enumeration burden and the same constraint surface for the LLM. Backed by the existing `test_election_events_catalogue_matches_backend_registry` parity oracle.
 
 **Catalogue allowlist** (`CATALOGUE_QUERY_ALLOWLIST` in [`semantic-catalogue.ts`](../../../frontend/src/lib/yenask/semantic-catalogue.ts)) shrinks from 5 to 3 entries: `sources`, `dim_parties`, `electoral`. The retired entries (`dim_acs`, `elections_candidacies`) join the `FORBIDDEN_TABLES` set in `semantic-catalogue.no-fact-scan.test.ts` so any future re-introduction red-fires.
 
-**Source-row sentinel coercion**. The X1a `registerCsvAsTable("taxonomy.sources")` seam projects 4 of the 6 Zod-strict source fields as `NULL` (`license`, `confidence_tier`, `is_issuing_authority`, `verification_method`) because the binding `data/entities/source.csv` shape is exactly `{source_id, owner, title, vintage, url}` per the parent plan section 20.3 / O3 doctrine. The `coerceSourceRow` boundary in [`execute-plan.ts`](../../../frontend/src/lib/yenask/execute-plan.ts) now fills sentinels at the boundary:
+**Source-row sentinel coercion**. The X1a `registerCsvAsTable("taxonomy.sources")` seam projects 4 of the 6 Zod-strict source fields as `NULL` (`license`, `confidence_tier`, `is_issuing_authority`, `verification_method`) because the binding `data/entities/source.csv` shape is exactly `{source_id, owner, title, vintage, url}`. The `coerceSourceRow` boundary in [`execute-plan.ts`](../../../frontend/src/lib/yenask/execute-plan.ts) fills sentinels at the boundary:
 
 | Field | Sentinel | Why |
 | --- | --- | --- |

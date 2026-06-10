@@ -109,7 +109,7 @@ Acknowledged costs:
 - Wikipedia drift (table reorganisations, header renames) breaks our parsers. Mitigated by header-text matching being lenient ("estd" or "established", any "reserv*" header) and live tests catching the change before code that consumes the artifact runs.
 - District resolution for constituencies is heuristic until LGD codes land. `district_id` will stay `None` for any AC the resolver can't match.
 
-The following two subsections consolidate the Context + Decision + Consequences of the originating ADRs that pinned cross-cutting choices for this adapter (district-name resolution; retiring the districts sub-adapter); the originating ADR files under `docs/architecture/decisions/` were deleted in [docs/archive/plans/20260604-d-doc3-adr-retire-subplan.md](../../archive/plans/20260604-d-doc3-adr-retire-subplan.md) D-DOC3.10 closure. The redirect map lives at [decision-index.md](../../reference/decision-index.md). Folded into this doc per D-DOC3.8 (2026-06-04).
+The following two subsections consolidate the Context + Decision + Consequences of the originating ADRs that pinned cross-cutting choices for this adapter (district-name resolution; retiring the districts sub-adapter); the originating ADR files were retired per [decision-index.md](../../reference/decision-index.md) and [docs/concepts/documentation-discipline.md#adr-0034-documentation-routing-contract](../../concepts/documentation-discipline.md#adr-0034-documentation-routing-contract). Folded into this doc per D-DOC3.8 (2026-06-04).
 
 ### ADR-0018: wikipedia-district-name-resolution
 
@@ -150,7 +150,7 @@ Status: accepted 2026-05-22. Deciders: User (autonomous per the explicit "make g
 
 ### ADR-0018 rejected alternatives
 
-Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-receipts).
+Verbatim from the originating ADR. Append-only per ADR retirement contract.
 
 - **Hand-rolled per-state alias tables** (`{"Thiruvallur": "TAL", ...}`). Rejected: hardcoding ([CLAUDE.md Holy Law #6](../../../CLAUDE.md)) and unbounded maintenance - every new state needs a fresh alias table built by hand.
 - **Levenshtein / Damerau-Levenshtein fuzzy match with a distance threshold.** Rejected: introduces a dependency for a problem that's already solvable with deterministic string ops; thresholds are inherently fiddly and would need a bypass when a real district name is one edit away from another in the same state.
@@ -158,7 +158,7 @@ Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-r
 
 ### ADR-0033 rejected alternatives
 
-Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-receipts).
+Verbatim from the originating ADR. Append-only per ADR retirement contract.
 
 - **D.1.a - Repoint the wikipedia adapter to write an ephemeral sidecar under `.runtime/`.** Keep `parse_districts()` and `districts_url()` alive; redirect the writer output to `.runtime/wikipedia/districts/<S>.json` (gitignored, ephemeral by [CLAUDE.md section 2](../../../CLAUDE.md)) and consume it from `pipeline/reference.py` only as the district-name lookup input for the constituencies parser. Rejected for three converging reasons: (1) the adapter is a Bootstrap Filter that already finished bootstrapping - Indian districts change at decade-scale via gazette notification, not at adapter-poll-rate, so a "fresh re-scrape on every run" produces nothing that entities.json doesn't already contain authoritatively; (2) the constituencies parser only needs `display_name -> legacy_id` for resolution, and entities.json carries both (the `legacy_id` field was deliberately preserved in Phase A precisely for this case) - going via Wikipedia adds latency, an outbound HTTP dependency, and a parser failure surface for zero new information; (3) splitting "where district identity comes from" between two sources (entities.json for the canonical fields, `.runtime/` scratch for the lookup table) recreates the same provenance-smear class as the 2026-05-16 `fetched_at` lesson.
 - **D.1.b - Patch entities.json with a `wikipedia_label_alias` array column to absorb Wikipedia's romanisations.** Keep the adapter alive but make its output land as a new `wikipedia_label_alias: [string]` column on each district entity, populated by an explicit `tools/refresh_district_label_aliases.py` script; the constituencies parser would then resolve against the alias array first, falling back to `display_name`. Rejected: pollutes the citizen-trusted taxonomy with editorial scrape noise. entities.json is the citizen-facing canonical store ([canonical-store.md section 5](../data/canonical-store.md)); every column on it is a citizen contract. "List of romanisations a particular Wikipedia editor used on a particular date for the District column of a particular page" is not a citizen contract - it is parser-internal disambiguation state. The existing two-pass `_strip_parens` + `_norm` skeleton-key resolver already gets 100% on TN (234/234) and KL (140/140) without per-state alias tables; the alias column would solve a problem that does not exist while inviting taxonomy bloat. (OWID precedent per [CLAUDE.md section 0a](../../../CLAUDE.md) "The One Rule": `countries.csv` carries the canonical display name; alternate romanisations are NOT enumerated on the canonical row.)

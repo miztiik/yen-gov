@@ -152,7 +152,7 @@ The original PR-D1 draft attempted to enforce strict per-state `districts ⊥ AC
 1. **Block PR-D1 on a Hans+Max-signed-off corpus rename** of ~401 AC rows with a `-N` suffix. That is a citizen-visible URL change touching the canonical data spine — Holy Law-level work that does NOT belong inside a routing-PR scope.
 2. **Auto-rename ACs without the data team's signoff.** That violates CLAUDE.md s10 Anti-pattern #1: silent demotion of a user-named artifact.
 
-Option A picks neither. The dispatcher's deterministic first-wins resolution order IS the gate; the AC stays reachable via its canonical URL; the optional corpus cleanup is documented as a follow-up (see [TODO/20260609-url-prefix-drop-phase0-plan.md](../../../TODO/20260609-url-prefix-drop-phase0-plan.md) § "Follow-up deferrals"), NOT a blocker.
+Option A picks neither. The dispatcher's deterministic first-wins resolution order IS the gate; the AC stays reachable via its canonical URL; the optional corpus cleanup is documented as a follow-up (documented as a follow-up, not a blocker).
 
 ### What the build-time gate still asserts
 
