@@ -20,6 +20,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -44,8 +45,13 @@ from scrape import fetch_state_event, parse_winners  # noqa: E402
 REPO_ROOT = _HERE.parent.parent
 
 CACHE_ROOT = REPO_ROOT / "datasets" / "ephemeral" / "indiavotes-snapshots"
-ELECTORAL_DATAPOINTS_DIR = REPO_ROOT / "datasets" / "data" / "datapoints" / "electoral"
 ENTITIES_JSON = REPO_ROOT / "datasets" / "taxonomy" / "entities.json"
+
+# Event-slug regex pin lives here (single place); diff.py is grammar-free
+# now that the surface flip (PR-W1c fix-up, 2026-06-10) put body + year
+# into the file-path partition instead of a row column. Matches the PR-0
+# non-bye grammar: ``general-YYYY`` / ``assembly-YYYY``.
+_EVENT_REGEX = re.compile(r"^(general|assembly)-(\d{4})$")
 
 CSV_COLUMNS = [
     "state",
@@ -59,6 +65,53 @@ CSV_COLUMNS = [
     "agrees",
     "delta_notes",
 ]
+
+
+def _resolve_summary_csv_path(
+    event_slug: str,
+    state_slug: str,
+    *,
+    repo_root: Path,
+) -> Path:
+    """Translate (event_slug, state_slug) into the canonical summary.csv path.
+
+    For general events: ``datasets/elections/parliament/election=<year>/summary.csv``
+    (parliament summary is national-scope; the reader filters by state).
+
+    For assembly events: ``datasets/elections/assembly/state=<slug>/election=<year>/summary.csv``
+    (the path partition already pins the state).
+
+    Bye-elections are out of v0.1 scope (pinned by the PR-0 grammar in
+    ``docs/architecture/frontend/url-grammar.md``); they require event-id
+    grain URLs and a separate per-bye summary.csv shape.
+    """
+
+    match = _EVENT_REGEX.fullmatch(event_slug)
+    if not match:
+        msg = (
+            f"event_slug {event_slug!r}: bye-elections out of v0.1 scope; "
+            "pinned by PR-0 grammar ^(general|assembly)-\\d{4}$."
+        )
+        raise ValueError(msg)
+    body, year = match.group(1), match.group(2)
+    if body == "general":
+        return (
+            repo_root
+            / "datasets"
+            / "elections"
+            / "parliament"
+            / f"election={year}"
+            / "summary.csv"
+        )
+    return (
+        repo_root
+        / "datasets"
+        / "elections"
+        / "assembly"
+        / f"state={state_slug}"
+        / f"election={year}"
+        / "summary.csv"
+    )
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -75,27 +128,37 @@ def main(argv: list[str] | None = None) -> int:
             + ", ".join(sorted(state_slugs))
         )
 
-    # The per-state CSV is named ``<state>_election_results.csv`` after
-    # the X1a-fu2 retire. Fail loudly if the file is missing -- that means
-    # the W1a/W1b rename either hasn't landed in this worktree or the slug
-    # is wrong.
-    yengov_csv = ELECTORAL_DATAPOINTS_DIR / f"{state_slug}_election_results.csv"
-    if not yengov_csv.exists():
+    # Resolve the canonical summary.csv path from (event, state). Fail
+    # loudly if missing -- that means either the event has not been
+    # ingested yet OR the slug is wrong.
+    try:
+        summary_csv = _resolve_summary_csv_path(
+            event_slug, state_slug, repo_root=REPO_ROOT
+        )
+    except ValueError as exc:
+        _die(str(exc))
+        return 2  # unreachable; _die raises
+    if not summary_csv.exists():
         _die(
-            f"yen-gov per-state CSV not found at {yengov_csv.relative_to(REPO_ROOT)}; "
-            "check the state-slug or that PR-W1a landed in this worktree."
+            f"canonical summary.csv not found at "
+            f"{summary_csv.relative_to(REPO_ROOT).as_posix()}; "
+            "check the state-slug + event-slug; the event may not be "
+            "ingested in this worktree."
         )
 
-    print(f"[parity] reading yen-gov: {yengov_csv.relative_to(REPO_ROOT)}", file=sys.stderr)
-    yengov_winners = read_yengov_winners(yengov_csv, event_slug)
     print(
-        f"[parity] yen-gov: {len(yengov_winners)} winner buckets for {event_slug}",
+        f"[parity] reading yen-gov: {summary_csv.relative_to(REPO_ROOT).as_posix()}",
+        file=sys.stderr,
+    )
+    yengov_winners = read_yengov_winners(summary_csv, event_slug, state_slug)
+    print(
+        f"[parity] yen-gov: {len(yengov_winners)} winner rows for {event_slug} / {state_slug}",
         file=sys.stderr,
     )
 
     print(
         f"[parity] fetching IndiaVotes for {event_slug} / {state_slug} "
-        f"(cache: {CACHE_ROOT.relative_to(REPO_ROOT)})",
+        f"(cache: {CACHE_ROOT.relative_to(REPO_ROOT).as_posix()})",
         file=sys.stderr,
     )
     try:
@@ -130,13 +193,11 @@ def main(argv: list[str] | None = None) -> int:
         file=sys.stderr,
     )
 
-    name_map = _load_yengov_name_map(ENTITIES_JSON, state_slug)
     diff_rows = compute_diff(
         indiavotes_winners,
         yengov_winners,
         state_slug=state_slug,
         event_slug=event_slug,
-        yengov_name_by_entity_id=name_map,
     )
     pct = agreement_pct(diff_rows)
     print(
@@ -165,7 +226,7 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         prog="elections_parity_indiavotes",
         description=(
-            "One-shot offline parity oracle: yen-gov per-state election CSV "
+            "One-shot offline parity oracle: yen-gov canonical summary.csv "
             "vs IndiaVotes scraped HTML. NEVER CI. See README for rationale."
         ),
     )
@@ -214,39 +275,6 @@ def _load_state_slugs(entities_json: Path) -> set[str]:
             display = entity.get("display_name", "")
             slugs.add(_slugify(display))
     return slugs
-
-
-def _load_yengov_name_map(entities_json: Path, state_slug: str) -> dict[str, str]:
-    """Return ``{entity_id: display_name}`` for AC + PC in the requested state.
-
-    The constituency display names live in
-    ``datasets/data/entities/electoral.csv`` (the canonical store), but the
-    cross-walk from state-slug to ECI state-code (``S26`` for chhattisgarh)
-    flows through entities.json. We do the lookup once per CLI invocation.
-    """
-
-    data = json.loads(entities_json.read_text(encoding="utf-8"))
-    state_code = None
-    for entity in data.get("entities", []):
-        if entity.get("entity_type") == "state" and _slugify(entity.get("display_name", "")) == state_slug:
-            state_code = entity.get("entity_code")
-            break
-    if state_code is None:
-        return {}
-
-    electoral_csv = REPO_ROOT / "datasets" / "data" / "entities" / "electoral.csv"
-    if not electoral_csv.exists():
-        return {}
-    out: dict[str, str] = {}
-    state_token = f"-{state_code}-"
-    with electoral_csv.open("r", encoding="utf-8", newline="") as fh:
-        reader = csv.DictReader(fh)
-        for row in reader:
-            entity_id = row.get("entity_id", "")
-            if state_token not in entity_id:
-                continue
-            out[entity_id] = row.get("name", "")
-    return out
 
 
 def _slugify(text: str) -> str:

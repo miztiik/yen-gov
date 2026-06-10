@@ -478,3 +478,87 @@ describe("LoaderResult arms", () => {
 // retired with the matching `{event}` + `{event, state}` golden-row
 // oracle blocks.
 
+// --------------------------------------------------------------------
+// REGRESSION: LEFT JOIN dim_parties present on all 3 scopes
+// --------------------------------------------------------------------
+//
+// PR-W2b's golden-row oracle caught a pre-existing latent bug in the
+// (now-deleted) bespoke `loadNationalPcWinners`: the SQL referenced
+// `dp.eci_code` / `dp.short_name` / `dp.brand_colour_hex` but MISSED the
+// `LEFT JOIN dim_parties dp ON dp.party_id = s.winner_party_id` line.
+// The bug was invisible in unit tests (mocks returned dp.* columns
+// directly) but would have crashed at runtime against a real DuckDB.
+//
+// PR-W5a deleted the bespoke loader; the new generic loader at
+// `frontend/src/lib/view-models/election-results.ts` correctly includes
+// the JOIN at NATIONAL-PC, STATE-AC, and CONSTITUENCY scopes. This block
+// pins the JOIN strings so a future refactor cannot silently drop them
+// again. We assert against the SQL strings the loader passes to `query()`,
+// captured via the mock's `mock.calls` array.
+//
+// Reverting the LEFT JOIN line in any of the 3 dispatch functions makes
+// the matching test RED.
+
+describe("regression: LEFT JOIN dim_parties present on all 3 scopes (W2b oracle)", () => {
+  it("NATIONAL-PC scope SQL contains LEFT JOIN dim_parties on s.winner_party_id", async () => {
+    // Empty result -> loader returns "partial"; we only need the SQL
+    // string to have been emitted to query() to inspect its shape.
+    mockedQuery.mockResolvedValueOnce([]);
+    await loadElectionResults({ event: "general-2024" });
+    expect(mockedQuery).toHaveBeenCalledTimes(1);
+    const sql = String(mockedQuery.mock.calls[0][0]);
+    expect(sql).toMatch(
+      /LEFT JOIN dim_parties dp ON dp\.party_id = s\.winner_party_id/,
+    );
+  });
+
+  it("STATE-AC scope SQL contains LEFT JOIN dim_parties on s.winner_party_id", async () => {
+    mockedQuery.mockResolvedValueOnce([]);
+    await loadElectionResults({ event: "assembly-2026", state: "S22" });
+    expect(mockedQuery).toHaveBeenCalledTimes(1);
+    const sql = String(mockedQuery.mock.calls[0][0]);
+    expect(sql).toMatch(
+      /LEFT JOIN dim_parties dp ON dp\.party_id = s\.winner_party_id/,
+    );
+  });
+
+  it("CONSTITUENCY scope candidates SQL contains LEFT JOIN dim_parties on ec.party_id", async () => {
+    // CONSTITUENCY dispatch runs TWO queries: candidates first, summary
+    // second. The candidates query holds the dim_parties JOIN. Mock 1+
+    // candidate row so the dispatch doesn't bail at the empty-check.
+    mockedQuery
+      .mockResolvedValueOnce([
+        {
+          entity_id: "IN-AC-2008-tamil-nadu-4062",
+          state_slug: "tamil-nadu",
+          eci_no: 167,
+          delim_year: 2008,
+          entity_name: "GUMMIDIPOONDI",
+          reservation: "GEN",
+          candidate_name: "GOVINDARAJAN T.J",
+          party_id: "parties.IN.DMK",
+          party_eci_code: null,
+          party_short: null,
+          party_short_raw: "DMK",
+          brand_colour_hex: null,
+          brand_colour_confidence: null,
+          symbol_asset_path: null,
+          position: 1,
+          votes: 100,
+          vote_share_pct: 50,
+          age: 60,
+        },
+      ])
+      .mockResolvedValueOnce([]); // summary -- empty is fine, candidates set the shape
+    await loadElectionResults({
+      event: "assembly-2026",
+      state: "S22",
+      eci_no: 167,
+    });
+    expect(mockedQuery).toHaveBeenCalledTimes(2);
+    const candidatesSql = String(mockedQuery.mock.calls[0][0]);
+    expect(candidatesSql).toMatch(
+      /LEFT JOIN dim_parties dp ON dp\.party_id = ec\.party_id/,
+    );
+  });
+});

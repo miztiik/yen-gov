@@ -1,13 +1,4 @@
-entity_id,year,period_label,period_seq,indicator_id,value_numeric,value_text,source_id,derivation
-IN-PC-2008-S26-R1,2024,LsGenJun2024,6,pc-winner-candidate-id,,IN-PC-2008-S26-R1-LsGenJun2024-C01,src-synthetic,argmax
-IN-PC-2008-S26-R1,2024,LsGenJun2024,6,pc-winner-party-id,,parties.IN.INC,src-synthetic,join
-IN-PC-2008-S26-R1,2024,LsGenJun2024,6,pc-votes-polled,1050351.0,,src-synthetic,raw
-IN-PC-2008-S26-R1,2024,LsGenJun2024,6,pc-margin-votes,575285.0,,src-synthetic,diff
-IN-PC-2008-S26-B1,2024,LsGenJun2024,6,pc-winner-candidate-id,,IN-PC-2008-S26-B1-LsGenJun2024-C01,src-synthetic,argmax
-IN-PC-2008-S26-B1,2024,LsGenJun2024,6,pc-winner-party-id,,parties.IN.BJP,src-synthetic,join
-IN-PC-2008-S26-B1,2024,LsGenJun2024,6,pc-votes-polled,721310.0,,src-synthetic,raw
-IN-PC-2008-S26-B1,2024,LsGenJun2024,6,pc-margin-votes,164558.0,,src-synthetic,diff
-IN-PC-2008-S26-K1,2024,LsGenJun2024,6,pc-winner-candidate-id,,IN-PC-2008-S26-K1-LsGenJun2024-C01,src-synthetic,argmax
-IN-PC-2008-S26-K1,2024,LsGenJun2024,6,pc-winner-party-id,,parties.IN.BSP,src-synthetic,join
-IN-PC-2008-S26-K1,2024,LsGenJun2024,6,pc-votes-polled,570182.0,,src-synthetic,raw
-IN-PC-2008-S26-K1,2024,LsGenJun2024,6,pc-margin-votes,43283.0,,src-synthetic,diff
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-PC-2008-chhattisgarh-302,chhattisgarh,2024,RAIPUR,2376030,1592011,67.0,VIKAS UPADHYAY,parties.IN.INC,INC,800000,50.25,BRIJMOHAN AGRAWAL,parties.IN.BJP,BJP,725000,75000,4.71,src-synthetic
+IN-PC-2008-chhattisgarh-295,chhattisgarh,2024,BILASPUR,2103937,1365126,64.88,TOKHAN SAHU,parties.IN.BJP,BJP,724937,53.36,DEVENDRA YADAV,parties.IN.INC,INC,560379,164558,12.11,src-synthetic
+IN-PC-2008-chhattisgarh-299,chhattisgarh,2024,KORBA,1620051,1226934,75.73,SOMEONE BSP,parties.IN.BSP,BSP,500000,40.75,JYOTSNA CHARANDAS MAHANT,parties.IN.INC,INC,450000,50000,4.08,src-synthetic

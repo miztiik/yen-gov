@@ -2,12 +2,36 @@
 
 **Last Updated**: 2026-06-10
 
-One-shot offline parity check between yen-gov's canonical per-state election
-results CSV and [IndiaVotes](https://www.indiavotes.com/) scraped HTML. Sole
-consumer = the engineer running the gate. Output drops in
-`datasets/_ops/`. **NEVER CI.** See [docs/how-to/validate-elections-vs-indiavotes.md](../../docs/how-to/validate-elections-vs-indiavotes.md)
-for the operator runbook and the [PR-W1c row](../../TODO/20260609-election-experience-overhaul-plan.md)
+One-shot offline parity check between the yen-gov canonical election
+summary CSV (`datasets/elections/{parliament,assembly}/.../summary.csv`)
+and [IndiaVotes](https://www.indiavotes.com/) scraped HTML. Sole consumer
+= the engineer running the gate. Output drops in `datasets/_ops/`. **NEVER
+CI.** See [docs/how-to/validate-elections-vs-indiavotes.md](../../docs/how-to/validate-elections-vs-indiavotes.md)
+for the operator runbook and the [archived PR-W1c row](../../docs/archive/plans/20260609-election-experience-overhaul-plan.md)
 for the design context.
+
+## Data source
+
+The yen-gov side reads from the canonical, OWID-aligned summary table the
+backend ingest writes after PR-W2a/W2b:
+
+  - General events: `datasets/elections/parliament/election=<year>/summary.csv`
+    (parliament summary is national-scope on disk; the reader filters by
+    state inside the tool).
+  - Assembly events: `datasets/elections/assembly/state=<slug>/election=<year>/summary.csv`
+    (the path partition pins the state).
+
+The surface flip from the long-format per-state CSV at
+`datasets/data/datapoints/electoral/<state>_election_results.csv` to the
+canonical summary.csv landed in the W1c/W2b follow-up bug-fix PR
+(2026-06-10). The original surface used an entity_id grammar
+(`IN-PC-1976-S26-1`) DIFFERENT from the canonical PC registry at
+`datasets/data/entities/electoral.csv` (`IN-PC-2008-chhattisgarh-294`),
+so the two surfaces shared no join key and the diff engine reported 0%
+agreement on every PC probe. The new surface carries the canonical
+entity_id AND a native `constituency_name` column, so the diff engine
+joins on constituency name directly with no electoral.csv name-map
+required.
 
 ## Packaging shape
 
@@ -109,8 +133,8 @@ ECI for current years).
 ## Layer rules
 
 - Self-contained. No imports from `backend/`. Verified by G4 grep gate.
-- Reads `datasets/data/datapoints/electoral/<state>_election_results.csv`
-  and `datasets/taxonomy/entities.json` -- both are CONTRACT surfaces per
+- Reads `datasets/elections/{parliament,assembly}/.../summary.csv` and
+  `datasets/taxonomy/entities.json` -- both are CONTRACT surfaces per
   [CLAUDE.md section 4](../../CLAUDE.md), not backend modules.
 - Writes only to `datasets/_ops/` (operator state per CLAUDE.md section 3)
   and `datasets/ephemeral/indiavotes-snapshots/` (gitignored).
