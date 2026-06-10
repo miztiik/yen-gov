@@ -18,7 +18,7 @@ from pathlib import Path
 import _emit_fixtures  # noqa: I001 -- sibling test helper, not a package
 import pytest
 
-from yen_gov.canonical.adapters.eci.party_lookup import load_party_lookup
+from yen_gov.canonical.party_resolver import load_party_lookup
 from yen_gov.pipeline.canonical_eci_backfill import (
     _process_slice,
     build_slice_envelope,

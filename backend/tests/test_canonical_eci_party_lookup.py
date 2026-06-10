@@ -1,6 +1,9 @@
-"""Contract tests for yen_gov.canonical.adapters.eci.party_lookup.
+"""Contract tests for yen_gov.canonical.party_resolver legacy PartyLookup.
 
-No real-corpus walks (CLAUDE.md §10) — every test seeds a tmp_path/parties.json.
+The class was lifted from the retired ``adapters/eci/party_lookup.py`` into
+the central ``party_resolver`` module in PR-1 (2026-06-10) and is exercised
+here byte-identically. No real-corpus walks (CLAUDE.md §10) — every test
+seeds a tmp_path/parties.json.
 """
 
 from __future__ import annotations
@@ -10,7 +13,7 @@ from pathlib import Path
 
 import pytest
 
-from yen_gov.canonical.adapters.eci.party_lookup import (
+from yen_gov.canonical.party_resolver import (
     PartyLookup,
     UnknownPartyError,
     load_party_lookup,

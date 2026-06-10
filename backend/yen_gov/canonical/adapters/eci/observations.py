@@ -17,7 +17,7 @@ from yen_gov.canonical.adapters.eci.identity import (
     layer1_person_id_collision_tiebreak,
     layer1_person_id,
 )
-from yen_gov.canonical.adapters.eci.party_lookup import PartyLookup
+from yen_gov.canonical.party_resolver import PartyLookup
 from yen_gov.canonical.envelope import ObservationRow
 from yen_gov.core.models import ConstituencyResult
 

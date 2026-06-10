@@ -22,7 +22,7 @@ from yen_gov.canonical.adapters.eci.identity import (
     layer1_person_id_for_pc,
     pc_entity_id,
 )
-from yen_gov.canonical.adapters.eci.party_lookup import PartyLookup
+from yen_gov.canonical.party_resolver import PartyLookup
 from yen_gov.canonical.envelope import ObservationRow
 from yen_gov.sources.eci.ls_constituencywise import PcCandidateRaw, PcResultRaw
 

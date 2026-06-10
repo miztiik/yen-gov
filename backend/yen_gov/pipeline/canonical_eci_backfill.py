@@ -67,7 +67,7 @@ from yen_gov.canonical.adapters.eci import (
     party_dim_rows,
     state_rollup_observations,
 )
-from yen_gov.canonical.adapters.eci.party_lookup import UnknownPartyError
+from yen_gov.canonical.party_resolver import UnknownPartyError
 from yen_gov.canonical.adapters.eci.rollups import ACContestSummary
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.envelope import (
@@ -415,7 +415,7 @@ def build_slice_envelope(
         state_code: ECI state code (e.g. ``"S22"``).
         period: parsed period (output of ``parse_period_label(event_id)``).
         party_lookup: shared resolver from
-            ``yen_gov.canonical.adapters.eci.party_lookup``.
+            ``yen_gov.canonical.party_resolver``.
 
     Returns the tuple ``(observations, sources, unresolved, person_dims,
     candidacies, ac_dims)`` — matches ``_process_slice``'s shape minus the
