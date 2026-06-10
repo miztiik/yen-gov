@@ -310,7 +310,10 @@ def build_parliament_2024(
             "constituency_no": eci_no_spine,
             "constituency_name": raw_pc,
             "candidate_name": _text_or_none(src.get(_COL_CANDIDATE)) or "",
-            "party_id": lookup.get(raw_party.upper()) if raw_party else None,
+            # PR-3 (2026-06-10): every candidacy row carries a non-empty
+            # canonical party_id. See assembly_results.build_candidacy_rows
+            # for the rationale (mirror of party_resolver.SENTINELS['UNK']).
+            "party_id": lookup.get(raw_party.upper()) or "parties.IN.UNK",
             "party_short_raw": raw_party or None,
             "votes": votes,
             "vote_share_pct": _float_or_none(src.get(_COL_SHARE_OF_VALID)),

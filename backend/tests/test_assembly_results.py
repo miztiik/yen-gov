@@ -73,7 +73,9 @@ def _stage_catalogue(root: Path, eci_nos: list[int]) -> Path:
 
     (entities / "parties.csv").write_text(
         "party_id,short,full,eci_codes,brand_colour,symbol_asset,wikipedia\n"
-        "parties.IN.DMK,DMK,Dravida Munnetra Kazhagam,,,,\n",
+        "parties.IN.DMK,DMK,Dravida Munnetra Kazhagam,,,,\n"
+        # PR-0 sentinel; PR-3 writers emit this on lookup miss.
+        "parties.IN.UNK,UNK,Unresolved Party,,,,\n",
         encoding="utf-8",
     )
     (entities / "source.csv").write_text(
@@ -217,10 +219,17 @@ def test_sex_and_candidate_type_mapping(tmp_path):
     assert cand["Y"]["sex"] == "U" and cand["Y"]["candidate_type"] == "challenger"
 
 
-def test_party_id_is_null_v1(tmp_path):
+def test_party_id_falls_back_to_unk_when_no_parties_csv(tmp_path):
+    """PR-3 v1.2: empty/missing lookup -> parties.IN.UNK (not null).
+
+    The v1 writer left party_id null when ``parties_csv=None``; PR-3 closes
+    the empty-party_id bug class by uniformly substituting the
+    ``parties.IN.UNK`` sentinel (CLAUDE.md section 10 "no silent demotion";
+    publisher label survives on ``party_short_raw``).
+    """
     emitted = _emit(tmp_path, _three_way(1), [1])
     cand = _read(emitted[2021]["candidacies"])
-    assert all(r["party_id"] == "" for r in cand)
+    assert all(r["party_id"] == "parties.IN.UNK" for r in cand)
 
 
 # --- delimitation + year scoping --------------------------------------------
@@ -407,8 +416,14 @@ def test_emit_with_parties_csv_populates_party_id(tmp_path):
     assert summ["runnerup_party_id"] == "parties.IN.ADMK"
 
 
-def test_emit_with_parties_csv_leaves_long_tail_shorts_null(tmp_path):
-    """Shorts absent from ``parties.csv`` stay null (Holy Law #9: no fabrication)."""
+def test_emit_with_parties_csv_falls_back_to_unk_for_long_tail(tmp_path):
+    """PR-3 v1.2: shorts absent from parties.csv become parties.IN.UNK.
+
+    The v1.1 writer left long-tail party_id null on a lookup miss; PR-3
+    flips the miss path to the explicit ``parties.IN.UNK`` sentinel so the
+    FK closure invariant holds (Holy Law #9 is preserved: no fabrication;
+    ``parties.IN.UNK`` is a first-class catalogue row added in PR-0).
+    """
     parties = tmp_path / "parties.csv"
     parties.write_text(
         "party_id,short,full,eci_codes,brand_colour,symbol_asset,wikipedia\n"
@@ -418,22 +433,31 @@ def test_emit_with_parties_csv_leaves_long_tail_shorts_null(tmp_path):
     emitted = _emit_with_parties(tmp_path, _three_way(1), [1], parties)
     cand = {r["candidate_name"]: r for r in _read(emitted[2021]["candidacies"])}
     assert cand["Winner"]["party_id"] == "parties.IN.DMK"
-    assert cand["Runner"]["party_id"] == ""  # ADMK not in parties.csv
-    assert cand["Third"]["party_id"] == ""   # BJP not in parties.csv
+    assert cand["Runner"]["party_id"] == "parties.IN.UNK"  # ADMK not in parties.csv
+    assert cand["Runner"]["party_short_raw"] == "ADMK"     # but raw label survives
+    assert cand["Third"]["party_id"] == "parties.IN.UNK"   # BJP not in parties.csv
+    assert cand["Third"]["party_short_raw"] == "BJP"
 
     summ = _read(emitted[2021]["summary"])[0]
     assert summ["winner_party_id"] == "parties.IN.DMK"
-    assert summ["runnerup_party_id"] == ""  # runnerup ADMK unresolved
+    assert summ["runnerup_party_id"] == "parties.IN.UNK"  # runnerup ADMK -> UNK
+    assert summ["runnerup_party_short_raw"] == "ADMK"
 
 
-def test_emit_without_parties_csv_keeps_v1_null_party_id(tmp_path):
-    """Back-compat: ``parties_csv=None`` (default) keeps the v1 null contract."""
+def test_emit_without_parties_csv_uses_unk_sentinel(tmp_path):
+    """PR-3 v1.2: ``parties_csv=None`` -> every party_id is parties.IN.UNK.
+
+    The v1 "back-compat" contract was "party_id stays null" - PR-3 retires
+    that contract because empty party_id was the TN-2026 AIADMK bug class.
+    The new uniform sentinel keeps the FK closure invariant true regardless
+    of whether the caller wired a parties.csv lookup.
+    """
     emitted = _emit(tmp_path, _three_way(1), [1])  # _emit() omits parties_csv
     cand = _read(emitted[2021]["candidacies"])
-    assert all(r["party_id"] == "" for r in cand)
+    assert all(r["party_id"] == "parties.IN.UNK" for r in cand)
     summ = _read(emitted[2021]["summary"])[0]
-    assert summ["winner_party_id"] == ""
-    assert summ["runnerup_party_id"] == ""
+    assert summ["winner_party_id"] == "parties.IN.UNK"
+    assert summ["runnerup_party_id"] == "parties.IN.UNK"
 
 
 def test_party_lookup_threading_into_build_candidacy_rows():
@@ -463,5 +487,9 @@ def test_party_lookup_threading_into_build_candidacy_rows():
     )
     by_name = {r["candidate_name"]: r for r in rows}
     assert by_name["Winner"]["party_id"] == "parties.IN.DMK"
-    assert by_name["Other"]["party_id"] is None  # long-tail stays null
+    # PR-3 v1.2: long-tail lookup miss -> parties.IN.UNK sentinel (was None
+    # at v1.1; the TN-2026 AIADMK empty-party_id bug class is closed by
+    # uniformly substituting the canonical UNK sentinel on miss).
+    assert by_name["Other"]["party_id"] == "parties.IN.UNK"
+    assert by_name["Other"]["party_short_raw"] == "LONGTAIL_PARTY"  # raw label survives
     assert unbound == set()
