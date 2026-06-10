@@ -369,14 +369,19 @@
   });
 
   // ---- Display label --------------------------------------------------
+  // event_row.display already includes the state name for parliament
+  // events ("Chhattisgarh · Parliament 2024") and assembly events
+  // ("Chhattisgarh Assembly · November 2023"). For unknown events fall
+  // back to a synthesised "Parliament Election YYYY" / "Assembly
+  // Election YYYY" label that we prefix with the state explicitly.
   const event_pretty = $derived.by<string>(() => {
     if (event_row) return event_row.display;
     const m = /^(general|assembly)-(\d{4})$/.exec(params.event);
     if (m) {
       const body_pretty = m[1] === "general" ? "Parliament" : "Assembly";
-      return `${body_pretty} Election ${m[2]}`;
+      return `${state_name} ${body_pretty} Election ${m[2]}`;
     }
-    return params.event;
+    return `${state_name} - ${params.event}`;
   });
 
   // ---- Number formatters ---------------------------------------------
@@ -444,7 +449,7 @@
         class="text-2xl font-semibold text-slate-900"
         data-testid="state-event-header"
       >
-        {state_name} &middot; {event_pretty}
+        {event_pretty}
       </h1>
       <div class="flex flex-wrap items-center gap-2 text-xs">
         <span
