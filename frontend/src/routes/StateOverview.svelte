@@ -530,10 +530,41 @@
   const total_filtered_acs = $derived(
     by_district.reduce((s, g) => s + g.acs.length, 0),
   );
+
+  // Grammar A `/:state` is a 1-segment catch-all that matches any path
+  // not consumed by a chrome literal or multi-segment route. When the
+  // states registry has loaded AND the slug doesn't resolve to a known
+  // ECI code, render the 404 surface instead of the half-rendered state
+  // hub. Per ADR-0037 / TODO/20260609-url-prefix-drop-phase0-plan.md
+  // PR-P2: this is the gate that keeps the catch-all from poaching
+  // unknown URLs.
+  const is_unknown_state = $derived(states.isLoaded && state_code === null);
 </script>
 
 <GeoBreadcrumb />
 
+{#if is_unknown_state}
+  <!--
+    404 surface for unknown 1-segment paths (e.g. `/no-such-route-here`).
+    Mirrors the copy + recovery links from routes/NotFound.svelte; we
+    inline it here so the existing extended-routes Playwright contract
+    keeps asserting `<h1>404` + "This page has moved" + Home / Browse
+    topics links from a single locator scope.
+  -->
+  <main class="max-w-md mx-auto p-12 text-center space-y-4">
+    <h1 class="text-3xl font-bold">404</h1>
+    <p class="text-slate-600">
+      This page has moved. We recently reorganised yen-gov's URL structure.
+    </p>
+    <p class="text-slate-500 text-sm">
+      No route matches <code class="font-mono">/{params.state}</code>.
+    </p>
+    <nav class="flex justify-center gap-4 pt-2">
+      <a class="text-blue-600 hover:underline" href={link.home()}>← Home</a>
+      <a class="text-blue-600 hover:underline" href={link.topics()}>Browse topics</a>
+    </nav>
+  </main>
+{:else}
 <main class="max-w-screen-2xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
     <h1 class="text-2xl font-bold leading-tight">{states.name(state_code)}</h1>
@@ -1056,3 +1087,4 @@
     {/if}
   {/if}
 </main>
+{/if}
