@@ -30,6 +30,7 @@ import StateElection from "./routes/StateElection.svelte";
 // Constituency directly via its own route entry below.
 import StateSubRouter from "./routes/StateSubRouter.svelte";
 import NationalElection from "./routes/NationalElection.svelte";
+import ElectionsFirehose from "./routes/ElectionsFirehose.svelte";
 import DataCompleteness from "./routes/DataCompleteness.svelte";
 import DevChartsSandbox from "./routes/DevChartsSandbox.svelte";
 import Yenask from "./routes/Yenask.svelte";
@@ -46,6 +47,7 @@ import {
   dataCompletenessCrumbs,
   devChartsSandboxCrumbs,
   disclaimerCrumbs,
+  electionsFirehoseCrumbs,
   exploreCrumbs,
   homeCrumbs,
   indicatorDocCrumbs,
@@ -135,6 +137,17 @@ startRouter({
     // route order is not load-bearing. Removal = git rm of
     // routes/Yenask.svelte + lib/yenask/ + this entry.
     { pattern: "/lab/yenask", component: Yenask, crumbs: yenaskCrumbs },
+    // Elections firehose (PR-W3d). The bare `/t/elections` lists EVERY
+    // election event in the catalogue (Parliament collapsed to one row
+    // per event_id, Assembly + bye per-state). MUST be registered
+    // BEFORE `/t/elections/:event` and `/t/:topic` because the router
+    // is first-match-wins; the parameterised route's regex
+    // (`^/t/elections/([^/]+)$`) does not match the bare path but the
+    // generic topic route (`^/t/([^/]+)$`) WOULD greedily resolve `/t/elections`
+    // to TopicLanding({topic: "elections"}) if placed first. Two-crumb
+    // trail (Home -> Elections leaf) matches the middle crumb of
+    // `nationalElectionCrumbs` so the chain visually nests.
+    { pattern: "/t/elections", component: ElectionsFirehose, crumbs: electionsFirehoseCrumbs },
     // National event view (election experience overhaul, PR-W3c).
     // 3-segment pattern, distinct from /t/:topic (2 segments); placed first
     // so the more-specific route wins regardless of matcher order. The

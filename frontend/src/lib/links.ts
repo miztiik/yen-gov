@@ -246,6 +246,16 @@ export const link = {
     );
   },
 
+  /** National per-event view (`/t/elections/<event>`). Sibling of
+   * `stateElection` for national Parliament events. Added in PR-W3d
+   * (2026-06-10) so the new firehose at `/t/elections` has a typed
+   * builder for click-through to the rebuilt `NationalElection.svelte`
+   * page (PR-W3c) instead of hand-concatenating `/t/elections/<event>`
+   * at every call-site. */
+  nationalElection(eventId: string): string {
+    return withBase(`/t/elections/${encodeURIComponent(eventId)}`);
+  },
+
   /** Election lab (`/lab/<state>/<event>`). Existing surface; retained
    * verbatim from `url.ts`. */
   electionLab(stateCodeOrSlug: string, event: string): string {
