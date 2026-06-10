@@ -10,11 +10,11 @@ The meadow tier was the third of five data layers (upstream -> snapshots -> mead
 
 Five guarantees applied: (1) schema-valid, (2) deterministic, (3) FK-bearing (`source_id` -> `datasets/data/entities/source.csv`), (4) vintage-anchored (path `<vintage>` MUST equal citation row `vintage`), (5) backend-internal (no frontend fetch).
 
-The `datasets/indicators/in/<topic>/<id>.json` path was the pre-naming predecessor -- it played the meadow role but lacked the underscore convention that segregated backend-internal files. [ADR-0041](../architecture/data/canonical-store.md#adr-0041-meadow-tier) renamed it to `_meadow/`.
+The legacy JSON predecessor to the meadow tier played the meadow role but lacked the underscore convention that segregated backend-internal files. [ADR-0041](../architecture/data/canonical-store.md#adr-0041-meadow-tier) formalised the `_meadow/` naming.
 
 ## Current state
 
-`datasets/indicators/in/` is empty on `main`. Per-family `_meadow/` directories under `datasets/energy/`, `datasets/livestock/`, `datasets/fiscal/` etc. were deleted in the B4-pt2 and B4-pt3 pivot (2026-06-06/07). New ingests write observations directly to `datasets/data/datapoints/geo/<canonical_id>.csv` (long-format, 4-column shape per `datasets/data/_schema/columns.json`).
+`datasets/indicators/` is empty on `main`. Per-family `_meadow/` directories under `datasets/energy/`, `datasets/livestock/`, `datasets/fiscal/` etc. were deleted in the B4-pt2 and B4-pt3 pivot (2026-06-06/07). New ingests write observations directly to `datasets/data/datapoints/geo/<canonical_id>.csv` (long-format, 4-column shape per `datasets/data/_schema/columns.json`).
 
 ## Completion check
 

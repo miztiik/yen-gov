@@ -12,7 +12,7 @@ architectural decisions are recorded in
 This doc explains the recurring reasoning -- the questions an agent
 keeps asking ("can we use GADM?", "what about the topo maps?", "is
 DIGIPIN on the roadmap?", "why are 20 states still on HTL?") -- once,
-in one place, so the reference docs and plan-docs can link here instead
+in one place, so reference docs can link here instead
 of re-litigating.
 
 ## Why polygons, not topographic raster
@@ -60,9 +60,7 @@ Net: 3-5x smaller wire bytes for the same polygons. Lossless when
 decoded by `topojson-client.feature()` -- the consumer gets a standard
 GeoJSON `FeatureCollection` back.
 
-**Status**: planned, not shipped. Plan-doc:
-[docs/archive/plans/20260525-topojson-frontend-perf-plan.md](../../docs/archive/plans/20260525-topojson-frontend-perf-plan.md).
-Phases: P0 prove -> P1 write `quantize.py` alongside GeoJSON -> P2 read
+**Status**: planned, not yet shipped. Phases: P0 prove -> P1 write `quantize.py` alongside GeoJSON -> P2 read
 branch in `boundaries.ts` -> P3 swap states + districts shards + retire
 the matching GeoJSON via `git rm` -> P4 measure 4G-slow paint on
 `/t/fiscal` before merge -> P5 hold (per-state subdistrict and
@@ -73,7 +71,7 @@ happens upstream of `addSource()`.
 
 When a future agent asks "why are we shipping multi-MB GeoJSON when
 NDLM ships 926 KB TopoJSON for the same district set?", the answer is:
-we know; the swap is queued at the plan-doc above.
+we know; the swap is queued.
 
 ## GADM rejection rationale
 
@@ -125,9 +123,7 @@ What we use instead, by level:
 
 When a future agent re-asks "can we just pull GADM for the missing
 states?", the answer is no -- the reasons above are structural, not
-preferences, and re-litigating them is descoped per
-[docs/archive/plans/20260524-boundary-coverage-expansion-plan.md](../../docs/archive/plans/20260524-boundary-coverage-expansion-plan.md)
-section "Not in this plan (descoped)".
+preferences. Re-litigating them is descoped.
 
 ## DIGIPIN deferral
 
@@ -154,7 +150,7 @@ DIGIPIN is **not on the boundary-coverage roadmap**. Two reasons:
 **Re-evaluation trigger**: when a delivery-address-precision feature
 becomes a citizen need -- for example a `/p/<digipin>` route that
 returns the LGD district, the ECI AC, and the nearest pincode for a
-DIGIPIN code -- this section flips to "queued" and a new plan-doc
+DIGIPIN code -- this section flips to "queued" and a new work item
 opens. Until then, DIGIPIN is acknowledged out-of-scope.
 
 ## HTL not done versus HTL deliberately kept
@@ -165,9 +161,7 @@ HTL (HindustanTimesLabs/shapefiles) are pending TODO work that has not
 yet shipped. They are not. The 20 HTL states are **deliberately kept
 on HTL** per the Phase D.1 recon verdict.
 
-Phase D of the
-[boundary-coverage-expansion plan](../../docs/archive/plans/20260524-boundary-coverage-expansion-plan.md)
-runs as follows. The ramSeraph `LGD_Assembly_Constituencies` release
+The boundary-coverage-expansion recon phase runs as follows. The ramSeraph `LGD_Assembly_Constituencies` release
 is the consolidation candidate for AC layers; D.1 (recon, per state)
 parity-checks ramSeraph against the existing HTL polygons on two
 gates:
@@ -221,16 +215,9 @@ status is "kept on HTL on purpose", not "pending TODO".
   -- how the frontend consumes the boundary layers via MapLibre.
 - [docs/architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy](../architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy)
   -- the ADR establishing boundary geometry as a sibling family
-  (GeoJSON + PMTiles) outside the canonical store, plus the
-  T.0d amendment introducing `data/entities/boundary_layer.csv` (via `boundary_layers.parquet`, retired).
+  (GeoJSON + PMTiles) outside the canonical store.
 - [tools/boundaries/README.md](../../tools/boundaries/README.md) --
   the operational pipeline + source format dispatch.
-- [docs/archive/plans/20260524-boundary-coverage-expansion-plan.md](../../docs/archive/plans/20260524-boundary-coverage-expansion-plan.md)
-  -- the phased coverage-gap closure plan (Phase A pincode through
-  Phase E Census 2011 polygons).
-- [docs/archive/plans/20260525-topojson-frontend-perf-plan.md](../../docs/archive/plans/20260525-topojson-frontend-perf-plan.md)
-  -- the queued TopoJSON adoption plan referenced in the
-  "TopoJSON adoption status" section above.
 - [docs/concepts/disclaimer.md](disclaimer.md) -- the user-facing
   wording for boundary attribution and the doctrine on what we will
   and will not say about contested geographies.

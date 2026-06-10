@@ -39,10 +39,11 @@ The Citizen step is intentionally repeated. The opening Citizen pass is the *bri
 - Internal pipeline / infrastructure / schema-only / tooling changes. These don't have a citizen-question shape and don't need to run the full loop. They still honour `CLAUDE.md` Holy Laws and the rest of the engineering contract.
 - Bug fixes inside an existing citizen feature. Those need step 7 (does the fix actually fix the citizen-visible problem?) but rarely the full loop.
 
+> **DOCTRINE NOTE (2026-06-04, plan section 22.7).** The citizen-first ordering and the no-implementation-disclosure rule (folded below as the ADR-0021 receipt) survive the canonical-store CSV cutover unchanged. What MIGRATES is the underlying storage that the explore / answer surfaces query - long-format CSV under `datasets/data/` read in-browser by DuckDB-WASM `read_csv(columns=...)` rather than per-state SQLite or Parquet (per parent plan chunks B2b / F1 / X1). The citizen-facing public copy stops naming any storage format, query engine, or boundary-check mechanism per ADR-0021; the rule survives every storage-layer rip-and-replace by construction.
 
 ## Design rationale
 
-This section folds in the receipt from the originating ADR that pinned the no-implementation-disclosure rule for this concept (`docs/citizen-first.md#adr-0021-no-implementation-disclosure-on-public-pages` deleted in D-DOC3.10 closure) and [`../reference/decision-index.md`](../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
+This section folds in the receipt from the originating ADR that pinned the no-implementation-disclosure rule for this concept (`docs/citizen-first.md#adr-0021-no-implementation-disclosure-on-public-pages` deleted in D-DOC3.10 closure), per parent plan section 9 (keep-receipts ADR retirement) and [`../reference/decision-index.md`](../reference/decision-index.md). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
 
 ### ADR-0021: no-implementation-disclosure-on-public-pages
 
@@ -58,11 +59,11 @@ This section folds in the receipt from the originating ADR that pinned the no-im
 
 ## Rejected alternatives
 
-This section preserves the rejected-alternatives receipts for the ADR whose rationale is folded above, verbatim. The subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
+This section preserves the rejected-alternatives receipts for the ADR whose rationale is folded above, verbatim and append-only per [parent plan section 9](../../TODO/20260603-data-and-charting-platform-reset-plan.md). The subsection is anchored as `#adr-NNNN-rejected-alternatives` for the redirect index.
 
 ### ADR-0021 rejected alternatives
 
-Verbatim from the originating ADR.
+Verbatim from the originating ADR. Append-only per parent plan section 9 (keep-receipts).
 
 - **Keep the disclosures, on transparency grounds.** Rejected: transparency to a curious citizen is well-served by the public GitHub repo and the About page. The `/explore` header is not the right surface for it.
 - **Move the disclosures to a dedicated /security or /how-it-works page.** Rejected for now: it would just relocate the same boundary-mapping content. If we ever want a public engineering write-up, it lives in the repo's docs, not in the deployed app.

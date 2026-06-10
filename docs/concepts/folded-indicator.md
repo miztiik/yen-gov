@@ -2,11 +2,11 @@
 
 **Last Updated**: 2026-06-11
 
-**Status**: OBSOLETE. This concept describes the pre-CSV-pivot per-shard JSON model that lived under `datasets/indicators/in/<topic>/<id>.json`. That path is empty on `main` (all families migrated to long-format CSV under `datasets/data/`). Do not use as guidance for new work.
+**Status**: OBSOLETE. This concept describes the pre-CSV-pivot per-shard JSON model (the legacy indicator artifact). That storage is retired on `main` (all families migrated to long-format CSV under `datasets/data/`). Do not use as guidance for new work.
 
 ## What it was
 
-Every indicator lived in a **single JSON file** at `datasets/indicators/in/<topic>/<id>.json`, carrying an `indicator` block, `rows[]` long-format observations, `license`, `coverage`, `sources[]`, plus folded `methodology`, `series_spec`, and `divergence` sections. Schema: `datasets/schemas/indicator.schema.json` @ `x-version 4.0`.
+Every indicator lived in a **single JSON file** per indicator, carrying an `indicator` block, `rows[]` long-format observations, `license`, `coverage`, `sources[]`, plus folded `methodology`, `series_spec`, and `divergence` sections. Schema: `datasets/schemas/indicator.schema.json` @ `x-version 4.0`.
 
 The folded shape solved three problems: it kept methodology + inventory + provenance co-located with the observations; it eliminated per-indicator sidecar files; it made `git diff <indicator>.json` a complete change summary.
 
@@ -19,7 +19,7 @@ The canonical store now stores all observations as long-format CSV under `datase
 - `datasets/taxonomy/concepts.json` -- concept identity (`indicator.id` replacement).
 - `datasets/_ops/indicators-completeness.json` -- collection inventory (the `collection_inventory` replacement).
 
-The `datasets/indicators/in/` tree is empty on `main`. Any file found there is an unmerged legacy artifact.
+The legacy indicator tree is empty on `main`. Any such file found is an unmerged legacy artifact.
 
 ## See also
 

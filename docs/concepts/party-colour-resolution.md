@@ -119,7 +119,6 @@ the 3-tier resolver picks anchor / brand / fallback automatically.
 
 ## References
 
-- [docs/archive/plans/20260527-party-symbol-assets-plan.md](../../docs/archive/plans/20260527-party-symbol-assets-plan.md) -- one-identity doctrine, original plan (archived)
 - [frontend/src/lib/colors/resolver.ts](../../frontend/src/lib/colors/resolver.ts) — resolver module + module-header contract (now also owns the anchor map)
 - [frontend/src/contracts/party-colour-import-allowlist.test.ts](../../frontend/src/contracts/party-colour-import-allowlist.test.ts) — permanent re-introduction sentinel
 - [datasets/schemas/dim-parties.schema.json](../../datasets/schemas/dim-parties.schema.json) — dim_parties v1.1 schema

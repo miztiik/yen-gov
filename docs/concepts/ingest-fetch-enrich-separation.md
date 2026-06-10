@@ -63,7 +63,7 @@ When an upstream endpoint publishes a fact already in canonical (a new fuel for 
 
 This is the same rule that governs `indicator_id` minting (see [docs/concepts/indicator-naming.md](indicator-naming.md) and the [CLAUDE.md](../../CLAUDE.md) anti-pattern: "Do NOT mint a new `indicator_id` for a new vintage, new publisher, new base-year"). The CSV path and the `indicator_id` move in lockstep: one concept -> one `indicator_id` -> one canonical CSV path -> N rows across (entity, period, vintage, facet).
 
-Before any new ingest, run `python -m yen_gov pre-flight-ingest --proposal-file ./proposal.json --report ./report.json` ([ADR-0046](../architecture/backend/preflight.md#adr-0046-pre-flight-ingest-gate-contract)) per the ingest handover template (`TODO/_TEMPLATE-ingest-handover.md` §3). The gate batches the six mechanical checks (concept overlap, concept FK, grain prefix, update_period_days, justification, source_id derivation) into a single typed report so the agent cannot proceed past `verdict=abort`. If overlap >= 0.70, the action is UPSERT or add-a-facet — never mint.
+Before any new ingest, run `python -m yen_gov pre-flight-ingest --proposal-file ./proposal.json --report ./report.json` ([ADR-0046](../architecture/backend/preflight.md#adr-0046-pre-flight-ingest-gate-contract)) per the ingest handover template (see `docs/agents/ingest-checklist.md` §3). The gate batches the six mechanical checks (concept overlap, concept FK, grain prefix, update_period_days, justification, source_id derivation) into a single typed report so the agent cannot proceed past `verdict=abort`. If overlap >= 0.70, the action is UPSERT or add-a-facet — never mint.
 
 ## See also
 

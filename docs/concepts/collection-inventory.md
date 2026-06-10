@@ -8,7 +8,7 @@
 Collection inventory answers "where do we stand on collecting this
 series?". Since v4.0 it no longer lives **inside** the indicator
 artifact — it is split across two sibling files in
-`datasets/reference/in/`, one fully derived and one hand-edited.
+`datasets/_ops/`, one fully derived and one hand-edited.
 The folded indicator itself (see [folded-indicator](folded-indicator.md))
 carries only `series_spec.description`, `methodology`, `rows[]`,
 `coverage`, and `sources[]`.

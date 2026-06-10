@@ -80,7 +80,7 @@ The legacy CM ingest used a Wikipedia "List of Chief Ministers of <state>" per-s
 
 ## Rejected alternatives
 
-The following designs were rejected. They are preserved here as an anti-re-litigation guard per [CLAUDE.md](../../CLAUDE.md) section 9 (ADR-retire-keep-receipts). Reproduced verbatim from the originating seed module docstring at [backend/yen_gov/canonical/office_holdings_seed.py](../../backend/yen_gov/canonical/office_holdings_seed.py). Do NOT re-propose any of these without an explicit user-signed scope-change row in the active plan-doc.
+The following designs were rejected. They are preserved here as an anti-re-litigation guard per [CLAUDE.md](../../CLAUDE.md) section 9 (ADR-retire-keep-receipts). Reproduced verbatim from the originating seed module docstring at [backend/yen_gov/canonical/office_holdings_seed.py](../../backend/yen_gov/canonical/office_holdings_seed.py). Do NOT re-propose any of these without an explicit user-signed scope-change row in this concept doc.
 
 1. **Keep per-state cm_terms.json + add a thin index layer.** Doubles the operator's edit surface (32 files instead of 1). Loses Hans's "single git history for all CM provenance" win.
 
