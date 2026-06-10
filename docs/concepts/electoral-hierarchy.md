@@ -22,6 +22,42 @@ One strict fact and one many-valued fact govern ACs:
 
 PCs themselves do *not* nest inside districts — a single PC routinely spans 6–8 districts. So `district_id` is required on AC items but absent from PC items, and `pc_id` is required on AC items but forbidden on PC items.
 
+## URL grammar (binding)
+
+Locked by PR-0 of the [election experience overhaul plan](../../TODO/20260609-election-experience-overhaul-plan.md) (2026-06-09). Authority: Jony + Citizen on URL grammar + UX (per [CLAUDE.md section 0a](../../CLAUDE.md)). Receipt + named divergences from the canonical URL grammar live in [url-grammar.md - Named divergences](../architecture/frontend/url-grammar.md#named-divergences-from-canonical-url-grammar).
+
+Cascade (assumes Grammar A from ADR-0037 Phase 2-4 already live; place-first; English-only):
+
+```
+/t/elections                                                  -> firehose (all events ever)
+/t/elections/<event-slug>                                     -> national event view
+/<state>/elections/<event-slug>                               -> state slice of one event
+/<state>/elections/<event-slug>/<constituency-slug>           -> constituency drill (no /pc/, no /ac/)
+/compare/elections/<state>/<from-event-slug>/<to-event-slug>  -> body-tagged compare
+/lab/<state>/<event-slug>                                     -> analyst surface (scenarios ephemeral)
+```
+
+Event-slug grammar (regex-pinned by [url-namespace-disjointness.test.ts](../../frontend/src/contracts/url-namespace-disjointness.test.ts)):
+
+```
+general-<YYYY>                                  e.g. general-2024
+assembly-<YYYY>                                 e.g. assembly-2023
+general-bye-<YYYY>-<state-slug>-<seat-slug>     e.g. general-bye-2024-bihar-bastar
+assembly-bye-<YYYY>-<seat-slug>                 e.g. assembly-bye-2024-tarikere
+```
+
+Regex: `^(general|assembly)(-bye-[a-z0-9-]+|-\d{4})$`.
+
+Five user-mandated binding constraints (do not re-litigate):
+
+1. **No Hindi tokens** in URLs / chrome / code identifiers. Body prefix is `general` (Parliament cohort) / `assembly` (state Assembly cohort) - never `lok-sabha` / `vidhan-sabha`. One Glossary body line allowed for citizens who learned the Hindi term first; never in slug / heading / code.
+2. **Plain old routing.** No query params, no `#` fragments. Pure path cascades under Grammar A.
+3. **Drop the body-root pages.** No `/parliament/`, no `/assembly/`. Body distinction lives only in the event-slug body prefix.
+4. **Drop the `/pc/` and `/ac/` literals.** The event-slug body prefix already implies constituency type at the leaf (`general-` -> PC; `assembly-` -> AC). Constituency leaf URLs are `/<state>/elections/<event-slug>/<constituency-slug>`.
+5. **Body-tag the compare route.** `/compare/elections/<state>/<from>/<to>` disambiguates from the socio-econ indicator compare.
+
+Disjointness against the event-context literals `{"general", "assembly", "elections"}` is asserted by the Tier-A contract test: state slugs + AC slugs are disjoint from all three; topic slugs are disjoint from the narrower `{"general", "assembly"}` only (the topic id `elections` IS a real topic today; its `/t/elections` URL is superseded by the firehose via route-table order). The literal `elections` is NOT a top-level reserved token because the firehose stays at the existing `/t/elections` (top-level reservation `t` covers it). A slug collision against these literals is a slug-quality bug - rename the colliding slug, never relax the test.
+
 ## Why this matters for the schema
 
 Without these two fields you cannot answer questions every consumer of this dataset will ask:
