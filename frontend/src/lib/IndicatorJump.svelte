@@ -22,7 +22,8 @@
   //
   // Why module-scope pure helpers (`filterGroups`, `activeIdForOffsets`):
   //   vitest runs in node-env (per `/memories/lessons.md` Skeleton
-  //   precedent + GeoBreadcrumb's `computeCrumbs`). The wiring code
+  //   precedent + the route-crumbs.ts per-route builders that landed
+  //   in PR-W1d). The wiring code
   //   (IntersectionObserver, smooth scroll, $effect lifecycle) is
   //   integration-tested via the in-browser smoke on /s/tamil-nadu per
   //   CLAUDE.md section 13; the COMPUTATION (which chips match a query,
@@ -155,7 +156,7 @@
     if (targets.length === 0) return;
 
     // rootMargin biases the observer toward the TOP of the viewport:
-    //   - Top trim (-80px) accounts for the GeoBreadcrumb (~48px) +
+    //   - Top trim (-80px) accounts for the Breadcrumb (~48px) +
     //     this jump strip's own height (~36px). A section's top edge
     //     must cross BELOW that line to count as "intersecting".
     //   - Bottom trim (-60%) means a section is no longer "intersecting"

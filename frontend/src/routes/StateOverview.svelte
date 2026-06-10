@@ -73,7 +73,8 @@
   import { states } from "../lib/states.svelte";
   import { getPartyColor } from "../lib/colors/resolver";
   import { link } from "../lib/links";
-  import GeoBreadcrumb from "../lib/GeoBreadcrumb.svelte";
+  import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import { route } from "../lib/router.svelte";
   import {
     fetchElectionEvents,
     defaultEventForState,
@@ -539,9 +540,13 @@
   // PR-P2: this is the gate that keeps the catch-all from poaching
   // unknown URLs.
   const is_unknown_state = $derived(states.isLoaded && state_code === null);
+
+  // PR-W1d: per-route crumb chain. Reactive on route navigation AND
+  // on async catalogue load (the builder reads states.svelte inside).
+  const crumbs = $derived(route.crumbs ? route.crumbs(route.params) : []);
 </script>
 
-<GeoBreadcrumb />
+<Breadcrumb {crumbs} />
 
 {#if is_unknown_state}
   <!--

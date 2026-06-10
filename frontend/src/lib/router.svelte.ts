@@ -14,6 +14,7 @@
 
 import { mount, type Component } from "svelte";
 import { stripBase } from "./url";
+import type { Crumb } from "./breadcrumb-types";
 
 // Pages declare their own params shape via $props(); the router doesn't try to
 // share a single typed `RouteProps`. We accept any Component here and let each
@@ -22,11 +23,17 @@ import { stripBase } from "./url";
 type AnyComponent = Component<any, any, any>;
 
 export interface Route {
-  pattern: string;                     // e.g. "/s/:state/ac/:eci_no"
+  pattern: string;                     // e.g. "/:state/elections/:event/ac/:ac"
   component: AnyComponent;
   // Optional coercer for params (e.g. parseInt eci_no). Returns the typed
   // params object that gets passed as a single `params` prop to the page.
   parse?: (raw: Record<string, string>) => Record<string, unknown>;
+  // Optional per-route breadcrumb builder (PR-W1d). main.ts assigns one to
+  // every route; the consumer derives `crumbs = route.crumbs?.(route.params)`
+  // reactively (the function reads from the reactive `states` store inside
+  // so the chain re-renders when the state catalogue async-loads). Returns
+  // a `Crumb[]` consumed by `lib/Breadcrumb.svelte`.
+  crumbs?: (params: Record<string, unknown>) => Crumb[];
 }
 
 interface Compiled {
@@ -103,6 +110,11 @@ export function startRouter(opts: {
     const matched = resolve(compiled, opts.notFound, path);
     route.path = path;
     route.params = matched.params;
+    // Per-route breadcrumb builder (PR-W1d). The function REFERENCE is
+    // stored on the reactive store; consumers wrap the call in $derived
+    // so the chain re-runs when the async-loaded catalogues (e.g. states)
+    // resolve. main.ts is the writer of these; notFound has none.
+    route.crumbs = matched.route.crumbs ?? null;
     opts.target.innerHTML = "";
     current = mount(matched.route.component, {
       target: opts.target,
@@ -148,7 +160,19 @@ export function startRouter(opts: {
 // Reactive view of the current route. Components import `route` and read
 // `route.path` / `route.params` to react to navigation. Mutated by the router
 // on each render; never write from a component.
-export const route: { path: string; params: Record<string, unknown> } = $state({
+//
+// `route.crumbs` is a FUNCTION reference (not a precomputed Crumb[] array)
+// per PR-W1d: consumers derive their crumb trail via
+// `$derived(route.crumbs?.(route.params) ?? [])`, which re-runs both on
+// navigation AND on async catalogue load (the builder reads the reactive
+// `states` store internally). Storing the array would lose that
+// second-axis reactivity.
+export const route: {
+  path: string;
+  params: Record<string, unknown>;
+  crumbs: ((params: Record<string, unknown>) => Crumb[]) | null;
+} = $state({
   path: "/",
   params: {},
+  crumbs: null,
 });

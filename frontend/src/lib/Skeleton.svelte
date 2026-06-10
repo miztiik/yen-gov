@@ -21,8 +21,9 @@
   //
   // The module-scope `skeletonStyle` helper is the testable surface
   // (vitest is node-env per [docs/architecture/frontend/design-system.md](../../docs/architecture/frontend/design-system.md)
-  // section "Drift contract" + GeoBreadcrumb.svelte's `computeCrumbs`
-  // precedent); the Svelte body is the rendering wrapper.
+  // section "Drift contract" + the per-route crumb builders in
+  // route-crumbs.ts that landed in PR-W1d); the Svelte body is the
+  // rendering wrapper.
 
   /**
    * Build the inline-style string applied to the root skeleton element.

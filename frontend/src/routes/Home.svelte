@@ -8,7 +8,8 @@
   import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
   import { loadStates, type StateRow } from "../lib/view-models/states";
   import { link } from "../lib/links";
-  import GeoBreadcrumb from "../lib/GeoBreadcrumb.svelte";
+  import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import { route } from "../lib/router.svelte";
   import {
     defaultHomeTheme,
     homeThemeOptions,
@@ -150,9 +151,13 @@
       ? []
       : (states ?? []).filter(s => !fallback_codes.has(s.eci_code)),
   );
+
+  // PR-W1d: per-route crumb chain. Reactive on route navigation AND
+  // on async catalogue load (the builder reads states.svelte inside).
+  const crumbs = $derived(route.crumbs ? route.crumbs(route.params) : []);
 </script>
 
-<GeoBreadcrumb />
+<Breadcrumb {crumbs} />
 
 <main class="max-w-screen-2xl mx-auto p-6 space-y-6">
   <header class="space-y-1">

@@ -3,7 +3,8 @@
   //
   // U2a (sub-plan TODO/20260605-u2-breadcrumb-drawer-district-subplan.md):
   // minimal placeholder route that adds the URL grammar's district node so
-  // GeoBreadcrumb (U2b) has somewhere to ascend TO. Scope is intentionally
+  // the U2b breadcrumb spine (renamed to Breadcrumb in PR-W1d) has
+  // somewhere to ascend TO. Scope is intentionally
   // small - resolve the LGD district by slug + parent state code, render
   // the place heading, surface a one-paragraph placeholder body referencing
   // the future chart surface. The breadcrumb spine and the chart canvas
@@ -30,7 +31,8 @@
   import { slugify } from "../lib/slug";
   import { states } from "../lib/states.svelte";
   import { link } from "../lib/links";
-  import GeoBreadcrumb from "../lib/GeoBreadcrumb.svelte";
+  import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import { route } from "../lib/router.svelte";
 
   interface Props {
     params: { state: string; district_slug: string };
@@ -64,9 +66,13 @@
 
   const states_loading = $derived(!states.isLoaded);
   const districts_loading = $derived(districts === null && load_error === null);
+
+  // PR-W1d: per-route crumb chain. Reactive on route navigation AND
+  // on async catalogue load (the builder reads states.svelte inside).
+  const crumbs = $derived(route.crumbs ? route.crumbs(route.params) : []);
 </script>
 
-<GeoBreadcrumb />
+<Breadcrumb {crumbs} />
 
 <main class="max-w-3xl mx-auto p-4 sm:p-6 space-y-6">
   {#if load_error}
