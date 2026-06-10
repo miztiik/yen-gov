@@ -843,6 +843,51 @@ describe("indicator-allowlist (Phase B registry invariants)", () => {
     );
     expect(actual_legacy_ids).toEqual(expected_legacy_ids);
   });
+
+  // G31 pilot (PR #857 + merge 50da979f) + G31 Class A rollout (Row 10,
+  // this PR): enumerated lockdown for the `has_national_reference: true`
+  // opt-in set. Each future PR that adds an indicator to the Class A
+  // pop-weighted national reference line MUST widen this set explicitly.
+  // The failure on an un-expected addition is the contract the next PR's
+  // author must honour (mirrors the G29 / G30 renderer_override lockdown
+  // precedent immediately above). Class A per parent plan section 20.11
+  // (Max + Hans verdict) = rate / ratio / per-capita / percent with
+  // direction != neutral; the renderer-side StatusGlyph gate
+  // (`direction in {higher_is_better, lower_is_better}`) is enforced in
+  // F3 / PR #779 + G31a #854.
+  it("G31 pilot + G31 Class A rollout - exactly 12 descriptors carry has_national_reference = true (enumerated lockdown)", () => {
+    const opted = CANONICAL_BACKED_INDICATORS.filter(
+      (d) => d.has_national_reference === true,
+    );
+    const ids = new Set<string>(
+      opted.map((d) =>
+        d.kind === "single"
+          ? d.canonical_indicator_id
+          : d.canonical_parent_indicator_id,
+      ),
+    );
+    const expected = new Set<string>([
+      // G31 pilot (PR #857 + merge 50da979f)
+      "outstanding-liabilities-pct-gsdp",
+      // G31 Class A rollout (this PR) - per-capita (4)
+      "per-capita-consumption-inr",
+      "per-capita-electricity-consumption-kwh",
+      "per-capita-nsdp-constant-inr",
+      "per-capita-nsdp-current-inr",
+      // G31 Class A rollout - percent / share (2)
+      "atc-losses-pct",
+      "thermal-fgd-installed-share-pct",
+      // G31 Class A rollout - rate (1)
+      "acs-arr-gap-inr-per-kwh",
+      // G31 Class A rollout - pollutant concentration (4)
+      "pm25-annual-mean-ug-m3",
+      "pm10-annual-mean-ug-m3",
+      "no2-annual-mean-ug-m3",
+      "so2-annual-mean-ug-m3",
+    ]);
+    expect(expected.size).toBe(12);
+    expect(ids).toEqual(expected);
+  });
 });
 
 // Row 7 (2026-06-10): the entire `describe("PR 7a — additive reader-switch
