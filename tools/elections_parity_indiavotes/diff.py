@@ -2,14 +2,29 @@
 
 Splits cleanly into:
 
-- ``read_yengov_winners(csv_path, event_slug)`` -> ``list[dict]`` of canonical
-  winner rows pulled from the per-state long-format CSV.
+- ``read_yengov_winners(summary_csv_path, event_slug, state_slug)`` ->
+  ``list[dict]`` of canonical winner rows pulled from the canonical
+  ``datasets/elections/{parliament,assembly}/.../summary.csv`` surface.
 - ``compute_diff(indiavotes_winners, yengov_winners)`` -> ``list[dict]`` of
   per-constituency delta rows, one row per UNION key (so the operator sees
   agreements AND disagreements, not just deltas).
 
 No I/O outside ``read_yengov_winners``. No imports from ``backend/``. The
 diff engine is unit-testable in isolation against tiny synthetic fixtures.
+
+Doctrinal note (fix-up of PR-W1c, 2026-06-10): the original oracle read
+the long-format per-state CSV at
+``datasets/data/datapoints/electoral/<state>_election_results.csv``. That
+surface uses an entity_id grammar (``IN-PC-1976-S26-1``) DIFFERENT from
+the canonical PC registry at ``datasets/data/entities/electoral.csv``
+(``IN-PC-2008-chhattisgarh-294``), so the two surfaces shared no
+entity_id join key and the diff engine reported 0% agreement.
+
+The new ``summary.csv`` surface carries the canonical entity_id AND a
+native ``constituency_name`` column, so the diff engine joins on
+constituency-name directly with no electoral.csv name-map needed.
+Event year + body live in the file-path partition; the event-slug ->
+path translator lives in ``__main__.py::_resolve_summary_csv_path``.
 """
 
 from __future__ import annotations
@@ -18,99 +33,110 @@ import csv
 import re
 from pathlib import Path
 
-# Event-slug -> period_label regex inside the per-state CSV. Today's data
-# uses ECI event labels like ``LsGenJun2024`` (general 2024) and
-# ``AcGenJun2024`` (assembly 2024). The oracle matches by the year-suffix
-# only; this avoids hardcoding the publisher's per-event month token, which
-# differs across years (LsGenApr2019 vs LsGenJun2024) and across states for
-# assembly elections.
-EVENT_GRAMMAR = re.compile(r"^(general|assembly)-(\d{4})$")
 
-_BODY_TO_PREFIX = {"general": "LsGen", "assembly": "AcGen"}
+def read_yengov_winners(
+    summary_csv_path: Path,
+    event_slug: str,
+    state_slug: str,
+) -> list[dict]:
+    """Read yen-gov canonical summary.csv; return one winner row per constituency.
 
+    ``summary_csv_path`` is the resolved on-disk path:
+      - For general events:
+        ``datasets/elections/parliament/election=<year>/summary.csv``
+      - For assembly events:
+        ``datasets/elections/assembly/state=<state>/election=<year>/summary.csv``
 
-def period_label_matcher(event_slug: str):
-    """Return a predicate ``str -> bool`` over ``period_label`` strings.
+    ``event_slug`` matches the PR-0 grammar (``general-2024``,
+    ``assembly-2023``). For general events the function filters rows to
+    ``state == state_slug`` (parliament summary.csv is national-scope on
+    disk); for assembly events the path partition already filters by
+    state, so the state_slug arg is forwarded onto each output row but
+    not used as a filter.
 
-    The predicate is True when the period_label matches the requested
-    event-slug. For ``general-2024`` this accepts any ``LsGen*2024`` label;
-    for ``assembly-2023`` any ``AcGen*2023`` label. Bye-elections are out of
-    scope for v0.1.
-    """
-
-    match = EVENT_GRAMMAR.match(event_slug)
-    if not match:
-        msg = (
-            f"event_slug {event_slug!r} does not match ^(general|assembly)-\\d{{4}}$ "
-            "(PR-0 contract; bye-elections out of v0.1 scope)."
-        )
-        raise ValueError(msg)
-    body, year = match.group(1), match.group(2)
-    prefix = _BODY_TO_PREFIX[body]
-    pattern = re.compile(rf"^{prefix}[A-Za-z]+{year}$")
-    return pattern.fullmatch
-
-
-def read_yengov_winners(csv_path: Path, event_slug: str) -> list[dict]:
-    """Read yen-gov per-state CSV; return one winner row per constituency.
-
-    Output row shape (mirrors ``scrape.parse_winners``):
+    Output row shape (matches the canonical summary.csv column names so
+    callers can pivot on the same vocabulary the on-disk data uses):
 
         {
-          "entity_id": str,           # e.g. "IN-PC-2008-S26-1"
-          "winner_name": str,         # CANDIDATE id (yen-gov has IDs, not names yet)
-          "winner_party": str,        # "parties.IN.BJP"
-          "votes": int | None,        # pc-votes-polled (constituency total turnout)
-          "margin": int | None,       # pc-margin-votes
+          "entity_id": str,           # e.g. "IN-PC-2008-chhattisgarh-294"
+          "state_slug": str,          # e.g. "chhattisgarh"
+          "constituency_name": str,   # e.g. "BASTAR" (from summary.csv natively)
+          "winner_candidate": str | None,
+          "winner_party_id": str,     # e.g. "parties.IN.BJP"
+          "winner_party_short": str,  # e.g. "BJP" (from winner_party_short_raw column)
+          "winner_votes": int | None,
+          "winner_share_pct": float | None,
+          "margin_votes": int | None,
+          "margin_pct": float | None,
+          "runnerup_candidate": str | None,
+          "runnerup_party_id": str | None,
+          "runnerup_party_short": str | None,
         }
 
-    Yen-gov rows are stored in long format; this function pivots the
-    relevant indicator_ids per (entity_id, period_label) bucket and returns
-    one row per entity.
+    Returns ``[]`` if ``summary_csv_path`` does not exist (caller signals
+    upstream missing data, not a function bug).
     """
 
-    matches_period = period_label_matcher(event_slug)
-    body = event_slug.split("-")[0]
-    indicator_prefix = "pc" if body == "general" else "ac"
+    if not summary_csv_path.exists():
+        return []
 
-    indicator_keys = {
-        f"{indicator_prefix}-winner-candidate-id": "winner_name",
-        f"{indicator_prefix}-winner-party-id": "winner_party",
-        f"{indicator_prefix}-votes-polled": "votes",
-        f"{indicator_prefix}-margin-votes": "margin",
-    }
-
-    buckets: dict[str, dict] = {}
-    with csv_path.open("r", encoding="utf-8", newline="") as fh:
+    is_general = event_slug.startswith("general")
+    out: list[dict] = []
+    with summary_csv_path.open("r", encoding="utf-8", newline="") as fh:
         reader = csv.DictReader(fh)
         for row in reader:
-            if not matches_period(row.get("period_label", "")):
+            row_state = (row.get("state") or "").strip()
+            if is_general and row_state != state_slug:
                 continue
-            indicator_id = row.get("indicator_id", "")
-            field = indicator_keys.get(indicator_id)
-            if field is None:
-                continue
-            entity_id = row["entity_id"]
-            bucket = buckets.setdefault(
-                entity_id,
+            out.append(
                 {
-                    "entity_id": entity_id,
-                    "winner_name": "",
-                    "winner_party": "",
-                    "votes": None,
-                    "margin": None,
-                },
+                    "entity_id": (row.get("entity_id") or "").strip(),
+                    "state_slug": row_state or state_slug,
+                    "constituency_name": (row.get("constituency_name") or "").strip(),
+                    "winner_candidate": _str_or_none(row.get("winner_candidate")),
+                    "winner_party_id": (row.get("winner_party_id") or "").strip(),
+                    "winner_party_short": (row.get("winner_party_short_raw") or "").strip(),
+                    "winner_votes": _int_or_none(row.get("winner_votes")),
+                    "winner_share_pct": _float_or_none(row.get("winner_share_pct")),
+                    "margin_votes": _int_or_none(row.get("margin_votes")),
+                    "margin_pct": _float_or_none(row.get("margin_pct")),
+                    "runnerup_candidate": _str_or_none(row.get("runnerup_candidate")),
+                    "runnerup_party_id": _str_or_none(row.get("runnerup_party_id")),
+                    "runnerup_party_short": _str_or_none(row.get("runnerup_party_short_raw")),
+                }
             )
-            text = (row.get("value_text") or "").strip()
-            numeric = (row.get("value_numeric") or "").strip()
-            if field in ("votes", "margin"):
-                try:
-                    bucket[field] = int(float(numeric)) if numeric else None
-                except ValueError:
-                    bucket[field] = None
-            else:
-                bucket[field] = text
-    return list(buckets.values())
+    return out
+
+
+def _str_or_none(value: object) -> str | None:
+    if value is None:
+        return None
+    text = str(value).strip()
+    return text or None
+
+
+def _int_or_none(value: object) -> int | None:
+    if value is None:
+        return None
+    text = str(value).strip()
+    if not text:
+        return None
+    try:
+        return int(float(text))
+    except ValueError:
+        return None
+
+
+def _float_or_none(value: object) -> float | None:
+    if value is None:
+        return None
+    text = str(value).strip()
+    if not text:
+        return None
+    try:
+        return float(text)
+    except ValueError:
+        return None
 
 
 # --- diff engine ------------------------------------------------------------
@@ -148,34 +174,20 @@ def normalise_name(name: str) -> str:
     return _PARTY_SLUG_RE.sub("", name.lower())
 
 
-def _eci_no_from_entity_id(entity_id: str) -> str:
-    """Extract the trailing ECI constituency number from an entity_id.
-
-    Entity ids follow ``IN-PC-<delim_year>-S<state>-<eci_no>`` /
-    ``IN-AC-<delim_year>-S<state>-<eci_no>``. Returns the ``eci_no`` tail
-    as a string (preserves leading zeros if any).
-    """
-
-    return entity_id.rsplit("-", 1)[-1] if entity_id else ""
-
-
 def compute_diff(
     indiavotes_winners: list[dict],
     yengov_winners: list[dict],
     *,
     state_slug: str,
     event_slug: str,
-    yengov_name_by_entity_id: dict[str, str] | None = None,
 ) -> list[dict]:
     """Return one delta row per UNION constituency.
 
-    Join key is the normalised constituency name. yen-gov rows are keyed by
-    entity_id, but the data store currently does NOT carry a winner-NAME
-    column for constituencies (only candidate IDs). To join against
-    IndiaVotes the caller passes ``yengov_name_by_entity_id`` derived from
-    ``datasets/data/entities/electoral.csv``. If the lookup is empty, the
-    diff degrades to "IndiaVotes-only" rows -- still useful for surfacing
-    that no yen-gov match was found.
+    Join key is the normalised constituency name. The new canonical
+    summary.csv surface (PR-W1c fix-up, 2026-06-10) carries
+    ``constituency_name`` natively, so no electoral.csv name-map JOIN is
+    required on the yen-gov side; both inputs are joined symmetrically
+    on ``normalise_name(constituency_name)``.
 
     Output columns match the CSV emitted by ``__main__``:
 
@@ -186,18 +198,30 @@ def compute_diff(
     BOTH sides agree on the normalised winning party for the same
     constituency-name key. Rows where only one side reports a winner are
     emitted with ``agrees=False`` and a descriptive ``delta_notes``.
-    """
 
-    name_map: dict[str, str] = yengov_name_by_entity_id or {}
+    Input shapes:
+
+      indiavotes_winners[i] = {
+        "constituency_name": str,
+        "winner_name": str,
+        "winner_party": str,
+        "votes": int | None,
+        "margin": int | None,
+      }
+
+      yengov_winners[i] = read_yengov_winners(...) row, carrying
+        ``constituency_name`` + ``winner_party_id`` + ``winner_candidate``
+        + ``winner_votes`` + ``margin_votes`` (canonical summary.csv
+        column names).
+    """
 
     yengov_by_key: dict[str, dict] = {}
     for row in yengov_winners:
-        entity_id = row["entity_id"]
-        display = name_map.get(entity_id, "")
-        key = normalise_name(display) if display else _eci_no_from_entity_id(entity_id)
+        display = (row.get("constituency_name") or "").strip()
+        key = normalise_name(display)
         if not key:
             continue
-        yengov_by_key[key] = {**row, "display_name": display or entity_id}
+        yengov_by_key[key] = row
 
     iv_by_key: dict[str, dict] = {
         normalise_name(row["constituency_name"]): row for row in indiavotes_winners
@@ -209,9 +233,13 @@ def compute_diff(
         iv = iv_by_key.get(key)
         yg = yengov_by_key.get(key)
         if iv is not None and yg is not None:
-            agrees = normalise_party(iv["winner_party"]) == normalise_party(yg["winner_party"])
+            agrees = normalise_party(iv["winner_party"]) == normalise_party(
+                yg.get("winner_party_id", "")
+            )
             delta_notes = "" if agrees else "party mismatch"
-            display = yg["display_name"] or iv["constituency_name"]
+            display = (
+                yg.get("constituency_name") or iv["constituency_name"]
+            )
             out.append(
                 _row(state_slug, event_slug, display, "indiavotes", iv, agrees, delta_notes)
             )
@@ -235,7 +263,7 @@ def compute_diff(
                 _row(
                     state_slug,
                     event_slug,
-                    yg["display_name"],
+                    yg.get("constituency_name") or yg.get("entity_id", ""),
                     "yen-gov",
                     yg,
                     False,
@@ -254,15 +282,36 @@ def _row(
     agrees: bool,
     delta_notes: str,
 ) -> dict:
+    """Build one delta-CSV row.
+
+    ``record`` is shaped by SOURCE: IndiaVotes rows carry the legacy
+    ``winner_party`` / ``winner_name`` / ``votes`` / ``margin`` keys
+    (from ``scrape.parse_winners``); yen-gov rows carry the canonical
+    summary.csv keys (``winner_party_id`` / ``winner_candidate`` /
+    ``winner_votes`` / ``margin_votes``). The dispatch on ``source``
+    keeps the output CSV column shape stable so existing _ops/ consumers
+    are not broken by the PR-W1c surface flip.
+    """
+
+    if source == "yen-gov":
+        winner_party = record.get("winner_party_id", "")
+        winner_name = record.get("winner_candidate") or ""
+        votes = record.get("winner_votes")
+        margin = record.get("margin_votes")
+    else:
+        winner_party = record.get("winner_party", "")
+        winner_name = record.get("winner_name", "")
+        votes = record.get("votes")
+        margin = record.get("margin")
     return {
         "state": state_slug,
         "event": event_slug,
         "constituency_name": constituency_name,
         "source": source,
-        "winner_party": record.get("winner_party", ""),
-        "winner_name": record.get("winner_name", ""),
-        "votes": record.get("votes") if record.get("votes") is not None else "",
-        "margin": record.get("margin") if record.get("margin") is not None else "",
+        "winner_party": winner_party,
+        "winner_name": winner_name,
+        "votes": votes if votes is not None else "",
+        "margin": margin if margin is not None else "",
         "agrees": "true" if agrees else "false",
         "delta_notes": delta_notes,
     }
