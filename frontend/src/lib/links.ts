@@ -1,29 +1,23 @@
-// Grammar A URL builders — the end-state place-first cascade per ADR-0037.
+// Grammar A URL builders — the place-first cascade per ADR-0037.
 //
-// This module is the FUTURE single source of truth for in-app route URLs.
-// It ships in Phase 1 of the Grammar A migration with ZERO call-sites; the
-// existing `frontend/src/lib/url.ts` continues to own the live `/s/<state>/...`
-// builders (Grammar B) and PR #172's 42-test contract stays green against
-// it. Phase 2 migrates call-sites from `url.ts` to `links.ts` one component
-// at a time; Phase 4 deletes the `url.ts` legacy layer.
+// As of PR-P3 (this is the sole source of truth for in-app route URLs).
+// PR-P1 shipped the routes + RedirectLegacyUrl; PR-P2 swept every
+// caller from the legacy `url.X()` Grammar B builders to `link.X()`
+// here; PR-P3 (this PR) deleted the `url.ts` Grammar B builders and
+// the 42-test Grammar B contract. `RedirectLegacyUrl.svelte` stays
+// mounted on `/s/*` until PR-P4 (deferred indefinitely; user-triggered).
 //
 // Module name: `links.ts` because the artefact `link.stateHub("S22")`
-// emits is what `<a href={...}>` consumes. The existing `paths.ts` already
-// holds the runtime DATA_BASE prefix (a different concern), so reusing
-// that name would mix two unrelated responsibilities.
-//
-// Why a parallel module instead of mutating `url.ts`:
-//   * `url.ts` returns Grammar B shape; `links.ts` returns Grammar A shape.
-//     The two cannot share a body without one silently mis-routing.
-//   * The two builders coexisting lets Phase 2 ship per-component
-//     migrations reversibly — each `<a href>` swap is a one-line diff.
-//   * The 42-test contract in `url.test.ts` keeps testing the live shape.
-//     A new test file (`links.test.ts`) tests Grammar A independently.
+// emits is what `<a href={...}>` consumes. The existing `paths.ts`
+// already holds the runtime DATA_BASE prefix (a different concern), so
+// reusing that name would mix two unrelated responsibilities.
 //
 // See also:
 //   * ADR-0037 — the binding decision, the three-voice digest, the
 //     four-phase strangler-fig, and the open user-gate questions.
-//   * frontend/src/lib/url.ts — the Grammar B builders being superseded.
+//   * frontend/src/lib/url.ts — URL utility primitives only after PR-P3
+//     (`withBase`, `stripBase`, `navigate`); the Grammar B `url.X()`
+//     builders that used to live there are deleted.
 //   * frontend/src/lib/slug.ts — the slugify primitive shared with url.ts.
 //   * frontend/src/lib/paths.ts — the (unrelated) DATA_BASE prefix module.
 
@@ -364,8 +358,12 @@ export const link = {
  *   * `data-completeness` — citizen transparency surface
  *   * `lab`          — election lab namespace marker (`/lab/<state>/<event>`)
  *   * `dev`          — dev-only Vite alias (existing reservation)
- *   * `s`            — legacy Grammar B state marker (redirect anchor through Phase 4b)
- *   * `ac`           — legacy Grammar B AC marker (redirect anchor through Phase 4b)
+ *   * `s`            — legacy Grammar B prefix; `RedirectLegacyUrl.svelte`
+ *                      catches `/s/*` and replaceState-flips to Grammar A.
+ *                      Stays reserved until PR-P4 (deferred indefinitely;
+ *                      user-triggered) deletes the redirect.
+ *   * `ac`           — bare-AC sub-namespace marker (`/<state>/ac/<ac>`,
+ *                      `/<state>/elections/<event>/ac/<ac>`)
  *   * `party`        — party-in-state sub-namespace marker (`/<state>/party/<slug>`)
  *   * `i`            — pre-reserved fallback for the future indicator-marker
  *                      retrofit Max named (when collision test first fires)
