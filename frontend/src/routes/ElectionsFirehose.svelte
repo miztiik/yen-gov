@@ -129,8 +129,14 @@
             data_status: ev.data_status ?? null,
           });
         } else {
+          // Include polled_on in the row_id so re-elections (legitimate
+          // historical data: e.g. Bihar 2005 had two assembly elections
+          // because the Feb hung result was re-polled in Oct) get
+          // disambiguated keys. Without polled_on, S04+assembly-2005
+          // produces two rows with the same row_id and Svelte 5 fires
+          // each_key_duplicate.
           out.push({
-            row_id: `${state_code}-${ev.event_id}`,
+            row_id: `${state_code}-${ev.event_id}-${ev.polled_on}`,
             event_id: ev.event_id,
             state_code,
             state_label: state_name,
