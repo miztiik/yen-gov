@@ -319,7 +319,7 @@ class PartyRegistryEntry:
     parties.json + ``reference/in/parties-discovered.json`` overlay +
     ``reference/in/parties.json`` master); the same lookup is now derived
     from the canonical taxonomy file and its forward index built by
-    ``yen_gov.canonical.adapters.eci.party_lookup.load_party_lookup``.
+    ``yen_gov.canonical.party_resolver.load_party_lookup``.
 
     ``eci_code`` may be ``None`` for taxonomy entries that have an empty
     ``eci_codes[]`` (the party exists in our roster but has not yet

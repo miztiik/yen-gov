@@ -23,7 +23,7 @@ from yen_gov.canonical.adapters.eci.observations import (
     dim_rows_from_constituency,
     observations_from_constituency,
 )
-from yen_gov.canonical.adapters.eci.party_lookup import (
+from yen_gov.canonical.party_resolver import (
     load_party_lookup,
     party_alliance_dim_rows,
     party_dim_rows,

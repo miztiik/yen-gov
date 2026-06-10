@@ -14,7 +14,7 @@ from pathlib import Path
 import pytest
 
 from yen_gov.canonical.adapters.eci.identity import Period
-from yen_gov.canonical.adapters.eci.party_lookup import load_party_lookup
+from yen_gov.canonical.party_resolver import load_party_lookup
 from yen_gov.canonical.adapters.eci.pc_observations import (
     dim_rows_from_pc,
     observations_from_pc,

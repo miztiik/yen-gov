@@ -120,54 +120,40 @@ def _electoral_eci_to_entity(
 def party_lookup_from_parties_csv(parties_csv: Path) -> dict[str, str]:
     """Build a TCPD-shortcode -> canonical party_id map (F1.3a v1.2 + G1).
 
-    Reads ``datasets/data/entities/parties.csv`` and returns
-    ``{upper(short): party_id}`` plus, for every non-empty pipe-delimited
-    ``aliases`` value, ``{upper(alias): party_id}`` for each alias. TCPD's
-    ``Party`` field uses a dialect different from the canonical short in
-    places (CPM vs CPI(M), ADMK vs AIADMK, AAAP vs AAP, TRS vs BRS, ...);
-    the ``aliases`` column captures those equivalences as data on disk
-    (round-7c inline pipe-delim precedent on geo.csv + electoral.csv) so
-    a future enrichment is a one-cell CSV edit, not a code change.
+    PR-1 (2026-06-10) — delegates to ``party_resolver.load_resolver`` so the
+    central CSV-backed resolver is the single seam for publisher-string ->
+    canonical id. The public API (``(parties_csv: Path) -> dict[str, str]``)
+    is preserved exactly so the 4 existing call-sites
+    (``assembly_results_from_eci``, ``parliament_results``,
+    ``parliament_2024_eci``, and this module's own ``emit_state_assembly``)
+    stay green without edits.
+
+    Returns ``{upper(short): party_id}`` plus, for every non-empty
+    pipe-delimited ``aliases`` value, ``{upper(alias): party_id}`` for each
+    alias. TCPD's ``Party`` field uses a dialect different from the canonical
+    short in places (CPM vs CPI(M), ADMK vs AIADMK, AAAP vs AAP, TRS vs BRS,
+    ...); the ``aliases`` column captures those equivalences as data on disk
+    (round-7c inline pipe-delim precedent on geo.csv + electoral.csv) so a
+    future enrichment is a one-cell CSV edit, not a code change.
 
     Backwards compatible: if the ``aliases`` column is absent (older test
     fixtures), only ``upper(short) -> party_id`` mappings are emitted.
 
     Collisions are an error: if two distinct shorts/aliases would resolve
-    to different ``party_id`` values, the writer fails loud (Holy Law #5)
+    to different ``party_id`` values, the loader fails loud (Holy Law #5)
     rather than silently picking one. Same short/alias to the same
     ``party_id`` via two rows is fine (idempotent).
 
-    Pure I/O of one small CSV (~620 rows); called once per emit, not per
-    row.
+    Pure I/O of one small CSV (~620 rows); the loader's lru-cache keeps
+    repeated calls during an emit run cheap.
     """
-    out: dict[str, str] = {}
+    # Local import keeps the canonical/reingest module free of a hard
+    # canonical-> party_resolver edge at module load (lru_cache lives there).
+    from yen_gov.canonical.party_resolver import load_resolver
+
     if not parties_csv.exists():
-        return out
-    with parties_csv.open(encoding="utf-8", newline="") as fh:
-        for row in csv.DictReader(fh):
-            short = (row.get("short") or "").strip().upper()
-            pid = (row.get("party_id") or "").strip()
-            if not pid:
-                continue
-            keys: list[str] = []
-            if short:
-                keys.append(short)
-            aliases_raw = (row.get("aliases") or "").strip()
-            if aliases_raw:
-                for alias in aliases_raw.split("|"):
-                    alias_clean = alias.strip().upper()
-                    if alias_clean:
-                        keys.append(alias_clean)
-            for key in keys:
-                existing = out.get(key)
-                if existing is not None and existing != pid:
-                    raise ValueError(
-                        f"party_lookup collision: key {key!r} maps to both "
-                        f"{existing!r} and {pid!r}; resolve by editing "
-                        f"datasets/data/entities/parties.csv"
-                    )
-                out[key] = pid
-    return out
+        return {}
+    return dict(load_resolver(parties_csv).by_alias)
 
 
 def _int_or_none(value: str | None) -> int | None:

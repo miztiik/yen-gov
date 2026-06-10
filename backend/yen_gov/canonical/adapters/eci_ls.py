@@ -19,7 +19,7 @@ from pathlib import Path
 
 from yen_gov.canonical.adapters.eci.identity import Period
 from yen_gov.canonical.adapters.eci.state_slug import eci_to_lgd_slug
-from yen_gov.canonical.adapters.eci.party_lookup import (
+from yen_gov.canonical.party_resolver import (
     PartyLookup,
     UnknownPartyError,
     load_party_lookup,

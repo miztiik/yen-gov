@@ -11,7 +11,7 @@ from yen_gov.canonical.adapters.eci.identity import Period
 from yen_gov.canonical.adapters.eci.observations import (
     observations_from_constituency,
 )
-from yen_gov.canonical.adapters.eci.party_lookup import load_party_lookup
+from yen_gov.canonical.party_resolver import load_party_lookup
 from yen_gov.core.models import (
     CandidateResult,
     ConstituencyResult,

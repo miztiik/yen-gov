@@ -24,7 +24,7 @@ from yen_gov.canonical.adapters.eci.identity import (
     layer1_person_id_collision_tiebreak,
     state_rollup_entity_id,
 )
-from yen_gov.canonical.adapters.eci.party_lookup import (
+from yen_gov.canonical.party_resolver import (
     PartyLookup,
     UnknownPartyError,
     load_party_lookup,
