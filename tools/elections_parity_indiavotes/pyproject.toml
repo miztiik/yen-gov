@@ -1,0 +1,26 @@
+[project]
+name = "elections-parity-indiavotes"
+version = "0.1.0"
+description = "One-shot parity oracle: yen-gov canonical election results vs IndiaVotes scraped HTML. Operator-facing; never CI."
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.27,<0.29",
+  "beautifulsoup4>=4.12,<5.0",
+  "lxml>=5.0,<6.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+# This tool is NEVER installed via pip / bun / poetry / uv into the project venv.
+# It runs standalone from a clean operator venv:
+#
+#   py -m venv .venv-parity
+#   .venv-parity\Scripts\activate
+#   pip install httpx beautifulsoup4 lxml
+#   python tools/elections_parity_indiavotes/__main__.py --help
+#
+# The pyproject.toml is here ONLY to pin the dep set + record the dependency
+# contract; intentionally no [tool.setuptools.packages.find] entry. See
+# tools/elections_parity_indiavotes/README.md.
