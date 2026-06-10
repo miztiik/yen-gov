@@ -65,7 +65,7 @@ When a future event reuses a party, it gets a new snapshot. ECI's numeric code t
 
 Districts belong to a state by definition. Constituencies (for a given body — Assembly or Parliament) are also numbered within a state.
 
-Districts now live as `entity_type='district'` rows on `datasets/taxonomy/entities.json` (LGD-sourced; see [ADR-0033](decisions/0033-retire-wikipedia-districts-adapter.md) for the wikipedia districts adapter retirement). The 6 per-state `datasets/reference/in/states/<S>/districts.json` files and `datasets/schemas/district.schema.json` were deleted in T.0c-iii Phase D.3 once the adapter (D.1) + LGD backfill tool (D.2) had been retired and no code path referenced them.
+Districts now live as `entity_type='district'` rows on `datasets/taxonomy/entities.json` (LGD-sourced; see [ADR-0033](../reference/decision-index.md) for the wikipedia districts adapter retirement). The 6 per-state `datasets/reference/in/states/<S>/districts.json` files and `datasets/schemas/district.schema.json` were deleted in T.0c-iii Phase D.3 once the adapter (D.1) + LGD backfill tool (D.2) had been retired and no code path referenced them.
 
 Constituencies stay state-scoped on disk; the `(state, body)` partition keeps file sizes manageable and makes the path itself self-describing:
 
@@ -129,7 +129,7 @@ A `complete` constituency file MUST have at least one ECI-domain URL in `sources
 2. ECI results portal constituency pages on `results.eci.gov.in` (confirms ECI numbering and reservation; does not directly give district or PC parent).
 3. CEO state office publications for electoral roll counts (`ceo<state>.nic.in` / `ceo<state>.gov.in`).
 
-Wikipedia remains a valid `provisional` source and may stay in `sources[]` after promotion (multi-entry `sources` per the [provenance contract](decisions/0002-provenance-as-sources-list.md) is exactly for this case).
+Wikipedia remains a valid `provisional` source and may stay in `sources[]` after promotion (multi-entry `sources` per the [provenance contract](../reference/decision-index.md) is exactly for this case).
 
 ### Hierarchy & lifecycle rationale
 
@@ -157,5 +157,5 @@ Acknowledged costs:
 - [`docs/reference/schemas.md`](../reference/schemas.md) — current schema versions.
 - [`docs/reference/identifiers.md`](../reference/identifiers.md) — ID source-of-truth conventions.
 - [`docs/concepts/electoral-hierarchy.md`](../concepts/electoral-hierarchy.md)
-- [Provenance contract (ADR-0002)](decisions/0002-provenance-as-sources-list.md)
+- [Provenance contract (ADR-0002)](../reference/decision-index.md)
 - `CLAUDE.md` §3, §11, §12 — authoritative contracts.

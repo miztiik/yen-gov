@@ -10,7 +10,7 @@ Every feature lands with tests at the tier(s) appropriate to its surface. Covera
 
 The four tiers are named by purpose: **Unit**, **Contract**, **Integration**, **End-to-end**. They are **not numbered**.
 
-Older docs and ADRs occasionally use aliases like "Tier-A test" ([routing.md](frontend/routing.md), [ADR-0028](decisions/0028-url-scheme-place-first-flat-indicator-slug.md), [data-loading.md](frontend/data-loading.md)) or "Tier 2 contract test" ([catalogue-drift-detector.md](frontend/catalogue-drift-detector.md), [stacked-trend.md](frontend/charts/stacked-trend.md)). Those aliases are **deprecated** for two reasons:
+Older docs and ADRs occasionally use aliases like "Tier-A test" ([routing.md](frontend/routing.md), [ADR-0028](../reference/decision-index.md), [data-loading.md](frontend/data-loading.md)) or "Tier 2 contract test" ([catalogue-drift-detector.md](frontend/catalogue-drift-detector.md), [stacked-trend.md](frontend/charts/stacked-trend.md)). Those aliases are **deprecated** for two reasons:
 
 1. The lettered/numbered schemes drifted across files without a canonical mapping.
 2. "Tier A" / "Tier B" collide with the **validator-internal** taxonomy in [CLAUDE.md §11](../../CLAUDE.md) (Tier A = schema sanity, Tier B = corpus conformance) and [docs/architecture/backend/validator.md](backend/validator.md). That is a different taxonomy entirely — it describes validation phases, not test scopes.
@@ -22,7 +22,7 @@ When you encounter a deprecated alias in an existing doc: treat "Tier-A" as "Uni
 | Tier | Where it lives | What it asserts | When it's required |
 | --- | --- | --- | --- |
 | **Unit** | [`frontend/src/**/*.test.ts`](../../frontend/src) (vitest), [`backend/tests/test_*.py`](../../backend/tests) (pytest) | Pure functions, formatters, parsers, slug round-trips, math invariants. No I/O, no DOM, no network. | Any change to a pure function or pure module. |
-| **Contract** | [`frontend/src/contracts/*.test.ts`](../../frontend/src/contracts) (ajv against [`datasets/schemas/`](../../datasets/schemas)), [`backend/tests/test_validate.py`](../../backend/tests/test_validate.py), [`backend/tests/test_datasets_integrity.py`](../../backend/tests/test_datasets_integrity.py) | Every `datasets/**/*.json` validates against its declared `$schema`; `$schema_version` is current for writer outputs or accepted by the explicit compatibility contract ([CLAUDE.md section 11](../../CLAUDE.md), [ADR-0047](decisions/0047-schema-version-compatibility-contract.md)); provenance shape ([CLAUDE.md section 12](../../CLAUDE.md)); cross-registry consistency (frontend catalogue to backend `events.py`, tier partition, allowlisted countermands, no-folded-sidecar regression). | Any schema bump, new emitted artifact, or new loader - producer AND consumer side. |
+| **Contract** | [`frontend/src/contracts/*.test.ts`](../../frontend/src/contracts) (ajv against [`datasets/schemas/`](../../datasets/schemas)), [`backend/tests/test_validate.py`](../../backend/tests/test_validate.py), [`backend/tests/test_datasets_integrity.py`](../../backend/tests/test_datasets_integrity.py) | Every `datasets/**/*.json` validates against its declared `$schema`; `$schema_version` is current for writer outputs or accepted by the explicit compatibility contract ([CLAUDE.md section 11](../../CLAUDE.md), [ADR-0047](../reference/decision-index.md)); provenance shape ([CLAUDE.md section 12](../../CLAUDE.md)); cross-registry consistency (frontend catalogue to backend `events.py`, tier partition, allowlisted countermands, no-folded-sidecar regression). | Any schema bump, new emitted artifact, or new loader - producer AND consumer side. |
 | **Integration** | [`frontend/src/**/*.test.ts`](../../frontend/src) for loader+fixture composition; [`backend/tests/test_pipeline_*.py`](../../backend/tests) for adapter+pipeline composition. | Loaders compose paths correctly, mocked `fetch` returns the expected shape, the 404-as-null and other graceful-degradation contracts hold; pipeline adapters compose end-to-end against fixture pages. | Any new loader, adapter, or composed pipeline step. |
 | **End-to-end** | [`frontend/e2e/*.spec.ts`](../../frontend/e2e) (Playwright, public citizen site on port 5173); [`admin/e2e/*.spec.ts`](../../admin/e2e) (Playwright, admin operator console on port 5174, mocks `/api/*` via `page.route`). | Citizen-visible route loads without `pageerror`; one DOM assertion that proves the route's content is there; one `SourceList` provenance assertion if the route surfaces data. Admin panels render and exercise their typed API contract via mocked routes. | Any new citizen-visible route or meaningful change to an existing one; any admin panel addition. |
 
@@ -44,7 +44,7 @@ A new integrity test needs to name the contract it defends. If the answer is "ev
 
 ## Schema Versions In Tests
 
-This section governs how tests assert schema-version behavior. It does not define reader compatibility, retained historical schemas, migration policy, or which old artifact versions validators may accept. Those choices belong to [ADR-0047](decisions/0047-schema-version-compatibility-contract.md), [data/schema-evolution.md](data/schema-evolution.md), and the active schema-compatibility plan rows.
+This section governs how tests assert schema-version behavior. It does not define reader compatibility, retained historical schemas, migration policy, or which old artifact versions validators may accept. Those choices belong to [ADR-0047](../reference/decision-index.md), [data/schema-evolution.md](data/schema-evolution.md), and the active schema-compatibility plan rows.
 
 Tests MUST NOT assert a production schema's current version as a hand-typed point value when the behavior under test is "whatever the current writer emits today".
 
@@ -223,5 +223,5 @@ Accessibility is a project-level non-goal per [CLAUDE.md §0](../../CLAUDE.md) a
 - [CLAUDE.md §11](../../CLAUDE.md) — schema versioning and the **validator-internal** Tier A/B split (do not confuse with the test tiers above)
 - [docs/architecture/backend/validator.md](backend/validator.md) — validator design and Tier A/B descope rationale
 - [docs/architecture/data/schema-evolution.md](data/schema-evolution.md) - schema-version compatibility testing policy
-- [ADR-0047](decisions/0047-schema-version-compatibility-contract.md) - writer-strict / reader-compatible decision
+- [ADR-0047](../reference/decision-index.md) - writer-strict / reader-compatible decision
 - [docs/concepts/data-provenance.md](../concepts/data-provenance.md) — provenance shape that contract tests assert against

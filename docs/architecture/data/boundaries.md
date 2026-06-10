@@ -5,7 +5,7 @@
 
 This doc captures the rationale behind every design choice that touched the boundary stack as it evolved from "one `india.geojson` outline" through "LGD-coded states + districts" to TN-granular sub-district + village layers, and through the T.0d consolidation (2026-05-22) that moved the tree to Hive partitioning and retired the per-shard sidecars. When this doc disagrees with a plan artifact, **this doc wins** (Holy Law #4 - docs are agent memory; the plan is a working artifact).
 
-> **Canonical pivot stance (2026-05-22, T.0d amendment)**: under the canonical long-format pivot ([ADR-0030](../decisions/0030-canonical-store-duckdb-wasm.md)), the boundary tree remains a **sibling family** to the canonical Parquet store. Geometry stays in GeoJSON / PMTiles (per-layer cutover spec in [ADR-0031 + Amendment 2026-05-22](../decisions/0031-boundary-geometry-strategy.md)). `datasets/boundaries/` is **excluded from any `_old/` sweep and any deletion step** (R25 of ADR-0030 + ADR-0031). T.0d normalised on-disk layout to Hive partitioning and consolidated the three sidecar families (`*.sources.json` / `*.metadata.json` / `*.unkeyed.json`) plus the per-state `<eci>-villages-index.json` manifests into a single parquet ledger at `datasets/boundaries/boundary_layers.parquet` (FK to `taxonomy/sources.parquet` v2.0).
+> **Canonical pivot stance (2026-05-22, T.0d amendment)**: under the canonical long-format pivot ([ADR-0030](../../reference/decision-index.md)), the boundary tree remains a **sibling family** to the canonical Parquet store. Geometry stays in GeoJSON / PMTiles (per-layer cutover spec in [ADR-0031 + Amendment 2026-05-22](../../reference/decision-index.md)). `datasets/boundaries/` is **excluded from any `_old/` sweep and any deletion step** (R25 of ADR-0030 + ADR-0031). T.0d normalised on-disk layout to Hive partitioning and consolidated the three sidecar families (`*.sources.json` / `*.metadata.json` / `*.unkeyed.json`) plus the per-state `<eci>-villages-index.json` manifests into a single parquet ledger at `datasets/boundaries/boundary_layers.parquet` (FK to `taxonomy/sources.parquet` v2.0).
 
 ## Disk layout (post-T.0d, Hive-partitioned)
 
@@ -45,7 +45,7 @@ One row per shard. Schema in `datasets/schemas/boundary-layers.schema.json`. The
 
 Denominator invariant: `original_feature_count == retained_feature_count + unkeyed_count` (enforced by `BoundaryLayerRow` Pydantic validator in `backend/yen_gov/canonical/boundary_layers_seed.py`).
 
-8 optional nullable columns: `entity_state`, `entity_district`, `entity_city`, `simplification_algorithm`, `simplification_tolerance_deg`, `unkeyed_keys_json`, `notes`, and `delimitation_vintage`. As of schema v1.1 (2026-05-24), `delimitation_vintage` (nullable, `^[0-9]{4}$`) is added: required on PC rows (and on future AC rows once delimitation history backfills land), null elsewhere. See [ADR-0031 Amendment 2026-05-24](../decisions/0031-boundary-geometry-strategy.md#amendment-2026-05-24-pc-layer-ingest--delimyyyy-partition-key).
+8 optional nullable columns: `entity_state`, `entity_district`, `entity_city`, `simplification_algorithm`, `simplification_tolerance_deg`, `unkeyed_keys_json`, `notes`, and `delimitation_vintage`. As of schema v1.1 (2026-05-24), `delimitation_vintage` (nullable, `^[0-9]{4}$`) is added: required on PC rows (and on future AC rows once delimitation history backfills land), null elsewhere. See [ADR-0031 Amendment 2026-05-24](../../reference/decision-index.md).
 
 Frontend has zero direct readers of this parquet today (renderer never needed metadata at runtime). The ledger is the **operator + citizen-citation surface**; the geojsons remain the renderer's input.
 
@@ -111,7 +111,7 @@ For village and subdistrict rollouts this means simplification at write time. Th
 
 ## Coverage gaps (live)
 
-The live, per-level coverage status — what we have, what we don't have, and what closes each gap — lives in [`docs/reference/boundary-data-sources.md` §"Coverage status — what we have, what we don't have"](../../reference/boundary-data-sources.md#coverage-status--what-we-have-what-we-dont-have). One canonical home, edited in the same PR as the ingest that moves a number. Per the doc-routing contract (CLAUDE.md §5 / [ADR-0034](../decisions/0034-documentation-routing-contract.md)): this subsystem doc describes the **disk + identifier shape**; the reference doc describes the **catalogue + coverage**.
+The live, per-level coverage status — what we have, what we don't have, and what closes each gap — lives in [`docs/reference/boundary-data-sources.md` §"Coverage status — what we have, what we don't have"](../../reference/boundary-data-sources.md#coverage-status--what-we-have-what-we-dont-have). One canonical home, edited in the same PR as the ingest that moves a number. Per the doc-routing contract (CLAUDE.md §5 / [ADR-0034](../../reference/decision-index.md)): this subsystem doc describes the **disk + identifier shape**; the reference doc describes the **catalogue + coverage**.
 
 Three gap categories matter today and are tracked there:
 
@@ -123,7 +123,7 @@ Three gap categories matter today and are tracked there:
 
 Indian administrative geography is not stable. Post-2011 districts (Mayiladuthurai 2020, Tenkasi/Tirupathur/Chengalpattu/Kallakurichi/Ranipet 2019) did not exist in Census 2011, so any indicator computed from Census 2011 inputs has no value at the new district's geometry — and any time-series visualisation that draws a polyline through that boundary is lying.
 
-`entity.schema.json` district rows on `datasets/taxonomy/entities.json` surface three break markers (originally on `district.schema.json` v3.3, retired in T.0c-iii Phase D.3 — see [ADR-0033](../decisions/0033-retire-wikipedia-districts-adapter.md)):
+`entity.schema.json` district rows on `datasets/taxonomy/entities.json` surface three break markers (originally on `district.schema.json` v3.3, retired in T.0c-iii Phase D.3 — see [ADR-0033](../../reference/decision-index.md)):
 
 - `census_2011_code` — the 2011 code, or `null` for post-2011 districts. Lets a renderer say "this district did not exist in 2011".
 - `lgd_code_history` — for the rare case where an LGD code itself was retired and reissued.
@@ -234,7 +234,7 @@ Frontend has a paired contract test at `frontend/src/contracts/boundaries-confor
 
 ## Design rationale
 
-This section folds in receipts from the originating ADRs that pinned design choices for this subsystem (`docs/architecture/decisions/` files deleted in D-DOC3.10 closure), per the ADR retirement contract ([decision-index.md](../../reference/decision-index.md)). Each receipt below is condensed Context + Decision + Consequences from the originating ADR; the verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
+This section folds in receipts from the originating ADRs that pinned design choices for this subsystem, per the ADR retirement contract ([decision-index.md](../../reference/decision-index.md)). Each receipt below is condensed Context + Decision + Consequences from the originating ADR; the verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives).
 
 ### ADR-0031: boundary-geometry-strategy
 
@@ -281,13 +281,13 @@ Verbatim from the originating ADR (B1-B11). Append-only per ADR retirement contr
 ## See also
 
 - [docs/concepts/boundary-data-philosophy.md](../../concepts/boundary-data-philosophy.md) -- the "why" behind every boundary-data choice (polygons vs topographic raster, GADM rejection, TopoJSON adoption status, DIGIPIN deferral, HTL kept on purpose).
-- [ADR-0030 — canonical store on Parquet + DuckDB-WASM](../decisions/0030-canonical-store-duckdb-wasm.md) — sibling-family rationale (D25).
-- [ADR-0031 — boundary geometry strategy + Amendment 2026-05-22](../decisions/0031-boundary-geometry-strategy.md) — format-per-layer, GeoJSON→PMTiles cutover, no-move rule, Hive layout + parquet ledger.
-- [ADR-0032 — sources citation ledger v2.0](../decisions/0032-sources-citation-ledger.md) — the FK target for `boundary_layers.source_id`.
+- [ADR-0030 — canonical store on Parquet + DuckDB-WASM](../../reference/decision-index.md) — sibling-family rationale (D25).
+- [ADR-0031 — boundary geometry strategy + Amendment 2026-05-22](../../reference/decision-index.md) — format-per-layer, GeoJSON→PMTiles cutover, no-move rule, Hive layout + parquet ledger.
+- [ADR-0032 — sources citation ledger v2.0](../../reference/decision-index.md) — the FK target for `boundary_layers.source_id`.
 - [canonical-store.md §17](canonical-store.md) — resolution path from observation row to boundary file.
-- [ADR-0019: dataset topology + canonical column names](../decisions/0019-dataset-topology-and-column-discipline.md) — `subdistrict_lgd_code` and `village_lgd_code` first-class promotion.
-- [ADR-0015: constituency hierarchy fields](../decisions/0015-constituency-hierarchy-fields.md) — `district_id` lifecycle.
-- [`ADR-0003: ephemeral raw under `.runtime/`](../decisions/0003-ephemeral-raw-under-runtime.md) — why fetch caches are not committed.
+- [ADR-0019: dataset topology + canonical column names](../../reference/decision-index.md) — `subdistrict_lgd_code` and `village_lgd_code` first-class promotion.
+- [ADR-0015: constituency hierarchy fields](../../reference/decision-index.md) — `district_id` lifecycle.
+- [`ADR-0003: ephemeral raw under `.runtime/`](../../reference/decision-index.md) — why fetch caches are not committed.
 - [`datasets/schemas/boundary-layers.schema.json`](../../../datasets/schemas/boundary-layers.schema.json) — v1.0 (T.0d).
 - [`datasets/schemas/feature_collection.metadata.schema.json`](../../../datasets/schemas/feature_collection.metadata.schema.json) — v1.1 (retained — still used by `india_geodata.power_plants`).
 - [`datasets/schemas/postal.schema.json`](../../../datasets/schemas/postal.schema.json) — v1.0 (Phase 4 §160).

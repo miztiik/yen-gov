@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-06-10
 **Owner**: data layer (Hans + Max own shape; Gregor owns contracts; Fowler owns write seam)
-**ADR**: [ADR-0030](../decisions/0030-canonical-store-duckdb-wasm.md) (canonical store rationale + rejected alternatives); [ADR-0036](../decisions/0036-state-identity-and-slice-registration.md) (state aliases + slice registration); [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md) (schema-version compatibility)
+**ADR**: [ADR-0030](../../reference/decision-index.md) (canonical store rationale + rejected alternatives); [ADR-0036](../../reference/decision-index.md) (state aliases + slice registration); [ADR-0047](../../reference/decision-index.md) (schema-version compatibility)
 
 This doc is the operational spec for the canonical long-format store. ADR-0030 records *why*; this doc records *what* and *where*. When the two disagree this doc wins on operational detail; the ADR wins on whether a decision is open or closed (Holy Law #4).
 
@@ -87,9 +87,9 @@ datasets/
 - `datasets/taxonomy/`, `datasets/schemas/`, `datasets/boundaries/`, `datasets/manifest.json` are NOT canonical-family directories; the invariant does not apply to them.
 - **Empty-parent pruning (Phase 1.8a, user directive)**: when a sub-PR deletes the last JSON shard from a `datasets/<family>/<event>/<state>/...` subtree, the deletion PR MUST also remove every parent directory that becomes empty as a result. The whole point of the canonical pivot is a lean, scannable `datasets/` tree; shell directories left behind defeat that goal. Verification: `find datasets -type d -empty` returns zero in the affected family at the end of each 1.8 sub-PR.
 
-The admin Inventory panel ([`backend/yen_gov/admin/inventory.py`](../../../backend/yen_gov/admin/inventory.py)) walks `datasets/<family>/*.parquet`, classifies every file, and surfaces unknown kinds — the operational check that the invariant holds. Per-family deletion gates live in [`docs/architecture/canonical-pivot-deletion-manifest.md`](../canonical-pivot-deletion-manifest.md); end-of-pivot validation cross-references that manifest against the on-disk tree.
+The corpus validator and admin inventory surfaces classify known dataset files and fail loud on unknown citizen-facing shapes. Retired pre-pivot artifacts are guarded by Tier-B forbidden-path checks and the owning subsystem docs, not by standalone migration ledgers.
 
-`_old/` was originally planned as a staging directory for pre-pivot JSON during the pivot, but no migration step ever moved the legacy elections JSON tree into it (the per-event shards were written straight into `datasets/elections/<event>/<state>/...` and the canonical Parquet later landed alongside them). The placeholder was removed; the actual cleanup is sequenced under migration rows 1.8b-1.8f.
+`_old/` is not a valid staging directory. Historical JSON, sqlite, and Parquet residues leave the citizen-facing tree by explicit deletion or move into `datasets/ephemeral/`, with a validator or subsystem invariant preventing reintroduction.
 
 ### 2a. Parquet naming convention (Hans + Max + Gregor + Fowler, Phase 1.8a-bis — 2026-05-18)
 
@@ -401,11 +401,11 @@ datasets/energy/_meadow/iced/2024-25/installed_capacity_coal_mw.json
 datasets/demography/_meadow/nfhs/round-5/state_summary_indicators.json
 ```
 
-**Consumer constraint** (Gregor non-negotiable, [ADR-0041](../decisions/0041-meadow-tier.md)): only the per-family backend canonical adapter under `backend/yen_gov/canonical/adapters/<family>/*.py` reads meadow files. The frontend MUST NOT `fetch()` any path under `_meadow/`. Citizen reads route through the Phase B canonical allowlist (`frontend/src/lib/canonical/indicator-from-canonical.ts` `loadIndicator()`) to `datasets/<family>/<family>_<role>.parquet` via DuckDB-WASM. The Tier-B validator (renamed to `tier_b_meadow_shard_contract` in PR 7c-4) is the enforcement perimeter.
+**Consumer constraint** (Gregor non-negotiable, [ADR-0041](../../reference/decision-index.md)): only the per-family backend canonical adapter under `backend/yen_gov/canonical/adapters/<family>/*.py` reads meadow files. The frontend MUST NOT `fetch()` any path under `_meadow/`. Citizen reads route through the Phase B canonical allowlist (`frontend/src/lib/canonical/indicator-from-canonical.ts` `loadIndicator()`) to `datasets/<family>/<family>_<role>.parquet` via DuckDB-WASM. The Tier-B validator (renamed to `tier_b_meadow_shard_contract` in PR 7c-4) is the enforcement perimeter.
 
 **Meadow contract** (per [`docs/concepts/meadow-tier.md`](../../concepts/meadow-tier.md)): schema-valid (reuses existing per-family schemas under `datasets/schemas/`), deterministic (identical upstream bytes → identical meadow bytes), `source_id` FK-bearing per CLAUDE.md §12, vintage-anchored against the citation ledger, backend-internal.
 
-**Migration into `_meadow/`** happens family-by-family via the 7c-N PR sequence (energy: 7c-1 → 7c-4 per [ADR-0041](../decisions/0041-meadow-tier.md); Phase 2 P.2+ adopts meadow authoring from day one). Each per-adapter `git mv` simultaneously closes Phase C (adapter input migrated), Phase D (legacy `datasets/indicators/in/<topic>/<id>.json` path deleted), and Phase B-remainder (any consumer hand-fetching legacy URL 404s). Completion criterion: `git ls-tree origin/main -- datasets/indicators/in/` returns empty.
+**Migration into `_meadow/`** happens family-by-family via the 7c-N PR sequence (energy: 7c-1 → 7c-4 per [ADR-0041](../../reference/decision-index.md); Phase 2 P.2+ adopts meadow authoring from day one). Each per-adapter `git mv` simultaneously closes Phase C (adapter input migrated), Phase D (legacy `datasets/indicators/in/<topic>/<id>.json` path deleted), and Phase B-remainder (any consumer hand-fetching legacy URL 404s). Completion criterion: `git ls-tree origin/main -- datasets/indicators/in/` returns empty.
 
 **Rule auto-extends** to Phase 2 P.2+ families. No per-family Phase-C debate; the meadow path IS the answer.
 
@@ -530,7 +530,7 @@ Display vs query (citizen renderer rule):
 
 ## 5. Sources schema (D5)
 
-`taxonomy/sources.parquet` is a **citation ledger** keyed on `(producer, title, vintage)`. One row per distinct piece of upstream reportage that observations reference. The schema adopts OWID `origin.*` fields **verbatim** (CLAUDE.md §0a, "The One Rule") plus four yen-gov extensions for confidence + verifiability. Schema authority: [ADR-0032](../decisions/0032-sources-citation-ledger.md). Schema version: `x-version: "2.0"` in [`datasets/schemas/source.schema.json`](../../../datasets/schemas/source.schema.json).
+`taxonomy/sources.parquet` is a **citation ledger** keyed on `(producer, title, vintage)`. One row per distinct piece of upstream reportage that observations reference. The schema adopts OWID `origin.*` fields **verbatim** (CLAUDE.md §0a, "The One Rule") plus four yen-gov extensions for confidence + verifiability. Schema authority: [ADR-0032](../../reference/decision-index.md). Schema version: `x-version: "2.0"` in [`datasets/schemas/source.schema.json`](../../../datasets/schemas/source.schema.json).
 
 **Identity model.** Natural key is the citation triple `(producer, title, vintage)`. `source_id` is a deterministic 12-char hash of that triple:
 
@@ -581,7 +581,7 @@ Migration tool: [`tools/migrate_sources_v1_to_v2.py`](../../../tools/migrate_sou
 
 ### 5.4 Rationale — why a citation ledger, not a fetch ledger
 
-Full design archive: [ADR-0032 §Context + §Rejected Alternatives](../decisions/0032-sources-citation-ledger.md). Summary of the four rejected designs:
+Full design archive: [ADR-0032 §Context + §Rejected Alternatives](../../reference/decision-index.md). Summary of the four rejected designs:
 
 1. **Domain-as-identity** (`source_id = sha256(domain)`) — loses citation precision; ECI publishes 200+ distinct reports per domain.
 2. **Drop sources.parquet; use git commits** — re-creates per-shard smear; violates Holy Law #9.
@@ -596,7 +596,7 @@ Full design archive: [ADR-0032 §Context + §Rejected Alternatives](../decisions
 
 | Column | Purpose |
 | --- | --- |
-| `indicator_id` (PK) | Kebab-case, single segment, ≤ 60 chars (see §7). MUST NOT carry an `<entity>-` grain prefix per [ADR-0044](../decisions/0044-grain-over-entity.md). |
+| `indicator_id` (PK) | Kebab-case, single segment, ≤ 60 chars (see §7). MUST NOT carry an `<entity>-` grain prefix per [ADR-0044](../../reference/decision-index.md). |
 | `entity_kinds[]` | REQUIRED non-empty array of `country` / `state` / `district` / `ac` / `party` / `candidate` enums; declares which grains this id carries observation rows for. Per ADR-0044, one id may span multiple grains; the row's `entity_kind` discriminates at read time. |
 | `default_entity_kind` | REQUIRED single enum picked from `entity_kinds[]`; the grain the renderer dispatches to when the route does not pin one. |
 | `parent_indicator_id` (nullable, self-FK) | NULL on parents; populated on facet-explode children (D26) |
@@ -637,7 +637,7 @@ Full design archive: [ADR-0032 §Context + §Rejected Alternatives](../decisions
 
 **Format**: `<measure>-<unit>-<facet>`, kebab-case, single segment, max 60 chars.
 
-The id MUST NOT carry an `<entity>-` segment (`state-`, `district-`, `ac-`, `national-`, `india-`, `party-`, `candidate-`) per [ADR-0044](../decisions/0044-grain-over-entity.md). Grain lives on each observation row's `entity_kind` and on the catalogue's `entity_kinds[]` / `default_entity_kind` (§6); the renderer dispatches at read time. Tier-B `tier_b_indicator_id_no_grain_prefix` enforces this post-PR-B9.
+The id MUST NOT carry an `<entity>-` segment (`state-`, `district-`, `ac-`, `national-`, `india-`, `party-`, `candidate-`) per [ADR-0044](../../reference/decision-index.md). Grain lives on each observation row's `entity_kind` and on the catalogue's `entity_kinds[]` / `default_entity_kind` (§6); the renderer dispatches at read time. Tier-B `tier_b_indicator_id_no_grain_prefix` enforces this post-PR-B9.
 
 - Sibling sort works via `ORDER BY indicator_id` — no separate sort column needed.
 - Greppable; deterministic; no hashes.
@@ -1164,7 +1164,7 @@ Boundary geometry lives outside the canonical observation store in a sibling fam
 
 Provenance + simplification metadata + dropped-feature denominator live in `datasets/boundaries/boundary_layers.parquet` (schema `boundary-layers.schema.json` v1.0), one row per shard, with `source_id` FK to `datasets/taxonomy/sources.parquet` (ADR-0032 v2.0 triple shape). The pre-T.0d per-shard sidecars (`*.sources.json` / `*.metadata.json` / `*.unkeyed.json`) and per-state `<eci>-villages-index.json` manifests are retired; a Tier-B forbidden-path gate (`tier_b_legacy_boundary_sidecars` in `backend/yen_gov/validate.py`) rejects them.
 
-`datasets/boundaries/` is NEVER moved into `_old/` (R25). Full spec: [boundaries.md](boundaries.md) + [ADR-0031 + Amendment 2026-05-22](../decisions/0031-boundary-geometry-strategy.md).
+`datasets/boundaries/` is NEVER moved into `_old/` (R25). Full spec: [boundaries.md](boundaries.md) + [ADR-0031 + Amendment 2026-05-22](../../reference/decision-index.md).
 
 ---
 
@@ -1186,7 +1186,7 @@ Consolidation runs once via `backend/yen_gov/canonical/migration/m20260520_conso
 
 ### 18.1 Strangler-fig retirement: ICED peak-demand legacy shards (Phase A–D, 2026-05-24)
 
-Two legacy folded-indicator shards under `datasets/indicators/in/energy/` — `state_electricity_peak_demand_mw.json` (305 rows, FY17–FY25, ICED state-wise deep-dive) and `state_peak_electricity_demand_mw.json` (33 rows, FY25 snapshot, ICED) — were retired via the four-phase strangler-fig pattern. The same pattern was used in PR #88–#91 (G.1 `cm_terms.json` retirement) and [ADR-0033](../decisions/0033-retire-wikipedia-districts-adapter.md) (Wikipedia districts adapter retirement); it is the canonical playbook for retiring any `datasets/**.json` consumed by frontend slug-loaders. ADR-0030 §D13's rip-and-replace stance covers the canonical-store pivot itself; per-shard retirements happen one at a time, strangler-fig, because the frontend is live.
+Two legacy folded-indicator shards under `datasets/indicators/in/energy/` — `state_electricity_peak_demand_mw.json` (305 rows, FY17–FY25, ICED state-wise deep-dive) and `state_peak_electricity_demand_mw.json` (33 rows, FY25 snapshot, ICED) — were retired via the four-phase strangler-fig pattern. The same pattern was used in PR #88–#91 (G.1 `cm_terms.json` retirement) and [ADR-0033](../../reference/decision-index.md) (Wikipedia districts adapter retirement); it is the canonical playbook for retiring any `datasets/**.json` consumed by frontend slug-loaders. ADR-0030 §D13's rip-and-replace stance covers the canonical-store pivot itself; per-shard retirements happen one at a time, strangler-fig, because the frontend is live.
 
 **Phase A (PR #119).** Additive: write canonical `state-peak-electricity-demand-mw` in `energy_demand_supply.parquet` with `(entity_id, year, period_label, indicator_id)` UPSERT (writer.py D7), sourced from RBI Handbook Table 142 for FY13–FY24 (gold per Hans D33) and the ICED shard read for FY25 (silver per Hans D34). Source-id split is per-row, not per-key, so per-year source divergence is contract-clean. Citizen surface unchanged; canonical now covers what either shard alone provided.
 
@@ -1206,7 +1206,7 @@ Cross-refs: [ADR-0033](../backend/sources-wikipedia.md#adr-0033-retire-wikipedia
 
 ## Design rationale
 
-This section consolidates the rationale (Context + Decision + key Consequences, condensed) of the ADRs that define the canonical store. Each ADR's full body lives EITHER as the receipts folded below + verbatim under [Rejected alternatives](#rejected-alternatives), OR in `docs/archive/decisions/` (superseded). The originating `docs/architecture/decisions/` files were deleted in D-DOC3.10 closure; the redirect map lives at [`docs/reference/decision-index.md`](../../reference/decision-index.md). Folded into this doc per D-DOC3.3 (2026-06-04).
+This section consolidates the rationale (Context + Decision + key Consequences, condensed) of the ADRs that define the canonical store. Each ADR's full body lives either as the receipts folded below + verbatim under [Rejected alternatives](#rejected-alternatives), or in `docs/archive/decisions/` when superseded. The redirect map lives at [decision-index.md](../../reference/decision-index.md).
 
 ### ADR-0019: dataset-topology-and-column-discipline
 
@@ -1428,9 +1428,8 @@ Verbatim from the originating ADR. Append-only per ADR retirement contract.
 
 ## See also
 
-- [ADR-0030 — canonical store on Parquet + DuckDB-WASM](../decisions/0030-canonical-store-duckdb-wasm.md) — full rationale, rejected alternatives R1-R31
-- [ADR-0031 — boundary geometry strategy](../decisions/0031-boundary-geometry-strategy.md) (Phase 0.14)
+- [decision-index.md](../../reference/decision-index.md) — permanent redirects for folded ADR receipts
+- [csv-column-contract.md](csv-column-contract.md) — typed CSV read boundary
 - [boundaries.md](boundaries.md) — boundary file inventory + sidecars
-- [canonical-pivot deletion manifest](../canonical-pivot-deletion-manifest.md) — what the pivot retires
 - [CLAUDE.md §0a — The One Rule](../../../CLAUDE.md) — OWID-canonical authority
 - [data-provenance concept](../../concepts/data-provenance.md) — sources-as-table doctrine

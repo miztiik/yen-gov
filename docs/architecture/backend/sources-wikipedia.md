@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-22
 
-> **District adapter retired in T.0c-iii Phase D.1** (2026-05-22; see [ADR-0033](../decisions/0033-retire-wikipedia-districts-adapter.md)). The `districts.py` parser, `districts_url()` builder, and `DistrictsCollection` / `DistrictEntry` models are gone. District identity now lives as `entity_type='district'` rows on `datasets/taxonomy/entities.json`, sourced from the LGD (Local Government Directory, MoPR) per CLAUDE.md §3. The constituencies parser keeps its two-pass district-name resolver; the only change is that the input lookup dict is now built from entities.json (see [District-name resolution for AC tables](#district-name-resolution-for-ac-tables)).
+> **District adapter retired in T.0c-iii Phase D.1** (2026-05-22; see [ADR-0033](../../reference/decision-index.md)). The `districts.py` parser, `districts_url()` builder, and `DistrictsCollection` / `DistrictEntry` models are gone. District identity now lives as `entity_type='district'` rows on `datasets/taxonomy/entities.json`, sourced from the LGD (Local Government Directory, MoPR) per CLAUDE.md §3. The constituencies parser keeps its two-pass district-name resolver; the only change is that the input lookup dict is now built from entities.json (see [District-name resolution for AC tables](#district-name-resolution-for-ac-tables)).
 
 `backend/yen_gov/sources/wikipedia/` is the adapter for the English Wikipedia. It supplies *reference* data ECI does not publish in machine-readable form: per-state assembly constituencies with reservation status. It also implements a heuristic district-name resolver to bridge spelling drift between Wikipedia's AC table and the entities.json display names.
 
@@ -140,7 +140,7 @@ Status: accepted 2026-05-22. Deciders: User (autonomous per the explicit "make g
 - **Wikipedia REST/Action API instead of HTML scraping**. Rejected: the data we need lives in human-edited wikitables, not in structured infoboxes or Wikidata claims for these specific articles. Wikidata occasionally lacks reservation status entirely.
 - **Wikidata SPARQL for ACs**. Rejected for now: Wikidata coverage of Indian electoral geography is uneven (some districts have items, some don't; reservation status is rarely modelled). Worth revisiting if/when coverage improves.
 - **Generic `parse_wikitable(headers, content)` reused across pages**. Rejected: each page has page-specific concerns. A shared helper would be a thin wrapper over lxml that hides nothing.
-- **Keep the wikipedia districts adapter as a fallback for states LGD hasn't seeded yet**. Rejected in T.0c-iii Phase D.1 ([ADR-0033](../decisions/0033-retire-wikipedia-districts-adapter.md)): districts.json is no longer a contract surface (it has zero readers post-fold-in to entities.json), so the adapter has no consumer. New districts land via a PR against entities.json with an LGD-issued `lgd_code` or, where LGD has a structural gap (Mahe / Yanam in U07), an explicit operator-curated entry.
+- **Keep the wikipedia districts adapter as a fallback for states LGD hasn't seeded yet**. Rejected in T.0c-iii Phase D.1 ([ADR-0033](../../reference/decision-index.md)): districts.json is no longer a contract surface (it has zero readers post-fold-in to entities.json), so the adapter has no consumer. New districts land via a PR against entities.json with an LGD-issued `lgd_code` or, where LGD has a structural gap (Mahe / Yanam in U07), an explicit operator-curated entry.
 
 ### District-name resolver
 
@@ -154,7 +154,7 @@ Verbatim from the originating ADR. Append-only per ADR retirement contract.
 
 - **Hand-rolled per-state alias tables** (`{"Thiruvallur": "TAL", ...}`). Rejected: hardcoding ([CLAUDE.md Holy Law #6](../../../CLAUDE.md)) and unbounded maintenance - every new state needs a fresh alias table built by hand.
 - **Levenshtein / Damerau-Levenshtein fuzzy match with a distance threshold.** Rejected: introduces a dependency for a problem that's already solvable with deterministic string ops; thresholds are inherently fiddly and would need a bypass when a real district name is one edit away from another in the same state.
-- **Extract LGD codes from gov.in Local Government Directory and match those instead.** The right long-term answer (CLAUDE.md section 13) - when LGD codes land we'll use those for both districts.json and the AC <-> district join, and this resolver becomes the fallback for states the LGD scrape doesn't cover. Status post-2026-05-22: this is now the realised state per [ADR-0033](../decisions/0033-retire-wikipedia-districts-adapter.md) - the lookup is built from entities.json's LGD-keyed district rows; the resolver itself is unchanged.
+- **Extract LGD codes from gov.in Local Government Directory and match those instead.** The right long-term answer (CLAUDE.md section 13) - when LGD codes land we'll use those for both districts.json and the AC <-> district join, and this resolver becomes the fallback for states the LGD scrape doesn't cover. Status post-2026-05-22: this is now the realised state per [ADR-0033](../../reference/decision-index.md) - the lookup is built from entities.json's LGD-keyed district rows; the resolver itself is unchanged.
 
 ### ADR-0033 rejected alternatives
 

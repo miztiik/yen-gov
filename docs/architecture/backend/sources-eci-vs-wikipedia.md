@@ -77,7 +77,7 @@ two failure modes:
    alive only for the existing TN/KL files we authored before the ECI
    ingest path matured. Do not extend `_ECI_TO_WIKI_STATE` for new
    states — bootstrap from results instead. The Wikipedia districts
-   adapter was retired in T.0c-iii Phase D.1 ([ADR-0033](../decisions/0033-retire-wikipedia-districts-adapter.md));
+   adapter was retired in T.0c-iii Phase D.1 ([ADR-0033](../../reference/decision-index.md));
    district identity now lives on `datasets/taxonomy/entities.json`
    (LGD-sourced). The constituencies adapter remains for the AC table
    only.

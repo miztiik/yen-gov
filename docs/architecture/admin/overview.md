@@ -95,7 +95,7 @@ The admin Vite config proxies `/api/*` to `127.0.0.1:8000` so the bundle has no 
 
 Implemented in [`backend/yen_gov/admin/inventory.py`](../../../backend/yen_gov/admin/inventory.py) (endpoint `GET /api/inventory`) and [`admin/src/routes/Inventory.svelte`](../../../admin/src/routes/Inventory.svelte) (UI).
 
-Under the canonical pivot ([ADR-0030](../decisions/0030-canonical-store-duckdb-wasm.md)) every indicator family lands on the same on-disk shape:
+Under the canonical pivot ([ADR-0030](../../reference/decision-index.md)) every indicator family lands on the same on-disk shape:
 
 ```
 datasets/<family>/observations.parquet     # long-format facts

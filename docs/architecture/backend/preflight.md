@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-27
 
-> Module-level reference for [`backend/yen_gov/preflight/`](../../../backend/yen_gov/preflight/). User-facing semantics live in [docs/concepts/pre-flight-ingest.md](../../concepts/pre-flight-ingest.md); design rationale in [ADR-0046](../decisions/0046-pre-flight-ingest-gate-contract.md).
+> Module-level reference for [`backend/yen_gov/preflight/`](../../../backend/yen_gov/preflight/). User-facing semantics live in [docs/concepts/pre-flight-ingest.md](../../concepts/pre-flight-ingest.md); design rationale in [ADR-0046](../../reference/decision-index.md).
 
 ## Module layout
 
@@ -36,8 +36,8 @@ The orchestrator is a straight-line sequence of six checks. It does not short-ci
 
 ```
 python -m yen_gov pre-flight-ingest \
-  --proposal-file TODO/<date>-<source>-ingest/proposal.json \
-  --report        TODO/<date>-<source>-ingest/report.json
+  --proposal-file <proposal.json> \
+  --report        <report.json>
 ```
 
 CLI flag sugar (`--proposed-id`, `--family`, etc.) hydrates an in-memory proposal when no file is supplied. When both are given the file wins.
@@ -94,5 +94,5 @@ Verbatim from the originating ADR. Append-only per ADR retirement contract.
 
 - [docs/concepts/pre-flight-ingest.md](../../concepts/pre-flight-ingest.md) — user-facing semantics
 - [docs/agents/ingest-checklist.md](../../agents/ingest-checklist.md) — agent checklist
-- [ADR-0046](../decisions/0046-pre-flight-ingest-gate-contract.md) — design rationale
+- [ADR-0046](../../reference/decision-index.md) — design rationale
 - [backend/yen_gov/validate.py](../../../backend/yen_gov/validate.py) — Tier-B wrappers sharing the predicate seam

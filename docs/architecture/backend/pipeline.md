@@ -27,7 +27,7 @@ Hard rules:
 
 - **Higher-level pipeline modules MUST NOT call a lower upstream directly.** State rollup reads constituency *artifacts* (the JSON files), not raw HTML. This makes each level independently re-runnable and testable.
 - The artifact directory layout mirrors the hierarchy: `datasets/elections/<event>/<state>/<body>/...`. POSIX paths only (CLAUDE.md §2).
-- Each level's emit step uses `core/io.py` to stamp `$schema`, `$schema_version`, and `sources` (per [provenance contract](../decisions/0002-provenance-as-sources-list.md)). State-level `sources` is the union of contributing constituency artifacts' `sources` plus the ECI summary URL.
+- Each level's emit step uses `core/io.py` to stamp `$schema`, `$schema_version`, and `sources` (per [provenance contract](../../reference/decision-index.md)). State-level `sources` is the union of contributing constituency artifacts' `sources` plus the ECI summary URL.
 
 ### Composition rationale (bottom-up)
 
@@ -85,7 +85,7 @@ A party that won zero seats does not always appear in the partywise table (depen
 Acknowledged costs:
 
 - No parallel fetching. 234 sequential GETs from one Fetcher take a few minutes for a TN run. Acceptable for a one-shot post-result run; revisit if we add live event tracking.
-- No resume support. A run that fails on AC #150 must re-fetch ACs #1..#149 (the bytes are still in `.runtime/raw/` for debugging but the orchestrator does not consult them per [no fetch cache](../decisions/0003-no-fetch-cache.md)).
+- No resume support. A run that fails on AC #150 must re-fetch ACs #1..#149 (the bytes are still in `.runtime/raw/` for debugging but the orchestrator does not consult them per [no fetch cache](../../reference/decision-index.md)).
 
 ## Orchestrator — alternatives considered
 
@@ -100,4 +100,4 @@ Acknowledged costs:
 - [Backend overview](overview.md), [Core](core.md), [ECI adapter](sources-eci.md), [Wikipedia adapter](sources-wikipedia.md)
 - [How to run the pipeline](../../how-to/run-the-pipeline.md)
 - [`docs/concepts/result-aggregation.md`](../../concepts/result-aggregation.md)
-- [ADR-0002 — Provenance as a list of `{url, fetched_at}` entries](../decisions/0002-provenance-as-sources-list.md)
+- [ADR-0002 — Provenance as a list of `{url, fetched_at}` entries](../../reference/decision-index.md)

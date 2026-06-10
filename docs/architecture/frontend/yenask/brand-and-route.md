@@ -47,4 +47,4 @@ Verbatim from the originating ADR. Append-only per ADR retirement contract.
 - [yenask.md](../yenask.md) - the subsystem doc (on-disk shape: module layout, contracts, model adapter, readiness state machine, registry, observability, test seam).
 - [yenask/pipeline.md](pipeline.md) - the sibling ADR receipt for the retrieval-augmented intent-extraction pipeline (ADR-0039) and the archived two-stage LLM rejection (ADR-0038 trace).
 - [decision-index.md](../../../reference/decision-index.md) - the redirect index pinning every ADR to its new doc anchor.
-- [ADR-0028 routing-and-state-permalinks](../../decisions/0028-url-scheme-place-first-flat-indicator-slug.md) - URL grammar; the route placement honours the place-first IA + does not collide with the existing `/lab/:state/:event` Psephlab pattern.
+- [ADR-0028 routing-and-state-permalinks](../../../reference/decision-index.md) - URL grammar; the route placement honours the place-first IA + does not collide with the existing `/lab/:state/:event` Psephlab pattern.

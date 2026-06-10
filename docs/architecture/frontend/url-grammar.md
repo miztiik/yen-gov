@@ -8,7 +8,7 @@ This page is the keep-receipts home for the project's URL grammar decisions per 
 
 ## Design rationale
 
-This section folds in the receipts from the originating ADRs that pinned the URL grammar for this project (`docs/architecture/decisions/` originating files deleted in D-DOC3.10 closure), per the ADR retirement contract ([decision-index.md](../../reference/decision-index.md)). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives). The archived [ADR-0016 (frontend-hash-routing)](../../archive/decisions/0016-frontend-hash-routing.md) trace also lives in that section per [decision-index.md](../../reference/decision-index.md).
+This section folds in the receipts from the originating ADRs that pinned the URL grammar for this project, per the ADR retirement contract ([decision-index.md](../../reference/decision-index.md)). The verbatim rejected alternatives live under [Rejected alternatives](#rejected-alternatives). The archived [ADR-0016 (frontend-hash-routing)](../../archive/decisions/0016-frontend-hash-routing.md) trace also lives in that section per [decision-index.md](../../reference/decision-index.md).
 
 ### ADR-0028: url-scheme-place-first-flat-indicator-slug
 

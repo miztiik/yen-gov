@@ -1,12 +1,12 @@
 # YENASK — browser governance insight assistant (dev preview)
 
-**Last Updated**: 2026-05-26 (Slice E.2 wired per PR #240; brand-mark standard is **Yen-Ask** and route moved to `/lab/yenask` per [ADR-0040](../decisions/0040-yenask-brand-and-lab-route.md), superseding the earlier `/dev/yenask` route locked in [ADR-0039 §D-33](../decisions/0039-yenask-retrieval-augmented-intent-extraction.md#yen-ask-brand-mark-standard-d-33))
+**Last Updated**: 2026-05-26 (Slice E.2 wired per PR #240; brand-mark standard is **Yen-Ask** and route moved to `/lab/yenask` per [ADR-0040](../../reference/decision-index.md), superseding the earlier `/dev/yenask` route locked in [ADR-0039 §D-33](../../reference/decision-index.md))
 
 YENASK is a dev-only browser lab mounted at `/lab/yenask`. It turns a citizen governance question into a validated `InsightIntent`, then runs DuckDB-WASM directly against the canonical Parquet store to produce an `AnswerViewModel`. No backend at runtime — the lab obeys Holy Law #1 (static-first production).
 
-**Display name vs identifier**: the citizen-visible logo and `<title>` reads **Yen-Ask** (with hyphen) per [ADR-0040](../decisions/0040-yenask-brand-and-lab-route.md). The library / module / route-slug / LS-key identifier is `yenask` (unchanged). The two are separately tunable: the brand-mark is a citizen-facing affordance, the identifier is an engineering affordance. Do not rename `frontend/src/lib/yenask/`, `Yenask.svelte`, the `/yenask` URL slug, `yenask.model.id.v1`, or `data-route="yenask"` — only the on-screen display strings change.
+**Display name vs identifier**: the citizen-visible logo and `<title>` reads **Yen-Ask** (with hyphen) per [ADR-0040](../../reference/decision-index.md). The library / module / route-slug / LS-key identifier is `yenask` (unchanged). The two are separately tunable: the brand-mark is a citizen-facing affordance, the identifier is an engineering affordance. Do not rename `frontend/src/lib/yenask/`, `Yenask.svelte`, the `/yenask` URL slug, `yenask.model.id.v1`, or `data-route="yenask"` — only the on-screen display strings change.
 
-This page covers **what is currently on disk** as of the ABCD sprint (PRs #225 / #227 / #228 / #229, all merged onto `main` 2026-05-24): the module layout, the contracts the modules pass between each other, the readiness state machine, the observability surface, the per-row picker, the graduated download friction by size tier, and the test seams. It does **not** cover rationale-as-it-was-made — that lives in the keep-receipts homes [`yenask/pipeline.md`](yenask/pipeline.md) (the live ADR-0039 fold + the archived [ADR-0038](../../archive/decisions/0038-yenask-two-stage-llm-pipeline-rejected.md) two-LLM rejection trace, both via D-DOC3.9) and [`yenask/brand-and-route.md`](yenask/brand-and-route.md) (the live ADR-0040 brand-and-route fold). Every section here cites the relevant D-NN entry or the receipt doc instead of restating it (per CLAUDE.md §5 doc-class routing contract).
+This page covers the on-disk module layout, runtime contracts, readiness state machine, observability surface, model picker, download-friction rules, and test seams. Rationale receipts live in [`yenask/pipeline.md`](yenask/pipeline.md) and [`yenask/brand-and-route.md`](yenask/brand-and-route.md); this page is the agent-facing current-state map.
 
 **Slice E status**: ADR-0039 locks the direction; Slice E.1 (embeddings module + registry entry + eval fixture) and Slice E.2 (integration + `embed_ms` observability + browser smoke) are the active rollout PRs that follow this freeze. Until those land, the [Pipeline](#pipeline) section below describes the on-disk single-stage shape. The [Approved evolution — Slice E pipeline](#approved-evolution--slice-e-pipeline-adr-0039) section describes what those PRs will change.
 
@@ -14,7 +14,7 @@ For the lab's removal contract and the "what lives where" map, see [`frontend/sr
 
 ## Why it lives inside `frontend/`
 
-The lab ships as `frontend/src/routes/Yenask.svelte` mounted at `/lab/yenask`, with lab-internal libs under `frontend/src/lib/yenask/`. There is **no** standalone `labs/yenask/` Vite app, no separate dev port, no duplicated `serveDatasets()` middleware. The lab reads from the same `/data/` URLs production reads from, runs the same DuckDB-WASM init the production app runs, and shares the `/lab/` namespace with the analyst routes (`/lab/:state/:event` = Psephlab) — the patterns are segment-distinct (2 vs 3 segments) so route order is not load-bearing. Per [ADR-0040](../decisions/0040-yenask-brand-and-lab-route.md), `/lab/` is the canonical namespace for analyst + research surfaces; `/dev/` is reserved for narrow runtime-failure sandboxes (`/dev/charts-sandbox` today; `/dev/duckdb-harness` retired in X1a-followup 2026-06-06).
+The lab ships as `frontend/src/routes/Yenask.svelte` mounted at `/lab/yenask`, with lab-internal libs under `frontend/src/lib/yenask/`. There is **no** standalone `labs/yenask/` Vite app, no separate dev port, no duplicated `serveDatasets()` middleware. The lab reads from the same `/data/` URLs production reads from, runs the same DuckDB-WASM init the production app runs, and shares the `/lab/` namespace with the analyst routes (`/lab/:state/:event` = Psephlab) — the patterns are segment-distinct (2 vs 3 segments) so route order is not load-bearing. Per [ADR-0040](../../reference/decision-index.md), `/lab/` is the canonical namespace for analyst + research surfaces; `/dev/` is reserved for narrow runtime-failure sandboxes (`/dev/charts-sandbox` today; `/dev/duckdb-harness` retired in X1a-followup 2026-06-06).
 
 Removing the lab is `git rm` of `frontend/src/routes/Yenask.svelte` + `frontend/src/lib/yenask/` + two lines from `frontend/src/main.ts`. Nothing in the production surface imports from `lib/yenask/`. The reverse is encouraged: `lib/yenask/` imports freely from production helpers (`../duckdb`, `../charts/*`, `../SourceListV2`, `../format`, `../url`).
 
@@ -61,7 +61,7 @@ The SQL, raw model output, and per-attempt token timing are NOT in the citizen t
 
 ## Approved evolution — Slice E pipeline (ADR-0039)
 
-Approved direction per [ADR-0039](../decisions/0039-yenask-retrieval-augmented-intent-extraction.md), pending Slice E.1 (embeddings module + eval fixture) and Slice E.2 (integration + observability) PRs. Once those land this section is promoted into the [Pipeline](#pipeline) section above and the current single-stage shape is moved to the [`docs/archive/`](../../archive/) record.
+Approved direction per [ADR-0039](../../reference/decision-index.md), pending Slice E.1 (embeddings module + eval fixture) and Slice E.2 (integration + observability) PRs. Once those land this section is promoted into the [Pipeline](#pipeline) section above and the current single-stage shape is moved to the [`docs/archive/`](../../archive/) record.
 
 ```text
 user question (free text OR canned starter chip)
@@ -110,7 +110,7 @@ What does NOT change:
 - No new framework. No vector DB. No agent orchestrator. ~150 lines of TypeScript.
 - Citizen-visible UI is unchanged except for the Yen-Ask brand-mark refresh (see header).
 
-Rationale: [ADR-0039](../decisions/0039-yenask-retrieval-augmented-intent-extraction.md) for the six-persona panel verdict (Andre + Citizen + Hans + Max + Gregor + Fowler + Jony), four rejected alternatives, and reversal-cost analysis.
+Rationale: [ADR-0039](../../reference/decision-index.md) for the six-persona panel verdict (Andre + Citizen + Hans + Max + Gregor + Fowler + Jony), four rejected alternatives, and reversal-cost analysis.
 
 ## Module layout
 
@@ -360,7 +360,7 @@ The Playwright spec asserts the `yenask-computation` testid is visible and conta
 
 | Surface | Status |
 | --- | --- |
-| `/lab/yenask` route + chat surface + composer + starter chips | ✅ Shipped (PR-2; route moved from `/dev/yenask` per [ADR-0040](../decisions/0040-yenask-brand-and-lab-route.md)) |
+| `/lab/yenask` route + chat surface + composer + starter chips | ✅ Shipped (PR-2; route moved from `/dev/yenask` per [ADR-0040](../../reference/decision-index.md)) |
 | 4 canned intents (party_totals, closest_contests, constituency_result, turnout_extremes) | ✅ Shipped (PR-1) |
 | Real model load (`SmolLM2-360M-Instruct` via Transformers.js — default) | ✅ Shipped (PR-2, default flipped from 135M to 360M in Slice D-1 / PR #229) |
 | Free-text question → InsightIntent extraction with validate-or-retry | ✅ Shipped (PR-2) |

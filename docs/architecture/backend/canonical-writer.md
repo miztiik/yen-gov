@@ -163,7 +163,7 @@ These surfaced during B1 execution and are recorded here so future agents do not
 - Sub-plan B2a (PRs #673-#686) - the eight seed emitters.
 - Sub-plan B2b.5 (PRs #762-#772) - elections clean-start.
 - [writer.md](writer.md) - legacy Parquet writer (survives until grandparent chunk B3).
-- [ADR-0032](../decisions/0032-sources-citation-ledger.md) - `source_id` FK requirement.
-- [ADR-0042](../decisions/0042-sources-schema-v3-vintage-as-period-anchor.md) - `vintage` semantics for `derive_source_id`.
-- [ADR-0044](../decisions/0044-grain-over-entity.md) - one-indicator-per-concept, no grain prefix on `variable_id`.
+- [ADR-0032](../../reference/decision-index.md) - `source_id` FK requirement.
+- [ADR-0042](../../reference/decision-index.md) - `vintage` semantics for `derive_source_id`.
+- [ADR-0044](../../reference/decision-index.md) - one-indicator-per-concept, no grain prefix on `variable_id`.
 - [CLAUDE.md](../../../CLAUDE.md) Holy Laws #3, #6, #7, #9; sections 9 (DoD), 12 (provenance).

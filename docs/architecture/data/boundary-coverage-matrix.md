@@ -145,5 +145,5 @@ Non-GoI sources (shijithpk, Garuda, ramSeraph mirrors, OSM, Wikimedia) survive O
 
 - [`docs/architecture/data/boundaries.md`](boundaries.md) — boundary layer architecture overview
 - [`docs/concepts/lgd-authority.md`](../../concepts/lgd-authority.md) — (pending; plan row A2)
-- [ADR-0049: lgd_ac_id as internal join key](../decisions/0049-lgd-ac-id-internal-key.md)
+- [ADR-0049: lgd_ac_id as internal join key](../../reference/decision-index.md)
 

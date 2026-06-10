@@ -12,7 +12,7 @@ corpus validation from CI is protecting.
 - [CLAUDE.md §11](../../../CLAUDE.md) — schema versioning rules.
 - [CLAUDE.md §12](../../../CLAUDE.md) — provenance rules.
 - [CLAUDE.md §15](../../../CLAUDE.md) — test coverage policy.
-- [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md) - writer-strict / reader-compatible schema policy.
+- [ADR-0047](../../reference/decision-index.md) - writer-strict / reader-compatible schema policy.
 - [docs/architecture/data/schema-evolution.md](../data/schema-evolution.md)
 - [`docs/concepts/data-provenance.md`](../../concepts/data-provenance.md)
 - Source: [`backend/yen_gov/validate.py`](../../../backend/yen_gov/validate.py)
@@ -64,7 +64,7 @@ today; if three concrete callers earn one, add it then.
 
 ## Schema-version compatibility
 
-Tier B is the corpus-side reader contract. Per [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md), writers stay strict while readers may become compatible by explicit contract.
+Tier B is the corpus-side reader contract. Per [ADR-0047](../../reference/decision-index.md), writers stay strict while readers may become compatible by explicit contract.
 
 The explicit contract lives at `datasets/schema-compatibility.json`, validated by `datasets/schemas/schema-compatibility.schema.json`. PR #467 makes Tier B consume that registry for the `json-corpus` surface. The default remains current-schema only, but an override can accept an older same-major changelog version when `validation` is `current_schema` and the artifact still validates against the current schema.
 
@@ -313,5 +313,5 @@ Alternative homes considered and rejected:
 7. Add an entry to `datasets/_ops/README.md`.
 8. Add an "Enforced by Tier-B" sentence to the matching CLAUDE.md §10
    anti-pattern entry.
-9. Add a row to the table in
-   [docs/architecture/canonical-pivot-deletion-manifest.md §6d](../canonical-pivot-deletion-manifest.md).
+9. Add a sentence to the subsystem doc that owns the retired surface so agents
+   can find the invariant without reading historical ledgers.

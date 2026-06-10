@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-31
 
-This document is the operational policy for evolving yen-gov schema contracts without unnecessary data rebuilds. [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md) records the decision; this page records the working rules.
+This document is the operational policy for evolving yen-gov schema contracts without unnecessary data rebuilds. [ADR-0047](../../reference/decision-index.md) records the decision; this page records the working rules.
 
 ## Scope
 
@@ -170,7 +170,7 @@ Stop and escalate if a proposed compatibility path would:
 
 ## Design rationale
 
-This section consolidates the rationale (Context + Decision + Consequences, condensed) of the originating ADR that pinned the cross-cutting choice for this subsystem (the schema-version compatibility contract); the originating ADR file under `docs/architecture/decisions/` was retired per the ADR retirement contract ([decision-index.md](../../reference/decision-index.md)). Folded into this doc per D-DOC3.8 (2026-06-04).
+This section consolidates the rationale (Context + Decision + Consequences, condensed) of the originating ADR that pinned the cross-cutting choice for this subsystem (the schema-version compatibility contract). The redirect lives in [decision-index.md](../../reference/decision-index.md).
 
 ### ADR-0047: schema-version-compatibility-contract
 
@@ -216,7 +216,7 @@ Verbatim from the originating ADR. Append-only per ADR retirement contract.
 
 ## See also
 
-- [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md)
+- [ADR-0047](../../reference/decision-index.md)
 - [docs/reference/schemas.md](../../reference/schemas.md)
 - [docs/architecture/backend/validator.md](../backend/validator.md)
 - [docs/architecture/data/canonical-store.md](canonical-store.md)

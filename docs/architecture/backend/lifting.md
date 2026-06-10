@@ -2,7 +2,7 @@ Last Updated: 2026-05-27
 
 # Lift commands (`yen_gov lift-*`)
 
-Lift commands are the per-family adapters that read meadow JSON snapshots (see [ADR-0041](../decisions/0041-meadow-tier.md)) and emit canonical Parquet rows via the [canonical writer](writer.md). One lift command per indicator family; each owns the family's parse + normalise + UPSERT flow.
+Lift commands are the per-family adapters that read meadow JSON snapshots (see [ADR-0041](../../reference/decision-index.md)) and emit canonical Parquet rows via the [canonical writer](writer.md). One lift command per indicator family; each owns the family's parse + normalise + UPSERT flow.
 
 ## Available commands
 
@@ -18,7 +18,7 @@ Each command:
 
 1. Walks `datasets/<family>/_meadow/<source>/<vintage>/` for that family's meadow JSON snapshots.
 2. Resolves entity IDs via `datasets/taxonomy/entities.parquet` and indicator IDs via `datasets/taxonomy/indicators.json`.
-3. Attaches a `source_id` per Holy Law #9 (see [ADR-0032](../decisions/0032-sources-citation-ledger.md)).
+3. Attaches a `source_id` per Holy Law #9 (see [ADR-0032](../../reference/decision-index.md)).
 4. UPSERTs through the canonical writer keyed by `(entity_id, year, period_label, indicator_id)`.
 
 ## `--table <stem>` flag (PR #368)
@@ -49,7 +49,7 @@ When to use:
 
 ## See also
 
-- [ADR-0041](../decisions/0041-meadow-tier.md) -- meadow tier path grammar that lift commands read from.
-- [ADR-0044](../decisions/0044-grain-over-entity.md) -- grain dispatched at read time; lift commands do not encode grain in the `indicator_id`.
+- [ADR-0041](../../reference/decision-index.md) -- meadow tier path grammar that lift commands read from.
+- [ADR-0044](../../reference/decision-index.md) -- grain dispatched at read time; lift commands do not encode grain in the `indicator_id`.
 - [writer.md](writer.md) -- canonical writer that lift commands call, including the `--dry-run` flag.
 - [validator.md](validator.md) -- Tier A / Tier B gates that run after a lift writes to disk.

@@ -10,7 +10,7 @@ Engineers wiring a new indicator into yen-gov who need to know:
 - Which authority issues that column?
 - How do I translate from a non-LGD upstream key (ECI, Census, state-portal id) to the canonical LGD id?
 
-For the doctrine that drives this contract, see [docs/concepts/lgd-authority.md](../../concepts/lgd-authority.md) and [ADR-0050](../decisions/0050-folder-naming-lgd-slug.md).
+For the doctrine that drives this contract, see [docs/concepts/lgd-authority.md](../../concepts/lgd-authority.md) and [ADR-0050](../../reference/decision-index.md).
 
 ## The contract in one paragraph
 
@@ -67,7 +67,7 @@ Name collisions across states (Hamirpur in HP and UP, Aurangabad in Maharashtra 
 
 ### Pattern 3: AC-level (election + non-election)
 
-Election results today key on ECI `(state_code, ac_no)`. Per [ADR-0049](../decisions/0049-canonical-ac-join-key.md), the canonical INTERNAL join is `lgd_ac_id` via `datasets/taxonomy/ac_crosswalk.parquet`. The crosswalk is the dispatched authority during the migration; once L1c lands, `lgd_acs.json` becomes the single AC register and the crosswalk becomes a thin lookup layer.
+Election results today key on ECI `(state_code, ac_no)`. Per [ADR-0049](../../reference/decision-index.md), the canonical INTERNAL join is `lgd_ac_id` via `datasets/taxonomy/ac_crosswalk.parquet`. The crosswalk is the dispatched authority during the migration; once L1c lands, `lgd_acs.json` becomes the single AC register and the crosswalk becomes a thin lookup layer.
 
 ### Pattern 4: folder-partition lookups
 
@@ -117,8 +117,8 @@ Pre-LGD-canonical, yen-gov used `state_code` (ECI form) as the de-facto join key
 ## See also
 
 - [docs/concepts/lgd-authority.md](../../concepts/lgd-authority.md) - WHY LGD is canonical
-- [ADR-0050](../decisions/0050-folder-naming-lgd-slug.md) - folder-naming convention `state=<lgd-name-slug>`
-- [ADR-0049](../decisions/0049-canonical-ac-join-key.md) - `lgd_ac_id` as canonical internal AC key
-- [ADR-0044](../decisions/0044-grain-over-entity.md) - entity_id shape (unchanged by LGD-canonical)
+- [ADR-0050](../../reference/decision-index.md) - folder-naming convention `state=<lgd-name-slug>`
+- [ADR-0049](../../reference/decision-index.md) - `lgd_ac_id` as canonical internal AC key
+- [ADR-0044](../../reference/decision-index.md) - entity_id shape (unchanged by LGD-canonical)
 - [docs/architecture/data/canonical-store.md](canonical-store.md) - the canonical store layout that consumes these keys
 - [docs/concepts/admin-level-sourcing.md](../../concepts/admin-level-sourcing.md) - the LGD-golden doctrine predating these PRs

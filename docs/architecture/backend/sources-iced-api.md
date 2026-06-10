@@ -357,7 +357,7 @@ a specific chart's attribution and then bake it into the artifact.
 - [`backend/yen_gov/sources/iced_state_wise/`](../../../backend/yen_gov/sources/iced_state_wise/__init__.py) — first ICED adapter (state-wise deep dive).
 - [sources-iced-state-wise.md](sources-iced-state-wise.md) — what that adapter ships.
 - [`docs/concepts/data-provenance.md`](../../concepts/data-provenance.md) — provenance discipline applied to every emitted artifact.
-- [ADR-0003](../decisions/0003-no-fetch-cache.md) — why `.runtime/raw/iced/` is a debug snapshot, not a cache.
+- [ADR-0003](../../reference/decision-index.md) — why `.runtime/raw/iced/` is a debug snapshot, not a cache.
 
 ---
 

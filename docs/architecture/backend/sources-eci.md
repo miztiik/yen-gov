@@ -75,7 +75,7 @@ Acknowledged costs:
 - The two-step pattern is more boilerplate than a one-call `fetch_and_parse`. Worth it because the pipeline reuses `to_*` with cached HTML during reprocessing.
 - Party-name resolution is a runtime concern, not a parser concern — `party_short` may temporarily equal the full name during single-page testing. The pipeline always passes a lookup in production runs.
 
-The following h3 subsections fold in the source-authority + current-year-scope rationale from the originating ADRs (`docs/architecture/decisions/` files deleted in D-DOC3.10 closure) per the ADR retirement contract ([decision-index.md](../../reference/decision-index.md)). The verbatim rejected alternatives live under [Alternatives considered](#alternatives-considered) below as additional h3 subsections.
+The following h3 subsections fold in the source-authority + current-year-scope rationale from the originating ADRs per the ADR retirement contract ([decision-index.md](../../reference/decision-index.md)). The verbatim rejected alternatives live under [Alternatives considered](#alternatives-considered) below as additional h3 subsections.
 
 ### ADR-0016: eci-statistical-reports-canonical
 
@@ -156,7 +156,7 @@ https://www.eci.gov.in/eci-backend/public/api/election-result?category_id=<categ
 https://www.eci.gov.in/eci-backend/public/api/download?url=<base64-blob>
 ```
 
-These signed URLs expire. We re-resolve them from the landing/catalogue on every fetch. The intermediate downloaded XLSX/PDF lives in `.runtime/raw/eci/...` per [no fetch cache](../decisions/0003-no-fetch-cache.md) — not a contract surface, gitignored, throwaway.
+These signed URLs expire. We re-resolve them from the landing/catalogue on every fetch. The intermediate downloaded XLSX/PDF lives in `.runtime/raw/eci/...` per [no fetch cache](../../reference/decision-index.md) — not a contract surface, gitignored, throwaway.
 
 The 2021-and-earlier archive is different: the hub table points directly at `https://old.eci.gov.in/files/file/<id>-<slug>/` landing pages. Those permalinks are also safe for provenance, but they are not `category_id` catalogues.
 
@@ -173,7 +173,7 @@ The 2021-and-earlier archive is different: the hub table points directly at `htt
 **Phase B — Enrichment**. The first slice was the May-2026 assembly cohort; the same Section 10 path now handles the pinned 2024-2026 assembly catalogues and the 2023 static-catalog cohort. Pipeline shape:
 
 1. **Catalog**: call `GET /api/election-result?category_id=<id>` per state/year when a 2024+ pin exists. Historical context: `(state, year) -> category_id` values lived in `config/eci-pins.json` (validated by `eci_pins.schema.json`, loaded by `categories.py`); all three were retired in G9 (2026-06-08) as orphan code after the network-fetch CLIs that consumed them retired in B4-pt2.2 (#826). Extending the map is no longer applicable - the operator now hand-loads the resolved XLSX into `eci-statreport-emit-local` directly.
-2. **Download**: every listed `xlsx_url` (and the matching `pdf_zip_url` for human cross-check) to `.runtime/raw/eci/<state>/<year>/<slug>.xlsx` per [no fetch cache](../decisions/0003-no-fetch-cache.md). The landing-page permalink — *not* the path under `.runtime/raw/` — goes into `sources[]` with the fetch timestamp.
+2. **Download**: every listed `xlsx_url` (and the matching `pdf_zip_url` for human cross-check) to `.runtime/raw/eci/<state>/<year>/<slug>.xlsx` per [no fetch cache](../../reference/decision-index.md). The landing-page permalink — *not* the path under `.runtime/raw/` — goes into `sources[]` with the fetch timestamp.
 3. **Parse**: with `openpyxl` directly. `pandas.read_excel` would pull a 50MB wheel for 90% unused functionality; the read-only XLSX surface fits openpyxl cleanly. Each report section becomes its own emitted artifact under `datasets/results/in/<state>/<year>/<section>.json`, validated against the appropriate result schema.
 4. **No `jl()` on the canonical path.** The 2024+ endpoint is cleartext; the helper stays in `tools/eci_recon/` for future legacy probing only.
 5. **Hand-curated pins, not auto-discovery at ingest time.** Recon is the discovery mechanism; ingestion uses pinned ids. A "figure it out at runtime" approach makes the pipeline non-deterministic and silently breaks when ECI reshuffles the bundle. Mismatch between the pin and the next recon run is the early-warning signal.
@@ -333,5 +333,5 @@ Acknowledged costs: recon discovers reality. If a state's report is published as
 - [Backend overview](overview.md), [Pipeline orchestration](pipeline.md), [Wikipedia adapter](sources-wikipedia.md)
 - [`docs/reference/data-sources.md`](../../reference/data-sources.md) — live catalogue of sources and URL grammars.
 - [`tools/eci_recon/`](../../../tools/eci_recon/) — Phase A reconnaissance tool.
-- [ADR-0003 — No fetch cache](../decisions/0003-no-fetch-cache.md) — `.runtime/raw/` placement for intermediate downloads.
+- [ADR-0003 — No fetch cache](../../reference/decision-index.md) — `.runtime/raw/` placement for intermediate downloads.
 - [Constituency hierarchy & status lifecycle](../data-model.md#constituency-hierarchy-and-status-lifecycle).

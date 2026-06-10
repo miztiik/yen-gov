@@ -236,5 +236,5 @@ The frontend `read_csv(columns={...})` map is generated from `columns.json` (one
 - [../../reference/identifiers.md](../../reference/identifiers.md) - issuing-authority id grammar.
 - [../../concepts/indicator-naming.md](../../concepts/indicator-naming.md) - kebab id grammar + F2 facet-legitimacy gates.
 - [../../concepts/data-provenance.md](../../concepts/data-provenance.md) - citation-ledger doctrine.
-- [../decisions/0047-schema-version-compatibility-contract.md](../decisions/0047-schema-version-compatibility-contract.md) - the "one machine-readable contract" rule (alt F rejected).
+- [decision-index.md](../../reference/decision-index.md) - ADR-0047 redirect and the "one machine-readable contract" rule (alt F rejected).
 - CLAUDE.md Holy Laws #3 (contracts), #9 (provenance), #10 (tests).

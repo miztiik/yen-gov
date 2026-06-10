@@ -51,4 +51,4 @@ The adapter calls `schema_id("indicator.schema.json")` and `schema_version("indi
 - [sources/rbi_hbs_ie_centre_deficits](sources-rbi-hbs-ie-centre-deficits.md)
 - [Canonical writer](writer.md)
 - [Data provenance](../../concepts/data-provenance.md)
-- [ADR-0045](../decisions/0045-grapher-catalogue-split.md)
+- [ADR-0045](../../reference/decision-index.md)

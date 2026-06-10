@@ -434,7 +434,7 @@ See [Canonical CSV writer](../backend/canonical-writer.md) for the writer side o
 - [`docs/how-to/release.md`](../../how-to/release.md)
 - [Canonical store](../data/canonical-store.md) — the Parquet store the new loader reads.
 - [Schema evolution](../data/schema-evolution.md) - writer-strict / reader-compatible policy.
-- [ADR-0047](../decisions/0047-schema-version-compatibility-contract.md) - schema-version compatibility contract.
+- [ADR-0047](../../reference/decision-index.md) - schema-version compatibility contract.
 - CLAUDE.md §1 (static-first), §4 (layer rules).
 
 ## DuckDB-WASM loader (Phase 0.8 — isolated harness)

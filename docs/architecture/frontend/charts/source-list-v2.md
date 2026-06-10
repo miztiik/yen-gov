@@ -2,7 +2,7 @@
 
 **Last Updated**: 2026-05-31
 
-Phase 1.4 of the [charting modernisation plan](../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md). Replaces the v1 SourceList which read fields ([ADR-0032](../../decisions/0032-sources-citation-ledger.md)) removed in the v2.0 citation-ledger contract (`url`, `fetched_at`, `content_hash`).
+Phase 1.4 of the [charting modernisation plan](../../../../docs/archive/20260518-frontend-charting-modernisation-plan-snapshot.md). Replaces the v1 SourceList which read fields ([ADR-0032](../../../reference/decision-index.md)) removed in the v2.0 citation-ledger contract (`url`, `fetched_at`, `content_hash`).
 
 ## What it is
 
@@ -25,7 +25,7 @@ Phase 1.4 of the [charting modernisation plan](../../../../docs/archive/20260518
 
 ## See also
 
-- [ADR-0032](../../decisions/0032-sources-citation-ledger.md) — sources citation-ledger contract.
+- [ADR-0032](../../../reference/decision-index.md) — sources citation-ledger contract.
 - [`chart-shell.md`](chart-shell.md) — ChartShell delegates source rendering here.
 - [`overview.md`](../overview.md) — visualization catalog.
 - [`docs/concepts/data-provenance.md`](../../../concepts/data-provenance.md) — canonical concept doc.

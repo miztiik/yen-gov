@@ -18,7 +18,7 @@ For the per-row column list, FK contracts, and coverage rollup mechanics, read [
 
 ## Design rationale
 
-This section consolidates the rationale (Context + Decision + key Consequences, condensed) of the ADRs that define the indicator catalogue. Each ADR's full body lives EITHER as the receipts folded below + verbatim under [Rejected alternatives](#rejected-alternatives), OR in `docs/archive/decisions/` (superseded). The originating `docs/architecture/decisions/` files were retired per [docs/reference/decision-index.md](../../reference/decision-index.md) and [docs/concepts/documentation-discipline.md#adr-0034-documentation-routing-contract](../../concepts/documentation-discipline.md#adr-0034-documentation-routing-contract). Folded into this doc per D-DOC3.4 (2026-06-04).
+This section consolidates the rationale (Context + Decision + key Consequences, condensed) of the ADRs that define the indicator catalogue. Each ADR's full body lives either as the receipts folded below + verbatim under [Rejected alternatives](#rejected-alternatives), or in `docs/archive/decisions/` when superseded. Redirects live in [decision-index.md](../../reference/decision-index.md); routing rules live in [documentation-discipline.md#adr-0034-documentation-routing-contract](../../concepts/documentation-discipline.md#adr-0034-documentation-routing-contract).
 
 ### ADR-0020: indicator-artifact-as-data-contract
 
