@@ -14,7 +14,7 @@
   //                                breakdown on click.
   //   6. InlineCounterfactualSwing - ephemeral state-wide swing
   //                                what-if (component state ONLY,
-  //                                NO ?s=<b64>).
+  //                                no URL-encoded scenario blob).
   //   7. Constituency table      - per-seat row: name + winner-party
   //                                pill + winner share % + margin %.
   //                                Row click navigates to the new
@@ -35,8 +35,8 @@
   // counterfactual swing (the psephlab canonical loader is assembly-
   // only); the panel renders a citizen-readable note explaining why.
   //
-  // Page chrome: no ?s=<b64> URL handling on this surface. Inline
-  // scenarios are ephemeral by W3b doctrine - refresh resets them.
+  // Page chrome: no URL-encoded scenario blob handling on this surface.
+  // Inline scenarios are ephemeral by W3b doctrine - refresh resets them.
 
   import {
     fetchElectionEvents,

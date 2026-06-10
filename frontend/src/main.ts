@@ -15,7 +15,6 @@ import Party from "./routes/Party.svelte";
 import Explore from "./routes/Explore.svelte";
 import Settings from "./routes/Settings.svelte";
 import Psephlab from "./routes/Psephlab.svelte";
-import Compare from "./routes/Compare.svelte";
 import CompareElections from "./routes/CompareElections.svelte";
 import CompareIndicator from "./routes/CompareIndicator.svelte";
 import About from "./routes/About.svelte";
@@ -40,7 +39,6 @@ import CountingMethodDoc from "./routes/CountingMethodDoc.svelte";
 import NotFound from "./routes/NotFound.svelte";
 import {
   aboutCrumbs,
-  compareCrumbs,
   compareElectionsCrumbs,
   compareIndicatorCrumbs,
   constituencyBareCrumbs,
@@ -176,31 +174,19 @@ startRouter({
     { pattern: "/lab/:state/:event", component: Psephlab, crumbs: psephlabCrumbs },
     // Path-form election-vs-election compare cascade (PR-W4b,
     // 2026-06-10): body-tagged 4-segment shape
-    // `/compare/elections/<state>/<from>/<to>`. Registered AHEAD of the
-    // legacy 3-segment `/compare/:state/:event` and 4-segment
-    // `/compare/:state/:event/m/:method` patterns - the literal
-    // `elections` in segment 2 disambiguates from the legacy method
-    // form (which would have `m` in segment 4 anyway, but the
+    // `/compare/elections/<state>/<from>/<to>`. The previous legacy
+    // 3-segment `/compare/:state/:event` and method-aware 4-segment
+    // `/compare/:state/:event/m/:method` routes were retired in PR-W5a
+    // (2026-06-10) alongside the deletion of Compare.svelte; the
     // disjointness contract bans a state slug equal to `elections`
-    // so a leading-literal match wins regardless of router ordering).
-    // The legacy `/compare/:state/:event` route stays live for one
-    // release (PR-W5a deletes it) per the strangler-fig pattern.
+    // so this 4-segment shape is leading-literal disambiguated from
+    // every surviving route.
     {
       pattern: "/compare/elections/:state/:fromEvent/:toEvent",
       component: CompareElections,
       parse: ({ state, fromEvent, toEvent }) => ({ state, fromEvent, toEvent }),
       crumbs: compareElectionsCrumbs,
     },
-    // Method-aware Compare (2026-06-09 redesign). Same 4-segment shape
-    // as labMethod above; both sides share the active method per Fowler
-    // verdict (per-side method override deferred).
-    {
-      pattern: "/compare/:state/:event/m/:method",
-      component: Compare,
-      parse: ({ state, event, method }) => ({ state, event, method }),
-      crumbs: compareCrumbs,
-    },
-    { pattern: "/compare/:state/:event", component: Compare, crumbs: compareCrumbs },
     // Per-indicator documentation page (U5b, parent plan section 20.12
     // IndicatorDoc bullet). 4-segment pattern with the literal `/docs/`
     // + literal `indicator/` + 2 catalogue-key segments

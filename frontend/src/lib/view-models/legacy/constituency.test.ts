@@ -14,14 +14,18 @@
 //                         partial / not_published with skeleton.
 //   - failed            - injected throw -> failed arm + retry callable.
 //
-// We mock `csvColumnsClause` from `../canonical/csv-columns` so the
+// We mock `csvColumnsClause` from `../../canonical/csv-columns` so the
 // runtime fetch of columns.json never happens. The clause shape itself
 // is pinned by `csv-columns.test.ts`; here we only care that the
 // loader threaded a clause string into the read_csv call.
+//
+// PR-W5a (2026-06-10) moved both the loader and this test to
+// `view-models/legacy/`; the mock boundary became `../../duckdb` (two
+// levels up) but the assertions are unchanged.
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-vi.mock("../duckdb", () => ({
+vi.mock("../../duckdb", () => ({
   registerCsvFile: vi.fn(async () => undefined),
   registerCsvAsTable: vi.fn(async (id: string) =>
     id === "elections.dim_parties" ? "dim_parties" : "sources",
@@ -30,12 +34,12 @@ vi.mock("../duckdb", () => ({
   query: vi.fn(),
 }));
 
-vi.mock("../canonical/csv-columns", () => ({
+vi.mock("../../canonical/csv-columns", () => ({
   csvColumnsClause: vi.fn(async () => "columns={MOCKED}"),
 }));
 
-import { query, registerCsvAsTable, registerCsvFile, registerTable } from "../duckdb";
-import { csvColumnsClause } from "../canonical/csv-columns";
+import { query, registerCsvAsTable, registerCsvFile, registerTable } from "../../duckdb";
+import { csvColumnsClause } from "../../canonical/csv-columns";
 import { loadConstituencyResult } from "./constituency";
 
 const mockedQuery = vi.mocked(query);

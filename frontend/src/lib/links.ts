@@ -280,32 +280,20 @@ export const link = {
     );
   },
 
-  /** Election compare (`/compare/<state>/<event>`). Existing surface;
-   * retained verbatim from `url.ts`. Distinct from the cross-state
-   * indicator-compare surface which (per ADR-0037 §cross-state) collapses
-   * into the indicator page itself in Phase 3+. */
-  electionCompare(stateCodeOrSlug: string, event: string): string {
-    return withBase(`/compare/${stateSlug(stateCodeOrSlug)}/${event}`);
-  },
-
-  /** Short alias for `electionCompare` mirroring `url.compare` from
-   * url.ts. (Distinct from `compareIndicator()` which is the cross-state
-   * indicator-compare surface.) */
-  compare(stateCodeOrSlug: string, event: string): string {
-    return withBase(`/compare/${stateSlug(stateCodeOrSlug)}/${event}`);
-  },
+  // PR-W5a (2026-06-10): `electionCompare`, the `compare` short alias,
+  // and `compareMethod` retired. Their sole routes were the legacy
+  // 3-segment `/compare/:state/:event` and 4-segment
+  // `/compare/:state/:event/m/:method` patterns that were deleted in
+  // the same PR alongside `Compare.svelte`. The path-form
+  // `compareElections` below is the replacement.
 
   /** Path-form election-vs-election compare cascade
    * (`/compare/elections/<state>/<from-event>/<to-event>`).
    *
    * PR-W4b (election experience overhaul, 2026-06-10): body-tagged
    * compare per the binding constraint #7 in the plan-doc preamble.
-   * The 4-segment shape (`compare` + literal `elections` + state +
-   * from + to) is segment-count + literal disambiguated from the
-   * legacy 3-segment `electionCompare()` cascade which is retained
-   * for one release as a strangler-fig (PR-W5a deletes it). Distinct
-   * from `compareIndicator()` (a different surface) by both literal
-   * `elections` in seg 2 and the path-form parameters. */
+   * Distinct from `compareIndicator()` (a different surface) by both
+   * literal `elections` in seg 2 and the path-form parameters. */
   compareElections(
     stateCodeOrSlug: string,
     fromEvent: string,
@@ -313,19 +301,6 @@ export const link = {
   ): string {
     return withBase(
       `/compare/elections/${stateSlug(stateCodeOrSlug)}/${encodeURIComponent(fromEvent)}/${encodeURIComponent(toEvent)}`,
-    );
-  },
-
-  /** Method-aware election Compare (`/compare/<state>/<event>/m/<method>`).
-   * Both sides share the active method (per-side override is deferred
-   * per the 2026-06-09 Fowler verdict on the redesign). */
-  compareMethod(
-    stateCodeOrSlug: string,
-    event: string,
-    method_id: string,
-  ): string {
-    return withBase(
-      `/compare/${stateSlug(stateCodeOrSlug)}/${event}/m/${encodeURIComponent(method_id)}`,
     );
   },
 

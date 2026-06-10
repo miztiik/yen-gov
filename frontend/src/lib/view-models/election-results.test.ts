@@ -15,14 +15,24 @@
 //   - GOLDEN-ROW ORACLE     - for the same underlying mock row-set, the
 //                             generic loader (after projection +
 //                             shape-mapping) produces byte-equal output
-//                             to each of the three bespoke loaders:
-//                               loadNationalPcWinners({event})
-//                               loadStateAcWinners({event, state})
+//                             to the surviving bespoke loader:
 //                               loadConstituencyResult({event, state, eci_no})
+//                                 (kept under view-models/legacy/ per
+//                                  PR-W5a; sole non-trivial bespoke that
+//                                  the W2b generic does not yet cover
+//                                  end-to-end — bio + symbol +
+//                                  margin_votes + NOTA-split + top-N).
+//
+// PR-W5a (2026-06-10): the `{event}` and `{event, state}` golden-row
+// blocks retired with their bespoke counterparts (`loadNationalPcWinners`
+// + `loadStateAcWinners`); the W3/W4 call-sites all flipped to
+// `loadElectionResults` so the bespoke loaders had no remaining live
+// consumers.
 //
 // The bespoke `loadIndiaLeadingParties` is INTENTIONALLY OUT OF SCOPE
 // for this PR per the plan-doc (different underlying table, multi-event
-// map input shape, party-aggregate question). See the module-doc on
+// map input shape, party-aggregate question). It now lives under
+// view-models/legacy/ as well; see the module-doc on
 // `election-results.ts`.
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
@@ -56,9 +66,7 @@ import {
   projectAsWinnersByEntity,
   type ElectionResultRow,
 } from "./election-results";
-import { loadNationalPcWinners } from "./national-elections";
-import { loadStateAcWinners } from "./state-overview";
-import { loadConstituencyResult } from "./constituency";
+import { loadConstituencyResult } from "./legacy/constituency";
 
 const mockedQuery = vi.mocked(query);
 const mockedRegisterCsv = vi.mocked(registerCsvFile);
@@ -81,122 +89,9 @@ beforeEach(() => {
 // Helpers
 // --------------------------------------------------------------------
 
-/**
- * Three rows describing the SAME underlying canonical data. Each row
- * carries BOTH the generic column aliases (`entity_id`, `eci_no`,
- * `entity_name`) AND the bespoke column aliases (`pc_entity_id`,
- * `pc_no`, `pc_name`) so the SAME mock fixture can satisfy both loaders'
- * `query()` mock returns. Each loader uses whichever subset its SQL
- * projects.
- */
-const PC_FIXTURE = [
-  {
-    // generic aliases
-    entity_id: "IN-PC-2008-tamil-nadu-39",
-    eci_no: 39,
-    entity_name: "KANYAKUMARI",
-    // bespoke aliases
-    pc_entity_id: "IN-PC-2008-tamil-nadu-39",
-    pc_no: 39,
-    pc_name: "KANYAKUMARI",
-    // shared
-    state_slug: "tamil-nadu",
-    delim_year: 2008,
-    party_id: "parties.IN.INC",
-    party_eci_code: "742",
-    party_short: "INC",
-    party_short_raw: "INC",
-    brand_colour_hex: "#003c79",
-    brand_colour_confidence: "high",
-    symbol_asset_path: "party-symbols/hand.svg",
-    margin_pct: 22.51,
-    turnout_pct: 75.21,
-    winner_candidate_name: "VASANTHAKUMAR H",
-  },
-  {
-    entity_id: "IN-PC-2008-tamil-nadu-1",
-    eci_no: 1,
-    entity_name: "THIRUVALLUR",
-    pc_entity_id: "IN-PC-2008-tamil-nadu-1",
-    pc_no: 1,
-    pc_name: "THIRUVALLUR",
-    state_slug: "tamil-nadu",
-    delim_year: 2008,
-    party_id: "parties.IN.DMK",
-    party_eci_code: "1234",
-    party_short: "DMK",
-    party_short_raw: "DMK",
-    brand_colour_hex: "#ff0000",
-    brand_colour_confidence: "high",
-    symbol_asset_path: "party-symbols/rising-sun.svg",
-    margin_pct: 18.4,
-    turnout_pct: 71.05,
-    winner_candidate_name: "DR. K. JAYAKUMAR",
-  },
-  {
-    entity_id: "IN-PC-2008-andhra-pradesh-445",
-    eci_no: 1,
-    entity_name: "ARUKU",
-    pc_entity_id: "IN-PC-2008-andhra-pradesh-445",
-    pc_no: 1,
-    pc_name: "ARUKU",
-    state_slug: "andhra-pradesh",
-    delim_year: 2008,
-    party_id: "parties.IN.YSRCP",
-    party_eci_code: "1888",
-    party_short: "YSRCP",
-    party_short_raw: "YSRCP",
-    brand_colour_hex: null,
-    brand_colour_confidence: null,
-    symbol_asset_path: null,
-    margin_pct: 20.86,
-    turnout_pct: 78.5,
-    winner_candidate_name: "GODDETI. MADHAVI",
-  },
-];
-
-const AC_FIXTURE = [
-  {
-    entity_id: "IN-AC-2008-tamil-nadu-3857",
-    eci_no: 1,
-    ac_eci_no: 1,
-    entity_name: "ARAKKONAM (SC)",
-    ac_name: "ARAKKONAM (SC)",
-    state_slug: "tamil-nadu",
-    delim_year: 2008,
-    party_id: "parties.IN.TVK",
-    party_eci_code: null,
-    party_short: "TVK",
-    party_short_raw: "TVK",
-    brand_colour_hex: "#ff0000",
-    brand_colour_confidence: "high",
-    symbol_asset_path: "party-symbols/torch.svg",
-    margin_pct: 12.68,
-    turnout_pct: 90.72,
-    winner_age: 52,
-    winner_candidate_name: "V. Gandhiraj",
-  },
-  {
-    entity_id: "IN-AC-2008-tamil-nadu-3858",
-    eci_no: 2,
-    ac_eci_no: 2,
-    entity_name: "ARCOT",
-    ac_name: "ARCOT",
-    state_slug: "tamil-nadu",
-    delim_year: 2008,
-    party_id: "parties.IN.ADMK",
-    party_eci_code: "742",
-    party_short: "AIADMK",
-    party_short_raw: "ADMK",
-    brand_colour_hex: "#006400",
-    brand_colour_confidence: "high",
-    symbol_asset_path: "party-symbols/two-leaves.svg",
-    margin_pct: 18.92,
-    turnout_pct: 91.49,
-    winner_age: 48,
-    winner_candidate_name: "S.M.SUKUMAR",
-  },
-];
+// PR-W5a (2026-06-10): PC_FIXTURE / AC_FIXTURE retired with the two
+// matching golden-row oracle blocks (`{event}` + `{event, state}`).
+// The CONSTITUENCY-scope oracle below uses its own fixture pair.
 
 // Constituency-scope fixture carries BOTH generic and bespoke aliases:
 //   generic: entity_id, entity_name, party_id, party_short, symbol_asset_path
@@ -454,94 +349,17 @@ describe("projection helpers", () => {
 });
 
 // --------------------------------------------------------------------
-// GOLDEN-ROW ORACLE - scope {event}
-// --------------------------------------------------------------------
-
-describe("GOLDEN-ROW oracle - {event} matches loadNationalPcWinners", () => {
-  it("byte-equal NationalPcWinner[] for the same underlying rows", async () => {
-    // Both loaders run ONE query against the parliament summary.csv +
-    // electoral.csv join. Same fixture rows for both.
-    mockedQuery
-      .mockResolvedValueOnce(PC_FIXTURE)  // generic call
-      .mockResolvedValueOnce(PC_FIXTURE); // bespoke call
-
-    const event = "LsGenJun2024";
-    const generic = await loadElectionResults({ event });
-    const bespoke = await loadNationalPcWinners(event);
-
-    expect(generic.status).toBe("ok");
-    expect(bespoke.status).toBe("ok");
-    if (generic.status !== "ok" || bespoke.status !== "ok") return;
-
-    const fromGeneric = projectAsWinnersByEntity(generic.data)
-      .map((r) => ({
-        unit_id: `IN-PC-${r.delim_year}-${r.state_code}-${r.eci_no}`,
-        join_key: `${r.state_code}_${r.eci_no}`,
-        state_code: r.state_code,
-        pc_no: r.eci_no,
-        pc_name: r.entity_name,
-        party_id: r.party_id ?? "",
-        party_eci_code: r.party_eci_code,
-        party_short: r.party_short ?? "",
-        margin_pct: r.margin_pct ?? 0,
-        turnout_pct: r.turnout_pct,
-        winner_age: r.winner_age,
-        winner_candidate_name: r.winner_candidate_name,
-        symbol_asset_path: r.symbol_asset_path,
-        brand_colour_hex: r.brand_colour_hex,
-        brand_colour_confidence: r.brand_colour_confidence,
-      }))
-      .sort(byUnitId);
-
-    const fromBespoke = [...bespoke.data].sort(byUnitId);
-    expect(fromGeneric).toEqual(fromBespoke);
-  });
-});
-
-// --------------------------------------------------------------------
-// GOLDEN-ROW ORACLE - scope {event, state}
-// --------------------------------------------------------------------
-
-describe("GOLDEN-ROW oracle - {event, state} matches loadStateAcWinners", () => {
-  it("byte-equal AcWinner[] for the same underlying rows", async () => {
-    mockedQuery
-      .mockResolvedValueOnce(AC_FIXTURE)  // generic call
-      .mockResolvedValueOnce(AC_FIXTURE); // bespoke call
-
-    const event = "AcGenMay2026";
-    const state = "S22";
-    const generic = await loadElectionResults({ event, state });
-    const bespoke = await loadStateAcWinners(event, state);
-
-    expect(generic.status).toBe("ok");
-    expect(bespoke.status).toBe("ok");
-    if (generic.status !== "ok" || bespoke.status !== "ok") return;
-
-    const fromGeneric = projectAsWinnersByEntity(generic.data)
-      .map((r) => ({
-        ac_eci_no: r.eci_no,
-        ac_name: r.entity_name,
-        party_id: r.party_id ?? "parties.IN.UNK",
-        party_eci_code: r.party_eci_code,
-        party_short: r.party_short ?? "",
-        margin_pct: r.margin_pct ?? 0,
-        turnout_pct: r.turnout_pct,
-        winner_age: r.winner_age,
-        winner_candidate_name: r.winner_candidate_name,
-        symbol_asset_path: r.symbol_asset_path,
-        brand_colour_hex: r.brand_colour_hex,
-        brand_colour_confidence: r.brand_colour_confidence,
-      }))
-      .sort(byAcEciNo);
-
-    const fromBespoke = [...bespoke.data].sort(byAcEciNo);
-    expect(fromGeneric).toEqual(fromBespoke);
-  });
-});
-
-// --------------------------------------------------------------------
 // GOLDEN-ROW ORACLE - scope {event, state, eci_no}
 // --------------------------------------------------------------------
+//
+// PR-W5a (2026-06-10): the `{event}` and `{event, state}` oracles
+// retired with their bespoke counterparts `loadNationalPcWinners` and
+// `loadStateAcWinners`. The W3/W4 call-sites all flipped to
+// `loadElectionResults`, so the bespoke loaders had no live consumers
+// left. The CONSTITUENCY-scope oracle below survives because its
+// bespoke counterpart `loadConstituencyResult` is kept under
+// view-models/legacy/ (it projects a richer ConstituencyResult shape
+// than the W2b generic does today; see legacy/constituency.ts header).
 
 describe("GOLDEN-ROW oracle - {event, state, eci_no} matches loadConstituencyResult", () => {
   it("byte-equal candidate list (post NOTA-split + top-N cut)", async () => {
@@ -656,20 +474,7 @@ describe("LoaderResult arms", () => {
   });
 });
 
-// --------------------------------------------------------------------
-// Sort key helpers
-// --------------------------------------------------------------------
+// PR-W5a (2026-06-10): the `byUnitId` + `byAcEciNo` sort-key helpers
+// retired with the matching `{event}` + `{event, state}` golden-row
+// oracle blocks.
 
-function byUnitId(
-  a: { unit_id: string },
-  b: { unit_id: string },
-): number {
-  return a.unit_id < b.unit_id ? -1 : a.unit_id > b.unit_id ? 1 : 0;
-}
-
-function byAcEciNo(
-  a: { ac_eci_no: number },
-  b: { ac_eci_no: number },
-): number {
-  return a.ac_eci_no - b.ac_eci_no;
-}

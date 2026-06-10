@@ -1,3 +1,28 @@
+// LEGACY (kept under view-models/legacy/ in PR-W5a, 2026-06-10).
+//
+// Kept here, not deleted, because Constituency.svelte is its sole live
+// consumer AND the W2b generic `loadElectionResults({event, state, eci_no})`
+// at CONSTITUENCY scope projects a NARROWER row shape than the rich
+// `ConstituencyResult` this page renders. The gap fields (not projected
+// by the generic loader today):
+//
+//   - per-candidate `bio` (sex, age, education, profession, candidate_type)
+//   - `election_symbol_asset_path` on each candidate
+//   - `margin_votes` (only `margin_pct` is in W2b)
+//   - NOTA split-out into its own bucket
+//   - top-N collapse + `others` tail bucket
+//   - rich `v2.0` source rows via the `taxonomy.sources` LEFT JOIN
+//
+// Folding in is a future PR that either (a) extends `loadElectionResults`
+// to project the gap fields at CONSTITUENCY scope + adds an assembler for
+// the NOTA / others / top-N split, or (b) keeps this assembler as a thin
+// wrapper that calls the generic loader for the candidate rows + does the
+// extra projections inline. See [frontend/src/AGENTS.md] section
+// "View-model collapse" + the PR-W5a row in
+// TODO/20260609-election-experience-overhaul-plan.md.
+//
+// ----- Original module header (kept verbatim) -----
+//
 // Citizen view-model loader for the Constituency route (F1.3a CSV cutover).
 //
 // Reads the per-(state, year) long-format CSV layout via DuckDB-WASM
@@ -32,21 +57,21 @@
 import {
   describeFailure,
   type LoaderResult,
-} from "../loader-result";
-import { query, registerCsvAsTable, registerCsvFile } from "../duckdb";
-import { electionStatePartition } from "../election-partitions";
-import { DATA_BASE } from "../paths";
-import { csvColumnsClause } from "../canonical/csv-columns";
+} from "../../loader-result";
+import { query, registerCsvAsTable, registerCsvFile } from "../../duckdb";
+import { electionStatePartition } from "../../election-partitions";
+import { DATA_BASE } from "../../paths";
+import { csvColumnsClause } from "../../canonical/csv-columns";
 import {
   assemblyCandidaciesPath,
   assemblySummaryPath,
   electoralEntitiesPath,
-} from "../canonical/election-csv-paths";
+} from "../../canonical/election-csv-paths";
 import type {
   CandidateResult,
   ConstituencyResult,
   SourceRef,
-} from "../data";
+} from "../../data";
 
 // Default top-N kept candidates per AC. Mirrors the implicit fold the
 // previous `elections_candidacies.parquet` writer applied. Keeping it

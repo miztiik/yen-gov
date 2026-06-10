@@ -35,22 +35,38 @@ PR-W2b (2026-06-10) introduced the generic
 [view-models/election-results.ts](lib/view-models/election-results.ts):
 `loadElectionResults({event, state?, eci_no?})`. This is the canonical
 loader for any election-results query (NATIONAL-PC, STATE-AC, CONSTITUENCY
-drill-down). The three bespoke loaders covered by the golden-row oracle
-(`loadNationalPcWinners`, `loadStateAcWinners`, `loadConstituencyResult`)
-stay live for one release; call-sites flip in PR-W3b / PR-W3c / PR-W3d;
-bespoke loaders deleted in PR-W5a.
+drill-down). All W3 + W4 call-sites flipped to the generic loader.
+
+PR-W5a (2026-06-10) retired the bespoke loaders that had been replaced
+end-to-end and moved the two that had not been replaced to a
+`view-models/legacy/` namespace:
+
+- `loadNationalPcWinners` - DELETED. Sole non-test consumer (the W3c
+  NationalElection.svelte rebuild) flipped to `loadElectionResults({event})`.
+- `loadStateAcWinners` - DELETED from `state-overview.ts` (the file
+  itself + its other exports stay live; only the lean function was
+  retired). Sole consumer (Constituency.svelte) flipped to
+  `loadElectionResults({event, state}) + projectAsWinnersByEntity + a
+  local toAcWinner mapper`.
+- `loadConstituencyResult` - KEPT under
+  [view-models/legacy/constituency.ts](lib/view-models/legacy/constituency.ts).
+  Constituency.svelte still consumes the rich `ConstituencyResult`
+  shape (per-candidate bio + election_symbol_asset_path + margin_votes
+  + NOTA split + top-N + others bucket) which the W2b generic loader
+  does not project today. Future PR either extends `loadElectionResults`
+  at CONSTITUENCY scope or keeps this assembler as a thin wrapper.
+- `loadIndiaLeadingParties` - KEPT under
+  [view-models/legacy/india-leading-parties.ts](lib/view-models/legacy/india-leading-parties.ts).
+  Reads a DIFFERENT underlying table (the long-format party-aggregate
+  CSV under `data/datapoints/electoral/`), takes a `Record<state, event>`
+  multi-event map, and answers a structurally different question.
+  Future PR either widens the generic to a fourth scope shape or leaves
+  it as a separate concern.
 
 Use `loadElectionResults` for any NEW code. The two projection helpers
 (`projectAsWinnersByEntity`, `projectAsConstituencyRanks`) narrow the
 union row shape to the bespoke-loader shapes when the caller needs them.
-Do not import the bespoke loaders in new files.
-
-`loadIndiaLeadingParties` is INTENTIONALLY OUT OF SCOPE for this collapse:
-it reads a different underlying table (the long-format party-aggregate
-CSV under `data/datapoints/electoral/`), takes a multi-event map, and
-answers a structurally different question. It stays bespoke until a
-future PR either widens the generic to a fourth scope shape or leaves
-it as a separate concern.
+Do not import the legacy loaders in new files.
 
 ## Validation
 

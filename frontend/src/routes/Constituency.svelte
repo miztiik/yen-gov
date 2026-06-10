@@ -3,11 +3,12 @@
     type CandidateBio,
     type ConstituencyResult,
   } from "../lib/data";
-  import { loadConstituencyResult } from "../lib/view-models/constituency";
-  import { loadStateAcWinners, type AcWinner } from "../lib/view-models/state-overview";
+  import { loadConstituencyResult } from "../lib/view-models/legacy/constituency";
+  import type { AcWinner } from "../lib/view-models/state-overview";
   import {
     bodyFromEvent,
     loadElectionResults,
+    projectAsWinnersByEntity,
     type ElectionResultRow,
   } from "../lib/view-models/election-results";
   import type { LoaderResult } from "../lib/loader-result";
@@ -213,8 +214,17 @@
     const eci = effective_eci_no;
     if (!sc || !ev || eci <= 0) return;
     loadConstituencyResult(ev, sc, eci).then(r => (loaderResult = r));
-    loadStateAcWinners(ev, sc).then(r => {
-      ac_winners = r.status === "ok" || r.status === "partial" ? r.data : [];
+    // PR-W5a (2026-06-10): flipped state-context AC-map loader from
+    // bespoke `loadStateAcWinners` to the generic `loadElectionResults`
+    // + `projectAsWinnersByEntity` projection. Output is the same
+    // AcWinner[] the maplibre StateAcMap consumes; the bespoke loader
+    // was retired in this PR.
+    loadElectionResults({ event: ev, state: sc }).then(r => {
+      if (r.status !== "ok" && r.status !== "partial") {
+        ac_winners = [];
+        return;
+      }
+      ac_winners = projectAsWinnersByEntity(r.data).map(toAcWinner);
     });
   });
 
@@ -225,6 +235,28 @@
     if (!sc || !ev || eci <= 0) return;
     loaderResult = { status: "loading" };
     loaderResult = await loadConstituencyResult(ev, sc, eci);
+  }
+
+  /** Project one generic `ElectionResultRow` (STATE-AC scope, post
+   *  `projectAsWinnersByEntity` filter) to the legacy `AcWinner` shape
+   *  the maplibre StateAcMap + downstream consumers expect. Mirrors the
+   *  field mapping the retired `loadStateAcWinners` bespoke loader used
+   *  (default `party_id` -> `"parties.IN.UNK"`, `margin_pct` -> 0 on null). */
+  function toAcWinner(r: ElectionResultRow): AcWinner {
+    return {
+      ac_eci_no: r.eci_no,
+      ac_name: r.entity_name,
+      party_id: r.party_id ?? "parties.IN.UNK",
+      party_eci_code: r.party_eci_code,
+      party_short: r.party_short ?? "",
+      margin_pct: r.margin_pct ?? 0,
+      turnout_pct: r.turnout_pct,
+      winner_age: r.winner_age,
+      winner_candidate_name: r.winner_candidate_name,
+      symbol_asset_path: r.symbol_asset_path,
+      brand_colour_hex: r.brand_colour_hex,
+      brand_colour_confidence: r.brand_colour_confidence,
+    };
   }
 
   function fmtBiographic(bio: CandidateBio | null | undefined): string {

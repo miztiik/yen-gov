@@ -557,65 +557,9 @@ export async function loadStateOverview(
   }
 }
 
-// Standalone lean loader — returns only the per-AC winners slice. Used by
-// the Constituency route to populate its state-map context without paying
-// for the party / state-scope / sources queries `loadStateOverview` runs.
-export async function loadStateAcWinners(
-  event: string,
-  state_code: string,
-): Promise<LoaderResult<AcWinner[]>> {
-  try {
-    const candPath = assemblyCandidaciesPath(state_code, event);
-    const sumPath = assemblySummaryPath(state_code, event);
-    const electoralPath = electoralEntitiesPath();
-    const candUrl = `${DATA_BASE}/${candPath.replace(/^datasets\//, "")}`;
-    const sumUrl = `${DATA_BASE}/${sumPath.replace(/^datasets\//, "")}`;
-    const electoralUrl = `${DATA_BASE}/${electoralPath.replace(/^datasets\//, "")}`;
-    const [candClause, sumClause, electoralClause] = await Promise.all([
-      csvColumnsClause(candPath),
-      csvColumnsClause(sumPath),
-      csvColumnsClause(electoralPath),
-      registerCsvFile(candUrl),
-      registerCsvFile(sumUrl),
-      registerCsvFile(electoralUrl),
-      registerCsvAsTable("elections.dim_parties"),
-    ]);
-    const sql = `
-      SELECT
-        e.eci_no                              AS ac_eci_no,
-        e.name                                AS ac_name,
-        s.winner_party_id                     AS party_id,
-        dp.eci_code                           AS party_eci_code,
-        dp.short_name                         AS party_short,
-        dp.brand_colour_hex                   AS brand_colour_hex,
-        dp.brand_colour_confidence            AS brand_colour_confidence,
-        dp.election_symbol_asset_path         AS symbol_asset_path,
-        s.margin_pct                          AS margin_pct,
-        s.turnout_pct                         AS turnout_pct,
-        ec.age                                AS winner_age,
-        s.winner_candidate                    AS winner_candidate_name
-      FROM read_csv('${sumUrl}', ${sumClause}) s
-      JOIN read_csv('${electoralUrl}', ${electoralClause}) e
-        ON e.entity_id = s.entity_id
-       AND e.entity_kind = 'ac'
-      LEFT JOIN read_csv('${candUrl}', ${candClause}) ec
-        ON ec.entity_id = s.entity_id
-       AND ec.candidate_name = s.winner_candidate
-       AND ec.position = 1
-      LEFT JOIN dim_parties dp ON dp.party_id = s.winner_party_id
-      ORDER BY e.eci_no
-    `;
-    const rows = await query<AcWinnerRow>(sql);
-    const winners = toAcWinners(rows);
-    if (winners.length === 0) {
-      return { status: "partial", data: [], reason: "not_published" };
-    }
-    return { status: "ok", data: winners };
-  } catch (err) {
-    return {
-      status: "failed",
-      reason: describeFailure(err),
-      retry: () => loadStateAcWinners(event, state_code),
-    };
-  }
-}
+// PR-W5a (2026-06-10): the lean per-AC-winners loader `loadStateAcWinners`
+// retired here. Its sole call-site (Constituency.svelte) flipped to the
+// W2b generic `loadElectionResults({event, state})` + `projectAsWinnersByEntity`
+// + a local `toAcWinner()` mapper. `AcWinner` + `loadStateOverview` are
+// kept because they are consumed by the state hub (`StateOverview.svelte`)
+// + party page (`Party.svelte`) + 8+ map/chart components.

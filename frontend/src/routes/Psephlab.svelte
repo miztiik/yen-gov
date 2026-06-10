@@ -2,9 +2,13 @@
   // Psephlab v1 — what-if simulator.
   //
   // Loads actuals (Tallies) for the (event, state) and runs the engine on
-  // every scenario change. Scenario lives in the URL fragment query
-  // (`?s=...`); changes are flushed back via history.replaceState so the
-  // back button doesn't accumulate one entry per slider tick.
+  // every scenario change. PR-W5a (2026-06-10): scenarios are now
+  // EPHEMERAL component-local state per the election-experience-overhaul
+  // plan binding constraint #8 ("No URL-encoded scenario blob. No
+  // localStorage. Refresh = fresh start."). The previous URL-hydration
+  // helpers (`decodeScenario` / `writeScenarioToHash`) are gone; the
+  // only surviving URL coupling is the optional `/m/:method` path
+  // segment that pre-selects the counting rule at mount time.
 
   // PR-R.2 (Phase 1.8e): switched from legacy `psephlab/actuals` (sql.js +
   // per-state results.sqlite) to `psephlab/canonical-loaders` (DuckDB-WASM
@@ -20,11 +24,7 @@
     inertReasonFor,
   } from "../lib/psephlab/applicable-mutations";
   import { buildMethodPreviews } from "../lib/psephlab/method-preview";
-  import {
-    EMPTY_SCENARIO,
-    decodeScenario,
-    writeScenarioToHash,
-  } from "../lib/psephlab/scenario";
+  import { EMPTY_SCENARIO } from "../lib/psephlab/scenario";
   import type {
     MutationConfig,
     PartyResult,
@@ -57,10 +57,11 @@
   } from "../lib/election-events";
 
   /** params.method is the optional 4-segment path discriminator
-   *  (`/lab/:state/:event/m/:method`). When present it overrides the
-   *  scenario blob's `rule` field at hydration time (Fowler strangler-fig
-   *  EXPAND - the path is the encouraged form, the blob field is the
-   *  legacy fallback that keeps existing share URLs working). */
+   *  (`/lab/:state/:event/m/:method`). When present it pre-selects the
+   *  counting rule at mount time. PR-W5a (2026-06-10) collapsed the
+   *  prior strangler-fig fallback: scenarios no longer hydrate from a
+   *  URL-encoded scenario blob, so the path segment is the SOLE rule
+   *  source for the initial scenario. */
   interface Props {
     params: { state: string; event: string; method?: string };
   }
@@ -76,19 +77,17 @@
   let actuals_error = $state<string | null>(null);
   let event_catalogue = $state<ElectionEventsCatalogue | null>(null);
 
-  // Initial scenario from URL (read once, then we own the mutable state).
-  // Path-method (when present) overrides the blob's `rule` field at
-  // hydration so a share link of the form
-  // `/lab/<state>/<event>/m/proportional?s=<blob with rule=fptp>` reads
-  // as proportional (the path is the encouraged form per Fowler verdict).
+  // Initial scenario is EMPTY_SCENARIO with the optional path-method
+  // override pre-selected. PR-W5a (2026-06-10): no URL-hydration, no
+  // history.replaceState flush; scenarios live and die with this
+  // component instance per the plan-doc binding constraint #8.
   let scenario = $state<Scenario>(initialScenario());
 
   function initialScenario(): Scenario {
-    const decoded = decodeScenario(new URLSearchParams(window.location.search).get("s"));
-    if (path_method && path_method !== decoded.rule) {
-      return { ...decoded, rule: path_method };
+    if (path_method) {
+      return { ...EMPTY_SCENARIO, rule: path_method };
     }
-    return decoded;
+    return EMPTY_SCENARIO;
   }
 
   // Fetch the election catalogue once so ContextLabel can show the
@@ -163,13 +162,9 @@
   /** Drawer open/close state (host owns; drawer is purely controlled). */
   let drawer_open = $state(false);
 
-  // Persist scenario -> URL on every change. history.replaceState avoids
-  // back-stack pollution; the path is owned by the router so we only
-  // touch the search portion.
-  $effect(() => {
-    void scenario;
-    writeScenarioToHash(`/lab/${state_code}/${event}`, scenario);
-  });
+  // PR-W5a (2026-06-10): scenario -> URL flush retired. Scenarios are
+  // ephemeral component-local state per the election-experience-overhaul
+  // plan binding constraint #8. Refresh = fresh start.
 
   // Engine run. Pure & synchronous; for TN-scale (234 ACs) takes <5ms.
   // $derived recomputes on any scenario or actuals change.

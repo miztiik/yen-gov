@@ -1,13 +1,15 @@
 // Unit tests for the IndiaMap leading-parties view-model loader
 // (PR-G / Phase 1.3c). Mocks `query` / `registerTable` / `registerCsvAsTable`
-// at the `../duckdb` boundary per Holy Law #7 carve-out (established by
+// at the `../../duckdb` boundary per Holy Law #7 carve-out (established by
 // PR-E). The `registerCsvAsTable` entry was added by X1a (PR #809) when
 // dim_parties flipped from parquet to CSV; E5 corrects the test mock that
-// stayed stuck on the pre-flip shape.
+// stayed stuck on the pre-flip shape. PR-W5a (2026-06-10) moved both the
+// loader and this test to `view-models/legacy/`; the mock boundary became
+// `../../duckdb` (two levels up) but the assertions are unchanged.
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-vi.mock("../duckdb", () => ({
+vi.mock("../../duckdb", () => ({
   registerCsvFile: vi.fn(async () => undefined),
   registerCsvAsTable: vi.fn(async (id: string) =>
     id === "elections.dim_parties" ? "dim_parties" : "sources",
@@ -15,7 +17,7 @@ vi.mock("../duckdb", () => ({
   query: vi.fn(),
 }));
 
-import { query, registerCsvAsTable, registerCsvFile } from "../duckdb";
+import { query, registerCsvAsTable, registerCsvFile } from "../../duckdb";
 import { loadIndiaLeadingParties } from "./india-leading-parties";
 
 const mockedQuery = vi.mocked(query);
