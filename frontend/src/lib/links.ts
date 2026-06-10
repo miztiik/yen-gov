@@ -1,11 +1,13 @@
 // Grammar A URL builders — the place-first cascade per ADR-0037.
 //
-// As of PR-P3 (this is the sole source of truth for in-app route URLs).
+// As of PR-P4 (this is the sole source of truth for in-app route URLs).
 // PR-P1 shipped the routes + RedirectLegacyUrl; PR-P2 swept every
 // caller from the legacy `url.X()` Grammar B builders to `link.X()`
-// here; PR-P3 (this PR) deleted the `url.ts` Grammar B builders and
-// the 42-test Grammar B contract. `RedirectLegacyUrl.svelte` stays
-// mounted on `/s/*` until PR-P4 (deferred indefinitely; user-triggered).
+// here; PR-P3 deleted the `url.ts` Grammar B builders and the 42-test
+// Grammar B contract; PR-P4 (this PR) deleted the `RedirectLegacyUrl`
+// tombstone, dropped `s` from `RESERVED_PATH_TOKENS`, and closed the
+// 4-phase strangler-fig. Legacy `/s/<state>/...` URLs now fall through
+// to NotFound (404 with recovery links).
 //
 // Module name: `links.ts` because the artefact `link.stateHub("S22")`
 // emits is what `<a href={...}>` consumes. The existing `paths.ts`
@@ -358,16 +360,16 @@ export const link = {
  *   * `data-completeness` — citizen transparency surface
  *   * `lab`          — election lab namespace marker (`/lab/<state>/<event>`)
  *   * `dev`          — dev-only Vite alias (existing reservation)
- *   * `s`            — legacy Grammar B prefix; `RedirectLegacyUrl.svelte`
- *                      catches `/s/*` and replaceState-flips to Grammar A.
- *                      Stays reserved until PR-P4 (deferred indefinitely;
- *                      user-triggered) deletes the redirect.
  *   * `ac`           — bare-AC sub-namespace marker (`/<state>/ac/<ac>`,
  *                      `/<state>/elections/<event>/ac/<ac>`)
  *   * `party`        — party-in-state sub-namespace marker (`/<state>/party/<slug>`)
  *   * `i`            — pre-reserved fallback for the future indicator-marker
  *                      retrofit Max named (when collision test first fires)
  *   * `explore`      — state-explore sub-surface marker (`/<state>/explore`)
+ *
+ * Removed in PR-P4 (2026-06-10): `s` was the Grammar B prefix anchor
+ * for `RedirectLegacyUrl.svelte`; both are deleted in PR-P4 and the
+ * token is freed. The 4-phase URL-prefix-drop strangler-fig is complete.
  */
 export const RESERVED_PATH_TOKENS = Object.freeze([
   "t",
@@ -378,7 +380,6 @@ export const RESERVED_PATH_TOKENS = Object.freeze([
   "data-completeness",
   "lab",
   "dev",
-  "s",
   "ac",
   "party",
   "i",
