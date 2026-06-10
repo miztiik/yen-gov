@@ -158,11 +158,13 @@ def test_ten_ut_pcs_present_with_eci_suffix_pattern() -> None:
             f"(expected {expected['expected_eci_no']!r}, got {row['eci_no']!r})"
         )
         # Hans Q3 PR #849 verdict: NO data_quality column / NO citizen-facing
-        # flag. The eci<N> suffix IS self-describing. Reservation stays blank
-        # (all 10 PCs are General; UTs do not currently host SC/ST-reserved
-        # Parliament seats in the 2008 delimitation).
-        assert row["reservation"] == "", (
-            f"{eid}: reservation should be blank (all 10 UT PCs are General); "
+        # flag. The eci<N> suffix IS self-describing.
+        # PR-E-R (2026-06-10) UPDATE: reservation is now populated from ECI
+        # Statement 33 + TCPD GE. The 10 UT PCs are all GEN per 2008 Delim
+        # Order EXCEPT Dadar & Nagar Haveli (ST) - the assertion accepts the
+        # publisher-stated reservation.
+        assert row["reservation"] in ("GEN", "SC", "ST"), (
+            f"{eid}: reservation must be in {{GEN, SC, ST}} post PR-E-R; "
             f"got {row['reservation']!r}"
         )
     assert not missing, f"missing UT-PC gap rows: {missing}"

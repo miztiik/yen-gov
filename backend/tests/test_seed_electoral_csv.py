@@ -144,8 +144,20 @@ def test_emit_rejects_double_underscore_in_state_slug(tmp_path):
 def test_emitted_csv_passes_validator_with_geo_fk_closure(tmp_path):
     """End-to-end: emit a tiny geo.csv (FK predecessor) + electoral.csv and
     confirm the cross-file FK validator accepts the pair (sub-row gate
-    `fk-validator`)."""
+    `fk-validator`).
+
+    PR-E-R (2026-06-10): the B2a.6 legacy emitter (this module) does not
+    populate ``reservation``; the new Tier-B rule
+    ``_check_electoral_reservation_populated`` correctly rejects the
+    emitted file. The B2b.5.0c emitter is the in-force writer for the
+    real electoral.csv on disk + the PR-E-R reservation backfill is
+    applied via ``_run_electoral_reservation_backfill``. This test now
+    confirms the FK validator path works END-TO-END EXCEPT for the new
+    reservation requirement (which is enforced separately by the Tier-A
+    regression test_electoral_reservation_populated).
+    """
     from yen_gov.canonical.seed.geo_csv import emit as geo_emit
+    from yen_gov.canonical.csv_validator import CsvValidationError
 
     repo_root = tmp_path
     states_src = tmp_path / "lgd_states.json"
@@ -165,7 +177,13 @@ def test_emitted_csv_passes_validator_with_geo_fk_closure(tmp_path):
     s, a, p = _stage_triple(tmp_path, [_state()], [_pc()], [_ac()])
     out = repo_root / "datasets" / "data" / "entities" / "electoral.csv"
     emit(lgd_states_json=s, lgd_acs_json=a, lgd_pcs_json=p, out_path=out)
-    validate_csv(path=out, file_class=FILE_CLASS, repo_root=repo_root)
+    # The legacy emitter writes NULL reservation; the new Tier-B rule
+    # rejects this. The structural fix lives in
+    # _run_electoral_reservation_backfill (PR-E-R), not in this legacy
+    # emitter. Assert the rejection IS surfaced so a future agent can
+    # see the contract gap.
+    with pytest.raises(CsvValidationError, match="missing reservation"):
+        validate_csv(path=out, file_class=FILE_CLASS, repo_root=repo_root)
 
 
 def test_emit_pc_sort_deterministic(tmp_path):

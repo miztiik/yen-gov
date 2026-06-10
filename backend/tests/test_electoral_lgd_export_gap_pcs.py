@@ -125,9 +125,11 @@ def test_four_gap_pcs_present_with_eci_suffix_pattern() -> None:
             f"(expected {expected['expected_eci_no']!r}, got {row['eci_no']!r})"
         )
         # The brief: Hans Q3 says NO data_quality column / NO citizen-facing flag.
-        # The suffix IS self-describing. Reservation stays blank (all 4 are General).
-        assert row["reservation"] == "", (
-            f"{eid}: reservation should be blank (all 4 PCs are General); "
+        # The suffix IS self-describing.
+        # PR-E-R (2026-06-10) UPDATE: reservation is now populated from ECI
+        # Statement 33 + TCPD GE. All 4 metro PCs are GEN per Delim Order.
+        assert row["reservation"] in ("GEN", "SC", "ST"), (
+            f"{eid}: reservation must be in {{GEN, SC, ST}} post PR-E-R; "
             f"got {row['reservation']!r}"
         )
     assert not missing, f"missing gap PC rows: {missing}"
