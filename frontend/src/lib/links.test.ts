@@ -85,14 +85,119 @@ describe("Grammar A — links.ts builder shapes (ADR-0037)", () => {
     expect(u).toMatch(/^\/[a-z0-9-]+\/party\/dmk-aiadmk$/);
   });
 
+  it("party builds /<state>/party/<short-slug>-<eci-code-lower>", () => {
+    expect(link.party("S22", "DMK", "DMK")).toMatch(
+      /^\/[a-z0-9-]+\/party\/dmk-dmk$/,
+    );
+    expect(link.party("S22", "DMK", "DMK")).not.toMatch(/^\/s\//);
+  });
+
+  it("ac is /<state>/ac/<name-slug> (no numeric prefix)", () => {
+    const u = link.ac("S22", "Mylapore");
+    expect(u).toMatch(/^\/[a-z0-9-]+\/ac\/mylapore$/);
+    expect(u).not.toMatch(/\/\d+-/);
+    expect(u).not.toMatch(/^\/s\//);
+  });
+
+  it("ac nests the event in the path when supplied (ADR-0052)", () => {
+    const u = link.ac("S22", "Mylapore", "AcGenMar1971");
+    expect(u).toMatch(/^\/[a-z0-9-]+\/elections\/AcGenMar1971\/ac\/mylapore$/);
+  });
+
+  it("ac slugifies diacritics in AC names", () => {
+    expect(link.ac("S22", "Mylāpore")).toMatch(/\/ac\/mylapore$/);
+  });
+
+  it("acByNo is /<state>/ac/<eci_no>", () => {
+    expect(link.acByNo("S22", 167)).toMatch(/^\/[a-z0-9-]+\/ac\/167$/);
+  });
+
+  it("acByNo nests the event in the path when supplied (ADR-0052)", () => {
+    expect(link.acByNo("S22", 167, "AcGenMar1971")).toMatch(
+      /^\/[a-z0-9-]+\/elections\/AcGenMar1971\/ac\/167$/,
+    );
+  });
+
+  it("district is /<state>/d/<slug>", () => {
+    expect(link.district("S22", "coimbatore")).toMatch(
+      /^\/[a-z0-9-]+\/d\/coimbatore$/,
+    );
+    expect(link.district("S22", "coimbatore")).not.toMatch(/^\/s\//);
+  });
+
+  it("district passes through an LGD state slug as the state segment", () => {
+    expect(link.district("tamil-nadu", "coimbatore")).toBe(
+      "/tamil-nadu/d/coimbatore",
+    );
+  });
+
+  it("stateElection is /<state>/elections/<event>", () => {
+    const u = link.stateElection("S22", "AcGenMay2026");
+    expect(u).toMatch(/^\/[a-z0-9-]+\/elections\/AcGenMay2026$/);
+    expect(u).not.toMatch(/^\/s\//);
+  });
+
+  it("stateElection URL-encodes the event id", () => {
+    expect(link.stateElection("S22", "Ac Gen 2026")).toContain(
+      "/elections/Ac%20Gen%202026",
+    );
+  });
+
   it("electionLab is /lab/<state>/<event> (unchanged from url.ts)", () => {
     const u = link.electionLab("S22", "AcGenMay2026");
     expect(u).toMatch(/^\/lab\/[a-z0-9-]+\/AcGenMay2026$/);
   });
 
+  it("labMethod is /lab/<state>/<event>/m/<method>", () => {
+    expect(link.labMethod("S22", "AcGenMay2026", "fptp")).toMatch(
+      /^\/lab\/[a-z0-9-]+\/AcGenMay2026\/m\/fptp$/,
+    );
+  });
+
   it("electionCompare is /compare/<state>/<event> (unchanged from url.ts)", () => {
     const u = link.electionCompare("S22", "AcGenMay2026");
     expect(u).toMatch(/^\/compare\/[a-z0-9-]+\/AcGenMay2026$/);
+  });
+
+  it("compareMethod is /compare/<state>/<event>/m/<method>", () => {
+    expect(link.compareMethod("S22", "AcGenMay2026", "proportional")).toMatch(
+      /^\/compare\/[a-z0-9-]+\/AcGenMay2026\/m\/proportional$/,
+    );
+  });
+
+  it("compareIndicator is /compare with no querystring when empty", () => {
+    expect(link.compareIndicator()).toBe("/compare");
+    expect(link.compareIndicator({})).toBe("/compare");
+  });
+
+  it("compareIndicator emits ?i=…&states=…&peer=… when provided", () => {
+    expect(
+      link.compareIndicator({
+        indicator: "state-gsdp-current-inr-crore",
+        states: ["S22", "S07"],
+        peer: "south",
+      }),
+    ).toBe(
+      "/compare?i=state-gsdp-current-inr-crore&states=S22%2CS07&peer=south",
+    );
+  });
+
+  it("indicatorDoc is /docs/indicator/<topic>/<id>", () => {
+    expect(link.indicatorDoc("fiscal/outstanding_debt_pct_gsdp")).toBe(
+      "/docs/indicator/fiscal/outstanding_debt_pct_gsdp",
+    );
+  });
+
+  it("indicatorDoc preserves the catalogue-key slash (NOT URL-encoded)", () => {
+    const u = link.indicatorDoc("environment/state_pm25_annual_mean_ug_m3");
+    expect(u).toContain(
+      "/docs/indicator/environment/state_pm25_annual_mean_ug_m3",
+    );
+    expect(u).not.toContain("%2F");
+  });
+
+  it("docsLabMethod is /docs/lab/<method>", () => {
+    expect(link.docsLabMethod("fptp")).toBe("/docs/lab/fptp");
   });
 
   it("about / settings / disclaimer / dataCompleteness are chrome at root", () => {

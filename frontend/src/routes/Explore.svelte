@@ -2,7 +2,7 @@
   import { query } from "../lib/duckdb";
   import { buildExploreViews } from "../lib/explore/duckdb-views";
   import { states } from "../lib/states.svelte";
-  import { url } from "../lib/url";
+  import { link } from "../lib/links";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import {
     ALL_PRESETS,
@@ -130,7 +130,7 @@
   <header class="space-y-1">
     <p class="text-xs">
       <a class="text-slate-500 hover:underline"
-         href={state_code ? url.state(state_code) : url.home()}>
+         href={state_code ? link.state(state_code) : link.home()}>
         ← {states.name(state_code)} overview
       </a>
     </p>

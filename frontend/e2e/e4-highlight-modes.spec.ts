@@ -28,7 +28,7 @@ import { attachPageErrorTrap } from "./_helpers";
 // covers BOTH arms. AcGenApr2021 is the canonical state-election
 // surface used by the E3 silhouette smoke + the state-ac-coverage
 // suites - same risk axis here.
-const TARGET_PAGE = "/s/tamil-nadu/elections/AcGenApr2021";
+const TARGET_PAGE = "/tamil-nadu/elections/AcGenApr2021";
 
 let trap: ReturnType<typeof attachPageErrorTrap> | null = null;
 

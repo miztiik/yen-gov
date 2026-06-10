@@ -31,7 +31,7 @@
   import { partyColourHex } from "../lib/psephlab/colour-bridge";
   import ParliamentArc from "../lib/ParliamentArc.svelte";
   import { states } from "../lib/states.svelte";
-  import { url } from "../lib/url";
+  import { link } from "../lib/links";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import {
     fetchElectionEvents,
@@ -232,7 +232,7 @@
 <div class="max-w-screen-2xl mx-auto p-4 md:p-6 space-y-4">
   <header class="space-y-1">
     <p class="text-xs">
-      <a class="text-slate-500 hover:underline" href={state_code ? url.state(state_code) : url.home()}>← {states.name(state_code)} overview</a>
+      <a class="text-slate-500 hover:underline" href={state_code ? link.state(state_code) : link.home()}>← {states.name(state_code)} overview</a>
     </p>
     <div class="flex items-baseline justify-between gap-4 flex-wrap">
       <h1 class="text-2xl font-bold flex items-center gap-2">
@@ -263,7 +263,7 @@
   {#if mode === 'scn'}
     <p class="text-xs text-slate-500">
       Both columns work on actuals for <code class="font-mono">{params.event}</code> in {states.name(state_code)}.
-      Build each scenario in <a class="text-blue-600 hover:underline" href={state_code ? url.lab(state_code, params.event) : url.home()}>Psephlab</a>, copy its share URL, then paste it into the box below for column A or B.
+      Build each scenario in <a class="text-blue-600 hover:underline" href={state_code ? link.lab(state_code, params.event) : link.home()}>Psephlab</a>, copy its share URL, then paste it into the box below for column A or B.
     </p>
 
     <div class="grid lg:grid-cols-[1fr_minmax(180px,auto)_1fr] gap-3 items-start">

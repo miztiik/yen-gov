@@ -24,7 +24,7 @@
 //
 // Tested by rail-groups.test.ts.
 
-import { url } from "./url";
+import { link } from "./links";
 
 /** A single navigable entry in the rail. Disabled items are NEVER emitted. */
 export interface RailItem {
@@ -117,7 +117,7 @@ export function buildRailGroups(args: BuildRailGroupsArgs): RailGroup[] {
           {
             id: "this-state.overview",
             label: "Overview",
-            href: url.state(state),
+            href: link.state(state),
             // Highlight on /s/<slug> exactly, NOT on its sub-pages.
             match: p =>
               p.startsWith("/s/") &&
@@ -131,7 +131,7 @@ export function buildRailGroups(args: BuildRailGroupsArgs): RailGroup[] {
             label: topicTitles?.get(id) ?? id,
             // IA-reset Step #2: with a state in scope, topic links go to
             // the per-state-topic view, not the national /t/<id> page.
-            href: url.stateTopic(state, id),
+            href: link.stateTopic(state, id),
             match: (p: string) =>
               p.startsWith("/s/") && p.endsWith(`/t/${id}`),
           })),
@@ -151,13 +151,13 @@ export function buildRailGroups(args: BuildRailGroupsArgs): RailGroup[] {
       {
         id: "across-states.compare",
         label: "Compare states",
-        href: url.compareIndicator(),
+        href: link.compareIndicator(),
         match: p => p === "/compare",
       },
       {
         id: "across-states.all-topics",
         label: "All topics",
-        href: url.topics(),
+        href: link.topics(),
         match: p => p === "/t",
       },
     ],
@@ -170,7 +170,7 @@ export function buildRailGroups(args: BuildRailGroupsArgs): RailGroup[] {
       {
         id: "about.about",
         label: "About & sources",
-        href: url.about(),
+        href: link.about(),
         match: p => p === "/about",
       },
     ],

@@ -50,7 +50,7 @@
   import TopicIcon from "../lib/TopicIcon.svelte";
   import UnionListBanner from "../lib/UnionListBanner.svelte";
   import { states } from "../lib/states.svelte";
-  import { url } from "../lib/url";
+  import { link } from "../lib/links";
   import GeoBreadcrumb from "../lib/GeoBreadcrumb.svelte";
   import {
     fetchElectionEvents,
@@ -134,25 +134,25 @@
   {:else if !state_code}
     <div class="space-y-2">
       <p class="text-sm">
-        <a href={url.home()} class="text-sky-700 hover:underline">← Home</a>
+        <a href={link.home()} class="text-sky-700 hover:underline">← Home</a>
       </p>
       <h1 class="text-2xl font-semibold">State not found</h1>
       <p class="text-sm text-slate-600">
         No state with slug <code class="rounded bg-slate-100 px-1">{params.state}</code>.
-        Pick a state from the <a href={url.home()} class="text-sky-700 hover:underline">home page</a>.
+        Pick a state from the <a href={link.home()} class="text-sky-700 hover:underline">home page</a>.
       </p>
     </div>
   {:else if !topic}
     <div class="space-y-2">
       <p class="text-sm">
-        <a href={url.state(state_code)} class="text-sky-700 hover:underline"
+        <a href={link.state(state_code)} class="text-sky-700 hover:underline"
           >← {state_name}</a
         >
       </p>
       <h1 class="text-2xl font-semibold">Topic not found</h1>
       <p class="text-sm text-slate-600">
         No topic with id <code class="rounded bg-slate-100 px-1">{params.topic}</code> in the catalogue.
-        See the <a href={url.topics()} class="text-sky-700 hover:underline">topic index</a> for the full list.
+        See the <a href={link.topics()} class="text-sky-700 hover:underline">topic index</a> for the full list.
       </p>
     </div>
   {:else}
@@ -190,7 +190,7 @@
             <header class="flex items-baseline justify-between gap-3 flex-wrap">
               <h2 class="text-base font-semibold">
                 <a
-                  href={url.stateElection(state_code, ev.event_id)}
+                  href={link.stateElection(state_code, ev.event_id)}
                   class="text-sky-700 hover:underline"
                   data-testid="election-topic-default-link"
                 >
@@ -212,7 +212,7 @@
             </p>
             <p class="text-xs text-slate-500">
               <a
-                href={url.stateElection(state_code, ev.event_id)}
+                href={link.stateElection(state_code, ev.event_id)}
                 class="text-sky-700 hover:underline"
               >
                 View constituency-level results →
@@ -230,7 +230,7 @@
                 {#each election_other_rows as row (row.event_id)}
                   <li>
                     <a
-                      href={url.stateElection(state_code, row.event_id)}
+                      href={link.stateElection(state_code, row.event_id)}
                       class="text-sky-700 hover:underline"
                     >
                       {row.display}

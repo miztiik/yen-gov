@@ -8,7 +8,7 @@
 //   /disclaimer                                — legal-style disclaimer
 //   /settings                                  — color overrides editor
 //   /no-such-route                             — 404 fallback
-//   /s/tamil-nadu/party/dmk-DMK                — party page
+//   /tamil-nadu/party/dmk-DMK                — party page
 //   /lab/tamil-nadu/AcGenMay2026               — Psephlab simulator
 //   /compare/tamil-nadu/AcGenMay2026           — Compare surface
 //
@@ -88,7 +88,7 @@ test.describe("extended routes", () => {
 
   test("party page renders for DMK in Tamil Nadu", async ({ page }) => {
     // Slug shape: <short-slug>-<eci-code-lower>. DMK is short=DMK, eci=DMK.
-    await page.goto("/s/tamil-nadu/party/dmk-DMK");
+    await page.goto("/tamil-nadu/party/dmk-DMK");
     await page.waitForLoadState("networkidle", { timeout: 15_000 });
     // PR-H (Phase 1.3d): per-event alliance now rides on PartyTotals via
     // the dim_party_alliances LEFT JOIN. DMK for AcGenMay2026 surfaces
@@ -151,7 +151,7 @@ test.describe("extended routes", () => {
   // Phase 1.3c — icon rollout sub-2 (topic landings).
   //
   // /t/<topic>            → TopicLanding.svelte (1.3c part A)
-  // /s/<state>/t/<topic>  → StateTopic.svelte    (1.3c part B)
+  // /<state>/t/<topic>  → StateTopic.svelte    (1.3c part B)
   // Each surface inherits the visual identity the citizen tapped on the
   // /t index — the icon prefixes the `<h1>` topic title.
   test("topic landing /t/fiscal renders TopicIcon in <h1>", async ({ page }) => {
@@ -161,8 +161,8 @@ test.describe("extended routes", () => {
     await expect(h1Icon).toHaveAttribute("data-icon-name", "landmark");
   });
 
-  test("state topic /s/tamil-nadu/t/energy renders TopicIcon in <h1>", async ({ page }) => {
-    await page.goto("/s/tamil-nadu/t/energy");
+  test("state topic /tamil-nadu/t/energy renders TopicIcon in <h1>", async ({ page }) => {
+    await page.goto("/tamil-nadu/t/energy");
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible({ timeout: 15_000 });
     const h1Icon = page.locator('h1 svg[data-icon-name]').first();
     await expect(h1Icon).toHaveAttribute("data-icon-name", "zap");
@@ -170,7 +170,7 @@ test.describe("extended routes", () => {
 
   // Phase 1.3d — icon rollout sub-3 (indicator cards).
   //
-  // State hub `/s/<state>` renders IndicatorCard.svelte for every
+  // State hub `/<state>` renders IndicatorCard.svelte for every
   // catalogued artifact across every topic — typically ≥80 cards. Each
   // card's `<h3>` is now prefixed with the indicator's `meta.icon`
   // (silent on miss). The smoke asserts ≥20 distinct cards carry an
@@ -178,8 +178,8 @@ test.describe("extended routes", () => {
   // but high enough to prove the wiring, while leaving headroom for the
   // taxonomy author to remove indicators without forcing this test to
   // be rebaselined.
-  test("state hub /s/tamil-nadu renders TopicIcon on IndicatorCard headers", async ({ page }) => {
-    await page.goto("/s/tamil-nadu");
+  test("state hub /tamil-nadu renders TopicIcon on IndicatorCard headers", async ({ page }) => {
+    await page.goto("/tamil-nadu");
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible({ timeout: 15_000 });
     // IndicatorCards load via fetchIndicator() — wait for the first
     // sparkline path (proxy for "≥1 card has data").
@@ -187,7 +187,7 @@ test.describe("extended routes", () => {
     await page.waitForTimeout(3000); // allow more cards to settle in
     const icons = page.locator("h3 svg[data-icon-name]");
     const count = await icons.count();
-    expect(count, "≥20 IndicatorCards should render an icon on /s/tamil-nadu").toBeGreaterThanOrEqual(20);
+    expect(count, "≥20 IndicatorCards should render an icon on /tamil-nadu").toBeGreaterThanOrEqual(20);
     const seen = await icons.evaluateAll((els) =>
       Array.from(new Set(els.map((e) => e.getAttribute("data-icon-name")))).sort(),
     );
@@ -254,7 +254,7 @@ test.describe("extended routes", () => {
   // Phase 1.3f — icon rollout sub-5 (state-hub chips + leaf pages + chrome).
   //
   // Final wave of the icon-rollout series. Covers:
-  //   1. State hub section chips (h2 per topic on /s/<state>) — wires
+  //   1. State hub section chips (h2 per topic on /<state>) — wires
   //      `topic.icon` against the same TopicIcon registry already proven
   //      on TopicIndex / TopicLanding (1.3b–1.3c).
   //   2. Identity icons on the 10 chrome / leaf routes: Constituency,
@@ -267,8 +267,8 @@ test.describe("extended routes", () => {
   // on a chrome surface. We pin /lab/tamil-nadu/ae-2021 (Psephlab,
   // dynamic h1 + named ECI election) and /about (static h1, copy-only)
   // to cover the two ends of the chrome spectrum.
-  test("state hub /s/tamil-nadu renders TopicIcon on section chips", async ({ page }) => {
-    await page.goto("/s/tamil-nadu");
+  test("state hub /tamil-nadu renders TopicIcon on section chips", async ({ page }) => {
+    await page.goto("/tamil-nadu");
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible({ timeout: 15_000 });
     // Section chips come from catalogue.topics → render synchronously
     // with the page (no fetch). Wait briefly to allow the catalogue
@@ -276,7 +276,7 @@ test.describe("extended routes", () => {
     await page.waitForSelector('h2 svg[data-icon-name]', { timeout: 15_000 });
     const chipIcons = page.locator('h2 svg[data-icon-name]');
     const count = await chipIcons.count();
-    expect(count, "≥5 section chips should render an icon on /s/tamil-nadu").toBeGreaterThanOrEqual(5);
+    expect(count, "≥5 section chips should render an icon on /tamil-nadu").toBeGreaterThanOrEqual(5);
     const seen = await chipIcons.evaluateAll((els) =>
       Array.from(new Set(els.map((e) => e.getAttribute("data-icon-name")))).sort(),
     );
@@ -320,8 +320,8 @@ test.describe("extended routes", () => {
   // contract test `frontend/src/contracts/sources-v2-shape.test.ts`
   // covers the type-system seam; this spec is the citizen-surface seam.
 
-  test("state hub /s/tamil-nadu mounts SourceListV2 with citizen-visible trust signals", async ({ page }) => {
-    await page.goto("/s/tamil-nadu");
+  test("state hub /tamil-nadu mounts SourceListV2 with citizen-visible trust signals", async ({ page }) => {
+    await page.goto("/tamil-nadu");
 
     const footer = page
       .locator('[data-testid="state-summary-sources"] [data-component="source-list-v2"]')

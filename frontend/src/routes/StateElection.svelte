@@ -31,7 +31,8 @@
 
   import { fetchElectionEvents, findEvent, listEventsForState, type ElectionEventsCatalogue } from "../lib/election-events";
   import { states } from "../lib/states.svelte";
-  import { navigate, url } from "../lib/url";
+  import { navigate } from "../lib/url";
+  import { link } from "../lib/links";
   import ElectionMap from "../lib/elections/ElectionMap.svelte";
   import ElectionTimeSlider from "../lib/elections/ElectionTimeSlider.svelte";
   import ElectionFilterRail from "../lib/elections/ElectionFilterRail.svelte";
@@ -78,7 +79,7 @@
   // reactive chain below (event_row -> $effect -> ac_winners) reloads the
   // winners and recolours the map. URL is the single source of truth.
   function selectEvent(eventId: string) {
-    if (state_code) navigate(url.stateElection(state_code, eventId));
+    if (state_code) navigate(link.stateElection(state_code, eventId));
   }
 
   const states_loading = $derived(!states.isLoaded);
@@ -183,12 +184,12 @@
   {:else if !state_code}
     <div class="space-y-2">
       <p class="text-sm">
-        <a href={url.home()} class="text-sky-700 hover:underline">← Home</a>
+        <a href={link.home()} class="text-sky-700 hover:underline">← Home</a>
       </p>
       <h1 class="text-2xl font-semibold">State not found</h1>
       <p class="text-sm text-slate-600">
         No state with slug <code class="rounded bg-slate-100 px-1">{params.state}</code>.
-        Pick a state from the <a href={url.home()} class="text-sky-700 hover:underline">home page</a>.
+        Pick a state from the <a href={link.home()} class="text-sky-700 hover:underline">home page</a>.
       </p>
     </div>
   {:else if !event_row}
@@ -196,11 +197,11 @@
       <nav aria-label="Breadcrumb" class="text-xs text-slate-500">
         <ol class="flex items-center gap-1 list-none p-0 m-0">
           <li>
-            <a href={url.state(state_code)} class="hover:text-sky-700 hover:underline">{state_name}</a>
+            <a href={link.state(state_code)} class="hover:text-sky-700 hover:underline">{state_name}</a>
           </li>
           <li aria-hidden="true" class="text-slate-400">›</li>
           <li>
-            <a href={url.stateTopic(state_code, "elections")} class="hover:text-sky-700 hover:underline">Elections</a>
+            <a href={link.stateTopic(state_code, "elections")} class="hover:text-sky-700 hover:underline">Elections</a>
           </li>
           <li aria-hidden="true" class="text-slate-400">›</li>
           <li class="text-slate-700" aria-current="page">Unknown event</li>
@@ -210,7 +211,7 @@
       <p class="text-sm text-slate-600">
         No election with id <code class="rounded bg-slate-100 px-1">{params.event}</code>
         is catalogued for {state_name}. See the
-        <a href={url.stateTopic(state_code, "elections")} class="text-sky-700 hover:underline"
+        <a href={link.stateTopic(state_code, "elections")} class="text-sky-700 hover:underline"
           >elections topic page</a
         >
         for the list of known events.
@@ -222,11 +223,11 @@
       <nav aria-label="Breadcrumb" class="text-xs text-slate-500">
         <ol class="flex items-center gap-1 list-none p-0 m-0">
           <li>
-            <a href={url.state(state_code)} class="hover:text-sky-700 hover:underline">{state_name}</a>
+            <a href={link.state(state_code)} class="hover:text-sky-700 hover:underline">{state_name}</a>
           </li>
           <li aria-hidden="true" class="text-slate-400">›</li>
           <li>
-            <a href={url.stateTopic(state_code, "elections")} class="hover:text-sky-700 hover:underline">Elections</a>
+            <a href={link.stateTopic(state_code, "elections")} class="hover:text-sky-700 hover:underline">Elections</a>
           </li>
           <li aria-hidden="true" class="text-slate-400">›</li>
           <li class="text-slate-700" aria-current="page">{ev.display}</li>
@@ -238,7 +239,7 @@
            "done with this election, back to the state" affordance. -->
       <p class="text-sm">
         <a
-          href={url.state(state_code)}
+          href={link.state(state_code)}
           class="text-slate-500 hover:underline"
           data-testid="back-to-state"
         >← Back to {state_name}</a>
@@ -318,21 +319,21 @@
 
     <nav class="flex flex-wrap gap-2 text-sm" aria-label="Election surfaces">
       <a
-        href={url.lab(state_code, ev.event_id)}
+        href={link.lab(state_code, ev.event_id)}
         class="rounded border border-sky-200 bg-sky-50 px-3 py-2 text-sky-800 hover:bg-sky-100"
         data-testid="state-election-lab-link"
       >
         View constituency results →
       </a>
       <a
-        href={url.compare(state_code, ev.event_id)}
+        href={link.compare(state_code, ev.event_id)}
         class="rounded border border-slate-200 bg-white px-3 py-2 text-slate-700 hover:bg-slate-50"
         data-testid="state-election-compare-link"
       >
         Compare across states →
       </a>
       <a
-        href={url.state(state_code)}
+        href={link.state(state_code)}
         class="rounded border border-slate-200 bg-white px-3 py-2 text-slate-700 hover:bg-slate-50"
         data-testid="state-election-state-link"
       >

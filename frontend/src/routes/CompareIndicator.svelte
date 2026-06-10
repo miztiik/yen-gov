@@ -25,7 +25,7 @@
   // doesn't bloat the back stack with intermediate tweaks.
 
   import { onMount } from "svelte";
-  import { url } from "../lib/url";
+  import { link } from "../lib/links";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import {
     fetchTopicCatalogue,
@@ -194,7 +194,7 @@
   <header class="space-y-2">
     <nav aria-label="Breadcrumb" class="text-xs text-slate-500">
       <ol class="flex items-center gap-1 list-none p-0 m-0">
-        <li><a href={url.topics()} class="hover:text-sky-700 hover:underline">Topics</a></li>
+        <li><a href={link.topics()} class="hover:text-sky-700 hover:underline">Topics</a></li>
         <li aria-hidden="true" class="text-slate-400">›</li>
         <li class="text-slate-700" aria-current="page">Compare states</li>
       </ol>
@@ -303,7 +303,7 @@
     <div class="text-sm text-slate-600 bg-slate-50 border border-slate-200 rounded p-4 max-w-prose">
       Choose an indicator from the dropdown to start a comparison. You can also
       land here pre-filtered: any topic page's
-      <a href={url.topics()} class="text-sky-700 hover:underline">indicator panels</a>
+      <a href={link.topics()} class="text-sky-700 hover:underline">indicator panels</a>
       will eventually link in with their state and peer-set context preserved.
     </div>
   {:else if query.indicator && !selected}

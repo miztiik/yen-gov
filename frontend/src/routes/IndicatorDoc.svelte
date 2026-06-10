@@ -134,7 +134,7 @@
   } from "../lib/grapher/catalogue";
   import { fetchIndicator, type IndicatorArtifact } from "../lib/indicators";
   import ChartShell from "../lib/charts/ChartShell.svelte";
-  import { url } from "../lib/url";
+  import { link } from "../lib/links";
   import { DATA_BASE } from "../lib/paths";
 
   interface Props {
@@ -246,10 +246,10 @@
 
 <section class="p-4 sm:p-6 space-y-6 max-w-4xl">
   <nav class="text-sm">
-    <a href={url.topics()} class="text-sky-700 hover:underline">All topics</a>
+    <a href={link.topics()} class="text-sky-700 hover:underline">All topics</a>
     {#if matched_topic}
       <span class="text-slate-400 mx-1">/</span>
-      <a href={url.topic(matched_topic.id)} class="text-sky-700 hover:underline">
+      <a href={link.topic(matched_topic.id)} class="text-sky-700 hover:underline">
         {matched_topic.title}
       </a>
     {/if}
@@ -270,7 +270,7 @@
           No indicator with id
           <code class="rounded bg-slate-100 px-1 py-0.5 font-mono">{indicator_id}</code>
           in the catalogue. Browse the
-          <a href={url.topics()} class="text-sky-700 hover:underline">topic index</a>
+          <a href={link.topics()} class="text-sky-700 hover:underline">topic index</a>
           to find the indicator's current home.
         </p>
       </div>

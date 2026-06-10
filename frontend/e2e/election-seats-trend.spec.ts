@@ -19,7 +19,7 @@ test.afterEach(() => {
 
 test.describe("election seats trend", () => {
   test("assam (S03) renders the chronological seat-composition section", async ({ page }) => {
-    await page.goto("/s/assam");
+    await page.goto("/assam");
     await expect(
       page.getByRole("heading", { name: /Seat composition over time/i }),
     ).toBeVisible({ timeout: 20_000 });
@@ -32,7 +32,7 @@ test.describe("election seats trend", () => {
   });
 
   test("assam (S03) shows per-party swing arrows on later bars (PR-B5)", async ({ page }) => {
-    await page.goto("/s/assam");
+    await page.goto("/assam");
     await expect(
       page.getByRole("heading", { name: /Seat composition over time/i }),
     ).toBeVisible({ timeout: 20_000 });

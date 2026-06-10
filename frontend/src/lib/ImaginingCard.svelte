@@ -23,7 +23,7 @@
   //
   // Per-method long-form (history, math, India-specific limitations)
   // lives at /docs/lab/<method-id> - the Read-how-this-counting-works
-  // link emits the path via `url.docsLabMethod(method_id)` so the
+  // link emits the path via `link.docsLabMethod` so the
   // citizen who wants depth is one tap away. In-app surface stays
   // light and encouraging; pedagogy stays in /docs.
 
@@ -69,7 +69,7 @@
      *  E.g. "DMK won 133 of 234 seats (FPTP)". */
     official_result_label?: string;
     /** Optional link to /docs/lab/<method-id> for the long-form
-     *  pedagogy. Caller builds via `url.docsLabMethod(method_id)`. */
+     *  pedagogy. Caller builds via `link.docsLabMethod`. */
     docs_href?: string;
   }
   let {

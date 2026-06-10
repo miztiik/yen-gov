@@ -59,7 +59,7 @@ test.afterEach(() => {
 
 test.describe("E3 state silhouette - StateAcMap fetches shared state corpus", () => {
   for (const { code, slug, label } of STATE_TARGETS) {
-    test(`${code} (${label}) /s/${slug}/ac/1 fetches boundaries/in/states/all.*`, async ({
+    test(`${code} (${label}) /${slug}/ac/1 fetches boundaries/in/states/all.*`, async ({
       page,
     }) => {
       const seen: string[] = [];
@@ -80,7 +80,7 @@ test.describe("E3 state silhouette - StateAcMap fetches shared state corpus", ()
       // silhouette load runs alongside the rest of StateAcMap's
       // mount; the response listener captures it as soon as it
       // returns, well within the poll timeout below.
-      await page.goto(`/s/${slug}/ac/1`, { waitUntil: "domcontentloaded" });
+      await page.goto(`/${slug}/ac/1`, { waitUntil: "domcontentloaded" });
 
       // The state silhouette load is fired by StateAcMap on mount.
       // Poll until at least one shared-corpus GET returns 200.
@@ -105,7 +105,7 @@ test.describe("E3 state silhouette - TileCartogram hex arm draws SVG silhouette"
   // arm shows when `?view=hex` is appended to the StateElection
   // route. The silhouette `<path data-layer="state-silhouette">`
   // then renders BELOW the hex grid.
-  test("S22 (Tamil Nadu) /s/tamil-nadu/elections/AcGenApr2021?view=hex renders state-silhouette <path>", async ({
+  test("S22 (Tamil Nadu) /tamil-nadu/elections/AcGenApr2021?view=hex renders state-silhouette <path>", async ({
     page,
   }) => {
     const seen: string[] = [];
@@ -120,7 +120,7 @@ test.describe("E3 state silhouette - TileCartogram hex arm draws SVG silhouette"
     };
     page.on("response", onResp);
 
-    await page.goto(`/s/tamil-nadu/elections/AcGenApr2021?view=hex`, {
+    await page.goto(`/tamil-nadu/elections/AcGenApr2021?view=hex`, {
       waitUntil: "domcontentloaded",
     });
 

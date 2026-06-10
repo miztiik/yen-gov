@@ -17,7 +17,8 @@
   import WinnerBadge from "../lib/WinnerBadge.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
-  import { url, navigate } from "../lib/url";
+  import { navigate } from "../lib/url";
+  import { link } from "../lib/links";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import PartySymbolGlyph from "../lib/PartySymbolGlyph.svelte";
   import GeoBreadcrumb from "../lib/GeoBreadcrumb.svelte";
@@ -139,7 +140,7 @@
     {#if state_code}
       <p class="text-sm">
         <a
-          href={url.state(state_code)}
+          href={link.state(state_code)}
           class="text-slate-500 hover:underline"
           data-testid="back-to-state"
         >← Back to {states.name(state_code)}</a>
@@ -249,7 +250,7 @@
                 <div class="flex items-center gap-1.5">
                   <PartySymbolGlyph assetPath={c.election_symbol_asset_path} size={16} />
                   {#if c.party_eci_code && state_code}
-                    <a class="hover:underline" href={url.party(state_code, c.party_eci_code, c.party_short)}>{c.party_short}</a>
+                    <a class="hover:underline" href={link.party(state_code, c.party_eci_code, c.party_short)}>{c.party_short}</a>
                   {:else}{c.party_short}{/if}
                 </div>
               </td>

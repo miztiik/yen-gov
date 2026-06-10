@@ -14,7 +14,7 @@
 //                                         (national-elections view-model)
 //   /lab/yenask                         - Yenask
 //                                         (yenask/concepts via canned intent)
-//   /s/tamil-nadu/explore               - Explore
+//   /tamil-nadu/explore               - Explore
 //                                         (explore/duckdb-views)
 //
 // What this CANNOT cleanly prove
@@ -215,12 +215,12 @@ test.describe("F1.3b - CSV reader cutover smoke", () => {
     }
   });
 
-  test("Explore /s/tamil-nadu/explore (AcGenApr2021) builds CSV-backed DuckDB views", async ({
+  test("Explore /tamil-nadu/explore (AcGenApr2021) builds CSV-backed DuckDB views", async ({
     page,
   }) => {
     const audit = attachRequestAudit(page);
 
-    await page.goto("/s/tamil-nadu/explore");
+    await page.goto("/tamil-nadu/explore");
 
     // Switch to the 2021 cohort - TN AcGenMay2026 has NO on-disk CSV
     // (compilation vintage Feb-2023 cut at 2021).
@@ -251,7 +251,7 @@ test.describe("F1.3b - CSV reader cutover smoke", () => {
     // read from those CSVs).
     expect(
       [...audit.assemblyCands, ...audit.assemblySummary].length,
-      `Expected >=1 assembly CSV response (candidacies or summary) on /s/tamil-nadu/explore (AcGenApr2021);\nAll URLs captured (last 30):\n${audit.urls.slice(-30).join("\n")}`,
+      `Expected >=1 assembly CSV response (candidacies or summary) on /tamil-nadu/explore (AcGenApr2021);\nAll URLs captured (last 30):\n${audit.urls.slice(-30).join("\n")}`,
     ).toBeGreaterThan(0);
     expect(
       audit.electoral,

@@ -33,7 +33,7 @@
 
 <script lang="ts">
   import { ruleById, RULES } from "../lib/psephlab/rules";
-  import { url } from "../lib/url";
+  import { link } from "../lib/links";
   import { docsUrl } from "../lib/repo";
   import TopicIcon from "../lib/TopicIcon.svelte";
 
@@ -57,7 +57,7 @@
 
 <div class="max-w-3xl mx-auto p-4 md:p-6 space-y-4">
   <nav class="text-xs" aria-label="Breadcrumb">
-    <a class="text-slate-500 hover:underline" href={url.home()}>Home</a>
+    <a class="text-slate-500 hover:underline" href={link.home()}>Home</a>
     <span class="text-slate-400">/</span>
     <span class="text-slate-500">Docs</span>
     <span class="text-slate-400">/</span>
@@ -80,7 +80,7 @@
       <ul class="mt-3 text-sm space-y-1">
         {#each RULES as r (r.id)}
           <li>
-            <a class="hover:underline" style:color="var(--accent, #3538cd)" href={url.docsLabMethod(r.id)}>{r.short_label ?? r.label}</a>
+            <a class="hover:underline" style:color="var(--accent, #3538cd)" href={link.docsLabMethod(r.id)}>{r.short_label ?? r.label}</a>
             <span class="text-xs ml-2" style:color="var(--ink-muted, #64748b)">({r.validity === "fully_workable" ? "Fully workable" : "Experimental"})</span>
           </li>
         {/each}
@@ -175,7 +175,7 @@
         <a
           class="hover:underline"
           style:color="var(--accent, #3538cd)"
-          href={url.home()}
+          href={link.home()}
         >&larr; Back to Yen Gov</a>
       </p>
     </section>

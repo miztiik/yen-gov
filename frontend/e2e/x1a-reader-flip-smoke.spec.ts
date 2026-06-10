@@ -19,8 +19,8 @@
 //
 // Smoke routes mirror the F1.3a/b precedent:
 //
-//   /s/tamil-nadu                       - StateOverview (state-overview)
-//   /s/tamil-nadu/ac/167                - Constituency (constituency)
+//   /tamil-nadu                       - StateOverview (state-overview)
+//   /tamil-nadu/ac/167                - Constituency (constituency)
 //   /lab/yenask                         - Yenask (yenask/concepts via
 //                                                 canned intent)
 //
@@ -120,12 +120,12 @@ test.afterEach(() => {
 });
 
 test.describe("X1a - dim_parties + taxonomy.sources flipped to CSV", () => {
-  test("StateOverview /s/tamil-nadu fetches parties.csv + source.csv (NO dim_parties.parquet + sources.parquet)", async ({
+  test("StateOverview /tamil-nadu fetches parties.csv + source.csv (NO dim_parties.parquet + sources.parquet)", async ({
     page,
   }) => {
     const audit = attachRequestAudit(page);
 
-    await page.goto("/s/tamil-nadu");
+    await page.goto("/tamil-nadu");
 
     // Wait for the state hub to render (DMK / AIADMK party chips
     // appear in the per-AC winners list once the loader resolves).
@@ -136,21 +136,21 @@ test.describe("X1a - dim_parties + taxonomy.sources flipped to CSV", () => {
     // BANNED: zero requests for dim_parties.parquet OR taxonomy/sources.parquet.
     expect(
       audit.bannedParquet,
-      `Expected ZERO requests for dim_parties.parquet + taxonomy/sources.parquet on /s/tamil-nadu; got:\n${audit.bannedParquet.join("\n")}`,
+      `Expected ZERO requests for dim_parties.parquet + taxonomy/sources.parquet on /tamil-nadu; got:\n${audit.bannedParquet.join("\n")}`,
     ).toEqual([]);
 
     // POSITIVE: at least one fetch of parties.csv (state-overview
     // queries party identity).
     expect(
       audit.partiesCsv,
-      `Expected >=1 fetch of /data/entities/parties.csv on /s/tamil-nadu;\nAll URLs captured (last 30):\n${audit.urls.slice(-30).join("\n")}`,
+      `Expected >=1 fetch of /data/entities/parties.csv on /tamil-nadu;\nAll URLs captured (last 30):\n${audit.urls.slice(-30).join("\n")}`,
     ).not.toHaveLength(0);
 
     // POSITIVE: at least one fetch of source.csv (state-overview
     // queries sources_v2 provenance ledger).
     expect(
       audit.sourceCsv,
-      `Expected >=1 fetch of /data/entities/source.csv on /s/tamil-nadu`,
+      `Expected >=1 fetch of /data/entities/source.csv on /tamil-nadu`,
     ).not.toHaveLength(0);
 
     // Surviving parquet consumers - LOG only (X1b cleanup).
@@ -163,13 +163,13 @@ test.describe("X1a - dim_parties + taxonomy.sources flipped to CSV", () => {
     }
   });
 
-  test("Constituency /s/tamil-nadu/ac/167 fetches parties.csv + source.csv (NO dim_parties.parquet + sources.parquet)", async ({
+  test("Constituency /tamil-nadu/ac/167 fetches parties.csv + source.csv (NO dim_parties.parquet + sources.parquet)", async ({
     page,
   }) => {
     const audit = attachRequestAudit(page);
 
     // AC 167 (Mylapore) - any AC in TN works; pick a stable mid-numbered one.
-    await page.goto("/s/tamil-nadu/ac/167");
+    await page.goto("/tamil-nadu/ac/167");
 
     // Wait for the per-AC candidates panel to render.
     await expect(
@@ -178,17 +178,17 @@ test.describe("X1a - dim_parties + taxonomy.sources flipped to CSV", () => {
 
     expect(
       audit.bannedParquet,
-      `Expected ZERO requests for dim_parties.parquet + taxonomy/sources.parquet on /s/tamil-nadu/ac/167; got:\n${audit.bannedParquet.join("\n")}`,
+      `Expected ZERO requests for dim_parties.parquet + taxonomy/sources.parquet on /tamil-nadu/ac/167; got:\n${audit.bannedParquet.join("\n")}`,
     ).toEqual([]);
 
     expect(
       audit.partiesCsv,
-      `Expected >=1 fetch of /data/entities/parties.csv on /s/tamil-nadu/ac/167`,
+      `Expected >=1 fetch of /data/entities/parties.csv on /tamil-nadu/ac/167`,
     ).not.toHaveLength(0);
 
     expect(
       audit.sourceCsv,
-      `Expected >=1 fetch of /data/entities/source.csv on /s/tamil-nadu/ac/167`,
+      `Expected >=1 fetch of /data/entities/source.csv on /tamil-nadu/ac/167`,
     ).not.toHaveLength(0);
 
     if (audit.surviorParquet.length > 0) {

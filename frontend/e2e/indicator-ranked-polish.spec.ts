@@ -57,13 +57,13 @@ test.describe("IndicatorRanked Phase 3 polish", () => {
     // with" picker should surface the Phase 3 gap-line strip with the
     // closed-enum wording produced by `computeGapLine`. The wording
     // must never say better/worse (honesty rule).
-    await page.goto("/s/karnataka");
+    await page.goto("/karnataka");
 
     // Find the first IndicatorRanked compare picker. Some routes may
     // mount it inside multiple ranked blocks; first is enough.
     const picker = page.locator('select#ranked-compare-select').first();
     const exists = await picker.isVisible().catch(() => false);
-    test.skip(!exists, "No ranked compare picker mounted on /s/karnataka");
+    test.skip(!exists, "No ranked compare picker mounted on /karnataka");
 
     // Pick any non-empty option. Use Tamil Nadu (S22) if present, else
     // the first available option.

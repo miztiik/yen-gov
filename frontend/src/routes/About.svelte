@@ -11,7 +11,7 @@
   // `location.search` and scroll the matching <section> into view on
   // mount and on popstate.
   import { onMount } from "svelte";
-  import { url } from "../lib/url";
+  import { link } from "../lib/links";
   import TopicIcon from "../lib/TopicIcon.svelte";
 
   function focus_section(): void {
@@ -73,7 +73,7 @@
     <p class="text-sm">
       Indicators where we haven't yet documented methodology are flagged
       visibly. See
-      <a class="text-sky-700 hover:underline" href={url.dataCompleteness()}>/data-completeness</a>
+      <a class="text-sky-700 hover:underline" href={link.dataCompleteness()}>/data-completeness</a>
       for the full inventory.
     </p>
   </section>
@@ -167,12 +167,12 @@
       <li>
         Legal-style framing — accuracy, completeness, methodology
         absence-of-evidence rules, citation, corrections workflow — lives
-        on <a class="text-sky-700 hover:underline" href={url.disclaimer()}>/disclaimer</a>.
+        on <a class="text-sky-700 hover:underline" href={link.disclaimer()}>/disclaimer</a>.
       </li>
       <li>
         Per-indicator collection status, including the indicators we
         haven't yet documented:
-        <a class="text-sky-700 hover:underline" href={url.dataCompleteness()}>/data-completeness</a>.
+        <a class="text-sky-700 hover:underline" href={link.dataCompleteness()}>/data-completeness</a>.
       </li>
     </ul>
   </section>
