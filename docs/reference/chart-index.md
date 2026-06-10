@@ -1,16 +1,16 @@
 # Chart Index
 
-**Last Updated**: 2026-06-05
+**Last Updated**: 2026-06-11
 
 > **Two-line doctrine.** Before charting a new indicator, consult BOTH section-15.4 reference galleries (revisual.co + Data-Analytics archetype index) AND pick a renderer from THIS index. Only propose a NEW renderer when (a) neither gallery's relevant archetype maps onto the base set AND (b) >= 2 indicators need it; one indicator's wish for a novel form is met by the nearest base chart, never a new Svelte file.
 
-This is the operational face of [`the schema is the design system`](../concepts/schema-is-the-design-system.md): a citizen picks an indicator, the picker in `ChartShell`'s toolbar offers exactly the renderers `indicator.chart_types[]` declares INTERSECT `feasibleAt(dataShape, grain, timeCardinality, geometryAvailable)`. This document is the human-readable CONTRACT; [`feasibleAt()`](../../frontend/src/lib/grapher/feasibleAt.ts) (landed in plan chunk U4) is the machine implementation. A drift gate at [frontend/src/lib/grapher/chart-index.drift.test.ts](../../frontend/src/lib/grapher/chart-index.drift.test.ts) asserts the three artifacts (the `ChartType` union, the rows in this doc, the matrix `feasibleAt()` implements) stay 1:1.
+This is the operational face of [`the schema is the design system`](../concepts/schema-is-the-design-system.md): a citizen picks an indicator, the picker in `ChartShell`'s toolbar offers exactly the renderers `indicator.chart_types[]` declares INTERSECT `feasibleAt(dataShape, grain, timeCardinality, geometryAvailable)`. This document is the human-readable CONTRACT; [`feasibleAt()`](../../frontend/src/lib/grapher/feasibleAt.ts) is the machine implementation. A drift gate at [frontend/src/lib/grapher/chart-index.drift.test.ts](../../frontend/src/lib/grapher/chart-index.drift.test.ts) asserts the three artifacts (the `ChartType` union, the rows in this doc, the matrix `feasibleAt()` implements) stay 1:1.
 
-The base set per plan section 15.1 is **eight renderers** plus one optional `Radar`. Election-only renderers (`PartyBar`, `SeatDonut`, `ParliamentArc`, `TileCartogram` in election mode, etc.) stay fenced to election mounts per [ADR-0048](../architecture/frontend/charts/election-views.md#adr-0048-elections-drill-ia-and-tile-cartogram) and are NOT in this base set.
+The base set is **eight renderers** plus one optional `Radar`. Election-only renderers (`PartyBar`, `SeatDonut`, `ParliamentArc`, `TileCartogram` in election mode, etc.) stay fenced to election mounts per [ADR-0048](../architecture/frontend/charts/election-views.md#adr-0048-elections-drill-ia-and-tile-cartogram) and are NOT in this base set.
 
 ## 1. The base set - one row per renderer (mode)
 
-The `Thumb` column is the Lucide icon id (kebab-case) that the picker will render at 24px from [frontend/public/icons/](../../frontend/public/icons/) (plan section 21.10; the file set lands in chunk U3). All eight glyphs are members of one open icon family (Lucide ISC), recorded in `LICENCES.md`.
+The `Thumb` column is the Lucide icon id (kebab-case) that the picker will render at 24px from [frontend/public/icons/](../../frontend/public/icons/). All eight glyphs are members of one open icon family (Lucide ISC), recorded in `LICENCES.md`.
 
 The `Machine id` column is the kebab-case literal carried by `ChartType` ([frontend/src/lib/grapher/catalogue.ts](../../frontend/src/lib/grapher/catalogue.ts)) AND by `chart_types[]` in [datasets/grapher/*.json](../../datasets/grapher/). It is the load-bearing handle the drift gate parses: `Machine id <-> ChartType union member <-> feasibleAt() output literal` must stay 1:1.
 
@@ -19,11 +19,11 @@ The `Machine id` column is the kebab-case literal carried by `ChartType` ([front
 | 1 | `GeoChoropleth{fill}` | `choropleth` | `map` | `(entity, time, value)`, one time slice; `entity` keyed by LGD / ECI / ISO and joinable to the rendered-grain geometry | district / state coverage map; any single-measure-over-geo headline | geometry MUST exist at the rendered grain; if absent, silently removed and default falls to next `chart_types[]` entry (citizen never sees a map that cannot draw) |
 | 2 | `GeoChoropleth{symbol}` | `choropleth-symbol` | `map-pinned` | `(entity, time, value)` + `symbol_id` FK to closed icon registry | icon-cartogram: one glyph per region, area-sized by value (sqrt) over faint base outline | symbol MUST resolve in the sanitised registry; missing glyph falls back to a plain sized dot; animated SVG is REJECTED (motion carries no signal beyond size) |
 | 3 | `Matrix` (heatmap) | `matrix` | `grid-3x3` | `(entity, time, value)`, all slices | many entities x many time slices on one screen; SGDP-across-states-over-time, climate-stripes shape | shares `ColorScale + Legend` with Choropleth; numeric labels always (never colour alone); ranked fallback always available |
-| 4 | `CategoryBar{ranked}` | `ranked` | `bar-chart-3` | `(entity, value)` + optional `facet` | plain ranked comparison; the GUARANTEED non-empty terminal fallback (plan section 23.5) | `ranked` is present in EVERY matrix row below; the drift gate enforces this so a blank card is impossible |
+| 4 | `CategoryBar{ranked}` | `ranked` | `bar-chart-3` | `(entity, value)` + optional `facet` | plain ranked comparison; the GUARANTEED non-empty terminal fallback | `ranked` is present in EVERY matrix row below; the drift gate enforces this so a blank card is impossible |
 | 5 | `CategoryBar{stacked}` | `stacked` | `chart-column-stacked` | `(entity, facet, value)` | part-to-whole within each entity (e.g. workforce by sector per state); category-on-axis only | DO NOT use for time-on-x stacked area (that is `StackedTrendV2`, fenced to elections); document the boundary or a third stacked surface forks |
-| 6 | `CategoryBar{diverging}` | `diverging` | `align-horizontal-distribute-center` | `(entity, facet, value)` with a centre baseline (likert split or sex axis) | N/S/E/W confidence likert; age-sex pyramid; workforce M/F | likert == pyramid == one component; DO NOT build a Pyramid component or a Likert component (plan section 15.1 collapse) |
-| 7 | `TimeLine` | `line` | `trending-up` | `(entity, time, value)`, 1-3 series | a small number of named series moving through time | brush + range label live in `ChartShell` header per plan section 25.2; `referenceSeries` slot for national line per plan section 20.11 |
-| 8 | `Scatter{size}` | `scatter` | `circle-dot` | two indicators joined per entity `(entity, time, x, y)` + optional `size` | CHIP vs NSDP per-capita; any two-measure correlation; bubble == size mode | NO standalone Bubble renderer; the axes-bearing bubble IS `Scatter{size}` (plan section 15.3) |
+| 6 | `CategoryBar{diverging}` | `diverging` | `align-horizontal-distribute-center` | `(entity, facet, value)` with a centre baseline (likert split or sex axis) | N/S/E/W confidence likert; age-sex pyramid; workforce M/F | likert == pyramid == one component; DO NOT build a Pyramid component or a Likert component |
+| 7 | `TimeLine` | `line` | `trending-up` | `(entity, time, value)`, 1-3 series | a small number of named series moving through time | brush + range label live in `ChartShell` header; `referenceSeries` slot for national line |
+| 8 | `Scatter{size}` | `scatter` | `circle-dot` | two indicators joined per entity `(entity, time, x, y)` + optional `size` | CHIP vs NSDP per-capita; any two-measure correlation; bubble == size mode | NO standalone Bubble renderer; the axes-bearing bubble IS `Scatter{size}` |
 | 9 | `DumbbellRange{dot}` | `dumbbell-dot` | `git-commit-horizontal` | `(entity, value_start, value_end)` | start->end pair per entity; absolute level compare at two points | uses the existing `frontend/src/lib/charts/DumbbellRange.svelte`; no new file |
 | 10 | `DumbbellRange{arrow}` | `dumbbell-arrow` | `move-right` | `(entity, value_start, value_end)` + indicator `direction` | year-over-year direction (e.g. 2021->2022 cybercrime per lakh); good-up AND bad-up read correctly | arrowhead at end + open-ring at origin; colour by `direction` (`higher_is_better\|lower_is_better\|neutral`); delta label via existing `format_delta` |
 | 11 | `Treemap` | `treemap` | `layout-dashboard` | `(category\|entity, value)` + optional one `parent` level | part-to-whole where precise size compare matters (tiles, zero dead space); economic-disparity by city-pop band | sqrt area scale (honest area; 4x value reads as 4x not 16x); labels MUST survive at 360px |
@@ -32,7 +32,7 @@ The `Machine id` column is the kebab-case literal carried by `ChartType` ([front
 
 The optional `Radar` row carries `(none yet)` in the Machine id column: it is deliberately NOT a `ChartType` member until the >= 2-indicator rule (section 5 below) is met for it. The drift gate skips rows whose Machine id starts with `(`.
 
-`OrderedCategoryBar` + `HorizontalGroupedBar` + `composition-bar/` collapse INTO `CategoryBar(mode=...)` in plan chunk F2a (the consolidation PR; structural merge with golden-render gates). Until F2a ships, those three Svelte files remain on disk as the implementation; this doc is the post-collapse contract.
+`OrderedCategoryBar` + `HorizontalGroupedBar` + `composition-bar/` are designated for consolidation INTO `CategoryBar(mode=...)`. Until that consolidation ships, those three Svelte files remain on disk as the implementation; this doc is the post-collapse contract.
 
 ### 1a. Deprecated machine ids (reader keeps them readable per ADR-0047)
 
@@ -60,7 +60,7 @@ The frontend reader (`catalogue.ts` `DEPRECATED_CHART_TYPE_ALIASES`) accepts the
 
 **Guaranteed fallback.** `CategoryBar{ranked}` is present in EVERY row above. Every shape reaching the renderer has at least `(entity, value)`, so the intersect is never empty even when `indicator.chart_types:["choropleth"]` and geometry is absent at the rendered grain - the citizen sees a ranked bar, never a blank card. The drift gate (section 4 below) enforces `ranked` in every row.
 
-**Grain feasibility gate.** `GeoChoropleth{fill}` and `GeoChoropleth{symbol}` are silently removed when geometry is absent at the rendered grain (see plan section 16.2 grain matrix). The default then falls to the next entry in `indicator.chart_types[]`. A district choropleth at sub-district grain without sub-district geometry simply does not appear in the picker.
+**Grain feasibility gate.** `GeoChoropleth{fill}` and `GeoChoropleth{symbol}` are silently removed when geometry is absent at the rendered grain. The default then falls to the next entry in `indicator.chart_types[]`. A district choropleth at sub-district grain without sub-district geometry simply does not appear in the picker.
 
 **Single-encoding intersect.** If the intersect of `chart_types[]` and `feasibleAt(...)` is exactly one encoding, the picker renders NO segmented control - one card, one chart, no controls. The switcher only appears when there are >= 2 feasible offers.
 
@@ -71,8 +71,8 @@ Pie / donut, 3D bars, blind unlabeled bars, and a bar for two continuous measure
 - **Pie / donut.** Angle is a perceptual lie for magnitude. Part-to-whole goes to `Treemap` (precise compare) or `CategoryBar{stacked}` (compare within entity). No matrix row emits a `Pie` chart type, and no row ever will.
 - **3D bars / pseudo-isometric columns.** Foreshortening lies about height. Quantity stays in 2D; no row emits.
 - **Bar for two continuous measures.** Two measures joined per entity go to `Scatter{size}`; using a bar would force one measure to vanish into a label. No row emits a bar for the two-measure shape.
-- **Blind unlabeled bar.** Every `CategoryBar` row carries `(entity, value)` with `entity` mandatory and numeric labels present; the renderer rejects rows missing the entity column at the typed-read boundary (plan section 23.2). A truly unlabeled bar cannot construct.
-- **Animated SVG cartogram.** Motion carries no signal beyond size; the `GeoChoropleth{symbol}` row uses sqrt-area-scale static glyphs. Animation is rejected on reductionism + mid-tier-Android performance grounds (plan section 15.1).
+- **Blind unlabeled bar.** Every `CategoryBar` row carries `(entity, value)` with `entity` mandatory and numeric labels present; the renderer rejects rows missing the entity column at the typed-read boundary. A truly unlabeled bar cannot construct.
+- **Animated SVG cartogram.** Motion carries no signal beyond size; the `GeoChoropleth{symbol}` row uses sqrt-area-scale static glyphs. Animation is rejected on reductionism + mid-tier-Android performance grounds.
 
 A future maintainer who wants any of the above must add a row to section 2 (matrix) AND add a member to the `ChartType` union AND change `feasibleAt()` - the drift gate rejects partial changes.
 
@@ -96,7 +96,7 @@ A PR that adds a renderer to either side without the other will fail the gate. T
 
 ## 5. How to add a new renderer (process)
 
-1. Confirm the >= 2-indicator rule (plan section 15.4): name the two indicators that need the new renderer, and confirm that neither of the two reference galleries (revisual.co + Data-Analytics) maps the underlying archetype onto an existing base-set member. A single indicator's wish for a novel form is not enough.
+1. Confirm the >= 2-indicator rule: name the two indicators that need the new renderer, and confirm that neither of the two reference galleries (revisual.co + Data-Analytics) maps the underlying archetype onto an existing base-set member. A single indicator's wish for a novel form is not enough.
 2. Add a row to section 1 (renderer name + Machine id + Lucide thumb id + long-format CSV shape + use-when + feasibility rule).
 3. Add the encoding to every applicable section-2 matrix row (and ensure `CategoryBar{ranked}` stays present as the guaranteed fallback).
 4. Widen the `ChartType` union at [frontend/src/lib/grapher/catalogue.ts](../../frontend/src/lib/grapher/catalogue.ts), accepting any retired literal as a deprecated alias (reader-before-writer per [ADR-0047](../architecture/data/schema-evolution.md#adr-0047-schema-version-compatibility-contract)).
@@ -113,7 +113,6 @@ Removal is the inverse and goes through the same gate.
 - [docs/concepts/owid-alignment.md](../concepts/owid-alignment.md) - one indicator = one long-format series, the shape the matrix consumes
 - [docs/architecture/data/indicator-catalogue.md#adr-0045-grapher-catalogue-split](../architecture/data/indicator-catalogue.md#adr-0045-grapher-catalogue-split) - render hints live in `datasets/grapher/`, not on the canonical catalogues
 - [docs/architecture/frontend/charts/election-views.md#adr-0048-elections-drill-ia-and-tile-cartogram](../architecture/frontend/charts/election-views.md#adr-0048-elections-drill-ia-and-tile-cartogram) - why election-only renderers stay fenced
-- [TODO/20260603-data-and-charting-platform-reset-plan.md](../../TODO/20260603-data-and-charting-platform-reset-plan.md) - the binding rip plan; sections 15.1 (renderer set), 15.4 (galleries), 16.2 (grain feasibility), 20.9 (this doc's commission), 21.9 (rational chart-viz / matrix), 23.5 (guaranteed-fallback rule)
 - [frontend/src/lib/grapher/catalogue.ts](../../frontend/src/lib/grapher/catalogue.ts) - the `ChartType` union, half of the drift contract
 - [frontend/src/lib/grapher/feasibleAt.ts](../../frontend/src/lib/grapher/feasibleAt.ts) - the pure-function source of truth implementing section 2's matrix
-- [frontend/src/lib/grapher/chart-index.drift.test.ts](../../frontend/src/lib/grapher/chart-index.drift.test.ts) - the drift gate (all assertions LIVE post-U4)
+- [frontend/src/lib/grapher/chart-index.drift.test.ts](../../frontend/src/lib/grapher/chart-index.drift.test.ts) - the drift gate (all assertions LIVE)

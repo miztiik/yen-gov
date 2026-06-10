@@ -55,7 +55,7 @@ Recommended root topology. The boundaries between these directories are real and
 | `docs/` | Canonical long-term project knowledge | Tracked |
 | `tools/` | Standalone operational/dev tooling (must NOT import from backend/) | Tracked |
 | `.runtime/` | Ephemeral run state, logs, staging | Gitignored |
-| `TODO/` | Working scratchpads, plans-in-flight | Tracked but non-authoritative (the legacy `notes/` directory was retired 2026-06-08 per [TODO/20260603-data-and-charting-platform-reset-plan.md](../../TODO/20260603-data-and-charting-platform-reset-plan.md) override O10; `TODO/` is now the sole working-docs home) |
+| `TODO/` | Working scratchpads, plans-in-flight | Tracked but non-authoritative (the legacy `notes/` directory was retired 2026-06-08; `TODO/` is now the sole working-docs home) |
 | `/memories/` | Agent memory (cross-session notes, scoped) | Tool-managed |
 
 ### 3.1 Memory Hierarchy
@@ -66,7 +66,7 @@ Four distinct memory tiers exist; do not blur them:
 | --- | --- | --- | --- |
 | Canonical | `docs/` | Highest — source of truth | Durable knowledge, decisions, contracts |
 | Agent | `/memories/` | Per-agent, scoped | Cross-session preferences, lessons, repo facts |
-| Working | `TODO/` | Non-authoritative | In-progress plans, drafts, handoff memos (the legacy `notes/` directory was retired 2026-06-08 per the rip-and-refill plan O10) |
+| Working | `TODO/` | Non-authoritative | In-progress plans, drafts, handoff memos (the legacy `notes/` directory was retired 2026-06-08) |
 | Runtime | `.runtime/`, logs | Ephemeral | State, logs, staging — operational only |
 
 Rule: distill durable insights from Working/Agent into Canonical. Never let `TODO/`, `AGENTS.md`, or `/memories/` become the source of truth for architecture. `AGENTS.md` and repo memory are derived indexes that link to canonical docs for rationale and contracts.
