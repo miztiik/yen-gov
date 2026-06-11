@@ -64,7 +64,7 @@
   import MarginHistogram from "../lib/MarginHistogram.svelte";
   import RacesBoard from "../lib/RacesBoard.svelte";
   import SourceListV2 from "../lib/SourceListV2.svelte";
-  import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
+  import StateAcMapD3 from "../lib/charts/StateAcMapD3.svelte";
   import IndicatorCard from "../lib/IndicatorCard.svelte";
   import ElectionSeatsTrend from "../lib/ElectionSeatsTrend.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
@@ -873,7 +873,7 @@
       {#if event && STATE_AC[state_code]}
         <section class="bg-white rounded-lg shadow-sm p-4 min-w-0" data-testid="state-ac-map">
           <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Constituency map</h2>
-          <StateAcMap state={state_code} rows={summary?.ac_winners ?? null} {event} />
+          <StateAcMapD3 state={state_code} rows={summary?.ac_winners ?? null} {event} />
           <p class="text-xs text-slate-400 mt-2">
             Hover for winner & margin · click an AC to drill in. Darker fill = larger winning margin.
           </p>

@@ -59,7 +59,7 @@
     resolvePartyPalette,
     type PartyRowForResolver,
   } from "../lib/colors/resolver";
-  import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
+  import StateAcMapD3 from "../lib/charts/StateAcMapD3.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
   import type { AcWinner } from "../lib/view-models/state-overview";
   import InlineCounterfactualSwing from "../lib/elections/InlineCounterfactualSwing.svelte";
@@ -615,7 +615,7 @@
               >Margin</button>
             </div>
           </div>
-          <StateAcMap
+          <StateAcMapD3
             state={state_code}
             rows={ac_winners_shim}
             event={ev.event_id}

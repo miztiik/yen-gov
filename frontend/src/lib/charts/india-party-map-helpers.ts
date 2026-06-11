@@ -38,12 +38,22 @@ export interface MarkerOverlay {
 }
 
 /** Width + height in projected px of a feature's path bounds. Null
- *  when bounds are non-finite (collapsed projection, empty geometry). */
+ *  when bounds are non-finite (collapsed projection, empty geometry)
+ *  OR when d3-geo's `path.bounds(...)` throws synchronously on a
+ *  malformed ring (PR-5 hit this on per-state AC GeoJSONs for TN /
+ *  Maharashtra / WB / Puducherry where a small subset of features
+ *  have an empty `ring[0]`; the safer surface is to skip the marker
+ *  rather than crash the whole reactive flush). */
 export function pathSpan(
   feature: Feature<Geometry, GeoJsonProperties>,
   path: GeoPath,
 ): { width: number; height: number } | null {
-  const b = path.bounds(feature);
+  let b: ReturnType<GeoPath["bounds"]>;
+  try {
+    b = path.bounds(feature);
+  } catch {
+    return null;
+  }
   if (
     !Number.isFinite(b[0][0]) ||
     !Number.isFinite(b[0][1]) ||

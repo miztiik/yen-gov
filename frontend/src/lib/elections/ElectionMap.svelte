@@ -21,7 +21,7 @@
   //
   // CLAUDE.md §0: no aria/role; visible affordances only.
 
-  import StateAcMap from "../maplibre/StateAcMap.svelte";
+  import StateAcMapD3 from "../charts/StateAcMapD3.svelte";
   import TileCartogram from "../charts/TileCartogram.svelte";
   import {
     fetchElectionTileLayouts,
@@ -431,7 +431,7 @@
 
   {#if view === "geo"}
     <div data-testid="election-map-geo">
-      <StateAcMap
+      <StateAcMapD3
         state={state_code}
         {rows}
         {event}
