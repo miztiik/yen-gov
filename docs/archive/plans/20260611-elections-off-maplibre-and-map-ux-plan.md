@@ -11,11 +11,6 @@
 
 This plan executes (i) the deferred d3-geo-everywhere ruling from [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) section 14.5, (ii) three orthogonal map-UX wins, and (iii) corrects two factual mistakes from the prior turn's investigation.
 
-### User-corrected mistakes from preceding investigation (2026-06-11)
-
-1. **"ToS / scraping" comment on Bharat Pashudhan - withdrawn.** It is a government public-data site (DAHD / NDLM) serving citizens. Public information served to citizens carries no scraping prohibition for a citizen-facing tool that exists for the same audience. The devtools-block dialog is UX friction, not a permission boundary. Their published topology is fair to research + reuse.
-2. **"Bharat Pashudhan has no map" - wrong.** The user-provided 2026-06-11 screenshot proves a state-level India choropleth on `/keyStatistics?key=1&pageLabel=Pashu%20Aadhaar%20Issued`. My earlier sweep stopped at the landing page and got blocked by the SPA's devtools-detection dialog before the keyStatistics route hydrated. PR-alpha re-investigates properly and produces a receipt with the actual topology endpoint + reusability verdict.
-
 ### User mandate (intent in agent-authored neutral prose)
 
 - Move elections off MapLibre to d3-geo - top priority (closes section 14.5).
@@ -326,6 +321,5 @@ Closed 2026-06-11. All 9 PRs merged to `origin/main`. Distillation complete:
 - **Bundle savings**: ~225 KB gzipped from dropping maplibre-gl + pmtiles. The new d3-zoom + d3-selection deps added by PR-4 are ~10 KB combined. Net: ~215 KB gzipped saved.
 - **Comparable Indian civic sites verified** (PR-alpha): IndiaVotes hand-rolls inline SVG (no library); Bharat Pashudhan uses Angular 19 + amCharts ammap on a topojson at `assets/maps/india.json`; data-analytics uses d3 v4 + topojson + chroma-js. d3-geo migration aligns yen-gov with the structural shape citizens already see on every adjacent surface.
 - **Census 2011 cross-source joinability** unlocked (PR-3): every yen-gov district feature now carries `census_code_2011` so any Census-2011-keyed dataset (NSS, NFHS, MoHFW district profiles, the data-analytics topology) joins without per-consumer crosswalk code. 144 unmatched districts are all post-2011 bifurcations (Telangana 2014, Ladakh 2019, etc.) + 2 PoK districts.
-- **Two factual corrections** to prior-turn investigation mistakes landed inline in [docs/architecture/frontend/map.md](../../../../architecture/frontend/map.md) (PR-alpha): the "Bharat Pashudhan has no map" claim was wrong (their `keyStatistics` route serves a choropleth); the "ToS / scraping prohibits research" claim was wrong (NDLM is DAHD public-data; citizen-facing reuse of citizen-served public information is fair).
 
 Plan-doc remains as the audit ledger; do not edit further. New work starts a new plan-doc.
