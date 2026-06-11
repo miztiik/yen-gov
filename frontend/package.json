@@ -52,8 +52,6 @@
     "d3-scale": "^4.0.2",
     "d3-selection": "^3.0.0",
     "d3-zoom": "^3.0.0",
-    "maplibre-gl": "^4.7.1",
-    "pmtiles": "^3.2.1",
     "topojson-client": "^3.1.0",
     "zod": "^4.4.3"
   }

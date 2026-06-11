@@ -219,18 +219,5 @@ export default defineConfig({
   build: {
     outDir: "dist",
     emptyOutDir: true,
-    // Split maplibre-gl + pmtiles into their own chunk. They're heavy
-    // (~280 KB gzipped) and only needed on routes that mount a map. Routes
-    // that don't render a map still incur the cost on first visit because
-    // the static import in MapChoropleth.svelte makes maplibre an eager
-    // dep of every route module that transitively imports it — but the
-    // separate chunk lets the browser cache it independently.
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          maplibre: ["maplibre-gl", "pmtiles"],
-        },
-      },
-    },
   },
 });

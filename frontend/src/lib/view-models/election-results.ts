@@ -59,7 +59,7 @@ import {
   electoralEntitiesPath,
   parliamentSummaryPath,
 } from "../canonical/election-csv-paths";
-import { ECI_TO_LGD_SLUG } from "../maplibre/sources";
+import { ECI_TO_LGD_SLUG } from "../boundaries/sources";
 
 // Reverse lookup: LGD slug -> ECI code. The on-disk electoral.csv keys
 // `state` in LGD form; tile-layout / GeoJSON `unique_id` props key in

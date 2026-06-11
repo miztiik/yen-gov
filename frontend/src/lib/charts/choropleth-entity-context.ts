@@ -29,7 +29,7 @@ import {
   loadAllDistrictEntities,
   type DistrictEntity,
 } from "../view-models/districts";
-import { INDIA_STATES, type BoundaryEntry } from "../maplibre/sources";
+import { INDIA_STATES, type BoundaryEntry } from "../boundaries/sources";
 
 /** Grain currently supported by this helper (a subset of GeoLevel). */
 export type ChoroplethGrain = "state" | "district";

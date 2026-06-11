@@ -23,7 +23,7 @@
   import AcStackedBar from "../lib/AcStackedBar.svelte";
   import StateAcMapD3 from "../lib/charts/StateAcMapD3.svelte";
   import WinnerBadge from "../lib/WinnerBadge.svelte";
-  import { STATE_AC } from "../lib/maplibre/sources";
+  import { STATE_AC } from "../lib/boundaries/sources";
   import { states } from "../lib/states.svelte";
   import { navigate } from "../lib/url";
   import { link } from "../lib/links";
