@@ -423,3 +423,94 @@ def test_adapter_emits_shape_b_rows_with_event_vintage(tmp_path: Path) -> None:
     assert row.external_vintage == "AcGenMay2026"
     assert row.state == "tamil-nadu"
     assert row.event == "AcGenMay2026"
+
+
+# --- PR-S-MH-AE2024: Maharashtra slug + Q7 split-resolution oracle ------
+
+
+def test_adapter_maharashtra_slug_extracts_year_from_acgennov2024(
+    tmp_path: Path,
+) -> None:
+    # The PR-S-MH-AE2024 extension of _SNAPSHOT_NAME_BY_STATE_SLUG; the
+    # adapter must navigate to ``datasets/ephemeral/thecont1-india-
+    # votes-data/2024/Assembly-Maharashtra.csv`` for the state slug
+    # ``"maharashtra"`` + event id ``"AcGenNov2024"``. Year extraction
+    # from the 4-digit suffix is the same logic the existing tests
+    # cover for TN/AcGenMay2026.
+    _write_parties_csv(tmp_path, [
+        {"party_id": "parties.IN.BJP", "short": "BJP",
+         "full": "Bharatiya Janata Party", "aliases": "BJP"},
+    ])
+    _write_thecont1_csv(tmp_path, [
+        {"election_year": "2024", "election_type": "Assembly",
+         "election_state": "MH", "constituency": "AKKALKUWA",
+         "constituency_no": "1", "serial_no": "1",
+         "candidate": "TESTWINNER",
+         "party": "Bharatiya Janata Party",
+         "evm_votes": "100000", "postal_votes": "1000"},
+    ], year="2024", state_file="Assembly-Maharashtra.csv")
+    out = list(ADAPTER(root=tmp_path, vintage="", state="maharashtra",
+                       event="AcGenNov2024", kind="assembly"))
+    assert len(out) == 1
+    row = out[0]
+    assert row.constituency_no == 1
+    assert row.constituency_name == "AKKALKUWA"
+    assert row.winner_party_id == "parties.IN.BJP"
+    assert row.winner_votes == 101000
+    assert row.state == "maharashtra"
+    assert row.event == "AcGenNov2024"
+    assert row.external_vintage == "AcGenNov2024"
+
+
+def test_adapter_resolves_shs_shinde_distinct_from_ss_ubt_uddhav(
+    tmp_path: Path,
+) -> None:
+    # The Q7 split-resolution oracle for MH 2024: the ECI-favoured
+    # Shinde-led Shiv Sena (publisher label ``"Shiv Sena"``) MUST
+    # resolve to ``parties.IN.SHS`` (the continuous id per Q7 option
+    # c); the Uddhav-led breakaway (publisher label ``"Shiv Sena
+    # (Uddhav Balasaheb Thackeray)"``) MUST resolve to the separate
+    # ``parties.IN.SS_UBT`` id minted in PR-W-2. Cross-faction
+    # misattribution would be an immediate STOP-AND-SURFACE per the
+    # PR-S-MH-AE2024 brief.
+    _write_parties_csv(tmp_path, [
+        {"party_id": "parties.IN.SHS", "short": "SHS",
+         "full": "Shiv Sena", "aliases": "SHS|SS|SHIVSENA",
+         "claims_to_parent_name": "true"},
+        {"party_id": "parties.IN.SS_UBT", "short": "SHSUBT",
+         "full": "Shiv Sena (Uddhav Balasaheb Thackeray)",
+         "aliases": "SHSUBT|SSUBT|SS(UBT)|SS-UBT"},
+    ])
+    _write_thecont1_csv(tmp_path, [
+        # AC 1: Shinde-faction winner.
+        {"election_year": "2024", "election_type": "Assembly",
+         "election_state": "MH", "constituency": "SHINDE-AC",
+         "constituency_no": "1", "serial_no": "1",
+         "candidate": "SHINDE WINNER", "party": "Shiv Sena",
+         "evm_votes": "50000", "postal_votes": "500"},
+        # AC 2: Uddhav-faction winner.
+        {"election_year": "2024", "election_type": "Assembly",
+         "election_state": "MH", "constituency": "UBT-AC",
+         "constituency_no": "2", "serial_no": "1",
+         "candidate": "UDDHAV WINNER",
+         "party": "Shiv Sena (Uddhav Balasaheb Thackeray)",
+         "evm_votes": "40000", "postal_votes": "400"},
+    ], year="2024", state_file="Assembly-Maharashtra.csv")
+    out = list(ADAPTER(root=tmp_path, vintage="", state="maharashtra",
+                       event="AcGenNov2024", kind="assembly"))
+    assert len(out) == 2
+    ac1, ac2 = sorted(out, key=lambda r: r.constituency_no)
+    # Shinde-faction stays on parties.IN.SHS (the ECI-favoured side).
+    assert ac1.winner_party_id == "parties.IN.SHS"
+    assert ac1.winner_party_short_raw == "Shiv Sena"
+    assert ac1.winner_candidate_name == "SHINDE WINNER"
+    # Uddhav-faction goes to parties.IN.SS_UBT (the breakaway id).
+    assert ac2.winner_party_id == "parties.IN.SS_UBT"
+    assert ac2.winner_party_short_raw == (
+        "Shiv Sena (Uddhav Balasaheb Thackeray)"
+    )
+    assert ac2.winner_candidate_name == "UDDHAV WINNER"
+    # Cross-faction misattribution check: neither row carries the
+    # other's party_id.
+    assert ac1.winner_party_id != "parties.IN.SS_UBT"
+    assert ac2.winner_party_id != "parties.IN.SHS"
