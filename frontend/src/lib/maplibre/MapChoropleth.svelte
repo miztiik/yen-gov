@@ -33,6 +33,7 @@
   import { boundaryFooterHtml, resolveSource, type BoundaryEntry } from "./sources";
   import { diagonalHatch } from "./hatch";
   import { resolveTapAction } from "./tap-to-pin";
+  import { homeViewOnMap, zoomInOnMap, zoomOutOnMap } from "./zoom-controls";
 
   interface FeatureSelection {
     /** Join-key value (string for state name, number for AC_NO). */
@@ -176,6 +177,14 @@
   // without re-fetching the GeoJSON.
   let data_bbox: [[number, number], [number, number]] | null = null;
   let resize_obs: ResizeObserver | null = null;
+  // PR-1 of TODO/20260611-elections-off-maplibre-and-map-ux-plan.md:
+  // captured on the first `idle` event after mount and consumed by the
+  // Reset-view (Home) button so the citizen can fly back to the
+  // original framing after pan / zoom exploration. Null until idle
+  // fires; `homeViewOnMap` no-ops while either value is null so a
+  // mid-cold-boot click is safe.
+  let initial_center: [number, number] | null = null;
+  let initial_zoom: number | null = null;
   // Module-level guard so we only register the pmtiles protocol once per page.
   let pmtiles_registered = false;
 
@@ -543,13 +552,24 @@
           // choropleths never need world wrap, so we turn it off globally
           // for this component.
           renderWorldCopies: false,
-          // Cooperative gestures: scroll-wheel without Ctrl/Cmd scrolls
-          // the page, not the map; one-finger drag on touch pans the page,
-          // two-finger drag pans the map. Citizen-review feedback ("the
-          // map fights my scroll") + standard practice on long-form pages
-          // that embed maps. Maplibre renders an instructional overlay
-          // automatically when the user attempts a non-cooperative gesture.
-          cooperativeGestures: true,
+          // Cooperative gestures: DISABLED per PR-1 of
+          // TODO/20260611-elections-off-maplibre-and-map-ux-plan.md
+          // (2026-06-11; Jony + Citizen authority). Earlier citizen-
+          // review feedback wanted the map to NOT fight long-form
+          // page scroll, so we ran with cooperativeGestures=true; a
+          // second round of citizen review on the election surface
+          // overrode that. Requiring Ctrl-scroll fights citizen
+          // interaction with the choropleth - IndiaVotes and Bharat
+          // Pashudhan both scroll-zoom without a modifier, and citizen
+          // reviewers expected the same. Scroll-wheel now zooms the
+          // map directly. The structural fix - move the election
+          // surfaces off MapLibre to d3-geo SVG with d3.zoom - is
+          // PR-4 / PR-5 of the same plan; this flip is the interim
+          // citizen-experience patch while that work ships, paired
+          // with the +/-/home overlay buttons below for explicit
+          // affordance (an embed-in-long-form context lands once PR-4
+          // moves the renderer entirely).
+          cooperativeGestures: false,
         });
         map.touchZoomRotate.disableRotation();
 
@@ -651,6 +671,19 @@
           if (!error) error = String(ev.error?.message ?? ev.error ?? "map error");
           // eslint-disable-next-line no-console
           console.warn("[map]", ev.error);
+        });
+
+        // PR-1 of TODO/20260611-elections-off-maplibre-and-map-ux-plan.md:
+        // capture the initial post-fit centre + zoom for the Reset-view
+        // (Home) button. `once('idle', ...)` fires after the load
+        // chain, including `bboxFromData`'s fitBounds(animate:false),
+        // completes - so we record the framing the citizen first saw.
+        // PMTiles path (no fitBounds) records the default centre / zoom,
+        // which is still a valid Reset target.
+        map.once("idle", () => {
+          const c = map.getCenter();
+          initial_center = [c.lng, c.lat];
+          initial_zoom = map.getZoom();
         });
 
         map.on("mousemove", FILL_LAYER_ID, (e: any) => {
@@ -787,6 +820,34 @@
       Map error: <code>{error}</code>
     </div>
   {/if}
+  <!--
+    PR-1 of TODO/20260611-elections-off-maplibre-and-map-ux-plan.md:
+    +/-/home zoom-control trio over the map (IndiaVotes + Bharat
+    Pashudhan parity per Jony + Citizen). Sibling of the maplibre
+    container so maplibre's own touch / pan handlers don't fight the
+    button clicks. Always rendered; the helpers no-op safely while
+    `map` is null during the cold-boot frame.
+  -->
+  <div class="absolute bottom-2 right-2 flex flex-col gap-1 z-10">
+    <button
+      type="button"
+      aria-label="Zoom in"
+      class="w-8 h-8 rounded-full bg-white border border-slate-300 text-slate-700 text-lg leading-none flex items-center justify-center shadow hover:bg-slate-100 active:bg-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+      onclick={() => zoomInOnMap(map)}
+    >+</button>
+    <button
+      type="button"
+      aria-label="Zoom out"
+      class="w-8 h-8 rounded-full bg-white border border-slate-300 text-slate-700 text-lg leading-none flex items-center justify-center shadow hover:bg-slate-100 active:bg-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+      onclick={() => zoomOutOnMap(map)}
+    >−</button>
+    <button
+      type="button"
+      aria-label="Reset view"
+      class="w-8 h-8 rounded-full bg-white border border-slate-300 text-slate-700 text-lg leading-none flex items-center justify-center shadow hover:bg-slate-100 active:bg-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+      onclick={() => homeViewOnMap(map, initial_center, initial_zoom)}
+    >⌂</button>
+  </div>
 </div>
 
 <style>
