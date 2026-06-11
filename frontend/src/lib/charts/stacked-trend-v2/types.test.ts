@@ -36,18 +36,13 @@ describe("StackedTrendV2Model — shipped fixture round-trips through zod", () =
     expect(result.success).toBe(true);
   });
 
-  it("shipped fixture exercises both v2 source confidence tiers", () => {
-    const raw = loadFixture("minimal.fixture.json") as { sources: unknown[] };
-    const parsed = StackedTrendV2Model.parse(raw);
-    const tiers = parsed.sources.map((s) => s.confidence_tier).sort();
-    expect(tiers).toEqual(["gold", "silver"]);
-  });
-
-  it("shipped fixture exercises both is_issuing_authority states", () => {
+  it("shipped fixture carries 2 deduped publisher pills", () => {
     const raw = loadFixture("minimal.fixture.json");
     const parsed = StackedTrendV2Model.parse(raw);
-    const flags = parsed.sources.map((s) => s.is_issuing_authority).sort();
-    expect(flags).toEqual([false, true]);
+    expect(parsed.sources).toHaveLength(2);
+    const labels = parsed.sources.map((s) => s.label).sort();
+    expect(labels[0]).toContain("CEA");
+    expect(labels[1]).toContain("Indiastat");
   });
 
   it("shipped fixture includes missing + availability_label segment", () => {
@@ -62,72 +57,50 @@ describe("StackedTrendV2Model — shipped fixture round-trips through zod", () =
   });
 });
 
-describe("StackedTrendV2Source — v2 ledger discipline (R-24)", () => {
+describe("StackedTrendV2Source — publisher-pill discipline (post 2026-06-11)", () => {
   const VALID: Readonly<Record<string, unknown>> = Object.freeze({
-    source_id: "src-abcdef123456",
-    producer: "Election Commission of India",
-    title: "Statistical Report Section 10 (Detailed Results) — Tamil Nadu",
-    vintage: "AcGenApr2021",
-    license: "OGL-IN-1.0",
-    confidence_tier: "gold",
-    is_issuing_authority: true,
-    verification_method: "archived-snapshot",
-    url_main: "https://eci.gov.in/statistical-reports",
-    citation_full: null,
-    notes: null,
+    label: "ECI Statistical Report Section 10",
+    vintage_summary: "AcGenApr2021",
+    url: "https://eci.gov.in/statistical-reports",
+    count: 1,
   });
 
-  it("accepts a valid v2 ledger row", () => {
+  it("accepts a valid publisher pill", () => {
     expect(StackedTrendV2Source.safeParse(VALID).success).toBe(true);
   });
 
-  it("rejects retired v1 'fetched_at' field via additionalProperties drop", () => {
-    // Zod's default behaviour is to STRIP unknown keys (not reject), so
-    // the parse succeeds but the result has no fetched_at. The structural
-    // guarantee: a renderer that reads `source.fetched_at` (v1 style)
-    // gets `undefined`, never the smeared telemetry.
-    const tainted = { ...VALID, fetched_at: "2026-05-23T00:00:00Z" };
+  it("strips unknown extra fields (Zod default)", () => {
+    // The retired v1 'fetched_at' and v2 'license' fields are stripped
+    // silently by Zod's default behaviour - the structural guarantee
+    // is that a future renderer reading those fields gets undefined.
+    const tainted = { ...VALID, fetched_at: "2026-05-23T00:00:00Z", license: "MIT" };
     const parsed = StackedTrendV2Source.parse(tainted);
     expect((parsed as Record<string, unknown>).fetched_at).toBeUndefined();
+    expect((parsed as Record<string, unknown>).license).toBeUndefined();
   });
 
-  it("rejects retired v1 'url' field via additionalProperties drop (use url_main)", () => {
-    const tainted = { ...VALID, url: "https://eci.gov.in/statistical-reports" };
-    const parsed = StackedTrendV2Source.parse(tainted);
-    expect((parsed as Record<string, unknown>).url).toBeUndefined();
-  });
-
-  it("rejects malformed source_id (must be src- + 12 hex)", () => {
-    const bad = { ...VALID, source_id: "src-tooshort" };
+  it("rejects empty label (the pill MUST identify a publisher)", () => {
+    const bad = { ...VALID, label: "" };
     expect(StackedTrendV2Source.safeParse(bad).success).toBe(false);
   });
 
-  it("rejects unknown license enum value (locked enum)", () => {
-    const bad = { ...VALID, license: "MIT" };
-    expect(StackedTrendV2Source.safeParse(bad).success).toBe(false);
-  });
-
-  it("rejects unknown confidence_tier (gold|silver|bronze only)", () => {
-    const bad = { ...VALID, confidence_tier: "platinum" };
-    expect(StackedTrendV2Source.safeParse(bad).success).toBe(false);
-  });
-
-  it("rejects unknown verification_method (locked enum)", () => {
-    const bad = { ...VALID, verification_method: "guessed" };
-    expect(StackedTrendV2Source.safeParse(bad).success).toBe(false);
-  });
-
-  it("permits empty vintage string (rare 'source publishes no vintage' case)", () => {
-    const empty = { ...VALID, vintage: "" };
+  it("permits empty vintage_summary string (no vintage on contributing rows)", () => {
+    const empty = { ...VALID, vintage_summary: "" };
     expect(StackedTrendV2Source.safeParse(empty).success).toBe(true);
   });
 
-  it("permits null url_main (archived-snapshot / transcribed / editorial)", () => {
-    const archived = { ...VALID, url_main: null, verification_method: "transcribed" };
-    expect(StackedTrendV2Source.safeParse(archived).success).toBe(true);
+  it("permits null url (publisher row carries no link)", () => {
+    const noLink = { ...VALID, url: null };
+    expect(StackedTrendV2Source.safeParse(noLink).success).toBe(true);
+  });
+
+  it("requires count to be a positive integer", () => {
+    expect(StackedTrendV2Source.safeParse({ ...VALID, count: 0 }).success).toBe(false);
+    expect(StackedTrendV2Source.safeParse({ ...VALID, count: -1 }).success).toBe(false);
+    expect(StackedTrendV2Source.safeParse({ ...VALID, count: 1.5 }).success).toBe(false);
+    expect(StackedTrendV2Source.safeParse({ ...VALID, count: 3 }).success).toBe(true);
   });
 });
-
 describe("StackedTrendV2Model — root schema discipline", () => {
   function baseModel(): unknown {
     return loadFixture("minimal.fixture.json");

@@ -1659,12 +1659,13 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
     const pills = indicatorArtifactPills(result);
     expect(pills).toHaveLength(1);
     expect(pills![0]).toMatchObject({
-      // publisherDisplay("NITI Aayog India Climate & Energy Dashboard") -> "NITI ICED";
-      // seriesFamily("ICED RPO") -> "ICED RPO".
-      // Composite label is short enough; vintage_summary is the single vintage.
+      // publisherDisplay("NITI Aayog") returns "NITI Aayog" unchanged
+      // (the producer string in this RPO test mock is the short form,
+      // not the long "NITI Aayog India Climate & Energy Dashboard"
+      // form that maps to "NITI ICED"). Series family extracts "ICED RPO".
       vintage_summary: "FY 2024-25",
     });
-    expect(pills![0].label).toContain("NITI ICED");
+    expect(pills![0].label).toContain("NITI Aayog");
     // Sources SQL was the second call and queried by harvested child
     // source_ids — not by parent (which has source_id=null and would
     // produce zero rows).

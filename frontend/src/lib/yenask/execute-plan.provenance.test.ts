@@ -188,11 +188,11 @@ describe("executePlan — D-06 provenance discipline", () => {
   });
 
   it("Zod-rejects a malformed source row from the executor path", async () => {
-    // A producer="" raw row produces an empty publisher pill label,
-    // which the strict Zod schema rejects.
+    // An entirely-empty producer + title -> dedupeToPills produces a
+    // pill whose label is empty; the strict Zod schema rejects.
     queryMock
       .mockResolvedValueOnce([FAKE_MAIN_ROW])
-      .mockResolvedValueOnce([{ ...FAKE_SOURCE_ROW, producer: "" }]);
+      .mockResolvedValueOnce([{ ...FAKE_SOURCE_ROW, producer: "", title: "" }]);
 
     await expect(executePlan(PLAN)).rejects.toThrow();
   });

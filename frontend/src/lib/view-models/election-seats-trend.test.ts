@@ -97,13 +97,7 @@ const sourceRows = [
     producer: "Election Commission of India",
     title: "Statistical Report Section 10 — Tamil Nadu",
     vintage: "AcGenApr2021",
-    license: "OGL-IN-1.0",
-    confidence_tier: "gold",
-    is_issuing_authority: true,
-    verification_method: "live-fetch",
-    url_main: "https://eci.gov.in/results/tn-2021.xlsx",
-    citation_full: null,
-    notes: null,
+    url: "https://eci.gov.in/results/tn-2021.xlsx",
   },
 ];
 

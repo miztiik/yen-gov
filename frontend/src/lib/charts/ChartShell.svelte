@@ -65,7 +65,7 @@
   // comment line 4).
 
   import type { Snippet } from "svelte";
-  import { SourceList } from "../../sources";
+  import { SourceList } from "../sources";
   import Skeleton from "../Skeleton.svelte";
   import {
     filterAllowedActions,
