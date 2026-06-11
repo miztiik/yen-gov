@@ -27,14 +27,14 @@ def _ensure_source_row(source_csv: Path, source_id: str) -> None:
     rows = []
     with source_csv.open(encoding="utf-8", newline="") as fh:
         reader = csv.DictReader(fh)
-        fieldnames = reader.fieldnames or ["source_id", "owner", "title", "vintage", "url"]
+        fieldnames = reader.fieldnames or ["source_id", "producer", "title", "vintage", "url"]
         rows = list(reader)
     if any(r["source_id"] == source_id for r in rows):
         return
     rows.append(
         {
             "source_id": source_id,
-            "owner": LGD_SOURCE_OWNER,
+            "producer": LGD_SOURCE_OWNER,
             "title": LGD_SOURCE_TITLE,
             "vintage": LGD_SOURCE_VINTAGE,
             "url": LGD_SOURCE_URL,

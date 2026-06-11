@@ -66,7 +66,7 @@ def _ensure_source_row(source_csv: Path, source_id: str) -> bool:
         reader = csv.DictReader(fh)
         fieldnames = reader.fieldnames or [
             "source_id",
-            "owner",
+            "producer",
             "title",
             "vintage",
             "url",
@@ -77,7 +77,7 @@ def _ensure_source_row(source_csv: Path, source_id: str) -> bool:
     rows.append(
         {
             "source_id": source_id,
-            "owner": ECI_OWNER,
+            "producer": ECI_OWNER,
             "title": ECI_TITLE,
             "vintage": ECI_VINTAGE,
             "url": ECI_URL,

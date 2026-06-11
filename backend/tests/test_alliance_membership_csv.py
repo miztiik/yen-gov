@@ -225,18 +225,18 @@ def source_csv(tmp_path: Path) -> Path:
     path = tmp_path / "source.csv"
     _write_csv(
         path,
-        fieldnames=["source_id", "owner", "title", "vintage", "url"],
+        fieldnames=["source_id", "producer", "title", "vintage", "url"],
         rows=[
             {
                 "source_id": "src-test-rich-citation",
-                "owner": "Test Producer",
+                "producer": "Test Producer",
                 "title": "Test Title",
                 "vintage": "2024",
                 "url": "https://example.org/test-rich",
             },
             {
                 "source_id": "src-test-wikipedia-cm-tn",
-                "owner": "Wikipedia",
+                "producer": "Wikipedia",
                 "title": "List of Chief Ministers of Tamil Nadu",
                 "vintage": "",
                 "url": "https://example.org/cm/tamil-nadu",
@@ -247,7 +247,7 @@ def source_csv(tmp_path: Path) -> Path:
             # validation happens at the canonical validator gate, not here.
             {
                 "source_id": "src-test-event-2026",
-                "owner": "Test Election Authority",
+                "producer": "Test Election Authority",
                 "title": "Test Event 2026",
                 "vintage": "2026",
                 "url": "https://example.org/event-2026",

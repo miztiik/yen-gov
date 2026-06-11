@@ -276,14 +276,14 @@ def test_source_csv_carries_indiavotes_row() -> None:
     with SOURCE_CSV.open(encoding="utf-8", newline="") as fh:
         for row in csv.DictReader(fh):
             if (
-                row.get("owner") == SOURCE_PRODUCER
+                row.get("producer") == SOURCE_PRODUCER
                 and row.get("title") == SOURCE_TITLE
                 and row.get("vintage") == SOURCE_VINTAGE
             ):
                 matches.append(row)
     assert len(matches) == 1, (
         f"expected 1 row in source.csv with "
-        f"owner={SOURCE_PRODUCER!r} title={SOURCE_TITLE!r} vintage={SOURCE_VINTAGE!r}; "
+        f"producer={SOURCE_PRODUCER!r} title={SOURCE_TITLE!r} vintage={SOURCE_VINTAGE!r}; "
         f"got {len(matches)}"
     )
     assert matches[0]["source_id"].startswith("src-")

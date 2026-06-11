@@ -98,10 +98,10 @@ def test_datapoints_geo_core_columns_match_spec(contract):
 def test_source_csv_has_exactly_five_columns_per_plan_section_7(contract):
     fc = contract.for_glob("datasets/data/entities/source.csv")
     names = [c.name for c in fc.columns]
-    assert names == ["source_id", "owner", "title", "vintage", "url"]
+    assert names == ["source_id", "producer", "title", "vintage", "url"]
     # Only PK is required.
     assert fc.column("source_id").nullable is False
-    for optional in ("owner", "title", "vintage", "url"):
+    for optional in ("producer", "title", "vintage", "url"):
         assert fc.column(optional).nullable is True
 
 
