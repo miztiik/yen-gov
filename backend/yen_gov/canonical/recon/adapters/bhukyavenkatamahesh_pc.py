@@ -1,18 +1,36 @@
-"""bhukyavenkatamahesh per-PC parity adapter (PR-PC-LS2024).
+"""bhukyavenkatamahesh per-PC parity adapter (PR-PC-LS2024 + PR-PC-LS2019).
 
-Reads ``datasets/ephemeral/bhukyavenkatamahesh-pc/2024/results.csv``
-(one-off snapshot of source #6 from the PR-PC-LS2024 brief:
-``https://github.com/bhukyavenkatamahesh/election-viz/blob/main/Data/results/results_2024.csv``)
+Reads ``datasets/ephemeral/bhukyavenkatamahesh-pc/<year>/results.csv``
+(one-off snapshot of source #6 / source #5 from the PR-PC-LS2024 +
+PR-PC-LS2019 briefs:
+
+  - 2024: ``https://github.com/bhukyavenkatamahesh/election-viz/blob/
+    main/Data/results/results_2024.csv``
+  - 2019: ``https://github.com/bhukyavenkatamahesh/election-viz/blob/
+    main/Data/results/results_2019.csv``
+
 and emits ONE per-PC shape-A row per parliamentary constituency
-(the winner row, derived as the per-PC modal candidate by Votes).
+(the winner row, derived as the per-PC modal candidate by Votes /
+total_votes depending on vintage schema).
 
-The bhukyavenkatamahesh CSV is semicolon-delimited with columns
+The 2024 CSV is semicolon-delimited with columns
 ``State;Constituency;Party;Candidate;Votes;State ID;Constituency ID``.
-The publisher carries 8902 candidate rows across 543 PCs (one row
-per candidate); the adapter groups by ``(State, Constituency)``
-(textual; the ``(State ID, Constituency ID)`` tuple is NOT unique
-across states - the publisher's per-state CIDs only run 1..9 max)
-and picks the max-Votes row per group as the winner.
+The 2019 CSV is comma-delimited with a DIFFERENT column schema
+(``province_id, province_name, constituency_id, constituency_name,
+type, osn, candidate_name, party_name, evm_votes, postal_votes,
+total_votes, vote_share``) - the publisher refactored the file format
+between vintages. PR-PC-LS2019 dispatches per-year to the right reader
+(see ``_read_bhuky_winners`` vs ``_read_bhuky_2019_winners``); the
+2024 callers remain on the BHUKY_VINTAGE pin + DEFAULT_BHUKY_CSV path
+unchanged.
+
+The 2024 publisher carries 8902 candidate rows across 543 PCs; the
+2019 publisher carries 8568 candidate rows across 542 PCs (Vellore
+2019 was postponed). The adapter groups by
+``(publisher_state, publisher_constituency)`` (textual; the
+``(State ID, Constituency ID)`` tuple is NOT unique across states -
+the publisher's per-state CIDs only run 1..9 max) and picks the
+max-vote-count row per group as the winner.
 
 Per Q1 fact-class authority (plan section 0.3): bhukyavenkatamahesh
 is NOT authoritative on any fact-class - it is a corroboration
@@ -21,18 +39,22 @@ canonical wins per Holy Law #9; bhuky's role is to surface
 DISPUTED rows for the curator (CLAUDE.md section 10:
 auto-correct BANNED on publisher disagreement).
 
-The vintage pin is ``2024`` per ADR-0042 (publisher edition - the
-file path itself is ``results_2024.csv``).
+The vintage pin is the publisher's stated edition year per ADR-0042:
+``BHUKY_VINTAGE = "2024"`` / ``BHUKY_VINTAGE_2019 = "2019"`` (the
+file path itself is ``results_2024.csv`` / ``results_2019.csv``).
 
-Source provenance: snapshotted from the raw.githubusercontent.com
-URL on 2026-06-11 by the PR-PC-LS2024 ship session; the file is
-committed to git as an audit trail per Q3 commit policy (matching
-PR-W-2's ECI snapshot which is also hand-snapshotted + committed).
+Source provenance: 2024 file snapshotted from the
+raw.githubusercontent.com URL on 2026-06-11 by the PR-PC-LS2024 ship
+session; 2019 file snapshotted on 2026-06-11 by the PR-PC-LS2019
+ship session. Both files are committed to git as audit trails per
+Q3 commit policy (matching PR-W-2's ECI snapshot which is also
+hand-snapshotted + committed).
 """
 
 from __future__ import annotations
 
 import csv
+import html
 import re
 from collections.abc import Iterable
 from dataclasses import dataclass
@@ -41,15 +63,32 @@ from typing import Final
 
 from yen_gov.canonical.recon.shape_a import ShapeARow
 
-#: Where the bhukyavenkatamahesh snapshot lives on disk. Per Q3 commit
-#: policy this file IS committed (operator-snapshotted, not auto-fetched).
+#: Where the bhukyavenkatamahesh 2024 snapshot lives on disk. Per Q3
+#: commit policy this file IS committed (operator-snapshotted, not
+#: auto-fetched).
 DEFAULT_BHUKY_CSV: Final[Path] = Path(
     "datasets/ephemeral/bhukyavenkatamahesh-pc/2024/results.csv"
 )
 
+#: Where the bhukyavenkatamahesh 2019 snapshot lives on disk
+#: (PR-PC-LS2019 of the 2026-06-10 plan). Per Q3 commit policy this
+#: file IS committed (operator-snapshotted on 2026-06-11 from
+#: ``raw.githubusercontent.com/bhukyavenkatamahesh/election-viz/main/
+#: Data/results/results_2019.csv``). The 2019 file is comma-delimited
+#: with a DIFFERENT column schema vs the 2024 file (the publisher
+#: refactored the CSV between vintages); see _read_bhuky_2019_winners.
+DEFAULT_BHUKY_CSV_2019: Final[Path] = Path(
+    "datasets/ephemeral/bhukyavenkatamahesh-pc/2019/results.csv"
+)
+
 #: bhukyavenkatamahesh publisher edition pin. Per ADR-0042 (publisher
-#: edition anchor) this is the file's stated cutoff.
+#: edition anchor) this is the file's stated cutoff. Back-compat name
+#: for the 2024 vintage; PR-PC-LS2019 adds the parallel
+#: BHUKY_VINTAGE_2019 constant rather than renaming.
 BHUKY_VINTAGE: Final[str] = "2024"
+
+#: bhukyavenkatamahesh 2019 publisher edition pin (PR-PC-LS2019).
+BHUKY_VINTAGE_2019: Final[str] = "2019"
 
 #: Adapter source-id used as the ShapeARow.external_scope on emitted rows.
 BHUKY_SCOPE: Final[str] = "bhukyavenkatamahesh-pc"
@@ -69,14 +108,34 @@ _BHUKY_STATE_SLUG_REMAP: Final[dict[str, str]] = {
 
 
 #: bhukyavenkatamahesh publisher constituency name -> yen-gov canonical
-#: name spelling fixes (4 known cases per the 2026-06-11 join-audit).
-#: Applied to UPPER-cased input; output is also UPPER. Empty when not
-#: present in this map (fall through to direct UPPER match).
+#: name spelling fixes for the 2024 vintage (4 known cases per the
+#: 2026-06-11 join-audit). Applied to UPPER-cased input; output is
+#: also UPPER. Empty when not present in this map (fall through to
+#: direct UPPER match). Canonical 2024 spellings reflect post-2024
+#: ECI / TCPD spellings: PALAMU (was PALAMAU pre-2024), ARAMBAG
+#: (was ARAMBAGH pre-2024), JAYNAGAR (was JOYNAGAR pre-2024),
+#: SREERAMPUR (was SRERAMPUR pre-2024).
 _BHUKY_CONSTITUENCY_NAME_REMAP: Final[dict[tuple[str, str], str]] = {
     ("jharkhand", "PALAMAU"): "PALAMU",
     ("west-bengal", "ARAMBAGH"): "ARAMBAG",
     ("west-bengal", "JOYNAGAR"): "JAYNAGAR",
     ("west-bengal", "SRERAMPUR"): "SREERAMPUR",
+}
+
+#: bhukyavenkatamahesh publisher constituency name -> yen-gov canonical
+#: name spelling fixes for the 2019 vintage (PR-PC-LS2019). 2 known
+#: cases per the 2026-06-11 join-audit (424 of 426 canonical 2019 PCs
+#: matched directly on UPPER name; the remaining 2 needed remap):
+#: bhuky 'SAMASTIPUR (SC)' carries the reservation suffix that
+#: canonical 2019 drops; bhuky 'JOYNAGAR' was renamed JAYNAGAR
+#: post-2024 but canonical 2019 also already uses JAYNAGAR. The
+#: per-year split is necessary because canonical 2019 keeps several
+#: pre-2024 spellings (ARAMBAGH / PALAMAU / SRERAMPUR / etc.) that
+#: the 2024 remap above explicitly rewrites - applying the 2024
+#: remap to 2019 would BREAK the join. See _read_bhuky_2019_winners.
+_BHUKY_CONSTITUENCY_NAME_REMAP_2019: Final[dict[tuple[str, str], str]] = {
+    ("bihar", "SAMASTIPUR (SC)"): "SAMASTIPUR",
+    ("west-bengal", "JOYNAGAR"): "JAYNAGAR",
 }
 
 
@@ -357,13 +416,19 @@ class _BhukyPcWinner:
 def _read_bhuky_winners(
     bhuky_csv: Path, state_ix: _StateIndex
 ) -> list[_BhukyPcWinner]:
-    """Read the bhuky CSV + derive the max-Votes winner per (state, PC).
+    """Read the bhuky 2024 CSV + derive the max-Votes winner per (state, PC).
 
-    The snapshot has one row per candidate; the winner is the max-Votes
-    row per ``(publisher_state, publisher_constituency)`` group.
-    Constituencies whose state cannot be resolved to a slug are
+    The 2024 snapshot has one row per candidate; the winner is the
+    max-Votes row per ``(publisher_state, publisher_constituency)``
+    group. Constituencies whose state cannot be resolved to a slug are
     skipped (caller may inspect the returned list count vs the
     snapshot's 543-PC universe to detect a regression).
+
+    2024-only: the CSV is semicolon-delimited with columns
+    ``State;Constituency;Party;Candidate;Votes;State ID;Constituency ID``.
+    For the 2019 vintage see ``_read_bhuky_2019_winners`` (the publisher
+    refactored the CSV between vintages; PR-PC-LS2019 adds the parallel
+    reader rather than overloading this one).
     """
     rows: list[dict[str, str]] = []
     with bhuky_csv.open(encoding="utf-8", newline="") as fh:
@@ -417,7 +482,11 @@ def _read_bhuky_winners(
 
 
 def _emit_shape_a_for_winner(
-    winner: _BhukyPcWinner, parties_ix: _PartiesIndex, constituency_no: str
+    winner: _BhukyPcWinner,
+    parties_ix: _PartiesIndex,
+    constituency_no: str,
+    *,
+    vintage: str = BHUKY_VINTAGE,
 ) -> ShapeARow:
     """Emit a single per-PC shape-A row for one bhuky-derived winner.
 
@@ -434,6 +503,11 @@ def _emit_shape_a_for_winner(
     other resolutions, proposed_action = ``match`` (the per-PC
     aggregator's verdict is structural by oracle agreement, not by
     per-row action precedence).
+
+    The ``vintage`` keyword is the bhukyavenkatamahesh publisher
+    edition pin per ADR-0042. Defaults to ``BHUKY_VINTAGE`` (=
+    ``"2024"``) for back-compat with existing 2024 callers;
+    PR-PC-LS2019 passes ``BHUKY_VINTAGE_2019`` for the 2019 vintage.
     """
     pid = _resolve_party_id(winner.party_full, parties_ix)
     action = "mint-new" if pid == "parties.IN.UNK" else "match"
@@ -446,7 +520,7 @@ def _emit_shape_a_for_winner(
         external_short=winner.party_full[:64],  # publisher full as the short
         external_full=winner.party_full,
         external_scope=BHUKY_SCOPE,
-        external_vintage=BHUKY_VINTAGE,
+        external_vintage=vintage,
         proposed_party_id=pid,
         proposed_action=action,  # type: ignore[arg-type]
         notes=(
@@ -459,6 +533,90 @@ def _emit_shape_a_for_winner(
         winner_candidate=winner.candidate,
         winner_votes=winner.votes,
     )
+
+
+def _read_bhuky_2019_winners(
+    bhuky_csv: Path, state_ix: _StateIndex
+) -> list[_BhukyPcWinner]:
+    """Read the bhuky 2019 CSV + derive the max-total_votes winner per PC.
+
+    PR-PC-LS2019 parallel reader. The 2019 snapshot is comma-delimited
+    with a different column schema vs the 2024 reader
+    (``_read_bhuky_winners``): the publisher refactored the CSV format
+    between vintages.
+
+    2019 schema columns:
+      ``province_id, province_name, constituency_id, constituency_name,
+       type, osn, candidate_name, party_name, evm_votes, postal_votes,
+       total_votes, vote_share``
+
+    The winner row per PC is the max-``total_votes`` candidate (per ECI
+    convention - postal + EVM totals already summed in the publisher's
+    ``total_votes`` column). Constituencies whose state cannot be
+    resolved to a slug are skipped.
+
+    Two 2019-specific publisher quirks the reader handles:
+      - ``province_name`` carries HTML-encoded ampersands
+        (``Andaman &amp; Nicobar Islands``); the reader runs
+        ``html.unescape`` before state-slug resolution so the existing
+        ``_BHUKY_STATE_SLUG_REMAP`` (keyed on decoded UPPER form)
+        applies cleanly. The 2024 reader doesn't need this because
+        the 2024 CSV is plain ASCII.
+      - the 2019 constituency-name remap dict
+        ``_BHUKY_CONSTITUENCY_NAME_REMAP_2019`` is applied (NOT the
+        2024 remap, which would BREAK the 2019 join - canonical 2019
+        kept several pre-2024 spellings).
+    """
+    rows: list[dict[str, str]] = []
+    with bhuky_csv.open(encoding="utf-8", newline="") as fh:
+        for r in csv.DictReader(fh, delimiter=","):
+            rows.append(r)
+
+    by_pc: dict[tuple[str, str], list[dict[str, str]]] = {}
+    for r in rows:
+        st = html.unescape((r.get("province_name") or "").strip())
+        cn = (r.get("constituency_name") or "").strip()
+        if not st or not cn:
+            continue
+        by_pc.setdefault((st, cn), []).append(r)
+
+    winners: list[_BhukyPcWinner] = []
+    for (st_pub, cn_pub), grp in by_pc.items():
+        def _votes_for_sort(row: dict[str, str]) -> int:
+            v = _parse_votes(row.get("total_votes") or "")
+            return v if v is not None else -1
+
+        winner_row = max(grp, key=_votes_for_sort)
+        slug = _resolve_state_slug(st_pub, state_ix)
+        if slug is None:
+            # State unresolvable to a yen-gov slug; skip. Operator
+            # extends _BHUKY_STATE_SLUG_REMAP if this fires.
+            continue
+        cn_upper_raw = cn_pub.upper()
+        cn_upper = _BHUKY_CONSTITUENCY_NAME_REMAP_2019.get(
+            (slug, cn_upper_raw), cn_upper_raw
+        )
+        # html.unescape on party_name + candidate_name (mirrors the
+        # province_name decode) so publisher strings like
+        # 'Jammu &amp; Kashmir National Conference' resolve against
+        # canonical's plain-ampersand 'Jammu & Kashmir National
+        # Conference' full-name.
+        winners.append(
+            _BhukyPcWinner(
+                publisher_state=st_pub,
+                publisher_constituency=cn_pub,
+                state_slug=slug,
+                constituency_name_upper=cn_upper,
+                party_full=html.unescape(
+                    (winner_row.get("party_name") or "").strip()
+                ),
+                candidate=html.unescape(
+                    (winner_row.get("candidate_name") or "").strip()
+                ),
+                votes=_parse_votes(winner_row.get("total_votes") or ""),
+            )
+        )
+    return winners
 
 
 def _yen_gov_pc_no_index(elections_root: Path, year: int) -> dict[
@@ -532,17 +690,29 @@ class BhukyavenkatamaheshPcAdapter:
     ) -> Iterable[ShapeARow]:
         del state  # unused: bhuky compilation is national.
         del vintage  # CLI passes event year (e.g. '2024'); adapter
-        # always emits with its own publisher-edition pin BHUKY_VINTAGE.
+        # always emits with its own publisher-edition pin
+        # (BHUKY_VINTAGE or BHUKY_VINTAGE_2019).
         if kind and kind != "parliament":
             raise ValueError(
                 f"bhukyavenkatamahesh-pc adapter only supports kind "
                 f"'parliament'; got {kind!r}"
             )
-        # Derive year from event id (e.g. LsGenJun2024 -> 2024) or
-        # default to BHUKY_VINTAGE.
+        # Derive year from event id (e.g. LsGenJun2024 -> 2024,
+        # LsGenApr2019 -> 2019) or default to the 2024 vintage pin.
         year = self._parse_year_from_event(event) or int(BHUKY_VINTAGE)
 
-        bhuky_csv = root / DEFAULT_BHUKY_CSV
+        # Per-year dispatch: 2019 has a different CSV path + a
+        # different column schema (the publisher refactored the file
+        # between vintages). 2024 is the default + legacy path.
+        if year == 2019:
+            bhuky_csv = root / DEFAULT_BHUKY_CSV_2019
+            reader = _read_bhuky_2019_winners
+            emit_vintage = BHUKY_VINTAGE_2019
+        else:
+            bhuky_csv = root / DEFAULT_BHUKY_CSV
+            reader = _read_bhuky_winners
+            emit_vintage = BHUKY_VINTAGE
+
         if not bhuky_csv.exists():
             raise FileNotFoundError(
                 f"bhukyavenkatamahesh PC snapshot not found at "
@@ -558,7 +728,7 @@ class BhukyavenkatamaheshPcAdapter:
         state_ix = _load_state_index(state_codes_csv)
         parties_ix = _load_parties_index(parties_csv)
 
-        winners = _read_bhuky_winners(bhuky_csv, state_ix)
+        winners = reader(bhuky_csv, state_ix)
         pc_no_index = _yen_gov_pc_no_index(root / "datasets", year)
 
         out: list[ShapeARow] = []
@@ -566,12 +736,23 @@ class BhukyavenkatamaheshPcAdapter:
             winners,
             key=lambda w: (w.state_slug, w.constituency_name_upper),
         ):
+            # Prefer canonical's cno (LGD PC code); on miss, fall back
+            # to a deterministic synthetic key derived from the
+            # constituency name. tcpd-pc applies the SAME fallback so
+            # canonical-missing PCs (Telangana, Delhi, A&N, Chandigarh,
+            # D&N+D&D, Lakshadweep, Puducherry, etc.) end up in the same
+            # per-PC aggregator group as a 2-oracle (bhuky+tcpd)
+            # comparison rather than collapsing into per-state '?'
+            # buckets that lose row identity.
             cno = pc_no_index.get(
-                (winner.state_slug, winner.constituency_name_upper),
-                "?",
+                (winner.state_slug, winner.constituency_name_upper)
             )
+            if cno is None:
+                cno = f"name-{winner.constituency_name_upper}"
             out.append(
-                _emit_shape_a_for_winner(winner, parties_ix, cno)
+                _emit_shape_a_for_winner(
+                    winner, parties_ix, cno, vintage=emit_vintage
+                )
             )
         return out
 
@@ -598,17 +779,21 @@ ADAPTER: Final[BhukyavenkatamaheshPcAdapter] = BhukyavenkatamaheshPcAdapter()
 __all__ = [
     "ADAPTER",
     "BHUKY_VINTAGE",
+    "BHUKY_VINTAGE_2019",
     "BHUKY_SCOPE",
     "DEFAULT_BHUKY_CSV",
+    "DEFAULT_BHUKY_CSV_2019",
     "BhukyavenkatamaheshPcAdapter",
     "_BHUKY_STATE_SLUG_REMAP",
     "_BHUKY_CONSTITUENCY_NAME_REMAP",
+    "_BHUKY_CONSTITUENCY_NAME_REMAP_2019",
     "_load_state_index",
     "_load_parties_index",
     "_normalise_party_name",
     "_parse_votes",
     "_PartiesIndex",
     "_read_bhuky_winners",
+    "_read_bhuky_2019_winners",
     "_resolve_party_id",
     "_resolve_state_slug",
     "_StateIndex",
