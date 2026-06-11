@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./party-parity-verdict-event.schema.json",
+  "title": "Party-parity per-event per-AC verdict row",
+  "description": "ONE ROW of the per-constituency verdict CSV produced by the per-event Compare-Aggregator (backend/yen_gov/canonical/recon/event_aggregator.py). Created by PR-S-TN-AE2026 of the 2026-06-10 electoral-data-quality + party-catalogue plan. The verdict CSV lives under datasets/ephemeral/party-parity/state=<slug>/<event>/<sha>/verdict.csv per CLAUDE.md section 3 ephemeral tier; the first run for a (state, event) is committed (Q3 commit policy) as the audit-trail. Verdict semantics (Hans section 10 + Fowler machine-decidable per plan section 0.5 ESCALATE #2): VERIFIED iff n_oracles_present >= 2 AND all present oracles agree on (winner_party_id, winner_candidate_name); DISPUTED iff n_oracles_present >= 2 AND at least one oracle disagrees on either dim; UNVERIFIED iff n_oracles_present < 2.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-06-11",
+      "description": "Initial schema for the Tier-C per-event per-constituency verdict row (PR-S-TN-AE2026 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md). 16 fields per the brief: state (kebab-slug, required), event (ECI event id, required), constituency_no (1-based ECI eci_no, required integer), constituency_name (representative publisher name, required), n_oracles_present (count of distinct external_scope values in the AC group, required integer), n_oracles_agreeing_party (count of oracles agreeing on the modal winner_party_id, required integer), n_oracles_agreeing_candidate (count of oracles agreeing on the modal winner_candidate_name after punctuation normalisation, required integer), yen_gov_winner_party_id (the canonical surface winner party_id; pulled from the yen-gov-elections oracle when present, else first-alphabetic scope, required), yen_gov_winner_candidate_name (the canonical surface winner candidate name, required), yen_gov_winner_votes (nullable integer; publisher-reported total), other_sources (pipe-delimited 'scope:party_id:candidate:votes' for every non-primary oracle, sorted alphabetically by scope, required), party_id_alliance (empty when alliance not yet curated for this event - the citizen-UI 'alliance not yet curated' badge signal per Q6, required), verdict_party (VERIFIED|DISPUTED|UNVERIFIED enum, required), verdict_candidate (same enum, required), verdict (combined enum: VERIFIED iff both dims VERIFIED; UNVERIFIED iff either dim UNVERIFIED; DISPUTED otherwise; required), curator_note (free-text disposition, nullable), curator_source_id (FK to datasets/data/entities/source.csv.source_id for the curator's authoritative source, nullable). Holy Law #9 enforcement is a CURATOR rule, not an aggregator rule - the aggregator surfaces ECI disagreements as DISPUTED and the curator dispositions via curator_note + curator_source_id. Wired into recon/event_aggregator.py ConstituencyVerdictRow + write_event_verdict_csv. Schema is reference-only (verdict CSVs live under datasets/ephemeral/, not walked by Tier-B)."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "state",
+    "event",
+    "constituency_no",
+    "constituency_name",
+    "n_oracles_present",
+    "n_oracles_agreeing_party",
+    "n_oracles_agreeing_candidate",
+    "yen_gov_winner_party_id",
+    "yen_gov_winner_candidate_name",
+    "other_sources",
+    "party_id_alliance",
+    "verdict_party",
+    "verdict_candidate",
+    "verdict"
+  ],
+  "properties": {
+    "state": {
+      "type": "string",
+      "minLength": 1,
+      "description": "State slug from datasets/data/entities/geo.csv (e.g. 'tamil-nadu', 'west-bengal'). CSV-column-contract dtype: string, nullable: false."
+    },
+    "event": {
+      "type": "string",
+      "minLength": 1,
+      "description": "ECI event id registered in backend/yen_gov/sources/eci/events.py (e.g. 'AcGenMay2026'). CSV-column-contract dtype: string, nullable: false."
+    },
+    "constituency_no": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "1-based ECI eci_no within the state. CSV-column-contract dtype: integer, nullable: false."
+    },
+    "constituency_name": {
+      "type": "string",
+      "description": "Publisher constituency name (representative; pulled from yen-gov-elections when present, else first-alphabetic scope). CSV-column-contract dtype: string, nullable: false."
+    },
+    "n_oracles_present": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Count of distinct external_scope values present for this (state, event, constituency_no) group. CSV-column-contract dtype: integer, nullable: false."
+    },
+    "n_oracles_agreeing_party": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Count of oracles whose winner_party_id matches the modal value in the group. CSV-column-contract dtype: integer, nullable: false."
+    },
+    "n_oracles_agreeing_candidate": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Count of oracles whose winner_candidate_name matches the modal value after punctuation normalisation (event_aggregator._normalise_name). CSV-column-contract dtype: integer, nullable: false."
+    },
+    "yen_gov_winner_party_id": {
+      "type": "string",
+      "pattern": "^parties\\.IN\\.[A-Z][A-Z0-9_]*$",
+      "maxLength": 60,
+      "description": "Canonical party_id of the surface winner. Pulled from the yen-gov-elections oracle when present in the group; falls back to first-alphabetic scope otherwise. MAY be 'parties.IN.UNK' per CLAUDE.md section 10. CSV-column-contract dtype: string, nullable: false."
+    },
+    "yen_gov_winner_candidate_name": {
+      "type": "string",
+      "description": "Candidate name of the surface winner, carried verbatim from the primary oracle. CSV-column-contract dtype: string, nullable: false."
+    },
+    "yen_gov_winner_votes": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "Publisher-reported total votes for the surface winner. Nullable. CSV-column-contract dtype: integer, nullable: true."
+    },
+    "other_sources": {
+      "type": "string",
+      "description": "Pipe-delimited 'scope:party_id:candidate:votes' for every non-primary oracle in the group, sorted alphabetically by scope. Empty when n_oracles_present == 1. CSV-column-contract dtype: string, nullable: false (empty string is valid)."
+    },
+    "party_id_alliance": {
+      "type": "string",
+      "description": "Alliance label looked up via (yen_gov_winner_party_id, event) against datasets/data/entities/party_alliances.csv. Empty when alliance not yet curated for this event - the citizen-UI 'alliance not yet curated' badge signal per Q6. CSV-column-contract dtype: string, nullable: false (empty string is valid)."
+    },
+    "verdict_party": {
+      "type": "string",
+      "enum": ["VERIFIED", "DISPUTED", "UNVERIFIED"],
+      "description": "Verdict on winner_party_id agreement across present oracles. CSV-column-contract dtype: string, nullable: false."
+    },
+    "verdict_candidate": {
+      "type": "string",
+      "enum": ["VERIFIED", "DISPUTED", "UNVERIFIED"],
+      "description": "Verdict on winner_candidate_name agreement (after punctuation normalisation) across present oracles. CSV-column-contract dtype: string, nullable: false."
+    },
+    "verdict": {
+      "type": "string",
+      "enum": ["VERIFIED", "DISPUTED", "UNVERIFIED"],
+      "description": "Combined verdict. VERIFIED iff both party and candidate dims VERIFIED; UNVERIFIED iff either dim UNVERIFIED; DISPUTED otherwise. CSV-column-contract dtype: string, nullable: false."
+    },
+    "curator_note": {
+      "type": ["string", "null"],
+      "description": "Free-text disposition recorded by the curator script (e.g. 'ECI Statement 10 wins per Holy Law #9; thecont1 mis-spelled party'). Empty for auto-generated rows. CSV-column-contract dtype: string, nullable: true."
+    },
+    "curator_source_id": {
+      "type": ["string", "null"],
+      "pattern": "^src-[a-f0-9]{12}$",
+      "description": "FK to datasets/data/entities/source.csv.source_id naming the authoritative source for the curator's disposition. Empty for auto-generated rows. CSV-column-contract dtype: string, nullable: true."
+    }
+  }
+}
