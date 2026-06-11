@@ -1,6 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-madhya-pradesh-2671,madhya-pradesh,2021,45,PRITHVIPUR,DOCTOR SHISHUPAL YADAV,parties.IN.BJP,BJP,82673,53.12,1,won,M,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2671,madhya-pradesh,2021,45,PRITHVIPUR,NITENDRA SINGH RATHORE,parties.IN.INC,INC,66986,43.04,2,lost,M,43,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2671,madhya-pradesh,2021,45,PRITHVIPUR,NOTA,parties.IN.UNK,,1741,1.12,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2671,madhya-pradesh,2021,45,PRITHVIPUR,KUSHWAHA MOTI LAL,parties.IN.SP,SP,1181,0.76,4,forfeit,M,67,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2671,madhya-pradesh,2021,45,PRITHVIPUR,RAJ PAL SINGH CHUHAN,parties.IN.IND,IND,1058,0.68,5,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2671,madhya-pradesh,2021,45,PRITHVIPUR,MOTI LAL KUSHWAH,parties.IN.IND,IND,692,0.44,6,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
@@ -13,6 +14,7 @@ IN-AC-2008-madhya-pradesh-2499,madhya-pradesh,2021,55,DAMOH,AJAY KUMAR TANDON,pa
 IN-AC-2008-madhya-pradesh-2499,madhya-pradesh,2021,55,DAMOH,RAHUL SINGH,parties.IN.BJP,BJP,57735,40.34,2,lost,M,37,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2499,madhya-pradesh,2021,55,DAMOH,UMA SINGH LODHI,parties.IN.UNK,Bhartiya Shakti Chetna Party,3775,2.64,3,forfeit,F,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2499,madhya-pradesh,2021,55,DAMOH,RAHUL BHAIYA JI,parties.IN.IND,IND,1053,0.74,4,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2499,madhya-pradesh,2021,55,DAMOH,NOTA,parties.IN.UNK,,720,0.5,5,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2499,madhya-pradesh,2021,55,DAMOH,RAHUL BHAIYA,parties.IN.IND,IND,702,0.49,6,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2499,madhya-pradesh,2021,55,DAMOH,MUNNALAL,parties.IN.IND,IND,612,0.43,7,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2499,madhya-pradesh,2021,55,DAMOH,RAHUL S.,parties.IN.IND,IND,484,0.34,8,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
@@ -33,6 +35,7 @@ IN-AC-2008-madhya-pradesh-2499,madhya-pradesh,2021,55,DAMOH,ENG. AJAY BHAIYA,par
 IN-AC-2008-madhya-pradesh-2499,madhya-pradesh,2021,55,DAMOH,Mohd. SAFIK KHAN,parties.IN.IND,IND,94,0.07,23,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2620,madhya-pradesh,2021,192,JOBAT,SULOCHANA RAWAT,parties.IN.BJP,BJP,68949,46.92,1,won,F,61,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2620,madhya-pradesh,2021,192,JOBAT,MAHESH RAWAT ''PATEL'',parties.IN.INC,INC,62845,42.77,2,lost,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2620,madhya-pradesh,2021,192,JOBAT,NOTA,parties.IN.UNK,,5611,3.82,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2620,madhya-pradesh,2021,192,JOBAT,SARDAR HARMAL PARMAR,parties.IN.BTP,Bhartiya Tribal Party,3071,2.09,4,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2620,madhya-pradesh,2021,192,JOBAT,DILEEPSINGH BHURIYA,parties.IN.IND,IND,2842,1.93,5,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2620,madhya-pradesh,2021,192,JOBAT,Dal SINGH DAWAR,parties.IN.UNK,Samata Samadhan Party,2645,1.8,6,forfeit,M,45,,,challenger,src-1b7bc1c9d39a

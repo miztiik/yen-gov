@@ -36,24 +36,34 @@
 
   import type { IndicatorArtifact } from "./indicators";
   import { indicatorArtifactPills } from "./canonical/indicator-from-canonical";
-  import { SourceList } from "./sources";
+  import { SourceList, type PublisherPill } from "./sources";
   import TopicIcon from "./TopicIcon.svelte";
 
   interface Props {
     artifact: IndicatorArtifact;
+    /** Optional explicit pills array, snapshotted by the parent BEFORE
+     *  the parent assigned `artifact` into its own `$state`. Required
+     *  for canonical-backed artifacts because
+     *  `indicatorArtifactPills(artifact)` returns `undefined` when
+     *  `artifact` is wrapped in a Svelte 5 `$state` Proxy (the WeakMap
+     *  key identity is lost through the Proxy). Test fixtures and
+     *  legacy on-disk JSON artifacts can omit this and rely on the
+     *  accessor fallback below. See user-memory pattern "WeakMap-keyed
+     *  accessor + Svelte 5 $state Proxy". */
+    pills?: readonly PublisherPill[];
     /** When true (default), the panel starts collapsed behind a
      *  disclosure button. Set false to render expanded inline (e.g.
      *  inside a dedicated route that's already the disclosure). */
     collapsed?: boolean;
   }
 
-  const { artifact, collapsed = true }: Props = $props();
+  const { artifact, pills: pills_prop, collapsed = true }: Props = $props();
 
   let open = $state(!collapsed);
 
   const methodology = $derived(artifact.methodology);
   const series = $derived(artifact.series_spec);
-  const pills = $derived(indicatorArtifactPills(artifact) ?? []);
+  const pills = $derived(pills_prop ?? indicatorArtifactPills(artifact) ?? []);
 
   const has_definition = $derived(!!methodology?.definition);
   const has_publisher = $derived(!!methodology?.publisher);

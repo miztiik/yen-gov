@@ -33,6 +33,7 @@
  */
 
 import type { CatalogueArtifact, CatalogueTopic, TopicCatalogue } from "./catalogue";
+import { getCanonicalDescriptor } from "./canonical/indicator-allowlist";
 
 export type HomeTheme =
   | { kind: "election" }
@@ -181,9 +182,17 @@ export function sameTheme(a: HomeTheme, b: HomeTheme): boolean {
  * Caption rendered after "India — " above the map. The optional
  * `titleMap` (artifact-id → indicator.title) lets the caller surface
  * the human-readable indicator title fetched at runtime; without it
- * we fall back to the catalogue-level `display` override or the raw
+ * we fall back to the canonical allowlist `meta.title` (synchronous),
+ * then to the catalogue-level `display` override, then to the raw
  * slug. Priority order matches `homeThemeOptions` deliberately —
  * citizens see the same label in the chooser and the caption.
+ *
+ * The synchronous allowlist lookup matters on first paint: the
+ * `titleMap` is populated asynchronously by `Home.load_indicator_titles`,
+ * which runs only AFTER the topic catalogue resolves. Without the
+ * allowlist fallback the bare slug (`prices/cpi_inflation_pct`) flashes
+ * for ~1-2s before the title-map repopulates - the same A-bug from
+ * /t/<topic> headings, just on a different surface.
  */
 export function themeCaption(
   theme: HomeTheme,
@@ -191,12 +200,13 @@ export function themeCaption(
   titleMap?: ReadonlyMap<string, string>,
 ): string {
   if (theme.kind === "election") return ELECTION_CAPTION;
+  const allowlist_title = getCanonicalDescriptor(theme.id)?.meta?.title;
   for (const { artifact } of nationalIndicators(catalogue)) {
     if (artifact.id === theme.id) {
-      return titleMap?.get(artifact.id) ?? artifact.display ?? artifact.id;
+      return titleMap?.get(artifact.id) ?? allowlist_title ?? artifact.display ?? artifact.id;
     }
   }
-  return titleMap?.get(theme.id) ?? theme.id;
+  return titleMap?.get(theme.id) ?? allowlist_title ?? theme.id;
 }
 
 /**
@@ -230,7 +240,8 @@ export function homeThemeOptions(
     },
   ];
   for (const { topic, artifact } of nationalIndicators(catalogue)) {
-    const label = titleMap?.get(artifact.id) ?? artifact.display ?? artifact.id;
+    const allowlist_title = getCanonicalDescriptor(artifact.id)?.meta?.title;
+    const label = titleMap?.get(artifact.id) ?? allowlist_title ?? artifact.display ?? artifact.id;
     out.push({
       value: `indicator/${artifact.id}`,
       label,

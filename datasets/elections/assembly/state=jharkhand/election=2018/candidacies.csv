@@ -2,6 +2,7 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Babita Devi,parties.IN.JMM,JMM,60552,34.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Lambodar Mahto,parties.IN.AJSUP,AJSUP,59211,34.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Madhav Lal Singh,parties.IN.BJP,BJP,42038,24.16,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,NOTA,parties.IN.UNK,,3851,2.21,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Nikhil Kumar Soren,parties.IN.IND,IND,1996,1.15,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,HemLal Mahto,parties.IN.IND,IND,1423,0.82,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Umesh Kumr Mahto,parties.IN.UNK,JMM(Ulgulan),1385,0.8,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -14,6 +15,7 @@ IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,MD. Sultan,parties.IN.RLSP,RL
 IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Khudi Ram Mahto,parties.IN.IND,IND,279,0.16,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Seema Devi,parties.IN.JMM,JMM,77129,52.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Sudesh Kumar Mahto,parties.IN.UNK,AP,63619,43.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,NOTA,parties.IN.UNK,,2357,1.6,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Amit Singh Munda,parties.IN.IND,IND,1239,0.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Seema Devi,parties.IN.IND,IND,1048,0.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Jyoti Prasad,parties.IN.RLSP,RLSP,809,0.55,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -27,3 +29,4 @@ IN-AC-2008-jharkhand-2183,jharkhand,2018,71,KOLEBIRA,Basant Soreng,parties.IN.BJ
 IN-AC-2008-jharkhand-2183,jharkhand,2018,71,KOLEBIRA,Anil Kandulna,parties.IN.RSP,RSP,23802,20.01,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2183,jharkhand,2018,71,KOLEBIRA,Menon Ekka,parties.IN.UNK,Jharkhand Party,16455,13.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2183,jharkhand,2018,71,KOLEBIRA,Basant Dung-Dung,parties.IN.IND,IND,3952,3.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2183,jharkhand,2018,71,KOLEBIRA,NOTA,parties.IN.UNK,,3695,3.11,6,lost,U,,,,challenger,src-1b7bc1c9d39a

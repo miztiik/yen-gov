@@ -241,16 +241,54 @@ function sqlString(s: string): string {
  *  `descriptor.caveats` field (allowlist-authored, citizen-readable) is
  *  surfaced verbatim as `known_caveats[]`; see PR-E (AboutThisData RPO
  *  caveat surfacing) for the doctrine and the RPO seed entry. */
-function buildMethodology(descriptor: CanonicalIndicatorDescriptor): IndicatorMethodology {
+function buildMethodology(
+  descriptor: CanonicalIndicatorDescriptor,
+  source_rows: ReadonlyArray<CanonicalSourceRow>,
+): IndicatorMethodology {
+  // "Who publishes it" must be the actual citation producer (e.g.
+  // "Reserve Bank of India"), NOT the `implementing_authority` enum value
+  // (which is one of "state" / "centre" / "joint" / "local_body" /
+  // "parastatal" - a coarse responsibility tag, useless as a publisher
+  // label). Pre-fix the renderer surfaced "Who publishes it: state" for
+  // every state-administered indicator. The first source row's `producer`
+  // is the canonical citation per ADR-0032 (identity = producer + title +
+  // vintage); fall back to the implementing-authority humanised form if
+  // the canonical sources table has nothing.
+  const first_source = source_rows.length > 0 ? source_rows[0] : null;
+  const publisher =
+    first_source?.producer ?? humanisePublisherFallback(descriptor.meta.implementing_authority);
   return {
     definition: descriptor.meta.description ?? descriptor.meta.title,
-    publisher: descriptor.meta.implementing_authority ?? "joint",
+    publisher,
     publisher_methodology_url: null,
     documentation_status: "stub",
     methodology_breaks: [],
     known_caveats: descriptor.caveats ? [...descriptor.caveats] : [],
     notes: [],
   };
+}
+
+function humanisePublisherFallback(
+  implementing_authority: IndicatorMeta["implementing_authority"] | undefined,
+): string {
+  // Citizen-readable fallback when the indicator's source ledger is empty.
+  // The enum values are administrative bucket labels; render them as
+  // descriptive phrases that read like a publisher description rather than
+  // a bare bucket tag.
+  switch (implementing_authority) {
+    case "state":
+      return "State governments";
+    case "centre":
+      return "Government of India";
+    case "joint":
+      return "Joint centre + state programme";
+    case "local_body":
+      return "Local bodies";
+    case "parastatal":
+      return "Parastatal body";
+    default:
+      return "Publisher not on file";
+  }
 }
 
 function buildSeriesSpec(descriptor: CanonicalIndicatorDescriptor): SeriesSpec {
@@ -337,7 +375,7 @@ export function buildIndicatorArtifact(
     indicator: buildCanonicalIndicatorMeta(descriptor.meta),
     rows,
     series_spec: buildSeriesSpec(descriptor),
-    methodology: buildMethodology(descriptor),
+    methodology: buildMethodology(descriptor, source_rows),
     divergence: null,
   }, buildPills(source_rows));
 }
@@ -712,7 +750,7 @@ async function buildFacetMultiplexedArtifact(
     ),
     rows,
     series_spec: buildSeriesSpec(descriptor),
-    methodology: buildMethodology(descriptor),
+    methodology: buildMethodology(descriptor, sourceRows),
     divergence: null,
   }, buildPills(sourceRows));
 }

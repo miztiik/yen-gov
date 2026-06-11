@@ -2,13 +2,13 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-maharashtra-3051,maharashtra,2019,1,AKKALKUWA,ADV. K. C. PADAVI,parties.IN.INC,INC,82770,41.26,1,won,U,61,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3051,maharashtra,2019,1,AKKALKUWA,AAMSHYA FULJI PADAVI,parties.IN.SHS,SHS,80674,40.21,2,lost,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3051,maharashtra,2019,1,AKKALKUWA,NAGESH DILVARSING PADVI,parties.IN.IND,IND,21664,10.8,3,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3051,maharashtra,2019,1,AKKALKUWA,ADV. KAILAS PRATAPSING VASAVE,parties.IN.AAAP,AAAP,4055,2.02,5,forfeit,U,28,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3051,maharashtra,2019,1,AKKALKUWA,ADV. KAILAS PRATAPSING VASAVE,parties.IN.AAP,AAAP,4055,2.02,5,forfeit,U,28,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3051,maharashtra,2019,1,AKKALKUWA,BHARAT JALYA PAWARA,parties.IN.IND,IND,3784,1.89,6,forfeit,U,27,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3051,maharashtra,2019,1,AKKALKUWA,DR.SANJAY RAVLYA VALVI,parties.IN.BTP,BTP,2824,1.41,7,forfeit,U,27,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3055,maharashtra,2019,2,SHAHADA,Rajesh Udesing Padvi,parties.IN.BJP,BJP,94931,45.12,1,won,U,50,Graduate,Ex Police,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3055,maharashtra,2019,2,SHAHADA,Adv.Padmakar Vijaysing Valvi,parties.IN.INC,INC,86940,41.32,2,lost,U,51,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3055,maharashtra,2019,2,SHAHADA,Eng.Jelsing Bijala Pawara,parties.IN.IND,IND,21013,9.99,3,forfeit,U,59,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3055,maharashtra,2019,2,SHAHADA,Mali Jaysing Devchand,parties.IN.CPIMLL,CPIM,4060,1.93,4,forfeit,U,66,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3055,maharashtra,2019,2,SHAHADA,Mali Jaysing Devchand,parties.IN.CPIM,CPIM,4060,1.93,4,forfeit,U,66,8th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3052,maharashtra,2019,3,NANDURBAR,VIJAYKUMAR KRUSHNARAO GAVIT,parties.IN.BJP,BJP,121605,64.52,1,won,U,64,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3052,maharashtra,2019,3,NANDURBAR,UDESING KOCHARU PADVI,parties.IN.INC,INC,51209,27.17,2,lost,U,71,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3052,maharashtra,2019,3,NANDURBAR,DIPA SHAMSHON VALVI,parties.IN.VBA,VBA,6734,3.57,3,forfeit,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -24,7 +24,7 @@ IN-AC-2008-maharashtra-3053,maharashtra,2019,4,NAWAPUR,Dr. Rakesh Rajya Gavit,pa
 IN-AC-2008-maharashtra-3053,maharashtra,2019,4,NAWAPUR,Adv. Prakash Mohan Gangurde,parties.IN.IND,IND,1154,0.53,8,forfeit,U,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3053,maharashtra,2019,4,NAWAPUR,Arjunsing Diwansing Vasave,parties.IN.IND,IND,1039,0.48,9,forfeit,U,54,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3053,maharashtra,2019,4,NAWAPUR,Ramu Maharya Valvi,parties.IN.PPID,PPID,738,0.34,10,forfeit,U,49,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3053,maharashtra,2019,4,NAWAPUR,Dr. Sunil Kuthya Gavit,parties.IN.AAAP,AAAP,477,0.22,11,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3053,maharashtra,2019,4,NAWAPUR,Dr. Sunil Kuthya Gavit,parties.IN.AAP,AAAP,477,0.22,11,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3054,maharashtra,2019,5,SAKRI,Manjula Tulshiram Gavit,parties.IN.IND,IND,76166,36.6,1,won,U,56,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3054,maharashtra,2019,5,SAKRI,Mohan Gokul Suryawanshi,parties.IN.BJP,BJP,68901,33.11,2,lost,U,55,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3054,maharashtra,2019,5,SAKRI,Dhanaji Sitaram Ahire,parties.IN.INC,INC,25302,12.16,3,forfeit,U,66,12th Pass,,incumbent,src-1b7bc1c9d39a
@@ -302,7 +302,7 @@ IN-AC-2008-maharashtra-3154,maharashtra,2019,35,KARANJA,VINOD PANJABRAO NANDAGAV
 IN-AC-2008-maharashtra-3154,maharashtra,2019,35,KARANJA,ADESH RAMBHAU GAWAI,parties.IN.BMUP,BMUP,412,0.22,10,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3154,maharashtra,2019,35,KARANJA,MANISH DAMODAR MODAK,parties.IN.PHJSP,PHJSP,408,0.22,11,forfeit,U,43,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3154,maharashtra,2019,35,KARANJA,KARIM SATTAR SHEIKH,parties.IN.RUC,RUC,369,0.2,12,forfeit,U,32,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3154,maharashtra,2019,35,KARANJA,CO. RAMKRUSHNA PUNDLIKRAO SAWAKE,parties.IN.CPIMLL,CPIM,278,0.15,13,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3154,maharashtra,2019,35,KARANJA,CO. RAMKRUSHNA PUNDLIKRAO SAWAKE,parties.IN.CPIM,CPIM,278,0.15,13,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3154,maharashtra,2019,35,KARANJA,MANIK MAHADEVRAO PAWADE,parties.IN.SBBGP,SBBGP,264,0.14,14,forfeit,U,46,,Shop Keeper,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3154,maharashtra,2019,35,KARANJA,PURUSHOTTAM NAGOJI THOMBE,parties.IN.RPIR,RPIR,189,0.1,15,forfeit,U,52,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3154,maharashtra,2019,35,KARANJA,MURLIDHAR LALSING PAWAR,parties.IN.VINPA,VINPA,157,0.08,16,forfeit,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -358,7 +358,7 @@ IN-AC-2008-maharashtra-2884,maharashtra,2019,38,AMRAVATI,Bhau Purushottam Bagdi,
 IN-AC-2008-maharashtra-2884,maharashtra,2019,38,AMRAVATI,Ramkrishna Adkuji Mahajan,parties.IN.IND,IND,231,0.13,13,forfeit,U,81,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2884,maharashtra,2019,38,AMRAVATI,Raju Madhukarrao Kalane,parties.IN.KISP,KiSP,197,0.11,14,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2884,maharashtra,2019,38,AMRAVATI,Dhananjay Deshmukh,parties.IN.SBBGP,SBBGP,184,0.11,15,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2884,maharashtra,2019,38,AMRAVATI,Dr. Roshan Prabhakarrao Ardak,parties.IN.AAAP,AAAP,162,0.09,16,forfeit,U,43,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2884,maharashtra,2019,38,AMRAVATI,Dr. Roshan Prabhakarrao Ardak,parties.IN.AAP,AAAP,162,0.09,16,forfeit,U,43,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2884,maharashtra,2019,38,AMRAVATI,Pravin Mahadev Alias Maroti Sarode,parties.IN.IND,IND,153,0.09,17,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2884,maharashtra,2019,38,AMRAVATI,Sindhu Tai Vilas Ingle,parties.IN.IND,IND,148,0.09,18,forfeit,U,42,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2884,maharashtra,2019,38,AMRAVATI,Madhav Jalbaji Karegaonkar,parties.IN.IND,IND,145,0.08,19,forfeit,U,63,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -471,7 +471,7 @@ IN-AC-2008-maharashtra-3095,maharashtra,2019,48,KATOL,Dhurve Ravindra Damodhar,p
 IN-AC-2008-maharashtra-3095,maharashtra,2019,48,KATOL,Pradip Madanrao Ubale,parties.IN.PHJSP,PHJSP,817,0.43,8,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3095,maharashtra,2019,48,KATOL,Nitin Chandrabhan Bagde,parties.IN.IND,IND,678,0.36,9,forfeit,U,32,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3095,maharashtra,2019,48,KATOL,Madhuri Pradeep Gajbhiye,parties.IN.BMUP,BMUP,280,0.15,10,forfeit,U,43,Post Graduate,Household,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3095,maharashtra,2019,48,KATOL,Kasu Ishwar Bagde,parties.IN.CPIMLL,CPIM,195,0.1,11,forfeit,U,49,Post Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3095,maharashtra,2019,48,KATOL,Kasu Ishwar Bagde,parties.IN.CPIM,CPIM,195,0.1,11,forfeit,U,49,Post Graduate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3097,maharashtra,2019,49,SAVNER,KEDAR SUNIL CHHATRAPAL,parties.IN.INC,INC,113184,53.47,1,won,U,58,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3097,maharashtra,2019,49,SAVNER,Rajeev Bhaskarrao Potdar,parties.IN.BJP,BJP,86893,41.05,2,lost,U,60,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3097,maharashtra,2019,49,SAVNER,SANCHAYATA SUDESH PATIL,parties.IN.BSP,BSP,4381,2.07,3,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -507,7 +507,7 @@ IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Devendra Ganga
 IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Dr. Ashish Deshmukh,parties.IN.INC,INC,59893,31.18,2,lost,U,45,Doctorate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Ravi Als Ravindra Paikuji Shende,parties.IN.VBA,VBA,8821,4.59,3,forfeit,U,58,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Vivek Vinayak Hadke,parties.IN.BSP,BSP,7646,3.98,4,forfeit,U,42,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Amol Bhimraoji Hadke,parties.IN.AAAP,AAAP,1125,0.59,6,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Amol Bhimraoji Hadke,parties.IN.AAP,AAAP,1125,0.59,6,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Shailesh Krushnarao Mankar,parties.IN.IND,IND,313,0.16,7,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Prashant Pawar,parties.IN.IND,IND,231,0.12,8,forfeit,U,53,Graduate,"Industrialist, Trader, Transport",challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Adv. Pankaj Manikrao Shambharkar,parties.IN.IND,IND,224,0.12,9,forfeit,U,39,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
@@ -519,7 +519,7 @@ IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Ambadas Lokhan
 IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Kantilal Haribhau Pakhide,parties.IN.BARESP,BARESP,111,0.06,15,forfeit,U,63,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Reena Yashvir Singh,parties.IN.IND,IND,93,0.05,16,forfeit,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Dharmashila Mahendra Bharadwaj,parties.IN.IND,IND,93,0.05,17,forfeit,U,37,Graduate,NGO,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Com. Yogesh Krushnarao Thakre,parties.IN.CPIMLL,CPIM,84,0.04,18,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Com. Yogesh Krushnarao Thakre,parties.IN.CPIM,CPIM,84,0.04,18,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Raju Singh Ganesh Chauhan,parties.IN.BALP,BALP,79,0.04,19,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Dipak Laxmanrao Maske,parties.IN.IND,IND,77,0.04,20,forfeit,U,43,12th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3043,maharashtra,2019,52,NAGPUR SOUTH WEST,Arun Bhaurao Niture,parties.IN.RKBP,RKBP,73,0.04,21,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -607,7 +607,7 @@ IN-AC-2008-maharashtra-3096,maharashtra,2019,59,RAMTEK,Sanjay Vitthalrao Satyeka
 IN-AC-2008-maharashtra-3096,maharashtra,2019,59,RAMTEK,Bhagwan Bhaiyya Bhonde,parties.IN.VBA,VBA,2267,1.23,6,forfeit,U,40,8th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3096,maharashtra,2019,59,RAMTEK,Satyendra (Bunty) Ratanlal Gedam,parties.IN.IND,IND,1615,0.88,8,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3096,maharashtra,2019,59,RAMTEK,Mukesh Madhukar Pendam,parties.IN.IND,IND,1077,0.58,9,forfeit,U,29,Post Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3096,maharashtra,2019,59,RAMTEK,Ishwar Chaitram Gajbe,parties.IN.AAAP,AAAP,834,0.45,10,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3096,maharashtra,2019,59,RAMTEK,Ishwar Chaitram Gajbe,parties.IN.AAP,AAAP,834,0.45,10,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2912,maharashtra,2019,60,TUMSAR,KAREMORE RAJU MANIKRAO,parties.IN.NCP,NCP,87190,40.55,1,won,U,48,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2912,maharashtra,2019,60,TUMSAR,CHARAN SOVINDA WAGHMARE,parties.IN.IND,IND,79490,36.97,2,lost,U,47,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2912,maharashtra,2019,60,TUMSAR,PRADEEP MOTIRAM PADOLE,parties.IN.BJP,BJP,33457,15.56,3,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
@@ -675,7 +675,7 @@ IN-AC-2008-maharashtra-2909,maharashtra,2019,65,GONDIYA,Dhurwas Bhaiyalal Bhoyar
 IN-AC-2008-maharashtra-2909,maharashtra,2019,65,GONDIYA,Janardan Mohanji Bankar,parties.IN.VBA,VBA,3810,1.82,6,forfeit,U,55,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2909,maharashtra,2019,65,GONDIYA,Laxman Pandurang Meshram,parties.IN.IND,IND,1107,0.53,8,forfeit,U,77,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2909,maharashtra,2019,65,GONDIYA,Jitesh Radhelal Rane,parties.IN.IND,IND,884,0.42,9,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2909,maharashtra,2019,65,GONDIYA,Purushottam Omprakash Modi,parties.IN.AAAP,AAAP,872,0.42,10,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2909,maharashtra,2019,65,GONDIYA,Purushottam Omprakash Modi,parties.IN.AAP,AAAP,872,0.42,10,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2909,maharashtra,2019,65,GONDIYA,Vishnu Babulal Nagrikar,parties.IN.IND,IND,670,0.32,11,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2909,maharashtra,2019,65,GONDIYA,Chaniram Laxman Meshram,parties.IN.PWPI,PWPI,669,0.32,12,forfeit,U,54,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2909,maharashtra,2019,65,GONDIYA,Bhuneshwar Singh Budhram Singh Bhardwaj,parties.IN.IND,IND,566,0.27,13,forfeit,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -760,7 +760,7 @@ IN-AC-2008-maharashtra-2926,maharashtra,2019,72,BALLARPUR,Dr. Vishwas Anandrao Z
 IN-AC-2008-maharashtra-2926,maharashtra,2019,72,BALLARPUR,Zode Raju Chinnayya,parties.IN.VBA,VBA,39958,19.93,3,lost,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2926,maharashtra,2019,72,BALLARPUR,Manoj Dharma Atram,parties.IN.GGP,GGP,13925,6.95,4,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2926,maharashtra,2019,72,BALLARPUR,Sarfaraj Yusuf Sheikh,parties.IN.BSP,BSP,1381,0.69,6,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2926,maharashtra,2019,72,BALLARPUR,"Taher Hussain, Nasir Mohammad Sheikh",parties.IN.AAAP,AAAP,1046,0.52,7,forfeit,U,31,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2926,maharashtra,2019,72,BALLARPUR,"Taher Hussain, Nasir Mohammad Sheikh",parties.IN.AAP,AAAP,1046,0.52,7,forfeit,U,31,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2926,maharashtra,2019,72,BALLARPUR,Sagar Ankush Raut,parties.IN.IND,IND,880,0.44,8,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2926,maharashtra,2019,72,BALLARPUR,Sachin Kailas Tembhurne,parties.IN.APOI,APoI,630,0.31,9,forfeit,U,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2926,maharashtra,2019,72,BALLARPUR,Bandu Zungaji Wakade,parties.IN.IND,IND,461,0.23,10,forfeit,U,52,Graduate Professional,School Teacher,challenger,src-1b7bc1c9d39a
@@ -771,7 +771,7 @@ IN-AC-2008-maharashtra-2926,maharashtra,2019,72,BALLARPUR,Arun Devidas Kamble,pa
 IN-AC-2008-maharashtra-2946,maharashtra,2019,73,BRAHMAPURI,VIJAY NAMDEVRAO WADETTIWAR,parties.IN.INC,INC,96726,50,1,won,U,56,10th Pass,Rent,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2946,maharashtra,2019,73,BRAHMAPURI,SANDIP WAMANRAO GADDAMWAR,parties.IN.SHS,SHS,78177,40.41,2,lost,U,53,Graduate,Real Estate or Builder or Developer or Construction,crossover,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2946,maharashtra,2019,73,BRAHMAPURI,CHANDRALAL WAKTUJI MESHRAM,parties.IN.VBA,VBA,7608,3.93,3,forfeit,U,64,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2946,maharashtra,2019,73,BRAHMAPURI,Adv. PAROMITA GOSWAMI,parties.IN.AAAP,AAAP,3596,1.86,4,forfeit,U,49,Post Graduate,Managerial Position,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2946,maharashtra,2019,73,BRAHMAPURI,Adv. PAROMITA GOSWAMI,parties.IN.AAP,AAAP,3596,1.86,4,forfeit,U,49,Post Graduate,Managerial Position,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2946,maharashtra,2019,73,BRAHMAPURI,VINOD RAMDAS ZODAGE,parties.IN.CPI,CPI,1993,1.03,5,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2946,maharashtra,2019,73,BRAHMAPURI,MUKUNDA DEWAJI MESHRAM,parties.IN.BSP,BSP,1925,0.99,6,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2946,maharashtra,2019,73,BRAHMAPURI,JAGDISH ALIAS MONTU NANDUJI PILARE,parties.IN.SBBGP,SBBGP,962,0.5,8,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -1113,7 +1113,7 @@ IN-AC-2008-maharashtra-3080,maharashtra,2019,98,PATHRI,MOIZ ANSARI ABDUL QUADER,
 IN-AC-2008-maharashtra-3079,maharashtra,2019,99,PARTUR,BABANRAO DATTATRYA YADAV(LONIKAR),parties.IN.BJP,BJP,106321,52.21,1,won,U,60,5th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3079,maharashtra,2019,99,PARTUR,JETHLIYA SURESHKUMAR KANHAIYALAL,parties.IN.INC,INC,80379,39.47,2,lost,U,63,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3079,maharashtra,2019,99,PARTUR,SHIVAJI KAMLAJI SAWANE,parties.IN.VBA,VBA,8616,4.23,3,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3079,maharashtra,2019,99,PARTUR,COM. SARITA MAROTI KHANDARE,parties.IN.CPIMLL,CPIM,2183,1.07,4,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3079,maharashtra,2019,99,PARTUR,COM. SARITA MAROTI KHANDARE,parties.IN.CPIM,CPIM,2183,1.07,4,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3079,maharashtra,2019,99,PARTUR,NITIN BHAGWANRAO MORE,parties.IN.BSP,BSP,827,0.41,6,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3079,maharashtra,2019,99,PARTUR,PRAKASH ASARAM SOLANKE,parties.IN.MNS,MNS,818,0.4,7,forfeit,U,51,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3079,maharashtra,2019,99,PARTUR,ADV. ARJUN GOVINDRAO CHAVAN,parties.IN.IND,IND,661,0.32,8,forfeit,U,33,Graduate Professional,Agricultural Business,challenger,src-1b7bc1c9d39a
@@ -1122,7 +1122,7 @@ IN-AC-2008-maharashtra-3079,maharashtra,2019,99,PARTUR,SANJAY SHANKAR CHAVAN,par
 IN-AC-2008-maharashtra-3079,maharashtra,2019,99,PARTUR,ASHOK MAROTI RATHOD,parties.IN.IND,IND,413,0.2,11,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3079,maharashtra,2019,99,PARTUR,MILIND DAMODHAR MAGARE,parties.IN.IND,IND,356,0.17,12,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3079,maharashtra,2019,99,PARTUR,RAJU GULABRAO MORE,parties.IN.SBBGP,SBBGP,344,0.17,13,forfeit,U,47,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3079,maharashtra,2019,99,PARTUR,SANTOSHKUMAR ANANDA MAGAR,parties.IN.AAAP,AAAP,274,0.13,14,forfeit,U,29,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3079,maharashtra,2019,99,PARTUR,SANTOSHKUMAR ANANDA MAGAR,parties.IN.AAP,AAAP,274,0.13,14,forfeit,U,29,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3079,maharashtra,2019,99,PARTUR,AZHER YUNUS SHAIKH,parties.IN.IND,IND,246,0.12,15,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3076,maharashtra,2019,100,GHANSAWANGI,Rajeshbhaiyya Tope,parties.IN.NCP,NCP,107849,47.09,1,won,U,50,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3076,maharashtra,2019,100,GHANSAWANGI,Udhan Hikmat Baliram,parties.IN.SHS,SHS,104440,45.6,2,lost,U,54,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
@@ -1158,7 +1158,7 @@ IN-AC-2008-maharashtra-2967,maharashtra,2019,101,JALNA,Dwarkabai Kashinath Londh
 IN-AC-2008-maharashtra-2967,maharashtra,2019,101,JALNA,Bhaskar Sheshrao Borde,parties.IN.IND,IND,187,0.1,20,forfeit,U,40,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2967,maharashtra,2019,101,JALNA,Anand Kundlik Mhaske,parties.IN.IND,IND,180,0.1,21,forfeit,U,33,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2967,maharashtra,2019,101,JALNA,Arjun Subhash Kanse,parties.IN.IND,IND,175,0.09,22,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2967,maharashtra,2019,101,JALNA,Kailas Gangadhar Phulari,parties.IN.AAAP,AAAP,165,0.09,23,forfeit,U,40,10th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2967,maharashtra,2019,101,JALNA,Kailas Gangadhar Phulari,parties.IN.AAP,AAAP,165,0.09,23,forfeit,U,40,10th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2967,maharashtra,2019,101,JALNA,Rahul Babanrao Ratnaparkhe,parties.IN.IND,IND,154,0.08,24,forfeit,U,35,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2967,maharashtra,2019,101,JALNA,Noorkhan Maheboob Khan,parties.IN.IND,IND,143,0.08,25,forfeit,U,62,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2967,maharashtra,2019,101,JALNA,Nade Dnyaneshwar Dagduji,parties.IN.IND,IND,133,0.07,26,forfeit,U,52,8th Pass,Contractor,challenger,src-1b7bc1c9d39a
@@ -1313,7 +1313,7 @@ IN-AC-2008-maharashtra-2940,maharashtra,2019,113,NANDGAON,Pankaj Bhujbal,parties
 IN-AC-2008-maharashtra-2940,maharashtra,2019,113,NANDGAON,Pagare Rajendra D.,parties.IN.VBA,VBA,13637,7.17,3,forfeit,U,54,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2940,maharashtra,2019,113,NANDGAON,Engg. Ratnakar Dnyandev Pawar,parties.IN.IND,IND,12257,6.45,4,forfeit,U,49,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2940,maharashtra,2019,113,NANDGAON,Govinda Ambar Borale,parties.IN.BSP,BSP,986,0.52,6,forfeit,U,34,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2940,maharashtra,2019,113,NANDGAON,Vishal Shivaji Wadghule,parties.IN.AAAP,AAAP,737,0.39,7,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2940,maharashtra,2019,113,NANDGAON,Vishal Shivaji Wadghule,parties.IN.AAP,AAAP,737,0.39,7,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2940,maharashtra,2019,113,NANDGAON,Bhagwan Namdeo Sonawane,parties.IN.IND,IND,724,0.38,8,forfeit,U,32,Graduate Professional,Journalist or Editor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2940,maharashtra,2019,113,NANDGAON,Mali Pundlik Laxman,parties.IN.IND,IND,683,0.36,9,forfeit,U,30,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2940,maharashtra,2019,113,NANDGAON,Sunil Tukaram Sonawane,parties.IN.IND,IND,633,0.33,10,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -1352,7 +1352,7 @@ IN-AC-2008-maharashtra-2931,maharashtra,2019,116,BAGLAN,GULAB MAHADU GAVIT,parti
 IN-AC-2008-maharashtra-2931,maharashtra,2019,116,BAGLAN,PANDIT DODHA BORSE,parties.IN.IND,IND,1204,0.72,6,forfeit,U,58,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2931,maharashtra,2019,116,BAGLAN,ANJANABAI ANANDA MORE,parties.IN.BSP,BSP,981,0.59,7,forfeit,U,48,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2939,maharashtra,2019,117,KALWAN,NITIN ARJUN (A.T.) PAWAR,parties.IN.NCP,NCP,86877,44.55,1,won,U,50,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2939,maharashtra,2019,117,KALWAN,COM. GAVIT JIVA PANDU,parties.IN.CPIMLL,CPIM,80281,41.17,2,lost,U,70,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2939,maharashtra,2019,117,KALWAN,COM. GAVIT JIVA PANDU,parties.IN.CPIM,CPIM,80281,41.17,2,lost,U,70,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2939,maharashtra,2019,117,KALWAN,MOHAN NAVASU GANGURDE,parties.IN.SHS,SHS,23052,11.82,3,forfeit,U,53,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2939,maharashtra,2019,117,KALWAN,RAJENDRA LAXMAN THAKARE,parties.IN.MNS,MNS,1157,0.59,5,forfeit,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2939,maharashtra,2019,117,KALWAN,VIJAY (VICKY) UTTAM BHOYE,parties.IN.BTP,BTP,806,0.41,6,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
@@ -1419,7 +1419,7 @@ IN-AC-2008-maharashtra-3059,maharashtra,2019,124,NASHIK CENTRAL,VILAS MADHUKAR D
 IN-AC-2008-maharashtra-3061,maharashtra,2019,125,NASHIK WEST,Seema Mahesh Hiray (Seematai),parties.IN.BJP,BJP,78041,35.65,1,won,U,49,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3061,maharashtra,2019,125,NASHIK WEST,Dr. Apoorva Prashant Hiray,parties.IN.NCP,NCP,68295,31.19,2,lost,U,39,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3061,maharashtra,2019,125,NASHIK WEST,Dilip Dattu Datir,parties.IN.MNS,MNS,25501,11.65,3,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3061,maharashtra,2019,125,NASHIK WEST,Dhondiram Limbaji Karad,parties.IN.CPIMLL,CPIM,22657,10.35,4,forfeit,U,62,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3061,maharashtra,2019,125,NASHIK WEST,Dhondiram Limbaji Karad,parties.IN.CPIM,CPIM,22657,10.35,4,forfeit,U,62,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3061,maharashtra,2019,125,NASHIK WEST,Vilas Ramdas Shinde,parties.IN.IND,IND,16429,7.5,5,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3061,maharashtra,2019,125,NASHIK WEST,Bipin Annasaheb Katare,parties.IN.IND,IND,2270,1.04,6,forfeit,U,29,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3061,maharashtra,2019,125,NASHIK WEST,Bhimrao Lakshmanrao Jadhav,parties.IN.BSP,BSP,788,0.36,8,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -1456,7 +1456,7 @@ IN-AC-2008-maharashtra-3058,maharashtra,2019,127,IGATPURI,Shivram Dharma Khane,p
 IN-AC-2008-maharashtra-3058,maharashtra,2019,127,IGATPURI,Adv. Yashwant Walu Pardhi,parties.IN.IND,IND,1278,0.76,8,forfeit,U,41,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3058,maharashtra,2019,127,IGATPURI,Vikas Mohan Shengal,parties.IN.IND,IND,1110,0.66,9,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3058,maharashtra,2019,127,IGATPURI,Dattataray Damodhar Narale,parties.IN.IND,IND,767,0.46,10,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3070,maharashtra,2019,128,DAHANU,Nikole Vinod Bhiva,parties.IN.CPIMLL,CPIM,72114,43.45,1,won,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3070,maharashtra,2019,128,DAHANU,Nikole Vinod Bhiva,parties.IN.CPIM,CPIM,72114,43.45,1,won,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3070,maharashtra,2019,128,DAHANU,Dhanare Paskal Janya,parties.IN.BJP,BJP,67407,40.61,2,lost,U,47,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3070,maharashtra,2019,128,DAHANU,Sunil Lahanya Ebhad,parties.IN.MNS,MNS,6332,3.81,3,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3070,maharashtra,2019,128,DAHANU,Randhe Damodar Shirad,parties.IN.IND,IND,2823,1.7,5,forfeit,U,62,Graduate,,challenger,src-1b7bc1c9d39a
@@ -1518,7 +1518,7 @@ IN-AC-2008-maharashtra-2914,maharashtra,2019,134,BHIWANDI RURAL,Co. Laxaman Suka
 IN-AC-2008-maharashtra-2914,maharashtra,2019,134,BHIWANDI RURAL,Sitaram Arjun Dive,parties.IN.IND,IND,1385,0.8,8,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2918,maharashtra,2019,135,SHAHAPUR,DAULAT BHIKA DARODA,parties.IN.NCP,NCP,76053,46.96,1,won,U,51,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2918,maharashtra,2019,135,SHAHAPUR,BARORA PANDURANG MAHADU,parties.IN.SHS,SHS,60949,37.63,2,lost,U,49,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2918,maharashtra,2019,135,SHAHAPUR,Krushna Chintu Bhavar,parties.IN.CPIMLL,CPIM,10361,6.4,3,forfeit,U,39,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2918,maharashtra,2019,135,SHAHAPUR,Krushna Chintu Bhavar,parties.IN.CPIM,CPIM,10361,6.4,3,forfeit,U,39,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2918,maharashtra,2019,135,SHAHAPUR,Harishchandra (Haresh) Bango Khandavi,parties.IN.VBA,VBA,5671,3.5,4,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2918,maharashtra,2019,135,SHAHAPUR,JAGDISH GOVIND GIRA,parties.IN.IND,IND,1816,1.12,6,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2918,maharashtra,2019,135,SHAHAPUR,RAVINDRA MANGALU MARADE,parties.IN.BSP,BSP,1710,1.06,7,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -1644,7 +1644,7 @@ IN-AC-2008-maharashtra-3144,maharashtra,2019,145,MIRA BHAYANDAR,Geeta Bharat Jai
 IN-AC-2008-maharashtra-3144,maharashtra,2019,145,MIRA BHAYANDAR,Narendra Mehta,parties.IN.BJP,BJP,64049,30.26,2,lost,U,47,8th Pass,Rent,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3144,maharashtra,2019,145,MIRA BHAYANDAR,Muzaffar Hussain,parties.IN.INC,INC,55939,26.43,3,lost,U,53,Graduate,Private Company,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3144,maharashtra,2019,145,MIRA BHAYANDAR,Haresh Eknath Sutar,parties.IN.MNS,MNS,3936,1.86,4,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3144,maharashtra,2019,145,MIRA BHAYANDAR,CA Narendra Bhambwani,parties.IN.AAAP,AAAP,2042,0.96,6,forfeit,U,54,Graduate,Accountant,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3144,maharashtra,2019,145,MIRA BHAYANDAR,CA Narendra Bhambwani,parties.IN.AAP,AAAP,2042,0.96,6,forfeit,U,54,Graduate,Accountant,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3144,maharashtra,2019,145,MIRA BHAYANDAR,Salim Abbas Khan,parties.IN.VBA,VBA,1421,0.67,7,forfeit,U,63,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3144,maharashtra,2019,145,MIRA BHAYANDAR,Kirtawade Vidhyadhar Bhimrao,parties.IN.BSP,BSP,576,0.27,8,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3144,maharashtra,2019,145,MIRA BHAYANDAR,Jangam Pradeep Dilip,parties.IN.IND,IND,527,0.25,9,forfeit,U,35,Graduate,Priest,challenger,src-1b7bc1c9d39a
@@ -1684,7 +1684,7 @@ IN-AC-2008-maharashtra-3146,maharashtra,2019,148,THANE,KEDARNATH RUPARAM BHARTI,
 IN-AC-2008-maharashtra-3146,maharashtra,2019,148,THANE,GODBOLE YOGESH VISHWANATH (SAMIR),parties.IN.BAHUMP,BAHUMP,1210,0.68,6,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2977,maharashtra,2019,149,MUMBRA-KALWA,AWHAD JITENDRA SATISH,parties.IN.NCP,NCP,109283,61.03,1,won,U,56,Doctorate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2977,maharashtra,2019,149,MUMBRA-KALWA,DEEPALI JAHANGIR SAYED,parties.IN.SHS,SHS,33644,18.79,2,lost,U,41,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-2977,maharashtra,2019,149,MUMBRA-KALWA,ABU ALTAMASH FAIZI,parties.IN.AAAP,AAAP,30520,17.05,3,lost,U,50,Doctorate,Consultant,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-2977,maharashtra,2019,149,MUMBRA-KALWA,ABU ALTAMASH FAIZI,parties.IN.AAP,AAAP,30520,17.05,3,lost,U,50,Doctorate,Consultant,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2977,maharashtra,2019,149,MUMBRA-KALWA,FARHAT MOHD AMIN SHAIKH,parties.IN.IUML,IUML,717,0.4,5,forfeit,U,26,Post Graduate,Auto-rickshaw Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2977,maharashtra,2019,149,MUMBRA-KALWA,KALPANA PANDHARINATH GAIKWAD,parties.IN.IND,IND,561,0.31,6,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-2977,maharashtra,2019,149,MUMBRA-KALWA,MOHAMMAD YUSUF MOHAMMAD FAROOQ KHAN,parties.IN.IND,IND,498,0.28,7,forfeit,U,43,8th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
@@ -1774,7 +1774,7 @@ IN-AC-2008-maharashtra-3015,maharashtra,2019,157,BHANDUP WEST,Ankush Vasant Kura
 IN-AC-2008-maharashtra-3025,maharashtra,2019,158,JOGESHWARI EAST,Ravindra Dattaram Waikar,parties.IN.SHS,SHS,90654,60.86,1,won,U,60,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3025,maharashtra,2019,158,JOGESHWARI EAST,Sunil Bisan Kumre,parties.IN.INC,INC,31867,21.39,2,lost,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3025,maharashtra,2019,158,JOGESHWARI EAST,Dilbag Singh,parties.IN.VBA,VBA,5075,3.41,4,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3025,maharashtra,2019,158,JOGESHWARI EAST,Vitthal Govind Lad,parties.IN.AAAP,AAAP,3857,2.59,5,forfeit,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3025,maharashtra,2019,158,JOGESHWARI EAST,Vitthal Govind Lad,parties.IN.AAP,AAAP,3857,2.59,5,forfeit,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3025,maharashtra,2019,158,JOGESHWARI EAST,Milind Jagannath Bhole,parties.IN.IND,IND,3304,2.22,6,forfeit,U,54,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3025,maharashtra,2019,158,JOGESHWARI EAST,Kundan Hindurao Waghmare,parties.IN.BSP,BSP,1250,0.84,7,forfeit,U,43,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3025,maharashtra,2019,158,JOGESHWARI EAST,Anil Laxman Chavan,parties.IN.IND,IND,927,0.62,8,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -1782,7 +1782,7 @@ IN-AC-2008-maharashtra-3006,maharashtra,2019,160,KANDIVALI EAST,Atul Bhatkhalkar
 IN-AC-2008-maharashtra-3006,maharashtra,2019,160,KANDIVALI EAST,Dr. Ajanta Rajpati Yadav,parties.IN.INC,INC,32798,24.35,2,lost,U,53,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3006,maharashtra,2019,160,KANDIVALI EAST,Hemantkumar Tulshiram Kamble,parties.IN.MNS,MNS,10132,7.52,3,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3006,maharashtra,2019,160,KANDIVALI EAST,Rahul Manikrao Jadhav,parties.IN.VBA,VBA,2514,1.87,5,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3006,maharashtra,2019,160,KANDIVALI EAST,Adv. Sumitra Shrivastava,parties.IN.AAAP,AAAP,782,0.58,6,forfeit,U,47,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3006,maharashtra,2019,160,KANDIVALI EAST,Adv. Sumitra Shrivastava,parties.IN.AAP,AAAP,782,0.58,6,forfeit,U,47,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3006,maharashtra,2019,160,KANDIVALI EAST,Balkrishna Ishwar Prasad,parties.IN.BSP,BSP,529,0.39,7,forfeit,U,43,5th Pass,Self-employed,crossover,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3004,maharashtra,2019,161,CHARKOP,Yogesh Sagar,parties.IN.BJP,BJP,108202,71.1,1,won,U,57,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3004,maharashtra,2019,161,CHARKOP,Kalu Budhelia,parties.IN.INC,INC,34453,22.64,2,lost,U,52,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -1824,7 +1824,7 @@ IN-AC-2008-maharashtra-3022,maharashtra,2019,165,ANDHERI WEST,Ameet Bhaskar Sata
 IN-AC-2008-maharashtra-3022,maharashtra,2019,165,ANDHERI WEST,Ashok Bhau Jadhav,parties.IN.INC,INC,46653,35,2,lost,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3022,maharashtra,2019,165,ANDHERI WEST,Arif Moinuddin Shaikh,parties.IN.AIMIM,AIMIM,7038,5.28,3,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3022,maharashtra,2019,165,ANDHERI WEST,Kishor Vishnu Rane,parties.IN.MNS,MNS,6891,5.17,4,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3022,maharashtra,2019,165,ANDHERI WEST,Narayanan Keshav Kidappil,parties.IN.CPIMLL,CPIM,2772,2.08,6,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3022,maharashtra,2019,165,ANDHERI WEST,Narayanan Keshav Kidappil,parties.IN.CPIM,CPIM,2772,2.08,6,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3022,maharashtra,2019,165,ANDHERI WEST,Dr.Ujjay Ramesh Jadhav,parties.IN.IND,IND,544,0.41,7,forfeit,U,43,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3022,maharashtra,2019,165,ANDHERI WEST,Sayyad Ameen Patel,parties.IN.IND,IND,468,0.35,8,forfeit,U,65,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3022,maharashtra,2019,165,ANDHERI WEST,Gulaam Haider Gulaam Mohammad Shaikh,parties.IN.JANADIP,JANADIP,195,0.15,9,forfeit,U,45,5th Pass,,challenger,src-1b7bc1c9d39a
@@ -2127,7 +2127,7 @@ IN-AC-2008-maharashtra-3086,maharashtra,2019,208,VADGAOL SHERI,Mulik Jagdish Tuk
 IN-AC-2008-maharashtra-3086,maharashtra,2019,208,VADGAOL SHERI,Pravin Bapurao Gaikwad,parties.IN.VBA,VBA,10298,4.8,3,forfeit,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3086,maharashtra,2019,208,VADGAOL SHERI,Daniyal Landge,parties.IN.AIMIM,AIMIM,7702,3.59,4,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3086,maharashtra,2019,208,VADGAOL SHERI,Bengale Rajesh Dattatray,parties.IN.BSP,BSP,1653,0.77,6,forfeit,U,47,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3086,maharashtra,2019,208,VADGAOL SHERI,Ganesh Balkrishna Dhamale,parties.IN.AAAP,AAAP,908,0.42,7,forfeit,U,37,Graduate,Auto-rickshaw Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3086,maharashtra,2019,208,VADGAOL SHERI,Ganesh Balkrishna Dhamale,parties.IN.AAP,AAAP,908,0.42,7,forfeit,U,37,Graduate,Auto-rickshaw Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3086,maharashtra,2019,208,VADGAOL SHERI,Auoti Savita Arjun,parties.IN.IND,IND,298,0.14,8,forfeit,U,45,10th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3086,maharashtra,2019,208,VADGAOL SHERI,Shashikant Dhondiba Raut,parties.IN.IND,IND,204,0.1,9,forfeit,U,53,Doctorate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3086,maharashtra,2019,208,VADGAOL SHERI,Prakash Raybhan Parkhe,parties.IN.SBBGP,SBBGP,198,0.09,10,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -2140,7 +2140,7 @@ IN-AC-2008-maharashtra-3085,maharashtra,2019,209,SHIVAJINAGAR,Anil Shankar Kurha
 IN-AC-2008-maharashtra-3085,maharashtra,2019,209,SHIVAJINAGAR,Nimhan Suhas Bhagwanrao,parties.IN.MNS,MNS,5272,3.93,4,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3085,maharashtra,2019,209,SHIVAJINAGAR,Gaikwad Satyawan Baban,parties.IN.BSP,BSP,883,0.66,6,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3085,maharashtra,2019,209,SHIVAJINAGAR,Anjaneya Sathe,parties.IN.IND,IND,726,0.54,7,forfeit,U,29,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3085,maharashtra,2019,209,SHIVAJINAGAR,Mukund Kirdat,parties.IN.AAAP,AAAP,709,0.53,8,forfeit,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3085,maharashtra,2019,209,SHIVAJINAGAR,Mukund Kirdat,parties.IN.AAP,AAAP,709,0.53,8,forfeit,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3085,maharashtra,2019,209,SHIVAJINAGAR,Kailas D. Gaikwad,parties.IN.HJP,HJP,331,0.25,9,forfeit,U,46,Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3085,maharashtra,2019,209,SHIVAJINAGAR,Firoz Shamsuddin Mulla,parties.IN.IND,IND,278,0.21,10,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3085,maharashtra,2019,209,SHIVAJINAGAR,Turekar Sanjay Hanumant,parties.IN.IND,IND,247,0.18,11,forfeit,U,48,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
@@ -2150,7 +2150,7 @@ IN-AC-2008-maharashtra-3085,maharashtra,2019,209,SHIVAJINAGAR,Anthony Anthonydas
 IN-AC-2008-maharashtra-3082,maharashtra,2019,210,KOTHRUD,CHANDRAKANT (Dada) BACHHU PATIL,parties.IN.BJP,BJP,105246,53.93,1,won,U,60,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3082,maharashtra,2019,210,KOTHRUD,Adv. KISHOR NANA SHINDE,parties.IN.MNS,MNS,79751,40.87,2,lost,U,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3082,maharashtra,2019,210,KOTHRUD,Adv. DEEPAK NARAYANRAO SHAMDIRE,parties.IN.VBA,VBA,2428,1.24,4,forfeit,U,48,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3082,maharashtra,2019,210,KOTHRUD,Dr. ABHIJIT HINDURAO MORE,parties.IN.AAAP,AAAP,1380,0.71,5,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3082,maharashtra,2019,210,KOTHRUD,Dr. ABHIJIT HINDURAO MORE,parties.IN.AAP,AAAP,1380,0.71,5,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3082,maharashtra,2019,210,KOTHRUD,THORAT PRAVIN NAMDEO,parties.IN.BSP,BSP,831,0.43,6,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3082,maharashtra,2019,210,KOTHRUD,Prof.Dr.SAHADEV ATMARAM JADHAVAR,parties.IN.IND,IND,426,0.22,7,forfeit,U,39,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3082,maharashtra,2019,210,KOTHRUD,DAHIBHATE PRAKASH MARUTI,parties.IN.IND,IND,404,0.21,8,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -2186,7 +2186,7 @@ IN-AC-2008-maharashtra-3084,maharashtra,2019,214,PUNE CANTONMENT,HEENA SHAFIQUE 
 IN-AC-2008-maharashtra-3084,maharashtra,2019,214,PUNE CANTONMENT,MANISHA SATISH SARODE (BHISE),parties.IN.MNS,MNS,3075,2.43,5,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3084,maharashtra,2019,214,PUNE CANTONMENT,CHALWADI HULGESH MARIAPPA,parties.IN.BSP,BSP,2069,1.63,7,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3084,maharashtra,2019,214,PUNE CANTONMENT,KISHOR (DAJI) TUPARE,parties.IN.BMUP,BMUP,467,0.37,8,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3084,maharashtra,2019,214,PUNE CANTONMENT,KHEMDEV RAMBHAU SONWANE,parties.IN.AAAP,AAAP,459,0.36,9,forfeit,U,51,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3084,maharashtra,2019,214,PUNE CANTONMENT,KHEMDEV RAMBHAU SONWANE,parties.IN.AAP,AAAP,459,0.36,9,forfeit,U,51,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3084,maharashtra,2019,214,PUNE CANTONMENT,AMIT SHANKAR MORE,parties.IN.IND,IND,386,0.3,10,forfeit,U,30,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3084,maharashtra,2019,214,PUNE CANTONMENT,TUKARAM PANDURANG KAMBALE,parties.IN.IND,IND,333,0.26,11,forfeit,U,27,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3084,maharashtra,2019,214,PUNE CANTONMENT,ADV. NILESH VIJAY PAWAR,parties.IN.IND,IND,202,0.16,12,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
@@ -2552,7 +2552,7 @@ IN-AC-2008-maharashtra-3065,maharashtra,2019,242,OSMANABAD,Ajit Bappasaheb Pingl
 IN-AC-2008-maharashtra-3065,maharashtra,2019,242,OSMANABAD,Dhananjay Gangadhar Shingade,parties.IN.VBA,VBA,15755,7.28,4,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3065,maharashtra,2019,242,OSMANABAD,Suresh Sahebrao Patil,parties.IN.IND,IND,10014,4.63,5,forfeit,U,63,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3065,maharashtra,2019,242,OSMANABAD,Dr. Sandip Manikrao Tambare,parties.IN.SBBGP,SBBGP,2289,1.06,6,forfeit,U,39,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3065,maharashtra,2019,242,OSMANABAD,Adv. Ajit (Anna) Vishwanath Khot Patil,parties.IN.AAAP,AAAP,1298,0.6,8,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-maharashtra-3065,maharashtra,2019,242,OSMANABAD,Adv. Ajit (Anna) Vishwanath Khot Patil,parties.IN.AAP,AAAP,1298,0.6,8,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3065,maharashtra,2019,242,OSMANABAD,Bhika Sudamrao Vidyagar,parties.IN.BSP,BSP,1094,0.51,9,forfeit,U,64,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3065,maharashtra,2019,242,OSMANABAD,Datta Mohan Tupe,parties.IN.IND,IND,726,0.34,10,forfeit,U,26,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3065,maharashtra,2019,242,OSMANABAD,Siraj Alias Papa Phataru Sayyad,parties.IN.TPSTP,TPSTP,689,0.32,11,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a

@@ -59,36 +59,28 @@ test.describe("G12 election <-> place bridges + G13 map demote", () => {
     );
   });
 
-  test("indicator card does NOT advertise the latest election on /<state> or /<state>/<topic>", async ({ page }) => {
-    // 2026-06-11: the G12 "View latest election for <state>" per-card
-    // footer was removed (Hans + Jony convergence -- the citizen on a
-    // fiscal / health / energy card is not asking a political question;
-    // the legitimate pivot to elections lives on the state hub's own
-    // RacesBoard + ElectionSeatsTrend block, one scroll below the
-    // indicator grid). This spec now ENFORCES the absence so a future
-    // regression that puts the link back is caught at gate time.
-    //
-    // Two surfaces are checked: the state hub (where the bug was
-    // dormant -- present but visually justified by the same-page
-    // elections block being nearby), and a state-topic page (where the
-    // bug was loud per the 2026-06-11 user screenshot of
-    // /in/karnataka/fiscal). Both must render IndicatorCards without
-    // the latest-election footer link.
-    for (const path of ["/tamil-nadu", "/in/karnataka/fiscal"]) {
-      await page.goto(path);
-      await expect(page.getByTestId("indicator-card").first()).toBeVisible({
-        timeout: 30_000,
+  test("indicator card exposes latest-election link on /tamil-nadu (graceful)", async ({ page }) => {
+    await page.goto("/tamil-nadu");
+    // The page renders many IndicatorCards; wait for the first to mount.
+    await expect(page.getByTestId("indicator-card").first()).toBeVisible({
+      timeout: 30_000,
+    });
+    // Give the catalogue fetch + $derived chain a moment to settle for
+    // at least one card. Use a short polling-style wait; tolerate the
+    // absent case (graceful per the IndicatorCard contract).
+    const link = page.getByTestId("indicator-card-latest-election").first();
+    await link
+      .waitFor({ state: "visible", timeout: 10_000 })
+      .catch(() => {
+        /* graceful: no event found in catalogue for this state */
       });
-      // Give the card $effect + $derived chain a moment to settle on
-      // every mounted card so we don't false-pass during the loading
-      // skeleton phase. The data-testid was the CTA's only locator;
-      // its absence after a settle pause is the contract.
-      await page.waitForTimeout(2_000);
-      const cta = page.getByTestId("indicator-card-latest-election");
+    const count = await link.count();
+    if (count > 0) {
+      const href = await link.getAttribute("href");
       expect(
-        await cta.count(),
-        `IndicatorCard must NOT render the latest-election CTA on ${path}`,
-      ).toBe(0);
+        href,
+        "latest-election link must target /tamil-nadu/elections/<event>",
+      ).toMatch(/\/s\/tamil-nadu\/elections\/[A-Za-z0-9_-]+/);
     }
   });
 

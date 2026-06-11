@@ -227,13 +227,34 @@
   // Derive the domain from the filtered rows (unless caller supplied one).
   const resolved_domain = $derived(domain_override ?? deriveDomain(time_rows));
 
+  // Citizen-honest default tick format. d3-format's SI notation (".2s")
+  // produces nonsense like `−500m` (milli-prefix = millionths) for small
+  // percent values like -0.0005 - which the inflation choropleth's domain
+  // edge surfaced on Home in PR #940. Rules of thumb:
+  //   * Caller-supplied `format_tick` always wins (escape hatch).
+  //   * Indicators carrying `%` as unit: fixed-precision; never SI.
+  //   * Domain max < 1000: fixed-precision; SI would only abbreviate above 1k.
+  //   * Otherwise: SI (`.2s`) - the right choice for INR-crore / MW / etc.
+  const effective_format_tick = $derived.by(() => {
+    if (format_tick !== ".2s") return format_tick;
+    const is_percent = unit_label === "%" || unit_label === "percent";
+    if (is_percent) return ".2f";
+    const abs_max = Math.max(
+      Math.abs(resolved_domain.min),
+      Math.abs(resolved_domain.max),
+    );
+    if (!Number.isFinite(abs_max)) return ".2s";
+    if (abs_max < 1000) return ".2f";
+    return ".2s";
+  });
+
   // Build the binned color scale. Drives both fills + the legend.
   const scale: BinnedSequentialScale = $derived(
     binnedSequential({
       domain: resolved_domain,
       bins,
       direction,
-      format_tick,
+      format_tick: effective_format_tick,
     }),
   );
 

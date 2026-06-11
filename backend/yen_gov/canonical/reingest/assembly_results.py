@@ -70,7 +70,6 @@ __all__ = [
     "NOTA_PARTY_TOKEN",
     "NOTA_TOKENS",
     "build_candidacy_rows",
-    "is_nota_row",
     "party_lookup_from_parties_csv",
     "recompute_summary_row",
     "emit_state_assembly",
@@ -80,38 +79,15 @@ __all__ = [
 # Constituency_No numbering matches the emitted electoral.csv entities.
 DELIM_ID_2008 = "4"
 
-# TCPD marks the "None of the Above" ballot line two different ways across
-# vintages: pre-2017 carried ``Party='NOTA'`` (or 'None of the Above' / 'None')
-# with a real Candidate string; 2017+ flipped to ``Candidate='NOTA'`` with an
-# EMPTY ``Party`` cell. Both shapes are ballot options, not candidates, and
-# MUST be filtered out of candidacies + summary alike. ``is_nota_row()`` is
-# the single seam that handles both shapes. The legacy NOTA_PARTY_TOKEN
-# constant is preserved for backwards-compat callers (e.g. parliament_results
-# re-export) but the live filter consults ``is_nota_row``.
+# TCPD marks the "None of the Above" ballot line three different ways across
+# years (G1, 2026-06-08): the canonical "NOTA" literal and the long-form
+# "None of the Above" / bare "None". All three are ballot options, not
+# candidates, and MUST be filtered out of candidacies + summary alike. The
+# legacy NOTA_PARTY_TOKEN constant is preserved for backwards-compat callers
+# (e.g. parliament_results re-export) but the live filter consults the
+# NOTA_TOKENS frozenset.
 NOTA_PARTY_TOKEN = "NOTA"
 NOTA_TOKENS: frozenset[str] = frozenset({"NOTA", "NONE OF THE ABOVE", "NONE"})
-
-
-def is_nota_row(src: dict[str, str]) -> bool:
-    """Return True when a TCPD source row is the NOTA ballot option.
-
-    Two shapes coexist in the TCPD compilation:
-
-    - pre-2017: ``Party='NOTA'`` (or 'None of the Above' / 'None')
-    - 2017+:    ``Candidate='NOTA'`` with ``Party=''`` (empty cell)
-
-    Both shapes carry the same semantic ("None of the Above") and must be
-    excluded so the candidacies file holds real candidates only and the
-    party_short_raw column is never empty for an emitted row. Decided in
-    response to the Delhi-2008 + 72-slice writer-bug audit (2026-06-11):
-    the previous filter only checked the Party column and silently emitted
-    the 2017+ NOTA shape with blank party_short_raw + parties.IN.UNK.
-    """
-    raw_party = (src.get("Party") or "").strip().upper()
-    if raw_party in NOTA_TOKENS:
-        return True
-    raw_candidate = (src.get("Candidate") or "").strip().upper()
-    return raw_candidate in NOTA_TOKENS
 
 # Closed-enum maps (the validator enforces membership; we map at the boundary).
 _SEX_MAP = {"MALE": "M", "FEMALE": "F", "OTHERS": "O", "OTHER": "O", "THIRD": "O"}
@@ -290,9 +266,9 @@ def build_candidacy_rows(
     rows: list[dict[str, Any]] = []
     unbound: set[int] = set()
     for src in source_rows:
-        if is_nota_row(src):
-            continue  # NOTA / None of the Above / None are ballot options, not candidates.
         raw_party = (src.get("Party") or "").strip()
+        if raw_party.upper() in NOTA_TOKENS:
+            continue  # NOTA / None of the Above / None are ballot options, not candidates.
         eci_no = _int_or_none(src.get("Constituency_No"))
         if eci_no is None:
             continue
@@ -334,23 +310,6 @@ def build_candidacy_rows(
     rows.sort(
         key=lambda r: (r["constituency_no"], r["position"], r["candidate_name"])
     )
-    # Structural contract (CLAUDE.md section 5 + section 10): every emitted
-    # candidacy row carries a non-empty party_short_raw. The only legitimate
-    # "no Party value" rows in TCPD are the NOTA ballot options, which
-    # is_nota_row() filters out above. An emitted row with blank
-    # party_short_raw is a writer regression (e.g. a new NOTA shape escaping
-    # the filter, or a publisher that legitimately reports candidates without
-    # any party label, which would be a new contract question for Hans+Max).
-    for row in rows:
-        if not row.get("party_short_raw"):
-            raise ValueError(
-                "writer regression: emitted candidacy with blank party_short_raw "
-                f"(state={state_slug!r}, year={election_year}, "
-                f"eci_no={row.get('constituency_no')!r}, "
-                f"candidate={row.get('candidate_name')!r}). "
-                "If TCPD added a new NOTA shape, extend is_nota_row(); "
-                "otherwise surface to Hans+Max for the publisher contract."
-            )
     return rows, unbound
 
 

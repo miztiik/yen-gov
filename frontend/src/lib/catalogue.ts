@@ -13,6 +13,7 @@
 import { DATA_BASE } from "./paths";
 import { fetchGrapherTopicCatalogue } from "./grapher/catalogue";
 import { applyGrapherOverlay } from "./grapher/overlay";
+import { getCanonicalDescriptor } from "./canonical/indicator-allowlist";
 
 export type ArtifactKind = "indicator" | "election" | "feature_collection";
 export type ArtifactScope = "national" | "state" | "constituency";
@@ -137,6 +138,33 @@ export async function fetchTopicCatalogue(): Promise<TopicCatalogue> {
  */
 export function displayForArtifact(a: CatalogueArtifact): string {
   return a.display ?? a.id;
+}
+
+/**
+ * Citizen-readable section heading for an indicator-kind artifact.
+ * Resolution order:
+ *   1. Catalogue `display` override (hand-authored; precedence for events).
+ *   2. Canonical-backed descriptor `meta.title` (e.g.
+ *      `"Outstanding liabilities (% of GSDP)"` for
+ *      `fiscal/outstanding_debt_pct_gsdp`).
+ *   3. Bare `id` (legacy fallback; only fires for non-allowlisted indicators
+ *      without a `display` override - reads as the path string, like
+ *      `"fiscal/outstanding_debt_pct_gsdp"`, but is preserved as a graceful
+ *      degradation rather than an empty heading).
+ *
+ * Pure + synchronous (the allowlist is bundled). The previous
+ * `displayForArtifact(a)` call returned (3) for every canonical-backed
+ * indicator that lacked a hand-authored `display` - which is every fiscal /
+ * energy / etc. tile on the /t/<topic> page. Citizens saw the raw legacy id
+ * as the section heading; this helper closes that gap.
+ */
+export function displayLabelForArtifact(a: CatalogueArtifact): string {
+  if (a.display) return a.display;
+  if (a.kind === "indicator") {
+    const descriptor = getCanonicalDescriptor(a.id);
+    if (descriptor?.meta?.title) return descriptor.meta.title;
+  }
+  return a.id;
 }
 
 /**

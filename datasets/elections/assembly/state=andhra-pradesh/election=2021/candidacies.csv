@@ -2,6 +2,7 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,DASARI SUDHA,parties.IN.YSRCP,YSRCP,112211,76.25,1,won,F,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,PANATHALA SURESH,parties.IN.BJP,BJP,21678,14.73,2,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,KAMALAMMA. P.M.,parties.IN.INC,INC,6235,4.24,3,forfeit,F,65,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,NOTA,parties.IN.UNK,,3650,2.48,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,T. HARI PRASAD,parties.IN.IND,IND,668,0.45,5,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,BURAGA RATNAM,parties.IN.IND,IND,409,0.28,6,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,O. OBULESU,parties.IN.UNK,Telugu Janata Party,405,0.28,7,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
