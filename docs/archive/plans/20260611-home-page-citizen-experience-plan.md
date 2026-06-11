@@ -17,12 +17,12 @@ Five concerns. The plan splits them into five PR-rows on file-disjoint surfaces 
 
 Binding documents (read these before any PR):
 
-- [CLAUDE.md](../CLAUDE.md) - engineering contract; section 0a authority table; section 6 correction levels; section 8 git hygiene; section 13 UI verification (mandatory for any frontend runtime change); section 0 a11y non-goal.
-- [docs/concepts/citizen-first.md](../docs/concepts/citizen-first.md) - question-first ordering; Citizen bookends every loop.
-- [docs/concepts/owid-alignment.md](../docs/concepts/owid-alignment.md) - The One Rule; OWID-precedent breaks ties on UX questions.
-- [docs/architecture/frontend/overview.md](../docs/architecture/frontend/overview.md) - "Default landing is the Citizen path: India choropleth at `#/`" - this plan modifies that landing.
-- [docs/architecture/frontend/map.md](../docs/architecture/frontend/map.md) - choropleth + theme dispatch reference.
-- [TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md](IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md) - section "Deferred to follow-on PRs" item #3 explicitly mandates "Default Home map theme -> NOT elections. A featured social-welfare or coverage indicator. User-mandated doctrine." This plan closes that deferred item.
+- [CLAUDE.md](../../../CLAUDE.md) - engineering contract; section 0a authority table; section 6 correction levels; section 8 git hygiene; section 13 UI verification (mandatory for any frontend runtime change); section 0 a11y non-goal.
+- [docs/concepts/citizen-first.md](../../../docs/concepts/citizen-first.md) - question-first ordering; Citizen bookends every loop.
+- [docs/concepts/owid-alignment.md](../../../docs/concepts/owid-alignment.md) - The One Rule; OWID-precedent breaks ties on UX questions.
+- [docs/architecture/frontend/overview.md](../../../docs/architecture/frontend/overview.md) - "Default landing is the Citizen path: India choropleth at `#/`" - this plan modifies that landing.
+- [docs/architecture/frontend/map.md](../../../docs/architecture/frontend/map.md) - choropleth + theme dispatch reference.
+- [TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md](../../../TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md) - section "Deferred to follow-on PRs" item #3 explicitly mandates "Default Home map theme -> NOT elections. A featured social-welfare or coverage indicator. User-mandated doctrine." This plan closes that deferred item.
 
 Prior persona rulings that bind this plan (do not re-debate):
 
@@ -34,7 +34,7 @@ Prior persona rulings that bind this plan (do not re-debate):
 
 ## Scope-change ledger
 
-Per [CLAUDE.md section 10](../CLAUDE.md), any agent that proposes to silently downgrade a user-named source, instruction, or recommended-default MUST add a row here before merging the row's PR. Capture INTENT in neutral prose; never paste user chat verbatim.
+Per [CLAUDE.md section 10](../../../CLAUDE.md), any agent that proposes to silently downgrade a user-named source, instruction, or recommended-default MUST add a row here before merging the row's PR. Capture INTENT in neutral prose; never paste user chat verbatim.
 
 | Row | Date | Intent (what changed, why, what it overrode) | signoff |
 |---|---|---|---|
@@ -72,11 +72,11 @@ Make the Home page lean (kill the dead state lists), full-bleed (no 192px deskto
 ### 0.3 ESCALATE triggers (do NOT proceed without user sign-off)
 
 - **Level-5 schema/data-shape change**: this plan touches NONE. If a row reveals a needed schema bump (e.g. catalogue v1.3 to mark `default_home_theme`), STOP and surface; do not bump silently.
-- **STOP-AND-SURFACE on user-named-source downgrade** ([CLAUDE.md section 10](../CLAUDE.md)): the user named "Lakshadweep" explicitly. PR-0 verifies it was already delivered; if PR-0 discovers Lakshadweep is NOT actually rendering on Home for any reason (broken JOIN, missing election event, etc.), STOP and surface - do NOT silently rescope.
+- **STOP-AND-SURFACE on user-named-source downgrade** ([CLAUDE.md section 10](../../../CLAUDE.md)): the user named "Lakshadweep" explicitly. PR-0 verifies it was already delivered; if PR-0 discovers Lakshadweep is NOT actually rendering on Home for any reason (broken JOIN, missing election event, etc.), STOP and surface - do NOT silently rescope.
 - **STOP if the indicator-rotation pool collapses** (PR-2): if `nationalIndicators(catalogue).length < 3` at run time, fall back to election theme silently AND surface a one-line warning in the plan-doc closure - do not invent a non-catalogue default.
 - **STOP at any persona conflict** (PR-3): if Jony's full-bleed verdict collides with a Citizen complaint that the map "loses its frame," dispatch a debate row; do not pick one and proceed.
 
-### 0.4 Deciding-authority dispatch (per [CLAUDE.md section 0a](../CLAUDE.md))
+### 0.4 Deciding-authority dispatch (per [CLAUDE.md section 0a](../../../CLAUDE.md))
 
 | Question | Authority | Verdict baked in this plan |
 |---|---|---|
@@ -92,7 +92,7 @@ Make the Home page lean (kill the dead state lists), full-bleed (no 192px deskto
 
 ### 0.5 What "done" means for this plan
 
-All 5 PR-rows merged to `main` with a green 5-gate DoD ([docs/how-to/ship-a-pr.md](../docs/how-to/ship-a-pr.md)), the Home page rendering verifiably (a) without the alphabetical states list, (b) with a topic-grid front door, (c) with a non-election default theme that rotates by day, (d) with "winning party" wherever it previously said "leading party", and (e) full-bleed map on desktop / responsive on mobile. Closure follows [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md): durable doctrine lifted into `docs/architecture/frontend/overview.md` + `docs/architecture/frontend/map.md`; plan-doc archived under `docs/archive/plans/`.
+All 5 PR-rows merged to `main` with a green 5-gate DoD ([docs/how-to/ship-a-pr.md](../../../docs/how-to/ship-a-pr.md)), the Home page rendering verifiably (a) without the alphabetical states list, (b) with a topic-grid front door, (c) with a non-election default theme that rotates by day, (d) with "winning party" wherever it previously said "leading party", and (e) full-bleed map on desktop / responsive on mobile. Closure follows [docs/how-to/distill-a-plan.md](../../../docs/how-to/distill-a-plan.md): durable doctrine lifted into `docs/architecture/frontend/overview.md` + `docs/architecture/frontend/map.md`; plan-doc archived under `docs/archive/plans/`.
 
 ---
 
@@ -101,14 +101,14 @@ All 5 PR-rows merged to `main` with a green 5-gate DoD ([docs/how-to/ship-a-pr.m
 When this plan is in context and the instruction is "implement it", execute as the ORCHESTRATOR with NO further questions except at an ESCALATE trigger. There is no processing step after this block - the rules below are the whole instruction set.
 
 1. **Orchestrator + subagent-PR topology.** The main agent owns the Status Reckoner (section 1) and never lets its own context overflow. Each PR-row is dispatched to a stateless `runSubagent` brief that is self-contained: the row scope, the files, the acceptance gates, and the one oracle. The subagent does the row; the orchestrator merges and moves on. Use the `Jony` agent for layout / copy / theme rulings inside subagent debates; the `Fowler` agent for deletion-discipline calls; `Hans` + `Max` for any data-shape question that surfaces mid-row.
-2. **One row = one PR = one branch.** Park master on `scratch-master-parking-2026-06-10` so no worktree owns `main` (clean `gh pr merge`). Author per [docs/how-to/ship-a-pr.md](../docs/how-to/ship-a-pr.md): 2-commit-then-squash, the 5-gate Definition-of-Done, browser-verify (`open_browser_page` + `read_page` + `screenshot_page`) for every frontend runtime change per [CLAUDE.md section 13](../CLAUDE.md). PR-0 is a doc-only / receipts row; skip the browser smoke for PR-0 only.
+2. **One row = one PR = one branch.** Park master on `scratch-master-parking-2026-06-10` so no worktree owns `main` (clean `gh pr merge`). Author per [docs/how-to/ship-a-pr.md](../../../docs/how-to/ship-a-pr.md): 2-commit-then-squash, the 5-gate Definition-of-Done, browser-verify (`open_browser_page` + `read_page` + `screenshot_page`) for every frontend runtime change per [CLAUDE.md section 13](../../../CLAUDE.md). PR-0 is a doc-only / receipts row; skip the browser smoke for PR-0 only.
 3. **Ship loop, non-stop.** Keep PRs in flight; never idle. As soon as one row's gates are green, merge (`gh pr merge --squash --delete-branch`), pull main, start the next row. Pre-existing unrelated test failures (the chronic backend `pipeline-pytest` red on main, the chronic frontend `citizen-site-e2e` red noted in user-memory 2026-06-10) are not gating - document the baseline, do not block. The cosmetic `'main' is already used by worktree` warning from `gh pr merge` when any worktree holds `main` is expected per user-memory CLAUDE.md section 8 - the manual `git push origin --delete <branch>` follow-up is mandatory, not optional.
 4. **Tests ship with the row.** Write/update only the tests the row needs. Full suite green at merge. No new mocks unless asked. PR-1 updates the existing `home-theme.test.ts` (3 string assertions) + the existing `golden-path.spec.ts` regex (1 line). PR-2 adds 4-6 new vitest cases for the day-of-year rotation logic. PR-3 adds 2-3 vitest cases for the topic-grid filter + 1 Playwright assertion that the alphabetical states list is GONE. PR-4 is doc-only (no tests).
 5. **Persona debate converges to ONE ruling.** When a row hits a contested design call mid-flight, run the authority personas in DEBATE (not parallel review); bake the single written verdict into the row commit message + into the plan-doc Scope-change ledger if it deviates from section 0.4. Do not parallelise debate.
 6. **Manage context via offload.** Push breadth-y reads, audits, and exploration into `Explore` subagents (`runSubagent` agentName="Explore") so the orchestrator's window stays lean. The orchestrator holds only the Reckoner, the current row, and the merge state.
 7. **Post-merge hygiene every time.** Delete the remote branch (`git push origin --delete <branch>` if `gh pr merge --delete-branch` failed cosmetically), prune `: gone` local branches (`git fetch --prune` then `git branch -vv | grep ': gone' | awk '{print $1}' | xargs -n1 git branch -D`), remove `.tmp_*`, distill durable lessons (PR-2 rotation logic and PR-3 layout shim are the candidates).
-8. **Stop only at a real boundary.** Stop and ask ONLY when: an ESCALATE trigger from section 0.3 fires, an explicit user-named source/instruction would be scope-narrowed (STOP-AND-SURFACE per [CLAUDE.md section 10](../CLAUDE.md)), or an audit chain exceeds depth 3 (the loop is lossy - escalate with Path A/B/C options, do not ship a 4th audit). Otherwise do not pause; the user is not watching.
-9. **Closure.** Done only when every in-scope row is DONE or COLLAPSED-with-cited-rationale. PR-0 is a no-op row and carries a receipt (the PR #788 + PR #455 merge SHAs cited inline + the on-disk Lakshadweep CSV path). Archive the plan-doc with a per-row distillation map per [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md). Lift the day-of-year rotation rule, the curated-5 indicator pool, and the full-bleed shim into `docs/architecture/frontend/map.md` and `docs/architecture/frontend/overview.md` respectively.
+8. **Stop only at a real boundary.** Stop and ask ONLY when: an ESCALATE trigger from section 0.3 fires, an explicit user-named source/instruction would be scope-narrowed (STOP-AND-SURFACE per [CLAUDE.md section 10](../../../CLAUDE.md)), or an audit chain exceeds depth 3 (the loop is lossy - escalate with Path A/B/C options, do not ship a 4th audit). Otherwise do not pause; the user is not watching.
+9. **Closure.** Done only when every in-scope row is DONE or COLLAPSED-with-cited-rationale. PR-0 is a no-op row and carries a receipt (the PR #788 + PR #455 merge SHAs cited inline + the on-disk Lakshadweep CSV path). Archive the plan-doc with a per-row distillation map per [docs/how-to/distill-a-plan.md](../../../docs/how-to/distill-a-plan.md). Lift the day-of-year rotation rule, the curated-5 indicator pool, and the full-bleed shim into `docs/architecture/frontend/map.md` and `docs/architecture/frontend/overview.md` respectively.
 
 ---
 
@@ -118,8 +118,8 @@ PR-rows. Status starts `[ ] PENDING`, flips to `[x] DONE` with the merged PR num
 
 | Row | Title | Status | PR | Effort | Depends on |
 |---|---|---|---|---|---|
-| PR-0 | Lakshadweep delivery receipt + close-out (audit-only, no code) | `[x] DONE` (Lakshadweep oracle 5/5 green; orchestrator-authored bootstrap) | (this PR) | XS (~30 min) | (none) |
-| PR-1 | Wording sweep: "leading party" -> "winning party" (frontend + e2e + docs) | `[ ] PENDING` | - | S (~1h) | (none) |
+| PR-0 | Lakshadweep delivery receipt + close-out (audit-only, no code) | `[x] DONE (PR #918)` | #918 | XS (~30 min) | (none) |
+| PR-1 | Wording sweep: "leading party" -> "winning party" (frontend + e2e + docs) | `[x] DONE (PR #919)` | #919 | S (~1h) | (none) |
 | PR-2 | Default Home theme: deterministic day-of-year rotation over curated-5 indicators | `[x] DONE (PR #922)` | #922 | M (~2h) | PR-1 (avoid copy-collision in `home-theme.ts`) |
 | PR-3 | Home layout rebuild: full-bleed map + topic-grid front door + delete "Available" / "Other states" sections | `[x] DONE (PR #923)` | #923 | M (~2h) | PR-1 (Home.svelte string drift); file-disjoint vs PR-2 inner logic; can run in parallel sub-worktree after PR-1 merges |
 | PR-4 | Doc lift: distill the deterministic-rotation rule + curated-5 pool + full-bleed shim into `docs/architecture/frontend/` | `[x] DONE (PR #924)` | #924 | XS (~30 min) | PR-2 + PR-3 merged |
@@ -159,7 +159,7 @@ Test-Path datasets/data/datapoints/electoral/lakshadweep_election_results.csv
 
 must return `True`. If either fails, ESCALATE (Lakshadweep is NOT delivered; rescope this plan to include the data ingest).
 
-**Effort**: XS. Author the PR body, run the two oracle commands, paste output. No browser smoke (doc-only PR, [CLAUDE.md section 13](../CLAUDE.md) carve-out).
+**Effort**: XS. Author the PR body, run the two oracle commands, paste output. No browser smoke (doc-only PR, [CLAUDE.md section 13](../../../CLAUDE.md) carve-out).
 
 #### PR-0 receipt - executed 2026-06-11 (orchestrator)
 
@@ -177,11 +177,11 @@ Bootstrap PR: combines plan-doc commit + Lakshadweep delivery audit. Per the mul
 | 5 | `frontend/src/lib/lakshadweep.test.ts` retired? | `False` (file absent) |
 | 5 | `frontend/src/lib/UnmappedRegionChips.svelte` retired? | `False` (file absent) |
 
-**Verdict: DELIVERED 2026-06.** Lakshadweep renders at true geographic position on the Home India choropleth and on every other map surface (via `boundaries/in/{states,districts}/all.topojson` with `keep-shapes` mapshaper flag). Election data on disk: 144 long-format rows under [datasets/data/datapoints/electoral/lakshadweep_election_results.csv](../datasets/data/datapoints/electoral/lakshadweep_election_results.csv). The 4 island geographies (Lakshadweep state + Lakshadweep district `lgd_district_id=553` + Andaman & Nicobar + Daman & Diu islands) are locked by the smoke test at [frontend/src/contracts/topojson-island-render.test.ts](../frontend/src/contracts/topojson-island-render.test.ts) (14 assertions: 4 islands x [present + area + bounds + projected-path] + 1 corpus-shape).
+**Verdict: DELIVERED 2026-06.** Lakshadweep renders at true geographic position on the Home India choropleth and on every other map surface (via `boundaries/in/{states,districts}/all.topojson` with `keep-shapes` mapshaper flag). Election data on disk: 144 long-format rows under [datasets/data/datapoints/electoral/lakshadweep_election_results.csv](../../../datasets/data/datapoints/electoral/lakshadweep_election_results.csv). The 4 island geographies (Lakshadweep state + Lakshadweep district `lgd_district_id=553` + Andaman & Nicobar + Daman & Diu islands) are locked by the smoke test at [frontend/src/contracts/topojson-island-render.test.ts](../../../frontend/src/contracts/topojson-island-render.test.ts) (14 assertions: 4 islands x [present + area + bounds + projected-path] + 1 corpus-shape).
 
 **Delivering PRs**:
-- **PR #788** (merged 2026-06-04 via SHA `a018c75ed`) - topojson island-render smoke + `keep-shapes` mapshaper fix; closed the user-named requirement "Lakshadweep + A&N must actually draw from `all.topojson`" attached to [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) row F4.
-- **PR #455** (boundary-rip-and-replace D.1.A, see [docs/archive/plans/20260529-boundary-rip-and-replace-plan.md](../docs/archive/plans/20260529-boundary-rip-and-replace-plan.md)) - retired the per-state `lakshadweep.ts` polygon extractor + the chip-strip subsystem + ADR-0029 + the Playwright chip assertions. All UTs now render at true geographic location.
+- **PR #788** (merged 2026-06-04 via SHA `a018c75ed`) - topojson island-render smoke + `keep-shapes` mapshaper fix; closed the user-named requirement "Lakshadweep + A&N must actually draw from `all.topojson`" attached to [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) row F4.
+- **PR #455** (boundary-rip-and-replace D.1.A, see [docs/archive/plans/20260529-boundary-rip-and-replace-plan.md](../../../docs/archive/plans/20260529-boundary-rip-and-replace-plan.md)) - retired the per-state `lakshadweep.ts` polygon extractor + the chip-strip subsystem + ADR-0029 + the Playwright chip assertions. All UTs now render at true geographic location.
 
 **Closing the user question** ("can you find out if that plan has been delivered or not?"): **YES.** No follow-on engineering needed. PR-0 ships as the durable receipt; future agents grep this file to find the answer.
 
@@ -222,7 +222,7 @@ Bootstrap PR: combines plan-doc commit + Lakshadweep delivery audit. Per the mul
 1. `cd frontend && bun test home-theme` green.
 2. `cd frontend && bun run check` clean (svelte-check 0 errors).
 3. `cd frontend && bun run build` clean.
-4. Browser smoke per [CLAUDE.md section 13](../CLAUDE.md): `open_browser_page http://localhost:5173/` -> caption above the map reads "India - winning party by state". Console errors 0. Failed requests 0.
+4. Browser smoke per [CLAUDE.md section 13](../../../CLAUDE.md): `open_browser_page http://localhost:5173/` -> caption above the map reads "India - winning party by state". Console errors 0. Failed requests 0.
 5. Browser smoke 2: `/t/elections/<latest-event>` -> ElectionsFirehose table header reads "Winning party".
 6. `git grep -i "leading party" frontend/src docs/architecture` returns ONLY: (a) the `frontend/src/routes/NationalElection.svelte` line 180 comment if not edited, (b) the `home-theme.ts` line 4 file-header comment if not edited, (c) the `overview.md` line 370 MAJORITY-signalling sentence (explicitly out-of-scope per file list above). Any other hit ESCALATES.
 
@@ -284,7 +284,7 @@ Bootstrap PR: combines plan-doc commit + Lakshadweep delivery audit. Per the mul
 4. Browser smoke 1 desktop (`open_browser_page http://localhost:5173/` at default viewport): (a) topic-grid renders 6 cards, (b) map section visually extends edge-to-edge OR at least beyond the topic-grid cap, (c) NO alphabetical states list anywhere on the page, (d) HomeElectionsRail still mounted below the map. Console errors 0.
 5. Browser smoke 2 mobile (resize browser to 375px or use mobile emulation): (a) topic-grid stacks single-column, (b) map section flows inline (no negative margin overflow / horizontal scrollbar), (c) HomeElectionsRail single-column.
 6. Playwright `golden-path.spec.ts` update: any assertion that depended on the "Available" / "Other states" headings or list items must be retired in the same PR. Replace with a positive assertion that the topic-grid renders 6 cards.
-7. Visual regression: 1 desktop + 1 mobile screenshot pasted in the PR body (per [CLAUDE.md section 13](../CLAUDE.md) layout-sensitive carve-out).
+7. Visual regression: 1 desktop + 1 mobile screenshot pasted in the PR body (per [CLAUDE.md section 13](../../../CLAUDE.md) layout-sensitive carve-out).
 
 **Oracle (the one load-bearing check)**: the Playwright assertion that counts topic-grid cards must equal exactly 6, AND a `page.locator("h2:has-text('Available')")` MUST be absent (`.count() === 0`). This locks the delete + the new structure simultaneously.
 
@@ -296,7 +296,7 @@ Bootstrap PR: combines plan-doc commit + Lakshadweep delivery audit. Per the mul
 
 ### Row PR-4: Doc lift - distill the rotation rule + curated-5 pool + full-bleed shim
 
-**Scope.** Pure doc PR. Lift the durable doctrine from PR-2 and PR-3 into the right `docs/` homes per [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md). Plan-doc closure follows next session as a separate move-to-archive PR (not bundled here).
+**Scope.** Pure doc PR. Lift the durable doctrine from PR-2 and PR-3 into the right `docs/` homes per [docs/how-to/distill-a-plan.md](../../../docs/how-to/distill-a-plan.md). Plan-doc closure follows next session as a separate move-to-archive PR (not bundled here).
 
 **Files touched**:
 
@@ -319,7 +319,7 @@ Bootstrap PR: combines plan-doc commit + Lakshadweep delivery audit. Per the mul
 
 After PR-4 merges:
 
-1. **Archive plan-doc**: `git mv TODO/20260611-home-page-citizen-experience-plan.md docs/archive/plans/` in a closure PR. Append a "Closure" stanza enumerating PR-0 through PR-4 with their merge SHAs + a 1-line distillation pointer for each (PR-1 = "winning-party copy lift, no doctrine drift"; PR-2 = "rotation rule lifted to `frontend/map.md`"; PR-3 = "topic-grid + full-bleed lifted to `frontend/overview.md`"; PR-4 = "doc lift; this PR"; PR-0 = "Lakshadweep delivery receipt"). Update [docs/reference/decision-index.md](../docs/reference/decision-index.md) if any ADR-class decision was minted (none expected for this plan).
+1. **Archive plan-doc**: `git mv TODO/20260611-home-page-citizen-experience-plan.md docs/archive/plans/` in a closure PR. Append a "Closure" stanza enumerating PR-0 through PR-4 with their merge SHAs + a 1-line distillation pointer for each (PR-1 = "winning-party copy lift, no doctrine drift"; PR-2 = "rotation rule lifted to `frontend/map.md`"; PR-3 = "topic-grid + full-bleed lifted to `frontend/overview.md`"; PR-4 = "doc lift; this PR"; PR-0 = "Lakshadweep delivery receipt"). Update [docs/reference/decision-index.md](../../../docs/reference/decision-index.md) if any ADR-class decision was minted (none expected for this plan).
 2. **Lessons memory**: if any of the rows surfaced a recurring agent trap, append to `/memories/lessons.md` per user-memory `lessons.md` discipline. Candidates: the `home-theme.ts` "deterministic-by-day rotation" pattern (reusable for state-page heroes), the `md:-mx-6` full-bleed shim (reusable for any cap-bound full-width section).
 3. **Branch cleanup**: `git fetch --prune origin`; delete any `: gone` local tracking branches. Verify `git worktree list` shows no orphan worktrees for this plan's PRs.
 4. **Browser final sweep**: `open_browser_page http://localhost:5173/` on the freshly-merged main; pass-or-fail screenshot in the closure PR body.
@@ -331,7 +331,7 @@ After PR-4 merges:
 - **No new indicator ingest.** PR-2 picks from the 20 already-wired national indicators; if Hans + Max want to expand the curated-5 pool to (say) education or health when those land, the expansion is a 1-line edit to `CURATED_DEFAULT_THEMES`. Net-new ingest follows its own plan-doc shape.
 - **No state-page (`/s/<state>`) layout work.** This plan is Home-only. The state-page "hero composed only from featured catalogue entries" rule (IA-RESET P2 deferred item #4) is its own follow-on.
 - **No election-quality / parties.csv / parity collisions.** PRs #897-#915 are pure backend; this plan is pure frontend. Zero overlap.
-- **No accessibility / ARIA / WCAG work.** Project non-goal per [CLAUDE.md section 0](../CLAUDE.md). PR-3's topic-grid uses semantic `<a href>` per default; do not add `aria-*` attributes.
+- **No accessibility / ARIA / WCAG work.** Project non-goal per [CLAUDE.md section 0](../../../CLAUDE.md). PR-3's topic-grid uses semantic `<a href>` per default; do not add `aria-*` attributes.
 - **No a11y a11y descope re-debate.** Closed since 2026-05-12.
 - **No router / URL grammar change.** The `?theme=` slot stays exactly as in IA-RESET P5; default value computed (PR-2) instead of literal.
 - **No new dependencies.** PR-3 reuses Tailwind's existing grid classes; PR-2's `dayOfYear` is a 4-line pure helper. No `bun add` calls.
@@ -340,14 +340,37 @@ After PR-4 merges:
 
 ## See also
 
-- [TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md](IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md) - the umbrella IA reset; this plan closes its P5 deferred item #3 and retires its alphabetical-states-list scaffolding.
-- [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) - the umbrella Level-5 platform reset; PR #788 row F4 is the Lakshadweep receipt PR-0 cites.
-- [TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md](20260610-electoral-data-quality-and-party-catalogue-plan.md) - in-flight backend electoral-quality plan; this plan is DISJOINT from it (frontend-only).
-- [docs/how-to/ship-a-pr.md](../docs/how-to/ship-a-pr.md) - the 5-gate Definition-of-Done every PR-row honours.
-- [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md) - the closure ritual PR-4 + the archive-PR follow.
-- [docs/how-to/handle-scope-change.md](../docs/how-to/handle-scope-change.md) - STOP-AND-SURFACE for the Lakshadweep ESCALATE trigger.
-- [docs/architecture/frontend/overview.md](../docs/architecture/frontend/overview.md) - lifted into by PR-4.
-- [docs/architecture/frontend/map.md](../docs/architecture/frontend/map.md) - lifted into by PR-4.
-- [docs/concepts/citizen-first.md](../docs/concepts/citizen-first.md) - the question-first doctrine that drives section 0.4 verdicts.
-- [docs/concepts/owid-alignment.md](../docs/concepts/owid-alignment.md) - The One Rule; OWID-precedent broke the rotation-strategy tie (deterministic-by-day over pure-random or sticky-default).
-- [CLAUDE.md](../CLAUDE.md) - engineering contract; Holy Laws + section 0a + section 6 + section 8 + section 13.
+- [TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md](../../../TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md) - the umbrella IA reset; this plan closes its P5 deferred item #3 and retires its alphabetical-states-list scaffolding.
+- [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) - the umbrella Level-5 platform reset; PR #788 row F4 is the Lakshadweep receipt PR-0 cites.
+- [TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md](../../../TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md) - in-flight backend electoral-quality plan; this plan is DISJOINT from it (frontend-only).
+- [docs/how-to/ship-a-pr.md](../../../docs/how-to/ship-a-pr.md) - the 5-gate Definition-of-Done every PR-row honours.
+- [docs/how-to/distill-a-plan.md](../../../docs/how-to/distill-a-plan.md) - the closure ritual PR-4 + the archive-PR follow.
+- [docs/how-to/handle-scope-change.md](../../../docs/how-to/handle-scope-change.md) - STOP-AND-SURFACE for the Lakshadweep ESCALATE trigger.
+- [docs/architecture/frontend/overview.md](../../../docs/architecture/frontend/overview.md) - lifted into by PR-4.
+- [docs/architecture/frontend/map.md](../../../docs/architecture/frontend/map.md) - lifted into by PR-4.
+- [docs/concepts/citizen-first.md](../../../docs/concepts/citizen-first.md) - the question-first doctrine that drives section 0.4 verdicts.
+- [docs/concepts/owid-alignment.md](../../../docs/concepts/owid-alignment.md) - The One Rule; OWID-precedent broke the rotation-strategy tie (deterministic-by-day over pure-random or sticky-default).
+- [CLAUDE.md](../../../CLAUDE.md) - engineering contract; Holy Laws + section 0a + section 6 + section 8 + section 13.
+
+---
+
+## Plan complete
+
+Closed 2026-06-11. All rows merged. Distillation complete:
+
+| Row | Merge SHA | Distilled to |
+|---|---|---|
+| PR-0 (#918) | (orchestrator bootstrap) | Lakshadweep delivery receipt - inline in this plan-doc + the PR body itself (durable in-repo receipt; future agents grep for "Lakshadweep" and find PR #918). |
+| PR-1 (#919) | `342477b87` | No new doctrine. UI copy now matches the canonical taxonomy (`datasets/data/variables.csv` rows for `*-winner-party-id`); the carve-out allowlist (MAJORITY-signalling comments + code comments untouched) is documented in this plan-doc section "Row PR-1" + the PR #919 body. |
+| PR-2 (#922) | `c1641ea75` | Day-of-year rotation rule + curated-5 indicator pool + UTC-determinism contract + election-fallback paths lifted into [docs/architecture/frontend/map.md](../../../docs/architecture/frontend/map.md) (new "Home default theme" subsection, PR-4). Closes [TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md](../../../TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md) deferred item #3. |
+| PR-3 (#923) | `d2c17a353` | Topic-grid front door (6 cards = 5 featured catalogue topics + Elections) + full-bleed map shim (`md:-mx-6 lg:-mx-12`) + alphabetical states-list deletion (LeftRail `StatePill` is the canonical state picker) lifted into [docs/architecture/frontend/overview.md](../../../docs/architecture/frontend/overview.md) (PR-4). |
+| PR-4 (#924) | `7af238f87` | The doc-lift PR itself. No further distillation. |
+
+### Cross-cutting receipts (no lift; PR bodies + this ledger are the durable record)
+
+- **Lakshadweep delivery** is closed: rendering at true geographic position via PR #788's topojson `keep-shapes` smoke; `frontend/src/lib/lakshadweep.ts` extractor + chip-strip retired via PR #455; 144 long-format rows at [datasets/data/datapoints/electoral/lakshadweep_election_results.csv](../../../datasets/data/datapoints/electoral/lakshadweep_election_results.csv).
+- **"leading party" -> "winning party"** carve-outs: MAJORITY-signalling sentences (e.g. "leading party has cleared half the chamber") + internal code comments left intact. Future copy-sweep PRs should consult the carve-out allowlist in Row PR-1 above.
+- **Default Home theme is non-election.** The election theme survives as the explicit `?theme=election` choice. Citizens visiting on the same calendar date see the same default indicator regardless of timezone (UTC day-of-year). Curation authority for the rotation pool: Hans + Max.
+- **Home page no longer enumerates 36 states.** Topic-grid front door + map + HomeElectionsRail (PR-W4d #892) form the new 3-section landing. State navigation is the LeftRail `StatePill` + the choropleth.
+
+Plan-doc remains as the audit ledger; do not edit further. New work starts a new plan-doc.
