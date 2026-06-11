@@ -527,7 +527,7 @@
             </th>
             <th class="px-3 py-2">Body</th>
             <th class="px-3 py-2">State</th>
-            <th class="px-3 py-2">Leading party</th>
+            <th class="px-3 py-2">Winning party</th>
             <th class="px-3 py-2">Seats</th>
             <th class="px-3 py-2">Turnout</th>
             <th class="px-3 py-2">Runners-up</th>
