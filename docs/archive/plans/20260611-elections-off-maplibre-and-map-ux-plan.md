@@ -21,16 +21,16 @@ This plan executes (i) the deferred d3-geo-everywhere ruling from [TODO/20260603
 - Move elections off MapLibre to d3-geo - top priority (closes section 14.5).
 - Disable `cooperativeGestures` so scroll-wheel zooms without Ctrl; add +/-/home button trio (IndiaVotes + Bharat Pashudhan parity).
 - Enrich district topology with `census_code_2011` sidecar property so Census-2011-keyed datasets join without code.
-- Rewrite stale [docs/architecture/frontend/map.md](../docs/architecture/frontend/map.md) which still names MapLibre as primary.
+- Rewrite stale [docs/architecture/frontend/map.md](../../../docs/architecture/frontend/map.md) which still names MapLibre as primary.
 - Lakshadweep MUST be visible at national zoom (NOT auto-zoom callout per user). Render a minimum-size dot marker when the polygon collapses to sub-pixel.
 - Chronic-red `parties-symbol-asset.test.ts` is being fixed by a parallel agent in worktree `yen-gov-party-symbol-fix` on branch `fix/party-symbol-assets-functional-contract` (SHA `14099746c`). OUT OF SCOPE for this plan - do NOT collide.
 
 ### Binding documents
 
-- [CLAUDE.md](../CLAUDE.md) - Holy Laws #1 (static-first), #4 (docs = memory), #5 (structural fixes only), #8 (open source first); section 0a authority table; section 13 UI verification (mandatory for every frontend runtime change).
+- [CLAUDE.md](../../../CLAUDE.md) - Holy Laws #1 (static-first), #4 (docs = memory), #5 (structural fixes only), #8 (open source first); section 0a authority table; section 13 UI verification (mandatory for every frontend runtime change).
 - [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) section 14.5 - the deferred d3-geo-everywhere ruling this plan executes (election surfaces are the only remaining MapLibre consumers).
-- [docs/concepts/citizen-first.md](../docs/concepts/citizen-first.md) - citizen-experience supremacy over implementation novelty; Lakshadweep visibility is a citizen-trust requirement.
-- [docs/architecture/frontend/map.md](../docs/architecture/frontend/map.md) - stale; PR-2 rewrites.
+- [docs/concepts/citizen-first.md](../../../docs/concepts/citizen-first.md) - citizen-experience supremacy over implementation novelty; Lakshadweep visibility is a citizen-trust requirement.
+- [docs/architecture/frontend/map.md](../../../docs/architecture/frontend/map.md) - stale; PR-2 rewrites.
 
 ### Authority dispatch (CLAUDE.md section 0a)
 
@@ -56,13 +56,15 @@ This plan executes (i) the deferred d3-geo-everywhere ruling from [TODO/20260603
 
 | Row | Title | Status | PR | Effort |
 |---|---|---|---|---|
-| PR-alpha | Pashu Aadhaar re-investigation receipt (research-only; corrects last turn's wrong claim) | `[ ] PENDING` | - | XS (~20 min) |
-| PR-1 (B) | MapChoropleth: `cooperativeGestures=false` + add +/-/home zoom controls | `[ ] PENDING` | - | S (~1h) |
-| PR-2 (E) | Rewrite `docs/architecture/frontend/map.md` - d3-geo primary, MapLibre deprecated | `[ ] PENDING` | - | XS (~30 min) |
-| PR-3 (F) | Enrich `datasets/boundaries/in/districts/all.topojson` with `census_code_2011` sidecar property | `[ ] PENDING` | - | M (~2h) |
-| PR-4 (D-1 + A) | `IndiaMap.svelte` -> d3-geo SVG with pan/zoom/home + Lakshadweep dot marker | `[ ] PENDING` | - | M (~3h) |
-| PR-5 (D-2) | `StateAcMap.svelte` -> d3-geo SVG with pan/zoom + AC highlight + drill-down | `[ ] PENDING` | - | M (~3h) |
-| PR-6 (D-3) | Drop `maplibre-gl` + `pmtiles` deps; delete `frontend/src/lib/maplibre/` | `[ ] PENDING` | - | XS (~30 min) |
+| PR-0 | Plan-doc bootstrap | `[x] DONE (PR #926)` | #926 | XS |
+| PR-alpha | Pashu Aadhaar re-investigation receipt (research-only; corrects last turn's wrong claim) | `[x] DONE (PR #933)` | #933 | XS (~20 min) |
+| PR-1 (B) | MapChoropleth: `cooperativeGestures=false` + add +/-/home zoom controls | `[x] DONE (PR #932)` | #932 | S (~1h) |
+| PR-2 (E) | Rewrite `docs/architecture/frontend/map.md` - d3-geo primary, MapLibre deprecated | `[x] DONE (PR #929)` | #929 | XS (~30 min) |
+| PR-3 (F) | Enrich `datasets/boundaries/in/districts/all.topojson` with `census_code_2011` sidecar property | `[x] DONE (PR #931)` | #931 | M (~2h) |
+| PR-4 (D-1 + A) | `IndiaMap.svelte` -> d3-geo SVG with pan/zoom/home + Lakshadweep dot marker | `[x] DONE (PR #934)` | #934 | M (~3h) |
+| PR-4bc (in-flight insertion) | IndiaPartyMap `onSelect?` prop + NationalElection swap (unblocks PR-6) | `[x] DONE (PR #936)` | #936 | M (~2h) |
+| PR-5 (D-2) | `StateAcMap.svelte` -> d3-geo SVG with pan/zoom + AC highlight + drill-down | `[x] DONE (PR #935)` | #935 | M (~3h) |
+| PR-6 (D-3) | Drop `maplibre-gl` + `pmtiles` deps; delete `frontend/src/lib/maplibre/` | `[x] DONE (PR #937)` | #937 | XS (~30 min) |
 
 ### Wave shape
 
@@ -123,9 +125,9 @@ This plan executes (i) the deferred d3-geo-everywhere ruling from [TODO/20260603
 
 ### PR-2 (E) - Doc rewrite for map.md
 
-**Scope.** Rewrite [docs/architecture/frontend/map.md](../docs/architecture/frontend/map.md) so "Library" section names d3-geo SVG as the primary renderer for ALL choropleths (welfare + election), citing section 14.5 of the umbrella plan. Note MapLibre as DEPRECATED - retained only until PR-6 lands. Keep the boundary-pipeline + sources-resolver sections (those are still correct). Update the component descriptor table to reflect the actual current files (post-PR-4 + PR-5 component names; record in present-progressive form).
+**Scope.** Rewrite [docs/architecture/frontend/map.md](../../../docs/architecture/frontend/map.md) so "Library" section names d3-geo SVG as the primary renderer for ALL choropleths (welfare + election), citing section 14.5 of the umbrella plan. Note MapLibre as DEPRECATED - retained only until PR-6 lands. Keep the boundary-pipeline + sources-resolver sections (those are still correct). Update the component descriptor table to reflect the actual current files (post-PR-4 + PR-5 component names; record in present-progressive form).
 
-**Files touched.** [docs/architecture/frontend/map.md](../docs/architecture/frontend/map.md) only.
+**Files touched.** [docs/architecture/frontend/map.md](../../../docs/architecture/frontend/map.md) only.
 
 **Acceptance gates.**
 
@@ -207,7 +209,7 @@ This plan executes (i) the deferred d3-geo-everywhere ruling from [TODO/20260603
 
 **Effort.** M (~3h). The largest single PR in this plan.
 
-**Note.** This PR also corrects the prior plan's wrong "DELIVERED" Lakshadweep claim. Reference [docs/archive/plans/20260611-home-page-citizen-experience-plan.md](../docs/archive/plans/20260611-home-page-citizen-experience-plan.md) PR-0 receipt - the receipt's "DELIVERED 2026-06" verdict was technically true (topojson contains Lakshadweep + renders without geometry-null errors) but failed the citizen-visibility test. PR-4 here is the actual citizen-visibility fix.
+**Note.** This PR also corrects the prior plan's wrong "DELIVERED" Lakshadweep claim. Reference [docs/archive/plans/20260611-home-page-citizen-experience-plan.md](../../../docs/archive/plans/20260611-home-page-citizen-experience-plan.md) PR-0 receipt - the receipt's "DELIVERED 2026-06" verdict was technically true (topojson contains Lakshadweep + renders without geometry-null errors) but failed the citizen-visibility test. PR-4 here is the actual citizen-visibility fix.
 
 ---
 
@@ -268,8 +270,8 @@ After PR-6 merges:
 1. Append `## Plan complete` stanza with per-row distillation pointers.
 2. `git mv TODO/20260611-elections-off-maplibre-and-map-ux-plan.md docs/archive/plans/`.
 3. Retarget all `../` links to `../../../` (same shape as the prior plan's closure).
-4. Distill durable doctrine into [docs/architecture/frontend/map.md](../docs/architecture/frontend/map.md) (PR-2 already rewrites the foundation; closure adds the post-PR-4/5/6 component descriptors).
-5. Update [docs/archive/plans/20260611-home-page-citizen-experience-plan.md](../docs/archive/plans/20260611-home-page-citizen-experience-plan.md) with a "Correction note: PR-4 of the 2026-06-11 follow-on plan is the actual Lakshadweep citizen-visibility fix; the prior PR-0 receipt's 'DELIVERED' verdict was geometry-only and failed the citizen-visibility test."
+4. Distill durable doctrine into [docs/architecture/frontend/map.md](../../../docs/architecture/frontend/map.md) (PR-2 already rewrites the foundation; closure adds the post-PR-4/5/6 component descriptors).
+5. Update [docs/archive/plans/20260611-home-page-citizen-experience-plan.md](../../../docs/archive/plans/20260611-home-page-citizen-experience-plan.md) with a "Correction note: PR-4 of the 2026-06-11 follow-on plan is the actual Lakshadweep citizen-visibility fix; the prior PR-0 receipt's 'DELIVERED' verdict was geometry-only and failed the citizen-visibility test."
 
 ---
 
@@ -278,7 +280,7 @@ After PR-6 merges:
 When this plan is in context and the instruction is "implement it" / "ship runSubagent", execute as the ORCHESTRATOR:
 
 1. **Orchestrator + subagent-PR topology.** Main agent owns the Status Reckoner; each row dispatches to a stateless `runSubagent` brief embedding row scope, files, gates, oracle. Use the DEFAULT agent for implementation rows (file edits + terminal + git). Use the `Explore` agent ONLY for PR-alpha (research). Persona agents (Fowler / Hans / Max / Jony / Citizen / Gregor) are ADVISOR-only - never dispatch them for implementation work (per user-memory `Fowler-persona subagent has no edit/terminal tools`).
-2. **One row = one PR = one branch.** Master parks on `scratch-master-parking-2026-06-10` so no worktree owns `main` (clean `gh pr merge`). Author per [docs/how-to/ship-a-pr.md](../docs/how-to/ship-a-pr.md): 2-commit-then-squash, 5-gate DoD, mandatory browser smoke (`open_browser_page` + `read_page` + `screenshot_page`) for every frontend runtime change per CLAUDE.md section 13.
+2. **One row = one PR = one branch.** Master parks on `scratch-master-parking-2026-06-10` so no worktree owns `main` (clean `gh pr merge`). Author per [docs/how-to/ship-a-pr.md](../../../docs/how-to/ship-a-pr.md): 2-commit-then-squash, 5-gate DoD, mandatory browser smoke (`open_browser_page` + `read_page` + `screenshot_page`) for every frontend runtime change per CLAUDE.md section 13.
 3. **Ship loop, non-stop.** Merge each row as gates green; sync master; teardown worktree. Pre-existing chronic-red items (the parallel agent's parties-symbol-asset work; 14 baseline svelte-check errors; 3 baseline 404s) are NOT gating - document the baseline, do not block.
 4. **Tests ship with the row.** No new mocks unless asked.
 5. **Manage context via offload.** Push research / audits into Explore subagents.
@@ -293,8 +295,37 @@ When this plan is in context and the instruction is "implement it" / "ship runSu
 ## See also
 
 - [TODO/20260603-data-and-charting-platform-reset-plan.md](20260603-data-and-charting-platform-reset-plan.md) - section 14.5 deferred ruling this plan executes.
-- [docs/archive/plans/20260611-home-page-citizen-experience-plan.md](../docs/archive/plans/20260611-home-page-citizen-experience-plan.md) - prior plan; PR-0 Lakshadweep receipt is corrected by PR-4 here.
-- [docs/how-to/ship-a-pr.md](../docs/how-to/ship-a-pr.md) - 5-gate DoD.
-- [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md) - closure ritual.
-- [docs/concepts/citizen-first.md](../docs/concepts/citizen-first.md) - citizen-visibility supremacy.
-- [CLAUDE.md](../CLAUDE.md) - engineering contract.
+- [docs/archive/plans/20260611-home-page-citizen-experience-plan.md](../../../../archive/plans/20260611-home-page-citizen-experience-plan.md) - prior plan; PR-0 Lakshadweep receipt is corrected by PR-4 here.
+- [docs/how-to/ship-a-pr.md](../../../../how-to/ship-a-pr.md) - 5-gate DoD.
+- [docs/how-to/distill-a-plan.md](../../../../how-to/distill-a-plan.md) - closure ritual.
+- [docs/concepts/citizen-first.md](../../../../concepts/citizen-first.md) - citizen-visibility supremacy.
+- [CLAUDE.md](../../../CLAUDE.md) - engineering contract.
+
+---
+
+## Plan complete
+
+Closed 2026-06-11. All 9 PRs merged to `origin/main`. Distillation complete:
+
+| Row | Merge SHA | Distilled to |
+|---|---|---|
+| PR-0 (#926) | (orchestrator bootstrap) | This plan-doc itself; archived. |
+| PR-alpha (#933) | `d4d20520e` | `docs/architecture/frontend/map.md` "Comparable Indian civic sites" subsection (IndiaVotes hand-rolled SVG; Bharat Pashudhan Angular 19 + amCharts ammap at `assets/maps/india.json`; data-analytics d3 v4 + topojson). Plus the 2 ToS / no-map correction notes. |
+| PR-1 (#932) | `bd043a25a` | Interim MapLibre UX patch (`cooperativeGestures: false` + +/-/home buttons). Retired in PR-6 with the rest of the maplibre directory. No durable doctrine needed beyond the inline file comment that cites PR-4/PR-5 as the structural fix. |
+| PR-2 (#929) | `e76977255` | `docs/architecture/frontend/map.md` rewrite naming d3-geo SVG as the primary renderer and MapLibre as DEPRECATED. Closes section 14.5 of [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md). |
+| PR-3 (#931) | `863d253db` | `census_code_2011` sidecar property on every district feature in `datasets/boundaries/in/districts/all.topojson` (641/785 districts, 81.7% coverage; Chennai dist_lgd=568 -> census_code=603 verified). Schema bump captured in the 2 new sidecar schemas + the boundaries-conform test extension. Lifts Census-2011-keyed dataset joins from per-consumer to single boundary join. |
+| PR-4 (#934) | `739f7804a` | `frontend/src/lib/charts/IndiaPartyMap.svelte` + `india-party-map-helpers.ts` (d3-geo SVG with pan/zoom/home + sub-threshold marker overlay; resolves the Lakshadweep sub-pixel-invisibility class). Same dot-marker pattern catches Chandigarh + Delhi + Goa + Lakshadweep. **CITIZEN-VISIBILITY ORACLE PASSED**: Lakshadweep tooltip hit count went from 0 (live MapLibre) to 1 (live d3-geo) on the bottom-left ocean sweep. |
+| PR-4bc (#936) | `c7f57e45a` | `IndiaPartyMap` extended with optional `onSelect?: (eciCode: string) => void` callback prop (default unchanged; preserves Home behaviour). `NationalElection.svelte` swapped to `<IndiaPartyMap event={event} onSelect={...} />` with cohort-preserving navigation (`/<state>/elections/<event>`, NOT `/<state>`). Surfaces the helper pattern `resolveStateClickAction` for future consumers. Surfaced via PR-6 pre-flight STOP-AND-SURFACE; resolved as an in-flight insertion. |
+| PR-5 (#935) | `a3dd456b4` | `frontend/src/lib/charts/StateAcMapD3.svelte` + `state-ac-map-helpers.ts` (per-state AC d3-geo with margin opacity + AC highlight + drill-down). Reuses `india-party-map-helpers.ts` (SUB_THRESHOLD_PX, computeSubThresholdMarkers, projectedCentroid, isSubThreshold, MarkerOverlay). 4 consumers swapped (StateOverview, StateElection, Constituency, ElectionMap). |
+| PR-6 (#937) | `c70863fee` | `maplibre-gl` + `pmtiles` npm deps dropped. `frontend/src/lib/maplibre/` directory deleted (9 files). 5 utility modules + 4 .test.ts siblings `git mv`'d to `frontend/src/lib/boundaries/` (Path B). 18 consumer-import updates. Bundle delta: maplibre vendor chunk ~225 KB gzipped -> ABSENT. Closes section 14.5 of the umbrella platform-reset plan; MapLibre is fully retired. |
+
+### Cross-cutting receipts (no lift; this ledger is the durable record)
+
+- **Lakshadweep visibility on the national map** is now structurally fixed via PR-4's sub-threshold dot-marker overlay. The prior [docs/archive/plans/20260611-home-page-citizen-experience-plan.md](../../../../archive/plans/20260611-home-page-citizen-experience-plan.md) PR-0 receipt's "DELIVERED 2026-06" verdict was geometry-only (topojson contains Lakshadweep; renders without geometry-null errors) and failed the citizen-visibility test (tooltip hit count = 0 on the live MapLibre map). PR-4 of this plan is the actual citizen-visibility fix.
+- **MapLibre fully retired.** d3-geo SVG is the canonical renderer for every choropleth surface (Home, NationalElection, state-AC pages, constituency drilldowns). The `cooperativeGestures` UX trap is gone forever - SVG does not capture the scroll wheel, so scroll-zoom-without-Ctrl is the structural default.
+- **Bundle savings**: ~225 KB gzipped from dropping maplibre-gl + pmtiles. The new d3-zoom + d3-selection deps added by PR-4 are ~10 KB combined. Net: ~215 KB gzipped saved.
+- **Comparable Indian civic sites verified** (PR-alpha): IndiaVotes hand-rolls inline SVG (no library); Bharat Pashudhan uses Angular 19 + amCharts ammap on a topojson at `assets/maps/india.json`; data-analytics uses d3 v4 + topojson + chroma-js. d3-geo migration aligns yen-gov with the structural shape citizens already see on every adjacent surface.
+- **Census 2011 cross-source joinability** unlocked (PR-3): every yen-gov district feature now carries `census_code_2011` so any Census-2011-keyed dataset (NSS, NFHS, MoHFW district profiles, the data-analytics topology) joins without per-consumer crosswalk code. 144 unmatched districts are all post-2011 bifurcations (Telangana 2014, Ladakh 2019, etc.) + 2 PoK districts.
+- **Two factual corrections** to prior-turn investigation mistakes landed inline in [docs/architecture/frontend/map.md](../../../../architecture/frontend/map.md) (PR-alpha): the "Bharat Pashudhan has no map" claim was wrong (their `keyStatistics` route serves a choropleth); the "ToS / scraping prohibits research" claim was wrong (NDLM is DAHD public-data; citizen-facing reuse of citizen-served public information is fair).
+
+Plan-doc remains as the audit ledger; do not edit further. New work starts a new plan-doc.

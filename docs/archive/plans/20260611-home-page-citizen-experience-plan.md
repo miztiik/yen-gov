@@ -185,6 +185,8 @@ Bootstrap PR: combines plan-doc commit + Lakshadweep delivery audit. Per the mul
 
 **Closing the user question** ("can you find out if that plan has been delivered or not?"): **YES.** No follow-on engineering needed. PR-0 ships as the durable receipt; future agents grep this file to find the answer.
 
+> **Correction note (2026-06-11, post-merge)**: this verdict was geometry-only. The user followed up later the same day with "users still not able to see Lakshadweep", and a Playwright sweep on the live MapLibre Home map returned 0 tooltip hits across a 30x17 bottom-left-ocean grid - Lakshadweep's polygon was rendering at sub-pixel size and was invisible/unclickable to citizens. The actual citizen-visibility fix landed in **PR #934 of [docs/archive/plans/20260611-elections-off-maplibre-and-map-ux-plan.md](20260611-elections-off-maplibre-and-map-ux-plan.md)** via a sub-threshold dot-marker overlay (path bbox < 14 px -> render a 7-px clickable circle at the centroid). Same Playwright sweep on the d3-geo replacement returns >= 1 tooltip hit. The "DELIVERED" verdict above is correct for the geometry layer; the structural fix for citizen visibility is the follow-on plan, not this one.
+
 ---
 
 ### Row PR-1: Wording sweep "leading party" -> "winning party"
