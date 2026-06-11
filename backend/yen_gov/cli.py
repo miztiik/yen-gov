@@ -1603,3 +1603,197 @@ def _load_party_alliances_for_parity_event(
             if pid and period and alliance:
                 out[(pid, period)] = alliance
     return out
+
+
+@app.command("parity-pc")
+def parity_pc(
+    sources: str = typer.Option(
+        ...,
+        "--sources",
+        help=(
+            "Comma-separated source adapter ids registered in "
+            "recon.adapters.REGISTRY for per-constituency parity "
+            "(e.g. 'bhukyavenkatamahesh-pc,tcpd-pc'). The yen-gov "
+            "canonical oracle ('yen-gov-canonical-pc') is auto-"
+            "appended unless --no-include-canonical is passed."
+        ),
+    ),
+    vintage: str = typer.Option(
+        ...,
+        "--vintage",
+        help=(
+            "Upstream snapshot pin per ADR-0042 (CLAUDE.md section "
+            "12). Each adapter validates the vintage against its "
+            "publisher edition pin and exits non-zero on mismatch."
+        ),
+    ),
+    event: str = typer.Option(
+        ...,
+        "--event",
+        help=(
+            "ECI event id (e.g. 'LsGenJun2024'). The adapter parses "
+            "the year from the trailing 4 digits to navigate to the "
+            "datasets/elections/<kind>/election=<year>/summary.csv."
+        ),
+    ),
+    kind: str = typer.Option(
+        "parliament",
+        "--kind",
+        help=(
+            "Election kind ('parliament' | 'assembly'). Drives the "
+            "summary.csv path navigation for the yen-gov-canonical-pc "
+            "oracle. For LS-2024 use 'parliament' (default)."
+        ),
+    ),
+    state: str | None = typer.Option(
+        None,
+        "--state",
+        help=(
+            "Optional state slug filter (e.g. 'tamil-nadu'). Default "
+            "(None) runs national parity across all states. The "
+            "PR-PC-LS2024 brief documents this as 'handle missing "
+            "--state for national event'."
+        ),
+    ),
+    report: Path = typer.Option(
+        ...,
+        "--report",
+        help=(
+            "Output verdict CSV path. Convention per plan section "
+            "0.4 Q3: datasets/ephemeral/party-parity/<kind>/<event>/"
+            "<sha>/verdict.csv for the first run of a (kind, event)."
+        ),
+        file_okay=True,
+        dir_okay=False,
+    ),
+    include_canonical: bool = typer.Option(
+        True,
+        "--include-canonical/--no-include-canonical",
+        help=(
+            "Auto-append 'yen-gov-canonical-pc' to the sources list. "
+            "Default true: yen-gov canonical is the ECI-derived "
+            "oracle that ALWAYS rides along per Holy Law #9 "
+            "(issuing authority wins)."
+        ),
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Tier-C per-constituency parity (PR-PC-LS2024 of the 2026-06-10 plan).
+
+    For each parliamentary constituency in the named event:
+      1. Each adapter in --sources is run; the adapter projects its
+         publisher's per-PC winner into a per-constituency shape-A
+         row carrying (state_code, constituency_no, winner_party_id,
+         winner_candidate, winner_votes).
+      2. The yen-gov canonical oracle (auto-appended by default) is
+         run alongside, reading summary.csv as the ECI-derived
+         baseline (Holy Law #9: issuing authority always wins).
+      3. The per-PC Compare-Aggregator (recon/pc_aggregator.py)
+         groups by (state_code, constituency_no) and emits one
+         verdict.csv row per PC with the Fowler machine-decidable
+         rule (plan section 0.5 ESCALATE #2):
+
+           VERIFIED   iff n_oracles_agreeing == n_oracles_present
+                      AND n_oracles_present >= 2.
+           UNVERIFIED iff n_oracles_present < 2.
+           DISPUTED   otherwise.
+
+      4. The verdict.csv is written to --report. The CLI exits 0
+         even when DISPUTED rows are present; the operator inspects
+         the report + applies curator decisions per CLAUDE.md
+         section 10 (auto-correct BANNED).
+
+    Subcommand is ADDITIVE per the PR-PC-LS2024 brief's CLI
+    extension policy ("minimal-touch additive seam"): does NOT
+    modify the existing per-party `parity` subcommand. PR-W-1 / W-2 /
+    W-3 + future per-party adapters keep using `parity`; this
+    subcommand handles per-constituency parity exclusively.
+    """
+    from yen_gov.canonical.recon.adapters import REGISTRY
+    from yen_gov.canonical.recon.pc_aggregator import (
+        compare_per_pc,
+        write_pc_verdict_csv,
+    )
+
+    source_ids = [s.strip() for s in sources.split(",") if s.strip()]
+    if include_canonical and "yen-gov-canonical-pc" not in source_ids:
+        source_ids.append("yen-gov-canonical-pc")
+    if not source_ids:
+        typer.echo(
+            "parity-pc: --sources must name at least one adapter",
+            err=True,
+        )
+        raise typer.Exit(code=2)
+
+    # Validate every named source is registered BEFORE running any
+    # adapter - fail-loud at the boundary per CLAUDE.md section 10
+    # rather than partial-result on a typo.
+    missing = [s for s in source_ids if s not in REGISTRY]
+    if missing:
+        available = sorted(REGISTRY.keys())
+        available_str = ", ".join(available) if available else "(none registered)"
+        typer.echo(
+            f"parity-pc: no adapter registered for {missing!r}; "
+            f"available: {available_str}",
+            err=True,
+        )
+        raise typer.Exit(code=2)
+
+    # Run each adapter; count empty-oracle outcomes for the operator
+    # summary. Empty is NOT an error (the tcpd-pc adapter returns
+    # empty for years beyond its 2019 cutoff per the PR-PC-LS2024
+    # brief's stop-condition fallback).
+    all_rows: list[object] = []  # ShapeARow at runtime
+    per_source_counts: dict[str, int] = {}
+    for source_id in source_ids:
+        adapter = REGISTRY[source_id]
+        rows = list(
+            adapter(
+                root=root,
+                vintage=vintage,
+                state=state,
+                event=event,
+                kind=kind,
+            )
+        )
+        per_source_counts[source_id] = len(rows)
+        all_rows.extend(rows)
+
+    canonical_parties = _load_canonical_parties_for_parity(root)
+    verdicts = compare_per_pc(all_rows, canonical_parties)  # type: ignore[arg-type]
+    n_written = write_pc_verdict_csv(verdicts, report)
+
+    by_verdict: dict[str, int] = {}
+    for v in verdicts:
+        by_verdict[v.verdict] = by_verdict.get(v.verdict, 0) + 1
+
+    typer.echo(
+        f"parity-pc: wrote {n_written} verdict row(s) to "
+        f"{report.as_posix()}"
+    )
+    typer.echo(
+        f"  event={event!r} kind={kind!r} state={state!r}"
+    )
+    typer.echo("  per-source row counts:")
+    for s_id in source_ids:
+        n_rows = per_source_counts[s_id]
+        flag = " (EMPTY ORACLE)" if n_rows == 0 else ""
+        typer.echo(f"    {s_id}: {n_rows}{flag}")
+    typer.echo(
+        "  verdicts:         "
+        + ", ".join(
+            f"{k}={by_verdict.get(k, 0)}"
+            for k in ("VERIFIED", "DISPUTED", "UNVERIFIED")
+        )
+    )
+
+    raise typer.Exit(0)
+

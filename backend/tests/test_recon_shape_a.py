@@ -84,7 +84,9 @@ def test_write_then_read_round_trip_preserves_field_values(tmp_path):
     header_line = out_csv.read_text(encoding="utf-8").splitlines()[0]
     expected_header = (
         "external_key,external_short,external_full,external_scope,"
-        "external_vintage,proposed_party_id,proposed_action,notes"
+        "external_vintage,proposed_party_id,proposed_action,notes,"
+        "constituency_no,constituency_name,state_code,"
+        "winner_candidate,winner_votes"
     )
     assert header_line == expected_header
 

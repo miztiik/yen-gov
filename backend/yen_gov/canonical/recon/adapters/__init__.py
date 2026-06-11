@@ -123,6 +123,21 @@ from .wikipedia_parties import ADAPTER as _WIKIPEDIA_PARTIES_ADAPTER
 
 REGISTRY["wikipedia-parties"] = _WIKIPEDIA_PARTIES_ADAPTER
 
+# --- PR-PC-LS2024: per-PC parity adapters (registered in REGISTRY per
+# the PR-PC-LS2024 design choice; see PR #916 for rationale) ----------
+
+from .bhukyavenkatamahesh_pc import ADAPTER as _BHUKY_PC_ADAPTER
+
+REGISTRY["bhukyavenkatamahesh-pc"] = _BHUKY_PC_ADAPTER
+
+from .tcpd_pc import ADAPTER as _TCPD_PC_ADAPTER
+
+REGISTRY["tcpd-pc"] = _TCPD_PC_ADAPTER
+
+from .yen_gov_canonical_pc import ADAPTER as _YEN_GOV_CANONICAL_PC_ADAPTER
+
+REGISTRY["yen-gov-canonical-pc"] = _YEN_GOV_CANONICAL_PC_ADAPTER
+
 # Per-event adapters (EVENT_REGISTRY) - PR-S-TN-AE2026.
 from .yen_gov_elections import ADAPTER as _YEN_GOV_ELECTIONS_ADAPTER
 
