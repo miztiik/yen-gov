@@ -17,7 +17,7 @@
 // X1a-fu2 plan-doc).
 
 import { DATA_BASE } from "../paths";
-import { ECI_TO_LGD_SLUG } from "../maplibre/sources";
+import { ECI_TO_LGD_SLUG } from "../boundaries/sources";
 
 /** Inline columns clause for read_csv. 9 columns mirroring the 9-column
  *  emission shape declared in

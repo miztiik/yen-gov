@@ -20,7 +20,7 @@ import {
   entityContextForGrain,
   INDIA_DISTRICTS,
 } from "./choropleth-entity-context";
-import { INDIA_STATES } from "../maplibre/sources";
+import { INDIA_STATES } from "../boundaries/sources";
 
 const mockedLoadStates = vi.mocked(loadStates);
 const mockedLoadDistricts = vi.mocked(loadAllDistrictEntities);

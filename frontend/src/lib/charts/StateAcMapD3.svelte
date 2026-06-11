@@ -73,11 +73,11 @@
   } from "geojson";
 
   import { DATA_BASE } from "../paths";
-  import { STATE_AC } from "../maplibre/sources";
-  import { renderTooltipCard } from "../maplibre/tooltip-card";
-  import { recoverEciNo } from "../maplibre/ac-key-recovery";
-  import { parseReservation } from "../maplibre/ac-reservation";
-  import { symbolAssetUrl } from "../maplibre/symbol-asset";
+  import { STATE_AC } from "../boundaries/sources";
+  import { renderTooltipCard } from "../boundaries/tooltip-card";
+  import { recoverEciNo } from "../boundaries/ac-key-recovery";
+  import { parseReservation } from "../boundaries/ac-reservation";
+  import { symbolAssetUrl } from "../boundaries/symbol-asset";
   import {
     resolvePartyPalette,
     type PartyRowForResolver,

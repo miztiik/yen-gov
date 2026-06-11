@@ -69,7 +69,7 @@
   import ElectionSeatsTrend from "../lib/ElectionSeatsTrend.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import IndicatorJump, { type JumpGroup } from "../lib/IndicatorJump.svelte";
-  import { STATE_AC } from "../lib/maplibre/sources";
+  import { STATE_AC } from "../lib/boundaries/sources";
   import { states } from "../lib/states.svelte";
   import { getPartyColor } from "../lib/colors/resolver";
   import { link } from "../lib/links";

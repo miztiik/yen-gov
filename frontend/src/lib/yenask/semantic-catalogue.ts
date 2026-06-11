@@ -35,7 +35,7 @@ import {
   registerCsvFile,
   type Manifest,
 } from "../duckdb";
-import { ECI_TO_LGD_SLUG } from "../maplibre/sources";
+import { ECI_TO_LGD_SLUG } from "../boundaries/sources";
 import { DATA_BASE } from "../paths";
 import type {
   CatalogueElectionPeriod,

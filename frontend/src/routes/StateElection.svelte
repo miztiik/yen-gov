@@ -60,7 +60,7 @@
     type PartyRowForResolver,
   } from "../lib/colors/resolver";
   import StateAcMapD3 from "../lib/charts/StateAcMapD3.svelte";
-  import { STATE_AC } from "../lib/maplibre/sources";
+  import { STATE_AC } from "../lib/boundaries/sources";
   import type { AcWinner } from "../lib/view-models/state-overview";
   import InlineCounterfactualSwing from "../lib/elections/InlineCounterfactualSwing.svelte";
   import AllianceTotals from "../lib/elections/AllianceTotals.svelte";

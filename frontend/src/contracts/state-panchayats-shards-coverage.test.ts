@@ -32,7 +32,7 @@ import { describe, it, expect } from "vitest";
 import { existsSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { ECI_TO_LGD_SLUG } from "../lib/maplibre/sources";
+import { ECI_TO_LGD_SLUG } from "../lib/boundaries/sources";
 
 const SLUG_TO_ECI: Record<string, string> = Object.fromEntries(
   Object.entries(ECI_TO_LGD_SLUG).map(([code, slug]) => [slug, code]),

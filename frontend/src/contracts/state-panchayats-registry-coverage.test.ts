@@ -42,7 +42,7 @@ import {
   PANCHAYAT_DISTRICTS_BY_STATE,
   PANCHAYAT_STATE_NAMES,
   ECI_TO_LGD_SLUG,
-} from "../lib/maplibre/sources";
+} from "../lib/boundaries/sources";
 
 const SLUG_TO_ECI: Record<string, string> = Object.fromEntries(
   Object.entries(ECI_TO_LGD_SLUG).map(([code, slug]) => [slug, code]),
