@@ -86,6 +86,26 @@ Party color comes from [`overview.md` > color scheme](overview.md#color-scheme):
 
 Margin shading uses opacity, not hue: a 51%–49% AC paints the winning party at ~30% opacity; a 70%+ landslide paints at ~95%. This keeps the map honest — the eye reads a tied AC as "barely won" rather than as a confident block of color.
 
+## Home default theme (day-of-year rotation)
+
+The Home surface (`#/`) does NOT default to the election theme. It rotates among a curated pool of national-scope indicators by UTC day-of-year, so the same calendar date yields the same default theme across all visitors. Determinism keeps a fresh Home share-link refresh-stable (the same `#/` URL today + tomorrow produces a predictable sequence) and debuggable (a screenshot dated 2026-06-11 always pins to the same indicator id).
+
+The curated pool is one indicator per topic family (Hans + Max authority per plan-doc PR-4-precursor PR-2 verdict, 2026-06-11):
+
+- `fiscal/outstanding_debt_pct_gsdp` (Money & debt)
+- `economy/gdp_inr_crore` (Economy)
+- `prices/cpi_inflation_pct` (Prices & inflation)
+- `environment/india_ghg_emissions_mtco2e_by_sector` (Environment)
+- `agriculture/pashu_aadhaar_count_cattle` (Farming & livestock)
+
+Rotation contract. The picked id is `CURATED_DEFAULT_THEMES[dayOfYear(now) % availablePool.length]` where `availablePool` is the intersection of the curated pool with the live catalogue's national-scope indicators. `dayOfYear` is computed off UTC (not local time) so visitors in different time zones see the same default on the same calendar date. Locked by the contract test at [../../../frontend/src/lib/home-theme.test.ts](../../../frontend/src/lib/home-theme.test.ts).
+
+Fallback to election theme. If the catalogue is null (bootstrap window) OR fewer than 3 curated ids resolve to a national-scope indicator in the live catalogue, `defaultHomeTheme(catalogue)` silently returns `{ kind: "election" }`. Election is the safe default; the fallback is a degraded surface, not a doctrinal preference - if a curated id drops out of the national-scope pool, the next pipeline run should restore it.
+
+Sticky bookmark. `?theme=indicator/<id>` (e.g. `?theme=indicator/fiscal/outstanding_debt_pct_gsdp`) and `?theme=election` URL params override the rotation; a shared URL with one of these params pins the theme for that visitor. The theme picker still lists all 21 themes (Election + 20 national-scope indicators) grouped by topic, so the rotation never hides choice.
+
+Expansion path. Adding a new topic family (e.g. Education, Health) is a one-row edit to `CURATED_DEFAULT_THEMES` in [../../../frontend/src/lib/home-theme.ts](../../../frontend/src/lib/home-theme.ts); keep one-per-topic discipline (the pool surfaces topic coverage; multiple ids from the same family would skew the rotation toward whichever family is over-represented).
+
 ## Map / Equal seats mode (election mounts)
 
 Per [ADR-0048](../../reference/decision-index.md), election surfaces carry a segmented toggle labelled **`Map`** / **`Equal seats`** — never the jargon "choropleth" / "cartogram". Default is geographic (`Map`) at every level. The mode persists to the URL as `?view=geo|hex`. The `Equal seats` arm renders a tile cartogram (`frontend/src/lib/charts/TileCartogram.svelte`) where each tile is one constituency, sized equally, fed by a layout dataset under `datasets/grapher/election_tile_layouts.json` ([ADR-0045](../../reference/decision-index.md): render data is frontend-owned). The legend line reads **"Each tile = one seat."**
@@ -112,7 +132,7 @@ The first cut of the map components landed under `frontend/src/lib/maplibre/`:
 
 - `sources.ts` — declarative table of boundary sources (one per India-states + per-state AC layers), each with the upstream URL, the property name to join on (`ST_NM` for datameet states, `AC_NO` for HTL AC files), and license attribution. State-name → ECI-code resolution is **not** hand-coded here any more — it derives from the canonical `datasets/taxonomy/entities.parquet` corpus via the [`view-models/states.ts`](../../../frontend/src/lib/view-models/states.ts) loader (T.0e, May 2026). `sources.ts` re-exports `eciFromStateName(name)` as a thin async shim for callers that want the old single-function API; new code should call `loadStates()` directly to get the full `StateRow` shape (which includes `boundary_join_name` — the DataMeet `ST_NM` join key, which diverges from `display_name` for Delhi / Andaman & Nicobar / Jammu & Kashmir).
 - `MapChoropleth.svelte` — generic, library-agnostic to its parents. Takes a `BoundaryEntry`, a `fills` map keyed by the join-property value, optional `opacities` and `tooltips`, and `onSelect`/`onHover` callbacks. Owns map lifecycle and rebuilds `fill-color` / `fill-opacity` paint expressions whenever its props change (Svelte 5 `$effect`).
-- `IndiaMap.svelte` and `StateAcMap.svelte` — thin domain wrappers. `IndiaMap` calls `loadStates()` (see above), then fetches `result.summary.json` for every currently-valid state/UT and colors each by winning party (most seats won, votes as tiebreak). `StateAcMap` queries `results.sqlite` via the cached `getDb` for `(ac_eci_no → winner_party_eci_code, party_short, margin_pct)` and colors AC fills by winning party with opacity proportional to margin (clamped to 30 % to keep the legend readable; ties drop to the floor so razor-thin wins visually scream "close").
+- `IndiaMap.svelte` and `StateAcMap.svelte` — thin domain wrappers. `IndiaMap` calls `loadStates()` (see above), then fetches `result.summary.json` for every currently-valid state/UT and colors each by winning party (most seats won, votes as tiebreak). This election theme is no longer the Home default - it survives as the explicit `?theme=election` choice and as one of 21 options in the picker; the Home rotation lives in [Home default theme (day-of-year rotation)](#home-default-theme-day-of-year-rotation) above. `StateAcMap` queries `results.sqlite` via the cached `getDb` for `(ac_eci_no → winner_party_eci_code, party_short, margin_pct)` and colors AC fills by winning party with opacity proportional to margin (clamped to 30 % to keep the legend readable; ties drop to the floor so razor-thin wins visually scream "close").
 
 ### Source resolution: manifest → local snapshot → upstream fallback
 
