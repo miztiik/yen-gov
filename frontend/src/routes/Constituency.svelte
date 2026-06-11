@@ -21,7 +21,7 @@
     type ElectionEventRow,
   } from "../lib/election-events";
   import AcStackedBar from "../lib/AcStackedBar.svelte";
-  import StateAcMap from "../lib/maplibre/StateAcMap.svelte";
+  import StateAcMapD3 from "../lib/charts/StateAcMapD3.svelte";
   import WinnerBadge from "../lib/WinnerBadge.svelte";
   import { STATE_AC } from "../lib/maplibre/sources";
   import { states } from "../lib/states.svelte";
@@ -516,7 +516,7 @@
     {#if event && state_code && STATE_AC[state_code]}
       <section class="bg-white rounded-lg shadow-sm p-4">
         <h2 class="text-sm font-semibold uppercase text-slate-500 mb-3">Location in {states.name(state_code)}</h2>
-        <StateAcMap state={state_code} rows={ac_winners} highlight_eci_no={effective_eci_no} height="360px" {event} />
+        <StateAcMapD3 state={state_code} rows={ac_winners} highlight_eci_no={effective_eci_no} height="360px" {event} />
         <p class="text-xs text-slate-400 mt-2">
           Highlighted: AC #{effective_eci_no}. Other constituencies are dimmed for context. Click any to drill in.
         </p>
