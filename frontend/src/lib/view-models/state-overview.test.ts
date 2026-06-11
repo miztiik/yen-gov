@@ -248,25 +248,21 @@ describe("loadStateOverview - happy path", () => {
         fetched_at: "",
       },
     ]);
-    // v2 ledger projection: 2 rows from sources, sorted by trust
-    // (live-fetch rank 0 before archived-snapshot rank 1).
-    expect(res.data.sources_v2.map((s) => s.source_id)).toEqual([
-      "src-eci000000a1",
-      "src-tcpd-ae-2021",
-    ]);
-    // R-24 enforcement - no fetch-telemetry field leaks into v2 row.
-    for (const row of res.data.sources_v2) {
-      for (const forbidden of [
+    // Publisher pills built via dedupeToPills - 2 rows collapse to 2
+    // pills (different producers). ECI + TCPD have different
+    // publisherDisplay mappings.
+    expect(res.data.pills.map((p) => p.label).sort()).toContainEqual(
+      expect.stringContaining("ECI"),
+    );
+    // No 11-col v2 fields leak into the pill shape; each pill carries
+    // exactly the 4-key shape (label, vintage_summary, url, count).
+    for (const row of res.data.pills) {
+      expect(Object.keys(row).sort()).toEqual([
+        "count",
+        "label",
         "url",
-        "fetched_at",
-        "first_fetched_at",
-        "last_seen_at",
-        "date_accessed",
-        "content_hash",
-        "url_download",
-      ]) {
-        expect(row).not.toHaveProperty(forbidden);
-      }
+        "vintage_summary",
+      ]);
     }
     expect(res.data.ac_winners).toHaveLength(2);
     expect(res.data.ac_winners[0]).toMatchObject({
@@ -414,7 +410,7 @@ describe("loadStateOverview - partial / not_published", () => {
     expect(res.reason).toBe("not_published");
     expect(res.data.party_totals).toEqual([]);
     expect(res.data.sources).toEqual([]);
-    expect(res.data.sources_v2).toEqual([]);
+    expect(res.data.pills).toEqual([]);
     expect(res.data.totals).toBeNull();
     expect(res.data.total_seats).toBe(0);
   });

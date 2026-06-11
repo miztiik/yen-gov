@@ -63,14 +63,13 @@ vi.mock("../indicators", async () => {
 
 import { query, registerCsvAsTable, registerCsvFile, registerTable } from "../duckdb";
 import { fetchIndicator } from "../indicators";
-import { FORBIDDEN_SOURCE_FIELDS } from "../source-list-v2";
 import {
   buildIndicatorArtifact,
   buildNationalReferenceSeries,
   canonicalEntityToLegacy,
   entityKindToAdminLevel,
   indicatorArtifactNationalReference,
-  indicatorArtifactSourcesV2,
+  indicatorArtifactPills,
   legacyArtifactIdFromPath,
   loadIndicator,
   loadIndicatorFromCanonical,
@@ -1178,33 +1177,28 @@ describe("buildIndicatorArtifact — canonical rows → legacy IndicatorArtifact
     expect(a.coverage.temporal).toBe("2025-04");
   });
 
-  it("projects joined source rows as sources_v2 without legacy fetch telemetry", () => {
+  it("projects joined source rows as publisher pills without legacy fetch telemetry", () => {
     const a = buildIndicatorArtifact(PEAK_DEMAND_DESCRIPTOR, OBS_ROWS, SRC_ROWS);
     expect(a.sources).toEqual([]);
-    const sourcesV2 = indicatorArtifactSourcesV2(a);
-    expect(sourcesV2).toHaveLength(2);
-    expect(sourcesV2!.map((s) => s.source_id)).toEqual(["src-iced", "src-rbi"]);
-    expect(sourcesV2![0]).toMatchObject({
-      producer: "NITI Aayog",
-      title: "India Climate & Energy Dashboard",
-      vintage: "FY 2024-25",
-      url_main: "https://iced.niti.gov.in/",
-    });
-    for (const s of sourcesV2!) {
-      const asRecord = s as unknown as Record<string, unknown>;
-      for (const forbidden of FORBIDDEN_SOURCE_FIELDS) {
-        expect(asRecord[forbidden]).toBeUndefined();
-      }
-    }
+    const pills = indicatorArtifactPills(a);
+    // 2 source rows -> 2 publisher pills (different producers, no
+    // dedupe collapse). publisherDisplay maps "NITI Aayog" -> "NITI Aayog"
+    // (unchanged) and "Reserve Bank of India" -> "RBI".
+    expect(pills).toHaveLength(2);
+    const labels = pills!.map((p) => p.label).sort();
+    expect(labels.some((l) => l.startsWith("NITI Aayog"))).toBe(true);
+    expect(labels.some((l) => l.startsWith("RBI") || l === "RBI")).toBe(true);
   });
 
-  it("keeps sources_v2 out of the serialized indicator artifact contract", () => {
+  it("keeps pills out of the serialized indicator artifact contract", () => {
     const a = buildIndicatorArtifact(PEAK_DEMAND_DESCRIPTOR, OBS_ROWS, SRC_ROWS);
-    expect(indicatorArtifactSourcesV2(a)).toHaveLength(2);
-    expect(a.sources_v2).toBeUndefined();
-    expect(Object.keys(a)).not.toContain("sources_v2");
+    // Pills are carried on a WeakMap side-channel, NOT on the on-disk
+    // IndicatorArtifact shape (the post 2026-06-11 retirement). The
+    // serialized JSON must NOT contain the pills array.
+    expect(indicatorArtifactPills(a)).toHaveLength(2);
+    expect(Object.keys(a)).not.toContain("pills");
     const serialized = expectValidCurrentIndicatorArtifact(a);
-    expect(serialized.sources_v2).toBeUndefined();
+    expect(serialized.pills).toBeUndefined();
   });
 
   it("copies descriptor IndicatorMeta without retired render-owned fields", () => {
@@ -1375,7 +1369,7 @@ describe("loadIndicatorFromCanonical — DuckDB-WASM round-trip (R2 CSV loader)"
     expect(secondSql).toMatch(/FROM\s+sources/);
     expect(secondSql).toMatch(/'src-iced'/);
     expect(out.sources).toEqual([]);
-    expect(indicatorArtifactSourcesV2(out)).toHaveLength(1);
+    expect(indicatorArtifactPills(out)).toHaveLength(1);
     // CSV "tamil-nadu" slug → "S22" via the translation map seam.
     expect(out.rows[0].entity_id).toBe("S22");
     // CSV integer time stringified to match the IndicatorRow.time contract.
@@ -1662,13 +1656,15 @@ describe("PR 7c.5 — RPO compliance facet-multiplexed descriptor", () => {
       ]);
     const result = await loadIndicatorFromCanonical(RPO_DESCRIPTOR);
     expect(result.sources).toEqual([]);
-    const sourcesV2 = indicatorArtifactSourcesV2(result);
-    expect(sourcesV2).toHaveLength(1);
-    expect(sourcesV2![0]).toMatchObject({
-      source_id: "src-rpo",
-      title: "ICED RPO",
-      vintage: "FY 2024-25",
+    const pills = indicatorArtifactPills(result);
+    expect(pills).toHaveLength(1);
+    expect(pills![0]).toMatchObject({
+      // publisherDisplay("NITI Aayog India Climate & Energy Dashboard") -> "NITI ICED";
+      // seriesFamily("ICED RPO") -> "ICED RPO".
+      // Composite label is short enough; vintage_summary is the single vintage.
+      vintage_summary: "FY 2024-25",
     });
+    expect(pills![0].label).toContain("NITI ICED");
     // Sources SQL was the second call and queried by harvested child
     // source_ids — not by parent (which has source_id=null and would
     // produce zero rows).

@@ -141,22 +141,15 @@ describe("loadElectionSeatsTrend — happy path", () => {
         fetched_at: "",
       },
     ]);
-    // v2.0 ledger projection lives alongside the legacy SourceRef[]
-    // back-compat array. Mirrors the full 11-column citation ledger
-    // per ADR-0032 + R-24 (no fetch telemetry).
-    expect(res.data.sources_v2).toEqual([
+    // Publisher pills built via dedupeToPills from the source rows.
+    // One pill per (producer x series_family); ECI Statistical Report
+    // Section 10 collapses to a single pill.
+    expect(res.data.pills).toEqual([
       {
-        source_id: "src-eci2021000001",
-        producer: "Election Commission of India",
-        title: "Statistical Report Section 10 — Tamil Nadu",
-        vintage: "AcGenApr2021",
-        license: "OGL-IN-1.0",
-        confidence_tier: "gold",
-        is_issuing_authority: true,
-        verification_method: "live-fetch",
-        url_main: "https://eci.gov.in/results/tn-2021.xlsx",
-        citation_full: null,
-        notes: null,
+        label: expect.stringContaining("ECI"),
+        vintage_summary: "AcGenApr2021",
+        url: "https://eci.gov.in/results/tn-2021.xlsx",
+        count: 1,
       },
     ]);
   });
@@ -189,7 +182,7 @@ describe("loadElectionSeatsTrend — partial arms", () => {
     if (res.status !== "partial") return;
     expect(res.reason).toBe("not_published");
     expect(res.data.events).toEqual([]);
-    expect(res.data.sources_v2).toEqual([]);
+    expect(res.data.pills).toEqual([]);
     expect(mockedQuery).not.toHaveBeenCalled();
     expect(mockedRegisterCsvFile).not.toHaveBeenCalled();
     expect(mockedRegisterCsvAsTable).not.toHaveBeenCalled();
@@ -202,7 +195,7 @@ describe("loadElectionSeatsTrend — partial arms", () => {
     if (res.status !== "partial") return;
     expect(res.reason).toBe("not_published");
     expect(res.data.events).toEqual([]);
-    expect(res.data.sources_v2).toEqual([]);
+    expect(res.data.pills).toEqual([]);
   });
 });
 

@@ -52,7 +52,7 @@ import { query, registerCsvAsTable, registerCsvFile, registerTable } from "../du
 import {
   loadIndicatorFromCanonical,
   loadIndicatorIfCanonical,
-  indicatorArtifactSourcesV2,
+  indicatorArtifactPills,
 } from "./indicator-from-canonical";
 import {
   CANONICAL_BACKED_INDICATORS,
@@ -258,11 +258,13 @@ describe("W1 loader -- DuckDB-WASM round-trip via R2 CSV path", () => {
     expect(out.rows.every((r) => typeof r.time === "string")).toBe(true);
     // Canonical id surfaces on the rebuilt artifact's `indicator.id`.
     expect(out.indicator.id).toBe("own-tax-revenue-inr-crore");
-    // Provenance attached via sourcesV2 weak-map (legacy `sources[]` stays empty).
+    // Provenance attached via pills weak-map (legacy `sources[]` stays empty).
     expect(out.sources).toEqual([]);
-    const v2 = indicatorArtifactSourcesV2(out);
+    const v2 = indicatorArtifactPills(out);
     expect(v2).toHaveLength(1);
-    expect(v2![0].producer).toBe("Rajya Sabha Secretariat (Government of India)");
+    // Producer "Rajya Sabha Secretariat (Government of India)" not in the
+    // PUBLISHER_DISPLAY map; pill label falls back to the raw producer.
+    expect(v2![0].label).toContain("Rajya Sabha Secretariat");
   });
 
   it("the W1 cohort uses 2 distinct provenance src-ids and 1 RBI Handbook id", async () => {

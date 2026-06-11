@@ -9,7 +9,7 @@
 //   3. Compiler produces a DuckDBPlan; executor runs the main SQL
 //      against per-(state, year) CSV via DuckDB-WASM `read_csv(...)`
 //      and the provenance SQL against `taxonomy.sources` (Parquet).
-//   4. AnswerViewModel renders: table rows, SourceListV2 strip,
+//   4. AnswerViewModel renders: table rows, publisher-pill source strip,
 //      "how computed" disclosure.
 //
 // Per CLAUDE.md §15 + #13 this proves the lab actually exercises the
@@ -58,14 +58,13 @@ test.describe("yenask dev route", () => {
     const rows = table.locator("tbody tr");
     expect(await rows.count()).toBeGreaterThan(0);
 
-    // Provenance strip must render with a non-empty SourceListV2.
+    // Provenance strip must render with a non-empty publisher-pill row.
     const sourceStrip = page.getByTestId("yenask-source-strip");
     await expect(sourceStrip).toBeVisible();
-    // SourceListV2 always renders at least one row; either real ECI or
-    // synthesised "source unattested". Either way the strip is non-empty.
-    await expect(
-      sourceStrip.locator('[data-component="source-list-v2"]'),
-    ).toBeVisible();
+    // The new SourceList from $lib/sources renders "Source: <publisher>..."
+    // even when the provenance ledger collapsed to the synthesised
+    // "Source unattested" placeholder pill.
+    await expect(sourceStrip.getByText(/^Source:/).first()).toBeVisible();
 
     // The "how computed" disclosure exists and contains the concept_id.
     // Post-F1.3b the main_sql contains `read_csv(...)` against per-

@@ -147,7 +147,7 @@ test.describe("X1a - dim_parties + taxonomy.sources flipped to CSV", () => {
     ).not.toHaveLength(0);
 
     // POSITIVE: at least one fetch of source.csv (state-overview
-    // queries sources_v2 provenance ledger).
+    // queries the citation-ledger pills).
     expect(
       audit.sourceCsv,
       `Expected >=1 fetch of /data/entities/source.csv on /tamil-nadu`,

@@ -9,39 +9,20 @@
 import { z } from "zod";
 
 /**
- * One row from `taxonomy.sources` (v2.0 ledger). Mirrors `SourceV2Row` in
- * `frontend/src/lib/source-list-v2/types.ts` exactly. Duplicated as a Zod
- * schema here so the lab can validate executor output without depending on
- * runtime type assertions.
+ * One publisher pill in the citizen-visible source strip. Mirrors
+ * `PublisherPill` in `frontend/src/lib/sources/types.ts` exactly.
+ * Duplicated as a Zod schema here so the lab can validate executor
+ * output without depending on runtime type assertions.
  *
- * Hard rule: when this schema and `SourceV2Row` drift, the canonical type
- * wins. A vitest case asserts shape equivalence (PR-1 commit 2).
+ * Hard rule: when this schema and `PublisherPill` drift, the canonical
+ * type wins. A vitest case asserts shape equivalence.
  */
 export const SourceRowSchema = z
   .object({
-    source_id: z.string().min(4),
-    producer: z.string().min(1),
-    title: z.string().min(1),
-    vintage: z.string(),
-    license: z.enum([
-      "OGL-IN-1.0",
-      "CC-BY-4.0",
-      "CC0-1.0",
-      "public-domain",
-      "unknown-public",
-      "internal",
-    ]),
-    confidence_tier: z.enum(["gold", "silver", "bronze"]),
-    is_issuing_authority: z.boolean(),
-    verification_method: z.enum([
-      "live-fetch",
-      "archived-snapshot",
-      "transcribed",
-      "editorial",
-    ]),
-    url_main: z.string().url().nullable(),
-    citation_full: z.string().nullable(),
-    notes: z.string().nullable(),
+    label: z.string().min(1),
+    vintage_summary: z.string(),
+    url: z.string().url().nullable(),
+    count: z.number().int().positive(),
   })
   .strict();
 export type SourceRow = z.infer<typeof SourceRowSchema>;
@@ -92,7 +73,7 @@ export const AnswerViewModelSchema = z
      *
      * If the underlying provenance JOIN returned zero rows, the compiler
      * MUST synthesise a single "source unattested" placeholder row (see
-     * `synthesiseUnattestedSource()` in `../types.ts`) AND set
+     * `synthesiseUnattestedPill()` in `../types.ts`) AND set
      * `provenance_status: "missing"`. The renderer then surfaces a visible
      * "source unattested — do not cite" notice.
      *

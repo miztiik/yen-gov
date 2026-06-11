@@ -20,7 +20,7 @@
   //   - Source disclosure: `<SourceList pills={pills} />` from
   //     $lib/sources (publisher-pill grammar; one row per
   //     producer x series_family). Sources-simplification PR-1 (2026-06-11)
-  //     swapped this from the v2 11-col `SourceListV2` to the new
+  //     swapped this from the v2 11-col render surface to the new
   //     5-col pill component.
   //   - Action footer: the closed enum of approved actions (`view_data`,
   //     `download`, `copy_link`, `share`, `reset_view`, `full_range`)

@@ -160,7 +160,7 @@
     Provenance footer - publisher pills via the new SourceList from
     $lib/sources. One pill per (producer x series_family) via
     dedupeToPills in the view-model. Post sources-simplification PR-1
-    (2026-06-11) the SourceListV2 11-col surface retired.
+    (2026-06-11) the legacy 11-col render surface retired.
   -->
   {#if (result.status === "ok" || result.status === "partial") && result.data.pills.length > 0}
     <SourceList pills={result.data.pills} />

@@ -54,7 +54,7 @@ import { query, registerCsvAsTable, registerCsvFile, registerTable } from "../du
 import {
   loadIndicatorFromCanonical,
   loadIndicatorIfCanonical,
-  indicatorArtifactSourcesV2,
+  indicatorArtifactPills,
 } from "./indicator-from-canonical";
 import {
   CANONICAL_BACKED_INDICATORS,
@@ -332,10 +332,12 @@ describe("G5 representative-indicator loader round-trip (R2 CSV path)", () => {
     expect(out.rows.map((r) => r.entity_id).sort()).toEqual(["S01", "S22"]);
     // Time integers serialised as strings on the IndicatorRow surface.
     expect(out.rows.every((r) => typeof r.time === "string")).toBe(true);
-    // Provenance attached via sourcesV2 weak-map.
-    const v2 = indicatorArtifactSourcesV2(out);
+    // Provenance attached via pills weak-map (1 publisher pill per
+    // producer x series_family).
+    const v2 = indicatorArtifactPills(out);
     expect(v2).toHaveLength(1);
-    expect(v2![0].producer).toBe("NITI Aayog India Climate & Energy Dashboard");
+    // publisherDisplay maps "NITI Aayog India Climate & Energy Dashboard" -> "NITI ICED".
+    expect(v2![0].label).toContain("NITI ICED");
   });
 
   it("cpi-inflation-pct (facet-multiplexed, 4 facets): UNION ALL across 4 child CSVs", async () => {
