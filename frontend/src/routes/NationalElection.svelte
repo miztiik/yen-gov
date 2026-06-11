@@ -463,7 +463,7 @@
     <!-- India choropleth ----------------------------------------------- -->
     <section class="space-y-2" data-testid="national-event-map">
       <h2 class="text-sm font-medium text-slate-700">
-        Leading party by state
+        Winning party by state
       </h2>
       <p class="text-xs text-slate-500">
         Each state is coloured by the party that won the most seats in

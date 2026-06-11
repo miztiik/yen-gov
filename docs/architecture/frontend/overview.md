@@ -28,7 +28,7 @@ The product serves four distinct personas. Heavy code lives behind the first two
 | **Journalist / Analyst** | "Actuals, margins, swings vs prior election, screenshot-friendly" | Explore (read-only views) |
 | **Data Admin** *(internal)* | "What data do we have? Is it valid? Re-run the pipeline. Patch a typo." | Admin app (separate, never deployed publicly) |
 
-Default landing is the **Citizen** path: India choropleth at `#/`, with a tooltip on each state showing the leading party and a link into the state Explore view. The Strategist enters the same way and clicks **Psephlab** in the left rail once they've chosen a scope.
+Default landing is the **Citizen** path: India choropleth at `#/`, with a tooltip on each state showing the winning party and a link into the state Explore view. The Strategist enters the same way and clicks **Psephlab** in the left rail once they've chosen a scope.
 
 ## Information architecture
 
@@ -101,7 +101,7 @@ All views reuse a small set of components from `src/lib/`. The catalog is fixed;
 
 | Component | Used by | Notes |
 | --- | --- | --- |
-| `maplibre/IndiaMap.svelte` | Home (country choropleth) | MapLibre GL country-level state polygons; party hue per leading-party tally. See [map](map.md). |
+| `maplibre/IndiaMap.svelte` | Home (country choropleth) | MapLibre GL country-level state polygons; party hue per winning-party tally. See [map](map.md). |
 | `maplibre/StateAcMap.svelte` | StateOverview, Constituency | MapLibre GL state-level AC polygons with district overlay; selection state binds to the `?ac=...` URL param. |
 | `PartyBar.svelte` | StateOverview, Party, Psephlab | Animated horizontal bar of seat tally. |
 | `SeatDonut.svelte` | StateOverview, Party | Donut of vote share, total in centre. |
