@@ -41,7 +41,18 @@
   const trail = $derived(crumbs ?? []);
 </script>
 
-{#if trail.length > 0}
+<!--
+  Suppress single-leaf chains (e.g. the Home route's [{label: "Home",
+  isLeaf: true}]). A breadcrumb only earns its place when it offers an
+  ascend path; a lone leaf restates the URL the citizen just loaded
+  and, with sticky + bg-white/80 + backdrop-blur, floats translucently
+  over the page hero (e.g. the India CPI choropleth on `/`). Hans +
+  Jony converged here (2026-06-11): citizen-first means the default
+  view answers the citizen's question, not narrates their location.
+  Routes with a real ascend chain (`Home -> Topics`, `Home -> <State>
+  -> <Topic>`, etc.) are length >= 2 and render as before.
+-->
+{#if trail.length > 1}
   <nav
     aria-label="Breadcrumb"
     class="sticky top-12 lg:top-0 z-20 bg-white/80 backdrop-blur border-b border-line"
