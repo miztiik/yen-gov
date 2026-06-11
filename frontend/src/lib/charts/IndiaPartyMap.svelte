@@ -2,7 +2,9 @@
   /**
    * IndiaPartyMap - the d3-geo SVG choropleth that replaces the
    * MapLibre-based `IndiaMap.svelte` on the Home page (PR-4 of
-   * `TODO/20260611-elections-off-maplibre-and-map-ux-plan.md`).
+   * `TODO/20260611-elections-off-maplibre-and-map-ux-plan.md`) and
+   * the per-event national choropleth in NationalElection.svelte
+   * (PR-4b of the same plan).
    *
    * Preserves every behaviour from the legacy component:
    *
@@ -10,11 +12,26 @@
    *     `loadIndiaLeadingParties` (loader signature unchanged).
    *   - Hover tooltip with state name + top-3 party seats + event id
    *     (HTML overlay positioned at the mouse pointer).
-   *   - Click a state polygon -> navigate(link.state(eci_code)).
+   *   - Click a state polygon -> default `navigate(link.state(eci_code))`
+   *     (state hub) OR, when the consumer supplies the PR-4c
+   *     `onSelect` prop, the prop fires with the ECI code so the
+   *     consumer can route however it wants (e.g. NationalElection
+   *     stays in the per-event cohort via `link.stateElection`).
    *   - Per-state party colour resolution via `resolvePartyPalette` +
    *     `getPartyColor` from `lib/colors/resolver.ts`.
    *   - Optional `event?: string` prop forces every state into one
    *     cohort (used by cohort-comparison views).
+   *
+   * Two consumers as of PR-4b/4c:
+   *   - `routes/Home.svelte` (PR-4) - bare `<IndiaPartyMap />`,
+   *     no props. Click navigates to `/<state>` (state hub).
+   *   - `routes/NationalElection.svelte` (PR-4b) -
+   *     `<IndiaPartyMap event={event} onSelect={(code) =>
+   *     navigate(link.stateElection(code, event))} />`. Click
+   *     navigates to `/<state>/elections/<event>` so the citizen
+   *     stays in the same election cohort instead of falling out
+   *     to the state hub's default-event resolver. Default behaviour
+   *     (Home) is unchanged because Home does not pass the prop.
    *
    * Adds three citizen-named UX gaps (verified in PR-alpha against
    * IndiaVotes + Bharat Pashudhan + data-analytics; see
@@ -34,10 +51,10 @@
    *     MapLibre map returns 0 hover hits in a bottom-left ocean
    *     sweep; PR-4 oracle is >= 1 hit).
    *
-   * The pure marker-computation helpers live in
-   * `india-party-map-helpers.ts` (sibling module) so vitest can
-   * cover them against the real `states/all.topojson` without
-   * mounting the Svelte component (repo vitest doctrine).
+   * The pure marker-computation helpers + the PR-4c click-action
+   * resolver live in `india-party-map-helpers.ts` (sibling module)
+   * so vitest can cover them against the real `states/all.topojson`
+   * without mounting the Svelte component (repo vitest doctrine).
    *
    * MapLibre `IndiaMap.svelte` is deliberately NOT deleted here -
    * PR-6 deletes the entire `lib/maplibre/` directory after PR-5
@@ -81,6 +98,7 @@
   import {
     SUB_THRESHOLD_PX,
     computeSubThresholdMarkers,
+    resolveStateClickAction,
     type MarkerOverlay,
   } from "./india-party-map-helpers";
 
@@ -88,8 +106,14 @@
     /** Force every state to a single cohort. When omitted, each state's
      *  own default event from the catalogue is used (the Home-page case). */
     event?: string;
+    /** Optional click-navigation override. When supplied, the prop is
+     *  invoked with the clicked state's ECI code instead of the default
+     *  `navigate(link.state(code))`. Used by NationalElection.svelte to
+     *  stay in the per-event cohort (`link.stateElection(code, event)`).
+     *  When omitted (Home page), default behaviour applies. */
+    onSelect?: (eciCode: string) => void;
   }
-  let { event }: Props = $props();
+  let { event, onSelect: onSelectProp }: Props = $props();
 
   // Hand-pinned constants - the same join property + topojson the
   // legacy MapChoropleth + INDIA_STATES entry consumed. The viewBox is
@@ -336,9 +360,22 @@
     hover_key = null;
   }
 
-  function onSelect(key: string): void {
-    const code = KEY_TO_ECI[key];
-    if (code) navigate(link.state(code));
+  function handleStateClick(key: string): void {
+    const action = resolveStateClickAction(
+      key,
+      KEY_TO_ECI,
+      onSelectProp != null,
+    );
+    switch (action.kind) {
+      case "callback":
+        onSelectProp?.(action.eciCode);
+        return;
+      case "navigate-default":
+        navigate(link.state(action.eciCode));
+        return;
+      case "noop":
+        return;
+    }
   }
 
   // -----------------------------------------------------------------
@@ -443,7 +480,7 @@
             onmouseenter={(e) => key && onFeatureEnter(e, key)}
             onmousemove={onFeatureMove}
             onmouseleave={onFeatureLeave}
-            onclick={() => key && onSelect(key)}
+            onclick={() => key && handleStateClick(key)}
           />
         {/each}
 
@@ -461,7 +498,7 @@
             onmouseenter={(e) => onFeatureEnter(e, m.key)}
             onmousemove={onFeatureMove}
             onmouseleave={onFeatureLeave}
-            onclick={() => onSelect(m.key)}
+            onclick={() => handleStateClick(m.key)}
           />
         {/each}
       </g>
