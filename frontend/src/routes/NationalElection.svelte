@@ -31,21 +31,23 @@
   //   loadElectionResults({event}) -> ElectionResultRow[]
   //     -> KPIs           : sum electors, sum votes_polled,
   //                         avg turnout_pct, count rows
-  //     -> per-state lead : group_by(state_code, party) -> top
   //     -> top-parties    : group_by(party) -> sort desc -> slice(10)
+  //     -> scatter        : per-PC dot, (turnout, margin), radius=electors
   //
-  // The bespoke `loadIndiaLeadingParties` is intentionally NOT used here
-  // (the W2b loader carries the same rows in a richer shape). PR-W5a
-  // retires it once the surviving consumer (the home-page IndiaMap)
-  // also flips.
+  // Map: as of PR-4b (2026-06-11) the choropleth is the d3-geo
+  // `IndiaPartyMap` (replacing MapChoropleth + the local `state_leads`
+  // / `fills` / `tooltips` / `KEY_TO_ECI` derivations). IndiaPartyMap
+  // loads its own per-state leading-party fills via
+  // `loadIndiaLeadingParties` and pins every state to the supplied
+  // `event` cohort. The PR-4c `onSelect` callback carries the click
+  // back to `link.stateElection(code, event)` so the citizen stays in
+  // the per-event cohort (NOT the state hub).
 
-  import MapChoropleth from "../lib/maplibre/MapChoropleth.svelte";
-  import { INDIA_STATES } from "../lib/maplibre/sources";
+  import IndiaPartyMap from "../lib/charts/IndiaPartyMap.svelte";
   import {
     loadElectionResults,
     type ElectionResultRow,
   } from "../lib/view-models/election-results";
-  import { loadStates, type StateRow } from "../lib/view-models/states";
   import type { LoaderResult } from "../lib/loader-result";
   import {
     getPartyColor,
@@ -68,12 +70,9 @@
   let { params }: Props = $props();
   const event = $derived(params.event);
 
-  // ---- Loader (one call powers KPIs + choropleth + top-parties bar) ----
+  // ---- Loader (one call powers KPIs + top-parties bar + scatter) -----
+  // Map fills are NOT derived here; IndiaPartyMap owns that pipeline.
   let result = $state<LoaderResult<ElectionResultRow[]>>({ status: "loading" });
-  let states_taxonomy = $state<StateRow[] | null>(null);
-  loadStates()
-    .then((s) => (states_taxonomy = s))
-    .catch(() => (states_taxonomy = []));
 
   $effect(() => {
     const ev = event;
@@ -175,109 +174,6 @@
       palette.get(pid)?.hex ??
       getPartyColor(pid, rowMap.get(pid) ?? null).hex
     );
-  }
-
-  // ---- Per-state leading party (for state choropleth fills) ----------
-  interface StateLead {
-    state_code: string;
-    party_id: string;
-    party_short: string;
-    seats: number;
-    color: string;
-  }
-  const state_leads = $derived.by<Map<string, StateLead>>(() => {
-    const out = new Map<string, StateLead>();
-    if (winners.length === 0) return out;
-    // Group seats per (state_code, party_id). Track ONE sample row per
-    // party so the colour-resolver has the brand_colour mirror to read.
-    const by = new Map<
-      string,
-      Map<string, { seats: number; sample: ElectionResultRow }>
-    >();
-    for (const w of winners) {
-      const sc = w.state_code;
-      const pid = partyIdFor(w);
-      const inner = by.get(sc) ?? new Map();
-      const cur = inner.get(pid) ?? { seats: 0, sample: w };
-      cur.seats += 1;
-      inner.set(pid, cur);
-      by.set(sc, inner);
-    }
-    for (const [sc, parties] of by) {
-      let top:
-        | { pid: string; seats: number; sample: ElectionResultRow }
-        | null = null;
-      for (const [pid, p] of parties) {
-        if (!top || p.seats > top.seats) {
-          top = { pid, seats: p.seats, sample: p.sample };
-        }
-      }
-      if (!top) continue;
-      out.set(sc, {
-        state_code: sc,
-        party_id: top.pid,
-        party_short: top.sample.party_short ?? "UNK",
-        seats: top.seats,
-        color: fillForParty(top.pid, top.sample),
-      });
-    }
-    return out;
-  });
-
-  // ---- Choropleth fills + tooltips, keyed on the LGD boundary key ----
-  const fills = $derived.by<Record<string, string>>(() => {
-    const out: Record<string, string> = {};
-    if (!states_taxonomy) return out;
-    for (const s of states_taxonomy) {
-      const lead = state_leads.get(s.eci_code);
-      if (lead) out[s.boundary_join_key] = lead.color;
-    }
-    return out;
-  });
-  const tooltips = $derived.by<Record<string, string>>(() => {
-    const out: Record<string, string> = {};
-    if (!states_taxonomy) return out;
-    for (const s of states_taxonomy) {
-      const lead = state_leads.get(s.eci_code);
-      if (!lead) {
-        out[s.boundary_join_key] =
-          `<div class="font-semibold">${escapeHtml(s.display_name)}</div>` +
-          `<div class="text-slate-500">no data</div>`;
-        continue;
-      }
-      out[s.boundary_join_key] =
-        `<div class="font-semibold">${escapeHtml(s.display_name)}</div>` +
-        `<div class="text-slate-600">Leading: ${escapeHtml(lead.party_short)} (${lead.seats} seats)</div>` +
-        `<div class="text-slate-400 text-[10px] mt-1">click to drill in &rarr;</div>`;
-    }
-    return out;
-  });
-  function escapeHtml(s: string): string {
-    return s.replace(/[&<>"']/g, (c) =>
-      c === "&"
-        ? "&amp;"
-        : c === "<"
-          ? "&lt;"
-          : c === ">"
-            ? "&gt;"
-            : c === '"'
-              ? "&quot;"
-              : "&#39;",
-    );
-  }
-
-  // Reverse-lookup boundary key -> ECI for click navigation.
-  const KEY_TO_ECI = $derived.by<Record<string, string>>(() => {
-    const out: Record<string, string> = {};
-    for (const s of states_taxonomy ?? []) {
-      out[s.boundary_join_key] = s.eci_code;
-    }
-    return out;
-  });
-
-  function onStateClick(sel: { key: string | number }): void {
-    const code = KEY_TO_ECI[String(sel.key)];
-    if (code) navigate(link.stateElection(code, event));
   }
 
   // ---- Top-parties bar (top 10 nationally by seats) ------------------
@@ -469,12 +365,9 @@
         Each state is coloured by the party that won the most seats in
         that state. Click a state to drill into its per-state results.
       </p>
-      <MapChoropleth
-        entry={INDIA_STATES}
-        {fills}
-        {tooltips}
-        height="520px"
-        onSelect={onStateClick}
+      <IndiaPartyMap
+        event={event}
+        onSelect={(code) => navigate(link.stateElection(code, event))}
       />
     </section>
 

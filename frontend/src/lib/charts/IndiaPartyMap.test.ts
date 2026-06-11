@@ -40,6 +40,7 @@ import {
   isSubThreshold,
   pathSpan,
   projectedCentroid,
+  resolveStateClickAction,
 } from "./india-party-map-helpers";
 
 // Same path resolution pattern as
@@ -280,5 +281,64 @@ describe("IndiaPartyMap topojson pipeline against datasets/boundaries/in/states/
       expect(d, `state ${f.properties.STNAME ?? f.properties.State_LGD} projected to a null path`).toBeTruthy();
       expect(d!.startsWith("M")).toBe(true);
     }
+  });
+});
+
+describe("IndiaPartyMap helpers - resolveStateClickAction (PR-4c)", () => {
+  // The PR-4c structural fix: IndiaPartyMap's click handler used to
+  // hardcode `navigate(link.state(code))`. NationalElection needs the
+  // click to stay in the event cohort. The resolver below decouples
+  // the lookup + dispatch decision from the side effect so the Svelte
+  // component can be tested via the helper in node-env (the rest of
+  // this file's doctrine).
+
+  const KEY_TO_ECI: Record<string, string> = {
+    "33": "S22", // Tamil Nadu
+    "27": "S13", // Maharashtra
+    "31": "U09", // Lakshadweep (sub-threshold marker target)
+  };
+
+  test("returns navigate-default when no custom callback is supplied", () => {
+    // The Home-page case. Default behaviour MUST be preserved.
+    const action = resolveStateClickAction("33", KEY_TO_ECI, false);
+    expect(action).toEqual({ kind: "navigate-default", eciCode: "S22" });
+  });
+
+  test("returns callback when a custom callback IS supplied", () => {
+    // The NationalElection case. The component will invoke the prop
+    // with the ECI code (NOT the boundary join key).
+    const action = resolveStateClickAction("27", KEY_TO_ECI, true);
+    expect(action).toEqual({ kind: "callback", eciCode: "S13" });
+  });
+
+  test("returns noop when the boundary key has no ECI mapping", () => {
+    // Happens during the initial paint (taxonomy not loaded yet) or
+    // for a state that fell out of the taxonomy. The component must
+    // not crash; the click is silently dropped.
+    const action = resolveStateClickAction("999", KEY_TO_ECI, false);
+    expect(action).toEqual({ kind: "noop" });
+    const action2 = resolveStateClickAction("999", KEY_TO_ECI, true);
+    expect(action2).toEqual({ kind: "noop" });
+  });
+
+  test("custom callback takes precedence over the default navigate", () => {
+    // The exhaustive table the component switches against. The
+    // "has callback" and "missing eci" branches are independent;
+    // when the eci IS present, the callback wins regardless.
+    const lakWithCallback = resolveStateClickAction("31", KEY_TO_ECI, true);
+    expect(lakWithCallback.kind).toBe("callback");
+    if (lakWithCallback.kind === "callback") {
+      expect(lakWithCallback.eciCode).toBe("U09");
+    }
+    const lakWithoutCallback = resolveStateClickAction("31", KEY_TO_ECI, false);
+    expect(lakWithoutCallback.kind).toBe("navigate-default");
+    if (lakWithoutCallback.kind === "navigate-default") {
+      expect(lakWithoutCallback.eciCode).toBe("U09");
+    }
+  });
+
+  test("returns noop on an empty lookup table (no taxonomy loaded)", () => {
+    expect(resolveStateClickAction("33", {}, false)).toEqual({ kind: "noop" });
+    expect(resolveStateClickAction("33", {}, true)).toEqual({ kind: "noop" });
   });
 });

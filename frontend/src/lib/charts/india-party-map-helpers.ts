@@ -127,3 +127,67 @@ export function computeSubThresholdMarkers<P extends GeoJsonProperties>(
   }
   return out;
 }
+
+// -----------------------------------------------------------------
+// Click-action resolver (PR-4c)
+// -----------------------------------------------------------------
+//
+// IndiaPartyMap's per-feature click handler has two consumers as of
+// PR-4c:
+//   * Home (`/?theme=election`): no prop -> navigate to state hub
+//     (`link.state(code)` -> `/<state>`). Default behaviour, unchanged.
+//   * NationalElection (`/t/elections/<event>`): passes
+//     `onSelect={(code) => navigate(link.stateElection(code, event))}`
+//     so the click stays in the same event cohort
+//     (`/<state>/elections/<event>`).
+//
+// The resolver below decides which path to take WITHOUT calling
+// `navigate` itself (so the helpers module stays free of the
+// Svelte-only `lib/url` import + side-effecting routing) and WITHOUT
+// holding a closure over the prop function (so the test can read the
+// decision off the returned discriminated union).
+//
+// The Svelte component owns the side effects:
+//   * `kind === "callback"`     -> invoke the user-supplied callback
+//   * `kind === "navigate-default"` -> call `navigate(link.state(code))`
+//   * `kind === "noop"`         -> the boundary key has no ECI mapping
+//                                  (data not loaded yet OR a stale
+//                                  state that fell out of the
+//                                  taxonomy)
+//
+// This split keeps the new prop surface unit-testable in the same
+// node-env style as the rest of this module (no @testing-library/
+// svelte mount, no jsdom canvas).
+
+/** Discriminated result of resolving a click on a state polygon /
+ *  sub-threshold marker. */
+export type StateClickAction =
+  | { kind: "callback"; eciCode: string }
+  | { kind: "navigate-default"; eciCode: string }
+  | { kind: "noop" };
+
+/**
+ * Decide what should happen when the citizen clicks the polygon /
+ * marker with boundary-join key `key`.
+ *
+ * @param key                 The string-coerced join-key value the
+ *                            click handler received (e.g. `"33"` for
+ *                            Tamil Nadu's `State_LGD`).
+ * @param keyToEci            Reverse lookup populated by the component
+ *                            from the states taxonomy
+ *                            (`boundary_join_key` -> `eci_code`).
+ * @param hasCustomCallback   True when the consumer supplied an
+ *                            `onSelect` prop. The component passes
+ *                            this so the helper does not need to hold
+ *                            a closure over the function reference.
+ */
+export function resolveStateClickAction(
+  key: string,
+  keyToEci: Record<string, string>,
+  hasCustomCallback: boolean,
+): StateClickAction {
+  const code = keyToEci[key];
+  if (!code) return { kind: "noop" };
+  if (hasCustomCallback) return { kind: "callback", eciCode: code };
+  return { kind: "navigate-default", eciCode: code };
+}
