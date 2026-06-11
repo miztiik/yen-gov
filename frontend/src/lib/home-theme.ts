@@ -1,7 +1,7 @@
 /**
  * Home-page map "theme" — a tiny, schema-driven dispatcher that lets the
  * citizen swap the India choropleth between the election lens (every state
- * coloured by leading party in its own default event) and any national-scope
+ * coloured by winning party in its own default event) and any national-scope
  * indicator artifact from the topic catalogue.
  *
  * Two themes ship in v0:
@@ -12,11 +12,21 @@
  *   /?theme=election
  *   /?theme=indicator/fiscal/outstanding_debt_pct_gsdp
  *
- * Default = `{ kind: "election" }` for now. The IA-RESET TODO calls for
- * "Default theme defers to current event window when one is live"; today
- * every event in `election-events.json` is `data_status: complete`, so
- * there is no live window to defer to. When/if a live event lands, hook
- * the default-theme logic here without touching the renderer.
+ * Default theme: deterministic day-of-year rotation across the
+ * `CURATED_DEFAULT_THEMES` pool (one indicator per topic family, see the
+ * constant below). Same calendar day yields the same default for every
+ * visitor — shareable, debuggable, refresh-stable. Election theme survives
+ * as the explicit `?theme=election` choice. Closes the IA-RESET P5
+ * deferred item #3 ("Default Home map theme -> NOT elections"). Authority:
+ * Hans + Max for the curated pool (one per topic family); Jony + Citizen
+ * for the deterministic-by-day rotation strategy (over pure-random or
+ * sticky default). See plan-doc TODO/20260611-home-page-citizen-experience-plan.md
+ * section 0.4 + row PR-2.
+ *
+ * Fallback to `{ kind: "election" }` when the catalogue is null (bootstrap)
+ * OR when fewer than 3 curated indicators are present (probable catalogue
+ * regression; election is the safe default). When/if a live event lands,
+ * hook the live-event override here above the rotation logic.
  *
  * Bad / unknown `?theme=` values fall back to the default silently — same
  * graceful-degradation contract as `?peer=` on `/t/:topic`.
@@ -44,6 +54,28 @@ const ELECTION_VALUE = "election";
 const ELECTION_LABEL = "Winning party";
 const ELECTION_CAPTION = "winning party by state";
 const ELECTION_GROUP = "Elections";
+
+/**
+ * Curated national-scope indicators that the Home choropleth rotates among
+ * by day-of-year. One per topic family per Hans + Max ruling (plan-doc
+ * TODO/20260611-home-page-citizen-experience-plan.md section 0.4 + row PR-2).
+ * Today's pick = `CURATED_DEFAULT_THEMES[dayOfYear(now) % length]`.
+ *
+ * Order is the rotation order; do NOT alphabetise. To expand: add a row
+ * (one per topic family), keep one-per-topic discipline.
+ *
+ * Each id MUST match a national-scope indicator artifact in
+ * `datasets/taxonomy/topics.json`. The default-theme picker filters down
+ * to only those present in the live catalogue at runtime — missing ids
+ * are skipped, not surfaced as an error.
+ */
+const CURATED_DEFAULT_THEMES: readonly string[] = [
+  "fiscal/outstanding_debt_pct_gsdp",           // Money & debt headline
+  "economy/gdp_inr_crore",                       // Economy headline
+  "prices/cpi_inflation_pct",                    // Prices & inflation headline
+  "environment/india_ghg_emissions_mtco2e_by_sector", // Environment
+  "agriculture/pashu_aadhaar_count_cattle",      // Farming & livestock
+] as const;
 
 /** Every national-scope indicator artifact in the catalogue, in catalogue order. */
 function nationalIndicators(
@@ -99,11 +131,43 @@ export function serializeHomeTheme(theme: HomeTheme): string {
 }
 
 /**
- * Default theme. Always election today; placeholder for future
- * "current event window" detection (see file header).
+ * Day-of-year (1-366) for the given Date in UTC. Pure helper; used by
+ * `defaultHomeTheme` for shareable, refresh-stable rotation. UTC is
+ * deliberate: every visitor sees the same default theme on the same UTC
+ * day (the URL `/` with no `?theme=` slot is identical worldwide).
+ * Local-time arithmetic with DST produces off-by-one across spring-forward
+ * boundaries; UTC sidesteps it. Tests freeze `Date` via
+ * `vi.useFakeTimers()` and assert the same day yields the same idx.
  */
-export function defaultHomeTheme(_catalogue: TopicCatalogue | null): HomeTheme {
-  return { kind: "election" };
+export function dayOfYear(d: Date): number {
+  const startUtc = Date.UTC(d.getUTCFullYear(), 0, 0);
+  const diff = d.getTime() - startUtc;
+  const oneDay = 1000 * 60 * 60 * 24;
+  return Math.floor(diff / oneDay);
+}
+
+/**
+ * Default theme = deterministic day-of-year rotation across the curated
+ * pool (see CURATED_DEFAULT_THEMES). Falls back to `{ kind: "election" }`
+ * when:
+ *   - the catalogue is null (bootstrap window), OR
+ *   - fewer than 3 curated ids resolve to a national-scope indicator in
+ *     the live catalogue (probable catalogue regression; election is the
+ *     safe default - logged as a console warning so the operator notices).
+ *
+ * Otherwise: `idx = dayOfYear(now) % pool.length` over the runtime-available
+ * intersection of `CURATED_DEFAULT_THEMES` and `nationalIndicators(catalogue)`.
+ *
+ * Authority: Hans + Max for the curated pool, Jony + Citizen for the
+ * deterministic-by-day strategy. See plan-doc row PR-2.
+ */
+export function defaultHomeTheme(catalogue: TopicCatalogue | null): HomeTheme {
+  if (catalogue === null) return { kind: "election" };
+  const nationalIds = new Set(nationalIndicators(catalogue).map(({ artifact }) => artifact.id));
+  const availablePool = CURATED_DEFAULT_THEMES.filter(id => nationalIds.has(id));
+  if (availablePool.length < 3) return { kind: "election" };
+  const idx = dayOfYear(new Date()) % availablePool.length;
+  return { kind: "indicator", id: availablePool[idx] };
 }
 
 /** True when two themes refer to the same view. */

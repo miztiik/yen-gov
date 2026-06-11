@@ -1,5 +1,6 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import {
+  dayOfYear,
   defaultHomeTheme,
   homeThemeOptions,
   parseHomeTheme,
@@ -135,8 +136,277 @@ describe("serializeHomeTheme", () => {
 });
 
 describe("defaultHomeTheme", () => {
-  it("is election today (no live event window)", () => {
+  // PR-2 (2026-06-11): the default theme is no longer "always election".
+  // It rotates by day-of-year across CURATED_DEFAULT_THEMES (5 indicators,
+  // one per topic family) when at least 3 of them resolve to a national-scope
+  // indicator in the live catalogue. Falls back to election otherwise.
+  // Plan-doc: TODO/20260611-home-page-citizen-experience-plan.md row PR-2.
+  //
+  // Catalogue fixture with all 5 curated indicator ids present (national-scope).
+  // Used by the "returns a curated indicator" test below and the
+  // deterministic-rotation describe block.
+  const fullCatalogue: TopicCatalogue = {
+    $schema: "https://example.test/topic-catalogue.schema.json",
+    $schema_version: "1.1",
+    sources: [],
+    topics: [
+      {
+        id: "fiscal",
+        title: "Money & debt",
+        list: "concurrent",
+        summary: "",
+        artifacts: [
+          {
+            kind: "indicator",
+            id: "fiscal/outstanding_debt_pct_gsdp",
+            display: "Outstanding liabilities (% of GSDP)",
+            scope: "national",
+          },
+        ],
+      },
+      {
+        id: "economy",
+        title: "Economy",
+        list: "concurrent",
+        summary: "",
+        artifacts: [
+          {
+            kind: "indicator",
+            id: "economy/gdp_inr_crore",
+            display: "GDP (INR crore)",
+            scope: "national",
+          },
+        ],
+      },
+      {
+        id: "prices",
+        title: "Prices & inflation",
+        list: "concurrent",
+        summary: "",
+        artifacts: [
+          {
+            kind: "indicator",
+            id: "prices/cpi_inflation_pct",
+            display: "CPI inflation (%)",
+            scope: "national",
+          },
+        ],
+      },
+      {
+        id: "environment",
+        title: "Environment",
+        list: "concurrent",
+        summary: "",
+        artifacts: [
+          {
+            kind: "indicator",
+            id: "environment/india_ghg_emissions_mtco2e_by_sector",
+            display: "India GHG emissions by sector",
+            scope: "national",
+          },
+        ],
+      },
+      {
+        id: "agriculture",
+        title: "Farming & livestock",
+        list: "concurrent",
+        summary: "",
+        artifacts: [
+          {
+            kind: "indicator",
+            id: "agriculture/pashu_aadhaar_count_cattle",
+            display: "Pashu Aadhaar cattle count",
+            scope: "national",
+          },
+        ],
+      },
+    ],
+  };
+
+  it("falls back to election when catalogue is null", () => {
+    expect(defaultHomeTheme(null)).toEqual({ kind: "election" });
+  });
+
+  it("falls back to election when the curated pool collapses below 3 available indicators", () => {
+    // Top-level `catalogue` fixture has only 1 of the 5 curated ids
+    // (fiscal/outstanding_debt_pct_gsdp); the others are not curated or
+    // are state-scope/election artifacts. Pool size 1 < 3 -> election.
     expect(defaultHomeTheme(catalogue)).toEqual({ kind: "election" });
+  });
+
+  it("returns a curated indicator when the catalogue has >= 3 curated ids", () => {
+    const result = defaultHomeTheme(fullCatalogue);
+    expect(result.kind).toBe("indicator");
+    if (result.kind === "indicator") {
+      expect([
+        "fiscal/outstanding_debt_pct_gsdp",
+        "economy/gdp_inr_crore",
+        "prices/cpi_inflation_pct",
+        "environment/india_ghg_emissions_mtco2e_by_sector",
+        "agriculture/pashu_aadhaar_count_cattle",
+      ]).toContain(result.id);
+    }
+  });
+});
+
+describe("dayOfYear", () => {
+  // UTC dates so the test is TZ-independent (the function is UTC-based for
+  // shareable rotation - see its doc comment).
+  it("returns 1 for Jan 1 UTC", () => {
+    expect(dayOfYear(new Date(Date.UTC(2026, 0, 1)))).toBe(1);
+  });
+
+  it("returns 182 for Jul 1 UTC in a non-leap year (31+28+31+30+31+30+1)", () => {
+    expect(dayOfYear(new Date(Date.UTC(2026, 6, 1)))).toBe(182);
+  });
+
+  it("returns 365 for Dec 31 UTC in a non-leap year", () => {
+    expect(dayOfYear(new Date(Date.UTC(2026, 11, 31)))).toBe(365);
+  });
+
+  it("returns 366 for Dec 31 UTC in a leap year (2024)", () => {
+    expect(dayOfYear(new Date(Date.UTC(2024, 11, 31)))).toBe(366);
+  });
+});
+
+describe("defaultHomeTheme deterministic rotation", () => {
+  // The load-bearing oracle for PR-2: same calendar day -> identical id
+  // (shareable + refresh-stable); different days within a year -> at
+  // least 3 distinct curated ids appear (the rotation actually rotates).
+  //
+  // Catalogue fixture with all 5 curated indicator ids present so the
+  // available pool === full CURATED_DEFAULT_THEMES and the modulo math
+  // is exercised against the full set.
+  const fullCatalogue: TopicCatalogue = {
+    $schema: "https://example.test/topic-catalogue.schema.json",
+    $schema_version: "1.1",
+    sources: [],
+    topics: [
+      {
+        id: "fiscal",
+        title: "Money & debt",
+        list: "concurrent",
+        summary: "",
+        artifacts: [
+          {
+            kind: "indicator",
+            id: "fiscal/outstanding_debt_pct_gsdp",
+            scope: "national",
+          },
+        ],
+      },
+      {
+        id: "economy",
+        title: "Economy",
+        list: "concurrent",
+        summary: "",
+        artifacts: [
+          {
+            kind: "indicator",
+            id: "economy/gdp_inr_crore",
+            scope: "national",
+          },
+        ],
+      },
+      {
+        id: "prices",
+        title: "Prices & inflation",
+        list: "concurrent",
+        summary: "",
+        artifacts: [
+          {
+            kind: "indicator",
+            id: "prices/cpi_inflation_pct",
+            scope: "national",
+          },
+        ],
+      },
+      {
+        id: "environment",
+        title: "Environment",
+        list: "concurrent",
+        summary: "",
+        artifacts: [
+          {
+            kind: "indicator",
+            id: "environment/india_ghg_emissions_mtco2e_by_sector",
+            scope: "national",
+          },
+        ],
+      },
+      {
+        id: "agriculture",
+        title: "Farming & livestock",
+        list: "concurrent",
+        summary: "",
+        artifacts: [
+          {
+            kind: "indicator",
+            id: "agriculture/pashu_aadhaar_count_cattle",
+            scope: "national",
+          },
+        ],
+      },
+    ],
+  };
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it("returns IDENTICAL output on repeated calls on the same frozen day (shareable + refresh-stable)", () => {
+    vi.useFakeTimers();
+    // 2026-03-15 UTC = Indian fiscal year-end-ish; meaningful baseline.
+    vi.setSystemTime(new Date(Date.UTC(2026, 2, 15)));
+    const a = defaultHomeTheme(fullCatalogue);
+    const b = defaultHomeTheme(fullCatalogue);
+    expect(a).toEqual(b);
+    expect(a.kind).toBe("indicator");
+  });
+
+  it("returns a different curated indicator across day-deltas coprime with the curated pool size", () => {
+    // Curated pool size is 5; pick deltas with idx mod 5 in {1, 2, 4} so
+    // the three samples must hit three distinct ids no matter where the
+    // base day lands in the rotation cycle. Day 100 % 5 == 0 (baseline);
+    // day 101 % 5 == 1; day 102 % 5 == 2; day 104 % 5 == 4.
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(Date.UTC(2026, 0, 100)));
+    const day_100 = defaultHomeTheme(fullCatalogue);
+    vi.setSystemTime(new Date(Date.UTC(2026, 0, 101)));
+    const day_101 = defaultHomeTheme(fullCatalogue);
+    vi.setSystemTime(new Date(Date.UTC(2026, 0, 102)));
+    const day_102 = defaultHomeTheme(fullCatalogue);
+    expect(day_100.kind).toBe("indicator");
+    expect(day_101.kind).toBe("indicator");
+    expect(day_102.kind).toBe("indicator");
+    if (
+      day_100.kind === "indicator"
+      && day_101.kind === "indicator"
+      && day_102.kind === "indicator"
+    ) {
+      expect(day_101.id).not.toBe(day_100.id);
+      expect(day_102.id).not.toBe(day_100.id);
+      expect(day_102.id).not.toBe(day_101.id);
+    }
+  });
+
+  it("sweeps all 5 distinct curated ids across 5 consecutive days (pool of size 5; one rotation cycle)", () => {
+    // Consecutive day offsets guarantee idx 0..4 hit in order, so the set
+    // of sampled ids has size == pool length.
+    vi.useFakeTimers();
+    const sampled_ids: string[] = [];
+    for (const day_offset of [0, 1, 2, 3, 4]) {
+      vi.setSystemTime(new Date(Date.UTC(2026, 5, 10 + day_offset)));
+      const t = defaultHomeTheme(fullCatalogue);
+      if (t.kind === "indicator") sampled_ids.push(t.id);
+    }
+    expect(sampled_ids.length).toBe(5);
+    expect(new Set(sampled_ids).size).toBe(5);
+  });
+
+  it("falls back to election when the catalogue is null even under frozen time", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(Date.UTC(2026, 2, 15)));
     expect(defaultHomeTheme(null)).toEqual({ kind: "election" });
   });
 });
