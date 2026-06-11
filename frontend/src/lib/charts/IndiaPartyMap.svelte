@@ -351,8 +351,13 @@
   // zooms (d3-zoom dispatches both via the touchstart/touchmove
   // handlers it installs).
   //
-  // Button-driven transitions go through the same `zoom_behavior`
-  // instance so the internal transform state stays in sync.
+  // Button-driven dispatches go through the same `zoom_behavior`
+  // instance so the internal `__zoom` state stays in sync with the
+  // gesture-driven path. We do NOT chain `.transition()` on the
+  // button handlers - the gesture path is intentionally immediate
+  // (no animated tween) so a citizen tapping `+` three times sees
+  // the third-step result without an interrupted half-state. The
+  // wheel path's own d3-zoom default tween still applies.
   // -----------------------------------------------------------------
 
   let svg_el = $state<SVGSVGElement | null>(null);
@@ -379,24 +384,15 @@
 
   function zoomInButton(): void {
     if (!svg_el || !zoom_behavior) return;
-    select(svg_el)
-      .transition()
-      .duration(250)
-      .call(zoom_behavior.scaleBy, 1.5);
+    select(svg_el).call(zoom_behavior.scaleBy, 1.5);
   }
   function zoomOutButton(): void {
     if (!svg_el || !zoom_behavior) return;
-    select(svg_el)
-      .transition()
-      .duration(250)
-      .call(zoom_behavior.scaleBy, 1 / 1.5);
+    select(svg_el).call(zoom_behavior.scaleBy, 1 / 1.5);
   }
   function homeButton(): void {
     if (!svg_el || !zoom_behavior) return;
-    select(svg_el)
-      .transition()
-      .duration(300)
-      .call(zoom_behavior.transform, zoomIdentity);
+    select(svg_el).call(zoom_behavior.transform, zoomIdentity);
   }
 </script>
 
