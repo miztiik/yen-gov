@@ -1,0 +1,183 @@
+{
+  "type": "constituency",
+  "meta": {
+    "slug": "deeg-kumher",
+    "house": "vidhan-sabha",
+    "name": {
+      "en": "deegku mher"
+    },
+    "state": "rajasthan",
+    "districts": [
+      "BHARATPUR"
+    ],
+    "category": "GEN",
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state_id=14, name_slug=deeg-kumher"
+    },
+    "canonical_id": "ac:3449",
+    "canonical_ids": [
+      "ac:3449"
+    ],
+    "aliases": [
+      "Deeg Kumher",
+      "Deeg-Kumher",
+      "deegku mher"
+    ],
+    "delimitation_history": [
+      {
+        "delimitation_id": 4,
+        "delimitation_name": "DL4",
+        "year_from": 2008,
+        "year_to": 2015,
+        "name": "Deeg Kumher",
+        "years": [
+          2008,
+          2013,
+          2018,
+          2023
+        ]
+      }
+    ],
+    "years_in_canonical": [
+      2008,
+      2013,
+      2018,
+      2023
+    ],
+    "predecessor_canonical_ids": [],
+    "successor_canonical_ids": []
+  },
+  "result": {
+    "constituency_slug": "deeg-kumher",
+    "house": "vidhan-sabha",
+    "year": 2023,
+    "state": "rajasthan",
+    "polling_date": "2023-11-25",
+    "summary": {
+      "voters_eligible": 515050,
+      "votes_polled": 177084,
+      "turnout": 0.3438190466944957,
+      "nota_votes": 734,
+      "winner_candidate_slug": "c-ac-425570",
+      "winning_margin": 7895,
+      "winning_margin_share": 0.044583361568521156
+    },
+    "candidates": [
+      {
+        "candidate_slug": "c-ac-425570",
+        "name": {
+          "en": "DR. SHAILESH SINGH"
+        },
+        "party_slug": "bjp",
+        "party_abbreviation": "BJP",
+        "votes": 89063,
+        "vote_share": 0.5029421065708929,
+        "position": 1,
+        "won": true
+      },
+      {
+        "candidate_slug": "c-ac-425569",
+        "name": {
+          "en": "VISHVENDRA SINGH"
+        },
+        "party_slug": "inc",
+        "party_abbreviation": "INC",
+        "votes": 81168,
+        "vote_share": 0.4583587450023718,
+        "position": 2,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425571",
+        "name": {
+          "en": "HARIOM SHARMA"
+        },
+        "party_slug": "bsp-2",
+        "party_abbreviation": "BSP",
+        "votes": 4487,
+        "vote_share": 0.025338257550089224,
+        "position": 3,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425568",
+        "name": {
+          "en": "MANUDEV"
+        },
+        "party_slug": "rlp-3",
+        "party_abbreviation": "RLP",
+        "votes": 1015,
+        "vote_share": 0.005731743127555284,
+        "position": 4,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425575",
+        "name": {
+          "en": "HARISHANKAR"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 476,
+        "vote_share": 0.002687989880508685,
+        "position": 5,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425574",
+        "name": {
+          "en": "SURENDRA SINGH SINSINWAR"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 464,
+        "vote_share": 0.0026202254297395585,
+        "position": 6,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425572",
+        "name": {
+          "en": "POONAM"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 214,
+        "vote_share": 0.0012084660387160896,
+        "position": 7,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425573",
+        "name": {
+          "en": "RAJ KUMAR"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 197,
+        "vote_share": 0.0011124664001264937,
+        "position": 8,
+        "won": false
+      }
+    ],
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state=rajasthan, name=deeg-kumher, details=47119"
+    }
+  },
+  "year": 2023,
+  "state": "rajasthan"
+}

@@ -1,0 +1,194 @@
+{
+  "type": "constituency",
+  "meta": {
+    "slug": "kota-south",
+    "house": "vidhan-sabha",
+    "name": {
+      "en": "kota dakshin"
+    },
+    "state": "rajasthan",
+    "districts": [
+      "KOTA"
+    ],
+    "category": "GEN",
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state_id=14, name_slug=kota-south"
+    },
+    "canonical_id": "ac:3566",
+    "canonical_ids": [
+      "ac:3566"
+    ],
+    "aliases": [
+      "Kota South",
+      "kota dakshin"
+    ],
+    "delimitation_history": [
+      {
+        "delimitation_id": 4,
+        "delimitation_name": "DL4",
+        "year_from": 2008,
+        "year_to": 2015,
+        "name": "Kota South",
+        "years": [
+          2008,
+          2013,
+          2018,
+          2023
+        ]
+      }
+    ],
+    "years_in_canonical": [
+      2008,
+      2013,
+      2018,
+      2023
+    ],
+    "predecessor_canonical_ids": [],
+    "successor_canonical_ids": []
+  },
+  "result": {
+    "constituency_slug": "kota-south",
+    "house": "vidhan-sabha",
+    "year": 2023,
+    "state": "rajasthan",
+    "polling_date": "2023-11-25",
+    "summary": {
+      "voters_eligible": 489896,
+      "votes_polled": 181472,
+      "turnout": 0.37042964220977515,
+      "nota_votes": 1727,
+      "winner_candidate_slug": "c-ac-426048",
+      "winning_margin": 11962,
+      "winning_margin_share": 0.06591650502556869
+    },
+    "candidates": [
+      {
+        "candidate_slug": "c-ac-426048",
+        "name": {
+          "en": "SANDEEP SHARMA"
+        },
+        "party_slug": "bjp",
+        "party_abbreviation": "BJP",
+        "votes": 95393,
+        "vote_share": 0.5256623611356022,
+        "position": 1,
+        "won": true
+      },
+      {
+        "candidate_slug": "c-ac-426047",
+        "name": {
+          "en": "RAKHI GAUTAM"
+        },
+        "party_slug": "inc",
+        "party_abbreviation": "INC",
+        "votes": 83431,
+        "vote_share": 0.4597458561100335,
+        "position": 2,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-426046",
+        "name": {
+          "en": "DR. KRISHNANAND SHARMA"
+        },
+        "party_slug": "bsp-2",
+        "party_abbreviation": "BSP",
+        "votes": 1085,
+        "vote_share": 0.005978883794745195,
+        "position": 3,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-426049",
+        "name": {
+          "en": "IRSHAD AHAMAD"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 381,
+        "vote_share": 0.002099497443131723,
+        "position": 4,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-426054",
+        "name": {
+          "en": "HABIBULLA"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 357,
+        "vote_share": 0.0019672456356903544,
+        "position": 5,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-426053",
+        "name": {
+          "en": "HANUMAN  MINA"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 342,
+        "vote_share": 0.0018845882560394993,
+        "position": 6,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-426052",
+        "name": {
+          "en": "MOHAMMAD FARID"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 178,
+        "vote_share": 0.0009808675718568154,
+        "position": 7,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-426051",
+        "name": {
+          "en": "PINTU BAJRANGI"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 165,
+        "vote_share": 0.0009092311761594075,
+        "position": 8,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-426050",
+        "name": {
+          "en": "OM PRAKASH SHAKYWAL"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 140,
+        "vote_share": 0.0007714688767413155,
+        "position": 9,
+        "won": false
+      }
+    ],
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state=rajasthan, name=kota-south, details=47237"
+    }
+  },
+  "year": 2023,
+  "state": "rajasthan"
+}

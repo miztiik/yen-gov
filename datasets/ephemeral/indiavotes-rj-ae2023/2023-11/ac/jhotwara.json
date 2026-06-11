@@ -1,0 +1,302 @@
+{
+  "type": "constituency",
+  "meta": {
+    "slug": "jhotwara",
+    "house": "vidhan-sabha",
+    "name": {
+      "en": "jhotwada"
+    },
+    "state": "rajasthan",
+    "districts": [
+      "JAIPUR"
+    ],
+    "category": "GEN",
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state_id=14, name_slug=jhotwara"
+    },
+    "canonical_id": "ac:3423",
+    "canonical_ids": [
+      "ac:3423"
+    ],
+    "aliases": [
+      "Jhotwara",
+      "jhotwada"
+    ],
+    "delimitation_history": [
+      {
+        "delimitation_id": 4,
+        "delimitation_name": "DL4",
+        "year_from": 2008,
+        "year_to": 2015,
+        "name": "Jhotwara",
+        "years": [
+          2008,
+          2013,
+          2018,
+          2023
+        ]
+      }
+    ],
+    "years_in_canonical": [
+      2008,
+      2013,
+      2018,
+      2023
+    ],
+    "predecessor_canonical_ids": [],
+    "successor_canonical_ids": []
+  },
+  "result": {
+    "constituency_slug": "jhotwara",
+    "house": "vidhan-sabha",
+    "year": 2023,
+    "state": "rajasthan",
+    "polling_date": "2023-11-25",
+    "summary": {
+      "voters_eligible": 858069,
+      "votes_polled": 308681,
+      "turnout": 0.35973913519775214,
+      "nota_votes": 1111,
+      "winner_candidate_slug": "c-ac-425845",
+      "winning_margin": 50167,
+      "winning_margin_share": 0.16252053090407248
+    },
+    "candidates": [
+      {
+        "candidate_slug": "c-ac-425845",
+        "name": {
+          "en": "COL. RAJYAVARDHAN RATHORE"
+        },
+        "party_slug": "bjp",
+        "party_abbreviation": "BJP",
+        "votes": 147913,
+        "vote_share": 0.47917753279275366,
+        "position": 1,
+        "won": true
+      },
+      {
+        "candidate_slug": "c-ac-425842",
+        "name": {
+          "en": "ABHISHEK CHOUDHARY"
+        },
+        "party_slug": "inc",
+        "party_abbreviation": "INC",
+        "votes": 97746,
+        "vote_share": 0.3166570018886812,
+        "position": 2,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425853",
+        "name": {
+          "en": "ASHU SINGH SURPURA"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 55159,
+        "vote_share": 0.17869256611194081,
+        "position": 3,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425844",
+        "name": {
+          "en": "JEEWANRAM JAT"
+        },
+        "party_slug": "rlp-3",
+        "party_abbreviation": "RLP",
+        "votes": 1256,
+        "vote_share": 0.004068925525056612,
+        "position": 4,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425857",
+        "name": {
+          "en": "RAJESH KUMAR YADAV"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 1206,
+        "vote_share": 0.003906946005747034,
+        "position": 5,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425858",
+        "name": {
+          "en": "SURGYAN SINGH GHOSLYA"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 841,
+        "vote_share": 0.0027244955147871105,
+        "position": 6,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425843",
+        "name": {
+          "en": "DR ASHOK KUMAR SHARMA"
+        },
+        "party_slug": "bsp-2",
+        "party_abbreviation": "BSP",
+        "votes": 740,
+        "vote_share": 0.002397296885781762,
+        "position": 7,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425846",
+        "name": {
+          "en": "ADITYA PRAKASH SHARMA"
+        },
+        "party_slug": "rtorp",
+        "party_abbreviation": "RTORP",
+        "votes": 668,
+        "vote_share": 0.002164046377975969,
+        "position": 8,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425852",
+        "name": {
+          "en": "ANAND KUMAR SAINI"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 656,
+        "vote_share": 0.00212517129334167,
+        "position": 9,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425855",
+        "name": {
+          "en": "PRASANNA MAHESHWARI"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 490,
+        "vote_share": 0.0015873992892338692,
+        "position": 10,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425854",
+        "name": {
+          "en": "PRAVEEN KUMAR SHARMA"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 477,
+        "vote_share": 0.0015452846142133788,
+        "position": 11,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425847",
+        "name": {
+          "en": "YOGI JEETENDRA NATH"
+        },
+        "party_slug": "ipgp",
+        "party_abbreviation": "IPGP",
+        "votes": 477,
+        "vote_share": 0.0015452846142133788,
+        "position": 12,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425856",
+        "name": {
+          "en": "C.A. BHUVNESH KUMAR GOYAL"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 259,
+        "vote_share": 0.0008390539100236167,
+        "position": 13,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425851",
+        "name": {
+          "en": "ARJUN LAL KUMAWAT"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 245,
+        "vote_share": 0.0007936996446169346,
+        "position": 14,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425859",
+        "name": {
+          "en": "HARI KISHAN TIWARI"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 161,
+        "vote_share": 0.0005215740521768427,
+        "position": 15,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425848",
+        "name": {
+          "en": "DEEN DAYAL JAKHAR"
+        },
+        "party_slug": "jjp-3",
+        "party_abbreviation": "JJP",
+        "votes": 158,
+        "vote_share": 0.0005118552810182681,
+        "position": 16,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425850",
+        "name": {
+          "en": "BENI PRASAD KAUSHIK"
+        },
+        "party_slug": "rsd-2",
+        "party_abbreviation": "RSD",
+        "votes": 124,
+        "vote_share": 0.0004017092078877547,
+        "position": 17,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425849",
+        "name": {
+          "en": "NAVEEN KUMAR SHARMA"
+        },
+        "party_slug": "rshtrjnts",
+        "party_abbreviation": "RSHTRJNTS",
+        "votes": 105,
+        "vote_share": 0.00034015699055011485,
+        "position": 18,
+        "won": false
+      }
+    ],
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state=rajasthan, name=jhotwara, details=47093"
+    }
+  },
+  "year": 2023,
+  "state": "rajasthan"
+}

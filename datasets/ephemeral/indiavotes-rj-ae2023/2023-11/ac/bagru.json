@@ -1,0 +1,231 @@
+{
+  "type": "constituency",
+  "meta": {
+    "slug": "bagru",
+    "house": "vidhan-sabha",
+    "name": {
+      "en": "bagru"
+    },
+    "state": "rajasthan",
+    "districts": [
+      "JAIPUR"
+    ],
+    "category": "SC",
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state_id=14, name_slug=bagru"
+    },
+    "canonical_id": "ac:3433",
+    "canonical_ids": [
+      "ac:3433"
+    ],
+    "aliases": [
+      "Bagru",
+      "Bagru ",
+      "bagru"
+    ],
+    "delimitation_history": [
+      {
+        "delimitation_id": 4,
+        "delimitation_name": "DL4",
+        "year_from": 2008,
+        "year_to": 2015,
+        "name": "Bagru",
+        "years": [
+          2008,
+          2013,
+          2018,
+          2023
+        ]
+      }
+    ],
+    "years_in_canonical": [
+      2008,
+      2013,
+      2018,
+      2023
+    ],
+    "predecessor_canonical_ids": [],
+    "successor_canonical_ids": []
+  },
+  "result": {
+    "constituency_slug": "bagru",
+    "house": "vidhan-sabha",
+    "year": 2023,
+    "state": "rajasthan",
+    "polling_date": "2023-11-25",
+    "summary": {
+      "voters_eligible": 705258,
+      "votes_polled": 254341,
+      "turnout": 0.3606353986767963,
+      "nota_votes": 2407,
+      "winner_candidate_slug": "c-ac-425220",
+      "winning_margin": 45250,
+      "winning_margin_share": 0.17791075760494768
+    },
+    "candidates": [
+      {
+        "candidate_slug": "c-ac-425220",
+        "name": {
+          "en": "KAILASH CHAND VERMA"
+        },
+        "party_slug": "bjp",
+        "party_abbreviation": "BJP",
+        "votes": 145170,
+        "vote_share": 0.5707691642322709,
+        "position": 1,
+        "won": true
+      },
+      {
+        "candidate_slug": "c-ac-425221",
+        "name": {
+          "en": "GANGA DEVI"
+        },
+        "party_slug": "inc",
+        "party_abbreviation": "INC",
+        "votes": 99920,
+        "vote_share": 0.3928584066273232,
+        "position": 2,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425222",
+        "name": {
+          "en": "TARACHAND RAIGAR"
+        },
+        "party_slug": "rlp-3",
+        "party_abbreviation": "RLP",
+        "votes": 3732,
+        "vote_share": 0.014673214306777121,
+        "position": 3,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425219",
+        "name": {
+          "en": "RITU SANWARIYA"
+        },
+        "party_slug": "aap",
+        "party_abbreviation": "AAP",
+        "votes": 2194,
+        "vote_share": 0.008626214412933817,
+        "position": 4,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425230",
+        "name": {
+          "en": "SOHAN LAL BAIRWA"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 944,
+        "vote_share": 0.0037115526006424445,
+        "position": 5,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425229",
+        "name": {
+          "en": "RAMESH KUMAR"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 925,
+        "vote_share": 0.0036368497410956156,
+        "position": 6,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425223",
+        "name": {
+          "en": "DR. BHAWANI SHANKER PIPLIWAL"
+        },
+        "party_slug": "bsp-2",
+        "party_abbreviation": "BSP",
+        "votes": 470,
+        "vote_share": 0.001847912841421556,
+        "position": 7,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425228",
+        "name": {
+          "en": "MADHULATA DEVI"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 325,
+        "vote_share": 0.0012778120711957569,
+        "position": 8,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425227",
+        "name": {
+          "en": "HARISH DABI"
+        },
+        "party_slug": "jjp-3",
+        "party_abbreviation": "JJP",
+        "votes": 180,
+        "vote_share": 0.0007077113009699577,
+        "position": 9,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425226",
+        "name": {
+          "en": "RAVI VEDWAL"
+        },
+        "party_slug": "ppid",
+        "party_abbreviation": "PPID",
+        "votes": 172,
+        "vote_share": 0.0006762574653712929,
+        "position": 10,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425224",
+        "name": {
+          "en": "AMIT KUMAR"
+        },
+        "party_slug": "rshtrjnts",
+        "party_abbreviation": "RSHTRJNTS",
+        "votes": 158,
+        "vote_share": 0.0006212132530736295,
+        "position": 11,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425225",
+        "name": {
+          "en": "MEGHLAL KOLI"
+        },
+        "party_slug": "lok-janshakti-party-ram-vilas",
+        "party_abbreviation": "LJP (RV)",
+        "votes": 151,
+        "vote_share": 0.0005936911469247978,
+        "position": 12,
+        "won": false
+      }
+    ],
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state=rajasthan, name=bagru, details=47103"
+    }
+  },
+  "year": 2023,
+  "state": "rajasthan"
+}
