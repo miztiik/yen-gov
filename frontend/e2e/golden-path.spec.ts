@@ -31,13 +31,25 @@ test.afterEach(() => {
 });
 
 test.describe("golden path", () => {
-  test("home renders India map and Tamil Nadu link", async ({ page }) => {
+  test("home renders India map and topic-grid front door", async ({ page }) => {
     await page.goto("/");
     await expect(page.getByRole("heading", { name: "yen-gov", level: 1 })).toBeVisible();
-    await expect(page.getByRole("heading", { name: /winning party by state/i })).toBeVisible();
-    // Tamil Nadu must appear in the "Available" bucket (data shipped).
-    const tn = page.getByRole("link", { name: /Tamil Nadu/i }).first();
-    await expect(tn).toBeVisible({ timeout: 15_000 });
+    // Map section header. The caption after "India — " rotates daily through
+    // the curated-5 indicator pool (PR-2, day-of-year), so the prior
+    // /winning party by state/i regex was brittle (only true on election-theme
+    // days). Assert the stable "India — " prefix instead. This keeps the
+    // "map mounted" guard without coupling to the rotating caption.
+    await expect(page.getByRole("heading", { level: 2, name: /^India/i })).toBeVisible({ timeout: 15_000 });
+
+    // PR-3 (2026-06-11): the alphabetical state lists ("Available" +
+    // "Other states (no data yet)") are GONE; the home front door is the
+    // catalogue-driven topic grid. Positive + negative assertions locked
+    // in one bundle so a regression on either side trips this spec.
+    await expect(page.getByTestId("home-topic-grid")).toBeVisible({ timeout: 15_000 });
+    const cardCount = await page.getByTestId("home-topic-card").count();
+    expect(cardCount).toBeGreaterThanOrEqual(1);
+    await expect(page.locator("h2:has-text('Available')")).toHaveCount(0);
+    await expect(page.locator("h2:has-text('Other states')")).toHaveCount(0);
 
     // Theme-dropdown humanised labels + temporal-caption vocabulary are
     // asserted by vitest (frontend/src/lib/home-theme.test.ts and

@@ -1,12 +1,10 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
-  import { fetchStates, type StateEntry } from "../lib/data";
   import { fetchTopicCatalogue, indicatorPathForArtifact, type TopicCatalogue } from "../lib/catalogue";
   import { loadIndicator } from "../lib/canonical/indicator-from-canonical";
   import IndiaMap from "../lib/maplibre/IndiaMap.svelte";
   import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
-  import { loadStates, type StateRow } from "../lib/view-models/states";
   import { link } from "../lib/links";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import { route } from "../lib/router.svelte";
@@ -38,13 +36,7 @@
   // every event in election-events.json is currently `data_status: complete`
   // — see frontend/src/lib/home-theme.ts for the default-theme logic.
 
-  let states = $state<StateEntry[] | null>(null);
   let catalogue = $state<TopicCatalogue | null>(null);
-  // Currently-valid Indian states+UTs from taxonomy.entities. Loaded once
-  // for the fallback-codes Set the availability split uses when the
-  // catalogue hasn't loaded yet. Replaces STATE_NAME_TO_ECI per T.0e.
-  let states_taxonomy = $state<StateRow[] | null>(null);
-  let error = $state<string | null>(null);
   // Map of indicator-artifact id → humanised title (from each indicator
   // JSON's own `indicator.title`). Populated lazily after the catalogue
   // loads; missing entries fall through to artifact.display ?? artifact.id
@@ -61,14 +53,6 @@
   // election" default before the rotation kicks in.
   let theme = $state<HomeTheme | null>(null);
 
-  fetchStates()
-    .then(s => (states = s.states))
-    .catch(e => (error = String(e)));
-
-  loadStates()
-    .then(s => (states_taxonomy = s))
-    .catch(e => (error = String(e)));
-
   fetchTopicCatalogue()
     .then(c => {
       catalogue = c;
@@ -79,7 +63,7 @@
       // do not block other titles from resolving.
       load_indicator_titles(c);
     })
-    .catch(e => (error = String(e)));
+    .catch(e => console.warn("[home] fetchTopicCatalogue failed:", e));
 
   async function load_indicator_titles(cat: TopicCatalogue): Promise<void> {
     const targets: Array<{ id: string; path: string }> = [];
@@ -148,29 +132,31 @@
     theme?.kind === "indicator" ? `/indicators/in/${theme.id}.json` : null,
   );
 
-  // Availability is decoupled from election-data presence (ADR-0022, P2.3 of
-  // IA reset). When the catalogue has any national-scope indicator artifact,
-  // every state in states.json has data — indicator artifacts cover all 35+
-  // entities. The taxonomy.entities-derived proxy remains a fallback for
-  // the bootstrap case where the catalogue hasn't loaded yet.
-  const has_national_indicator = $derived(
-    (catalogue?.topics ?? []).some(t =>
-      t.artifacts.some(a => a.kind === "indicator" && (a.scope ?? "national") === "national"),
-    ),
-  );
-  const fallback_codes = $derived(
-    new Set((states_taxonomy ?? []).map(s => s.eci_code)),
-  );
-  const available = $derived(
-    has_national_indicator
-      ? (states ?? [])
-      : (states ?? []).filter(s => fallback_codes.has(s.eci_code)),
-  );
-  const stub = $derived(
-    has_national_indicator
-      ? []
-      : (states ?? []).filter(s => !fallback_codes.has(s.eci_code)),
-  );
+  // Home topic grid: 5 featured catalogue topics + a hardcoded Elections
+  // tile. Elections is a first-class section group per ADR-0022, not a
+  // featured topic, so it is appended explicitly after the catalogue's
+  // featured list (Jony + Citizen verdict, plan-doc PR-3 / section 0.4 of
+  // the home-page-citizen-experience plan). Cap at 5 featured + 1
+  // Elections = 6 cards; if the catalogue has fewer than 5 featured
+  // topics the grid renders shorter and degrades gracefully.
+  interface TopicCard {
+    title: string;
+    summary: string;
+    href: string;
+  }
+  const topic_cards = $derived.by<TopicCard[]>(() => {
+    const cards: TopicCard[] = [];
+    const featured = (catalogue?.topics ?? []).filter(t => t.featured === true);
+    for (const t of featured.slice(0, 5)) {
+      cards.push({ title: t.title, summary: t.summary, href: link.topic(t.id) });
+    }
+    cards.push({
+      title: "Elections",
+      summary: "Assembly + parliament results, party by party",
+      href: link.topic("elections"),
+    });
+    return cards;
+  });
 
   // PR-W1d: per-route crumb chain. Reactive on route navigation AND
   // on async catalogue load (the builder reads states.svelte inside).
@@ -201,6 +187,9 @@
       }
     })
     .catch((e) => console.warn("[home-elections-rail] fast build failed:", e));
+  // Note (PR-3): IndiaMap loads states internally via loadStates(); Home
+  // no longer fetches the states list because the topic-grid front door
+  // replaces the alphabetical state-name section the prior layout had.
 </script>
 
 <Breadcrumb {crumbs} />
@@ -209,13 +198,32 @@
   <header class="space-y-1">
     <h1 class="text-2xl font-bold">yen-gov</h1>
     <p class="text-sm text-slate-500">
-      Indian civic data — fiscal capacity, energy, elections, and more,
-      compared across states. Click a state to drill in.
+      Open data on India's socio-economic and electoral landscape, organised
+      by topic and compared across states. Pick a topic below, or open the
+      map for state-by-state comparison.
       <a href={link.about()} class="text-sky-700 hover:underline">What is this?</a>
     </p>
   </header>
 
-  <section class="bg-white rounded-lg shadow-sm p-4 space-y-3">
+  <section class="bg-white rounded-lg shadow-sm p-5 space-y-3" data-testid="home-topic-grid">
+    <h2 class="text-sm font-semibold uppercase text-slate-500">Pick a topic</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      {#each topic_cards as card}
+        <a
+          href={card.href}
+          class="block p-4 bg-slate-50 hover:bg-slate-100 rounded border border-slate-200 transition-colors"
+          data-testid="home-topic-card"
+        >
+          <div class="text-base font-semibold text-slate-900">{card.title}</div>
+          {#if card.summary}
+            <div class="text-xs text-slate-600 mt-1 line-clamp-2">{card.summary}</div>
+          {/if}
+        </a>
+      {/each}
+    </div>
+  </section>
+
+  <section class="bg-white rounded-lg shadow-sm p-4 space-y-3 md:-mx-6 lg:-mx-12">
     {#if theme}
       <div class="flex items-center justify-between gap-3 flex-wrap">
         <h2 class="text-sm font-semibold uppercase text-slate-500">
@@ -279,42 +287,5 @@
       data-testid="home-elections-rail-loading"
       aria-hidden="true"
     ></div>
-  {/if}
-
-  {#if error}
-    <div class="p-4 bg-rose-50 border border-rose-200 rounded text-rose-900">
-      Failed to load states: <code>{error}</code>
-    </div>
-  {:else if !states}
-    <div class="text-slate-500">Loading…</div>
-  {:else}
-    <section class="bg-white rounded-lg shadow-sm p-5 space-y-3">
-      <h2 class="text-sm font-semibold uppercase text-slate-500">Available</h2>
-      <ul class="divide-y">
-        {#each available as st}
-          <li>
-            <a class="flex justify-between items-center px-2 py-3 hover:bg-slate-50 rounded"
-               href={link.state(st.eci_code)}>
-              <span class="font-medium">{st.name}</span>
-              <span class="text-xs font-mono text-slate-500">{st.eci_code} · {st.iso_3166_2}</span>
-            </a>
-          </li>
-        {/each}
-      </ul>
-    </section>
-
-    {#if stub.length}
-      <section class="bg-white rounded-lg shadow-sm p-5 space-y-3 opacity-70">
-        <h2 class="text-sm font-semibold uppercase text-slate-500">Other states (no data yet)</h2>
-        <ul class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-1 text-sm">
-          {#each stub as st}
-            <li class="flex justify-between">
-              <span>{st.name}</span>
-              <span class="text-xs font-mono text-slate-400">{st.eci_code}</span>
-            </li>
-          {/each}
-        </ul>
-      </section>
-    {/if}
   {/if}
 </main>
