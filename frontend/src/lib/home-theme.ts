@@ -41,8 +41,8 @@ export interface HomeThemeOption {
 }
 
 const ELECTION_VALUE = "election";
-const ELECTION_LABEL = "Leading party";
-const ELECTION_CAPTION = "leading party by state";
+const ELECTION_LABEL = "Winning party";
+const ELECTION_CAPTION = "winning party by state";
 const ELECTION_GROUP = "Elections";
 
 /** Every national-scope indicator artifact in the catalogue, in catalogue order. */

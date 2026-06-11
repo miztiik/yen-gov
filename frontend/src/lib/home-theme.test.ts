@@ -155,8 +155,8 @@ describe("sameTheme", () => {
 });
 
 describe("themeCaption", () => {
-  it("returns 'leading party by state' for election", () => {
-    expect(themeCaption({ kind: "election" }, catalogue)).toBe("leading party by state");
+  it("returns 'winning party by state' for election", () => {
+    expect(themeCaption({ kind: "election" }, catalogue)).toBe("winning party by state");
   });
 
   it("returns the artifact display name for known indicators", () => {
@@ -221,7 +221,7 @@ describe("themeCaption", () => {
   it("ignores titleMap for the election theme (its caption is fixed copy)", () => {
     const titleMap = new Map([["election", "should-not-appear"]]);
     expect(themeCaption({ kind: "election" }, catalogue, titleMap)).toBe(
-      "leading party by state",
+      "winning party by state",
     );
   });
 });
@@ -306,13 +306,13 @@ describe("homeThemeOptions", () => {
       const titles = new Map<string, string>([["election", "Should be ignored"]]);
       const opts = homeThemeOptions(catalogue, titles);
       expect(opts[0].value).toBe("election");
-      expect(opts[0].label).toBe("Leading party");
+      expect(opts[0].label).toBe("Winning party");
     });
 
     it("handles a null catalogue without crashing (returns just election)", () => {
       const opts = homeThemeOptions(null, new Map([["whatever", "x"]]));
       expect(opts).toHaveLength(1);
-      expect(opts[0].label).toBe("Leading party");
+      expect(opts[0].label).toBe("Winning party");
     });
   });
 });

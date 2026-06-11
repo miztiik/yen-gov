@@ -34,7 +34,7 @@ test.describe("golden path", () => {
   test("home renders India map and Tamil Nadu link", async ({ page }) => {
     await page.goto("/");
     await expect(page.getByRole("heading", { name: "yen-gov", level: 1 })).toBeVisible();
-    await expect(page.getByRole("heading", { name: /leading party by state/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /winning party by state/i })).toBeVisible();
     // Tamil Nadu must appear in the "Available" bucket (data shipped).
     const tn = page.getByRole("link", { name: /Tamil Nadu/i }).first();
     await expect(tn).toBeVisible({ timeout: 15_000 });
