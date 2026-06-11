@@ -342,7 +342,7 @@ After PR-4 merges:
 
 - [TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md](../../../TODO/IA-RESET-PLACE-FIRST-WITH-TOPIC-FRONT-DOOR.md) - the umbrella IA reset; this plan closes its P5 deferred item #3 and retires its alphabetical-states-list scaffolding.
 - [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) - the umbrella Level-5 platform reset; PR #788 row F4 is the Lakshadweep receipt PR-0 cites.
-- [TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md](../../../TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md) - in-flight backend electoral-quality plan; this plan is DISJOINT from it (frontend-only).
+- [20260610-electoral-data-quality-and-party-catalogue-plan.md](20260610-electoral-data-quality-and-party-catalogue-plan.md) - the backend electoral-quality plan (closed 2026-06-11; archived alongside this plan); this plan is DISJOINT from it (frontend-only).
 - [docs/how-to/ship-a-pr.md](../../../docs/how-to/ship-a-pr.md) - the 5-gate Definition-of-Done every PR-row honours.
 - [docs/how-to/distill-a-plan.md](../../../docs/how-to/distill-a-plan.md) - the closure ritual PR-4 + the archive-PR follow.
 - [docs/how-to/handle-scope-change.md](../../../docs/how-to/handle-scope-change.md) - STOP-AND-SURFACE for the Lakshadweep ESCALATE trigger.

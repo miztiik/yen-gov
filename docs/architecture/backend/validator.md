@@ -316,3 +316,88 @@ Alternative homes considered and rejected:
    anti-pattern entry.
 9. Add a sentence to the subsystem doc that owns the retired surface so agents
    can find the invariant without reading historical ledgers.
+
+## Tier C - per-source parity (operator-only)
+
+Tier C is the cross-source validation seam introduced by the [electoral-data quality + party-catalogue plan](../../archive/plans/20260610-electoral-data-quality-and-party-catalogue-plan.md) (closed 2026-06-11). It compares yen-gov's canonical store against external publishers (TCPD, ECI registered-parties list, Wikipedia, bhukyavenkatamahesh/election-viz, thecont1/india-votes-data, IndiaVotes) and emits a per-row verdict CSV the operator reviews before applying enrichments.
+
+Tier C is operator-only by design (Gregor verdict, Wave 0 / section 6 of the plan-doc). It is NOT chained into `python -m yen_gov validate --root .` and it does NOT block CI. Its outputs (verdict CSVs) ARE committed to the repo as audit ledgers.
+
+### CLI shape
+
+Three sub-commands under `python -m yen_gov`, each scoped to a different parity granularity:
+
+| Sub-command | Granularity | Compares | When to run |
+| --- | --- | --- | --- |
+| `parity` | per-party-roster (Shape-A) | `parties.csv` rows vs an external party-list snapshot (TCPD-PoliticalPartiesIndia, ECI registered list, Wikipedia List of political parties in India) | After every Wave B PR-W-* enrichment lands; cited in the PR body as the source of the proposed mint / enrich / alias-add actions. |
+| `parity-event` | per-constituency (Shape-B) | yen-gov per-AC results vs an external per-AC source (thecont1/india-votes-data + TCPD All_States_AE.csv filtered by state-event) | Per-state per-event sweep; one run per Stream C / Stream D Wave PR (TN AcGenMay2026, MH AcGenNov2024, KA AcGenMay2023, MP AcGenNov2023, WB AcGenApr2021). |
+| `parity-pc` | per-PC (parliament) | yen-gov per-PC results vs bhukyavenkatamahesh/election-viz + TCPD All_States_GE.csv filtered by election | Per-parliament-event sweep; one run per LS-2024 (PR-PC-LS2024) and LS-2019 (PR-PC-LS2019) PRs. |
+
+CLI usage shape (verbatim from the parity sub-command help):
+
+```powershell
+python -m yen_gov parity `
+  --source <tcpd-parties | eci-registered | wikipedia-parties | indiavotes-state | bhukyavenkatamahesh-pc | thecont1-state> `
+  --vintage <YYYY-MM-DD | YYYY> `
+  [--state <slug>] `
+  [--event <AcGen* | LsGen*>] `
+  [--kind <assembly | parliament>] `
+  --report <output-csv-path>
+```
+
+The CLI dispatches to a registered adapter under `backend/yen_gov/canonical/recon/adapters/<source>.py`. Each adapter exposes an `ADAPTER` module-level constant; the parity CLI walks the registry at startup. Adding a new source is a one-file PR: drop a `recon/adapters/<source>.py` carrying a `ShapeARow` (or per-event / per-PC analogue) mapper and an `ADAPTER` constant.
+
+### Verdict.csv shape (Shape-A)
+
+The Shape-A intermediate carries one row per external party reference. The aggregator joins against the canonical `parties.csv` and emits a verdict row per pairing:
+
+| Column | Purpose |
+| --- | --- |
+| `external_key` | The publisher's per-row identifier (TCPD `Party_Abbreviation`, ECI registration number, etc.). |
+| `external_short` | The publisher's short label verbatim. |
+| `external_full` | The publisher's long name verbatim. |
+| `proposed_party_id` | The canonical `parties.IN.<X>` the aggregator believes this row maps to (NULL if it proposes a mint). |
+| `current_party_id` | The canonical id currently resolved by the central resolver (or NULL if the resolver returns `parties.IN.UNK`). |
+| `action` | Enum: `match` (already resolves cleanly), `enrich` (resolves but missing metadata that the external carries), `mint-new` (no canonical row exists), `alias-add` (canonical row exists but the alias set is missing this label), `conflict` (publisher disagrees with another publisher on a fact). |
+| `n_oracles_present` | Number of external sources that emitted a row for this external_key in the parity run. |
+| `n_oracles_agreeing` | Number that agree with `proposed_party_id`. |
+| `oracles_agreeing` | Pipe-list of source names that agree. |
+| `oracles_disagreeing` | Pipe-list of source names that disagree. |
+| `verdict` | Enum: `VERIFIED` / `DISPUTED` / `UNVERIFIED` (see Fowler rule below). |
+| `curator_note` | Hand-curated commentary; NULL on first emit. |
+| `curator_source_id` | FK to `datasets/data/entities/source.csv`; NULL on first emit. |
+
+### Verdict rule (Fowler machine-decidable contract)
+
+The verdict enum follows ONE deterministic rule, ratified by Fowler in the panel-converged Wave 0 review (2026-06-10):
+
+```
+verdict = VERIFIED  iff  n_oracles_agreeing == n_oracles_present  AND  n_oracles_present >= 2
+verdict = DISPUTED  iff  n_oracles_present >= 2  AND  n_oracles_agreeing < n_oracles_present
+verdict = UNVERIFIED iff  n_oracles_present < 2
+```
+
+No LLM judgement. No "looks plausible" heuristics. The rule is machine-decidable so that re-runs are deterministic and a verdict.csv committed at time `T1` reproduces byte-identical when re-emitted at `T2` against the same external snapshots.
+
+Only `VERIFIED` rows are auto-applied to `parties.csv`. `DISPUTED` rows stay in the verdict.csv as a permanent audit ledger; the curator opens an issue and adds a `curator_note` + `curator_source_id` to the row in a follow-up commit. `UNVERIFIED` rows leave `parties.csv` unchanged.
+
+### Operator-committed-snapshot pattern
+
+No Tier-C run hits a live publisher URL from CI. Every external source is pre-fetched once by the operator into `datasets/ephemeral/<source>/<vintage>/<filename>`, committed to the repo, and read locally by the parity adapter. The operator-committed snapshot is the audit trail:
+
+- Wikipedia / TCPD / thecont1 / bhukyavenkatamahesh: one-off git-clone or wget into `datasets/ephemeral/<source>/<vintage>/`, then `git add` + commit.
+- ECI Statistical Report Section 33 CSVs (2019 + 2024 PC-level): already on disk under `datasets/ephemeral/<year>_india_loksabha_33-Constituency-Wise-Detailed-Result.csv`.
+- ECI registered-parties list: parsed via Wikipedia's mirror table (Wikipedia cites ECI's last publication date), since ECI does not publish the list in a machine-readable form.
+
+The snapshot's content_hash is implicit in the git tree; the verdict.csv emitted at PR commit SHA `<sha>` lives at `datasets/ephemeral/party-parity/<source>/<vintage>/<sha>/verdict.csv`. Subsequent re-runs of the same parity at a later SHA emit a sibling verdict.csv under the new SHA path; the historical verdict.csv stays unchanged. Per Q3 default (Wave 0 / Gregor section 5 of the plan-doc): ONE frozen verdict.csv per PR-W or PR-S revision; subsequent re-runs are NOT auto-committed.
+
+### CI hygiene
+
+If a publisher changes their HTML schema between an operator's snapshot capture and a re-run, the parity adapter exits non-zero with a clear error message (the schema-validator on the adapter's parse path raises). The CLI does NOT silently emit an empty verdict.csv. The verdict.csv at the time of the affected PR remains the operator's audit trail; re-snapshotting is the operator's call.
+
+### See also (Tier C-specific)
+
+- [../../concepts/party-identity.md](../../concepts/party-identity.md) - the 4-class collision taxonomy + resolver priority that Tier-C parity verifies.
+- [../data/party-lineage.md](../data/party-lineage.md) - the 33-case lineage catalogue that PR-W-* enrichments draw from.
+- [../../archive/plans/20260610-electoral-data-quality-and-party-catalogue-plan.md](../../archive/plans/20260610-electoral-data-quality-and-party-catalogue-plan.md) - the umbrella plan; section 3 (per-PR briefs) carries the exact CLI invocations each Wave B / C / D PR used.
+- [../../how-to/ship-a-pr.md](../../how-to/ship-a-pr.md) - the 5-gate Definition-of-Done; Tier C is NOT one of the gates by design.
