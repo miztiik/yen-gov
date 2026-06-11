@@ -24,7 +24,7 @@ import {
   electionResultsStateSlug,
 } from "../canonical/election-results-csv";
 import type { PartyTotals, SourceRef } from "../data";
-import type { StackedTrendV2Source } from "../charts/stacked-trend-v2";
+import { dedupeToPills, type PublisherPill, type SourceRow } from "../sources";
 
 export interface ElectionSeatsTrendEvent {
   event_id: string;
@@ -36,21 +36,19 @@ export interface ElectionSeatsTrendViewModel {
   state: string;
   events: ElectionSeatsTrendEvent[];
   /**
-   * Legacy v1 SourceRef projection — `{ url, fetched_at: "" }`. Kept
+   * Legacy v1 SourceRef projection - `{ url, fetched_at: "" }`. Kept
    * for back-compat with the v1 `electionsToStackedTrend` adapter that
-   * still ships under `frontend/src/lib/charts/stacked-trend/`. Will
-   * retire alongside `frontend/src/lib/charts/StackedTrend.svelte` v1
-   * once every caller migrates to v2 (Track-D D13).
+   * still ships under `frontend/src/lib/charts/stacked-trend/`.
    */
   sources: SourceRef[];
   /**
-   * Citation-ledger v2.0 rows resolved from `taxonomy.sources` by
-   * `source_id` (R-28 manifest-registered table, R-24 zero fetch
-   * telemetry). Consumed by the StackedTrendV2 migration adapter
-   * `stackedTrendModelToV2(model, sources_v2)`. Empty array when
-   * the per-state cohort yielded no rows.
+   * Deduped publisher pills built via `dedupeToPills` from $lib/sources.
+   * One pill per (producer x series_family); consumed by the new
+   * `<SourceList pills={...} />` component. The view-model no longer
+   * carries the full 11-col citation ledger per ADR-NNNN
+   * `citation-ledger-5col` (data-provenance.md, 2026-06-11).
    */
-  sources_v2: StackedTrendV2Source[];
+  pills: PublisherPill[];
 }
 
 function sqlString(s: string): string {
@@ -77,13 +75,7 @@ interface SourceJoinRow {
   producer: string;
   title: string;
   vintage: string;
-  license: string;
-  confidence_tier: string;
-  is_issuing_authority: boolean;
-  verification_method: string;
-  url_main: string | null;
-  citation_full: string | null;
-  notes: string | null;
+  url: string | null;
 }
 
 const num = (v: unknown): number => (v == null ? 0 : Number(v));
@@ -139,13 +131,7 @@ async function runQueries(
       s.producer           AS producer,
       s.title              AS title,
       s.vintage            AS vintage,
-      s.license            AS license,
-      s.confidence_tier    AS confidence_tier,
-      s.is_issuing_authority AS is_issuing_authority,
-      s.verification_method AS verification_method,
-      s.url_main           AS url_main,
-      s.citation_full      AS citation_full,
-      s.notes              AS notes
+      s.url                AS url
     FROM read_csv(${csvLit}, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true) o
     JOIN sources s ON s.source_id = o.source_id
     WHERE o.period_label IN (${eventList})
@@ -193,42 +179,31 @@ function assembleResult(
   }
 
   const sources: SourceRef[] = rows.sources
-    .filter((s) => !!s.url_main)
+    .filter((s) => !!s.url)
     .map((s) => ({
-      url: s.url_main ?? "",
-      // Citation ledger (v2.0) does not carry fetch telemetry —
-      // ``fetched_at`` is intentionally empty. See ADR-0032.
+      url: s.url ?? "",
+      // Citation ledger does not carry fetch telemetry per ADR-0032.
       fetched_at: "",
     }));
 
-  // v2.0 ledger projection — every column the StackedTrendV2 renderer
-  // needs lands here verbatim from `taxonomy.sources` (R-24 + ADR-0032).
-  // DuckDB-WASM returns license/confidence_tier/verification_method as
-  // unrestricted strings; the zod schema on StackedTrendV2Source enforces
-  // the locked enums at the consumer boundary. Casting here is the
-  // narrowest typed seam between SQL and zod.
-  const sources_v2: StackedTrendV2Source[] = rows.sources.map(
-    (s) =>
-      ({
-        source_id: s.source_id,
-        producer: s.producer,
-        title: s.title,
-        vintage: s.vintage,
-        license: s.license,
-        confidence_tier: s.confidence_tier,
-        is_issuing_authority: Boolean(s.is_issuing_authority),
-        verification_method: s.verification_method,
-        url_main: s.url_main,
-        citation_full: s.citation_full,
-        notes: s.notes,
-      }) as StackedTrendV2Source,
+  // Publisher pills built via the canonical dedupeToPills helper from
+  // $lib/sources. One pill per (producer x series_family); consumed by
+  // the new `<SourceList pills={...} />` component.
+  const pills: PublisherPill[] = dedupeToPills(
+    rows.sources.map<SourceRow>((s) => ({
+      source_id: s.source_id,
+      producer: s.producer,
+      title: s.title,
+      vintage: s.vintage,
+      url: s.url,
+    })),
   );
 
-  return { state: state_code, events, sources, sources_v2 };
+  return { state: state_code, events, sources, pills };
 }
 
 function notPublishedSkeleton(state_code: string): ElectionSeatsTrendViewModel {
-  return { state: state_code, events: [], sources: [], sources_v2: [] };
+  return { state: state_code, events: [], sources: [], pills: [] };
 }
 
 export async function loadElectionSeatsTrend(

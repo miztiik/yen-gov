@@ -45,7 +45,7 @@
 
   import type { Snippet } from "svelte";
   import type {
-    SourceV2Row,
+    PublisherPill,
     ChartShellHonestyBanner,
   } from "./chart-shell/types";
   import type {
@@ -63,8 +63,7 @@
     chart_title?: string;
     chart_subtitle?: string | null;
     honesty_banners?: readonly ChartShellHonestyBanner[];
-    sources?: readonly SourceV2Row[];
-    schema_version?: string | null;
+    pills?: readonly PublisherPill[];
     wrap_in_shell?: boolean;
     format_value?: (v: number) => string;
     height_px?: number;
@@ -102,8 +101,7 @@
     chart_title,
     chart_subtitle = null,
     honesty_banners = [],
-    sources,
-    schema_version = null,
+    pills,
     wrap_in_shell = true,
     format_value = (v: number) => Number(v).toLocaleString(),
     height_px = 220,
@@ -360,8 +358,7 @@
     title={chart_title}
     subtitle={chart_subtitle}
     {honesty_banners}
-    {sources}
-    {schema_version}
+    {pills}
     {toolbar}
   >
     {@render body()}

@@ -17,9 +17,11 @@
   //     shell level so every renderer can disclose without re-rendering.
   //   - Chart body: the `children` snippet — the renderer's actual SVG /
   //     canvas / HTML chart.
-  //   - Source disclosure: `<SourceListV2 sources={sources}
-  //     schema_version={schema_version} />`, default collapsed (per
-  //     Phase 1.4: "default collapsed on dense chart pages").
+  //   - Source disclosure: `<SourceList pills={pills} />` from
+  //     $lib/sources (publisher-pill grammar; one row per
+  //     producer x series_family). Sources-simplification PR-1 (2026-06-11)
+  //     swapped this from the v2 11-col `SourceListV2` to the new
+  //     5-col pill component.
   //   - Action footer: the closed enum of approved actions (`view_data`,
   //     `download`, `copy_link`, `share`, `reset_view`, `full_range`)
   //     filtered + canonical-sorted by the pure helpers in
@@ -32,7 +34,7 @@
   // `source_line` snippet; empty renders a small inline hatch swatch
   // + a citizen-readable "no rows" line; data renders `children`. The
   // header (title / subtitle / toolbar / honesty banners) and footer
-  // (sources / actions) ride UNCHANGED in every state - the chrome
+  // (pills / actions) ride UNCHANGED in every state - the chrome
   // stays consistent so the citizen does not lose context. The pure
   // state helpers live in `./chart-shell/state.ts` and are covered by
   // `./chart-shell/state.test.ts` (vitest, node-env).
@@ -43,13 +45,14 @@
   // ship untouched. Per-renderer migration onto ChartShell happens one
   // PR at a time once each renderer is ready to consume the shell.
   //
-  // R-24 fetch-telemetry: zero. The source slot delegates to
-  // `SourceListV2` which already refuses url / fetched_at / content_hash.
+  //   - R-24 fetch-telemetry: zero. The source slot delegates to the
+  //     new `SourceList` from `$lib/sources` which only renders
+  //     publisher-pill text; no url / fetched_at / content_hash.
   //
-  // R-28 manifest discipline: the `sources` prop arrives as a typed
-  // `readonly SourceV2Row[]`, resolved upstream by view-models /
-  // adapters from `taxonomy.sources` via the manifest-registered
-  // `table_id`. This component never sees a parquet path literal.
+  //   - R-28 manifest discipline: the `pills` prop arrives as a typed
+  //     `readonly PublisherPill[]`, deduped upstream by view-models /
+  //     adapters from `taxonomy.sources` via the manifest-registered
+  //     `table_id`. This component never sees a parquet path literal.
   //
   // CLAUDE.md §0 a11y descoped: no `aria-*`, no `role`. Visible
   // affordances only. Buttons remain real `<button>` so keyboard /
@@ -62,7 +65,7 @@
   // comment line 4).
 
   import type { Snippet } from "svelte";
-  import SourceListV2 from "../SourceListV2.svelte";
+  import { SourceList } from "../../sources";
   import Skeleton from "../Skeleton.svelte";
   import {
     filterAllowedActions,
@@ -77,7 +80,7 @@
   import type {
     ChartShellActionSpec,
     ChartShellHonestyBanner,
-    SourceV2Row,
+    PublisherPill,
   } from "./chart-shell/types";
 
   interface Props {
@@ -91,13 +94,11 @@
      *  `kind` available as a `data-honesty-kind` attribute so future
      *  styling can colour-code by severity. */
     honesty_banners?: readonly ChartShellHonestyBanner[];
-    /** Footer source ledger (v2.0). Resolved upstream from
-     *  `taxonomy.sources` via the manifest-registered `table_id`.
-     *  Empty array renders the SourceListV2 "hand-authored" arm. */
-    sources?: readonly SourceV2Row[];
-    /** Optional schema-version label surfaced next to the source count
-     *  (helps curators spot drift). */
-    schema_version?: string | null;
+    /** Footer publisher pills. Resolved upstream from `taxonomy.sources`
+     *  via the manifest-registered `table_id` + `dedupeToPills` from
+     *  $lib/sources. Empty array (or undefined) renders nothing in the
+     *  footer source slot. */
+    pills?: readonly PublisherPill[];
     /** Footer action toolbar specs. Unknown ids are dropped silently
      *  by `filterAllowedActions` before render; approved ids are
      *  rendered in canonical order by `sortActionsForFooter`. */
@@ -165,8 +166,7 @@
     title,
     subtitle = null,
     honesty_banners = [],
-    sources,
-    schema_version = null,
+    pills,
     actions = [],
     children,
     toolbar,
@@ -284,9 +284,9 @@
   </div>
 
   <footer class="chart-shell__footer">
-    {#if sources}
+    {#if pills && pills.length > 0}
       <div class="chart-shell__sources" data-slot="sources">
-        <SourceListV2 {sources} {schema_version} />
+        <SourceList {pills} />
       </div>
     {/if}
     {#if footerActions.length > 0}
