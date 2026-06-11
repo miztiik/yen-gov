@@ -53,10 +53,13 @@
   // labels. Fetch failures (404, network) are intentionally silent — this
   // is a degraded-UX path, not an error worth a console warning.
   let indicator_titles = $state<Map<string, string>>(new Map());
-  // Tracked separately from the parsed theme so the UI can mount in
-  // election mode immediately and re-derive once the catalogue arrives
-  // (which is when ?theme=indicator/<id> validation can run).
-  let theme = $state<HomeTheme>({ kind: "election" });
+  // Tracked separately from the parsed theme so the UI can mount in a
+  // skeleton state immediately and re-derive once the catalogue arrives
+  // (which is when ?theme=indicator/<id> validation can run AND when the
+  // PR-2 day-of-year default-theme rotation has the catalogue it needs).
+  // Initialising as null avoids a ~200ms flash of the previous "always
+  // election" default before the rotation kicks in.
+  let theme = $state<HomeTheme | null>(null);
 
   fetchStates()
     .then(s => (states = s.states))
@@ -105,14 +108,25 @@
 
   function sync_theme_from_url(): void {
     const parsed = parseHomeTheme(window.location.search, catalogue);
-    const next = parsed ?? defaultHomeTheme(catalogue);
-    if (!sameTheme(theme, next)) theme = next;
+    // Explicit user choice (?theme=<x>) wins immediately even before the
+    // catalogue resolves - parseHomeTheme already handles a null catalogue
+    // for the election case. For the bare URL (no ?theme= slot) we must
+    // wait for the catalogue: defaultHomeTheme(null) falls back to election
+    // and would flash for ~200ms before the PR-2 curated-pool rotation
+    // settles. Leave `theme` null so the skeleton stays up instead.
+    if (parsed !== null) {
+      if (theme === null || !sameTheme(theme, parsed)) theme = parsed;
+      return;
+    }
+    if (catalogue === null) return;
+    const next = defaultHomeTheme(catalogue);
+    if (theme === null || !sameTheme(theme, next)) theme = next;
   }
 
   function on_theme_change(value: string): void {
     const opt = options.find(o => o.value === value);
     if (!opt) return;
-    if (sameTheme(theme, opt.theme)) return;
+    if (theme !== null && sameTheme(theme, opt.theme)) return;
     theme = opt.theme;
     const search = serializeHomeTheme(opt.theme);
     const next = search ? `${window.location.pathname}?theme=${search}` : window.location.pathname;
@@ -126,12 +140,12 @@
   });
 
   const options = $derived(homeThemeOptions(catalogue, indicator_titles));
-  const caption = $derived(themeCaption(theme, catalogue, indicator_titles));
+  const caption = $derived(theme ? themeCaption(theme, catalogue, indicator_titles) : "");
   const current_value = $derived(
-    theme.kind === "election" ? "election" : `indicator/${theme.id}`,
+    theme === null ? "" : theme.kind === "election" ? "election" : `indicator/${theme.id}`,
   );
   const indicator_path = $derived(
-    theme.kind === "indicator" ? `/indicators/in/${theme.id}.json` : null,
+    theme?.kind === "indicator" ? `/indicators/in/${theme.id}.json` : null,
   );
 
   // Availability is decoupled from election-data presence (ADR-0022, P2.3 of
@@ -202,45 +216,59 @@
   </header>
 
   <section class="bg-white rounded-lg shadow-sm p-4 space-y-3">
-    <div class="flex items-center justify-between gap-3 flex-wrap">
-      <h2 class="text-sm font-semibold uppercase text-slate-500">
-        India —
-        {#key caption}
-          <span
-            in:fade={{ duration: 180 }}
-            out:fade={{ duration: 120 }}
-            class="inline-block normal-case font-semibold text-slate-700"
-          >{caption}</span>
-        {/key}
-      </h2>
-      {#if options.length > 1}
-        <label class="flex items-center gap-2 text-xs text-slate-600">
-          <span class="uppercase tracking-wide text-[10px] text-slate-500">Theme</span>
-          <select
-            class="border border-slate-300 rounded px-2 py-1 text-sm bg-white"
-            value={current_value}
-            onchange={(e) => on_theme_change((e.currentTarget as HTMLSelectElement).value)}
-          >
-            {#each Array.from(new Set(options.map(o => o.group))) as group}
-              <optgroup label={group}>
-                {#each options.filter(o => o.group === group) as opt}
-                  <option value={opt.value}>{opt.label}</option>
-                {/each}
-              </optgroup>
-            {/each}
-          </select>
-        </label>
-      {/if}
-    </div>
-    {#key current_value}
-      <div in:fade={{ duration: 200 }}>
-        {#if theme.kind === "election"}
-          <IndiaMap />
-        {:else if indicator_path}
-          <IndicatorChoropleth indicator_path={indicator_path} height="520px" />
+    {#if theme}
+      <div class="flex items-center justify-between gap-3 flex-wrap">
+        <h2 class="text-sm font-semibold uppercase text-slate-500">
+          India —
+          {#key caption}
+            <span
+              in:fade={{ duration: 180 }}
+              out:fade={{ duration: 120 }}
+              class="inline-block normal-case font-semibold text-slate-700"
+            >{caption}</span>
+          {/key}
+        </h2>
+        {#if options.length > 1}
+          <label class="flex items-center gap-2 text-xs text-slate-600">
+            <span class="uppercase tracking-wide text-[10px] text-slate-500">Theme</span>
+            <select
+              class="border border-slate-300 rounded px-2 py-1 text-sm bg-white"
+              value={current_value}
+              onchange={(e) => on_theme_change((e.currentTarget as HTMLSelectElement).value)}
+            >
+              {#each Array.from(new Set(options.map(o => o.group))) as group}
+                <optgroup label={group}>
+                  {#each options.filter(o => o.group === group) as opt}
+                    <option value={opt.value}>{opt.label}</option>
+                  {/each}
+                </optgroup>
+              {/each}
+            </select>
+          </label>
         {/if}
       </div>
-    {/key}
+      {#key current_value}
+        <div in:fade={{ duration: 200 }}>
+          {#if theme.kind === "election"}
+            <IndiaMap />
+          {:else if indicator_path}
+            <IndicatorChoropleth indicator_path={indicator_path} height="520px" />
+          {/if}
+        </div>
+      {/key}
+    {:else}
+      <!--
+        Bootstrap skeleton: catalogue + URL not yet resolved, so the
+        PR-2 default-theme rotation has nothing to pick from. Hide the
+        header + dropdown entirely until `theme` resolves rather than
+        flash a half-built chrome (cleanest single-frame placeholder).
+      -->
+      <div
+        class="h-[440px] bg-slate-50 rounded animate-pulse"
+        data-testid="home-map-loading"
+        aria-hidden="true"
+      ></div>
+    {/if}
   </section>
 
   {#if rail}
