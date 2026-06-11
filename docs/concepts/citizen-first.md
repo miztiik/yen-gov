@@ -74,3 +74,4 @@ Verbatim from the originating ADR. Append-only receipt.
 - [`../agents/bootstrap.md`](../agents/bootstrap.md) — what each persona loads before contributing to the loop.
 - [`../agents/guardrails.md`](../agents/guardrails.md) — the rules that constrain every step.
 - [`../../CLAUDE.md`](../../CLAUDE.md) — the engineering contract.
+- [../archive/plans/20260611-home-page-citizen-experience-plan.md](../archive/plans/20260611-home-page-citizen-experience-plan.md) - Home-page rebuild that grounded the topic-grid front door + non-election default theme.
