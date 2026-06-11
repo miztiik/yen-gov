@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./census-code-2011-coverage.schema.json",
+  "title": "Census 2011 district code coverage report",
+  "description": "Coverage report emitted by tools/boundaries/enrich_census_code_2011.py at datasets/_ops/census-code-2011-coverage.json. One row per LGD district that could NOT be assigned a Census 2011 code (the residual is overwhelmingly post-2011 bifurcations like Telangana 2014, Ladakh 2019, the Andhra Pradesh 2022 reorganisation, the Rajasthan 2023 reorganisation, etc.). Also carries the embedded source provenance (CLAUDE.md section 12) for the Census 2011 topology that produced the lookup map. Operator artifact, NOT citizen-facing; lives in datasets/_ops/ per the same tier as indicators-completeness.json + lgd-parse-receipt.json.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-06-11",
+      "description": "Initial schema. PR-3 of TODO/20260611-elections-off-maplibre-and-map-ux-plan.md. Authority: Hans + Max (user pre-approved). The report's purpose is twofold: (i) make the un-joined residual visible so a future hand-curated parent-inheritance PR can drive coverage higher, (ii) give every consumer of the per-feature `census_code_2011` property a single auditable provenance trail back to the upstream topology + fetch timestamp."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "$schema_version",
+    "source",
+    "matched_count",
+    "total",
+    "coverage_pct",
+    "matched_by_method",
+    "unmatched_districts"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "source": {
+      "type": "object",
+      "description": "Provenance for the Census 2011 topology used to derive the lookup (CLAUDE.md section 12). Embedded here rather than as a separate sidecar so the report is self-contained.",
+      "additionalProperties": false,
+      "required": ["url", "fetched_at", "content_sha256", "feature_count"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Publisher URL of the Census 2011 district topology (e.g. https://data-analytics.github.io/Choropleth_India_Map/map.json)."
+        },
+        "fetched_at": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$",
+          "description": "RFC 3339 UTC timestamp recorded when the snapshot was downloaded. Matches CLAUDE.md section 12 convention."
+        },
+        "content_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "description": "SHA-256 of the upstream bytes (hex, lower-case). Lets downstream readers detect upstream drift without re-fetching."
+        },
+        "feature_count": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of district polygons in the upstream topology. Sanity-check ratchet: if the upstream ever publishes a substantially different feature count, the enrich rerun will surface it here."
+        }
+      }
+    },
+    "matched_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of LGD districts assigned a non-null `census_code_2011`."
+    },
+    "total": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Total LGD districts in datasets/boundaries/in/districts/all.geojson (today: 785)."
+    },
+    "coverage_pct": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "100.0 * matched_count / total, rounded to one decimal."
+    },
+    "matched_by_method": {
+      "type": "object",
+      "description": "Per-method tally of how each matched district was assigned. exact = (state_norm, district_norm) hit the Census 2011 topology directly; root_strip = matched after stripping a trailing direction word (north/south/east/west/central/upper/lower) or a parenthetical; dtcode11_fallback = matched via the upstream LGD's own `dtcode11` property when that value is a valid Census 2011 code (<=640) and the state matches.",
+      "additionalProperties": false,
+      "required": ["exact", "root_strip", "dtcode11_fallback"],
+      "properties": {
+        "exact": { "type": "integer", "minimum": 0 },
+        "root_strip": { "type": "integer", "minimum": 0 },
+        "dtcode11_fallback": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "unmatched_districts": {
+      "type": "array",
+      "description": "One row per LGD district that could not be assigned a Census 2011 code. Empty array when coverage = 100% (not expected; the post-2011 bifurcation residual is the load-bearing reason this report exists).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["state", "district", "dist_lgd", "year_stat", "dtcode11", "reason"],
+        "properties": {
+          "state": {
+            "type": "string",
+            "description": "Verbatim `stname` from the LGD source feature (uppercase per upstream)."
+          },
+          "district": {
+            "type": "string",
+            "description": "Verbatim `dtname` from the LGD source feature (mixed case per upstream)."
+          },
+          "dist_lgd": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "LGD numeric district code. The value 0 is the LGD sentinel used by the upstream for POK (Pakistan-administered Kashmir) districts (Mirpur, Muzaffarabad) which were never enumerated by India's Census; those rows carry reason=out_of_country."
+          },
+          "year_stat": {
+            "type": "string",
+            "description": "Upstream LGD `year_stat` annotation. Categorical values include `2011_c` (Census 2011 enumeration), `update2014`, `2015_c`, `2016_c`, `2017_c`, `2018`, `2019`, `201920`, `2020`, `2022`, `2023`, or empty string. Most unmatched rows carry a post-2011 value, confirming the bifurcation residual narrative."
+          },
+          "dtcode11": {
+            "type": ["string", "integer", "null"],
+            "description": "Upstream LGD `dtcode11` value (typically a stringified integer; ramSeraph synthesises codes >= 700 for post-2011 districts). Preserved verbatim in case a future curator needs the upstream's view of the parent district."
+          },
+          "reason": {
+            "type": "string",
+            "enum": ["no_match", "post_2011_bifurcation_no_parent_map", "out_of_country", "name_disambiguation"],
+            "description": "Categorical reason the row stayed unmatched. `no_match` = generic catch-all. `post_2011_bifurcation_no_parent_map` = LGD year_stat marks it as post-2011 created. `out_of_country` = districts the LGD ships for completeness that were never in Indian Census enumeration (POK, AK Chin). `name_disambiguation` = a 2011_c district where multiple states share the name and the dtcode11 fallback was insufficient to disambiguate."
+          }
+        }
+      }
+    }
+  }
+}
