@@ -121,7 +121,7 @@ PR-rows. Status starts `[ ] PENDING`, flips to `[x] DONE` with the merged PR num
 | PR-0 | Lakshadweep delivery receipt + close-out (audit-only, no code) | `[x] DONE` (Lakshadweep oracle 5/5 green; orchestrator-authored bootstrap) | (this PR) | XS (~30 min) | (none) |
 | PR-1 | Wording sweep: "leading party" -> "winning party" (frontend + e2e + docs) | `[ ] PENDING` | - | S (~1h) | (none) |
 | PR-2 | Default Home theme: deterministic day-of-year rotation over curated-5 indicators | `[x] DONE (PR #922)` | #922 | M (~2h) | PR-1 (avoid copy-collision in `home-theme.ts`) |
-| PR-3 | Home layout rebuild: full-bleed map + topic-grid front door + delete "Available" / "Other states" sections | `[x] DONE (PR #PLACEHOLDER)` | #PLACEHOLDER | M (~2h) | PR-1 (Home.svelte string drift); file-disjoint vs PR-2 inner logic; can run in parallel sub-worktree after PR-1 merges |
+| PR-3 | Home layout rebuild: full-bleed map + topic-grid front door + delete "Available" / "Other states" sections | `[x] DONE (PR #923)` | #923 | M (~2h) | PR-1 (Home.svelte string drift); file-disjoint vs PR-2 inner logic; can run in parallel sub-worktree after PR-1 merges |
 | PR-4 | Doc lift: distill the deterministic-rotation rule + curated-5 pool + full-bleed shim into `docs/architecture/frontend/` | `[ ] PENDING` | - | XS (~30 min) | PR-2 + PR-3 merged |
 
 **Wave shape**:
