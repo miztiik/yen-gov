@@ -2,13 +2,18 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "./party-parity-shape-a.schema.json",
   "title": "Party-parity Shape-A row (intermediate adapter output)",
-  "description": "ONE ROW of the canonical Shape-A intermediate format every Tier-C parity adapter materialises before the Compare-Aggregator (backend/yen_gov/canonical/recon/aggregator.py) sees them. Created by PR-2 of the 2026-06-10 electoral-data-quality + party-catalogue plan (Wave 0 / Gregor section 5 verdict). The shape-A CSV lives under datasets/ephemeral/party-parity/<source>/<vintage>/<sha>/shape-a.csv per CLAUDE.md section 3 ephemeral tier; NOT a long-format canonical CSV under datasets/data/ and NOT walked by Tier-B. This schema documents the row-shape contract (CSV-column-contract style: each column declares name + dtype + nullability + optional enum); adapters MAY validate each emitted row against this schema via jsonschema, and read_shape_a_csv (backend/yen_gov/canonical/recon/shape_a.py) enforces the same header + enum invariants in-process. The 8 fields (external_key, external_short, external_full, external_scope, external_vintage, proposed_party_id, proposed_action, notes) are fixed by plan section 2.PR-2 brief; field rename / removal is a MAJOR schema bump per CLAUDE.md section 11.",
-  "x-version": "1.0",
+  "description": "ONE ROW of the canonical Shape-A intermediate format every Tier-C parity adapter materialises before the Compare-Aggregator (backend/yen_gov/canonical/recon/aggregator.py) sees them. Created by PR-2 of the 2026-06-10 electoral-data-quality + party-catalogue plan (Wave 0 / Gregor section 5 verdict). The shape-A CSV lives under datasets/ephemeral/party-parity/<source>/<vintage>/<sha>/shape-a.csv per CLAUDE.md section 3 ephemeral tier; NOT a long-format canonical CSV under datasets/data/ and NOT walked by Tier-B. This schema documents the row-shape contract (CSV-column-contract style: each column declares name + dtype + nullability + optional enum); adapters MAY validate each emitted row against this schema via jsonschema, and read_shape_a_csv (backend/yen_gov/canonical/recon/shape_a.py) enforces the same header + enum invariants in-process. The 8 PR-2 fields (external_key, external_short, external_full, external_scope, external_vintage, proposed_party_id, proposed_action, notes) plus the 5 PR-PC-LS2024 additive nullable per-constituency fields (constituency_no, constituency_name, state_code, winner_candidate, winner_votes) are fixed by plan section 2.PR-2 + 2.PR-PC-LS2024 briefs; field rename / removal is a MAJOR schema bump per CLAUDE.md section 11.",
+  "x-version": "1.1",
   "x-changelog": [
     {
       "version": "1.0",
       "date": "2026-06-10",
       "description": "Initial schema for the Tier-C parity Shape-A intermediate row (PR-2 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md). Eight fields per Wave 0 / Gregor section 5: external_key (publisher-side natural key, required), external_short (publisher short / abbreviation, required), external_full (publisher full / legal name, required), external_scope (the adapter's registered source identifier; distinct values count as distinct oracles in the Compare-Aggregator, required), external_vintage (ADR-0042 operator snapshot window pin: YYYY-MM-DD or YYYY, required), proposed_party_id (canonical parties.IN.<SLUG> the adapter believes this row resolves to; may be a NEW id when proposed_action == mint-new, required), proposed_action (closed enum match | enrich | mint-new | alias-add | conflict, required), notes (free-text adapter disambiguation hint, nullable). Wired into recon/shape_a.py ShapeARow + write_shape_a_csv + read_shape_a_csv; aggregator.py compare() consumes the resulting list. Schema is reference-only (shape-A files live under datasets/ephemeral/, not walked by Tier-B); adapters may opt into per-row jsonschema validation."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-06-11",
+      "description": "Additive nullable per-constituency fields for the per-PC / per-AC parity adapters (PR-PC-LS2024 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md): constituency_no (numeric PC / AC id within the state, nullable string), constituency_name (publisher constituency name, nullable string), state_code (ISO 3166-2 short code or slug per upstream convention, nullable string), winner_candidate (publisher winner candidate name, nullable string), winner_votes (publisher winner vote count, nullable integer; None reserved for ECI 'Unopposed' rows where vote count is not reported - e.g. Surat LS-2024). The per-party Compare-Aggregator (recon/aggregator.py) leaves these fields untouched; the new per-constituency Compare-Aggregator (recon/pc_aggregator.py) groups by (state_code, constituency_no) instead of proposed_party_id and surfaces a per-constituency verdict row. Per-party parity adapters (PR-W-1 / W-2 / W-3) MUST leave the fields None; per-constituency adapters (PR-PC-LS2024 onwards) MUST populate at least constituency_no + state_code so the per-PC aggregator's grouping key is non-null. Minor bump per CLAUDE.md section 11 (purely additive, backwards-compatible)."
     }
   ],
   "type": "object",
@@ -62,6 +67,26 @@
     "notes": {
       "type": ["string", "null"],
       "description": "Free-text adapter disambiguation hint (e.g. 'ECI code 145 reassigned from AAP to XYZ in 2022'). Carried verbatim into the verdict CSV's curator_note column when the curator promotes the hint. CSV-column-contract dtype: string, nullable: true."
+    },
+    "constituency_no": {
+      "type": ["string", "null"],
+      "description": "v1.1 additive (PR-PC-LS2024). Numeric PC / AC id within the state (the ECI-published constituency number, scalar; carried as a string to preserve leading zeroes some publishers ship - e.g. bhukyavenkatamahesh's S22 CIDs go 1..39 but indexed-mode adapters may emit '01'). Nullable: per-party parity adapters (PR-W-1 / W-2 / W-3) leave it None; per-constituency adapters (PR-PC-LS2024 onwards) MUST populate it. The per-PC Compare-Aggregator (recon/pc_aggregator.py) groups by (state_code, constituency_no). CSV-column-contract dtype: string, nullable: true."
+    },
+    "constituency_name": {
+      "type": ["string", "null"],
+      "description": "v1.1 additive (PR-PC-LS2024). Human-readable constituency name AS PUBLISHED by the upstream; trailing whitespace stripped by the adapter but case preserved verbatim. Nullable; populated only by per-constituency adapters. Used for citizen-readable verdict.csv surfacing + cross-publisher name-diff inspection (the bhukyavenkatamahesh 'PALAMAU' vs yen-gov 'PALAMU' spelling case). CSV-column-contract dtype: string, nullable: true."
+    },
+    "state_code": {
+      "type": ["string", "null"],
+      "description": "v1.1 additive (PR-PC-LS2024). ISO 3166-2 short state code (e.g. 'S22' for Tamil Nadu) OR the slug form ('tamil-nadu') per the upstream's convention; the per-constituency Compare-Aggregator normalises both via a lookup. Nullable; per-constituency adapters MUST populate at least one form so the grouping key (state_code, constituency_no) is non-null. CSV-column-contract dtype: string, nullable: true."
+    },
+    "winner_candidate": {
+      "type": ["string", "null"],
+      "description": "v1.1 additive (PR-PC-LS2024). Winner candidate name AS PUBLISHED by the upstream (verbatim; no normalisation). Used by the per-constituency Compare-Aggregator as a secondary verification signal beyond winner_party_id - two oracles can agree on winner_party_id but disagree on candidate name (different transliterations) which is a Hans-curation-needed event surfaced in the verdict.csv curator_note column. CSV-column-contract dtype: string, nullable: true."
+    },
+    "winner_votes": {
+      "type": ["integer", "null"],
+      "description": "v1.1 additive (PR-PC-LS2024). Winner vote count AS PUBLISHED by the upstream. None reserved for ECI 'Unopposed' rows where vote count is not reported (e.g. Surat LS-2024 where Mukesh Dalal of BJP was declared elected unopposed in May 2024 and ECI's published count is null). Per-constituency adapters parse the publisher's vote-count cell to int, mapping non-numeric placeholders (TCPD's 'Unconteste' truncation, ECI's 'Uncontested', '-' / '--' / 'NA') to None. CSV-column-contract dtype: integer, nullable: true."
     }
   }
 }

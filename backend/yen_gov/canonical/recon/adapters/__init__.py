@@ -80,5 +80,19 @@ from .wikipedia_parties import ADAPTER as _WIKIPEDIA_PARTIES_ADAPTER
 
 REGISTRY["wikipedia-parties"] = _WIKIPEDIA_PARTIES_ADAPTER
 
+# --- PR-PC-LS2024: per-constituency parity adapters ----------------------
+
+from .bhukyavenkatamahesh_pc import ADAPTER as _BHUKY_PC_ADAPTER
+
+REGISTRY["bhukyavenkatamahesh-pc"] = _BHUKY_PC_ADAPTER
+
+from .tcpd_pc import ADAPTER as _TCPD_PC_ADAPTER
+
+REGISTRY["tcpd-pc"] = _TCPD_PC_ADAPTER
+
+from .yen_gov_canonical_pc import ADAPTER as _YEN_GOV_CANONICAL_PC_ADAPTER
+
+REGISTRY["yen-gov-canonical-pc"] = _YEN_GOV_CANONICAL_PC_ADAPTER
+
 
 __all__ = ["ParityAdapter", "REGISTRY"]
