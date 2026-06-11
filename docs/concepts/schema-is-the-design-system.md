@@ -98,6 +98,18 @@ Because every indicator flows through the same renderers, honesty fields propaga
 
 A future maintainer cannot accidentally publish a Union-list ranking without the banner, or a not-comparable indicator with a rank column. The contract refuses to render dishonestly.
 
+### Editorial-workflow fields are not citizen surface
+
+**Added 2026-06-12.** Not every metadata field is a renderer guard. Fields that describe **yen-gov's internal review state** — `methodology.documentation_status` (`stub` | `partial` | `authored`) and `inventory_status` (`empty` | `partial` | `complete`) — describe whether the maintainer has written prose / completed an inventory pass, **not** whether the underlying data is trustworthy. They surface on [/data-completeness](../../frontend/src/routes/DataCompleteness.svelte) (the transparency route for auditors) and nowhere else.
+
+Putting them on citizen cards was a 2026-05-26 experiment: PR #322 added an amber dot to the `AboutThisData` info-icon and a "STUB" pill inside the expanded panel, both bound to `documentation_status !== "authored"`. Because every canonical-backed artifact hard-codes `documentation_status: "stub"` (see [indicator-from-canonical.ts](../../frontend/src/lib/canonical/indicator-from-canonical.ts) `synthesiseStubMethodology`), the badge fired on 100% of cards on every topic page. A signal that fires on 100% of instances is not a signal — it is chrome that mis-borrows the amber palette from the rest of the system, where amber means "this data has a caveat the citizen needs to read" ([`IndicatorRanked`](../../frontend/src/lib/IndicatorRanked.svelte) `not_comparable_across_states` banner, election year-mismatch warnings, license-terms pill).
+
+Removed 2026-06-12 (see [AboutThisData.svelte](../../frontend/src/lib/AboutThisData.svelte) `2026-06-12` header comment).
+
+**The doctrine.** The closed renderer set's amber palette is reserved for fields that (a) fire **less than 100%** of the time, (b) **change the citizen's read** of the chart, and (c) point at a documented publisher constraint — `comparability`, `methodology_breaks`, `attribution_geography`, `series_breaks`, licence non-redistributable, election year-mismatch. yen-gov's own editorial backlog is not in that list.
+
+If you reach for a new badge to surface "we haven't finished documenting this," stop. The right home for that work is [/data-completeness](../../frontend/src/routes/DataCompleteness.svelte). The right shape of any new citizen-surface honesty signal is a structural renderer guard driven by a publisher-anchored field, declared in [ADR-0020](../architecture/data/indicator-catalogue.md#adr-0020-indicator-artifact-as-data-contract), not an internal-status mirror.
+
 ## Indicator id encodes concept + normalisation, never the unit
 
 **Decided 2026-05-11** by the four-persona panel (Architect Hohpe, Governance Strategist, UI/UX Lead, Citizen) — unanimous. Pinned here so the next ingest does not relitigate it.
