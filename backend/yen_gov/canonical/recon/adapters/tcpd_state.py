@@ -186,7 +186,25 @@ class TcpdStateAdapter:
         # only. Streams the file row-by-row (113 MB; full-corpus
         # walk is the bottleneck of this adapter but happens only on
         # operator invocation, not in CI per Tier-C contract).
+        #
+        # TCPD bypoll-conflation policy (PR-S-WB-AE2021 finding,
+        # 2026-06-11): when a state has within-cycle bypolls (death,
+        # resignation, defection-disqualification) TCPD's compilation
+        # carries TWO Position=1 rows per affected AC for the same
+        # Year - the original polling-cycle winner FIRST, the bypoll
+        # winner SECOND. Verified across 5 WB 2021 ACs (#7 DINHATA,
+        # #86 SANTIPUR, #109 KHARDAHA, #127 GOSABA, #159 BHABANIPUR).
+        # For parity against yen-gov's original-cycle candidacies, the
+        # FIRST-seen Position=1 row is the one to keep; subsequent
+        # rows for the same AC are skipped with a stderr warning so
+        # the operator sees the conflation count in the run log. This
+        # is a STRUCTURAL fix per CLAUDE.md section 10 (no band-aids):
+        # the adapter now correctly tolerates TCPD's published
+        # multi-event-per-year shape across all states + years.
+        import sys
+
         by_ac: dict[int, dict[str, str]] = {}
+        bypoll_conflated_acs: list[int] = []
         n_state_year_rows = 0
         with tcpd_csv.open(encoding="utf-8", newline="") as fh:
             reader = csv.DictReader(fh)
@@ -205,17 +223,27 @@ class TcpdStateAdapter:
                 if ac_no < 1:
                     continue
                 if ac_no in by_ac:
-                    # Multiple Position==1 rows for the same AC -
-                    # data-integrity event in the TCPD compilation.
-                    # Surface loud rather than silently coalesce.
-                    raise ValueError(
-                        f"TCPD All_States_AE.csv has multiple "
-                        f"Position=1 rows for "
-                        f"(State_Name={tcpd_state_name}, Year={year}, "
-                        f"Constituency_No={ac_no}); upstream data-"
-                        f"integrity violation."
-                    )
+                    # TCPD bypoll-conflation: keep first-seen
+                    # (original polling-cycle winner); skip subsequent
+                    # rows; record for the operator-facing summary.
+                    bypoll_conflated_acs.append(ac_no)
+                    continue
                 by_ac[ac_no] = r
+
+        if bypoll_conflated_acs:
+            print(
+                f"tcpd-state adapter [warning]: TCPD "
+                f"All_States_AE.csv lists multiple Position=1 rows "
+                f"for {len(bypoll_conflated_acs)} AC(s) in "
+                f"(State_Name={tcpd_state_name}, Year={year}) - "
+                f""
+                f"AC#{sorted(bypoll_conflated_acs)!r}. Treating as "
+                f"bypoll-conflation per WB-2021 finding; keeping the "
+                f"first-seen row (original polling-cycle winner) "
+                f"per AC and skipping bypoll re-winners. Parity will "
+                f"oracle against original-cycle results.",
+                file=sys.stderr,
+            )
 
         # Empty-oracle outcome: TCPD has no rows for the requested
         # (state, year) - typical post-2021 cutoff scenario. Return
