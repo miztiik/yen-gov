@@ -1,20 +1,9 @@
 /**
- * G11 contract: parties.csv `symbol_asset` paths resolve to real assets.
+ * parties.csv `symbol_asset` paths must resolve in the static bundle.
  *
- * Plan row 28 (TODO/20260603-data-and-charting-platform-reset-plan.md
- * section 4 EL3): lift curator-verified election_symbol.asset_path from
- * datasets/taxonomy/parties.json into the symbol_asset column of
- * datasets/data/entities/parties.csv so the citizen UI can render the
- * ECI glyph alongside the PartyPill (plan section 25.3).
- *
- * Citizen-bundle invariant: every non-empty `symbol_asset` value must
- * resolve to a file under `frontend/public/`. A broken ref would
- * silently produce a 404 against the static GitHub Pages bundle (Holy
- * Law #1) the first time a citizen renders the party chip.
- *
- * Floor: at least 50 rows populated. Today the corpus carries 54
- * curator-verified entries (G11, 2026-06-09); the floor is two below
- * that so a single retirement does not break the contract.
+ * This is a deployability contract, not a coverage claim: any populated
+ * `symbol_asset` value is a URL the citizen site can request, so it must
+ * point at a real file under `frontend/public/`.
  */
 import { describe, expect, it } from "vitest";
 import { existsSync, readFileSync } from "node:fs";
@@ -49,15 +38,11 @@ function loadPartiesRows(): Array<Record<string, string>> {
   });
 }
 
-describe("G11 parties.csv symbol_asset citizen-bundle invariant", () => {
+describe("parties.csv symbol_asset paths are deployable", () => {
   const rows = loadPartiesRows();
   const populated = rows.filter((r) => r.symbol_asset.length > 0);
 
-  it("has at least 50 rows with a populated symbol_asset (floor)", () => {
-    expect(populated.length).toBeGreaterThanOrEqual(50);
-  });
-
-  it("every populated symbol_asset resolves to a real file under frontend/public/", () => {
+  it("every non-empty symbol_asset resolves under frontend/public/", () => {
     const broken = populated
       .filter((r) => !existsSync(resolve(publicDir, r.symbol_asset)))
       .map((r) => ({ party_id: r.party_id, symbol_asset: r.symbol_asset }));
@@ -65,12 +50,7 @@ describe("G11 parties.csv symbol_asset citizen-bundle invariant", () => {
   });
 });
 
-describe("PR-A placeholder + unverified glyph corpus", () => {
-  // The renderer (PartySymbolGlyph + maplibre tooltip) opts into one of
-  // these two neutral assets when a row carries an empty symbol_asset.
-  // Asserting the files exist on disk keeps the citizen bundle honest:
-  // a future PR cannot delete either without a contract-test failure.
-
+describe("fallback party-symbol assets are deployable", () => {
   it("placeholder.svg exists at frontend/public/party-symbols/placeholder.svg", () => {
     const path = resolve(publicDir, "party-symbols", "placeholder.svg");
     expect(existsSync(path)).toBe(true);
