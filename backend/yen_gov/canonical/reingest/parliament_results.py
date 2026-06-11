@@ -49,6 +49,7 @@ from yen_gov.canonical.reingest.assembly_results import (
     _result,
     _sex,
     _text_or_none,
+    is_nota_row,
     party_lookup_from_parties_csv,
     recompute_summary_row,
 )
@@ -122,9 +123,9 @@ def build_parliament_year(
     candidacies: list[dict[str, Any]] = []
     unbound: set[tuple[str, int]] = set()
     for src in final_rows:
-        raw_party = (src.get("Party") or "").strip()
-        if raw_party.upper() in NOTA_TOKENS:
+        if is_nota_row(src):
             continue
+        raw_party = (src.get("Party") or "").strip()
         pc_no = _int_or_none(src.get("Constituency_No"))
         if pc_no is None:
             continue
@@ -162,6 +163,21 @@ def build_parliament_year(
     candidacies.sort(
         key=lambda r: (r["state"], r["constituency_no"], r["position"], r["candidate_name"])
     )
+    # Structural contract (CLAUDE.md section 5 + section 10): mirror of the
+    # assembly_results.build_candidacy_rows guard. Every emitted candidacy row
+    # carries a non-empty party_short_raw; a blank cell means a new NOTA shape
+    # escaped is_nota_row() or a publisher contract change for Hans+Max.
+    for row in candidacies:
+        if not row.get("party_short_raw"):
+            raise ValueError(
+                "writer regression: emitted parliament candidacy with blank "
+                f"party_short_raw (state={row.get('state')!r}, "
+                f"year={row.get('election_year')!r}, "
+                f"pc_no={row.get('constituency_no')!r}, "
+                f"candidate={row.get('candidate_name')!r}). "
+                "If TCPD added a new NOTA shape, extend is_nota_row(); "
+                "otherwise surface to Hans+Max for the publisher contract."
+            )
 
     # AC-level (here PC-level) electorate facts come straight off the source rows.
     pc_facts: dict[str, dict[str, Any]] = {}

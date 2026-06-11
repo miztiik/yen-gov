@@ -2,7 +2,6 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-rajasthan-627,rajasthan,2019,28,MANDAWA,RITA CHOUDHARY,parties.IN.INC,INC,94196,59.33,1,won,F,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-627,rajasthan,2019,28,MANDAWA,SUSHILA SIGRA,parties.IN.BJP,BJP,60492,38.1,2,lost,F,54,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-627,rajasthan,2019,28,MANDAWA,SATYAVEER SINGH KRISHNIA,parties.IN.IND,IND,1111,0.7,3,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-627,rajasthan,2019,28,MANDAWA,NOTA,parties.IN.UNK,,915,0.58,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-627,rajasthan,2019,28,MANDAWA,DURGA PRASAD MEENA,parties.IN.AMBEDKARITE_PARTY_OF_INDIA,Ambedkarite Party of India,723,0.46,5,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-627,rajasthan,2019,28,MANDAWA,SUBHASH KHARESHIYA,parties.IN.IND,IND,577,0.36,6,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-627,rajasthan,2019,28,MANDAWA,ALTIF,parties.IN.IND,IND,393,0.25,7,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
@@ -12,4 +11,3 @@ IN-AC-2008-rajasthan-627,rajasthan,2019,28,MANDAWA,PRATAP SINGH KHYALI P.O.,part
 IN-AC-2008-rajasthan-658,rajasthan,2019,110,KHINWSAR,NARAYAN BENIWAL,parties.IN.RLP,RLP,78235,49.8,1,won,M,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-658,rajasthan,2019,110,KHINWSAR,HARENDRA MIRDHA,parties.IN.INC,INC,73605,46.85,2,lost,M,70,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-658,rajasthan,2019,110,KHINWSAR,ANKUR SHARMA,parties.IN.IND,IND,2628,1.67,3,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-658,rajasthan,2019,110,KHINWSAR,NOTA,parties.IN.UNK,,2625,1.67,4,lost,U,,,,challenger,src-1b7bc1c9d39a
