@@ -4,6 +4,8 @@ import {
   listEventsForState,
   findEvent,
   daysSincePolled,
+  isPendingUpstream,
+  type ElectionEventRow,
   type ElectionEventsCatalogue,
 } from "./election-events";
 
@@ -205,5 +207,59 @@ describe("PR-W2a bye-kind fixture (G5)", () => {
     const ev = findEvent(CATALOGUE, "S29", "assembly-2023");
     expect(ev).toBeDefined();
     expect(ev?.event_id_aliases).toContain("AcGenMay2023");
+  });
+});
+
+describe("isPendingUpstream (2026-06-11 catalogue honesty)", () => {
+  // The predicate is the single source of truth for "the catalogue says
+  // this event has no per-event files yet, so consumers should NOT fire
+  // a fetch and MUST render a calm Pending affordance rather than an
+  // amber error badge". See backend/tests/test_election_events_honesty.py
+  // for the contract gate that keeps the on-disk catalogue honest.
+  const baseRow = (overrides: Partial<ElectionEventRow>): ElectionEventRow => ({
+    event_id: "assembly-2025",
+    kind: "assembly",
+    display: "Test Assembly 2025",
+    polled_on: "2025-11-13",
+    ...overrides,
+  });
+
+  it("returns true for data_status === 'pending_upstream'", () => {
+    expect(
+      isPendingUpstream(baseRow({ data_status: "pending_upstream" })),
+    ).toBe(true);
+  });
+
+  it("returns false for data_status === 'complete'", () => {
+    expect(isPendingUpstream(baseRow({ data_status: "complete" }))).toBe(false);
+  });
+
+  it("returns false for data_status === 'partial'", () => {
+    expect(isPendingUpstream(baseRow({ data_status: "partial" }))).toBe(false);
+  });
+
+  it("returns false when data_status is undefined (legacy / cached catalogues stay loud)", () => {
+    // Backwards-compat: an old cached catalogue without the data_status
+    // field continues to render as before until a refresh.
+    expect(isPendingUpstream(baseRow({}))).toBe(false);
+  });
+
+  it("CATALOGUE fixture: the S29 Channapatna bye is correctly classified pending", () => {
+    // The PR-W2a fixture row marks the Channapatna bye-election as
+    // pending_upstream; the predicate must agree.
+    const bye = listEventsForState(CATALOGUE, "S29").find(
+      (e) => e.kind === "assembly_bye",
+    );
+    expect(bye).toBeDefined();
+    expect(isPendingUpstream(bye!)).toBe(true);
+  });
+
+  it("CATALOGUE fixture: a fully-loaded assembly event is NOT pending", () => {
+    // S29's assembly-2023 in the fixture has no explicit data_status -
+    // the predicate returns false, matching the consumer assumption
+    // that absence of the flag means "loud and proud" behaviour.
+    const ev = findEvent(CATALOGUE, "S29", "assembly-2023");
+    expect(ev).toBeDefined();
+    expect(isPendingUpstream(ev!)).toBe(false);
   });
 });
