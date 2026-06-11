@@ -2,7 +2,7 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,BALWINDER SINGH DHALIWAL,parties.IN.INC,INC,49215,47.62,1,won,M,57,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,RAJESH BAGHA,parties.IN.BJP,BJP,23099,22.35,2,lost,M,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,BHAGWAN DASS,parties.IN.BSP,BSP,15990,15.47,3,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,JARNAIL NANGAL,parties.IN.UNK,LIP,9088,8.79,4,forfeit,M,45,,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,JARNAIL NANGAL,parties.IN.LIP,LIP,9088,8.79,4,forfeit,M,45,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,SANTOSH KUMAR GOGI,parties.IN.AAP,AAAP,2910,2.82,5,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,NOTA,parties.IN.UNK,,966,0.93,6,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-punjab-224,punjab,2019,29,PHAGWARA,NEETU,parties.IN.IND,IND,706,0.68,7,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
@@ -18,7 +18,7 @@ IN-AC-2008-punjab-223,punjab,2019,39,MUKERIAN,ARJUN,parties.IN.UNK,Hindustan Sha
 IN-AC-2008-punjab-223,punjab,2019,39,MUKERIAN,AMANDEEP SINGH GHOTRA,parties.IN.IND,IND,268,0.23,7,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,MANPREET SINGH AYALI,parties.IN.SAD,SAD,66297,50.3,1,won,M,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,SANDEEP SINGH SANDHU,parties.IN.INC,INC,51625,39.17,2,lost,M,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,Sukhdev Singh CHAK,parties.IN.UNK,LIP,8441,6.4,3,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,Sukhdev Singh CHAK,parties.IN.LIP,LIP,8441,6.4,3,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,AMANDEEP SINGH MOHIE,parties.IN.AAP,AAAP,2804,2.13,4,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,NOTA,parties.IN.UNK,,642,0.49,5,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-punjab-247,punjab,2019,68,DAKHA,JAI PARKASH JAIN (TITU BANIYA),parties.IN.IND,IND,535,0.41,6,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
