@@ -3,7 +3,7 @@
   import { fade } from "svelte/transition";
   import { fetchTopicCatalogue, indicatorPathForArtifact, type TopicCatalogue } from "../lib/catalogue";
   import { loadIndicator } from "../lib/canonical/indicator-from-canonical";
-  import IndiaMap from "../lib/maplibre/IndiaMap.svelte";
+  import IndiaPartyMap from "../lib/charts/IndiaPartyMap.svelte";
   import IndicatorChoropleth from "../lib/IndicatorChoropleth.svelte";
   import { link } from "../lib/links";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
@@ -258,7 +258,7 @@
       {#key current_value}
         <div in:fade={{ duration: 200 }}>
           {#if theme.kind === "election"}
-            <IndiaMap />
+            <IndiaPartyMap />
           {:else if indicator_path}
             <IndicatorChoropleth indicator_path={indicator_path} height="520px" />
           {/if}
