@@ -140,6 +140,59 @@ def test_nota_excluded_from_candidacies(tmp_path):
     assert len(cand) == 3  # winner + runner + third, NOTA dropped
 
 
+def test_nota_excluded_when_only_candidate_field_marks_it(tmp_path):
+    """TCPD vintage >= 2017 shape: Candidate='NOTA', Party='' (empty cell).
+
+    Pre-2017 TCPD: Party='NOTA' (the column the original filter checked).
+    2017+: Candidate='NOTA' with blank Party. Both shapes are ballot
+    options. The 2017+ shape escaped the original filter and was the
+    72-slice writer-bug class identified 2026-06-11 (Karnataka 2019 +
+    Madhya Pradesh 2020 + 70 more); regression test for is_nota_row().
+    """
+    rows = [
+        _ae_row(Constituency_No=1, Year=2021, Position=1, Candidate="Real",
+                Party="DMK", Votes=100, Vote_Share_Percentage=80.0,
+                Deposit_Lost="no"),
+        _ae_row(Constituency_No=1, Year=2021, Position=2, Candidate="Other",
+                Party="ADMK", Votes=20, Vote_Share_Percentage=16.0,
+                Deposit_Lost="no"),
+        # The 2017+ NOTA shape: blank Party, Candidate='NOTA'.
+        _ae_row(Constituency_No=1, Year=2021, Position=3, Candidate="NOTA",
+                Party="", Votes=5, Vote_Share_Percentage=4.0,
+                Deposit_Lost="no"),
+    ]
+    emitted = _emit(tmp_path, rows, [1])
+    cand = _read(emitted[2021]["candidacies"])
+    names = {r["candidate_name"] for r in cand}
+    assert "NOTA" not in names, f"NOTA leaked into candidacies: {names}"
+    assert len(cand) == 2  # NOTA dropped, two real candidates retained
+    # And every emitted row carries a non-empty party_short_raw (the defensive
+    # contract assertion guards this; explicit check here for the contract).
+    assert all(r["party_short_raw"] for r in cand)
+
+
+def test_writer_raises_on_blank_party_short_raw_for_non_nota_row(tmp_path):
+    """Defensive contract: an emitted row MUST have non-empty party_short_raw.
+
+    Synthesises a non-NOTA candidate with an empty Party cell (a hypothetical
+    publisher contract regression). The writer's structural-fix contract
+    (CLAUDE.md section 5: 'structural fixes only, no band-aids') raises on
+    emit so the regression is caught at write time, not by a downstream
+    consumer with a silent default.
+    """
+    rows = [
+        _ae_row(Constituency_No=1, Year=2021, Position=1, Candidate="Real",
+                Party="DMK", Votes=100, Vote_Share_Percentage=80.0,
+                Deposit_Lost="no"),
+        # Real candidate name but no Party value and not the NOTA token.
+        _ae_row(Constituency_No=1, Year=2021, Position=2, Candidate="Mystery",
+                Party="", Votes=20, Vote_Share_Percentage=16.0,
+                Deposit_Lost="no"),
+    ]
+    with pytest.raises(ValueError, match="writer regression"):
+        _emit(tmp_path, rows, [1])
+
+
 # --- parity oracle: summary == recompute(candidacies) -----------------------
 
 
