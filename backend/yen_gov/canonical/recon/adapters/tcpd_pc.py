@@ -344,18 +344,33 @@ def _read_tcpd_winners(
 
 
 def _emit_shape_a_for_winner(
-    winner: _TcpdPcWinner, parties_ix: _PartiesIndex
+    winner: _TcpdPcWinner,
+    parties_ix: _PartiesIndex,
+    *,
+    constituency_no: str | None = None,
 ) -> ShapeARow:
     """Emit a single per-PC shape-A row for one TCPD-derived winner.
 
     Same pattern as the bhuky adapter; external_key follows
     ``<state_slug>:<constituency_no>:<UPPER_NAME>``.
+
+    The ``constituency_no`` keyword overrides TCPD's per-state 1-based
+    ``Constituency_No`` (1..N within each state) with the canonical
+    cno emitted by the yen-gov canonical summary.csv (e.g. LGD PC
+    code ``445`` for ARUKU). The override is needed because TCPD's
+    per-state-1-based cno would NEVER group with canonical's
+    LGD-code-based cno in the per-PC Compare-Aggregator (which keys
+    on ``(state_code, constituency_no)``). Mirrors bhuky's behaviour
+    via ``_yen_gov_pc_no_index`` to keep the 3-oracle parity surface
+    consistent. When ``constituency_no`` is None the function falls
+    back to TCPD's raw cno (legacy / no-canonical-coverage path).
     """
     pid = _resolve_party_id(winner.party_short, parties_ix)
     action = "mint-new" if pid == "parties.IN.UNK" else "match"
+    cno = constituency_no if constituency_no is not None else winner.constituency_no
     return ShapeARow(
         external_key=(
-            f"{winner.state_slug}:{winner.constituency_no}:"
+            f"{winner.state_slug}:{cno}:"
             f"{winner.constituency_name_upper}"
         ),
         external_short=winner.party_short[:64],
@@ -366,14 +381,58 @@ def _emit_shape_a_for_winner(
         proposed_action=action,  # type: ignore[arg-type]
         notes=(
             f"tcpd publisher: state_slug={winner.state_slug!r} "
-            f"cno={winner.constituency_no!r}"
+            f"tcpd_cno={winner.constituency_no!r}"
         ),
-        constituency_no=winner.constituency_no,
+        constituency_no=cno,
         constituency_name=winner.constituency_name_upper,
         state_code=winner.state_slug,
         winner_candidate=winner.candidate,
         winner_votes=winner.votes,
     )
+
+
+def _yen_gov_pc_no_index(
+    elections_root: Path, year: int
+) -> dict[tuple[str, str], str]:
+    """Build a (state_slug, constituency_name_upper) -> constituency_no map.
+
+    Mirrors ``bhukyavenkatamahesh_pc._yen_gov_pc_no_index`` for adapter
+    independence (same shape; if a future refactor lifts this into a
+    shared canonical helper both adapters fold into one import).
+
+    Reads ``datasets/elections/parliament/election=<year>/summary.csv``
+    + derives ``constituency_no`` from the ``entity_id`` column
+    (format ``IN-PC-2008-<state>-<eci_no>`` per the canonical entity-id
+    grammar). Used to override TCPD's per-state 1-based
+    ``Constituency_No`` with canonical's LGD-code-based cno so the
+    per-PC Compare-Aggregator's ``(state_code, constituency_no)``
+    grouping key brings TCPD into alignment with the bhuky + canonical
+    oracles. On miss (canonical lacks the PC) returns no entry; the
+    caller falls back to TCPD's raw cno.
+    """
+    summary_csv = (
+        elections_root
+        / "elections"
+        / "parliament"
+        / f"election={year}"
+        / "summary.csv"
+    )
+    if not summary_csv.exists():
+        return {}
+    by_pc: dict[tuple[str, str], str] = {}
+    with summary_csv.open(encoding="utf-8", newline="") as fh:
+        for r in csv.DictReader(fh):
+            state = (r.get("state") or "").strip()
+            cn = (r.get("constituency_name") or "").strip().upper()
+            entity_id = (r.get("entity_id") or "").strip()
+            if not state or not cn or not entity_id:
+                continue
+            try:
+                pc_no = entity_id.rsplit("-", 1)[1]
+            except IndexError:
+                continue
+            by_pc[(state, cn)] = pc_no
+    return by_pc
 
 
 @dataclass(frozen=True, slots=True)
@@ -439,12 +498,42 @@ class TcpdPcAdapter:
 
         winners = _read_tcpd_winners(tcpd_csv, year, state_ix)
 
+        # Canonical-cno-join: TCPD's Constituency_No is per-state
+        # 1-based (1..N) but canonical uses LGD PC codes (e.g.
+        # ARUKU is tcpd cno=1 but canonical cno=445). Without this
+        # join the per-PC Compare-Aggregator emits TCPD rows into a
+        # separate (state, '1') group from canonical+bhuky's
+        # (state, '445') group, yielding single-oracle UNVERIFIED
+        # rows for every canonical-covered PC. The join brings TCPD
+        # into alignment with bhuky + canonical for the canonical-
+        # covered PCs; canonical-missing PCs fall back to TCPD's raw
+        # cno (unchanged from pre-canonical-join behaviour).
+        pc_no_index = _yen_gov_pc_no_index(root / "datasets", year)
+
         out: list[ShapeARow] = []
         for w in sorted(
             winners,
             key=lambda w: (w.state_slug, w.constituency_no, w.constituency_name_upper),
         ):
-            out.append(_emit_shape_a_for_winner(w, parties_ix))
+            canonical_cno = pc_no_index.get(
+                (w.state_slug, w.constituency_name_upper)
+            )
+            if canonical_cno is None:
+                # No canonical entry; use deterministic synthetic key
+                # derived from the constituency name. bhuky-pc applies
+                # the SAME fallback so canonical-missing PCs
+                # (Telangana, Delhi, A&N, Chandigarh, D&N+D&D,
+                # Lakshadweep, Puducherry, etc. for LS-2019) align in
+                # the per-PC aggregator's (state_code, constituency_no)
+                # grouping and emit a 2-oracle (bhuky+tcpd) verdict
+                # instead of two independent single-oracle UNVERIFIED
+                # rows.
+                canonical_cno = f"name-{w.constituency_name_upper}"
+            out.append(
+                _emit_shape_a_for_winner(
+                    w, parties_ix, constituency_no=canonical_cno
+                )
+            )
         return out
 
     @staticmethod
@@ -480,4 +569,5 @@ __all__ = [
     "_resolve_party_id",
     "_resolve_state_slug",
     "_slugify",
+    "_yen_gov_pc_no_index",
 ]
