@@ -530,7 +530,7 @@ Display vs query (citizen renderer rule):
 
 ## 5. Sources schema (D5)
 
-`taxonomy/sources.parquet` is a **citation ledger** keyed on `(producer, title, vintage)`. One row per distinct piece of upstream reportage that observations reference. The schema adopts OWID `origin.*` fields **verbatim** (CLAUDE.md §0a, "The One Rule") plus four yen-gov extensions for confidence + verifiability. Schema authority: [ADR-0032](../../reference/decision-index.md). Schema version: `x-version: "2.0"` in [`datasets/schemas/source.schema.json`](../../../datasets/schemas/source.schema.json).
+`datasets/data/entities/source.csv` is a **citation ledger** keyed on `(producer, title, vintage)`. One row per distinct piece of upstream reportage that observations reference. Identity adopts OWID `origin.*` (producer + title + vintage) verbatim (CLAUDE.md §0a, "The One Rule"). Schema authority: [ADR-NNNN citation-ledger-5col](../../concepts/data-provenance.md#adr-nnnn-citation-ledger-5col) (2026-06-11). Schema version: `x-version: "3.1"` (v3.1 retired the 6 OWID-extension + yen-gov-extension fields aspirated in v2.0; the on-disk shape was already 5-col per `datasets/data/_schema/columns.json`).
 
 **Identity model.** Natural key is the citation triple `(producer, title, vintage)`. `source_id` is a deterministic 12-char hash of that triple:
 
@@ -540,53 +540,47 @@ source_id = "src-" + sha256(f"{producer}|{title}|{vintage}".encode("utf-8")).hex
 
 Anywhere in the codebase the same triple yields the same `source_id` — across cold starts, across ingest paths (live HTTP fetch vs hand-imported transcription), across machines. Use [`backend/yen_gov/canonical/citation.py`](../../../backend/yen_gov/canonical/citation.py)'s `derive_source_id(producer, title, vintage)` helper — never hand-author the hash.
 
-**Total field count**: 11 (8 required + 3 optional).
+**Total field count**: 5 (4 required + 1 optional).
 
-### 5.1 OWID `origin.*` (verbatim) — 5 columns
+### 5.1 The 5 columns
 
-| Column | Required | OWID meaning |
+| Column | Required | Meaning |
 | --- | :---: | --- |
-| `producer` | ✓ | Publisher organisation. Verbatim from the source — "Election Commission of India", "Reserve Bank of India", "Ministry of Statistics and Programme Implementation", "yen-gov" for editorial rows. |
-| `title` | ✓ | Citizen-readable report name. Verbatim — "Statistical Report Section 10 (Detailed Results) — Tamil Nadu AcGenMay2026", "Handbook of Statistics on the Indian Economy 2024-25", etc. |
-| `vintage` | ✓ | Source's own period label. Verbatim — "FY 2024-25", "Census 2011", "Aug 2025 issue". Empty string `""` permitted when the publisher genuinely has no vintage label (rare). |
-| `license` | ✓ | Enum-locked: `OGL-IN-1.0` / `CC-BY-4.0` / `CC0-1.0` / `public-domain` / `unknown-public` / `internal`. |
-| `url_main` | — | Landing / about page URL the citizen can open. May 404 (publishers rename paths); not a citation requirement. `null` for hand-imported / transcribed / editorial rows. |
-| `citation_full` | — | Full citation string. When `null`, the renderer composes: `f"{producer}, {title}" + (f" ({vintage})" if vintage else "")`. Adapters set this only when they need to override the default composition. |
+| `source_id` (PK) | ✓ | Deterministic 12-char hash of `(producer, title, vintage)`. yen-gov-specific; OWID has no PK because OWID is editorially curated. |
+| `producer` | ✓ | Publisher organisation, verbatim from the source — "Election Commission of India", "Reserve Bank of India", "Ministry of Statistics and Programme Implementation", "yen-gov" for editorial rows. OWID `origin.producer`. _MIGRATING (PR-1 of the [sources simplification plan](../../../TODO/20260611-sources-simplification-plan.md))_ — the on-disk CSV header is still `owner`; the rename ships in PR-1. |
+| `title` | ✓ | Citizen-readable report name, verbatim — "Statistical Report Section 10 (Detailed Results) — Tamil Nadu AcGenMay2026", "Handbook of Statistics on the Indian Economy 2024-25". OWID `origin.title`. |
+| `vintage` | ✓ | Strongest period anchor available. Publisher edition tag when one exists (RBI Handbook "2024-25", NFHS "NFHS-5", CEA Monthly Executive "2026-03"); operator snapshot window otherwise (NITI ICED `2024-25`). Non-empty (v3.0 sharpened from v2.0's permitted empty string; see [ADR-0042](../../concepts/data-provenance.md#adr-0042-sources-schema-v3-vintage-as-period-anchor)). OWID `origin.vintage`. |
+| `url` | — | Landing / publisher page URL the citizen can open. May 404 (publishers rename paths); not a citation requirement. Empty when hand-imported / transcribed / editorial. Named `url` (not OWID's `url_main`) because yen-gov ships one URL field — no `url_download` distinction to disambiguate. Per The One Rule "deviations documented": this is a yen-gov divergence from OWID `origin.url_main`. |
 
-### 5.2 yen-gov extensions (NOT OWID) — 5 columns
+Hand-imported / transcribed content uses the same producer/title/vintage as the live-fetched path would; only `url` may be empty. **Both paths get the same `source_id`** (because the citation triple is identical), so the citizen never sees split provenance for one report.
 
-| Column | Required | Why we deviate |
-| --- | :---: | --- |
-| `source_id` (PK) | ✓ | Deterministic 12-char hash of `(producer, title, vintage)`. OWID has no PK because OWID's table is editorially curated; yen-gov's is pipeline-emitted and needs a stable FK target for every observation row in every Parquet family. |
-| `confidence_tier` enum-3 | ✓ | `gold` / `silver` / `bronze`. Indian data shelves mix issuing authority (ECI on votes), reputable republisher (PRS Legislative Research republishing govt data), and single-paper / activist sources. Citizens need the trust signal; OWID's editorial gate happens upstream of its table so OWID doesn't carry one. |
-| `is_issuing_authority` (bool) | ✓ | True iff the producer is the issuing authority for this data (ECI on votes = true; a research aggregator republishing the same numbers = false). Independent from `confidence_tier` — a silver republisher of an issuing-authority report has `confidence_tier="silver"` AND `is_issuing_authority=false`. |
-| `verification_method` enum-4 | ✓ | `live-fetch` / `archived-snapshot` / `transcribed` / `editorial`. Array order is canonical rank (4 strongest → 1 weakest). Distinguishes "we polled this URL each run" from "we hold a byte-faithful copy" from "operator typed the numbers from a screenshot" from "yen-gov is the source of this framing". |
-| `notes` | — | Operator scratchpad. Citizen-facing only when explicitly surfaced; not a contract. |
+Editorial content (yen-gov-derived analytical framing, not a transcription of an external source): `producer = "yen-gov"`, `url = ""`.
 
-Hand-imported / transcribed content uses the same producer/title/vintage as the live-fetched path would; only `url_main = null` and `verification_method = "transcribed"` differ. **Both paths get the same `source_id`** (because the citation triple is identical), so the citizen never sees split provenance for one report.
+### 5.2 What is NOT in the schema
 
-Editorial content (yen-gov-derived analytical framing, not a transcription of an external source): `producer = "yen-gov"`, `license = "internal"`, `is_issuing_authority = false`, `confidence_tier = "gold"` (we know our own provenance), `verification_method = "editorial"`, `url_main = null`.
+12 fields proposed at various points in this schema's history are NOT in the contract:
 
-### 5.3 What is NOT in v2.0 (removed from v1.0)
+| Removed / never-shipped field | Why | Retired by |
+| --- | --- | --- |
+| `url_download` | yen-gov ships one URL field. No need to disambiguate landing vs direct-file URL. | ADR-0032 v2.0 |
+| `content_hash` | Citizen-facing rows do not depend on byte-identity. Adapters that need cache-invalidation state write `.runtime/<adapter>/<source_id>.json` sidecars (CLAUDE.md §2 — ephemeral, never contract). | ADR-0032 v2.0 |
+| `first_fetched_at`, `last_seen_at`, `date_accessed` | Fetch timestamps on the citation row caused the fetched_at smear (/memories/lessons.md 2026-05-16). They are operator state, not citation facts. Same sidecar mitigation as `content_hash`. | ADR-0032 v2.0 |
+| `license` (enum-6) | Republisher concern, not a citizen-reading-a-chart concern. Citizen does not weight RBI by license; weights it by reputation. Mass-citizen-readable license disclosure belongs in one global footer statement ("Sources are public publications under open licenses or fair-use citation."), not per-row on every chart. | ADR-NNNN v3.1 |
+| `confidence_tier` (enum-3) | Per-row gold/silver/bronze on every citation row is researcher-grade. Citizen needs the one-shot "this chart has a weak link" cue (deferred to a future hand-authored frontend `ISSUING_AUTHORITIES` allow-list, not a schema column). | ADR-NNNN v3.1 |
+| `is_issuing_authority` (bool) | Same as `confidence_tier` — per-row trust enum at the wrong axis. The citizen who needs the trust signal gets it from the publisher's name brand recognition. | ADR-NNNN v3.1 |
+| `verification_method` (enum-4) | Lifecycle of the row (`live-fetch` / `archived-snapshot` / `transcribed` / `editorial`) is operator-tier state. Citizen does not care whether the operator pulled the bytes vs typed them; the publisher's report is the same publisher's report. | ADR-NNNN v3.1 |
+| `citation_full` | Locks the schema to one display convention (APA vs Chicago vs in-line). A read-time renderer composes the citation from the structured `(producer, title, vintage)` triple in whichever style the consumer wants. | ADR-0032 v2.0 |
+| `notes` | Operator scratchpad with no enforcement contract. Operators who need to flag exceptional context use the indicator's hand-authored Markdown narrative on the IndicatorDoc page, not a structured column on the citation row. | ADR-NNNN v3.1 |
 
-Six fields from v1.0 are **gone** from the contract (breaking change at v2.0):
+### 5.3 Rationale — why a 5-col citation ledger
 
-| Removed field | Why |
-| --- | --- |
-| `url`, `url_download` | Identity moved from URL to citation. Click-through lives on `url_main` (optional). |
-| `content_hash` | Citizen-facing rows do not depend on byte-identity. Adapters that need cache-invalidation state write `.runtime/<adapter>/<source_id>.json` sidecars (CLAUDE.md §2 — ephemeral, never contract). |
-| `first_fetched_at`, `last_seen_at`, `date_accessed` | Fetch timestamps on the citation row caused the fetched_at smear (/memories/lessons.md 2026-05-16). They are operator state, not citation facts. Same sidecar mitigation as `content_hash`. |
+Full design archive:
 
-Migration tool: [`tools/migrate_sources_v1_to_v2.py`](../../../tools/migrate_sources_v1_to_v2.py) — one-shot that read the existing v1.0 sources.parquet + existing canonical Parquet rows, derived v2.0 citation triples, wrote a new sources.parquet (84 → 55 rows), rewrote the `source_id` column on 31 state-shard `election_results.parquet` files via CTAS, and verified FK closure end-to-end.
+- [ADR-NNNN citation-ledger-5col](../../concepts/data-provenance.md#adr-nnnn-citation-ledger-5col) §Rejected alternatives — β (backfill sentinels), γ (operator-only annotation layer at `_ops/source-annotations.csv`), δ (keep chip-pill render style), ε (collapse the ledger itself to one row per producer).
+- [ADR-0042 sources-schema-v3-vintage-as-period-anchor](../../concepts/data-provenance.md#adr-0042-sources-schema-v3-vintage-as-period-anchor) — `vintage` semantics sharpening; rejected alpha-as-stated, beta wildcard, gamma split, delta-prime 4-arg hash, epsilon defer.
+- [ADR-0032 sources-citation-ledger](../../concepts/data-provenance.md#adr-0032-sources-citation-ledger) — original pivot from v1.0 fetch ledger to v2.0 citation ledger; identity-on-triple decision survives in v3.1.
 
-### 5.4 Rationale — why a citation ledger, not a fetch ledger
-
-Full design archive: [ADR-0032 §Context + §Rejected Alternatives](../../reference/decision-index.md). Summary of the four rejected designs:
-
-1. **Domain-as-identity** (`source_id = sha256(domain)`) — loses citation precision; ECI publishes 200+ distinct reports per domain.
-2. **Drop sources.parquet; use git commits** — re-creates per-shard smear; violates Holy Law #9.
-3. **`content_hash` back as nullable** — re-introduces fetched_at-smear one layer up.
-4. **`citation_full` REQUIRED with mandatory templating** — locks the schema to one display convention.
+Render-time dedup to one pill per `(producer × series-family)` lives in the frontend view-model (`frontend/src/lib/sources/format.ts::dedupeToPills`); the citation ledger stays at `(producer, title, vintage)` grain (preserves vintage cite-ability, reversibility, and OWID's separation between origins and the rendered "Data published by" footer).
 
 ### 5.5 Parties dimension and source-row coupling
 

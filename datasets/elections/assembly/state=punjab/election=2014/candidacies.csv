@@ -1,5 +1,5 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Jeetmohinder Singh Sidhu,parties.IN.UNK,SKD,71747,60.75,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Jeetmohinder Singh Sidhu,parties.IN.SKD,SKD,71747,60.75,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Harminder Singh Jassi,parties.IN.INC,INC,25105,21.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Prof. Baljinder Kaur,parties.IN.AAP,AAP,13899,11.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-punjab-182,punjab,2014,94,TALWANDI SABO,Balkar Sidhu,parties.IN.IND,IND,6305,5.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

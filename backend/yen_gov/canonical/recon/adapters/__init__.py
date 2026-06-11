@@ -123,6 +123,14 @@ from .wikipedia_parties import ADAPTER as _WIKIPEDIA_PARTIES_ADAPTER
 
 REGISTRY["wikipedia-parties"] = _WIKIPEDIA_PARTIES_ADAPTER
 
+# UNK-enrichment (2026-06-11 user signoff): IndiaVotes promoted from Q1
+# secondary-lane to a NEW enrichment source for parties.csv aliases +
+# mint-new rows. See backend/yen_gov/canonical/recon/adapters/
+# indiavotes_parties.py for the Q1 fact-class scoping rationale.
+from .indiavotes_parties import ADAPTER as _INDIAVOTES_PARTIES_ADAPTER
+
+REGISTRY["indiavotes-parties"] = _INDIAVOTES_PARTIES_ADAPTER
+
 # --- PR-PC-LS2024: per-PC parity adapters (registered in REGISTRY per
 # the PR-PC-LS2024 design choice; see PR #916 for rationale) ----------
 

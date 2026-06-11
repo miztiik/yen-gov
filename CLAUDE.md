@@ -223,9 +223,19 @@ The reader compatibility contract lives in `datasets/schema-compatibility.json`.
 
 ## 12. Data Provenance
 
-Every observation row in every long-format CSV family under `datasets/data/` (and every `datasets/elections/**` row) carries a `source_id` FK to one row in `datasets/data/entities/source.csv`. Provenance is a **citation ledger**, one row per `(producer, title, vintage)` triple, not per fetch event. Adopts OWID `origin.*` fields verbatim plus four yen-gov extensions for confidence + verifiability.
+Every observation row in every long-format CSV family under `datasets/data/` (and every `datasets/elections/**` row) carries a `source_id` FK to one row in `datasets/data/entities/source.csv`. Provenance is a **citation ledger**, one row per `(producer, title, vintage)` triple, not per fetch event. Identity adopts OWID `origin.*` (producer + title + vintage) verbatim.
 
-Schema (11 columns, 8 required + 3 optional): [docs/architecture/data/canonical-store.md section 5](docs/architecture/data/canonical-store.md). Rationale + rejected designs: [ADR-0032](docs/concepts/data-provenance.md#adr-0032-sources-citation-ledger). v3.0 `vintage` sharpening (publisher edition vs operator snapshot window): [ADR-0042](docs/concepts/data-provenance.md#adr-0042-sources-schema-v3-vintage-as-period-anchor). Concept: [docs/concepts/data-provenance.md](docs/concepts/data-provenance.md).
+Schema (5 columns; rationale [docs/architecture/data/canonical-store.md section 5](docs/architecture/data/canonical-store.md)):
+
+| Column | Required | Meaning |
+| --- | :---: | --- |
+| `source_id` | yes | PK. Deterministic `"src-" + sha256(f"{producer}\|{title}\|{vintage}").hexdigest()[:12]`. |
+| `producer` | yes | Publisher organisation, verbatim. `MIGRATING (PR-1)` — on-disk CSV header is still `owner`; the rename ships in the PR-1 frontend-wiring-rewrite of the [sources simplification plan](TODO/20260611-sources-simplification-plan.md). |
+| `title` | yes | Citizen-readable report name, verbatim. |
+| `vintage` | yes | Strongest period anchor available — publisher edition tag when one exists, operator snapshot window otherwise. Non-empty. |
+| `url` | no | Landing / publisher page URL the citizen can open. Empty when hand-imported / transcribed / editorial. |
+
+The 6 OWID-extension fields previously aspirated (`license`, `confidence_tier`, `is_issuing_authority`, `verification_method`, `citation_full`, `notes`) were declared in v2.0 doctrine but never populated by any writer; retired 2026-06-11 per the [sources simplification plan](TODO/20260611-sources-simplification-plan.md) + new inline ADR `citation-ledger-5col` in [docs/concepts/data-provenance.md](docs/concepts/data-provenance.md). The on-disk truth at [datasets/data/_schema/columns.json](datasets/data/_schema/columns.json) already declares the 5-col shape; this section just makes the doctrine match. Identity-on-`(producer, title, vintage)`-triple from [ADR-0032](docs/concepts/data-provenance.md#adr-0032-sources-citation-ledger) survives unchanged; v3.0 `vintage` sharpening from [ADR-0042](docs/concepts/data-provenance.md#adr-0042-sources-schema-v3-vintage-as-period-anchor) survives unchanged. Concept: [docs/concepts/data-provenance.md](docs/concepts/data-provenance.md).
 
 Build `source_id` via `backend.yen_gov.canonical.citation.derive_source_id`; never hand-author.
 
