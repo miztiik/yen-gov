@@ -390,20 +390,24 @@ export async function registerCsvFile(url: string): Promise<void> {
 //   - 13 call sites JOIN `dim_parties dp ON dp.party_id = ...` /
 //     `JOIN sources s` and reference legacy column names
 //     (`dp.short_name`, `dp.brand_colour_hex`, `s.producer`,
-//     `s.url_main`). Renaming each SQL string is a much bigger blast
+//     `s.url`). Renaming each SQL string is a much bigger blast
 //     radius than keeping the legacy column names visible at the JOIN
 //     surface; the view is the rename point.
 //
 // Retired-by-rip columns (per parent plan section 20.3 / O3 — parties.csv
 // is exactly `{party_id, short, full, eci_codes, brand_colour,
-// symbol_asset, wikipedia}`; source.csv is exactly `{source_id, owner,
-// title, vintage, url}`) project as `NULL::<dtype>` so view-models with
+// symbol_asset, wikipedia}`; source.csv is exactly `{source_id, producer,
+// title, vintage, url}` post sources-simplification PR-1 2026-06-11)
+// project as `NULL::<dtype>` for the parties side so view-models with
 // the existing nullable fallback chains (e.g. `r.brand_colour_confidence
 // === "high" || ... || null`) degrade gracefully. The 3 retired party
-// columns and 6 retired source columns surface NULL everywhere; the
-// PR body documents the resulting UX deltas (recognition badge gone;
-// confidence-tier indicator gone; license + verification_method chip
-// gone). Those losses are the binding new truth post-rip.
+// columns surface NULL everywhere on the parties side; the sources side
+// is now natively 5-col (`source_id, producer, title, vintage, url`)
+// with NO NULL projections - the v2 6-col extension (`license`,
+// `confidence_tier`, `is_issuing_authority`, `verification_method`,
+// `citation_full`, `notes`) is retired per ADR-NNNN
+// `citation-ledger-5col` (data-provenance.md, 2026-06-11) + the
+// PR-1 frontend rewrite in this same PR.
 //
 // Lifecycle: B3 (the parquet-writer + reader cleanup) eventually deletes
 // `registerTable` / `registerSlice` whole. At that point this seam is
@@ -473,16 +477,10 @@ const CSV_AS_TABLE_SPECS: Readonly<Record<CsvAsTableId, CsvAsTableSpec>> = Objec
     selectSql: (url: string, columnsClause: string): string => `
       SELECT
         source_id                    AS source_id,
-        owner                        AS producer,
+        producer                     AS producer,
         title                        AS title,
         vintage                      AS vintage,
-        NULL::VARCHAR                AS license,
-        NULL::VARCHAR                AS confidence_tier,
-        NULL::BOOLEAN                AS is_issuing_authority,
-        NULL::VARCHAR                AS verification_method,
-        url                          AS url_main,
-        NULL::VARCHAR                AS citation_full,
-        NULL::VARCHAR                AS notes
+        url                          AS url
       FROM read_csv('${url}', ${columnsClause}, header=true)
     `,
   },
