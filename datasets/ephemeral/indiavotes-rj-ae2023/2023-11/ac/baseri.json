@@ -1,0 +1,183 @@
+{
+  "type": "constituency",
+  "meta": {
+    "slug": "baseri",
+    "house": "vidhan-sabha",
+    "name": {
+      "en": "basedi"
+    },
+    "state": "rajasthan",
+    "districts": [
+      "DHOLPUR"
+    ],
+    "category": "SC",
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state_id=14, name_slug=baseri"
+    },
+    "canonical_id": "ac:3454",
+    "canonical_ids": [
+      "ac:3454"
+    ],
+    "aliases": [
+      "Baseri",
+      "Baseri ",
+      "basedi"
+    ],
+    "delimitation_history": [
+      {
+        "delimitation_id": 4,
+        "delimitation_name": "DL4",
+        "year_from": 2008,
+        "year_to": 2015,
+        "name": "Baseri",
+        "years": [
+          2008,
+          2013,
+          2018,
+          2023
+        ]
+      }
+    ],
+    "years_in_canonical": [
+      2008,
+      2013,
+      2018,
+      2023
+    ],
+    "predecessor_canonical_ids": [],
+    "successor_canonical_ids": []
+  },
+  "result": {
+    "constituency_slug": "baseri",
+    "house": "vidhan-sabha",
+    "year": 2023,
+    "state": "rajasthan",
+    "polling_date": "2023-11-25",
+    "summary": {
+      "voters_eligible": 406452,
+      "votes_polled": 150311,
+      "turnout": 0.36981242557546773,
+      "nota_votes": 1045,
+      "winner_candidate_slug": "c-ac-425304",
+      "winning_margin": 27110,
+      "winning_margin_share": 0.18035938820179495
+    },
+    "candidates": [
+      {
+        "candidate_slug": "c-ac-425304",
+        "name": {
+          "en": "SANJAY KUMAR"
+        },
+        "party_slug": "inc",
+        "party_abbreviation": "INC",
+        "votes": 86145,
+        "vote_share": 0.573111748308507,
+        "position": 1,
+        "won": true
+      },
+      {
+        "candidate_slug": "c-ac-425305",
+        "name": {
+          "en": "SUKHRAM"
+        },
+        "party_slug": "bjp",
+        "party_abbreviation": "BJP",
+        "votes": 59035,
+        "vote_share": 0.3927523601067121,
+        "position": 2,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425307",
+        "name": {
+          "en": "KHILADI LAL BAIRWA"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 1366,
+        "vote_share": 0.009087824577043596,
+        "position": 3,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425303",
+        "name": {
+          "en": "DAULAT RAM"
+        },
+        "party_slug": "bsp-2",
+        "party_abbreviation": "BSP",
+        "votes": 1133,
+        "vote_share": 0.007537705157972471,
+        "position": 4,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425309",
+        "name": {
+          "en": "DWARIKA PRASAD"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 830,
+        "vote_share": 0.005521884625875684,
+        "position": 5,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425306",
+        "name": {
+          "en": "SULTAN SINGH"
+        },
+        "party_slug": "rjvp",
+        "party_abbreviation": "RJVP",
+        "votes": 747,
+        "vote_share": 0.004969696163288116,
+        "position": 6,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425310",
+        "name": {
+          "en": "PANJAB SINGH"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 676,
+        "vote_share": 0.004497342177219232,
+        "position": 7,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425308",
+        "name": {
+          "en": "GUDDI MAURYA"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 379,
+        "vote_share": 0.0025214388833817883,
+        "position": 8,
+        "won": false
+      }
+    ],
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state=rajasthan, name=baseri, details=47124"
+    }
+  },
+  "year": 2023,
+  "state": "rajasthan"
+}

@@ -1,0 +1,282 @@
+{
+  "type": "constituency",
+  "meta": {
+    "slug": "dungargarh",
+    "house": "vidhan-sabha",
+    "name": {
+      "en": "shridu gargarh"
+    },
+    "state": "rajasthan",
+    "districts": [
+      "BIKANER"
+    ],
+    "category": "GEN",
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state_id=14, name_slug=dungargarh"
+    },
+    "canonical_id": "ac:3395",
+    "canonical_ids": [
+      "ac:3395",
+      "ac:163"
+    ],
+    "aliases": [
+      "Dungargarh",
+      "shridu gargarh"
+    ],
+    "delimitation_history": [
+      {
+        "delimitation_id": 4,
+        "delimitation_name": "DL4",
+        "year_from": 2008,
+        "year_to": 2015,
+        "name": "Dungargarh",
+        "years": [
+          2008,
+          2013,
+          2018,
+          2023
+        ]
+      },
+      {
+        "delimitation_id": 3,
+        "delimitation_name": "DL3",
+        "year_from": 1973,
+        "year_to": 2007,
+        "name": "Dungargarh",
+        "years": [
+          1977,
+          1980,
+          1985,
+          1990,
+          1993,
+          1998,
+          2003
+        ]
+      }
+    ],
+    "years_in_canonical": [
+      1977,
+      1980,
+      1985,
+      1990,
+      1993,
+      1998,
+      2003,
+      2008,
+      2013,
+      2018,
+      2023
+    ],
+    "predecessor_canonical_ids": [
+      "ac:163"
+    ],
+    "successor_canonical_ids": [
+      "ac:3395"
+    ]
+  },
+  "result": {
+    "constituency_slug": "dungargarh",
+    "house": "vidhan-sabha",
+    "year": 2023,
+    "state": "rajasthan",
+    "polling_date": "2023-11-25",
+    "summary": {
+      "voters_eligible": 532562,
+      "votes_polled": 198398,
+      "turnout": 0.37253502878538086,
+      "nota_votes": 3439,
+      "winner_candidate_slug": "c-ac-425639",
+      "winning_margin": 8125,
+      "winning_margin_share": 0.04095303380074396
+    },
+    "candidates": [
+      {
+        "candidate_slug": "c-ac-425639",
+        "name": {
+          "en": "TARACHAND"
+        },
+        "party_slug": "bjp",
+        "party_abbreviation": "BJP",
+        "votes": 65690,
+        "vote_share": 0.3311021280456456,
+        "position": 1,
+        "won": true
+      },
+      {
+        "candidate_slug": "c-ac-425640",
+        "name": {
+          "en": "MANGLARAM GODARA"
+        },
+        "party_slug": "inc",
+        "party_abbreviation": "INC",
+        "votes": 57565,
+        "vote_share": 0.29014909424490165,
+        "position": 2,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425638",
+        "name": {
+          "en": "GIRDHARI LAL"
+        },
+        "party_slug": "cpi-m",
+        "party_abbreviation": "CPI(M)",
+        "votes": 56498,
+        "vote_share": 0.2847710158368532,
+        "position": 3,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425641",
+        "name": {
+          "en": "RAJENDRA MEGHWAL BAPEU"
+        },
+        "party_slug": "bsp-2",
+        "party_abbreviation": "BSP",
+        "votes": 6379,
+        "vote_share": 0.03215254186030101,
+        "position": 4,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425642",
+        "name": {
+          "en": "DR. VIVEK MACHRA"
+        },
+        "party_slug": "rlp-3",
+        "party_abbreviation": "RLP",
+        "votes": 3478,
+        "vote_share": 0.017530418653413846,
+        "position": 5,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425648",
+        "name": {
+          "en": "PREETI SHARMA"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 3242,
+        "vote_share": 0.0163408905331707,
+        "position": 6,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425651",
+        "name": {
+          "en": "SANWATSINGH"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 1444,
+        "vote_share": 0.007278299176402988,
+        "position": 7,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425650",
+        "name": {
+          "en": "MANOJ KUMAR SARSWAT"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 1415,
+        "vote_share": 0.007132128348068025,
+        "position": 8,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425644",
+        "name": {
+          "en": "SHARWANSINGH PUNDALSAR"
+        },
+        "party_slug": "arp-2",
+        "party_abbreviation": "ARP",
+        "votes": 1001,
+        "vote_share": 0.005045413764251655,
+        "position": 9,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425649",
+        "name": {
+          "en": "BHIKHA RAM NAI"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 512,
+        "vote_share": 0.002580671176120727,
+        "position": 10,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425647",
+        "name": {
+          "en": "NARAYAN"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 422,
+        "vote_share": 0.0021270375709432554,
+        "position": 11,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425643",
+        "name": {
+          "en": "ASARAM"
+        },
+        "party_slug": "aasp",
+        "party_abbreviation": "AASP",
+        "votes": 319,
+        "vote_share": 0.0016078791116845936,
+        "position": 12,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425645",
+        "name": {
+          "en": "APRAJIT BAIDA"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 220,
+        "vote_share": 0.001108882145989375,
+        "position": 13,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425646",
+        "name": {
+          "en": "ISHWAR CHAND"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 213,
+        "vote_share": 0.0010735995322533494,
+        "position": 14,
+        "won": false
+      }
+    ],
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state=rajasthan, name=dungargarh, details=47064"
+    }
+  },
+  "year": 2023,
+  "state": "rajasthan"
+}

@@ -1,0 +1,234 @@
+{
+  "type": "constituency",
+  "meta": {
+    "slug": "churu",
+    "house": "vidhan-sabha",
+    "name": {
+      "en": "churu"
+    },
+    "state": "rajasthan",
+    "districts": [
+      "CHURU"
+    ],
+    "category": "GEN",
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state_id=14, name_slug=churu"
+    },
+    "canonical_id": "ac:3400",
+    "canonical_ids": [
+      "ac:3400",
+      "ac:167"
+    ],
+    "aliases": [
+      "Churu",
+      "churu"
+    ],
+    "delimitation_history": [
+      {
+        "delimitation_id": 4,
+        "delimitation_name": "DL4",
+        "year_from": 2008,
+        "year_to": 2015,
+        "name": "Churu",
+        "years": [
+          2008,
+          2013,
+          2018,
+          2023
+        ]
+      },
+      {
+        "delimitation_id": 3,
+        "delimitation_name": "DL3",
+        "year_from": 1973,
+        "year_to": 2007,
+        "name": "Churu",
+        "years": [
+          1977,
+          1980,
+          1985,
+          1990,
+          1993,
+          1998,
+          2003
+        ]
+      }
+    ],
+    "years_in_canonical": [
+      1977,
+      1980,
+      1985,
+      1990,
+      1993,
+      1998,
+      2003,
+      2008,
+      2013,
+      2018,
+      2023
+    ],
+    "predecessor_canonical_ids": [
+      "ac:167"
+    ],
+    "successor_canonical_ids": [
+      "ac:3400"
+    ]
+  },
+  "result": {
+    "constituency_slug": "churu",
+    "house": "vidhan-sabha",
+    "year": 2023,
+    "state": "rajasthan",
+    "polling_date": "2023-11-25",
+    "summary": {
+      "voters_eligible": 513332,
+      "votes_polled": 197530,
+      "turnout": 0.38479970077844355,
+      "nota_votes": 1151,
+      "winner_candidate_slug": "c-ac-425517",
+      "winning_margin": 6874,
+      "winning_margin_share": 0.034799777249025464
+    },
+    "candidates": [
+      {
+        "candidate_slug": "c-ac-425517",
+        "name": {
+          "en": "HARLAL SAHARAN"
+        },
+        "party_slug": "bjp",
+        "party_abbreviation": "BJP",
+        "votes": 99432,
+        "vote_share": 0.5033767022730724,
+        "position": 1,
+        "won": true
+      },
+      {
+        "candidate_slug": "c-ac-425515",
+        "name": {
+          "en": "RAFIQUE MANDELIA"
+        },
+        "party_slug": "inc",
+        "party_abbreviation": "INC",
+        "votes": 92558,
+        "vote_share": 0.46857692502404696,
+        "position": 2,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425516",
+        "name": {
+          "en": "SANJAY KHAN"
+        },
+        "party_slug": "aap",
+        "party_abbreviation": "AAP",
+        "votes": 1418,
+        "vote_share": 0.007178656406621779,
+        "position": 3,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425514",
+        "name": {
+          "en": "DINESH KUMAR"
+        },
+        "party_slug": "rlp-3",
+        "party_abbreviation": "RLP",
+        "votes": 849,
+        "vote_share": 0.0042980813041057055,
+        "position": 4,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425513",
+        "name": {
+          "en": "ASHARAM"
+        },
+        "party_slug": "bsp-2",
+        "party_abbreviation": "BSP",
+        "votes": 764,
+        "vote_share": 0.0038677669214802813,
+        "position": 5,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425518",
+        "name": {
+          "en": "MOHAMMED HUSAIN"
+        },
+        "party_slug": "njmp",
+        "party_abbreviation": "NJMP",
+        "votes": 760,
+        "vote_share": 0.0038475168328861438,
+        "position": 6,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425521",
+        "name": {
+          "en": "RAMSINGH"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 651,
+        "vote_share": 0.0032957019186958944,
+        "position": 7,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425519",
+        "name": {
+          "en": "RAM CHANDRA"
+        },
+        "party_slug": "arp-2",
+        "party_abbreviation": "ARP",
+        "votes": 608,
+        "vote_share": 0.003078013466308915,
+        "position": 8,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425522",
+        "name": {
+          "en": "SAMPAT SINGH"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 253,
+        "vote_share": 0.0012808181035792031,
+        "position": 9,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425520",
+        "name": {
+          "en": "ATMA RAM"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 237,
+        "vote_share": 0.0011998177492026528,
+        "position": 10,
+        "won": false
+      }
+    ],
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state=rajasthan, name=churu, details=47069"
+    }
+  },
+  "year": 2023,
+  "state": "rajasthan"
+}

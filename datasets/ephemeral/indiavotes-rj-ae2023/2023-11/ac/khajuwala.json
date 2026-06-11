@@ -1,0 +1,182 @@
+{
+  "type": "constituency",
+  "meta": {
+    "slug": "khajuwala",
+    "house": "vidhan-sabha",
+    "name": {
+      "en": "khajuwala"
+    },
+    "state": "rajasthan",
+    "districts": [
+      "BIKANER"
+    ],
+    "category": "SC",
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state_id=14, name_slug=khajuwala"
+    },
+    "canonical_id": "ac:3390",
+    "canonical_ids": [
+      "ac:3390"
+    ],
+    "aliases": [
+      "Khajuwala",
+      "Khajuwala ",
+      "khajuwala"
+    ],
+    "delimitation_history": [
+      {
+        "delimitation_id": 4,
+        "delimitation_name": "DL4",
+        "year_from": 2008,
+        "year_to": 2015,
+        "name": "Khajuwala",
+        "years": [
+          2008,
+          2013,
+          2018,
+          2023
+        ]
+      }
+    ],
+    "years_in_canonical": [
+      2008,
+      2013,
+      2018,
+      2023
+    ],
+    "predecessor_canonical_ids": [],
+    "successor_canonical_ids": []
+  },
+  "result": {
+    "constituency_slug": "khajuwala",
+    "house": "vidhan-sabha",
+    "year": 2023,
+    "state": "rajasthan",
+    "polling_date": "2023-11-25",
+    "summary": {
+      "voters_eligible": 473676,
+      "votes_polled": 175289,
+      "turnout": 0.37006096994570126,
+      "nota_votes": 2062,
+      "winner_candidate_slug": "c-ac-425939",
+      "winning_margin": 17374,
+      "winning_margin_share": 0.09911631648306511
+    },
+    "candidates": [
+      {
+        "candidate_slug": "c-ac-425939",
+        "name": {
+          "en": "DR VISHWANATH MEGHWAL"
+        },
+        "party_slug": "bjp",
+        "party_abbreviation": "BJP",
+        "votes": 91276,
+        "vote_share": 0.5207172155697163,
+        "position": 1,
+        "won": true
+      },
+      {
+        "candidate_slug": "c-ac-425936",
+        "name": {
+          "en": "GOVINDRAM MEGHWAL"
+        },
+        "party_slug": "inc",
+        "party_abbreviation": "INC",
+        "votes": 73902,
+        "vote_share": 0.4216008990866512,
+        "position": 2,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425942",
+        "name": {
+          "en": "SITARAM"
+        },
+        "party_slug": "jjp-3",
+        "party_abbreviation": "JJP",
+        "votes": 3953,
+        "vote_share": 0.02255132951868058,
+        "position": 3,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425937",
+        "name": {
+          "en": "JAIPRAKASH"
+        },
+        "party_slug": "rlp-3",
+        "party_abbreviation": "RLP",
+        "votes": 2421,
+        "vote_share": 0.013811477046477531,
+        "position": 4,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425940",
+        "name": {
+          "en": "GHANSHYAM"
+        },
+        "party_slug": "party-unknown-2003",
+        "votes": 1269,
+        "vote_share": 0.007239473098711271,
+        "position": 5,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425938",
+        "name": {
+          "en": "MAYAWATI"
+        },
+        "party_slug": "bsp-2",
+        "party_abbreviation": "BSP",
+        "votes": 1207,
+        "vote_share": 0.006885771497355795,
+        "position": 6,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425941",
+        "name": {
+          "en": "MANGILAL"
+        },
+        "party_slug": "aasp",
+        "party_abbreviation": "AASP",
+        "votes": 775,
+        "vote_share": 0.004421270016943448,
+        "position": 7,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425943",
+        "name": {
+          "en": "PAPURAM"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 486,
+        "vote_share": 0.0027725641654638912,
+        "position": 8,
+        "won": false
+      }
+    ],
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state=rajasthan, name=khajuwala, details=47059"
+    }
+  },
+  "year": 2023,
+  "state": "rajasthan"
+}

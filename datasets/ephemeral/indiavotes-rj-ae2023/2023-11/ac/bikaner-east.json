@@ -1,0 +1,241 @@
+{
+  "type": "constituency",
+  "meta": {
+    "slug": "bikaner-east",
+    "house": "vidhan-sabha",
+    "name": {
+      "en": "bikaner purv"
+    },
+    "state": "rajasthan",
+    "districts": [
+      "BIKANER"
+    ],
+    "category": "GEN",
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state_id=14, name_slug=bikaner-east"
+    },
+    "canonical_id": "ac:3392",
+    "canonical_ids": [
+      "ac:3392"
+    ],
+    "aliases": [
+      "Bikaner East",
+      "bikaner purv"
+    ],
+    "delimitation_history": [
+      {
+        "delimitation_id": 4,
+        "delimitation_name": "DL4",
+        "year_from": 2008,
+        "year_to": 2015,
+        "name": "Bikaner East",
+        "years": [
+          2008,
+          2013,
+          2018,
+          2023
+        ]
+      }
+    ],
+    "years_in_canonical": [
+      2008,
+      2013,
+      2018,
+      2023
+    ],
+    "predecessor_canonical_ids": [],
+    "successor_canonical_ids": []
+  },
+  "result": {
+    "constituency_slug": "bikaner-east",
+    "house": "vidhan-sabha",
+    "year": 2023,
+    "state": "rajasthan",
+    "polling_date": "2023-11-25",
+    "summary": {
+      "voters_eligible": 495392,
+      "votes_polled": 167697,
+      "turnout": 0.33851374265228346,
+      "nota_votes": 1725,
+      "winner_candidate_slug": "c-ac-425428",
+      "winning_margin": 19303,
+      "winning_margin_share": 0.11510641216002672
+    },
+    "candidates": [
+      {
+        "candidate_slug": "c-ac-425428",
+        "name": {
+          "en": "Siddhi Kumari"
+        },
+        "party_slug": "bjp",
+        "party_abbreviation": "BJP",
+        "votes": 89917,
+        "vote_share": 0.5361872901721557,
+        "position": 1,
+        "won": true
+      },
+      {
+        "candidate_slug": "c-ac-425427",
+        "name": {
+          "en": "Yashpal Gehlot"
+        },
+        "party_slug": "inc",
+        "party_abbreviation": "INC",
+        "votes": 70614,
+        "vote_share": 0.421080878012129,
+        "position": 2,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425426",
+        "name": {
+          "en": "Manoj Bishnoi"
+        },
+        "party_slug": "rlp-3",
+        "party_abbreviation": "RLP",
+        "votes": 3696,
+        "vote_share": 0.022039750263868764,
+        "position": 3,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425425",
+        "name": {
+          "en": "Gomati Meghwal"
+        },
+        "party_slug": "bsp-2",
+        "party_abbreviation": "BSP",
+        "votes": 962,
+        "vote_share": 0.005736536729935539,
+        "position": 4,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425436",
+        "name": {
+          "en": "Mohar Singh Yadav"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 689,
+        "vote_share": 0.004108600630899777,
+        "position": 5,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425429",
+        "name": {
+          "en": "Bhagawan Singh"
+        },
+        "party_slug": "party-unknown-2003",
+        "votes": 579,
+        "vote_share": 0.0034526556825703503,
+        "position": 6,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425437",
+        "name": {
+          "en": "Lalchand Meghwal"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 389,
+        "vote_share": 0.0023196598627286116,
+        "position": 7,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425435",
+        "name": {
+          "en": "Meena"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 256,
+        "vote_share": 0.0015265627888393948,
+        "position": 8,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425434",
+        "name": {
+          "en": "Nirmala Kelania"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 155,
+        "vote_share": 0.0009242860635551023,
+        "position": 9,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425430",
+        "name": {
+          "en": "Hardwari Lal Mehra"
+        },
+        "party_slug": "arp-2",
+        "party_abbreviation": "ARP",
+        "votes": 140,
+        "vote_share": 0.0008348390251465441,
+        "position": 10,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425433",
+        "name": {
+          "en": "Tolaram Upadhyay"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 114,
+        "vote_share": 0.0006797974919050431,
+        "position": 11,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425431",
+        "name": {
+          "en": "Kedar Nath Khatri"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 94,
+        "vote_share": 0.0005605347740269653,
+        "position": 12,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425432",
+        "name": {
+          "en": "Tirathram"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 92,
+        "vote_share": 0.0005486085022391575,
+        "position": 13,
+        "won": false
+      }
+    ],
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state=rajasthan, name=bikaner-east, details=47061"
+    }
+  },
+  "year": 2023,
+  "state": "rajasthan"
+}

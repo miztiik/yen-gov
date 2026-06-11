@@ -1,0 +1,247 @@
+{
+  "type": "constituency",
+  "meta": {
+    "slug": "bayana",
+    "house": "vidhan-sabha",
+    "name": {
+      "en": "bayana"
+    },
+    "state": "rajasthan",
+    "districts": [
+      "BHARATPUR"
+    ],
+    "category": "SC",
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state_id=14, name_slug=bayana"
+    },
+    "canonical_id": "ac:3453",
+    "canonical_ids": [
+      "ac:3453",
+      "ac:221"
+    ],
+    "aliases": [
+      "Bayana",
+      "Bayana ",
+      "bayana"
+    ],
+    "delimitation_history": [
+      {
+        "delimitation_id": 4,
+        "delimitation_name": "DL4",
+        "year_from": 2008,
+        "year_to": 2015,
+        "name": "Bayana",
+        "years": [
+          2008,
+          2013,
+          2018,
+          2023
+        ]
+      },
+      {
+        "delimitation_id": 3,
+        "delimitation_name": "DL3",
+        "year_from": 1973,
+        "year_to": 2007,
+        "name": "Bayana",
+        "years": [
+          1977,
+          1980,
+          1985,
+          1990,
+          1993,
+          1998,
+          2003
+        ]
+      }
+    ],
+    "years_in_canonical": [
+      1977,
+      1980,
+      1985,
+      1990,
+      1993,
+      1998,
+      2003,
+      2008,
+      2013,
+      2018,
+      2023
+    ],
+    "predecessor_canonical_ids": [
+      "ac:221"
+    ],
+    "successor_canonical_ids": [
+      "ac:3453"
+    ]
+  },
+  "result": {
+    "constituency_slug": "bayana",
+    "house": "vidhan-sabha",
+    "year": 2023,
+    "state": "rajasthan",
+    "polling_date": "2023-11-25",
+    "summary": {
+      "voters_eligible": 533018,
+      "votes_polled": 191492,
+      "turnout": 0.35925991242322025,
+      "nota_votes": 1003,
+      "winner_candidate_slug": "c-ac-425331",
+      "winning_margin": 40642,
+      "winning_margin_share": 0.21223863137885657
+    },
+    "candidates": [
+      {
+        "candidate_slug": "c-ac-425331",
+        "name": {
+          "en": "Dr. RITU BANAWAT"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 105749,
+        "vote_share": 0.5522371691767802,
+        "position": 1,
+        "won": true
+      },
+      {
+        "candidate_slug": "c-ac-425324",
+        "name": {
+          "en": "AMAR SINGH"
+        },
+        "party_slug": "inc",
+        "party_abbreviation": "INC",
+        "votes": 65107,
+        "vote_share": 0.33999853779792366,
+        "position": 2,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425326",
+        "name": {
+          "en": "BACHCHUSINGH BANSHIWAL"
+        },
+        "party_slug": "bjp",
+        "party_abbreviation": "BJP",
+        "votes": 14398,
+        "vote_share": 0.07518851962484073,
+        "position": 3,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425327",
+        "name": {
+          "en": "MADAN MOHAN"
+        },
+        "party_slug": "bsp-2",
+        "party_abbreviation": "BSP",
+        "votes": 1620,
+        "vote_share": 0.008459883441605916,
+        "position": 4,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425334",
+        "name": {
+          "en": "SUDESH KUMARI"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 1167,
+        "vote_share": 0.006094249368119817,
+        "position": 5,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425332",
+        "name": {
+          "en": "PURUSHOTTAM  BABA"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 689,
+        "vote_share": 0.003598061537818812,
+        "position": 6,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425328",
+        "name": {
+          "en": "MUKESH TIGER"
+        },
+        "party_slug": "aap",
+        "party_abbreviation": "AAP",
+        "votes": 642,
+        "vote_share": 0.003352620475006789,
+        "position": 7,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425330",
+        "name": {
+          "en": "AJAY SINGH"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 634,
+        "vote_share": 0.0033108432728260187,
+        "position": 8,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425333",
+        "name": {
+          "en": "VIJAY SINGH"
+        },
+        "party_slug": "ind",
+        "party_abbreviation": "IND",
+        "votes": 528,
+        "vote_share": 0.002757295343930817,
+        "position": 9,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425325",
+        "name": {
+          "en": "NITU SEJWAL"
+        },
+        "party_slug": "rlp-3",
+        "party_abbreviation": "RLP",
+        "votes": 527,
+        "vote_share": 0.002752073193658221,
+        "position": 10,
+        "won": false
+      },
+      {
+        "candidate_slug": "c-ac-425329",
+        "name": {
+          "en": "MUNNIRAM"
+        },
+        "party_slug": "byjep",
+        "party_abbreviation": "BYJEP",
+        "votes": 431,
+        "vote_share": 0.0022507467674889813,
+        "position": 11,
+        "won": false
+      }
+    ],
+    "_provenance": {
+      "extractor_version": "0.2.0",
+      "source_tables": [
+        "vn_ac_master",
+        "vn_ac_candidate_results",
+        "vn_ac_candidate_master",
+        "vn_party_master"
+      ],
+      "notes": "state=rajasthan, name=bayana, details=47123"
+    }
+  },
+  "year": 2023,
+  "state": "rajasthan"
+}
