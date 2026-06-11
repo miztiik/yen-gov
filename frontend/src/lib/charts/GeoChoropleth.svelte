@@ -111,6 +111,13 @@
     width?: number;
     /** SVG height in px. */
     height?: number;
+    /** Optional citizen-readable unit suffix appended to tooltip
+     *  values + shown above the legend (e.g. "%", "GW", "INR crore").
+     *  When absent, values render bare. The publisher's `short_unit`
+     *  is preferred (e.g. "%" over "percent") for tooltip density.
+     *  IndicatorMeta carries both `unit` and `short_unit`; the caller
+     *  picks. */
+    unit_label?: string;
     /** Renderer mode. Default "fill" preserves F2b.3 byte-identical
      *  behaviour for callers that don't supply the prop. */
     mode?: GeoChoroplethMode;
@@ -134,8 +141,9 @@
     source_owner,
     source_vintage,
     source_url = null,
-    width = 640,
-    height = 480,
+    width = 800,
+    height = 560,
+    unit_label,
     mode = "fill",
     symbol_min_radius_px = 6,
     symbol_max_radius_px = 36,
@@ -150,21 +158,23 @@
   let hover_x = $state<number>(0);
   let hover_y = $state<number>(0);
 
-  // Citizen-readable value formatter. d3-format SI by default.
+  // Citizen-readable value formatter. d3-format SI by default; appends
+  // the unit suffix when supplied so tooltips read e.g. "27.4 %" rather
+  // than a bare "27.4" that requires the citizen to infer the unit
+  // from the title.
   const fmt = $derived.by(() => {
-    if (format_value) return format_value;
-    // Lazy: import format at use-time to keep the typed surface small.
+    const suffix = unit_label ? " " + unit_label : "";
+    if (format_value) {
+      return (v: number): string => format_value(v) + suffix;
+    }
     // Inline closure over d3-format string for callers that don't
     // supply their own formatter.
     return (v: number): string => {
-      // Avoid an import cycle by relying on toLocaleString for the
-      // tooltip default; the legend ticks use d3-format via
-      // color-scale.ts so the look is consistent.
       if (!Number.isFinite(v)) return "-";
       if (Math.abs(v) >= 1000) {
-        return v.toLocaleString(undefined, { maximumFractionDigits: 1 });
+        return v.toLocaleString(undefined, { maximumFractionDigits: 1 }) + suffix;
       }
-      return v.toLocaleString(undefined, { maximumFractionDigits: 2 });
+      return v.toLocaleString(undefined, { maximumFractionDigits: 2 }) + suffix;
     };
   });
 
@@ -357,22 +367,26 @@
   class="geo-choropleth"
   data-component="geo-choropleth"
   data-mode={mode}
-  style="width: {width}px;"
+  style="width: 100%; max-width: {width}px;"
 >
   <div class="geo-choropleth__title">{title}</div>
+  {#if unit_label}
+    <div class="geo-choropleth__unit" data-slot="unit">{unit_label}</div>
+  {/if}
 
   <div
     class="geo-choropleth__canvas"
-    style="position: relative; width: {width}px; height: {height}px;"
+    style="position: relative; width: 100%; aspect-ratio: {width} / {height};"
   >
     {#if load_error}
       <div class="geo-choropleth__error">{load_error}</div>
     {:else if collection && projection_path}
       <svg
         class="geo-choropleth__svg"
-        width={width}
-        height={height}
+        width="100%"
+        height="100%"
         viewBox="0 0 {width} {height}"
+        preserveAspectRatio="xMidYMid meet"
       >
         <defs>
           <!-- C4 diagonal-stripe hatch for no-data regions. Same
@@ -397,8 +411,9 @@
             <path
               d={projection_path.path(f) ?? ""}
               fill={fillForFeature(f)}
-              stroke="var(--line)"
-              stroke-width="0.5"
+              stroke="#475569"
+              stroke-width="0.6"
+              vector-effect="non-scaling-stroke"
               class="geo-choropleth__feature"
               data-feature-key={f.properties?.[feature_key] ?? ""}
               onmouseenter={(e) => onFeatureMouseEnter(f, e)}
@@ -500,6 +515,12 @@
     font-weight: 600;
     color: var(--ink);
   }
+  .geo-choropleth__unit {
+    font-size: 11px;
+    color: var(--ink-muted);
+    margin-top: -8px;
+    margin-bottom: 4px;
+  }
   .geo-choropleth__canvas {
     background: var(--surface);
     border: 1px solid var(--line);
@@ -514,7 +535,7 @@
     transition: stroke-width 120ms ease-out;
   }
   .geo-choropleth__feature:hover {
-    stroke-width: 1.5;
+    stroke-width: 1.8;
     stroke: var(--ink);
   }
   .geo-choropleth__base-outline {
