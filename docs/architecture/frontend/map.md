@@ -1,28 +1,31 @@
 # Map — cartography & geographic overlays
 
-**Last Updated**: 2026-05-30 (revision: D.1.A Lakshadweep inset + chip-strip retirement)
+**Last Updated**: 2026-06-11 (revision: PR-2 of elections-off-MapLibre plan - d3-geo named primary renderer; MapLibre deprecated, retained until PR-6)
 
 The map is the primary visual surface for the Citizen and Strategist personas. It composes multiple layers — administrative boundaries, election outcomes, and (future) socio-economic overlays — over a vector basemap. This page covers the library choice, the boundary data pipeline, layer composition, and how the map integrates with [Psephlab](psephlab.md).
 
-## Library: MapLibre GL JS
+## Library: d3-geo SVG (primary); MapLibre GL JS (deprecated, retained until PR-6)
 
-The frontend uses **[MapLibre GL JS](https://maplibre.org/)** (open-source fork of Mapbox GL JS pre-license-change) for all map rendering.
+The primary renderer for ALL choropleths - welfare AND election (national state-leading-party, AC drill-down, PC atlas) - is **d3-geo SVG**. This is the ruling baked in [TODO/20260603-data-and-charting-platform-reset-plan.md](../../../TODO/20260603-data-and-charting-platform-reset-plan.md) section 14.5 ("d3-geo SVG for ALL static welfare choropleths; maplibre-gl fenced to the election AC pan/zoom explorer only"). The election-side execution lives in [TODO/20260611-elections-off-maplibre-and-map-ux-plan.md](../../../TODO/20260611-elections-off-maplibre-and-map-ux-plan.md): PR-4 ships the national leading-party d3-geo replacement at `frontend/src/lib/charts/IndiaPartyMap.svelte` (to be created by PR-4); PR-5 ships the per-state AC + highlight d3-geo replacement at `frontend/src/lib/charts/StateAcMapD3.svelte` (to be created by PR-5); PR-6 drops `maplibre-gl` + `pmtiles` from `frontend/package.json` and deletes `frontend/src/lib/maplibre/` wholesale.
 
-### Why MapLibre
+**[MapLibre GL JS](https://maplibre.org/) + [PMTiles](https://github.com/protomaps/PMTiles) are DEPRECATED.** They still drive the live election surfaces today via `frontend/src/lib/maplibre/MapChoropleth.svelte` and its `IndiaMap.svelte` / `StateAcMap.svelte` wrappers; PR-1 of the plan above patched their UX inline (`cooperativeGestures: false` + `+ / - / home` button trio) while the d3-geo migration is in flight. No new code should mount the maplibre engine.
 
-- **Multi-layer composition.** Election choropleths, district boundaries, socio-economic bubbles, and labels all stack as independent layers with their own data sources, paint expressions, and event handlers. d3-geo can do this but quickly becomes a custom render loop; MapLibre handles it natively.
-- **Vector tiles + data-driven styling.** Party color and margin opacity become declarative `paint` expressions over a vector source. Animating between scenarios is a single `setPaintProperty()` call that the GPU interpolates.
-- **Pan/zoom/touch out of the box.** Mobile-quality interaction with no custom code.
-- **GitHub Pages compatible.** Fully client-side; works with free OSM raster tiles or self-hosted PMTiles (preferred — see below).
-- **Future-proof for socio-economic overlays.** Heatmaps, bubbles, time-series, and 3D extrusions are all built-in layer types. The user explicitly named this as a v2+ requirement; MapLibre is the only choice in the list that doesn't require a rewrite to support it.
-- **Bundle.** ~250 KB gzipped. Acceptable given it replaces what would otherwise be d3-geo + custom interaction code.
+### Why d3-geo (one paragraph)
 
-### Map library — alternatives considered
+Plain SVG over our existing TopoJSON corpus (`datasets/boundaries/in/{states,districts}/all.topojson`, plus per-state AC GeoJSON), backed by `d3-geo` for projection / path generation and `d3-zoom` for pan / zoom / pinch. No GPU canvas, no WebGL context, no scroll-wheel capture (so no `cooperativeGestures` UX trap - scroll-wheel zooms without Ctrl), trivial to add a `+ / - / home` button trio by driving `svg.transition().call(zoom.scaleBy, ...)` / `svg.transition().call(zoom.transform, d3.zoomIdentity)` on a single shared `d3.zoom()` behaviour, and ~10 KB bundle cost (`d3-geo` + `d3-zoom`) versus ~230 KB gzipped for the maplibre-gl + pmtiles pair. The shape mirrors comparable Indian civic sites: IndiaVotes hand-rolls inline SVG choropleths, and Bharat Pashudhan's `keyStatistics` route also serves an SVG choropleth over a topojson - the d3-geo migration aligns yen-gov with the surface citizens already know.
 
-- **d3-geo with TopoJSON.** Smallest bundle, full SVG control. Rejected because: (a) every overlay (bubbles, heatmaps, labels-with-collision) is hand-rolled; (b) pan/zoom/touch is a pile of custom event handlers; (c) when the user adds socio-economic layers, we would migrate then anyway. Choosing d3-geo for v1 only to migrate later is the worst of both worlds.
-- **Leaflet + GeoJSON.** Lightweight (~40 KB), great ergonomics. Rejected because: (a) raster-only by default; (b) animation of fill colors between scenarios is jerky; (c) no GPU-accelerated styling expressions, so per-AC paint changes touch the DOM.
-- **Mapbox GL JS (proprietary).** Same API as MapLibre but requires a Mapbox access token and traffic-based pricing. Rejected on principle (CLAUDE.md "Open source first") and operationally (we can't ship a public token in a static bundle).
+### Map library - alternatives considered (kept for the record)
+
+- **Leaflet + GeoJSON.** Lighter than MapLibre (~40 KB) but still captures the scroll wheel and needs a raster basemap configured. d3-geo over the topojson we already ship is structurally simpler and matches the d3-geo primitives already used elsewhere in the codebase (`GeoChoropleth.svelte`, `TileCartogram.svelte`).
+- **MapLibre GL JS.** Was chosen for v1 because pan/zoom/touch worked out of the box and multi-layer composition was easier than hand-rolling. The migration was triggered by (i) the ~230 KB gzipped bundle cost relative to plain SVG, (ii) the `cooperativeGestures` UX trap (scroll-wheel was Ctrl-gated, which contradicts the citizen expectation set by every comparable Indian civic site), and (iii) the sub-pixel-feature visibility problem with Lakshadweep at national zoom - the citizen-visibility fix lands in PR-4 of [TODO/20260611-elections-off-maplibre-and-map-ux-plan.md](../../../TODO/20260611-elections-off-maplibre-and-map-ux-plan.md) via a minimum-size dot marker at the path centroid, which the maplibre engine offered no clean way to layer per-feature without spinning up a parallel symbol layer with its own paint expressions.
+- **Mapbox GL JS.** Proprietary; ruled out by [CLAUDE.md](../../../CLAUDE.md) Holy Law #8 ("Open source first") and operationally ruled out because a public Mapbox token cannot be safely shipped in a static bundle.
 - **Deck.gl.** Powerful for large datasets and 3D, but overkill for choropleths and adds React/Lumagl baggage.
+
+## Citizen scroll-zoom UX (post-PR-1, pre-d3-migration)
+
+Until PR-4 + PR-5 of [TODO/20260611-elections-off-maplibre-and-map-ux-plan.md](../../../TODO/20260611-elections-off-maplibre-and-map-ux-plan.md) ship the d3-geo replacement, the live election surfaces still mount MapLibre. PR-1 of that plan flipped `MapChoropleth.svelte`'s `cooperativeGestures: true` to `false` and added an absolutely-positioned `+ / - / home` button trio over the map container. Scroll-wheel zooms without Ctrl; the buttons drive `map.zoomIn()` / `map.zoomOut()` / `map.fitBounds(initialBounds)` respectively. This is the interim citizen-UX fix - it brings MapLibre's runtime behaviour into line with what the d3-geo surfaces will provide structurally.
+
+After PR-4 + PR-5 land, the same UX is built into the SVG renderer via a single shared `d3.zoom()` handler: scroll-wheel and pinch are wired through `zoom.on("zoom", e => g.attr("transform", e.transform))`, and the `+ / - / home` buttons drive `svg.transition().call(zoom.scaleBy, 1.5)` / `svg.transition().call(zoom.scaleBy, 0.667)` / `svg.transition().call(zoom.transform, d3.zoomIdentity)` respectively. No `cooperativeGestures` analogue exists because SVG does not capture the scroll wheel - the citizen does not have to learn a modifier key to zoom.
 
 ## Boundary data pipeline
 
@@ -132,7 +135,7 @@ The first cut of the map components landed under `frontend/src/lib/maplibre/`:
 
 - `sources.ts` — declarative table of boundary sources (one per India-states + per-state AC layers), each with the upstream URL, the property name to join on (`ST_NM` for datameet states, `AC_NO` for HTL AC files), and license attribution. State-name → ECI-code resolution is **not** hand-coded here any more — it derives from the canonical `datasets/taxonomy/entities.parquet` corpus via the [`view-models/states.ts`](../../../frontend/src/lib/view-models/states.ts) loader (T.0e, May 2026). `sources.ts` re-exports `eciFromStateName(name)` as a thin async shim for callers that want the old single-function API; new code should call `loadStates()` directly to get the full `StateRow` shape (which includes `boundary_join_name` — the DataMeet `ST_NM` join key, which diverges from `display_name` for Delhi / Andaman & Nicobar / Jammu & Kashmir).
 - `MapChoropleth.svelte` — generic, library-agnostic to its parents. Takes a `BoundaryEntry`, a `fills` map keyed by the join-property value, optional `opacities` and `tooltips`, and `onSelect`/`onHover` callbacks. Owns map lifecycle and rebuilds `fill-color` / `fill-opacity` paint expressions whenever its props change (Svelte 5 `$effect`).
-- `IndiaMap.svelte` and `StateAcMap.svelte` — thin domain wrappers. `IndiaMap` calls `loadStates()` (see above), then fetches `result.summary.json` for every currently-valid state/UT and colors each by winning party (most seats won, votes as tiebreak). This election theme is no longer the Home default - it survives as the explicit `?theme=election` choice and as one of 21 options in the picker; the Home rotation lives in [Home default theme (day-of-year rotation)](#home-default-theme-day-of-year-rotation) above. `StateAcMap` queries `results.sqlite` via the cached `getDb` for `(ac_eci_no → winner_party_eci_code, party_short, margin_pct)` and colors AC fills by winning party with opacity proportional to margin (clamped to 30 % to keep the legend readable; ties drop to the floor so razor-thin wins visually scream "close").
+- `IndiaMap.svelte` and `StateAcMap.svelte` — thin domain wrappers. `IndiaMap` calls `loadStates()` (see above), then fetches `result.summary.json` for every currently-valid state/UT and colors each by winning party (most seats won, votes as tiebreak). This election theme is no longer the Home default - it survives as the explicit `?theme=election` choice and as one of 21 options in the picker; the Home rotation lives in [Home default theme (day-of-year rotation)](#home-default-theme-day-of-year-rotation) above. `StateAcMap` queries `results.sqlite` via the cached `getDb` for `(ac_eci_no → winner_party_eci_code, party_short, margin_pct)` and colors AC fills by winning party with opacity proportional to margin (clamped to 30 % to keep the legend readable; ties drop to the floor so razor-thin wins visually scream "close"). **DEPRECATED ->** `IndiaMap.svelte` is being replaced by `frontend/src/lib/charts/IndiaPartyMap.svelte` (to be created by PR-4 of [TODO/20260611-elections-off-maplibre-and-map-ux-plan.md](../../../TODO/20260611-elections-off-maplibre-and-map-ux-plan.md)); `StateAcMap.svelte` is being replaced by `frontend/src/lib/charts/StateAcMapD3.svelte` (to be created by PR-5 of the same plan). Both files remain on disk during the transition and PR-6 deletes them with the rest of `frontend/src/lib/maplibre/`.
 
 ### Source resolution: manifest → local snapshot → upstream fallback
 
@@ -161,21 +164,6 @@ The HTL shapefiles (the upstream for state-level AC choropleths) export `AC_NO` 
 ### Constituency drilldown — highlighted-AC mini-map
 
 `StateAcMap.svelte` accepts an optional `highlight_eci_no?: number`. When set, the matched AC paints at full opacity and every other AC drops to `base × 0.18`, and a third line layer (slate-900, 2.5 px) outlines just the focused feature. This drives the per-AC drilldown page's "Location in {state}" section, giving users a "you are here" sense without a separate map component. The highlight filter goes through the same numeric-coercion path as fills/opacities.
-
-### Bundle: static import + manualChunks code-split
-
-MapChoropleth statically imports `maplibre-gl` and `pmtiles`. Earlier attempts at `import("maplibre-gl")` inside `onMount` (the textbook pattern for lazy-loading heavy libs) produced no chunk file at all under vite 6 + `@sveltejs/vite-plugin-svelte` 4 — the dynamic import was silently elided despite the rest of the component compiling correctly. We did not chase the underlying cause; static imports paired with a `manualChunks` directive in `vite.config.ts` give the same end-state (a separate cacheable chunk) without fighting the toolchain.
-
-Chunk sizes after Phase 1d:
-
-| Chunk | Raw | gzipped | When loaded |
-| --- | --- | --- | --- |
-| `index-*.js` (app) | 174 KB | 63 KB | every route |
-| `maplibre-*.js` (maplibre-gl + pmtiles) | 805 KB | 219 KB | first map mount; cached thereafter |
-| `index-*.css` (app + maplibre.css) | 80 KB | 13 KB | every route |
-| `sql-wasm-*.wasm` | 644 KB | 323 KB | first SQL query |
-
-The maplibre chunk loads in parallel with the app chunk on the first route that mounts a map, then stays cached for the rest of the session.
 
 ## Boundary loader (`frontend/src/lib/boundaries.ts`) — Phase 2 of TN-GRANULAR-GEO-PLAN
 
@@ -375,6 +363,8 @@ The bullet's "second line on affected districts in affected years" sub-clause is
 **As of 2026-05-30 (D.1.A)**, every administrative entity — states, UTs including sub-pixel offshore ones (Lakshadweep, Andaman & Nicobar, Dadra & NH and Daman & Diu) — renders on the choropleth at its true geographic location. There is no per-entity polygon extractor, no callout inset, no chip-strip value surface, no leader line, and no feature flag to restore any of those.
 
 User mandate (verbatim, 2026-05-29): *"REMOVE ANY SIDE FIXES FOR LAKSHADWEEP AS DATA TABLE, IF THE MAPS INCLUDE IT, EVEN IF THE CHOROPLETH IS UNVISIBLE LETS JUST KEEP IT IN THE MAP."*
+
+**Citizen-visibility follow-on (PR-4 of [TODO/20260611-elections-off-maplibre-and-map-ux-plan.md](../../../TODO/20260611-elections-off-maplibre-and-map-ux-plan.md)).** The D.1.A retirement preserved the no-side-fix mandate by rendering the Lakshadweep polygon at its true geographic location, but at national zoom on a 1280 px viewport the polygon bbox collapses to sub-pixel - the citizen can see Lakshadweep is on the map (in the legend / tooltip rollups), but cannot easily click it. PR-4's d3-geo `IndiaPartyMap.svelte` (to be created) layers a minimum-size dot marker (`<circle r=7>`) at the path's `geoCentroid()` projected coordinate for every UT whose path bbox is < ~14 px in either dimension, with the SAME fill + tooltip + click handler as the polygon. This is NOT a callout inset, NOT a chip strip, NOT a leader line - the polygon stays at its true location, the dot is a clickable target overlay so the citizen has a hit area when the polygon is sub-pixel. The mandate ("NO side fixes") is preserved: the dot is a marker on the same map at the same projection, not a separate surface.
 
 If a UT's polygon is sub-pixel at the current zoom level, that is the correct citizen experience — the citizen zooms in to see. Downstream surfaces (data tables, CSV exports, ranking lists, tooltip rollups, winner-name panels) are a UI/UX concern owned by Jony + Citizen per [CLAUDE.md](../../../CLAUDE.md) section 0a and are NOT prescribed here; they naturally render one row per entity because they are built from entity-keyed observation rows, and if a value is absent the cell renders ` - ` (the same null-render any state with a data gap gets).
 
