@@ -588,6 +588,16 @@ Full design archive: [ADR-0032 §Context + §Rejected Alternatives](../../refere
 3. **`content_hash` back as nullable** — re-introduces fetched_at-smear one layer up.
 4. **`citation_full` REQUIRED with mandatory templating** — locks the schema to one display convention.
 
+### 5.5 Parties dimension and source-row coupling
+
+Every row in `datasets/data/entities/parties.csv` (the parties dimension that backs `party_id` joins for `*_election_results.csv`, candidacies, summary, and `party_alliances.csv` rows) traces lineage and recognition facts back to a citation row in `source.csv` via the parity-CLI VERIFIED loop. The parties.csv v1.1 schema, the 4-class publisher-string collision taxonomy, the resolver priority, and the 33-case lineage catalogue are documented in:
+
+- [../../concepts/party-identity.md](../../concepts/party-identity.md) - identity model, resolver priority (NOTA -> IND -> ECI code -> alias -> short -> UNK fallback), `is_sentinel` rows, and the Q7 hybrid model for the 2022-2024 ECI-symbol splits (AIADMK / SHS / NCP).
+- [party-lineage.md](party-lineage.md) - the lineage chains (BJS -> JNP -> BJP; JNP -> JD -> JD(U)/JD(S)/RJD/BJD/LJP/SP; DK -> DMK -> AIADMK -> AMMK + AIADMK_OPS; SHS -> SHS_UBT; NCP -> NCP_SP) and the Hans "no backtag" rule that pre-1980 votes stay on `parties.IN.BJS` forever.
+- [../backend/validator.md](../backend/validator.md) - section "Tier C - per-source parity" names the CLI (`parity`, `parity-event`, `parity-pc`) that lifts external publisher rows into the verdict CSVs the curator applies.
+
+The full design rationale + 33-case Hans catalogue + 4-class Gregor taxonomy are distilled from the [electoral-data quality + party-catalogue plan](../../archive/plans/20260610-electoral-data-quality-and-party-catalogue-plan.md) (closed 2026-06-11). The parity CLI is the canonical seam for adding new parties or enriching existing rows; hand-editing `parties.csv` without a verdict.csv backing row is an anti-pattern.
+
 ---
 
 ## 6. Indicator catalogue (D15 + D29)

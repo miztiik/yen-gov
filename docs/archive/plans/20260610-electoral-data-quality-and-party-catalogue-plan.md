@@ -225,26 +225,26 @@ Waves:
 
 ### 2.2 Status Reckoner
 
-| Row | Title | Wave | Status | PR | Effort |
+| Row | Title | Wave | Status | PR | Merge SHA |
 |-----|-------|------|--------|----|----|
-| PR-0 | Schema v1.1: 10 additive cols on parties.csv + sentinel CSV-rows + FK declarations | A | [ ] PENDING (Q1+Q7 signed 2026-06-10) | - | M |
-| PR-1 | Central `party_resolver.py` + delete legacy `eci/party_lookup.py` + Tier-A set-membership | A | [ ] PENDING | - | M |
-| PR-2 | Tier-C parity CLI + shape-A schema + `backend/yen_gov/canonical/recon/` namespace | B | [ ] PENDING | - | L |
-| PR-3 | Find + delete Path B; regen TN-2026 + corpus-wide empty-party_id sweep | B | [ ] PENDING | - | M |
-| PR-W-1 | TCPD-PoliticalPartiesIndia_1962_2021 parity + parties.csv enrichment | B | [ ] PENDING (Q1 signed 2026-06-10) | - | L |
-| PR-W-2 | ECI registered-list parity + `eci_codes` + `recognition_scope` enrichment | B | [ ] PENDING (Q1 signed 2026-06-10) | - | L |
-| PR-W-3 | Wikipedia List of political parties in India + per-party infobox enrichment | B | [ ] PENDING (Q1 signed 2026-06-10) | - | L |
-| PR-E-R | electoral.csv.reservation (GEN/SC/ST) backfill: AC from boundaries_sot + PC from ECI Statement 33 CSVs already on disk | B | [ ] PENDING | - | M |
-| PR-S-TN-AE2026 | TN 2026 AE parity kickoff oracle (AIADMK fix verifiable here) + AC reservation parity | C | [ ] PENDING | - | M |
-| PR-PC-LS2024 | LS-2024 (parliament) all-states parity sweep | C | [ ] PENDING (Q6 signed 2026-06-10) | - | L |
-| PR-S-MH-AE2024 | Maharashtra AE 2024 parity (SHS-Shinde + NCP-Ajit oracle) | D | [ ] PENDING (Q7 signed 2026-06-10) | - | M |
-| PR-S-KA-AE2023 | Karnataka AE 2023 parity | D | [ ] PENDING | - | S |
-| PR-S-MP-AE2023 | Madhya Pradesh AE 2023 parity | D | [ ] PENDING | - | S |
-| PR-S-WB-AE2021 | West Bengal AE 2021 parity (TMC + Left alliance complexity) | D | [ ] PENDING (Q6 signed 2026-06-10) | - | M |
-| PR-PC-LS2019 | LS-2019 (parliament) all-states parity sweep | D | [ ] PENDING | - | M |
-| PR-Z | Closure + distill durable findings into docs/ + git mv to archive | E | [ ] PENDING | - | S |
+| PR-0 | Schema v1.1: 10 additive cols on parties.csv + sentinel CSV-rows + FK declarations | A | [x] DONE | #899 | 9df75919 |
+| PR-1 | Central `party_resolver.py` + delete legacy `eci/party_lookup.py` + Tier-A set-membership | A | [x] DONE | #901 | ada00e2d |
+| PR-2 | Tier-C parity CLI + shape-A schema + `backend/yen_gov/canonical/recon/` namespace | B | [x] DONE | #904 | 37c217a7 |
+| PR-3 | Find + delete Path B; regen TN-2026 + corpus-wide empty-party_id sweep | B | [x] DONE | #906 | 4d4e31ea |
+| PR-W-1 | TCPD-PoliticalPartiesIndia_1962_2021 parity + parties.csv enrichment | B | [x] DONE | #909 | e076d139 |
+| PR-W-2 | ECI registered-list parity + `eci_codes` + `recognition_scope` enrichment | B | [x] DONE | #912 | 4de371ff |
+| PR-W-3 | Wikipedia List of political parties in India + per-party infobox enrichment | B | [x] DONE | #914 | ee5c6371 |
+| PR-E-R | electoral.csv.reservation (GEN/SC/ST) backfill: AC from boundaries_sot + PC from ECI Statement 33 CSVs already on disk | B | [x] DONE | #907 | a1bb1db2 |
+| PR-S-TN-AE2026 | TN 2026 AE parity kickoff oracle (AIADMK fix verifiable here) + AC reservation parity | C | [x] DONE | #917 | 98fe8e19 |
+| PR-PC-LS2024 | LS-2024 (parliament) all-states parity sweep | C | [x] DONE | #916 | 0800bfbb |
+| PR-S-MH-AE2024 | Maharashtra AE 2024 parity (SHS-Shinde + NCP-Ajit oracle) | D | [x] DONE | #921 | 936033f1 |
+| PR-S-KA-AE2023 | Karnataka AE 2023 parity | D | [x] DONE | #920 | 04d106b1 |
+| PR-S-MP-AE2023 | Madhya Pradesh AE 2023 parity | D | [~] COLLAPSED-WITH-RECEIPT | n/a | n/a |
+| PR-S-WB-AE2021 | West Bengal AE 2021 parity (TMC + Left alliance complexity) | D | [x] DONE | #927 | 678a5cbf |
+| PR-PC-LS2019 | LS-2019 (parliament) all-states parity sweep | D | [x] DONE | #928 | 821fc4e3 |
+| PR-Z | Closure + distill durable findings into docs/ + git mv to archive | E | [x] DONE | (this PR) | (post-merge) |
 
-Total: 16 PRs across 5 waves (PR-E-R added 2026-06-10 per Scope-change ledger row SCL-01).
+Total: 16 PRs across 5 waves (PR-E-R added 2026-06-10 per Scope-change ledger row SCL-01). 15 shipped + 1 collapsed-with-receipt. **Plan closed 2026-06-11**; see the "Plan complete" stanza at the end of this file.
 
 Effort key: S = ~1 subagent dispatch (small diff, single-day cycle); M = single subagent dispatch with non-trivial scope; L = single subagent dispatch with verdict.csv review iteration (may need 2-3 dispatches if curator decisions surface).
 
@@ -870,3 +870,57 @@ These surface during execution but DO NOT block any PR row here. File as separat
 ---
 
 End of plan.
+
+---
+
+## Plan complete
+
+Closed 2026-06-11. All 16 in-scope rows resolved: 15 shipped, 1 collapsed-with-receipt. Closure PR-Z merged via this commit.
+
+### Per-row receipt
+
+| Row | PR | Merge SHA | Distillation target |
+|-----|----|-----------|----------------------|
+| PR-0 | #899 | `9df75919` | parties.csv v1.1 schema -> [docs/concepts/party-identity.md](../../concepts/party-identity.md) section 5 |
+| PR-1 | #901 | `ada00e2d` | central `party_resolver.py` location + resolver priority -> [docs/concepts/party-identity.md](../../concepts/party-identity.md) section 3 |
+| PR-2 | #904 | `37c217a7` | Tier-C parity CLI architecture -> [docs/architecture/backend/validator.md](../../architecture/backend/validator.md) section "Tier C - per-source parity" |
+| PR-3 | #906 | `4d4e31ea` | empty-`party_id` ban + no-silent-demotion rule -> [docs/concepts/party-identity.md](../../concepts/party-identity.md) section 2 (class 4) |
+| PR-E-R | #907 | `a1bb1db2` | `electoral.csv.reservation` backfill from `boundaries_sot` + ECI Statement 33; no new doctrine (additive backfill); audit trail in PR body |
+| PR-W-1 | #909 | `e076d139` | TCPD-PoliticalPartiesIndia parity adapter + lineage enrichments -> [docs/architecture/data/party-lineage.md](../../architecture/data/party-lineage.md) |
+| PR-W-2 | #912 | `4de371ff` | ECI registered-list enrichment (`eci_codes`, `recognition_scope`) -> [docs/concepts/party-identity.md](../../concepts/party-identity.md) section 5 |
+| PR-W-3 | #914 | `ee5c6371` | Wikipedia-parities enrichment (`brand_colour`, `name_native_script`, `wikipedia`) -> [docs/concepts/party-identity.md](../../concepts/party-identity.md) section 5 |
+| PR-S-TN-AE2026 | #917 | `98fe8e19` | TN 2026 AIADMK oracle verified; per-event parity adapter pattern -> [docs/architecture/backend/validator.md](../../architecture/backend/validator.md) section "Tier C / parity-event sub-command" |
+| PR-PC-LS2024 | #916 | `0800bfbb` | per-PC parity adapter pattern -> [docs/architecture/backend/validator.md](../../architecture/backend/validator.md) section "Tier C / parity-pc sub-command" |
+| PR-S-MH-AE2024 | #921 | `936033f1` | Q7 option-c hybrid model verified on the SHS / NCP 2022-2024 splits -> [docs/concepts/party-identity.md](../../concepts/party-identity.md) section 6 (Design rationale) |
+| PR-S-KA-AE2023 | #920 | `04d106b1` | per-state parity adapter pattern (KA 2023) -> reuses Tier-C sub-section; audit trail in PR body |
+| PR-S-MP-AE2023 | n/a | n/a | **COLLAPSED-WITH-RECEIPT**: the yen-gov Madhya Pradesh AE Nov 2023 ingest corpus is genuinely absent on `main` at closure time (Nov 2023 cohort partially absent: only KA + Meghalaya + Nagaland + Rajasthan + Tripura present on disk; MP + CG missing). Per plan section 4 rule 9 ("No-op rows carry a receipt"): the row's parity-validation work is logically conditional on a separate ingest plan-doc that Hans + Max authority (CLAUDE.md section 0a, data shape) must author. Receipt: zero `candidacies.csv` rows exist for `state=madhya-pradesh/election=AcGenNov2023`; the parity adapter has no rows to compare against. Disposition: file a separate ingest plan-doc once the MP 2023 corpus reaches `datasets/elections/assembly/state=madhya-pradesh/election=AcGenNov2023/`; THAT plan re-issues this row's brief verbatim. Out of scope for the parity-validation campaign. |
+| PR-S-WB-AE2021 | #927 | `678a5cbf` | WB 2021 AITC / Sanyukta Morcha parity verified; alliance-curation backlog signal pattern -> [docs/architecture/backend/validator.md](../../architecture/backend/validator.md) section "Tier C / parity-event sub-command" (alliance null surface) |
+| PR-PC-LS2019 | #928 | `821fc4e3` | LS-2019 per-PC parity verified against bhukyavenkatamahesh + TCPD; reuses PR-PC-LS2024 adapter; audit trail in PR body |
+| PR-Z | (this PR) | (post-merge) | docs/concepts/party-identity.md (NEW), docs/architecture/data/party-lineage.md (NEW), docs/architecture/backend/validator.md (extended Tier-C section), docs/architecture/data/canonical-store.md (section 5.5 cross-links), /memories/repo/yen-gov-party-resolver.md (NEW split-off subpage from the architecture cheatsheet) |
+
+### Citizen-facing outcomes
+
+- Every `party_id` reference in every `candidacies.csv` / `summary.csv` / `*_election_results.csv` row across the corpus FK-resolves against `datasets/data/entities/parties.csv` (Tier-A `test_party_id_fk_closure.py` strict; Tier-B `python -m yen_gov validate --root .` includes the closure check).
+- Empty-`party_id` rows are FORBIDDEN across the corpus (the TN-2026 AIADMK class of bug cannot reoccur).
+- The 3 sentinel rows (`parties.IN.UNK`, `parties.IN.IND`, `parties.IN.NOTA`) are first-class in `parties.csv`; the citizen UI's `party_short_raw` fallback chain works end-to-end.
+- The 6 known 2024 recognition flips (AAP / CPI / TMC / BRS / NCP / SHS) are reflected on `parties.csv.recognition_scope` per PR-W-2.
+- The Q7 option-c hybrid (continuous parent id for ECI-favoured side + new id for breakaway) is applied for the AIADMK / SHS / NCP 2022-2024 splits.
+- `electoral.csv.reservation` is populated for 4113 of 4113 AC rows (100%) + 543 of 543 PC rows (100%); previous empty-string default is gone.
+
+### Plan-doc-stays-as-audit-ledger note
+
+This plan-doc is now archived at `docs/archive/plans/20260610-electoral-data-quality-and-party-catalogue-plan.md`. Per [docs/how-to/distill-a-plan.md](../../how-to/distill-a-plan.md) and `docs/archive/plans/README.md`, archived plan-docs are frozen historical artifacts: do not edit further. New work on related concerns starts a new plan-doc.
+
+The 33-case Hans lineage catalogue and the 4-class Gregor collision taxonomy that drove the plan's design are now in:
+
+- [docs/concepts/party-identity.md](../../concepts/party-identity.md) - identity model + 4-class collision taxonomy + resolver priority + Q7 hybrid rationale.
+- [docs/architecture/data/party-lineage.md](../../architecture/data/party-lineage.md) - lineage chains (BJS / JNP / JD / DK / DMK / AIADMK / SHS / NCP) + the "no backtag" Rosling rule.
+- [docs/architecture/backend/validator.md](../../architecture/backend/validator.md) - Tier-C parity CLI (`parity`, `parity-event`, `parity-pc` sub-commands) + Fowler's machine-decidable VERIFIED rule.
+- [docs/architecture/data/canonical-store.md](../../architecture/data/canonical-store.md) section 5.5 - cross-link spine pointing at the three above from the canonical-store sources schema section.
+
+Forward-pointing follow-ups out of scope for THIS plan but flagged for the next:
+- PR-S-MP-AE2023 (MP AE Nov 2023 corpus ingest, then parity sweep).
+- Curator backfill of `party_alliances.csv` for ~700 historical events (Wave 0 / Hans Q6 priority order; ~50 events shipped under PR-PC-LS2024 + PR-S-WB-AE2021).
+- v1.2 schema bump for `recognition_history` JSON-blob on `parties.csv` (Appendix B item).
+- Frontend "alliance not yet curated" badge on the elections surface (Appendix B; Jony + frontend team).
+- Citizen-UI break-annotation banner for charts that cross party split / merge / rename dates (Appendix B; frontend work).
