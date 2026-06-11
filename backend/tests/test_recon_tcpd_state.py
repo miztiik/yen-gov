@@ -14,7 +14,10 @@ Covers:
     events like AcGenMay2026), the adapter returns an empty list and
     the CLI continues with the remaining sources per the brief.
   - Data-integrity guard: multiple ``Position=1`` rows for the same
-    (state, year, constituency_no) raise ValueError.
+    (state, year, constituency_no) are TCPD bypoll-conflation per the
+    PR-S-WB-AE2021 finding (2026-06-11) - keep first-seen row
+    (original polling-cycle winner), skip subsequent rows, log a
+    stderr warning naming the conflated AC count.
   - Vintage validation: adapter rejects any vintage value other than
     the TCPD compilation cutoff (TCPD_VINTAGE).
   - Resolver dispatch via TCPD's short / alias labels (the typical
@@ -270,14 +273,27 @@ def test_adapter_empty_oracle_for_post_cutoff_year(tmp_path: Path) -> None:
     assert out == []
 
 
-def test_adapter_raises_on_duplicate_position_one(tmp_path: Path) -> None:
+def test_adapter_keeps_first_position_one_on_bypoll_conflation(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    """TCPD bypoll-conflation: two Position=1 rows for the same AC =
+    original polling-cycle winner FIRST, bypoll winner SECOND. The
+    adapter keeps the first-seen row and logs a warning to stderr.
+
+    Verified at scale on WB 2021 (PR-S-WB-AE2021 finding 2026-06-11):
+    5 ACs (#7 DINHATA, #86 SANTIPUR, #109 KHARDAHA, #127 GOSABA, #159
+    BHABANIPUR) have bypoll re-elections within the 2021 cycle. The
+    parity oracle compares against yen-gov's original-cycle results,
+    so the first-seen row is the right one to keep.
+    """
     _write_parties_csv(tmp_path, [
         {"party_id": "parties.IN.DMK", "short": "DMK",
          "full": "Dravida Munnetra Kazhagam", "aliases": "DMK"},
     ])
     _write_tcpd_ae_csv(tmp_path, [
-        # TWO Position=1 rows for the same (state, year, AC) - data-
-        # integrity violation upstream.
+        # TWO Position=1 rows for the same (state, year, AC) =
+        # original FIRST (X1, 100k), bypoll SECOND (X2, 90k).
         {"State_Name": "Tamil_Nadu", "Year": "2021",
          "Constituency_No": "1", "Position": "1",
          "Candidate": "X1", "Party": "DMK",
@@ -287,10 +303,18 @@ def test_adapter_raises_on_duplicate_position_one(tmp_path: Path) -> None:
          "Candidate": "X2", "Party": "DMK",
          "Votes": "90000", "Constituency_Name": "AC1"},
     ])
-    with pytest.raises(ValueError, match="multiple Position=1 rows"):
-        list(ADAPTER(root=tmp_path, vintage=TCPD_VINTAGE,
-                     state="tamil-nadu", event="AcGenApr2021",
-                     kind="assembly"))
+    out = list(ADAPTER(root=tmp_path, vintage=TCPD_VINTAGE,
+                       state="tamil-nadu", event="AcGenApr2021",
+                       kind="assembly"))
+    # First-seen (X1, original cycle winner) is kept.
+    assert len(out) == 1
+    assert out[0].constituency_no == 1
+    assert out[0].winner_candidate_name == "X1"
+    assert out[0].winner_votes == 100000
+    # Stderr warning surfaces the conflation count for the operator.
+    captured = capsys.readouterr()
+    assert "tcpd-state adapter [warning]" in captured.err
+    assert "multiple Position=1 rows" in captured.err
 
 
 def test_adapter_preserves_unk_when_resolver_misses(tmp_path: Path) -> None:
