@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./census-code-2011-sidecar.schema.json",
+  "title": "Census 2011 district code sidecar lookup",
+  "description": "Authoritative LGD-district -> Census-2011 district-code lookup map produced by tools/boundaries/enrich_census_code_2011.py. Read at boundary-emit time to merge `census_code_2011` into each district feature's properties so Census-2011-keyed datasets join without per-consumer crosswalk code. Lives at datasets/boundaries/in/districts/census_code_2011.json. Keys are stringified LGD district codes (matching the `dist_lgd` feature property on datasets/boundaries/in/districts/all.{geojson,topojson}). Values are the Census 2011 numeric district codes (per the Office of the Registrar General & Census Commissioner's 2011 district directory) or null where the LGD district has no Census 2011 equivalent (post-2011 bifurcations like Telangana 2014, Ladakh 2019, Tamil Nadu Mayiladuthurai 2020). Source topology: data-analytics.github.io/Choropleth_India_Map/map.json (641 features carrying `censuscode` + `st_cen_cd` + `st_nm` + `district` properties; itself a Census 2011 derivative).",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-06-11",
+      "description": "Initial schema. PR-3 of TODO/20260611-elections-off-maplibre-and-map-ux-plan.md. Authority: Hans + Max (user pre-approved). The new `census_code_2011` boundary feature property closes the citizen-facing gap where Census-2011-keyed indicators (Census demographics, SECC-2011, NFHS-4 etc.) had to carry their own LGD<->Census-2011 crosswalk."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "$schema_version", "by_dist_lgd"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "by_dist_lgd": {
+      "type": "object",
+      "description": "Map keyed by stringified LGD district code -> Census 2011 numeric district code (integer 1-640) or null. Every LGD district in datasets/boundaries/in/districts/all.geojson MUST appear as a key; null is the documented sentinel for `Census 2011 had no equivalent district`. Keys are stringified to match JSON-object semantics (integer keys are not valid JSON). The key `0` is reserved for the LGD sentinel that the upstream uses to ship POK (Pakistan-administered Kashmir) districts which were never in India's Census enumeration; that entry carries null.",
+      "minProperties": 1,
+      "patternProperties": {
+        "^(0|[1-9][0-9]*)$": {
+          "type": ["integer", "null"],
+          "minimum": 1,
+          "maximum": 9999
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

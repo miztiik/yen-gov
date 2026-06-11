@@ -1,0 +1,1172 @@
+{
+  "$schema": "./census-code-2011-coverage.schema.json",
+  "$schema_version": "1.0",
+  "source": {
+    "url": "https://data-analytics.github.io/Choropleth_India_Map/map.json",
+    "fetched_at": "2026-06-11T06:13:24Z",
+    "content_sha256": "6d8838c38d9b9ecbc9282fb2d93cbc2c79dfe7aa6a3aa7284ba1cad2e83fc88f",
+    "feature_count": 641
+  },
+  "matched_count": 641,
+  "total": 785,
+  "coverage_pct": 81.7,
+  "matched_by_method": {
+    "exact": 539,
+    "root_strip": 1,
+    "dtcode11_fallback": 101
+  },
+  "unmatched_districts": [
+    {
+      "state": "ANDHRA PRADESH",
+      "district": "Alluri Sitharama Raju",
+      "dist_lgd": 745,
+      "year_stat": "2022",
+      "dtcode11": "805",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ANDHRA PRADESH",
+      "district": "Anakapalli",
+      "dist_lgd": 744,
+      "year_stat": "2022",
+      "dtcode11": "804",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ANDHRA PRADESH",
+      "district": "Annamayya",
+      "dist_lgd": 753,
+      "year_stat": "2022",
+      "dtcode11": "813",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ANDHRA PRADESH",
+      "district": "Bapatla",
+      "dist_lgd": 750,
+      "year_stat": "2022",
+      "dtcode11": "810",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ANDHRA PRADESH",
+      "district": "Eluru",
+      "dist_lgd": 748,
+      "year_stat": "2022",
+      "dtcode11": "808",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ANDHRA PRADESH",
+      "district": "Kakinada",
+      "dist_lgd": 746,
+      "year_stat": "2022",
+      "dtcode11": "806",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ANDHRA PRADESH",
+      "district": "Konaseema",
+      "dist_lgd": 747,
+      "year_stat": "2022",
+      "dtcode11": "807",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ANDHRA PRADESH",
+      "district": "Nandyal",
+      "dist_lgd": 755,
+      "year_stat": "2022",
+      "dtcode11": "815",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ANDHRA PRADESH",
+      "district": "Ntr",
+      "dist_lgd": 749,
+      "year_stat": "2022",
+      "dtcode11": "809",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ANDHRA PRADESH",
+      "district": "Palnadu",
+      "dist_lgd": 751,
+      "year_stat": "2022",
+      "dtcode11": "811",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ANDHRA PRADESH",
+      "district": "Parvathipuram Manyam",
+      "dist_lgd": 743,
+      "year_stat": "2022",
+      "dtcode11": "803",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ANDHRA PRADESH",
+      "district": "Sri Sathya Sai",
+      "dist_lgd": 754,
+      "year_stat": "2022",
+      "dtcode11": "814",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ANDHRA PRADESH",
+      "district": "Tirupati",
+      "dist_lgd": 752,
+      "year_stat": "2022",
+      "dtcode11": "812",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ARUNACHAL PRADESH",
+      "district": "Itanagar capital complex",
+      "dist_lgd": 766,
+      "year_stat": "2022",
+      "dtcode11": "826",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ARUNACHAL PRADESH",
+      "district": "Kamle",
+      "dist_lgd": 718,
+      "year_stat": "2018",
+      "dtcode11": "778",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ARUNACHAL PRADESH",
+      "district": "Kra Daadi",
+      "dist_lgd": 677,
+      "year_stat": "2015_c",
+      "dtcode11": "763",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ARUNACHAL PRADESH",
+      "district": "Leparada",
+      "dist_lgd": 724,
+      "year_stat": "2018",
+      "dtcode11": "784",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ARUNACHAL PRADESH",
+      "district": "Longding",
+      "dist_lgd": 666,
+      "year_stat": "2012_c",
+      "dtcode11": "761",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ARUNACHAL PRADESH",
+      "district": "Lower Siang",
+      "dist_lgd": 719,
+      "year_stat": "2018",
+      "dtcode11": "779",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ARUNACHAL PRADESH",
+      "district": "Namsai",
+      "dist_lgd": 678,
+      "year_stat": "2014_c",
+      "dtcode11": "762",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ARUNACHAL PRADESH",
+      "district": "Pakke Kessang",
+      "dist_lgd": 723,
+      "year_stat": "2018",
+      "dtcode11": "783",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ARUNACHAL PRADESH",
+      "district": "Shi Yomi",
+      "dist_lgd": 725,
+      "year_stat": "2018",
+      "dtcode11": "785",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ARUNACHAL PRADESH",
+      "district": "Siang",
+      "dist_lgd": 679,
+      "year_stat": "2015_c",
+      "dtcode11": "764",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ASSAM",
+      "district": "Bajali",
+      "dist_lgd": 739,
+      "year_stat": "2022",
+      "dtcode11": "799",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ASSAM",
+      "district": "Biswanath",
+      "dist_lgd": 705,
+      "year_stat": "2015_c",
+      "dtcode11": "756",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ASSAM",
+      "district": "Charaideo",
+      "dist_lgd": 708,
+      "year_stat": "2015_c",
+      "dtcode11": "755",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ASSAM",
+      "district": "Hojai",
+      "dist_lgd": 709,
+      "year_stat": "2015_c",
+      "dtcode11": "757",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ASSAM",
+      "district": "Majuli",
+      "dist_lgd": 706,
+      "year_stat": "2016_c",
+      "dtcode11": "760",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ASSAM",
+      "district": "South Salmara Mancachar",
+      "dist_lgd": 707,
+      "year_stat": "2015_c",
+      "dtcode11": "758",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ASSAM",
+      "district": "Tamulpur",
+      "dist_lgd": 756,
+      "year_stat": "2022",
+      "dtcode11": "816",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "ASSAM",
+      "district": "West Karbi Anglong",
+      "dist_lgd": 710,
+      "year_stat": "2016_c",
+      "dtcode11": "759",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "CHHATTISGARH",
+      "district": "Balod",
+      "dist_lgd": 646,
+      "year_stat": "update2014",
+      "dtcode11": "719",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "CHHATTISGARH",
+      "district": "Baloda Bazar",
+      "dist_lgd": 644,
+      "year_stat": "update2014",
+      "dtcode11": "721",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "CHHATTISGARH",
+      "district": "Balrampur",
+      "dist_lgd": 649,
+      "year_stat": "2011_c",
+      "dtcode11": "716",
+      "reason": "no_match"
+    },
+    {
+      "state": "CHHATTISGARH",
+      "district": "Bemetara",
+      "dist_lgd": 650,
+      "year_stat": "update2014",
+      "dtcode11": "718",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "CHHATTISGARH",
+      "district": "Gariyaband",
+      "dist_lgd": 645,
+      "year_stat": "update2014",
+      "dtcode11": "720",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "CHHATTISGARH",
+      "district": "Gaurella Pendra Marwahi",
+      "dist_lgd": 734,
+      "year_stat": "2020",
+      "dtcode11": "791",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "CHHATTISGARH",
+      "district": "Khairgarh Chhuikhadan Gandai",
+      "dist_lgd": 759,
+      "year_stat": "2022",
+      "dtcode11": "821",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "CHHATTISGARH",
+      "district": "Kondagaon",
+      "dist_lgd": 643,
+      "year_stat": "update2014",
+      "dtcode11": "722",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "CHHATTISGARH",
+      "district": "Manendragarh Chirimiri Bharatpur",
+      "dist_lgd": 760,
+      "year_stat": "2022",
+      "dtcode11": "822",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "CHHATTISGARH",
+      "district": "Mohla Manpur Ambagarh Chouki",
+      "dist_lgd": 761,
+      "year_stat": "2022",
+      "dtcode11": "823",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "CHHATTISGARH",
+      "district": "Mungeli",
+      "dist_lgd": 647,
+      "year_stat": "update2014",
+      "dtcode11": "717",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "CHHATTISGARH",
+      "district": "Sakti",
+      "dist_lgd": 762,
+      "year_stat": "2022",
+      "dtcode11": "824",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "CHHATTISGARH",
+      "district": "Sarangarh Bilaigarh",
+      "dist_lgd": 763,
+      "year_stat": "2022",
+      "dtcode11": "825",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "CHHATTISGARH",
+      "district": "Sukma",
+      "dist_lgd": 642,
+      "year_stat": "update2014",
+      "dtcode11": "723",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "CHHATTISGARH",
+      "district": "Surajpur",
+      "dist_lgd": 648,
+      "year_stat": "update2014",
+      "dtcode11": "715",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "DELHI",
+      "district": "Shahdara",
+      "dist_lgd": 671,
+      "year_stat": "update2014",
+      "dtcode11": "702",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "GUJARAT",
+      "district": "Arvalli",
+      "dist_lgd": 672,
+      "year_stat": "update2014",
+      "dtcode11": "725",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "GUJARAT",
+      "district": "Botad",
+      "dist_lgd": 676,
+      "year_stat": "update2014",
+      "dtcode11": "726",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "GUJARAT",
+      "district": "Chhotaudepur",
+      "dist_lgd": 668,
+      "year_stat": "update2014",
+      "dtcode11": "731",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "GUJARAT",
+      "district": "Devbhumi Dwarka",
+      "dist_lgd": 674,
+      "year_stat": "update2014",
+      "dtcode11": "728",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "GUJARAT",
+      "district": "Gir Somnath",
+      "dist_lgd": 675,
+      "year_stat": "update2014",
+      "dtcode11": "729",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "GUJARAT",
+      "district": "Mahisagar",
+      "dist_lgd": 669,
+      "year_stat": "update2014",
+      "dtcode11": "730",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "GUJARAT",
+      "district": "Morbi",
+      "dist_lgd": 673,
+      "year_stat": "update2014",
+      "dtcode11": "727",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "HARYANA",
+      "district": "Charki Dadri",
+      "dist_lgd": 701,
+      "year_stat": "2016_c",
+      "dtcode11": "765",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "JAMMU & KASHMIR",
+      "district": "Mirpur",
+      "dist_lgd": 0,
+      "year_stat": "2011_c",
+      "dtcode11": "991",
+      "reason": "out_of_country"
+    },
+    {
+      "state": "JAMMU & KASHMIR",
+      "district": "Muzaffarabad",
+      "dist_lgd": 0,
+      "year_stat": "2011_c",
+      "dtcode11": "992",
+      "reason": "out_of_country"
+    },
+    {
+      "state": "KARNATAKA",
+      "district": "Vijayanagar",
+      "dist_lgd": 738,
+      "year_stat": "2022",
+      "dtcode11": "798",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MADHYA PRADESH",
+      "district": "Agar Malwa",
+      "dist_lgd": 667,
+      "year_stat": "update2014",
+      "dtcode11": "724",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MADHYA PRADESH",
+      "district": "Niwari",
+      "dist_lgd": 722,
+      "year_stat": "2018",
+      "dtcode11": "782",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MAHARASHTRA",
+      "district": "Palghar",
+      "dist_lgd": 665,
+      "year_stat": "update2014",
+      "dtcode11": "732",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MANIPUR",
+      "district": "Jiribam",
+      "dist_lgd": 713,
+      "year_stat": "2016_c",
+      "dtcode11": "766",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MANIPUR",
+      "district": "Kakching",
+      "dist_lgd": 711,
+      "year_stat": "2016_c",
+      "dtcode11": "768",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MANIPUR",
+      "district": "Kamjong",
+      "dist_lgd": 717,
+      "year_stat": "2016_c",
+      "dtcode11": "770",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MANIPUR",
+      "district": "Kangpokpi",
+      "dist_lgd": 712,
+      "year_stat": "2016_c",
+      "dtcode11": "767",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MANIPUR",
+      "district": "Noney",
+      "dist_lgd": 714,
+      "year_stat": "2016_c",
+      "dtcode11": "771",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MANIPUR",
+      "district": "Pherzawl",
+      "dist_lgd": 715,
+      "year_stat": "2016_c",
+      "dtcode11": "772",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MANIPUR",
+      "district": "Tengnoupal",
+      "dist_lgd": 716,
+      "year_stat": "2016_c",
+      "dtcode11": "769",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MEGHALAYA",
+      "district": "East Jaintia Hills",
+      "dist_lgd": 657,
+      "year_stat": "update2014",
+      "dtcode11": "714",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MEGHALAYA",
+      "district": "Eastern West Khasi Hills",
+      "dist_lgd": 740,
+      "year_stat": "2022",
+      "dtcode11": "800",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MEGHALAYA",
+      "district": "North Garo Hills",
+      "dist_lgd": 656,
+      "year_stat": "update2014",
+      "dtcode11": "712",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MEGHALAYA",
+      "district": "South West Garo Hills",
+      "dist_lgd": 663,
+      "year_stat": "update2014",
+      "dtcode11": "711",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MEGHALAYA",
+      "district": "South West Khasi Hills",
+      "dist_lgd": 658,
+      "year_stat": "update2014",
+      "dtcode11": "713",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MIZORAM",
+      "district": "Hnahthial",
+      "dist_lgd": 726,
+      "year_stat": "201920",
+      "dtcode11": "793",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MIZORAM",
+      "district": "Khawzawl",
+      "dist_lgd": 728,
+      "year_stat": "201920",
+      "dtcode11": "795",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "MIZORAM",
+      "district": "Saitual",
+      "dist_lgd": 727,
+      "year_stat": "201920",
+      "dtcode11": "794",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "NAGALAND",
+      "district": "Chumoukedima",
+      "dist_lgd": 758,
+      "year_stat": "2022",
+      "dtcode11": "818",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "NAGALAND",
+      "district": "Niuland",
+      "dist_lgd": 764,
+      "year_stat": "2023",
+      "dtcode11": "819",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "NAGALAND",
+      "district": "Noklak",
+      "dist_lgd": 736,
+      "year_stat": "2022",
+      "dtcode11": "792",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "NAGALAND",
+      "district": "Shamator",
+      "dist_lgd": 765,
+      "year_stat": "2023",
+      "dtcode11": "820",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "NAGALAND",
+      "district": "Tseminyu",
+      "dist_lgd": 757,
+      "year_stat": "2022",
+      "dtcode11": "817",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "PUNJAB",
+      "district": "Fazilka",
+      "dist_lgd": 651,
+      "year_stat": "update2014",
+      "dtcode11": "701",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "PUNJAB",
+      "district": "Malerkotla",
+      "dist_lgd": 737,
+      "year_stat": "2022",
+      "dtcode11": "797",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "PUNJAB",
+      "district": "Pathankot",
+      "dist_lgd": 662,
+      "year_stat": "2011_c",
+      "dtcode11": "773",
+      "reason": "no_match"
+    },
+    {
+      "state": "RAJASTHAN",
+      "district": "Anoopgarh",
+      "dist_lgd": 776,
+      "year_stat": "2023",
+      "dtcode11": "836",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "RAJASTHAN",
+      "district": "Balotra",
+      "dist_lgd": 775,
+      "year_stat": "2023",
+      "dtcode11": "835",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "RAJASTHAN",
+      "district": "Beawar",
+      "dist_lgd": 774,
+      "year_stat": "2023",
+      "dtcode11": "834",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "RAJASTHAN",
+      "district": "Deeg",
+      "dist_lgd": 767,
+      "year_stat": "2023",
+      "dtcode11": "827",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "RAJASTHAN",
+      "district": "Didwana Kuchaman",
+      "dist_lgd": 768,
+      "year_stat": "2023",
+      "dtcode11": "828",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "RAJASTHAN",
+      "district": "Dudu",
+      "dist_lgd": 769,
+      "year_stat": "2023",
+      "dtcode11": "829",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "RAJASTHAN",
+      "district": "Gangapurcity",
+      "dist_lgd": 771,
+      "year_stat": "2023",
+      "dtcode11": "831",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "RAJASTHAN",
+      "district": "Jaipur Gramin",
+      "dist_lgd": 783,
+      "year_stat": "2023",
+      "dtcode11": "843",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "RAJASTHAN",
+      "district": "Jodhpur Gramin",
+      "dist_lgd": 778,
+      "year_stat": "2023",
+      "dtcode11": "838",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "RAJASTHAN",
+      "district": "Kekri",
+      "dist_lgd": 781,
+      "year_stat": "2023",
+      "dtcode11": "841",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "RAJASTHAN",
+      "district": "Khairthal-Tijara",
+      "dist_lgd": 770,
+      "year_stat": "2023",
+      "dtcode11": "830",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "RAJASTHAN",
+      "district": "Kotputli-Behror",
+      "dist_lgd": 782,
+      "year_stat": "2023",
+      "dtcode11": "842",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "RAJASTHAN",
+      "district": "Neem Ka Thana",
+      "dist_lgd": 773,
+      "year_stat": "2023",
+      "dtcode11": "833",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "RAJASTHAN",
+      "district": "Phalodi",
+      "dist_lgd": 772,
+      "year_stat": "2023",
+      "dtcode11": "832",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "RAJASTHAN",
+      "district": "Salumbar",
+      "dist_lgd": 777,
+      "year_stat": "2023",
+      "dtcode11": "837",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "RAJASTHAN",
+      "district": "Sanchor",
+      "dist_lgd": 779,
+      "year_stat": "2023",
+      "dtcode11": "839",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "RAJASTHAN",
+      "district": "Shahpura",
+      "dist_lgd": 780,
+      "year_stat": "2023",
+      "dtcode11": "840",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "SIKKIM",
+      "district": "Pakyong",
+      "dist_lgd": 741,
+      "year_stat": "2022",
+      "dtcode11": "801",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "SIKKIM",
+      "district": "Soreng",
+      "dist_lgd": 742,
+      "year_stat": "2022",
+      "dtcode11": "802",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TAMIL NADU",
+      "district": "Chengalpattu",
+      "dist_lgd": 730,
+      "year_stat": "201920",
+      "dtcode11": "787",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TAMIL NADU",
+      "district": "Kallakurichi",
+      "dist_lgd": 729,
+      "year_stat": "201920",
+      "dtcode11": "789",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TAMIL NADU",
+      "district": "Mayiladuthurai",
+      "dist_lgd": 735,
+      "year_stat": "2022",
+      "dtcode11": "796",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TAMIL NADU",
+      "district": "Ranipet",
+      "dist_lgd": 731,
+      "year_stat": "201920",
+      "dtcode11": "786",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TAMIL NADU",
+      "district": "Tenkasi",
+      "dist_lgd": 733,
+      "year_stat": "201920",
+      "dtcode11": "790",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TAMIL NADU",
+      "district": "Tirupathur",
+      "dist_lgd": 732,
+      "year_stat": "201920",
+      "dtcode11": "788",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Bhadradri Kothagudem",
+      "dist_lgd": 690,
+      "year_stat": "2016_c",
+      "dtcode11": "753",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Hanumakonda",
+      "dist_lgd": 686,
+      "year_stat": "2016_c",
+      "dtcode11": "749",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Jagitial",
+      "dist_lgd": 681,
+      "year_stat": "2016_c",
+      "dtcode11": "737",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Jangoan",
+      "dist_lgd": 689,
+      "year_stat": "2016_c",
+      "dtcode11": "752",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Jayashankar Bhupalapally",
+      "dist_lgd": 687,
+      "year_stat": "2016_c",
+      "dtcode11": "750",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Jogulamba Gadwal",
+      "dist_lgd": 695,
+      "year_stat": "2016_c",
+      "dtcode11": "744",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Kamareddy",
+      "dist_lgd": 685,
+      "year_stat": "2016_c",
+      "dtcode11": "736",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Kumuram Bheem Asifabad",
+      "dist_lgd": 699,
+      "year_stat": "2016_c",
+      "dtcode11": "733",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Mahabubabad",
+      "dist_lgd": 688,
+      "year_stat": "2016_c",
+      "dtcode11": "751",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Mancherial",
+      "dist_lgd": 684,
+      "year_stat": "2016_c",
+      "dtcode11": "735",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Medchal Malkajgiri",
+      "dist_lgd": 700,
+      "year_stat": "2016_c",
+      "dtcode11": "742",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Mulugu",
+      "dist_lgd": 720,
+      "year_stat": "2019",
+      "dtcode11": "780",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Nagarkurnool",
+      "dist_lgd": 694,
+      "year_stat": "2016_c",
+      "dtcode11": "746",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Narayanpet",
+      "dist_lgd": 721,
+      "year_stat": "2019",
+      "dtcode11": "781",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Nirmal",
+      "dist_lgd": 680,
+      "year_stat": "2016_c",
+      "dtcode11": "734",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Peddapalli",
+      "dist_lgd": 682,
+      "year_stat": "2016_c",
+      "dtcode11": "738",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Rajanna Sircilla",
+      "dist_lgd": 683,
+      "year_stat": "2016_c",
+      "dtcode11": "739",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Sangareddy",
+      "dist_lgd": 691,
+      "year_stat": "2016_c",
+      "dtcode11": "740",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Siddipet",
+      "dist_lgd": 692,
+      "year_stat": "2016_c",
+      "dtcode11": "741",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Suryapet",
+      "dist_lgd": 696,
+      "year_stat": "2016_c",
+      "dtcode11": "748",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Vikarabad",
+      "dist_lgd": 698,
+      "year_stat": "2016_c",
+      "dtcode11": "743",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Wanaparthy",
+      "dist_lgd": 693,
+      "year_stat": "2016_c",
+      "dtcode11": "745",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TELANGANA",
+      "district": "Yadadri Bhuvanagiri",
+      "dist_lgd": 697,
+      "year_stat": "2016_c",
+      "dtcode11": "747",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TRIPURA",
+      "district": "Gomati",
+      "dist_lgd": 654,
+      "year_stat": "update2014",
+      "dtcode11": "709",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TRIPURA",
+      "district": "Khowai",
+      "dist_lgd": 652,
+      "year_stat": "update2014",
+      "dtcode11": "708",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TRIPURA",
+      "district": "Sepahijala",
+      "dist_lgd": 653,
+      "year_stat": "update2014",
+      "dtcode11": "707",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "TRIPURA",
+      "district": "Unakoti",
+      "dist_lgd": 655,
+      "year_stat": "update2014",
+      "dtcode11": "710",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "UTTAR PRADESH",
+      "district": "Amethi",
+      "dist_lgd": 640,
+      "year_stat": "update2014",
+      "dtcode11": "706",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "UTTAR PRADESH",
+      "district": "Hapur",
+      "dist_lgd": 661,
+      "year_stat": "update2014",
+      "dtcode11": "705",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "UTTAR PRADESH",
+      "district": "Sambhal",
+      "dist_lgd": 659,
+      "year_stat": "2011_c",
+      "dtcode11": "754",
+      "reason": "no_match"
+    },
+    {
+      "state": "UTTAR PRADESH",
+      "district": "Shamli",
+      "dist_lgd": 660,
+      "year_stat": "update2014",
+      "dtcode11": "704",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "WEST BENGAL",
+      "district": "Alipurduar",
+      "dist_lgd": 664,
+      "year_stat": "2014_c",
+      "dtcode11": "774",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "WEST BENGAL",
+      "district": "Jhargram",
+      "dist_lgd": 703,
+      "year_stat": "2017_c",
+      "dtcode11": "776",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "WEST BENGAL",
+      "district": "Kalimpong",
+      "dist_lgd": 702,
+      "year_stat": "2017_c",
+      "dtcode11": "775",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    },
+    {
+      "state": "WEST BENGAL",
+      "district": "Paschim Bardhaman",
+      "dist_lgd": 704,
+      "year_stat": "2017_c",
+      "dtcode11": "777",
+      "reason": "post_2011_bifurcation_no_parent_map"
+    }
+  ]
+}
