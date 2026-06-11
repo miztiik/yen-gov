@@ -77,29 +77,21 @@ describe("exportFmtValue", () => {
 });
 
 describe("pickPrimarySource", () => {
-  it("returns the gold source over the silver one", () => {
+  it("returns the first source in model.sources", () => {
     const picked = pickPrimarySource(model);
-    expect(picked?.confidence_tier).toBe("gold");
-    expect(picked?.producer).toBe("Central Electricity Authority");
+    expect(picked?.label).toContain("CEA");
   });
-  it("falls back to silver when no gold is present", () => {
-    const silverOnly: StackedTrendV2Source[] = [
+  it("falls back to a non-CEA source when CEA is absent", () => {
+    const onlyIndiastat: StackedTrendV2Source[] = [
       {
-        source_id: "src-aaaaaaaaaaaa",
-        producer: "Indiastat",
-        title: "Republished CEA Monthly",
-        vintage: "2024",
-        license: "unknown-public",
-        confidence_tier: "silver",
-        is_issuing_authority: false,
-        verification_method: "archived-snapshot",
-        url_main: "https://www.indiastat.com",
-        citation_full: null,
-        notes: null,
+        label: "Indiastat Power",
+        vintage_summary: "2024",
+        url: "https://www.indiastat.com",
+        count: 1,
       },
     ];
-    const picked = pickPrimarySource({ ...model, sources: silverOnly });
-    expect(picked?.confidence_tier).toBe("silver");
+    const picked = pickPrimarySource({ ...model, sources: onlyIndiastat });
+    expect(picked?.label).toContain("Indiastat");
   });
   it("returns null when no sources are present", () => {
     expect(pickPrimarySource({ ...model, sources: [] })).toBeNull();
@@ -107,55 +99,25 @@ describe("pickPrimarySource", () => {
 });
 
 describe("composeCitation", () => {
-  it("uses citation_full verbatim when present", () => {
+  it("composes '<label> (<vintage_summary>)' for a pill with a vintage", () => {
     const s: StackedTrendV2Source = {
-      source_id: "src-aaaaaaaaaaaa",
-      producer: "X",
-      title: "Y",
-      vintage: "Z",
-      license: "internal",
-      confidence_tier: "gold",
-      is_issuing_authority: false,
-      verification_method: "editorial",
-      url_main: null,
-      citation_full: "Custom citation goes here.",
-      notes: null,
-    };
-    expect(composeCitation(s)).toBe("Custom citation goes here.");
-  });
-  it("composes 'producer, title (vintage)' when no override", () => {
-    const s: StackedTrendV2Source = {
-      source_id: "src-bbbbbbbbbbbb",
-      producer: "Central Electricity Authority",
-      title: "Executive Summary",
-      vintage: "Monthly 2024-25",
-      license: "OGL-IN-1.0",
-      confidence_tier: "gold",
-      is_issuing_authority: true,
-      verification_method: "live-fetch",
-      url_main: null,
-      citation_full: null,
-      notes: null,
+      label: "CEA Executive Summary",
+      vintage_summary: "Monthly 2024-25",
+      url: null,
+      count: 1,
     };
     expect(composeCitation(s)).toBe(
-      "Central Electricity Authority, Executive Summary (Monthly 2024-25)",
+      "CEA Executive Summary (Monthly 2024-25)",
     );
   });
-  it("omits the vintage trailer when vintage is empty", () => {
+  it("omits the vintage trailer when vintage_summary is empty", () => {
     const s: StackedTrendV2Source = {
-      source_id: "src-cccccccccccc",
-      producer: "Producer",
-      title: "Title",
-      vintage: "",
-      license: "internal",
-      confidence_tier: "gold",
-      is_issuing_authority: false,
-      verification_method: "editorial",
-      url_main: null,
-      citation_full: null,
-      notes: null,
+      label: "Custom",
+      vintage_summary: "",
+      url: null,
+      count: 1,
     };
-    expect(composeCitation(s)).toBe("Producer, Title");
+    expect(composeCitation(s)).toBe("Custom");
   });
 });
 
@@ -221,10 +183,10 @@ describe("buildExportSvg", () => {
     expect(svg).toContain(">2024-25<");
   });
 
-  it("renders the gold-tier source in the footer", () => {
-    expect(svg).toContain("Central Electricity Authority");
-    expect(svg).toContain("Executive Summary on Power Sector");
-    expect(svg).not.toContain("Indiastat"); // silver, not picked
+  it("renders the first source pill in the footer", () => {
+    expect(svg).toContain("CEA Executive Summary");
+    expect(svg).toContain("Monthly 2024-25");
+    expect(svg).not.toContain("Indiastat"); // second pill, not picked
   });
 
   it("emits at least one <rect> per present segment", () => {

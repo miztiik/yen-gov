@@ -15,7 +15,7 @@
 //     experiment definition → (c) mount + Playwright. Each ships
 //     independently reviewable.
 //
-//   - R-24 / R-28. The footer slot delegates to SourceListV2 via
+//   - R-24 / R-28. The footer slot delegates to the new SourceList (\/sources) via
 //     ChartShell; no fetch telemetry, no parquet path literal.
 //
 //   - "Tail handling: when the upstream adapter emits an `others`

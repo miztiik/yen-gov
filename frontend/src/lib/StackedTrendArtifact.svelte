@@ -10,18 +10,18 @@
   //
   // Indicator artifacts carry their own inline `sources` array
   // (Array<{ url, fetched_at, name?, authority? }>), NOT a `source_id` FK
-  // into taxonomy.sources. So we cannot JOIN the canonical v2.0 citation
+  // into taxonomy.sources. So we cannot JOIN the canonical citation
   // ledger here the way `ElectionSeatsTrend.svelte` does (PR-15 / D10).
-  // We migrate the RENDERER only and pass `sources_v2 = []` to the
-  // migrate adapter. The legacy `<SourceList sources={v1_model.sources} />`
-  // continues to render the citizen-visible "Sources (N)" disclosure
-  // from the indicator's inline sources — same parity strategy as D10.
-  // True v2.0 ledger wiring for indicator artifacts is deferred to the
-  // Phase 1.4 SourceListV2 caller-migration track (separate plan).
+  // We migrate the RENDERER only and pass `sources = []` to the
+  // migrate adapter. The legacy inline source list is rendered through
+  // the new SourceList component (from $lib/sources) after projecting
+  // the IndicatorSource shape into a SourceRow via a small inline
+  // helper. True v2.0 ledger wiring for indicator artifacts is deferred
+  // to a future track.
 
   import { loadIndicator } from "./canonical/indicator-from-canonical";
   import StackedTrendV2 from "./charts/StackedTrendV2.svelte";
-  import SourceList from "./SourceList.svelte";
+  import { SourceList, dedupeToPills, type SourceRow } from "./sources";
   import {
     indicatorToStackedTrend,
     type IndicatorDoc,
@@ -126,15 +126,30 @@
     });
   });
 
-  // v2 model — bridges the v1 adapter through the migration shim. Indicator
+  // v2 model - bridges the v1 adapter through the migration shim. Indicator
   // artifacts do NOT carry source_id FKs into taxonomy.sources (unlike the
-  // election view-model in D10), so we pass an empty v2 ledger array. The
-  // citizen-visible "Sources (N)" disclosure stays on the page via the
-  // legacy <SourceList> render below.
+  // election view-model in D10), so we pass an empty pills array. The
+  // citizen-visible "Sources" disclosure stays on the page via the
+  // SourceList from $lib/sources below, fed by a per-render projection
+  // of the inline IndicatorSource[] into PublisherPills.
   const v2_model = $derived.by<StackedTrendV2Model | null>(() => {
     if (!v1_model) return null;
     return stackedTrendModelToV2(v1_model, []);
   });
+
+  const pills = $derived(
+    v1_model
+      ? dedupeToPills(
+          v1_model.sources.map<SourceRow>((s) => ({
+            source_id: "src-legacy-" + (s.url ?? "").slice(0, 12),
+            producer: s.authority ?? s.name ?? "Unknown",
+            title: s.name ?? "",
+            vintage: s.fetched_at ?? "",
+            url: s.url ?? null,
+          })),
+        )
+      : [],
+  );
 </script>
 
 {#if load_error}
@@ -146,15 +161,15 @@
 {:else if v2_model && v1_model}
   <StackedTrendV2 model={v2_model} />
   <!--
-    Provenance footer — preserved verbatim from v1 (StackedTrend.svelte
-    rendered <SourceList> inline). Indicator artifact carries inline
+    Provenance footer - publisher pills via the new SourceList from
+    $lib/sources. Indicator artifact carries inline
     `sources: Array<{url, fetched_at, name?, authority?}>` per the
-    v1 IndicatorDoc contract; we keep rendering it through the legacy
-    SourceList until the Phase 1.4 SourceListV2 caller-migration track
-    wires the v2.0 ledger reader for indicator artifacts.
+    v1 IndicatorDoc contract; we project them into the canonical pill
+    shape inline above. Future track migrates the IndicatorDoc contract
+    itself to the canonical source.csv.
   -->
-  {#if v1_model.sources.length > 0}
-    <SourceList sources={v1_model.sources} />
+  {#if pills.length > 0}
+    <SourceList {pills} />
   {/if}
 {:else}
   <p class="text-sm text-slate-500">No data to render.</p>

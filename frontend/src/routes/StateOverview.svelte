@@ -63,7 +63,7 @@
   } from "../lib/experiments/bucket";
   import MarginHistogram from "../lib/MarginHistogram.svelte";
   import RacesBoard from "../lib/RacesBoard.svelte";
-  import SourceListV2 from "../lib/SourceListV2.svelte";
+  import { SourceList } from "../lib/sources";
   import StateAcMapD3 from "../lib/charts/StateAcMapD3.svelte";
   import IndicatorCard from "../lib/IndicatorCard.svelte";
   import ElectionSeatsTrend from "../lib/ElectionSeatsTrend.svelte";
@@ -256,7 +256,7 @@
           party_totals: [],
           ac_winners: [],
           sources: [],
-          sources_v2: [],
+          pills: [],
         },
         reason: "not_published",
       };
@@ -829,13 +829,13 @@
                  StateOverview.svelte. Phase 1.4 task 4 footer actions
                  (`copy_link`, `view_data`) are attached when loaded.
                  F2a.5.2: renderer flipped from CompositionBar.svelte to
-                 CategoryBar mode="diverging"; view-model + sources +
+                 CategoryBar mode="diverging"; view-model + pills +
                  actions wiring is unchanged. -->
             <div class="mt-5 pt-5 border-t border-slate-200/60">
               <CategoryBar
                 mode="diverging"
                 view_model={composition_bar_loaded.model}
-                sources={composition_bar_loaded.sources_v2}
+                pills={composition_bar_loaded.pills}
                 actions={composition_bar_actions}
               />
             </div>
@@ -865,7 +865,7 @@
             </div>
           </div>
           <div data-testid="state-summary-sources">
-            <SourceListV2 sources={summary.sources_v2} />
+            <SourceList pills={summary.pills} />
           </div>
         </div>
       </div>

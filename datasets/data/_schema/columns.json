@@ -133,7 +133,7 @@
       "notes": "Provenance ledger (citation grain, one row per producer/title/vintage). Exactly five columns per plan section 7 (O3). source_id is derived (B2a builder), never hand-authored (CLAUDE.md Holy Law #9, section 12). Spec: csv-column-contract.md section 3.2.",
       "columns": [
         { "name": "source_id", "dtype": "string", "nullable": false, "pk": true },
-        { "name": "owner", "dtype": "string", "nullable": true },
+        { "name": "producer", "dtype": "string", "nullable": true },
         { "name": "title", "dtype": "string", "nullable": true },
         { "name": "vintage", "dtype": "string", "nullable": true },
         { "name": "url", "dtype": "string", "nullable": true }

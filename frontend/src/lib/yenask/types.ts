@@ -8,7 +8,7 @@
 // renderer pass between each other but that never come from a model and
 // never get persisted to disk.
 
-import type { SourceV2Row } from "../source-list-v2";
+import type { PublisherPill } from "../sources";
 import type { Manifest } from "../duckdb";
 
 // -----------------------------------------------------------------------------
@@ -125,16 +125,15 @@ export interface DuckDBPlan {
   /** Main SELECT — must reference the views registered above. */
   readonly main_sql: string;
   /**
-   * Provenance SELECT — joined separately so the source_strip is built
+   * Provenance SELECT - joined separately so the source_strip is built
    * deterministically even when the main SQL aggregates. The result MUST
-   * be a list of `SourceV2Row`-shaped rows (the executor casts them to that
-   * shape after running the query).
+   * be a list of 5-col `SourceRow`-shaped rows from `taxonomy.sources`
+   * (the executor casts them to that shape after running the query, then
+   * dedupes to publisher pills via `dedupeToPills` at the boundary).
    *
    * Per D-06: when the provenance SELECT returns zero rows, the executor
-   * synthesises a single placeholder row tagged
-   * `confidence_tier: "bronze"` + `verification_method: "editorial"` +
-   * `producer: "yen-gov"` + a "source unattested" notes string, AND sets
-   * `provenance_status: "missing"` on the AnswerViewModel.
+   * synthesises a single placeholder pill labelled "Source unattested"
+   * AND sets `provenance_status: "missing"` on the AnswerViewModel.
    */
   readonly provenance_sql: string;
   /**
@@ -162,27 +161,19 @@ export type ColumnFormat = "integer" | "percentage" | "thousands" | "text";
 // -----------------------------------------------------------------------------
 
 /**
- * Synthesises a placeholder source row when the provenance JOIN returns
- * zero rows. Citizen sees a visible "source unattested" notice.
+ * Synthesises a placeholder publisher pill when the provenance JOIN
+ * returns zero rows. Citizen sees a visible "source unattested" notice
+ * via the renderer (which checks `provenance_status: "missing"` and
+ * surfaces a banner separately).
  *
- * Mirrors the canonical SourceV2Row shape (lib/source-list-v2/types.ts) so
- * `SourceListV2.svelte` can render it without special-casing.
+ * Mirrors the canonical PublisherPill shape (lib/sources/types.ts) so
+ * the new SourceList component can render it without special-casing.
  */
-export function synthesiseUnattestedSource(): SourceV2Row {
+export function synthesiseUnattestedPill(): PublisherPill {
   return {
-    source_id: "src-unattested-",
-    producer: "yen-gov",
-    title: "Source unattested",
-    vintage: "",
-    license: "internal",
-    confidence_tier: "bronze",
-    is_issuing_authority: false,
-    verification_method: "editorial",
-    url_main: null,
-    citation_full: null,
-    notes:
-      "The compiler could not resolve a citation for this answer. " +
-      "Treat the values as provisional. This is a data-corruption " +
-      "indicator, not a citizen-facing source.",
+    label: "Source unattested",
+    vintage_summary: "",
+    url: null,
+    count: 1,
   };
 }

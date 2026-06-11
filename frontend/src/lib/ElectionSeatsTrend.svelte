@@ -18,7 +18,7 @@
   // and D13 deletes v1.
 
   import StackedTrendV2 from "./charts/StackedTrendV2.svelte";
-  import SourceListV2 from "./SourceListV2.svelte";
+  import { SourceList } from "./sources";
   import {
     electionsToStackedTrend,
     type ResultSummaryDoc,
@@ -120,7 +120,7 @@
   const v2_model = $derived.by<StackedTrendV2Model | null>(() => {
     if (!v1_model) return null;
     if (result.status !== "ok" && result.status !== "partial") return null;
-    return stackedTrendModelToV2(v1_model, result.data.sources_v2);
+    return stackedTrendModelToV2(v1_model, result.data.pills);
   });
 </script>
 
@@ -157,16 +157,12 @@
     temporal_domain_kind="month"
   />
   <!--
-    Provenance footer — SourceListV2 reads the full v2.0 `taxonomy.sources`
-    ledger row (producer / title / vintage / license / confidence_tier /
-    verification_method / url_main / citation_full / notes) per ADR-0032.
-    The view-model's `sources_v2` field is `StackedTrendV2Source[]`, which
-    is structurally identical to the `SourceV2Row` shape SourceListV2
-    consumes (the zod schema in `stacked-trend-v2/types.ts` documents this
-    deliberate mirror; the contract test `sources-v2-shape.test.ts`
-    enforces both sides stay in sync). Phase 1.4 step C of the chart-plan.
+    Provenance footer - publisher pills via the new SourceList from
+    $lib/sources. One pill per (producer x series_family) via
+    dedupeToPills in the view-model. Post sources-simplification PR-1
+    (2026-06-11) the legacy 11-col render surface retired.
   -->
-  {#if (result.status === "ok" || result.status === "partial") && result.data.sources_v2.length > 0}
-    <SourceListV2 sources={result.data.sources_v2} />
+  {#if (result.status === "ok" || result.status === "partial") && result.data.pills.length > 0}
+    <SourceList pills={result.data.pills} />
   {/if}
 {/if}

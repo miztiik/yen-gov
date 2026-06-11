@@ -35,7 +35,8 @@
 //  - **Provenance always present**. The footer line cites the
 //    highest-confidence source (`gold` > `silver` > `bronze`) via the
 //    same `producer | title (vintage)` template the on-screen
-//    SourceListV2 uses. Holy Law #9 — no anonymous data ships, including
+//    on-screen citizen footer uses (now driven by the new `SourceList`
+//    in `$lib/sources`). Holy Law #9 — no anonymous data ships, including
 //    on a downloaded image.
 //
 // CLAUDE.md §0 (a11y descoped): no `<title>` / `<desc>` / `role` on the
@@ -146,43 +147,27 @@ export function exportFmtValue(v: number, model: StackedTrendV2Model): string {
 }
 
 /**
- * Pick the highest-confidence source for the footer citation. Order:
- * gold → silver → bronze; within a tier, the FIRST source in the model
- * wins so adapters keep deterministic control over which row gets the
- * footer slot. Returns `null` when `model.sources` is empty — the
- * caller renders a fallback line.
+ * Pick a primary source for the footer citation. Returns the first
+ * source in `model.sources` (the adapter's preferred ordering is
+ * preserved) or `null` when empty. The historical confidence-tier
+ * ordering was retired with the v2 11-col schema (sources-simplification
+ * PR-1, 2026-06-11); adapters now choose the order they emit.
  */
 export function pickPrimarySource(
   model: StackedTrendV2Model,
 ): StackedTrendV2Source | null {
-  const rank: Record<StackedTrendV2Source["confidence_tier"], number> = {
-    gold: 0,
-    silver: 1,
-    bronze: 2,
-  };
-  let best: StackedTrendV2Source | null = null;
-  let bestRank = Infinity;
-  for (const s of model.sources) {
-    const r = rank[s.confidence_tier];
-    if (r < bestRank) {
-      best = s;
-      bestRank = r;
-    }
-  }
-  return best;
+  return model.sources[0] ?? null;
 }
 
 /**
- * Compose the citation line for the export footer. Uses
- * `source.citation_full` verbatim when the adapter set it (override),
- * otherwise composes `"producer, title (vintage)"` — same template the
- * on-screen SourceListV2 uses. Holy Law #9: provenance is mandatory,
- * even on an exported image.
+ * Compose the citation line for the export footer. Renders
+ * `"<label> (<vintage_summary>)"` from the deduped publisher pill.
+ * Vintage parenthetical is omitted when empty. Holy Law #9: provenance
+ * is mandatory, even on an exported image.
  */
 export function composeCitation(source: StackedTrendV2Source): string {
-  if (source.citation_full) return source.citation_full;
-  const trail = source.vintage ? ` (${source.vintage})` : "";
-  return `${source.producer}, ${source.title}${trail}`;
+  const trail = source.vintage_summary ? ` (${source.vintage_summary})` : "";
+  return `${source.label}${trail}`;
 }
 
 /**

@@ -23,7 +23,7 @@ export type {
   ChartShellActionSpec,
   ChartShellHonestyBanner,
   ChartShellHonestyKind,
-  SourceV2Row,
+  PublisherPill,
 } from "./types";
 
 export type { ChartShellState } from "./state";

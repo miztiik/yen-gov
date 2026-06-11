@@ -32,8 +32,8 @@
   import { loadSemanticCatalogue } from "../lib/yenask/semantic-catalogue";
   import { compileIntent } from "../lib/yenask/compile-intent";
   import { executePlan } from "../lib/yenask/execute-plan";
-  import SourceListV2 from "../lib/SourceListV2.svelte";
-  import type { SourceV2Row } from "../lib/source-list-v2";
+  import { SourceList } from "../lib/sources";
+  import type { PublisherPill } from "../lib/sources";
   import {
     DEFAULT_MODEL_ID,
     getModelById,
@@ -913,7 +913,7 @@
                       {/if}
 
                       <div class="rounded border border-neutral-200 p-2" data-testid="yenask-source-strip">
-                        <SourceListV2 sources={a.source_strip as readonly SourceV2Row[]} />
+                        <SourceList pills={a.source_strip as readonly PublisherPill[]} />
                       </div>
 
                       <!--

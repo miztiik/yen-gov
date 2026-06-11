@@ -22,8 +22,8 @@ The `SourceRow` type in [types.ts](./types.ts) mirrors the 5-col shape
 exactly. The 6 v2.0 fields (`license`, `confidence_tier`,
 `is_issuing_authority`, `verification_method`, `citation_full`, `notes`)
 are retired per `citation-ledger-5col`; the matching v2 component
-`SourceListV2.svelte` + `source-list-v2/` package are deleted in
-PR-1 of the sources simplification plan.
+the prior v2 render surface + 11-col helper package were deleted
+in PR-1 of the sources simplification plan (2026-06-11).
 
 ## The render shape
 
@@ -78,9 +78,9 @@ Invented acronyms break recognition.
 
 ## Migration notes
 
-PR-0 (2026-06-11) ships this package DARK - no caller imports yet. PR-1
-(see plan-doc) migrates the 6 live SourceListV2 callers + the 1 live
-v1 SourceList caller to consume `SourceList` from this package. The
-view-models update their output type from `SourceV2Row[]` (11-col) to
-`PublisherPill[]` (deduped). After PR-1, the old `SourceList.svelte` +
-`SourceListV2.svelte` + `source-list-v2/` package are all deleted.
+PR-0 (2026-06-11) shipped this package dark - no caller imports yet.
+PR-1 (2026-06-11) migrated the 6 live v2-render-surface callers + the 1
+v1 caller to consume `SourceList` from this package; view-models
+shifted from the 11-col v2 row type to `PublisherPill[]` (deduped).
+After PR-1, the legacy render surfaces + the 11-col helper package are
+all deleted.

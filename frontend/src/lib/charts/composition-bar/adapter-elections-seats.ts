@@ -26,7 +26,7 @@
 //     GrowthBook experiment definition. The renderer ships in (a); the
 //     mount + Playwright in (c).
 //
-//   - R-24 / R-28. The `sources_v2` projection is JOINed against
+//   - R-24 / R-28. The publisher-pill projection is JOINed against
 //     `taxonomy.sources` by `source_id`. No fetch telemetry, no
 //     hardcoded parquet path literal.
 //
@@ -63,7 +63,7 @@ import {
   electionResultsStateSlug,
 } from "../../canonical/election-results-csv";
 import { getPartyColor, type PartyRowForResolver } from "../../colors/resolver";
-import type { SourceV2Row } from "../../source-list-v2/types";
+import { dedupeToPills, type PublisherPill, type SourceRow } from "../../sources";
 import type {
   CompositionBarModel,
   CompositionBarSegment,
@@ -127,13 +127,7 @@ export interface CompositionBarSourceJoinRow {
   producer: string;
   title: string;
   vintage: string;
-  license: string;
-  confidence_tier: string;
-  is_issuing_authority: boolean;
-  verification_method: string;
-  url_main: string | null;
-  citation_full: string | null;
-  notes: string | null;
+  url: string | null;
 }
 
 export interface CompositionBarLoadedRows {
@@ -157,13 +151,7 @@ interface SourceJoinRow {
   producer: string;
   title: string;
   vintage: string;
-  license: string;
-  confidence_tier: string;
-  is_issuing_authority: boolean;
-  verification_method: string;
-  url_main: string | null;
-  citation_full: string | null;
-  notes: string | null;
+  url: string | null;
 }
 
 function sqlString(s: string): string {
@@ -236,13 +224,7 @@ async function runQueries(
       s.producer           AS producer,
       s.title              AS title,
       s.vintage            AS vintage,
-      s.license            AS license,
-      s.confidence_tier    AS confidence_tier,
-      s.is_issuing_authority AS is_issuing_authority,
-      s.verification_method AS verification_method,
-      s.url_main           AS url_main,
-      s.citation_full      AS citation_full,
-      s.notes              AS notes
+      s.url                AS url
     FROM read_csv(${csvLit}, ${ELECTION_RESULTS_COLUMNS_CLAUSE}, header=true) o
     JOIN sources s ON s.source_id = o.source_id
     WHERE o.period_label = ${eventLit}
@@ -431,37 +413,25 @@ export function assembleCompositionBar(
 }
 
 /**
- * Sources_v2 projection from the JOIN against `taxonomy.sources`.
- * Mirrors the projection in `election-seats-trend.ts:178-196` so the
- * SourceListV2 footer sees the same v2.0 ledger shape regardless of
- * which chart adapter loads the rows.
- *
- * Aliased to the canonical `SourceV2Row` interface so the per-chart
- * footer (ChartShell / SourceListV2) receives the exact contract type
- * without a structural-widening dance at the mount site. The DuckDB
- * cast at the boundary (in `projectSourcesV2`) is the only place that
- * narrows the raw stringly-typed row to the locked enums (license,
- * confidence_tier, verification_method).
+ * Publisher-pill projection from the JOIN against `taxonomy.sources`.
+ * Mirrors the projection in `election-seats-trend.ts` so the
+ * `<SourceList pills={...} />` footer sees the same shape regardless of
+ * which chart adapter loads the rows. Built via the canonical
+ * `dedupeToPills` helper from `$lib/sources` per the sources-
+ * simplification PR-1 (2026-06-11).
  */
-export type CompositionBarV2Source = SourceV2Row;
-
-export function projectSourcesV2(
+export function projectPills(
   rows: readonly CompositionBarSourceJoinRow[],
-): readonly CompositionBarV2Source[] {
-  return rows.map(s => ({
-    source_id: s.source_id,
-    producer: s.producer,
-    title: s.title,
-    vintage: s.vintage,
-    license: s.license as SourceV2Row["license"],
-    confidence_tier: s.confidence_tier as SourceV2Row["confidence_tier"],
-    is_issuing_authority: Boolean(s.is_issuing_authority),
-    verification_method:
-      s.verification_method as SourceV2Row["verification_method"],
-    url_main: s.url_main,
-    citation_full: s.citation_full,
-    notes: s.notes,
-  }));
+): readonly PublisherPill[] {
+  return dedupeToPills(
+    rows.map<SourceRow>((s) => ({
+      source_id: s.source_id,
+      producer: s.producer,
+      title: s.title,
+      vintage: s.vintage,
+      url: s.url,
+    })),
+  );
 }
 
 export interface LoadCompositionBarOptions {
@@ -472,12 +442,12 @@ export interface LoadCompositionBarOptions {
 
 export interface LoadedCompositionBar {
   model: CompositionBarModel;
-  sources_v2: readonly CompositionBarV2Source[];
+  pills: readonly PublisherPill[];
 }
 
 /**
  * Async loader entry. Returns a LoaderResult so the caller can fan out
- * three render arms (ok / partial / failed) cleanly — same shape as
+ * three render arms (ok / partial / failed) cleanly - same shape as
  * `loadElectionSeatsTrend`.
  */
 export async function loadCompositionBarElectionSeats(
@@ -492,7 +462,7 @@ export async function loadCompositionBarElectionSeats(
         status: "partial",
         data: {
           model: emptyModel(opts.state_label, opts.event_label),
-          sources_v2: [],
+          pills: [],
         },
         reason: "not_published",
       };
@@ -506,7 +476,7 @@ export async function loadCompositionBarElectionSeats(
       status: "ok",
       data: {
         model,
-        sources_v2: projectSourcesV2(rows.sources),
+        pills: projectPills(rows.sources),
       },
     };
   } catch (err) {

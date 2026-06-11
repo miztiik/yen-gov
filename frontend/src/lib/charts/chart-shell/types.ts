@@ -14,13 +14,14 @@
 //     headers / footers continue to ship; per-caller migration follows
 //     in dedicated PRs once each renderer is ready to consume the shell.
 //
-//   - R-24 Fetch-telemetry-free chrome. The shell hosts the v2.0
-//     `SourceListV2` slot which already refuses url / fetched_at /
-//     content_hash. No telemetry leaks here either.
+//   - R-24 Fetch-telemetry-free chrome. The shell hosts the new
+//     `SourceList` slot (from `$lib/sources`) which only renders
+//     publisher-pill text; no url / fetched_at / content_hash.
 //
 //   - R-28 Manifest-registered sources only. The shell receives a
-//     `readonly SourceV2Row[]` resolved upstream from `taxonomy.sources`
-//     via the manifest-registered `table_id`. No direct parquet path.
+//     `readonly PublisherPill[]` resolved upstream from
+//     `taxonomy.sources` via the manifest-registered `table_id` +
+//     `dedupeToPills`. No direct parquet path.
 //
 //   - Action vocabulary is a **closed enum** (see `ALLOWED_ACTIONS`
 //     below). The renderer drops unknown ids silently — Phase 1.4
@@ -28,7 +29,7 @@
 //     Any new action requires this file + `actions.ts` + the plan to be
 //     edited together.
 
-import type { SourceV2Row } from "../../source-list-v2/types";
+import type { PublisherPill } from "../../sources";
 
 /**
  * The closed enum of footer actions the chart shell is allowed to
@@ -100,9 +101,9 @@ export interface ChartShellHonestyBanner {
 }
 
 /**
- * Re-export the source-row type the footer slot consumes. Keeps the
- * caller free to import everything ChartShell-related from this one
- * module barrel without reaching across the chart-shell / source-list-v2
+ * Re-export the publisher-pill type the footer slot consumes. Keeps
+ * the caller free to import everything ChartShell-related from this
+ * one module barrel without reaching across the chart-shell / sources
  * boundary.
  */
-export type { SourceV2Row };
+export type { PublisherPill };

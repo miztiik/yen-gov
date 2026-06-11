@@ -40,7 +40,7 @@ The package's contract surface is what the renderer treats as opaque: model, sou
 - **R-16 three-PR split** - renderer / adapter+experiment / mount.
   Each commit shipped and reviewed independently. Post-F2a.5: the renderer
   slice lives inside `CategoryBar.svelte`, not in a standalone component.
-- **R-24 / R-28** - the footer slot delegates to `<SourceListV2>` via
+- **R-24 / R-28** - the footer slot delegates to the new `<SourceList>` (from `\/sources`) via
   `<ChartShell>`. No fetch telemetry, no parquet path literal.
 - **R-27** - no JSON projection of canonical parquet. The adapter reads
   the state-scoped `elections.election_results` slice and supporting

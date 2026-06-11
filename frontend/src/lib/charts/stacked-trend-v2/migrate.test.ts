@@ -62,33 +62,20 @@ const V1_MODEL: StackedTrendModel = Object.freeze({
   default_mode: "percent",
 }) as StackedTrendModel;
 
-// V2 ledger rows resolved by a view-model JOIN against taxonomy.sources.
+// V2 publisher pills resolved by a view-model JOIN against taxonomy.sources
+// + dedupeToPills. The shape mirrors PublisherPill from $lib/sources.
 const V2_SOURCES: readonly StackedTrendV2Source[] = Object.freeze([
   Object.freeze({
-    source_id: "src-eci123456789",
-    producer: "Election Commission of India",
-    title: "Statistical Report Section 10 (Detailed Results) — Tamil Nadu",
-    vintage: "AcGenMay2026",
-    license: "OGL-IN-1.0" as const,
-    confidence_tier: "gold" as const,
-    is_issuing_authority: true,
-    verification_method: "live-fetch" as const,
-    url_main: "https://eci.gov.in/statistical-reports",
-    citation_full: null,
-    notes: null,
+    label: "ECI Statistical Report Section 10",
+    vintage_summary: "AcGenMay2026",
+    url: "https://eci.gov.in/statistical-reports",
+    count: 1,
   }),
   Object.freeze({
-    source_id: "src-eci987654321",
-    producer: "Election Commission of India",
-    title: "Statistical Report Section 10 (Detailed Results) — Tamil Nadu",
-    vintage: "AcGenApr2021",
-    license: "OGL-IN-1.0" as const,
-    confidence_tier: "gold" as const,
-    is_issuing_authority: true,
-    verification_method: "archived-snapshot" as const,
-    url_main: "https://eci.gov.in/statistical-reports",
-    citation_full: null,
-    notes: null,
+    label: "ECI Statistical Report Section 10",
+    vintage_summary: "AcGenApr2021",
+    url: "https://eci.gov.in/statistical-reports",
+    count: 1,
   }),
 ]);
 
@@ -159,16 +146,19 @@ describe("stackedTrendModelToV2 — verbatim pass-through", () => {
   });
 });
 
-describe("stackedTrendModelToV2 — sources replacement (R-24)", () => {
+describe("stackedTrendModelToV2 — sources replacement (post 2026-06-11)", () => {
   it("drops v1 sources entirely (no url, no fetched_at on output)", () => {
     const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
     for (const src of out.sources) {
-      expect(src).not.toHaveProperty("url");
       expect(src).not.toHaveProperty("fetched_at");
+      // v1's `url` field was a different concept (free-form link with
+      // fetched_at). The post 2026-06-11 pill ALSO has a `url` field
+      // but it is now a publisher landing URL (or null). Either way
+      // the v1 mixture of url+fetched_at is gone.
     }
   });
 
-  it("copies v2 ledger rows verbatim onto output.sources", () => {
+  it("copies v2 publisher pills verbatim onto output.sources", () => {
     const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
     expect(out.sources).toEqual(V2_SOURCES);
     expect(out.sources).toHaveLength(V2_SOURCES.length);
@@ -179,10 +169,10 @@ describe("stackedTrendModelToV2 — sources replacement (R-24)", () => {
     expect(out.sources).toEqual([]);
   });
 
-  it("preserves ledger row order", () => {
+  it("preserves pill order", () => {
     const out = stackedTrendModelToV2(V1_MODEL, V2_SOURCES);
-    expect(out.sources[0].source_id).toBe("src-eci123456789");
-    expect(out.sources[1].source_id).toBe("src-eci987654321");
+    expect(out.sources[0].vintage_summary).toBe("AcGenMay2026");
+    expect(out.sources[1].vintage_summary).toBe("AcGenApr2021");
   });
 });
 
@@ -293,20 +283,13 @@ describe("stackedTrendModelToV2 — zod round-trip", () => {
     expect(parsed.success, message).toBe(true);
   });
 
-  it("output parses cleanly with bronze tier + editorial verification", () => {
+  it("output parses cleanly with an editorial-only pill (no vintage, no URL)", () => {
     const editorialSources: StackedTrendV2Source[] = [
       {
-        source_id: "src-yengov000001",
-        producer: "yen-gov",
-        title: "Editorial — TN cohort framing",
-        vintage: "",
-        license: "internal",
-        confidence_tier: "bronze",
-        is_issuing_authority: false,
-        verification_method: "editorial",
-        url_main: null,
-        citation_full: null,
-        notes: null,
+        label: "yen-gov Editorial",
+        vintage_summary: "",
+        url: null,
+        count: 1,
       },
     ];
     const out = stackedTrendModelToV2(V1_MODEL, editorialSources);

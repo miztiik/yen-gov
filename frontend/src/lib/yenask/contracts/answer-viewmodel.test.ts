@@ -4,6 +4,10 @@
 // The empty case is unreachable under correct executor behaviour; this
 // suite is the gate that proves an executor regression cannot ship a
 // sourceless answer to the renderer.
+//
+// Post sources-simplification PR-1 (2026-06-11): source_strip is
+// PublisherPill[] (4-col: label / vintage_summary / url / count) -
+// not the prior 11-col row shape.
 
 import { describe, expect, it } from "vitest";
 import {
@@ -12,20 +16,13 @@ import {
   AnswerViewModelSchema,
   type AnswerViewModel,
 } from "./answer-viewmodel";
-import { synthesiseUnattestedSource } from "../types";
+import { synthesiseUnattestedPill } from "../types";
 
 const VALID_SOURCE = {
-  source_id: "src-abcdef012345",
-  producer: "Election Commission of India",
-  title: "Constituency-wise result, Tamil Nadu — AC General May 2026",
-  vintage: "May 2026",
-  license: "OGL-IN-1.0" as const,
-  confidence_tier: "gold" as const,
-  is_issuing_authority: true,
-  verification_method: "live-fetch" as const,
-  url_main: "https://results.eci.gov.in/AcGenMay2026/",
-  citation_full: null,
-  notes: null,
+  label: "ECI Constituency-wise result (May 2026)",
+  vintage_summary: "May 2026",
+  url: "https://results.eci.gov.in/AcGenMay2026/",
+  count: 1,
 };
 
 const VALID_VM: AnswerViewModel = {
@@ -66,14 +63,14 @@ describe("AnswerViewModel v0", () => {
     expect(parseAnswerViewModel(VALID_VM).provenance_status).toBe("joined");
   });
 
-  it("accepts the synthesised unattested source row", () => {
+  it("accepts the synthesised unattested pill", () => {
     const vm: AnswerViewModel = {
       ...VALID_VM,
-      source_strip: [synthesiseUnattestedSource()],
+      source_strip: [synthesiseUnattestedPill()],
       provenance_status: "missing",
     };
     const parsed = parseAnswerViewModel(vm);
-    expect(parsed.source_strip[0]!.source_id).toMatch(/^src-unattested-/);
+    expect(parsed.source_strip[0]!.label).toBe("Source unattested");
     expect(parsed.provenance_status).toBe("missing");
   });
 
@@ -134,10 +131,10 @@ describe("AnswerViewModel v0", () => {
     expect(r.success).toBe(false);
   });
 
-  it("REJECTS source row missing required citation fields", () => {
+  it("REJECTS pill missing required label field", () => {
     const r = safeParseAnswerViewModel({
       ...VALID_VM,
-      source_strip: [{ ...VALID_SOURCE, producer: "" }],
+      source_strip: [{ ...VALID_SOURCE, label: "" }],
     });
     expect(r.success).toBe(false);
   });

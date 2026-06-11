@@ -20,9 +20,11 @@
 //    with `IN` reserved for the national aggregate row. We strip the
 //    `IN-` prefix from sub-national ids and pass `IN` through unchanged.
 // 2. Provenance: canonical `taxonomy.sources` is a citation ledger, not a
-//    fetch ledger. The adapter carries those rows through `sources_v2`
-//    for SourceListV2 and leaves legacy `sources[]` empty so it never
-//    invents retired fetch telemetry like `fetched_at`.
+//    fetch ledger. The adapter carries those rows through `pills`
+//    (deduped publisher pills) attached via a WeakMap side-channel for
+//    the new `<SourceList pills={...} />` component in `$lib/sources`,
+//    and leaves legacy `sources[]` empty so it never invents retired
+//    fetch telemetry like `fetched_at`.
 // 3. Coverage: derived from `MIN(period_label)` / `MAX(period_label)` of
 //    the returned rows. No round-trip back to the legacy shard.
 // 4. License / methodology: synthesised from constants + the descriptor's
@@ -43,7 +45,7 @@ import {
   type SeriesSpec,
 } from "../indicators";
 import { DATA_BASE } from "../paths";
-import type { SourceV2Row } from "../source-list-v2";
+import { dedupeToPills, type PublisherPill, type SourceRow } from "../sources";
 import {
   buildTimeSeriesLineViewModel,
   type TimeSeriesSeriesVM,
@@ -142,13 +144,7 @@ interface CanonicalSourceRow {
   producer: string;
   title: string;
   vintage: string;
-  license: SourceV2Row["license"];
-  confidence_tier: SourceV2Row["confidence_tier"];
-  is_issuing_authority: boolean | number;
-  verification_method: SourceV2Row["verification_method"];
-  url_main: string | null;
-  citation_full: string | null;
-  notes: string | null;
+  url: string | null;
 }
 
 type IndicatorMetaWithRetiredRenderFields = IndicatorMeta & {
@@ -157,20 +153,24 @@ type IndicatorMetaWithRetiredRenderFields = IndicatorMeta & {
   facet_labels?: unknown;
 };
 
-const artifactSourcesV2 = new WeakMap<IndicatorArtifact, readonly SourceV2Row[]>();
+const artifactPills = new WeakMap<IndicatorArtifact, readonly PublisherPill[]>();
 
-function attachSourcesV2<T extends IndicatorArtifact>(
+function attachPills<T extends IndicatorArtifact>(
   artifact: T,
-  sources: readonly SourceV2Row[],
+  pills: readonly PublisherPill[],
 ): T {
-  artifactSourcesV2.set(artifact, Object.freeze([...sources]));
+  artifactPills.set(artifact, Object.freeze([...pills]));
   return artifact;
 }
 
-export function indicatorArtifactSourcesV2(
+/** Read the deduped publisher pills attached to a canonical-backed
+ *  IndicatorArtifact. Returns the array (possibly empty) when present,
+ *  or `undefined` when the artifact was not produced by this adapter
+ *  (legacy on-disk JSON path). */
+export function indicatorArtifactPills(
   artifact: IndicatorArtifact,
-): readonly SourceV2Row[] | undefined {
-  return artifactSourcesV2.get(artifact) ?? artifact.sources_v2;
+): readonly PublisherPill[] | undefined {
+  return artifactPills.get(artifact);
 }
 
 /** One observation row from a `<canonical_indicator_id>-national.csv`
@@ -190,7 +190,7 @@ export interface NationalReferenceRow {
   readonly source_id: string;
 }
 
-/** WeakMap side-channel mirroring `artifactSourcesV2`. Carries the
+/** WeakMap side-channel mirroring `artifactPills`. Carries the
  *  pop-weighted national-reference rows for indicators that opt in via
  *  `descriptor.has_national_reference === true`. Keeping the data off
  *  the on-disk IndicatorArtifact shape avoids a JSON Schema bump
@@ -262,21 +262,20 @@ function buildSeriesSpec(descriptor: CanonicalIndicatorDescriptor): SeriesSpec {
   };
 }
 
-/** Build `SourceV2Row[]` from the canonical sources table rows. */
-function buildSourcesV2(rows: ReadonlyArray<CanonicalSourceRow>): SourceV2Row[] {
-  return rows.map((s) => ({
-    source_id: s.source_id,
-    producer: s.producer,
-    title: s.title,
-    vintage: s.vintage,
-    license: s.license,
-    confidence_tier: s.confidence_tier,
-    is_issuing_authority: Boolean(s.is_issuing_authority),
-    verification_method: s.verification_method,
-    url_main: s.url_main,
-    citation_full: s.citation_full,
-    notes: s.notes,
-  }));
+/** Build deduped publisher pills from the canonical sources table rows.
+ *  One pill per (producer x series_family). Wraps the canonical
+ *  `dedupeToPills` helper from `$lib/sources` per the sources-
+ *  simplification PR-1 (2026-06-11). */
+function buildPills(rows: ReadonlyArray<CanonicalSourceRow>): PublisherPill[] {
+  return dedupeToPills(
+    rows.map<SourceRow>((s) => ({
+      source_id: s.source_id,
+      producer: s.producer,
+      title: s.title,
+      vintage: s.vintage,
+      url: s.url,
+    })),
+  );
 }
 
 function buildCanonicalIndicatorMeta(
@@ -320,7 +319,7 @@ export function buildIndicatorArtifact(
         ? times[0]
         : `${times[0]} to ${times[times.length - 1]}`;
 
-  return attachSourcesV2({
+  return attachPills({
     $schema: CURRENT_INDICATOR_SCHEMA_ID,
     $schema_version: CURRENT_INDICATOR_SCHEMA_VERSION,
     sources: [],
@@ -340,7 +339,7 @@ export function buildIndicatorArtifact(
     series_spec: buildSeriesSpec(descriptor),
     methodology: buildMethodology(descriptor),
     divergence: null,
-  }, buildSourcesV2(source_rows));
+  }, buildPills(source_rows));
 }
 
 /** Run the DuckDB-WASM JOIN and return the assembled `IndicatorArtifact`.
@@ -472,9 +471,7 @@ async function loadSingleFromCsv(
   if (distinctSourceIds.length > 0) {
     const idList = distinctSourceIds.map(sqlString).join(", ");
     const srcSql = `
-          SELECT source_id, producer, title, vintage, license, confidence_tier,
-           is_issuing_authority, verification_method, url_main,
-           citation_full, notes
+      SELECT source_id, producer, title, vintage, url
       FROM sources
       WHERE source_id IN (${idList})
       ORDER BY title
@@ -672,9 +669,7 @@ async function buildFacetMultiplexedArtifact(
   if (distinctSourceIds.length > 0) {
     const idList = distinctSourceIds.map(sqlString).join(", ");
     const srcSql = `
-          SELECT source_id, producer, title, vintage, license, confidence_tier,
-           is_issuing_authority, verification_method, url_main,
-           citation_full, notes
+      SELECT source_id, producer, title, vintage, url
       FROM sources
       WHERE source_id IN (${idList})
       ORDER BY title
@@ -696,7 +691,7 @@ async function buildFacetMultiplexedArtifact(
         ? times[0]
         : `${times[0]} to ${times[times.length - 1]}`;
 
-  return attachSourcesV2({
+  return attachPills({
     $schema: CURRENT_INDICATOR_SCHEMA_ID,
     $schema_version: CURRENT_INDICATOR_SCHEMA_VERSION,
     sources: [],
@@ -719,7 +714,7 @@ async function buildFacetMultiplexedArtifact(
     series_spec: buildSeriesSpec(descriptor),
     methodology: buildMethodology(descriptor),
     divergence: null,
-  }, buildSourcesV2(sourceRows));
+  }, buildPills(sourceRows));
 }
 
 /** Single dispatch entry-point used by IndicatorCard.svelte: branches on the

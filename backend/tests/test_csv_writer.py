@@ -196,13 +196,13 @@ def test_string_column_emits_value_verbatim(tmp_path):
         path=path,
         file_class=_SOURCE_FC,
         rows=[
-            {"source_id": "rbi-handbook-2024", "owner": "RBI", "title": "Handbook of Statistics",
+            {"source_id": "rbi-handbook-2024", "producer": "RBI", "title": "Handbook of Statistics",
              "vintage": "2024", "url": "https://example.org/h"},
-            {"source_id": "ndlm-2023", "owner": None, "title": None, "vintage": None, "url": None},
+            {"source_id": "ndlm-2023", "producer": None, "title": None, "vintage": None, "url": None},
         ],
     )
     lines = _read(path).splitlines()
-    assert lines[0] == "source_id,owner,title,vintage,url"
+    assert lines[0] == "source_id,producer,title,vintage,url"
     # Sorted by source_id.
     assert lines[1] == "ndlm-2023,,,,"
     assert lines[2] == "rbi-handbook-2024,RBI,Handbook of Statistics,2024,https://example.org/h"
@@ -213,7 +213,7 @@ def test_value_with_comma_is_quoted(tmp_path):
     write_csv(
         path=path,
         file_class=_SOURCE_FC,
-        rows=[{"source_id": "x", "owner": None, "title": "A, B and C",
+        rows=[{"source_id": "x", "producer": None, "title": "A, B and C",
                "vintage": None, "url": None}],
     )
     assert _read(path).splitlines()[1] == 'x,,"A, B and C",,'

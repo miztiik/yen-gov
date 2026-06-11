@@ -41,7 +41,7 @@ def _ensure_source_row(source_csv: Path, source_id: str) -> None:
         reader = csv.DictReader(fh)
         fieldnames = reader.fieldnames or [
             "source_id",
-            "owner",
+            "producer",
             "title",
             "vintage",
             "url",
@@ -52,7 +52,7 @@ def _ensure_source_row(source_csv: Path, source_id: str) -> None:
     rows.append(
         {
             "source_id": source_id,
-            "owner": TCPD_GE_OWNER,
+            "producer": TCPD_GE_OWNER,
             "title": TCPD_GE_TITLE,
             "vintage": TCPD_GE_VINTAGE,
             "url": TCPD_GE_URL,

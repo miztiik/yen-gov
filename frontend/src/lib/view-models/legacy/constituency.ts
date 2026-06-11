@@ -284,7 +284,7 @@ async function runQueries(
   // SourceList renders, so the existing url-only projection works
   // unchanged. The retired v2 fields (license / confidence_tier /
   // verification_method / citation_full / notes) are NULL via the
-  // view; state-overview's sources_v2 surface degrades to the 5-field
+  // view; state-overview's pills surface degrades to the 5-field
   // shape automatically.
 
   const sourceIds = new Set<string>();

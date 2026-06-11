@@ -1,5 +1,5 @@
 // Vitest unit for `IndicatorDoc.svelte`'s pure module-scope helpers
-// (`cadenceLabel` + `projectToFourFieldSource`). Mirrors the U5a /
+// (`cadenceLabel` + `indicatorSourceToRow`). Mirrors the U5a /
 // U2a pattern: the helpers are exported from a `<script lang="ts"
 // module>` block so vitest can cover them without a DOM mount.
 //
@@ -10,7 +10,7 @@
 import { describe, it, expect } from "vitest";
 import {
   cadenceLabel,
-  projectToFourFieldSource,
+  indicatorSourceToRow,
 } from "./IndicatorDoc.svelte";
 import type {
   IndicatorMeta,
@@ -56,7 +56,7 @@ describe("cadenceLabel", () => {
   });
 });
 
-describe("projectToFourFieldSource", () => {
+describe("indicatorSourceToRow", () => {
   // Minimal helpers to build the shapes the function consumes. We don't
   // need every field on IndicatorMeta / IndicatorMethodology - only the
   // fields the projection reads.
@@ -95,27 +95,27 @@ describe("projectToFourFieldSource", () => {
     };
   }
 
-  it("owner falls back to methodology.publisher when present", () => {
-    const out = projectToFourFieldSource(source(), methodology(), meta());
-    expect(out.owner).toBe("RBI");
+  it("producer falls back to methodology.publisher when present", () => {
+    const out = indicatorSourceToRow(source(), methodology(), meta());
+    expect(out.producer).toBe("RBI");
   });
 
-  it("owner falls back to source.authority when methodology.publisher absent", () => {
-    const out = projectToFourFieldSource(
+  it("producer falls back to source.authority when methodology.publisher absent", () => {
+    const out = indicatorSourceToRow(
       source({ authority: "Ministry of Statistics" }),
       null,
       meta(),
     );
-    expect(out.owner).toBe("Ministry of Statistics");
+    expect(out.producer).toBe("Ministry of Statistics");
   });
 
   it("owner is null when neither methodology.publisher nor source.authority is set", () => {
-    const out = projectToFourFieldSource(source(), null, meta());
-    expect(out.owner).toBeNull();
+    const out = indicatorSourceToRow(source(), null, meta());
+    expect(out.producer).toBe("Unknown");
   });
 
   it("title prefers source.name when set", () => {
-    const out = projectToFourFieldSource(
+    const out = indicatorSourceToRow(
       source({ name: "State Finances: A Study of Budgets" }),
       methodology(),
       meta(),
@@ -124,7 +124,7 @@ describe("projectToFourFieldSource", () => {
   });
 
   it("title falls back to URL hostname when source.name absent", () => {
-    const out = projectToFourFieldSource(
+    const out = indicatorSourceToRow(
       source({ url: "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/20_ST2301202696AC652FC4CE482EAAD928FC544CD86A.XLSX" }),
       methodology(),
       meta(),
@@ -133,18 +133,18 @@ describe("projectToFourFieldSource", () => {
   });
 
   it("title is null when URL is unparseable and no name is provided", () => {
-    const out = projectToFourFieldSource(
+    const out = indicatorSourceToRow(
       // The IndicatorSource type insists url is a string; pass a
       // malformed value the URL constructor will reject.
       source({ url: "not-a-url" }),
       methodology(),
       meta(),
     );
-    expect(out.title).toBeNull();
+    expect(out.title).toBe("");
   });
 
   it("vintage prefers indicator.methodology_vintage (the publisher edition) when set", () => {
-    const out = projectToFourFieldSource(
+    const out = indicatorSourceToRow(
       source(),
       methodology(),
       meta({ methodology_vintage: "RBI State Finances 2025-26 edition" }),
@@ -153,7 +153,7 @@ describe("projectToFourFieldSource", () => {
   });
 
   it("vintage falls back to source.fetched_at (operator snapshot window) otherwise", () => {
-    const out = projectToFourFieldSource(
+    const out = indicatorSourceToRow(
       source({ fetched_at: "2026-05-11T15:18:58Z" }),
       methodology(),
       meta(),
@@ -162,18 +162,18 @@ describe("projectToFourFieldSource", () => {
   });
 
   it("vintage is null when neither methodology_vintage nor fetched_at is set", () => {
-    const out = projectToFourFieldSource(
+    const out = indicatorSourceToRow(
       // fetched_at is required by IndicatorSource's TS shape; null
       // here exercises the projection's null-safety path.
       { url: "https://example.gov.in", fetched_at: null as unknown as string },
       methodology(),
       meta(),
     );
-    expect(out.vintage).toBeNull();
+    expect(out.vintage).toBe("");
   });
 
   it("url passes through source.url verbatim", () => {
-    const out = projectToFourFieldSource(
+    const out = indicatorSourceToRow(
       source({ url: "https://example.gov.in/foo/bar.xlsx" }),
       methodology(),
       meta(),

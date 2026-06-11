@@ -12,13 +12,13 @@
 //
 // What changes between v1 and v2:
 //
-//   1. `StackedTrendSource` (v1) carried `url` + `fetched_at` — both
-//      retired by ADR-0032 v2.0 (R-24 / CLAUDE.md §12). v2's
-//      `StackedTrendV2Source` mirrors the `SourceV2Row` shape from
-//      `frontend/src/lib/source-list-v2/types.ts` so the chart shell can
-//      render the v2.0 ledger fields directly. Adapter-time denormalisation
-//      keeps the renderer DuckDB-free (joins happen in the adapter, not
-//      the renderer).
+//   1. `StackedTrendSource` (v1) carried `url` + `fetched_at` - both
+//      retired by ADR-0032 v2.0. v2's `StackedTrendV2Source` post the
+//      sources-simplification PR-1 (2026-06-11) carries the deduped
+//      publisher pill shape (`label, vintage_summary, url, count`) from
+//      `frontend/src/lib/sources/types.ts`. Adapter-time denormalisation
+//      keeps the renderer DuckDB-free (joins + dedupeToPills happen in
+//      the view-model, not the renderer).
 //
 //   2. Every other shape (`StackedTrendCategory`, `StackedTrendSegment`,
 //      `StackedTrendBar`, `StackedTrendHonesty`, `StackedTrendHeadline`)
@@ -125,49 +125,31 @@ export const StackedTrendV2Headline = z
   })
   .optional();
 
-// ---------- v2-only — sources v2.0 ledger (ADR-0032, R-24) ----------
+// ---------- v2-only - publisher pills (5-col SourceRow -> dedupeToPills, 2026-06-11) ----------
 
 /**
- * Adapter-denormalised source row carried inline on every StackedTrendV2
- * model. Shape mirrors the canonical `SourceV2Row` contract from
- * `frontend/src/lib/source-list-v2/types.ts` — adapters resolve the
- * row from `taxonomy.sources` (manifest-registered, R-28) and copy the
- * 11 v2.0 fields onto the model so the renderer never touches DuckDB.
+ * Adapter-denormalised publisher pill carried inline on every
+ * StackedTrendV2 model. Shape mirrors the canonical `PublisherPill`
+ * contract from `frontend/src/lib/sources/types.ts` post the
+ * sources-simplification PR-1 (2026-06-11) - one pill per
+ * (producer x series_family). Adapters resolve the rows from
+ * `taxonomy.sources` (manifest-registered, R-28), dedupe via
+ * `dedupeToPills`, and copy the deduped pills onto the model so the
+ * renderer never touches DuckDB.
  *
- * RETIRED from v1 (R-24 / ADR-0032 P.0e):
- *   - `url`            → use `url_main` (nullable for archived-snapshot)
- *   - `fetched_at`     → moved to `.runtime/<adapter>/<source_id>.json`
- *
- * The zod schema below MUST stay in sync with
- * `frontend/src/lib/source-list-v2/types.ts` `SourceV2Row` interface and
- * `datasets/schemas/source.schema.json` v2.0. The contract test at
- * `frontend/src/contracts/sources-v2-shape.test.ts` enforces the schema
- * side; vitest on this file enforces the consumer side.
+ * What changed at the 2026-06-11 rip: the v2.0 ledger's 11-col
+ * adapter-denormalised row (`license`, `confidence_tier`,
+ * `is_issuing_authority`, `verification_method`, `citation_full`,
+ * `notes`, `url_main`, plus identity triple + source_id) was retired
+ * per inline ADR `citation-ledger-5col` in docs/concepts/data-provenance.md.
+ * The renderer's export footer composes the citation line from
+ * `label + vintage_summary` (one pill per producer x series_family).
  */
 export const StackedTrendV2Source = z.object({
-  source_id: z.string().regex(/^src-[a-z0-9]{12}$/),
-  producer: z.string().min(1),
-  title: z.string().min(1),
-  vintage: z.string(),
-  license: z.enum([
-    "OGL-IN-1.0",
-    "CC-BY-4.0",
-    "CC0-1.0",
-    "public-domain",
-    "unknown-public",
-    "internal",
-  ]),
-  confidence_tier: z.enum(["gold", "silver", "bronze"]),
-  is_issuing_authority: z.boolean(),
-  verification_method: z.enum([
-    "live-fetch",
-    "archived-snapshot",
-    "transcribed",
-    "editorial",
-  ]),
-  url_main: z.string().url().nullable(),
-  citation_full: z.string().nullable(),
-  notes: z.string().nullable(),
+  label: z.string().min(1),
+  vintage_summary: z.string(),
+  url: z.string().nullable(),
+  count: z.number().int().positive(),
 });
 
 // ---------- v2 model (root) ----------
@@ -191,7 +173,8 @@ export const StackedTrendV2Model = z.object({
   bars: z.array(StackedTrendV2Bar).min(1),
   headline: StackedTrendV2Headline,
   honesty: StackedTrendV2Honesty,
-  /** v2 ledger sources (R-24). NEVER url+fetched_at — that's v1. */
+  /** Citation-ledger publisher pills (post 2026-06-11). One pill per
+   *  (producer x series_family) via `dedupeToPills` from $lib/sources. */
   sources: z.array(StackedTrendV2Source),
   dimension: z.string().min(1),
   default_mode: z.enum(["percent", "absolute"]).default("percent"),

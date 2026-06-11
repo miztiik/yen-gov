@@ -18,7 +18,7 @@ Abstraction).
 
 | Path | Role |
 |---|---|
-| [`types.ts`](./types.ts) | `ChartShellAction` closed enum, `ChartShellActionSpec`, `ChartShellHonestyBanner`, re-export of `SourceV2Row`. |
+| [`types.ts`](./types.ts) | `ChartShellAction` closed enum, `ChartShellActionSpec`, `ChartShellHonestyBanner`, re-export of `PublisherPill`. |
 | [`actions.ts`](./actions.ts) | Pure helpers: `ALLOWED_ACTIONS`, `filterAllowedActions`, `sortActionsForFooter`. |
 | [`actions.test.ts`](./actions.test.ts) | Vitest contract pinning the 6-action vocabulary and the sort/filter behaviour. |
 | [`index.ts`](./index.ts) | Barrel — re-exports the contract. |
@@ -49,7 +49,7 @@ two ways:
 
 ## What the renderer guarantees
 
-- **R-24** — no fetch-telemetry. The shell hosts `<SourceListV2>` which
+- **R-24** — no fetch-telemetry. The shell hosts the new `<SourceList>` from `\/sources` which
   refuses `url`, `fetched_at`, `content_hash`.
 - **R-28** — sources arrive as a typed array, resolved upstream from
   `taxonomy.sources` via the manifest-registered `table_id`. The shell

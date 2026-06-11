@@ -42,10 +42,7 @@ import {
   electoralEntitiesPath,
 } from "../canonical/election-csv-paths";
 import type { PartyTotals, SourceRef } from "../data";
-import {
-  verificationMethodRank,
-  type SourceV2Row,
-} from "../source-list-v2";
+import { dedupeToPills, type PublisherPill, type SourceRow } from "../sources";
 import {
   assertSeatTallyInvariant,
   type SeatTallyParty,
@@ -91,17 +88,16 @@ export interface StateOverviewViewModel {
   } | null;
   party_totals: PartyTotals[];
   ac_winners: AcWinner[];
-  /** Legacy provenance shape — fetch-telemetry-bearing `SourceRef` for the
-   *  v1 `SourceList.svelte` consumer. Filtered to rows that publish a live
-   *  `url_main` (the only field v1 renders). Empty `fetched_at` per
-   *  ADR-0032 P.0e — fetch telemetry left the canonical contract. */
+  /** Legacy provenance shape - fetch-telemetry-bearing `SourceRef` for
+   *  any v1 consumer still wanting just a URL list. Filtered to rows that
+   *  publish a non-empty URL. Empty `fetched_at` per ADR-0032 P.0e
+   *  (fetch telemetry left the canonical contract). */
   sources: SourceRef[];
-  /** v2.0 ledger rows (`taxonomy.sources` per ADR-0032). Carries the full
-   *  citizen-facing citation identity + trust signals. Includes rows with
-   *  null `url_main` (archived-snapshot / transcribed / editorial) which
-   *  the legacy `sources` array drops by design. Consumed by the v2
-   *  `SourceListV2.svelte` render surface. */
-  sources_v2: SourceV2Row[];
+  /** Deduped publisher pills built from the citation-ledger rows via
+   *  `dedupeToPills` from `$lib/sources`. One pill per (producer x
+   *  series_family). Consumed by the new `<SourceList pills={...} />`
+   *  component in `$lib/sources`. */
+  pills: PublisherPill[];
 }
 
 function sqlString(s: string): string {
@@ -135,13 +131,7 @@ interface SourceJoinRow {
   producer: string;
   title: string;
   vintage: string;
-  license: SourceV2Row["license"];
-  confidence_tier: SourceV2Row["confidence_tier"];
-  is_issuing_authority: boolean;
-  verification_method: SourceV2Row["verification_method"];
-  url_main: string | null;
-  citation_full: string | null;
-  notes: string | null;
+  url: string | null;
 }
 
 interface AcWinnerRow {
@@ -315,13 +305,7 @@ async function runQueries(
         s.producer,
         s.title,
         s.vintage,
-        s.license,
-        s.confidence_tier,
-        s.is_issuing_authority,
-        s.verification_method,
-        s.url_main,
-        s.citation_full,
-        s.notes
+        s.url
       FROM sources s
       WHERE s.source_id IN (${idList})
       ORDER BY s.source_id
@@ -459,24 +443,26 @@ function assembleResult(
   );
 
   const sources: SourceRef[] = rows.sources
-    .filter((s) => !!s.url_main)
+    .filter((s) => !!s.url)
     .map((s) => ({
-      url: s.url_main ?? "",
-      // Citation ledger (v2.0) does not carry fetch telemetry —
-      // ``fetched_at`` is intentionally empty. See ADR-0032.
+      url: s.url ?? "",
+      // Citation ledger does not carry fetch telemetry per ADR-0032.
+      // Emit empty string to satisfy the back-compat SourceRef shape.
       fetched_at: "",
     }));
 
-  // The full v2.0 ledger projection. Same JOIN, no url_main filter, sorted
-  // by trust ordering so the citizen sees the strongest evidence first
-  // (live-fetch > archived-snapshot > transcribed > editorial). Stable
-  // secondary sort on source_id to keep snapshots reproducible.
-  const sources_v2: SourceV2Row[] = [...rows.sources]
-    .sort((a, b) => {
-      const r = verificationMethodRank(a.verification_method) - verificationMethodRank(b.verification_method);
-      return r !== 0 ? r : a.source_id.localeCompare(b.source_id);
-    })
-    .map(toSourceV2Row);
+  // Publisher pills built via the canonical dedupeToPills helper. One
+  // pill per (producer x series_family); the SourceList component in
+  // `$lib/sources` consumes this directly. Reuses the same JOIN rows.
+  const pills: PublisherPill[] = dedupeToPills(
+    rows.sources.map<SourceRow>((s) => ({
+      source_id: s.source_id,
+      producer: s.producer,
+      title: s.title,
+      vintage: s.vintage,
+      url: s.url,
+    })),
+  );
 
   const ac_winners = toAcWinners(rows.acWinners);
 
@@ -494,27 +480,7 @@ function assembleResult(
     party_totals,
     ac_winners,
     sources,
-    sources_v2,
-  };
-}
-
-// Pure mapper — collapses a SourceJoinRow into the v2 row shape the chart
-// shell consumes. Kept module-local so the column-by-column copy reads as
-// one block; if a second loader grows the same need we can lift it into
-// `frontend/src/lib/source-list-v2/`.
-function toSourceV2Row(row: SourceJoinRow): SourceV2Row {
-  return {
-    source_id: row.source_id,
-    producer: row.producer,
-    title: row.title,
-    vintage: row.vintage,
-    license: row.license,
-    confidence_tier: row.confidence_tier,
-    is_issuing_authority: row.is_issuing_authority,
-    verification_method: row.verification_method,
-    url_main: row.url_main,
-    citation_full: row.citation_full,
-    notes: row.notes,
+    pills,
   };
 }
 
@@ -530,7 +496,7 @@ function notPublishedSkeleton(
     party_totals: [],
     ac_winners: [],
     sources: [],
-    sources_v2: [],
+    pills: [],
   };
 }
 

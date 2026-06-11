@@ -6,9 +6,8 @@
 // `citation-ledger-5col`, 2026-06-11) and ratifies the on-disk schema
 // at `datasets/data/_schema/columns.json::entities/source.csv`.
 //
-// Replaces (in PR-1): `frontend/src/contracts/sources-v2-shape.test.ts`
-// which tested the 11-col v2 shape. The v2 contract retires together
-// with `SourceListV2.svelte` + `source-list-v2/` package.
+// Replaces a prior contract test that asserted the 11-col v2 ledger
+// shape (the v2 render surface + helpers were retired in this PR-1).
 
 import { describe, expect, it } from "vitest";
 import {

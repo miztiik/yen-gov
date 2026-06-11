@@ -21,7 +21,7 @@ import {
   DEFAULT_TOP_N,
   assembleCompositionBar,
   loadCompositionBarElectionSeats,
-  projectSourcesV2,
+  projectPills,
   reduceToTopNWithTail,
   resolvePartyFill,
   sortPartiesBySeats,
@@ -75,13 +75,7 @@ const GJ_2022_SOURCES: CompositionBarSourceJoinRow[] = [
     producer: "Election Commission of India",
     title: "Form 21 — Gujarat Legislative Assembly 2022",
     vintage: "2022-12-12",
-    license: "ECI-Public",
-    confidence_tier: "tier-1-issuing-authority",
-    is_issuing_authority: true,
-    verification_method: "matches-issuing-authority",
-    url_main: "https://eci.gov.in/files/form21-gj-2022.pdf",
-    citation_full: "ECI Form 21, Gujarat 2022.",
-    notes: null,
+    url: "https://eci.gov.in/files/form21-gj-2022.pdf",
   },
 ];
 
@@ -366,26 +360,26 @@ describe("assembleCompositionBar — happy path", () => {
   });
 });
 
-describe("projectSourcesV2", () => {
-  it("projects DuckDB source rows to the v2.0 ledger shape", () => {
-    const out = projectSourcesV2(GJ_2022_SOURCES);
+describe("projectPills", () => {
+  it("projects DuckDB source rows to the publisher-pill shape", () => {
+    const out = projectPills(GJ_2022_SOURCES);
     expect(out).toHaveLength(1);
-    expect(out[0]).toMatchObject({
-      source_id: "src-eci-form21-gj-2022",
-      producer: "Election Commission of India",
-      is_issuing_authority: true,
-      verification_method: "matches-issuing-authority",
-    });
+    // publisherDisplay("Election Commission of India") -> "ECI".
+    expect(out[0].label).toContain("ECI");
+    expect(out[0].vintage_summary).toBe("2022-12-12");
+    expect(out[0].url).toBe("https://eci.gov.in/files/form21-gj-2022.pdf");
+    expect(out[0].count).toBe(1);
   });
 
-  it("coerces is_issuing_authority to a boolean", () => {
+  it("dedupes multiple rows sharing producer+series_family into one pill", () => {
     const row: CompositionBarSourceJoinRow = {
       ...GJ_2022_SOURCES[0],
-      // DuckDB-WASM occasionally returns BOOLEAN as 0/1; coerce.
-      is_issuing_authority: 0 as unknown as boolean,
+      source_id: "src-eci-extra",
+      vintage: "2022-12-13",
     };
-    const out = projectSourcesV2([row]);
-    expect(out[0].is_issuing_authority).toBe(false);
+    const out = projectPills([GJ_2022_SOURCES[0], row]);
+    expect(out).toHaveLength(1);
+    expect(out[0].count).toBe(2);
   });
 });
 
@@ -420,7 +414,7 @@ describe("loadCompositionBarElectionSeats — async loader (R-28 manifest regist
     expect(res.reason).toBe("not_published");
   });
 
-  it("returns ok with model + sources_v2 on a happy round-trip", async () => {
+  it("returns ok with model + pills on a happy round-trip", async () => {
     mockedQuery
       .mockResolvedValueOnce(
         GJ_2022_PARTIES.map(p => ({
@@ -443,8 +437,8 @@ describe("loadCompositionBarElectionSeats — async loader (R-28 manifest regist
     if (res.status !== "ok") return;
     expect(res.data.model.total_value).toBe(182);
     expect(res.data.model.segments[0].id).toBe("BJP");
-    expect(res.data.sources_v2).toHaveLength(1);
-    expect(res.data.sources_v2[0].source_id).toBe("src-eci-form21-gj-2022");
+    expect(res.data.pills).toHaveLength(1);
+    expect(res.data.pills[0].label).toContain("ECI");
   });
 
   it("returns failed + retry on a thrown query error", async () => {

@@ -30,7 +30,7 @@
   // F2a.5 sub-sub-plan ledger row specifies.
   import type { CompositionBarModel } from "./composition-bar/types";
   import type {
-    SourceV2Row,
+    PublisherPill,
     ChartShellHonestyBanner,
     ChartShellActionSpec,
   } from "./chart-shell/types";
@@ -47,8 +47,7 @@
     chart_title?: string;
     chart_subtitle?: string | null;
     honesty_banners?: readonly ChartShellHonestyBanner[];
-    sources?: readonly SourceV2Row[];
-    schema_version?: string | null;
+    pills?: readonly PublisherPill[];
     wrap_in_shell?: boolean;
     format_value?: (v: number) => string;
     /** Optional footer action specs forwarded to ChartShell.
@@ -92,8 +91,7 @@
     chart_title?: string;
     chart_subtitle?: string | null;
     honesty_banners?: readonly ChartShellHonestyBanner[];
-    sources?: readonly SourceV2Row[];
-    schema_version?: string | null;
+    pills?: readonly PublisherPill[];
     wrap_in_shell?: boolean;
     format_value?: (v: number) => string;
     toolbar?: Snippet;
@@ -274,8 +272,7 @@
     title={p.view_model.label}
     subtitle={p.view_model.subtitle ?? undefined}
     honesty_banners={p.view_model.honesty_banners}
-    sources={p.sources}
-    schema_version={p.schema_version ?? null}
+    pills={p.pills}
     actions={p.actions ?? []}
     toolbar={p.toolbar}
   >
@@ -373,8 +370,7 @@
     title={props.chart_title}
     subtitle={props.chart_subtitle ?? null}
     honesty_banners={props.honesty_banners ?? []}
-    sources={props.sources}
-    schema_version={props.schema_version ?? null}
+    pills={props.pills}
     toolbar={props.toolbar}
   >
     {@render body()}

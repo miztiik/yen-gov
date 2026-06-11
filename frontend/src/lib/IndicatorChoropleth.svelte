@@ -37,10 +37,10 @@
 
   import { uniqueTimes, type IndicatorArtifact } from "./indicators";
   import {
-    indicatorArtifactSourcesV2,
+    indicatorArtifactPills,
     loadIndicator,
   } from "./canonical/indicator-from-canonical";
-  import type { SourceV2Row } from "./source-list-v2";
+  import type { PublisherPill } from "./sources";
   import GeoChoropleth from "./charts/GeoChoropleth.svelte";
   import type { GeoChoroplethRow } from "./charts/geo-choropleth-helpers";
   import {
@@ -109,17 +109,17 @@
 
   $effect(() => {
     artifact = null;
-    sources_v2_snapshot = undefined;
+    pills_snapshot = undefined;
     load_error = null;
     selected_time = null;
     const path = indicator_path;
     loadIndicator(path)
       .then(a => {
-        // CRITICAL: snapshot sources_v2 BEFORE the `artifact = a`
+        // CRITICAL: snapshot pills BEFORE the `artifact = a`
         // assignment wraps `a` in Svelte 5's `$state` Proxy. The
         // accessor uses WeakMap identity, which the Proxy breaks; if
         // we read after the assignment the citation row is invisible.
-        sources_v2_snapshot = indicatorArtifactSourcesV2(a);
+        pills_snapshot = indicatorArtifactPills(a);
         artifact = a;
         const times = uniqueTimes(a.rows);
         selected_time = times.at(-1) ?? null;
@@ -127,18 +127,18 @@
       .catch(e => (load_error = String(e)));
   });
 
-  // Local snapshot of `sources_v2` captured at load time. NB: cannot
-  // be derived through `indicatorArtifactSourcesV2(artifact)` because
+  // Local snapshot of `pills` captured at load time. NB: cannot
+  // be derived through `indicatorArtifactPills(artifact)` because
   // `artifact` is wrapped by Svelte 5's `$state` Proxy, which breaks
   // the WeakMap identity lookup the accessor relies on. We grab the
   // array off the raw fetched object BEFORE assigning it to `$state`
   // so the citation row survives into the renderer (otherwise the
-  // source line silently collapses to "Source: Source (as of <year>)"
-  // because the v1 `sources[]` is empty for canonical-backed artifacts).
-  let sources_v2_snapshot = $state<readonly SourceV2Row[] | undefined>(undefined);
+  // source line silently collapses because the v1 `sources[]` is
+  // empty for canonical-backed artifacts).
+  let pills_snapshot = $state<readonly PublisherPill[] | undefined>(undefined);
 
-  const sources_v2 = $derived(
-    sources_v2_snapshot ?? (artifact ? indicatorArtifactSourcesV2(artifact) : undefined),
+  const pills = $derived(
+    pills_snapshot ?? (artifact ? indicatorArtifactPills(artifact) : undefined),
   );
 
   // Build the (entity_key=LGD code, time, value) row set the
@@ -177,25 +177,25 @@
 
   // Source attribution rendered inside the GeoChoropleth's own
   // SourceLine. Falls back to the v1 `sources[]` block when the
-  // artifact carries no sources_v2 rows (legacy on-disk JSON path),
-  // then to the indicator title's publisher as the LAST honest hint.
-  // A bare "Source" placeholder reads as a missing-data bug to
-  // citizens; we'd rather degrade to "Source not on file".
+  // artifact carries no pills (legacy on-disk JSON path), then to
+  // the first IndicatorSource as the LAST honest hint. A bare "Source"
+  // placeholder reads as a missing-data bug to citizens; we'd rather
+  // degrade to "Source not on file".
   const geo_source = $derived.by(() => {
-    const v2 = sources_v2;
-    const first_v2 = v2 && v2.length > 0 ? v2[0] : null;
+    const ps = pills;
+    const first_pill = ps && ps.length > 0 ? ps[0] : null;
     const first_v1 = artifact?.sources?.[0];
     return {
       owner:
-        first_v2?.producer ??
+        first_pill?.label ??
         first_v1?.authority ??
         first_v1?.name ??
         "Source not on file",
       vintage:
-        first_v2?.vintage ??
+        first_pill?.vintage_summary ??
         first_v1?.fetched_at ??
         (selected_time ?? ""),
-      url: first_v2?.url_main ?? first_v1?.url ?? null,
+      url: first_pill?.url ?? first_v1?.url ?? null,
     };
   });
 </script>

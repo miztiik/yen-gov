@@ -6,12 +6,13 @@
   // methodology, source ledger, cadence, and a direct download link.
   // Never hand-authored per indicator (parent plan section 20.12).
   //
-  // The two pure helpers below are exported from the module-scope
-  // `<script lang="ts" module>` so vitest can cover them without
+  // The pure helper below is exported from the module-scope
+  // `<script lang="ts" module>` so vitest can cover it without
   // mounting the component (mirrors the U2a `computeCrumbs` / U5a
   // `skeletonStyle` pattern from the U5 sub-plan).
 
   import type { IndicatorMeta, IndicatorMethodology, IndicatorSource } from "../lib/indicators";
+  import type { SourceRow } from "../lib/sources";
 
   /**
    * Citizen-readable label for an indicator's publisher release cadence
@@ -44,44 +45,23 @@
     }
   }
 
-  /**
-   * Four-field source projection per parent plan section 7
-   * (`owner`/`title`/`vintage`/`url`, all OPTIONAL). The legacy
-   * `IndicatorSource` ledger only carries `{url, fetched_at, name?,
-   * authority?}`; this helper bends it into the canonical 4-field
-   * shape using available sibling metadata as fallbacks:
-   *
-   *   - owner   <- methodology.publisher (the producer / department)
-   *   - title   <- source.name; falls back to URL host
-   *   - vintage <- indicator.methodology_vintage (the publisher
-   *                edition) when set, else source.fetched_at (the
-   *                operator snapshot window)
-   *   - url     <- source.url
-   *
-   * MIGRATING (parent plan section 22.7 / chunk B2a + X1a): once the
-   * canonical `datasets/data/entities/source.csv` lands, the source row
-   * carries the 4-field shape natively and this projection retires.
-   * Until then the projection IS the source of truth for the doc page.
-   */
-  export interface FourFieldSource {
-    owner: string | null;
-    title: string | null;
-    vintage: string | null;
-    url: string | null;
-  }
-
-  export function projectToFourFieldSource(
+  /** Project a legacy `IndicatorSource` (the on-disk `{url, fetched_at,
+   *  name?, authority?}` shape) into the canonical 5-col `SourceRow`
+   *  shape so `dedupeToPills` can render it as a publisher pill. The
+   *  IndicatorDoc route is the LAST consumer of the legacy shape; once
+   *  every artifact migrates to the canonical sources table this helper
+   *  retires. Until then it preserves the FK to the ledger via a
+   *  derived synthetic source_id (irrelevant for pill rendering). */
+  export function indicatorSourceToRow(
     source: IndicatorSource,
     methodology: IndicatorMethodology | null | undefined,
     indicator: IndicatorMeta | null | undefined,
-  ): FourFieldSource {
+  ): SourceRow {
     return {
-      owner: methodology?.publisher ?? source.authority ?? null,
-      title: source.name ?? hostFromUrl(source.url) ?? null,
-      vintage:
-        indicator?.methodology_vintage
-        ?? source.fetched_at
-        ?? null,
+      source_id: "src-legacy-" + (source.url ?? "").slice(0, 12),
+      producer: methodology?.publisher ?? source.authority ?? "Unknown",
+      title: source.name ?? hostFromUrl(source.url) ?? "",
+      vintage: indicator?.methodology_vintage ?? source.fetched_at ?? "",
       url: source.url ?? null,
     };
   }
@@ -134,6 +114,7 @@
   } from "../lib/grapher/catalogue";
   import { fetchIndicator, type IndicatorArtifact } from "../lib/indicators";
   import ChartShell from "../lib/charts/ChartShell.svelte";
+  import { SourceList, dedupeToPills } from "../lib/sources";
   import { link } from "../lib/links";
   import { DATA_BASE } from "../lib/paths";
 
@@ -237,10 +218,12 @@
   // per Jony's read-aloud review on TopicLanding).
   const methodology = $derived(artifact?.methodology ?? null);
   const indicator_meta = $derived(artifact?.indicator ?? null);
-  const four_field_sources = $derived(
-    artifact?.sources.map(s =>
-      projectToFourFieldSource(s, methodology, indicator_meta),
-    ) ?? [],
+  const pills = $derived(
+    dedupeToPills(
+      artifact?.sources.map(s =>
+        indicatorSourceToRow(s, methodology, indicator_meta),
+      ) ?? [],
+    ),
   );
 </script>
 
@@ -342,41 +325,25 @@
                refreshed since X" alert layered on top. -->
         </section>
 
-        <!-- Sources (4-field projection) -->
+        <!-- Sources (publisher pills via dedupeToPills) -->
         <section>
           <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 mb-2">
             Sources
           </h2>
-          <ul class="space-y-3">
-            {#each four_field_sources as s, i (i)}
-              <li class="text-sm border-l-2 border-slate-200 pl-3">
-                <div class="grid grid-cols-[5rem_1fr] gap-x-3 gap-y-1">
-                  <span class="text-slate-500">Owner</span>
-                  <span>{s.owner ?? "\u2014"}</span>
-                  <span class="text-slate-500">Title</span>
-                  <span>{s.title ?? "\u2014"}</span>
-                  <span class="text-slate-500">Vintage</span>
-                  <span>{s.vintage ?? "\u2014"}</span>
-                  <span class="text-slate-500">URL</span>
-                  <span class="break-all">
-                    {#if s.url}
-                      <a href={s.url} target="_blank" rel="noopener" class="text-sky-700 hover:underline">
-                        {s.url}
-                      </a>
-                    {:else}
-                      {"\u2014"}
-                    {/if}
-                  </span>
-                </div>
-              </li>
-            {/each}
-          </ul>
+          <SourceList {pills} max_inline={pills.length} />
+          {#if artifact.$schema_version}
+            <p class="text-xs text-slate-400 mt-2">
+              Schema version: <code class="font-mono">v{artifact.$schema_version}</code>
+            </p>
+          {/if}
           <p class="text-xs text-slate-500 mt-3">
-            <strong>Note:</strong> provenance display projects the legacy
+            <strong>Note:</strong> provenance projects the legacy
             <code class="font-mono">sources[]</code> ledger into the
-            4-field shape (owner / title / vintage / url). MIGRATING to the
-            canonical <code class="font-mono">datasets/data/entities/source.csv</code>
-            4-field shape once chunk B2a lands (parent plan section 7).
+            5-col citation ledger shape (`source_id, producer, title,
+            vintage, url`) before deduping into publisher pills.
+            MIGRATING to the canonical
+            <code class="font-mono">datasets/data/entities/source.csv</code>
+            shape once chunk B2a lands.
           </p>
         </section>
 

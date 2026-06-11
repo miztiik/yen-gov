@@ -46,7 +46,7 @@ lookup.
 | `semantic-catalogue.ts` | Derived at startup from `datasets/manifest.json` + the canonical CSV taxonomy + the hand-curated `taxonomy/election_events.json` catalogue. YA cutover 2026-06-06: state enumeration via inline `read_csv('data/entities/electoral.csv', ...)`; election-period enumeration via `fetchElectionEvents()`. MUST NOT scan fact tables (section 17 D-04). | 1 |
 | `concepts.ts` | Hand-authored citizen-question -> query-template mapping. | 1 |
 | `compile-intent.ts` | PURE: `(intent, catalogue) -> DuckDBPlan`. No I/O. Joins the canonical source citation table (`datasets/data/entities/source.csv` via X1a `registerCsvAsTable('taxonomy.sources')`) to enforce Holy Law #9. | 1 |
-| `execute-plan.ts` | IMPURE: `(plan) -> Promise<AnswerViewModel>`. Calls `query()` from `../duckdb`. YA cutover 2026-06-06: `coerceSourceRow` fills sentinels for the 4 X1a-NULL'd source fields (`license` / `confidence_tier` / `is_issuing_authority` / `verification_method`) so the downstream Zod parser accepts the post-X1a 5-field `source.csv` shape. | 1 |
+| `execute-plan.ts` | IMPURE: `(plan) -> Promise<AnswerViewModel>`. Calls `query()` from `../duckdb`. Sources-simplification PR-1 (2026-06-11) rewrote the boundary: the raw 5-col `source.csv` rows (`source_id, producer, title, vintage, url`) are deduped via `dedupeToPills` from `../sources` into `PublisherPill[]`, then validated by the strict Zod schema in `./contracts/answer-viewmodel.ts`. | 1 |
 | `extract-intent.ts` | `extractIntent(question, catalogue, adapter, opts?)`. Slice E.2: optional `opts.embed: EmbedFn` wires the retrieval seam - top-K narrowing + Gregor D-32 substring fallback when top-1 cosine < `COSINE_THRESHOLD` (0.6). Also exports `substringFallback(question, k)` for deterministic fallback ranking. `ExtractAttempt` carries `embed_ms: number \| null`; `ExtractDiagnostics` carries `top_concepts? \| concept_selection? \| selected_concept_ids?`. Behaviour is unchanged when `opts.embed` is omitted (back-compat). | 2, extended in 3 (E.2) |
 | `fixtures/canned-intents.ts` | The four PR-1 canned intents (party_totals, closest_contests, constituency_result, turnout_extremes). | 1 |
 | `fixtures/intent-eval.json` | 20 labelled citizen-style questions (5 per concept) - Slice E.2 regression alarm (Andre + Hamel + Fowler eval-as-contract lock; ADR-0039 + plan-doc D-32). Vitest `catalogue-embed.test.ts` asserts `substringFallback` top-1 accuracy >=90% (5pp tolerance under the 95% baseline measured 2026-05-24). | 3 (E.1) |
@@ -62,7 +62,7 @@ two paths + delete two lines from `frontend/src/main.ts` (the import line
 and the route registration line).
 
 The reverse is encouraged: yenask imports freely from production
-`frontend/src/lib/` (`duckdb`, `charts/*`, `SourceListV2`, `colors/*`,
+`frontend/src/lib/` (`duckdb`, `charts/*`, `sources/*`, `colors/*`,
 `format`, `url`, `states.svelte`). See plan-doc section 17 D-02.
 
 ## Test seam
