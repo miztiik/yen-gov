@@ -157,55 +157,6 @@ function formatVersions(versions: Iterable<string>): string {
     .join(", ");
 }
 
-/** Schemas whose row shape carries per-row source_id (FK to taxonomy/sources)
- * rather than a top-level `sources` array. Per the canonical pivot
- * (CLAUDE.md §12.1, D18), reference taxonomy files don't carry a legacy
- * sources[] — provenance moves onto each row via source_id. */
-const PER_ROW_PROVENANCE_SCHEMAS = new Set<string>([
-  "entity.schema.json",
-  "indicator-catalogue.schema.json",
-  "source.schema.json",
-  "observation.schema.json",
-  "caveat.schema.json",
-  "methodology-break.schema.json",
-  "operator-state.schema.json",
-  "manifest.schema.json",
-  // concepts.json (PR-Z3a) is a hand-authored taxonomy of nouns, not a
-  // dataset of observed series. Schema description: "sources[] left empty
-  // (concepts are nouns, not series)". Provenance lives on each
-  // indicator row's source_id FK, not on the concept registry itself.
-  "concepts.schema.json",
-  // office_holdings.json (G.1.c 2026-05-22) carries per-row references[]
-  // (hand-authored Wikipedia/upstream citations) instead of a top-level
-  // sources[] array. office_citations is a per-office map of canonical
-  // url_main. Compiled Parquet rows (dim_offices, governments_office_holdings)
-  // carry source_id FK; the authoring JSON is taxonomy-shaped.
-  "office-holdings.schema.json",
-  // Grapher render catalogues (ADR-0045) are frontend-owned UI hints — they
-  // carry no observational data and no provenance; they're authored by the
-  // frontend layer and validated against grapher-*-render.schema.json. They
-  // are not subject to §12 sources[] (same logic as manifest.schema.json).
-  "grapher-indicator-render.schema.json",
-  "grapher-topic-render.schema.json",
-  // Election tile-cartogram layouts (ADR-0048, PR-B1) are the same class of
-  // frontend-owned grapher catalogue: each tile carries a per-row source_id
-  // FK to the boundary geojson it was hexbinned from, so provenance lives on
-  // the row (§12.1), not in a top-level sources[] (§12.2).
-  "grapher-election-tile-layout.schema.json",
-  // The tile-cartogram covered-scopes manifest (EGC-C) is a derived index of
-  // the layout doc above — pure frontend-owned UI hint (which scopes have a
-  // layout, with each layout's tile_count) carrying no observational data and
-  // no provenance, so it is exempt from §12 sources[] for the same reason.
-  "grapher-election-tile-scopes.schema.json",
-  // Schema compatibility is a control-plane policy registry, not observed
-  // data. It is validated by its own schema and by schema-compatibility.test.ts.
-  "schema-compatibility.schema.json",
-  // Schema evolution is also control-plane release metadata: it records
-  // schema releases, retained historical schema paths, and value-change
-  // receipts. It is not an observed series and carries no sources[].
-  "schema-evolution.schema.json",
-]);
-
 const SCHEMAS = loadSchemas();
 const UNIQUE_SCHEMAS = uniqueSchemasByBasename(SCHEMAS);
 const JSON_CORPUS_ACCEPTED_VERSIONS = loadJsonCorpusAcceptedVersions();
@@ -364,23 +315,19 @@ describe("contract — every datasets/*.json validates against its declared $sch
   }
 });
 
-describe("contract — provenance (CLAUDE.md §12)", () => {
-  // Every file that declares a legacy schema MUST carry a `sources` array
-  // (§12.2 — legacy JSON shape). Canonical-pivot files use per-row source_id
-  // FK instead (§12.1, D18) — those are skipped here; their provenance is
-  // checked downstream by the writer's FK gate (D22) and by Tier-A schema
-  // sanity on the `source_id` field itself.
-  for (const ref of DATA_FILE_REFS) {
-    it(`${ref.rel} has a sources array (if it declares $schema)`, () => {
-      const f = parseDataFile(ref);
-      if (!f.schema) return;
-      const schemaBasename = f.schema.split(/[\\/]/).pop()!;
-      if (PER_ROW_PROVENANCE_SCHEMAS.has(schemaBasename)) return;
-      expect(Array.isArray(f.body.sources), `${f.rel} missing sources[]`).toBe(true);
-    });
-  }
-});
-
+// §12 provenance enforcement is NOT a corpus walk here. It lives on the
+// contract surface, not in a parallel per-file gate:
+//   - Legacy JSON shape (§12.2): schemas that need sources[] declare it in
+//     their `required:` array (e.g. constituency, topic-catalogue, state-tiers,
+//     ~25 schemas total). Ajv already rejects a file missing sources[] in the
+//     preceding `every datasets/*.json validates against its declared $schema`
+//     block. A duplicate corpus walk only added a hand-maintained skiplist of
+//     auxiliary schemas (manifest, concepts, grapher-*-render, census-code-*-
+//     sidecar, ...) and forced every new schema author to also touch the test.
+//   - Per-row shape (§12.1, CSV): observation rows carry `source_id` FK to
+//     datasets/data/entities/source.csv. Enforced by the backend writer
+//     (`derive_source_id` + writer FK gate) and by Tier-A schema sanity on
+//     the `source_id` field — both covered in backend/tests.
 // Sanity check that the workspace layout is what we expected.
 describe("contract — workspace layout", () => {
   it("datasets/schemas/ exists at the resolved repo root", () => {
