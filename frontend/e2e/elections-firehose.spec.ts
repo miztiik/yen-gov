@@ -112,19 +112,98 @@ test.describe("elections firehose (PR-W3d)", () => {
     const filter = page.getByTestId("firehose-body-filter");
     const rows = page.locator('[data-testid^="firehose-row-"]');
 
+    // Default availability is "Has data" (PR 2026-06-11 firehose-honesty
+    // fix), which hides the ~210 rows the catalogue declares
+    // pending_upstream. Today the catalogue exposes 101 has-data rows
+    // (4 collapsed Parliament events + 97 Assembly events); future
+    // ingest PRs only grow this floor.
     const all_count = await rows.count();
     expect(
       all_count,
-      "default (All filter) should expose every catalogue event",
-    ).toBeGreaterThanOrEqual(200);
+      "default (All body + Has-data availability) should expose every ingested event",
+    ).toBeGreaterThanOrEqual(100);
 
     await filter.getByRole("button", { name: /^Assembly$/ }).click();
     const assembly_count = await rows.count();
-    expect(assembly_count).toBeGreaterThanOrEqual(200);
+    expect(assembly_count).toBeGreaterThanOrEqual(90);
     expect(assembly_count).toBeLessThan(all_count);
 
     await filter.getByRole("button", { name: /^All$/ }).click();
     const restored_count = await rows.count();
     expect(restored_count).toBe(all_count);
+  });
+
+  test("default hides pending_upstream events and the toggle reveals them with a Pending badge", async ({
+    page,
+  }) => {
+    // PR 2026-06-11 (firehose-honesty fix): the catalogue carries
+    // data_status="pending_upstream" for events whose per-event CSVs are
+    // not on disk yet. The firehose:
+    //   1. defaults to "Has data" availability filter -> those rows are
+    //      hidden so the citizen does not read "error" badges as
+    //      "yen-gov broken".
+    //   2. exposes an "All including pending" toggle that brings them
+    //      back, rendered with a slate "Pending" badge (never amber
+    //      "error" text).
+    //   3. fires zero network requests for the pending rows -- the
+    //      catalogue's data_status is the pre-skip signal so no
+    //      summary.csv 404 ever lands.
+
+    const summary_requests: string[] = [];
+    page.on("request", (req) => {
+      const url = req.url();
+      if (url.includes("/elections/") && url.endsWith("/summary.csv")) {
+        summary_requests.push(url);
+      }
+    });
+
+    await page.goto("/t/elections");
+    await expect(page.getByTestId("elections-firehose-table")).toBeVisible({
+      timeout: 30_000,
+    });
+
+    const rows = page.locator('[data-testid^="firehose-row-"]');
+    const default_count = await rows.count();
+
+    // Toggle to "All including pending" — row count must grow.
+    const availability = page.getByTestId("firehose-availability-filter");
+    await availability
+      .getByRole("button", { name: /^All including pending$/ })
+      .click();
+
+    const expanded_count = await rows.count();
+    expect(
+      expanded_count,
+      `expected pending-included view (${expanded_count}) to exceed has-data-only view (${default_count})`,
+    ).toBeGreaterThan(default_count);
+
+    // The new view should expose >= 1 Pending badge — the catalogue
+    // currently declares ~210 pending events; today only the slate
+    // "Pending" badge is visible (never amber "error" text for these).
+    const pending_badges = page.getByTestId("firehose-pending-badge");
+    await expect(pending_badges.first()).toBeVisible({ timeout: 15_000 });
+    const pending_count = await pending_badges.count();
+    expect(pending_count).toBeGreaterThan(0);
+
+    // Restore default filter and assert NO summary.csv was fetched for
+    // a known-pending event. The 1999/2004 Parliament cohort is the
+    // simplest case: those years have no parliament/election=YYYY/
+    // directory on disk; the pre-skip MUST keep them silent.
+    await availability.getByRole("button", { name: /^Has data$/ }).click();
+    await expect(rows).toHaveCount(default_count);
+
+    // After a small settle window every catalogue-declared pending row
+    // must have been pre-skipped — no summary.csv 404 may have landed
+    // for parliament/election=1999/ or parliament/election=2004/.
+    await page.waitForTimeout(500);
+    const pending_year_404s = summary_requests.filter(
+      (u) =>
+        u.includes("parliament/election=1999/") ||
+        u.includes("parliament/election=2004/"),
+    );
+    expect(
+      pending_year_404s,
+      `pre-skip leaked: catalogue-declared pending parliament events triggered summary.csv fetches:\n${pending_year_404s.join("\n")}`,
+    ).toEqual([]);
   });
 });

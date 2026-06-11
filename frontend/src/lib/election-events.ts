@@ -180,3 +180,22 @@ export function daysSincePolled(row: ElectionEventRow, now: Date = new Date()): 
   const polled = new Date(row.polled_on + "T00:00:00Z").getTime();
   return Math.floor((now.getTime() - polled) / (1000 * 60 * 60 * 24));
 }
+
+/**
+ * True when the catalogue declares this event has no on-disk per-event
+ * files yet (because the upstream publisher has not released results, or
+ * the ingest has not landed). Citizen surfaces should render a calm
+ * "Pending" affordance rather than fire a fetch and render an amber
+ * "error" badge when the inevitable 404 comes back.
+ *
+ * The honesty tool `tools.election_events_honesty` is the single writer
+ * that flips `data_status` between `complete` and `pending_upstream`
+ * based on on-disk truth; see backend/tests/test_election_events_honesty.py
+ * for the contract gate that keeps the catalogue honest.
+ *
+ * Returns false for rows without an explicit `data_status` field so old
+ * cached catalogues continue to render as before until the next deploy.
+ */
+export function isPendingUpstream(row: ElectionEventRow): boolean {
+  return row.data_status === "pending_upstream";
+}

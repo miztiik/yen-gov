@@ -58,6 +58,11 @@
   // ---- Row + hydration types ------------------------------------------
   type BodyFilter = "all" | "parliament" | "assembly" | "bye";
   type SortDir = "asc" | "desc";
+  // `has-data` hides rows the catalogue knows have no per-event files
+  // (data_status === "pending_upstream"); `all` shows them with a calm
+  // slate "Pending" badge. Default `has-data` keeps the firehose useful
+  // even when 272 of 513 catalogue rows are not yet ingested.
+  type AvailabilityFilter = "has-data" | "all";
 
   interface PartyInfo {
     party_id: string;
@@ -77,6 +82,11 @@
         runners_up: PartyInfo[];
       }
     | { status: "skipped"; reason: string }
+    // "pending" = catalogue says no per-event files yet; we never
+    // attempted a fetch. Renders a slate "Pending" badge.
+    | { status: "pending"; reason: string }
+    // "failed" = catalogue said complete but the fetch failed. This is
+    // the genuine-bug arm; renders an amber "error" badge.
     | { status: "failed"; reason: string };
 
   interface FirehoseRow {
@@ -164,6 +174,7 @@
 
   // ---- Filter + sort --------------------------------------------------
   let body_filter = $state<BodyFilter>("all");
+  let availability_filter = $state<AvailabilityFilter>("has-data");
   let sort_dir = $state<SortDir>("desc");
 
   const filtered_rows = $derived.by<FirehoseRow[]>(() => {
@@ -183,7 +194,11 @@
           );
       }
     };
-    const filt = all_rows.filter((r) => want_kind(r.kind));
+    const want_availability = (r: FirehoseRow): boolean => {
+      if (availability_filter === "all") return true;
+      return r.data_status !== "pending_upstream";
+    };
+    const filt = all_rows.filter((r) => want_kind(r.kind) && want_availability(r));
     // polled_on is ISO YYYY-MM-DD; lexicographic compare == chronological.
     const sorted = [...filt].sort((a, b) =>
       sort_dir === "desc"
@@ -191,6 +206,31 @@
         : a.polled_on.localeCompare(b.polled_on),
     );
     return sorted;
+  });
+
+  // Count of pending rows in scope of the current body filter so the
+  // "Show pending" toggle can be honest about how many extra rows it
+  // would surface.
+  const pending_in_scope_count = $derived.by<number>(() => {
+    const want_kind = (k: EventKind): boolean => {
+      switch (body_filter) {
+        case "all":
+          return true;
+        case "parliament":
+          return k === "parliament";
+        case "assembly":
+          return k === "assembly";
+        case "bye":
+          return (
+            k === "assembly_bye" ||
+            k === "general_bye" ||
+            k === "by_election"
+          );
+      }
+    };
+    return all_rows.filter(
+      (r) => want_kind(r.kind) && r.data_status === "pending_upstream",
+    ).length;
   });
 
   function toggleSort(): void {
@@ -243,8 +283,23 @@
   async function hydrateRow(row: FirehoseRow): Promise<void> {
     const current = getHydration(row.row_id);
     if (current.status !== "idle") return;
-    // Bye-election rows have no on-disk results today
-    // (data_status === "pending_upstream"); skip cleanly.
+    // Catalogue declares this event has no per-event files on disk
+    // yet (data_status === "pending_upstream"). Skip the fetch
+    // entirely so the citizen sees a calm "Pending" badge instead of
+    // an amber "error" badge from the inevitable 404. The honesty
+    // tool `tools.election_events_honesty` is the single writer that
+    // marks rows pending_upstream based on on-disk truth.
+    if (row.data_status === "pending_upstream") {
+      setHydration(row.row_id, {
+        status: "pending",
+        reason: "catalogue: pending_upstream (no per-event files on disk)",
+      });
+      return;
+    }
+    // Bye-election rows have no on-disk results today; skip cleanly.
+    // (The catalogue should already mark these pending_upstream; this
+    // guard is a defence-in-depth backstop for any future bye row that
+    // slips through with data_status:complete.)
     if (
       row.kind === "assembly_bye" ||
       row.kind === "general_bye" ||
@@ -463,6 +518,10 @@
     { id: "assembly", label: "Assembly" },
     { id: "bye", label: "Bye-elections" },
   ];
+  const AVAILABILITY_FILTERS: { id: AvailabilityFilter; label: string }[] = [
+    { id: "has-data", label: "Has data" },
+    { id: "all", label: "All including pending" },
+  ];
 </script>
 
 <main class="mx-auto max-w-6xl space-y-4 p-4">
@@ -504,6 +563,34 @@
       <span class="ml-auto self-center text-xs text-slate-500">
         {filtered_rows.length} event{filtered_rows.length === 1 ? "" : "s"}
       </span>
+    </div>
+
+    <!-- Availability filter chips ----------------------------------- -->
+    <div
+      class="flex flex-wrap items-center gap-2"
+      data-testid="firehose-availability-filter"
+      role="group"
+      aria-label="Filter by data availability"
+    >
+      <span class="text-xs text-slate-500">Show:</span>
+      {#each AVAILABILITY_FILTERS as opt (opt.id)}
+        <button
+          type="button"
+          class="rounded-full border px-3 py-1 text-xs font-medium transition-colors {availability_filter ===
+          opt.id
+            ? 'border-slate-900 bg-slate-900 text-white'
+            : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-100'}"
+          aria-pressed={availability_filter === opt.id}
+          onclick={() => (availability_filter = opt.id)}
+        >
+          {opt.label}
+        </button>
+      {/each}
+      {#if availability_filter === "has-data" && pending_in_scope_count > 0}
+        <span class="text-xs text-slate-400">
+          ({pending_in_scope_count} pending hidden)
+        </span>
+      {/if}
     </div>
 
     <!-- Table ------------------------------------------------------- -->
@@ -578,6 +665,14 @@
                     style:background-color={hyd.leading.color}
                   >
                     {hyd.leading.short}
+                  </span>
+                {:else if hyd.status === "pending"}
+                  <span
+                    class="inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-medium text-slate-500"
+                    data-testid="firehose-pending-badge"
+                    title="Data not yet ingested"
+                  >
+                    Pending
                   </span>
                 {:else if hyd.status === "skipped"}
                   <span class="text-xs text-slate-400">-</span>
