@@ -2,14 +2,14 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-goa-3682,goa,2017,1,MANDREM,DAYANAND RAGHUNATH SOPTE,parties.IN.INC,INC,16490,58.96,1,won,U,53,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3682,goa,2017,1,MANDREM,LAXMIKANT PARSEKAR,parties.IN.BJP,BJP,9371,33.51,2,lost,U,60,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3682,goa,2017,1,MANDREM,SHRIDHAR LADU MANJREKAR,parties.IN.MAG,MAG,678,2.42,3,forfeit,U,69,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3682,goa,2017,1,MANDREM,DEVENDRA KRISHNAJI PRABHU PARSEKAR DESAI,parties.IN.AAAP,AAAP,620,2.22,4,forfeit,U,53,Graduate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3682,goa,2017,1,MANDREM,DEVENDRA KRISHNAJI PRABHU PARSEKAR DESAI,parties.IN.AAP,AAAP,620,2.22,4,forfeit,U,53,Graduate,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3682,goa,2017,1,MANDREM,RAJENDRA M. SATELKAR,parties.IN.NCP,NCP,234,0.84,6,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3682,goa,2017,1,MANDREM,SANJAY KRISHNARAO PRABHU DESAI,parties.IN.IND,IND,101,0.36,7,forfeit,U,70,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3682,goa,2017,1,MANDREM,BHIM RAGHUVIR PEDNEKAR,parties.IN.BMUP,BMUP,57,0.2,8,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3685,goa,2017,2,PERNEM,AJGAONKAR MANOHAR TRIMBAK,parties.IN.MAG,MAG,15745,56.78,1,won,U,63,10th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-goa-3685,goa,2017,2,PERNEM,RAJENDRA ARLEKAR,parties.IN.BJP,BJP,9715,35.03,2,lost,U,62,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3685,goa,2017,2,PERNEM,VIKESH RAMESH ASSOTIKAR,parties.IN.INC,INC,1013,3.65,3,forfeit,U,43,Others,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3685,goa,2017,2,PERNEM,SHIVANAND KRISHNA PILARNKAR,parties.IN.AAAP,AAAP,308,1.11,5,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3685,goa,2017,2,PERNEM,SHIVANAND KRISHNA PILARNKAR,parties.IN.AAP,AAAP,308,1.11,5,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3685,goa,2017,2,PERNEM,GOPALDAS ANANT ARLEKAR,parties.IN.UNK,GVP,180,0.65,6,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3685,goa,2017,2,PERNEM,SANTOSH SHANKAR MANDREKAR,parties.IN.NCP,NCP,124,0.45,7,forfeit,U,45,10th Pass,Journalist or Editor,crossover,src-1b7bc1c9d39a
 IN-AC-2008-goa-3685,goa,2017,2,PERNEM,NITIN MOHAN CHOPDEKAR,parties.IN.BMUP,BMUP,105,0.38,8,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
@@ -17,22 +17,22 @@ IN-AC-2008-goa-3685,goa,2017,2,PERNEM,DNYANESWAR SITARAM VARKHANKAR,parties.IN.U
 IN-AC-2008-goa-3678,goa,2017,3,BICHOLIM,RAJESH PATNEKAR,parties.IN.BJP,BJP,10654,45.71,1,won,U,53,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-goa-3678,goa,2017,3,BICHOLIM,NARESH SAWAL,parties.IN.MAG,MAG,9988,42.86,2,lost,U,51,12th Pass,Real Estate or Builder or Developer or Construction,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3678,goa,2017,3,BICHOLIM,MANOHAR PANDURANG SHIRODKAR,parties.IN.INC,INC,1761,7.56,3,forfeit,U,50,Graduate Professional,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-goa-3678,goa,2017,3,BICHOLIM,SAINATH PATEKAR,parties.IN.AAAP,AAAP,358,1.54,4,forfeit,U,33,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3678,goa,2017,3,BICHOLIM,SAINATH PATEKAR,parties.IN.AAP,AAAP,358,1.54,4,forfeit,U,33,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3678,goa,2017,3,BICHOLIM,RAUT PANDURANG DATTARAM,parties.IN.UNK,GOPRP,324,1.39,5,forfeit,U,70,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-goa-3695,goa,2017,4,TIVIM,NILKANTH RAMNATH HALARNKAR,parties.IN.INC,INC,11099,49.2,1,won,U,54,10th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-goa-3695,goa,2017,4,TIVIM,KIRAN MOHAN KANDOLKAR,parties.IN.BJP,BJP,10304,45.67,2,lost,U,45,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-goa-3695,goa,2017,4,TIVIM,PRADEEP AMONKAR GHADI,parties.IN.AAAP,AAAP,703,3.12,3,forfeit,U,53,Others,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-goa-3695,goa,2017,4,TIVIM,PRADEEP AMONKAR GHADI,parties.IN.AAP,AAAP,703,3.12,3,forfeit,U,53,Others,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-goa-3695,goa,2017,4,TIVIM,DOUGLAS LAWRENCE SEQUEIRA,parties.IN.NCP,NCP,275,1.22,4,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3683,goa,2017,5,MAPUSA,FRANCISCO C. J. A. DE PINTO E SOUZA,parties.IN.BJP,BJP,10957,48.13,1,won,U,62,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3683,goa,2017,5,MAPUSA,VINOD FADKE,parties.IN.MAG,MAG,4129,18.14,2,lost,U,59,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3683,goa,2017,5,MAPUSA,VIJAY LAXMAN BHIKE,parties.IN.INC,INC,3013,13.24,3,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3683,goa,2017,5,MAPUSA,SHRADDHA KHALAP,parties.IN.AAAP,AAAP,2321,10.2,4,forfeit,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3683,goa,2017,5,MAPUSA,SHRADDHA KHALAP,parties.IN.AAP,AAAP,2321,10.2,4,forfeit,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3683,goa,2017,5,MAPUSA,DOMNIC ALPHONSO,parties.IN.IND,IND,1543,6.78,5,forfeit,U,62,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3683,goa,2017,5,MAPUSA,SANJAY VITHU BARDE,parties.IN.NCP,NCP,289,1.27,7,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3683,goa,2017,5,MAPUSA,RAMESHWARI MORAJKAR,parties.IN.UNK,GSRP,103,0.45,8,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3691,goa,2017,6,SIOLIM,VINODA DATARAMA PALIENCAR,parties.IN.GFP,GFP,10189,43.36,1,won,U,54,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3691,goa,2017,6,SIOLIM,DAYANAND RAYU MANDREKAR,parties.IN.BJP,BJP,8748,37.23,2,lost,U,60,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-goa-3691,goa,2017,6,SIOLIM,VISHNU MHADDU NAIK,parties.IN.AAAP,AAAP,1854,7.89,3,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3691,goa,2017,6,SIOLIM,VISHNU MHADDU NAIK,parties.IN.AAP,AAAP,1854,7.89,3,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3691,goa,2017,6,SIOLIM,PATRICK SAVIO ALMEIDA,parties.IN.IND,IND,1497,6.37,4,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3691,goa,2017,6,SIOLIM,PARESH RAIKAR,parties.IN.UNK,GSM,532,2.26,5,forfeit,U,60,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-goa-3691,goa,2017,6,SIOLIM,ABHIJIT DHARGALKAR,parties.IN.NCP,NCP,275,1.17,6,forfeit,U,33,12th Pass,,crossover,src-1b7bc1c9d39a
@@ -41,40 +41,40 @@ IN-AC-2008-goa-3691,goa,2017,6,SIOLIM,MUKESH SAWANT,parties.IN.IND,IND,73,0.31,9
 IN-AC-2008-goa-3689,goa,2017,7,SALIGAO,JAYESH VIDYADHAR SALGAONKAR,parties.IN.GFP,GFP,9735,46.3,1,won,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3689,goa,2017,7,SALIGAO,DILIP PARULEKAR,parties.IN.BJP,BJP,7598,36.13,2,lost,U,52,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3689,goa,2017,7,SALIGAO,AGNELO NICHOLAS FERNANDES,parties.IN.INC,INC,1616,7.68,3,forfeit,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3689,goa,2017,7,SALIGAO,DATTATRAYA VITTAL PADGAONKAR,parties.IN.AAAP,AAAP,1330,6.32,4,forfeit,U,56,Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3689,goa,2017,7,SALIGAO,DATTATRAYA VITTAL PADGAONKAR,parties.IN.AAP,AAAP,1330,6.32,4,forfeit,U,56,Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3689,goa,2017,7,SALIGAO,RAJESH DABHOLKAR,parties.IN.SHS,SHS,428,2.04,5,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3689,goa,2017,7,SALIGAO,GAJANAN RAMA NAIK,parties.IN.CPI,CPI,150,0.71,7,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3679,goa,2017,8,CALANGUTE,MICHAEL VINCENT LOBO,parties.IN.BJP,BJP,11136,55.45,1,won,U,40,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3679,goa,2017,8,CALANGUTE,JOSEPH ROBERT SEQUEIRA,parties.IN.INC,INC,7311,36.4,2,lost,U,56,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-goa-3679,goa,2017,8,CALANGUTE,GODWIN FERNANDES,parties.IN.AAAP,AAAP,1465,7.29,3,forfeit,U,34,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3679,goa,2017,8,CALANGUTE,GODWIN FERNANDES,parties.IN.AAP,AAAP,1465,7.29,3,forfeit,U,34,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3687,goa,2017,9,PORVORIM,ROHAN KHAUNTE,parties.IN.IND,IND,11174,56.85,1,won,U,42,Others,Self-employed,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3687,goa,2017,9,PORVORIM,GURUPRASAD R. PAWASKAR,parties.IN.BJP,BJP,6961,35.41,2,lost,U,43,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3687,goa,2017,9,PORVORIM,RAJESH VALVAIKAR,parties.IN.AAAP,AAAP,846,4.3,3,forfeit,U,45,12th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3687,goa,2017,9,PORVORIM,RAJESH VALVAIKAR,parties.IN.AAP,AAAP,846,4.3,3,forfeit,U,45,12th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3687,goa,2017,9,PORVORIM,RAJESH VISHNU SINAI AMONKAR ALIAS RAJESH AMONKAR,parties.IN.MAG,MAG,222,1.13,4,forfeit,U,46,Graduate,Trader,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3687,goa,2017,9,PORVORIM,WILBUR FREDRICK TICLO,parties.IN.IND,IND,144,0.73,6,forfeit,U,51,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3687,goa,2017,9,PORVORIM,RAJU D'SOUZA,parties.IN.SAJPCS,SAJPCS,133,0.68,7,forfeit,U,47,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-goa-3677,goa,2017,10,ALDONA,GLENN SOUZA TICLO,parties.IN.BJP,BJP,9405,43.53,1,won,U,54,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3677,goa,2017,10,ALDONA,AMARNATH PANJIKAR,parties.IN.INC,INC,4949,22.91,2,lost,U,49,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3677,goa,2017,10,ALDONA,ROSY URSULA D'SOUZA,parties.IN.AAAP,AAAP,3272,15.14,3,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3677,goa,2017,10,ALDONA,ROSY URSULA D'SOUZA,parties.IN.AAP,AAAP,3272,15.14,3,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3677,goa,2017,10,ALDONA,MAHESH VITHU SATELKAR,parties.IN.MAG,MAG,3000,13.89,4,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3677,goa,2017,10,ALDONA,ANANDRAO NARAYANRAO NAGVENKAR,parties.IN.IND,IND,643,2.98,5,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3677,goa,2017,10,ALDONA,OSBERT D'CUNHA,parties.IN.NCP,NCP,141,0.65,7,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3684,goa,2017,11,PANAJI,SIDHARTH SRIPAD KUNCALIENKER,parties.IN.BJP,BJP,7924,45.7,1,won,U,41,Graduate Professional,Self-employed,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3684,goa,2017,11,PANAJI,ATANASIO J. MONSERRATE,parties.IN.UNK,UGP,6855,39.54,2,lost,U,54,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-goa-3684,goa,2017,11,PANAJI,VALMIKI NAIK,parties.IN.AAAP,AAAP,1944,11.21,3,forfeit,U,40,Post Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3684,goa,2017,11,PANAJI,VALMIKI NAIK,parties.IN.AAP,AAAP,1944,11.21,3,forfeit,U,40,Post Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3684,goa,2017,11,PANAJI,KETAN KIRTIKUMAR PRABHU BHATIKAR,parties.IN.UNK,GSM,323,1.86,4,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3684,goa,2017,11,PANAJI,DOMINIC SAVIO A. E. FERNANDES,parties.IN.NCP,NCP,62,0.36,6,forfeit,U,50,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-goa-3684,goa,2017,11,PANAJI,DILIP GHADI,parties.IN.IND,IND,36,0.21,7,forfeit,U,53,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3684,goa,2017,11,PANAJI,PARSHURAM DODAMANI,parties.IN.IND,IND,20,0.12,8,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3694,goa,2017,12,TALEIGAO,JENNIFER MONSERRATE,parties.IN.INC,INC,11534,51.13,1,won,U,46,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3694,goa,2017,12,TALEIGAO,DATTAPRASAD NAIK,parties.IN.BJP,BJP,8679,38.48,2,lost,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3694,goa,2017,12,TALEIGAO,CECILLE RODRIGUES,parties.IN.AAAP,AAAP,1976,8.76,3,forfeit,U,34,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3694,goa,2017,12,TALEIGAO,CECILLE RODRIGUES,parties.IN.AAP,AAAP,1976,8.76,3,forfeit,U,34,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3694,goa,2017,12,TALEIGAO,VIJAY V. MORE,parties.IN.IND,IND,115,0.51,5,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3693,goa,2017,13,ST. CRUZ,ANTONIO CAETANO  FERNANDES,parties.IN.INC,INC,6202,27.92,1,won,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3693,goa,2017,13,ST. CRUZ,HEMANT DINANATH GOLATKAR,parties.IN.BJP,BJP,5560,25.03,2,lost,U,49,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3693,goa,2017,13,ST. CRUZ,RODOLFO LOUIS FERNANDES,parties.IN.IND,IND,5262,23.69,3,lost,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3693,goa,2017,13,ST. CRUZ,PRAKASH GOPI NAIK,parties.IN.MAG,MAG,2707,12.19,4,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3693,goa,2017,13,ST. CRUZ,JOSE VINCENT GOMES,parties.IN.AAAP,AAAP,1712,7.71,5,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3693,goa,2017,13,ST. CRUZ,JOSE VINCENT GOMES,parties.IN.AAP,AAAP,1712,7.71,5,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3693,goa,2017,13,ST. CRUZ,HELENA LOURENCO,parties.IN.IND,IND,227,1.02,7,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3693,goa,2017,13,ST. CRUZ,PEDRO CAITANO PIRES ALIAS PETER PIRES,parties.IN.CPI,CPI,106,0.48,8,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3693,goa,2017,13,ST. CRUZ,SHAKEEL JAMAL SHAIKH,parties.IN.NCP,NCP,75,0.34,9,forfeit,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -83,7 +83,7 @@ IN-AC-2008-goa-3692,goa,2017,14,ST. ANDRE,FRANCISCO SILVEIRA,parties.IN.INC,INC,
 IN-AC-2008-goa-3692,goa,2017,14,ST. ANDRE,RAMRAO SURYA NAIK WAGH,parties.IN.BJP,BJP,3017,18.23,2,lost,U,50,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3692,goa,2017,14,ST. ANDRE,JAGDISH UMAKANT BHOBE,parties.IN.MAG,MAG,2393,14.46,3,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3692,goa,2017,14,ST. ANDRE,DHAKU ARJUN MADKAIKAR,parties.IN.IND,IND,1285,7.76,4,forfeit,U,45,5th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-goa-3692,goa,2017,14,ST. ANDRE,RAMA GURUDAS KANKONKAR,parties.IN.AAAP,AAAP,979,5.91,5,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3692,goa,2017,14,ST. ANDRE,RAMA GURUDAS KANKONKAR,parties.IN.AAP,AAAP,979,5.91,5,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3692,goa,2017,14,ST. ANDRE,DATTARAM NAGUESH CHARI,parties.IN.NCP,NCP,325,1.96,6,forfeit,U,40,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3692,goa,2017,14,ST. ANDRE,SIMAO ALEIXO CAIADO,parties.IN.IND,IND,143,0.86,8,forfeit,U,65,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3692,goa,2017,14,ST. ANDRE,SUNIL SAVLO KERKAR,parties.IN.IND,IND,97,0.59,9,forfeit,U,30,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
@@ -91,14 +91,14 @@ IN-AC-2008-goa-3692,goa,2017,14,ST. ANDRE,LEOCARDIO A. D. MONTEIRO,parties.IN.UN
 IN-AC-2008-goa-3692,goa,2017,14,ST. ANDRE,ASHWIN MENINO ROSARIO,parties.IN.IND,IND,29,0.18,11,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3680,goa,2017,15,CUMBARJUA,PANDURANG MADKAIKAR,parties.IN.BJP,BJP,12395,60.3,1,won,U,53,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3680,goa,2017,15,CUMBARJUA,XAVIER FIALHO,parties.IN.INC,INC,3961,19.27,2,lost,U,37,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3680,goa,2017,15,CUMBARJUA,PRAKASH DATTARAM NAIK,parties.IN.AAAP,AAAP,2394,11.65,3,forfeit,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3680,goa,2017,15,CUMBARJUA,PRAKASH DATTARAM NAIK,parties.IN.AAP,AAAP,2394,11.65,3,forfeit,U,54,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3680,goa,2017,15,CUMBARJUA,VISHAL SHAMBU VOLVOIKAR,parties.IN.IND,IND,990,4.82,4,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3680,goa,2017,15,CUMBARJUA,PRASAD HARMALKAR,parties.IN.IND,IND,468,2.28,5,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3681,goa,2017,16,MAEM,PRAVIN  ZANTYE,parties.IN.BJP,BJP,12430,51.56,1,won,U,50,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3681,goa,2017,16,MAEM,SANTOSH KUMAR SAWANT,parties.IN.INC,INC,7456,30.93,2,lost,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3681,goa,2017,16,MAEM,ATMARAM VAMAN GAONKER,parties.IN.UNK,GSM,2317,9.61,3,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3681,goa,2017,16,MAEM,SUBHASH NARSINHA KINALKAR,parties.IN.NCP,NCP,528,2.19,4,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3681,goa,2017,16,MAEM,AJEETSINGH VAMANRAO RANE,parties.IN.AAAP,AAAP,525,2.18,5,forfeit,U,50,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3681,goa,2017,16,MAEM,AJEETSINGH VAMANRAO RANE,parties.IN.AAP,AAAP,525,2.18,5,forfeit,U,50,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3681,goa,2017,16,MAEM,PRABHAKAR LAXIMAN GAONKAR,parties.IN.IND,IND,174,0.72,7,forfeit,U,46,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3681,goa,2017,16,MAEM,DEEPKUMAR D MAPARI,parties.IN.IND,IND,159,0.66,8,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3681,goa,2017,16,MAEM,ASHOK ANANT GAONKAR,parties.IN.IND,IND,142,0.59,9,forfeit,U,57,Others,Self-employed,challenger,src-1b7bc1c9d39a
@@ -106,41 +106,41 @@ IN-AC-2008-goa-3690,goa,2017,17,SANQUELIM,DR. PRAMOD PANDURANG SAWANT,parties.IN
 IN-AC-2008-goa-3690,goa,2017,17,SANQUELIM,DHARMESH SAGLANI,parties.IN.INC,INC,7927,33.45,2,lost,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3690,goa,2017,17,SANQUELIM,SURESH AMONKAR,parties.IN.UNK,GSM,3831,16.16,3,forfeit,U,65,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-goa-3690,goa,2017,17,SANQUELIM,PRATAP PRABHAKAR GAUNS,parties.IN.NCP,NCP,857,3.62,4,forfeit,U,53,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-goa-3690,goa,2017,17,SANQUELIM,MILIND GAUNS,parties.IN.AAAP,AAAP,408,1.72,5,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3690,goa,2017,17,SANQUELIM,MILIND GAUNS,parties.IN.AAP,AAAP,408,1.72,5,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3690,goa,2017,17,SANQUELIM,MAHESH SHANTARAM PARAB,parties.IN.IND,IND,218,0.92,7,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3690,goa,2017,17,SANQUELIM,MOULALI SHAIKH,parties.IN.UNK,GSRP,72,0.3,8,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3686,goa,2017,18,PORIEM,PRATAPSINGH R RANE,parties.IN.INC,INC,14977,54.27,1,won,U,78,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3686,goa,2017,18,PORIEM,VISHWAJIT KRISHNARAO RANE,parties.IN.BJP,BJP,10911,39.54,2,lost,U,44,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3686,goa,2017,18,PORIEM,SUHAS GAJANAN NAIK,parties.IN.MAG,MAG,469,1.7,4,forfeit,U,53,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3686,goa,2017,18,PORIEM,SITARAM ANANT GAWAS,parties.IN.AAAP,AAAP,403,1.46,5,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3686,goa,2017,18,PORIEM,SITARAM ANANT GAWAS,parties.IN.AAP,AAAP,403,1.46,5,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3686,goa,2017,18,PORIEM,AJIT SADANAND MHALSHEKAR,parties.IN.IND,IND,284,1.03,6,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3696,goa,2017,19,VALPOI,VISHWAJIT PRATAPSINGH RANE,parties.IN.INC,INC,13493,53.28,1,won,U,45,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3696,goa,2017,19,VALPOI,SATYAVIJAY SUBRAI NAIK,parties.IN.BJP,BJP,7815,30.86,2,lost,U,55,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3696,goa,2017,19,VALPOI,VIJAY ATMARAM GAONKAR,parties.IN.MAG,MAG,3246,12.82,3,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3696,goa,2017,19,VALPOI,ASHISH V. KANEKAR,parties.IN.AAAP,AAAP,410,1.62,4,forfeit,U,36,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3696,goa,2017,19,VALPOI,ASHISH V. KANEKAR,parties.IN.AAP,AAAP,410,1.62,4,forfeit,U,36,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3688,goa,2017,20,PRIOL,GOVIND GAUDE,parties.IN.IND,IND,15149,56.22,1,won,U,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3688,goa,2017,20,PRIOL,PANDURANG ALIAS DEEPAK MADHAV DHAVALIKAR,parties.IN.MAG,MAG,10463,38.83,2,lost,U,58,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-goa-3688,goa,2017,20,PRIOL,DR. DATTARAM B. DESSAI,parties.IN.AAAP,AAAP,456,1.69,3,forfeit,U,64,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3688,goa,2017,20,PRIOL,DR. DATTARAM B. DESSAI,parties.IN.AAP,AAAP,456,1.69,3,forfeit,U,64,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3688,goa,2017,20,PRIOL,RAMKRISHNA B. JALMI,parties.IN.INC,INC,429,1.59,5,forfeit,U,42,Graduate Professional,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3710,goa,2017,21,PONDA,RAVI SITARAM NAIK,parties.IN.INC,INC,9502,37.86,1,won,U,70,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3710,goa,2017,21,PONDA,SUNIL DESAI,parties.IN.BJP,BJP,6492,25.87,2,lost,U,56,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3710,goa,2017,21,PONDA,RAJESH VEREKAR,parties.IN.IND,IND,4529,18.05,3,lost,U,42,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3710,goa,2017,21,PONDA,LAVOO MAMLEDAR,parties.IN.MAG,MAG,3796,15.13,4,forfeit,U,60,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-goa-3710,goa,2017,21,PONDA,MULLA MANSUR MUZAWAR,parties.IN.AAAP,AAAP,522,2.08,5,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3710,goa,2017,21,PONDA,MULLA MANSUR MUZAWAR,parties.IN.AAP,AAAP,522,2.08,5,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3714,goa,2017,22,SIRODA,SUBHASH ANKUSH SHIRODKAR,parties.IN.INC,INC,11156,45.31,1,won,U,64,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3714,goa,2017,22,SIRODA,MAHADEV NARAYAN NAIK,parties.IN.BJP,BJP,6286,25.53,2,lost,U,58,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3714,goa,2017,22,SIRODA,ABHAY RAMCHANDRA PRABHU,parties.IN.MAG,MAG,5815,23.62,3,lost,U,45,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3714,goa,2017,22,SIRODA,MOLU ANAND VELIP,parties.IN.AAAP,AAAP,586,2.38,4,forfeit,U,42,12th Pass,Contractor,crossover,src-1b7bc1c9d39a
+IN-AC-2008-goa-3714,goa,2017,22,SIRODA,MOLU ANAND VELIP,parties.IN.AAP,AAAP,586,2.38,4,forfeit,U,42,12th Pass,Contractor,crossover,src-1b7bc1c9d39a
 IN-AC-2008-goa-3714,goa,2017,22,SIRODA,NILESH GOVIND GAONKAR,parties.IN.IND,IND,447,1.82,5,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3714,goa,2017,22,SIRODA,DIYA CHANDRAKANT SHETKAR,parties.IN.IND,IND,140,0.57,7,forfeit,U,39,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3705,goa,2017,23,MARCAIM,RAMKRISHNA ALIAS SUDIN DHAVALIKAR,parties.IN.MAG,MAG,17093,73.18,1,won,U,60,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3705,goa,2017,23,MARCAIM,PRADEEP PUNDALIK SHET,parties.IN.BJP,BJP,3413,14.61,2,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3705,goa,2017,23,MARCAIM,URMILA ALIAS VINDIKSHA VINOD NAIK,parties.IN.INC,INC,1259,5.39,3,forfeit,U,40,8th Pass,Household,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3705,goa,2017,23,MARCAIM,SUREL DATTA TILVE,parties.IN.AAAP,AAAP,971,4.16,4,forfeit,U,32,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3705,goa,2017,23,MARCAIM,SUREL DATTA TILVE,parties.IN.AAP,AAAP,971,4.16,4,forfeit,U,32,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3705,goa,2017,23,MARCAIM,HANUMANT VASANT NAIK,parties.IN.IND,IND,244,1.04,6,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-eci24,goa,2017,24,MORMUGAO,MILIND SAGUN NAIK,parties.IN.BJP,BJP,8466,48.82,1,won,U,54,12th Pass,Contractor,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-eci24,goa,2017,24,MORMUGAO,SANKALP AMONKAR,parties.IN.INC,INC,8326,48.02,2,lost,U,41,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-eci24,goa,2017,24,MORMUGAO,GIOVANNI KARL VAZ,parties.IN.AAAP,AAAP,267,1.54,3,forfeit,U,53,12th Pass,Real Estate or Builder or Developer or Construction,crossover,src-1b7bc1c9d39a
+IN-AC-2008-goa-eci24,goa,2017,24,MORMUGAO,GIOVANNI KARL VAZ,parties.IN.AAP,AAAP,267,1.54,3,forfeit,U,53,12th Pass,Real Estate or Builder or Developer or Construction,crossover,src-1b7bc1c9d39a
 IN-AC-2008-goa-eci24,goa,2017,24,MORMUGAO,SANJAY NAIK,parties.IN.SHS,SHS,51,0.29,5,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-eci24,goa,2017,24,MORMUGAO,PARASHURAM UMAJI SONURLEKAR,parties.IN.IND,IND,48,0.28,6,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-eci24,goa,2017,24,MORMUGAO,MARIA LIBERATA MENDONCA,parties.IN.IND,IND,31,0.18,7,forfeit,U,37,Others,,challenger,src-1b7bc1c9d39a
@@ -148,14 +148,14 @@ IN-AC-2008-goa-3715,goa,2017,25,VASCO-DA-GAMA,JOSE LUIS CARLOS ALMEIDA,parties.I
 IN-AC-2008-goa-3715,goa,2017,25,VASCO-DA-GAMA,KRISHNA (DAJI) V SALKAR,parties.IN.IND,IND,7414,28.41,2,lost,U,46,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3715,goa,2017,25,VASCO-DA-GAMA,JOSE FILIPE DE SOUSA,parties.IN.NCP,NCP,4202,16.1,3,forfeit,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3715,goa,2017,25,VASCO-DA-GAMA,SAIFULA KHAN,parties.IN.INC,INC,3737,14.32,4,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3715,goa,2017,25,VASCO-DA-GAMA,LORETTA SHREEDHARAN,parties.IN.AAAP,AAAP,928,3.56,5,forfeit,U,62,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3715,goa,2017,25,VASCO-DA-GAMA,LORETTA SHREEDHARAN,parties.IN.AAP,AAAP,928,3.56,5,forfeit,U,62,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3715,goa,2017,25,VASCO-DA-GAMA,MANESH CHANDRAKANT AROLKAR,parties.IN.MAG,MAG,654,2.51,6,forfeit,U,47,Others,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3715,goa,2017,25,VASCO-DA-GAMA,GANDHI HENRIQUES,parties.IN.IND,IND,77,0.3,8,forfeit,U,68,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3715,goa,2017,25,VASCO-DA-GAMA,CHANDRASHEKHER VAST,parties.IN.UNK,NGRF,59,0.23,9,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3703,goa,2017,26,DABOLIM,MAUVIN HELIODORO GODINHO,parties.IN.BJP,BJP,7234,41.4,1,won,U,57,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3703,goa,2017,26,DABOLIM,PREMANAND NANOSKAR,parties.IN.MAG,MAG,4740,27.13,2,lost,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3703,goa,2017,26,DABOLIM,FRANCISCO JOSE NUNES,parties.IN.INC,INC,2752,15.75,3,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3703,goa,2017,26,DABOLIM,VASANT (GOPI) NAIK,parties.IN.AAAP,AAAP,1117,6.39,4,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3703,goa,2017,26,DABOLIM,VASANT (GOPI) NAIK,parties.IN.AAP,AAAP,1117,6.39,4,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3703,goa,2017,26,DABOLIM,KRITESH NAIK GAUNKAR,parties.IN.NCP,NCP,1043,5.97,5,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3703,goa,2017,26,DABOLIM,KENNETH IAN STEWART SILVEIRA,parties.IN.IND,IND,130,0.74,7,forfeit,U,34,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3703,goa,2017,26,DABOLIM,TARA GOVIND KERKAR,parties.IN.IND,IND,124,0.71,8,forfeit,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -165,7 +165,7 @@ IN-AC-2008-goa-3699,goa,2017,27,CORTALIM,ALINA SALDANHA,parties.IN.BJP,BJP,5666,
 IN-AC-2008-goa-3699,goa,2017,27,CORTALIM,ANTONIO VAS,parties.IN.IND,IND,5148,21.92,2,lost,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3699,goa,2017,27,CORTALIM,GILBERT MARIANO RODRIGUES,parties.IN.INC,INC,4326,18.42,3,lost,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3699,goa,2017,27,CORTALIM,NELLY RODRIGUES,parties.IN.UNK,GVP,3380,14.39,4,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3699,goa,2017,27,CORTALIM,OLENCIO SIMOES,parties.IN.AAAP,AAAP,2482,10.57,5,forfeit,U,30,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3699,goa,2017,27,CORTALIM,OLENCIO SIMOES,parties.IN.AAP,AAAP,2482,10.57,5,forfeit,U,30,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3699,goa,2017,27,CORTALIM,RAMAKANT BORKAR,parties.IN.UNK,UGP,1708,7.27,6,forfeit,U,54,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-goa-3699,goa,2017,27,CORTALIM,SHARAN METI,parties.IN.UNK,GSRP,258,1.1,7,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3699,goa,2017,27,CORTALIM,MIGUEL ANTONIO RODRIGUES,parties.IN.IND,IND,177,0.75,9,forfeit,U,41,Illiterate,,challenger,src-1b7bc1c9d39a
@@ -173,26 +173,26 @@ IN-AC-2008-goa-3699,goa,2017,27,CORTALIM,SUMAN SHARMA,parties.IN.MAG,MAG,75,0.32
 IN-AC-2008-goa-3699,goa,2017,27,CORTALIM,GILROY COSTA,parties.IN.UNK,GOPRP,56,0.24,11,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3709,goa,2017,28,NUVEM,WILFRED D'SA,parties.IN.INC,INC,9967,46.47,1,won,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3709,goa,2017,28,NUVEM,FRANCISCO XAVIER PACHECO,parties.IN.UNK,GSRP,4307,20.08,2,lost,U,52,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-goa-3709,goa,2017,28,NUVEM,MARIANO GODINHO,parties.IN.AAAP,AAAP,3389,15.8,3,forfeit,U,63,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3709,goa,2017,28,NUVEM,MARIANO GODINHO,parties.IN.AAP,AAAP,3389,15.8,3,forfeit,U,63,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3709,goa,2017,28,NUVEM,VINCENT RODRIGUES,parties.IN.NCP,NCP,2880,13.43,4,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3709,goa,2017,28,NUVEM,DINESH BANDODKAR,parties.IN.IND,IND,664,3.1,5,forfeit,U,58,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3702,goa,2017,29,CURTORIM,ALEIXO REGINALDO LOURENCO,parties.IN.INC,INC,12841,60.28,1,won,U,47,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3702,goa,2017,29,CURTORIM,ARTHUR D’SILVA,parties.IN.BJP,BJP,5144,24.15,2,lost,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3702,goa,2017,29,CURTORIM,EDWIN DOMNIC VAZ,parties.IN.AAAP,AAAP,2711,12.73,3,forfeit,U,38,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3702,goa,2017,29,CURTORIM,EDWIN DOMNIC VAZ,parties.IN.AAP,AAAP,2711,12.73,3,forfeit,U,38,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3702,goa,2017,29,CURTORIM,CONCEICAO DIAS,parties.IN.MAG,MAG,240,1.13,5,forfeit,U,50,8th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-goa-3702,goa,2017,29,CURTORIM,JOSE PAULO FERNANDES,parties.IN.IND,IND,118,0.55,6,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3704,goa,2017,30,FATORDA,VIJAI SARDESAI,parties.IN.GFP,GFP,10516,45.65,1,won,U,46,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3704,goa,2017,30,FATORDA,DAMU G. NAIK,parties.IN.BJP,BJP,9182,39.86,2,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3704,goa,2017,30,FATORDA,RANJIT COTTA CARVALHO,parties.IN.AAAP,AAAP,1479,6.42,3,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3704,goa,2017,30,FATORDA,RANJIT COTTA CARVALHO,parties.IN.AAP,AAAP,1479,6.42,3,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3704,goa,2017,30,FATORDA,JOSE D'SILVA,parties.IN.INC,INC,1414,6.14,4,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3704,goa,2017,30,FATORDA,D. S. NAIK (DILIP),parties.IN.MAG,MAG,155,0.67,6,forfeit,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3704,goa,2017,30,FATORDA,AVIN VISHWANATH NAIK,parties.IN.IND,IND,72,0.31,7,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3706,goa,2017,31,MARGAO,DIGAMBAR VASANT KAMAT,parties.IN.INC,INC,12105,54.15,1,won,U,62,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3706,goa,2017,31,MARGAO,SHARMAD RAITURKAR,parties.IN.BJP,BJP,7929,35.47,2,lost,U,39,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3706,goa,2017,31,MARGAO,SANTOSH RAITURKAR,parties.IN.AAAP,AAAP,1832,8.2,3,forfeit,U,64,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3706,goa,2017,31,MARGAO,SANTOSH RAITURKAR,parties.IN.AAP,AAAP,1832,8.2,3,forfeit,U,64,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3706,goa,2017,31,MARGAO,JAYESH RAGHUNATH NAIK,parties.IN.MAG,MAG,216,0.97,5,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3697,goa,2017,32,BENAULIM,CHURCHILL ALEMAO,parties.IN.NCP,NCP,9373,43.98,1,won,U,67,Others,Agricultural Business,crossover,src-1b7bc1c9d39a
-IN-AC-2008-goa-3697,goa,2017,32,BENAULIM,ROYLA CLARINA FERNANDES,parties.IN.AAAP,AAAP,4182,19.62,2,lost,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3697,goa,2017,32,BENAULIM,ROYLA CLARINA FERNANDES,parties.IN.AAP,AAAP,4182,19.62,2,lost,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3697,goa,2017,32,BENAULIM,CAETANO ROSARIO SILVA,parties.IN.IND,IND,3995,18.74,3,lost,U,57,5th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3697,goa,2017,32,BENAULIM,EDWINO BARRETO,parties.IN.INC,INC,2157,10.12,4,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3697,goa,2017,32,BENAULIM,JOHN FERNANDES,parties.IN.UNK,GSRP,571,2.68,5,forfeit,U,40,,,crossover,src-1b7bc1c9d39a
@@ -202,19 +202,19 @@ IN-AC-2008-goa-3708,goa,2017,33,NAVELIM,LUIZINHO FALEIRO,parties.IN.INC,INC,8183
 IN-AC-2008-goa-3708,goa,2017,33,NAVELIM,AVERTANO FURTADO,parties.IN.IND,IND,5705,26.72,2,lost,U,50,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3708,goa,2017,33,NAVELIM,EDWIN CARDOZO (CIPRU),parties.IN.IND,IND,3027,14.18,3,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3708,goa,2017,33,NAVELIM,SATYAVIAJAY NAIK,parties.IN.MAG,MAG,1798,8.42,4,forfeit,U,48,10th Pass,Contractor,crossover,src-1b7bc1c9d39a
-IN-AC-2008-goa-3708,goa,2017,33,NAVELIM,SIDDHARTH KARAPURKAR,parties.IN.AAAP,AAAP,1287,6.03,5,forfeit,U,48,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3708,goa,2017,33,NAVELIM,SIDDHARTH KARAPURKAR,parties.IN.AAP,AAAP,1287,6.03,5,forfeit,U,48,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3708,goa,2017,33,NAVELIM,CRUZ ANTONIO JORGE BARRETTO,parties.IN.UNK,GVP,839,3.93,6,forfeit,U,60,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3708,goa,2017,33,NAVELIM,DUARTE PIRES,parties.IN.IND,IND,263,1.23,7,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3700,goa,2017,34,CUNCOLIM,CLAFASIO DIAS,parties.IN.INC,INC,6415,28.59,1,won,U,46,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3700,goa,2017,34,CUNCOLIM,JOAQUIM ALEMAO,parties.IN.IND,IND,6382,28.44,2,lost,U,60,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3700,goa,2017,34,CUNCOLIM,SUBHASH ALIAS RAJAN K. NAIK,parties.IN.BJP,BJP,5047,22.49,3,lost,U,63,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-goa-3700,goa,2017,34,CUNCOLIM,ELVIS GOMES,parties.IN.AAAP,AAAP,3437,15.32,4,forfeit,U,54,Graduate Professional,Ex Civil Service,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3700,goa,2017,34,CUNCOLIM,ELVIS GOMES,parties.IN.AAP,AAAP,3437,15.32,4,forfeit,U,54,Graduate Professional,Ex Civil Service,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3700,goa,2017,34,CUNCOLIM,JOHN INACIO MONTEIRO,parties.IN.UNK,GVP,488,2.17,5,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3700,goa,2017,34,CUNCOLIM,DEVENDRA DESSAI,parties.IN.SHS,SHS,313,1.39,6,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3700,goa,2017,34,CUNCOLIM,DERICK DIAS,parties.IN.IND,IND,111,0.49,8,forfeit,U,49,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3716,goa,2017,35,VELIM,FILIPE NERY RODRIGUES,parties.IN.INC,INC,10417,44.28,1,won,U,54,Others,Engineer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3716,goa,2017,35,VELIM,BENJAMIN SILVA,parties.IN.IND,IND,5164,21.95,2,lost,U,50,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-goa-3716,goa,2017,35,VELIM,CRUZ SILVA,parties.IN.AAAP,AAAP,3423,14.55,3,forfeit,U,47,Graduate Professional,Engineer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3716,goa,2017,35,VELIM,CRUZ SILVA,parties.IN.AAP,AAAP,3423,14.55,3,forfeit,U,47,Graduate Professional,Engineer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3716,goa,2017,35,VELIM,VINAY TARI,parties.IN.BJP,BJP,1765,7.5,4,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3716,goa,2017,35,VELIM,ANTHONY RODRIGUES,parties.IN.GFP,GFP,1460,6.21,5,forfeit,U,53,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3716,goa,2017,35,VELIM,EDRICH CORREIA,parties.IN.IND,IND,335,1.42,6,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
@@ -226,13 +226,13 @@ IN-AC-2008-goa-3716,goa,2017,35,VELIM,CONSTANCIO FERNANDES,parties.IN.IND,IND,79
 IN-AC-2008-goa-3716,goa,2017,35,VELIM,CLIFFTON D'SOUZA,parties.IN.APOI,APOI,44,0.19,13,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3711,goa,2017,36,QUEPEM,CHANDRAKANT (BABU) KAVLEKAR,parties.IN.INC,INC,13525,50.73,1,won,U,45,8th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3711,goa,2017,36,QUEPEM,PRAKASH SHANKAR VELIP,parties.IN.BJP,BJP,10933,41.01,2,lost,U,63,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3711,goa,2017,36,QUEPEM,JOAO FERNANDES,parties.IN.AAAP,AAAP,1385,5.19,3,forfeit,U,46,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3711,goa,2017,36,QUEPEM,JOAO FERNANDES,parties.IN.AAP,AAAP,1385,5.19,3,forfeit,U,46,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3711,goa,2017,36,QUEPEM,CHARLES D'SILVA,parties.IN.UNK,GSRP,251,0.94,5,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3711,goa,2017,36,QUEPEM,SUDESH GAUDE,parties.IN.MAG,MAG,211,0.79,6,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3701,goa,2017,37,CURCHOREM,NILESH CABRAL,parties.IN.BJP,BJP,12830,59.21,1,won,U,44,Others,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3701,goa,2017,37,CURCHOREM,SHYAM GOPINATH SATARDEKAR,parties.IN.UNK,GSM,3742,17.27,2,lost,U,50,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-goa-3701,goa,2017,37,CURCHOREM,ROSARIO MARIANO FERNANDES,parties.IN.INC,INC,2778,12.82,3,forfeit,U,68,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3701,goa,2017,37,CURCHOREM,JAMES FERNANDES,parties.IN.AAAP,AAAP,2028,9.36,4,forfeit,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3701,goa,2017,37,CURCHOREM,JAMES FERNANDES,parties.IN.AAP,AAAP,2028,9.36,4,forfeit,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3713,goa,2017,38,SANVORDEM,DEEPAK PRABHU PAUSKAR,parties.IN.MAG,MAG,14575,57.43,1,won,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3713,goa,2017,38,SANVORDEM,GANESH CHANDRU GAONKAR,parties.IN.BJP,BJP,9354,36.86,2,lost,U,58,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3713,goa,2017,38,SANVORDEM,SHANKAR KIRLAPALKAR,parties.IN.INC,INC,991,3.91,3,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -241,12 +241,12 @@ IN-AC-2008-goa-3712,goa,2017,39,SANGUEM,PRASAD S. GAONKAR,parties.IN.IND,IND,763
 IN-AC-2008-goa-3712,goa,2017,39,SANGUEM,SUBHASH PHAL DESSAI,parties.IN.BJP,BJP,6699,29.53,2,lost,U,50,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-goa-3712,goa,2017,39,SANGUEM,SAVITRI KAVLEKAR,parties.IN.INC,INC,5736,25.29,3,lost,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3712,goa,2017,39,SANGUEM,DATTAPRASAD SAWARDEKAR,parties.IN.IND,IND,989,4.36,4,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-goa-3712,goa,2017,39,SANGUEM,RAVINDRA ARJUN VELIP,parties.IN.AAAP,AAAP,658,2.9,5,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3712,goa,2017,39,SANGUEM,RAVINDRA ARJUN VELIP,parties.IN.AAP,AAAP,658,2.9,5,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3712,goa,2017,39,SANGUEM,VASUDEV GAONKAR,parties.IN.MAG,MAG,484,2.13,6,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3712,goa,2017,39,SANGUEM,SUDESH NONI GAUNKAR,parties.IN.IND,IND,148,0.65,8,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3712,goa,2017,39,SANGUEM,RAKHI NAIK,parties.IN.NCP,NCP,125,0.55,9,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3698,goa,2017,40,CANACONA,ISIDORE ALEIXINHO FERNANDES,parties.IN.INC,INC,10853,38.1,1,won,U,65,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3698,goa,2017,40,CANACONA,VIJAY PAI KHOT,parties.IN.BJP,BJP,8745,30.7,2,lost,U,54,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3698,goa,2017,40,CANACONA,RAMESH TAWADKAR,parties.IN.IND,IND,7739,27.16,3,lost,U,48,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-goa-3698,goa,2017,40,CANACONA,SANDESH TELEKAR,parties.IN.AAAP,AAAP,452,1.59,4,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-goa-3698,goa,2017,40,CANACONA,SANDESH TELEKAR,parties.IN.AAP,AAAP,452,1.59,4,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-goa-3698,goa,2017,40,CANACONA,GOURISH BANDEKAR,parties.IN.MAG,MAG,398,1.4,5,forfeit,U,33,12th Pass,Ex Military,challenger,src-1b7bc1c9d39a

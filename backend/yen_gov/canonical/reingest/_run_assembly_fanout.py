@@ -12,22 +12,16 @@ note to ``datasets/_ops/assembly-fanout-coverage-2026-06-05.md`` recording
 per-state bind coverage (years, candidacies, summary rows, skipped/unbound
 ``eci_no`` from state-reorganisation or LGD-spine gaps).
 
-State scoping (per the B2b.5.3 dry-run, 2026-06-05; Delhi added 2026-06-11):
+State scoping (per the B2b.5.3 dry-run, 2026-06-05):
 
 - DelimID 4 (the in-force 2008 delimitation) is the only cycle emitted; its
   Constituency_No numbering binds to the emitted ``electoral.csv`` entities.
 - TCPD's defunct names (Madras / Mysore / Goa_Daman_&_Diu) carry no DelimID-4
   rows and are absent from the map.
-- Delhi was DEFERRED at B2b.5.3 because ``electoral.csv`` lacked Delhi
-  assembly constituencies. F1.1 (#791, 2026-06-05) extended ``electoral.csv``
-  with 70 synthetic Delhi AC rows but never returned Delhi to the fanout
-  worklist; the schema-migration added party_short_raw to the orphan Delhi
-  candidacies.csv files without re-emitting them. Result: 6 Delhi slices
-  (2008/2009/2013/2015/2017/2020) carried 3,068 candidacy rows with empty
-  party_short_raw despite TCPD's All_States_AE.csv having 100% Party
-  population. Delhi is now in Wave 1 (2026-06-11 writer-bug fix).
-- Tamil Nadu shipped in B2b.5.2 and is not re-emitted here (run
-  ``_run_assembly_results.py`` for TN).
+- Delhi is DEFERRED: ``electoral.csv`` carries no Delhi assembly constituencies
+  (the LGD coverage report excluded them), so every Delhi candidacy is unbound.
+  Delhi lands once the spine gains its ACs (a 0c follow-up), out of scope here.
+- Tamil Nadu shipped in B2b.5.2 and is not re-emitted.
 
 The TCPD ``State_Name`` -> LGD slug map is mechanical
 (``name.lower().replace("_&_", "-and-").replace("_", "-")``) and verified to hit
@@ -60,11 +54,8 @@ def _slugify(tcpd_name: str) -> str:
     return tcpd_name.lower().replace("_&_", "-and-").replace("_", "-")
 
 
-# Parallel-safe waves (each state writes a disjoint sub-tree). TN (B2b.5.2) is
-# excluded; run ``_run_assembly_results.py`` for TN. Delhi was DEFERRED at
-# B2b.5.3 but added to Wave 1 on 2026-06-11 (F1.1 added the entities; the
-# fanout never followed up - see module docstring). Names are the TCPD
-# State_Name form.
+# Parallel-safe waves (each state writes a disjoint sub-tree). TN (B2b.5.2) and
+# Delhi (deferred, no spine ACs) are excluded. Names are the TCPD State_Name form.
 WAVES: dict[int, list[str]] = {
     1: [
         "Andhra_Pradesh",
@@ -72,7 +63,6 @@ WAVES: dict[int, list[str]] = {
         "Assam",
         "Bihar",
         "Chhattisgarh",
-        "Delhi",
         "Goa",
         "Gujarat",
         "Haryana",

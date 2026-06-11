@@ -1,15 +1,4 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2009,1,ANDAMAN & NICOBAR ISLANDS,SHRI. BISHNU PADA RAY,parties.IN.BJP,BJP,75211,44.21,1,won,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2009,1,ANDAMAN & NICOBAR ISLANDS,SHRI. KULDEEP RAI SHARMA,parties.IN.INC,INC,72221,42.46,2,lost,U,,Graduate Professional,,crossover,src-31c65dbec869
-IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2009,1,ANDAMAN & NICOBAR ISLANDS,SHRI TAPAN KUMAR BEPARI,parties.IN.CPIM,CPM,7190,4.23,3,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2009,1,ANDAMAN & NICOBAR ISLANDS,SHRI. P. R. GANESHAN,parties.IN.RJD,RJD,4916,2.89,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2009,1,ANDAMAN & NICOBAR ISLANDS,SMTI. R. S. UMA BHARATTHY,parties.IN.NCP,NCP,4696,2.76,5,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2009,1,ANDAMAN & NICOBAR ISLANDS,SHRI. PRADEEP KUMAR EKKA,parties.IN.JDP,JDP,1785,1.05,6,forfeit,U,,Others,,challenger,src-31c65dbec869
-IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2009,1,ANDAMAN & NICOBAR ISLANDS,SHRI. VAKIATH VALAPPIL KHALID,parties.IN.IND,IND,1480,0.87,7,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2009,1,ANDAMAN & NICOBAR ISLANDS,SHRI. M. S. MOHAN,parties.IN.BSP,BSP,789,0.46,8,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2009,1,ANDAMAN & NICOBAR ISLANDS,SHRI. N. K. P. NAIR,parties.IN.CPIMLL,CPI(ML)(L),734,0.43,9,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2009,1,ANDAMAN & NICOBAR ISLANDS,DR. THANKACHAN,parties.IN.IND,IND,683,0.4,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andaman-and-nicobar-islands-eci1,andaman-and-nicobar-islands,2009,1,ANDAMAN & NICOBAR ISLANDS,SHRI. T. ALI,parties.IN.IND,IND,398,0.23,11,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
 IN-PC-2008-andhra-pradesh-445,andhra-pradesh,2009,1,ADILABAD,RATHOD RAMESH,parties.IN.TDP,TDP,372268,43.11,1,won,U,,12th Pass,,challenger,src-31c65dbec869
 IN-PC-2008-andhra-pradesh-445,andhra-pradesh,2009,1,ADILABAD,KOTNAK RAMESH,parties.IN.INC,INC,257181,29.78,2,lost,U,,12th Pass,,challenger,src-31c65dbec869
 IN-PC-2008-andhra-pradesh-445,andhra-pradesh,2009,1,ADILABAD,MESRAM NAGO RAO,parties.IN.PRAP,PRAP,112930,13.08,3,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
@@ -1004,20 +993,6 @@ IN-PC-2008-bihar-160,bihar,2009,40,JAMUI,UPENDRA RAVIDAS,parties.IN.SAP,SAP,3080
 IN-PC-2008-bihar-160,bihar,2009,40,JAMUI,OM PRAKASH PASWAN,parties.IN.LTSD,LTSD,2915,0.54,17,forfeit,U,,8th Pass,,crossover,src-31c65dbec869
 IN-PC-2008-bihar-160,bihar,2009,40,JAMUI,GULAB CHANDRA PASWAN,parties.IN.UNK,RKJP,2629,0.49,18,forfeit,U,,Graduate,,challenger,src-31c65dbec869
 IN-PC-2008-bihar-160,bihar,2009,40,JAMUI,PAPPU RAJAK,parties.IN.IND,IND,2182,0.41,19,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-chandigarh-eci1,chandigarh,2009,1,CHANDIGARH,PAWAN KUMAR BANSAL,parties.IN.INC,INC,161042,46.87,1,won,U,,Graduate Professional,,incumbent,src-31c65dbec869
-IN-PC-2008-chandigarh-eci1,chandigarh,2009,1,CHANDIGARH,SATYA PAL JAIN,parties.IN.BJP,BJP,102075,29.71,2,lost,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-chandigarh-eci1,chandigarh,2009,1,CHANDIGARH,HARMOHAN DHAWAN,parties.IN.BSP,BSP,61434,17.88,3,lost,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-chandigarh-eci1,chandigarh,2009,1,CHANDIGARH,HAFFIZ ANWAR UL HAQ,parties.IN.RJD,RJD,11549,3.36,4,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-chandigarh-eci1,chandigarh,2009,1,CHANDIGARH,S K SURI,parties.IN.IND,IND,2776,0.81,5,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-chandigarh-eci1,chandigarh,2009,1,CHANDIGARH,MAYA DEVI,parties.IN.IND,IND,927,0.27,6,forfeit,U,,Illiterate,,challenger,src-31c65dbec869
-IN-PC-2008-chandigarh-eci1,chandigarh,2009,1,CHANDIGARH,RAM PAL HANS,parties.IN.IND,IND,774,0.23,7,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-chandigarh-eci1,chandigarh,2009,1,CHANDIGARH,GOSWAMI VISHWA BHUSHAN BHARTI,parties.IN.JDU,JD(U),658,0.19,8,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-chandigarh-eci1,chandigarh,2009,1,CHANDIGARH,DES RAJ,parties.IN.IND,IND,491,0.14,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-chandigarh-eci1,chandigarh,2009,1,CHANDIGARH,AJAY GOYAL,parties.IN.IND,IND,465,0.14,10,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-chandigarh-eci1,chandigarh,2009,1,CHANDIGARH,KHEM LAL BANSAL,parties.IN.IND,IND,387,0.11,11,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-chandigarh-eci1,chandigarh,2009,1,CHANDIGARH,PARAS NATH,parties.IN.SAD,AD,366,0.11,12,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-chandigarh-eci1,chandigarh,2009,1,CHANDIGARH,KAFIL AHMAD,parties.IN.IND,IND,321,0.09,13,forfeit,U,,5th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-chandigarh-eci1,chandigarh,2009,1,CHANDIGARH,DARSHAN SINGH,parties.IN.IND,IND,292,0.08,14,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
 IN-PC-2008-chhattisgarh-304,chhattisgarh,2009,1,SARGUJA,MURARILAL SINGH,parties.IN.BJP,BJP,416532,51.73,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-chhattisgarh-304,chhattisgarh,2009,1,SARGUJA,BHANU PRATAP SINGH,parties.IN.INC,INC,256984,31.92,2,lost,U,,,,crossover,src-31c65dbec869
 IN-PC-2008-chhattisgarh-304,chhattisgarh,2009,1,SARGUJA,DHAN SINGH DHURVE,parties.IN.BSP,BSP,20700,2.57,3,forfeit,U,,,,challenger,src-31c65dbec869
@@ -1168,166 +1143,6 @@ IN-PC-2008-chhattisgarh-303,chhattisgarh,2009,11,KANKER,PRAFUL MANDAVI,parties.I
 IN-PC-2008-chhattisgarh-303,chhattisgarh,2009,11,KANKER,MAYARAM NAGWANSHI,parties.IN.GGP,GGP,4348,0.59,9,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
 IN-PC-2008-chhattisgarh-303,chhattisgarh,2009,11,KANKER,N. R. BHUARYA,parties.IN.GMS,GMS,4190,0.56,10,forfeit,U,,Graduate,,challenger,src-31c65dbec869
 IN-PC-2008-chhattisgarh-303,chhattisgarh,2009,11,KANKER,BHOM LAL,parties.IN.SAD,AD,3286,0.44,11,forfeit,U,,5th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,KAPIL SIBAL,parties.IN.INC,INC,465713,59.67,1,won,U,,Post Graduate,,incumbent,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,VIJENDER GUPTA,parties.IN.BJP,BJP,265003,33.96,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,MOHD. MUSTAQEEM (BALLO BHAI),parties.IN.BSP,BSP,26486,3.39,3,forfeit,U,,5th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,LABHU RAM GARG,parties.IN.RKSP,RKSP,2887,0.37,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,BEER SINGH,parties.IN.IND,IND,2090,0.27,5,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,AJAY MITTAL,parties.IN.AIFB,AIFB,1682,0.22,6,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,LILA DEVI,parties.IN.RVNP,RVNP,1614,0.21,7,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,SUHAIL AHMED,parties.IN.SP,SP,1128,0.14,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,BABU LAL BAIRWA,parties.IN.IND,IND,943,0.12,9,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,RANJEET KUMAR,parties.IN.IND,IND,835,0.11,10,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,ZAHEER AHMED,parties.IN.IND,IND,828,0.11,11,forfeit,U,,Others,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,SUNIL KUMAR,parties.IN.IND,IND,772,0.1,12,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,SHAHIDA PARVEEN,parties.IN.UNK,UWF,683,0.09,13,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,RAJENDER SINGH CHANDELIYA,parties.IN.IND,IND,675,0.09,14,forfeit,U,,5th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,VINOD DUKHIYA,parties.IN.ABHM,ABHM,648,0.08,15,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,DR. SITA RAM SHARMA,parties.IN.RWS,RWS,609,0.08,16,forfeit,U,,Doctorate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,RAJ PAUL CHAUHAN,parties.IN.UNK,BPD,558,0.07,17,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,RAJESH NAGAR,parties.IN.RDMP,RDMP,454,0.06,18,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,ASHISH SAXENA,parties.IN.IND,IND,393,0.05,19,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,ANIL GUPTA,parties.IN.UNK,BPC,378,0.05,20,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,JAVED AHMED,parties.IN.UNK,MBP,370,0.05,21,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,KIRAN,parties.IN.SJP_R,SJP(R),345,0.04,22,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,MOHD SHAFIQ,parties.IN.IND,IND,344,0.04,23,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,BALRAM BARI,parties.IN.IND,IND,344,0.04,24,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,GHANSHYAM MORWAL,parties.IN.UNK,DBP,318,0.04,25,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,VIJENDER KHARI,parties.IN.IND,IND,318,0.04,26,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,ABDUL SAMAD,parties.IN.RPIE,RPIE,315,0.04,27,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,NASRIN BEGUM,parties.IN.IND,IND,315,0.04,28,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,BASHIRUDDIN,parties.IN.IND,IND,309,0.04,29,forfeit,U,,5th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,RAN PAL SINGH,parties.IN.UNK,BGTD,301,0.04,30,forfeit,U,,Others,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,OM PRAKASH THAKUR,parties.IN.IND,IND,298,0.04,31,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,PREM NARAIN,parties.IN.IND,IND,294,0.04,32,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,BHIM SINGH PURI,parties.IN.RSP,RSP,289,0.04,33,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,NARENDER SINGH,parties.IN.UNK,BSKRP,287,0.04,34,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,ROHIT KUMAR,parties.IN.IND,IND,276,0.04,35,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,IMAM RAJA NAQVI,parties.IN.IND,IND,256,0.03,36,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,SANJAY KUMAR,parties.IN.IND,IND,249,0.03,37,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,ASHOK KUMAR GOTEWALA,parties.IN.IND,IND,236,0.03,38,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,PURAN CHAND,parties.IN.IND,IND,222,0.03,39,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,LAIQ AHMED,parties.IN.IND,IND,194,0.02,40,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci1,delhi,2009,1,CHANDNI CHOWK,DR. P L PREMI,parties.IN.UNK,BVVP,186,0.02,41,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci2,delhi,2009,2,NORTH EAST DELHI,JAI PRAKASH AGARWAL,parties.IN.INC,INC,518191,59.03,1,won,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci2,delhi,2009,2,NORTH EAST DELHI,B.L.SHARMA PREM,parties.IN.BJP,BJP,295948,33.71,2,lost,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci2,delhi,2009,2,NORTH EAST DELHI,HAJI DILSHAD ALI,parties.IN.BSP,BSP,44111,5.02,3,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci2,delhi,2009,2,NORTH EAST DELHI,ANIS AHMAD ANSARI,parties.IN.SP,SP,3476,0.4,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci2,delhi,2009,2,NORTH EAST DELHI,MOHD. HASNAIN,parties.IN.IND,IND,3194,0.36,5,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci2,delhi,2009,2,NORTH EAST DELHI,GANESH PAL,parties.IN.BSKP,BSKP,2173,0.25,6,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci2,delhi,2009,2,NORTH EAST DELHI,SANTOSH DEVI,parties.IN.IND,IND,1677,0.19,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci2,delhi,2009,2,NORTH EAST DELHI,MOHD. SHEAR NABI CHAMAN,parties.IN.IND,IND,1459,0.17,8,forfeit,U,,Others,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci2,delhi,2009,2,NORTH EAST DELHI,MOLANA ABDUSSAMI,parties.IN.IND,IND,1426,0.16,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci2,delhi,2009,2,NORTH EAST DELHI,MANAGER CHAURASIYA,parties.IN.IND,IND,1257,0.14,10,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci2,delhi,2009,2,NORTH EAST DELHI,KALIRAM TOMAR,parties.IN.IJP,IJP,1227,0.14,11,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci2,delhi,2009,2,NORTH EAST DELHI,PROF. R.N. SINGH,parties.IN.IND,IND,1013,0.12,12,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci2,delhi,2009,2,NORTH EAST DELHI,SUSHIL KUMAR MISHRA,parties.IN.ABHM,ABHM,761,0.09,13,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci2,delhi,2009,2,NORTH EAST DELHI,ISRAR KHAN,parties.IN.RPIE,RPIE,741,0.08,14,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci2,delhi,2009,2,NORTH EAST DELHI,PRAMOD TIWARI,parties.IN.UNK,MBP,636,0.07,15,forfeit,U,,8th Pass,,crossover,src-31c65dbec869
-IN-PC-2008-delhi-eci2,delhi,2009,2,NORTH EAST DELHI,MANOHAR LAL,parties.IN.UNK,AWD,614,0.07,16,forfeit,U,,5th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci3,delhi,2009,3,EAST DELHI,SANDEEP DIKSHIT,parties.IN.INC,INC,518001,60.41,1,won,U,,Post Graduate,,incumbent,src-31c65dbec869
-IN-PC-2008-delhi-eci3,delhi,2009,3,EAST DELHI,CHETAN CHAUHAN,parties.IN.BJP,BJP,276948,32.3,2,lost,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci3,delhi,2009,3,EAST DELHI,MOHAMMAD YUNUS,parties.IN.BSP,BSP,45447,5.3,3,forfeit,U,,5th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci3,delhi,2009,3,EAST DELHI,VIKRAM SETH,parties.IN.IND,IND,3556,0.41,4,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci3,delhi,2009,3,EAST DELHI,ABDUL GAFFAR,parties.IN.LD,LD,3157,0.37,5,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci3,delhi,2009,3,EAST DELHI,RAJ PAL SINGH,parties.IN.IND,IND,2059,0.24,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci3,delhi,2009,3,EAST DELHI,AMIT KUMAR,parties.IN.SP,SP,1644,0.19,7,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci3,delhi,2009,3,EAST DELHI,DR. PREM SINGH,parties.IN.IND,IND,1138,0.13,8,forfeit,U,,Doctorate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci3,delhi,2009,3,EAST DELHI,AMAR DASS,parties.IN.IND,IND,1075,0.13,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci3,delhi,2009,3,EAST DELHI,RAJ KUMAR JAISWAL,parties.IN.IND,IND,947,0.11,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci3,delhi,2009,3,EAST DELHI,SUTAPA CHAKRABORTY,parties.IN.SHS,SHS,649,0.08,11,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci3,delhi,2009,3,EAST DELHI,RAJAN,parties.IN.IND,IND,614,0.07,12,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci3,delhi,2009,3,EAST DELHI,VIJAY KUMAR SHARMA,parties.IN.UNK,BPD,591,0.07,13,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci3,delhi,2009,3,EAST DELHI,BAIJ NATH PRASAD PATHAK,parties.IN.ABHM,ABHM,441,0.05,14,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci3,delhi,2009,3,EAST DELHI,ABDUL RAJJAQ,parties.IN.IND,IND,392,0.05,15,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci3,delhi,2009,3,EAST DELHI,PAWAN KUMAR,parties.IN.RPIA,RPI(A),376,0.04,16,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci3,delhi,2009,3,EAST DELHI,KUSUM BAHL,parties.IN.IND,IND,371,0.04,17,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,AJAY MAKAN,parties.IN.INC,INC,455867,59.59,1,won,U,,Post Graduate,,incumbent,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,VIJAY GOEL,parties.IN.BJP,BJP,268058,35.04,2,lost,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,TRILOK CHAND SHARMA,parties.IN.BSP,BSP,22364,2.92,3,forfeit,U,,Graduate,,crossover,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,MAJOR SANGEETA TOMAR,parties.IN.UNK,YFE,2099,0.27,4,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,AAMER AHMED MADNI,parties.IN.SP,SP,1732,0.23,5,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,SUNITA CHAUDHARY,parties.IN.UNK,UWF,1468,0.19,6,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,LACHHMAN DASS,parties.IN.IND,IND,1226,0.16,7,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,HARENDER,parties.IN.UNK,RKJP,1079,0.14,8,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,RAMESH BHAGWAT,parties.IN.IND,IND,1041,0.14,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,HARKRISHAN DAS NIJHAWAN,parties.IN.IND,IND,631,0.08,10,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,HARSH MALHOTRA,parties.IN.JKNPP,JKNPP,486,0.06,11,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,AJAY PRAKASH HARIT,parties.IN.IND,IND,476,0.06,12,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,SAPNA RANI BEHL,parties.IN.IND,IND,449,0.06,13,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,SUDHIR KUMAR,parties.IN.UNK,BPD,421,0.06,14,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,JAGAT SINGH CHAUHAN,parties.IN.IND,IND,418,0.05,15,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,RAJESH KUMAR SABHARWAL,parties.IN.JMM,JMM,405,0.05,16,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,SUDHIR GANDOTRA,parties.IN.THPI,THPI,358,0.05,17,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,JITENDER KUMAR GUPTA,parties.IN.UNK,BPC,356,0.05,18,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,SHIV KUMAR SHAH,parties.IN.IND,IND,341,0.04,19,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,LUKMAN KHAN,parties.IN.IND,IND,338,0.04,20,forfeit,U,,5th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,DINESH KUMAR,parties.IN.IND,IND,337,0.04,21,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,SANJEEV KUMAR MISHRA,parties.IN.RVNP,RVNP,336,0.04,22,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,NISHA BANO,parties.IN.ANC,ANC,322,0.04,23,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,VED PRAKASH,parties.IN.IND,IND,321,0.04,24,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,MANTU,parties.IN.IND,IND,318,0.04,25,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,B. B. MALHOTRA,parties.IN.IND,IND,301,0.04,26,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,ANIL KUMAR GAUTAM,parties.IN.IND,IND,292,0.04,27,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,KARAN KUMAR,parties.IN.IND,IND,282,0.04,28,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,SURENDER SINGH DABAS,parties.IN.IND,IND,273,0.04,29,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,MURTAZA PHOOL,parties.IN.JDS,JD(S),266,0.03,30,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,NARESH CHANDER PAL,parties.IN.UNK,BSKRP,255,0.03,31,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,KAPIL MITRA,parties.IN.IND,IND,252,0.03,32,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,GHANSHYAM DASS,parties.IN.IND,IND,251,0.03,33,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,PREM NARAYAN KHANDELWAL,parties.IN.IND,IND,246,0.03,34,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,BHAGWAN DASS,parties.IN.IND,IND,241,0.03,35,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,ASHUTHOSH KUMAR,parties.IN.IND,IND,236,0.03,36,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,KRISHAN KUMAR TYAGI,parties.IN.IND,IND,234,0.03,37,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,RAJ KUMAR NAYYAR,parties.IN.PPOI,PPOI,230,0.03,38,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,MAHARAJ KUMAR,parties.IN.UNK,DBP,213,0.03,39,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci4,delhi,2009,4,NEW DELHI,SHIBAN KRISHAN RAZDAN,parties.IN.IND,IND,199,0.03,40,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci5,delhi,2009,5,NORTH WEST  DELHI,KRISHNA TIRATH,parties.IN.INC,INC,487404,56.84,1,won,U,,Graduate Professional,,incumbent,src-31c65dbec869
-IN-PC-2008-delhi-eci5,delhi,2009,5,NORTH WEST  DELHI,MEERA KANWARIA,parties.IN.BJP,BJP,302971,35.33,2,lost,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci5,delhi,2009,5,NORTH WEST  DELHI,RAKESH HANS,parties.IN.BSP,BSP,44615,5.2,3,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci5,delhi,2009,5,NORTH WEST  DELHI,SUNIL KUMAR PARCHHA,parties.IN.SP,SP,4479,0.52,4,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci5,delhi,2009,5,NORTH WEST  DELHI,HARBANS LAL,parties.IN.IND,IND,3430,0.4,5,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci5,delhi,2009,5,NORTH WEST  DELHI,DHARAM SINGH PARCHA,parties.IN.IND,IND,3194,0.37,6,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci5,delhi,2009,5,NORTH WEST  DELHI,BABU LAL,parties.IN.ASP,ASP,2605,0.3,7,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci5,delhi,2009,5,NORTH WEST  DELHI,NARENDER PAL KASHYAP,parties.IN.IND,IND,1516,0.18,8,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci5,delhi,2009,5,NORTH WEST  DELHI,MATHURA PASWAN,parties.IN.CPIMLL,CPI(ML)(L),1439,0.17,9,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci5,delhi,2009,5,NORTH WEST  DELHI,ARVIND KATARIA,parties.IN.UNK,AIBS,1217,0.14,10,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci5,delhi,2009,5,NORTH WEST  DELHI,INDER SINGH SANSI,parties.IN.IND,IND,904,0.11,11,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci5,delhi,2009,5,NORTH WEST  DELHI,HOTI LAL GANDHI,parties.IN.UNK,BSKRP,862,0.1,12,forfeit,U,,5th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci5,delhi,2009,5,NORTH WEST  DELHI,PAPPU SAGAR,parties.IN.IJP,IJP,847,0.1,13,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci5,delhi,2009,5,NORTH WEST  DELHI,DR. MILIND BHARTI,parties.IN.NELU,NELU,793,0.09,14,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci5,delhi,2009,5,NORTH WEST  DELHI,RAM KUMAR,parties.IN.UNK,BPC,638,0.07,15,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci5,delhi,2009,5,NORTH WEST  DELHI,GEETA,parties.IN.RPIA,RPI(A),629,0.07,16,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci6,delhi,2009,6,WEST  DELHI,MAHABAL MISHRA,parties.IN.INC,INC,479899,54.32,1,won,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci6,delhi,2009,6,WEST  DELHI,PROF. JAGDISH MUKHI,parties.IN.BJP,BJP,350889,39.72,2,lost,U,,Doctorate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci6,delhi,2009,6,WEST  DELHI,DEEPAK BHARDWAJ,parties.IN.BSP,BSP,36089,4.09,3,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci6,delhi,2009,6,WEST  DELHI,KRISHAN KUMAR SHARMA,parties.IN.UNK,BSKRP,3309,0.37,4,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci6,delhi,2009,6,WEST  DELHI,HAR GOBIND ARORA,parties.IN.IND,IND,2803,0.32,5,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci6,delhi,2009,6,WEST  DELHI,SUDARSHAN SINGH,parties.IN.IND,IND,2083,0.24,6,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci6,delhi,2009,6,WEST  DELHI,SHYAM SUNDER JAIN,parties.IN.SP,SP,1814,0.21,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci6,delhi,2009,6,WEST  DELHI,NIRMALA SHARMA,parties.IN.IND,IND,1729,0.2,8,forfeit,U,,Others,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci6,delhi,2009,6,WEST  DELHI,SUVASH KUMAR CHOUDHARY,parties.IN.IND,IND,1001,0.11,9,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci6,delhi,2009,6,WEST  DELHI,POONAM KUMARI SRIVASTAVA,parties.IN.UNK,JBP,836,0.09,10,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci6,delhi,2009,6,WEST  DELHI,RAM KUMAR DABRIWAL,parties.IN.IND,IND,801,0.09,11,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci6,delhi,2009,6,WEST  DELHI,DINESH JAIN,parties.IN.IND,IND,584,0.07,12,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci6,delhi,2009,6,WEST  DELHI,SUKHMENDER SINGH,parties.IN.RPIA,RPI(A),546,0.06,13,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci6,delhi,2009,6,WEST  DELHI,RAJESH SINHA,parties.IN.IND,IND,539,0.06,14,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci6,delhi,2009,6,WEST  DELHI,BAL KISHAN PAL,parties.IN.UNK,RALP,515,0.06,15,forfeit,U,,Others,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci7,delhi,2009,7,SOUTH DELHI,RAMESH KUMAR,parties.IN.INC,INC,360278,49.27,1,won,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci7,delhi,2009,7,SOUTH DELHI,RAMESH BIDHURI,parties.IN.BJP,BJP,267059,36.52,2,lost,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci7,delhi,2009,7,SOUTH DELHI,KANWAR SINGH TANWAR,parties.IN.BSP,BSP,88120,12.05,3,forfeit,U,,5th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci7,delhi,2009,7,SOUTH DELHI,SHRICHAND TANWAR,parties.IN.CPI,CPI,5244,0.72,4,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci7,delhi,2009,7,SOUTH DELHI,WING COMMANDER SURJIT SINGH,parties.IN.IND,IND,2647,0.36,5,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci7,delhi,2009,7,SOUTH DELHI,A.K. GUPTA,parties.IN.SP,SP,2084,0.28,6,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci7,delhi,2009,7,SOUTH DELHI,BIRJU NAYAK,parties.IN.IND,IND,1075,0.15,7,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci7,delhi,2009,7,SOUTH DELHI,SIYA NAND MANDAL,parties.IN.IND,IND,1024,0.14,8,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci7,delhi,2009,7,SOUTH DELHI,MOHD. USMAN SIDDIQUI,parties.IN.IND,IND,882,0.12,9,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci7,delhi,2009,7,SOUTH DELHI,SANTOSH TRIPATHI,parties.IN.YVP,YVP,595,0.08,10,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci7,delhi,2009,7,SOUTH DELHI,KANTA PINGOLIA,parties.IN.IND,IND,533,0.07,11,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci7,delhi,2009,7,SOUTH DELHI,HEMA MOHAN,parties.IN.UNK,RKJP,490,0.07,12,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci7,delhi,2009,7,SOUTH DELHI,RAM SIRJAN BHAGAT,parties.IN.LPSP,LPSP,478,0.07,13,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci7,delhi,2009,7,SOUTH DELHI,BALMUKUND PANDEY,parties.IN.UNK,RJAP,434,0.06,14,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-delhi-eci7,delhi,2009,7,SOUTH DELHI,S.F. PURUSHOTTAM,parties.IN.UNK,LKJP,351,0.05,15,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-goa-480,goa,2009,1,NORTH GOA,SHRIPAD YESSO NAIK,parties.IN.BJP,BJP,137716,47.12,1,won,U,,Graduate,,incumbent,src-31c65dbec869
 IN-PC-2008-goa-480,goa,2009,1,NORTH GOA,JITENDRA RAGHURAJ DESHPRABHU,parties.IN.NCP,NCP,131363,44.94,2,lost,U,,Graduate,,challenger,src-31c65dbec869
 IN-PC-2008-goa-480,goa,2009,1,NORTH GOA,CHRISTOPHER FONSECA,parties.IN.CPI,CPI,8646,2.96,3,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
@@ -3502,26 +3317,6 @@ IN-PC-2008-maharashtra-388,maharashtra,2009,30,MUMBAI SOUTH CENTRAL,KISHOR BHAGW
 IN-PC-2008-maharashtra-388,maharashtra,2009,30,MUMBAI SOUTH CENTRAL,SHAHAJIRAO DHONDIBA THORAT,parties.IN.IND,IND,558,0.09,21,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-388,maharashtra,2009,30,MUMBAI SOUTH CENTRAL,GARUD MILIND MADHAV (M.G.),parties.IN.RPIE,RPIE,526,0.09,22,forfeit,U,,5th Pass,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-388,maharashtra,2009,30,MUMBAI SOUTH CENTRAL,KARAM HUSSAIN KHAN,parties.IN.NLHP,NLHP,525,0.09,23,forfeit,U,,5th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,DEORA MILIND MURLI,parties.IN.INC,INC,272411,42.46,1,won,U,,Graduate Professional,,incumbent,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,BALA NANDGAONKAR,parties.IN.MNS,MNS,159729,24.9,2,lost,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,MOHAN RAWALE,parties.IN.SHS,SHS,146118,22.78,3,lost,U,,,,incumbent,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,MOHAMMAD ALI ABUBAKAR SHAIKH,parties.IN.BSP,BSP,33799,5.27,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,MEERA H. SANYAL,parties.IN.IND,IND,10157,1.58,5,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,DR. MONA KARTIK SHAH,parties.IN.PRPI,PRPI,4361,0.68,6,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,SAYED ATHER ALI,parties.IN.SP,SP,3670,0.57,7,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,MUKESH NEMICHAND JAIN,parties.IN.IND,IND,1971,0.31,8,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,DR. SHAIKH SHAHID AHMED,parties.IN.IND,IND,1813,0.28,9,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,CHIRAG KANTILAL JETHVA,parties.IN.KKJHS,KKJHS,1095,0.17,10,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,FIROZ USMAN TINWALA,parties.IN.DESEP,DESEP,831,0.13,11,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,AVDHUT RAMCHANDRA BHISE,parties.IN.JDS,JD(S),791,0.12,12,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,SAYYAD SALIM SAYYAD RAHIM,parties.IN.IND,IND,791,0.12,13,forfeit,U,,5th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,ADV. FIROZ AHMED ANSARI,parties.IN.IND,IND,633,0.1,14,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,KHIMJI CHIMAN MAKWANA,parties.IN.IND,IND,629,0.1,15,forfeit,U,,5th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,ADV. RAJESH YESHWANT BHOSLE,parties.IN.PPOI,PPOI,616,0.1,16,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,ZNYOSHO RASHTRAPATI,parties.IN.IND,IND,594,0.09,17,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,ASHOK SHANKAR AMBULKAR,parties.IN.IND,IND,576,0.09,18,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,SURYAKANT KESHAV SHINGE,parties.IN.IND,IND,540,0.08,19,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-maharashtra-eci31,maharashtra,2009,31,MUMBAI   SOUTH,MOHAMMED AMIR SHAIKH (MONTU),parties.IN.RPI_D,RPI(D),446,0.07,20,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-398,maharashtra,2009,32,RAIGAD,ANANT GEETE,parties.IN.SHS,SHS,413546,53.89,1,won,U,,10th Pass,,incumbent,src-31c65dbec869
 IN-PC-2008-maharashtra-398,maharashtra,2009,32,RAIGAD,BARRISTER A.R. ANTULAY,parties.IN.INC,INC,267025,34.8,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-maharashtra-398,maharashtra,2009,32,RAIGAD,ADV. PRAVIN MADHUKAR THAKUR,parties.IN.IND,IND,39159,5.1,3,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
@@ -5517,47 +5312,47 @@ IN-PC-2008-uttar-pradesh-109,uttar-pradesh,2009,34,MOHANLALGANJ,RANJAN KUMAR CHA
 IN-PC-2008-uttar-pradesh-109,uttar-pradesh,2009,34,MOHANLALGANJ,JAIPAL PATHIK,parties.IN.UNK,RCP,17082,2.46,5,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-109,uttar-pradesh,2009,34,MOHANLALGANJ,RAM DHAN,parties.IN.IND,IND,9673,1.39,6,forfeit,U,,Literate,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-109,uttar-pradesh,2009,34,MOHANLALGANJ,SATTIDEEN,parties.IN.UNK,UPRP,4604,0.66,7,forfeit,U,,Illiterate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,LAL JI TANDON,parties.IN.BJP,BJP,204028,34.93,1,won,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,RITA BAHUGUNA JOSHI,parties.IN.INC,INC,163127,27.93,2,lost,U,,Doctorate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,DR. AKHILESH DAS GUPTA,parties.IN.BSP,BSP,133610,22.88,3,lost,U,,Doctorate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,NAFISA ALI SODHI,parties.IN.SP,SP,61457,10.52,4,forfeit,U,,,,crossover,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,AMRESH MISHRA,parties.IN.IND,IND,3486,0.6,5,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,RAJESH KUMAR PANDEY,parties.IN.AITC,AITC,2164,0.37,6,forfeit,U,,12th Pass,,crossover,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,ANUPAM MISHRA,parties.IN.UNK,SWPI,1230,0.21,7,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,RAJIV RANJAN TIWARI @ RAJ BIHARI,parties.IN.IND,IND,1224,0.21,8,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,RAVI SHANKAR BHARAT,parties.IN.UNK,BPD,960,0.16,9,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,CHANDRA BHUSHAN PANDEY (C.B.PANDEY),parties.IN.IND,IND,859,0.15,10,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,DR.KHAN MOHMAD ATIF,parties.IN.UNK,MMUP,717,0.12,11,forfeit,U,,Doctorate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,KEDAR MAL AGRAWAL,parties.IN.IND,IND,616,0.11,12,forfeit,U,,Literate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,ASHOK KUMAR PAL,parties.IN.IND,IND,575,0.1,13,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,AMBIKA PRASAD,parties.IN.IND,IND,548,0.09,14,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,RAJESH KUMAR,parties.IN.IND,IND,533,0.09,15,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,PADAM CHANDRA GUPTA,parties.IN.IND,IND,527,0.09,16,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,A. HAROON ALI,parties.IN.IND,IND,513,0.09,17,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,BAL MUKUND TIWARI,parties.IN.IND,IND,505,0.09,18,forfeit,U,,Literate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,AMIT PANDEY,parties.IN.IND,IND,484,0.08,19,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,GIRISH CHANDRA SRIVASTAV,parties.IN.IND,IND,477,0.08,20,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,MOHD. IRSHAD,parties.IN.NBNP,NBNP,473,0.08,21,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,MURLI PRASAD,parties.IN.RTKP,RTKP,452,0.08,22,forfeit,U,,Literate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,DASHARATH,parties.IN.UNK,RMEP,424,0.07,23,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,S.R.DARAPURI,parties.IN.IND,IND,421,0.07,24,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,CHATURI PRASAD,parties.IN.IND,IND,419,0.07,25,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,MUSTAQ KHAN,parties.IN.IJP,IJP,375,0.06,26,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,DHEERAJ,parties.IN.IND,IND,361,0.06,27,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,NITIN DWIVEDI,parties.IN.IND,IND,346,0.06,28,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,NAND KUMAR LODHI RAJPOOT,parties.IN.UNK,BGD,346,0.06,29,forfeit,U,,Graduate,,crossover,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,K.C. KARDAM,parties.IN.IND,IND,295,0.05,30,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,PRAVEEN KUMAR MISHRA,parties.IN.UNK,EKSP,283,0.05,31,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,ZUBAIR AHMAD,parties.IN.IND,IND,279,0.05,32,forfeit,U,,Others,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,RAJESH KUMAR NAITHANI,parties.IN.IND,IND,259,0.04,33,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,KAMAL CHANDRA,parties.IN.GGP,GGP,259,0.04,34,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,SEHNAAZ SIDRAT,parties.IN.IND,IND,245,0.04,35,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,JUGUNU RANJAN,parties.IN.UNK,JANS,226,0.04,36,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,RADHEYSHYAM,parties.IN.IND,IND,218,0.04,37,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,SUKHVEER SINGH,parties.IN.IND,IND,201,0.03,38,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,HARJEET SINGH,parties.IN.IND,IND,185,0.03,39,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,RAM KUMAR SHUKLA,parties.IN.IND,IND,181,0.03,40,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-uttar-pradesh-eci35,uttar-pradesh,2009,35,LUCKNOW,SUMAN LATA DIXIT,parties.IN.IND,IND,163,0.03,41,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,LAL JI TANDON,parties.IN.BJP,BJP,204028,34.93,1,won,U,,Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,RITA BAHUGUNA JOSHI,parties.IN.INC,INC,163127,27.93,2,lost,U,,Doctorate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,DR. AKHILESH DAS GUPTA,parties.IN.BSP,BSP,133610,22.88,3,lost,U,,Doctorate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,NAFISA ALI SODHI,parties.IN.SP,SP,61457,10.52,4,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,AMRESH MISHRA,parties.IN.IND,IND,3486,0.6,5,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,RAJESH KUMAR PANDEY,parties.IN.AITC,AITC,2164,0.37,6,forfeit,U,,12th Pass,,crossover,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,ANUPAM MISHRA,parties.IN.UNK,SWPI,1230,0.21,7,forfeit,U,,Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,RAJIV RANJAN TIWARI @ RAJ BIHARI,parties.IN.IND,IND,1224,0.21,8,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,RAVI SHANKAR BHARAT,parties.IN.UNK,BPD,960,0.16,9,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,CHANDRA BHUSHAN PANDEY (C.B.PANDEY),parties.IN.IND,IND,859,0.15,10,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,DR.KHAN MOHMAD ATIF,parties.IN.UNK,MMUP,717,0.12,11,forfeit,U,,Doctorate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,KEDAR MAL AGRAWAL,parties.IN.IND,IND,616,0.11,12,forfeit,U,,Literate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,ASHOK KUMAR PAL,parties.IN.IND,IND,575,0.1,13,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,AMBIKA PRASAD,parties.IN.IND,IND,548,0.09,14,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,RAJESH KUMAR,parties.IN.IND,IND,533,0.09,15,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,PADAM CHANDRA GUPTA,parties.IN.IND,IND,527,0.09,16,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,A. HAROON ALI,parties.IN.IND,IND,513,0.09,17,forfeit,U,,Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,BAL MUKUND TIWARI,parties.IN.IND,IND,505,0.09,18,forfeit,U,,Literate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,AMIT PANDEY,parties.IN.IND,IND,484,0.08,19,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,GIRISH CHANDRA SRIVASTAV,parties.IN.IND,IND,477,0.08,20,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,MOHD. IRSHAD,parties.IN.NBNP,NBNP,473,0.08,21,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,MURLI PRASAD,parties.IN.RTKP,RTKP,452,0.08,22,forfeit,U,,Literate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,DASHARATH,parties.IN.UNK,RMEP,424,0.07,23,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,S.R.DARAPURI,parties.IN.IND,IND,421,0.07,24,forfeit,U,,Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,CHATURI PRASAD,parties.IN.IND,IND,419,0.07,25,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,MUSTAQ KHAN,parties.IN.IJP,IJP,375,0.06,26,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,DHEERAJ,parties.IN.IND,IND,361,0.06,27,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,NITIN DWIVEDI,parties.IN.IND,IND,346,0.06,28,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,NAND KUMAR LODHI RAJPOOT,parties.IN.UNK,BGD,346,0.06,29,forfeit,U,,Graduate,,crossover,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,K.C. KARDAM,parties.IN.IND,IND,295,0.05,30,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,PRAVEEN KUMAR MISHRA,parties.IN.UNK,EKSP,283,0.05,31,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,ZUBAIR AHMAD,parties.IN.IND,IND,279,0.05,32,forfeit,U,,Others,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,RAJESH KUMAR NAITHANI,parties.IN.IND,IND,259,0.04,33,forfeit,U,,Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,KAMAL CHANDRA,parties.IN.GGP,GGP,259,0.04,34,forfeit,U,,Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,SEHNAAZ SIDRAT,parties.IN.IND,IND,245,0.04,35,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,JUGUNU RANJAN,parties.IN.UNK,JANS,226,0.04,36,forfeit,U,,Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,RADHEYSHYAM,parties.IN.IND,IND,218,0.04,37,forfeit,U,,8th Pass,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,SUKHVEER SINGH,parties.IN.IND,IND,201,0.03,38,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,HARJEET SINGH,parties.IN.IND,IND,185,0.03,39,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,RAM KUMAR SHUKLA,parties.IN.IND,IND,181,0.03,40,forfeit,U,,Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-uttar-pradesh-126,uttar-pradesh,2009,35,LUCKNOW,SUMAN LATA DIXIT,parties.IN.IND,IND,163,0.03,41,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-94,uttar-pradesh,2009,37,AMETHI,RAHUL GANDHI,parties.IN.INC,INC,464195,71.78,1,won,U,,Post Graduate,,incumbent,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-94,uttar-pradesh,2009,37,AMETHI,ASHEESH SHUKLA,parties.IN.BSP,BSP,93997,14.54,2,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
 IN-PC-2008-uttar-pradesh-94,uttar-pradesh,2009,37,AMETHI,PRADEEP KUMAR SINGH,parties.IN.BJP,BJP,37570,5.81,3,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
@@ -6442,32 +6237,19 @@ IN-PC-2008-west-bengal-235,west-bengal,2009,20,MATHURAPUR,BIRESH CHANDRA MANDAL,
 IN-PC-2008-west-bengal-235,west-bengal,2009,20,MATHURAPUR,SACHINDRA NATH NASKAR,parties.IN.BSP,BSP,5165,0.49,5,forfeit,U,,Graduate,,challenger,src-31c65dbec869
 IN-PC-2008-west-bengal-235,west-bengal,2009,20,MATHURAPUR,PRANAB KUMAR JATUA,parties.IN.IND,IND,4942,0.47,6,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
 IN-PC-2008-west-bengal-235,west-bengal,2009,20,MATHURAPUR,PRADIP MANDAL,parties.IN.RDMP,RDMP,2021,0.19,7,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci23,west-bengal,2009,23,KOLKATA DAKSHIN,MAMATA BANERJEE,parties.IN.AITC,AITC,576045,57.19,1,won,U,,Post Graduate,,incumbent,src-31c65dbec869
-IN-PC-2008-west-bengal-eci23,west-bengal,2009,23,KOLKATA DAKSHIN,RABIN DEB,parties.IN.CPIM,CPM,356474,35.39,2,lost,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci23,west-bengal,2009,23,KOLKATA DAKSHIN,JYOTSNA BANERJEE,parties.IN.BJP,BJP,39744,3.95,3,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci23,west-bengal,2009,23,KOLKATA DAKSHIN,PARESH CHANDRA ROY,parties.IN.BSP,BSP,6745,0.67,4,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci23,west-bengal,2009,23,KOLKATA DAKSHIN,YUSUF JAMAL SIDDIQUE,parties.IN.IND,IND,6042,0.6,5,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci23,west-bengal,2009,23,KOLKATA DAKSHIN,ASIF MD.,parties.IN.IUML,MUL,5896,0.59,6,forfeit,U,,5th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci23,west-bengal,2009,23,KOLKATA DAKSHIN,RAM CHANDRA PRASAD,parties.IN.IND,IND,4091,0.41,7,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci23,west-bengal,2009,23,KOLKATA DAKSHIN,NISHAT KHAN,parties.IN.IND,IND,2923,0.29,8,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci23,west-bengal,2009,23,KOLKATA DAKSHIN,BARNALI MUKHOPADHYAY,parties.IN.IND,IND,2623,0.26,9,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci23,west-bengal,2009,23,KOLKATA DAKSHIN,ARUN BISWAS,parties.IN.IND,IND,1984,0.2,10,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci23,west-bengal,2009,23,KOLKATA DAKSHIN,PIJUSH BANERJEE,parties.IN.IND,IND,1674,0.17,11,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci23,west-bengal,2009,23,KOLKATA DAKSHIN,JAYANTA DATTA,parties.IN.IND,IND,1512,0.15,12,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci23,west-bengal,2009,23,KOLKATA DAKSHIN,LEELA HANS,parties.IN.IJP,IJP,1472,0.15,13,forfeit,U,,10th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci24,west-bengal,2009,24,KOLKATA UTTAR,SUDIP BANDYOPADHYAY,parties.IN.AITC,AITC,460646,52.5,1,won,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci24,west-bengal,2009,24,KOLKATA UTTAR,MD. SALIM,parties.IN.CPIM,CPM,351368,40.05,2,lost,U,,Post Graduate,,incumbent,src-31c65dbec869
-IN-PC-2008-west-bengal-eci24,west-bengal,2009,24,KOLKATA UTTAR,TATHAGATA ROY,parties.IN.BJP,BJP,37044,4.22,3,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci24,west-bengal,2009,24,KOLKATA UTTAR,SULTAN OSMAN,parties.IN.IND,IND,9155,1.04,4,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci24,west-bengal,2009,24,KOLKATA UTTAR,SHARAD KUMAR SINGH,parties.IN.BSP,BSP,5666,0.65,5,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci24,west-bengal,2009,24,KOLKATA UTTAR,SANDIPAN BISWAS,parties.IN.IND,IND,3231,0.37,6,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci24,west-bengal,2009,24,KOLKATA UTTAR,AVINASH KUMAR AGARWAL,parties.IN.LJP,LJP,2268,0.26,7,forfeit,U,,Graduate,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci24,west-bengal,2009,24,KOLKATA UTTAR,KUMODH NARAYAN CHOWDHURY,parties.IN.IND,IND,2196,0.25,8,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci24,west-bengal,2009,24,KOLKATA UTTAR,SATISH VYAS,parties.IN.IND,IND,1791,0.2,9,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci24,west-bengal,2009,24,KOLKATA UTTAR,MD. KASIM,parties.IN.IUML,MUL,1130,0.13,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci24,west-bengal,2009,24,KOLKATA UTTAR,AMITABHA SEN,parties.IN.IND,IND,1120,0.13,11,forfeit,U,,Doctorate,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci24,west-bengal,2009,24,KOLKATA UTTAR,KANCHAN KUMAR SARKAR,parties.IN.IND,IND,984,0.11,12,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-eci24,west-bengal,2009,24,KOLKATA UTTAR,BALARAM SAHA,parties.IN.IND,IND,782,0.09,13,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-238,west-bengal,2009,24,KOLKATA UTTAR,SUDIP BANDYOPADHYAY,parties.IN.AITC,AITC,460646,52.5,1,won,U,,Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-238,west-bengal,2009,24,KOLKATA UTTAR,MD. SALIM,parties.IN.CPIM,CPM,351368,40.05,2,lost,U,,Post Graduate,,incumbent,src-31c65dbec869
+IN-PC-2008-west-bengal-238,west-bengal,2009,24,KOLKATA UTTAR,TATHAGATA ROY,parties.IN.BJP,BJP,37044,4.22,3,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-238,west-bengal,2009,24,KOLKATA UTTAR,SULTAN OSMAN,parties.IN.IND,IND,9155,1.04,4,forfeit,U,,Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-238,west-bengal,2009,24,KOLKATA UTTAR,SHARAD KUMAR SINGH,parties.IN.BSP,BSP,5666,0.65,5,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-238,west-bengal,2009,24,KOLKATA UTTAR,SANDIPAN BISWAS,parties.IN.IND,IND,3231,0.37,6,forfeit,U,,Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-238,west-bengal,2009,24,KOLKATA UTTAR,AVINASH KUMAR AGARWAL,parties.IN.LJP,LJP,2268,0.26,7,forfeit,U,,Graduate,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-238,west-bengal,2009,24,KOLKATA UTTAR,KUMODH NARAYAN CHOWDHURY,parties.IN.IND,IND,2196,0.25,8,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-238,west-bengal,2009,24,KOLKATA UTTAR,SATISH VYAS,parties.IN.IND,IND,1791,0.2,9,forfeit,U,,12th Pass,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-238,west-bengal,2009,24,KOLKATA UTTAR,MD. KASIM,parties.IN.IUML,MUL,1130,0.13,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-238,west-bengal,2009,24,KOLKATA UTTAR,AMITABHA SEN,parties.IN.IND,IND,1120,0.13,11,forfeit,U,,Doctorate,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-238,west-bengal,2009,24,KOLKATA UTTAR,KANCHAN KUMAR SARKAR,parties.IN.IND,IND,984,0.11,12,forfeit,U,,Graduate Professional,,challenger,src-31c65dbec869
+IN-PC-2008-west-bengal-238,west-bengal,2009,24,KOLKATA UTTAR,BALARAM SAHA,parties.IN.IND,IND,782,0.09,13,forfeit,U,,Post Graduate,,challenger,src-31c65dbec869
 IN-PC-2008-west-bengal-258,west-bengal,2009,25,HOWRAH,AMBICA BANERJEE,parties.IN.AITC,AITC,477449,48.04,1,won,U,,Graduate Professional,,crossover,src-31c65dbec869
 IN-PC-2008-west-bengal-258,west-bengal,2009,25,HOWRAH,SWADESH CHAKRABORTTY,parties.IN.CPIM,CPM,440057,44.27,2,lost,U,,Graduate,,incumbent,src-31c65dbec869
 IN-PC-2008-west-bengal-258,west-bengal,2009,25,HOWRAH,POLLY MUKHERJEE,parties.IN.BJP,BJP,37723,3.8,3,forfeit,U,,12th Pass,,challenger,src-31c65dbec869

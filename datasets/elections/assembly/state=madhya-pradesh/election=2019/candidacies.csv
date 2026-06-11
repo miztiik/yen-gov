@@ -1,6 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-madhya-pradesh-2492,madhya-pradesh,2019,126,CHHINDWARA,KAMAL NATH,parties.IN.INC,INC,114459,54.99,1,won,M,72,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2492,madhya-pradesh,2019,126,CHHINDWARA,VIVEK BUNTY SAHU,parties.IN.BJP,BJP,88622,42.58,2,lost,M,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2492,madhya-pradesh,2019,126,CHHINDWARA,NOTA,parties.IN.UNK,,2027,0.97,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2492,madhya-pradesh,2019,126,CHHINDWARA,RAMPRAKASH RAGHUWANSHI,parties.IN.UNK,Ahinsa Samaj Party,842,0.4,4,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2492,madhya-pradesh,2019,126,CHHINDWARA,SANTOSH SURYAWANSHI,parties.IN.IND,IND,774,0.37,5,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2492,madhya-pradesh,2019,126,CHHINDWARA,SATEESH NAGWANSHI,parties.IN.UNK,Gondvana Gantantra Party,412,0.2,6,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
@@ -13,3 +14,4 @@ IN-AC-2008-madhya-pradesh-2619,madhya-pradesh,2019,193,JHABUA,BHANU BHURIYA,part
 IN-AC-2008-madhya-pradesh-2619,madhya-pradesh,2019,193,JHABUA,KALYANSINGH DAMOR,parties.IN.IND,IND,2488,1.47,3,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2619,madhya-pradesh,2019,193,JHABUA,108 VALA NILESH DAMOR EMERGENCY SAMAJ SEVAK,parties.IN.IND,IND,1147,0.68,4,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-madhya-pradesh-2619,madhya-pradesh,2019,193,JHABUA,RAMESHVAR SINGAR,parties.IN.IND,IND,1125,0.66,5,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-madhya-pradesh-2619,madhya-pradesh,2019,193,JHABUA,NOTA,parties.IN.UNK,,193,0.11,6,lost,U,,,,challenger,src-1b7bc1c9d39a

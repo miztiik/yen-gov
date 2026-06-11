@@ -1,6 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2021,2,MANDI,PRATIBHA SINGH,parties.IN.INC,INC,369565,49.14,1,won,F,,,,challenger,src-31c65dbec869
 IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2021,2,MANDI,BRIG. KHUSHAL CHAND THAKUR,parties.IN.BJP,BJP,362075,48.14,2,lost,M,,,,challenger,src-31c65dbec869
+IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2021,2,MANDI,NOTA,parties.IN.UNK,,12661,1.68,3,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2021,2,MANDI,AMBIKA SHYAM,parties.IN.UNK,Rashtriya Lokneeti Party,3617,0.48,4,forfeit,F,,,,challenger,src-31c65dbec869
 IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2021,2,MANDI,SUBHASH MOHAN SNEHI,parties.IN.IND,IND,1772,0.24,5,forfeit,M,,,,challenger,src-31c65dbec869
 IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2021,2,MANDI,MUNSHI RAM THAKUR,parties.IN.UNK,Himachal Jan Kranti Party,1262,0.17,6,forfeit,M,,,,challenger,src-31c65dbec869
@@ -21,3 +22,4 @@ IN-PC-2008-kerala-498,kerala,2021,6,MALAPPURAM,A.P. Abdullakutty,parties.IN.BJP,
 IN-PC-2008-kerala-498,kerala,2021,6,MALAPPURAM,Dr. Tasleem Rahmani,parties.IN.SDPI,SDPI,46852,4.26,4,forfeit,M,,,,challenger,src-31c65dbec869
 IN-PC-2008-kerala-498,kerala,2021,6,MALAPPURAM,Adv. Sayyid Sadique Ali Thangal,parties.IN.IND,IND,10479,0.95,5,forfeit,M,,,,challenger,src-31c65dbec869
 IN-PC-2008-kerala-498,kerala,2021,6,MALAPPURAM,Yoonus Saleem,parties.IN.IND,IND,7065,0.64,6,forfeit,M,,,,challenger,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2021,6,MALAPPURAM,NOTA,parties.IN.UNK,,4260,0.39,7,lost,U,,,,challenger,src-31c65dbec869

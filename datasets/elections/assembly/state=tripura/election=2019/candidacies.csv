@@ -2,4 +2,5 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-tripura-1632,tripura,2019,14,BADHARGHAT,SMT MIMI MAJUMDER,parties.IN.BJP,BJP,20487,44.6,1,won,F,44,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tripura-1632,tripura,2019,14,BADHARGHAT,SMT BULTI BISWAS,parties.IN.CPIM,CPM,15211,33.11,2,lost,F,30,Post Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tripura-1632,tripura,2019,14,BADHARGHAT,SRI RATAN CHANDRA DAS,parties.IN.INC,INC,9105,19.82,3,lost,M,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-tripura-1632,tripura,2019,14,BADHARGHAT,NOTA,parties.IN.UNK,,667,1.45,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-tripura-1632,tripura,2019,14,BADHARGHAT,SRI MRIDUL KANTI SARKAR,parties.IN.SUCI,SUCI,470,1.02,5,forfeit,M,40,12th Pass,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a

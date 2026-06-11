@@ -272,6 +272,25 @@ export function getConnection(): Promise<duckdb.AsyncDuckDBConnection> {
   return connPromise;
 }
 
+/**
+ * Eagerly start the DuckDB-WASM boot (bundle download + worker spawn +
+ * instantiate) without waiting for it. Idempotent. Safe to call multiple
+ * times - the first call seeds the singleton promise, every subsequent
+ * call resolves to the same in-flight handle.
+ *
+ * Use from route entrypoints that WILL need DuckDB (Home, Topic, state
+ * pages) so the ~1-2s cold-boot pays in parallel with topic-catalogue
+ * fetch + Svelte hydration, NOT serially after the first
+ * `registerCsvAsTable(...)` waits for it.
+ *
+ * Returns void by design: callers must NOT await this. Use `getConnection`
+ * or the high-level `registerTable` / `registerCsvAsTable` helpers when
+ * you actually need to query.
+ */
+export function prewarmDB(): void {
+  if (!dbPromise) dbPromise = bootDB();
+}
+
 // -----------------------------------------------------------------------------
 // Table registration — make a manifest table queryable as a DuckDB view.
 // -----------------------------------------------------------------------------

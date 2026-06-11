@@ -7,6 +7,7 @@ import "./app.css";
 import { mount } from "svelte";
 import { startRouter } from "./lib/router.svelte";
 import { parseAcSlug } from "./lib/slug";
+import { prewarmDB } from "./lib/duckdb";
 import LeftRail from "./lib/LeftRail.svelte";
 import Home from "./routes/Home.svelte";
 import StateOverview from "./routes/StateOverview.svelte";
@@ -79,6 +80,20 @@ app.innerHTML = `
   </div>
 `;
 mount(LeftRail, { target: document.getElementById("rail")! });
+
+// Kick off the DuckDB-WASM boot in parallel with route hydration. Every
+// citizen-facing surface that surfaces a choropleth (Home, /t/<topic>,
+// /<state>, /<state>/t/<topic>) eventually calls registerCsvAsTable /
+// registerTable / query against the WASM singleton; if we wait until the
+// first such call to start the ~5 MB wasm download + worker spawn +
+// instantiate, every choropleth pays a 1-2s cold-boot delay serially.
+// Prewarming here moves that work onto the browser's idle-network budget
+// while topic-catalogue + Svelte hydration are doing their own fetches.
+// Idempotent (the singleton promise dedupes); safe to call
+// unconditionally. Routes that genuinely never touch DuckDB (e.g.
+// /about, /disclaimer) pay only the bundle download, which has happened
+// already because main.ts imported the module.
+prewarmDB();
 
 // Route params are slugs (e.g. `tamil-nadu`, `167-mylapore`). Each page
 // resolves the slug to its underlying ECI id via the lib/states.svelte

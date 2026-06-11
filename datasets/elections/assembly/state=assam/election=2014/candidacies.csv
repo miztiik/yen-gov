@@ -2,7 +2,7 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-assam-1835,assam,2014,9,SILCHAR,Dilip Kumar Paul,parties.IN.BJP,BJP,74898,58.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-assam-1835,assam,2014,9,SILCHAR,A.D.Mazumder,parties.IN.INC,INC,37457,29.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-assam-1835,assam,2014,9,SILCHAR,N.A.Barbhuita,parties.IN.UNK,ALUDF,11203,8.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-assam-1835,assam,2014,9,SILCHAR,Dulal Mitra,parties.IN.CPIMLL,CPIM,2401,1.87,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1835,assam,2014,9,SILCHAR,Dulal Mitra,parties.IN.CPIM,CPIM,2401,1.87,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-assam-1835,assam,2014,9,SILCHAR,P.K. Deb,parties.IN.SUCI,SUCI(C),881,0.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-assam-1835,assam,2014,9,SILCHAR,S.Datta,parties.IN.IND,IND,465,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-assam-1835,assam,2014,9,SILCHAR,J.U.Mazumder,parties.IN.IND,IND,272,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

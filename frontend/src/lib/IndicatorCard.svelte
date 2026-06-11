@@ -198,23 +198,18 @@
     type IndicatorRender,
   } from "./grapher/catalogue";
   import { link } from "./links";
-  // 2026-06-11: the G12 (EL4) "View latest election for <state>" footer
-  // line was removed from this card after Hans + Jony converged on it
-  // being a doctrinal category error -- a fiscal / health / energy card
-  // must not advertise the political cascade as the natural pivot, per
-  // docs/concepts/schema-is-the-design-system.md ("yen-gov is not an
-  // elections site that happens to also show fiscal data") and
-  // docs/concepts/citizen-first.md ("elections are one indicator
-  // family alongside" the others). The legitimate ascend to elections
-  // already lives one scroll below on `/<state>` (RacesBoard +
-  // ElectionSeatsTrend in StateOverview.svelte) and as the Elections
-  // topic tile in the topic grid -- per-card chrome multiplied that
-  // pivot 20x with no new information. The `election-events` import,
-  // the `election_catalogue` $state + $effect, the `latest_event_for_state`
-  // $derived, and the `states.name(...)` call site all left with the
-  // footer block; the `home_state` PROP stays because it still drives
-  // the default facet, the big-number value, the sparkline and the
-  // rank line.
+  // G12 (EL4) indicator -> election bridge. The per-state indicator card
+  // gets a thin "View latest election for <state>" footer line when
+  // home_state is set. We resolve the latest event via the existing
+  // catalogue helper (defaultEventForState = most-recent assembly, with
+  // an any-kind fallback for UTs that have no assembly entry yet). The
+  // link silently disappears when no event is found (graceful fail-safe).
+  import {
+    fetchElectionEvents,
+    defaultEventForState,
+    type ElectionEventsCatalogue,
+  } from "./election-events";
+  import { states } from "./states.svelte";
   // Phase B reader-switch: per-artifact branch between the legacy
   // `/data/indicators/in/<topic>/<id>.json` shard fetch and a DuckDB-WASM
   // query against the canonical Parquet store. The allowlist in
@@ -228,7 +223,9 @@
   import {
     loadIndicator,
     indicatorArtifactNationalReference,
+    indicatorArtifactPills,
   } from "./canonical/indicator-from-canonical";
+  import type { PublisherPill } from "./sources";
   // G31 (parent plan section 20.11): pop-weighted national reference
   // line + direction-coloured StatusGlyph overlaid on the per-state
   // sparkline. The reference data is opportunistically attached to the
@@ -259,11 +256,18 @@
   let data = $state<IndicatorArtifact | null>(null);
   let indicator_render = $state<IndicatorRender | null>(null);
   let load_error = $state<string | null>(null);
+  // Local snapshot of publisher pills captured at load time. Cannot be
+  // derived through `indicatorArtifactPills(data)` because `data` is
+  // wrapped in Svelte 5's `$state` Proxy, which breaks the WeakMap
+  // identity lookup the accessor relies on (PR #940 lesson). Pass
+  // explicitly to AboutThisData so its <SourceList> is non-empty.
+  let pills_snapshot = $state<readonly PublisherPill[] | undefined>(undefined);
 
   $effect(() => {
     data = null;
     indicator_render = null;
     load_error = null;
+    pills_snapshot = undefined;
     // Snapshot the path so the closure captured below is stable across
     // re-renders (Svelte 5 $effect re-runs on prop changes).
     const path = indicator_path;
@@ -273,6 +277,12 @@
     ])
       .then(([a, cat]) => {
         if (indicator_path !== path) return;
+        // CRITICAL: read pills off the RAW `a` BEFORE the `data = a`
+        // assignment wraps it in a `$state` Proxy. After the assignment,
+        // `indicatorArtifactPills(data)` returns undefined because the
+        // WeakMap is keyed by raw object identity. See user-memory
+        // pattern "WeakMap-keyed accessor + Svelte 5 $state Proxy".
+        pills_snapshot = indicatorArtifactPills(a);
         data = a;
         indicator_render = cat ? lookupIndicatorRender(cat, a.indicator.id) : null;
       })
@@ -453,6 +463,21 @@
   // Link to the topic page until /i/<indicator> exists (per plan §2:
   // "See all states →" → `link.topic(topic.id)`).
   const see_all_href = $derived(link.topic(topic.id));
+
+  // G12 (EL4) bridge state. Lazy-loaded once per IndicatorCard mount via
+  // the shared cached fetcher in election-events.ts. The catalogue is
+  // ~3KB gzipped and de-duped across all callers, so even on a state hub
+  // with 20 IndicatorCards this is one fetch total.
+  let election_catalogue = $state<ElectionEventsCatalogue | null>(null);
+  $effect(() => {
+    if (election_catalogue !== null) return;
+    fetchElectionEvents()
+      .then(c => (election_catalogue = c))
+      .catch(() => { /* non-fatal — the link just hides */ });
+  });
+  const latest_event_for_state = $derived(
+    defaultEventForState(election_catalogue, home_state),
+  );
 </script>
 
 <section
@@ -591,6 +616,19 @@
       >See all states →</a>
     </footer>
 
-    <AboutThisData artifact={data} />
+    <!-- G12 (EL4) bridge: navigate from this indicator card to the home
+         state's latest election landing. Silent fail-safe — if the
+         catalogue hasn't loaded or the state has no events, no link. -->
+    {#if latest_event_for_state && home_state}
+      <p class="text-xs">
+        <a
+          class="text-blue-600 hover:underline"
+          href={link.stateElection(home_state, latest_event_for_state.event_id)}
+          data-testid="indicator-card-latest-election"
+        >View latest election for {states.name(home_state)} →</a>
+      </p>
+    {/if}
+
+    <AboutThisData artifact={data} pills={pills_snapshot} />
   {/if}
 </section>

@@ -16,7 +16,7 @@
   import {
     fetchTopicCatalogue,
     indicatorPathForArtifact,
-    displayForArtifact,
+    displayLabelForArtifact,
     resolvePeerSetDefault,
     type TopicCatalogue,
     type CatalogueTopic,
@@ -199,7 +199,7 @@
               data-testid="topic-headline-artifact"
             >
               <div class="flex items-center gap-2 flex-wrap">
-                <h2 class="text-lg font-semibold">{displayForArtifact(headline_artifact)}</h2>
+                <h2 class="text-lg font-semibold">{displayLabelForArtifact(headline_artifact)}</h2>
                 <span class="ml-auto">
                   <PeerSetFilter
                     value={headline_peer_set}
@@ -232,7 +232,7 @@
             {@const peer_members = resolvePeerSet(state_tiers, current_peer_set)}
             <section class="space-y-3">
               <div class="flex items-center gap-2 flex-wrap">
-                <h2 class="text-base font-semibold">{displayForArtifact(artifact)}</h2>
+                <h2 class="text-base font-semibold">{displayLabelForArtifact(artifact)}</h2>
                 <span class="ml-auto">
                   <PeerSetFilter
                     value={current_peer_set}
