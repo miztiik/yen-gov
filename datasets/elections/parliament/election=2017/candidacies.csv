@@ -2,7 +2,7 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-PC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2017,2,SRINAGAR,Farooq Abdullah,parties.IN.JKNC,NC,48555,56.24,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-jammu-and-kashmir-5,jammu-and-kashmir,2017,2,SRINAGAR,Nazir Ahmad Khan,parties.IN.JKPDP,PDP,37779,43.76,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",P.K Kunhalikutty,parties.IN.IUML,IUML,515330,55.34,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",ADV. M.B. Faisal,parties.IN.CPIM,CPI(Marxist),344307,36.97,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",ADV. M.B. Faisal,parties.IN.CPIMLL,CPI(Marxist),344307,36.97,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",ADV. N. SreePrakash,parties.IN.BJP,BJP,65675,7.05,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",Muhammed Faisal,parties.IN.IND,INDEPENDENT,1698,0.18,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-2008-kerala-498,kerala,2017,6,"MALAPPURAM , DISTRICT, MALAPPURAM",Adv.N.SreePrakash,parties.IN.IND,INDEPENDENT,1469,0.16,5,forfeit,U,,,,challenger,src-31c65dbec869

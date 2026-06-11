@@ -2,7 +2,6 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Antapurkar Jitesh Raosaheb,parties.IN.INC,INC,108840,57.03,1,won,M,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Sabne Subhash Pirajirao,parties.IN.BJP,BJP,66907,35.06,2,lost,M,51,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Uttam Ramrao Ingole,parties.IN.UNK,Vanchit Bahujan Aaghadi,11348,5.95,3,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,NOTA,parties.IN.UNK,,1103,0.58,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Waghmare Vimal Baburao,parties.IN.IND,IND,496,0.26,5,forfeit,F,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Comrade Prof.Sadashiv Rajaram Bhuyare,parties.IN.IND,IND,486,0.25,6,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3046,maharashtra,2021,90,DEGLUR,Kerurkar Vivek Pundlikrao,parties.IN.JDS,JD(S),467,0.24,7,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
@@ -21,7 +20,6 @@ IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Sachin Arun Shinde,p
 IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Sudarshan Pandurang Masure,parties.IN.IND,IND,849,0.37,7,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Sunil Suresh Gore,parties.IN.IND,IND,768,0.34,8,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Mane Santosh Mahadeo,parties.IN.IND,IND,729,0.32,9,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,NOTA,parties.IN.UNK,,599,0.26,10,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Sandip Janardan Kharat,parties.IN.IND,IND,500,0.22,11,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Aware Siddheshwar Bharat,parties.IN.BAHUMP,Bahujan Maha Party,469,0.21,12,forfeit,M,30,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-maharashtra-3137,maharashtra,2021,252,PANDHARPUR,Birudev Sukhdev Papare,parties.IN.IND,IND,412,0.18,13,forfeit,M,37,,,challenger,src-1b7bc1c9d39a

@@ -1,44 +1,44 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-himachal-pradesh-108,himachal-pradesh,2022,1,CHURAH,Hans Raj,parties.IN.BJP,BJP,32095,51.49,1,won,U,39,Doctorate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-108,himachal-pradesh,2022,1,CHURAH,Yashwant Singh,parties.IN.INC,INC,29453,47.26,2,lost,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-108,himachal-pradesh,2022,1,CHURAH,Nand Kumar Jaryal,parties.IN.AAP,AAAP,385,0.62,4,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-108,himachal-pradesh,2022,1,CHURAH,Nand Kumar Jaryal,parties.IN.AAAP,AAAP,385,0.62,4,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-125,himachal-pradesh,2022,2,BHARMOUR,Dr. Janak Raj,parties.IN.BJP,BJP,30336,53.68,1,won,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-125,himachal-pradesh,2022,2,BHARMOUR,Thakur Singh Bharmouri,parties.IN.INC,INC,25164,44.53,2,lost,U,75,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-125,himachal-pradesh,2022,2,BHARMOUR,Puja,parties.IN.UNK,Himachal Jan Kranti Party,242,0.43,4,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-125,himachal-pradesh,2022,2,BHARMOUR,Parkash Chand,parties.IN.AAP,AAAP,237,0.42,5,forfeit,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-125,himachal-pradesh,2022,2,BHARMOUR,Parkash Chand,parties.IN.AAAP,AAAP,237,0.42,5,forfeit,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-125,himachal-pradesh,2022,2,BHARMOUR,Rasila Ram,parties.IN.UNK,Himachal Janta Party,187,0.33,6,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-107,himachal-pradesh,2022,3,CHAMBA,Neeraj Nayar,parties.IN.INC,INC,32783,53.28,1,won,U,51,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-107,himachal-pradesh,2022,3,CHAMBA,Neelam Nayyar,parties.IN.BJP,BJP,25001,40.63,2,lost,U,60,Graduate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-107,himachal-pradesh,2022,3,CHAMBA,Indira,parties.IN.IND,IND,2443,3.97,3,forfeit,U,47,12th Pass,Household,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-107,himachal-pradesh,2022,3,CHAMBA,Shasi Kant,parties.IN.AAP,AAAP,356,0.58,5,forfeit,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-107,himachal-pradesh,2022,3,CHAMBA,Shasi Kant,parties.IN.AAAP,AAAP,356,0.58,5,forfeit,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-107,himachal-pradesh,2022,3,CHAMBA,Paras Ram,parties.IN.BSP,BSP,247,0.4,6,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-107,himachal-pradesh,2022,3,CHAMBA,Uttam Chand,parties.IN.UNK,Bhartiya Veer Dal,159,0.26,7,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-109,himachal-pradesh,2022,4,DALHOUSIE,DHAVINDER SINGH,parties.IN.BJP,BJP,33488,57.49,1,won,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-109,himachal-pradesh,2022,4,DALHOUSIE,ASHA KUMARI,parties.IN.INC,INC,23570,40.47,2,lost,U,67,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-109,himachal-pradesh,2022,4,DALHOUSIE,ASHOK KUMAR BAKARIA,parties.IN.UNK,Rashtriya Devbhumi Party,358,0.61,4,forfeit,U,54,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-109,himachal-pradesh,2022,4,DALHOUSIE,RINKU,parties.IN.IND,IND,241,0.41,5,forfeit,U,35,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-109,himachal-pradesh,2022,4,DALHOUSIE,MANISH SAREEN,parties.IN.AAP,AAAP,207,0.36,6,forfeit,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-109,himachal-pradesh,2022,4,DALHOUSIE,MANISH SAREEN,parties.IN.AAAP,AAAP,207,0.36,6,forfeit,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-106,himachal-pradesh,2022,5,BHATTIYAT,KULDEEP SINGH PATHANIA,parties.IN.INC,INC,25989,43.73,1,won,U,65,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-106,himachal-pradesh,2022,5,BHATTIYAT,BIKRAM SINGH,parties.IN.BJP,BJP,24422,41.1,2,lost,U,61,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-106,himachal-pradesh,2022,5,BHATTIYAT,NIRMAL SINGH,parties.IN.IND,IND,7741,13.03,3,forfeit,U,39,Post Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-106,himachal-pradesh,2022,5,BHATTIYAT,AMRITA CHAUDHRY,parties.IN.UNK,Hindu Samaj Party,607,1.02,4,forfeit,U,35,12th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-106,himachal-pradesh,2022,5,BHATTIYAT,NARESH KUMAR,parties.IN.AAP,AAAP,197,0.33,6,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-106,himachal-pradesh,2022,5,BHATTIYAT,NARESH KUMAR,parties.IN.AAAP,AAAP,197,0.33,6,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-118,himachal-pradesh,2022,6,NURPUR,RANBIR SINGH,parties.IN.BJP,BJP,44132,62.45,1,won,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-118,himachal-pradesh,2022,6,NURPUR,AJAY MAHAJAN,parties.IN.INC,INC,25380,35.92,2,lost,U,64,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-118,himachal-pradesh,2022,6,NURPUR,SALI RAM,parties.IN.BSP,BSP,325,0.46,3,forfeit,U,56,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-118,himachal-pradesh,2022,6,NURPUR,MANISHA KUMARI,parties.IN.AAP,AAAP,286,0.4,5,forfeit,U,30,Post Graduate,Activist,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-118,himachal-pradesh,2022,6,NURPUR,MANISHA KUMARI,parties.IN.AAAP,AAAP,286,0.4,5,forfeit,U,30,Post Graduate,Activist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-118,himachal-pradesh,2022,6,NURPUR,SUBHASH SINGH DHADWAL,parties.IN.IND,IND,239,0.34,6,forfeit,U,66,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-112,himachal-pradesh,2022,7,INDORA,MALENDER RAJAN,parties.IN.INC,INC,30797,45.55,1,won,U,49,Graduate Professional,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-112,himachal-pradesh,2022,7,INDORA,REETA DEVI,parties.IN.BJP,BJP,28547,42.22,2,lost,U,47,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-112,himachal-pradesh,2022,7,INDORA,MANOHAR LAL,parties.IN.IND,IND,4442,6.57,3,forfeit,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-112,himachal-pradesh,2022,7,INDORA,JAGDISH SINGH,parties.IN.AAP,AAAP,1474,2.18,4,forfeit,U,46,10th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-112,himachal-pradesh,2022,7,INDORA,JAGDISH SINGH,parties.IN.AAAP,AAAP,1474,2.18,4,forfeit,U,46,10th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-112,himachal-pradesh,2022,7,INDORA,NIRMAL PARSHAD,parties.IN.IND,IND,1470,2.17,5,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-112,himachal-pradesh,2022,7,INDORA,HANS RAJ,parties.IN.BSP,BSP,261,0.39,7,forfeit,U,72,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-112,himachal-pradesh,2022,7,INDORA,LAXMAN DASS,parties.IN.UNK,Hindu Samaj Party,145,0.21,8,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2022,8,FATEHPUR,BHAWANI SINGH PATHANIA,parties.IN.INC,INC,33238,51.83,1,won,U,48,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2022,8,FATEHPUR,RAKESH PATHANIA,parties.IN.BJP,BJP,25884,40.36,2,lost,U,58,12th Pass,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2022,8,FATEHPUR,KRIPAL SINGH PARMAR,parties.IN.IND,IND,2811,4.38,3,forfeit,U,63,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2022,8,FATEHPUR,Dr. RAJAN SUSHANT,parties.IN.AAP,AAAP,1302,2.03,4,forfeit,U,67,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2022,8,FATEHPUR,Dr. RAJAN SUSHANT,parties.IN.AAAP,AAAP,1302,2.03,4,forfeit,U,67,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2022,8,FATEHPUR,TILAK RAJ,parties.IN.BSP,BSP,298,0.46,5,forfeit,U,30,Others,Mechanic,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2022,8,FATEHPUR,Dr. Ashok Kumar Somal,parties.IN.IND,IND,156,0.24,7,forfeit,U,64,Doctorate,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2022,8,FATEHPUR,Adv. SANJAY SHARMA,parties.IN.IND,IND,141,0.22,8,forfeit,U,55,Graduate Professional,,challenger,src-1b7bc1c9d39a
@@ -46,36 +46,36 @@ IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2022,8,FATEHPUR,VIJAY KOUNDAL,p
 IN-AC-2008-himachal-pradesh-115,himachal-pradesh,2022,9,JAWALI,CHANDER KUMAR,parties.IN.INC,INC,38243,51.22,1,won,U,78,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-115,himachal-pradesh,2022,9,JAWALI,SANJAY GULERIA,parties.IN.BJP,BJP,35212,47.16,2,lost,U,60,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-115,himachal-pradesh,2022,9,JAWALI,ARUN KUMAR,parties.IN.UNK,Himachal Jan Kranti Party,306,0.41,4,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-115,himachal-pradesh,2022,9,JAWALI,BALDEV RAJ,parties.IN.AAP,AAAP,277,0.37,5,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-115,himachal-pradesh,2022,9,JAWALI,BALDEV RAJ,parties.IN.AAAP,AAAP,277,0.37,5,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-115,himachal-pradesh,2022,9,JAWALI,BIR SINGH,parties.IN.BSP,BSP,258,0.35,6,forfeit,U,69,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-92,himachal-pradesh,2022,10,DEHRA,HOSHYAR SINGH,parties.IN.IND,IND,22997,37.96,1,won,U,56,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-92,himachal-pradesh,2022,10,DEHRA,DR. RAJESH SHARMA,parties.IN.INC,INC,19120,31.56,2,lost,U,56,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-92,himachal-pradesh,2022,10,DEHRA,RAMESH CHAND,parties.IN.BJP,BJP,16730,27.62,3,lost,U,71,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-92,himachal-pradesh,2022,10,DEHRA,VARUN KUMAR,parties.IN.IND,IND,560,0.92,4,forfeit,U,26,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-92,himachal-pradesh,2022,10,DEHRA,MANISH KUMAR,parties.IN.AAP,AAAP,483,0.8,5,forfeit,U,46,Graduate Professional,Ex Military,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-92,himachal-pradesh,2022,10,DEHRA,MANISH KUMAR,parties.IN.AAAP,AAAP,483,0.8,5,forfeit,U,46,Graduate Professional,Ex Military,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-92,himachal-pradesh,2022,10,DEHRA,HARBANS SINGH,parties.IN.BSP,BSP,213,0.35,7,forfeit,U,60,10th Pass,Ex Military,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-98,himachal-pradesh,2022,11,JASWAN-PRAGPUR,BIKRAM SINGH,parties.IN.BJP,BJP,22658,38.27,1,won,U,58,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-98,himachal-pradesh,2022,11,JASWAN-PRAGPUR,SURINDER SINGH MANKOTIA,parties.IN.INC,INC,20869,35.25,2,lost,U,58,Post Graduate,Ex Civil Service,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-98,himachal-pradesh,2022,11,JASWAN-PRAGPUR,SANJAY PRASHAR,parties.IN.IND,IND,13405,22.64,3,lost,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-98,himachal-pradesh,2022,11,JASWAN-PRAGPUR,MUKESH KUMAR,parties.IN.IND,IND,1658,2.8,4,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-98,himachal-pradesh,2022,11,JASWAN-PRAGPUR,PREM CHAND,parties.IN.BSP,BSP,189,0.32,6,forfeit,U,61,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-98,himachal-pradesh,2022,11,JASWAN-PRAGPUR,SAHIL CHOUHAN,parties.IN.AAP,AAAP,163,0.28,7,forfeit,U,26,12th Pass,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-98,himachal-pradesh,2022,11,JASWAN-PRAGPUR,SAHIL CHOUHAN,parties.IN.AAAP,AAAP,163,0.28,7,forfeit,U,26,12th Pass,Rent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-114,himachal-pradesh,2022,12,JAWALAMUKHI,SANJAY RATTAN,parties.IN.INC,INC,27827,46.48,1,won,U,59,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-114,himachal-pradesh,2022,12,JAWALAMUKHI,RAVINDER SINGH,parties.IN.BJP,BJP,21423,35.78,2,lost,U,67,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-114,himachal-pradesh,2022,12,JAWALAMUKHI,ATUL KAUSHAL,parties.IN.IND,IND,9511,15.89,3,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-114,himachal-pradesh,2022,12,JAWALAMUKHI,HOSHIAR SINGH,parties.IN.AAP,AAAP,616,1.03,4,forfeit,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-114,himachal-pradesh,2022,12,JAWALAMUKHI,HOSHIAR SINGH,parties.IN.AAAP,AAAP,616,1.03,4,forfeit,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-114,himachal-pradesh,2022,12,JAWALAMUKHI,SUSHIL KUMAR,parties.IN.BSP,BSP,201,0.34,5,forfeit,U,43,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-114,himachal-pradesh,2022,12,JAWALAMUKHI,SUNIL KUMAR,parties.IN.IND,IND,93,0.16,7,forfeit,U,46,12th Pass,Ex Military,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-113,himachal-pradesh,2022,13,JAISINGHPUR,Yadvinder Goma,parties.IN.INC,INC,28058,50.43,1,won,U,36,Post Graduate,Ex MLA,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-113,himachal-pradesh,2022,13,JAISINGHPUR,Ravinder Kumar Dhiman,parties.IN.BJP,BJP,25362,45.58,2,lost,U,61,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-113,himachal-pradesh,2022,13,JAISINGHPUR,Sushil Kumar,parties.IN.UNK,Rashtriya Devbhumi Party,943,1.69,3,forfeit,U,47,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-113,himachal-pradesh,2022,13,JAISINGHPUR,Santosh Kumar,parties.IN.AAP,AAAP,697,1.25,4,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-113,himachal-pradesh,2022,13,JAISINGHPUR,Santosh Kumar,parties.IN.AAAP,AAAP,697,1.25,4,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-113,himachal-pradesh,2022,13,JAISINGHPUR,Surender Singh,parties.IN.IND,IND,155,0.28,6,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-113,himachal-pradesh,2022,13,JAISINGHPUR,Dr. Kehar Singh,parties.IN.IND,IND,124,0.22,7,forfeit,U,52,Doctorate,Qualified Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-121,himachal-pradesh,2022,14,SULLAH,VIPIN SINGH PARMAR,parties.IN.BJP,BJP,36670,48.35,1,won,U,59,Graduate Professional,Insurance Agent,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-121,himachal-pradesh,2022,14,SULLAH,JAGJIWAN PAUL,parties.IN.IND,IND,29558,38.97,2,lost,U,68,12th Pass,Ex MLA,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-121,himachal-pradesh,2022,14,SULLAH,JAGDISH CHAND SAPEHIA,parties.IN.INC,INC,6828,9,3,forfeit,U,67,Graduate,Ex Military,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-121,himachal-pradesh,2022,14,SULLAH,RAVINDER SINGH,parties.IN.AAP,AAAP,963,1.27,4,forfeit,U,56,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-121,himachal-pradesh,2022,14,SULLAH,RAVINDER SINGH,parties.IN.AAAP,AAAP,963,1.27,4,forfeit,U,56,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-121,himachal-pradesh,2022,14,SULLAH,CHANDER BHAN,parties.IN.IND,IND,760,1,5,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-121,himachal-pradesh,2022,14,SULLAH,SUMAN KUMAR,parties.IN.IND,IND,232,0.31,7,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-121,himachal-pradesh,2022,14,SULLAH,REKHA RANI,parties.IN.IND,IND,211,0.28,8,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -83,68 +83,68 @@ IN-AC-2008-himachal-pradesh-121,himachal-pradesh,2022,14,SULLAH,SURESH KUMAR,par
 IN-AC-2008-himachal-pradesh-121,himachal-pradesh,2022,14,SULLAH,DR. SWAROOP SINGH RANA,parties.IN.IND,IND,64,0.08,10,forfeit,U,62,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-117,himachal-pradesh,2022,15,NAGROTA,R.S. BALI,parties.IN.INC,INC,42079,59.88,1,won,U,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-117,himachal-pradesh,2022,15,NAGROTA,ARUN KUMAR,parties.IN.BJP,BJP,26187,37.26,2,lost,U,58,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-117,himachal-pradesh,2022,15,NAGROTA,UMA KANT,parties.IN.AAP,AAAP,1332,1.9,3,forfeit,U,43,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-117,himachal-pradesh,2022,15,NAGROTA,UMA KANT,parties.IN.AAAP,AAAP,1332,1.9,3,forfeit,U,43,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-117,himachal-pradesh,2022,15,NAGROTA,SIKANDER KUMAR,parties.IN.IND,IND,292,0.42,5,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-116,himachal-pradesh,2022,16,KANGRA,Pawan Kumar Kajal,parties.IN.BJP,BJP,35239,55.64,1,won,U,48,10th Pass,Contractor,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-116,himachal-pradesh,2022,16,KANGRA,Surinder Kumar,parties.IN.INC,INC,15405,24.32,2,lost,U,68,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-116,himachal-pradesh,2022,16,KANGRA,Kulbhash Chand,parties.IN.IND,IND,7994,12.62,3,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-116,himachal-pradesh,2022,16,KANGRA,Amit Verma,parties.IN.IND,IND,3033,4.79,4,forfeit,U,45,12th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-116,himachal-pradesh,2022,16,KANGRA,Raj Kumar,parties.IN.AAP,AAAP,866,1.37,5,forfeit,U,68,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-116,himachal-pradesh,2022,16,KANGRA,Raj Kumar,parties.IN.AAAP,AAAP,866,1.37,5,forfeit,U,68,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-116,himachal-pradesh,2022,16,KANGRA,Vijay Kumar,parties.IN.BSP,BSP,338,0.53,7,forfeit,U,59,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-120,himachal-pradesh,2022,17,SHAHPUR,KEWAL SINGH,parties.IN.INC,INC,36603,55.39,1,won,U,53,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-120,himachal-pradesh,2022,17,SHAHPUR,SARVEEN,parties.IN.BJP,BJP,24360,36.86,2,lost,U,56,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-120,himachal-pradesh,2022,17,SHAHPUR,JOGINDER SINGH,parties.IN.IND,IND,2298,3.48,3,forfeit,U,30,Graduate,Panchayat Member,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-120,himachal-pradesh,2022,17,SHAHPUR,ABHISHEK SINGH,parties.IN.AAP,AAAP,1576,2.38,4,forfeit,U,44,12th Pass,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-120,himachal-pradesh,2022,17,SHAHPUR,ABHISHEK SINGH,parties.IN.AAAP,AAAP,1576,2.38,4,forfeit,U,44,12th Pass,Rent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-120,himachal-pradesh,2022,17,SHAHPUR,RAMESH KUMAR,parties.IN.IND,IND,330,0.5,6,forfeit,U,33,5th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-120,himachal-pradesh,2022,17,SHAHPUR,BANARSHI DASS DOGRA,parties.IN.BSP,BSP,306,0.46,7,forfeit,U,61,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-120,himachal-pradesh,2022,17,SHAHPUR,ASHISH SHARMA,parties.IN.UNK,Hindu Samaj Party,96,0.15,8,forfeit,U,30,10th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-110,himachal-pradesh,2022,18,DHARAMSHALA,SUDHIR SHARMA,parties.IN.INC,INC,27323,45.53,1,won,U,50,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-110,himachal-pradesh,2022,18,DHARAMSHALA,RAKESH KUMAR,parties.IN.BJP,BJP,24038,40.06,2,lost,U,44,Graduate,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-110,himachal-pradesh,2022,18,DHARAMSHALA,VIPAN KUMAR NEHRIA,parties.IN.IND,IND,7416,12.36,3,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-110,himachal-pradesh,2022,18,DHARAMSHALA,KULWANT SINGH RANA,parties.IN.AAP,AAAP,527,0.88,4,forfeit,U,67,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-110,himachal-pradesh,2022,18,DHARAMSHALA,KULWANT SINGH RANA,parties.IN.AAAP,AAAP,527,0.88,4,forfeit,U,67,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-110,himachal-pradesh,2022,18,DHARAMSHALA,SUBHASH CHAND SHUKLA,parties.IN.IND,IND,170,0.28,6,forfeit,U,69,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-110,himachal-pradesh,2022,18,DHARAMSHALA,ABHAY KUMAR ASHOK,parties.IN.IND,IND,98,0.16,7,forfeit,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-119,himachal-pradesh,2022,19,PALAMPUR,Ashish Butail,parties.IN.INC,INC,30874,53.72,1,won,U,42,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-119,himachal-pradesh,2022,19,PALAMPUR,Trilok Kapoor,parties.IN.BJP,BJP,25546,44.45,2,lost,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-119,himachal-pradesh,2022,19,PALAMPUR,Sanjay Bhardwaj,parties.IN.AAP,AAAP,430,0.75,3,forfeit,U,52,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-119,himachal-pradesh,2022,19,PALAMPUR,Sanjay Bhardwaj,parties.IN.AAAP,AAAP,430,0.75,3,forfeit,U,52,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-119,himachal-pradesh,2022,19,PALAMPUR,Suresh Kumar,parties.IN.BSP,BSP,244,0.42,5,forfeit,U,48,8th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-105,himachal-pradesh,2022,20,BAIJNATH,Kishori Lal,parties.IN.INC,INC,29338,50.32,1,won,U,75,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-105,himachal-pradesh,2022,20,BAIJNATH,Mulkh Raj,parties.IN.BJP,BJP,25892,44.41,2,lost,U,52,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-105,himachal-pradesh,2022,20,BAIJNATH,Parmodh Chand,parties.IN.AAP,AAAP,1109,1.9,3,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-105,himachal-pradesh,2022,20,BAIJNATH,Parmodh Chand,parties.IN.AAAP,AAAP,1109,1.9,3,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-105,himachal-pradesh,2022,20,BAIJNATH,Ajay Kumar,parties.IN.BSP,BSP,536,0.92,5,forfeit,U,47,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-105,himachal-pradesh,2022,20,BAIJNATH,Gurdas Ram,parties.IN.IND,IND,531,0.91,6,forfeit,U,50,10th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-105,himachal-pradesh,2022,20,BAIJNATH,Vishesh,parties.IN.UNK,Swabhiman Party,226,0.39,7,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-131,himachal-pradesh,2022,21,LAHAUL & SPITI,RAVI THAKUR,parties.IN.INC,INC,9948,52.91,1,won,U,60,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-131,himachal-pradesh,2022,21,LAHAUL & SPITI,DR.RAM LAL MARKANDA,parties.IN.BJP,BJP,8332,44.32,2,lost,U,56,Doctorate,"MLA, Party Worker, Ex Minister",incumbent,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-131,himachal-pradesh,2022,21,LAHAUL & SPITI,SUDARSHAN JASPA,parties.IN.AAP,AAAP,454,2.41,3,forfeit,U,41,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-131,himachal-pradesh,2022,21,LAHAUL & SPITI,SUDARSHAN JASPA,parties.IN.AAAP,AAAP,454,2.41,3,forfeit,U,41,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-132,himachal-pradesh,2022,22,MANALI,Bhuvneshwar Gaur,parties.IN.INC,INC,29892,49.46,1,won,U,48,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-132,himachal-pradesh,2022,22,MANALI,Govind Singh Thakur,parties.IN.BJP,BJP,26935,44.57,2,lost,U,54,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-132,himachal-pradesh,2022,22,MANALI,Mahinder Singh,parties.IN.IND,IND,1345,2.23,3,forfeit,U,46,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-132,himachal-pradesh,2022,22,MANALI,Amar Chand,parties.IN.UNK,Rashtriya Devbhumi Party,997,1.65,4,forfeit,U,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-132,himachal-pradesh,2022,22,MANALI,Anurag Prarthi,parties.IN.AAP,AAAP,730,1.21,5,forfeit,U,51,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-132,himachal-pradesh,2022,22,MANALI,Anurag Prarthi,parties.IN.AAAP,AAAP,730,1.21,5,forfeit,U,51,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-132,himachal-pradesh,2022,22,MANALI,Tara Chand,parties.IN.BSP,BSP,300,0.5,6,forfeit,U,57,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-130,himachal-pradesh,2022,23,KULLU,SUNDER SINGH THAKUR,parties.IN.INC,INC,30286,42.56,1,won,U,57,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-130,himachal-pradesh,2022,23,KULLU,NAROTAM SINGH,parties.IN.BJP,BJP,26183,36.79,2,lost,U,55,Post Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-130,himachal-pradesh,2022,23,KULLU,RAM SINGH,parties.IN.IND,IND,11937,16.77,3,lost,U,62,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-130,himachal-pradesh,2022,23,KULLU,SHER SINGH,parties.IN.AAP,AAAP,1119,1.57,4,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-130,himachal-pradesh,2022,23,KULLU,HOTAM SINGH,parties.IN.CPIM,Communist Party of India(Marxist),1102,1.55,5,forfeit,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-130,himachal-pradesh,2022,23,KULLU,SHER SINGH,parties.IN.AAAP,AAAP,1119,1.57,4,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-130,himachal-pradesh,2022,23,KULLU,HOTAM SINGH,parties.IN.UNK,Communist Party of India(Marxist),1102,1.55,5,forfeit,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-130,himachal-pradesh,2022,23,KULLU,LOT RAMA THAKUR,parties.IN.IND,IND,192,0.27,7,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-124,himachal-pradesh,2022,24,BANJAR,SURENDER SHOURIE,parties.IN.BJP,BJP,25038,40.44,1,won,U,41,Graduate,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-124,himachal-pradesh,2022,24,BANJAR,KHIMI RAM,parties.IN.INC,INC,20704,33.44,2,lost,U,73,Graduate Professional,Party Worker,crossover,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-124,himachal-pradesh,2022,24,BANJAR,HITESHWAR SINGH,parties.IN.IND,IND,14932,24.12,3,lost,U,48,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-124,himachal-pradesh,2022,24,BANJAR,NEERAJ SAINI,parties.IN.AAP,AAAP,267,0.43,5,forfeit,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-124,himachal-pradesh,2022,24,BANJAR,NEERAJ SAINI,parties.IN.AAAP,AAAP,267,0.43,5,forfeit,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-124,himachal-pradesh,2022,24,BANJAR,JHABE RAM KAUSHAL,parties.IN.BSP,BSP,263,0.42,6,forfeit,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-124,himachal-pradesh,2022,24,BANJAR,CHET RAM,parties.IN.UNK,Himachal Jan Kranti Party,212,0.34,7,forfeit,U,48,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-122,himachal-pradesh,2022,25,ANNI,LOKENDER KUMAR,parties.IN.BJP,BJP,24133,35.77,1,won,U,34,Post Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-122,himachal-pradesh,2022,25,ANNI,PARAS RAM,parties.IN.IND,IND,17355,25.72,2,lost,U,49,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-122,himachal-pradesh,2022,25,ANNI,BANSI LAL,parties.IN.INC,INC,14224,21.08,3,lost,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-122,himachal-pradesh,2022,25,ANNI,KISHORI LAL,parties.IN.IND,IND,6893,10.22,4,forfeit,U,52,Post Graduate,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-122,himachal-pradesh,2022,25,ANNI,DEVKI NAND,parties.IN.CPIM,Communist Party of India(Marxist),3574,5.3,5,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-122,himachal-pradesh,2022,25,ANNI,INDER PAL,parties.IN.AAP,AAAP,769,1.14,6,forfeit,U,40,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-122,himachal-pradesh,2022,25,ANNI,DEVKI NAND,parties.IN.UNK,Communist Party of India(Marxist),3574,5.3,5,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-122,himachal-pradesh,2022,25,ANNI,INDER PAL,parties.IN.AAAP,AAAP,769,1.14,6,forfeit,U,40,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-128,himachal-pradesh,2022,26,KARSOG,DEEP RAJ,parties.IN.BJP,BJP,34512,57.36,1,won,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-128,himachal-pradesh,2022,26,KARSOG,MAHESH RAJ,parties.IN.INC,INC,23978,39.85,2,lost,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-128,himachal-pradesh,2022,26,KARSOG,KISHORI LAL,parties.IN.CPIM,Communist Party of India(Marxist),480,0.8,3,forfeit,U,31,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-128,himachal-pradesh,2022,26,KARSOG,BHAGWANT SINGH,parties.IN.AAP,AAAP,471,0.78,4,forfeit,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-128,himachal-pradesh,2022,26,KARSOG,KISHORI LAL,parties.IN.UNK,Communist Party of India(Marxist),480,0.8,3,forfeit,U,31,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-128,himachal-pradesh,2022,26,KARSOG,BHAGWANT SINGH,parties.IN.AAAP,AAAP,471,0.78,4,forfeit,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-128,himachal-pradesh,2022,26,KARSOG,CHAMAN LAL,parties.IN.BSP,BSP,209,0.35,6,forfeit,U,55,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-128,himachal-pradesh,2022,26,KARSOG,GHANSHYAM,parties.IN.IND,IND,156,0.26,7,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-138,himachal-pradesh,2022,27,SUNDERNAGAR,Rakesh Kumar,parties.IN.BJP,BJP,29432,44.16,1,won,U,48,Graduate,,incumbent,src-1b7bc1c9d39a
@@ -153,7 +153,7 @@ IN-AC-2008-himachal-pradesh-138,himachal-pradesh,2022,27,SUNDERNAGAR,Abhishek Th
 IN-AC-2008-himachal-pradesh-138,himachal-pradesh,2022,27,SUNDERNAGAR,Narayan Singh,parties.IN.BSP,BSP,275,0.41,4,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-138,himachal-pradesh,2022,27,SUNDERNAGAR,Thakur Singh,parties.IN.UNK,Sainik Samaj Party,195,0.29,6,forfeit,U,69,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-138,himachal-pradesh,2022,27,SUNDERNAGAR,Tek Chand,parties.IN.IND,IND,149,0.22,7,forfeit,U,61,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-138,himachal-pradesh,2022,27,SUNDERNAGAR,Pooja Verma,parties.IN.AAP,AAAP,148,0.22,8,forfeit,U,31,Graduate Professional,Transport,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-138,himachal-pradesh,2022,27,SUNDERNAGAR,Pooja Verma,parties.IN.AAAP,AAAP,148,0.22,8,forfeit,U,31,Graduate Professional,Transport,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-138,himachal-pradesh,2022,27,SUNDERNAGAR,Het Ram,parties.IN.IND,IND,140,0.21,9,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-138,himachal-pradesh,2022,27,SUNDERNAGAR,Ran Vijay Singh,parties.IN.UNK,Rashtriya Devbhumi Party,90,0.14,10,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-134,himachal-pradesh,2022,28,NACHAN,VINOD KUMAR,parties.IN.BJP,BJP,33200,46.4,1,won,U,42,12th Pass,,incumbent,src-1b7bc1c9d39a
@@ -161,12 +161,12 @@ IN-AC-2008-himachal-pradesh-134,himachal-pradesh,2022,28,NACHAN,NARESH KUMAR,par
 IN-AC-2008-himachal-pradesh-134,himachal-pradesh,2022,28,NACHAN,GIAN CHAND,parties.IN.IND,IND,10133,14.16,3,forfeit,U,44,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-134,himachal-pradesh,2022,28,NACHAN,JASVEER SINGH,parties.IN.IND,IND,2691,3.76,4,forfeit,U,31,Others,Private Company,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-134,himachal-pradesh,2022,28,NACHAN,NAND LAL,parties.IN.BSP,BSP,319,0.45,6,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-134,himachal-pradesh,2022,28,NACHAN,JABNA KUMARI,parties.IN.AAP,AAAP,290,0.41,7,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-134,himachal-pradesh,2022,28,NACHAN,JABNA KUMARI,parties.IN.AAAP,AAAP,290,0.41,7,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-134,himachal-pradesh,2022,28,NACHAN,SAUNU RAM,parties.IN.IND,IND,226,0.32,8,forfeit,U,62,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-137,himachal-pradesh,2022,29,SERAJ,JAI RAM THAKUR,parties.IN.BJP,BJP,53562,75.7,1,won,U,57,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-137,himachal-pradesh,2022,29,SERAJ,CHET RAM,parties.IN.INC,INC,15379,21.74,2,lost,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-137,himachal-pradesh,2022,29,SERAJ,MAHENDER RANA,parties.IN.CPIM,Communist Party of India(Marxist),818,1.16,3,forfeit,U,40,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-137,himachal-pradesh,2022,29,SERAJ,GITA NAND,parties.IN.AAP,AAAP,339,0.48,4,forfeit,U,61,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-137,himachal-pradesh,2022,29,SERAJ,MAHENDER RANA,parties.IN.UNK,Communist Party of India(Marxist),818,1.16,3,forfeit,U,40,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-137,himachal-pradesh,2022,29,SERAJ,GITA NAND,parties.IN.AAAP,AAAP,339,0.48,4,forfeit,U,61,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-137,himachal-pradesh,2022,29,SERAJ,INDRA DEVI,parties.IN.BSP,BSP,264,0.37,6,forfeit,U,53,Illiterate,Shop Keeper,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-137,himachal-pradesh,2022,29,SERAJ,NARENDER KUMAR,parties.IN.IND,IND,98,0.14,7,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-126,himachal-pradesh,2022,30,DARANG,Puran Chand,parties.IN.BJP,BJP,36572,49.76,1,won,U,65,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -174,9 +174,9 @@ IN-AC-2008-himachal-pradesh-126,himachal-pradesh,2022,30,DARANG,Kaul Singh,parti
 IN-AC-2008-himachal-pradesh-126,himachal-pradesh,2022,30,DARANG,Ramesh Kumar,parties.IN.BSP,BSP,385,0.52,4,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-127,himachal-pradesh,2022,31,JOGINDERNAGAR,Prakash Prem Kumar,parties.IN.BJP,BJP,33782,47.87,1,won,U,60,10th Pass,Self-employed,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-127,himachal-pradesh,2022,31,JOGINDERNAGAR,Thakur Surender Pal,parties.IN.INC,INC,29443,41.73,2,lost,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-127,himachal-pradesh,2022,31,JOGINDERNAGAR,Kushal Bhardwaj,parties.IN.CPIM,Communist Party of India(Marxist),3137,4.45,3,forfeit,U,53,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-127,himachal-pradesh,2022,31,JOGINDERNAGAR,Kushal Bhardwaj,parties.IN.UNK,Communist Party of India(Marxist),3137,4.45,3,forfeit,U,53,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-127,himachal-pradesh,2022,31,JOGINDERNAGAR,Sanjeev,parties.IN.IND,IND,2494,3.53,4,forfeit,U,48,Graduate Professional,Contractor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-127,himachal-pradesh,2022,31,JOGINDERNAGAR,Ravinder Pal Singh,parties.IN.AAP,AAAP,383,0.54,5,forfeit,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-127,himachal-pradesh,2022,31,JOGINDERNAGAR,Ravinder Pal Singh,parties.IN.AAAP,AAAP,383,0.54,5,forfeit,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-127,himachal-pradesh,2022,31,JOGINDERNAGAR,Kamal Kant,parties.IN.UNK,Rashtriya Devbhumi Party,259,0.37,7,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-127,himachal-pradesh,2022,31,JOGINDERNAGAR,Narender Kumar,parties.IN.BSP,BSP,244,0.35,8,forfeit,U,47,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-127,himachal-pradesh,2022,31,JOGINDERNAGAR,Surender Singh Thakur,parties.IN.IND,IND,206,0.29,9,forfeit,U,64,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -185,13 +185,13 @@ IN-AC-2008-himachal-pradesh-127,himachal-pradesh,2022,31,JOGINDERNAGAR,Kulbhusha
 IN-AC-2008-himachal-pradesh-127,himachal-pradesh,2022,31,JOGINDERNAGAR,Mehar Chand,parties.IN.UNK,Rashtriya Lokneeti Party,57,0.08,12,forfeit,U,67,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-93,himachal-pradesh,2022,32,DHARAMPUR,CHANDER SHEKHAR,parties.IN.INC,INC,31063,51.9,1,won,U,49,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-93,himachal-pradesh,2022,32,DHARAMPUR,RAJAT THAKUR,parties.IN.BJP,BJP,28037,46.84,2,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-93,himachal-pradesh,2022,32,DHARAMPUR,RAKESH MANDHOTRA,parties.IN.AAP,AAAP,230,0.38,3,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-93,himachal-pradesh,2022,32,DHARAMPUR,RAKESH MANDHOTRA,parties.IN.AAAP,AAAP,230,0.38,3,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-93,himachal-pradesh,2022,32,DHARAMPUR,PRAKASH CHAND BHARDWAJ,parties.IN.BSP,BSP,170,0.28,5,forfeit,U,64,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-93,himachal-pradesh,2022,32,DHARAMPUR,CHANDER SHEKHAR,parties.IN.IND,IND,141,0.24,6,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-133,himachal-pradesh,2022,33,MANDI,ANIL SHARMA,parties.IN.BJP,BJP,31303,53.37,1,won,U,66,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-133,himachal-pradesh,2022,33,MANDI,CHAMPA THAKUR,parties.IN.INC,INC,21297,36.31,2,lost,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-133,himachal-pradesh,2022,33,MANDI,PRAVEEN KUMAR,parties.IN.IND,IND,4106,7,3,forfeit,U,46,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-133,himachal-pradesh,2022,33,MANDI,SHYAM LAL,parties.IN.AAP,AAAP,559,0.95,4,forfeit,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-133,himachal-pradesh,2022,33,MANDI,SHYAM LAL,parties.IN.AAAP,AAAP,559,0.95,4,forfeit,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-133,himachal-pradesh,2022,33,MANDI,CHET RAM,parties.IN.BSP,BSP,272,0.46,6,forfeit,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-133,himachal-pradesh,2022,33,MANDI,RAJEEV KUMAR,parties.IN.IND,IND,251,0.43,7,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-133,himachal-pradesh,2022,33,MANDI,MAJOR KHEM SINGH THAKUR,parties.IN.IND,IND,157,0.27,8,forfeit,U,51,Post Graduate,Ex Military,challenger,src-1b7bc1c9d39a
@@ -199,83 +199,83 @@ IN-AC-2008-himachal-pradesh-133,himachal-pradesh,2022,33,MANDI,LAXMENDER SINGH,p
 IN-AC-2008-himachal-pradesh-133,himachal-pradesh,2022,33,MANDI,SANJAY KUMAR,parties.IN.UNK,Rashtriya Devbhumi Party,109,0.19,10,forfeit,U,34,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-123,himachal-pradesh,2022,34,BALH,INDER SINGH,parties.IN.BJP,BJP,31792,49.12,1,won,U,60,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-123,himachal-pradesh,2022,34,BALH,PRAKASH CHAUDHARY,parties.IN.INC,INC,30485,47.1,2,lost,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-123,himachal-pradesh,2022,34,BALH,TARA CHAND,parties.IN.AAP,AAAP,1406,2.17,3,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-123,himachal-pradesh,2022,34,BALH,TARA CHAND,parties.IN.AAAP,AAAP,1406,2.17,3,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-123,himachal-pradesh,2022,34,BALH,PREM KUMAR,parties.IN.BSP,BSP,300,0.46,5,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-123,himachal-pradesh,2022,34,BALH,JIWAN RAM,parties.IN.UNK,Rashtriya Devbhumi Party,245,0.38,6,forfeit,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-136,himachal-pradesh,2022,35,SARKAGHAT,DALIP THAKUR,parties.IN.BJP,BJP,27346,42.89,1,won,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-136,himachal-pradesh,2022,35,SARKAGHAT,PAWAN KUMAR,parties.IN.INC,INC,25539,40.05,2,lost,U,48,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-136,himachal-pradesh,2022,35,SARKAGHAT,MUNISH SHARMA,parties.IN.IND,IND,9860,15.46,3,forfeit,U,38,Post Graduate,Municipality Member,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-136,himachal-pradesh,2022,35,SARKAGHAT,KAILASH CHAND,parties.IN.UNK,Rashtriya Devbhumi Party,262,0.41,5,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-136,himachal-pradesh,2022,35,SARKAGHAT,DHAMESHWAR RAM,parties.IN.AAP,AAAP,210,0.33,6,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-136,himachal-pradesh,2022,35,SARKAGHAT,DHAMESHWAR RAM,parties.IN.AAAP,AAAP,210,0.33,6,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-136,himachal-pradesh,2022,35,SARKAGHAT,RAMESH CHAND,parties.IN.BSP,BSP,202,0.32,7,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-89,himachal-pradesh,2022,36,BHORANJ,SURESH KUMAR,parties.IN.INC,INC,24779,43.16,1,won,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-89,himachal-pradesh,2022,36,BHORANJ,DR. ANIL DHIMAN,parties.IN.BJP,BJP,24719,43.05,2,lost,U,59,Graduate Professional,Doctor,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-89,himachal-pradesh,2022,36,BHORANJ,PAWAN KUMAR,parties.IN.IND,IND,6861,11.95,3,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-89,himachal-pradesh,2022,36,BHORANJ,RAJNI KAUSHAL,parties.IN.AAP,AAAP,463,0.81,4,forfeit,U,49,12th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-89,himachal-pradesh,2022,36,BHORANJ,RAJNI KAUSHAL,parties.IN.AAAP,AAAP,463,0.81,4,forfeit,U,49,12th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-89,himachal-pradesh,2022,36,BHORANJ,JARNAIL SINGH,parties.IN.BSP,BSP,302,0.53,5,forfeit,U,63,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-103,himachal-pradesh,2022,37,SUJANPUR,RAJINDER SINGH,parties.IN.INC,INC,27679,49.79,1,won,U,56,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-103,himachal-pradesh,2022,37,SUJANPUR,RANJIT SINGH RANA,parties.IN.BJP,BJP,27280,49.07,2,lost,U,65,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-103,himachal-pradesh,2022,37,SUJANPUR,ANIL RANA,parties.IN.AAP,AAAP,212,0.38,4,forfeit,U,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-103,himachal-pradesh,2022,37,SUJANPUR,ANIL RANA,parties.IN.AAAP,AAAP,212,0.38,4,forfeit,U,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-103,himachal-pradesh,2022,37,SUJANPUR,GIAN CHAND,parties.IN.BSP,BSP,103,0.19,5,forfeit,U,68,10th Pass,Ex Civil Service,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-103,himachal-pradesh,2022,37,SUJANPUR,RAJESH KUMAR,parties.IN.IND,IND,86,0.15,6,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-96,himachal-pradesh,2022,38,HAMIRPUR,ASHISH SHARMA,parties.IN.IND,IND,25916,47.09,1,won,U,35,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-96,himachal-pradesh,2022,38,HAMIRPUR,PUSHPINDER VERMA,parties.IN.INC,INC,13017,23.65,2,lost,U,47,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-96,himachal-pradesh,2022,38,HAMIRPUR,NARINDER THAKUR,parties.IN.BJP,BJP,12794,23.25,3,lost,U,65,Post Graduate,Lawyer,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-96,himachal-pradesh,2022,38,HAMIRPUR,NARESH KUMAR DARJI,parties.IN.IND,IND,1217,2.21,4,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-96,himachal-pradesh,2022,38,HAMIRPUR,KASHMIR SINGH THAKUR,parties.IN.CPIM,Communist Party of India(Marxist),627,1.14,5,forfeit,U,68,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-96,himachal-pradesh,2022,38,HAMIRPUR,KASHMIR SINGH THAKUR,parties.IN.UNK,Communist Party of India(Marxist),627,1.14,5,forfeit,U,68,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-96,himachal-pradesh,2022,38,HAMIRPUR,ASHISH KUMAR,parties.IN.IND,IND,557,1.01,6,forfeit,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-96,himachal-pradesh,2022,38,HAMIRPUR,SUSHIL KUMAR SURROCH,parties.IN.AAP,AAAP,298,0.54,7,forfeit,U,64,Post Graduate,Ex Military,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-96,himachal-pradesh,2022,38,HAMIRPUR,SUSHIL KUMAR SURROCH,parties.IN.AAAP,AAAP,298,0.54,7,forfeit,U,64,Post Graduate,Ex Military,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-96,himachal-pradesh,2022,38,HAMIRPUR,ABHINAY BHARDWAJ,parties.IN.UNK,Rashtriya Devbhumi Party,231,0.42,9,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-96,himachal-pradesh,2022,38,HAMIRPUR,PRAVEEN KUMAR KAUSHAL,parties.IN.BSP,BSP,136,0.25,10,forfeit,U,45,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-88,himachal-pradesh,2022,39,BARSAR,INDER DUTT LAKHANPAL,parties.IN.INC,INC,30293,48.16,1,won,U,60,Graduate,Self-employed,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-88,himachal-pradesh,2022,39,BARSAR,MAYA SHARMA,parties.IN.BJP,BJP,16501,26.23,2,lost,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-88,himachal-pradesh,2022,39,BARSAR,SANJEEV KUMAR,parties.IN.IND,IND,15252,24.25,3,lost,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-88,himachal-pradesh,2022,39,BARSAR,RATTAN CHAND KATOCH,parties.IN.BSP,BSP,208,0.33,5,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-88,himachal-pradesh,2022,39,BARSAR,GULSHAN,parties.IN.AAP,AAAP,158,0.25,6,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-88,himachal-pradesh,2022,39,BARSAR,GULSHAN,parties.IN.AAAP,AAAP,158,0.25,6,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-88,himachal-pradesh,2022,39,BARSAR,PARAMJIT SINGH,parties.IN.UNK,Himachal Jan Kranti Party,132,0.21,7,forfeit,U,34,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-88,himachal-pradesh,2022,39,BARSAR,NARESH KUMAR,parties.IN.UNK,Rashtriya Devbhumi Party,66,0.1,8,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-101,himachal-pradesh,2022,40,NADAUN,SUKHVINDER SINGH,parties.IN.INC,INC,36142,50.88,1,won,U,58,Post Graduate,Contractor,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-101,himachal-pradesh,2022,40,NADAUN,VIJAY KUMAR,parties.IN.BJP,BJP,32779,46.14,2,lost,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-101,himachal-pradesh,2022,40,NADAUN,SHANKEY THUKRAL,parties.IN.AAP,AAAP,1487,2.09,3,forfeit,U,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-101,himachal-pradesh,2022,40,NADAUN,SHANKEY THUKRAL,parties.IN.AAAP,AAAP,1487,2.09,3,forfeit,U,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-101,himachal-pradesh,2022,40,NADAUN,DESH RAJ,parties.IN.BSP,BSP,225,0.32,4,forfeit,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-101,himachal-pradesh,2022,40,NADAUN,RANJIT SINGH,parties.IN.IND,IND,116,0.16,6,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-101,himachal-pradesh,2022,40,NADAUN,SURENDER KUMAR,parties.IN.IND,IND,98,0.14,7,forfeit,U,51,12th Pass,Private Company,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-91,himachal-pradesh,2022,41,CHINTPURNI,SUDARSHAN SINGH BABLOO,parties.IN.INC,INC,32712,52.7,1,won,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-91,himachal-pradesh,2022,41,CHINTPURNI,BALBIR SINGH,parties.IN.BJP,BJP,27854,44.87,2,lost,U,59,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-91,himachal-pradesh,2022,41,CHINTPURNI,RAM PAUL,parties.IN.AAP,AAAP,767,1.24,3,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-91,himachal-pradesh,2022,41,CHINTPURNI,RAM PAUL,parties.IN.AAAP,AAAP,767,1.24,3,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-91,himachal-pradesh,2022,41,CHINTPURNI,VIRENDER KUMAR,parties.IN.BSP,BSP,226,0.36,5,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-91,himachal-pradesh,2022,41,CHINTPURNI,KEWAL KUMAR,parties.IN.IND,IND,158,0.25,6,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-94,himachal-pradesh,2022,42,GAGRET,Chaitanya Sharma,parties.IN.INC,INC,40767,61.15,1,won,U,28,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-94,himachal-pradesh,2022,42,GAGRET,Rajesh Thakur,parties.IN.BJP,BJP,25082,37.62,2,lost,U,57,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-94,himachal-pradesh,2022,42,GAGRET,Manohar Lal Dadwal,parties.IN.AAP,AAAP,145,0.22,4,forfeit,U,62,10th Pass,Ex Military,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-94,himachal-pradesh,2022,42,GAGRET,Manohar Lal Dadwal,parties.IN.AAAP,AAAP,145,0.22,4,forfeit,U,62,10th Pass,Ex Military,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-94,himachal-pradesh,2022,42,GAGRET,Vinod Dadwal (Pintu),parties.IN.UNK,Rashtriya Devbhumi Party,125,0.19,5,forfeit,U,38,12th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-94,himachal-pradesh,2022,42,GAGRET,Lekh Raj Katnoria,parties.IN.BSP,BSP,97,0.15,6,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-94,himachal-pradesh,2022,42,GAGRET,Raghubir Singh,parties.IN.UNK,Himachal Jan Kranti Party,45,0.07,7,forfeit,U,65,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-97,himachal-pradesh,2022,43,HAROLI,MUKESH AGNIHOTRI,parties.IN.INC,INC,38652,55.33,1,won,U,61,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-97,himachal-pradesh,2022,43,HAROLI,RAM KUMAR,parties.IN.BJP,BJP,29504,42.23,2,lost,U,53,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-97,himachal-pradesh,2022,43,HAROLI,NARESH KUMAR,parties.IN.BSP,BSP,636,0.91,3,forfeit,U,51,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-97,himachal-pradesh,2022,43,HAROLI,RAVINDER PAL SINGH MANN,parties.IN.AAP,AAAP,601,0.86,4,forfeit,U,39,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-97,himachal-pradesh,2022,43,HAROLI,RAVINDER PAL SINGH MANN,parties.IN.AAAP,AAAP,601,0.86,4,forfeit,U,39,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-97,himachal-pradesh,2022,43,HAROLI,ASHHWANI KUMAR RANA,parties.IN.UNK,Rashtriya Devbhumi Party,290,0.42,5,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-104,himachal-pradesh,2022,44,UNA,Satpal Singh Satti,parties.IN.BJP,BJP,33974,50.05,1,won,U,58,Post Graduate,Rent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-104,himachal-pradesh,2022,44,UNA,Satpal Singh Raizada,parties.IN.INC,INC,32238,47.49,2,lost,U,52,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-104,himachal-pradesh,2022,44,UNA,Rajiv Gautam,parties.IN.AAP,AAAP,737,1.09,3,forfeit,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-104,himachal-pradesh,2022,44,UNA,Rajiv Gautam,parties.IN.AAAP,AAAP,737,1.09,3,forfeit,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-104,himachal-pradesh,2022,44,UNA,Ramesh Chand,parties.IN.BSP,BSP,341,0.5,4,forfeit,U,71,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-104,himachal-pradesh,2022,44,UNA,Chander Mohan,parties.IN.IND,IND,185,0.27,6,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-104,himachal-pradesh,2022,44,UNA,Kamal Kumar,parties.IN.IND,IND,162,0.24,7,forfeit,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-100,himachal-pradesh,2022,45,KUTLEHAR,Davinder Kumar,parties.IN.INC,INC,36636,54.84,1,won,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-100,himachal-pradesh,2022,45,KUTLEHAR,VIRENDER KANWAR,parties.IN.BJP,BJP,29057,43.49,2,lost,U,58,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-100,himachal-pradesh,2022,45,KUTLEHAR,Anil Kumar Mankotia,parties.IN.AAP,AAAP,596,0.89,3,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-100,himachal-pradesh,2022,45,KUTLEHAR,Anil Kumar Mankotia,parties.IN.AAAP,AAAP,596,0.89,3,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-100,himachal-pradesh,2022,45,KUTLEHAR,Capt. Jaidayal Singh Pal,parties.IN.IND,IND,141,0.21,5,forfeit,U,67,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-99,himachal-pradesh,2022,46,JHANDUTA,JEET RAM KATWAL,parties.IN.BJP,BJP,28268,46.72,1,won,U,66,Post Graduate,Ex Civil Service,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-99,himachal-pradesh,2022,46,JHANDUTA,VIVEK KUMAR,parties.IN.INC,INC,22469,37.14,2,lost,U,41,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-99,himachal-pradesh,2022,46,JHANDUTA,RAJ KUMAR,parties.IN.IND,IND,8358,13.81,3,forfeit,U,51,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-99,himachal-pradesh,2022,46,JHANDUTA,SUDHIR KUMAR,parties.IN.AAP,AAAP,427,0.71,4,forfeit,U,38,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-99,himachal-pradesh,2022,46,JHANDUTA,SUDHIR KUMAR,parties.IN.AAAP,AAAP,427,0.71,4,forfeit,U,38,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-99,himachal-pradesh,2022,46,JHANDUTA,MANOJ KUMAR,parties.IN.UNK,Rashtriya Devbhumi Party,282,0.47,5,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-99,himachal-pradesh,2022,46,JHANDUTA,AMAR NATH,parties.IN.BSP,BSP,245,0.4,7,forfeit,U,61,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-99,himachal-pradesh,2022,46,JHANDUTA,JITENDER PAL,parties.IN.IND,IND,206,0.34,8,forfeit,U,48,12th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-95,himachal-pradesh,2022,47,GHUMARWIN,RAJESH DHARMANI,parties.IN.INC,INC,35378,51.96,1,won,U,50,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-95,himachal-pradesh,2022,47,GHUMARWIN,RAJINDER GARG,parties.IN.BJP,BJP,29767,43.72,2,lost,U,56,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-95,himachal-pradesh,2022,47,GHUMARWIN,RAKESH KUMAR CHOPRA,parties.IN.AAP,AAAP,1633,2.4,3,forfeit,U,57,10th Pass,Transport,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-95,himachal-pradesh,2022,47,GHUMARWIN,RAKESH KUMAR CHOPRA,parties.IN.AAAP,AAAP,1633,2.4,3,forfeit,U,57,10th Pass,Transport,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-95,himachal-pradesh,2022,47,GHUMARWIN,YOGESH THAKUR,parties.IN.UNK,Rashtriya Devbhumi Party,467,0.69,4,forfeit,U,42,12th Pass,Medical Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-95,himachal-pradesh,2022,47,GHUMARWIN,PREM LAL BANGA,parties.IN.BSP,BSP,319,0.47,5,forfeit,U,67,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-95,himachal-pradesh,2022,47,GHUMARWIN,MANOHAR LAL,parties.IN.IND,IND,128,0.19,7,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -284,7 +284,7 @@ IN-AC-2008-himachal-pradesh-95,himachal-pradesh,2022,47,GHUMARWIN,NAND LAL,parti
 IN-AC-2008-himachal-pradesh-90,himachal-pradesh,2022,48,BILASPUR,TRILOK JAMWAL,parties.IN.BJP,BJP,30988,47.76,1,won,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-90,himachal-pradesh,2022,48,BILASPUR,BUMBER THAKUR,parties.IN.INC,INC,30712,47.34,2,lost,U,55,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-90,himachal-pradesh,2022,48,BILASPUR,Subhash Sharma,parties.IN.IND,IND,1499,2.31,3,forfeit,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-90,himachal-pradesh,2022,48,BILASPUR,AMAR SINGH,parties.IN.AAP,AAAP,388,0.6,4,forfeit,U,49,Graduate,Transport,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-90,himachal-pradesh,2022,48,BILASPUR,AMAR SINGH,parties.IN.AAAP,AAAP,388,0.6,4,forfeit,U,49,Graduate,Transport,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-90,himachal-pradesh,2022,48,BILASPUR,PUJA PAL,parties.IN.UNK,Rashtriya Devbhumi Party,367,0.57,5,forfeit,U,44,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-90,himachal-pradesh,2022,48,BILASPUR,AMAR NATH,parties.IN.BSP,BSP,306,0.47,6,forfeit,U,60,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-90,himachal-pradesh,2022,48,BILASPUR,BAL RAM,parties.IN.UNK,Swabhiman Party,154,0.24,8,forfeit,U,47,Graduate Professional,,challenger,src-1b7bc1c9d39a
@@ -293,20 +293,20 @@ IN-AC-2008-himachal-pradesh-90,himachal-pradesh,2022,48,BILASPUR,PIYUSH KANGA,pa
 IN-AC-2008-himachal-pradesh-102,himachal-pradesh,2022,49,SRI NAINA DEVIJI,RANDHIR SHARMA,parties.IN.BJP,BJP,29403,47.23,1,won,U,58,Post Graduate,Ex MLA,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-102,himachal-pradesh,2022,49,SRI NAINA DEVIJI,RAM LAL THAKUR,parties.IN.INC,INC,29232,46.96,2,lost,U,71,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-102,himachal-pradesh,2022,49,SRI NAINA DEVIJI,DEEPAK KUMAR,parties.IN.UNK,Rashtriya Devbhumi Party,2114,3.4,3,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-102,himachal-pradesh,2022,49,SRI NAINA DEVIJI,NARINDER SINGH,parties.IN.AAP,AAAP,653,1.05,4,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-102,himachal-pradesh,2022,49,SRI NAINA DEVIJI,NARINDER SINGH,parties.IN.AAAP,AAAP,653,1.05,4,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-102,himachal-pradesh,2022,49,SRI NAINA DEVIJI,BHAG SINGH,parties.IN.CPI,CPI,627,1.01,5,forfeit,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2022,50,ARKI,Sanjay,parties.IN.INC,INC,30897,42.02,1,won,U,57,Graduate,Transport,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2022,50,ARKI,Rajender,parties.IN.IND,IND,26075,35.46,2,lost,U,53,10th Pass,Petrol Pumps,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2022,50,ARKI,Govind Ram,parties.IN.BJP,BJP,13444,18.28,3,lost,U,66,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2022,50,ARKI,Jai Dev Singh,parties.IN.UNK,Rashtriya Devbhumi Party,1747,2.38,4,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2022,50,ARKI,Jeet Ram,parties.IN.AAP,AAAP,316,0.43,6,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2022,50,ARKI,Jeet Ram,parties.IN.AAAP,AAAP,316,0.43,6,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2022,50,ARKI,Kamlesh,parties.IN.BSP,BSP,306,0.42,7,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2022,50,ARKI,Sanjay Kumar,parties.IN.IND,IND,285,0.39,8,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-146,himachal-pradesh,2022,51,NALAGARH,K. L. THAKUR,parties.IN.IND,IND,33427,44.51,1,won,U,62,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-146,himachal-pradesh,2022,51,NALAGARH,HARDEEP SINGH BAWA,parties.IN.INC,INC,20163,26.85,2,lost,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-146,himachal-pradesh,2022,51,NALAGARH,LAKHWINDER SINGH RANA,parties.IN.BJP,BJP,17273,23,3,lost,U,54,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-146,himachal-pradesh,2022,51,NALAGARH,JAGDISH CHAND,parties.IN.UNK,Rashtriya Devbhumi Party,1146,1.53,4,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-146,himachal-pradesh,2022,51,NALAGARH,DHARAM PAL,parties.IN.AAP,AAAP,1108,1.48,5,forfeit,U,49,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-146,himachal-pradesh,2022,51,NALAGARH,DHARAM PAL,parties.IN.AAAP,AAAP,1108,1.48,5,forfeit,U,49,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-146,himachal-pradesh,2022,51,NALAGARH,PARAS BAINS,parties.IN.BSP,BSP,555,0.74,7,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-146,himachal-pradesh,2022,51,NALAGARH,JAGPAL SINGH RANA,parties.IN.IND,IND,534,0.71,8,forfeit,U,41,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-146,himachal-pradesh,2022,51,NALAGARH,KISHORI LAL,parties.IN.UNK,Swabhiman Party,305,0.41,9,forfeit,U,45,Doctorate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
@@ -314,15 +314,15 @@ IN-AC-2008-himachal-pradesh-141,himachal-pradesh,2022,52,DOON,RAM KUMAR,parties.
 IN-AC-2008-himachal-pradesh-141,himachal-pradesh,2022,52,DOON,PARAMJEET SINGH PAMMI,parties.IN.BJP,BJP,25227,40.86,2,lost,U,57,Graduate,Transport,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-141,himachal-pradesh,2022,52,DOON,DES RAJ CHAUHAN,parties.IN.IND,IND,1895,3.07,3,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-141,himachal-pradesh,2022,52,DOON,BALWANT SINGH,parties.IN.UNK,Rashtriya Devbhumi Party,1425,2.31,4,forfeit,U,53,5th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-141,himachal-pradesh,2022,52,DOON,SWARN SINGH SAINI,parties.IN.AAP,AAAP,659,1.07,5,forfeit,U,55,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-141,himachal-pradesh,2022,52,DOON,SWARN SINGH SAINI,parties.IN.AAAP,AAAP,659,1.07,5,forfeit,U,55,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-141,himachal-pradesh,2022,52,DOON,NAGENDER CHAND,parties.IN.BSP,BSP,276,0.45,6,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-153,himachal-pradesh,2022,53,SOLAN,DHANI RAM SHANDIL,parties.IN.INC,INC,30089,51.54,1,won,U,82,Doctorate,Ex Military,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-153,himachal-pradesh,2022,53,SOLAN,RAJESH KASHYAP,parties.IN.BJP,BJP,26231,44.93,2,lost,U,59,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-153,himachal-pradesh,2022,53,SOLAN,ANJU,parties.IN.AAP,AAAP,1108,1.9,3,forfeit,U,41,Post Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-153,himachal-pradesh,2022,53,SOLAN,ANJU,parties.IN.AAAP,AAAP,1108,1.9,3,forfeit,U,41,Post Graduate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-153,himachal-pradesh,2022,53,SOLAN,RAJINDER,parties.IN.BSP,BSP,323,0.55,5,forfeit,U,58,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-143,himachal-pradesh,2022,54,KASAULI,VINOD SULTANPURI,parties.IN.INC,INC,28200,52.1,1,won,U,40,Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-143,himachal-pradesh,2022,54,KASAULI,RAJIV SAIZAL,parties.IN.BJP,BJP,21432,39.6,2,lost,U,51,Graduate Professional,Doctor,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-143,himachal-pradesh,2022,54,KASAULI,HARMEL SINGH,parties.IN.AAP,AAAP,1809,3.34,3,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-143,himachal-pradesh,2022,54,KASAULI,HARMEL SINGH,parties.IN.AAAP,AAAP,1809,3.34,3,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-143,himachal-pradesh,2022,54,KASAULI,RAJEEV KUMAR KAUNDEL,parties.IN.UNK,Rashtriya Devbhumi Party,1677,3.1,4,forfeit,U,41,Others,Engineer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-143,himachal-pradesh,2022,54,KASAULI,OM PRAKASH,parties.IN.IND,IND,331,0.61,6,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-143,himachal-pradesh,2022,54,KASAULI,RAJINDER,parties.IN.UNK,Himachal Jan Kranti Party,211,0.39,7,forfeit,U,57,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -331,21 +331,21 @@ IN-AC-2008-himachal-pradesh-147,himachal-pradesh,2022,55,PACHHAD,Reena,parties.I
 IN-AC-2008-himachal-pradesh-147,himachal-pradesh,2022,55,PACHHAD,Dayal Pyari,parties.IN.INC,INC,17358,28.25,2,lost,U,43,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-147,himachal-pradesh,2022,55,PACHHAD,Gangu Ram Musafir,parties.IN.IND,IND,13187,21.46,3,lost,U,77,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-147,himachal-pradesh,2022,55,PACHHAD,Susheel Kumar Bhrigu,parties.IN.UNK,Rashtriya Devbhumi Party,8113,13.2,4,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-147,himachal-pradesh,2022,55,PACHHAD,Ajay Singh,parties.IN.AAP,AAAP,568,0.92,5,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-147,himachal-pradesh,2022,55,PACHHAD,Ashish Kumar,parties.IN.CPIM,Communist Party of India(Marxist),543,0.88,6,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-147,himachal-pradesh,2022,55,PACHHAD,Ajay Singh,parties.IN.AAAP,AAAP,568,0.92,5,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-147,himachal-pradesh,2022,55,PACHHAD,Ashish Kumar,parties.IN.UNK,Communist Party of India(Marxist),543,0.88,6,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-145,himachal-pradesh,2022,56,NAHAN,Ajay Solanki,parties.IN.INC,INC,35291,50.08,1,won,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-145,himachal-pradesh,2022,56,NAHAN,Dr. Rajeev Bindal,parties.IN.BJP,BJP,33652,47.75,2,lost,U,67,Graduate Professional,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-145,himachal-pradesh,2022,56,NAHAN,Sunil Sharma,parties.IN.AAP,AAAP,387,0.55,4,forfeit,U,40,Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-145,himachal-pradesh,2022,56,NAHAN,Sunil Sharma,parties.IN.AAAP,AAAP,387,0.55,4,forfeit,U,40,Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-145,himachal-pradesh,2022,56,NAHAN,Salender Singh,parties.IN.UNK,Rashtriya Devbhumi Party,297,0.42,5,forfeit,U,37,12th Pass,Transport,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-145,himachal-pradesh,2022,56,NAHAN,Ayodhya Prasad Verma,parties.IN.BSP,BSP,260,0.37,6,forfeit,U,58,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-145,himachal-pradesh,2022,56,NAHAN,Ramjan,parties.IN.IND,IND,118,0.17,7,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-154,himachal-pradesh,2022,57,SRI RENUKAJI,Vinay Kumar,parties.IN.INC,INC,28642,47.99,1,won,U,44,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-154,himachal-pradesh,2022,57,SRI RENUKAJI,Narain Singh,parties.IN.BJP,BJP,27782,46.55,2,lost,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-154,himachal-pradesh,2022,57,SRI RENUKAJI,Jagmohan Singh,parties.IN.UNK,Rashtriya Devbhumi Party,2092,3.5,3,forfeit,U,55,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-154,himachal-pradesh,2022,57,SRI RENUKAJI,Ram Kishan,parties.IN.AAP,AAAP,686,1.15,4,forfeit,U,59,Post Graduate,Ex Military,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-154,himachal-pradesh,2022,57,SRI RENUKAJI,Ram Kishan,parties.IN.AAAP,AAAP,686,1.15,4,forfeit,U,59,Post Graduate,Ex Military,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-148,himachal-pradesh,2022,58,PAONTA SAHIB,Sukh Ram,parties.IN.BJP,BJP,31008,46.93,1,won,U,58,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-148,himachal-pradesh,2022,58,PAONTA SAHIB,Kirnesh Jung,parties.IN.INC,INC,22412,33.92,2,lost,U,65,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-148,himachal-pradesh,2022,58,PAONTA SAHIB,Manish Kumar Thakur,parties.IN.AAP,AAAP,5090,7.7,3,forfeit,U,42,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-148,himachal-pradesh,2022,58,PAONTA SAHIB,Manish Kumar Thakur,parties.IN.AAAP,AAAP,5090,7.7,3,forfeit,U,42,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-148,himachal-pradesh,2022,58,PAONTA SAHIB,Manish Tomar,parties.IN.IND,IND,3417,5.17,4,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-148,himachal-pradesh,2022,58,PAONTA SAHIB,Roshan Lal Chaudhary,parties.IN.IND,IND,1872,2.83,5,forfeit,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-148,himachal-pradesh,2022,58,PAONTA SAHIB,Sunil Kumar,parties.IN.IND,IND,896,1.36,6,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
@@ -354,32 +354,32 @@ IN-AC-2008-himachal-pradesh-148,himachal-pradesh,2022,58,PAONTA SAHIB,Rameshwar,
 IN-AC-2008-himachal-pradesh-148,himachal-pradesh,2022,58,PAONTA SAHIB,Seema,parties.IN.BSP,BSP,203,0.31,10,forfeit,U,38,12th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-150,himachal-pradesh,2022,59,SHILLAI,Harshwardhan Chauhan,parties.IN.INC,INC,32093,49.17,1,won,U,58,Graduate Professional,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-150,himachal-pradesh,2022,59,SHILLAI,Baldev Singh,parties.IN.BJP,BJP,31711,48.58,2,lost,U,51,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-150,himachal-pradesh,2022,59,SHILLAI,Naathu Ram Chauhan,parties.IN.AAP,AAAP,488,0.75,4,forfeit,U,44,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-150,himachal-pradesh,2022,59,SHILLAI,Naathu Ram Chauhan,parties.IN.AAAP,AAAP,488,0.75,4,forfeit,U,44,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-150,himachal-pradesh,2022,59,SHILLAI,Suresh Kumar,parties.IN.UNK,Rashtriya Devbhumi Party,454,0.7,5,forfeit,U,41,12th Pass,Ex Military,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-140,himachal-pradesh,2022,60,CHOPAL,Sh. Balbir Singh Verma,parties.IN.BJP,BJP,25873,41.58,1,won,U,52,12th Pass,"Real Estate or Builder or Developer or Construction, Petrol Pumps, Hospitality",incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-140,himachal-pradesh,2022,60,CHOPAL,Sh. Rajneesh Kimta,parties.IN.INC,INC,20840,33.49,2,lost,U,49,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-140,himachal-pradesh,2022,60,CHOPAL,Dr.Subhash Chand Manglate,parties.IN.IND,IND,13706,22.03,3,lost,U,50,Doctorate,Ex MLA,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-140,himachal-pradesh,2022,60,CHOPAL,SH. ASHOK KUMAR,parties.IN.IND,IND,463,0.74,5,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-140,himachal-pradesh,2022,60,CHOPAL,SH.UDAY SINGHTA,parties.IN.AAP,AAAP,413,0.66,6,forfeit,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-140,himachal-pradesh,2022,60,CHOPAL,SH.UDAY SINGHTA,parties.IN.AAAP,AAAP,413,0.66,6,forfeit,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-140,himachal-pradesh,2022,60,CHOPAL,Bhagat Lal,parties.IN.BSP,BSP,382,0.61,7,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-155,himachal-pradesh,2022,61,THEOG,KULDEEP SINGH RATHORE,parties.IN.INC,INC,19447,29.47,1,won,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-155,himachal-pradesh,2022,61,THEOG,AJAY SHYAM,parties.IN.BJP,BJP,14178,21.49,2,lost,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-155,himachal-pradesh,2022,61,THEOG,INDU VARMA,parties.IN.IND,IND,13848,20.99,3,lost,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-155,himachal-pradesh,2022,61,THEOG,RAKESH SINGHA,parties.IN.CPIM,Communist Party of India(Marxist),12210,18.51,4,lost,U,66,Post Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-155,himachal-pradesh,2022,61,THEOG,RAKESH SINGHA,parties.IN.UNK,Communist Party of India(Marxist),12210,18.51,4,lost,U,66,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-155,himachal-pradesh,2022,61,THEOG,VIJAY PAL KHACHI,parties.IN.IND,IND,4576,6.94,5,forfeit,U,65,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-155,himachal-pradesh,2022,61,THEOG,AMIT MEHTA,parties.IN.IND,IND,581,0.88,6,forfeit,U,38,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-155,himachal-pradesh,2022,61,THEOG,ATTAR SINGH CHANDEL,parties.IN.AAP,AAAP,487,0.74,7,forfeit,U,69,Doctorate,Private Company,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-155,himachal-pradesh,2022,61,THEOG,ATTAR SINGH CHANDEL,parties.IN.AAAP,AAAP,487,0.74,7,forfeit,U,69,Doctorate,Private Company,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-155,himachal-pradesh,2022,61,THEOG,JIA LAL SADHAK,parties.IN.BSP,BSP,304,0.46,9,forfeit,U,61,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-144,himachal-pradesh,2022,62,KASUMPTI,Anirudh Singh,parties.IN.INC,INC,25759,55.43,1,won,U,45,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-144,himachal-pradesh,2022,62,KASUMPTI,Suresh Bhardwaj,parties.IN.BJP,BJP,17104,36.81,2,lost,U,70,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-144,himachal-pradesh,2022,62,KASUMPTI,Kuldip Singh Tanwar,parties.IN.CPIM,Communist Party of India(Marxist),2670,5.75,3,forfeit,U,65,Doctorate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-144,himachal-pradesh,2022,62,KASUMPTI,Dr. Rajesh Chanana,parties.IN.AAP,AAAP,307,0.66,5,forfeit,U,54,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-144,himachal-pradesh,2022,62,KASUMPTI,Kuldip Singh Tanwar,parties.IN.UNK,Communist Party of India(Marxist),2670,5.75,3,forfeit,U,65,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-144,himachal-pradesh,2022,62,KASUMPTI,Dr. Rajesh Chanana,parties.IN.AAAP,AAAP,307,0.66,5,forfeit,U,54,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-144,himachal-pradesh,2022,62,KASUMPTI,Kameshwar,parties.IN.BSP,BSP,159,0.34,6,forfeit,U,62,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-144,himachal-pradesh,2022,62,KASUMPTI,Ram Prakash,parties.IN.UNK,Rashtriya Devbhumi Party,136,0.29,7,forfeit,U,36,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-151,himachal-pradesh,2022,63,SHIMLA,HARISH JANARTHA,parties.IN.INC,INC,15803,51.35,1,won,U,57,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-151,himachal-pradesh,2022,63,SHIMLA,SANJAY SOOD,parties.IN.BJP,BJP,12766,41.48,2,lost,U,57,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-151,himachal-pradesh,2022,63,SHIMLA,TIKENDER SINGH PANWAR,parties.IN.CPIM,Communist Party of India(Marxist),1400,4.55,3,forfeit,U,50,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-151,himachal-pradesh,2022,63,SHIMLA,CHAMAN RAKESH,parties.IN.AAP,AAAP,328,1.07,4,forfeit,U,52,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-151,himachal-pradesh,2022,63,SHIMLA,TIKENDER SINGH PANWAR,parties.IN.UNK,Communist Party of India(Marxist),1400,4.55,3,forfeit,U,50,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-151,himachal-pradesh,2022,63,SHIMLA,CHAMAN RAKESH,parties.IN.AAAP,AAAP,328,1.07,4,forfeit,U,52,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-151,himachal-pradesh,2022,63,SHIMLA,ABHISHEK BAROWALIA,parties.IN.IND,IND,120,0.39,6,forfeit,U,38,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-151,himachal-pradesh,2022,63,SHIMLA,KALYAN SINGH,parties.IN.UNK,Rashtriya Devbhumi Party,78,0.25,7,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-151,himachal-pradesh,2022,63,SHIMLA,RAJESH KUMAR GILL,parties.IN.BSP,BSP,46,0.15,8,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -387,27 +387,27 @@ IN-AC-2008-himachal-pradesh-152,himachal-pradesh,2022,64,SHIMLA RURAL,Vikramadit
 IN-AC-2008-himachal-pradesh-152,himachal-pradesh,2022,64,SHIMLA RURAL,Ravi Kumar Mehta,parties.IN.BJP,BJP,21409,36.54,2,lost,U,50,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-152,himachal-pradesh,2022,64,SHIMLA RURAL,Puran Dutt,parties.IN.UNK,Rashtriya Devbhumi Party,915,1.56,3,forfeit,U,42,Graduate,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-152,himachal-pradesh,2022,64,SHIMLA RURAL,Balvinder Kumar Singh,parties.IN.BSP,BSP,271,0.46,5,forfeit,U,45,Graduate,Doctor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-152,himachal-pradesh,2022,64,SHIMLA RURAL,Prem Kumar,parties.IN.AAP,AAAP,244,0.42,6,forfeit,U,56,Post Graduate,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-152,himachal-pradesh,2022,64,SHIMLA RURAL,Prem Kumar,parties.IN.AAAP,AAAP,244,0.42,6,forfeit,U,56,Post Graduate,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-152,himachal-pradesh,2022,64,SHIMLA RURAL,Praveen Kumar,parties.IN.IND,IND,196,0.33,7,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2022,65,JUBBAL-KOTKHAI,ROHIT THAKUR,parties.IN.INC,INC,31393,52.65,1,won,U,48,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2022,65,JUBBAL-KOTKHAI,CHETAN SINGH BRAGTA,parties.IN.BJP,BJP,26324,44.15,2,lost,U,45,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2022,65,JUBBAL-KOTKHAI,VISHAL SHANKTA,parties.IN.CPIM,Communist Party of India(Marxist),1256,2.11,3,forfeit,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2022,65,JUBBAL-KOTKHAI,VISHAL SHANKTA,parties.IN.UNK,Communist Party of India(Marxist),1256,2.11,3,forfeit,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2022,65,JUBBAL-KOTKHAI,RAM PAL,parties.IN.BSP,BSP,239,0.4,4,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2022,65,JUBBAL-KOTKHAI,SHRIKANT CHAUHAN,parties.IN.AAP,AAAP,163,0.27,6,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2022,65,JUBBAL-KOTKHAI,SHRIKANT CHAUHAN,parties.IN.AAAP,AAAP,163,0.27,6,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-142,himachal-pradesh,2022,65,JUBBAL-KOTKHAI,SUMAN KADAM,parties.IN.IND,IND,65,0.11,7,forfeit,U,34,Graduate,Activist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-135,himachal-pradesh,2022,66,RAMPUR,NAND LAL,parties.IN.INC,INC,28397,49.07,1,won,U,68,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-135,himachal-pradesh,2022,66,RAMPUR,KAUL SINGH,parties.IN.BJP,BJP,27830,48.09,2,lost,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-135,himachal-pradesh,2022,66,RAMPUR,UDAY SINGH,parties.IN.AAP,AAAP,706,1.22,3,forfeit,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-135,himachal-pradesh,2022,66,RAMPUR,UDAY SINGH,parties.IN.AAAP,AAAP,706,1.22,3,forfeit,U,47,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-135,himachal-pradesh,2022,66,RAMPUR,DESH RAJ,parties.IN.BSP,BSP,444,0.77,4,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-135,himachal-pradesh,2022,66,RAMPUR,PRITAM DEV,parties.IN.IND,IND,117,0.2,6,forfeit,U,56,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-149,himachal-pradesh,2022,67,ROHRU,Mohan Lal Brakta,parties.IN.INC,INC,34327,61.9,1,won,U,57,Graduate Professional,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-149,himachal-pradesh,2022,67,ROHRU,Shashi Bala,parties.IN.BJP,BJP,14988,27.03,2,lost,U,40,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-149,himachal-pradesh,2022,67,ROHRU,Rajender Singh,parties.IN.IND,IND,3597,6.49,3,forfeit,U,50,Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-149,himachal-pradesh,2022,67,ROHRU,Ashwani Kumar,parties.IN.AAP,AAAP,1400,2.52,4,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-149,himachal-pradesh,2022,67,ROHRU,Ashwani Kumar,parties.IN.AAAP,AAAP,1400,2.52,4,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-149,himachal-pradesh,2022,67,ROHRU,Prakash Andta,parties.IN.BSP,BSP,520,0.94,5,forfeit,U,54,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-149,himachal-pradesh,2022,67,ROHRU,Narender Singh,parties.IN.UNK,Rashtriya Devbhumi Party,209,0.38,7,forfeit,U,36,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-129,himachal-pradesh,2022,68,KINNAUR,Jagat Singh Negi,parties.IN.INC,INC,20696,46.95,1,won,U,65,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-129,himachal-pradesh,2022,68,KINNAUR,Surat Negi,parties.IN.BJP,BJP,13732,31.15,2,lost,U,50,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-129,himachal-pradesh,2022,68,KINNAUR,Tejwant Singh Negi,parties.IN.IND,IND,8574,19.45,3,lost,U,61,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-129,himachal-pradesh,2022,68,KINNAUR,Tersem Singh,parties.IN.AAP,AAAP,580,1.32,4,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-129,himachal-pradesh,2022,68,KINNAUR,Tersem Singh,parties.IN.AAAP,AAAP,580,1.32,4,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-129,himachal-pradesh,2022,68,KINNAUR,Anil Kapoor,parties.IN.BSP,BSP,280,0.64,5,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
