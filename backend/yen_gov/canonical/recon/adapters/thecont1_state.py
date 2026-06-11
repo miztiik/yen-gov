@@ -81,6 +81,7 @@ _SNAPSHOT_NAME_BY_STATE_SLUG: Final[dict[str, str]] = {
     "puducherry": "Assembly-Puducherry.csv",
     "assam": "Assembly-Assam.csv",
     "karnataka": "Assembly-Karnataka.csv",
+    "maharashtra": "Assembly-Maharashtra.csv",
 }
 
 

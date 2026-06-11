@@ -78,13 +78,24 @@ Snapshots currently on disk:
   `https://raw.githubusercontent.com/thecont1/india-votes-data/main/data/csv/2026Assembly-TN.csv`
   (upstream file name uses `TN`; locally renamed to `Tamil-Nadu` per
   the lookup-table doctrine).
+- `2024/Assembly-Maharashtra.csv` - PR-S-MH-AE2024 oracle. 4424 candidate
+  rows across 288 ACs. Source URL:
+  `https://raw.githubusercontent.com/thecont1/india-votes-data/main/data/csv/2024Assembly-MH.csv`
+  (upstream file name uses `MH`; locally renamed to `Maharashtra` per
+  the lookup-table doctrine). This snapshot is the ONLY oracle on disk
+  for MH AcGenNov2024 - the yen-gov-side per-event `candidacies.csv` at
+  `datasets/elections/assembly/state=maharashtra/election=2024/` does
+  NOT exist (the canonical store's MH 2024 data lives only in
+  long-format under `datasets/data/datapoints/electoral/
+  maharashtra_election_results.csv`), so the parity sweep runs as
+  1-oracle degenerate per the brief's stop condition #3. See
+  PR-S-MH-AE2024 body for the Q7 SHS-Shinde / NCP-Ajit aggregate-seat
+  oracle derived from long-format.
 
 Future PR-S-* / PR-PC-* PRs in the 2026-06-10 plan will add:
 
 - `2026/Assembly-West-Bengal.csv` (PR-S-WB-AE2026 cohort - upstream
   file `2026Assembly-WB.csv` exists per repo listing)
-- `2024/Assembly-Maharashtra.csv` (PR-S-MH-AE2024 cohort - upstream
-  `2024Assembly-MH.csv` exists)
 - `2023/Assembly-Karnataka.csv` (PR-S-KA-AE2023 cohort - upstream
   `2023Assembly-KA.csv` exists)
 
