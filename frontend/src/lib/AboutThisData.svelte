@@ -28,11 +28,20 @@
   // the I icon, we don't have to expand everything while it is showing
   // in the front end... we just need to just show it I"). The collapsed
   // surface is now a small info-icon button instead of the full
-  // "About this data" text+chevron row. The expanded body is unchanged
-  // and still carries the doc_status badge inline as an "About this
-  // dataset" header so the citizen sees the disclosure provenance once
-  // they open it. The stub-status amber dot still surfaces on the
-  // collapsed icon as a peripheral cue.
+  // "About this data" text+chevron row. The expanded body carries the
+  // disclosure provenance (publisher, scope, caveats, sources) once the
+  // citizen opens it.
+  //
+  // 2026-06-12. Removed the amber stub-dot + STUB pill that previously
+  // mirrored `methodology.documentation_status` on this surface. The
+  // badge fired on 100% of canonical-backed indicators (every artifact
+  // hard-codes `documentation_status: "stub"` until prose is authored)
+  // and mis-borrowed amber's "data caution" semantics from
+  // `IndicatorRanked` + the election warning panels, where amber means
+  // "be careful with this data." Editorial-workflow state lives on
+  // /data-completeness (the transparency route), not on citizen cards.
+  // See docs/concepts/schema-is-the-design-system.md §"Honesty fields
+  // are renderer guards, not opt-ins".
 
   import type { IndicatorArtifact } from "./indicators";
   import { indicatorArtifactPills } from "./canonical/indicator-from-canonical";
@@ -70,8 +79,6 @@
   const has_caveats = $derived(!!methodology?.known_caveats?.length);
   const has_breaks = $derived(!!methodology?.methodology_breaks?.length);
   const has_scope = $derived(!!series?.description);
-  const doc_status = $derived(methodology?.documentation_status ?? "stub");
-  const is_stub = $derived(doc_status !== "authored");
 </script>
 
 <details
@@ -80,29 +87,16 @@
   data-testid="about-this-data"
 >
   <summary
-    class="relative inline-flex cursor-pointer list-none select-none rounded-md p-1 text-slate-500 hover:bg-slate-100 hover:text-slate-700 [&::-webkit-details-marker]:hidden"
+    class="inline-flex cursor-pointer list-none select-none rounded-md p-1 text-slate-500 hover:bg-slate-100 hover:text-slate-700 [&::-webkit-details-marker]:hidden"
     title="About this data"
     aria-label="About this data"
   >
     <TopicIcon name="info" cls="w-4 h-4 shrink-0" />
-    {#if is_stub}
-      <span
-        class="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-amber-400 ring-1 ring-white"
-        title="Methodology documentation is incomplete on yen-gov; see /data-completeness for the full list."
-        aria-hidden="true"
-      ></span>
-    {/if}
   </summary>
 
   <div class="px-3 pb-3 pt-2 space-y-4 text-slate-700">
-    <section class="flex items-baseline justify-between gap-3 border-b border-slate-200 pb-2">
+    <section class="border-b border-slate-200 pb-2">
       <h3 class="text-sm font-semibold text-slate-700">About this dataset</h3>
-      {#if is_stub}
-        <span
-          class="inline-block rounded-sm bg-amber-100 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-800"
-          title="Methodology documentation is incomplete on yen-gov; see /data-completeness for the full list."
-        >{doc_status}</span>
-      {/if}
     </section>
 
     {#if has_definition}
