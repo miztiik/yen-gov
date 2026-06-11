@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./party-parity-shape-b.schema.json",
+  "title": "Party-parity Shape-B row (intermediate per-event per-AC adapter output)",
+  "description": "ONE ROW of the canonical Shape-B intermediate format every per-event parity adapter materialises before the per-constituency Compare-Aggregator (backend/yen_gov/canonical/recon/event_aggregator.py) sees them. Created by PR-S-TN-AE2026 of the 2026-06-10 electoral-data-quality + party-catalogue plan. The shape-B CSV lives under datasets/ephemeral/party-parity/state=<slug>/<event>/<sha>/shape-b.csv per CLAUDE.md section 3 ephemeral tier; NOT a long-format canonical CSV under datasets/data/ and NOT walked by Tier-B. This schema documents the row-shape contract (CSV-column-contract style: each column declares name + dtype + nullability); adapters MAY validate each emitted row against this schema via jsonschema, and read_shape_b_csv (backend/yen_gov/canonical/recon/shape_b.py) enforces the same header invariants in-process. The 10 fields are fixed by the PR-S-TN-AE2026 brief; field rename / removal is a MAJOR schema bump per CLAUDE.md section 11.",
+  "x-version": "1.0",
+  "x-changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-06-11",
+      "description": "Initial schema for the Tier-C per-event parity Shape-B intermediate row (PR-S-TN-AE2026 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md). Ten fields per the brief: external_scope (adapter registered id; distinct values count as distinct oracles in the per-event aggregator, required), external_vintage (ADR-0042 operator snapshot window pin: YYYY, YYYY-MM, YYYY-MM-DD, OR an ECI event id like 'AcGenMay2026' when the adapter pins to event-id grain, required), state (kebab-slug state id from entities/geo.csv, required), event (ECI event id from sources/eci/events.py, required), constituency_no (1-based ECI eci_no within the state, required integer), constituency_name (publisher constituency name as published, required), winner_party_id (canonical parties.IN.<SLUG> the adapter resolved this source's winner to; may be parties.IN.UNK per CLAUDE.md section 10 no-silent-demotion, required), winner_party_short_raw (publisher's raw party label, required), winner_candidate_name (publisher's raw winner name, required), winner_votes (publisher's winner-side total votes; nullable when publisher doesn't report counts). Wired into recon/shape_b.py ConstituencyParityRow + write_shape_b_csv + read_shape_b_csv; event_aggregator.py compare_event() consumes the resulting list. Schema is reference-only (shape-B files live under datasets/ephemeral/, not walked by Tier-B); adapters may opt into per-row jsonschema validation."
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "external_scope",
+    "external_vintage",
+    "state",
+    "event",
+    "constituency_no",
+    "constituency_name",
+    "winner_party_id",
+    "winner_party_short_raw",
+    "winner_candidate_name"
+  ],
+  "properties": {
+    "external_scope": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The source-family identifier the adapter is registered under in recon.adapters.EVENT_REGISTRY (e.g. 'yen-gov-elections' | 'thecont1-state' | 'tcpd-state'). The per-event Compare-Aggregator treats DISTINCT external_scope values within one (state, event, constituency_no) group as DISTINCT oracles when computing n_oracles_present. CSV-column-contract dtype: string, nullable: false."
+    },
+    "external_vintage": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Upstream snapshot pin per ADR-0042 (CLAUDE.md section 12). Adapters that pin to a calendar snapshot use YYYY, YYYY-MM, or YYYY-MM-DD; adapters whose row identity is the per-event observation MAY use the ECI event id directly (e.g. 'AcGenMay2026') since the event id IS the publisher-edition anchor for that observation grain. CSV-column-contract dtype: string, nullable: false."
+    },
+    "state": {
+      "type": "string",
+      "minLength": 1,
+      "description": "State slug from datasets/data/entities/geo.csv (e.g. 'tamil-nadu', 'west-bengal'). Same slug the on-disk datasets/elections/<kind>/state=<slug>/ partition uses. CSV-column-contract dtype: string, nullable: false."
+    },
+    "event": {
+      "type": "string",
+      "minLength": 1,
+      "description": "ECI event id registered in backend/yen_gov/sources/eci/events.py (e.g. 'AcGenMay2026', 'LsGenJun2024'). CSV-column-contract dtype: string, nullable: false."
+    },
+    "constituency_no": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "1-based ECI eci_no within the state. Comparable across sources because every Indian AE/PC publisher reports the same eci_no scheme per the delimitation-order shared base. CSV-column-contract dtype: integer, nullable: false."
+    },
+    "constituency_name": {
+      "type": "string",
+      "description": "Publisher's published constituency name (e.g. 'GUMMIDIPOONDI'). Carried verbatim for the curator; NOT used as a comparison key (publishers differ on casing / spelling). CSV-column-contract dtype: string, nullable: false (empty string acceptable)."
+    },
+    "winner_party_id": {
+      "type": "string",
+      "pattern": "^parties\\.IN\\.[A-Z][A-Z0-9_]*$",
+      "maxLength": 60,
+      "description": "Canonical yen-gov party_id (parties.IN.<SHORT_SLUG>) the adapter resolved this source's winner to. MAY be 'parties.IN.UNK' when the publisher's label has no canonical alias (CLAUDE.md section 10 no-silent-demotion). CSV-column-contract dtype: string, nullable: false."
+    },
+    "winner_party_short_raw": {
+      "type": "string",
+      "description": "Publisher's raw party label for the winner (e.g. 'ADMK', 'All India Anna Dravida Munnetra Kazhagam'). Carried verbatim into the verdict CSV's other_sources column for curator review. CSV-column-contract dtype: string, nullable: false (empty string acceptable for NOTA / IND rows where the raw label was elided)."
+    },
+    "winner_candidate_name": {
+      "type": "string",
+      "description": "Publisher's raw winner candidate name. The per-event aggregator compares this case-insensitively after stripping common punctuation (event_aggregator._normalise_name). CSV-column-contract dtype: string, nullable: false (empty string acceptable for NOTA rows)."
+    },
+    "winner_votes": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "Publisher's winner-side total votes (EVM + postal where the publisher reports them separately). Used ONLY for the curator's review column; NEVER a verdict input (publishers differ on EVM-only vs EVM+postal). Nullable for publishers that don't report a vote count. CSV-column-contract dtype: integer, nullable: true."
+    }
+  }
+}

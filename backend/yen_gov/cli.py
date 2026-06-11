@@ -1387,3 +1387,219 @@ def _load_canonical_parties_for_parity(root: Path) -> dict[str, dict[str, str]]:
             out[pid] = dict(row)
     return out
 
+
+@app.command("parity-event")
+def parity_event(
+    source: str = typer.Option(
+        ...,
+        "--source",
+        help=(
+            "Comma-separated source adapter ids registered in "
+            "recon.adapters.EVENT_REGISTRY (e.g. "
+            "'yen-gov-elections,thecont1-state,tcpd-state'). The "
+            "yen-gov-elections source is the canonical on-disk side; "
+            "external sources oracle against it. The first run of any "
+            "(state, event) is the first-run audit; subsequent runs "
+            "go to sibling <sha>/ dirs and are gitignored."
+        ),
+    ),
+    state: str = typer.Option(
+        ...,
+        "--state",
+        help=(
+            "State slug (e.g. 'tamil-nadu', 'west-bengal'). Same slug "
+            "the on-disk datasets/elections/<kind>/state=<slug>/ "
+            "partition uses."
+        ),
+    ),
+    event: str = typer.Option(
+        ...,
+        "--event",
+        help=(
+            "ECI event id (e.g. 'AcGenMay2026'). Registered in "
+            "backend/yen_gov/sources/eci/events.py."
+        ),
+    ),
+    kind: str = typer.Option(
+        ...,
+        "--kind",
+        help=(
+            "Election kind: 'assembly' or 'parliament'. Determines the "
+            "elections/<kind>/ partition root."
+        ),
+    ),
+    vintage: str = typer.Option(
+        "",
+        "--vintage",
+        help=(
+            "Optional ADR-0042 snapshot pin. Most event adapters infer "
+            "vintage from the event id; TCPD's per-state adapter pins "
+            "to the compilation edition (TCPD_VINTAGE constant) and "
+            "rejects mismatched values."
+        ),
+    ),
+    report: Path = typer.Option(
+        ...,
+        "--report",
+        help=(
+            "Output verdict CSV path. Convention per plan section 0.4 "
+            "Q3: datasets/ephemeral/party-parity/state=<slug>/<event>/"
+            "<sha>/verdict.csv for the first run of a (state, event); "
+            "subsequent re-runs are gitignored."
+        ),
+        file_okay=True,
+        dir_okay=False,
+    ),
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Tier-C per-constituency cross-source parity (PR-S-* / PR-PC-*).
+
+    Runs the named EVENT_REGISTRY adapters for the (state, event, kind)
+    triple, runs the per-constituency Compare-Aggregator across their
+    Shape-B outputs (recon/shape_b.py + recon/event_aggregator.py), and
+    writes a per-AC verdict CSV to --report.
+
+    \b
+    Verdict semantics (Hans section 10 + Fowler machine-decidable):
+      - VERIFIED:   n_oracles_present >= 2 AND all agree on
+                    (winner_party_id, winner_candidate_name).
+      - DISPUTED:   n_oracles_present >= 2 AND at least one disagrees.
+      - UNVERIFIED: n_oracles_present < 2.
+
+    \b
+    Per Holy Law #9: ECI authority wins on winner_party_id
+    disagreements; the aggregator surfaces the raw disagreement
+    DISPUTED and the operator dispositions via curator_note +
+    curator_source_id in a follow-up.
+
+    Sources that genuinely cannot oracle the requested (state, event)
+    (e.g. tcpd-state vs a post-2021 event - TCPD's compilation cutoff
+    is 2021) return ZERO rows; the CLI logs the empty count and
+    continues. The verdict still ships; a 2-of-2 agreement (yen-gov +
+    one external) still counts as VERIFIED.
+
+    Sibling of the per-party-roster ``parity`` subcommand. Two
+    registries, two subcommands; share the recon namespace but verdict
+    at different grains.
+    """
+    from yen_gov.canonical.recon.adapters import EVENT_REGISTRY
+    from yen_gov.canonical.recon.event_aggregator import (
+        compare_event,
+        write_event_verdict_csv,
+    )
+
+    source_ids = [s.strip() for s in source.split(",") if s.strip()]
+    if not source_ids:
+        typer.echo(
+            "parity-event: --source must be a non-empty comma-separated "
+            "list (e.g. 'yen-gov-elections,thecont1-state').",
+            err=True,
+        )
+        raise typer.Exit(code=2)
+
+    # Validate every named source is registered BEFORE running any
+    # adapter - fail-loud at the boundary per CLAUDE.md section 10
+    # rather than partial-result on a typo.
+    missing = [s for s in source_ids if s not in EVENT_REGISTRY]
+    if missing:
+        available = sorted(EVENT_REGISTRY.keys())
+        available_str = ", ".join(available) if available else "(none registered)"
+        typer.echo(
+            f"parity-event: no event adapter registered for "
+            f"{missing!r}; available: {available_str}",
+            err=True,
+        )
+        raise typer.Exit(code=2)
+
+    # Run each adapter, count empty-oracle outcomes for the operator
+    # summary.
+    all_rows: list = []  # ConstituencyParityRow
+    per_source_counts: dict[str, int] = {}
+    for source_id in source_ids:
+        adapter = EVENT_REGISTRY[source_id]
+        rows = list(
+            adapter(
+                root=root,
+                vintage=vintage,
+                state=state,
+                event=event,
+                kind=kind,
+            )
+        )
+        per_source_counts[source_id] = len(rows)
+        all_rows.extend(rows)
+
+    # Load party_alliances.csv for the alliance surfacing column.
+    alliances = _load_party_alliances_for_parity_event(root)
+
+    verdicts = compare_event(all_rows, party_alliances=alliances)
+    n_written = write_event_verdict_csv(verdicts, report)
+
+    # Per-verdict roll-up for the operator summary.
+    by_verdict: dict[str, int] = {}
+    for v in verdicts:
+        by_verdict[v.verdict] = by_verdict.get(v.verdict, 0) + 1
+
+    typer.echo(
+        f"parity-event: wrote {n_written} verdict row(s) to "
+        f"{report.as_posix()}"
+    )
+    typer.echo(
+        f"  state={state!r} event={event!r} kind={kind!r}"
+    )
+    typer.echo("  per-source row counts:")
+    for s_id in source_ids:
+        n_rows = per_source_counts[s_id]
+        flag = " (EMPTY ORACLE)" if n_rows == 0 else ""
+        typer.echo(f"    {s_id}: {n_rows}{flag}")
+    typer.echo(
+        "  verdicts:         "
+        + ", ".join(
+            f"{k}={by_verdict.get(k, 0)}"
+            for k in ("VERIFIED", "DISPUTED", "UNVERIFIED")
+        )
+    )
+
+    raise typer.Exit(0)
+
+
+def _load_party_alliances_for_parity_event(
+    root: Path,
+) -> dict[tuple[str, str], str]:
+    """Project party_alliances.csv to ``(party_id, period_label) -> alliance``.
+
+    Used by the ``parity-event`` command to surface the alliance label
+    on the verdict CSV's ``party_id_alliance`` column. When the file is
+    absent or the row lacks an alliance value, the verdict's column is
+    empty - the "alliance not yet curated for this event" badge signal
+    per Q6.
+    """
+    import csv as _csv
+
+    alliances_csv = (
+        root
+        / "datasets"
+        / "data"
+        / "entities"
+        / "party_alliances.csv"
+    )
+    out: dict[tuple[str, str], str] = {}
+    if not alliances_csv.exists():
+        return out
+    with alliances_csv.open(encoding="utf-8", newline="") as fh:
+        reader = _csv.DictReader(fh)
+        for row in reader:
+            pid = (row.get("party_id") or "").strip()
+            period = (row.get("period_label") or "").strip()
+            alliance = (row.get("alliance") or "").strip()
+            if pid and period and alliance:
+                out[(pid, period)] = alliance
+    return out
