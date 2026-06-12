@@ -2,7 +2,7 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-uttarakhand-337,uttarakhand,2022,1,PUROLA,DURGESHWAR LAL,parties.IN.BJP,BJP,27856,53.95,1,won,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-337,uttarakhand,2022,1,PUROLA,Malchand,parties.IN.INC,INC,21560,41.76,2,lost,U,55,10th Pass,Hospitality,crossover,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-337,uttarakhand,2022,1,PUROLA,PRAKASH,parties.IN.AAAP,AAAP,538,1.04,3,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-337,uttarakhand,2022,1,PUROLA,Ram Prasad,parties.IN.UNK,Rashtriya Lokneeti Party,495,0.96,4,forfeit,U,35,Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-337,uttarakhand,2022,1,PUROLA,Ram Prasad,parties.IN.RSHTLKNTP,Rashtriya Lokneeti Party,495,0.96,4,forfeit,U,35,Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-337,uttarakhand,2022,1,PUROLA,Chain Singh,parties.IN.SP,SP,464,0.9,5,forfeit,U,55,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-337,uttarakhand,2022,1,PUROLA,Ujali Devi,parties.IN.BSP,BSP,389,0.75,6,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-343,uttarakhand,2022,2,YAMUNOTRI,Sanjay Dobhal,parties.IN.IND,IND,22952,44.01,1,won,U,51,12th Pass,Hospitality,challenger,src-1b7bc1c9d39a
@@ -162,7 +162,7 @@ IN-AC-2008-uttarakhand-304,uttarakhand,2022,18,DHARAMPUR,SUNDARLAL THAPLIYAL,par
 IN-AC-2008-uttarakhand-304,uttarakhand,2022,18,DHARAMPUR,DEEPAK,parties.IN.PPID,Peoples Party of India (Democratic),85,0.07,14,forfeit,U,54,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-304,uttarakhand,2022,18,DHARAMPUR,MOHAR SINGH KATARIA,parties.IN.RAAP,Rashtriya Adarsh Party,78,0.07,15,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-304,uttarakhand,2022,18,DHARAMPUR,RAJENDRA PRASAD GAIROLA,parties.IN.IND,IND,76,0.06,16,forfeit,U,59,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-304,uttarakhand,2022,18,DHARAMPUR,BALBIR KUMAR TALWAR,parties.IN.UNK,Bharatiya Jan Jagriti Party,65,0.05,17,forfeit,U,72,12th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-304,uttarakhand,2022,18,DHARAMPUR,BALBIR KUMAR TALWAR,parties.IN.BJJP,Bharatiya Jan Jagriti Party,65,0.05,17,forfeit,U,72,12th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-304,uttarakhand,2022,18,DHARAMPUR,SARDAR KHAN PAPPU,parties.IN.RLD,RLD,50,0.04,18,forfeit,U,59,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-304,uttarakhand,2022,18,DHARAMPUR,RAJENDRA SINGH NEGI,parties.IN.SASP,Sainik Samaj Party,49,0.04,19,forfeit,U,67,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-304,uttarakhand,2022,18,DHARAMPUR,ADVOCATE BRIJ BHUSHAN KARANWAL,parties.IN.RTSMJD,Rashtriya Samaj Dal (R),45,0.04,20,forfeit,U,44,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
@@ -178,7 +178,7 @@ IN-AC-2008-uttarakhand-338,uttarakhand,2022,19,RAIPUR,SHAHID RAZA,parties.IN.IND
 IN-AC-2008-uttarakhand-338,uttarakhand,2022,19,RAIPUR,MOHD.EHASAN,parties.IN.IND,IND,115,0.11,11,forfeit,U,51,8th Pass,Rent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-338,uttarakhand,2022,19,RAIPUR,GANGA PRASAD,parties.IN.ASPKR,ASPKR,109,0.1,12,forfeit,U,62,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-338,uttarakhand,2022,19,RAIPUR,SUMAN KARANWAL,parties.IN.RTSMJD,Rashtriya Samaj Dal (R),71,0.06,13,forfeit,U,38,Post Graduate,Rent,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-338,uttarakhand,2022,19,RAIPUR,JITENDRA SRIVASTAVA,parties.IN.UNK,Rashtravadi Vikas Party,65,0.06,14,forfeit,U,56,12th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-338,uttarakhand,2022,19,RAIPUR,JITENDRA SRIVASTAVA,parties.IN.RSTRVVP,Rashtravadi Vikas Party,65,0.06,14,forfeit,U,56,12th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-338,uttarakhand,2022,19,RAIPUR,SUNDAR SINGH RAWAT (AAZAD),parties.IN.RSTJLKPS,Rashtrawadi Janlok Party (Satya),61,0.06,15,forfeit,U,35,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-338,uttarakhand,2022,19,RAIPUR,RAKESH BARTHWAL,parties.IN.RTORP,Right to Recall Party,51,0.05,16,forfeit,U,45,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-eci20,uttarakhand,2022,20,RAJPUR ROAD,KHAJAN DASS,parties.IN.BJP,BJP,37027,53.62,1,won,U,63,8th Pass,,incumbent,src-1b7bc1c9d39a
@@ -238,7 +238,7 @@ IN-AC-2008-uttarakhand-306,uttarakhand,2022,25,HARDWAR,SATPAL BRAHAMCHARI,partie
 IN-AC-2008-uttarakhand-306,uttarakhand,2022,25,HARDWAR,SANJAY SAINI,parties.IN.AAAP,AAAP,2142,2.23,3,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-306,uttarakhand,2022,25,HARDWAR,CHARAN SINGH,parties.IN.BSP,BSP,1248,1.3,4,forfeit,U,55,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-306,uttarakhand,2022,25,HARDWAR,SARITA AGARWAL,parties.IN.SP,SP,239,0.25,6,forfeit,U,60,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-306,uttarakhand,2022,25,HARDWAR,AJAY KUMAR GUPTA,parties.IN.UNK,Rashtravadi Vikas Party,217,0.23,7,forfeit,U,60,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-306,uttarakhand,2022,25,HARDWAR,AJAY KUMAR GUPTA,parties.IN.RSTRVVP,Rashtravadi Vikas Party,217,0.23,7,forfeit,U,60,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-306,uttarakhand,2022,25,HARDWAR,ADESH KUMAR MARWARI,parties.IN.UKKD,UKKD,157,0.16,8,forfeit,U,51,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-306,uttarakhand,2022,25,HARDWAR,MOHD AAZAM,parties.IN.IND,IND,125,0.13,9,forfeit,U,40,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-306,uttarakhand,2022,25,HARDWAR,ANURAG SHARMA,parties.IN.UNK,Nyaydharmsabha,107,0.11,10,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -249,7 +249,7 @@ IN-AC-2008-uttarakhand-302,uttarakhand,2022,26,B.H.E.L. RANIPUR,Prashant Rai,par
 IN-AC-2008-uttarakhand-302,uttarakhand,2022,26,B.H.E.L. RANIPUR,Praveen Surya,parties.IN.ASPKR,ASPKR,1480,1.3,5,forfeit,U,38,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-302,uttarakhand,2022,26,B.H.E.L. RANIPUR,Ramesh Chand Dhiman,parties.IN.CPIM,CPM,217,0.19,7,forfeit,U,70,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-302,uttarakhand,2022,26,B.H.E.L. RANIPUR,Ishant Kumar,parties.IN.SP,SP,214,0.19,8,forfeit,U,26,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-302,uttarakhand,2022,26,B.H.E.L. RANIPUR,Irfan Ali,parties.IN.UNK,Bharatiya Jan Jagriti Party,187,0.16,9,forfeit,U,50,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-302,uttarakhand,2022,26,B.H.E.L. RANIPUR,Irfan Ali,parties.IN.BJJP,Bharatiya Jan Jagriti Party,187,0.16,9,forfeit,U,50,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-302,uttarakhand,2022,26,B.H.E.L. RANIPUR,Ajay,parties.IN.IND,IND,164,0.14,10,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-302,uttarakhand,2022,26,B.H.E.L. RANIPUR,Sandesh Sharma,parties.IN.UNK,Nyaydharmsabha,146,0.13,11,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-302,uttarakhand,2022,26,B.H.E.L. RANIPUR,Moh Mursleen Qureshi,parties.IN.IND,IND,104,0.09,12,forfeit,U,52,Literate,,challenger,src-1b7bc1c9d39a
@@ -355,14 +355,14 @@ IN-AC-2008-uttarakhand-296,uttarakhand,2022,37,PAURI,Rajendra Prasad,parties.IN.
 IN-AC-2008-uttarakhand-296,uttarakhand,2022,37,PAURI,Ramesh Chandra,parties.IN.BSP,BSP,423,0.86,6,forfeit,U,64,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-296,uttarakhand,2022,37,PAURI,Poonam Singh,parties.IN.UKKD,UKKD,358,0.73,7,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-296,uttarakhand,2022,37,PAURI,Onkar Singh,parties.IN.UNK,Uttarakhand Janekta Party,343,0.7,8,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-296,uttarakhand,2022,37,PAURI,Hari Kumar,parties.IN.UNK,Akhand Bharat Vikas Party,189,0.38,9,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-296,uttarakhand,2022,37,PAURI,Hari Kumar,parties.IN.ABVP,Akhand Bharat Vikas Party,189,0.38,9,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-299,uttarakhand,2022,38,SRINAGAR,(Dr) Dhan Singh Rawat,parties.IN.BJP,BJP,29618,45.55,1,won,U,52,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-299,uttarakhand,2022,38,SRINAGAR,Ganesh Godiyal,parties.IN.INC,INC,29031,44.65,2,lost,U,56,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-299,uttarakhand,2022,38,SRINAGAR,Mohan Kala,parties.IN.UKKD,UKKD,4271,6.57,3,forfeit,U,64,Graduate Professional,Accountant,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-299,uttarakhand,2022,38,SRINAGAR,Gajender Singh Chauhan,parties.IN.AAAP,AAAP,700,1.08,4,forfeit,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-299,uttarakhand,2022,38,SRINAGAR,Sandeep Kumar,parties.IN.SUCI,SUCI,463,0.71,6,forfeit,U,27,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-299,uttarakhand,2022,38,SRINAGAR,Subhash Negi,parties.IN.SP,SP,157,0.24,7,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-299,uttarakhand,2022,38,SRINAGAR,Ganesh Lal,parties.IN.UNK,Akhand Bharat Vikas Party,141,0.22,8,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-299,uttarakhand,2022,38,SRINAGAR,Ganesh Lal,parties.IN.ABVP,Akhand Bharat Vikas Party,141,0.22,8,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-289,uttarakhand,2022,39,CHAUBATTAKHAL,SATPAL MAHARAJ,parties.IN.BJP,BJP,24927,58.72,1,won,U,70,12th Pass,"Ex MP, Ex MLA",incumbent,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-289,uttarakhand,2022,39,CHAUBATTAKHAL,KESHAR SINGH,parties.IN.INC,INC,13497,31.8,2,lost,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-289,uttarakhand,2022,39,CHAUBATTAKHAL,DIGMOHAN NEGI,parties.IN.AAAP,AAAP,1908,4.5,3,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
@@ -536,7 +536,7 @@ IN-AC-2008-uttarakhand-319,uttarakhand,2022,59,HALDWANI,ANIL KUMAR SINGH,parties
 IN-AC-2008-uttarakhand-319,uttarakhand,2022,59,HALDWANI,RAJENDRA KUMAR GUPTA,parties.IN.IND,IND,177,0.18,11,forfeit,U,55,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-319,uttarakhand,2022,59,HALDWANI,DIVYANSHU VERMA,parties.IN.IND,IND,121,0.12,12,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-319,uttarakhand,2022,59,HALDWANI,RAVI VALMIKI,parties.IN.UKDP,Uttarakhand Kranti Dal(P),115,0.12,13,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-319,uttarakhand,2022,59,HALDWANI,MAHIPAL SINGH,parties.IN.UNK,Janta Brigade Party,59,0.06,14,forfeit,U,44,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-319,uttarakhand,2022,59,HALDWANI,MAHIPAL SINGH,parties.IN.JNBRDP,Janta Brigade Party,59,0.06,14,forfeit,U,44,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-321,uttarakhand,2022,60,KALADHUNGI,BANSHIDHAR BHAGAT,parties.IN.BJP,BJP,67847,57.34,1,won,U,70,8th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-321,uttarakhand,2022,60,KALADHUNGI,MAHESH CHANDRA,parties.IN.INC,INC,43916,37.12,2,lost,U,62,Graduate,"Agricultural Business, Hospitality",challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-321,uttarakhand,2022,60,KALADHUNGI,MANJU TIWARI,parties.IN.AAAP,AAAP,1825,1.54,3,forfeit,U,57,12th Pass,Agricultural Business,challenger,src-1b7bc1c9d39a
@@ -567,7 +567,7 @@ IN-AC-2008-uttarakhand-320,uttarakhand,2022,62,JASPUR,Jameel Ahamad Mansoori,par
 IN-AC-2008-uttarakhand-320,uttarakhand,2022,62,JASPUR,SALEEM AHMAD,parties.IN.IND,IND,245,0.25,7,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-320,uttarakhand,2022,62,JASPUR,SANJAY DUTT,parties.IN.IND,IND,230,0.23,8,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-320,uttarakhand,2022,62,JASPUR,LALMAN SINGH,parties.IN.IND,IND,194,0.2,9,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-320,uttarakhand,2022,62,JASPUR,NAFEES AZAD,parties.IN.UNK,Bharatiya Jan Jagriti Party,160,0.16,10,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-uttarakhand-320,uttarakhand,2022,62,JASPUR,NAFEES AZAD,parties.IN.BJJP,Bharatiya Jan Jagriti Party,160,0.16,10,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-320,uttarakhand,2022,62,JASPUR,ANITA AGARWAL,parties.IN.IND,IND,109,0.11,11,forfeit,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-322,uttarakhand,2022,63,KASHIPUR,Trilok Singh Cheema,parties.IN.BJP,BJP,48508,42.79,1,won,U,55,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-uttarakhand-322,uttarakhand,2022,63,KASHIPUR,Narendra Chand Singh,parties.IN.INC,INC,32173,28.38,2,lost,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
