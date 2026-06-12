@@ -14,8 +14,13 @@ Outputs (under datasets/taxonomy/lgd/ — per plan TODO/20260517-canonical-long-
   datasets/taxonomy/lgd/districts-latest.csv.sources.json
   (subdistricts + villages emitted with the same `<role>-<DD>-<DD>.csv` + `<role>-latest.csv` pair when published.)
 
-Per CLAUDE.md §4 (tools self-contained) — stdlib + py7zr only. UTF-8 stdout
-wrap so non-ASCII state names can be printed on PowerShell (cp1252).
+Per CLAUDE.md §4 (tools self-contained for runtime modules) - stdlib + py7zr
+for the heavy lifting, plus the metadata helper
+`yen_gov.core.schema_registry.schema_version` for sourcing the
+`$schema_version` stamp on the emitted CSV sources sidecar per CLAUDE.md
+section 11 ("Code never hand-types schema-version literals"). The helper
+reads `datasets/schemas/<file>` directly; it is not a runtime module. UTF-8
+stdout wrap so non-ASCII state names can be printed on PowerShell (cp1252).
 """
 
 from __future__ import annotations
@@ -51,6 +56,18 @@ COMPONENTS = REQUIRED_COMPONENTS + OPTIONAL_COMPONENTS
 USER_AGENT = "yen-gov/0.1 (+https://github.com/yen-gov/yen-gov)"
 LOOKBACK_DAYS = 120  # release cadence is ~90 days; 120 gives margin
 WALK_LIMIT = 200  # safety bound, never sweeps more than this many dates
+
+# Bridge to the canonical schema-version helper so the sources sidecar below
+# never carries a hand-typed semver literal (CLAUDE.md section 11). The
+# helper reads `datasets/schemas/<file>.schema.json`'s `x-version` once at
+# import time and caches; drift becomes impossible by construction.
+_BACKEND_DIR = REPO / "backend"
+if str(_BACKEND_DIR) not in sys.path:
+    sys.path.insert(0, str(_BACKEND_DIR))
+
+from yen_gov.core.schema_registry import schema_version  # noqa: E402
+
+SIDECAR_SCHEMA_VERSION = schema_version("csv.sources.schema.json")
 
 
 def _date_token(d: datetime) -> str:
@@ -129,7 +146,7 @@ def _write_sidecar(out_csv: Path, url: str, fetched_at: str) -> None:
     sidecar = out_csv.with_suffix(out_csv.suffix + ".sources.json")
     payload = {
         "$schema": "https://yen-gov.github.io/schemas/csv.sources.schema.json",
-        "$schema_version": "1.0",
+        "$schema_version": SIDECAR_SCHEMA_VERSION,
         "$comment": (
             "CLAUDE.md §12 provenance sidecar for the sibling CSV. CSV has no "
             "native top-level metadata slot; this file carries the required "

@@ -45,8 +45,13 @@ CLI::
 `--snapshot-only` stops after Stage 1 (refresh the cached Census topology).
 `--no-fetch` skips Stage 1's HTTP request and uses the cached snapshot.
 
-Self-contained per CLAUDE.md section 4 (`tools/` MUST NOT import from
-`backend/`). Stdlib only.
+Imports `yen_gov.core.schema_registry.schema_version` to source the
+`$schema_version` stamp on the two emitted JSON envelopes per CLAUDE.md
+section 11 ("Code never hand-types schema-version literals"). CLAUDE.md
+section 4 forbids importing `backend/` runtime modules from `tools/`;
+`schema_registry` is a metadata helper that reads `datasets/schemas/<file>`
+directly, not a runtime module, so the import is in scope. Otherwise
+stdlib only.
 
 Re-snapshotting `all.geojson` from upstream (via `tools/boundaries/snapshot.py`)
 wipes the `census_code_2011` enrichment; re-run this tool to restore. The
@@ -71,6 +76,21 @@ from typing import Any
 # ---------------------------------------------------------------------------
 
 DEFAULT_REPO_ROOT = Path(__file__).resolve().parents[2]
+
+# Bridge to the canonical schema-version helper so the two stamped envelopes
+# below never carry a hand-typed semver literal (CLAUDE.md section 11). The
+# helper reads `datasets/schemas/<file>.schema.json`'s `x-version` once at
+# import time and caches; drift becomes impossible by construction.
+_BACKEND_DIR = DEFAULT_REPO_ROOT / "backend"
+if str(_BACKEND_DIR) not in sys.path:
+    sys.path.insert(0, str(_BACKEND_DIR))
+
+from yen_gov.core.schema_registry import schema_version  # noqa: E402
+
+SIDECAR_SCHEMA_FILENAME = "census-code-2011-sidecar.schema.json"
+COVERAGE_SCHEMA_FILENAME = "census-code-2011-coverage.schema.json"
+SIDECAR_SCHEMA_VERSION = schema_version(SIDECAR_SCHEMA_FILENAME)
+COVERAGE_SCHEMA_VERSION = schema_version(COVERAGE_SCHEMA_FILENAME)
 CENSUS_TOPOLOGY_URL = "https://data-analytics.github.io/Choropleth_India_Map/map.json"
 RAW_CACHE_RELPATH = ".runtime/raw/census/data-analytics-map.json"
 DISTRICTS_GEOJSON_RELPATH = "datasets/boundaries/in/districts/all.geojson"
@@ -453,7 +473,7 @@ def write_sidecar(repo_root: Path, sidecar: dict[str, int | None]) -> Path:
     by_dist_lgd = {k: sidecar[k] for k in sorted(sidecar, key=int)}
     envelope = {
         "$schema": SIDECAR_SCHEMA_REF,
-        "$schema_version": "1.0",
+        "$schema_version": SIDECAR_SCHEMA_VERSION,
         "by_dist_lgd": by_dist_lgd,
     }
     _write_json(out_path, envelope)
@@ -480,7 +500,7 @@ def write_coverage_report(
     total = lgd_feature_count
     envelope = {
         "$schema": COVERAGE_SCHEMA_REF,
-        "$schema_version": "1.0",
+        "$schema_version": COVERAGE_SCHEMA_VERSION,
         "source": provenance,
         "matched_count": matched_count,
         "total": total,

@@ -79,6 +79,7 @@ import hashlib
 import io
 import json
 import re
+import sys
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
@@ -102,6 +103,19 @@ STATES_GLOB = "All_Stateof_India_*.csv"
 DISTRICTS_GLOB = "All_Districtof_India_*.csv"
 SUBDISTRICTS_GLOB = "All_Sub_Districtof_India_*.csv"
 PRI_GLOB = "Parliment_Constituency_And_Assembly_Constituency_Pri_*.xlsx"
+
+# Bridge to the canonical schema-version helper so the receipt envelope below
+# never carries a hand-typed semver literal (CLAUDE.md section 11). The
+# helper reads `datasets/schemas/<file>.schema.json`'s `x-version` once at
+# import time and caches; drift becomes impossible by construction.
+_REPO_ROOT = Path(__file__).resolve().parents[2]
+_BACKEND_DIR = _REPO_ROOT / "backend"
+if str(_BACKEND_DIR) not in sys.path:
+    sys.path.insert(0, str(_BACKEND_DIR))
+
+from yen_gov.core.schema_registry import schema_version  # noqa: E402
+
+RECEIPT_SCHEMA_VERSION = schema_version("lgd-parse-receipt.schema.json")
 
 # Expected header rows (row index 1, after the title row at index 0). Validated
 # verbatim so an upstream format change fails loud instead of mis-indexing.
@@ -579,7 +593,7 @@ def build_snapshot(
 
     receipt: dict[str, Any] = {
         "$schema": "../schemas/lgd-parse-receipt.schema.json",
-        "$schema_version": "1.0",
+        "$schema_version": RECEIPT_SCHEMA_VERSION,
         "snapshot_vintage": SNAPSHOT_VINTAGE,
         "parser": "tools/lgd/parse_lgd_export.py",
         "sources": [
