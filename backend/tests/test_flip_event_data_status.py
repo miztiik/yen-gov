@@ -281,3 +281,202 @@ def test_no_double_flip_on_complete_events(tmp_path):
     updated = json.loads(catalogue_path.read_text(encoding="utf-8"))
     event = updated["states"]["S22"][0]
     assert event["data_status"] == "complete"
+
+
+# --- PR-Q7c parliament-event tests ------------------------------------------
+
+
+_GEO_HEADER = "entity_id,name,parent,entity_kind,aliases,lgd_id,state_iso\n"
+_GEO_ROWS_FOR_PARLIAMENT = (
+    "tamil-nadu,Tamil Nadu,IN,state,IN-TN|S22|lgd:33,33,33\n"
+    "bihar,Bihar,IN,state,IN-BR|S04|lgd:10,10,10\n"
+    "andaman-and-nicobar,Andaman and Nicobar,IN,ut,IN-AN|U01|lgd:35,35,35\n"
+    "dadra-and-nagar-haveli-and-daman-and-diu,Dadra and Nagar Haveli and Daman"
+    " and Diu,IN,ut,IN-DH|U03|lgd:38,38,38\n"
+)
+
+
+def _write_geo_for_parliament(root: Path) -> Path:
+    geo = root / "datasets" / "data" / "entities" / "geo.csv"
+    geo.parent.mkdir(parents=True, exist_ok=True)
+    geo.write_text(_GEO_HEADER + _GEO_ROWS_FOR_PARLIAMENT, encoding="utf-8")
+    return geo
+
+
+def _write_parliament_candidacies(
+    root: Path,
+    year: int,
+    state_slugs: list[str],
+) -> Path:
+    """Write a parliament candidacies.csv with one row per state slug.
+
+    Parliament data is COUNTRY-WIDE one file per year, not per-state, so
+    the file path lacks the ``state=`` partition.
+    """
+    path = (
+        root / "datasets" / "elections" / "parliament"
+        / f"election={year}" / "candidacies.csv"
+    )
+    path.parent.mkdir(parents=True, exist_ok=True)
+    header = "entity_id,state,election_year,constituency_no,constituency_name\n"
+    body = ""
+    for i, slug in enumerate(state_slugs):
+        body += f"IN-PC-1976-{slug}-{i+1},{slug},{year},{i+1},PC-{i+1}\n"
+    path.write_text(header + body, encoding="utf-8")
+    return path
+
+
+def test_flip_parliament_general_event_when_disk_present(tmp_path):
+    """Parliament event ``general-1999`` flips when a non-empty file exists.
+
+    Stage one state's parliament event as pending_upstream + write the
+    matching parliament candidacies.csv with a row for that state slug.
+    The flipper recognises the parliament path and flips the event to
+    complete.
+    """
+    _write_geo_for_parliament(tmp_path)
+    catalogue_path = _write_event_catalogue(
+        tmp_path,
+        {
+            "$schema": "https://yen-gov.github.io/schemas/election-events.schema.json",
+            "$schema_version": "1.3",
+            "sources": [],
+            "states": {
+                "S04": [
+                    {
+                        "event_id": "general-1999",
+                        "kind": "parliament",
+                        "display": "Bihar - Parliament 1999",
+                        "polled_on": "1999-09-05",
+                        "term_end_estimated": "2004-02-06",
+                        "data_status": "pending_upstream",
+                        "notes": "13th Lok Sabha; pending TCPD GE reingest.",
+                    }
+                ]
+            },
+        },
+    )
+    _write_parliament_candidacies(tmp_path, 1999, ["bihar"])
+
+    rc = main(["--apply", "--root", str(tmp_path)])
+    assert rc == 0
+
+    updated = json.loads(catalogue_path.read_text(encoding="utf-8"))
+    event = updated["states"]["S04"][0]
+    assert event["data_status"] == "complete"
+    assert event["notes"] == "13th Lok Sabha; pending TCPD GE reingest."
+
+
+def test_flip_parliament_state_slug_divergence_mapping(tmp_path):
+    """``PARLIAMENT_TCPD_TO_GEO_SLUG`` normalises U01 + U03 slug divergences.
+
+    The parliament binder emits ``andaman-and-nicobar-islands`` for U01
+    (TCPD State_Name slugifies that way) but geo.csv carries the
+    canonical ``andaman-and-nicobar``. The map normalises so the flip
+    succeeds for the U01 event.
+
+    Likewise the pre-2020 ``dadra-and-nagar-haveli`` and ``daman-and-diu``
+    both map to U03 (post-2020 merged form on geo.csv).
+    """
+    _write_geo_for_parliament(tmp_path)
+    catalogue_path = _write_event_catalogue(
+        tmp_path,
+        {
+            "$schema": "https://yen-gov.github.io/schemas/election-events.schema.json",
+            "$schema_version": "1.3",
+            "sources": [],
+            "states": {
+                "U01": [
+                    {
+                        "event_id": "general-1999",
+                        "kind": "parliament",
+                        "display": "Andaman and Nicobar - Parliament 1999",
+                        "polled_on": "1999-09-05",
+                        "term_end_estimated": "2004-02-06",
+                        "data_status": "pending_upstream",
+                    }
+                ],
+                "U03": [
+                    {
+                        "event_id": "general-1999",
+                        "kind": "parliament",
+                        "display": "Dadra Nagar Haveli Daman Diu - Parliament 1999",
+                        "polled_on": "1999-09-05",
+                        "term_end_estimated": "2004-02-06",
+                        "data_status": "pending_upstream",
+                    }
+                ],
+            },
+        },
+    )
+    # Parliament file carries the TCPD-binder slugs (NOT geo.csv slugs).
+    _write_parliament_candidacies(
+        tmp_path, 1999,
+        ["andaman-and-nicobar-islands", "dadra-and-nagar-haveli", "daman-and-diu"],
+    )
+
+    rc = main(["--apply", "--root", str(tmp_path)])
+    assert rc == 0
+
+    updated = json.loads(catalogue_path.read_text(encoding="utf-8"))
+    assert updated["states"]["U01"][0]["data_status"] == "complete"
+    assert updated["states"]["U03"][0]["data_status"] == "complete"
+
+
+def test_no_flip_when_parliament_disk_empty(tmp_path):
+    """No parliament file on disk -> pending_upstream stays."""
+    _write_geo_for_parliament(tmp_path)
+    catalogue_path = _write_event_catalogue(
+        tmp_path,
+        {
+            "$schema": "https://yen-gov.github.io/schemas/election-events.schema.json",
+            "$schema_version": "1.3",
+            "sources": [],
+            "states": {
+                "S22": [
+                    {
+                        "event_id": "general-1999",
+                        "kind": "parliament",
+                        "display": "Tamil Nadu - Parliament 1999",
+                        "polled_on": "1999-09-05",
+                        "term_end_estimated": "2004-02-06",
+                        "data_status": "pending_upstream",
+                    }
+                ]
+            },
+        },
+    )
+    # No disk file for parliament 1999.
+    rc = main(["--apply", "--root", str(tmp_path)])
+    assert rc == 0
+
+    updated = json.loads(catalogue_path.read_text(encoding="utf-8"))
+    assert updated["states"]["S22"][0]["data_status"] == "pending_upstream"
+
+
+def test_parliament_disk_state_not_in_catalogue_is_silent(tmp_path):
+    """A state present on disk but absent from catalogue is silently ignored.
+
+    The flipper only acts on events DECLARED in election_events.json; a
+    parliament candidacies row for a state whose ECI code is not in the
+    catalogue is a no-op (NOT a hard fail). This matches the assembly
+    flipper's permissive contract.
+    """
+    _write_geo_for_parliament(tmp_path)
+    catalogue_path = _write_event_catalogue(
+        tmp_path,
+        {
+            "$schema": "https://yen-gov.github.io/schemas/election-events.schema.json",
+            "$schema_version": "1.3",
+            "sources": [],
+            "states": {},  # No events declared.
+        },
+    )
+    _write_parliament_candidacies(tmp_path, 1999, ["bihar"])
+
+    rc = main(["--apply", "--root", str(tmp_path)])
+    assert rc == 0
+
+    # File unchanged (no flips applied).
+    updated = json.loads(catalogue_path.read_text(encoding="utf-8"))
+    assert updated["states"] == {}

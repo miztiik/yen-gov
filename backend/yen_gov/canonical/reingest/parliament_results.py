@@ -42,6 +42,7 @@ from yen_gov.canonical.reingest.assembly_results import (
     DELIM_ID_2008,
     NOTA_PARTY_TOKEN,
     NOTA_TOKENS,
+    TCPD_DELIM_ID_TO_DELIM_YEAR,
     _candidate_type,
     _float_or_none,
     _int_or_none,
@@ -68,15 +69,29 @@ def _read_csv_rows(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(fh))
 
 
-def _pc_eci_to_entity(electoral_rows: list[dict[str, str]]) -> dict[tuple[str, int], str]:
-    """Map ``(state_slug, eci_no) -> entity_id`` for every PC entity.
+def _pc_eci_to_entity(
+    electoral_rows: list[dict[str, str]],
+    delim_year: int,
+) -> dict[tuple[str, int], str]:
+    """Map ``(state_slug, eci_no) -> entity_id`` for every PC entity in cohort.
 
     Parliament binds country-wide, so the key carries the state slug (pc_no
-    restarts per state). Only ``entity_kind == 'pc'`` rows participate.
+    restarts per state). Only ``entity_kind == 'pc'`` rows for the given
+    ``delim_year`` participate. The ``delim_year`` filter (PR-Q7c) keeps the
+    lookup unambiguous across delimitation cycles: historical delimitations
+    (DelimID 1/2/3) and the in-force 2008 cycle re-use the same per-state
+    ``Constituency_No`` numbering space, so a single state can carry two PC
+    entities with the same ``eci_no`` from different delim eras. Without the
+    filter the second-seen row would silently shadow the first; with it the
+    caller's chosen cycle wins deterministically. Mirror of PR-Q7a's fix to
+    :func:`assembly_results._electoral_eci_to_entity`.
     """
     out: dict[tuple[str, int], str] = {}
     for row in electoral_rows:
         if row.get("entity_kind") != "pc":
+            continue
+        row_delim = (row.get("delim_year") or "").strip()
+        if not row_delim or int(row_delim) != delim_year:
             continue
         raw = (row.get("eci_no") or "").strip()
         state = row.get("state") or ""
@@ -236,7 +251,8 @@ def emit_parliament(
     if not electoral_csv.exists():
         raise FileNotFoundError(electoral_csv)
 
-    pc_eci_to_entity = _pc_eci_to_entity(_read_csv_rows(electoral_csv))
+    delim_year = TCPD_DELIM_ID_TO_DELIM_YEAR[delim_id]
+    pc_eci_to_entity = _pc_eci_to_entity(_read_csv_rows(electoral_csv), delim_year)
     party_lookup = (
         party_lookup_from_parties_csv(parties_csv) if parties_csv is not None else {}
     )

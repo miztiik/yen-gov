@@ -4,6 +4,16 @@ Walks ``datasets/elections/assembly/state=*/election=*/candidacies.csv`` and
 flips ``data_status: pending_upstream -> complete`` on the matching event in
 ``datasets/taxonomy/election_events.json`` for each non-empty event on disk.
 
+PR-Q7c (2026-06-12) extends the tool to parliament events too. Parliament
+data is country-wide ONE FILE per election year (no ``state=`` partition);
+the flipper reads the ``state`` column of each parliament candidacies.csv
+file and flips ``general-YYYY`` for every state code present. The TCPD
+parliament binder emits a couple of state slugs that diverge from
+``geo.csv`` canonical slugs (``andaman-and-nicobar-islands`` vs
+``andaman-and-nicobar``; pre-2020 ``dadra-and-nagar-haveli`` +
+``daman-and-diu`` vs merged ``dadra-and-nagar-haveli-and-daman-and-diu``);
+``PARLIAMENT_TCPD_TO_GEO_SLUG`` normalises those at the flipper boundary.
+
 Run from worktree root (PYTHONPATH=./backend so the package resolves):
 
     # dry-run: print the (state_code, event_id) flips that WOULD be applied.
@@ -22,9 +32,6 @@ disposition decisions belong to the human curator). Events ALREADY
 ``complete`` whose on-disk shards now disappear (e.g. an operator manual
 delete) are NOT flipped back to ``pending_upstream`` -- the tool only
 moves events forward through the data-status lifecycle.
-
-Only ``kind == "assembly"`` events are inspected. Parliament events live
-under ``elections/parliament/...`` and follow a separate flow.
 """
 
 from __future__ import annotations
@@ -43,6 +50,27 @@ _ECI_CODE_RE = re.compile(r"^[SU]\d{2}$")
 # the post-2014 events; pre-2014 event_ids are also "assembly-YYYY"). The
 # year is captured for the (state, year) lookup.
 _EVENT_ID_RE = re.compile(r"^assembly-(\d{4})$")
+
+# PR-Q7c: The parliament binder (``backend/yen_gov/canonical/reingest/
+# parliament_results.py::_slugify``) lowercases TCPD State_Name with two
+# mechanical swaps (``_&_`` -> ``-and-``; ``_`` -> ``-``). The result
+# matches ``geo.csv`` canonical slugs for 33 of 36 states/UTs, with three
+# divergences that this map normalises at the flipper boundary:
+#
+#  - TCPD "Andaman_&_Nicobar_Islands" slugifies to "andaman-and-nicobar-islands"
+#    but the canonical geo.csv slug is "andaman-and-nicobar" (U01).
+#  - TCPD's pre-2020 "Dadra_&_Nagar_Haveli" and "Daman_&_Diu" are two
+#    separate UTs; both map to the post-2020 merged form
+#    "dadra-and-nagar-haveli-and-daman-and-diu" (U03) on the geo.csv side.
+#
+# All other parliament binder slugs match geo.csv canonical slugs exactly.
+# Without this map the flipper would silently leave U01 / U03 parliament
+# events pending_upstream despite their on-disk shards being present.
+PARLIAMENT_TCPD_TO_GEO_SLUG: dict[str, str] = {
+    "andaman-and-nicobar-islands": "andaman-and-nicobar",
+    "dadra-and-nagar-haveli": "dadra-and-nagar-haveli-and-daman-and-diu",
+    "daman-and-diu": "dadra-and-nagar-haveli-and-daman-and-diu",
+}
 
 
 def slug_to_state_code(geo_csv: Path) -> dict[str, str]:
@@ -79,7 +107,24 @@ def discover_disk_events(
     "Non-empty" means ``candidacies.csv`` exists and has at least one data
     row beyond the header. Empty files are treated as not-on-disk so the
     flip does not advance an event the writer started but did not finish.
+
+    Walks BOTH assembly (per-state ``state=*`` partitioned) AND parliament
+    (country-wide ONE file per ``election=YYYY``) trees. For parliament,
+    the ``state`` column inside each file is read to enumerate which state
+    slices are present, mapped through ``PARLIAMENT_TCPD_TO_GEO_SLUG`` for
+    the three TCPD/geo slug divergences.
     """
+    out: set[tuple[str, str]] = set()
+    out.update(_discover_disk_assembly_events(elections_root, slug_to_code))
+    out.update(_discover_disk_parliament_events(elections_root, slug_to_code))
+    return out
+
+
+def _discover_disk_assembly_events(
+    elections_root: Path,
+    slug_to_code: dict[str, str],
+) -> set[tuple[str, str]]:
+    """Per-state assembly fanout: one ``state=*/election=*/candidacies.csv`` each."""
     out: set[tuple[str, str]] = set()
     assembly_root = elections_root / "assembly"
     if not assembly_root.is_dir():
@@ -98,13 +143,58 @@ def discover_disk_events(
                 continue
             # Cheap presence check: a header-only file is treated as empty.
             with candidacies.open(encoding="utf-8") as fh:
-                # readlines() returns the header + (0 or more) data rows.
                 first_line = fh.readline()
                 second_line = fh.readline()
             if not first_line or not second_line.strip():
                 continue
             out.add((state_code, f"assembly-{year_part}"))
     return out
+
+
+def _discover_disk_parliament_events(
+    elections_root: Path,
+    slug_to_code: dict[str, str],
+) -> set[tuple[str, str]]:
+    """Country-wide parliament: ONE file per ``election=YYYY/candidacies.csv``.
+
+    The ``state`` column inside each file enumerates which state slices
+    are present. Each distinct slug is mapped through
+    ``PARLIAMENT_TCPD_TO_GEO_SLUG`` for the three U01/U03 divergences, then
+    through ``slug_to_code`` to recover the ECI state code. The matching
+    ``general-YYYY`` event for each state code is the flip target.
+    """
+    import csv
+
+    out: set[tuple[str, str]] = set()
+    parl_root = elections_root / "parliament"
+    if not parl_root.is_dir():
+        return out
+    for event_dir in sorted(parl_root.glob("election=*")):
+        year_part = event_dir.name.removeprefix("election=")
+        if not year_part.isdigit():
+            continue
+        candidacies = event_dir / "candidacies.csv"
+        if not candidacies.is_file():
+            continue
+        states_in_file: set[str] = set()
+        with candidacies.open(encoding="utf-8", newline="") as fh:
+            reader = csv.DictReader(fh)
+            for row in reader:
+                slug = (row.get("state") or "").strip()
+                if slug:
+                    states_in_file.add(slug)
+        for parl_slug in states_in_file:
+            geo_slug = PARLIAMENT_TCPD_TO_GEO_SLUG.get(parl_slug, parl_slug)
+            state_code = slug_to_code.get(geo_slug)
+            if state_code:
+                out.add((state_code, f"general-{year_part}"))
+    return out
+
+
+# event_id shapes the flipper recognises. Assembly events use ``assembly-YYYY``
+# (or ``assembly-bye-YYYY-N`` for by-elections, which are NOT flipped here);
+# parliament events use ``general-YYYY``. PR-Q7c added the parliament kind.
+_FLIP_KINDS: frozenset[str] = frozenset({"assembly", "parliament"})
 
 
 def find_pending_flips(
@@ -116,7 +206,7 @@ def find_pending_flips(
     states = catalogue.get("states") or {}
     for state_code, events in states.items():
         for event in events:
-            if event.get("kind") != "assembly":
+            if event.get("kind") not in _FLIP_KINDS:
                 continue
             event_id = event.get("event_id") or ""
             if event.get("data_status") != "pending_upstream":
@@ -142,7 +232,7 @@ def apply_flips(
         new_events: list[dict] = []
         for event in events:
             if (
-                event.get("kind") == "assembly"
+                event.get("kind") in _FLIP_KINDS
                 and (state_code, event.get("event_id")) in flip_set
                 and event.get("data_status") == "pending_upstream"
             ):
@@ -203,7 +293,7 @@ def main(argv: list[str] | None = None) -> int:
     disk_events = discover_disk_events(elections_root, slug_to_code)
     flips = find_pending_flips(catalogue, disk_events)
 
-    print(f"on-disk non-empty assembly events: {len(disk_events)}")
+    print(f"on-disk non-empty events (assembly + parliament): {len(disk_events)}")
     print(f"pending_upstream -> complete flips: {len(flips)}")
     for state_code, event_id in sorted(flips):
         print(f"  {state_code} {event_id}")
