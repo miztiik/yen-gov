@@ -11,49 +11,57 @@
   //                         was extended in the same PR with `electors`
   //                         + `votes_polled` projections; see
   //                         lib/view-models/election-results.ts).
-  //   3. India choropleth - one polygon per state, coloured by the party
-  //                         that won the most seats in that state. Click
-  //                         a state polygon to drill into the per-state
-  //                         event view (PR-W3b rebuilds the target page).
-  //   4. Top-parties bar  - top 10 parties by national seat count, with
-  //                         party-coloured horizontal bars sized against
-  //                         the leader.
+  //   3. Map (3-way)      - States (one polygon per state, default)
+  //                         | Constituencies (543 PC polygons, new)
+  //                         | Equal seats (national PC TileCartogram).
+  //                         Winner|Margin sub-toggle applies to the two
+  //                         per-PC arms (it does NOT apply to the States
+  //                         arm whose IndiaPartyMap owns its own fills).
+  //   4. Top-parties      - PartyBar with click-to-mute, top 10 parties
+  //                         by national seat count. Muting recedes
+  //                         matching cells on the Constituencies +
+  //                         Equal-seats arms; the States arm carries the
+  //                         mute on the PartyBar swatch only (IndiaPartyMap
+  //                         loads its own fills and does not accept overrides).
+  //   5. Scatter          - turnout vs margin, radius = absolute vote gap.
   //
-  // Renamed from `NationalElectionsAtlas.svelte` in the same PR. The
-  // pre-rebuild surface was a "Map | Equal seats" toggle over the
-  // 543-PC national choropleth with a filter rail; that layout is gone,
-  // replaced by the citizen-readable summary above. The hex/tile
-  // cartogram + filter rail will return on PR-W4c (analyst-grade
-  // scatter + filters lab) and PR-W3d (firehose) respectively, not
-  // here.
+  // Renamed from `NationalElectionsAtlas.svelte` in PR-W3c. The pre-W3c
+  // surface had a "Map | Equal seats" toggle + filter rail that was
+  // deliberately removed - "will return on PR-W4c + PR-W3d". This PR
+  // (TODO/20260612-pc-choropleth-tile-and-party-filter-restoration-plan.md)
+  // closes that deferral via the 3-way toggle above plus the
+  // mute-rail wiring on PartyBar.
   //
-  // Data path (one loader, three projections):
+  // Data path (one loader, four projections):
   //   loadElectionResults({event}) -> ElectionResultRow[]
   //     -> KPIs           : sum electors, sum votes_polled,
   //                         avg turnout_pct, count rows
   //     -> top-parties    : group_by(party) -> sort desc -> slice(10)
-  //     -> scatter        : per-PC dot, (turnout, margin), radius=electors
-  //
-  // Map: as of PR-4b (2026-06-11) the choropleth is the d3-geo
-  // `IndiaPartyMap` (replacing MapChoropleth + the local `state_leads`
-  // / `fills` / `tooltips` / `KEY_TO_ECI` derivations). IndiaPartyMap
-  // loads its own per-state leading-party fills via
-  // `loadIndiaLeadingParties` and pins every state to the supplied
-  // `event` cohort. The PR-4c `onSelect` callback carries the click
-  // back to `link.stateElection(code, event)` so the citizen stays in
-  // the per-event cohort (NOT the state hub).
+  //                         (PartyTotals shape so PartyBar can consume)
+  //     -> pc_winners     : PcWinnerRow[] for IndiaPcMapD3 + TileCartogram
+  //                         (unique_id = `${state_code}_${eci_no}`)
+  //     -> scatter        : per-PC dot, (turnout, margin), radius=|gap|
 
   import IndiaPartyMap from "../lib/charts/IndiaPartyMap.svelte";
+  import IndiaPcMapD3, {
+    type PcWinnerRow,
+  } from "../lib/charts/IndiaPcMapD3.svelte";
+  import TileCartogram from "../lib/charts/TileCartogram.svelte";
+  import {
+    fetchElectionTileLayouts,
+    fetchElectionTileScopes,
+    hasLayoutForScope,
+    selectLayout,
+    buildTileRows,
+    type TileLayoutRow,
+    type TileRow,
+    type TileWinnerInput,
+  } from "../lib/view-models/election-tile-layout";
   import {
     loadElectionResults,
     type ElectionResultRow,
   } from "../lib/view-models/election-results";
   import type { LoaderResult } from "../lib/loader-result";
-  import {
-    getPartyColor,
-    resolvePartyPalette,
-    type PartyRowForResolver,
-  } from "../lib/colors/resolver";
   import { navigate } from "../lib/url";
   import { link } from "../lib/links";
   import Scatter from "../lib/charts/Scatter.svelte";
@@ -62,6 +70,12 @@
     ScatterFilters,
   } from "../lib/charts/scatter-model";
   import { slugify } from "../lib/slug";
+  import PartyBar from "../lib/PartyBar.svelte";
+  import type { PartyTotals } from "../lib/data";
+  import {
+    buildPartyKeyToPid,
+    hiddenPidSet,
+  } from "../lib/charts/india-pc-map-helpers";
 
   interface Props {
     /** Route params; `event` is the event slug (e.g. "general-2024"). */
@@ -135,7 +149,9 @@
     };
   });
 
-  // ---- Palette (party_id -> hex via the canonical 3-tier resolver) ----
+  // ---- Palette (party_id derivation only; PartyBar + the map renderers
+  // resolve the 3-tier palette internally given each row's
+  // brand_colour_hex + party_id).
   function partyIdFor(w: {
     party_id: string | null;
     party_short: string | null;
@@ -144,65 +160,286 @@
     const slug = (w.party_short ?? "UNK").trim().toUpperCase();
     return `parties.IN.${slug}`;
   }
-  function rowFor(pid: string, w: ElectionResultRow): PartyRowForResolver | null {
-    if (w.brand_colour_hex == null) return null;
-    return {
-      party_id: pid,
-      eci_code: w.party_eci_code,
-      brand_colour: {
-        hex: w.brand_colour_hex,
-        confidence: w.brand_colour_confidence ?? "medium",
-      },
-    };
-  }
-  const palette_bundle = $derived.by(() => {
-    const ids: string[] = [];
-    const rowMap = new Map<string, PartyRowForResolver | null>();
-    const seen = new Set<string>();
-    for (const w of winners) {
-      const pid = partyIdFor(w);
-      if (seen.has(pid)) continue;
-      seen.add(pid);
-      ids.push(pid);
-      rowMap.set(pid, rowFor(pid, w));
-    }
-    return { palette: resolvePartyPalette(ids, rowMap), rowMap };
-  });
-  function fillForParty(pid: string, w: ElectionResultRow): string {
-    const { palette, rowMap } = palette_bundle;
-    return (
-      palette.get(pid)?.hex ??
-      getPartyColor(pid, rowMap.get(pid) ?? null).hex
-    );
-  }
 
   // ---- Top-parties bar (top 10 nationally by seats) ------------------
-  interface PartyTotal {
-    party_id: string;
+  // TODO/20260612 Row F: top-parties uses the canonical PartyBar so the
+  // click-to-mute pattern matches Psephlab + StateOverview. The local
+  // `PartyTotal` shape from PR-W3c is replaced by the canonical
+  // `PartyTotals` from lib/data.ts. Aggregation pre-bucket: total
+  // seats per party AND total votes per party so vote_share_pct can
+  // be derived against the event-total polled vote count once.
+  const TOP_N = 10;
+
+  const event_total_votes = $derived.by<number>(() => {
+    let total = 0;
+    for (const w of winners) {
+      if (w.votes_polled != null) total += w.votes_polled;
+    }
+    return total;
+  });
+
+  interface AggBucket {
+    pid: string;
     party_short: string;
     seats: number;
-    color: string;
+    votes: number;
+    has_any_vote: boolean;
+    party_eci_code: string | null;
+    brand_colour_hex: string | null;
+    brand_colour_confidence: "high" | "medium" | "low" | null;
   }
-  const TOP_N = 10;
-  const top_parties = $derived.by<PartyTotal[]>(() => {
-    const by = new Map<string, PartyTotal>();
+  const top_parties = $derived.by<PartyTotals[]>(() => {
+    const by = new Map<string, AggBucket>();
     for (const w of winners) {
       const pid = partyIdFor(w);
-      const cur = by.get(pid);
-      if (cur) {
-        cur.seats += 1;
-      } else {
-        by.set(pid, {
-          party_id: pid,
+      let bucket = by.get(pid);
+      if (!bucket) {
+        bucket = {
+          pid,
           party_short: w.party_short ?? "UNK",
-          seats: 1,
-          color: fillForParty(pid, w),
-        });
+          seats: 0,
+          votes: 0,
+          has_any_vote: false,
+          party_eci_code: w.party_eci_code,
+          brand_colour_hex: w.brand_colour_hex,
+          brand_colour_confidence: w.brand_colour_confidence,
+        };
+        by.set(pid, bucket);
+      }
+      bucket.seats += 1;
+      if (w.votes_polled != null && w.vote_share_pct != null) {
+        bucket.votes += (w.votes_polled * w.vote_share_pct) / 100;
+        bucket.has_any_vote = true;
       }
     }
-    return [...by.values()].sort((a, b) => b.seats - a.seats).slice(0, TOP_N);
+    const sorted = [...by.values()]
+      .sort((a, b) => b.seats - a.seats)
+      .slice(0, TOP_N);
+    return sorted.map<PartyTotals>((b) => ({
+      party_eci_code: b.party_eci_code,
+      party_short: b.party_short,
+      party_full: null,
+      seats_contested: null,
+      seats_won: b.seats,
+      votes: Math.round(b.votes),
+      vote_share_pct:
+        b.has_any_vote && event_total_votes > 0
+          ? (b.votes / event_total_votes) * 100
+          : 0,
+      party_id: b.pid,
+      brand_colour_hex: b.brand_colour_hex,
+      brand_colour_confidence: b.brand_colour_confidence,
+      // NationalElection does not load alliance lookup today (alliance
+      // backfill is a separate plan-doc per user verdict 2026-06-12);
+      // PartyBar renders the tag only when populated, so leaving it
+      // null keeps the bar visually clean.
+      alliance_short: null,
+    }));
   });
-  const top_party_max = $derived(top_parties[0]?.seats ?? 1);
+
+  // ---- TODO/20260612 Row C: 3-way map toggle ---------------------------
+  // states (default) | constituencies | hex. Lives in component state
+  // only - NOT persisted to the URL (per the W3b doctrine + PR-W4c
+  // scatter-pill precedent: filter state is ephemeral; refresh resets).
+  type MapView = "states" | "constituencies" | "hex";
+  let map_view = $state<MapView>("states");
+
+  // Winner|Margin sub-toggle - applies to Constituencies + Equal-seats
+  // arms only (the States arm is owned by IndiaPartyMap which loads
+  // its own fills). Same shim pattern StateElection uses for AC.
+  type ColorMode = "winner" | "margin";
+  let color_mode = $state<ColorMode>("winner");
+
+  function marginGrey(pct: number | null): string {
+    if (pct == null) return "#cbd5e1"; // slate-300 fallback
+    const v = Math.min(1, Math.max(0, Math.abs(pct) / 30));
+    const lerp = (a: number, b: number): number =>
+      Math.round(a + (b - a) * v);
+    const r = lerp(0xe2, 0x33);
+    const g = lerp(0xe8, 0x41);
+    const b2 = lerp(0xf0, 0x55);
+    const toHex = (n: number): string => n.toString(16).padStart(2, "0");
+    return `#${toHex(r)}${toHex(g)}${toHex(b2)}`;
+  }
+
+  // ---- TODO/20260612 Row F: PartyBar click-to-mute -------------------
+  // hidden_parties keys are `party_eci_code ?? party_short` - same
+  // convention used by PartyBar / Psephlab / StateOverview. Hiding is
+  // purely visual; per spec we DON'T recompute seats or vote share.
+  let hidden_parties = $state<Set<string>>(new Set());
+
+  function toggleHidden(key: string): void {
+    const next = new Set(hidden_parties);
+    if (next.has(key)) next.delete(key);
+    else next.add(key);
+    hidden_parties = next;
+  }
+
+  // Reset mute set on event change so muting "BJP" on general-2024
+  // does not silently carry to general-2019 when the citizen navigates
+  // between events.
+  $effect(() => {
+    void event;
+    hidden_parties = new Set();
+  });
+
+  // Bridge PartyBar's key space (party_eci_code ?? party_short) to the
+  // canonical party_id space the map renderers use. Built once per
+  // winners change. `partyIdFor` upgrades the loader's `party_id:
+  // string | null` to the strict `string` shape the helper expects.
+  const key_to_pid = $derived(
+    buildPartyKeyToPid(
+      winners.map((w) => ({
+        party_eci_code: w.party_eci_code,
+        party_short: w.party_short,
+        party_id: partyIdFor(w),
+      })),
+    ),
+  );
+  const hidden_pids = $derived(hiddenPidSet(hidden_parties, key_to_pid));
+
+  // ---- TODO/20260612 Rows A + C: PcWinnerRow projection --------------
+  // Build the unique_id-keyed PC winners array that drives IndiaPcMapD3
+  // + the national TileCartogram. Each winner's unique_id matches the
+  // topojson's `${state_ut_code}_${ls_seat_code}` AND the tile layout's
+  // unit_id final segment.
+  const pc_winners = $derived.by<PcWinnerRow[]>(() => {
+    const out: PcWinnerRow[] = [];
+    for (const w of winners) {
+      if (w.margin_pct == null) continue;
+      // The shim's brand_colour_hex carries the rendered fill (winner
+      // colour OR margin-grey depending on color_mode). The PC map
+      // re-resolves the actual party_id -> hex inside via the 3-tier
+      // resolver; we override that downstream via fillsOverride when
+      // color_mode === "margin" (no different from the AC shim pattern
+      // in StateElection).
+      out.push({
+        unique_id: `${w.state_code}_${w.eci_no}`,
+        state_code: w.state_code,
+        pc_eci_no: w.eci_no,
+        pc_name: w.entity_name,
+        party_id: partyIdFor(w),
+        party_short: w.party_short ?? "UNK",
+        party_eci_code: w.party_eci_code,
+        brand_colour_hex: w.brand_colour_hex,
+        brand_colour_confidence: w.brand_colour_confidence,
+        margin_pct: w.margin_pct,
+        winner_candidate_name: w.winner_candidate_name,
+        symbol_asset_path: w.symbol_asset_path,
+      });
+    }
+    return out;
+  });
+
+  // PC map per-uid overrides: mute by party_id, and margin-mode greys.
+  // Both wins via the IndiaPcMapD3 `fillsOverride` / `opacitiesOverride`
+  // precedence path.
+  const pc_fills_override = $derived.by<Record<string, string>>(() => {
+    const out: Record<string, string> = {};
+    for (const w of pc_winners) {
+      if (hidden_pids.has(w.party_id)) {
+        out[w.unique_id] = "#cbd5e1"; // slate-300 recede
+      } else if (color_mode === "margin") {
+        out[w.unique_id] = marginGrey(w.margin_pct);
+      }
+    }
+    return out;
+  });
+  const pc_opacities_override = $derived.by<Record<string, number>>(() => {
+    const out: Record<string, number> = {};
+    for (const w of pc_winners) {
+      if (hidden_pids.has(w.party_id)) {
+        out[w.unique_id] = 0.18; // recede opacity (matches RECEDE_OPACITY)
+      }
+    }
+    return out;
+  });
+
+  // ---- Hex / Equal-seats arm: national PC tile layout ----------------
+  const TILE_DELIM_YEAR = 2008; // national PC tile layout vintage on disk.
+
+  let has_equal_seats = $state<boolean | null>(null);
+  $effect(() => {
+    fetchElectionTileScopes()
+      .then((doc) => {
+        has_equal_seats = hasLayoutForScope(doc, {
+          layout_kind: "pc",
+          scope: "national",
+          delim_year: TILE_DELIM_YEAR,
+        });
+      })
+      .catch(() => (has_equal_seats = false));
+  });
+
+  let tile_layout = $state<TileLayoutRow[] | null>(null);
+  let tile_layout_error = $state(false);
+  let tile_layout_requested = false;
+  $effect(() => {
+    if (map_view !== "hex" || tile_layout_requested || has_equal_seats === false)
+      return;
+    tile_layout_requested = true;
+    fetchElectionTileLayouts()
+      .then((doc) => {
+        tile_layout = selectLayout(doc, {
+          layout_kind: "pc",
+          scope: "national",
+          delim_year: TILE_DELIM_YEAR,
+        });
+      })
+      .catch(() => (tile_layout_error = true));
+  });
+
+  const hex_winners = $derived<TileWinnerInput[]>(
+    pc_winners.map((w) => ({
+      // Tile layout's unit_id pattern: `IN-PC-<delim_year>-<state>-<eci>`.
+      unit_id: `IN-PC-${TILE_DELIM_YEAR}-${w.state_code}-${w.pc_eci_no}`,
+      party_key: w.party_eci_code,
+      party_short: w.party_short,
+      margin_pct: w.margin_pct,
+      party_id: w.party_id,
+      brand_colour_hex: w.brand_colour_hex,
+      brand_colour_confidence: w.brand_colour_confidence,
+    })),
+  );
+
+  const raw_tile_rows = $derived<TileRow[]>(
+    tile_layout == null ? [] : buildTileRows(tile_layout, hex_winners),
+  );
+
+  // Re-skin tiles for Margin-mode greyscale + party-mute recede - same
+  // pattern ElectionMap uses for the AC hex arm.
+  const tile_rows = $derived<TileRow[]>(
+    raw_tile_rows.map((t) => {
+      if (t.pending) return t;
+      // The tile's unit_id final two segments are `<state>-<eci>`.
+      const parts = t.unit_id.split("-");
+      const eci_no = Number(parts[parts.length - 1]);
+      const state_code = parts[parts.length - 2];
+      const uid = `${state_code}_${eci_no}`;
+      const muted = t.winner_party_id != null && hidden_pids.has(t.winner_party_id);
+      if (muted) {
+        return { ...t, fill: "#cbd5e1", opacity: 0.18 };
+      }
+      if (color_mode === "margin") {
+        return { ...t, fill: marginGrey(t.margin_pct ?? null) };
+      }
+      // back-compat: also honour pc_fills_override if it was computed
+      // for any reason (defensive belt-and-braces against future
+      // override sources).
+      const override = pc_fills_override[uid];
+      if (override != null) return { ...t, fill: override };
+      return t;
+    }),
+  );
+
+  function onTileSelect(unit_id: string): void {
+    // unit_id: "IN-PC-2008-S07-8" -> state=S07, eci=8.
+    const parts = unit_id.split("-");
+    const eci_no = Number(parts[parts.length - 1]);
+    const state_code = parts[parts.length - 2];
+    if (!Number.isFinite(eci_no) || !state_code) return;
+    navigate(link.stateElection(state_code, event));
+  }
 
   // ---- Display label for the citizen-facing H1 -----------------------
   const event_pretty = $derived.by<string>(() => {
@@ -355,58 +592,168 @@
       </div>
     {/if}
 
-    <!-- India choropleth ----------------------------------------------- -->
+    <!-- TODO/20260612 Rows C + F: 3-way map toggle + Winner|Margin sub
+         + party-mute integration. ---- States: existing IndiaPartyMap
+         (default; one polygon per state). Constituencies: IndiaPcMapD3
+         (543 PC polygons). Equal seats: TileCartogram with the
+         national PC layout (545 hex tiles). The Winner|Margin sub-
+         toggle applies to the Constituencies + Equal-seats arms only;
+         the States arm is driven by IndiaPartyMap which owns its own
+         per-state fills and does not accept overrides.
+
+         Party-mute (PartyBar click) applies via fillsOverride +
+         opacitiesOverride on the per-PC arms; the States arm carries
+         the mute visually on the PartyBar swatch only. -->
     <section class="space-y-2" data-testid="national-event-map">
-      <h2 class="text-sm font-medium text-slate-700">
-        Winning party by state
-      </h2>
-      <p class="text-xs text-slate-500">
-        Each state is coloured by the party that won the most seats in
-        that state. Click a state to drill into its per-state results.
-      </p>
-      <IndiaPartyMap
-        event={event}
-        onSelect={(code) => navigate(link.stateElection(code, event))}
-      />
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <h2 class="text-sm font-medium text-slate-700">
+          {#if map_view === "states"}
+            Winning party by state
+          {:else if map_view === "constituencies"}
+            Winning party by constituency
+          {:else}
+            Each seat = one hexagon
+          {/if}
+        </h2>
+        <div class="flex flex-wrap items-center gap-2">
+          {#if (map_view === "constituencies" || map_view === "hex")}
+            <div
+              class="inline-flex rounded border border-slate-200 bg-white p-0.5 text-xs"
+              data-testid="national-event-map-mode"
+            >
+              <button
+                type="button"
+                class={color_mode === "winner"
+                  ? "rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-800"
+                  : "px-2 py-0.5 text-slate-500"}
+                data-testid="national-event-map-mode-winner"
+                onclick={() => (color_mode = "winner")}
+              >Winner</button>
+              <button
+                type="button"
+                class={color_mode === "margin"
+                  ? "rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-800"
+                  : "px-2 py-0.5 text-slate-500"}
+                data-testid="national-event-map-mode-margin"
+                onclick={() => (color_mode = "margin")}
+              >Margin</button>
+            </div>
+          {/if}
+          <div
+            class="inline-flex rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-sm"
+            data-testid="national-event-map-view"
+          >
+            <button
+              type="button"
+              class="rounded-md px-3 py-1 transition-colors {map_view === 'states'
+                ? 'bg-white font-medium text-slate-900 shadow-sm'
+                : 'text-slate-500 hover:text-slate-700'}"
+              data-view="states"
+              onclick={() => (map_view = "states")}
+            >States</button>
+            <button
+              type="button"
+              class="rounded-md px-3 py-1 transition-colors {map_view === 'constituencies'
+                ? 'bg-white font-medium text-slate-900 shadow-sm'
+                : 'text-slate-500 hover:text-slate-700'}"
+              data-view="constituencies"
+              onclick={() => (map_view = "constituencies")}
+            >Constituencies</button>
+            {#if has_equal_seats === true}
+              <button
+                type="button"
+                class="rounded-md px-3 py-1 transition-colors {map_view === 'hex'
+                  ? 'bg-white font-medium text-slate-900 shadow-sm'
+                  : 'text-slate-500 hover:text-slate-700'}"
+                data-view="hex"
+                onclick={() => (map_view = "hex")}
+              >Equal seats</button>
+            {/if}
+          </div>
+        </div>
+      </div>
+
+      {#if map_view === "states"}
+        <p class="text-xs text-slate-500">
+          Each state is coloured by the party that won the most seats in
+          that state. Click a state to drill into its per-state results.
+        </p>
+        <div data-testid="national-event-map-states">
+          <IndiaPartyMap
+            event={event}
+            onSelect={(code) => navigate(link.stateElection(code, event))}
+          />
+        </div>
+      {:else if map_view === "constituencies"}
+        <p class="text-xs text-slate-500">
+          {color_mode === "winner"
+            ? "Each constituency is filled with the winning party's colour."
+            : "Each constituency is shaded by winning margin (darker = larger margin)."}
+        </p>
+        <div data-testid="national-event-map-pc">
+          <IndiaPcMapD3
+            rows={pc_winners}
+            event={event}
+            fillsOverride={pc_fills_override}
+            opacitiesOverride={pc_opacities_override}
+          />
+        </div>
+      {:else}
+        <p class="text-xs text-slate-500">
+          {color_mode === "winner"
+            ? "Each hexagon is one seat in Parliament, coloured by the winning party."
+            : "Each hexagon is one seat in Parliament, shaded by winning margin (darker = larger margin)."}
+        </p>
+        <div data-testid="national-event-map-hex">
+          {#if tile_layout_error}
+            <div
+              class="rounded border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800"
+            >
+              Equal-seats layout couldn't load.
+            </div>
+          {:else if tile_layout == null}
+            <p class="p-4 text-sm text-slate-500">Loading equal-seats layout...</p>
+          {:else}
+            <TileCartogram
+              tiles={tile_rows}
+              height="520px"
+              onSelect={onTileSelect}
+            />
+          {/if}
+        </div>
+      {/if}
     </section>
 
     <!-- Top-parties bar (top 10 nationally by seats) ------------------- -->
     <section class="space-y-2" data-testid="national-event-top-parties">
-      <h2 class="text-sm font-medium text-slate-700">
-        Top parties by seats
-      </h2>
+      <div class="flex items-baseline justify-between gap-2 flex-wrap">
+        <h2 class="text-sm font-medium text-slate-700">
+          Top parties by seats
+        </h2>
+        {#if hidden_parties.size > 0}
+          <button
+            type="button"
+            class="text-xs text-sky-700 hover:underline"
+            data-testid="national-event-top-parties-reset"
+            onclick={() => (hidden_parties = new Set())}
+          >Show all ({hidden_parties.size} muted)</button>
+        {/if}
+      </div>
       {#if top_parties.length === 0}
         <p class="text-xs text-slate-500">
           No party totals available for this event yet.
         </p>
       {:else}
-        <ol class="space-y-1.5">
-          {#each top_parties as p, i (p.party_id)}
-            <li
-              class="flex items-center gap-3 text-sm"
-              data-testid="national-event-top-parties-row"
-            >
-              <span class="w-5 text-right text-xs text-slate-500"
-                >{i + 1}.</span
-              >
-              <span
-                class="w-14 truncate font-medium text-slate-700"
-                title={p.party_short}>{p.party_short}</span
-              >
-              <div class="relative h-5 flex-1 rounded bg-slate-100">
-                <div
-                  class="h-full rounded"
-                  style:width="{(p.seats / top_party_max) * 100}%"
-                  style:background-color={p.color}
-                ></div>
-              </div>
-              <span
-                class="w-14 text-right font-medium tabular-nums text-slate-900"
-                >{p.seats}</span
-              >
-            </li>
-          {/each}
-        </ol>
+        <PartyBar
+          parties={top_parties}
+          total_seats={kpis.total_seats}
+          {hidden_parties}
+          onToggleHidden={toggleHidden}
+        />
+        <p class="text-[11px] text-slate-500">
+          Click a party row to mute it; muted parties recede on the
+          constituency + hex map arms. Vote totals don't recompute.
+        </p>
       {/if}
     </section>
 

@@ -60,8 +60,26 @@
     type PartyRowForResolver,
   } from "../lib/colors/resolver";
   import StateAcMapD3 from "../lib/charts/StateAcMapD3.svelte";
+  import StatePcMapD3, {
+    type PcWinnerRow,
+  } from "../lib/charts/StatePcMapD3.svelte";
+  import TileCartogram from "../lib/charts/TileCartogram.svelte";
+  import {
+    fetchElectionTileLayouts,
+    fetchElectionTileScopes,
+    hasLayoutForScope,
+    selectLayout,
+    buildTileRows,
+    type TileLayoutRow,
+    type TileRow,
+    type TileWinnerInput,
+  } from "../lib/view-models/election-tile-layout";
   import { STATE_AC } from "../lib/boundaries/sources";
   import type { AcWinner } from "../lib/view-models/state-overview";
+  import {
+    buildPartyKeyToPid,
+    hiddenPidSet,
+  } from "../lib/charts/india-pc-map-helpers";
   import InlineCounterfactualSwing from "../lib/elections/InlineCounterfactualSwing.svelte";
   import AllianceTotals from "../lib/elections/AllianceTotals.svelte";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
@@ -387,6 +405,220 @@
         }),
   );
 
+  // ---- TODO/20260612 Rows D + F: PC winner projection for StatePcMapD3
+  // + per-PC mute overrides. unique_id matches the PC topojson's
+  // `${state_ut_code}_${ls_seat_code}` AND the national tile layout's
+  // unit_id final two segments.
+  const pc_winners = $derived.by<PcWinnerRow[]>(() => {
+    if (body !== "pc") return [];
+    const out: PcWinnerRow[] = [];
+    for (const w of winners) {
+      if (w.margin_pct == null) continue;
+      out.push({
+        unique_id: `${w.state_code}_${w.eci_no}`,
+        state_code: w.state_code,
+        pc_eci_no: w.eci_no,
+        pc_name: w.entity_name,
+        party_id: partyIdFor(w),
+        party_short: w.party_short ?? "UNK",
+        party_eci_code: w.party_eci_code,
+        brand_colour_hex: w.brand_colour_hex,
+        brand_colour_confidence: w.brand_colour_confidence,
+        margin_pct: w.margin_pct,
+        winner_candidate_name: w.winner_candidate_name,
+        symbol_asset_path: w.symbol_asset_path,
+      });
+    }
+    return out;
+  });
+
+  // ---- TODO/20260612 Row F: PartyBar click-to-mute -------------------
+  // hidden_parties keys = `party_eci_code ?? party_short` (PartyBar +
+  // StateOverview convention). Mute is visual only; per spec we DON'T
+  // recompute seats or vote share. Reset on event change so muting
+  // "BJP" on chhattisgarh general-2024 doesn't silently carry to
+  // general-2019 when the citizen navigates.
+  let hidden_parties = $state<Set<string>>(new Set());
+  function toggleHidden(key: string): void {
+    const next = new Set(hidden_parties);
+    if (next.has(key)) next.delete(key);
+    else next.add(key);
+    hidden_parties = next;
+  }
+  $effect(() => {
+    void event_row?.event_id;
+    void params.state;
+    hidden_parties = new Set();
+  });
+
+  const key_to_pid = $derived(
+    buildPartyKeyToPid(
+      winners.map((w) => ({
+        party_eci_code: w.party_eci_code,
+        party_short: w.party_short,
+        party_id: partyIdFor(w),
+      })),
+    ),
+  );
+  const hidden_pids = $derived(hiddenPidSet(hidden_parties, key_to_pid));
+
+  // Per-AC override map (keyed by eci_no): muted-party cells recede.
+  // The base Winner|Margin shim above already paints non-muted cells;
+  // these overrides ONLY recede when a party is muted.
+  const ac_fills_override = $derived.by<Record<number, string>>(() => {
+    const out: Record<number, string> = {};
+    if (body !== "ac") return out;
+    for (const w of winners) {
+      const pid = partyIdFor(w);
+      if (hidden_pids.has(pid)) {
+        out[w.eci_no] = "#cbd5e1"; // slate-300 recede
+      }
+    }
+    return out;
+  });
+  const ac_opacities_override = $derived.by<Record<number, number>>(() => {
+    const out: Record<number, number> = {};
+    if (body !== "ac") return out;
+    for (const w of winners) {
+      const pid = partyIdFor(w);
+      if (hidden_pids.has(pid)) {
+        out[w.eci_no] = 0.18;
+      }
+    }
+    return out;
+  });
+
+  // Per-PC override map (keyed by unique_id): muted-party recede + the
+  // Winner|Margin shim's margin-grey for non-muted PCs when color_mode
+  // is "margin".
+  const pc_fills_override = $derived.by<Record<string, string>>(() => {
+    const out: Record<string, string> = {};
+    for (const w of pc_winners) {
+      if (hidden_pids.has(w.party_id)) {
+        out[w.unique_id] = "#cbd5e1";
+      } else if (color_mode === "margin") {
+        out[w.unique_id] = marginGrey(w.margin_pct);
+      }
+    }
+    return out;
+  });
+  const pc_opacities_override = $derived.by<Record<string, number>>(() => {
+    const out: Record<string, number> = {};
+    for (const w of pc_winners) {
+      if (hidden_pids.has(w.party_id)) {
+        out[w.unique_id] = 0.18;
+      }
+    }
+    return out;
+  });
+
+  // ---- TODO/20260612 Row E: AC Map | Equal seats toggle --------------
+  // Lifted from ElectionMap.svelte (same loader, same buildTileRows
+  // path). Only mounted on assembly events with a per-state AC tile
+  // layout; PC events skip the toggle entirely (no per-state PC tile
+  // layouts authored).
+  const TILE_AC_DELIM_YEAR = 2008;
+  type AcView = "map" | "hex";
+  let ac_view = $state<AcView>("map");
+  let has_ac_equal_seats = $state<boolean | null>(null);
+  $effect(() => {
+    const sc = state_code;
+    if (!sc || body !== "ac") {
+      has_ac_equal_seats = false;
+      return;
+    }
+    fetchElectionTileScopes()
+      .then((doc) => {
+        if (state_code !== sc) return;
+        has_ac_equal_seats = hasLayoutForScope(doc, {
+          layout_kind: "ac",
+          scope: sc,
+          delim_year: TILE_AC_DELIM_YEAR,
+        });
+      })
+      .catch(() => {
+        if (state_code === sc) has_ac_equal_seats = false;
+      });
+  });
+
+  let ac_tile_layout = $state<TileLayoutRow[] | null>(null);
+  let ac_tile_layout_error = $state(false);
+  let ac_tile_layout_requested = false;
+  $effect(() => {
+    if (
+      ac_view !== "hex" ||
+      ac_tile_layout_requested ||
+      has_ac_equal_seats === false ||
+      !state_code
+    )
+      return;
+    const sc = state_code;
+    ac_tile_layout_requested = true;
+    fetchElectionTileLayouts()
+      .then((doc) => {
+        if (state_code !== sc) return;
+        ac_tile_layout = selectLayout(doc, {
+          layout_kind: "ac",
+          scope: sc,
+          delim_year: TILE_AC_DELIM_YEAR,
+        });
+      })
+      .catch(() => {
+        if (state_code === sc) ac_tile_layout_error = true;
+      });
+  });
+
+  const ac_hex_winners = $derived<TileWinnerInput[]>(
+    body !== "ac" || !state_code
+      ? []
+      : winners.map((w) => ({
+          unit_id: `IN-${state_code}-AC-${TILE_AC_DELIM_YEAR}-${w.eci_no}`,
+          party_key: w.party_eci_code,
+          party_short: w.party_short ?? "UNK",
+          margin_pct: w.margin_pct,
+          party_id: partyIdFor(w),
+          brand_colour_hex: w.brand_colour_hex,
+          brand_colour_confidence: w.brand_colour_confidence,
+        })),
+  );
+
+  const ac_raw_tile_rows = $derived<TileRow[]>(
+    ac_tile_layout == null
+      ? []
+      : buildTileRows(ac_tile_layout, ac_hex_winners),
+  );
+
+  // Re-skin hex tiles for Margin-mode greyscale + party-mute recede -
+  // same shape as ElectionMap. The unit_id ends in `...-<eci_no>` so
+  // we recover eci_no via the trailing segment.
+  const ac_tile_rows = $derived<TileRow[]>(
+    ac_raw_tile_rows.map((t) => {
+      if (t.pending) return t;
+      const eci_no = Number(t.unit_id.split("-").pop());
+      const muted =
+        t.winner_party_id != null && hidden_pids.has(t.winner_party_id);
+      if (muted) return { ...t, fill: "#cbd5e1", opacity: 0.18 };
+      if (color_mode === "margin") {
+        return { ...t, fill: marginGrey(t.margin_pct ?? null) };
+      }
+      if (Number.isFinite(eci_no) && ac_fills_override[eci_no]) {
+        return { ...t, fill: ac_fills_override[eci_no] };
+      }
+      return t;
+    }),
+  );
+
+  function onAcTileSelect(unit_id: string): void {
+    const eci_no = Number(unit_id.split("-").pop());
+    if (!Number.isFinite(eci_no) || !state_code || !event_row) return;
+    const seat = winners.find((w) => w.eci_no === eci_no);
+    if (!seat) return;
+    const pc_slug = slugify(seat.entity_name);
+    navigate(
+      `/${params.state}/elections/${encodeURIComponent(event_row.event_id)}/${pc_slug}`,
+    );
+  }
+
   // ---- Constituency table rows (sorted by entity_name) ---------------
   interface SeatRow {
     entity_id: string;
@@ -659,8 +891,133 @@
         </div>
       {/if}
 
-      <!-- State choropleth (assembly only; PC events don't have an AC map) -->
+      <!-- TODO/20260612 Rows D + E + F: state choropleth.
+           AC events: Winner|Margin sub-toggle + Map | Equal seats arm
+                       toggle (latter only when the state has a
+                       persisted AC tile layout) + party-mute via
+                       PartyBar click.
+           PC events: StatePcMapD3 + Winner|Margin sub-toggle + party-
+                       mute. No Equal-seats arm (per-state PC tile
+                       layouts have not been authored yet; surfaced
+                       inline below the map). -->
       {#if body === "ac" && state_code && STATE_AC[state_code]}
+        <section
+          class="space-y-2"
+          data-testid="state-event-map"
+        >
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h2 class="text-sm font-medium text-slate-700">
+              Constituencies
+            </h2>
+            <div class="flex flex-wrap items-center gap-2">
+              <div
+                class="inline-flex rounded border border-slate-200 bg-white p-0.5 text-xs"
+                data-testid="state-event-map-mode"
+              >
+                <button
+                  type="button"
+                  class={color_mode === "winner"
+                    ? "rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-800"
+                    : "px-2 py-0.5 text-slate-500"}
+                  data-testid="state-event-map-mode-winner"
+                  onclick={() => (color_mode = "winner")}
+                >Winner</button>
+                <button
+                  type="button"
+                  class={color_mode === "margin"
+                    ? "rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-800"
+                    : "px-2 py-0.5 text-slate-500"}
+                  data-testid="state-event-map-mode-margin"
+                  onclick={() => (color_mode = "margin")}
+                >Margin</button>
+              </div>
+              {#if has_ac_equal_seats === true}
+                <div
+                  class="inline-flex rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-sm"
+                  data-testid="state-event-map-view"
+                >
+                  <button
+                    type="button"
+                    class="rounded-md px-3 py-1 transition-colors {ac_view === 'map'
+                      ? 'bg-white font-medium text-slate-900 shadow-sm'
+                      : 'text-slate-500 hover:text-slate-700'}"
+                    data-view="map"
+                    onclick={() => (ac_view = "map")}
+                  >Map</button>
+                  <button
+                    type="button"
+                    class="rounded-md px-3 py-1 transition-colors {ac_view === 'hex'
+                      ? 'bg-white font-medium text-slate-900 shadow-sm'
+                      : 'text-slate-500 hover:text-slate-700'}"
+                    data-view="hex"
+                    onclick={() => (ac_view = "hex")}
+                  >Equal seats</button>
+                </div>
+              {/if}
+            </div>
+          </div>
+          {#if ac_view === "map"}
+            <div data-testid="state-event-map-geo">
+              <StateAcMapD3
+                state={state_code}
+                rows={ac_winners_shim}
+                event={ev.event_id}
+                height="420px"
+                fillsOverride={ac_fills_override}
+                opacitiesOverride={ac_opacities_override}
+              />
+            </div>
+          {:else}
+            <div data-testid="state-event-map-hex">
+              {#if ac_tile_layout_error}
+                <div
+                  class="rounded border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800"
+                >
+                  Equal-seats layout couldn't load.
+                </div>
+              {:else if ac_tile_layout == null}
+                <p class="p-4 text-sm text-slate-500">
+                  Loading equal-seats layout...
+                </p>
+              {:else}
+                <TileCartogram
+                  tiles={ac_tile_rows}
+                  height="420px"
+                  onSelect={onAcTileSelect}
+                />
+              {/if}
+            </div>
+          {/if}
+          <p class="text-xs text-slate-500">
+            {color_mode === "winner"
+              ? "Each constituency is filled with the winning party's colour."
+              : "Each constituency is shaded by winning margin (darker = larger margin)."}
+          </p>
+          {#if ac_view === "map"}
+            <!-- TODO/20260612 Row C: sub-threshold marker legend - the
+                 StateAcMapD3 component overlays circular markers for ACs
+                 whose bbox is too small to render as a polygon at this
+                 zoom. Without this caption citizens read the circles as
+                 an unexplained second symbology. -->
+            <p
+              class="text-[11px] text-slate-500"
+              data-testid="state-ac-map-legend"
+            >
+              Circles mark dense urban constituencies whose polygon is too
+              small to render at this zoom.
+            </p>
+          {/if}
+        </section>
+      {:else if body === "pc" && state_code}
+        <!-- TODO/20260612 Row D: PC choropleth via StatePcMapD3,
+             filtering the national PC topojson by `state_ut_code ===
+             state_code`. Replaces the "Constituency map being
+             prepared" placeholder card from PR #954.
+
+             No "Equal seats" arm: per-state PC tile layouts have not
+             been authored (only national PC + per-state AC layouts
+             exist today). The note below directs the citizen to the
+             national surface for the hex view. -->
         <section
           class="space-y-2"
           data-testid="state-event-map"
@@ -691,67 +1048,69 @@
               >Margin</button>
             </div>
           </div>
-          <StateAcMapD3
+          <StatePcMapD3
             state={state_code}
-            rows={ac_winners_shim}
+            state_slug={params.state}
+            rows={pc_winners}
             event={ev.event_id}
             height="420px"
+            fillsOverride={pc_fills_override}
+            opacitiesOverride={pc_opacities_override}
           />
           <p class="text-xs text-slate-500">
             {color_mode === "winner"
               ? "Each constituency is filled with the winning party's colour."
               : "Each constituency is shaded by winning margin (darker = larger margin)."}
           </p>
-          <!-- TODO/20260612 Row C: sub-threshold marker legend - the
-               StateAcMapD3 component overlays circular markers for ACs
-               whose bbox is too small to render as a polygon at this
-               zoom. Without this caption citizens read the circles as
-               an unexplained second symbology. -->
           <p
             class="text-[11px] text-slate-500"
-            data-testid="state-ac-map-legend"
+            data-testid="state-pc-map-legend"
           >
             Circles mark dense urban constituencies whose polygon is too
-            small to render at this zoom.
-          </p>
-        </section>
-      {:else if body === "pc"}
-        <!-- TODO/20260612 Row C: PC map placeholder. The country PC
-             topojson (delim=2024) exists but the per-state PC choropleth
-             integration is Hans+Max-owned follow-up work. Until then
-             this card explains why no map renders for Parliament events
-             so the page doesn't silently degrade. -->
-        <section
-          class="rounded border border-slate-200 bg-slate-50 p-4"
-          data-testid="state-event-pc-map-placeholder"
-        >
-          <h2 class="text-sm font-medium text-slate-700">
-            Constituency map
-          </h2>
-          <p class="mt-1 text-xs text-slate-500">
-            The Parliament constituency (PC) map for {state_name} is
-            being prepared. Per-state PC boundary integration lands in a
-            follow-up plan.
+            small to render at this zoom. Equal-seats view available on
+            the
+            <a
+              class="text-sky-700 hover:underline"
+              href={`/t/elections/${encodeURIComponent(ev.event_id)}`}
+            >national {ev.event_id} surface</a>.
           </p>
         </section>
       {/if}
 
       <!-- Top parties (TODO/20260612 Row D: reuses PartyBar; vote-share +
-           seats + optional alliance tag) -->
+           seats + optional alliance tag. Row F: click-to-mute via
+           hidden_parties + reset button when N > 0; mute recedes
+           matching cells on the AC + PC maps via the override path. -->
       <section
         class="space-y-2"
         data-testid="state-event-top-parties"
       >
-        <h2 class="text-sm font-medium text-slate-700">
-          Top parties by seats
-        </h2>
+        <div class="flex items-baseline justify-between gap-2 flex-wrap">
+          <h2 class="text-sm font-medium text-slate-700">
+            Top parties by seats
+          </h2>
+          {#if hidden_parties.size > 0}
+            <button
+              type="button"
+              class="text-xs text-sky-700 hover:underline"
+              data-testid="state-event-top-parties-reset"
+              onclick={() => (hidden_parties = new Set())}
+            >Show all ({hidden_parties.size} muted)</button>
+          {/if}
+        </div>
         {#if top_parties.length === 0}
           <p class="text-xs text-slate-500">No party totals yet.</p>
         {:else}
           <PartyBar
             parties={top_parties}
             total_seats={kpis.total_seats}
+            {hidden_parties}
+            onToggleHidden={toggleHidden}
           />
+          <p class="text-[11px] text-slate-500">
+            Click a party row to mute it; muted parties recede on the
+            map. Vote totals don't recompute.
+          </p>
         {/if}
       </section>
 
