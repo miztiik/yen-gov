@@ -333,6 +333,10 @@ describe("maxElectors", () => {
       turnout_pct: 50,
       margin_pct: 5,
       electors: 12345,
+      // TODO/20260612 Row B contract: ScatterDatum now requires the
+      // margin_votes field (drives the radius encoding). The maxElectors
+      // helper ignores it, but the type-check needs it populated.
+      margin_votes: 250,
       winner_party_id: "parties.IN.BJP",
       winner_party_short: "BJP",
       reservation: "GEN",
