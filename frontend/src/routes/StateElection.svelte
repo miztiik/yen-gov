@@ -54,6 +54,7 @@
     type ElectionResultRow,
   } from "../lib/view-models/election-results";
   import type { LoaderResult } from "../lib/loader-result";
+  import { pickEventPanelState } from "../lib/view-models/election-result-panel";
   import {
     getPartyColor,
     resolvePartyPalette,
@@ -168,6 +169,16 @@
     result.status === "partial" ||
       (result.status === "ok" && winners.length === 0),
   );
+  // Panel-state machine: differentiate loader-in-flight from
+  // empty-after-ok so the KPI strip / top-parties / table do not
+  // render misleading "Seats 0 / No constituency rows yet" during
+  // the ~5-second DuckDB-WASM cold-load window. See doc comment on
+  // pickEventPanelState for the four-arm contract. PR
+  // fix/state-parl-seats-0-loader (2026-06-12).
+  const panel_state = $derived(
+    pickEventPanelState(result, winners.length),
+  );
+  const loading = $derived(panel_state === "loading");
 
   // ---- KPIs ------------------------------------------------------------
   interface Kpis {
@@ -887,8 +898,11 @@
           <div class="text-xs uppercase tracking-wide text-slate-500">
             Seats
           </div>
-          <div class="mt-1 text-2xl font-semibold text-slate-900">
-            {fmtInt(kpis.total_seats)}
+          <div
+            class="mt-1 text-2xl font-semibold text-slate-900"
+            data-testid="state-event-kpi-seats"
+          >
+            {loading ? "-" : fmtInt(kpis.total_seats)}
           </div>
         </div>
         <div class="rounded border border-slate-200 bg-white p-3">
@@ -1161,7 +1175,12 @@
             >Show all ({hidden_parties.size} muted)</button>
           {/if}
         </div>
-        {#if top_parties.length === 0}
+        {#if loading}
+          <p
+            class="text-xs text-slate-500"
+            data-testid="state-event-top-parties-loading"
+          >Loading top parties...</p>
+        {:else if top_parties.length === 0}
           <p class="text-xs text-slate-500">No party totals yet.</p>
         {:else}
           <PartyBar
@@ -1204,9 +1223,14 @@
         data-testid="state-event-constituency-table"
       >
         <h2 class="text-sm font-medium text-slate-700">
-          Constituencies ({fmtInt(seat_rows.length)})
+          Constituencies ({loading ? "-" : fmtInt(seat_rows.length)})
         </h2>
-        {#if seat_rows.length === 0}
+        {#if loading}
+          <p
+            class="text-xs text-slate-500"
+            data-testid="state-event-constituency-table-loading"
+          >Loading constituency results...</p>
+        {:else if seat_rows.length === 0}
           <p class="text-xs text-slate-500">No constituency rows yet.</p>
         {:else}
           <div class="overflow-x-auto">
