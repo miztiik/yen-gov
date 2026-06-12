@@ -1,0 +1,544 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-PC-1976-andaman-and-nicobar-islands-1,andaman-and-nicobar-islands,1999,ANDAMAN & NICOBAR ISLANDS,247384,145791,58.93,Bishnu Pada Ray,parties.IN.BJP,BJP,76891,52.74,Manoranjan Bhakta,parties.IN.INC,INC,62944,13947,9.57,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-1,andhra-pradesh,1999,SRIKAKULAM,985232,658100,66.8,Yerrannaidu Kinjarapu,parties.IN.TDP,TDP,373851,56.81,Kanithi Viswanadaham,parties.IN.INC,INC,276969,96882,14.72,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-10,andhra-pradesh,1999,NARASAPUR,1020409,704453,69.04,Uppalapati Venkata Krishnam Raju,parties.IN.BJP,BJP,421099,59.78,Kanumuru Bapiraju,parties.IN.INC,INC,255151,165948,23.56,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-11,andhra-pradesh,1999,ELURU,1147205,834469,72.74,Bolla Bulli Ramaiah,parties.IN.TDP,TDP,435884,52.23,Maganti Venkateswara Rao (Babu),parties.IN.INC,INC,373653,62231,7.45,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-12,andhra-pradesh,1999,MACHILIPATNAM,1006429,711867,70.73,Ambati Brahmanaiah,parties.IN.TDP,TDP,387533,54.44,Kavuru Sambasiva Rao,parties.IN.INC,INC,304537,82996,11.66,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-13,andhra-pradesh,1999,VIJAYAWADA,1384393,929476,67.14,Gadde Rama Mohan,parties.IN.TDP,TDP,482968,51.96,Upendra Parvathaneni,parties.IN.INC,INC,395902,87066,9.37,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-14,andhra-pradesh,1999,TENALI,960447,645601,67.22,Ummareddy Venkateswarlu,parties.IN.TDP,TDP,339800,52.63,P.Shiv Shanker,parties.IN.INC,INC,266771,73029,11.31,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-15,andhra-pradesh,1999,GUNTUR,1239626,781254,63.02,Yemparala Venkateswararao,parties.IN.TDP,TDP,399065,51.08,Rayapati Sambasiva Rao,parties.IN.INC,INC,358735,40330,5.16,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-16,andhra-pradesh,1999,BAPATLA,1077815,715681,66.4,D. Rama Naidu,parties.IN.TDP,TDP,399596,55.83,Jesudasu Seelam,parties.IN.INC,INC,307139,92457,12.91,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-17,andhra-pradesh,1999,NARASARAOPET,1262560,859857,68.1,Janardhanareddy Nedurumalli,parties.IN.INC,INC,432266,50.27,Lal Janbasha S.M,parties.IN.TDP,TDP,418384,13882,1.61,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-18,andhra-pradesh,1999,ONGOLE,1190279,776640,65.25,Karanam Balarama Krishna Murthy,parties.IN.TDP,TDP,392840,50.58,Sreenivasulu Reddy Magunta,parties.IN.INC,INC,370892,21948,2.82,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-19,andhra-pradesh,1999,NELLORE,1165144,769832,66.07,Rajeswaramma Vukkala,parties.IN.TDP,TDP,381166,49.51,Panabaka  Lakshmi,parties.IN.INC,INC,340713,40453,5.25,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-2,andhra-pradesh,1999,PARVATHIPURAM,911609,613641,67.31,Dadichiluka Veera Gouri Sankara Rao,parties.IN.TDP,TDP,304000,49.54,Kishore Chandra Suryanarayana Deo Vyricherla,parties.IN.INC,INC,290719,13281,2.16,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-20,andhra-pradesh,1999,TIRUPATHI,1199710,790437,65.89,Dr.N.Venkataswamy,parties.IN.BJP,BJP,386478,48.89,Chintha Mohan,parties.IN.INC,INC,373981,12497,1.58,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-21,andhra-pradesh,1999,CHITTOOR,1140219,835406,73.27,Noothana Kalva Ramakrishna Reddy,parties.IN.TDP,TDP,419208,50.18,R.Gopinath,parties.IN.INC,INC,400570,18638,2.23,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-22,andhra-pradesh,1999,RAJAMPET,946311,660558,69.8,Gunipati Ramaiah,parties.IN.TDP,TDP,322107,48.76,Annaiahgari Saiprathap,parties.IN.INC,INC,294937,27170,4.11,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-23,andhra-pradesh,1999,CUDDAPAH,1090670,722854,66.28,Vivekananda Reddy  Y.S.,parties.IN.INC,INC,367833,50.89,Kandula Rajamohan Reddy,parties.IN.TDP,TDP,341236,26597,3.68,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-24,andhra-pradesh,1999,HINDUPUR,1151606,769054,66.78,B.K. Parthasarathi,parties.IN.TDP,TDP,432575,56.25,S. Gangadhar,parties.IN.INC,INC,297939,134636,17.51,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-25,andhra-pradesh,1999,ANANTAPUR,1226314,752838,61.39,Kalava Srinivasulu,parties.IN.TDP,TDP,378488,50.27,Anantha Venkata Rami Reddy,parties.IN.INC,INC,357386,21102,2.8,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-26,andhra-pradesh,1999,KURNOOL,1163375,752286,64.66,Kambhalapati E. Krishna Murthy,parties.IN.TDP,TDP,385688,51.27,Kotla Vijaya Bhaskara Reddy,parties.IN.INC,INC,361201,24487,3.26,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-27,andhra-pradesh,1999,NANDYAL,1116553,729632,65.35,Bhuma  Nagi Reddy,parties.IN.TDP,TDP,391655,53.68,Gangula Prathapa Reddy,parties.IN.INC,INC,319046,72609,9.95,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-28,andhra-pradesh,1999,NAGARKURNOOL,1212569,811672,66.94,Dr.Manda Jagannath,parties.IN.TDP,TDP,431095,53.11,Dr.Mallu Ravi,parties.IN.INC,INC,364195,66900,8.24,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-29,andhra-pradesh,1999,MAHABUBNAGAR,1249455,791720,63.37,A.P.Jitender Reddy,parties.IN.BJP,BJP,391588,49.46,Dr.Mallikarjun,parties.IN.INC,INC,340693,50895,6.43,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-3,andhra-pradesh,1999,BOBBILI,949773,694150,73.09,Botcha Satyanarayana,parties.IN.INC,INC,339768,48.95,Aruna Padala,parties.IN.TDP,TDP,335947,3821,0.55,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-30,andhra-pradesh,1999,HYDERABAD,1567225,1083678,69.15,Sultan Salahuddin Owaisi,parties.IN.AIMIM,AIMIM,448165,41.36,Baddam Bal Reddy,parties.IN.BJP,BJP,387344,60821,5.62,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-31,andhra-pradesh,1999,SECUNDERABAD,1770024,970791,54.85,Bandaru Dattatraya,parties.IN.BJP,BJP,506626,52.19,Nadendla Bhaskara Rao,parties.IN.INC,INC,409000,97626,10.06,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-32,andhra-pradesh,1999,SIDDIPET,1622094,1042532,64.27,M. Rajaiah,parties.IN.TDP,TDP,583346,55.95,Yellaiah Nandi,parties.IN.INC,INC,429625,153721,14.74,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-33,andhra-pradesh,1999,MEDAK,1219960,830380,68.07,A. Narendra,parties.IN.BJP,BJP,400244,48.2,M. Baga Reddy,parties.IN.INC,INC,378161,22083,2.66,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-34,andhra-pradesh,1999,NIZAMABAD,1129947,753900,66.72,Ganga Reddy Gaddam,parties.IN.TDP,TDP,373260,49.51,S.Santosh Reddy,parties.IN.INC,INC,369824,3436,0.46,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-35,andhra-pradesh,1999,ADILABAD,1094868,743602,67.92,Dr. S. Venugopal Chary,parties.IN.TDP,TDP,390308,52.49,Mohd. Sultan Ahmad,parties.IN.INC,INC,280585,109723,14.76,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-36,andhra-pradesh,1999,PEDDAPALLI,1330759,860574,64.67,Dr.Smt.C. Suguna Kumari,parties.IN.TDP,TDP,406529,47.24,G.Venkat Swamy,parties.IN.INC,INC,390640,15889,1.85,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-37,andhra-pradesh,1999,KARIMNAGAR,1259045,801273,63.64,Chennamaneni Vidyasagar Rao,parties.IN.BJP,BJP,398437,49.73,Anand Rao Chelimeda,parties.IN.INC,INC,379067,19370,2.42,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-38,andhra-pradesh,1999,HANAMKONDA,1118951,727832,65.05,Chada Suresh Reddy,parties.IN.TDP,TDP,375285,51.56,M.Kamaluddin Ahmed,parties.IN.INC,INC,289504,85781,11.78,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-39,andhra-pradesh,1999,WARANGAL,1132718,831989,73.45,Bodakunti Venkateshwarlu,parties.IN.TDP,TDP,385593,46.35,Dr. T. Kalpanadevi,parties.IN.INC,INC,372227,13366,1.61,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-4,andhra-pradesh,1999,VISAKHAPATNAM,1420606,884861,62.29,M.V.V.S.Murthy,parties.IN.TDP,TDP,442036,49.96,T.Subbarami Reddy,parties.IN.INC,INC,403117,38919,4.4,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-40,andhra-pradesh,1999,KHAMMAM,1228365,916571,74.62,Renuka Chowdhury,parties.IN.INC,INC,328596,35.85,Baby Swarna Kumari Maddineni,parties.IN.TDP,TDP,320198,8398,0.92,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-41,andhra-pradesh,1999,NALGONDA,1417182,950587,67.08,Gutha Sukender Reddy,parties.IN.TDP,TDP,427505,44.97,Kanukula Janardhan Reddy,parties.IN.INC,INC,347770,79735,8.39,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-42,andhra-pradesh,1999,MIRYALGUDA,1206229,909820,75.43,Jaipal Reddy Sudini,parties.IN.INC,INC,401437,44.12,Rangashai Reddy Yadevelli,parties.IN.TDP,TDP,349360,52077,5.72,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-5,andhra-pradesh,1999,BHADRACHALAM,1085536,728556,67.11,Dumpa Mary Vijaya Kumari,parties.IN.TDP,TDP,293593,40.3,T.Ratnabai,parties.IN.INC,INC,256490,37103,5.09,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-6,andhra-pradesh,1999,ANAKAPALLI,1035708,744984,71.93,Ganta Srinivasa Rao,parties.IN.TDP,TDP,392984,52.75,Gurunadha Rao Gudivada,parties.IN.INC,INC,334520,58464,7.85,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-7,andhra-pradesh,1999,KAKINADA,1171987,812541,69.33,Mudragada Padmanabham,parties.IN.TDP,TDP,435811,53.64,Thota Subbarao,parties.IN.INC,INC,314376,121435,14.95,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-8,andhra-pradesh,1999,RAJAHMUNDRY,1137225,796286,70.02,Satyanarayana Rao S.B.P.B.K,parties.IN.BJP,BJP,411956,51.73,Chitturi Ravindra,parties.IN.INC,INC,351925,60031,7.53,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-9,andhra-pradesh,1999,AMALAPURAM,908257,663249,73.02,Ganti Mohanachandra Balayogi,parties.IN.TDP,TDP,368476,55.56,Gollapalli Suryarao,parties.IN.INC,INC,249597,118879,17.93,src-31c65dbec869
+IN-PC-1976-arunachal-pradesh-1,arunachal-pradesh,1999,ARUNACHAL WEST,346126,235319,67.99,Jarbom Gamlin,parties.IN.INC,INC,131483,55.87,Omak Apang,parties.IN.AC,AC,70760,60723,25.8,src-31c65dbec869
+IN-PC-1976-arunachal-pradesh-2,arunachal-pradesh,1999,ARUNACHAL EAST,265446,190344,71.71,Wangcha Rajkumar,parties.IN.INC,INC,110792,58.21,Tapir Gao,parties.IN.BJP,BJP,69389,41403,21.76,src-31c65dbec869
+IN-PC-1976-assam-1,assam,1999,KARIMGANJ,943163,679706,72.07,Nepal Chandra Das,parties.IN.INC,INC,336799,49.55,Parimal Suklabaidya,parties.IN.BJP,BJP,294540,42259,6.22,src-31c65dbec869
+IN-PC-1976-assam-10,assam,1999,NOWGONG,1113339,761698,68.42,Rajen Gohain,parties.IN.BJP,BJP,328861,43.17,Nripen Goswami,parties.IN.INC,INC,293433,35428,4.65,src-31c65dbec869
+IN-PC-1976-assam-11,assam,1999,KALIABOR,1111536,758710,68.26,Tarun Gogoi,parties.IN.INC,INC,373542,49.23,Keshab Mahanta,parties.IN.AGP,AGP,206150,167392,22.06,src-31c65dbec869
+IN-PC-1976-assam-12,assam,1999,JORHAT,1003470,630744,62.86,Bijoy Krishna Handique,parties.IN.INC,INC,304690,48.31,Janaki Nath Handique,parties.IN.BJP,BJP,205330,99360,15.76,src-31c65dbec869
+IN-PC-1976-assam-13,assam,1999,DIBRUGARH,945785,557674,58.96,Paban Singh Ghatowar,parties.IN.INC,INC,270863,48.57,Ajit  Chaliha,parties.IN.BJP,BJP,203747,67116,12.03,src-31c65dbec869
+IN-PC-1976-assam-14,assam,1999,LAKHIMPUR,1060744,743823,70.12,Ranee Narah,parties.IN.INC,INC,255925,34.41,Sarbananda Sonowal,parties.IN.AGP,AGP,201402,54523,7.33,src-31c65dbec869
+IN-PC-1976-assam-2,assam,1999,SILCHAR,827760,592867,71.62,Sontosh Mohan Dev,parties.IN.INC,INC,329256,55.54,Kabindra Purkayastha,parties.IN.BJP,BJP,221504,107752,18.18,src-31c65dbec869
+IN-PC-1976-assam-3,assam,1999,AUTONOMOUS DISTRICT,535818,386800,72.19,Dr Jayanta Rongpi,parties.IN.CPIMLL,CPI(ML)(L),208789,53.98,Biren Singh Engti,parties.IN.INC,INC,148914,59875,15.48,src-31c65dbec869
+IN-PC-1976-assam-4,assam,1999,DHUBRI,1050547,809069,77.01,Abdul Hamid,parties.IN.INC,INC,279812,34.58,Dr Pannalal Oswal,parties.IN.BJP,BJP,258472,21340,2.63,src-31c65dbec869
+IN-PC-1976-assam-5,assam,1999,KOKRAJHAR,1168480,890015,76.17,Sansuma Khunggur Bwismuthiary,parties.IN.IND,IND,334367,37.57,Theodore Kisku Rapaz,parties.IN.UNK,URMCA,246942,87425,9.82,src-31c65dbec869
+IN-PC-1976-assam-6,assam,1999,BARPETA,1023625,754333,73.69,A F Golam Osmani,parties.IN.INC,INC,325838,43.2,Ramani Kanta Deka,parties.IN.BJP,BJP,236476,89362,11.85,src-31c65dbec869
+IN-PC-1976-assam-7,assam,1999,GAUHATI,1354869,837428,61.81,Bijoya Chakravarty,parties.IN.BJP,BJP,384771,45.95,Bhubaneswar Kalita,parties.IN.INC,INC,309533,75238,8.99,src-31c65dbec869
+IN-PC-1976-assam-8,assam,1999,MANGALDOI,1180131,832398,70.53,Madhab Rajbangshi,parties.IN.INC,INC,283749,34.09,Munindra Singha Lahkar,parties.IN.BJP,BJP,267315,16434,1.98,src-31c65dbec869
+IN-PC-1976-assam-9,assam,1999,TEZPUR,971406,677202,69.71,Moni Kumar Subba,parties.IN.INC,INC,230884,34.09,Ram Prasad Sarmah,parties.IN.BJP,BJP,205178,25706,3.79,src-31c65dbec869
+IN-PC-1976-bihar-1,bihar,1999,BAGAHA,1028588,570270,55.44,Mahendra Baitha,parties.IN.JDU,JD(U),261498,45.86,Purnamasi Ram,parties.IN.RJD,RJD,206747,54751,9.61,src-31c65dbec869
+IN-PC-1976-bihar-10,bihar,1999,MUZAFFARPUR,1067836,719527,67.38,Captain Jai Na. Pd. Nishad,parties.IN.JDU,JD(U),363820,50.56,Mahendra Sahni,parties.IN.RJD,RJD,303100,60720,8.44,src-31c65dbec869
+IN-PC-1976-bihar-11,bihar,1999,SITAMARHI,1126989,742752,65.91,Nawal Kishore Rai,parties.IN.JDU,JD(U),410557,55.28,Suryadeo Rai,parties.IN.RJD,RJD,309300,101257,13.64,src-31c65dbec869
+IN-PC-1976-bihar-12,bihar,1999,SHEOHAR,1083123,715936,66.1,Md Anwarul Haque,parties.IN.RJD,RJD,347279,48.51,Anand Mohan,parties.IN.BPSP,BPSP,344744,2535,0.36,src-31c65dbec869
+IN-PC-1976-bihar-13,bihar,1999,MADHUBANI,1101089,706948,64.2,Hukumdeo Narayan Yadav,parties.IN.BJP,BJP,328616,46.48,Dr Shakil Ahmad,parties.IN.INC,INC,266001,62615,8.85,src-31c65dbec869
+IN-PC-1976-bihar-14,bihar,1999,JHANJHARPUR,1053943,674416,63.99,Devendra Prasad Yadav,parties.IN.JDU,JD(U),375852,55.73,Surendra Prasad Yadav,parties.IN.RJD,RJD,248038,127814,18.95,src-31c65dbec869
+IN-PC-1976-bihar-15,bihar,1999,DARBHANGA,1043388,758291,72.68,Kirti Azad,parties.IN.BJP,BJP,395549,52.16,Md Ali Ashraf Fatmi,parties.IN.RJD,RJD,340001,55548,7.32,src-31c65dbec869
+IN-PC-1976-bihar-16,bihar,1999,ROSERA,1077267,723714,67.18,Ram Chandra Paswan,parties.IN.JDU,JD(U),420564,58.11,Pitamber Paswan,parties.IN.RJD,RJD,277648,142916,19.75,src-31c65dbec869
+IN-PC-1976-bihar-17,bihar,1999,SAMASTIPUR,1219110,791038,64.89,Manjay Lal,parties.IN.JDU,JD(U),368776,46.62,Ashok Singh,parties.IN.RJD,RJD,356088,12688,1.6,src-31c65dbec869
+IN-PC-1976-bihar-18,bihar,1999,BARH,1081353,750668,69.42,Nitish Kumar,parties.IN.JDU,JD(U),362016,48.23,Vijay Krishna,parties.IN.RJD,RJD,360681,1335,0.18,src-31c65dbec869
+IN-PC-1976-bihar-19,bihar,1999,BALIA,996579,499385,50.11,Ramjivan Singh,parties.IN.JDU,JD(U),169443,33.93,Ashok Kumar,parties.IN.RJD,RJD,157411,12032,2.41,src-31c65dbec869
+IN-PC-1976-bihar-2,bihar,1999,BETTIAH,1098637,689040,62.72,Dr Madan Prasad Jaiswal,parties.IN.BJP,BJP,343027,49.78,Mataur Rahman,parties.IN.RJD,RJD,303377,39650,5.75,src-31c65dbec869
+IN-PC-1976-bihar-20,bihar,1999,SAHARSA,1142103,721597,63.18,Dinesh Chandra Yadav,parties.IN.JDU,JD(U),392926,54.45,Surya Narayan Yadav,parties.IN.RJD,RJD,298433,94493,13.09,src-31c65dbec869
+IN-PC-1976-bihar-21,bihar,1999,MADHEPURA,997210,648473,65.03,Sharad Yadav,parties.IN.JDU,JD(U),328761,50.7,Lalu Prasad,parties.IN.RJD,RJD,298441,30320,4.68,src-31c65dbec869
+IN-PC-1976-bihar-22,bihar,1999,ARARIA,1043070,638646,61.23,Sukdeo Paswan,parties.IN.RJD,RJD,308579,48.32,Parmanand Rishidev,parties.IN.BJP,BJP,306410,2169,0.34,src-31c65dbec869
+IN-PC-1976-bihar-23,bihar,1999,KISHANGANJ,1129430,717635,63.54,Syed Shahnawaz Hussain,parties.IN.BJP,BJP,258035,35.96,Taslimuddin,parties.IN.RJD,RJD,249387,8648,1.21,src-31c65dbec869
+IN-PC-1976-bihar-24,bihar,1999,PURNEA,1085356,693718,63.92,Rajesh Ranjan,parties.IN.IND,IND,438193,63.17,Jay Krishna Mandal,parties.IN.BJP,BJP,185627,252566,36.41,src-31c65dbec869
+IN-PC-1976-bihar-25,bihar,1999,KATIHAR,1039500,639558,61.53,Nikhil Kumar Choudhary,parties.IN.BJP,BJP,280911,43.92,Tariq Anwar,parties.IN.NCP,NCP,144059,136852,21.4,src-31c65dbec869
+IN-PC-1976-bihar-26,bihar,1999,RAJMAHAL,950593,560248,58.94,Thomas Hansda,parties.IN.INC,INC,250298,44.68,Som Marandi,parties.IN.BJP,BJP,188199,62099,11.09,src-31c65dbec869
+IN-PC-1976-bihar-27,bihar,1999,DUMKA,951280,545500,57.34,Babu Lal Marandi,parties.IN.BJP,BJP,201141,36.87,Rupi Soren Kisku,parties.IN.JMM,JMM,196493,4648,0.85,src-31c65dbec869
+IN-PC-1976-bihar-28,bihar,1999,GODDA,1087573,633556,58.25,Jagdambi Prasad Yadav,parties.IN.BJP,BJP,221191,34.91,Suraj Mandal,parties.IN.JMM,JMM,141299,79892,12.61,src-31c65dbec869
+IN-PC-1976-bihar-29,bihar,1999,BANKA,1064049,626293,58.86,Digvijay Singh,parties.IN.JDU,JD(U),233453,37.28,Giridhari Yadav,parties.IN.IND,IND,212045,21408,3.42,src-31c65dbec869
+IN-PC-1976-bihar-3,bihar,1999,MOTIHARI,1112639,677062,60.85,Radha Mohan Singh,parties.IN.BJP,BJP,338696,50.02,Rama Devi,parties.IN.RJD,RJD,317026,21670,3.2,src-31c65dbec869
+IN-PC-1976-bihar-30,bihar,1999,BHAGALPUR,1232833,669871,54.34,Subodh Ray,parties.IN.CPIM,CPM,321159,47.94,Prabhash Chandra Tiwari,parties.IN.BJP,BJP,275619,45540,6.79,src-31c65dbec869
+IN-PC-1976-bihar-31,bihar,1999,KHAGARIA,1044431,662439,63.43,Renu Kumari,parties.IN.JDU,JD(U),293412,44.29,Nayana Rana,parties.IN.RJD,RJD,261590,31822,4.8,src-31c65dbec869
+IN-PC-1976-bihar-32,bihar,1999,MONGHYR,1147663,705278,61.45,Brahma Nand Mandal,parties.IN.JDU,JD(U),346615,49.15,Bijoy Kumar  Bijoy,parties.IN.RJD,RJD,324800,21815,3.1,src-31c65dbec869
+IN-PC-1976-bihar-33,bihar,1999,BEGUSARAI,1110888,635267,57.19,Rajo Singh,parties.IN.INC,INC,318244,50.1,Shyam Sundar Singh,parties.IN.JDU,JD(U),298294,19950,3.14,src-31c65dbec869
+IN-PC-1976-bihar-34,bihar,1999,NALANDA,1180008,871579,73.86,George Fernandes,parties.IN.JDU,JD(U),464458,53.29,Gaya Singh,parties.IN.CPI,CPI,358637,105821,12.14,src-31c65dbec869
+IN-PC-1976-bihar-35,bihar,1999,PATNA,1470372,802107,54.55,C P Thakur,parties.IN.BJP,BJP,379370,47.3,Ram Kripal Yadav,parties.IN.RJD,RJD,332478,46892,5.85,src-31c65dbec869
+IN-PC-1976-bihar-36,bihar,1999,ARRAH,1121825,681789,60.77,Ram Prasad Singh,parties.IN.RJD,RJD,264140,38.74,H P Singh,parties.IN.JDU,JD(U),171858,92282,13.53,src-31c65dbec869
+IN-PC-1976-bihar-37,bihar,1999,BUXAR,1029419,602749,58.55,Lal Muni Choubey,parties.IN.BJP,BJP,235968,39.15,Shivanand Tiwary,parties.IN.RJD,RJD,224362,11606,1.93,src-31c65dbec869
+IN-PC-1976-bihar-38,bihar,1999,SASARAM,1144324,653315,57.09,Muni Lall,parties.IN.BJP,BJP,257223,39.37,Ram Keshi Bharati,parties.IN.RJD,RJD,238547,18676,2.86,src-31c65dbec869
+IN-PC-1976-bihar-39,bihar,1999,BIKRAMGANJ,1128738,734918,65.11,Kanti Singh,parties.IN.RJD,RJD,346259,47.12,Vashisht  Narayan Singh,parties.IN.JDU,JD(U),311491,34768,4.74,src-31c65dbec869
+IN-PC-1976-bihar-4,bihar,1999,GOPALGANJ,1176915,741844,63.03,Raghunath Jha,parties.IN.JDU,JD(U),365107,49.22,Kali Prasad Pandey,parties.IN.RJD,RJD,328983,36124,4.87,src-31c65dbec869
+IN-PC-1976-bihar-40,bihar,1999,AURANGABAD,1091472,674623,61.81,Shyama Singh,parties.IN.INC,INC,317418,47.05,Sushil Kumar Singh,parties.IN.JDU,JD(U),247002,70416,10.44,src-31c65dbec869
+IN-PC-1976-bihar-41,bihar,1999,JAHANABAD,1105202,775282,70.15,Arun Kumar,parties.IN.JDU,JD(U),333332,42.99,Surendra Prasad Yadav,parties.IN.RJD,RJD,316045,17287,2.22,src-31c65dbec869
+IN-PC-1976-bihar-42,bihar,1999,NAWADA,1173989,850352,72.43,Sanjay Paswan,parties.IN.BJP,BJP,453943,53.38,Vijay Kumar Choudhary,parties.IN.RJD,RJD,369858,84085,9.89,src-31c65dbec869
+IN-PC-1976-bihar-43,bihar,1999,GAYA,1056530,636450,60.24,Ramji Manjhi,parties.IN.BJP,BJP,319530,50.21,Rajesh Kumar,parties.IN.RJD,RJD,298747,20783,3.27,src-31c65dbec869
+IN-PC-1976-bihar-44,bihar,1999,CHATRA,1015184,416769,41.05,Nagmani,parties.IN.RJD,RJD,219783,52.73,Dhirendra Agrawal,parties.IN.BJP,BJP,164684,55099,13.22,src-31c65dbec869
+IN-PC-1976-bihar-45,bihar,1999,KODARMA,1137548,594997,52.31,Tilakdhari Pd Singh,parties.IN.INC,INC,273808,46.02,Ritlal Prasad Verma,parties.IN.BJP,BJP,263630,10178,1.71,src-31c65dbec869
+IN-PC-1976-bihar-46,bihar,1999,GIRIDIH,1115417,532036,47.7,Ravindra Kumar Pandey,parties.IN.BJP,BJP,248454,46.7,Rajendra Prasad Singh,parties.IN.INC,INC,228630,19824,3.73,src-31c65dbec869
+IN-PC-1976-bihar-47,bihar,1999,DHANBAD,1433645,761461,53.11,Rita Verma,parties.IN.BJP,BJP,366065,48.07,A K Roy,parties.IN.MCO,MCO,351839,14226,1.86,src-31c65dbec869
+IN-PC-1976-bihar-48,bihar,1999,HAZARIBAGH,1213735,591881,48.77,Yashwant Sinha,parties.IN.BJP,BJP,283956,47.98,Akalu Ram Mahto,parties.IN.RJD,RJD,101314,182642,30.86,src-31c65dbec869
+IN-PC-1976-bihar-49,bihar,1999,RANCHI,1131760,577090,50.99,Ram Tahal Choudhary,parties.IN.BJP,BJP,379261,65.72,K K Tewari,parties.IN.INC,INC,138084,241177,41.79,src-31c65dbec869
+IN-PC-1976-bihar-5,bihar,1999,SIWAN,989004,702293,71.01,M  Sahabuddin,parties.IN.RJD,RJD,385069,54.83,Amar Nath Yadav,parties.IN.CPIMLL,CPI(ML)(L),255229,129840,18.49,src-31c65dbec869
+IN-PC-1976-bihar-50,bihar,1999,JAMSHEDPUR,1160562,628228,54.13,Abha Mahato,parties.IN.BJP,BJP,285232,45.4,Ghanashyam Mahato,parties.IN.INC,INC,163744,121488,19.34,src-31c65dbec869
+IN-PC-1976-bihar-51,bihar,1999,SINGHBHUM,846629,471500,55.69,Laxman Gilua,parties.IN.BJP,BJP,231237,49.04,Vijay Singh Soy,parties.IN.INC,INC,148926,82311,17.45,src-31c65dbec869
+IN-PC-1976-bihar-52,bihar,1999,KHUNTI,832168,404838,48.65,Kariya Munda,parties.IN.BJP,BJP,187484,46.31,Sushila Kerketta,parties.IN.INC,INC,161222,26262,6.49,src-31c65dbec869
+IN-PC-1976-bihar-53,bihar,1999,LOHARDAGA,938658,363514,38.73,Dukha Bhagat,parties.IN.BJP,BJP,163658,45.02,Indra Nath Bhagat,parties.IN.INC,INC,159835,3823,1.05,src-31c65dbec869
+IN-PC-1976-bihar-54,bihar,1999,PALAMAU,1080153,508960,47.12,Braj Mohan Ram,parties.IN.BJP,BJP,271657,53.37,Jorawar Ram,parties.IN.RJD,RJD,186532,85125,16.72,src-31c65dbec869
+IN-PC-1976-bihar-6,bihar,1999,MAHARAJGANJ,981566,697300,71.04,Prabhunath Singh,parties.IN.JDU,JD(U),398475,57.15,Mahachandra Prasad Singh,parties.IN.INC,INC,294412,104063,14.93,src-31c65dbec869
+IN-PC-1976-bihar-7,bihar,1999,CHAPRA,1003426,770075,76.74,Rajiv Pratap Rudi,parties.IN.BJP,BJP,390477,50.71,Hira Lal Rai,parties.IN.RJD,RJD,346924,43553,5.66,src-31c65dbec869
+IN-PC-1976-bihar-8,bihar,1999,HAJIPUR,1064323,779601,73.25,Ram Vilas Paswan,parties.IN.JDU,JD(U),434609,55.75,Ramai Ram,parties.IN.RJD,RJD,329105,105504,13.54,src-31c65dbec869
+IN-PC-1976-bihar-9,bihar,1999,VAISHALI,1049006,709752,67.66,Raghuvansh Prasad Singh,parties.IN.RJD,RJD,308458,43.46,Lovely Anand,parties.IN.BPSP,BPSP,263066,45392,6.4,src-31c65dbec869
+IN-PC-1976-chandigarh-1,chandigarh,1999,CHANDIGARH,585006,282816,48.34,Pawan Kumar Bansal,parties.IN.INC,INC,132924,47,Krishan Lal Sharma,parties.IN.BJP,BJP,127475,5449,1.93,src-31c65dbec869
+IN-PC-1976-dadra-and-nagar-haveli-1,dadra-and-nagar-haveli,1999,DADRA & NAGAR HAVELI,98376,71905,73.09,Delkar Mohanbhai Sanjibhai,parties.IN.IND,IND,29853,41.52,Bhurkud Dilipbhai Navjibhai,parties.IN.BJP,BJP,14975,14878,20.69,src-31c65dbec869
+IN-PC-1976-daman-and-diu-1,daman-and-diu,1999,DAMAN AND DIU,72216,50800,70.34,Patel Dahyabhai Vallabhbhai,parties.IN.INC,INC,25136,49.48,Tandel Devjibhai Jogibhai,parties.IN.BJP,BJP,21910,3226,6.35,src-31c65dbec869
+IN-PC-1976-delhi-1,delhi,1999,NEW DELHI,543037,226758,41.76,Jag Mohan,parties.IN.BJP,BJP,124626,54.96,R.K.Dhawan,parties.IN.INC,INC,96733,27893,12.3,src-31c65dbec869
+IN-PC-1976-delhi-2,delhi,1999,SOUTH DELHI,1194198,499937,41.86,Vijay Kumar Malhotra,parties.IN.BJP,BJP,261230,52.25,Dr. Manmohan Singh,parties.IN.INC,INC,231231,29999,6,src-31c65dbec869
+IN-PC-1976-delhi-3,delhi,1999,OUTER DELHI,3103525,1287487,41.48,Sahib Singh Verma,parties.IN.BJP,BJP,709692,55.12,Deep Chand Sharma,parties.IN.INC,INC,507220,202472,15.72,src-31c65dbec869
+IN-PC-1976-delhi-4,delhi,1999,EAST DELHI,2393813,1038275,43.37,Lal Bihari Tiwari,parties.IN.BJP,BJP,521434,50.22,Avm H.L.Kapur,parties.IN.INC,INC,438674,82760,7.97,src-31c65dbec869
+IN-PC-1976-delhi-5,delhi,1999,CHANDNI CHOWK,376654,204453,54.28,Vijay Goel,parties.IN.BJP,BJP,74001,36.19,Jai Prakash Agarwal,parties.IN.INC,INC,72006,1995,0.97,src-31c65dbec869
+IN-PC-1976-delhi-6,delhi,1999,DELHI SADAR,529646,278285,52.54,Madan Lal Khurana,parties.IN.BJP,BJP,143186,51.45,Jagdish Tytler,parties.IN.INC,INC,129316,13870,4.98,src-31c65dbec869
+IN-PC-1976-delhi-7,delhi,1999,KAROL BAGH,571657,258293,45.18,Anita Arya,parties.IN.BJP,BJP,128956,49.93,Meira Kumar,parties.IN.INC,INC,116502,12454,4.83,src-31c65dbec869
+IN-PC-1976-goa-1,goa,1999,PANAJI,413641,190985,46.17,Shripad Yasso Naik,parties.IN.BJP,BJP,104958,54.96,Khalap Ramakant,parties.IN.INC,INC,68237,36721,19.23,src-31c65dbec869
+IN-PC-1976-goa-2,goa,1999,MORMUGAO,495208,218809,44.19,Angle Ramakant Soiru,parties.IN.BJP,BJP,106064,48.47,Alemao Joaquim Braz,parties.IN.INC,INC,91607,14457,6.6,src-31c65dbec869
+IN-PC-1976-gujarat-1,gujarat,1999,KUTCH,872937,383764,43.96,Gadhvi Pushpadan Sambhudan,parties.IN.BJP,BJP,191533,49.91,Babubhai Meghji Shah,parties.IN.INC,INC,187218,4315,1.13,src-31c65dbec869
+IN-PC-1976-gujarat-10,gujarat,1999,AHMEDABAD,1320165,527737,39.98,Harin Pathak,parties.IN.BJP,BJP,280696,53.19,Girish Popatlal Dani    (Girish Dani),parties.IN.INC,INC,227728,52968,10.04,src-31c65dbec869
+IN-PC-1976-gujarat-11,gujarat,1999,GANDHINAGAR,1833844,741260,40.42,Lal Krishna Advani (L K Advani),parties.IN.BJP,BJP,453229,61.14,T N Seshan,parties.IN.INC,INC,264285,188944,25.49,src-31c65dbec869
+IN-PC-1976-gujarat-12,gujarat,1999,MEHSANA,1104439,628636,56.92,Patel Atmaram Maganbhai,parties.IN.INC,INC,340445,54.16,Dr A K Patel,parties.IN.BJP,BJP,284710,55735,8.87,src-31c65dbec869
+IN-PC-1976-gujarat-13,gujarat,1999,PATAN,1003829,479027,47.72,Rashtrapal Pravinchandra Somabhai,parties.IN.INC,INC,246798,51.52,Kanodia Maheshkumar  Mithabhai,parties.IN.BJP,BJP,229671,17127,3.57,src-31c65dbec869
+IN-PC-1976-gujarat-14,gujarat,1999,BANASKANTHA,1106766,593248,53.6,Chaudhary Haribhai Parthibhai,parties.IN.BJP,BJP,308313,51.97,B K Gadhvi,parties.IN.INC,INC,282337,25976,4.38,src-31c65dbec869
+IN-PC-1976-gujarat-15,gujarat,1999,SABARKANTHA,1119855,661161,59.04,Nisha Amarsinh Chaudhary,parties.IN.INC,INC,334565,50.6,Patel Kanubhai Ravjibhai,parties.IN.BJP,BJP,320189,14376,2.17,src-31c65dbec869
+IN-PC-1976-gujarat-16,gujarat,1999,KAPADVANJ,1124201,664576,59.12,Vaghela Shankarsinh Laxmansinh,parties.IN.INC,INC,413193,62.17,Chauhan Jaysinhji Manshingji,parties.IN.BJP,BJP,247812,165381,24.88,src-31c65dbec869
+IN-PC-1976-gujarat-17,gujarat,1999,DOHAD,1028979,463502,45.04,Katara Babubhai Khimabhai,parties.IN.BJP,BJP,232288,50.12,Somjibhai Damor,parties.IN.INC,INC,219857,12431,2.69,src-31c65dbec869
+IN-PC-1976-gujarat-18,gujarat,1999,GODHRA,1020262,473144,46.37,Solanki Bhupendrasinh Prabhatsinh,parties.IN.BJP,BJP,280684,59.32,Patel Shantilal Parshotamdas,parties.IN.INC,INC,185662,95022,20.08,src-31c65dbec869
+IN-PC-1976-gujarat-19,gujarat,1999,KAIRA,1054781,485304,46.01,Dinsha Patel,parties.IN.INC,INC,258024,53.17,Chauhan Prabhatsinh Hathisinh,parties.IN.BJP,BJP,224307,33717,6.95,src-31c65dbec869
+IN-PC-1976-gujarat-2,gujarat,1999,SURENDRANAGAR,970544,468954,48.32,Makwana Savshibhai Kanjibhai,parties.IN.INC,INC,244368,52.11,Dave Bhavnaben Kardamkumar,parties.IN.BJP,BJP,218463,25905,5.52,src-31c65dbec869
+IN-PC-1976-gujarat-20,gujarat,1999,ANAND,1047272,548033,52.33,Patel Dipakbhai Chimanbhai   (Sathi),parties.IN.BJP,BJP,273683,49.94,Chavda Ishvarbhai Khodabhai,parties.IN.INC,INC,270022,3661,0.67,src-31c65dbec869
+IN-PC-1976-gujarat-21,gujarat,1999,CHHOTA UDAIPUR,962525,510280,53.01,Ramsinh Rathawa,parties.IN.BJP,BJP,248970,48.79,Naranbhai Rathawa,parties.IN.INC,INC,247772,1198,0.23,src-31c65dbec869
+IN-PC-1976-gujarat-22,gujarat,1999,BARODA,1438964,585026,40.66,Jayaben Thakkar,parties.IN.BJP,BJP,322758,55.17,Dr Urmilaben Chimanbhai Patel,parties.IN.INC,INC,230109,92649,15.84,src-31c65dbec869
+IN-PC-1976-gujarat-23,gujarat,1999,BROACH,1096772,581035,52.98,Mansukhbhai Vasava,parties.IN.BJP,BJP,290195,49.94,Amarsinh Ramsinh Vasava,parties.IN.INC,INC,243055,47140,8.11,src-31c65dbec869
+IN-PC-1976-gujarat-24,gujarat,1999,SURAT,1950958,615730,31.56,Kashiram Rana,parties.IN.BJP,BJP,423773,68.82,Rupin Rameshchandra Patchigar,parties.IN.INC,INC,174576,249197,40.47,src-31c65dbec869
+IN-PC-1976-gujarat-25,gujarat,1999,MANDVI,1063704,600610,56.46,Patel Mansinhbhai Kalyanji,parties.IN.BJP,BJP,320172,53.31,Gamit Chhitubhai Devjibhai,parties.IN.INC,INC,263341,56831,9.46,src-31c65dbec869
+IN-PC-1976-gujarat-26,gujarat,1999,BULSAR,1151087,582106,50.57,Manibhai Ramjibhai Chaudhari,parties.IN.BJP,BJP,300195,51.57,Uttambhai Harjibhai Patel,parties.IN.INC,INC,273409,26786,4.6,src-31c65dbec869
+IN-PC-1976-gujarat-3,gujarat,1999,JAMNAGAR,958418,352700,36.8,Koradiya Chandreshbhai Valjibhai (Chandresh Patel),parties.IN.BJP,BJP,190726,54.08,Patel Raghavji Hansrajbhai,parties.IN.INC,INC,154957,35769,10.15,src-31c65dbec869
+IN-PC-1976-gujarat-4,gujarat,1999,RAJKOT,1379914,546230,39.58,Dr Kathiriya Vallabhbhai Ramjibhai,parties.IN.BJP,BJP,312941,57.29,Radadiya Vithalbhai Hansarajbhai,parties.IN.INC,INC,226194,86747,15.88,src-31c65dbec869
+IN-PC-1976-gujarat-5,gujarat,1999,PORBANDAR,894299,325856,36.44,Javiya Gordhanbhai Jadavbhai,parties.IN.BJP,BJP,210627,64.64,Manvar Balvantbhai Bachubhai,parties.IN.INC,INC,109267,101360,31.11,src-31c65dbec869
+IN-PC-1976-gujarat-6,gujarat,1999,JUNAGADH,1079568,492253,45.6,Chikhaliya Bhavnaben Devrajbhai,parties.IN.BJP,BJP,266809,54.2,Chavda Pethaljibhai Nathabhai,parties.IN.INC,INC,219961,46848,9.52,src-31c65dbec869
+IN-PC-1976-gujarat-7,gujarat,1999,AMRELI,874521,407488,46.6,Dileep Sanghani,parties.IN.BJP,BJP,217670,53.42,Virjibhai Thummar,parties.IN.INC,INC,181346,36324,8.92,src-31c65dbec869
+IN-PC-1976-gujarat-8,gujarat,1999,BHAVNAGAR,1023921,435165,42.5,Rana Rajendrasinh Ghanshyamsinh (Rajubhai Rana),parties.IN.BJP,BJP,265446,61,Gohil Dilipsinh Ajitsinh (Dilipsinh Gohil),parties.IN.INC,INC,164093,101353,23.29,src-31c65dbec869
+IN-PC-1976-gujarat-9,gujarat,1999,DHANDHUKA,1029877,462197,44.88,Varma Ratilal Kalidas,parties.IN.BJP,BJP,229754,49.71,Manubhai Parmar,parties.IN.INC,INC,224531,5223,1.13,src-31c65dbec869
+IN-PC-1976-haryana-1,haryana,1999,AMBALA,1091846,692337,63.41,Rattan Lal Kataria,parties.IN.BJP,BJP,357460,51.63,Phool Chand Mullana,parties.IN.INC,INC,232982,124478,17.98,src-31c65dbec869
+IN-PC-1976-haryana-10,haryana,1999,SIRSA,1100439,635428,57.74,Dr. Sushil Kumar Indora,parties.IN.INLD,INLD,419278,65.98,Om Parkash,parties.IN.INC,INC,199552,219726,34.58,src-31c65dbec869
+IN-PC-1976-haryana-2,haryana,1999,KURUKSHETRA,1073147,723757,67.44,Prof Kailasho Devi,parties.IN.INLD,INLD,438701,60.61,Om Parkash Jindal,parties.IN.INC,INC,275091,163610,22.6,src-31c65dbec869
+IN-PC-1976-haryana-3,haryana,1999,KARNAL,1131448,771101,68.15,I.D. Swami,parties.IN.BJP,BJP,433733,56.25,Bhajan Lal,parties.IN.INC,INC,285879,147854,19.18,src-31c65dbec869
+IN-PC-1976-haryana-4,haryana,1999,SONEPAT,1057175,654509,61.91,Kishan Singh Sangwan,parties.IN.BJP,BJP,457056,69.83,Chiranji Lal,parties.IN.INC,INC,190918,266138,40.66,src-31c65dbec869
+IN-PC-1976-haryana-5,haryana,1999,ROHTAK,938878,633373,67.46,Inder Singh,parties.IN.INLD,INLD,366926,57.93,Bhupinder Singh,parties.IN.INC,INC,222233,144693,22.84,src-31c65dbec869
+IN-PC-1976-haryana-6,haryana,1999,FARIDABAD,1330157,745484,56.04,Ram Chander Bainda,parties.IN.BJP,BJP,367842,49.34,Zakir Hussain,parties.IN.INC,INC,333594,34248,4.59,src-31c65dbec869
+IN-PC-1976-haryana-7,haryana,1999,MAHENDRAGARH,1236918,744706,60.21,Dr. Sudha Yadav,parties.IN.BJP,BJP,420706,56.49,Inderjit Singh,parties.IN.INC,INC,281566,139140,18.68,src-31c65dbec869
+IN-PC-1976-haryana-8,haryana,1999,BHIWANI,1053603,733042,69.57,Ajay Singh Chautala,parties.IN.INLD,INLD,381255,52.01,Dharambir,parties.IN.INC,INC,177849,203406,27.75,src-31c65dbec869
+IN-PC-1976-haryana-9,haryana,1999,HISSAR,1025344,639302,62.35,Surender Singh Barwala,parties.IN.INLD,INLD,396540,62.03,Birender Singh,parties.IN.INC,INC,236088,160452,25.1,src-31c65dbec869
+IN-PC-1976-himachal-pradesh-1,himachal-pradesh,1999,SIMLA,945063,500164,52.92,Lt. Col. Dhani Ram Shandil,parties.IN.UNK,HVC,264002,52.78,Gangu Ram Musafir,parties.IN.INC,INC,217072,46930,9.38,src-31c65dbec869
+IN-PC-1976-himachal-pradesh-2,himachal-pradesh,1999,MANDI,968826,525240,54.21,Maheshwar Singh,parties.IN.BJP,BJP,325929,62.05,Kaul Singh,parties.IN.INC,INC,194904,131025,24.94,src-31c65dbec869
+IN-PC-1976-himachal-pradesh-3,himachal-pradesh,1999,KANGRA,935090,552860,59.12,Shanta Kumar,parties.IN.BJP,BJP,325066,58.8,Sat Mahajan,parties.IN.INC,INC,224324,100742,18.22,src-31c65dbec869
+IN-PC-1976-himachal-pradesh-4,himachal-pradesh,1999,HAMIRPUR,937500,555440,59.25,Suresh Chandel,parties.IN.BJP,BJP,336172,60.52,Thakur Ram Lal,parties.IN.INC,INC,206925,129247,23.27,src-31c65dbec869
+IN-PC-1976-jammu-and-kashmir-1,jammu-and-kashmir,1999,BARAMULLA,763639,191735,25.11,Abdul Rashid Shaheen,parties.IN.JKNC,JKN,84243,43.94,Muzaffar Hussain Baig,parties.IN.IND,IND,48130,36113,18.84,src-31c65dbec869
+IN-PC-1976-jammu-and-kashmir-2,jammu-and-kashmir,1999,SRINAGAR,854081,96984,11.36,Omer Abdullah,parties.IN.JKNC,JKN,55542,57.27,Mebooba Mufti,parties.IN.IND,IND,18683,36859,38.01,src-31c65dbec869
+IN-PC-1976-jammu-and-kashmir-3,jammu-and-kashmir,1999,ANANTNAG,804911,102877,12.78,Ali Mohd Naik,parties.IN.JKNC,JKN,38745,37.66,Mufti Mohmad Syeed,parties.IN.IND,IND,25253,13492,13.11,src-31c65dbec869
+IN-PC-1976-jammu-and-kashmir-4,jammu-and-kashmir,1999,LADAKH,143719,115860,80.62,Hassan Khan,parties.IN.JKNC,JKN,52187,45.04,Thupstan Chhewang,parties.IN.INC,INC,50097,2090,1.8,src-31c65dbec869
+IN-PC-1976-jammu-and-kashmir-5,jammu-and-kashmir,1999,UDHAMPUR,1016952,397187,39.06,Prof. Chaman Lal Gupta,parties.IN.BJP,BJP,194678,49.01,Jagjiwan Lal,parties.IN.JKNC,JKN,76371,118307,29.78,src-31c65dbec869
+IN-PC-1976-jammu-and-kashmir-6,jammu-and-kashmir,1999,JAMMU,1446792,665921,46.03,Vishno Datt Sharma,parties.IN.BJP,BJP,289412,43.46,Rajinder Singh Chib,parties.IN.JKNC,JKN,147393,142019,21.33,src-31c65dbec869
+IN-PC-1976-karnataka-1,karnataka,1999,BIDAR,1200598,729679,60.78,Ramchandra Veerappa,parties.IN.BJP,BJP,350221,48,Narasingarao Suryawanshi,parties.IN.INC,INC,198188,152033,20.84,src-31c65dbec869
+IN-PC-1976-karnataka-10,karnataka,1999,KOLAR,1145553,815758,71.21,K.H. Muniyappa,parties.IN.INC,INC,321964,39.47,G. Mangamma,parties.IN.BJP,BJP,239182,82782,10.15,src-31c65dbec869
+IN-PC-1976-karnataka-11,karnataka,1999,KANAKAPURA,2110629,1233825,58.46,M.V.Chandrashekara Murthy,parties.IN.INC,INC,532910,43.19,M. Srinivas,parties.IN.BJP,BJP,498893,34017,2.76,src-31c65dbec869
+IN-PC-1976-karnataka-12,karnataka,1999,BANGALORE NORTH,1827941,1028358,56.26,C.K Jaffar Sharief,parties.IN.INC,INC,525523,51.1,Michael B.Fernandes,parties.IN.JDU,JD(U),349918,175605,17.07,src-31c65dbec869
+IN-PC-1976-karnataka-13,karnataka,1999,BANGALORE SOUTH,1487215,804342,54.08,Ananth Kumar,parties.IN.BJP,BJP,410161,50.99,B.K.Hari Prasad,parties.IN.INC,INC,344107,66054,8.21,src-31c65dbec869
+IN-PC-1976-karnataka-14,karnataka,1999,MANDYA,1099732,800594,72.8,Ambareesh @ Amaranatha .M.H,parties.IN.INC,INC,418110,52.22,Krishna,parties.IN.JDS,JD(S),265930,152180,19,src-31c65dbec869
+IN-PC-1976-karnataka-15,karnataka,1999,CHAMARAJANAGAR,1101851,767545,69.66,V.Sreenivasaprasad,parties.IN.JDU,JD(U),311547,40.59,A.Siddaraju,parties.IN.INC,INC,295401,16146,2.1,src-31c65dbec869
+IN-PC-1976-karnataka-16,karnataka,1999,MYSORE,1302736,899475,69.05,Srikantadatta Narasimharaja Wadiyar,parties.IN.INC,INC,338051,37.58,C.H.Vijayashankar,parties.IN.BJP,BJP,324620,13431,1.49,src-31c65dbec869
+IN-PC-1976-karnataka-17,karnataka,1999,MANGALORE,1002419,719583,71.78,V.Dhananjaya Kumar,parties.IN.BJP,BJP,353536,49.13,M.Veerappa Moily,parties.IN.INC,INC,345067,8469,1.18,src-31c65dbec869
+IN-PC-1976-karnataka-18,karnataka,1999,UDUPI,1023798,684881,66.9,Vinay Kumar Sorake,parties.IN.INC,INC,352326,51.44,I.M. Jayaram Shetty,parties.IN.BJP,BJP,320739,31587,4.61,src-31c65dbec869
+IN-PC-1976-karnataka-19,karnataka,1999,HASSAN,1217049,858626,70.55,G.Putta Swamy Gowda,parties.IN.INC,INC,398344,46.39,H.D.Deve Gowda,parties.IN.JDS,JD(S),256587,141757,16.51,src-31c65dbec869
+IN-PC-1976-karnataka-2,karnataka,1999,GULBARGA,1280563,740243,57.81,Iqbal Ahemed Saradgi,parties.IN.INC,INC,352359,47.6,Basavaraj Patil Sedam,parties.IN.BJP,BJP,282522,69837,9.43,src-31c65dbec869
+IN-PC-1976-karnataka-20,karnataka,1999,CHIKMAGALUR,1050838,714803,68.02,D.C.Srikantappa,parties.IN.BJP,BJP,324470,45.39,D.M.Putte Gowda,parties.IN.INC,INC,294193,30277,4.23,src-31c65dbec869
+IN-PC-1976-karnataka-21,karnataka,1999,SHIMOGA,1133307,807043,71.21,S.Bangarappa,parties.IN.INC,INC,427870,53.02,Ayanur Manjunatha,parties.IN.BJP,BJP,332832,95038,11.78,src-31c65dbec869
+IN-PC-1976-karnataka-22,karnataka,1999,KANARA,1101130,744534,67.62,Alva Margaret,parties.IN.INC,INC,356246,47.85,Anant kumar,parties.IN.BJP,BJP,345655,10591,1.42,src-31c65dbec869
+IN-PC-1976-karnataka-23,karnataka,1999,DHARWAD SOUTH,1088328,768791,70.64,Prof. I.G. Sanadi,parties.IN.INC,INC,355523,46.24,B.M.Menasinkai,parties.IN.JDU,JD(U),316325,39198,5.09,src-31c65dbec869
+IN-PC-1976-karnataka-24,karnataka,1999,DHARWAD NORTH,1121461,719939,64.2,Vijay Sankeshwar,parties.IN.BJP,BJP,345197,47.95,Veeranna A.Mattikatti,parties.IN.INC,INC,303595,41602,5.78,src-31c65dbec869
+IN-PC-1976-karnataka-25,karnataka,1999,BELGAUM,1230574,781767,63.53,Amarsinh Vasantarao Patil,parties.IN.INC,INC,383444,49.05,Babagouda Patil,parties.IN.BJP,BJP,333546,49898,6.38,src-31c65dbec869
+IN-PC-1976-karnataka-26,karnataka,1999,CHIKKODI,1094053,743378,67.95,Jigajinagi Rameshchandappa,parties.IN.JDU,JD(U),392450,52.79,Kanagali Pradeepkumar Shankaranand,parties.IN.INC,INC,307860,84590,11.38,src-31c65dbec869
+IN-PC-1976-karnataka-27,karnataka,1999,BAGALKOT,1127960,752964,66.75,R.S. Patil,parties.IN.INC,INC,378488,50.27,Ajayakumar Sambasadashiv Sarnaik,parties.IN.JDU,JD(U),302054,76434,10.15,src-31c65dbec869
+IN-PC-1976-karnataka-28,karnataka,1999,BIJAPUR,1182826,714224,60.38,Basangouda Ramangouda Patil(Yatnal),parties.IN.BJP,BJP,348816,48.84,Gudadinni Laxmibai Basagondappa,parties.IN.INC,INC,312177,36639,5.13,src-31c65dbec869
+IN-PC-1976-karnataka-3,karnataka,1999,RAICHUR,1226104,686443,55.99,A. Venkatesh Naik,parties.IN.INC,INC,359946,52.44,Abdul Samad Siddiq,parties.IN.JDU,JD(U),187740,172206,25.09,src-31c65dbec869
+IN-PC-1976-karnataka-4,karnataka,1999,KOPPAL,1243426,760573,61.17,H.G.Ramulu,parties.IN.INC,INC,350599,46.1,Basavaraj Rayareddy,parties.IN.JDU,JD(U),338087,12512,1.65,src-31c65dbec869
+IN-PC-1976-karnataka-5,karnataka,1999,BELLARY,1213055,802055,66.12,Sonia Gandhi,parties.IN.INC,INC,414650,51.7,Sushma Swaraj,parties.IN.BJP,BJP,358550,56100,7,src-31c65dbec869
+IN-PC-1976-karnataka-6,karnataka,1999,DAVANGERE,1217506,850078,69.82,G.Mallikarjunappa,parties.IN.BJP,BJP,398969,46.93,Shamanur Shivashankarappa,parties.IN.INC,INC,382700,16269,1.91,src-31c65dbec869
+IN-PC-1976-karnataka-7,karnataka,1999,CHITRADURGA,1177238,831807,70.66,Shashi Kumar,parties.IN.JDU,JD(U),370793,44.58,C.P.Mudalagiriyappa,parties.IN.INC,INC,359615,11178,1.35,src-31c65dbec869
+IN-PC-1976-karnataka-8,karnataka,1999,TUMKUR,1086936,773846,71.2,G.S.Basavaraj,parties.IN.INC,INC,318922,41.21,S.Mallikarjunaiah,parties.IN.BJP,BJP,254985,63937,8.26,src-31c65dbec869
+IN-PC-1976-karnataka-9,karnataka,1999,CHIKBALLAPUR,1189272,818520,68.83,R.L. Jalappa,parties.IN.INC,INC,422587,51.63,N.Ramesh,parties.IN.JDU,JD(U),211401,211186,25.8,src-31c65dbec869
+IN-PC-1976-kerala-1,kerala,1999,KASARAGOD,1199964,925384,77.12,T. Govindan,parties.IN.CPIM,CPM,423564,45.77,Khader Mangad,parties.IN.INC,INC,391986,31578,3.41,src-31c65dbec869
+IN-PC-1976-kerala-10,kerala,1999,MUKUNDAPURAM,1083445,785578,72.51,K. Karunakaran,parties.IN.INC,INC,397156,50.56,E.M. Sreedharan,parties.IN.CPIM,CPM,344693,52463,6.68,src-31c65dbec869
+IN-PC-1976-kerala-11,kerala,1999,ERNAKULAM,1180911,775950,65.71,Adv. George Eden,parties.IN.INC,INC,394058,50.78,Mani Vithayathil,parties.IN.IND,IND,282753,111305,14.34,src-31c65dbec869
+IN-PC-1976-kerala-12,kerala,1999,MUVATTUPUZHA,1020153,688264,67.47,Adv. P.C. Thomas,parties.IN.KECM,KEC(M),357402,51.93,Adv. P.M. Ismail,parties.IN.CPIM,CPM,280463,76939,11.18,src-31c65dbec869
+IN-PC-1976-kerala-13,kerala,1999,KOTTAYAM,1018385,728325,71.52,Suresh Kurup,parties.IN.CPIM,CPM,344296,47.27,P.C. Chacko,parties.IN.INC,INC,333697,10599,1.45,src-31c65dbec869
+IN-PC-1976-kerala-14,kerala,1999,IDUKKI,1121484,773904,69.01,K. Francis George,parties.IN.KEC,KEC,365313,47.2,Prof. P.J.Kurian,parties.IN.INC,INC,356015,9298,1.2,src-31c65dbec869
+IN-PC-1976-kerala-15,kerala,1999,ALLEPPEY,1033539,788776,76.32,V.M. Sudheeran,parties.IN.INC,INC,392700,49.79,Murali,parties.IN.CPIM,CPM,357606,35094,4.45,src-31c65dbec869
+IN-PC-1976-kerala-16,kerala,1999,MAVELIKARA,936952,663907,70.86,Ramesh Chennithala,parties.IN.INC,INC,310455,46.76,Prof. Ninan Koshy,parties.IN.IND,IND,277012,33443,5.04,src-31c65dbec869
+IN-PC-1976-kerala-17,kerala,1999,ADOOR,1007138,698186,69.32,Kodikunnil Suresh,parties.IN.INC,INC,337003,48.27,Chengara Surendran,parties.IN.CPI,CPI,314997,22006,3.15,src-31c65dbec869
+IN-PC-1976-kerala-18,kerala,1999,QUILON,1088597,735557,67.57,P. Rajendran,parties.IN.CPIM,CPM,351869,47.84,M.P. Gangadharan,parties.IN.INC,INC,332585,19284,2.62,src-31c65dbec869
+IN-PC-1976-kerala-19,kerala,1999,CHIRAYINKIL,1096417,685378,62.51,Varkala Radhakrishnan,parties.IN.CPIM,CPM,309304,45.13,M.I. Shanavas,parties.IN.INC,INC,306176,3128,0.46,src-31c65dbec869
+IN-PC-1976-kerala-2,kerala,1999,CANNANORE,1121192,880180,78.5,A.P. Abdullakkutty,parties.IN.CPIM,CPM,428390,48.67,Mullappally Ramachandran,parties.IN.INC,INC,418143,10247,1.16,src-31c65dbec869
+IN-PC-1976-kerala-20,kerala,1999,TRIVANDRUM,1198918,755941,63.05,Advocate V.S. Sivakumar,parties.IN.INC,INC,288390,38.15,Kaniyapuram Ramachandran,parties.IN.CPI,CPI,273905,14485,1.92,src-31c65dbec869
+IN-PC-1976-kerala-3,kerala,1999,BADAGARA,1155934,857638,74.19,A.K. Premajam,parties.IN.CPIM,CPM,404355,47.15,P.M. Suresh Babu,parties.IN.INC,INC,378511,25844,3.02,src-31c65dbec869
+IN-PC-1976-kerala-4,kerala,1999,CALICUT,1124640,822307,73.12,K. Muraleedharan,parties.IN.INC,INC,383425,46.63,C.M. Ibrahim,parties.IN.JDS,JD(S),333023,50402,6.13,src-31c65dbec869
+IN-PC-1976-kerala-5,kerala,1999,MANJERI,1217888,810166,66.52,E. Ahamed,parties.IN.IUML,MUL,437563,54.01,Adv. I.T. Najeeb,parties.IN.CPIM,CPM,314152,123411,15.23,src-31c65dbec869
+IN-PC-1976-kerala-6,kerala,1999,PONNANI,1146335,688923,60.1,G.M. Banatwalla,parties.IN.IUML,MUL,372572,54.08,P.P. Suneer,parties.IN.CPI,CPI,243094,129478,18.79,src-31c65dbec869
+IN-PC-1976-kerala-7,kerala,1999,PALGHAT,1132416,806543,71.22,N.N.Krishnadas,parties.IN.CPIM,CPM,372536,46.19,M.T. Padma,parties.IN.INC,INC,341769,30767,3.82,src-31c65dbec869
+IN-PC-1976-kerala-8,kerala,1999,OTTAPALAM,1103327,776652,70.39,S. Ajayakumar,parties.IN.CPIM,CPM,359758,46.32,Pandalam Sudhakaran,parties.IN.INC,INC,346043,13715,1.76,src-31c65dbec869
+IN-PC-1976-kerala-9,kerala,1999,TRICHUR,1071266,730417,68.18,A.C. Jose,parties.IN.INC,INC,343793,47.07,V.V. Raghavan,parties.IN.CPI,CPI,332161,11632,1.59,src-31c65dbec869
+IN-PC-1976-lakshadweep-1,lakshadweep,1999,LAKSHADWEEP,37619,29860,79.37,P.M. Sayeed,parties.IN.INC,INC,16113,53.96,Dr. K.P. Muthukoya,parties.IN.JDU,JD(U),12924,3189,10.68,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-1,madhya-pradesh,1999,MORENA,1258860,496736,39.46,Ashok Chhaviram  Argal,parties.IN.BJP,BJP,210790,42.44,Gopal Das,parties.IN.INC,INC,148564,62226,12.53,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-10,madhya-pradesh,1999,SIDHI,1263213,606876,48.04,Chandra Pratap Singh ( Baba Sahab),parties.IN.BJP,BJP,264981,43.66,Tilakraj Singh,parties.IN.INC,INC,260126,4855,0.8,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-11,madhya-pradesh,1999,SHAHDOL,1198264,583816,48.72,Dalpat Singh,parties.IN.BJP,BJP,262229,44.92,Ajit Jogi,parties.IN.INC,INC,242328,19901,3.41,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-12,madhya-pradesh,1999,SURGUJA,1089910,580351,53.25,Khel Sai Singh,parties.IN.INC,INC,297778,51.31,Larang Sai,parties.IN.BJP,BJP,236352,61426,10.58,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-13,madhya-pradesh,1999,RAIGARH,975987,570022,58.4,Vishnudeo Sai,parties.IN.BJP,BJP,276244,48.46,Pushpa Devi Singh,parties.IN.INC,INC,270471,5773,1.01,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-14,madhya-pradesh,1999,JANJGIR,1243772,664373,53.42,Dr. Charandas Mahant,parties.IN.INC,INC,278931,41.98,Dr. Banshilal  Mahto,parties.IN.BJP,BJP,264698,14233,2.14,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-15,madhya-pradesh,1999,BILASPUR,1107061,525808,47.5,Punnulal Mohale,parties.IN.BJP,BJP,274860,52.27,Rameshwar Kosariya,parties.IN.INC,INC,199527,75333,14.32,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-16,madhya-pradesh,1999,SARANGARH,1087904,674884,62.04,P. R. Khute,parties.IN.BJP,BJP,281769,41.75,Parasram Bhardwaj,parties.IN.INC,INC,230010,51759,7.67,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-17,madhya-pradesh,1999,RAIPUR,1177144,660930,56.15,Ramesh Bais,parties.IN.BJP,BJP,354736,53.67,Jugal Kishore Sahu,parties.IN.INC,INC,274676,80060,12.11,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-18,madhya-pradesh,1999,MAHASAMUND,1071547,682047,63.65,Shyama Charan Shukla,parties.IN.INC,INC,340635,49.94,Chandra Shekhar Sahu   \ Champu\,parties.IN.BJP,BJP,325200,15435,2.26,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-19,madhya-pradesh,1999,KANKER,1036799,574090,55.37,Sohan Potai,parties.IN.BJP,BJP,318040,55.4,Chhabila Arvind Netam,parties.IN.INC,INC,229849,88191,15.36,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-2,madhya-pradesh,1999,BHIND,1305016,661420,50.68,Dr. Ramlakhan Singh,parties.IN.BJP,BJP,270766,40.94,Satyadev Katare,parties.IN.INC,INC,217192,53574,8.1,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-20,madhya-pradesh,1999,BASTAR,954405,356603,37.36,Baliram Kashyap,parties.IN.BJP,BJP,155421,43.58,Mahendra Karma,parties.IN.INC,INC,134684,20737,5.81,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-21,madhya-pradesh,1999,DURG,1329978,760714,57.2,Tara Chand Sahu,parties.IN.BJP,BJP,389777,51.24,Pradeep Choubey,parties.IN.INC,INC,345259,44518,5.85,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-22,madhya-pradesh,1999,RAJNANDGAON,1016713,591992,58.23,Dr. Raman,parties.IN.BJP,BJP,304611,51.46,Motilal Vora,parties.IN.INC,INC,277896,26715,4.52,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-23,madhya-pradesh,1999,BALAGHAT,916432,578066,63.08,Prahladsingh Patel,parties.IN.BJP,BJP,251308,43.47,Vishweshwer Bhagat,parties.IN.INC,INC,230630,20678,3.57,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-24,madhya-pradesh,1999,MANDLA,1001537,482338,48.16,Faggan Singh Kulaste,parties.IN.BJP,BJP,232042,48.11,Devendra Tekam,parties.IN.INC,INC,225470,6572,1.36,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-25,madhya-pradesh,1999,JABALPUR,1241478,528526,42.57,Jaishree Banerjee ( Bhabhi Ji),parties.IN.BJP,BJP,300648,56.88,Chandra Mohan,parties.IN.INC,INC,190894,109754,20.76,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-26,madhya-pradesh,1999,SEONI,1115422,586552,52.59,Ram Naresh Tripathi,parties.IN.BJP,BJP,282891,48.23,Vimla Verma,parties.IN.INC,INC,266957,15934,2.72,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-27,madhya-pradesh,1999,CHHINDWARA,1055697,625024,59.2,Kamal Nath,parties.IN.INC,INC,399904,63.98,Santosh Jain,parties.IN.BJP,BJP,210976,188928,30.23,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-28,madhya-pradesh,1999,BETUL,1021086,534072,52.3,Vijay Kumar Khandelwal \ Munni Bhaiya\,parties.IN.BJP,BJP,272512,51.03,Gufran Bhai,parties.IN.INC,INC,208040,64472,12.08,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-29,madhya-pradesh,1999,HOSHANGABAD,1153365,676383,58.64,Sundar Lal Patwa,parties.IN.BJP,BJP,353760,52.3,Rajkumar Patel,parties.IN.INC,INC,309313,44447,6.57,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-3,madhya-pradesh,1999,GWALIOR,1280141,616704,48.17,Jaibhan Singh Pavaiya,parties.IN.BJP,BJP,254486,41.27,Chandra Mohan Nagori,parties.IN.INC,INC,171370,83116,13.48,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-30,madhya-pradesh,1999,BHOPAL,1578355,976493,61.87,Uma Bharti,parties.IN.BJP,BJP,537905,55.09,Suresh Pachori,parties.IN.INC,INC,369041,168864,17.3,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-31,madhya-pradesh,1999,VIDISHA,1171691,647645,55.27,Shivraj Singh,parties.IN.BJP,BJP,360421,55.65,Jasvant Singh,parties.IN.INC,INC,278024,82397,12.72,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-32,madhya-pradesh,1999,RAJGARH,1115072,664162,59.56,Laxman Singh,parties.IN.INC,INC,354234,53.34,Nitish Bhardwaj,parties.IN.BJP,BJP,288541,65693,9.9,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-33,madhya-pradesh,1999,SHAJAPUR,1199025,753559,62.85,Thavarchand Gehlot,parties.IN.BJP,BJP,387607,51.44,Radhakishan Malviya,parties.IN.INC,INC,352941,34666,4.6,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-34,madhya-pradesh,1999,KHANDWA,1110180,620707,55.91,Nandkumarsingh Chouhan ( Nandu Bhaiya ),parties.IN.BJP,BJP,364161,58.67,Tanvant Singh Keer,parties.IN.INC,INC,238058,126103,20.32,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-35,madhya-pradesh,1999,KHARGONE,1156862,685899,59.29,Tarachand Patel,parties.IN.INC,INC,354133,51.63,Balkrishna Bauji Patidar,parties.IN.BJP,BJP,315987,38146,5.56,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-36,madhya-pradesh,1999,DHAR,1157368,682608,58.98,Gajendra Singh Rajukhedi,parties.IN.INC,INC,355482,52.08,Harsh Chouhan,parties.IN.BJP,BJP,321377,34105,5,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-37,madhya-pradesh,1999,INDORE,1478108,825794,55.87,Sumitra Mahajan,parties.IN.BJP,BJP,474167,57.42,Mahesh Joshi,parties.IN.INC,INC,342852,131315,15.9,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-38,madhya-pradesh,1999,UJJAIN,1107836,664097,59.95,Dr. Satyanarayan Jatiya,parties.IN.BJP,BJP,360103,54.22,Tulasiram Silawat,parties.IN.INC,INC,292065,68038,10.24,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-39,madhya-pradesh,1999,JHABUA,1112482,600380,53.97,Kantilal Bhuriya,parties.IN.INC,INC,371842,61.93,Dilipsingh Bhuriya,parties.IN.BJP,BJP,222465,149377,24.88,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-4,madhya-pradesh,1999,GUNA,1280953,679493,53.05,Madhavrao Scindia,parties.IN.INC,INC,443965,65.34,Rao Deshraj Singh Yadav,parties.IN.BJP,BJP,229537,214428,31.56,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-40,madhya-pradesh,1999,MANDSAUR,1243364,745366,59.95,Dr. Lakshaminarayan Pandey,parties.IN.BJP,BJP,395928,53.12,Rajendra Singh Gautam,parties.IN.INC,INC,340443,55485,7.45,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-5,madhya-pradesh,1999,SAGAR,1122464,536853,47.83,Virendra Kumar,parties.IN.BJP,BJP,293357,54.64,Madhavi Chaudhary Advocate,parties.IN.INC,INC,232884,60473,11.26,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-6,madhya-pradesh,1999,KHAJURAHO,1379871,733841,53.18,Satyavrat Chaturvedi ( Vinod Bhaiya ),parties.IN.INC,INC,335861,45.77,Akhand Pratap Singh Yadav,parties.IN.BJP,BJP,254724,81137,11.06,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-7,madhya-pradesh,1999,DAMOH,1240626,563999,45.46,Dr. Ramkrishna Kusmaria,parties.IN.BJP,BJP,246909,43.78,Tilak Singh Lodhi,parties.IN.INC,INC,233190,13719,2.43,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-8,madhya-pradesh,1999,SATNA,1189692,617860,51.93,Ramanand Singh,parties.IN.BJP,BJP,217932,35.27,Rajendra Kumar Singh,parties.IN.INC,INC,214527,3405,0.55,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-9,madhya-pradesh,1999,REWA,1369793,739776,54.01,Sunder Lal Tiwari,parties.IN.INC,INC,275115,37.19,Ramalakhan Singh Patel,parties.IN.BSP,BSP,210964,64151,8.67,src-31c65dbec869
+IN-PC-1976-maharashtra-1,maharashtra,1999,RAJAPUR,790537,433752,54.87,Suresh Prabhakar Prabhu,parties.IN.SHS,SHS,221523,51.07,Prof  Madhu Dandavate,parties.IN.JDS,JD(S),108673,112850,26.02,src-31c65dbec869
+IN-PC-1976-maharashtra-10,maharashtra,1999,THANE,2772750,905683,32.66,Prakash Paranjpe,parties.IN.SHS,SHS,391446,43.22,Nakul Patil,parties.IN.INC,INC,291763,99683,11.01,src-31c65dbec869
+IN-PC-1976-maharashtra-11,maharashtra,1999,DAHANU,1434678,659988,46,Adv Chintaman Wanaga,parties.IN.BJP,BJP,240866,36.5,Shingada Damodar Barku,parties.IN.INC,INC,178596,62270,9.44,src-31c65dbec869
+IN-PC-1976-maharashtra-12,maharashtra,1999,NASHIK,1344755,728772,54.19,Dhikale Uttamrao Nathuji,parties.IN.SHS,SHS,303084,41.59,Patil Madhav Balwant,parties.IN.NCP,NCP,266272,36812,5.05,src-31c65dbec869
+IN-PC-1976-maharashtra-13,maharashtra,1999,MALEGAON,1083181,653567,60.34,Mahale Haribahu Shankar,parties.IN.JDS,JD(S),191643,29.32,Gangurde Babanrao Lahanu,parties.IN.BJP,BJP,187251,4392,0.67,src-31c65dbec869
+IN-PC-1976-maharashtra-14,maharashtra,1999,DHULE,1102845,586271,53.16,Ramdas Rupla Gavit,parties.IN.BJP,BJP,211904,36.14,Chaure Bapu Hari,parties.IN.INC,INC,198919,12985,2.21,src-31c65dbec869
+IN-PC-1976-maharashtra-15,maharashtra,1999,NANDURBAR,1079466,671039,62.16,Gavit Manikrao Hodlya,parties.IN.INC,INC,318338,47.44,Vasave Govind Ramu,parties.IN.NCP,NCP,187567,130771,19.49,src-31c65dbec869
+IN-PC-1976-maharashtra-16,maharashtra,1999,ERANDOL,1082958,628895,58.07,Annasaheb M K Patil,parties.IN.BJP,BJP,297867,47.36,More Vasantrao Jivanrao,parties.IN.NCP,NCP,193411,104456,16.61,src-31c65dbec869
+IN-PC-1976-maharashtra-17,maharashtra,1999,JALGAON,1101166,701485,63.7,Y G Mahajan Sir,parties.IN.BJP,BJP,334020,47.62,Dr Ulhas Vasudeo Patil,parties.IN.INC,INC,244225,89795,12.8,src-31c65dbec869
+IN-PC-1976-maharashtra-18,maharashtra,1999,BULDHANA,1039128,705137,67.86,Adsul Anandrao Vithoba,parties.IN.SHS,SHS,294922,41.82,Wasnik Mukul Balkrushna,parties.IN.INC,INC,249915,45007,6.38,src-31c65dbec869
+IN-PC-1976-maharashtra-19,maharashtra,1999,AKOLA,1145140,671649,58.65,Ambedkar Prakash Yashwant,parties.IN.BBM,BBM,272243,40.53,Fundkar Pandurang Pundlik,parties.IN.BJP,BJP,263527,8716,1.29,src-31c65dbec869
+IN-PC-1976-maharashtra-2,maharashtra,1999,RATNAGIRI,872359,534353,61.25,Anant Gangaram Geete,parties.IN.SHS,SHS,293834,54.99,Ziman Sujit Bhagoji,parties.IN.NCP,NCP,178491,115343,21.59,src-31c65dbec869
+IN-PC-1976-maharashtra-20,maharashtra,1999,WASHIM,1004211,639415,63.67,Bhawana Pundlikrao Gawali,parties.IN.SHS,SHS,244820,38.29,Deshmukh Anantrao Vitthalrao,parties.IN.INC,INC,205225,39595,6.19,src-31c65dbec869
+IN-PC-1976-maharashtra-21,maharashtra,1999,AMRAVATI,1124886,663733,59,Gudhe Anant Mahadeoappa,parties.IN.SHS,SHS,319916,48.2,R S Gavai,parties.IN.RPI,RPI,246264,73652,11.1,src-31c65dbec869
+IN-PC-1976-maharashtra-22,maharashtra,1999,RAMTEK,1050833,655822,62.41,Subodh Mohite,parties.IN.SHS,SHS,242454,36.97,Purohit Banwari Lal,parties.IN.INC,INC,230765,11689,1.78,src-31c65dbec869
+IN-PC-1976-maharashtra-23,maharashtra,1999,NAGPUR,1551380,810365,52.24,Vilas Muttemwar,parties.IN.INC,INC,424450,52.38,Vinod Yashwantrao Gudadhe (Patil),parties.IN.BJP,BJP,351755,72695,8.97,src-31c65dbec869
+IN-PC-1976-maharashtra-24,maharashtra,1999,BHANDARA,938648,635954,67.75,Chunnilalbhau Thakur,parties.IN.BJP,BJP,291355,45.81,Dr Shrikant Jichkar,parties.IN.INC,INC,287536,3819,0.6,src-31c65dbec869
+IN-PC-1976-maharashtra-25,maharashtra,1999,CHIMUR,1013322,741450,73.17,Diwathe Namdeo Harbaji,parties.IN.BJP,BJP,300601,40.54,Kawade Jogendra Laxman,parties.IN.RPI,RPI,230561,70040,9.44,src-31c65dbec869
+IN-PC-1976-maharashtra-26,maharashtra,1999,CHANDRAPUR,1224338,788538,64.41,Puglia Nareshkumar Chunnalal,parties.IN.INC,INC,328522,41.66,Ahir Hansraj Gangaram,parties.IN.BJP,BJP,325685,2837,0.36,src-31c65dbec869
+IN-PC-1976-maharashtra-27,maharashtra,1999,WARDHA,1079969,651394,60.32,Prabha Rao,parties.IN.INC,INC,249564,38.31,Suresh Ganpatrao Waghmare,parties.IN.BJP,BJP,242502,7062,1.08,src-31c65dbec869
+IN-PC-1976-maharashtra-28,maharashtra,1999,YAVATMAL,1007605,615388,61.07,Uttamrao Deorao Patil,parties.IN.INC,INC,258535,42.01,Haribhau Rathod,parties.IN.BJP,BJP,243309,15226,2.47,src-31c65dbec869
+IN-PC-1976-maharashtra-29,maharashtra,1999,HINGOLI,1033944,689137,66.65,Mane Shivaji Gyanbarao,parties.IN.SHS,SHS,297284,43.14,Adv Pole Naik Madhavrao Bahenarao,parties.IN.BBM,BBM,216629,80655,11.71,src-31c65dbec869
+IN-PC-1976-maharashtra-3,maharashtra,1999,KOLABA,1156456,660244,57.09,Ramsheth Thakur,parties.IN.PWPI,PWPI,274361,41.55,D B Patil,parties.IN.SHS,SHS,231264,43097,6.52,src-31c65dbec869
+IN-PC-1976-maharashtra-30,maharashtra,1999,NANDED,1191427,732365,61.47,Khatgaonkar Bhaskarrao Bapurao,parties.IN.INC,INC,327293,44.69,Dr Dhanajirao Vyankatrao Deshmukh,parties.IN.BJP,BJP,294718,32575,4.45,src-31c65dbec869
+IN-PC-1976-maharashtra-31,maharashtra,1999,PARBHANI,1055193,661632,62.7,Jadhav Suresh Ramrao,parties.IN.SHS,SHS,254019,38.39,Jamkar Raosaheb Bapusaheb,parties.IN.INC,INC,210354,43665,6.6,src-31c65dbec869
+IN-PC-1976-maharashtra-32,maharashtra,1999,JALNA,1106131,726464,65.68,Danve Raosaheb Dadarao Patil,parties.IN.BJP,BJP,332620,45.79,Bangar Dnyandeo Ganpatrao,parties.IN.INC,INC,208711,123909,17.06,src-31c65dbec869
+IN-PC-1976-maharashtra-33,maharashtra,1999,AURANGABAD,1372209,854279,62.26,Chandrakant Khaire,parties.IN.SHS,SHS,383144,44.85,A R Antulay,parties.IN.INC,INC,327255,55889,6.54,src-31c65dbec869
+IN-PC-1976-maharashtra-34,maharashtra,1999,BEED,1175871,808082,68.72,Jaysingrao Gaikwad Patil,parties.IN.BJP,BJP,332946,41.2,Radhakrishna Sahebrao Patil,parties.IN.NCP,NCP,281756,51190,6.33,src-31c65dbec869
+IN-PC-1976-maharashtra-35,maharashtra,1999,LATUR,1097040,753109,68.65,Patil Shivraj Vishwanath,parties.IN.INC,INC,314213,41.72,Dr Gopalrao Vitthlrao Patil,parties.IN.BJP,BJP,273923,40290,5.35,src-31c65dbec869
+IN-PC-1976-maharashtra-36,maharashtra,1999,OSMANABAD,936324,633187,67.62,Kamble Shivaji Vithalrao,parties.IN.SHS,SHS,252135,39.82,Deokule Kanifnath,parties.IN.NCP,NCP,193062,59073,9.33,src-31c65dbec869
+IN-PC-1976-maharashtra-37,maharashtra,1999,SHOLAPUR,1026006,603446,58.82,Shinde Sushilkumar Sambhajirao,parties.IN.INC,INC,286578,47.49,Valyal Lingraj Balirayya,parties.IN.BJP,BJP,209583,76995,12.76,src-31c65dbec869
+IN-PC-1976-maharashtra-38,maharashtra,1999,PANDHARPUR,1106361,780810,70.57,Athawale Ramdas Bandu,parties.IN.IND,IND,413115,52.91,Kshirsagar Nagnath Dattatray,parties.IN.BJP,BJP,153610,259505,33.24,src-31c65dbec869
+IN-PC-1976-maharashtra-39,maharashtra,1999,AHMEDNAGAR,1147112,731858,63.8,Dilipkumar Mansukhlal Gandhi,parties.IN.BJP,BJP,278508,38.05,Maruti Deoram Alias Dada Patil Shelke,parties.IN.NCP,NCP,250051,28457,3.88,src-31c65dbec869
+IN-PC-1976-maharashtra-4,maharashtra,1999,MUMBAI SOUTH,719281,302999,42.13,Jayawanti Mehta,parties.IN.BJP,BJP,144945,47.84,Murli Deora,parties.IN.INC,INC,134702,10243,3.38,src-31c65dbec869
+IN-PC-1976-maharashtra-40,maharashtra,1999,KOPARGAON,952408,652938,68.56,E V Alias Balasaheb Vikhe Patil,parties.IN.SHS,SHS,253498,38.82,Solicitor Gulabrao Sakharam Shelke,parties.IN.NCP,NCP,206083,47415,7.26,src-31c65dbec869
+IN-PC-1976-maharashtra-41,maharashtra,1999,KHED,1070409,661353,61.79,Ashok Namdeorao Mohol,parties.IN.NCP,NCP,284476,43.01,Bankhele Kisanrao Baburao,parties.IN.SHS,SHS,227458,57018,8.62,src-31c65dbec869
+IN-PC-1976-maharashtra-42,maharashtra,1999,PUNE,1435101,732654,51.05,Pradeep Rawat,parties.IN.BJP,BJP,304955,41.62,Joshi Mohan,parties.IN.INC,INC,213670,91285,12.46,src-31c65dbec869
+IN-PC-1976-maharashtra-43,maharashtra,1999,BARAMATI,1462248,884108,60.46,Pawar Sharadchandra Govindrao,parties.IN.NCP,NCP,510928,57.79,Dr Pratibha Lokhande,parties.IN.BJP,BJP,212025,298903,33.81,src-31c65dbec869
+IN-PC-1976-maharashtra-44,maharashtra,1999,SATARA,984469,669261,67.98,Laxmanrao Pandurang Jadhav Patil,parties.IN.NCP,NCP,313325,46.82,Hindurao N Naik Nimbalkar,parties.IN.SHS,SHS,188554,124771,18.65,src-31c65dbec869
+IN-PC-1976-maharashtra-45,maharashtra,1999,KARAD,1034700,733926,70.93,Shriniwas Dadasaheb Patil (Marulkar),parties.IN.NCP,NCP,350504,47.76,Chavan Prithviraj Dajisaheb,parties.IN.INC,INC,227543,122961,16.76,src-31c65dbec869
+IN-PC-1976-maharashtra-46,maharashtra,1999,SANGLI,1031607,706357,68.47,Prakash (Bapu) Vasantrao Patil,parties.IN.INC,INC,381162,53.96,Patil Madan Vishwanath,parties.IN.NCP,NCP,220602,160560,22.73,src-31c65dbec869
+IN-PC-1976-maharashtra-47,maharashtra,1999,ICHALKARANJI,1116659,778613,69.73,Mane Nivedita Sambhajirao,parties.IN.NCP,NCP,337657,43.37,Awade Kallappa Baburao,parties.IN.INC,INC,324845,12812,1.65,src-31c65dbec869
+IN-PC-1976-maharashtra-48,maharashtra,1999,KOLHAPUR,1071598,747874,69.79,Mandlik Sadashivrao Dadoba,parties.IN.NCP,NCP,346459,46.33,Udaysingrao Gaikwad,parties.IN.INC,INC,237549,108910,14.57,src-31c65dbec869
+IN-PC-1976-maharashtra-5,maharashtra,1999,MUMBAI SOUTH CENTRAL,812576,367605,45.24,Mohan Vishnu Rawale,parties.IN.SHS,SHS,176323,47.97,A Majeed Memon Advocate,parties.IN.SP,SP,97287,79036,21.5,src-31c65dbec869
+IN-PC-1976-maharashtra-6,maharashtra,1999,MUMBAI NORTH CENTRAL,1148316,528291,46.01,Manohar Gajanan Joshi,parties.IN.SHS,SHS,294935,55.83,Raja Dhale,parties.IN.BBM,BBM,125940,168995,31.99,src-31c65dbec869
+IN-PC-1976-maharashtra-7,maharashtra,1999,MUMBAI NORTH EAST,1990340,929417,46.7,Kirit Somaiya,parties.IN.BJP,BJP,400436,43.08,Adv Kamat Gurudas,parties.IN.INC,INC,393160,7276,0.78,src-31c65dbec869
+IN-PC-1976-maharashtra-8,maharashtra,1999,MUMBAI NORTH WEST,1553015,700414,45.1,Sunil Dutt,parties.IN.INC,INC,366669,52.35,Madhukar Sirpotdar,parties.IN.SHS,SHS,281130,85539,12.21,src-31c65dbec869
+IN-PC-1976-maharashtra-9,maharashtra,1999,MUMBAI NORTH,2222240,918529,41.33,Ram Naik,parties.IN.BJP,BJP,517941,56.39,Chandrakant Gosalia,parties.IN.INC,INC,363805,154136,16.78,src-31c65dbec869
+IN-PC-1976-manipur-1,manipur,1999,INNER MANIPUR,657928,442686,67.28,Th. Chaoba,parties.IN.MSCP,MSCP,153387,34.65,Khaidem Mani,parties.IN.MPP,MPP,145192,8195,1.85,src-31c65dbec869
+IN-PC-1976-manipur-2,manipur,1999,OUTER MANIPUR,714411,450962,63.12,Holkhomang,parties.IN.NCP,NCP,120559,26.73,R. K. Theko,parties.IN.INC,INC,91750,28809,6.38,src-31c65dbec869
+IN-PC-1976-meghalaya-1,meghalaya,1999,SHILLONG,724389,364856,50.37,Paty Ripple Kyndiah,parties.IN.INC,INC,145020,39.75,Stanlington D. Khongwir,parties.IN.UDP,UDP,107197,37823,10.37,src-31c65dbec869
+IN-PC-1976-meghalaya-2,meghalaya,1999,TURA,453861,289474,63.78,Purno Agitok Sangma,parties.IN.NCP,NCP,182883,63.18,Atul C Marak,parties.IN.INC,INC,69304,113579,39.24,src-31c65dbec869
+IN-PC-1976-mizoram-1,mizoram,1999,MIZORAM,449406,291786,64.93,Vanlalzawma,parties.IN.IND,IND,171557,58.8,Rokamlova,parties.IN.IND,IND,102898,68659,23.54,src-31c65dbec869
+IN-PC-1976-nagaland-1,nagaland,1999,NAGALAND,955914,725045,75.85,K. Asungba Sangtam,parties.IN.INC,INC,516119,71.18,Shurhozelie,parties.IN.IND,IND,162521,353598,48.76,src-31c65dbec869
+IN-PC-1976-odisha-1,odisha,1999,MAYURBHANJ,964354,568018,58.9,Salkhan Murmu,parties.IN.BJP,BJP,300902,52.97,Kamala Tiria,parties.IN.INC,INC,152820,148082,26.07,src-31c65dbec869
+IN-PC-1976-odisha-10,odisha,1999,ASKA,1175865,479497,40.78,Naveen Patnaik,parties.IN.BJD,BJD,359178,74.91,Duti Krushna Panda,parties.IN.CPI,CPI,102442,256736,53.55,src-31c65dbec869
+IN-PC-1976-odisha-11,odisha,1999,BERHAMPUR,1159468,570556,49.21,Anadicharan Sahu,parties.IN.BJP,BJP,310704,54.46,Jayanti Patnaik,parties.IN.INC,INC,256581,54123,9.49,src-31c65dbec869
+IN-PC-1976-odisha-12,odisha,1999,KORAPUT,1120784,551432,49.2,Hema Gamang,parties.IN.INC,INC,277555,50.33,Jayaram Pangi,parties.IN.BJD,BJD,265401,12154,2.2,src-31c65dbec869
+IN-PC-1976-odisha-13,odisha,1999,NOWRANGPUR,1085575,653503,60.2,Parsuram Majhi,parties.IN.BJP,BJP,331863,50.78,Chandra Sekhar Majhi,parties.IN.INC,INC,315712,16151,2.47,src-31c65dbec869
+IN-PC-1976-odisha-14,odisha,1999,KALAHANDI,1060990,642488,60.56,Bikram Keshari Deo,parties.IN.BJP,BJP,371911,57.89,Bhakta Charan Das,parties.IN.INC,INC,255392,116519,18.14,src-31c65dbec869
+IN-PC-1976-odisha-15,odisha,1999,PHULBANI,1126908,630796,55.98,Padmanava Behera,parties.IN.BJD,BJD,357024,56.6,Mrutyunjaya Nayak,parties.IN.INC,INC,254809,102215,16.21,src-31c65dbec869
+IN-PC-1976-odisha-16,odisha,1999,BOLANGIR,1051199,632212,60.14,Sangeeta Kumari Singh Deo,parties.IN.BJP,BJP,404988,64.06,Sarat Pattanayak,parties.IN.INC,INC,224009,180979,28.63,src-31c65dbec869
+IN-PC-1976-odisha-17,odisha,1999,SAMBALPUR,1190344,692437,58.17,Prasanna Acharya,parties.IN.BJD,BJD,398597,57.56,Dr. Krupasindhu Bhoi,parties.IN.INC,INC,271634,126963,18.33,src-31c65dbec869
+IN-PC-1976-odisha-18,odisha,1999,DEOGARH,1168931,680720,58.23,Debendra Pradhan,parties.IN.BJP,BJP,376412,55.3,Hemananda Biswal,parties.IN.INC,INC,289543,86869,12.77,src-31c65dbec869
+IN-PC-1976-odisha-19,odisha,1999,DHENKANAL,1118853,604130,54,Kamakhya Prasad Singh Deo,parties.IN.INC,INC,248824,41.19,Tathagata Satpathy,parties.IN.BJD,BJD,245150,3674,0.61,src-31c65dbec869
+IN-PC-1976-odisha-2,odisha,1999,BALASORE,1242578,768769,61.87,Mahameghabahan Aira Kharabela Swain,parties.IN.BJP,BJP,428070,55.68,Subhankar Mohapatra,parties.IN.INC,INC,291698,136372,17.74,src-31c65dbec869
+IN-PC-1976-odisha-20,odisha,1999,SUNDARGARH,1198357,617578,51.54,Jual Oram,parties.IN.BJP,BJP,326395,52.85,Christopher Ekka,parties.IN.INC,INC,173881,152514,24.69,src-31c65dbec869
+IN-PC-1976-odisha-21,odisha,1999,KEONJHAR,1092055,617995,56.59,Ananta Nayak,parties.IN.BJP,BJP,416956,67.47,Yashobant Singh Laguri,parties.IN.INC,INC,194403,222553,36.01,src-31c65dbec869
+IN-PC-1976-odisha-3,odisha,1999,BHADRAK,1195146,679138,56.82,Arjun Charan Sethi,parties.IN.BJD,BJD,397450,58.52,Panchanan Mandal,parties.IN.INC,INC,275017,122433,18.02,src-31c65dbec869
+IN-PC-1976-odisha-4,odisha,1999,JAJPUR,1171211,593767,50.7,Jagannath Mallik,parties.IN.BJD,BJD,351442,59.19,Rama Chandra Mallik,parties.IN.INC,INC,237458,113984,19.2,src-31c65dbec869
+IN-PC-1976-odisha-5,odisha,1999,KENDRAPARA,1121183,620436,55.34,Prabhat Kumar Samantray,parties.IN.BJD,BJD,359314,57.91,Archana Nayak,parties.IN.INC,INC,257175,102139,16.46,src-31c65dbec869
+IN-PC-1976-odisha-6,odisha,1999,CUTTACK,1215249,619806,51,Bhartruhari Mahtab,parties.IN.BJD,BJD,407603,65.76,Kanhu Charan Lenka,parties.IN.INC,INC,202286,205317,33.12,src-31c65dbec869
+IN-PC-1976-odisha-7,odisha,1999,JAGATSINGHPUR,1233063,758422,61.51,Trilochan Kanungo,parties.IN.BJD,BJD,439888,58,Ranjib Biswal,parties.IN.INC,INC,290606,149282,19.68,src-31c65dbec869
+IN-PC-1976-odisha-8,odisha,1999,PURI,1176817,660679,56.14,Braja Kishore Tripathy,parties.IN.BJD,BJD,383060,57.98,Jayant Das,parties.IN.INC,INC,251315,131745,19.94,src-31c65dbec869
+IN-PC-1976-odisha-9,odisha,1999,BHUBANESWAR,1318560,625342,47.43,Prasanna Kumar Patasani,parties.IN.BJD,BJD,414429,66.27,Bibhuti Bhusan Singh Mardaraj,parties.IN.INC,INC,180468,233961,37.41,src-31c65dbec869
+IN-PC-1976-puducherry-1,puducherry,1999,PONDICHERRY,701990,444162,63.27,M O H Farook,parties.IN.INC,INC,165108,37.17,M Ramadass,parties.IN.PMK,PMK,140920,24188,5.44,src-31c65dbec869
+IN-PC-1976-punjab-1,punjab,1999,GURDASPUR,1122008,670569,59.77,Vinod Khanna,parties.IN.BJP,BJP,315267,47.01,Sukhbuns Kaur,parties.IN.INC,INC,313868,1399,0.2,src-31c65dbec869
+IN-PC-1976-punjab-10,punjab,1999,SANGRUR,1145315,710204,62.01,Simranjit Singh Mann,parties.IN.SADM,SAD(M),298846,42.08,Surjit Singh Barnala,parties.IN.SAD,SAD,212529,86317,12.15,src-31c65dbec869
+IN-PC-1976-punjab-11,punjab,1999,BHATINDA,1217731,650568,53.42,Bhan Singh Bhaura,parties.IN.CPI,CPI,327484,50.34,Chatin Singh   Samaon,parties.IN.SAD,SAD,266167,61317,9.43,src-31c65dbec869
+IN-PC-1976-punjab-12,punjab,1999,FARIDKOT,1224531,871696,71.19,Jagmeet Singh  Brar,parties.IN.INC,INC,418454,48,Sukhbir Singh Badal,parties.IN.SAD,SAD,413306,5148,0.59,src-31c65dbec869
+IN-PC-1976-punjab-13,punjab,1999,FEROZEPUR,1214129,750100,61.78,Zora Singh,parties.IN.SAD,SAD,300236,40.03,Hans Raj,parties.IN.INC,INC,285375,14861,1.99,src-31c65dbec869
+IN-PC-1976-punjab-2,punjab,1999,AMRITSAR,1244316,589600,47.38,Raghunandan Lal  Bhatia,parties.IN.INC,INC,296533,50.29,Daya Singh Sodhi,parties.IN.BJP,BJP,264534,31999,5.42,src-31c65dbec869
+IN-PC-1976-punjab-3,punjab,1999,TARN TARAN,1101496,594675,53.99,Tarlochan Singh  Tur,parties.IN.SAD,SAD,305899,51.44,Gurinder Partap Singh Kairon,parties.IN.INC,INC,230282,75617,12.72,src-31c65dbec869
+IN-PC-1976-punjab-4,punjab,1999,JULLUNDUR,1142090,562889,49.29,Balbir Singh,parties.IN.INC,INC,267209,47.47,Prabhjot  Kaur,parties.IN.SAD,SAD,232643,34566,6.14,src-31c65dbec869
+IN-PC-1976-punjab-5,punjab,1999,PHILLAUR,1144089,613664,53.64,Santosh  Chowdhary,parties.IN.INC,INC,263540,42.95,Satnam Singh  Kainth,parties.IN.UNK,DBSM,236962,26578,4.34,src-31c65dbec869
+IN-PC-1976-punjab-6,punjab,1999,HOSHIARPUR,1112971,580260,52.14,Charanjit Singh Channi,parties.IN.INC,INC,256211,44.15,Kamal Chaudhry,parties.IN.BJP,BJP,222005,34206,5.89,src-31c65dbec869
+IN-PC-1976-punjab-7,punjab,1999,ROPAR,1266744,711537,56.17,Shamsher Singh,parties.IN.INC,INC,326651,45.91,Satwinder Kaur,parties.IN.SAD,SAD,249270,77381,10.88,src-31c65dbec869
+IN-PC-1976-punjab-8,punjab,1999,PATIALA,1310354,781794,59.66,Preneet Kaur,parties.IN.INC,INC,360125,46.06,Surjit Singh Rakhra,parties.IN.SAD,SAD,281217,78908,10.09,src-31c65dbec869
+IN-PC-1976-punjab-9,punjab,1999,LUDHIANA,1471530,666969,45.32,Gurcharan Singh Galib,parties.IN.INC,INC,346928,52.02,Amrik Singh Aliwal,parties.IN.SAD,SAD,241682,105246,15.78,src-31c65dbec869
+IN-PC-1976-rajasthan-1,rajasthan,1999,GANGANAGAR,1269075,665090,52.41,Nihal Chand,parties.IN.BJP,BJP,358104,53.84,Er. Shankar Pannu,parties.IN.INC,INC,262218,95886,14.41,src-31c65dbec869
+IN-PC-1976-rajasthan-10,rajasthan,1999,BAYANA,1092622,494960,45.3,Bahadur Singh,parties.IN.BJP,BJP,234881,47.45,Jagnnath Pahadia,parties.IN.INC,INC,201549,33332,6.73,src-31c65dbec869
+IN-PC-1976-rajasthan-11,rajasthan,1999,SAWAI MADHOPUR,1177950,511512,43.42,Jaskaur,parties.IN.BJP,BJP,277014,54.16,Usha,parties.IN.INC,INC,218133,58881,11.52,src-31c65dbec869
+IN-PC-1976-rajasthan-12,rajasthan,1999,AJMER,1106811,593468,53.62,Rasa Singh Rawat,parties.IN.BJP,BJP,332130,55.96,Prabha Thakur,parties.IN.INC,INC,244456,87674,14.77,src-31c65dbec869
+IN-PC-1976-rajasthan-13,rajasthan,1999,TONK,1138478,539462,47.38,Shyam Lal Bansiwal,parties.IN.BJP,BJP,287265,53.25,Dwarka Prasad Bairwa,parties.IN.INC,INC,238907,48358,8.96,src-31c65dbec869
+IN-PC-1976-rajasthan-14,rajasthan,1999,KOTA,1219405,628960,51.58,Raghuveer Singh Koushal,parties.IN.BJP,BJP,320205,50.91,Ramnaryan Meena,parties.IN.INC,INC,295436,24769,3.94,src-31c65dbec869
+IN-PC-1976-rajasthan-15,rajasthan,1999,JHALAWAR,1069430,677725,63.37,Vansundhara Raje,parties.IN.BJP,BJP,409574,60.43,Dr. Abrar Ahmed,parties.IN.INC,INC,257159,152415,22.49,src-31c65dbec869
+IN-PC-1976-rajasthan-16,rajasthan,1999,BANSWARA,1182232,643286,54.41,Tara Chand Bhagora,parties.IN.INC,INC,379775,59.04,Rajesh Katara,parties.IN.JDU,JD(U),263511,116264,18.08,src-31c65dbec869
+IN-PC-1976-rajasthan-17,rajasthan,1999,SALUMBER,1117315,562458,50.34,Bheru Lal Meena,parties.IN.INC,INC,290976,51.73,Mahaveer Bhagora,parties.IN.BJP,BJP,238568,52408,9.31,src-31c65dbec869
+IN-PC-1976-rajasthan-18,rajasthan,1999,UDAIPUR,1256888,700086,55.7,Girija Vyas,parties.IN.INC,INC,372645,53.23,Shanti Lal Chaplot,parties.IN.BJP,BJP,318554,54091,7.73,src-31c65dbec869
+IN-PC-1976-rajasthan-19,rajasthan,1999,CHITTORGARH,1248906,808929,64.77,Shrichand Kriplani,parties.IN.BJP,BJP,411275,50.84,Udai Lal Anjana,parties.IN.INC,INC,373898,37377,4.62,src-31c65dbec869
+IN-PC-1976-rajasthan-2,rajasthan,1999,BIKANER,1762589,935738,53.09,Rameshwar Lal Dudi,parties.IN.INC,INC,493638,52.75,Rampratap Kasania,parties.IN.BJP,BJP,399129,94509,10.1,src-31c65dbec869
+IN-PC-1976-rajasthan-20,rajasthan,1999,BHILWARA,1136950,600245,52.79,Vijayendra Pal Singh,parties.IN.BJP,BJP,287858,47.96,Rampal Upadhayay,parties.IN.INC,INC,273629,14229,2.37,src-31c65dbec869
+IN-PC-1976-rajasthan-21,rajasthan,1999,PALI,1080520,532861,49.32,Pusp Jain,parties.IN.BJP,BJP,316844,59.46,Mithalal Jain,parties.IN.INC,INC,212178,104666,19.64,src-31c65dbec869
+IN-PC-1976-rajasthan-22,rajasthan,1999,JALORE,1245605,643506,51.66,Buta Singh,parties.IN.INC,INC,330652,51.38,Bangaru Laxman,parties.IN.BJP,BJP,294728,35924,5.58,src-31c65dbec869
+IN-PC-1976-rajasthan-23,rajasthan,1999,BARMER,1418389,829839,58.51,Col. Sonaram Choudhary,parties.IN.INC,INC,424150,51.11,Manvendra Singh,parties.IN.BJP,BJP,392010,32140,3.87,src-31c65dbec869
+IN-PC-1976-rajasthan-24,rajasthan,1999,JODHPUR,1403850,656353,46.75,Jaswant Singh Vishnoi,parties.IN.BJP,BJP,368463,56.14,Poonam Chand,parties.IN.INC,INC,255166,113297,17.26,src-31c65dbec869
+IN-PC-1976-rajasthan-25,rajasthan,1999,NAGAUR,1233531,704758,57.13,Ram Raghunath Choudhary,parties.IN.INC,INC,267914,38.02,Vijay Poonia,parties.IN.BSP,BSP,219445,48469,6.88,src-31c65dbec869
+IN-PC-1976-rajasthan-3,rajasthan,1999,CHURU,1239736,680334,54.88,Ram Singh Kaswan,parties.IN.BJP,BJP,351485,51.66,Narendra Budania,parties.IN.INC,INC,304676,46809,6.88,src-31c65dbec869
+IN-PC-1976-rajasthan-4,rajasthan,1999,JHUNJHUNU,1183184,668984,56.54,Sisram Ola,parties.IN.INC,INC,330198,49.36,Banwari Lal Saini,parties.IN.BJP,BJP,253850,76348,11.41,src-31c65dbec869
+IN-PC-1976-rajasthan-5,rajasthan,1999,SIKAR,1290220,749404,58.08,Subhash Maharia,parties.IN.BJP,BJP,341445,45.56,Balram,parties.IN.INC,INC,313272,28173,3.76,src-31c65dbec869
+IN-PC-1976-rajasthan-6,rajasthan,1999,JAIPUR,1753765,808422,46.1,Girdhari Lal Bhargava,parties.IN.BJP,BJP,456720,56.5,Pt. Raghu Sharma,parties.IN.INC,INC,314930,141790,17.54,src-31c65dbec869
+IN-PC-1976-rajasthan-7,rajasthan,1999,DAUSA,1261758,745274,59.07,Rajesh Pilot,parties.IN.INC,INC,372263,49.95,Rohitash Kumar Sharma,parties.IN.BJP,BJP,365361,6902,0.93,src-31c65dbec869
+IN-PC-1976-rajasthan-8,rajasthan,1999,ALWAR,1156697,614866,53.16,Dr. Jaswant Singh Yadav,parties.IN.BJP,BJP,325556,52.95,Mahendra Kumari,parties.IN.INC,INC,267628,57928,9.42,src-31c65dbec869
+IN-PC-1976-rajasthan-9,rajasthan,1999,BHARATPUR,1060582,573657,54.09,Vishvendra Singh,parties.IN.BJP,BJP,277460,48.37,Jagat Singh,parties.IN.INC,INC,180442,97018,16.92,src-31c65dbec869
+IN-PC-1976-sikkim-1,sikkim,1999,SIKKIM,255377,205133,80.33,Bhim Pd. Dahal,parties.IN.SDF,SDF,107828,52.56,Satish Chandra Rai,parties.IN.SSP,SSP,86466,21362,10.41,src-31c65dbec869
+IN-PC-1976-tamil-nadu-1,tamil-nadu,1999,MADRAS NORTH,2041341,879473,43.08,"Kuppusamy, C.",parties.IN.DMK,DMK,471101,53.57,"Soundara Rajan, A.",parties.IN.CPIM,CPM,311312,159789,18.17,src-31c65dbec869
+IN-PC-1976-tamil-nadu-10,tamil-nadu,1999,TINDIVANAM,1128742,683601,60.56,Ramachandran N. Gingee.,parties.IN.MDMK,MDMK,323234,47.28,Ramamurthee K.,parties.IN.INC,INC,313884,9350,1.36,src-31c65dbec869
+IN-PC-1976-tamil-nadu-11,tamil-nadu,1999,CUDDALORE,1136122,709744,62.47,"Sankar, Adhi",parties.IN.DMK,DMK,358367,50.49,Dhamotharan M.C.,parties.IN.AIADMK,ADMK,284414,73953,10.42,src-31c65dbec869
+IN-PC-1976-tamil-nadu-12,tamil-nadu,1999,CHIDAMBARAM,1110229,724305,65.24,"Ponnuswamy, E.",parties.IN.PMK,PMK,345331,47.68,"Thirumavalavan, R.",parties.IN.TMC_M,TMC(M),225768,119563,16.51,src-31c65dbec869
+IN-PC-1976-tamil-nadu-13,tamil-nadu,1999,DHARMAPURI,1226879,715771,58.34,"Elangovan, P.D.",parties.IN.PMK,PMK,340162,47.52,"Munusamy, K.P.",parties.IN.AIADMK,ADMK,314622,25540,3.56,src-31c65dbec869
+IN-PC-1976-tamil-nadu-14,tamil-nadu,1999,KRISHNAGIRI,1163690,681212,58.54,"Vetriselvan, V.",parties.IN.DMK,DMK,347737,51.05,"Thambidurai, M.",parties.IN.AIADMK,ADMK,315913,31824,4.67,src-31c65dbec869
+IN-PC-1976-tamil-nadu-15,tamil-nadu,1999,RASIPURAM,1161452,629001,54.16,"Saroja, V. Dr.",parties.IN.AIADMK,ADMK,304843,48.46,"Uthayarasu, S.",parties.IN.PMK,PMK,266438,38405,6.1,src-31c65dbec869
+IN-PC-1976-tamil-nadu-16,tamil-nadu,1999,SALEM,1257383,731277,58.16,"Selvaganapathi, T.M.",parties.IN.AIADMK,ADMK,363689,49.73,"Ramamurthy, K.",parties.IN.UNK,TRC,338278,25411,3.47,src-31c65dbec869
+IN-PC-1976-tamil-nadu-17,tamil-nadu,1999,TIRUCHENGODE,1527064,834015,54.62,"Kannappan, M.",parties.IN.MDMK,MDMK,409293,49.08,"Palanisamy, K.",parties.IN.AIADMK,ADMK,404737,4556,0.55,src-31c65dbec869
+IN-PC-1976-tamil-nadu-18,tamil-nadu,1999,NILGIRIS,1348475,729000,54.06,"Mathan, M. (Alias) Master Mathan, M.",parties.IN.BJP,BJP,369828,50.73,"Prabhu, R.",parties.IN.INC,INC,345869,23959,3.29,src-31c65dbec869
+IN-PC-1976-tamil-nadu-19,tamil-nadu,1999,GOBICHETTIPALAYAM,1066362,626188,58.72,"Kaliappan, K.K.",parties.IN.AIADMK,ADMK,299184,47.78,"Arjun, K.G.S.",parties.IN.DMK,DMK,269172,30012,4.79,src-31c65dbec869
+IN-PC-1976-tamil-nadu-2,tamil-nadu,1999,MADRAS CENTRAL,1275067,617900,48.46,Murasoli Maran,parties.IN.DMK,DMK,364565,59,"Abdul Latheef, M.",parties.IN.AIADMK,ADMK,227616,136949,22.16,src-31c65dbec869
+IN-PC-1976-tamil-nadu-20,tamil-nadu,1999,COIMBATORE,1571475,874020,55.62,"Radhakrishnan, C.P.",parties.IN.BJP,BJP,430068,49.21,"Nallakannu, R.",parties.IN.CPI,CPI,375991,54077,6.19,src-31c65dbec869
+IN-PC-1976-tamil-nadu-21,tamil-nadu,1999,POLLACHI,1074230,602641,56.1,"Krishnan, Dr.C.",parties.IN.MDMK,MDMK,293038,48.63,"Thiyagarajan, M.",parties.IN.AIADMK,ADMK,283523,9515,1.58,src-31c65dbec869
+IN-PC-1976-tamil-nadu-22,tamil-nadu,1999,PALANI,1159677,665079,57.35,"Kumarasamy, P.",parties.IN.AIADMK,ADMK,297850,44.78,"Ganesha Murthi, A.",parties.IN.MDMK,MDMK,269133,28717,4.31,src-31c65dbec869
+IN-PC-1976-tamil-nadu-23,tamil-nadu,1999,DINDIGUL,1194616,673398,56.37,"Sreenivaasan, C.",parties.IN.AIADMK,ADMK,294794,43.78,"Chandrasekar, S.",parties.IN.DMK,DMK,274451,20343,3.02,src-31c65dbec869
+IN-PC-1976-tamil-nadu-24,tamil-nadu,1999,MADURAI,1429975,748404,52.34,"Mohan, P.",parties.IN.CPIM,CPM,328204,43.85,"Muthuramalingam, Pon.",parties.IN.DMK,DMK,290981,37223,4.97,src-31c65dbec869
+IN-PC-1976-tamil-nadu-25,tamil-nadu,1999,PERIYAKULAM,1121725,658531,58.71,"Dhinakaran,",parties.IN.AIADMK,ADMK,303881,46.15,"Selvendran, P.",parties.IN.DMK,DMK,258075,45806,6.96,src-31c65dbec869
+IN-PC-1976-tamil-nadu-26,tamil-nadu,1999,KARUR,1170582,719705,61.48,"Chinnasamy, M.",parties.IN.AIADMK,ADMK,334407,46.46,"Palanisamy, K.C.",parties.IN.DMK,DMK,331560,2847,0.39,src-31c65dbec869
+IN-PC-1976-tamil-nadu-27,tamil-nadu,1999,TIRUCHIRAPPALLI,1245971,691136,55.47,Arangarajan Kumaramangalam,parties.IN.BJP,BJP,377450,54.61,"Adaikalaraj,L.",parties.IN.INC,INC,288253,89197,12.9,src-31c65dbec869
+IN-PC-1976-tamil-nadu-28,tamil-nadu,1999,PERAMBALUR,1064321,680615,63.95,Raja. A.,parties.IN.DMK,DMK,330675,48.58,Rajarethinam.P.,parties.IN.AIADMK,ADMK,262624,68051,9.99,src-31c65dbec869
+IN-PC-1976-tamil-nadu-29,tamil-nadu,1999,MAYILADUTURAI,1030626,645796,62.66,Manishankar Aiyar,parties.IN.INC,INC,324384,50.23,Arul Mozhi P.D.,parties.IN.PMK,PMK,284253,40131,6.21,src-31c65dbec869
+IN-PC-1976-tamil-nadu-3,tamil-nadu,1999,MADRAS SOUTH,2074130,936522,45.15,"Baalu, T.R.",parties.IN.DMK,DMK,562221,60.03,"Dhandayudhapani, V.",parties.IN.INC,INC,322037,240184,25.64,src-31c65dbec869
+IN-PC-1976-tamil-nadu-30,tamil-nadu,1999,NAGAPATTINAM,1054666,685512,65,"Vijayan, A.K.S.",parties.IN.DMK,DMK,342237,49.92,Selvarasu.M.,parties.IN.CPI,CPI,319771,22466,3.27,src-31c65dbec869
+IN-PC-1976-tamil-nadu-31,tamil-nadu,1999,THANJAVUR,1049837,650394,61.95,Palanimanickam.S.S.,parties.IN.DMK,DMK,295191,45.39,Thangamuthu.K,parties.IN.AIADMK,ADMK,262177,33014,5.08,src-31c65dbec869
+IN-PC-1976-tamil-nadu-32,tamil-nadu,1999,PUDUKKOTTAI,1218297,770004,63.2,Thirunavukarasu,parties.IN.MADMK,MADMK,396216,51.46,Singaaravadivel.S.,parties.IN.INC,INC,331914,64302,8.35,src-31c65dbec869
+IN-PC-1976-tamil-nadu-33,tamil-nadu,1999,SIVAGANGA,1117223,611631,54.75,"Sudarsana Natchiappan,E.M.",parties.IN.INC,INC,246078,40.23,Raja.H.,parties.IN.BJP,BJP,222267,23811,3.89,src-31c65dbec869
+IN-PC-1976-tamil-nadu-34,tamil-nadu,1999,RAMANATHAPURAM,1115127,629308,56.43,Malaisamy.K.,parties.IN.AIADMK,ADMK,265253,42.15,Bhavani Rajenthiran.M.S.K. (Tmt.),parties.IN.DMK,DMK,258607,6646,1.06,src-31c65dbec869
+IN-PC-1976-tamil-nadu-35,tamil-nadu,1999,SIVAKASI,1257935,779464,61.96,Vaiko,parties.IN.MDMK,MDMK,325829,41.8,"Ramaswami, V.Justice",parties.IN.AIADMK,ADMK,251048,74781,9.59,src-31c65dbec869
+IN-PC-1976-tamil-nadu-36,tamil-nadu,1999,TIRUNELVELI,1121877,600554,53.53,"Pandian, P.H.",parties.IN.AIADMK,ADMK,249975,41.62,"Geetha Jeevan, P.",parties.IN.DMK,DMK,223481,26494,4.41,src-31c65dbec869
+IN-PC-1976-tamil-nadu-37,tamil-nadu,1999,TENKASI,1044090,666826,63.87,"Murugesan,S.",parties.IN.AIADMK,ADMK,239241,35.88,"Arumugam,S.",parties.IN.BJP,BJP,238354,887,0.14,src-31c65dbec869
+IN-PC-1976-tamil-nadu-38,tamil-nadu,1999,TIRUCHENDUR,1040627,535072,51.42,"Jayaseelan, A.D.K.",parties.IN.DMK,DMK,237630,44.41,"Rajan, Dr.B.P.",parties.IN.AIADMK,ADMK,177964,59666,11.15,src-31c65dbec869
+IN-PC-1976-tamil-nadu-39,tamil-nadu,1999,NAGERCOIL,1057712,612095,57.87,"Radhakrishnan,P.",parties.IN.BJP,BJP,307319,50.21,Dennis.N.,parties.IN.INC,INC,161676,145643,23.8,src-31c65dbec869
+IN-PC-1976-tamil-nadu-4,tamil-nadu,1999,SRIPERUMBUDUR,1353858,729076,53.85,"Krishnaswamy,   A.",parties.IN.DMK,DMK,385558,52.88,"Venugopal, K.",parties.IN.AIADMK,ADMK,310556,75002,10.28,src-31c65dbec869
+IN-PC-1976-tamil-nadu-5,tamil-nadu,1999,CHENGALPATTU,1200040,688181,57.35,"Moorthy, A.K.",parties.IN.PMK,PMK,330551,48.03,"Thirunavukkarasu, S.S.",parties.IN.AIADMK,ADMK,317740,12811,1.86,src-31c65dbec869
+IN-PC-1976-tamil-nadu-6,tamil-nadu,1999,ARAKKONAM,1120043,726113,64.83,"Jagathrakshakan, S. Dr.",parties.IN.DMK,DMK,346520,47.72,"Thangka Balu, K.V.",parties.IN.INC,INC,250876,95644,13.17,src-31c65dbec869
+IN-PC-1976-tamil-nadu-7,tamil-nadu,1999,VELLORE,1152421,689375,59.82,"Shanmugam, N.T.",parties.IN.PMK,PMK,324547,47.08,Mohamed Asif,parties.IN.AIADMK,ADMK,298862,25685,3.73,src-31c65dbec869
+IN-PC-1976-tamil-nadu-8,tamil-nadu,1999,TIRUPPATTUR,1144891,731615,63.9,"Venugopal, D.",parties.IN.DMK,DMK,350703,47.94,"Rajendran, A.R.",parties.IN.AIADMK,ADMK,327090,23613,3.23,src-31c65dbec869
+IN-PC-1976-tamil-nadu-9,tamil-nadu,1999,VANDAVASI,1104886,668725,60.52,"Durai, M.",parties.IN.PMK,PMK,345539,51.67,"Krishnasswamy, M.",parties.IN.INC,INC,286342,59197,8.85,src-31c65dbec869
+IN-PC-1976-tripura-1,tripura,1999,TRIPURA WEST,941291,648343,68.88,Samar Chowdhury,parties.IN.CPIM,CPM,372553,57.46,Sudhir Ranjan Majumdar,parties.IN.AITC,AITC,174154,198399,30.6,src-31c65dbec869
+IN-PC-1976-tripura-2,tripura,1999,TRIPURA EAST,854764,556251,65.08,Baju Ban Riyan,parties.IN.CPIM,CPM,304934,54.82,Jishnu Dev Varma,parties.IN.BJP,BJP,154434,150500,27.06,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-1,uttar-pradesh,1999,TEHRI GARHWAL,1161284,483197,41.61,Manabendra Shah,parties.IN.BJP,BJP,207839,43.01,Vijay Bahuguna,parties.IN.INC,INC,192068,15771,3.26,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-10,uttar-pradesh,1999,BUDAUN,1108847,604083,54.48,Saleem Iqbal Shervani,parties.IN.SP,SP,236496,39.15,Shanti Devi Shakya,parties.IN.BJP,BJP,195182,41314,6.84,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-11,uttar-pradesh,1999,AONLA,1008983,584999,57.98,Kunwar Sarvraj Singh,parties.IN.SP,SP,195839,33.48,Rajveer Singh,parties.IN.BJP,BJP,178213,17626,3.02,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-12,uttar-pradesh,1999,BAREILLY,1133481,655509,57.83,Santosh Gangwar,parties.IN.BJP,BJP,292813,44.67,Master Chhote Lal Gangwar,parties.IN.SP,SP,158113,134700,20.55,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-13,uttar-pradesh,1999,PILIBHIT,1139217,748004,65.66,Maneka Gandhi,parties.IN.IND,IND,433421,57.94,Anis Ahmad Khan Alias Phool Baboo,parties.IN.BSP,BSP,193566,239855,32.06,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,1999,SHAHJAHANPUR,1130852,673946,59.6,Kr. Jitendra Prasad,parties.IN.INC,INC,207167,30.74,Ram Murti Singh Verma,parties.IN.SP,SP,189175,17992,2.67,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-15,uttar-pradesh,1999,KHERI,1260158,705160,55.96,Ravi Prakash Verma,parties.IN.SP,SP,202373,28.7,Rajendra Kumar Gupta,parties.IN.BJP,BJP,197858,4515,0.64,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-16,uttar-pradesh,1999,SHAHABAD,1128503,639946,56.71,Daud Ahmad,parties.IN.BSP,BSP,214146,33.46,Raghvendra Singh,parties.IN.BJP,BJP,172014,42132,6.58,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-17,uttar-pradesh,1999,SITAPUR,1113415,636913,57.2,Rajesh Verma,parties.IN.BSP,BSP,211120,33.15,Janardan Prasad Misra,parties.IN.BJP,BJP,174758,36362,5.71,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-18,uttar-pradesh,1999,MISRIKH,1089677,612319,56.19,Sushila Saroj,parties.IN.SP,SP,159279,26.01,Ram Shankar Bhargav,parties.IN.BSP,BSP,155072,4207,0.68,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-19,uttar-pradesh,1999,HARDOI,1083894,554985,51.2,Jai Prakash,parties.IN.ABLTC,ABLTC,206256,37.16,Usha Verma,parties.IN.SP,SP,200852,5404,0.97,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-2,uttar-pradesh,1999,GARHWAL,1036876,472181,45.54,Maj Gen. (Rtd) Bhuwan Chandra Khanduri(A.V.S.M.),parties.IN.BJP,BJP,239745,50.77,Satpal Maharaj,parties.IN.INC,INC,210063,29682,6.28,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-20,uttar-pradesh,1999,LUCKNOW,1552441,753943,48.57,Atal Bihari Vajpayee,parties.IN.BJP,BJP,362709,48.11,Dr Karan Singh,parties.IN.INC,INC,239085,123624,16.4,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-21,uttar-pradesh,1999,MOHANLALGANJ,1149478,608254,52.92,Reena Chowdhary,parties.IN.SP,SP,182034,29.93,Purnima Verma,parties.IN.BJP,BJP,146676,35358,5.82,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-22,uttar-pradesh,1999,UNNAO,1201204,590401,49.15,Deepak Kumar,parties.IN.SP,SP,207242,35.1,Mohd. Moin,parties.IN.BSP,BSP,169467,37775,6.4,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-23,uttar-pradesh,1999,RAE BARELI,1174548,684461,58.27,Captain Satish Sharma,parties.IN.INC,INC,224202,32.76,Gajadhar Singh,parties.IN.SP,SP,150653,73549,10.75,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-24,uttar-pradesh,1999,PRATAPGARH,1189143,567099,47.69,Rajkumari Ratna Singh,parties.IN.INC,INC,202170,35.65,Abhai Pratap Singh,parties.IN.BJP,BJP,196167,6003,1.06,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-25,uttar-pradesh,1999,AMETHI,1110623,624172,56.2,Sonia Gandhi,parties.IN.INC,INC,418960,67.12,Dr.Sanjai Singh,parties.IN.BJP,BJP,118948,300012,48.06,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-26,uttar-pradesh,1999,SULTANPUR,1220728,610404,50,Jai Bhadra Singh,parties.IN.BSP,BSP,173558,28.43,Ram Lakhan Verma,parties.IN.SP,SP,158959,14599,2.39,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-27,uttar-pradesh,1999,AKBARPUR,1230232,738870,60.06,Mayawati,parties.IN.BSP,BSP,259762,35.16,Ram Piyare Suman,parties.IN.SP,SP,206376,53386,7.23,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-28,uttar-pradesh,1999,FAIZABAD,1228752,657165,53.48,Vinay Katiyar,parties.IN.BJP,BJP,193191,29.4,Siya Ram Nishad,parties.IN.BSP,BSP,135629,57562,8.76,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-29,uttar-pradesh,1999,BARA BANKI,1089797,621034,56.99,Ram Sagar,parties.IN.SP,SP,210958,33.97,Baij Nath Rawat,parties.IN.BJP,BJP,155680,55278,8.9,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-3,uttar-pradesh,1999,ALMORA,965628,397605,41.18,Bachi Singh Rawat,parties.IN.BJP,BJP,192388,48.39,Harish Rawat,parties.IN.INC,INC,180929,11459,2.89,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-30,uttar-pradesh,1999,KAISERGANJ,1116997,635728,56.91,Beni Prasad Verma,parties.IN.SP,SP,233934,36.8,Chamundeshwri Pratap Chand Alias C.P.Chandsingh,parties.IN.BJP,BJP,182375,51559,8.11,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-31,uttar-pradesh,1999,BAHRAICH,1226445,594588,48.48,Padamsen Chaudhary,parties.IN.BJP,BJP,223768,37.63,Arif Mohammad Khan,parties.IN.BSP,BSP,218017,5751,0.96,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-32,uttar-pradesh,1999,BALRAMPUR,1164886,666280,57.2,Rizvan Zaheer  Alias Rijju Bhaiya,parties.IN.SP,SP,255267,38.31,Bhisham Shankar Tiwari Alias Kaushal Tiwari,parties.IN.BJP,BJP,235110,20157,3.02,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-33,uttar-pradesh,1999,GONDA,1159190,577026,49.78,Braj Bhushan Sharan Singh,parties.IN.BJP,BJP,243162,42.14,Kirti Vardhan Singh Raja Bhaiya,parties.IN.SP,SP,183965,59197,10.26,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-34,uttar-pradesh,1999,BASTI,1181116,585359,49.56,Shriram Chauhan,parties.IN.BJP,BJP,174378,29.79,Lal Mani Prasad,parties.IN.BSP,BSP,172546,1832,0.31,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-35,uttar-pradesh,1999,DOMARIAGANJ,1146572,617151,53.83,Ram Pal Singh,parties.IN.BJP,BJP,198263,32.13,Mohd Mukim,parties.IN.INC,INC,162696,35567,5.77,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-36,uttar-pradesh,1999,KHALILABAD,1215811,664508,54.66,Bhal Chandra Yadav,parties.IN.SP,SP,236837,35.64,Ram Prasad Chaudhary,parties.IN.BSP,BSP,206809,30028,4.52,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-37,uttar-pradesh,1999,BANSGAON,1279729,598765,46.79,Raj Narayan Pasi,parties.IN.BJP,BJP,184684,30.84,Subhawati Paswan,parties.IN.SP,SP,174996,9688,1.61,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-38,uttar-pradesh,1999,GORAKHPUR,1261260,650545,51.58,Aditya Nath,parties.IN.BJP,BJP,267382,41.1,Jamuna Prasad Nishad,parties.IN.SP,SP,260043,7339,1.13,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-39,uttar-pradesh,1999,MAHARAJGANJ,1129627,677114,59.94,Akhilesh  Singh,parties.IN.SP,SP,239826,35.42,Pankaj Chaudhary,parties.IN.BJP,BJP,229182,10644,1.57,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-4,uttar-pradesh,1999,NAINITAL,1368193,793919,58.03,Narayan Datt Tiwari,parties.IN.INC,INC,350381,44.13,Balraj Passi,parties.IN.BJP,BJP,237974,112407,14.16,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-40,uttar-pradesh,1999,PADRAUNA,1210405,695346,57.45,Ram Nagina Mishra,parties.IN.BJP,BJP,196651,28.28,Baleshwar Yadav,parties.IN.SP,SP,169913,26738,3.84,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-41,uttar-pradesh,1999,DEORIA,1275208,694139,54.43,Shri Prakash Mani,parties.IN.BJP,BJP,251814,36.28,Mohan Singh,parties.IN.SP,SP,209673,42141,6.07,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-42,uttar-pradesh,1999,SALEMPUR,1265863,636475,50.28,Babban Rajbhar,parties.IN.BSP,BSP,170558,26.8,Hari Vansh Sahai,parties.IN.SP,SP,161508,9050,1.42,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-43,uttar-pradesh,1999,BALLIA,1287826,610924,47.44,Chandra Shekhar,parties.IN.SJP_R,SJP(R),235946,38.62,Ram Krishna Urf Gopal,parties.IN.BJP,BJP,180271,55675,9.11,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-44,uttar-pradesh,1999,GHOSI,1216056,677481,55.71,Bal Krishna,parties.IN.BSP,BSP,207105,30.57,Siddhartha Rai,parties.IN.JDU,JD(U),170604,36501,5.39,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-45,uttar-pradesh,1999,AZAMGARH,1215261,652880,53.72,Rama Kant Yadav,parties.IN.SP,SP,227616,34.86,Akbar Ahmad Dumpy,parties.IN.BSP,BSP,200637,26979,4.13,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-46,uttar-pradesh,1999,LALGANJ,1313973,688528,52.4,Dr. Bali Ram,parties.IN.BSP,BSP,229122,33.28,Daroga,parties.IN.SP,SP,198123,30999,4.51,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-47,uttar-pradesh,1999,MACHHLISHAHR,1263202,654155,51.79,Chandra Nath Singh,parties.IN.SP,SP,201509,30.8,Dr. Ram Vilas Vedanti,parties.IN.BJP,BJP,180350,21159,3.23,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-48,uttar-pradesh,1999,JAUNPUR,1274445,691518,54.26,Chinmayanand,parties.IN.BJP,BJP,207405,29.99,Paras Nath Yadav,parties.IN.SP,SP,198770,8635,1.25,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-49,uttar-pradesh,1999,SAIDPUR,1309952,703749,53.72,Tufani Saroj,parties.IN.SP,SP,237438,33.74,Sharada Prasad,parties.IN.BSP,BSP,206067,31371,4.46,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-5,uttar-pradesh,1999,BIJNOR,1276433,704925,55.23,Sheeshram Singh Ravi,parties.IN.BJP,BJP,214266,30.4,Omwati Devi,parties.IN.SP,SP,190566,23700,3.37,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-50,uttar-pradesh,1999,GHAZIPUR,1300013,734039,56.46,Manoj,parties.IN.BJP,BJP,240592,32.78,Om Prakash,parties.IN.SP,SP,229559,11033,1.51,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-51,uttar-pradesh,1999,CHANDAULI,1340398,726686,54.21,Jawahar Lal Jaiswal,parties.IN.SP,SP,265412,36.52,Anand Ratna Maurya,parties.IN.BJP,BJP,191883,73529,10.11,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-52,uttar-pradesh,1999,VARANASI,1407844,624357,44.35,Shankar Prasad Jaiswal,parties.IN.BJP,BJP,211955,33.95,Rajesh Kumar Mishra,parties.IN.INC,INC,159096,52859,8.47,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-53,uttar-pradesh,1999,ROBERTSGANJ,1443487,743357,51.5,Ram Shakal,parties.IN.BJP,BJP,200826,27.02,Hari Prasad Alias Ghamdi Singh,parties.IN.SP,SP,184898,15928,2.15,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-54,uttar-pradesh,1999,MIRZAPUR,1356017,771124,56.87,Phoolan Devi,parties.IN.SP,SP,290849,37.72,Virendra Singh,parties.IN.BJP,BJP,206373,84476,10.96,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-55,uttar-pradesh,1999,PHULPUR,1183537,680027,57.46,Dharam Raj Singh Patel,parties.IN.SP,SP,183282,26.95,Beni Madhav Bind,parties.IN.BJP,BJP,163243,20039,2.94,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-56,uttar-pradesh,1999,ALLAHABAD,1410588,648516,45.97,Dr. Murli Manohar Joshi,parties.IN.BJP,BJP,219114,33.79,Kunwar Rewati Raman Singh Alias Maniji,parties.IN.SP,SP,148783,70331,10.85,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-57,uttar-pradesh,1999,CHAIL,1310550,506746,38.67,Suresh Pasi,parties.IN.BSP,BSP,151557,29.91,Dr. Amrit Lal Bharti,parties.IN.BJP,BJP,122272,29285,5.78,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-58,uttar-pradesh,1999,FATEHPUR,1171111,538388,45.97,Ashok Patel,parties.IN.BJP,BJP,142911,26.54,Surya Bali Nishad,parties.IN.BSP,BSP,141848,1063,0.19,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-59,uttar-pradesh,1999,BANDA,1158052,578807,49.98,Ram Sajiwan,parties.IN.BSP,BSP,209995,36.28,Shyam Charan Gupta,parties.IN.SP,SP,181364,28631,4.95,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-6,uttar-pradesh,1999,AMROHA,1222239,770196,63.02,Rashid Alvi,parties.IN.BSP,BSP,337919,43.87,Chetan Chauhan,parties.IN.BJP,BJP,244694,93225,12.1,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-60,uttar-pradesh,1999,HAMIRPUR,1057352,612344,57.91,Ashok Kumar Singh Chandel,parties.IN.BSP,BSP,217732,35.56,Rajnarain Alias Rajju Maharaj,parties.IN.SP,SP,206068,11664,1.91,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-61,uttar-pradesh,1999,JHANSI,1319184,750501,56.89,Sujan Singh Bundela,parties.IN.INC,INC,283387,37.76,Rajendra Agnihotri,parties.IN.BJP,BJP,200866,82521,11,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-62,uttar-pradesh,1999,JALAUN,1164371,574855,49.37,Brij Lal Khabri,parties.IN.BSP,BSP,197705,34.39,Bhanu Pratap Singh Varma,parties.IN.BJP,BJP,184353,13352,2.32,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-63,uttar-pradesh,1999,GHATAMPUR,1112727,558114,50.16,Pyare Lal Sankhwar,parties.IN.BSP,BSP,156582,28.06,Arun Kumari Kori,parties.IN.SP,SP,156477,105,0.02,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-64,uttar-pradesh,1999,BILHAUR,1261013,632450,50.15,Shyam Bihari Mishra,parties.IN.BJP,BJP,192054,30.37,Raja Ram Pal,parties.IN.BSP,BSP,188831,3223,0.51,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-65,uttar-pradesh,1999,KANPUR,1417761,635624,44.83,Sriprakash Jaiswal,parties.IN.INC,INC,293610,46.19,Jagat Veer Singh Drone,parties.IN.BJP,BJP,259151,34459,5.42,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-66,uttar-pradesh,1999,ETAWAH,1148723,601874,52.4,Raghuraj Singh Shakya,parties.IN.SP,SP,233065,38.72,Shiv Prasad Yadav,parties.IN.BSP,BSP,149382,83683,13.9,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-67,uttar-pradesh,1999,KANNAUJ,1157142,684085,59.12,Mulayam Singh Yadav,parties.IN.SP,SP,291617,42.63,Arvind Pratap Singh,parties.IN.ABLTC,ABLTC,212478,79139,11.57,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-68,uttar-pradesh,1999,FARRUKHABAD,1241968,632970,50.97,Chandra Bhushan Singh (Munnoo Babu),parties.IN.SP,SP,222984,35.23,Prof. Ram Bakhsh Singh Verma,parties.IN.BJP,BJP,160422,62562,9.89,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-69,uttar-pradesh,1999,MAINPURI,1109097,569538,51.35,Balram Singh Yadav,parties.IN.SP,SP,244113,42.86,Darshan Singh Yadav,parties.IN.BJP,BJP,216087,28026,4.92,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-7,uttar-pradesh,1999,MORADABAD,1156172,640314,55.38,Chandra Vijay Singh Alias Baby Raja,parties.IN.ABLTC,ABLTC,253321,39.56,Dr. Shafiqur Rahman Barq,parties.IN.SP,SP,156871,96450,15.06,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-70,uttar-pradesh,1999,JALESAR,1122770,661686,58.93,Prof. S.P. Singh Baghel,parties.IN.SP,SP,217336,32.85,Ompal Singh Nidar,parties.IN.BJP,BJP,209274,8062,1.22,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-71,uttar-pradesh,1999,ETAH,1036859,587138,56.63,Kr. Devendra Singh Yadav,parties.IN.SP,SP,226999,38.66,Dr. Mahadeepak Singh Shakya,parties.IN.BJP,BJP,174475,52524,8.94,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-72,uttar-pradesh,1999,FIROZABAD,1157680,573312,49.52,Ram Jilal Suman,parties.IN.SP,SP,289459,50.49,Prabhu Dayal Katheriyar,parties.IN.BJP,BJP,206091,83368,14.54,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-73,uttar-pradesh,1999,AGRA,1250278,642426,51.38,Raj Babbar,parties.IN.SP,SP,288558,44.92,Bhagwan Shankar Rawat,parties.IN.BJP,BJP,175576,112982,17.59,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-74,uttar-pradesh,1999,MATHURA,1176548,530156,45.06,Ch. Tejvir Singh,parties.IN.BJP,BJP,210212,39.65,Rameshwar Singh,parties.IN.RLD,RLD,168485,41727,7.87,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-75,uttar-pradesh,1999,HATHRAS,1138146,459758,40.4,Kishan Lal Diler,parties.IN.BJP,BJP,178253,38.77,Ganga Prasad Pushkar,parties.IN.BSP,BSP,109846,68407,14.88,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-76,uttar-pradesh,1999,ALIGARH,1253174,554097,44.22,Sheela Gautam,parties.IN.BJP,BJP,219313,39.58,Sahab Singh,parties.IN.BSP,BSP,138496,80817,14.59,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-77,uttar-pradesh,1999,KHURJA,1271984,481734,37.87,Ashok Kumar Pradhan,parties.IN.BJP,BJP,216011,44.84,Smt. Satyawati Urf Satya Bahin,parties.IN.INC,INC,105713,110298,22.9,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-78,uttar-pradesh,1999,BULANDSHAHR,1098334,494757,45.05,Chhatra Pal,parties.IN.BJP,BJP,180102,36.4,Saeedul Hassan,parties.IN.INC,INC,118173,61929,12.51,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-79,uttar-pradesh,1999,HAPUR,1568097,723634,46.15,Ramesh Chand Tomar,parties.IN.BJP,BJP,234525,32.41,Trilok Tyagi,parties.IN.RLD,RLD,222567,11958,1.65,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-8,uttar-pradesh,1999,RAMPUR,1322470,810424,61.28,Begum Noor Bano Urf Mahtab Zamani Begum,parties.IN.INC,INC,338493,41.77,Mukhtar Abbas Naqvi,parties.IN.BJP,BJP,223022,115471,14.25,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-80,uttar-pradesh,1999,MEERUT,1269454,744064,58.61,Avtar Singh Bhadana,parties.IN.INC,INC,258456,34.74,Amar Pal Singh,parties.IN.BJP,BJP,233620,24836,3.34,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-81,uttar-pradesh,1999,BAGHPAT,1321056,742063,56.17,Ajit Singh,parties.IN.RLD,RLD,358069,48.25,Sompal,parties.IN.BJP,BJP,203650,154419,20.81,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-82,uttar-pradesh,1999,MUZAFFARNAGAR,1217407,682351,56.05,Saiduzzaman,parties.IN.INC,INC,196669,28.82,Sohanveer Singh,parties.IN.BJP,BJP,170918,25751,3.77,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-83,uttar-pradesh,1999,KAIRANA,1099503,692027,62.94,Amir Alam,parties.IN.RLD,RLD,206345,29.82,Niranjan Singh Malik,parties.IN.BJP,BJP,168073,38272,5.53,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-84,uttar-pradesh,1999,SAHARANPUR,1261896,771959,61.17,Mansoor Ali Khan,parties.IN.BSP,BSP,235659,30.53,Rasheed Masood,parties.IN.RLD,RLD,213352,22307,2.89,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-85,uttar-pradesh,1999,HARDWAR,1183770,666882,56.34,Harpal Singh Sathi,parties.IN.BJP,BJP,236844,35.52,Ramesh Kumar Burman,parties.IN.BSP,BSP,203997,32847,4.93,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-9,uttar-pradesh,1999,SAMBHAL,1081421,619859,57.32,Mulayam Singh Yadav,parties.IN.SP,SP,259430,41.85,Ch. Bhupendra Singh,parties.IN.BJP,BJP,143596,115834,18.68,src-31c65dbec869
+IN-PC-1976-west-bengal-1,west-bengal,1999,COOCH BEHAR,1116523,891829,79.88,Amar Roy Pradhan,parties.IN.AIFB,FBL,443148,49.69,Ambika Charan Ray,parties.IN.AITC,AITC,334983,108165,12.13,src-31c65dbec869
+IN-PC-1976-west-bengal-10,west-bengal,1999,BERHAMPORE,1212554,926375,76.4,Adhir Ranjan Chowdhury,parties.IN.INC,INC,434073,46.86,Pramothes Mukherjee,parties.IN.RSP,RSP,338682,95391,10.3,src-31c65dbec869
+IN-PC-1976-west-bengal-11,west-bengal,1999,KRISHNAGAR,1084449,837424,77.22,Satyabrata Mookherjee,parties.IN.BJP,BJP,366954,43.82,Dilip Chakraborty,parties.IN.CPIM,CPM,344720,22234,2.66,src-31c65dbec869
+IN-PC-1976-west-bengal-12,west-bengal,1999,NABADWIP,1320358,1002084,75.89,Ananda Mohan Biswas,parties.IN.AITC,AITC,459319,45.84,Asim Bala,parties.IN.CPIM,CPM,420184,39135,3.91,src-31c65dbec869
+IN-PC-1976-west-bengal-13,west-bengal,1999,BARASAT,1303217,1031285,79.13,Dr.Ranjit Kumar Panja,parties.IN.AITC,AITC,518520,50.28,Saral Deb,parties.IN.AIFB,FBL,421620,96900,9.4,src-31c65dbec869
+IN-PC-1976-west-bengal-14,west-bengal,1999,BASIRHAT,1071134,856295,79.94,Ajoy Chakraborty,parties.IN.CPI,CPI,407903,47.64,M. Nuruzzaman,parties.IN.AITC,AITC,325316,82587,9.65,src-31c65dbec869
+IN-PC-1976-west-bengal-15,west-bengal,1999,JOYNAGAR,1116858,802529,71.86,Sanat Kumar Mondal,parties.IN.RSP,RSP,396383,49.39,Krishna Pada  Majumder,parties.IN.BJP,BJP,284082,112301,13.99,src-31c65dbec869
+IN-PC-1976-west-bengal-16,west-bengal,1999,MATHURAPUR,1076730,818609,76.03,Radhika Ranjan Pramanik,parties.IN.CPIM,CPM,382962,46.78,Gobinda Chandra Naskar,parties.IN.AITC,AITC,331237,51725,6.32,src-31c65dbec869
+IN-PC-1976-west-bengal-17,west-bengal,1999,DIAMOND HARBOUR,1136879,844342,74.27,Samik Lahiri,parties.IN.CPIM,CPM,402761,47.7,Sardar Amjad Ali,parties.IN.AITC,AITC,331598,71163,8.43,src-31c65dbec869
+IN-PC-1976-west-bengal-18,west-bengal,1999,JADAVPUR,1403413,991198,70.63,Krishna Bose,parties.IN.AITC,AITC,485366,48.97,Kanti Ganguly,parties.IN.CPIM,CPM,418601,66765,6.74,src-31c65dbec869
+IN-PC-1976-west-bengal-19,west-bengal,1999,BARRACKPORE,1040220,830719,79.86,Tarit Baran Topdar,parties.IN.CPIM,CPM,399269,48.06,Jayanta Bhattacharya,parties.IN.AITC,AITC,358494,40775,4.91,src-31c65dbec869
+IN-PC-1976-west-bengal-2,west-bengal,1999,ALIPURDUARS,1039377,760862,73.2,Joachim Baxla,parties.IN.RSP,RSP,389919,51.25,Dhirendra Narjinarai,parties.IN.BJP,BJP,236786,153133,20.13,src-31c65dbec869
+IN-PC-1976-west-bengal-20,west-bengal,1999,DUM DUM,1598044,1191114,74.54,Tapan Sikdar,parties.IN.BJP,BJP,614471,51.59,Anil Bhattacharya,parties.IN.CPIM,CPM,479910,134561,11.3,src-31c65dbec869
+IN-PC-1976-west-bengal-21,west-bengal,1999,CALCUTTA NORTH WEST,704009,443486,62.99,Sudip Bandyopadhyay,parties.IN.AITC,AITC,206684,46.6,Rajdeo Goala,parties.IN.CPIM,CPM,112514,94170,21.23,src-31c65dbec869
+IN-PC-1976-west-bengal-22,west-bengal,1999,CALCUTTA NORTH EAST,924613,658631,71.23,Ajit Kumar Panja,parties.IN.AITC,AITC,297491,45.17,Md. Salim,parties.IN.CPIM,CPM,255917,41574,6.31,src-31c65dbec869
+IN-PC-1976-west-bengal-23,west-bengal,1999,CALCUTTA SOUTH,1202607,805121,66.95,Mamata Banerjee,parties.IN.AITC,AITC,469103,58.26,Subhankar Chakraborty,parties.IN.CPIM,CPM,255095,214008,26.58,src-31c65dbec869
+IN-PC-1976-west-bengal-24,west-bengal,1999,HOWRAH,1381960,981399,71.02,Swadesh Chakraborty,parties.IN.CPIM,CPM,490537,49.98,Dr. Kakoli Ghosh Dastidar,parties.IN.AITC,AITC,387088,103449,10.54,src-31c65dbec869
+IN-PC-1976-west-bengal-25,west-bengal,1999,ULUBERIA,1101065,808564,73.43,Hannan Mollah,parties.IN.CPIM,CPM,399397,49.4,Dr. Sudipta Roy,parties.IN.AITC,AITC,331820,67577,8.36,src-31c65dbec869
+IN-PC-1976-west-bengal-26,west-bengal,1999,SERAMPORE,1325375,911306,68.76,Akbor Ali Khandoker,parties.IN.AITC,AITC,411406,45.14,Sudarsan Roy Chaudhury,parties.IN.CPIM,CPM,363642,47764,5.24,src-31c65dbec869
+IN-PC-1976-west-bengal-27,west-bengal,1999,HOOGHLY,1160870,919250,79.19,Rupchand Pal,parties.IN.CPIM,CPM,440674,47.94,Tapan Das Gupta,parties.IN.AITC,AITC,428189,12485,1.36,src-31c65dbec869
+IN-PC-1976-west-bengal-28,west-bengal,1999,ARAMBAGH,1143407,933500,81.64,Anil Basu,parties.IN.CPIM,CPM,503920,53.98,Chunilal Chakraborty,parties.IN.BJP,BJP,387199,116721,12.5,src-31c65dbec869
+IN-PC-1976-west-bengal-29,west-bengal,1999,PANSKURA,986955,816130,82.69,Gita Mukherjee,parties.IN.CPI,CPI,401431,49.19,Gouri Ghosh,parties.IN.AITC,AITC,354573,46858,5.74,src-31c65dbec869
+IN-PC-1976-west-bengal-3,west-bengal,1999,JALPAIGURI,1101898,831795,75.49,Minati Sen,parties.IN.CPIM,CPM,405785,48.78,Kalyan Chakraborty,parties.IN.AITC,AITC,296848,108937,13.09,src-31c65dbec869
+IN-PC-1976-west-bengal-30,west-bengal,1999,TAMLUK,1098196,909682,82.83,Lakshman Chandra Seth,parties.IN.CPIM,CPM,455168,50.04,Nirmalendu Bhattacharjee,parties.IN.AITC,AITC,400342,54826,6.03,src-31c65dbec869
+IN-PC-1976-west-bengal-31,west-bengal,1999,CONTAI,990917,815448,82.29,Neetish  Sengupta,parties.IN.AITC,AITC,395048,48.45,Sudhir Giri,parties.IN.CPIM,CPM,382915,12133,1.49,src-31c65dbec869
+IN-PC-1976-west-bengal-32,west-bengal,1999,MIDNAPORE,1099512,852492,77.53,Indrajit Gupta,parties.IN.CPI,CPI,414545,48.63,Manoranjon Dutta,parties.IN.BJP,BJP,385772,28773,3.38,src-31c65dbec869
+IN-PC-1976-west-bengal-33,west-bengal,1999,JHARGRAM,991504,791700,79.85,Rupchand Murmu,parties.IN.CPIM,CPM,402325,50.82,Dakhin Murmu,parties.IN.AITC,AITC,293644,108681,13.73,src-31c65dbec869
+IN-PC-1976-west-bengal-34,west-bengal,1999,PURULIA,1008066,681196,67.57,Birsingh Mahato,parties.IN.AIFB,FBL,351143,51.55,Tapati Mahato,parties.IN.BJP,BJP,176273,174870,25.67,src-31c65dbec869
+IN-PC-1976-west-bengal-35,west-bengal,1999,BANKURA,1041325,723929,69.52,Acharia Basudeb,parties.IN.CPIM,CPM,381720,52.73,Natabar Bagdi,parties.IN.IND,IND,274722,106998,14.78,src-31c65dbec869
+IN-PC-1976-west-bengal-36,west-bengal,1999,VISHNUPUR,1071817,834502,77.86,Sandhya Bauri,parties.IN.CPIM,CPM,483084,57.89,Adhibas Duley,parties.IN.AITC,AITC,301514,181570,21.76,src-31c65dbec869
+IN-PC-1976-west-bengal-37,west-bengal,1999,DURGAPUR,1212641,869091,71.67,Sunil Khan,parties.IN.CPIM,CPM,461940,53.15,Anil Kumar Saha,parties.IN.BJP,BJP,343977,117963,13.57,src-31c65dbec869
+IN-PC-1976-west-bengal-38,west-bengal,1999,ASANSOL,1265480,815292,64.43,Bikash Chowdhury,parties.IN.CPIM,CPM,377265,46.27,Ajit Ghatak (Moloy Ghatak),parties.IN.AITC,AITC,339401,37864,4.64,src-31c65dbec869
+IN-PC-1976-west-bengal-39,west-bengal,1999,BURDWAN,1216764,971754,79.86,Sar Nikhilananda,parties.IN.CPIM,CPM,598170,61.56,Anup Mukherjee,parties.IN.BJP,BJP,296487,301683,31.05,src-31c65dbec869
+IN-PC-1976-west-bengal-4,west-bengal,1999,DARJEELING,1276753,580471,45.46,S.P. Lepcha,parties.IN.CPIM,CPM,256826,44.24,Nar Bahadur Khatiwara,parties.IN.INC,INC,144857,111969,19.28,src-31c65dbec869
+IN-PC-1976-west-bengal-40,west-bengal,1999,KATWA,1183616,918349,77.59,Mahboob Zahedi,parties.IN.CPIM,CPM,461502,50.25,Amal Kumar Dutta,parties.IN.AITC,AITC,353140,108362,11.8,src-31c65dbec869
+IN-PC-1976-west-bengal-41,west-bengal,1999,BOLPUR,1037427,781954,75.37,Somnath Chatterjee,parties.IN.CPIM,CPM,464199,59.36,Suniti Chattaraj,parties.IN.AITC,AITC,277810,186389,23.83,src-31c65dbec869
+IN-PC-1976-west-bengal-42,west-bengal,1999,BIRBHUM,1043876,723560,69.31,Ram Chandra Dome,parties.IN.CPIM,CPM,373687,51.65,Dr. Madan Lal Choudhury,parties.IN.BJP,BJP,216531,157156,21.72,src-31c65dbec869
+IN-PC-1976-west-bengal-5,west-bengal,1999,RAIGANJ,1144667,875716,76.5,Priya Ranjan Dasmunsi,parties.IN.INC,INC,409331,46.74,Subrata Mukherjee,parties.IN.CPIM,CPM,334076,75255,8.59,src-31c65dbec869
+IN-PC-1976-west-bengal-6,west-bengal,1999,BALURGHAT,1107468,840898,75.93,Barman Ranen,parties.IN.RSP,RSP,375669,44.67,Subhash Ch. Barman,parties.IN.BJP,BJP,312748,62921,7.48,src-31c65dbec869
+IN-PC-1976-west-bengal-7,west-bengal,1999,MALDA,1047279,810196,77.36,Abul Barkat Ataul Ghani Khan Choudhury,parties.IN.INC,INC,325833,40.22,Sailen Sarkar,parties.IN.CPIM,CPM,301280,24553,3.03,src-31c65dbec869
+IN-PC-1976-west-bengal-8,west-bengal,1999,JANGIPUR,1087203,775493,71.33,Abul Hasnat Khan,parties.IN.CPIM,CPM,352580,45.47,Mainul Haque,parties.IN.INC,INC,291263,61317,7.91,src-31c65dbec869
+IN-PC-1976-west-bengal-9,west-bengal,1999,MURSHIDABAD,1172830,827395,70.55,Moinul Hassan,parties.IN.CPIM,CPM,391366,47.3,Mannan Hossain,parties.IN.INC,INC,268006,123360,14.91,src-31c65dbec869

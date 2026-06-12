@@ -1,0 +1,9 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-PC-1976-andhra-pradesh-27,andhra-pradesh,1978,NANDYAL,675340,507247,75.11,P.V.SUBBAIAH,parties.IN.INC_I,INC(I),257795,50.82,GAMAGO,parties.IN.JP,JNP,216792,41003,8.08,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-39,andhra-pradesh,1978,WARANGAL,581239,453859,78.08,G.M.RAO,parties.IN.INC,INC,155589,34.28,Q.A.ABIND,parties.IN.JP,JNP,143331,12258,2.7,src-31c65dbec869
+IN-PC-1976-bihar-17,bihar,1978,SAMASTIPUR,735794,506894,68.89,A.K.MEHTA,parties.IN.JP,JNP,243554,48.05,T.SINHA,parties.IN.INC_I,INC(I),216690,26864,5.3,src-31c65dbec869
+IN-PC-1976-haryana-3,haryana,1978,KARNAL,556203,386812,69.55,M.SINGH,parties.IN.JP,JNP,185843,48.04,C.LAL,parties.IN.INC_I,INC(I),167464,18379,4.75,src-31c65dbec869
+IN-PC-1976-karnataka-20,karnataka,1978,CHICKMAGALUR,534676,447548,83.7,I.N.GANDHI (W),parties.IN.INC_I,INC(I),249376,55.72,V.PATIL,parties.IN.JP,JNP,172043,77333,17.28,src-31c65dbec869
+IN-PC-1976-manipur-2,manipur,1978,OUTER MANIPUR (ST),380305,225243,59.23,KAIHO,parties.IN.JP,JNP,103892,46.12,LOHII,parties.IN.INC_I,INC(I),49039,54853,24.35,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-45,uttar-pradesh,1978,AZAMGARH,632994,300580,47.49,M.KINDWAI(W),parties.IN.INC_I,INC(I),131329,43.69,R.B.YADAV,parties.IN.JP,JNP,95944,35385,11.77,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-58,uttar-pradesh,1978,FATHEPUR,614485,269631,43.88,S.L.HUSSAIN,parties.IN.JP,JNP,130621,48.44,P.DATT,parties.IN.INC_I,INC(I),100555,30066,11.15,src-31c65dbec869

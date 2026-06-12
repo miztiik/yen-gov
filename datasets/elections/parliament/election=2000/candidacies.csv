@@ -1,0 +1,36 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-PC-1976-karnataka-5,karnataka,2000,5,BELLARY,Kolur Basavanagoud,parties.IN.INC,INC,259851,53.05,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-karnataka-5,karnataka,2000,5,BELLARY,K.S. Veerabhadrappa,parties.IN.BJP,BJP,163831,33.45,2,lost,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-karnataka-5,karnataka,2000,5,BELLARY,Thippeswamy,parties.IN.JDS,JD(S),35291,7.21,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-karnataka-5,karnataka,2000,5,BELLARY,Mundrigi Nagaraj,parties.IN.BSP,BSP,22839,4.66,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-karnataka-5,karnataka,2000,5,BELLARY,M. Appa Rao,parties.IN.IND,IND,5232,1.07,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-karnataka-5,karnataka,2000,5,BELLARY,Nazeer Hussain,parties.IN.IND,IND,1860,0.38,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-karnataka-5,karnataka,2000,5,BELLARY,H. Purushottama,parties.IN.IND,IND,893,0.18,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-odisha-10,odisha,2000,10,ASKA,Kumudini Patnaik,parties.IN.BJD,BJD,288240,70.31,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-odisha-10,odisha,2000,10,ASKA,Umakanta Mishra,parties.IN.INC,INC,108767,26.53,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-odisha-10,odisha,2000,10,ASKA,Katakota Shyambabu Subudhi,parties.IN.IND,IND,12949,3.16,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-rajasthan-7,rajasthan,2000,7,DAUSA,Rama Pilot,parties.IN.INC,INC,349439,52.16,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-rajasthan-7,rajasthan,2000,7,DAUSA,R.K.Sharma,parties.IN.BJP,BJP,284175,42.42,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-rajasthan-7,rajasthan,2000,7,DAUSA,Raghu Yadav,parties.IN.BSP,BSP,17264,2.58,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-rajasthan-7,rajasthan,2000,7,DAUSA,Dr.Mukarram Ali,parties.IN.IND,IND,11021,1.64,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-rajasthan-7,rajasthan,2000,7,DAUSA,Kailash Chand,parties.IN.IND,IND,8085,1.21,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-67,uttar-pradesh,2000,67,KANNAUJ,Akhilesh Yadav,parties.IN.SP,SP,306054,43.1,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-67,uttar-pradesh,2000,67,KANNAUJ,Akbar Ahmad Dumpy,parties.IN.BSP,BSP,247329,34.83,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-67,uttar-pradesh,2000,67,KANNAUJ,Prof. Shaitansingh Shakya,parties.IN.RTKP,RTKP,98372,13.85,3,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-67,uttar-pradesh,2000,67,KANNAUJ,Pratima Chaturvedi,parties.IN.ABLTC,ABLTC,22541,3.17,4,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-67,uttar-pradesh,2000,67,KANNAUJ,Suresh Chandra,parties.IN.IND,IND,10402,1.46,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-67,uttar-pradesh,2000,67,KANNAUJ,Satya Dev Tripathi,parties.IN.INC,INC,7598,1.07,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-67,uttar-pradesh,2000,67,KANNAUJ,Girish Chandra,parties.IN.IND,IND,5081,0.72,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-67,uttar-pradesh,2000,67,KANNAUJ,Satya Prakash 'Raja',parties.IN.IND,IND,3170,0.45,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-67,uttar-pradesh,2000,67,KANNAUJ,Omprakash,parties.IN.IND,IND,2552,0.36,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-67,uttar-pradesh,2000,67,KANNAUJ,Kaleshwar,parties.IN.IND,IND,2223,0.31,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-67,uttar-pradesh,2000,67,KANNAUJ,Menhadihasan,parties.IN.SAD,AD,1540,0.22,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-67,uttar-pradesh,2000,67,KANNAUJ,Akhalesh,parties.IN.IND,IND,1234,0.17,12,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-67,uttar-pradesh,2000,67,KANNAUJ,Munni Devi,parties.IN.IND,IND,702,0.1,13,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-67,uttar-pradesh,2000,67,KANNAUJ,Amar Singh,parties.IN.IND,IND,639,0.09,14,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-67,uttar-pradesh,2000,67,KANNAUJ,Pushpa,parties.IN.IND,IND,630,0.09,15,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-29,west-bengal,2000,29,PANSKURA,Dr. Bikram Sarkar,parties.IN.AITC,AITC,426779,50.73,1,won,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-west-bengal-29,west-bengal,2000,29,PANSKURA,Gurudas Dasgupta,parties.IN.CPI,CPI,385298,45.8,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-29,west-bengal,2000,29,PANSKURA,Subhankar Sarkar,parties.IN.INC,INC,20497,2.44,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-29,west-bengal,2000,29,PANSKURA,Sk. Hafijur Rahaman,parties.IN.IND,IND,5008,0.6,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-29,west-bengal,2000,29,PANSKURA,Sk. Maksud Hossain,parties.IN.IND,IND,3622,0.43,5,forfeit,U,,,,challenger,src-31c65dbec869
