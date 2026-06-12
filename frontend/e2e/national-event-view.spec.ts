@@ -50,20 +50,26 @@ test.describe("national event view (PR-W3c rebuild)", () => {
     // The KPIs strip + map + top-parties containers all mount as soon as
     // the loader transitions out of `failed`. They render skeleton-ish
     // content during `loading` though, so visibility of the CONTAINER
-    // alone is not a data-arrival signal. Use the FIRST top-parties row
-    // as the load-complete oracle (it only appears after
-    // `loadElectionResults({event})` resolves and `winners` populates).
+    // alone is not a data-arrival signal. TODO/20260612 Row F: top-
+    // parties now uses PartyBar, which emits `party-bar-row` per
+    // ranked party (replacing the retired `national-event-top-parties-
+    // row` testid).
     // 30s allows for the cold vite compile + DuckDB-WASM worker
     // bootstrap + the 542-row scan.
     await expect(
-      page.getByTestId("national-event-top-parties-row").first(),
+      page.getByTestId("party-bar-row").first(),
     ).toBeVisible({ timeout: 30_000 });
 
     // KPIs strip visible (now carrying data since the load completed).
     await expect(page.getByTestId("national-event-kpis")).toBeVisible();
 
-    // India choropleth visible.
+    // India choropleth visible (TODO/20260612 Row C: this container
+    // now hosts a 3-way map view; the States arm is the default and
+    // renders the IndiaPartyMap inside `national-event-map-states`).
     await expect(page.getByTestId("national-event-map")).toBeVisible();
+    await expect(page.getByTestId("national-event-map-states")).toBeVisible({
+      timeout: 30_000,
+    });
 
     // Top-parties bar visible (container; row check above pinned the data).
     await expect(page.getByTestId("national-event-top-parties")).toBeVisible();
@@ -88,10 +94,81 @@ test.describe("national event view (PR-W3c rebuild)", () => {
     await page.goto("/t/elections/LsGenJun2024");
     // Same data-arrival oracle as the happy-path test.
     await expect(
-      page.getByTestId("national-event-top-parties-row").first(),
+      page.getByTestId("party-bar-row").first(),
     ).toBeVisible({ timeout: 30_000 });
     await expect(page.getByTestId("national-event-kpis")).toBeVisible();
     await expect(page.getByTestId("national-event-map")).toBeVisible();
     await expect(page.getByTestId("national-event-top-parties")).toBeVisible();
+  });
+
+  test("3-way map toggle: Constituencies arm mounts IndiaPcMapD3 (Row C)", async ({
+    page,
+  }) => {
+    // TODO/20260612 Row C: clicking "Constituencies" on the 3-way
+    // toggle swaps the States arm for the IndiaPcMapD3 543-PC
+    // choropleth. The hex arm is gated by the tile-scopes manifest
+    // (national PC layout present -> button is offered).
+    await page.goto("/t/elections/general-2024");
+
+    // Wait for the load oracle (PartyBar populated).
+    await expect(page.getByTestId("party-bar-row").first()).toBeVisible({
+      timeout: 30_000,
+    });
+
+    // Default arm: States.
+    await expect(page.getByTestId("national-event-map-states")).toBeVisible();
+
+    // Click the Constituencies button on the 3-way toggle.
+    await page
+      .getByTestId("national-event-map-view")
+      .getByRole("button", { name: "Constituencies" })
+      .click();
+
+    // IndiaPcMapD3 container mounts.
+    await expect(page.getByTestId("national-event-map-pc")).toBeVisible({
+      timeout: 30_000,
+    });
+    await expect(page.getByTestId("india-pc-map-d3")).toBeVisible({
+      timeout: 30_000,
+    });
+
+    // Winner|Margin sub-toggle is now visible (only on the non-States
+    // arms per the verdict text).
+    await expect(page.getByTestId("national-event-map-mode")).toBeVisible();
+  });
+
+  test("party-mute via PartyBar reveals reset button (Row F)", async ({
+    page,
+  }) => {
+    // TODO/20260612 Row F: click a PartyBar row to mute; the reset
+    // button surfaces above the bar with the muted count. Same
+    // affordance as StateOverview + Psephlab.
+    await page.goto("/t/elections/general-2024");
+
+    await expect(page.getByTestId("party-bar-row").first()).toBeVisible({
+      timeout: 30_000,
+    });
+
+    // Reset absent on first paint.
+    await expect(
+      page.getByTestId("national-event-top-parties-reset"),
+    ).toHaveCount(0);
+
+    // Click the first PartyBar row.
+    await page.getByTestId("party-bar-row").first().click();
+
+    // Reset surfaces with the muted count.
+    await expect(
+      page.getByTestId("national-event-top-parties-reset"),
+    ).toBeVisible();
+    await expect(
+      page.getByTestId("national-event-top-parties-reset"),
+    ).toContainText(/Show all \(1 muted\)/);
+
+    // Click reset; the button disappears again.
+    await page.getByTestId("national-event-top-parties-reset").click();
+    await expect(
+      page.getByTestId("national-event-top-parties-reset"),
+    ).toHaveCount(0);
   });
 });

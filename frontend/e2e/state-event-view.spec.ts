@@ -97,10 +97,18 @@ test.describe("state event view (PR-W3b rebuild)", () => {
     // TODO/20260612 Row C: Parliament events show a PC map placeholder
     // card (the country PC topojson exists but per-state PC integration
     // is follow-up work). The card pins the citizen-facing copy so the
-    // page doesn't silently degrade.
+    // TODO/20260612-pc-choropleth-tile plan Row D: Parliament events now
+    // render the StatePcMapD3 component (the country PC topojson is
+    // filtered by `state_ut_code === state_code` so only the state's
+    // PCs paint). The placeholder card from PR #954 is GONE; assert
+    // that the d3 PC choropleth container mounts AND the placeholder
+    // testid no longer exists.
+    await expect(page.getByTestId("state-pc-map-d3")).toBeVisible({
+      timeout: 30_000,
+    });
     await expect(
       page.getByTestId("state-event-pc-map-placeholder"),
-    ).toBeVisible({ timeout: 30_000 });
+    ).toHaveCount(0);
 
     // Inline swing panel mounts; for parliament events it renders the
     // disabled placeholder (the psephlab canonical loader is assembly-
@@ -218,5 +226,71 @@ test.describe("state event view (PR-W3b rebuild)", () => {
       "Bastar",
       { ignoreCase: true },
     );
+  });
+
+  test("party-mute via PartyBar reveals 'Show all (N muted)' reset (Row F)", async ({
+    page,
+  }) => {
+    // TODO/20260612 Row F: clicking a PartyBar row mutes that party;
+    // the reset button surfaces above the bar with the muted count.
+    // Verified on chhattisgarh general-2024 (small party set, stable).
+    await page.goto("/chhattisgarh/elections/general-2024");
+
+    // Wait for the bar to populate (PartyBar emits party-bar-row per
+    // ranked party).
+    await expect(page.getByTestId("party-bar-row").first()).toBeVisible({
+      timeout: 30_000,
+    });
+
+    // The reset button is absent until at least one party is muted.
+    await expect(
+      page.getByTestId("state-event-top-parties-reset"),
+    ).toHaveCount(0);
+
+    // Click the first PartyBar row to mute.
+    await page.getByTestId("party-bar-row").first().click();
+
+    // Reset surfaces with the muted count.
+    await expect(
+      page.getByTestId("state-event-top-parties-reset"),
+    ).toBeVisible();
+    await expect(
+      page.getByTestId("state-event-top-parties-reset"),
+    ).toContainText(/Show all \(1 muted\)/);
+
+    // Click reset; muted count returns to 0 and the button disappears.
+    await page.getByTestId("state-event-top-parties-reset").click();
+    await expect(
+      page.getByTestId("state-event-top-parties-reset"),
+    ).toHaveCount(0);
+  });
+
+  test("AC events: Map | Equal seats toggle mounts TileCartogram (Row E)", async ({
+    page,
+  }) => {
+    // TODO/20260612 Row E: assembly events get a Map | Equal seats
+    // toggle. Karnataka assembly-2023 has the per-state AC tile layout
+    // on disk so the toggle is offered; click "Equal seats" -> the
+    // hex container mounts (the map-geo container goes away).
+    await page.goto("/karnataka/elections/assembly-2023");
+
+    // Map arm is the default; geo container visible.
+    await expect(page.getByTestId("state-event-map-geo")).toBeVisible({
+      timeout: 30_000,
+    });
+
+    // Toggle visible (Karnataka has a tile layout) and offers two arms.
+    await expect(page.getByTestId("state-event-map-view")).toBeVisible({
+      timeout: 30_000,
+    });
+    await page
+      .getByTestId("state-event-map-view")
+      .getByRole("button", { name: "Equal seats" })
+      .click();
+
+    // Hex container mounts after the click.
+    await expect(page.getByTestId("state-event-map-hex")).toBeVisible({
+      timeout: 30_000,
+    });
   });
 });
