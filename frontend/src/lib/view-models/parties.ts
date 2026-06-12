@@ -23,6 +23,7 @@
 import { query, registerCsvFile } from "../duckdb";
 import { csvColumnsClause } from "../canonical/csv-columns";
 import { DATA_BASE } from "../paths";
+import { partyIdToSlug } from "../slug";
 
 /** Repo-relative path used by `csvColumnsClause` to look up the typed
  *  column spec from datasets/data/_schema/columns.json. */
@@ -218,4 +219,157 @@ export async function loadPartyMeta(
  *  loader's own vitest only. */
 export function __resetForTests(): void {
   allPartiesPromise = null;
+  allPartySummariesPromise = null;
+}
+
+// --- PR-3: parties index summary ------------------------------------------
+
+/**
+ * Citizen-facing summary row for ONE party as consumed by the `/parties`
+ * index page (PR-3 of TODO/20260612-party-rendering-and-party-pages-plan.md).
+ *
+ * Shape differs from `PartyMeta` in three ways:
+ *   1. `slug` carries the URL slug derived via `partyIdToSlug` (the
+ *      `null`-slug UNK row is filtered out upstream so this is always
+ *      non-null on consumers; the type is `string` rather than
+ *      `string | null`).
+ *   2. `home_state_codes` + `aliases` stay as the RAW pipe-delimited
+ *      strings the CSV ships - the index page filters substring-style
+ *      across them (the loader does not pre-explode because the chip
+ *      filter is a string contains-check, not a set membership check).
+ *   3. `recognition_scope` collapses null to `""` so the chip filter
+ *      can default-include defunct + sentinel rows under "All" without
+ *      a null-guard branch.
+ *
+ * `full` collapses null to the empty string for the same reason -
+ * the index page renders it inline next to the pill and a null check
+ * everywhere would noise up the template.
+ */
+export interface PartySummary {
+  /** Opaque `parties.IN.<X>` taxonomy id. */
+  party_id: string;
+  /** URL slug per `partyIdToSlug` - never null on a consumed row
+   *  (UNK is filtered out at the loader boundary). */
+  slug: string;
+  /** Display short (e.g. "BJP"). Falls back to `party_id` when
+   *  upstream blank. */
+  short: string;
+  /** Long name as commonly cited. Empty string when upstream blank. */
+  full: string;
+  /** ECI recognition class. Enum: `national`, `state`,
+   *  `unrecognised_registered`, `defunct`, `sentinel`. Empty string
+   *  when upstream blank. */
+  recognition_scope: string;
+  /** Raw pipe-delimited home-state-codes string (e.g. `"IN-BR|IN-HR"`).
+   *  Empty string when upstream blank. Index page filters substring-
+   *  style; per-chip search does NOT need the array form. */
+  home_state_codes: string;
+  /** Year the party was founded. Null when not known. */
+  founded_year: number | null;
+  /** Repo-relative symbol asset path. Null when no symbol on file. */
+  symbol_asset: string | null;
+  /** OkLCh hex hint. Null when blank. */
+  brand_colour: string | null;
+  /** Raw pipe-delimited aliases string (e.g. `"AAAAP|AAAP"`). Empty
+   *  string when upstream blank. Index search box does substring
+   *  match on the raw string (so a query of `"AAAA"` matches `AAAAP`). */
+  aliases: string;
+  /** True for the 3 sentinel rows (IND / NOTA; UNK is filtered out). */
+  is_sentinel: boolean;
+}
+
+/** Raw DuckDB row for the summary projection - same `read_csv` as the
+ *  PartyMeta path, plus the `aliases` column. */
+interface RawPartiesSummaryRow {
+  party_id: string | null;
+  short: string | null;
+  full: string | null;
+  recognition_scope: string | null;
+  home_state_codes: string | null;
+  founded_year: number | bigint | null;
+  symbol_asset: string | null;
+  brand_colour: string | null;
+  aliases: string | null;
+  is_sentinel: boolean | null;
+}
+
+/** Project a raw row into the typed `PartySummary` shape. Returns null
+ *  when the row has no party_id OR when its `partyIdToSlug` is null
+ *  (UNK is the only row in parties.csv that hits the latter at v1.1).
+ *  Pure; exported for test coverage against synthetic rows. */
+export function toPartySummary(
+  row: RawPartiesSummaryRow,
+): PartySummary | null {
+  const party_id = trimmedOrNull(row.party_id);
+  if (!party_id) return null;
+  const slug = partyIdToSlug(party_id);
+  if (slug === null) return null;
+  return {
+    party_id,
+    slug,
+    short: trimmedOrNull(row.short) ?? party_id,
+    full: trimmedOrNull(row.full) ?? "",
+    recognition_scope: trimmedOrNull(row.recognition_scope) ?? "",
+    home_state_codes: trimmedOrNull(row.home_state_codes) ?? "",
+    founded_year: intOrNull(row.founded_year),
+    symbol_asset: trimmedOrNull(row.symbol_asset),
+    brand_colour: trimmedOrNull(row.brand_colour),
+    aliases: trimmedOrNull(row.aliases) ?? "",
+    is_sentinel: row.is_sentinel === true,
+  };
+}
+
+/** Module-level promise cache for the summary projection - parallel
+ *  to `allPartiesPromise` so the tooltip path + the index path keep
+ *  their own typed caches. Both share the underlying parties.csv byte
+ *  cache via `registerCsvFile` (the second call is a no-op). */
+let allPartySummariesPromise: Promise<PartySummary[]> | null = null;
+
+async function fetchAllPartySummaries(): Promise<PartySummary[]> {
+  await registerCsvFile(PARTIES_CSV_URL);
+  const columnsClause = await csvColumnsClause(PARTIES_CSV_REL);
+  // `short` / `full` are DuckDB reserved words; quote per the PartyMeta
+  // precedent. Sort by lower(short) in SQL so the consumer doesn't
+  // pay a JS sort on 2300+ rows.
+  const rows = await query<RawPartiesSummaryRow>(`
+    SELECT
+      party_id,
+      "short"            AS "short",
+      "full"             AS "full",
+      recognition_scope,
+      home_state_codes,
+      founded_year,
+      symbol_asset,
+      brand_colour,
+      aliases,
+      is_sentinel
+    FROM read_csv('${PARTIES_CSV_URL}', ${columnsClause}, header=true)
+    ORDER BY lower("short")
+  `);
+  const out: PartySummary[] = [];
+  for (const raw of rows) {
+    const s = toPartySummary(raw);
+    if (s) out.push(s);
+  }
+  return out;
+}
+
+/**
+ * Bulk fetch every consumable party row for the `/parties` index page.
+ * Rows are sorted by `short` (case-insensitive) at the SQL boundary;
+ * rows with no URL slug (currently only `parties.IN.UNK`) are filtered
+ * out at the projection.
+ *
+ * Cached for the lifetime of the browser tab. Returns the SAME Promise
+ * on every call (per the canonical-store loader pattern); callers MAY
+ * await it concurrently without triggering multiple network fetches.
+ */
+export function loadAllParties(): Promise<PartySummary[]> {
+  if (!allPartySummariesPromise) {
+    allPartySummariesPromise = fetchAllPartySummaries().catch((err) => {
+      allPartySummariesPromise = null;
+      throw err;
+    });
+  }
+  return allPartySummariesPromise;
 }

@@ -24,9 +24,11 @@ vi.mock("../canonical/csv-columns", () => ({
 import { query, registerCsvFile } from "../duckdb";
 import {
   __resetForTests,
+  loadAllParties,
   loadAllPartiesMeta,
   loadPartyMeta,
   toPartyMeta,
+  toPartySummary,
 } from "./parties";
 
 const mockedQuery = vi.mocked(query);
@@ -368,3 +370,293 @@ describe("loadPartyMeta", () => {
     expect(meta?.wikipedia).toBeNull();
   });
 });
+
+// --- PR-3: parties index summary ------------------------------------------
+
+describe("toPartySummary", () => {
+  it("derives the URL slug from party_id and surfaces it on the row", () => {
+    const summary = toPartySummary({
+      party_id: "parties.IN.INC",
+      short: "INC",
+      full: "Indian National Congress",
+      recognition_scope: "national",
+      home_state_codes: null,
+      founded_year: 1885,
+      symbol_asset: null,
+      brand_colour: null,
+      aliases: null,
+      is_sentinel: false,
+    });
+    expect(summary).not.toBeNull();
+    expect(summary!.slug).toBe("inc");
+    expect(summary!.party_id).toBe("parties.IN.INC");
+  });
+
+  it("returns null for the UNK row (partyIdToSlug yields null)", () => {
+    // UNK is the resolver fallback; it has no /parties/<unk> page.
+    const summary = toPartySummary({
+      party_id: "parties.IN.UNK",
+      short: "UNK",
+      full: "Unknown",
+      recognition_scope: "sentinel",
+      home_state_codes: null,
+      founded_year: null,
+      symbol_asset: null,
+      brand_colour: null,
+      aliases: null,
+      is_sentinel: true,
+    });
+    expect(summary).toBeNull();
+  });
+
+  it("collapses null recognition_scope / full / aliases / home_state_codes to ''", () => {
+    const summary = toPartySummary({
+      party_id: "parties.IN.AAAP",
+      short: "AAAP",
+      full: null,
+      recognition_scope: null,
+      home_state_codes: null,
+      founded_year: null,
+      symbol_asset: null,
+      brand_colour: null,
+      aliases: null,
+      is_sentinel: null,
+    });
+    expect(summary!.full).toBe("");
+    expect(summary!.recognition_scope).toBe("");
+    expect(summary!.home_state_codes).toBe("");
+    expect(summary!.aliases).toBe("");
+    expect(summary!.is_sentinel).toBe(false);
+  });
+
+  it("preserves the raw pipe-delimited aliases string (no split at the loader)", () => {
+    const summary = toPartySummary({
+      party_id: "parties.IN.AAAP",
+      short: "AAAP",
+      full: "Aapki Apni Adhikar Party",
+      recognition_scope: null,
+      home_state_codes: "IN-BR|IN-HR",
+      founded_year: null,
+      symbol_asset: null,
+      brand_colour: null,
+      aliases: "AAAAP|AAAP",
+      is_sentinel: null,
+    });
+    expect(summary!.aliases).toBe("AAAAP|AAAP");
+    expect(summary!.home_state_codes).toBe("IN-BR|IN-HR");
+  });
+
+  it("falls back to party_id when short is blank (defensive)", () => {
+    const summary = toPartySummary({
+      party_id: "parties.IN.FALLBACK",
+      short: "",
+      full: null,
+      recognition_scope: null,
+      home_state_codes: null,
+      founded_year: null,
+      symbol_asset: null,
+      brand_colour: null,
+      aliases: null,
+      is_sentinel: null,
+    });
+    expect(summary!.short).toBe("parties.IN.FALLBACK");
+  });
+
+  it("coerces bigint founded_year (DuckDB BIGINT round-trip) to number", () => {
+    const summary = toPartySummary({
+      party_id: "parties.IN.AAP",
+      short: "AAP",
+      full: "Aam Aadmi Party",
+      recognition_scope: "national",
+      home_state_codes: null,
+      founded_year: 2012n as unknown as bigint,
+      symbol_asset: "party-symbols/broom.png",
+      brand_colour: "#0072B0",
+      aliases: null,
+      is_sentinel: false,
+    });
+    expect(summary!.founded_year).toBe(2012);
+    expect(typeof summary!.founded_year).toBe("number");
+  });
+});
+
+describe("loadAllParties", () => {
+  /** Common fixture - 5 rows ordered by lower(short) as DuckDB would.
+   *  Includes IND + NOTA sentinels + the UNK row that the loader MUST
+   *  filter out (partyIdToSlug(UNK) === null). */
+  const sortedRowsWithUnk = [
+    {
+      party_id: "parties.IN.AAP",
+      short: "AAP",
+      full: "Aam Aadmi Party",
+      recognition_scope: "national",
+      home_state_codes: null,
+      founded_year: 2012,
+      symbol_asset: null,
+      brand_colour: "#0072B0",
+      aliases: null,
+      is_sentinel: false,
+    },
+    {
+      party_id: "parties.IN.BJP",
+      short: "BJP",
+      full: "Bharatiya Janata Party",
+      recognition_scope: "national",
+      home_state_codes: null,
+      founded_year: 1980,
+      symbol_asset: null,
+      brand_colour: "#ea580c",
+      aliases: null,
+      is_sentinel: false,
+    },
+    {
+      party_id: "parties.IN.DMK",
+      short: "DMK",
+      full: "Dravida Munnetra Kazhagam",
+      recognition_scope: "state",
+      home_state_codes: "IN-TN",
+      founded_year: 1949,
+      symbol_asset: null,
+      brand_colour: null,
+      aliases: null,
+      is_sentinel: false,
+    },
+    {
+      party_id: "parties.IN.IND",
+      short: "IND",
+      full: "Independent",
+      recognition_scope: "sentinel",
+      home_state_codes: null,
+      founded_year: null,
+      symbol_asset: null,
+      brand_colour: null,
+      aliases: null,
+      is_sentinel: true,
+    },
+    {
+      party_id: "parties.IN.NOTA",
+      short: "NOTA",
+      full: "None of the Above",
+      recognition_scope: "sentinel",
+      home_state_codes: null,
+      founded_year: null,
+      symbol_asset: null,
+      brand_colour: null,
+      aliases: null,
+      is_sentinel: true,
+    },
+    {
+      party_id: "parties.IN.UNK",
+      short: "UNK",
+      full: "Unknown party",
+      recognition_scope: "sentinel",
+      home_state_codes: null,
+      founded_year: null,
+      symbol_asset: null,
+      brand_colour: null,
+      aliases: null,
+      is_sentinel: true,
+    },
+  ];
+
+  it("(a) returns rows in lower(short) ascending order (SQL-sorted)", async () => {
+    mockedQuery.mockResolvedValue(sortedRowsWithUnk);
+    const out = await loadAllParties();
+    const shorts = out.map((r) => r.short);
+    // Must be sorted ascending; UNK is dropped so the tail is NOTA.
+    expect(shorts).toEqual(["AAP", "BJP", "DMK", "IND", "NOTA"]);
+  });
+
+  it("(b) excludes the UNK sentinel (slug is null at projection)", async () => {
+    mockedQuery.mockResolvedValue(sortedRowsWithUnk);
+    const out = await loadAllParties();
+    expect(out.find((r) => r.party_id === "parties.IN.UNK")).toBeUndefined();
+    // The other 5 rows survive.
+    expect(out).toHaveLength(5);
+  });
+
+  it("(c) includes IND + NOTA sentinels carrying is_sentinel=true", async () => {
+    mockedQuery.mockResolvedValue(sortedRowsWithUnk);
+    const out = await loadAllParties();
+    const ind = out.find((r) => r.party_id === "parties.IN.IND");
+    const nota = out.find((r) => r.party_id === "parties.IN.NOTA");
+    expect(ind?.is_sentinel).toBe(true);
+    expect(ind?.slug).toBe("independent"); // sentinel override
+    expect(nota?.is_sentinel).toBe(true);
+    expect(nota?.slug).toBe("nota");
+  });
+
+  it("(d) returns the SAME Promise on repeated calls (module-level cache hit)", async () => {
+    mockedQuery.mockResolvedValue([]);
+    const p1 = loadAllParties();
+    const p2 = loadAllParties();
+    expect(p1).toBe(p2);
+    await p1;
+    expect(mockedQuery).toHaveBeenCalledTimes(1);
+  });
+
+  it("(e) preserves pipe-delimited aliases verbatim from CSV (no split at loader)", async () => {
+    mockedQuery.mockResolvedValue([
+      {
+        party_id: "parties.IN.AAAP",
+        short: "AAAP",
+        full: "Aapki Apni Adhikar Party",
+        recognition_scope: null,
+        home_state_codes: "IN-BR|IN-HR",
+        founded_year: null,
+        symbol_asset: null,
+        brand_colour: null,
+        // DuckDB returns a CSV cell containing a pipe-delimited list as
+        // a plain string - the loader keeps that shape so the index page
+        // does substring matching against it without re-joining.
+        aliases: "AAAAP|AAAP",
+        is_sentinel: null,
+      },
+    ]);
+    const out = await loadAllParties();
+    expect(out).toHaveLength(1);
+    expect(out[0]!.aliases).toBe("AAAAP|AAAP");
+    expect(out[0]!.home_state_codes).toBe("IN-BR|IN-HR");
+  });
+
+  it("issues the read_csv query against parties.csv (URL contract)", async () => {
+    mockedQuery.mockResolvedValue([]);
+    await loadAllParties();
+    expect(mockedRegisterCsvFile).toHaveBeenCalledTimes(1);
+    expect(mockedRegisterCsvFile.mock.calls[0]![0]).toContain(
+      "data/entities/parties.csv",
+    );
+    const sql = mockedQuery.mock.calls[0]![0] as string;
+    expect(sql).toContain("read_csv");
+    expect(sql).toContain("data/entities/parties.csv");
+    // Sort happens server-side so the consumer doesn't pay JS sort cost.
+    expect(sql).toMatch(/ORDER\s+BY\s+lower\("short"\)/i);
+    // Aliases column is projected (the index search depends on it).
+    expect(sql).toContain("aliases");
+  });
+
+  it("clears the summary cache on fetch error so a retry re-issues the fetch", async () => {
+    mockedQuery.mockRejectedValueOnce(new Error("network gone"));
+    await expect(loadAllParties()).rejects.toThrow("network gone");
+    mockedQuery.mockResolvedValueOnce([
+      {
+        party_id: "parties.IN.BJP",
+        short: "BJP",
+        full: "Bharatiya Janata Party",
+        recognition_scope: "national",
+        home_state_codes: null,
+        founded_year: 1980,
+        symbol_asset: null,
+        brand_colour: null,
+        aliases: null,
+        is_sentinel: false,
+      },
+    ]);
+    const out = await loadAllParties();
+    expect(out).toHaveLength(1);
+    expect(mockedQuery).toHaveBeenCalledTimes(2);
+  });
+});
+
+
+
