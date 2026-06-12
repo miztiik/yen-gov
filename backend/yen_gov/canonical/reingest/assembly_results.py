@@ -17,12 +17,14 @@ two per-election CSV file classes declared in ``datasets/data/_schema/columns.js
 Binding decisions realised here (parent plan sections 21.3 / 23.4, sub-plan
 section 0 + the B2b.5.2 row):
 
-- **Delimitation scoping.** Only the in-force delimitation (TCPD ``DelimID`` whose
-  constituency numbering matches the emitted ``electoral.csv`` entities - the 2008
-  cycle, ``DELIM_ID_2008 = 4``) is emitted at v1. Historical delimitations carry a
-  different ``Constituency_No`` numbering that does not bind to the 2008 electoral
-  entities; they are deferred until historical-delimitation entities exist
-  (documented coverage note, EL7 pattern).
+- **Delimitation scoping.** Both in-force and historical delimitations are emitted.
+  The TCPD ``DelimID`` selects the delim cycle; ``TCPD_DELIM_ID_TO_DELIM_YEAR``
+  maps it to the ``delim_year`` used as a filter on ``electoral.csv`` to pick the
+  corresponding entity cohort (``DELIM_ID_2008 = 4`` for the in-force 2008 cycle).
+  PR-Q7b ships the historical entities for DelimID 1/2/3 backed by TCPD
+  ``Constituency_Name`` + ``Constituency_No``; until those entities exist on
+  disk, a call with ``delim_id`` in {1, 2, 3} resolves to an empty entity cohort
+  and the year is skipped (every row's ``Constituency_No`` lands in ``unbound``).
 - **Entity bind.** ``entity_id`` resolves through ``electoral.csv`` on
   ``(state_slug, eci_no == Constituency_No)``. A constituency the spine does not
   carry (a known small LGD-source gap) is SKIPPED, not fabricated - the
@@ -54,8 +56,9 @@ from __future__ import annotations
 import csv
 import math
 from collections import defaultdict
+from collections.abc import Mapping
 from pathlib import Path
-from typing import Any
+from typing import Any, Final
 
 from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.canonical.reingest.elections import (
@@ -69,6 +72,7 @@ __all__ = [
     "DELIM_ID_2008",
     "NOTA_PARTY_TOKEN",
     "NOTA_TOKENS",
+    "TCPD_DELIM_ID_TO_DELIM_YEAR",
     "build_candidacy_rows",
     "is_nota_row",
     "party_lookup_from_parties_csv",
@@ -76,9 +80,23 @@ __all__ = [
     "emit_state_assembly",
 ]
 
+# TCPD DelimID values map to the delimitation cycle year that's encoded in
+# entity_id (`IN-AC-<delim_year>-<state>-<eci_no>`) and electoral.csv's
+# `delim_year` column. Mapping derived from TCPD AE.csv year-range:
+#   DelimID 1: 1961-1965  -> delim_year 1962 (first General Elections delim cycle)
+#   DelimID 2: 1964-1972  -> delim_year 1967 (transition delim)
+#   DelimID 3: 1974-2012  -> delim_year 1976 (the long 1976 delim cycle)
+#   DelimID 4: 2008-2023  -> delim_year 2008 (in-force)
+TCPD_DELIM_ID_TO_DELIM_YEAR: Final[Mapping[str, int]] = {
+    "1": 1962,
+    "2": 1967,
+    "3": 1976,
+    "4": 2008,
+}
+
 # TCPD DelimID for the in-force (2008) delimitation - the cycle whose
 # Constituency_No numbering matches the emitted electoral.csv entities.
-DELIM_ID_2008 = "4"
+DELIM_ID_2008: Final[str] = "4"
 
 # TCPD marks the "None of the Above" ballot line two different ways across
 # vintages: pre-2017 carried ``Party='NOTA'`` (or 'None of the Above' / 'None')
@@ -123,16 +141,28 @@ def _read_csv_rows(path: Path) -> list[dict[str, str]]:
 
 
 def _electoral_eci_to_entity(
-    electoral_rows: list[dict[str, str]], state_slug: str
+    electoral_rows: list[dict[str, str]],
+    state_slug: str,
+    delim_year: int,
 ) -> dict[int, str]:
     """Map ``eci_no -> entity_id`` for the state's assembly constituencies.
 
-    Only ``entity_kind == 'ac'`` rows for the given state participate; the
-    ``eci_no`` column is the per-state ECI ballot serial folded by B2b.5.0c.
+    Only ``entity_kind == 'ac'`` rows for the given state AND the given
+    ``delim_year`` participate; the ``eci_no`` column is the per-state ECI
+    ballot serial folded by B2b.5.0c. The ``delim_year`` filter (PR-Q7a)
+    keeps the lookup unambiguous across delimitation cycles: historical
+    delimitations (DelimID 1/2/3) and the in-force 2008 cycle re-use the
+    same per-state ``Constituency_No`` numbering space, so a single state
+    can carry two entities with the same ``eci_no`` from different delim
+    eras. Without the filter the second-seen row would silently shadow
+    the first; with it the caller's chosen cycle wins deterministically.
     """
     out: dict[int, str] = {}
     for row in electoral_rows:
         if row.get("entity_kind") != "ac" or row.get("state") != state_slug:
+            continue
+        row_delim = (row.get("delim_year") or "").strip()
+        if not row_delim or int(row_delim) != delim_year:
             continue
         raw = (row.get("eci_no") or "").strip()
         if not raw:
@@ -435,7 +465,14 @@ def emit_state_assembly(
             ``"Tamil_Nadu"``).
         state_slug: the LGD state slug (e.g. ``"tamil-nadu"``).
         source_id: provenance stamp (resolvable in ``entities/source.csv``).
-        delim_id: TCPD ``DelimID`` to emit (default the in-force 2008 cycle).
+        delim_id: TCPD ``DelimID`` to emit (default ``DELIM_ID_2008 = "4"``,
+            the in-force 2008 cycle). ``TCPD_DELIM_ID_TO_DELIM_YEAR`` maps it
+            to the ``delim_year`` used to filter ``electoral.csv`` so the
+            ``eci_no -> entity_id`` lookup stays unambiguous across cycles
+            (a state's ``Constituency_No`` numbering re-uses values across
+            delim eras). Historical delimitations (DelimID 1/2/3) bind only
+            once PR-Q7b mints the matching ``delim_year`` 1962/1967/1976
+            entity cohorts.
         parties_csv: optional path to ``datasets/data/entities/parties.csv``
             for the F1.3a v1.1 party-id resolution. When provided, the TCPD
             ``Party`` shortcode is resolved via
@@ -453,7 +490,10 @@ def emit_state_assembly(
     if not electoral_csv.exists():
         raise FileNotFoundError(electoral_csv)
 
-    eci_to_entity = _electoral_eci_to_entity(_read_csv_rows(electoral_csv), state_slug)
+    delim_year = TCPD_DELIM_ID_TO_DELIM_YEAR[delim_id]
+    eci_to_entity = _electoral_eci_to_entity(
+        _read_csv_rows(electoral_csv), state_slug, delim_year
+    )
     party_lookup = (
         party_lookup_from_parties_csv(parties_csv) if parties_csv is not None else {}
     )
