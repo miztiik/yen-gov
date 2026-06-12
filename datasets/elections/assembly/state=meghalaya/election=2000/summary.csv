@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-meghalaya-12,meghalaya,2000,MAIRANG(ST),23024,16651,72.32,Rasor Rani,parties.IN.UDP,UDP,6994,42,Fuller Lyngdoh Mawnai,parties.IN.HSPDP,HPDP,5200,1794,10.77,src-1b7bc1c9d39a

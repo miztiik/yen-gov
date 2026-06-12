@@ -1,0 +1,33 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-rajasthan-9,rajasthan,2000,9,RAISINGHNAGAR(SC),Sohan Lal,parties.IN.INC,INC,46369,55.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-9,rajasthan,2000,9,RAISINGHNAGAR(SC),Isar Ram,parties.IN.BJP,BJP,36564,43.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-9,rajasthan,2000,9,RAISINGHNAGAR(SC),Hetram Meghwal,parties.IN.RVP,RVP,382,0.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-9,rajasthan,2000,9,RAISINGHNAGAR(SC),Bhupender Kumar,parties.IN.IND,IND,171,0.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-12,rajasthan,2000,12,LUNKARANSAR,Manik Chand Surana,parties.IN.BJP,BJP,83623,48.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-12,rajasthan,2000,12,LUNKARANSAR,Beerendra Alias Virendra,parties.IN.INC,INC,62173,36.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-12,rajasthan,2000,12,LUNKARANSAR,Dungar Ram Gedar,parties.IN.BSP,BSP,20024,11.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-12,rajasthan,2000,12,LUNKARANSAR,Malchand,parties.IN.IND,IND,3849,2.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-12,rajasthan,2000,12,LUNKARANSAR,Jagdish Dudi,parties.IN.IND,IND,2830,1.64,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-22,rajasthan,2000,22,SADULPUR,Nand Lal Punia,parties.IN.IND,IND,41285,42.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-22,rajasthan,2000,22,SADULPUR,Indra Singh Punia,parties.IN.IND,IND,35477,36.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-22,rajasthan,2000,22,SADULPUR,Satish Punia,parties.IN.BJP,BJP,14315,14.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-22,rajasthan,2000,22,SADULPUR,Ram Singh Punia,parties.IN.INC,INC,5595,5.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-22,rajasthan,2000,22,SADULPUR,Mahesh Phagedia,parties.IN.IND,IND,225,0.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-22,rajasthan,2000,22,SADULPUR,Mahendra Kumar,parties.IN.IND,IND,185,0.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-59,rajasthan,2000,59,MANDAWAR,Dharam Pal Choudhary,parties.IN.BJP,BJP,39863,50.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-59,rajasthan,2000,59,MANDAWAR,Maj. O.P. Yadav,parties.IN.INC,INC,34430,43.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-59,rajasthan,2000,59,MANDAWAR,Bakhtawar Singh,parties.IN.BSP,BSP,2436,3.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-59,rajasthan,2000,59,MANDAWAR,Suresh Chand,parties.IN.IND,IND,1312,1.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-59,rajasthan,2000,59,MANDAWAR,Khurshid Khan,parties.IN.IND,IND,164,0.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-59,rajasthan,2000,59,MANDAWAR,Bahadur Singh,parties.IN.RJD,RJD,160,0.2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-59,rajasthan,2000,59,MANDAWAR,Sheotaj Singh,parties.IN.SP,SP,155,0.2,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-125,rajasthan,2000,125,NIMBAHERA,Smt. Madhu Dadhich,parties.IN.INC,INC,48201,48.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-125,rajasthan,2000,125,NIMBAHERA,Narain Singh Jhala,parties.IN.BJP,BJP,48190,48.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-125,rajasthan,2000,125,NIMBAHERA,Amba Lal Patidar,parties.IN.IND,IND,2483,2.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-125,rajasthan,2000,125,NIMBAHERA,Chand Mal,parties.IN.CPI,CPI,459,0.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-125,rajasthan,2000,125,NIMBAHERA,Krishan Kumar,parties.IN.IND,IND,303,0.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-136,rajasthan,2000,136,ASPUR(ST),Raiya Meena,parties.IN.INC,INC,36024,53.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-136,rajasthan,2000,136,ASPUR(ST),Kanak Mal Katara,parties.IN.BJP,BJP,30800,46.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-158,rajasthan,2000,158,ASIND,Ram Lal Gurjar,parties.IN.BJP,BJP,39181,52.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-158,rajasthan,2000,158,ASIND,Hangami Lal Mewada,parties.IN.INC,INC,35377,47.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-158,rajasthan,2000,158,ASIND,Rajendra Acharya,parties.IN.SP,SP,347,0.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a

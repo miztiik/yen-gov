@@ -1,0 +1,11 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-madhya-pradesh-109,madhya-pradesh,1996,TANAKHAR(ST),142868,86072,60.25,Hira Singh Markam,parties.IN.GGP,GGP,39596,46,Daleshwar Pratap Singh,parties.IN.INC,INC,23664,15932,18.51,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-114,madhya-pradesh,1996,JARHAGAON(SC),115024,68239,59.33,Churawan Mangeshkar,parties.IN.INC,INC,27523,40.33,Chowadas Khandekar,parties.IN.BJP,BJP,27433,90,0.13,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-115,madhya-pradesh,1996,TAKHATPUR,105407,73000,69.26,Balram Singh,parties.IN.INC,INC,22880,31.34,Shankar Mali,parties.IN.BSP,BSP,21537,1343,1.84,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,BHIND,210576,104345,49.55,Chaudhary Rakesh Singh (Advocate),parties.IN.INC,INC,34653,33.21,Chaturi Singh Yadav,parties.IN.BSP,BSP,29662,4991,4.78,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,GUNDERDEHI,112175,81562,72.71,Dr. Dayaram Sahu,parties.IN.BJP,BJP,29184,35.78,Shri Ghanaram Sahu,parties.IN.INC,INC,28991,193,0.24,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-286,madhya-pradesh,1996,SHAHPUR,120601,85789,71.13,Sanyogita devi Dhairyasheelrao Desmukh,parties.IN.INC,INC,45603,53.16,Amritlal Vallabhdas tarwala (Mannibhai),parties.IN.BJP,BJP,37728,7875,9.18,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-305,madhya-pradesh,1996,JOBAT(ST),138145,51554,37.32,Sulochana,parties.IN.INC,INC,32336,62.72,Dariyav Singh,parties.IN.BJP,BJP,11277,21059,40.85,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-313,madhya-pradesh,1996,ALOT(SC),112829,81720,72.43,Ashok Navrattan Sokhla,parties.IN.BJP,BJP,40804,49.93,Premchand Guddu,parties.IN.INC,INC,36658,4146,5.07,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,GURH,161697,89739,55.5,Vidya Vatee Patel,parties.IN.BSP,BSP,24649,27.47,Sanjeev Mohan Gupta,parties.IN.INC,INC,20794,3855,4.3,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-81,madhya-pradesh,1996,NOWROZABAD,133936,71402,53.31,Meena Singh,parties.IN.BJP,BJP,23932,33.52,Arjun Singh Dhurve,parties.IN.INC,INC,21658,2274,3.19,src-1b7bc1c9d39a

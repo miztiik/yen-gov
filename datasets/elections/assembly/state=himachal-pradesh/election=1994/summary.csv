@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-himachal-pradesh-25,himachal-pradesh,1994,HAMIRPUR,49919,35217,70.55,Anita Verma,parties.IN.INC,INC,17955,50.98,Narinder Thakur,parties.IN.BJP,BJP,17262,693,1.96,src-1b7bc1c9d39a

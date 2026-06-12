@@ -1,0 +1,11 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1967-nagaland-5,nagaland,1971,5,PEREN,KIELU,parties.IN.UNK,NNO,1454,41.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-5,nagaland,1971,5,PEREN,L.MERU,parties.IN.UNK,UFN,1231,35.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-5,nagaland,1971,5,PEREN,I.MERU,parties.IN.IND,IND,802,23,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-16,nagaland,1971,16,CHAZOUBA,N.THEYO,parties.IN.UNK,NNO,1604,35.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-16,nagaland,1971,16,CHAZOUBA,YEFUTSO,parties.IN.IND,IND,1269,28.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-16,nagaland,1971,16,CHAZOUBA,ZHOVEPRA,parties.IN.UNK,UFN,1252,27.86,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-16,nagaland,1971,16,CHAZOUBA,VEPARIYA,parties.IN.IND,IND,369,8.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-23,nagaland,1971,23,MONGOYA,C.JAMIR,parties.IN.UNK,NNO,1630,41.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-23,nagaland,1971,23,MONGOYA,LIKOKWATI,parties.IN.IND,IND,1176,29.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-23,nagaland,1971,23,MONGOYA,SHILUKABA,parties.IN.UNK,UFN,1162,29.28,3,lost,U,,,,challenger,src-1b7bc1c9d39a

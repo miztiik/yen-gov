@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2000,SOLANUDIVADA,91466,69777,76.29,Jogeswar Doley,parties.IN.AGP,AGP,22989,32.95,Rajib Lochan Pegu,parties.IN.INC,INC,17495,5494,7.88,src-1b7bc1c9d39a

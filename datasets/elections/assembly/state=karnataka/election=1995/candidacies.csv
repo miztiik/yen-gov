@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-karnataka-79,karnataka,1995,79,CHIKPET,Unnamed Candidate,parties.IN.UNK,Unknown Party,14430,52.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-79,karnataka,1995,79,CHIKPET,Unnamed Candidate,parties.IN.UNK,Unknown Party,12800,47.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-88,karnataka,1995,88,YELHANKA (SC),Unnamed Candidate,parties.IN.UNK,Unknown Party,93125,68.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-88,karnataka,1995,88,YELHANKA (SC),Unnamed Candidate,parties.IN.UNK,Unknown Party,43158,31.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a

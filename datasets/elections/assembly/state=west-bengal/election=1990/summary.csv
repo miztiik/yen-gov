@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-west-bengal-12,west-bengal,1990,ALIPPURDUARS,128901,101214,78.52,N.G.MAJUMDAR,parties.IN.RSP,RSP,65774,64.99,N.G.MAJUMDAR,parties.IN.INC,INC,32281,33493,33.1,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-121,west-bengal,1990,MAGNAHAT EAST(SC),113651,101861,89.63,N.SINHA,parties.IN.CPIM,CPM,59888,58.79,N.SAHA(W),parties.IN.INC,INC,40809,19079,18.73,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-212,west-bengal,1990,RAMNAGAR,118758,105300,88.67,M.ROY,parties.IN.CPIM,CPM,63420,60.23,G.PANI,parties.IN.INC,INC,41367,22053,20.95,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-256,west-bengal,1990,SONAMUKHI(SC),109501,86179,78.7,H.BAURI,parties.IN.CPIM,CPM,60297,69.97,J.SAHA,parties.IN.INC,INC,25882,34415,39.94,src-1b7bc1c9d39a

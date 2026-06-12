@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1967-uttar-pradesh-287,uttar-pradesh,1968,KISHUNPUR,102418,29008,28.32,INDRAJIT,parties.IN.INC,INC,12011,41.41,S.PRASAD,parties.IN.BJS,BJS,8782,3229,11.14,src-1b7bc1c9d39a

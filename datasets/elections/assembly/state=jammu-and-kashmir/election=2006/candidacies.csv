@@ -1,0 +1,18 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-jammu-and-kashmir-7,jammu-and-kashmir,2006,7,RAFIABAD,Mohd. Dilawar Mir,parties.IN.JKPDP,JKPDP,28138,55.59,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-7,jammu-and-kashmir,2006,7,RAFIABAD,Mohd. Maqbool Mir,parties.IN.JKNC,JKNC,19479,38.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-7,jammu-and-kashmir,2006,7,RAFIABAD,Mohd. Maqbool War,parties.IN.BJP,BJP,1760,3.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-7,jammu-and-kashmir,2006,7,RAFIABAD,Abdul Khaliq Sheikh,parties.IN.JKNPP,JKNPP,1244,2.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-12,jammu-and-kashmir,2006,12,SANGRAMA,Shuib Nabi,parties.IN.IND,IND,18526,52.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-12,jammu-and-kashmir,2006,12,SANGRAMA,Javid Hassan Beigh,parties.IN.JKPDP,JKPDP,12208,34.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-12,jammu-and-kashmir,2006,12,SANGRAMA,Gh. Mohiuddin Bhat,parties.IN.IND,IND,2322,6.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-12,jammu-and-kashmir,2006,12,SANGRAMA,Zaffarullah Beigh,parties.IN.IND,IND,1041,2.96,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-12,jammu-and-kashmir,2006,12,SANGRAMA,Sonaullah Baig,parties.IN.UNK,NKNPP,379,1.08,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-12,jammu-and-kashmir,2006,12,SANGRAMA,Javid Ahmad Qurashi,parties.IN.IND,IND,324,0.92,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-12,jammu-and-kashmir,2006,12,SANGRAMA,Ab. Rehman Lone,parties.IN.IND,IND,310,0.88,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-15,jammu-and-kashmir,2006,15,PATTAN,Sheikh Mustafa Kamal,parties.IN.JKNC,JKNC,26736,50.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-15,jammu-and-kashmir,2006,15,PATTAN,Iftikhar Hussain Ansari,parties.IN.JKPDP,JKPDP,23969,45.51,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-15,jammu-and-kashmir,2006,15,PATTAN,Abdul Ahad Najar,parties.IN.JKNPP,JKNPP,996,1.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-15,jammu-and-kashmir,2006,15,PATTAN,Nazir Ahmed Mir,parties.IN.IND,IND,962,1.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-54,jammu-and-kashmir,2006,54,BHADERWAH,Sh. Ghulam Nabi Azad,parties.IN.INC,INC,62072,93.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-54,jammu-and-kashmir,2006,54,BHADERWAH,Sh. Dhantar Singh,parties.IN.BJP,BJP,4057,6.13,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a

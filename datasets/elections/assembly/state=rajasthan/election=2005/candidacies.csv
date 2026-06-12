@@ -1,0 +1,7 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-rajasthan-186,rajasthan,2005,186,LUNI,Jogaram Patel,parties.IN.BJP,BJP,52363,44.14,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-186,rajasthan,2005,186,LUNI,Malkhan Singh,parties.IN.INC,INC,48004,40.47,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-186,rajasthan,2005,186,LUNI,Karan Singh,parties.IN.UNK,RSNM,14561,12.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-186,rajasthan,2005,186,LUNI,Bhanwar Lal,parties.IN.BSP,BSP,1535,1.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-186,rajasthan,2005,186,LUNI,Raghwandra Singh,parties.IN.IND,IND,1440,1.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-186,rajasthan,2005,186,LUNI,Dungar Lal Meghwal,parties.IN.IND,IND,724,0.61,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a

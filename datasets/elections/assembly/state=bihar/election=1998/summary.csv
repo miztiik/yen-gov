@@ -1,0 +1,11 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-bihar-13,bihar,1998,ADAPUR,182217,107137,58.8,Shyam Bihari Prasad,parties.IN.RJD,RJD,45863,42.81,Virendra Prasad,parties.IN.CPIM,CPM,33480,12383,11.56,src-1b7bc1c9d39a
+IN-AC-1976-bihar-139,bihar,1998,PURNEA,202909,90889,44.79,Madhvi Sarkar,parties.IN.CPIM,CPM,45541,50.11,Sudhir Prasad Choudhary,parties.IN.BJP,BJP,17274,28267,31.1,src-1b7bc1c9d39a
+IN-AC-1976-bihar-179,bihar,1998,TARAPUR,168296,95197,56.57,Parvati Devi,parties.IN.SAP,SAP,41612,43.71,Sushil Kumar Singh,parties.IN.RJD,RJD,39600,2012,2.11,src-1b7bc1c9d39a
+IN-AC-1976-bihar-191,bihar,1998,SHEIKHPURA,184689,107649,58.29,Sanjay Kumar,parties.IN.INC,INC,82256,76.41,Jitendra Nath,parties.IN.CPI,CPI,20247,62009,57.6,src-1b7bc1c9d39a
+IN-AC-1976-bihar-20,bihar,1998,GOVINDGANJ,189498,90043,47.52,Bhupendra Nath Dubey,parties.IN.SAP,SAP,59231,65.78,Yogendra Pandey,parties.IN.RJD,RJD,28387,30844,34.25,src-1b7bc1c9d39a
+IN-AC-1976-bihar-247,bihar,1998,BELAGANJ,176079,91666,52.06,Mahesh Singh Yadav,parties.IN.RJD,RJD,38027,41.48,Krishan Kumar Singh,parties.IN.BJP,BJP,15455,22572,24.62,src-1b7bc1c9d39a
+IN-AC-1976-bihar-253,bihar,1998,BODHGAYA,154767,52451,33.89,G.S. Ramchandra Das,parties.IN.RJD,RJD,17922,34.17,Rajesh Kumar Manjhee,parties.IN.BJP,BJP,16508,1414,2.7,src-1b7bc1c9d39a
+IN-AC-1976-bihar-262,bihar,1998,KODARMA,198658,105845,53.28,Annapurna Devi,parties.IN.RJD,RJD,52046,49.17,Ramesh Singh,parties.IN.BJP,BJP,30960,21086,19.92,src-1b7bc1c9d39a
+IN-AC-1976-bihar-66,bihar,1998,SHEOHAR,188858,99658,52.77,Thakur Ratnakar,parties.IN.RJD,RJD,56448,56.64,Raghunath Jha,parties.IN.SAP,SAP,39882,16566,16.62,src-1b7bc1c9d39a
+IN-AC-1976-bihar-72,bihar,1998,PUPRI,201956,99099,49.07,Nawal Kishor Rai,parties.IN.JD,JD,57289,57.81,Shahid Ali Khan,parties.IN.RJD,RJD,31771,25518,25.75,src-1b7bc1c9d39a

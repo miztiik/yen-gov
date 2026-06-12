@@ -1,0 +1,43 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-uttar-pradesh-74,uttar-pradesh,2008,74,BILGRAM,RAJNI TIWARI,parties.IN.BSP,BSP,92196,56.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-74,uttar-pradesh,2008,74,BILGRAM,VISHRAM SINGH YADAV,parties.IN.SP,SP,54028,33.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-74,uttar-pradesh,2008,74,BILGRAM,YADUNANDAN LAL,parties.IN.BJP,BJP,8168,5.03,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-74,uttar-pradesh,2008,74,BILGRAM,SURESH CHANDRA TEWARI,parties.IN.INC,INC,2766,1.7,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-74,uttar-pradesh,2008,74,BILGRAM,VINOD SINGH,parties.IN.IND,IND,1924,1.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-74,uttar-pradesh,2008,74,BILGRAM,RAM PRASAD,parties.IN.IND,IND,971,0.6,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-74,uttar-pradesh,2008,74,BILGRAM,KAUSHAL KISHOUR,parties.IN.RLD,RLD,609,0.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-74,uttar-pradesh,2008,74,BILGRAM,BRIJESH KUMAR,parties.IN.IND,IND,560,0.34,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-74,uttar-pradesh,2008,74,BILGRAM,DHIR PAL SINGH,parties.IN.IND,IND,310,0.19,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-74,uttar-pradesh,2008,74,BILGRAM,ANIRUDDHA,parties.IN.IND,IND,266,0.16,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-74,uttar-pradesh,2008,74,BILGRAM,KAILASH NATH,parties.IN.IND,IND,201,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-74,uttar-pradesh,2008,74,BILGRAM,ANIL KUMAR,parties.IN.IND,IND,193,0.12,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-74,uttar-pradesh,2008,74,BILGRAM,JAGAT PAL VERMA,parties.IN.IND,IND,190,0.12,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-147,uttar-pradesh,2008,147,COLONELGANJ,VRIJ SINGH ALIAS VRIJ KUNWARI,parties.IN.BSP,BSP,50283,40.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-147,uttar-pradesh,2008,147,COLONELGANJ,YOGESH PRATAP SINGH ALIAS YOGESH BHAIYA,parties.IN.SP,SP,40546,32.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-147,uttar-pradesh,2008,147,COLONELGANJ,RAMA MISHRA,parties.IN.INC,INC,21748,17.35,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-147,uttar-pradesh,2008,147,COLONELGANJ,KRISHNA KUMAR SHUKLA,parties.IN.BJP,BJP,4387,3.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-147,uttar-pradesh,2008,147,COLONELGANJ,VASDEV,parties.IN.IND,IND,1577,1.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-147,uttar-pradesh,2008,147,COLONELGANJ,O P PANDEY,parties.IN.RLD,RLD,1503,1.2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-147,uttar-pradesh,2008,147,COLONELGANJ,RAKESH SINGH CHAUHAN,parties.IN.IND,IND,925,0.74,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-147,uttar-pradesh,2008,147,COLONELGANJ,RAJENDRA,parties.IN.IND,IND,682,0.54,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-147,uttar-pradesh,2008,147,COLONELGANJ,RAJDATT,parties.IN.IND,IND,652,0.52,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-147,uttar-pradesh,2008,147,COLONELGANJ,SHASHI KALA GIRI,parties.IN.SBSP,SBSP,611,0.49,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-147,uttar-pradesh,2008,147,COLONELGANJ,JAGDISH PRASAD,parties.IN.IND,IND,524,0.42,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-147,uttar-pradesh,2008,147,COLONELGANJ,RATNESH KUMAR,parties.IN.IND,IND,454,0.36,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-147,uttar-pradesh,2008,147,COLONELGANJ,ANAND PAL SINGH,parties.IN.IND,IND,376,0.3,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-147,uttar-pradesh,2008,147,COLONELGANJ,DEV KUMAR,parties.IN.IND,IND,373,0.3,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-147,uttar-pradesh,2008,147,COLONELGANJ,ONKARANAND,parties.IN.IND,IND,349,0.28,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-147,uttar-pradesh,2008,147,COLONELGANJ,DINDAYAL,parties.IN.IND,IND,324,0.26,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-373,uttar-pradesh,2008,373,MURADNAGAR,RAJPAL TYAGI,parties.IN.BSP,BSP,58687,43.95,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-373,uttar-pradesh,2008,373,MURADNAGAR,KUNWAR AYYUB ALI,parties.IN.RLD,RLD,51834,38.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-373,uttar-pradesh,2008,373,MURADNAGAR,MANISH PANDIT,parties.IN.SP,SP,12850,9.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-373,uttar-pradesh,2008,373,MURADNAGAR,PRADEEP TYAGI,parties.IN.INC,INC,5030,3.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-373,uttar-pradesh,2008,373,MURADNAGAR,KARANDEV,parties.IN.BJP,BJP,1807,1.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-373,uttar-pradesh,2008,373,MURADNAGAR,PREMCHAND KASHYAP,parties.IN.UNK,VJP,736,0.55,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-373,uttar-pradesh,2008,373,MURADNAGAR,VIDYA DEVI,parties.IN.IND,IND,654,0.49,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-373,uttar-pradesh,2008,373,MURADNAGAR,ANUJ,parties.IN.VP,VP,532,0.4,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-373,uttar-pradesh,2008,373,MURADNAGAR,MITHILESH,parties.IN.IND,IND,410,0.31,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-373,uttar-pradesh,2008,373,MURADNAGAR,DHARAMVEER SINGH,parties.IN.ASP,ASP,375,0.28,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-373,uttar-pradesh,2008,373,MURADNAGAR,ARIF,parties.IN.IND,IND,220,0.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-373,uttar-pradesh,2008,373,MURADNAGAR,PRABHAT KUMAR SHARMA,parties.IN.IND,IND,203,0.15,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-373,uttar-pradesh,2008,373,MURADNAGAR,SARITA,parties.IN.RPI,RPI,183,0.14,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a

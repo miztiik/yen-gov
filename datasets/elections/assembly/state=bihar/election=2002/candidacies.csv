@@ -1,0 +1,25 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-bihar-114,bihar,2002,114,CHATAPUR,GAURI SHANKAR SARDAR,parties.IN.RJD,RJD,27366,40.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-114,bihar,2002,114,CHATAPUR,VISHWA MOHAN BHARTI,parties.IN.JDU,JD(U),27129,40.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-114,bihar,2002,114,CHATAPUR,KUMBH NARAIN SARDAR,parties.IN.NCP,NCP,5525,8.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-114,bihar,2002,114,CHATAPUR,CHAKRADHAR PRASAD RISHIDEO,parties.IN.IND,IND,2324,3.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-114,bihar,2002,114,CHATAPUR,MEENA DEVI,parties.IN.IND,IND,1488,2.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-114,bihar,2002,114,CHATAPUR,MAJOJ PASWAN,parties.IN.BSP,BSP,1405,2.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-114,bihar,2002,114,CHATAPUR,KUSUM LAL RISHIDEO,parties.IN.IND,IND,1085,1.62,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-114,bihar,2002,114,CHATAPUR,UMANAND PASWAN,parties.IN.IND,IND,623,0.93,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-191,bihar,2002,191,DANAPUR,RAMANAND YADAV,parties.IN.RJD,RJD,75935,77.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-191,bihar,2002,191,DANAPUR,SATYATA SINGH,parties.IN.BJP,BJP,17928,18.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-191,bihar,2002,191,DANAPUR,ARUN KUMAR,parties.IN.BSP,BSP,1267,1.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-191,bihar,2002,191,DANAPUR,SATYNDRA NARAYAN SINGH,parties.IN.IND,IND,390,0.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-191,bihar,2002,191,DANAPUR,SHIV SHANKER PRASAD,parties.IN.IND,IND,312,0.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-191,bihar,2002,191,DANAPUR,AJITAV KUMAR,parties.IN.IND,IND,307,0.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-191,bihar,2002,191,DANAPUR,TATESHWAR ROY,parties.IN.IND,IND,292,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-191,bihar,2002,191,DANAPUR,KRIPA NATH SHARMA,parties.IN.IND,IND,274,0.28,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-191,bihar,2002,191,DANAPUR,PRANESHWAR PANDEY,parties.IN.IND,IND,270,0.28,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-191,bihar,2002,191,DANAPUR,VIJAY KUMAR,parties.IN.BMF,BMF,236,0.24,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-191,bihar,2002,191,DANAPUR,RITA KUMARI,parties.IN.IND,IND,182,0.19,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-191,bihar,2002,191,DANAPUR,KRISHNA PASWAN,parties.IN.IND,IND,137,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-191,bihar,2002,191,DANAPUR,GHAFFAR KHAN,parties.IN.IND,IND,129,0.13,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-191,bihar,2002,191,DANAPUR,MD. KHURSHID IMAM,parties.IN.IND,IND,122,0.12,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-191,bihar,2002,191,DANAPUR,YOGANDRA RAM,parties.IN.IND,IND,86,0.09,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-191,bihar,2002,191,DANAPUR,RAM PRAVESH ROY,parties.IN.IND,IND,67,0.07,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -1,0 +1,37 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-andhra-pradesh-84,andhra-pradesh,2001,84,VUYYUR,SMT. ANNE VIJAYA LAKSHMI,parties.IN.TDP,TDP,52421,58.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-84,andhra-pradesh,2001,84,VUYYUR,KOLUSU PARDHA SARADHI,parties.IN.INC,INC,35970,39.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-84,andhra-pradesh,2001,84,VUYYUR,MOHMED ISMAIL,parties.IN.NCP,NCP,600,0.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-84,andhra-pradesh,2001,84,VUYYUR,ENDURI SURAMAHESWARA RAO (MANI),parties.IN.IND,IND,380,0.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-84,andhra-pradesh,2001,84,VUYYUR,NAGIPOGU KOTESWARA RAO,parties.IN.IND,IND,370,0.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-84,andhra-pradesh,2001,84,VUYYUR,TATINENI VENKATA KRISHNA RAO,parties.IN.IND,IND,210,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-123,andhra-pradesh,2001,123,GIDDALUR,Smt. Pidathala Saikalpana,parties.IN.TDP,TDP,53910,63.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-123,andhra-pradesh,2001,123,GIDDALUR,Mudiam Peera Reddy,parties.IN.INC,INC,28812,34.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-123,andhra-pradesh,2001,123,GIDDALUR,Simon Katikala,parties.IN.IND,IND,586,0.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-123,andhra-pradesh,2001,123,GIDDALUR,Narala Eswara Reddy,parties.IN.IND,IND,572,0.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-123,andhra-pradesh,2001,123,GIDDALUR,Subbarayudu Addnki,parties.IN.IND,IND,251,0.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-123,andhra-pradesh,2001,123,GIDDALUR,Venkateswarlu Govindu,parties.IN.IND,IND,199,0.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-123,andhra-pradesh,2001,123,GIDDALUR,Shaik Bashu,parties.IN.IND,IND,141,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-155,andhra-pradesh,2001,155,BADVEL,Smt. Konireddi Vijay Yamma,parties.IN.TDP,TDP,58805,58.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-155,andhra-pradesh,2001,155,BADVEL,Dr. Vaddamani Sivarama Krishna Rao,parties.IN.INC,INC,39430,39.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-155,andhra-pradesh,2001,155,BADVEL,Habeeb Basha Syed,parties.IN.IND,IND,725,0.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-155,andhra-pradesh,2001,155,BADVEL,Sindhe Raja Bhaskar Rao,parties.IN.SHS,SHS,546,0.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-155,andhra-pradesh,2001,155,BADVEL,Sura Veera Sekhar Reddy,parties.IN.IND,IND,204,0.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-155,andhra-pradesh,2001,155,BADVEL,Bhupal Reddy Dadana,parties.IN.IND,IND,109,0.11,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-155,andhra-pradesh,2001,155,BADVEL,Anduri Ramakrishna Reddy,parties.IN.IND,IND,97,0.1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-155,andhra-pradesh,2001,155,BADVEL,Madakala Vasudeva Reddy,parties.IN.IND,IND,80,0.08,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-155,andhra-pradesh,2001,155,BADVEL,Ramana Reddy Konda,parties.IN.IND,IND,71,0.07,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-155,andhra-pradesh,2001,155,BADVEL,Ambati Sree ramula Reddy,parties.IN.IND,IND,59,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-155,andhra-pradesh,2001,155,BADVEL,Anwar Basha Shaik,parties.IN.IND,IND,43,0.04,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-155,andhra-pradesh,2001,155,BADVEL,Bijivemula Rama Subba Reddy,parties.IN.IND,IND,38,0.04,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-155,andhra-pradesh,2001,155,BADVEL,Naguru Veera Raghava Reddy,parties.IN.IND,IND,34,0.03,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-155,andhra-pradesh,2001,155,BADVEL,Badvel Venkata Kondaiah,parties.IN.IND,IND,33,0.03,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-220,andhra-pradesh,2001,220,SIDDIPET,KALVAKUNTA CHANDRASEKAR RAO,parties.IN.BRS,TRS,82632,72.35,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-220,andhra-pradesh,2001,220,SIDDIPET,MAREDDI SRINIVAS REDDY,parties.IN.TDP,TDP,23920,20.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-220,andhra-pradesh,2001,220,SIDDIPET,VANGA HANUMANTHA REDDY,parties.IN.INC,INC,3317,2.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-220,andhra-pradesh,2001,220,SIDDIPET,B.BALANARSAIAH,parties.IN.IND,IND,2409,2.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-220,andhra-pradesh,2001,220,SIDDIPET,KUNDETI RAVI,parties.IN.IND,IND,807,0.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-220,andhra-pradesh,2001,220,SIDDIPET,GYADARI BALRAJU,parties.IN.IND,IND,380,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-220,andhra-pradesh,2001,220,SIDDIPET,M.NARSIMHA REDDY,parties.IN.IND,IND,306,0.27,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-220,andhra-pradesh,2001,220,SIDDIPET,BATHULA CHANDRAM,parties.IN.IND,IND,241,0.21,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-220,andhra-pradesh,2001,220,SIDDIPET,GONE BALANARAYANA,parties.IN.IND,IND,193,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a

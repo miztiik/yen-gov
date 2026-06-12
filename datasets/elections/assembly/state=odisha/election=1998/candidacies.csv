@@ -1,0 +1,41 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-odisha-18,odisha,1998,18,BHANDARIPOKHARI,Kumar Sreechiranjibi,parties.IN.INC,INC,50510,53.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-18,odisha,1998,18,BHANDARIPOKHARI,Ratha Das,parties.IN.BJD,BJD,42213,44.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-18,odisha,1998,18,BHANDARIPOKHARI,Binayak Malik,parties.IN.JD,JD,1593,1.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-18,odisha,1998,18,BHANDARIPOKHARI,Rajendra Gochhyat,parties.IN.IND,IND,80,0.08,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-59,odisha,1998,59,KHURDA,Dillip Srichandan,parties.IN.INC,INC,39921,52.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-59,odisha,1998,59,KHURDA,Ranarnanb Deb,parties.IN.BJD,BJD,29871,39.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-59,odisha,1998,59,KHURDA,Jyotindra Chhotaray,parties.IN.IND,IND,4329,5.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-59,odisha,1998,59,KHURDA,Gourisankar Routaray,parties.IN.JD,JD,1794,2.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-59,odisha,1998,59,KHURDA,Aditya Kumar Baliyarsingh,parties.IN.IND,IND,243,0.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1998,98,JUNAGARH,Himansu Sekhar Meher,parties.IN.BJP,BJP,27230,39.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1998,98,JUNAGARH,Abhimanyu Panda,parties.IN.INC,INC,25581,36.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1998,98,JUNAGARH,Hemanta Panda,parties.IN.IND,IND,5956,8.58,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1998,98,JUNAGARH,Shiba Hati,parties.IN.IND,IND,4248,6.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1998,98,JUNAGARH,Raidas Naik,parties.IN.JD,JD,3018,4.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1998,98,JUNAGARH,Ayub Alli Khan,parties.IN.SAP,SAP,825,1.19,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1998,98,JUNAGARH,Dhaneswar Sabar,parties.IN.IND,IND,734,1.06,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1998,98,JUNAGARH,Rajani Kanta Baitharu,parties.IN.BSP,BSP,723,1.04,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1998,98,JUNAGARH,Janardan Bodkia,parties.IN.IND,IND,683,0.98,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1998,98,JUNAGARH,Biranchi Panda,parties.IN.IND,IND,446,0.64,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-127,odisha,1998,127,BARAGARH,Ananda Acharya,parties.IN.BJD,BJD,41667,47.98,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-127,odisha,1998,127,BARAGARH,Sureswar Satpathy,parties.IN.INC,INC,34304,39.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-127,odisha,1998,127,BARAGARH,Jadumani Padhan,parties.IN.IND,IND,7095,8.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-127,odisha,1998,127,BARAGARH,Trupti Manjari Pradhan,parties.IN.JD,JD,1997,2.3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-127,odisha,1998,127,BARAGARH,Braja Kalet,parties.IN.BSP,BSP,1787,2.06,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-129,odisha,1998,129,BRAJRAJNAGAR,Keshab Sahoo,parties.IN.INC,INC,28476,31.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-129,odisha,1998,129,BRAJRAJNAGAR,Radharani Panda,parties.IN.BJD,BJD,27954,30.65,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-129,odisha,1998,129,BRAJRAJNAGAR,Mohammed Zakirullah,parties.IN.CPI,CPI,25806,28.3,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-129,odisha,1998,129,BRAJRAJNAGAR,Gyana Patnaik,parties.IN.RJD,RJD,4447,4.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-129,odisha,1998,129,BRAJRAJNAGAR,Biranchi Majhi,parties.IN.BSP,BSP,3825,4.19,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-129,odisha,1998,129,BRAJRAJNAGAR,Bhagabata Sa,parties.IN.IND,IND,398,0.44,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-129,odisha,1998,129,BRAJRAJNAGAR,Sanjib Kumar Panda,parties.IN.IND,IND,294,0.32,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-134,odisha,1998,134,DEOGARH,Subash Chandra Panigrahi,parties.IN.BJP,BJP,51903,55.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-134,odisha,1998,134,DEOGARH,Satyanarayan Pani,parties.IN.INC,INC,25399,27.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-134,odisha,1998,134,DEOGARH,Shakuntala Pradhan,parties.IN.JD,JD,7257,7.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-134,odisha,1998,134,DEOGARH,Pramoda Pradhan,parties.IN.RJD,RJD,6559,6.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-134,odisha,1998,134,DEOGARH,Alekha Chandra Pradhan,parties.IN.IND,IND,2678,2.86,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-141,odisha,1998,141,BONAI,Janardan Dehury,parties.IN.INC,INC,35530,50.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-141,odisha,1998,141,BONAI,Dayanidhi Kisan,parties.IN.BJD,BJD,27592,39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-141,odisha,1998,141,BONAI,Laxman Munda,parties.IN.CPIM,CPM,7339,10.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-141,odisha,1998,141,BONAI,Himadri Kisan,parties.IN.SAP,SAP,290,0.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

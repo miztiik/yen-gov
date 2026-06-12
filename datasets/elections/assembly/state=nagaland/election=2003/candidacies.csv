@@ -1,0 +1,226 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-nagaland-1,nagaland,2003,1,DIMAPUR-I,SHRI. HOKISHE SEMA,parties.IN.BJP,BJP,7494,52.7,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-1,nagaland,2003,1,DIMAPUR-I,SHRI. KEVI ZAKIESATUO,parties.IN.INC,INC,4080,28.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-1,nagaland,2003,1,DIMAPUR-I,SHRI. T. CHUBA,parties.IN.NPF,NPF,1605,11.29,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-1,nagaland,2003,1,DIMAPUR-I,SHRI. KAKUGHA ZHIMOMI,parties.IN.IND,IND,691,4.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-1,nagaland,2003,1,DIMAPUR-I,SHRI. JOSEPH SEMA,parties.IN.JDU,JD(U),351,2.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-2,nagaland,2003,2,DIMAPUR-II,HEWOTO,parties.IN.NPF,NPF,14006,48.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-2,nagaland,2003,2,DIMAPUR-II,SHRI: IMTISUNGET JAMIR,parties.IN.INC,INC,13218,45.48,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-2,nagaland,2003,2,DIMAPUR-II,KONBEMO,parties.IN.BJP,BJP,1841,6.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-3,nagaland,2003,3,DIMAPUR-III,SHRI: KIHOTO HOLLON,parties.IN.UNK,NDM,6549,46.05,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-3,nagaland,2003,3,DIMAPUR-III,SHRI: AZHETO ZHIMOMI,parties.IN.NPF,NPF,6263,44.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-3,nagaland,2003,3,DIMAPUR-III,SHRI: ATOVI SUMI,parties.IN.INC,INC,982,6.91,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-3,nagaland,2003,3,DIMAPUR-III,SMTI: ANUPAMA MECH,parties.IN.IND,IND,427,3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-4,nagaland,2003,4,GHASPANI-I,SHRI: H. KHEKIHO ZHIMOMI,parties.IN.NPF,NPF,22888,50.98,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-4,nagaland,2003,4,GHASPANI-I,DR. KANITO,parties.IN.INC,INC,9600,21.38,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-4,nagaland,2003,4,GHASPANI-I,SHRI: PATRICK,parties.IN.JDU,JD(U),7846,17.48,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-4,nagaland,2003,4,GHASPANI-I,SHRI: VIYIEZO MAKRITSU,parties.IN.BJP,BJP,4560,10.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-5,nagaland,2003,5,GHASPANI-II,SHRI: ROKONICHA,parties.IN.INC,INC,6337,30.21,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-5,nagaland,2003,5,GHASPANI-II,SHRI: DR. KAKHETO ZHIMOMI,parties.IN.UNK,NDM,5970,28.46,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-5,nagaland,2003,5,GHASPANI-II,SHRI: GHOSUHO ZHIMOMI,parties.IN.JDU,JD(U),4225,20.14,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-5,nagaland,2003,5,GHASPANI-II,SHRI: MEZHULIE,parties.IN.NPF,NPF,3961,18.88,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-5,nagaland,2003,5,GHASPANI-II,SMTI: AKHELI,parties.IN.IND,IND,486,2.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-6,nagaland,2003,6,TENNING,SHRI: T.R. ZELAING,parties.IN.INC,INC,6374,35.17,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-6,nagaland,2003,6,TENNING,SHRI: NAMRI NCHANG,parties.IN.NPF,NPF,4175,23.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-6,nagaland,2003,6,TENNING,SHRI: WIZABO,parties.IN.JDU,JD(U),3449,19.03,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-6,nagaland,2003,6,TENNING,SHRI: ABRAHAM,parties.IN.BJP,BJP,2765,15.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-6,nagaland,2003,6,TENNING,SHRI: L.L. KUKI,parties.IN.UNK,NDM,1361,7.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-7,nagaland,2003,7,PEREN,SHRI: VATSU MERU,parties.IN.NPF,NPF,7869,42.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-7,nagaland,2003,7,PEREN,SHRI: NEIBA NDANG,parties.IN.INC,INC,6658,35.63,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-7,nagaland,2003,7,PEREN,SHRI: KEVIPIELE,parties.IN.NCP,NCP,3003,16.07,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-7,nagaland,2003,7,PEREN,SHRI: IDAILUNG THOU,parties.IN.UNK,NDM,1158,6.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-8,nagaland,2003,8,WESTERN ANGAMI,SHRI: KIYANILIE,parties.IN.NPF,NPF,5192,40.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-8,nagaland,2003,8,WESTERN ANGAMI,SHRI: ASU KEYHO,parties.IN.INC,INC,4226,32.75,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-8,nagaland,2003,8,WESTERN ANGAMI,DR. RUUNGUTUO,parties.IN.IND,IND,2637,20.44,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-8,nagaland,2003,8,WESTERN ANGAMI,SHRI: VIKEHIELIE,parties.IN.BJP,BJP,848,6.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-9,nagaland,2003,9,KOHIMA TOWN,SHRI: Z. OBED,parties.IN.NPF,NPF,8367,44.88,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-9,nagaland,2003,9,KOHIMA TOWN,SHRI: T. ABAO KIRE,parties.IN.INC,INC,7870,42.21,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-9,nagaland,2003,9,KOHIMA TOWN,SHRI: TEPULEL ANGAMI,parties.IN.UNK,NDM,2407,12.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-10,nagaland,2003,10,NORTHERN ANGAMI-I,SHRI: SHURHOZELIE,parties.IN.NPF,NPF,5502,53.91,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-10,nagaland,2003,10,NORTHERN ANGAMI-I,SHRI: SEYIEKUOLIE,parties.IN.INC,INC,4703,46.09,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-11,nagaland,2003,11,NORTHERN ANGAMI-II,SHRI: NEIPHI-U RIO,parties.IN.NPF,NPF,9882,67.6,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-11,nagaland,2003,11,NORTHERN ANGAMI-II,SHRI: ZAKIO METHA,parties.IN.INC,INC,3815,26.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-11,nagaland,2003,11,NORTHERN ANGAMI-II,SHRI: R. SOPU ANGAMI,parties.IN.BJP,BJP,565,3.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-11,nagaland,2003,11,NORTHERN ANGAMI-II,SHRI: CHUPFU-O,parties.IN.IND,IND,357,2.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-12,nagaland,2003,12,TSEMINYU,SHRI: R. KHING,parties.IN.JDU,JD(U),8327,38.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-12,nagaland,2003,12,TSEMINYU,SHRI: NILLO,parties.IN.INC,INC,6612,30.89,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-12,nagaland,2003,12,TSEMINYU,SHRI: KHASU KATH,parties.IN.NPF,NPF,4629,21.63,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-12,nagaland,2003,12,TSEMINYU,SHRI: JOHNY G. RENGMA,parties.IN.BJP,BJP,1112,5.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-12,nagaland,2003,12,TSEMINYU,SHRI: CHINNY MECH,parties.IN.NCP,NCP,723,3.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-13,nagaland,2003,13,PUGHOBOTO,SHRI: HUSKA,parties.IN.JDU,JD(U),5745,49.28,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-13,nagaland,2003,13,PUGHOBOTO,SHRI: JOSHUA,parties.IN.INC,INC,4593,39.4,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-13,nagaland,2003,13,PUGHOBOTO,SHRI: VISHETO,parties.IN.BJP,BJP,775,6.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-13,nagaland,2003,13,PUGHOBOTO,SHRI: KASHITO,parties.IN.NPF,NPF,545,4.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-14,nagaland,2003,14,SOUTHERN ANGAMI-I,SHRI: MEDOKUL,parties.IN.INC,INC,2845,30.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-14,nagaland,2003,14,SOUTHERN ANGAMI-I,SHRI: MAVIL KHIEYA,parties.IN.NPF,NPF,2415,25.66,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-14,nagaland,2003,14,SOUTHERN ANGAMI-I,SHRI: KHIELEZO,parties.IN.AITC,AITC,2272,24.14,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-14,nagaland,2003,14,SOUTHERN ANGAMI-I,SHRI: NAGAKUL,parties.IN.IND,IND,1878,19.96,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-15,nagaland,2003,15,SOUTHERN ANGAMI-II,SHRI: K. V. PUSA,parties.IN.INC,INC,5466,56.28,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-15,nagaland,2003,15,SOUTHERN ANGAMI-II,SHRI: ZAKU TSUKRU,parties.IN.NPF,NPF,4247,43.72,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-16,nagaland,2003,16,PFUTSERO,SHRI: KEWEKHAPE,parties.IN.NPF,NPF,8268,51.04,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-16,nagaland,2003,16,PFUTSERO,SHRI: LHIWESHELO MERO,parties.IN.INC,INC,6765,41.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-16,nagaland,2003,16,PFUTSERO,SHRI: KUHUPOYO,parties.IN.UNK,NDM,1165,7.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-17,nagaland,2003,17,CHIZAMI,SHRI: DEO NUKHU,parties.IN.SAP,SAP,4616,34.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-17,nagaland,2003,17,CHIZAMI,SHRI: ZHOVEHU LOHE,parties.IN.INC,INC,3769,28.34,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-17,nagaland,2003,17,CHIZAMI,SHRI: KEWEZU,parties.IN.NPF,NPF,3089,23.23,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-17,nagaland,2003,17,CHIZAMI,SHRI: NGOSAYI S. DEASI,parties.IN.NCP,NCP,1823,13.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-18,nagaland,2003,18,CHAZOUBA,SHRI: THENUCHO,parties.IN.NPF,NPF,6166,35.85,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-18,nagaland,2003,18,CHAZOUBA,SHRI: NUZOTA SWURO,parties.IN.INC,INC,4295,24.97,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-18,nagaland,2003,18,CHAZOUBA,SHRI: VAPRUMO DEMO,parties.IN.IND,IND,4217,24.52,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-18,nagaland,2003,18,CHAZOUBA,SHRI: POVOTSO LOHE,parties.IN.NCP,NCP,1319,7.67,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-18,nagaland,2003,18,CHAZOUBA,SHRI: SHIETSUYI RUHO,parties.IN.BJP,BJP,1204,7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-19,nagaland,2003,19,PHEK,SHRI: KUZHOLUZO,parties.IN.NPF,NPF,9084,59.12,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-19,nagaland,2003,19,PHEK,SHRI: ZACHILHU VADEO,parties.IN.INC,INC,6282,40.88,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-20,nagaland,2003,20,MELURI,SHRI: YITACHU,parties.IN.NPF,NPF,5557,41.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-20,nagaland,2003,20,MELURI,SHRI: KHUOSATHO,parties.IN.INC,INC,4832,35.97,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-20,nagaland,2003,20,MELURI,SHRI: S. SUPONG,parties.IN.RLD,RLD,1649,12.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-20,nagaland,2003,20,MELURI,SHRI: P.K.T. MARHUTHO,parties.IN.BJP,BJP,1394,10.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-21,nagaland,2003,21,TULI,SHRI: T. TALI,parties.IN.INC,INC,10131,57.71,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-21,nagaland,2003,21,TULI,SHRI: L. TEMJEN JAMIR,parties.IN.NPF,NPF,7423,42.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-22,nagaland,2003,22,ARKAKONG,SHRI: TAKATIBA MASA AO,parties.IN.INC,INC,7950,51.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-22,nagaland,2003,22,ARKAKONG,SHRI: IMTIYANGER,parties.IN.NPF,NPF,7452,48.29,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-22,nagaland,2003,22,ARKAKONG,SHRI: NUKLUTOSHI,parties.IN.BJP,BJP,29,0.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-23,nagaland,2003,23,IMPUR,SHRI: NUNGSANGYAPANG,parties.IN.INC,INC,7597,58.06,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-23,nagaland,2003,23,IMPUR,SHRI: T. YUBANGNENBA,parties.IN.NPF,NPF,5488,41.94,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-24,nagaland,2003,24,ANGETYONGPANG,SHRI: JONSHILEMBA,parties.IN.IND,IND,4535,42.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-24,nagaland,2003,24,ANGETYONGPANG,SHRI: T. SENTICHUBA,parties.IN.INC,INC,2094,19.47,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-24,nagaland,2003,24,ANGETYONGPANG,SHRI: AOSANEN,parties.IN.JDU,JD(U),1858,17.27,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-24,nagaland,2003,24,ANGETYONGPANG,SHRI: S. LIMA,parties.IN.SAP,SAP,1425,13.25,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-24,nagaland,2003,24,ANGETYONGPANG,SHRI: ONENCHUBA,parties.IN.NPF,NPF,427,3.97,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-24,nagaland,2003,24,ANGETYONGPANG,SHRI: A. IMTIZULU,parties.IN.BJP,BJP,417,3.88,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-25,nagaland,2003,25,MONGOYA,SHRI: S. SUPONGMEREN JAMIR,parties.IN.INC,INC,7081,67.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-25,nagaland,2003,25,MONGOYA,SHRI: NUNGSANGINBA,parties.IN.NPF,NPF,3145,30.04,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-25,nagaland,2003,25,MONGOYA,SHRI: TEMJENSOBA,parties.IN.BJP,BJP,245,2.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-26,nagaland,2003,26,AONGLENDEN,SHRI: S.C. JAMIR,parties.IN.INC,INC,8714,90.08,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-26,nagaland,2003,26,AONGLENDEN,SMTI: CHUBALEMLA,parties.IN.NPF,NPF,928,9.59,2,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-26,nagaland,2003,26,AONGLENDEN,SHRI: MAPOTOSHI,parties.IN.IND,IND,32,0.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-27,nagaland,2003,27,MOKOKCHUNG TOWN,SHRI: NUNGSHIZENBA,parties.IN.INC,INC,1937,53.63,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-27,nagaland,2003,27,MOKOKCHUNG TOWN,SHRI: L. NOKZENKETBA,parties.IN.NPF,NPF,1675,46.37,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-28,nagaland,2003,28,KORIDANG,SHRI: IMKONG IMCHEN,parties.IN.IND,IND,7258,42.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-28,nagaland,2003,28,KORIDANG,SHRI: T. NOKYU LONGCHAR,parties.IN.INC,INC,6894,40.32,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-28,nagaland,2003,28,KORIDANG,SHRI: K. NOKDEN,parties.IN.BJP,BJP,2400,14.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-28,nagaland,2003,28,KORIDANG,SHRI: TEMSUKABA,parties.IN.NPF,NPF,547,3.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-29,nagaland,2003,29,JANGPETKONG,SHRI: I. IMKONG,parties.IN.INC,INC,6329,74.08,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-29,nagaland,2003,29,JANGPETKONG,SHRI: CHUBATEMJEN,parties.IN.NPF,NPF,1497,17.52,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-29,nagaland,2003,29,JANGPETKONG,SHRI: N. MEREN OZUKUM,parties.IN.SAP,SAP,717,8.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-30,nagaland,2003,30,ALONGTAKI,SHRI: TIAMEREN,parties.IN.BJP,BJP,7423,59.81,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-30,nagaland,2003,30,ALONGTAKI,SHRI: T. SAKU AIER,parties.IN.INC,INC,4988,40.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-31,nagaland,2003,31,AKULUTO,SHRI: KHETO,parties.IN.NPF,NPF,3318,54.43,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-31,nagaland,2003,31,AKULUTO,SHRI: KAKHETO,parties.IN.INC,INC,2778,45.57,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-32,nagaland,2003,32,ATOIZU,SHRI: DOSHIHE Y.SENIA,parties.IN.INC,INC,3200,33.68,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-32,nagaland,2003,32,ATOIZU,SHRI: KIYEZHE,parties.IN.UNK,NDM,3182,33.49,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-32,nagaland,2003,32,ATOIZU,SHRI: KIKHEHO,parties.IN.NPF,NPF,3118,32.82,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-33,nagaland,2003,33,SURUHOTO,SHRI: KHUTOVI,parties.IN.IND,IND,4209,45.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-33,nagaland,2003,33,SURUHOTO,SHRI: KIYEZHE AYE,parties.IN.INC,INC,2516,27.07,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-33,nagaland,2003,33,SURUHOTO,SHRI: KHUKIVI,parties.IN.BJP,BJP,1468,15.79,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-33,nagaland,2003,33,SURUHOTO,DR. SHIKIKHE,parties.IN.UNK,NDM,1074,11.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-33,nagaland,2003,33,SURUHOTO,SHRI: SHIHOVI,parties.IN.UNK,NLDP,29,0.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-34,nagaland,2003,34,AGHUNATO,SHRI: TOKHEHO,parties.IN.INC,INC,4363,54.56,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-34,nagaland,2003,34,AGHUNATO,SHRI: PUKHAI,parties.IN.UNK,NDM,3608,45.12,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-34,nagaland,2003,34,AGHUNATO,SHRI: TOHEVI,parties.IN.NPF,NPF,26,0.33,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-35,nagaland,2003,35,ZUNHEBOTO,SHRI: HUKAVI,parties.IN.UNK,NDM,4700,44.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-35,nagaland,2003,35,ZUNHEBOTO,SHRI: KAKHEHO,parties.IN.INC,INC,4573,43.65,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-35,nagaland,2003,35,ZUNHEBOTO,SHRI: TOKHEHO,parties.IN.BJP,BJP,1203,11.48,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-36,nagaland,2003,36,SATAKHA,SHRI: KAITO,parties.IN.INC,INC,3792,40.88,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-36,nagaland,2003,36,SATAKHA,SHRI: KUGHAVI,parties.IN.NPF,NPF,3048,32.86,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-36,nagaland,2003,36,SATAKHA,SHRI: INAVI,parties.IN.UNK,NDM,2274,24.52,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-36,nagaland,2003,36,SATAKHA,SHRI: VIHOSHE,parties.IN.BJP,BJP,161,1.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-37,nagaland,2003,37,TYUI,SHRI: YANKITHUNG YANTHAN,parties.IN.INC,INC,8108,49.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-37,nagaland,2003,37,TYUI,SHRI: T.A. NGULLIE,parties.IN.BJP,BJP,5496,33.56,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-37,nagaland,2003,37,TYUI,NRIO PATTON,parties.IN.NPF,NPF,2771,16.92,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-38,nagaland,2003,38,WOKHA,DR. T.M. LOTHA,parties.IN.BJP,BJP,8347,35.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-38,nagaland,2003,38,WOKHA,SHRI: A. YENTSAO ODTUO,parties.IN.NPF,NPF,5755,24.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-38,nagaland,2003,38,WOKHA,SHRI: KHYOTHUNGO,parties.IN.NCP,NCP,5724,24.23,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-38,nagaland,2003,38,WOKHA,SHRI: JOHN LOTHA,parties.IN.INC,INC,3799,16.08,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-39,nagaland,2003,39,SANIS,SHRI: NKHAO LOTHA,parties.IN.NPF,NPF,5168,26.75,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-39,nagaland,2003,39,SANIS,SHRI: Y. SULANTHUNG H. LOTHA,parties.IN.NCP,NCP,5131,26.55,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-39,nagaland,2003,39,SANIS,SHRI: T.L. MERRY,parties.IN.UNK,NDM,3285,17,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-39,nagaland,2003,39,SANIS,SHRI: EKHYIMO KIKON,parties.IN.JDU,JD(U),2176,11.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-39,nagaland,2003,39,SANIS,SHRI: N. THOMAS LOTHA,parties.IN.INC,INC,1687,8.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-39,nagaland,2003,39,SANIS,SHRI: WOBEMO YANTHAN,parties.IN.BJP,BJP,803,4.16,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-39,nagaland,2003,39,SANIS,SHRI: THECHAMO,parties.IN.AITC,AITC,679,3.51,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-39,nagaland,2003,39,SANIS,SHRI: ROLAND LOTHA,parties.IN.UNK,NLDP,394,2.04,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-40,nagaland,2003,40,BHANDARI,SHRI: E.T. EZUNG,parties.IN.UNK,NDM,5240,31.11,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-40,nagaland,2003,40,BHANDARI,SHRI: L. YANTHUNGO PATTON,parties.IN.INC,INC,4554,27.04,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-40,nagaland,2003,40,BHANDARI,SHRI: MHONJAN,parties.IN.SAP,SAP,3698,21.95,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-40,nagaland,2003,40,BHANDARI,SHRI: T. KIKON,parties.IN.NPF,NPF,2380,14.13,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-40,nagaland,2003,40,BHANDARI,SHRI: TSUNGRO,parties.IN.BJP,BJP,949,5.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-40,nagaland,2003,40,BHANDARI,SHRI: LITSEMO LOUIS HUMTSOE,parties.IN.RLD,RLD,23,0.14,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-41,nagaland,2003,41,TIZIT,SHRI: N. YEANGPHONG,parties.IN.NPF,NPF,5387,39.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-41,nagaland,2003,41,TIZIT,SHRI: ALOH WANGHAM,parties.IN.UNK,NDM,4056,29.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-41,nagaland,2003,41,TIZIT,SHRI: TINGKUP,parties.IN.INC,INC,3837,28.01,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-41,nagaland,2003,41,TIZIT,SHRI: KHONGWANG,parties.IN.BJP,BJP,281,2.05,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-41,nagaland,2003,41,TIZIT,SHRI: ARUN,parties.IN.JDU,JD(U),140,1.02,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-42,nagaland,2003,42,WAKCHING,SHRI: M.C. KONYAK,parties.IN.BJP,BJP,5859,52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-42,nagaland,2003,42,WAKCHING,SHRI: P. ENYEI KONYAK,parties.IN.INC,INC,5408,48,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-43,nagaland,2003,43,TAPI,SHRI: NOKE,parties.IN.NPF,NPF,3328,32.3,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-43,nagaland,2003,43,TAPI,SHRI: LANPHA,parties.IN.INC,INC,3151,30.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-43,nagaland,2003,43,TAPI,SHRI: M. LONGMETH,parties.IN.UNK,NDM,2794,27.12,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-43,nagaland,2003,43,TAPI,SHRI: APHAO,parties.IN.BJP,BJP,1029,9.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-44,nagaland,2003,44,PHOMCHING,SHRI: KONGAM,parties.IN.INC,INC,9399,59.27,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-44,nagaland,2003,44,PHOMCHING,SHRI: POHWANG,parties.IN.NPF,NPF,4841,30.53,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-44,nagaland,2003,44,PHOMCHING,SHRI: WANGPAI,parties.IN.UNK,NDM,895,5.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-44,nagaland,2003,44,PHOMCHING,SHRI: LEIYANG,parties.IN.JDU,JD(U),723,4.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-45,nagaland,2003,45,TEHOK,SHRI: W. WANGYUH,parties.IN.INC,INC,6748,52.62,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-45,nagaland,2003,45,TEHOK,SHRI: NOKLEM,parties.IN.NPF,NPF,4729,36.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-45,nagaland,2003,45,TEHOK,SHRI: CHEN-NYEIM,parties.IN.UNK,NDM,906,7.06,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-45,nagaland,2003,45,TEHOK,SHRI: YAJU,parties.IN.BJP,BJP,318,2.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-45,nagaland,2003,45,TEHOK,SHRI: Y. TAPA,parties.IN.RLD,RLD,124,0.97,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-46,nagaland,2003,46,MON TOWN,SHRI: CHINGWANG,parties.IN.INC,INC,5701,44.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-46,nagaland,2003,46,MON TOWN,SHRI: S. YOKTEN,parties.IN.NPF,NPF,4260,33.09,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-46,nagaland,2003,46,MON TOWN,SHRI: C. JOHN,parties.IN.IND,IND,1596,12.4,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-46,nagaland,2003,46,MON TOWN,SHRI: KHOIWANG,parties.IN.UNK,NDM,899,6.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-46,nagaland,2003,46,MON TOWN,SHRI: L. TONGNYEI,parties.IN.BJP,BJP,419,3.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-47,nagaland,2003,47,ABOI,SHRI: NYEIWANG,parties.IN.NPF,NPF,3721,43.63,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-47,nagaland,2003,47,ABOI,SHRI: ESHAK,parties.IN.BJP,BJP,2955,34.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-47,nagaland,2003,47,ABOI,SHRI: MANLIP,parties.IN.INC,INC,1850,21.69,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-47,nagaland,2003,47,ABOI,SHRI: HOWING,parties.IN.NCP,NCP,3,0.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-48,nagaland,2003,48,MOKA,SHRI: E.E. PANGTEANG,parties.IN.NPF,NPF,5837,46.06,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-48,nagaland,2003,48,MOKA,SHRI: A. NYIAMNYEI,parties.IN.INC,INC,4282,33.79,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-48,nagaland,2003,48,MOKA,SHRI: P. LONGANG,parties.IN.UNK,NDM,2554,20.15,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-49,nagaland,2003,49,TAMLU,SHRI: NYEMLI PHOM,parties.IN.INC,INC,9427,31.33,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-49,nagaland,2003,49,TAMLU,B. BANGTICK,parties.IN.UNK,NDM,8947,29.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-49,nagaland,2003,49,TAMLU,SHRI: PHONGSHAK,parties.IN.JDU,JD(U),6464,21.48,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-49,nagaland,2003,49,TAMLU,SHRI: NGANLANG,parties.IN.NPF,NPF,4688,15.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-49,nagaland,2003,49,TAMLU,SHRI: SHAUPEN,parties.IN.BJP,BJP,568,1.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-50,nagaland,2003,50,LONGLENG,SHRI: CHENLOM PHOM,parties.IN.JDU,JD(U),8595,27.52,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-50,nagaland,2003,50,LONGLENG,SHRI: PUKYONG PHOM,parties.IN.NPF,NPF,7895,25.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-50,nagaland,2003,50,LONGLENG,Y.B. ANGAM PHOM,parties.IN.BJP,BJP,7518,24.07,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-50,nagaland,2003,50,LONGLENG,SHRI: SHAMI ANGH,parties.IN.INC,INC,7229,23.14,4,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-51,nagaland,2003,51,NOKSEN,SHRI: H. CHUBA,parties.IN.INC,INC,4478,56.16,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-51,nagaland,2003,51,NOKSEN,SHRI: C.M. CHANG,parties.IN.NPF,NPF,3495,43.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-52,nagaland,2003,52,LONGKHIM CHARE,SHRI: IMTILEMBA,parties.IN.BJP,BJP,7211,50.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-52,nagaland,2003,52,LONGKHIM CHARE,SHRI: S.K. SANGTAM,parties.IN.INC,INC,6968,49.14,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-53,nagaland,2003,53,TUENSANG SADAR-I,SHRI: P. CHUBA,parties.IN.IND,IND,5595,37.31,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-53,nagaland,2003,53,TUENSANG SADAR-I,SHRI: NUNGSANG,parties.IN.INC,INC,5504,36.7,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-53,nagaland,2003,53,TUENSANG SADAR-I,SHRI: SASHI,parties.IN.NPF,NPF,1771,11.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-53,nagaland,2003,53,TUENSANG SADAR-I,SHRI: K. IMLONG,parties.IN.UNK,NDM,1127,7.51,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-53,nagaland,2003,53,TUENSANG SADAR-I,SHRI: YONGKONGLEMBA,parties.IN.BJP,BJP,1000,6.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-54,nagaland,2003,54,TUENSANG SADAR-II,SHRI: A. LAKIUMONG,parties.IN.BJP,BJP,4595,35.95,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-54,nagaland,2003,54,TUENSANG SADAR-II,SHRI: WONGTO,parties.IN.UNK,NDM,4104,32.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-54,nagaland,2003,54,TUENSANG SADAR-II,SHRI: KEJONG,parties.IN.INC,INC,4083,31.94,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-55,nagaland,2003,55,TOBU,SHRI: K. NAIBA KONYAK,parties.IN.NPF,NPF,5792,48.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-55,nagaland,2003,55,TOBU,SHRI: A. THONGO MUKIANO,parties.IN.INC,INC,5199,43.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-55,nagaland,2003,55,TOBU,SHRI: H. CHOAKBA,parties.IN.BJP,BJP,594,4.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-55,nagaland,2003,55,TOBU,SHRI: PUNGKHAO,parties.IN.IND,IND,426,3.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-56,nagaland,2003,56,NOKLAK,SHRI: P. LONGON,parties.IN.NPF,NPF,5736,54.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-56,nagaland,2003,56,NOKLAK,SHRI: SEDEM,parties.IN.INC,INC,4793,45.5,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-56,nagaland,2003,56,NOKLAK,SHRI: H. THANGPONG,parties.IN.IND,IND,6,0.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-57,nagaland,2003,57,THONOKNYU,SHRI: S. HENO,parties.IN.UNK,NDM,4371,36.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-57,nagaland,2003,57,THONOKNYU,SHRI: N.L. AIMONG,parties.IN.INC,INC,2242,18.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-57,nagaland,2003,57,THONOKNYU,SHRI: S. SHINGNYU,parties.IN.IND,IND,1717,14.17,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-57,nagaland,2003,57,THONOKNYU,SHRI: P. PONGOM,parties.IN.JDU,JD(U),1663,13.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-57,nagaland,2003,57,THONOKNYU,SHRI: T. KHAIKHO,parties.IN.BJP,BJP,1117,9.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-57,nagaland,2003,57,THONOKNYU,SHRI: SHILLEM,parties.IN.NPF,NPF,1010,8.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-58,nagaland,2003,58,SHAMATOR CHESSORE,SHRI: K. YAMUKAM,parties.IN.INC,INC,4602,30.49,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-58,nagaland,2003,58,SHAMATOR CHESSORE,SHRI: ZUNGKUM,parties.IN.NPF,NPF,4379,29.01,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-58,nagaland,2003,58,SHAMATOR CHESSORE,SHRI: R. TOHANBA,parties.IN.IND,IND,3218,21.32,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-58,nagaland,2003,58,SHAMATOR CHESSORE,SHRI: W. AKHUM,parties.IN.UNK,NDM,1597,10.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-58,nagaland,2003,58,SHAMATOR CHESSORE,SHRI: ROKKIMONG,parties.IN.BJP,BJP,1297,8.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-59,nagaland,2003,59,SEYOCHUNG SITIMI,SHRI: C. KIPILI SANGTAM,parties.IN.UNK,NDM,10476,64.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-59,nagaland,2003,59,SEYOCHUNG SITIMI,SHRI: S. SETHRICHO SANGTAM,parties.IN.INC,INC,4940,30.33,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-59,nagaland,2003,59,SEYOCHUNG SITIMI,SHRI: CHOTHRONGBA SANGTAM,parties.IN.NPF,NPF,718,4.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-59,nagaland,2003,59,SEYOCHUNG SITIMI,SHRI: P. LIPONGKYU SANGTAM,parties.IN.BJP,BJP,152,0.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-60,nagaland,2003,60,PUNGRO KIPHIRE,SHRI: T. TOROCHU,parties.IN.BJP,BJP,10246,47.13,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-60,nagaland,2003,60,PUNGRO KIPHIRE,SHRI: TSEPIKIU,parties.IN.NPF,NPF,9071,41.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-60,nagaland,2003,60,PUNGRO KIPHIRE,SHRI: R.L. AKAMBA,parties.IN.INC,INC,2423,11.15,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a

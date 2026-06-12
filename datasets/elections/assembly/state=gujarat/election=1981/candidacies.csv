@@ -1,0 +1,24 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-gujarat-27,gujarat,1981,27,KALAWAD,T.K.KARABHAI,parties.IN.IND,IND,26753,57.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-27,gujarat,1981,27,KALAWAD,P.K.BACHAR,parties.IN.INC,INC,18244,39.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-27,gujarat,1981,27,KALAWAD,D.R.KANABHAI,parties.IN.IND,IND,594,1.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-27,gujarat,1981,27,KALAWAD,P.R.PUNJA,parties.IN.IND,IND,462,0.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-27,gujarat,1981,27,KALAWAD,S.R.CHAUPULA,parties.IN.IND,IND,273,0.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-27,gujarat,1981,27,KALAWAD,M.V.KABABHAI,parties.IN.IND,IND,179,0.38,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-78,gujarat,1981,78,NARODA,L.BACHANI,parties.IN.BJP,BJP,20552,43.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-78,gujarat,1981,78,NARODA,B.JUMANI,parties.IN.INC,INC,15140,31.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-78,gujarat,1981,78,NARODA,P.R.N.(KAKA),parties.IN.JP,JNP,8638,18.18,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-78,gujarat,1981,78,NARODA,C.SALETA,parties.IN.IND,IND,1231,2.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-78,gujarat,1981,78,NARODA,H.SOLANKI,parties.IN.IND,IND,631,1.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-78,gujarat,1981,78,NARODA,H.JHA,parties.IN.IND,IND,418,0.88,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-78,gujarat,1981,78,NARODA,P.J.PARMAR,parties.IN.IND,IND,334,0.7,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-78,gujarat,1981,78,NARODA,N.SEMABHAI,parties.IN.IND,IND,280,0.59,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-78,gujarat,1981,78,NARODA,B.S.BHANATAR,parties.IN.IND,IND,207,0.44,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-78,gujarat,1981,78,NARODA,H.P.GURNOMAL,parties.IN.UNK,IN D,83,0.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-83,gujarat,1981,83,MEHSANA,A.R.BHAVSINHJI,parties.IN.INC,INC,25130,41.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-83,gujarat,1981,83,MEHSANA,P.H.DHANABHAI,parties.IN.JP,JNP,20288,33.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-83,gujarat,1981,83,MEHSANA,V.S.LAXMANSINH,parties.IN.BJP,BJP,13812,22.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-83,gujarat,1981,83,MEHSANA,P.D.PARSHOTAM,parties.IN.IND,IND,380,0.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-83,gujarat,1981,83,MEHSANA,C.J.JUVANSINJHI,parties.IN.IND,IND,314,0.52,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-83,gujarat,1981,83,MEHSANA,S.K.BULKHINDAS,parties.IN.IND,IND,215,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-83,gujarat,1981,83,MEHSANA,R.J.SENDHAJI,parties.IN.IND,IND,155,0.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

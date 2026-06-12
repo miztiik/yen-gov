@@ -1,0 +1,19 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-uttar-pradesh-105,uttar-pradesh,2004,AMETHI,273455,0,0,Amita Singh,parties.IN.INC,INC,0,,Jamuna Prasad Mishra,parties.IN.BJP,BJP,0,0,,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-120,uttar-pradesh,2004,MILKIPUR,278733,162486,58.29,RAM CHANDRA YADAV,parties.IN.SP,SP,89116,54.85,ANAND SEN,parties.IN.BSP,BSP,54098,35018,21.56,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-124,uttar-pradesh,2004,SIDDHAUR(SC),229959,154415,67.15,RAM MAGAN,parties.IN.SP,SP,75146,48.66,DHARMI RAWAT,parties.IN.BSP,BSP,61093,14053,9.1,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-144,uttar-pradesh,2004,MUJEHNA,277679,166747,60.05,NANDITA SHUKLA,parties.IN.SP,SP,89815,53.86,RAM PAL SINGH,parties.IN.BSP,BSP,39174,50641,30.37,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-220,uttar-pradesh,2004,SAIDPUR,321097,185183,57.67,RAJNATH YADAV,parties.IN.SP,SP,64007,34.56,DR. MAHENDRANATH PANDEY,parties.IN.BJP,BJP,45419,18588,10.03,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-235,uttar-pradesh,2004,MARIAHU,301731,155835,51.65,SHRADDHA YADAV,parties.IN.SP,SP,46363,29.75,AMIT KUMAR YADAV,parties.IN.BSP,BSP,41465,4898,3.14,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-25,uttar-pradesh,2004,GUNNUR,251410,213468,84.91,Mulayam Singh Yadav,parties.IN.SP,SP,195213,91.45,Arif Ali,parties.IN.BSP,BSP,11314,183899,86.15,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-250,uttar-pradesh,2004,CHHANVEY,314816,146825,46.64,Sriram Bharti,parties.IN.BSP,BSP,53137,36.19,Bhailal,parties.IN.BJP,BJP,40576,12561,8.55,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-252,uttar-pradesh,2004,KARCHANA,300518,164070,54.6,UJJAWAL SINGH,parties.IN.SP,SP,73318,44.69,ANAND KUMAR ALIAS COLLECTOR PANDEY,parties.IN.BSP,BSP,61716,11602,7.07,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-261,uttar-pradesh,2004,ALLAHABADWEST,373172,149555,40.08,RAJU PAL,parties.IN.BSP,BSP,70533,47.16,KHALID AZIM ALIAS ASHARAF,parties.IN.SP,SP,65715,4818,3.22,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-286,uttar-pradesh,2004,AJITMAL(SC),235388,124442,52.87,Madan Singh +AEA- Santhosh Singh,parties.IN.SP,SP,47613,38.26,Chakki Lal,parties.IN.BJP,BJP,37371,10242,8.23,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-312,uttar-pradesh,2004,JHANSI,340967,149058,43.72,Pradeep Jain Aditya,parties.IN.INC,INC,55941,37.53,Ravindra Shukla,parties.IN.BJP,BJP,39004,16937,11.36,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-356,uttar-pradesh,2004,ATRAULI,239091,147723,61.79,PREM LATA DEVI,parties.IN.BJP,BJP,61036,41.32,ASHOK KUMAR,parties.IN.SP,SP,50472,10564,7.15,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-359,uttar-pradesh,2004,IGLAS,232691,158421,68.08,MUKUL UPADHYAY,parties.IN.BSP,BSP,59446,37.52,CH. MALKHAN SINGH,parties.IN.RLD,RLD,48326,11120,7.02,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-372,uttar-pradesh,2004,GHAZIABAD,745192,214506,28.79,SURENDRA KUMAR MUNNI,parties.IN.SP,SP,64173,29.92,SATISH TYAGI,parties.IN.INC,INC,52715,11458,5.34,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-394,uttar-pradesh,2004,BAGHRA,225938,132717,58.74,PARAMJEET,parties.IN.RLD,RLD,42705,32.18,PANKAJ KUMAR,parties.IN.INC,INC,39004,3701,2.79,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-67,uttar-pradesh,2004,BENIGANJ(SC),220084,104589,47.52,Ram Pal Verma,parties.IN.BSP,BSP,34660,33.14,Satya Narayan +AEA- Santu,parties.IN.UNK,S.P.,24414,10246,9.8,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-69,uttar-pradesh,2004,AHIRORI(SC),219160,138857,63.36,SHYAM PRAKASH,parties.IN.SP,SP,69464,50.03,PRABHASH KUMAR,parties.IN.BSP,BSP,58891,10573,7.62,src-1b7bc1c9d39a

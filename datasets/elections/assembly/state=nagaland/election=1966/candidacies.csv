@@ -1,0 +1,18 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1967-nagaland-5,nagaland,1966,5,PEREN,IKIESING,parties.IN.UNK,NNO,-1,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-8,nagaland,1966,8,NORTHERN ANGAMI(I),K.ANGAMI,parties.IN.UNK,NNO,-1,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-9,nagaland,1966,9,NORTHERN ANGAMI (II),K.V.KEDITSU,parties.IN.IND,IND,788,56.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-9,nagaland,1966,9,NORTHERN ANGAMI (II),L.ANGAMI,parties.IN.UNK,NNO,609,43.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-10,nagaland,1966,10,TSEMINYU,R.THONG,parties.IN.UNK,NNO,-1,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-12,nagaland,1966,12,SOUTHERN ANGAMI(I),K.KHIEYA,parties.IN.UNK,NNO,-1,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-13,nagaland,1966,13,SOUTHERN ANGAM (II),H.KIN,parties.IN.UNK,NNO,-1,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-20,nagaland,1966,20,TULI,MARAACHIBA,parties.IN.IND,IND,-1,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-23,nagaland,1966,23,MONGOYA,T.I.JAMIR,parties.IN.IND,IND,-1,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-24,nagaland,1966,24,MOKOKCHUNG TOWN,A.LONGKUMER,parties.IN.IND,IND,905,51.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-24,nagaland,1966,24,MOKOKCHUNG TOWN,MOKLONSAMA AO,parties.IN.IND,IND,853,48.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-25,nagaland,1966,25,AUNGLENDEN,J.MAPUTEMJEN,parties.IN.IND,IND,-1,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-26,nagaland,1966,26,KORINDANG,K.TIAYANGER,parties.IN.IND,IND,-1,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-28,nagaland,1966,28,JANGPETKONG,IMCHALEMBA AO,parties.IN.IND,IND,971,98.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-28,nagaland,1966,28,JANGPETKONG,INKONGWATI AO,parties.IN.IND,IND,12,1.22,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-38,nagaland,1966,38,MOILAN,S.EZUNG,parties.IN.UNK,NNO,116,56.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-38,nagaland,1966,38,MOILAN,N.OVUNG,parties.IN.IND,IND,91,43.96,2,lost,U,,,,incumbent,src-1b7bc1c9d39a

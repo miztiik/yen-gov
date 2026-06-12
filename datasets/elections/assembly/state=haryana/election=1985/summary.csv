@@ -1,0 +1,6 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-haryana-30,haryana,1985,ROHTAK,88104,70419,79.93,K.DASS,parties.IN.INC,INC,36688,52.1,M.SAIN,parties.IN.BJP,BJP,31882,4806,6.83,src-1b7bc1c9d39a
+IN-AC-1976-haryana-31,haryana,1985,MEHAM,83936,66579,79.32,D.LAL,parties.IN.LKD,LKD,38598,57.97,R.SINGH,parties.IN.INC,INC,27229,11369,17.07,src-1b7bc1c9d39a
+IN-AC-1976-haryana-46,haryana,1985,UCHANA KALAN,80559,61162,75.92,S.SINGH,parties.IN.INC,INC,34375,56.2,I.SINGH,parties.IN.LKD,LKD,24904,9471,15.48,src-1b7bc1c9d39a
+IN-AC-1976-haryana-58,haryana,1985,NUH,74364,51401,69.12,A.KHAN,parties.IN.INC,INC,23669,46.05,S.KHAN,parties.IN.ICJ,ICJ,23556,113,0.22,src-1b7bc1c9d39a
+IN-AC-1976-haryana-76,haryana,1985,TOHANA,79451,67295,84.7,H.SINGH,parties.IN.INC,INC,41120,61.1,S.L.SARDANA,parties.IN.LKD,LKD,15671,25449,37.81,src-1b7bc1c9d39a

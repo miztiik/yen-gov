@@ -1,0 +1,17 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-uttar-pradesh-108,uttar-pradesh,2009,ISAULI,269886,137668,51.01,Chandra B.Singh,parties.IN.BSP,BSP,82063,59.61,J. M. Tiwari,parties.IN.INC,INC,32686,49377,35.87,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-16,uttar-pradesh,2009,MORADABAD WEST,340198,142799,41.98,Balram Singh Saini,parties.IN.BSP,BSP,56486,39.56,Saulat Ali,parties.IN.INC,INC,38776,17710,12.41,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-162,uttar-pradesh,2009,HAINSAR BAZAR,304249,133295,43.81,Dasharath Pr. C.,parties.IN.BSP,BSP,47815,35.87,Neelmani,parties.IN.INC,INC,39018,8797,6.6,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-181,uttar-pradesh,2009,PADARUNA,328141,180394,54.97,Sawami Pr. M.,parties.IN.BSP,BSP,81039,44.92,Shakir Ali,parties.IN.SP,SP,28015,53024,29.39,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-229,uttar-pradesh,2009,KOLASLA,311231,158951,51.07,Ajay Rai,parties.IN.IND,IND,43711,27.5,Jai Prakash M.,parties.IN.BSP,BSP,34874,8837,5.56,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-233,uttar-pradesh,2009,BHDOHI (SC),331718,149255,44.99,Madhubala,parties.IN.SP,SP,60507,40.54,Amar S. Saroj,parties.IN.BSP,BSP,55487,5020,3.36,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-239,uttar-pradesh,2009,RARI,316394,157556,49.8,Rajdeo Singh,parties.IN.BJP,BJP,75432,47.88,Om Pr.Dubey,parties.IN.SP,SP,61815,13617,8.65,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-288,uttar-pradesh,2009,ETAWAH,254129,133788,52.65,M. S. Rajput,parties.IN.BSP,BSP,76093,56.88,V.Singh Bhadaur,parties.IN.SP,SP,43266,32827,24.54,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-290,uttar-pradesh,2009,BHARTHNA,242036,143949,59.47,Shiv Pr. Yadav,parties.IN.BSP,BSP,61396,42.65,Pradeep Kr. Yad.,parties.IN.SP,SP,45620,15776,10.96,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-291,uttar-pradesh,2009,BIDHUNA,241353,147525,61.12,Dr. M. C Verma,parties.IN.BSP,BSP,73494,49.82,Geeta S A Chandraprabha,parties.IN.SP,SP,46210,27284,18.5,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-311,uttar-pradesh,2009,LALITPUR,319663,201627,63.07,Suman D.Kushw.,parties.IN.BSP,BSP,83888,41.61,C.B.Singh,parties.IN.SWP,SWP,69221,14667,7.28,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-312,uttar-pradesh,2009,JHANSI,362486,155405,42.87,Kailash Sahu,parties.IN.BSP,BSP,35944,23.13,B.Kr. Was,parties.IN.IND,IND,35935,9,0.01,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-391,uttar-pradesh,2009,MORNA,204908,134333,65.56,Mithlesh Pal,parties.IN.RLD,RLD,54161,40.32,Noor Saleem Rana,parties.IN.BSP,BSP,49577,4584,3.41,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-45,uttar-pradesh,2009,POWAYAN (SC),304132,177093,58.23,Dhirendra Prasad,parties.IN.BSP,BSP,71834,40.56,Chetram,parties.IN.INC,INC,44322,27512,15.53,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-83,uttar-pradesh,2009,MALIHABAD (SC),269127,158625,58.94,Dr. Sidharth Shanker,parties.IN.BSP,BSP,62617,39.47,Kaushal Kishor,parties.IN.RCP,RCP,36173,26444,16.67,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-86,uttar-pradesh,2009,LUCKHNOW WEST,404092,107081,26.5,S.K. Shukla,parties.IN.INC,INC,32166,30.04,Amit Puri,parties.IN.BJP,BJP,29990,2176,2.03,src-1b7bc1c9d39a

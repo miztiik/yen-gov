@@ -1,0 +1,298 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1967-himachal-pradesh-1,himachal-pradesh,1972,1,KINNAUR,THAKUR SEN NEGI,parties.IN.LRP,LRP,12896,71.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-1,himachal-pradesh,1972,1,KINNAUR,GYAN SINGH,parties.IN.INC,INC,5161,28.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-2,himachal-pradesh,1972,2,RAMPUR,NEK RAM NEGI,parties.IN.INC,INC,7980,73.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-2,himachal-pradesh,1972,2,RAMPUR,BASANT RAM,parties.IN.NCO,NCO,1153,10.58,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-2,himachal-pradesh,1972,2,RAMPUR,NINZOO RAM,parties.IN.LRP,LRP,1033,9.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-2,himachal-pradesh,1972,2,RAMPUR,SAILOO,parties.IN.IND,IND,732,6.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-3,himachal-pradesh,1972,3,ROHRU,AMRIT SINGH RATHORE,parties.IN.INC,INC,4588,45.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-3,himachal-pradesh,1972,3,ROHRU,SATYA DEV BUSHAHRI,parties.IN.NCO,NCO,4036,39.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-3,himachal-pradesh,1972,3,ROHRU,BALBIR SINGH DHAWAN,parties.IN.IND,IND,1497,14.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-4,himachal-pradesh,1972,4,JUBBAL KOTKHAI,RAM LAL,parties.IN.INC,INC,15201,93.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-4,himachal-pradesh,1972,4,JUBBAL KOTKHAI,PREM SINGH MEHTA,parties.IN.BJS,BJS,760,4.69,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-4,himachal-pradesh,1972,4,JUBBAL KOTKHAI,PADAM SINGH JHINA,parties.IN.IND,IND,240,1.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-5,himachal-pradesh,1972,5,CHOPAL,KEWAL RAM CHAUHAN,parties.IN.INC,INC,8717,82.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-5,himachal-pradesh,1972,5,CHOPAL,SHYAM SINGH,parties.IN.IND,IND,1035,9.8,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-5,himachal-pradesh,1972,5,CHOPAL,RADHA RAMAN SHASTRI,parties.IN.IND,IND,807,7.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-6,himachal-pradesh,1972,6,KUMARSAIN,JAI BIHARI LAL KHACHI,parties.IN.IND,IND,7336,49.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-6,himachal-pradesh,1972,6,KUMARSAIN,BELI RAM BHALAIK,parties.IN.INC,INC,7218,49.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-6,himachal-pradesh,1972,6,KUMARSAIN,KISHORI LAL,parties.IN.CPI,CPI,124,0.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-7,himachal-pradesh,1972,7,THEOG,LAL CHAND STOKES,parties.IN.INC,INC,7003,49.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-7,himachal-pradesh,1972,7,THEOG,MEHER SINGH CHAUHAN,parties.IN.IND,IND,4230,30.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-7,himachal-pradesh,1972,7,THEOG,TARA DUTT,parties.IN.IND,IND,2664,18.97,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-7,himachal-pradesh,1972,7,THEOG,DURGA SINGH RATHORE,parties.IN.NCO,NCO,147,1.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-8,himachal-pradesh,1972,8,KASUMPTI,SHONKIA RAM KASHYAP,parties.IN.INC,INC,7437,78.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-8,himachal-pradesh,1972,8,KASUMPTI,PHULMA DEVI,parties.IN.BJS,BJS,1430,15.08,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-8,himachal-pradesh,1972,8,KASUMPTI,HERU RAM,parties.IN.IND,IND,466,4.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-8,himachal-pradesh,1972,8,KASUMPTI,PURAN CHAND,parties.IN.NCO,NCO,149,1.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-9,himachal-pradesh,1972,9,ARKI,HIRA SINGH PAL,parties.IN.LRP,LRP,3876,33.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-9,himachal-pradesh,1972,9,ARKI,BALI RAM THAKUR,parties.IN.INC,INC,3266,27.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-9,himachal-pradesh,1972,9,ARKI,HARI DASS,parties.IN.NCO,NCO,2199,18.76,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-9,himachal-pradesh,1972,9,ARKI,KAMESHWAR PANDIT,parties.IN.CPI,CPI,1777,15.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-9,himachal-pradesh,1972,9,ARKI,KARAM CHAND,parties.IN.IND,IND,606,5.17,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-10,himachal-pradesh,1972,10,SOLAN,KRISHAN DATT,parties.IN.IND,IND,5089,48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-10,himachal-pradesh,1972,10,SOLAN,DAROPTI DEVI,parties.IN.INC,INC,4105,38.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-10,himachal-pradesh,1972,10,SOLAN,ITWARI LAL,parties.IN.BJS,BJS,865,8.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-10,himachal-pradesh,1972,10,SOLAN,KISHAN DASS,parties.IN.IND,IND,383,3.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-10,himachal-pradesh,1972,10,SOLAN,TELU RAM BAIDWAN,parties.IN.IND,IND,160,1.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-11,himachal-pradesh,1972,11,DOON,LEKH RAM,parties.IN.INC,INC,8965,55.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-11,himachal-pradesh,1972,11,DOON,LAXAMAN SINGH,parties.IN.IND,IND,3597,22.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-11,himachal-pradesh,1972,11,DOON,HARI DASS,parties.IN.NCO,NCO,1728,10.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-11,himachal-pradesh,1972,11,DOON,RAM PARTAP CHANDEL,parties.IN.IND,IND,1515,9.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-11,himachal-pradesh,1972,11,DOON,SARBAN SINGH,parties.IN.BJS,BJS,431,2.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-12,himachal-pradesh,1972,12,NALAGARH,ARJAN SINGH,parties.IN.INC,INC,9021,56.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-12,himachal-pradesh,1972,12,NALAGARH,KALA RAM,parties.IN.CPI,CPI,5045,31.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-12,himachal-pradesh,1972,12,NALAGARH,KASHMIRI LAL,parties.IN.IND,IND,1495,9.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-12,himachal-pradesh,1972,12,NALAGARH,GAURI SHANKER,parties.IN.SOP,SOP,417,2.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-13,himachal-pradesh,1972,13,SIMLA,DAULAT RAM CHAUHAN,parties.IN.BJS,BJS,5990,42.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-13,himachal-pradesh,1972,13,SIMLA,SHIV DUTT BHARDWAJ,parties.IN.INC,INC,5435,38.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-13,himachal-pradesh,1972,13,SIMLA,PRITHI CHAND,parties.IN.IND,IND,1880,13.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-13,himachal-pradesh,1972,13,SIMLA,SURRINDER SINGH AHUJA,parties.IN.IND,IND,263,1.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-13,himachal-pradesh,1972,13,SIMLA,INDER CHAND GUPTA,parties.IN.NCO,NCO,184,1.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-13,himachal-pradesh,1972,13,SIMLA,J. JACOB,parties.IN.SOP,SOP,169,1.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-13,himachal-pradesh,1972,13,SIMLA,KALI DASS VASUDEVA,parties.IN.IND,IND,112,0.79,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-13,himachal-pradesh,1972,13,SIMLA,COMRADE JOGINDER SINGH,parties.IN.IND,IND,70,0.49,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-13,himachal-pradesh,1972,13,SIMLA,BASHESHAR DAYAL,parties.IN.IND,IND,44,0.31,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-14,himachal-pradesh,1972,14,KANDAGHAT,BHAGWAN SINGH,parties.IN.INC,INC,5963,61.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-14,himachal-pradesh,1972,14,KANDAGHAT,ANOKHI RAM BETAB,parties.IN.CPI,CPI,1930,20.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-14,himachal-pradesh,1972,14,KANDAGHAT,TULSI RAM,parties.IN.IND,IND,655,6.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-14,himachal-pradesh,1972,14,KANDAGHAT,SHONK RAM,parties.IN.IND,IND,585,6.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-14,himachal-pradesh,1972,14,KANDAGHAT,KESHAV RAM,parties.IN.NCO,NCO,238,2.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-14,himachal-pradesh,1972,14,KANDAGHAT,NATHU RAM,parties.IN.IND,IND,188,1.95,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-14,himachal-pradesh,1972,14,KANDAGHAT,CHARAN SINGH,parties.IN.IND,IND,80,0.83,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-15,himachal-pradesh,1972,15,PACHHAD,ZALAM SINGH,parties.IN.INC,INC,8046,75.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-15,himachal-pradesh,1972,15,PACHHAD,UCHHBU RAM,parties.IN.IND,IND,2282,21.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-15,himachal-pradesh,1972,15,PACHHAD,MANDU RAM,parties.IN.CPIM,CPM,308,2.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-16,himachal-pradesh,1972,16,RAINKA,YESHWANT SINGH PARMAR,parties.IN.INC,INC,12140,93.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-16,himachal-pradesh,1972,16,RAINKA,NARAIN SINGH,parties.IN.BJS,BJS,860,6.62,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-17,himachal-pradesh,1972,17,SHILLAI,GUMAN SINGH CHAUHAN,parties.IN.INC,INC,10805,81.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-17,himachal-pradesh,1972,17,SHILLAI,PARTAP SINGH,parties.IN.LRP,LRP,2457,18.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-18,himachal-pradesh,1972,18,PAONTA DOON,HIRENDRA SINGH,parties.IN.INC,INC,8304,58.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-18,himachal-pradesh,1972,18,PAONTA DOON,MILKH RAJ,parties.IN.BJS,BJS,5949,41.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-19,himachal-pradesh,1972,19,NAHAN,SUNDER SINGH THAKAR,parties.IN.INC,INC,8621,70.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-19,himachal-pradesh,1972,19,NAHAN,GYAN CHAND CHAUHAN,parties.IN.BJS,BJS,2328,19.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-19,himachal-pradesh,1972,19,NAHAN,ISHWAR CHANDRA GUPTA,parties.IN.LRP,LRP,1201,9.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-20,himachal-pradesh,1972,20,KOTKEHLOOR,KULDEEP SINGH,parties.IN.INC,INC,5029,47.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-20,himachal-pradesh,1972,20,KOTKEHLOOR,DAULAT RAM SANKHYAYAN,parties.IN.IND,IND,4334,41.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-20,himachal-pradesh,1972,20,KOTKEHLOOR,BOHRA,parties.IN.IND,IND,510,4.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-20,himachal-pradesh,1972,20,KOTKEHLOOR,SANT RAM,parties.IN.IND,IND,368,3.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-20,himachal-pradesh,1972,20,KOTKEHLOOR,ASHA RAM,parties.IN.LRP,LRP,247,2.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-20,himachal-pradesh,1972,20,KOTKEHLOOR,HARGOBIND SINGH,parties.IN.BJS,BJS,74,0.7,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-21,himachal-pradesh,1972,21,BILASPUR,KISHORI LAL,parties.IN.INC,INC,5431,50.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-21,himachal-pradesh,1972,21,BILASPUR,SANT RAM,parties.IN.LRP,LRP,2477,22.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-21,himachal-pradesh,1972,21,BILASPUR,KANSHI RAM BHANDARI,parties.IN.IND,IND,756,6.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-21,himachal-pradesh,1972,21,BILASPUR,DEVI RAM,parties.IN.IND,IND,564,5.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-21,himachal-pradesh,1972,21,BILASPUR,SHANKAR SINGH,parties.IN.CPI,CPI,497,4.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-21,himachal-pradesh,1972,21,BILASPUR,KULDIP SINGH,parties.IN.BJS,BJS,477,4.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-21,himachal-pradesh,1972,21,BILASPUR,TEG SINGH,parties.IN.IND,IND,337,3.1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-21,himachal-pradesh,1972,21,BILASPUR,KALI DASS,parties.IN.IND,IND,232,2.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-21,himachal-pradesh,1972,21,BILASPUR,NAND LAL,parties.IN.IND,IND,84,0.77,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-22,himachal-pradesh,1972,22,GEHARWIN,NIKKU RAM,parties.IN.INC,INC,4994,53.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-22,himachal-pradesh,1972,22,GEHARWIN,BACHITTAR SIGH,parties.IN.LRP,LRP,4132,43.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-22,himachal-pradesh,1972,22,GEHARWIN,DURGA DASS,parties.IN.BJS,BJS,292,3.1,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-23,himachal-pradesh,1972,23,GHUMARWIN,SITA RAM,parties.IN.INC,INC,8370,65.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-23,himachal-pradesh,1972,23,GHUMARWIN,RAM SINGH,parties.IN.IND,IND,3267,25.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-23,himachal-pradesh,1972,23,GHUMARWIN,JEET RAM,parties.IN.BJS,BJS,575,4.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-23,himachal-pradesh,1972,23,GHUMARWIN,GARDITU,parties.IN.IND,IND,301,2.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-23,himachal-pradesh,1972,23,GHUMARWIN,OM PRAKASH,parties.IN.IND,IND,278,2.17,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-24,himachal-pradesh,1972,24,HAMIRPUR,RAMESH CHAND VERMA,parties.IN.INC,INC,7092,50.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-24,himachal-pradesh,1972,24,HAMIRPUR,JAGDEV CHAND,parties.IN.BJS,BJS,5970,42.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-24,himachal-pradesh,1972,24,HAMIRPUR,RATTAN CHAND,parties.IN.IND,IND,577,4.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-24,himachal-pradesh,1972,24,HAMIRPUR,PARMODH SINGH,parties.IN.IND,IND,302,2.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-24,himachal-pradesh,1972,24,HAMIRPUR,RUMESH,parties.IN.NCO,NCO,214,1.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-25,himachal-pradesh,1972,25,BAMSAN,CHANDRESH KUMARI,parties.IN.INC,INC,5965,46.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-25,himachal-pradesh,1972,25,BAMSAN,BHUMI DEV,parties.IN.IND,IND,4399,34.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-25,himachal-pradesh,1972,25,BAMSAN,KARAM SIGH,parties.IN.IND,IND,2335,18.15,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-25,himachal-pradesh,1972,25,BAMSAN,SITA RAM,parties.IN.IND,IND,169,1.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-26,himachal-pradesh,1972,26,MEWA,DHARAM SINGH,parties.IN.INC,INC,7173,52.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-26,himachal-pradesh,1972,26,MEWA,RUP SINGH PHUL,parties.IN.IND,IND,4104,30.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-26,himachal-pradesh,1972,26,MEWA,AMAR SINGH,parties.IN.BJS,BJS,2274,16.78,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-27,himachal-pradesh,1972,27,NADAUNTA,BISHAN DUTT LAKHAN PAL,parties.IN.INC,INC,8528,59.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-27,himachal-pradesh,1972,27,NADAUNTA,BASANT RAM,parties.IN.IND,IND,3008,20.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-27,himachal-pradesh,1972,27,NADAUNTA,JOGINDER SINGH,parties.IN.IND,IND,1443,10.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-27,himachal-pradesh,1972,27,NADAUNTA,BHAGWAN DASS,parties.IN.IND,IND,712,4.96,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-27,himachal-pradesh,1972,27,NADAUNTA,PARAS RAM,parties.IN.IND,IND,244,1.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-27,himachal-pradesh,1972,27,NADAUNTA,JAGDISH CHAND,parties.IN.NCO,NCO,237,1.65,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-27,himachal-pradesh,1972,27,NADAUNTA,RATTAN CHAND,parties.IN.BJS,BJS,181,1.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-28,himachal-pradesh,1972,28,NADAUN,BABU RAM,parties.IN.INC,INC,7424,47.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-28,himachal-pradesh,1972,28,NADAUN,GURDHIAN SINGH,parties.IN.IND,IND,5797,37.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-28,himachal-pradesh,1972,28,NADAUN,DURGA SINGH,parties.IN.IND,IND,1802,11.58,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-28,himachal-pradesh,1972,28,NADAUN,MADAN SINGH,parties.IN.IND,IND,533,3.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-29,himachal-pradesh,1972,29,KUTLEHAR,SARLA SHARMA,parties.IN.INC,INC,10750,62.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-29,himachal-pradesh,1972,29,KUTLEHAR,RANJIT SINGH,parties.IN.LRP,LRP,6493,37.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-30,himachal-pradesh,1972,30,SANTOKHGARH,RAM RAKHA,parties.IN.INC,INC,8584,53.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-30,himachal-pradesh,1972,30,SANTOKHGARH,SURINDER NATH,parties.IN.IND,IND,7542,46.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-31,himachal-pradesh,1972,31,BEET,KASHMIRI LAL,parties.IN.INC,INC,12214,79.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-31,himachal-pradesh,1972,31,BEET,HOSHIAR SINGH,parties.IN.IND,IND,2359,15.36,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-31,himachal-pradesh,1972,31,BEET,ATTAR CHAND,parties.IN.IND,IND,416,2.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-31,himachal-pradesh,1972,31,BEET,INDER SINGH,parties.IN.IND,IND,374,2.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-32,himachal-pradesh,1972,32,UNA,PARKASH CHAND,parties.IN.INC,INC,9796,63.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-32,himachal-pradesh,1972,32,UNA,HAZARI LAL,parties.IN.IND,IND,4238,27.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-32,himachal-pradesh,1972,32,UNA,SURESH CHANDER,parties.IN.IND,IND,1070,6.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-32,himachal-pradesh,1972,32,UNA,BALRAJ KUMAR,parties.IN.NCO,NCO,308,2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-33,himachal-pradesh,1972,33,GAGRET,MEHNGA SINGH,parties.IN.INC,INC,10838,76.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-33,himachal-pradesh,1972,33,GAGRET,RAJINDER NATH,parties.IN.BJS,BJS,2162,15.2,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-33,himachal-pradesh,1972,33,GAGRET,RATTAN DEV SINGH,parties.IN.IND,IND,658,4.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-33,himachal-pradesh,1972,33,GAGRET,MILKHA SINGH,parties.IN.NCO,NCO,303,2.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-33,himachal-pradesh,1972,33,GAGRET,KHUSHI RAM,parties.IN.IND,IND,265,1.86,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-34,himachal-pradesh,1972,34,CHINTPURNI,ONKAR CHAND,parties.IN.INC,INC,5683,41.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-34,himachal-pradesh,1972,34,CHINTPURNI,HANS RAJ,parties.IN.NCO,NCO,3866,28.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-34,himachal-pradesh,1972,34,CHINTPURNI,BIRBAL,parties.IN.IND,IND,3314,24.33,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-34,himachal-pradesh,1972,34,CHINTPURNI,JAGAT SINGH,parties.IN.IND,IND,512,3.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-34,himachal-pradesh,1972,34,CHINTPURNI,GULWANT SINGH,parties.IN.BJS,BJS,248,1.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-35,himachal-pradesh,1972,35,JAWALAMUKHI,MELA RAM,parties.IN.IND,IND,10981,59.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-35,himachal-pradesh,1972,35,JAWALAMUKHI,VED BHUSHAN,parties.IN.IND,IND,5529,29.87,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-35,himachal-pradesh,1972,35,JAWALAMUKHI,KARAM CHAND UPPAL,parties.IN.INC,INC,1440,7.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-35,himachal-pradesh,1972,35,JAWALAMUKHI,SANT RAM,parties.IN.IND,IND,386,2.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-35,himachal-pradesh,1972,35,JAWALAMUKHI,HARI KISHAN LAL,parties.IN.IND,IND,172,0.93,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-36,himachal-pradesh,1972,36,GARLI,DALIP SINGH,parties.IN.INC,INC,4033,36.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-36,himachal-pradesh,1972,36,GARLI,MANGAT RAM,parties.IN.IND,IND,3770,33.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-36,himachal-pradesh,1972,36,GARLI,YOG RAJ,parties.IN.IND,IND,1655,14.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-36,himachal-pradesh,1972,36,GARLI,BALI RAM,parties.IN.BJS,BJS,881,7.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-36,himachal-pradesh,1972,36,GARLI,BHAGAT RAM,parties.IN.IND,IND,437,3.91,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-36,himachal-pradesh,1972,36,GARLI,BABU RAM,parties.IN.NCO,NCO,400,3.58,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-37,himachal-pradesh,1972,37,JASWAN,SALIG RAM,parties.IN.INC,INC,5668,50.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-37,himachal-pradesh,1972,37,JASWAN,PARAS RAM,parties.IN.CPI,CPI,3444,30.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-37,himachal-pradesh,1972,37,JASWAN,NIKKA RAM,parties.IN.IND,IND,1139,10.07,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-37,himachal-pradesh,1972,37,JASWAN,GOVERNOR SINGH,parties.IN.BJS,BJS,431,3.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-37,himachal-pradesh,1972,37,JASWAN,PRAKASH CHAND,parties.IN.IND,IND,357,3.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-37,himachal-pradesh,1972,37,JASWAN,BIDHI CHAND,parties.IN.NCO,NCO,271,2.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-38,himachal-pradesh,1972,38,MANGWAL,CHURAMANI,parties.IN.INC,INC,4058,34.15,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-38,himachal-pradesh,1972,38,MANGWAL,HOSHIAR SINGH PRASHER,parties.IN.IND,IND,2818,23.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-38,himachal-pradesh,1972,38,MANGWAL,MUNSHI RAM,parties.IN.IND,IND,1655,13.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-38,himachal-pradesh,1972,38,MANGWAL,RAJINDER SINGH,parties.IN.IND,IND,1295,10.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-38,himachal-pradesh,1972,38,MANGWAL,JAGAT RAM,parties.IN.IND,IND,771,6.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-38,himachal-pradesh,1972,38,MANGWAL,MEHAR SINGH,parties.IN.IND,IND,689,5.8,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-38,himachal-pradesh,1972,38,MANGWAL,MANI RAM,parties.IN.IND,IND,297,2.5,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-38,himachal-pradesh,1972,38,MANGWAL,TULSA SINGH,parties.IN.NCO,NCO,251,2.11,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-38,himachal-pradesh,1972,38,MANGWAL,MEHAR SINGH RAHI,parties.IN.IND,IND,49,0.41,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-39,himachal-pradesh,1972,39,JAWALI,VIKRAM SINGH,parties.IN.INC,INC,11136,80.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-39,himachal-pradesh,1972,39,JAWALI,PUNJAB SINGH,parties.IN.IND,IND,1937,14.02,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-39,himachal-pradesh,1972,39,JAWALI,RANDHIR SINGH,parties.IN.IND,IND,469,3.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-39,himachal-pradesh,1972,39,JAWALI,ZULFI RAM,parties.IN.IND,IND,278,2.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-40,himachal-pradesh,1972,40,GANGATH,DHINOO RAM,parties.IN.INC,INC,8002,58.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-40,himachal-pradesh,1972,40,GANGATH,OM PRAKASH,parties.IN.IND,IND,4100,30.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-40,himachal-pradesh,1972,40,GANGATH,DURGA DASS,parties.IN.BJS,BJS,1361,9.99,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-40,himachal-pradesh,1972,40,GANGATH,BANSI LAL,parties.IN.IND,IND,109,0.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-40,himachal-pradesh,1972,40,GANGATH,RANJHA RAM,parties.IN.IND,IND,55,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-41,himachal-pradesh,1972,41,NURPUR,KEWAL SINGH,parties.IN.IND,IND,7079,49.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-41,himachal-pradesh,1972,41,NURPUR,SATYA PRAKASH,parties.IN.INC,INC,5949,41.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-41,himachal-pradesh,1972,41,NURPUR,SHANKAR SINGH,parties.IN.CPI,CPI,1187,8.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-42,himachal-pradesh,1972,42,SHAHPUR,KULTAR CHAND RANA,parties.IN.INC,INC,3474,33.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-42,himachal-pradesh,1972,42,SHAHPUR,BISHAN DASS,parties.IN.IND,IND,3400,32.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-42,himachal-pradesh,1972,42,SHAHPUR,RAJINDER PAUL,parties.IN.IND,IND,1214,11.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-42,himachal-pradesh,1972,42,SHAHPUR,DES RAJ,parties.IN.IND,IND,1052,10.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-42,himachal-pradesh,1972,42,SHAHPUR,BANSI LAL,parties.IN.IND,IND,829,8.03,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-42,himachal-pradesh,1972,42,SHAHPUR,KULDIP SINGH,parties.IN.IND,IND,360,3.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-43,himachal-pradesh,1972,43,DHARAMSALA,CHANDER VERKER,parties.IN.INC,INC,3032,29.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-43,himachal-pradesh,1972,43,DHARAMSALA,BRIJ LAL,parties.IN.IND,IND,2842,27.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-43,himachal-pradesh,1972,43,DHARAMSALA,BHAGAT RAM,parties.IN.IND,IND,1539,15.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-43,himachal-pradesh,1972,43,DHARAMSALA,SITAL RAM,parties.IN.IND,IND,949,9.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-43,himachal-pradesh,1972,43,DHARAMSALA,ONKAR SINGH,parties.IN.BJS,BJS,856,8.37,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-43,himachal-pradesh,1972,43,DHARAMSALA,ROSHAN LAL,parties.IN.IND,IND,502,4.91,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-43,himachal-pradesh,1972,43,DHARAMSALA,BIPAN CHAND,parties.IN.IND,IND,358,3.5,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-43,himachal-pradesh,1972,43,DHARAMSALA,KARM CHAND,parties.IN.IND,IND,147,1.44,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-44,himachal-pradesh,1972,44,KANGRA,HARI RAM,parties.IN.INC,INC,5430,49.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-44,himachal-pradesh,1972,44,KANGRA,JAGDISH CHAND,parties.IN.IND,IND,4457,40.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-44,himachal-pradesh,1972,44,KANGRA,CHANDU LAL,parties.IN.BJS,BJS,1092,9.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-45,himachal-pradesh,1972,45,NAGROTA,HARDAYAL,parties.IN.INC,INC,5633,52.46,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-45,himachal-pradesh,1972,45,NAGROTA,TULS RAM,parties.IN.IND,IND,2764,25.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-45,himachal-pradesh,1972,45,NAGROTA,GIAN CHAND,parties.IN.IND,IND,2080,19.37,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-45,himachal-pradesh,1972,45,NAGROTA,CHANDER MANI,parties.IN.IND,IND,260,2.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-46,himachal-pradesh,1972,46,PALAMPUR,KUNJ BEHARI LAL,parties.IN.INC,INC,5296,64.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-46,himachal-pradesh,1972,46,PALAMPUR,BAL SINGH GULERIA,parties.IN.IND,IND,880,10.71,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-46,himachal-pradesh,1972,46,PALAMPUR,BIR SINGH,parties.IN.IND,IND,777,9.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-46,himachal-pradesh,1972,46,PALAMPUR,DEVI SINGH,parties.IN.IND,IND,720,8.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-46,himachal-pradesh,1972,46,PALAMPUR,THAKUR DASS,parties.IN.IND,IND,546,6.64,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-47,himachal-pradesh,1972,47,SULAH,DURGA CHAND,parties.IN.BJS,BJS,4765,52.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-47,himachal-pradesh,1972,47,SULAH,SHAMBHOO SINGH,parties.IN.INC,INC,2810,30.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-47,himachal-pradesh,1972,47,SULAH,PRAKASH CHAND,parties.IN.IND,IND,948,10.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-47,himachal-pradesh,1972,47,SULAH,PRITAM PAHARIA,parties.IN.IND,IND,293,3.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-47,himachal-pradesh,1972,47,SULAH,SITA RAM,parties.IN.IND,IND,291,3.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-48,himachal-pradesh,1972,48,RAJGIR,WAZIR,parties.IN.INC,INC,3852,46.63,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-48,himachal-pradesh,1972,48,RAJGIR,GULER CHAND,parties.IN.IND,IND,2776,33.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-48,himachal-pradesh,1972,48,RAJGIR,SHAMBHOO RAM,parties.IN.BJS,BJS,824,9.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-48,himachal-pradesh,1972,48,RAJGIR,BAKHIRDU,parties.IN.IND,IND,350,4.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-48,himachal-pradesh,1972,48,RAJGIR,PHULA SINGH,parties.IN.IND,IND,294,3.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-48,himachal-pradesh,1972,48,RAJGIR,RATTO ALIAS RATTAN LAL,parties.IN.IND,IND,165,2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-49,himachal-pradesh,1972,49,KHERA,SHANTA KUMAR,parties.IN.BJS,BJS,5166,43.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-49,himachal-pradesh,1972,49,KHERA,KAMLA DEVI,parties.IN.INC,INC,4151,35.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-49,himachal-pradesh,1972,49,KHERA,KARMA CHAND,parties.IN.CPI,CPI,2535,21.39,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-50,himachal-pradesh,1972,50,BAIJNATH,SANT RAM,parties.IN.INC,INC,8487,76.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-50,himachal-pradesh,1972,50,BAIJNATH,BIDHI CHAND,parties.IN.CPI,CPI,1747,15.76,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-50,himachal-pradesh,1972,50,BAIJNATH,MONA,parties.IN.IND,IND,680,6.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-50,himachal-pradesh,1972,50,BAIJNATH,KARM CHAND,parties.IN.IND,IND,174,1.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-51,himachal-pradesh,1972,51,BHATTIYAT,PADMA,parties.IN.INC,INC,3272,47.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-51,himachal-pradesh,1972,51,BHATTIYAT,JAGDISH,parties.IN.NCO,NCO,2466,36.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-51,himachal-pradesh,1972,51,BHATTIYAT,AMAR SINGH,parties.IN.IND,IND,961,14.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-51,himachal-pradesh,1972,51,BHATTIYAT,DAYA CHAND,parties.IN.IND,IND,141,2.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-52,himachal-pradesh,1972,52,BANIKHET,DES RAJ,parties.IN.INC,INC,9682,75.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-52,himachal-pradesh,1972,52,BANIKHET,JAGDISH MITTER,parties.IN.IND,IND,2231,17.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-52,himachal-pradesh,1972,52,BANIKHET,DAULAT RAM,parties.IN.BJS,BJS,929,7.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-53,himachal-pradesh,1972,53,RAJNAGAR,VIDHYA DHAR,parties.IN.INC,INC,8545,81.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-53,himachal-pradesh,1972,53,RAJNAGAR,AMAR NATH,parties.IN.BJS,BJS,1621,15.41,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-53,himachal-pradesh,1972,53,RAJNAGAR,CHUNI LAL,parties.IN.NCO,NCO,355,3.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-54,himachal-pradesh,1972,54,CHAMBA,KISHORI LAL,parties.IN.BJS,BJS,7314,44.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-54,himachal-pradesh,1972,54,CHAMBA,SAGAR CHAND,parties.IN.INC,INC,7070,42.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-54,himachal-pradesh,1972,54,CHAMBA,KULDIP CHAND,parties.IN.IND,IND,2081,12.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-55,himachal-pradesh,1972,55,BHARMOUR,SHIRI RAM,parties.IN.INC,INC,8554,85.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-55,himachal-pradesh,1972,55,BHARMOUR,RAM CHAND,parties.IN.LRP,LRP,1138,11.35,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-55,himachal-pradesh,1972,55,BHARMOUR,DAULAT RAM,parties.IN.IND,IND,334,3.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-56,himachal-pradesh,1972,56,LAHAUL SPITI,LATA,parties.IN.INC,INC,5351,55.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-56,himachal-pradesh,1972,56,LAHAUL SPITI,DEVI SINGH,parties.IN.IND,IND,4273,44.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-57,himachal-pradesh,1972,57,KULU,LAL CHAND PRARTHI,parties.IN.INC,INC,9116,51.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-57,himachal-pradesh,1972,57,KULU,KUNJ LAL,parties.IN.BJS,BJS,4946,27.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-57,himachal-pradesh,1972,57,KULU,NAWAL THAKUR,parties.IN.IND,IND,1669,9.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-57,himachal-pradesh,1972,57,KULU,DURGA DASS,parties.IN.LRP,LRP,1223,6.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-57,himachal-pradesh,1972,57,KULU,KEWAL RAM,parties.IN.IND,IND,661,3.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-57,himachal-pradesh,1972,57,KULU,AMAR CHAND,parties.IN.IND,IND,232,1.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-58,himachal-pradesh,1972,58,INNER SERAJ,DILE RAM SHABAB,parties.IN.INC,INC,8043,46.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-58,himachal-pradesh,1972,58,INNER SERAJ,BELI RAM THAKUR,parties.IN.IND,IND,5329,30.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-58,himachal-pradesh,1972,58,INNER SERAJ,RMA PRASHAD,parties.IN.IND,IND,1900,10.98,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-58,himachal-pradesh,1972,58,INNER SERAJ,LAXMI DATT,parties.IN.IND,IND,936,5.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-58,himachal-pradesh,1972,58,INNER SERAJ,NATHU,parties.IN.IND,IND,613,3.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-58,himachal-pradesh,1972,58,INNER SERAJ,NAWAL THAKUR,parties.IN.IND,IND,338,1.95,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-58,himachal-pradesh,1972,58,INNER SERAJ,BHAGWAT GURU,parties.IN.LRP,LRP,151,0.87,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-59,himachal-pradesh,1972,59,OUTER SERAJ,ISLHAR DASS,parties.IN.INC,INC,7000,58.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-59,himachal-pradesh,1972,59,OUTER SERAJ,TALKU RAM,parties.IN.CPI,CPI,3213,26.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-59,himachal-pradesh,1972,59,OUTER SERAJ,DARU RASS,parties.IN.LRP,LRP,1805,15.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-60,himachal-pradesh,1972,60,KARSOG,MANSHA RAM,parties.IN.INC,INC,6951,61.68,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-60,himachal-pradesh,1972,60,KARSOG,JOGINDER PAL,parties.IN.IND,IND,2355,20.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-60,himachal-pradesh,1972,60,KARSOG,KATRU RAM,parties.IN.IND,IND,1870,16.59,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-60,himachal-pradesh,1972,60,KARSOG,RAM DASS,parties.IN.BJS,BJS,94,0.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-61,himachal-pradesh,1972,61,CHACHIOT,KARAM SINGH,parties.IN.INC,INC,9374,65.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-61,himachal-pradesh,1972,61,CHACHIOT,MOTI RAM,parties.IN.IND,IND,3853,26.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-61,himachal-pradesh,1972,61,CHACHIOT,JAI CHAND,parties.IN.IND,IND,1049,7.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-62,himachal-pradesh,1972,62,SUNDERNAGAR,GANGA SINGH,parties.IN.BJS,BJS,6886,32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-62,himachal-pradesh,1972,62,SUNDERNAGAR,LACHMI DATT,parties.IN.INC,INC,5286,24.56,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-62,himachal-pradesh,1972,62,SUNDERNAGAR,DILA RAM CHAUHAN,parties.IN.LRP,LRP,3841,17.85,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-62,himachal-pradesh,1972,62,SUNDERNAGAR,SUNETAI PRAKASH SINGH,parties.IN.IND,IND,2463,11.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-62,himachal-pradesh,1972,62,SUNDERNAGAR,AJIT RAM,parties.IN.IND,IND,1389,6.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-62,himachal-pradesh,1972,62,SUNDERNAGAR,DHARMA DUTT,parties.IN.IND,IND,1248,5.8,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-62,himachal-pradesh,1972,62,SUNDERNAGAR,JAI CHAND,parties.IN.CPIM,CPM,406,1.89,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-63,himachal-pradesh,1972,63,BALH,TULSI RAM,parties.IN.CPIM,CPM,7738,51.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-63,himachal-pradesh,1972,63,BALH,NEK RAM,parties.IN.INC,INC,7221,47.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-63,himachal-pradesh,1972,63,BALH,RAM DASS,parties.IN.IND,IND,164,1.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-64,himachal-pradesh,1972,64,GOPALPUR,RANGILA RAM,parties.IN.IND,IND,8692,59.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-64,himachal-pradesh,1972,64,GOPALPUR,HARI SINGH,parties.IN.INC,INC,4435,30.54,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-64,himachal-pradesh,1972,64,GOPALPUR,RAJINDERA SINGH,parties.IN.IND,IND,757,5.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-64,himachal-pradesh,1972,64,GOPALPUR,LAL SINGH,parties.IN.IND,IND,552,3.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-64,himachal-pradesh,1972,64,GOPALPUR,BACHITER SINGH,parties.IN.IND,IND,88,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-65,himachal-pradesh,1972,65,DHARAMPUR,BHIKHAMRAM,parties.IN.IND,IND,6431,49.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-65,himachal-pradesh,1972,65,DHARAMPUR,KASHMIR SINGH,parties.IN.INC,INC,5374,41.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-65,himachal-pradesh,1972,65,DHARAMPUR,OM CHAND,parties.IN.LRP,LRP,730,5.58,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-65,himachal-pradesh,1972,65,DHARAMPUR,SANT RAM,parties.IN.IND,IND,281,2.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-65,himachal-pradesh,1972,65,DHARAMPUR,KHAZAN SINGH,parties.IN.IND,IND,273,2.09,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-66,himachal-pradesh,1972,66,CHAUNTRA,RAM SINGH,parties.IN.IND,IND,6494,75.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-66,himachal-pradesh,1972,66,CHAUNTRA,DHARAM CHAND,parties.IN.IND,IND,1108,12.92,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-66,himachal-pradesh,1972,66,CHAUNTRA,GOPI RAM,parties.IN.INC,INC,610,7.11,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-66,himachal-pradesh,1972,66,CHAUNTRA,PURAN CHAND,parties.IN.LRP,LRP,367,4.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-67,himachal-pradesh,1972,67,JOGINDER NAGAR,PRAKASH CHANDRA,parties.IN.INC,INC,2638,26.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-67,himachal-pradesh,1972,67,JOGINDER NAGAR,RATTAN LAL,parties.IN.IND,IND,2246,22.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-67,himachal-pradesh,1972,67,JOGINDER NAGAR,GHANSHYAM,parties.IN.IND,IND,2094,21.2,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-67,himachal-pradesh,1972,67,JOGINDER NAGAR,MOHINDER PAL,parties.IN.IND,IND,1274,12.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-67,himachal-pradesh,1972,67,JOGINDER NAGAR,TARA CHAND,parties.IN.CPIM,CPM,1202,12.17,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-67,himachal-pradesh,1972,67,JOGINDER NAGAR,INDER SINGH,parties.IN.IND,IND,424,4.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-68,himachal-pradesh,1972,68,MANDI,SUKH RAM,parties.IN.INC,INC,10772,55.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-68,himachal-pradesh,1972,68,MANDI,BHAGAT RAM,parties.IN.IND,IND,7722,39.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-himachal-pradesh-68,himachal-pradesh,1972,68,MANDI,ANANT RAM,parties.IN.IND,IND,895,4.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a

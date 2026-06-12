@@ -1,0 +1,989 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1962-andhra-pradesh-1,andhra-pradesh,1962,1,ICHAPURAM,KIRTI CHANDRA DEO,parties.IN.INC,INC,21677,63.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-1,andhra-pradesh,1962,1,ICHAPURAM,DAKKATA PITAMBARU,parties.IN.SWA,SWA,12527,36.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-2,andhra-pradesh,1962,2,SOMPETA,GOUTHU LATCHANNA,parties.IN.SWA,SWA,16609,43.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-2,andhra-pradesh,1962,2,SOMPETA,MAJJI TULASIDASS,parties.IN.IND,IND,14775,38.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-2,andhra-pradesh,1962,2,SOMPETA,GANNI PADMANABHA RAO,parties.IN.INC,INC,6707,17.61,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-3,andhra-pradesh,1962,3,BRAHMANATARLA,BENDI LAXMINARAYANAMMA,parties.IN.INC,INC,10555,31.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-3,andhra-pradesh,1962,3,BRAHMANATARLA,NICHERLA RAMULU,parties.IN.SWA,SWA,7685,22.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-3,andhra-pradesh,1962,3,BRAHMANATARLA,ATTADA KRISHNAMURTY NAIDU,parties.IN.IND,IND,4895,14.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-3,andhra-pradesh,1962,3,BRAHMANATARLA,BAPA MALLESWARA RAO REDDY,parties.IN.IND,IND,4496,13.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-3,andhra-pradesh,1962,3,BRAHMANATARLA,UPPADA RAMA RAO,parties.IN.CPI,CPI,3741,11.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-3,andhra-pradesh,1962,3,BRAHMANATARLA,KOTNI GURUMURTY,parties.IN.IND,IND,1532,4.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-3,andhra-pradesh,1962,3,BRAHMANATARLA,BOMPILLI RAMANNA,parties.IN.IND,IND,729,2.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-4,andhra-pradesh,1962,4,TEKKALI,RONANKI SATYANARAYANA,parties.IN.SWA,SWA,23588,62.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-4,andhra-pradesh,1962,4,TEKKALI,ROKKAM LAKSHMINARASIMHAM DORA,parties.IN.INC,INC,14390,37.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-5,andhra-pradesh,1962,5,NARASANNAPETA,SIMMA JAGANNADHAM,parties.IN.SWA,SWA,20879,56.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-5,andhra-pradesh,1962,5,NARASANNAPETA,PONNANA VEERANNAIDU,parties.IN.INC,INC,15822,43.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-6,andhra-pradesh,1962,6,PATAPATNAM,LUKALAPU LAKSHMANA DASU,parties.IN.INC,INC,16527,48.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-6,andhra-pradesh,1962,6,PATAPATNAM,SAMPATHIRAO LAKSHMIPATHI ALIAS DABARU DORA,parties.IN.SWA,SWA,9714,28.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-6,andhra-pradesh,1962,6,PATAPATNAM,DARAPU GOVINDARAJULU,parties.IN.CPI,CPI,7985,23.33,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-7,andhra-pradesh,1962,7,KOTHURU,POTHULA GUNNAYYA,parties.IN.INC,INC,11040,39.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-7,andhra-pradesh,1962,7,KOTHURU,BODDEPALI NARSIMHULU,parties.IN.CPI,CPI,10375,37.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-7,andhra-pradesh,1962,7,KOTHURU,ALIKANA CHINA RAMANNA,parties.IN.SWA,SWA,6588,23.53,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-8,andhra-pradesh,1962,8,NAGURU,ADDAKULA LAXMUNAIDU,parties.IN.INC,INC,8973,43.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-8,andhra-pradesh,1962,8,NAGURU,BIDDIKA SRIRAMULU,parties.IN.CPI,CPI,6745,33.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-8,andhra-pradesh,1962,8,NAGURU,KELLA CHINNAPUDORA,parties.IN.SWA,SWA,4715,23.08,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-9,andhra-pradesh,1962,9,PARVATHIPURAM,VYRICHERLA CHANDRA CHUDAMANI DEO,parties.IN.INC,INC,24850,58.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-9,andhra-pradesh,1962,9,PARVATHIPURAM,PARUVADA LAXMI NAIDU,parties.IN.IND,IND,17403,41.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-10,andhra-pradesh,1962,10,PACHIPENTA,DIPPALA SURI DHORA,parties.IN.INC,INC,8235,45.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-10,andhra-pradesh,1962,10,PACHIPENTA,JANNI MUTYALU,parties.IN.SWA,SWA,5459,30.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-10,andhra-pradesh,1962,10,PACHIPENTA,RAYALA ANNAIAH,parties.IN.IND,IND,4304,23.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-11,andhra-pradesh,1962,11,SALUR,SREE RAJA LAKSHMI NARASIMHA SANYASI RAJU,parties.IN.IND,IND,18857,48.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-11,andhra-pradesh,1962,11,SALUR,ALLU YERUKU NAIDU,parties.IN.INC,INC,9288,23.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-11,andhra-pradesh,1962,11,SALUR,GANDI PAIDAPU NAIDU,parties.IN.SWA,SWA,5913,15.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-11,andhra-pradesh,1962,11,SALUR,KUNICHETTI VENKATA NARAYANA DORA,parties.IN.IND,IND,4763,12.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-12,andhra-pradesh,1962,12,BOBBILI,TENTU LAKSHMUNAIDU,parties.IN.INC,INC,27978,66.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-12,andhra-pradesh,1962,12,BOBBILI,ARI GANGAYYA,parties.IN.PSP,PSP,7993,18.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-12,andhra-pradesh,1962,12,BOBBILI,MATCHA SATYANRAYANA,parties.IN.IND,IND,6280,14.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-13,andhra-pradesh,1962,13,BALIJIPETA,VASIREDDI KRUSHNAMURITHI NAIDU,parties.IN.INC,INC,31843,79.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-13,andhra-pradesh,1962,13,BALIJIPETA,DWARAPUREDDI SURYANARAYANA,parties.IN.SWA,SWA,8203,20.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-14,andhra-pradesh,1962,14,VUNUKURU,PALAVALASA SANGAMNAIDU,parties.IN.INC,INC,16910,41.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-14,andhra-pradesh,1962,14,VUNUKURU,MUDILI BABU PARANKUSAM,parties.IN.CPI,CPI,9187,22.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-14,andhra-pradesh,1962,14,VUNUKURU,VAVILAPALLI RAJARAO,parties.IN.IND,IND,7829,19.28,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-14,andhra-pradesh,1962,14,VUNUKURU,GEDELA ATCHAMNAIDU,parties.IN.SWA,SWA,6690,16.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-15,andhra-pradesh,1962,15,PALAKONDA,KEMBURU SURYANARAYANA NAIDU,parties.IN.SWA,SWA,22555,56.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-15,andhra-pradesh,1962,15,PALAKONDA,PAYEDI NARASIMHAPPARAO,parties.IN.INC,INC,17126,43.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-16,andhra-pradesh,1962,16,NAGARIKATAKAM,THAMMINENI PAPARAO,parties.IN.INC,INC,13274,38.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-16,andhra-pradesh,1962,16,NAGARIKATAKAM,DOLA JAGANNADHA RAO,parties.IN.JS,JS,10192,29.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-16,andhra-pradesh,1962,16,NAGARIKATAKAM,KILLI APPARAONAIDU ALIAS ANNAM NAIDU,parties.IN.SWA,SWA,5159,14.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-16,andhra-pradesh,1962,16,NAGARIKATAKAM,BADE LINGA RAJU,parties.IN.IND,IND,3455,10.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-16,andhra-pradesh,1962,16,NAGARIKATAKAM,SUVVARI SANYASI APPARAO,parties.IN.IND,IND,2379,6.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-17,andhra-pradesh,1962,17,SRIKAKULAM,ANDHAVARAPU THAVITIAH,parties.IN.INC,INC,16231,36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-17,andhra-pradesh,1962,17,SRIKAKULAM,PASAGADA SURYANARAYANA,parties.IN.IND,IND,14583,32.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-17,andhra-pradesh,1962,17,SRIKAKULAM,THANGI SATYANARAYANA,parties.IN.SWA,SWA,13903,30.84,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-17,andhra-pradesh,1962,17,SRIKAKULAM,RALLAPALLI RAMAMURTY,parties.IN.IND,IND,367,0.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-18,andhra-pradesh,1962,18,SHERMUHAMMADPURAM,BALLLADA HARIYAPPADU REDDI,parties.IN.IND,IND,11442,32.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-18,andhra-pradesh,1962,18,SHERMUHAMMADPURAM,THAMMENENI CHIRANJEEVI RAO,parties.IN.INC,INC,9161,25.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-18,andhra-pradesh,1962,18,SHERMUHAMMADPURAM,CHOWDARI SATYANARAYANA,parties.IN.SWA,SWA,8404,23.64,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-18,andhra-pradesh,1962,18,SHERMUHAMMADPURAM,PELISETTY VISWANADAMU,parties.IN.IND,IND,3997,11.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-18,andhra-pradesh,1962,18,SHERMUHAMMADPURAM,DATLA VARAHALU RAJU,parties.IN.IND,IND,2262,6.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-18,andhra-pradesh,1962,18,SHERMUHAMMADPURAM,S. S. APPALACHARYULU,parties.IN.JS,JS,283,0.8,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-19,andhra-pradesh,1962,19,PONDURU,KOTAPALLI PUNNAIAH,parties.IN.INC,INC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-20,andhra-pradesh,1962,20,CHEEPURUPALLI,KOTLA SANYASI APPALA NAIDU,parties.IN.SWA,SWA,18021,52.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-20,andhra-pradesh,1962,20,CHEEPURUPALLI,MUDUNDI SATYANARAYANA RAJU,parties.IN.INC,INC,13724,39.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-20,andhra-pradesh,1962,20,CHEEPURUPALLI,TELIKICHERLA SETHARAMA MURTI,parties.IN.IND,IND,2880,8.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-21,andhra-pradesh,1962,21,BHOGAPURAM,KOMMURU APPADU DHORA,parties.IN.INC,INC,21816,62.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-21,andhra-pradesh,1962,21,BHOGAPURAM,BOTSA ADINARAYANA,parties.IN.IND,IND,9706,27.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-21,andhra-pradesh,1962,21,BHOGAPURAM,PULAPA NARASINGARAO,parties.IN.IND,IND,3503,10,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-22,andhra-pradesh,1962,22,RAMATHIRTHAM,GANTLANA SURYANARAYANA,parties.IN.INC,INC,16068,83.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-22,andhra-pradesh,1962,22,RAMATHIRTHAM,KOPPULA ASANNA,parties.IN.SWA,SWA,3086,16.11,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-23,andhra-pradesh,1962,23,GAJAPATHINAGARAM,TADDI SANAYASI NAIDU,parties.IN.INC,INC,20182,67.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-23,andhra-pradesh,1962,23,GAJAPATHINAGARAM,STRIPIRAPU JAGANNADHAM NAIDU,parties.IN.SWA,SWA,9709,32.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-24,andhra-pradesh,1962,24,VIZIANAGARAM,BHATTAM SRIRAMAMURTY,parties.IN.INC,INC,35214,88.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-24,andhra-pradesh,1962,24,VIZIANAGARAM,VOBBILLISETTY RAMARAO,parties.IN.JS,JS,4591,11.53,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-25,andhra-pradesh,1962,25,REVIDI,KOLLA APPALANAIDU,parties.IN.IND,IND,14823,45.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-25,andhra-pradesh,1962,25,REVIDI,SUNKARA SATYANARAYANA,parties.IN.INC,INC,9484,29.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-25,andhra-pradesh,1962,25,REVIDI,CHELLURI RAMARAO NAIDU,parties.IN.SWA,SWA,8008,24.78,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-26,andhra-pradesh,1962,26,BHEEMUNIPATNAM,P. V. G. RAJU,parties.IN.INC,INC,18972,58.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-26,andhra-pradesh,1962,26,BHEEMUNIPATNAM,GUJJU RAMUNAIDU,parties.IN.CPI,CPI,9630,29.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-26,andhra-pradesh,1962,26,BHEEMUNIPATNAM,PULAPA NARASINGARAO,parties.IN.IND,IND,3914,12.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-27,andhra-pradesh,1962,27,VISAKHAPATNAM,ASNKITHAM VENKATA BHANOJI RAO,parties.IN.INC,INC,21221,48.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-27,andhra-pradesh,1962,27,VISAKHAPATNAM,TENNETI VISWANATHAM,parties.IN.IND,IND,17394,39.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-27,andhra-pradesh,1962,27,VISAKHAPATNAM,K. S. APPALA NARASIMHA RAJU,parties.IN.JS,JS,3391,7.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-27,andhra-pradesh,1962,27,VISAKHAPATNAM,NAKKANA APPA RAO,parties.IN.IND,IND,2114,4.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-28,andhra-pradesh,1962,28,KANITHI,KANCHARLA SREERAMAMURTHY,parties.IN.INC,INC,14110,51.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-28,andhra-pradesh,1962,28,KANITHI,POTHINA SANYASI RAO,parties.IN.CPI,CPI,8535,30.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-28,andhra-pradesh,1962,28,KANITHI,MAJJI APPALASWAMY REDDY,parties.IN.IND,IND,3172,11.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-28,andhra-pradesh,1962,28,KANITHI,EATI NAGAYA,parties.IN.SWA,SWA,1824,6.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-29,andhra-pradesh,1962,29,PARVADA,SALAPU CHINA APPALANAIDU,parties.IN.IND,IND,17234,49.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-29,andhra-pradesh,1962,29,PARVADA,B.G.M.A. NARSINGARAO,parties.IN.INC,INC,10070,28.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-29,andhra-pradesh,1962,29,PARVADA,PYLA SANYASI NAIDU,parties.IN.IND,IND,7476,21.5,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-30,andhra-pradesh,1962,30,ANAKAPALLI,KODUGANTI GOVINDA RAO,parties.IN.CPI,CPI,23523,48.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-30,andhra-pradesh,1962,30,ANAKAPALLI,BUDHA APPARAO NAIDU,parties.IN.INC,INC,11786,24.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-30,andhra-pradesh,1962,30,ANAKAPALLI,KONATHALA RAMUNAIDU,parties.IN.SWA,SWA,11300,23.42,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-30,andhra-pradesh,1962,30,ANAKAPALLI,V. N. SAGAR,parties.IN.JS,JS,1640,3.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-31,andhra-pradesh,1962,31,CHODAVARAM,ILAPAKUTHI SATYANARAYANA,parties.IN.INC,INC,14776,40.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-31,andhra-pradesh,1962,31,CHODAVARAM,BOJANKI GANGAYYANAIDU,parties.IN.IND,IND,11329,30.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-31,andhra-pradesh,1962,31,CHODAVARAM,VECHALAPU PALAVILLI,parties.IN.SWA,SWA,10486,28.66,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-32,andhra-pradesh,1962,32,BODDAM,ALLU DASAVATHARAM,parties.IN.INC,INC,19061,50.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-32,andhra-pradesh,1962,32,BODDAM,GORRIPATI BUTCHI APPARAO,parties.IN.SWA,SWA,18847,49.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-33,andhra-pradesh,1962,33,SRUNGAVARAPUKOTA,GUJJALA DHARAM NAIDU,parties.IN.INC,INC,11659,80.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-33,andhra-pradesh,1962,33,SRUNGAVARAPUKOTA,TUMIRELLI RAMULU,parties.IN.SWA,SWA,2755,19.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-34,andhra-pradesh,1962,34,MADUGULA,TENNETI VISWANATHAM,parties.IN.IND,IND,26478,74.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-34,andhra-pradesh,1962,34,MADUGULA,DONDA SREERAMAMURTY,parties.IN.INC,INC,7893,22.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-34,andhra-pradesh,1962,34,MADUGULA,SABBI RANGANAIKULU,parties.IN.JS,JS,1274,3.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-35,andhra-pradesh,1962,35,KONDAKARLA,PENTAKOTA VENKATARAMANA,parties.IN.CPI,CPI,13444,43.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-35,andhra-pradesh,1962,35,KONDAKARLA,YELAVARTI NAYUDAMMA,parties.IN.SWA,SWA,10433,33.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-35,andhra-pradesh,1962,35,KONDAKARLA,MANDAPATI RAMACHANDRARAJU,parties.IN.INC,INC,7321,23.47,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-36,andhra-pradesh,1962,36,ELAMANCHILI,VEESAM SANYASINAIDU,parties.IN.INC,INC,14992,43.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-36,andhra-pradesh,1962,36,ELAMANCHILI,VELAGA VEERABHADRA RAO,parties.IN.CPI,CPI,11366,32.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-36,andhra-pradesh,1962,36,ELAMANCHILI,PAPPALA BAPUNAIDU,parties.IN.SWA,SWA,8192,23.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-37,andhra-pradesh,1962,37,PAYAKARAOPETA,MANDE PITCHAIAH,parties.IN.CPI,CPI,13450,46.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-37,andhra-pradesh,1962,37,PAYAKARAOPETA,MUTHYALA POTHURAJU,parties.IN.INC,INC,11386,39.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-37,andhra-pradesh,1962,37,PAYAKARAOPETA,BURA NAGABHUSHANAM,parties.IN.JS,JS,1724,5.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-37,andhra-pradesh,1962,37,PAYAKARAOPETA,KOLLABATHULA POTHAYYA,parties.IN.SWA,SWA,1295,4.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-37,andhra-pradesh,1962,37,PAYAKARAOPETA,NATTALA SATYAM,parties.IN.IND,IND,1099,3.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-38,andhra-pradesh,1962,38,NARASIPATNAM,RUTHALA LATCHAPATRUDU,parties.IN.SWA,SWA,22831,56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-38,andhra-pradesh,1962,38,NARASIPATNAM,RAJA SAGI SURYANARAYANA RAJU,parties.IN.INC,INC,17938,44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-39,andhra-pradesh,1962,39,GOLUGONDA,SUNKARA APPALA NAIDU,parties.IN.SWA,SWA,20036,52.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-39,andhra-pradesh,1962,39,GOLUGONDA,KOTA NARAYANA,parties.IN.INC,INC,14064,36.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-39,andhra-pradesh,1962,39,GOLUGONDA,LAGUDU GAURI NAIDU,parties.IN.CPI,CPI,4149,10.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-40,andhra-pradesh,1962,40,CHINTAPALLI,DEPURU KONDALARAO,parties.IN.INC,INC,3593,30.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-40,andhra-pradesh,1962,40,CHINTAPALLI,KILLU MALAM NAIDU,parties.IN.SWA,SWA,2759,23.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-40,andhra-pradesh,1962,40,CHINTAPALLI,INGUVA RAMANNA PADULU,parties.IN.CPI,CPI,2065,17.49,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-40,andhra-pradesh,1962,40,CHINTAPALLI,BAKURU PANDURAJU,parties.IN.IND,IND,1816,15.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-40,andhra-pradesh,1962,40,CHINTAPALLI,KILLU KRUSHNAMUNAIDU,parties.IN.JS,JS,881,7.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-40,andhra-pradesh,1962,40,CHINTAPALLI,LAKAY CHIRANJEEVI PATRUDU,parties.IN.IND,IND,691,5.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-41,andhra-pradesh,1962,41,YELLAVARAM,CHODI MALLIKHARJUNA,parties.IN.INC,INC,6675,35.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-41,andhra-pradesh,1962,41,YELLAVARAM,KONDAMODALU RAMIREDDY,parties.IN.SWA,SWA,6264,33.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-41,andhra-pradesh,1962,41,YELLAVARAM,PUSARLA GYANABHUSHANAM,parties.IN.IND,IND,2995,15.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-41,andhra-pradesh,1962,41,YELLAVARAM,KOSURU APPA RAO,parties.IN.JS,JS,2823,15.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-42,andhra-pradesh,1962,42,KORUKONDA,KANDRU VEERANNA,parties.IN.INC,INC,19830,57.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-42,andhra-pradesh,1962,42,KORUKONDA,VULLI SATYANARAYANAMURTHY,parties.IN.IND,IND,7200,20.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-42,andhra-pradesh,1962,42,KORUKONDA,BONTHA TAMMA RAO,parties.IN.CPI,CPI,3287,9.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-42,andhra-pradesh,1962,42,KORUKONDA,MULAVARAPU VANKATA SASTRY,parties.IN.SWA,SWA,2970,8.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-42,andhra-pradesh,1962,42,KORUKONDA,DANIEL VENGALA,parties.IN.IND,IND,1376,3.97,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-43,andhra-pradesh,1962,43,BURUGUPUDI,BATHINA SUBHA RAO,parties.IN.INC,INC,24620,68.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-43,andhra-pradesh,1962,43,BURUGUPUDI,KOMMU APPA RAO,parties.IN.IND,IND,8738,24.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-43,andhra-pradesh,1962,43,BURUGUPUDI,BANDI VEERANNA,parties.IN.JS,JS,1626,4.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-43,andhra-pradesh,1962,43,BURUGUPUDI,YELLA BABURAO,parties.IN.SWA,SWA,1130,3.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-44,andhra-pradesh,1962,44,RAJAHMUNDRY,POTHULA VEERTABHADRA RAO,parties.IN.INC,INC,25791,48.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-44,andhra-pradesh,1962,44,RAJAHMUNDRY,CHITTURI PRABHAKARA CHOUDARY,parties.IN.CPI,CPI,21956,40.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-44,andhra-pradesh,1962,44,RAJAHMUNDRY,AMBADIPUDI BALA NAGESWARA RAO,parties.IN.IND,IND,4958,9.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-44,andhra-pradesh,1962,44,RAJAHMUNDRY,VETCHA NAGARAJU,parties.IN.JS,JS,1000,1.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-45,andhra-pradesh,1962,45,JAGGAMPETA,VADDI MUTYALA RAO,parties.IN.INC,INC,19330,40.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-45,andhra-pradesh,1962,45,JAGGAMPETA,DURISETI GOPALA RAO,parties.IN.IND,IND,15970,33.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-45,andhra-pradesh,1962,45,JAGGAMPETA,ALAMANDA NUKARAJU,parties.IN.SWA,SWA,9849,20.85,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-45,andhra-pradesh,1962,45,JAGGAMPETA,BEDAMPUDI ISRAYELU,parties.IN.REP,REP,1668,3.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-45,andhra-pradesh,1962,45,JAGGAMPETA,BOGGAVARAPU SURYANARAYANA MURTY,parties.IN.IND,IND,424,0.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-46,andhra-pradesh,1962,46,PEDDAPURAM,PANTHAM PADMANABHAM,parties.IN.INC,INC,32269,64.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-46,andhra-pradesh,1962,46,PEDDAPURAM,DURVASULA VENKATA SUBBARAO,parties.IN.CPI,CPI,8842,17.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-46,andhra-pradesh,1962,46,PEDDAPURAM,CHAVALI KRUSHNA RAO,parties.IN.SWA,SWA,6356,12.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-46,andhra-pradesh,1962,46,PEDDAPURAM,T.J.S. FREDARICHS,parties.IN.IND,IND,1813,3.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-46,andhra-pradesh,1962,46,PEDDAPURAM,GEDDAM SURYANARAYANAMURTY,parties.IN.IND,IND,1083,2.15,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-47,andhra-pradesh,1962,47,PRATHIPADU,MUDRAGADA VEERARAGHAVARAO,parties.IN.IND,IND,34294,62.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-47,andhra-pradesh,1962,47,PRATHIPADU,PARVATHA GURRAJU,parties.IN.INC,INC,20918,37.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-48,andhra-pradesh,1962,48,TUNI,RAJA V. V. KRISHNAMRAJU BAHADUR,parties.IN.INC,INC,23832,60.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-48,andhra-pradesh,1962,48,TUNI,KATHA RADHAKRISHNAMURTY,parties.IN.PSP,PSP,15668,39.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-49,andhra-pradesh,1962,49,PITHAPURAM,RAO BHAVANNA,parties.IN.INC,INC,30010,54.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-49,andhra-pradesh,1962,49,PITHAPURAM,PEKETI THAMMIRAJU,parties.IN.IND,IND,22414,40.47,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-49,andhra-pradesh,1962,49,PITHAPURAM,MUDUGU SATYAM,parties.IN.IND,IND,1152,2.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-49,andhra-pradesh,1962,49,PITHAPURAM,NADIPUDI KORLAYA,parties.IN.IND,IND,893,1.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-49,andhra-pradesh,1962,49,PITHAPURAM,PALIKI RAMADASU,parties.IN.IND,IND,615,1.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-49,andhra-pradesh,1962,49,PITHAPURAM,PINIPELLI SUBBA RAO,parties.IN.IND,IND,304,0.55,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-50,andhra-pradesh,1962,50,SAMALKOT,MOHAMMAD ISMAIL,parties.IN.INC,INC,26332,53.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-50,andhra-pradesh,1962,50,SAMALKOT,VUNDAVALLI NARAYANAMURTHY,parties.IN.CPI,CPI,22921,46.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-51,andhra-pradesh,1962,51,KAKINADA,DANTU BHASKARA RAO,parties.IN.INC,INC,20753,47.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-51,andhra-pradesh,1962,51,KAKINADA,C. V. K. RAO,parties.IN.IND,IND,18741,42.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-51,andhra-pradesh,1962,51,KAKINADA,BATCHU SANYASI RAO,parties.IN.SWA,SWA,3840,8.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-51,andhra-pradesh,1962,51,KAKINADA,BATCHU CHINAKAMALAM,parties.IN.JS,JS,634,1.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-52,andhra-pradesh,1962,52,KARAPA,REMALLA THIRUPATIRAO,parties.IN.INC,INC,13519,35.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-52,andhra-pradesh,1962,52,KARAPA,MARNI VEERANNA CHOWDARY,parties.IN.IND,IND,11971,31.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-52,andhra-pradesh,1962,52,KARAPA,KONDEPUDI VENUGOPALASWAMY,parties.IN.CPI,CPI,8036,21.38,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-52,andhra-pradesh,1962,52,KARAPA,PILLI NARAYANAMURTY,parties.IN.SWA,SWA,3074,8.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-52,andhra-pradesh,1962,52,KARAPA,KARRI SUNDARA RAO,parties.IN.REP,REP,984,2.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-53,andhra-pradesh,1962,53,TALLAREVU,GANTI KAMAYYA,parties.IN.INC,INC,12946,47.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-53,andhra-pradesh,1962,53,TALLAREVU,SAKA VENKATA RAO,parties.IN.CPI,CPI,9795,35.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-53,andhra-pradesh,1962,53,TALLAREVU,PAMU RAMAMURTHY,parties.IN.SWA,SWA,1790,6.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-53,andhra-pradesh,1962,53,TALLAREVU,NEREDUMALLI VEERABHADRARAO,parties.IN.REP,REP,1243,4.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-53,andhra-pradesh,1962,53,TALLAREVU,VENKATARAO REDDI,parties.IN.IND,IND,1022,3.72,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-53,andhra-pradesh,1962,53,TALLAREVU,MADDALA SURYARAO,parties.IN.IND,IND,679,2.47,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-54,andhra-pradesh,1962,54,RAMACHANDRAPURAM,NANDIVADA SATYANRAYANARAO,parties.IN.IND,IND,20270,54.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-54,andhra-pradesh,1962,54,RAMACHANDRAPURAM,K. KAMALA DEVI,parties.IN.INC,INC,16927,45.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-55,andhra-pradesh,1962,55,ANAPARTHI,PALACHERLA PANASARAMANNA,parties.IN.CPI,CPI,18498,39.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-55,andhra-pradesh,1962,55,ANAPARTHI,TETALA LAKSHMINARAYANA REDDY,parties.IN.INC,INC,17912,38.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-55,andhra-pradesh,1962,55,ANAPARTHI,PADALA KAMALAREDDY,parties.IN.SWA,SWA,8370,17.92,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-55,andhra-pradesh,1962,55,ANAPARTHI,DESABATHULA REDDY,parties.IN.REP,REP,1160,2.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-55,andhra-pradesh,1962,55,ANAPARTHI,SATYANARAYANA PRASADARAO REDDY,parties.IN.JS,JS,773,1.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-56,andhra-pradesh,1962,56,PAMARRU,S. B. P. PATTABHIRAMA RAO,parties.IN.INC,INC,27209,61.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-56,andhra-pradesh,1962,56,PAMARRU,MENDU VEERANNA,parties.IN.IND,IND,14671,33.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-56,andhra-pradesh,1962,56,PAMARRU,CHODEY RANGARAO,parties.IN.SWA,SWA,2251,5.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-57,andhra-pradesh,1962,57,CHEYYERU,PALLA VENKATA RAO,parties.IN.INC,INC,23222,43.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-57,andhra-pradesh,1962,57,CHEYYERU,CHINTALAPATI BUTCHI KRISHNAM RAJU,parties.IN.IND,IND,21151,39.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-57,andhra-pradesh,1962,57,CHEYYERU,ANGANI SRIRAMACHANDRA VERMA,parties.IN.IND,IND,5160,9.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-57,andhra-pradesh,1962,57,CHEYYERU,PANDU KRISHNAMURTY,parties.IN.REP,REP,4027,7.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-58,andhra-pradesh,1962,58,AMALAPURAM,KUDUPUDI SURYANARAYANA,parties.IN.IND,IND,23581,51.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-58,andhra-pradesh,1962,58,AMALAPURAM,NADIMPALLI VENKATAPATHI,parties.IN.INC,INC,20820,45.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-58,andhra-pradesh,1962,58,AMALAPURAM,VARANASI SURYANARAYANAMURTY,parties.IN.JS,JS,1044,2.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-59,andhra-pradesh,1962,59,ALLAVARAM,CHIKILE GANGI SETTI,parties.IN.INC,INC,13470,37.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-59,andhra-pradesh,1962,59,ALLAVARAM,SARELLA RAMARAO,parties.IN.CPI,CPI,11493,31.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-59,andhra-pradesh,1962,59,ALLAVARAM,DEVARAPALLI VENKATAPATHI,parties.IN.REP,REP,4500,12.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-59,andhra-pradesh,1962,59,ALLAVARAM,BOJJA APPALA SWAMY,parties.IN.IND,IND,4058,11.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-59,andhra-pradesh,1962,59,ALLAVARAM,MUNGANDA SAHADEVARAO,parties.IN.IND,IND,1253,3.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-59,andhra-pradesh,1962,59,ALLAVARAM,CHUTTUGALLA VENKAIAH,parties.IN.JS,JS,1177,3.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-60,andhra-pradesh,1962,60,RAZOLE,GADDEM MAHALAKSHMI,parties.IN.INC,INC,30460,55.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-60,andhra-pradesh,1962,60,RAZOLE,BHUPATHI NARAYANAMURTY,parties.IN.CPI,CPI,22244,40.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-60,andhra-pradesh,1962,60,RAZOLE,VIPPARTI NAGABHUSHANAM,parties.IN.REP,REP,2419,4.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-61,andhra-pradesh,1962,61,NAGARAM,NAYINALA GANESWARARAO,parties.IN.INC,INC,26023,49.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-61,andhra-pradesh,1962,61,NAGARAM,BODAPATI NARASIMHARAO,parties.IN.CPI,CPI,16403,30.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-61,andhra-pradesh,1962,61,NAGARAM,ALLURI VENKATA SURYANARAYANA RAJU,parties.IN.SWA,SWA,5230,9.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-61,andhra-pradesh,1962,61,NAGARAM,THARAPATLA ANANDARAO,parties.IN.IND,IND,3684,6.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-61,andhra-pradesh,1962,61,NAGARAM,KUCHI GOPALAKRISHNARAO,parties.IN.IND,IND,943,1.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-61,andhra-pradesh,1962,61,NAGARAM,BHAMIDIPATI VENKATARATNAM,parties.IN.JS,JS,703,1.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-62,andhra-pradesh,1962,62,KOTHAPETHA,M. V. S. SUBBA RAJU,parties.IN.INC,INC,26897,50.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-62,andhra-pradesh,1962,62,KOTHAPETHA,M. SUBBARAYUDU,parties.IN.IND,IND,25364,47.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-62,andhra-pradesh,1962,62,KOTHAPETHA,VINJA RAMARAO,parties.IN.JS,JS,673,1.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-63,andhra-pradesh,1962,63,NARASAPUR,PARAKALA SESHAVATHARAM,parties.IN.INC,INC,24104,48.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-63,andhra-pradesh,1962,63,NARASAPUR,RUDRARAJU SATYANARAYANARAJU,parties.IN.CPI,CPI,20313,40.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-63,andhra-pradesh,1962,63,NARASAPUR,POLISETTY VENKATASUBBARAO,parties.IN.SWA,SWA,3722,7.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-63,andhra-pradesh,1962,63,NARASAPUR,VIPPARTY RAMASWAMY,parties.IN.REP,REP,1466,2.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-63,andhra-pradesh,1962,63,NARASAPUR,VEDANTHAM VENKATASUBBARAO,parties.IN.IND,IND,315,0.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-64,andhra-pradesh,1962,64,PALACOLE,ADDEPALLI SATYANARAYANA MOORTY,parties.IN.INC,INC,24028,50.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-64,andhra-pradesh,1962,64,PALACOLE,POLIDETTI SESHAVATHARAM,parties.IN.CPI,CPI,20691,43.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-64,andhra-pradesh,1962,64,PALACOLE,GOLLA KRUPADANAM,parties.IN.SWA,SWA,2434,5.07,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-64,andhra-pradesh,1962,64,PALACOLE,JANA NAGESWARARAO,parties.IN.SOC,SOC,865,1.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-65,andhra-pradesh,1962,65,ACHANTA,PADDALA SYAMASUNDRA RAO,parties.IN.CPI,CPI,25306,51.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-65,andhra-pradesh,1962,65,ACHANTA,DESARI PERUMALLU,parties.IN.INC,INC,22772,46.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-65,andhra-pradesh,1962,65,ACHANTA,MATHE NARASIMHAM,parties.IN.SWA,SWA,495,1.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-65,andhra-pradesh,1962,65,ACHANTA,GANTA BHARATI DEVI,parties.IN.REP,REP,425,0.87,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-65,andhra-pradesh,1962,65,ACHANTA,VARDHANAPU VENKANNA,parties.IN.IND,IND,100,0.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-66,andhra-pradesh,1962,66,PENUGONDA,VANKA SATYANARAYANA,parties.IN.CPI,CPI,25069,50.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-66,andhra-pradesh,1962,66,PENUGONDA,JAVVADI LAKSHMAYYA,parties.IN.INC,INC,24521,49.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-67,andhra-pradesh,1962,67,ATTILI,S.R. DATLA,parties.IN.CPI,CPI,25818,54.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-67,andhra-pradesh,1962,67,ATTILI,VEERAVALLI VENKATAKANAKARATNAM,parties.IN.INC,INC,21449,45.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-68,andhra-pradesh,1962,68,PENTAPADU,CHINTALAPATI PRASADA MURTI RAJU,parties.IN.INC,INC,35646,65.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-68,andhra-pradesh,1962,68,PENTAPADU,KODEY VENKATRAO,parties.IN.IND,IND,18640,34.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-69,andhra-pradesh,1962,69,TANUKU,MULLAPUDI HARISCHANDRAPRASAD,parties.IN.INC,INC,31771,50.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-69,andhra-pradesh,1962,69,TANUKU,CHITTURI INDRAIAH,parties.IN.IND,IND,31660,49.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-70,andhra-pradesh,1962,70,KOVVUR,ALLURI BAPINEEDU,parties.IN.INC,INC,27873,48.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-70,andhra-pradesh,1962,70,KOVVUR,KODURI KRISHNARAO,parties.IN.IND,IND,27666,47.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-70,andhra-pradesh,1962,70,KOVVUR,ERLAPATI VENKANNA,parties.IN.REP,REP,1684,2.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-70,andhra-pradesh,1962,70,KOVVUR,PINNAMANENI SRIRAMACHANDRA RAO,parties.IN.SOC,SOC,482,0.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-71,andhra-pradesh,1962,71,GOPALPURAM,TANETI VEERARAGHAVULU,parties.IN.INC,INC,19993,44.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-71,andhra-pradesh,1962,71,GOPALPURAM,IRLAPATI SUNDAR RAO,parties.IN.IND,IND,19316,43.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-71,andhra-pradesh,1962,71,GOPALPURAM,GARAPATI DHARMARAJU,parties.IN.SWA,SWA,3494,7.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-71,andhra-pradesh,1962,71,GOPALPURAM,BOLLIPO BULLI ABBAYI,parties.IN.IND,IND,1948,4.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-72,andhra-pradesh,1962,72,POLAVARAM,KARATAM BABURAO,parties.IN.CPI,CPI,18700,46.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-72,andhra-pradesh,1962,72,POLAVARAM,POOTHANA APPARAO,parties.IN.INC,INC,16825,42.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-72,andhra-pradesh,1962,72,POLAVARAM,PRATIVADI BHAYAMKARAM RANGACHARYULU,parties.IN.SWA,SWA,2811,7.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-72,andhra-pradesh,1962,72,POLAVARAM,BODIKA CHINAGANGULU,parties.IN.JS,JS,1537,3.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-73,andhra-pradesh,1962,73,CHINTALAPUDI,REVULAGADDA YESUPADAM,parties.IN.INC,INC,22831,50.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-73,andhra-pradesh,1962,73,CHINTALAPUDI,KONDRU SUBBARAO,parties.IN.CPI,CPI,19878,43.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-73,andhra-pradesh,1962,73,CHINTALAPUDI,VELAMARTI SIKHAMANI,parties.IN.IND,IND,1727,3.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-73,andhra-pradesh,1962,73,CHINTALAPUDI,SAMUDRAPU VENKATADASU,parties.IN.SWA,SWA,956,2.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-74,andhra-pradesh,1962,74,TADEPALLIGUDEM,ALLIURI KRISHNA ROW,parties.IN.INC,INC,16847,40.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-74,andhra-pradesh,1962,74,TADEPALLIGUDEM,GADA RAGHUNAYAKULU,parties.IN.IND,IND,14712,35.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-74,andhra-pradesh,1962,74,TADEPALLIGUDEM,KALLI RAJA RAO,parties.IN.SWA,SWA,9620,23.36,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-75,andhra-pradesh,1962,75,DENDULUR,MOTAPARTHI RAMAMOHANARAO,parties.IN.IND,IND,25162,51.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-75,andhra-pradesh,1962,75,DENDULUR,GARAPATI CHINAKANAKAIAH,parties.IN.INC,INC,24116,48.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-76,andhra-pradesh,1962,76,ELURU,ATTULURI SARWESVARA RAO,parties.IN.CPI,CPI,26235,47.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-76,andhra-pradesh,1962,76,ELURU,SEERLA BRAHMAYYA,parties.IN.INC,INC,25245,45.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-76,andhra-pradesh,1962,76,ELURU,KOMMAREDDI SURYANARAYANA,parties.IN.SWA,SWA,1780,3.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-76,andhra-pradesh,1962,76,ELURU,YEEDA VENKATESWARA RAO,parties.IN.JS,JS,1279,2.32,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-76,andhra-pradesh,1962,76,ELURU,PEMMARAJU SUBBARAO,parties.IN.IND,IND,557,1.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-77,andhra-pradesh,1962,77,UNDI,GOKARAJU RANGARAJU,parties.IN.INC,INC,32376,54.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-77,andhra-pradesh,1962,77,UNDI,PENMETSA VENKATALAKSHMI TIMMARAJU,parties.IN.IND,IND,26524,44.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-77,andhra-pradesh,1962,77,UNDI,KESABOINA BHAGESWARA RAO,parties.IN.IND,IND,768,1.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-78,andhra-pradesh,1962,78,BHIMAVARAM,NACHU VENKARA RAMAIAH,parties.IN.INC,INC,25694,48.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-78,andhra-pradesh,1962,78,BHIMAVARAM,YALLABANDI POLISETTY,parties.IN.CPI,CPI,22309,42.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-78,andhra-pradesh,1962,78,BHIMAVARAM,SUNKARA VEERASWAMI,parties.IN.SWA,SWA,2574,4.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-78,andhra-pradesh,1962,78,BHIMAVARAM,GUDURI RANGARAO,parties.IN.IND,IND,1332,2.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-78,andhra-pradesh,1962,78,BHIMAVARAM,GUDAPATI DANELU,parties.IN.IND,IND,874,1.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-79,andhra-pradesh,1962,79,KAIKALUR,KAMMILI APPA RAO,parties.IN.INC,INC,30547,51.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-79,andhra-pradesh,1962,79,KAIKALUR,ATLURI PURNACHALAPATIRAO,parties.IN.CPI,CPI,25175,42.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-79,andhra-pradesh,1962,79,KAIKALUR,VALLABHU CHENNA KESAVA RAO,parties.IN.SWA,SWA,1303,2.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-79,andhra-pradesh,1962,79,KAIKALUR,GARIKAMUKKU ASEERVADAM,parties.IN.IND,IND,1147,1.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-79,andhra-pradesh,1962,79,KAIKALUR,MEDISETTI NARASIMHA RAO,parties.IN.JS,JS,698,1.19,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-80,andhra-pradesh,1962,80,MUDINEPALLI,BOPPANA HANUMANTHA RAO,parties.IN.INC,INC,28719,52.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-80,andhra-pradesh,1962,80,MUDINEPALLI,KAZA RAMANATHAM,parties.IN.IND,IND,20224,37.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-80,andhra-pradesh,1962,80,MUDINEPALLI,PARVATANENI LAKSHMANA RAO,parties.IN.SWA,SWA,3956,7.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-80,andhra-pradesh,1962,80,MUDINEPALLI,SALIMETTA LAKSHMINARAYANA,parties.IN.REP,REP,569,1.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-80,andhra-pradesh,1962,80,MUDINEPALLI,ANGADALA SUDARSANA RAO,parties.IN.IND,IND,479,0.88,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-80,andhra-pradesh,1962,80,MUDINEPALLI,CHALASANI PURNACHANDRASEKHARA RAO,parties.IN.JS,JS,338,0.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-81,andhra-pradesh,1962,81,GUDIVADA,GANJI RAMA RAO,parties.IN.CPI,CPI,27267,49.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-81,andhra-pradesh,1962,81,GUDIVADA,VEMULA KURMAYYA,parties.IN.INC,INC,23767,43.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-81,andhra-pradesh,1962,81,GUDIVADA,MANGALAGIRI RAMADASU,parties.IN.SWA,SWA,1916,3.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-81,andhra-pradesh,1962,81,GUDIVADA,KONERU RANGA RAO,parties.IN.JS,JS,1186,2.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-81,andhra-pradesh,1962,81,GUDIVADA,KAKOLLU RAGHAVULU,parties.IN.IND,IND,1079,1.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-82,andhra-pradesh,1962,82,GANNAVARAM,PUCHALAPALLI SUNDARIAH,parties.IN.CPI,CPI,28264,54.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-82,andhra-pradesh,1962,82,GANNAVARAM,KALAPALA SURYA PRAKASARAO,parties.IN.INC,INC,23463,45.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-83,andhra-pradesh,1962,83,KANKIPADU,CHENNUPATI RAMAKOTAIAH,parties.IN.INC,INC,22092,47.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-83,andhra-pradesh,1962,83,KANKIPADU,MYNENI LAKSHMANASWAMY,parties.IN.CPI,CPI,22008,46.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-83,andhra-pradesh,1962,83,KANKIPADU,ADUSUMILLI DURGA VARAPRASADA RAO,parties.IN.SWA,SWA,2882,6.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-84,andhra-pradesh,1962,84,VIJAYAWADA SOUTH,AYYADEVARA KALESWARARAO,parties.IN.INC,INC,21319,47.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-84,andhra-pradesh,1962,84,VIJAYAWADA SOUTH,KATRAGADDA RAJAGOPALARAO,parties.IN.CPI,CPI,19764,43.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-84,andhra-pradesh,1962,84,VIJAYAWADA SOUTH,GUDIVADA RAMA RAO,parties.IN.JS,JS,2898,6.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-84,andhra-pradesh,1962,84,VIJAYAWADA SOUTH,TUMMALAPALLI JAGANNADHAM,parties.IN.SWA,SWA,836,1.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-84,andhra-pradesh,1962,84,VIJAYAWADA SOUTH,SATAPATHY PRAKASH CHANDRA,parties.IN.IND,IND,161,0.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-85,andhra-pradesh,1962,85,VIJAYAWADA NORTH,TAMMINA POTHARAJU,parties.IN.CPI,CPI,28979,50.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-85,andhra-pradesh,1962,85,VIJAYAWADA NORTH,MARUPILLA CHITTI,parties.IN.INC,INC,24148,42.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-85,andhra-pradesh,1962,85,VIJAYAWADA NORTH,KESINENI VENKAYYA,parties.IN.SWA,SWA,1992,3.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-85,andhra-pradesh,1962,85,VIJAYAWADA NORTH,BAYINA APPA RAO,parties.IN.JS,JS,1383,2.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-85,andhra-pradesh,1962,85,VIJAYAWADA NORTH,KONADA SURYAPRAKASARAO,parties.IN.IND,IND,393,0.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-86,andhra-pradesh,1962,86,MYLAVARAM,VELLANKI VISVASWARARAO,parties.IN.CPI,CPI,23666,48.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-86,andhra-pradesh,1962,86,MYLAVARAM,PEDARLA VENKARA SUBBAYYA,parties.IN.INC,INC,23152,47.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-86,andhra-pradesh,1962,86,MYLAVARAM,PYDIMARLA VENKATA NARASAREDDY,parties.IN.JS,JS,2222,4.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-87,andhra-pradesh,1962,87,NANDIGAMA,PILLALAMARRI VENKATESWARLU,parties.IN.CPI,CPI,19941,43.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-87,andhra-pradesh,1962,87,NANDIGAMA,BANDI TIRUPATHAYYA,parties.IN.INC,INC,18213,39.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-87,andhra-pradesh,1962,87,NANDIGAMA,KANAPARTHI CHINA JOGAYYA,parties.IN.SWA,SWA,6506,14.11,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-87,andhra-pradesh,1962,87,NANDIGAMA,PASALA AROGYAM,parties.IN.IND,IND,1462,3.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-88,andhra-pradesh,1962,88,JAGGAYYAPET,GALETI VENKATESWARLU,parties.IN.INC,INC,19536,46.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-88,andhra-pradesh,1962,88,JAGGAYYAPET,PONNA KOTESWARARAO,parties.IN.CPI,CPI,18446,44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-88,andhra-pradesh,1962,88,JAGGAYYAPET,ISLAVATH RAMANA,parties.IN.SWA,SWA,3937,9.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-89,andhra-pradesh,1962,89,TIRUVUR,PETA BAPAYYA,parties.IN.INC,INC,26608,51.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-89,andhra-pradesh,1962,89,TIRUVUR,SUNKARA VEERABHADRA RAO,parties.IN.CPI,CPI,23487,45.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-89,andhra-pradesh,1962,89,TIRUVUR,KATARU NARASIMHA RAO,parties.IN.JS,JS,1589,3.07,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-90,andhra-pradesh,1962,90,NUZVID,MEKA RAJA RANGAYYAPPA RAO,parties.IN.INC,INC,35244,62.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-90,andhra-pradesh,1962,90,NUZVID,DESARI NAGABHUSHANA RAO ALIAS N.R. DASARI,parties.IN.CPI,CPI,21235,37.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-91,andhra-pradesh,1962,91,VUYYUR,KAKANI VENKATARATNAM,parties.IN.INC,INC,21871,48.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-91,andhra-pradesh,1962,91,VUYYUR,KADIYALA GOPALA RAO,parties.IN.CPI,CPI,18676,41.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-91,andhra-pradesh,1962,91,VUYYUR,KODALI UMAMAHESWARA RAO,parties.IN.SWA,SWA,4053,9.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-91,andhra-pradesh,1962,91,VUYYUR,DODDAPANENI PATTABHI RAMACHANDRA RAO,parties.IN.JS,JS,278,0.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-92,andhra-pradesh,1962,92,MALLESWARAM,PINNENTI PAMIDESWARA RAO,parties.IN.INC,INC,23257,49.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-92,andhra-pradesh,1962,92,MALLESWARAM,YARRAMSETTI KRISHNA MURTHY,parties.IN.IND,IND,19529,41.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-92,andhra-pradesh,1962,92,MALLESWARAM,PADAMATA KOTESWARA RAO,parties.IN.SWA,SWA,3662,7.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-92,andhra-pradesh,1962,92,MALLESWARAM,KATRAGADDA NANCHARAIAH,parties.IN.JS,JS,777,1.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-93,andhra-pradesh,1962,93,BANDAR,PEDASINGU LAKSHMANA RAO,parties.IN.IND,IND,21369,41.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-93,andhra-pradesh,1962,93,BANDAR,RALLAPALLI ACHYUTHA RAMAIAH,parties.IN.INC,INC,20901,41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-93,andhra-pradesh,1962,93,BANDAR,POTHARAJU SOBHANACHALAPATH RAO,parties.IN.SWA,SWA,6987,13.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-93,andhra-pradesh,1962,93,BANDAR,THUMMALAPALLI SADASIVARAO,parties.IN.JS,JS,1271,2.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-93,andhra-pradesh,1962,93,BANDAR,NIMMAGADDA GURUMOORTHY,parties.IN.IND,IND,444,0.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-94,andhra-pradesh,1962,94,AVANIGADDA,YARLAGADDA SIVARAMA PRASAD,parties.IN.INC,INC,29304,50.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-94,andhra-pradesh,1962,94,AVANIGADDA,SANAKA BUTCHIKOTAIAH,parties.IN.CPI,CPI,26311,45.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-94,andhra-pradesh,1962,94,AVANIGADDA,BHOGADI VENKATESWARA RAO,parties.IN.JS,JS,2469,4.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-95,andhra-pradesh,1962,95,NIDUMOLU,GUNTURU BAPANAYYA,parties.IN.CPI,CPI,25195,51.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-95,andhra-pradesh,1962,95,NIDUMOLU,KANUMURI SOMESWARA RAO,parties.IN.INC,INC,19905,40.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-95,andhra-pradesh,1962,95,NIDUMOLU,MOTUPALLI VIJAYALAL,parties.IN.SWA,SWA,3953,8.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-96,andhra-pradesh,1962,96,KUCHINAPUDI,EVURU SUBBARAO,parties.IN.IND,IND,24108,46.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-96,andhra-pradesh,1962,96,KUCHINAPUDI,ANAGANI BHAGAVANTHA RAO,parties.IN.INC,INC,21230,41.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-96,andhra-pradesh,1962,96,KUCHINAPUDI,ANNAVARAPU CHINA NAIDU,parties.IN.SWA,SWA,4481,8.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-96,andhra-pradesh,1962,96,KUCHINAPUDI,DIVI SEETHARAMA CHARYULU,parties.IN.IND,IND,1845,3.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-97,andhra-pradesh,1962,97,REPALLE,KORATALA SATYANARAYANA,parties.IN.CPI,CPI,15699,36.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-97,andhra-pradesh,1962,97,REPALLE,YADAM CHENNAIAH,parties.IN.INC,INC,14998,34.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-97,andhra-pradesh,1962,97,REPALLE,NADELLA VENKATA KRISHNARAO,parties.IN.SWA,SWA,12166,27.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-97,andhra-pradesh,1962,97,REPALLE,V. V. L. PANTULU,parties.IN.IND,IND,603,1.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-98,andhra-pradesh,1962,98,VEMUR,KALLURI CHANDRAMOULI,parties.IN.INC,INC,23264,43.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-98,andhra-pradesh,1962,98,VEMUR,YADLAPATI CENKATRAO,parties.IN.SWA,SWA,16245,30.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-98,andhra-pradesh,1962,98,VEMUR,GORIKAPUDI JOSEPH,parties.IN.CPI,CPI,13962,26.11,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-99,andhra-pradesh,1962,99,DUGGIRALA,LANKIREDDI LAKSHMA REDDY,parties.IN.INC,INC,22629,50.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-99,andhra-pradesh,1962,99,DUGGIRALA,KATRAGADDA NARAYANA RAO,parties.IN.IND,IND,20322,45.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-99,andhra-pradesh,1962,99,DUGGIRALA,PILLUTLA VENKATA LAKSHMI NARASIMHA RAO,parties.IN.IND,IND,1817,4.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-100,andhra-pradesh,1962,100,TENALI,ALAPATI VENKATRAMAIAH,parties.IN.INC,INC,26122,49.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-100,andhra-pradesh,1962,100,TENALI,RAVI AMMAIAH,parties.IN.CPI,CPI,19924,37.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-100,andhra-pradesh,1962,100,TENALI,KONIJETI ROSAIAH,parties.IN.SWA,SWA,5806,11.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-100,andhra-pradesh,1962,100,TENALI,LAKKARAJU VENKATA PANDURANGA VITHALESWARA,parties.IN.JS,JS,630,1.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-101,andhra-pradesh,1962,101,PONNUR,NANNAPANENI VENKATRAO,parties.IN.INC,INC,31534,58.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-101,andhra-pradesh,1962,101,PONNUR,PAMULAPATI BUTCHINAIDU CHOUDARY,parties.IN.SWA,SWA,20608,38.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-101,andhra-pradesh,1962,101,PONNUR,VANGA RAMKOTI REDDY,parties.IN.IND,IND,1439,2.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-102,andhra-pradesh,1962,102,BAPATLA,KOMMINENI VENKATESWARARAO,parties.IN.IND,IND,14317,29.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-102,andhra-pradesh,1962,102,BAPATLA,MANTHENA SATYAVATHI,parties.IN.INC,INC,13104,27.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-102,andhra-pradesh,1962,102,BAPATLA,PASUPULETI KOTESWARARAO,parties.IN.SWA,SWA,10117,20.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-102,andhra-pradesh,1962,102,BAPATLA,ASADI RATNA REDDY,parties.IN.IND,IND,6239,12.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-102,andhra-pradesh,1962,102,BAPATLA,KATIKALA GABRIAL,parties.IN.IND,IND,3376,7.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-102,andhra-pradesh,1962,102,BAPATLA,CHIVUKULA ANJANEYULU,parties.IN.JS,JS,735,1.53,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-102,andhra-pradesh,1962,102,BAPATLA,MOHD. KHADER HUSSAIN,parties.IN.IND,IND,301,0.62,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-103,andhra-pradesh,1962,103,CHIRALA,JAGARLAMUDI LAXMINARAYANA CHOWDARY,parties.IN.CPI,CPI,25164,45.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-103,andhra-pradesh,1962,103,CHIRALA,PRAGADA KOTAIAH,parties.IN.INC,INC,20136,36.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-103,andhra-pradesh,1962,103,CHIRALA,BANDLA CHINA BAPAIAH,parties.IN.SWA,SWA,8742,15.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-103,andhra-pradesh,1962,103,CHIRALA,MANNAVA BAPAIAH,parties.IN.JS,JS,979,1.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-103,andhra-pradesh,1962,103,CHIRALA,PALLAPOLU SAMBAIAH,parties.IN.SOC,SOC,840,1.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-104,andhra-pradesh,1962,104,PARUCHURU,NARAHARISETTI VENKATASWAMY,parties.IN.CPI,CPI,20948,46.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-104,andhra-pradesh,1962,104,PARUCHURU,MADDUKURNI NARAYANARAO,parties.IN.INC,INC,12891,28.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-104,andhra-pradesh,1962,104,PARUCHURU,TELLA KRISHNAMMA,parties.IN.SWA,SWA,11607,25.54,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-105,andhra-pradesh,1962,105,PEDDAKAKANI,PANGULURI KOTESWARARAO,parties.IN.CPI,CPI,17392,35.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-105,andhra-pradesh,1962,105,PEDDAKAKANI,GUNTUPALLI SURYANARAYANA,parties.IN.INC,INC,15450,31.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-105,andhra-pradesh,1962,105,PEDDAKAKANI,B. V. SIVAIAH,parties.IN.SWA,SWA,14574,29.78,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-105,andhra-pradesh,1962,105,PEDDAKAKANI,CHINTALA NAGAIAH,parties.IN.IND,IND,1080,2.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-105,andhra-pradesh,1962,105,PEDDAKAKANI,EDLA ANANADA RAO,parties.IN.JS,JS,443,0.91,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-106,andhra-pradesh,1962,106,MANGLAGIRI,VEMULAPALLI SRIKRISHNA,parties.IN.CPI,CPI,23568,45.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-106,andhra-pradesh,1962,106,MANGLAGIRI,TAMMA RANGA REDDY,parties.IN.INC,INC,18417,35.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-106,andhra-pradesh,1962,106,MANGLAGIRI,KARUMANCHI VENKATA SUBBAIAH,parties.IN.SWA,SWA,9099,17.53,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-106,andhra-pradesh,1962,106,MANGLAGIRI,MUNAGALA NAGABHUSHANAM,parties.IN.JS,JS,811,1.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-107,andhra-pradesh,1962,107,GUNTUR I,KANAPARTHI NAGAIAH,parties.IN.CPI,CPI,32001,52.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-107,andhra-pradesh,1962,107,GUNTUR I,AMAMCHERLA SESHACHALAPATHIRAO,parties.IN.INC,INC,25044,40.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-107,andhra-pradesh,1962,107,GUNTUR I,TALLAM VENKATTABAPARAO,parties.IN.JS,JS,4047,6.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-108,andhra-pradesh,1962,108,GUNTUR I I,CHEBROLU HAMUMAIAH,parties.IN.INC,INC,26261,49.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-108,andhra-pradesh,1962,108,GUNTUR I I,DAMINENI YAGNA RAMAIAH,parties.IN.CPI,CPI,25903,48.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-108,andhra-pradesh,1962,108,GUNTUR I I,SYAMALA VENKATARAMI REDDY,parties.IN.JS,JS,972,1.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-109,andhra-pradesh,1962,109,PEDDAKURAPADU,GANAPA RAMASWAMI REDDY,parties.IN.INC,INC,17720,41.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-109,andhra-pradesh,1962,109,PEDDAKURAPADU,PUTHUMBAKA VENKATAPATHI,parties.IN.CPI,CPI,15444,36.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-109,andhra-pradesh,1962,109,PEDDAKURAPADU,NELAKUDITI VENKATRAO,parties.IN.IND,IND,9660,22.56,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-110,andhra-pradesh,1962,110,PHIRANGIPURAM,KASU BRAHMANANDA REDDI,parties.IN.INC,INC,27494,50.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-110,andhra-pradesh,1962,110,PHIRANGIPURAM,JAGARLAMUDI CHANDRA MOULI,parties.IN.SWA,SWA,26991,49.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-111,andhra-pradesh,1962,111,SATTENAPALLI,VAVILALA GOPALAKRISHNAIAH,parties.IN.IND,IND,23611,53.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-111,andhra-pradesh,1962,111,SATTENAPALLI,MEDURI NAGESWARA RAO,parties.IN.INC,INC,18926,42.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-111,andhra-pradesh,1962,111,SATTENAPALLI,JUPUDI YAGNANRAYANA,parties.IN.JS,JS,1705,3.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-112,andhra-pradesh,1962,112,GURZALA,KOTHA VENKATESWARALU,parties.IN.INC,INC,21323,48.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-112,andhra-pradesh,1962,112,GURZALA,KOLA SUBBAREDDI,parties.IN.CPI,CPI,16708,38.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-112,andhra-pradesh,1962,112,GURZALA,MOHAMMAD ABDUL SALAM,parties.IN.SWA,SWA,5684,13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-113,andhra-pradesh,1962,113,MACHERLA,MUDAVATHU KESAVANAYAKUDU,parties.IN.INC,INC,21283,54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-113,andhra-pradesh,1962,113,MACHERLA,MADIGANI DEVADATTU,parties.IN.SWA,SWA,18127,46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-114,andhra-pradesh,1962,114,VINUKONDA,PULUPULA VENKATASIVIAH,parties.IN.CPI,CPI,17051,37.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-114,andhra-pradesh,1962,114,VINUKONDA,BHAVANAM JAYAPRADHA,parties.IN.INC,INC,12987,28.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-114,andhra-pradesh,1962,114,VINUKONDA,AVUDARI VENKATESWARLU,parties.IN.SWA,SWA,10017,22.14,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-114,andhra-pradesh,1962,114,VINUKONDA,PANDULA PHILIP,parties.IN.IND,IND,3709,8.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-114,andhra-pradesh,1962,114,VINUKONDA,GUTHA SUBBARAO,parties.IN.JS,JS,1472,3.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-115,andhra-pradesh,1962,115,MARTUR,NOOTI VENKATESWARLU,parties.IN.INC,INC,17974,40.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-115,andhra-pradesh,1962,115,MARTUR,KANDIMALLA BUTCHAIAH,parties.IN.SWA,SWA,16141,35.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-115,andhra-pradesh,1962,115,MARTUR,PEDAVALLI SREERAMULU,parties.IN.CPI,CPI,10779,24.01,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-116,andhra-pradesh,1962,116,NARASARAOPET,CHAPALAMADUGU RAMAIAH CHOWDARY,parties.IN.INC,INC,19676,38.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-116,andhra-pradesh,1962,116,NARASARAOPET,KOTHURI VENKATESWARLU,parties.IN.SWA,SWA,17020,33.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-116,andhra-pradesh,1962,116,NARASARAOPET,KONDRAGUNTA VENKATESWARLU,parties.IN.CPI,CPI,13585,26.43,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-116,andhra-pradesh,1962,116,NARASARAOPET,BODDUCHERLA RAVINDRUDU,parties.IN.JS,JS,1124,2.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-117,andhra-pradesh,1962,117,ADDANKI,PATIBANDLA RANGANAYAKULU,parties.IN.CPI,CPI,18356,42.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-117,andhra-pradesh,1962,117,ADDANKI,PACHINA APPARAO,parties.IN.INC,INC,14584,33.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-117,andhra-pradesh,1962,117,ADDANKI,NADENDLA VENKATESWARARAO,parties.IN.SWA,SWA,10029,23.34,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-118,andhra-pradesh,1962,118,AMMANABROLU,SUDANAGUNTA SINGAIAH,parties.IN.CPI,CPI,23502,47.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-118,andhra-pradesh,1962,118,AMMANABROLU,MOPARTHI PUNNAIAH CHOWDARY,parties.IN.INC,INC,20060,40.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-118,andhra-pradesh,1962,118,AMMANABROLU,RAVIPATI ANKAMMA,parties.IN.SWA,SWA,5591,11.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-119,andhra-pradesh,1962,119,ONGOLE,BOLLINENI VENKATALAKSHMI NARAYANA,parties.IN.IND,IND,24506,55.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-119,andhra-pradesh,1962,119,ONGOLE,RONDA NARAPAREDDI,parties.IN.INC,INC,18419,41.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-119,andhra-pradesh,1962,119,ONGOLE,VELAMPALLI VENKATESWARLU,parties.IN.JS,JS,1616,3.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-120,andhra-pradesh,1962,120,SANTHANUTHALAPADU,TAVANAM CHENCHAIAH,parties.IN.CPI,CPI,18649,47.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-120,andhra-pradesh,1962,120,SANTHANUTHALAPADU,VEMULA NAGARATNAM,parties.IN.INC,INC,15658,39.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-120,andhra-pradesh,1962,120,SANTHANUTHALAPADU,TALLURI KRUSHNA MOHAN DAS,parties.IN.SWA,SWA,4920,12.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-121,andhra-pradesh,1962,121,DARSI,DIRISALA VENKATARAMANAREDDY,parties.IN.INC,INC,14411,35.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-121,andhra-pradesh,1962,121,DARSI,NUSAM KASI REDDY,parties.IN.CPI,CPI,13533,33.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-121,andhra-pradesh,1962,121,DARSI,RAVIPATI MAHANANDA,parties.IN.SWA,SWA,12593,31.07,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-122,andhra-pradesh,1962,122,PODILI,KATURI NARAYANASWAMY,parties.IN.INC,INC,25654,50.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-122,andhra-pradesh,1962,122,PODILI,SANIKOMMU KASI REDDY,parties.IN.CPI,CPI,22051,43.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-122,andhra-pradesh,1962,122,PODILI,ANNAPUREDDY THRAPATHAIAH,parties.IN.JS,JS,3118,6.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-123,andhra-pradesh,1962,123,KANIGIRI,KOTAPATI GURUSWAMYREDDY,parties.IN.CPI,CPI,22392,53.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-123,andhra-pradesh,1962,123,KANIGIRI,SHAIK MOWLA SAHIB,parties.IN.INC,INC,19557,46.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-124,andhra-pradesh,1962,124,UDAYAGIRI,P. VENKATA REDDI,parties.IN.INC,INC,17128,50.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-124,andhra-pradesh,1962,124,UDAYAGIRI,S. PAPI REDDY,parties.IN.CPI,CPI,10726,31.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-124,andhra-pradesh,1962,124,UDAYAGIRI,ABDUL KHADAR RAZDAR,parties.IN.IND,IND,3224,9.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-124,andhra-pradesh,1962,124,UDAYAGIRI,P. SUBBA REDDY,parties.IN.JS,JS,1529,4.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-124,andhra-pradesh,1962,124,UDAYAGIRI,T. KHAJA HUSSAIN,parties.IN.SOC,SOC,1254,3.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-125,andhra-pradesh,1962,125,KANDUKUR,NALAMOTHU CHANCHURAMA NAIDU,parties.IN.INC,INC,23905,50.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-125,andhra-pradesh,1962,125,KANDUKUR,DIVI KONDAIAH CHOWDARY,parties.IN.SWA,SWA,22233,47.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-125,andhra-pradesh,1962,125,KANDUKUR,KAVARTHAPU CHINNABBY,parties.IN.JS,JS,681,1.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-125,andhra-pradesh,1962,125,KANDUKUR,PAYIDIPATI VENKATA NARAYANA RAO,parties.IN.IND,IND,467,0.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-126,andhra-pradesh,1962,126,KONDAPI,CHAGANTI ROSAIAH NAIDU,parties.IN.INC,INC,22682,55.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-126,andhra-pradesh,1962,126,KONDAPI,RAVI CHENCHAIAH,parties.IN.CPI,CPI,14977,36.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-126,andhra-pradesh,1962,126,KONDAPI,CHILAKALAPUDI SANGAM BABU,parties.IN.JS,JS,3198,7.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-127,andhra-pradesh,1962,127,NANDIPAD,KOVI RAMAIAH CHOWDARY,parties.IN.INC,INC,24291,54.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-127,andhra-pradesh,1962,127,NANDIPAD,D. NARASIMHAM,parties.IN.SWA,SWA,19888,44.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-127,andhra-pradesh,1962,127,NANDIPAD,V. NAREPAREDDY,parties.IN.IND,IND,502,1.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-128,andhra-pradesh,1962,128,KAVALI,YALAMPALLI PENCHALAIAH,parties.IN.INC,INC,20558,54.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-128,andhra-pradesh,1962,128,KAVALI,CHELAMAHARLA PENCHALAIAH,parties.IN.SWA,SWA,14535,38.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-128,andhra-pradesh,1962,128,KAVALI,GALI RAMANAIAH,parties.IN.JS,JS,2637,6.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-129,andhra-pradesh,1962,129,KOVUR,REBALA DASARATHARAMA REDDY,parties.IN.INC,INC,29914,50.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-129,andhra-pradesh,1962,129,KOVUR,BASWAREDDI SANKARAIAH,parties.IN.CPI,CPI,29391,49.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-130,andhra-pradesh,1962,130,BUCHIREDDIPALEM,SWARNA VEMAYYA,parties.IN.CPI,CPI,30534,55.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-130,andhra-pradesh,1962,130,BUCHIREDDIPALEM,MANGALAGIRI NANADAS,parties.IN.INC,INC,24343,44.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-131,andhra-pradesh,1962,131,ATMAKUR,ANAM SANJEEVA REDDY,parties.IN.INC,INC,31445,57.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-131,andhra-pradesh,1962,131,ATMAKUR,PELLAKUR RAMACHANDRA REDDY,parties.IN.SWA,SWA,22798,42.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-132,andhra-pradesh,1962,132,RAPUR,ANAMCHENCHU SUBBA REDDY,parties.IN.INC,INC,30014,65.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-132,andhra-pradesh,1962,132,RAPUR,PEMMASANI VENKATA NARASIMHA PRASAD,parties.IN.SWA,SWA,16125,34.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-133,andhra-pradesh,1962,133,VENKATAGIRI,ALLAM KRUSHNAIH,parties.IN.INC,INC,24075,59.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-133,andhra-pradesh,1962,133,VENKATAGIRI,BANDI CHANDRASEKHARAM,parties.IN.SWA,SWA,16285,40.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-134,andhra-pradesh,1962,134,NELLORE,GANGA CHINA KONDAIAH,parties.IN.INC,INC,24344,45.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-134,andhra-pradesh,1962,134,NELLORE,PARUCHURI RAMAKOTAIAH,parties.IN.CPI,CPI,23736,44.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-134,andhra-pradesh,1962,134,NELLORE,KANUPARTI LAXMINARAYANA RAO,parties.IN.IND,IND,3611,6.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-134,andhra-pradesh,1962,134,NELLORE,GOLI SANKARAIAH,parties.IN.IND,IND,624,1.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-134,andhra-pradesh,1962,134,NELLORE,ISAKA RAMAIAH NAIDU,parties.IN.SWA,SWA,522,0.98,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-134,andhra-pradesh,1962,134,NELLORE,VADDINENI RAMANAIDU,parties.IN.IND,IND,250,0.47,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-135,andhra-pradesh,1962,135,SARVEPALLI,VEMAREDDY VENKUREDDY,parties.IN.IND,IND,23441,50.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-135,andhra-pradesh,1962,135,SARVEPALLI,VANGALLU KODANDARAMI REDDI,parties.IN.INC,INC,23355,49.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-136,andhra-pradesh,1962,136,GUDUR,MERLAPAKA MUNUSWAMI,parties.IN.INC,INC,18930,38.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-136,andhra-pradesh,1962,136,GUDUR,PARICHERLA BALARAMIAH,parties.IN.SWA,SWA,15331,31.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-136,andhra-pradesh,1962,136,GUDUR,KOTTU RAGHURAMIAH,parties.IN.JS,JS,7575,15.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-136,andhra-pradesh,1962,136,GUDUR,OREPALLI VENKATASUBBIAH,parties.IN.REP,REP,7538,15.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-137,andhra-pradesh,1962,137,SULLURPET,PASUPULETI SIDDIAHNAIDU,parties.IN.INC,INC,23342,52.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-137,andhra-pradesh,1962,137,SULLURPET,BADDEPUDI PERAREDDY,parties.IN.IND,IND,21344,47.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-138,andhra-pradesh,1962,138,YERPEDU,PATRA SINGARIAH,parties.IN.INC,INC,10407,39.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-138,andhra-pradesh,1962,138,YERPEDU,GNANA PRAKASAM,parties.IN.IND,IND,9888,37.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-138,andhra-pradesh,1962,138,YERPEDU,VALLOORI PRAKASA RAO,parties.IN.SWA,SWA,4172,15.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-138,andhra-pradesh,1962,138,YERPEDU,GUDARU VENKAIAH,parties.IN.IND,IND,1145,4.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-138,andhra-pradesh,1962,138,YERPEDU,Y. GANGADHARAM,parties.IN.JS,JS,614,2.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-139,andhra-pradesh,1962,139,KALAHASTI,ADDURU BALARAMI REDDI,parties.IN.INC,INC,16356,39.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-139,andhra-pradesh,1962,139,KALAHASTI,P. VENKATAPPIAH,parties.IN.CPI,CPI,12216,29.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-139,andhra-pradesh,1962,139,KALAHASTI,ANASAMREDDI PRATHAPASUNDRARAMIREDDY,parties.IN.SWA,SWA,10240,24.84,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-139,andhra-pradesh,1962,139,KALAHASTI,R. VENKATASUBBARAO,parties.IN.IND,IND,2408,5.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-140,andhra-pradesh,1962,140,VADAMALPET,P. NARAYANA REDDY,parties.IN.INC,INC,18762,40.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-140,andhra-pradesh,1962,140,VADAMALPET,GANDHAMNENI SIVAYYA,parties.IN.CPI,CPI,14778,32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-140,andhra-pradesh,1962,140,VADAMALPET,PUTTURU VARADA REDDI,parties.IN.SWA,SWA,12640,27.37,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-141,andhra-pradesh,1962,141,NAGARI,DOMMARAJU GOPALU RAJU,parties.IN.IND,IND,19696,51.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-141,andhra-pradesh,1962,141,NAGARI,KILARI GOPALU NAIDU,parties.IN.INC,INC,18159,47.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-141,andhra-pradesh,1962,141,NAGARI,RAGHAVA MODALI,parties.IN.IND,IND,642,1.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-142,andhra-pradesh,1962,142,SATYAVEDU,TAMBURA BALAKRUSHNIAH,parties.IN.INC,INC,7482,32.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-142,andhra-pradesh,1962,142,SATYAVEDU,KATARI M MUNASWAMI,parties.IN.SWA,SWA,7240,31.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-142,andhra-pradesh,1962,142,SATYAVEDU,M. SUNDARAIAH,parties.IN.IND,IND,4469,19.53,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-142,andhra-pradesh,1962,142,SATYAVEDU,NARASIMMULU,parties.IN.IND,IND,2148,9.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-142,andhra-pradesh,1962,142,SATYAVEDU,SOORAYYA,parties.IN.IND,IND,1545,6.75,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-143,andhra-pradesh,1962,143,VEPANJERI,G. N. PATTABHI REDDY,parties.IN.IND,IND,25131,50.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-143,andhra-pradesh,1962,143,VEPANJERI,N. P. CHANGALRAYA NAIDU,parties.IN.INC,INC,24798,49.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-144,andhra-pradesh,1962,144,CHITTOOR,C. D. NAIDU,parties.IN.SWA,SWA,35256,72.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-144,andhra-pradesh,1962,144,CHITTOOR,P. CHINNAMA REDDY,parties.IN.INC,INC,13301,27.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-145,andhra-pradesh,1962,145,TAVANAMPALLE,P. RAJAGOPAL NAIDU,parties.IN.SWA,SWA,24791,54.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-145,andhra-pradesh,1962,145,TAVANAMPALLE,K. SRIRAMULA REDDY,parties.IN.INC,INC,17997,39.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-145,andhra-pradesh,1962,145,TAVANAMPALLE,C. NARAYANASWAMY,parties.IN.IND,IND,1655,3.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-145,andhra-pradesh,1962,145,TAVANAMPALLE,DAMODRAM,parties.IN.IND,IND,1205,2.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-146,andhra-pradesh,1962,146,KUPPAM,A. P. VAJRAVELU CHETTY,parties.IN.CPI,CPI,22534,59.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-146,andhra-pradesh,1962,146,KUPPAM,RAMASWAMI NAIDU,parties.IN.INC,INC,13882,36.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-146,andhra-pradesh,1962,146,KUPPAM,L. SUNDARARAJA IYENGAR,parties.IN.SWA,SWA,1572,4.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-147,andhra-pradesh,1962,147,PALMANER,KUSINI NANJAPPA,parties.IN.INC,INC,11716,47.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-147,andhra-pradesh,1962,147,PALMANER,P. PONNURAJ,parties.IN.IND,IND,4953,19.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-147,andhra-pradesh,1962,147,PALMANER,VYDYAM MUNNEYYA,parties.IN.SWA,SWA,4556,18.33,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-147,andhra-pradesh,1962,147,PALMANER,LAKSHAMAIAH,parties.IN.IND,IND,2604,10.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-147,andhra-pradesh,1962,147,PALMANER,NARAYANAPPA,parties.IN.IND,IND,1021,4.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-148,andhra-pradesh,1962,148,PUNGANUR,VARANASI RAMASWAMY REDDY,parties.IN.INC,INC,27837,61.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-148,andhra-pradesh,1962,148,PUNGANUR,BALINAYANI MUNI REDDY,parties.IN.IND,IND,13804,30.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-148,andhra-pradesh,1962,148,PUNGANUR,BADALA KRUSHNAMOORTHY RAO,parties.IN.IND,IND,1495,3.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-148,andhra-pradesh,1962,148,PUNGANUR,KANAMAKUNTA DAVID,parties.IN.IND,IND,1296,2.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-148,andhra-pradesh,1962,148,PUNGANUR,K. SIVARAMAIAH,parties.IN.IND,IND,492,1.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-149,andhra-pradesh,1962,149,MADANAPALLE,DODDA SEETHARAMIAH,parties.IN.CPI,CPI,17357,51.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-149,andhra-pradesh,1962,149,MADANAPALLE,NUTHI RADHAKRISHNAYYA,parties.IN.INC,INC,11391,33.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-149,andhra-pradesh,1962,149,MADANAPALLE,S. JAYARAMA REDDY,parties.IN.SWA,SWA,4769,14.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-150,andhra-pradesh,1962,150,THAMBALLAPALLE,KADAPA NARASIMHA REDDY,parties.IN.SWA,SWA,28656,63.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-150,andhra-pradesh,1962,150,THAMBALLAPALLE,T. N. VENKATASUBBA REDDY,parties.IN.INC,INC,16819,36.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-151,andhra-pradesh,1962,151,VAYALPAD,N. AMARANADHA REDDY,parties.IN.IND,IND,16152,42.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-151,andhra-pradesh,1962,151,VAYALPAD,PEDDIREDDI THIMMA REDDY,parties.IN.INC,INC,15381,40.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-151,andhra-pradesh,1962,151,VAYALPAD,C. RAMA NARAYANA REDDY,parties.IN.IND,IND,5185,13.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-151,andhra-pradesh,1962,151,VAYALPAD,P. A. RAHMAN,parties.IN.IND,IND,1259,3.32,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-152,andhra-pradesh,1962,152,PILERU,C. K. NARAYANA REDDY,parties.IN.CPI,CPI,21088,48.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-152,andhra-pradesh,1962,152,PILERU,SYFULLA BAIG,parties.IN.INC,INC,14175,32.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-152,andhra-pradesh,1962,152,PILERU,RAYA VENKATADRI NAIDU,parties.IN.IND,IND,5550,12.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-152,andhra-pradesh,1962,152,PILERU,SIDDULU,parties.IN.IND,IND,2398,5.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-153,andhra-pradesh,1962,153,TIRUPATHI,REDDIVARI NADAMUNI REDDY,parties.IN.INC,INC,19882,42.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-153,andhra-pradesh,1962,153,TIRUPATHI,ESWARA REDDY,parties.IN.SWA,SWA,14889,32.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-153,andhra-pradesh,1962,153,TIRUPATHI,C. KASAVAIAH NAIDU,parties.IN.IND,IND,5854,12.6,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-153,andhra-pradesh,1962,153,TIRUPATHI,M. N. VENKATA REDDY,parties.IN.IND,IND,4579,9.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-153,andhra-pradesh,1962,153,TIRUPATHI,M. KOTHANDARAMASWAMI REDDY,parties.IN.IND,IND,825,1.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-153,andhra-pradesh,1962,153,TIRUPATHI,VIRUPAKSHAM NARAYANA CHETTY,parties.IN.JS,JS,449,0.97,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-154,andhra-pradesh,1962,154,KODUR,N. PENCHALAIAH,parties.IN.SWA,SWA,10135,40.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-154,andhra-pradesh,1962,154,KODUR,PALA VENKATASUBBAIAH,parties.IN.INC,INC,8116,32.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-154,andhra-pradesh,1962,154,KODUR,YEDDULA RAMAMURTHY,parties.IN.IND,IND,2901,11.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-154,andhra-pradesh,1962,154,KODUR,YANDRAPALLE PENCHALAIAH,parties.IN.IND,IND,2599,10.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-154,andhra-pradesh,1962,154,KODUR,NARASIAH ALIAS NARAYANA,parties.IN.IND,IND,1510,5.98,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-155,andhra-pradesh,1962,155,RAJAMPET,KONDUR MARAREDDI,parties.IN.SWA,SWA,14335,41.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-155,andhra-pradesh,1962,155,RAJAMPET,POTHURAJU PARTHASARATHY,parties.IN.INC,INC,9600,27.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-155,andhra-pradesh,1962,155,RAJAMPET,PANJAM NARASIMHA REDDI,parties.IN.CPI,CPI,6207,18.03,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-155,andhra-pradesh,1962,155,RAJAMPET,VELURU HANUMANTHA NAIDU,parties.IN.IND,IND,4287,12.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-156,andhra-pradesh,1962,156,RAYACHOTI,RACHAMALLA NARAYANA REDDY,parties.IN.SWA,SWA,32938,57.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-156,andhra-pradesh,1962,156,RAYACHOTI,Y. ADINARAYANA REDDY,parties.IN.INC,INC,23970,42.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-157,andhra-pradesh,1962,157,LAKKIREDDIPALLI,GALIVATI VISWANATHAREDDY,parties.IN.IND,IND,23388,50.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-157,andhra-pradesh,1962,157,LAKKIREDDIPALLI,REDDYAPPAGARI RAJA GOPAL REDDY,parties.IN.INC,INC,22794,49.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-158,andhra-pradesh,1962,158,CUDDAPAH,PULLAGURI SESHAIAH,parties.IN.IND,IND,36538,55.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-158,andhra-pradesh,1962,158,CUDDAPAH,S. M. RAHAMATHULLAH,parties.IN.INC,INC,28802,43.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-158,andhra-pradesh,1962,158,CUDDAPAH,SAYAD ABDUL GAFFOR SAHEB,parties.IN.IND,IND,513,0.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-159,andhra-pradesh,1962,159,BADVEL,VADDAMANI CHIDANANDAM,parties.IN.SWA,SWA,25841,56.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-159,andhra-pradesh,1962,159,BADVEL,BANDARU RATNASABHAPATHY CHETTY,parties.IN.INC,INC,19125,41.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-159,andhra-pradesh,1962,159,BADVEL,VEMULA KURMAIAHGARI NARASIMHAIAH,parties.IN.IND,IND,830,1.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-160,andhra-pradesh,1962,160,MYDUKUR,PELAKOLANU NARAYANA REDDY,parties.IN.SWA,SWA,19119,40.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-160,andhra-pradesh,1962,160,MYDUKUR,PEDDIREDDI LAKSHMINARASIMHA REDDY,parties.IN.CPI,CPI,13385,28.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-160,andhra-pradesh,1962,160,MYDUKUR,BOMMU RAMA REDDY,parties.IN.INC,INC,12958,27.65,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-160,andhra-pradesh,1962,160,MYDUKUR,POTHIREDDI THIPPA REDDY,parties.IN.IND,IND,1398,2.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-161,andhra-pradesh,1962,161,PRODDATUR,PANYAM YERRAMUNI REDDY,parties.IN.IND,IND,30695,50.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-161,andhra-pradesh,1962,161,PRODDATUR,RAMIREDDI CHANDRA OBULA REDDY,parties.IN.INC,INC,27568,44.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-161,andhra-pradesh,1962,161,PRODDATUR,BANDARU SUBBARAYUDU,parties.IN.IND,IND,3042,4.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-162,andhra-pradesh,1962,162,JAMMALAMADUGU,THATHIREDDI NARASIMHAREDDY,parties.IN.INC,INC,30596,55.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-162,andhra-pradesh,1962,162,JAMMALAMADUGU,KUNDA RAMAIAH,parties.IN.IND,IND,24173,44.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-163,andhra-pradesh,1962,163,KAMALAPURAM,VADDAMANI VENKATA REDDY,parties.IN.INC,INC,21487,53.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-163,andhra-pradesh,1962,163,KAMALAPURAM,NARREDDI SIVARAMI REDDY,parties.IN.CPI,CPI,18529,46.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-164,andhra-pradesh,1962,164,PULIVENDLA,CHAVVA BALI REDDY,parties.IN.IND,IND,25451,55.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-164,andhra-pradesh,1962,164,PULIVENDLA,PENCHIKALA BASI REDDY,parties.IN.INC,INC,20443,44.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-165,andhra-pradesh,1962,165,KADIRI,E. GOPALU NAIK,parties.IN.INC,INC,13427,50.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-165,andhra-pradesh,1962,165,KADIRI,GHANE NAYAKA,parties.IN.CPI,CPI,12343,46.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-165,andhra-pradesh,1962,165,KADIRI,POOLA KRISHNAN,parties.IN.SWA,SWA,1022,3.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-166,andhra-pradesh,1962,166,NALLAMADA,Y. PAPI REDDY,parties.IN.IND,IND,22415,59.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-166,andhra-pradesh,1962,166,NALLAMADA,K. V. VEMA REDDY,parties.IN.INC,INC,12835,33.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-166,andhra-pradesh,1962,166,NALLAMADA,NARAYANA REDDY,parties.IN.SWA,SWA,2687,7.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-167,andhra-pradesh,1962,167,GORANTLA,B. V. BAYAPPA REDDY,parties.IN.INC,INC,21028,50.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-167,andhra-pradesh,1962,167,GORANTLA,BIAP REDDY,parties.IN.IND,IND,20302,48.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-167,andhra-pradesh,1962,167,GORANTLA,P. VENKATA REDDI,parties.IN.IND,IND,359,0.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-168,andhra-pradesh,1962,168,HINDUPUR,K. RAMAKRISHNA REDDY,parties.IN.IND,IND,20199,58.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-168,andhra-pradesh,1962,168,HINDUPUR,KALLUR SUBBARAO,parties.IN.INC,INC,11440,33.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-168,andhra-pradesh,1962,168,HINDUPUR,THIPPANNA,parties.IN.IND,IND,1601,4.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-168,andhra-pradesh,1962,168,HINDUPUR,SYED ALI,parties.IN.IND,IND,696,2.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-168,andhra-pradesh,1962,168,HINDUPUR,M. VENKATARAMANAPPA,parties.IN.IND,IND,371,1.08,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-169,andhra-pradesh,1962,169,MADAKASIRA,B. RUKMINI DEVI,parties.IN.INC,INC,15079,61.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-169,andhra-pradesh,1962,169,MADAKASIRA,NARASIMHASWAMY,parties.IN.IND,IND,6062,24.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-169,andhra-pradesh,1962,169,MADAKASIRA,M. KADIRAPPA,parties.IN.IND,IND,3248,13.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-170,andhra-pradesh,1962,170,PENUKONDA,NARASI REDDY,parties.IN.IND,IND,23990,52.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-170,andhra-pradesh,1962,170,PENUKONDA,CHITHAMBARA REDDY,parties.IN.INC,INC,19617,42.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-170,andhra-pradesh,1962,170,PENUKONDA,DEVANGAM NANJAIAH,parties.IN.JS,JS,2323,5.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-171,andhra-pradesh,1962,171,DHARMAVARAM,P. VENKATESWARA CHOUDARI,parties.IN.INC,INC,20120,53.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-171,andhra-pradesh,1962,171,DHARMAVARAM,LAKSHMI NARAYANAPPA,parties.IN.IND,IND,17181,46.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-172,andhra-pradesh,1962,172,ANANTAPUR,P. ANTONY REDDY,parties.IN.INC,INC,20698,42.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-172,andhra-pradesh,1962,172,ANANTAPUR,B. GOPALAKRISHNA,parties.IN.CPI,CPI,18406,37.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-172,andhra-pradesh,1962,172,ANANTAPUR,P. RAMACHANDRA REDDY,parties.IN.PSP,PSP,4944,10.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-172,andhra-pradesh,1962,172,ANANTAPUR,PAPURU RAMACHARLU,parties.IN.SWA,SWA,2867,5.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-172,andhra-pradesh,1962,172,ANANTAPUR,NALLAN CHAKRAVARTHI RAJAGOPALAN,parties.IN.IND,IND,1175,2.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-172,andhra-pradesh,1962,172,ANANTAPUR,C. MOHAMED ALI,parties.IN.IND,IND,706,1.45,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-173,andhra-pradesh,1962,173,PUTLOOR,TARIMELA NAGIREDDY,parties.IN.CPI,CPI,21081,51.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-173,andhra-pradesh,1962,173,PUTLOOR,T. RAMACHANDRA REDDY,parties.IN.INC,INC,20131,48.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-174,andhra-pradesh,1962,174,TADPATRI,C. KULASEKHARA REDDI,parties.IN.IND,IND,24539,50.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-174,andhra-pradesh,1962,174,TADPATRI,CHALLA SUBBARAYUDU,parties.IN.INC,INC,18872,38.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-174,andhra-pradesh,1962,174,TADPATRI,GUDA RAMI REDDI,parties.IN.IND,IND,5171,10.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-175,andhra-pradesh,1962,175,GOOTY,V. K. ADINARAYANA REDDY,parties.IN.CPI,CPI,9585,28.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-175,andhra-pradesh,1962,175,GOOTY,R. RAMCHANDRA GOWD,parties.IN.SWA,SWA,8122,24.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-175,andhra-pradesh,1962,175,GOOTY,PAPA SAHIB,parties.IN.INC,INC,7589,22.69,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-175,andhra-pradesh,1962,175,GOOTY,R. SULTAN,parties.IN.IND,IND,7045,21.06,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-175,andhra-pradesh,1962,175,GOOTY,K. T. MOSES,parties.IN.IND,IND,771,2.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-175,andhra-pradesh,1962,175,GOOTY,N. VIRUPAKSHA REDDY,parties.IN.JS,JS,338,1.01,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-176,andhra-pradesh,1962,176,URAVAKONDA,GURRAM CHINNA VENKANNA,parties.IN.IND,IND,17744,47.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-176,andhra-pradesh,1962,176,URAVAKONDA,DARUR PULLAIAH,parties.IN.IND,IND,13014,34.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-176,andhra-pradesh,1962,176,URAVAKONDA,SANDA NARAYANAPPA,parties.IN.INC,INC,6895,18.31,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-177,andhra-pradesh,1962,177,RAYADRUG,LAKKA CHINNAPA REDDY,parties.IN.INC,INC,21750,51.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-177,andhra-pradesh,1962,177,RAYADRUG,M. V. LAKSHMIPATHY,parties.IN.SWA,SWA,20338,48.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-178,andhra-pradesh,1962,178,KALYANDRUG,HINDI NARASAPPA,parties.IN.INC,INC,17022,47.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-178,andhra-pradesh,1962,178,KALYANDRUG,B. RAMAPPA,parties.IN.IND,IND,13902,38.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-178,andhra-pradesh,1962,178,KALYANDRUG,VISWANATHAM,parties.IN.SWA,SWA,4812,13.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-179,andhra-pradesh,1962,179,ALLUR,D. LAKSHMIKANTHA REDDY,parties.IN.INC,INC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-180,andhra-pradesh,1962,180,ADONI,H. SITARAMA REDDY,parties.IN.IND,IND,23264,52.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-180,andhra-pradesh,1962,180,ADONI,K. C. THIMMA REDDY,parties.IN.INC,INC,18494,41.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-180,andhra-pradesh,1962,180,ADONI,VENKATA SUBBIAH,parties.IN.IND,IND,1534,3.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-180,andhra-pradesh,1962,180,ADONI,SHAIK MOHAMMED NIZAMI,parties.IN.IND,IND,1310,2.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-181,andhra-pradesh,1962,181,KOSIGI,SATYANARAYANA RAJU,parties.IN.INC,INC,14532,49.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-181,andhra-pradesh,1962,181,KOSIGI,TIRUMALA REDDY,parties.IN.IND,IND,11402,39.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-181,andhra-pradesh,1962,181,KOSIGI,SIVALINGAMA GOUD,parties.IN.IND,IND,3237,11.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-182,andhra-pradesh,1962,182,YEMMIGANUR,Y. C. VEERABHADRA GOWD,parties.IN.SWA,SWA,15967,52.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-182,andhra-pradesh,1962,182,YEMMIGANUR,K. VIJAYABHASKARA REDDY,parties.IN.INC,INC,14532,47.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-183,andhra-pradesh,1962,183,KODUMUR,D. SANJIVAYYA,parties.IN.INC,INC,23318,58.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-183,andhra-pradesh,1962,183,KODUMUR,P. RAJARATHNA RAO,parties.IN.IND,IND,16496,41.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-184,andhra-pradesh,1962,184,PATTIKONDA,K. B. NARASAPPA,parties.IN.INC,INC,23706,55.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-184,andhra-pradesh,1962,184,PATTIKONDA,LAKSHMINARAYANA REDDY,parties.IN.IND,IND,18719,44.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-185,andhra-pradesh,1962,185,DHONE,NEELAM SANJEEVA REDDY,parties.IN.INC,INC,33201,87.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-185,andhra-pradesh,1962,185,DHONE,LAKSHMISWARAMMA,parties.IN.IND,IND,1829,4.81,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-185,andhra-pradesh,1962,185,DHONE,S. YELLAIAH SETTY,parties.IN.IND,IND,1130,2.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-185,andhra-pradesh,1962,185,DHONE,VENKATESWARAMMA,parties.IN.IND,IND,1092,2.87,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-185,andhra-pradesh,1962,185,DHONE,K. VENKATASWAMY,parties.IN.IND,IND,601,1.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-185,andhra-pradesh,1962,185,DHONE,SREERAMULU,parties.IN.IND,IND,172,0.45,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-186,andhra-pradesh,1962,186,KURNOOL,T.K.R. SARMA,parties.IN.IND,IND,22427,51.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-186,andhra-pradesh,1962,186,KURNOOL,ABDUL GHANI KHAN,parties.IN.INC,INC,15586,35.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-186,andhra-pradesh,1962,186,KURNOOL,MAMARAPU HUSSAINAPPA,parties.IN.IND,IND,2754,6.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-186,andhra-pradesh,1962,186,KURNOOL,A. VENUGOPALA REDDY,parties.IN.JS,JS,1631,3.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-186,andhra-pradesh,1962,186,KURNOOL,S. A. GAFFAR,parties.IN.SWA,SWA,1010,2.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-187,andhra-pradesh,1962,187,NANDIKOTKUR,PULYALA VENKATAKRISHNA REDDY,parties.IN.IND,IND,26728,53.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-187,andhra-pradesh,1962,187,NANDIKOTKUR,CHALLA RAMABHUPALREDDY,parties.IN.INC,INC,22885,46.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-188,andhra-pradesh,1962,188,MIDTHUR,E. AYYAPU REDDY,parties.IN.INC,INC,24769,51.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-188,andhra-pradesh,1962,188,MIDTHUR,CHANDRA PULLA REDDY,parties.IN.CPI,CPI,21737,45.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-188,andhra-pradesh,1962,188,MIDTHUR,K. RAMAKRISHNA REDDY,parties.IN.SWA,SWA,1183,2.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-189,andhra-pradesh,1962,189,NANDYAL,MALLU SUBBA REDDY,parties.IN.IND,IND,14790,39.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-189,andhra-pradesh,1962,189,NANDYAL,PYREDDI ANTHONI REDDY,parties.IN.INC,INC,12948,34.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-189,andhra-pradesh,1962,189,NANDYAL,P. MUNI REDDI,parties.IN.SWA,SWA,6390,16.89,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-189,andhra-pradesh,1962,189,NANDYAL,MEDA RAMAIAH,parties.IN.IND,IND,3704,9.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-190,andhra-pradesh,1962,190,KOILKUNTLA,B. V. SUBBA REDDY,parties.IN.INC,INC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-191,andhra-pradesh,1962,191,ALLAGADDA,SITRI JAYARAJU,parties.IN.INC,INC,13041,46.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-191,andhra-pradesh,1962,191,ALLAGADDA,NERALLA SUNDARA RAJU,parties.IN.CPI,CPI,8682,31.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-191,andhra-pradesh,1962,191,ALLAGADDA,GADEKARI PEDDA OBAIAH,parties.IN.IND,IND,3593,12.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-191,andhra-pradesh,1962,191,ALLAGADDA,KEDEM KUMAR RAJA,parties.IN.SWA,SWA,2591,9.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-192,andhra-pradesh,1962,192,GIDDALUR,EDULA BALARAMI REDDI,parties.IN.IND,IND,25630,51.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-192,andhra-pradesh,1962,192,GIDDALUR,PIDATHALA RANGAREDDI,parties.IN.INC,INC,23934,48.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-193,andhra-pradesh,1962,193,MARKAPUR,KANDULA OBULA REDDI,parties.IN.INC,INC,25786,66.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-193,andhra-pradesh,1962,193,MARKAPUR,MUTHAKAPALLI MOORTHIREDDI,parties.IN.IND,IND,13093,33.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-194,andhra-pradesh,1962,194,YERRAGONDIPALEM,POOLA SUBBAIAH,parties.IN.CPI,CPI,25304,59.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-194,andhra-pradesh,1962,194,YERRAGONDIPALEM,JANKE RAMIREDDI,parties.IN.INC,INC,14913,35.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-194,andhra-pradesh,1962,194,YERRAGONDIPALEM,ARAVAPALLI PERI SETTI,parties.IN.JS,JS,2372,5.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-195,andhra-pradesh,1962,195,KALWAKURTHI,VENKAT REDDY,parties.IN.IND,IND,11284,35.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-195,andhra-pradesh,1962,195,KALWAKURTHI,SHANTA BAI TALPALLEKAR,parties.IN.INC,INC,10463,32.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-195,andhra-pradesh,1962,195,KALWAKURTHI,MANPAL REDDY,parties.IN.CPI,CPI,10198,31.92,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-196,andhra-pradesh,1962,196,ACHAMPET,K. NAGANNA,parties.IN.INC,INC,15583,60.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-196,andhra-pradesh,1962,196,ACHAMPET,SUNKAM ACHALU,parties.IN.CPI,CPI,10114,39.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-197,andhra-pradesh,1962,197,KOLLAPUR,K. RANG DAS,parties.IN.INC,INC,21197,51.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-197,andhra-pradesh,1962,197,KOLLAPUR,GOPAL RAO,parties.IN.CPI,CPI,19855,48.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-198,andhra-pradesh,1962,198,ALAMPUR,D. MURALIDHAR REDDY,parties.IN.INC,INC,20715,48.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-198,andhra-pradesh,1962,198,ALAMPUR,PUGA PULLA REDDY,parties.IN.IND,IND,20548,48.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-198,andhra-pradesh,1962,198,ALAMPUR,DHARMA REDDY,parties.IN.IND,IND,1035,2.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-199,andhra-pradesh,1962,199,GADWAL,KRISHNA RAM BHOPAL,parties.IN.INC,INC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-200,andhra-pradesh,1962,200,WANAPARTHI,KUMUDINI DEVI,parties.IN.INC,INC,27387,85.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-200,andhra-pradesh,1962,200,WANAPARTHI,GANGAVARAM SIVA REDDI,parties.IN.IND,IND,4745,14.77,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-201,andhra-pradesh,1962,201,ATMAKUR,SOM BHOPAL,parties.IN.IND,IND,23663,59.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-201,andhra-pradesh,1962,201,ATMAKUR,JAYALAKSHMI DEVAMMA,parties.IN.INC,INC,15955,40.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-202,andhra-pradesh,1962,202,MAKTHAL,KALYANI RAMCHANDER RAO,parties.IN.INC,INC,23816,69.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-202,andhra-pradesh,1962,202,MAKTHAL,BHAGOJI AMBADAS RAO,parties.IN.IND,IND,10321,30.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-203,andhra-pradesh,1962,203,MADOOR,ELLERI BASAPPA,parties.IN.INC,INC,9250,52.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-203,andhra-pradesh,1962,203,MADOOR,G. NARASING RAO,parties.IN.IND,IND,7504,42.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-203,andhra-pradesh,1962,203,MADOOR,PULI RAMASWAMY,parties.IN.IND,IND,740,4.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-204,andhra-pradesh,1962,204,KODANGAL,RUKMA REDDY,parties.IN.SWA,SWA,13028,52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-204,andhra-pradesh,1962,204,KODANGAL,K. ACHUTA REDDY,parties.IN.INC,INC,12028,48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-205,andhra-pradesh,1962,205,MAHABUBNAGAR,M. RAM REDDY,parties.IN.IND,IND,15282,54.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-205,andhra-pradesh,1962,205,MAHABUBNAGAR,MOHAMED IBRAHIM ALI,parties.IN.INC,INC,11630,41.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-205,andhra-pradesh,1962,205,MAHABUBNAGAR,VENKATLAXMA REDDY,parties.IN.SWA,SWA,1209,4.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-206,andhra-pradesh,1962,206,SHADNAGAR,DAMODARA REDDY,parties.IN.INC,INC,16805,65.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-206,andhra-pradesh,1962,206,SHADNAGAR,AFZAL BIA BANI,parties.IN.IND,IND,8817,34.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-207,andhra-pradesh,1962,207,JADCHERLA,KESHAVULU,parties.IN.IND,IND,17927,57.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-207,andhra-pradesh,1962,207,JADCHERLA,K. JANARDHAN REDDY,parties.IN.INC,INC,13097,42.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-208,andhra-pradesh,1962,208,NAGARKURNOOL,P. MAHENDRANATH,parties.IN.INC,INC,20652,53.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-208,andhra-pradesh,1962,208,NAGARKURNOOL,B. MACHENDAR RAO,parties.IN.IND,IND,18145,46.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-209,andhra-pradesh,1962,209,MUSHEERABAD,T. ANJIAH,parties.IN.INC,INC,16844,54.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-209,andhra-pradesh,1962,209,MUSHEERABAD,N. SATYANARAYANA REDDY,parties.IN.CPI,CPI,8761,28.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-209,andhra-pradesh,1962,209,MUSHEERABAD,S. SHANKARIAH,parties.IN.IND,IND,1694,5.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-209,andhra-pradesh,1962,209,MUSHEERABAD,V. RAMA RAO,parties.IN.JS,JS,1206,3.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-209,andhra-pradesh,1962,209,MUSHEERABAD,NETIKAR NARSING RAO,parties.IN.IND,IND,999,3.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-209,andhra-pradesh,1962,209,MUSHEERABAD,K. KISHORE DUTH,parties.IN.SWA,SWA,913,2.94,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-209,andhra-pradesh,1962,209,MUSHEERABAD,SYED ABDUL MAJEED,parties.IN.IND,IND,651,2.1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-210,andhra-pradesh,1962,210,SULTAN BAZAR,VASUDEV KRISHANJI NAIK,parties.IN.INC,INC,15965,76.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-210,andhra-pradesh,1962,210,SULTAN BAZAR,ISMAIL ZABIH,parties.IN.IND,IND,1652,7.96,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-210,andhra-pradesh,1962,210,SULTAN BAZAR,L. V. S. SARMA,parties.IN.JS,JS,1611,7.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-210,andhra-pradesh,1962,210,SULTAN BAZAR,KESHAV RAO,parties.IN.IND,IND,1170,5.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-210,andhra-pradesh,1962,210,SULTAN BAZAR,C. SEETHA RAMIAH,parties.IN.IND,IND,352,1.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-211,andhra-pradesh,1962,211,BEGUM BAZAAR,K. SEETHAIAH GUPTA,parties.IN.INC,INC,17459,69.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-211,andhra-pradesh,1962,211,BEGUM BAZAAR,SYED SIRAJUDDIN,parties.IN.IND,IND,4189,16.64,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-211,andhra-pradesh,1962,211,BEGUM BAZAAR,BRIJNATH BHARAGHE,parties.IN.JS,JS,2702,10.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-211,andhra-pradesh,1962,211,BEGUM BAZAAR,BANILAL,parties.IN.IND,IND,826,3.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-212,andhra-pradesh,1962,212,ASAFNAGAR,M. M. HASHIM,parties.IN.INC,INC,12186,51.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-212,andhra-pradesh,1962,212,ASAFNAGAR,AHMED HUSSAIN,parties.IN.IND,IND,5912,24.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-212,andhra-pradesh,1962,212,ASAFNAGAR,V. VEERABHADRA RAO,parties.IN.IND,IND,3712,15.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-212,andhra-pradesh,1962,212,ASAFNAGAR,ISHAQ MIRZA,parties.IN.IND,IND,1094,4.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-212,andhra-pradesh,1962,212,ASAFNAGAR,D. V. S. S. MURTHI,parties.IN.IND,IND,511,2.15,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-212,andhra-pradesh,1962,212,ASAFNAGAR,VASUDEV,parties.IN.JS,JS,302,1.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-213,andhra-pradesh,1962,213,HIGH COURT,B. RAMDEV,parties.IN.INC,INC,10394,42.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-213,andhra-pradesh,1962,213,HIGH COURT,KHAJA NIZAMUDDIN,parties.IN.IND,IND,6309,25.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-213,andhra-pradesh,1962,213,HIGH COURT,BADARI VISHAL,parties.IN.SOC,SOC,6267,25.67,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-213,andhra-pradesh,1962,213,HIGH COURT,OM PRAKASH,parties.IN.JS,JS,1444,5.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-214,andhra-pradesh,1962,214,MALAKPET,MIR AHAMED ALI KHAN,parties.IN.INC,INC,10166,44.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-214,andhra-pradesh,1962,214,MALAKPET,KHAJA ABU SYEED,parties.IN.IND,IND,7581,32.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-214,andhra-pradesh,1962,214,MALAKPET,SYED HASAN,parties.IN.IND,IND,1908,8.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-214,andhra-pradesh,1962,214,MALAKPET,MIRZA JAMIL AHMED BAIG,parties.IN.IND,IND,1548,6.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-214,andhra-pradesh,1962,214,MALAKPET,ABDUL RAHMAN,parties.IN.SWA,SWA,1014,4.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-214,andhra-pradesh,1962,214,MALAKPET,P. VENKAT RAMAYYA,parties.IN.IND,IND,786,3.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-215,andhra-pradesh,1962,215,YAKUTPURA,M. A. RASHEED,parties.IN.INC,INC,12578,46.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-215,andhra-pradesh,1962,215,YAKUTPURA,MIR MAHBOOD ALI,parties.IN.IND,IND,9490,34.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-215,andhra-pradesh,1962,215,YAKUTPURA,GURUNATH PERSHAD SAXENA,parties.IN.IND,IND,3026,11.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-215,andhra-pradesh,1962,215,YAKUTPURA,SHAREEF MOHAMMED,parties.IN.IND,IND,2185,8.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-216,andhra-pradesh,1962,216,PATHERGATTI,SULTAN SALAHUDDIN OWAISI,parties.IN.IND,IND,13122,49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-216,andhra-pradesh,1962,216,PATHERGATTI,MASOOMA BEGUM,parties.IN.INC,INC,7981,29.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-216,andhra-pradesh,1962,216,PATHERGATTI,RAJ BAHADUR GOUR,parties.IN.CPI,CPI,4441,16.58,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-216,andhra-pradesh,1962,216,PATHERGATTI,SYED GHOUSE MOHIDDIN JAWEED,parties.IN.IND,IND,471,1.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-216,andhra-pradesh,1962,216,PATHERGATTI,MIR SAFDAR ALI,parties.IN.IND,IND,407,1.52,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-216,andhra-pradesh,1962,216,PATHERGATTI,MOHD. JALAL,parties.IN.IND,IND,360,1.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-217,andhra-pradesh,1962,217,SECUNDERABAD,K. S. NARAYANA,parties.IN.INC,INC,20596,72.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-217,andhra-pradesh,1962,217,SECUNDERABAD,G. M. ANJIAH,parties.IN.SOC,SOC,4951,17.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-217,andhra-pradesh,1962,217,SECUNDERABAD,J. VENKATESHAM,parties.IN.PSP,PSP,1595,5.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-217,andhra-pradesh,1962,217,SECUNDERABAD,A. RADHAKRISHNAMURTHY,parties.IN.JS,JS,1158,4.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-218,andhra-pradesh,1962,218,SECUNDERABAD CANTONMENT,B. V. GURUMURTHY,parties.IN.INC,INC,18209,59.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-218,andhra-pradesh,1962,218,SECUNDERABAD CANTONMENT,P. JAGANNADHAN,parties.IN.IND,IND,7970,26.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-218,andhra-pradesh,1962,218,SECUNDERABAD CANTONMENT,M. SAMBAMURTHY,parties.IN.SOC,SOC,2604,8.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-218,andhra-pradesh,1962,218,SECUNDERABAD CANTONMENT,KESAVA REDDY,parties.IN.SWA,SWA,1046,3.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-218,andhra-pradesh,1962,218,SECUNDERABAD CANTONMENT,C. VENKATA KRISHNA,parties.IN.JS,JS,648,2.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-219,andhra-pradesh,1962,219,HYDERABAD EAST,SUMITRA DEVI,parties.IN.INC,INC,14662,63.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-219,andhra-pradesh,1962,219,HYDERABAD EAST,RAMCHANDAR,parties.IN.REP,REP,2907,12.56,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-219,andhra-pradesh,1962,219,HYDERABAD EAST,LAXMI BAI,parties.IN.PSP,PSP,2091,9.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-219,andhra-pradesh,1962,219,HYDERABAD EAST,SOJA LINGAM,parties.IN.SWA,SWA,1891,8.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-219,andhra-pradesh,1962,219,HYDERABAD EAST,MAISIAH,parties.IN.SOC,SOC,1595,6.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-220,andhra-pradesh,1962,220,JUBILLEE HILLS,RODA H. P. MISTRY,parties.IN.INC,INC,17514,70.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-220,andhra-pradesh,1962,220,JUBILLEE HILLS,M. GOVINDA CHARY,parties.IN.IND,IND,4651,18.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-220,andhra-pradesh,1962,220,JUBILLEE HILLS,SUDARSHAN SINGH,parties.IN.IND,IND,1826,7.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-220,andhra-pradesh,1962,220,JUBILLEE HILLS,HABEEB MUSTAFA,parties.IN.IND,IND,717,2.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-221,andhra-pradesh,1962,221,IBRAHIMPATAM,M. N. LAKSHMINARSAIAH,parties.IN.INC,INC,27295,76.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-221,andhra-pradesh,1962,221,IBRAHIMPATAM,KALEM PAPA REDDY,parties.IN.IND,IND,5366,15.08,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-221,andhra-pradesh,1962,221,IBRAHIMPATAM,RAJI REDDY,parties.IN.IND,IND,2927,8.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-222,andhra-pradesh,1962,222,MEDCHAL,V. RAMCHANDRA RAO,parties.IN.IND,IND,15315,53.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-222,andhra-pradesh,1962,222,MEDCHAL,K. V. RANGAREDDY,parties.IN.INC,INC,13554,46.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-223,andhra-pradesh,1962,223,CHEVELLA,V. RAMARAO,parties.IN.INC,INC,15483,64.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-223,andhra-pradesh,1962,223,CHEVELLA,S. B. SUKHLAL,parties.IN.IND,IND,7089,29.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-223,andhra-pradesh,1962,223,CHEVELLA,K. PREMKUMAR,parties.IN.IND,IND,1588,6.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-224,andhra-pradesh,1962,224,PARGI,M. RAMA DEVA REDDY,parties.IN.INC,INC,16494,63.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-224,andhra-pradesh,1962,224,PARGI,KOMMU HARIJANA SUDERSHANAM,parties.IN.IND,IND,9520,36.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-225,andhra-pradesh,1962,225,TANDUR,M. CHENNAREDDY,parties.IN.INC,INC,15658,45.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-225,andhra-pradesh,1962,225,TANDUR,CHANDRASHEKAR,parties.IN.IND,IND,15402,45.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-225,andhra-pradesh,1962,225,TANDUR,T. KRISHNAREDDY,parties.IN.SWA,SWA,1671,4.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-225,andhra-pradesh,1962,225,TANDUR,GUBBALINGAIAH,parties.IN.IND,IND,737,2.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-225,andhra-pradesh,1962,225,TANDUR,K. G. KRISHNAMURTHY,parties.IN.IND,IND,732,2.14,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-226,andhra-pradesh,1962,226,VICARABAD,A. RAMASWAMY,parties.IN.INC,INC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-227,andhra-pradesh,1962,227,ZAHIRABAD,M. BAGA REDDY,parties.IN.INC,INC,18630,56.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-227,andhra-pradesh,1962,227,ZAHIRABAD,LATIFUNNISA BEGUM,parties.IN.SWA,SWA,6189,18.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-227,andhra-pradesh,1962,227,ZAHIRABAD,RAMRAO,parties.IN.CPI,CPI,3101,9.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-227,andhra-pradesh,1962,227,ZAHIRABAD,M. R. VIJENDRA KUMAR ROBERT,parties.IN.PSP,PSP,2441,7.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-227,andhra-pradesh,1962,227,ZAHIRABAD,BAPURAO DESHPANDE,parties.IN.IND,IND,1957,5.96,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-227,andhra-pradesh,1962,227,ZAHIRABAD,ABDUL SUBHAN,parties.IN.SOC,SOC,520,1.58,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-228,andhra-pradesh,1962,228,NARAYANKHED,RAMCHANDER RAO DESHPANDE,parties.IN.SWA,SWA,14287,54.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-228,andhra-pradesh,1962,228,NARAYANKHED,SHATKAR APPARAO,parties.IN.INC,INC,12078,45.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-229,andhra-pradesh,1962,229,ANDOLE,S. L. DEVI,parties.IN.INC,INC,25976,78.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-229,andhra-pradesh,1962,229,ANDOLE,BASVA MANAIAH,parties.IN.IND,IND,6991,21.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-230,andhra-pradesh,1962,230,SADASIVPET,C. RAJANARASIMHA,parties.IN.INC,INC,13471,63.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-230,andhra-pradesh,1962,230,SADASIVPET,SIVAYYA,parties.IN.IND,IND,4656,22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-230,andhra-pradesh,1962,230,SADASIVPET,RAMCHANDRIAH,parties.IN.IND,IND,2314,10.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-230,andhra-pradesh,1962,230,SADASIVPET,K. ANTHIAH,parties.IN.REP,REP,723,3.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-231,andhra-pradesh,1962,231,SANGAREDDY,P. RAMCHANDRA REDDY,parties.IN.INC,INC,22074,61.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-231,andhra-pradesh,1962,231,SANGAREDDY,K. NARAYAN REDDY,parties.IN.CPI,CPI,8710,24.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-231,andhra-pradesh,1962,231,SANGAREDDY,NARAYAN REDDY,parties.IN.IND,IND,4953,13.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-232,andhra-pradesh,1962,232,NARSAPUR,VITHAL REDDY,parties.IN.CPI,CPI,19144,55.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-232,andhra-pradesh,1962,232,NARSAPUR,JAGANNATH RAO,parties.IN.INC,INC,15399,44.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-233,andhra-pradesh,1962,233,MEDAK,KEVAL ANANDA DEVI,parties.IN.CPI,CPI,20874,55.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-233,andhra-pradesh,1962,233,MEDAK,SHAMAKKAGARI KONDAL REDDY,parties.IN.IND,IND,9547,25.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-233,andhra-pradesh,1962,233,MEDAK,R. VENKATESWARA RAO,parties.IN.INC,INC,4968,13.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-233,andhra-pradesh,1962,233,MEDAK,CHAUDARI GANGAREDDY,parties.IN.IND,IND,2264,6.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-234,andhra-pradesh,1962,234,RAMAYENPET,REDDI RATNAMMA,parties.IN.INC,INC,16822,54.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-234,andhra-pradesh,1962,234,RAMAYENPET,R. SATYANARAYANA,parties.IN.IND,IND,12856,41.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-234,andhra-pradesh,1962,234,RAMAYENPET,P. NARSIMHA REDDI,parties.IN.SWA,SWA,1086,3.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-235,andhra-pradesh,1962,235,GAJWEL,GAJWEL SAIDIAH,parties.IN.IND,IND,11653,42.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-235,andhra-pradesh,1962,235,GAJWEL,G. VENKATA SWAMY,parties.IN.INC,INC,10618,38.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-235,andhra-pradesh,1962,235,GAJWEL,B. VEERA SWAMY,parties.IN.IND,IND,2657,9.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-235,andhra-pradesh,1962,235,GAJWEL,GURRAM RAMCHANDER,parties.IN.SWA,SWA,2459,8.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-236,andhra-pradesh,1962,236,DOMMAT,KHWAJA MOINUDDIN,parties.IN.INC,INC,16205,47.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-236,andhra-pradesh,1962,236,DOMMAT,M. K. MOINUDDIN,parties.IN.CPI,CPI,11890,35.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-236,andhra-pradesh,1962,236,DOMMAT,RAMCHANDRIAH,parties.IN.IND,IND,5830,17.18,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-237,andhra-pradesh,1962,237,SIDDIPET,SOMESHWAR RAO,parties.IN.IND,IND,18320,52.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-237,andhra-pradesh,1962,237,SIDDIPET,P. V. RAJESHWAR RAO,parties.IN.INC,INC,16827,47.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-238,andhra-pradesh,1962,238,KAMAREDDY,VITTALREDDIGARI VENKATARAMA REDDY,parties.IN.INC,INC,11149,39.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-238,andhra-pradesh,1962,238,KAMAREDDY,KOTEPALLI PEDDA RAJ REDDY,parties.IN.IND,IND,9854,34.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-238,andhra-pradesh,1962,238,KAMAREDDY,K. NARAYAN RAO,parties.IN.IND,IND,5272,18.61,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-238,andhra-pradesh,1962,238,KAMAREDDY,PARSI SHANKARIAH,parties.IN.IND,IND,2053,7.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-239,andhra-pradesh,1962,239,YELLAREDDI,T. N. SADA LAKSHMI,parties.IN.INC,INC,13032,59.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-239,andhra-pradesh,1962,239,YELLAREDDI,J. ESHWARI BAI,parties.IN.REP,REP,9045,40.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-240,andhra-pradesh,1962,240,BANSWADA,SREENIVASA REDDY,parties.IN.INC,INC,21418,53.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-240,andhra-pradesh,1962,240,BANSWADA,NARLA RAJIAH,parties.IN.IND,IND,18395,46.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-241,andhra-pradesh,1962,241,JUKKAL,NAGNATH RAO,parties.IN.INC,INC,19944,63.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-241,andhra-pradesh,1962,241,JUKKAL,MANIKESHWAR RAO,parties.IN.IND,IND,7969,25.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-241,andhra-pradesh,1962,241,JUKKAL,BHEEM RAO,parties.IN.IND,IND,3266,10.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-242,andhra-pradesh,1962,242,BODHAN,M. RAMGOPAL REDDY,parties.IN.IND,IND,19416,53.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-242,andhra-pradesh,1962,242,BODHAN,K. V. REDDY,parties.IN.INC,INC,16585,46.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-243,andhra-pradesh,1962,243,NIZAMABAD,HARI NARAYAN,parties.IN.IND,IND,16535,53.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-243,andhra-pradesh,1962,243,NIZAMABAD,DAVER HUSSAIN,parties.IN.INC,INC,11430,37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-243,andhra-pradesh,1962,243,NIZAMABAD,K. SESHA CHARY,parties.IN.SWA,SWA,2930,9.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-244,andhra-pradesh,1962,244,ARMOOR,T. RANGA REDDY,parties.IN.INC,INC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-245,andhra-pradesh,1962,245,BALKONDA,G. RAJA RAM,parties.IN.INC,INC,22985,61.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-245,andhra-pradesh,1962,245,BALKONDA,KHYATHAM SRIDHAR REDDY,parties.IN.IND,IND,9292,24.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-245,andhra-pradesh,1962,245,BALKONDA,GANGAM NARASA REDDY,parties.IN.CPI,CPI,5174,13.82,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-246,andhra-pradesh,1962,246,MUDHOLE,GOPIDI GANGA REDDY,parties.IN.INC,INC,13080,47.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-246,andhra-pradesh,1962,246,MUDHOLE,GADDANNA,parties.IN.IND,IND,11357,41.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-246,andhra-pradesh,1962,246,MUDHOLE,SHANKERGIR,parties.IN.REP,REP,2026,7.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-246,andhra-pradesh,1962,246,MUDHOLE,JALEELUR RAHMAN,parties.IN.IND,IND,1165,4.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-247,andhra-pradesh,1962,247,NIRMAL,P. NARSA REDDY,parties.IN.INC,INC,22147,74.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-247,andhra-pradesh,1962,247,NIRMAL,PRABHAKAR REDDY,parties.IN.IND,IND,7724,25.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-248,andhra-pradesh,1962,248,ADILABAD,VITHAL RAO,parties.IN.IND,IND,13949,38.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-248,andhra-pradesh,1962,248,ADILABAD,KASTAL RAM KISHTOO,parties.IN.CPI,CPI,12895,35.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-248,andhra-pradesh,1962,248,ADILABAD,K. ASHANNA,parties.IN.INC,INC,9811,26.77,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-249,andhra-pradesh,1962,249,BOATH,C. MADHAV REDDI,parties.IN.INC,INC,15990,57.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-249,andhra-pradesh,1962,249,BOATH,RAJA REDDY,parties.IN.CPI,CPI,10236,36.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-249,andhra-pradesh,1962,249,BOATH,LINGANNA,parties.IN.IND,IND,971,3.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-249,andhra-pradesh,1962,249,BOATH,GANGA MALLESHWAR,parties.IN.IND,IND,634,2.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-250,andhra-pradesh,1962,250,ASIFABAD,BHIM RAO,parties.IN.INC,INC,13186,64.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-250,andhra-pradesh,1962,250,ASIFABAD,ATRAM ASSUVANTHA RAO,parties.IN.CPI,CPI,7391,35.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-251,andhra-pradesh,1962,251,LUXETTIPETH,G. V. PITHAMBARA RAO,parties.IN.IND,IND,24027,54.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-251,andhra-pradesh,1962,251,LUXETTIPETH,J. V. NARSING RAO,parties.IN.INC,INC,20153,45.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-252,andhra-pradesh,1962,252,SIRPUR,SANJIVA REDDY,parties.IN.INC,INC,16459,72.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-252,andhra-pradesh,1962,252,SIRPUR,M. BALARAMAIAH,parties.IN.IND,IND,2087,9.14,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-252,andhra-pradesh,1962,252,SIRPUR,NARHAR RAO,parties.IN.JS,JS,1861,8.15,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-252,andhra-pradesh,1962,252,SIRPUR,GULAM MOHAMMED,parties.IN.IND,IND,1309,5.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-252,andhra-pradesh,1962,252,SIRPUR,VENKATACHARI,parties.IN.IND,IND,1117,4.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-253,andhra-pradesh,1962,253,CHINNUR,KODATI RAJAMALLU,parties.IN.INC,INC,18629,71.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-253,andhra-pradesh,1962,253,CHINNUR,CHANDAYYA,parties.IN.IND,IND,5461,20.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-253,andhra-pradesh,1962,253,CHINNUR,CHIKOTI BABU RAO,parties.IN.IND,IND,1934,7.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-254,andhra-pradesh,1962,254,MANTHANI,PAMULAPARATI VENKATANARASIMHA RAO,parties.IN.INC,INC,16844,67.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-254,andhra-pradesh,1962,254,MANTHANI,GULUKOTA SRIRAMULU,parties.IN.IND,IND,3740,15.03,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-254,andhra-pradesh,1962,254,MANTHANI,SAYAPRAJU MURLIDHAR RAO,parties.IN.CPI,CPI,2482,9.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-254,andhra-pradesh,1962,254,MANTHANI,S. R. LAXMAN,parties.IN.IND,IND,1818,7.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-255,andhra-pradesh,1962,255,PEDDAPALLI,BUTTI RAJA RAM,parties.IN.INC,INC,16311,75.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-255,andhra-pradesh,1962,255,PEDDAPALLI,PARVATHALU,parties.IN.CPI,CPI,4402,20.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-255,andhra-pradesh,1962,255,PEDDAPALLI,A. P. HANMANTHU,parties.IN.IND,IND,846,3.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-256,andhra-pradesh,1962,256,SULTANABAD,MALLA REDDY,parties.IN.IND,IND,18166,57.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-256,andhra-pradesh,1962,256,SULTANABAD,P. RAMACHANDAR RAO,parties.IN.INC,INC,7966,25.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-256,andhra-pradesh,1962,256,SULTANABAD,PARPATI JANARDAN REDDY,parties.IN.SOC,SOC,2891,9.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-256,andhra-pradesh,1962,256,SULTANABAD,KANTHA RAO,parties.IN.IND,IND,2547,8.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-257,andhra-pradesh,1962,257,MAIDARAM,M. RAMGOPAL REDDY,parties.IN.IND,IND,18312,60.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-257,andhra-pradesh,1962,257,MAIDARAM,SHANKARAIAH,parties.IN.INC,INC,7787,25.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-257,andhra-pradesh,1962,257,MAIDARAM,JUVVADI GAUTHAM RAO,parties.IN.SOC,SOC,4378,14.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-258,andhra-pradesh,1962,258,JAGTIAL,MAKUNOORU DHARMA RAO,parties.IN.IND,IND,18713,52.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-258,andhra-pradesh,1962,258,JAGTIAL,DEVAKONDA HANMANTH RAO,parties.IN.INC,INC,16612,47.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-259,andhra-pradesh,1962,259,BUGGARAM,ANUGU NARAYAN REDDY,parties.IN.IND,IND,20807,50.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-259,andhra-pradesh,1962,259,BUGGARAM,A. MOHAN REDDY,parties.IN.INC,INC,20493,49.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-260,andhra-pradesh,1962,260,METPALLI,VIJAYARANGA RAO,parties.IN.INC,INC,21352,61.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-260,andhra-pradesh,1962,260,METPALLI,CHILUVERI PRABHAKAR,parties.IN.CPI,CPI,6978,20.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-260,andhra-pradesh,1962,260,METPALLI,ITTADI NARSINGU,parties.IN.IND,IND,4248,12.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-260,andhra-pradesh,1962,260,METPALLI,T. MALLAYA,parties.IN.SWA,SWA,2215,6.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-261,andhra-pradesh,1962,261,SIRCILLA,JUWWADI NARSING RAO,parties.IN.INC,INC,15811,45.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-261,andhra-pradesh,1962,261,SIRCILLA,GUDLA LAKSHMINARSIAH,parties.IN.IND,IND,6703,19.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-261,andhra-pradesh,1962,261,SIRCILLA,AMRUTHALAL SHUKLA,parties.IN.IND,IND,6390,18.34,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-261,andhra-pradesh,1962,261,SIRCILLA,BADDAM YELLA REDDY,parties.IN.CPI,CPI,3482,9.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-261,andhra-pradesh,1962,261,SIRCILLA,GOVARDHAN,parties.IN.IND,IND,2464,7.07,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-262,andhra-pradesh,1962,262,NERELLA,BANDARI JANKIRAM,parties.IN.INC,INC,16359,61.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-262,andhra-pradesh,1962,262,NERELLA,KARRELLA NARSIAH,parties.IN.CPI,CPI,8164,30.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-262,andhra-pradesh,1962,262,NERELLA,AKUNURI KONDIAH,parties.IN.SWA,SWA,1943,7.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-263,andhra-pradesh,1962,263,CHOPPADANDI,BANDARI RAMULU,parties.IN.INC,INC,15749,49.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-263,andhra-pradesh,1962,263,CHOPPADANDI,RAJA REDDY,parties.IN.IND,IND,8228,25.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-263,andhra-pradesh,1962,263,CHOPPADANDI,POOLSANI CHOKKA RAO,parties.IN.CPI,CPI,6883,21.61,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-263,andhra-pradesh,1962,263,CHOPPADANDI,KORRI NARSIMULU,parties.IN.SWA,SWA,987,3.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-264,andhra-pradesh,1962,264,KARIMNAGAR,ALLIREDDY KISHAN REDDY,parties.IN.SOC,SOC,13787,47.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-264,andhra-pradesh,1962,264,KARIMNAGAR,JUVVADI CHOKKA RAO,parties.IN.INC,INC,12169,41.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-264,andhra-pradesh,1962,264,KARIMNAGAR,KHAWAJA JAMALUDDIN AHMED,parties.IN.IND,IND,3332,11.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-265,andhra-pradesh,1962,265,INDURTHI,BOPPARAJU LAKSHMIKANTH RAO,parties.IN.INC,INC,27610,71.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-265,andhra-pradesh,1962,265,INDURTHI,CH. VENKAT RAM RAO,parties.IN.CPI,CPI,9046,23.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-265,andhra-pradesh,1962,265,INDURTHI,GUDDOR MALLESHAM,parties.IN.IND,IND,1763,4.59,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-266,andhra-pradesh,1962,266,HUZURABAD,GADIPALLI RAMULU,parties.IN.INC,INC,22162,73.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-266,andhra-pradesh,1962,266,HUZURABAD,NAINI DEVAYYA,parties.IN.CPI,CPI,8057,26.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-267,andhra-pradesh,1962,267,KAMALAPUR,K. V. NARAYAN REDDY,parties.IN.IND,IND,18192,50.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-267,andhra-pradesh,1962,267,KAMALAPUR,POLSANI NARSINGA RAO,parties.IN.INC,INC,16651,46.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-267,andhra-pradesh,1962,267,KAMALAPUR,THOKALA LAKSHMA REDDY,parties.IN.IND,IND,1063,2.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-268,andhra-pradesh,1962,268,WARANGAL,BHANDARU NAGABHUSHANARAO,parties.IN.IND,IND,12636,46.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-268,andhra-pradesh,1962,268,WARANGAL,MIRZA SHUKOOR BAIG,parties.IN.INC,INC,10918,39.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-268,andhra-pradesh,1962,268,WARANGAL,VODAPALLI VENKATARAMNARSIAH,parties.IN.JS,JS,2890,10.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-268,andhra-pradesh,1962,268,WARANGAL,I. K. MOSES,parties.IN.IND,IND,928,3.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-269,andhra-pradesh,1962,269,DHAMASAGAR,TIRUVARANGAM HAYAGRIVA CHARY,parties.IN.INC,INC,21997,51.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-269,andhra-pradesh,1962,269,DHAMASAGAR,PINGALI VIJAYAPAL REDDY,parties.IN.IND,IND,19356,45.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-269,andhra-pradesh,1962,269,DHAMASAGAR,CHANDA MARKANDEYULU,parties.IN.JS,JS,1429,3.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-270,andhra-pradesh,1962,270,GHANPUR,NELLUTLA PUSHPASENAM VURAP MOHAN RAO,parties.IN.CPI,CPI,16831,47.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-270,andhra-pradesh,1962,270,GHANPUR,BETHI KESHAVA REDDY,parties.IN.INC,INC,14236,40.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-270,andhra-pradesh,1962,270,GHANPUR,BALKISHAN SINGH,parties.IN.JS,JS,2491,7.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-270,andhra-pradesh,1962,270,GHANPUR,MACHARLA JAGANNADHAM,parties.IN.IND,IND,1791,5.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-271,andhra-pradesh,1962,271,CHERIAL,MOHAMED KAMALUDDIN AHMED,parties.IN.INC,INC,15721,43.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-271,andhra-pradesh,1962,271,CHERIAL,GANGASANI GOPAL REDDY,parties.IN.CPI,CPI,13610,37.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-271,andhra-pradesh,1962,271,CHERIAL,BARRE HANUMA REDDY,parties.IN.IND,IND,4235,11.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-271,andhra-pradesh,1962,271,CHERIAL,MANGU SRIHARI,parties.IN.JS,JS,2382,6.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-272,andhra-pradesh,1962,272,JANGAO,GOKA RAMALINGAM,parties.IN.INC,INC,16361,46.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-272,andhra-pradesh,1962,272,JANGAO,KANDUKURI RAGHAVULU,parties.IN.CPI,CPI,16350,46.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-272,andhra-pradesh,1962,272,JANGAO,ADEPU LAKSHMIAH,parties.IN.JS,JS,2827,7.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-273,andhra-pradesh,1962,273,WARDHANNAPET,KUNDOUR LAKSHMINARASIMHA REDDY,parties.IN.IND,IND,10073,34.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-273,andhra-pradesh,1962,273,WARDHANNAPET,PENDYALA RAGHAVA RAO,parties.IN.CPI,CPI,8628,29.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-273,andhra-pradesh,1962,273,WARDHANNAPET,ERRABALLI VENKATARAMANARSIAH,parties.IN.INC,INC,8430,28.56,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-273,andhra-pradesh,1962,273,WARDHANNAPET,KAKKERLA KASINADHAM,parties.IN.SWA,SWA,1735,5.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-273,andhra-pradesh,1962,273,WARDHANNAPET,LINGALA RAMCHANDRA REDDY,parties.IN.JS,JS,654,2.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-274,andhra-pradesh,1962,274,CHANNUR,NEMARUGOMMULA YETHIRAJA RAO,parties.IN.SOC,SOC,28860,62.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-274,andhra-pradesh,1962,274,CHANNUR,MURAHARISETTY VENKATRAMIAH,parties.IN.INC,INC,17269,37.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-275,andhra-pradesh,1962,275,CHILLAMCHERLA,GANDI MALLIKARJUNA RAO,parties.IN.INC,INC,24068,54.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-275,andhra-pradesh,1962,275,CHILLAMCHERLA,KONDAPALLI GOPAL RAO,parties.IN.CPI,CPI,18652,41.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-275,andhra-pradesh,1962,275,CHILLAMCHERLA,MARAMRAJU RAMA RAO,parties.IN.SWA,SWA,1788,4.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-276,andhra-pradesh,1962,276,DORNAKAL,N. RAMACHANDRA REDDY,parties.IN.INC,INC,25650,58.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-276,andhra-pradesh,1962,276,DORNAKAL,J. JANARDHAN REDDY,parties.IN.IND,IND,18182,41.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-277,andhra-pradesh,1962,277,NARSAMPET,ARSHANPALLI VENKATESHWAR RAO,parties.IN.CPI,CPI,27538,54.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-277,andhra-pradesh,1962,277,NARSAMPET,KASARLA SUDARSHANAREDDY,parties.IN.INC,INC,23120,45.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-278,andhra-pradesh,1962,278,HASANPARTHI,CHADA VASUDEVA REDDY,parties.IN.SWA,SWA,15071,49.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-278,andhra-pradesh,1962,278,HASANPARTHI,KANAKA RATNAMMA,parties.IN.INC,INC,9437,30.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-278,andhra-pradesh,1962,278,HASANPARTHI,GADELA VENKATRAMULU,parties.IN.CPI,CPI,6050,19.8,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-279,andhra-pradesh,1962,279,PARKAL,RAUTHU NARSIMHA RAMIAH,parties.IN.INC,INC,12043,53.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-279,andhra-pradesh,1962,279,PARKAL,DOODAPAKA NARSIMHARAJIAH,parties.IN.CPI,CPI,7442,32.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-279,andhra-pradesh,1962,279,PARKAL,GUNTI SUDERSHAN,parties.IN.SWA,SWA,3224,14.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-280,andhra-pradesh,1962,280,MULUG,MUSINEPALLI KRISHNAIAH,parties.IN.INC,INC,21223,57.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-280,andhra-pradesh,1962,280,MULUG,SAKAMUARI VENKATA KRISHNA PRASAD,parties.IN.CPI,CPI,15732,42.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-281,andhra-pradesh,1962,281,YELLANDA,KONDAPALLI LAKSHMINARASIMHA RAO,parties.IN.CPI,CPI,21557,54.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-281,andhra-pradesh,1962,281,YELLANDA,BOMMAKANATI SATYANARAYANARAO,parties.IN.INC,INC,14914,37.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-281,andhra-pradesh,1962,281,YELLANDA,GOGINENI SATYANARAYANARAO,parties.IN.SWA,SWA,3144,7.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-282,andhra-pradesh,1962,282,BURGAMPAHAD,KANGALA BUTCHAYYA,parties.IN.CPI,CPI,22257,50.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-282,andhra-pradesh,1962,282,BURGAMPAHAD,KOMARAM RAMAIAH,parties.IN.INC,INC,22215,49.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-283,andhra-pradesh,1962,283,BHADRACHALAM,MAHAMMED TAHASEEL,parties.IN.CPI,CPI,17146,53.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-283,andhra-pradesh,1962,283,BHADRACHALAM,PITHALA VANI RAMANA RAO,parties.IN.INC,INC,8862,27.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-283,andhra-pradesh,1962,283,BHADRACHALAM,CHENTALACHERUVU VENKATADRI,parties.IN.IND,IND,4168,13.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-283,andhra-pradesh,1962,283,BHADRACHALAM,TELLAM GHANA SAMUEL SUNDAR RAO,parties.IN.IND,IND,1730,5.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-284,andhra-pradesh,1962,284,PALWANCHA,PARSA SATYANARAYANA,parties.IN.CPI,CPI,26450,53.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-284,andhra-pradesh,1962,284,PALWANCHA,KANDIMALLA VENKATARAMA RAO,parties.IN.INC,INC,22198,44.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-284,andhra-pradesh,1962,284,PALWANCHA,MADIRAJU NARASIMHA RAO,parties.IN.JS,JS,885,1.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-285,andhra-pradesh,1962,285,VEMSOOR,JALAGAM VENGALA RAO,parties.IN.INC,INC,36436,64.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-285,andhra-pradesh,1962,285,VEMSOOR,VATTIKONDA NAGESWARA RAO,parties.IN.CPI,CPI,17853,31.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-285,andhra-pradesh,1962,285,VEMSOOR,PORANKI VENKATRAJU,parties.IN.IND,IND,1960,3.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-286,andhra-pradesh,1962,286,MADHIRA,DUGGINENI VENKIAH,parties.IN.INC,INC,26821,55.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-286,andhra-pradesh,1962,286,MADHIRA,RAVILLA SANKARAIAH,parties.IN.IND,IND,21365,44.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-287,andhra-pradesh,1962,287,KHAMMAM,NALLAMALA PRASADA RAO,parties.IN.CPI,CPI,28394,61.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-287,andhra-pradesh,1962,287,KHAMMAM,PARCHA SRINIVASA RAO,parties.IN.INC,INC,16732,36.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-287,andhra-pradesh,1962,287,KHAMMAM,SARVADEVABHATLA NARASIMHAMURTHY,parties.IN.IND,IND,685,1.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-288,andhra-pradesh,1962,288,PALAIR,KATHULA SANTHIAH,parties.IN.INC,INC,21895,51.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-288,andhra-pradesh,1962,288,PALAIR,NAMAVARAPU PEDDANNA,parties.IN.CPI,CPI,19936,46.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-288,andhra-pradesh,1962,288,PALAIR,NEELAM NYSIAH,parties.IN.SWA,SWA,805,1.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-289,andhra-pradesh,1962,289,SURYAPET,UPPULA MALCHOORU,parties.IN.CPI,CPI,24028,53.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-289,andhra-pradesh,1962,289,SURYAPET,YEDLA GOPAIAH,parties.IN.INC,INC,20915,46.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-290,andhra-pradesh,1962,290,NAGARAM,ANIREDDY RANGA REDDY,parties.IN.INC,INC,23376,50.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-290,andhra-pradesh,1962,290,NAGARAM,BHIMAREDDY NARSIMHA REDDY,parties.IN.CPI,CPI,23275,49.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-291,andhra-pradesh,1962,291,RAMANNAPET,K. RAMACHANDRA REDDY,parties.IN.CPI,CPI,23784,56.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-291,andhra-pradesh,1962,291,RAMANNAPET,UPPUNUTHULA PURUSHOTHAM REDDI,parties.IN.INC,INC,18516,43.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-292,andhra-pradesh,1962,292,BHONGIR,ARUTLA RAMCHANDRA REDDY,parties.IN.CPI,CPI,20200,51.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-292,andhra-pradesh,1962,292,BHONGIR,TUMMALA LAKSHMA REDDI,parties.IN.INC,INC,15916,40.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-292,andhra-pradesh,1962,292,BHONGIR,GADIKOTA LAKSHMINARAYANA,parties.IN.JS,JS,3333,8.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-293,andhra-pradesh,1962,293,ALAIR,ARUTLA KAMALA DEVI,parties.IN.CPI,CPI,18763,52.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-293,andhra-pradesh,1962,293,ALAIR,ANREDDY PUNNA REDDY,parties.IN.INC,INC,17094,47.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-294,andhra-pradesh,1962,294,CHINNAKONDUR,KONDAVETI GURUNATHA REDDY,parties.IN.CPI,CPI,20967,48.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-294,andhra-pradesh,1962,294,CHINNAKONDUR,KONDA LAKSHMAN BAPUJI,parties.IN.INC,INC,20411,47.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-294,andhra-pradesh,1962,294,CHINNAKONDUR,GUMMAKALLA NARAYAN REDDY,parties.IN.SWA,SWA,1454,3.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-295,andhra-pradesh,1962,295,NALGONDA,BOMMAGANI DHARMABHIKSHAM,parties.IN.CPI,CPI,18809,61.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-295,andhra-pradesh,1962,295,NALGONDA,MOHD. MAROOF,parties.IN.INC,INC,9159,30.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-295,andhra-pradesh,1962,295,NALGONDA,BAYYANNA,parties.IN.REP,REP,2385,7.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-296,andhra-pradesh,1962,296,NAKREKAL,NANDYALA SRINIVASA REDDY,parties.IN.CPI,CPI,27442,54.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-296,andhra-pradesh,1962,296,NAKREKAL,KANCHERLA RAMAKRISHNAREDDY,parties.IN.INC,INC,22748,45.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-297,andhra-pradesh,1962,297,HUZURNAGAR,AKKIRAJU VASUDEVA RAO,parties.IN.INC,INC,25394,51.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-297,andhra-pradesh,1962,297,HUZURNAGAR,DODDA NARASAIAH,parties.IN.CPI,CPI,22537,45.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-297,andhra-pradesh,1962,297,HUZURNAGAR,KOMARAIAH,parties.IN.IND,IND,1763,3.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-298,andhra-pradesh,1962,298,MIRYALGUDA,TIPPANA CHINA KRISHNA REDDY,parties.IN.INC,INC,24688,54.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-298,andhra-pradesh,1962,298,MIRYALGUDA,CHALLA SEETHARAM REDDY,parties.IN.CPI,CPI,20300,45.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-299,andhra-pradesh,1962,299,PEDDAVOORA,PALLA PARVATHA REDDY,parties.IN.CPI,CPI,18923,46.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-299,andhra-pradesh,1962,299,PEDDAVOORA,GADDAMPALLI NARAYAN REDDY,parties.IN.INC,INC,16641,40.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-299,andhra-pradesh,1962,299,PEDDAVOORA,PARVATHNENI BALARAMAKRISHNARAO,parties.IN.IND,IND,4162,10.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-299,andhra-pradesh,1962,299,PEDDAVOORA,PASAM RUKMA REDDY,parties.IN.SOC,SOC,1238,3.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-300,andhra-pradesh,1962,300,DEVERKONDA,YELMINETI PEDDAIAH,parties.IN.CPI,CPI,17425,53.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-300,andhra-pradesh,1962,300,DEVERKONDA,M. LAKSHMAIAH,parties.IN.INC,INC,12494,38.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-300,andhra-pradesh,1962,300,DEVERKONDA,BADDEY LINGAIAH,parties.IN.REP,REP,1569,4.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-300,andhra-pradesh,1962,300,DEVERKONDA,K. SHANKARAIAH,parties.IN.JS,JS,545,1.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-300,andhra-pradesh,1962,300,DEVERKONDA,SURIGI RAMAIAH,parties.IN.SOC,SOC,346,1.06,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-300,andhra-pradesh,1962,300,DEVERKONDA,NAGILLA PULLAIAH,parties.IN.SWA,SWA,319,0.98,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a

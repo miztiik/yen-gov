@@ -1,0 +1,410 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-jammu-and-kashmir-1,jammu-and-kashmir,1977,1,KARNAH,GHULAM QADIR MIR,parties.IN.JKNC,JKN,12357,46.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-1,jammu-and-kashmir,1977,1,KARNAH,MOHD. YUNUS,parties.IN.INC,INC,7641,28.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-1,jammu-and-kashmir,1977,1,KARNAH,GHULAM RASOOL MALIK,parties.IN.JP,JNP,5868,21.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-1,jammu-and-kashmir,1977,1,KARNAH,MOHD. YASSAIN,parties.IN.IND,IND,818,3.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-2,jammu-and-kashmir,1977,2,HANDWARA,ABDUL GANI LONE,parties.IN.JP,JNP,17021,51.78,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-2,jammu-and-kashmir,1977,2,HANDWARA,SHARIF UD DIN,parties.IN.JKNC,JKN,14702,44.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-2,jammu-and-kashmir,1977,2,HANDWARA,SHEIKH ABDUL RAHMAN,parties.IN.IND,IND,575,1.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-2,jammu-and-kashmir,1977,2,HANDWARA,GHULAM RASOOL WAR,parties.IN.INC,INC,571,1.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-3,jammu-and-kashmir,1977,3,LANGET,MOHAMMAD SULTAN GANAI,parties.IN.JKNC,JKN,11976,50.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-3,jammu-and-kashmir,1977,3,LANGET,ABDUL GANI MIR,parties.IN.IND,IND,3657,15.28,2,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-3,jammu-and-kashmir,1977,3,LANGET,GHULAM RASOOL,parties.IN.UNK,JMI,2978,12.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-3,jammu-and-kashmir,1977,3,LANGET,GHULAM NABI,parties.IN.JP,JNP,2448,10.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-3,jammu-and-kashmir,1977,3,LANGET,GHULAM RASOOL WANI,parties.IN.INC,INC,2198,9.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-3,jammu-and-kashmir,1977,3,LANGET,SHAMAS UD DIN,parties.IN.IND,IND,677,2.83,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-4,jammu-and-kashmir,1977,4,KUPWARA,ASSAD ULLAH SHAH,parties.IN.JKNC,JKN,13780,56.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-4,jammu-and-kashmir,1977,4,KUPWARA,GHULAM NABI,parties.IN.JP,JNP,4834,19.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-4,jammu-and-kashmir,1977,4,KUPWARA,ASHRAF SAHRAI,parties.IN.UNK,JMI,2711,11.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-4,jammu-and-kashmir,1977,4,KUPWARA,SAFI ULAH BUTT,parties.IN.INC,INC,1644,6.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-4,jammu-and-kashmir,1977,4,KUPWARA,WAFADAR KHAN,parties.IN.IND,IND,1320,5.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-4,jammu-and-kashmir,1977,4,KUPWARA,MAKHAN LAL THUSOO,parties.IN.IND,IND,141,0.58,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-5,jammu-and-kashmir,1977,5,BANDIPORA,MOHAMAD KHALIL,parties.IN.JKNC,JKN,18032,70.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-5,jammu-and-kashmir,1977,5,BANDIPORA,MOHAMAD ANWAR KHAN,parties.IN.INC,INC,2299,9.04,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-5,jammu-and-kashmir,1977,5,BANDIPORA,NIZAM - UL - DIN,parties.IN.JP,JNP,2240,8.81,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-5,jammu-and-kashmir,1977,5,BANDIPORA,MOHAMAD SULTAN SHAH,parties.IN.UNK,JMI,1957,7.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-5,jammu-and-kashmir,1977,5,BANDIPORA,MOHMAD MAQSOOD,parties.IN.IND,IND,656,2.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-5,jammu-and-kashmir,1977,5,BANDIPORA,ATTA ULLAH BHAT,parties.IN.IND,IND,235,0.92,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-6,jammu-and-kashmir,1977,6,SONAWARI,ABDUL AZIZ PARRY,parties.IN.JKNC,JKN,21074,67.99,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-6,jammu-and-kashmir,1977,6,SONAWARI,"MOHD, AKBAR LON",parties.IN.JP,JNP,9923,32.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-7,jammu-and-kashmir,1977,7,PATTAN,ABDUL RASHID SHAHEEN,parties.IN.JKNC,JKN,15738,53.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-7,jammu-and-kashmir,1977,7,PATTAN,MOLVLFTIKHAR HUSSAIN ANSARI,parties.IN.JP,JNP,12734,43.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-7,jammu-and-kashmir,1977,7,PATTAN,GHULAM QADIR BEDAR,parties.IN.INC,INC,676,2.32,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-8,jammu-and-kashmir,1977,8,GULMARG,MOHMAD AKBAR LONE,parties.IN.JKNC,JKN,15700,78.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-8,jammu-and-kashmir,1977,8,GULMARG,MIRZA GHULAM AHAMAD BEG,parties.IN.JP,JNP,2334,11.68,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-8,jammu-and-kashmir,1977,8,GULMARG,GHULAM AHMAD LONE,parties.IN.INC,INC,1524,7.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-8,jammu-and-kashmir,1977,8,GULMARG,THAKUR MANGAT SINGH,parties.IN.IND,IND,418,2.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-9,jammu-and-kashmir,1977,9,SANGRAMA,GHULAM RASOOL,parties.IN.JKNC,JKN,13609,70.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-9,jammu-and-kashmir,1977,9,SANGRAMA,SHARIF UD DIN,parties.IN.JP,JNP,2106,10.94,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-9,jammu-and-kashmir,1977,9,SANGRAMA,GULAM HASSAN GANAI,parties.IN.INC,INC,2020,10.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-9,jammu-and-kashmir,1977,9,SANGRAMA,ABDUL MAJID SOFI,parties.IN.UNK,JMI,1516,7.87,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-10,jammu-and-kashmir,1977,10,SOPORE,SYED ALI SHAH GEELANI,parties.IN.UNK,JMI,16717,49.14,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-10,jammu-and-kashmir,1977,10,SOPORE,HAKEEM HABIBULLAH,parties.IN.JKNC,JKN,16684,49.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-10,jammu-and-kashmir,1977,10,SOPORE,ABDUL KHALIQ TAK,parties.IN.IND,IND,456,1.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-10,jammu-and-kashmir,1977,10,SOPORE,MOHAMAD ILYAS,parties.IN.IND,IND,162,0.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-11,jammu-and-kashmir,1977,11,REFIBAD,MOHAMMAD DILLAWAR MIR,parties.IN.JKNC,JKN,14696,68.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-11,jammu-and-kashmir,1977,11,REFIBAD,GHULAM RASOOL KAR,parties.IN.INC,INC,3517,16.4,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-11,jammu-and-kashmir,1977,11,REFIBAD,GHULAM MUSTAFA,parties.IN.JP,JNP,2881,13.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-11,jammu-and-kashmir,1977,11,REFIBAD,ABDUL AHAD SHEIKH,parties.IN.IND,IND,353,1.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-12,jammu-and-kashmir,1977,12,BARAMULLA,GHULAM UD DIN SHAH,parties.IN.JKNC,JKN,11509,55.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-12,jammu-and-kashmir,1977,12,BARAMULLA,GHULAM MEHA SAFI,parties.IN.UNK,JMI,4472,21.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-12,jammu-and-kashmir,1977,12,BARAMULLA,ABDUL HAMID KAKROO,parties.IN.JP,JNP,3632,17.56,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-12,jammu-and-kashmir,1977,12,BARAMULLA,ABDUL SALAM RATHER,parties.IN.IND,IND,654,3.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-12,jammu-and-kashmir,1977,12,BARAMULLA,PIARAY LAL,parties.IN.IND,IND,170,0.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-12,jammu-and-kashmir,1977,12,BARAMULLA,JOGINDER SINGH,parties.IN.IND,IND,129,0.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-12,jammu-and-kashmir,1977,12,BARAMULLA,MOHD. MAQBOOL GAFOOR,parties.IN.IND,IND,118,0.57,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-13,jammu-and-kashmir,1977,13,URI,MOHD. SHAFI,parties.IN.JKNC,JKN,11921,65.56,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-13,jammu-and-kashmir,1977,13,URI,MOHD. MAZAFFAR KHAN,parties.IN.INC,INC,3309,18.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-13,jammu-and-kashmir,1977,13,URI,GHULAM MOHI UD DIN WANI,parties.IN.JP,JNP,2695,14.82,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-13,jammu-and-kashmir,1977,13,URI,ABDUL AZIZ KHAN,parties.IN.IND,IND,259,1.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-14,jammu-and-kashmir,1977,14,KANGAN,BASHIR AHMAD,parties.IN.JKNC,JKN,20808,87.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-14,jammu-and-kashmir,1977,14,KANGAN,MOHD. AFZI,parties.IN.JP,JNP,3090,12.93,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-15,jammu-and-kashmir,1977,15,GANDERBAL,SHEIKH MOHAMMAD ABDULLAH,parties.IN.JKNC,JKN,26162,88.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-15,jammu-and-kashmir,1977,15,GANDERBAL,ALI MOHAMD TARIA,parties.IN.IND,IND,3509,11.83,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-16,jammu-and-kashmir,1977,16,HAZARATBAL,HISSA UD DIN,parties.IN.JKNC,JKN,23032,80.74,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-16,jammu-and-kashmir,1977,16,HAZARATBAL,MOHD ILIYAS,parties.IN.JP,JNP,5081,17.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-16,jammu-and-kashmir,1977,16,HAZARATBAL,MOHD. YEHYA SIDIQI,parties.IN.IND,IND,346,1.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-16,jammu-and-kashmir,1977,16,HAZARATBAL,HAJI MUSHTAQ AHMAD,parties.IN.IND,IND,68,0.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-17,jammu-and-kashmir,1977,17,AMIRAKADAL,GULAM MOHI UD DIN SHAH,parties.IN.JKNC,JKN,14515,57.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-17,jammu-and-kashmir,1977,17,AMIRAKADAL,GULAM MOHI U DIN WANI (KARRA),parties.IN.JP,JNP,10340,41.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-17,jammu-and-kashmir,1977,17,AMIRAKADAL,GULAM MOHAMAD BHAT,parties.IN.IND,IND,283,1.13,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-18,jammu-and-kashmir,1977,18,HABAKADAL,GHULAM MOHAMMAD BUTT,parties.IN.JKNC,JKN,16356,47.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-18,jammu-and-kashmir,1977,18,HABAKADAL,JAG MOHINI,parties.IN.JP,JNP,14084,40.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-18,jammu-and-kashmir,1977,18,HABAKADAL,TIKA LAL TAPLOO,parties.IN.IND,IND,2990,8.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-18,jammu-and-kashmir,1977,18,HABAKADAL,SRI KANTH KAUL,parties.IN.INC,INC,649,1.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-18,jammu-and-kashmir,1977,18,HABAKADAL,SOFI GHULAM AHMED,parties.IN.IND,IND,153,0.44,5,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-18,jammu-and-kashmir,1977,18,HABAKADAL,GHULAM MOHI DIN QAZI,parties.IN.IND,IND,93,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-18,jammu-and-kashmir,1977,18,HABAKADAL,MOHAMMAD AMIM,parties.IN.IND,IND,90,0.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-19,jammu-and-kashmir,1977,19,ZAINAKADAL,MOLVI MOHD. YASIN HAMDANI,parties.IN.JKNC,JKN,23414,61.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-19,jammu-and-kashmir,1977,19,ZAINAKADAL,SHEIKH ALI MOHAMMAD,parties.IN.JP,JNP,14476,38.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-20,jammu-and-kashmir,1977,20,IDGAH,ABDUL RASHID KABLI,parties.IN.JP,JNP,18255,52.83,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-20,jammu-and-kashmir,1977,20,IDGAH,GHULAM RASOOL RASHI,parties.IN.JKNC,JKN,16298,47.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-21,jammu-and-kashmir,1977,21,ZADIBAL,GHULAM AHMAD SHUNTHOO,parties.IN.JKNC,JKN,23401,51.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-21,jammu-and-kashmir,1977,21,ZADIBAL,SALIN ANWAR DHAR,parties.IN.JP,JNP,21522,47.41,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-21,jammu-and-kashmir,1977,21,ZADIBAL,GHULAM NABI NOWSHEHRI,parties.IN.UNK,JMI,469,1.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-22,jammu-and-kashmir,1977,22,NAGIN,ABDUS SAMAD TELI,parties.IN.JKNC,JKN,13856,61.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-22,jammu-and-kashmir,1977,22,NAGIN,GHULAM MOHMMAD BAVAN,parties.IN.JP,JNP,8397,37.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-22,jammu-and-kashmir,1977,22,NAGIN,MALIK GHULAM MOHAMMD,parties.IN.INC,INC,220,0.98,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-22,jammu-and-kashmir,1977,22,NAGIN,SYED ABDUL HASSAN,parties.IN.IND,IND,54,0.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-23,jammu-and-kashmir,1977,23,BEERWAH,AHMAD SAEED,parties.IN.JKNC,JKN,14918,60.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-23,jammu-and-kashmir,1977,23,BEERWAH,SYED ALI SHAH,parties.IN.JP,JNP,7737,31.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-23,jammu-and-kashmir,1977,23,BEERWAH,MOHD. SARAFRAZ KHAN,parties.IN.INC,INC,1473,6,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-23,jammu-and-kashmir,1977,23,BEERWAH,SYED ALTAF HUSSAIN,parties.IN.IND,IND,435,1.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-24,jammu-and-kashmir,1977,24,KHAN SAHIB,HAKIM MOHAMMED YASIN SHAH,parties.IN.JKNC,JKN,15647,73.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-24,jammu-and-kashmir,1977,24,KHAN SAHIB,GHULAM QADIR WAR,parties.IN.JP,JNP,3814,18.02,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-24,jammu-and-kashmir,1977,24,KHAN SAHIB,ABDUL Q\AYUM SHAH,parties.IN.IND,IND,1035,4.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-24,jammu-and-kashmir,1977,24,KHAN SAHIB,GHULAM MOHAMED BAKSHI,parties.IN.IND,IND,667,3.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-25,jammu-and-kashmir,1977,25,BADGAM,GHULAM HUSSAIN GEELANI,parties.IN.JKNC,JKN,14324,49.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-25,jammu-and-kashmir,1977,25,BADGAM,AGHA SAYEED HASSAN,parties.IN.JP,JNP,11799,41.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-25,jammu-and-kashmir,1977,25,BADGAM,MOHAMED YOUSUF SHAH,parties.IN.UNK,JMI,1761,6.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-25,jammu-and-kashmir,1977,25,BADGAM,GHULAM HASSAN DAR,parties.IN.INC,INC,860,2.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-26,jammu-and-kashmir,1977,26,CHADURA,ABDUL SAMAD MIR,parties.IN.JKNC,JKN,13103,64.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-26,jammu-and-kashmir,1977,26,CHADURA,MIR GHULAM MUSTAFA,parties.IN.INC,INC,4699,23.26,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-26,jammu-and-kashmir,1977,26,CHADURA,SYED FAROOQ ANDERABI,parties.IN.JP,JNP,1389,6.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-26,jammu-and-kashmir,1977,26,CHADURA,MOHD. ISMAIL,parties.IN.UNK,JMI,518,2.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-26,jammu-and-kashmir,1977,26,CHADURA,GHULAM AHAMD BHAT,parties.IN.IND,IND,494,2.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-27,jammu-and-kashmir,1977,27,CHARI SHARIF,ABDUL RAHIM RATHER,parties.IN.JKNC,JKN,14766,71.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-27,jammu-and-kashmir,1977,27,CHARI SHARIF,ABDUL QAYOOM,parties.IN.INC,INC,4764,23.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-27,jammu-and-kashmir,1977,27,CHARI SHARIF,PEERZADA ALI SHAH,parties.IN.JP,JNP,991,4.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-28,jammu-and-kashmir,1977,28,PULWAMA,MOHAMMAD IBRAHIM DAR,parties.IN.JKNC,JKN,18712,72.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-28,jammu-and-kashmir,1977,28,PULWAMA,ABDUL KASHID WANI,parties.IN.UNK,JMI,2537,9.84,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-28,jammu-and-kashmir,1977,28,PULWAMA,MOHAMMAD SHAFI SIMNANI,parties.IN.JP,JNP,1853,7.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-28,jammu-and-kashmir,1977,28,PULWAMA,GHULAM MOHAMMAD MIR (MURAN),parties.IN.IND,IND,1489,5.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-28,jammu-and-kashmir,1977,28,PULWAMA,GHULAM MOHAMMAD MIR (RAJPURI),parties.IN.INC,INC,1189,4.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-29,jammu-and-kashmir,1977,29,PAMPORE,MALIK MOHI UD DIN,parties.IN.JKNC,JKN,22877,82.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-29,jammu-and-kashmir,1977,29,PAMPORE,PEER GHULAM HASSAN MASOODI,parties.IN.JP,JNP,2409,8.65,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-29,jammu-and-kashmir,1977,29,PAMPORE,SANAULLAH DAR,parties.IN.IND,IND,1798,6.45,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-29,jammu-and-kashmir,1977,29,PAMPORE,GHULAM NABI SHADA,parties.IN.INC,INC,778,2.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-30,jammu-and-kashmir,1977,30,TRAL,MOHD. SUBHAN BHAT,parties.IN.JKNC,JKN,13315,46.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-30,jammu-and-kashmir,1977,30,TRAL,ALI MOHD. NAIK,parties.IN.IND,IND,11859,41.02,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-30,jammu-and-kashmir,1977,30,TRAL,GHULAM RASOOL,parties.IN.UNK,JMI,2685,9.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-30,jammu-and-kashmir,1977,30,TRAL,MOHAN SINGH,parties.IN.JP,JNP,1054,3.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-31,jammu-and-kashmir,1977,31,WACHI,GHULAM QADIR WANI,parties.IN.JKNC,JKN,16690,67.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-31,jammu-and-kashmir,1977,31,WACHI,BASHIR AHMED MAGREY,parties.IN.INC,INC,3172,12.74,2,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-31,jammu-and-kashmir,1977,31,WACHI,MOHAMAD ABDULLAH,parties.IN.UNK,JMI,2671,10.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-31,jammu-and-kashmir,1977,31,WACHI,ABDUL RASHID GANIA,parties.IN.JP,JNP,1815,7.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-31,jammu-and-kashmir,1977,31,WACHI,MOLVI ABDUL HAMID,parties.IN.IND,IND,549,2.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-32,jammu-and-kashmir,1977,32,SHOPIAN,SHEIKH MODH. MANSOOR,parties.IN.JKNC,JKN,15133,59.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-32,jammu-and-kashmir,1977,32,SHOPIAN,HAKIM GHULAM NABI,parties.IN.UNK,JMI,4763,18.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-32,jammu-and-kashmir,1977,32,SHOPIAN,SHAMIM AHMED SHAMIM,parties.IN.JP,JNP,3217,12.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-32,jammu-and-kashmir,1977,32,SHOPIAN,GHULAM HASSAN KHAN,parties.IN.INC,INC,893,3.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-32,jammu-and-kashmir,1977,32,SHOPIAN,ABDUL RAHMAN KHAN,parties.IN.CPI,CPI,734,2.88,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-32,jammu-and-kashmir,1977,32,SHOPIAN,MOHD. ASHRAF,parties.IN.IND,IND,407,1.6,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-32,jammu-and-kashmir,1977,32,SHOPIAN,ABDUL MAJID BANDEY,parties.IN.IND,IND,355,1.39,7,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-33,jammu-and-kashmir,1977,33,NOORABAD,WALIMOHD ITOO,parties.IN.JKNC,JKN,12407,58.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-33,jammu-and-kashmir,1977,33,NOORABAD,ABDUL AZIZ ZARGAR,parties.IN.INC,INC,5589,26.47,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-33,jammu-and-kashmir,1977,33,NOORABAD,ABDUL MALID MATOO,parties.IN.JP,JNP,2538,12.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-33,jammu-and-kashmir,1977,33,NOORABAD,HAMID ULLAH BHAT,parties.IN.IND,IND,581,2.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-34,jammu-and-kashmir,1977,34,DEVSAR,GHULAM NABI KOCHAK,parties.IN.JKNC,JKN,14921,59.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-34,jammu-and-kashmir,1977,34,DEVSAR,MANOHAR NATH,parties.IN.INC,INC,4623,18.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-34,jammu-and-kashmir,1977,34,DEVSAR,MOHD. YOSUF MANTOO,parties.IN.JP,JNP,3286,13.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-34,jammu-and-kashmir,1977,34,DEVSAR,PEERAZADA MOD. AMIN,parties.IN.UNK,JMI,2058,8.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-35,jammu-and-kashmir,1977,35,KULGAM,GHULAM NABI DAR,parties.IN.JKNC,JKN,8833,42.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-35,jammu-and-kashmir,1977,35,KULGAM,ABDUL RAZAK MIR,parties.IN.UNK,JMI,6403,30.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-35,jammu-and-kashmir,1977,35,KULGAM,MOHAMMAD YAQUB BAHT,parties.IN.JP,JNP,2944,14.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-35,jammu-and-kashmir,1977,35,KULGAM,HABIBUYLLAH LOQAY,parties.IN.INC,INC,1851,8.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-35,jammu-and-kashmir,1977,35,KULGAM,GHULAM MOHAMMAD BANDAY,parties.IN.IND,IND,442,2.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-35,jammu-and-kashmir,1977,35,KULGAM,MOHAN LAL,parties.IN.IND,IND,245,1.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-36,jammu-and-kashmir,1977,36,HOMSHALIBUG,ABDUL SALAM DEVA,parties.IN.JKNC,JKN,12959,56.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-36,jammu-and-kashmir,1977,36,HOMSHALIBUG,ALI MOHD. DAR,parties.IN.UNK,JMI,5897,25.83,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-36,jammu-and-kashmir,1977,36,HOMSHALIBUG,ABDUL RAHMAN DAR,parties.IN.INC,INC,2104,9.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-36,jammu-and-kashmir,1977,36,HOMSHALIBUG,GHULAM MOHI UD DIN SAWAL,parties.IN.JP,JNP,1867,8.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-37,jammu-and-kashmir,1977,37,PAHALGAM,PIYAREE LAL HANDOO,parties.IN.JKNC,JKN,14764,68.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-37,jammu-and-kashmir,1977,37,PAHALGAM,GHULAM RASOOL KOCHAH,parties.IN.JP,JNP,4283,19.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-37,jammu-and-kashmir,1977,37,PAHALGAM,MOHAMMED TAHIR,parties.IN.INC,INC,2420,11.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-38,jammu-and-kashmir,1977,38,BIJBEHARA,AGDUL GANI SHAH,parties.IN.JKNC,JKN,16059,63.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-38,jammu-and-kashmir,1977,38,BIJBEHARA,MUFTI MOHAMAD SAYEED,parties.IN.INC,INC,8081,32.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-38,jammu-and-kashmir,1977,38,BIJBEHARA,ALI MOHD. MAJID,parties.IN.JP,JNP,984,3.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-39,jammu-and-kashmir,1977,39,ANANTNAG,MIRZA MOHD AFZAL BEG,parties.IN.JKNC,JKN,15893,63.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-39,jammu-and-kashmir,1977,39,ANANTNAG,SHEIKH ABDUL MAJID,parties.IN.JP,JNP,9283,36.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-40,jammu-and-kashmir,1977,40,SHAWNGAS,MOHD. ASHRAF KHAN,parties.IN.JKNC,JKN,15568,70.21,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-40,jammu-and-kashmir,1977,40,SHAWNGAS,MOHAMAD MAQBOOL,parties.IN.INC,INC,4162,18.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-40,jammu-and-kashmir,1977,40,SHAWNGAS,ABDUL RASHID DAR,parties.IN.JP,JNP,2185,9.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-40,jammu-and-kashmir,1977,40,SHAWNGAS,BASHIT ANMAD KHAN,parties.IN.IND,IND,258,1.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-41,jammu-and-kashmir,1977,41,KOKERNAG,MALIK GHULAM UD DIN,parties.IN.JKNC,JKN,14854,65.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-41,jammu-and-kashmir,1977,41,KOKERNAG,PEER HISSAM UD DIN,parties.IN.INC,INC,5339,23.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-41,jammu-and-kashmir,1977,41,KOKERNAG,CHAUDRI MOHD SHAFI,parties.IN.JP,JNP,2479,10.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-42,jammu-and-kashmir,1977,42,DORU,HAJI ABDUL GANI KHAN,parties.IN.JKNC,JKN,10817,51.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-42,jammu-and-kashmir,1977,42,DORU,SNEER AKI BODA,parties.IN.INC,INC,5472,26.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-42,jammu-and-kashmir,1977,42,DORU,ABDUL SAMAD RAK,parties.IN.JP,JNP,3248,15.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-42,jammu-and-kashmir,1977,42,DORU,MOHD. RAMZAN,parties.IN.UNK,JMI,1492,7.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-43,jammu-and-kashmir,1977,43,LEH,SONAM NARBOO,parties.IN.INC,INC,11736,61.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-43,jammu-and-kashmir,1977,43,LEH,SOHAM GYALTSAN,parties.IN.JP,JNP,7450,38.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-44,jammu-and-kashmir,1977,44,KARGIL,MUNSHI HABIBULLAH,parties.IN.JKNC,JKN,13549,54.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-44,jammu-and-kashmir,1977,44,KARGIL,KACHO MOHMAD ALI,parties.IN.INC,INC,11021,44.27,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-44,jammu-and-kashmir,1977,44,KARGIL,CHNERENG MOTUP,parties.IN.IND,IND,327,1.31,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-45,jammu-and-kashmir,1977,45,KISHTWAR,BASHIR AHMED KICHLOO,parties.IN.JKNC,JKN,3910,27.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-45,jammu-and-kashmir,1977,45,KISHTWAR,GHULAM HUSSAIN ARMAN,parties.IN.JP,JNP,3385,23.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-45,jammu-and-kashmir,1977,45,KISHTWAR,MANMOHAN PARGAL,parties.IN.IND,IND,1797,12.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-45,jammu-and-kashmir,1977,45,KISHTWAR,SEWA RAM,parties.IN.IND,IND,1675,11.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-45,jammu-and-kashmir,1977,45,KISHTWAR,ABDUL MAJID,parties.IN.IND,IND,1636,11.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-45,jammu-and-kashmir,1977,45,KISHTWAR,PIR MIZAM UD DIN,parties.IN.INC,INC,975,6.77,6,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-45,jammu-and-kashmir,1977,45,KISHTWAR,RIAZ AHMED,parties.IN.IND,IND,448,3.11,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-45,jammu-and-kashmir,1977,45,KISHTWAR,BADRI NATH,parties.IN.IND,IND,355,2.47,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-45,jammu-and-kashmir,1977,45,KISHTWAR,JAGA RAM ARYAN,parties.IN.IND,IND,218,1.51,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-46,jammu-and-kashmir,1977,46,INDERWAL,GHULAM MOHD SHEIKH,parties.IN.JKNC,JKN,5296,44.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-46,jammu-and-kashmir,1977,46,INDERWAL,ABDUL GHANI GONI,parties.IN.JP,JNP,2530,21.2,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-46,jammu-and-kashmir,1977,46,INDERWAL,GHULAM HUSSAIN,parties.IN.IND,IND,1373,11.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-46,jammu-and-kashmir,1977,46,INDERWAL,AZAD GAULAM NABI,parties.IN.INC,INC,959,8.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-46,jammu-and-kashmir,1977,46,INDERWAL,RAM LAL,parties.IN.IND,IND,461,3.86,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-46,jammu-and-kashmir,1977,46,INDERWAL,GHULAM NABI,parties.IN.IND,IND,283,2.37,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-46,jammu-and-kashmir,1977,46,INDERWAL,SYED HUSSAIN SHAH,parties.IN.IND,IND,256,2.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-46,jammu-and-kashmir,1977,46,INDERWAL,JAI LAL SHAH,parties.IN.IND,IND,250,2.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-46,jammu-and-kashmir,1977,46,INDERWAL,GHULAM AHMED,parties.IN.IND,IND,214,1.79,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-46,jammu-and-kashmir,1977,46,INDERWAL,GHULAM RASOOL,parties.IN.IND,IND,136,1.14,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-46,jammu-and-kashmir,1977,46,INDERWAL,SWAMI RAJ,parties.IN.IND,IND,105,0.88,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-46,jammu-and-kashmir,1977,46,INDERWAL,HEM RAJ,parties.IN.IND,IND,71,0.59,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-47,jammu-and-kashmir,1977,47,BHADARWAH,NARAIN DASS,parties.IN.JP,JNP,4535,40.96,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-47,jammu-and-kashmir,1977,47,BHADARWAH,THAKUR DASS,parties.IN.JKNC,JKN,3745,33.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-47,jammu-and-kashmir,1977,47,BHADARWAH,HARI LAL,parties.IN.INC,INC,1359,12.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-47,jammu-and-kashmir,1977,47,BHADARWAH,BODH RAJ,parties.IN.IND,IND,639,5.77,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-47,jammu-and-kashmir,1977,47,BHADARWAH,BANSI LAL,parties.IN.IND,IND,466,4.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-47,jammu-and-kashmir,1977,47,BHADARWAH,BAL KRISLHAN,parties.IN.IND,IND,286,2.58,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-47,jammu-and-kashmir,1977,47,BHADARWAH,OM PRAKASH,parties.IN.CPI,CPI,42,0.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-48,jammu-and-kashmir,1977,48,DODA,GULAM QADIR WANI,parties.IN.JP,JNP,5342,39.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-48,jammu-and-kashmir,1977,48,DODA,ATTA ULLAH SOHARAWARDY,parties.IN.JKNC,JKN,4384,32.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-48,jammu-and-kashmir,1977,48,DODA,MOHD. AKBAR KICHLOO,parties.IN.INC,INC,1202,8.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-48,jammu-and-kashmir,1977,48,DODA,LAL CHAND,parties.IN.IND,IND,763,5.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-48,jammu-and-kashmir,1977,48,DODA,HIMAT SINGH,parties.IN.IND,IND,752,5.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-48,jammu-and-kashmir,1977,48,DODA,SAIDULLAH TANTRAY,parties.IN.UNK,JMI,694,5.07,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-48,jammu-and-kashmir,1977,48,DODA,GULAM MOHD.,parties.IN.IND,IND,439,3.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-48,jammu-and-kashmir,1977,48,DODA,SWAMI RAJ KOTWAL,parties.IN.IND,IND,115,0.84,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-49,jammu-and-kashmir,1977,49,RAMBAN,PREM NATH,parties.IN.JKNC,JKN,3472,28.64,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-49,jammu-and-kashmir,1977,49,RAMBAN,LABHU RAM,parties.IN.IND,IND,3035,25.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-49,jammu-and-kashmir,1977,49,RAMBAN,JAGDEV SINGH,parties.IN.JP,JNP,2967,24.47,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-49,jammu-and-kashmir,1977,49,RAMBAN,ABDUL REHMAN,parties.IN.INC,INC,1536,12.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-49,jammu-and-kashmir,1977,49,RAMBAN,MOHD. ABDULLAH,parties.IN.IND,IND,369,3.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-49,jammu-and-kashmir,1977,49,RAMBAN,AMER CHAND,parties.IN.IND,IND,346,2.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-49,jammu-and-kashmir,1977,49,RAMBAN,SWAMI RAJ,parties.IN.IND,IND,304,2.51,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-49,jammu-and-kashmir,1977,49,RAMBAN,RAVINDER SINGH KOTWAL,parties.IN.IND,IND,95,0.78,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-50,jammu-and-kashmir,1977,50,BANIHAL,MOLVI ABDUL RASHID,parties.IN.JKNC,JKN,7460,51.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-50,jammu-and-kashmir,1977,50,BANIHAL,MODH. AKTHAR NIZAMI,parties.IN.INC,INC,3290,22.86,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-50,jammu-and-kashmir,1977,50,BANIHAL,SANAULLAH,parties.IN.JP,JNP,2279,15.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-50,jammu-and-kashmir,1977,50,BANIHAL,ABDUL KHALIQ,parties.IN.IND,IND,403,2.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-50,jammu-and-kashmir,1977,50,BANIHAL,AHDULLAH MALIK,parties.IN.UNK,JMI,355,2.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-50,jammu-and-kashmir,1977,50,BANIHAL,ABDUL RASHID MUSHTAQ,parties.IN.IND,IND,330,2.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-50,jammu-and-kashmir,1977,50,BANIHAL,DES RAJ,parties.IN.IND,IND,162,1.13,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-50,jammu-and-kashmir,1977,50,BANIHAL,MOHD. YASSIN,parties.IN.IND,IND,114,0.79,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-51,jammu-and-kashmir,1977,51,GULABGARH,HAJI BULAND KHAN,parties.IN.JKNC,JKN,8723,58.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-51,jammu-and-kashmir,1977,51,GULABGARH,MOHD. AYUB KHAN,parties.IN.INC,INC,3203,21.35,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-51,jammu-and-kashmir,1977,51,GULABGARH,ABDUL GNANI BHUTT,parties.IN.JP,JNP,2050,13.66,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-51,jammu-and-kashmir,1977,51,GULABGARH,GHULAM NABI MANHAS,parties.IN.IND,IND,689,4.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-51,jammu-and-kashmir,1977,51,GULABGARH,GHULAM MOHD. SHAN,parties.IN.IND,IND,337,2.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-52,jammu-and-kashmir,1977,52,REASI,RISHI KUMAR KAUSHAL,parties.IN.JP,JNP,9931,52.84,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-52,jammu-and-kashmir,1977,52,REASI,RAGHUNATH DAS,parties.IN.JKNC,JKN,2699,14.36,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-52,jammu-and-kashmir,1977,52,REASI,RANJIT SINGH,parties.IN.IND,IND,2583,13.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-52,jammu-and-kashmir,1977,52,REASI,BANSI LAL KOHISTANI,parties.IN.INC,INC,2349,12.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-52,jammu-and-kashmir,1977,52,REASI,HAI SINGH,parties.IN.IND,IND,641,3.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-52,jammu-and-kashmir,1977,52,REASI,RISHPAL SINGH,parties.IN.IND,IND,256,1.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-52,jammu-and-kashmir,1977,52,REASI,KIDAR NATH SAPOLIA,parties.IN.IND,IND,199,1.06,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-52,jammu-and-kashmir,1977,52,REASI,RAMSARAN DASS,parties.IN.IND,IND,136,0.72,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-53,jammu-and-kashmir,1977,53,UDHAMPUR,SHIV CHARAN,parties.IN.IND,IND,9363,44.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-53,jammu-and-kashmir,1977,53,UDHAMPUR,FAQIR CHAND,parties.IN.INC,INC,8763,41.31,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-53,jammu-and-kashmir,1977,53,UDHAMPUR,SADHU RAM,parties.IN.JKNC,JKN,1198,5.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-53,jammu-and-kashmir,1977,53,UDHAMPUR,JARNAIL SINGH,parties.IN.IND,IND,723,3.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-53,jammu-and-kashmir,1977,53,UDHAMPUR,ASHOK KUMAR,parties.IN.IND,IND,564,2.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-53,jammu-and-kashmir,1977,53,UDHAMPUR,GOVIND RAM,parties.IN.IND,IND,246,1.16,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-53,jammu-and-kashmir,1977,53,UDHAMPUR,MOHD. MAQBOOL,parties.IN.IND,IND,135,0.64,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-53,jammu-and-kashmir,1977,53,UDHAMPUR,ALI MOND.,parties.IN.IND,IND,116,0.55,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-53,jammu-and-kashmir,1977,53,UDHAMPUR,HER PAUL SINGH,parties.IN.IND,IND,105,0.49,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-54,jammu-and-kashmir,1977,54,CHENANI GHORDI,BHIM SINGH,parties.IN.INC,INC,7674,52.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-54,jammu-and-kashmir,1977,54,CHENANI GHORDI,ISHAR DASS,parties.IN.JP,JNP,4005,27.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-54,jammu-and-kashmir,1977,54,CHENANI GHORDI,CHUNI LAL,parties.IN.JKNC,JKN,1755,11.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-54,jammu-and-kashmir,1977,54,CHENANI GHORDI,MOHAN LAL,parties.IN.IND,IND,242,1.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-54,jammu-and-kashmir,1977,54,CHENANI GHORDI,JIA LAL,parties.IN.IND,IND,225,1.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-54,jammu-and-kashmir,1977,54,CHENANI GHORDI,RATTAN KUMAR SHARMA,parties.IN.IND,IND,180,1.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-54,jammu-and-kashmir,1977,54,CHENANI GHORDI,GUNJAR SINGH,parties.IN.IND,IND,154,1.05,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-54,jammu-and-kashmir,1977,54,CHENANI GHORDI,ISHARI SINGH,parties.IN.IND,IND,128,0.87,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-54,jammu-and-kashmir,1977,54,CHENANI GHORDI,LAL SINGH,parties.IN.IND,IND,83,0.57,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-54,jammu-and-kashmir,1977,54,CHENANI GHORDI,KRISHAN LAL,parties.IN.IND,IND,79,0.54,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-54,jammu-and-kashmir,1977,54,CHENANI GHORDI,HEM RAJ,parties.IN.IND,IND,59,0.4,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-54,jammu-and-kashmir,1977,54,CHENANI GHORDI,KHUSHAL CHAND,parties.IN.IND,IND,52,0.36,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-55,jammu-and-kashmir,1977,55,RAMNAGAR,PRITHVI CHAND,parties.IN.JP,JNP,7300,53.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-55,jammu-and-kashmir,1977,55,RAMNAGAR,RAM DASS,parties.IN.INC,INC,4071,29.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-55,jammu-and-kashmir,1977,55,RAMNAGAR,CHARAN DASS,parties.IN.JKNC,JKN,2353,17.15,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-56,jammu-and-kashmir,1977,56,SAMBA,DHAYAN SINGH,parties.IN.IND,IND,6349,25.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-56,jammu-and-kashmir,1977,56,SAMBA,HARBANS SINGH,parties.IN.INC,INC,4728,19.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-56,jammu-and-kashmir,1977,56,SAMBA,RAWEL SINGH,parties.IN.JKNC,JKN,3453,13.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-56,jammu-and-kashmir,1977,56,SAMBA,GULCHAIN SINGH,parties.IN.JP,JNP,3131,12.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-56,jammu-and-kashmir,1977,56,SAMBA,PURAN SINGH,parties.IN.IND,IND,1564,6.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-56,jammu-and-kashmir,1977,56,SAMBA,GIANCHAND,parties.IN.IND,IND,1370,5.53,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-56,jammu-and-kashmir,1977,56,SAMBA,RAJINDER NATH,parties.IN.IND,IND,1300,5.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-56,jammu-and-kashmir,1977,56,SAMBA,BABU NATH,parties.IN.IND,IND,1128,4.55,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-56,jammu-and-kashmir,1977,56,SAMBA,MANGAT RAM,parties.IN.IND,IND,725,2.92,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-56,jammu-and-kashmir,1977,56,SAMBA,SWARAN SINGH,parties.IN.IND,IND,461,1.86,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-56,jammu-and-kashmir,1977,56,SAMBA,HARSANT SINGH,parties.IN.IND,IND,186,0.75,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-56,jammu-and-kashmir,1977,56,SAMBA,SUKH DEV SINGH,parties.IN.IND,IND,184,0.74,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-56,jammu-and-kashmir,1977,56,SAMBA,SUNDER LAL,parties.IN.IND,IND,127,0.51,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-56,jammu-and-kashmir,1977,56,SAMBA,KUNDIP LAL,parties.IN.IND,IND,86,0.35,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-57,jammu-and-kashmir,1977,57,BARI BRAHMINAN,GURBACHAN KUMARI,parties.IN.JP,JNP,8124,39.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-57,jammu-and-kashmir,1977,57,BARI BRAHMINAN,GOURI SHANKAR,parties.IN.INC,INC,7521,36.3,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-57,jammu-and-kashmir,1977,57,BARI BRAHMINAN,INDER LAL,parties.IN.JKNC,JKN,2019,9.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-57,jammu-and-kashmir,1977,57,BARI BRAHMINAN,HANS RAJ,parties.IN.IND,IND,1126,5.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-57,jammu-and-kashmir,1977,57,BARI BRAHMINAN,SEVA RAMEN,parties.IN.IND,IND,665,3.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-57,jammu-and-kashmir,1977,57,BARI BRAHMINAN,BASHI RAM,parties.IN.IND,IND,642,3.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-57,jammu-and-kashmir,1977,57,BARI BRAHMINAN,GIAN CHAND,parties.IN.CPI,CPI,377,1.82,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-57,jammu-and-kashmir,1977,57,BARI BRAHMINAN,BABU RAM,parties.IN.IND,IND,246,1.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-58,jammu-and-kashmir,1977,58,BISHNA,PARMA NAND,parties.IN.INC,INC,9441,43.17,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-58,jammu-and-kashmir,1977,58,BISHNA,RAM CHAND,parties.IN.JP,JNP,7357,33.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-58,jammu-and-kashmir,1977,58,BISHNA,SAIN DASS,parties.IN.JKNC,JKN,2476,11.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-58,jammu-and-kashmir,1977,58,BISHNA,HARBANS LAL,parties.IN.IND,IND,2052,9.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-58,jammu-and-kashmir,1977,58,BISHNA,CHAMAN LAL,parties.IN.IND,IND,335,1.53,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-58,jammu-and-kashmir,1977,58,BISHNA,BEHARI LAL,parties.IN.IND,IND,116,0.53,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-58,jammu-and-kashmir,1977,58,BISHNA,BABU RAM,parties.IN.CPI,CPI,93,0.43,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1977,59,RANBIR SINGH PURA,JANAK RAJ,parties.IN.INC,INC,12603,48.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1977,59,RANBIR SINGH PURA,RANGIL SINGH,parties.IN.JP,JNP,7166,27.55,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1977,59,RANBIR SINGH PURA,CHUNI LAL,parties.IN.IND,IND,3298,12.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1977,59,RANBIR SINGH PURA,PIARA SINGH,parties.IN.JKNC,JKN,1395,5.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1977,59,RANBIR SINGH PURA,TILAK RAJ,parties.IN.IND,IND,960,3.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1977,59,RANBIR SINGH PURA,DURGA DASS,parties.IN.IND,IND,501,1.93,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1977,59,RANBIR SINGH PURA,HARI SINGH,parties.IN.CPI,CPI,84,0.32,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-60,jammu-and-kashmir,1977,60,JAMMU CANTONMENT,PARDUMAN SINGH,parties.IN.INC,INC,5600,28.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-60,jammu-and-kashmir,1977,60,JAMMU CANTONMENT,VED BHASIN,parties.IN.JP,JNP,5426,27.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-60,jammu-and-kashmir,1977,60,JAMMU CANTONMENT,ONKAR SETH,parties.IN.IND,IND,3722,19.01,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-60,jammu-and-kashmir,1977,60,JAMMU CANTONMENT,BODH RAJ BALI,parties.IN.JKNC,JKN,2110,10.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-60,jammu-and-kashmir,1977,60,JAMMU CANTONMENT,HARI SINGH,parties.IN.IND,IND,996,5.09,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-60,jammu-and-kashmir,1977,60,JAMMU CANTONMENT,NATHI RAM,parties.IN.IND,IND,650,3.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-60,jammu-and-kashmir,1977,60,JAMMU CANTONMENT,OM PRAKASH,parties.IN.IND,IND,287,1.47,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-60,jammu-and-kashmir,1977,60,JAMMU CANTONMENT,SUKHVINDER SINGH,parties.IN.IND,IND,259,1.32,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-60,jammu-and-kashmir,1977,60,JAMMU CANTONMENT,JAGDISH RAJ,parties.IN.IND,IND,228,1.16,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-60,jammu-and-kashmir,1977,60,JAMMU CANTONMENT,GURCHARAN SINGH,parties.IN.IND,IND,121,0.62,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-60,jammu-and-kashmir,1977,60,JAMMU CANTONMENT,BHATAT SINGH SANDHU,parties.IN.IND,IND,86,0.44,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-60,jammu-and-kashmir,1977,60,JAMMU CANTONMENT,SANT RAM,parties.IN.IND,IND,64,0.33,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-60,jammu-and-kashmir,1977,60,JAMMU CANTONMENT,ADARSH PAUL,parties.IN.IND,IND,29,0.15,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-61,jammu-and-kashmir,1977,61,JAMMU WEST,HARBANS LAL BHAGOTRA,parties.IN.JP,JNP,10956,54.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-61,jammu-and-kashmir,1977,61,JAMMU WEST,ROMESH CHANDER,parties.IN.INC,INC,7599,37.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-61,jammu-and-kashmir,1977,61,JAMMU WEST,RATTAN LAL GUPTA,parties.IN.JKNC,JKN,684,3.42,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-61,jammu-and-kashmir,1977,61,JAMMU WEST,SOM NATH,parties.IN.IND,IND,333,1.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-61,jammu-and-kashmir,1977,61,JAMMU WEST,MASTER MODH SHARIF,parties.IN.IND,IND,267,1.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-61,jammu-and-kashmir,1977,61,JAMMU WEST,SEWA RAMAN,parties.IN.IND,IND,91,0.45,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-61,jammu-and-kashmir,1977,61,JAMMU WEST,MONAN LAL,parties.IN.IND,IND,52,0.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-61,jammu-and-kashmir,1977,61,JAMMU WEST,CH. RAM SARUP,parties.IN.IND,IND,24,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-62,jammu-and-kashmir,1977,62,JAMMU EAST,RAM NATH BHALGOTRA,parties.IN.JP,JNP,13179,61.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-62,jammu-and-kashmir,1977,62,JAMMU EAST,AMRIT KUMAR MALHOTRA,parties.IN.INC,INC,5141,24.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-62,jammu-and-kashmir,1977,62,JAMMU EAST,SUBASH DUTTA,parties.IN.IND,IND,754,3.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-62,jammu-and-kashmir,1977,62,JAMMU EAST,GURBAKSH SINGH,parties.IN.JKNC,JKN,748,3.51,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-62,jammu-and-kashmir,1977,62,JAMMU EAST,MOHAN LAL VIDHARITHI,parties.IN.IND,IND,388,1.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-62,jammu-and-kashmir,1977,62,JAMMU EAST,SHANTA BHARTI,parties.IN.IND,IND,348,1.63,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-62,jammu-and-kashmir,1977,62,JAMMU EAST,VIJAY KUMAR DEWAN,parties.IN.IND,IND,177,0.83,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-62,jammu-and-kashmir,1977,62,JAMMU EAST,GOPAL DASS,parties.IN.IND,IND,135,0.63,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-62,jammu-and-kashmir,1977,62,JAMMU EAST,KEWAL KRISHAN,parties.IN.IND,IND,100,0.47,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-62,jammu-and-kashmir,1977,62,JAMMU EAST,OM PARKASH MALIK,parties.IN.IND,IND,99,0.46,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-62,jammu-and-kashmir,1977,62,JAMMU EAST,RAVI CHANDER,parties.IN.IND,IND,95,0.45,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-62,jammu-and-kashmir,1977,62,JAMMU EAST,MANOHAR SINGH,parties.IN.IND,IND,87,0.41,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-62,jammu-and-kashmir,1977,62,JAMMU EAST,MOHAN LAL,parties.IN.IND,IND,82,0.38,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-63,jammu-and-kashmir,1977,63,JANDRAH GHAROTA,DHAN RAJ,parties.IN.JP,JNP,8550,38.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-63,jammu-and-kashmir,1977,63,JANDRAH GHAROTA,RANJIT SINGH,parties.IN.INC,INC,6112,27.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-63,jammu-and-kashmir,1977,63,JANDRAH GHAROTA,CHOUDHARY NURUL DIN KARATIA,parties.IN.JKNC,JKN,3450,15.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-63,jammu-and-kashmir,1977,63,JANDRAH GHAROTA,JATINDER DEV,parties.IN.IND,IND,3397,15.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-63,jammu-and-kashmir,1977,63,JANDRAH GHAROTA,NANAK CHAND,parties.IN.IND,IND,507,2.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-63,jammu-and-kashmir,1977,63,JANDRAH GHAROTA,BHAGAT RAM SHARMA,parties.IN.IND,IND,438,1.95,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-64,jammu-and-kashmir,1977,64,MARH,TULSI RAM,parties.IN.JP,JNP,5527,32.96,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-64,jammu-and-kashmir,1977,64,MARH,SUSHIL KUMAR,parties.IN.INC,INC,4553,27.15,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-64,jammu-and-kashmir,1977,64,MARH,MILKHI RAM,parties.IN.JKNC,JKN,4155,24.77,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-64,jammu-and-kashmir,1977,64,MARH,VISHWA BANDU,parties.IN.IND,IND,944,5.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-64,jammu-and-kashmir,1977,64,MARH,DHOONDA,parties.IN.CPI,CPI,573,3.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-64,jammu-and-kashmir,1977,64,MARH,MELA SINGH,parties.IN.IND,IND,557,3.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-64,jammu-and-kashmir,1977,64,MARH,SOM NATH DOGRA,parties.IN.IND,IND,462,2.75,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-65,jammu-and-kashmir,1977,65,AKHNOOR,DHARAM PAL,parties.IN.INC,INC,8635,37.67,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-65,jammu-and-kashmir,1977,65,AKHNOOR,GOBIND RAM,parties.IN.IND,IND,4517,19.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-65,jammu-and-kashmir,1977,65,AKHNOOR,DEWAN CHAND,parties.IN.JP,JNP,4342,18.94,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-65,jammu-and-kashmir,1977,65,AKHNOOR,KULDIP KUMAR,parties.IN.IND,IND,4276,18.65,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-65,jammu-and-kashmir,1977,65,AKHNOOR,PRITAM LAL,parties.IN.JKNC,JKN,1154,5.03,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-66,jammu-and-kashmir,1977,66,CHHAMB,RAM NATH,parties.IN.IND,IND,9352,38.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-66,jammu-and-kashmir,1977,66,CHHAMB,DEWAN SINGH,parties.IN.INC,INC,4106,16.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-66,jammu-and-kashmir,1977,66,CHHAMB,BODH RAJ,parties.IN.JKNC,JKN,3904,16.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-66,jammu-and-kashmir,1977,66,CHHAMB,KANWAR DIVAKAR SINGH,parties.IN.JP,JNP,3286,13.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-66,jammu-and-kashmir,1977,66,CHHAMB,PRITAM DASS,parties.IN.IND,IND,1351,5.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-66,jammu-and-kashmir,1977,66,CHHAMB,CHAIN SINGH,parties.IN.IND,IND,1309,5.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-66,jammu-and-kashmir,1977,66,CHHAMB,BHARAT VINOD DUTT,parties.IN.IND,IND,971,4,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-67,jammu-and-kashmir,1977,67,BASOHLI,MANGAT RAM,parties.IN.INC,INC,4829,29.96,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-67,jammu-and-kashmir,1977,67,BASOHLI,UTTAM CHAND,parties.IN.IND,IND,3885,24.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-67,jammu-and-kashmir,1977,67,BASOHLI,SURINDER KUMAR,parties.IN.JKNC,JKN,2459,15.26,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-67,jammu-and-kashmir,1977,67,BASOHLI,PARKASH RANI,parties.IN.JP,JNP,2167,13.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-67,jammu-and-kashmir,1977,67,BASOHLI,RAM CHAND,parties.IN.IND,IND,908,5.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-67,jammu-and-kashmir,1977,67,BASOHLI,TARA CHAND PADHA,parties.IN.IND,IND,907,5.63,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-67,jammu-and-kashmir,1977,67,BASOHLI,DARSHAN KUMAR SHARMA,parties.IN.IND,IND,619,3.84,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-67,jammu-and-kashmir,1977,67,BASOHLI,NATNU RAM,parties.IN.IND,IND,236,1.46,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-67,jammu-and-kashmir,1977,67,BASOHLI,TARA CHAND SHARMA,parties.IN.IND,IND,108,0.67,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-68,jammu-and-kashmir,1977,68,BHILLAWAR,DHIAN SINGH,parties.IN.JP,JNP,12328,57.57,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-68,jammu-and-kashmir,1977,68,BHILLAWAR,THAKUR RANDHIR SINGH,parties.IN.INC,INC,6258,29.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-68,jammu-and-kashmir,1977,68,BHILLAWAR,KASHMIR SINGH,parties.IN.JKNC,JKN,2180,10.18,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-68,jammu-and-kashmir,1977,68,BHILLAWAR,KRISHAN DATT,parties.IN.IND,IND,411,1.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-68,jammu-and-kashmir,1977,68,BHILLAWAR,RAMESHWAR CHANDEL,parties.IN.IND,IND,236,1.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-69,jammu-and-kashmir,1977,69,KATHUA,DHAIN CHAND,parties.IN.JP,JNP,10022,44.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-69,jammu-and-kashmir,1977,69,KATHUA,PUNJABU RAM ALIAS PUNJAB SINGH,parties.IN.INC,INC,9023,40.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-69,jammu-and-kashmir,1977,69,KATHUA,VED PARKASH,parties.IN.JKNC,JKN,3274,14.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-70,jammu-and-kashmir,1977,70,HIRANAGAR,GIRDHARI LAL DOGRA,parties.IN.INC,INC,13623,50.39,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-70,jammu-and-kashmir,1977,70,HIRANAGAR,RATTAN LAL,parties.IN.JP,JNP,9912,36.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-70,jammu-and-kashmir,1977,70,HIRANAGAR,MAJOR PIAR SINGH,parties.IN.JKNC,JKN,1653,6.11,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-70,jammu-and-kashmir,1977,70,HIRANAGAR,YASH PAUL,parties.IN.IND,IND,1099,4.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-70,jammu-and-kashmir,1977,70,HIRANAGAR,GOPAL DASS,parties.IN.IND,IND,376,1.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-70,jammu-and-kashmir,1977,70,HIRANAGAR,KRISHAN DUTTA,parties.IN.IND,IND,372,1.38,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-71,jammu-and-kashmir,1977,71,NOWSHERA,BELI RAM,parties.IN.INC,INC,7832,30.89,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-71,jammu-and-kashmir,1977,71,NOWSHERA,RATTAN SINGH,parties.IN.IND,IND,7416,29.25,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-71,jammu-and-kashmir,1977,71,NOWSHERA,TILAK RAJ,parties.IN.JP,JNP,6077,23.97,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-71,jammu-and-kashmir,1977,71,NOWSHERA,NAND KUMAR,parties.IN.JKNC,JKN,3790,14.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-71,jammu-and-kashmir,1977,71,NOWSHERA,JAGDEV RAJ,parties.IN.IND,IND,242,0.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-72,jammu-and-kashmir,1977,72,DARHAL,MOHD. HUSSAIN,parties.IN.JKNC,JKN,11433,57.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-72,jammu-and-kashmir,1977,72,DARHAL,ABDUL RASHID,parties.IN.INC,INC,4717,23.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-72,jammu-and-kashmir,1977,72,DARHAL,NULZAR AHMAD,parties.IN.JP,JNP,2629,13.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-72,jammu-and-kashmir,1977,72,DARHAL,MOHD. SADIQ,parties.IN.IND,IND,953,4.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-73,jammu-and-kashmir,1977,73,RAJOURI,TALIB HUSSAIN,parties.IN.INC,INC,9390,39.98,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-73,jammu-and-kashmir,1977,73,RAJOURI,MOHD. SHARIF,parties.IN.JKNC,JKN,7365,31.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-73,jammu-and-kashmir,1977,73,RAJOURI,MOHD. ASLAM,parties.IN.IND,IND,4969,21.15,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-73,jammu-and-kashmir,1977,73,RAJOURI,GHULAM QADIR MIR,parties.IN.JP,JNP,1638,6.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-73,jammu-and-kashmir,1977,73,RAJOURI,MOHD. DILPAZIR,parties.IN.IND,IND,127,0.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-74,jammu-and-kashmir,1977,74,SURAN,MOHD. ASLAM,parties.IN.INC,INC,11608,52.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-74,jammu-and-kashmir,1977,74,SURAN,MOHD. SYED BEG,parties.IN.JKNC,JKN,9346,42.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-74,jammu-and-kashmir,1977,74,SURAN,MUSHTAQ AHMED SHAH,parties.IN.JP,JNP,922,4.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-74,jammu-and-kashmir,1977,74,SURAN,MOHD. AYUB,parties.IN.IND,IND,153,0.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-74,jammu-and-kashmir,1977,74,SURAN,NAZIR AHMED,parties.IN.IND,IND,138,0.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-75,jammu-and-kashmir,1977,75,MENDHAR,RAFIQ HISSAIN KHAN,parties.IN.IND,IND,6556,30.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-75,jammu-and-kashmir,1977,75,MENDHAR,MOHD. SADIQ,parties.IN.JKNC,JKN,6479,30.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-75,jammu-and-kashmir,1977,75,MENDHAR,SHAH MOHD.,parties.IN.INC,INC,6148,29.03,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-75,jammu-and-kashmir,1977,75,MENDHAR,MAJID AHMED KHAN,parties.IN.JP,JNP,1994,9.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-76,jammu-and-kashmir,1977,76,HAVELI,GHULAM AHMED,parties.IN.JKNC,JKN,8915,51.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-76,jammu-and-kashmir,1977,76,HAVELI,LAL HUSSAIN MUSTAQ,parties.IN.JP,JNP,4616,26.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-76,jammu-and-kashmir,1977,76,HAVELI,MIR GHULAM MOHD.,parties.IN.INC,INC,3569,20.54,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-76,jammu-and-kashmir,1977,76,HAVELI,NAND GOPAL,parties.IN.IND,IND,158,0.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-76,jammu-and-kashmir,1977,76,HAVELI,SALAM JOO ALIAS ABDUUL SALAM,parties.IN.IND,IND,116,0.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

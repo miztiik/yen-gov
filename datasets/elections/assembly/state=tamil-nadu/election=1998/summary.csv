@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-tamil-nadu-126,tamil-nadu,1998,COONOOR,169753,94128,55.45,Ranganathan M,parties.IN.DMK,DMK,47850,50.84,Karuppusamy S,parties.IN.AIADMK,ADMK,37945,9905,10.53,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,ARUPPUKOTTAI,167272,102914,61.52,Thangamthenarasu,parties.IN.DMK,DMK,40223,39.08,Panchavarnam V.S.,parties.IN.AIADMK,ADMK,38272,1951,1.89,src-1b7bc1c9d39a

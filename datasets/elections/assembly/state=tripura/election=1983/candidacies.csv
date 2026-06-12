@@ -1,0 +1,207 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-tripura-1,tripura,1983,1,SIMNA,ABHIRAM DEB BARMA,parties.IN.CPIM,CPM,9206,65.23,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-1,tripura,1983,1,SIMNA,KRIPA RANI DEBBARMA,parties.IN.UNK,TUS,4828,34.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-1,tripura,1983,1,SIMNA,PABITRA MOHAN LASKAR,parties.IN.IND,IND,80,0.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-2,tripura,1983,2,MOHANPUR,DHIRENDRA DEBNATH,parties.IN.INC,INC,6568,45.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-2,tripura,1983,2,MOHANPUR,RADHARAMAN DEBNATH,parties.IN.CPIM,CPM,5953,40.85,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-2,tripura,1983,2,MOHANPUR,BHUBAN BEJOY MAZUMDER,parties.IN.IND,IND,2053,14.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-3,tripura,1983,3,BAMUTIA,HARICHARAN SARKAR,parties.IN.CPIM,CPM,7417,50.79,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-3,tripura,1983,3,BAMUTIA,PRAFULLA KUMAR DAS,parties.IN.INC,INC,7023,48.09,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-tripura-3,tripura,1983,3,BAMUTIA,SUBODH CHANDRA DAS,parties.IN.IND,IND,164,1.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-4,tripura,1983,4,BARJALA,GOURI BHATTACHAJEE,parties.IN.CPIM,CPM,8160,49.3,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-4,tripura,1983,4,BARJALA,BASANA CHAKRABORTY,parties.IN.IND,IND,4904,29.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-4,tripura,1983,4,BARJALA,BHOLANATH DEB,parties.IN.INC,INC,3292,19.89,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-4,tripura,1983,4,BARJALA,CHITTA BIN,parties.IN.JP,JNP,163,0.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-4,tripura,1983,4,BARJALA,SANAKA PODDER,parties.IN.IND,IND,32,0.19,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-5,tripura,1983,5,KHAYERPUR,SUDHIR RANJAN MAZUMDER,parties.IN.INC,INC,8539,52.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-5,tripura,1983,5,KHAYERPUR,AKHIL DEBNATH,parties.IN.CPIM,CPM,7321,45.43,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-5,tripura,1983,5,KHAYERPUR,HARIPADA BHOWMIK,parties.IN.IND,IND,133,0.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-5,tripura,1983,5,KHAYERPUR,NALINI PARSAD DASS,parties.IN.IND,IND,123,0.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-6,tripura,1983,6,AGARTALA,MANIK SARKAR,parties.IN.CPIM,CPM,10623,52.18,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-6,tripura,1983,6,AGARTALA,PROMODE RANJANDAS GUPTA,parties.IN.INC,INC,9485,46.59,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-tripura-6,tripura,1983,6,AGARTALA,BHUPESH CHANDRA DEBNATH,parties.IN.IND,IND,132,0.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-6,tripura,1983,6,AGARTALA,KRISHNA DEBBARMA,parties.IN.IND,IND,120,0.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-7,tripura,1983,7,RAMNAGAR,BIREN DUTTA,parties.IN.CPIM,CPM,8026,50.8,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-7,tripura,1983,7,RAMNAGAR,AMAR RANJAN GUPTA,parties.IN.INC,INC,7640,48.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-7,tripura,1983,7,RAMNAGAR,JYOTIMOY GHOSH,parties.IN.IND,IND,134,0.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-8,tripura,1983,8,TOWN BORDOWALI,ASHOK KUMAR BHATTACHYA,parties.IN.INC,INC,7689,52.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-8,tripura,1983,8,TOWN BORDOWALI,BRAJA GOPAL RAY,parties.IN.AIFB,FBL,6549,45.1,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-8,tripura,1983,8,TOWN BORDOWALI,DULAL DAS GUPTA,parties.IN.JP,JNP,92,0.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-8,tripura,1983,8,TOWN BORDOWALI,TAPAS DEY,parties.IN.ICS,ICS,92,0.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-8,tripura,1983,8,TOWN BORDOWALI,PRADIPBIKASH ROY,parties.IN.IND,IND,77,0.53,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-8,tripura,1983,8,TOWN BORDOWALI,RABINDRA GHOSH,parties.IN.IND,IND,23,0.16,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-9,tripura,1983,9,BANAMALIPUR,SUKHAMOY SENGUPTA,parties.IN.INC,INC,6883,52.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-9,tripura,1983,9,BANAMALIPUR,BIBEKANANDA BHOWMIK,parties.IN.CPIM,CPM,5913,45.04,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-9,tripura,1983,9,BANAMALIPUR,SUBRATA BHOWMIK,parties.IN.IND,IND,224,1.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-9,tripura,1983,9,BANAMALIPUR,POLIN CHANDRA DEBNATH,parties.IN.IND,IND,107,0.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-10,tripura,1983,10,MAJLISHPUR,KHAGEN DAS,parties.IN.CPIM,CPM,6397,44.21,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-10,tripura,1983,10,MAJLISHPUR,RANJIT SAHA,parties.IN.INC,INC,4901,33.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-10,tripura,1983,10,MAJLISHPUR,DIPAK NAG,parties.IN.IND,IND,2993,20.69,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-10,tripura,1983,10,MAJLISHPUR,SUNIT BASU,parties.IN.IND,IND,102,0.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-10,tripura,1983,10,MAJLISHPUR,GAURANG CHAUDHURI,parties.IN.IND,IND,76,0.53,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-11,tripura,1983,11,MANDAIBAZAR,RASHIRAM DEBBARMA,parties.IN.CPIM,CPM,9861,56.04,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-11,tripura,1983,11,MANDAIBAZAR,AMIYA KUMAR DEB BARMA,parties.IN.UNK,TUS,7594,43.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-11,tripura,1983,11,MANDAIBAZAR,SUDHANGSHU SEN,parties.IN.IND,IND,140,0.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-12,tripura,1983,12,TAKARJALA,SUDHANWA DEB BARMA,parties.IN.CPIM,CPM,9029,59.83,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-12,tripura,1983,12,TAKARJALA,SURIYA KUMAR DEB BARMA,parties.IN.UNK,TUS,5930,39.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-12,tripura,1983,12,TAKARJALA,PROMODE BEHARI MAJUMDER,parties.IN.IND,IND,133,0.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-13,tripura,1983,13,PRATAPGARH,ANIL SARKAR,parties.IN.CPIM,CPM,12736,58.4,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-13,tripura,1983,13,PRATAPGARH,MONOMOHAN DAS,parties.IN.INC,INC,8758,40.16,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-tripura-13,tripura,1983,13,PRATAPGARH,BARINDA DAS,parties.IN.IND,IND,164,0.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-13,tripura,1983,13,PRATAPGARH,MADHUSUDAN DAS,parties.IN.IND,IND,152,0.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-14,tripura,1983,14,BADHARGHAT,JADAB MAJUMDER,parties.IN.CPIM,CPM,11244,56.37,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-14,tripura,1983,14,BADHARGHAT,NIRANJAN PAUL,parties.IN.INC,INC,8551,42.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-14,tripura,1983,14,BADHARGHAT,GOURISANKAR SAHA,parties.IN.IND,IND,91,0.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-14,tripura,1983,14,BADHARGHAT,RATAN CHANDRA PAUL,parties.IN.IND,IND,62,0.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-15,tripura,1983,15,KAMALASAGAR,MATILAL SARKAR,parties.IN.CPIM,CPM,7601,50.85,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-15,tripura,1983,15,KAMALASAGAR,MONORANJAN LASKAR,parties.IN.INC,INC,7170,47.97,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-tripura-15,tripura,1983,15,KAMALASAGAR,HARENDRA DAS,parties.IN.IND,IND,177,1.18,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-16,tripura,1983,16,BISHALGARH,BHANU LAL SAHA,parties.IN.CPIM,CPM,7340,51.54,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-16,tripura,1983,16,BISHALGARH,SAMAR RANJAN BARMAN,parties.IN.INC,INC,6900,48.46,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-tripura-17,tripura,1983,17,GOLAGHATI,BUDDHYA DEB BARMA,parties.IN.UNK,TUS,8011,50.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-17,tripura,1983,17,GOLAGHATI,NIRANJAN DEB BARMA,parties.IN.CPIM,CPM,7198,45.09,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-17,tripura,1983,17,GOLAGHATI,PROMODE BEHARI MAJUMDER,parties.IN.IND,IND,754,4.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-18,tripura,1983,18,SURYAMANINAGAR,PARIMAL CHANDRA SAHA,parties.IN.INC,INC,8528,52.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-18,tripura,1983,18,SURYAMANINAGAR,BRAJA GOPAL BHOWMIK,parties.IN.CPIM,CPM,7302,45.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-18,tripura,1983,18,SURYAMANINAGAR,BRAJA LAL SAHA,parties.IN.IND,IND,300,1.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-18,tripura,1983,18,SURYAMANINAGAR,REBATI DEB BARMA,parties.IN.IND,IND,53,0.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-19,tripura,1983,19,CHARILAM,ARABER RAHAMAN,parties.IN.CPIM,CPM,7022,51.21,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-19,tripura,1983,19,CHARILAM,MUNSAR ALI,parties.IN.INC,INC,6648,48.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-19,tripura,1983,19,CHARILAM,HARIDAS NAMA,parties.IN.IND,IND,41,0.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-20,tripura,1983,20,BOXANAGAR,NARAYAN DAS,parties.IN.INC,INC,7420,49.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-20,tripura,1983,20,BOXANAGAR,SUMANTA KUMAR DAS,parties.IN.CPIM,CPM,7210,48.53,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-20,tripura,1983,20,BOXANAGAR,MANI GOPAL DAS,parties.IN.IND,IND,123,0.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-20,tripura,1983,20,BOXANAGAR,ASHUTOSH DAS,parties.IN.IND,IND,104,0.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-21,tripura,1983,21,NALCHAR,RASHIK LAL ROY,parties.IN.INC,INC,7264,51.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-21,tripura,1983,21,NALCHAR,SUBAL RUDRA,parties.IN.CPIM,CPM,6623,47,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-21,tripura,1983,21,NALCHAR,SUKUMAR DAS,parties.IN.IND,IND,204,1.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-22,tripura,1983,22,SONAMURA,SAMAR CHOWDHURY,parties.IN.CPIM,CPM,8795,54.02,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-22,tripura,1983,22,SONAMURA,BRAJENDRA KUMAR GHOSH,parties.IN.INC,INC,7487,45.98,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-tripura-23,tripura,1983,23,DHANPUR,DASARATHA DEB,parties.IN.CPIM,CPM,11451,86.89,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-23,tripura,1983,23,DHANPUR,BATHSAILYAMANI JAMATIA,parties.IN.UNK,TUS,1728,13.11,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-24,tripura,1983,24,RAMCHANDRAGHAT,SAMIR DEB SARKAR,parties.IN.CPIM,CPM,5777,45.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-24,tripura,1983,24,RAMCHANDRAGHAT,SUKHAMAY KAR,parties.IN.INC,INC,3587,28.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-24,tripura,1983,24,RAMCHANDRAGHAT,RATAN GHOSH,parties.IN.IND,IND,3424,26.78,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-25,tripura,1983,25,KHOWAI,BIDYA CHANDRA DEB BARMA,parties.IN.CPIM,CPM,11360,79.67,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-25,tripura,1983,25,KHOWAI,KISHALAYA KANTI DEB BARMA,parties.IN.INC,INC,1591,11.16,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-25,tripura,1983,25,KHOWAI,SUDHANGSHU SEN,parties.IN.IND,IND,1308,9.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-26,tripura,1983,26,ASHARAMBARI,NRIPEN CHAKRAVORTI,parties.IN.CPIM,CPM,10845,60.87,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-26,tripura,1983,26,ASHARAMBARI,SIROMANI ROY,parties.IN.IND,IND,5212,29.25,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-26,tripura,1983,26,ASHARAMBARI,LALIT MOHAN GOSWAMI,parties.IN.INC,INC,1618,9.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-26,tripura,1983,26,ASHARAMBARI,MANJU DASGUPTA,parties.IN.BJP,BJP,143,0.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-27,tripura,1983,27,KALYANPUR-PRAMODENAGAR,MAKHAN LAL CHAKRABORTY,parties.IN.CPIM,CPM,7064,49,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-27,tripura,1983,27,KALYANPUR-PRAMODENAGAR,DEBABRATA DATTA,parties.IN.IND,IND,4566,31.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-27,tripura,1983,27,KALYANPUR-PRAMODENAGAR,SUNI KISHORE ROY,parties.IN.INC,INC,2787,19.33,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-28,tripura,1983,28,TELIAMURA,KALI KUMAR DEB BARMA,parties.IN.CPIM,CPM,7267,54.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-28,tripura,1983,28,TELIAMURA,MAHARAJA KUMAR SAHADEB BIKARAM KISHORE DEB BARMA,parties.IN.INC,INC,5059,37.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-28,tripura,1983,28,TELIAMURA,SUDHANGSHU SEN,parties.IN.IND,IND,1059,7.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-29,tripura,1983,29,KRISHNAPUR,GITA CHOWDHURY,parties.IN.INC,INC,6835,42.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-29,tripura,1983,29,KRISHNAPUR,JITENDRA SARKAR,parties.IN.CPIM,CPM,5984,37.19,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-29,tripura,1983,29,KRISHNAPUR,GOURENDRA RUDRA PAUL,parties.IN.IND,IND,3271,20.33,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-30,tripura,1983,30,BAGMA,RATI MOHAN JAMATIA,parties.IN.UNK,TUS,10157,62.93,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-30,tripura,1983,30,BAGMA,GUNAPADA JAMATIA,parties.IN.CPIM,CPM,5506,34.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-30,tripura,1983,30,BAGMA,PABITRA MOHAN LASKAR,parties.IN.IND,IND,478,2.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-31,tripura,1983,31,RADHAKISHOREPUR,GOPAL CHANDRA DAS,parties.IN.RSP,RSP,8148,53.21,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-31,tripura,1983,31,RADHAKISHOREPUR,KAMINI KUMAR DAS,parties.IN.INC,INC,7032,45.92,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-tripura-31,tripura,1983,31,RADHAKISHOREPUR,GOPAL DAS,parties.IN.IND,IND,70,0.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-31,tripura,1983,31,RADHAKISHOREPUR,SITANATH MAJUMDER,parties.IN.JP,JNP,62,0.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-32,tripura,1983,32,MATARBARI,JOGESH CHAKRABORTY,parties.IN.RSP,RSP,7070,51.44,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-32,tripura,1983,32,MATARBARI,BHANU GOPAL BAISNAB,parties.IN.INC,INC,6590,47.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-32,tripura,1983,32,MATARBARI,SHIBA SHANKER DEY,parties.IN.JP,JNP,44,0.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-32,tripura,1983,32,MATARBARI,BISWAMBER DEBNATH,parties.IN.IND,IND,39,0.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-33,tripura,1983,33,KAKRABAN-SALGARAH,MAHARANI BIBHU KUMARI DEVI,parties.IN.INC,INC,9195,57.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-33,tripura,1983,33,KAKRABAN-SALGARAH,MADHAB SAHA,parties.IN.CPIM,CPM,6625,41.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-33,tripura,1983,33,KAKRABAN-SALGARAH,MARAN CHANDRA DAS,parties.IN.JP,JNP,154,0.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-33,tripura,1983,33,KAKRABAN-SALGARAH,PARIMAL SAHA,parties.IN.IND,IND,42,0.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-34,tripura,1983,34,RAJNAGAR,KESHAB CHANDRA MAJUMDER,parties.IN.CPIM,CPM,8256,52,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-34,tripura,1983,34,RAJNAGAR,NANIK CHANDRA DAS,parties.IN.INC,INC,7521,47.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-34,tripura,1983,34,RAJNAGAR,SHIBU CHANDRA DEBNATH,parties.IN.IND,IND,99,0.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-35,tripura,1983,35,BELONIA,NAKUL DAS,parties.IN.CPIM,CPM,10144,54.83,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-35,tripura,1983,35,BELONIA,BHUBAN MOHAN DAS,parties.IN.INC,INC,7951,42.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-35,tripura,1983,35,BELONIA,PARESH SARKAR,parties.IN.IND,IND,405,2.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-36,tripura,1983,36,SANTIRBAZAR,MANORANJAN MAJUMDER,parties.IN.IND,IND,8081,50.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-36,tripura,1983,36,SANTIRBAZAR,JITENDRA LAL DAS,parties.IN.CPI,CPI,7657,48.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-36,tripura,1983,36,SANTIRBAZAR,MADAN MOHAN BAIDYA,parties.IN.IND,IND,153,0.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-36,tripura,1983,36,SANTIRBAZAR,ANIL SAHA,parties.IN.IND,IND,33,0.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-37,tripura,1983,37,HRISHYAMUKH,SHYAM CHARAN TRIPURA,parties.IN.UNK,TUS,10478,55.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-37,tripura,1983,37,HRISHYAMUKH,NARAYAN CHANDRA KAR,parties.IN.CPIM,CPM,7759,41.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-37,tripura,1983,37,HRISHYAMUKH,MANINDRA KR. DAS,parties.IN.IND,IND,598,3.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-38,tripura,1983,38,JOLAIBARI,BADAL CHOWDHARY,parties.IN.CPIM,CPM,9204,53.87,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-38,tripura,1983,38,JOLAIBARI,AMAL MALLIK,parties.IN.INC,INC,7703,45.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-38,tripura,1983,38,JOLAIBARI,NIRANJAN CHAKRABORTY,parties.IN.IND,IND,180,1.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-39,tripura,1983,39,MANU,KASHI RAM REANG,parties.IN.INC,INC,6718,51.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-39,tripura,1983,39,MANU,BRAJA MOHAN JAMATIA,parties.IN.CPIM,CPM,6227,48.1,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-40,tripura,1983,40,SABROOM,ANGJU MOG,parties.IN.INC,INC,10304,55.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-40,tripura,1983,40,SABROOM,JITENDRA KUMAR CHOWDHURY,parties.IN.CPIM,CPM,8362,44.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-41,tripura,1983,41,AMPINAGAR,SUNIL KUMAR CHOWDHURY,parties.IN.CPIM,CPM,9118,52.55,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-41,tripura,1983,41,AMPINAGAR,ADHIR CHANDRA BHAUMIK,parties.IN.INC,INC,7981,46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-41,tripura,1983,41,AMPINAGAR,NITAI CHARAN MAZUMDER,parties.IN.IND,IND,252,1.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-42,tripura,1983,42,AMARPUR,NAGENDRA JAMATIA,parties.IN.UNK,TUS,9449,58.99,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-42,tripura,1983,42,AMARPUR,MADHU SUDAN KALAI,parties.IN.CPIM,CPM,4941,30.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-42,tripura,1983,42,AMARPUR,PABITRA MOHAN LASKAR,parties.IN.IND,IND,1629,10.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-43,tripura,1983,43,KARBOOK,JAWHAR SAHA,parties.IN.IND,IND,8747,48.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-43,tripura,1983,43,KARBOOK,SYJMAL KANTI SAHA,parties.IN.CPIM,CPM,6352,35.25,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-43,tripura,1983,43,KARBOOK,ANIL DEVNATH,parties.IN.IND,IND,2523,14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-43,tripura,1983,43,KARBOOK,LAL MOHAN GHOSH,parties.IN.INC,INC,397,2.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-44,tripura,1983,44,RAIMA VALLEY,RABINDRA DEBBARMA,parties.IN.UNK,TUS,7772,51.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-44,tripura,1983,44,RAIMA VALLEY,ANAND MOHAN REAJA,parties.IN.CPIM,CPM,7225,48.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-45,tripura,1983,45,KAMALPUR,BIMAL SINGHA,parties.IN.CPIM,CPM,7674,59.48,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-45,tripura,1983,45,KAMALPUR,KANAK RANJAN GHOSH,parties.IN.INC,INC,5161,40,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-45,tripura,1983,45,KAMALPUR,RANJIT MALAKAR,parties.IN.IND,IND,66,0.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-46,tripura,1983,46,SURMA,RUDRESWAR DAS,parties.IN.CPIM,CPM,7763,51.45,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-46,tripura,1983,46,SURMA,HARENDRA CHANDRA DAS,parties.IN.INC,INC,6215,41.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-46,tripura,1983,46,SURMA,SUSHIL MALAKAR,parties.IN.IND,IND,1109,7.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-47,tripura,1983,47,AMBASSA,DINESH DEB BARMA,parties.IN.CPIM,CPM,8032,51.65,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-47,tripura,1983,47,AMBASSA,BIJOY KUMAR JAMATIA,parties.IN.UNK,TUS,6761,43.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-47,tripura,1983,47,AMBASSA,RATNA PRAVA DAS,parties.IN.IND,IND,758,4.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-48,tripura,1983,48,KARAMCHHARA,DIBA CHANDRA HARANGKHAL,parties.IN.UNK,TUS,8419,50.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-48,tripura,1983,48,KARAMCHHARA,KAMINI DEB BARMA,parties.IN.CPIM,CPM,7480,45.12,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-48,tripura,1983,48,KARAMCHHARA,RATNA PRAVA DAS,parties.IN.IND,IND,680,4.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-49,tripura,1983,49,CHHAWMANU,PURNA MOHAN TRIPURA,parties.IN.CPIM,CPM,6662,50.24,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-49,tripura,1983,49,CHHAWMANU,JADUMOHAN TRIPURA,parties.IN.UNK,TUS,6598,49.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-50,tripura,1983,50,PABIACHHARA,BIDHU BHUSAN MALAKAR,parties.IN.CPIM,CPM,7544,50.6,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-50,tripura,1983,50,PABIACHHARA,SUBAL CHANDRA BISWAS,parties.IN.INC,INC,6413,43.02,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-tripura-50,tripura,1983,50,PABIACHHARA,SAILENDRA DAS,parties.IN.IND,IND,658,4.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-50,tripura,1983,50,PABIACHHARA,NIRMAL KUMAR DAS,parties.IN.IND,IND,293,1.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-51,tripura,1983,51,FATIKROY,TARANI MOHAN SINGHA,parties.IN.CPIM,CPM,7580,51.65,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-51,tripura,1983,51,FATIKROY,RADHIKA RANJAN GUPTA,parties.IN.INC,INC,5898,40.19,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-tripura-51,tripura,1983,51,FATIKROY,BIRENDRA KUMAR DAS,parties.IN.IND,IND,790,5.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-51,tripura,1983,51,FATIKROY,MANINDRA CHANDRA BHATTACHARJEE,parties.IN.ICS,ICS,407,2.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-52,tripura,1983,52,CHANDIPUR,BAIDYANATH MAZUMDER,parties.IN.CPIM,CPM,9066,54.64,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-52,tripura,1983,52,CHANDIPUR,BIRAJIT SINHA,parties.IN.INC,INC,7398,44.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-52,tripura,1983,52,CHANDIPUR,HAREKRISHNA DAS,parties.IN.IND,IND,127,0.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-53,tripura,1983,53,KAILASAHAR,SYED BASIT ALI,parties.IN.INC,INC,8116,50.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-53,tripura,1983,53,KAILASAHAR,TAPAN CHAKRABORTY,parties.IN.CPIM,CPM,7487,46.88,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-53,tripura,1983,53,KAILASAHAR,RABINDRA KUMAR DAS,parties.IN.IND,IND,196,1.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-53,tripura,1983,53,KAILASAHAR,KANAI LAL DATTA,parties.IN.IND,IND,102,0.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-53,tripura,1983,53,KAILASAHAR,SAMSUDDIN AHAMAD,parties.IN.IND,IND,69,0.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-54,tripura,1983,54,KADAMTALA - KURTI,FAYZUR RAHAMAN,parties.IN.CPIM,CPM,7738,57.78,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-54,tripura,1983,54,KADAMTALA - KURTI,ABDUL RAZAK BISHARAD,parties.IN.INC,INC,4794,35.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-54,tripura,1983,54,KADAMTALA - KURTI,ABDUL WAZID,parties.IN.IND,IND,641,4.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-54,tripura,1983,54,KADAMTALA - KURTI,ARDHENDU NAG,parties.IN.BJP,BJP,179,1.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-54,tripura,1983,54,KADAMTALA - KURTI,RADHARAMAN NATH,parties.IN.ICS,ICS,41,0.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-55,tripura,1983,55,BAGBASSA,SAMIR KUMAR NATH,parties.IN.CPIM,CPM,5061,40.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-55,tripura,1983,55,BAGBASSA,JYOTIRMOY NATH,parties.IN.INC,INC,4727,38.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-55,tripura,1983,55,BAGBASSA,SUNDAR MUKHERJEE,parties.IN.IND,IND,1967,15.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-55,tripura,1983,55,BAGBASSA,MOULANA ABDUR RAHIM,parties.IN.IND,IND,487,3.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-55,tripura,1983,55,BAGBASSA,KUMUD RANAJAN NATH,parties.IN.IND,IND,160,1.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-56,tripura,1983,56,DHARMANAGAR,AMARENDRA SARMA,parties.IN.CPIM,CPM,7309,51.59,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-56,tripura,1983,56,DHARMANAGAR,BINAY BHUSHAN RAY,parties.IN.INC,INC,5570,39.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-56,tripura,1983,56,DHARMANAGAR,RADHAGOBINDA DUTTA,parties.IN.IND,IND,1043,7.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-56,tripura,1983,56,DHARMANAGAR,JAYANTA KUMAR RAY,parties.IN.BJP,BJP,178,1.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-56,tripura,1983,56,DHARMANAGAR,SUNAMANI SARKAR,parties.IN.IND,IND,68,0.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-57,tripura,1983,57,JUBARAJNAGAR,RAM KUMAR NATH,parties.IN.CPIM,CPM,6074,45.23,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-57,tripura,1983,57,JUBARAJNAGAR,PRASANNA KUMAR NATH,parties.IN.IND,IND,4225,31.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-57,tripura,1983,57,JUBARAJNAGAR,MONORANJAN NATH,parties.IN.INC,INC,2214,16.49,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-tripura-57,tripura,1983,57,JUBARAJNAGAR,DILIP ROY,parties.IN.IND,IND,837,6.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-57,tripura,1983,57,JUBARAJNAGAR,RAI MOHAN SINGHA,parties.IN.BJP,BJP,78,0.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-58,tripura,1983,58,PANISAGAR,RATNA PRAVA DAS,parties.IN.IND,IND,5343,34.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-58,tripura,1983,58,PANISAGAR,MOHAN LAL CHAKMA,parties.IN.CPIM,CPM,5000,32.6,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-58,tripura,1983,58,PANISAGAR,TEMIYA KUMAR DEWAN,parties.IN.UNK,TUS,4993,32.56,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-59,tripura,1983,59,PENCHARTHAL,SUBHODH CHNADRA DAS,parties.IN.CPIM,CPM,6642,53.45,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-59,tripura,1983,59,PENCHARTHAL,BIBEKANANDA CHAKRABORTY,parties.IN.IND,IND,3047,24.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-59,tripura,1983,59,PENCHARTHAL,ASHUTOSH DAS,parties.IN.INC,INC,2738,22.03,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-60,tripura,1983,60,KANCHANPUR,LEN PRASAD MALSAI,parties.IN.CPIM,CPM,6052,43.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-60,tripura,1983,60,KANCHANPUR,DRAOKUMAR REANG,parties.IN.UNK,TUS,4321,30.85,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tripura-60,tripura,1983,60,KANCHANPUR,SUDHANGSHU SEN,parties.IN.IND,IND,3524,25.16,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-60,tripura,1983,60,KANCHANPUR,RATNA PRAVA DAS,parties.IN.IND,IND,109,0.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

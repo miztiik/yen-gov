@@ -1,0 +1,14 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-madhya-pradesh-162,madhya-pradesh,1989,162,DURG,M.L.VORA,parties.IN.INC,INC,77487,72.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-162,madhya-pradesh,1989,162,DURG,B.YADAV,parties.IN.IND,IND,21154,19.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-162,madhya-pradesh,1989,162,DURG,R.D.CHELAK,parties.IN.IND,IND,3409,3.18,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-162,madhya-pradesh,1989,162,DURG,A.S.RAO,parties.IN.IND,IND,1112,1.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-162,madhya-pradesh,1989,162,DURG,RAMESH,parties.IN.IND,IND,869,0.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-162,madhya-pradesh,1989,162,DURG,N.D.I.GANDHI,parties.IN.IND,IND,724,0.67,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-162,madhya-pradesh,1989,162,DURG,R.N.TIRBHUTI,parties.IN.LKD,LKD,675,0.63,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-162,madhya-pradesh,1989,162,DURG,D.M.LAL,parties.IN.IND,IND,528,0.49,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-162,madhya-pradesh,1989,162,DURG,A.K.KUSHWAHA,parties.IN.IND,IND,408,0.38,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-162,madhya-pradesh,1989,162,DURG,T.G.SINGH,parties.IN.IND,IND,322,0.3,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-162,madhya-pradesh,1989,162,DURG,S.P.SATNAMI,parties.IN.IND,IND,248,0.23,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-162,madhya-pradesh,1989,162,DURG,P.R.SATNAMI,parties.IN.IND,IND,214,0.2,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-162,madhya-pradesh,1989,162,DURG,B.R.DONGRE,parties.IN.IND,IND,136,0.13,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a

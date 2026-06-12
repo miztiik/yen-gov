@@ -1,0 +1,6 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1962-rajasthan-55,rajasthan,1964,55,MAHUWA,MANDHATA SINGH,parties.IN.SWA,SWA,20771,52.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-rajasthan-55,rajasthan,1964,55,MAHUWA,SHIV CHARAN SINGH,parties.IN.INC,INC,18200,45.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-rajasthan-55,rajasthan,1964,55,MAHUWA,KISHORI,parties.IN.IND,IND,807,2.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-rajasthan-160,rajasthan,1964,160,HANUMANGARH,KUMBHA RAM ARYA,parties.IN.INC,INC,27370,53.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-rajasthan-160,rajasthan,1964,160,HANUMANGARH,HARI RAM,parties.IN.IND,IND,23796,46.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a

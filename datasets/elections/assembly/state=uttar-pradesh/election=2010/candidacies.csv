@@ -1,0 +1,34 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-uttar-pradesh-54,uttar-pradesh,2010,54,LAKHIMPUR,U.V.Alies.Madhur,parties.IN.SP,SP,42269,31.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-54,uttar-pradesh,2010,54,LAKHIMPUR,Sashi Dhar,parties.IN.PECP,PECP,24680,18.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-54,uttar-pradesh,2010,54,LAKHIMPUR,Vinod Mishra,parties.IN.BJP,BJP,18750,13.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-54,uttar-pradesh,2010,54,LAKHIMPUR,Saif Ali Naqvi,parties.IN.INC,INC,14061,10.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-54,uttar-pradesh,2010,54,LAKHIMPUR,Pawan Kumar,parties.IN.IND,IND,11337,8.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-54,uttar-pradesh,2010,54,LAKHIMPUR,Abdul Azeez,parties.IN.IND,IND,9657,7.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-54,uttar-pradesh,2010,54,LAKHIMPUR,Kaushal Kishor,parties.IN.IND,IND,6980,5.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-54,uttar-pradesh,2010,54,LAKHIMPUR,U.Khatoon,parties.IN.SBP,SBP,1514,1.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-54,uttar-pradesh,2010,54,LAKHIMPUR,Sanjeev Kumar,parties.IN.IND,IND,1220,0.91,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-54,uttar-pradesh,2010,54,LAKHIMPUR,Ankur Awasthi,parties.IN.IND,IND,1021,0.76,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-54,uttar-pradesh,2010,54,LAKHIMPUR,Liaqat Ali,parties.IN.IND,IND,736,0.55,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-54,uttar-pradesh,2010,54,LAKHIMPUR,Mujeeb Khan,parties.IN.IND,IND,626,0.47,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-54,uttar-pradesh,2010,54,LAKHIMPUR,Neeraj Bartariya,parties.IN.IND,IND,613,0.46,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-54,uttar-pradesh,2010,54,LAKHIMPUR,Amit Shukla,parties.IN.IND,IND,500,0.37,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-54,uttar-pradesh,2010,54,LAKHIMPUR,Ahmad Hasib Khan,parties.IN.IPI,IPI,469,0.35,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-154,uttar-pradesh,2010,154,DOMARIYAGANJ,Khatoon Taufique,parties.IN.BSP,BSP,44765,30.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-154,uttar-pradesh,2010,154,DOMARIYAGANJ,Prem Prakash Urf.Jippi Tiwari,parties.IN.BJP,BJP,28923,19.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-154,uttar-pradesh,2010,154,DOMARIYAGANJ,Sachchida Nand,parties.IN.PP,PP,26336,17.69,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-154,uttar-pradesh,2010,154,DOMARIYAGANJ,Kamal Yusuf Malik,parties.IN.SP,SP,21924,14.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-154,uttar-pradesh,2010,154,DOMARIYAGANJ,Ashok Kumar Singh,parties.IN.INC,INC,19206,12.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-154,uttar-pradesh,2010,154,DOMARIYAGANJ,Madan,parties.IN.IND,IND,2268,1.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-154,uttar-pradesh,2010,154,DOMARIYAGANJ,Asha Devi,parties.IN.IND,IND,2258,1.52,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-154,uttar-pradesh,2010,154,DOMARIYAGANJ,Sheela,parties.IN.RVNP,RVNP,1122,0.75,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-154,uttar-pradesh,2010,154,DOMARIYAGANJ,Gita,parties.IN.IND,IND,775,0.52,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-154,uttar-pradesh,2010,154,DOMARIYAGANJ,Jokhai,parties.IN.IND,IND,708,0.48,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-154,uttar-pradesh,2010,154,DOMARIYAGANJ,Onkar Nath,parties.IN.IND,IND,600,0.4,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-333,uttar-pradesh,2010,333,NIDHOLI KALAN,Amit Gaurav,parties.IN.SP,SP,42966,45.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-333,uttar-pradesh,2010,333,NIDHOLI KALAN,Virendra Singh Lodhi,parties.IN.IND,IND,18836,19.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-333,uttar-pradesh,2010,333,NIDHOLI KALAN,Bharat Singh,parties.IN.INC,INC,16320,17.16,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-333,uttar-pradesh,2010,333,NIDHOLI KALAN,Rajesh Kumar,parties.IN.BJP,BJP,13852,14.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-333,uttar-pradesh,2010,333,NIDHOLI KALAN,Sharafat Ali,parties.IN.ASP,ASP,1512,1.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-333,uttar-pradesh,2010,333,NIDHOLI KALAN,Abhilakh Singh,parties.IN.IND,IND,835,0.88,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-333,uttar-pradesh,2010,333,NIDHOLI KALAN,Satendra,parties.IN.IND,IND,795,0.84,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

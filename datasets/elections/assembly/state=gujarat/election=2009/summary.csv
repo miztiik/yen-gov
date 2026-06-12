@@ -1,0 +1,8 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-gujarat-10,gujarat,2009,CHOTILA,184601,98960,53.61,K.V. Harajibhai,parties.IN.BJP,BJP,47628,48.13,J.M.Popatbhai,parties.IN.INC,INC,40249,7379,7.46,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-102,gujarat,2009,DANTA,226688,134250,59.22,B.V.Parthibhai,parties.IN.BJP,BJP,60311,44.92,U.N.Nashirbhai,parties.IN.INC,INC,56092,4219,3.14,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-16,gujarat,2009,JASDAN,185029,125793,67.99,B.B.Khodabhai,parties.IN.BJP,BJP,59934,47.64,B.B.Kuvarjibhai,parties.IN.INC,INC,45160,14774,11.74,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-22,gujarat,2009,DHORAJI,146707,86276,58.81,R.J.Vitthalbhai,parties.IN.INC,INC,48981,56.77,J.C.Thesiya,parties.IN.BJP,BJP,32992,15989,18.53,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-47,gujarat,2009,KODINAR,172585,108991,63.15,B.D.Karshanbhai,parties.IN.INC,INC,55900,51.29,K.N.Oghadbhai Vala,parties.IN.BJP,BJP,47958,7942,7.29,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-66,gujarat,2009,DEHGAM,173032,120146,69.44,"J,D,Chavhan",parties.IN.BJP,BJP,60081,50.01,Dr.C.I.Chavda,parties.IN.INC,INC,50614,9467,7.88,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-93,gujarat,2009,SAMI,167715,107318,63.99,R.B.Dahyabhai,parties.IN.BJP,BJP,61414,57.23,D.A.Thakor,parties.IN.INC,INC,37382,24032,22.4,src-1b7bc1c9d39a

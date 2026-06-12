@@ -1,0 +1,6 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-odisha-83,odisha,2008,83,LAKSHMIPUR(SC),PURNA CHANDRA MAJHI,parties.IN.INC,INC,41070,41.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-83,odisha,2008,83,LAKSHMIPUR(SC),BIBHISANA MAJHI,parties.IN.BJD,BJD,40586,40.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-83,odisha,2008,83,LAKSHMIPUR(SC),UPENDRA MAJHI,parties.IN.SO,SO,6676,6.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-83,odisha,2008,83,LAKSHMIPUR(SC),DANDASI TRIPATI,parties.IN.RPIA,RPI (A),6333,6.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-83,odisha,2008,83,LAKSHMIPUR(SC),KUMUDA CHANDRA SAUNTA,parties.IN.SP,SP,5234,5.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

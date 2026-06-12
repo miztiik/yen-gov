@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-jammu-and-kashmir-32,jammu-and-kashmir,2003,PAMPORE,51688,19432,37.59,ZAHOOR AHMAD MIR,parties.IN.JKPDP,PDP,14317,73.68,MUSHTAQ AHMAD,parties.IN.JKNC,NC,1535,12782,65.78,src-1b7bc1c9d39a

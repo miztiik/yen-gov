@@ -1,0 +1,23 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1967-bihar-29,bihar,1970,29,MAIRWA,R.RAM,parties.IN.BJS,BJS,14674,38.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-29,bihar,1970,29,MAIRWA,CHANDRIKA RAM,parties.IN.UNK,NCJ,12116,31.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-29,bihar,1970,29,MAIRWA,P.RAM,parties.IN.SSP,SSP,6390,16.73,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-29,bihar,1970,29,MAIRWA,G.RAM,parties.IN.CPIM,CPM,3805,9.96,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-29,bihar,1970,29,MAIRWA,B.MAHARA,parties.IN.BKD,BKD,638,1.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-29,bihar,1970,29,MAIRWA,N.CHOWDHRY,parties.IN.IND,IND,339,0.89,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-29,bihar,1970,29,MAIRWA,PHAGU RAM,parties.IN.UNK,NCN,238,0.62,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-257,bihar,1970,257,GOVINDPUR,G.DEVI,parties.IN.IND,IND,46279,63.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-257,bihar,1970,257,GOVINDPUR,M.P.SINHA,parties.IN.IND,IND,23963,32.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-257,bihar,1970,257,GOVINDPUR,M.P.NIRALA,parties.IN.SSP,SSP,971,1.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-257,bihar,1970,257,GOVINDPUR,V.DEVI,parties.IN.IND,IND,725,0.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-257,bihar,1970,257,GOVINDPUR,M.SINHA,parties.IN.IND,IND,694,0.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-257,bihar,1970,257,GOVINDPUR,L.N.SINHA,parties.IN.IND,IND,335,0.46,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-269,bihar,1970,269,CHATRA,P.N.SINGH,parties.IN.JP,JAP,13371,46.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-269,bihar,1970,269,CHATRA,U.N.VERMA,parties.IN.SSP,SSP,6797,23.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-269,bihar,1970,269,CHATRA,Z.ABAINDIN,parties.IN.IND,IND,4858,16.96,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-269,bihar,1970,269,CHATRA,M.RAM,parties.IN.UNK,NCJ,3611,12.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-297,bihar,1970,297,TORPA,"B.S,MUNDA",parties.IN.IND,IND,13797,48.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-297,bihar,1970,297,TORPA,K.PAHAN,parties.IN.BJS,BJS,9369,33.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-297,bihar,1970,297,TORPA,G.A.PHULCHAND,parties.IN.IND,IND,2752,9.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-297,bihar,1970,297,TORPA,K.CHRISTANAND,parties.IN.JKP,JKP,2138,7.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-bihar-297,bihar,1970,297,TORPA,TOPNO,parties.IN.IND,IND,228,0.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

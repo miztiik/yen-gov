@@ -1,0 +1,6 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-andhra-pradesh-182,andhra-pradesh,1980,KOILKUNTLA,101850,49847,48.94,M.K.V.REDDY,parties.IN.INC_I,INC(I),38521,77.28,A.C.NARAYANA,parties.IN.IND,IND,11326,27195,54.56,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1980,ALLAGADA,113688,79247,69.71,G.P.REDDI,parties.IN.INC_I,INC(I),44752,56.47,S.V.S.REDDI,parties.IN.IND,IND,30234,14518,18.32,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-193,andhra-pradesh,1980,MAHABUBNAGAR,82474,44947,54.5,ANJANEYULU,parties.IN.INC_I,INC(I),28693,63.84,R.REDDY,parties.IN.JP,JNP,10720,17973,39.99,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-197,andhra-pradesh,1980,GADWAL,102442,63729,62.21,D.K.S.S.REDDY,parties.IN.INC_I,INC(I),40919,64.21,P.P.R.REDDY,parties.IN.INC_U,INC(U),14006,26913,42.23,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-26,andhra-pradesh,1980,PENDURTHI,102350,71780,70.13,D.SATYANARAYANA,parties.IN.INC_I,INC(I),23687,33,P.SIMACHALAM,parties.IN.IND,IND,18172,5515,7.68,src-1b7bc1c9d39a

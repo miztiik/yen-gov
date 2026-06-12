@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-meghalaya-21,meghalaya,2005,MAWPREM,19938,9946,49.88,MANAS CHAUDHURI,parties.IN.IND,IND,4839,48.65,DAMBAR B. GURUNG,parties.IN.INC,INC,3521,1318,13.25,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-43,meghalaya,2005,SONGSAK(ST),19849,14061,70.84,TONSING N MARAK,parties.IN.INC,INC,3890,27.67,ANDERSON SANGMA,parties.IN.IND,IND,3260,630,4.49,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-50,meghalaya,2005,SELSELLA(ST),15486,11123,71.83,CLEMENT MARAK,parties.IN.INC,INC,2745,24.68,CONNAD KONGKAL SANGMA,parties.IN.NCP,NCP,2563,182,1.64,src-1b7bc1c9d39a

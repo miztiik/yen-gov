@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-madhya-pradesh-155,madhya-pradesh,1981,155,KONTA(ST),M.HANDARAM,parties.IN.INC,INC,6358,41.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-155,madhya-pradesh,1981,155,KONTA(ST),P.H.MASA,parties.IN.BJP,BJP,6255,40.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-155,madhya-pradesh,1981,155,KONTA(ST),DULLARAMA,parties.IN.JP,JNP,1816,11.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-155,madhya-pradesh,1981,155,KONTA(ST),H.RAM,parties.IN.CPI,CPI,1002,6.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

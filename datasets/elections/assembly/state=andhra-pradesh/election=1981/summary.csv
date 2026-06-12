@@ -1,0 +1,7 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-andhra-pradesh-111,andhra-pradesh,1981,CHIRALA,111408,73585,66.05,C.SAJJA,parties.IN.JP,JNP,43570,59.21,C.B.S.BANDLA,parties.IN.INC_I,INC(I),23995,19575,26.6,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-205,andhra-pradesh,1981,IBRAHIMPATNAM(SC),88473,62703,70.87,A.G.KRISHNA,parties.IN.INC_I,INC(I),32952,52.55,A.R.D.RAJ,parties.IN.CPI,CPI,25179,7773,12.39,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-230,andhra-pradesh,1981,BALKONDA,85938,56665,65.94,G.S.BAI(W),parties.IN.INC,INC,28344,50.02,B.REDDY,parties.IN.IND,IND,23198,5146,9.08,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-279,andhra-pradesh,1981,PALAIR(SC),91422,66090,72.29,C.S.SAMBANI,parties.IN.INC_I,INC(I),33377,50.5,B.HANUMANTHU,parties.IN.CPIM,CPM,29189,4188,6.33,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-54,andhra-pradesh,1981,ALLAVARAM(SC),88715,57612,64.94,P.VEERARAGHARULA,parties.IN.INC,INC,33057,57.38,B.POLANNRI,parties.IN.IND,IND,24555,8502,14.76,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-59,andhra-pradesh,1981,NARASAPUR,102620,67181,65.47,K.PARAKALA,parties.IN.INC,INC,33570,49.97,K.NAGAESWARARAO,parties.IN.JP,JNP,32712,858,1.28,src-1b7bc1c9d39a

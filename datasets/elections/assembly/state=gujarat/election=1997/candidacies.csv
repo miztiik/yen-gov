@@ -1,0 +1,52 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-gujarat-64,gujarat,1997,64,SARKHEJ,Amit Anilchandra Shah (Amit Shah),parties.IN.BJP,BJP,76839,56.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-64,gujarat,1997,64,SARKHEJ,Dinesh Ataji Thakor,parties.IN.INC,INC,52357,38.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-64,gujarat,1997,64,SARKHEJ,Patel Chaturbhai Govindbhai,parties.IN.IND,IND,3085,2.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-64,gujarat,1997,64,SARKHEJ,Dr. Mafatlal Patel,parties.IN.IND,IND,2972,2.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-64,gujarat,1997,64,SARKHEJ,Thakor Babuji Manaji,parties.IN.IND,IND,759,0.55,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-64,gujarat,1997,64,SARKHEJ,Harshad Dave (Civil Engineer),parties.IN.IND,IND,354,0.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-64,gujarat,1997,64,SARKHEJ,Jagdish Arvindbhai Merchant,parties.IN.IND,IND,227,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-64,gujarat,1997,64,SARKHEJ,Thakor Ramaji Jenaji,parties.IN.IND,IND,212,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-64,gujarat,1997,64,SARKHEJ,Aikanad Doctor Bipinchandra Shastriji (Advocate),parties.IN.IND,IND,172,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Vaghela Shankarsinh Laxmansinh(Bapu),parties.IN.UNK,RJP(G),57569,52.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Patel Shankarbhai Lagdhirbhai(Shankarbhai Chaudhary),parties.IN.BJP,BJP,43585,39.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Babulal Gandalal Vidja,parties.IN.JD,JD,2244,2.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Trivedi Suryakant Hargovind,parties.IN.IND,IND,1344,1.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Dave Maheshbhai Girjashankar,parties.IN.IND,IND,869,0.79,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Patel Anilkumar Nanjibhai,parties.IN.IND,IND,444,0.41,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Vaghela Shankarsinh Nansinh,parties.IN.UNK,GJJP,417,0.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Thakor Shankarji Bahechji,parties.IN.UNK,SDP (MP),300,0.27,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Chaudhary Bhikhabhai Shamlabhai,parties.IN.IND,IND,265,0.24,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Thakor Champakbhai Ramaji,parties.IN.IND,IND,236,0.22,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Dhuniya Kalaji Kasturji,parties.IN.IND,IND,196,0.18,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Goswami Karsanpuri Bhikhpuri,parties.IN.IND,IND,165,0.15,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Thakor Shankaji Ramaji,parties.IN.UNK,BMRD,116,0.11,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Chudasama Dilubhabhai Temubhabhai,parties.IN.IND,IND,108,0.1,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Dalvadi Shankarbhai Ramjibhai,parties.IN.IND,IND,103,0.09,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Patel Naranbhai Kevalbhai,parties.IN.IND,IND,99,0.09,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Khatri Laxminarayan devumal,parties.IN.IND,IND,94,0.09,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Malvi Laxmanbhai Bhagaji,parties.IN.IND,IND,88,0.08,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Thakor Shankarji Fulaji,parties.IN.IND,IND,87,0.08,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Prajapati Dineshbhai Jaymalbhai,parties.IN.IND,IND,83,0.08,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Kela Shravankumar Maathurdas,parties.IN.IND,IND,73,0.07,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Badhiya Harchandbhai Ravjibhai,parties.IN.IND,IND,70,0.06,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Soni Natvarlal Tribhovandas,parties.IN.IND,IND,69,0.06,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Vaaghela Shankarbhai Mangalbhai,parties.IN.IND,IND,67,0.06,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Patel Faljibhai Gemarbhai,parties.IN.IND,IND,63,0.06,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Pandya Sanatkumar Prafulbhai,parties.IN.IND,IND,59,0.05,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Patel Kodarbhai Rajabhai,parties.IN.IND,IND,51,0.05,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Padhiyar Arvindkumar Mafatlal,parties.IN.IND,IND,50,0.05,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Patel Nandlal Kanjibhai,parties.IN.IND,IND,48,0.04,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Sanghvi Bipinkumar Ramniklal,parties.IN.IND,IND,45,0.04,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Barot Dalpatbhai Narsinhbhai,parties.IN.IND,IND,44,0.04,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Khasor Ghemarbhai Karshanbhai,parties.IN.UNK,NCY,41,0.04,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Bharvad Chhaganbhai Visabhai,parties.IN.IND,IND,33,0.03,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Patel Shamalbhai Hathibhai,parties.IN.IND,IND,31,0.03,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Goswami Narayanbharthi Ganeshbharthi,parties.IN.IND,IND,30,0.03,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Khatri Ashokkumar Mohanlal,parties.IN.IND,IND,27,0.02,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Thakor Govindbhai Zuzabhai,parties.IN.RMEP,RMEP,25,0.02,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Patel Ishwarbhai Amabhai,parties.IN.IND,IND,17,0.02,38,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Patel Bharatkumar Chhaganbhai,parties.IN.IND,IND,16,0.01,39,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Vaghela Shankarbhai Dayabhai,parties.IN.IND,IND,15,0.01,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Rajput Chandrakant Jivanlal,parties.IN.IND,IND,14,0.01,41,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,94,RADHANPUR,Bera Shamalbhai Parthibhai,parties.IN.IND,IND,11,0.01,42,forfeit,U,,,,challenger,src-1b7bc1c9d39a

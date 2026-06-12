@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-uttar-pradesh-154,uttar-pradesh,2010,DOMARIYAGANJ,289185,148885,51.48,Khatoon Taufique,parties.IN.BSP,BSP,44765,30.07,Prem Prakash Urf.Jippi Tiwari,parties.IN.BJP,BJP,28923,15842,10.64,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-333,uttar-pradesh,2010,NIDHOLI KALAN,199707,95116,47.63,Amit Gaurav,parties.IN.SP,SP,42966,45.17,Virendra Singh Lodhi,parties.IN.IND,IND,18836,24130,25.37,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-54,uttar-pradesh,2010,LAKHIMPUR,307318,134433,43.74,U.V.Alies.Madhur,parties.IN.SP,SP,42269,31.44,Sashi Dhar,parties.IN.PECP,PECP,24680,17589,13.08,src-1b7bc1c9d39a

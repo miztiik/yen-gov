@@ -1,0 +1,33 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-maharashtra-141,maharashtra,1991,141,RAMTEK,A.R.DESHMUKH(MAHAJAN),parties.IN.INC,INC,44812,47.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-141,maharashtra,1991,141,RAMTEK,G.A.K.Y.RAO,parties.IN.IND,IND,42798,45.25,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-141,maharashtra,1991,141,RAMTEK,D.WAKUNDKAR,parties.IN.JD,JD,2077,2.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-141,maharashtra,1991,141,RAMTEK,A.S.RAMBHAU,parties.IN.BSP,BSP,1957,2.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-141,maharashtra,1991,141,RAMTEK,R.(MAMA)RAGHUWANSHI,parties.IN.IND,IND,1083,1.15,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-141,maharashtra,1991,141,RAMTEK,A.L.K.KUMRE,parties.IN.IND,IND,540,0.57,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-141,maharashtra,1991,141,RAMTEK,R.G.MESHRAM,parties.IN.IND,IND,375,0.4,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-141,maharashtra,1991,141,RAMTEK,J.A.GAJBHIYA,parties.IN.IND,IND,308,0.33,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-141,maharashtra,1991,141,RAMTEK,K.P.SINGH,parties.IN.DDP,DDP,164,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-141,maharashtra,1991,141,RAMTEK,T.J.KASHIPARSAD,parties.IN.IND,IND,118,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-141,maharashtra,1991,141,RAMTEK,H.K.A.JANARDAN,parties.IN.IND,IND,99,0.1,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-141,maharashtra,1991,141,RAMTEK,S.D.JANGADE,parties.IN.IND,IND,78,0.08,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-141,maharashtra,1991,141,RAMTEK,P.J.KALE,parties.IN.LKD,LKD,66,0.07,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-141,maharashtra,1991,141,RAMTEK,T.R.RAGHOJI,parties.IN.IND,IND,48,0.05,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-141,maharashtra,1991,141,RAMTEK,S.B..S.G.SINGH,parties.IN.IND,IND,36,0.04,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-141,maharashtra,1991,141,RAMTEK,P.B.JADHAO,parties.IN.IND,IND,25,0.03,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-249,maharashtra,1991,249,KASBA PETH,T.V.VITHOBA,parties.IN.INC,INC,37100,53.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-249,maharashtra,1991,249,KASBA PETH,G.BAPAT,parties.IN.BJP,BJP,31775,45.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-249,maharashtra,1991,249,KASBA PETH,B.P.RAMACHANDRA,parties.IN.IND,IND,121,0.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-249,maharashtra,1991,249,KASBA PETH,K.M.MANIKRAO,parties.IN.IND,IND,75,0.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-249,maharashtra,1991,249,KASBA PETH,S.M.PANDIT,parties.IN.IND,IND,69,0.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-249,maharashtra,1991,249,KASBA PETH,J.R.VEERKAR,parties.IN.IND,IND,52,0.07,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-249,maharashtra,1991,249,KASBA PETH,V.R.MATADEEM,parties.IN.DDP,DDP,35,0.05,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-249,maharashtra,1991,249,KASBA PETH,J.R.PANDURANG,parties.IN.IND,IND,32,0.05,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-249,maharashtra,1991,249,KASBA PETH,J.G.RAMCHANDRA,parties.IN.IND,IND,25,0.04,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-249,maharashtra,1991,249,KASBA PETH,A.S.MADHUKAR,parties.IN.IND,IND,21,0.03,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-249,maharashtra,1991,249,KASBA PETH,K.V.J.SINGH,parties.IN.IND,IND,20,0.03,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-249,maharashtra,1991,249,KASBA PETH,G.S.NARHAR,parties.IN.IND,IND,19,0.03,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-255,maharashtra,1991,255,BARAMATI,A.A.PAWAR,parties.IN.INC,INC,96032,90.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-255,maharashtra,1991,255,BARAMATI,K.H.KHANDERAO,parties.IN.BJP,BJP,9117,8.59,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-255,maharashtra,1991,255,BARAMATI,S.S.RAJARAM,parties.IN.IND,IND,544,0.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-255,maharashtra,1991,255,BARAMATI,S.A.UMASHANKAR,parties.IN.DDP,DDP,501,0.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

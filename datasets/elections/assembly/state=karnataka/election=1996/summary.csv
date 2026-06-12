@@ -1,0 +1,10 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-karnataka-10,karnataka,1996,GULBARGA,243343,126219,51.87,Kaiser Mahmood Maniyar,parties.IN.JD,JD,48923,38.76,S. K. Kanta,parties.IN.SP,SP,41684,7239,5.73,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-109,karnataka,1996,KRISHNARAJPET,142913,100278,70.17,B. Prakash,parties.IN.IND,IND,29524,29.44,B. Javarayee Gowda,parties.IN.JD,JD,26969,2555,2.55,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-166,karnataka,1996,SORAB,115626,75322,65.14,S. Kumar Bangarappa,parties.IN.UNK,KCP,44689,59.33,M.R. Patil,parties.IN.BJP,BJP,12108,32581,43.26,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-169,karnataka,1996,BHATKAL,138606,81969,59.14,Shivanand Naik,parties.IN.BJP,BJP,46145,56.3,Naik Damodar Gardikar,parties.IN.JD,JD,28718,17427,21.26,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-194,karnataka,1996,BAILHONGAL,123984,71926,58.01,Koujalagi Mahantesh Shivanand,parties.IN.JD,JD,33220,46.19,Bolasheeti Baburao Annappa,parties.IN.IND,IND,20941,12279,17.08,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-215,karnataka,1996,GUDLEGUD,118673,76034,64.07,Sheelavant Rajashekhar Veranna,parties.IN.BJP,BJP,35932,47.26,Hulageri Mallanna Kapaleppa,parties.IN.INC,INC,19337,16595,21.83,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-27,karnataka,1996,YELBURGA,129034,78620,60.93,Rudragouda Hunsihal,parties.IN.JD,JD,36245,46.1,Shivasharanappa Gouda Patil,parties.IN.INC,INC,33683,2562,3.26,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-79,karnataka,1996,CHICKPET,81434,48680,59.78,P.S. Prakash,parties.IN.JD,JD,14430,29.64,Perikal M. Mallappa,parties.IN.INC,INC,12800,1630,3.35,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-97,karnataka,1996,DODDABALLAPUR,150207,112366,74.81,R.G. Venkatachalaiah,parties.IN.JD,JD,52450,46.68,A. Narasimhaiah,parties.IN.IND,IND,50501,1949,1.74,src-1b7bc1c9d39a

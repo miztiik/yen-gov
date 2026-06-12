@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,KOTA,146323,114308,78.12,Dr. Renu Jogi,parties.IN.INC,INC,59465,52.02,Bhupendra Singh,parties.IN.BJP,BJP,35995,23470,20.53,src-1b7bc1c9d39a

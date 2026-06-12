@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-punjab-36,punjab,2009,NUR MAHAL,127254,92120,72.39,R. Kaur Bhullar,parties.IN.SAD,SAD,50983,55.34,Gur. Singh Atwal,parties.IN.INC,INC,35930,15053,16.34,src-1b7bc1c9d39a
+IN-AC-1976-punjab-5,punjab,2009,KAHNUWAN,123771,96823,78.23,Sewa Singh Sekhwan,parties.IN.SAD,SAD,53853,55.62,F.Singh Bajwa,parties.IN.INC,INC,41809,12044,12.44,src-1b7bc1c9d39a
+IN-AC-1976-punjab-70,punjab,2009,BANUR,179586,130677,72.77,J. Singh Bunny,parties.IN.SAD,SAD,74167,56.76,D. Singh Dhillon,parties.IN.INC,INC,54358,19809,15.16,src-1b7bc1c9d39a
+IN-AC-1976-punjab-93,punjab,2009,JALALABAD,164973,135590,82.19,S. Singh Badal,parties.IN.SAD,SAD,107120,79,Hans Raj Jossan,parties.IN.INC,INC,26458,80662,59.49,src-1b7bc1c9d39a

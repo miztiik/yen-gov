@@ -1,0 +1,8 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1962-gujarat-37,gujarat,1964,37,AMRELI,P.N.NANJI,parties.IN.PSP,PSP,11859,47.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-gujarat-37,gujarat,1964,37,AMRELI,N.G.GONDIA,parties.IN.INC,INC,11031,44.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-gujarat-37,gujarat,1964,37,AMRELI,M.H.METHA,parties.IN.SWA,SWA,1816,7.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-gujarat-37,gujarat,1964,37,AMRELI,G.M.GANDHI,parties.IN.HMS,HMS,251,1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-gujarat-37,gujarat,1964,37,AMRELI,M.M.KORADIEE,parties.IN.IND,IND,84,0.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-gujarat-149,gujarat,1964,149,CHIKHLI,G.B.PATEL,parties.IN.INC,INC,17893,56.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-gujarat-149,gujarat,1964,149,CHIKHLI,N.R.PATEL,parties.IN.PSP,PSP,13801,43.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a

@@ -1,0 +1,20 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-rajasthan-57,rajasthan,2002,57,BANSUR133SAGWARA(ST)166BALI,ROHITASH KUMAR,parties.IN.BJP,BJP,47241,42.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-57,rajasthan,2002,57,BANSUR133SAGWARA(ST)166BALI,SARDARA RAM,parties.IN.INC,INC,44636,40.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-57,rajasthan,2002,57,BANSUR133SAGWARA(ST)166BALI,MUKESH,parties.IN.SP,SP,14390,12.98,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-57,rajasthan,2002,57,BANSUR133SAGWARA(ST)166BALI,SUBHASH JOSHI,parties.IN.IND,IND,1554,1.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-57,rajasthan,2002,57,BANSUR133SAGWARA(ST)166BALI,SHIMBHU,parties.IN.IND,IND,1190,1.07,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-57,rajasthan,2002,57,BANSUR133SAGWARA(ST)166BALI,SUBE SINGH YADAV,parties.IN.IND,IND,870,0.78,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-57,rajasthan,2002,57,BANSUR133SAGWARA(ST)166BALI,JALE SINGH RAWAT,parties.IN.IND,IND,324,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-57,rajasthan,2002,57,BANSUR133SAGWARA(ST)166BALI,RAMESH,parties.IN.IND,IND,221,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-57,rajasthan,2002,57,BANSUR133SAGWARA(ST)166BALI,NAND RAM,parties.IN.IND,IND,153,0.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-57,rajasthan,2002,57,BANSUR133SAGWARA(ST)166BALI,RAMOTAR SHARMA,parties.IN.IND,IND,132,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-57,rajasthan,2002,57,BANSUR133SAGWARA(ST)166BALI,PURAN,parties.IN.IND,IND,129,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-96,rajasthan,2002,96,AJMERWEST,NANAK RAM JAGATRAI,parties.IN.INC,INC,24314,46.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-96,rajasthan,2002,96,AJMERWEST,LAXMANDAS TILWANI(MACHISWALA),parties.IN.BJP,BJP,19663,37.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-96,rajasthan,2002,96,AJMERWEST,SATISH BANSAL,parties.IN.IND,IND,6427,12.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-96,rajasthan,2002,96,AJMERWEST,HEMLATA BAHAN,parties.IN.IND,IND,798,1.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-96,rajasthan,2002,96,AJMERWEST,RAFIQ MOHAMMAD MANSOORI,parties.IN.IND,IND,555,1.06,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-96,rajasthan,2002,96,AJMERWEST,ABHAY SINGH BIJANWAT,parties.IN.IND,IND,455,0.87,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-96,rajasthan,2002,96,AJMERWEST,VIJENDRA PAL SINGH,parties.IN.IND,IND,175,0.33,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-96,rajasthan,2002,96,AJMERWEST,SHAILENDRA AGARWAL,parties.IN.IND,IND,144,0.27,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
