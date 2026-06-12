@@ -11,7 +11,7 @@ ASCII only: use plain keyboard characters; write "-", "->", ">=", "section", and
 ## Invariants
 
 - **Self-contained.** No imports from `backend/` (CLAUDE.md section 4). The script uses Python stdlib only; mapshaper and tippecanoe are external binaries on `PATH`.
-- **Writes to `datasets/boundaries/in/` and `.runtime/raw/boundaries/` only.** Raw downloads land in `.runtime/` per ADR-0003; published artifacts (PMTiles + manifest.json) land in `datasets/boundaries/in/`.
+- **Writes to `datasets/boundaries/in/` and `.runtime/raw/boundaries/` only.** Raw downloads land in `.runtime/` per ADR-0003; published artifacts (PMTiles + manifest.json) land in `datasets/boundaries/in/`. The `.runtime/raw/boundaries/` root can be relocated per-worktree via the `--raw-dir` CLI flag or the `YENGOV_BOUNDARIES_RAW_DIR` env-var (see README.md > "Shared cache across worktrees"); reach for this when spawning a sub-worktree so the new tree reuses the existing multi-GB LGD bundles instead of re-downloading them.
 - **Manifest is the provenance carrier.** PMTiles binary files cannot embed a `sources` field - the sibling `manifest.json` carries CLAUDE.md section 12 provenance for every packed file. If you add a new output, you MUST add a record to the manifest in the same run; the script does this automatically.
 - **POSIX paths in manifest.** Output `path` strings are forward-slash, repo-relative (CLAUDE.md section 2). The script normalises before writing.
 - **Atomic downloads.** `download()` writes to `<dest>.part` then `replace()`s; partial files never appear with the canonical name.

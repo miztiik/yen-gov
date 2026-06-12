@@ -92,7 +92,7 @@ if str(BACKEND) not in sys.path:
     sys.path.insert(0, str(BACKEND))
 
 # local helpers (tools/boundaries/_paths.py, tools/boundaries/snapshot.py)
-from _paths import _eci_to_slug, derive_hive  # noqa: E402
+from _paths import _eci_to_slug, _resolve_raw_dir, derive_hive  # noqa: E402
 from snapshot import (  # noqa: E402
     SNAPSHOT_BYTE_BUDGET,
     _round_coords_geom,
@@ -368,12 +368,28 @@ def main(argv: list[str] | None = None) -> int:
             "iterating locally to avoid re-downloading."
         ),
     )
+    parser.add_argument(
+        "--raw-dir",
+        default=None,
+        help=(
+            "Override the upstream-cache root (default: "
+            "<repo>/.runtime/raw/boundaries, or the value of the "
+            "YENGOV_BOUNDARIES_RAW_DIR env-var when set). Point every "
+            "worktree at one shared cache directory to avoid "
+            "re-downloading multi-GB LGD bundles per worktree."
+        ),
+    )
     args = parser.parse_args(argv)
 
     root = Path(args.root).resolve()
     datasets_root = root / "datasets"
     entities_path = datasets_root / "taxonomy" / "entities.json"
-    raw_root = root / ".runtime" / "raw" / "boundaries"
+    raw_root = _resolve_raw_dir(
+        cli_arg=args.raw_dir,
+        env_var_name="YENGOV_BOUNDARIES_RAW_DIR",
+        config_default=".runtime/raw/boundaries",
+        repo_root=root,
+    )
 
     print(f"[lift_blocks_national] root={root}", flush=True)
     print(f"  entities: {entities_path}", flush=True)
