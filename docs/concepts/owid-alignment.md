@@ -1,6 +1,6 @@
 # OWID alignment — fallback doctrine
 
-**Last Updated**: 2026-05-30
+**Last Updated**: 2026-06-12
 
 ## What this is
 
@@ -27,7 +27,7 @@ This pattern is itself OWID-style — they have a small set of public principles
 | **Vintage in URL** | No. Vintage is a UI control with sane default; `?` param only for citation. | No. ADR-0028. |
 | **Indicator catalogue** | Single registry, every indicator carries provenance, methodology, comparability flags | `datasets/_ops/indicators-completeness.json` + per-indicator artifact carrying `methodology`, `series_breaks`, `comparability` (folded model per ADR-0026). |
 | **Provenance** | Every chart cites its source; no anonymous data | Every artifact carries `sources[]` per CLAUDE.md §12. |
-| **Schema versioning** | Additive when possible, breaking with migration | `x-version` major.minor with `x-changelog` per CLAUDE.md section 11; writer-strict / reader-compatible rollout per [ADR-0047](../architecture/data/schema-evolution.md#adr-0047-schema-version-compatibility-contract). |
+| **Schema versioning** | Additive when possible, breaking with migration. Schema-shape identity lives in the `.schema.json` file's own version; data emit files do NOT carry a top-level `$schema_version` stamp. Data-freshness pointers (`origin.date_accessed`), publisher edition tag (`origin.version_producer`), and refresh cadence (`dataset.update_period_days`) are separate semantic fields on the `origin.*` / `dataset.*` metadata blocks. | `x-version` major.minor with `x-changelog` per CLAUDE.md section 11; writer-strict / reader-compatible rollout per [ADR-0047](../architecture/data/schema-evolution.md#adr-0047-schema-version-compatibility-contract). **DIVERGES** on stamping: yen-gov currently stamps a top-level `$schema_version` semver on every JSON data emit file (in addition to the schema's `x-version`). Pending OWID-conformance pivot retires this stamp; see [Named divergence #5](#named-divergences-from-owid-with-reasons) and [schema-evolution.md §Pending OWID-conformance pivot](../architecture/data/schema-evolution.md#pending-owid-conformance-pivot-stop-stamping-schema_version-onto-data-emit-files). |
 | **Granularity of an indicator** | One concept per chart; mixed units never share a Y-axis | One concept per artifact; composite-with-mixed-units uses `rows[].facet` + `rows[].unit` override per ADR-0026 / Phase 4 of the ICED plan. |
 | **Methodology breaks** | Surfaced as chart annotations + banner | `series_breaks[]` on the artifact; rendered as banner chrome. |
 
@@ -46,6 +46,9 @@ These are the places yen-gov **does not** match OWID, each with a written ration
 
 4. **Elections as one topic of many, not the lead surface** (repo memory `yen-gov-architecture.md`, ADR-0022).
    OWID doesn't have an election problem. yen-gov explicitly demotes elections from the cold-landing surface to keep socio-economic indicators (fiscal, education, health) first-class. User-mandated 2026-05-11.
+
+5. **`$schema_version` stamped on every data emit file** (open divergence, pending pivot — 2026-06-12).
+   OWID stamps schema identity only in the `.schema.json` file itself; data files don't carry a `$schema_version` sibling. yen-gov today stamps `$schema_version` at the top of every JSON artifact in `datasets/` (boundary SoT, manifest, taxonomy, indicators-completeness, etc.) populated from the schema's own `x-version`. The conflation is honest at the writer (the field is correctly semver, not a date), but it duplicates schema identity onto the data tier where OWID keeps schema identity, data freshness (`origin.date_accessed`), publisher edition (`origin.version_producer`), and refresh cadence (`dataset.update_period_days`) as four separate semantic concerns. User mandate 2026-06-12 ("no more calling it schema version" + "OWID conformance style") triggered the pivot. Tracked in [schema-evolution.md §Pending OWID-conformance pivot](../architecture/data/schema-evolution.md#pending-owid-conformance-pivot-stop-stamping-schema_version-onto-data-emit-files) + [TODO/20260612-schema-version-field-refactor-plan.md](../../TODO/20260612-schema-version-field-refactor-plan.md). When the pivot lands, this row moves OUT of "Named divergences" because it will no longer be one.
 
 ## How to invoke this doctrine
 
@@ -73,6 +76,7 @@ When an agent debate (Gregor / Fowler / Jony / Hans / Max) is split:
 - [ADR-0028 — URL scheme](../architecture/frontend/url-grammar.md#adr-0028-url-scheme-place-first-flat-indicator-slug) — first concrete application of this doctrine.
 - [ADR-0022 — place-first IA](place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue) — names the divergence on geography-in-URL.
 - [ADR-0047 - schema-version compatibility](../architecture/data/schema-evolution.md#adr-0047-schema-version-compatibility-contract) - schema-evolution policy aligned with OWID-style additive metadata and explicit migrations.
+- [schema evolution §Pending OWID-conformance pivot](../architecture/data/schema-evolution.md#pending-owid-conformance-pivot-stop-stamping-schema_version-onto-data-emit-files) — open divergence on `$schema_version` on data emit files; pivot tracked in [TODO/20260612-schema-version-field-refactor-plan.md](../../TODO/20260612-schema-version-field-refactor-plan.md).
 - [schema evolution](../architecture/data/schema-evolution.md) - living policy for reader compatibility and no mechanical restamps.
 - [citizen-first doctrine](citizen-first.md) — the audience choice that drives the place-first divergence.
 - [folded-indicator concept](folded-indicator.md) — names the divergence on Indian publisher vocabulary.
