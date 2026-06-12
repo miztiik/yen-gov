@@ -260,6 +260,8 @@
         // placeholder so the dot still paints; the radius scale clamps
         // to the floor at render time.
         electors: w.electors ?? 0,
+        // TODO/20260612 Row B: margin_votes drives the radius encoding.
+        margin_votes: w.margin_votes,
         winner_party_id: partyIdFor(w),
         winner_party_short: w.party_short ?? "UNK",
         reservation: w.reservation,
@@ -284,9 +286,6 @@
         class="inline-block rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-600"
         data-testid="national-event-chip"
       >national</span>
-      <span class="text-slate-500">
-        Event slug <code class="text-slate-700">{event}</code>
-      </span>
     </div>
   </header>
 
@@ -411,7 +410,11 @@
       {/if}
     </section>
 
-    <!-- Scatter chart (PR-W4c MUST-FEATURE) ---------------------------- -->
+    <!-- Scatter chart (PR-W4c MUST-FEATURE).
+         TODO/20260612 Row A.5 + E: lock_body=true hides the Body chip
+         since the national-event surface is single-body fixed by the
+         route (parliament-only via the W2b loader's NATIONAL-PC
+         dispatch). -->
     <section class="space-y-2" data-testid="national-event-scatter">
       <h2 class="text-sm font-medium text-slate-700">
         Turnout vs winning margin &middot; all constituencies
@@ -421,6 +424,7 @@
         filters={scatter_filters}
         onFiltersChange={(next) => (scatter_filters = next)}
         onDotClick={onScatterDotClick}
+        lock_body={true}
       />
     </section>
   {/if}

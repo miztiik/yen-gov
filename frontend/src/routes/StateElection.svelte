@@ -71,6 +71,10 @@
     ScatterDatum,
     ScatterFilters,
   } from "../lib/charts/scatter-model";
+  import PartyBar from "../lib/PartyBar.svelte";
+  import type { PartyTotals } from "../lib/data";
+  import { loadAlliances } from "../lib/psephlab/alliances";
+  import type { AllianceLookup } from "../lib/psephlab/types";
 
   interface Props {
     params: { state: string; event: string };
@@ -235,32 +239,103 @@
   }
 
   // ---- Top parties (state-scoped) -------------------------------------
-  interface PartyTotal {
-    party_id: string;
+  // TODO/20260612 Row D: top-parties bar now reuses the existing
+  // PartyBar primitive. The local PartyTotal interface is replaced by
+  // the canonical PartyTotals from lib/data.ts (additive widening with
+  // alliance_short is in that file). Aggregation pre-bucket: total
+  // seats per party AND total votes per party so we can derive
+  // vote_share_pct against the event-total polled vote count once.
+  const TOP_N = 8;
+
+  // Alliance lookup is shared with AllianceTotals via the module-level
+  // cache in psephlab/alliances.ts (one network fetch per event). We
+  // run a parallel hook here so each PartyTotals row can carry
+  // `alliance_short` when populated; null when the event has no
+  // curated alliance row for that party.
+  let alliance_lookup = $state<AllianceLookup | null>(null);
+  $effect(() => {
+    const ev_id = event_row?.event_id;
+    if (!ev_id) {
+      alliance_lookup = null;
+      return;
+    }
+    alliance_lookup = null;
+    loadAlliances(ev_id).then((l) => {
+      if (ev_id === event_row?.event_id) alliance_lookup = l;
+    });
+  });
+
+  const event_total_votes = $derived.by<number>(() => {
+    let total = 0;
+    for (const w of winners) {
+      if (w.votes_polled != null) total += w.votes_polled;
+    }
+    return total;
+  });
+
+  interface AggBucket {
+    pid: string;
     party_short: string;
     seats: number;
-    color: string;
+    votes: number;
+    has_any_vote: boolean;
+    party_eci_code: string | null;
+    brand_colour_hex: string | null;
+    brand_colour_confidence: "high" | "medium" | "low" | null;
   }
-  const TOP_N = 8;
-  const top_parties = $derived.by<PartyTotal[]>(() => {
-    const by = new Map<string, PartyTotal>();
+
+  const top_parties = $derived.by<PartyTotals[]>(() => {
+    const by = new Map<string, AggBucket>();
     for (const w of winners) {
       const pid = partyIdFor(w);
-      const cur = by.get(pid);
-      if (cur) {
-        cur.seats += 1;
-      } else {
-        by.set(pid, {
-          party_id: pid,
+      let bucket = by.get(pid);
+      if (!bucket) {
+        bucket = {
+          pid,
           party_short: w.party_short ?? "UNK",
-          seats: 1,
-          color: fillForParty(pid, w),
-        });
+          seats: 0,
+          votes: 0,
+          has_any_vote: false,
+          party_eci_code: w.party_eci_code,
+          brand_colour_hex: w.brand_colour_hex,
+          brand_colour_confidence: w.brand_colour_confidence,
+        };
+        by.set(pid, bucket);
+      }
+      bucket.seats += 1;
+      // The W2b loader leaves `w.votes` null at winner-only scopes
+      // (only the CONSTITUENCY arm projects per-candidate votes). So
+      // recover the winner's vote count from the (votes_polled,
+      // winner_share_pct) pair the SQL DOES project. When either is
+      // null (long-tail uncontested seats) the share contribution
+      // for that seat is skipped; has_any_vote tracks whether the
+      // party has at least one usable seat so the share denominator
+      // doesn't fabricate 0% when every row was unknowable.
+      if (w.votes_polled != null && w.vote_share_pct != null) {
+        bucket.votes += (w.votes_polled * w.vote_share_pct) / 100;
+        bucket.has_any_vote = true;
       }
     }
-    return [...by.values()].sort((a, b) => b.seats - a.seats).slice(0, TOP_N);
+    const sorted = [...by.values()]
+      .sort((a, b) => b.seats - a.seats)
+      .slice(0, TOP_N);
+    return sorted.map<PartyTotals>((b) => ({
+      party_eci_code: b.party_eci_code,
+      party_short: b.party_short,
+      party_full: null,
+      seats_contested: null,
+      seats_won: b.seats,
+      votes: Math.round(b.votes),
+      vote_share_pct:
+        b.has_any_vote && event_total_votes > 0
+          ? (b.votes / event_total_votes) * 100
+          : 0,
+      party_id: b.pid,
+      brand_colour_hex: b.brand_colour_hex,
+      brand_colour_confidence: b.brand_colour_confidence,
+      alliance_short: alliance_lookup?.(b.pid) ?? null,
+    }));
   });
-  const top_party_max = $derived(top_parties[0]?.seats ?? 1);
 
   // ---- StateAcMap shim ------------------------------------------------
   // Reuse the existing AC choropleth for assembly events. AcWinner is the
@@ -446,6 +521,10 @@
         turnout_pct: w.turnout_pct,
         margin_pct: w.margin_pct,
         electors: w.electors ?? 0,
+        // TODO/20260612 Row B: margin_votes drives the radius encoding.
+        // Null at the loader becomes null on the datum; the Scatter
+        // component clamps null -> 0 for layout.
+        margin_votes: w.margin_votes,
         winner_party_id: (function () {
           if (w.party_id) return w.party_id;
           const slug = (w.party_short ?? "UNK").trim().toUpperCase();
@@ -520,9 +599,6 @@
         >{body === "pc" ? "Parliament" : "Assembly"}</span>
         <span class="text-slate-500">
           Polled <span class="tabular-nums">{ev.polled_on}</span>
-        </span>
-        <span class="text-slate-500">
-          Event slug <code class="text-slate-700">{params.event}</code>
         </span>
       </div>
     </header>
@@ -626,10 +702,42 @@
               ? "Each constituency is filled with the winning party's colour."
               : "Each constituency is shaded by winning margin (darker = larger margin)."}
           </p>
+          <!-- TODO/20260612 Row C: sub-threshold marker legend - the
+               StateAcMapD3 component overlays circular markers for ACs
+               whose bbox is too small to render as a polygon at this
+               zoom. Without this caption citizens read the circles as
+               an unexplained second symbology. -->
+          <p
+            class="text-[11px] text-slate-500"
+            data-testid="state-ac-map-legend"
+          >
+            Circles mark dense urban constituencies whose polygon is too
+            small to render at this zoom.
+          </p>
+        </section>
+      {:else if body === "pc"}
+        <!-- TODO/20260612 Row C: PC map placeholder. The country PC
+             topojson (delim=2024) exists but the per-state PC choropleth
+             integration is Hans+Max-owned follow-up work. Until then
+             this card explains why no map renders for Parliament events
+             so the page doesn't silently degrade. -->
+        <section
+          class="rounded border border-slate-200 bg-slate-50 p-4"
+          data-testid="state-event-pc-map-placeholder"
+        >
+          <h2 class="text-sm font-medium text-slate-700">
+            Constituency map
+          </h2>
+          <p class="mt-1 text-xs text-slate-500">
+            The Parliament constituency (PC) map for {state_name} is
+            being prepared. Per-state PC boundary integration lands in a
+            follow-up plan.
+          </p>
         </section>
       {/if}
 
-      <!-- Top parties -->
+      <!-- Top parties (TODO/20260612 Row D: reuses PartyBar; vote-share +
+           seats + optional alliance tag) -->
       <section
         class="space-y-2"
         data-testid="state-event-top-parties"
@@ -640,32 +748,10 @@
         {#if top_parties.length === 0}
           <p class="text-xs text-slate-500">No party totals yet.</p>
         {:else}
-          <ol class="space-y-1.5">
-            {#each top_parties as p, i (p.party_id)}
-              <li
-                class="flex items-center gap-3 text-sm"
-                data-testid="state-event-top-parties-row"
-              >
-                <span class="w-5 text-right text-xs text-slate-500"
-                  >{i + 1}.</span
-                >
-                <span
-                  class="w-14 truncate font-medium text-slate-700"
-                  >{p.party_short}</span
-                >
-                <div class="flex flex-1 items-center">
-                  <div
-                    class="h-3 rounded-sm"
-                    style={`width:${(p.seats / top_party_max) * 100}%;background-color:${p.color};`}
-                  ></div>
-                </div>
-                <span
-                  class="w-10 text-right tabular-nums text-sm text-slate-700"
-                  >{fmtInt(p.seats)}</span
-                >
-              </li>
-            {/each}
-          </ol>
+          <PartyBar
+            parties={top_parties}
+            total_seats={kpis.total_seats}
+          />
         {/if}
       </section>
 
@@ -757,7 +843,9 @@
         </nav>
       {/if}
 
-      <!-- Scatter chart (PR-W4c MUST-FEATURE; state filter pre-applied via loader) -->
+      <!-- Scatter chart (PR-W4c MUST-FEATURE; state filter pre-applied via loader).
+           TODO/20260612 Row A.5: lock_body=true hides the Body chip
+           since the state-event surface is single-body fixed by the URL. -->
       <section class="space-y-2" data-testid="state-event-scatter">
         <h2 class="text-sm font-medium text-slate-700">
           Turnout vs winning margin &middot; {state_name} constituencies
@@ -767,6 +855,7 @@
           filters={scatter_filters}
           onFiltersChange={(next) => (scatter_filters = next)}
           onDotClick={onScatterDotClick}
+          lock_body={true}
         />
       </section>
     {/if}

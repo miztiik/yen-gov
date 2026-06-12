@@ -61,15 +61,24 @@ test.describe("state event view (PR-W3b rebuild)", () => {
       /Parliament/,
     );
 
+    // TODO/20260612 Row C: the "Event slug general-2024" developer
+    // metadata is gone from the header. Assert its absence so a future
+    // refactor cannot silently re-leak it.
+    await expect(
+      page.locator("header").filter({ has: page.getByTestId("state-event-header") }),
+    ).not.toContainText("Event slug");
+
     // KPIs strip mounts even on empty data (4 cards always render).
     await expect(page.getByTestId("state-event-kpis")).toBeVisible({
       timeout: 30_000,
     });
 
-    // Top-parties data-arrival oracle: at least 1 row after the loader
-    // resolves and the per-state filter narrows.
+    // TODO/20260612 Row D: top-parties bar now reuses PartyBar; oracle
+    // shifts from the retired `state-event-top-parties-row` to the new
+    // additive `party-bar-row` testid the PartyBar primitive emits per
+    // ranked party.
     await expect(
-      page.getByTestId("state-event-top-parties-row").first(),
+      page.getByTestId("party-bar-row").first(),
     ).toBeVisible({ timeout: 30_000 });
 
     // Constituency table also mounts once data arrives.
@@ -84,6 +93,14 @@ test.describe("state event view (PR-W3b rebuild)", () => {
     await expect(page.getByTestId("alliance-totals")).toBeVisible({
       timeout: 30_000,
     });
+
+    // TODO/20260612 Row C: Parliament events show a PC map placeholder
+    // card (the country PC topojson exists but per-state PC integration
+    // is follow-up work). The card pins the citizen-facing copy so the
+    // page doesn't silently degrade.
+    await expect(
+      page.getByTestId("state-event-pc-map-placeholder"),
+    ).toBeVisible({ timeout: 30_000 });
 
     // Inline swing panel mounts; for parliament events it renders the
     // disabled placeholder (the psephlab canonical loader is assembly-
@@ -128,6 +145,16 @@ test.describe("state event view (PR-W3b rebuild)", () => {
     await expect(
       page.getByTestId("inline-counterfactual-swing"),
     ).toBeVisible({ timeout: 30_000 });
+
+    // TODO/20260612 Row C: assembly events render the StateAcMap with
+    // a sub-threshold marker legend below it. The legend is the only
+    // place the page explains the circular markers overlay on small ACs.
+    await expect(
+      page.getByTestId("state-ac-map-legend"),
+    ).toBeVisible({ timeout: 30_000 });
+    await expect(
+      page.getByTestId("state-ac-map-legend"),
+    ).toContainText(/dense urban constituencies/i);
 
     // Slider mounts only after the canonical loader resolves; once it
     // does, the seats card is visible too.

@@ -208,6 +208,7 @@
         class="group flex items-center gap-3 transition-opacity"
         class:opacity-40={hidden}
         class:cursor-pointer={clickable}
+        data-testid="party-bar-row"
         role={clickable ? "button" : undefined}
         tabindex={clickable ? 0 : undefined}
         onclick={() => onToggleHidden?.(k)}
@@ -219,7 +220,11 @@
         onblur={hideTip}
       >
         <div class="w-24 text-right text-sm font-medium text-slate-700 truncate" title={p.party_full ?? p.party_short}>
-          {p.party_short}
+          {p.party_short}{#if p.alliance_short}<span
+              class="ml-1 rounded bg-slate-100 px-1 text-[10px] font-normal text-slate-500"
+              data-testid="party-bar-alliance-tag"
+              title="Alliance: {p.alliance_short}"
+            >{p.alliance_short}</span>{/if}
         </div>
         <div class="relative flex-1 h-8 bg-slate-100 rounded-full overflow-hidden ring-1 ring-slate-200/70">
           <!-- Gradient fill. The horizontal gradient (party color → ~70%

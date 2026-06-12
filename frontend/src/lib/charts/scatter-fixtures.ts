@@ -103,7 +103,15 @@ const SPECS: ReadonlyArray<FixtureSpec> = [
  *    - 25 parliament + 25 assembly
  *    - 8 SC + 5 ST + 37 GEN
  *    - 5 close (<2%) + 8 narrow (2-5%) + 12 moderate (5-10%) + 25 wide (>=10%)
- *  Update these counts if you mutate SPECS. */
+ *  Update these counts if you mutate SPECS.
+ *
+ *  TODO/20260612 Row B: `margin_votes` is synthesised deterministically
+ *  from `electors * margin_pct / 100` so the radius-encoding tests have
+ *  varied non-null values without touching the 50 hand-authored rows.
+ *  The synthetic value is dimensionally reasonable (vote gap roughly
+ *  scales with seat size + margin) but is NOT a real publisher figure -
+ *  do not cite. */
 export const SCATTER_FIXTURES: ReadonlyArray<ScatterDatum> = SPECS.map((s) => ({
   ...s,
+  margin_votes: Math.round((s.electors * s.margin_pct) / 100),
 }));

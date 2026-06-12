@@ -301,6 +301,7 @@ describe("projection helpers", () => {
       turnout_pct: null,
       electors: null,
       votes_polled: null,
+      margin_votes: null,
       winner_age: null,
       winner_candidate_name: null,
       reservation: "GEN",
@@ -330,6 +331,7 @@ describe("projection helpers", () => {
       turnout_pct: null,
       electors: null,
       votes_polled: null,
+      margin_votes: null,
       winner_age: null,
       winner_candidate_name: null,
       reservation: "GEN",
@@ -510,6 +512,10 @@ describe("regression: LEFT JOIN dim_parties present on all 3 scopes (W2b oracle)
     expect(sql).toMatch(
       /LEFT JOIN dim_parties dp ON dp\.party_id = s\.winner_party_id/,
     );
+    // TODO/20260612 Row B pin: margin_votes is projected at NATIONAL-PC
+    // scope so the scatter chart's radius encoding can read it from the
+    // loader. Reverting the SELECT line makes this test RED.
+    expect(sql).toMatch(/s\.margin_votes\s+AS margin_votes/);
   });
 
   it("STATE-AC scope SQL contains LEFT JOIN dim_parties on s.winner_party_id", async () => {
@@ -520,6 +526,10 @@ describe("regression: LEFT JOIN dim_parties present on all 3 scopes (W2b oracle)
     expect(sql).toMatch(
       /LEFT JOIN dim_parties dp ON dp\.party_id = s\.winner_party_id/,
     );
+    // TODO/20260612 Row B pin: margin_votes is also projected at
+    // STATE-AC scope so the state-event surface's scatter chart picks
+    // up the same radius encoding.
+    expect(sql).toMatch(/s\.margin_votes\s+AS margin_votes/);
   });
 
   it("CONSTITUENCY scope candidates SQL contains LEFT JOIN dim_parties on ec.party_id", async () => {

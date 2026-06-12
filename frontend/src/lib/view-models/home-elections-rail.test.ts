@@ -85,6 +85,10 @@ function makeRow(overrides: Partial<ElectionResultRow>): ElectionResultRow {
     turnout_pct: null,
     electors: null,
     votes_polled: null,
+    // TODO/20260612 Row B contract: ElectionResultRow now requires the
+    // margin_votes field. Home-elections-rail's pickers consume margin_pct
+    // only; null is the cheapest shape-only stub here.
+    margin_votes: null,
     winner_age: null,
     winner_candidate_name: null,
     reservation: "GEN",
