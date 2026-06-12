@@ -141,3 +141,14 @@ Add **party filter** via PartyBar click-to-mute. Muted parties recede on both re
 | 2026-06-12 | data probe | National PC tile layout = `(layout_kind=pc, scope=national, delim_year=2008)` 545 tiles. Per-state PC tile layout = none. AC tile layouts = 30 state scopes at delim=2008. PC geometry on disk = delim=2024 only. |
 | 2026-06-12 | confirm | User answered ask-questions: hexagon = TileCartogram (confirmed), surfaces = ALL THREE LIVE, filter rail = PartyBar click (StateOverview precedent), alliance backfill = queue after. |
 | 2026-06-12 | scope-lock | 7 rows A through G; 3 surfaces; out-of-scope = pre-2024 LS events (delim=2008 PC missing) + per-state PC tile layout authoring + alliance data backfill (queued as follow-up plan-doc). |
+| 2026-06-12 | pre-flight | Risk #1 (unit_id shape) GREEN with creative resolution — tile `IN-PC-2008-<state_code>-<eci_no>` constructed at route from `state_code` + `eci_no` projection; 80% national tile join (435/545). Risk #2 (per-state PC join) GREEN — topojson features carry `state_ut_code` + `unique_id` properties; per-state filter is in-memory, no external join. Risk #4 (git-history lift) PARTIAL — pre-W3c `NationalElectionsAtlas.svelte` deleted in `5801b9384` carried MapLibre+TileCartogram toggle; MapLibre retired; layout/setView pattern lifted from still-alive `ElectionMap.svelte`. Risk #3 (PartyBar identity translation) GREEN — `buildPartyKeyToPid` helper bridges party_short keys to canonical `parties.IN.<SLUG>`. |
+| 2026-06-12 | ship | PR [#958](https://github.com/miztiik/yen-gov/pull/958) merged to `origin/main` at `315f14e15`. Rows A-G all landed; 9 files (+2684 / -160). svelte-check 0 NEW errors (30 pre-existing baseline). vitest 5548 passed / 0 failed. §13 browser smoke on 4 surfaces (national PC 2024, Maharashtra PC 2024, Maharashtra AC 2019, Karnataka AC 2023) all GREEN with zero `[error]` console events. State PC 100% join on Maharashtra; National AC tile cartogram 92% (266/288 Maharashtra); National PC tile cartogram 80% (435/545) — residual 20% is `SLUG_TO_ECI` loader gap surfaced as follow-up #1 below. |
+
+## Plan complete (2026-06-12)
+
+**Closure.** All 7 rows A-G landed in PR [#958](https://github.com/miztiik/yen-gov/pull/958) (`315f14e15`). Pre-2024 LS events still show the placeholder card per scope-lock; per-state PC tile layout authoring is deferred. Two follow-up workstreams surfaced:
+
+1. **National PC tile pending rate (~20%, 110 tiles).** `view-models/election-results.ts::SLUG_TO_ECI` fallback (`state_slug.toUpperCase()`) doesn't match the `S07` / `U03` ECI state codes the tile layout uses. One-pass audit + mechanical map fix should close the gap.
+2. **Alliance backfill** — user-confirmed queued. Opens as a separate plan-doc.
+
+This plan-doc is preserved in `TODO/` as the audit trail for PR #958.
