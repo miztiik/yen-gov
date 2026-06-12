@@ -67,6 +67,13 @@ test.describe("national event view (PR-W3c rebuild)", () => {
 
     // Top-parties bar visible (container; row check above pinned the data).
     await expect(page.getByTestId("national-event-top-parties")).toBeVisible();
+
+    // TODO/20260612 Row C + E: the "Event slug general-2024" developer
+    // metadata is gone from the header. Assert its absence so a future
+    // refactor cannot silently re-leak it.
+    await expect(page.locator("header").first()).not.toContainText(
+      "Event slug",
+    );
   });
 
   test("legacy event-id alias (LsGenJun2024) resolves to the same view", async ({

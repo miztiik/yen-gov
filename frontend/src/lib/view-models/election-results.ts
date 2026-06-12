@@ -149,6 +149,15 @@ export interface ElectionResultRow {
    *  NATIONAL-PC scope from parliament summary.csv.votes_polled; same
    *  null-arm contract as `electors`. */
   votes_polled: number | null;
+  /** Winner-runnerup absolute vote gap (TODO/20260612 plan Row B). Populated
+   *  at NATIONAL-PC + STATE-AC scopes from summary.csv.margin_votes. CONSTITUENCY
+   *  scope leaves it null - the per-candidate rows don't carry the seat-level
+   *  gap; the scatter chart only consumes NATIONAL-PC + STATE-AC rows.
+   *
+   *  Drives the scatter chart's radius encoding (sqrt-area proportional to
+   *  the absolute vote gap) per the Citizen + Max verdict on circle-size
+   *  encoding: "how decisively was this seat won". */
+  margin_votes: number | null;
   /** Winning candidate's age. Always null at NATIONAL-PC scope (the
    *  bespoke `loadNationalPcWinners` doesn't JOIN candidacies; F1.3b
    *  regression). Populated at STATE-AC + CONSTITUENCY scopes via the
@@ -222,6 +231,10 @@ interface NationalPcRow {
   turnout_pct: number | null;
   electors: number | null;
   votes_polled: number | null;
+  /** Absolute vote gap (winner_votes - runnerup_votes); TODO/20260612 Row B
+   *  adds this to both parliament + assembly SQL projections so the scatter
+   *  chart's radius encoding can read it from the loader. */
+  margin_votes: number | null;
   winner_candidate_name: string | null;
   /** Winner candidate's share of the votes_polled denominator (in
    *  percent). Projected at STATE-AC scope (PR-W4a) from
@@ -294,6 +307,9 @@ async function runNationalPcQuery(
   // (mirrors the STATE-AC arm extended in W3b). PR-W4c (2026-06-10):
   // additive projection of `reservation` so the scatter chart's
   // reservation filter chip can narrow rows without a second loader.
+  // TODO/20260612 Row B: additive projection of `margin_votes` so the
+  // scatter chart's radius encoding can swap from electors -> absolute
+  // vote gap (Citizen + Max verdict: tells the close-vs-walkover story).
   const sql = `
     SELECT
       e.entity_id                   AS entity_id,
@@ -313,6 +329,7 @@ async function runNationalPcQuery(
       s.turnout_pct                 AS turnout_pct,
       s.electors                    AS electors,
       s.votes_polled                AS votes_polled,
+      s.margin_votes                AS margin_votes,
       s.winner_share_pct            AS vote_share_pct,
       s.winner_candidate            AS winner_candidate_name
     FROM read_csv('${sumUrl}', ${sumClause}) s
@@ -357,6 +374,9 @@ async function runStateAcQuery(
   // table can read them from the same per-AC rows (mirroring the
   // NATIONAL-PC arm extended in W3c). PR-W4c (2026-06-10): additive
   // projection of `reservation` for the scatter filter chip.
+  // TODO/20260612 Row B: additive projection of `margin_votes` so the
+  // scatter chart's radius encoding can swap from electors -> absolute
+  // vote gap on state-event surfaces as well.
   const sql = `
     SELECT
       e.entity_id                           AS entity_id,
@@ -376,6 +396,7 @@ async function runStateAcQuery(
       s.turnout_pct                         AS turnout_pct,
       s.electors                            AS electors,
       s.votes_polled                        AS votes_polled,
+      s.margin_votes                        AS margin_votes,
       s.winner_share_pct                    AS vote_share_pct,
       ec.age                                AS winner_age,
       s.winner_candidate                    AS winner_candidate_name
@@ -510,6 +531,10 @@ async function runConstituencyQuery(
     // SELECT them (W3c only needs the NATIONAL-PC arm to surface KPIs).
     electors: null,
     votes_polled: null,
+    // CONSTITUENCY scope: same rationale - per-candidate rows surface the
+    // seat-level margin_votes nowhere today; the scatter consumers only
+    // read NATIONAL-PC + STATE-AC rows.
+    margin_votes: null,
     winner_age: numOrNull(summary?.winner_age),
     winner_candidate_name: summary?.winner_candidate ?? null,
     reservation: reservationOrGen(r.reservation),
@@ -519,7 +544,7 @@ async function runConstituencyQuery(
 // -------------------- shared row mapper (winner-only scopes) --------------------
 
 function toRow(
-  r: NationalPcRow & { electors?: number | null; votes_polled?: number | null },
+  r: NationalPcRow & { electors?: number | null; votes_polled?: number | null; margin_votes?: number | null },
   event: string,
   body: ElectionBody,
   winner_age: number | null,
@@ -550,6 +575,7 @@ function toRow(
     turnout_pct: numOrNull(r.turnout_pct),
     electors: numOrNull(r.electors),
     votes_polled: numOrNull(r.votes_polled),
+    margin_votes: numOrNull(r.margin_votes),
     winner_age,
     winner_candidate_name: r.winner_candidate_name ?? null,
     reservation: reservationOrGen(r.reservation),

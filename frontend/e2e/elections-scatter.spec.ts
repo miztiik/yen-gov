@@ -49,19 +49,25 @@ test("scatter renders on national event view + margin filter narrows + dot click
   expect(lt2_count).toBeLessThan(all_count);
   expect(lt2_count).toBeGreaterThan(0);
 
-  // Reset margin filter, then change body to assembly: should narrow to
-  // zero (this national view loads parliament-only via the W2b loader's
-  // NATIONAL-PC dispatch; every projected datum has body=parliament).
-  await page.getByTestId("scatter-filter-margin-band-all").click();
-  await page.waitForTimeout(150);
-  await page.getByTestId("scatter-filter-body-assembly").click();
-  await page.waitForTimeout(150);
-  await expect(page.getByTestId("scatter-empty")).toBeVisible();
+  // TODO/20260612 Row A.5 + E: the Body chip is HIDDEN on the
+  // national-event surface (lock_body=true) - the body is already
+  // fixed by the route (parliament-only via the W2b loader's
+  // NATIONAL-PC dispatch). Confirm the chip is absent so a future
+  // refactor cannot silently re-leak it.
+  await expect(
+    page.getByTestId("scatter-filter-body-all"),
+  ).toHaveCount(0);
+  await expect(
+    page.getByTestId("scatter-filter-body-parliament"),
+  ).toHaveCount(0);
+  await expect(
+    page.getByTestId("scatter-filter-body-assembly"),
+  ).toHaveCount(0);
 
-  // Back to parliament and click one dot — verify navigation to the
+  // Reset margin filter, then click a dot — verify navigation to the
   // constituency leaf. force:true bypasses the overlapping-circles
   // actionability check.
-  await page.getByTestId("scatter-filter-body-parliament").click();
+  await page.getByTestId("scatter-filter-margin-band-all").click();
   await page.waitForTimeout(150);
   await dots.first().click({ force: true });
   await expect(page).toHaveURL(/\/elections\/general-2024\/[a-z0-9-]+/, {
@@ -69,9 +75,12 @@ test("scatter renders on national event view + margin filter narrows + dot click
   });
 });
 
-test("scatter renders on state event view with state filter pre-applied", async ({
+test("scatter renders on state event view with state filter pre-applied + lock_body hides Body chip + responsive width", async ({
   page,
 }) => {
+  // TODO/20260612 set the viewport to the max-w-6xl class width so we
+  // can assert the SVG fills the container responsively (Row A.4).
+  await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/karnataka/elections/assembly-2023", {
     waitUntil: "domcontentloaded",
   });
@@ -88,10 +97,38 @@ test("scatter renders on state event view with state filter pre-applied", async 
   const count = await dots.count();
   expect(count).toBeGreaterThanOrEqual(200);
 
-  // The body chip is initialised to "assembly" by the route on first
-  // paint (it matches the resolved event kind). Verify the active pill
-  // by reading the rendered button class.
-  const assembly_chip = page.getByTestId("scatter-filter-body-assembly");
-  await expect(assembly_chip).toBeVisible();
-  await expect(assembly_chip).toHaveClass(/bg-slate-900/);
+  // TODO/20260612 Row A.5: the Body chip is HIDDEN on state-event
+  // surfaces (lock_body=true) - the body is already fixed by the URL,
+  // so the chip would only let citizens toggle to an inactive body
+  // that empties the chart. Both body chips must not be visible.
+  await expect(
+    page.getByTestId("scatter-filter-body-assembly"),
+  ).toHaveCount(0);
+  await expect(
+    page.getByTestId("scatter-filter-body-all"),
+  ).toHaveCount(0);
+
+  // TODO/20260612 Row A.4: the SVG width binds to the wrapper's
+  // clientWidth. On a 1280px viewport with the page's max-w-6xl
+  // container (1152px) + padding, the SVG should occupy at least 900px.
+  const svg_width = await page
+    .getByTestId("scatter-chart")
+    .evaluate((el) => Number((el as SVGSVGElement).getAttribute("width")));
+  expect(svg_width).toBeGreaterThan(900);
+
+  // TODO/20260612 Row A.3: Y-axis ticks adapt to the data range. For
+  // Karnataka AE 2023 the max winning margin sits around 60-70%, so
+  // computeYMax should cap the Y-axis well below 100. Assert the
+  // top-most Y tick label is below 100% so the chart isn't wasting
+  // canvas on empty upper range.
+  const y_tick_labels = page.locator(
+    '[data-testid="scatter-chart"] text[text-anchor="end"]',
+  );
+  const labels = await y_tick_labels.allTextContents();
+  const nums = labels
+    .map((l) => Number.parseInt(l.replace("%", "").trim(), 10))
+    .filter((n) => Number.isFinite(n));
+  expect(nums.length).toBeGreaterThan(0);
+  const max_y = Math.max(...nums);
+  expect(max_y).toBeLessThan(100);
 });

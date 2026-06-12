@@ -19,8 +19,10 @@ import { describe, it, expect } from "vitest";
 
 import {
   applyFilters,
+  computeYMax,
   marginBandOf,
   maxElectors,
+  maxMarginVotes,
   sqrtRadius,
   type ScatterDatum,
   type ScatterFilters,
@@ -42,6 +44,12 @@ describe("scatter-model: fixture sanity", () => {
       expect(Number.isFinite(d.turnout_pct)).toBe(true);
       expect(Number.isFinite(d.margin_pct)).toBe(true);
       expect(Number.isFinite(d.electors)).toBe(true);
+      // TODO/20260612 Row B: margin_votes is the new radius-encoding
+      // field. Fixtures synthesise it deterministically; assert it is
+      // finite (>=0) so the radius-scale tests have non-null inputs.
+      expect(d.margin_votes).not.toBeNull();
+      expect(Number.isFinite(d.margin_votes as number)).toBe(true);
+      expect(d.margin_votes as number).toBeGreaterThanOrEqual(0);
       expect(d.winner_party_id).toMatch(/^parties\.IN\./);
       expect(d.winner_party_short).toBeTruthy();
       expect(["GEN", "SC", "ST"]).toContain(d.reservation);
@@ -196,6 +204,110 @@ describe("sqrtRadius: brief test 2 (sqrt-correct ratio)", () => {
   it("a negative or zero `electors` value returns 0 instead of NaN", () => {
     expect(sqrtRadius(0, 1_000_000)).toBe(0);
     expect(sqrtRadius(-50, 1_000_000)).toBe(0);
+  });
+});
+
+// --------------------------------------------------------------------
+// TODO/20260612 Row A.3 + B helpers - computeYMax + maxMarginVotes
+// --------------------------------------------------------------------
+
+describe("computeYMax: dynamic Y-axis upper bound", () => {
+  function row(margin_pct: number, overrides: Partial<ScatterDatum> = {}): ScatterDatum {
+    return {
+      entity_id: "X",
+      state_slug: "x",
+      constituency_slug: "x",
+      constituency_name: "X",
+      event_id: "e",
+      turnout_pct: 60,
+      margin_pct,
+      electors: 1000,
+      margin_votes: 100,
+      winner_party_id: "parties.IN.UNK",
+      winner_party_short: "UNK",
+      reservation: "GEN",
+      body: "assembly",
+      ...overrides,
+    };
+  }
+
+  it("returns 40 for an empty input (Rosling floor)", () => {
+    expect(computeYMax([])).toBe(40);
+  });
+
+  it("returns 40 when every margin is below the floor", () => {
+    expect(computeYMax([row(5), row(12), row(30)])).toBe(40);
+  });
+
+  it("rounds up to the next multiple of 10 with 10% headroom", () => {
+    // max=45 -> ceil(45 * 1.1 / 10) * 10 = ceil(4.95) * 10 = 50
+    expect(computeYMax([row(20), row(45)])).toBe(50);
+  });
+
+  it("keeps the result at the floor for small datasets that span the floor", () => {
+    // max=35 -> ceil(38.5 / 10) * 10 = 40 -> floor wins
+    expect(computeYMax([row(35)])).toBe(40);
+  });
+
+  it("caps at 100 (the chart's hard upper bound)", () => {
+    expect(computeYMax([row(99)])).toBe(100);
+    expect(computeYMax([row(100)])).toBe(100);
+  });
+
+  it("always returns a multiple of 10 (clean tick rendering)", () => {
+    for (let m = 5; m <= 95; m += 7) {
+      expect(computeYMax([row(m)]) % 10).toBe(0);
+    }
+  });
+
+  it("is monotonically non-decreasing as the largest margin grows", () => {
+    let prev = 0;
+    for (const m of [5, 18, 30, 45, 60, 75, 90]) {
+      const y = computeYMax([row(m)]);
+      expect(y).toBeGreaterThanOrEqual(prev);
+      prev = y;
+    }
+  });
+});
+
+describe("maxMarginVotes: convenience reduce over margin_votes", () => {
+  function row(margin_votes: number | null, overrides: Partial<ScatterDatum> = {}): ScatterDatum {
+    return {
+      entity_id: "X",
+      state_slug: "x",
+      constituency_slug: "x",
+      constituency_name: "X",
+      event_id: "e",
+      turnout_pct: 60,
+      margin_pct: 5,
+      electors: 1000,
+      margin_votes,
+      winner_party_id: "parties.IN.UNK",
+      winner_party_short: "UNK",
+      reservation: "GEN",
+      body: "assembly",
+      ...overrides,
+    };
+  }
+
+  it("returns 0 for an empty array", () => {
+    expect(maxMarginVotes([])).toBe(0);
+  });
+
+  it("returns the largest non-null value", () => {
+    expect(maxMarginVotes([row(100), row(50), row(425)])).toBe(425);
+  });
+
+  it("skips nulls (uncontested seats)", () => {
+    expect(maxMarginVotes([row(100), row(null), row(50)])).toBe(100);
+  });
+
+  it("returns 0 when every row is null / negative", () => {
+    expect(maxMarginVotes([row(null), row(-5), row(null)])).toBe(0);
+  });
+
+  it("is non-zero on the bundled SCATTER_FIXTURES (50 rows)", () => {
+    expect(maxMarginVotes(SCATTER_FIXTURES)).toBeGreaterThan(0);
   });
 });
 
