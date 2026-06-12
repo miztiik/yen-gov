@@ -7,10 +7,13 @@ Reconstructs the one-time hexbin pass that seeds
 ADR-0045). One tile per real constituency for a given (layout_kind, scope,
 delim_year); axial pointy-top odd-r coords (q, r); zero cell overlaps; north-up.
 
-Per CLAUDE.md §4 this is a standalone tool: it reads the boundary geojson and
-the layout JSON directly from the repo root with stdlib only and MUST NOT import
-`backend/yen_gov`. It is idempotent per scope: re-running a scope replaces only
-that scope's tiles in the layout file, leaving every other scope untouched.
+Per CLAUDE.md section 4 this is a near-stdlib tool: it reads the boundary
+geojson and the layout JSON directly from the repo root and MUST NOT import
+`backend/yen_gov` runtime modules. The one allowed exception is
+`yen_gov.core.schema_registry.schema_version`, a metadata helper that reads
+`datasets/schemas/<file>.schema.json` directly; it sources the
+`$schema_version` stamps on the two emitted JSON envelopes per CLAUDE.md
+section 11 ("Code never hand-types schema-version literals").
 
 Usage:
   # one AC state by ECI code
@@ -36,6 +39,19 @@ LAYOUT_PATH = REPO / "datasets" / "grapher" / "election_tile_layouts.json"
 SCOPES_PATH = REPO / "datasets" / "grapher" / "election_tile_scopes.json"
 AC_DIR = REPO / "datasets" / "boundaries" / "electoral" / "delim=2008" / "ac"
 PC_PATH = REPO / "datasets" / "boundaries" / "electoral" / "delim=2024" / "pc" / "all.geojson"
+
+# Bridge to the canonical schema-version helper so the two stamped envelopes
+# below never carry a hand-typed semver literal (CLAUDE.md section 11). The
+# helper reads `datasets/schemas/<file>.schema.json`'s `x-version` once at
+# import time and caches; drift becomes impossible by construction.
+_BACKEND_DIR = REPO / "backend"
+if str(_BACKEND_DIR) not in sys.path:
+    sys.path.insert(0, str(_BACKEND_DIR))
+
+from yen_gov.core.schema_registry import schema_version  # noqa: E402
+
+LAYOUT_SCHEMA_VERSION = schema_version("grapher-election-tile-layout.schema.json")
+SCOPES_SCHEMA_VERSION = schema_version("grapher-election-tile-scopes.schema.json")
 
 DELIM_YEAR = 2008
 ROW_PITCH = math.sqrt(3) / 2  # pointy-top: vertical row pitch / horizontal pitch
@@ -323,7 +339,7 @@ def load_layout() -> dict:
         return json.loads(LAYOUT_PATH.read_text(encoding="utf-8"))
     return {
         "$schema": "https://yen-gov.github.io/schemas/grapher-election-tile-layout.schema.json",
-        "$schema_version": "1.0",
+        "$schema_version": LAYOUT_SCHEMA_VERSION,
         "tiles": [],
     }
 
@@ -372,7 +388,7 @@ def write_scopes_manifest(doc: dict) -> None:
     ]
     manifest = {
         "$schema": "https://yen-gov.github.io/schemas/grapher-election-tile-scopes.schema.json",
-        "$schema_version": "1.0",
+        "$schema_version": SCOPES_SCHEMA_VERSION,
         "scopes": scopes,
     }
     SCOPES_PATH.write_text(

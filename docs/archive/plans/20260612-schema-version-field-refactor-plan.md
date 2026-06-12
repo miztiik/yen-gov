@@ -309,10 +309,51 @@ PR-0 has narrowed the scope and ratified section 0.7. Before PR-1 dispatches, th
 
 ## See also
 
-- [docs/architecture/data/schema-evolution.md section Pending OWID-conformance pivot](../docs/architecture/data/schema-evolution.md#pending-owid-conformance-pivot-stop-stamping-schema_version-onto-data-emit-files) - the operational-policy note that points here.
-- [docs/concepts/owid-alignment.md](../docs/concepts/owid-alignment.md) - fallback doctrine; this plan narrows Named divergence #5 from open to scoped-with-carve-out.
-- [docs/concepts/data-provenance.md](../docs/concepts/data-provenance.md) - citation-ledger contract; the 5-col source.csv shape stays unchanged.
+- [docs/architecture/data/schema-evolution.md section Schema-version field stamping (permanent named divergence)](../../architecture/data/schema-evolution.md#schema-version-field-stamping-permanent-named-divergence) - closure receipt; doctrinal home for the permanent named divergence.
+- [docs/concepts/owid-alignment.md](../../concepts/owid-alignment.md) - fallback doctrine; Named divergence #5 is now PERMANENT (closed via Path A).
+- [docs/concepts/data-provenance.md](../../concepts/data-provenance.md) - citation-ledger contract; 5-col source.csv shape stays unchanged (was the binding constraint that ruled out adding `origin.date_accessed` as a 6th column).
 - [OWID metadata reference](https://docs.owid.io/projects/etl/architecture/metadata/reference/) - canonical source for OWID grammar.
-- [TODO/20260611-sources-simplification-plan.md](20260611-sources-simplification-plan.md) - precedent for "extraordinary cleanup" plan shape; this plan follows its operating-contract grammar.
-- [CLAUDE.md section 10](../CLAUDE.md) - manifest control-plane carve-out lives here.
-- [CLAUDE.md section 11](../CLAUDE.md) - schema-versioning grammar; final rewrite happens in PR-FINAL.
+- [TODO/20260611-sources-simplification-plan.md](../../../TODO/20260611-sources-simplification-plan.md) - precedent for "extraordinary cleanup" plan shape; this plan follows its operating-contract grammar.
+- [CLAUDE.md section 10](../../../CLAUDE.md) - anti-pattern stack carries the closure note on `$schema_version` literals + `schema_registry` mandate.
+- [CLAUDE.md section 11](../../../CLAUDE.md) - schema-versioning grammar; the "Code never hand-types schema-version literals" rule is now enforced at the 5 historically-hardcoded tool sites.
+
+---
+
+## Section 6 - Plan complete (Path A closure, 2026-06-12)
+
+**User verdict (2026-06-12, post-PR-0 vscode_askQuestions decision point)**: Path A. Close as permanent named divergence; ship the 1-PR drift-hazard fix.
+
+### What shipped
+
+| PR | Title | Status |
+|---|---|---|
+| #973 | docs(schema): document $schema_version OWID-conformance pivot (deferred) | merged commit d444e714e |
+| #972 | chore(pipeline): repoint dim_acs_lgd_lift to ac_crosswalk.csv | merged commit 569b87c5e |
+| #980 | docs(schema): PR-0 ratify schema-version field retirement verdicts + scope-narrow pivot | merged commit 67350bc31 |
+| **#TBD** | **chore(tools): rewire 5 schema-version literals to schema_registry + close OWID divergence #5 as permanent (Path A)** | this PR |
+
+### What was achieved
+
+1. **Drift hazard repair**: 5 hardcoded `"1.0"` tool sites (2 in `tools/gen_election_tile_layouts.py`, 1 in `tools/lgd/parse_lgd_export.py`, 1 in `tools/lgd/snapshot.py`, 2 in `tools/boundaries/enrich_census_code_2011.py`) rewired to source `$schema_version` from `yen_gov.core.schema_registry.schema_version(<file>)` per CLAUDE.md section 11. Next schema bump tracks automatically; writer-strict validation no longer fails on stale literal.
+2. **Doctrine ratification**: Named divergence #5 in [docs/concepts/owid-alignment.md](../../concepts/owid-alignment.md) flipped from "open divergence, pending pivot" to **PERMANENT** with the closure receipt's "Why this is the right divergence to keep" reasoning baked in.
+3. **Schema-evolution.md closure**: the "Pending OWID-conformance pivot" section is replaced by "Schema-version field stamping (permanent named divergence)" with the four-OWID-concerns table showing each concern's yen-gov-native surface; status note at the doc head updated to reflect closure.
+4. **CLAUDE.md section 10 update**: anti-pattern bullet flipped from "Stamp `$schema_version` on a citizen-facing JSON data emit file" (retirement framing) to "Hand-type `$schema_version` literals in any writer" (drift-hazard framing); points at `schema_registry.schema_version()` as the canonical helper.
+5. **Plan-doc archived** to `docs/archive/plans/` per the [distill-a-plan](../../how-to/distill-a-plan.md) flow with this closure stanza appended.
+
+### What was deliberately NOT done (alternative paths preserved for future re-litigation)
+
+- **Path B was not executed.** The scoped 5-7 PR sequence (PR-1 audit through PR-FINAL doctrine cleanup) lives in section 1 of this archived plan-doc with the full PR-by-PR scope + Tidy-First commit-split guidance. If a future session re-opens the OWID-conformance question with new constraints (e.g. citizen surface starts depending on the absence of the field, or a backend rewrite makes the per-family sweep cheaper), this plan-doc is the prebuilt execution scaffold.
+- **`origin.date_accessed` was not introduced.** The 5-col `source.csv` binding contract (2026-06-11 ADR citation-ledger-5col) was preserved; the `fetched_at smear` failure mode from 2026-05-16 was not re-litigated.
+- **`update_period_days` was not tightened to required.** On-disk reality is already at parity (100+ rows sampled, zero nulls); `tier_b_indicator_freshness_declared` already enforces. Doctrinal ratification can land in a separate small PR if a future ingest tries to skip the field; today's corpus does not need the gate to fire.
+
+### Persona debate trail
+
+PR-0 (#980) carries the full 4-persona debate (Gregor + Hans + Max + Fowler) in section 0.7 of this plan-doc + the persona attribution on each verdict. The Hans persona's "this is operator-axis metadata; citizen does not see it; OWID-conformance is not a citizen benefit here" verdict is the one the user picked.
+
+### Durable lessons (distilled to user memory)
+
+- **OWID-alignment doctrine is a FALLBACK, not a refactor mandate.** When the divergence is operator-axis and the citizen-axis benefit is zero, the right move is to close the divergence as permanent + name the reasoning verbatim in `docs/concepts/owid-alignment.md` (so the next session does not re-open the question). Cost: 1 PR + a doctrine update. Benefit: blocks N PRs of grammar-conformance churn from re-emerging.
+- **Multi-persona debate via parallel read-only subagents** is the right shape for Level-3+ contract questions. 4 personas dispatched in parallel returned within one round, converged on scope-narrow, and the Hans persona's reasoning was the load-bearing one for the user's Path A pick. Subagent reports are preserved verbatim in session memory; the plan-doc's section 0.7 is the durable distillation.
+- **CLAUDE.md section 4 "tools self-contained" is qualified**: the prohibition is on `backend/` RUNTIME modules. `yen_gov.core.schema_registry` is a metadata helper that reads `datasets/schemas/` directly; importing it from `tools/` is in scope and matches the precedent in `tools/emit_indicators_completeness_index.py`. The 3 over-strict docstring claims in `enrich_census_code_2011.py`, `gen_election_tile_layouts.py`, `lgd/snapshot.py` were updated to reflect the qualified rule.
+
+**Status: COMPLETE.** The OWID-conformance question on `$schema_version` is closed for the foreseeable future. Next agent who hits this should read [docs/architecture/data/schema-evolution.md section Schema-version field stamping](../../architecture/data/schema-evolution.md#schema-version-field-stamping-permanent-named-divergence) + [Named divergence #5](../../concepts/owid-alignment.md#named-divergences-from-owid-with-reasons) before opening any related plan-doc.
