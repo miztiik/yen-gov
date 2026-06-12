@@ -1,8 +1,10 @@
 # Schema Evolution
 
-**Last Updated**: 2026-05-31
+**Last Updated**: 2026-06-12
 
 This document is the operational policy for evolving yen-gov schema contracts without unnecessary data rebuilds. [ADR-0047](../../reference/decision-index.md) records the decision; this page records the working rules.
+
+> **Status note (2026-06-12).** A pending [OWID-conformance pivot](#pending-owid-conformance-pivot-stop-stamping-schema_version-onto-data-emit-files) reframes the `$schema_version` field as a yen-gov-specific extension that OWID does not carry on its data emit files. The current writer-strict / reader-compatible policy below stays in force until the pivot ships; the open question is whether the field should exist on data files at all, not whether the field is well-stamped today. Tracked in [TODO/20260612-schema-version-field-refactor-plan.md](../../../TODO/20260612-schema-version-field-refactor-plan.md).
 
 ## Scope
 
@@ -153,6 +155,61 @@ Test cases should prove behavior, not literal version strings.
 - Schema-evolution tests cover valid `values_changed=false`, valid `values_changed=true`, missing retained-schema references, and retained-schema hash/version mismatches using `tmp_path` fixture ledgers.
 - Frontend JSON corpus contract tests use the same compatibility contract as backend validation. Canonical DuckDB-WASM reader tests use the `canonical-manifest-reader` surface for manifest/table registration compatibility.
 - Literal version strings are acceptable in named historical fixtures; otherwise use schema-registry lookups.
+
+## Pending OWID-conformance pivot: stop stamping `$schema_version` onto data emit files
+
+**Status (2026-06-12).** Open. Doctrine is in transition; the policy above stays in force until the pivot lands. Tracked in [TODO/20260612-schema-version-field-refactor-plan.md](../../../TODO/20260612-schema-version-field-refactor-plan.md). User mandate: "no more calling it schema version" + "OWID conformance style" (2026-06-12).
+
+### Why this is a divergence from OWID, not an alignment
+
+yen-gov currently stamps a `$schema_version` field at the top of every JSON artifact in `datasets/` (one or two siblings: `$schema` carries the schema URL; `$schema_version` carries the semver of that schema). The field is well-stamped today — populated by writers from the schema's own `x-version` and validated by per-file JSON Schema rules with `pattern: "^\\d+\\.\\d+$"` (see e.g. [`datasets/schemas/indicator.schema.json`](../../../datasets/schemas/indicator.schema.json), [`datasets/schemas/manifest.schema.json`](../../../datasets/schemas/manifest.schema.json), [`datasets/schemas/indicators-completeness.schema.json`](../../../datasets/schemas/indicators-completeness.schema.json)).
+
+The question is whether the field should exist on data files **at all**.
+
+OWID's answer is **no**. Per [OWID's metadata reference](https://docs.owid.io/projects/etl/architecture/metadata/reference/) and [`docs/concepts/owid-alignment.md`](../../concepts/owid-alignment.md), OWID separates three semantic concerns that yen-gov currently conflates into one `$schema_version` field:
+
+| Concern | OWID field | What it means | Where it lives in OWID |
+| --- | --- | --- | --- |
+| Schema shape identity | (none on data file) | "Which version of the schema validates this artifact?" | In the `.schema.json` file's own `x-version` / `$id` URL. The data file does NOT carry a stamp; the validator picks the schema. |
+| Data freshness pointer | `origin.date_accessed` | "When did we pull these bytes?" | On the `origin.*` metadata block (citation-row sibling). |
+| Publisher's edition tag | `origin.version_producer` | "Which release of the upstream report?" | On the `origin.*` block. |
+| Expected refresh cadence | `dataset.update_period_days` | "How often does the upstream change?" | On the `dataset.*` block. |
+
+yen-gov's `$schema_version` field collapses (1) into the data file itself, where it serves no validator the validator doesn't already know, while concerns (2)/(3)/(4) are scattered or unstated. Per CLAUDE.md §0a "The One Rule" (OWID is the canonical reference) and the OWID-alignment doctrine, this is a named divergence that needs a written rationale OR retirement.
+
+### What is actually on disk today (audit snapshot, 2026-06-12)
+
+- **~50 `.schema.json` files** in `datasets/schemas/` declare `$schema_version` as a required string field with `pattern: "^\\d+\\.\\d+$"` (semver-2-position).
+- **120+ JSON artifacts** in `datasets/` carry the stamp (boundary SoT files at `4.1`, manifest at `1.4`, indicators-completeness at `2.0`, taxonomy/parties at `2.3`, etc.).
+- **5 tool sites stamp a hardcoded literal** (`tools/gen_election_tile_layouts.py` x2, `tools/lgd/parse_lgd_export.py`, `tools/lgd/snapshot.py`, `tools/boundaries/enrich_census_code_2011.py` x2): `"$schema_version": "1.0"`. These DO NOT auto-track schema bumps — when the schema moves to `1.1`, the tool keeps emitting `1.0` and writer-strict validation fails. This is the **drift hazard** the pivot fixes incidentally; the underlying question is whether the field should exist at all.
+- **1 tool site stamps from the schema** (`tools/emit_indicators_completeness_index.py:180`): `"$schema_version": schema["x-version"]`. This is the well-behaved pattern; it would still be retired by the pivot.
+
+### Why we are not fixing this in-session
+
+Downstream impact is wide:
+
+- Every JSON artifact's writer needs a coordinated retire of the field.
+- Every reader / consumer / contract test that checks for the field's presence needs to be updated.
+- Every `.schema.json` file's `required: [..., "$schema_version", ...]` declaration needs to drop the field.
+- The 120+ on-disk artifacts need a one-shot migration to drop the field (or a writer pivot that gradually phases it out via additive-then-removal).
+- The replacement semantic fields (`origin.date_accessed`, `origin.version_producer`, `dataset.update_period_days`) need a CSV/JSON home in the canonical store — likely on the `source.csv` citation ledger (see [data-provenance.md](../../concepts/data-provenance.md)) and on a new per-dataset metadata file.
+
+This is a Level-4 / Level-5 contract change. It must be planned, debated across personas (Gregor / Fowler / Hans / Max / Jony for the citizen-surface implications), and shipped as a multi-PR sequence with reader-before-producer rollout per the operational policy above. The plan-doc is [TODO/20260612-schema-version-field-refactor-plan.md](../../../TODO/20260612-schema-version-field-refactor-plan.md).
+
+### What the operational policy means during the transition
+
+Until the pivot lands:
+
+1. **Writers continue to stamp `$schema_version`** with the schema's `x-version`. The writer-strict rule (Policy Summary item 1) stays in force; do not start emitting artifacts that omit the field — readers expect it.
+2. **The 5 hardcoded `"1.0"` tool sites are a known drift hazard** but DO NOT band-aid them by rewiring to `schema["x-version"]` if the broader pivot would retire the field anyway. Such a rewire is wasted motion. The plan-doc lists them as candidates for in-place repair if the pivot is deferred past 2026-Q3; absent that, they ship in the retirement sweep.
+3. **New schemas added during the transition** carry `$schema_version` per the existing template — to keep the contract uniform until the pivot retires it everywhere at once.
+4. **The replacement semantic fields are not yet citizen-surface contracts**. Do not start emitting `origin.date_accessed` / `origin.version_producer` / `dataset.update_period_days` as one-off additions to individual artifacts; that path creates a half-migrated surface where some artifacts use OWID grammar and others do not. The plan ships the swap atomically per artifact family.
+
+### Cross-links
+
+- [`docs/concepts/owid-alignment.md`](../../concepts/owid-alignment.md) — names this as a divergence in its table and rejected-alternatives section.
+- [`docs/concepts/data-provenance.md`](../../concepts/data-provenance.md) — the citation ledger is the natural home for `date_accessed` / `version_producer` semantics; the lift will not touch the 5-col `source.csv` shape established at v3.1.
+- [TODO/20260612-schema-version-field-refactor-plan.md](../../../TODO/20260612-schema-version-field-refactor-plan.md) — the execution plan.
 
 ## Stop Conditions
 
