@@ -331,6 +331,17 @@ def apply_verdict(
             alias_tokens: list[str] = []
             if label_upper and label_upper != short_upper:
                 alias_tokens.append(label_upper)
+            # PR-Q2: optional founded_year / dissolved_year from TCPD
+            # catalogue (Start_Year / Last_Year). Treats Last_Year of
+            # 2021 (the catalogue's terminal vintage) as "still active"
+            # rather than dissolved - the absence of post-2021 rows is
+            # a catalogue artefact, not a dissolution signal.
+            tcpd_start = (v.get("tcpd_start_year") or "").strip()
+            tcpd_last = (v.get("tcpd_last_year") or "").strip()
+            founded_year = tcpd_start if tcpd_start.isdigit() else ""
+            dissolved_year = ""
+            if tcpd_last.isdigit() and int(tcpd_last) < 2021:
+                dissolved_year = tcpd_last
             new_row = {fn: "" for fn in PARTIES_FIELDNAMES}
             new_row["party_id"] = new_pid
             new_row["short"] = short_value
@@ -338,6 +349,8 @@ def apply_verdict(
             new_row["aliases"] = "|".join(alias_tokens)
             new_row["recognition_scope"] = scope
             new_row["home_state_codes"] = home_iso
+            new_row["founded_year"] = founded_year
+            new_row["dissolved_year"] = dissolved_year
             new_rows.append(new_row)
             by_pid[new_pid] = new_row
             alias_to_pid[short_upper] = new_pid
