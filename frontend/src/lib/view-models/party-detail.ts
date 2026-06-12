@@ -35,6 +35,10 @@
 
 import { query, registerCsvFile } from "../duckdb";
 import { csvColumnsClause } from "../canonical/csv-columns";
+import {
+  parsePeerEntityId,
+  type PeerEntityKey,
+} from "../canonical/electoral-id-translator";
 import { DATA_BASE } from "../paths";
 import { loadPartyMeta, type PartyMeta } from "./parties";
 
@@ -195,11 +199,20 @@ interface RawStrongholdRow {
   winner_party_id: string | null;
 }
 
-/** Raw electoral-entity row (for constituency display names). */
+/** Raw electoral-entity row (for constituency display names). Carries
+ *  the natural-key fields (`entity_kind`, `delim_year`, `eci_no`) in
+ *  addition to (`entity_id`, `name`, `state`) so the JOIN bridge from
+ *  the per-state-CSV peer entity_id can match this row by natural key
+ *  rather than entity_id string equality. See
+ *  `frontend/src/lib/canonical/electoral-id-translator.ts` for why the
+ *  natural-key bridge is the only reliable shape. */
 interface RawElectoralRow {
   entity_id: string | null;
   name: string | null;
+  entity_kind: string | null;
+  delim_year: number | bigint | null;
   state: string | null;
+  eci_no: number | bigint | null;
 }
 
 function intOrNull(value: number | bigint | null | undefined): number | null {
@@ -527,33 +540,85 @@ async function fetchPartyDetail(
   `;
   const strongholdRows = await query<RawStrongholdRow>(strongholdSql);
 
-  // Electoral-entity JOIN for display names. Pull only the entity_ids
-  // that appear in the stronghold rows to keep the round-trip small.
-  const entityIds = new Set<string>();
+  // Electoral-entity JOIN for display names. The per-state CSV emits
+  // entity_ids keyed by ECI state code (e.g. `IN-S22-AC-2008-167`) but
+  // `datasets/data/entities/electoral.csv` uses an LGD-slug + LGD-
+  // sequential suffix (e.g. `IN-AC-2008-tamil-nadu-4025`) for 92% of
+  // 2008 rows and an `eci<eci_no>` fallback for the remaining 8% (see
+  // commit 55dc91946). Neither suffix is derivable from the per-state
+  // entity_id alone, so the JOIN goes through the publisher natural
+  // key `(entity_kind, delim_year, state, eci_no)` instead.
+  //
+  // Parse each stronghold row's peer entity_id into a natural-key
+  // tuple. Rows that don't parse (defensive - shouldn't happen for
+  // stronghold rows which are always AC/PC winner rows) are dropped
+  // silently from the JOIN query; the resulting strongholds fall back
+  // to empty constituency_name / state via the lookup-miss path.
+  const peerKeys = new Map<string, PeerEntityKey>();
   for (const r of strongholdRows) {
-    if (r.entity_id) entityIds.add(r.entity_id);
+    if (!r.entity_id) continue;
+    const key = parsePeerEntityId(r.entity_id);
+    if (key) peerKeys.set(r.entity_id, key);
   }
+
   let electoralRows: RawElectoralRow[] = [];
-  if (entityIds.size > 0) {
-    const idList = [...entityIds]
-      .map((id) => `'${id.replace(/'/g, "''")}'`)
+  if (peerKeys.size > 0) {
+    // DuckDB row-tuple IN clause:
+    //   WHERE (entity_kind, delim_year, state, eci_no) IN
+    //     (('ac', 2008, 'tamil-nadu', 167), ...)
+    // `entity_kind` on electoral.csv carries lowercase 'ac' / 'pc',
+    // which matches PeerEntityKey.kind.
+    const tupleList = [...peerKeys.values()]
+      .map(
+        (k) =>
+          `('${k.kind}', ${k.delim_year}, '${k.slug.replace(/'/g, "''")}', ${k.eci_no})`,
+      )
       .join(", ");
     const entitySql = `
       SELECT
         entity_id,
         name,
-        state
+        entity_kind,
+        delim_year,
+        state,
+        eci_no
       FROM read_csv('${ELECTORAL_ENTITIES_URL}', ${electoralEntitiesClause})
-      WHERE entity_id IN (${idList})
+      WHERE (entity_kind, delim_year, state, eci_no) IN (${tupleList})
     `;
     electoralRows = await query<RawElectoralRow>(entitySql);
   }
+
+  // Build lookups keyed by the PEER entity_id (so foldStrongholdRows's
+  // existing `entity_name_lookup.get(entity_id)` call hits - entity_id
+  // there is the peer ID from the per-state CSV, not the electoral.csv
+  // shape). Walk every electoral row back to its peer key by scanning
+  // peerKeys for a 4-tuple match. The set is bounded by the stronghold
+  // row count (typically << 200 entries) so the O(N*M) inner loop is
+  // negligible.
   const nameLookup = new Map<string, string>();
   const stateLookup = new Map<string, string>();
-  for (const r of electoralRows) {
-    if (r.entity_id) {
-      nameLookup.set(r.entity_id, r.name ?? "");
-      stateLookup.set(r.entity_id, r.state ?? "");
+  for (const e of electoralRows) {
+    if (
+      !e.entity_kind ||
+      e.delim_year == null ||
+      !e.state ||
+      e.eci_no == null
+    ) {
+      continue;
+    }
+    const eDelim = Number(e.delim_year);
+    const eEci = Number(e.eci_no);
+    for (const [peerId, k] of peerKeys) {
+      if (
+        k.kind === e.entity_kind &&
+        k.delim_year === eDelim &&
+        k.slug === e.state &&
+        k.eci_no === eEci
+      ) {
+        nameLookup.set(peerId, e.name ?? "");
+        stateLookup.set(peerId, e.state ?? "");
+        break;
+      }
     }
   }
 
