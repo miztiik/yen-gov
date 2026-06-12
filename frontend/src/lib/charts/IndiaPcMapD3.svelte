@@ -66,7 +66,7 @@
   } from "geojson";
 
   import { DATA_BASE } from "../paths";
-  import { INDIA_PC } from "../boundaries/sources";
+  import { INDIA_PC, type BoundaryEntry } from "../boundaries/sources";
   import { renderTooltipCard } from "../boundaries/tooltip-card";
   import { symbolAssetUrl } from "../boundaries/symbol-asset";
   import {
@@ -132,6 +132,13 @@
     highlight_mode?: HighlightMode;
     selected_party_id?: string | null;
     min_margin?: MinMargin;
+    /** PC boundary layer to load + join against. Defaults to `INDIA_PC`
+     *  (delim=2024). The route passes `INDIA_PC_2008` for LS 2019/2014/
+     *  2009 events, which uses a different `unique_id` shape (name-slug
+     *  instead of numeric ls_seat_code). Component stays grain-agnostic
+     *  — it reads `boundary.join_property` + `feature.properties[that]`
+     *  and matches against `row.unique_id` regardless of the shape. */
+    boundary?: BoundaryEntry;
   }
   let {
     rows: input_rows,
@@ -142,6 +149,7 @@
     highlight_mode = DEFAULT_HIGHLIGHT_STATE.mode,
     selected_party_id = DEFAULT_HIGHLIGHT_STATE.selected_party_id,
     min_margin = DEFAULT_HIGHLIGHT_STATE.min_margin,
+    boundary = INDIA_PC,
   }: Props = $props();
 
   // 640x480 matches the IndiaPartyMap calibration so SUB_THRESHOLD_PX
@@ -150,14 +158,14 @@
   const WIDTH = 640;
   const HEIGHT = 480;
   const DEFAULT_FILL = "#e2e8f0"; // slate-200; J&K placeholders + unmapped
-  const JOIN_PROPERTY = INDIA_PC.join_property; // "unique_id"
-  // INDIA_PC ships `.geojson` as the canonical snapshot path; the
+  const JOIN_PROPERTY = boundary.join_property; // "unique_id"
+  // `boundary` ships `.geojson` as the canonical snapshot path; the
   // `.topojson` sibling is the on-disk transcoded form (smaller wire
   // payload). Fallback to the typed default catches the rare config
   // where `geojson_local_path` is omitted (BoundaryEntry treats it as
-  // optional; INDIA_PC always populates it).
+  // optional; INDIA_PC and INDIA_PC_2008 both populate it).
   const TOPOJSON_PATH = (
-    INDIA_PC.geojson_local_path ??
+    boundary.geojson_local_path ??
     "boundaries/electoral/delim=2024/pc/all.geojson"
   ).replace(/\.geojson$/, ".topojson");
 
