@@ -30,6 +30,15 @@
    * Re-exports the pure helpers from `<script module>` so vitest can
    * cover the tier-selection logic without a DOM (same pattern as
    * GeoChoropleth + CategoryBar etc.).
+   *
+   * Tooltip (PR-1 of TODO/20260612-party-rendering-and-party-pages-plan.md):
+   *   The pill carries a hover/focus/click-pin popover that loads
+   *   parties.csv metadata on demand. State machine + UNK guard are
+   *   PURE helpers (`tooltipReducer`, `shouldOpenTooltipFor`) so
+   *   vitest can pin the contract without mounting Svelte; the
+   *   template wires the four DOM events (mouseenter / mouseleave /
+   *   focus / blur / click) + window-level Escape + click-outside
+   *   listeners to those helpers.
    */
   export {
     pickInkForFill,
@@ -37,9 +46,64 @@
     type PartyPillResolved,
     type PartyPillTreatment,
   } from "./party-pill-resolve";
+
+  /** Tooltip open/pin state machine. `open` controls whether the
+   *  popover is rendered at all; `pinned` controls whether a hover-leave
+   *  closes it. UNK / null party_id rows never open the tooltip
+   *  (UNK is operator telemetry, not a citizen entity). */
+  export interface TooltipState {
+    readonly open: boolean;
+    readonly pinned: boolean;
+  }
+
+  /** Pure: does this party_id qualify for a tooltip? UNK is the only
+   *  party_id explicitly excluded - it's the resolver fallback for
+   *  unresolved rows and has no citizen-meaningful identity to show. */
+  export function shouldOpenTooltipFor(
+    party_id: string | null | undefined,
+  ): boolean {
+    if (!party_id) return false;
+    if (party_id === "parties.IN.UNK") return false;
+    return true;
+  }
+
+  /** Pure: derive the next tooltip state from an interaction. Tests
+   *  drive every transition without mounting the component. */
+  export function tooltipReducer(
+    state: TooltipState,
+    action: "hover" | "leave" | "click" | "escape" | "close",
+    party_id: string | null | undefined,
+  ): TooltipState {
+    switch (action) {
+      case "hover":
+        if (!shouldOpenTooltipFor(party_id)) return state;
+        return { open: true, pinned: state.pinned };
+      case "leave":
+        // Hover-leave only dismisses an UNPINNED tooltip; click-pinned
+        // tooltips survive until Esc / click-outside / explicit close.
+        if (state.pinned) return state;
+        return { open: false, pinned: false };
+      case "click":
+        if (!shouldOpenTooltipFor(party_id)) return state;
+        // Click toggles pin: first click opens-and-pins; second click
+        // closes-and-unpins.
+        if (state.pinned) return { open: false, pinned: false };
+        return { open: true, pinned: true };
+      case "escape":
+      case "close":
+        return { open: false, pinned: false };
+    }
+  }
+
+  /** Idempotent closed-state factory; exported for tests + the
+   *  template's `$state(...)` initialiser. */
+  export function tooltipClosed(): TooltipState {
+    return { open: false, pinned: false };
+  }
 </script>
 
 <script lang="ts">
+  import PartyTooltip from "./PartyTooltip.svelte";
   import type { PartyRowForResolver } from "../colors/resolver";
   import { pickInkForFill, resolvePartyPill } from "./party-pill-resolve";
 
@@ -59,7 +123,10 @@
     size?: "sm" | "md" | "lg";
     /** Optional click handler. When supplied the pill renders as a
      *  `<button>` (mute/select affordance like the existing PartyBar
-     *  pattern). When omitted renders as a `<span>` (display only). */
+     *  pattern). When omitted renders as a `<span>` (display only).
+     *  PR-1: click also toggles the tooltip pin state, so a caller's
+     *  `onclick` runs AND the pill pins/unpins on the same gesture
+     *  (compose, never replace). */
     onclick?: () => void;
     /** Optional muted state (visually receded, ~0.4 opacity). Used by
      *  the 25.5 PARTY-WON mode "non-matching cells recede" rule. */
@@ -107,10 +174,61 @@
   const swatch_hex = $derived(
     resolved.treatment === "fallback" ? resolved.hex : null,
   );
+
+  // --- Tooltip wiring (PR-1) ----------------------------------------------
+
+  let tooltip = $state<TooltipState>(tooltipClosed());
+  let anchorRect: DOMRect | null = $state(null);
+  let trigger: HTMLElement | undefined = $state(undefined);
+
+  function captureAnchor(): void {
+    if (trigger) anchorRect = trigger.getBoundingClientRect();
+  }
+
+  function handlePointerEnter(): void {
+    captureAnchor();
+    tooltip = tooltipReducer(tooltip, "hover", party_id);
+  }
+  function handlePointerLeave(): void {
+    tooltip = tooltipReducer(tooltip, "leave", party_id);
+  }
+  function handleClick(): void {
+    // Compose: run the caller's onclick first (existing semantics -
+    // e.g. PartyBar's mute toggle), then toggle pin state. The pin
+    // toggle is suppressed for UNK / null via tooltipReducer's own
+    // guard.
+    onclick?.();
+    captureAnchor();
+    tooltip = tooltipReducer(tooltip, "click", party_id);
+  }
+  function handleKeydown(e: KeyboardEvent): void {
+    if (e.key === "Escape" && tooltip.open) {
+      tooltip = tooltipReducer(tooltip, "escape", party_id);
+    }
+  }
+  function handleWindowClick(e: MouseEvent): void {
+    if (!tooltip.open) return;
+    const target = e.target as Node | null;
+    if (!target) return;
+    if (trigger?.contains(target)) return;
+    // The tooltip card itself sets pointer-events: auto + carries
+    // data-component="party-tooltip"; clicks inside it should NOT
+    // dismiss. Find the closest party-tooltip ancestor.
+    if (
+      target instanceof Element &&
+      target.closest('[data-component="party-tooltip"]')
+    ) {
+      return;
+    }
+    tooltip = tooltipReducer(tooltip, "close", party_id);
+  }
 </script>
+
+<svelte:window onkeydown={handleKeydown} onclick={handleWindowClick} />
 
 {#if onclick}
   <button
+    bind:this={trigger}
     type="button"
     class="party-pill party-pill--{size} party-pill--{resolved.treatment}"
     class:party-pill--muted={muted}
@@ -118,7 +236,11 @@
     data-treatment={resolved.treatment}
     data-party-id={party_id ?? ""}
     style={pill_style}
-    onclick={onclick}
+    onclick={handleClick}
+    onmouseenter={handlePointerEnter}
+    onmouseleave={handlePointerLeave}
+    onfocus={handlePointerEnter}
+    onblur={handlePointerLeave}
   >
     {#if swatch_hex}
       <span
@@ -130,12 +252,19 @@
   </button>
 {:else}
   <span
+    bind:this={trigger}
     class="party-pill party-pill--{size} party-pill--{resolved.treatment}"
     class:party-pill--muted={muted}
     data-component="party-pill"
     data-treatment={resolved.treatment}
     data-party-id={party_id ?? ""}
     style={pill_style}
+    onclick={handleClick}
+    onmouseenter={handlePointerEnter}
+    onmouseleave={handlePointerLeave}
+    onfocus={handlePointerEnter}
+    onblur={handlePointerLeave}
+    role="presentation"
   >
     {#if swatch_hex}
       <span
@@ -145,6 +274,14 @@
     {/if}
     <span class="party-pill__label">{resolved.label}</span>
   </span>
+{/if}
+
+{#if tooltip.open && party_id && shouldOpenTooltipFor(party_id)}
+  <PartyTooltip
+    party_id={party_id}
+    anchor={anchorRect}
+    onClose={() => (tooltip = tooltipReducer(tooltip, "close", party_id))}
+  />
 {/if}
 
 <style>
