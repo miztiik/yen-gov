@@ -94,7 +94,7 @@ import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { RESERVED_PATH_TOKENS } from "../lib/links";
-import { slugify } from "../lib/slug";
+import { slugify, partyIdToSlug } from "../lib/slug";
 
 const repoRoot = resolve(
   fileURLToPath(new URL(".", import.meta.url)),
@@ -109,6 +109,7 @@ const electoralCsvPath = resolve(
   "datasets/data/entities/electoral.csv",
 );
 const indicatorsPath = resolve(repoRoot, "datasets/taxonomy/indicators.json");
+const partiesCsvPath = resolve(repoRoot, "datasets/data/entities/parties.csv");
 
 interface EntityRow {
   entity_id: string;
@@ -318,6 +319,51 @@ function loadIndicatorUrlSlugs(): string[] {
     }
   }
   return slugs;
+}
+
+/**
+ * Load the deduped set of party URL slugs from
+ * `datasets/data/entities/parties.csv`.
+ *
+ * Per ADR-0053 (PR-0 of TODO/20260612-party-rendering-and-party-pages-plan.md,
+ * 2026-06-12) the canonical per-party page lives at `/parties/<slug>`
+ * where the slug is derived from `party_id` via `partyIdToSlug`
+ * (lowercased tail with `_` -> `-`, with sentinel overrides for IND
+ * -> "independent" and UNK -> NULL).
+ *
+ * Slugs are deduped (UNK skipped entirely; everything else unique by
+ * construction since `party_id` is the PK of parties.csv). The
+ * `partySlugs` internal-uniqueness assertion below catches the
+ * regression where someone hand-edits parties.csv and accidentally
+ * creates a duplicate `party_id`.
+ *
+ * CSV column order from the v1.1 schema: `party_id, short, full,
+ * eci_codes, brand_colour, symbol_asset, wikipedia, aliases,
+ * recognition_scope, home_state_codes, founded_year, dissolved_year,
+ * predecessor_party_ids, successor_party_ids, name_history,
+ * claims_to_parent_name, name_native_script, is_sentinel`. Only the
+ * first column (party_id) is needed for the disjointness gate.
+ *
+ * The parties.csv is hand-authored + tool-edited; rows may contain
+ * commas inside quoted fields (e.g. `aliases` joining multiple
+ * variants). The naive `split(",")` is safe for the FIRST column
+ * because party_id never contains commas (`parties.IN.<UPPER_TOKEN>`
+ * by construction); a more robust CSV parser is unnecessary just to
+ * read column 0.
+ */
+function loadPartySlugs(): string[] {
+  const csv = readFileSync(partiesCsvPath, "utf-8");
+  const lines = csv.split(/\r?\n/).filter((l) => l.length > 0);
+  lines.shift(); // header
+  const slugs = new Set<string>();
+  for (const line of lines) {
+    const party_id = line.split(",", 1)[0];
+    if (!party_id) continue;
+    const slug = partyIdToSlug(party_id);
+    if (slug === null) continue; // UNK: no citizen page
+    slugs.add(slug);
+  }
+  return [...slugs];
 }
 
 function findDuplicates(slugs: string[]): string[] {
@@ -696,6 +742,105 @@ describe("Phase 3 URL namespace disjointness — indicator url_slug (Deferral 2)
     // with any of these would mask the chrome route at depth 2 of
     // `/<state>/<slug>`.
     const overlap = intersection(indicatorSlugs, RESERVED_PATH_TOKENS);
+    expect(overlap).toEqual([]);
+  });
+});
+
+/**
+ * ADR-0053 6-way URL namespace disjointness — party slug registry
+ * (PR-0 of TODO/20260612-party-rendering-and-party-pages-plan.md,
+ * 2026-06-12).
+ *
+ * Extends the disjointness contract to SIX registries:
+ *   1. State slugs        — from `entities.json`
+ *   2. Topic slugs        — from `topics.json`
+ *   3. AC slugs           — from `electoral.csv`
+ *   4. Indicator url_slug — from `indicators.json` (current + history)
+ *   5. RESERVED           — `RESERVED_PATH_TOKENS` from `links.ts`
+ *   6. Party slugs        — derived from `parties.csv` via `partyIdToSlug`
+ *
+ * Pairwise: party slugs are disjoint from each of the OTHER five
+ * registries, AND internally unique across the parties.csv corpus.
+ * Reading the real `datasets/data/entities/parties.csv` -- mirrors
+ * the Phase 2 + PR-0 + Phase 3 corpus-walking pattern above.
+ *
+ * Mounted as a separate `describe` block so an ADR-0053 regression
+ * surfaces independently of the five earlier registries.
+ *
+ * STOP-AND-SURFACE rule: if any of these go red with real collisions,
+ * the resolution is ALWAYS to fix the party slug (rename the party_id
+ * tail, OR add a sentinel override in `slug.ts`) — NEVER add an
+ * exception to the test. Doctrine: slugs are part of the citizen
+ * contract; collisions are slug-quality bugs.
+ */
+describe("ADR-0053 URL namespace disjointness — party slugs (6-way)", () => {
+  const stateSlugs = loadActiveStateSlugs();
+  const topicSlugs = loadTopicSlugs();
+  const acSlugs = loadActiveAcSlugs();
+  const indicatorSlugs = loadIndicatorUrlSlugs();
+  const partySlugs = loadPartySlugs();
+
+  it("loads ≥1000 party slugs (sanity)", () => {
+    // parties.csv has 2259 rows at PR-0 landing time (2026-06-12);
+    // floor catches "parties.csv failed to load at all" without
+    // pinning a brittle exact count that future ingest will move.
+    expect(partySlugs.length).toBeGreaterThanOrEqual(1000);
+  });
+
+  it("party slugs are internally unique", () => {
+    // party_id is the PK of parties.csv; the slug derivation is
+    // lossless (lowercased tail with `_` -> `-`); therefore the slug
+    // set is unique by construction. A duplicate here means someone
+    // hand-edited parties.csv and accidentally created a duplicate
+    // party_id row — the FK-closure backend test catches the same
+    // class of bug from the other side.
+    expect(findDuplicates(partySlugs)).toEqual([]);
+  });
+
+  it("partySlugs ⊥ stateSlugs", () => {
+    // A party named after a state ("Tamil Nadu People's Party") slugs
+    // its party_id tail (e.g. `tnpp`), never the state slug; a real
+    // collision here would mean the party_id was minted with the
+    // state slug as its tail — a data-quality bug.
+    const overlap = intersection(partySlugs, stateSlugs);
+    expect(overlap).toEqual([]);
+  });
+
+  it("partySlugs ⊥ topicSlugs", () => {
+    const overlap = intersection(partySlugs, topicSlugs);
+    expect(overlap).toEqual([]);
+  });
+
+  it("partySlugs ⊥ acSlugs", () => {
+    // STOP-AND-SURFACE: if a party slug collides with an AC name slug
+    // (e.g. some state happened to mint an AC named "BJP"), the
+    // resolution is to fix the AC name in `electoral.csv`, NOT the
+    // party slug. Party slugs are anchored to the party_id PK and
+    // citizen-visible everywhere; AC names are local to one state.
+    const overlap = intersection(partySlugs, acSlugs);
+    expect(overlap).toEqual([]);
+  });
+
+  it("partySlugs ⊥ indicatorSlugs", () => {
+    // An indicator url_slug colliding with a party slug would only
+    // ambiguate at `/<state>/<slug>` (state-scoped indicator) vs
+    // `/parties/<slug>` (party page); the leading literal `parties`
+    // disambiguates by route but a colliding slug literal would
+    // still confuse citizen recall. Resolution: rename the indicator
+    // url_slug (operator-side editorial change per the Phase 3
+    // STOP-AND-SURFACE rule above).
+    const overlap = intersection(partySlugs, indicatorSlugs);
+    expect(overlap).toEqual([]);
+  });
+
+  it("partySlugs ⊥ RESERVED_PATH_TOKENS", () => {
+    // RESERVED includes `parties` (the new top-level token reserved
+    // by ADR-0053) and `t`, `compare`, etc. A party_id whose tail
+    // slugs to any of these (e.g. a fictional `parties.IN.T`) would
+    // generate `/parties/t` which masks no route per se (the literal
+    // `parties` prefix disambiguates) but a citizen typing the bare
+    // `t` slug would still hit the topic index. Belt + braces.
+    const overlap = intersection(partySlugs, RESERVED_PATH_TOKENS);
     expect(overlap).toEqual([]);
   });
 });

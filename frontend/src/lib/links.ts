@@ -23,9 +23,8 @@
 //   * frontend/src/lib/slug.ts — the slugify primitive shared with url.ts.
 //   * frontend/src/lib/paths.ts — the (unrelated) DATA_BASE prefix module.
 
-import { slugify } from "./slug";
+import { slugify, partyIdToSlug } from "./slug";
 import { states } from "./states.svelte";
-import { partySlug as buildPartySlug } from "./slug";
 
 const BASE = import.meta.env.BASE_URL; // always ends in '/'
 
@@ -160,26 +159,36 @@ export const link = {
     return withBase(`/${stateSlug(stateCodeOrSlug)}/explore`);
   },
 
-  /** Party-in-state (`/tamil-nadu/party/<slug>`). The `/party/` segment
-   * is a sub-namespace marker under the state; it is INSIDE a state
-   * namespace, not at root, so it doesn't reserve a top-level token. */
-  partyInState(stateCodeOrSlug: string, partySlug: string): string {
-    return withBase(`/${stateSlug(stateCodeOrSlug)}/party/${partySlug}`);
+  /** Parties index (`/parties`). The alphabetical + recognition-scope
+   * + search list of every party in `datasets/data/entities/parties.csv`.
+   * Top-level `parties` (plural) is reserved in RESERVED_PATH_TOKENS per
+   * ADR-0053; the per-party pages live one segment deeper at
+   * `/parties/<slug>` via `link.party(party_id)`. */
+  parties(): string {
+    return withBase("/parties");
   },
 
-  /** Party-in-state convenience that builds the canonical
-   * `<short_name>-<eci_code_lower>` slug from caller-supplied bits.
-   * Mirrors `url.party` from url.ts so the migration is a one-line
-   * swap without touching the slug-building call-site. */
-  party(
-    stateCodeOrSlug: string,
-    partyEciCode: string,
-    shortName: string,
-  ): string {
-    const slug = buildPartySlug(shortName, partyEciCode);
-    return withBase(
-      `/${stateSlug(stateCodeOrSlug)}/party/${slug}-${partyEciCode.toLowerCase()}`,
-    );
+  /** Per-party page (`/parties/<slug>`). Takes the canonical `party_id`
+   * directly (no state context); returns `null` when the party_id has
+   * no citizen page (currently only `parties.IN.UNK`, the resolver
+   * fallback). Callers MUST handle the null case — usually by skipping
+   * the link wrapper and rendering plain text (the no-silent-demotion
+   * rule, CLAUDE.md §10).
+   *
+   * Slug shape per ADR-0053: lowercased `party_id` tail with `_` -> `-`.
+   * Sentinel slugs: IND -> `/parties/independent`, NOTA -> `/parties/nota`,
+   * UNK -> null. See `slug.ts::partyIdToSlug` for the derivation rule.
+   *
+   * Examples:
+   *   `link.party("parties.IN.INC")`  -> `"/parties/inc"`
+   *   `link.party("parties.IN.IND")`  -> `"/parties/independent"`
+   *   `link.party("parties.IN.UNK")`  -> `null`
+   */
+  party(party_id: string | null | undefined): string | null {
+    if (!party_id) return null;
+    const slug = partyIdToSlug(party_id);
+    if (slug === null) return null;
+    return withBase(`/parties/${slug}`);
   },
 
   /** AC drill (`/<state>/ac/<slug>` or, when an event is supplied,
@@ -379,7 +388,11 @@ export const link = {
  *   * `dev`          — dev-only Vite alias (existing reservation)
  *   * `ac`           — bare-AC sub-namespace marker (`/<state>/ac/<ac>`,
  *                      `/<state>/elections/<event>/ac/<ac>`)
- *   * `party`        — party-in-state sub-namespace marker (`/<state>/party/<slug>`)
+ *   * `parties`      — top-level parties index (`/parties`) +
+ *                      per-party page (`/parties/<slug>`) per ADR-0053.
+ *                      Replaced the legacy state-scoped `party` (singular)
+ *                      reservation in PR-0 of the party-rendering plan
+ *                      (rip-and-replace; no strangler-fig redirect).
  *   * `i`            — pre-reserved fallback for the future indicator-marker
  *                      retrofit Max named (when collision test first fires)
  *   * `explore`      — state-explore sub-surface marker (`/<state>/explore`)
@@ -408,7 +421,7 @@ export const RESERVED_PATH_TOKENS = Object.freeze([
   "lab",
   "dev",
   "ac",
-  "party",
+  "parties",
   "i",
   "explore",
   "d",

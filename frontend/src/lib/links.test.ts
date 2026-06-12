@@ -80,16 +80,49 @@ describe("Grammar A — links.ts builder shapes (ADR-0037)", () => {
     expect(u).toMatch(/^\/[a-z0-9-]+\/explore$/);
   });
 
-  it("partyInState is /<state>/party/<slug>", () => {
-    const u = link.partyInState("S22", "dmk-aiadmk");
-    expect(u).toMatch(/^\/[a-z0-9-]+\/party\/dmk-aiadmk$/);
+  it("parties index is /parties (ADR-0053)", () => {
+    expect(link.parties()).toBe("/parties");
   });
 
-  it("party builds /<state>/party/<short-slug>-<eci-code-lower>", () => {
-    expect(link.party("S22", "DMK", "DMK")).toMatch(
-      /^\/[a-z0-9-]+\/party\/dmk-dmk$/,
-    );
-    expect(link.party("S22", "DMK", "DMK")).not.toMatch(/^\/s\//);
+  it("party builds /parties/<lowercased-party_id-tail> (ADR-0053)", () => {
+    // Bare-tail shape: party_id `parties.IN.INC` -> `/parties/inc`.
+    expect(link.party("parties.IN.INC")).toBe("/parties/inc");
+    expect(link.party("parties.IN.BJP")).toBe("/parties/bjp");
+    expect(link.party("parties.IN.DMK")).toBe("/parties/dmk");
+    expect(link.party("parties.IN.AIADMK")).toBe("/parties/aiadmk");
+    expect(link.party("parties.IN.YSRCP")).toBe("/parties/ysrcp");
+  });
+
+  it("party rewrites underscored tails to dashes", () => {
+    expect(link.party("parties.IN.BSP_A")).toBe("/parties/bsp-a");
+    expect(link.party("parties.IN.CPI_ML_L")).toBe("/parties/cpi-ml-l");
+    expect(link.party("parties.IN.SHS_UBT")).toBe("/parties/shs-ubt");
+  });
+
+  it("party applies sentinel overrides (Independent + Arunachal Congress + Goa + Mahakranti Dal)", () => {
+    expect(link.party("parties.IN.IND")).toBe("/parties/independent");
+    expect(link.party("parties.IN.NOTA")).toBe("/parties/nota");
+    expect(link.party("parties.IN.AC")).toBe("/parties/arunachal-congress");
+    expect(link.party("parties.IN.GOA")).toBe("/parties/goemcarancho-otrec-astro");
+    expect(link.party("parties.IN.MAHAD")).toBe("/parties/mahakranti-dal");
+  });
+
+  it("party returns null for the UNK resolver-fallback sentinel", () => {
+    // UNK has no citizen page; the caller MUST fall back to plain
+    // text rendering of `party_short_raw` (no-silent-demotion rule).
+    expect(link.party("parties.IN.UNK")).toBeNull();
+  });
+
+  it("party returns null for empty / null / undefined input", () => {
+    expect(link.party(null)).toBeNull();
+    expect(link.party(undefined)).toBeNull();
+    expect(link.party("")).toBeNull();
+  });
+
+  it("party never emits a leading /s/ or /india/ prefix", () => {
+    const u = link.party("parties.IN.INC");
+    expect(u).not.toMatch(/^\/s\//);
+    expect(u).not.toMatch(/^\/india\//);
   });
 
   it("ac is /<state>/ac/<name-slug> (no numeric prefix)", () => {
@@ -212,7 +245,7 @@ describe("Grammar A — links.ts builder shapes (ADR-0037)", () => {
   });
 });
 
-describe("Grammar A — reserved-path-token set (ADR-0037)", () => {
+describe("Grammar A — reserved-path-token set (ADR-0037 + ADR-0053)", () => {
   it("includes every chrome surface links.ts emits", () => {
     const chromeSurfaces = [
       link.topicsIndex(),
@@ -220,11 +253,21 @@ describe("Grammar A — reserved-path-token set (ADR-0037)", () => {
       link.settings(),
       link.disclaimer(),
       link.dataCompleteness(),
+      link.parties(),
     ];
     for (const surface of chromeSurfaces) {
       const firstSegment = surface.replace(/^\//, "").split(/[/?]/)[0]!;
       expect(RESERVED_PATH_TOKENS).toContain(firstSegment as never);
     }
+  });
+
+  it("reserves `parties` (plural) per ADR-0053 (PR-0 of party-rendering plan)", () => {
+    // ADR-0053 (2026-06-12) reserves the top-level `parties` token for
+    // the per-party page namespace at `/parties/<slug>` and the index
+    // at `/parties`. The legacy singular `party` (state-scoped
+    // sub-namespace marker) was REMOVED in the same PR.
+    expect(RESERVED_PATH_TOKENS).toContain("parties" as never);
+    expect(RESERVED_PATH_TOKENS).not.toContain("party" as never);
   });
 
   it("does NOT reserve `s` (PR-P4 freed the Grammar B prefix anchor)", () => {

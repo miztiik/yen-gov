@@ -963,9 +963,10 @@
       {:else}
         <ul class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-1 text-sm">
           {#each filtered_parties as p}
-            {#if p.party_eci_code}
+            {@const party_href = link.party(p.party_id)}
+            {#if party_href}
               <li>
-                <a class="hover:underline" href={link.party(state_code, p.party_eci_code, p.party_short)}>
+                <a class="hover:underline" href={party_href}>
                   <span class="font-medium">{p.party_short}</span>
                   <span class="text-slate-400 text-xs"> · {p.seats_won} seats · {p.vote_share_pct.toFixed(1)}%</span>
                 </a>
