@@ -1,227 +1,318 @@
-# Schema-version field refactor — OWID-conformance pivot plan
+# Schema-version field refactor - OWID-conformance pivot plan
 
-**Last Updated**: 2026-06-12
-**Status**: Authored. Not started. Awaiting orchestrator + multi-persona debate (Gregor / Fowler / Hans / Max / Jony) before PR-0.
-**Level**: 4 (cross-cutting contract change; touches ~50 schemas, ~120 on-disk artifacts, 6+ writer modules, every consumer that asserts on the field's presence; reversible only via full rollback because reader-before-producer rollout makes the swap atomic at the family level).
-**Strategy**: drop the `$schema_version` field from every JSON data emit file. Schema-shape identity moves to the `.schema.json` file's own `x-version` (where it already lives); data-freshness, publisher edition, and refresh cadence move to OWID-shape semantic siblings on a new metadata block. Multi-PR rollout per the writer-strict / reader-compatible policy in [docs/architecture/data/schema-evolution.md](../docs/architecture/data/schema-evolution.md).
+**Last Updated**: 2026-06-12 (PR-0 ratification)
+**Status**: PR-0 ratified. Open questions in section 0.7 closed by 4-persona debate (Gregor, Hans, Max, Fowler). Scope narrowed from "wide pivot" (8-15 PRs, ~50 schemas + 120 artifacts + new fields) to **"scoped retirement"** (~5-7 PRs, $schema_version stamp dropped from citizen-facing data files only, manifest.json carved out, no new fields). Awaiting user verdict on Path A vs Path B (see section 5) before PR-1 ships.
+**Level**: 3 (was Level-4 under the original wide framing; narrowed scope reduces blast radius to a citizen-facing-data-file sweep with one explicit control-plane carve-out for manifest.json).
+**Strategy**: drop the `$schema_version` field from every JSON data emit file EXCEPT `datasets/manifest.json` (control-plane carve-out per CLAUDE.md section 10). Schema-shape identity lives in the `.schema.json` file's own `x-version` (already true). No new fields added; existing OWID-shape concerns (`vintage`, `update_period_days`) already live on the right surfaces. Tier-B validator dispatch swap is dead-code deletion (the retained-schema dispatcher is not in the live hot path). Multi-PR rollout per the writer-strict / reader-compatible policy in [docs/architecture/data/schema-evolution.md](../docs/architecture/data/schema-evolution.md).
 
-> User mandate, 2026-06-12: "agreed on option 2 OWID conformance style no more calling it schema version" + "what does OWID use - long format json like us?" + "the downstream impact on updating all indicators and datasets might be hugh ... ok update doc and add todo plan, will pick it up later." This plan-doc is the carry-over.
+> User mandate, 2026-06-12: "no more calling it schema version" + "OWID conformance style" + "the downstream impact on updating all indicators and datasets might be hugh ... ok update doc and add todo plan, will pick it up later." This plan-doc is the carry-over; PR-0 ratifies the scope.
 
-> **This plan is open work. It does NOT modify the existing writer-strict / reader-compatible policy.** Until the pivot ships, every new artifact still stamps `$schema_version` per the current contract. The pivot atomically retires the field per artifact family with reader-before-producer rollout; partial / per-artifact retirement is forbidden because it creates a half-migrated surface where some artifacts use OWID grammar and others do not.
+> **PR-0 does NOT modify the writer-strict / reader-compatible policy.** Until later PRs ship, every new artifact still stamps `$schema_version` per the current contract. The scoped pivot atomically retires the field per artifact family with reader-before-producer rollout; partial / per-artifact retirement is forbidden because it creates a half-migrated surface where some artifacts use OWID grammar and others do not. Manifest.json keeps the field (named carve-out, not a half-migration).
 
 ---
 
-## Section 0 — Operating contract
+## Section 0 - Operating contract
 
 ### 0.1 Goal
 
-Bring yen-gov's schema-versioning grammar into OWID-conformance: stop stamping a top-level `$schema_version` semver on every JSON data emit file; let schema-shape identity live ONLY in the `.schema.json` file's own `x-version`; expose data-freshness / publisher-edition / refresh-cadence as separate semantic fields on the citation ledger and on a new per-dataset metadata block. This closes [Named divergence #5](../docs/concepts/owid-alignment.md#named-divergences-from-owid-with-reasons) and aligns the data emit grammar with the [OWID metadata reference](https://docs.owid.io/projects/etl/architecture/metadata/reference/).
+Bring yen-gov's schema-versioning grammar into OWID-conformance on the surface that matters: stop stamping a top-level `$schema_version` semver on every citizen-facing JSON data emit file; keep the field on `datasets/manifest.json` (control-plane bootstrap surface; deployed static bundle reads it via `isCompatibleSchemaVersion()` in [`frontend/src/lib/duckdb.ts`](../frontend/src/lib/duckdb.ts) + [`frontend/src/lib/canonical/manifest.ts`](../frontend/src/lib/canonical/manifest.ts)). Schema-shape identity stays in the `.schema.json` file's `x-version` (already true). This narrows [Named divergence #5](../docs/concepts/owid-alignment.md#named-divergences-from-owid-with-reasons) from "open pivot" to "scoped pivot with documented carve-out" and aligns the citizen-facing data emit grammar with the [OWID metadata reference](https://docs.owid.io/projects/etl/architecture/metadata/reference/).
 
 ### 0.2 What this plan does
 
 | Surface | Today | After this plan |
 |---|---|---|
-| Top-level field on every JSON data emit file | `$schema_version: "<semver>"` (stamped by writer from schema's `x-version`) | (deleted) |
-| Schema-shape identity | Two places — `.schema.json` file's `x-version` AND the data file's `$schema_version` sibling (duplicated) | One place — `.schema.json` file's `x-version` only |
-| Data-freshness pointer | implicit in `_ops/` operator state, scattered or absent on citizen artifacts | explicit `origin.date_accessed` field on the citation ledger row (one per source citation, NOT per data row) |
-| Publisher edition tag | implicit in `source.csv.vintage` (already OWID-conformant via [ADR-0042](../docs/concepts/data-provenance.md#adr-0042-sources-schema-v3-vintage-as-period-anchor)) | unchanged — `vintage` already serves the `version_producer` role |
-| Refresh cadence | not surfaced (some indicators carry `update_period_days` per [ADR-0046](../docs/architecture/data/canonical-store.md), but inconsistently) | uniform `update_period_days` on the per-indicator catalogue row |
-| Schema-required declaration | ~50 `.schema.json` files list `$schema_version` in `required: [...]` | Field removed from `required[]` in every schema; field removed from `properties` block in every schema; one shared `$defs/version` ref (in `columns.schema.json`, `schema-evolution.schema.json`) deleted |
-| Writer behaviour | every emit site adds the `$schema_version: schema["x-version"]` line | every emit site omits the line; lint test enforces absence |
-| Reader behaviour | most consumers IGNORE the field (the schema validator just validates against `.schema.json`); a few contract tests (e.g. `frontend/src/contracts/sources-v2-shape.test.ts` pre-simplification) DID assert on the literal | reader/test sweep drops every presence-of-`$schema_version` assertion |
-| Hardcoded `"1.0"` tool sites | 5 places (see audit below) — drift hazard | retired in same sweep |
+| Top-level field on every citizen-facing JSON data emit file | `$schema_version: "<semver>"` (stamped by writer from schema's `x-version`) | (deleted) |
+| Top-level field on `datasets/manifest.json` | `$schema_version: "1.4"` | **KEPT** (CLAUDE.md section 10 control-plane carve-out; deployed bundle gates on it) |
+| Schema-shape identity | Two places - `.schema.json` file's `x-version` AND the data file's `$schema_version` sibling (duplicated) | One place on citizen-facing data files - `.schema.json` file's `x-version` only. Manifest keeps both per carve-out. |
+| Tier-B validator dispatch | reads `$schema_version` from artifact + checks against `_json_corpus_accepted_versions()` set built from compatibility registry | reads only `$schema` URL; validates against current schema resolved by URL (drops the version-string check + the `json-corpus` surface from `datasets/schema-compatibility.json`; the `canonical-manifest-reader` surface stays for manifest) |
+| Schema-required declaration | ~50 `.schema.json` files list `$schema_version` in `required: [...]` | Field removed from `required[]` + `properties` in every schema EXCEPT `manifest.schema.json`. One shared `$defs/version` ref (in `columns.schema.json`, `schema-evolution.schema.json`) deleted. |
+| Writer behaviour | every emit site adds the `$schema_version: schema["x-version"]` line | every emit site EXCEPT manifest omits the line; lint test enforces absence on citizen-facing artifacts; manifest writer keeps the stamp |
+| Reader behaviour | most consumers IGNORE the field (the schema validator just validates against `.schema.json`); manifest reader dispatches on it; a few contract tests assert on the literal | reader/test sweep drops every presence-of-`$schema_version` assertion on citizen-facing artifacts; manifest reader unchanged |
+| Hardcoded `"1.0"` tool sites | 5 places (see audit) - drift hazard | retired by deletion (the field vanishes when the writer stops stamping it; no rewire to `schema["x-version"]` needed) |
+| Replacement fields (`origin.date_accessed`, `dataset.*` namespace) | not added | **NOT ADDED**. Semantic already covered by `source.csv.vintage` (per [ADR-0042](../docs/concepts/data-provenance.md#adr-0042-sources-schema-v3-vintage-as-period-anchor)) + `indicators.json.update_period_days` (per CLAUDE.md section 10 anti-pattern stack + Tier-B `tier_b_indicator_freshness_declared`). |
+| `update_period_days` enforcement | already on every catalogue row (100+ rows sampled, zero nulls); enforcement gate `tier_b_indicator_freshness_declared` is live | tighten to **required** in [datasets/schemas/indicator-catalogue.schema.json](../datasets/schemas/indicator-catalogue.schema.json) in the FINAL sweep; doctrinal ratification of the on-disk reality |
+| `source.csv` row shape | 5-col binding contract ratified 2026-06-11 (ADR citation-ledger-5col) | **UNCHANGED**. The OWID-shape `origin.date_accessed` semantic does NOT land as a 6th column; mutable wall-clock at the citation row re-opens the `fetched_at smear` failure mode from /memories/lessons.md 2026-05-16. Operator-tier freshness stays in `_ops/` + `.runtime/` (where it already lives). |
 
 ### 0.3 What this plan does NOT do
 
 - Touch the existing `.schema.json` files' `x-version` declarations. Schema-shape identity continues to live there; this plan only stops DUPLICATING it onto every data file.
 - Touch the `x-changelog` blocks. Per-schema evolution history continues exactly as today.
-- Touch the writer-strict / reader-compatible operational policy in [schema-evolution.md](../docs/architecture/data/schema-evolution.md). That policy survives verbatim; only the on-disk field disappears.
-- Touch the `derive_source_id` 3-arg hash or the `(producer, title, vintage)` citation-ledger identity. ADR-0032 + ADR-0042 + ADR-NNNN (citation-ledger-5col) all survive unchanged.
-- Touch the 5-col `source.csv` shape. The new `origin.date_accessed` semantic is appended on a SIBLING block (see §1.4 target shape) — the 5-col citation ledger stays exactly 5 cols.
+- Touch the writer-strict / reader-compatible operational policy in [schema-evolution.md](../docs/architecture/data/schema-evolution.md). That policy survives verbatim; only the on-disk citizen-facing field disappears.
+- Touch the `derive_source_id` 3-arg hash or the `(producer, title, vintage)` citation-ledger identity. ADR-0032 + ADR-0042 + ADR citation-ledger-5col (2026-06-11) all survive unchanged.
+- Touch the 5-col `source.csv` shape. NO 6th column for `date_accessed`. The OWID concern is already covered by `vintage` (publisher-edition tag per ADR-0042) for vintaged sources, and by operator-tier `_meadow/<source>/<vintage>/` snapshot directories for non-vintaged sources.
 - Touch the canonical long-format CSV observation rows (the `data/datapoints/**` tier). Observations carry `source_id` FKs; no `$schema_version` field exists at the observation-row grain today, and none will after.
-- Touch `datasets/manifest.json`'s structural role. The manifest file itself drops its own top-level `$schema_version` but its semantic content (the list of tables + their schemas) is unchanged.
-- Replace the field with a renamed equivalent. The user mandate is "no more calling it schema version"; the pivot DELETES, not RENAMES.
+- Touch `datasets/manifest.json`'s `$schema_version` stamp. Documented as a CLAUDE.md section 10 control-plane carve-out (alongside `generated_at`). Manifest is bootstrap, never citizen-rendered, gated by the live deployed static bundle.
+- Rename `vintage` to `version_producer`. Max persona verdict (2026-06-12): `vintage` carries stronger semantics than OWID's `version_producer` per ADR-0042 (covers vintaged AND operator-snapshot-anchored sources in one field); renaming throws away a 17-day-old four-persona decision.
+- Introduce a `dataset.*` or `origin.*` namespace. Max persona verdict: the OWID-namespaced concerns already live on the right yen-gov surfaces (vintage on source.csv, update_period_days on indicator catalogue); no new namespace needed.
+- Replace the field with a renamed equivalent on citizen-facing files. The user mandate is "no more calling it schema version"; the pivot DELETES, not RENAMES.
 
 ### 0.4 OWID precedent
 
-[OWID's metadata reference](https://docs.owid.io/projects/etl/architecture/metadata/reference/) treats the four concerns as distinct:
+[OWID's metadata reference](https://docs.owid.io/projects/etl/architecture/metadata/reference/) treats four concerns as distinct:
 
-| Concern | OWID field | yen-gov target |
-|---|---|---|
-| Schema-shape identity | (none on data file; lives in the `.schema.json` file's `x-version`) | Same — drop the data-file stamp |
-| Data freshness pointer | `origin.date_accessed` (when WE pulled the bytes) | `origin.date_accessed` on the source.csv row (one timestamp per citation; mutable on re-fetch) |
-| Publisher edition tag | `origin.version_producer` (e.g. "NFHS-5", "RBI Handbook 2024-25") | already lives in `source.csv.vintage` per [ADR-0042](../docs/concepts/data-provenance.md#adr-0042) |
-| Expected refresh cadence | `dataset.update_period_days` (e.g. 365 for annual, 30 for monthly) | already conceptually exists on the indicator catalogue per [ADR-0046](../docs/architecture/data/canonical-store.md); make it uniform across the catalogue |
+| Concern | OWID field | yen-gov current surface | After pivot |
+|---|---|---|---|
+| Schema-shape identity | (none on data file; lives in `.schema.json` `x-version` / `$id` URL) | `.schema.json` `x-version` + duplicated `$schema_version` stamp on every data file | `.schema.json` `x-version` only on citizen-facing artifacts; manifest keeps the duplicated stamp per carve-out |
+| Data freshness pointer | `origin.date_accessed` (when WE pulled the bytes); immutable per snapshot directory in OWID practice (`snapshots/<source>/<date>/`) | `_meadow/<source>/<vintage>/` operator snapshot directories + `.runtime/<adapter>/<source_id>.json` sidecars + `_ops/indicators-completeness.json` overlays | unchanged - already at OWID parity in spirit; the snapshot directory IS the OWID `date_accessed` |
+| Publisher edition tag | `origin.version_producer` | `source.csv.vintage` per [ADR-0042](../docs/concepts/data-provenance.md#adr-0042-sources-schema-v3-vintage-as-period-anchor) - covers publisher-vintaged AND operator-snapshot-anchored sources | unchanged - yen-gov local name kept (semantic stronger than OWID's `version_producer`; ADR-0042 receipt) |
+| Expected refresh cadence | `dataset.update_period_days` (e.g. 365 for annual, 30 for monthly) | already on every indicator catalogue row per [ADR-0046](../docs/architecture/data/canonical-store.md) + CLAUDE.md section 10 anti-pattern stack; sampled 100+ rows, zero nulls | tighten to `required` in catalogue schema (doctrinal ratification of on-disk reality) |
 
-The lift is mostly NAMING + CONSOLIDATION rather than NEW FIELDS. The semantic content is mostly already in place. The pivot's value is in subtraction (drop the duplicated identity stamp) + grammar conformance (use OWID's field names so a citizen / researcher familiar with OWID can read yen-gov metadata at a glance).
+The lift is mostly SUBTRACTION (drop the duplicated identity stamp on citizen-facing files) + DOCTRINAL RATIFICATION (`update_period_days` to `required`). The semantic content for the other three OWID concerns is already in place under yen-gov-native names. The pivot's value is in (1) removing one redundant artifact across ~120 files + ~50 schemas + 6 writer sites; (2) eliminating the 5 hardcoded `"1.0"` drift hazards by deletion; (3) closing Named divergence #5 from open to scoped-with-carve-out.
 
-### 0.5 Audit — what's on disk today (2026-06-12)
+### 0.5 Audit - what's on disk today (2026-06-12; PR-1 will produce the complete list)
 
 **Schemas declaring `$schema_version` as required**: ~50 `.schema.json` files in `datasets/schemas/`. Pattern is uniformly `{ "type": "string", "pattern": "^\\d+\\.\\d+$" }` (semver-2-position). Sample:
 
 - `indicator.schema.json` (required for indicator artifacts)
-- `manifest.schema.json` (required for `datasets/manifest.json`)
+- `manifest.schema.json` (required for `datasets/manifest.json`) - **KEPT per carve-out**
 - `indicators-completeness.schema.json` (required for `datasets/_ops/indicators-completeness.json`)
 - `constituency.schema.json`, `election.schema.json`, `party.schema.json` (electoral artifacts)
 - `taxonomy-parties.schema.json`, `topic-catalogue.schema.json`, `methodology-break.schema.json` (taxonomy)
 - `feature_collection.metadata.schema.json` (geo features)
 - `lgd-*.schema.json` (LGD lookups)
 - `result.constituency.schema.json`, `result.summary.schema.json` (election results)
-- ... and ~35 more.
+- ... and ~35 more. PR-1 audit subagent will produce the complete list.
 
 **Artifacts on disk carrying the stamp**: 120+ (grep cap was hit at 200; estimated true count 500-2000 once boundary partition shards + per-state election shards are counted). Sample:
 
-- All boundary SoT (`datasets/data/entities/boundaries_sot/SXX/constituencies.json`) at `4.1` — 28 files
-- All taxonomy files (`datasets/taxonomy/*.json`) at `1.0`-`3.0` — ~14 files
-- All grapher files (`datasets/grapher/*.json`) at `1.0`-`1.1` — ~5 files
-- All `_ops/` files at `1.0`-`2.0` — ~5 files
-- All election event/result/inventory files — count TBD by audit subagent
-- `datasets/manifest.json` at `1.4`
+- All boundary SoT (`datasets/data/entities/boundaries_sot/SXX/constituencies.json`) at `4.1` - 28 files
+- All taxonomy files (`datasets/taxonomy/*.json`) at `1.0`-`3.0` - ~14 files
+- All grapher files (`datasets/grapher/*.json`) at `1.0`-`1.1` - ~5 files
+- All `_ops/` files at `1.0`-`2.0` - ~5 files (operator-tier; still retired per the scope)
+- All election event/result/inventory files - count TBD by PR-1 audit subagent
+- `datasets/manifest.json` at `1.4` - **KEPT per carve-out**
 - `datasets/data/_schema/columns.json` at `2.0`
 
 **Writer sites**:
 
-- 1 well-behaved (reads from schema): `tools/emit_indicators_completeness_index.py:180` — `"$schema_version": schema["x-version"]`
-- 5 hardcoded literal (drift hazard): `tools/gen_election_tile_layouts.py:326,375`, `tools/lgd/parse_lgd_export.py:582`, `tools/lgd/snapshot.py:132`, `tools/boundaries/enrich_census_code_2011.py:456,483` — `"$schema_version": "1.0"`
-- N more writer sites in `backend/yen_gov/canonical/` and `backend/yen_gov/pipeline/` that stamp via `core/schema_registry.py:schema_version()` — count TBD by audit subagent
+- 1 well-behaved (reads from schema): `tools/emit_indicators_completeness_index.py:180` - `"$schema_version": schema["x-version"]`
+- 5 hardcoded literal (drift hazard, retired by DELETION): `tools/gen_election_tile_layouts.py:326,375`, `tools/lgd/parse_lgd_export.py:582`, `tools/lgd/snapshot.py:132`, `tools/boundaries/enrich_census_code_2011.py:456,483` - `"$schema_version": "1.0"`. PR-1 audit confirms whether these are the only literal sites or if more surface.
+- N more writer sites in `backend/yen_gov/canonical/` and `backend/yen_gov/pipeline/` that stamp via `core/schema_registry.py:schema_version()` - count TBD by PR-1 audit subagent.
 
-**Consumers asserting on the field**:
+**Consumers (Fowler-recommended 3-class split, to be confirmed in PR-1)**:
 
-- The Tier-B validator (`backend/yen_gov/validate.py`) consumes `$schema_version` to dispatch to retained historical schemas per [schema-evolution.md §Retained Historical Schemas](../docs/architecture/data/schema-evolution.md#retained-historical-schemas). This is the load-bearing consumer; the pivot needs a replacement dispatch story.
-- Frontend canonical-store reader (`frontend/src/lib/duckdb.ts` + `frontend/src/lib/canonical/`) projects `$schema_version` through DuckDB SELECT clauses on some tables — count TBD by audit subagent.
-- Per-shard contract tests (e.g. `frontend/src/contracts/sources-v2-shape.test.ts` pre-PR-#963) historically asserted on the literal value — sweep needed.
+1. **Load-bearing dispatchers** (gate per-family ordering): `frontend/src/lib/canonical/manifest.ts:41-57` (gates `parseManifest()` on `manifest.$schema_version`), `frontend/src/lib/duckdb.ts:102-105` (calls `isCompatibleSchemaVersion()`). Both stay live because manifest is the carve-out.
+2. **Cosmetic destructurers** (typed-loader interfaces that round-trip the value without branching): swept with `Remove Parameter` / `Inline Field` per Fowler in same PR as their family's schema edit.
+3. **Test-fixture stampers**: 50+ (`datasets-conform.test.ts:296-301` is a hard gate; PR-1 audit enumerates all).
 
-### 0.6 ESCALATE triggers
+**Tier-B validator dispatch (the load-bearing question, resolved by Gregor + Fowler)**:
+
+- Live path: [`backend/yen_gov/validate.py`](../backend/yen_gov/validate.py) `tier_b()` reads `data.get("$schema_version")` at line ~410 and checks against the accepted-versions set built from [`datasets/schema-compatibility.json`](../datasets/schema-compatibility.json).
+- Dead path: [`backend/yen_gov/core/schema_evolution.py`](../backend/yen_gov/core/schema_evolution.py) `resolve_schema_for_declared_version()` (lines ~111-151) - **NOT called from `tier_b()` hot path**. The archive at `datasets/schemas/archive/elections-inventory/v1.0/` (1 entry) is reachable only via this dead path. PR-2 deletes the json-corpus accepted-versions check; the dead path can stay as cold storage or retire in a follow-up.
+
+### 0.6 ESCALATE triggers (scoped to the narrowed pivot)
 
 The orchestrator stops ONLY at:
 
-1. **The Tier-B validator's retained-schema dispatch breaks at the seam.** Today `validate.py` reads `$schema_version` to pick which `datasets/schemas/archive/<schema>/v<ver>/<file>` to validate against. The pivot has to choose: (a) drop retained-schema validation entirely (semver-2 archive is small; we accept "validate against current schema only" and migrate all on-disk artifacts to current); (b) use a different dispatch key (e.g. the artifact's `$schema` URL with version embedded); (c) keep `$schema_version` as a Tier-B-only operator-tier field that doesn't ship on citizen-facing artifacts. PR-0 of this plan MUST resolve this before any writer changes; STOP-AND-SURFACE if the chosen option breaks a consumer not enumerated in the audit.
+1. **PR-1 audit surfaces a consumer that asserts on the field's VALUE (not just presence)** on a citizen-facing artifact other than manifest. A consumer that branches on `if doc["$schema_version"] >= "2.0":` needs a translator at the reader before the writer pivot; STOP-AND-SURFACE.
 
-2. **A consumer of the field is discovered that asserts on its VALUE (not just presence).** Audit subagent grep must catch every consumer; if PR-1+ discovers a 7th class of consumer (e.g. some adapter branches on `if doc["$schema_version"] >= "2.0":`), STOP-AND-SURFACE — the pivot may need a translator at the reader for that consumer.
+2. **PR-1 audit surfaces a `.schema.json` `x-changelog` that predicts a future bump depending on `$schema_version` being readable at the artifact level**. Same response - the change has to land BEFORE the pivot, or the pivot has to design around it.
 
-3. **A schema's `x-changelog` predicts a future version bump that depends on `$schema_version` being readable at the artifact level.** Audit needs to read every `x-changelog` block; if any change description includes "readers may dispatch on `$schema_version` to handle the new shape", STOP-AND-SURFACE — that change has to land BEFORE the pivot, or the pivot has to design around it.
+3. **A consumer of `$schema_version` is discovered on the manifest carve-out side that disagrees with the documented bootstrap-only role** (e.g. a citizen-rendered chart reads `manifest.$schema_version` as a citizen-facing label). STOP-AND-SURFACE - either the carve-out is wider than expected or the citizen surface needs a rewire.
 
-4. **The replacement `origin.date_accessed` field cannot be populated without a fetched-at smear.** The yen-gov lesson from /memories/lessons.md 2026-05-16 + ADR-0032 is: do not stamp pipeline wall-clock onto citizen-facing rows. If the OWID-shape `origin.date_accessed` semantic forces re-emission of every observation on every fetch, the pivot has to use sidecar telemetry (already the canonical pattern) instead of citizen-row stamping. STOP-AND-SURFACE if the audit reveals no clean separation.
+4. **The browser smoke (CLAUDE.md section 13) after PR-4 reveals a citizen surface degrades** (any 404, any console error, any failed request, any missing chart) on a route that exercises an artifact whose `$schema_version` was just retired. STOP-AND-SURFACE.
 
-### 0.7 Decisions to ratify BEFORE PR-0
+The original ESCALATE-4 (`origin.date_accessed` fetched-at smear) does NOT apply to the scoped pivot because `origin.date_accessed` is not introduced.
 
-These need multi-persona debate (Gregor + Fowler + Hans + Max + Jony) and a written verdict in this plan-doc:
+### 0.7 PR-0 ratified verdicts (closed by 4-persona debate 2026-06-12)
 
-| Open question | Personas to weigh in | Default if unresolved |
-|---|---|---|
-| Tier-B retained-schema dispatch — option (a) / (b) / (c) above | Gregor (architect), Fowler (rollout) | Default (a): drop retained-schema validation; migrate all on-disk artifacts to current schema. Reason: retained-schema archive is tiny (1 entry today at `datasets/schemas/archive/elections-inventory/v1.0/`); the cost of carrying the dispatch infrastructure outweighs the benefit. |
-| Should `origin.date_accessed` live on the `source.csv` row or on a sibling `.metadata.json` per data file? | Gregor (data model), Hans (citizen meaning), Max (researcher use-case) | Default: on `source.csv` row, BUT only if the row's identity is unchanged by re-fetch. If `date_accessed` is mutable per-fetch, it does NOT participate in the `derive_source_id` hash (3-arg `(producer, title, vintage)` survives unchanged); it's a mutable column on the existing row, populated on first fetch and updated on subsequent fetches via UPSERT. |
-| Should `dataset.update_period_days` be uniform across the indicator catalogue, or per-source? | Hans (publisher semantics), Max (cross-source comparability) | Default: per-indicator. The cadence is a property of the upstream's publication schedule, which is per-indicator. Some indicators have multiple sources at different cadences; the indicator's effective cadence is the union (refresh-needed = ANY source has new data). |
-| Migration of the 120+ on-disk artifacts — one-shot sweep PR or per-family sweep? | Fowler (rollout safety) | Default: one-shot SWEEP per artifact family (e.g. all boundary SoT in one PR, all taxonomy in another). Per-family is small enough to review; one-shot all-artifacts is 200-2000-file diff per PR which violates reviewer comfort. |
-| Should `manifest.json` retain `$schema_version` because it's the bootstrap file the reader needs to discover schemas? | Gregor | Default: NO. The manifest's own schema URL (`$schema`) is sufficient to bootstrap. If the reader needs schema version awareness for manifest, it lives in the schema URL itself (e.g. `https://yen-gov.github.io/schemas/manifest.v2.schema.json` — versioned schema files instead of versioned data stamps). |
+| Open question | Personas | PR-0 verdict | Reason |
+|---|---|---|---|
+| Tier-B retained-schema dispatch - option (a) drop / (b) versioned URL / (c) operator-tier-only | Gregor + Fowler | **(a) drop retained-schema dispatch entirely.** Drop the `json-corpus` accepted-versions check + the `_json_corpus_accepted_versions()` function + the `json-corpus` surface from `datasets/schema-compatibility.json`. KEEP the `canonical-manifest-reader` surface (manifest carve-out). | The retained-schema dispatcher is not in the live `tier_b()` hot path; the archive has 1 entry; option (a) is dead-code deletion. Options (b)/(c) are net-new infrastructure to replace infrastructure with zero live consumers. Joint Gregor + Fowler verdict. |
+| `origin.date_accessed` location (source.csv 6th column / sibling .metadata.json / reject) | Gregor + Hans + Max | **REJECT.** Do not add the field. Semantic already in `source.csv.vintage` (vintaged sources) + `_meadow/<source>/<vintage>/` snapshot directories (non-vintaged sources). | Adding the field re-opens the 5-col `source.csv` contract ratified 24hr ago (2026-06-11); re-introduces the `fetched_at smear` from /memories/lessons.md 2026-05-16; produces zero citizen-axis signal (the median citizen cites publisher's edition, not our pipeline poll-time); supersedes 17-day-old ADR-0042 + 1-day-old ADR citation-ledger-5col simultaneously. 3-persona convergence. |
+| `dataset.update_period_days` axis (per-indicator / per-source / hybrid) | Hans + Max | **per-indicator** (status quo; field already on every catalogue row sampled). | A single Indian publisher routinely emits multi-cadence datasets (RBI HBS-IS = annual + quarterly mix; CEA Monthly = monthly + annual mix); per-source axis under-promises on the faster series. Cross-source overlay UX needs per-line-resolution cadence chips. Hans + Max convergence with concrete cases (NDLM monthly vs annual, RBI quarterly vs annual, future Census-SECC dual-cadence). |
+| Migration granularity (one-shot / per-family) | Fowler | **per-family sweep** (default). Each PR = one artifact family with TIDY-FIRST commit split (structural schema edit + behavioural writer rewrite + on-disk re-emit as separate commits in the same PR). | Reviewer-bounded diffs; clean revert surface (one git revert per family); pre-staging to `legacy/` namespace per the 2026-05-22 strangler-fig pattern does NOT apply (no shared module to pre-stage; flat literal per schema file). *Inline Field* + *Remove Setting Method* (Refactoring catalogue) fit better. |
+| `manifest.json` retention | Gregor + Fowler | **KEEP** as documented CLAUDE.md section 10 control-plane carve-out (alongside `generated_at`). | Manifest is bootstrap; deployed static bundle reads it via `isCompatibleSchemaVersion()` in `frontend/src/lib/duckdb.ts` + `frontend/src/lib/canonical/manifest.ts`; dropping the field forces either a versioned-URL migration (Q6 cost, rejected) or silent-accept any shape (regression on ADR-0047's "future-version-not-supported" diagnostic). The carve-out costs one line of doctrine; the bootstrap rewire costs a multi-deploy strangler-fig PR sequence. User mandate "no more calling it schema version" applies to CITIZEN-FACING data; manifest is operator-tier bootstrap, never rendered on a citizen surface. |
+| `update_period_days` enforcement (required / optional / required-with-sentinel) | Hans + Max | **required** (no carve-outs; ratify on-disk reality). Tighten in [datasets/schemas/indicator-catalogue.schema.json](../datasets/schemas/indicator-catalogue.schema.json) in the FINAL sweep. | Field already populated on every row sampled (100+ across electoral/energy/livestock/RBI/Census/NFHS); `tier_b_indicator_freshness_declared` already enforces; OWID's own enforcement is `required` per metadata reference. Max + Hans convergence. The honest-null-sentinel debate (-1 for one-shot, 0 for publisher-discretion) is deferred to the future PR that adds a Census-2011 or CAG-audit indicator with no committed next refresh; today's corpus does not have one. |
+| Versioned schema URLs (Q6 follow-on) | Gregor | **REJECT as part of this pivot.** Allow a separate follow-up to consolidate `$id` URL grammar (today is mixed: 22/53 schemas use `https://yen-gov.github.io/...`, 31/53 use `./<name>.schema.json`; CLAUDE.md section 11 currently bans the URL form but reality has diverged). Adding version SEGMENTS is a separate concern from picking ONE grammar. | Pivot's value is SUBTRACTION; versioned URLs trade per-file per-bump restamp churn for per-file per-bump $schema-URL churn (a wash on cost, a regression on framing). 53 schema renames + every artifact's `$schema` URL update + validator URL-parsing rewrite = 4-6 PRs of pure churn for marginal OWID-conformance gain. |
+| Boundary shard discriminator (Q11) | Gregor + Fowler | **validator-only.** No per-file fingerprint. The validator's verdict against current schema IS the per-file truth. | Per-file sha256 fingerprint is enterprise ceremony without a named beneficiary; re-introduces exactly the stamp the pivot is retiring, just renamed; adds fragility (doc-only schema edits change sha256 without changing the contract). OWID precedent matches: no per-file fingerprint. The schema-evolution ledger ([datasets/schema-evolution.json](../datasets/schema-evolution.json)) + git history of the schema file suffice for the rare archaeology case. |
+| OWID literal names vs yen-gov locals (Q10) | Max | **hybrid per-field**: keep `vintage` (semantic stronger than OWID's `version_producer` per ADR-0042); keep `update_period_days` (already OWID-literal); do NOT add `date_accessed` (semantic already in `vintage` + `_meadow/.../<vintage>/`); do NOT introduce `dataset.*` or `origin.*` namespace; `owner -> producer` rename proceeds in the separate [sources simplification plan](20260611-sources-simplification-plan.md), not here. | Cost-benefit pivots per field: when local name semantically matches OWID literal, adopt OWID; when local is deliberately sharpened beyond OWID, keep local + document. Mechanical field-name substitution is conformance theatre. |
 
 ### 0.8 Per-PR workflow
 
 Standard:
-1. Branch off `origin/main`.
-2. Implement scope. Tests ship with the row.
-3. Local gates GREEN (pytest, vitest, svelte-check, browser smoke per CLAUDE.md §13).
+1. Branch off `origin/main` in a sub-worktree (`git worktree add ../yen-gov-<row> -b feat/schema-version-<row> origin/main`).
+2. Implement scope per the row brief. Tests ship with the row.
+3. Local gates GREEN (pytest, vitest, svelte-check, browser smoke per CLAUDE.md section 13 for citizen-facing surfaces).
 4. Commit + push + `gh pr merge --squash --admin --delete-branch`.
-5. Pull main. Start next row.
+5. Master worktree pulls main + tears down the sub-worktree per the per-PR cleanup ritual. Start next row.
+
+TIDY-FIRST split for writer-pivot PRs (PR-3 onwards): one commit per structural change (schema edit, writer interface change) separate from the behavioural change (writer output / re-emit). Per Beck's *Tidy First*: each commit independently revertible.
 
 ---
 
-## Section 1 — PR sequence
+## Section 1 - PR sequence (post-PR-0 narrowed scope)
 
-Reader-before-producer (per [schema-evolution.md §Rollout Order](../docs/architecture/data/schema-evolution.md#rollout-order)). Each PR ships AS A WHOLE; no partial / per-artifact rollout.
+Reader-before-producer (per [schema-evolution.md section Rollout Order](../docs/architecture/data/schema-evolution.md#rollout-order)). Each PR ships AS A WHOLE; no partial / per-artifact rollout. Manifest is OUT-OF-SCOPE for every PR below (documented carve-out).
 
-### PR-0 — Audit + doctrine consolidation + decision ratification
+### PR-0 - Doctrine ratification + plan-doc rewrite + CLAUDE.md section 10 carve-out
 
-**Scope**: this plan-doc closure (fill in §0.7 with ratified verdicts after persona debate). Add an ADR-NNNN entry in [schema-evolution.md](../docs/architecture/data/schema-evolution.md) titled `schema-version-field-retirement` recording the decision. Update CLAUDE.md §11 to flag the field as "in retirement; do not stamp on new schemas." Update the `prepare-plan` skill if it references the field.
+**Scope (this PR)**:
+1. Rewrite this plan-doc with PR-0 ratified verdicts (section 0.7 closed; section 1 narrowed).
+2. Add the `$schema_version` carve-out for `datasets/manifest.json` to CLAUDE.md section 10 alongside the existing `generated_at` carve-out.
+3. Update [docs/architecture/data/schema-evolution.md](../docs/architecture/data/schema-evolution.md) section Pending OWID-conformance pivot to reflect the scoped pivot (manifest carve-out + no new fields).
+4. Update [docs/concepts/owid-alignment.md](../docs/concepts/owid-alignment.md) Named divergence #5 to flag the scope narrowing (still open; will close when PR-4+ ships; PARTIAL alignment after pivot lands with manifest as remaining documented carve-out).
 
-**No code changes.** Doc-only PR, ~5 files, reversible at any time.
+**No code changes.** Doc-only PR, 4 files, reversible at any time.
 
-**Acceptance**: all §0.7 questions have a verdict in the plan-doc. ADR-NNNN exists. Doc-only diff.
+**Acceptance**: all section 0.7 questions have a verdict in this plan-doc. CLAUDE.md section 10 has the new carve-out. schema-evolution.md + owid-alignment.md are aligned with the narrowed scope. Doc-only diff. User picks Path A (close as permanent divergence; ship only the 5-hardcoded-tool-sites fix) or Path B (proceed with PR-1+ per the scoped sequence below) in section 5 before PR-1 dispatches.
 
-### PR-1 — Audit subagent grep + populate this plan-doc's §0.5 with the FULL list
+### PR-1 - Audit subagent grep + populate this plan-doc's section 0.5 with the FULL 3-class consumer split
 
-**Scope**: exhaustive grep for every consumer / writer / reader / contract test referencing `$schema_version`. Audit subagent ships back a report; orchestrator pastes the full list into §0.5 of this plan and commits. **No code changes**; the report drives the per-family PR sequence.
+**Scope**: exhaustive grep for every consumer / writer / reader / contract test referencing `$schema_version`. Audit subagent ships back a report split per Fowler's 3-class taxonomy (load-bearing dispatchers / cosmetic destructurers / test-fixture stampers). Orchestrator pastes the full list into section 0.5 of this plan and commits. **No code changes**; the report drives the per-family PR sequence.
 
-**Acceptance**: this plan-doc's §0.5 has a complete enumeration (no "TBD by audit subagent" markers remaining).
+**Acceptance**: this plan-doc's section 0.5 has a complete enumeration (no "TBD by PR-1 audit subagent" markers remaining). The 3-class split lets PR-2's regression test be honestly scoped and PR-3+ family ordering be safely sequenced.
 
-### PR-2 — Tier-B validator dispatch swap (reader-before-producer)
+### PR-2 - Tier-B validator dispatch swap (reader-before-producer)
 
-**Scope**: rewrite `backend/yen_gov/validate.py` (or wherever Tier-B dispatch lives) per the §0.7 verdict on retained-schema dispatch. Add a regression test that the new dispatch validates every artifact family identically to the old `$schema_version`-keyed dispatch. **Reader-first**: writers continue to stamp `$schema_version` for now; the validator just doesn't depend on it anymore.
+**Scope** (per Gregor + Fowler Q1 verdict (a)):
+1. Delete `_json_corpus_accepted_versions()` from [`backend/yen_gov/validate.py`](../backend/yen_gov/validate.py).
+2. Delete the `accepted_versions` check inside `tier_b()` (the `data.get("$schema_version")` read + the version-string match against the registry).
+3. Delete the `json-corpus` surface from [`datasets/schema-compatibility.json`](../datasets/schema-compatibility.json). **KEEP** the `canonical-manifest-reader` surface (manifest carve-out).
+4. Leave [`backend/yen_gov/core/schema_evolution.py`](../backend/yen_gov/core/schema_evolution.py) `resolve_schema_for_declared_version()` + [`datasets/schemas/archive/elections-inventory/v1.0/`](../datasets/schemas/archive/elections-inventory/v1.0/) as cold storage (not in hot path; may retire in a follow-up PR-X if no consumer surfaces).
 
-**Acceptance**: pytest green. Every artifact family validates identically pre/post.
+**Regression test shape** (per Fowler):
+- Golden-output diff: run `python -m yen_gov validate --root .` against the live `datasets/**` + `config/**` corpus pre-swap; capture the `[tier B] <path>: <message>` list. Apply the swap; re-run; assert the post list is the pre list MINUS exactly the `"$schema_version ... is not accepted ..."` failure class.
+- One new `tmp_path` fixture per [`backend/tests/test_validate.py`](../backend/tests/test_validate.py) conventions: artifact without `$schema_version`. Post-swap MUST validate; pre-swap MUST fail.
 
-### PR-3 — Replacement-field landing (also reader-before-producer)
+**Acceptance**: pytest green. Every artifact family validates identically pre/post except for the deliberately-removed version-string check. ~80 LOC out, ~10 LOC in. Single revert recovers the swap.
 
-**Scope**: introduce `origin.date_accessed` on `source.csv` per §0.7 verdict (likely a new optional 6th column on the citation ledger — note this technically expands the 5-col contract from PR-#963's [ADR-NNNN citation-ledger-5col](../docs/concepts/data-provenance.md#adr-nnnn-citation-ledger-5col); the user verdict may instead place it on a sibling metadata block to preserve the 5-col binding). Introduce `dataset.update_period_days` as uniform across `datasets/taxonomy/indicators.json` rows. **Readers learn to use these fields**; writers do not yet populate them (one indicator family pilot, then sweep in PR-5+).
+### PR-3 - Writer pivot for `datasets/_ops/indicators-completeness.json` (pilot, single-file family)
 
-**Acceptance**: reader code paths exercise the new fields with synthetic fixtures; no on-disk artifact has the new fields yet.
+**Scope** (TIDY-FIRST commit split per Fowler):
 
-### PR-4 — Writer pivot for one artifact family (pilot)
+*Commit 1 (structural)*: edit [`datasets/schemas/indicators-completeness.schema.json`](../datasets/schemas/indicators-completeness.schema.json) - drop `$schema_version` from `required[]` + `properties`. Validator still passes existing artifacts (they still carry the field; the schema simply no longer demands it). Pure schema loosening.
 
-**Scope**: pick ONE artifact family (e.g. `datasets/_ops/indicators-completeness.json` — smallest, single-file, well-isolated). Rewrite its writer (`tools/emit_indicators_completeness_index.py`) to OMIT `$schema_version`. Rewrite its `.schema.json` to remove the field from `required[]` + `properties`. Re-emit the artifact. Verify Tier-B validator (post-PR-2 swap) still validates. Verify no consumer breaks.
+*Commit 2 (behavioural)*: edit [`tools/emit_indicators_completeness_index.py:180`](../tools/emit_indicators_completeness_index.py) - rewrite writer to OMIT `$schema_version`. Re-emit `datasets/_ops/indicators-completeness.json` (drop the line on disk). Verify Tier-B (post-PR-2 swap) still validates.
 
-**Acceptance**: one artifact on disk no longer carries `$schema_version`; validator + consumers + tests all green.
+**Acceptance**: one artifact on disk no longer carries `$schema_version`; validator + consumers + tests all green. Pilot proves the per-family sweep shape. Operator-tier file (`_ops/`), so no browser smoke required per CLAUDE.md section 13.
 
-### PR-5+ — Per-family writer-pivot sweeps
+### PR-4 - Per-family writer-pivot sweep: taxonomy (datasets/taxonomy/*.json)
 
-**Scope**: one PR per artifact family per §0.7 verdict on rollout granularity. Each PR:
-1. Rewrites the family's writer to omit the field.
-2. Removes the field from the family's `.schema.json`.
-3. Re-emits the family's artifacts (drop the line on disk).
-4. Sweeps any contract test that asserted on the field's presence.
+**Scope**: 
+1. *Commit 1 (structural)*: drop `$schema_version` from `taxonomy-parties.schema.json`, `topic-catalogue.schema.json`, `methodology-break.schema.json`, `election-events.schema.json`, `indicator-catalogue.schema.json`, etc. (PR-1 audit enumerates all).
+2. *Commit 2 (behavioural)*: rewrite writers (likely centralised in `backend/yen_gov/canonical/*` or `tools/emit_*.py`) to omit the field; re-emit all ~14 `datasets/taxonomy/*.json` files.
+3. Sweep any contract test that asserts on the field's presence within this family.
+4. Browser smoke per CLAUDE.md section 13 on at least 3 routes that read a taxonomy artifact (most do via the canonical catalogue + party tooltip + topic page).
 
-Estimated 8-15 PRs depending on family granularity. The 5 hardcoded `"1.0"` tool sites land in the LAST PR (they're tools, not adapters; deleting them last simplifies the audit by ensuring no in-flight tool run emits a stale stamp during the migration).
+**Acceptance**: zero `datasets/taxonomy/*.json` files carry `$schema_version`; validator + consumers + tests all green; browser smoke clean.
 
-**Acceptance** (final PR): zero `.json` files in `datasets/` carry `$schema_version`. Zero writer sites stamp it. Zero `.schema.json` files declare it. Tier-B validator and frontend reader both work. PR-0 ADR-NNNN status flips from "in progress" to "complete".
+### PR-5 - Per-family writer-pivot sweep: grapher (datasets/grapher/*.json)
 
-### PR-FINAL — Doctrine cleanup
+Same shape as PR-4 for the ~5 grapher catalogue files per [ADR-0045](../docs/architecture/data/indicator-catalogue.md#adr-0045-grapher-catalogue-split). Browser smoke on a chart-rendering route.
 
-**Scope**: delete this plan-doc's §0.4 / §0.5 audit blocks (they're now historical). Move this plan-doc to `docs/archive/plans/` per the [distill-a-plan](../docs/how-to/distill-a-plan.md) flow. Update [schema-evolution.md](../docs/architecture/data/schema-evolution.md) — replace the "Pending OWID-conformance pivot" section with an "ADR-NNNN: schema-version field retirement" stanza in Design rationale. Remove the open divergence #5 from [owid-alignment.md](../docs/concepts/owid-alignment.md). Update CLAUDE.md §11 to reflect the final shape.
+### PR-6 - Per-family writer-pivot sweep: boundary SoT (datasets/data/entities/boundaries_sot/*/constituencies.json)
+
+Same shape for the 28 per-state boundary SoT shards at `4.1`. Browser smoke on the state choropleth + election event map routes.
+
+### PR-7 - Per-family writer-pivot sweep: election results + inventory
+
+Same shape for the per-state election results + the inventory artifacts. Count TBD by PR-1 audit. Browser smoke on the election-event page + state hub.
+
+### PR-8 - Per-family writer-pivot sweep: remaining operator-tier files (_ops/, columns.json) + tighten `update_period_days` to required
+
+**Scope**:
+1. Drop `$schema_version` from any remaining `_ops/` files surfaced by PR-1 audit + from `datasets/data/_schema/columns.json`.
+2. *(Doctrinal ratification)*: tighten `update_period_days` to `required` in [`datasets/schemas/indicator-catalogue.schema.json`](../datasets/schemas/indicator-catalogue.schema.json) per Hans + Max Q9 verdict. On-disk reality is already at parity (100+ rows sampled, zero nulls); this commit just locks the gate.
+
+**Acceptance**: zero citizen-facing artifacts carry `$schema_version`; `update_period_days` enforced as `required`; validator + consumers + tests all green.
+
+### PR-FINAL - Doctrine cleanup
+
+**Scope**:
+1. Delete this plan-doc's section 0.4 / 0.5 audit blocks (they're now historical).
+2. Move this plan-doc to `docs/archive/plans/` per the [distill-a-plan](../docs/how-to/distill-a-plan.md) flow.
+3. Update [schema-evolution.md](../docs/architecture/data/schema-evolution.md) - replace the "Pending OWID-conformance pivot" section with an ADR-NNNN entry in Design rationale (titled `schema-version-field-retirement` with manifest carve-out documented).
+4. Update [owid-alignment.md](../docs/concepts/owid-alignment.md) Named divergence #5: was open pivot -> becomes **PARTIAL ALIGNMENT** with `manifest.json` documented as remaining named carve-out (control-plane bootstrap, not citizen-facing).
+5. Update CLAUDE.md section 11 to reflect the final shape (citizen-facing data files omit; manifest stamps; control-plane carve-out cross-referenced to section 10).
 
 ---
 
-## Section 2 — Acceptance criteria (whole-plan)
+## Section 2 - Acceptance criteria (whole-plan, post-PR-0)
 
 When the last PR merges:
 
-- **Zero data emit files in `datasets/`** carry `$schema_version`.
-- **Zero writer sites** stamp `$schema_version` (the 6 producer sites + any auxiliary `core/schema_registry.py:schema_version()` callers are all retired).
-- **Zero `.schema.json` files** declare `$schema_version` in `required[]` or `properties[]`.
-- **Tier-B validator** dispatches on the new key (per §0.7 option); regression test proves identical validation pre/post.
-- **Frontend reader / contract tests** do not reference `$schema_version`.
-- **`origin.date_accessed`** populated on every source.csv row (or sibling metadata block per §0.7 verdict).
-- **`dataset.update_period_days`** populated on every indicator catalogue row.
-- **CLAUDE.md §11** rewritten to reflect the new OWID-conformance grammar; the writer-strict / reader-compatible operational policy in [schema-evolution.md](../docs/architecture/data/schema-evolution.md) survives because it's about WRITERS emitting current versions, not about the `$schema_version` STAMP itself.
-- **[owid-alignment.md](../docs/concepts/owid-alignment.md)** no longer carries the divergence #5 row.
+- **Zero citizen-facing data emit files in `datasets/`** carry `$schema_version`. Manifest keeps it per carve-out.
+- **Zero writer sites EXCEPT the manifest writer** stamp `$schema_version` (the 5 hardcoded `"1.0"` literals retire by deletion; the 1 `emit_indicators_completeness_index.py` site + the N `core/schema_registry.py:schema_version()` callers retire per family).
+- **Zero citizen-facing `.schema.json` files** declare `$schema_version` in `required[]` or `properties[]`. `manifest.schema.json` keeps the declaration.
+- **Tier-B validator** dispatches purely on `$schema` URL; regression test proves identical validation pre/post (except the deliberately-removed version-string check).
+- **Frontend reader / contract tests** do not reference `$schema_version` on citizen-facing artifacts. Manifest reader (`frontend/src/lib/canonical/manifest.ts` + `frontend/src/lib/duckdb.ts`) keeps the gate.
+- **`update_period_days`** required on every indicator catalogue row (doctrinal ratification; corpus already at parity).
+- **CLAUDE.md section 10** carries the `$schema_version` manifest carve-out alongside the `generated_at` carve-out.
+- **CLAUDE.md section 11** reflects the final shape (citizen-facing data files do NOT stamp; manifest stamps per carve-out).
+- **[owid-alignment.md](../docs/concepts/owid-alignment.md)** Named divergence #5 reframed from "open" to "scoped with manifest carve-out".
+- **No new fields added.** `origin.date_accessed`, `origin.version_producer`, `dataset.*` namespace - none of these introduced. Existing yen-gov surfaces (`vintage`, `_meadow/.../<vintage>/`, `update_period_days`) continue to serve the OWID-named semantic concerns.
+- **`source.csv` row shape unchanged** at 5 columns per 2026-06-11 binding contract.
 
 ---
 
-## Section 3 — Open questions (carry into PR-0 debate)
+## Section 3 - Open questions (deferred, NOT blocking)
 
-- **Migration cost vs deletion benefit**: is the citizen-facing value of OWID grammar conformance worth N PRs of churn across the corpus? Hans/Citizen verdict matters most here. The honest counter-position is: the field is correctly populated today and consumers mostly ignore it; the duplication is grammatical, not functional. If the persona debate rules "leave it as-is and document the divergence permanently," that's a legitimate outcome — the plan would close with no code changes and just a permanent named divergence in [owid-alignment.md](../docs/concepts/owid-alignment.md).
-- **Schema-shape evolution dispatch**: if the pivot drops retained-schema validation (PR-2 option (a)), is there a use case we lose? The current archive has ONE entry (`elections-inventory/v1.0/`); pre-canonical-store-pivot history is largely uncoupled from this contract. But the loss is reversible-only-with-effort: once we delete the archive infrastructure, restoring it costs more than originally building it.
-- **`update_period_days` enforcement**: the current indicator catalogue does not enforce uniform population of this field. Should the pivot make it `required` for every indicator? Hans + Max verdict.
-- **OWID's actual conformance**: OWID has its own dialects (YAML vs JSON, ETL vs grapher). Are we adopting OWID's `origin.date_accessed` literal field name, or yen-gov's own equivalent (`fetched_at`, `last_polled_at`, etc.)? Default is to use OWID's literal names because the user mandate is "OWID conformance style"; but if grep finds 50 references to `fetched_at` in the codebase already, the cost of renaming may exceed the conformance benefit. Audit subagent verdict.
-- **Versioned schema URLs as an alternative**: instead of stamping the version on each artifact, embed it in the schema URL (`https://yen-gov.github.io/schemas/manifest.v2.schema.json`). This is HALF of the OWID approach (OWID's `$id` URLs are versioned). yen-gov already does this partially. Should the pivot complete it? Gregor verdict.
-- **Boundary SoT shards at `4.1`**: 28 per-state files all carry the stamp. If the pivot removes the stamp but the boundary schema itself bumps to `5.0` for a real shape change later, do we lose the ability to discriminate which on-disk shards are pre-bump? (Yes, but Tier-B validation against current schema catches the discrepancy. The discriminator IS the schema validator's verdict, not a per-file stamp.) Confirm with Fowler.
+Closed in PR-0 (see section 0.7 ratified verdicts):
+
+- ~Migration cost vs deletion benefit~ -> scoped pivot (Path B) recommended; user picks A vs B in section 5.
+- ~Schema-shape evolution dispatch~ -> drop entirely (Gregor + Fowler joint).
+- ~`update_period_days` enforcement~ -> required (Hans + Max joint).
+- ~OWID's actual conformance / literal names~ -> hybrid per-field (Max verdict).
+- ~Versioned schema URLs as alternative~ -> reject as part of this pivot (Gregor verdict).
+- ~Boundary SoT shards discriminator~ -> validator-only (Gregor + Fowler joint).
+
+Still open (deferred to in-PR resolution as they arise):
+
+- **Honest-null sentinel for `update_period_days`** on genuinely one-shot indicators (Census 2011 with deferred 2021 round; CAG audit on publisher discretion; Finance Commission award periods). PR-8 lands the `required` gate; if a future indicator surfaces that genuinely cannot declare a positive cadence, the next PR ratifies the sentinel (`-1` = one-shot, `0` = publisher-discretion per Hans). Today's corpus has zero such cases.
+- **Versioned schema URL grammar consolidation** (22 of 53 schemas use `https://yen-gov.github.io/...`, 31 use `./<name>.schema.json`; CLAUDE.md section 11 bans the URL form but reality has diverged). Separate follow-up after this pivot ships; out of scope here.
+- **`owner -> producer` rename on source.csv** lives in the separate [sources simplification plan](20260611-sources-simplification-plan.md). Cross-reference only; not part of this plan.
 
 ---
 
-## Section 4 — Stop conditions (whole-plan)
+## Section 4 - Stop conditions (whole-plan, scoped)
 
 Halt the plan and surface to user if:
 
-- Any §0.7 question's persona debate fails to converge after one round.
-- The Tier-B validator dispatch swap (PR-2) reveals a class of consumer the audit missed.
-- The OWID-conformance grammar conflicts with an existing yen-gov hard contract (e.g. `derive_source_id`'s 3-arg signature being affected by adding `date_accessed` to the source row identity — must NOT happen).
-- The migration cost estimate in PR-1's audit comes back at >10 PRs and the user wants to reconsider whether the divergence is worth retaining (return to the §0.4 "default if unresolved" verdict: accept the divergence as permanent, document it in [owid-alignment.md](../docs/concepts/owid-alignment.md)).
+- The Tier-B validator dispatch swap (PR-2) reveals a class of consumer the PR-1 audit missed.
+- PR-1 audit returns a 4th consumer class (beyond Fowler's 3-class taxonomy) that needs special handling.
+- The CLAUDE.md section 10 manifest carve-out triggers a Gregor/Fowler "wait, that's still half-migrated" objection at PR-0 review.
+- The browser smoke after any per-family PR fails on a route that previously rendered.
+- The user picks Path A (close as permanent divergence) instead of Path B (proceed with scoped pivot).
+
+---
+
+## Section 5 - User decision required (before PR-1 dispatches)
+
+PR-0 has narrowed the scope and ratified section 0.7. Before PR-1 dispatches, the user picks:
+
+### Path A (Hans-conservative): close as permanent named divergence; ship only the 5-hardcoded-tool-sites fix
+
+- **1 PR** that rewires `tools/gen_election_tile_layouts.py` x2, `tools/lgd/parse_lgd_export.py`, `tools/lgd/snapshot.py`, `tools/boundaries/enrich_census_code_2011.py` x2 to `yen_gov.core.schema_registry.schema_version(...)` per CLAUDE.md section 11 ("Code never hand-types schema-version literals").
+- Move this plan-doc to `docs/archive/plans/` per the [distill-a-plan](../docs/how-to/distill-a-plan.md) flow.
+- Rewrite [owid-alignment.md](../docs/concepts/owid-alignment.md) Named divergence #5 to PERMANENT named divergence with the Hans verdict cited: duplication is grammatical not functional; citizen does not see the field; OWID grammar conformance is not a citizen benefit; the four OWID concerns are already realised in yen-gov via four separate channels.
+- **Pros**: 1 PR; no churn; preserves the 24hr-old 5-col source.csv contract; preserves the 17-day-old vintage semantics; closes the chronic drift hazard.
+- **Cons**: keeps the divergence open; citizen-facing files keep the duplicated stamp; future bumps still need writer-side discipline.
+- **Hans verdict**: this is the right shape because the citizen does not see the field; the only PRs that don't ship a methodology banner or denominator picker are PRs that don't close a citizen question.
+
+### Path B (Gregor + Max + Fowler moderate): proceed with the scoped 5-7 PR sequence (PR-1 through PR-FINAL above)
+
+- **5-7 PRs total** (PR-1 audit + PR-2 dispatch swap + PR-3 pilot + PR-4 through PR-7 per-family + PR-8 + PR-FINAL).
+- Drops `$schema_version` from every citizen-facing data emit file; keeps manifest per carve-out; tightens `update_period_days` to required.
+- **Pros**: closes Named divergence #5 to scoped-with-carve-out (cleaner OWID-conformance posture); eliminates the duplicated identity stamp; the 5 hardcoded drift hazards retire by deletion (no rewire needed); ratifies on-disk `update_period_days` reality at the schema gate.
+- **Cons**: 5-7 PRs of churn; reviewer attention split across families; browser smoke per family.
+- **Gregor + Max + Fowler verdict**: this is the right shape if the user wants the OWID-conformance posture to be load-bearing rather than aspirational. The narrowed scope (manifest carve-out + no new fields) reduces blast radius below the original wide-pivot risk.
+
+### Path C (defer indefinitely)
+
+- No PRs. Plan-doc stays in `TODO/` as an open plan with the PR-0 verdicts ratified for whenever the user picks A or B.
+- Cost: zero churn; benefit: zero progress; the field-vs-divergence question stays open.
+
+**Default if user does not pick within one session**: Path B (per plan-doc section 0.7 "Default if unresolved" pattern + 3-of-4 persona convergence on "proceed-with-PR-1").
 
 ---
 
 ## See also
 
-- [docs/architecture/data/schema-evolution.md §Pending OWID-conformance pivot](../docs/architecture/data/schema-evolution.md#pending-owid-conformance-pivot-stop-stamping-schema_version-onto-data-emit-files) — the operational-policy note that points here.
-- [docs/concepts/owid-alignment.md](../docs/concepts/owid-alignment.md) — fallback doctrine; this plan closes Named divergence #5.
-- [docs/concepts/data-provenance.md](../docs/concepts/data-provenance.md) — citation-ledger contract; the natural home for `origin.date_accessed`.
-- [OWID metadata reference](https://docs.owid.io/projects/etl/architecture/metadata/reference/) — canonical source for OWID grammar.
-- [TODO/20260611-sources-simplification-plan.md](20260611-sources-simplification-plan.md) — precedent for "extraordinary cleanup" plan shape; this plan follows its operating-contract grammar.
+- [docs/architecture/data/schema-evolution.md section Pending OWID-conformance pivot](../docs/architecture/data/schema-evolution.md#pending-owid-conformance-pivot-stop-stamping-schema_version-onto-data-emit-files) - the operational-policy note that points here.
+- [docs/concepts/owid-alignment.md](../docs/concepts/owid-alignment.md) - fallback doctrine; this plan narrows Named divergence #5 from open to scoped-with-carve-out.
+- [docs/concepts/data-provenance.md](../docs/concepts/data-provenance.md) - citation-ledger contract; the 5-col source.csv shape stays unchanged.
+- [OWID metadata reference](https://docs.owid.io/projects/etl/architecture/metadata/reference/) - canonical source for OWID grammar.
+- [TODO/20260611-sources-simplification-plan.md](20260611-sources-simplification-plan.md) - precedent for "extraordinary cleanup" plan shape; this plan follows its operating-contract grammar.
+- [CLAUDE.md section 10](../CLAUDE.md) - manifest control-plane carve-out lives here.
+- [CLAUDE.md section 11](../CLAUDE.md) - schema-versioning grammar; final rewrite happens in PR-FINAL.
