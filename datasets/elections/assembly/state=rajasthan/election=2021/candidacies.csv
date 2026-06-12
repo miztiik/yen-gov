@@ -2,7 +2,7 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-rajasthan-574,rajasthan,2021,24,SUJANGARH,MANOJ KUMAR,parties.IN.INC,INC,79253,49.69,1,won,M,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-574,rajasthan,2021,24,SUJANGARH,KHEMARAM,parties.IN.BJP,BJP,43642,27.36,2,lost,M,54,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-574,rajasthan,2021,24,SUJANGARH,SITARAM NAYAK,parties.IN.RLP,RLP,32210,20.2,3,lost,M,65,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-574,rajasthan,2021,24,SUJANGARH,DOULATRAM,parties.IN.UNK,Abhinav Rajasthan Party,1627,1.02,4,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-574,rajasthan,2021,24,SUJANGARH,DOULATRAM,parties.IN.ABRJP,Abhinav Rajasthan Party,1627,1.02,4,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-574,rajasthan,2021,24,SUJANGARH,HARIRAM MEHRADA,parties.IN.IND,IND,905,0.57,5,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-574,rajasthan,2021,24,SUJANGARH,MANOJ KUMAR,parties.IN.IND,IND,631,0.4,6,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-574,rajasthan,2021,24,SUJANGARH,MANJU GHANTIYAL BADI,parties.IN.IND,IND,565,0.35,7,forfeit,F,44,,,challenger,src-1b7bc1c9d39a
@@ -32,13 +32,13 @@ IN-AC-2008-rajasthan-679,rajasthan,2021,175,RAJSAMAND,SOHANLAL BHATI,parties.IN.
 IN-AC-2008-rajasthan-679,rajasthan,2021,175,RAJSAMAND,AMARSINGH KALUNDHA,parties.IN.BTP,Bhartiya Tribal Party,736,0.49,7,forfeit,M,61,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-679,rajasthan,2021,175,RAJSAMAND,BABULAL SALVI,parties.IN.IND,IND,208,0.14,8,forfeit,M,54,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-679,rajasthan,2021,175,RAJSAMAND,NEERU RAM KAPRI,parties.IN.IND,IND,125,0.08,9,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-679,rajasthan,2021,175,RAJSAMAND,HITESH SHAKYA,parties.IN.UNK,Right to Recall Party,117,0.08,10,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-679,rajasthan,2021,175,RAJSAMAND,HITESH SHAKYA,parties.IN.RTORP,Right to Recall Party,117,0.08,10,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-679,rajasthan,2021,175,RAJSAMAND,KAMLESH BHARTI,parties.IN.IND,IND,116,0.08,11,forfeit,M,26,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-550,rajasthan,2021,179,SAHADA,GAYATRI TRIVEDI,parties.IN.INC,INC,81700,58.21,1,won,F,67,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-550,rajasthan,2021,179,SAHADA,DR. RATANLAL JAT,parties.IN.BJP,BJP,39500,28.14,2,lost,M,75,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-550,rajasthan,2021,179,SAHADA,BADRI LAL JAT,parties.IN.RLP,RLP,12231,8.71,3,forfeit,M,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-550,rajasthan,2021,179,SAHADA,VIKAS PAREEK,parties.IN.IND,IND,846,0.6,5,forfeit,M,27,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-550,rajasthan,2021,179,SAHADA,ISHWAR CHOUDHARY,parties.IN.UNK,Right to Recall Party,701,0.5,6,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-550,rajasthan,2021,179,SAHADA,ISHWAR CHOUDHARY,parties.IN.RTORP,Right to Recall Party,701,0.5,6,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-550,rajasthan,2021,179,SAHADA,RAMESHWAR LAL,parties.IN.IND,IND,554,0.39,7,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-550,rajasthan,2021,179,SAHADA,DINESH KUMAR SHARMA,parties.IN.IND,IND,390,0.28,8,forfeit,M,29,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-550,rajasthan,2021,179,SAHADA,MANGI LAL,parties.IN.IND,IND,322,0.23,9,forfeit,M,27,,,challenger,src-1b7bc1c9d39a

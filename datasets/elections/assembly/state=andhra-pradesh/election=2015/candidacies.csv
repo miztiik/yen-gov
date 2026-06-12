@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,Mannuru Suguma,parties.IN.TDP,TD,126152,86.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,Sridevi .R,parties.IN.INC,INC,9628,6.64,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,K. Balarubramanyam,parties.IN.UNK,LP,3819,2.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,K. Balarubramanyam,parties.IN.LKP,LP,3819,2.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,Pothi Reddy Venkata Reddy,parties.IN.IND,IND,3156,2.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,Asadi Venkatadri,parties.IN.RKSP,RKSWP,491,0.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-andhra-pradesh-eci48,andhra-pradesh,2015,48,TIRUPATI,Manohar Reddy Dasari,parties.IN.IND,IND,456,0.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a

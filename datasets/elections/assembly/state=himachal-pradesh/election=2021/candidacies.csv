@@ -2,7 +2,7 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2021,8,FATEHPUR,Bhawani Singh Pathania,parties.IN.INC,INC,24449,42.82,1,won,M,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2021,8,FATEHPUR,Baldev Thakur,parties.IN.BJP,BJP,18660,32.68,2,lost,M,51,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2021,8,FATEHPUR,Dr. Rajan Sushant,parties.IN.IND,IND,12927,22.64,3,lost,M,66,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2021,8,FATEHPUR,Pankaj Kumar Darshi,parties.IN.UNK,Himachal Jan Kranti Party,375,0.66,5,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2021,8,FATEHPUR,Pankaj Kumar Darshi,parties.IN.HIMJKP,Himachal Jan Kranti Party,375,0.66,5,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-111,himachal-pradesh,2021,8,FATEHPUR,Dr. Ashok Kumar Somal,parties.IN.IND,IND,295,0.52,6,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2021,50,ARKI,SANJAY,parties.IN.INC,INC,30798,50.86,1,won,M,56,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-himachal-pradesh-139,himachal-pradesh,2021,50,ARKI,RATTAN SINGH PAL,parties.IN.BJP,BJP,27579,45.55,2,lost,M,53,,,challenger,src-1b7bc1c9d39a

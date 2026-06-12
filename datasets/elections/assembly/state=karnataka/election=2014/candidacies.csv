@@ -1,12 +1,12 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-karnataka-3542,karnataka,2014,2,CHIKKODI-SADALGA,G.P.Hukkeri,parties.IN.INC,INC,94636,59.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3542,karnataka,2014,2,CHIKKODI-SADALGA,K.M.Mallikarjun,parties.IN.BJP,BJP,62816,39.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3542,karnataka,2014,2,CHIKKODI-SADALGA,A.S.Kurane,parties.IN.UNK,SJP,1009,0.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3542,karnataka,2014,2,CHIKKODI-SADALGA,A.S.Kurane,parties.IN.SJP,SJP,1009,0.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3542,karnataka,2014,2,CHIKKODI-SADALGA,S.Y Rayjadhav,parties.IN.IND,IND,441,0.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3542,karnataka,2014,2,CHIKKODI-SADALGA,M.G.Motannavar,parties.IN.IND,IND,298,0.19,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3542,karnataka,2014,2,CHIKKODI-SADALGA,Sachin K Alagure,parties.IN.IND,IND,295,0.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3542,karnataka,2014,2,CHIKKODI-SADALGA,Bhimagouda S. Khot,parties.IN.JDU,JD(U),162,0.1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3542,karnataka,2014,2,CHIKKODI-SADALGA,B.Venkatesha,parties.IN.UNK,KP,142,0.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3542,karnataka,2014,2,CHIKKODI-SADALGA,B.Venkatesha,parties.IN.KP,KP,142,0.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3542,karnataka,2014,2,CHIKKODI-SADALGA,J. S. Nerle,parties.IN.IND,IND,130,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3501,karnataka,2014,93,BELLARY,N.Y.Gopalakrishna,parties.IN.INC,INC,83906,61.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3501,karnataka,2014,93,BELLARY,Obalesh,parties.IN.BJP,BJP,50802,37.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a

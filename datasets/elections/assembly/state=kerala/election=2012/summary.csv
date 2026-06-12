@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
 IN-AC-2008-kerala-3750,kerala,2012,THRIPUNITHURA,171652,140468,81.83,Janardhan Reddy Nala M,parties.IN.IND,IND,71001,50.55,Kuchakulla Damoder Reddy,parties.IN.INC,INC,43676,27325,19.46,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3784,kerala,2012,PIRAVOM,176302,158261,89.77,Adv. Anoop Jacob,parties.IN.UNK,KEC (J),82756,52.29,M.J.Jacob,parties.IN.CPIM,CPM,70686,12070,7.63,src-1b7bc1c9d39a
+IN-AC-2008-kerala-3784,kerala,2012,PIRAVOM,176302,158261,89.77,Adv. Anoop Jacob,parties.IN.KEC_J,KEC (J),82756,52.29,M.J.Jacob,parties.IN.CPIM,CPM,70686,12070,7.63,src-1b7bc1c9d39a
 IN-AC-2008-kerala-3832,kerala,2012,NEYYATTINKARA,157851,131442,83.27,R. Selvaraj,parties.IN.INC,INC,52528,39.96,F. Lawrance,parties.IN.CPIM,CPM,46194,6334,4.82,src-1b7bc1c9d39a
