@@ -54,6 +54,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import hashlib
 import json
 import shutil
 import sys
@@ -83,13 +84,22 @@ from _paths import KIND_TO_LEVEL, _eci_to_slug, derive_hive  # noqa: E402
 # Constants
 # -----------------------------------------------------------------------------
 
-# Size-budget guard. Per-state AC GeoJSONs are 400KB–1MB each. The converted
-# datameet states layer at coord_precision=3 (~110 m) is ~11 MB unsimplified-
-# topology. We tolerate that as a one-time per-session fetch (gzips to ~3 MB).
+# Size-budget guard. Per-state AC GeoJSONs at coord_precision=4 (~11 m vertices,
+# per 2026-06-12 staircase fix) range from ~150 KB (Puducherry) to ~13 MB
+# (Uttar Pradesh, 404 ACs). The converted datameet states layer at
+# coord_precision=3 (~110 m) is ~11 MB unsimplified-topology. We tolerate
+# that as a one-time per-session fetch (gzips to ~2-3 MB over the wire).
 # Real geometric simplification lives in tools/boundaries/build.py via mapshaper
 # → PMTiles, which compresses this 10× further; this script is the
 # native-Python gap-filler that doesn't require Node.
-SNAPSHOT_BYTE_BUDGET = 12 * 1024 * 1024  # 12 MB per file
+#
+# Budget bumped 12 MB → 16 MB on 2026-06-12 alongside the AC coord_precision
+# 2 → 4 bump: at p=4 Uttar Pradesh's 404 ACs land at 12.9 MB raw and were
+# being SKIPPED (deleted from disk, no boundary_layers row emitted, citizen
+# loading /uttar-pradesh/elections/* saw an empty map). 16 MB gives ~3 MB of
+# headroom for future state-AC-count growth (J&K post-delimitation 90 ACs,
+# any future state split) without re-tripping the gate.
+SNAPSHOT_BYTE_BUDGET = 16 * 1024 * 1024  # 16 MB per file
 
 USER_AGENT = "yen-gov-boundaries/1.0"
 
@@ -105,13 +115,43 @@ def utc_now() -> str:
 
 
 def stream_to_disk(url: str, dest: Path) -> None:
-    """Download a URL to `dest` atomically via .part-rename."""
+    """Download a URL to `dest` atomically via .part-rename.
+
+    No-op short-circuit when `dest` already exists with non-zero size: the
+    operator's cache invalidation contract is "`rm <dest>` to force a refresh"
+    (same shape as `tools/topojson/convert_layer.py`'s sidecar-keyed cache).
+    This is what makes the URL-keyed `url_cache_dir` layout below useful: two
+    pipeline entries pulling the same upstream URL both go through this
+    function, but only the first one pays the network cost.
+    """
+    if dest.exists() and dest.stat().st_size > 0:
+        return
     dest.parent.mkdir(parents=True, exist_ok=True)
     tmp = dest.with_suffix(dest.suffix + ".part")
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(req) as r, tmp.open("wb") as fh:  # noqa: S310 — public CC0/MIT data
         shutil.copyfileobj(r, fh)
     tmp.replace(dest)
+
+
+def url_cache_dir(raw_root: Path, url: str) -> Path:
+    """Return a URL-keyed cache directory shared across pipeline entries.
+
+    Layout: ``<raw_root>/snapshot/cache/<sha256(url)[:12]>/`` — short hex
+    prefix is unambiguous for ~10k entries (birthday-collision safe up to
+    ~16M URLs). The previous per-entry layout
+    (``<raw_root>/snapshot/<entry-id>/``) re-downloaded + re-extracted the
+    SAME upstream artefact once per entry, even though e.g. all 28 per-state
+    AC entries share `LGD_Assembly_Constituencies.geojsonl.7z`. Measured
+    cost on 2026-06-12 regen: 28 entries × 33.5 MB download + 28 × 150 MB
+    extracted = ~900 MB redundant bytes + ~4 GB disk thrash + 30+ min
+    wall-clock. URL-keyed dedup collapses that to one fetch + one extract.
+
+    Operator can still `rm -rf <raw_root>/snapshot/cache/<hex>/` to force a
+    refresh for one URL, or wipe `<raw_root>/snapshot/cache/` to refresh all.
+    """
+    digest = hashlib.sha256(url.encode("utf-8")).hexdigest()[:12]
+    return raw_root / "snapshot" / "cache" / digest
 
 
 def derive_output_basename(entry: dict[str, Any]) -> str:
@@ -479,14 +519,20 @@ def fetch_geojsonl_7z(
     archive_name = url.rsplit("/", 1)[-1]
     archive_path = raw_dir / archive_name
     fetched_at = utc_now()
-    stream_to_disk(url, archive_path)
+    stream_to_disk(url, archive_path)  # no-op if archive already cached
 
     extract_dir = raw_dir / "_extracted"
-    if extract_dir.exists():
-        shutil.rmtree(extract_dir)
+    # Reuse existing extract when a `.geojsonl` member is already present —
+    # matches the `stream_to_disk` cache contract: operator wipes the dir to
+    # force a refresh. Without this guard every entry sharing a URL would
+    # `rmtree` then re-extract the SAME 150 MB bundle (measured 2026-06-12:
+    # 28 AC entries = 28 redundant extractions).
     extract_dir.mkdir(parents=True, exist_ok=True)
-    with py7zr.SevenZipFile(archive_path, mode="r") as zf:
-        zf.extractall(path=extract_dir)
+    existing = sorted(extract_dir.rglob("*.geojsonl"))
+    if not existing:
+        # Empty or never-extracted: do the work.
+        with py7zr.SevenZipFile(archive_path, mode="r") as zf:
+            zf.extractall(path=extract_dir)
 
     # Find the .geojsonl member. ramSeraph archives ship a single payload
     # file at the archive root; if that ever changes (multiple per archive,
@@ -1038,7 +1084,16 @@ def snapshot_one(
         ]
 
     if fmt == "shp_bundle":
-        bundle_dir = raw_root / "snapshot" / legacy_basename.removesuffix(".geojson")
+        # URL-keyed cache: two entries pulling the same upstream shapefile
+        # bundle (component files .shp+.dbf+.prj+.shx+.cpg under one URL
+        # prefix) share one extract dir. Falls back to legacy per-entry
+        # layout when urls is unexpectedly empty (defensive; shouldn't fire
+        # — validate.py rejects shp_bundle entries without urls).
+        bundle_dir = (
+            url_cache_dir(raw_root, urls[0])
+            if urls
+            else raw_root / "snapshot" / legacy_basename.removesuffix(".geojson")
+        )
         fetch_shp_bundle(urls, out_path, bundle_dir, coord_precision=coord_precision)
         feature_count = _count_features_in_geojson(out_path)
         size = out_path.stat().st_size
@@ -1066,11 +1121,13 @@ def snapshot_one(
         ]
 
     if fmt == "geojsonl_7z":
-        bundle_dir = (
-            raw_root
-            / "snapshot"
-            / legacy_basename.removesuffix(".geojson").replace("{", "_").replace("}", "_")
-        )
+        # URL-keyed cache so e.g. all 28 per-state AC entries that share
+        # `LGD_Assembly_Constituencies.geojsonl.7z` reuse one 33.5 MB
+        # download + one 150 MB extracted bundle instead of paying both
+        # costs N times. The `state_filter` / `additional_filters` /
+        # `ac_no_rewrite` steps below operate on an in-memory slice of the
+        # SAME cached features list, so the per-entry result is unchanged.
+        bundle_dir = url_cache_dir(raw_root, urls[0])
         features, _ = fetch_geojsonl_7z(
             urls, bundle_dir, coord_precision=coord_precision,
         )

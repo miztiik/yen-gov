@@ -163,7 +163,7 @@ Standalone, dependency-free Python script (urllib only, per `tools/` self-contai
 
 The sidecar exists because GeoJSON's `FeatureCollection` schema doesn't accept arbitrary top-level keys cleanly; an out-of-band sidecar is the lowest-friction way to carry provenance without bending the spec.
 
-A 12 MB per-file budget covers all current layers, including the converted datameet states layer (~11 MB at coord_precision=3, gzips to ~3 MB). Per-state AC layers (Tamil Nadu, Kerala, West Bengal, Assam) all fit comfortably and are committed.
+A 16 MB per-file budget covers all current layers, including the converted datameet states layer (~11 MB at coord_precision=3, gzips to ~3 MB). Per-state AC layers at coord_precision=4 (~11 m vertices, set 2026-06-12 to eliminate the staircase appearance previously visible at coord_precision=2) range from ~150 KB (Puducherry) to ~13 MB (Uttar Pradesh, 404 ACs); all fit comfortably and are committed. The budget was raised 12 MB → 16 MB on 2026-06-12 in the same change — at p=4 UP was being SKIPPED (deleted from disk, no row in the boundary_layer ledger, citizen loading `/uttar-pradesh/elections/*` saw an empty map). 16 MB gives ~3 MB headroom for future state-AC-count growth.
 
 ### `AC_NO` type-coercion
 

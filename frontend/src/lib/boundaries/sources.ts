@@ -498,8 +498,11 @@ export const STATE_AC: Record<string, BoundaryEntry> = {
 //
 // Coverage: 36 of 36 elective states/UTs. S24 (Uttar Pradesh) requires
 // the lift script's auto-fallback path (C.1.c): at the standard
-// coord_precision=3 the per-state shard renders to 12.8 MB - 7% over
-// the 12 MB SNAPSHOT_BYTE_BUDGET; the lift drops S24 to
+// coord_precision=3 the per-state shard renders to 12.8 MB — historically
+// over the (then) 12 MB SNAPSHOT_BYTE_BUDGET (raised to 16 MB on
+// 2026-06-12 for the AC coord_precision bump; the block-layer fallback
+// remains in place because re-running the lift at coord_precision=3 has
+// not been re-validated against the new ceiling). The lift drops S24 to
 // coord_precision=2 (~1.1 km) before SKIP, landing the shard at
 // ~2.2 MB / 822 features. The fallback is uniform script behaviour
 // (NOT per-state config), recorded in
@@ -682,7 +685,8 @@ export const BLOCK_BOUNDARY: Record<string, BoundaryEntry> = {
       "https://github.com/ramSeraph/indian_admin_boundaries/releases/download/blocks/LGD_Blocks.geojsonl.7z",
     join_property: "block_lgd",
   },
-  // S24 (Uttar Pradesh): block shard exceeds the 12 MB
+  // S24 (Uttar Pradesh): block shard exceeds the (historical 12 MB,
+  // raised to 16 MB on 2026-06-12 for the AC coord_precision bump)
   // SNAPSHOT_BYTE_BUDGET at the standard coord_precision=3 (~12.8 MB).
   // The lift script's auto-fallback (C.1.c) re-emits the over-budget
   // bucket at coord_precision=2 (~1.1 km) before SKIP; this lands UP
