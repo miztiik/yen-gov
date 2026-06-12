@@ -2,7 +2,7 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-karnataka-3546,karnataka,2023,1,NIPPANI,JOLLE SHASHIKALA ANNASAHEB,parties.IN.BJP,BJP,73348,39.14,1,won,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3546,karnataka,2023,1,NIPPANI,UTTAM RAOSAHEB PATIL,parties.IN.NCP,NCP,66056,35.25,2,lost,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3546,karnataka,2023,1,NIPPANI,KAKASAHEB P. PATIL,parties.IN.INC,INC,44107,23.53,3,lost,U,68,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3546,karnataka,2023,1,NIPPANI,SHAKUNTALA ASHOK TELI,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,646,0.34,5,forfeit,U,56,5th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3546,karnataka,2023,1,NIPPANI,SHAKUNTALA ASHOK TELI,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,646,0.34,5,forfeit,U,56,5th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3546,karnataka,2023,1,NIPPANI,RAJARAM URF RAJU POWAR,parties.IN.JDS,JD(S),611,0.33,6,forfeit,U,50,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3546,karnataka,2023,1,NIPPANI,RAJESH BANAVANNA,parties.IN.AAAP,AAAP,572,0.31,7,forfeit,U,55,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3546,karnataka,2023,1,NIPPANI,JAYARAM MIRAJKAR,parties.IN.IND,IND,371,0.2,8,forfeit,U,63,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -17,14 +17,14 @@ IN-AC-2008-karnataka-3542,karnataka,2023,2,CHIKKODI-SADALGA,DR. MILAN VITHAL KAM
 IN-AC-2008-karnataka-3542,karnataka,2023,2,CHIKKODI-SADALGA,MOHAN GURAPPA MOTANNAVAR,parties.IN.IND,IND,663,0.36,7,forfeit,U,48,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3542,karnataka,2023,2,CHIKKODI-SADALGA,MANJUNATH BALU PARAGOUD,parties.IN.KRRS,Karnataka Rajya Ryota Sangha,434,0.24,8,forfeit,U,29,12th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3542,karnataka,2023,2,CHIKKODI-SADALGA,SHRIKANT MUDAGOUD PATIL,parties.IN.AAAP,AAAP,406,0.22,9,forfeit,U,43,Post Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3542,karnataka,2023,2,CHIKKODI-SADALGA,ISHWAR MARUTI GUDAJ,parties.IN.UNK,Bahujan Bharat Party,196,0.11,10,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3542,karnataka,2023,2,CHIKKODI-SADALGA,APPASAHEB SHRIPATI KURANE,parties.IN.UNK,Indian Movement Party,167,0.09,11,forfeit,U,41,12th Pass,Private Company,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3542,karnataka,2023,2,CHIKKODI-SADALGA,ISHWAR MARUTI GUDAJ,parties.IN.BUJNBHRTP,Bahujan Bharat Party,196,0.11,10,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3542,karnataka,2023,2,CHIKKODI-SADALGA,APPASAHEB SHRIPATI KURANE,parties.IN.IMP,Indian Movement Party,167,0.09,11,forfeit,U,41,12th Pass,Private Company,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3542,karnataka,2023,2,CHIKKODI-SADALGA,KUMAR SAMBHAJI DONGARE,parties.IN.KRS,Karnataka Rashtra Samithi,147,0.08,12,forfeit,U,41,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3541,karnataka,2023,3,ATHANI,LAXMAN. SANGAPPA. SAVADI,parties.IN.INC,INC,131404,68.34,1,won,U,64,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3541,karnataka,2023,3,ATHANI,MAHESH. IRANGOUDA. KUMATHALLI.,parties.IN.BJP,BJP,55282,28.75,2,lost,U,61,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3541,karnataka,2023,3,ATHANI,SHASHIKANT PADASALAGI,parties.IN.JDS,JD(S),1265,0.66,3,forfeit,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3541,karnataka,2023,3,ATHANI,RAJESH. BABU. SHINGE,parties.IN.IND,IND,1053,0.55,4,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3541,karnataka,2023,3,ATHANI,BASAVARAJ. BHIMAPPA. BISANAKOPPA,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,935,0.49,6,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3541,karnataka,2023,3,ATHANI,BASAVARAJ. BHIMAPPA. BISANAKOPPA,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,935,0.49,6,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3541,karnataka,2023,3,ATHANI,SAMPATHKUMAR.SHETTI,parties.IN.AAAP,AAAP,292,0.15,7,forfeit,U,37,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3541,karnataka,2023,3,ATHANI,DAVARI RAJU. PARASHURAM,parties.IN.IND,IND,250,0.13,8,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3541,karnataka,2023,3,ATHANI,BHARATESH BUJABALI KUDARI,parties.IN.UPJP,Uttama Prajaakeeya Party,224,0.12,9,forfeit,U,35,Graduate Professional,Coolie,challenger,src-1b7bc1c9d39a
@@ -47,8 +47,8 @@ IN-AC-2008-karnataka-3544,karnataka,2023,4,KAGWAD,SATISH BHUPAL SANADI,parties.I
 IN-AC-2008-karnataka-3545,karnataka,2023,5,KUDACHI,MAHENDRA. KALLAPPA. TAMMANNAVAR,parties.IN.INC,INC,85321,56.87,1,won,U,45,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3545,karnataka,2023,5,KUDACHI,P. RAJEEV,parties.IN.BJP,BJP,60078,40.04,2,lost,U,45,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3545,karnataka,2023,5,KUDACHI,ANAND. V. MALAGI,parties.IN.JDS,JD(S),1566,1.04,3,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3545,karnataka,2023,5,KUDACHI,SHREESHAIL. H. BHAJANTRI,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,1240,0.83,4,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3545,karnataka,2023,5,KUDACHI,C M KRISHNA,parties.IN.UNK,Dr. Ambedkar People's Party,609,0.41,6,forfeit,U,40,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3545,karnataka,2023,5,KUDACHI,SHREESHAIL. H. BHAJANTRI,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,1240,0.83,4,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3545,karnataka,2023,5,KUDACHI,C M KRISHNA,parties.IN.DRAPP,Dr. Ambedkar People's Party,609,0.41,6,forfeit,U,40,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3545,karnataka,2023,5,KUDACHI,KADROLLI CHANDRAKANT,parties.IN.BSP,BSP,369,0.25,7,forfeit,U,45,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3545,karnataka,2023,5,KUDACHI,YALLAPPA YAMANAPPA SHINGE,parties.IN.IND,IND,214,0.14,8,forfeit,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3547,karnataka,2023,6,RAYBAG,AIHOLE DURYODHAN MAHALINGAPPA,parties.IN.BJP,BJP,57500,34.79,1,won,U,65,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
@@ -67,14 +67,14 @@ IN-AC-2008-karnataka-3543,karnataka,2023,7,HUKKERI,PUNDALIK KEMPANNA KULLUR,part
 IN-AC-2008-karnataka-3543,karnataka,2023,7,HUKKERI,KAMBLE BASAVARAJ KADAPPA,parties.IN.BSP,BSP,624,0.37,5,forfeit,U,38,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3543,karnataka,2023,7,HUKKERI,BASAVARAJ MALAGOUDA PATIL,parties.IN.JDS,JD(S),401,0.24,6,forfeit,U,72,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3543,karnataka,2023,7,HUKKERI,MANJUNATH.B.GADDENNAVAR,parties.IN.AAAP,AAAP,189,0.11,7,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3543,karnataka,2023,7,HUKKERI,GHATIGEPPA MALLAPPA MAGADUM,parties.IN.UNK,Bahujan Bharat Party,170,0.1,8,forfeit,U,64,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3543,karnataka,2023,7,HUKKERI,GHATIGEPPA MALLAPPA MAGADUM,parties.IN.BUJNBHRTP,Bahujan Bharat Party,170,0.1,8,forfeit,U,64,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3493,karnataka,2023,8,ARABHAVI,BALACHANDRA LAXMANRAO JARKIHOLI,parties.IN.BJP,BJP,115402,60.7,1,won,U,56,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3493,karnataka,2023,8,ARABHAVI,BHIMAPPA GUNDAPPA GADAD,parties.IN.IND,IND,43862,23.07,2,lost,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3493,karnataka,2023,8,ARABHAVI,ARVIND MAHADEVARAO DALWAI,parties.IN.INC,INC,23956,12.6,3,forfeit,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3493,karnataka,2023,8,ARABHAVI,PRAKASH RAMAPPA KALASHETTI,parties.IN.JDS,JD(S),1217,0.64,4,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3493,karnataka,2023,8,ARABHAVI,BASAPPA SHIVAPPA NAGANUR,parties.IN.IND,IND,919,0.48,6,forfeit,U,58,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3493,karnataka,2023,8,ARABHAVI,BASAVANTH IRAPPA VADER,parties.IN.BSP,BSP,704,0.37,7,forfeit,U,58,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3493,karnataka,2023,8,ARABHAVI,GULAPPA BASALINGAPPA METI,parties.IN.UNK,Swayam Krushi Party,698,0.37,8,forfeit,U,58,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3493,karnataka,2023,8,ARABHAVI,GULAPPA BASALINGAPPA METI,parties.IN.SWYMKP,Swayam Krushi Party,698,0.37,8,forfeit,U,58,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3493,karnataka,2023,8,ARABHAVI,SIDDAPPA YALLAPPA HOSUR,parties.IN.IND,IND,556,0.29,9,forfeit,U,41,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3493,karnataka,2023,8,ARABHAVI,GURUPUTRA KEMPANNA KULLUR,parties.IN.IND,IND,485,0.26,10,forfeit,U,37,12th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3493,karnataka,2023,8,ARABHAVI,IJAJAHMAD I KOTTALAGI,parties.IN.AAAP,AAAP,454,0.24,11,forfeit,U,32,12th Pass,Hospitality,challenger,src-1b7bc1c9d39a
@@ -89,7 +89,7 @@ IN-AC-2008-karnataka-3498,karnataka,2023,9,GOKAK,B. LOHIT,parties.IN.BSP,BSP,748
 IN-AC-2008-karnataka-3498,karnataka,2023,9,GOKAK,SURESH BASAPPA MARALINGANNAVAR,parties.IN.IND,IND,575,0.3,7,forfeit,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3498,karnataka,2023,9,GOKAK,SURESH PATTANSHETTI,parties.IN.UPJP,Uttama Prajaakeeya Party,348,0.18,8,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3498,karnataka,2023,9,GOKAK,PUNDALIK KEMPANNA KULLUR,parties.IN.IND,IND,295,0.15,9,forfeit,U,25,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3498,karnataka,2023,9,GOKAK,HANAMANTH SHIVAPPA NAGANUR,parties.IN.UNK,Swayam Krushi Party,243,0.13,10,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3498,karnataka,2023,9,GOKAK,HANAMANTH SHIVAPPA NAGANUR,parties.IN.SWYMKP,Swayam Krushi Party,243,0.13,10,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3498,karnataka,2023,9,GOKAK,JAGADEESH C. K.,parties.IN.SP_I,Socialist Party (India),162,0.09,11,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3548,karnataka,2023,10,YEMKANMARDI,SATISH LAXMANARAO JARKIHOLI,parties.IN.INC,INC,100290,60.25,1,won,U,60,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3548,karnataka,2023,10,YEMKANMARDI,BASAVARAJ HUNDRI,parties.IN.BJP,BJP,43079,25.88,2,lost,U,36,Post Graduate,Contractor,challenger,src-1b7bc1c9d39a
@@ -105,7 +105,7 @@ IN-AC-2008-karnataka-eci11,karnataka,2023,11,BELGAUM UTTAR,Shrinivas Suresh Tala
 IN-AC-2008-karnataka-eci11,karnataka,2023,11,BELGAUM UTTAR,Mallappa C. Chougala,parties.IN.UPJP,Uttama Prajaakeeya Party,207,0.14,8,forfeit,U,41,Post Graduate,Managerial Position,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci11,karnataka,2023,11,BELGAUM UTTAR,Nagesh Divate,parties.IN.IND,IND,177,0.12,9,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci11,karnataka,2023,11,BELGAUM UTTAR,Ashok Basavant Govekar,parties.IN.IND,IND,150,0.1,10,forfeit,U,58,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-eci11,karnataka,2023,11,BELGAUM UTTAR,Praveen Basavaraj Hiremath,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,124,0.08,11,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-eci11,karnataka,2023,11,BELGAUM UTTAR,Praveen Basavaraj Hiremath,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,124,0.08,11,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci11,karnataka,2023,11,BELGAUM UTTAR,Vishal Gayakwad,parties.IN.IND,IND,108,0.07,12,forfeit,U,42,Graduate Professional,Accountant,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci11,karnataka,2023,11,BELGAUM UTTAR,Dilashad W/o Sikandar Tashiladar,parties.IN.RPI,RPI,91,0.06,13,forfeit,U,49,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci11,karnataka,2023,11,BELGAUM UTTAR,Basavaraj Muragesh Jarali,parties.IN.KRS,Karnataka Rashtra Samithi,90,0.06,14,forfeit,U,32,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -136,14 +136,14 @@ IN-AC-2008-karnataka-3672,karnataka,2023,14,KHANAPUR,Dr. Anjali Hemant Nimbalkar
 IN-AC-2008-karnataka-3672,karnataka,2023,14,KHANAPUR,BAGAWAN NASIR PAPULSAB,parties.IN.JDS,JD(S),15600,9.69,3,forfeit,U,65,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3672,karnataka,2023,14,KHANAPUR,Muralidhar Ganapati Patil,parties.IN.IND,IND,9671,6.01,4,forfeit,U,59,Graduate Professional,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3672,karnataka,2023,14,KHANAPUR,Sitaram Maruti Sutar,parties.IN.IND,IND,1382,0.86,5,forfeit,U,39,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3672,karnataka,2023,14,KHANAPUR,Krishnaji Pundalik Patil,parties.IN.UNK,ShivSena (Uddhav Balasaheb Thackeray),983,0.61,7,forfeit,U,54,10th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3672,karnataka,2023,14,KHANAPUR,Krishnaji Pundalik Patil,parties.IN.SS_UBT,ShivSena (Uddhav Balasaheb Thackeray),983,0.61,7,forfeit,U,54,10th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3672,karnataka,2023,14,KHANAPUR,Irfanahmed Talikoti,parties.IN.IND,IND,732,0.45,8,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3672,karnataka,2023,14,KHANAPUR,R B Patil,parties.IN.IND,IND,646,0.4,9,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3672,karnataka,2023,14,KHANAPUR,Suresh Laxman Patil,parties.IN.IND,IND,502,0.31,10,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3672,karnataka,2023,14,KHANAPUR,Yallappa Fakirapa Kolakar,parties.IN.IND,IND,412,0.26,11,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3672,karnataka,2023,14,KHANAPUR,Laxman Yallappa Bannar,parties.IN.IND,IND,357,0.22,12,forfeit,U,62,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3672,karnataka,2023,14,KHANAPUR,Ramesh Bhimappa Mannuddar,parties.IN.KRS,Karnataka Rashtra Samithi,275,0.17,13,forfeit,U,30,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3672,karnataka,2023,14,KHANAPUR,Raju Pujari,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,178,0.11,14,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3672,karnataka,2023,14,KHANAPUR,Raju Pujari,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,178,0.11,14,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3673,karnataka,2023,15,KITTUR,BABASAHEB PATIL,parties.IN.INC,INC,77536,49.49,1,won,U,51,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3673,karnataka,2023,15,KITTUR,DODDAGOUDAR MAHANTESH BASAVANTARAY,parties.IN.BJP,BJP,74543,47.58,2,lost,U,49,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3673,karnataka,2023,15,KITTUR,ASHWINI SINGAYYA PUJER,parties.IN.JDS,JD(S),775,0.49,4,forfeit,U,30,Others,Household,challenger,src-1b7bc1c9d39a
@@ -160,9 +160,9 @@ IN-AC-2008-karnataka-3494,karnataka,2023,16,BAILHONGAL,DR. VISHWANATH I. PATIL,p
 IN-AC-2008-karnataka-3494,karnataka,2023,16,BAILHONGAL,SHANKAR. BHARAMAPPA. MADALAGI.,parties.IN.JDS,JD(S),9427,6.18,4,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3494,karnataka,2023,16,BAILHONGAL,BASANAGOUDA. M. CHIKKANAGOUDAR,parties.IN.AAAP,AAAP,970,0.64,6,forfeit,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3494,karnataka,2023,16,BAILHONGAL,RUDRAPPA MALAGI,parties.IN.UPJP,Uttama Prajaakeeya Party,785,0.51,7,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3494,karnataka,2023,16,BAILHONGAL,PRASHANT. RUDRAPPA. JAKKAPPANAVAR,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,531,0.35,8,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3494,karnataka,2023,16,BAILHONGAL,PRASHANT. RUDRAPPA. JAKKAPPANAVAR,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,531,0.35,8,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3494,karnataka,2023,16,BAILHONGAL,IRFAN BAGEWADI,parties.IN.KRS,Karnataka Rashtra Samithi,261,0.17,9,forfeit,U,37,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3494,karnataka,2023,16,BAILHONGAL,DAYANAND GURPUTRYYA CHIKKAMATH,parties.IN.UNK,Indian Movement Party,205,0.13,10,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3494,karnataka,2023,16,BAILHONGAL,DAYANAND GURPUTRYYA CHIKKAMATH,parties.IN.IMP,Indian Movement Party,205,0.13,10,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3500,karnataka,2023,17,SAUNDATTI YELLAMMA,VISHWAS VASANT VAIDYA,parties.IN.INC,INC,71224,43.61,1,won,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3500,karnataka,2023,17,SAUNDATTI YELLAMMA,MAMANI RATNA ANAND @ VISHWANATH,parties.IN.BJP,BJP,56529,34.61,2,lost,U,43,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3500,karnataka,2023,17,SAUNDATTI YELLAMMA,CHOPRA SAURAV ANAND,parties.IN.JDS,JD(S),30857,18.89,3,lost,U,27,Graduate Professional,,challenger,src-1b7bc1c9d39a
@@ -214,7 +214,7 @@ IN-AC-2008-karnataka-3457,karnataka,2023,21,JAMKHANDI,RAVI SHIVAPPA PADASALAGI,p
 IN-AC-2008-karnataka-3457,karnataka,2023,21,JAMKHANDI,GUDUSAB. IBRAHIMSAB HYALAKAR,parties.IN.IND,IND,184,0.11,7,forfeit,U,46,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3457,karnataka,2023,21,JAMKHANDI,ANTHOSH SHANKAR SAVVASE,parties.IN.UPJP,Uttama Prajaakeeya Party,179,0.11,8,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3457,karnataka,2023,21,JAMKHANDI,SHIVANAND BABALESHWAR,parties.IN.BSP,BSP,172,0.1,9,forfeit,U,34,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3457,karnataka,2023,21,JAMKHANDI,ZARE HASANALI,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,147,0.09,10,forfeit,U,32,Others,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3457,karnataka,2023,21,JAMKHANDI,ZARE HASANALI,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,147,0.09,10,forfeit,U,32,Others,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3457,karnataka,2023,21,JAMKHANDI,SURESH. BHUTALEPPA. HANCHINAL,parties.IN.KRS,Karnataka Rashtra Samithi,124,0.07,11,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3457,karnataka,2023,21,JAMKHANDI,KAMARUDDIN. B. MURSAL,parties.IN.IND,IND,73,0.04,12,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3455,karnataka,2023,22,BILGI,J. T. PATIL.,parties.IN.INC,INC,95652,51.75,1,won,U,73,Graduate,,challenger,src-1b7bc1c9d39a
@@ -225,7 +225,7 @@ IN-AC-2008-karnataka-3455,karnataka,2023,22,BILGI,YALLAPPA HEGADYAR @ HEGADE,par
 IN-AC-2008-karnataka-3455,karnataka,2023,22,BILGI,NARASIMHA M RAYKAR,parties.IN.UPJP,Uttama Prajaakeeya Party,398,0.22,7,forfeit,U,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3455,karnataka,2023,22,BILGI,DR|| L. C. PATIL,parties.IN.IND,IND,248,0.13,8,forfeit,U,53,12th Pass,Medical Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3455,karnataka,2023,22,BILGI,KRISHNA KALE,parties.IN.IND,IND,212,0.11,9,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3455,karnataka,2023,22,BILGI,RAJAKUMAR TIMMANNA NYAMAGOUD,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,181,0.1,10,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3455,karnataka,2023,22,BILGI,RAJAKUMAR TIMMANNA NYAMAGOUD,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,181,0.1,10,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3455,karnataka,2023,22,BILGI,BASALINGAYYA RAJASHEKHARAYYA HOMBALIMATH,parties.IN.KRS,Karnataka Rashtra Samithi,82,0.04,11,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3453,karnataka,2023,23,BADAMI,B.B.CHIMMANAKATTI,parties.IN.INC,INC,65845,38.95,1,won,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3453,karnataka,2023,23,BADAMI,SHANTHAGOUDA THIRTHGOUDA PATIL.,parties.IN.BJP,BJP,56120,33.2,2,lost,U,52,Graduate,,challenger,src-1b7bc1c9d39a
@@ -247,7 +247,7 @@ IN-AC-2008-karnataka-3454,karnataka,2023,24,BAGALKOT,R.D.BABU,parties.IN.KRS,Kar
 IN-AC-2008-karnataka-3454,karnataka,2023,24,BAGALKOT,MUTTAPPA. MUDAKAPPA HIREKUMBI,parties.IN.RTBHP,Raita Bharat Party,135,0.08,12,forfeit,U,50,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3456,karnataka,2023,25,HUNGUND,KASHAPPANAVARA VIJAYANAND SHIVASHANKRAPPA,parties.IN.INC,INC,78434,47.43,1,won,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3456,karnataka,2023,25,HUNGUND,DODDANAGOUDA G PATIL,parties.IN.BJP,BJP,48427,29.29,2,lost,U,66,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3456,karnataka,2023,25,HUNGUND,NAVALI HIREMATH. S. R.,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,33790,20.43,3,lost,U,62,Graduate Professional,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3456,karnataka,2023,25,HUNGUND,NAVALI HIREMATH. S. R.,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,33790,20.43,3,lost,U,62,Graduate Professional,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3456,karnataka,2023,25,HUNGUND,SHIVANAGOUDA MENASAGI,parties.IN.IND,IND,793,0.48,5,forfeit,U,45,Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3456,karnataka,2023,25,HUNGUND,BOLI SHIVAPPA MAHADEVAPPA,parties.IN.JDS,JD(S),759,0.46,6,forfeit,U,43,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3456,karnataka,2023,25,HUNGUND,NAGARAJ HONGAL,parties.IN.AAAP,AAAP,514,0.31,7,forfeit,U,56,Post Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
@@ -263,7 +263,7 @@ IN-AC-2008-karnataka-3522,karnataka,2023,26,MUDDEBIHAL,RAMANAGOUDA S BALAWAD,par
 IN-AC-2008-karnataka-3522,karnataka,2023,26,MUDDEBIHAL,BASAVARAJ BHIMANNA BHAJENTRI,parties.IN.JDS,JD(S),533,0.34,6,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3522,karnataka,2023,26,MUDDEBIHAL,DEEPA MAHANTAPPA MANUR,parties.IN.KRS,Karnataka Rashtra Samithi,234,0.15,7,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3522,karnataka,2023,26,MUDDEBIHAL,MAHBOOB. SHABBIRAHMED HADALAGERI.,parties.IN.AAAP,AAAP,231,0.15,8,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3522,karnataka,2023,26,MUDDEBIHAL,JAKEER HUSEN. USMANSAB LAHORI,parties.IN.UNK,Bharatiya Praja Aikyata Party,147,0.09,9,forfeit,U,48,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3522,karnataka,2023,26,MUDDEBIHAL,JAKEER HUSEN. USMANSAB LAHORI,parties.IN.BHRTPRJAIK,Bharatiya Praja Aikyata Party,147,0.09,9,forfeit,U,48,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3520,karnataka,2023,27,DEVAR HIPPARGI,BHIMANAGOUDA (RAJUGOUDA) BASANAGOUDA PATIL,parties.IN.JDS,JD(S),65952,43.39,1,won,U,51,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3520,karnataka,2023,27,DEVAR HIPPARGI,SOMANAGOUDA B. PATIL (SASANUR),parties.IN.BJP,BJP,45777,30.12,2,lost,U,59,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3520,karnataka,2023,27,DEVAR HIPPARGI,SUNAGAR SHARANAPPA TIPPANNA,parties.IN.INC,INC,33673,22.16,3,lost,U,62,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -274,7 +274,7 @@ IN-AC-2008-karnataka-3520,karnataka,2023,27,DEVAR HIPPARGI,SHRISHAIL RUDRAPPA KA
 IN-AC-2008-karnataka-3520,karnataka,2023,27,DEVAR HIPPARGI,GURUSHANTAVEERASWAMIJI HIREMATH ITAGI,parties.IN.KJP,KJP,439,0.29,9,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3520,karnataka,2023,27,DEVAR HIPPARGI,KEMPEGOUDA IRANAGOUDA KESHAPPAGOL,parties.IN.IND,IND,297,0.2,10,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3520,karnataka,2023,27,DEVAR HIPPARGI,DUNDASI. ABDULRAHIMAN. MAHAMMADAHANIP.,parties.IN.IND,IND,218,0.14,11,forfeit,U,54,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3520,karnataka,2023,27,DEVAR HIPPARGI,BEVINAKATTI. GAIBAPPA. BHIMAPPA.,parties.IN.UNK,Republican Party of India Bharatha,216,0.14,12,forfeit,U,34,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3520,karnataka,2023,27,DEVAR HIPPARGI,BEVINAKATTI. GAIBAPPA. BHIMAPPA.,parties.IN.RPIB,Republican Party of India Bharatha,216,0.14,12,forfeit,U,34,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3520,karnataka,2023,27,DEVAR HIPPARGI,SHIVANAND YADAHALLI (KONDAGULI),parties.IN.KRS,Karnataka Rashtra Samithi,198,0.13,13,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3520,karnataka,2023,27,DEVAR HIPPARGI,MANASOORBAB NABISAHEB BILAGI,parties.IN.NCP,NCP,129,0.08,14,forfeit,U,61,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3518,karnataka,2023,28,BASAVANA BAGEVADI,SHIVANAND PATIL,parties.IN.INC,INC,68126,43,1,won,U,61,Others,,incumbent,src-1b7bc1c9d39a
@@ -287,7 +287,7 @@ IN-AC-2008-karnataka-3518,karnataka,2023,28,BASAVANA BAGEVADI,SANGAPPA CHANDU LA
 IN-AC-2008-karnataka-3518,karnataka,2023,28,BASAVANA BAGEVADI,RAJESHWARI RAJASHEKHAR YARANAL,parties.IN.IND,IND,746,0.47,9,forfeit,U,48,Graduate,Retired Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3518,karnataka,2023,28,BASAVANA BAGEVADI,AWATI SHANKREPPA KASHINATH,parties.IN.UPJP,Uttama Prajaakeeya Party,359,0.23,10,forfeit,U,41,Post Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3518,karnataka,2023,28,BASAVANA BAGEVADI,PRAVEENKUMAR RAYAGOND(MUTTAGI),parties.IN.KRS,Karnataka Rashtra Samithi,303,0.19,11,forfeit,U,30,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3518,karnataka,2023,28,BASAVANA BAGEVADI,NARAYAN NEELAKANT RATHOD,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,282,0.18,12,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3518,karnataka,2023,28,BASAVANA BAGEVADI,NARAYAN NEELAKANT RATHOD,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,282,0.18,12,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3518,karnataka,2023,28,BASAVANA BAGEVADI,VIDYA BIRADAR,parties.IN.AHNP,Aihra National Party,146,0.09,13,forfeit,U,38,10th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3518,karnataka,2023,28,BASAVANA BAGEVADI,ZAMEER AHMMED INAMADAR,parties.IN.NCP,NCP,140,0.09,14,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3517,karnataka,2023,29,BABALESHWAR,M B PATIL.,parties.IN.INC,INC,93923,52.42,1,won,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
@@ -321,7 +321,7 @@ IN-AC-2008-karnataka-3519,karnataka,2023,30,BIJAPUR CITY,IRAPPA KUMBAR,parties.I
 IN-AC-2008-karnataka-3523,karnataka,2023,31,NAGTHAN,KATAKADHOND VITTHAL DONDIBA,parties.IN.INC,INC,78990,43.75,1,won,U,67,12th Pass,Ex MLA,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3523,karnataka,2023,31,NAGTHAN,SANJEEV MALASIDDAPPA AIHOLE,parties.IN.BJP,BJP,48175,26.68,2,lost,U,40,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3523,karnataka,2023,31,NAGTHAN,DEVANAND FULASING CHAVAN,parties.IN.JDS,JD(S),34114,18.9,3,lost,U,52,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3523,karnataka,2023,31,NAGTHAN,BANDI SHRIKANT HANAMANTAPPA,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,10770,5.97,4,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3523,karnataka,2023,31,NAGTHAN,BANDI SHRIKANT HANAMANTAPPA,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,10770,5.97,4,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3523,karnataka,2023,31,NAGTHAN,GURU MUNNU CHAVAN,parties.IN.AAAP,AAAP,2974,1.65,5,forfeit,U,68,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3523,karnataka,2023,31,NAGTHAN,KALLAPPA TORAVI,parties.IN.BSP,BSP,954,0.53,7,forfeit,U,62,Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3523,karnataka,2023,31,NAGTHAN,SHANKAR CHAVAN,parties.IN.IND,IND,617,0.34,8,forfeit,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -332,7 +332,7 @@ IN-AC-2008-karnataka-3523,karnataka,2023,31,NAGTHAN,KULAPPA BHIMU CHAVAN,parties
 IN-AC-2008-karnataka-3523,karnataka,2023,31,NAGTHAN,SANJEEV PUNDALIK MANE,parties.IN.IND,IND,338,0.19,13,forfeit,U,43,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3523,karnataka,2023,31,NAGTHAN,V. D. KATAKADHOND,parties.IN.HINDUSTAN_JANTA_PARTY,Hindustan Janta Party,304,0.17,14,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3523,karnataka,2023,31,NAGTHAN,VIKRAM WAGHAMARE (JIGAJEVANI),parties.IN.KRS,Karnataka Rashtra Samithi,287,0.16,15,forfeit,U,31,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3523,karnataka,2023,31,NAGTHAN,BHARATI KALEBHAG,parties.IN.UNK,Sarvajanika Adarsha Sena,261,0.14,16,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3523,karnataka,2023,31,NAGTHAN,BHARATI KALEBHAG,parties.IN.SJAS,Sarvajanika Adarsha Sena,261,0.14,16,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3521,karnataka,2023,32,INDI,YASHAVANTARAYGOUD. VITTALAGOUD. PATIL,parties.IN.INC,INC,71785,39.69,1,won,U,56,12th Pass,MP,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3521,karnataka,2023,32,INDI,B. D. PATIL (HANJAGI),parties.IN.JDS,JD(S),61456,33.98,2,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3521,karnataka,2023,32,INDI,KASUGOUDA IRAPPAGOUDA BIRADAR,parties.IN.BJP,BJP,39862,22.04,3,lost,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -368,14 +368,14 @@ IN-AC-2008-karnataka-3587,karnataka,2023,35,JEVARGI,VISHWANATH REDDY,parties.IN.
 IN-AC-2008-karnataka-3587,karnataka,2023,35,JEVARGI,VIJAYKUMAR,parties.IN.IND,IND,1124,0.67,6,forfeit,U,39,Graduate,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3587,karnataka,2023,35,JEVARGI,BHEEMARAYA,parties.IN.BSP,BSP,676,0.4,7,forfeit,U,27,Graduate,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3587,karnataka,2023,35,JEVARGI,MAHESHKUMAR,parties.IN.CPI,CPI,542,0.32,8,forfeit,U,47,Doctorate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3587,karnataka,2023,35,JEVARGI,ASHOK,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,405,0.24,9,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3587,karnataka,2023,35,JEVARGI,ASHOK,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,405,0.24,9,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3587,karnataka,2023,35,JEVARGI,MALLIKARJUN,parties.IN.IND,IND,369,0.22,10,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3587,karnataka,2023,35,JEVARGI,VAKIL PATEL,parties.IN.IND,IND,326,0.19,11,forfeit,U,46,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3587,karnataka,2023,35,JEVARGI,NABISAB,parties.IN.IND,IND,199,0.12,12,forfeit,U,33,Graduate,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3587,karnataka,2023,35,JEVARGI,SHIVLINGAPPA KINNUR,parties.IN.RSPS,RSPS,197,0.12,13,forfeit,U,82,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3587,karnataka,2023,35,JEVARGI,TIPPANNA,parties.IN.IND,IND,139,0.08,14,forfeit,U,41,Graduate Professional,Workshop or Small Manufacturer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3587,karnataka,2023,35,JEVARGI,BASAVARAJ,parties.IN.KRS,Karnataka Rashtra Samithi,131,0.08,15,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3587,karnataka,2023,35,JEVARGI,CHANDRAKANTH,parties.IN.UNK,Indian Movement Party,77,0.05,16,forfeit,U,66,5th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3587,karnataka,2023,35,JEVARGI,CHANDRAKANTH,parties.IN.IMP,Indian Movement Party,77,0.05,16,forfeit,U,66,5th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3643,karnataka,2023,36,SHORAPUR,RAJA VENKATAPPA NAIK,parties.IN.INC,INC,113559,54.72,1,won,U,66,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3643,karnataka,2023,36,SHORAPUR,NARASIMHANAYAK (RAJUGOUDA),parties.IN.BJP,BJP,88336,42.57,2,lost,U,44,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3643,karnataka,2023,36,SHORAPUR,SHRAVANAKUMAR NAYAK,parties.IN.JDS,JD(S),1544,0.74,3,forfeit,U,29,Graduate,Agricultural Business,challenger,src-1b7bc1c9d39a
@@ -388,7 +388,7 @@ IN-AC-2008-karnataka-3642,karnataka,2023,37,SHAHAPUR,AMEENRADDI YALAGI,parties.I
 IN-AC-2008-karnataka-3642,karnataka,2023,37,SHAHAPUR,GURU PATIL SHIRWAL,parties.IN.JDS,JD(S),30396,18.23,3,lost,U,52,Graduate Professional,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3642,karnataka,2023,37,SHAHAPUR,CHANDRASHEKHAR SABAYYA,parties.IN.AAAP,AAAP,1320,0.79,4,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3642,karnataka,2023,37,SHAHAPUR,PRAKASH B. KULKARNI,parties.IN.KRS,Karnataka Rashtra Samithi,888,0.53,6,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3642,karnataka,2023,37,SHAHAPUR,VISHWARADHYA B. MUDABOOL,parties.IN.UNK,Swayam Krushi Party,740,0.44,7,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3642,karnataka,2023,37,SHAHAPUR,VISHWARADHYA B. MUDABOOL,parties.IN.SWYMKP,Swayam Krushi Party,740,0.44,7,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3642,karnataka,2023,37,SHAHAPUR,HONNAYYA HOTPETH,parties.IN.IND,IND,654,0.39,8,forfeit,U,54,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3642,karnataka,2023,37,SHAHAPUR,MAHAMMED JILANI BANDAGISAB NASHI,parties.IN.IND,IND,473,0.28,9,forfeit,U,46,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3642,karnataka,2023,37,SHAHAPUR,HAJI M HUSSAIN,parties.IN.IND,IND,312,0.19,10,forfeit,U,45,Illiterate,,challenger,src-1b7bc1c9d39a
@@ -400,7 +400,7 @@ IN-AC-2008-karnataka-3644,karnataka,2023,38,YADGIR,VENKATAREDDY,parties.IN.IND,I
 IN-AC-2008-karnataka-3644,karnataka,2023,38,YADGIR,YANKAPPA DEVINDRAPPA BANGLI,parties.IN.IND,IND,853,0.55,7,forfeit,U,27,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3644,karnataka,2023,38,YADGIR,BASAVARAJ. M. RAMASAMUDRA,parties.IN.BSP,BSP,694,0.45,8,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3644,karnataka,2023,38,YADGIR,RAMZANBEE SOFISAB,parties.IN.AIUC,All India Ulama Congress,564,0.36,9,forfeit,U,42,Illiterate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3644,karnataka,2023,38,YADGIR,MARUTIRAO JAMBAGA,parties.IN.UNK,Dr. Ambedkar People's Party,502,0.32,10,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3644,karnataka,2023,38,YADGIR,MARUTIRAO JAMBAGA,parties.IN.DRAPP,Dr. Ambedkar People's Party,502,0.32,10,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3644,karnataka,2023,38,YADGIR,K.SOMASHEKHAR,parties.IN.SUCI,SUCI,466,0.3,11,forfeit,U,57,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3644,karnataka,2023,38,YADGIR,MAHANTESH PARASHURAM BHOVI,parties.IN.IND,IND,336,0.22,12,forfeit,U,34,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3644,karnataka,2023,38,YADGIR,BHIMANNA GURUBASAYYA,parties.IN.IND,IND,252,0.16,13,forfeit,U,62,5th Pass,,challenger,src-1b7bc1c9d39a
@@ -423,7 +423,7 @@ IN-AC-2008-karnataka-3582,karnataka,2023,40,CHITTAPUR,RAJU HADNOOR,parties.IN.IN
 IN-AC-2008-karnataka-3588,karnataka,2023,41,SEDAM,DR. SHARANPRAKASH RUDRAPPA PATIL,parties.IN.INC,INC,93377,53.06,1,won,U,55,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3588,karnataka,2023,41,SEDAM,RAJKUMAR PATIL TELKUR,parties.IN.BJP,BJP,49816,28.31,2,lost,U,48,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3588,karnataka,2023,41,SEDAM,BALRAJ GUTTEDAR,parties.IN.JDS,JD(S),21125,12,3,forfeit,U,41,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3588,karnataka,2023,41,SEDAM,G. LALLESH REDDY,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,6712,3.81,4,forfeit,U,46,Post Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3588,karnataka,2023,41,SEDAM,G. LALLESH REDDY,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,6712,3.81,4,forfeit,U,46,Post Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3588,karnataka,2023,41,SEDAM,SHANKAR BANDI SULEPETH,parties.IN.AAAP,AAAP,1441,0.82,5,forfeit,U,42,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3588,karnataka,2023,41,SEDAM,KHASIM SAB,parties.IN.BSP,BSP,647,0.37,7,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3588,karnataka,2023,41,SEDAM,DEVINDRA HANAMANTH HADAPAD GARUR,parties.IN.IND,IND,645,0.37,8,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
@@ -431,7 +431,7 @@ IN-AC-2008-karnataka-3588,karnataka,2023,41,SEDAM,BHARATH KUMAR G,parties.IN.IND
 IN-AC-2008-karnataka-3588,karnataka,2023,41,SEDAM,ASHOK KUMAR NAGINDRAPPA SHILAVANTH,parties.IN.IND,IND,316,0.18,10,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3588,karnataka,2023,41,SEDAM,SURESH,parties.IN.IND,IND,297,0.17,11,forfeit,U,35,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3588,karnataka,2023,41,SEDAM,SHIVAKUMAR KODLI,parties.IN.KRS,Karnataka Rashtra Samithi,219,0.12,12,forfeit,U,36,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3588,karnataka,2023,41,SEDAM,SRINIVAS BOINI,parties.IN.UNK,Jana Spandana Party,198,0.11,13,forfeit,U,28,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3588,karnataka,2023,41,SEDAM,SRINIVAS BOINI,parties.IN.JNASPNDNAP,Jana Spandana Party,198,0.11,13,forfeit,U,28,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3515,karnataka,2023,42,CHINCHOLI,AVINASH UMESH JADHAV,parties.IN.BJP,BJP,69963,46.66,1,won,U,34,Graduate Professional,Doctor,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3515,karnataka,2023,42,CHINCHOLI,SUBHASH V RATHOD,parties.IN.INC,INC,69105,46.09,2,lost,U,58,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3515,karnataka,2023,42,CHINCHOLI,SANJEEVAN YAKAPUR,parties.IN.JDS,JD(S),6555,4.37,3,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -464,7 +464,7 @@ IN-AC-2008-karnataka-3583,karnataka,2023,44,GULBARGA DAKSHIN,L.R. BHOSLE,parties
 IN-AC-2008-karnataka-3583,karnataka,2023,44,GULBARGA DAKSHIN,SIDDHU. PATIL (TEGNOOR),parties.IN.AAAP,AAAP,245,0.15,9,forfeit,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3583,karnataka,2023,44,GULBARGA DAKSHIN,MAHESH S.B.,parties.IN.SUCI,SUCI,98,0.06,10,forfeit,U,37,Graduate,Activist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3583,karnataka,2023,44,GULBARGA DAKSHIN,NAGAYYA GUTTEDAR. G. TAILOR,parties.IN.IND,IND,90,0.06,11,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3583,karnataka,2023,44,GULBARGA DAKSHIN,MOHD. ASLAM MANIYAR,parties.IN.UNK,Indian Movement Party,74,0.05,12,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3583,karnataka,2023,44,GULBARGA DAKSHIN,MOHD. ASLAM MANIYAR,parties.IN.IMP,Indian Movement Party,74,0.05,12,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3583,karnataka,2023,44,GULBARGA DAKSHIN,M D MAQBOOL KHAN,parties.IN.IND,IND,73,0.05,13,forfeit,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3583,karnataka,2023,44,GULBARGA DAKSHIN,MOHAMMED HUSSAIN (MOHAMMED),parties.IN.IND,IND,65,0.04,14,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3583,karnataka,2023,44,GULBARGA DAKSHIN,VIJAY JADHAV,parties.IN.KRS,Karnataka Rashtra Samithi,58,0.04,15,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -478,7 +478,7 @@ IN-AC-2008-karnataka-eci45,karnataka,2023,45,GULBARGA UTTAR,ABDUL HAMEED BAGBAN,
 IN-AC-2008-karnataka-eci45,karnataka,2023,45,GULBARGA UTTAR,ABDUL RAHEEM MIRCHI SAIT,parties.IN.IND,IND,90,0.05,9,forfeit,U,50,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci45,karnataka,2023,45,GULBARGA UTTAR,A.S. SHARANABASAPPA (SHARAN. IT),parties.IN.JDU,Janata Dal(United),87,0.05,10,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci45,karnataka,2023,45,GULBARGA UTTAR,ABDUL HAMEED DABUR,parties.IN.ABML_S,ABML(S),70,0.04,11,forfeit,U,73,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-eci45,karnataka,2023,45,GULBARGA UTTAR,BHOVI TARABAI,parties.IN.UNK,Bhartiya Jan Samrat Party,65,0.04,12,forfeit,U,45,Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-eci45,karnataka,2023,45,GULBARGA UTTAR,BHOVI TARABAI,parties.IN.BTJSP,Bhartiya Jan Samrat Party,65,0.04,12,forfeit,U,45,Graduate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci45,karnataka,2023,45,GULBARGA UTTAR,MOHAMMED. ASHRAF,parties.IN.AIMEIEM,All India Majlis-E-Inquilab-E-Millat,45,0.03,13,forfeit,U,64,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3509,karnataka,2023,46,ALAND,Bhojaraj,parties.IN.INC,INC,89508,51.27,1,won,U,73,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3509,karnataka,2023,46,ALAND,Subhash Guttedar,parties.IN.BJP,BJP,79160,45.34,2,lost,U,71,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -491,7 +491,7 @@ IN-AC-2008-karnataka-3509,karnataka,2023,46,ALAND,Rajkumar,parties.IN.BSP,BSP,29
 IN-AC-2008-karnataka-3509,karnataka,2023,46,ALAND,Ratnappa,parties.IN.IND,IND,200,0.11,10,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3509,karnataka,2023,46,ALAND,Mahiboob Basha,parties.IN.IND,IND,178,0.1,11,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3509,karnataka,2023,46,ALAND,Pandit,parties.IN.IND,IND,146,0.08,12,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3509,karnataka,2023,46,ALAND,Chowhan Raju,parties.IN.UNK,BhartiyaBahujanKranti Dal,108,0.06,13,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3509,karnataka,2023,46,ALAND,Chowhan Raju,parties.IN.BBKD,BhartiyaBahujanKranti Dal,108,0.06,13,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3509,karnataka,2023,46,ALAND,Dattappa,parties.IN.RSPS,RSPS,75,0.04,14,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3511,karnataka,2023,47,BASAVAKALYAN,SHARANU SALAGAR,parties.IN.BJP,BJP,92920,52.8,1,won,U,47,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3511,karnataka,2023,47,BASAVAKALYAN,VIJAY SINGH,parties.IN.INC,INC,78505,44.61,2,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
@@ -507,7 +507,7 @@ IN-AC-2008-karnataka-3516,karnataka,2023,48,HOMNABAD,SIDDU PATIL,parties.IN.BJP,
 IN-AC-2008-karnataka-3516,karnataka,2023,48,HOMNABAD,RAJASHEKHAR BASAVARAJ PATIL,parties.IN.INC,INC,73921,41.34,2,lost,U,58,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3516,karnataka,2023,48,HOMNABAD,C.M FAIZ,parties.IN.JDS,JD(S),25900,14.48,3,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3516,karnataka,2023,48,HOMNABAD,BANK REDDY,parties.IN.AAAP,AAAP,1413,0.79,4,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3516,karnataka,2023,48,HOMNABAD,NAGANATH MARUTI,parties.IN.UNK,Indian Movement Party,749,0.42,5,forfeit,U,34,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3516,karnataka,2023,48,HOMNABAD,NAGANATH MARUTI,parties.IN.IMP,Indian Movement Party,749,0.42,5,forfeit,U,34,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3516,karnataka,2023,48,HOMNABAD,MOHAMMED ABRAR AHMED,parties.IN.AIMEIEM,All India Majlis-E-Inquilab-E-Millat,356,0.2,7,forfeit,U,63,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3516,karnataka,2023,48,HOMNABAD,PARAVEJ PATIL,parties.IN.IND,IND,224,0.13,8,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3514,karnataka,2023,49,BIDAR SOUTH,DR. SHAILENDRA BELDALE,parties.IN.BJP,BJP,49872,32.51,1,won,U,49,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
@@ -518,13 +518,13 @@ IN-AC-2008-karnataka-3514,karnataka,2023,49,BIDAR SOUTH,M.NASEEMUDDIN PATEL,part
 IN-AC-2008-karnataka-3514,karnataka,2023,49,BIDAR SOUTH,TUKARAM GOURE,parties.IN.KRS,Karnataka Rashtra Samithi,779,0.51,6,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3514,karnataka,2023,49,BIDAR SOUTH,KAPIL GODBOLE,parties.IN.BSP,BSP,645,0.42,8,forfeit,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3514,karnataka,2023,49,BIDAR SOUTH,SHIVRAJ BABU,parties.IN.RSPS,RSPS,529,0.34,9,forfeit,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3514,karnataka,2023,49,BIDAR SOUTH,BHEEMA SHANKAR POLICE PATIL,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,500,0.33,10,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3514,karnataka,2023,49,BIDAR SOUTH,BHEEMA SHANKAR POLICE PATIL,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,500,0.33,10,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3514,karnataka,2023,49,BIDAR SOUTH,SHIVAKUMAR PATIL,parties.IN.IND,IND,464,0.3,11,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3513,karnataka,2023,50,BIDAR,Rahim Khan,parties.IN.INC,INC,69165,46.03,1,won,U,57,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3513,karnataka,2023,50,BIDAR,SURYAKANTH NAGAMARPALLI,parties.IN.JDS,JD(S),58385,38.85,2,lost,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3513,karnataka,2023,50,BIDAR,ISHWAR SINGH THAKUR,parties.IN.BJP,BJP,17779,11.83,3,forfeit,U,51,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3513,karnataka,2023,50,BIDAR,Gulam Ali,parties.IN.AAAP,AAAP,2032,1.35,4,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3513,karnataka,2023,50,BIDAR,"ASHOK KARANJI, GADGI",parties.IN.UNK,Sarvajanika Adarsha Sena,481,0.32,6,forfeit,U,60,Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3513,karnataka,2023,50,BIDAR,"ASHOK KARANJI, GADGI",parties.IN.SJAS,Sarvajanika Adarsha Sena,481,0.32,6,forfeit,U,60,Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3513,karnataka,2023,50,BIDAR,SHASHIKUMAR S POLICE PATIL CHAWLI,parties.IN.IND,IND,469,0.31,7,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3513,karnataka,2023,50,BIDAR,ANILKUMAR TUKARAM KHASHAMPURE,parties.IN.BSP,BSP,408,0.27,8,forfeit,U,35,Others,Engineer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3513,karnataka,2023,50,BIDAR,Hanamanth Matte,parties.IN.KRS,Karnataka Rashtra Samithi,366,0.24,9,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -552,7 +552,7 @@ IN-AC-2008-karnataka-3510,karnataka,2023,52,AURAD,ANIL RATHOD S/. BHAVRAO RATHOD
 IN-AC-2008-karnataka-3510,karnataka,2023,52,AURAD,GUNWANTRAO S/. SANGRAM,parties.IN.BSP,BSP,362,0.23,7,forfeit,U,60,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3510,karnataka,2023,52,AURAD,DR. M.P. DARAKESWARAIAH,parties.IN.IND,IND,361,0.23,8,forfeit,U,64,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3510,karnataka,2023,52,AURAD,SANTOSHKUMAR,parties.IN.IND,IND,331,0.21,9,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3510,karnataka,2023,52,AURAD,DR LAXMAN SORHALLI,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,270,0.17,10,forfeit,U,54,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3510,karnataka,2023,52,AURAD,DR LAXMAN SORHALLI,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,270,0.17,10,forfeit,U,54,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3510,karnataka,2023,52,AURAD,RAHUL S/. BABURAO,parties.IN.SAJP,Samajwadi Janata Party(Karnataka),266,0.17,11,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3510,karnataka,2023,52,AURAD,NARSING TUKARAM,parties.IN.JPK,Janahitha Paksha,136,0.09,12,forfeit,U,70,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3510,karnataka,2023,52,AURAD,K.R.S. ANKUSH,parties.IN.KRS,Karnataka Rashtra Samithi,130,0.08,13,forfeit,U,31,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -560,8 +560,8 @@ IN-AC-2008-karnataka-3641,karnataka,2023,53,RAICHUR RURAL,Basanagouda Daddal,par
 IN-AC-2008-karnataka-3641,karnataka,2023,53,RAICHUR RURAL,Tipparaju Hawaldar,parties.IN.BJP,BJP,75283,43.43,2,lost,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3641,karnataka,2023,53,RAICHUR RURAL,K. Narasimha Nayak,parties.IN.JDS,JD(S),4127,2.38,3,forfeit,U,55,10th Pass,Engineer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3641,karnataka,2023,53,RAICHUR RURAL,Shubhashchandra Sambaji,parties.IN.AAAP,AAAP,1535,0.89,4,forfeit,U,61,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3641,karnataka,2023,53,RAICHUR RURAL,Veerangoda,parties.IN.UNK,Indian Movement Party,760,0.44,6,forfeit,U,58,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3641,karnataka,2023,53,RAICHUR RURAL,M Khashim Nayak,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,428,0.25,7,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3641,karnataka,2023,53,RAICHUR RURAL,Veerangoda,parties.IN.IMP,Indian Movement Party,760,0.44,6,forfeit,U,58,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3641,karnataka,2023,53,RAICHUR RURAL,M Khashim Nayak,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,428,0.25,7,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3641,karnataka,2023,53,RAICHUR RURAL,Badesaab,parties.IN.IND,IND,357,0.21,8,forfeit,U,37,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3641,karnataka,2023,53,RAICHUR RURAL,I. Kumar Nayak,parties.IN.KRS,Karnataka Rashtra Samithi,275,0.16,9,forfeit,U,43,Illiterate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci54,karnataka,2023,54,RAICHUR,Dr. Shivaraj Patil,parties.IN.BJP,BJP,69655,47.96,1,won,U,52,Post Graduate,,incumbent,src-1b7bc1c9d39a
@@ -569,7 +569,7 @@ IN-AC-2008-karnataka-eci54,karnataka,2023,54,RAICHUR,Mohammed Shalam,parties.IN.
 IN-AC-2008-karnataka-eci54,karnataka,2023,54,RAICHUR,E. Vinay kumar,parties.IN.JDS,JD(S),2780,1.91,3,forfeit,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci54,karnataka,2023,54,RAICHUR,Mujeebuddin,parties.IN.IND,IND,1327,0.91,4,forfeit,U,53,Others,Engineer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci54,karnataka,2023,54,RAICHUR,Syed Ishaq Hussain,parties.IN.SDPI,SDPI,632,0.44,5,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-eci54,karnataka,2023,54,RAICHUR,Raman Gowda Yeganuru,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,587,0.4,7,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-eci54,karnataka,2023,54,RAICHUR,Raman Gowda Yeganuru,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,587,0.4,7,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci54,karnataka,2023,54,RAICHUR,Jayabheema,parties.IN.BSP,BSP,583,0.4,8,forfeit,U,33,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci54,karnataka,2023,54,RAICHUR,Veeresh Kumar.D,parties.IN.AAAP,AAAP,581,0.4,9,forfeit,U,55,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci54,karnataka,2023,54,RAICHUR,Dr. Basavaraj Kalasa,parties.IN.IND,IND,549,0.38,10,forfeit,U,52,Doctorate,,challenger,src-1b7bc1c9d39a
@@ -580,7 +580,7 @@ IN-AC-2008-karnataka-eci54,karnataka,2023,54,RAICHUR,Syed Rasheed Pasha,parties.
 IN-AC-2008-karnataka-eci54,karnataka,2023,54,RAICHUR,Eresh,parties.IN.IND,IND,181,0.12,15,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci54,karnataka,2023,54,RAICHUR,Veeresh N.S,parties.IN.SUCI,SUCI,165,0.11,16,forfeit,U,49,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci54,karnataka,2023,54,RAICHUR,Indramma,parties.IN.IND,IND,119,0.08,17,forfeit,U,69,Illiterate,Household,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-eci54,karnataka,2023,54,RAICHUR,Mahadeva,parties.IN.UNK,Country Citizen Party,116,0.08,18,forfeit,U,34,5th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-eci54,karnataka,2023,54,RAICHUR,Mahadeva,parties.IN.CCP,Country Citizen Party,116,0.08,18,forfeit,U,34,5th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci54,karnataka,2023,54,RAICHUR,Ramanna,parties.IN.KRS,Karnataka Rashtra Samithi,109,0.08,19,forfeit,U,70,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3639,karnataka,2023,55,MANVI,G Hampayya Nayak,parties.IN.INC,INC,66922,42.43,1,won,U,84,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3639,karnataka,2023,55,MANVI,A Bhagavantaray,parties.IN.BJP,BJP,59203,37.53,2,lost,U,57,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -596,19 +596,19 @@ IN-AC-2008-karnataka-3637,karnataka,2023,56,DEVADURGA,Narasannagouda Hosamani,pa
 IN-AC-2008-karnataka-3638,karnataka,2023,57,LINGSUGUR,MANAPPA D VAJJAL,parties.IN.BJP,BJP,58769,33.73,1,won,U,59,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3638,karnataka,2023,57,LINGSUGUR,D.S.HULAGERI,parties.IN.INC,INC,55960,32.12,2,lost,U,57,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3638,karnataka,2023,57,LINGSUGUR,BANDI SHIDDU,parties.IN.JDS,JD(S),41322,23.72,3,lost,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3638,karnataka,2023,57,LINGSUGUR,R.RUDRAIAH,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,13764,7.9,4,forfeit,U,64,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3638,karnataka,2023,57,LINGSUGUR,R.RUDRAIAH,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,13764,7.9,4,forfeit,U,64,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3638,karnataka,2023,57,LINGSUGUR,ANILKUMAR D.JANAPPA HIRENAGANOOR,parties.IN.BSP,BSP,1193,0.68,6,forfeit,U,32,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3638,karnataka,2023,57,LINGSUGUR,NAGARAJ MOTHI,parties.IN.UPJP,Uttama Prajaakeeya Party,1152,0.66,7,forfeit,U,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3638,karnataka,2023,57,LINGSUGUR,VIJAY KUMAR POL,parties.IN.KRS,Karnataka Rashtra Samithi,753,0.43,8,forfeit,U,30,Others,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3618,karnataka,2023,58,SINDHANUR,HAMPANAGOUDA BADARLI,parties.IN.INC,INC,73645,41.98,1,won,U,73,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3618,karnataka,2023,58,SINDHANUR,K. KARIYAPPA,parties.IN.BJP,BJP,51703,29.47,2,lost,U,57,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3618,karnataka,2023,58,SINDHANUR,VENKATRAO NADAGOUDA,parties.IN.JDS,JD(S),43461,24.77,3,lost,U,66,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3618,karnataka,2023,58,SINDHANUR,MALLIKARJUN NEKKANTI,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,2147,1.22,4,forfeit,U,43,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3618,karnataka,2023,58,SINDHANUR,MALLIKARJUN NEKKANTI,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,2147,1.22,4,forfeit,U,43,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3618,karnataka,2023,58,SINDHANUR,SANGRAM NARAYAN KILLED,parties.IN.AAAP,AAAP,1388,0.79,5,forfeit,U,36,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3618,karnataka,2023,58,SINDHANUR,NIJAGUNAYYA,parties.IN.UPJP,Uttama Prajaakeeya Party,853,0.49,7,forfeit,U,48,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3618,karnataka,2023,58,SINDHANUR,BASAPUR SHARANAPPA NEELAKANTAPPA,parties.IN.IND,IND,448,0.26,8,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3618,karnataka,2023,58,SINDHANUR,NIRUPADI K GOMARSHI,parties.IN.KRS,Karnataka Rashtra Samithi,270,0.15,9,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3618,karnataka,2023,58,SINDHANUR,BASAVARAJ SASALAMARI,parties.IN.UNK,Republican Party of India Bharatha,236,0.13,10,forfeit,U,54,Illiterate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3618,karnataka,2023,58,SINDHANUR,BASAVARAJ SASALAMARI,parties.IN.RPIB,Republican Party of India Bharatha,236,0.13,10,forfeit,U,54,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3618,karnataka,2023,58,SINDHANUR,BASAVARAJ BADARLI,parties.IN.IND,IND,215,0.12,11,forfeit,U,42,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3617,karnataka,2023,59,MASKI,BASAN GOUDA TURVIHAL,parties.IN.INC,INC,79566,52.76,1,won,U,58,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3617,karnataka,2023,59,MASKI,PRATAPGOUDA PATIL,parties.IN.BJP,BJP,66513,44.11,2,lost,U,68,Graduate,,challenger,src-1b7bc1c9d39a
@@ -623,7 +623,7 @@ IN-AC-2008-karnataka-3616,karnataka,2023,60,KUSHTAGI,B.VAZEERALI GONAL,parties.I
 IN-AC-2008-karnataka-3616,karnataka,2023,60,KUSHTAGI,SHARANAPPA SIDDAPPA KUMBAR,parties.IN.JDS,JD(S),1048,0.57,5,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3616,karnataka,2023,60,KUSHTAGI,KANAKAPPA MALAGAVI,parties.IN.AAAP,AAAP,729,0.4,6,forfeit,U,51,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3616,karnataka,2023,60,KUSHTAGI,SHIVAKUMAR CHILKARAGI,parties.IN.IND,IND,391,0.21,7,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3616,karnataka,2023,60,KUSHTAGI,C.M.HIREMATH,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,380,0.21,8,forfeit,U,72,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3616,karnataka,2023,60,KUSHTAGI,C.M.HIREMATH,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,380,0.21,8,forfeit,U,72,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3616,karnataka,2023,60,KUSHTAGI,RAMANAGOUDA.M.MALIPATIL,parties.IN.IND,IND,346,0.19,9,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3616,karnataka,2023,60,KUSHTAGI,SIDDAPPA KALAKERI,parties.IN.UPJP,Uttama Prajaakeeya Party,272,0.15,10,forfeit,U,27,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3616,karnataka,2023,60,KUSHTAGI,SHIVAPUTRAPPA MENEDAL,parties.IN.BSP,BSP,203,0.11,11,forfeit,U,56,5th Pass,,challenger,src-1b7bc1c9d39a
@@ -634,7 +634,7 @@ IN-AC-2008-karnataka-3616,karnataka,2023,60,KUSHTAGI,SHANTARAJA PARSHWANATH GOGI
 IN-AC-2008-karnataka-3616,karnataka,2023,60,KUSHTAGI,PARASAPPA BHEEMAPPA GAJJARI,parties.IN.RCMP,Rani Chennamma Party,44,0.02,16,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3614,karnataka,2023,61,KANAKAGIRI,TANGADAGI SHIVARAJ SANGAPPA,parties.IN.INC,INC,106164,60.13,1,won,U,53,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3614,karnataka,2023,61,KANAKAGIRI,BASAVARAJ DADESUGUR,parties.IN.BJP,BJP,63532,35.98,2,lost,U,43,5th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3614,karnataka,2023,61,KANAKAGIRI,CHARUL VENKANTRAMANA DASARI,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,1319,0.75,4,forfeit,U,33,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3614,karnataka,2023,61,KANAKAGIRI,CHARUL VENKANTRAMANA DASARI,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,1319,0.75,4,forfeit,U,33,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3614,karnataka,2023,61,KANAKAGIRI,KENCHAPPA LINGAPPA HIREKHED,parties.IN.CPIMLL,CPI(ML)(L),747,0.42,5,forfeit,U,39,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3614,karnataka,2023,61,KANAKAGIRI,P V RAJAGOPAL,parties.IN.JDS,JD(S),709,0.4,6,forfeit,U,63,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3614,karnataka,2023,61,KANAKAGIRI,SANDEEP SANJEEVAPPA BUDAGUMPA,parties.IN.IND,IND,678,0.38,7,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -643,21 +643,21 @@ IN-AC-2008-karnataka-3614,karnataka,2023,61,KANAKAGIRI,RAMESH,parties.IN.IND,IND
 IN-AC-2008-karnataka-3614,karnataka,2023,61,KANAKAGIRI,B JNANASUNDAR,parties.IN.IND,IND,396,0.22,10,forfeit,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3614,karnataka,2023,61,KANAKAGIRI,H HULUGAPPA,parties.IN.IND,IND,191,0.11,11,forfeit,U,46,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3614,karnataka,2023,61,KANAKAGIRI,GANESH,parties.IN.KRS,Karnataka Rashtra Samithi,144,0.08,12,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3614,karnataka,2023,61,KANAKAGIRI,K BALAPPA,parties.IN.UNK,Bharatiya Praja Aikyata Party,136,0.08,13,forfeit,U,68,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,G JANARDHAN REDDY,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,66213,41.42,1,won,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3614,karnataka,2023,61,KANAKAGIRI,K BALAPPA,parties.IN.BHRTPRJAIK,Bharatiya Praja Aikyata Party,136,0.08,13,forfeit,U,68,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,G JANARDHAN REDDY,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,66213,41.42,1,won,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,IQBAL ANSARI,parties.IN.INC,INC,57947,36.25,2,lost,U,60,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,PARANNA ISHWARAPPA MUNAVALLI,parties.IN.BJP,BJP,29167,18.25,3,lost,U,68,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,CHANNAKESHAVE HERIYAAL RAMULU,parties.IN.JDS,JD(S),1212,0.76,4,forfeit,U,53,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,PRASAD TALURI,parties.IN.IND,IND,792,0.5,5,forfeit,U,51,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,SHIVASHANKARYYA SWAMI SHETTAR‌ KARATAGI,parties.IN.IND,IND,522,0.33,6,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,KARADI BASAVARAJA,parties.IN.UNK,Indian Movement Party,477,0.3,7,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,KARADI BASAVARAJA,parties.IN.IMP,Indian Movement Party,477,0.3,7,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,SHARANAPPA SAJJIHOLA,parties.IN.AAAP,AAAP,415,0.26,9,forfeit,U,45,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,KANAKAPPA HANUMAPPA HUDEJALI,parties.IN.KRS,Karnataka Rashtra Samithi,391,0.24,10,forfeit,U,46,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,SANGAMESH SUGREEVAA,parties.IN.IND,IND,372,0.23,11,forfeit,U,35,Graduate Professional,Engineer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,SHARANAPPA SINGANAL,parties.IN.UPJP,Uttama Prajaakeeya Party,371,0.23,12,forfeit,U,28,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,VENKATESH RAO G KULKARNI HEGGAPUR,parties.IN.BPKP,Bharatiya Prajagala Kalyana Paksha,356,0.22,13,forfeit,U,57,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,CHAKRAVARTHI NAYAKA T,parties.IN.IND,IND,273,0.17,14,forfeit,U,84,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,SARASWATI K,parties.IN.UNK,Republican Party of India Bharatha,222,0.14,15,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,SARASWATI K,parties.IN.RPIB,Republican Party of India Bharatha,222,0.14,15,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,SHANKAR SIDDAPUR,parties.IN.BSP,BSP,190,0.12,16,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,VIJAY KUMAR ACHAPPA,parties.IN.ABHM,ABHM,177,0.11,17,forfeit,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3613,karnataka,2023,62,GANGAWATI,MAHAMMAD NATHIK ALAM,parties.IN.IND,IND,156,0.1,18,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -685,7 +685,7 @@ IN-AC-2008-karnataka-3615,karnataka,2023,64,KOPPAL,PRAMOD.M.P,parties.IN.IND,IND
 IN-AC-2008-karnataka-3615,karnataka,2023,64,KOPPAL,SHASHIDHAR.K.M,parties.IN.IND,IND,260,0.13,10,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3615,karnataka,2023,64,KOPPAL,GAVEESH SASIMATH,parties.IN.IND,IND,192,0.1,11,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3615,karnataka,2023,64,KOPPAL,MALLIKARJUN HADAPADA,parties.IN.IND,IND,173,0.09,12,forfeit,U,55,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3615,karnataka,2023,64,KOPPAL,MARISWAMI. R. KANAKAGIRI,parties.IN.UNK,Republican Party of India Bharatha,149,0.08,13,forfeit,U,43,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3615,karnataka,2023,64,KOPPAL,MARISWAMI. R. KANAKAGIRI,parties.IN.RPIB,Republican Party of India Bharatha,149,0.08,13,forfeit,U,43,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3604,karnataka,2023,65,SHIRAHATTI,DR.CHANDRU LAMANI,parties.IN.BJP,BJP,74489,45.43,1,won,U,34,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3604,karnataka,2023,65,SHIRAHATTI,RAMAKRISHNA. SHIDLINGAPPA. DODDAMANI,parties.IN.IND,IND,45969,28.03,2,lost,U,67,5th Pass,Ex MLA,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3604,karnataka,2023,65,SHIRAHATTI,SUJATA NINGAPPA DODDAMANI,parties.IN.INC,INC,34791,21.22,3,lost,U,47,Graduate,Contractor,challenger,src-1b7bc1c9d39a
@@ -697,7 +697,7 @@ IN-AC-2008-karnataka-3604,karnataka,2023,65,SHIRAHATTI,RAJAVENKATESH D KARABHARI
 IN-AC-2008-karnataka-3604,karnataka,2023,65,SHIRAHATTI,SUSHMA SUNIL SARVADE,parties.IN.UPJP,Uttama Prajaakeeya Party,472,0.29,10,forfeit,U,37,Graduate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3604,karnataka,2023,65,SHIRAHATTI,SANTOSH GOURAVVA HIREMANI,parties.IN.IND,IND,458,0.28,11,forfeit,U,34,Graduate Professional,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3604,karnataka,2023,65,SHIRAHATTI,HANUMANTAPPA PEERAPPA KORAVAR,parties.IN.IND,IND,445,0.27,12,forfeit,U,37,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3604,karnataka,2023,65,SHIRAHATTI,DR. MUTTU. SURAKOD (MADAR),parties.IN.UNK,Indian Movement Party,312,0.19,13,forfeit,U,37,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3604,karnataka,2023,65,SHIRAHATTI,DR. MUTTU. SURAKOD (MADAR),parties.IN.IMP,Indian Movement Party,312,0.19,13,forfeit,U,37,10th Pass,Coolie,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3604,karnataka,2023,65,SHIRAHATTI,DURAGAPPA SHEKHAPPA BINJADAGI,parties.IN.IND,IND,228,0.14,14,forfeit,U,67,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3604,karnataka,2023,65,SHIRAHATTI,MANJUNATH ASANGEPPA ASANGI,parties.IN.KRS,Karnataka Rashtra Samithi,228,0.14,15,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3598,karnataka,2023,66,GADAG,H. K. PATIL,parties.IN.INC,INC,89958,52.84,1,won,U,70,Graduate Professional,,incumbent,src-1b7bc1c9d39a
@@ -711,7 +711,7 @@ IN-AC-2008-karnataka-3598,karnataka,2023,66,GADAG,SACHINKUMAR KARJEKANNAVAR,part
 IN-AC-2008-karnataka-3598,karnataka,2023,66,GADAG,VISHWANATH KHANAPUR,parties.IN.IND,IND,276,0.16,10,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3598,karnataka,2023,66,GADAG,VEERABHADRAPPA VEERAPPA KABBINAD,parties.IN.IND,IND,241,0.14,11,forfeit,U,75,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3598,karnataka,2023,66,GADAG,BASAVARAJ MALODE,parties.IN.IND,IND,106,0.06,12,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3598,karnataka,2023,66,GADAG,POOJA MALLAPPA BEVOOR,parties.IN.UNK,Indian Movement Party,98,0.06,13,forfeit,U,50,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3598,karnataka,2023,66,GADAG,POOJA MALLAPPA BEVOOR,parties.IN.IMP,Indian Movement Party,98,0.06,13,forfeit,U,50,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3598,karnataka,2023,66,GADAG,B. M. PATIL,parties.IN.IND,IND,95,0.06,14,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3598,karnataka,2023,66,GADAG,CHANDRASHEKHAR DESAI,parties.IN.RCMP,Rani Chennamma Party,72,0.04,15,forfeit,U,45,8th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3603,karnataka,2023,67,RON,GURUPADAGOUDA SANGANAGOUDA PATIL,parties.IN.INC,INC,94865,53.24,1,won,U,75,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -736,7 +736,7 @@ IN-AC-2008-karnataka-3459,karnataka,2023,68,NARGUND,HANAMANT YALLAPPA MADAR,part
 IN-AC-2008-karnataka-3459,karnataka,2023,68,NARGUND,DR|| MUTTU SURAKOD (MADAR),parties.IN.IND,IND,81,0.05,12,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3459,karnataka,2023,68,NARGUND,M. Y. NAYAK,parties.IN.IND,IND,51,0.03,13,forfeit,U,40,12th Pass,Qualified Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3459,karnataka,2023,68,NARGUND,UMESH FAKEERAPPA TALAWAR,parties.IN.IND,IND,41,0.03,14,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3459,karnataka,2023,68,NARGUND,RUDRAYYA. GADIGEYYA. SUREBAN.,parties.IN.UNK,Indian Movement Party,39,0.03,15,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3459,karnataka,2023,68,NARGUND,RUDRAYYA. GADIGEYYA. SUREBAN.,parties.IN.IMP,Indian Movement Party,39,0.03,15,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3579,karnataka,2023,69,NAVALGUND,NINGARADDI HANAMARADDI KONARADDI,parties.IN.INC,INC,86081,53.16,1,won,U,59,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3579,karnataka,2023,69,NAVALGUND,SHANKAR BASANAGOUDA PATIL MUNENAKOPPA,parties.IN.BJP,BJP,63882,39.45,2,lost,U,54,12th Pass,Transport,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3579,karnataka,2023,69,NAVALGUND,KALLAPPA NAGAPPA GADDI,parties.IN.JDS,JD(S),6914,4.27,3,forfeit,U,58,Graduate,,crossover,src-1b7bc1c9d39a
@@ -747,7 +747,7 @@ IN-AC-2008-karnataka-3579,karnataka,2023,69,NAVALGUND,MOHAN DEVARADDI MASTI,part
 IN-AC-2008-karnataka-3579,karnataka,2023,69,NAVALGUND,HANUMANTAPPA YALLAPPA MEGALAMANI,parties.IN.BSP,BSP,353,0.22,9,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3579,karnataka,2023,69,NAVALGUND,VINAYAKUMAR PARAPPA MYAGERI,parties.IN.IND,IND,285,0.18,10,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3579,karnataka,2023,69,NAVALGUND,MALLIKARJUNGOUDA GIRIYAPPAGOUDA BALANGOUDRA,parties.IN.IND,IND,161,0.1,11,forfeit,U,59,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3579,karnataka,2023,69,NAVALGUND,AJAY MALLIKARJUN HUGAR,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,152,0.09,12,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3579,karnataka,2023,69,NAVALGUND,AJAY MALLIKARJUN HUGAR,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,152,0.09,12,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3579,karnataka,2023,69,NAVALGUND,MALLAPPA KRISHNAPPA HEBASUR,parties.IN.IND,IND,131,0.08,13,forfeit,U,38,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3579,karnataka,2023,69,NAVALGUND,MAILARAPPA BHARAMAPPA CHAVADI,parties.IN.KRS,Karnataka Rashtra Samithi,107,0.07,14,forfeit,U,30,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3578,karnataka,2023,70,KUNDGOL,M R PATIL,parties.IN.BJP,BJP,76105,49.07,1,won,U,61,Graduate,,challenger,src-1b7bc1c9d39a
@@ -757,7 +757,7 @@ IN-AC-2008-karnataka-3578,karnataka,2023,70,KUNDGOL,HAZRATALI SHAIKH JODAMANI,pa
 IN-AC-2008-karnataka-3578,karnataka,2023,70,KUNDGOL,SHIVANAGOUDA BASANAGOUDA KURATTI,parties.IN.IND,IND,777,0.5,6,forfeit,U,27,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3578,karnataka,2023,70,KUNDGOL,NIRANJANAYYA RUDRAYYA MANAKATTIMATH,parties.IN.AAAP,AAAP,620,0.4,7,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3578,karnataka,2023,70,KUNDGOL,VIRUPAKSHAGOUDA NAGANAGOUDA FAKKIRAGOUDRA,parties.IN.IND,IND,257,0.17,8,forfeit,U,70,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3578,karnataka,2023,70,KUNDGOL,YELLAPPA HANAMAPPA DABAGONDI,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,202,0.13,9,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3578,karnataka,2023,70,KUNDGOL,YELLAPPA HANAMAPPA DABAGONDI,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,202,0.13,9,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3578,karnataka,2023,70,KUNDGOL,GANGADHAR SHIVARADDI KHANDEGOUDRU,parties.IN.IND,IND,194,0.13,10,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3578,karnataka,2023,70,KUNDGOL,MALLIKARJUN KALLAPPA TOTAGER,parties.IN.IND,IND,128,0.08,11,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3578,karnataka,2023,70,KUNDGOL,MAHAMMADAHANIPH RAJESAB KARADI,parties.IN.IND,IND,98,0.06,12,forfeit,U,59,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -773,7 +773,7 @@ IN-AC-2008-karnataka-3573,karnataka,2023,71,DHARWAD,SHASHIKIRAN NADAKATTI,partie
 IN-AC-2008-karnataka-3573,karnataka,2023,71,DHARWAD,MADHULATA GOUDAR,parties.IN.SUCI,SUCI,246,0.15,8,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3573,karnataka,2023,71,DHARWAD,KANTIMATH RAJASHEKHARAYYA VIRUPAKSHAYYA,parties.IN.IND,IND,238,0.14,9,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3573,karnataka,2023,71,DHARWAD,ANNA MANJU MANGALAGATTI,parties.IN.IND,IND,129,0.08,10,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3573,karnataka,2023,71,DHARWAD,SATTEVVA JAMANAL,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,128,0.08,11,forfeit,U,40,Literate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3573,karnataka,2023,71,DHARWAD,SATTEVVA JAMANAL,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,128,0.08,11,forfeit,U,40,Literate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3573,karnataka,2023,71,DHARWAD,SIDDU BAGUR,parties.IN.KRS,Karnataka Rashtra Samithi,63,0.04,12,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci72,karnataka,2023,72,HUBLI-DHARWAD-EAST,ABBAYYA PRASAD,parties.IN.INC,INC,85426,57.47,1,won,U,54,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci72,karnataka,2023,72,HUBLI-DHARWAD-EAST,Dr. KRANTHI KIRAN,parties.IN.BJP,BJP,53056,35.69,2,lost,U,54,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
@@ -782,10 +782,10 @@ IN-AC-2008-karnataka-eci72,karnataka,2023,72,HUBLI-DHARWAD-EAST,GUNTRAL VIJAY MA
 IN-AC-2008-karnataka-eci72,karnataka,2023,72,HUBLI-DHARWAD-EAST,HALAHARAVI VEERABADRAPPA,parties.IN.JDS,JD(S),900,0.61,5,forfeit,U,59,Post Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci72,karnataka,2023,72,HUBLI-DHARWAD-EAST,BASAVARAJ TERDAL,parties.IN.AAAP,AAAP,568,0.38,7,forfeit,U,48,Graduate,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci72,karnataka,2023,72,HUBLI-DHARWAD-EAST,VENKAPPA F SIDDANATH,parties.IN.IND,IND,355,0.24,8,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-eci72,karnataka,2023,72,HUBLI-DHARWAD-EAST,SHOBHA PALAVAI,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,211,0.14,9,forfeit,U,49,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-eci72,karnataka,2023,72,HUBLI-DHARWAD-EAST,SHOBHA PALAVAI,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,211,0.14,9,forfeit,U,49,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci72,karnataka,2023,72,HUBLI-DHARWAD-EAST,DEVENDRA.B.LINGADAL,parties.IN.IND,IND,145,0.1,10,forfeit,U,59,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci72,karnataka,2023,72,HUBLI-DHARWAD-EAST,CHANDRAKANTH HANJAGI,parties.IN.KRS,Karnataka Rashtra Samithi,90,0.06,11,forfeit,U,34,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-eci72,karnataka,2023,72,HUBLI-DHARWAD-EAST,LAXMAN MORAB,parties.IN.UNK,Hindustan Janta Party Secular,87,0.06,12,forfeit,U,34,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-eci72,karnataka,2023,72,HUBLI-DHARWAD-EAST,LAXMAN MORAB,parties.IN.HJPS,Hindustan Janta Party Secular,87,0.06,12,forfeit,U,34,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci73,karnataka,2023,73,HUBLI-DHARWAD-CENTRAL,MAHESH TENGINAKAI,parties.IN.BJP,BJP,95064,59.27,1,won,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci73,karnataka,2023,73,HUBLI-DHARWAD-CENTRAL,JAGADISH SHETTAR,parties.IN.INC,INC,60775,37.89,2,lost,U,67,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci73,karnataka,2023,73,HUBLI-DHARWAD-CENTRAL,MAHANTAWODEYAR SIDDALINGESHWARGOUDA,parties.IN.JDS,JD(S),513,0.32,4,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -795,7 +795,7 @@ IN-AC-2008-karnataka-eci73,karnataka,2023,73,HUBLI-DHARWAD-CENTRAL,SHIVARAJ.K. S
 IN-AC-2008-karnataka-eci73,karnataka,2023,73,HUBLI-DHARWAD-CENTRAL,REVANASIDDAPPA.M. HOSAMANI (DESAI),parties.IN.BSP,BSP,368,0.23,8,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci73,karnataka,2023,73,HUBLI-DHARWAD-CENTRAL,SAULAM JOSEPH,parties.IN.IND,IND,300,0.19,9,forfeit,U,63,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci73,karnataka,2023,73,HUBLI-DHARWAD-CENTRAL,BADANGKAR SABAJI,parties.IN.IND,IND,126,0.08,10,forfeit,U,62,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-eci73,karnataka,2023,73,HUBLI-DHARWAD-CENTRAL,RAGHAVENDRA PRAKASH KATHARE,parties.IN.UNK,Hindustan Janta Party Secular,121,0.08,11,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-eci73,karnataka,2023,73,HUBLI-DHARWAD-CENTRAL,RAGHAVENDRA PRAKASH KATHARE,parties.IN.HJPS,Hindustan Janta Party Secular,121,0.08,11,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci73,karnataka,2023,73,HUBLI-DHARWAD-CENTRAL,MEGHARAJ S/O MAREPPA HIREMANI,parties.IN.LS,Lok Shakti,109,0.07,12,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci73,karnataka,2023,73,HUBLI-DHARWAD-CENTRAL,MAULALI RAJESAB SANSHI,parties.IN.IND,IND,107,0.07,13,forfeit,U,39,5th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci73,karnataka,2023,73,HUBLI-DHARWAD-CENTRAL,RAJU ANANTSA NAIKWADI,parties.IN.IND,IND,97,0.06,14,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -814,7 +814,7 @@ IN-AC-2008-karnataka-eci74,karnataka,2023,74,HUBLI-DHARWAD- WEST,VADIRAJ MADHUSU
 IN-AC-2008-karnataka-eci74,karnataka,2023,74,HUBLI-DHARWAD- WEST,SHIDARAYA. M. KENCHANNAVAR,parties.IN.IND,IND,163,0.1,11,forfeit,U,65,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci74,karnataka,2023,74,HUBLI-DHARWAD- WEST,MOHAMMED ISMAIL MUKTI,parties.IN.IND,IND,119,0.07,12,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci74,karnataka,2023,74,HUBLI-DHARWAD- WEST,M.D. ROTTIGAWAD (M.D.R),parties.IN.KRS,Karnataka Rashtra Samithi,115,0.07,13,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-eci74,karnataka,2023,74,HUBLI-DHARWAD- WEST,SAROJA. F. NAGENDRAGAD.,parties.IN.UNK,Indian Movement Party,104,0.06,14,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-eci74,karnataka,2023,74,HUBLI-DHARWAD- WEST,SAROJA. F. NAGENDRAGAD.,parties.IN.IMP,Indian Movement Party,104,0.06,14,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci74,karnataka,2023,74,HUBLI-DHARWAD- WEST,VINOD DASHARATH GHODKE,parties.IN.PBI,"Proutist Bloc, India",71,0.04,15,forfeit,U,58,10th Pass,Mechanic,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci74,karnataka,2023,74,HUBLI-DHARWAD- WEST,BHANUBEE SHAIKH URF HOSAMANI,parties.IN.IND,IND,67,0.04,16,forfeit,U,54,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3577,karnataka,2023,75,KALGHATGI,SANTOSH.S.LAD,parties.IN.INC,INC,85761,52.86,1,won,U,48,Graduate,,challenger,src-1b7bc1c9d39a
@@ -827,7 +827,7 @@ IN-AC-2008-karnataka-3577,karnataka,2023,75,KALGHATGI,SHANKAR NINGAPPA HUDDAR,pa
 IN-AC-2008-karnataka-3577,karnataka,2023,75,KALGHATGI,G BASAVARAJ,parties.IN.IND,IND,255,0.16,9,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3577,karnataka,2023,75,KALGHATGI,BASAVALINGAPPA IRAPPA BUGADI,parties.IN.UPJP,Uttama Prajaakeeya Party,244,0.15,10,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3577,karnataka,2023,75,KALGHATGI,BASAVARAJ GANGAPPA SANGANNAVAR,parties.IN.IND,IND,179,0.11,11,forfeit,U,39,Graduate,Consultant,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3577,karnataka,2023,75,KALGHATGI,BUDANKHAN.M.M,parties.IN.UNK,Indian Movement Party,115,0.07,12,forfeit,U,68,Post Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3577,karnataka,2023,75,KALGHATGI,BUDANKHAN.M.M,parties.IN.IMP,Indian Movement Party,115,0.07,12,forfeit,U,68,Post Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3577,karnataka,2023,75,KALGHATGI,MALLIKA,parties.IN.PBI,"Proutist Bloc, India",79,0.05,13,forfeit,U,42,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3670,karnataka,2023,76,HALIYAL,DESHPANDE RAGHUNATH,parties.IN.INC,INC,57240,40.08,1,won,U,76,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3670,karnataka,2023,76,HALIYAL,SUNIL HEGADE,parties.IN.BJP,BJP,53617,37.54,2,lost,U,57,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -864,7 +864,7 @@ IN-AC-2008-karnataka-3669,karnataka,2023,79,BHATKAL,NAGENDRA NAIK,parties.IN.JDS
 IN-AC-2008-karnataka-3669,karnataka,2023,79,BHATKAL,DR.NASEEM KHAN,parties.IN.AAAP,AAAP,1007,0.58,5,forfeit,U,52,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3669,karnataka,2023,79,BHATKAL,GAFOOR SAB,parties.IN.IND,IND,662,0.38,6,forfeit,U,44,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3669,karnataka,2023,79,BHATKAL,YOGESH NAIK,parties.IN.UPJP,Uttama Prajaakeeya Party,646,0.37,7,forfeit,U,35,10th Pass,Auto-rickshaw Driver,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3669,karnataka,2023,79,BHATKAL,PRAKASH PINTO,parties.IN.UNK,Bharathiya Belaku Party,627,0.36,8,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3669,karnataka,2023,79,BHATKAL,PRAKASH PINTO,parties.IN.BTBP,Bharathiya Belaku Party,627,0.36,8,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3669,karnataka,2023,79,BHATKAL,GUNAVANTE SHANKAR GOUDA,parties.IN.KRS,Karnataka Rashtra Samithi,558,0.32,9,forfeit,U,43,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3669,karnataka,2023,79,BHATKAL,MOHAMMED ZABROOD KHATEEB,parties.IN.IND,IND,410,0.23,10,forfeit,U,48,5th Pass,Agricultural Business,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3675,karnataka,2023,80,SIRSI,BHIMANNA T. NAIK,parties.IN.INC,INC,76887,47.89,1,won,U,66,5th Pass,,challenger,src-1b7bc1c9d39a
@@ -875,13 +875,13 @@ IN-AC-2008-karnataka-3675,karnataka,2023,80,SIRSI,GOPAL DEVADIGA,parties.IN.IND,
 IN-AC-2008-karnataka-3675,karnataka,2023,80,SIRSI,ABHIRAM HEGDE HALALLA,parties.IN.IND,IND,606,0.38,7,forfeit,U,31,Post Graduate,Agricultural Business,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3675,karnataka,2023,80,SIRSI,SUNIL PAWAR,parties.IN.UPJP,Uttama Prajaakeeya Party,483,0.3,8,forfeit,U,36,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3675,karnataka,2023,80,SIRSI,UMESH KRISHNAPPA DAIVADNYA,parties.IN.IND,IND,384,0.24,9,forfeit,U,49,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3675,karnataka,2023,80,SIRSI,DINESH NAIK,parties.IN.UNK,Indian Movement Party,361,0.22,10,forfeit,U,38,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3675,karnataka,2023,80,SIRSI,DINESH NAIK,parties.IN.IMP,Indian Movement Party,361,0.22,10,forfeit,U,38,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3675,karnataka,2023,80,SIRSI,VISHWANATH G NAIK,parties.IN.KJP,KJP,151,0.09,11,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3676,karnataka,2023,81,YELLAPUR,ARABAIL HEBBAR SHIVARAM,parties.IN.BJP,BJP,74699,49.69,1,won,U,65,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3676,karnataka,2023,81,YELLAPUR,ANDALAGI VEERABHADRAGOUDA SHIVANAGOUD PATIL,parties.IN.INC,INC,70695,47.02,2,lost,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3676,karnataka,2023,81,YELLAPUR,NAGESH HONNAYYA NAIK,parties.IN.JDS,JD(S),1662,1.11,3,forfeit,U,63,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3676,karnataka,2023,81,YELLAPUR,BANSODE LAXMAN,parties.IN.IND,IND,661,0.44,5,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3676,karnataka,2023,81,YELLAPUR,SANTOSH MANJUNATH SHET RAIKAR,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,302,0.2,6,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3676,karnataka,2023,81,YELLAPUR,SANTOSH MANJUNATH SHET RAIKAR,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,302,0.2,6,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3676,karnataka,2023,81,YELLAPUR,ANAND GANAPATI BHAT,parties.IN.IND,IND,295,0.2,7,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3676,karnataka,2023,81,YELLAPUR,CHIDANAND H HARIJAN,parties.IN.IND,IND,255,0.17,8,forfeit,U,62,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3676,karnataka,2023,81,YELLAPUR,MANJUNATH LAVA KULUMKAR,parties.IN.AAAP,AAAP,192,0.13,9,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -893,11 +893,11 @@ IN-AC-2008-karnataka-3599,karnataka,2023,82,HANGAL,SAIKUMAR V PAWAR,parties.IN.A
 IN-AC-2008-karnataka-3599,karnataka,2023,82,HANGAL,SHRINIVAS DEVENDRAPPA SANKAPALE,parties.IN.IND,IND,515,0.29,6,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3599,karnataka,2023,82,HANGAL,HONNAPPA HANAMANTAPPA AKKIVALLI,parties.IN.IND,IND,326,0.18,7,forfeit,U,73,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3599,karnataka,2023,82,HANGAL,SHIDDU K PUJAR,parties.IN.IND,IND,225,0.13,8,forfeit,U,40,12th Pass,Coolie,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3599,karnataka,2023,82,HANGAL,PAMPAPATI S K,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,216,0.12,9,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3599,karnataka,2023,82,HANGAL,PAMPAPATI S K,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,216,0.12,9,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3599,karnataka,2023,82,HANGAL,UDACHAPPA UDDANAKAL,parties.IN.KRS,Karnataka Rashtra Samithi,173,0.1,10,forfeit,U,38,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3599,karnataka,2023,82,HANGAL,MALLIKARJUN (RAJANNA) C HAVERI,parties.IN.IND,IND,134,0.07,11,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3599,karnataka,2023,82,HANGAL,SUBRAMANYA ANANT HEBBAR,parties.IN.UNK,Hindustan Janta Party Secular,111,0.06,12,forfeit,U,35,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3599,karnataka,2023,82,HANGAL,BOVI (BARKI) MANJUNATH,parties.IN.UNK,Indian Movement Party,55,0.03,13,forfeit,U,51,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3599,karnataka,2023,82,HANGAL,SUBRAMANYA ANANT HEBBAR,parties.IN.HJPS,Hindustan Janta Party Secular,111,0.06,12,forfeit,U,35,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3599,karnataka,2023,82,HANGAL,BOVI (BARKI) MANJUNATH,parties.IN.IMP,Indian Movement Party,55,0.03,13,forfeit,U,51,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3580,karnataka,2023,83,SHIGGAON,BASAVARAJ BOMMAI,parties.IN.BJP,BJP,100016,54.95,1,won,U,63,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3580,karnataka,2023,83,SHIGGAON,PATHAN YASIRAHMEDKHAN,parties.IN.INC,INC,64038,35.18,2,lost,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3580,karnataka,2023,83,SHIGGAON,SHASHIDHAR YELIGAR,parties.IN.JDS,JD(S),13928,7.65,3,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -905,7 +905,7 @@ IN-AC-2008-karnataka-3580,karnataka,2023,83,SHIGGAON,MAHABOOBSAB DADUSAB KALEBAG
 IN-AC-2008-karnataka-3580,karnataka,2023,83,SHIGGAON,VIRUPAKSHAGOUDA NAGANAGOUDA FAKKIRAGOUDRA,parties.IN.IND,IND,565,0.31,6,forfeit,U,70,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3580,karnataka,2023,83,SHIGGAON,DR. U. P. SHIVANANDA,parties.IN.IND,IND,260,0.14,7,forfeit,U,72,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3580,karnataka,2023,83,SHIGGAON,MANJAKKA RUKKAVVA PUJAR,parties.IN.IND,IND,216,0.12,8,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3580,karnataka,2023,83,SHIGGAON,KHAJAMOHIDDIN GUDAGERI,parties.IN.UNK,Indian Movement Party,200,0.11,9,forfeit,U,59,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3580,karnataka,2023,83,SHIGGAON,KHAJAMOHIDDIN GUDAGERI,parties.IN.IMP,Indian Movement Party,200,0.11,9,forfeit,U,59,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3580,karnataka,2023,83,SHIGGAON,SHAMBULINGA HUKKERI,parties.IN.KRS,Karnataka Rashtra Samithi,152,0.08,10,forfeit,U,27,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3580,karnataka,2023,83,SHIGGAON,JAGADISH YALLAPPA BANKAPUR,parties.IN.IND,IND,141,0.08,11,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3600,karnataka,2023,84,HAVERI,RUDRAPPA MANAPPA LAMANI,parties.IN.INC,INC,93827,51.73,1,won,U,64,Graduate,,challenger,src-1b7bc1c9d39a
@@ -915,8 +915,8 @@ IN-AC-2008-karnataka-3600,karnataka,2023,84,HAVERI,SUJATA. P. CHAVAN,parties.IN.
 IN-AC-2008-karnataka-3600,karnataka,2023,84,HAVERI,PRADEEP MALAGAVI,parties.IN.IND,IND,700,0.39,6,forfeit,U,33,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3600,karnataka,2023,84,HAVERI,RAJENDRASWAMY HIREMATH,parties.IN.IND,IND,577,0.32,7,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3600,karnataka,2023,84,HAVERI,DURAGESH GUDDAPPA MEGALAMANI,parties.IN.IND,IND,281,0.15,8,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3600,karnataka,2023,84,HAVERI,"ANNAPPA, HANCHINAMANI",parties.IN.UNK,Swayam Krushi Party,174,0.1,9,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3600,karnataka,2023,84,HAVERI,CHANDANRANI DODAMANI,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,149,0.08,10,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3600,karnataka,2023,84,HAVERI,"ANNAPPA, HANCHINAMANI",parties.IN.SWYMKP,Swayam Krushi Party,174,0.1,9,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3600,karnataka,2023,84,HAVERI,CHANDANRANI DODAMANI,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,149,0.08,10,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3600,karnataka,2023,84,HAVERI,PREMA KALKERI,parties.IN.KRS,Karnataka Rashtra Samithi,148,0.08,11,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3597,karnataka,2023,85,BYADGI,Basavaraj Neelappa Shivannanavar,parties.IN.INC,INC,97740,55.58,1,won,U,68,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3597,karnataka,2023,85,BYADGI,Ballari Virupakshappa Rudrappa,parties.IN.BJP,BJP,73899,42.02,2,lost,U,60,5th Pass,,incumbent,src-1b7bc1c9d39a
@@ -924,7 +924,7 @@ IN-AC-2008-karnataka-3597,karnataka,2023,85,BYADGI,Sunita M Pujar,parties.IN.JDS
 IN-AC-2008-karnataka-3597,karnataka,2023,85,BYADGI,M N NAIK,parties.IN.AAAP,AAAP,772,0.44,5,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3597,karnataka,2023,85,BYADGI,Lohitha Namadeva,parties.IN.UPJP,Uttama Prajaakeeya Party,480,0.27,6,forfeit,U,33,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3597,karnataka,2023,85,BYADGI,Vishwanatharaddi D Radder,parties.IN.KRS,Karnataka Rashtra Samithi,430,0.24,7,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3597,karnataka,2023,85,BYADGI,SAYED FAHEEM GUDAGERI,parties.IN.UNK,Indian Movement Party,202,0.11,8,forfeit,U,26,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3597,karnataka,2023,85,BYADGI,SAYED FAHEEM GUDAGERI,parties.IN.IMP,Indian Movement Party,202,0.11,8,forfeit,U,26,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3601,karnataka,2023,86,HIREKERUR,Ujaneshwar Basavannappa Banakar,parties.IN.INC,INC,85378,53.53,1,won,U,63,Graduate Professional,Lawyer,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3601,karnataka,2023,86,HIREKERUR,Basavanagouda Patil,parties.IN.BJP,BJP,70358,44.11,2,lost,U,67,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3601,karnataka,2023,86,HIREKERUR,Jayananda Javannanavar,parties.IN.JDS,JD(S),1847,1.16,3,forfeit,U,49,10th Pass,Qualified Professional,challenger,src-1b7bc1c9d39a
@@ -941,8 +941,8 @@ IN-AC-2008-karnataka-3602,karnataka,2023,87,RANIBENNUR,SANTOSHKUMAR E KYATAPPANA
 IN-AC-2008-karnataka-3602,karnataka,2023,87,RANIBENNUR,RUDRAMUNI RAMAKKANAVARA,parties.IN.IND,IND,417,0.22,8,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3602,karnataka,2023,87,RANIBENNUR,HANUMANTHAPPA KABBAR,parties.IN.AAAP,AAAP,308,0.16,9,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3602,karnataka,2023,87,RANIBENNUR,MOHAN HANDE,parties.IN.IND,IND,298,0.15,10,forfeit,U,63,Others,Doctor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3602,karnataka,2023,87,RANIBENNUR,MANJUNATH N,parties.IN.UNK,Swayam Krushi Party,286,0.15,11,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3602,karnataka,2023,87,RANIBENNUR,TALAWAR SHIVAKUMAR,parties.IN.UNK,Indian Movement Party,198,0.1,12,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3602,karnataka,2023,87,RANIBENNUR,MANJUNATH N,parties.IN.SWYMKP,Swayam Krushi Party,286,0.15,11,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3602,karnataka,2023,87,RANIBENNUR,TALAWAR SHIVAKUMAR,parties.IN.IMP,Indian Movement Party,198,0.1,12,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3602,karnataka,2023,87,RANIBENNUR,MANJUNATHA K,parties.IN.IND,IND,169,0.09,13,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3602,karnataka,2023,87,RANIBENNUR,CHANNAVEERAYYA NAGAYYA HOLAGUNDIMATH,parties.IN.KRS,Karnataka Rashtra Samithi,144,0.07,14,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3602,karnataka,2023,87,RANIBENNUR,NARAYANA PATIL,parties.IN.IND,IND,126,0.07,15,forfeit,U,65,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -953,7 +953,7 @@ IN-AC-2008-karnataka-3503,karnataka,2023,88,HADAGALLI,N. SREEDHAR NAIK,parties.I
 IN-AC-2008-karnataka-3503,karnataka,2023,88,HADAGALLI,L.ANILAKUMARA,parties.IN.KRS,Karnataka Rashtra Samithi,408,0.27,6,forfeit,U,29,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3503,karnataka,2023,88,HADAGALLI,S.MALLESHANAIK,parties.IN.IND,IND,396,0.26,7,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3503,karnataka,2023,88,HADAGALLI,LAKKAPPA ANGADI,parties.IN.RCMP,Rani Chennamma Party,361,0.24,8,forfeit,U,61,Graduate,Retired Teacher,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3503,karnataka,2023,88,HADAGALLI,D.BHOJYA NAIK,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,286,0.19,9,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3503,karnataka,2023,88,HADAGALLI,D.BHOJYA NAIK,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,286,0.19,9,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3504,karnataka,2023,89,HAGARIBOMMANAHALLI,Nemarajanaik.K,parties.IN.JDS,JD(S),84023,44.44,1,won,U,52,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3504,karnataka,2023,89,HAGARIBOMMANAHALLI,L B P Bheema Naik,parties.IN.INC,INC,72679,38.44,2,lost,U,48,8th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3504,karnataka,2023,89,HAGARIBOMMANAHALLI,Ramanna B,parties.IN.BJP,BJP,27026,14.29,3,forfeit,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -962,8 +962,8 @@ IN-AC-2008-karnataka-3504,karnataka,2023,89,HAGARIBOMMANAHALLI,A M A Suresh Kuma
 IN-AC-2008-karnataka-3504,karnataka,2023,89,HAGARIBOMMANAHALLI,H THIPPESWAMY,parties.IN.BSP,BSP,436,0.23,7,forfeit,U,37,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3504,karnataka,2023,89,HAGARIBOMMANAHALLI,H MANJUNATHA,parties.IN.IND,IND,386,0.2,8,forfeit,U,46,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3504,karnataka,2023,89,HAGARIBOMMANAHALLI,J Anjinappa,parties.IN.IND,IND,374,0.2,9,forfeit,U,49,Illiterate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3504,karnataka,2023,89,HAGARIBOMMANAHALLI,Lalyanaik,parties.IN.UNK,Indian Movement Party,214,0.11,10,forfeit,U,63,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3504,karnataka,2023,89,HAGARIBOMMANAHALLI,C Shiva Murthy,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,185,0.1,11,forfeit,U,60,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3504,karnataka,2023,89,HAGARIBOMMANAHALLI,Lalyanaik,parties.IN.IMP,Indian Movement Party,214,0.11,10,forfeit,U,63,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3504,karnataka,2023,89,HAGARIBOMMANAHALLI,C Shiva Murthy,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,185,0.1,11,forfeit,U,60,Graduate Professional,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3504,karnataka,2023,89,HAGARIBOMMANAHALLI,H V Santosh Kumar,parties.IN.KRS,Karnataka Rashtra Samithi,181,0.1,12,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3504,karnataka,2023,89,HAGARIBOMMANAHALLI,Suguna K,parties.IN.NCP,NCP,148,0.08,13,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3508,karnataka,2023,90,VIJAYANAGARA,H.R.GAVIYAPPA,parties.IN.INC,INC,104863,57.99,1,won,U,60,10th Pass,,crossover,src-1b7bc1c9d39a
@@ -974,7 +974,7 @@ IN-AC-2008-karnataka-3508,karnataka,2023,90,VIJAYANAGARA,S K CHOUDAPPA,parties.I
 IN-AC-2008-karnataka-3508,karnataka,2023,90,VIJAYANAGARA,KURUBARA HALAPPA,parties.IN.IND,IND,409,0.23,7,forfeit,U,36,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3508,karnataka,2023,90,VIJAYANAGARA,PA.YA.GANESH,parties.IN.IND,IND,320,0.18,8,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3508,karnataka,2023,90,VIJAYANAGARA,SHIVANANDANA,parties.IN.IND,IND,263,0.15,9,forfeit,U,47,Graduate,Medical Professional,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3508,karnataka,2023,90,VIJAYANAGARA,A.VIJAY KUMAR,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,156,0.09,10,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3508,karnataka,2023,90,VIJAYANAGARA,A.VIJAY KUMAR,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,156,0.09,10,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3508,karnataka,2023,90,VIJAYANAGARA,K.MANJUNATHA,parties.IN.KRS,Karnataka Rashtra Samithi,127,0.07,11,forfeit,U,46,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3508,karnataka,2023,90,VIJAYANAGARA,KARTHICK R S,parties.IN.IND,IND,79,0.04,12,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3508,karnataka,2023,90,VIJAYANAGARA,UMESHA K,parties.IN.IND,IND,62,0.03,13,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -984,10 +984,10 @@ IN-AC-2008-karnataka-3505,karnataka,2023,91,KAMPLI,RAJU NAYAKA,parties.IN.JDS,JD
 IN-AC-2008-karnataka-3505,karnataka,2023,91,KAMPLI,H PRAHLAD NAYAK,parties.IN.AAAP,AAAP,1001,0.55,4,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3505,karnataka,2023,91,KAMPLI,UTHTHANURU NAGARAJ,parties.IN.BSP,BSP,652,0.36,6,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3505,karnataka,2023,91,KAMPLI,A DEVADAS,parties.IN.SUCI,SUCI,585,0.32,7,forfeit,U,55,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3505,karnataka,2023,91,KAMPLI,RAMAKKA T,parties.IN.UNK,Desh Prem Party,518,0.28,8,forfeit,U,56,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3505,karnataka,2023,91,KAMPLI,RAMAKKA T,parties.IN.DPRMP,Desh Prem Party,518,0.28,8,forfeit,U,56,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3619,karnataka,2023,92,SIRUGUPPA,B. M. NAGARAJA,parties.IN.INC,INC,90862,54.05,1,won,U,51,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3619,karnataka,2023,92,SIRUGUPPA,M. S. SOMALINGAPPA,parties.IN.BJP,BJP,53830,32.02,2,lost,U,62,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3619,karnataka,2023,92,SIRUGUPPA,T. DARAPPA NAIK,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,18652,11.1,3,forfeit,U,48,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3619,karnataka,2023,92,SIRUGUPPA,T. DARAPPA NAIK,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,18652,11.1,3,forfeit,U,48,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3619,karnataka,2023,92,SIRUGUPPA,B. PARAMESHWARA NAYAKA,parties.IN.JDS,JD(S),992,0.59,5,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3619,karnataka,2023,92,SIRUGUPPA,DODDAYALLAPPA,parties.IN.KRS,Karnataka Rashtra Samithi,526,0.31,6,forfeit,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3619,karnataka,2023,92,SIRUGUPPA,B. LOKESHA NAYAKA,parties.IN.AAAP,AAAP,491,0.29,7,forfeit,U,28,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -1003,13 +1003,13 @@ IN-AC-2008-karnataka-3501,karnataka,2023,93,BELLARY,T H Mallikarjuna,parties.IN.
 IN-AC-2008-karnataka-3501,karnataka,2023,93,BELLARY,Shanmukha Naveen Babu,parties.IN.IND,IND,327,0.18,8,forfeit,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3501,karnataka,2023,93,BELLARY,K Shambhulinga,parties.IN.IND,IND,249,0.14,9,forfeit,U,33,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3502,karnataka,2023,94,BELLARY CITY,NARA BHARATH REDDY,parties.IN.INC,INC,86440,48.47,1,won,U,33,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3502,karnataka,2023,94,BELLARY CITY,GALI LAKSHMI ARUNA,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,48577,27.24,2,lost,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3502,karnataka,2023,94,BELLARY CITY,GALI LAKSHMI ARUNA,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,48577,27.24,2,lost,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3502,karnataka,2023,94,BELLARY CITY,G. SOMASEKHARA REDDY,parties.IN.BJP,BJP,37155,20.83,3,lost,U,57,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3502,karnataka,2023,94,BELLARY CITY,V.DODDA KESHAVAREDDY,parties.IN.AAAP,AAAP,716,0.4,5,forfeit,U,68,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3502,karnataka,2023,94,BELLARY CITY,ANIL H LAD,parties.IN.JDS,JD(S),610,0.34,6,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3502,karnataka,2023,94,BELLARY CITY,BABU KURUVALLI,parties.IN.BSP,BSP,515,0.29,7,forfeit,U,46,8th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3502,karnataka,2023,94,BELLARY CITY,ZAKIR.M.I.M,parties.IN.IND,IND,396,0.22,8,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3502,karnataka,2023,94,BELLARY CITY,Dr: K.R. RAVI KUMAR,parties.IN.UNK,Desh Prem Party,395,0.22,9,forfeit,U,43,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3502,karnataka,2023,94,BELLARY CITY,Dr: K.R. RAVI KUMAR,parties.IN.DPRMP,Desh Prem Party,395,0.22,9,forfeit,U,43,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3502,karnataka,2023,94,BELLARY CITY,BHARATH,parties.IN.IND,IND,321,0.18,10,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3502,karnataka,2023,94,BELLARY CITY,R. SOMASHEKAR GOUD,parties.IN.SUCI,SUCI,247,0.14,11,forfeit,U,60,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3502,karnataka,2023,94,BELLARY CITY,UPPAR ANIL KUMAR,parties.IN.IND,IND,242,0.14,12,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -1028,7 +1028,7 @@ IN-AC-2008-karnataka-3502,karnataka,2023,94,BELLARY CITY,DR.B.R.MANJUNATHA,parti
 IN-AC-2008-karnataka-3502,karnataka,2023,94,BELLARY CITY,P CHAND BASHA,parties.IN.IND,IND,80,0.04,25,forfeit,U,37,Illiterate,Unspecified,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3507,karnataka,2023,95,SANDUR,E. TUKARAM,parties.IN.INC,INC,85223,49.31,1,won,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3507,karnataka,2023,95,SANDUR,SHILPA RAGHAVENDRA,parties.IN.BJP,BJP,49701,28.76,2,lost,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3507,karnataka,2023,95,SANDUR,K.S. DIVAKAR,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,31375,18.15,3,lost,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3507,karnataka,2023,95,SANDUR,K.S. DIVAKAR,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,31375,18.15,3,lost,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3507,karnataka,2023,95,SANDUR,N. SOMAPPA,parties.IN.JDS,JD(S),2617,1.51,4,forfeit,U,48,Graduate,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3507,karnataka,2023,95,SANDUR,SHAKUNTALA DEVI LAKSHMI PRIYA,parties.IN.BSP,BSP,933,0.54,6,forfeit,U,35,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3507,karnataka,2023,95,SANDUR,K.R. KUMARASWAMY,parties.IN.AAAP,AAAP,764,0.44,7,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -1083,7 +1083,7 @@ IN-AC-2008-karnataka-3550,karnataka,2023,99,CHITRADURGA,N.MANJAPPA,parties.IN.SP
 IN-AC-2008-karnataka-3551,karnataka,2023,100,HIRIYUR,D.SUDHAKAR,parties.IN.INC,INC,92050,46.02,1,won,U,63,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3551,karnataka,2023,100,HIRIYUR,K.POORNIMA,parties.IN.BJP,BJP,61728,30.86,2,lost,U,47,Post Graduate,Principal or Administrator,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3551,karnataka,2023,100,HIRIYUR,M.RAVEENDRAPPA,parties.IN.JDS,JD(S),38686,19.34,3,lost,U,62,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3551,karnataka,2023,100,HIRIYUR,H.MAHESH,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,1520,0.76,4,forfeit,U,62,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3551,karnataka,2023,100,HIRIYUR,H.MAHESH,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,1520,0.76,4,forfeit,U,62,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3551,karnataka,2023,100,HIRIYUR,K T THIPPESWAMY,parties.IN.AAAP,AAAP,1407,0.7,5,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3551,karnataka,2023,100,HIRIYUR,E PATHALINGAPPA,parties.IN.UPJP,Uttama Prajaakeeya Party,1103,0.55,6,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3551,karnataka,2023,100,HIRIYUR,N RANGASWAMY,parties.IN.BSP,BSP,935,0.47,7,forfeit,U,50,8th Pass,Self-employed,challenger,src-1b7bc1c9d39a
@@ -1176,7 +1176,7 @@ IN-AC-2008-karnataka-3567,karnataka,2023,107,DAVANAGERE SOUTH,SAJID.,parties.IN.
 IN-AC-2008-karnataka-3567,karnataka,2023,107,DAVANAGERE SOUTH,ESHWARA,parties.IN.UPJP,Uttama Prajaakeeya Party,522,0.36,7,forfeit,U,37,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3567,karnataka,2023,107,DAVANAGERE SOUTH,MOHAMMAD KALEEM,parties.IN.BSP,BSP,293,0.2,8,forfeit,U,25,Others,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3567,karnataka,2023,107,DAVANAGERE SOUTH,B. RAJASHEKAR,parties.IN.IND,IND,233,0.16,9,forfeit,U,55,10th Pass,Priest,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3567,karnataka,2023,107,DAVANAGERE SOUTH,GOUSE PEER,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,221,0.15,10,forfeit,U,35,Literate,Consultant,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3567,karnataka,2023,107,DAVANAGERE SOUTH,GOUSE PEER,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,221,0.15,10,forfeit,U,35,Literate,Consultant,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3567,karnataka,2023,107,DAVANAGERE SOUTH,SHEK AHAMAD,parties.IN.IND,IND,164,0.11,11,forfeit,U,61,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3567,karnataka,2023,107,DAVANAGERE SOUTH,BHARATHI. K,parties.IN.SUCI,SUCI,121,0.08,12,forfeit,U,29,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3567,karnataka,2023,107,DAVANAGERE SOUTH,NOWSHIN. TAJ.,parties.IN.IND,IND,101,0.07,13,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
@@ -1194,7 +1194,7 @@ IN-AC-2008-karnataka-3572,karnataka,2023,108,MAYAKONDA,SAVITHA BAI MALLESHANAIK,
 IN-AC-2008-karnataka-3572,karnataka,2023,108,MAYAKONDA,PROF. DHARMA NAIK. S.,parties.IN.AAAP,AAAP,512,0.32,10,forfeit,U,61,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3572,karnataka,2023,108,MAYAKONDA,AJJAPPA. N,parties.IN.RPIA,RPI(A),445,0.28,11,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3572,karnataka,2023,108,MAYAKONDA,P. R. Srinivas,parties.IN.IND,IND,438,0.27,12,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3572,karnataka,2023,108,MAYAKONDA,SHANTHA BAI,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,223,0.14,13,forfeit,U,46,8th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3572,karnataka,2023,108,MAYAKONDA,SHANTHA BAI,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,223,0.14,13,forfeit,U,46,8th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3572,karnataka,2023,108,MAYAKONDA,SOMASHEKHARA. B. ADVOCATE,parties.IN.KRS,Karnataka Rashtra Samithi,210,0.13,14,forfeit,U,50,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3572,karnataka,2023,108,MAYAKONDA,MANJU MADIGA,parties.IN.IND,IND,194,0.12,15,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3565,karnataka,2023,109,CHANNAGIRI,BASAVARAJU V SHIVAGANGA,parties.IN.INC,INC,78263,47.03,1,won,U,42,Graduate,Unspecified,challenger,src-1b7bc1c9d39a
@@ -1207,7 +1207,7 @@ IN-AC-2008-karnataka-3565,karnataka,2023,109,CHANNAGIRI,HARISH HALLI.,parties.IN
 IN-AC-2008-karnataka-3565,karnataka,2023,109,CHANNAGIRI,KUBENDRA SWAMY. T,parties.IN.IND,IND,437,0.26,9,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3565,karnataka,2023,109,CHANNAGIRI,ADIL KHAN S K,parties.IN.AAAP,AAAP,245,0.15,10,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3565,karnataka,2023,109,CHANNAGIRI,DONIHALLI MANJUNATHA GOWDRU,parties.IN.KRS,Karnataka Rashtra Samithi,198,0.12,11,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3565,karnataka,2023,109,CHANNAGIRI,M. ROOPA KAGATURU,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,183,0.11,12,forfeit,U,37,Post Graduate,Principal or Administrator,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3565,karnataka,2023,109,CHANNAGIRI,M. ROOPA KAGATURU,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,183,0.11,12,forfeit,U,37,Post Graduate,Principal or Administrator,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3570,karnataka,2023,110,HONNALI,SHANTHANA GOWDA.D.G.,parties.IN.INC,INC,92392,54.31,1,won,U,74,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3570,karnataka,2023,110,HONNALI,M.P. RENUKACHARYA,parties.IN.BJP,BJP,74832,43.99,2,lost,U,62,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3570,karnataka,2023,110,HONNALI,GANESHA B A,parties.IN.UPJP,Uttama Prajaakeeya Party,945,0.56,3,forfeit,U,31,Others,Engineer,challenger,src-1b7bc1c9d39a
@@ -1225,7 +1225,7 @@ IN-AC-2008-karnataka-3650,karnataka,2023,111,SHIMOGA RURAL,A.D.SHIVAPPA,parties.
 IN-AC-2008-karnataka-3650,karnataka,2023,111,SHIMOGA RURAL,BHEEMAPPA.B.H,parties.IN.IND,IND,395,0.22,7,forfeit,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3650,karnataka,2023,111,SHIMOGA RURAL,NIRANJANA.E,parties.IN.KRS,Karnataka Rashtra Samithi,327,0.18,8,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3650,karnataka,2023,111,SHIMOGA RURAL,PRAVEEN NAIK,parties.IN.IND,IND,282,0.16,9,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3650,karnataka,2023,111,SHIMOGA RURAL,K.B.VIJAYA,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,274,0.15,10,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3650,karnataka,2023,111,SHIMOGA RURAL,K.B.VIJAYA,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,274,0.15,10,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3650,karnataka,2023,111,SHIMOGA RURAL,RANGASWAMY.L,parties.IN.IND,IND,223,0.12,11,forfeit,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3650,karnataka,2023,111,SHIMOGA RURAL,Dr.THIPPERUDRASWAMY.T,parties.IN.IND,IND,130,0.07,12,forfeit,U,37,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3645,karnataka,2023,112,BHADRAVATI,B.K. SANAGAMESHWARA,parties.IN.INC,INC,66208,42.63,1,won,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -1397,7 +1397,7 @@ IN-AC-2008-karnataka-3653,karnataka,2023,128,CHIKNAYAKANHALLI,MALLIKARJUNAIAH B 
 IN-AC-2008-karnataka-3653,karnataka,2023,128,CHIKNAYAKANHALLI,GIRISH R HOYISALAKATTE,parties.IN.IND,IND,318,0.17,9,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3653,karnataka,2023,128,CHIKNAYAKANHALLI,NASEER BAIG M,parties.IN.IND,IND,282,0.15,10,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3653,karnataka,2023,128,CHIKNAYAKANHALLI,CAPT SOMASHEKHAR,parties.IN.IND,IND,241,0.13,11,forfeit,U,65,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3653,karnataka,2023,128,CHIKNAYAKANHALLI,H T NAGARAJU,parties.IN.UNK,BhartiyaBahujanKranti Dal,163,0.09,12,forfeit,U,71,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3653,karnataka,2023,128,CHIKNAYAKANHALLI,H T NAGARAJU,parties.IN.BBKD,BhartiyaBahujanKranti Dal,163,0.09,12,forfeit,U,71,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3653,karnataka,2023,128,CHIKNAYAKANHALLI,DR. M K PASHA,parties.IN.AIMEP,AIMEP,133,0.07,13,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3653,karnataka,2023,128,CHIKNAYAKANHALLI,HANUMATHA RAM NAIK M B,parties.IN.WPOI,Welfare Party Of India,119,0.06,14,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3657,karnataka,2023,129,TIPTUR,K Shadakshari,parties.IN.INC,INC,71999,46.13,1,won,U,74,Graduate,,challenger,src-1b7bc1c9d39a
@@ -1406,11 +1406,11 @@ IN-AC-2008-karnataka-3657,karnataka,2023,129,TIPTUR,K T Shanthakumara,parties.IN
 IN-AC-2008-karnataka-3657,karnataka,2023,129,TIPTUR,T S Chandrashekhar,parties.IN.AAAP,AAAP,640,0.41,4,forfeit,U,47,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3657,karnataka,2023,129,TIPTUR,Girish S B,parties.IN.UPJP,Uttama Prajaakeeya Party,506,0.32,6,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3657,karnataka,2023,129,TIPTUR,T N Kumaraswamy,parties.IN.IND,IND,468,0.3,7,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3657,karnataka,2023,129,TIPTUR,Arun Linga,parties.IN.UNK,Kannada Deshada Paksha,424,0.27,8,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3657,karnataka,2023,129,TIPTUR,Arun Linga,parties.IN.KDP,Kannada Deshada Paksha,424,0.27,8,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3657,karnataka,2023,129,TIPTUR,M Ravi,parties.IN.IND,IND,261,0.17,9,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3657,karnataka,2023,129,TIPTUR,Gangadharaiah K S,parties.IN.KRS,Karnataka Rashtra Samithi,257,0.16,10,forfeit,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3657,karnataka,2023,129,TIPTUR,B N Vijayakumar,parties.IN.IND,IND,256,0.16,11,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3657,karnataka,2023,129,TIPTUR,R M Mallikarjunaswamy,parties.IN.UNK,BhartiyaBahujanKranti Dal,132,0.08,12,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3657,karnataka,2023,129,TIPTUR,R M Mallikarjunaswamy,parties.IN.BBKD,BhartiyaBahujanKranti Dal,132,0.08,12,forfeit,U,50,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3657,karnataka,2023,129,TIPTUR,Ananthashayana A T,parties.IN.IND,IND,130,0.08,13,forfeit,U,66,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3660,karnataka,2023,130,TURUVEKERE,M.T.KRISHNAPPA,parties.IN.JDS,JD(S),68163,42.51,1,won,U,71,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3660,karnataka,2023,130,TURUVEKERE,MASALA JAYARAM,parties.IN.BJP,BJP,58240,36.32,2,lost,U,55,10th Pass,Industrialist,incumbent,src-1b7bc1c9d39a
@@ -1419,10 +1419,10 @@ IN-AC-2008-karnataka-3660,karnataka,2023,130,TURUVEKERE,JAYARAM.G.C,parties.IN.A
 IN-AC-2008-karnataka-3660,karnataka,2023,130,TURUVEKERE,BHARATH.S,parties.IN.UPJP,Uttama Prajaakeeya Party,724,0.45,5,forfeit,U,25,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3660,karnataka,2023,130,TURUVEKERE,NARAYANA,parties.IN.IND,IND,245,0.15,7,forfeit,U,27,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3660,karnataka,2023,130,TURUVEKERE,KAPANIGOWDA,parties.IN.IND,IND,225,0.14,8,forfeit,U,68,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3660,karnataka,2023,130,TURUVEKERE,HATTAIAH.N,parties.IN.UNK,Republican Party of India Bharatha,202,0.13,9,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3660,karnataka,2023,130,TURUVEKERE,HATTAIAH.N,parties.IN.RPIB,Republican Party of India Bharatha,202,0.13,9,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3660,karnataka,2023,130,TURUVEKERE,RAM PRASAD,parties.IN.KRS,Karnataka Rashtra Samithi,176,0.11,10,forfeit,U,65,12th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3660,karnataka,2023,130,TURUVEKERE,M.C.SRINIVAS,parties.IN.BSP,BSP,136,0.08,11,forfeit,U,43,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3660,karnataka,2023,130,TURUVEKERE,H.B.PUTTAPPA,parties.IN.UNK,BhartiyaBahujanKranti Dal,85,0.05,12,forfeit,U,62,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3660,karnataka,2023,130,TURUVEKERE,H.B.PUTTAPPA,parties.IN.BBKD,BhartiyaBahujanKranti Dal,85,0.05,12,forfeit,U,62,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3481,karnataka,2023,131,KUNIGAL,DR|| H D RANGANATH,parties.IN.INC,INC,74724,42.88,1,won,U,52,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3481,karnataka,2023,131,KUNIGAL,D KRISHNAKUMAR,parties.IN.BJP,BJP,48151,27.63,2,lost,U,63,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3481,karnataka,2023,131,KUNIGAL,DR RAVI NAGARAJAIAH,parties.IN.JDS,JD(S),46974,26.95,3,lost,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -1430,7 +1430,7 @@ IN-AC-2008-karnataka-3481,karnataka,2023,131,KUNIGAL,JAYARAMAIAH HITHALAPURA,par
 IN-AC-2008-karnataka-3481,karnataka,2023,131,KUNIGAL,RAGHU JANAGERE,parties.IN.KRS,Karnataka Rashtra Samithi,1037,0.6,5,forfeit,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3481,karnataka,2023,131,KUNIGAL,B B RAMASWAMY GOWDA,parties.IN.IND,IND,561,0.32,7,forfeit,U,67,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3481,karnataka,2023,131,KUNIGAL,B T TIRUMALE GOWDA,parties.IN.IND,IND,303,0.17,8,forfeit,U,69,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3481,karnataka,2023,131,KUNIGAL,RAMESHA S B,parties.IN.UNK,Rashtriya Janahita Party,225,0.13,9,forfeit,U,46,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3481,karnataka,2023,131,KUNIGAL,RAMESHA S B,parties.IN.RSTJNHP,Rashtriya Janahita Party,225,0.13,9,forfeit,U,46,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci132,karnataka,2023,132,TUMKUR CITY,G B JYOTHI GANESH,parties.IN.BJP,BJP,59165,33.79,1,won,U,47,Post Graduate,Unspecified,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci132,karnataka,2023,132,TUMKUR CITY,N GOVINDARAJU,parties.IN.JDS,JD(S),55967,31.97,2,lost,U,58,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci132,karnataka,2023,132,TUMKUR CITY,IQBAL AHMED,parties.IN.INC,INC,46900,26.79,3,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
@@ -1457,7 +1457,7 @@ IN-AC-2008-karnataka-3659,karnataka,2023,133,TUMKUR RURAL,YOGANARASIMHAMURTHY.T.
 IN-AC-2008-karnataka-3659,karnataka,2023,133,TUMKUR RURAL,K.V.SRINIVAS KALKERE,parties.IN.IND,IND,152,0.08,11,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3659,karnataka,2023,133,TUMKUR RURAL,D.GOPALAKRISHNA,parties.IN.SP_I,Socialist Party (India),88,0.05,12,forfeit,U,68,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3659,karnataka,2023,133,TUMKUR RURAL,ASHOKA.K.S.,parties.IN.IND,IND,80,0.04,13,forfeit,U,36,12th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3659,karnataka,2023,133,TUMKUR RURAL,NISSAR AHMED,parties.IN.UNK,Indian Movement Party,54,0.03,14,forfeit,U,40,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3659,karnataka,2023,133,TUMKUR RURAL,NISSAR AHMED,parties.IN.IMP,Indian Movement Party,54,0.03,14,forfeit,U,40,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3655,karnataka,2023,134,KORATAGERE,Dr. G. PARAMESHWARA,parties.IN.INC,INC,79099,45.31,1,won,U,72,Doctorate,Insurance Agent,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3655,karnataka,2023,134,KORATAGERE,P. R. SUDHAKAR LAL,parties.IN.JDS,JD(S),64752,37.09,2,lost,U,58,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3655,karnataka,2023,134,KORATAGERE,B. H. ANIL KUMAR,parties.IN.BJP,BJP,24091,13.8,3,forfeit,U,61,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -1490,22 +1490,22 @@ IN-AC-2008-karnataka-3556,karnataka,2023,136,SIRA,Ashoka,parties.IN.UPJP,Uttama 
 IN-AC-2008-karnataka-3556,karnataka,2023,136,SIRA,Shashikumar R,parties.IN.AAAP,AAAP,583,0.31,9,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3556,karnataka,2023,136,SIRA,Ranganathaiah Y G,parties.IN.IND,IND,308,0.16,10,forfeit,U,61,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3556,karnataka,2023,136,SIRA,Pradeep Kumar,parties.IN.KRS,Karnataka Rashtra Samithi,270,0.14,11,forfeit,U,33,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3556,karnataka,2023,136,SIRA,K T Gundaraj,parties.IN.UNK,Swayam Krushi Party,233,0.12,12,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3556,karnataka,2023,136,SIRA,K T Gundaraj,parties.IN.SWYMKP,Swayam Krushi Party,233,0.12,12,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3556,karnataka,2023,136,SIRA,B A Manjunatha,parties.IN.IND,IND,166,0.09,13,forfeit,U,54,Graduate Professional,Qualified Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3556,karnataka,2023,136,SIRA,S N Kantharaju,parties.IN.IND,IND,121,0.06,14,forfeit,U,72,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3556,karnataka,2023,136,SIRA,Bandi Ranganatha Y R,parties.IN.IND,IND,100,0.05,15,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3556,karnataka,2023,136,SIRA,N Kumar,parties.IN.UNK,Dr. Ambedkar People's Party,87,0.05,16,forfeit,U,46,Others,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3556,karnataka,2023,136,SIRA,N Kumar,parties.IN.DRAPP,Dr. Ambedkar People's Party,87,0.05,16,forfeit,U,46,Others,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3555,karnataka,2023,137,PAVAGADA,H.V.VENKATESH,parties.IN.INC,INC,83062,49.62,1,won,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3555,karnataka,2023,137,PAVAGADA,K.M.THIMMARAYAPPA,parties.IN.JDS,JD(S),72181,43.12,2,lost,U,65,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3555,karnataka,2023,137,PAVAGADA,KRISHNA NAIK,parties.IN.BJP,BJP,7206,4.3,3,forfeit,U,49,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3555,karnataka,2023,137,PAVAGADA,N.RAMANJINAPPA,parties.IN.AAAP,AAAP,1831,1.09,4,forfeit,U,53,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3555,karnataka,2023,137,PAVAGADA,NERALAKUNTE NAGENDRAKUMAR,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,875,0.52,5,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3555,karnataka,2023,137,PAVAGADA,NERALAKUNTE NAGENDRAKUMAR,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,875,0.52,5,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3555,karnataka,2023,137,PAVAGADA,T.HANUMANTHARAYA,parties.IN.BSP,BSP,504,0.3,7,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3555,karnataka,2023,137,PAVAGADA,SRINIVASAPURADA SRINIVASA BABU,parties.IN.IND,IND,368,0.22,8,forfeit,U,38,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3555,karnataka,2023,137,PAVAGADA,GOVINDAPPA V,parties.IN.IND,IND,327,0.2,9,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3555,karnataka,2023,137,PAVAGADA,NARASIMHARAJU C N,parties.IN.KRS,Karnataka Rashtra Samithi,186,0.11,10,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3555,karnataka,2023,137,PAVAGADA,NAGARAJAPPA,parties.IN.IND,IND,124,0.07,11,forfeit,U,52,Illiterate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3555,karnataka,2023,137,PAVAGADA,B T RAMASUBBAIAH,parties.IN.UNK,BhartiyaBahujanKranti Dal,112,0.07,12,forfeit,U,61,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3555,karnataka,2023,137,PAVAGADA,B T RAMASUBBAIAH,parties.IN.BBKD,BhartiyaBahujanKranti Dal,112,0.07,12,forfeit,U,61,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3656,karnataka,2023,138,MADHUGIRI,KYATHASANDRA N. RAJANNA,parties.IN.INC,INC,91166,54.72,1,won,U,72,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3656,karnataka,2023,138,MADHUGIRI,M.V.VEERABHADRAIAH,parties.IN.JDS,JD(S),55643,33.4,2,lost,U,68,Post Graduate,Ex Govt Employee,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3656,karnataka,2023,138,MADHUGIRI,L. C. NAGARAJA,parties.IN.BJP,BJP,15612,9.37,3,forfeit,U,56,Post Graduate,Rent,challenger,src-1b7bc1c9d39a
@@ -1534,13 +1534,13 @@ IN-AC-2008-karnataka-3537,karnataka,2023,139,GAURIBIDANUR,SRINIVASA.C.V (K.R.S),
 IN-AC-2008-karnataka-3537,karnataka,2023,139,GAURIBIDANUR,VIJAYAKUMAR.N.R,parties.IN.IND,IND,350,0.19,15,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3537,karnataka,2023,139,GAURIBIDANUR,G.N.RAVI,parties.IN.IND,IND,250,0.14,16,forfeit,U,59,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3537,karnataka,2023,139,GAURIBIDANUR,SHASHIKUMAR.C.L,parties.IN.IND,IND,206,0.11,17,forfeit,U,26,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3537,karnataka,2023,139,GAURIBIDANUR,C.N.PRAKASH,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,178,0.1,18,forfeit,U,53,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3537,karnataka,2023,139,GAURIBIDANUR,C.N.PRAKASH,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,178,0.1,18,forfeit,U,53,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3537,karnataka,2023,139,GAURIBIDANUR,N.HANUMANTHANAYAKA,parties.IN.IND,IND,175,0.1,19,forfeit,U,49,12th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3533,karnataka,2023,140,BAGEPALLI,S.N. SUBBAREDDY (CHINNAKAYALAPALLI),parties.IN.INC,INC,82128,47.37,1,won,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3533,karnataka,2023,140,BAGEPALLI,C. MUNIRAJU,parties.IN.BJP,BJP,62949,36.31,2,lost,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3533,karnataka,2023,140,BAGEPALLI,DR|| A. ANIL KUMAR,parties.IN.CPIM,CPM,19621,11.32,3,forfeit,U,45,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3533,karnataka,2023,140,BAGEPALLI,MITHUN REDDY,parties.IN.IND,IND,2723,1.57,4,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3533,karnataka,2023,140,BAGEPALLI,C. KRISHNA REDDY,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,1598,0.92,5,forfeit,U,73,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3533,karnataka,2023,140,BAGEPALLI,C. KRISHNA REDDY,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,1598,0.92,5,forfeit,U,73,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3533,karnataka,2023,140,BAGEPALLI,DR. MADHU SEETHAPPA,parties.IN.AAAP,AAAP,1454,0.84,6,forfeit,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3533,karnataka,2023,140,BAGEPALLI,T. MUNISWAMI (SAI),parties.IN.BSP,BSP,713,0.41,8,forfeit,U,41,Others,Musician or Artist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3533,karnataka,2023,140,BAGEPALLI,HARISHA. M,parties.IN.IND,IND,181,0.1,9,forfeit,U,32,Others,,challenger,src-1b7bc1c9d39a
@@ -1605,7 +1605,7 @@ IN-AC-2008-karnataka-3610,karnataka,2023,145,MULBAGAL,R.SRIDHAR,parties.IN.IND,I
 IN-AC-2008-karnataka-3610,karnataka,2023,145,MULBAGAL,DR G.M.GOVINDAPPA,parties.IN.IND,IND,252,0.14,7,forfeit,U,53,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3610,karnataka,2023,145,MULBAGAL,K.R.S (PARTY) SAFARI ANAND,parties.IN.KRS,Karnataka Rashtra Samithi,211,0.12,8,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3610,karnataka,2023,145,MULBAGAL,VENKATESHAPPA (LAWYER),parties.IN.IND,IND,167,0.09,9,forfeit,U,48,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3610,karnataka,2023,145,MULBAGAL,MILITARY MURTHY K.V,parties.IN.UNK,Sarvajanika Adarsha Sena,121,0.07,10,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3610,karnataka,2023,145,MULBAGAL,MILITARY MURTHY K.V,parties.IN.SJAS,Sarvajanika Adarsha Sena,121,0.07,10,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3610,karnataka,2023,145,MULBAGAL,K.NAGARAJA,parties.IN.IND,IND,101,0.06,11,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3610,karnataka,2023,145,MULBAGAL,G.C.RAMAPPA,parties.IN.IND,IND,75,0.04,12,forfeit,U,45,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3610,karnataka,2023,145,MULBAGAL,M.KOTHUR R GOVINDU,parties.IN.IND,IND,75,0.04,13,forfeit,U,39,5th Pass,,challenger,src-1b7bc1c9d39a
@@ -1678,7 +1678,7 @@ IN-AC-2008-karnataka-3540,karnataka,2023,150,YELAHANKA,B M MUNEGOWDA,parties.IN.
 IN-AC-2008-karnataka-3540,karnataka,2023,150,YELAHANKA,K RAMESH,parties.IN.IND,IND,181,0.07,17,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3540,karnataka,2023,150,YELAHANKA,T R NARAYANA RAO,parties.IN.ILP_AP,Indian Labour Party (Ambedkar Phule),142,0.05,18,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3540,karnataka,2023,150,YELAHANKA,MUNEGOWDA N,parties.IN.IND,IND,139,0.05,19,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3540,karnataka,2023,150,YELAHANKA,MUNIRAJU M,parties.IN.UNK,Rashtriya Janahita Party,115,0.04,20,forfeit,U,48,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3540,karnataka,2023,150,YELAHANKA,MUNIRAJU M,parties.IN.RSTJNHP,Rashtriya Janahita Party,115,0.04,20,forfeit,U,48,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3540,karnataka,2023,150,YELAHANKA,VISHAL GOWDA,parties.IN.SANVP,Sanyukt Vikas Party,112,0.04,21,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3472,karnataka,2023,151,K.R.PURA,B. A. BASAVARAJA,parties.IN.BJP,BJP,139925,51.93,1,won,U,59,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3472,karnataka,2023,151,K.R.PURA,D K MOHAN,parties.IN.INC,INC,115624,42.91,2,lost,U,60,Graduate Professional,Principal or Administrator,challenger,src-1b7bc1c9d39a
@@ -1691,7 +1691,7 @@ IN-AC-2008-karnataka-3472,karnataka,2023,151,K.R.PURA,AROGYASWAMY,parties.IN.KRS
 IN-AC-2008-karnataka-3472,karnataka,2023,151,K.R.PURA,SHIVA C,parties.IN.IND,IND,391,0.15,10,forfeit,U,42,Graduate,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3472,karnataka,2023,151,K.R.PURA,P P APPANNA,parties.IN.CPIMLL,CPI(ML)(L),227,0.08,11,forfeit,U,53,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3472,karnataka,2023,151,K.R.PURA,N SRINIVAS,parties.IN.JMBP,Jai Maha Bharath Party,155,0.06,12,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3472,karnataka,2023,151,K.R.PURA,M P JAGANATHA RAO,parties.IN.UNK,Jana Spandana Party,151,0.06,13,forfeit,U,52,12th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3472,karnataka,2023,151,K.R.PURA,M P JAGANATHA RAO,parties.IN.JNASPNDNAP,Jana Spandana Party,151,0.06,13,forfeit,U,52,12th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,KRISHNA BYREGOWDA,parties.IN.INC,INC,160182,54.43,1,won,U,50,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,THAMMESH GOWDA H C,parties.IN.BJP,BJP,121978,41.45,2,lost,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,NAGARAJ GOWDA P,parties.IN.JDS,JD(S),4365,1.48,3,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -1700,14 +1700,14 @@ IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,GIRISH K,parties.IN
 IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,RAMESH M,parties.IN.IND,IND,587,0.2,7,forfeit,U,48,8th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,VENKATRAMU K V,parties.IN.IND,IND,553,0.19,8,forfeit,U,29,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,PRATAP R,parties.IN.KRS,Karnataka Rashtra Samithi,315,0.11,9,forfeit,U,34,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,BRIGADIER RAVI MUNISWAMY,parties.IN.UNK,Sarvajanika Adarsha Sena,307,0.1,10,forfeit,U,61,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,BRIGADIER RAVI MUNISWAMY,parties.IN.SJAS,Sarvajanika Adarsha Sena,307,0.1,10,forfeit,U,61,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,SAMPOORNA GOWDA,parties.IN.SP,SP,175,0.06,11,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,T DASAPPA,parties.IN.IND,IND,131,0.04,12,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,RANJITHA N,parties.IN.ABHM,ABHM,120,0.04,13,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,NAZIR AHMED,parties.IN.ILP_AP,Indian Labour Party (Ambedkar Phule),110,0.04,14,forfeit,U,44,5th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,KALID KHAN,parties.IN.IND,IND,104,0.04,15,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,NAGARAJA G,parties.IN.IND,IND,93,0.03,16,forfeit,U,36,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,MANJUNATHA CHARI K,parties.IN.UNK,Rashtriya Janahita Party,64,0.02,17,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,MANJUNATHA CHARI K,parties.IN.RSTJNHP,Rashtriya Janahita Party,64,0.02,17,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3469,karnataka,2023,152,BYATARAYANAPURA,MAQSOOD AHMED,parties.IN.NRCP,Navarang Congress Party,46,0.02,18,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3476,karnataka,2023,153,YESHVANTHAPURA,S.T. SOMASHEKAR,parties.IN.BJP,BJP,169149,47.26,1,won,U,65,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3476,karnataka,2023,153,YESHVANTHAPURA,T.N.JAVARAYI GOWDA,parties.IN.JDS,JD(S),154031,43.04,2,lost,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -1722,7 +1722,7 @@ IN-AC-2008-karnataka-3476,karnataka,2023,153,YESHVANTHAPURA,ABHAYA SHEELA,partie
 IN-AC-2008-karnataka-3476,karnataka,2023,153,YESHVANTHAPURA,H.K.SHASHIREKHA,parties.IN.IND,IND,237,0.07,12,forfeit,U,43,12th Pass,Musician or Artist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3476,karnataka,2023,153,YESHVANTHAPURA,NAGARAJ .K.S.,parties.IN.SP,SP,222,0.06,13,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3476,karnataka,2023,153,YESHVANTHAPURA,NAGARAJU .C.R,parties.IN.BPKP,Bharatiya Prajagala Kalyana Paksha,196,0.05,14,forfeit,U,60,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3476,karnataka,2023,153,YESHVANTHAPURA,SHAKILA BANU,parties.IN.UNK,Young Star Empowerment Party,164,0.05,15,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3476,karnataka,2023,153,YESHVANTHAPURA,SHAKILA BANU,parties.IN.YSEP,Young Star Empowerment Party,164,0.05,15,forfeit,U,56,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3483,karnataka,2023,154,RAJARAJESHWARINAGAR,MUNIRATHNA,parties.IN.BJP,BJP,127980,48.72,1,won,U,59,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3483,karnataka,2023,154,RAJARAJESHWARINAGAR,KUSUMA .H,parties.IN.INC,INC,116138,44.21,2,lost,U,34,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3483,karnataka,2023,154,RAJARAJESHWARINAGAR,DR. V.NARAYANA SWAMY,parties.IN.JDS,JD(S),7795,2.97,3,forfeit,U,52,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
@@ -1750,7 +1750,7 @@ IN-AC-2008-karnataka-3470,karnataka,2023,155,DASARAHALLI,R. MANJUNATHA,parties.I
 IN-AC-2008-karnataka-3470,karnataka,2023,155,DASARAHALLI,ESHWARAIAH K. S.,parties.IN.LS,Lok Shakti,222,0.1,12,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3470,karnataka,2023,155,DASARAHALLI,SAVITHA T. P.,parties.IN.IND,IND,185,0.08,13,forfeit,U,49,10th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3470,karnataka,2023,155,DASARAHALLI,SUMANTH P. N.,parties.IN.IND,IND,151,0.07,14,forfeit,U,32,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3470,karnataka,2023,155,DASARAHALLI,M. SNEHA,parties.IN.UNK,Indian Movement Party,122,0.05,15,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3470,karnataka,2023,155,DASARAHALLI,M. SNEHA,parties.IN.IMP,Indian Movement Party,122,0.05,15,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3470,karnataka,2023,155,DASARAHALLI,KALPANA. A. V,parties.IN.IND,IND,121,0.05,16,forfeit,U,39,5th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3473,karnataka,2023,156,MAHALAKSHMI LAYOUT,K. GOPALAIAH,parties.IN.BJP,BJP,96424,60.6,1,won,U,63,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3473,karnataka,2023,156,MAHALAKSHMI LAYOUT,KESHAVAMURTHY S,parties.IN.INC,INC,45259,28.45,2,lost,U,59,Graduate,,challenger,src-1b7bc1c9d39a
@@ -1762,8 +1762,8 @@ IN-AC-2008-karnataka-3473,karnataka,2023,156,MAHALAKSHMI LAYOUT,N GIRISH GOWDA,p
 IN-AC-2008-karnataka-3473,karnataka,2023,156,MAHALAKSHMI LAYOUT,MELROY AMIT REBELLO,parties.IN.KRS,Karnataka Rashtra Samithi,255,0.16,9,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3473,karnataka,2023,156,MAHALAKSHMI LAYOUT,S. MURALI,parties.IN.ABHM,ABHM,125,0.08,10,forfeit,U,37,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3473,karnataka,2023,156,MAHALAKSHMI LAYOUT,SRINIVASAMURTHY,parties.IN.KPJP,Karnataka Pragnyavantha Janatha Party,112,0.07,11,forfeit,U,50,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3473,karnataka,2023,156,MAHALAKSHMI LAYOUT,CHETAN. R,parties.IN.UNK,Desh Prem Party,97,0.06,12,forfeit,U,42,Post Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3473,karnataka,2023,156,MAHALAKSHMI LAYOUT,ASWATHA,parties.IN.UNK,Indian Movement Party,83,0.05,13,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3473,karnataka,2023,156,MAHALAKSHMI LAYOUT,CHETAN. R,parties.IN.DPRMP,Desh Prem Party,97,0.06,12,forfeit,U,42,Post Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3473,karnataka,2023,156,MAHALAKSHMI LAYOUT,ASWATHA,parties.IN.IMP,Indian Movement Party,83,0.05,13,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3474,karnataka,2023,157,MALLESHWARAM,DR ASHWATH NARAYAN C N,parties.IN.BJP,BJP,80606,63.72,1,won,U,55,Graduate Professional,Doctor,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3474,karnataka,2023,157,MALLESHWARAM,ANOOP IYENGAR,parties.IN.INC,INC,39304,31.07,2,lost,U,43,Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3474,karnataka,2023,157,MALLESHWARAM,UTHKARSH A,parties.IN.JDS,JD(S),2657,2.1,3,forfeit,U,27,Graduate,,challenger,src-1b7bc1c9d39a
@@ -1784,7 +1784,7 @@ IN-AC-2008-karnataka-3471,karnataka,2023,158,HEBBAL,Aslam Jamsheed Khan,parties.
 IN-AC-2008-karnataka-3471,karnataka,2023,158,HEBBAL,N M Santhosh Kumar,parties.IN.IND,IND,200,0.13,8,forfeit,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3471,karnataka,2023,158,HEBBAL,Hussain Saheb,parties.IN.IND,IND,149,0.09,9,forfeit,U,48,Others,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3471,karnataka,2023,158,HEBBAL,Anjan Kumar Gowda S,parties.IN.INCP,Indian New Congress Party,123,0.08,10,forfeit,U,49,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3471,karnataka,2023,158,HEBBAL,Ramesh Jagathap,parties.IN.UNK,Sarvajanika Adarsha Sena,115,0.07,11,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3471,karnataka,2023,158,HEBBAL,Ramesh Jagathap,parties.IN.SJAS,Sarvajanika Adarsha Sena,115,0.07,11,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3471,karnataka,2023,158,HEBBAL,Ramu S,parties.IN.IND,IND,113,0.07,12,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3471,karnataka,2023,158,HEBBAL,Perumal S,parties.IN.ABHM,ABHM,81,0.05,13,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3471,karnataka,2023,158,HEBBAL,Ganesh C,parties.IN.KRS,Karnataka Rashtra Samithi,80,0.05,14,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
@@ -1862,7 +1862,7 @@ IN-AC-2008-karnataka-eci164,karnataka,2023,164,GANDHI NAGAR,BASAVARAJA M D,parti
 IN-AC-2008-karnataka-eci164,karnataka,2023,164,GANDHI NAGAR,S GOPINATH,parties.IN.AAAP,AAAP,733,0.55,7,forfeit,U,51,8th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci164,karnataka,2023,164,GANDHI NAGAR,S M DIVAKAR,parties.IN.RPIA,RPI(A),325,0.25,8,forfeit,U,56,Graduate,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci164,karnataka,2023,164,GANDHI NAGAR,PRAKASH K,parties.IN.KRS,Karnataka Rashtra Samithi,316,0.24,9,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-eci164,karnataka,2023,164,GANDHI NAGAR,ARUN KUMAR D,parties.IN.UNK,Indian Movement Party,239,0.18,10,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-eci164,karnataka,2023,164,GANDHI NAGAR,ARUN KUMAR D,parties.IN.IMP,Indian Movement Party,239,0.18,10,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci164,karnataka,2023,164,GANDHI NAGAR,P BASAPPACHAR,parties.IN.IND,IND,180,0.14,11,forfeit,U,66,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci164,karnataka,2023,164,GANDHI NAGAR,G GAJENDRA,parties.IN.IND,IND,135,0.1,12,forfeit,U,46,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci164,karnataka,2023,164,GANDHI NAGAR,PUSHPA RANI S,parties.IN.IND,IND,123,0.09,13,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -1879,7 +1879,7 @@ IN-AC-2008-karnataka-3465,karnataka,2023,165,RAJAJI NAGAR,PUTTANNA,parties.IN.IN
 IN-AC-2008-karnataka-3465,karnataka,2023,165,RAJAJI NAGAR,MAHESH RAJASHEKAR,parties.IN.IND,IND,129,0.11,9,forfeit,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3465,karnataka,2023,165,RAJAJI NAGAR,PANDURANGAN.S,parties.IN.IND,IND,128,0.11,10,forfeit,U,69,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3465,karnataka,2023,165,RAJAJI NAGAR,NAGARAJA.H.N,parties.IN.IND,IND,111,0.09,11,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3465,karnataka,2023,165,RAJAJI NAGAR,BHAVYA S.B,parties.IN.UNK,Indian Movement Party,93,0.08,12,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3465,karnataka,2023,165,RAJAJI NAGAR,BHAVYA S.B,parties.IN.IMP,Indian Movement Party,93,0.08,12,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3465,karnataka,2023,165,RAJAJI NAGAR,SHIVAKUMAR BHADRAIAH,parties.IN.JDU,Janata Dal(United),85,0.07,13,forfeit,U,48,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3465,karnataka,2023,165,RAJAJI NAGAR,RAMA T.C.,parties.IN.SUCI,SUCI,83,0.07,14,forfeit,U,47,12th Pass,Activist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3465,karnataka,2023,165,RAJAJI NAGAR,SUHAIL AHMED,parties.IN.IND,IND,62,0.05,15,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -1899,7 +1899,7 @@ IN-AC-2008-karnataka-3489,karnataka,2023,166,GOVINDRAJ NAGAR,MOHANKUMAR. B N,par
 IN-AC-2008-karnataka-3489,karnataka,2023,166,GOVINDRAJ NAGAR,SANTHOSH KUMAR K S,parties.IN.IND,IND,112,0.07,11,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3489,karnataka,2023,166,GOVINDRAJ NAGAR,GOPALA,parties.IN.IND,IND,90,0.06,12,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3489,karnataka,2023,166,GOVINDRAJ NAGAR,S. SURESH,parties.IN.IND,IND,69,0.04,13,forfeit,U,64,5th Pass,Taxi Driver,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3489,karnataka,2023,166,GOVINDRAJ NAGAR,A. RAJ,parties.IN.UNK,Indian Movement Party,58,0.04,14,forfeit,U,51,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3489,karnataka,2023,166,GOVINDRAJ NAGAR,A. RAJ,parties.IN.IMP,Indian Movement Party,58,0.04,14,forfeit,U,51,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3489,karnataka,2023,166,GOVINDRAJ NAGAR,AMJAD KHAN,parties.IN.IND,IND,44,0.03,15,forfeit,U,39,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3492,karnataka,2023,167,VIJAY NAGAR,M.KRISHNAPPA,parties.IN.INC,INC,80157,50.5,1,won,U,71,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3492,karnataka,2023,167,VIJAY NAGAR,H RAVINDRA,parties.IN.BJP,BJP,72833,45.89,2,lost,U,59,Graduate,,challenger,src-1b7bc1c9d39a
@@ -1924,7 +1924,7 @@ IN-AC-2008-karnataka-eci168,karnataka,2023,168,CHAMRAJPET,V.SOMASHEKAR,parties.I
 IN-AC-2008-karnataka-eci168,karnataka,2023,168,CHAMRAJPET,JAGADISH CHANDRA .C,parties.IN.AAAP,AAAP,682,0.55,7,forfeit,U,53,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci168,karnataka,2023,168,CHAMRAJPET,ANAND.K.S,parties.IN.IND,IND,327,0.26,8,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci168,karnataka,2023,168,CHAMRAJPET,T.R.JAGANNATHA RAO,parties.IN.BPKP,Bharatiya Prajagala Kalyana Paksha,133,0.11,9,forfeit,U,61,12th Pass,Transport,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-eci168,karnataka,2023,168,CHAMRAJPET,RUKMANGADA.S,parties.IN.UNK,Navabharath Sena,120,0.1,10,forfeit,U,52,Graduate,Activist,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-eci168,karnataka,2023,168,CHAMRAJPET,RUKMANGADA.S,parties.IN.NBHS,Navabharath Sena,120,0.1,10,forfeit,U,52,Graduate,Activist,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci168,karnataka,2023,168,CHAMRAJPET,DR|| SHIVAKUMAR .M,parties.IN.IND,IND,114,0.09,11,forfeit,U,47,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci168,karnataka,2023,168,CHAMRAJPET,PAVANKUMAR.K.J,parties.IN.KRS,Karnataka Rashtra Samithi,102,0.08,12,forfeit,U,26,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci168,karnataka,2023,168,CHAMRAJPET,ASGAR A MOHEEN.S.M.,parties.IN.IND,IND,69,0.06,13,forfeit,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -1950,7 +1950,7 @@ IN-AC-2008-karnataka-eci170,karnataka,2023,170,BASAVANAGUDI,Dr. RAJINI.J,parties
 IN-AC-2008-karnataka-eci170,karnataka,2023,170,BASAVANAGUDI,SATYALAXMI RAO,parties.IN.AAAP,AAAP,767,0.6,6,forfeit,U,62,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci170,karnataka,2023,170,BASAVANAGUDI,L.JEEVAN,parties.IN.KRS,Karnataka Rashtra Samithi,409,0.32,7,forfeit,U,37,Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci170,karnataka,2023,170,BASAVANAGUDI,B. S. SATHYANARAYANA.,parties.IN.IND,IND,148,0.12,8,forfeit,U,57,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-eci170,karnataka,2023,170,BASAVANAGUDI,NAGAMUNI,parties.IN.UNK,Swayam Krushi Party,148,0.12,9,forfeit,U,46,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-eci170,karnataka,2023,170,BASAVANAGUDI,NAGAMUNI,parties.IN.SWYMKP,Swayam Krushi Party,148,0.12,9,forfeit,U,46,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci170,karnataka,2023,170,BASAVANAGUDI,SHREYAS H N,parties.IN.IND,IND,113,0.09,10,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci170,karnataka,2023,170,BASAVANAGUDI,DILIP.M,parties.IN.JMBP,Jai Maha Bharath Party,75,0.06,11,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci170,karnataka,2023,170,BASAVANAGUDI,ASHWATH KUMAR K. V.,parties.IN.IND,IND,63,0.05,12,forfeit,U,37,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
@@ -1963,10 +1963,10 @@ IN-AC-2008-karnataka-3491,karnataka,2023,171,PADMANABA NAGAR,AJAY MAYANNA GOWDA,
 IN-AC-2008-karnataka-3491,karnataka,2023,171,PADMANABA NAGAR,RAJKATTE MANJUNATH. N,parties.IN.IND,IND,1314,0.82,7,forfeit,U,50,Graduate,Trader,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3491,karnataka,2023,171,PADMANABA NAGAR,DEEPAK R V,parties.IN.KRS,Karnataka Rashtra Samithi,289,0.18,8,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3491,karnataka,2023,171,PADMANABA NAGAR,MOHAMMED IDRIS K S,parties.IN.BSP,BSP,252,0.16,9,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3491,karnataka,2023,171,PADMANABA NAGAR,MANJUNATHA N,parties.IN.UNK,Swayam Krushi Party,225,0.14,10,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3491,karnataka,2023,171,PADMANABA NAGAR,MANJUNATHA N,parties.IN.SWYMKP,Swayam Krushi Party,225,0.14,10,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3491,karnataka,2023,171,PADMANABA NAGAR,AFSAR KHAN,parties.IN.SP,SP,196,0.12,11,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3491,karnataka,2023,171,PADMANABA NAGAR,SHIVARAMAKRISHNA B K,parties.IN.UNK,KannadaPaksha,116,0.07,12,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3491,karnataka,2023,171,PADMANABA NAGAR,S RAGHAVENDRA MOKSHAGUNDAM,parties.IN.UNK,Rashtriya Janahita Party,99,0.06,13,forfeit,U,45,12th Pass,Astrologer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3491,karnataka,2023,171,PADMANABA NAGAR,SHIVARAMAKRISHNA B K,parties.IN.KP,KannadaPaksha,116,0.07,12,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3491,karnataka,2023,171,PADMANABA NAGAR,S RAGHAVENDRA MOKSHAGUNDAM,parties.IN.RSTJNHP,Rashtriya Janahita Party,99,0.06,13,forfeit,U,45,12th Pass,Astrologer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3491,karnataka,2023,171,PADMANABA NAGAR,MOHAMMED AFZAL PASHA,parties.IN.KKMP,Karnataka Karmikara Paksha,70,0.04,14,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3485,karnataka,2023,172,B.T.M LAYOUT,RAMALINGA REDDY,parties.IN.INC,INC,68557,50.7,1,won,U,70,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3485,karnataka,2023,172,B.T.M LAYOUT,K.R.SRIDHARA,parties.IN.BJP,BJP,59335,43.88,2,lost,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -2021,7 +2021,7 @@ IN-AC-2008-karnataka-3487,karnataka,2023,175,BOMMANAHALLI,Sathish Reddy,parties.
 IN-AC-2008-karnataka-3487,karnataka,2023,175,BOMMANAHALLI,Nanda Reddy,parties.IN.KRS,Karnataka Rashtra Samithi,313,0.15,10,forfeit,U,55,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3487,karnataka,2023,175,BOMMANAHALLI,Nijamuddin,parties.IN.IND,IND,200,0.09,11,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3487,karnataka,2023,175,BOMMANAHALLI,Anthony Raj .J,parties.IN.IND,IND,158,0.07,12,forfeit,U,49,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3487,karnataka,2023,175,BOMMANAHALLI,Sivarama Kotegowda,parties.IN.UNK,Navabharath Sena,100,0.05,13,forfeit,U,43,12th Pass,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3487,karnataka,2023,175,BOMMANAHALLI,Sivarama Kotegowda,parties.IN.NBHS,Navabharath Sena,100,0.05,13,forfeit,U,43,12th Pass,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3487,karnataka,2023,175,BOMMANAHALLI,Adil Pasha .S,parties.IN.IND,IND,96,0.04,14,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3487,karnataka,2023,175,BOMMANAHALLI,Abdul Khadar G. S. Y,parties.IN.IND,IND,94,0.04,15,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3478,karnataka,2023,176,BANGALORE SOUTH,M Krishnappa,parties.IN.BJP,BJP,196220,51.35,1,won,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -2055,16 +2055,16 @@ IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,G NARAYANASWAMY,parties.IN
 IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,S R RAGHUNATH,parties.IN.IND,IND,464,0.22,5,forfeit,U,33,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,D M LAKSHMINARAYANA,parties.IN.BSP,BSP,290,0.14,6,forfeit,U,55,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,PRASHANTH SUBRAMANI,parties.IN.AAAP,AAAP,256,0.12,7,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,RAMESHA,parties.IN.UNK,Bahujan Bharat Party,250,0.12,8,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,RAMESHA,parties.IN.BUJNBHRTP,Bahujan Bharat Party,250,0.12,8,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,V NITESH KUMAR,parties.IN.IND,IND,250,0.12,9,forfeit,U,32,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,B SONNAPPA,parties.IN.KRS,Karnataka Rashtra Samithi,225,0.11,10,forfeit,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,T NAGARAJU,parties.IN.IND,IND,203,0.09,11,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,SHARATH BACHEGOWDA,parties.IN.UNK,Rashtriya Janahita Party,157,0.07,12,forfeit,U,28,12th Pass,Managerial Position,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,SHARATH BACHEGOWDA,parties.IN.RSTJNHP,Rashtriya Janahita Party,157,0.07,12,forfeit,U,28,12th Pass,Managerial Position,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,NITHISHA T D,parties.IN.IND,IND,128,0.06,13,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,AMBUJA,parties.IN.IND,IND,79,0.04,14,forfeit,U,46,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,SHARATH KUMAR K,parties.IN.IND,IND,64,0.03,15,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,N B NAGARAJ,parties.IN.IND,IND,58,0.03,16,forfeit,U,66,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,M SHRIMATHI,parties.IN.UNK,Indian Movement Party,28,0.01,17,forfeit,U,43,10th Pass,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,M SHRIMATHI,parties.IN.IMP,Indian Movement Party,28,0.01,17,forfeit,U,43,10th Pass,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,AJAY KUMAR REDDY ADALA,parties.IN.IND,IND,26,0.01,18,forfeit,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,EREGOWDA,parties.IN.IND,IND,26,0.01,19,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3538,karnataka,2023,178,HOSAKOTE,ANUSHA P R,parties.IN.IND,IND,25,0.01,20,forfeit,U,29,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -2103,7 +2103,7 @@ IN-AC-2008-karnataka-3539,karnataka,2023,181,NELAMANGALA,NARASIMHAMURTHY,parties
 IN-AC-2008-karnataka-3539,karnataka,2023,181,NELAMANGALA,ARUNKUMAR B,parties.IN.KRS,Karnataka Rashtra Samithi,570,0.33,7,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3539,karnataka,2023,181,NELAMANGALA,MAHADEV P,parties.IN.BSP,BSP,490,0.28,8,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3539,karnataka,2023,181,NELAMANGALA,UMADEVI,parties.IN.IND,IND,404,0.23,9,forfeit,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3539,karnataka,2023,181,NELAMANGALA,C.HANUMANTHARAYA,parties.IN.UNK,Vijaya Janata Party,253,0.15,10,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3539,karnataka,2023,181,NELAMANGALA,C.HANUMANTHARAYA,parties.IN.VJYJNP,Vijaya Janata Party,253,0.15,10,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3539,karnataka,2023,181,NELAMANGALA,SRINIVAS V,parties.IN.IND,IND,147,0.09,11,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3482,karnataka,2023,182,MAGADI,H. C. BALAKRISHNA,parties.IN.INC,INC,94650,46.74,1,won,U,58,Graduate Professional,Ex Minister,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3482,karnataka,2023,182,MAGADI,A. MANJUNATH.,parties.IN.JDS,JD(S),82811,40.89,2,lost,U,50,Graduate Professional,,incumbent,src-1b7bc1c9d39a
@@ -2116,10 +2116,10 @@ IN-AC-2008-karnataka-3482,karnataka,2023,182,MAGADI,MANJUNATH.U,parties.IN.IND,I
 IN-AC-2008-karnataka-3482,karnataka,2023,182,MAGADI,"ABHISHEK, K. R",parties.IN.KRS,Karnataka Rashtra Samithi,260,0.13,10,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3482,karnataka,2023,182,MAGADI,RAMANNA N.,parties.IN.BSP,BSP,192,0.09,11,forfeit,U,34,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3482,karnataka,2023,182,MAGADI,BALAKRISHNA,parties.IN.IND,IND,91,0.04,12,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3482,karnataka,2023,182,MAGADI,MOHAMED SALMAN,parties.IN.UNK,Young Star Empowerment Party,64,0.03,13,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3482,karnataka,2023,182,MAGADI,MOHAMED SALMAN,parties.IN.YSEP,Young Star Empowerment Party,64,0.03,13,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3482,karnataka,2023,182,MAGADI,"KA,RA,VE,MADEGOWDA",parties.IN.SP,SP,47,0.02,14,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3482,karnataka,2023,182,MAGADI,CHANDRASHEKAR. M.R,parties.IN.IND,IND,45,0.02,15,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3482,karnataka,2023,182,MAGADI,V.C. SACHIDANANDA MURTHY,parties.IN.UNK,Parisara Bandhu Party,41,0.02,16,forfeit,U,64,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3482,karnataka,2023,182,MAGADI,V.C. SACHIDANANDA MURTHY,parties.IN.PRSRBNDHP,Parisara Bandhu Party,41,0.02,16,forfeit,U,64,Post Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3484,karnataka,2023,183,RAMANAGARAM,H. A. IQBAL HUSSAIN,parties.IN.INC,INC,87690,47.98,1,won,U,62,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3484,karnataka,2023,183,RAMANAGARAM,NIKHIL KUMARASWAMY,parties.IN.JDS,JD(S),76975,42.12,2,lost,U,35,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3484,karnataka,2023,183,RAMANAGARAM,GAUTHAM MARILINGEGOWDA,parties.IN.BJP,BJP,12912,7.07,3,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -2131,16 +2131,16 @@ IN-AC-2008-karnataka-3484,karnataka,2023,183,RAMANAGARAM,K.R.S.SHIVAKUMAR.S,part
 IN-AC-2008-karnataka-3484,karnataka,2023,183,RAMANAGARAM,RAGHU NANDAN. R. V.,parties.IN.RPIA,RPI(A),234,0.13,10,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3484,karnataka,2023,183,RAMANAGARAM,SURENDRA RAMANAGARA,parties.IN.IND,IND,183,0.1,11,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3484,karnataka,2023,183,RAMANAGARAM,SIDDAMARAIAH. S,parties.IN.AIFB,AIFB,181,0.1,12,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3484,karnataka,2023,183,RAMANAGARAM,LOKESH. N,parties.IN.UNK,Indian Movement Party,96,0.05,13,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3484,karnataka,2023,183,RAMANAGARAM,LOKESH. N,parties.IN.IMP,Indian Movement Party,96,0.05,13,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3484,karnataka,2023,183,RAMANAGARAM,MAHABOOB PASHA,parties.IN.TIPU_SULTAN_PARTY,Tipu Sultan Party,86,0.05,14,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3484,karnataka,2023,183,RAMANAGARAM,FAYAZ AHMED,parties.IN.UNK,Young Star Empowerment Party,78,0.04,15,forfeit,U,37,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3484,karnataka,2023,183,RAMANAGARAM,FAYAZ AHMED,parties.IN.YSEP,Young Star Empowerment Party,78,0.04,15,forfeit,U,37,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3480,karnataka,2023,184,KANAKAPURA,D K SHIVAKUMAR,parties.IN.INC,INC,143023,75.03,1,won,U,60,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3480,karnataka,2023,184,KANAKAPURA,B NAGARAJU,parties.IN.JDS,JD(S),20631,10.82,2,forfeit,U,59,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3480,karnataka,2023,184,KANAKAPURA,R ASHOKA,parties.IN.BJP,BJP,19753,10.36,3,forfeit,U,65,Graduate,Ex Civil Service,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3480,karnataka,2023,184,KANAKAPURA,MANMOHAN RAJ K N,parties.IN.UPJP,Uttama Prajaakeeya Party,1258,0.66,4,forfeit,U,26,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3480,karnataka,2023,184,KANAKAPURA,E PUTTARAJU,parties.IN.AAAP,AAAP,1144,0.6,5,forfeit,U,51,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3480,karnataka,2023,184,KANAKAPURA,KRISHNA N M,parties.IN.BSP,BSP,1083,0.57,6,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3480,karnataka,2023,184,KANAKAPURA,KEMPEGOWDA,parties.IN.UNK,Navabharath Sena,604,0.32,8,forfeit,U,39,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3480,karnataka,2023,184,KANAKAPURA,KEMPEGOWDA,parties.IN.NBHS,Navabharath Sena,604,0.32,8,forfeit,U,39,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3480,karnataka,2023,184,KANAKAPURA,SHIVARENUKA,parties.IN.IND,IND,512,0.27,9,forfeit,U,58,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3480,karnataka,2023,184,KANAKAPURA,KRS PRASHANTH HOSADURGA,parties.IN.KRS,Karnataka Rashtra Samithi,397,0.21,10,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3480,karnataka,2023,184,KANAKAPURA,NALLAHALLI SRINIVAS,parties.IN.IND,IND,310,0.16,11,forfeit,U,29,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -2161,8 +2161,8 @@ IN-AC-2008-karnataka-3479,karnataka,2023,185,CHANNAPATNA,KUMARA SWAMY A. C,parti
 IN-AC-2008-karnataka-3479,karnataka,2023,185,CHANNAPATNA,SHIVARAMASHETTY. D,parties.IN.IND,IND,204,0.1,11,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3479,karnataka,2023,185,CHANNAPATNA,PRADEEP. T. V,parties.IN.IND,IND,128,0.06,12,forfeit,U,38,Graduate,Accountant,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3479,karnataka,2023,185,CHANNAPATNA,SHYAMALA,parties.IN.KRS,Karnataka Rashtra Samithi,114,0.06,13,forfeit,U,30,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3479,karnataka,2023,185,CHANNAPATNA,SYED JAVEED,parties.IN.UNK,Indian Movement Party,78,0.04,14,forfeit,U,43,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3479,karnataka,2023,185,CHANNAPATNA,C.M.SHABAZ KHAN,parties.IN.UNK,Young Star Empowerment Party,60,0.03,15,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2023,185,CHANNAPATNA,SYED JAVEED,parties.IN.IMP,Indian Movement Party,78,0.04,14,forfeit,U,43,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3479,karnataka,2023,185,CHANNAPATNA,C.M.SHABAZ KHAN,parties.IN.YSEP,Young Star Empowerment Party,60,0.03,15,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3479,karnataka,2023,185,CHANNAPATNA,GIRISH.L,parties.IN.SP,SP,47,0.02,16,forfeit,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci186,karnataka,2023,186,MALAVALLI,P.M.Narendraswamy,parties.IN.INC,INC,106498,53.79,1,won,U,61,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci186,karnataka,2023,186,MALAVALLI,Dr|| K. Annadani,parties.IN.JDS,JD(S),59652,30.13,2,lost,U,56,Doctorate,,incumbent,src-1b7bc1c9d39a
@@ -2174,7 +2174,7 @@ IN-AC-2008-karnataka-eci186,karnataka,2023,186,MALAVALLI,Uma. J.,parties.IN.IND,
 IN-AC-2008-karnataka-eci186,karnataka,2023,186,MALAVALLI,H.B. Sudha,parties.IN.IND,IND,314,0.16,9,forfeit,U,53,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci186,karnataka,2023,186,MALAVALLI,Nandeesh Kumar M.,parties.IN.KRS,Karnataka Rashtra Samithi,261,0.13,10,forfeit,U,32,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci186,karnataka,2023,186,MALAVALLI,Mantyalingu,parties.IN.IND,IND,260,0.13,11,forfeit,U,73,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-eci186,karnataka,2023,186,MALAVALLI,Nagaraja Murthy. C.M,parties.IN.UNK,Bharathiya Belaku Party,214,0.11,12,forfeit,U,43,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-eci186,karnataka,2023,186,MALAVALLI,Nagaraja Murthy. C.M,parties.IN.BTBP,Bharathiya Belaku Party,214,0.11,12,forfeit,U,43,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci186,karnataka,2023,186,MALAVALLI,Madhaw Ciran. M.S,parties.IN.IND,IND,149,0.08,13,forfeit,U,40,Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci186,karnataka,2023,186,MALAVALLI,Annadani C.,parties.IN.IND,IND,142,0.07,14,forfeit,U,61,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci186,karnataka,2023,186,MALAVALLI,Mohan Kumar.M.L,parties.IN.IND,IND,141,0.07,15,forfeit,U,46,12th Pass,Qualified Professional,challenger,src-1b7bc1c9d39a
@@ -2230,7 +2230,7 @@ IN-AC-2008-karnataka-3628,karnataka,2023,190,SHRIRANGAPATTANA,DEVIKA.K,parties.I
 IN-AC-2008-karnataka-3628,karnataka,2023,190,SHRIRANGAPATTANA,H.D.JAVAREGOWDA,parties.IN.IND,IND,120,0.06,15,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3628,karnataka,2023,190,SHRIRANGAPATTANA,BASAVARAJA SOMAVARADA,parties.IN.IND,IND,108,0.06,16,forfeit,U,38,Graduate Professional,Engineer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3628,karnataka,2023,190,SHRIRANGAPATTANA,Y M GIRISHA,parties.IN.IND,IND,89,0.05,17,forfeit,U,42,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3628,karnataka,2023,190,SHRIRANGAPATTANA,HARISH.N,parties.IN.UNK,Indian Movement Party,71,0.04,18,forfeit,U,42,Others,Mechanic,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3628,karnataka,2023,190,SHRIRANGAPATTANA,HARISH.N,parties.IN.IMP,Indian Movement Party,71,0.04,18,forfeit,U,42,Others,Mechanic,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3627,karnataka,2023,191,NAGAMANGALA,N. CHALUVARAYASWAMY,parties.IN.INC,INC,90634,47.17,1,won,U,62,Others,Ex MLA,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3627,karnataka,2023,191,NAGAMANGALA,SURESHGOWDAA,parties.IN.JDS,JD(S),86220,44.87,2,lost,U,58,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3627,karnataka,2023,191,NAGAMANGALA,SUDHA SHIVARAMEGOWDA,parties.IN.BJP,BJP,7769,4.04,3,forfeit,U,58,10th Pass,Principal or Administrator,challenger,src-1b7bc1c9d39a
@@ -2239,7 +2239,7 @@ IN-AC-2008-karnataka-3627,karnataka,2023,191,NAGAMANGALA,YOGESH.B,parties.IN.AAA
 IN-AC-2008-karnataka-3627,karnataka,2023,191,NAGAMANGALA,ARAVIND SREENIVAS PRAJAKEEYA,parties.IN.UPJP,Uttama Prajaakeeya Party,654,0.34,6,forfeit,U,32,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3627,karnataka,2023,191,NAGAMANGALA,K.H.MAHADEVA,parties.IN.BSP,BSP,586,0.3,7,forfeit,U,48,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3627,karnataka,2023,191,NAGAMANGALA,N.S.ASHOKA,parties.IN.IND,IND,482,0.25,9,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3627,karnataka,2023,191,NAGAMANGALA,YOGANANDA MURTHY,parties.IN.UNK,Indian Movement Party,280,0.15,10,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3627,karnataka,2023,191,NAGAMANGALA,YOGANANDA MURTHY,parties.IN.IMP,Indian Movement Party,280,0.15,10,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3627,karnataka,2023,191,NAGAMANGALA,PRAKASH.M.L,parties.IN.IND,IND,264,0.14,11,forfeit,U,48,Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3627,karnataka,2023,191,NAGAMANGALA,G.M. RAMESH,parties.IN.KRS,Karnataka Rashtra Samithi,191,0.1,12,forfeit,U,52,10th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3627,karnataka,2023,191,NAGAMANGALA,ANIKETHAN GOWDA,parties.IN.IND,IND,136,0.07,13,forfeit,U,36,Graduate Professional,Consultant,challenger,src-1b7bc1c9d39a
@@ -2263,7 +2263,7 @@ IN-AC-2008-karnataka-3596,karnataka,2023,193,SHRAVANABELAGOLA,R. RAJU KUNDURU,pa
 IN-AC-2008-karnataka-3596,karnataka,2023,193,SHRAVANABELAGOLA,H.M. RAVI HULLENAHALLI,parties.IN.IND,IND,415,0.24,9,forfeit,U,35,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3596,karnataka,2023,193,SHRAVANABELAGOLA,H.D. REVANNA,parties.IN.PMPT,Purvanchal Mahapanchayat,298,0.17,10,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3596,karnataka,2023,193,SHRAVANABELAGOLA,NATARAJ POOMADIHALI,parties.IN.IND,IND,231,0.13,11,forfeit,U,37,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3596,karnataka,2023,193,SHRAVANABELAGOLA,PAVITHRA J.K,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,221,0.13,12,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3596,karnataka,2023,193,SHRAVANABELAGOLA,PAVITHRA J.K,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,221,0.13,12,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3596,karnataka,2023,193,SHRAVANABELAGOLA,SHIVAKUMARA,parties.IN.KRS,Karnataka Rashtra Samithi,160,0.09,13,forfeit,U,36,5th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3590,karnataka,2023,194,ARSIKERE,K.M. SHIVALINGE GOWDA,parties.IN.INC,INC,98375,52.86,1,won,U,65,Graduate,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3590,karnataka,2023,194,ARSIKERE,N.R. SANTHOSH,parties.IN.JDS,JD(S),78198,42.02,2,lost,U,34,Graduate,,challenger,src-1b7bc1c9d39a
@@ -2331,7 +2331,7 @@ IN-AC-2008-karnataka-3558,karnataka,2023,200,BELTHANGADY,RAKSHITH SHIVARAM,parti
 IN-AC-2008-karnataka-3558,karnataka,2023,200,BELTHANGADY,AKBAR BELTHANGADY,parties.IN.SDPI,SDPI,2513,1.33,3,forfeit,U,47,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3558,karnataka,2023,200,BELTHANGADY,ASHRAF ALIKUNHI MUNDAJE,parties.IN.JDS,JD(S),556,0.29,5,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3558,karnataka,2023,200,BELTHANGADY,ADITHYA NARAYANA KOLLAJE,parties.IN.SKP,Sarvodaya Karnataka Paksha,454,0.24,6,forfeit,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3558,karnataka,2023,200,BELTHANGADY,SHAILEESH R .J.,parties.IN.UNK,Tuluvere Paksha,308,0.16,7,forfeit,U,43,Graduate Professional,Engineer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3558,karnataka,2023,200,BELTHANGADY,SHAILEESH R .J.,parties.IN.TP,Tuluvere Paksha,308,0.16,7,forfeit,U,43,Graduate Professional,Engineer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3558,karnataka,2023,200,BELTHANGADY,JANARDHANA BANGERA,parties.IN.AAAP,AAAP,278,0.15,8,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3558,karnataka,2023,200,BELTHANGADY,MAHESH AUTO,parties.IN.IND,IND,214,0.11,9,forfeit,U,35,12th Pass,Auto-rickshaw Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3562,karnataka,2023,201,MOODABIDRI,UMANATHA KOTIAN,parties.IN.BJP,BJP,86925,54.77,1,won,U,62,10th Pass,,incumbent,src-1b7bc1c9d39a
@@ -2351,7 +2351,7 @@ IN-AC-2008-karnataka-3560,karnataka,2023,202,MANGALORE CITY NORTH,PRASHANTHA,par
 IN-AC-2008-karnataka-3560,karnataka,2023,202,MANGALORE CITY NORTH,MAXIM PINTO,parties.IN.IND,IND,226,0.12,8,forfeit,U,59,10th Pass,Trader,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3560,karnataka,2023,202,MANGALORE CITY NORTH,YASHODHA,parties.IN.KRS,Karnataka Rashtra Samithi,166,0.09,9,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3560,karnataka,2023,202,MANGALORE CITY NORTH,DHARMENDRA,parties.IN.ABHM,ABHM,134,0.07,10,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3560,karnataka,2023,202,MANGALORE CITY NORTH,B PRAVEEN CHANDRA RAO,parties.IN.UNK,Hindustan Janta Party Secular,107,0.06,11,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3560,karnataka,2023,202,MANGALORE CITY NORTH,B PRAVEEN CHANDRA RAO,parties.IN.HJPS,Hindustan Janta Party Secular,107,0.06,11,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci203,karnataka,2023,203,MANGALORE CITY SOUTH,D.VEDAVYASA KAMATH,parties.IN.BJP,BJP,91437,56.46,1,won,U,45,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci203,karnataka,2023,203,MANGALORE CITY SOUTH,J.R.LOBO,parties.IN.INC,INC,67475,41.67,2,lost,U,70,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci203,karnataka,2023,203,MANGALORE CITY SOUTH,SUMATHI.S.HEGDE,parties.IN.JDS,JD(S),709,0.44,4,forfeit,U,60,Graduate,,challenger,src-1b7bc1c9d39a
@@ -2384,7 +2384,7 @@ IN-AC-2008-karnataka-3564,karnataka,2023,207,SULLIA,H. L. VENKATESH.,parties.IN.
 IN-AC-2008-karnataka-3564,karnataka,2023,207,SULLIA,SUMANA BELLARKAR,parties.IN.AAAP,AAAP,1587,0.96,5,forfeit,U,40,Post Graduate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3564,karnataka,2023,207,SULLIA,"RAMESHA BOODU, SULLIA",parties.IN.UPJP,Uttama Prajaakeeya Party,575,0.35,6,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3564,karnataka,2023,207,SULLIA,GURUVAPPA KALLUGUDDE,parties.IN.IND,IND,513,0.31,7,forfeit,U,43,5th Pass,Coolie,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3564,karnataka,2023,207,SULLIA,SUNDER MERA,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,398,0.24,8,forfeit,U,60,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3564,karnataka,2023,207,SULLIA,SUNDER MERA,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,398,0.24,8,forfeit,U,60,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3564,karnataka,2023,207,SULLIA,GANESHA. M (SUDHISH),parties.IN.KRS,Karnataka Rashtra Samithi,299,0.18,9,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3633,karnataka,2023,208,MADIKERI,DR. MANTAR GOWDA,parties.IN.INC,INC,84879,47.84,1,won,U,38,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3633,karnataka,2023,208,MADIKERI,APPACHU RANJAN M. P,parties.IN.BJP,BJP,80477,45.36,2,lost,U,66,10th Pass,,incumbent,src-1b7bc1c9d39a
@@ -2400,7 +2400,7 @@ IN-AC-2008-karnataka-3633,karnataka,2023,208,MADIKERI,K.R.S.SAJEER NELAT.,partie
 IN-AC-2008-karnataka-3633,karnataka,2023,208,MADIKERI,HARISH G.ACHARYA,parties.IN.IND,IND,124,0.07,13,forfeit,U,64,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3633,karnataka,2023,208,MADIKERI,K.B.RAJU,parties.IN.RPI,RPI,116,0.07,14,forfeit,U,64,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3633,karnataka,2023,208,MADIKERI,SRINIVASA RAI B.K.(SATHISH),parties.IN.KPJP,Karnataka Pragnyavantha Janatha Party,116,0.07,15,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3633,karnataka,2023,208,MADIKERI,RASHEEDA BEGUM,parties.IN.UNK,Indian Movement Party,84,0.05,16,forfeit,U,53,Literate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3633,karnataka,2023,208,MADIKERI,RASHEEDA BEGUM,parties.IN.IMP,Indian Movement Party,84,0.05,16,forfeit,U,53,Literate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3636,karnataka,2023,209,VIRAJPET,A.S.PONNANNA,parties.IN.INC,INC,83791,49.94,1,won,U,48,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3636,karnataka,2023,209,VIRAJPET,K.G.BOPAIAH,parties.IN.BJP,BJP,79500,47.38,2,lost,U,71,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3636,karnataka,2023,209,VIRAJPET,MANZOOR ALI M.A,parties.IN.JDS,JD(S),1121,0.67,4,forfeit,U,50,Others,Shop Keeper,challenger,src-1b7bc1c9d39a
@@ -2457,7 +2457,7 @@ IN-AC-2008-karnataka-3530,karnataka,2023,214,NANJANGUD,B. HARSHAVARDHAN,parties.
 IN-AC-2008-karnataka-3530,karnataka,2023,214,NANJANGUD,SRIKANTA,parties.IN.BSP,BSP,902,0.51,4,forfeit,U,52,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3530,karnataka,2023,214,NANJANGUD,H. K.SWAMY HARADANAHALLI,parties.IN.IND,IND,746,0.42,5,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3530,karnataka,2023,214,NANJANGUD,H.HANUMAIAH,parties.IN.AAAP,AAAP,483,0.27,6,forfeit,U,50,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3530,karnataka,2023,214,NANJANGUD,MADESHAN. R,parties.IN.UNK,Kalyana Rajya Pragathi Paksha,453,0.26,7,forfeit,U,46,Graduate Professional,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3530,karnataka,2023,214,NANJANGUD,MADESHAN. R,parties.IN.KRPP,Kalyana Rajya Pragathi Paksha,453,0.26,7,forfeit,U,46,Graduate Professional,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3530,karnataka,2023,214,NANJANGUD,SUBBAIAH,parties.IN.IND,IND,317,0.18,8,forfeit,U,55,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3530,karnataka,2023,214,NANJANGUD,VIDYASAGAR. B,parties.IN.IND,IND,269,0.15,9,forfeit,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3530,karnataka,2023,214,NANJANGUD,M.P.VIJAY KUMAR,parties.IN.KRS,Karnataka Rashtra Samithi,164,0.09,10,forfeit,U,52,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
@@ -2486,7 +2486,7 @@ IN-AC-2008-karnataka-eci216,karnataka,2023,216,KRISHNARAJA,C. SRINIVASA PRASAD,p
 IN-AC-2008-karnataka-eci216,karnataka,2023,216,KRISHNARAJA,JAYASHREE.Y,parties.IN.AAAP,AAAP,420,0.28,7,forfeit,U,32,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci216,karnataka,2023,216,KRISHNARAJA,A.S. SATHISH,parties.IN.IND,IND,239,0.16,8,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci216,karnataka,2023,216,KRISHNARAJA,SOMASUNDER K.S,parties.IN.KRS,Karnataka Rashtra Samithi,238,0.16,9,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-eci216,karnataka,2023,216,KRISHNARAJA,ALAGUDU LINGARAJU,parties.IN.UNK,Indian Movement Party,187,0.12,10,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-eci216,karnataka,2023,216,KRISHNARAJA,ALAGUDU LINGARAJU,parties.IN.IMP,Indian Movement Party,187,0.12,10,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci216,karnataka,2023,216,KRISHNARAJA,H.N. PARTHASARATHY,parties.IN.IND,IND,124,0.08,11,forfeit,U,62,Others,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci216,karnataka,2023,216,KRISHNARAJA,TEJASWI NAGALINGASWAMY,parties.IN.IND,IND,119,0.08,12,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci216,karnataka,2023,216,KRISHNARAJA,SANDHYA. P.S,parties.IN.SUCI,SUCI,115,0.08,13,forfeit,U,44,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
@@ -2508,7 +2508,7 @@ IN-AC-2008-karnataka-eci217,karnataka,2023,217,CHAMARAJA,R. YOGANARASIMHAMURTHY,
 IN-AC-2008-karnataka-eci217,karnataka,2023,217,CHAMARAJA,SIDDARAJU H D. (KAVERI MESS),parties.IN.IND,IND,106,0.07,12,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci217,karnataka,2023,217,CHAMARAJA,SALEEM AHAMED,parties.IN.IND,IND,91,0.06,13,forfeit,U,40,5th Pass,Agricultural Business,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci217,karnataka,2023,217,CHAMARAJA,SEEMA.G.S.,parties.IN.SUCI,SUCI,80,0.05,14,forfeit,U,44,Graduate Professional,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-eci217,karnataka,2023,217,CHAMARAJA,M. PANCHALINGU,parties.IN.UNK,Country Citizen Party,63,0.04,15,forfeit,U,62,12th Pass,Workshop or Small Manufacturer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-eci217,karnataka,2023,217,CHAMARAJA,M. PANCHALINGU,parties.IN.CCP,Country Citizen Party,63,0.04,15,forfeit,U,62,12th Pass,Workshop or Small Manufacturer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci218,karnataka,2023,218,NARASIMHARAJA,TANVEER SAIT,parties.IN.INC,INC,83480,45.14,1,won,U,56,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci218,karnataka,2023,218,NARASIMHARAJA,S. SATHEESH SANDESH SWAMY,parties.IN.BJP,BJP,52360,28.31,2,lost,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-eci218,karnataka,2023,218,NARASIMHARAJA,ABDUL MAJEED,parties.IN.SDPI,SDPI,41037,22.19,3,lost,U,53,Graduate,,challenger,src-1b7bc1c9d39a
@@ -2531,7 +2531,7 @@ IN-AC-2008-karnataka-3532,karnataka,2023,219,VARUNA,V. SOMANNA,parties.IN.BJP,BJ
 IN-AC-2008-karnataka-3532,karnataka,2023,219,VARUNA,KRISHNAMURTHY. M,parties.IN.BSP,BSP,1078,0.54,3,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3532,karnataka,2023,219,VARUNA,Dr|| BHARATHI SHANKAR N. L.,parties.IN.JDS,JD(S),1037,0.52,4,forfeit,U,64,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3532,karnataka,2023,219,VARUNA,RAJESH,parties.IN.AAAP,AAAP,564,0.28,6,forfeit,U,46,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3532,karnataka,2023,219,VARUNA,ARUN LINGA KANNADA CHAKRAVARTHI,parties.IN.UNK,Kannada Deshada Paksha,416,0.21,7,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3532,karnataka,2023,219,VARUNA,ARUN LINGA KANNADA CHAKRAVARTHI,parties.IN.KDP,Kannada Deshada Paksha,416,0.21,7,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3532,karnataka,2023,219,VARUNA,MAHADEVASWAMY .R,parties.IN.UPJP,Uttama Prajaakeeya Party,414,0.21,8,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3532,karnataka,2023,219,VARUNA,PYARIJAN,parties.IN.IND,IND,388,0.19,9,forfeit,U,30,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3532,karnataka,2023,219,VARUNA,CHETHAN. E,parties.IN.IND,IND,286,0.14,10,forfeit,U,33,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
@@ -2549,8 +2549,8 @@ IN-AC-2008-karnataka-3531,karnataka,2023,220,T.NARASIPUR,SIDDARAJU M,parties.IN.
 IN-AC-2008-karnataka-3531,karnataka,2023,220,T.NARASIPUR,K KENCHAIAH,parties.IN.IND,IND,504,0.31,7,forfeit,U,67,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3531,karnataka,2023,220,T.NARASIPUR,DR. ALAGUD S. CHANDRASHEKHAR,parties.IN.IND,IND,334,0.21,8,forfeit,U,52,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3531,karnataka,2023,220,T.NARASIPUR,A N SHIVALINGAPPA,parties.IN.SAJP,Samajwadi Janata Party(Karnataka),261,0.16,9,forfeit,U,48,Doctorate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3531,karnataka,2023,220,T.NARASIPUR,SRINIVASA,parties.IN.UNK,Indian Movement Party,255,0.16,10,forfeit,U,49,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3531,karnataka,2023,220,T.NARASIPUR,R RENUKA SURESH,parties.IN.UNK,Country Citizen Party,179,0.11,11,forfeit,U,45,5th Pass,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3531,karnataka,2023,220,T.NARASIPUR,SRINIVASA,parties.IN.IMP,Indian Movement Party,255,0.16,10,forfeit,U,49,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3531,karnataka,2023,220,T.NARASIPUR,R RENUKA SURESH,parties.IN.CCP,Country Citizen Party,179,0.11,11,forfeit,U,45,5th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3531,karnataka,2023,220,T.NARASIPUR,M D MANJUNATHA,parties.IN.KRS,Karnataka Rashtra Samithi,170,0.1,12,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3531,karnataka,2023,220,T.NARASIPUR,CHANDRAPPA N,parties.IN.RCMP,Rani Chennamma Party,120,0.07,13,forfeit,U,56,Post Graduate,Musician or Artist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3527,karnataka,2023,221,HANUR,M.R. MANJUNATH,parties.IN.JDS,JD(S),75632,41.93,1,won,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -2570,7 +2570,7 @@ IN-AC-2008-karnataka-3527,karnataka,2023,221,HANUR,MUZAMIL PASHA,parties.IN.IND,
 IN-AC-2008-karnataka-3527,karnataka,2023,221,HANUR,M. NAGARAJU,parties.IN.IND,IND,227,0.13,16,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3527,karnataka,2023,221,HANUR,SURESH .M,parties.IN.KRS,Karnataka Rashtra Samithi,176,0.1,17,forfeit,U,39,10th Pass,Auto-rickshaw Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3527,karnataka,2023,221,HANUR,G. MURUGESHAN,parties.IN.KPPR,Karnataka Praja Party (RaithaParva),131,0.07,18,forfeit,U,48,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3527,karnataka,2023,221,HANUR,SIDDAPPA .R,parties.IN.UNK,Country Citizen Party,115,0.06,19,forfeit,U,46,10th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3527,karnataka,2023,221,HANUR,SIDDAPPA .R,parties.IN.CCP,Country Citizen Party,115,0.06,19,forfeit,U,46,10th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3529,karnataka,2023,222,KOLLEGAL,A.R.Krishnamurthy,parties.IN.INC,INC,108363,64.59,1,won,U,62,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3529,karnataka,2023,222,KOLLEGAL,N.Mahesh,parties.IN.BJP,BJP,48844,29.11,2,lost,U,67,Post Graduate,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3529,karnataka,2023,222,KOLLEGAL,B.Puttaswamy,parties.IN.JDS,JD(S),3925,2.34,3,forfeit,U,49,Post Graduate,Ex Police,challenger,src-1b7bc1c9d39a
@@ -2582,7 +2582,7 @@ IN-AC-2008-karnataka-3529,karnataka,2023,222,KOLLEGAL,Rajesh.M,parties.IN.IND,IN
 IN-AC-2008-karnataka-3529,karnataka,2023,222,KOLLEGAL,Ningaraj.G,parties.IN.KPPR,Karnataka Praja Party (RaithaParva),291,0.17,10,forfeit,U,48,Graduate,Self-employed,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3529,karnataka,2023,222,KOLLEGAL,Raju.K,parties.IN.IND,IND,218,0.13,11,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3529,karnataka,2023,222,KOLLEGAL,Ningaraju.S,parties.IN.KJP,KJP,173,0.1,12,forfeit,U,38,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3529,karnataka,2023,222,KOLLEGAL,Vinod.S,parties.IN.UNK,Bharathiya Belaku Party,143,0.09,13,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3529,karnataka,2023,222,KOLLEGAL,Vinod.S,parties.IN.BTBP,Bharathiya Belaku Party,143,0.09,13,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3529,karnataka,2023,222,KOLLEGAL,N.Ravikumar,parties.IN.KRS,Karnataka Rashtra Samithi,142,0.08,14,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3525,karnataka,2023,223,CHAMARAJANAGAR,C. Puttarangashetty,parties.IN.INC,INC,83858,48.46,1,won,U,68,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3525,karnataka,2023,223,CHAMARAJANAGAR,V.Somanna,parties.IN.BJP,BJP,76325,44.1,2,lost,U,72,Graduate,,incumbent,src-1b7bc1c9d39a
@@ -2593,7 +2593,7 @@ IN-AC-2008-karnataka-3525,karnataka,2023,223,CHAMARAJANAGAR,Abhilash.K,parties.I
 IN-AC-2008-karnataka-3525,karnataka,2023,223,CHAMARAJANAGAR,Vatal Nagaraj,parties.IN.KCVP,Kannada Chalavali Vatal Paksha,658,0.38,8,forfeit,U,74,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3525,karnataka,2023,223,CHAMARAJANAGAR,Ningaraju,parties.IN.IND,IND,569,0.33,9,forfeit,U,63,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3525,karnataka,2023,223,CHAMARAJANAGAR,Nagesha.K,parties.IN.IND,IND,277,0.16,10,forfeit,U,29,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3525,karnataka,2023,223,CHAMARAJANAGAR,P.Gurusiddappa,parties.IN.UNK,Bharathiya Belaku Party,270,0.16,11,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3525,karnataka,2023,223,CHAMARAJANAGAR,P.Gurusiddappa,parties.IN.BTBP,Bharathiya Belaku Party,270,0.16,11,forfeit,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3525,karnataka,2023,223,CHAMARAJANAGAR,C.L.SRINIVAS SHASTHTI,parties.IN.KRS,Karnataka Rashtra Samithi,211,0.12,12,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3525,karnataka,2023,223,CHAMARAJANAGAR,Prasanna Kumar.B,parties.IN.KPPR,Karnataka Praja Party (RaithaParva),202,0.12,13,forfeit,U,36,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3525,karnataka,2023,223,CHAMARAJANAGAR,H.C Mahesh Kumar,parties.IN.SKP,Sarvodaya Karnataka Paksha,198,0.11,14,forfeit,U,61,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -2613,4 +2613,4 @@ IN-AC-2008-karnataka-3526,karnataka,2023,224,GUNDLUPET,Jayashree,parties.IN.IND,
 IN-AC-2008-karnataka-3526,karnataka,2023,224,GUNDLUPET,N. Ambarish,parties.IN.KJP,KJP,120,0.06,13,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3526,karnataka,2023,224,GUNDLUPET,H.S.Thontadharyaswamy,parties.IN.IND,IND,106,0.06,14,forfeit,U,42,10th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3526,karnataka,2023,224,GUNDLUPET,Girish.K,parties.IN.KRS,Karnataka Rashtra Samithi,78,0.04,15,forfeit,U,43,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3526,karnataka,2023,224,GUNDLUPET,K.Basavashetty,parties.IN.UNK,Bharathiya Belaku Party,77,0.04,16,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3526,karnataka,2023,224,GUNDLUPET,K.Basavashetty,parties.IN.BTBP,Bharathiya Belaku Party,77,0.04,16,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
