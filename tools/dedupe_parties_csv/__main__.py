@@ -1,9 +1,11 @@
-"""Dedupe ``parties.csv`` self-duplicates (PR-Q1 / commit 1 of 3).
+"""Dedupe ``parties.csv`` self-duplicates and legit dual-spelling pairs (PR-Q1 / PR-Q1b).
 
 Run from the repo root:
 
-    python -m tools.dedupe_parties_csv           # dry-run (verdict.csv only)
-    python -m tools.dedupe_parties_csv --apply   # merge + rewrite
+    python -m tools.dedupe_parties_csv                      # dry-run (Class A only)
+    python -m tools.dedupe_parties_csv --apply              # merge Class A
+    python -m tools.dedupe_parties_csv --include-class-c    # dry-run (A + C)
+    python -m tools.dedupe_parties_csv --include-class-c --apply  # merge A + C
 
 Background
 ----------
@@ -41,11 +43,16 @@ fall into three classes:
     the by_alias index so they never collide.
 
   - Class C (legitimate dual-spelling collisions: AJSU/AJSUP, JJP/JNJP,
-    RLP/RALTP, ICSP/ICP, SKPP/SRPP, AD(S)/ADAL). These are genuine party-
-    identity questions that require curator (Hans+Max) review per
-    ``docs/architecture/data/party-lineage.md``. The tool LEAVES them
-    alone; the resolver's collision-set rule (commit 2) keeps them out of
-    the full-fallback index so neither side wins by accident.
+    RLP/RALTP, ICSP/ICP, SKPP/SRPP, AD(S)/ADAL). PR-Q1b (2026-06-12)
+    adds the ``CLASS_C_CURATED_PAIRS`` map and the ``--include-class-c``
+    CLI flag so the tool merges these pairs too when invoked with the
+    flag. The canonical pid in each pair is chosen with an EXTRA
+    preference for the ECI-standard short over the publisher variant
+    (e.g. AD(S) over ADAL, AJSU over AJSUP); see the inline comments on
+    ``CLASS_C_CURATED_PAIRS`` for the per-pair rationale. Unlike Class A,
+    the Fowler tiebreaker cross-check does NOT run on Class C - the
+    curator pick reflects ECI-domain knowledge (publisher abbreviation
+    standards) that the algorithm does not encode.
 
 Ordering note (dedupe <-> correlate_unk_apply)
 -----------------------------------------------
@@ -63,6 +70,7 @@ from __future__ import annotations
 import argparse
 import csv
 import io
+import re
 import sys
 from collections import Counter
 from datetime import datetime, timezone
@@ -71,6 +79,14 @@ from typing import Final
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+
+#: Long-format electoral CSV indicator_ids whose ``value_text`` is itself a
+#: ``party_id`` FK (mirror of ``backend.tests.test_party_id_fk_closure.
+#: PARTY_ID_INDICATOR_RE``). All other rows in those CSVs hold numeric
+#: observations in ``value_numeric`` and are not subject to FK rewrite.
+ELECTORAL_PARTY_ID_INDICATOR_RE: Final[re.Pattern[str]] = re.compile(
+    r"^(ac|pc|state)-(winner|leading|runnerup)-party-id$"
+)
 PARTIES_CSV = REPO_ROOT / "datasets" / "data" / "entities" / "parties.csv"
 
 
@@ -97,6 +113,68 @@ CLASS_A_DUPLICATES: Final[tuple[tuple[str, str], ...]] = (
     ("parties.IN.GARVI_GUJARAT_PARTY", "parties.IN.GAGUP"),
     ("parties.IN.AAAAP", "parties.IN.AAAP"),
 )
+
+
+#: Class C: legit dual-spelling pairs - two parties.csv rows share the same
+#: ``full`` value because the publisher minted two abbreviations for the
+#: SAME real-world party. PR-Q1b (2026-06-12). Each entry is
+#: ``delete_pid -> keep_pid``; the inline comment names the source-of-truth
+#: for the canonical pick. Processed only when the CLI is invoked with
+#: ``--include-class-c``.
+#:
+#: Verification (Phase 1, brief 2026-06-12):
+#:   - All 6 fulls are confirmed via the on-disk parties.csv + the TCPD
+#:     parties-parity verdict (datasets/ephemeral/party-parity/tcpd-parties/
+#:     2021/48f7c83c/verdict.csv) which lists ICP + ICSP both with the
+#:     identical full ``INDIAN CHRISTIAN SECULAR PARTY`` (ext keys 3342 +
+#:     3344) and SKPP + SRPP both with the identical full ``SIKKIM
+#:     REPUBLICAN PARTY`` (ext keys 17266 + 24897).
+#:   - Candidacy state-overlap: ICSP+ICP both in karnataka + IN;
+#:     SKPP+SRPP both in sikkim/2019; JJP+JNJP both label Hanuman-Beniwal-
+#:     style Haryana party (JNJP holds the bulk in haryana/2019);
+#:     AJSU+AJSUP both label the Jharkhand Sudesh-Mahto party;
+#:     RLP+RALTP both in rajasthan; ADS+ADAL both label Apna Dal
+#:     (Soneylal). See the PR body for the full per-pair candidacy table.
+#:
+#: Unlike Class A, the Fowler tiebreaker does NOT cross-check these picks:
+#: the curator pick reflects ECI-publisher standards (AD(S) is the official
+#: ECI form; AJSU is the older ECI label vs AJSUP) that Fowler does not
+#: encode. The SKPP-over-SRPP and ICSP-over-ICP picks are reinforced by
+#: Fowler (more aliases / more curated row); the AD(S)-over-ADAL and
+#: JJP-over-JNJP picks override Fowler's bare ``shorter wins`` rule.
+CLASS_C_CURATED_PAIRS: Final[dict[str, str]] = {
+    # JNJP is a publisher variant; JJP is the ECI standard short for the
+    # Haryana-based Jannayak Janta Party (Dushyant Chautala, founded 2018).
+    "parties.IN.JNJP": "parties.IN.JJP",
+    # AJSUP is the TCPD/publisher variant (TCPD: ``AJSU PARTY``); AJSU is
+    # the older ECI label for the Jharkhand-based All Jharkhand Students
+    # Union (Sudesh Mahto, founded 1986). AJSU's row carries the Wikipedia
+    # link confirming the identity.
+    "parties.IN.AJSUP": "parties.IN.AJSU",
+    # RALTP is the publisher variant; RLP is the ECI standard short for
+    # the Rajasthan-based Rashtriya Loktantrik Party (Hanuman Beniwal,
+    # founded 2018).
+    "parties.IN.RALTP": "parties.IN.RLP",
+    # Both ICP + ICSP are listed in TCPD 2021 with identical full
+    # ``INDIAN CHRISTIAN SECULAR PARTY`` (ext keys 3342 + 3344). ICSP has
+    # 58 candidacies + the ``INDIAN CHRISTIAN SECULAR PARTY`` alias
+    # already curated; ICP has 2 candidacies and no aliases. Keep ICSP.
+    "parties.IN.ICP": "parties.IN.ICSP",
+    # Both SKPP + SRPP are listed in TCPD 2021 with identical full
+    # ``SIKKIM REPUBLICAN PARTY`` (ext keys 17266 + 24897); both have
+    # candidacies in sikkim/2019. SKPP has the ``SIKKIM REPUBLICAN PARTY``
+    # alias already curated + 12 candidacies vs SRPP's 3. Keep SKPP
+    # (Fowler tiebreaker favours the more-curated row; brief originally
+    # suggested SRPP as the initialism but was overridden by Phase-1
+    # evidence per brief's flip-allowance rule).
+    "parties.IN.SRPP": "parties.IN.SKPP",
+    # ADAL is the publisher abbreviation; AD(S) is the official ECI form
+    # carrying the parenthetical (Soneylal) distinguishing it from Apna
+    # Dal (Kameraj). ADS holds the ECI-canonical short ``AD(S)``; ADAL has
+    # the historical home_state_codes (IN-MP|IN-UP) which merges into ADS
+    # via the INHERITABLE_FIELDS pathway.
+    "parties.IN.ADAL": "parties.IN.ADS",
+}
 
 
 # Fields on parties.csv (schema v1.1). Used for the merge logic below.
@@ -228,8 +306,10 @@ def _classify(
     """Return (class_letter, note).
 
     Class A iff a ``(delete_pid, keep_pid)`` pair from ``CLASS_A_DUPLICATES``
-    is exactly represented among the members; otherwise Class B (sentinel
-    placeholder) or Class C (legit dual-spelling).
+    is exactly represented among the members; Class C iff a corresponding
+    pair appears in ``CLASS_C_CURATED_PAIRS``; otherwise Class B (sentinel
+    placeholder) or unclassified (returned as Class C with the deferred
+    note - the unclassified case is treated as Class C for reporting only).
     """
     if full in SENTINEL_FULL_PLACEHOLDERS:
         return "B", "sentinel-placeholder full (60 affected rows skiplisted)"
@@ -237,6 +317,9 @@ def _classify(
     for delete_pid, keep_pid in CLASS_A_DUPLICATES:
         if delete_pid in pids and keep_pid in pids:
             return "A", f"PR #952 self-duplicate; keep {keep_pid}, delete {delete_pid}"
+    for delete_pid, keep_pid in CLASS_C_CURATED_PAIRS.items():
+        if delete_pid in pids and keep_pid in pids:
+            return "C", f"curated dual-spelling; keep {keep_pid}, delete {delete_pid}"
     return "C", "legit dual-spelling; defer to Hans+Max party-lineage review"
 
 
@@ -309,6 +392,44 @@ def _rewrite_fk_in_file(
     return changes
 
 
+def _rewrite_electoral_value_text_fk(
+    path: Path, fk_map: dict[str, str], *, apply: bool,
+) -> int:
+    """Rewrite ``value_text`` cells in a long-format electoral CSV when
+    the row's ``indicator_id`` matches ``ELECTORAL_PARTY_ID_INDICATOR_RE``
+    and the value is a key of ``fk_map``. Returns the number of cells
+    changed.
+
+    The long-format electoral CSV at
+    ``datasets/data/datapoints/electoral/<slug>_election_results.csv``
+    holds one observation per row keyed by ``(entity_id, year, period_label,
+    period_seq, indicator_id)``; the value lives in ``value_text`` for
+    ``*-(winner|leading|runnerup)-party-id`` indicators and in
+    ``value_numeric`` for everything else. The generic
+    ``_rewrite_fk_in_file`` cannot handle this case because the column name
+    that carries the party_id is the same generic ``value_text`` used by
+    every other string-valued indicator; this function adds the
+    indicator-id filter so non-party rows are never touched.
+    """
+    if not path.exists():
+        return 0
+    fieldnames, rows = _read_parties(path)
+    if "value_text" not in fieldnames or "indicator_id" not in fieldnames:
+        return 0
+    changes = 0
+    for row in rows:
+        indicator = (row.get("indicator_id") or "").strip()
+        if not ELECTORAL_PARTY_ID_INDICATOR_RE.match(indicator):
+            continue
+        v = (row.get("value_text") or "").strip()
+        if v in fk_map:
+            row["value_text"] = fk_map[v]
+            changes += 1
+    if changes and apply:
+        _write_csv(path, fieldnames, rows)
+    return changes
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument(
@@ -319,13 +440,22 @@ def main() -> int:
             " Default is dry-run (verdict.csv only)."
         ),
     )
+    parser.add_argument(
+        "--include-class-c",
+        action="store_true",
+        help=(
+            "Also process the Class C curated dual-spelling pairs from"
+            " CLASS_C_CURATED_PAIRS (PR-Q1b, 2026-06-12). Default OFF."
+        ),
+    )
     args = parser.parse_args()
 
     fieldnames, rows = _read_parties(PARTIES_CSV)
     by_pid = {(r.get("party_id") or "").strip(): r for r in rows}
     collisions = _scan_collisions(rows)
 
-    class_a_actions: list[tuple[str, str, dict[str, str], dict[str, str]]] = []
+    # Each action tuple: (class_letter, delete_pid, keep_pid, canonical_row, duplicate_row).
+    merge_actions: list[tuple[str, str, str, dict[str, str], dict[str, str]]] = []
     classified: dict[str, list[tuple[str, str | None, list[str]]]] = {
         "A": [], "B": [], "C": [],
     }
@@ -333,32 +463,52 @@ def main() -> int:
         cls, note = _classify(full, members)
         pids = sorted((r.get("party_id") or "") for r in members)
         classified[cls].append((full, note, pids))
-        if cls != "A":
-            continue
-        # Determine which member is the brief-named keep + delete.
-        keep_pid = next(
-            keep for (delete, keep) in CLASS_A_DUPLICATES
-            if any(r.get("party_id") == delete for r in members)
-            and any(r.get("party_id") == keep for r in members)
-        )
-        delete_pid = next(
-            delete for (delete, keep) in CLASS_A_DUPLICATES
-            if any(r.get("party_id") == delete for r in members)
-            and any(r.get("party_id") == keep for r in members)
-        )
-        canonical_row = by_pid[keep_pid]
-        duplicate_row = by_pid[delete_pid]
-        # Cross-check the brief's named winner against the Fowler tiebreaker.
-        fowler_pick = _fowler_winner([canonical_row, duplicate_row])
-        if fowler_pick.get("party_id") != keep_pid:
-            raise RuntimeError(
-                f"Fowler tiebreaker disagrees with curator: full={full!r} "
-                f"brief named keep={keep_pid!r} but algorithm picked "
-                f"{fowler_pick.get('party_id')!r}. Re-audit before --apply."
+        if cls == "A":
+            # Determine the brief-named keep + delete from CLASS_A_DUPLICATES.
+            keep_pid = next(
+                keep for (delete, keep) in CLASS_A_DUPLICATES
+                if any(r.get("party_id") == delete for r in members)
+                and any(r.get("party_id") == keep for r in members)
             )
-        class_a_actions.append(
-            (delete_pid, keep_pid, canonical_row, duplicate_row)
-        )
+            delete_pid = next(
+                delete for (delete, keep) in CLASS_A_DUPLICATES
+                if any(r.get("party_id") == delete for r in members)
+                and any(r.get("party_id") == keep for r in members)
+            )
+            canonical_row = by_pid[keep_pid]
+            duplicate_row = by_pid[delete_pid]
+            # Cross-check the brief's named winner against the Fowler tiebreaker.
+            fowler_pick = _fowler_winner([canonical_row, duplicate_row])
+            if fowler_pick.get("party_id") != keep_pid:
+                raise RuntimeError(
+                    f"Fowler tiebreaker disagrees with curator: full={full!r} "
+                    f"brief named keep={keep_pid!r} but algorithm picked "
+                    f"{fowler_pick.get('party_id')!r}. Re-audit before --apply."
+                )
+            merge_actions.append(
+                ("A", delete_pid, keep_pid, canonical_row, duplicate_row)
+            )
+        elif cls == "C" and args.include_class_c:
+            # Find the matching curated pair. Class C does NOT cross-check
+            # against Fowler: the curator pick reflects ECI-publisher
+            # standards (AD(S) over ADAL, AJSU over AJSUP) that the
+            # algorithm does not encode.
+            curated = None
+            for delete_pid, keep_pid in CLASS_C_CURATED_PAIRS.items():
+                if any(r.get("party_id") == delete_pid for r in members) and \
+                        any(r.get("party_id") == keep_pid for r in members):
+                    curated = (delete_pid, keep_pid)
+                    break
+            if curated is None:
+                # Unclassified Class C (not in CLASS_C_CURATED_PAIRS).
+                # Skip - still requires curator review.
+                continue
+            delete_pid, keep_pid = curated
+            canonical_row = by_pid[keep_pid]
+            duplicate_row = by_pid[delete_pid]
+            merge_actions.append(
+                ("C", delete_pid, keep_pid, canonical_row, duplicate_row)
+            )
 
     print(f"=== parties.csv collision audit ===")
     print(f"total rows: {len(rows)}")
@@ -369,12 +519,15 @@ def main() -> int:
     print(f"  Class B (sentinel placeholders, SKIPPED): {len(classified['B'])}")
     for full, note, pids in classified["B"]:
         print(f"    {full!r}: {len(pids)} rows  ({note})")
-    print(f"  Class C (legit dual-spelling, SKIPPED): {len(classified['C'])}")
+    c_label = (
+        "ACTIONABLE" if args.include_class_c else "SKIPPED (pass --include-class-c)"
+    )
+    print(f"  Class C (legit dual-spelling, {c_label}): {len(classified['C'])}")
     for full, note, pids in classified["C"]:
-        print(f"    {full!r} -> {pids}")
+        print(f"    {full!r} -> {pids}  ({note})")
 
-    # Compute the FK-rewrite map.
-    fk_map = {delete: keep for (delete, keep, _, _) in class_a_actions}
+    # Compute the FK-rewrite map (covers both Class A and Class C actions).
+    fk_map = {delete: keep for (_, delete, keep, _, _) in merge_actions}
 
     # Build the verdict rows BEFORE any disk edits.
     verdict_rows: list[dict[str, str]] = []
@@ -397,7 +550,10 @@ def main() -> int:
     for path in _electoral_result_paths():
         with path.open(encoding="utf-8", newline="") as fh:
             for row in csv.DictReader(fh):
-                pid = (row.get("party_id") or "").strip()
+                indicator = (row.get("indicator_id") or "").strip()
+                if not ELECTORAL_PARTY_ID_INDICATOR_RE.match(indicator):
+                    continue
+                pid = (row.get("value_text") or "").strip()
                 if pid in fk_map:
                     fk_count_by_pid[pid] += 1
     alli = _party_alliances_path()
@@ -409,7 +565,7 @@ def main() -> int:
                     if v in fk_map:
                         fk_count_by_pid[v] += 1
 
-    for delete_pid, keep_pid, canonical_row, duplicate_row in class_a_actions:
+    for cls, delete_pid, keep_pid, canonical_row, duplicate_row in merge_actions:
         merged_aliases = _merge_aliases(canonical_row, duplicate_row)
         canon_pre = (canonical_row.get("aliases") or "").strip()
         canon_pre_set = {
@@ -420,6 +576,7 @@ def main() -> int:
             if t and t not in canon_pre_set
         )
         verdict_rows.append({
+            "class": cls,
             "delete_pid": delete_pid,
             "keep_pid": keep_pid,
             "full": (canonical_row.get("full") or "").upper(),
@@ -438,14 +595,14 @@ def main() -> int:
     verdict_path = verdict_dir / "verdict.csv"
     _write_csv(
         verdict_path,
-        ["delete_pid", "keep_pid", "full", "alias_count_added", "rows_to_rewrite"],
+        ["class", "delete_pid", "keep_pid", "full", "alias_count_added", "rows_to_rewrite"],
         verdict_rows,
     )
     print()
     print(f"verdict.csv -> {verdict_path.relative_to(REPO_ROOT).as_posix()}")
     for row in verdict_rows:
         print(
-            f"  {row['delete_pid']} -> {row['keep_pid']}  "
+            f"  [{row['class']}] {row['delete_pid']} -> {row['keep_pid']}  "
             f"aliases_added={row['alias_count_added']}  "
             f"rows_to_rewrite={row['rows_to_rewrite']}"
         )
@@ -456,14 +613,14 @@ def main() -> int:
         return 0
 
     # APPLY mode: edit parties.csv + walk corpus + rewrite FKs.
-    delete_pids = {d for d, _, _, _ in class_a_actions}
+    delete_pids = {d for _, d, _, _, _ in merge_actions}
     new_parties_rows: list[dict[str, str]] = []
     for row in rows:
         pid = (row.get("party_id") or "").strip()
         if pid in delete_pids:
             continue  # drop the duplicate
         # If this is a keep_pid that received a merge, write the updated row.
-        for delete_pid, keep_pid, canonical_row, duplicate_row in class_a_actions:
+        for _, delete_pid, keep_pid, canonical_row, duplicate_row in merge_actions:
             if pid != keep_pid:
                 continue
             new_aliases = _merge_aliases(canonical_row, duplicate_row)
@@ -480,7 +637,7 @@ def main() -> int:
     print()
     print(
         f"parties.csv: deleted {len(delete_pids)} rows, updated "
-        f"{len(class_a_actions)} canonical rows."
+        f"{len(merge_actions)} canonical rows."
     )
 
     # Walk corpus and rewrite FKs.
@@ -498,7 +655,11 @@ def main() -> int:
             rewrite_stats["summary_cells"] += n
             rewrite_stats["summary_files"] += 1
     for path in _electoral_result_paths():
-        n = _rewrite_fk_in_file(path, fk_map, ["party_id"], apply=True)
+        # Long-format CSV: party_id FK lives in ``value_text`` (filtered by
+        # the indicator_id regex). The legacy ``party_id`` column does not
+        # exist on these files; using the indicator-aware rewriter is the
+        # only structural path (mirrors the FK closure test's contract).
+        n = _rewrite_electoral_value_text_fk(path, fk_map, apply=True)
         if n:
             rewrite_stats["electoral_results_cells"] += n
             rewrite_stats["electoral_results_files"] += 1

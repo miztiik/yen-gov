@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-jharkhand-2209,jharkhand,2019,1,RAJMAHAL,Anant Kumar Ojha,parties.IN.BJP,BJP,88904,42.26,1,won,U,46,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2209,jharkhand,2019,1,RAJMAHAL,Md. Tajuddin,parties.IN.AJSUP,AJSUP,76532,36.38,2,lost,U,46,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2209,jharkhand,2019,1,RAJMAHAL,Md. Tajuddin,parties.IN.AJSU,AJSUP,76532,36.38,2,lost,U,46,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2209,jharkhand,2019,1,RAJMAHAL,Ketabuddin Sekh,parties.IN.JMM,JMM,24619,11.7,3,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2209,jharkhand,2019,1,RAJMAHAL,Pradip Kumar Singh,parties.IN.BSP,BSP,3826,1.82,4,forfeit,U,43,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2209,jharkhand,2019,1,RAJMAHAL,Gopal Chandra Mandal,parties.IN.IND,IND,2617,1.24,5,forfeit,U,53,Post Graduate,Author,challenger,src-1b7bc1c9d39a
@@ -24,7 +24,7 @@ IN-AC-2008-jharkhand-2209,jharkhand,2019,1,RAJMAHAL,Rajesh Mandal,parties.IN.IND
 IN-AC-2008-jharkhand-2209,jharkhand,2019,1,RAJMAHAL,Md Nawab Sheakh,parties.IN.RKSP,RKSP,195,0.09,24,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2205,jharkhand,2019,2,BORIO,Lobin Hembrom,parties.IN.JMM,JMM,77365,47.4,1,won,U,68,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2205,jharkhand,2019,2,BORIO,Surya Narayan Hansada,parties.IN.BJP,BJP,59441,36.42,2,lost,U,39,10th Pass,Self-employed,crossover,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2205,jharkhand,2019,2,BORIO,Tala Marandi,parties.IN.AJSUP,AJSUP,8955,5.49,3,forfeit,U,58,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2205,jharkhand,2019,2,BORIO,Tala Marandi,parties.IN.AJSU,AJSUP,8955,5.49,3,forfeit,U,58,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2205,jharkhand,2019,2,BORIO,Sonaram Madaiya,parties.IN.CPI,CPI,2705,1.66,4,forfeit,U,57,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2205,jharkhand,2019,2,BORIO,Lukas Hansda,parties.IN.JDU,JD(U),2181,1.34,6,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2205,jharkhand,2019,2,BORIO,Lakhan Pahadiya,parties.IN.BSP,BSP,1960,1.2,7,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -37,7 +37,7 @@ IN-AC-2008-jharkhand-2205,jharkhand,2019,2,BORIO,Bipin Kisku,parties.IN.AITC,AIT
 IN-AC-2008-jharkhand-2204,jharkhand,2019,3,BARHAIT,HEMANT SOREN,parties.IN.JMM,JMM,73725,53.49,1,won,U,42,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2204,jharkhand,2019,3,BARHAIT,SIMON MALTO,parties.IN.BJP,BJP,47985,34.82,2,lost,U,50,10th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2204,jharkhand,2019,3,BARHAIT,HOPNA TUDU,parties.IN.JVM,JVM,2622,1.9,3,forfeit,U,47,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2204,jharkhand,2019,3,BARHAIT,GAMLIYEL HEMBROM,parties.IN.AJSUP,AJSUP,2573,1.87,4,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2204,jharkhand,2019,3,BARHAIT,GAMLIYEL HEMBROM,parties.IN.AJSU,AJSUP,2573,1.87,4,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2204,jharkhand,2019,3,BARHAIT,SAMUEL KUMAR MARAIYA,parties.IN.LJP,LJP,1844,1.34,6,forfeit,U,30,Graduate,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2204,jharkhand,2019,3,BARHAIT,LILI HANSDA,parties.IN.IND,IND,1302,0.94,7,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2204,jharkhand,2019,3,BARHAIT,BARNARD HEMBROM,parties.IN.IND,IND,1209,0.88,8,forfeit,U,47,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
@@ -59,7 +59,7 @@ IN-AC-2008-jharkhand-2206,jharkhand,2019,4,LITIPARA,Gupin Hembrom,parties.IN.LJP
 IN-AC-2008-jharkhand-2206,jharkhand,2019,4,LITIPARA,ISHWAR MARANDI,parties.IN.JDU,JD(U),614,0.43,12,forfeit,U,41,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2208,jharkhand,2019,5,PAKHUR,ALAMGIR ALAM,parties.IN.INC,INC,128218,51.86,1,won,U,69,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2208,jharkhand,2019,5,PAKHUR,VENI PRASAD GUPTA,parties.IN.BJP,BJP,63110,25.53,2,lost,U,73,12th Pass,Ex MLA,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2208,jharkhand,2019,5,PAKHUR,AQUIL AKHTAR,parties.IN.AJSUP,AJSUP,39444,15.95,3,forfeit,U,54,Post Graduate,Agricultural Business,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2208,jharkhand,2019,5,PAKHUR,AQUIL AKHTAR,parties.IN.AJSU,AJSUP,39444,15.95,3,forfeit,U,54,Post Graduate,Agricultural Business,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2208,jharkhand,2019,5,PAKHUR,MD. IQBAL,parties.IN.CPIM,CPM,3394,1.37,4,forfeit,U,69,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2208,jharkhand,2019,5,PAKHUR,ALFRED EDWARD SOREN,parties.IN.IND,IND,3073,1.24,5,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2208,jharkhand,2019,5,PAKHUR,ASRAFUL SHEKH,parties.IN.AITC,AITC,1886,0.76,7,forfeit,U,36,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -72,7 +72,7 @@ IN-AC-2008-jharkhand-2207,jharkhand,2019,6,MAHESHPUR,STEPHEN MARANDI,parties.IN.
 IN-AC-2008-jharkhand-2207,jharkhand,2019,6,MAHESHPUR,MISTRY SOREN,parties.IN.BJP,BJP,55091,33.31,2,lost,U,50,Graduate Professional,Party Worker,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2207,jharkhand,2019,6,MAHESHPUR,GOPIN SOREN,parties.IN.CPIM,CPM,5176,3.13,3,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2207,jharkhand,2019,6,MAHESHPUR,SHIVDHAN HEMBROM,parties.IN.JVM,JVM,2860,1.73,4,forfeit,U,63,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2207,jharkhand,2019,6,MAHESHPUR,SUPHAL MARANDI,parties.IN.AJSUP,AJSUP,2706,1.64,5,forfeit,U,65,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2207,jharkhand,2019,6,MAHESHPUR,SUPHAL MARANDI,parties.IN.AJSU,AJSUP,2706,1.64,5,forfeit,U,65,8th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2207,jharkhand,2019,6,MAHESHPUR,STEFAN MARANDI,parties.IN.IND,IND,1551,0.94,7,forfeit,U,43,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2207,jharkhand,2019,6,MAHESHPUR,ORIGANESH HEMBROM,parties.IN.JKPP,JKPP,1360,0.82,8,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2207,jharkhand,2019,6,MAHESHPUR,JANTU SOREN,parties.IN.JDU,JD(U),1237,0.75,9,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
@@ -87,7 +87,7 @@ IN-AC-2008-jharkhand-2157,jharkhand,2019,7,SHIKARIPARA,SALKHAN MURMU,parties.IN.
 IN-AC-2008-jharkhand-2157,jharkhand,2019,7,SHIKARIPARA,HABIL MURMU,parties.IN.IND,IND,2375,1.55,6,forfeit,U,40,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2157,jharkhand,2019,7,SHIKARIPARA,MUNNI HANSDA,parties.IN.AITC,AITC,1950,1.27,7,forfeit,U,50,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2157,jharkhand,2019,7,SHIKARIPARA,STEPHAN BESRA,parties.IN.IND,IND,1830,1.19,8,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2157,jharkhand,2019,7,SHIKARIPARA,SHYAM MARANDI,parties.IN.AJSUP,AJSUP,1044,0.68,9,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2157,jharkhand,2019,7,SHIKARIPARA,SHYAM MARANDI,parties.IN.AJSU,AJSUP,1044,0.68,9,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2157,jharkhand,2019,7,SHIKARIPARA,SUNIL KUMAR MARANDI,parties.IN.JKPP,JKPP,791,0.52,10,forfeit,U,41,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2157,jharkhand,2019,7,SHIKARIPARA,GANESH SOREN,parties.IN.IND,IND,762,0.5,11,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2157,jharkhand,2019,7,SHIKARIPARA,SHIVDHAN MURMU,parties.IN.LJP,LJP,735,0.48,12,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -96,7 +96,7 @@ IN-AC-2008-jharkhand-2157,jharkhand,2019,7,SHIKARIPARA,DEBU DEHRI,parties.IN.JKK
 IN-AC-2008-jharkhand-2155,jharkhand,2019,8,NALA,RABINDRA NATH MAHATO,parties.IN.JMM,JMM,61356,34.97,1,won,U,60,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2155,jharkhand,2019,8,NALA,SATYANAND JHA,parties.IN.BJP,BJP,57836,32.96,2,lost,U,64,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2155,jharkhand,2019,8,NALA,KANAI CHANDRA MALPAHRIA,parties.IN.CPI,CPI,21394,12.19,3,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2155,jharkhand,2019,8,NALA,MADHAV CHANDRA MAHTO,parties.IN.AJSUP,AJSUP,16778,9.56,4,forfeit,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2155,jharkhand,2019,8,NALA,MADHAV CHANDRA MAHTO,parties.IN.AJSU,AJSUP,16778,9.56,4,forfeit,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2155,jharkhand,2019,8,NALA,PUSHPA SOREN,parties.IN.JVM,JVM,2592,1.48,5,forfeit,U,49,Graduate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2155,jharkhand,2019,8,NALA,AMIT KUMAR CHALAK,parties.IN.LJP,LJP,2020,1.15,6,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2155,jharkhand,2019,8,NALA,SANTOSH HEMBRAM,parties.IN.IND,IND,1769,1.01,7,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -112,7 +112,7 @@ IN-AC-2008-jharkhand-2155,jharkhand,2019,8,NALA,SANTOSH KUMAR YADAV,parties.IN.B
 IN-AC-2008-jharkhand-2154,jharkhand,2019,9,JAMTARA,IRFAN ANSARI,parties.IN.INC,INC,112829,53.11,1,won,U,44,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2154,jharkhand,2019,9,JAMTARA,BIRENDRA MANDAL,parties.IN.BJP,BJP,74088,34.87,2,lost,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2154,jharkhand,2019,9,JAMTARA,TARUN KUMAR GUPTA,parties.IN.IND,IND,6219,2.93,3,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2154,jharkhand,2019,9,JAMTARA,CHAMELI DEVI,parties.IN.AJSUP,AJSUP,4780,2.25,4,forfeit,U,54,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2154,jharkhand,2019,9,JAMTARA,CHAMELI DEVI,parties.IN.AJSU,AJSUP,4780,2.25,4,forfeit,U,54,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2154,jharkhand,2019,9,JAMTARA,SANJAY PAHAN,parties.IN.IND,IND,3407,1.6,5,forfeit,U,42,Graduate,Distributors,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2154,jharkhand,2019,9,JAMTARA,ABDUL MANNAN ANSARI,parties.IN.JVM,JVM,1646,0.77,7,forfeit,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2154,jharkhand,2019,9,JAMTARA,MD. ANWAR ANSARI,parties.IN.IND,IND,1549,0.73,8,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -139,7 +139,7 @@ IN-AC-2008-jharkhand-2153,jharkhand,2019,11,JAMA,SITA MURMU,parties.IN.JMM,JMM,6
 IN-AC-2008-jharkhand-2153,jharkhand,2019,11,JAMA,SURESH MURMU,parties.IN.BJP,BJP,58499,40.74,2,lost,U,45,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2153,jharkhand,2019,11,JAMA,ARJUN MARANDI,parties.IN.JVM,JVM,5897,4.11,3,forfeit,U,50,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2153,jharkhand,2019,11,JAMA,BONEL KISKU,parties.IN.IND,IND,4152,2.89,4,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2153,jharkhand,2019,11,JAMA,STEFFY TERESA MURMU,parties.IN.AJSUP,AJSUP,3351,2.33,5,forfeit,U,39,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2153,jharkhand,2019,11,JAMA,STEFFY TERESA MURMU,parties.IN.AJSU,AJSUP,3351,2.33,5,forfeit,U,39,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2153,jharkhand,2019,11,JAMA,MANUEL MURMU,parties.IN.IND,IND,2509,1.75,6,forfeit,U,25,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2153,jharkhand,2019,11,JAMA,BARISH MURMU,parties.IN.IND,IND,1330,0.93,8,forfeit,U,58,10th Pass,Ex Military,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2153,jharkhand,2019,11,JAMA,ARJUN PUJHAR,parties.IN.BSP,BSP,1317,0.92,9,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -178,7 +178,7 @@ IN-AC-2008-jharkhand-2166,jharkhand,2019,12,JARMUNDI,JAY NARAYAN MANDAL,parties.
 IN-AC-2008-jharkhand-2166,jharkhand,2019,12,JARMUNDI,RAM PRIT RAJAK,parties.IN.IND,IND,290,0.18,27,forfeit,U,77,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2167,jharkhand,2019,13,MADHUPUR,Haji Hussain Ansari,parties.IN.JMM,JMM,88115,38.4,1,won,U,70,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2167,jharkhand,2019,13,MADHUPUR,Raj Paliwar,parties.IN.BJP,BJP,65046,28.34,2,lost,U,51,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2167,jharkhand,2019,13,MADHUPUR,Ganga Narayan Ray,parties.IN.AJSUP,AJSUP,45620,19.88,3,lost,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2167,jharkhand,2019,13,MADHUPUR,Ganga Narayan Ray,parties.IN.AJSU,AJSUP,45620,19.88,3,lost,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2167,jharkhand,2019,13,MADHUPUR,Md. Ikbal,parties.IN.AIMIM,AIMIM,9866,4.3,4,forfeit,U,45,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2167,jharkhand,2019,13,MADHUPUR,Sahim Khan,parties.IN.JVM,JVM,4222,1.84,6,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2167,jharkhand,2019,13,MADHUPUR,Budhdev Murmu,parties.IN.IND,IND,2241,0.98,7,forfeit,U,52,Literate,,challenger,src-1b7bc1c9d39a
@@ -196,7 +196,7 @@ IN-AC-2008-jharkhand-2156,jharkhand,2019,14,SARATH,Mumtaj Ansari,parties.IN.AIMI
 IN-AC-2008-jharkhand-2156,jharkhand,2019,14,SARATH,Pinki Kumari,parties.IN.IND,IND,5666,2.65,5,forfeit,U,25,Graduate Professional,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2156,jharkhand,2019,14,SARATH,Israel Ansari,parties.IN.IND,IND,2912,1.36,6,forfeit,U,49,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2156,jharkhand,2019,14,SARATH,Mamleshwar Prasad Singh,parties.IN.IND,IND,1656,0.77,7,forfeit,U,52,Literate,Rent,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2156,jharkhand,2019,14,SARATH,Firoj Miyan,parties.IN.AJSUP,AJSUP,1378,0.64,8,forfeit,U,40,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2156,jharkhand,2019,14,SARATH,Firoj Miyan,parties.IN.AJSU,AJSUP,1378,0.64,8,forfeit,U,40,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2156,jharkhand,2019,14,SARATH,Sirajuddin Ansari,parties.IN.IND,IND,1338,0.63,9,forfeit,U,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2156,jharkhand,2019,14,SARATH,Upendra nath Mandal,parties.IN.AAAP,AAAP,1229,0.57,10,forfeit,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2156,jharkhand,2019,14,SARATH,Ashok Kumar Mandal,parties.IN.IND,IND,1181,0.55,11,forfeit,U,36,Graduate Professional,Rent,challenger,src-1b7bc1c9d39a
@@ -214,7 +214,7 @@ IN-AC-2008-jharkhand-2164,jharkhand,2019,15,DEOGHAR,NARAYAN DAS,parties.IN.BJP,B
 IN-AC-2008-jharkhand-2164,jharkhand,2019,15,DEOGHAR,SURESH PASWAN,parties.IN.RJD,RJD,92867,39.88,2,lost,U,54,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2164,jharkhand,2019,15,DEOGHAR,NIRMALA BHARTI,parties.IN.JVM,JVM,9970,4.28,3,forfeit,U,38,Post Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2164,jharkhand,2019,15,DEOGHAR,BAJRANGI MAHTHA,parties.IN.LJP,LJP,6394,2.75,4,forfeit,U,34,12th Pass,"Agricultural Business, Rent",challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2164,jharkhand,2019,15,DEOGHAR,SANTOSH PASWAN,parties.IN.AJSUP,AJSUP,4528,1.94,6,forfeit,U,46,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2164,jharkhand,2019,15,DEOGHAR,SANTOSH PASWAN,parties.IN.AJSU,AJSUP,4528,1.94,6,forfeit,U,46,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2164,jharkhand,2019,15,DEOGHAR,GONDA LAL DAS,parties.IN.IND,IND,4012,1.72,7,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2164,jharkhand,2019,15,DEOGHAR,CHANDRASHEKHAR RAJAK,parties.IN.BSP,BSP,3269,1.4,8,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2164,jharkhand,2019,15,DEOGHAR,BASANT KUMAR ANAND,parties.IN.BMUP,BMUP,3062,1.31,9,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
@@ -235,7 +235,7 @@ IN-AC-2008-jharkhand-2165,jharkhand,2019,17,GODDA,Sanjay Prasad Yadav,parties.IN
 IN-AC-2008-jharkhand-2165,jharkhand,2019,17,GODDA,Ravindra Mahto,parties.IN.JDU,JD(U),6417,3.35,3,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2165,jharkhand,2019,17,GODDA,Phool Kumari,parties.IN.JVM,JVM,1728,0.9,5,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2165,jharkhand,2019,17,GODDA,Noor Hassan,parties.IN.PECP,PECP,1708,0.89,6,forfeit,U,47,Graduate,Journalist or Editor,crossover,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2165,jharkhand,2019,17,GODDA,Awadhesh Kumar Singh,parties.IN.AJSUP,AJSUP,1596,0.83,7,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2165,jharkhand,2019,17,GODDA,Awadhesh Kumar Singh,parties.IN.AJSU,AJSUP,1596,0.83,7,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2165,jharkhand,2019,17,GODDA,Rabindra Shankar Mishra,parties.IN.AAAP,AAAP,1019,0.53,8,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2165,jharkhand,2019,17,GODDA,Pradip Kumar Pandit,parties.IN.BSP,BSP,985,0.51,9,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2165,jharkhand,2019,17,GODDA,Babita Devi,parties.IN.NCP,NCP,899,0.47,10,forfeit,U,43,12th Pass,Household,challenger,src-1b7bc1c9d39a
@@ -250,7 +250,7 @@ IN-AC-2008-jharkhand-2168,jharkhand,2019,18,MAHAGAMA,Ashok Kumar Singh,parties.I
 IN-AC-2008-jharkhand-2168,jharkhand,2019,18,MAHAGAMA,Gouri Priya,parties.IN.IND,IND,4136,2.11,4,forfeit,U,36,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2168,jharkhand,2019,18,MAHAGAMA,Ashok Sah,parties.IN.CPIM,CPM,2703,1.38,5,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2168,jharkhand,2019,18,MAHAGAMA,Sanjiv Kumar Mishra,parties.IN.JVM,JVM,2506,1.28,6,forfeit,U,44,12th Pass,Managerial Position,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2168,jharkhand,2019,18,MAHAGAMA,Ataur Rahaman Siddiki,parties.IN.AJSUP,AJSUP,2198,1.12,7,forfeit,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2168,jharkhand,2019,18,MAHAGAMA,Ataur Rahaman Siddiki,parties.IN.AJSU,AJSUP,2198,1.12,7,forfeit,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2168,jharkhand,2019,18,MAHAGAMA,Shital Sinha,parties.IN.LJP,LJP,1837,0.94,8,forfeit,U,48,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2168,jharkhand,2019,18,MAHAGAMA,Shambhu Thakur,parties.IN.IND,IND,1801,0.92,9,forfeit,U,41,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2168,jharkhand,2019,18,MAHAGAMA,Brahamdeo Mahto,parties.IN.IND,IND,1592,0.81,11,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
@@ -263,7 +263,7 @@ IN-AC-2008-jharkhand-2168,jharkhand,2019,18,MAHAGAMA,Shahnaz Khatoon,parties.IN.
 IN-AC-2008-jharkhand-2168,jharkhand,2019,18,MAHAGAMA,Pramod Kumar Ray,parties.IN.BALP,BALP,575,0.29,18,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2192,jharkhand,2019,19,KODARMA,Dr. Neera Yadav,parties.IN.BJP,BJP,63675,31.35,1,won,U,48,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2192,jharkhand,2019,19,KODARMA,Amitabh Kumar,parties.IN.RJD,RJD,61878,30.46,2,lost,U,43,Graduate Professional,Private Company,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2192,jharkhand,2019,19,KODARMA,Shalini Gupta,parties.IN.AJSUP,AJSUP,45014,22.16,3,lost,U,35,Post Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2192,jharkhand,2019,19,KODARMA,Shalini Gupta,parties.IN.AJSU,AJSUP,45014,22.16,3,lost,U,35,Post Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2192,jharkhand,2019,19,KODARMA,Ramesh Harshdhar,parties.IN.JVM,JVM,9557,4.71,4,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2192,jharkhand,2019,19,KODARMA,Yogendra Kumar Pandit,parties.IN.IND,IND,4169,2.05,5,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2192,jharkhand,2019,19,KODARMA,Prakash Ambedkar,parties.IN.BSP,BSP,3627,1.79,6,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -285,7 +285,7 @@ IN-AC-2008-jharkhand-2188,jharkhand,2019,20,BARKATHA,MOHAMMAD ASRAF ANSARI,parti
 IN-AC-2008-jharkhand-2188,jharkhand,2019,20,BARKATHA,DIGANBAR KUMAR MEHTA,parties.IN.CPI,CPI,5634,2.66,5,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2188,jharkhand,2019,20,BARKATHA,RAMCHANDRA PRASAD,parties.IN.IND,IND,5323,2.52,6,forfeit,U,54,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2188,jharkhand,2019,20,BARKATHA,MOHAMMAD KHALID KHALIL,parties.IN.RJD,RJD,4867,2.3,7,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2188,jharkhand,2019,20,BARKATHA,PRADEEP KUMAR MEHTA,parties.IN.AJSUP,AJSUP,3677,1.74,8,forfeit,U,46,12th Pass,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2188,jharkhand,2019,20,BARKATHA,PRADEEP KUMAR MEHTA,parties.IN.AJSU,AJSUP,3677,1.74,8,forfeit,U,46,12th Pass,Rent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2188,jharkhand,2019,20,BARKATHA,RAM PRASAD,parties.IN.IND,IND,3094,1.46,9,forfeit,U,49,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2188,jharkhand,2019,20,BARKATHA,ASHOK KUMAR,parties.IN.BALP,BALP,2810,1.33,10,forfeit,U,25,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2188,jharkhand,2019,20,BARKATHA,TUKLAL NAYAK,parties.IN.BSP,BSP,2476,1.17,11,forfeit,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -313,7 +313,7 @@ IN-AC-2008-jharkhand-2170,jharkhand,2019,21,BARHI,BASUDEW PASWAN,parties.IN.IND,
 IN-AC-2008-jharkhand-2170,jharkhand,2019,21,BARHI,CHHATHI DEVI,parties.IN.RTMP,RTMP,599,0.33,14,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2170,jharkhand,2019,21,BARHI,SHIV KUMAR RAM,parties.IN.PPID,PPID,469,0.26,15,forfeit,U,62,Post Graduate,Retired Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2171,jharkhand,2019,22,BARKAGAON,AMBA PRASAD,parties.IN.INC,INC,98862,44.13,1,won,U,31,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2171,jharkhand,2019,22,BARKAGAON,ROSHAN LAL CHOUDHARY,parties.IN.AJSUP,AJSUP,67348,30.06,2,lost,U,59,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2171,jharkhand,2019,22,BARKAGAON,ROSHAN LAL CHOUDHARY,parties.IN.AJSU,AJSUP,67348,30.06,2,lost,U,59,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2171,jharkhand,2019,22,BARKAGAON,LOKNATH MAHTO,parties.IN.BJP,BJP,31761,14.18,3,forfeit,U,74,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2171,jharkhand,2019,22,BARKAGAON,DURGA CHARAN PRASAD,parties.IN.JVM,JVM,3347,1.49,4,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2171,jharkhand,2019,22,BARKAGAON,SURESH MAHTO,parties.IN.JMM_U,JMM(U),3205,1.43,5,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
@@ -336,7 +336,7 @@ IN-AC-2008-jharkhand-2171,jharkhand,2019,22,BARKAGAON,DARSHAN GANJHU,parties.IN.
 IN-AC-2008-jharkhand-2171,jharkhand,2019,22,BARKAGAON,ARBIND KUMAR OJHA,parties.IN.IND,IND,322,0.14,23,forfeit,U,35,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2171,jharkhand,2019,22,BARKAGAON,VIJAY KUMAR SINGH,parties.IN.IND,IND,196,0.09,24,forfeit,U,39,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2174,jharkhand,2019,23,RAMGARH,MAMTA DEVI,parties.IN.INC,INC,99944,44.7,1,won,U,34,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2174,jharkhand,2019,23,RAMGARH,SUNITA CHOUDHARY,parties.IN.AJSUP,AJSUP,71226,31.86,2,lost,U,45,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2174,jharkhand,2019,23,RAMGARH,SUNITA CHOUDHARY,parties.IN.AJSU,AJSUP,71226,31.86,2,lost,U,45,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2174,jharkhand,2019,23,RAMGARH,RANANJAY KUMAR @ KUNTU BABU,parties.IN.BJP,BJP,31874,14.26,3,forfeit,U,50,Graduate,Trader,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2174,jharkhand,2019,23,RAMGARH,AJIT KUMAR @ BABLU KUSHWAHA,parties.IN.IND,IND,3271,1.46,4,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2174,jharkhand,2019,23,RAMGARH,KHURSHID AHMAD QURAISHI,parties.IN.CPI,CPI,2084,0.93,5,forfeit,U,35,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
@@ -361,7 +361,7 @@ IN-AC-2008-jharkhand-2174,jharkhand,2019,23,RAMGARH,NEPAL VISHWAKARMA,parties.IN
 IN-AC-2008-jharkhand-2174,jharkhand,2019,23,RAMGARH,SUVO DEVI,parties.IN.IND,IND,255,0.11,25,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2174,jharkhand,2019,23,RAMGARH,DHARMENDRA PRASAD,parties.IN.IND,IND,191,0.09,26,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2173,jharkhand,2019,24,MANDHU,Jai Prakash Bhai Patel,parties.IN.BJP,BJP,49855,20.87,1,won,U,37,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2173,jharkhand,2019,24,MANDHU,Nirmal Mahto,parties.IN.AJSUP,AJSUP,47793,20.01,2,lost,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2173,jharkhand,2019,24,MANDHU,Nirmal Mahto,parties.IN.AJSU,AJSUP,47793,20.01,2,lost,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2173,jharkhand,2019,24,MANDHU,Ram Prakash Bhai Patel,parties.IN.JMM,JMM,44768,18.74,3,lost,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2173,jharkhand,2019,24,MANDHU,Kumar Mahesh Singh,parties.IN.IND,IND,28866,12.08,4,forfeit,U,66,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2173,jharkhand,2019,24,MANDHU,Chandra Nath Bhai Patel,parties.IN.JVM,JVM,15746,6.59,5,forfeit,U,49,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
@@ -398,7 +398,7 @@ IN-AC-2008-jharkhand-2172,jharkhand,2019,25,HAZARIBAGH,Santosh Kumar Mehta,parti
 IN-AC-2008-jharkhand-2172,jharkhand,2019,25,HAZARIBAGH,Ajeet Kumar Mehta,parties.IN.IND,IND,490,0.23,15,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2172,jharkhand,2019,25,HAZARIBAGH,Rameshwar Ram Kushwaha,parties.IN.AIFB,AIFB,309,0.14,16,forfeit,U,49,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2145,jharkhand,2019,26,SIMARIA,Kishun Kumar Das,parties.IN.BJP,BJP,61438,30.25,1,won,U,49,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2145,jharkhand,2019,26,SIMARIA,MANOJ KUMAR CHANDRA,parties.IN.AJSUP,AJSUP,50442,24.84,2,lost,U,40,Post Graduate,Distributors,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2145,jharkhand,2019,26,SIMARIA,MANOJ KUMAR CHANDRA,parties.IN.AJSU,AJSUP,50442,24.84,2,lost,U,40,Post Graduate,Distributors,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2145,jharkhand,2019,26,SIMARIA,Ramadev Singh Bhogta,parties.IN.JVM,JVM,31346,15.43,3,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2145,jharkhand,2019,26,SIMARIA,Yogendra Nath Baitha,parties.IN.INC,INC,27665,13.62,4,forfeit,U,55,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2145,jharkhand,2019,26,SIMARIA,Niraj Kumar Niraj,parties.IN.IND,IND,5552,2.73,5,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
@@ -441,7 +441,7 @@ IN-AC-2008-jharkhand-2189,jharkhand,2019,28,DHANWAR,CHHATRADHARI VISHWAKARMA,par
 IN-AC-2008-jharkhand-2187,jharkhand,2019,29,BAGODAR,VINOD KUMAR SINGH,parties.IN.CPIMLL,CPI(ML)(L),98201,46.15,1,won,U,43,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2187,jharkhand,2019,29,BAGODAR,NAGENDRA MAHTO,parties.IN.BJP,BJP,83656,39.31,2,lost,U,68,Graduate,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2187,jharkhand,2019,29,BAGODAR,RAJANI KAUR,parties.IN.JVM,JVM,8749,4.11,3,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2187,jharkhand,2019,29,BAGODAR,ANUP KUMAR PANDEY,parties.IN.AJSUP,AJSUP,5188,2.44,4,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2187,jharkhand,2019,29,BAGODAR,ANUP KUMAR PANDEY,parties.IN.AJSU,AJSUP,5188,2.44,4,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2187,jharkhand,2019,29,BAGODAR,LALITA KUMARI,parties.IN.IND,IND,2582,1.21,6,forfeit,U,26,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2187,jharkhand,2019,29,BAGODAR,JAGDISH MAHTO,parties.IN.IND,IND,2316,1.09,7,forfeit,U,42,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2187,jharkhand,2019,29,BAGODAR,VASUDEV PRA VERMA,parties.IN.INC,INC,2049,0.96,8,forfeit,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -454,7 +454,7 @@ IN-AC-2008-jharkhand-2191,jharkhand,2019,30,JAMUA,KEDAR HAZRA,parties.IN.BJP,BJP
 IN-AC-2008-jharkhand-2191,jharkhand,2019,30,JAMUA,MANJU KUMARI,parties.IN.INC,INC,40293,23.21,2,lost,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2191,jharkhand,2019,30,JAMUA,CHANDRIKA MAHTHA,parties.IN.JVM,JVM,25865,14.9,3,forfeit,U,49,Post Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2191,jharkhand,2019,30,JAMUA,ASHOK PASWAN,parties.IN.CPIMLL,CPI(ML)(L),15921,9.17,4,forfeit,U,41,8th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2191,jharkhand,2019,30,JAMUA,SATYANARAYAN DAS,parties.IN.AJSUP,AJSUP,9668,5.57,5,forfeit,U,51,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2191,jharkhand,2019,30,JAMUA,SATYANARAYAN DAS,parties.IN.AJSU,AJSUP,9668,5.57,5,forfeit,U,51,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2191,jharkhand,2019,30,JAMUA,PRADIP KU HAJRA,parties.IN.IND,IND,6442,3.71,6,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2191,jharkhand,2019,30,JAMUA,SHYAMDEO HAZRA,parties.IN.LOKJANP,LOKJANP,2433,1.4,8,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2191,jharkhand,2019,30,JAMUA,MAHENDRA RAJAK,parties.IN.BMUP,BMUP,2131,1.23,9,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -466,7 +466,7 @@ IN-AC-2008-jharkhand-2191,jharkhand,2019,30,JAMUA,KEDAR PASWAN,parties.IN.LJP,LJ
 IN-AC-2008-jharkhand-2191,jharkhand,2019,30,JAMUA,JAGDISH BAITHA,parties.IN.RLSP,BLSP,642,0.37,15,forfeit,U,61,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2190,jharkhand,2019,31,GANDEY,DR SARFRAZ AHMAD,parties.IN.JMM,JMM,65023,34.71,1,won,U,66,Post Graduate,Party Worker,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2190,jharkhand,2019,31,GANDEY,JAI PRAKASH VERMA,parties.IN.BJP,BJP,56168,29.98,2,lost,U,48,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2190,jharkhand,2019,31,GANDEY,ARJUN BAITHA,parties.IN.AJSUP,AJSUP,15361,8.2,3,forfeit,U,51,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2190,jharkhand,2019,31,GANDEY,ARJUN BAITHA,parties.IN.AJSU,AJSUP,15361,8.2,3,forfeit,U,51,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2190,jharkhand,2019,31,GANDEY,SUNIL KR. YADAV,parties.IN.IND,IND,9900,5.28,4,forfeit,U,40,12th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2190,jharkhand,2019,31,GANDEY,KARMILA TUDU,parties.IN.IND,IND,9056,4.83,5,forfeit,U,32,10th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2190,jharkhand,2019,31,GANDEY,DILIP KUMAR VERMA,parties.IN.JVM,JVM,8952,4.78,6,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -489,7 +489,7 @@ IN-AC-2008-jharkhand-2161,jharkhand,2019,32,GIRIDIH,BUDHAN HEMABRAM,parties.IN.I
 IN-AC-2008-jharkhand-2161,jharkhand,2019,32,GIRIDIH,RAJESH KU SINHA,parties.IN.CPIMLL,CPI(ML)(L),834,0.5,12,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2161,jharkhand,2019,32,GIRIDIH,SIMA KUMARI,parties.IN.AITC,AITC,833,0.5,13,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2160,jharkhand,2019,33,DUMRI,JAGARNATH MAHTO,parties.IN.JMM,JMM,71128,37.38,1,won,U,53,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2160,jharkhand,2019,33,DUMRI,YASHODA DEVI,parties.IN.AJSUP,AJSUP,36840,19.36,2,lost,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2160,jharkhand,2019,33,DUMRI,YASHODA DEVI,parties.IN.AJSU,AJSUP,36840,19.36,2,lost,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2160,jharkhand,2019,33,DUMRI,PRADEEP KUMAR SAHU,parties.IN.BJP,BJP,36013,18.93,3,lost,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2160,jharkhand,2019,33,DUMRI,ABDUL MOBIN RIZVI,parties.IN.AIMIM,AIMIM,24132,12.68,4,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2160,jharkhand,2019,33,DUMRI,LALCHAND MAHTO,parties.IN.JDU,JD(U),5219,2.74,5,forfeit,U,64,12th Pass,,crossover,src-1b7bc1c9d39a
@@ -503,7 +503,7 @@ IN-AC-2008-jharkhand-2160,jharkhand,2019,33,DUMRI,NARAYAN GIRI,parties.IN.IND,IN
 IN-AC-2008-jharkhand-2160,jharkhand,2019,33,DUMRI,CHANDRIKA PRASAD MAHTO,parties.IN.BALP,BALP,591,0.31,14,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2160,jharkhand,2019,33,DUMRI,MOHAMMAD AHMAD,parties.IN.PSPL,PSPL,557,0.29,15,forfeit,U,39,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2160,jharkhand,2019,33,DUMRI,DEVI LAL ANAND,parties.IN.JMM_U,JMM(U),470,0.25,16,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2162,jharkhand,2019,34,GOMIYA,Lambodar Mahto,parties.IN.AJSUP,AJSUP,71859,37.9,1,won,U,53,Doctorate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2162,jharkhand,2019,34,GOMIYA,Lambodar Mahto,parties.IN.AJSU,AJSUP,71859,37.9,1,won,U,53,Doctorate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2162,jharkhand,2019,34,GOMIYA,Babita Devi,parties.IN.JMM,JMM,60922,32.13,2,lost,U,41,5th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2162,jharkhand,2019,34,GOMIYA,Madhav Lal Singh,parties.IN.IND,IND,26103,13.77,3,forfeit,U,66,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2162,jharkhand,2019,34,GOMIYA,Lakshman Kumar Nayak,parties.IN.BJP,BJP,18011,9.5,4,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
@@ -520,7 +520,7 @@ IN-AC-2008-jharkhand-2162,jharkhand,2019,34,GOMIYA,Pankaj Kumar Pandey,parties.I
 IN-AC-2008-jharkhand-2162,jharkhand,2019,34,GOMIYA,Devishwar Manjhi,parties.IN.JMM_U,JMM(U),228,0.12,16,forfeit,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2159,jharkhand,2019,35,BERMO,Rajendra Pd. Singh,parties.IN.INC,INC,88945,46.88,1,won,U,73,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2159,jharkhand,2019,35,BERMO,Yogeshwar Mahto,parties.IN.BJP,BJP,63773,33.61,2,lost,U,64,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2159,jharkhand,2019,35,BERMO,Kashi Nath Singh,parties.IN.AJSUP,AJSUP,16546,8.72,3,forfeit,U,55,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2159,jharkhand,2019,35,BERMO,Kashi Nath Singh,parties.IN.AJSU,AJSUP,16546,8.72,3,forfeit,U,55,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2159,jharkhand,2019,35,BERMO,Md. Aftab Alam Khan,parties.IN.CPI,CPI,5695,3,4,forfeit,U,43,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2159,jharkhand,2019,35,BERMO,Ram Kinkar Pandey,parties.IN.JVM,JVM,1997,1.05,5,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2159,jharkhand,2019,35,BERMO,Sabita Devi,parties.IN.JKPS,JKPS,1806,0.95,6,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -540,7 +540,7 @@ IN-AC-2008-jharkhand-2159,jharkhand,2019,35,BERMO,Chandan Kumar,parties.IN.PPID,
 IN-AC-2008-jharkhand-2159,jharkhand,2019,35,BERMO,Kaleshwar Ravidas,parties.IN.RPIA,RPI(A),286,0.15,21,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2146,jharkhand,2019,36,BOKARO,Biranchi Narayan,parties.IN.BJP,BJP,112333,41.42,1,won,U,48,Others,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2146,jharkhand,2019,36,BOKARO,Shweta Singh,parties.IN.INC,INC,99020,36.51,2,lost,U,39,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2146,jharkhand,2019,36,BOKARO,Rajendra Mahato,parties.IN.AJSUP,AJSUP,14517,5.35,3,forfeit,U,62,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2146,jharkhand,2019,36,BOKARO,Rajendra Mahato,parties.IN.AJSU,AJSUP,14517,5.35,3,forfeit,U,62,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2146,jharkhand,2019,36,BOKARO,PRAKASH KUMAR,parties.IN.JVM,JVM,13872,5.11,4,forfeit,U,37,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2146,jharkhand,2019,36,BOKARO,MASAKUR ALAM SIDDIKI,parties.IN.AIMIM,AIMIM,5401,1.99,5,forfeit,U,42,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2146,jharkhand,2019,36,BOKARO,SANJAY KUMAR,parties.IN.IND,IND,3148,1.16,6,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -564,7 +564,7 @@ IN-AC-2008-jharkhand-2146,jharkhand,2019,36,BOKARO,LALITA DEVI,parties.IN.IND,IN
 IN-AC-2008-jharkhand-2146,jharkhand,2019,36,BOKARO,Krishna Kumar Kaushal,parties.IN.PPID,PPID,438,0.16,25,forfeit,U,44,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2146,jharkhand,2019,36,BOKARO,Renu Sharma,parties.IN.IND,IND,351,0.13,26,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2147,jharkhand,2019,37,CHANDANKYARI,AMAR KUMAR BAURI,parties.IN.BJP,BJP,67739,38.03,1,won,U,41,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2147,jharkhand,2019,37,CHANDANKYARI,UMA KANT RAJAK,parties.IN.AJSUP,AJSUP,58528,32.86,2,lost,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2147,jharkhand,2019,37,CHANDANKYARI,UMA KANT RAJAK,parties.IN.AJSU,AJSUP,58528,32.86,2,lost,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2147,jharkhand,2019,37,CHANDANKYARI,BIJAY KUMAR RAJWAR,parties.IN.JMM,JMM,36400,20.44,3,lost,U,31,Graduate Professional,Panchayat Member,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2147,jharkhand,2019,37,CHANDANKYARI,BHOLANATH BAURI,parties.IN.IND,IND,2694,1.51,5,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2147,jharkhand,2019,37,CHANDANKYARI,GANESH KUMAR DAS,parties.IN.IND,IND,2033,1.14,6,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -581,7 +581,7 @@ IN-AC-2008-jharkhand-2147,jharkhand,2019,37,CHANDANKYARI,JAGESHWER PRASAD HAZRA,
 IN-AC-2008-jharkhand-2151,jharkhand,2019,38,SINDRI,INDRAJIT MAHATO,parties.IN.BJP,BJP,80967,35.58,1,won,U,47,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2151,jharkhand,2019,38,SINDRI,ANAND MAHATO,parties.IN.MCO,MCO,72714,31.95,2,lost,U,77,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2151,jharkhand,2019,38,SINDRI,FULCHAND MANDAL,parties.IN.JMM,JMM,33583,14.76,3,forfeit,U,76,10th Pass,Agricultural Business,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2151,jharkhand,2019,38,SINDRI,SADANAND MAHATO,parties.IN.AJSUP,AJSUP,12502,5.49,4,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2151,jharkhand,2019,38,SINDRI,SADANAND MAHATO,parties.IN.AJSU,AJSUP,12502,5.49,4,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2151,jharkhand,2019,38,SINDRI,RAMESH KUMAR RAHI,parties.IN.JVM,JVM,7636,3.36,5,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2151,jharkhand,2019,38,SINDRI,DEO NATH SINGH,parties.IN.AAAP,AAAP,3862,1.7,6,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2151,jharkhand,2019,38,SINDRI,RAJESH KUMAR DAS,parties.IN.IND,IND,2969,1.3,7,forfeit,U,27,12th Pass,Accountant,challenger,src-1b7bc1c9d39a
@@ -607,7 +607,7 @@ IN-AC-2008-jharkhand-2148,jharkhand,2019,40,DHANBAD,MANNAN MALLICK,parties.IN.IN
 IN-AC-2008-jharkhand-2148,jharkhand,2019,40,DHANBAD,RANJEET SINGH ALIAS BABLU SINGH,parties.IN.IND,IND,2852,1.24,3,forfeit,U,43,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2148,jharkhand,2019,40,DHANBAD,VIKASH RANJAN,parties.IN.LJP,LJP,2426,1.05,4,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2148,jharkhand,2019,40,DHANBAD,VIPIN KUMAR,parties.IN.JDU,JD(U),1759,0.76,5,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2148,jharkhand,2019,40,DHANBAD,PRADIP MOHAN SAHAY,parties.IN.AJSUP,AJSUP,1724,0.75,6,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2148,jharkhand,2019,40,DHANBAD,PRADIP MOHAN SAHAY,parties.IN.AJSU,AJSUP,1724,0.75,6,forfeit,U,52,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2148,jharkhand,2019,40,DHANBAD,SAROJ KUMAR SINGH,parties.IN.JVM,JVM,1458,0.63,8,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2148,jharkhand,2019,40,DHANBAD,RAM JANMA PRASAD,parties.IN.BSP,BSP,1145,0.5,9,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2148,jharkhand,2019,40,DHANBAD,RAHUL KUMAR PASWAN,parties.IN.CPIMLL,CPI(ML)(L),972,0.42,10,forfeit,U,26,Graduate Professional,,challenger,src-1b7bc1c9d39a
@@ -627,7 +627,7 @@ IN-AC-2008-jharkhand-2148,jharkhand,2019,40,DHANBAD,SANJAY PASWAN,parties.IN.IND
 IN-AC-2008-jharkhand-2175,jharkhand,2019,41,JHARIA,PURNIMA NIRAJ SINGH,parties.IN.INC,INC,79786,50.34,1,won,U,34,Post Graduate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2175,jharkhand,2019,41,JHARIA,RAGINI SINGH,parties.IN.BJP,BJP,67732,42.73,2,lost,U,38,Literate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2175,jharkhand,2019,41,JHARIA,YOGENDRA YADAV,parties.IN.JVM,JVM,2779,1.75,3,forfeit,U,60,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2175,jharkhand,2019,41,JHARIA,ABADHESH KUMAR,parties.IN.AJSUP,AJSUP,1279,0.81,4,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2175,jharkhand,2019,41,JHARIA,ABADHESH KUMAR,parties.IN.AJSU,AJSUP,1279,0.81,4,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2175,jharkhand,2019,41,JHARIA,MD ALAM ANSARI,parties.IN.IND,IND,1006,0.63,5,forfeit,U,44,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2175,jharkhand,2019,41,JHARIA,RUDAL PASWAN,parties.IN.HAM_SECULAR,HAMS,742,0.47,6,forfeit,U,35,Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2175,jharkhand,2019,41,JHARIA,SAHJADI KHATOON,parties.IN.JSVP,JSVP,652,0.41,7,forfeit,U,32,Literate,Workshop or Small Manufacturer,challenger,src-1b7bc1c9d39a
@@ -644,7 +644,7 @@ IN-AC-2008-jharkhand-2175,jharkhand,2019,41,JHARIA,SURAJ SINGH,parties.IN.IND,IN
 IN-AC-2008-jharkhand-2163,jharkhand,2019,42,TUNDI,MATHURA PRASAD MAHATO,parties.IN.JMM,JMM,72552,37.49,1,won,U,52,10th Pass,Ex MLA,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2163,jharkhand,2019,42,TUNDI,VIKRAM PANDEY,parties.IN.BJP,BJP,46893,24.23,2,lost,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2163,jharkhand,2019,42,TUNDI,SABA AHMAD,parties.IN.JVM,JVM,25547,13.2,3,forfeit,U,71,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2163,jharkhand,2019,42,TUNDI,RAJ KISHORE MAHATO,parties.IN.AJSUP,AJSUP,15946,8.24,4,forfeit,U,73,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2163,jharkhand,2019,42,TUNDI,RAJ KISHORE MAHATO,parties.IN.AJSU,AJSUP,15946,8.24,4,forfeit,U,73,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2163,jharkhand,2019,42,TUNDI,DIP NARAYAN SINGH,parties.IN.AAAP,AAAP,7702,3.98,5,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2163,jharkhand,2019,42,TUNDI,GYAN RANJAN SINHA,parties.IN.IND,IND,7472,3.86,6,forfeit,U,57,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2163,jharkhand,2019,42,TUNDI,KISHOR KUMAR TIWARY,parties.IN.JDU,JD(U),5067,2.62,7,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -685,7 +685,7 @@ IN-AC-2008-jharkhand-eci44,jharkhand,2019,44,BAHARAGORA,ASHA RANI PAUL,parties.I
 IN-AC-2008-jharkhand-eci44,jharkhand,2019,44,BAHARAGORA,KRISHNA CHANDRA JANA,parties.IN.AMB,AMB,357,0.21,15,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2176,jharkhand,2019,45,GHATSHILA,Ramdas Soren,parties.IN.JMM,JMM,63531,37.36,1,won,U,56,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2176,jharkhand,2019,45,GHATSHILA,Lakhan Chandra Mardi,parties.IN.BJP,BJP,56807,33.41,2,lost,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2176,jharkhand,2019,45,GHATSHILA,Pradeep Kumar Balmuchu,parties.IN.AJSUP,AJSUP,31910,18.77,3,lost,U,63,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2176,jharkhand,2019,45,GHATSHILA,Pradeep Kumar Balmuchu,parties.IN.AJSU,AJSUP,31910,18.77,3,lost,U,63,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2176,jharkhand,2019,45,GHATSHILA,BISWANATH SINGH,parties.IN.IND,IND,2293,1.35,4,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2176,jharkhand,2019,45,GHATSHILA,Surya Singh Besra,parties.IN.JKPP,JKPP,2255,1.33,5,forfeit,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2176,jharkhand,2019,45,GHATSHILA,Kanai Murmu,parties.IN.CPI,CPI,1868,1.1,6,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -701,7 +701,7 @@ IN-AC-2008-jharkhand-2176,jharkhand,2019,45,GHATSHILA,Bijan Sardar,parties.IN.SU
 IN-AC-2008-jharkhand-2176,jharkhand,2019,45,GHATSHILA,Anand Hembram,parties.IN.BHAZS,BHAZS,297,0.17,17,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2180,jharkhand,2019,46,POTKA,Sanjib Sardar,parties.IN.JMM,JMM,110753,55.61,1,won,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2180,jharkhand,2019,46,POTKA,Menka Sardar,parties.IN.BJP,BJP,67643,33.97,2,lost,U,50,Graduate,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2180,jharkhand,2019,46,POTKA,Bulu Rani Singh,parties.IN.AJSUP,AJSUP,5735,2.88,3,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2180,jharkhand,2019,46,POTKA,Bulu Rani Singh,parties.IN.AJSU,AJSUP,5735,2.88,3,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2180,jharkhand,2019,46,POTKA,Naresh Kumar Murmu,parties.IN.JVM,JVM,3891,1.95,4,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2180,jharkhand,2019,46,POTKA,Ishwar Soren,parties.IN.JDU,JD(U),2127,1.07,6,forfeit,U,58,8th Pass,Musician or Artist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2180,jharkhand,2019,46,POTKA,Bir Singh Deogam,parties.IN.RTORP,RTORP,1872,0.94,7,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -711,7 +711,7 @@ IN-AC-2008-jharkhand-2180,jharkhand,2019,46,POTKA,Sunita Murmu,parties.IN.IND,IN
 IN-AC-2008-jharkhand-2180,jharkhand,2019,46,POTKA,Jeetrai Hansda,parties.IN.JKPP,JKPP,758,0.38,11,forfeit,U,42,Post Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2179,jharkhand,2019,47,JUGASHLAI,MANGAL KALINDI,parties.IN.JMM,JMM,88581,40.95,1,won,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2179,jharkhand,2019,47,JUGASHLAI,MUCHIRAM BAURI,parties.IN.BJP,BJP,66647,30.81,2,lost,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2179,jharkhand,2019,47,JUGASHLAI,RAM CHANDRA SAHIS,parties.IN.AJSUP,AJSUP,46779,21.63,3,lost,U,44,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2179,jharkhand,2019,47,JUGASHLAI,RAM CHANDRA SAHIS,parties.IN.AJSU,AJSUP,46779,21.63,3,lost,U,44,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2179,jharkhand,2019,47,JUGASHLAI,RAMCHANDRA PASWAN,parties.IN.JVM,JVM,3008,1.39,5,forfeit,U,61,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2179,jharkhand,2019,47,JUGASHLAI,BIJAY MUKHI,parties.IN.APOI,APoI,1922,0.89,6,forfeit,U,41,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2179,jharkhand,2019,47,JUGASHLAI,VISHAL KUMAR DAS,parties.IN.IND,IND,1411,0.65,7,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -744,7 +744,7 @@ IN-AC-2008-jharkhand-eci49,jharkhand,2019,49,JAMSHEDPUR WEST,Devendra Nath Singh
 IN-AC-2008-jharkhand-eci49,jharkhand,2019,49,JAMSHEDPUR WEST,Reyaz Sharif,parties.IN.AIMIM,AIMIM,8005,4.16,3,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-eci49,jharkhand,2019,49,JAMSHEDPUR WEST,Naresh Kumar Tandiya,parties.IN.IND,IND,2949,1.53,4,forfeit,U,47,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-eci49,jharkhand,2019,49,JAMSHEDPUR WEST,Shambhu Nath Choudhary,parties.IN.AAAP,AAAP,1905,0.99,5,forfeit,U,36,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-eci49,jharkhand,2019,49,JAMSHEDPUR WEST,Brijesh Singh,parties.IN.AJSUP,AJSUP,1768,0.92,7,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-eci49,jharkhand,2019,49,JAMSHEDPUR WEST,Brijesh Singh,parties.IN.AJSU,AJSUP,1768,0.92,7,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-eci49,jharkhand,2019,49,JAMSHEDPUR WEST,Pankaj Kumar,parties.IN.JVM,JVM,1040,0.54,8,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-eci49,jharkhand,2019,49,JAMSHEDPUR WEST,Tarun Kumar,parties.IN.IND,IND,746,0.39,9,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-eci49,jharkhand,2019,49,JAMSHEDPUR WEST,Rakesh Kumar,parties.IN.IND,IND,477,0.25,10,forfeit,U,42,Graduate,,challenger,src-1b7bc1c9d39a
@@ -760,7 +760,7 @@ IN-AC-2008-jharkhand-eci49,jharkhand,2019,49,JAMSHEDPUR WEST,Quameruddin Razi,pa
 IN-AC-2008-jharkhand-eci49,jharkhand,2019,49,JAMSHEDPUR WEST,Shailesh Sharma,parties.IN.AHNP,AHNP,130,0.07,20,forfeit,U,37,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-eci49,jharkhand,2019,49,JAMSHEDPUR WEST,Mobin Khan,parties.IN.IND,IND,102,0.05,21,forfeit,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2211,jharkhand,2019,50,ICHAGARH,SABITA MAHATO,parties.IN.JMM,JMM,57546,29.25,1,won,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2211,jharkhand,2019,50,ICHAGARH,HARE LAL MAHATO,parties.IN.AJSUP,AJSUP,38836,19.74,2,lost,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2211,jharkhand,2019,50,ICHAGARH,HARE LAL MAHATO,parties.IN.AJSU,AJSUP,38836,19.74,2,lost,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2211,jharkhand,2019,50,ICHAGARH,SADHU CHARAN MAHATO,parties.IN.BJP,BJP,38485,19.56,3,lost,U,46,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2211,jharkhand,2019,50,ICHAGARH,ARVIND KUMAR SINGH,parties.IN.IND,IND,32206,16.37,4,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2211,jharkhand,2019,50,ICHAGARH,NARAYAN CHANDRA GOPE,parties.IN.IND,IND,2798,1.42,5,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -792,7 +792,7 @@ IN-AC-2008-jharkhand-2211,jharkhand,2019,50,ICHAGARH,ASIM KUMAR,parties.IN.AHNP,
 IN-AC-2008-jharkhand-2211,jharkhand,2019,50,ICHAGARH,SANTOSH KUMAR,parties.IN.BHAZS,BHAZS,306,0.16,32,forfeit,U,30,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2221,jharkhand,2019,51,SARAIKELLA,CHAMPAI SOREN,parties.IN.JMM,JMM,111554,48.58,1,won,U,63,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2221,jharkhand,2019,51,SARAIKELLA,GANESH MAHALI,parties.IN.BJP,BJP,95887,41.76,2,lost,U,44,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2221,jharkhand,2019,51,SARAIKELLA,ANANT RAM TUDU,parties.IN.AJSUP,AJSUP,9956,4.34,3,forfeit,U,59,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2221,jharkhand,2019,51,SARAIKELLA,ANANT RAM TUDU,parties.IN.AJSU,AJSUP,9956,4.34,3,forfeit,U,59,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2221,jharkhand,2019,51,SARAIKELLA,RAVINDRA ORAON,parties.IN.BSP,BSP,2503,1.09,5,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2221,jharkhand,2019,51,SARAIKELLA,BISHWA VIJAY MARDI,parties.IN.APOI,APoI,2074,0.9,6,forfeit,U,49,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2221,jharkhand,2019,51,SARAIKELLA,ANIL SOREN,parties.IN.JVM,JVM,1985,0.86,7,forfeit,U,32,Graduate,,challenger,src-1b7bc1c9d39a
@@ -813,7 +813,7 @@ IN-AC-2008-jharkhand-2216,jharkhand,2019,52,CHAIBASA,PUSHPA SAWAIYAN,parties.IN.
 IN-AC-2008-jharkhand-2219,jharkhand,2019,53,MAJHGANON,NIRAL PURTY,parties.IN.JMM,JMM,67750,51.58,1,won,U,50,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2219,jharkhand,2019,53,MAJHGANON,BHUPENDRA PINGUA,parties.IN.BJP,BJP,20558,15.65,2,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2219,jharkhand,2019,53,MAJHGANON,BARKUWAR GAGRAI,parties.IN.BHAZS,BHAZS,13502,10.28,3,forfeit,U,50,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2219,jharkhand,2019,53,MAJHGANON,NANDLAL BIRUA,parties.IN.AJSUP,AJSUP,7653,5.83,4,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2219,jharkhand,2019,53,MAJHGANON,NANDLAL BIRUA,parties.IN.AJSU,AJSUP,7653,5.83,4,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2219,jharkhand,2019,53,MAJHGANON,MADHAV CHANDRA KUNKAL,parties.IN.IND,IND,5170,3.94,5,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2219,jharkhand,2019,53,MAJHGANON,JOSEPH PURTY,parties.IN.JVM,JVM,2660,2.03,6,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2219,jharkhand,2019,53,MAJHGANON,ASHOK BIRUA,parties.IN.IND,IND,2259,1.72,7,forfeit,U,48,Graduate Professional,,challenger,src-1b7bc1c9d39a
@@ -829,7 +829,7 @@ IN-AC-2008-jharkhand-2219,jharkhand,2019,53,MAJHGANON,BINOD KUMAR SAWAIYAN,parti
 IN-AC-2008-jharkhand-2218,jharkhand,2019,54,JAGANATHPUR,SONA RAM SINKU,parties.IN.INC,INC,32499,28.62,1,won,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2218,jharkhand,2019,54,JAGANATHPUR,MANGAL SINGH BOBONGA,parties.IN.JVM,JVM,20893,18.4,2,lost,U,57,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2218,jharkhand,2019,54,JAGANATHPUR,SUDHIR KUMAR SUNDI,parties.IN.BJP,BJP,16450,14.49,3,forfeit,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2218,jharkhand,2019,54,JAGANATHPUR,MANGAL SINGH SUREN,parties.IN.AJSUP,AJSUP,14222,12.52,4,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2218,jharkhand,2019,54,JAGANATHPUR,MANGAL SINGH SUREN,parties.IN.AJSU,AJSUP,14222,12.52,4,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2218,jharkhand,2019,54,JAGANATHPUR,LAXMI SUREN,parties.IN.IND,IND,6617,5.83,5,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2218,jharkhand,2019,54,JAGANATHPUR,SUNNY SINKU,parties.IN.AITC,AITC,5062,4.46,6,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2218,jharkhand,2019,54,JAGANATHPUR,MANSINGH TIRIYA,parties.IN.IND,IND,4415,3.89,7,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -841,7 +841,7 @@ IN-AC-2008-jharkhand-2218,jharkhand,2019,54,JAGANATHPUR,SONU KUNKAL,parties.IN.B
 IN-AC-2008-jharkhand-2218,jharkhand,2019,54,JAGANATHPUR,AMIT KUMAR LAGURI,parties.IN.IND,IND,1020,0.9,14,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2220,jharkhand,2019,55,MANOHARPUR,JOBA MAJHI,parties.IN.JMM,JMM,50945,42.12,1,won,U,55,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2220,jharkhand,2019,55,MANOHARPUR,GURUCHARAN NAYAK,parties.IN.BJP,BJP,34926,28.87,2,lost,U,53,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2220,jharkhand,2019,55,MANOHARPUR,BIRSA MUNDA,parties.IN.AJSUP,AJSUP,13468,11.13,3,forfeit,U,56,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2220,jharkhand,2019,55,MANOHARPUR,BIRSA MUNDA,parties.IN.AJSU,AJSUP,13468,11.13,3,forfeit,U,56,8th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2220,jharkhand,2019,55,MANOHARPUR,SUSHILA TOPPO,parties.IN.JVM,JVM,3557,2.94,5,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2220,jharkhand,2019,55,MANOHARPUR,SUSHIL DANG,parties.IN.APOI,APoI,2952,2.44,6,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2220,jharkhand,2019,55,MANOHARPUR,SABAN HEMBROM,parties.IN.JKP,JKP,2836,2.34,7,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -856,7 +856,7 @@ IN-AC-2008-jharkhand-2220,jharkhand,2019,55,MANOHARPUR,BARNABAS BARJO,parties.IN
 IN-AC-2008-jharkhand-2217,jharkhand,2019,56,CHAKRADHARPUR,SUKHRAM ORAON,parties.IN.JMM,JMM,43832,36.77,1,won,U,53,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2217,jharkhand,2019,56,CHAKRADHARPUR,LAXMAN GILUWA,parties.IN.BJP,BJP,31598,26.51,2,lost,U,54,12th Pass,Ex MP,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2217,jharkhand,2019,56,CHAKRADHARPUR,SHASHIBHUSAN SAMAD,parties.IN.JVM,JVM,17487,14.67,3,forfeit,U,63,8th Pass,Ex Military,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2217,jharkhand,2019,56,CHAKRADHARPUR,RAMLAL MUNDA,parties.IN.AJSUP,AJSUP,17232,14.46,4,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2217,jharkhand,2019,56,CHAKRADHARPUR,RAMLAL MUNDA,parties.IN.AJSU,AJSUP,17232,14.46,4,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2217,jharkhand,2019,56,CHAKRADHARPUR,CHAMPAI BOIPAI,parties.IN.APOI,APoI,1412,1.18,6,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2217,jharkhand,2019,56,CHAKRADHARPUR,MARSHAL SOY,parties.IN.IND,IND,1111,0.93,7,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2217,jharkhand,2019,56,CHAKRADHARPUR,SUKHDEO HEMBROM,parties.IN.JKP,JKP,813,0.68,8,forfeit,U,68,Graduate,,crossover,src-1b7bc1c9d39a
@@ -867,7 +867,7 @@ IN-AC-2008-jharkhand-2217,jharkhand,2019,56,CHAKRADHARPUR,BIRSINGH JAMUDA,partie
 IN-AC-2008-jharkhand-2217,jharkhand,2019,56,CHAKRADHARPUR,SELAY MUNDA,parties.IN.JP,JP,507,0.43,13,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2181,jharkhand,2019,57,KHARASAWAN,DASHRATH GAGRAI,parties.IN.JMM,JMM,73341,48.15,1,won,U,43,Graduate,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2181,jharkhand,2019,57,KHARASAWAN,JAWAHAR LAL BANRA,parties.IN.BJP,BJP,50546,33.19,2,lost,U,60,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2181,jharkhand,2019,57,KHARASAWAN,SANJAY JARIKA,parties.IN.AJSUP,AJSUP,9451,6.21,3,forfeit,U,42,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2181,jharkhand,2019,57,KHARASAWAN,SANJAY JARIKA,parties.IN.AJSU,AJSUP,9451,6.21,3,forfeit,U,42,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2181,jharkhand,2019,57,KHARASAWAN,RAM HONHAGA,parties.IN.JVM,JVM,3134,2.06,4,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2181,jharkhand,2019,57,KHARASAWAN,HIRALAL HEMBRAM,parties.IN.IND,IND,2589,1.7,5,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2181,jharkhand,2019,57,KHARASAWAN,BHAGWAT PRASAD MAJHI,parties.IN.IND,IND,2498,1.64,6,forfeit,U,79,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -882,7 +882,7 @@ IN-AC-2008-jharkhand-2181,jharkhand,2019,57,KHARASAWAN,KANDE RAM KURLI,parties.I
 IN-AC-2008-jharkhand-2181,jharkhand,2019,57,KHARASAWAN,MANGAL SINGH HASDA,parties.IN.PPID,PPID,355,0.23,16,forfeit,U,47,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2181,jharkhand,2019,57,KHARASAWAN,JAYMOHAN SARDAR,parties.IN.AMB,AMB,350,0.23,17,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2185,jharkhand,2019,58,TAMAR,VIKAS KUMAR MUNDA,parties.IN.JMM,JMM,55491,39.22,1,won,U,35,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2185,jharkhand,2019,58,TAMAR,RAM DURLAV SINGH MUNDA,parties.IN.AJSUP,AJSUP,24520,17.33,2,lost,U,42,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2185,jharkhand,2019,58,TAMAR,RAM DURLAV SINGH MUNDA,parties.IN.AJSU,AJSUP,24520,17.33,2,lost,U,42,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2185,jharkhand,2019,58,TAMAR,REETA DEVI,parties.IN.BJP,BJP,18082,12.78,3,forfeit,U,42,12th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2185,jharkhand,2019,58,TAMAR,GOPAL KRISHNA PATAR,parties.IN.NCP,NCP,16517,11.67,4,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2185,jharkhand,2019,58,TAMAR,PREM SHANKAR SHAHI MUNDA,parties.IN.JVM,JVM,4225,2.99,5,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
@@ -917,7 +917,7 @@ IN-AC-2008-jharkhand-2182,jharkhand,2019,60,KHUNTI,RAM SURYA MUNDA,parties.IN.JK
 IN-AC-2008-jharkhand-2182,jharkhand,2019,60,KHUNTI,KALYAN NAG,parties.IN.APOI,APoI,998,0.75,10,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2182,jharkhand,2019,60,KHUNTI,SHYAM SUNDAR KACHHAP,parties.IN.JDU,JD(U),912,0.69,11,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2182,jharkhand,2019,60,KHUNTI,WILSON PURTY,parties.IN.AKBJHP,AKBJHP,698,0.53,12,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2215,jharkhand,2019,61,SILLI,SUDESH KUMAR MAHTO,parties.IN.AJSUP,AJSUP,83700,52.74,1,won,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2215,jharkhand,2019,61,SILLI,SUDESH KUMAR MAHTO,parties.IN.AJSU,AJSUP,83700,52.74,1,won,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2215,jharkhand,2019,61,SILLI,Seema Devi,parties.IN.JMM,JMM,63505,40.01,2,lost,U,30,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2215,jharkhand,2019,61,SILLI,Bishwadeo Singh Munda,parties.IN.CPIM,CPM,2766,1.74,3,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2215,jharkhand,2019,61,SILLI,AMIT KUMAR,parties.IN.IND,IND,2018,1.27,4,forfeit,U,41,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -934,7 +934,7 @@ IN-AC-2008-jharkhand-2215,jharkhand,2019,61,SILLI,PRAHALAD MAHTO,parties.IN.SWRP
 IN-AC-2008-jharkhand-2215,jharkhand,2019,61,SILLI,Deepak Kr. Manjhi,parties.IN.RPIA,RPI(A),206,0.13,16,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2213,jharkhand,2019,62,KHIJRI,Rajesh Kachhap,parties.IN.INC,INC,83829,38.94,1,won,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2213,jharkhand,2019,62,KHIJRI,Ram Kumar Pahan,parties.IN.BJP,BJP,78360,36.4,2,lost,U,47,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2213,jharkhand,2019,62,KHIJRI,Ramdhan Bediya,parties.IN.AJSUP,AJSUP,29091,13.51,3,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2213,jharkhand,2019,62,KHIJRI,Ramdhan Bediya,parties.IN.AJSU,AJSUP,29091,13.51,3,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2213,jharkhand,2019,62,KHIJRI,Antu Tirkey,parties.IN.JVM,JVM,6732,3.13,4,forfeit,U,51,Graduate,Contractor,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2213,jharkhand,2019,62,KHIJRI,Sarita Tirkey,parties.IN.IND,IND,4324,2.01,5,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2213,jharkhand,2019,62,KHIJRI,Prafulla Linda,parties.IN.CPIM,CPM,2269,1.05,7,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
@@ -949,7 +949,7 @@ IN-AC-2008-jharkhand-2213,jharkhand,2019,62,KHIJRI,Bandhan Oraon,parties.IN.PPID
 IN-AC-2008-jharkhand-eci63,jharkhand,2019,63,RANCHI,Chandreshwar Prasad Singh,parties.IN.BJP,BJP,79646,46.77,1,won,U,63,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-eci63,jharkhand,2019,63,RANCHI,Mahua Maji,parties.IN.JMM,JMM,73742,43.31,2,lost,U,54,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-eci63,jharkhand,2019,63,RANCHI,Pawan Kumar Sharma,parties.IN.IND,IND,6479,3.8,3,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-eci63,jharkhand,2019,63,RANCHI,Barsha Gari,parties.IN.AJSUP,AJSUP,2603,1.53,4,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-eci63,jharkhand,2019,63,RANCHI,Barsha Gari,parties.IN.AJSU,AJSUP,2603,1.53,4,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-eci63,jharkhand,2019,63,RANCHI,Sunil Kumar Gupta,parties.IN.JVM,JVM,1973,1.16,5,forfeit,U,50,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-eci63,jharkhand,2019,63,RANCHI,Sanjay Sahay,parties.IN.JDU,JD(U),895,0.53,7,forfeit,U,48,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-eci63,jharkhand,2019,63,RANCHI,Rajan Kumar Singh,parties.IN.AAAP,AAAP,834,0.49,8,forfeit,U,34,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -961,7 +961,7 @@ IN-AC-2008-jharkhand-eci63,jharkhand,2019,63,RANCHI,Jyoti Bhengra,parties.IN.RTM
 IN-AC-2008-jharkhand-2210,jharkhand,2019,64,HATIA,NAVIN JAISWAL,parties.IN.BJP,BJP,115431,45.84,1,won,U,47,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2210,jharkhand,2019,64,HATIA,AJAY NATH SHAHDEO,parties.IN.INC,INC,99167,39.38,2,lost,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2210,jharkhand,2019,64,HATIA,SUBHASH MUNDA,parties.IN.CPIM,CPM,14215,5.65,3,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2210,jharkhand,2019,64,HATIA,BHARAT KANSHI,parties.IN.AJSUP,AJSUP,9357,3.72,4,forfeit,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2019,64,HATIA,BHARAT KANSHI,parties.IN.AJSU,AJSUP,9357,3.72,4,forfeit,U,34,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2210,jharkhand,2019,64,HATIA,SHOBHA YADAV,parties.IN.JVM,JVM,3470,1.38,5,forfeit,U,45,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2210,jharkhand,2019,64,HATIA,ARUN TIWARI,parties.IN.IND,IND,1341,0.53,7,forfeit,U,60,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2210,jharkhand,2019,64,HATIA,AINUL ANSARI,parties.IN.IND,IND,838,0.33,8,forfeit,U,30,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
@@ -982,7 +982,7 @@ IN-AC-2008-jharkhand-2210,jharkhand,2019,64,HATIA,ABHIMANU KUMAR,parties.IN.JMM_
 IN-AC-2008-jharkhand-2210,jharkhand,2019,64,HATIA,AMMARUL HODA,parties.IN.SP,SP,161,0.06,23,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2212,jharkhand,2019,65,KANKE,SAMMARI LAL,parties.IN.BJP,BJP,111975,44.04,1,won,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2212,jharkhand,2019,65,KANKE,SURESH KUMAR BAITHA,parties.IN.INC,INC,89435,35.17,2,lost,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2212,jharkhand,2019,65,KANKE,RAMJEET GANJHU,parties.IN.AJSUP,AJSUP,29127,11.46,3,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2212,jharkhand,2019,65,KANKE,RAMJEET GANJHU,parties.IN.AJSU,AJSUP,29127,11.46,3,forfeit,U,31,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2212,jharkhand,2019,65,KANKE,KAMLESH RAM,parties.IN.JVM,JVM,10391,4.09,4,forfeit,U,32,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2212,jharkhand,2019,65,KANKE,ASHOK KUMAR NAG,parties.IN.JDU,JD(U),1678,0.66,6,forfeit,U,44,Doctorate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2212,jharkhand,2019,65,KANKE,SHANKAR PRASAD,parties.IN.LJP,LJP,1549,0.61,7,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -995,7 +995,7 @@ IN-AC-2008-jharkhand-2212,jharkhand,2019,65,KANKE,ARTI KUMARI NAYAK,parties.IN.C
 IN-AC-2008-jharkhand-2196,jharkhand,2019,66,MANDAR,BANDHU TIRKEY,parties.IN.JVM,JVM,92491,41.15,1,won,U,59,Graduate,Ex MLA,crossover,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2196,jharkhand,2019,66,MANDAR,DEO KUMAR DHAN,parties.IN.BJP,BJP,69364,30.86,2,lost,U,53,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2196,jharkhand,2019,66,MANDAR,SHISHIR LAKRA,parties.IN.AIMIM,AIMIM,23592,10.5,3,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2196,jharkhand,2019,66,MANDAR,HEMLATA ORAON,parties.IN.AJSUP,AJSUP,15708,6.99,4,forfeit,U,34,Graduate,Panchayat Member,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2196,jharkhand,2019,66,MANDAR,HEMLATA ORAON,parties.IN.AJSU,AJSUP,15708,6.99,4,forfeit,U,34,Graduate,Panchayat Member,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2196,jharkhand,2019,66,MANDAR,SUNNY TOPPO,parties.IN.INC,INC,8840,3.93,5,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2196,jharkhand,2019,66,MANDAR,GLADWIN PAUL MINZ,parties.IN.IND,IND,2142,0.95,7,forfeit,U,31,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2196,jharkhand,2019,66,MANDAR,PHILMON TOPPO,parties.IN.AITC,AITC,1794,0.8,8,forfeit,U,56,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -1061,7 +1061,7 @@ IN-AC-2008-jharkhand-2183,jharkhand,2019,71,KOLEBIRA,DEEPAK KERKETTA,parties.IN.
 IN-AC-2008-jharkhand-2183,jharkhand,2019,71,KOLEBIRA,DAVID PAWAN KERKETTA,parties.IN.IND,IND,888,0.7,10,forfeit,U,32,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2195,jharkhand,2019,72,LOHARDAGA,RAMESHWAR ORAON,parties.IN.INC,INC,74380,42.67,1,won,U,72,Doctorate,Ex Police,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2195,jharkhand,2019,72,LOHARDAGA,SUKHDEO BHAGAT,parties.IN.BJP,BJP,44230,25.37,2,lost,U,58,Post Graduate,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2195,jharkhand,2019,72,LOHARDAGA,NERU SHANTI BHAGAT,parties.IN.AJSUP,AJSUP,39916,22.9,3,lost,U,54,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2195,jharkhand,2019,72,LOHARDAGA,NERU SHANTI BHAGAT,parties.IN.AJSU,AJSUP,39916,22.9,3,lost,U,54,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2195,jharkhand,2019,72,LOHARDAGA,SADHNU BHAGAT,parties.IN.BTP,BTP,4318,2.48,4,forfeit,U,73,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2195,jharkhand,2019,72,LOHARDAGA,PAWAN TIGGA,parties.IN.JVM,JVM,1661,0.95,6,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2195,jharkhand,2019,72,LOHARDAGA,DIPAK ORAON,parties.IN.JDU,JD(U),1384,0.79,7,forfeit,U,28,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -1142,7 +1142,7 @@ IN-AC-2008-jharkhand-2199,jharkhand,2019,77,BISHRAMPUR,MANOJ KUMAR RAVI,parties.
 IN-AC-2008-jharkhand-2199,jharkhand,2019,77,BISHRAMPUR,SALIM RAY,parties.IN.IND,IND,556,0.3,20,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2200,jharkhand,2019,78,CHATTARPUR,PUSHPA DEVI,parties.IN.BJP,BJP,64127,39.39,1,won,U,46,Literate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2200,jharkhand,2019,78,CHATTARPUR,VIJAY KUMAR,parties.IN.RJD,RJD,37335,22.93,2,lost,U,44,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2200,jharkhand,2019,78,CHATTARPUR,RADHA KRISHANA KISHORE,parties.IN.AJSUP,AJSUP,16018,9.84,3,forfeit,U,61,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2200,jharkhand,2019,78,CHATTARPUR,RADHA KRISHANA KISHORE,parties.IN.AJSU,AJSUP,16018,9.84,3,forfeit,U,61,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2200,jharkhand,2019,78,CHATTARPUR,DHARMENDRA PRAKASH BADAL,parties.IN.JVM,JVM,15522,9.53,4,forfeit,U,33,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2200,jharkhand,2019,78,CHATTARPUR,SUDHA CHAUDHARY,parties.IN.JDU,JD(U),8794,5.4,5,forfeit,U,53,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2200,jharkhand,2019,78,CHATTARPUR,BIRENDRA KUMAR PASWAN,parties.IN.BSP,BSP,5899,3.62,6,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
@@ -1156,7 +1156,7 @@ IN-AC-2008-jharkhand-2203,jharkhand,2019,79,HUSSAINABAD,Kamlesh Kumar Singh,part
 IN-AC-2008-jharkhand-2203,jharkhand,2019,79,HUSSAINABAD,Sanjay Kumar Singh Yadav,parties.IN.RJD,RJD,31444,19.19,2,lost,U,51,10th Pass,Rent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2203,jharkhand,2019,79,HUSSAINABAD,Sher Ali,parties.IN.BSP,BSP,28877,17.62,3,lost,U,36,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2203,jharkhand,2019,79,HUSSAINABAD,Vinod Kr. Singh,parties.IN.IND,IND,27860,17,4,lost,U,48,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2203,jharkhand,2019,79,HUSSAINABAD,Kushwaha Shivpujan Mehta,parties.IN.AJSUP,AJSUP,15544,9.49,5,forfeit,U,43,Graduate,MLA,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2203,jharkhand,2019,79,HUSSAINABAD,Kushwaha Shivpujan Mehta,parties.IN.AJSU,AJSUP,15544,9.49,5,forfeit,U,43,Graduate,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2203,jharkhand,2019,79,HUSSAINABAD,Rajnish Kumar Rajak,parties.IN.IND,IND,1990,1.21,6,forfeit,U,25,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2203,jharkhand,2019,79,HUSSAINABAD,Jitendra Kumar,parties.IN.IND,IND,1977,1.21,7,forfeit,U,26,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2203,jharkhand,2019,79,HUSSAINABAD,Sunil Kumar Singh,parties.IN.JPJD,JPJD,1844,1.13,8,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
