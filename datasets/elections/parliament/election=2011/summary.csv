@@ -1,5 +1,5 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
 IN-PC-2008-chhattisgarh-296,chhattisgarh,2011,BASTAR,1193116,604245,50.64,Dinesh Kashyap,parties.IN.BJP,BJP,286691,47.45,Kawasi Lakhma,parties.IN.INC,INC,197807,88884,14.71,src-31c65dbec869
-IN-PC-2008-haryana-39,haryana,2011,HISAR,1194689,916480,76.71,K. Bishnoi,parties.IN.UNK,HJC(BL),355955,38.84,A.S. Chautala,parties.IN.INLD,INLD,349620,6335,0.69,src-31c65dbec869
+IN-PC-2008-haryana-39,haryana,2011,HISAR,1194689,916480,76.71,K. Bishnoi,parties.IN.HJCBL,HJC(BL),355955,38.84,A.S. Chautala,parties.IN.INLD,INLD,349620,6335,0.69,src-31c65dbec869
 IN-PC-2008-jharkhand-265,jharkhand,2011,JAMSHEDPUR,1380279,740002,53.61,Ajay Kumar,parties.IN.JVM,J.V.M (P),276582,37.38,D. Goswami,parties.IN.BJP,BJP,120856,155726,21.05,src-31c65dbec869
 IN-PC-2008-west-bengal-eci23,west-bengal,2011,KOLKATA DAKSHIN,1505638,824136,54.74,Subrata Bakshi,parties.IN.AITC,AITC,516761,62.7,R. Banerjee,parties.IN.CPIM,CPM,286662,230099,27.92,src-31c65dbec869

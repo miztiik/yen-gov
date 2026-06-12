@@ -107,7 +107,7 @@ IN-AC-2008-west-bengal-1852,west-bengal,2026,21,NAGRAKATA (ST),Hemant Kujur,part
 IN-AC-2008-west-bengal-1961,west-bengal,2026,22,KALIMPONG,Bharat Kumar Chetri,parties.IN.BJP,BJP,84290,49.74,1,won,M,45,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-1961,west-bengal,2026,22,KALIMPONG,Ruden Sada Lepcha,parties.IN.UNK,BGPM,62826,37.07,2,lost,M,56,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-1961,west-bengal,2026,22,KALIMPONG,Bhernone Britto Lepcha,parties.IN.IND,IND,14231,8.4,3,lost,M,61,,,,src-fa1aba648c1e
-IN-AC-2008-west-bengal-1961,west-bengal,2026,22,KALIMPONG,Sisir Kumar Sharma,parties.IN.UNK,ABGL,1961,1.16,4,lost,M,44,,,,src-fa1aba648c1e
+IN-AC-2008-west-bengal-1961,west-bengal,2026,22,KALIMPONG,Sisir Kumar Sharma,parties.IN.ABGL,ABGL,1961,1.16,4,lost,M,44,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-1961,west-bengal,2026,22,KALIMPONG,Santa Kumar Pradhan,parties.IN.INC,INC,1809,1.07,5,lost,M,56,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-1960,west-bengal,2026,23,DARJEELING,Noman Rai,parties.IN.BJP,BJP,62076,35.72,1,won,M,45,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-1960,west-bengal,2026,23,DARJEELING,Bijoy Kumar Rai,parties.IN.UNK,BGPM,56019,32.23,2,lost,M,65,,,,src-fa1aba648c1e
@@ -278,7 +278,7 @@ IN-AC-2008-west-bengal-2069,west-bengal,2026,56,SAMSERGANJ,Mohammed Noor Alam,pa
 IN-AC-2008-west-bengal-2069,west-bengal,2026,56,SAMSERGANJ,Md Najme Alam,parties.IN.INC,INC,54331,34.96,2,lost,M,42,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-2069,west-bengal,2026,56,SAMSERGANJ,Sasti Charan Ghosh,parties.IN.BJP,BJP,34522,22.21,3,lost,M,81,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-2069,west-bengal,2026,56,SAMSERGANJ,Motajul Islam,parties.IN.IND,IND,830,0.53,4,lost,M,39,,,,src-fa1aba648c1e
-IN-AC-2008-west-bengal-2069,west-bengal,2026,56,SAMSERGANJ,Md Meraj Sorif,parties.IN.UNK,RSSCMJP,501,0.32,5,lost,M,35,,,,src-fa1aba648c1e
+IN-AC-2008-west-bengal-2069,west-bengal,2026,56,SAMSERGANJ,Md Meraj Sorif,parties.IN.RSSCMJP,RSSCMJP,501,0.32,5,lost,M,35,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-2021,west-bengal,2026,57,SUTI,Emani Biswas,parties.IN.AITC,AITC,81330,36.83,1,won,M,51,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-2021,west-bengal,2026,57,SUTI,Mahabir Ghosh,parties.IN.BJP,BJP,68973,31.23,2,lost,M,41,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-2021,west-bengal,2026,57,SUTI,Alfajuddin Biswas,parties.IN.INC,INC,61344,27.78,3,lost,M,59,,,,src-fa1aba648c1e
@@ -298,7 +298,7 @@ IN-AC-2008-west-bengal-2020,west-bengal,2026,60,SAGARDIGHI,Bayron Biswas,parties
 IN-AC-2008-west-bengal-2020,west-bengal,2026,60,SAGARDIGHI,Tapas Kumar Chakraborty,parties.IN.BJP,BJP,56521,27.22,2,lost,M,63,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-2020,west-bengal,2026,60,SAGARDIGHI,Masiur Rahaman,parties.IN.SDPI,SDPI,42495,20.46,3,lost,M,36,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-2020,west-bengal,2026,60,SAGARDIGHI,Manoj Chakraborty,parties.IN.INC,INC,10348,4.98,4,lost,M,72,,,,src-fa1aba648c1e
-IN-AC-2008-west-bengal-2020,west-bengal,2026,60,SAGARDIGHI,Shibati Mummu,parties.IN.UNK,MPOI,1861,0.9,5,lost,F,39,,,,src-fa1aba648c1e
+IN-AC-2008-west-bengal-2020,west-bengal,2026,60,SAGARDIGHI,Shibati Mummu,parties.IN.MPOI,MPOI,1861,0.9,5,lost,F,39,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-2017,west-bengal,2026,61,LALGOLA,Abdul Aziz Doctor,parties.IN.AITC,AITC,67954,37.72,1,won,M,30,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-2017,west-bengal,2026,61,LALGOLA,Touhidur Rahaman Suman,parties.IN.INC,INC,48994,27.19,2,lost,M,30,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-2017,west-bengal,2026,61,LALGOLA,Amar Kumar Das,parties.IN.BJP,BJP,35496,19.7,3,lost,M,49,,,,src-fa1aba648c1e
@@ -972,7 +972,7 @@ IN-AC-2008-west-bengal-eci194,west-bengal,2026,194,CHANDITALA,Debashish Mukherje
 IN-AC-2008-west-bengal-2124,west-bengal,2026,195,JANGIPARA,Prosenjit Bag,parties.IN.BJP,BJP,102409,44.09,1,won,M,50,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-2124,west-bengal,2026,195,JANGIPARA,Snehasis Chakraborty,parties.IN.AITC,AITC,101547,43.72,2,lost,M,56,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-2124,west-bengal,2026,195,JANGIPARA,Sudipta Sarkar,parties.IN.CPIM,CPI(M),18138,7.81,3,lost,M,56,,,,src-fa1aba648c1e
-IN-AC-2008-west-bengal-2124,west-bengal,2026,195,JANGIPARA,Sekh Abdul Rahim,parties.IN.UNK,RSSCMJP,2567,1.11,4,lost,M,37,,,,src-fa1aba648c1e
+IN-AC-2008-west-bengal-2124,west-bengal,2026,195,JANGIPARA,Sekh Abdul Rahim,parties.IN.RSSCMJP,RSSCMJP,2567,1.11,4,lost,M,37,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-2124,west-bengal,2026,195,JANGIPARA,Subhasis Dutta,parties.IN.INC,INC,1572,0.68,5,lost,M,46,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-1857,west-bengal,2026,196,HARIPAL,Madhumita Ghosh,parties.IN.BJP,BJP,113332,46.07,1,won,F,52,,,,src-fa1aba648c1e
 IN-AC-2008-west-bengal-1857,west-bengal,2026,196,HARIPAL,Karabi Manna,parties.IN.AITC,AITC,109844,44.65,2,lost,F,51,,,,src-fa1aba648c1e

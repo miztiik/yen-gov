@@ -143,12 +143,12 @@ IN-AC-2008-rajasthan-eci13,rajasthan,2008,13,BIKANER WEST,NARAYAN DAS,parties.IN
 IN-AC-2008-rajasthan-eci13,rajasthan,2008,13,BIKANER WEST,KEDAR NATH KHATRI,parties.IN.IND,IND,260,0.25,12,forfeit,U,38,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci13,rajasthan,2008,13,BIKANER WEST,ABDUL GAFFAR,parties.IN.JGP,JGP,235,0.23,13,forfeit,U,62,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci13,rajasthan,2008,13,BIKANER WEST,SARFUDDIN BHISTI,parties.IN.IND,IND,152,0.15,14,forfeit,U,42,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-eci13,rajasthan,2008,13,BIKANER WEST,SHARDA DEVI,parties.IN.UNK,IPC,138,0.13,15,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-eci13,rajasthan,2008,13,BIKANER WEST,SHARDA DEVI,parties.IN.IPC,IPC,138,0.13,15,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci13,rajasthan,2008,13,BIKANER WEST,BHAWANI SHANKAR,parties.IN.SHS,SHS,108,0.11,16,forfeit,U,25,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci13,rajasthan,2008,13,BIKANER WEST,UDADAS,parties.IN.IND,IND,108,0.11,17,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci13,rajasthan,2008,13,BIKANER WEST,BIRJU RAM,parties.IN.BHBP,BHBP,103,0.1,18,forfeit,U,43,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci13,rajasthan,2008,13,BIKANER WEST,OM PRAKASH CHHIPA,parties.IN.IND,IND,100,0.1,19,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-eci13,rajasthan,2008,13,BIKANER WEST,SUNITA,parties.IN.UNK,RGD,75,0.07,20,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-eci13,rajasthan,2008,13,BIKANER WEST,SUNITA,parties.IN.RGD,RGD,75,0.07,20,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-553,rajasthan,2008,14,BIKANER EAST,SIDHI KUMARI,parties.IN.BJP,BJP,60591,58.94,1,won,U,35,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-553,rajasthan,2008,14,BIKANER EAST,DR. TANVEER MALAWAT,parties.IN.INC,INC,22938,22.31,2,lost,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-553,rajasthan,2008,14,BIKANER EAST,VISHVAJEET SINGH,parties.IN.IND,IND,9997,9.72,3,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
@@ -529,7 +529,7 @@ IN-AC-2008-rajasthan-506,rajasthan,2008,45,DUDU,BABU LAL NAGAR,parties.IN.INC,IN
 IN-AC-2008-rajasthan-506,rajasthan,2008,45,DUDU,BABU LAL BACHHER,parties.IN.BJP,BJP,57974,45.31,2,lost,U,61,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-506,rajasthan,2008,45,DUDU,KANHAIYA LAL,parties.IN.BSP,BSP,2764,2.16,3,forfeit,U,58,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-506,rajasthan,2008,45,DUDU,LAXMI NARAIN BAIRWA,parties.IN.IND,IND,1635,1.28,4,forfeit,U,48,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-506,rajasthan,2008,45,DUDU,ANITA GADEGAWALIA,parties.IN.UNK,RDSD,1416,1.11,5,forfeit,U,62,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-506,rajasthan,2008,45,DUDU,ANITA GADEGAWALIA,parties.IN.RDSD,RDSD,1416,1.11,5,forfeit,U,62,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-506,rajasthan,2008,45,DUDU,RUKMANI DEVI,parties.IN.LJP,LJP,862,0.67,6,forfeit,U,31,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-603,rajasthan,2008,46,JHOTWARA,RAJPAL SINGH SHEKHAWAT,parties.IN.BJP,BJP,68851,46.38,1,won,U,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-603,rajasthan,2008,46,JHOTWARA,LAL CHAND KATARIA,parties.IN.INC,INC,66396,44.72,2,lost,U,40,10th Pass,,incumbent,src-1b7bc1c9d39a
@@ -590,7 +590,7 @@ IN-AC-2008-rajasthan-eci49,rajasthan,2008,49,HAWAMAHAL,SURAJ KANWAR,parties.IN.I
 IN-AC-2008-rajasthan-eci49,rajasthan,2008,49,HAWAMAHAL,NARSINGHLAL KHANDELWAL,parties.IN.SHS,SHS,515,0.47,11,forfeit,U,44,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci49,rajasthan,2008,49,HAWAMAHAL,NAND KISHORE,parties.IN.IND,IND,421,0.39,12,forfeit,U,46,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci49,rajasthan,2008,49,HAWAMAHAL,SURESH,parties.IN.ABHM,ABHM,358,0.33,13,forfeit,U,62,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-eci49,rajasthan,2008,49,HAWAMAHAL,MANOJ KUMAR SHARMA,parties.IN.UNK,RSD,267,0.24,14,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-eci49,rajasthan,2008,49,HAWAMAHAL,MANOJ KUMAR SHARMA,parties.IN.RSD,RSD,267,0.24,14,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci49,rajasthan,2008,49,HAWAMAHAL,MOHAN LAL PAREEK,parties.IN.SOP_L,SLP(L),196,0.18,15,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci49,rajasthan,2008,49,HAWAMAHAL,JULFFIKAR ALI,parties.IN.IND,IND,171,0.16,16,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci49,rajasthan,2008,49,HAWAMAHAL,KALLU BHAI,parties.IN.IND,IND,146,0.13,17,forfeit,U,58,Literate,,challenger,src-1b7bc1c9d39a
@@ -617,7 +617,7 @@ IN-AC-2008-rajasthan-eci50,rajasthan,2008,50,VIDHYADHAR NAGAR,MUKESH KUMAR SAINI
 IN-AC-2008-rajasthan-eci50,rajasthan,2008,50,VIDHYADHAR NAGAR,KAMLESH SHARMA,parties.IN.IND,IND,340,0.25,19,forfeit,U,49,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci50,rajasthan,2008,50,VIDHYADHAR NAGAR,CHARAN LAL PRAJAPAT,parties.IN.IND,IND,324,0.23,20,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci50,rajasthan,2008,50,VIDHYADHAR NAGAR,VISNU PRATAP SINGH,parties.IN.IND,IND,297,0.21,21,forfeit,U,29,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-eci50,rajasthan,2008,50,VIDHYADHAR NAGAR,PANCH SHEEL JAIN,parties.IN.UNK,NPSF,257,0.19,22,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-eci50,rajasthan,2008,50,VIDHYADHAR NAGAR,PANCH SHEEL JAIN,parties.IN.NPSF,NPSF,257,0.19,22,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci50,rajasthan,2008,50,VIDHYADHAR NAGAR,SUSHIL KUMAR,parties.IN.ABHM,ABHM,256,0.19,23,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci50,rajasthan,2008,50,VIDHYADHAR NAGAR,MANISH KUMAR,parties.IN.IND,IND,243,0.18,24,forfeit,U,28,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci50,rajasthan,2008,50,VIDHYADHAR NAGAR,VED PRAKASH BANSAL,parties.IN.IND,IND,237,0.17,25,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -705,14 +705,14 @@ IN-AC-2008-rajasthan-eci55,rajasthan,2008,55,SANGANER,RAM LAL,parties.IN.IND,IND
 IN-AC-2008-rajasthan-eci55,rajasthan,2008,55,SANGANER,JITENDRA SINGH,parties.IN.RLD,RLD,189,0.15,13,forfeit,U,27,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci55,rajasthan,2008,55,SANGANER,JITENDAR SHARMA,parties.IN.IND,IND,142,0.11,14,forfeit,U,40,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-eci55,rajasthan,2008,55,SANGANER,VISHNU PRASAD,parties.IN.RJVP,RJVP,120,0.09,15,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-eci55,rajasthan,2008,55,SANGANER,PEER MOHAMAD,parties.IN.UNK,DND,103,0.08,16,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-eci55,rajasthan,2008,55,SANGANER,PEER MOHAMAD,parties.IN.DND,DND,103,0.08,16,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-593,rajasthan,2008,56,BAGRU,GANGA DEVI,parties.IN.INC,INC,57036,47.87,1,won,U,50,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-593,rajasthan,2008,56,BAGRU,RAKSHPAL KULDEEP,parties.IN.BJP,BJP,53519,44.92,2,lost,U,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-593,rajasthan,2008,56,BAGRU,SITA RAM,parties.IN.IND,IND,2610,2.19,3,forfeit,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-593,rajasthan,2008,56,BAGRU,RAJESH RAIGAR,parties.IN.BSP,BSP,1687,1.42,4,forfeit,U,34,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-593,rajasthan,2008,56,BAGRU,LAXMI NARAYAN BAIRWA,parties.IN.IND,IND,1401,1.18,5,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-593,rajasthan,2008,56,BAGRU,BANWARI LAL BAIRWA,parties.IN.IND,IND,868,0.73,6,forfeit,U,44,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-593,rajasthan,2008,56,BAGRU,PADAM CHAND,parties.IN.UNK,FCI,705,0.59,7,forfeit,U,80,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-593,rajasthan,2008,56,BAGRU,PADAM CHAND,parties.IN.FCI,FCI,705,0.59,7,forfeit,U,80,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-593,rajasthan,2008,56,BAGRU,ROSHAN LAL RAIGAR,parties.IN.BHBP,BHBP,410,0.34,8,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-593,rajasthan,2008,56,BAGRU,ROOPESH VERMA,parties.IN.IND,IND,323,0.27,9,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-593,rajasthan,2008,56,BAGRU,LAL CHAND,parties.IN.ABHM,ABHM,263,0.22,10,forfeit,U,50,Literate,,challenger,src-1b7bc1c9d39a
@@ -986,14 +986,14 @@ IN-AC-2008-rajasthan-541,rajasthan,2008,74,NADBAI,NAVAB SINGH,parties.IN.LJP,LJP
 IN-AC-2008-rajasthan-541,rajasthan,2008,74,NADBAI,NAVAL SINGH,parties.IN.ABHM,ABHM,434,0.33,11,forfeit,U,40,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-541,rajasthan,2008,74,NADBAI,LAKHAN SINGH KUSHAVAH,parties.IN.IND,IND,367,0.28,12,forfeit,U,44,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-541,rajasthan,2008,74,NADBAI,BHARAT SINGH,parties.IN.IND,IND,223,0.17,13,forfeit,U,27,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-541,rajasthan,2008,74,NADBAI,MEGH SINGH,parties.IN.UNK,IPC,200,0.15,14,forfeit,U,59,Literate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-541,rajasthan,2008,74,NADBAI,MEGH SINGH,parties.IN.IPC,IPC,200,0.15,14,forfeit,U,59,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-541,rajasthan,2008,74,NADBAI,BHAGWAN SINGH,parties.IN.JDS,JD(S),124,0.1,15,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-543,rajasthan,2008,75,WEIR,BAHADUR SINGH,parties.IN.BJP,BJP,33981,30.97,1,won,U,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-543,rajasthan,2008,75,WEIR,ATAR SINGH PAGARIYA,parties.IN.BSP,BSP,29516,26.9,2,lost,U,43,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-543,rajasthan,2008,75,WEIR,SANJAY PAHADIA,parties.IN.INC,INC,25361,23.11,3,lost,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-543,rajasthan,2008,75,WEIR,REVATI KOLI,parties.IN.LSWP,LSWP,15824,14.42,4,forfeit,U,72,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-543,rajasthan,2008,75,WEIR,KALUA RAM,parties.IN.IND,IND,2121,1.93,5,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-543,rajasthan,2008,75,WEIR,SURESH PAHADIA,parties.IN.UNK,BRVP,765,0.7,6,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-543,rajasthan,2008,75,WEIR,SURESH PAHADIA,parties.IN.BRVP,BRVP,765,0.7,6,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-543,rajasthan,2008,75,WEIR,OMPRAKASH,parties.IN.SP,SP,728,0.66,7,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-543,rajasthan,2008,75,WEIR,DEEPCHAND,parties.IN.RLD,RLD,599,0.55,8,forfeit,U,52,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-543,rajasthan,2008,75,WEIR,MUKAT,parties.IN.RJVP,RJVP,434,0.4,9,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -1066,7 +1066,7 @@ IN-AC-2008-rajasthan-647,rajasthan,2008,81,TODABHIM,GHANSHYAM,parties.IN.BSP,BSP
 IN-AC-2008-rajasthan-647,rajasthan,2008,81,TODABHIM,MURARI LAL,parties.IN.INC,INC,3807,2.45,4,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-647,rajasthan,2008,81,TODABHIM,RAM SINGH MEENA,parties.IN.BJP,BJP,3633,2.34,5,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-647,rajasthan,2008,81,TODABHIM,KAMLA MEENA,parties.IN.IND,IND,1200,0.77,6,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-647,rajasthan,2008,81,TODABHIM,PREMLATA,parties.IN.UNK,BRVP,170,0.11,7,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-647,rajasthan,2008,81,TODABHIM,PREMLATA,parties.IN.BRVP,BRVP,170,0.11,7,forfeit,U,40,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-647,rajasthan,2008,81,TODABHIM,JAGDISH PRASAD,parties.IN.SP,SP,162,0.1,8,forfeit,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-647,rajasthan,2008,81,TODABHIM,KAMLESH KUMAR,parties.IN.BHBP,BHBP,147,0.09,9,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-643,rajasthan,2008,82,HINDAUN,BHAROSI LAL,parties.IN.INC,INC,30374,27.69,1,won,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -1078,7 +1078,7 @@ IN-AC-2008-rajasthan-643,rajasthan,2008,82,HINDAUN,KAMAL RAM,parties.IN.RLD,RLD,
 IN-AC-2008-rajasthan-643,rajasthan,2008,82,HINDAUN,RAM SINGH - NIKE RAM,parties.IN.IND,IND,1114,1.02,7,forfeit,U,63,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-643,rajasthan,2008,82,HINDAUN,MAHENDRA SINGH KOLI,parties.IN.IND,IND,1004,0.92,8,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-643,rajasthan,2008,82,HINDAUN,SHRI CHAND,parties.IN.IND,IND,785,0.72,9,forfeit,U,68,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-643,rajasthan,2008,82,HINDAUN,MEENA JATAV,parties.IN.UNK,BRVP,477,0.43,10,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-643,rajasthan,2008,82,HINDAUN,MEENA JATAV,parties.IN.BRVP,BRVP,477,0.43,10,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-643,rajasthan,2008,82,HINDAUN,RAMA,parties.IN.BHBP,BHBP,278,0.25,11,forfeit,U,43,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-643,rajasthan,2008,82,HINDAUN,RAM SINGH - RAM BHAROSI,parties.IN.LJP,LJP,190,0.17,12,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-644,rajasthan,2008,83,KARAULI,ROHINI KUMARI,parties.IN.BJP,BJP,44937,35.02,1,won,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -1113,7 +1113,7 @@ IN-AC-2008-rajasthan-576,rajasthan,2008,85,BANDIKUI,SHAILENDRA JOSHI,parties.IN.
 IN-AC-2008-rajasthan-576,rajasthan,2008,85,BANDIKUI,GAJRAJ KHATANA,parties.IN.INC,INC,24301,22.22,3,lost,U,52,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-576,rajasthan,2008,85,BANDIKUI,RAJKUMARI,parties.IN.BSP,BSP,9156,8.37,4,forfeit,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-576,rajasthan,2008,85,BANDIKUI,RAMSINGH MAHAKAL,parties.IN.IND,IND,1965,1.8,5,forfeit,U,50,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-576,rajasthan,2008,85,BANDIKUI,AMAR SINGH,parties.IN.UNK,BRVP,962,0.88,6,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-576,rajasthan,2008,85,BANDIKUI,AMAR SINGH,parties.IN.BRVP,BRVP,962,0.88,6,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-576,rajasthan,2008,85,BANDIKUI,KAILASH CHAND,parties.IN.IND,IND,646,0.59,7,forfeit,U,55,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-576,rajasthan,2008,85,BANDIKUI,RAJENDRA PRASAD,parties.IN.IND,IND,633,0.58,8,forfeit,U,35,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-576,rajasthan,2008,85,BANDIKUI,BHAGWAN SAHAY,parties.IN.IND,IND,259,0.24,9,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -1180,7 +1180,7 @@ IN-AC-2008-rajasthan-688,rajasthan,2008,91,BAMANWAS,RAMPRASAD,parties.IN.CPI,CPI
 IN-AC-2008-rajasthan-688,rajasthan,2008,91,BAMANWAS,RAMROOP,parties.IN.IND,IND,1588,1.53,9,forfeit,U,55,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-688,rajasthan,2008,91,BAMANWAS,RAGHUVEER,parties.IN.IND,IND,1339,1.29,10,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-688,rajasthan,2008,91,BAMANWAS,HARKESH,parties.IN.BHBP,BHBP,833,0.8,11,forfeit,U,26,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-688,rajasthan,2008,91,BAMANWAS,RAKESH,parties.IN.UNK,BRVP,809,0.78,12,forfeit,U,69,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-688,rajasthan,2008,91,BAMANWAS,RAKESH,parties.IN.BRVP,BRVP,809,0.78,12,forfeit,U,69,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-688,rajasthan,2008,91,BAMANWAS,MITHALAL MEENA,parties.IN.IND,IND,806,0.78,13,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-688,rajasthan,2008,91,BAMANWAS,SHYAMLAL,parties.IN.NCP,NCP,631,0.61,14,forfeit,U,38,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-688,rajasthan,2008,91,BAMANWAS,NANDLAL,parties.IN.IND,IND,513,0.49,15,forfeit,U,26,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -1490,7 +1490,7 @@ IN-AC-2008-rajasthan-671,rajasthan,2008,121,SUMERPUR,THANA RAM MEGWAL,parties.IN
 IN-AC-2008-rajasthan-671,rajasthan,2008,121,SUMERPUR,DR. ARUN,parties.IN.IND,IND,789,0.7,13,forfeit,U,43,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-671,rajasthan,2008,121,SUMERPUR,HIRALAL GARG,parties.IN.RJVP,RJVP,689,0.61,14,forfeit,U,45,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-671,rajasthan,2008,121,SUMERPUR,MANGAL DAS VAISHNAV,parties.IN.ABHM,ABHM,450,0.4,15,forfeit,U,56,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-671,rajasthan,2008,121,SUMERPUR,SUKHARAM MEGHWAL,parties.IN.UNK,BVVP,405,0.36,16,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-rajasthan-671,rajasthan,2008,121,SUMERPUR,SUKHARAM MEGHWAL,parties.IN.BVVP,BVVP,405,0.36,16,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-635,rajasthan,2008,122,PHALODI,OM JOSHI,parties.IN.INC,INC,51354,47.15,1,won,U,60,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-635,rajasthan,2008,122,PHALODI,PABBA RAM,parties.IN.BJP,BJP,44452,40.81,2,lost,U,57,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-rajasthan-635,rajasthan,2008,122,PHALODI,SHEETAL BISHNOI,parties.IN.IND,IND,6605,6.06,3,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a

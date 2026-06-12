@@ -6,8 +6,8 @@ IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,K. B. WATTAR (RAI),pa
 IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,SWARAJ THAPA,parties.IN.IND,IND,1768,1.24,5,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,SARDA RAI SUBBA,parties.IN.IND,IND,1270,0.89,7,forfeit,F,52,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,SANJAY THAKURI,parties.IN.UNK,Indian Democratic Republican Front,1183,0.83,8,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,AMAR LOKSOM,parties.IN.UNK,Gorkha Rashtriya Congress,1166,0.82,9,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,BIPLOV RAI,parties.IN.UNK,Akhil Bharatiya Gorkha League,668,0.47,10,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,AMAR LOKSOM,parties.IN.GRAC,Gorkha Rashtriya Congress,1166,0.82,9,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,BIPLOV RAI,parties.IN.ABGL,Akhil Bharatiya Gorkha League,668,0.47,10,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2109,west-bengal,2019,29,ISLAMPUR,ABDUL KARIM CHOWDHARY,parties.IN.AITC,AITC,77528,53.08,1,won,M,73,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2109,west-bengal,2019,29,ISLAMPUR,DR. SAUMYAROOP MANDAL,parties.IN.BJP,BJP,56141,38.44,2,lost,M,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2109,west-bengal,2019,29,ISLAMPUR,MUZAFFAR HUSSAIN,parties.IN.INC,INC,5208,3.57,3,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
@@ -25,7 +25,7 @@ IN-AC-2008-west-bengal-2073,west-bengal,2019,43,HABIBPUR,SADHU TUDU,parties.IN.C
 IN-AC-2008-west-bengal-2073,west-bengal,2019,43,HABIBPUR,REJINA MURMU,parties.IN.INC,INC,8277,4.57,4,forfeit,F,34,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2073,west-bengal,2019,43,HABIBPUR,BABURAM KISKU,parties.IN.BMUP,Bahujan Mukti Party,4471,2.47,5,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2073,west-bengal,2019,43,HABIBPUR,MANDAL MARDI,parties.IN.IND,IND,1605,0.89,6,forfeit,M,61,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2073,west-bengal,2019,43,HABIBPUR,SANGITA SOREN,parties.IN.UNK,Kamatapur People’s Party (United),722,0.4,8,forfeit,F,25,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2073,west-bengal,2019,43,HABIBPUR,SANGITA SOREN,parties.IN.KPPU,Kamatapur People’s Party (United),722,0.4,8,forfeit,F,25,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2073,west-bengal,2019,43,HABIBPUR,IMANUYEL HEMBROM,parties.IN.JMM,JMM,508,0.28,9,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-1872,west-bengal,2019,68,KANDI,SHAFIUL ALAM KHAN (BANU KHAN),parties.IN.INC,INC,79698,48.92,1,won,M,64,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-1872,west-bengal,2019,68,KANDI,GOUTAM ROY,parties.IN.AITC,AITC,58578,35.96,2,lost,M,56,,,challenger,src-1b7bc1c9d39a
@@ -39,7 +39,7 @@ IN-AC-2008-west-bengal-1873,west-bengal,2019,74,NAODA,SIRAJUL ISLAM MONDAL,parti
 IN-AC-2008-west-bengal-2096,west-bengal,2019,77,KARIMPUR,BIMALENDU SINHA ROY,parties.IN.AITC,AITC,103278,50.43,1,won,M,61,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2096,west-bengal,2019,77,KARIMPUR,JAY PRAKASH MAJUMDAR,parties.IN.BJP,BJP,79368,38.75,2,lost,M,63,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2096,west-bengal,2019,77,KARIMPUR,GOLAM RABBI,parties.IN.CPIM,CPM,18627,9.09,3,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2096,west-bengal,2019,77,KARIMPUR,DOLA SAHA ROY,parties.IN.UNK,Bharatiya Nyay-Adhikar Raksha Party,1964,0.96,4,forfeit,F,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2096,west-bengal,2019,77,KARIMPUR,DOLA SAHA ROY,parties.IN.BNARP,Bharatiya Nyay-Adhikar Raksha Party,1964,0.96,4,forfeit,F,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2114,west-bengal,2019,88,KRISHNAGANJ,ASHIS KUMAR BISWAS,parties.IN.BJP,BJP,117716,53.25,1,won,M,53,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2114,west-bengal,2019,88,KRISHNAGANJ,PRAMATHA RANJAN BOSE,parties.IN.AITC,AITC,86850,39.29,2,lost,M,67,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2114,west-bengal,2019,88,KRISHNAGANJ,MRINAL BISWAS (MINI),parties.IN.CPIM,CPM,11646,5.27,3,forfeit,M,40,,,challenger,src-1b7bc1c9d39a
@@ -60,7 +60,7 @@ IN-AC-2008-west-bengal-2139,west-bengal,2019,176,ULUBERIA PURBA,IDRIS ALI,partie
 IN-AC-2008-west-bengal-2139,west-bengal,2019,176,ULUBERIA PURBA,PRATYUSH MANDAL,parties.IN.BJP,BJP,65626,36.8,2,lost,M,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2139,west-bengal,2019,176,ULUBERIA PURBA,SABIRUDDIN MOLLA,parties.IN.CPIM,CPM,21339,11.97,3,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2139,west-bengal,2019,176,ULUBERIA PURBA,ALAM DEIYAN SEKH,parties.IN.INC,INC,6891,3.86,4,forfeit,M,58,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2139,west-bengal,2019,176,ULUBERIA PURBA,ANOWAR MALLICK,parties.IN.UNK,Indian Unity Centre,1001,0.56,6,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2139,west-bengal,2019,176,ULUBERIA PURBA,ANOWAR MALLICK,parties.IN.IUC,Indian Unity Centre,1001,0.56,6,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2139,west-bengal,2019,176,ULUBERIA PURBA,GANESH DAS,parties.IN.IND,IND,634,0.36,7,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2089,west-bengal,2019,224,KHARAGPUR SADAR,PRADIP SARKAR,parties.IN.AITC,AITC,72893,47.66,1,won,M,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2089,west-bengal,2019,224,KHARAGPUR SADAR,PREM CHANDRA JHA,parties.IN.BJP,BJP,52040,34.02,2,lost,M,56,,,challenger,src-1b7bc1c9d39a
@@ -69,4 +69,4 @@ IN-AC-2008-west-bengal-2089,west-bengal,2019,224,KHARAGPUR SADAR,MATA PRASAD GUP
 IN-AC-2008-west-bengal-2089,west-bengal,2019,224,KHARAGPUR SADAR,PRADIP KUMAR PATNAIK,parties.IN.IND,IND,762,0.5,6,forfeit,M,61,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2089,west-bengal,2019,224,KHARAGPUR SADAR,MD. IBRAR,parties.IN.IND,IND,685,0.45,7,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2089,west-bengal,2019,224,KHARAGPUR SADAR,DEBAYAN PATTY,parties.IN.SHS,SHS,573,0.37,8,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2089,west-bengal,2019,224,KHARAGPUR SADAR,RINA DEY,parties.IN.UNK,Bharatiya Nyay-Adhikar Raksha Party,397,0.26,9,forfeit,F,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2089,west-bengal,2019,224,KHARAGPUR SADAR,RINA DEY,parties.IN.BNARP,Bharatiya Nyay-Adhikar Raksha Party,397,0.26,9,forfeit,F,46,,,challenger,src-1b7bc1c9d39a

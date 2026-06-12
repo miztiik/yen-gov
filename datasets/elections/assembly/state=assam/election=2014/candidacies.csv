@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-assam-1835,assam,2014,9,SILCHAR,Dilip Kumar Paul,parties.IN.BJP,BJP,74898,58.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-assam-1835,assam,2014,9,SILCHAR,A.D.Mazumder,parties.IN.INC,INC,37457,29.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-assam-1835,assam,2014,9,SILCHAR,N.A.Barbhuita,parties.IN.UNK,ALUDF,11203,8.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1835,assam,2014,9,SILCHAR,N.A.Barbhuita,parties.IN.ALUDF,ALUDF,11203,8.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-assam-1835,assam,2014,9,SILCHAR,Dulal Mitra,parties.IN.CPIMLL,CPIM,2401,1.87,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-assam-1835,assam,2014,9,SILCHAR,P.K. Deb,parties.IN.SUCI,SUCI(C),881,0.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-assam-1835,assam,2014,9,SILCHAR,S.Datta,parties.IN.IND,IND,465,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -13,7 +13,7 @@ IN-AC-2008-assam-1835,assam,2014,9,SILCHAR,Kaushik paul,parties.IN.IND,IND,141,0
 IN-AC-2008-assam-1835,assam,2014,9,SILCHAR,Ashim das,parties.IN.IND,IND,77,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-assam-1834,assam,2014,13,LAKHIPUR,Rajdeep Goala,parties.IN.INC,INC,39159,41.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-assam-1834,assam,2014,13,LAKHIPUR,Sanjay Kumar Thakur,parties.IN.BJP,BJP,29322,31.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-assam-1834,assam,2014,13,LAKHIPUR,Mukesh Pandey,parties.IN.UNK,ALUDF,22590,24.22,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-assam-1834,assam,2014,13,LAKHIPUR,Mukesh Pandey,parties.IN.ALUDF,ALUDF,22590,24.22,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-assam-1834,assam,2014,13,LAKHIPUR,Joy Singh Chatri,parties.IN.SUCI,SUCI(C),1640,1.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-assam-1834,assam,2014,13,LAKHIPUR,Nazim Uddin Mazumdar,parties.IN.IND,IND,578,0.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-assam-1825,assam,2014,90,JAMUNAMUKH,Abdur Rahim Ajmal,parties.IN.AIUDF,AIUDF,62153,52.11,1,won,U,,,,challenger,src-1b7bc1c9d39a

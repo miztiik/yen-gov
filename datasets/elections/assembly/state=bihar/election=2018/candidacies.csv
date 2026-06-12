@@ -2,7 +2,7 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Shahnawaz -E,parties.IN.RJD,RJD,81240,55.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,MD. Murhid Alam,parties.IN.UNK,JD(United),40016,27.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,MD.Shabbir Ahmad,parties.IN.IND,IND,11176,7.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Ghousul Alam,parties.IN.UNK,JAP(Loktantrik),5314,3.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Ghousul Alam,parties.IN.JAP_LOKTANTRIK,JAP(Loktantrik),5314,3.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Mohammad Irfan,parties.IN.IND,IND,2229,1.53,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Javed Alam,parties.IN.IND,IND,1298,0.89,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,MD. Masroor Alam,parties.IN.IND,IND,757,0.52,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -34,7 +34,7 @@ IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,MD.Sultan Ahmad,parties.IN.IND,IN
 IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Prakash Kumar,parties.IN.IND,IND,1099,0.78,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Mithilesh Kumar Singh,parties.IN.IND,IND,1085,0.77,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Brijnandan Singh,parties.IN.SSD,SSD,732,0.52,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Anand Kumar,parties.IN.UNK,KVD,686,0.49,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Anand Kumar,parties.IN.KVD,KVD,686,0.49,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Dhananjay Kumar,parties.IN.IND,IND,615,0.44,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Mani Bhushan Sharma,parties.IN.IND,IND,615,0.44,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Amul Kumar,parties.IN.IND,IND,516,0.37,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
