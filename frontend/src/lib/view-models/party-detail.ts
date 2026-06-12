@@ -15,7 +15,13 @@
 //   - per-cycle party indicators (one row per indicator per event):
 //       `party-seats-won` (numeric)
 //       `party-vote-share-pct` (numeric)
-//       `party-contested-acs` (numeric)
+//       `party-contested-acs` (numeric; VS events)
+//       `party-contested-pcs` (numeric; LS events — added 2026-06-13
+//          by the LS-aggregate-ingest PR. The LS branch was previously
+//          synthesised from `pc-winner-party-id` counts with null
+//          vote_share + contested; PR-4 closure-ledger known-degradation
+//          #1 closed by adding parliament_rollup_observations + a
+//          symmetric lsHistorySql.)
 //   - per-constituency winner rows:
 //       `ac-winner-party-id` (value_text carries `parties.IN.<X>`)
 //       `pc-winner-party-id` (same)
@@ -115,7 +121,8 @@ export interface PartyHistoryPoint {
    *  `party-vote-share-pct` row (rare; defensive). */
   vote_share_pct: number | null;
   /** Number of constituencies the party fielded a candidate in;
-   *  null when the cycle has no `party-contested-acs` row. */
+   *  null when the cycle has no `party-contested-acs` (VS) or
+   *  `party-contested-pcs` (LS) row. */
   contested: number | null;
 }
 
@@ -244,11 +251,17 @@ export function partyIdTail(party_id: string): string {
 }
 
 /** Recognised history indicator ids; rows carrying anything else
- *  are silently ignored at the fold boundary. */
+ *  are silently ignored at the fold boundary. ``party-contested-acs``
+ *  and ``party-contested-pcs`` are SIBLINGS — both fold to the same
+ *  ``contested`` slot. The only semantic difference is the grain
+ *  (ACs for VS events, PCs for LS events); the period_label prefix
+ *  already discriminates which body a cycle belongs to, so there is
+ *  no per-grain dispatch in the fold logic. */
 const HISTORY_INDICATORS = new Set<string>([
   "party-seats-won",
   "party-vote-share-pct",
   "party-contested-acs",
+  "party-contested-pcs",
 ]);
 
 /** Pure: split a flat list of history rows into one
@@ -284,6 +297,7 @@ export function foldHistoryRows(
         existing.vote_share_pct = value;
         break;
       case "party-contested-acs":
+      case "party-contested-pcs":
         existing.contested = value == null ? null : Math.trunc(value);
         break;
     }
@@ -474,10 +488,12 @@ async function fetchPartyDetail(
   const safePartyId = party_id.replace(/'/g, "''");
 
   // VS history query: pull the 3 per-cycle indicators for the party-
-  // aggregate entity_id pattern (one row per party per AC event). Note
-  // ONLY Vidhan Sabha events emit party-aggregate rows in the canonical
-  // store today; the LS branch is synthesised below from per-PC winner
-  // rows because the upstream ingest does not yet ship LS party-aggregate.
+  // aggregate entity_id pattern (one row per party per AC event). Both
+  // VS (Assembly) and LS (Parliament) events emit party-aggregate rows
+  // in the canonical store as of the LS-aggregate-ingest PR (2026-06-13);
+  // see the lsHistorySql below for the LS sibling query. The two queries
+  // differ only in (a) the period_label prefix filter and (b) the
+  // ``-contested-{acs,pcs}`` indicator id suffix.
   const vsHistorySql = `
     SELECT
       year,
@@ -495,29 +511,80 @@ async function fetchPartyDetail(
   `;
   const vsHistoryRows = await query<RawHistoryRow>(vsHistorySql);
 
-  // LS history synthesis: count pc-winner-party-id rows per LS event
-  // where value_text matches this party_id. The per-state CSVs only
-  // carry LS data as per-PC winner rows (no party-aggregate row); we
-  // group + count here to derive seats_won. Vote share + contested
-  // remain null at v1 because they would require per-candidacy
-  // aggregation - documented as a follow-up backfill in the page's
-  // coverage caption.
+  // LS history query: direct fetch from per-(state, ls-event, party) rollup
+  // rows. Closes ``ls_history.vote_share_pct == null`` honest-degradation
+  // per PR-4 closure-ledger known-degradation #1 (LS-aggregate-ingest PR,
+  // 2026-06-13).
+  //
+  // SUMs across states in SQL per Hans's locked verdict — the rollup rows
+  // are emitted per-state (one row per `(state, ls-event, party)` triple),
+  // so the national `party-seats-won` is the sum across 36 states, and
+  // `party-contested-pcs` likewise. For the national vote-share we sum the
+  // party's votes across states and divide by the sum of state-level
+  // `votes-polled` totals (i.e. votes-weighted national share), not the
+  // average of per-state percentages (which would be incorrect).
+  //
+  // The two outer CTEs aggregate per-state rows by period_label; the
+  // final UNION emits the same `{year, period_label, indicator_id,
+  // value_numeric}` shape vsHistorySql does so `foldHistoryRows` handles
+  // it unchanged. The party_vote_share_pct row is null when state
+  // electors are unavailable (some pre-2013 cycles + LS2024 from the
+  // candidacies.csv fallback where electors are not on disk).
   const lsHistorySql = `
+    WITH party_state_agg AS (
+      SELECT
+        period_label,
+        MIN(year) AS year,
+        SUM(CASE WHEN indicator_id = 'party-seats-won' THEN value_numeric END) AS seats,
+        SUM(CASE WHEN indicator_id = 'party-contested-pcs' THEN value_numeric END) AS contested,
+        SUM(CASE WHEN indicator_id = 'party-votes-polled' THEN value_numeric END) AS party_votes
+      FROM read_csv('${ELECTORAL_GLOB_URL}', ${electoralClause})
+      WHERE entity_id LIKE 'IN-%-PARTY-${safeShort}'
+        AND indicator_id IN (
+          'party-seats-won',
+          'party-contested-pcs',
+          'party-votes-polled'
+        )
+        AND period_label LIKE 'Ls%'
+      GROUP BY period_label
+    ),
+    state_votes_agg AS (
+      SELECT
+        period_label,
+        SUM(value_numeric) AS state_votes
+      FROM read_csv('${ELECTORAL_GLOB_URL}', ${electoralClause})
+      WHERE indicator_id = 'votes-polled'
+        AND period_label LIKE 'Ls%'
+        AND regexp_matches(entity_id, '^IN-[SU][0-9]{2}-Ls[A-Za-z]+[0-9]{4}$')
+      GROUP BY period_label
+    )
     SELECT
-      MIN(year)             AS year,
-      period_label          AS period_label,
-      COUNT(*)              AS seats_count
-    FROM read_csv('${ELECTORAL_GLOB_URL}', ${electoralClause})
-    WHERE indicator_id = 'pc-winner-party-id'
-      AND value_text = '${safePartyId}'
-      AND period_label LIKE 'Ls%'
-    GROUP BY period_label
+      ps.year                        AS year,
+      ps.period_label                AS period_label,
+      'party-seats-won'              AS indicator_id,
+      ps.seats                       AS value_numeric
+    FROM party_state_agg ps
+    UNION ALL
+    SELECT
+      ps.year                        AS year,
+      ps.period_label                AS period_label,
+      'party-contested-pcs'          AS indicator_id,
+      ps.contested                   AS value_numeric
+    FROM party_state_agg ps
+    UNION ALL
+    SELECT
+      ps.year                        AS year,
+      ps.period_label                AS period_label,
+      'party-vote-share-pct'         AS indicator_id,
+      CASE
+        WHEN sv.state_votes > 0
+          THEN ps.party_votes / sv.state_votes * 100
+        ELSE NULL
+      END                            AS value_numeric
+    FROM party_state_agg ps
+    LEFT JOIN state_votes_agg sv ON sv.period_label = ps.period_label
   `;
-  const lsCountRows = await query<{
-    year: number | bigint | null;
-    period_label: string | null;
-    seats_count: number | bigint | null;
-  }>(lsHistorySql);
+  const lsHistoryRows = await query<RawHistoryRow>(lsHistorySql);
 
   // Stronghold query: pull every ac/pc winner_party_id row that
   // matches the target party_id. We need the FULL winner history
@@ -623,22 +690,12 @@ async function fetchPartyDetail(
   }
 
   // Split VS history rows from the party-aggregate query (already
-  // filtered to Ac% in SQL). LS history is the per-event count from
-  // the synthesised query.
+  // filtered to Ac% in SQL). LS history rows arrive in the same shape
+  // (already filtered to Ls% in SQL); foldHistoryRows knows both the
+  // ``-contested-acs`` and ``-contested-pcs`` indicator ids and routes
+  // them to the same ``contested`` slot on PartyHistoryPoint.
   const vs_history = foldHistoryRows(vsHistoryRows);
-  const ls_history: PartyHistoryPoint[] = lsCountRows
-    .filter((r) => r.period_label != null)
-    .map((r) => ({
-      year: intOrNull(r.year) ?? 0,
-      period_label: r.period_label!,
-      seats: intOrNull(r.seats_count) ?? 0,
-      vote_share_pct: null,
-      contested: null,
-    }))
-    .sort((a, b) => {
-      if (a.year !== b.year) return a.year - b.year;
-      return a.period_label.localeCompare(b.period_label);
-    });
+  const ls_history = foldHistoryRows(lsHistoryRows);
 
   // Split stronghold rows into LS + VS via period_label prefix
   // (the ac vs pc indicator already disambiguates body, but the

@@ -44,7 +44,19 @@ from yen_gov.sources.eci.people_panel import (
     normalise_profession,
 )
 
-#: The only ``Election_Type`` value we ingest from the panel.
+#: ``Election_Type`` values we accept for a GE row. TCPD historically tagged
+#: parliamentary GEs as ``"Parliament Election (GE)"``; the 2026-06-05
+#: snapshot uses ``"Lok Sabha Election (GE)"``. Both refer to the same
+#: parliamentary general election; we accept either so a future TCPD
+#: refresh doesn't silently zero out the year filter. Extend the set if
+#: TCPD adopts another spelling — the historical citation references the
+#: same underlying ECI returns.
+GE_ELECTION_TYPES = frozenset({
+    "Parliament Election (GE)",
+    "Lok Sabha Election (GE)",
+})
+# Retained for backwards compatibility with downstream code that imported
+# the original scalar; equal to one of the accepted forms.
 GE_ELECTION_TYPE = "Parliament Election (GE)"
 
 #: ``Poll_No`` of the original general-election poll (re-polls are ``1+``).
@@ -136,7 +148,7 @@ def parse_ls_ge_tcpd(
             )
 
         for row in reader:
-            if (row.get("Election_Type") or "").strip() != GE_ELECTION_TYPE:
+            if (row.get("Election_Type") or "").strip() not in GE_ELECTION_TYPES:
                 continue
             if (row.get("Year") or "").strip() != str(year):
                 continue

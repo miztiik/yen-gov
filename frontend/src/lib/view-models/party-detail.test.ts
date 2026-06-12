@@ -379,7 +379,10 @@ describe("loadPartyDetail", () => {
     mockedLoadPartyMeta.mockResolvedValue(metaFixture());
     // Loader fires 4 queries in order:
     //   1. vsHistorySql  (VS party-aggregate rows)
-    //   2. lsHistorySql  (LS per-PC winner counts grouped by event)
+    //   2. lsHistorySql  (LS party-aggregate rows; was: synthesised from
+    //                     pc-winner-party-id counts pre-PR. Closed by the
+    //                     LS-aggregate-ingest PR (2026-06-13) per PR-4
+    //                     closure-ledger known-degradation #1.)
     //   3. strongholdSql (per-AC/PC winner rows where this party won)
     //   4. entitySql     (electoral.csv name JOIN; skipped when 0 strongholds)
     mockedQuery
@@ -390,8 +393,10 @@ describe("loadPartyDetail", () => {
         { year: 2021, period_label: "AcGenApr2021", indicator_id: "party-contested-acs", value_numeric: 188 },
       ])
       .mockResolvedValueOnce([
-        // LS synthesised: 22 PC wins in 2024 (from per-PC winner rows).
-        { year: 2024, period_label: "LsGenMay2024", seats_count: 22 },
+        // LS 2024 party-aggregate (was: synthesised count-only).
+        { year: 2024, period_label: "LsGenJun2024", indicator_id: "party-seats-won", value_numeric: 22 },
+        { year: 2024, period_label: "LsGenJun2024", indicator_id: "party-vote-share-pct", value_numeric: 26.7 },
+        { year: 2024, period_label: "LsGenJun2024", indicator_id: "party-contested-pcs", value_numeric: 22 },
       ])
       .mockResolvedValueOnce([
         {
@@ -420,10 +425,12 @@ describe("loadPartyDetail", () => {
     expect(out).not.toBeNull();
     expect(out!.metadata.short).toBe("DMK");
     expect(out!.ls_history).toHaveLength(1);
-    expect(out!.ls_history[0]!.period_label).toBe("LsGenMay2024");
+    expect(out!.ls_history[0]!.period_label).toBe("LsGenJun2024");
     expect(out!.ls_history[0]!.seats).toBe(22);
-    // Synthesised LS rows carry null vote_share_pct + contested by design.
-    expect(out!.ls_history[0]!.vote_share_pct).toBeNull();
+    // LS rows NOW carry vote_share_pct + contested (PR-4 closure-ledger
+    // known-degradation #1 closed by the LS-aggregate-ingest PR, 2026-06-13).
+    expect(out!.ls_history[0]!.vote_share_pct).toBe(26.7);
+    expect(out!.ls_history[0]!.contested).toBe(22);
     expect(out!.vs_history).toHaveLength(1);
     expect(out!.vs_history[0]!.period_label).toBe("AcGenApr2021");
     expect(out!.vs_strongholds).toHaveLength(1);
@@ -438,12 +445,14 @@ describe("loadPartyDetail", () => {
       party_id: "parties.IN.LS_ONLY",
       short: "LSONLY",
     }));
-    // 4 queries: vsAggregate (empty); lsSynthesis (one cycle);
+    // 4 queries: vsAggregate (empty); lsAggregate (one cycle);
     // stronghold (empty -> entity JOIN skipped, so only 3 mocks needed).
     mockedQuery
       .mockResolvedValueOnce([]) // vs aggregate
       .mockResolvedValueOnce([
-        { year: 2024, period_label: "LsGenMay2024", seats_count: 5 },
+        { year: 2024, period_label: "LsGenJun2024", indicator_id: "party-seats-won", value_numeric: 5 },
+        { year: 2024, period_label: "LsGenJun2024", indicator_id: "party-vote-share-pct", value_numeric: 1.2 },
+        { year: 2024, period_label: "LsGenJun2024", indicator_id: "party-contested-pcs", value_numeric: 12 },
       ])
       .mockResolvedValueOnce([]); // stronghold rows empty
     const out = await loadPartyDetail("parties.IN.LS_ONLY");
@@ -493,7 +502,7 @@ describe("loadPartyDetail", () => {
     mockedLoadPartyMeta.mockResolvedValue(metaFixture());
     mockedQuery
       .mockResolvedValueOnce([]) // vs aggregate
-      .mockResolvedValueOnce([]) // ls synthesis
+      .mockResolvedValueOnce([]) // ls aggregate (was: ls synthesis pre-PR)
       .mockResolvedValueOnce([
         {
           entity_id: "IN-S99-AC-2008-1",
