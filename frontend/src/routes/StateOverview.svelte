@@ -740,15 +740,10 @@
          all (no election data ingested) skip the block entirely. -->
     {#if event_status === "pending_upstream"}
       <section class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-700">
-        <strong class="font-semibold">Election results awaiting publication.</strong>
+        <strong class="font-semibold">Results pending.</strong>
         {#if event_row}
           {event_row.display} — polled {event_row.polled_on}.
         {/if}
-        The Election Commission of India has not yet released the
-        Statistical Report Section&nbsp;10 for this election (typical
-        publication lag is 6–18 months). yen-gov ingests results from
-        the official Statistical Reports rather than partial day-of
-        feeds, so this page will populate as soon as ECI publishes.
       </section>
     {:else if event_row && summaryResult.status === "failed"}
       <!-- PR-F: failed arm — DuckDB-WASM / fetch / SQL error reading the
@@ -767,13 +762,10 @@
            (indicator cards, government card, AC directory) above and below
            still render. -->
       <section class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-700">
-        <strong class="font-semibold">Election results not yet in the canonical store.</strong>
+        <strong class="font-semibold">Results pending.</strong>
         {#if event_row}
           {event_row.display} — polled {event_row.polled_on}.
         {/if}
-        The pipeline has not yet ingested this cohort into the canonical
-        Parquet store. The AC directory below still reflects the constituency
-        reference file for this state.
       </section>
     {:else if event_row && summaryResult.status === "loading"}
       <div class="text-slate-500">Loading election data…</div>
@@ -788,11 +780,7 @@
     {:else if event_row && summary && acs_status === "failed"}
       <section class="bg-white rounded-lg shadow-sm p-6 text-sm text-slate-600">
         <p class="font-medium text-slate-700 mb-1">Election results loaded.</p>
-        <p>
-          Per-constituency directory for {event_row.display}
-          isn't available yet — the constituencies reference file for this
-          state still needs to be bootstrapped.
-        </p>
+        <p>Constituency directory unavailable.</p>
       </section>
     {:else if event_row && summary && acs}
 
