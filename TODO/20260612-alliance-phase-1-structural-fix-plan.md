@@ -44,11 +44,21 @@ Composite PK is `(party_id, event_id, state)`.
 
 Max recommended (R5.2) extending year-suffix uniformly (`Mahayuti-2024`, `MVA-2024`, `Sanyukta Morcha-2021`) so the citizen can disambiguate across cycles. Hans preferred state-event names verbatim. **Verdict for this PR: keep state-event names verbatim** (current curation discipline). The year-suffix question is a Phase 1b decision when more rows land; revisit then. Do not retro-suffix the 4 existing curations.
 
-### V3 — FK repair on TN-2026 rows (D3)
+### V3 — FK repair on TN-2026 rows (D3) — **REVISED 2026-06-12 after subagent STOP-AND-SURFACE**
 
-Derive a new src_id for the 2021 TN Legislative Assembly election Wikipedia article (since TN-2026 hasn't happened — the existing 11 rows describe TN-2021 AE under the wrong cohort tag, which is a Phase 1b curation review). For THIS PR, repair the FK pointing to the correct Wikipedia source row (create one via `derive_source_id`); the row's `event_id` becomes `assembly-2021` + `state=IN-S22` post-migration.
+**Original V3 premise was empirically WRONG.** The first dispatch subagent verified:
 
-**STOP-AND-SURFACE:** before authoring the new TN src row, the subagent must verify whether the 11 rows describe TN AE 2021 (likely) or a future TN AE 2026 (unlikely — that election hasn't happened). Read the 11 alliance values and party_ids and cross-check against the Wikipedia 2021 TN article. If the rows describe TN-2026 hypothetically, this is editorial speculation and must be retired (delete the 11 rows, not relocated). Surface in Scope-change ledger before deciding.
+- TN-AE-2026 has happened. `datasets/data/datapoints/electoral/tamil-nadu_election_results.csv` carries **6694 rows** of real polled outcomes keyed `period_label=AcGenMay2026`, including concrete winners (TVK — a party founded in 2024 — appears in the winners list, dispositive proof this is post-2024 data) and `src_id=src-3da941c21223`. Sister cohort CSVs exist for Assam (3244 rows), Kerala (3874), Puducherry (880), West Bengal (8304) — the expected simultaneous May-2026 5-state cohort.
+- The 10 alliance rows describe the **post-2023 fracture landscape**: BJP+PMK ("NDA") separated from AIADMK+DMDK ("AIADMK+"). In TN-AE-2021, BJP+PMK were part of AIADMK+; they only fractured into a separate NDA bloc after September 2023. So the rows are post-fracture data, not 2021 data.
+
+**Corrected verdict (Resolution A, authorized 2026-06-12):**
+
+1. **Relocate** the 10 TN-AcGenMay2026 rows: `period_label=AcGenMay2026` → `event_id=assembly-2026` + `state=IN-S22`. (Plan-doc's earlier "TN-2026 hasn't happened" framing is retracted.)
+2. **Repair source_id** via `derive_source_id(producer="Wikipedia", title="2026 Tamil Nadu Legislative Assembly election", vintage="2026-05", url="https://en.wikipedia.org/wiki/2026_Tamil_Nadu_Legislative_Assembly_election")`. Author the new row in `source.csv`; point all 10 alliance rows to the new src_id. The old `src-c3e2fd43efa5` row in `source.csv` STAYS — it's a legitimate citation for the 1999-LS-results data it actually describes.
+3. **Acknowledge partial curation as Phase 1b**: only 10 parties of the actual TN-AE-2026 winner set are alliance-tagged. TVK, AMMK, IUML (winners per the result data) and others are not yet in the curation. Phase 1b adds them. This PR does not synthesize new alliance assignments — it migrates what's on disk.
+
+Subagent count correction: plan-doc said "11 TN-2026 rows"; CSV actually carries 10. Cosmetic.
+
 
 ### V4 — `loadAlliances` rewrite: filter on `event_id`, drop alias resolution
 
@@ -121,3 +131,4 @@ See V5 above. Critically: the Wikipedia per-event backfill (general-2019/2014/20
 | --- | --- | --- |
 | 2026-06-12 | research | Hans (R1-R3) + Max (R4-R5) joint verdict. Both surfaced D1/D2/D3 as structural fixes that must precede any backfill. Wikipedia named as Phase 1b source. |
 | 2026-06-12 | scope-lock | This PR ships V1-V4 (schema v2.0 + 60-row migration + loader rewrite + FK repair). Phase 1b backfill is separate plan-doc opened concurrently. |
+| 2026-06-12 | scope-correction | First dispatch subagent STOP-AND-SURFACED on Risk #1: plan-doc V3's premise ("TN-2026 hasn't happened") was empirically wrong. TN-AE-2026 has happened; 6694 rows of polled outcomes in `tamil-nadu_election_results.csv`. The 10 alliance rows describe post-2023 BJP-AIADMK fracture landscape. V3 revised with Resolution A: relocate to `event_id=assembly-2026` + `state=IN-S22` + new Wikipedia src_id for the 2026 TN AE article. Re-dispatched with corrected brief. |
