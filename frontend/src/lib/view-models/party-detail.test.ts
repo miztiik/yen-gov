@@ -395,13 +395,25 @@ describe("loadPartyDetail", () => {
       ])
       .mockResolvedValueOnce([
         {
-          entity_id: "IN-AC-2008-S22-167",
+          entity_id: "IN-S22-AC-2008-167",
           period_label: "AcGenApr2021",
           winner_party_id: "parties.IN.DMK",
         },
       ])
       .mockResolvedValueOnce([
-        { entity_id: "IN-AC-2008-S22-167", name: "Mylapore", state: "tamil-nadu" },
+        // electoral.csv row uses the LGD-slug shape with an LGD-
+        // sequential suffix (4025), but carries the natural-key
+        // fields (`entity_kind`, `delim_year`, `state`, `eci_no`)
+        // that JOIN back to the per-state CSV peer entity_id
+        // `IN-S22-AC-2008-167` via the 4-tuple translator.
+        {
+          entity_id: "IN-AC-2008-tamil-nadu-4025",
+          name: "Mylapore",
+          entity_kind: "ac",
+          delim_year: 2008,
+          state: "tamil-nadu",
+          eci_no: 167,
+        },
       ]);
 
     const out = await loadPartyDetail("parties.IN.DMK");
@@ -468,5 +480,33 @@ describe("loadPartyDetail", () => {
     mockedQuery.mockResolvedValue([]);
     const out = await loadPartyDetail("parties.IN.DMK");
     expect(out).not.toBeNull();
+  });
+
+  it("falls back to empty constituency_name when the peer entity_id parses to an unknown state code", async () => {
+    // A stronghold row whose peer entity_id uses an unknown ECI st_code
+    // (e.g. `S99`) won't parse via `parsePeerEntityId` -> excluded from
+    // the JOIN tuple list -> no electoral.csv row matches -> the
+    // lookup miss falls back to empty constituency_name + state. The
+    // page surface renders the empty fallback instead of the citizen-
+    // readable name. This locks in the defensive behaviour declared in
+    // the translator module.
+    mockedLoadPartyMeta.mockResolvedValue(metaFixture());
+    mockedQuery
+      .mockResolvedValueOnce([]) // vs aggregate
+      .mockResolvedValueOnce([]) // ls synthesis
+      .mockResolvedValueOnce([
+        {
+          entity_id: "IN-S99-AC-2008-1",
+          period_label: "AcGenApr2021",
+          winner_party_id: "parties.IN.DMK",
+        },
+      ]);
+    // No 4th mock: the entity JOIN is skipped because peerKeys is
+    // empty (the only stronghold row failed to parse).
+    const out = await loadPartyDetail("parties.IN.DMK");
+    expect(out!.vs_strongholds).toHaveLength(1);
+    expect(out!.vs_strongholds[0]!.entity_id).toBe("IN-S99-AC-2008-1");
+    expect(out!.vs_strongholds[0]!.constituency_name).toBe("");
+    expect(out!.vs_strongholds[0]!.state).toBe("");
   });
 });
