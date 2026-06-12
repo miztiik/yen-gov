@@ -11,10 +11,15 @@ do the hard HTML work; this adapter:
   4. Returns rows ready to bundle into a BatchEnvelope.
 
 Per-state rollups (party-* and state-* indicators) are computed in
-``rollups.py`` after all AC contests for the state are emitted.
+``rollups.py`` after all AC or PC contests for the state are emitted.
+:func:`state_rollup_observations` is the AC entry-point;
+:func:`parliament_rollup_observations` is its PC sibling (added 2026-06-13
+to close the LS vote-share + contested honest-degradation per
+``docs/archive/plans/20260612-party-rendering-and-party-pages-plan.md``).
 
 Public surface kept narrow — `observations_from_constituency`,
-`state_rollup_observations`, plus the identity helpers in ``identity``.
+`state_rollup_observations`, `parliament_rollup_observations`, plus the
+identity helpers in ``identity``.
 """
 
 from yen_gov.canonical.adapters.eci.identity import (
@@ -34,7 +39,10 @@ from yen_gov.canonical.party_resolver import (
     party_alliance_dim_rows,
     party_dim_rows,
 )
-from yen_gov.canonical.adapters.eci.rollups import state_rollup_observations
+from yen_gov.canonical.adapters.eci.rollups import (
+    parliament_rollup_observations,
+    state_rollup_observations,
+)
 
 __all__ = [
     "PartyLookup",
@@ -43,6 +51,7 @@ __all__ = [
     "dim_rows_from_constituency",
     "load_party_lookup",
     "observations_from_constituency",
+    "parliament_rollup_observations",
     "parse_period_label",
     "party_alliance_dim_rows",
     "party_dim_rows",

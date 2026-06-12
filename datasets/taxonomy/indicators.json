@@ -776,6 +776,31 @@
       "url_slug": "party-contested-acs"
     },
     {
+      "indicator_id": "party-contested-pcs",
+      "label_short": "Contested",
+      "label_long": "PCs contested by party in state",
+      "description_short": "Number of distinct parliamentary constituencies in the state where this party fielded a candidate.",
+      "unit": "PCs",
+      "cadence": "ad_hoc",
+      "family": "elections",
+      "pillar": "politics",
+      "topic_tags": [
+        "elections"
+      ],
+      "value_kind": "count",
+      "direction": "neutral",
+      "attribution_geography": "where_administered",
+      "comparability": "comparable_across_states_and_time",
+      "parent_indicator_id": null,
+      "entity_kinds": [
+        "party"
+      ],
+      "default_entity_kind": "party",
+      "update_period_days": 365,
+      "concept_id": "contested-pcs",
+      "url_slug": "party-contested-pcs"
+    },
+    {
       "indicator_id": "party-seats-won",
       "label_short": "Seats won",
       "label_long": "ACs won by party in state",

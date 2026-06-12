@@ -13,11 +13,15 @@ PC-grain dimension sibling of ``dim_acs.parquet``.
 from __future__ import annotations
 
 import json
-from collections import Counter
+from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 
 from yen_gov.canonical.adapters.eci.identity import Period
+from yen_gov.canonical.adapters.eci.rollups import (
+    PCContestSummary,
+    parliament_rollup_observations,
+)
 from yen_gov.canonical.adapters.eci.state_slug import eci_to_lgd_slug
 from yen_gov.canonical.party_resolver import (
     PartyLookup,
@@ -43,9 +47,20 @@ from yen_gov.canonical.envelope import (
     SourceRow,
 )
 from yen_gov.canonical.writer import WriteResult, write_batch
-from yen_gov.sources.eci.ls_constituencywise import parse_ls_constituencywise
+from yen_gov.sources.eci.ls_constituencywise import (
+    PcCandidateRaw,
+    PcResultRaw,
+    parse_ls_constituencywise,
+)
 from yen_gov.sources.eci.ls_ge_tcpd import parse_ls_ge_tcpd
 from yen_gov.canonical.adapters.eci.pc_crosswalk import load_crosswalk_and_lookup
+
+# ECI Section 158 RPA deposit-forfeiture cutoff (1/6 of valid votes) — same
+# threshold used by the AC pipeline at ``canonical_eci_backfill`` and
+# ``eci_ae_panel``.
+FORFEITURE_THRESHOLD_PCT = 16.67
+
+_INDEPENDENT_ALIASES_FOR_SUMMARY = {"independent", "ind", "ind.", "independents"}
 
 # The 2024 Parliament general election: results declared 2024-06-04. The
 # event_id MUST be parseable by ``parse_period_label`` (body+month+year), so
@@ -219,6 +234,69 @@ class _LenientPartyLookup:
             return "parties.IN.UNK"
 
 
+def _is_independent_for_summary(party_name: str) -> bool:
+    return party_name.strip().lower() in _INDEPENDENT_ALIASES_FOR_SUMMARY
+
+
+def _summary_for_pc_result(
+    *,
+    result: PcResultRaw,
+    period: Period,
+    delim_year: int,
+    party_lookup: PartyLookup,
+    source_id: str,
+) -> PCContestSummary:
+    """Build a per-PC :class:`PCContestSummary` from one ``PcResultRaw``.
+
+    Mirror of :func:`canonical_eci_backfill._summary_for_result` for the PC
+    grain. NOTA is excluded from ``votes_by_party`` / ``party_was_on_ballot``
+    (it is a ballot option, not a party). Forfeiture threshold matches the
+    AC pipeline (16.67% of valid votes = the 1/6 RPA Section 158 cutoff).
+    """
+    non_nota = [c for c in result.candidates if not c.is_nota]
+    nota_votes = sum(c.total_votes for c in result.candidates if c.is_nota)
+    valid = float(result.valid_votes) if result.valid_votes else None
+
+    votes_by_party: dict[str, int] = defaultdict(int)
+    on_ballot: set[str] = set()
+    forfeitures_by_party: dict[str, int] = defaultdict(int)
+    for cand in non_nota:
+        pid = party_lookup.resolve(
+            party_full=cand.party_name,
+            is_independent=_is_independent_for_summary(cand.party_name),
+        )
+        votes_by_party[pid] += cand.total_votes
+        on_ballot.add(pid)
+        if valid is not None and valid > 0:
+            share_pct = float(cand.total_votes) / valid * 100.0
+            if share_pct < FORFEITURE_THRESHOLD_PCT:
+                forfeitures_by_party[pid] += 1
+
+    # Winner = highest non-NOTA vote count (deterministic tie-break on name
+    # to match ``_ranked_non_nota`` in pc_observations.py).
+    ranked = sorted(non_nota, key=lambda c: (-c.total_votes, c.name))
+    winner = ranked[0]
+    winner_pid = party_lookup.resolve(
+        party_full=winner.party_name,
+        is_independent=_is_independent_for_summary(winner.party_name),
+    )
+
+    return PCContestSummary(
+        state_code=result.state_code,
+        eci_no=result.pc_no,
+        delim_year=delim_year,
+        period=period,
+        total_electors=result.total_electors,
+        votes_polled=result.total_votes_polled,
+        nota_votes=nota_votes,
+        winner_party_id=winner_pid,
+        source_id=source_id,
+        votes_by_party=dict(votes_by_party),
+        party_was_on_ballot=on_ballot,
+        forfeitures_by_party=dict(forfeitures_by_party),
+    )
+
+
 def pc_source_row(event: PcGeEvent = LS_2024) -> SourceRow:
     title = event.source_title
     source_id = derive_source_id(
@@ -319,6 +397,7 @@ def _envelope_from_results(
     pc_dims: list[PcDimRow] = []
     person_payloads: dict[str, dict] = {}
     candidacy_payloads: list[dict] = []
+    summaries: list[PCContestSummary] = []
     for result in results:
         observations.extend(observations_from_pc(
             result=result,
@@ -345,6 +424,26 @@ def _envelope_from_results(
         for p in persons:
             person_payloads[p["person_id"]] = p
         candidacy_payloads.extend(candidacies)
+        summaries.append(_summary_for_pc_result(
+            result=result,
+            period=event.period,
+            delim_year=event.delim_year,
+            party_lookup=lookup,
+            source_id=source_row.source_id,
+        ))
+
+    # PR-B parliament-rollup hook (2026-06-13): emit per-(state, party, period)
+    # aggregate rows mirroring AC's state_rollup_observations call-site in
+    # ``eci_ae_panel`` + ``canonical_eci_backfill``. State-scoped per Hans's
+    # locked design verdict — entity_id is ``IN-<STATECODE>-LsGenMay2024-PARTY-BJP``,
+    # frontend SUMs across states in SQL. Closes ``ls_history.vote_share_pct ==
+    # null`` honest-degradation per ``docs/archive/plans/20260612-party-rendering-
+    # and-party-pages-plan.md`` PR-4 closure-ledger known-degradation #1.
+    by_state: dict[str, list[PCContestSummary]] = defaultdict(list)
+    for s in summaries:
+        by_state[s.state_code].append(s)
+    for state_summaries in by_state.values():
+        observations.extend(parliament_rollup_observations(summaries=state_summaries))
 
     envelope = BatchEnvelope(
         target_family="elections",
