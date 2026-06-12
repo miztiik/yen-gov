@@ -353,6 +353,16 @@ describe("loadStateOverview - happy path", () => {
     // appears as a JOIN target; the alliance source is now an inline
     // `read_csv(party_alliances.csv, ...)` aliased to `dpa`.
     expect(sqls[0]).not.toMatch(/JOIN\s+dim_party_alliances/);
+    // Phase 1 alliance fix (2026-06-12, plan TODO/20260612-): JOIN keys
+    // on the canonical event_id column (was period_label) and additionally
+    // filters by state (LGD slug "tamil-nadu" for S22) OR "IN" so per-
+    // state cohorts disambiguate (D2 fix) while national-event rows
+    // remain visible from every state page. Pin both column references
+    // so a regression to the legacy column instantly fails vitest.
+    expect(sqls[0]).toContain("dpa.event_id =");
+    expect(sqls[0]).not.toContain("dpa.period_label");
+    expect(sqls[0]).toContain("dpa.state = 'tamil-nadu'");
+    expect(sqls[0]).toContain("dpa.state = 'IN'");
 
     // E5: distinct-AC count SQL over summary.csv (sources total_seats
     // for the invariant assertion).

@@ -69,6 +69,52 @@
       "pr": null,
       "commit": null,
       "notes": "Deferral 2 of TODO/20260609-url-prefix-drop-phase0-plan.md (Hans + Max + Gregor unanimous verdict 2026-06-10, user-ratified MAJOR bump). MAJOR BREAKING: adds REQUIRED string property url_slug (citizen-facing URL slug at position-2 URL segment /<state>/<url_slug>; single-segment kebab, maxLength 60) + OPTIONAL array property url_slug_history (append-only ledger of previous url_slug values, permanent NO TTL per Max OWID precedent). All 175 v2.5 catalogue rows backfilled in the same commit with url_slug = indicator_id verbatim (mechanical seed; editorial sweep for citizen-friendlier names deferred). v2.5 rows DO NOT validate under v3.0. Reader contract pinned to current_only (no compatibility shim). Companion edits ship atomically (Gregor verdict i, born-mature contract): frontend Zod schema + bySlug runtime index + resolveBySlug helper + cross-row + cross-history collision throw at index-build time; 5-way URL namespace disjointness contract (Phase 3) at frontend/src/contracts/url-namespace-disjointness.test.ts; Tier-B tier_b_indicator_url_slug_unique chained live in run()."
+    },
+    {
+      "release_id": "columns-1-1-to-2-0-party-alliances-event-id-state",
+      "released_on": "2026-06-12",
+      "schema_file": "columns.schema.json",
+      "schema_id": "./columns.schema.json",
+      "from_version": "1.1",
+      "to_version": "2.0",
+      "change_class": "major_breaking",
+      "compatibility_status": "current_only",
+      "validation_strategy": "current_schema",
+      "retained_schema": null,
+      "values_changed": true,
+      "value_change_summary": "All 61 rows of datasets/data/entities/party_alliances.csv migrated 1:1 to the new column shape (party_id, event_id, state, alliance, source_id). period_label values mapped to canonical event_id: LsGenJun2024 -> general-2024 (state=IN, 32 rows), AcGenNov2024 -> assembly-2024 (state=maharashtra, 11 rows), AcGenApr2021 -> assembly-2021 (state=west-bengal, 8 rows), AcGenMay2026 -> assembly-2026 (state=tamil-nadu, 10 rows). The 10 TN-2026 rows additionally repointed to a new Wikipedia src_id (src-bca3c60cdafb) for the 2026 TN AE article; the legacy src-c3e2fd43efa5 source.csv row stays as the legitimate citation for the 1999-LS data it actually describes.",
+      "provenance_changed": true,
+      "methodology_changed": false,
+      "methodology_break_refs": [],
+      "affected_artifacts": [
+        {
+          "path_pattern": "datasets/data/_schema/columns.schema.json",
+          "table_id": null,
+          "artifact_count": 1,
+          "action": "metadata_rewritten"
+        },
+        {
+          "path_pattern": "datasets/data/_schema/columns.json",
+          "table_id": null,
+          "artifact_count": 1,
+          "action": "metadata_rewritten"
+        },
+        {
+          "path_pattern": "datasets/data/entities/party_alliances.csv",
+          "table_id": null,
+          "artifact_count": 1,
+          "action": "values_rewritten"
+        },
+        {
+          "path_pattern": "datasets/data/entities/source.csv",
+          "table_id": null,
+          "artifact_count": 1,
+          "action": "values_rewritten"
+        }
+      ],
+      "pr": null,
+      "commit": null,
+      "notes": "Phase 1 of TODO/20260612-alliance-phase-1-structural-fix-plan.md (Hans + Max joint verdict 2026-06-12, V3 corrected via Resolution A after first dispatch STOP-AND-SURFACE). Resolves three structural defects (D1 loader/route key mismatch, D2 state-scoping defect, D3 stale TN-2026 provenance FK) that kept the 4 already-curated events INVISIBLE to every citizen surface. After this PR the 4 events light up correctly with zero new curation work. Composite PK changed from (party_id, period_label) to (party_id, event_id, state). v1.1 rows do NOT validate under v2.0; reader contract is current_only (no compatibility shim). Companion frontend loader rewrite (loadAlliances filters on event_id + optional state arg) + state-overview JOIN clause rewrite + backend alliance_membership_csv writer column-reference update ship atomically in the same PR."
     }
   ]
 }

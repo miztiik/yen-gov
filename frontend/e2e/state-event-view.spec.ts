@@ -86,13 +86,25 @@ test.describe("state event view (PR-W3b rebuild)", () => {
       page.getByTestId("state-event-constituency-row").first(),
     ).toBeVisible({ timeout: 30_000 });
 
-    // Alliance panel mounts (either with totals or with the
-    // "alliance data pending" placeholder for events without curated
-    // alliance rows; general-2024 has no rows for Chhattisgarh today
-    // so the placeholder path is the expected one).
+    // Alliance panel mounts; after the Phase 1 alliance fix (2026-06-12,
+    // plan TODO/20260612-alliance-phase-1-structural-fix-plan.md)
+    // general-2024 is curated nationally (state=IN rows), so the panel
+    // shows the headline with the alliance totals (NDA-2024 / INDIA-2024
+    // / Others). The amber pending pill is the regression signal: if it
+    // appears, D1 (loader/route key mismatch) has re-leaked.
     await expect(page.getByTestId("alliance-totals")).toBeVisible({
       timeout: 30_000,
     });
+    await expect(
+      page.getByTestId("alliance-totals-headline"),
+    ).toBeVisible({ timeout: 30_000 });
+    await expect(
+      page.getByTestId("alliance-totals-headline"),
+    ).toContainText(/NDA-2024/);
+    await expect(
+      page.getByTestId("alliance-totals-headline"),
+    ).toContainText(/INDIA-2024/);
+    await expect(page.getByTestId("alliance-totals-pending")).toHaveCount(0);
 
     // TODO/20260612 Row C: Parliament events show a PC map placeholder
     // card (the country PC topojson exists but per-state PC integration
@@ -292,5 +304,57 @@ test.describe("state event view (PR-W3b rebuild)", () => {
     await expect(page.getByTestId("state-event-map-hex")).toBeVisible({
       timeout: 30_000,
     });
+  });
+
+  test("alliance panel: Maharashtra assembly-2024 shows populated headline (Mahayuti / MVA)", async ({
+    page,
+  }) => {
+    // Phase 1 alliance fix smoke 1 (plan TODO/20260612-): the 11 already-
+    // curated Mahayuti / MVA rows in datasets/data/entities/party_alliances.csv
+    // (state=maharashtra, event_id=assembly-2024) MUST light up after the
+    // v2.0 schema rename + state filter. Pre-fix this was the placeholder
+    // path because the loader filtered on period_label='AcGenNov2024'
+    // strict-equality but the route passed event_id='assembly-2024'.
+    await page.goto("/maharashtra/elections/assembly-2024");
+    await expect(page.getByTestId("alliance-totals")).toBeVisible({
+      timeout: 30_000,
+    });
+    await expect(
+      page.getByTestId("alliance-totals-headline"),
+    ).toBeVisible({ timeout: 30_000 });
+    await expect(
+      page.getByTestId("alliance-totals-headline"),
+    ).toContainText(/Mahayuti/);
+    await expect(
+      page.getByTestId("alliance-totals-headline"),
+    ).toContainText(/MVA/);
+    await expect(page.getByTestId("alliance-totals-pending")).toHaveCount(0);
+  });
+
+  test("alliance panel: Kerala assembly-2021 shows pending pill (D2 state-scoping fix)", async ({
+    page,
+  }) => {
+    // Phase 1 alliance fix smoke 4 (plan TODO/20260612-): CRITICAL
+    // state-scoping check. The 8 assembly-2021 rows in party_alliances.csv
+    // carry state=west-bengal (Sanyukta Morcha). Kerala asking the lookup
+    // for assembly-2021 MUST NOT inherit those rows -- that was D2 in the
+    // plan-doc. The lookup returns no matches -> AllianceTotals renders
+    // the amber pending pill (correct -- Kerala 2021 LDF/UDF not yet
+    // curated; Phase 1b queue). Pin both that the headline DOES NOT
+    // appear AND that the pending pill DOES appear, so a regression to
+    // unscoped lookup instantly breaks the spec.
+    await page.goto("/kerala/elections/assembly-2021");
+    await expect(page.getByTestId("alliance-totals")).toBeVisible({
+      timeout: 30_000,
+    });
+    await expect(page.getByTestId("alliance-totals-pending")).toBeVisible({
+      timeout: 30_000,
+    });
+    await expect(page.getByTestId("alliance-totals-headline")).toHaveCount(0);
+    // Negative: the WB Sanyukta Morcha label MUST NOT leak onto the
+    // Kerala page anywhere in the alliance section.
+    await expect(page.getByTestId("alliance-totals")).not.toContainText(
+      "Sanyukta Morcha",
+    );
   });
 });

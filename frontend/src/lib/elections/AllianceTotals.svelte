@@ -3,8 +3,10 @@
   //
   // Joins the per-event winner rows (one per AC/PC) with the alliance
   // membership table at `datasets/data/entities/party_alliances.csv`
-  // (loaded via `psephlab/alliances.ts.loadAlliances(event)` which keys
-  // by period_label and yields a `(party_id) -> alliance | null` lookup).
+  // (loaded via `psephlab/alliances.ts.loadAlliances(event, state?)`
+  // which keys by (event_id, state) and yields a
+  // `(party_id) -> alliance | null` lookup). Plan: TODO/20260612-
+  // alliance-phase-1-structural-fix-plan.md v2.0 schema.
   //
   // Layout:
   //   1. Alliance-first total line: "NDA 11 / INDIA 0 / Others 0"
@@ -18,6 +20,11 @@
   // when no alliance rows exist for the event (renders an inline
   // "alliance data pending" pill in lieu of the total line) per the
   // PR-W3b escalation rule in the plan-doc.
+  //
+  // State scoping (D2 fix, v2.0 schema): pass the LGD state slug
+  // (`params.state`, e.g. "tamil-nadu") to scope to per-state rows OR
+  // national rows (state="IN"). Omit the prop when rendering on a
+  // national surface to see all rows for the event.
 
   import { loadAlliances } from "../psephlab/alliances";
   import type { AllianceLookup } from "../psephlab/types";
@@ -34,18 +41,27 @@
     /** Polled-on date for the caption (e.g. "2024-06-01"). Falls back
      *  to a generic caption when missing. */
     polled_on?: string | null;
+    /** LGD state slug ("tamil-nadu", "west-bengal", "maharashtra") for
+     *  state-scoped consumers. When provided, the alliance lookup
+     *  filters to rows where state matches OR state === "IN". When
+     *  omitted (e.g. on a national-only surface), returns every row
+     *  for the event. v2.0 D2 fix per plan-doc 2026-06-12. Named
+     *  `state_slug` (not `state`) to avoid shadowing Svelte 5's
+     *  `$state()` rune in the destructured props. */
+    state_slug?: string;
   }
 
-  let { event, winners, polled_on }: Props = $props();
+  let { event, winners, polled_on, state_slug }: Props = $props();
 
   let lookup = $state<AllianceLookup | null>(null);
 
   $effect(() => {
     const ev = event;
+    const ss = state_slug;
     lookup = null;
-    loadAlliances(ev).then((l) => {
+    loadAlliances(ev, ss).then((l) => {
       // Guard against stale event resolves.
-      if (ev === event) lookup = l;
+      if (ev === event && ss === state_slug) lookup = l;
     });
   });
 

@@ -269,17 +269,23 @@
   // cache in psephlab/alliances.ts (one network fetch per event). We
   // run a parallel hook here so each PartyTotals row can carry
   // `alliance_short` when populated; null when the event has no
-  // curated alliance row for that party.
+  // curated alliance row for that party. v2.0 schema (2026-06-12):
+  // loader now keys by (event_id, state OR "IN") so passing the LGD
+  // state slug (params.state) gives the per-state view while
+  // surfacing national-event rows (state="IN") on every state page.
   let alliance_lookup = $state<AllianceLookup | null>(null);
   $effect(() => {
     const ev_id = event_row?.event_id;
+    const st = params.state;
     if (!ev_id) {
       alliance_lookup = null;
       return;
     }
     alliance_lookup = null;
-    loadAlliances(ev_id).then((l) => {
-      if (ev_id === event_row?.event_id) alliance_lookup = l;
+    loadAlliances(ev_id, st).then((l) => {
+      if (ev_id === event_row?.event_id && st === params.state) {
+        alliance_lookup = l;
+      }
     });
   });
 
@@ -1117,6 +1123,7 @@
       <!-- Alliance totals -->
       <AllianceTotals
         event={ev.event_id}
+        state_slug={params.state}
         winners={winners.map((w) => ({
           party_id: w.party_id,
           party_short: w.party_short,

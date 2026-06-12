@@ -109,30 +109,36 @@ def office_holdings_json(tmp_path: Path) -> Path:
 
 @pytest.fixture
 def party_alliances_csv(tmp_path: Path) -> Path:
-    """Three rows: two valid (with alliance), one empty alliance (skipped)."""
+    """Three rows: two valid (with alliance), one empty alliance (skipped).
+
+    v2.0 schema (2026-06-12, plan TODO/20260612-alliance-phase-1-structural-fix-plan.md):
+    column header renamed period_label -> event_id; state column added;
+    short_name dropped. Fixture uses canonical event_id (assembly-2026)
+    + LGD state slug (tamil-nadu) matching real on-disk values.
+    """
     path = tmp_path / "party_alliances.csv"
     _write_csv(
         path,
-        fieldnames=["party_id", "short_name", "period_label", "alliance", "source_id"],
+        fieldnames=["party_id", "event_id", "state", "alliance", "source_id"],
         rows=[
             {
                 "party_id": "parties.IN.AIADMK",
-                "short_name": "AIADMK",
-                "period_label": "AcGenMay2026",
+                "event_id": "assembly-2026",
+                "state": "tamil-nadu",
                 "alliance": "AIADMK+",
                 "source_id": "src-test-event-2026",
             },
             {
                 "party_id": "parties.IN.DMK",
-                "short_name": "DMK",
-                "period_label": "AcGenMay2026",
+                "event_id": "assembly-2026",
+                "state": "tamil-nadu",
                 "alliance": "SPA",
                 "source_id": "src-test-event-2026",
             },
             {
                 "party_id": "parties.IN.NTK",
-                "short_name": "NTK",
-                "period_label": "AcGenMay2026",
+                "event_id": "assembly-2026",
+                "state": "tamil-nadu",
                 "alliance": "",
                 "source_id": "src-test-event-2026",
             },
@@ -195,7 +201,7 @@ def parties_entities_csv(tmp_path: Path) -> Path:
 
 @pytest.fixture
 def election_events_json(tmp_path: Path) -> Path:
-    """One state with one event - AcGenMay2026 polled_on 2026-05-15."""
+    """One state with one event - assembly-2026 polled_on 2026-05-15."""
     doc = {
         "$schema": "../schemas/election-events.schema.json",
         "$schema_version": "1.1",
@@ -203,7 +209,7 @@ def election_events_json(tmp_path: Path) -> Path:
         "states": {
             "S22": [
                 {
-                    "event_id": "AcGenMay2026",
+                    "event_id": "assembly-2026",
                     "kind": "assembly",
                     "display": "Tamil Nadu - Assembly 2026",
                     "polled_on": "2026-05-15",
@@ -290,7 +296,7 @@ def test_emit_writes_canonical_csv_with_correct_columns(
         ]
 
     # Expected: 2 from holdings (rich-citation row + office_citations row)
-    # + 2 from party_alliances (AIADMK+ AcGenMay2026 collides with holdings PK
+    # + 2 from party_alliances (AIADMK+ assembly-2026 collides with holdings PK
     # AIADMK+/parties.IN.AIADMK/2011-05-16 only if dates match - they DON'T
     # since holdings start_date 2011-05-16 != polled_on 2026-05-15 - so both
     # survive). SPA party_alliances row vs SPA holdings row: holdings start
@@ -377,7 +383,7 @@ def test_holdings_with_unresolvable_source_url_skipped_and_surfaced(
         assert not (row["alliance_id"] == "OtherAlliance" and row["term_start"] == "2014-06-01")
 
 
-def test_period_label_resolves_to_polled_on_date_for_term_start(
+def test_event_id_resolves_to_polled_on_date_for_term_start(
     tmp_path: Path,
     office_holdings_json: Path,
     party_alliances_csv: Path,
@@ -385,7 +391,7 @@ def test_period_label_resolves_to_polled_on_date_for_term_start(
     election_events_json: Path,
     source_csv: Path,
 ) -> None:
-    """party_alliances rows resolve period_label -> polled_on for term_start."""
+    """party_alliances rows resolve event_id -> polled_on for term_start."""
     out_csv_path = tmp_path / "alliance_membership.csv"
     emit(
         office_holdings_json=office_holdings_json,
@@ -397,7 +403,7 @@ def test_period_label_resolves_to_polled_on_date_for_term_start(
     )
     with out_csv_path.open("r", encoding="utf-8", newline="") as handle:
         rows = list(csv.DictReader(handle))
-    # AcGenMay2026 polled_on is 2026-05-15. AIADMK in party_alliances should
+    # assembly-2026 polled_on is 2026-05-15. AIADMK in party_alliances should
     # produce a row (AIADMK+, parties.IN.AIADMK, 2026-05-15, "", src-test-event-2026)
     matched = [
         r
@@ -470,12 +476,12 @@ def test_deduplication_when_holdings_and_party_alliances_overlap(
     party_alliances_path = tmp_path / "party_alliances.csv"
     _write_csv(
         party_alliances_path,
-        fieldnames=["party_id", "short_name", "period_label", "alliance", "source_id"],
+        fieldnames=["party_id", "event_id", "state", "alliance", "source_id"],
         rows=[
             {
                 "party_id": "parties.IN.AIADMK",
-                "short_name": "AIADMK",
-                "period_label": "AcGenMay2026",
+                "event_id": "assembly-2026",
+                "state": "tamil-nadu",
                 "alliance": "AIADMK+",
                 "source_id": "src-test-event-2026",
             }
