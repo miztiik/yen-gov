@@ -209,6 +209,8 @@
   // instance script, so we MUST NOT re-import the type here (svelte-check
   // rejects it as "Duplicate identifier 'SeatAllocation'").
   import { partyColourHex } from "../psephlab/colour-bridge";
+  import PartyPill from "../party-pill/PartyPill.svelte";
+  import { partyRowForResolver } from "../colors/party-row";
 
   interface Props {
     allocation: SeatAllocation;
@@ -264,7 +266,12 @@
       {@const s_w = widthPct(r.seat_share_pct, layout.max_share)}
       {@const fill = fillFor(r)}
       <li class="grid grid-cols-[80px_1fr_64px] items-center gap-2 text-xs">
-        <span class="font-medium truncate" title={r.party_short}>{r.party_short}</span>
+        <PartyPill
+          size="sm"
+          party_id={r.party_id}
+          party_short={r.party_short}
+          row={partyRowForResolver(r)}
+        />
         <div class="space-y-0.5">
           <div class="h-2 rounded bg-slate-100 relative">
             <span

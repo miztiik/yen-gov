@@ -29,6 +29,8 @@
     type TopicCatalogue,
   } from "../lib/catalogue";
   import PartyBar from "../lib/PartyBar.svelte";
+  import PartyPill from "../lib/party-pill/PartyPill.svelte";
+  import { partyRowForResolver } from "../lib/colors/party-row";
   import SeatDonut from "../lib/SeatDonut.svelte";
   // Phase 3.6 (c) - composition-bar A/B mount. Per plan resolution R-16
   // the new primitive ships behind a sticky-cookie A/B bucket; removal
@@ -964,17 +966,18 @@
         <ul class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-1 text-sm">
           {#each filtered_parties as p}
             {@const party_href = link.party(p.party_id)}
+            {@const pill_row = partyRowForResolver(p)}
             {#if party_href}
               <li>
-                <a class="hover:underline" href={party_href}>
-                  <span class="font-medium">{p.party_short}</span>
-                  <span class="text-slate-400 text-xs"> · {p.seats_won} seats · {p.vote_share_pct.toFixed(1)}%</span>
+                <a class="hover:underline inline-flex items-center gap-1.5" href={party_href}>
+                  <PartyPill size="sm" party_id={p.party_id} party_short={p.party_short} row={pill_row}/>
+                  <span class="text-slate-400 text-xs">· {p.seats_won} seats · {p.vote_share_pct.toFixed(1)}%</span>
                 </a>
               </li>
             {:else}
-              <li class="text-slate-500">
-                {p.party_short}
-                <span class="text-slate-400 text-xs"> · {p.seats_won} seats · {p.vote_share_pct.toFixed(1)}%</span>
+              <li class="inline-flex items-center gap-1.5">
+                <PartyPill size="sm" party_id={p.party_id} party_short={p.party_short} row={pill_row}/>
+                <span class="text-slate-400 text-xs">· {p.seats_won} seats · {p.vote_share_pct.toFixed(1)}%</span>
               </li>
             {/if}
           {/each}

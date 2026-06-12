@@ -35,7 +35,9 @@
     Tallies,
     ThresholdDropConfig,
   } from "../lib/psephlab/types";
-  import { partyColourHex } from "../lib/psephlab/colour-bridge";
+  import { partyColourHex, partyIdFor } from "../lib/psephlab/colour-bridge";
+  import { partyRowForResolver } from "../lib/colors/party-row";
+  import PartyPill from "../lib/party-pill/PartyPill.svelte";
   import ParliamentArc from "../lib/ParliamentArc.svelte";
   import SwingSankey from "../lib/SwingSankey.svelte";
   import MethodPickerPill from "../lib/MethodPickerPill.svelte";
@@ -317,6 +319,7 @@
     return party_choices.find(p => p.code === code)?.short ?? code;
   }
 
+
   // The info icon next to each mutation row jumps to the matching
   // subsection of the Psephlab architecture doc on GitHub (which renders
   // the embedded mermaid diagrams natively). Per CLAUDE.md §1 there's no
@@ -585,7 +588,14 @@
                             updateMutation(i, { from_party_eci_codes: next });
                           }}
                         />
-                        <span class="flex-1 truncate">{cand.party_short}</span>
+                        <span class="flex-1 truncate">
+                          <PartyPill
+                            size="sm"
+                            party_id={partyIdFor(cand)}
+                            party_short={cand.party_short}
+                            row={partyRowForResolver(cand)}
+                          />
+                        </span>
                         <span class="font-mono text-[10px] text-slate-500 tabular-nums">{cand.votes.toLocaleString()}</span>
                       </label>
                     {/each}
@@ -598,7 +608,10 @@
                     onchange={(e) => updateMutation(i, { to_party_eci_code: (e.target as HTMLSelectElement).value })}
                   >
                     {#each ac?.candidates ?? [] as cand}
-                      <option value={cand.party_eci_code}>{cand.party_short}</option>
+                      <option
+                        value={cand.party_eci_code}
+                        data-allow="party-text-html-option"
+                      >{cand.party_short}</option>
                     {/each}
                   </select>
                 </label>
@@ -737,7 +750,14 @@
           <ul class="space-y-1.5">
             {#each ranked_parties.act as p (p.party_eci_code)}
               <li class="flex items-center gap-2 text-xs">
-                <span class="w-16 text-right truncate font-medium" title={p.party_short}>{p.party_short}</span>
+                <span class="w-16 flex justify-end">
+                  <PartyPill
+                    size="sm"
+                    party_id={partyIdFor(p)}
+                    party_short={p.party_short}
+                    row={partyRowForResolver(p)}
+                  />
+                </span>
                 <span class="relative flex-1 h-5 bg-slate-100 rounded">
                   <span
                     class="absolute inset-y-0 left-0 rounded transition-[width] duration-300"
@@ -757,7 +777,14 @@
             {#each ranked_parties.mut as p (p.party_eci_code)}
               {@const delta = deltaFor(p.party_eci_code)}
               <li class="flex items-center gap-2 text-xs">
-                <span class="w-16 text-right truncate font-medium" title={p.party_short}>{p.party_short}</span>
+                <span class="w-16 flex justify-end">
+                  <PartyPill
+                    size="sm"
+                    party_id={partyIdFor(p)}
+                    party_short={p.party_short}
+                    row={partyRowForResolver(p)}
+                  />
+                </span>
                 <span class="relative flex-1 h-5 bg-slate-100 rounded">
                   <span
                     class="absolute inset-y-0 left-0 rounded transition-[width] duration-300"
@@ -799,8 +826,13 @@
               {@const delta = deltaFor(p.party_eci_code)}
               {@const act = result.actuals_allocation.by_party.find(x => x.party_eci_code === p.party_eci_code)}
               <tr class="border-b border-slate-100 hover:bg-slate-50">
-                <td class="py-1 pr-3 font-medium" style:color={partyColourHex(p)}>
-                  {p.party_short}
+                <td class="py-1 pr-3 font-medium">
+                  <PartyPill
+                    size="sm"
+                    party_id={partyIdFor(p)}
+                    party_short={p.party_short}
+                    row={partyRowForResolver(p)}
+                  />
                 </td>
                 <td class="text-right tabular-nums px-2">{act?.seats_won ?? 0}</td>
                 <td class="text-right tabular-nums px-2 font-semibold">{p.seats_won}</td>

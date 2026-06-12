@@ -55,6 +55,8 @@
   } from "../lib/view-models/election-results";
   import type { LoaderResult } from "../lib/loader-result";
   import { link } from "../lib/links";
+  import { navigate } from "../lib/url";
+  import PartyPill from "../lib/party-pill/PartyPill.svelte";
   import { states } from "../lib/states.svelte";
   import {
     fetchElectionEvents,
@@ -521,7 +523,13 @@
             {#each filtered_sorted as r (r.entity_id)}
               <tr
                 class="cursor-pointer border-t border-slate-100 hover:bg-slate-50"
-                onclick={() => {
+                onclick={(e) => {
+                  // PartyPill click renders as a <button>; without this
+                  // guard the row's full-bleed onclick navigates to the
+                  // constituency page on top of the pill's own
+                  // navigation, drilling away from the party page the
+                  // citizen actually asked for.
+                  if ((e.target as Element).closest('[data-component="party-pill"]')) return;
                   window.location.href = urlForRow(r);
                 }}
                 data-testid="compare-row-{r.entity_id}"
@@ -533,11 +541,35 @@
                     onclick={(e) => e.stopPropagation()}>{r.entity_name}</a
                   >
                 </td>
-                <td class="px-3 py-2 text-slate-700">
-                  {r.from_party ?? "\u2014"}
+                <td class="px-3 py-2">
+                  {#if r.from_party_id}
+                    <PartyPill
+                      size="sm"
+                      party_id={r.from_party_id}
+                      party_short={r.from_party ?? "\u2014"}
+                      onclick={() => {
+                        const href = link.party(r.from_party_id);
+                        if (href) navigate(href);
+                      }}
+                    />
+                  {:else}
+                    <span class="text-slate-400">{r.from_party ?? "\u2014"}</span>
+                  {/if}
                 </td>
-                <td class="px-3 py-2 text-slate-700">
-                  {r.to_party ?? "\u2014"}
+                <td class="px-3 py-2">
+                  {#if r.to_party_id}
+                    <PartyPill
+                      size="sm"
+                      party_id={r.to_party_id}
+                      party_short={r.to_party ?? "\u2014"}
+                      onclick={() => {
+                        const href = link.party(r.to_party_id);
+                        if (href) navigate(href);
+                      }}
+                    />
+                  {:else}
+                    <span class="text-slate-400">{r.to_party ?? "\u2014"}</span>
+                  {/if}
                 </td>
                 <td
                   class="px-3 py-2 text-xs"

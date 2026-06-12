@@ -5,6 +5,8 @@
   import type { PartyRowForResolver } from "./colors/resolver";
   import { majorityFor } from "./electoral";
   import ChartTooltip, { type TooltipState } from "./ChartTooltip.svelte";
+  import PartyPill from "./party-pill/PartyPill.svelte";
+  import { link } from "./links";
 
   interface Props {
     parties: PartyTotals[];
@@ -204,6 +206,8 @@
       {@const fill = colour_of(p)}
       {@const fill_light = lighten(fill)}
       {@const is_leader = k === leader_key}
+      {@const pid = partyIdFor(p)}
+      {@const detail_href = link.party(pid)}
       <div
         class="group flex items-center gap-3 transition-opacity"
         class:opacity-40={hidden}
@@ -211,7 +215,17 @@
         data-testid="party-bar-row"
         role={clickable ? "button" : undefined}
         tabindex={clickable ? 0 : undefined}
-        onclick={() => onToggleHidden?.(k)}
+        onclick={(e) => {
+          if (!clickable) return;
+          // PartyPill renders as a <button> when it has its own onclick
+          // (chart-affordance mute). The separate detail-link <a> handles
+          // its own navigation via stopPropagation. Either way, the row
+          // click MUST NOT double-fire the mute on a pill click or steal
+          // the navigation from the detail link.
+          const t = e.target as Element | null;
+          if (t && (t.closest('[data-component="party-pill"]') || t.closest('[data-allow="party-text-link-affordance"]'))) return;
+          onToggleHidden?.(k);
+        }}
         onkeydown={(e) => { if (clickable && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); onToggleHidden?.(k); } }}
         onmouseenter={(e) => showTip(e, p)}
         onmousemove={moveTip}
@@ -219,12 +233,31 @@
         onfocus={(e) => showTip(e as unknown as MouseEvent, p)}
         onblur={hideTip}
       >
-        <div class="w-24 text-right text-sm font-medium text-slate-700 truncate" title={p.party_full ?? p.party_short}>
-          {p.party_short}{#if p.alliance_short}<span
-              class="ml-1 rounded bg-slate-100 px-1 text-[10px] font-normal text-slate-500"
+        <div class="w-24 flex items-center justify-end gap-1" title={p.party_full ?? p.party_short}>
+          <PartyPill
+            size="sm"
+            party_id={pid}
+            party_short={p.party_short}
+            row={rowFor(p)}
+            muted={hidden}
+            onclick={clickable ? () => onToggleHidden?.(k) : undefined}
+          />
+          {#if detail_href}
+            <a
+              href={detail_href}
+              class="text-[10px] leading-none text-slate-400 hover:text-slate-700"
+              title="Open {p.party_short} detail page"
+              data-allow="party-text-link-affordance"
+              onclick={(e) => e.stopPropagation()}
+            >&rarr;</a>
+          {/if}
+          {#if p.alliance_short}
+            <span
+              class="rounded bg-slate-100 px-1 text-[10px] font-normal text-slate-500"
               data-testid="party-bar-alliance-tag"
               title="Alliance: {p.alliance_short}"
-            >{p.alliance_short}</span>{/if}
+            >{p.alliance_short}</span>
+          {/if}
         </div>
         <div class="relative flex-1 h-8 bg-slate-100 rounded-full overflow-hidden ring-1 ring-slate-200/70">
           <!-- Gradient fill. The horizontal gradient (party color → ~70%
