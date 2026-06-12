@@ -736,11 +736,14 @@
     <!-- Election sections — preserved unchanged in capability and layout,
          but no longer the page's lead. Per ADR-0023 these are gated on
          the per-state event row: states with `data_status: pending_upstream`
-         get an honest "awaiting publication" notice; states with no row at
-         all (no election data ingested) skip the block entirely. -->
+         get an honest "not yet ingested" notice (the upstream flag is
+         set whether ECI hasn't published yet OR yen-gov hasn't loaded
+         the published file — the citizen-visible outcome is the same:
+         the canonical store doesn't carry this cohort); states with no
+         row at all (no election data ingested) skip the block entirely. -->
     {#if event_status === "pending_upstream"}
       <section class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-700">
-        <strong class="font-semibold">Results pending.</strong>
+        <strong class="font-semibold">Not yet ingested.</strong>
         {#if event_row}
           {event_row.display} — polled {event_row.polled_on}.
         {/if}
@@ -762,7 +765,7 @@
            (indicator cards, government card, AC directory) above and below
            still render. -->
       <section class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-700">
-        <strong class="font-semibold">Results pending.</strong>
+        <strong class="font-semibold">Not yet ingested.</strong>
         {#if event_row}
           {event_row.display} — polled {event_row.polled_on}.
         {/if}

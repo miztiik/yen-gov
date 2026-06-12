@@ -226,9 +226,9 @@
                 : ev.kind === "parliament"
                   ? "Parliament (national) election slice for this state"
                   : "By-election"}{ev.data_status === "pending_upstream"
-                ? " — results pending."
+                ? " — not yet ingested."
                 : ev.data_status === "partial"
-                  ? " — partial results."
+                  ? " — partial data."
                   : ""}
             </p>
             <p class="text-xs text-slate-500">
