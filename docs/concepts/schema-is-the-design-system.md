@@ -62,9 +62,34 @@ Every state-hub section, topic landing, and intersection view composes only from
 - **`CoverageBadge`** — schema-driven "X of 36 states · Y years" chip.
 - **Thin chrome**: `SourceList` (provenance), list-badge (Seventh Schedule), peer-set filter, theme-switch chip, ScopePicker.
 
-Election-only renderers (`PartyBar`, `SeatDonut`, `MarginHistogram`, `RacesBoard`, `ParliamentArc`, `SwingSankey`, `AcStackedBar`, `StateAcMap`) are a closed set in their own right — bound to election data shapes, not extensible per-event.
+Election-only renderers (`PartyBar`, `SeatDonut`, `MarginHistogram`, `RacesBoard`, `ParliamentArc`, `SwingSankey`, `AcStackedBar`, `StateAcMap`, `DualAxisBarLine`) are a closed set in their own right — bound to election data shapes, not extensible per-event.
 
 **New component types require an ADR.** The bar to add a new renderer is high. "Health needs a facility finder because it has lat/lon points" is not enough — points go into `MapChoropleth`'s overlay slot, or they wait until Phase 7+ when a `FeatureCollectionMap` renderer is added by ADR.
+
+## Closed-renderer extension log
+
+Inline-folded ADRs naming each new primitive that joins the closed renderer set, with the qualifying ≥2 indicators per the extension rule above. Per the [documentation-routing contract](documentation-discipline.md#adr-0034-documentation-routing-contract): no new ADR files are minted; extensions to the closed set land as a sub-section here.
+
+### `DualAxisBarLine` (PR-4 of [TODO/20260612-party-rendering-and-party-pages-plan.md](../../TODO/20260612-party-rendering-and-party-pages-plan.md), 2026-06-12)
+
+Bars + line on a shared X axis with dual Y axes (left for bars, right for line / pct). Pure d3-scale + Svelte 5; no external chart lib.
+
+**Qualifying indicators (≥2 threshold satisfied):**
+
+1. Per-party **Lok Sabha** seats won (bars) vs vote-share pct (line) — the citizen-facing primary chart on `/parties/<slug>`.
+2. Per-party **Vidhan Sabha** seats won (bars) vs vote-share pct (line) — parallel section on the same page.
+3. Future: per-constituency **candidate margin** (bars) vs polling-day **turnout** (line).
+4. Future: per-state **party strength index** (bars) vs **alliance share** (line) — Wave-2 of the party-rendering plan.
+
+**Citizen-precedent.** [indiavotes per-party pages](https://www.indiavotes.com/parties/inc/) ship the same bars + line on a shared X axis (seats + vote-share over time); the user named this as the v1 reference in the 2026-06-12 direction. The renderer carries the same encoding minus the ad chrome.
+
+**Jony verdict (B2).** Bars carry the primary count metric (seats; tabular-nums citizen anchor); the line carries the rate metric (vote-share %; trajectory citizen anchor). Dual Y axes are the only honest way to surface both at the same X step. The renderer is standalone (not extracted from `StackedTrendV2`) because the encoding is qualitatively different — `StackedTrendV2` stacks N series on one axis; `DualAxisBarLine` overlays exactly 2 series on two axes.
+
+**Contract surface.** [docs/architecture/frontend/charts/dual-axis-bar-line.md](../architecture/frontend/charts/dual-axis-bar-line.md). The primitive lives at [frontend/src/lib/charts/DualAxisBarLine/DualAxisBarLine.svelte](../../frontend/src/lib/charts/DualAxisBarLine/DualAxisBarLine.svelte); pure helpers (`buildScales`, `pickLabelStride`, `yearFromPeriodLabel`) are extracted to its `<script module>` block per project doctrine.
+
+**Mobile contract.** X-label stride thins to a caller-provided `mobile_label_stride` (default 4) at viewport widths < 640px. Tap-on-bar reveals year + both values via the shared `ChartTooltip`.
+
+**Reuse guard.** Future bar+line uses MUST mount this primitive; new "bar+line" surfaces that bypass it violate the closed-set rule.
 
 ## What gets rejected at PR
 
