@@ -38,6 +38,7 @@ from __future__ import annotations
 import csv
 import functools
 import json
+from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Final
@@ -55,6 +56,21 @@ SENTINELS: Final[dict[str, str]] = {
 
 #: Direct-import convenience for the dominant fallback sentinel.
 UNK: Final[str] = SENTINELS["UNK"]
+
+
+#: Upper-cased ``full`` values that never identify a real party and so MUST
+#: NOT enter the by_alias index even when otherwise unique. These strings
+#: appear in 60 ``parties.csv`` rows (audit 2026-06-11) as publisher-side
+#: back-fill for parties whose full name was never recorded; they would
+#: otherwise produce false positive resolves for any candidacy row whose
+#: ``party_short_raw`` happens to equal the placeholder string. The
+#: dedupe tool (``tools.dedupe_parties_csv``) mirrors this constant in its
+#: own Class-B skiplist; keep the two in sync.
+_SENTINEL_FULL_PLACEHOLDERS: Final[frozenset[str]] = frozenset({
+    "NA'S",
+    "EXPANDED PARTY NAME NOT RELEASED BY THE ECI",
+    "UNKNOWN PARTY",
+})
 
 
 #: Default location of the long-format parties.csv on disk
@@ -185,6 +201,28 @@ class PartyResolver:
         return pid
 
 
+def _compute_full_collision_set(rows: list[dict]) -> set[str]:
+    """Return the set of upper-cased ``full`` values that appear on more
+    than one non-sentinel row in ``rows``.
+
+    Used by ``load_resolver`` to skip ambiguous full-name fallback
+    candidates (see the resolver's docstring "Collision skip" rule). Rows
+    where ``is_sentinel == "true"`` (the parties.IN.UNK / parties.IN.IND /
+    parties.IN.NOTA singletons) are excluded - they intentionally share
+    placeholder ``full`` values (``Unresolved Party``, ``Independent``,
+    ``None of the Above``) and must not be treated as a real-party
+    collision.
+    """
+    counter: Counter[str] = Counter()
+    for r in rows:
+        if (r.get("is_sentinel") or "").strip().lower() == "true":
+            continue
+        full = (r.get("full") or "").strip().upper()
+        if full:
+            counter[full] += 1
+    return {f for f, c in counter.items() if c > 1}
+
+
 @functools.lru_cache(maxsize=4)
 def load_resolver(parties_csv: Path = DEFAULT_PARTIES_CSV) -> PartyResolver:
     """Load ``datasets/data/entities/parties.csv`` into a ``PartyResolver``.
@@ -194,10 +232,42 @@ def load_resolver(parties_csv: Path = DEFAULT_PARTIES_CSV) -> PartyResolver:
     resolver (every lookup returns ``parties.IN.UNK``) so caller code path
     branches are uniform.
 
-    Collisions — two distinct aliases mapping to different ``party_id``
-    values — raise ``ValueError`` with a citation back to parties.csv (Holy
-    Law #5 structural fail-loud). Idempotent same-key → same-pid pairs are
-    fine.
+    Each row contributes up to three groups of keys to ``by_alias``:
+
+      1. ``short`` (upper-cased) - always added.
+      2. ``aliases`` (pipe-list, upper-cased) - always added.
+      3. ``full`` (upper-cased) - added as a CONDITIONAL fallback so the
+         resolver can resolve publisher strings that match the canonical
+         long form when no explicit alias / short is available. Three skip
+         rules apply (PR-Q1 commit 2, 2026-06-12):
+
+           - **Sentinel-placeholder skip**: ``full`` values in
+             ``_SENTINEL_FULL_PLACEHOLDERS`` (``NA'S``, ``EXPANDED PARTY
+             NAME NOT RELEASED BY THE ECI``, ``UNKNOWN PARTY``) never enter
+             the index. ~60 rows carry one of these strings in lieu of a
+             real name.
+           - **Collision skip**: a ``full`` value that appears on more than
+             one non-sentinel row is dropped from the fallback index.
+             Today (2026-06-12) this covers 8 distinct fulls including the
+             AJSU/AJSUP, JJP/JNJP, RLP/RALTP, ICSP/ICP, SKPP/SRPP, and
+             AD(S)/ADAL dual-spelling pairs that defer to a Hans+Max
+             curator review (see ``docs/architecture/data/party-lineage.md``).
+             The dedupe tool (``tools.dedupe_parties_csv``, commit 1) had
+             already retired 3 PR-952 self-duplicates; the surviving
+             collisions are genuine identity questions, not authoring
+             mistakes.
+           - **Explicit-alias-wins skip**: a ``full`` whose upper-cased
+             form is already present in the by_alias index (via a short or
+             alias on ANOTHER row) does NOT overwrite that mapping. This
+             preserves the priority `short / alias > full` and prevents a
+             curator from accidentally creating an FK flip by adding a
+             ``full`` value that collides with another party's short.
+
+    Collisions among ``short`` / ``aliases`` keys still raise ``ValueError``
+    (Holy Law #5 structural fail-loud) - a ``short`` collision is a
+    parties.csv authoring bug, not a publisher-side ambiguity, and must
+    be fixed at the data layer rather than papered over here. Idempotent
+    same-key -> same-pid pairs from any source are fine.
     """
     by_alias: dict[str, str] = {}
     by_eci: dict[str, str] = {}
@@ -207,53 +277,71 @@ def load_resolver(parties_csv: Path = DEFAULT_PARTIES_CSV) -> PartyResolver:
             by_alias=by_alias, by_eci_code=by_eci, by_party_id=by_pid,
         )
     with parties_csv.open(encoding="utf-8", newline="") as fh:
-        for row in csv.DictReader(fh):
-            pid = (row.get("party_id") or "").strip()
-            if not pid:
-                continue
-            # Match the legacy ``party_lookup_from_parties_csv`` contract
-            # (test_assembly_results::test_party_lookup_skips_rows_missing_short_or_party_id):
-            # rows missing ``short`` are skipped entirely. ``full`` is NOT
-            # indexed as an alias \u2014 the brief spec is "alias / ECI code /
-            # short lookup" only. Publisher full-names that need resolution
-            # belong in the ``aliases`` column (one cell edit per Q1).
-            short = (row.get("short") or "").strip().upper()
-            if not short:
-                continue
-            by_pid[pid] = pid
-            keys: list[str] = [short]
-            aliases_raw = (row.get("aliases") or "").strip()
-            if aliases_raw:
-                for alias in aliases_raw.split("|"):
-                    cleaned = alias.strip().upper()
-                    if cleaned:
-                        keys.append(cleaned)
-            for key in keys:
-                existing = by_alias.get(key)
+        rows = list(csv.DictReader(fh))
+    # Pre-scan to compute the set of upper-cased ``full`` values that
+    # appear on more than one non-sentinel row. Those are dropped from
+    # the conditional full-fallback below (see docstring).
+    full_collisions = _compute_full_collision_set(rows)
+    for row in rows:
+        pid = (row.get("party_id") or "").strip()
+        if not pid:
+            continue
+        # Rows missing ``short`` are skipped entirely (preserves the
+        # legacy ``party_lookup_from_parties_csv`` contract validated by
+        # test_assembly_results::test_party_lookup_skips_rows_missing_short_or_party_id).
+        short = (row.get("short") or "").strip().upper()
+        if not short:
+            continue
+        by_pid[pid] = pid
+        keys: list[str] = [short]
+        aliases_raw = (row.get("aliases") or "").strip()
+        if aliases_raw:
+            for alias in aliases_raw.split("|"):
+                cleaned = alias.strip().upper()
+                if cleaned:
+                    keys.append(cleaned)
+        for key in keys:
+            existing = by_alias.get(key)
+            if existing is not None and existing != pid:
+                raise ValueError(
+                    f"party_lookup collision: key {key!r} maps to both "
+                    f"{existing!r} and {pid!r}; resolve by editing "
+                    f"datasets/data/entities/parties.csv"
+                )
+            by_alias[key] = pid
+        # Conditional full-name fallback (PR-Q1 commit 2 / 2026-06-12).
+        # Adds the upper-cased ``full`` to by_alias only when the three
+        # skip rules in the docstring all clear. Unlike the short/alias
+        # block above, a collision here is NOT raised: the collision-skip
+        # rule already excluded multi-row fulls, and the explicit-alias-wins
+        # skip handles the case where a short/alias on another row holds
+        # the same key. Both branches preserve deterministic resolution
+        # without forcing a fail-loud at load time.
+        full = (row.get("full") or "").strip().upper()
+        if (
+            full
+            and full not in _SENTINEL_FULL_PLACEHOLDERS
+            and full not in full_collisions
+            and full not in by_alias
+        ):
+            by_alias[full] = pid
+        eci_raw = (row.get("eci_codes") or "").strip()
+        if eci_raw:
+            # parties.csv today carries a scalar eci code per row;
+            # pipe-delim is supported for forward compatibility (Q1).
+            tokens = eci_raw.split("|") if "|" in eci_raw else [eci_raw]
+            for token in tokens:
+                code = token.strip()
+                if not code:
+                    continue
+                existing = by_eci.get(code)
                 if existing is not None and existing != pid:
                     raise ValueError(
-                        f"party_lookup collision: key {key!r} maps to both "
+                        f"eci_code collision: code {code!r} maps to both "
                         f"{existing!r} and {pid!r}; resolve by editing "
                         f"datasets/data/entities/parties.csv"
                     )
-                by_alias[key] = pid
-            eci_raw = (row.get("eci_codes") or "").strip()
-            if eci_raw:
-                # parties.csv today carries a scalar eci code per row;
-                # pipe-delim is supported for forward compatibility (Q1).
-                tokens = eci_raw.split("|") if "|" in eci_raw else [eci_raw]
-                for token in tokens:
-                    code = token.strip()
-                    if not code:
-                        continue
-                    existing = by_eci.get(code)
-                    if existing is not None and existing != pid:
-                        raise ValueError(
-                            f"eci_code collision: code {code!r} maps to both "
-                            f"{existing!r} and {pid!r}; resolve by editing "
-                            f"datasets/data/entities/parties.csv"
-                        )
-                    by_eci[code] = pid
+                by_eci[code] = pid
     return PartyResolver(
         by_alias=by_alias, by_eci_code=by_eci, by_party_id=by_pid,
     )

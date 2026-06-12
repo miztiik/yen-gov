@@ -388,10 +388,18 @@ def test_party_lookup_from_parties_csv_round_trip(tmp_path):
     )
 
     lookup = assembly_results.party_lookup_from_parties_csv(parties)
+    # PR-Q1 commit 2 (2026-06-12): load_resolver now indexes ``full``
+    # values as a conditional fallback (when not a sentinel placeholder, not
+    # a multi-row collision, and not already an explicit alias). All 3 rows
+    # in this fixture satisfy the rules, so the upper-cased fulls land in
+    # by_alias alongside the shorts.
     assert lookup == {
         "BJP": "parties.IN.BJP",
         "INC": "parties.IN.INC",
         "DMK": "parties.IN.DMK",
+        "BHARATIYA JANATA PARTY": "parties.IN.BJP",
+        "INDIAN NATIONAL CONGRESS": "parties.IN.INC",
+        "DRAVIDA MUNNETRA KAZHAGAM": "parties.IN.DMK",
     }
 
 
@@ -421,7 +429,15 @@ def test_party_lookup_skips_rows_missing_short_or_party_id(tmp_path):
     )
 
     lookup = assembly_results.party_lookup_from_parties_csv(parties)
-    assert lookup == {"OK": "parties.IN.OK"}
+    # PR-Q1 commit 2 (2026-06-12): the OK row contributes BOTH ``OK`` (short)
+    # and ``OK PARTY`` (full-name fallback). The NOID + NOSHORT rows are
+    # still skipped (empty pid / empty short), so their fulls (``No party_id
+    # row`` / ``No short row``) do NOT enter the index even though they
+    # would otherwise pass the three full-fallback skip rules.
+    assert lookup == {
+        "OK": "parties.IN.OK",
+        "OK PARTY": "parties.IN.OK",
+    }
 
 
 def test_party_lookup_missing_file_returns_empty(tmp_path):

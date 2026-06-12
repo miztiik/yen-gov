@@ -107,7 +107,16 @@ def test_party_lookup_backcompat_no_aliases_column(tmp_path: Path) -> None:
     )
 
     lookup = assembly_results.party_lookup_from_parties_csv(parties)
-    assert lookup == {"DMK": "parties.IN.DMK", "BJP": "parties.IN.BJP"}
+    # PR-Q1 commit 2 (2026-06-12): the conditional full-name fallback adds
+    # ``DRAVIDA MUNNETRA KAZHAGAM`` and ``BHARATIYA JANATA PARTY`` alongside
+    # the shorts (both rows clear all three skip rules: no sentinel
+    # placeholder, no multi-row collision, no explicit-alias shadow).
+    assert lookup == {
+        "DMK": "parties.IN.DMK",
+        "BJP": "parties.IN.BJP",
+        "DRAVIDA MUNNETRA KAZHAGAM": "parties.IN.DMK",
+        "BHARATIYA JANATA PARTY": "parties.IN.BJP",
+    }
 
 
 # --- Phase C.2: collision detection -----------------------------------------
@@ -158,7 +167,14 @@ def test_party_lookup_idempotent_same_short_same_id_is_fine(tmp_path: Path) -> N
     )
 
     lookup = assembly_results.party_lookup_from_parties_csv(parties)
-    assert lookup == {"CPI(M)": "parties.IN.CPIM"}
+    # PR-Q1 commit 2 (2026-06-12): full-name fallback also indexes
+    # ``CPI MARXIST`` (sentinel-placeholder + collision + alias-wins rules
+    # all clear). The idempotent-short assertion (CPI(M) -> parties.IN.CPIM)
+    # is preserved.
+    assert lookup == {
+        "CPI(M)": "parties.IN.CPIM",
+        "CPI MARXIST": "parties.IN.CPIM",
+    }
 
 
 # --- Phase C.3: no-overwrite + PK-set invariance + byte-stability ---------
