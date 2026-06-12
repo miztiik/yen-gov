@@ -64,9 +64,34 @@ import { ECI_TO_LGD_SLUG } from "../boundaries/sources";
 // Reverse lookup: LGD slug -> ECI code. The on-disk electoral.csv keys
 // `state` in LGD form; tile-layout / GeoJSON `unique_id` props key in
 // ECI form. Mirrors the same reverse map in `national-elections.ts`.
-const SLUG_TO_ECI: Readonly<Record<string, string>> = Object.fromEntries(
-  Object.entries(ECI_TO_LGD_SLUG).map(([code, slug]) => [slug, code]),
-);
+//
+// Aliases for slug variants the canonical electoral.csv emits that do
+// not match the LGD-form value in `ECI_TO_LGD_SLUG` verbatim. Each
+// alias resolves to the same ECI state code as the canonical slug.
+// Documented here (rather than in `ECI_TO_LGD_SLUG` itself) because
+// that map's values feed `boundaries/in/panchayats/state=<slug>/...`
+// and `boundaries/in/wards/state=<slug>/...` path constructors via
+// `sources.ts` - on-disk those subtrees follow the LGD slug, so the
+// canonical map must stay anchored on the LGD form. The alias overlay
+// here is local to the election-results loader and only widens the
+// `state_slug -> state_code` lookup for tile-cartogram joins.
+//
+// FU#1 (TODO/20260612-pc-choropleth-tile-and-party-filter-restoration-plan.md
+// closure): "andaman-and-nicobar-islands" on electoral.csv aliases to
+// the canonical "andaman-and-nicobar" entry under U01. Closes 1 of
+// the 110 pending tiles surfaced by PR #958. The remaining 109 are
+// publisher-side `eci_no=0` rows (Scenario C; backend ingest follow-up)
+// and tile-layout drift on the data tier (Scenario C; tile-layout
+// regen follow-up).
+const EXTRA_SLUG_ALIASES: Readonly<Record<string, string>> = {
+  "andaman-and-nicobar-islands": "U01",
+};
+const SLUG_TO_ECI: Readonly<Record<string, string>> = {
+  ...Object.fromEntries(
+    Object.entries(ECI_TO_LGD_SLUG).map(([code, slug]) => [slug, code]),
+  ),
+  ...EXTRA_SLUG_ALIASES,
+};
 
 /** Scope of an election-results query.
  *
@@ -213,6 +238,13 @@ const reservationOrGen = (v: unknown): "GEN" | "SC" | "ST" => {
 
 const stateCodeOf = (state_slug: string): string =>
   SLUG_TO_ECI[state_slug] ?? state_slug.toUpperCase();
+
+/** Test-only re-export of the slug -> state-code lookup. The
+ *  uppercase fallback is preserved verbatim for callers that pass
+ *  unknown slugs (e.g. synthetic fixture states). Kept exported so the
+ *  FU#1 alias regression test can pin the contract without poking at
+ *  the loader's SQL path. */
+export const _slugToStateCodeForTests = stateCodeOf;
 
 interface NationalPcRow {
   entity_id: string;

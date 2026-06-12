@@ -64,6 +64,7 @@ import {
   loadElectionResults,
   projectAsConstituencyRanks,
   projectAsWinnersByEntity,
+  _slugToStateCodeForTests,
   type ElectionResultRow,
 } from "./election-results";
 import { loadConstituencyResult } from "./legacy/constituency";
@@ -220,6 +221,27 @@ describe("bodyFromEvent", () => {
   });
   it("throws on unknown prefix", () => {
     expect(() => bodyFromEvent("zoo-2026")).toThrow(/cannot infer body/);
+  });
+});
+
+describe("stateCodeOf slug -> ECI lookup (FU#1)", () => {
+  // Pins the canonical LGD slugs -> ECI state code lookup and the
+  // alias overlay added for FU#1 closure (TODO/20260612-pc-choropleth-
+  // tile-and-party-filter-restoration-plan.md). The probe at PR-time
+  // showed parliament_2024 summary winners for A&N carry the slug
+  // "andaman-and-nicobar-islands" verbatim (vs the LGD canonical
+  // "andaman-and-nicobar" in `ECI_TO_LGD_SLUG`); without the alias
+  // overlay, the loader fell through to the uppercase fallback and
+  // constructed a unit_id that never matched the tile layout.
+  it("maps canonical LGD slugs to ECI codes", () => {
+    expect(_slugToStateCodeForTests("tamil-nadu")).toBe("S22");
+    expect(_slugToStateCodeForTests("andaman-and-nicobar")).toBe("U01");
+  });
+  it("maps the electoral.csv alias for A&N to U01 (FU#1)", () => {
+    expect(_slugToStateCodeForTests("andaman-and-nicobar-islands")).toBe("U01");
+  });
+  it("falls back to uppercase for unknown slugs", () => {
+    expect(_slugToStateCodeForTests("xx")).toBe("XX");
   });
 });
 
