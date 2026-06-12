@@ -63,6 +63,7 @@
   import StatePcMapD3, {
     type PcWinnerRow,
   } from "../lib/charts/StatePcMapD3.svelte";
+  import { INDIA_PC, INDIA_PC_2008 } from "../lib/boundaries/sources";
   import TileCartogram from "../lib/charts/TileCartogram.svelte";
   import {
     fetchElectionTileLayouts,
@@ -412,16 +413,44 @@
   );
 
   // ---- TODO/20260612 Rows D + F: PC winner projection for StatePcMapD3
-  // + per-PC mute overrides. unique_id matches the PC topojson's
-  // `${state_ut_code}_${ls_seat_code}` AND the national tile layout's
-  // unit_id final two segments.
+  // + per-PC mute overrides. unique_id matches the PC topojson's join
+  // shape, which depends on the event's delim_year:
+  //   - delim=2024 (LS 2024) -> `<state_code>_<eci_no>` (numeric)
+  //   - delim=2008 (LS 2019 / 2014 / 2009) -> `<state_code>_<pc_name_slug>`
+  // The 2008 layer uses a name-slug join because canonical electoral.csv
+  // carries unreliable eci_no values for delim=2008 PCs (22 of 544 are 0;
+  // many populated values are misaligned with ECI's actual numbering).
+  // See INDIA_PC_2008 jsdoc + plan TODO/20260612-pc-delim-2008-boundary-
+  // ingest-plan.md V6 pre-flight for the alignment evidence.
+  //
+  // Derives delim year from `ev.event_id`:
+  //   - general-2024 -> 2024
+  //   - general-{2019,2014,2009} -> 2008
+  //   - general-{2004,1999,...} (pre-2009 LS) -> null (no on-disk geometry;
+  //     the placeholder card persists for those events).
+  //   - non-LS events (`general-*` is the only LS pattern) -> null.
+  function pcDelimYearForLsEvent(eventId: string | null | undefined): number | null {
+    if (!eventId) return null;
+    const m = /^general-(\d{4})$/.exec(eventId);
+    if (!m) return null;
+    const year = parseInt(m[1], 10);
+    if (year >= 2024) return 2024;
+    if (year >= 2009) return 2008;
+    return null;
+  }
+  const pc_delim_year = $derived(pcDelimYearForLsEvent(event_row?.event_id));
+  const pc_boundary = $derived(pc_delim_year === 2008 ? INDIA_PC_2008 : INDIA_PC);
+
   const pc_winners = $derived.by<PcWinnerRow[]>(() => {
     if (body !== "pc") return [];
+    if (pc_delim_year == null) return [];  // pre-2009 events: no geometry on disk
+    const useNameSlug = pc_delim_year === 2008;
     const out: PcWinnerRow[] = [];
     for (const w of winners) {
       if (w.margin_pct == null) continue;
+      const tail = useNameSlug ? slugify(w.entity_name) : String(w.eci_no);
       out.push({
-        unique_id: `${w.state_code}_${w.eci_no}`,
+        unique_id: `${w.state_code}_${tail}`,
         state_code: w.state_code,
         pc_eci_no: w.eci_no,
         pc_name: w.entity_name,
@@ -1018,12 +1047,38 @@
         <!-- TODO/20260612 Row D: PC choropleth via StatePcMapD3,
              filtering the national PC topojson by `state_ut_code ===
              state_code`. Replaces the "Constituency map being
-             prepared" placeholder card from PR #954.
+             prepared" placeholder card from PR #954 for LS 2024
+             (delim=2024) AND LS 2019 / 2014 / 2009 (delim=2008,
+             ingested by FU#3 plan TODO/20260612-pc-delim-2008-
+             boundary-ingest-plan.md). Pre-2009 LS events
+             (general-2004 / general-1999 / ...) have no PC geometry
+             on disk and render the placeholder card below.
 
              No "Equal seats" arm: per-state PC tile layouts have not
              been authored (only national PC + per-state AC layouts
              exist today). The note below directs the citizen to the
              national surface for the hex view. -->
+        {#if pc_delim_year == null}
+          <!-- Pre-2009 LS event: no PC geometry available; placeholder
+               card persists. This is by design (FU#3 plan-doc Smoke 6
+               regression check). -->
+          <section
+            class="space-y-2"
+            data-testid="state-event-map-placeholder"
+          >
+            <h2 class="text-sm font-medium text-slate-700">
+              Constituencies
+            </h2>
+            <div
+              class="rounded border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600"
+            >
+              Constituency map for pre-2009 Lok Sabha events is not yet
+              available. No machine-readable GIS source for the 1976
+              Delimitation Commission Order has been ingested. See the
+              constituency table below for results.
+            </div>
+          </section>
+        {:else}
         <section
           class="space-y-2"
           data-testid="state-event-map"
@@ -1062,6 +1117,7 @@
             height="420px"
             fillsOverride={pc_fills_override}
             opacitiesOverride={pc_opacities_override}
+            boundary={pc_boundary}
           />
           <p class="text-xs text-slate-500">
             {color_mode === "winner"
@@ -1081,6 +1137,7 @@
             >national {ev.event_id} surface</a>.
           </p>
         </section>
+        {/if}
       {/if}
 
       <!-- Top parties (TODO/20260612 Row D: reuses PartyBar; vote-share +

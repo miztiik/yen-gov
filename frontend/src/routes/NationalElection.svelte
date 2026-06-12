@@ -46,6 +46,7 @@
   import IndiaPcMapD3, {
     type PcWinnerRow,
   } from "../lib/charts/IndiaPcMapD3.svelte";
+  import { INDIA_PC, INDIA_PC_2008 } from "../lib/boundaries/sources";
   import TileCartogram from "../lib/charts/TileCartogram.svelte";
   import {
     fetchElectionTileLayouts,
@@ -301,10 +302,34 @@
 
   // ---- TODO/20260612 Rows A + C: PcWinnerRow projection --------------
   // Build the unique_id-keyed PC winners array that drives IndiaPcMapD3
-  // + the national TileCartogram. Each winner's unique_id matches the
-  // topojson's `${state_ut_code}_${ls_seat_code}` AND the tile layout's
-  // unit_id final segment.
+  // + the national TileCartogram. unique_id matches the PC topojson's
+  // join shape, which depends on the event's delim_year:
+  //   - delim=2024 (LS 2024) -> `<state_code>_<eci_no>` (numeric)
+  //   - delim=2008 (LS 2019 / 2014 / 2009) -> `<state_code>_<pc_name_slug>`
+  // The 2008 layer uses a name-slug join because canonical electoral.csv
+  // carries unreliable eci_no values for delim=2008 PCs. See
+  // INDIA_PC_2008 jsdoc + plan TODO/20260612-pc-delim-2008-boundary-
+  // ingest-plan.md V6 pre-flight for the alignment evidence.
+  //
+  // The TileCartogram tile-layout's unit_id is INDEPENDENT of this
+  // boundary-join shape (it uses `IN-PC-<delim_year>-<state>-<eci_no>`
+  // which the on-disk election_tile_layouts.json was authored against),
+  // so the tile arm still consumes pc_eci_no verbatim from PcWinnerRow.
+  function pcDelimYearForLsEvent(eventId: string | null | undefined): number | null {
+    if (!eventId) return null;
+    const m = /^general-(\d{4})$/.exec(eventId);
+    if (!m) return null;
+    const year = parseInt(m[1], 10);
+    if (year >= 2024) return 2024;
+    if (year >= 2009) return 2008;
+    return null;
+  }
+  const pc_delim_year = $derived(pcDelimYearForLsEvent(event));
+  const pc_boundary = $derived(pc_delim_year === 2008 ? INDIA_PC_2008 : INDIA_PC);
+
   const pc_winners = $derived.by<PcWinnerRow[]>(() => {
+    if (pc_delim_year == null) return [];
+    const useNameSlug = pc_delim_year === 2008;
     const out: PcWinnerRow[] = [];
     for (const w of winners) {
       if (w.margin_pct == null) continue;
@@ -314,8 +339,9 @@
       // resolver; we override that downstream via fillsOverride when
       // color_mode === "margin" (no different from the AC shim pattern
       // in StateElection).
+      const tail = useNameSlug ? slugify(w.entity_name) : String(w.eci_no);
       out.push({
-        unique_id: `${w.state_code}_${w.eci_no}`,
+        unique_id: `${w.state_code}_${tail}`,
         state_code: w.state_code,
         pc_eci_no: w.eci_no,
         pc_name: w.entity_name,
@@ -697,6 +723,7 @@
             event={event}
             fillsOverride={pc_fills_override}
             opacitiesOverride={pc_opacities_override}
+            boundary={pc_boundary}
           />
         </div>
       {:else}

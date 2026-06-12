@@ -187,24 +187,31 @@ def test_boundary_layer_row_negative_counts_rejected():
 
 
 def test_boundary_sources_count_is_eight():
-    """8 boundary producers seeded today (datameet, htl, shijithpk J&K AC,
-    shijithpk PC 2024, ramseraph, ramseraph_bhuvan_jk_villages,
-    yashveeeeeeer, datagovin_post_pincode_polygons_2025).
-    Was 7 before C.4.a -- the 8th row is the ramSeraph mirror of the
-    Bhuvan/NRSC Census-2011 J&K village cadastre (distinct from the
-    primary ``ramseraph`` row because the producer-title-vintage
-    triple differs: same producer, but different publication title
-    and a 2011-census vintage instead of LGD-keyed releases). The
-    second shijithpk row exists because the J&K AC layer and the India
-    PC layer are DIFFERENT publications by the same producer with
-    distinct (producer, title, vintage) triples; collapsing them onto
-    one source_id would lose per-document citation precision (ADR-0032
-    Rejected A). Adding a 9th producer requires a co-bumped
-    citizen-facing change AND addition to SOURCE_NICKNAMES +
-    _BOUNDARY_SOURCE_TRIPLES + by_nickname in the same commit."""
-    assert len(BOUNDARY_SOURCES) == 8
-    assert len(SOURCE_NICKNAMES) == 8
-    assert len(BOUNDARY_SOURCE_ID_BY_NICKNAME) == 8
+    """9 boundary producers seeded today (datameet, datameet_pc_2008,
+    htl, shijithpk J&K AC, shijithpk PC 2024, ramseraph,
+    ramseraph_bhuvan_jk_villages, yashveeeeeeer,
+    datagovin_post_pincode_polygons_2025).
+
+    Was 8 before FU#3 from PR #958 (plan
+    TODO/20260612-pc-delim-2008-boundary-ingest-plan.md) -- the 9th
+    row is the datameet PC delim=2008 layer (distinct from the primary
+    ``datameet`` Admin2 row because the producer-title-vintage triple
+    differs: same producer, different publication title, distinct
+    2008-delimitation vintage instead of the operator-snapshot anchor).
+    Mirrors the shijithpk vs shijithpk_pc_2024 split: same producer,
+    two publications, two distinct citation rows per ADR-0032.
+    Was 7 before C.4.a -- the 8th row was the ramSeraph mirror of the
+    Bhuvan/NRSC Census-2011 J&K village cadastre. The second shijithpk
+    row exists because the J&K AC layer and the India PC layer are
+    DIFFERENT publications by the same producer with distinct (producer,
+    title, vintage) triples; collapsing them onto one source_id would
+    lose per-document citation precision (ADR-0032 Rejected A). Adding
+    a 10th producer requires a co-bumped citizen-facing change AND
+    addition to SOURCE_NICKNAMES + _BOUNDARY_SOURCE_TRIPLES +
+    by_nickname in the same commit."""
+    assert len(BOUNDARY_SOURCES) == 9
+    assert len(SOURCE_NICKNAMES) == 9
+    assert len(BOUNDARY_SOURCE_ID_BY_NICKNAME) == 9
 
 
 def test_boundary_sources_have_deterministic_ids():
@@ -242,8 +249,8 @@ def test_boundary_sources_all_have_required_v2_fields():
 
 
 def test_boundary_sources_republisher_split():
-    """Post C.4.a (ramSeraph Bhuvan J&K Villages), 7 of 8 boundary seeds
-    are republishers (ECI / SoI / LGD / NRSC-Bhuvan are the
+    """Post FU#3 (datameet_pc_2008), 8 of 9 boundary seeds are
+    republishers (ECI / SoI / LGD / NRSC-Bhuvan are the
     upstream-upstream authorities) and exactly 1 is an issuing-authority
     seed: India Post (Department of Posts, Government of India) via the
     data.gov.in OGD catalogue. India Post IS the upstream authority for
@@ -257,7 +264,7 @@ def test_boundary_sources_republisher_split():
         f"expected exactly 1 issuing-authority boundary source today; "
         f"got {[r.source_id for r in issuing_rows]}"
     )
-    assert len(republisher_rows) == 7
+    assert len(republisher_rows) == 8
     # The one issuing-authority row is India Post (Phase A.2 pincode polygons)
     only_issuing = issuing_rows[0]
     assert "post" in only_issuing.producer.lower(), (
