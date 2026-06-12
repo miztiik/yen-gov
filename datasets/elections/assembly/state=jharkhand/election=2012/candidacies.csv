@@ -1,5 +1,5 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,N. Jaiswal (E),parties.IN.AJSUP,AJSUP,41566,27.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,N. Jaiswal (E),parties.IN.AJSU,AJSUP,41566,27.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,A.N. Shahdeo,parties.IN.JVM,JVM(P),29682,19.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,R.Ji Lal Sharda,parties.IN.BJP,BJP,26151,17.21,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-jharkhand-2210,jharkhand,2012,64,HATIA,S.K. Sahay,parties.IN.INC,INC,21578,14.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

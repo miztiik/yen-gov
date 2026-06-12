@@ -2918,7 +2918,7 @@ IN-PC-2008-S27-6,2019,LsGenMay2019,5,pc-total-electors,1649413.0,,src-b2b916daab
 IN-PC-2008-S27-6,2019,LsGenMay2019,5,pc-turnout-pct,67.1098142187554,,src-b2b916daabf9,ratio_pct
 IN-PC-2008-S27-6,2019,LsGenMay2019,5,pc-votes-polled,1106918.0,,src-b2b916daabf9,raw
 IN-PC-2008-S27-6,2019,LsGenMay2019,5,pc-winner-candidate-id,,IN-PC-2008-S27-6-LsGenMay2019-C01,src-b2b916daabf9,argmax
-IN-PC-2008-S27-6,2019,LsGenMay2019,5,pc-winner-party-id,,parties.IN.AJSUP,src-b2b916daabf9,join
+IN-PC-2008-S27-6,2019,LsGenMay2019,5,pc-winner-party-id,,parties.IN.AJSU,src-b2b916daabf9,join
 IN-PC-2008-S27-6,2024,LsGenJun2024,6,pc-candidates-total,16.0,,src-bfb4e7fb9785,count
 IN-PC-2008-S27-6,2024,LsGenJun2024,6,pc-effective-candidates-laakso,3.4290205023991036,,src-bfb4e7fb9785,laakso_taagepera
 IN-PC-2008-S27-6,2024,LsGenJun2024,6,pc-margin-pct,6.390917438006995,,src-bfb4e7fb9785,ratio_pct
@@ -2929,7 +2929,7 @@ IN-PC-2008-S27-6,2024,LsGenJun2024,6,pc-total-electors,1866763.0,,src-bfb4e7fb97
 IN-PC-2008-S27-6,2024,LsGenJun2024,6,pc-turnout-pct,67.79360850841805,,src-bfb4e7fb9785,ratio_pct
 IN-PC-2008-S27-6,2024,LsGenJun2024,6,pc-votes-polled,1265546.0,,src-bfb4e7fb9785,raw
 IN-PC-2008-S27-6,2024,LsGenJun2024,6,pc-winner-candidate-id,,IN-PC-2008-S27-6-LsGenJun2024-C01,src-bfb4e7fb9785,argmax
-IN-PC-2008-S27-6,2024,LsGenJun2024,6,pc-winner-party-id,,parties.IN.AJSUP,src-bfb4e7fb9785,join
+IN-PC-2008-S27-6,2024,LsGenJun2024,6,pc-winner-party-id,,parties.IN.AJSU,src-bfb4e7fb9785,join
 IN-PC-2008-S27-6-LsGenJun2024-C01,2024,LsGenJun2024,6,candidate-rank,1.0,,src-bfb4e7fb9785,raw
 IN-PC-2008-S27-6-LsGenJun2024-C01,2024,LsGenJun2024,6,candidate-vote-share-pct,35.83912792374258,,src-bfb4e7fb9785,ratio_pct
 IN-PC-2008-S27-6-LsGenJun2024-C01,2024,LsGenJun2024,6,candidate-votes-polled,451139.0,,src-bfb4e7fb9785,raw
@@ -5086,7 +5086,7 @@ IN-S27-AC-1976-23,2005,AcGenFeb2005,2,ac-total-electors,234487.0,,src-ac56637e26
 IN-S27-AC-1976-23,2005,AcGenFeb2005,2,ac-turnout-pct,64.5,,src-ac56637e266e,ratio_pct
 IN-S27-AC-1976-23,2005,AcGenFeb2005,2,ac-votes-polled,151233.0,,src-ac56637e266e,sum
 IN-S27-AC-1976-23,2005,AcGenFeb2005,2,ac-winner-candidate-id,,IN-S27-AC-1976-23-AcGenFeb2005-C01,src-ac56637e266e,argmax
-IN-S27-AC-1976-23,2005,AcGenFeb2005,2,ac-winner-party-id,,parties.IN.AJSUP,src-ac56637e266e,join
+IN-S27-AC-1976-23,2005,AcGenFeb2005,2,ac-winner-party-id,,parties.IN.AJSU,src-ac56637e266e,join
 IN-S27-AC-1976-23-AcGenFeb2005-C01,2005,AcGenFeb2005,2,candidate-rank,1.0,,src-ac56637e266e,raw
 IN-S27-AC-1976-23-AcGenFeb2005-C01,2005,AcGenFeb2005,2,candidate-vote-share-pct,33.8874,,src-ac56637e266e,ratio_pct
 IN-S27-AC-1976-23-AcGenFeb2005-C01,2005,AcGenFeb2005,2,candidate-votes-polled,51249.0,,src-ac56637e266e,raw
@@ -7504,7 +7504,7 @@ IN-S27-AC-1976-61,2005,AcGenFeb2005,2,ac-total-electors,164490.0,,src-ac56637e26
 IN-S27-AC-1976-61,2005,AcGenFeb2005,2,ac-turnout-pct,65.09,,src-ac56637e266e,ratio_pct
 IN-S27-AC-1976-61,2005,AcGenFeb2005,2,ac-votes-polled,107069.0,,src-ac56637e266e,sum
 IN-S27-AC-1976-61,2005,AcGenFeb2005,2,ac-winner-candidate-id,,IN-S27-AC-1976-61-AcGenFeb2005-C01,src-ac56637e266e,argmax
-IN-S27-AC-1976-61,2005,AcGenFeb2005,2,ac-winner-party-id,,parties.IN.AJSUP,src-ac56637e266e,join
+IN-S27-AC-1976-61,2005,AcGenFeb2005,2,ac-winner-party-id,,parties.IN.AJSU,src-ac56637e266e,join
 IN-S27-AC-1976-61-AcGenFeb2005-C01,2005,AcGenFeb2005,2,candidate-rank,1.0,,src-ac56637e266e,raw
 IN-S27-AC-1976-61-AcGenFeb2005-C01,2005,AcGenFeb2005,2,candidate-vote-share-pct,36.6876,,src-ac56637e266e,ratio_pct
 IN-S27-AC-1976-61-AcGenFeb2005-C01,2005,AcGenFeb2005,2,candidate-votes-polled,39281.0,,src-ac56637e266e,raw
@@ -11712,8 +11712,8 @@ IN-S27-AC-2008-23,2019,AcGenDec2019,12,ac-votes-polled,223577.0,,src-b869a553828
 IN-S27-AC-2008-23,2019,AcGenDec2019,12,ac-winner-candidate-id,,IN-S27-AC-2008-23-AcGenDec2019-C01,src-b869a5538281,argmax
 IN-S27-AC-2008-23,2014,AcGenDec2014,12,ac-winner-candidate-id,,IN-S27-AC-2008-23-AcGenDec2014-C01,src-7fa3c11bd289,argmax
 IN-S27-AC-2008-23,2009,AcGenDec2009,12,ac-winner-candidate-id,,IN-S27-AC-2008-23-AcGenDec2009-C01,src-6d8e0cb444b5,argmax
-IN-S27-AC-2008-23,2009,AcGenDec2009,12,ac-winner-party-id,,parties.IN.AJSUP,src-6d8e0cb444b5,join
-IN-S27-AC-2008-23,2014,AcGenDec2014,12,ac-winner-party-id,,parties.IN.AJSUP,src-7fa3c11bd289,join
+IN-S27-AC-2008-23,2009,AcGenDec2009,12,ac-winner-party-id,,parties.IN.AJSU,src-6d8e0cb444b5,join
+IN-S27-AC-2008-23,2014,AcGenDec2014,12,ac-winner-party-id,,parties.IN.AJSU,src-7fa3c11bd289,join
 IN-S27-AC-2008-23,2019,AcGenDec2019,12,ac-winner-party-id,,parties.IN.INC,src-b869a5538281,join
 IN-S27-AC-2008-23-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-rank,1.0,,src-6d8e0cb444b5,raw
 IN-S27-AC-2008-23-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-vote-share-pct,39.6405,,src-6d8e0cb444b5,ratio_pct
@@ -11862,7 +11862,7 @@ IN-S27-AC-2008-24,2024,AcGenNov2024,11,ac-total-electors,431888.0,,src-da5e656dc
 IN-S27-AC-2008-24,2024,AcGenNov2024,11,ac-turnout-pct,66.07,,src-da5e656dc5cc,ratio_pct
 IN-S27-AC-2008-24,2024,AcGenNov2024,11,ac-votes-polled,285343.0,,src-da5e656dc5cc,sum
 IN-S27-AC-2008-24,2024,AcGenNov2024,11,ac-winner-candidate-id,,IN-S27-AC-2008-24-AcGenNov2024-C01,src-da5e656dc5cc,argmax
-IN-S27-AC-2008-24,2024,AcGenNov2024,11,ac-winner-party-id,,parties.IN.AJSUP,src-da5e656dc5cc,join
+IN-S27-AC-2008-24,2024,AcGenNov2024,11,ac-winner-party-id,,parties.IN.AJSU,src-da5e656dc5cc,join
 IN-S27-AC-2008-24,2014,AcGenDec2014,12,ac-candidates-total,16.0,,src-7fa3c11bd289,count
 IN-S27-AC-2008-24,2019,AcGenDec2019,12,ac-candidates-total,22.0,,src-b869a5538281,sum
 IN-S27-AC-2008-24,2009,AcGenDec2009,12,ac-candidates-total,21.0,,src-6d8e0cb444b5,count
@@ -13690,7 +13690,7 @@ IN-S27-AC-2008-34,2009,AcGenDec2009,12,ac-winner-candidate-id,,IN-S27-AC-2008-34
 IN-S27-AC-2008-34,2014,AcGenDec2014,12,ac-winner-candidate-id,,IN-S27-AC-2008-34-AcGenDec2014-C01,src-7fa3c11bd289,argmax
 IN-S27-AC-2008-34,2019,AcGenDec2019,12,ac-winner-candidate-id,,IN-S27-AC-2008-34-AcGenDec2019-C01,src-b869a5538281,argmax
 IN-S27-AC-2008-34,2009,AcGenDec2009,12,ac-winner-party-id,,parties.IN.INC,src-6d8e0cb444b5,join
-IN-S27-AC-2008-34,2019,AcGenDec2019,12,ac-winner-party-id,,parties.IN.AJSUP,src-b869a5538281,join
+IN-S27-AC-2008-34,2019,AcGenDec2019,12,ac-winner-party-id,,parties.IN.AJSU,src-b869a5538281,join
 IN-S27-AC-2008-34,2014,AcGenDec2014,12,ac-winner-party-id,,parties.IN.JMM,src-7fa3c11bd289,join
 IN-S27-AC-2008-34-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-rank,1.0,,src-6d8e0cb444b5,raw
 IN-S27-AC-2008-34-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-vote-share-pct,23.3909,,src-6d8e0cb444b5,ratio_pct
@@ -14349,7 +14349,7 @@ IN-S27-AC-2008-37,2009,AcGenDec2009,12,ac-votes-polled,120167.0,,src-6d8e0cb444b
 IN-S27-AC-2008-37,2019,AcGenDec2019,12,ac-winner-candidate-id,,IN-S27-AC-2008-37-AcGenDec2019-C01,src-b869a5538281,argmax
 IN-S27-AC-2008-37,2014,AcGenDec2014,12,ac-winner-candidate-id,,IN-S27-AC-2008-37-AcGenDec2014-C01,src-7fa3c11bd289,argmax
 IN-S27-AC-2008-37,2009,AcGenDec2009,12,ac-winner-candidate-id,,IN-S27-AC-2008-37-AcGenDec2009-C01,src-6d8e0cb444b5,argmax
-IN-S27-AC-2008-37,2009,AcGenDec2009,12,ac-winner-party-id,,parties.IN.AJSUP,src-6d8e0cb444b5,join
+IN-S27-AC-2008-37,2009,AcGenDec2009,12,ac-winner-party-id,,parties.IN.AJSU,src-6d8e0cb444b5,join
 IN-S27-AC-2008-37,2014,AcGenDec2014,12,ac-winner-party-id,,parties.IN.JVM,src-7fa3c11bd289,join
 IN-S27-AC-2008-37,2019,AcGenDec2019,12,ac-winner-party-id,,parties.IN.BJP,src-b869a5538281,join
 IN-S27-AC-2008-37-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-rank,1.0,,src-6d8e0cb444b5,raw
@@ -15421,7 +15421,7 @@ IN-S27-AC-2008-42,2009,AcGenDec2009,12,ac-winner-candidate-id,,IN-S27-AC-2008-42
 IN-S27-AC-2008-42,2014,AcGenDec2014,12,ac-winner-candidate-id,,IN-S27-AC-2008-42-AcGenDec2014-C01,src-7fa3c11bd289,argmax
 IN-S27-AC-2008-42,2019,AcGenDec2019,12,ac-winner-candidate-id,,IN-S27-AC-2008-42-AcGenDec2019-C01,src-b869a5538281,argmax
 IN-S27-AC-2008-42,2009,AcGenDec2009,12,ac-winner-party-id,,parties.IN.JMM,src-6d8e0cb444b5,join
-IN-S27-AC-2008-42,2014,AcGenDec2014,12,ac-winner-party-id,,parties.IN.AJSUP,src-7fa3c11bd289,join
+IN-S27-AC-2008-42,2014,AcGenDec2014,12,ac-winner-party-id,,parties.IN.AJSU,src-7fa3c11bd289,join
 IN-S27-AC-2008-42,2019,AcGenDec2019,12,ac-winner-party-id,,parties.IN.JMM,src-b869a5538281,join
 IN-S27-AC-2008-42-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-rank,1.0,,src-6d8e0cb444b5,raw
 IN-S27-AC-2008-42-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-vote-share-pct,30.1173,,src-6d8e0cb444b5,ratio_pct
@@ -16221,8 +16221,8 @@ IN-S27-AC-2008-47,2014,AcGenDec2014,12,ac-winner-candidate-id,,IN-S27-AC-2008-47
 IN-S27-AC-2008-47,2009,AcGenDec2009,12,ac-winner-candidate-id,,IN-S27-AC-2008-47-AcGenDec2009-C01,src-6d8e0cb444b5,argmax
 IN-S27-AC-2008-47,2019,AcGenDec2019,12,ac-winner-candidate-id,,IN-S27-AC-2008-47-AcGenDec2019-C01,src-b869a5538281,argmax
 IN-S27-AC-2008-47,2019,AcGenDec2019,12,ac-winner-party-id,,parties.IN.JMM,src-b869a5538281,join
-IN-S27-AC-2008-47,2014,AcGenDec2014,12,ac-winner-party-id,,parties.IN.AJSUP,src-7fa3c11bd289,join
-IN-S27-AC-2008-47,2009,AcGenDec2009,12,ac-winner-party-id,,parties.IN.AJSUP,src-6d8e0cb444b5,join
+IN-S27-AC-2008-47,2014,AcGenDec2014,12,ac-winner-party-id,,parties.IN.AJSU,src-7fa3c11bd289,join
+IN-S27-AC-2008-47,2009,AcGenDec2009,12,ac-winner-party-id,,parties.IN.AJSU,src-6d8e0cb444b5,join
 IN-S27-AC-2008-47-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-rank,1.0,,src-6d8e0cb444b5,raw
 IN-S27-AC-2008-47-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-vote-share-pct,28.6261,,src-6d8e0cb444b5,ratio_pct
 IN-S27-AC-2008-47-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-votes-polled,42810.0,,src-6d8e0cb444b5,raw
@@ -18172,7 +18172,7 @@ IN-S27-AC-2008-58,2014,AcGenDec2014,12,ac-winner-candidate-id,,IN-S27-AC-2008-58
 IN-S27-AC-2008-58,2009,AcGenDec2009,12,ac-winner-candidate-id,,IN-S27-AC-2008-58-AcGenDec2009-C01,src-6d8e0cb444b5,argmax
 IN-S27-AC-2008-58,2009,AcGenDec2009,12,ac-winner-party-id,,parties.IN.JDU,src-6d8e0cb444b5,join
 IN-S27-AC-2008-58,2019,AcGenDec2019,12,ac-winner-party-id,,parties.IN.JMM,src-b869a5538281,join
-IN-S27-AC-2008-58,2014,AcGenDec2014,12,ac-winner-party-id,,parties.IN.AJSUP,src-7fa3c11bd289,join
+IN-S27-AC-2008-58,2014,AcGenDec2014,12,ac-winner-party-id,,parties.IN.AJSU,src-7fa3c11bd289,join
 IN-S27-AC-2008-58-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-rank,1.0,,src-6d8e0cb444b5,raw
 IN-S27-AC-2008-58-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-vote-share-pct,34.377,,src-6d8e0cb444b5,ratio_pct
 IN-S27-AC-2008-58-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-votes-polled,30678.0,,src-6d8e0cb444b5,raw
@@ -18780,9 +18780,9 @@ IN-S27-AC-2008-61,2014,AcGenDec2014,12,ac-votes-polled,143156.0,,src-7fa3c11bd28
 IN-S27-AC-2008-61,2014,AcGenDec2014,12,ac-winner-candidate-id,,IN-S27-AC-2008-61-AcGenDec2014-C01,src-7fa3c11bd289,argmax
 IN-S27-AC-2008-61,2019,AcGenDec2019,12,ac-winner-candidate-id,,IN-S27-AC-2008-61-AcGenDec2019-C01,src-b869a5538281,argmax
 IN-S27-AC-2008-61,2009,AcGenDec2009,12,ac-winner-candidate-id,,IN-S27-AC-2008-61-AcGenDec2009-C01,src-6d8e0cb444b5,argmax
-IN-S27-AC-2008-61,2019,AcGenDec2019,12,ac-winner-party-id,,parties.IN.AJSUP,src-b869a5538281,join
+IN-S27-AC-2008-61,2019,AcGenDec2019,12,ac-winner-party-id,,parties.IN.AJSU,src-b869a5538281,join
 IN-S27-AC-2008-61,2014,AcGenDec2014,12,ac-winner-party-id,,parties.IN.JMM,src-7fa3c11bd289,join
-IN-S27-AC-2008-61,2009,AcGenDec2009,12,ac-winner-party-id,,parties.IN.AJSUP,src-6d8e0cb444b5,join
+IN-S27-AC-2008-61,2009,AcGenDec2009,12,ac-winner-party-id,,parties.IN.AJSU,src-6d8e0cb444b5,join
 IN-S27-AC-2008-61-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-rank,1.0,,src-6d8e0cb444b5,raw
 IN-S27-AC-2008-61-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-vote-share-pct,38.9878,,src-6d8e0cb444b5,ratio_pct
 IN-S27-AC-2008-61-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-votes-polled,45673.0,,src-6d8e0cb444b5,raw
@@ -20902,8 +20902,8 @@ IN-S27-AC-2008-72,2014,AcGenDec2014,12,ac-winner-candidate-id,,IN-S27-AC-2008-72
 IN-S27-AC-2008-72,2009,AcGenDec2009,12,ac-winner-candidate-id,,IN-S27-AC-2008-72-AcGenDec2009-C01,src-6d8e0cb444b5,argmax
 IN-S27-AC-2008-72,2019,AcGenDec2019,12,ac-winner-candidate-id,,IN-S27-AC-2008-72-AcGenDec2019-C01,src-b869a5538281,argmax
 IN-S27-AC-2008-72,2019,AcGenDec2019,12,ac-winner-party-id,,parties.IN.INC,src-b869a5538281,join
-IN-S27-AC-2008-72,2014,AcGenDec2014,12,ac-winner-party-id,,parties.IN.AJSUP,src-7fa3c11bd289,join
-IN-S27-AC-2008-72,2009,AcGenDec2009,12,ac-winner-party-id,,parties.IN.AJSUP,src-6d8e0cb444b5,join
+IN-S27-AC-2008-72,2014,AcGenDec2014,12,ac-winner-party-id,,parties.IN.AJSU,src-7fa3c11bd289,join
+IN-S27-AC-2008-72,2009,AcGenDec2009,12,ac-winner-party-id,,parties.IN.AJSU,src-6d8e0cb444b5,join
 IN-S27-AC-2008-72-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-rank,1.0,,src-6d8e0cb444b5,raw
 IN-S27-AC-2008-72-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-vote-share-pct,30.7286,,src-6d8e0cb444b5,ratio_pct
 IN-S27-AC-2008-72-AcGenDec2009-C01,2009,AcGenDec2009,12,candidate-votes-polled,35816.0,,src-6d8e0cb444b5,raw
