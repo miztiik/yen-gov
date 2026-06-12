@@ -77,3 +77,4 @@ Until a sustained curator is named, each Q-row falls to whoever opens the per-ev
 | Date | Row | Notes |
 | --- | --- | --- |
 | 2026-06-12 | open | Plan-doc opened alongside Phase 1 implementation plan. 11 events queued across Q1/Q2/Q3. Wikipedia confirmed as Phase 1b source per Hans+Max joint verdict. |
+| 2026-06-12 | Q1 partial | Q1.1 (general-2019) + Q1.2 (general-2014) shipped (55 alliance rows + 2 source.csv rows). Q1.3 (general-2009) deferred per Hans R5.3 STOP-AND-SURFACE (Third Front + Fourth Front composition ambiguous; TRS joined NDA mid-poll then disavowed; SP+RJD+LJP Fourth Front simultaneously declared UPA support). See per-event handover-docs: [Q1.1](./20260612-alliance-backfill-q1-general-2019.md) + [Q1.2](./20260612-alliance-backfill-q1-general-2014.md) + [Q1.3-deferred](./20260612-alliance-backfill-q1-general-2009-deferred.md). |
