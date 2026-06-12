@@ -95,7 +95,7 @@
         "display": "Andhra Pradesh - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -107,7 +107,7 @@
         "display": "Andhra Pradesh - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -170,7 +170,7 @@
         "display": "Arunachal Pradesh - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -182,7 +182,7 @@
         "display": "Arunachal Pradesh - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -377,7 +377,7 @@
         "display": "Assam - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -389,7 +389,7 @@
         "display": "Assam - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -583,7 +583,7 @@
         "display": "Bihar - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -595,7 +595,7 @@
         "display": "Bihar - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -802,7 +802,7 @@
         "display": "Goa - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -814,7 +814,7 @@
         "display": "Goa - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -973,7 +973,7 @@
         "display": "Haryana - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -985,7 +985,7 @@
         "display": "Haryana - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -1179,7 +1179,7 @@
         "display": "Himachal Pradesh - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -1191,7 +1191,7 @@
         "display": "Himachal Pradesh - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -1386,7 +1386,7 @@
         "display": "Karnataka - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -1398,7 +1398,7 @@
         "display": "Karnataka - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -1593,7 +1593,7 @@
         "display": "Kerala - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -1605,7 +1605,7 @@
         "display": "Kerala - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -1811,7 +1811,7 @@
         "display": "Madhya Pradesh - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -1823,7 +1823,7 @@
         "display": "Madhya Pradesh - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -2018,7 +2018,7 @@
         "display": "Maharashtra - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -2030,7 +2030,7 @@
         "display": "Maharashtra - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -2260,7 +2260,7 @@
         "display": "Mizoram - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -2272,7 +2272,7 @@
         "display": "Mizoram - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -2479,7 +2479,7 @@
         "display": "Odisha - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -2491,7 +2491,7 @@
         "display": "Odisha - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -2698,7 +2698,7 @@
         "display": "Sikkim - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -2710,7 +2710,7 @@
         "display": "Sikkim - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -2893,7 +2893,7 @@
         "display": "Tamil Nadu - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -2905,7 +2905,7 @@
         "display": "Tamil Nadu - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -3123,7 +3123,7 @@
         "display": "West Bengal - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -3135,7 +3135,7 @@
         "display": "West Bengal - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -3329,7 +3329,7 @@
         "display": "Chhattisgarh - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -3511,7 +3511,7 @@
         "display": "Jharkhand - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -3669,7 +3669,7 @@
         "display": "Delhi - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -3681,7 +3681,7 @@
         "display": "Delhi - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -3863,7 +3863,7 @@
         "display": "Puducherry - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -3875,7 +3875,7 @@
         "display": "Puducherry - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -4094,7 +4094,7 @@
         "display": "Jammu and kashmir - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -4106,7 +4106,7 @@
         "display": "Jammu and kashmir - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -4169,7 +4169,7 @@
         "display": "Punjab - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -4181,7 +4181,7 @@
         "display": "Punjab - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -4364,7 +4364,7 @@
         "display": "Uttar Pradesh - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -4376,7 +4376,7 @@
         "display": "Uttar Pradesh - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -4595,7 +4595,7 @@
         "display": "Uttarakhand - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -4718,7 +4718,7 @@
         "display": "Manipur - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -4730,7 +4730,7 @@
         "display": "Manipur - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -4913,7 +4913,7 @@
         "display": "Gujarat - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -4925,7 +4925,7 @@
         "display": "Gujarat - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -5156,7 +5156,7 @@
         "display": "Tripura - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -5168,7 +5168,7 @@
         "display": "Tripura - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -5351,7 +5351,7 @@
         "display": "Meghalaya - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -5363,7 +5363,7 @@
         "display": "Meghalaya - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -5546,7 +5546,7 @@
         "display": "Nagaland - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -5558,7 +5558,7 @@
         "display": "Nagaland - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -5753,7 +5753,7 @@
         "display": "Rajasthan - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -5765,7 +5765,7 @@
         "display": "Rajasthan - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -5959,7 +5959,7 @@
         "display": "Andaman and nicobar - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -5971,7 +5971,7 @@
         "display": "Andaman and nicobar - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -6033,7 +6033,7 @@
         "display": "Chandigarh - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -6045,7 +6045,7 @@
         "display": "Chandigarh - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -6107,7 +6107,7 @@
         "display": "Dadra and nagar Haveli and daman and diu - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -6119,7 +6119,7 @@
         "display": "Dadra and nagar Haveli and daman and diu - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -6182,7 +6182,7 @@
         "display": "Lakshadweep - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -6194,7 +6194,7 @@
         "display": "Lakshadweep - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
