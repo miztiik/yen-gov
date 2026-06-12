@@ -2,7 +2,7 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-2008-karnataka-3524,karnataka,2021,33,SINDGI,BHUSANUR RAMESH BALAPPA,parties.IN.BJP,BJP,93865,57.31,1,won,M,61,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3524,karnataka,2021,33,SINDGI,ASHOK. MALLAPPA. MANAGULI,parties.IN.INC,INC,62680,38.27,2,lost,M,53,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3524,karnataka,2021,33,SINDGI,ANGADI NAZIYA,parties.IN.JDS,JD(S),4353,2.66,3,forfeit,F,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3524,karnataka,2021,33,SINDGI,DR. SUNEELAKUMAR HEBBI,parties.IN.UNK,Karnataka Rashtra Samithi,925,0.56,5,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3524,karnataka,2021,33,SINDGI,DR. SUNEELAKUMAR HEBBI,parties.IN.KRS,Karnataka Rashtra Samithi,925,0.56,5,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3524,karnataka,2021,33,SINDGI,JILANI GUDUSAB MULLA,parties.IN.IND,IND,513,0.31,6,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3524,karnataka,2021,33,SINDGI,DEEPIKA. S,parties.IN.IND,IND,415,0.25,7,forfeit,F,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3511,karnataka,2021,47,BASAVAKALYAN,SHARANU SALAGAR,parties.IN.BJP,BJP,71012,48.17,1,won,M,45,,,challenger,src-1b7bc1c9d39a
@@ -16,10 +16,10 @@ IN-AC-2008-karnataka-3511,karnataka,2021,47,BASAVAKALYAN,AMBROSE D' MELLO,partie
 IN-AC-2008-karnataka-3511,karnataka,2021,47,BASAVAKALYAN,FARZANA BEGUM,parties.IN.ABML_S,ABML(S),297,0.2,10,forfeit,F,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3511,karnataka,2021,47,BASAVAKALYAN,ANKUSH MAHADEV,parties.IN.SHS,SHS,204,0.14,11,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3511,karnataka,2021,47,BASAVAKALYAN,SHRI VENKATESHWARA MAHA SWAMIJI,parties.IN.HINDUSTAN_JANTA_PARTY,Hindustan Janta Party,136,0.09,12,forfeit,M,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3511,karnataka,2021,47,BASAVAKALYAN,MANJUNATH G S,parties.IN.UNK,Karnataka Rashtra Samithi,111,0.08,13,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3511,karnataka,2021,47,BASAVAKALYAN,MANJUNATH G S,parties.IN.KRS,Karnataka Rashtra Samithi,111,0.08,13,forfeit,M,31,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3617,karnataka,2021,59,MASKI,BASANAGOUDA TURUVIHAL,parties.IN.INC,INC,86337,59.27,1,won,M,56,,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3617,karnataka,2021,59,MASKI,PRATAP GOUDA PATIL,parties.IN.BJP,BJP,55731,38.26,2,lost,M,66,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3617,karnataka,2021,59,MASKI,B.T.OBALESHAPPA NAYAKA,parties.IN.UNK,Karnataka Rashtra Samithi,962,0.66,4,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3617,karnataka,2021,59,MASKI,B.T.OBALESHAPPA NAYAKA,parties.IN.KRS,Karnataka Rashtra Samithi,962,0.66,4,forfeit,M,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3617,karnataka,2021,59,MASKI,SHRINIVAS NAYAK KANNURA,parties.IN.IND,IND,537,0.37,5,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3617,karnataka,2021,59,MASKI,ISHAPPAGOUDA PATIL,parties.IN.IND,IND,317,0.22,6,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3617,karnataka,2021,59,MASKI,BASANAGOUDA,parties.IN.IND,IND,271,0.19,7,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
@@ -29,7 +29,7 @@ IN-AC-2008-karnataka-3599,karnataka,2021,82,HANGAL,MANE SHRINIVAS,parties.IN.INC
 IN-AC-2008-karnataka-3599,karnataka,2021,82,HANGAL,SHIVARAJ SHARANAPPA SAJJANAR,parties.IN.BJP,BJP,80117,46.65,2,lost,M,63,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3599,karnataka,2021,82,HANGAL,NIYAZ SHAIKH,parties.IN.JDS,JD(S),927,0.54,3,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3599,karnataka,2021,82,HANGAL,NAZEERAHMAD SAVANUR,parties.IN.IND,IND,650,0.38,4,forfeit,M,62,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3599,karnataka,2021,82,HANGAL,UDACHAPPA BASAVANNEPPA UDDANAKALA,parties.IN.UNK,Karnataka Rashtra Samithi,591,0.34,5,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-karnataka-3599,karnataka,2021,82,HANGAL,UDACHAPPA BASAVANNEPPA UDDANAKALA,parties.IN.KRS,Karnataka Rashtra Samithi,591,0.34,5,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3599,karnataka,2021,82,HANGAL,KOTHAMBARI SOMASHEKHAR MAHADEVAPPA,parties.IN.IND,IND,426,0.25,7,forfeit,M,45,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3599,karnataka,2021,82,HANGAL,HONNAPPA HANAMANTHAPPA AKKIVALLI,parties.IN.IND,IND,389,0.23,8,forfeit,M,71,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-karnataka-3599,karnataka,2021,82,HANGAL,SIDDAPPA KALLAPPA PUJAR,parties.IN.IND,IND,179,0.1,9,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
