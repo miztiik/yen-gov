@@ -43,6 +43,7 @@
 <script lang="ts">
   import { getPartyColor } from "./colors/resolver";
   import PartySymbolGlyph from "./PartySymbolGlyph.svelte";
+  import { link } from "./links";
   import type { WinnerInfo } from "./data";
 
   interface Props { winner: WinnerInfo }
@@ -65,6 +66,14 @@
         : null,
     ),
   );
+
+  // PR-2 of TODO/20260612-party-rendering-and-party-pages-plan.md:
+  // the party-short label becomes a navigate-to-detail affordance when
+  // the canonical `link.party()` resolver returns a non-null slug.
+  // UNK / null party_id / explicit overrides without a per-party page
+  // (e.g. NOTA via the link builder's own null path) keep the bare
+  // text - the citizen sees no broken link.
+  const party_href = $derived(link.party(winner.party_id));
 </script>
 
 <div class="flex items-start gap-3" data-testid="winner-badge">
@@ -84,7 +93,11 @@
         class="w-5 h-5"
         fallback="placeholder"
       />
-      <span class="text-slate-500 text-sm truncate">{winner.party_short}</span>
+      {#if party_href}
+        <a class="text-slate-500 text-sm truncate hover:underline" href={party_href}>{winner.party_short}</a>
+      {:else}
+        <span class="text-slate-500 text-sm truncate">{winner.party_short}</span>
+      {/if}
     </div>
   </div>
 </div>

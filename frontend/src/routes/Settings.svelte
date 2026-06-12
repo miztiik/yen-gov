@@ -22,6 +22,7 @@
     type PartyRowForResolver,
   } from "../lib/colors/resolver";
   import { chipFor } from "../lib/colors/chip";
+  import PartyPill from "../lib/party-pill/PartyPill.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
 
   // Three worked examples, one per resolver tier. The party_id + row
@@ -102,7 +103,12 @@
           ></span>
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-2 flex-wrap">
-              <span class="font-medium text-sm">{ex.party_short}</span>
+              <PartyPill
+                size="sm"
+                party_id={ex.party_id}
+                party_short={ex.party_short}
+                row={ex.row}
+              />
               <span
                 class="text-[10px] uppercase tracking-wide px-1.5 py-0.5 rounded {chip.className}"
                 title={chip.tooltip}>{chip.label}</span
