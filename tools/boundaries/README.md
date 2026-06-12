@@ -92,6 +92,32 @@ python tools/boundaries/snapshot.py --kind villages --state S22
 
 Both flags are repeatable; an entry must match every supplied filter dimension to run.
 
+### Shared cache across worktrees
+
+`snapshot.py` and every `lift_*.py` script default the upstream-cache root to `<repo>/.runtime/raw/boundaries/`. This is per-worktree by default, which means a fresh `git worktree add ...` starts cold and re-downloads multi-GB LGD bundles (`LGD_Villages.geojsonl.7z` is ~1.8 GB; `LGD_Districts` ~82 MB; `LGD_Subdistricts` ~57 MB). To point every worktree at one shared on-disk cache, use either tier:
+
+```bash
+# CLI flag (per-invocation; absolute or relative-to-cwd):
+python tools/boundaries/snapshot.py --kind ac --state S05 --raw-dir D:/caches/yen-gov-boundaries
+
+# Env-var (set once; every snapshot.py / lift_*.py call in that shell picks it up):
+setx YENGOV_BOUNDARIES_RAW_DIR "D:\caches\yen-gov-boundaries"  # PowerShell, persistent
+$env:YENGOV_BOUNDARIES_RAW_DIR = "D:\caches\yen-gov-boundaries"  # PowerShell, session
+export YENGOV_BOUNDARIES_RAW_DIR=/caches/yen-gov-boundaries     # bash/zsh
+```
+
+Precedence: `--raw-dir` (CLI) > `YENGOV_BOUNDARIES_RAW_DIR` (env-var) > `<repo>/.runtime/raw/boundaries` (default). With neither override set, behaviour is byte-identical to before this PR -- no existing call site changes.
+
+If you cannot change tooling (e.g. a vendored script that hardcodes the path), a directory junction on Windows or a symlink on Unix achieves the same outcome at the filesystem level:
+
+```powershell
+New-Item -ItemType Junction -Path .runtime/raw/boundaries -Target D:\caches\yen-gov-boundaries
+```
+
+```bash
+ln -s /caches/yen-gov-boundaries .runtime/raw/boundaries
+```
+
 ## `inputs` vs `staged_inputs`
 
 [pipeline.json](pipeline.json) has two top-level arrays:

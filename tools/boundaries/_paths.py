@@ -51,9 +51,54 @@ must translate via ``_eci_to_slug()`` at the call site.
 from __future__ import annotations
 
 import json
+import os
 import re
 from pathlib import Path
 from typing import Literal
+
+
+def _resolve_raw_dir(
+    cli_arg: str | None,
+    env_var_name: str,
+    config_default: str,
+    repo_root: Path,
+) -> Path:
+    """Three-tier resolution: CLI flag > env-var > config default.
+
+    Lets every boundaries tool (``snapshot.py`` + the ``lift_*.py`` family)
+    point their ``.runtime/raw/boundaries/`` cache at a shared on-disk
+    root so multiple git worktrees re-use one cache instead of each
+    re-downloading the same multi-GB upstream bundles. The brief is at
+    [TODO/20260612-shared-raw-cache-tools.md] (composes orthogonally
+    with PR #956's URL-keyed dedup INSIDE the cache dir; this resolver
+    only moves the ROOT of that dir).
+
+    ``cli_arg`` and the env-var value, when set, are treated as either an
+    absolute path or a path relative to the OPERATOR's cwd (so they
+    can point at a shared cache directory on a different volume). The
+    ``config_default`` is resolved relative to ``repo_root`` (per
+    ADR-0003: intermediate artifacts under ``.runtime/`` scoped to the
+    repo by default).
+
+    Args:
+        cli_arg: Value of the ``--raw-dir`` CLI flag, or ``None`` when
+            the operator did not pass it.
+        env_var_name: Environment-variable name to consult as the second
+            tier (e.g. ``"YENGOV_BOUNDARIES_RAW_DIR"``).
+        config_default: The legacy default path string, repo-relative
+            (e.g. ``".runtime/raw/boundaries"``).
+        repo_root: Absolute ``Path`` to the repo root; only used when
+            falling back to ``config_default``.
+
+    Returns:
+        An absolute ``Path`` to the cache root the caller should use.
+    """
+    if cli_arg:
+        return Path(cli_arg).expanduser().resolve()
+    env_val = os.environ.get(env_var_name)
+    if env_val:
+        return Path(env_val).expanduser().resolve()
+    return (repo_root / config_default).resolve()
 
 # pipeline.json uses the plural kind name (``states``, ``districts``,
 # ``subdistricts``, ``villages``); ``boundary-layers.schema.json`` uses
