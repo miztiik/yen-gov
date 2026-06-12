@@ -1,0 +1,26 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-PC-1976-kerala-11,kerala,2003,11,ERNAKULAM,Dr.Sebastian Paul,parties.IN.IND,IND,335308,45.89,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-kerala-11,kerala,2003,11,ERNAKULAM,M.O.John,parties.IN.INC,INC,313176,42.86,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-kerala-11,kerala,2003,11,ERNAKULAM,V.Viswanatha Menon,parties.IN.IND,IND,51420,7.04,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-kerala-11,kerala,2003,11,ERNAKULAM,Poonthura Siraj,parties.IN.IND,IND,17426,2.38,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-kerala-11,kerala,2003,11,ERNAKULAM,Francis Kalathunkal,parties.IN.IND,IND,8856,1.21,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-kerala-11,kerala,2003,11,ERNAKULAM,Suresh M.K,parties.IN.IND,IND,2324,0.32,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-kerala-11,kerala,2003,11,ERNAKULAM,Dr.K.Padmarajan,parties.IN.IND,IND,2215,0.3,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-37,maharashtra,2003,37,SOLAPUR,Mohite P.P.Shankarrao,parties.IN.BJP,BJP,352360,57.42,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-37,maharashtra,2003,37,SOLAPUR,Anandrao Narayan Deokate,parties.IN.INC,INC,229543,37.4,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-37,maharashtra,2003,37,SOLAPUR,Khan Musa Ahmed,parties.IN.BSP,BSP,9624,1.57,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-37,maharashtra,2003,37,SOLAPUR,Shinde Saidappa Arjun,parties.IN.IND,IND,7652,1.25,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-37,maharashtra,2003,37,SOLAPUR,Bhikaji Gangaram Jadhav,parties.IN.KKJHS,KJHS,5469,0.89,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-37,maharashtra,2003,37,SOLAPUR,Rahul Baburao Waghmare,parties.IN.IND,IND,2661,0.43,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-37,maharashtra,2003,37,SOLAPUR,Shinde M.Sidram,parties.IN.IND,IND,1829,0.3,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-37,maharashtra,2003,37,SOLAPUR,Smt.Nagmani kisan Jakkan,parties.IN.IND,IND,1684,0.27,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-37,maharashtra,2003,37,SOLAPUR,Raut Ulhas Ramchandra,parties.IN.IND,IND,1626,0.26,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-37,maharashtra,2003,37,SOLAPUR,Raju alias B.B.Pyati,parties.IN.IND,IND,1248,0.2,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-12,west-bengal,2003,12,NAWADWIP,ALAKESH DAS,parties.IN.CPIM,CPM,520630,47,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-12,west-bengal,2003,12,NAWADWIP,ABIR RANJAN BISWAS,parties.IN.UNK,A.I.T.C,421830,38.08,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-12,west-bengal,2003,12,NAWADWIP,RAJANI KANTA DOLOI,parties.IN.INC,INC,137319,12.4,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-12,west-bengal,2003,12,NAWADWIP,SUSIL KUMAR SARKAR,parties.IN.UNK,B.S.P,12210,1.1,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-12,west-bengal,2003,12,NAWADWIP,SUJIT BISWAS,parties.IN.IND,IND,7973,0.72,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-12,west-bengal,2003,12,NAWADWIP,BIBHUTI MONDAL,parties.IN.IND,IND,3316,0.3,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-12,west-bengal,2003,12,NAWADWIP,NIKHIL CHANDRA MONDAL,parties.IN.IND,IND,2336,0.21,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-12,west-bengal,2003,12,NAWADWIP,DINABANDHU BISWAS,parties.IN.IND,IND,2069,0.19,8,forfeit,U,,,,challenger,src-31c65dbec869
