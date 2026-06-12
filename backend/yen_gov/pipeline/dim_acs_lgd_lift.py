@@ -1,10 +1,11 @@
 """Join ``ac_crosswalk.lgd_ac_id`` onto ``dim_acs.parquet`` (Row A3).
 
-Two responsibilities, both reading the Row A2 crosswalk
-(``datasets/taxonomy/ac_crosswalk.parquet``):
+Two responsibilities backed by the canonical crosswalk:
 
 * :func:`load_lgd_lookup` returns the ``(state_code, eci_no) -> lgd_ac_id``
-  map over the covered subset. The live/backfill envelope builders
+  map over the covered subset, sourced from
+  ``datasets/data/entities/ac_crosswalk.csv`` (the canonical home after the
+  parquet retirement in X1b). The live/backfill envelope builders
   (:func:`pipeline.canonical_eci_backfill.build_slice_envelope`) call this so
   EVERY future ``dim_acs`` write carries ``lgd_ac_id``. Without it the
   writer's DELETE+INSERT UPSERT would null the column on the next re-run.
@@ -41,16 +42,43 @@ def load_lgd_lookup(datasets_root: Path) -> dict[tuple[str, int], int]:
 
     Only rows with a non-null ``lgd_ac_id`` appear; a missing key means the AC
     is not yet bound to an LGD code and the caller leaves ``lgd_ac_id`` NULL.
-    Returns an empty map when the crosswalk parquet is absent.
+    Returns an empty map when the crosswalk CSV is absent.
+
+    Reads ``datasets/data/entities/ac_crosswalk.csv`` via typed
+    ``read_csv(columns=...)`` per the CSV column contract at
+    ``datasets/data/_schema/columns.json``. The CSV does not carry the
+    ``S01``-style ECI state code directly; it is derived in-SQL from the
+    leading ``IN-([SU][0-9]{2})-`` segment of ``ac_id`` (every covered row
+    in the on-disk corpus matches this pattern).
     """
-    cx_path = datasets_root / "taxonomy" / "ac_crosswalk.parquet"
+    cx_path = datasets_root / "data" / "entities" / "ac_crosswalk.csv"
     if not cx_path.is_file():
         return {}
     con = duckdb.connect(":memory:")
     try:
         rows = con.execute(
-            "SELECT state_code, eci_no, lgd_ac_id FROM read_parquet(?) "
-            "WHERE lgd_ac_id IS NOT NULL",
+            """
+            SELECT regexp_extract(ac_id, '^IN-([SU][0-9]{2})-', 1) AS state_code,
+                   eci_no,
+                   lgd_ac_id
+            FROM read_csv(
+                ?,
+                header = true,
+                columns = {
+                    'state_entity_id': 'VARCHAR',
+                    'delim_year': 'INTEGER',
+                    'eci_no': 'INTEGER',
+                    'lgd_ac_id': 'INTEGER',
+                    'ac_id': 'VARCHAR',
+                    'ac_name': 'VARCHAR',
+                    'match_method': 'VARCHAR',
+                    'source_id': 'VARCHAR'
+                },
+                nullstr = '',
+                auto_detect = false
+            )
+            WHERE lgd_ac_id IS NOT NULL
+            """,
             [cx_path.as_posix()],
         ).fetchall()
     finally:
