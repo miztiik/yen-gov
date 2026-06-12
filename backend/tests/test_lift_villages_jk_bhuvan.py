@@ -208,14 +208,14 @@ def test_lift_emits_per_district_shards_for_u08_and_u09(
     assert anantnag.original_feature_count == 2
     assert anantnag.level == "village"
     assert anantnag.entity_state == "U08"
-    assert anantnag.partition_path == "boundaries/in/villages/state=in_u08/district=anantnag/all.geojson"
-    assert anantnag.layer_id == "boundaries.in.villages.state=in_u08.district=anantnag"
+    assert anantnag.partition_path == "boundaries/in/villages/state=jammu-and-kashmir/district=anantnag/all.geojson"
+    assert anantnag.layer_id == "boundaries.in.villages.state=jammu-and-kashmir.district=anantnag"
     assert anantnag.simplification_algorithm == "coord-precision-round"
     assert anantnag.simplification_tolerance_deg == 10**-4
 
     ladakh = next(r for r in rows if r.entity_district == "ladakh_leh")
     assert ladakh.entity_state == "U09"
-    assert ladakh.partition_path == "boundaries/in/villages/state=in_u09/district=ladakh_leh/all.geojson"
+    assert ladakh.partition_path == "boundaries/in/villages/state=ladakh/district=ladakh_leh/all.geojson"
 
     # All rows carry the new ramseraph_bhuvan_jk_villages source_id.
     expected_source_id = lift_module.BOUNDARY_SOURCE_ID_BY_NICKNAME[
@@ -241,13 +241,13 @@ def test_lift_is_byte_deterministic(tmp_path: Path, lift_module: Any) -> None:
     _write_geojsonl(geojsonl, feats)
 
     lift_module.lift_jk_villages_to_per_district_shards(geojsonl, datasets_root)
-    shard = datasets_root / "boundaries" / "in" / "villages" / "state=in_u08" / "district=anantnag" / "all.geojson"
+    shard = datasets_root / "boundaries" / "in" / "villages" / "state=jammu-and-kashmir" / "district=anantnag" / "all.geojson"
     sha1 = hashlib.sha256(shard.read_bytes()).hexdigest()
 
     # rerun against fresh datasets_root
     datasets_root2 = tmp_path / "datasets_v2"
     lift_module.lift_jk_villages_to_per_district_shards(geojsonl, datasets_root2)
-    shard2 = datasets_root2 / "boundaries" / "in" / "villages" / "state=in_u08" / "district=anantnag" / "all.geojson"
+    shard2 = datasets_root2 / "boundaries" / "in" / "villages" / "state=jammu-and-kashmir" / "district=anantnag" / "all.geojson"
     sha2 = hashlib.sha256(shard2.read_bytes()).hexdigest()
 
     assert sha1 == sha2, "byte-determinism broken — features must sort identically across runs"

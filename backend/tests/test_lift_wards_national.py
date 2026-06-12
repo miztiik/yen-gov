@@ -243,21 +243,21 @@ def test_lift_emits_per_ulb_shards_and_returns_rows(
 
     by_partition = {r.partition_path: r for r in rows}
     expected_paths = {
-        "boundaries/in/wards/state=in_s22/ulb=800001/all.geojson",
-        "boundaries/in/wards/state=in_s22/ulb=800002/all.geojson",
-        "boundaries/in/wards/state=in_s08/ulb=802743/all.geojson",
-        "boundaries/in/wards/state=in_u05/ulb=801234/all.geojson",
+        "boundaries/in/wards/state=tamil-nadu/ulb=800001/all.geojson",
+        "boundaries/in/wards/state=tamil-nadu/ulb=800002/all.geojson",
+        "boundaries/in/wards/state=himachal-pradesh/ulb=802743/all.geojson",
+        "boundaries/in/wards/state=delhi/ulb=801234/all.geojson",
     }
     assert set(by_partition) == expected_paths
 
     chennai_row = by_partition[
-        "boundaries/in/wards/state=in_s22/ulb=800001/all.geojson"
+        "boundaries/in/wards/state=tamil-nadu/ulb=800001/all.geojson"
     ]
     assert chennai_row.retained_feature_count == 2
     assert chennai_row.original_feature_count == 2
     assert chennai_row.unkeyed_count == 0
     assert chennai_row.level == "ward"
-    assert chennai_row.layer_id == "boundaries.in.wards.state=in_s22.ulb=800001"
+    assert chennai_row.layer_id == "boundaries.in.wards.state=tamil-nadu.ulb=800001"
     assert chennai_row.entity_state == "S22"
     assert chennai_row.entity_city == "800001"
     # entity_district MUST be None for ward rows — wards are ULB-keyed
@@ -290,7 +290,7 @@ def test_lift_is_byte_deterministic(tmp_path: Path, lift_module: Any) -> None:
         / "boundaries"
         / "in"
         / "wards"
-        / "state=in_s22"
+        / "state=tamil-nadu"
         / "ulb=800001"
         / "all.geojson"
     )
@@ -304,7 +304,7 @@ def test_lift_is_byte_deterministic(tmp_path: Path, lift_module: Any) -> None:
         / "boundaries"
         / "in"
         / "wards"
-        / "state=in_s22"
+        / "state=tamil-nadu"
         / "ulb=800001"
         / "all.geojson"
     )
@@ -349,28 +349,28 @@ def test_remove_stale_shards_deletes_only_non_keep_paths(
     equivalent helper (with the additional ulb= dir cleanup).
     """
     wards = tmp_path / "datasets" / "boundaries" / "in" / "wards"
-    (wards / "state=in_s22" / "ulb=800001").mkdir(parents=True)
-    (wards / "state=in_s22" / "ulb=800001" / "all.geojson").write_text(
+    (wards / "state=tamil-nadu" / "ulb=800001").mkdir(parents=True)
+    (wards / "state=tamil-nadu" / "ulb=800001" / "all.geojson").write_text(
         "{}", encoding="utf-8"
     )
-    (wards / "state=in_s22" / "ulb=800002").mkdir(parents=True)
-    (wards / "state=in_s22" / "ulb=800002" / "all.geojson").write_text(
+    (wards / "state=tamil-nadu" / "ulb=800002").mkdir(parents=True)
+    (wards / "state=tamil-nadu" / "ulb=800002" / "all.geojson").write_text(
         "{}", encoding="utf-8"
     )
-    (wards / "state=in_s08" / "ulb=802743").mkdir(parents=True)
-    (wards / "state=in_s08" / "ulb=802743" / "all.geojson").write_text(
+    (wards / "state=himachal-pradesh" / "ulb=802743").mkdir(parents=True)
+    (wards / "state=himachal-pradesh" / "ulb=802743" / "all.geojson").write_text(
         "{}", encoding="utf-8"
     )
 
     # Keep only TN/800001; TN/800002 and HP/802743 are stale.
     deleted = lift_module.remove_stale_shards(
         wards,
-        {"boundaries/in/wards/state=in_s22/ulb=800001/all.geojson"},
+        {"boundaries/in/wards/state=tamil-nadu/ulb=800001/all.geojson"},
     )
     assert deleted == 2
-    assert (wards / "state=in_s22" / "ulb=800001" / "all.geojson").is_file()
-    assert not (wards / "state=in_s22" / "ulb=800002").exists()
-    assert not (wards / "state=in_s08").exists()
+    assert (wards / "state=tamil-nadu" / "ulb=800001" / "all.geojson").is_file()
+    assert not (wards / "state=tamil-nadu" / "ulb=800002").exists()
+    assert not (wards / "state=himachal-pradesh").exists()
 
 
 def test_remove_stale_shards_handles_missing_dir(tmp_path: Path, lift_module: Any) -> None:
@@ -498,7 +498,7 @@ def test_lift_skips_when_even_fallback_precision_exceeds_budget(
         / "boundaries"
         / "in"
         / "wards"
-        / "state=in_s22"
+        / "state=tamil-nadu"
         / "ulb=800001"
         / "all.geojson"
     )

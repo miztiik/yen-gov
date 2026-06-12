@@ -7,8 +7,8 @@ runs the full ingest end-to-end against those.
 Coverage:
   - end-to-end ingest writes one shard per assigned state + ledger rows.
   - per-state pincode counts match input.
-  - alias resolution: DELHI → in_u05; JAMMU AND KASHMIR → in_u08;
-    THE DADRA AND NAGAR HAVELI AND DAMAN AND DIU → in_u03.
+  - alias resolution: DELHI -> delhi; JAMMU AND KASHMIR -> jammu-and-kashmir;
+    THE DADRA AND NAGAR HAVELI AND DAMAN AND DIU -> dadra-and-nagar-haveli-and-daman-and-diu.
   - unkeyed pincodes (no directory row OR NULL statename) routed to
     the synthetic ``scope=unkeyed`` ledger row + empty shard, with
     the pincode list in ``unkeyed_keys_json``.
@@ -217,14 +217,14 @@ def test_ingest_writes_per_state_shards_and_ledger(tmp_path: Path) -> None:
     assert result.layer_count == 5
     assert result.unkeyed_count == 1
     assert sorted(result.per_state_counts.keys()) == [
-        "in_s22", "in_u03", "in_u05", "in_u08",
+        "dadra-and-nagar-haveli-and-daman-and-diu", "delhi", "jammu-and-kashmir", "tamil-nadu",
     ]
-    for slug in ["in_s22", "in_u03", "in_u05", "in_u08"]:
+    for slug in ["tamil-nadu", "dadra-and-nagar-haveli-and-daman-and-diu", "delhi", "jammu-and-kashmir"]:
         assert result.per_state_counts[slug] == 1
 
     # On-disk shard tree.
     postal_root = root / "boundaries" / "in" / "postal"
-    for slug in ["in_s22", "in_u03", "in_u05", "in_u08"]:
+    for slug in ["tamil-nadu", "dadra-and-nagar-haveli-and-daman-and-diu", "delhi", "jammu-and-kashmir"]:
         assert (postal_root / f"state={slug}" / "all.geojson").is_file()
     assert (postal_root / "scope=unkeyed" / "all.geojson").is_file()
 
@@ -237,7 +237,7 @@ def test_per_state_shard_geojson_shape_is_valid_featurecollection(
     )
     _run_ingest(kmz, directory, entities, root)
 
-    tn_shard = root / "boundaries" / "in" / "postal" / "state=in_s22" / "all.geojson"
+    tn_shard = root / "boundaries" / "in" / "postal" / "state=tamil-nadu" / "all.geojson"
     fc = json.loads(tn_shard.read_text(encoding="utf-8"))
     assert fc["type"] == "FeatureCollection"
     assert len(fc["features"]) == 1
@@ -263,7 +263,7 @@ def test_empty_region_round_trips_as_empty_string(tmp_path: Path) -> None:
         tmp_path, include_orphan=False
     )
     _run_ingest(kmz, directory, entities, root)
-    del_shard = root / "boundaries" / "in" / "postal" / "state=in_u05" / "all.geojson"
+    del_shard = root / "boundaries" / "in" / "postal" / "state=delhi" / "all.geojson"
     fc = json.loads(del_shard.read_text(encoding="utf-8"))
     assert fc["features"][0]["properties"]["region"] == ""
 
@@ -276,12 +276,12 @@ def test_empty_region_round_trips_as_empty_string(tmp_path: Path) -> None:
 @pytest.mark.parametrize(
     "directory_statename,expected_slug",
     [
-        ("DELHI", "in_u05"),
-        ("JAMMU AND KASHMIR", "in_u08"),
-        ("THE DADRA AND NAGAR HAVELI AND DAMAN AND DIU", "in_u03"),
+        ("DELHI", "delhi"),
+        ("JAMMU AND KASHMIR", "jammu-and-kashmir"),
+        ("THE DADRA AND NAGAR HAVELI AND DAMAN AND DIU", "dadra-and-nagar-haveli-and-daman-and-diu"),
         # Canonical match path (no alias needed) — proves the alias map
         # composes with the entity-display-name lookup.
-        ("TAMIL NADU", "in_s22"),
+        ("TAMIL NADU", "tamil-nadu"),
     ],
 )
 def test_state_assignment_handles_aliases_and_canonical_names(
