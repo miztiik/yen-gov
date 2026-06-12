@@ -285,23 +285,38 @@ Every brief assumes a fresh sub-worktree off `origin/main`, branch named `feat/p
 
 **Persona consultation post-launch**: NOT required between PRs. The 4 verdicts from 2026-06-12 cover the design surface end-to-end. Hans + Max sign-off on the DEFERRED items in section 2 is needed BEFORE those ship — but those are not in this plan.
 
-## 7. Closure ledger (appended after each PR lands)
+## 7. Closure ledger (closed 2026-06-12)
+
+**Plan complete.** All 5 PRs landed atomically on `origin/main` within hours of plan-doc commit. The user's URL (`https://miztiik.github.io/yen-gov/compare/elections/tamil-nadu/assembly-2021/assembly-2026`) now renders party tokens as coloured PartyPills that hover-tooltip with full metadata and link to `/parties/<slug>` indiavotes-style detail pages.
 
 | PR | Branch | Merge SHA | Wave | Status | Notes |
 |---|---|---|---|---|---|
-| PR-0 | feat/parties-pr0-doctrine-and-rip | TBD | 0 | NOT-STARTED | orchestrator-authored; ships first |
-| PR-1 | feat/parties-pr1-pill-tooltip | TBD | 1 | NOT-STARTED | subagent; file-disjoint w/ PR-2 |
-| PR-2 | feat/parties-pr2-adopt-partypill | TBD | 1 | NOT-STARTED | subagent; file-disjoint w/ PR-1 |
-| PR-3 | feat/parties-pr3-parties-index | TBD | 2 | NOT-STARTED | subagent; file-disjoint w/ PR-4 |
-| PR-4 | feat/parties-pr4-party-detail-and-dualaxis | TBD | 2 | NOT-STARTED | subagent; file-disjoint w/ PR-3 |
+| PR-0 | feat/parties-pr0-doctrine-and-rip | `25f48362` | 0 | MERGED | orchestrator-authored. 14 files (10 code + 1 disjointness test + 3 docs). Atomic rip-and-replace: `/<state>/party/<slug>` route + legacy Party.svelte body + `partyInState` + 3-arg `party` + `partySlug` helper DELETED; new `/parties` index + `/parties/<slug>` STUB routes + new `partyIdToSlug` + `partyIdFromSlug` + 6-way disjointness contract + ADR-0053 in url-grammar.md + new party-rendering.md ADDED. 2 callsites flipped (StateOverview L968 + Constituency L571). 5 sentinel/disambiguator overrides locked: IND -> independent, AC -> arunachal-congress, GOA -> goemcarancho-otrec-astro, MAHAD -> mahakranti-dal, UNK -> no page. Gates: svelte-check 30/30 baseline, vitest 5599/0/15. |
+| PR-1 | feat/parties-pr1-pill-tooltip | `9960adf6` | 1 | MERGED | subagent. 7 files (PartyTooltip.svelte NEW + PartyPill.svelte extended + view-models/parties.ts NEW with loadPartyMeta + loadAllPartiesMeta + 3 test files + 1 index.ts re-export). Hover/focus/click-pin popover hand-rolled per ChartTooltip pattern, no @floating-ui dep. Tooltip drops "Chief" per Max section 3 (no column, don't fabricate). Missing-symbol = left-align short, no placeholder. Gates: 30/30, 5599/0/15. **Deviation**: tests are pure-helper style (project has no @testing-library/svelte); loader bypasses `dim_parties` view (missing 7 of 18 columns) for direct CSV read via parties-palette.ts precedent. |
+| PR-2 | feat/parties-pr2-adopt-partypill | `b33016d9` | 1 | MERGED | subagent. 10 files (8 surfaces + party-rendering contract test + colors/party-row.ts helper). Adopted PartyPill on CompareElections, StateOverview, Constituency, PartyBar, WinnerBadge, GallagherDisproportionality, Psephlab, Settings. Contract test walks every .svelte under routes/ + lib/charts/ and asserts party_short / party_id refs are PartyPill-wrapped or carry the `data-allow="..."` allowlist attribute. Gates: 30/30, 5599/0/15. **Deviations**: IndiaPartyMap legend doesn't exist (party_short only in tooltip JS string, stripped by script-block excluder); NationalElection top-parties = PartyBar already (covered transitively); change_label deferred per brief; 3 extra files in scope (GallagherDisproportionality, Psephlab, Settings) fixed inline rather than allowlisted. |
+| PR-3 | feat/parties-pr3-parties-index | `8a909a43` | 2 | MERGED | subagent. 5 files (PartiesIndex.svelte full body + parties.ts extended with loadAllParties + 2 test files + Playwright e2e). 2348-row alphabetical index with search box + 4 recognition chips (All 2348 / National 18 / State 60 / Unrecognised 393 / sentinels in "Special" section above 'A') + A-Z letter rail. UNK filtered. Gates: 30/30, 5626/0/15 (+27). Optional e2e shipped. **Caught a real bug** routed to PR-4: Party.svelte STUB destructured `{ slug }` instead of `{ params }` (router passes nested) — crash on every `/parties/<slug>` navigation. |
+| PR-4 | feat/parties-pr4-party-detail | `827a7a97` | 2 | MERGED | subagent. 9 files (Party.svelte full body + party-detail.ts view-model + DualAxisBarLine.svelte NEW closed-renderer + 3 test files + Playwright + schema-is-the-design-system.md extended + new dual-axis-bar-line.md subsystem doc). 2843 insertions. Header card + KPI 2x2 + LS DualAxisBarLine + VS DualAxisBarLine + strongholds top-10 per body + metadata footer with lineage chips. Sentinel framing for IND / NOTA. "Party not found" for typo slugs (no JS crash). Smoke verified: `/parties/inc`, `/parties/bjp`, `/parties/nota`, `/parties/xyznotreal`. STUB destructure bug fixed in the rebuild. Gates: 30/31 (+1 a11y warning, descoped per CLAUDE.md §0a), 5652/0/15 (+26). **Deviations** (both honest-degraded-UX per CLAUDE.md §10 inline note pattern): (1) LS history synthesises from per-PC winner rows because publisher emits no per-party LS aggregate (vote_share + contested stay null at v1, bars only; coverage caption surfaces); (2) stronghold names show entity_id text because per-state CSV uses state-CODE namespace (`IN-PC-1976-S01-1`) but electoral.csv uses state-SLUG namespace — JOIN miss; both flagged as future-PR work, not silent degradation. |
 
-**Plan-doc disposition**: after PR-4 merges, lift durable findings into:
-- [docs/architecture/frontend/party-rendering.md](../docs/architecture/frontend/party-rendering.md) (PR-0 landed)
-- [docs/concepts/schema-is-the-design-system.md](../docs/concepts/schema-is-the-design-system.md) ADR-0053 (PR-4 landed)
-- [docs/architecture/frontend/charts/dual-axis-bar-line.md](../docs/architecture/frontend/charts/dual-axis-bar-line.md) (PR-4 landed)
-- Agent-only lessons (any traps hit) -> `/memories/lessons.md` per [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md).
+**Total**: 5 PRs / 5 waves (PR-0 solo, Wave 1 PR-1+PR-2 parallel, Wave 2 PR-3+PR-4 parallel) / 45 files changed / ~5630 vitest passes across 195 files. Parallel agents from OTHER teams shipped 5 other PRs (#969, #970, #975, #976, FU#2) into main during the same window — file-disjoint, no collisions.
 
-Then `git mv TODO/20260612-party-rendering-and-party-pages-plan.md docs/archive/plans/`.
+## 8. Distillation pointers
+
+After this plan-doc moves to `docs/archive/plans/`, the durable findings live at:
+
+- **URL grammar**: [docs/architecture/frontend/url-grammar.md](../docs/architecture/frontend/url-grammar.md) ADR-0053 + rejected-alternatives receipts (landed PR-0).
+- **PartyPill standardisation contract**: [docs/architecture/frontend/party-rendering.md](../docs/architecture/frontend/party-rendering.md) (NEW; landed PR-0; PR-2 added 1 allowlist exception for the `<option>` HTML edge case).
+- **DualAxisBarLine closed-renderer**: [docs/concepts/schema-is-the-design-system.md](../docs/concepts/schema-is-the-design-system.md) closed-renderer-extension log + [docs/architecture/frontend/charts/dual-axis-bar-line.md](../docs/architecture/frontend/charts/dual-axis-bar-line.md) subsystem doc (NEW; landed PR-4).
+- **Slug derivation rule + sentinel overrides**: [frontend/src/lib/slug.ts](../frontend/src/lib/slug.ts) `partyIdToSlug` + `partyIdFromSlug` + `SENTINEL_SLUG_OVERRIDES` map; tested in `slug.test.ts` round-trip against the live 2259-row parties.csv corpus.
+- **6-way disjointness contract**: [frontend/src/contracts/url-namespace-disjointness.test.ts](../frontend/src/contracts/url-namespace-disjointness.test.ts) ADR-0053 describe block.
+- **PartyPill rendering**: [frontend/src/lib/party-pill/PartyPill.svelte](../frontend/src/lib/party-pill/PartyPill.svelte) (extended PR-1) + [frontend/src/lib/party-pill/PartyTooltip.svelte](../frontend/src/lib/party-pill/PartyTooltip.svelte) (NEW PR-1).
+- **Party detail view-model**: [frontend/src/lib/view-models/parties.ts](../frontend/src/lib/view-models/parties.ts) (NEW PR-1 + extended PR-3) + [frontend/src/lib/view-models/party-detail.ts](../frontend/src/lib/view-models/party-detail.ts) (NEW PR-4).
+
+Agent-only lessons (the recurring traps worth noting in `/memories/lessons.md` for future plans):
+
+- **Real disjointness collisions ALWAYS surface during PR-0** when adding a new slug registry. GOA + MAHAD both fired at vitest-time exactly as the STOP-AND-SURFACE doctrine predicted. The cost of fixing them = +2 entries in `SENTINEL_SLUG_OVERRIDES` + 4 lines of test = trivial. The cost of NOT having the contract = a citizen-visible URL collision in production. The 6-way disjointness gate paid for itself within the same PR.
+- **Router passes nested `params`, not flat destructure**. The PR-0 STUB shipped with `let { slug } = $props()` instead of `let { params } = $props()`, crashing on every navigation — caught only by PR-3's smoke. Future agent rule: when writing a new route-mounted Svelte component, GREP an existing sibling route (StateOverview / Explore / StateTopic) for the exact prop shape — don't trust a route-table parse function to flatten what it doesn't.
+- **Per-state CSV state-code vs slug namespace divergence is a real ingestion-side bug surface for any cross-state party query** (PR-4 deviation #2). The long-format `<state>_election_results.csv` uses `IN-PC-1976-S01-1` (ECI state code) but `electoral.csv` uses `IN-PC-2008-andhra-pradesh-411` (state slug). Any future query that joins them needs a state-code-to-slug lookup. The deferred fix lives in the PR-4 PR body as a future-PR.
+- **LS party-aggregate rows are missing from the per-state long-format CSVs** (PR-4 deviation #1). The publisher emits per-PC winner rows + per-(party,event) AE aggregate rows, but no per-(party,event) LS aggregate. PR-4 synthesises via COUNT over winner rows; vote_share + contested stay null. The proper fix is a backend ingest extension — out of scope here.
 
 ## 8. Verdict-source receipts
 
