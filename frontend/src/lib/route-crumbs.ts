@@ -325,13 +325,26 @@ export function constituencyLeafCrumbs(
   ];
 }
 
+export function partiesIndexCrumbs(): Crumb[] {
+  return [ROOT_LINK, { label: "Parties", isLeaf: true }];
+}
+
 export function partyCrumbs(params: Record<string, unknown>): Crumb[] {
-  const stateSlug = typeof params.state === "string" ? params.state : "";
-  const partySlug = typeof params.party_slug === "string" ? params.party_slug : "";
+  // Per ADR-0053 (PR-0 of the party-rendering plan, 2026-06-12): the
+  // per-party page is party-scoped at `/parties/<slug>` (not the
+  // legacy state-scoped `/<state>/party/<slug>`). The slug is the
+  // lowercased `party_id` tail with `_` -> `-`; sentinel overrides:
+  // IND -> "independent", NOTA -> "nota", UNK -> no page.
+  //
+  // Breadcrumb label policy: pre-data-load, the leaf is the title-
+  // cased slug (`Inc`, `Bjp`, `Cpi-m`). The Party.svelte page sets
+  // its own H1 from the parties.csv `short` once loaded; the
+  // breadcrumb stays driven by the URL slug for the no-flicker case.
+  const slug = typeof params.slug === "string" ? params.slug : "";
   return [
     ROOT_LINK,
-    { label: stateLabel(stateSlug), href: link.stateHub(stateSlug) },
-    { label: slugToTitle(partySlug), isLeaf: true },
+    { label: "Parties", href: link.parties() },
+    { label: slugToTitle(slug), isLeaf: true },
   ];
 }
 

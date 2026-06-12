@@ -13,6 +13,7 @@ import Home from "./routes/Home.svelte";
 import StateOverview from "./routes/StateOverview.svelte";
 import Constituency from "./routes/Constituency.svelte";
 import Party from "./routes/Party.svelte";
+import PartiesIndex from "./routes/PartiesIndex.svelte";
 import Explore from "./routes/Explore.svelte";
 import Settings from "./routes/Settings.svelte";
 import Psephlab from "./routes/Psephlab.svelte";
@@ -55,6 +56,7 @@ import {
   indicatorDocCrumbs,
   nationalElectionCrumbs,
   notFoundCrumbs,
+  partiesIndexCrumbs,
   partyCrumbs,
   psephlabCrumbs,
   settingsCrumbs,
@@ -97,9 +99,10 @@ prewarmDB();
 
 // Route params are slugs (e.g. `tamil-nadu`, `167-mylapore`). Each page
 // resolves the slug to its underlying ECI id via the lib/states.svelte
-// resolver (state) or by parsing the numeric prefix (AC). Party slugs are
-// `{short}-{eci_code_lower}`; the page derives the ECI code from the
-// trailing token to avoid needing a parties index at routing time.
+// resolver (state) or by parsing the numeric prefix (AC). Party slugs
+// (per ADR-0053) are the lowercased `party_id` tail with `_` -> `-`;
+// the per-party page resolves `params.slug` -> `party_id` via
+// `partyIdFromSlug` and looks up the parties.csv row.
 //
 // Route ordering (load-bearing per the first-match-wins resolver):
 //   1. Chrome literals (`/`, `/about`, `/settings`, etc.) come FIRST so
@@ -138,6 +141,22 @@ startRouter({
     { pattern: "/compare", component: CompareIndicator, crumbs: compareIndicatorCrumbs },
     // Citizen transparency surface (folded-indicator PR commit 10).
     { pattern: "/data-completeness", component: DataCompleteness, crumbs: dataCompletenessCrumbs },
+    // Parties index + per-party detail (ADR-0053, PR-0 of the party-
+    // rendering plan 2026-06-12). Top-level `/parties` plural; canonical
+    // per-party page at `/parties/<slug>`. Slug = lowercased party_id
+    // tail with `_` -> `-`. The disjointness contract
+    // (`frontend/src/contracts/url-namespace-disjointness.test.ts`)
+    // guarantees no state / topic / AC / indicator slug collides with
+    // the reserved `parties` token. The 2-segment `/parties/:slug` route
+    // sits BEFORE `/t/:topic` and the `/:state` catch-all because it's
+    // pattern-distinct (leading literal `parties`) and most-specific.
+    { pattern: "/parties", component: PartiesIndex, crumbs: partiesIndexCrumbs },
+    {
+      pattern: "/parties/:slug",
+      component: Party,
+      parse: ({ slug }) => ({ slug }),
+      crumbs: partyCrumbs,
+    },
 
     // === 2. Multi-segment literal-rooted routes. ===
     // Phase 6 (charting modernisation plan) — dev sandbox that mounts
@@ -262,12 +281,6 @@ startRouter({
       }),
       crumbs: constituencyBareCrumbs,
     },
-    {
-      pattern: "/:state/party/:party",
-      component: Party,
-      parse: ({ state, party }) => ({ state, party_slug: party }),
-      crumbs: partyCrumbs,
-    },
     // Per-state per-district landing - the LIVE route is now the
     // 2-segment positional `/:state/:position2` dispatched by
     // `StateSubRouter` (registered below). Deferral 1 of
@@ -314,7 +327,7 @@ startRouter({
     // based on which registry the slug lands in. MUST come AFTER
     // every literal-marker 2- or 3-segment Grammar A entry above
     // (`/:state/explore`, `/:state/t/:topic`, `/:state/elections/:event`,
-    // `/:state/ac/:ac`, `/:state/party/:party`) so the more-specific
+    // `/:state/ac/:ac`) so the more-specific
     // routes win on a clash. MUST come BEFORE the 1-segment
     // `/:state` catch-all so the catch-all does not poach the
     // 2-segment path. Under Option A (2026-06-10) the dispatcher

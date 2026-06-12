@@ -1,6 +1,6 @@
 # Decision Index
 
-**Last Updated**: 2026-06-11
+**Last Updated**: 2026-06-12
 **Status**: Active redirect contract. Historical `ADR-NNNN` references resolve here; numbers are never reused.
 
 ## Why this exists
@@ -95,8 +95,9 @@ After each fold-row PR, the same two invocations run against the new union path 
 | 0050 | folder-naming-lgd-slug | accepted | [docs/architecture/data/canonical-store.md#adr-0050-folder-naming-lgd-slug](../architecture/data/canonical-store.md#adr-0050-folder-naming-lgd-slug)|
 | 0051 | historical-pc-crosswalk-and-delimitation-policy | accepted | [docs/concepts/electoral-hierarchy.md#adr-0051-historical-pc-crosswalk-and-delimitation-policy](../concepts/electoral-hierarchy.md#adr-0051-historical-pc-crosswalk-and-delimitation-policy)|
 | 0052 | election-event-in-path-not-query | accepted | [docs/architecture/frontend/url-grammar.md#adr-0052-election-event-in-path-not-query](../architecture/frontend/url-grammar.md#adr-0052-election-event-in-path-not-query) (NEW doc, same as 0028/0037)|
+| 0053 | party-rendering-and-per-party-pages | accepted | [docs/architecture/frontend/url-grammar.md#adr-0053-party-rendering-and-per-party-pages](../architecture/frontend/url-grammar.md#adr-0053-party-rendering-and-per-party-pages) (same doc as 0028/0037/0052)|
 
-Row count: 44 ADRs (37 live, 7 archived).
+Row count: 45 ADRs (38 live, 7 archived).
 
 ## Receipt traces for the 7 archived ADRs
 
