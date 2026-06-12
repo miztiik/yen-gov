@@ -1,0 +1,31 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-west-bengal-141,west-bengal,2004,141,SHYAMPUKUR,JIBAN PRAKASH SAHA,parties.IN.AIFB,AIFB,38694,74.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-141,west-bengal,2004,141,SHYAMPUKUR,MADAN MITRA,parties.IN.AITC,AITC,9000,17.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-141,west-bengal,2004,141,SHYAMPUKUR,SIBAJI SINGHA ROY,parties.IN.INC,INC,3490,6.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-141,west-bengal,2004,141,SHYAMPUKUR,ATANU DAS,parties.IN.IND,IND,258,0.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-141,west-bengal,2004,141,SHYAMPUKUR,TAPAN DAS,parties.IN.IND,IND,217,0.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-141,west-bengal,2004,141,SHYAMPUKUR,SK. QURBAN ALI,parties.IN.IND,IND,162,0.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-141,west-bengal,2004,141,SHYAMPUKUR,SUSHIL SAHA,parties.IN.IND,IND,91,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-141,west-bengal,2004,141,SHYAMPUKUR,SURENDRA SINGH,parties.IN.IND,IND,78,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-141,west-bengal,2004,141,SHYAMPUKUR,SK. REJEUL KARIM,parties.IN.IND,IND,66,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-142,west-bengal,2004,142,JORABAGAN,PARIMAL BISWAS,parties.IN.CPIM,CPM,23418,58.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-142,west-bengal,2004,142,JORABAGAN,RAJESH KUMAR SINHA,parties.IN.INC,INC,9179,22.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-142,west-bengal,2004,142,JORABAGAN,SANJOY BAKSHI,parties.IN.AITC,AITC,6795,16.96,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-142,west-bengal,2004,142,JORABAGAN,SOMA DUTTA,parties.IN.IND,IND,256,0.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-142,west-bengal,2004,142,JORABAGAN,DILIP CHAKRABORTY,parties.IN.IND,IND,151,0.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-142,west-bengal,2004,142,JORABAGAN,RAJIV ROY,parties.IN.IND,IND,67,0.17,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-142,west-bengal,2004,142,JORABAGAN,NARAYAN SAHA,parties.IN.IND,IND,55,0.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-142,west-bengal,2004,142,JORABAGAN,SHYAM NARAYAN SINGH,parties.IN.IND,IND,55,0.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-142,west-bengal,2004,142,JORABAGAN,JAG NARAYAN SINGH,parties.IN.IND,IND,48,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-142,west-bengal,2004,142,JORABAGAN,MITHU DEY,parties.IN.IND,IND,41,0.1,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-153,west-bengal,2004,153,ENTALLY,MD. ABU SUFYAN,parties.IN.CPIM,CPM,60736,76.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-153,west-bengal,2004,153,ENTALLY,KHALID EBADULLAH,parties.IN.INC,INC,9635,12.2,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-153,west-bengal,2004,153,ENTALLY,MANZAR IQBAL,parties.IN.AITC,AITC,6883,8.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-153,west-bengal,2004,153,ENTALLY,RAMANIMOHAN NAGCHOUDHURY,parties.IN.UNK,JUM,627,0.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-153,west-bengal,2004,153,ENTALLY,KAUSTAV BANERJEE,parties.IN.IND,IND,367,0.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-153,west-bengal,2004,153,ENTALLY,DIPAK DASGUPTA,parties.IN.IND,IND,338,0.43,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-153,west-bengal,2004,153,ENTALLY,DEBOJYOTI BASU,parties.IN.IND,IND,228,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-153,west-bengal,2004,153,ENTALLY,DIPANKAR KUMAR RAUT,parties.IN.IND,IND,157,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-272,west-bengal,2004,272,KHANDAGHOSH(SC),Prosanta Majhi,parties.IN.CPIM,CPM,90166,73.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-272,west-bengal,2004,272,KHANDAGHOSH(SC),Biswanath Roy,parties.IN.AITC,AITC,21908,17.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-272,west-bengal,2004,272,KHANDAGHOSH(SC),Biswapati Biswas,parties.IN.INC,INC,11188,9.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a

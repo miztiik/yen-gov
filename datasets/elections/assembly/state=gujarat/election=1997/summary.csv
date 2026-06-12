@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-gujarat-64,gujarat,1997,SARKHEJ,597703,136977,22.92,Amit Anilchandra Shah (Amit Shah),parties.IN.BJP,BJP,76839,56.1,Dinesh Ataji Thakor,parties.IN.INC,INC,52357,24482,17.88,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-94,gujarat,1997,RADHANPUR,148008,109311,73.85,Vaghela Shankarsinh Laxmansinh(Bapu),parties.IN.UNK,RJP(G),57569,52.67,Patel Shankarbhai Lagdhirbhai(Shankarbhai Chaudhary),parties.IN.BJP,BJP,43585,13984,12.8,src-1b7bc1c9d39a

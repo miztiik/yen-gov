@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-bihar-210,bihar,1984,MANER,128989,69789,54.1,R.DEVI(W),parties.IN.INC,INC,35423,50.76,P.CHANDRA,parties.IN.ICS,ICS,16925,18498,26.51,src-1b7bc1c9d39a
+IN-AC-1976-bihar-311,bihar,1984,KOLEBIRA(ST),97787,46511,47.56,B.MUNDA,parties.IN.IND,IND,20212,43.46,J.SAMAD,parties.IN.INC,INC,10649,9563,20.56,src-1b7bc1c9d39a
+IN-AC-1976-bihar-64,bihar,1984,RUNISAINDPUR,139903,58973,42.15,V.GIRI,parties.IN.INC,INC,27730,47.02,N.K.SHAHI,parties.IN.JP,JNP,16280,11450,19.41,src-1b7bc1c9d39a

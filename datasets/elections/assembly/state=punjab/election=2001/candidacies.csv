@@ -1,0 +1,6 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-punjab-13,punjab,2001,13,MAJITHA,Raj Mohinder Singh,parties.IN.SAD,SAD,51168,58.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-13,punjab,2001,13,MAJITHA,Swinder Singh,parties.IN.INC,INC,34136,38.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-13,punjab,2001,13,MAJITHA,Raghbir Singh,parties.IN.IND,IND,1206,1.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-13,punjab,2001,13,MAJITHA,Kartar Kaur Sandhu,parties.IN.IND,IND,748,0.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-13,punjab,2001,13,MAJITHA,Co. J.S. Bal,parties.IN.IND,IND,503,0.57,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

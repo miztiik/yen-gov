@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-rajasthan-131,rajasthan,1995,BANSWARA,125069,70101,56.05,Bhawani Joshi,parties.IN.BJP,BJP,35644,50.85,Dinesh Joshi,parties.IN.INC,INC,34457,1187,1.7,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-153,rajasthan,1995,BHILWARA,185574,91907,49.53,Ramrichpal Nuwal,parties.IN.BJP,BJP,47334,51.5,Devendra Singh,parties.IN.INC,INC,44573,2761,3,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-76,rajasthan,1995,BAYANA,136635,42240,30.91,Brijendra Singh Supa,parties.IN.INC,INC,24862,58.86,Shivcharan Singh,parties.IN.BJP,BJP,17378,7484,17.72,src-1b7bc1c9d39a

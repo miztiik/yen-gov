@@ -1,0 +1,614 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1967-gujarat-1,gujarat,1967,1,ABDASA,P. B. THACKER,parties.IN.INC,INC,20833,59.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-1,gujarat,1967,1,ABDASA,V. S. PATEL,parties.IN.SWA,SWA,14218,40.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-2,gujarat,1967,2,BHUJ,M. M. MEHTA,parties.IN.INC,INC,14352,50.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-2,gujarat,1967,2,BHUJ,C. H. JADEJA,parties.IN.SWA,SWA,9935,34.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-2,gujarat,1967,2,BHUJ,P. N. SHAH,parties.IN.IND,IND,3413,11.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-2,gujarat,1967,2,BHUJ,F. H. PATNI,parties.IN.IND,IND,486,1.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-2,gujarat,1967,2,BHUJ,A. R. ANTANI,parties.IN.IND,IND,332,1.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-3,gujarat,1967,3,MANDVI,J. L. MEHTA,parties.IN.INC,INC,20420,50.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-3,gujarat,1967,3,MANDVI,H. VIJAYARAJJI,parties.IN.SWA,SWA,19660,49.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-4,gujarat,1967,4,MUNDRA,V. B. DAFDA,parties.IN.SWA,SWA,18072,56.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-4,gujarat,1967,4,MUNDRA,G. R. SOMAIYA,parties.IN.INC,INC,12375,38.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-4,gujarat,1967,4,MUNDRA,T. B. SOLANKI,parties.IN.IND,IND,1680,5.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-5,gujarat,1967,5,ANJAR,N. H. GAJWANI,parties.IN.INC,INC,18918,50.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-5,gujarat,1967,5,ANJAR,M. P. THACKER,parties.IN.SWA,SWA,13248,35.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-5,gujarat,1967,5,ANJAR,N. R. AYACHI,parties.IN.IND,IND,3971,10.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-5,gujarat,1967,5,ANJAR,M. LALJI,parties.IN.IND,IND,733,1.96,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-5,gujarat,1967,5,ANJAR,G. P. CHANDNANI,parties.IN.IND,IND,441,1.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-6,gujarat,1967,6,RAPAR,B. GAJSINHJI,parties.IN.SWA,SWA,15060,50.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-6,gujarat,1967,6,RAPAR,H. N. PATEL,parties.IN.INC,INC,13205,44.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-6,gujarat,1967,6,RAPAR,M. V. THAKKAR,parties.IN.IND,IND,919,3.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-6,gujarat,1967,6,RAPAR,J. RAGHVJI,parties.IN.IND,IND,542,1.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-7,gujarat,1967,7,DASADA,C. C. POPATLAL,parties.IN.SWA,SWA,19089,49.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-7,gujarat,1967,7,DASADA,D. G. C. OZA,parties.IN.INC,INC,14418,37.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-7,gujarat,1967,7,DASADA,A. LABHUBHAI,parties.IN.IND,IND,2803,7.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-7,gujarat,1967,7,DASADA,C. J. NATHUBHAI,parties.IN.IND,IND,972,2.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-7,gujarat,1967,7,DASADA,P. P. DARJIBHAI,parties.IN.IND,IND,779,2.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-7,gujarat,1967,7,DASADA,V. V. PURSHOTTAM,parties.IN.IND,IND,167,0.44,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-8,gujarat,1967,8,WADHWAN,S. J. JHALA,parties.IN.SWA,SWA,29776,68.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-8,gujarat,1967,8,WADHWAN,G. N. SHAH,parties.IN.INC,INC,11211,25.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-8,gujarat,1967,8,WADHWAN,C. AMICHAND,parties.IN.IND,IND,2393,5.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-9,gujarat,1967,9,LIMBDI,H. R. DORIA,parties.IN.SWA,SWA,22633,59.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-9,gujarat,1967,9,LIMBDI,D. B. VANIA,parties.IN.INC,INC,13380,35.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-9,gujarat,1967,9,LIMBDI,B. V. PARMAR,parties.IN.IND,IND,1366,3.6,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-9,gujarat,1967,9,LIMBDI,K. A. PARMAR,parties.IN.IND,IND,521,1.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-10,gujarat,1967,10,CHOTILA,DHARMENDRASINHJI,parties.IN.SWA,SWA,20297,52.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-10,gujarat,1967,10,CHOTILA,A. R. SHAH,parties.IN.INC,INC,16576,42.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-10,gujarat,1967,10,CHOTILA,M. K. SARVAIYA,parties.IN.IND,IND,761,1.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-10,gujarat,1967,10,CHOTILA,P. G. PARMAR,parties.IN.IND,IND,730,1.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-10,gujarat,1967,10,CHOTILA,C. B. BARAIYA,parties.IN.PSP,PSP,389,1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-11,gujarat,1967,11,DHRANGADHRA,MOORRAJJI,parties.IN.SWA,SWA,33727,77.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-11,gujarat,1967,11,DHRANGADHRA,G. D. PATEL,parties.IN.INC,INC,6250,14.34,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-11,gujarat,1967,11,DHRANGADHRA,H. J. SHUKLA,parties.IN.IND,IND,3622,8.31,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-12,gujarat,1967,12,MORVI,V. V. MEHTA,parties.IN.SWA,SWA,21701,55.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-12,gujarat,1967,12,MORVI,G. D. PARMAR,parties.IN.INC,INC,17174,44.18,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-13,gujarat,1967,13,TANKARA,V. J. SHAH,parties.IN.INC,INC,13104,45.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-13,gujarat,1967,13,TANKARA,M. R. RANPURA,parties.IN.BJS,BJS,10209,35.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-13,gujarat,1967,13,TANKARA,B. G. SHARMA,parties.IN.IND,IND,2123,7.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-13,gujarat,1967,13,TANKARA,C. M. DALSANIYA,parties.IN.IND,IND,1364,4.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-13,gujarat,1967,13,TANKARA,D. V. BHALUDIYA,parties.IN.IND,IND,1174,4.06,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-13,gujarat,1967,13,TANKARA,P. D. MAKWANA,parties.IN.IND,IND,962,3.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-14,gujarat,1967,14,WANKANER,D. PRATAPSINHJI,parties.IN.SWA,SWA,18911,50.53,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-14,gujarat,1967,14,WANKANER,P. L. SORATHIA,parties.IN.INC,INC,17276,46.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-14,gujarat,1967,14,WANKANER,M. D. MEHTA,parties.IN.IND,IND,861,2.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-14,gujarat,1967,14,WANKANER,N. C. MEHTA,parties.IN.IND,IND,198,0.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-14,gujarat,1967,14,WANKANER,M. T. DABHI,parties.IN.IND,IND,178,0.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-15,gujarat,1967,15,JASDAN,S. KHACHAR,parties.IN.SWA,SWA,13553,39.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-15,gujarat,1967,15,JASDAN,P. G. GONSAI,parties.IN.INC,INC,13486,39.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-15,gujarat,1967,15,JASDAN,M. H. DABHI,parties.IN.PSP,PSP,7196,21.02,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-16,gujarat,1967,16,RAJKOT I,C. H. SHUKLA,parties.IN.BJS,BJS,21555,61.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-16,gujarat,1967,16,RAJKOT I,J. R. RAVAL,parties.IN.INC,INC,12177,34.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-16,gujarat,1967,16,RAJKOT I,N. G. POPAT,parties.IN.IND,IND,834,2.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-16,gujarat,1967,16,RAJKOT I,H. N. KOTHARI,parties.IN.IND,IND,669,1.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-17,gujarat,1967,17,RAJKOT II,M. P. JADEJA,parties.IN.SWA,SWA,24015,56.29,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-17,gujarat,1967,17,RAJKOT II,L. V. TRIVEDI,parties.IN.INC,INC,17759,41.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-17,gujarat,1967,17,RAJKOT II,R. V. KAKKAD,parties.IN.IND,IND,891,2.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-18,gujarat,1967,18,GONDAL,B. H. PATEL,parties.IN.INC,INC,12667,49.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-18,gujarat,1967,18,GONDAL,N. L. SHAH,parties.IN.SWA,SWA,11427,45.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-18,gujarat,1967,18,GONDAL,P. H. VASOYA,parties.IN.IND,IND,761,3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-18,gujarat,1967,18,GONDAL,P. J. JOSHI,parties.IN.IND,IND,213,0.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-18,gujarat,1967,18,GONDAL,V. D. PAREKH,parties.IN.IND,IND,157,0.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-18,gujarat,1967,18,GONDAL,N. M. TANK,parties.IN.IND,IND,136,0.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-19,gujarat,1967,19,JETPUR,N. K. PATEL,parties.IN.INC,INC,16786,54.6,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-19,gujarat,1967,19,JETPUR,R. U. PATEL,parties.IN.SWA,SWA,10330,33.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-19,gujarat,1967,19,JETPUR,H.L. JOGI,parties.IN.IND,IND,3375,10.98,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-19,gujarat,1967,19,JETPUR,N. S. BHALODI,parties.IN.IND,IND,254,0.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-20,gujarat,1967,20,DHORAJI,M. G. PATEL,parties.IN.INC,INC,16330,48.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-20,gujarat,1967,20,DHORAJI,C. H. VYAS,parties.IN.SWA,SWA,14439,42.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-20,gujarat,1967,20,DHORAJI,K. D. KHAND.,parties.IN.IND,IND,2196,6.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-20,gujarat,1967,20,DHORAJI,A. U. GANDHI,parties.IN.PSP,PSP,765,2.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-21,gujarat,1967,21,UPLETA,J. A. PATEL,parties.IN.INC,INC,16203,47.81,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-21,gujarat,1967,21,UPLETA,R. B. ZALAWADIA,parties.IN.IND,IND,9251,27.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-21,gujarat,1967,21,UPLETA,B. V. KOTHADIA,parties.IN.SWA,SWA,8437,24.89,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-22,gujarat,1967,22,JODIA,C. D. THAKOR,parties.IN.SWA,SWA,18257,49.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-22,gujarat,1967,22,JODIA,D. P. VYAS,parties.IN.INC,INC,17878,48.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-22,gujarat,1967,22,JODIA,P. L. BHIMANI,parties.IN.IND,IND,390,1.07,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-23,gujarat,1967,23,JAMNAGAR,L. PATEL,parties.IN.SWA,SWA,19492,52.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-23,gujarat,1967,23,JAMNAGAR,S. VASA,parties.IN.IND,IND,8424,22.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-23,gujarat,1967,23,JAMNAGAR,S. J. RAJA,parties.IN.INC,INC,7754,20.97,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-23,gujarat,1967,23,JAMNAGAR,S. PAWAR,parties.IN.IND,IND,895,2.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-23,gujarat,1967,23,JAMNAGAR,I. KURESHI,parties.IN.IND,IND,348,0.94,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-23,gujarat,1967,23,JAMNAGAR,K. V. GOHIL,parties.IN.IND,IND,62,0.17,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-24,gujarat,1967,24,ALIA,S. D. PATEL,parties.IN.INC,INC,10863,42.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-24,gujarat,1967,24,ALIA,M. B. JOSHI,parties.IN.SWA,SWA,9296,35.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-24,gujarat,1967,24,ALIA,B. D. VAGHALA,parties.IN.IND,IND,1710,6.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-24,gujarat,1967,24,ALIA,K. R. PATADIYA,parties.IN.PSP,PSP,1496,5.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-24,gujarat,1967,24,ALIA,A. J. SINDHI,parties.IN.IND,IND,1402,5.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-24,gujarat,1967,24,ALIA,A. D. CHANDARIYA,parties.IN.IND,IND,907,3.51,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-24,gujarat,1967,24,ALIA,R. C. TRIVEDI,parties.IN.IND,IND,183,0.71,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-25,gujarat,1967,25,KALAWAD,B. B. PATEL,parties.IN.INC,INC,16762,50.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-25,gujarat,1967,25,KALAWAD,S. D. RAVANI,parties.IN.SWA,SWA,15238,45.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-25,gujarat,1967,25,KALAWAD,K. V. GOHIL,parties.IN.IND,IND,738,2.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-25,gujarat,1967,25,KALAWAD,A. K. MEHTA,parties.IN.PSP,PSP,592,1.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-26,gujarat,1967,26,JAMJODHPUR,N. P. BHANVADIA,parties.IN.SWA,SWA,16304,55.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-26,gujarat,1967,26,JAMJODHPUR,N. D. PATEL,parties.IN.INC,INC,12462,42.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-26,gujarat,1967,26,JAMJODHPUR,M. MEHTA,parties.IN.IND,IND,449,1.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-26,gujarat,1967,26,JAMJODHPUR,H. M. TANNA,parties.IN.IND,IND,122,0.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-27,gujarat,1967,27,KHAMBHALIA,D. V. BARAI,parties.IN.SWA,SWA,9382,39.48,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-27,gujarat,1967,27,KHAMBHALIA,H. R. NAKUM,parties.IN.INC,INC,8745,36.8,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-27,gujarat,1967,27,KHAMBHALIA,P. M. BARAIYA,parties.IN.IND,IND,4795,20.18,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-27,gujarat,1967,27,KHAMBHALIA,B. M. DAVDA,parties.IN.IND,IND,841,3.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-28,gujarat,1967,28,DWARKA,K. G. RAICHURA,parties.IN.INC,INC,10298,34.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-28,gujarat,1967,28,DWARKA,R. K. MADAM,parties.IN.SWA,SWA,8954,29.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-28,gujarat,1967,28,DWARKA,N. P. POPAT,parties.IN.IND,IND,8193,27.23,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-28,gujarat,1967,28,DWARKA,D. N. JAM,parties.IN.IND,IND,2003,6.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-28,gujarat,1967,28,DWARKA,N. G. KOTECHA,parties.IN.IND,IND,645,2.14,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-29,gujarat,1967,29,PORBANDAR,P. D. KAKKAD,parties.IN.INC,INC,12432,38.01,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-29,gujarat,1967,29,PORBANDAR,V. K. THAKARAR,parties.IN.SWA,SWA,11609,35.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-29,gujarat,1967,29,PORBANDAR,R. L. VISHANA,parties.IN.IND,IND,8668,26.5,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-30,gujarat,1967,30,KUTIYANA,B. B. GAJERA,parties.IN.SWA,SWA,17183,52.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-30,gujarat,1967,30,KUTIYANA,M. M. ODEDRA,parties.IN.INC,INC,14226,43.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-30,gujarat,1967,30,KUTIYANA,D. V. NANDANIA,parties.IN.IND,IND,1559,4.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-31,gujarat,1967,31,MANGROL,N. P. GANDHI,parties.IN.IND,IND,10803,37.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-31,gujarat,1967,31,MANGROL,Z. A. SHEKH,parties.IN.INC,INC,10450,36.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-31,gujarat,1967,31,MANGROL,S.. M. CHHAYA,parties.IN.SWA,SWA,7227,25.38,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-32,gujarat,1967,32,SOMNATH,K. B. DODIYA,parties.IN.SWA,SWA,17071,47.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-32,gujarat,1967,32,SOMNATH,N. J. SONAIYA,parties.IN.INC,INC,15368,42.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-32,gujarat,1967,32,SOMNATH,M. R. BHAGDEV,parties.IN.IND,IND,2219,6.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-32,gujarat,1967,32,SOMNATH,J. L. KAMALIYA,parties.IN.IND,IND,1387,3.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-33,gujarat,1967,33,MALIA,K. K. MORI,parties.IN.INC,INC,16585,54.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-33,gujarat,1967,33,MALIA,N.M. DANGAR,parties.IN.SWA,SWA,12027,39.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-33,gujarat,1967,33,MALIA,K. B. UPADHYAY,parties.IN.PSP,PSP,1899,6.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-34,gujarat,1967,34,KESHOD,D. D. PATEL,parties.IN.SWA,SWA,16799,58.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-34,gujarat,1967,34,KESHOD,M. N. RAM,parties.IN.INC,INC,11972,41.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-35,gujarat,1967,35,MANAVADAR,M. A. CHANDA,parties.IN.INC,INC,11785,40.49,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-35,gujarat,1967,35,MANAVADAR,K. H. PARGHE,parties.IN.BJS,BJS,7122,24.47,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-35,gujarat,1967,35,MANAVADAR,G. V. VAGHELA,parties.IN.IND,IND,6871,23.61,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-35,gujarat,1967,35,MANAVADAR,A. M. JETHVA,parties.IN.IND,IND,2614,8.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-35,gujarat,1967,35,MANAVADAR,T. B. SOLANKI,parties.IN.IND,IND,714,2.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-36,gujarat,1967,36,JUNAGADH,P. K. DAVE,parties.IN.INC,INC,15866,45.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-36,gujarat,1967,36,JUNAGADH,S. K. ACHARYA,parties.IN.BJS,BJS,15641,45.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-36,gujarat,1967,36,JUNAGADH,V. J. JOBANPUTRA,parties.IN.IND,IND,2007,5.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-36,gujarat,1967,36,JUNAGADH,I. N. KHALIL,parties.IN.IND,IND,632,1.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-36,gujarat,1967,36,JUNAGADH,G. NATHU,parties.IN.IND,IND,290,0.84,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-36,gujarat,1967,36,JUNAGADH,N. J. VAGHELA,parties.IN.IND,IND,282,0.81,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-37,gujarat,1967,37,VISAVADAR,K. D. BHESANIA,parties.IN.SWA,SWA,14124,48.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-37,gujarat,1967,37,VISAVADAR,C. R. VAGHASIA,parties.IN.INC,INC,13293,46.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-37,gujarat,1967,37,VISAVADAR,J. V. JEEVANI,parties.IN.IND,IND,930,3.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-37,gujarat,1967,37,VISAVADAR,L. J. PATEL,parties.IN.IND,IND,509,1.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-38,gujarat,1967,38,UNA,P. J. OZA,parties.IN.INC,INC,17670,53.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-38,gujarat,1967,38,UNA,R. D. ACHARYA,parties.IN.PSP,PSP,13514,40.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-38,gujarat,1967,38,UNA,B. D. GOHIL,parties.IN.BJS,BJS,1437,4.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-38,gujarat,1967,38,UNA,D. A. SOLANKI,parties.IN.IND,IND,525,1.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-39,gujarat,1967,39,BABRA,J. D. KANSAGRA,parties.IN.INC,INC,15431,53.73,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-39,gujarat,1967,39,BABRA,L. B. SUKHADIA,parties.IN.IND,IND,7734,26.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-39,gujarat,1967,39,BABRA,A. G. AJMERA,parties.IN.SWA,SWA,3457,12.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-39,gujarat,1967,39,BABRA,S. N. PANERI,parties.IN.PSP,PSP,2095,7.3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-40,gujarat,1967,40,LATHI,S. H. BHATT,parties.IN.INC,INC,10527,41.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-40,gujarat,1967,40,LATHI,K. D. MASRANI,parties.IN.PSP,PSP,8820,35.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-40,gujarat,1967,40,LATHI,H. V. SINGALA,parties.IN.SWA,SWA,4636,18.41,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-40,gujarat,1967,40,LATHI,K. M. BHIKADIA,parties.IN.IND,IND,1201,4.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-41,gujarat,1967,41,AMRELI,N. G. GONDHIYA,parties.IN.INC,INC,20875,55.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-41,gujarat,1967,41,AMRELI,N. N. PANERI,parties.IN.PSP,PSP,13308,35.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-41,gujarat,1967,41,AMRELI,N. L. KOTADIA,parties.IN.SWA,SWA,3392,8.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-41,gujarat,1967,41,AMRELI,G. M. GANDHI,parties.IN.IND,IND,343,0.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-42,gujarat,1967,42,DHARI KODINAR,R. T. TEUVA,parties.IN.INC,INC,16929,58.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-42,gujarat,1967,42,DHARI KODINAR,K. P. SOLANKI,parties.IN.SWA,SWA,5632,19.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-42,gujarat,1967,42,DHARI KODINAR,N. M. SOSA,parties.IN.PSP,PSP,5417,18.58,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-42,gujarat,1967,42,DHARI KODINAR,G.B. SONGHARVA,parties.IN.IND,IND,1171,4.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-43,gujarat,1967,43,RAJULA,J. MEHTA,parties.IN.INC,INC,14222,49.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-43,gujarat,1967,43,RAJULA,M. H. MEHTA,parties.IN.SWA,SWA,12064,41.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-43,gujarat,1967,43,RAJULA,K. R. RATHOD,parties.IN.PSP,PSP,1382,4.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-43,gujarat,1967,43,RAJULA,J. R. NASHIT,parties.IN.IND,IND,805,2.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-43,gujarat,1967,43,RAJULA,B. B. MALANKIA,parties.IN.IND,IND,272,0.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-44,gujarat,1967,44,KUNDLA,B. K. PATEL,parties.IN.SWA,SWA,16383,39.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-44,gujarat,1967,44,KUNDLA,L. M. SHETH,parties.IN.INC,INC,13577,32.7,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-44,gujarat,1967,44,KUNDLA,N. P. RAWANI,parties.IN.PSP,PSP,11562,27.85,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-45,gujarat,1967,45,MAHUVA,C. P. MEHTA,parties.IN.INC,INC,15076,50.9,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-45,gujarat,1967,45,MAHUVA,D. K. BHATT,parties.IN.SWA,SWA,12109,40.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-45,gujarat,1967,45,MAHUVA,N. V. MEHTA,parties.IN.IND,IND,1213,4.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-45,gujarat,1967,45,MAHUVA,M. B. SHIYAL,parties.IN.IND,IND,1013,3.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-45,gujarat,1967,45,MAHUVA,H. M. KHATSURIYA,parties.IN.IND,IND,208,0.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-46,gujarat,1967,46,PALITANA,D. J. PATEL,parties.IN.INC,INC,14450,46.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-46,gujarat,1967,46,PALITANA,B. VORA,parties.IN.IND,IND,9782,31.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-46,gujarat,1967,46,PALITANA,P. N. GOHEL,parties.IN.SWA,SWA,5710,18.46,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-46,gujarat,1967,46,PALITANA,A. RATHOD,parties.IN.IND,IND,996,3.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-47,gujarat,1967,47,SIHOR,M. R. PANCHOLLI,parties.IN.INC,INC,14754,47.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-47,gujarat,1967,47,SIHOR,H. A. GOHEL,parties.IN.BJS,BJS,10222,33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-47,gujarat,1967,47,SIHOR,C. L. PATEL,parties.IN.IND,IND,4165,13.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-47,gujarat,1967,47,SIHOR,B. V. SHAH,parties.IN.IND,IND,1010,3.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-47,gujarat,1967,47,SIHOR,A. K. RAVJANI,parties.IN.SSP,SSP,824,2.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-48,gujarat,1967,48,GADHADA,R. B. GOHIL,parties.IN.SWA,SWA,16629,53.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-48,gujarat,1967,48,GADHADA,D. M. DESHAI,parties.IN.INC,INC,12945,41.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-48,gujarat,1967,48,GADHADA,D. M. GOYANI,parties.IN.IND,IND,1320,4.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-49,gujarat,1967,49,BOTAD,P. G. GOHEL,parties.IN.INC,INC,17477,56.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-49,gujarat,1967,49,BOTAD,B. R. MEHTA,parties.IN.BJS,BJS,8604,27.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-49,gujarat,1967,49,BOTAD,D. B. KALATHIA,parties.IN.IND,IND,3526,11.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-49,gujarat,1967,49,BOTAD,R. N. YADAV,parties.IN.PSP,PSP,1178,3.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-50,gujarat,1967,50,BHAVNAGAR,P. SHAH,parties.IN.INC,INC,14580,37.8,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-50,gujarat,1967,50,BHAVNAGAR,S. MEHTA,parties.IN.IND,IND,11029,28.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-50,gujarat,1967,50,BHAVNAGAR,V. P. DESAI,parties.IN.BJS,BJS,4854,12.59,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-50,gujarat,1967,50,BHAVNAGAR,P. R. MEHTA,parties.IN.IND,IND,4041,10.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-50,gujarat,1967,50,BHAVNAGAR,R. PATEL,parties.IN.PSP,PSP,2440,6.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-50,gujarat,1967,50,BHAVNAGAR,M. H. PANANI,parties.IN.IND,IND,1623,4.21,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-51,gujarat,1967,51,GHOGHO,D. B. MEHTA,parties.IN.INC,INC,12526,42.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-51,gujarat,1967,51,GHOGHO,K. THAKKAR,parties.IN.SSP,SSP,8383,28.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-51,gujarat,1967,51,GHOGHO,C. K. MANIAR,parties.IN.BJS,BJS,8275,28.35,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-52,gujarat,1967,52,TALAJA,S. K. GOHIL,parties.IN.SWA,SWA,13478,49.02,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-52,gujarat,1967,52,TALAJA,Z. A. KAPASI,parties.IN.INC,INC,9628,35.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-52,gujarat,1967,52,TALAJA,D.H. BALADIYA,parties.IN.PSP,PSP,4391,15.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-53,gujarat,1967,53,DHANDHUKA,V. B. KOTDAWALA,parties.IN.SWA,SWA,17815,51.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-53,gujarat,1967,53,DHANDHUKA,B. M. SHAH,parties.IN.INC,INC,16853,48.61,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-54,gujarat,1967,54,DHOLKA,K. G. GHIYA,parties.IN.INC,INC,21303,49.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-54,gujarat,1967,54,DHOLKA,B. S. VAGHELA,parties.IN.SWA,SWA,19817,46.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-54,gujarat,1967,54,DHOLKA,J. B. ACHARYA,parties.IN.IND,IND,1134,2.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-54,gujarat,1967,54,DHOLKA,B. G. PATEL,parties.IN.IND,IND,414,0.96,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-54,gujarat,1967,54,DHOLKA,A. R. SANKALIA,parties.IN.IND,IND,321,0.75,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-55,gujarat,1967,55,BAVLA,D. S. PARMAR,parties.IN.SWA,SWA,22352,58.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-55,gujarat,1967,55,BAVLA,B. V. PANDYA,parties.IN.INC,INC,14194,36.89,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-55,gujarat,1967,55,BAVLA,G. H. MARAIYA,parties.IN.IND,IND,1932,5.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-56,gujarat,1967,56,SANAND,D. B. JADAV,parties.IN.SWA,SWA,24626,57.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-56,gujarat,1967,56,SANAND,S. T. PATEL,parties.IN.INC,INC,18197,42.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-57,gujarat,1967,57,VIRAMGAM,G. H. PATEL,parties.IN.INC,INC,25197,54.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-57,gujarat,1967,57,VIRAMGAM,N. S. PARIKH,parties.IN.SWA,SWA,18742,40.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-57,gujarat,1967,57,VIRAMGAM,J. V. PUJARA,parties.IN.IND,IND,1123,2.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-57,gujarat,1967,57,VIRAMGAM,P. L. MASTER,parties.IN.IND,IND,751,1.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-57,gujarat,1967,57,VIRAMGAM,K. C. PATEL,parties.IN.IND,IND,346,0.75,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-58,gujarat,1967,58,ELLISBRIDGE,R. K. PATEL,parties.IN.IND,IND,23084,47.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-58,gujarat,1967,58,ELLISBRIDGE,D. K. PATEL,parties.IN.INC,INC,21680,44.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-58,gujarat,1967,58,ELLISBRIDGE,G. R. CHHABADIA,parties.IN.IND,IND,1645,3.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-58,gujarat,1967,58,ELLISBRIDGE,D. L. RATHOD,parties.IN.RPI,RPI,1310,2.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-58,gujarat,1967,58,ELLISBRIDGE,K. S. ACHARYA,parties.IN.SSP,SSP,1015,2.08,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-59,gujarat,1967,59,DARIAPUR KAZIPUR,T. J. PATEL,parties.IN.INC,INC,20887,46.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-59,gujarat,1967,59,DARIAPUR KAZIPUR,D. K. MEHTA,parties.IN.IND,IND,19574,43.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-59,gujarat,1967,59,DARIAPUR KAZIPUR,R. D. RAJPUT,parties.IN.IND,IND,3567,7.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-59,gujarat,1967,59,DARIAPUR KAZIPUR,P. R. PARMAR,parties.IN.RPI,RPI,780,1.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-60,gujarat,1967,60,ASARVA,M. T. SHUKLA,parties.IN.INC,INC,19733,45.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-60,gujarat,1967,60,ASARVA,G.. L. PATEL,parties.IN.IND,IND,17673,40.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-60,gujarat,1967,60,ASARVA,G. M. THAKORE,parties.IN.IND,IND,2502,5.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-60,gujarat,1967,60,ASARVA,R. M. PARMAR,parties.IN.RPI,RPI,1534,3.51,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-60,gujarat,1967,60,ASARVA,K. N. DHANEK,parties.IN.IND,IND,1244,2.85,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-60,gujarat,1967,60,ASARVA,M. D. RAJASTHANI,parties.IN.SWA,SWA,1006,2.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-61,gujarat,1967,61,KHADIA,M. G. SHASTRI,parties.IN.PSP,PSP,22208,59.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-61,gujarat,1967,61,KHADIA,B. R. BHATT,parties.IN.INC,INC,9141,24.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-61,gujarat,1967,61,KHADIA,V. N. GAJENDRAGADKAR,parties.IN.BJS,BJS,3555,9.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-61,gujarat,1967,61,KHADIA,P. V. PATEL,parties.IN.IND,IND,1803,4.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-61,gujarat,1967,61,KHADIA,A. J. SHAH,parties.IN.IND,IND,481,1.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-62,gujarat,1967,62,KALUPUR,M. H. PALKHIWALA,parties.IN.IND,IND,22945,52.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-62,gujarat,1967,62,KALUPUR,R. C. MANSURI,parties.IN.SWA,SWA,8668,19.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-62,gujarat,1967,62,KALUPUR,M. K. SONI,parties.IN.INC,INC,6406,14.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-62,gujarat,1967,62,KALUPUR,B. C. KAPADIA,parties.IN.IND,IND,5917,13.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-62,gujarat,1967,62,KALUPUR,N. G. SAIYED,parties.IN.IND,IND,108,0.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-63,gujarat,1967,63,SHAHPUR,S. C. DESAI,parties.IN.IND,IND,24075,59.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-63,gujarat,1967,63,SHAHPUR,M. P. VYAS,parties.IN.INC,INC,13472,33.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-63,gujarat,1967,63,SHAHPUR,C. N. PATEL,parties.IN.BJS,BJS,3184,7.82,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-64,gujarat,1967,64,JAMALPUR,A. T. KUNDIWALA,parties.IN.SWA,SWA,14023,37.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-64,gujarat,1967,64,JAMALPUR,K. R. CHHIPA,parties.IN.INC,INC,13600,36.59,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-64,gujarat,1967,64,JAMALPUR,S. C. MODY,parties.IN.IND,IND,7018,18.88,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-64,gujarat,1967,64,JAMALPUR,R. S. SHAH,parties.IN.IND,IND,2029,5.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-64,gujarat,1967,64,JAMALPUR,N. T. REKH,parties.IN.IND,IND,298,0.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-64,gujarat,1967,64,JAMALPUR,S. J. CHRISTIAN,parties.IN.IND,IND,197,0.53,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-65,gujarat,1967,65,KANKARIA,J. G. PARMAR,parties.IN.INC,INC,19620,48.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-65,gujarat,1967,65,KANKARIA,N. K. MAKWANA,parties.IN.PSP,PSP,15874,39.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-65,gujarat,1967,65,KANKARIA,N. I. SOLANKI,parties.IN.IND,IND,5202,12.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-66,gujarat,1967,66,RAKHIAL,S. R. SHAH,parties.IN.INC,INC,25092,49.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-66,gujarat,1967,66,RAKHIAL,A. B. SHAIKH,parties.IN.IND,IND,17041,33.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-66,gujarat,1967,66,RAKHIAL,M. D. PATEL,parties.IN.SWA,SWA,4226,8.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-66,gujarat,1967,66,RAKHIAL,L. K. YADAV,parties.IN.BJS,BJS,2371,4.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-66,gujarat,1967,66,RAKHIAL,B. F. ARYA,parties.IN.IND,IND,1144,2.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-66,gujarat,1967,66,RAKHIAL,M. K. BHUJOTAR,parties.IN.SSP,SSP,304,0.6,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-66,gujarat,1967,66,RAKHIAL,K. M. SHAH,parties.IN.IND,IND,301,0.6,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-67,gujarat,1967,67,NARODA,V. TARACHANDANI,parties.IN.INC,INC,26261,51.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-67,gujarat,1967,67,NARODA,D. MULJIBHAI,parties.IN.SWA,SWA,14912,29.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-67,gujarat,1967,67,NARODA,M. R. THAKORE,parties.IN.IND,IND,8571,16.8,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-67,gujarat,1967,67,NARODA,G. H. JODHANI,parties.IN.IND,IND,908,1.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-67,gujarat,1967,67,NARODA,K. J. PATEL,parties.IN.IND,IND,377,0.74,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-68,gujarat,1967,68,DASKROI,V. L. MEHTA,parties.IN.SWA,SWA,34395,66.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-68,gujarat,1967,68,DASKROI,C. J. PATEL,parties.IN.INC,INC,17268,33.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-69,gujarat,1967,69,DEHGAM,M. C. SHAH,parties.IN.SWA,SWA,29840,65.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-69,gujarat,1967,69,DEHGAM,V. P. AMIN,parties.IN.INC,INC,15743,34.54,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-70,gujarat,1967,70,GANDHINAGAR,S. L. PATEL,parties.IN.SWA,SWA,22106,43.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-70,gujarat,1967,70,GANDHINAGAR,R. B. PATEL,parties.IN.INC,INC,20723,40.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-70,gujarat,1967,70,GANDHINAGAR,P. C. THAKOR,parties.IN.PSP,PSP,5880,11.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-70,gujarat,1967,70,GANDHINAGAR,B. R. GOR,parties.IN.IND,IND,2285,4.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-71,gujarat,1967,71,KALOL,A. B. THAKOR,parties.IN.INC,INC,22385,45.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-71,gujarat,1967,71,KALOL,C. K. PATEL,parties.IN.SWA,SWA,14939,30.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-71,gujarat,1967,71,KALOL,S. K. THAKOR,parties.IN.IND,IND,11794,24.01,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-72,gujarat,1967,72,KADI,P. N. PARMAR,parties.IN.SWA,SWA,27203,58.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-72,gujarat,1967,72,KADI,G. K. RUPALA,parties.IN.INC,INC,17402,37.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-72,gujarat,1967,72,KADI,K. M. RATHOD,parties.IN.RPI,RPI,1570,3.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-73,gujarat,1967,73,JOTANA,B. M. PATEL,parties.IN.SWA,SWA,31803,64.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-73,gujarat,1967,73,JOTANA,K. S. PATEL,parties.IN.INC,INC,16336,32.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-73,gujarat,1967,73,JOTANA,G. N. MAKWANA,parties.IN.IND,IND,1034,2.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-73,gujarat,1967,73,JOTANA,K. H. PATEL,parties.IN.IND,IND,398,0.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-74,gujarat,1967,74,MEHSANA,K. J. YAGNIK,parties.IN.SWA,SWA,23073,55.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-74,gujarat,1967,74,MEHSANA,P. R. PATEL,parties.IN.INC,INC,16580,39.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-74,gujarat,1967,74,MEHSANA,H. K. DESAI,parties.IN.IND,IND,1017,2.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-74,gujarat,1967,74,MEHSANA,B. K. RUVALA,parties.IN.IND,IND,722,1.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-74,gujarat,1967,74,MEHSANA,S. J. PATEL,parties.IN.IND,IND,454,1.08,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-75,gujarat,1967,75,MANSA,C. G. PATEL,parties.IN.SWA,SWA,28467,55.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-75,gujarat,1967,75,MANSA,M. P. PATEL,parties.IN.INC,INC,22702,44.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-76,gujarat,1967,76,VIJAPUR,G. C. RAVAL,parties.IN.INC,INC,26519,52.22,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-76,gujarat,1967,76,VIJAPUR,A. D. PATEL,parties.IN.SWA,SWA,24267,47.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-77,gujarat,1967,77,VISNAGAR,S. B. PATEL,parties.IN.INC,INC,28926,55.12,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-77,gujarat,1967,77,VISNAGAR,I. B. PATEL,parties.IN.SWA,SWA,20134,38.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-77,gujarat,1967,77,VISNAGAR,C. N. MANIYAR,parties.IN.IND,IND,2883,5.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-77,gujarat,1967,77,VISNAGAR,M. K. VANKAR,parties.IN.IND,IND,535,1.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-78,gujarat,1967,78,KHERALU,V. V. PARIKH,parties.IN.IND,IND,14212,35.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-78,gujarat,1967,78,KHERALU,M. K. THAKORE,parties.IN.SWA,SWA,13989,34.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-78,gujarat,1967,78,KHERALU,A. A. TUNWAR,parties.IN.INC,INC,10630,26.25,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-78,gujarat,1967,78,KHERALU,M. H. PATEL,parties.IN.IND,IND,1657,4.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-79,gujarat,1967,79,UNJHA,P. S. MOHANLAL,parties.IN.SWA,SWA,29252,64.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-79,gujarat,1967,79,UNJHA,P. K. LALLUDAS,parties.IN.INC,INC,14410,31.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-79,gujarat,1967,79,UNJHA,T. C. NARBHAJI,parties.IN.IND,IND,1767,3.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-80,gujarat,1967,80,SIDHPUR,P. N. LALLUBHAI,parties.IN.INC,INC,26574,61.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-80,gujarat,1967,80,SIDHPUR,P. S. SHIVABHAI,parties.IN.BJS,BJS,16329,38.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-81,gujarat,1967,81,PATAN,V.M. TRIVEDI,parties.IN.INC,INC,29083,57.5,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-81,gujarat,1967,81,PATAN,S.M. SHAH,parties.IN.SWA,SWA,17880,35.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-81,gujarat,1967,81,PATAN,M.R. BAROT,parties.IN.SSP,SSP,3292,6.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-81,gujarat,1967,81,PATAN,H.C. GANDHI,parties.IN.IND,IND,321,0.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-82,gujarat,1967,82,CHANASMA,B.K. PATEL,parties.IN.SWA,SWA,28061,56.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-82,gujarat,1967,82,CHANASMA,P.N. PATEL,parties.IN.INC,INC,20412,41.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-82,gujarat,1967,82,CHANASMA,H.B. SWAMI,parties.IN.IND,IND,615,1.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-82,gujarat,1967,82,CHANASMA,J.S. VANKER,parties.IN.IND,IND,476,0.96,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-83,gujarat,1967,83,SAMI,K.H. CHAUDHARI,parties.IN.INC,INC,17880,40.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-83,gujarat,1967,83,SAMI,S.V. THAKKAR,parties.IN.SWA,SWA,14464,32.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-83,gujarat,1967,83,SAMI,K.S. KOLI,parties.IN.IND,IND,11299,25.4,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-83,gujarat,1967,83,SAMI,B.B. THAKKAR,parties.IN.IND,IND,840,1.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-84,gujarat,1967,84,RADHANPUR,R.K. JADEJA,parties.IN.SWA,SWA,19044,52.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-84,gujarat,1967,84,RADHANPUR,D.J. PORANIA,parties.IN.INC,INC,17211,47.47,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-85,gujarat,1967,85,VAV,J.P. PARMAR,parties.IN.SWA,SWA,20812,68.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-85,gujarat,1967,85,VAV,K.M. PARMAR,parties.IN.INC,INC,9550,31.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-86,gujarat,1967,86,DEDDAR,G.V. VAGHHELA,parties.IN.INC,INC,15671,49.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-86,gujarat,1967,86,DEDDAR,S.M. RAVAL,parties.IN.SWA,SWA,15208,47.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-86,gujarat,1967,86,DEDDAR,H.R. SHAH,parties.IN.IND,IND,875,2.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-87,gujarat,1967,87,KANKREJ,J.V. SHAH,parties.IN.INC,INC,13336,39.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-87,gujarat,1967,87,KANKREJ,S.C. DHANDHARA,parties.IN.IND,IND,12581,36.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-87,gujarat,1967,87,KANKREJ,V.S. BODANA,parties.IN.SWA,SWA,5684,16.69,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-87,gujarat,1967,87,KANKREJ,J.K. DESAI,parties.IN.IND,IND,2458,7.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-88,gujarat,1967,88,DEESA,S.S. SHAH,parties.IN.INC,INC,19506,55.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-88,gujarat,1967,88,DEESA,H.V. RATHOD,parties.IN.SWA,SWA,15433,44.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-89,gujarat,1967,89,DHANERA,B.J. JOSHI,parties.IN.SWA,SWA,15146,58.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-89,gujarat,1967,89,DHANERA,S.M. SHAH,parties.IN.INC,INC,10813,41.65,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-90,gujarat,1967,90,PALANPUR,A.C. MEHTA,parties.IN.INC,INC,14946,45.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-90,gujarat,1967,90,PALANPUR,R.A. PATEL,parties.IN.SWA,SWA,13664,41.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-90,gujarat,1967,90,PALANPUR,C.M. JAIN,parties.IN.IND,IND,2089,6.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-90,gujarat,1967,90,PALANPUR,U.M. PANCHAL,parties.IN.IND,IND,1067,3.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-90,gujarat,1967,90,PALANPUR,B.M. JAGIRDAR,parties.IN.SSP,SSP,639,1.92,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-90,gujarat,1967,90,PALANPUR,K.N. NAAGORI,parties.IN.IND,IND,484,1.46,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-90,gujarat,1967,90,PALANPUR,G.I. PATEL,parties.IN.IND,IND,315,0.95,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-91,gujarat,1967,91,DANTA,F.D. PATEL,parties.IN.INC,INC,15202,52.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-91,gujarat,1967,91,DANTA,L.R. KAREN,parties.IN.SWA,SWA,13846,47.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-92,gujarat,1967,92,KHEDBRAHMA,Z.B. RATHOD,parties.IN.SWA,SWA,17542,68.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-92,gujarat,1967,92,KHEDBRAHMA,M.S. DABHI,parties.IN.INC,INC,8150,31.72,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-93,gujarat,1967,93,IDAR,M.R. BHUMBHI,parties.IN.SWA,SWA,22693,57.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-93,gujarat,1967,93,IDAR,J.A. BHUMBHI,parties.IN.INC,INC,16856,42.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-94,gujarat,1967,94,BHILODA,A.J. TRIVEDI,parties.IN.SWA,SWA,20150,55.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-94,gujarat,1967,94,BHILODA,M.K. SHAH,parties.IN.INC,INC,16068,44.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-95,gujarat,1967,95,HIMATNAGAR,D. HIMATSINHJI,parties.IN.SWA,SWA,25313,60.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-95,gujarat,1967,95,HIMATNAGAR,S.D. PATEL,parties.IN.INC,INC,13853,33.08,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-95,gujarat,1967,95,HIMATNAGAR,M.D. BHATT,parties.IN.IND,IND,2709,6.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-96,gujarat,1967,96,PRANTIJ,N.A. JHALA,parties.IN.SWA,SWA,26957,62.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-96,gujarat,1967,96,PRANTIJ,S.C. PATEL,parties.IN.INC,INC,15289,35.72,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-96,gujarat,1967,96,PRANTIJ,H.K. THAKOR,parties.IN.IND,IND,562,1.31,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-97,gujarat,1967,97,MODASA,N.S. PATEL,parties.IN.SWA,SWA,15794,41.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-97,gujarat,1967,97,MODASA,N.P. PATEL,parties.IN.INC,INC,12560,32.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-97,gujarat,1967,97,MODASA,A.J. UPADHYA,parties.IN.PSP,PSP,8201,21.51,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-97,gujarat,1967,97,MODASA,R.V. SHAH,parties.IN.IND,IND,807,2.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-97,gujarat,1967,97,MODASA,D.K. PATEL,parties.IN.IND,IND,757,1.99,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-98,gujarat,1967,98,BAYAD,L.K. RAHEVAR,parties.IN.SWA,SWA,21113,57.66,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-98,gujarat,1967,98,BAYAD,J.A. PARMAR,parties.IN.INC,INC,12836,35.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-98,gujarat,1967,98,BAYAD,S.K. CHAUHAN,parties.IN.IND,IND,2668,7.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-99,gujarat,1967,99,MEGHRAJ,J.P. BHATT,parties.IN.SWA,SWA,23483,59.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-99,gujarat,1967,99,MEGHRAJ,G.J. TRIVEDI,parties.IN.INC,INC,14319,36.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-99,gujarat,1967,99,MEGHRAJ,N.K. JODDHA,parties.IN.PSP,PSP,1071,2.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-99,gujarat,1967,99,MEGHRAJ,M.N. MANAT,parties.IN.IND,IND,594,1.51,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-100,gujarat,1967,100,SANTRAMPUR,K.K. PARMAR,parties.IN.INC,INC,18386,48.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-100,gujarat,1967,100,SANTRAMPUR,K.P. PARMAR,parties.IN.SWA,SWA,16390,43.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-100,gujarat,1967,100,SANTRAMPUR,Y.B. RANVADAY,parties.IN.IND,IND,1868,4.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-100,gujarat,1967,100,SANTRAMPUR,J.K. DAMOR,parties.IN.IND,IND,995,2.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-100,gujarat,1967,100,SANTRAMPUR,S.N. BARIA,parties.IN.SSP,SSP,240,0.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-101,gujarat,1967,101,JHALOD,H.L. NINAMA,parties.IN.INC,INC,16955,61.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-101,gujarat,1967,101,JHALOD,G.H. VASAIYA,parties.IN.IND,IND,5976,21.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-101,gujarat,1967,101,JHALOD,V.L. MUNIYA,parties.IN.SSP,SSP,2745,9.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-101,gujarat,1967,101,JHALOD,M.F. DAMOR,parties.IN.IND,IND,2039,7.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-102,gujarat,1967,102,LIMDI,I.M. HATHILA,parties.IN.INC,INC,24688,72.78,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-102,gujarat,1967,102,LIMDI,G.M. DAMOR,parties.IN.SWA,SWA,6968,20.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-102,gujarat,1967,102,LIMDI,G.K. NISARATA,parties.IN.SSP,SSP,2266,6.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-103,gujarat,1967,103,DOHAD,J.M. SOLANKI,parties.IN.INC,INC,20483,69.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-103,gujarat,1967,103,DOHAD,S.P. BAMANIA,parties.IN.SWA,SWA,6924,23.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-103,gujarat,1967,103,DOHAD,K.J. BARIA,parties.IN.IND,IND,1313,4.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-103,gujarat,1967,103,DOHAD,B.N. BAAMANIA,parties.IN.PSP,PSP,902,3.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-104,gujarat,1967,104,LIMKHEDA,V.B. PASAYA,parties.IN.SWA,SWA,25131,72.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-104,gujarat,1967,104,LIMKHEDA,B.M. BHABHOR,parties.IN.INC,INC,6740,19.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-104,gujarat,1967,104,LIMKHEDA,R.R. RAVAT,parties.IN.SSP,SSP,1499,4.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-104,gujarat,1967,104,LIMKHEDA,B.M. GODIA,parties.IN.IND,IND,1158,3.35,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-105,gujarat,1967,105,DEVGADH BARIA,JAIDEEPSINHJI,parties.IN.SWA,SWA,33043,80.11,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-105,gujarat,1967,105,DEVGADH BARIA,G.N. DALAL,parties.IN.INC,INC,7517,18.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-105,gujarat,1967,105,DEVGADH BARIA,M.B. BARIA,parties.IN.IND,IND,688,1.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-106,gujarat,1967,106,HALOL,A.D. PARMAR,parties.IN.INC,INC,16650,48.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-106,gujarat,1967,106,HALOL,U.M. PARMAR,parties.IN.SWA,SWA,12644,36.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-106,gujarat,1967,106,HALOL,R.T. PARIKH,parties.IN.PSP,PSP,3352,9.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-106,gujarat,1967,106,HALOL,C.D. PARMAR,parties.IN.IND,IND,1581,4.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-107,gujarat,1967,107,KALOL,V.B. CHOHAN,parties.IN.SWA,SWA,20534,54.07,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-107,gujarat,1967,107,KALOL,R.R. THAKOR,parties.IN.INC,INC,15570,41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-107,gujarat,1967,107,KALOL,M.M. RATHOD,parties.IN.IND,IND,1872,4.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-108,gujarat,1967,108,GODHRA,G.D. PATHAK,parties.IN.SWA,SWA,17561,48.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-108,gujarat,1967,108,GODHRA,S.B. DESAI,parties.IN.INC,INC,14250,39.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-108,gujarat,1967,108,GODHRA,C.S. PATEL,parties.IN.IND,IND,1892,5.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-108,gujarat,1967,108,GODHRA,S.N. SHIROIA,parties.IN.PSP,PSP,1240,3.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-108,gujarat,1967,108,GODHRA,A.H.H. SAHERWALA,parties.IN.IND,IND,667,1.84,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-108,gujarat,1967,108,GODHRA,H.J. RATHOD,parties.IN.IND,IND,557,1.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-109,gujarat,1967,109,SALIA,R.J. BHATIA,parties.IN.SWA,SWA,13059,37.65,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-109,gujarat,1967,109,SALIA,P.H. PATEL,parties.IN.IND,IND,12912,37.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-109,gujarat,1967,109,SALIA,K. PRUTHVIRAJSINH,parties.IN.INC,INC,8714,25.12,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-110,gujarat,1967,110,SHEHRA,P.G. PARMAR,parties.IN.INC,INC,15701,46.03,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-110,gujarat,1967,110,SHEHRA,A.B. SOLANKI,parties.IN.SWA,SWA,10206,29.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-110,gujarat,1967,110,SHEHRA,K.A. RATHOD,parties.IN.IND,IND,4706,13.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-110,gujarat,1967,110,SHEHRA,B.D. PATHAK,parties.IN.IND,IND,1415,4.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-110,gujarat,1967,110,SHEHRA,C.V. THAKOR,parties.IN.IND,IND,1332,3.91,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-110,gujarat,1967,110,SHEHRA,S.V. CHAUHAN,parties.IN.PSP,PSP,749,2.2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-111,gujarat,1967,111,LUNAVADA,K.B. DAVE,parties.IN.SWA,SWA,20494,55.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-111,gujarat,1967,111,LUNAVADA,A.R.H.A. ANARWALA,parties.IN.INC,INC,12808,34.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-111,gujarat,1967,111,LUNAVADA,C.L. RATHOD,parties.IN.IND,IND,2026,5.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-111,gujarat,1967,111,LUNAVADA,P.D. CHARAN,parties.IN.IND,IND,801,2.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-111,gujarat,1967,111,LUNAVADA,R.C. PARIKH,parties.IN.PSP,PSP,468,1.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-111,gujarat,1967,111,LUNAVADA,H.L. DOSHI,parties.IN.IND,IND,244,0.66,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-112,gujarat,1967,112,BALASINOR,N.K. SOLANKI,parties.IN.SWA,SWA,22997,55.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-112,gujarat,1967,112,BALASINOR,R.N. GANDHI,parties.IN.INC,INC,18709,44.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-113,gujarat,1967,113,THASRA,M.D. DESAI,parties.IN.SWA,SWA,25786,61.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-113,gujarat,1967,113,THASRA,U.G. PARMAR,parties.IN.INC,INC,16313,38.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-114,gujarat,1967,114,KAPADWANJ,K.N. DOSHI,parties.IN.SWA,SWA,26615,55.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-114,gujarat,1967,114,KAPADWANJ,U.S. PARIKH,parties.IN.INC,INC,20936,43.68,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-114,gujarat,1967,114,KAPADWANJ,B.M. SHROFF,parties.IN.IND,IND,375,0.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-115,gujarat,1967,115,KATHLAL,A.K. PARMAR,parties.IN.SWA,SWA,17443,46.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-115,gujarat,1967,115,KATHLAL,J.A. THAKOR,parties.IN.INC,INC,14253,37.96,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-115,gujarat,1967,115,KATHLAL,F.R. DABHI,parties.IN.IND,IND,5854,15.59,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-116,gujarat,1967,116,MEHMEDABAD,J.H. JADAV,parties.IN.INC,INC,25501,54.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-116,gujarat,1967,116,MEHMEDABAD,R.N. PATEL,parties.IN.SWA,SWA,21056,45.23,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-117,gujarat,1967,117,MAHUDHA,A.B. VAGHELA,parties.IN.SWA,SWA,19427,50.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-117,gujarat,1967,117,MAHUDHA,R.N. DAVDAWALA,parties.IN.INC,INC,15311,39.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-117,gujarat,1967,117,MAHUDHA,J.A. PAARIKH,parties.IN.IND,IND,2390,6.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-117,gujarat,1967,117,MAHUDHA,B.N. PATEL,parties.IN.IND,IND,1243,3.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-118,gujarat,1967,118,NADIAD,B.J. PATEL,parties.IN.INC,INC,28767,53.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-118,gujarat,1967,118,NADIAD,M.B. DESAI,parties.IN.SWA,SWA,25110,46.61,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-119,gujarat,1967,119,ANAND,S.D. VAGHELA,parties.IN.INC,INC,30936,52.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-119,gujarat,1967,119,ANAND,H.M. PATEL,parties.IN.SWA,SWA,25969,44.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-119,gujarat,1967,119,ANAND,R.L. KHRISTI,parties.IN.IND,IND,1530,2.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-120,gujarat,1967,120,UMRETH,U.V. VADODIYA,parties.IN.SWA,SWA,25324,59.91,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-120,gujarat,1967,120,UMRETH,C.K. PATEL,parties.IN.INC,INC,16943,40.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-121,gujarat,1967,121,SARSA,B.D. PATEL,parties.IN.SWA,SWA,23712,51.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-121,gujarat,1967,121,SARSA,A.M. PATEL,parties.IN.INC,INC,22429,48.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-122,gujarat,1967,122,BORSAD,R.D. PATEL,parties.IN.INC,INC,25636,54.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-122,gujarat,1967,122,BORSAD,F.D. PATEL,parties.IN.SWA,SWA,19394,41.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-122,gujarat,1967,122,BORSAD,M.B. PARMAR,parties.IN.PSP,PSP,1629,3.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-123,gujarat,1967,123,BHADRAN,M.F. SOLANKI,parties.IN.INC,INC,28644,57.32,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-123,gujarat,1967,123,BHADRAN,F.M. PARMAR,parties.IN.SWA,SWA,21330,42.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-124,gujarat,1967,124,SOJITRA,I.C. PATEL,parties.IN.INC,INC,27418,59.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-124,gujarat,1967,124,SOJITRA,D.M. CHAUHAN,parties.IN.SWA,SWA,17159,37.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-124,gujarat,1967,124,SOJITRA,H.M. PAARMAR,parties.IN.IND,IND,750,1.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-124,gujarat,1967,124,SOJITRA,H.J. SOLANKI,parties.IN.PSP,PSP,712,1.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-125,gujarat,1967,125,PETLAD,A.A. MIRZA,parties.IN.INC,INC,23981,50.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-125,gujarat,1967,125,PETLAD,J.C. PATEL,parties.IN.SWA,SWA,23795,49.81,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-126,gujarat,1967,126,MATAR,G.A. WAGHELA,parties.IN.INC,INC,31777,67.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-126,gujarat,1967,126,MATAR,D.P. MAKWANA,parties.IN.SWA,SWA,14249,30.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-126,gujarat,1967,126,MATAR,K.M. CHAUHAN,parties.IN.IND,IND,1041,2.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-127,gujarat,1967,127,CAMBAY,M.B. SHAH,parties.IN.INC,INC,29718,58.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-127,gujarat,1967,127,CAMBAY,R.G. SHASTRI,parties.IN.SWA,SWA,20047,39.36,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-127,gujarat,1967,127,CAMBAY,M.V. PATEL,parties.IN.IND,IND,671,1.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-127,gujarat,1967,127,CAMBAY,N.M. RATHOD,parties.IN.IND,IND,495,0.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-128,gujarat,1967,128,JETPUR,M.S. TADVI,parties.IN.SWA,SWA,13358,57.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-128,gujarat,1967,128,JETPUR,K.G. NAIK,parties.IN.INC,INC,10016,42.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-129,gujarat,1967,129,CHHOTAUDAIPUR,B.G. TADVI,parties.IN.INC,INC,15102,53.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-129,gujarat,1967,129,CHHOTAUDAIPUR,K.B. KOLI,parties.IN.SWA,SWA,13319,46.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-130,gujarat,1967,130,NASWADI,P.U. BHIL,parties.IN.INC,INC,21940,53.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-130,gujarat,1967,130,NASWADI,P.H. BHIL,parties.IN.SWA,SWA,19169,46.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-131,gujarat,1967,131,SANKHEDA,C.J. PATEL,parties.IN.INC,INC,32187,72.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-131,gujarat,1967,131,SANKHEDA,R.G. PATEL,parties.IN.SWA,SWA,12056,27.25,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-132,gujarat,1967,132,DABHOI,N.I. PUROHIT,parties.IN.SWA,SWA,20764,47.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-132,gujarat,1967,132,DABHOI,B.M. PATEL,parties.IN.INC,INC,19228,44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-132,gujarat,1967,132,DABHOI,S.G.PARIKH,parties.IN.IND,IND,3707,8.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-133,gujarat,1967,133,WAGHODIA,M.G. POLA,parties.IN.INC,INC,12844,39.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-133,gujarat,1967,133,WAGHODIA,B.N. PATEL,parties.IN.SWA,SWA,12704,38.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-133,gujarat,1967,133,WAGHODIA,G.I. PARMAR,parties.IN.IND,IND,7072,21.68,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-134,gujarat,1967,134,SAVLI,M.A. SHAH,parties.IN.INC,INC,15449,37.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-134,gujarat,1967,134,SAVLI,P.J. PARMAR,parties.IN.PSP,PSP,13276,32.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-134,gujarat,1967,134,SAVLI,H.R. PATEL,parties.IN.SWA,SWA,11095,26.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-134,gujarat,1967,134,SAVLI,D.B. THAKOR,parties.IN.IND,IND,1290,3.14,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-135,gujarat,1967,135,BARODA CITY,C.K. PARIKH,parties.IN.SWA,SWA,21826,55.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-135,gujarat,1967,135,BARODA CITY,F.H. PALEJWALA,parties.IN.INC,INC,13565,34.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-135,gujarat,1967,135,BARODA CITY,C.K. PATEL,parties.IN.IND,IND,2805,7.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-135,gujarat,1967,135,BARODA CITY,F.A. SOPARIWALA,parties.IN.IND,IND,579,1.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-135,gujarat,1967,135,BARODA CITY,A.J. CHAUHAN,parties.IN.IND,IND,505,1.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-136,gujarat,1967,136,RAOPURA,S.M.MEHTA,parties.IN.PSP,PSP,13918,42.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-136,gujarat,1967,136,RAOPURA,B. G. CONTRACTOR,parties.IN.INC,INC,10521,31.89,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-136,gujarat,1967,136,RAOPURA,N. C. PATEL,parties.IN.SWA,SWA,7300,22.13,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-136,gujarat,1967,136,RAOPURA,V. V. MAHEDADE,parties.IN.IND,IND,1074,3.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-136,gujarat,1967,136,RAOPURA,T. V. PAREKH,parties.IN.IND,IND,180,0.55,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-137,gujarat,1967,137,SAYAJIGANJ,F.P. GAEKWAD,parties.IN.INC,INC,21739,60,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-137,gujarat,1967,137,SAYAJIGANJ,K.J. THAKKAR,parties.IN.IND,IND,10478,28.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-137,gujarat,1967,137,SAYAJIGANJ,B.H. TRIVEDI,parties.IN.IND,IND,3064,8.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-137,gujarat,1967,137,SAYAJIGANJ,P.C. AZAD,parties.IN.IND,IND,657,1.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-137,gujarat,1967,137,SAYAJIGANJ,B.P. MAKWANA,parties.IN.IND,IND,294,0.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-138,gujarat,1967,138,BARODA RURAL,K.A. WAGHELA,parties.IN.SWA,SWA,22522,56.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-138,gujarat,1967,138,BARODA RURAL,R.H. THAKOR,parties.IN.INC,INC,13872,34.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-138,gujarat,1967,138,BARODA RURAL,C.V. PATEL,parties.IN.IND,IND,3261,8.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-139,gujarat,1967,139,PADRA,J.S. SHAH,parties.IN.INC,INC,26263,54.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-139,gujarat,1967,139,PADRA,S.D. PARMAR,parties.IN.SWA,SWA,17471,36.23,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-139,gujarat,1967,139,PADRA,S.K. MAALEK,parties.IN.PSP,PSP,2580,5.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-139,gujarat,1967,139,PADRA,C.R. PADHIAR,parties.IN.IND,IND,1908,3.96,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-140,gujarat,1967,140,KARJAN,N.G. ARYA,parties.IN.SWA,SWA,21639,47.3,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-140,gujarat,1967,140,KARJAN,N.M. PARMAR,parties.IN.INC,INC,21125,46.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-140,gujarat,1967,140,KARJAN,N.D. PARMAR,parties.IN.IND,IND,2981,6.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-141,gujarat,1967,141,JAMBUSAR,V.C. SHAH,parties.IN.INC,INC,28080,64.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-141,gujarat,1967,141,JAMBUSAR,R.M. PATEL,parties.IN.SWA,SWA,8816,20.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-141,gujarat,1967,141,JAMBUSAR,M. PARSOTAMBHAI,parties.IN.IND,IND,2550,5.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-141,gujarat,1967,141,JAMBUSAR,A.R. ISABHAI,parties.IN.PSP,PSP,1977,4.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-141,gujarat,1967,141,JAMBUSAR,J.N. SHAH,parties.IN.IND,IND,1163,2.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-141,gujarat,1967,141,JAMBUSAR,B. MUGATRAM,parties.IN.IND,IND,696,1.59,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-141,gujarat,1967,141,JAMBUSAR,C.R. PADHIYAR,parties.IN.IND,IND,405,0.93,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-142,gujarat,1967,142,VAGRA,N.M. KAANSARA,parties.IN.INC,INC,22825,49.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-142,gujarat,1967,142,VAGRA,M.H.M. KAKUJI,parties.IN.SWA,SWA,17878,38.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-142,gujarat,1967,142,VAGRA,B. KHODABHAI,parties.IN.IND,IND,2721,5.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-142,gujarat,1967,142,VAGRA,C.J. PATEL,parties.IN.PSP,PSP,1969,4.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-142,gujarat,1967,142,VAGRA,V.M. MAKAN,parties.IN.IND,IND,498,1.09,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-143,gujarat,1967,143,BROACH,C.M. BHATT,parties.IN.INC,INC,21112,46.11,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-143,gujarat,1967,143,BROACH,A.N. CHAUHAN,parties.IN.SWA,SWA,12646,27.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-143,gujarat,1967,143,BROACH,B.B. MODI,parties.IN.IND,IND,12026,26.27,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-144,gujarat,1967,144,ANKLESHWAR,A.A. PATEL,parties.IN.INC,INC,20294,47.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-144,gujarat,1967,144,ANKLESHWAR,H.G. PATEL,parties.IN.SWA,SWA,16972,39.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-144,gujarat,1967,144,ANKLESHWAR,M.R. DESAI,parties.IN.IND,IND,5355,12.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-145,gujarat,1967,145,JHAGADIA,Z.R. VASAVA,parties.IN.INC,INC,14479,38.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-145,gujarat,1967,145,JHAGADIA,J. MANSANGBHAI,parties.IN.SWA,SWA,13889,37.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-145,gujarat,1967,145,JHAGADIA,K.D. VASAVA,parties.IN.IND,IND,8764,23.6,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-146,gujarat,1967,146,NANDOD,H. M. RAJWADI,parties.IN.INC,INC,15417,44.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-146,gujarat,1967,146,NANDOD,D. B. VASAWA,parties.IN.SWA,SWA,14779,42.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-146,gujarat,1967,146,NANDOD,D. M. VASAVA,parties.IN.IND,IND,3234,9.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-146,gujarat,1967,146,NANDOD,N. FATESANG,parties.IN.PSP,PSP,1278,3.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-147,gujarat,1967,147,DEDIAPADA,C. BIJALBHAI,parties.IN.SWA,SWA,11087,39.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-147,gujarat,1967,147,DEDIAPADA,C. VESTABHAI,parties.IN.IND,IND,9041,32.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-147,gujarat,1967,147,DEDIAPADA,V. DEVJIBHAI,parties.IN.INC,INC,7789,27.9,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-148,gujarat,1967,148,SONGADH,B.F. VASAVE,parties.IN.SWA,SWA,14357,45.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-148,gujarat,1967,148,SONGADH,K.L. VALVI,parties.IN.INC,INC,12027,37.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-148,gujarat,1967,148,SONGADH,N.M. VALVI,parties.IN.IND,IND,4052,12.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-148,gujarat,1967,148,SONGADH,M. N. MAVCHI,parties.IN.IND,IND,1314,4.14,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-149,gujarat,1967,149,MANDVI,P. D. PATEL,parties.IN.INC,INC,16602,53.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-149,gujarat,1967,149,MANDVI,J. D. CHOUDHARI,parties.IN.IND,IND,7997,25.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-149,gujarat,1967,149,MANDVI,R. M. GAMIT,parties.IN.SWA,SWA,5385,17.32,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-149,gujarat,1967,149,MANDVI,N. M. CHAUDHARI,parties.IN.IND,IND,776,2.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-149,gujarat,1967,149,MANDVI,L. R. CHAUDHARI,parties.IN.IND,IND,323,1.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-150,gujarat,1967,150,MANGROL,R. R. CHAUDHARI,parties.IN.INC,INC,15542,41.68,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-150,gujarat,1967,150,MANGROL,B. B. GAMIT,parties.IN.IND,IND,11000,29.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-150,gujarat,1967,150,MANGROL,G. A. VASAVA,parties.IN.SWA,SWA,10749,28.82,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-151,gujarat,1967,151,SURAT CITY EAST,G. R. CHOKHAWALA,parties.IN.INC,INC,18966,68.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-151,gujarat,1967,151,SURAT CITY EAST,P. B. MODI,parties.IN.SWA,SWA,4722,17.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-151,gujarat,1967,151,SURAT CITY EAST,H. M. SOLANKI,parties.IN.IND,IND,2877,10.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-151,gujarat,1967,151,SURAT CITY EAST,M. B. CHOPRA,parties.IN.BJS,BJS,808,2.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-151,gujarat,1967,151,SURAT CITY EAST,R. C.MASTER,parties.IN.SSP,SSP,393,1.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-152,gujarat,1967,152,SURAT CITY NORTH,P. M. VYAS,parties.IN.INC,INC,20461,70.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-152,gujarat,1967,152,SURAT CITY NORTH,H. G. DALAL,parties.IN.IND,IND,4580,15.87,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-152,gujarat,1967,152,SURAT CITY NORTH,N. R. SHENMARE,parties.IN.IND,IND,1894,6.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-152,gujarat,1967,152,SURAT CITY NORTH,M. C.KAPADIA,parties.IN.BJS,BJS,1515,5.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-152,gujarat,1967,152,SURAT CITY NORTH,P. K. M. FRUITWALA,parties.IN.SSP,SSP,412,1.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-153,gujarat,1967,153,SURAT CITY WEST,M. H. A. S. GOLANDAZ,parties.IN.INC,INC,16329,49.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-153,gujarat,1967,153,SURAT CITY WEST,J. D. CHAUHAN,parties.IN.IND,IND,8566,25.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-153,gujarat,1967,153,SURAT CITY WEST,M. P. BUNKI,parties.IN.IND,IND,5256,15.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-153,gujarat,1967,153,SURAT CITY WEST,M. Y. D. M. ANSARI,parties.IN.IND,IND,2666,8.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-153,gujarat,1967,153,SURAT CITY WEST,D. B. PATEL,parties.IN.SSP,SSP,289,0.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-154,gujarat,1967,154,CHORASI,U. P. S. BHATT,parties.IN.INC,INC,26013,64.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-154,gujarat,1967,154,CHORASI,V. N. MAHIDA,parties.IN.SWA,SWA,9303,23.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-154,gujarat,1967,154,CHORASI,M. A. BARAD,parties.IN.IND,IND,2428,6.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-154,gujarat,1967,154,CHORASI,M. P. R. BARIA,parties.IN.IND,IND,1411,3.51,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-154,gujarat,1967,154,CHORASI,K. S. PATEL,parties.IN.SSP,SSP,1079,2.68,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-155,gujarat,1967,155,OLPAD,H. K. DESAI,parties.IN.INC,INC,27569,66.5,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-155,gujarat,1967,155,OLPAD,D. N.DESAI,parties.IN.SWA,SWA,11232,27.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-155,gujarat,1967,155,OLPAD,P. M. ATODARIA,parties.IN.IND,IND,2656,6.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-156,gujarat,1967,156,BARDOLI,B. V. PATEL,parties.IN.INC,INC,27636,66.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-156,gujarat,1967,156,BARDOLI,P. B. PATEL,parties.IN.SWA,SWA,11828,28.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-156,gujarat,1967,156,BARDOLI,B. G. SONVIA,parties.IN.IND,IND,2090,5.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-156,gujarat,1967,156,BARDOLI,M. M. PATEL,parties.IN.IND,IND,181,0.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-157,gujarat,1967,157,MAHUVA,C. N. RATHOD,parties.IN.INC,INC,25456,60.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-157,gujarat,1967,157,MAHUVA,D. K. PATEL,parties.IN.SWA,SWA,14276,33.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-157,gujarat,1967,157,MAHUVA,P. B. PATEL,parties.IN.IND,IND,2446,5.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-158,gujarat,1967,158,VYARA,B. S.GAMIT,parties.IN.INC,INC,22763,62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-158,gujarat,1967,158,VYARA,R. V. CHAUDHARI,parties.IN.SWA,SWA,12240,33.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-158,gujarat,1967,158,VYARA,B. R. GAMIT,parties.IN.IND,IND,1359,3.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-158,gujarat,1967,158,VYARA,V. V. PATEL,parties.IN.IND,IND,350,0.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-159,gujarat,1967,159,JALALPORE,G. C. PATEL,parties.IN.INC,INC,25274,62.91,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-159,gujarat,1967,159,JALALPORE,V. G.PATEL,parties.IN.SWA,SWA,14902,37.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-160,gujarat,1967,160,NAVSARI,S. Y. UNIA,parties.IN.INC,INC,16140,46.09,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-160,gujarat,1967,160,NAVSARI,C. J. SHAH,parties.IN.SWA,SWA,14413,41.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-160,gujarat,1967,160,NAVSARI,D. S. CHITRE,parties.IN.BJS,BJS,4466,12.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-161,gujarat,1967,161,GANDEVI,T. M. DESAI,parties.IN.INC,INC,25333,51.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-161,gujarat,1967,161,GANDEVI,K. P. PATEL,parties.IN.PSP,PSP,18354,37.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-161,gujarat,1967,161,GANDEVI,F. M. KOLIA,parties.IN.IND,IND,5697,11.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-162,gujarat,1967,162,CHIKHLI,A. G. PATEL,parties.IN.INC,INC,19829,50.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-162,gujarat,1967,162,CHIKHLI,K. M. PATEL,parties.IN.SWA,SWA,17785,45.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-162,gujarat,1967,162,CHIKHLI,B. M. PATEL,parties.IN.IND,IND,1337,3.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-163,gujarat,1967,163,BANSDA,R. G. GAMIT,parties.IN.PSP,PSP,8776,32.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-163,gujarat,1967,163,BANSDA,V. B. WAGHMARE,parties.IN.SWA,SWA,8374,30.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-163,gujarat,1967,163,BANSDA,L. B. CHAURVYA,parties.IN.INC,INC,7945,29.1,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-163,gujarat,1967,163,BANSDA,A. L. GADHAV,parties.IN.IND,IND,2212,8.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-164,gujarat,1967,164,DHARAMPUR,B. K.PATEL,parties.IN.INC,INC,19073,53.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-164,gujarat,1967,164,DHARAMPUR,S. R. PATEL,parties.IN.SWA,SWA,16435,46.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-165,gujarat,1967,165,MOTA PONDHA,R. B. JADAV,parties.IN.INC,INC,12203,48.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-165,gujarat,1967,165,MOTA PONDHA,B.S. DHANPATALIA,parties.IN.PSP,PSP,11456,45.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-165,gujarat,1967,165,MOTA PONDHA,B.J.THAKORGARASIA,parties.IN.IND,IND,1454,5.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-166,gujarat,1967,166,BULSAR,K. R. PATEL,parties.IN.INC,INC,35716,71.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-166,gujarat,1967,166,BULSAR,B. M. DESAI,parties.IN.SWA,SWA,14486,28.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-167,gujarat,1967,167,PARDI,U. H. PATEL,parties.IN.INC,INC,35336,86.6,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-167,gujarat,1967,167,PARDI,G. R. PATEL,parties.IN.SWA,SWA,4791,11.74,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-167,gujarat,1967,167,PARDI,S. R. PATEL,parties.IN.IND,IND,679,1.66,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-168,gujarat,1967,168,UMBERGAON,S. D. THAKARIA,parties.IN.INC,INC,23584,77,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-gujarat-168,gujarat,1967,168,UMBERGAON,M. V. DHODI,parties.IN.SWA,SWA,7043,23,2,lost,U,,,,crossover,src-1b7bc1c9d39a

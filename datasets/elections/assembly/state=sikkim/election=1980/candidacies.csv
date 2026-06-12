@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-sikkim-7,sikkim,1980,7,CHAKUNG,C.B.RAI,parties.IN.UNK,SCR,1152,49.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-sikkim-7,sikkim,1980,7,CHAKUNG,S.K.RAI,parties.IN.SJP,SJP,861,37.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-sikkim-7,sikkim,1980,7,CHAKUNG,T.GURUNG,parties.IN.UNK,SPC,302,13.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a

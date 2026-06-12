@@ -1,0 +1,6 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-karnataka-174,karnataka,1981,174,DHARWAD RURAL,C.V.PUDAKALAKATTI,parties.IN.INC,INC,27317,64.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-174,karnataka,1981,174,DHARWAD RURAL,H.M.VIRUPAZAPPA,parties.IN.JP,JNP,11652,27.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-174,karnataka,1981,174,DHARWAD RURAL,B.VIBHUTI,parties.IN.BJP,BJP,2285,5.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-174,karnataka,1981,174,DHARWAD RURAL,"SHEKHARAPPA,B.",parties.IN.IND,IND,450,1.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-174,karnataka,1981,174,DHARWAD RURAL,H.RANGASWAMY,parties.IN.IND,IND,381,0.91,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

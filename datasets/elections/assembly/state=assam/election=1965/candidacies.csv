@@ -1,0 +1,6 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1962-assam-50,assam,1965,50,BARPETA,D.TALUKDAR,parties.IN.INC,INC,13361,52.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-50,assam,1965,50,BARPETA,P.K.CHOUDHURY,parties.IN.CPI,CPI,7544,29.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-50,assam,1965,50,BARPETA,M.MIA,parties.IN.IND,IND,4718,18.41,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-82,assam,1965,82,DERGAON,N.K.HAZAARIKA,parties.IN.SSP,SSP,6996,59.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-82,assam,1965,82,DERGAON,SUBHARAM DAS,parties.IN.INC,INC,4791,40.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a

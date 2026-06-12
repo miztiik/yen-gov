@@ -1,0 +1,21 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-meghalaya-21,meghalaya,2005,21,MAWPREM,MANAS CHAUDHURI,parties.IN.IND,IND,4839,48.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-21,meghalaya,2005,21,MAWPREM,DAMBAR B. GURUNG,parties.IN.INC,INC,3521,35.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-21,meghalaya,2005,21,MAWPREM,BIR BAHADUR CHETTRI,parties.IN.BJP,BJP,1462,14.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-21,meghalaya,2005,21,MAWPREM,L.MORROW MOHON kHARPURI,parties.IN.HSPDP,HSPDP,88,0.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-21,meghalaya,2005,21,MAWPREM,JOYJIT BOSE,parties.IN.IND,IND,36,0.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-43,meghalaya,2005,43,SONGSAK(ST),TONSING N MARAK,parties.IN.INC,INC,3890,27.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-43,meghalaya,2005,43,SONGSAK(ST),ANDERSON SANGMA,parties.IN.IND,IND,3260,23.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-43,meghalaya,2005,43,SONGSAK(ST),SANJAY R MARAK,parties.IN.IND,IND,2063,14.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-43,meghalaya,2005,43,SONGSAK(ST),NIHIM D SHIRA,parties.IN.NCP,NCP,2045,14.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-43,meghalaya,2005,43,SONGSAK(ST),DOLY SANGMA,parties.IN.UDP,UDP,1900,13.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-43,meghalaya,2005,43,SONGSAK(ST),PETER MARAK,parties.IN.IND,IND,550,3.91,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-43,meghalaya,2005,43,SONGSAK(ST),ROKHAWMA SHIRA,parties.IN.IND,IND,353,2.51,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-50,meghalaya,2005,50,SELSELLA(ST),CLEMENT MARAK,parties.IN.INC,INC,2745,24.68,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-50,meghalaya,2005,50,SELSELLA(ST),CONNAD KONGKAL SANGMA,parties.IN.NCP,NCP,2563,23.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-50,meghalaya,2005,50,SELSELLA(ST),MOSES CH. SANGMA,parties.IN.UDP,UDP,1957,17.59,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-50,meghalaya,2005,50,SELSELLA(ST),ATUL C. MARAK,parties.IN.IND,IND,1798,16.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-50,meghalaya,2005,50,SELSELLA(ST),ANANDA KOCH,parties.IN.BJP,BJP,814,7.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-50,meghalaya,2005,50,SELSELLA(ST),SUSANTHO R. SANGMA,parties.IN.IND,IND,628,5.65,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-50,meghalaya,2005,50,SELSELLA(ST),SIMON GEORGE S. MARAK,parties.IN.IND,IND,413,3.71,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-meghalaya-50,meghalaya,2005,50,SELSELLA(ST),CLIFFORD R. MARAK,parties.IN.GNC,GNC,205,1.84,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a

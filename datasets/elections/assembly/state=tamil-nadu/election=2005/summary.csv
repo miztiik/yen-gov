@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-tamil-nadu-15,tamil-nadu,2005,GUMMIDIPUNDI,193346,147016,76.04,Vijayakumar KS,parties.IN.AIADMK,ADMK,83717,56.94,Venkatachalapathy P.,parties.IN.DMK,DMK,56554,27163,18.47,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,KANCHEEPURAM,235636,165154,70.09,Mythili (TMT),parties.IN.AIADMK,ADMK,87274,52.84,Kumar M,parties.IN.DMK,DMK,69626,17648,10.68,src-1b7bc1c9d39a

@@ -1,0 +1,15 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-west-bengal-57,west-bengal,2000,57,NABAGRAM,Nripen Chaudhuri,parties.IN.CPIM,CPM,62648,49.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-57,west-bengal,2000,57,NABAGRAM,Syamal Ray,parties.IN.INC,INC,54339,43.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-57,west-bengal,2000,57,NABAGRAM,Nirmal Kumar Dutta,parties.IN.AITC,AITC,8707,6.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-57,west-bengal,2000,57,NABAGRAM,Pranab Ghosh,parties.IN.IND,IND,184,0.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-57,west-bengal,2000,57,NABAGRAM,Debasish Sarkar,parties.IN.IND,IND,122,0.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-232,west-bengal,2000,232,BINPUR(ST),Chuni Bala Hansda,parties.IN.JKP_N,JKP(N),51695,50.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-232,west-bengal,2000,232,BINPUR(ST),Dibakar Hansda,parties.IN.CPIM,CPM,39285,38.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-232,west-bengal,2000,232,BINPUR(ST),Dakhin Murmu,parties.IN.AITC,AITC,8043,7.91,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-232,west-bengal,2000,232,BINPUR(ST),Kisku Samay,parties.IN.IND,IND,1719,1.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-232,west-bengal,2000,232,BINPUR(ST),Bhupen Hansda,parties.IN.JKP,JKP,887,0.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-288,west-bengal,2000,288,SURI,Braja Mukherjee,parties.IN.CPIM,CPM,62093,52.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-288,west-bengal,2000,288,SURI,Chattaraj Suniti,parties.IN.AITC,AITC,44972,37.95,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-288,west-bengal,2000,288,SURI,Jahar Lal Misra,parties.IN.INC,INC,9373,7.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-288,west-bengal,2000,288,SURI,Anita Mukherjee,parties.IN.IND,IND,2071,1.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-karnataka-216,karnataka,2003,HUNGUND,137464,87763,63.84,K.Gouramma Shivashankarappa,parties.IN.INC,INC,31014,35.34,P.M.Sangangouda,parties.IN.BJP,BJP,20717,10297,11.73,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-5,karnataka,2003,HUMNABAD,177389,104494,58.91,R.BASAVARAJ PATIL,parties.IN.INC,INC,38758,37.09,MEERAJUDDIN N.PATEL,parties.IN.JDS,JD(S),29438,9320,8.92,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-74,karnataka,2003,VEMAGAL,154436,128234,83.03,C.B.K.Byre Gowda,parties.IN.UNK,AIPJD,68458,53.39,V.Venaktamuniyappa,parties.IN.INC,INC,57175,11283,8.8,src-1b7bc1c9d39a

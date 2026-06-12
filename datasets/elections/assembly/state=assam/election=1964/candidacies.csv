@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1962-assam-2,assam,1964,2,AIJAL EAST,CH.CHHANGA,parties.IN.IND,IND,10154,45.61,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1962-assam-2,assam,1964,2,AIJAL EAST,ROSSANGA,parties.IN.IND,IND,9346,41.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-2,assam,1964,2,AIJAL EAST,ZALAWMA,parties.IN.INC,INC,2011,9.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-2,assam,1964,2,AIJAL EAST,LALMAWIA,parties.IN.UNK,HLC,751,3.37,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a

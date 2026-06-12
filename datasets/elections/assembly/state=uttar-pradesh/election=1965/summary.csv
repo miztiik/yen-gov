@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1962-uttar-pradesh-183,uttar-pradesh,1965,BANSI NORTH,77439,43576,56.27,K.K.K.NAYAR,parties.IN.JS,JS,23876,54.79,D.SHANKER,parties.IN.INC,INC,17384,6492,14.9,src-1b7bc1c9d39a

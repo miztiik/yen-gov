@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-karnataka-88,karnataka,1993,88,YALAHANKA(SC),Unnamed Candidate,parties.IN.UNK,Unknown Party,61357,50.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-88,karnataka,1993,88,YALAHANKA(SC),Unnamed Candidate,parties.IN.UNK,Unknown Party,60845,49.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a

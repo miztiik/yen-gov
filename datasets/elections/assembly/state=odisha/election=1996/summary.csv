@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-odisha-15,odisha,1996,SORO,161600,107737,66.67,Smt. Indurani Mahapatra,parties.IN.INC,INC,61671,57.24,Jadunath Dash Mohapatra,parties.IN.IND,IND,37448,24223,22.48,src-1b7bc1c9d39a
+IN-AC-1976-odisha-50,odisha,1996,BHUBANESWAR,314068,128607,40.95,Biswabhusan Harichandan,parties.IN.BJP,BJP,58263,45.3,Bhagirathi Badjena,parties.IN.INC,INC,39551,18712,14.55,src-1b7bc1c9d39a
+IN-AC-1976-odisha-54,odisha,1996,KAKATPUR,164628,121374,73.73,Surendranath Naik,parties.IN.JD,JD,59315,48.87,Kadambini Swain,parties.IN.INC,INC,55440,3875,3.19,src-1b7bc1c9d39a
+IN-AC-1976-odisha-80,odisha,1996,GUNUPUR(ST),154217,86228,55.91,Bhagirathi Gomango,parties.IN.INC,INC,28336,32.86,Bijaya Kumar Gomango,parties.IN.INC,INC,26603,1733,2.01,src-1b7bc1c9d39a

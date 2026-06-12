@@ -1,0 +1,8 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-himachal-pradesh-39,himachal-pradesh,1984,39,PRAGPUR(SC),Y.RAJ,parties.IN.INC,INC,13315,52.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-himachal-pradesh-39,himachal-pradesh,1984,39,PRAGPUR(SC),V.KUMAR,parties.IN.BJP,BJP,11650,46.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-himachal-pradesh-39,himachal-pradesh,1984,39,PRAGPUR(SC),R.LAL,parties.IN.IND,IND,137,0.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-himachal-pradesh-39,himachal-pradesh,1984,39,PRAGPUR(SC),H.SINGH,parties.IN.IND,IND,102,0.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-himachal-pradesh-65,himachal-pradesh,1984,65,DHARAMPUR,N.SINGH,parties.IN.INC,INC,17366,77.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-himachal-pradesh-65,himachal-pradesh,1984,65,DHARAMPUR,B.DEV,parties.IN.BJP,BJP,4755,21.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-himachal-pradesh-65,himachal-pradesh,1984,65,DHARAMPUR,H.SINGH,parties.IN.LKD,LKD,189,0.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a

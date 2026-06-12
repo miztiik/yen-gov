@@ -1,0 +1,10 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-tamil-nadu-147,tamil-nadu,1999,147,NATHAM,Viswanathan.R,parties.IN.AIADMK,ADMK,38764,34.23,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-147,tamil-nadu,1999,147,NATHAM,Chellam. P,parties.IN.MDMK,MDMK,31220,27.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-147,tamil-nadu,1999,147,NATHAM,Andi Ambalam M.A,parties.IN.TMC_M,TMC(M),28465,25.14,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-147,tamil-nadu,1999,147,NATHAM,Balasubramanian S.R,parties.IN.IND,IND,14168,12.51,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-147,tamil-nadu,1999,147,NATHAM,Chelliah.A.,parties.IN.IND,IND,616,0.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-232,tamil-nadu,1999,232,THIRUVATTAR,Hemachandran J,parties.IN.CPIM,CPM,41687,42.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-232,tamil-nadu,1999,232,THIRUVATTAR,Pushpaleela Dr. J,parties.IN.DMK,DMK,36453,37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-232,tamil-nadu,1999,232,THIRUVATTAR,Philomin Dhas S.,parties.IN.TMC_M,TMC(M),18849,19.13,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-232,tamil-nadu,1999,232,THIRUVATTAR,Stanly Babu Raj. C,parties.IN.IND,IND,1544,1.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

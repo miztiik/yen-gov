@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-gujarat-162,gujarat,1982,MANGROL(ST),83652,38102,45.55,V.J.DUNGARIABHAI,parties.IN.INC,INC,17494,45.91,D.C.SHANABHAI,parties.IN.JP,JNP,16279,1215,3.19,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-24,gujarat,1982,JODIYA,79653,48048,60.32,B.D.DEVSHI,parties.IN.INC,INC,14267,29.69,S.G.MANJI,parties.IN.BJP,BJP,12119,2148,4.47,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-9,gujarat,1982,LIMBDI,91993,56131,61.02,R.J.KESHRISINGH,parties.IN.BJP,BJP,23838,42.47,M.J.G.BHAI,parties.IN.INC,INC,17147,6691,11.92,src-1b7bc1c9d39a

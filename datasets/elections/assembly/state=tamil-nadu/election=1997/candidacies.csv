@@ -1,0 +1,11 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-tamil-nadu-191,tamil-nadu,1997,191,PUDUKOTTAI,Mari Ayya P.,parties.IN.DMK,DMK,57769,41.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-191,tamil-nadu,1997,191,PUDUKOTTAI,Chelladhurai S.,parties.IN.AIADMK,ADMK,45745,32.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-191,tamil-nadu,1997,191,PUDUKOTTAI,Mani V.N.,parties.IN.MDMK,MDMK,13504,9.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-191,tamil-nadu,1997,191,PUDUKOTTAI,Panneerselvam V.O.S.,parties.IN.IND,IND,12892,9.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-191,tamil-nadu,1997,191,PUDUKOTTAI,Kumaravel P.,parties.IN.CPIM,CPM,5133,3.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-191,tamil-nadu,1997,191,PUDUKOTTAI,Swaminathan S.C.,parties.IN.INC,INC,4605,3.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-191,tamil-nadu,1997,191,PUDUKOTTAI,Durairaj A.R.,parties.IN.IND,IND,357,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-191,tamil-nadu,1997,191,PUDUKOTTAI,Subbaiah P.,parties.IN.IND,IND,165,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-191,tamil-nadu,1997,191,PUDUKOTTAI,Padmarajan Dr. K,parties.IN.IND,IND,130,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-191,tamil-nadu,1997,191,PUDUKOTTAI,Nagoormeeranmohammed U,parties.IN.IND,IND,71,0.05,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a

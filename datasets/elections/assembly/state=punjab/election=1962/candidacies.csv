@@ -1,0 +1,757 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1962-punjab-1,punjab,1962,1,KULU,LAL CHAND,parties.IN.IND,IND,8282,39.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-1,punjab,1962,1,KULU,RAGHUVIR SINGH,parties.IN.INC,INC,6862,33.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-1,punjab,1962,1,KULU,RAJ KRISHAN,parties.IN.IND,IND,3603,17.34,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-1,punjab,1962,1,KULU,NAWAL KISHORE,parties.IN.IND,IND,1490,7.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-1,punjab,1962,1,KULU,GAUTAMA NATH,parties.IN.IND,IND,536,2.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-2,punjab,1962,2,SERAJ,BANSI RAM,parties.IN.IND,IND,5755,54.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-2,punjab,1962,2,SERAJ,JIT RAM,parties.IN.INC,INC,3929,36.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-2,punjab,1962,2,SERAJ,PULKU,parties.IN.IND,IND,957,8.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-3,punjab,1962,3,PALAMPUR,PRATAP SINGH,parties.IN.INC,INC,11757,38.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-3,punjab,1962,3,PALAMPUR,BANSI RAM,parties.IN.CPI,CPI,10582,34.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-3,punjab,1962,3,PALAMPUR,PARMESHWARI DASS,parties.IN.IND,IND,6357,20.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-3,punjab,1962,3,PALAMPUR,BHAGI RAM,parties.IN.IND,IND,1993,6.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-4,punjab,1962,4,KANGRA,AMAR NATH,parties.IN.INC,INC,11436,37.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-4,punjab,1962,4,KANGRA,DURGA CHAND,parties.IN.JS,JS,11131,36.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-4,punjab,1962,4,KANGRA,DHANI RAM,parties.IN.IND,IND,3063,9.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-4,punjab,1962,4,KANGRA,BIDHI SINGH,parties.IN.IND,IND,2065,6.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-4,punjab,1962,4,KANGRA,CHANDER SHEIKHAR,parties.IN.IND,IND,1093,3.55,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-4,punjab,1962,4,KANGRA,POHLO RAM,parties.IN.IND,IND,1047,3.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-4,punjab,1962,4,KANGRA,CHANDAR MANI,parties.IN.IND,IND,673,2.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-4,punjab,1962,4,KANGRA,SANT RAM,parties.IN.PSP,PSP,281,0.91,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-5,punjab,1962,5,DHARAMSALA,HARI RAM,parties.IN.INC,INC,15459,73.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-5,punjab,1962,5,DHARAMSALA,HARI KISHAN,parties.IN.IND,IND,5702,26.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-6,punjab,1962,6,NURPUR,RAM CHANDRA,parties.IN.INC,INC,12811,39.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-6,punjab,1962,6,NURPUR,SUDARSHAN SINGH,parties.IN.IND,IND,11092,34.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-6,punjab,1962,6,NURPUR,TILAK RAJ,parties.IN.CPI,CPI,3692,11.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-6,punjab,1962,6,NURPUR,DHANI RAM,parties.IN.IND,IND,1731,5.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-6,punjab,1962,6,NURPUR,JHANDU RAM,parties.IN.IND,IND,1636,5.08,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-6,punjab,1962,6,NURPUR,ROMAL SINGH,parties.IN.IND,IND,1232,3.83,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-7,punjab,1962,7,DERA GOPIPUR,MEHAR SINGH,parties.IN.INC,INC,10594,33.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-7,punjab,1962,7,DERA GOPIPUR,CHURA MANI,parties.IN.IND,IND,8935,28.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-7,punjab,1962,7,DERA GOPIPUR,PARAS RAM S/O JAI KARAN DASS,parties.IN.CPI,CPI,6515,20.57,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-7,punjab,1962,7,DERA GOPIPUR,PARAS RAM S/O JANTU,parties.IN.IND,IND,3206,10.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-7,punjab,1962,7,DERA GOPIPUR,PARMODH SINGH,parties.IN.IND,IND,2425,7.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-8,punjab,1962,8,HAMIRPUR,RUP SINGH PHUL,parties.IN.INC,INC,14481,71.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-8,punjab,1962,8,HAMIRPUR,SHANKAR SINGH,parties.IN.REP,REP,5298,26.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-8,punjab,1962,8,HAMIRPUR,JAGAT SINGH,parties.IN.IND,IND,561,2.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-9,punjab,1962,9,BARSAR,SARLA DEVI,parties.IN.INC,INC,25285,64.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-9,punjab,1962,9,BARSAR,BHAG SINGH,parties.IN.IND,IND,13907,35.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-10,punjab,1962,10,NALAGARH,DASONDHI RAM,parties.IN.IND,IND,14501,45.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-10,punjab,1962,10,NALAGARH,ROSHAN LAL,parties.IN.INC,INC,8175,25.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-10,punjab,1962,10,NALAGARH,SOM NATH,parties.IN.JS,JS,4363,13.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-10,punjab,1962,10,NALAGARH,SARWAN SINGH S/O HARNAM SINGH,parties.IN.IND,IND,1996,6.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-10,punjab,1962,10,NALAGARH,SANT RAM,parties.IN.REP,REP,1763,5.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-10,punjab,1962,10,NALAGARH,BHAN SINGH,parties.IN.IND,IND,679,2.14,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-10,punjab,1962,10,NALAGARH,SARWAN SINGH S/O JAIMAL SINGH,parties.IN.IND,IND,258,0.81,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-11,punjab,1962,11,RUPAR,SHAMSHER SINGH,parties.IN.CPI,CPI,13542,37.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-11,punjab,1962,11,RUPAR,SADHU SINGH,parties.IN.INC,INC,12192,34.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-11,punjab,1962,11,RUPAR,BABU RAM,parties.IN.IND,IND,4688,13.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-11,punjab,1962,11,RUPAR,RAJINDAR SINGH,parties.IN.IND,IND,4412,12.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-11,punjab,1962,11,RUPAR,NARINDAR NATH,parties.IN.IND,IND,904,2.53,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-12,punjab,1962,12,MORINDA,AJAIB SINGH,parties.IN.SAD,AD,19592,48.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-12,punjab,1962,12,MORINDA,PRITHVI SINGH AZAD,parties.IN.INC,INC,19320,47.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-12,punjab,1962,12,MORINDA,PIARA SINGH,parties.IN.IND,IND,1083,2.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-12,punjab,1962,12,MORINDA,FAQIR CHAND,parties.IN.IND,IND,341,0.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-13,punjab,1962,13,CHANDIGARH,NARINJAN SINGH TALIB,parties.IN.INC,INC,24418,39.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-13,punjab,1962,13,CHANDIGARH,AMRIK SINGH,parties.IN.IND,IND,17946,28.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-13,punjab,1962,13,CHANDIGARH,GURBAKSH SINGH,parties.IN.CPI,CPI,10176,16.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-13,punjab,1962,13,CHANDIGARH,RAM MURTI,parties.IN.JS,JS,7596,12.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-13,punjab,1962,13,CHANDIGARH,KHARAK SINGH,parties.IN.IND,IND,1428,2.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-13,punjab,1962,13,CHANDIGARH,PIYARA SINGH,parties.IN.IND,IND,787,1.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-14,punjab,1962,14,NARAINGARH,JAGJIT SINGH,parties.IN.IND,IND,26903,59.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-14,punjab,1962,14,NARAINGARH,SADHU RAM,parties.IN.INC,INC,18422,40.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-15,punjab,1962,15,SADHAURA,GULAB SINGH,parties.IN.INC,INC,17782,45.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-15,punjab,1962,15,SADHAURA,TELU RAM,parties.IN.CPI,CPI,10217,25.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-15,punjab,1962,15,SADHAURA,PURAN SINGH,parties.IN.JS,JS,9731,24.69,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-15,punjab,1962,15,SADHAURA,HOSHIARA,parties.IN.IND,IND,908,2.3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-15,punjab,1962,15,SADHAURA,RAM DIYA,parties.IN.IND,IND,769,1.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-16,punjab,1962,16,JAGADHRI,SHANNO DEVI,parties.IN.INC,INC,17791,40.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-16,punjab,1962,16,JAGADHRI,INDER SAIN,parties.IN.JS,JS,12801,29.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-16,punjab,1962,16,JAGADHRI,JAI GOPAL,parties.IN.PSP,PSP,10663,24.42,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-16,punjab,1962,16,JAGADHRI,DURGA DASS,parties.IN.SWA,SWA,1073,2.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-16,punjab,1962,16,JAGADHRI,CHAMAN LAL,parties.IN.IND,IND,586,1.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-16,punjab,1962,16,JAGADHRI,PARMA NAND,parties.IN.IND,IND,394,0.9,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-16,punjab,1962,16,JAGADHRI,CHAMAN LAL LUTHRA,parties.IN.IND,IND,356,0.82,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-17,punjab,1962,17,MOLANA,RAM PARKASH,parties.IN.INC,INC,22674,55.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-17,punjab,1962,17,MOLANA,RAM PARSHAD,parties.IN.REP,REP,8423,20.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-17,punjab,1962,17,MOLANA,INDER RAJ,parties.IN.JS,JS,5938,14.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-17,punjab,1962,17,MOLANA,SADHU RAM,parties.IN.PSP,PSP,1929,4.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-17,punjab,1962,17,MOLANA,KHAZAN SINGH,parties.IN.SWA,SWA,1192,2.91,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-17,punjab,1962,17,MOLANA,DHARAM PAL,parties.IN.IND,IND,842,2.05,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-18,punjab,1962,18,AMBALA CANTONMENT,DEV RAJ,parties.IN.INC,INC,17348,52.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-18,punjab,1962,18,AMBALA CANTONMENT,SOHAN LAL,parties.IN.JS,JS,13056,39.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-18,punjab,1962,18,AMBALA CANTONMENT,JAGAN NATH,parties.IN.IND,IND,2138,6.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-18,punjab,1962,18,AMBALA CANTONMENT,DAYA SINGH,parties.IN.IND,IND,549,1.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-19,punjab,1962,19,AMBALA CITY,ABDUL GHAFFAR KHAN,parties.IN.INC,INC,19750,42.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-19,punjab,1962,19,AMBALA CITY,RAGHBIR SHARAN,parties.IN.JS,JS,15210,32.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-19,punjab,1962,19,AMBALA CITY,KARTAR SINGH,parties.IN.SAD,AD,9820,21.14,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-19,punjab,1962,19,AMBALA CITY,ROSHAN LAL,parties.IN.IND,IND,1022,2.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-19,punjab,1962,19,AMBALA CITY,OM PARKASH,parties.IN.IND,IND,650,1.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-20,punjab,1962,20,SIMLA,GIAN CHAND,parties.IN.INC,INC,10185,43.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-20,punjab,1962,20,SIMLA,GAURI SHANKAR,parties.IN.PSP,PSP,4857,20.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-20,punjab,1962,20,SIMLA,PRAKASH CHAND,parties.IN.IND,IND,3710,15.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-20,punjab,1962,20,SIMLA,TEK CHAND,parties.IN.JS,JS,3622,15.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-20,punjab,1962,20,SIMLA,SHIV DATT,parties.IN.IND,IND,341,1.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-20,punjab,1962,20,SIMLA,BASHESHAR DAYAL,parties.IN.IND,IND,278,1.2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-20,punjab,1962,20,SIMLA,LAJJA,parties.IN.IND,IND,120,0.52,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-20,punjab,1962,20,SIMLA,SHAKUNTLA,parties.IN.SWA,SWA,94,0.41,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-21,punjab,1962,21,THANESAR,BENARSI DASS,parties.IN.INC,INC,15726,33.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-21,punjab,1962,21,THANESAR,BARYAM SINGH,parties.IN.JS,JS,15511,32.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-21,punjab,1962,21,THANESAR,BALDEV SINGH,parties.IN.SWA,SWA,7418,15.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-21,punjab,1962,21,THANESAR,VIRENDRA KUMAR,parties.IN.PSP,PSP,2832,5.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-21,punjab,1962,21,THANESAR,RANJIT SINGH,parties.IN.IND,IND,2607,5.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-21,punjab,1962,21,THANESAR,HARNAM SINGH,parties.IN.CPI,CPI,1967,4.16,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-21,punjab,1962,21,THANESAR,JOGINDER SINGH,parties.IN.IND,IND,765,1.62,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-21,punjab,1962,21,THANESAR,ATMA RAM,parties.IN.IND,IND,447,0.95,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-22,punjab,1962,22,RADAUR,RAN SINGH,parties.IN.INC,INC,18092,40.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-22,punjab,1962,22,RADAUR,OM PARKASH,parties.IN.JS,JS,16495,36.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-22,punjab,1962,22,RADAUR,SUNDER LAL,parties.IN.IND,IND,2899,6.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-22,punjab,1962,22,RADAUR,RAM DIYA,parties.IN.IND,IND,1814,4.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-22,punjab,1962,22,RADAUR,SHIV LAL,parties.IN.SWA,SWA,1560,3.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-22,punjab,1962,22,RADAUR,BHARATU,parties.IN.IND,IND,1220,2.73,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-22,punjab,1962,22,RADAUR,BAL MUKAND,parties.IN.REP,REP,1115,2.5,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-22,punjab,1962,22,RADAUR,MARU,parties.IN.IND,IND,794,1.78,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-22,punjab,1962,22,RADAUR,NANDI KISHORE,parties.IN.IND,IND,699,1.56,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-23,punjab,1962,23,KARNAL,RAM PIARA,parties.IN.INC,INC,19679,55.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-23,punjab,1962,23,KARNAL,BALBIR SINGH,parties.IN.JS,JS,14851,41.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-23,punjab,1962,23,KARNAL,SUMER CHAND,parties.IN.REP,REP,894,2.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-23,punjab,1962,23,KARNAL,AMAR SINGH,parties.IN.IND,IND,351,0.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-24,punjab,1962,24,BUTANA,MALTAN SINGH,parties.IN.INC,INC,18094,37.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-24,punjab,1962,24,BUTANA,SHIV RAM,parties.IN.SWA,SWA,14116,29.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-24,punjab,1962,24,BUTANA,AJIT SINGH,parties.IN.CPI,CPI,7703,15.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-24,punjab,1962,24,BUTANA,NARENDRA NATH,parties.IN.IND,IND,3953,8.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-24,punjab,1962,24,BUTANA,BANWARI LAL,parties.IN.IND,IND,1929,3.99,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-24,punjab,1962,24,BUTANA,CHATTAR SINGH,parties.IN.IND,IND,1524,3.15,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-24,punjab,1962,24,BUTANA,RAM SARUP,parties.IN.IND,IND,1003,2.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-25,punjab,1962,25,PEHOWA,PYARA SINGH,parties.IN.INC,INC,26321,42.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-25,punjab,1962,25,PEHOWA,NARSINGH DASS,parties.IN.IND,IND,18425,29.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-25,punjab,1962,25,PEHOWA,RANVIR SINGH,parties.IN.JS,JS,12278,19.85,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-25,punjab,1962,25,PEHOWA,VIR SINGH,parties.IN.IND,IND,3946,6.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-25,punjab,1962,25,PEHOWA,HARBILAS,parties.IN.IND,IND,877,1.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-26,punjab,1962,26,KAITHAL,OM PRABHA,parties.IN.INC,INC,22183,44.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-26,punjab,1962,26,KAITHAL,BARU RAM,parties.IN.JS,JS,15595,31.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-26,punjab,1962,26,KAITHAL,ABNASH CHANDER,parties.IN.SWA,SWA,11862,23.9,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-27,punjab,1962,27,NARWANA,FAKIRIA,parties.IN.SWA,SWA,19065,45.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-27,punjab,1962,27,NARWANA,BHAGAT RAM,parties.IN.INC,INC,16838,39.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-27,punjab,1962,27,NARWANA,DHANNA,parties.IN.JS,JS,3895,9.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-27,punjab,1962,27,NARWANA,BHALE RAM,parties.IN.IND,IND,2492,5.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-28,punjab,1962,28,RAJAUND,PARASANNI DEVI,parties.IN.INC,INC,29095,50.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-28,punjab,1962,28,RAJAUND,JAGJIT SINGH,parties.IN.SWA,SWA,20607,35.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-28,punjab,1962,28,RAJAUND,KASTURI LAL,parties.IN.IND,IND,3574,6.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-28,punjab,1962,28,RAJAUND,JAI BHAGWAN,parties.IN.JS,JS,1872,3.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-28,punjab,1962,28,RAJAUND,PAJABA,parties.IN.IND,IND,842,1.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-28,punjab,1962,28,RAJAUND,GHISA,parties.IN.IND,IND,633,1.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-28,punjab,1962,28,RAJAUND,MAI LAL,parties.IN.IND,IND,322,0.56,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-28,punjab,1962,28,RAJAUND,KISHAN LAL,parties.IN.IND,IND,198,0.35,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-28,punjab,1962,28,RAJAUND,RAN SINGH,parties.IN.IND,IND,149,0.26,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-29,punjab,1962,29,JIND,RAM SINGH,parties.IN.SWA,SWA,21961,48.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-29,punjab,1962,29,JIND,DAL SINGH,parties.IN.INC,INC,16188,35.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-29,punjab,1962,29,JIND,GITA RAM,parties.IN.JS,JS,4249,9.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-29,punjab,1962,29,JIND,MAMAN,parties.IN.REP,REP,1602,3.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-29,punjab,1962,29,JIND,BHAGWAT SARUP,parties.IN.IND,IND,994,2.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-30,punjab,1962,30,SAFIDON,INDER SINGH,parties.IN.IND,IND,18279,34.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-30,punjab,1962,30,SAFIDON,SHRI KRISHAN,parties.IN.INC,INC,17520,32.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-30,punjab,1962,30,SAFIDON,SOBHA SINGH,parties.IN.IND,IND,6887,12.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-30,punjab,1962,30,SAFIDON,GHASI RAM,parties.IN.IND,IND,4172,7.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-30,punjab,1962,30,SAFIDON,JAI NARAIN,parties.IN.IND,IND,2853,5.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-30,punjab,1962,30,SAFIDON,RAM CHANDRA,parties.IN.IND,IND,1962,3.67,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-30,punjab,1962,30,SAFIDON,RAM CHANDER,parties.IN.IND,IND,1348,2.52,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-30,punjab,1962,30,SAFIDON,SURAT SINGH,parties.IN.IND,IND,478,0.89,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-31,punjab,1962,31,PUNDRI,RAM PAL SINGH,parties.IN.IND,IND,18755,48.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-31,punjab,1962,31,PUNDRI,GOPI CHAND,parties.IN.INC,INC,11258,29.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-31,punjab,1962,31,PUNDRI,SHRI KRISHAN,parties.IN.IND,IND,3494,9.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-31,punjab,1962,31,PUNDRI,RICHHPAL SINGH,parties.IN.IND,IND,2753,7.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-31,punjab,1962,31,PUNDRI,SATYAPAL SINGH,parties.IN.CPI,CPI,1164,3.02,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-31,punjab,1962,31,PUNDRI,CHHAJJU,parties.IN.IND,IND,1162,3.01,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-32,punjab,1962,32,GHARAUNDA,RULYA RAM,parties.IN.SWA,SWA,23164,53.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-32,punjab,1962,32,GHARAUNDA,MOOL CHAND,parties.IN.INC,INC,17674,40.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-32,punjab,1962,32,GHARAUNDA,RAM SAWRUP,parties.IN.RRP,RRP,2701,6.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-33,punjab,1962,33,PANIPAT,FATEH CHAND,parties.IN.JS,JS,19939,42.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-33,punjab,1962,33,PANIPAT,PARMA NAND,parties.IN.INC,INC,19635,41.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-33,punjab,1962,33,PANIPAT,RAGHBIR,parties.IN.CPI,CPI,3578,7.59,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-33,punjab,1962,33,PANIPAT,RAN SINGH,parties.IN.IND,IND,1941,4.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-33,punjab,1962,33,PANIPAT,DESA,parties.IN.SWA,SWA,1458,3.09,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-33,punjab,1962,33,PANIPAT,CHATTAR SINGH,parties.IN.REP,REP,368,0.78,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-33,punjab,1962,33,PANIPAT,RALLA RAM,parties.IN.IND,IND,227,0.48,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-34,punjab,1962,34,SAMBHALKA,CHUHAR SINGH,parties.IN.INC,INC,29119,56.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-34,punjab,1962,34,SAMBHALKA,DHARAM SINGH,parties.IN.SWA,SWA,20943,40.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-34,punjab,1962,34,SAMBHALKA,LAL SINGH,parties.IN.IND,IND,896,1.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-34,punjab,1962,34,SAMBHALKA,SURJAN,parties.IN.IND,IND,381,0.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-35,punjab,1962,35,GANAUR,CHIRANJI LAL,parties.IN.IND,IND,27320,56.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-35,punjab,1962,35,GANAUR,CHANDER BHAN CHHIKARA,parties.IN.INC,INC,13688,28.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-35,punjab,1962,35,GANAUR,KISHAN DAYAL,parties.IN.JS,JS,4225,8.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-35,punjab,1962,35,GANAUR,RUGH NATH,parties.IN.IND,IND,1746,3.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-35,punjab,1962,35,GANAUR,DARYAO SINGH,parties.IN.IND,IND,1079,2.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-36,punjab,1962,36,SONEPAT,MUKHTIAR SINGH,parties.IN.JS,JS,17986,42.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-36,punjab,1962,36,SONEPAT,RAM DHAN,parties.IN.INC,INC,15910,37.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-36,punjab,1962,36,SONEPAT,MANPHUL SINGH,parties.IN.IND,IND,3616,8.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-36,punjab,1962,36,SONEPAT,RAJESHWAR PARSHAD,parties.IN.IND,IND,3353,7.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-36,punjab,1962,36,SONEPAT,FATEH SINGH,parties.IN.IND,IND,961,2.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-36,punjab,1962,36,SONEPAT,JAGE,parties.IN.IND,IND,585,1.38,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-37,punjab,1962,37,RAI,RIZAQ RAM,parties.IN.INC,INC,17071,38.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-37,punjab,1962,37,RAI,NAFE SINGH,parties.IN.UNK,HLS,7111,15.86,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-37,punjab,1962,37,RAI,JASWANT SINGH,parties.IN.IND,IND,7069,15.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-37,punjab,1962,37,RAI,HUKAM SINGH,parties.IN.IND,IND,5724,12.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-37,punjab,1962,37,RAI,SARDAR SINGH,parties.IN.IND,IND,4208,9.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-37,punjab,1962,37,RAI,HUKAM CHAND,parties.IN.IND,IND,1703,3.8,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-37,punjab,1962,37,RAI,KALI RAM,parties.IN.IND,IND,1018,2.27,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-37,punjab,1962,37,RAI,BANWARI LAL,parties.IN.IND,IND,723,1.61,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-37,punjab,1962,37,RAI,SHRI KRISHAN,parties.IN.IND,IND,197,0.44,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-38,punjab,1962,38,BAHADURGARH,HARDWARI LAL,parties.IN.INC,INC,24045,46.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-38,punjab,1962,38,BAHADURGARH,KANWAL SINGH,parties.IN.UNK,HLS,17307,33.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-38,punjab,1962,38,BAHADURGARH,HARI SINGH,parties.IN.IND,IND,7209,13.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-38,punjab,1962,38,BAHADURGARH,MANGE RAM,parties.IN.CPI,CPI,3422,6.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-39,punjab,1962,39,SAMPLA,RAM SARUP,parties.IN.UNK,HLS,15626,33.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-39,punjab,1962,39,SAMPLA,MARU SINGH,parties.IN.INC,INC,12787,27.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-39,punjab,1962,39,SAMPLA,SIRI RAM SHARMA,parties.IN.UNK,HF,8613,18.44,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-39,punjab,1962,39,SAMPLA,SAMANDER SINGH,parties.IN.IND,IND,5435,11.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-39,punjab,1962,39,SAMPLA,MUNSHI,parties.IN.IND,IND,4004,8.57,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-39,punjab,1962,39,SAMPLA,NIHAL SINGH,parties.IN.IND,IND,238,0.51,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-40,punjab,1962,40,ROHTAK,MANGAL SEIN,parties.IN.JS,JS,20027,41.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-40,punjab,1962,40,ROHTAK,DEV RAJ SETHI,parties.IN.INC,INC,16275,33.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-40,punjab,1962,40,ROHTAK,BHARAT SINGH,parties.IN.UNK,HLS,11015,22.6,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-40,punjab,1962,40,ROHTAK,RAM SINGH,parties.IN.IND,IND,759,1.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-40,punjab,1962,40,ROHTAK,RAM JIA,parties.IN.IND,IND,670,1.37,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-41,punjab,1962,41,GOHANA,RAM DHARI,parties.IN.UNK,HLS,15029,34.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-41,punjab,1962,41,GOHANA,HARKISHAN,parties.IN.JS,JS,13555,30.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-41,punjab,1962,41,GOHANA,MEHAR SINGH,parties.IN.INC,INC,10268,23.46,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-41,punjab,1962,41,GOHANA,KALI RAM,parties.IN.SWA,SWA,2952,6.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-41,punjab,1962,41,GOHANA,BAL RAJ,parties.IN.IND,IND,840,1.92,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-41,punjab,1962,41,GOHANA,SARUP SINGH,parties.IN.IND,IND,613,1.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-41,punjab,1962,41,GOHANA,TEK RAM,parties.IN.IND,IND,503,1.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-42,punjab,1962,42,MEHAM,RAM DHARI,parties.IN.UNK,HLS,21620,50.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-42,punjab,1962,42,MEHAM,CHHAJU RAM,parties.IN.INC,INC,17423,40.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-42,punjab,1962,42,MEHAM,MAM CHAND,parties.IN.IND,IND,2450,5.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-42,punjab,1962,42,MEHAM,KANWAR SINGH,parties.IN.IND,IND,1691,3.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-43,punjab,1962,43,KALANAUR,RANBIR SINGH,parties.IN.INC,INC,17401,33.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-43,punjab,1962,43,KALANAUR,NASIB SINGH,parties.IN.JS,JS,13944,26.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-43,punjab,1962,43,KALANAUR,BADLU RAM,parties.IN.UNK,HLS,13206,25.34,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-43,punjab,1962,43,KALANAUR,NARAIN SINGH,parties.IN.IND,IND,4169,8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-43,punjab,1962,43,KALANAUR,GANGA DATT,parties.IN.IND,IND,2180,4.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-43,punjab,1962,43,KALANAUR,BHARAT SINGH,parties.IN.IND,IND,781,1.5,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-43,punjab,1962,43,KALANAUR,RAM KISHAN,parties.IN.IND,IND,443,0.85,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-44,punjab,1962,44,JHAJJAR,BHAGWAT DAYAL,parties.IN.INC,INC,29404,50.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-44,punjab,1962,44,JHAJJAR,SHER SINGH,parties.IN.UNK,HLS,28122,47.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-44,punjab,1962,44,JHAJJAR,MURARI,parties.IN.IND,IND,1073,1.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-45,punjab,1962,45,SALHAWAS,CHAND RAM,parties.IN.INC,INC,24248,50.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-45,punjab,1962,45,SALHAWAS,ATTAR SINGH,parties.IN.IND,IND,20471,42.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-45,punjab,1962,45,SALHAWAS,RAM PARSHAD,parties.IN.IND,IND,1272,2.66,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-45,punjab,1962,45,SALHAWAS,PURAN MAL,parties.IN.CPI,CPI,935,1.96,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-45,punjab,1962,45,SALHAWAS,TEK CHAND,parties.IN.JS,JS,871,1.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-46,punjab,1962,46,GURGAON,KANIHYA LAL,parties.IN.INC,INC,22108,52.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-46,punjab,1962,46,GURGAON,MAHABIR SINGH,parties.IN.IND,IND,14615,34.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-46,punjab,1962,46,GURGAON,MUL CHAND,parties.IN.JS,JS,5132,12.26,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-47,punjab,1962,47,BALLABGARH,HIRA LAL,parties.IN.INC,INC,15059,36.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-47,punjab,1962,47,BALLABGARH,DOLTI,parties.IN.IND,IND,10004,24.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-47,punjab,1962,47,BALLABGARH,HARI RAM,parties.IN.CPI,CPI,9999,24.37,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-47,punjab,1962,47,BALLABGARH,SUKKHAN,parties.IN.JS,JS,5973,14.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-48,punjab,1962,48,PALWAL,ROOP LAL,parties.IN.INC,INC,25324,51.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-48,punjab,1962,48,PALWAL,MOOL CHAND,parties.IN.JS,JS,23757,48.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-49,punjab,1962,49,HASANPUR,HAR KISHAN,parties.IN.IND,IND,21227,46.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-49,punjab,1962,49,HASANPUR,PRATAP SINGH,parties.IN.INC,INC,17211,38.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-49,punjab,1962,49,HASANPUR,CHIRANJI LAL,parties.IN.IND,IND,3585,7.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-49,punjab,1962,49,HASANPUR,SURAJ BHAN ALIAS BHANUJI,parties.IN.IND,IND,3210,7.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-50,punjab,1962,50,FEROZEPUR JHIRKA,TAYYAB HUSAIN KHAN,parties.IN.INC,INC,16589,41.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-50,punjab,1962,50,FEROZEPUR JHIRKA,ABDUL GHANI,parties.IN.REP,REP,7023,17.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-50,punjab,1962,50,FEROZEPUR JHIRKA,BANWARI LAL,parties.IN.IND,IND,6871,17.28,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-50,punjab,1962,50,FEROZEPUR JHIRKA,ABDUL RAZAK,parties.IN.IND,IND,4940,12.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-50,punjab,1962,50,FEROZEPUR JHIRKA,JIWAN KHAN,parties.IN.CPI,CPI,1617,4.07,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-50,punjab,1962,50,FEROZEPUR JHIRKA,IMAM KHAN,parties.IN.IND,IND,1555,3.91,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-50,punjab,1962,50,FEROZEPUR JHIRKA,FEROZE KHAN,parties.IN.IND,IND,731,1.84,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-50,punjab,1962,50,FEROZEPUR JHIRKA,PIAYRE LAL,parties.IN.IND,IND,427,1.07,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-51,punjab,1962,51,NUH,KHURSHED AHMED,parties.IN.INC,INC,20362,48.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-51,punjab,1962,51,NUH,OMBIR SINGH,parties.IN.IND,IND,10041,23.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-51,punjab,1962,51,NUH,BADRI PARSHAD,parties.IN.JS,JS,6859,16.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-51,punjab,1962,51,NUH,KESARIA MAL,parties.IN.IND,IND,3412,8.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-51,punjab,1962,51,NUH,MEHTAB,parties.IN.IND,IND,1298,3.09,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-52,punjab,1962,52,PATAUDI,BABU DAYAL,parties.IN.INC,INC,13090,33.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-52,punjab,1962,52,PATAUDI,SEES RAM,parties.IN.IND,IND,12721,32.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-52,punjab,1962,52,PATAUDI,RAM JIWAN,parties.IN.IND,IND,11029,27.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-52,punjab,1962,52,PATAUDI,PRABHU DAYAL,parties.IN.SWA,SWA,1557,3.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-52,punjab,1962,52,PATAUDI,MANGEY LAL,parties.IN.IND,IND,1119,2.83,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-53,punjab,1962,53,REWARI,SUMITRA DEVI,parties.IN.INC,INC,32124,61.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-53,punjab,1962,53,REWARI,HUKAM SINGH,parties.IN.IND,IND,14561,28.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-53,punjab,1962,53,REWARI,HANS RAJ,parties.IN.JS,JS,5251,10.11,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-54,punjab,1962,54,JATUSANA,NIHAL SINGH,parties.IN.IND,IND,28546,60.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-54,punjab,1962,54,JATUSANA,ABHAI SINGH,parties.IN.INC,INC,18478,39.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-55,punjab,1962,55,KANINA,BANWARI LAL,parties.IN.JS,JS,12195,45.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-55,punjab,1962,55,KANINA,SIS RAM,parties.IN.INC,INC,5850,21.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-55,punjab,1962,55,KANINA,HARNAM,parties.IN.SWA,SWA,3747,13.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-55,punjab,1962,55,KANINA,MULA,parties.IN.IND,IND,1716,6.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-55,punjab,1962,55,KANINA,CHANDER SINGH,parties.IN.IND,IND,951,3.53,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-55,punjab,1962,55,KANINA,SULIYA,parties.IN.IND,IND,816,3.03,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-55,punjab,1962,55,KANINA,MATA DIN,parties.IN.IND,IND,806,2.99,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-55,punjab,1962,55,KANINA,RAM SARUP,parties.IN.IND,IND,490,1.82,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-55,punjab,1962,55,KANINA,KAMAL SINGH,parties.IN.SOC,SOC,386,1.43,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-56,punjab,1962,56,NARNAUL,RAMSARAN CHAND MITTAL,parties.IN.INC,INC,16931,40.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-56,punjab,1962,56,NARNAUL,MADHO SINGH,parties.IN.IND,IND,16724,40.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-56,punjab,1962,56,NARNAUL,DWARKA PRASAD,parties.IN.IND,IND,3688,8.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-56,punjab,1962,56,NARNAUL,GYANENDER SINGH,parties.IN.JS,JS,3060,7.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-56,punjab,1962,56,NARNAUL,AJUDHIA PRASAD,parties.IN.SOC,SOC,1031,2.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-57,punjab,1962,57,MAHENDRAGARH,NIHAL SINGH,parties.IN.INC,INC,10589,29.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-57,punjab,1962,57,MAHENDRAGARH,HARI SINGH,parties.IN.JS,JS,9389,26.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-57,punjab,1962,57,MAHENDRAGARH,RAGHUNATH SINGH,parties.IN.SWA,SWA,6584,18.52,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-57,punjab,1962,57,MAHENDRAGARH,HAR LAL,parties.IN.IND,IND,3583,10.08,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-57,punjab,1962,57,MAHENDRAGARH,BALBIR SINGH,parties.IN.IND,IND,3544,9.97,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-57,punjab,1962,57,MAHENDRAGARH,MANOHAR SHAM ALIAS SHAM MANOHAR,parties.IN.IND,IND,1862,5.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-58,punjab,1962,58,DADRI,CHANDRAWATI,parties.IN.INC,INC,21155,50.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-58,punjab,1962,58,DADRI,DHARAM SINGH,parties.IN.CPI,CPI,14722,35.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-58,punjab,1962,58,DADRI,SHAMSHER SINGH,parties.IN.IND,IND,5941,14.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-59,punjab,1962,59,BHIWANI,SAGAR RAM,parties.IN.INC,INC,15086,33.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-59,punjab,1962,59,BHIWANI,BANARSI DASS,parties.IN.IND,IND,11534,25.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-59,punjab,1962,59,BHIWANI,MANI RAM,parties.IN.JS,JS,7573,17.02,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-59,punjab,1962,59,BHIWANI,CHIRANJIT SINGH,parties.IN.IND,IND,7137,16.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-59,punjab,1962,59,BHIWANI,RAM CHANDER,parties.IN.IND,IND,1702,3.83,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-59,punjab,1962,59,BHIWANI,HANS RAJ,parties.IN.IND,IND,580,1.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-59,punjab,1962,59,BHIWANI,DED RAJ,parties.IN.IND,IND,476,1.07,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-59,punjab,1962,59,BHIWANI,KRISHAN LAL,parties.IN.SWA,SWA,398,0.89,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-60,punjab,1962,60,TOSHAM,JAGAN NATH,parties.IN.IND,IND,6017,15.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-60,punjab,1962,60,TOSHAM,NIHAL SINGH,parties.IN.INC,INC,5754,15.22,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-60,punjab,1962,60,TOSHAM,CHANDGI RAM,parties.IN.SWA,SWA,5432,14.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-60,punjab,1962,60,TOSHAM,HARJI,parties.IN.SOC,SOC,4557,12.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-60,punjab,1962,60,TOSHAM,BANWARI SINGH,parties.IN.IND,IND,3586,9.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-60,punjab,1962,60,TOSHAM,AMAR SINGH,parties.IN.IND,IND,2922,7.73,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-60,punjab,1962,60,TOSHAM,SHISHPAL SINGH,parties.IN.IND,IND,2546,6.73,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-60,punjab,1962,60,TOSHAM,NAND LAL,parties.IN.IND,IND,1916,5.07,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-60,punjab,1962,60,TOSHAM,SHISH RAM,parties.IN.IND,IND,1631,4.31,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-60,punjab,1962,60,TOSHAM,JUG LAL,parties.IN.JS,JS,1445,3.82,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-60,punjab,1962,60,TOSHAM,RAM SARUP,parties.IN.IND,IND,816,2.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-60,punjab,1962,60,TOSHAM,LACHHMI NARAIN,parties.IN.IND,IND,740,1.96,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-60,punjab,1962,60,TOSHAM,PIRAG LAL,parties.IN.IND,IND,443,1.17,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-61,punjab,1962,61,HISSAR SADAR,NET RAM,parties.IN.SOC,SOC,18432,40.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-61,punjab,1962,61,HISSAR SADAR,RANJIT SINGH,parties.IN.INC,INC,17115,37.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-61,punjab,1962,61,HISSAR SADAR,INDER RAJ SINGH,parties.IN.CPI,CPI,4198,9.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-61,punjab,1962,61,HISSAR SADAR,TEK CHAND,parties.IN.IND,IND,2496,5.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-61,punjab,1962,61,HISSAR SADAR,GOPAL,parties.IN.IND,IND,2044,4.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-61,punjab,1962,61,HISSAR SADAR,KHUBI RAM,parties.IN.IND,IND,1326,2.91,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-62,punjab,1962,62,HANSI,TEK RAM,parties.IN.SOC,SOC,16456,27.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-62,punjab,1962,62,HANSI,SARUP SINGH,parties.IN.INC,INC,14370,23.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-62,punjab,1962,62,HANSI,GUGAN RAM,parties.IN.IND,IND,9454,15.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-62,punjab,1962,62,HANSI,AMAR CHAND,parties.IN.IND,IND,7540,12.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-62,punjab,1962,62,HANSI,RAM DEV,parties.IN.JS,JS,7372,12.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-62,punjab,1962,62,HANSI,UDAIVIR SINGH,parties.IN.CPI,CPI,1942,3.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-62,punjab,1962,62,HANSI,BABU NAND,parties.IN.PSP,PSP,1687,2.8,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-62,punjab,1962,62,HANSI,RAM SARAN DASS,parties.IN.IND,IND,934,1.55,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-62,punjab,1962,62,HANSI,KRISHAN CHANDER,parties.IN.SWA,SWA,394,0.66,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-63,punjab,1962,63,NARNAUND,AMAR SINGH,parties.IN.IND,IND,32103,56.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-63,punjab,1962,63,NARNAUND,DALBIR SINGH,parties.IN.INC,INC,24882,43.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-64,punjab,1962,64,HISSAR CITY,HONNA MAL,parties.IN.SOC,SOC,28916,56.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-64,punjab,1962,64,HISSAR CITY,BALWANT RAI,parties.IN.INC,INC,17636,34.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-64,punjab,1962,64,HISSAR CITY,RAM KUMAR,parties.IN.JS,JS,2212,4.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-64,punjab,1962,64,HISSAR CITY,MANOHAR LAL,parties.IN.REP,REP,1582,3.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-64,punjab,1962,64,HISSAR CITY,SAHI RAM,parties.IN.IND,IND,473,0.92,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-64,punjab,1962,64,HISSAR CITY,HANS RAJ,parties.IN.IND,IND,331,0.65,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-65,punjab,1962,65,TOHANA,MANPHUL SINGH,parties.IN.SOC,SOC,23814,52.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-65,punjab,1962,65,TOHANA,SURAJ MAL,parties.IN.INC,INC,16637,36.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-65,punjab,1962,65,TOHANA,FATAH,parties.IN.IND,IND,2047,4.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-65,punjab,1962,65,TOHANA,KAVI KALU RAM,parties.IN.REP,REP,2014,4.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-65,punjab,1962,65,TOHANA,UTTAM CHAND,parties.IN.IND,IND,725,1.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-65,punjab,1962,65,TOHANA,SUBE SINGH,parties.IN.IND,IND,457,1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-66,punjab,1962,66,FATEHABAD,DEVI LAL,parties.IN.IND,IND,34662,53.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-66,punjab,1962,66,FATEHABAD,MANI RAM,parties.IN.INC,INC,27016,41.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-66,punjab,1962,66,FATEHABAD,KHETA RAM,parties.IN.REP,REP,3517,5.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-67,punjab,1962,67,SIRSA,SITA RAM,parties.IN.INC,INC,23878,45.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-67,punjab,1962,67,SIRSA,RAM PARKASH,parties.IN.PSP,PSP,9910,18.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-67,punjab,1962,67,SIRSA,GANPAT,parties.IN.JS,JS,8707,16.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-67,punjab,1962,67,SIRSA,RAM KISHAN,parties.IN.IND,IND,7791,14.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-67,punjab,1962,67,SIRSA,LACHHMAN DASS,parties.IN.SWA,SWA,2215,4.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-67,punjab,1962,67,SIRSA,HARDWARI LAL,parties.IN.IND,IND,239,0.45,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-68,punjab,1962,68,DABWALI,KESARA RAM,parties.IN.INC,INC,18865,44.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-68,punjab,1962,68,DABWALI,PREM CHANDRA,parties.IN.IND,IND,12511,29.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-68,punjab,1962,68,DABWALI,UDMI,parties.IN.JS,JS,2960,6.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-68,punjab,1962,68,DABWALI,KAUR SINGH,parties.IN.IND,IND,2620,6.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-68,punjab,1962,68,DABWALI,BAGRAWAT,parties.IN.IND,IND,2105,4.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-68,punjab,1962,68,DABWALI,NIKKU,parties.IN.IND,IND,1277,3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-68,punjab,1962,68,DABWALI,GANGA BISHAN,parties.IN.IND,IND,888,2.09,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-68,punjab,1962,68,DABWALI,PRITU,parties.IN.IND,IND,594,1.4,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-68,punjab,1962,68,DABWALI,GURDIAL SINGH,parties.IN.IND,IND,492,1.16,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-68,punjab,1962,68,DABWALI,MUKAND SINGH,parties.IN.IND,IND,210,0.49,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-69,punjab,1962,69,PAKKA KALAN,HARDIT SINGH,parties.IN.SAD,AD,18639,57.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-69,punjab,1962,69,PAKKA KALAN,DHANNA SINGH,parties.IN.INC,INC,8746,27.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-69,punjab,1962,69,PAKKA KALAN,KAPUR SIGNH,parties.IN.IND,IND,1729,5.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-69,punjab,1962,69,PAKKA KALAN,SHAM SINGH,parties.IN.IND,IND,1305,4.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-69,punjab,1962,69,PAKKA KALAN,DALIP SINGH,parties.IN.IND,IND,969,3.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-69,punjab,1962,69,PAKKA KALAN,BANWARI LAL,parties.IN.JS,JS,762,2.37,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-70,punjab,1962,70,TALWANDI SABO,JANGIR SINGH,parties.IN.CPI,CPI,29584,61.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-70,punjab,1962,70,TALWANDI SABO,SARWAN SINGH,parties.IN.INC,INC,16846,35.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-70,punjab,1962,70,TALWANDI SABO,HARCHARAN SINGH,parties.IN.IND,IND,1031,2.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-70,punjab,1962,70,TALWANDI SABO,DASAUNDHA SINGH,parties.IN.IND,IND,633,1.32,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-71,punjab,1962,71,MANSA,SURJIT SINGH,parties.IN.SAD,AD,15069,33.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-71,punjab,1962,71,MANSA,INDER SINGH,parties.IN.INC,INC,11933,26.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-71,punjab,1962,71,MANSA,DHARAM SINGH,parties.IN.CPI,CPI,10421,23.27,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-71,punjab,1962,71,MANSA,SATINDER DASS,parties.IN.JS,JS,7369,16.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-72,punjab,1962,72,BUDHLADA,TEJ SINGH,parties.IN.SAD,AD,16951,41.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-72,punjab,1962,72,BUDHLADA,ATMA SINGH,parties.IN.INC,INC,13225,32.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-72,punjab,1962,72,BUDHLADA,BHAJAN SINGH,parties.IN.CPI,CPI,8018,19.51,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-72,punjab,1962,72,BUDHLADA,PRITAM SINGH,parties.IN.JS,JS,2906,7.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-73,punjab,1962,73,PHUL,BABU SINGH,parties.IN.CPI,CPI,23446,52.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-73,punjab,1962,73,PHUL,SUKHDEV SINGH,parties.IN.INC,INC,18418,41.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-73,punjab,1962,73,PHUL,CHARANJI LAL,parties.IN.JS,JS,2537,5.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-74,punjab,1962,74,BHATINDA,HARBANS LAL,parties.IN.INC,INC,24492,46.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-74,punjab,1962,74,BHATINDA,MAHESINDER SINGH,parties.IN.SWA,SWA,21612,41.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-74,punjab,1962,74,BHATINDA,SADHU RAM,parties.IN.JS,JS,5499,10.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-74,punjab,1962,74,BHATINDA,OM PRAKASH,parties.IN.IND,IND,894,1.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-75,punjab,1962,75,JAITU,TIRLOCHAN SINGH,parties.IN.INC,INC,22174,48.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-75,punjab,1962,75,JAITU,RANJIT SINGH,parties.IN.SAD,AD,21123,45.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-75,punjab,1962,75,JAITU,NANAK RAM,parties.IN.IND,IND,1054,2.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-75,punjab,1962,75,JAITU,GURNAM SINGH,parties.IN.IND,IND,889,1.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-75,punjab,1962,75,JAITU,BALBIR SINGH,parties.IN.SWA,SWA,873,1.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-76,punjab,1962,76,FARIDKOT,ZAIL SINGH,parties.IN.INC,INC,25095,49.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-76,punjab,1962,76,FARIDKOT,JAGDISH KAUR,parties.IN.SAD,AD,24359,47.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-76,punjab,1962,76,FARIDKOT,CHETAN DEV,parties.IN.IND,IND,1612,3.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-77,punjab,1962,77,MUKTSAR,HARCHARAN SINGH,parties.IN.INC,INC,30826,55.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-77,punjab,1962,77,MUKTSAR,NIRANJAN SINGH,parties.IN.SAD,AD,16171,29.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-77,punjab,1962,77,MUKTSAR,CHANAN SINGH,parties.IN.CPI,CPI,3917,7.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-77,punjab,1962,77,MUKTSAR,DES RAJ,parties.IN.JS,JS,1805,3.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-77,punjab,1962,77,MUKTSAR,BAGHAIR SINGH,parties.IN.REP,REP,894,1.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-77,punjab,1962,77,MUKTSAR,JOGINDER SINGH,parties.IN.IND,IND,734,1.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-77,punjab,1962,77,MUKTSAR,HARI SINGH,parties.IN.IND,IND,511,0.93,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-77,punjab,1962,77,MUKTSAR,BIJA RAM,parties.IN.IND,IND,307,0.56,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-78,punjab,1962,78,MALOUT,GURMIT SINGH,parties.IN.INC,INC,18524,32.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-78,punjab,1962,78,MALOUT,CHARANJI LAL,parties.IN.CPI,CPI,15122,26.25,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-78,punjab,1962,78,MALOUT,HARCHARAN SINGH,parties.IN.SAD,AD,14719,25.55,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-78,punjab,1962,78,MALOUT,RAVIRDERA DEV,parties.IN.JS,JS,4815,8.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-78,punjab,1962,78,MALOUT,MAHINDER SINGH,parties.IN.IND,IND,1893,3.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-78,punjab,1962,78,MALOUT,SUBA SINGH,parties.IN.REP,REP,1284,2.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-78,punjab,1962,78,MALOUT,GHUMAN SINGH,parties.IN.IND,IND,726,1.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-78,punjab,1962,78,MALOUT,BALWANT RAI,parties.IN.IND,IND,516,0.9,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-79,punjab,1962,79,LAMBI,UJAGAR SINGH,parties.IN.INC,INC,18160,43.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-79,punjab,1962,79,LAMBI,TEJA SINGH,parties.IN.SAD,AD,18149,43.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-79,punjab,1962,79,LAMBI,CHARAN SINGH,parties.IN.JS,JS,4022,9.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-79,punjab,1962,79,LAMBI,HAZURA SINGH,parties.IN.REP,REP,1228,2.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-79,punjab,1962,79,LAMBI,BHAG SINGH,parties.IN.IND,IND,259,0.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-79,punjab,1962,79,LAMBI,BANT SINGH,parties.IN.IND,IND,210,0.5,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-80,punjab,1962,80,ABOHAR,CHANDI RAM,parties.IN.INC,INC,18826,45.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-80,punjab,1962,80,ABOHAR,GIAN CHAND,parties.IN.JS,JS,14314,34.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-80,punjab,1962,80,ABOHAR,PARMA NAND,parties.IN.IND,IND,8575,20.56,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-81,punjab,1962,81,FAZILKA,SAT DEV,parties.IN.JS,JS,15610,42.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-81,punjab,1962,81,FAZILKA,TEG RAM,parties.IN.INC,INC,12740,34.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-81,punjab,1962,81,FAZILKA,KIRPAL SINGH,parties.IN.SAD,AD,3062,8.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-81,punjab,1962,81,FAZILKA,MANPHOOL SINGH,parties.IN.IND,IND,2861,7.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-81,punjab,1962,81,FAZILKA,AMRUO,parties.IN.IND,IND,1849,4.99,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-81,punjab,1962,81,FAZILKA,THANDU RAM,parties.IN.IND,IND,644,1.74,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-81,punjab,1962,81,FAZILKA,VED PARKASH,parties.IN.IND,IND,265,0.72,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-82,punjab,1962,82,GURU HAR SAHAI,JASWANT SINGH,parties.IN.IND,IND,22062,48.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-82,punjab,1962,82,GURU HAR SAHAI,BAKHTWAR SINGH,parties.IN.INC,INC,20477,45.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-82,punjab,1962,82,GURU HAR SAHAI,HARBANS SINGH,parties.IN.IND,IND,1378,3.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-82,punjab,1962,82,GURU HAR SAHAI,PRITAM SINGH,parties.IN.IND,IND,1216,2.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-82,punjab,1962,82,GURU HAR SAHAI,SARWAN RAM,parties.IN.IND,IND,320,0.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-83,punjab,1962,83,FEROZEPUR,KULBIR SINGH,parties.IN.JS,JS,20874,53.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-83,punjab,1962,83,FEROZEPUR,KUNDAN LAL,parties.IN.INC,INC,16999,43.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-83,punjab,1962,83,FEROZEPUR,GURCHARAN DASS,parties.IN.IND,IND,511,1.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-83,punjab,1962,83,FEROZEPUR,DALBIR SINGH,parties.IN.IND,IND,401,1.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-83,punjab,1962,83,FEROZEPUR,AHMA,parties.IN.IND,IND,316,0.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-83,punjab,1962,83,FEROZEPUR,MAST RAM,parties.IN.IND,IND,120,0.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-84,punjab,1962,84,ZIRA,JAGJIT SINGH,parties.IN.SAD,AD,22904,58.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-84,punjab,1962,84,ZIRA,GURDIT SINGH,parties.IN.INC,INC,11145,28.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-84,punjab,1962,84,ZIRA,RAMESHWAR DASS,parties.IN.IND,IND,4767,12.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-84,punjab,1962,84,ZIRA,GURDIAL SINGH,parties.IN.IND,IND,209,0.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-85,punjab,1962,85,DHARAMKOT,KULTAR SINGH,parties.IN.SAD,AD,23164,58.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-85,punjab,1962,85,DHARAMKOT,MUKHTIAR SINGH,parties.IN.INC,INC,15289,38.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-85,punjab,1962,85,DHARAMKOT,KARNAIL SINGH,parties.IN.IND,IND,933,2.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-86,punjab,1962,86,MOGA,GURCHARAN SINGH,parties.IN.SAD,AD,22155,47.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-86,punjab,1962,86,MOGA,JAGRAJ SINGH,parties.IN.INC,INC,20754,44.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-86,punjab,1962,86,MOGA,GOBIND LAL,parties.IN.JS,JS,4224,8.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-87,punjab,1962,87,BAGHAPURANA,DEEDAR SINGH,parties.IN.CPI,CPI,23432,51.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-87,punjab,1962,87,BAGHAPURANA,SOHAN SINGH,parties.IN.INC,INC,18882,41.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-87,punjab,1962,87,BAGHAPURANA,SANTA SINGH,parties.IN.IND,IND,2297,5.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-87,punjab,1962,87,BAGHAPURANA,ROOR SINGH,parties.IN.IND,IND,937,2.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-88,punjab,1962,88,NIHAL SINGH WALA,GURBUX SINGH,parties.IN.CPI,CPI,23594,51.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-88,punjab,1962,88,NIHAL SINGH WALA,BASANT SINGH,parties.IN.INC,INC,22447,48.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-89,punjab,1962,89,JAGRAON,LACHHMAN SINGH,parties.IN.SAD,AD,22811,52.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-89,punjab,1962,89,JAGRAON,HARPARKASH KAUR,parties.IN.INC,INC,15265,35.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-89,punjab,1962,89,JAGRAON,NAHAR SINGH,parties.IN.IND,IND,5267,12.15,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-90,punjab,1962,90,SIDHWAN BET,AJIT KUMAR,parties.IN.SAD,AD,23567,63.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-90,punjab,1962,90,SIDHWAN BET,GOPAL SINGH,parties.IN.INC,INC,11763,31.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-90,punjab,1962,90,SIDHWAN BET,LAL SINGH,parties.IN.IND,IND,783,2.11,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-90,punjab,1962,90,SIDHWAN BET,BIR SINGH,parties.IN.SWA,SWA,481,1.3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-90,punjab,1962,90,SIDHWAN BET,BACHAN SINGH,parties.IN.IND,IND,473,1.28,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-91,punjab,1962,91,RAIKOT,GURNAM SINGH,parties.IN.SAD,AD,23195,49.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-91,punjab,1962,91,RAIKOT,INDER MOHAN SINGH,parties.IN.INC,INC,19467,41.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-91,punjab,1962,91,RAIKOT,RACHHPAL SINGH,parties.IN.CPI,CPI,3774,8.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-91,punjab,1962,91,RAIKOT,VED PARKASH,parties.IN.IND,IND,422,0.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-92,punjab,1962,92,LUDHIANA SOUTH,SHAMSHER SINGH,parties.IN.SAD,AD,24737,50.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-92,punjab,1962,92,LUDHIANA SOUTH,RAM DAYAL SINGH,parties.IN.INC,INC,20525,42.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-92,punjab,1962,92,LUDHIANA SOUTH,HARI KRISHAN ALIAS SAT PAL,parties.IN.IND,IND,1424,2.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-92,punjab,1962,92,LUDHIANA SOUTH,KRISHAN DEV,parties.IN.JS,JS,1180,2.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-92,punjab,1962,92,LUDHIANA SOUTH,BALWANT SINGH,parties.IN.IND,IND,758,1.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-93,punjab,1962,93,LUDHIANA CITY,DINA NATH,parties.IN.INC,INC,19247,49.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-93,punjab,1962,93,LUDHIANA CITY,LAJPAT RAI,parties.IN.JS,JS,14199,36.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-93,punjab,1962,93,LUDHIANA CITY,JAGDISH CHANDRA,parties.IN.IND,IND,5155,13.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-93,punjab,1962,93,LUDHIANA CITY,RATTAN LAL,parties.IN.IND,IND,332,0.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-93,punjab,1962,93,LUDHIANA CITY,SADHU RAM,parties.IN.IND,IND,325,0.83,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-94,punjab,1962,94,LUDHIANA NORTH,BACHAN SINGH,parties.IN.IND,IND,22022,37.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-94,punjab,1962,94,LUDHIANA NORTH,HARBHAGWAN,parties.IN.INC,INC,20152,34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-94,punjab,1962,94,LUDHIANA NORTH,JAGDISH PERSHAD,parties.IN.JS,JS,9372,15.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-94,punjab,1962,94,LUDHIANA NORTH,SHEILA DIDI,parties.IN.CPI,CPI,7056,11.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-94,punjab,1962,94,LUDHIANA NORTH,NIRANJAN SINGH,parties.IN.IND,IND,667,1.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-95,punjab,1962,95,KHANNA,JAGIR SINGH,parties.IN.INC,INC,17791,44.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-95,punjab,1962,95,KHANNA,NAURANG SINGH,parties.IN.SAD,AD,13884,34.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-95,punjab,1962,95,KHANNA,GURBUX SINGH,parties.IN.CPI,CPI,6050,15.15,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-95,punjab,1962,95,KHANNA,FAQIR CHAND,parties.IN.JS,JS,1315,3.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-95,punjab,1962,95,KHANNA,JOGINDER SINGH,parties.IN.IND,IND,902,2.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-96,punjab,1962,96,SAMRALA,AJMER SINGH,parties.IN.INC,INC,18422,39.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-96,punjab,1962,96,SAMRALA,GURBUX SINGH,parties.IN.SAD,AD,17430,37.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-96,punjab,1962,96,SAMRALA,GURCHARAN SINGH,parties.IN.REP,REP,4320,9.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-96,punjab,1962,96,SAMRALA,MAL SINGH,parties.IN.CPI,CPI,3396,7.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-96,punjab,1962,96,SAMRALA,HARI CHARAN,parties.IN.IND,IND,2569,5.57,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-97,punjab,1962,97,NAWANSHAHR,JAGAT RAM,parties.IN.INC,INC,20582,53.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-97,punjab,1962,97,NAWANSHAHR,HARBHAJ RAM,parties.IN.REP,REP,17202,44.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-97,punjab,1962,97,NAWANSHAHR,MOHAN LAL,parties.IN.IND,IND,539,1.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-97,punjab,1962,97,NAWANSHAHR,YASH PAUL,parties.IN.IND,IND,161,0.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-98,punjab,1962,98,BANGA,DILBAGH SINGH,parties.IN.INC,INC,27936,69.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-98,punjab,1962,98,BANGA,HAGURANAD SINGH,parties.IN.SAD,AD,10424,26.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-98,punjab,1962,98,BANGA,RANBIR SINGH,parties.IN.IND,IND,1717,4.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-99,punjab,1962,99,PHAGWARA,OM PARKASH,parties.IN.IND,IND,32603,60.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-99,punjab,1962,99,PHAGWARA,HANSRAJ SHARMA,parties.IN.INC,INC,21332,39.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-100,punjab,1962,100,PHILLAUR,HARI SINGH,parties.IN.IND,IND,23678,52.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-100,punjab,1962,100,PHILLAUR,LEKH RAJ,parties.IN.INC,INC,20257,44.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-100,punjab,1962,100,PHILLAUR,JAGAT SINGH,parties.IN.IND,IND,795,1.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-100,punjab,1962,100,PHILLAUR,GIRDHARI LAL,parties.IN.IND,IND,633,1.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-101,punjab,1962,101,NURMAHAL,DARBARA SINGH,parties.IN.INC,INC,25010,54.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-101,punjab,1962,101,NURMAHAL,HARIKISHAN SINGH,parties.IN.CPI,CPI,19512,42.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-101,punjab,1962,101,NURMAHAL,TARA KESH,parties.IN.SWA,SWA,1513,3.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-102,punjab,1962,102,NAKODAR,DARSHAN SINGH,parties.IN.INC,INC,21719,56.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-102,punjab,1962,102,NAKODAR,PRITAM SINGH,parties.IN.SAD,AD,8980,23.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-102,punjab,1962,102,NAKODAR,BAKHTAWAR SINGH,parties.IN.IND,IND,4944,12.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-102,punjab,1962,102,NAKODAR,BALDEV MITTER,parties.IN.PSP,PSP,1405,3.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-102,punjab,1962,102,NAKODAR,MALKIAT SINGH,parties.IN.IND,IND,756,1.97,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-102,punjab,1962,102,NAKODAR,JAGIRI LAL,parties.IN.IND,IND,320,0.83,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-102,punjab,1962,102,NAKODAR,REHMAT MASSIH,parties.IN.IND,IND,313,0.81,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-103,punjab,1962,103,SHAHKOT,DALIP SINGH,parties.IN.SAD,AD,14208,42.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-103,punjab,1962,103,SHAHKOT,SANT RAM,parties.IN.INC,INC,14040,42.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-103,punjab,1962,103,SHAHKOT,DHANPAT RAI,parties.IN.CPI,CPI,4820,14.58,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-104,punjab,1962,104,JULLUNDUR CONTONMENT,KARAM SINGH KIRTI,parties.IN.INC,INC,18622,48.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-104,punjab,1962,104,JULLUNDUR CONTONMENT,GOPAL SINGH,parties.IN.SAD,AD,14021,36.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-104,punjab,1962,104,JULLUNDUR CONTONMENT,OM PARKASH,parties.IN.JS,JS,2189,5.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-104,punjab,1962,104,JULLUNDUR CONTONMENT,NASIB CHAND,parties.IN.IND,IND,2164,5.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-104,punjab,1962,104,JULLUNDUR CONTONMENT,PRAN NATH,parties.IN.IND,IND,1337,3.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-104,punjab,1962,104,JULLUNDUR CONTONMENT,KARAM SINGH,parties.IN.SWA,SWA,395,1.02,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-105,punjab,1962,105,JULLUNDUR CITY SOUTH WEST,YASH PAUL,parties.IN.INC,INC,20288,48.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-105,punjab,1962,105,JULLUNDUR CITY SOUTH WEST,JAGDISH NARAIN,parties.IN.JS,JS,9783,23.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-105,punjab,1962,105,JULLUNDUR CITY SOUTH WEST,BHAGAT SINGH,parties.IN.REP,REP,9637,23.04,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-105,punjab,1962,105,JULLUNDUR CITY SOUTH WEST,JAGAT NARAIN,parties.IN.IND,IND,2004,4.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-105,punjab,1962,105,JULLUNDUR CITY SOUTH WEST,ABNASH CHANDER,parties.IN.IND,IND,112,0.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-106,punjab,1962,106,JULLUNDUR CITY NORTH EAST,RAM KISHAN,parties.IN.INC,INC,29976,61.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-106,punjab,1962,106,JULLUNDUR CITY NORTH EAST,DURGA DATT,parties.IN.JS,JS,16667,34.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-106,punjab,1962,106,JULLUNDUR CITY NORTH EAST,JASWANT SINGH,parties.IN.SWA,SWA,1814,3.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-106,punjab,1962,106,JULLUNDUR CITY NORTH EAST,KRIPAL SINGH,parties.IN.IND,IND,247,0.51,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-107,punjab,1962,107,KARTARPUR,GURBANTA SINGH,parties.IN.INC,INC,24723,50.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-107,punjab,1962,107,KARTARPUR,PIARA RAM,parties.IN.REP,REP,23915,49.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-108,punjab,1962,108,KAPURTHALA,LAKHI SINGH,parties.IN.SAD,AD,19772,49.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-108,punjab,1962,108,KAPURTHALA,HARNAM SINGH,parties.IN.INC,INC,19299,48.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-108,punjab,1962,108,KAPURTHALA,VIR VIKRAM,parties.IN.IND,IND,756,1.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-109,punjab,1962,109,SULTANPUR,BALWANT SINGH S/O SUNDER SINGH,parties.IN.INC,INC,21404,53.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-109,punjab,1962,109,SULTANPUR,ATMA SINGH,parties.IN.SAD,AD,16162,40.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-109,punjab,1962,109,SULTANPUR,BALWAT SINGH S/O GURDIT SINGH,parties.IN.SWA,SWA,2340,5.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-110,punjab,1962,110,SARHALI,PARTAP SINGH,parties.IN.INC,INC,28182,48.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-110,punjab,1962,110,SARHALI,MOHAN SINGH,parties.IN.SAD,AD,28148,48.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-110,punjab,1962,110,SARHALI,PREM SAGAR,parties.IN.IND,IND,1327,2.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-111,punjab,1962,111,PATTI,HAZARA SINGH,parties.IN.SAD,AD,26976,56.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-111,punjab,1962,111,PATTI,HARDIP SINGH,parties.IN.INC,INC,19339,40.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-111,punjab,1962,111,PATTI,EASTER,parties.IN.IND,IND,1129,2.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-112,punjab,1962,112,KHALRA,NARAIN SINGH,parties.IN.INC,INC,19090,47.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-112,punjab,1962,112,KHALRA,GURWARYAM SINGH,parties.IN.IND,IND,18450,45.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-112,punjab,1962,112,KHALRA,DESA SINGH,parties.IN.IND,IND,2821,6.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-113,punjab,1962,113,TARN TARAN,GURDIAL SINGH,parties.IN.INC,INC,27005,57.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-113,punjab,1962,113,TARN TARAN,SAMPURAN SINGH,parties.IN.IND,IND,17729,38.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-113,punjab,1962,113,TARN TARAN,GIAN CHAND,parties.IN.HMS,HMS,893,1.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-113,punjab,1962,113,TARN TARAN,PURAN SINGH,parties.IN.IND,IND,707,1.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-113,punjab,1962,113,TARN TARAN,BACHAN SINGH,parties.IN.IND,IND,234,0.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-114,punjab,1962,114,NAGOKE,TARA SINGH,parties.IN.SAD,AD,19891,54.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-114,punjab,1962,114,NAGOKE,AMAR SINGH,parties.IN.INC,INC,13698,37.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-114,punjab,1962,114,NAGOKE,SOHAN SINGH,parties.IN.IND,IND,1141,3.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-114,punjab,1962,114,NAGOKE,AJAIB SINGH,parties.IN.IND,IND,653,1.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-114,punjab,1962,114,NAGOKE,ISHWAR DASS,parties.IN.IND,IND,590,1.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-114,punjab,1962,114,NAGOKE,GURDIAL SINGH,parties.IN.IND,IND,435,1.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-115,punjab,1962,115,JANDIALA,MAKHAN SINGH,parties.IN.CPI,CPI,19549,48.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-115,punjab,1962,115,JANDIALA,SOHAN SINGH,parties.IN.INC,INC,17431,43.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-115,punjab,1962,115,JANDIALA,NAR DEV,parties.IN.JS,JS,2286,5.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-115,punjab,1962,115,JANDIALA,BANTA SINGH,parties.IN.IND,IND,689,1.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-116,punjab,1962,116,AMRITSAR CITY EAST,BALDEV PARKASH,parties.IN.JS,JS,15614,36.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-116,punjab,1962,116,AMRITSAR CITY EAST,SADHU RAM,parties.IN.INC,INC,14092,33.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-116,punjab,1962,116,AMRITSAR CITY EAST,AVTAR SINGH,parties.IN.SAD,AD,12096,28.54,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-116,punjab,1962,116,AMRITSAR CITY EAST,TELAK RAJ,parties.IN.RRP,RRP,374,0.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-116,punjab,1962,116,AMRITSAR CITY EAST,JAGJIT SINGH,parties.IN.IND,IND,213,0.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-117,punjab,1962,117,AMRITSAR CITY CIVIL LINES,JAI INDER SINGH,parties.IN.INC,INC,17842,36.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-117,punjab,1962,117,AMRITSAR CITY CIVIL LINES,KIRPAL SINGH,parties.IN.PSP,PSP,11716,23.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-117,punjab,1962,117,AMRITSAR CITY CIVIL LINES,KESHAB CHANDER,parties.IN.JS,JS,10518,21.43,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-117,punjab,1962,117,AMRITSAR CITY CIVIL LINES,SAT PAL,parties.IN.CPI,CPI,8073,16.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-117,punjab,1962,117,AMRITSAR CITY CIVIL LINES,MOHAN SINGH,parties.IN.IND,IND,356,0.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-117,punjab,1962,117,AMRITSAR CITY CIVIL LINES,HARNAM SINGH,parties.IN.IND,IND,270,0.55,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-117,punjab,1962,117,AMRITSAR CITY CIVIL LINES,GURDIP SINGH,parties.IN.SWA,SWA,174,0.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-117,punjab,1962,117,AMRITSAR CITY CIVIL LINES,AMAR NATH,parties.IN.IND,IND,80,0.16,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-117,punjab,1962,117,AMRITSAR CITY CIVIL LINES,RATTAN SINGH,parties.IN.IND,IND,44,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-118,punjab,1962,118,AMRITSAR CITY WEST,BALRAMJI DAS,parties.IN.JS,JS,21432,50.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-118,punjab,1962,118,AMRITSAR CITY WEST,CHANDAN LAL,parties.IN.INC,INC,18427,43.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-118,punjab,1962,118,AMRITSAR CITY WEST,MAKHAN SINGH,parties.IN.SAD,AD,2183,5.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-118,punjab,1962,118,AMRITSAR CITY WEST,ISHWAR DUTT,parties.IN.RRP,RRP,139,0.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-118,punjab,1962,118,AMRITSAR CITY WEST,BALWANT SINGH,parties.IN.IND,IND,83,0.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-118,punjab,1962,118,AMRITSAR CITY WEST,RECHHPAL SINGH,parties.IN.IND,IND,21,0.05,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-119,punjab,1962,119,AJNALA,HARINDAR SINGH,parties.IN.INC,INC,33236,73.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-119,punjab,1962,119,AJNALA,DALIP SINGH,parties.IN.CPI,CPI,12089,26.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-120,punjab,1962,120,MAJITHA,PARKASH KAUR,parties.IN.INC,INC,21137,49.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-120,punjab,1962,120,MAJITHA,PARKASH SINGH,parties.IN.SWA,SWA,16220,38.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-120,punjab,1962,120,MAJITHA,SOHAN SINGH,parties.IN.CPI,CPI,2661,6.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-120,punjab,1962,120,MAJITHA,HAZARA SINGH,parties.IN.IND,IND,2181,5.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-120,punjab,1962,120,MAJITHA,FEROZ,parties.IN.IND,IND,344,0.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-121,punjab,1962,121,AMRITSAR SADAR,GURMEJ SINGH,parties.IN.INC,INC,19289,40.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-121,punjab,1962,121,AMRITSAR SADAR,DARSHAN SINGH,parties.IN.CPI,CPI,16178,33.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-121,punjab,1962,121,AMRITSAR SADAR,KHAZAN SINGH,parties.IN.SAD,AD,10587,22.01,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-121,punjab,1962,121,AMRITSAR SADAR,KHEM SINGH,parties.IN.SWA,SWA,1769,3.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-121,punjab,1962,121,AMRITSAR SADAR,BHAN SINGH,parties.IN.IND,IND,287,0.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-122,punjab,1962,122,BEAS,KARTAR SINGH,parties.IN.IND,IND,22662,51.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-122,punjab,1962,122,BEAS,SOHAN SINGH,parties.IN.INC,INC,21391,48.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-123,punjab,1962,123,SRI GOBINDPUR,SATNAM SINGH,parties.IN.INC,INC,22671,47.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-123,punjab,1962,123,SRI GOBINDPUR,UTTAM SINGH,parties.IN.SAD,AD,15411,32.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-123,punjab,1962,123,SRI GOBINDPUR,GURNAM SINGH,parties.IN.CPI,CPI,7213,15.07,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-123,punjab,1962,123,SRI GOBINDPUR,RAM PARKASH,parties.IN.JS,JS,1838,3.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-123,punjab,1962,123,SRI GOBINDPUR,BAWA SINGH,parties.IN.IND,IND,734,1.53,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-124,punjab,1962,124,BATALA,MOHAN LAL,parties.IN.INC,INC,27294,54.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-124,punjab,1962,124,BATALA,GURBACHAN SINGH,parties.IN.IND,IND,12636,25.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-124,punjab,1962,124,BATALA,RATTAN LAL,parties.IN.JS,JS,9491,19.05,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-124,punjab,1962,124,BATALA,SOWARAM SINGH,parties.IN.IND,IND,399,0.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-125,punjab,1962,125,FATEHGARH,GURMEJ SINGH,parties.IN.SAD,AD,19139,49.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-125,punjab,1962,125,FATEHGARH,JOGINDER SINGH,parties.IN.INC,INC,18178,46.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-125,punjab,1962,125,FATEHGARH,SARDARI LAL,parties.IN.JS,JS,995,2.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-125,punjab,1962,125,FATEHGARH,JALAL MASIH,parties.IN.IND,IND,461,1.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-125,punjab,1962,125,FATEHGARH,MAUJU,parties.IN.IND,IND,267,0.68,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-126,punjab,1962,126,DERA BABA NANAK,MAKHAN SINGH,parties.IN.SAD,AD,19693,51.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-126,punjab,1962,126,DERA BABA NANAK,WARYAM SINGH,parties.IN.INC,INC,14157,37.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-126,punjab,1962,126,DERA BABA NANAK,BUA DASS,parties.IN.IND,IND,1942,5.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-126,punjab,1962,126,DERA BABA NANAK,JASWANT SINGH,parties.IN.CPI,CPI,1786,4.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-126,punjab,1962,126,DERA BABA NANAK,RALLA RAM,parties.IN.IND,IND,647,1.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-127,punjab,1962,127,DHARIWAL,GURBAKSH SINGH,parties.IN.SAD,AD,15740,41.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-127,punjab,1962,127,DHARIWAL,GORAKH NATH,parties.IN.INC,INC,13530,35.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-127,punjab,1962,127,DHARIWAL,PANNA LAL,parties.IN.JS,JS,3891,10.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-127,punjab,1962,127,DHARIWAL,MUNSHI RAM,parties.IN.IND,IND,3007,7.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-127,punjab,1962,127,DHARIWAL,PRITAM SINGH,parties.IN.SWA,SWA,1658,4.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-128,punjab,1962,128,NAROT JAIMAL SINGH,SUNDER SINGH,parties.IN.INC,INC,27179,61.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-128,punjab,1962,128,NAROT JAIMAL SINGH,SAT PAL,parties.IN.JS,JS,13484,30.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-128,punjab,1962,128,NAROT JAIMAL SINGH,THURA RAM,parties.IN.CPI,CPI,2809,6.31,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-128,punjab,1962,128,NAROT JAIMAL SINGH,DES RAJ,parties.IN.IND,IND,844,1.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-128,punjab,1962,128,NAROT JAIMAL SINGH,MELA RAM,parties.IN.RRP,RRP,220,0.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-129,punjab,1962,129,PATHANKOT,BHAGIRATH LAL,parties.IN.INC,INC,19222,50.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-129,punjab,1962,129,PATHANKOT,OM PARKASH,parties.IN.JS,JS,14883,39.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-129,punjab,1962,129,PATHANKOT,SHAMSHER SINGH,parties.IN.IND,IND,1826,4.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-129,punjab,1962,129,PATHANKOT,DIWAN CHAND,parties.IN.IND,IND,1152,3.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-129,punjab,1962,129,PATHANKOT,AJIT SINGH,parties.IN.SWA,SWA,1053,2.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-130,punjab,1962,130,GURDASPUR,PRABODH CHANDRA,parties.IN.INC,INC,20130,50.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-130,punjab,1962,130,GURDASPUR,GURBACHAN SINGH,parties.IN.SAD,AD,9722,24.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-130,punjab,1962,130,GURDASPUR,JITENDRA,parties.IN.JS,JS,7853,19.68,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-130,punjab,1962,130,GURDASPUR,MANGA RAM,parties.IN.IND,IND,1191,2.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-130,punjab,1962,130,GURDASPUR,MITTAR MAN SINGH,parties.IN.IND,IND,1016,2.55,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-131,punjab,1962,131,MUKERIAN,RALA RAM,parties.IN.INC,INC,17759,37.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-131,punjab,1962,131,MUKERIAN,SHANTI SARUP,parties.IN.IND,IND,11486,24.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-131,punjab,1962,131,MUKERIAN,YOUGINDER SINGH,parties.IN.IND,IND,8829,18.75,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-131,punjab,1962,131,MUKERIAN,CHANAN SINGH,parties.IN.CPI,CPI,5272,11.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-131,punjab,1962,131,MUKERIAN,MANGAL SINGH,parties.IN.REP,REP,3743,7.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-132,punjab,1962,132,DASUYA,KARTAR SINGH,parties.IN.INC,INC,22803,47.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-132,punjab,1962,132,DASUYA,JAGJIT SINGH,parties.IN.IND,IND,22406,46.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-132,punjab,1962,132,DASUYA,SHIV SINGH,parties.IN.IND,IND,948,1.98,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-132,punjab,1962,132,DASUYA,BHAGAT SINGH,parties.IN.SWA,SWA,756,1.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-132,punjab,1962,132,DASUYA,CHANAN RAM,parties.IN.IND,IND,682,1.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-132,punjab,1962,132,DASUYA,OM PARKASH,parties.IN.IND,IND,240,0.5,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-133,punjab,1962,133,HARIANA,BHAGAT GURAN DASS,parties.IN.INC,INC,15659,43.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-133,punjab,1962,133,HARIANA,LALJI RAM,parties.IN.REP,REP,9852,27.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-133,punjab,1962,133,HARIANA,PARTAP CHAND,parties.IN.CPI,CPI,8935,24.69,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-133,punjab,1962,133,HARIANA,SURJIT SINGH,parties.IN.SWA,SWA,938,2.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-133,punjab,1962,133,HARIANA,SHANKER SINGH,parties.IN.IND,IND,802,2.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-134,punjab,1962,134,HOSHIARPUR,BAL KRISHAN,parties.IN.INC,INC,18682,44.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-134,punjab,1962,134,HOSHIARPUR,BALBIR SINGH,parties.IN.PSP,PSP,15110,36.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-134,punjab,1962,134,HOSHIARPUR,BASANTA MALL,parties.IN.JS,JS,6472,15.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-134,punjab,1962,134,HOSHIARPUR,LACHHMAN SINGH,parties.IN.SWA,SWA,906,2.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-134,punjab,1962,134,HOSHIARPUR,INDER SINGH,parties.IN.IND,IND,439,1.06,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-135,punjab,1962,135,JAHANKHELAN,RAM RATTAN,parties.IN.INC,INC,20156,49.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-135,punjab,1962,135,JAHANKHELAN,KATAR SINGH,parties.IN.REP,REP,17723,43.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-135,punjab,1962,135,JAHANKHELAN,KARAM CHAND,parties.IN.IND,IND,2073,5.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-135,punjab,1962,135,JAHANKHELAN,AMAR NATH,parties.IN.IND,IND,759,1.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-136,punjab,1962,136,AMB,MOHAN LAL,parties.IN.IND,IND,19193,48.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-136,punjab,1962,136,AMB,AMAR SINGH,parties.IN.INC,INC,16957,42.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-136,punjab,1962,136,AMB,DATA SINGH,parties.IN.IND,IND,2978,7.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-136,punjab,1962,136,AMB,RURKA SINGH,parties.IN.IND,IND,368,0.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-137,punjab,1962,137,UNA,SURINDER NATH,parties.IN.INC,INC,25309,55.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-137,punjab,1962,137,UNA,RAM KISHAN,parties.IN.CPI,CPI,12903,28.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-137,punjab,1962,137,UNA,JAGAN NATH,parties.IN.JS,JS,5424,11.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-137,punjab,1962,137,UNA,RAM RAKSHA,parties.IN.SWA,SWA,1274,2.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-137,punjab,1962,137,UNA,RAM PARKASH,parties.IN.IND,IND,543,1.19,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-138,punjab,1962,138,MAHILPUR,GURMAIL,parties.IN.INC,INC,21210,55.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-138,punjab,1962,138,MAHILPUR,CHANAN RAM,parties.IN.REP,REP,15278,40.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-138,punjab,1962,138,MAHILPUR,GURDIAL SINGH,parties.IN.SWA,SWA,1636,4.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-139,punjab,1962,139,GARHSHANKAR,RATTAN SINGH,parties.IN.INC,INC,27795,59.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-139,punjab,1962,139,GARHSHANKAR,BHAG SINGH,parties.IN.CPI,CPI,11025,23.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-139,punjab,1962,139,GARHSHANKAR,YASHPAL SINGH,parties.IN.JS,JS,3781,8.11,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-139,punjab,1962,139,GARHSHANKAR,SANSAR CHAND,parties.IN.REP,REP,3482,7.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-139,punjab,1962,139,GARHSHANKAR,ASSA,parties.IN.IND,IND,403,0.86,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-139,punjab,1962,139,GARHSHANKAR,VIRENDER NATH,parties.IN.IND,IND,140,0.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-140,punjab,1962,140,ANANDPUR,BALOO RAM,parties.IN.INC,INC,25987,61.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-140,punjab,1962,140,ANANDPUR,SUCHA SINGH,parties.IN.IND,IND,12988,30.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-140,punjab,1962,140,ANANDPUR,RAM NATH,parties.IN.JS,JS,3543,8.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-141,punjab,1962,141,RAJPURA,PREM SINGH,parties.IN.INC,INC,22788,45.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-141,punjab,1962,141,RAJPURA,BHIM SINGH,parties.IN.CPI,CPI,15452,30.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-141,punjab,1962,141,RAJPURA,GANGA RAM,parties.IN.JS,JS,9925,19.7,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-141,punjab,1962,141,RAJPURA,HARI SINGH,parties.IN.IND,IND,2216,4.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-142,punjab,1962,142,RAIPUR,JASDEV SINGH,parties.IN.INC,INC,21482,47.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-142,punjab,1962,142,RAIPUR,SURINDER NATH,parties.IN.SWA,SWA,17029,37.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-142,punjab,1962,142,RAIPUR,KIRPAL SINGH,parties.IN.IND,IND,2955,6.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-142,punjab,1962,142,RAIPUR,CHARANJI,parties.IN.IND,IND,1194,2.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-142,punjab,1962,142,RAIPUR,BEHARI LAL,parties.IN.IND,IND,1019,2.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-142,punjab,1962,142,RAIPUR,DATA RAM,parties.IN.IND,IND,812,1.8,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-142,punjab,1962,142,RAIPUR,JOHN IQBAL SINGH,parties.IN.IND,IND,723,1.6,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-143,punjab,1962,143,SAMANA,HARCHAND SINGH,parties.IN.INC,INC,23316,48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-143,punjab,1962,143,SAMANA,PRITAM SINGH,parties.IN.SAD,AD,21078,43.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-143,punjab,1962,143,SAMANA,SURAT RAM,parties.IN.JS,JS,2156,4.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-143,punjab,1962,143,SAMANA,GURDEV SINGH,parties.IN.IND,IND,2030,4.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-144,punjab,1962,144,PATIALA,RAM PARTAP,parties.IN.INC,INC,18624,41.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-144,punjab,1962,144,PATIALA,BASANT SINGH,parties.IN.SWA,SWA,18364,40.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-144,punjab,1962,144,PATIALA,TEJ RAM,parties.IN.JS,JS,5835,12.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-144,punjab,1962,144,PATIALA,PAYARE LAL,parties.IN.IND,IND,777,1.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-144,punjab,1962,144,PATIALA,BHAGWAT SWARUP,parties.IN.IND,IND,614,1.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-144,punjab,1962,144,PATIALA,KIRAN VIR SINGH,parties.IN.IND,IND,422,0.94,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-144,punjab,1962,144,PATIALA,BANU RAM,parties.IN.SOC,SOC,209,0.46,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-144,punjab,1962,144,PATIALA,HARBANS SINGH,parties.IN.IND,IND,147,0.33,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-145,punjab,1962,145,NABHA,GURDARSHAN SINGH,parties.IN.INC,INC,25689,54.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-145,punjab,1962,145,NABHA,GURDIAL SINGH,parties.IN.SAD,AD,16164,34.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-145,punjab,1962,145,NABHA,SHIV LAL,parties.IN.JS,JS,2133,4.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-145,punjab,1962,145,NABHA,KALI CHARAN,parties.IN.SWA,SWA,1092,2.32,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-145,punjab,1962,145,NABHA,GURMUKH SINGH,parties.IN.IND,IND,1020,2.17,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-145,punjab,1962,145,NABHA,CHANAN SINGH,parties.IN.REP,REP,938,1.99,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-146,punjab,1962,146,SIRHIND,GIAN SINGH,parties.IN.INC,INC,23006,46.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-146,punjab,1962,146,SIRHIND,GURDIAL SINGH,parties.IN.SAD,AD,21733,43.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-146,punjab,1962,146,SIRHIND,DEV RAJ,parties.IN.JS,JS,4714,9.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-147,punjab,1962,147,PAYAL,BHAG SINGH,parties.IN.INC,INC,21759,46.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-147,punjab,1962,147,PAYAL,MIHAN SINGH,parties.IN.SAD,AD,20408,43.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-147,punjab,1962,147,PAYAL,HARI SINGH,parties.IN.IND,IND,2384,5.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-147,punjab,1962,147,PAYAL,BALWANT SINGH,parties.IN.IND,IND,843,1.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-147,punjab,1962,147,PAYAL,MAHAIN SINGH,parties.IN.IND,IND,573,1.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-147,punjab,1962,147,PAYAL,MOHINDER SINGH,parties.IN.IND,IND,459,0.99,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-148,punjab,1962,148,MALERKOTLA,YUSUF ZAMAN BEGUM,parties.IN.INC,INC,28013,53.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-148,punjab,1962,148,MALERKOTLA,GURDEV SINGH,parties.IN.SAD,AD,18539,35.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-148,punjab,1962,148,MALERKOTLA,MADAN GOPAL,parties.IN.JS,JS,3541,6.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-148,punjab,1962,148,MALERKOTLA,MUNSHI KHAN,parties.IN.IND,IND,1369,2.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-148,punjab,1962,148,MALERKOTLA,ISMAIL,parties.IN.IND,IND,497,0.96,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-149,punjab,1962,149,MAHAL KALAN,HARNAM SINGH,parties.IN.CPI,CPI,19582,46.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-149,punjab,1962,149,MAHAL KALAN,TIRATH SINGH,parties.IN.INC,INC,16658,39.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-149,punjab,1962,149,MAHAL KALAN,JAGJIT SINGH,parties.IN.SAD,AD,4624,10.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-149,punjab,1962,149,MAHAL KALAN,MOHINDER SINGH,parties.IN.IND,IND,1387,3.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-150,punjab,1962,150,BARNALA,GURBAKSHISH SINGH,parties.IN.SAD,AD,26882,50.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-150,punjab,1962,150,BARNALA,SAMPURAN SINGH,parties.IN.INC,INC,24789,46.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-150,punjab,1962,150,BARNALA,JAGAT SINGH,parties.IN.IND,IND,1157,2.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-151,punjab,1962,151,DHURI,BHAN SINGH,parties.IN.CPI,CPI,20658,49.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-151,punjab,1962,151,DHURI,LEHNA SINGH,parties.IN.INC,INC,14212,33.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-151,punjab,1962,151,DHURI,GUJJAR SINGH,parties.IN.JS,JS,3389,8.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-151,punjab,1962,151,DHURI,TEJA SINGH,parties.IN.SWA,SWA,1587,3.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-151,punjab,1962,151,DHURI,BACHAN SINGH,parties.IN.IND,IND,1329,3.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-151,punjab,1962,151,DHURI,GOKAL SINGH,parties.IN.IND,IND,915,2.17,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-152,punjab,1962,152,SANGRUR,HARDIT SINGH,parties.IN.CPI,CPI,26035,50.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-152,punjab,1962,152,SANGRUR,RAJINDER SINGH,parties.IN.INC,INC,25380,49.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-153,punjab,1962,153,SUNAM,BRISH BHAN,parties.IN.INC,INC,31080,60.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-153,punjab,1962,153,SUNAM,GURDEV SINGH,parties.IN.SAD,AD,18153,35.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-153,punjab,1962,153,SUNAM,NARAYAN DATT,parties.IN.IND,IND,1743,3.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-153,punjab,1962,153,SUNAM,MEHAR CHAND,parties.IN.IND,IND,459,0.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-154,punjab,1962,154,LEHRA,PRITAM SINGH,parties.IN.INC,INC,18036,41.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-154,punjab,1962,154,LEHRA,GURDEV SINGH,parties.IN.SAD,AD,17690,40.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-154,punjab,1962,154,LEHRA,NEKI,parties.IN.IND,IND,3657,8.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-154,punjab,1962,154,LEHRA,AMAR NATH,parties.IN.REP,REP,1945,4.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-154,punjab,1962,154,LEHRA,MUKAND SINGH,parties.IN.JS,JS,1894,4.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

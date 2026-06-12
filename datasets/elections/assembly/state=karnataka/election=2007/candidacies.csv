@@ -1,0 +1,6 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-karnataka-143,karnataka,2007,143,ULLAL,Abdul Kadar U.T.,parties.IN.INC,INC,46271,47.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-143,karnataka,2007,143,ULLAL,Chandra Shekar Uchchil,parties.IN.BJP,BJP,38239,39.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-143,karnataka,2007,143,ULLAL,Aboobakar Natekal,parties.IN.JDS,JD(S),6217,6.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-143,karnataka,2007,143,ULLAL,J. Balakrishna Shetty,parties.IN.CPIM,CPM,4803,4.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-143,karnataka,2007,143,ULLAL,Bharathraj Shetty,parties.IN.IND,IND,1196,1.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-tripura-20,tripura,2012,20,BOXANAGAR,T.C. Das,parties.IN.CPIM,CPM,18001,56.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-20,tripura,2012,20,BOXANAGAR,D.L. Majumder,parties.IN.INC,INC,13224,41.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-20,tripura,2012,20,BOXANAGAR,P. Barman,parties.IN.BJP,BJP,463,1.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-20,tripura,2012,20,BOXANAGAR,Biplab Das,parties.IN.AMB,AB,385,1.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

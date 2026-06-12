@@ -1,0 +1,6 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1962-madhya-pradesh-167,madhya-pradesh,1965,167,JABALPUR III,MANMOHANDAS,parties.IN.INC,INC,15713,58.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-madhya-pradesh-167,madhya-pradesh,1965,167,JABALPUR III,V.S.SINGH,parties.IN.JS,JS,10667,39.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-madhya-pradesh-167,madhya-pradesh,1965,167,JABALPUR III,J.P.MISRA,parties.IN.SSP,SSP,537,2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-madhya-pradesh-222,madhya-pradesh,1965,222,BERASIA S.C,H.K.SINGH,parties.IN.INC,INC,9715,56.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-madhya-pradesh-222,madhya-pradesh,1965,222,BERASIA S.C,MUNG LAL,parties.IN.HMS,HMS,7597,43.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a

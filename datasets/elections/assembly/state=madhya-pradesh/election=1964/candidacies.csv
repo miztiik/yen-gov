@@ -1,0 +1,11 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1962-madhya-pradesh-182,madhya-pradesh,1964,182,BINA,S.N.MUSHRAN,parties.IN.INC,INC,15027,53.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-madhya-pradesh-182,madhya-pradesh,1964,182,BINA,RAJAJU,parties.IN.JS,JS,12464,44.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-madhya-pradesh-182,madhya-pradesh,1964,182,BINA,J.BALLE,parties.IN.IND,IND,831,2.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-madhya-pradesh-251,madhya-pradesh,1964,251,SONKATCH,V.SINGH,parties.IN.JS,JS,19647,54.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-madhya-pradesh-251,madhya-pradesh,1964,251,SONKATCH,VIJAY SINGH,parties.IN.INC,INC,16056,44.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-madhya-pradesh-251,madhya-pradesh,1964,251,SONKATCH,D.SINGH,parties.IN.IND,IND,571,1.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-madhya-pradesh-283,madhya-pradesh,1964,283,SITAMAU,K.SINGH,parties.IN.JS,JS,15532,49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-madhya-pradesh-283,madhya-pradesh,1964,283,SITAMAU,B.L.METHA,parties.IN.INC,INC,15110,47.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-madhya-pradesh-283,madhya-pradesh,1964,283,SITAMAU,N.SINGH,parties.IN.IND,IND,749,2.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-madhya-pradesh-283,madhya-pradesh,1964,283,SITAMAU,S.SINGH,parties.IN.IND,IND,308,0.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

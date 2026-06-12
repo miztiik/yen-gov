@@ -1,0 +1,27 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-assam-3,assam,2000,3,KARIMGANJNORTH,Mission Ranjan Das,parties.IN.BJP,BJP,34851,40.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-3,assam,2000,3,KARIMGANJNORTH,Gulam Karim Md. Ali Murad Choudhury,parties.IN.AGP,AGP,28429,32.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-3,assam,2000,3,KARIMGANJNORTH,Madhabendra Dutta Choudhury,parties.IN.INC,INC,13000,15.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-3,assam,2000,3,KARIMGANJNORTH,Nazrul Islam Choudhury,parties.IN.IND,IND,8381,9.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-3,assam,2000,3,KARIMGANJNORTH,Bhupati Suklabaidya,parties.IN.IND,IND,606,0.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-3,assam,2000,3,KARIMGANJNORTH,Arunangshu Bhattacharjee,parties.IN.IND,IND,285,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-3,assam,2000,3,KARIMGANJNORTH,Satya Ranjan Acharjee,parties.IN.JDS,JD(S),279,0.32,7,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-assam-3,assam,2000,3,KARIMGANJNORTH,Abul Hasna Choudhury,parties.IN.IND,IND,231,0.27,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-3,assam,2000,3,KARIMGANJNORTH,Subhash Nandi,parties.IN.IND,IND,115,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-41,assam,2000,41,BHABANIPUR,Dr. Manoranjan Das,parties.IN.AGP,AGP,22723,33.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-41,assam,2000,41,BHABANIPUR,Sarbananda Choudhury,parties.IN.INC,INC,22434,33.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-41,assam,2000,41,BHABANIPUR,Milan Baro,parties.IN.IND,IND,18523,27.47,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-41,assam,2000,41,BHABANIPUR,Manjushree Pathak,parties.IN.BJP,BJP,2592,3.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-41,assam,2000,41,BHABANIPUR,Ajad Ali,parties.IN.IND,IND,836,1.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-41,assam,2000,41,BHABANIPUR,Nazim Mollah,parties.IN.UNK,URMCA,314,0.47,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-59,assam,2000,59,NALBARI,Alaka Sarma,parties.IN.AGP,AGP,38480,41.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-59,assam,2000,59,NALBARI,Bhumidhar Barman,parties.IN.INC,INC,33088,36.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-59,assam,2000,59,NALBARI,Chandra Kanta Talukdar,parties.IN.BJP,BJP,10090,11.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-59,assam,2000,59,NALBARI,Hemanta Barman,parties.IN.IND,IND,7519,8.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-59,assam,2000,59,NALBARI,Chandra Dhar Kalita,parties.IN.IND,IND,2294,2.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-59,assam,2000,59,NALBARI,Siddheswar Sarmah,parties.IN.IND,IND,210,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-99,assam,2000,99,MAJULI(ST)GUDIVADA,Jogeswar Doley,parties.IN.AGP,AGP,22989,32.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-99,assam,2000,99,MAJULI(ST)GUDIVADA,Rajib Lochan Pegu,parties.IN.INC,INC,17495,25.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-99,assam,2000,99,MAJULI(ST)GUDIVADA,Durgeswar Doley,parties.IN.BJP,BJP,17063,24.45,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-99,assam,2000,99,MAJULI(ST)GUDIVADA,Purusuttom Doley,parties.IN.IND,IND,11891,17.04,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-99,assam,2000,99,MAJULI(ST)GUDIVADA,Mal Chandra Pegu,parties.IN.NCP,NCP,339,0.49,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a

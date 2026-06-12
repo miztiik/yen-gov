@@ -1,0 +1,14 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1967-nagaland-10,nagaland,1966,TSEMINYU,3373,-1,-0.03,R.THONG,parties.IN.UNK,NNO,-1,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-12,nagaland,1966,SOUTHERN ANGAMI(I),2925,-1,-0.03,K.KHIEYA,parties.IN.UNK,NNO,-1,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-13,nagaland,1966,SOUTHERN ANGAM (II),3238,-1,-0.03,H.KIN,parties.IN.UNK,NNO,-1,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-20,nagaland,1966,TULI,2317,-1,-0.04,MARAACHIBA,parties.IN.IND,IND,-1,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-23,nagaland,1966,MONGOYA,2363,-1,-0.04,T.I.JAMIR,parties.IN.IND,IND,-1,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-24,nagaland,1966,MOKOKCHUNG TOWN,2165,1758,81.2,A.LONGKUMER,parties.IN.IND,IND,905,51.48,MOKLONSAMA AO,parties.IN.IND,IND,853,52,2.96,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-25,nagaland,1966,AUNGLENDEN,2583,-1,-0.04,J.MAPUTEMJEN,parties.IN.IND,IND,-1,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-26,nagaland,1966,KORINDANG,2650,-1,-0.04,K.TIAYANGER,parties.IN.IND,IND,-1,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-28,nagaland,1966,JANGPETKONG,3200,983,30.72,IMCHALEMBA AO,parties.IN.IND,IND,971,98.78,INKONGWATI AO,parties.IN.IND,IND,12,959,97.56,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-38,nagaland,1966,MOILAN,2302,207,8.99,S.EZUNG,parties.IN.UNK,NNO,116,56.04,N.OVUNG,parties.IN.IND,IND,91,25,12.08,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-5,nagaland,1966,PEREN,3166,-1,-0.03,IKIESING,parties.IN.UNK,NNO,-1,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-8,nagaland,1966,NORTHERN ANGAMI(I),3113,-1,-0.03,K.ANGAMI,parties.IN.UNK,NNO,-1,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-9,nagaland,1966,NORTHERN ANGAMI (II),4324,1397,32.31,K.V.KEDITSU,parties.IN.IND,IND,788,56.41,L.ANGAMI,parties.IN.UNK,NNO,609,179,12.82,src-1b7bc1c9d39a

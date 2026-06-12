@@ -34,9 +34,26 @@ def electoral_rows() -> list[dict[str, str]]:
 
 
 def test_every_ac_row_has_reservation_in_enum(electoral_rows):
-    """Every AC row MUST have reservation in {GEN, SC, ST}."""
-    ac_rows = [r for r in electoral_rows if r["entity_kind"] == "ac"]
-    assert ac_rows, "no AC rows in electoral.csv"
+    """Every in-force-cycle (delim_year=2008) AC row MUST have reservation in {GEN, SC, ST}.
+
+    PR-Q7b (2026-06-12) introduced historical AC entity cohorts under
+    ``delim_year`` 1962 / 1967 / 1976 from TCPD's ``All_States_AE.csv``.
+    TCPD ``Constituency_Type`` is honestly empty for the pre-reservation
+    multi-member ``BL`` bloc constituencies (mostly DelimID 1, years
+    1961-1965) and for sporadic later rows where TCPD simply does not
+    record a type. The minter writes those rows with empty
+    ``reservation`` per ADR; ECI's reservation enum was introduced post
+    the 1956 Second Schedule reorganisation and was not applied to every
+    historical seat at the publisher level. This test scopes the
+    "every row populated" invariant to the in-force 2008 cycle where
+    PR-E-R's backfill is the controlling write seam.
+    """
+    ac_rows = [
+        r
+        for r in electoral_rows
+        if r["entity_kind"] == "ac" and r["delim_year"] == "2008"
+    ]
+    assert ac_rows, "no in-force AC rows in electoral.csv"
     missing = [r for r in ac_rows if r["reservation"] not in ("GEN", "SC", "ST")]
     if missing:
         # Surface first 10 for diagnosis.
@@ -45,7 +62,7 @@ def test_every_ac_row_has_reservation_in_enum(electoral_rows):
             for r in missing[:10]
         ]
         pytest.fail(
-            f"{len(missing)} of {len(ac_rows)} AC rows missing reservation:\n"
+            f"{len(missing)} of {len(ac_rows)} in-force AC rows missing reservation:\n"
             + "\n".join(sample)
         )
 
@@ -67,13 +84,22 @@ def test_every_pc_row_has_reservation_in_enum(electoral_rows):
 
 
 def test_tn_s22_ac_reservation_oracle(electoral_rows):
-    """TN S22: 234 ACs with 44 SC + 2 ST + 188 GEN per 2008 Delim Order."""
+    """TN S22 in-force cycle: 234 ACs with 44 SC + 2 ST + 188 GEN per 2008 Delim Order.
+
+    Filter to ``delim_year=2008`` so the oracle remains pinned to the
+    "2008 Delim Order" universe declared in the docstring even after
+    PR-Q7b widened the catalogue with historical 1962/1967/1976 cohorts
+    (which add a further 234 TN AC entries each across the older delim
+    cycles, hence the total grows to 702 without the filter).
+    """
     tn_ac = [
         r
         for r in electoral_rows
-        if r["state"] == "tamil-nadu" and r["entity_kind"] == "ac"
+        if r["state"] == "tamil-nadu"
+        and r["entity_kind"] == "ac"
+        and r["delim_year"] == "2008"
     ]
-    assert len(tn_ac) == 234, f"expected 234 TN ACs, got {len(tn_ac)}"
+    assert len(tn_ac) == 234, f"expected 234 TN in-force ACs, got {len(tn_ac)}"
     tally = Counter(r["reservation"] for r in tn_ac)
     assert tally["SC"] == 44, f"expected 44 SC TN ACs, got {tally['SC']}"
     assert tally["ST"] == 2, f"expected 2 ST TN ACs, got {tally['ST']}"

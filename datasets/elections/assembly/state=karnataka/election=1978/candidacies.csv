@@ -1,0 +1,1162 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-karnataka-1,karnataka,1978,1,AURAD,MANIK RAO PATIL,parties.IN.INC_I,INC(I),36381,55.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-1,karnataka,1978,1,AURAD,BAPURAO VITHAL RAO PATIL,parties.IN.IND,IND,18946,28.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-1,karnataka,1978,1,AURAD,BALWANT RAO DEV RAO KHANAPURKER,parties.IN.JP,JNP,6558,9.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-1,karnataka,1978,1,AURAD,MANOSH ANDRISH,parties.IN.INC,INC,2602,3.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-1,karnataka,1978,1,AURAD,MANIK RAO RACHAPPA,parties.IN.IND,IND,1397,2.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-2,karnataka,1978,2,BHALKI,BHIMANNA SHIVALINGAPPA KANDRE,parties.IN.INC,INC,22806,44.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-2,karnataka,1978,2,BHALKI,BIDU RAO GOREHINCHOLLIKAR,parties.IN.INC_I,INC(I),17999,35.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-2,karnataka,1978,2,BHALKI,SUBASH PRABHUSETTAPPA ASTURE,parties.IN.JP,JNP,8720,17.04,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-2,karnataka,1978,2,BHALKI,SHIVRAJ NARSAPPA RAMPURE,parties.IN.IND,IND,1300,2.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-2,karnataka,1978,2,BHALKI,PREMCHAND NAGNATH RAO WAGHMARE,parties.IN.IND,IND,210,0.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-2,karnataka,1978,2,BHALKI,JAYANAND RAO EKAMBEKAR LALOJI,parties.IN.IND,IND,136,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-3,karnataka,1978,3,HULSOOR,MADANLAL BADEAPPA,parties.IN.INC_I,INC(I),14562,36.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-3,karnataka,1978,3,HULSOOR,TATYARAO KAMBLE,parties.IN.JP,JNP,13027,32.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-3,karnataka,1978,3,HULSOOR,TRIMBAK DANGE,parties.IN.INC,INC,5965,14.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-3,karnataka,1978,3,HULSOOR,THAKURSING NARAYANSING RATHOD,parties.IN.IND,IND,4924,12.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-3,karnataka,1978,3,HULSOOR,MAHENDRA KUMAR,parties.IN.IND,IND,1342,3.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-3,karnataka,1978,3,HULSOOR,ZAREPPA VISHWANATH,parties.IN.IND,IND,536,1.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-4,karnataka,1978,4,BIDAR,VEERSHETTY MOGLAPPA KUSNOOR,parties.IN.INC_I,INC(I),29809,57.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-4,karnataka,1978,4,BIDAR,KASHINATH GURAPPA,parties.IN.JP,JNP,13515,25.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-4,karnataka,1978,4,BIDAR,MOHD. LAIQUDDIN MOHD. BURHUDIN,parties.IN.INC,INC,6128,11.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-4,karnataka,1978,4,BIDAR,BRIJPAL SINGH GAJRAJISINGH,parties.IN.IND,IND,2188,4.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-4,karnataka,1978,4,BIDAR,JAYANANDRAO EKAMBAR LALOJEE,parties.IN.IND,IND,430,0.83,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-5,karnataka,1978,5,HUMNABAD,BASWARAJ HAWGAPPA,parties.IN.JP,JNP,16167,29.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-5,karnataka,1978,5,HUMNABAD,V.N.PATIL,parties.IN.CPI,CPI,14297,26.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-5,karnataka,1978,5,HUMNABAD,NARENDRA MADIVALAPPA KHENI,parties.IN.INC,INC,9442,17.33,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-5,karnataka,1978,5,HUMNABAD,DILIPKUMAR BASWARAJ,parties.IN.IND,IND,6916,12.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-5,karnataka,1978,5,HUMNABAD,ABDUL SHUKOOR SHAIKH MAHBOOB,parties.IN.IND,IND,4609,8.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-5,karnataka,1978,5,HUMNABAD,NARSAPPA LACHAPPA,parties.IN.IND,IND,2084,3.83,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-5,karnataka,1978,5,HUMNABAD,ZEREPPA THUKAPPA,parties.IN.IND,IND,465,0.85,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-5,karnataka,1978,5,HUMNABAD,ABDUL HAMEED SHAIKH ALISAB,parties.IN.IND,IND,279,0.51,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-5,karnataka,1978,5,HUMNABAD,MALLIKARJUN BASWANATH RAO,parties.IN.IND,IND,222,0.41,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-6,karnataka,1978,6,BASAVAKALYAN,BAPU RAO HULSOORKER,parties.IN.INC_I,INC(I),23827,45.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-6,karnataka,1978,6,BASAVAKALYAN,TAJUDDIN NAWAZBHAI,parties.IN.JP,JNP,18868,36.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-6,karnataka,1978,6,BASAVAKALYAN,SIDDAPPA KHELGI,parties.IN.INC,INC,4629,8.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-6,karnataka,1978,6,BASAVAKALYAN,BAMMAREDDY HANMANTH REDDY,parties.IN.IND,IND,3497,6.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-6,karnataka,1978,6,BASAVAKALYAN,NAGANNA HALSHETTY,parties.IN.IND,IND,606,1.17,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-6,karnataka,1978,6,BASAVAKALYAN,MANIKAPPA SIDDALINGAPPA,parties.IN.IND,IND,418,0.81,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-7,karnataka,1978,7,CHINCHOLI,DEVENDRAPPA GHALAPPA JAMADAR,parties.IN.INC_I,INC(I),25963,51.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-7,karnataka,1978,7,CHINCHOLI,VAIJNATH PATIL SANGAPPA PATIL,parties.IN.JP,JNP,19508,38.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-7,karnataka,1978,7,CHINCHOLI,VEERAREDDY SERI,parties.IN.INC,INC,4123,8.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-7,karnataka,1978,7,CHINCHOLI,SHANKARAPPA SHIVPURE,parties.IN.IND,IND,727,1.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-8,karnataka,1978,8,KAMALAPUR,GOVIND P. VADEYARAJ,parties.IN.JP,JNP,23110,51.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-8,karnataka,1978,8,KAMALAPUR,NARSING RAO JADHAV,parties.IN.INC_I,INC(I),17301,38.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-8,karnataka,1978,8,KAMALAPUR,GUNDAPPA REVAPPA KAHMAS,parties.IN.RPK,RPK,1840,4.11,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-8,karnataka,1978,8,KAMALAPUR,GUNDAPPA KORWAR,parties.IN.INC,INC,1419,3.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-8,karnataka,1978,8,KAMALAPUR,GUNDAPPA CHANDAPPA BABLAD,parties.IN.IND,IND,909,2.03,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-8,karnataka,1978,8,KAMALAPUR,SHARNAPPA DEVAPPA KAMALAPUR,parties.IN.IND,IND,216,0.48,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-9,karnataka,1978,9,ALLAND,ANNA RAO BHEM RAO PATIL KOTALLI,parties.IN.JP,JNP,26232,56.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-9,karnataka,1978,9,ALLAND,DIGAMBER RAO BALWANT RAO KALMANKER,parties.IN.INC_I,INC(I),16956,36.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-9,karnataka,1978,9,ALLAND,M.PATIL GURUSHANTAPPA,parties.IN.INC,INC,3219,6.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-10,karnataka,1978,10,GULBARGA,QAMARUL ISLAM,parties.IN.IND,IND,18005,32.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-10,karnataka,1978,10,GULBARGA,SADAT HUSSAIN USTAD,parties.IN.JP,JNP,17242,31.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-10,karnataka,1978,10,GULBARGA,IQBAL AHMED SARADGI,parties.IN.INC_I,INC(I),12476,22.73,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-10,karnataka,1978,10,GULBARGA,GANGADHAR NAMOSHI,parties.IN.CPIM,CPM,3527,6.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-10,karnataka,1978,10,GULBARGA,MOHAMMAD ALI MEHTAL ALI,parties.IN.INC,INC,2002,3.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-10,karnataka,1978,10,GULBARGA,SHARANGOUDA INAMDAR,parties.IN.IND,IND,627,1.14,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-10,karnataka,1978,10,GULBARGA,PASWARAJ S.KATTIMANI,parties.IN.RPK,RPK,625,1.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-10,karnataka,1978,10,GULBARGA,HASMUKHLAL SETH,parties.IN.IND,IND,203,0.37,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-10,karnataka,1978,10,GULBARGA,VEERANNA KADGANCHI,parties.IN.IND,IND,110,0.2,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-10,karnataka,1978,10,GULBARGA,MOHAMMAD NAYEEM REHMANI,parties.IN.IND,IND,82,0.15,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-11,karnataka,1978,11,SHAHABAD,SHARNAPPA FAKEERAPPA BHAIRY,parties.IN.CPI,CPI,22685,51.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-11,karnataka,1978,11,SHAHABAD,S.M.HAGARAGI,parties.IN.JP,JNP,14047,31.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-11,karnataka,1978,11,SHAHABAD,SHIVARAM MOGHA,parties.IN.RPK,RPK,4114,9.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-11,karnataka,1978,11,SHAHABAD,HIRASINGH RATHOD,parties.IN.INC,INC,3199,7.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-12,karnataka,1978,12,AFZALPUR,M.Y.PATIL,parties.IN.JP,JNP,23823,47.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-12,karnataka,1978,12,AFZALPUR,HANMATH RAO DESAI,parties.IN.INC_I,INC(I),23436,46.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-12,karnataka,1978,12,AFZALPUR,BABU RAO,parties.IN.INC,INC,2873,5.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-13,karnataka,1978,13,CHITAPUR,PRABHAKAR R.TELKAR,parties.IN.INC_I,INC(I),20814,56.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-13,karnataka,1978,13,CHITAPUR,KUSUMAKAR DESAI,parties.IN.JP,JNP,10015,26.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-13,karnataka,1978,13,CHITAPUR,SUBHASH SHANKARSHETTY PATIL,parties.IN.INC,INC,5108,13.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-13,karnataka,1978,13,CHITAPUR,SATYANARAYAN VYAS,parties.IN.IND,IND,1180,3.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-14,karnataka,1978,14,SEDAM,SHER KHAN,parties.IN.INC_I,INC(I),22397,45.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-14,karnataka,1978,14,SEDAM,BASWANTH REDDY,parties.IN.JP,JNP,18761,37.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-14,karnataka,1978,14,SEDAM,SAIREDDY RUDRAPPA PATIL,parties.IN.INC,INC,8270,16.73,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-15,karnataka,1978,15,JEWARGI,DHARAM SINGH NARAYAN SINGH,parties.IN.INC_I,INC(I),26584,54.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-15,karnataka,1978,15,JEWARGI,MALLAPPA MALKAPPA SAHU ALUR,parties.IN.JP,JNP,14989,30.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-15,karnataka,1978,15,JEWARGI,ANNARYA GOUDA SHIVASHARANAPPA GOUDA PATIL,parties.IN.INC,INC,6266,12.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-15,karnataka,1978,15,JEWARGI,SHIVASHARANAPPA MAHANTAPPAGOUDA JEMNBERAT,parties.IN.IND,IND,1273,2.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-16,karnataka,1978,16,GURMITKAL,MALLIKARAJUN KHARGE,parties.IN.INC_I,INC(I),30380,64.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-16,karnataka,1978,16,GURMITKAL,G.MAHADEVAPPA TAMANNA,parties.IN.JP,JNP,13781,29.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-16,karnataka,1978,16,GURMITKAL,MALLANNA RAMANNA,parties.IN.INC,INC,1522,3.26,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-16,karnataka,1978,16,GURMITKAL,MOORTHEPPA HANUMANTHAPPA,parties.IN.IND,IND,603,1.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-16,karnataka,1978,16,GURMITKAL,KHANDE RAO NARSING RAO,parties.IN.IND,IND,458,0.98,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-17,karnataka,1978,17,YADGIR,SHARNAPA NAGAPPA KALBURGI,parties.IN.INC_I,INC(I),28309,55.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-17,karnataka,1978,17,YADGIR,VISHWANATHREDDY RACHABNGOUDA,parties.IN.JP,JNP,20759,40.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-17,karnataka,1978,17,YADGIR,CHAMPALAL CHOGALAL JAIN,parties.IN.IND,IND,988,1.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-17,karnataka,1978,17,YADGIR,SABBANANGOUDA KARANGOUDA,parties.IN.INC,INC,920,1.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-18,karnataka,1978,18,SHAHAPUR,SHIVANNA SAWOOR,parties.IN.INC_I,INC(I),29132,59.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-18,karnataka,1978,18,SHAHAPUR,INAYATUR RAHMAN ATAUR RAHMAN SIDDIGI,parties.IN.JP,JNP,16098,33.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-18,karnataka,1978,18,SHAHAPUR,HULIGYYAGOUDA SON OF RAMAYYA GOUDA,parties.IN.INC,INC,2009,4.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-18,karnataka,1978,18,SHAHAPUR,BHIMAPPA SIDDAPPA,parties.IN.IND,IND,1362,2.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-19,karnataka,1978,19,SHORAPUR,RAJA KUMAR NAIK,parties.IN.INC_I,INC(I),23201,51.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-19,karnataka,1978,19,SHORAPUR,RAJA PID NAIK,parties.IN.JP,JNP,16461,36.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-19,karnataka,1978,19,SHORAPUR,SHIVAPPA BASAPPA,parties.IN.INC,INC,4992,11.18,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-20,karnataka,1978,20,DEODURG,B. SHIVANNA,parties.IN.INC_I,INC(I),21752,62.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-20,karnataka,1978,20,DEODURG,NOORYA NAIK HEMLYA NAIK,parties.IN.JP,JNP,9921,28.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-20,karnataka,1978,20,DEODURG,RAMJI NAIK GANKA NAIK,parties.IN.INC,INC,3078,8.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-21,karnataka,1978,21,RAICHUR,NAZEER AHMAD SIDDIQUI,parties.IN.INC_I,INC(I),20619,54.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-21,karnataka,1978,21,RAICHUR,V. RAJANNA LAXAYYA,parties.IN.IND,IND,9013,23.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-21,karnataka,1978,21,RAICHUR,M. BASHEERUDDIN,parties.IN.JP,JNP,6866,18.16,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-21,karnataka,1978,21,RAICHUR,KAZI ABDUL RAUF ABDUL GAFFAR,parties.IN.INC,INC,478,1.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-21,karnataka,1978,21,RAICHUR,PARIKHITRAJ GURURAO,parties.IN.IND,IND,438,1.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-21,karnataka,1978,21,RAICHUR,DONY M. LOBO,parties.IN.IND,IND,387,1.02,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-22,karnataka,1978,22,KALMALA,SUDHENDRA RAO KASBE,parties.IN.INC_I,INC(I),19301,50.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-22,karnataka,1978,22,KALMALA,MUNIYAPPA MUDDANNA,parties.IN.JP,JNP,11957,31.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-22,karnataka,1978,22,KALMALA,DOD GAGAPPA EASHWARAPPA,parties.IN.INC,INC,6546,17.02,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-22,karnataka,1978,22,KALMALA,DEVENDRAPPA RAYAPPA,parties.IN.IND,IND,666,1.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-23,karnataka,1978,23,MANVI,R. AMBANNA NAIK DORAI HANAMAPPA NAIK,parties.IN.INC_I,INC(I),17325,39.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-23,karnataka,1978,23,MANVI,K. RAJASEKHARAPPA,parties.IN.JP,JNP,15817,35.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-23,karnataka,1978,23,MANVI,VIRUPAKSH RAO PAMPAPATHI RAO NADAGOUDA,parties.IN.INC,INC,9454,21.42,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-23,karnataka,1978,23,MANVI,PARIKSHIT RAJ GURU RAO,parties.IN.IND,IND,1533,3.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-24,karnataka,1978,24,LINGSUGUR,BASWARAJ APPAGOUDA TIMMANGOUDA ANWARI,parties.IN.INC_I,INC(I),28510,54.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-24,karnataka,1978,24,LINGSUGUR,RAJ AMARAPPA NAIK,parties.IN.JP,JNP,20809,40.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-24,karnataka,1978,24,LINGSUGUR,AMERGOUDA MALLESHGOUDA MATTUR,parties.IN.INC,INC,2663,5.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-25,karnataka,1978,25,SINDHNOOR,NARAYANAPPA HANUMANTHAPPA,parties.IN.INC_I,INC(I),21536,37.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-25,karnataka,1978,25,SINDHNOOR,AMARE GOUDA CHANNAN GOUDA,parties.IN.INC,INC,18875,32.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-25,karnataka,1978,25,SINDHNOOR,S. B. BHEEMAPPA KANAKAPPA,parties.IN.JP,JNP,13912,23.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-25,karnataka,1978,25,SINDHNOOR,PREMRAJ MUTA KHANMAL,parties.IN.IND,IND,2216,3.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-25,karnataka,1978,25,SINDHNOOR,SAGAYYA KARIBASSAYYA,parties.IN.IND,IND,1441,2.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-26,karnataka,1978,26,KUSHTAGI,M. GANGANNA BHEEMAPPA,parties.IN.INC_I,INC(I),27908,57.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-26,karnataka,1978,26,KUSHTAGI,VITTAPPA PAMPANNA KANTLI,parties.IN.JP,JNP,9699,19.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-26,karnataka,1978,26,KUSHTAGI,SHARBANNA VEERAPPA TURKANI,parties.IN.IND,IND,7015,14.42,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-26,karnataka,1978,26,KUSHTAGI,DESHPANDE RAM RAO RAGHVENDRA RAO,parties.IN.INC,INC,3779,7.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-26,karnataka,1978,26,KUSHTAGI,SANGMESHWAR SHEKHARAYYA HIREMATH,parties.IN.IND,IND,254,0.52,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-27,karnataka,1978,27,YELBURGA,SHRILINGRAJ SHIVASHANKAR RAO,parties.IN.INC_I,INC(I),32453,63.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-27,karnataka,1978,27,YELBURGA,SHANKARAPPA SIDDAPPA,parties.IN.JP,JNP,14504,28.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-27,karnataka,1978,27,YELBURGA,DESAI P.K.,parties.IN.INC,INC,1942,3.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-27,karnataka,1978,27,YELBURGA,SHRIPADAPPA NEELAPPA,parties.IN.IND,IND,1708,3.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-27,karnataka,1978,27,YELBURGA,CHANNABASAPPA HONNAPPA,parties.IN.IND,IND,448,0.88,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-28,karnataka,1978,28,KANAKAGIRI,M.NAGAPPA MUKAPPA,parties.IN.INC_I,INC(I),27932,57.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-28,karnataka,1978,28,KANAKAGIRI,MARIYAPPA DODDABASAPPA BHATADA,parties.IN.JP,JNP,12924,26.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-28,karnataka,1978,28,KANAKAGIRI,BASAVANT RAO BASANAGOUNDA,parties.IN.INC,INC,4755,9.82,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-28,karnataka,1978,28,KANAKAGIRI,BHEEMANAGOUNDA RAYANAGOUNDA,parties.IN.RPK,RPK,2826,5.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-29,karnataka,1978,29,GANGAVATHI,C.YADAVE RAO SHESHA RAO,parties.IN.INC_I,INC(I),31973,57.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-29,karnataka,1978,29,GANGAVATHI,SRIRANGADEVARAYALU VCEERAVENKATADEVARAYALU,parties.IN.JP,JNP,18652,33.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-29,karnataka,1978,29,GANGAVATHI,GUNJAHALLI NAGAPPA HIRENDGAPPA,parties.IN.INC,INC,3924,7.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-29,karnataka,1978,29,GANGAVATHI,K.R.TIPPANNA MALLAPPA NAIK,parties.IN.RPK,RPK,1005,1.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-29,karnataka,1978,29,GANGAVATHI,GIDRJA SHANKER BHEEMANAGOUDA KARTIGI,parties.IN.IND,IND,277,0.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-30,karnataka,1978,30,KOPPAL,VEERANNA PAMPANNA MUDGAL,parties.IN.INC_I,INC(I),30402,61.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-30,karnataka,1978,30,KOPPAL,SHANKRAGOUDA LINGAGOUDA SINGATALOOR,parties.IN.JP,JNP,13353,27.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-30,karnataka,1978,30,KOPPAL,SHIVAMURTHYSWAMY SIDDAPPAYYASWAMY INAMDAR,parties.IN.INC,INC,5517,11.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-31,karnataka,1978,31,SIRUGUPPA,RAMAIAH B. E.,parties.IN.INC_I,INC(I),34465,52.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-31,karnataka,1978,31,SIRUGUPPA,NARAYANA SWAMY K.,parties.IN.JP,JNP,25596,39.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-31,karnataka,1978,31,SIRUGUPPA,RANGAPPA S.R.,parties.IN.INC,INC,2906,4.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-31,karnataka,1978,31,SIRUGUPPA,HARISHA REDDY T.,parties.IN.IND,IND,2360,3.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-32,karnataka,1978,32,KURUGODU,RAMAPPA M.,parties.IN.INC_I,INC(I),26833,51.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-32,karnataka,1978,32,KURUGODU,KARIBASAPPA ALLAM,parties.IN.JP,JNP,19168,36.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-32,karnataka,1978,32,KURUGODU,DURUGAPPA B.,parties.IN.IND,IND,4003,7.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-32,karnataka,1978,32,KURUGODU,SEETHARAMA REDDY G.,parties.IN.INC,INC,2531,4.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-33,karnataka,1978,33,BELLARY,BHASKER NAIDU K.,parties.IN.INC_I,INC(I),25911,48.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-33,karnataka,1978,33,BELLARY,ABDUL HUQ,parties.IN.JP,JNP,21147,39.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-33,karnataka,1978,33,BELLARY,NAGAPPA V.,parties.IN.INC,INC,5981,11.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-33,karnataka,1978,33,BELLARY,VALISAD P.,parties.IN.IND,IND,348,0.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-34,karnataka,1978,34,HOSPET,K. GUDUSAHEB,parties.IN.INC_I,INC(I),34855,53.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-34,karnataka,1978,34,HOSPET,G. SHANKARA GOUD,parties.IN.JP,JNP,26754,41.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-34,karnataka,1978,34,HOSPET,B. RANGAPPA,parties.IN.INC,INC,1357,2.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-34,karnataka,1978,34,HOSPET,N. THIMMA REDDY,parties.IN.IND,IND,794,1.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-34,karnataka,1978,34,HOSPET,M. RATNAVELU,parties.IN.IND,IND,738,1.14,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-34,karnataka,1978,34,HOSPET,R.M. HULIGAIAH,parties.IN.IND,IND,143,0.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-35,karnataka,1978,35,SANDUR,C. RUDRAPPA,parties.IN.INC_I,INC(I),31206,62.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-35,karnataka,1978,35,SANDUR,Y. THIMMAPPA,parties.IN.JP,JNP,15318,30.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-35,karnataka,1978,35,SANDUR,HEEROJI,parties.IN.INC,INC,3628,7.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-36,karnataka,1978,36,KUDLIGI,T. SOMAPPA,parties.IN.INC_I,INC(I),31136,63.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-36,karnataka,1978,36,KUDLIGI,B. SATHYANARAYANA SING,parties.IN.JP,JNP,13942,28.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-36,karnataka,1978,36,KUDLIGI,A. BUDDAPPA,parties.IN.INC,INC,2590,5.31,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-36,karnataka,1978,36,KUDLIGI,AKKI RUDRAPPA,parties.IN.IND,IND,676,1.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-36,karnataka,1978,36,KUDLIGI,P. KOTRAPPA,parties.IN.IND,IND,431,0.88,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-37,karnataka,1978,37,KOTTUR,M. M. J. SADYOJATHA,parties.IN.INC_I,INC(I),26076,49.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-37,karnataka,1978,37,KOTTUR,B. S. VEERABHADRAPPA,parties.IN.JP,JNP,17401,32.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-37,karnataka,1978,37,KOTTUR,T. SIDDANNA GOUD,parties.IN.INC,INC,7577,14.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-37,karnataka,1978,37,KOTTUR,K. SHANMUKHAPPA,parties.IN.IND,IND,1307,2.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-37,karnataka,1978,37,KOTTUR,H. M. PANDITHARADHYA,parties.IN.IND,IND,357,0.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-37,karnataka,1978,37,KOTTUR,R. P. THIPPESWAMY DORE,parties.IN.IND,IND,349,0.66,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-38,karnataka,1978,38,HADAGALLI,KARIBASAVANAGOUD KOGALI,parties.IN.INC_I,INC(I),26962,47.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-38,karnataka,1978,38,HADAGALLI,M.P.PRAKASH,parties.IN.JP,JNP,22952,40.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-38,karnataka,1978,38,HADAGALLI,P.RAVANAGOUND,parties.IN.INC,INC,6483,11.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-38,karnataka,1978,38,HADAGALLI,C.B.SIDDAPPA,parties.IN.IND,IND,721,1.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-39,karnataka,1978,39,HARAPANAHALLI,D. NARAYANADAS,parties.IN.INC_I,INC(I),26244,51.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-39,karnataka,1978,39,HARAPANAHALLI,B.Y. NAMANAIK,parties.IN.JP,JNP,20151,39.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-39,karnataka,1978,39,HARAPANAHALLI,B.H. YANKANAIK,parties.IN.INC,INC,4147,8.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-40,karnataka,1978,40,HARIHAR,P.BASAVANA GOWDA,parties.IN.INC_I,INC(I),36644,55.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-40,karnataka,1978,40,HARIHAR,H.SHIVAPPA,parties.IN.JP,JNP,26359,39.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-40,karnataka,1978,40,HARIHAR,G.H. TEKOJI RAO,parties.IN.INC,INC,2588,3.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-40,karnataka,1978,40,HARIHAR,B. GURULINGAPPA,parties.IN.IND,IND,581,0.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-41,karnataka,1978,41,DAVANGERE,PAMPATHI,parties.IN.CPI,CPI,32199,51.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-41,karnataka,1978,41,DAVANGERE,K. MALLAPPA,parties.IN.JP,JNP,24410,38.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-41,karnataka,1978,41,DAVANGERE,G. KHAJA MOHIUDDIN SAB,parties.IN.INC,INC,5961,9.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-41,karnataka,1978,41,DAVANGERE,H.M. DUGGAPPA,parties.IN.IND,IND,298,0.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-41,karnataka,1978,41,DAVANGERE,N.B. BHUSANUR,parties.IN.IND,IND,170,0.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-42,karnataka,1978,42,MAYAKONDA,NAGAMMA C. KESHAVAMURTY,parties.IN.INC_I,INC(I),28277,47.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-42,karnataka,1978,42,MAYAKONDA,K.G. MAHESWARAPPA,parties.IN.JP,JNP,22556,37.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-42,karnataka,1978,42,MAYAKONDA,M. MUDEGOWDAPPA,parties.IN.INC,INC,8528,14.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-42,karnataka,1978,42,MAYAKONDA,ORKARAPPA,parties.IN.IND,IND,514,0.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-42,karnataka,1978,42,MAYAKONDA,SHAKAR THIPPANNA,parties.IN.IND,IND,238,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-43,karnataka,1978,43,BHARAMASAGARA,T.CHOWDIAH,parties.IN.INC_I,INC(I),26124,53.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-43,karnataka,1978,43,BHARAMASAGARA,H.PUTTA BAI,parties.IN.JP,JNP,14659,29.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-43,karnataka,1978,43,BHARAMASAGARA,ESWARANAIK,parties.IN.IND,IND,5059,10.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-43,karnataka,1978,43,BHARAMASAGARA,S.THIPPA NAIK,parties.IN.INC,INC,3375,6.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-44,karnataka,1978,44,CHITRADURGA,V.MASIYAPPA,parties.IN.INC_I,INC(I),32697,57.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-44,karnataka,1978,44,CHITRADURGA,C.ABDUL RAHIM,parties.IN.JP,JNP,21621,38.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-44,karnataka,1978,44,CHITRADURGA,A.G.VEERANNA,parties.IN.INC,INC,1333,2.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-44,karnataka,1978,44,CHITRADURGA,L.J. UMADEVA,parties.IN.IND,IND,704,1.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-44,karnataka,1978,44,CHITRADURGA,K. CHANNABASSAPPA,parties.IN.IND,IND,516,0.91,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-45,karnataka,1978,45,JAGALUR,G.H. ASWATHA REDDY,parties.IN.JP,JNP,23555,40.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-45,karnataka,1978,45,JAGALUR,B.H. SREENIVASANAIK,parties.IN.INC_I,INC(I),23496,40.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-45,karnataka,1978,45,JAGALUR,P.G. NAGANA GOWDA,parties.IN.INC,INC,11658,19.86,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-46,karnataka,1978,46,MOLAKALMURU,PATIL PAPANAIK,parties.IN.INC_I,INC(I),30316,50.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-46,karnataka,1978,46,MOLAKALMURU,H.C. BORAIAH,parties.IN.JP,JNP,27075,45.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-46,karnataka,1978,46,MOLAKALMURU,M.R. PUNDAREEKAKSHAPPA,parties.IN.INC,INC,2603,4.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-47,karnataka,1978,47,CHALLAKERE,N.JAYANNA,parties.IN.INC_I,INC(I),38411,63.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-47,karnataka,1978,47,CHALLAKERE,B.L.GOWDA,parties.IN.JP,JNP,21120,34.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-47,karnataka,1978,47,CHALLAKERE,B. OBALAPPA,parties.IN.INC,INC,1276,2.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-48,karnataka,1978,48,HIRIYUR,K.H.RANGANATH,parties.IN.INC_I,INC(I),40938,68.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-48,karnataka,1978,48,HIRIYUR,D.MANJUNATH,parties.IN.JP,JNP,16730,28.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-48,karnataka,1978,48,HIRIYUR,T.V. RAMACHANDRAPPA,parties.IN.INC,INC,1649,2.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-48,karnataka,1978,48,HIRIYUR,D.HANUMANTHAPPA,parties.IN.IND,IND,262,0.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-49,karnataka,1978,49,HOLALKERE,K.H.SIDDARAMPNA,parties.IN.INC_I,INC(I),20573,33.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-49,karnataka,1978,49,HOLALKERE,M.B.THIPPARUDRAPPA,parties.IN.INC,INC,19904,32.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-49,karnataka,1978,49,HOLALKERE,B. PARAMESWARAPPA,parties.IN.JP,JNP,18214,29.69,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-49,karnataka,1978,49,HOLALKERE,MUJEEBULLE KHAN,parties.IN.IND,IND,2653,4.32,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-50,karnataka,1978,50,HOSADURGA,K.VENKATARAMAIAH,parties.IN.INC_I,INC(I),30539,51.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-50,karnataka,1978,50,HOSADURGA,K.R.SHIVAPRAKASH,parties.IN.INC,INC,13285,22.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-50,karnataka,1978,50,HOSADURGA,CHANNAIAH ODEYAR,parties.IN.JP,JNP,11943,20.07,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-50,karnataka,1978,50,HOSADURGA,TAPALAPPA,parties.IN.IND,IND,2755,4.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-50,karnataka,1978,50,HOSADURGA,SIVALINGAPPA,parties.IN.IND,IND,970,1.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-51,karnataka,1978,51,PAVAGADA,NAGAPPA,parties.IN.INC_I,INC(I),31511,48.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-51,karnataka,1978,51,PAVAGADA,D.ANJANAPPA,parties.IN.JP,JNP,20341,31.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-51,karnataka,1978,51,PAVAGADA,RAMAPPA,parties.IN.INC,INC,7882,12.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-51,karnataka,1978,51,PAVAGADA,P. ANJANAPPA,parties.IN.IND,IND,3573,5.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-51,karnataka,1978,51,PAVAGADA,L. ADINARAYANANAIK,parties.IN.IND,IND,1571,2.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-51,karnataka,1978,51,PAVAGADA,M. ANJANAPPA,parties.IN.IND,IND,567,0.87,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-52,karnataka,1978,52,SIRA,S.LINGAIAH,parties.IN.INC_I,INC(I),32270,54.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-52,karnataka,1978,52,SIRA,P.MUDLEGOWDA,parties.IN.JP,JNP,22775,38.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-52,karnataka,1978,52,SIRA,M.MADDANNA,parties.IN.INC,INC,3738,6.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-53,karnataka,1978,53,KALLAMBELLA,T.B.JAYACHANDRA,parties.IN.INC_I,INC(I),27645,52.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-53,karnataka,1978,53,KALLAMBELLA,B.GANGANNA,parties.IN.JP,JNP,19833,37.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-53,karnataka,1978,53,KALLAMBELLA,C.J. MUKKANNAPPA,parties.IN.INC,INC,2918,5.59,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-53,karnataka,1978,53,KALLAMBELLA,D.M. RAMACHANDRA SETTY,parties.IN.IND,IND,662,1.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-53,karnataka,1978,53,KALLAMBELLA,B.P. GANGANNA,parties.IN.IND,IND,584,1.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-53,karnataka,1978,53,KALLAMBELLA,M.D. MAHALINGAIAH,parties.IN.IND,IND,584,1.12,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-54,karnataka,1978,54,BELLAVI,G.S.SHIVANANJAPPA,parties.IN.JP,JNP,27736,47.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-54,karnataka,1978,54,BELLAVI,R.NARAYANA,parties.IN.INC_I,INC(I),27134,46.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-54,karnataka,1978,54,BELLAVI,T.GOVINDARAJU,parties.IN.INC,INC,1543,2.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-54,karnataka,1978,54,BELLAVI,T.V.N. PRASAD JAIN,parties.IN.IND,IND,1013,1.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-54,karnataka,1978,54,BELLAVI,CHINNAKOTAPPA,parties.IN.IND,IND,550,0.94,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-54,karnataka,1978,54,BELLAVI,K.C. LINGAPPA,parties.IN.IND,IND,341,0.58,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-54,karnataka,1978,54,BELLAVI,T.H. HANUMANTHARAYAPPA,parties.IN.IND,IND,138,0.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-55,karnataka,1978,55,MADHUGIRI,GANGAHAMUMAIAH,parties.IN.INC_I,INC(I),32686,51.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-55,karnataka,1978,55,MADHUGIRI,GANGABOVI,parties.IN.JP,JNP,25820,41.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-55,karnataka,1978,55,MADHUGIRI,H.HANUMANTHARAYAPPA,parties.IN.INC,INC,2141,3.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-55,karnataka,1978,55,MADHUGIRI,K.C.RAJAVARDHANA,parties.IN.IND,IND,968,1.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-55,karnataka,1978,55,MADHUGIRI,S.N. NARASIMHALU,parties.IN.IND,IND,684,1.09,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-55,karnataka,1978,55,MADHUGIRI,S.ANJAIAH,parties.IN.IND,IND,632,1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-56,karnataka,1978,56,KORATAGERE,MUDDARAMAIAH,parties.IN.INC_I,INC(I),29833,46.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-56,karnataka,1978,56,KORATAGERE,VEERANNA,parties.IN.JP,JNP,24835,38.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-56,karnataka,1978,56,KORATAGERE,RAMMANNA M.,parties.IN.IND,IND,5285,8.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-56,karnataka,1978,56,KORATAGERE,MOREGOWDA H.,parties.IN.INC,INC,2005,3.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-56,karnataka,1978,56,KORATAGERE,NANJEGOWDA N.,parties.IN.IND,IND,1195,1.88,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-56,karnataka,1978,56,KORATAGERE,DEVARAJ D.A.,parties.IN.IND,IND,561,0.88,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-57,karnataka,1978,57,TUMKUR,NAZEER AHMED,parties.IN.INC_I,INC(I),34199,53.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-57,karnataka,1978,57,TUMKUR,MOHAMED GAIBAN KHAN,parties.IN.JP,JNP,24733,38.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-57,karnataka,1978,57,TUMKUR,ABDUL SUDHAN K.,parties.IN.INC,INC,1267,1.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-57,karnataka,1978,57,TUMKUR,CHIKKAVEERAIAH V.,parties.IN.IND,IND,948,1.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-57,karnataka,1978,57,TUMKUR,KRISHNAGOWDA S.H.,parties.IN.IND,IND,780,1.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-57,karnataka,1978,57,TUMKUR,NAZEER BAIG,parties.IN.IND,IND,522,0.82,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-57,karnataka,1978,57,TUMKUR,SRINIVIAS MURTHY,parties.IN.IND,IND,329,0.52,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-57,karnataka,1978,57,TUMKUR,ABDUL SUBHAN,parties.IN.IND,IND,208,0.33,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-57,karnataka,1978,57,TUMKUR,BHEEMAIAH K.,parties.IN.IND,IND,156,0.25,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-57,karnataka,1978,57,TUMKUR,MALLI KARJUNAIAH T.S.,parties.IN.IND,IND,155,0.24,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-57,karnataka,1978,57,TUMKUR,GANGANNA M.H.,parties.IN.IND,IND,138,0.22,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-57,karnataka,1978,57,TUMKUR,CHERIYAN I.P,parties.IN.IND,IND,123,0.19,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-58,karnataka,1978,58,KUNIGAL,ANDANAIAH,parties.IN.INC_I,INC(I),32654,53.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-58,karnataka,1978,58,KUNIGAL,THAMMANNA G.,parties.IN.JP,JNP,24463,39.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-58,karnataka,1978,58,KUNIGAL,VENKATE GOWDA S.,parties.IN.INC,INC,2345,3.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-58,karnataka,1978,58,KUNIGAL,RAHAMATHULLAKHAN,parties.IN.IND,IND,1286,2.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-58,karnataka,1978,58,KUNIGAL,SHESHAPPA K.V.,parties.IN.IND,IND,498,0.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-59,karnataka,1978,59,HULIYURDURGA,MAYANNA D.T,parties.IN.JP,JNP,25045,47.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-59,karnataka,1978,59,HULIYURDURGA,BOREGOWDA H.,parties.IN.INC_I,INC(I),15595,29.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-59,karnataka,1978,59,HULIYURDURGA,HUTCHAMASTHY GOWDA N.,parties.IN.INC,INC,9772,18.59,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-59,karnataka,1978,59,HULIYURDURGA,DURGADA RAJEGOWDA,parties.IN.IND,IND,2142,4.08,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-60,karnataka,1978,60,GUBBI,GATTI CHANDRASHEKAR,parties.IN.INC_I,INC(I),28186,48.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-60,karnataka,1978,60,GUBBI,S.REVANNA,parties.IN.JP,JNP,24117,41.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-60,karnataka,1978,60,GUBBI,G.S. BASAVARAJ,parties.IN.INC,INC,3076,5.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-60,karnataka,1978,60,GUBBI,JAVARE GOWDA,parties.IN.IND,IND,1331,2.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-60,karnataka,1978,60,GUBBI,MANIYAPPA,parties.IN.IND,IND,927,1.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-61,karnataka,1978,61,TURUVEKERE,K.H.RAMAKRISHNAIAH,parties.IN.INC_I,INC(I),23270,39.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-61,karnataka,1978,61,TURUVEKERE,D.M. NANJAPPA,parties.IN.JP,JNP,20747,35.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-61,karnataka,1978,61,TURUVEKERE,B.BHYRAPPAJI,parties.IN.INC,INC,14550,24.55,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-61,karnataka,1978,61,TURUVEKERE,K.N.N.MURTHY,parties.IN.IND,IND,698,1.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-62,karnataka,1978,62,TIPTUR,V.L. SHIVAPPA,parties.IN.INC_I,INC(I),28339,46.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-62,karnataka,1978,62,TIPTUR,M.R.RAMANNA,parties.IN.JP,JNP,26511,43.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-62,karnataka,1978,62,TIPTUR,P.CHOUDRI SHANKAR,parties.IN.INC,INC,6187,10.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-63,karnataka,1978,63,CHIKNAIKANAHALLI,N.BASAVAIAH,parties.IN.INC_I,INC(I),31627,54.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-63,karnataka,1978,63,CHIKNAIKANAHALLI,T.M. MAJABATH,parties.IN.JP,JNP,22594,39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-63,karnataka,1978,63,CHIKNAIKANAHALLI,B.LAKKAPPA,parties.IN.INC,INC,3426,5.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-63,karnataka,1978,63,CHIKNAIKANAHALLI,S.T.VENKATEGOWDA,parties.IN.IND,IND,288,0.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-64,karnataka,1978,64,GOWRIBIDANUR,PAPAIAH B.N.K,parties.IN.INC_I,INC(I),33756,51.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-64,karnataka,1978,64,GOWRIBIDANUR,LAKSHMI PATHI R.N.,parties.IN.JP,JNP,29932,45.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-64,karnataka,1978,64,GOWRIBIDANUR,RAMAIAH K..L.,parties.IN.INC,INC,1089,1.66,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-64,karnataka,1978,64,GOWRIBIDANUR,MOHAN C.S.,parties.IN.IND,IND,564,0.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-64,karnataka,1978,64,GOWRIBIDANUR,KUMARASAMY S.,parties.IN.IND,IND,314,0.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-65,karnataka,1978,65,CHIKBALLAPUR,RENUKA RAJENDRAN,parties.IN.INC_I,INC(I),32378,55.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-65,karnataka,1978,65,CHIKBALLAPUR,MUNIYAPA A.,parties.IN.JP,JNP,22008,37.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-65,karnataka,1978,65,CHIKBALLAPUR,MUNIYAPPA K.M.,parties.IN.INC,INC,2830,4.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-65,karnataka,1978,65,CHIKBALLAPUR,MUNISWAMYN,parties.IN.IND,IND,787,1.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-65,karnataka,1978,65,CHIKBALLAPUR,HUSENAIAH,parties.IN.IND,IND,248,0.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-66,karnataka,1978,66,SIDLAGHATTA,S.MUNISHAMAPRA,parties.IN.INC_I,INC(I),34683,52.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-66,karnataka,1978,66,SIDLAGHATTA,E.VENKMATARAYAPPA,parties.IN.JP,JNP,27106,41.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-66,karnataka,1978,66,SIDLAGHATTA,G.PAPANNA,parties.IN.CPIM,CPM,3205,4.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-66,karnataka,1978,66,SIDLAGHATTA,NARAYANAPPA,parties.IN.INC,INC,424,0.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-66,karnataka,1978,66,SIDLAGHATTA,T.A. KEMPA GOWDA,parties.IN.IND,IND,309,0.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-67,karnataka,1978,67,BAGEPALLI,S.MUNI KAJU,parties.IN.INC_I,INC(I),27052,47.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-67,karnataka,1978,67,BAGEPALLI,V.KRISHNA RAO,parties.IN.INC,INC,10337,18.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-67,karnataka,1978,67,BAGEPALLI,T.L. CHANDRASHEKHARA REDDY,parties.IN.JP,JNP,8454,14.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-67,karnataka,1978,67,BAGEPALLI,A.V. APPASWAMY REDDY,parties.IN.CPIM,CPM,8158,14.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-67,karnataka,1978,67,BAGEPALLI,N.ADI MURTHY,parties.IN.IND,IND,1605,2.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-67,karnataka,1978,67,BAGEPALLI,LALITHAMMA,parties.IN.IND,IND,846,1.48,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-67,karnataka,1978,67,BAGEPALLI,ABDUL LATHEIF KHAN,parties.IN.IND,IND,548,0.96,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-68,karnataka,1978,68,CHINTAMANI,CHOWDAREDDY,parties.IN.INC_I,INC(I),46062,68.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-68,karnataka,1978,68,CHINTAMANI,T.K. GANGIREDDY,parties.IN.JP,JNP,19692,29.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-68,karnataka,1978,68,CHINTAMANI,MOHAMMED FAZLULLA SHARIEF,parties.IN.INC,INC,914,1.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-68,karnataka,1978,68,CHINTAMANI,N.SHIVANNA,parties.IN.IND,IND,561,0.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-69,karnataka,1978,69,SRINIVASAPUR,RAMESH KUMAR,parties.IN.INC_I,INC(I),31867,58.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-69,karnataka,1978,69,SRINIVASAPUR,R.G.NARAYANAREDDY,parties.IN.INC,INC,12067,22.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-69,karnataka,1978,69,SRINIVASAPUR,H.RAHIMANSHARIF,parties.IN.JP,JNP,9409,17.38,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-69,karnataka,1978,69,SRINIVASAPUR,"V,RAMADRISHNAPPA",parties.IN.IND,IND,800,1.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-70,karnataka,1978,70,MULBAGAL,J.M.REDDY,parties.IN.INC_I,INC(I),22300,34.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-70,karnataka,1978,70,MULBAGAL,BEERE GOWDA,parties.IN.JP,JNP,17871,27.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-70,karnataka,1978,70,MULBAGAL,M.V.VENKATAPPA,parties.IN.INC,INC,11489,18,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-70,karnataka,1978,70,MULBAGAL,R.VENKATARAMAIAN,parties.IN.IND,IND,11475,17.97,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-70,karnataka,1978,70,MULBAGAL,T.M.NARAYANAPPA,parties.IN.IND,IND,325,0.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-70,karnataka,1978,70,MULBAGAL,B.SAAMIULLA,parties.IN.IND,IND,183,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-70,karnataka,1978,70,MULBAGAL,G.M.NARAYANAPPA,parties.IN.IND,IND,79,0.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-70,karnataka,1978,70,MULBAGAL,K.ASWATHANARAYANA GOWDA,parties.IN.IND,IND,72,0.11,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-70,karnataka,1978,70,MULBAGAL,M.V. SUBRAMANAYAM,parties.IN.IND,IND,47,0.07,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-71,karnataka,1978,71,KOLAR GOLD FIELDS,C.M.ARUMUGHAM,parties.IN.RPI,RPI,21920,47.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-71,karnataka,1978,71,KOLAR GOLD FIELDS,S.RAJAGOPAL,parties.IN.JP,JNP,13784,29.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-71,karnataka,1978,71,KOLAR GOLD FIELDS,T.S. MANI,parties.IN.CPIM,CPM,7389,16.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-71,karnataka,1978,71,KOLAR GOLD FIELDS,S.THINAKARAN,parties.IN.INC,INC,1742,3.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-71,karnataka,1978,71,KOLAR GOLD FIELDS,R.NARAYAN,parties.IN.IND,IND,1115,2.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-71,karnataka,1978,71,KOLAR GOLD FIELDS,M.G.KRISHNAN,parties.IN.IND,IND,187,0.41,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-72,karnataka,1978,72,BETHAMANGALA,C.VENKATESHAPPA,parties.IN.INC_I,INC(I),27715,53.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-72,karnataka,1978,72,BETHAMANGALA,T.CHANNAIAH,parties.IN.JP,JNP,14098,27.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-72,karnataka,1978,72,BETHAMANGALA,M.NARAYANA,parties.IN.INC,INC,7554,14.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-72,karnataka,1978,72,BETHAMANGALA,RAMPPA,parties.IN.IND,IND,1168,2.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-72,karnataka,1978,72,BETHAMANGALA,V.BHIMANNA,parties.IN.IND,IND,818,1.57,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-72,karnataka,1978,72,BETHAMANGALA,W.MUNIYAPPA,parties.IN.IND,IND,663,1.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-73,karnataka,1978,73,KOLAR,M.ABDUL LATHEEF,parties.IN.INC_I,INC(I),26576,46.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-73,karnataka,1978,73,KOLAR,P.VENKATAGIRIYAPPA,parties.IN.JP,JNP,26182,46.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-73,karnataka,1978,73,KOLAR,E.NARAYANA GOWDA,parties.IN.INC,INC,2721,4.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-73,karnataka,1978,73,KOLAR,K.N. KAMPAIAH,parties.IN.IND,IND,842,1.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-73,karnataka,1978,73,KOLAR,M.NANJUNDA GOWDA,parties.IN.IND,IND,463,0.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-74,karnataka,1978,74,VEMGAL,S.GOVINDA GOWDA,parties.IN.INC_I,INC(I),36000,55.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-74,karnataka,1978,74,VEMGAL,C.BYRE GOWDA,parties.IN.JP,JNP,26239,40.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-74,karnataka,1978,74,VEMGAL,T.NARAYANAPPA,parties.IN.IND,IND,890,1.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-74,karnataka,1978,74,VEMGAL,G.H.SRIRAMMA REDDY,parties.IN.INC,INC,544,0.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-74,karnataka,1978,74,VEMGAL,H.C. ANJAPPA,parties.IN.IND,IND,427,0.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-74,karnataka,1978,74,VEMGAL,"C, ANJAPPA",parties.IN.IND,IND,142,0.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-74,karnataka,1978,74,VEMGAL,P. MUDDAIAH,parties.IN.IND,IND,132,0.2,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-74,karnataka,1978,74,VEMGAL,L.K. ASWATHANARAYANA SETTY,parties.IN.IND,IND,112,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-74,karnataka,1978,74,VEMGAL,T.C. MUNIVEERAPPA,parties.IN.IND,IND,78,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-75,karnataka,1978,75,MALUR,P.N.REDDY,parties.IN.INC_I,INC(I),23656,45.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-75,karnataka,1978,75,MALUR,LAKSHMIDEVI RAMANNA,parties.IN.JP,JNP,14866,28.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-75,karnataka,1978,75,MALUR,A.V.MUNISWAMY,parties.IN.INC,INC,12282,23.56,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-75,karnataka,1978,75,MALUR,K.N. NANJUNDA RAO,parties.IN.IND,IND,838,1.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-75,karnataka,1978,75,MALUR,C.B.VENKATARAME GOWDA,parties.IN.IND,IND,255,0.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-75,karnataka,1978,75,MALUR,JAGANNATHA SETTY,parties.IN.IND,IND,146,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-75,karnataka,1978,75,MALUR,A.E. SAMPANGI BHOVI,parties.IN.IND,IND,98,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-76,karnataka,1978,76,MALLESWARAM,P.RAMDEV,parties.IN.JP,JNP,32936,56.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-76,karnataka,1978,76,MALLESWARAM,M.S.KRISHNAN,parties.IN.CPI,CPI,20918,36.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-76,karnataka,1978,76,MALLESWARAM,J.LINGAIAH,parties.IN.IND,IND,2066,3.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-76,karnataka,1978,76,MALLESWARAM,LAKSHMINARASIMHAIAH,parties.IN.INC,INC,1550,2.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-76,karnataka,1978,76,MALLESWARAM,JAGANMOHAN,parties.IN.IND,IND,195,0.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-76,karnataka,1978,76,MALLESWARAM,D.GOWRI SHANKAR,parties.IN.IND,IND,164,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-77,karnataka,1978,77,RAJAJINAGAR,MALLUR ANANDA RAO,parties.IN.JP,JNP,42693,52.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-77,karnataka,1978,77,RAJAJINAGAR,B.C. SOMASEKHAR,parties.IN.INC_I,INC(I),25173,31.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-77,karnataka,1978,77,RAJAJINAGAR,K.LAKKANNA,parties.IN.IND,IND,5382,6.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-77,karnataka,1978,77,RAJAJINAGAR,M.CHINNAPPA,parties.IN.IND,IND,2654,3.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-77,karnataka,1978,77,RAJAJINAGAR,MAHADEVA BANAKAR GADIGAPPA,parties.IN.IND,IND,1459,1.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-77,karnataka,1978,77,RAJAJINAGAR,K.N. SUNDARAPPA,parties.IN.INC,INC,1396,1.72,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-77,karnataka,1978,77,RAJAJINAGAR,S.R. RAMACHANDRA RAO,parties.IN.IND,IND,720,0.89,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-77,karnataka,1978,77,RAJAJINAGAR,K.P. SACHINDRANATH,parties.IN.IND,IND,679,0.84,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-77,karnataka,1978,77,RAJAJINAGAR,U.S. VENKATARAMAN,parties.IN.IND,IND,391,0.48,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-77,karnataka,1978,77,RAJAJINAGAR,SHIVANNA,parties.IN.IND,IND,301,0.37,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-77,karnataka,1978,77,RAJAJINAGAR,E.NARAYANA,parties.IN.IND,IND,151,0.19,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-77,karnataka,1978,77,RAJAJINAGAR,S. INDIRA DEVI DEVAGANARAJ,parties.IN.IND,IND,139,0.17,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-78,karnataka,1978,78,GANDHINAGAR,K.LAKSHMAN,parties.IN.INC_I,INC(I),18372,37.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-78,karnataka,1978,78,GANDHINAGAR,M.R.JAYARAM,parties.IN.JP,JNP,15202,30.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-78,karnataka,1978,78,GANDHINAGAR,SUNDAR,parties.IN.IND,IND,9318,18.89,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-78,karnataka,1978,78,GANDHINAGAR,S.N. NARAYANA,parties.IN.IND,IND,3100,6.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-78,karnataka,1978,78,GANDHINAGAR,T.P. PRASANNA KUMAR,parties.IN.IND,IND,1004,2.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-78,karnataka,1978,78,GANDHINAGAR,CHINDANANDA ULLAL,parties.IN.IND,IND,690,1.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-78,karnataka,1978,78,GANDHINAGAR,BIMBA RAIKAR,parties.IN.INC,INC,625,1.27,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-78,karnataka,1978,78,GANDHINAGAR,B.RANGAIAH,parties.IN.IND,IND,357,0.72,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-78,karnataka,1978,78,GANDHINAGAR,SUBRAMANI,parties.IN.IND,IND,292,0.59,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-78,karnataka,1978,78,GANDHINAGAR,P.R. NANJUDASWAMY SETTY,parties.IN.IND,IND,239,0.48,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-78,karnataka,1978,78,GANDHINAGAR,M.PUTTARAMAIAH,parties.IN.IND,IND,130,0.26,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-79,karnataka,1978,79,CHICKPET,A.LAKSHMISAGAR,parties.IN.JP,JNP,19459,43.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-79,karnataka,1978,79,CHICKPET,M.V.THIWARY,parties.IN.INC_I,INC(I),14756,32.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-79,karnataka,1978,79,CHICKPET,N.DASAPPA,parties.IN.IND,IND,5462,12.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-79,karnataka,1978,79,CHICKPET,GNANAMBA VATAL NAGARAJ,parties.IN.IND,IND,2773,6.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-79,karnataka,1978,79,CHICKPET,R.SHANKAR,parties.IN.INC,INC,710,1.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-79,karnataka,1978,79,CHICKPET,G.NARAYANA KUMAR,parties.IN.IND,IND,472,1.05,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-79,karnataka,1978,79,CHICKPET,G.RANGASWAMY,parties.IN.IND,IND,247,0.55,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-79,karnataka,1978,79,CHICKPET,ABDUL KHUDUS,parties.IN.IND,IND,222,0.49,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-79,karnataka,1978,79,CHICKPET,B.T. RAMCHANDRA,parties.IN.IND,IND,213,0.47,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-79,karnataka,1978,79,CHICKPET,R.ESWARAIAH,parties.IN.IND,IND,187,0.42,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-79,karnataka,1978,79,CHICKPET,RAMU,parties.IN.IND,IND,156,0.35,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-79,karnataka,1978,79,CHICKPET,MUNIANJAPPA,parties.IN.IND,IND,129,0.29,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-79,karnataka,1978,79,CHICKPET,B.S. CHANDRASEKHARA,parties.IN.IND,IND,115,0.26,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-79,karnataka,1978,79,CHICKPET,S.P. BIKKAM CHAND,parties.IN.IND,IND,82,0.18,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-79,karnataka,1978,79,CHICKPET,M.P. JAYARAJ,parties.IN.IND,IND,69,0.15,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-80,karnataka,1978,80,BINNYPET,I.P.D SALAPPA,parties.IN.INC_I,INC(I),28037,44.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-80,karnataka,1978,80,BINNYPET,K.PRABHKARA REDDY,parties.IN.JP,JNP,15474,24.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-80,karnataka,1978,80,BINNYPET,GNAMBA VATAL NAGARAJ,parties.IN.IND,IND,14655,23.35,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-80,karnataka,1978,80,BINNYPET,B.M. ASWATHANARAYANA,parties.IN.IND,IND,1242,1.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-80,karnataka,1978,80,BINNYPET,SHOWKAT QURESHI,parties.IN.INC,INC,906,1.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-80,karnataka,1978,80,BINNYPET,AMEET PASHA,parties.IN.IND,IND,805,1.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-80,karnataka,1978,80,BINNYPET,MOHAMED MUSTAFA,parties.IN.IND,IND,430,0.69,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-80,karnataka,1978,80,BINNYPET,G.SRINIVASAN,parties.IN.IND,IND,402,0.64,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-80,karnataka,1978,80,BINNYPET,B.G. VISWESARAIAH,parties.IN.IND,IND,326,0.52,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-80,karnataka,1978,80,BINNYPET,K.LOKKAPPA DORAG,parties.IN.IND,IND,309,0.49,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-80,karnataka,1978,80,BINNYPET,G.RANGASWAMY,parties.IN.IND,IND,130,0.21,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-80,karnataka,1978,80,BINNYPET,SHAFIULLA KHAN,parties.IN.IND,IND,51,0.08,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-81,karnataka,1978,81,CHAMARAJAPET,PREMILA S.,parties.IN.JP,JNP,20806,42.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-81,karnataka,1978,81,CHAMARAJAPET,PRABHAKAR T.S.,parties.IN.INC_I,INC(I),15697,32.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-81,karnataka,1978,81,CHAMARAJAPET,KRISHNARAJU,parties.IN.ADK,ADK,5636,11.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-81,karnataka,1978,81,CHAMARAJAPET,JAYAMMA B.,parties.IN.IND,IND,2944,6.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-81,karnataka,1978,81,CHAMARAJAPET,NARAYANASWAMY K.,parties.IN.IND,IND,1183,2.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-81,karnataka,1978,81,CHAMARAJAPET,KHALEEL RAHAMAN S.,parties.IN.INC,INC,1112,2.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-81,karnataka,1978,81,CHAMARAJAPET,NARAYANASWAMY K.,parties.IN.IND,IND,359,0.74,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-81,karnataka,1978,81,CHAMARAJAPET,KESHVA MURTHY V.,parties.IN.IND,IND,346,0.71,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-81,karnataka,1978,81,CHAMARAJAPET,ESWAR M.H.,parties.IN.IND,IND,174,0.36,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-81,karnataka,1978,81,CHAMARAJAPET,K.SHIVAPPA,parties.IN.IND,IND,163,0.33,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-81,karnataka,1978,81,CHAMARAJAPET,MEHTA N.M.,parties.IN.IND,IND,140,0.29,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-81,karnataka,1978,81,CHAMARAJAPET,RAGHUNATH SINGH M.,parties.IN.IND,IND,80,0.16,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-81,karnataka,1978,81,CHAMARAJAPET,ANGAMUTHU M.,parties.IN.IND,IND,54,0.11,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-81,karnataka,1978,81,CHAMARAJAPET,AMEER BASHA,parties.IN.IND,IND,42,0.09,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-82,karnataka,1978,82,BASAVANAGUDI,SHAMANNA T.R.,parties.IN.JP,JNP,47362,74.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-82,karnataka,1978,82,BASAVANAGUDI,NARASINGA RAO D.S.,parties.IN.INC_I,INC(I),14418,22.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-82,karnataka,1978,82,BASAVANAGUDI,PANDURANGA D.,parties.IN.INC,INC,840,1.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-82,karnataka,1978,82,BASAVANAGUDI,MAHADEVASWAMY C.,parties.IN.IND,IND,441,0.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-82,karnataka,1978,82,BASAVANAGUDI,"KRISHNA A,",parties.IN.IND,IND,299,0.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-83,karnataka,1978,83,JAYANAGAR,CHANDRASHEKAR M.,parties.IN.JP,JNP,35209,56.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-83,karnataka,1978,83,JAYANAGAR,SATHYANARAYANA M.S.,parties.IN.INC_I,INC(I),17941,28.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-83,karnataka,1978,83,JAYANAGAR,GOVINDASWAMY M.T,parties.IN.IND,IND,3700,5.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-83,karnataka,1978,83,JAYANAGAR,JAYARAJ M.P.,parties.IN.IND,IND,1471,2.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-83,karnataka,1978,83,JAYANAGAR,GUNDU RAO M.C,parties.IN.INC,INC,1184,1.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-83,karnataka,1978,83,JAYANAGAR,ATHIK AHMED H.R,parties.IN.IND,IND,622,1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-83,karnataka,1978,83,JAYANAGAR,BAKTHATCHALA,parties.IN.IND,IND,605,0.97,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-83,karnataka,1978,83,JAYANAGAR,SHIVAIAH K.,parties.IN.IND,IND,381,0.61,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-83,karnataka,1978,83,JAYANAGAR,SYED A.K.,parties.IN.IND,IND,361,0.58,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-83,karnataka,1978,83,JAYANAGAR,SHIVARAM,parties.IN.IND,IND,244,0.39,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-83,karnataka,1978,83,JAYANAGAR,BASAVARAJ,parties.IN.IND,IND,213,0.34,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-83,karnataka,1978,83,JAYANAGAR,RAMA BHATTA G.,parties.IN.IND,IND,138,0.22,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-83,karnataka,1978,83,JAYANAGAR,VASANTHA KUMAR A.R.,parties.IN.IND,IND,103,0.17,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-83,karnataka,1978,83,JAYANAGAR,MYSORE GIRISH,parties.IN.IND,IND,46,0.07,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-84,karnataka,1978,84,SHANTHINAGAR,RANGANATHAN P.K.,parties.IN.INC_I,INC(I),17851,40.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-84,karnataka,1978,84,SHANTHINAGAR,GOVINDARAJA P.D.,parties.IN.JP,JNP,14511,33.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-84,karnataka,1978,84,SHANTHINAGAR,KUPPURAJ M.K.,parties.IN.DMK,DMK,5397,12.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-84,karnataka,1978,84,SHANTHINAGAR,PANDYAN M.,parties.IN.ADK,ADK,4105,9.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-84,karnataka,1978,84,SHANTHINAGAR,KEMPAMMA T.,parties.IN.IND,IND,943,2.15,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-84,karnataka,1978,84,SHANTHINAGAR,DHARMALINGAM A.M.,parties.IN.INC,INC,855,1.95,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-84,karnataka,1978,84,SHANTHINAGAR,ASWATH T.M.,parties.IN.IND,IND,109,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-85,karnataka,1978,85,SHIVAJINAGAR,IBRAHIM C.M.,parties.IN.JP,JNP,17725,49.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-85,karnataka,1978,85,SHIVAJINAGAR,"SRINIVASULU NAIDY\U, K.R.",parties.IN.INC_I,INC(I),13717,38.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-85,karnataka,1978,85,SHIVAJINAGAR,CHOLAN K.,parties.IN.DMK,DMK,1606,4.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-85,karnataka,1978,85,SHIVAJINAGAR,ANATHAKRISHNA A.K.,parties.IN.INC,INC,1214,3.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-85,karnataka,1978,85,SHIVAJINAGAR,VITTAL RAO,parties.IN.IND,IND,539,1.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-85,karnataka,1978,85,SHIVAJINAGAR,MOHAMED EJAZ,parties.IN.IND,IND,470,1.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-85,karnataka,1978,85,SHIVAJINAGAR,RADHAKRISHNA V.G.,parties.IN.ADK,ADK,254,0.71,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-85,karnataka,1978,85,SHIVAJINAGAR,GURUSWAMY M.,parties.IN.IND,IND,115,0.32,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-85,karnataka,1978,85,SHIVAJINAGAR,ABDUL SATTAR,parties.IN.IND,IND,109,0.3,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-85,karnataka,1978,85,SHIVAJINAGAR,PALANIYAPPAN M.,parties.IN.IND,IND,70,0.19,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-85,karnataka,1978,85,SHIVAJINAGAR,NARAYANAN,parties.IN.IND,IND,59,0.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-85,karnataka,1978,85,SHIVAJINAGAR,A.R.A. SHUKOOR,parties.IN.IND,IND,52,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-86,karnataka,1978,86,BHARATHINAGAR,MICHEL B. FERNANEDS,parties.IN.JP,JNP,14106,29.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-86,karnataka,1978,86,BHARATHINAGAR,MUNISWAMY M.,parties.IN.INC_I,INC(I),13498,28.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-86,karnataka,1978,86,BHARATHINAGAR,POOSALINGAM D.,parties.IN.DMK,DMK,9434,19.66,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-86,karnataka,1978,86,BHARATHINAGAR,PADMANABHAN R.,parties.IN.ADK,ADK,5709,11.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-86,karnataka,1978,86,BHARATHINAGAR,MOHAMAD DASTAGIR,parties.IN.IND,IND,2089,4.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-86,karnataka,1978,86,BHARATHINAGAR,GANGARAJ H.D.,parties.IN.INC,INC,1566,3.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-86,karnataka,1978,86,BHARATHINAGAR,BASHKARAN D.,parties.IN.IND,IND,844,1.76,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-86,karnataka,1978,86,BHARATHINAGAR,JAYARAM ALIAS MASSAY M.,parties.IN.RPI,RPI,401,0.84,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-86,karnataka,1978,86,BHARATHINAGAR,MOHAN M.S.,parties.IN.IND,IND,238,0.5,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-86,karnataka,1978,86,BHARATHINAGAR,PAUL P.C.G,parties.IN.IND,IND,112,0.23,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-87,karnataka,1978,87,JAYAMAHAL,JEEVARAJ ALVA,parties.IN.JP,JNP,18316,39.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-87,karnataka,1978,87,JAYAMAHAL,HAMEED SHAH S.,parties.IN.INC_I,INC(I),15991,34.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-87,karnataka,1978,87,JAYAMAHAL,MUNIYAPPA,parties.IN.ADK,ADK,3998,8.66,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-87,karnataka,1978,87,JAYAMAHAL,MUNIRAMAIAH M.,parties.IN.IND,IND,3772,8.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-87,karnataka,1978,87,JAYAMAHAL,ABDUL KHUDUS ANVAR,parties.IN.INC,INC,1185,2.57,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-87,karnataka,1978,87,JAYAMAHAL,LASANI N.A.,parties.IN.IND,IND,1101,2.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-87,karnataka,1978,87,JAYAMAHAL,RAMALAH C.,parties.IN.IND,IND,568,1.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-87,karnataka,1978,87,JAYAMAHAL,CHELLAIAH,parties.IN.IND,IND,531,1.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-87,karnataka,1978,87,JAYAMAHAL,MANAMAD MUSTAK,parties.IN.IND,IND,307,0.67,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-87,karnataka,1978,87,JAYAMAHAL,MISRA K.K.,parties.IN.IND,IND,158,0.34,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-87,karnataka,1978,87,JAYAMAHAL,ANADAKUMAR L.,parties.IN.IND,IND,85,0.18,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-87,karnataka,1978,87,JAYAMAHAL,A.R.A. SHUKOOR,parties.IN.IND,IND,79,0.17,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-87,karnataka,1978,87,JAYAMAHAL,RAMA R.V.,parties.IN.IND,IND,68,0.15,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-88,karnataka,1978,88,YELAHANKA,B.BASAVALINGAPPA,parties.IN.INC_I,INC(I),33662,53.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-88,karnataka,1978,88,YELAHANKA,D.MUNICHINNAPPA,parties.IN.JP,JNP,28587,45.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-88,karnataka,1978,88,YELAHANKA,CHIKKABALIAPPA,parties.IN.IND,IND,593,0.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-89,karnataka,1978,89,UTTARAHALLI,M.V. RAJASEKHARAN,parties.IN.JP,JNP,34081,48.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-89,karnataka,1978,89,UTTARAHALLI,S.C. VENKATESH,parties.IN.INC_I,INC(I),30944,44.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-89,karnataka,1978,89,UTTARAHALLI,N.CHIKKE GOWDA,parties.IN.INC,INC,3632,5.18,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-89,karnataka,1978,89,UTTARAHALLI,CHANDRAPPA,parties.IN.IND,IND,689,0.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-89,karnataka,1978,89,UTTARAHALLI,CHANDRASEKHARAIAH,parties.IN.IND,IND,607,0.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-89,karnataka,1978,89,UTTARAHALLI,K.R. VIJAYKUMAR,parties.IN.IND,IND,219,0.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-90,karnataka,1978,90,VARTHUR,B.V. RAMACHANDRA REDDY,parties.IN.JP,JNP,28613,41.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-90,karnataka,1978,90,VARTHUR,H.T.SOMASHEKARA REDDY,parties.IN.INC_I,INC(I),19301,27.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-90,karnataka,1978,90,VARTHUR,G.T. MARISWAMY REDDY,parties.IN.IND,IND,7651,10.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-90,karnataka,1978,90,VARTHUR,"S,SURYANARAYANA RAO",parties.IN.CPIM,CPM,7009,10.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-90,karnataka,1978,90,VARTHUR,A.T. RANGANATHA,parties.IN.IND,IND,4000,5.74,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-90,karnataka,1978,90,VARTHUR,RAMASWAMY,parties.IN.INC,INC,2849,4.09,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-90,karnataka,1978,90,VARTHUR,A.N. SANJEEVA REDDY,parties.IN.IND,IND,204,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-91,karnataka,1978,91,KANAKAPURA,APPAJI C.,parties.IN.INC_I,INC(I),30883,50.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-91,karnataka,1978,91,KANAKAPURA,SRINIVASA MURTHY K.G,parties.IN.JP,JNP,27590,45.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-91,karnataka,1978,91,KANAKAPURA,CABBEDI KAGEGOWDA MALLAIAH,parties.IN.INC,INC,2397,3.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-92,karnataka,1978,92,SATHANUR,SHIVALINGE GOWDA K.L,parties.IN.JP,JNP,29243,46.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-92,karnataka,1978,92,SATHANUR,KARIAPPA S.,parties.IN.INC_I,INC(I),28840,46.25,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-92,karnataka,1978,92,SATHANUR,GOVINDA RAO N.,parties.IN.INC,INC,1672,2.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-92,karnataka,1978,92,SATHANUR,MALLESHAN K.P.,parties.IN.IND,IND,1400,2.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-92,karnataka,1978,92,SATHANUR,RAMACHANDRA GOWDA H.A.,parties.IN.IND,IND,619,0.99,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-92,karnataka,1978,92,SATHANUR,RAMASWAMY M.,parties.IN.IND,IND,582,0.93,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-93,karnataka,1978,93,CHANNAPATNA,D.T.RAMU,parties.IN.INC_I,INC(I),32601,46.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-93,karnataka,1978,93,CHANNAPATNA,B.J. LINGE GOWDA,parties.IN.IND,IND,19190,27.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-93,karnataka,1978,93,CHANNAPATNA,T.V. RAMANNA,parties.IN.JP,JNP,16263,23.1,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-93,karnataka,1978,93,CHANNAPATNA,R.LINGAIAH,parties.IN.INC,INC,1578,2.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-93,karnataka,1978,93,CHANNAPATNA,B.K. PATTARAMIYA,parties.IN.IND,IND,552,0.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-93,karnataka,1978,93,CHANNAPATNA,K.M. AZIZ,parties.IN.IND,IND,224,0.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-94,karnataka,1978,94,RAMANAGARAM,A.K. ABDUL SAMAD,parties.IN.INC_I,INC(I),27837,42.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-94,karnataka,1978,94,RAMANAGARAM,C.BORAIAH,parties.IN.JP,JNP,20875,32.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-94,karnataka,1978,94,RAMANAGARAM,C.M. LINGAPPA,parties.IN.INC,INC,14856,22.84,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-94,karnataka,1978,94,RAMANAGARAM,B.BORAIAH,parties.IN.IND,IND,613,0.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-94,karnataka,1978,94,RAMANAGARAM,SHIVANNA,parties.IN.IND,IND,442,0.68,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-94,karnataka,1978,94,RAMANAGARAM,THIMMAMMA,parties.IN.IND,IND,425,0.65,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-95,karnataka,1978,95,MAGADI,BETTASWAMY GOWDA,parties.IN.JP,JNP,31628,49.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-95,karnataka,1978,95,MAGADI,HULIKATTE G. CHANNAPPA,parties.IN.INC_I,INC(I),26255,40.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-95,karnataka,1978,95,MAGADI,HARTHI G. CHANNAPPA,parties.IN.INC,INC,4311,6.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-95,karnataka,1978,95,MAGADI,C.R. VENKATAPPA,parties.IN.IND,IND,1137,1.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-95,karnataka,1978,95,MAGADI,B.L. PRASANNA KUMARA GUPTA,parties.IN.IND,IND,606,0.94,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-95,karnataka,1978,95,MAGADI,M.G. JAYANANDASWAMY,parties.IN.IND,IND,305,0.47,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-95,karnataka,1978,95,MAGADI,H.S. GAGANNA,parties.IN.IND,IND,206,0.32,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-96,karnataka,1978,96,NELAMANGALA,K.PRABHAKAR,parties.IN.INC_I,INC(I),20666,44.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-96,karnataka,1978,96,NELAMANGALA,DODDATHIMMAIAH,parties.IN.JP,JNP,19388,41.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-96,karnataka,1978,96,NELAMANGALA,H. RAVI,parties.IN.IND,IND,3995,8.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-96,karnataka,1978,96,NELAMANGALA,B.GANGABYRAIAH,parties.IN.IND,IND,1396,2.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-96,karnataka,1978,96,NELAMANGALA,T.KEMPAHANUMAIAH,parties.IN.INC,INC,1130,2.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-96,karnataka,1978,96,NELAMANGALA,HUCHAIAH,parties.IN.IND,IND,263,0.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-97,karnataka,1978,97,DODDABALLAPUR,G.RAMEGOWDA,parties.IN.INC_I,INC(I),39476,56.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-97,karnataka,1978,97,DODDABALLAPUR,A.NEELAKANTAIAH,parties.IN.JP,JNP,28338,40.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-97,karnataka,1978,97,DODDABALLAPUR,M.HANUMANTHAIAH,parties.IN.INC,INC,946,1.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-97,karnataka,1978,97,DODDABALLAPUR,B.NARAYANASWAMY,parties.IN.IND,IND,346,0.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-97,karnataka,1978,97,DODDABALLAPUR,GANGADHARAIAH,parties.IN.IND,IND,283,0.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-98,karnataka,1978,98,DEVANAHALLI,B.N. BACHE GOWDA,parties.IN.JP,JNP,32919,47.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-98,karnataka,1978,98,DEVANAHALLI,MUNU GOWDA,parties.IN.INC_I,INC(I),27246,39.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-98,karnataka,1978,98,DEVANAHALLI,M.SOMASEKHARA,parties.IN.INC,INC,6973,10.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-98,karnataka,1978,98,DEVANAHALLI,ALLAPPA,parties.IN.IND,IND,1043,1.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-98,karnataka,1978,98,DEVANAHALLI,J.L. D SOUZA,parties.IN.IND,IND,472,0.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-99,karnataka,1978,99,HOSAKOTE,B.N.BACHE GOWDA,parties.IN.JP,JNP,35387,47.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-99,karnataka,1978,99,HOSAKOTE,MUNE GOWDA,parties.IN.INC,INC,20795,27.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-99,karnataka,1978,99,HOSAKOTE,M.SOMASEKHARA,parties.IN.INC_I,INC(I),17050,22.87,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-99,karnataka,1978,99,HOSAKOTE,ALLAPPA,parties.IN.IND,IND,879,1.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-99,karnataka,1978,99,HOSAKOTE,J.L.SOUZA,parties.IN.IND,IND,448,0.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-100,karnataka,1978,100,ANEKAL,Y.RAMAKRISHAN,parties.IN.JP,JNP,36041,55.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-100,karnataka,1978,100,ANEKAL,M.ANNAPPA,parties.IN.INC_I,INC(I),24289,37.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-100,karnataka,1978,100,ANEKAL,K.V. KAVERAPPA,parties.IN.INC,INC,2708,4.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-100,karnataka,1978,100,ANEKAL,MUNIPAPAIAH,parties.IN.IND,IND,838,1.3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-100,karnataka,1978,100,ANEKAL,M.MUNISWAMAPPA,parties.IN.IND,IND,619,0.96,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-101,karnataka,1978,101,NAGAMANGALA,H.T.KRISHANAPPA,parties.IN.IND,IND,23721,39.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-101,karnataka,1978,101,NAGAMANGALA,K.SINGARIGOWDA,parties.IN.JP,JNP,18475,30.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-101,karnataka,1978,101,NAGAMANGALA,CHAGARIGOWDA,parties.IN.INC,INC,14586,24.42,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-101,karnataka,1978,101,NAGAMANGALA,T.M. CHANDRASHEKAR,parties.IN.IND,IND,965,1.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-101,karnataka,1978,101,NAGAMANGALA,N.L. BYREGOWDA,parties.IN.IND,IND,856,1.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-101,karnataka,1978,101,NAGAMANGALA,MARIGOWDA,parties.IN.IND,IND,669,1.12,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-101,karnataka,1978,101,NAGAMANGALA,V.N.GOWDA,parties.IN.IND,IND,261,0.44,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-101,karnataka,1978,101,NAGAMANGALA,J.B. SIDDAPPA,parties.IN.IND,IND,201,0.34,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-102,karnataka,1978,102,MADDUR,M.MANCHEGOWDA,parties.IN.JP,JNP,37261,57.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-102,karnataka,1978,102,MADDUR,A.D.BILLIGOWDA,parties.IN.INC_I,INC(I),14700,22.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-102,karnataka,1978,102,MADDUR,S.K. CHIKKANNA,parties.IN.INC,INC,11765,18.05,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-102,karnataka,1978,102,MADDUR,N.NARASIMBHEGOWDA,parties.IN.IND,IND,492,0.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-102,karnataka,1978,102,MADDUR,B.N.KRISHNASETTY,parties.IN.IND,IND,416,0.64,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-102,karnataka,1978,102,MADDUR,VENKATAIAH ALIAS GANJAIAH,parties.IN.IND,IND,311,0.48,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-102,karnataka,1978,102,MADDUR,T.CHANNEGOWDA,parties.IN.IND,IND,187,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-102,karnataka,1978,102,MADDUR,B.H. SHANKAR,parties.IN.IND,IND,52,0.08,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-103,karnataka,1978,103,KIRAGAVAL,G.MADE GOWDA,parties.IN.JP,JNP,40711,64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-103,karnataka,1978,103,KIRAGAVAL,RAME GOWDA,parties.IN.INC_I,INC(I),19480,30.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-103,karnataka,1978,103,KIRAGAVAL,B.P. NAGARAJA MURTHY,parties.IN.INC,INC,3420,5.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-104,karnataka,1978,104,MALAVALLI,K.L. MARISWAMI,parties.IN.JP,JNP,27774,45.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-104,karnataka,1978,104,MALAVALLI,M. SHIVAIAH,parties.IN.INC_I,INC(I),27712,45.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-104,karnataka,1978,104,MALAVALLI,M. MALIKARJNNA SWAMY,parties.IN.INC,INC,4998,8.26,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-105,karnataka,1978,105,MANDYA,M.S. ATHMANADA,parties.IN.JP,JNP,31041,48.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-105,karnataka,1978,105,MANDYA,SADATH ALI KHAN,parties.IN.INC_I,INC(I),28294,44.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-105,karnataka,1978,105,MANDYA,T.P. SIDDEGOWDA,parties.IN.INC,INC,2808,4.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-105,karnataka,1978,105,MANDYA,DEVE GOWDA,parties.IN.IND,IND,397,0.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-105,karnataka,1978,105,MANDYA,G.RANGASWAMY,parties.IN.IND,IND,328,0.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-105,karnataka,1978,105,MANDYA,S.PUTTARAMU,parties.IN.IND,IND,242,0.38,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-105,karnataka,1978,105,MANDYA,K.SHIVANNA,parties.IN.IND,IND,229,0.36,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-105,karnataka,1978,105,MANDYA,P.C. YUVARAJAIAH,parties.IN.IND,IND,191,0.3,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-105,karnataka,1978,105,MANDYA,V. SUNDARAKRISHNA,parties.IN.IND,IND,123,0.19,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-105,karnataka,1978,105,MANDYA,M. SATHYAPRIYANANDAN,parties.IN.IND,IND,105,0.16,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-106,karnataka,1978,106,KERAGODU,H.D.CHOWDAIAH,parties.IN.JP,JNP,34515,61.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-106,karnataka,1978,106,KERAGODU,M.D. SIDDARAMAIAH,parties.IN.INC_I,INC(I),14556,25.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-106,karnataka,1978,106,KERAGODU,G.PUTTASWAMY,parties.IN.INC,INC,6266,11.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-106,karnataka,1978,106,KERAGODU,M.RAMALINGAIAH,parties.IN.IND,IND,675,1.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-107,karnataka,1978,107,SRIRANGAPATNA,M.SRINIVAS,parties.IN.JP,JNP,20127,33.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-107,karnataka,1978,107,SRIRANGAPATNA,C.L. GOVINDARAJU,parties.IN.INC_I,INC(I),18647,31.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-107,karnataka,1978,107,SRIRANGAPATNA,A.C. SRIKANTAIAH,parties.IN.IND,IND,17576,29.4,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-107,karnataka,1978,107,SRIRANGAPATNA,N.NANJEGOWDA,parties.IN.INC,INC,3436,5.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-108,karnataka,1978,108,PANDAVAPURA,K.RAJAGOPAL,parties.IN.JP,JNP,27341,45.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-108,karnataka,1978,108,PANDAVAPURA,C.B.MARIGOWDA,parties.IN.INC_I,INC(I),17885,29.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-108,karnataka,1978,108,PANDAVAPURA,D.HALAGE GOWDA,parties.IN.INC,INC,11323,18.7,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-108,karnataka,1978,108,PANDAVAPURA,B.BOREGOWDA,parties.IN.IND,IND,2647,4.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-108,karnataka,1978,108,PANDAVAPURA,K.MAYIGOWDA,parties.IN.IND,IND,710,1.17,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-108,karnataka,1978,108,PANDAVAPURA,K.NAGARAJU,parties.IN.IND,IND,632,1.04,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-109,karnataka,1978,109,KRISHNARAJPET,S.M.LINGAPPA,parties.IN.JP,JNP,26352,43.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-109,karnataka,1978,109,KRISHNARAJPET,K.UJJINILINGESWAR,parties.IN.INC_I,INC(I),20040,32.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-109,karnataka,1978,109,KRISHNARAJPET,A.B. JAVARAPPA,parties.IN.INC,INC,12373,20.36,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-109,karnataka,1978,109,KRISHNARAJPET,G.RAJEGOWDA,parties.IN.IND,IND,2016,3.32,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-110,karnataka,1978,110,HANUR,RAJUGOWDA G.,parties.IN.INC_I,INC(I),37530,54.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-110,karnataka,1978,110,HANUR,NAGAPPA H.,parties.IN.JP,JNP,29447,42.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-110,karnataka,1978,110,HANUR,VENKATEGOWDA S.,parties.IN.INC,INC,1453,2.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-110,karnataka,1978,110,HANUR,KRISHNA SWAMY H.,parties.IN.IND,IND,652,0.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-110,karnataka,1978,110,HANUR,SHIVA RAJU,parties.IN.IND,IND,304,0.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-111,karnataka,1978,111,KOLLEGAL,SIDDAMADAIAH M.,parties.IN.INC_I,INC(I),28188,48.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-111,karnataka,1978,111,KOLLEGAL,BASAVAIAH B.,parties.IN.JP,JNP,26646,45.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-111,karnataka,1978,111,KOLLEGAL,CHAKKABASAVAIAH R.,parties.IN.INC,INC,1313,2.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-111,karnataka,1978,111,KOLLEGAL,DEVANNA C.,parties.IN.IND,IND,960,1.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-111,karnataka,1978,111,KOLLEGAL,MALLESHU,parties.IN.IND,IND,857,1.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-111,karnataka,1978,111,KOLLEGAL,KRISHNASWAMY H,parties.IN.IND,IND,324,0.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-112,karnataka,1978,112,BANNUR,MADEGTOWDA K.,parties.IN.INC_I,INC(I),26422,42.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-112,karnataka,1978,112,BANNUR,RAMASWAMY K.J.,parties.IN.JP,JNP,22307,35.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-112,karnataka,1978,112,BANNUR,CHAKKAMADANAKIK K.M.,parties.IN.IND,IND,9982,15.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-112,karnataka,1978,112,BANNUR,SIDDIAH S.,parties.IN.INC,INC,3211,5.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-112,karnataka,1978,112,BANNUR,SHIVASWAMY M.S.,parties.IN.IND,IND,688,1.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-113,karnataka,1978,113,T. NARASIPUR,VENKATARAMANA P.,parties.IN.INC_I,INC(I),28061,51.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-113,karnataka,1978,113,T. NARASIPUR,SREENIVASA PRASAD V.,parties.IN.JP,JNP,20334,37.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-113,karnataka,1978,113,T. NARASIPUR,RACHIAH N.,parties.IN.IND,IND,3244,5.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-113,karnataka,1978,113,T. NARASIPUR,SANNAIAH M.,parties.IN.INC,INC,1403,2.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-113,karnataka,1978,113,T. NARASIPUR,GANGADHARA,parties.IN.IND,IND,592,1.09,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-113,karnataka,1978,113,T. NARASIPUR,SANEEVAN N.C,parties.IN.IND,IND,286,0.53,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-113,karnataka,1978,113,T. NARASIPUR,NEELAKANTAIAH M,parties.IN.IND,IND,261,0.48,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-114,karnataka,1978,114,KRISHNARAJ,H.GANGADHARAN,parties.IN.JP,JNP,25091,60.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-114,karnataka,1978,114,KRISHNARAJ,K.S. SURYANARAYANA RAO,parties.IN.INC_I,INC(I),15150,36.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-114,karnataka,1978,114,KRISHNARAJ,M.S. NEAMATH KHAN,parties.IN.INC,INC,736,1.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-114,karnataka,1978,114,KRISHNARAJ,T.ANANTH RAO,parties.IN.IND,IND,204,0.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-114,karnataka,1978,114,KRISHNARAJ,H.K. ANANTHA,parties.IN.IND,IND,183,0.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-114,karnataka,1978,114,KRISHNARAJ,A.NARRY PATRICK,parties.IN.IND,IND,129,0.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-114,karnataka,1978,114,KRISHNARAJ,N.C. SANJEEVAN,parties.IN.RPI,RPI,122,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-115,karnataka,1978,115,CHAMARAJA,"KANGEGOWDA,B.N",parties.IN.INC_I,INC(I),20234,49.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-115,karnataka,1978,115,CHAMARAJA,"KAMPEGOWDA,H.",parties.IN.JP,JNP,19833,48.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-115,karnataka,1978,115,CHAMARAJA,H.P.RANGASWAMY,parties.IN.IND,IND,436,1.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-116,karnataka,1978,116,NARASIMHARAJA,AZEZ SAIT,parties.IN.INC_I,INC(I),28718,58.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-116,karnataka,1978,116,NARASIMHARAJA,B.ILYAS AHMAD,parties.IN.JP,JNP,16070,32.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-116,karnataka,1978,116,NARASIMHARAJA,M.GOVINDAPPA,parties.IN.INC,INC,3233,6.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-116,karnataka,1978,116,NARASIMHARAJA,K.NANJUDA,parties.IN.IND,IND,519,1.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-116,karnataka,1978,116,NARASIMHARAJA,S.JOGI SIDDAIAH,parties.IN.IND,IND,152,0.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-116,karnataka,1978,116,NARASIMHARAJA,K.NAZEER AHMED KHAN,parties.IN.IND,IND,136,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-117,karnataka,1978,117,CHAMUNDESWARI,D.JAYADEVARAJA URS,parties.IN.INC_I,INC(I),20529,36.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-117,karnataka,1978,117,CHAMUNDESWARI,M.RAJASHEKARA MURTHY,parties.IN.JP,JNP,19450,34.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-117,karnataka,1978,117,CHAMUNDESWARI,K.KAMPEREGOWDA,parties.IN.INC,INC,12776,22.63,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-117,karnataka,1978,117,CHAMUNDESWARI,S.BOREGOWDA,parties.IN.IND,IND,1807,3.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-117,karnataka,1978,117,CHAMUNDESWARI,RACHANIKA,parties.IN.IND,IND,1147,2.03,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-117,karnataka,1978,117,CHAMUNDESWARI,N.P. RUDRAPPA RAO,parties.IN.IND,IND,352,0.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-117,karnataka,1978,117,CHAMUNDESWARI,SOMAIAH,parties.IN.IND,IND,237,0.42,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-117,karnataka,1978,117,CHAMUNDESWARI,N.SIDDAPPA,parties.IN.IND,IND,169,0.3,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-118,karnataka,1978,118,NANJANGUD,K.B.SHIVAIAH,parties.IN.INC_I,INC(I),19639,37.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-118,karnataka,1978,118,NANJANGUD,PUTTAVEER THARAK,parties.IN.JP,JNP,12854,24.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-118,karnataka,1978,118,NANJANGUD,M.LINGANNA,parties.IN.IND,IND,9724,18.69,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-118,karnataka,1978,118,NANJANGUD,D.T.JAYAKUMAR,parties.IN.INC,INC,7760,14.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-118,karnataka,1978,118,NANJANGUD,L.NAGAPPA,parties.IN.IND,IND,1244,2.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-118,karnataka,1978,118,NANJANGUD,M.KRISHNAIAH,parties.IN.IND,IND,738,1.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-118,karnataka,1978,118,NANJANGUD,N.C. SANJEEVAN,parties.IN.IND,IND,71,0.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-119,karnataka,1978,119,SANTHEMARAHALLI,M.MADAIAH (RAMASAMUNDRA),parties.IN.INC_I,INC(I),23026,44.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-119,karnataka,1978,119,SANTHEMARAHALLI,S.M.SIDDAYYA,parties.IN.JP,JNP,21398,41.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-119,karnataka,1978,119,SANTHEMARAHALLI,N.C.BILIGIRI RANAIAH,parties.IN.IND,IND,4093,7.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-119,karnataka,1978,119,SANTHEMARAHALLI,R.M.KANTHARAJ,parties.IN.INC,INC,1453,2.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-119,karnataka,1978,119,SANTHEMARAHALLI,M.MADAIAH (JOHTIGOWNAPURA),parties.IN.IND,IND,835,1.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-119,karnataka,1978,119,SANTHEMARAHALLI,M.NEELAKANTAIAH,parties.IN.IND,IND,608,1.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-120,karnataka,1978,120,CHAMARAJANAGAR,M.C.BASAPPA,parties.IN.JP,JNP,36389,48.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-120,karnataka,1978,120,CHAMARAJANAGAR,S.PUTTASWAMY,parties.IN.INC,INC,20511,27.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-120,karnataka,1978,120,CHAMARAJANAGAR,R.VENKATARANGA NAIKA,parties.IN.INC_I,INC(I),16862,22.63,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-120,karnataka,1978,120,CHAMARAJANAGAR,KUNNAMADDAIAH,parties.IN.IND,IND,743,1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-121,karnataka,1978,121,GUNDLUPET,H.K.SHIVARUDRAPPA,parties.IN.IND,IND,27141,39.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-121,karnataka,1978,121,GUNDLUPET,K.S. NAGARATHANAMMA,parties.IN.IND,IND,26870,39.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-121,karnataka,1978,121,GUNDLUPET,H.N. SRIKANTA SHETTY,parties.IN.INC_I,INC(I),11438,16.67,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-121,karnataka,1978,121,GUNDLUPET,P.SHANKARA,parties.IN.IND,IND,1815,2.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-121,karnataka,1978,121,GUNDLUPET,A.SIDDARAJU,parties.IN.IND,IND,1366,1.99,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-122,karnataka,1978,122,HEGGADADEVANAKOTE,SUSHEELA CHELUVARAJ,parties.IN.INC_I,INC(I),27821,48.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-122,karnataka,1978,122,HEGGADADEVANAKOTE,H.B.CHELUVAIAH,parties.IN.JP,JNP,16661,28.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-122,karnataka,1978,122,HEGGADADEVANAKOTE,R.PEERANNA,parties.IN.IND,IND,9342,16.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-122,karnataka,1978,122,HEGGADADEVANAKOTE,K.M. DODDAIAH,parties.IN.INC,INC,3836,6.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-123,karnataka,1978,123,HUNSUR,D.DEVARAJ URS,parties.IN.INC_I,INC(I),36766,55.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-123,karnataka,1978,123,HUNSUR,H.L. THIMMEGOWDA,parties.IN.JP,JNP,24711,37.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-123,karnataka,1978,123,HUNSUR,S.CHIKKAMADU,parties.IN.IND,IND,4665,7.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-123,karnataka,1978,123,HUNSUR,G.RANGASWAMY,parties.IN.IND,IND,409,0.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-124,karnataka,1978,124,KRISHNARAJANAGAR,VISWANATHA H.,parties.IN.INC_I,INC(I),33571,54.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-124,karnataka,1978,124,KRISHNARAJANAGAR,NANJAPPA S.,parties.IN.JP,JNP,24441,39.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-124,karnataka,1978,124,KRISHNARAJANAGAR,JAVAREGOWDA S.B.,parties.IN.INC,INC,2717,4.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-124,karnataka,1978,124,KRISHNARAJANAGAR,SATHIGOWDA,parties.IN.IND,IND,316,0.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-124,karnataka,1978,124,KRISHNARAJANAGAR,AJITHRAN S.A,parties.IN.IND,IND,110,0.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-125,karnataka,1978,125,PERIYAPATNA,KALA MARIGOWDA K. S.,parties.IN.JP,JNP,28152,42.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-125,karnataka,1978,125,PERIYAPATNA,KARIYAPPA K. P.,parties.IN.INC_I,INC(I),20847,31.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-125,karnataka,1978,125,PERIYAPATNA,ANAND L.,parties.IN.IND,IND,16592,24.93,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-125,karnataka,1978,125,PERIYAPATNA,NAGABHUSHANARADYA M. B.,parties.IN.IND,IND,969,1.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-126,karnataka,1978,126,VIRAJPET,G. K. SUBHAIAH,parties.IN.INC_I,INC(I),25309,48.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-126,karnataka,1978,126,VIRAJPET,PANIYERAVARA P. CHOMA,parties.IN.JP,JNP,23040,44.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-126,karnataka,1978,126,VIRAJPET,N. LOKAYYA NAIK,parties.IN.IND,IND,2258,4.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-126,karnataka,1978,126,VIRAJPET,JENUKURUBARA ANNAIAH APPU,parties.IN.INC,INC,1601,3.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-127,karnataka,1978,127,MADIKERE,MERIANDA C. NANAIAH,parties.IN.INC_I,INC(I),25327,44.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-127,karnataka,1978,127,MADIKERE,A. K. SUBBAIAH,parties.IN.JP,JNP,22453,39.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-127,karnataka,1978,127,MADIKERE,DEMBEKODI SUBRAIAH MADAPPA,parties.IN.IND,IND,4488,7.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-127,karnataka,1978,127,MADIKERE,B. N. KUTTAPPA,parties.IN.CPIM,CPM,3144,5.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-127,karnataka,1978,127,MADIKERE,A. M. BELLIAPPA,parties.IN.INC,INC,1849,3.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-128,karnataka,1978,128,SOMWARPET,R. GUNDA RAO,parties.IN.INC_I,INC(I),31588,51.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-128,karnataka,1978,128,SOMWARPET,B. A. JIVIJAYA,parties.IN.JP,JNP,27982,45.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-128,karnataka,1978,128,SOMWARPET,G. M. HABIB,parties.IN.INC,INC,1210,1.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-128,karnataka,1978,128,SOMWARPET,D. HANUMARAJE URS,parties.IN.IND,IND,831,1.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-129,karnataka,1978,129,BELUR,LAKSHMANAIAH B. H.,parties.IN.JP,JNP,26045,50.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-129,karnataka,1978,129,BELUR,UDAYAKUMAR,parties.IN.INC_I,INC(I),23286,44.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-129,karnataka,1978,129,BELUR,PUTTARANGANATH S. H.,parties.IN.INC,INC,2647,5.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-130,karnataka,1978,130,ARSIKERE,D. B. GANGADHARAPPA,parties.IN.INC_I,INC(I),36062,56.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-130,karnataka,1978,130,ARSIKERE,K. N. DURGAPPA SETTY,parties.IN.JP,JNP,19585,30.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-130,karnataka,1978,130,ARSIKERE,G. S. BASAVARAJA,parties.IN.INC,INC,7563,11.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-130,karnataka,1978,130,ARSIKERE,KRISHNA NAIK,parties.IN.IND,IND,575,0.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-131,karnataka,1978,131,GANDSI,HARANAHALLI RAMASWAMY,parties.IN.INC_I,INC(I),23352,42.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-131,karnataka,1978,131,GANDSI,B. NANJAPPA,parties.IN.JP,JNP,21484,39.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-131,karnataka,1978,131,GANDSI,E. NANJE GOWDA,parties.IN.IND,IND,7236,13.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-131,karnataka,1978,131,GANDSI,M. NANJE GOWDA,parties.IN.INC,INC,2101,3.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-131,karnataka,1978,131,GANDSI,M. C. SIDDE GOWDA,parties.IN.IND,IND,231,0.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-132,karnataka,1978,132,SRAVANABELAGOLA,H. C. SRIKANTAIAH,parties.IN.INC_I,INC(I),43045,60.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-132,karnataka,1978,132,SRAVANABELAGOLA,N. GANGADHARA,parties.IN.JP,JNP,25440,35.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-132,karnataka,1978,132,SRAVANABELAGOLA,K. JAIRAM,parties.IN.IND,IND,2376,3.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-133,karnataka,1978,133,HOLENARASIPUR,H. D. DEVEGOWDA,parties.IN.JP,JNP,33992,52.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-133,karnataka,1978,133,HOLENARASIPUR,K. KUMARASWAMY,parties.IN.INC_I,INC(I),28472,43.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-133,karnataka,1978,133,HOLENARASIPUR,S. N. NANJAPPA,parties.IN.INC,INC,1645,2.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-133,karnataka,1978,133,HOLENARASIPUR,C. CHANNEGOWDA,parties.IN.IND,IND,395,0.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-133,karnataka,1978,133,HOLENARASIPUR,M. NANJUNDAPPA,parties.IN.IND,IND,320,0.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-134,karnataka,1978,134,ARKALGUD,MALLAPA K. B.,parties.IN.JP,JNP,32315,55.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-134,karnataka,1978,134,ARKALGUD,PUTTALINGEGOWDA,parties.IN.INC_I,INC(I),13824,23.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-134,karnataka,1978,134,ARKALGUD,NANJEGOWDA H. N.,parties.IN.INC,INC,11717,19.95,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-134,karnataka,1978,134,ARKALGUD,SANNADEVAIAH H. P.,parties.IN.IND,IND,674,1.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-134,karnataka,1978,134,ARKALGUD,EROGOWDA,parties.IN.IND,IND,206,0.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-135,karnataka,1978,135,HASSAN,HANUMEGOWDA K. H.,parties.IN.INC_I,INC(I),34344,54.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-135,karnataka,1978,135,HASSAN,MUNIVENKATE GOWDA A. C.,parties.IN.JP,JNP,24731,39.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-135,karnataka,1978,135,HASSAN,THIMMEGOWDA KABBATHI,parties.IN.INC,INC,1847,2.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-135,karnataka,1978,135,HASSAN,SHARMA B. A. N.,parties.IN.IND,IND,783,1.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-135,karnataka,1978,135,HASSAN,SESHACHAR G. B.,parties.IN.IND,IND,393,0.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-135,karnataka,1978,135,HASSAN,PUTTAIAH,parties.IN.IND,IND,284,0.45,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-135,karnataka,1978,135,HASSAN,JANARDHANA,parties.IN.IND,IND,210,0.33,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-135,karnataka,1978,135,HASSAN,SURYANARAYANA D. S.,parties.IN.IND,IND,136,0.22,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-136,karnataka,1978,136,SAKLESHPUR,SOMAPPA J. D.,parties.IN.INC_I,INC(I),32658,48.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-136,karnataka,1978,136,SAKLESHPUR,SHIVAPPA B. B.,parties.IN.JP,JNP,22361,32.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-136,karnataka,1978,136,SAKLESHPUR,LOKESHGOWDA D. S.,parties.IN.INC,INC,11985,17.66,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-136,karnataka,1978,136,SAKLESHPUR,SIDDEGOWDA A. V.,parties.IN.IND,IND,689,1.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-136,karnataka,1978,136,SAKLESHPUR,HULUKODAIAH,parties.IN.IND,IND,176,0.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-137,karnataka,1978,137,SULLIA,A. RAMACHANDRA,parties.IN.JP,JNP,24148,44.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-137,karnataka,1978,137,SULLIA,P. D. BANGERA,parties.IN.INC_I,INC(I),20874,38.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-137,karnataka,1978,137,SULLIA,B. RAMAKRISHNA,parties.IN.CPIM,CPM,6482,11.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-137,karnataka,1978,137,SULLIA,M. BHASKAR NAIK,parties.IN.INC,INC,2515,4.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-137,karnataka,1978,137,SULLIA,B. HUKRAPPA,parties.IN.IND,IND,198,0.37,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-138,karnataka,1978,138,PUTTUR,K. RAMA BHAT,parties.IN.JP,JNP,25751,43.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-138,karnataka,1978,138,PUTTUR,BETTA P. ISHWARA BHAT,parties.IN.INC_I,INC(I),25109,42.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-138,karnataka,1978,138,PUTTUR,B. HUKRAPPA,parties.IN.IND,IND,8585,14.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-139,karnataka,1978,139,VITTAL,B. V. KAKKILAYA,parties.IN.CPI,CPI,31030,51.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-139,karnataka,1978,139,VITTAL,B. A. UMMARABBA,parties.IN.JP,JNP,20838,34.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-139,karnataka,1978,139,VITTAL,M. H. KRISHNAPPA,parties.IN.CPIM,CPM,4353,7.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-139,karnataka,1978,139,VITTAL,C. ABDUL HAMEED,parties.IN.IND,IND,2994,5.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-139,karnataka,1978,139,VITTAL,DERANNA PANDITH K. P.,parties.IN.INC,INC,583,0.97,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-140,karnataka,1978,140,BELTHANGADY,GANGADHAR K.,parties.IN.INC_I,INC(I),31255,55.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-140,karnataka,1978,140,BELTHANGADY,K. CHIDANANDA,parties.IN.JP,JNP,21388,38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-140,karnataka,1978,140,BELTHANGADY,G. N. BHIDE,parties.IN.INC,INC,1952,3.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-140,karnataka,1978,140,BELTHANGADY,M. S. PRABHAKARA SAMPIGETHAYA,parties.IN.IND,IND,1463,2.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-140,karnataka,1978,140,BELTHANGADY,SANATHKUMAR HEGDE,parties.IN.IND,IND,229,0.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-141,karnataka,1978,141,BANTWAL,B. A. MOHIDEEN,parties.IN.INC_I,INC(I),30790,60.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-141,karnataka,1978,141,BANTWAL,A. RUKMAYYA POOJARY,parties.IN.JP,JNP,18409,35.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-141,karnataka,1978,141,BANTWAL,MAHABALA SHETTY,parties.IN.INC,INC,2015,3.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-142,karnataka,1978,142,MANGALORE,P. F. RODRIGUES,parties.IN.INC_I,INC(I),26579,50.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-142,karnataka,1978,142,MANGALORE,SHARDA ACHAR,parties.IN.JP,JNP,25344,47.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-142,karnataka,1978,142,MANGALORE,ADDY SALDANHA,parties.IN.INC,INC,885,1.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-142,karnataka,1978,142,MANGALORE,U. K. SRINIVASA,parties.IN.IND,IND,216,0.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-143,karnataka,1978,143,ULLAL,U. T. FAREED,parties.IN.INC_I,INC(I),30174,57.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-143,karnataka,1978,143,ULLAL,P. RAMACHANDRA RAO,parties.IN.CPIM,CPM,12445,23.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-143,karnataka,1978,143,ULLAL,ABDUR RAHIM AHMED,parties.IN.JP,JNP,8911,16.85,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-143,karnataka,1978,143,ULLAL,GARTY SUVARNA,parties.IN.IND,IND,711,1.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-143,karnataka,1978,143,ULLAL,K. A. HAMEED,parties.IN.INC,INC,631,1.19,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-144,karnataka,1978,144,SURATHKAL,SUBBAYYA SHETTY,parties.IN.INC_I,INC(I),29452,58.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-144,karnataka,1978,144,SURATHKAL,J. R. PAIS,parties.IN.JP,JNP,15203,30.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-144,karnataka,1978,144,SURATHKAL,P. C. SRINIVAS RAO PATEL,parties.IN.IND,IND,2635,5.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-144,karnataka,1978,144,SURATHKAL,K. R. SHETTY,parties.IN.INC,INC,1428,2.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-144,karnataka,1978,144,SURATHKAL,P. V. AITHALA,parties.IN.IND,IND,1233,2.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-144,karnataka,1978,144,SURATHKAL,BHASKER SHETTY KATTEMAR,parties.IN.IND,IND,286,0.57,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-145,karnataka,1978,145,KAUP,B. BHASKER SHETTY,parties.IN.INC_I,INC(I),29030,57.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-145,karnataka,1978,145,KAUP,DAYANATHA K. KOTIAN,parties.IN.JP,JNP,20312,40.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-145,karnataka,1978,145,KAUP,BHOGEESHA AITHA KARKERA,parties.IN.IND,IND,575,1.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-145,karnataka,1978,145,KAUP,ASHOKA M. SUVARNA,parties.IN.INC,INC,294,0.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-145,karnataka,1978,145,KAUP,PERODY VITTAL SHETTY,parties.IN.IND,IND,130,0.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-146,karnataka,1978,146,UDUPI,M. MONARAMA MADHWARAJ,parties.IN.INC_I,INC(I),30899,55.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-146,karnataka,1978,146,UDUPI,SHRIDHARA M. KALMADY,parties.IN.JP,JNP,22819,41.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-146,karnataka,1978,146,UDUPI,B. SOORAPPA HEGDE,parties.IN.INC,INC,1123,2.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-146,karnataka,1978,146,UDUPI,YASHODA S. ARUNMUGHAM,parties.IN.IND,IND,650,1.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-146,karnataka,1978,146,UDUPI,SEVANTHI V. SHETTY,parties.IN.IND,IND,102,0.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-147,karnataka,1978,147,BRAHMAVAR,ANANDA KUNDA HEGDE,parties.IN.INC_I,INC(I),29021,49.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-147,karnataka,1978,147,BRAHMAVAR,V. S. ACHARYA,parties.IN.JP,JNP,26158,44.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-147,karnataka,1978,147,BRAHMAVAR,B. KUSHALA SHETTY,parties.IN.INC,INC,1899,3.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-147,karnataka,1978,147,BRAHMAVAR,NADUR SEETHARAMA,parties.IN.IND,IND,1807,3.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-148,karnataka,1978,148,COONDAPUR,KAUP SANJIVA SHETTY,parties.IN.JP,JNP,28612,49.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-148,karnataka,1978,148,COONDAPUR,MANI GOPALA,parties.IN.INC_I,INC(I),26748,45.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-148,karnataka,1978,148,COONDAPUR,WINNIEFRED F. FERNANDES,parties.IN.INC,INC,2923,5.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-149,karnataka,1978,149,BAINDUR,GOPALRISHNA KODGI,parties.IN.INC_I,INC(I),29622,59.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-149,karnataka,1978,149,BAINDUR,ELWIN P. CRASTO,parties.IN.JP,JNP,17655,35.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-149,karnataka,1978,149,BAINDUR,N. S. PARAMESHWARAIAH,parties.IN.INC,INC,1905,3.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-149,karnataka,1978,149,BAINDUR,K. SACHIDANANDA SHETTY,parties.IN.IND,IND,819,1.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-150,karnataka,1978,150,KARKAL,M. VEERAPPA MOILY,parties.IN.INC_I,INC(I),29941,55.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-150,karnataka,1978,150,KARKAL,M. K. VIJAYAKUMAR,parties.IN.JP,JNP,20985,38.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-150,karnataka,1978,150,KARKAL,B. VITTAL SALIAN,parties.IN.INC,INC,1732,3.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-150,karnataka,1978,150,KARKAL,R. NIRMALA KUMAR,parties.IN.IND,IND,576,1.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-150,karnataka,1978,150,KARKAL,K. KRISHNA MOORTHY,parties.IN.IND,IND,407,0.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-150,karnataka,1978,150,KARKAL,Y. DEVARAYA PAI,parties.IN.IND,IND,252,0.47,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-151,karnataka,1978,151,MOODABIDRI,DAMODAR MULKY,parties.IN.INC_I,INC(I),25800,52.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-151,karnataka,1978,151,MOODABIDRI,K. AMARNATH SHETTY,parties.IN.JP,JNP,21121,43.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-151,karnataka,1978,151,MOODABIDRI,S. D. SAMRAJYA,parties.IN.INC,INC,2175,4.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-152,karnataka,1978,152,SRINGERI,B. RAMAIAH,parties.IN.INC_I,INC(I),34716,59.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-152,karnataka,1978,152,SRINGERI,H. V. SRIKANTA BHATTA,parties.IN.JP,JNP,20458,35.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-152,karnataka,1978,152,SRINGERI,K. N. VEERAPPA GOWDA,parties.IN.INC,INC,2845,4.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-153,karnataka,1978,153,MUDIGERE,MOTAMMA,parties.IN.INC_I,INC(I),34449,66.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-153,karnataka,1978,153,MUDIGERE,N. U. SAGUNAIAH,parties.IN.JP,JNP,16217,31.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-153,karnataka,1978,153,MUDIGERE,G. PUTTASWAMY,parties.IN.INC,INC,1080,2.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-154,karnataka,1978,154,CHIKMAGALUR,C. A. CHANDRE GOWDA,parties.IN.INC_I,INC(I),26113,54.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-154,karnataka,1978,154,CHIKMAGALUR,B. L. SUBBAMMA,parties.IN.JP,JNP,18102,37.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-154,karnataka,1978,154,CHIKMAGALUR,A. M. NINGE GOWDA,parties.IN.INC,INC,3152,6.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-154,karnataka,1978,154,CHIKMAGALUR,P. B. S. MANI,parties.IN.ADK,ADK,590,1.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-154,karnataka,1978,154,CHIKMAGALUR,V. ACHUTHAN,parties.IN.IND,IND,304,0.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-155,karnataka,1978,155,BIRUR,M. MALLAPPA,parties.IN.INC_I,INC(I),24078,46.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-155,karnataka,1978,155,BIRUR,N. K. HUCHAPPA,parties.IN.JP,JNP,23591,45.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-155,karnataka,1978,155,BIRUR,K. S. MALLOKAJUNAPRASANNA,parties.IN.INC,INC,3394,6.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-155,karnataka,1978,155,BIRUR,U. S. SHIVALINGAMURTHY,parties.IN.IND,IND,610,1.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-156,karnataka,1978,156,KADUR,K. M. THAMMAIAH,parties.IN.JP,JNP,19223,36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-156,karnataka,1978,156,KADUR,K. T. MUDDIYAPPA,parties.IN.INC_I,INC(I),13732,25.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-156,karnataka,1978,156,KADUR,M. VEERABHADRAPPA,parties.IN.INC,INC,10291,19.27,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-156,karnataka,1978,156,KADUR,B. R. DEVARAJ,parties.IN.IND,IND,4187,7.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-156,karnataka,1978,156,KADUR,B. MARULAPPA,parties.IN.IND,IND,3642,6.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-156,karnataka,1978,156,KADUR,C. NANJAPPA,parties.IN.IND,IND,1270,2.38,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-156,karnataka,1978,156,KADUR,K. BASAVARAJAPPA,parties.IN.IND,IND,1046,1.96,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-157,karnataka,1978,157,TARIKERE,H. M. MALLIKARJUNAPPA,parties.IN.INC_I,INC(I),30016,48.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-157,karnataka,1978,157,TARIKERE,H. R. BASAVARAJU,parties.IN.JP,JNP,22478,36.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-157,karnataka,1978,157,TARIKERE,D. L. MALLAIAH,parties.IN.INC,INC,9538,15.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-158,karnataka,1978,158,CHANNAGIRI,J. H. PATEL,parties.IN.JP,JNP,30227,48.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-158,karnataka,1978,158,CHANNAGIRI,ABDUL HAMEED KHAN,parties.IN.INC_I,INC(I),19826,32.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-158,karnataka,1978,158,CHANNAGIRI,N. G. HALAPPA,parties.IN.INC,INC,10570,17.12,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-158,karnataka,1978,158,CHANNAGIRI,UMMAR KHAN,parties.IN.IND,IND,1120,1.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-159,karnataka,1978,159,HOLEHONNUR,G. BASAVANAPPA,parties.IN.INC_I,INC(I),28160,50.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-159,karnataka,1978,159,HOLEHONNUR,K. G. CHANNA NAIK,parties.IN.JP,JNP,22487,40.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-159,karnataka,1978,159,HOLEHONNUR,K. T. KRISHNA NAIK,parties.IN.INC,INC,3122,5.59,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-159,karnataka,1978,159,HOLEHONNUR,M. MUNIRATHANAM,parties.IN.IND,IND,864,1.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-159,karnataka,1978,159,HOLEHONNUR,N. K. MARUTHY,parties.IN.IND,IND,651,1.17,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-159,karnataka,1978,159,HOLEHONNUR,NARASIMAIAH,parties.IN.IND,IND,558,1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-160,karnataka,1978,160,BHADRAVATHI,G. RAJASHEKAR,parties.IN.INC_I,INC(I),32573,49.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-160,karnataka,1978,160,BHADRAVATHI,K. M. JAVARAIAH,parties.IN.JP,JNP,29099,44.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-160,karnataka,1978,160,BHADRAVATHI,CHOKKALINGAM,parties.IN.ADK,ADK,2018,3.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-160,karnataka,1978,160,BHADRAVATHI,D. K. THIMMEGOWDA,parties.IN.INC,INC,1273,1.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-160,karnataka,1978,160,BHADRAVATHI,K. JYOTHY LINGARAO,parties.IN.IND,IND,296,0.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-160,karnataka,1978,160,BHADRAVATHI,ABDUL KHUDUS ANVER,parties.IN.IND,IND,234,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-160,karnataka,1978,160,BHADRAVATHI,AMEER JAN,parties.IN.IUML,MUL,130,0.2,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-161,karnataka,1978,161,HONNALI,H. B. KADASIDDAPPA,parties.IN.INC_I,INC(I),33845,49.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-161,karnataka,1978,161,HONNALI,D. G. BASAVANAGOWDA,parties.IN.JP,JNP,31740,46.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-161,karnataka,1978,161,HONNALI,S. G. BALACHANDRAPPA,parties.IN.INC,INC,1952,2.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-161,karnataka,1978,161,HONNALI,A. AEKANATHARAYA,parties.IN.IND,IND,243,0.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-162,karnataka,1978,162,SHIMOGA,K. H. SRINIVASA,parties.IN.INC_I,INC(I),33047,52.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-162,karnataka,1978,162,SHIMOGA,D. H. SHANKARA MURTHY,parties.IN.JP,JNP,21373,33.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-162,karnataka,1978,162,SHIMOGA,S. S. BHARMAPPA,parties.IN.IND,IND,7632,12.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-162,karnataka,1978,162,SHIMOGA,ABDUL SATTAR KHAN AFRIDI,parties.IN.INC,INC,908,1.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-163,karnataka,1978,163,TIRTHAHALLI,KADILAL DIVAKARA,parties.IN.INC_I,INC(I),32798,56.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-163,karnataka,1978,163,TIRTHAHALLI,KONANDUR LINGAPPA,parties.IN.JP,JNP,14938,25.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-163,karnataka,1978,163,TIRTHAHALLI,K. M. SREENIVAS KALAMMANAGUDI,parties.IN.IND,IND,5708,9.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-163,karnataka,1978,163,TIRTHAHALLI,B. N. RANGAPPA,parties.IN.INC,INC,3727,6.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-163,karnataka,1978,163,TIRTHAHALLI,K. T. DANAMMA,parties.IN.IND,IND,484,0.83,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-163,karnataka,1978,163,TIRTHAHALLI,NARAYANA,parties.IN.IND,IND,445,0.76,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-163,karnataka,1978,163,TIRTHAHALLI,T. P. SREENATH,parties.IN.IND,IND,386,0.66,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-164,karnataka,1978,164,HOSANAGAR,S. M. SHEERANALY CHANDRASEKHAR,parties.IN.INC_I,INC(I),28092,50.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-164,karnataka,1978,164,HOSANAGAR,B. SWAMY RAO,parties.IN.JP,JNP,24174,43.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-164,karnataka,1978,164,HOSANAGAR,ABDUL RAHMAN,parties.IN.IND,IND,1743,3.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-164,karnataka,1978,164,HOSANAGAR,D. GANGAMMA D. B.,parties.IN.INC,INC,1374,2.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-164,karnataka,1978,164,HOSANAGAR,C. MALLAPPA,parties.IN.IND,IND,343,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-164,karnataka,1978,164,HOSANAGAR,H. TASVEERAHMED,parties.IN.IND,IND,202,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-165,karnataka,1978,165,SAGAR,L. T. THIMMAPPA HEGADE,parties.IN.INC_I,INC(I),30903,52.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-165,karnataka,1978,165,SAGAR,KAGODU THIMAPPA,parties.IN.JP,JNP,28220,47.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-166,karnataka,1978,166,SORAB,S. BANGARAPPA,parties.IN.INC_I,INC(I),32426,60.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-166,karnataka,1978,166,SORAB,S. NAGAPPA,parties.IN.JP,JNP,10131,18.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-166,karnataka,1978,166,SORAB,P. CHENNAVERAPPA GOWDA,parties.IN.INC,INC,8965,16.7,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-166,karnataka,1978,166,SORAB,N. S. CHANDRASEKHARA,parties.IN.IND,IND,1741,3.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-166,karnataka,1978,166,SORAB,T. NAGESHAPPA,parties.IN.IND,IND,280,0.52,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-166,karnataka,1978,166,SORAB,C. P. LINGARAJAPPA GOWDA,parties.IN.IND,IND,144,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-167,karnataka,1978,167,SHIKARIPUR,K. YENKATAPPA,parties.IN.INC_I,INC(I),28760,52.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-167,karnataka,1978,167,SHIKARIPUR,H. BASAVANNAPPA,parties.IN.JP,JNP,17574,32.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-167,karnataka,1978,167,SHIKARIPUR,MAHADEVANAGOWDARU,parties.IN.INC,INC,8535,15.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-168,karnataka,1978,168,SIRSI,BORKAR UMAKANT BUDDU,parties.IN.JP,JNP,31506,50.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-168,karnataka,1978,168,SIRSI,REVANKAR SHANKAR PURUSHOTTAM,parties.IN.INC_I,INC(I),28793,46.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-168,karnataka,1978,168,SIRSI,JOGANNAVAR YALLAPPA VENKAPPA,parties.IN.INC,INC,1842,2.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-169,karnataka,1978,169,BHATKAL,SIDDIQ MOHAMED YAHYA BIN UMER,parties.IN.INC_I,INC(I),30800,54.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-169,karnataka,1978,169,BHATKAL,U. CHITTARANJAN,parties.IN.JP,JNP,22867,40.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-169,karnataka,1978,169,BHATKAL,NAIK VASANTRAO GANAP,parties.IN.INC,INC,2961,5.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-170,karnataka,1978,170,KUMTA,NAIK SEETARAM VASUDEV,parties.IN.INC_I,INC(I),27894,47.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-170,karnataka,1978,170,KUMTA,NAIK RANAYYA SHIVAPPA,parties.IN.JP,JNP,25001,42.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-170,karnataka,1978,170,KUMTA,NAIK RAMAKANT RAGHAVENDRA,parties.IN.INC,INC,2573,4.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-170,karnataka,1978,170,KUMTA,GAJANAN KRISHNA BHAT,parties.IN.IND,IND,1247,2.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-170,karnataka,1978,170,KUMTA,NAIK NALINI BALAKRISHNA,parties.IN.IND,IND,918,1.57,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-170,karnataka,1978,170,KUMTA,VENKATRAMAN KRISHNA GAONKAR,parties.IN.IND,IND,807,1.38,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-171,karnataka,1978,171,ANKOLA,ANASUYA GAJANAN SHARMA,parties.IN.JP,JNP,27897,55.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-171,karnataka,1978,171,ANKOLA,NAIK RAMACHANDRA VASUDEV,parties.IN.INC_I,INC(I),18100,36.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-171,karnataka,1978,171,ANKOLA,SHRIPAD R. HEGDE KADVE,parties.IN.INC,INC,4173,8.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-172,karnataka,1978,172,KARWAR,WAINGANKAR DATTATRAYA VITHU,parties.IN.INC_I,INC(I),22044,44.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-172,karnataka,1978,172,KARWAR,GAONKAR SAKHARAM DATTATRAY,parties.IN.JP,JNP,19602,39.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-172,karnataka,1978,172,KARWAR,NAIK VISHWANATH RAMCHANDRA,parties.IN.IND,IND,2858,5.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-172,karnataka,1978,172,KARWAR,DHUME MUKUND SHIWRAM,parties.IN.IND,IND,2763,5.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-172,karnataka,1978,172,KARWAR,DESAI V. B.,parties.IN.INC,INC,2525,5.07,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-173,karnataka,1978,173,HALIYAL,GHADI VIRUPAKSH MALLAPPA,parties.IN.INC_I,INC(I),34566,50.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-173,karnataka,1978,173,HALIYAL,PATIL MARUTI JAKKAPPA,parties.IN.JP,JNP,23948,34.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-173,karnataka,1978,173,HALIYAL,STHALEKAR RAMESH GANAPATI,parties.IN.CPIM,CPM,7169,10.42,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-173,karnataka,1978,173,HALIYAL,DUSAGAI NAZEERAHMMAD,parties.IN.INC,INC,1959,2.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-173,karnataka,1978,173,HALIYAL,RAO ABDUL RAHIMAN HASANSAB,parties.IN.IND,IND,628,0.91,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-173,karnataka,1978,173,HALIYAL,KERWADKAR MAHADEV MALLAPPA,parties.IN.IND,IND,524,0.76,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-174,karnataka,1978,174,DHARWAD RURAL,MADIMAN SUMATI BHALACHANDRA,parties.IN.INC_I,INC(I),30354,63.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-174,karnataka,1978,174,DHARWAD RURAL,DASANKOP ABDUL HAMID HASANSAB,parties.IN.JP,JNP,15378,32.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-174,karnataka,1978,174,DHARWAD RURAL,WAI VENKANNACHARYA VADHIRAJACHARYA,parties.IN.INC,INC,1279,2.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-174,karnataka,1978,174,DHARWAD RURAL,SOPPI CHANDRASHEKHAR LINGABASAPPA,parties.IN.IND,IND,622,1.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-175,karnataka,1978,175,DHARWAD,BHAVURAO DESHPANDE,parties.IN.JP,JNP,27530,51.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-175,karnataka,1978,175,DHARWAD,NAIKAR DYAMAPPA KALLAPPA,parties.IN.INC_I,INC(I),23182,43.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-175,karnataka,1978,175,DHARWAD,JAMADAR ABDULSATTAR MOHAMMADGOUS,parties.IN.IND,IND,1246,2.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-175,karnataka,1978,175,DHARWAD,SHIBARGATTI GOUSMODIN RAJESAB,parties.IN.INC,INC,777,1.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-175,karnataka,1978,175,DHARWAD,BASAVARAJ HORADI,parties.IN.IND,IND,317,0.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-176,karnataka,1978,176,HUBLI,JARTARDHAR MAHADEVSA GOVINDSA,parties.IN.JP,JNP,27694,47.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-176,karnataka,1978,176,HUBLI,MUDHOL ABDULRAHIMAN JANGLISAB,parties.IN.CPI,CPI,27438,47.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-176,karnataka,1978,176,HUBLI,SANADI IMAMSAHEB GOUSASAHEB,parties.IN.INC,INC,1501,2.59,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-176,karnataka,1978,176,HUBLI,KHATIB ABDULRAHIM MAKTUMHUSEN,parties.IN.IND,IND,599,1.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-176,karnataka,1978,176,HUBLI,MANNUR KRISHNAMURTHY GUNDACHARYA,parties.IN.IND,IND,352,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-176,karnataka,1978,176,HUBLI,ITAGI VIKRAM VEDMURTHY,parties.IN.IND,IND,110,0.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-176,karnataka,1978,176,HUBLI,KONAKANI MODINSAB MOHAMMAD YUSUF,parties.IN.IND,IND,78,0.13,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-176,karnataka,1978,176,HUBLI,YAVAGAL KALLAPPA BHARMAPPA,parties.IN.IND,IND,74,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-177,karnataka,1978,177,HUBLI RURAL,BOMMAI SOMAPPA RAYAPPA,parties.IN.JP,JNP,31771,53.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-177,karnataka,1978,177,HUBLI RURAL,KITTUR F. M.,parties.IN.INC_I,INC(I),23137,38.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-177,karnataka,1978,177,HUBLI RURAL,GOPINATH RANGASWAMY SANDRA,parties.IN.INC,INC,4165,6.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-177,karnataka,1978,177,HUBLI RURAL,CHIGARI DEVENDRA NAIK MUDAKAPPA,parties.IN.IND,IND,482,0.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-178,karnataka,1978,178,KALGHATGI,PATIL FAKIRAGOUDA SHIVANGOUDA,parties.IN.JP,JNP,23789,48.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-178,karnataka,1978,178,KALGHATGI,KURAWATTI CHANA - BASAPPA BASAPPA,parties.IN.INC_I,INC(I),17736,36.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-178,karnataka,1978,178,KALGHATGI,PATIL GURUSHANTAGOUDA CHANNAPPAGOUDA,parties.IN.INC,INC,6237,12.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-178,karnataka,1978,178,KALGHATGI,KHANAGOUDA PARWATHAGAUDE KHANAGOUDA,parties.IN.IND,IND,1049,2.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-179,karnataka,1978,179,KUNDGOL,KATAGI MAHADEVAPPA SHIVAPPA,parties.IN.INC_I,INC(I),34761,60.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-179,karnataka,1978,179,KUNDGOL,MUNIR DIVANASAB HAIDARSAB,parties.IN.JP,JNP,16884,29.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-179,karnataka,1978,179,KUNDGOL,UMACHAGI LINGANAGOUDA BASANAGOUDA,parties.IN.IND,IND,2385,4.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-179,karnataka,1978,179,KUNDGOL,BISIROTTI FAKKIRAPPA FAKKIRAPPA,parties.IN.IND,IND,1300,2.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-179,karnataka,1978,179,KUNDGOL,PATIL GOUDAPPAGOUDA SHIVANAGOUDA,parties.IN.IND,IND,796,1.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-179,karnataka,1978,179,KUNDGOL,SHETTAR CHANNABASAPPA GURUSHIDDAPPA,parties.IN.INC,INC,779,1.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-179,karnataka,1978,179,KUNDGOL,BAGAL SHIVAPPA MALLAPPA,parties.IN.IND,IND,273,0.48,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-179,karnataka,1978,179,KUNDGOL,HARIJAN YAMANAPPA BASAPPA,parties.IN.IND,IND,54,0.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-180,karnataka,1978,180,SHIGGAON,NADAF MAHAMMADKHASHEEMSAB MARDANSAB,parties.IN.INC_I,INC(I),33669,56.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-180,karnataka,1978,180,SHIGGAON,PATIL SHANKARAGOUDA GULANAGOUDA,parties.IN.JP,JNP,22496,37.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-180,karnataka,1978,180,SHIGGAON,PATIL SHANKARAGOUDA RUDRAGOUDA,parties.IN.INC,INC,2759,4.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-180,karnataka,1978,180,SHIGGAON,BANNUR ABDULRASHEED KHADARGOUS,parties.IN.IND,IND,545,0.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-180,karnataka,1978,180,SHIGGAON,MIRAJAKAR RAMACHANDRA YEGAPPA,parties.IN.IND,IND,266,0.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-181,karnataka,1978,181,HANAGAL,TAHASILDAR MANOHAR HANAMANTAPPA,parties.IN.INC_I,INC(I),35228,63.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-181,karnataka,1978,181,HANAGAL,MALAGI MAHAMADHUSEN MAKTUMHUSEN,parties.IN.JP,JNP,9866,17.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-181,karnataka,1978,181,HANAGAL,PATIL SURESHAGOUDA BASANAGOUDA,parties.IN.INC,INC,8609,15.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-181,karnataka,1978,181,HANAGAL,BALUR BHARAMAPPA NINGAPPA,parties.IN.IND,IND,866,1.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-181,karnataka,1978,181,HANAGAL,PATIL VEERANAGOUDA SHIVANAGOUDA,parties.IN.IND,IND,772,1.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-182,karnataka,1978,182,HIREKERUR,GUBBI SHANKARARAO BASALINGAPPAGOUDA,parties.IN.IND,IND,32103,52.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-182,karnataka,1978,182,HIREKERUR,BANAKAR BASAVANAPPA GADLAPPA,parties.IN.INC_I,INC(I),23695,38.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-182,karnataka,1978,182,HIREKERUR,SHANTANAGOUDRA MALLIKARJUNAGOUDA,parties.IN.JP,JNP,3069,5.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-182,karnataka,1978,182,HIREKERUR,BANNIKOD BASAPPA HANUMANATAPPA,parties.IN.INC,INC,1708,2.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-182,karnataka,1978,182,HIREKERUR,KUPPELUR ABDULRAJAK DIVANSAB,parties.IN.IND,IND,190,0.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-183,karnataka,1978,183,RANIBENNUR,NALAWAGAL SOMALINGAPPA HANUMANTAPPA,parties.IN.INC_I,INC(I),25675,43.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-183,karnataka,1978,183,RANIBENNUR,PATIL BASANAGOUDA GURUNAGOUDA,parties.IN.JP,JNP,24892,42.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-183,karnataka,1978,183,RANIBENNUR,KOLIWAD KRISHTAPPA BHIMAPPA,parties.IN.INC,INC,8238,13.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-183,karnataka,1978,183,RANIBENNUR,Y. MAHARUDRAPPA VEERAPPA,parties.IN.IND,IND,203,0.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-184,karnataka,1978,184,BYADGI,MALAGI MARIYAPPA MUDAKAPPA,parties.IN.INC_I,INC(I),27640,58.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-184,karnataka,1978,184,BYADGI,ANNIGERI KARIYAPPA LAXMANAPPA,parties.IN.JP,JNP,16289,34.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-184,karnataka,1978,184,BYADGI,HOSANGADI KESHAV NINGAPPA,parties.IN.INC,INC,2144,4.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-184,karnataka,1978,184,BYADGI,WADDER ALIAS WADIVAR VENKAPPA KALLAPPA,parties.IN.IND,IND,1037,2.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-184,karnataka,1978,184,BYADGI,H. S. KANKANAWADI,parties.IN.IND,IND,304,0.64,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-185,karnataka,1978,185,HAVERI,TAWARE FAKIRAPPA SHIDDAPPA,parties.IN.INC_I,INC(I),34067,58.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-185,karnataka,1978,185,HAVERI,WADEYAR SHIVAPUTRA LINGAYYA,parties.IN.JP,JNP,17105,29.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-185,karnataka,1978,185,HAVERI,BASEGANNI SHIVKUMAR BASAPPA,parties.IN.INC,INC,6583,11.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-186,karnataka,1978,186,SHIRHATTI,UPANAL GULAPPA FAKIRAPPA,parties.IN.INC_I,INC(I),28606,55.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-186,karnataka,1978,186,SHIRHATTI,NOORASHETTAR IRAPPA CHANDABASAPPA,parties.IN.JP,JNP,14466,27.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-186,karnataka,1978,186,SHIRHATTI,KAPPATTANAVAR VIRAPAKSHAPPA BASAPPA,parties.IN.INC,INC,8190,15.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-186,karnataka,1978,186,SHIRHATTI,PATIL VEERANAGOUDA RUDRAGOUDA,parties.IN.IND,IND,611,1.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-186,karnataka,1978,186,SHIRHATTI,YALAMALI ISHWARAPPA SHIVAPPA,parties.IN.IND,IND,111,0.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-187,karnataka,1978,187,MUNDARGI,BHAVI VASANTAPPA BASAPPA,parties.IN.INC_I,INC(I),19069,39.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-187,karnataka,1978,187,MUNDARGI,DANDIN BISHTAPPA FAKIRAPPA,parties.IN.JP,JNP,18363,37.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-187,karnataka,1978,187,MUNDARGI,KURUDIGI KUBERAPPA HANAMANTAPPA,parties.IN.INC,INC,9598,19.73,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-187,karnataka,1978,187,MUNDARGI,BARAKER HONNAPPA DURGARAPPA,parties.IN.IND,IND,1622,3.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-188,karnataka,1978,188,GADAG,MUTTINPENDIMATH CHANAVEERAYYA SHANTAYYA,parties.IN.JP,JNP,28094,44.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-188,karnataka,1978,188,GADAG,PATIL KRISHTAGOUDA HANAMANTAGOUDE,parties.IN.INC,INC,25649,40.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-188,karnataka,1978,188,GADAG,JAMADAR MOHAMMAD BUDAN HUSAINASAB,parties.IN.INC_I,INC(I),9205,14.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-188,karnataka,1978,188,GADAG,KATTIMANI DASTAGIRSAB GANGAWA,parties.IN.IND,IND,319,0.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-189,karnataka,1978,189,RON,MUTHIKATTI VEERABHADRAPPA ADIVEPPA,parties.IN.INC_I,INC(I),26546,51.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-189,karnataka,1978,189,RON,PUJAR NEELAGANGAYYA BASAYYA,parties.IN.JP,JNP,20709,40.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-189,karnataka,1978,189,RON,BALUTAGI DURGAPPA KANUMAPPA,parties.IN.IND,IND,2671,5.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-189,karnataka,1978,189,RON,DARAGAD HUSENASAB IMAMSAB,parties.IN.INC,INC,1791,3.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-190,karnataka,1978,190,NARAGUND,B. R. PATIL,parties.IN.INC_I,INC(I),16496,36.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-190,karnataka,1978,190,NARAGUND,PATIL PARWATAGOUDA LINGANAGOUDA,parties.IN.JP,JNP,15450,34.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-190,karnataka,1978,190,NARAGUND,PATIL LINGANAGOUDA SIDDANAGOUDA,parties.IN.INC,INC,8887,19.89,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-190,karnataka,1978,190,NARAGUND,BUDIAL SIDDAPPA TIRAKAPPA,parties.IN.IND,IND,3479,7.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-190,karnataka,1978,190,NARAGUND,ASUTI BASAPPA MARITAMMAPPA,parties.IN.IND,IND,358,0.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-191,karnataka,1978,191,NAVALGUND,PATIL SHANKARAGOUDA VIRUPAKSHAGOUDA,parties.IN.INC_I,INC(I),22825,43.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-191,karnataka,1978,191,NAVALGUND,KULKARNI MALLAPPA KARAVIRAPPA,parties.IN.JP,JNP,20205,38.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-191,karnataka,1978,191,NAVALGUND,YAVAGAL BASAVARADDI RANGARADDI,parties.IN.INC,INC,9014,17.32,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-192,karnataka,1978,192,RAMDURG,PATIL RAMANAGOUDA SHIVASHIDDANAGOUDA,parties.IN.INC_I,INC(I),33010,56.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-192,karnataka,1978,192,RAMDURG,HIRERADDI BASAVANTAPPA BASAPPA,parties.IN.JP,JNP,20355,34.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-192,karnataka,1978,192,RAMDURG,SOMAGONDA HANAMAPPA VEERAPPA,parties.IN.INC,INC,3825,6.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-192,karnataka,1978,192,RAMDURG,SAKRI MALLIKARJUN BASAPPA,parties.IN.IND,IND,1386,2.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-192,karnataka,1978,192,RAMDURG,KOMALESHWAR SREEPADARAO RANGANATHARAO,parties.IN.IND,IND,309,0.52,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-193,karnataka,1978,193,PARASGAD,TAKKED GUDANSHAH KHANASHAH,parties.IN.INC_I,INC(I),23475,40.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-193,karnataka,1978,193,PARASGAD,KOUJALGI SHIVANAND HEMAPPA,parties.IN.JP,JNP,21698,37.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-193,karnataka,1978,193,PARASGAD,CHIKARADDI HANAMAPPA LAXMAPPA,parties.IN.IND,IND,9487,16.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-193,karnataka,1978,193,PARASGAD,GALABI DUNDAPPA GADIGEPPA,parties.IN.INC,INC,2733,4.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-193,karnataka,1978,193,PARASGAD,KAPPANAVAR SHANKARGOUDA HONAGOUD,parties.IN.IND,IND,612,1.05,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-193,karnataka,1978,193,PARASGAD,GOVINDARADDI RAMAREDDI METI,parties.IN.IND,IND,540,0.92,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-194,karnataka,1978,194,BAILHONGAL,BALEKUNDARGI RAMLINGAPPA CHANABASAPPA,parties.IN.INC,INC,22110,40.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-194,karnataka,1978,194,BAILHONGAL,DODDAGOUDAR BASAVANTRAY BASALINGAPPA,parties.IN.INC_I,INC(I),20764,38.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-194,karnataka,1978,194,BAILHONGAL,BASAVENNEPPA DUNDAPPA METGUD,parties.IN.JP,JNP,10219,18.72,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-194,karnataka,1978,194,BAILHONGAL,PATIL KALLANAGOUDA HANAMANTGOUDA,parties.IN.IND,IND,850,1.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-194,karnataka,1978,194,BAILHONGAL,YETTINAMANI BASAPPA KALINGAPPA,parties.IN.IND,IND,634,1.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-195,karnataka,1978,195,KITTUR,ARAWALLI PATIL PARVATGOUDA BASANGOUDA,parties.IN.JP,JNP,28575,51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-195,karnataka,1978,195,KITTUR,TONNI SHIVAPUTRAPPA GURUPADAPPA,parties.IN.INC_I,INC(I),27449,49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-196,karnataka,1978,196,KHANAPUR,SIRDESAI NILKANTHRAO BHAGAWANTRAO,parties.IN.IND,IND,16610,29.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-196,karnataka,1978,196,KHANAPUR,BABSHET KRISHNA JI RAMCHANDRA,parties.IN.JP,JNP,13595,24.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-196,karnataka,1978,196,KHANAPUR,AMBADAGATTI MAMSNU FAKIRAPPA,parties.IN.INC_I,INC(I),12439,22.37,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-196,karnataka,1978,196,KHANAPUR,PATIL DATTATRAY KALLAPPA,parties.IN.IND,IND,12436,22.36,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-196,karnataka,1978,196,KHANAPUR,PATIL GOPAL LAXMAN,parties.IN.IND,IND,533,0.96,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-197,karnataka,1978,197,BELGAUM,SAYANAK BALWANT BHIMRAO,parties.IN.IND,IND,39736,56.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-197,karnataka,1978,197,BELGAUM,NAGHNOOR M. N.,parties.IN.IND,IND,27720,39.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-197,karnataka,1978,197,BELGAUM,MOKASHI ABDULSATTAR MOHAMAD GHOUSE,parties.IN.IND,IND,942,1.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-197,karnataka,1978,197,BELGAUM,K. VIDYASAGAR,parties.IN.IND,IND,865,1.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-197,karnataka,1978,197,BELGAUM,BENACHANNAVAR SADASIVA DEVAPPA,parties.IN.IND,IND,330,0.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-197,karnataka,1978,197,BELGAUM,REDKAR VASUDEO GUNDUPANT,parties.IN.IND,IND,160,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-198,karnataka,1978,198,UCHAGAON,PAWASHE PRABHAKAR ANAPA,parties.IN.IND,IND,24377,40.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-198,karnataka,1978,198,UCHAGAON,NANDIHALLI PARASHURAM BHARAMAJI,parties.IN.IND,IND,17207,28.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-198,karnataka,1978,198,UCHAGAON,MUTGEKAR APPARAO SHARTWAJI,parties.IN.JP,JNP,8031,13.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-198,karnataka,1978,198,UCHAGAON,LOKUR JEEVAN BUDDARAYA,parties.IN.INC_I,INC(I),6359,10.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-198,karnataka,1978,198,UCHAGAON,NEELKANTH CHANABASAPPA SUTAKATTI,parties.IN.IND,IND,3999,6.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-198,karnataka,1978,198,UCHAGAON,KOLHAPURI MOHAN YESHWANT,parties.IN.INC,INC,430,0.71,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-198,karnataka,1978,198,UCHAGAON,KHAN RAJEAHMAD RAJMANNU,parties.IN.IND,IND,189,0.31,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-198,karnataka,1978,198,UCHAGAON,FERNANDES JACKY ANDRUS,parties.IN.IND,IND,159,0.26,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-199,karnataka,1978,199,BAGEWADI,ASHTEKAR GOVIND LAXMAN,parties.IN.IND,IND,18507,35.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-199,karnataka,1978,199,BAGEWADI,MALAGALI GANGADHAR SANGAPPA,parties.IN.INC_I,INC(I),14915,28.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-199,karnataka,1978,199,BAGEWADI,BALEKUNDRI BASALINGU SHIVSHANKAR,parties.IN.JP,JNP,11449,21.82,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-199,karnataka,1978,199,BAGEWADI,PATIL BALASAHEB BHARAMANNA,parties.IN.INC,INC,6162,11.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-199,karnataka,1978,199,BAGEWADI,MALAGALI SHIDALINGAPPA APPANNA,parties.IN.IND,IND,997,1.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-199,karnataka,1978,199,BAGEWADI,MADANALLI GURAPPA BALAPPA,parties.IN.IND,IND,438,0.83,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-200,karnataka,1978,200,GOKAK,NAIL LAXMAN SIDDAPPA,parties.IN.INC_I,INC(I),31447,61.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-200,karnataka,1978,200,GOKAK,KATTIMANI CHANDAPPA JAMPANNA,parties.IN.JP,JNP,13980,27.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-200,karnataka,1978,200,GOKAK,GUDDAKAYU CHANDRASEKHAR TAMANNA,parties.IN.INC,INC,5625,11.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-201,karnataka,1978,201,ARABHAVI,KOUJALGI VEERANNA SHIVALINGAPPA,parties.IN.INC_I,INC(I),31462,55.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-201,karnataka,1978,201,ARABHAVI,PATIL VASANTRAO LAKHAGOUDA,parties.IN.INC,INC,13964,24.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-201,karnataka,1978,201,ARABHAVI,PUJERI NINGAYYA SANGAYYA,parties.IN.JP,JNP,10213,17.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-201,karnataka,1978,201,ARABHAVI,HOSAMATH PANCHAXARI SHIVABASAYYA,parties.IN.IND,IND,766,1.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-201,karnataka,1978,201,ARABHAVI,SUNADHOLI PRALHAD MADWACHARYA,parties.IN.IND,IND,372,0.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-202,karnataka,1978,202,HUKKERI,MAHAJANSHETTI SHIVOYOGI SHIVALIGAPPA,parties.IN.INC_I,INC(I),25471,52.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-202,karnataka,1978,202,HUKKERI,NULI VIRUPAXAPPA BASAPPA,parties.IN.JP,JNP,19547,40.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-202,karnataka,1978,202,HUKKERI,SOLLAPURE APPANN NEMANNA,parties.IN.INC,INC,2559,5.31,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-202,karnataka,1978,202,HUKKERI,KOTABAGI KEMPANNA BALAPPA,parties.IN.IND,IND,643,1.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-203,karnataka,1978,203,SANKESHWAR,PATIL MALHARGOUDA SHANKARGOUDA,parties.IN.INC_I,INC(I),31839,56.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-203,karnataka,1978,203,SANKESHWAR,KHOT LAKHAMAPPA KALLAPPA,parties.IN.JP,JNP,22452,39.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-203,karnataka,1978,203,SANKESHWAR,MALDAR D.H.,parties.IN.INC,INC,1989,3.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-203,karnataka,1978,203,SANKESHWAR,HALDEVARAMATH SIDABASAYYA SHIVAPUTRA,parties.IN.IND,IND,291,0.51,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-204,karnataka,1978,204,NIPPANI,CHAVAN BALAVANT GOPAL,parties.IN.IND,IND,35548,64.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-204,karnataka,1978,204,NIPPANI,DHARIYA GOPINATH MAINKCHAND,parties.IN.IND,IND,11904,21.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-204,karnataka,1978,204,NIPPANI,SHINDE MALATIBAI RAJARAM,parties.IN.JP,JNP,6825,12.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-204,karnataka,1978,204,NIPPANI,UPADHYE CHANDRAKANT BALAPPA,parties.IN.IND,IND,1036,1.87,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-205,karnataka,1978,205,SADALGA,BEDAGE ANNA BALAJI,parties.IN.INC_I,INC(I),33598,57.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-205,karnataka,1978,205,SADALGA,PATIL RAOSAHEB PAYAGOUDA,parties.IN.JP,JNP,17099,29.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-205,karnataka,1978,205,SADALGA,MIRJE SHANTAPPA YESHWANTAPPA,parties.IN.INC,INC,7293,12.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-205,karnataka,1978,205,SADALGA,PATIL APPASAHEB CHANDAGOUDA,parties.IN.IND,IND,448,0.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-206,karnataka,1978,206,CHIKKODI,HEGRE PARASHURAM PADMANNA,parties.IN.INC_I,INC(I),22345,55.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-206,karnataka,1978,206,CHIKKODI,KAMBLE SHRIPATHI,parties.IN.JP,JNP,13104,32.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-206,karnataka,1978,206,CHIKKODI,MADHALE LAXMAN DEVARAYAPPA,parties.IN.RPK,RPK,4682,11.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-206,karnataka,1978,206,CHIKKODI,VARALE SHIDLEPPA BABU,parties.IN.IND,IND,369,0.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-207,karnataka,1978,207,RAIBAG,NADONI RAMA SHIDLING,parties.IN.JP,JNP,18562,37.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-207,karnataka,1978,207,RAIBAG,HOLER LAXMAN VITHAL,parties.IN.INC,INC,15830,31.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-207,karnataka,1978,207,RAIBAG,RAMACHANDRA ADRASHAPPA DODDAMANI,parties.IN.INC_I,INC(I),14875,30.05,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-207,karnataka,1978,207,RAIBAG,GURUPAD SANTAPPA TALAWAR,parties.IN.IND,IND,238,0.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-208,karnataka,1978,208,KAGWAD,JAKANUR ANNARAO BALAPPA,parties.IN.INC_I,INC(I),27892,51.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-208,karnataka,1978,208,KAGWAD,PADANAD PARAPPA LAXMAN,parties.IN.JP,JNP,21593,39.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-208,karnataka,1978,208,KAGWAD,PATIL PRATAPRAO ALAGOUDA,parties.IN.INC,INC,5123,9.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-209,karnataka,1978,209,ATHANI,PAWAR DESAI SHIDHARAJ ALIAS DHAIRYASHEELARAO,parties.IN.INC_I,INC(I),27214,50.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-209,karnataka,1978,209,ATHANI,LEELADEVI PRASAD,parties.IN.JP,JNP,22394,41.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-209,karnataka,1978,209,ATHANI,PATIL ANAGOUDA BABAGOUDA,parties.IN.INC,INC,4202,7.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-210,karnataka,1978,210,JAMKHANDI,PATTAR VENKAPPA VEERAPPA,parties.IN.INC_I,INC(I),32461,48.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-210,karnataka,1978,210,JAMKHANDI,BAGALKOT GURUPAD SHIVAPPA,parties.IN.JP,JNP,28460,42.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-210,karnataka,1978,210,JAMKHANDI,HUGAR KALLAPPA MURTEPPA,parties.IN.INC,INC,2914,4.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-210,karnataka,1978,210,JAMKHANDI,AWATI SHAMSHODDIN SYDUSAHEB,parties.IN.IND,IND,2510,3.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-210,karnataka,1978,210,JAMKHANDI,GONDI MAHALINGAPPA,parties.IN.IND,IND,647,0.97,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-211,karnataka,1978,211,BILGI,PATIL SIDDANAGOUDA SOMANAGOUDA,parties.IN.INC_I,INC(I),28005,50.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-211,karnataka,1978,211,BILGI,PATIL VENKATANAIK APPASAHEB,parties.IN.JP,JNP,23485,42.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-211,karnataka,1978,211,BILGI,GANGAL KALABASAPPA MARITHAMAPPA,parties.IN.INC,INC,4057,7.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-212,karnataka,1978,212,MUDHOL,HADIMANI ALIAS KALE JAYAWANT KALASAPPA,parties.IN.INC_I,INC(I),25334,49.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-212,karnataka,1978,212,MUDHOL,KATTIMANI ASHOK KRISHNAJI,parties.IN.JP,JNP,20944,41.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-212,karnataka,1978,212,MUDHOL,DODAMANI SANGAMESHWAR BHIMARAO,parties.IN.INC,INC,4477,8.82,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-213,karnataka,1978,213,BAGALKOT,KALLIGUDDA PARAPPA KARABASAPPA,parties.IN.INC_I,INC(I),22851,44.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-213,karnataka,1978,213,BAGALKOT,KAMBLE GANAPATARAO,parties.IN.JP,JNP,18126,34.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-213,karnataka,1978,213,BAGALKOT,TAPASHETTI CHANDRASEKHAR VIRUPAZAPPA,parties.IN.IND,IND,7564,14.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-213,karnataka,1978,213,BAGALKOT,MURNAL BASAPPA TAMMANNA,parties.IN.INC,INC,2085,4.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-213,karnataka,1978,213,BAGALKOT,CHAVAN LAXMAN HEMALAPPA,parties.IN.IND,IND,649,1.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-213,karnataka,1978,213,BAGALKOT,DESAI ASHOK RAGHAVENDRARAO,parties.IN.IND,IND,645,1.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-214,karnataka,1978,214,BADAMI,CHIMMANAKATTI BALAPPA BHIMAPPA,parties.IN.INC_I,INC(I),24249,44.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-214,karnataka,1978,214,BADAMI,PATTANASHETTI KALLAPPA MAHAGUNDAPPA,parties.IN.JP,JNP,19772,36.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-214,karnataka,1978,214,BADAMI,LAGALI HOOVAPPA YALLAPPA,parties.IN.INC,INC,10226,18.85,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-215,karnataka,1978,215,GULEDGUD,JANALI BASANAGONDA VEERANAGOUDA,parties.IN.INC_I,INC(I),27245,53.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-215,karnataka,1978,215,GULEDGUD,HATAGAR BAJEEVARAO YAMANAPPA,parties.IN.JP,JNP,20050,39.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-215,karnataka,1978,215,GULEDGUD,PATIL HANAMANTAGONDA BHIMANAGOUDA,parties.IN.INC,INC,4021,7.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-216,karnataka,1978,216,HUNGUND,KAVASHETTI SHANKARAPPA SUGURAPPA,parties.IN.IND,IND,19276,39.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-216,karnataka,1978,216,HUNGUND,PATIL SHIVAYYA MAHABALAYYA,parties.IN.INC_I,INC(I),19174,39.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-216,karnataka,1978,216,HUNGUND,MELLIGERI SHIVAPUTRAPPA SHIVABASAPPA,parties.IN.JP,JNP,8522,17.58,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-216,karnataka,1978,216,HUNGUND,KATHANI BASAPPA GAVIYAPPA,parties.IN.INC,INC,1491,3.08,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-217,karnataka,1978,217,MUDDEBIHAL,DESHUKH JAGADEV RAO SANGANABASAPPA,parties.IN.JP,JNP,28857,59.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-217,karnataka,1978,217,MUDDEBIHAL,SAJJAN MALLAPPA MURIGEPPA,parties.IN.INC_I,INC(I),11486,23.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-217,karnataka,1978,217,MUDDEBIHAL,KAZI SYED SIRAJUDDIN ABDUL RAUF,parties.IN.IND,IND,3530,7.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-217,karnataka,1978,217,MUDDEBIHAL,MAKANDAR BAWASA NABISA,parties.IN.INC,INC,2118,4.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-217,karnataka,1978,217,MUDDEBIHAL,MASALIN SREESAILAPPA CHANNAPPA,parties.IN.IND,IND,1548,3.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-217,karnataka,1978,217,MUDDEBIHAL,CHINIWAR SANGAMESH ANDANEPPA,parties.IN.IND,IND,676,1.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-218,karnataka,1978,218,HUVIN-HIPPARGI,PATIL BASANGOUDA SOMANAGOUDA,parties.IN.JP,JNP,26814,52.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-218,karnataka,1978,218,HUVIN-HIPPARGI,PATIL KUMARAGOUDA ADIVEPPAGOUDA,parties.IN.INC_I,INC(I),22531,44.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-218,karnataka,1978,218,HUVIN-HIPPARGI,PATIL SHANKARAGOUDA DANDAPPAGOUDA,parties.IN.INC,INC,1472,2.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-219,karnataka,1978,219,BASAVANA-BAGEWADI,PATIL BASANAGOUDA SOMANAGOUDA,parties.IN.JP,JNP,27806,55.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-219,karnataka,1978,219,BASAVANA-BAGEWADI,PATIL BASAVANTRAYA NINGANAGOUDA SULIBHAVI,parties.IN.INC_I,INC(I),16048,31.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-219,karnataka,1978,219,BASAVANA-BAGEWADI,SULIBHAVI RAMESH NINGAPPA,parties.IN.INC,INC,2666,5.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-219,karnataka,1978,219,BASAVANA-BAGEWADI,PATTANASHETTI MANAMALLAPPA IRAPPA,parties.IN.IND,IND,1829,3.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-219,karnataka,1978,219,BASAVANA-BAGEWADI,BELLUBBI RAGHAVENDRARAO BHIMACHARYA,parties.IN.IND,IND,1064,2.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-219,karnataka,1978,219,BASAVANA-BAGEWADI,BIDARI GOPAL RAMAPPA,parties.IN.IND,IND,862,1.71,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-220,karnataka,1978,220,TIKOTA,PATIL BADUGOUDA BAPUGOUDA,parties.IN.JP,JNP,21317,52.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-220,karnataka,1978,220,TIKOTA,JIDDI SHIVARAYA ADIVEPPA,parties.IN.INC_I,INC(I),16899,41.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-220,karnataka,1978,220,TIKOTA,TUNGAL BADUREDDY VENKAREDDY,parties.IN.IND,IND,1461,3.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-220,karnataka,1978,220,TIKOTA,MIKIHAL LAXMIKANT SIDRAMAPPA,parties.IN.RPK,RPK,703,1.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-220,karnataka,1978,220,TIKOTA,LNININGGOND SIDDAPPA,parties.IN.INC,INC,560,1.37,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-221,karnataka,1978,221,BIJAPUR,BAKSHI SAYYAD HABIBUDDIN SHAMANASAHEB,parties.IN.JP,JNP,26191,49.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-221,karnataka,1978,221,BIJAPUR,TATHOD KHUBASING TEJU,parties.IN.INC_I,INC(I),16663,31.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-221,karnataka,1978,221,BIJAPUR,JAGITDAR SAYYAD AMINPEER SAYYAD MAINODDIN,parties.IN.IND,IND,8404,15.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-221,karnataka,1978,221,BIJAPUR,PATIL PAYAPPA SHIVAPPA,parties.IN.INC,INC,1053,1.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-221,karnataka,1978,221,BIJAPUR,BIDARI CHANNABASAPPA SAYABANNA,parties.IN.IND,IND,446,0.84,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-221,karnataka,1978,221,BIJAPUR,VIJAYKUMAR PREMASING RATHOD,parties.IN.IND,IND,208,0.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-221,karnataka,1978,221,BIJAPUR,AKKI SANGANABASAPPA DUNDAPPA,parties.IN.IND,IND,59,0.11,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-222,karnataka,1978,222,BALLOLLI,ARAKERI SIDDHARTH SANGAPPA,parties.IN.JP,JNP,23023,57.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-222,karnataka,1978,222,BALLOLLI,HOSAMANI CHANDRASHEKHAR KASAPPA,parties.IN.INC_I,INC(I),14204,35.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-222,karnataka,1978,222,BALLOLLI,GADIWADDAR HANAMANT MUKUND,parties.IN.INC,INC,2667,6.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-223,karnataka,1978,223,INDI,KALLUR RAVEASHIDDAPPA RAMAGONDAPPA,parties.IN.JP,JNP,26022,55.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-223,karnataka,1978,223,INDI,MISALE SIDDABA ARJUN,parties.IN.INC_I,INC(I),15856,33.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-223,karnataka,1978,223,INDI,TURKI FAKIRAHMED MAHEMADSAHEB,parties.IN.IND,IND,2669,5.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-223,karnataka,1978,223,INDI,DESAI DHEERENDRA BEHHMARAO,parties.IN.INC,INC,1040,2.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-223,karnataka,1978,223,INDI,PATIL MALKANGOUDA ISHWARAPPAGOUDA,parties.IN.IND,IND,669,1.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-223,karnataka,1978,223,INDI,KORALLI GANGADHAR SIDRAMAPPA,parties.IN.IND,IND,338,0.72,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-223,karnataka,1978,223,INDI,ANKALAGI KRISHANPPA FAKIRAPPA,parties.IN.IND,IND,243,0.52,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-223,karnataka,1978,223,INDI,NAGANASUR PRAKASH BASAPPA,parties.IN.IND,IND,187,0.4,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-224,karnataka,1978,224,SINDGI,BEKINALKAR MAIBUBSAHEB HASANSANHEB,parties.IN.INC_I,INC(I),19592,43.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-224,karnataka,1978,224,SINDGI,PATILL SHANKARGOUDA YESHVANTGAOUDA,parties.IN.JP,JNP,18268,40.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-224,karnataka,1978,224,SINDGI,PATILL SHANKARGOUDA CHANNAPPAGOUDA,parties.IN.INC,INC,5405,11.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-224,karnataka,1978,224,SINDGI,PATIL SHARANGLUDA RACHANAGOUDA,parties.IN.IND,IND,723,1.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-224,karnataka,1978,224,SINDGI,DEVERNAVADGI KALAPPA MALKAPPA,parties.IN.IND,IND,481,1.06,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-224,karnataka,1978,224,SINDGI,PATIL RAMILNGAPPA ANNARAO,parties.IN.IND,IND,471,1.04,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-224,karnataka,1978,224,SINDGI,BIRADAR BASANGOUDA NINGANGOUDA,parties.IN.IND,IND,381,0.84,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-224,karnataka,1978,224,SINDGI,JADHAV TULAJARAM YESUBHA,parties.IN.IND,IND,161,0.35,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a

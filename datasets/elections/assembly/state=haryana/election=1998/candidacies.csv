@@ -1,0 +1,37 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-haryana-78,haryana,1998,78,FATEHABAD,Sampat Singh,parties.IN.UNK,HLD(R),39712,41.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-78,haryana,1998,78,FATEHABAD,Jarnail Kaur,parties.IN.UNK,HVP,32550,33.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-78,haryana,1998,78,FATEHABAD,Ram Raj Mehta,parties.IN.INC,INC,15883,16.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-78,haryana,1998,78,FATEHABAD,Comrade Krishan Swarup,parties.IN.CPIM,CPM,6734,6.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-78,haryana,1998,78,FATEHABAD,Gurmukh Singh,parties.IN.IND,IND,512,0.53,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-78,haryana,1998,78,FATEHABAD,Subhash,parties.IN.IND,IND,415,0.43,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-78,haryana,1998,78,FATEHABAD,Leela Krishan Choudhary,parties.IN.IND,IND,220,0.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-78,haryana,1998,78,FATEHABAD,Ran Singh,parties.IN.IND,IND,175,0.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-78,haryana,1998,78,FATEHABAD,Baldev Singh Badal,parties.IN.IND,IND,161,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-78,haryana,1998,78,FATEHABAD,Ram Murti,parties.IN.IND,IND,121,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-78,haryana,1998,78,FATEHABAD,Chhotu Ram,parties.IN.IND,IND,83,0.09,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-78,haryana,1998,78,FATEHABAD,Bani Singh,parties.IN.IND,IND,44,0.05,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-78,haryana,1998,78,FATEHABAD,Fateh Chand,parties.IN.IND,IND,36,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Kuldeep Singh Bishnoi,parties.IN.INC,INC,49077,53.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Hari Singh,parties.IN.UNK,HVP,31302,34.13,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Rajesh,parties.IN.UNK,HLD(R),5975,6.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Pardeep Kumar,parties.IN.BSP,BSP,2121,2.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Banwarilal Verma,parties.IN.IND,IND,973,1.06,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Rajender Singh,parties.IN.IND,IND,568,0.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Amardeep,parties.IN.IND,IND,469,0.51,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Anoop Bishnoi,parties.IN.IND,IND,276,0.3,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Kuldeep S/o Sheopat Ram,parties.IN.IND,IND,177,0.19,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Jai Bhagwan,parties.IN.IND,IND,166,0.18,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Sunil Kumar,parties.IN.IND,IND,118,0.13,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Kuldeep,parties.IN.IND,IND,83,0.09,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Kuldeep Singh S/o Satpal Singh,parties.IN.IND,IND,74,0.08,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Dawarka Parshad,parties.IN.IND,IND,72,0.08,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Dharampal,parties.IN.IND,IND,50,0.05,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Sukhbir,parties.IN.IND,IND,41,0.04,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Rajesh Kumar,parties.IN.IND,IND,35,0.04,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Mahender,parties.IN.IND,IND,30,0.03,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Ajmer,parties.IN.IND,IND,29,0.03,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Hari Singh S/o Roop Ram,parties.IN.IND,IND,25,0.03,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Hari Singh S/o Goshaina,parties.IN.IND,IND,22,0.02,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Ramsingh,parties.IN.IND,IND,18,0.02,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1998,79,ADAMPUR,Anil Kumar,parties.IN.IND,IND,7,0.01,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a

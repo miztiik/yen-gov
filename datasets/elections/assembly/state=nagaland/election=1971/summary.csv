@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1967-nagaland-16,nagaland,1971,CHAZOUBA,4407,4494,101.97,N.THEYO,parties.IN.UNK,NNO,1604,35.69,YEFUTSO,parties.IN.IND,IND,1269,335,7.45,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-23,nagaland,1971,MONGOYA,2947,3968,134.65,C.JAMIR,parties.IN.UNK,NNO,1630,41.08,LIKOKWATI,parties.IN.IND,IND,1176,454,11.44,src-1b7bc1c9d39a
+IN-AC-1967-nagaland-5,nagaland,1971,PEREN,3850,3487,90.57,KIELU,parties.IN.UNK,NNO,1454,41.7,L.MERU,parties.IN.UNK,UFN,1231,223,6.4,src-1b7bc1c9d39a

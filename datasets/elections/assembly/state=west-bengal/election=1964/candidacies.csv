@@ -1,0 +1,13 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1962-west-bengal-33,west-bengal,1964,33,MALDA,K.K.RAY,parties.IN.INC,INC,21848,70.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-33,west-bengal,1964,33,MALDA,SANTI RANJAN DAS,parties.IN.CPI,CPI,8947,29.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-41,west-bengal,1964,41,FARAKKA,A.H.SYED,parties.IN.INC,INC,10185,47.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-41,west-bengal,1964,41,FARAKKA,T.A.NURANNABI,parties.IN.IND,IND,7505,34.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-41,west-bengal,1964,41,FARAKKA,S.GUPTA,parties.IN.IND,IND,3222,15,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-41,west-bengal,1964,41,FARAKKA,A.R.BISWAS,parties.IN.IND,IND,571,2.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-64,west-bengal,1964,64,HANSKHALI,R.K.MALLICK,parties.IN.INC,INC,18206,51.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-64,west-bengal,1964,64,HANSKHALI,J.N.MANDAL,parties.IN.IND,IND,10059,28.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-64,west-bengal,1964,64,HANSKHALI,N.SARKAR,parties.IN.CPI,CPI,6502,18.22,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-64,west-bengal,1964,64,HANSKHALI,B.M.SARKAR,parties.IN.IND,IND,920,2.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-91,west-bengal,1964,91,CANNING,A.C.HALDER,parties.IN.IND,IND,24554,69.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-91,west-bengal,1964,91,CANNING,PULIN MANDAL,parties.IN.INC,INC,10893,30.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a

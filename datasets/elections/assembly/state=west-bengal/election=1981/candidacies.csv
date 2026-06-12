@@ -1,0 +1,43 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-west-bengal-23,west-bengal,1981,23,DARJEELING,T.D.LAMA,parties.IN.CPIM,CPM,25078,58.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-23,west-bengal,1981,23,DARJEELING,D.S.SUBBA,parties.IN.INC_I,INC(I),17729,41.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-37,west-bengal,1981,37,KUMARGANJ,R.D.NATH,parties.IN.CPIM,CPM,46046,56.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-37,west-bengal,1981,37,KUMARGANJ,K.SAYED,parties.IN.INC_I,INC(I),34751,42.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-37,west-bengal,1981,37,KUMARGANJ,J.PANDEY,parties.IN.IND,IND,1114,1.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-41,west-bengal,1981,41,KHARBA,M.HAQUE,parties.IN.INC_I,INC(I),38792,50.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-41,west-bengal,1981,41,KHARBA,N.HAQUE,parties.IN.CPIM,CPM,35370,45.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-41,west-bengal,1981,41,KHARBA,A.K.GOSWAMI,parties.IN.BJP,BJP,3162,4.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-48,west-bengal,1981,48,SUZAPUR,H.CHOUDHARY,parties.IN.INC_I,INC(I),42023,60.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-48,west-bengal,1981,48,SUZAPUR,M.BEGUM(W),parties.IN.CPIM,CPM,22517,32.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-48,west-bengal,1981,48,SUZAPUR,EZURDIN,parties.IN.IUML,MUL,3526,5.11,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-48,west-bengal,1981,48,SUZAPUR,M.RAHAMAN,parties.IN.IND,IND,920,1.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-108,west-bengal,1981,108,JADAVPUR,K.BHATTACHARYA,parties.IN.CPIM,CPM,46344,68.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-108,west-bengal,1981,108,JADAVPUR,S.MUKHERJEE,parties.IN.INC_I,INC(I),19071,28.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-108,west-bengal,1981,108,JADAVPUR,A.SEN,parties.IN.SUCI,SUC,1553,2.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-108,west-bengal,1981,108,JADAVPUR,D.DAS,parties.IN.BJP,BJP,1011,1.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-138,west-bengal,1981,138,DUM DUM,S.R.GHATAK,parties.IN.CPIM,CPM,50779,66.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-138,west-bengal,1981,138,DUM DUM,L.B.SINGH,parties.IN.INC_I,INC(I),24283,31.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-138,west-bengal,1981,138,DUM DUM,K.ROY,parties.IN.JP,JNP,907,1.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-138,west-bengal,1981,138,DUM DUM,S.CHATTERJEE,parties.IN.IND,IND,518,0.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-159,west-bengal,1981,159,MANIKTOLA,S.CHAKRABORTY,parties.IN.CPIM,CPM,34194,62.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-159,west-bengal,1981,159,MANIKTOLA,B.CHAKRABORTY,parties.IN.INC_I,INC(I),18839,34.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-159,west-bengal,1981,159,MANIKTOLA,F.GHOSH,parties.IN.SUCI,SUC,1726,3.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-159,west-bengal,1981,159,MANIKTOLA,P.MANDAL,parties.IN.IND,IND,150,0.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,K.C.GHOSH,parties.IN.CPI,CPI,40000,54.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,S.S.BARI,parties.IN.INC_I,INC(I),25276,34.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,P.CHANDRA,parties.IN.JKD,JKD,1643,2.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,B.JANA,parties.IN.SUCI,SUC,880,1.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,R.KAR,parties.IN.JP,JNP,866,1.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,N.K.SINGH,parties.IN.IND,IND,725,0.99,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,K.GIR,parties.IN.IND,IND,716,0.98,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,P.SINGH,parties.IN.IND,IND,672,0.92,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,S.SINGH,parties.IN.IND,IND,504,0.69,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,S.SINGH,parties.IN.IND,IND,289,0.39,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,V.KUMAR,parties.IN.IND,IND,268,0.37,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,K.PANDEY,parties.IN.IND,IND,259,0.35,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,N.K.NIRALA,parties.IN.IND,IND,249,0.34,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,S.RAI,parties.IN.IND,IND,225,0.31,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,R.CHAUDHAY,parties.IN.IND,IND,224,0.31,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,S.SHARMA,parties.IN.IND,IND,207,0.28,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,R.DAS,parties.IN.IND,IND,113,0.15,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-223,west-bengal,1981,223,MINDNAPORE,"R,PD.SINGH",parties.IN.IND,IND,68,0.09,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a

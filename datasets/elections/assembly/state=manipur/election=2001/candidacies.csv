@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-manipur-4,manipur,2001,4,KSHETRIGAO,VIVEK RAJ WANGKHEM,parties.IN.SAP,SAP,12655,60.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-4,manipur,2001,4,KSHETRIGAO,IRENGBAM SANATOMBA SINGH,parties.IN.INC,INC,8101,39.03,2,lost,U,,,,crossover,src-1b7bc1c9d39a

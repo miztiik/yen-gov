@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-karnataka-188,karnataka,1992,GADAG,122258,61634,50.41,Unnamed Candidate,parties.IN.UNK,Unknown Party,43878,71.19,Unnamed Candidate,parties.IN.UNK,Unknown Party,17756,26122,42.38,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-197,karnataka,1992,BELGAUM,139206,74567,53.57,Unnamed Candidate,parties.IN.UNK,Unknown Party,46770,62.72,Unnamed Candidate,parties.IN.UNK,Unknown Party,27797,18973,25.44,src-1b7bc1c9d39a
+IN-AC-1976-karnataka-58,karnataka,1992,KUNIGAL,120937,74078,61.25,Unnamed Candidate,parties.IN.UNK,Unknown Party,41678,56.26,Unnamed Candidate,parties.IN.UNK,Unknown Party,32400,9278,12.52,src-1b7bc1c9d39a

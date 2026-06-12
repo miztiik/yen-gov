@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-punjab-48,punjab,1998,48,SHAMCHURASI,Mohinder Kaur,parties.IN.SAD,SAD,31758,50.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-48,punjab,1998,48,SHAMCHURASI,Santosh Chowdhry,parties.IN.INC,INC,22396,35.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-48,punjab,1998,48,SHAMCHURASI,Gurpal Chand,parties.IN.BSP,BSP,7592,12.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-48,punjab,1998,48,SHAMCHURASI,Bhupinder Pal Singh,parties.IN.IND,IND,1307,2.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

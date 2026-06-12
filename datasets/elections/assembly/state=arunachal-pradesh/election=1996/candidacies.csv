@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-arunachal-pradesh-29,arunachal-pradesh,1996,29,BASAR(ST),JOBOM BASAR,parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-54,arunachal-pradesh,1996,54,NAMSANG(ST),Changkom Hondik,parties.IN.INC,INC,2885,50.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-54,arunachal-pradesh,1996,54,NAMSANG(ST),Hatwang Lowang,parties.IN.IND,IND,2777,49.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a

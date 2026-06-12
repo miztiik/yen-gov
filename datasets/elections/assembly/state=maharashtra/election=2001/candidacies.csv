@@ -1,0 +1,10 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-maharashtra-166,maharashtra,2001,166,PUSAD,NAIK MANOHARRAO RAJUSING,parties.IN.NCP,NCP,77549,57.61,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-166,maharashtra,2001,166,PUSAD,MUKHARE RAJAN SHIVAJIRAO,parties.IN.SHS,SHS,27105,20.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-166,maharashtra,2001,166,PUSAD,CHONDHIKAR PATIL VIJAY DEORAO,parties.IN.IND,IND,13261,9.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-166,maharashtra,2001,166,PUSAD,SARKUNDE MADHAO PARSHURAM,parties.IN.BBM,BBM,12696,9.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-166,maharashtra,2001,166,PUSAD,RATHOD SHANKAR VASARAM,parties.IN.IND,IND,2537,1.88,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-166,maharashtra,2001,166,PUSAD,UTTAM BHAGAJI KAMBLE,parties.IN.IND,IND,1455,1.08,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-253,maharashtra,2001,253,DAUND,KUL RANJANA SUBHASHRAO,parties.IN.NCP,NCP,91840,72.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-253,maharashtra,2001,253,DAUND,KALE VASUDEO SHANKAR,parties.IN.BJP,BJP,29862,23.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-253,maharashtra,2001,253,DAUND,SHAIKH SALIM MOHAMMAD,parties.IN.SP,SP,4723,3.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a

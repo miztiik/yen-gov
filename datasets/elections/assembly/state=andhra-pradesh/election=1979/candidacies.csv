@@ -1,0 +1,13 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-andhra-pradesh-99,andhra-pradesh,1979,99,NINDUMOLU(SC),D.GUNTUR(W),parties.IN.CPIM,CPM,45250,88.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-99,andhra-pradesh,1979,99,NINDUMOLU(SC),D.M.RAO,parties.IN.IND,IND,2327,4.57,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-99,andhra-pradesh,1979,99,NINDUMOLU(SC),A.KODALI,parties.IN.IND,IND,1218,2.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-99,andhra-pradesh,1979,99,NINDUMOLU(SC),D.R.RAO,parties.IN.IND,IND,820,1.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-99,andhra-pradesh,1979,99,NINDUMOLU(SC),G.ASEERRVADAM,parties.IN.IND,IND,641,1.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-99,andhra-pradesh,1979,99,NINDUMOLU(SC),D.B.RAO,parties.IN.IND,IND,433,0.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-99,andhra-pradesh,1979,99,NINDUMOLU(SC),V.SIKHAMANI,parties.IN.IND,IND,279,0.55,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-277,andhra-pradesh,1979,277,SATHUPALLI,J.V.RAO,parties.IN.INC_I,INC(I),48602,61.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-277,andhra-pradesh,1979,277,SATHUPALLI,U.SATYAM,parties.IN.IND,IND,25544,32.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-277,andhra-pradesh,1979,277,SATHUPALLI,G.S.REDDY,parties.IN.IND,IND,2721,3.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-277,andhra-pradesh,1979,277,SATHUPALLI,T.K.KODANDARAM,parties.IN.IND,IND,959,1.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-277,andhra-pradesh,1979,277,SATHUPALLI,S.VENGALRAO,parties.IN.IND,IND,749,0.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

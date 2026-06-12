@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-andhra-pradesh-213,andhra-pradesh,1984,ASAFNAGAR,116293,73049,62.81,MOH.V.R.KHAN,parties.IN.IND,IND,34584,47.34,G.N.RAO,parties.IN.TDP,TDP,32885,1699,2.32,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-89,andhra-pradesh,1984,BANDAR,112629,83884,74.48,R.R. VADDI,parties.IN.TDP,TDP,44193,52.68,C.VEERASWAMY,parties.IN.INC,INC,31577,12616,15.04,src-1b7bc1c9d39a

@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1962-west-bengal-33,west-bengal,1964,MALDA,76783,30795,40.11,K.K.RAY,parties.IN.INC,INC,21848,70.95,SANTI RANJAN DAS,parties.IN.CPI,CPI,8947,12901,41.9,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-41,west-bengal,1964,FARAKKA,63344,21483,33.91,A.H.SYED,parties.IN.INC,INC,10185,47.41,T.A.NURANNABI,parties.IN.IND,IND,7505,2680,12.48,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-64,west-bengal,1964,HANSKHALI,97444,35687,36.62,R.K.MALLICK,parties.IN.INC,INC,18206,51.02,J.N.MANDAL,parties.IN.IND,IND,10059,8147,22.83,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-91,west-bengal,1964,CANNING,76158,35447,46.54,A.C.HALDER,parties.IN.IND,IND,24554,69.27,PULIN MANDAL,parties.IN.INC,INC,10893,13661,38.54,src-1b7bc1c9d39a

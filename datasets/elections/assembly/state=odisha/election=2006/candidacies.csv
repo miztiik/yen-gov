@@ -1,0 +1,11 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-odisha-136,odisha,2006,136,TALSARA(ST),PRAFULLA MAZHI,parties.IN.INC,INC,44391,44.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-136,odisha,2006,136,TALSARA(ST),SAHADEV XAXA,parties.IN.BJP,BJP,41817,42.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-136,odisha,2006,136,TALSARA(ST),RANJIT BHITRJA,parties.IN.IND,IND,4193,4.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-136,odisha,2006,136,TALSARA(ST),SANTHOSH KUMAR PRADHAN,parties.IN.IND,IND,2964,2.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-136,odisha,2006,136,TALSARA(ST),ESUDAS TIRKEY,parties.IN.JKP,JKP,1829,1.85,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-136,odisha,2006,136,TALSARA(ST),NRUSINGHA KISSAN,parties.IN.LJP,LJP,1075,1.09,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-136,odisha,2006,136,TALSARA(ST),PISNATH SINGH,parties.IN.IND,IND,820,0.83,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-136,odisha,2006,136,TALSARA(ST),AGAPIT SORENG,parties.IN.IND,IND,725,0.73,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-136,odisha,2006,136,TALSARA(ST),BIRBAL TORPO,parties.IN.RPI,RPI,652,0.66,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-136,odisha,2006,136,TALSARA(ST),NABIN BADEK,parties.IN.IND,IND,530,0.54,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a

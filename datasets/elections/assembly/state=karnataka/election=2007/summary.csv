@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-karnataka-143,karnataka,2007,ULLAL,160920,96726,60.11,Abdul Kadar U.T.,parties.IN.INC,INC,46271,47.84,Chandra Shekar Uchchil,parties.IN.BJP,BJP,38239,8032,8.31,src-1b7bc1c9d39a

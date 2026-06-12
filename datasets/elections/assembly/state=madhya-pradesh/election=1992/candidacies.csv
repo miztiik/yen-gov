@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-madhya-pradesh-178,madhya-pradesh,1992,178,LANJI,Dilip Bhattare,parties.IN.BJP,BJP,30943,61.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-178,madhya-pradesh,1992,178,LANJI,Yeshwant Rao Khogal,parties.IN.INC,INC,19360,38.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-234,madhya-pradesh,1992,234,BUDHNI,Mohan Lal Shishir,parties.IN.BJP,BJP,38015,50.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-234,madhya-pradesh,1992,234,BUDHNI,Raj Kumar Patel,parties.IN.INC,INC,37441,49.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a

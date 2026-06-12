@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-punjab-20,punjab,1994,20,AJNALA,Rattan Singh,parties.IN.IND,IND,46856,56.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-20,punjab,1994,20,AJNALA,Rajbir Singh,parties.IN.INC,INC,36542,43.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-35,punjab,1994,35,NAKODAR,A.S. Samra,parties.IN.INC,INC,37526,53.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-35,punjab,1994,35,NAKODAR,K.S. Wadala,parties.IN.IND,IND,32316,46.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a

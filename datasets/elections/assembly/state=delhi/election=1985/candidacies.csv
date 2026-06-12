@@ -1,0 +1,27 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-delhi-2,delhi,1985,2,LAXMIBAI NAGAR,Prem Dass(w),parties.IN.INC,INC,9643,51.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1985,2,LAXMIBAI NAGAR,K.N.SACHDEVA,parties.IN.BJP,BJP,8294,44.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1985,2,LAXMIBAI NAGAR,SATPAL,parties.IN.IND,IND,311,1.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1985,2,LAXMIBAI NAGAR,J.L.MEHTA,parties.IN.IND,IND,140,0.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1985,2,LAXMIBAI NAGAR,RAMESH,parties.IN.IND,IND,110,0.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1985,2,LAXMIBAI NAGAR,BHIM SINGH,parties.IN.IND,IND,42,0.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1985,2,LAXMIBAI NAGAR,P.N.TONDAN,parties.IN.IND,IND,32,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1985,2,LAXMIBAI NAGAR,P.K.SHARMA,parties.IN.IND,IND,29,0.16,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1985,2,LAXMIBAI NAGAR,RAJEEV KUMAR,parties.IN.IND,IND,23,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1985,2,LAXMIBAI NAGAR,MANGE RAM,parties.IN.IND,IND,20,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1985,2,LAXMIBAI NAGAR,MAHESH BHOI,parties.IN.IND,IND,10,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1985,2,LAXMIBAI NAGAR,HARISH BHARDWAJ,parties.IN.IND,IND,10,0.05,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1985,2,LAXMIBAI NAGAR,HARBHAJAN SINGH,parties.IN.IND,IND,9,0.05,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1985,24,NAZAFGARH,P.C.KAUSHIK,parties.IN.INC,INC,55305,78.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1985,24,NAZAFGARH,D.V.SOLANKI,parties.IN.BJP,BJP,7758,11.07,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1985,24,NAZAFGARH,AZAD SINGH,parties.IN.LKD,LKD,4595,6.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1985,24,NAZAFGARH,POORAN CHAND,parties.IN.CPIM,CPM,1223,1.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1985,24,NAZAFGARH,BIJAY KUMAR,parties.IN.IND,IND,630,0.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1985,24,NAZAFGARH,MUNSHI RAM,parties.IN.IND,IND,157,0.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1985,24,NAZAFGARH,KABUL SINGH,parties.IN.IND,IND,153,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1985,24,NAZAFGARH,RAJ SINGH,parties.IN.IND,IND,140,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1985,24,NAZAFGARH,ASHOK,parties.IN.IND,IND,59,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1985,24,NAZAFGARH,RADHEY SHYAM,parties.IN.IND,IND,58,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-56,delhi,1985,56,SHADIPUR,K.TIRATH(W),parties.IN.INC,INC,14948,65.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-56,delhi,1985,56,SHADIPUR,MANGAT RAM,parties.IN.BJP,BJP,7735,33.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-56,delhi,1985,56,SHADIPUR,PIYARE LAL,parties.IN.IND,IND,156,0.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a

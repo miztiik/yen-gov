@@ -1,0 +1,12 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-tripura-6,tripura,1981,6,AGARTALA,M.SARKAR,parties.IN.CPIM,CPM,9328,56.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-6,tripura,1981,6,AGARTALA,N.C.BHATTACHARJEE,parties.IN.INC_I,INC(I),6338,38.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-6,tripura,1981,6,AGARTALA,A.DEBNATH,parties.IN.IND,IND,615,3.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-6,tripura,1981,6,AGARTALA,D.PAUL,parties.IN.IND,IND,141,0.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-16,tripura,1981,16,BISHALGARH,B.L.SAHA,parties.IN.CPIM,CPM,7428,57.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-16,tripura,1981,16,BISHALGARH,T.ALI,parties.IN.INC_I,INC(I),5303,40.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-16,tripura,1981,16,BISHALGARH,S.C.BHOWMIK,parties.IN.IND,IND,267,2.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-44,tripura,1981,44,RAIMA VALLEY,R.K.D.BARMA,parties.IN.CPIM,CPM,6162,48.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-44,tripura,1981,44,RAIMA VALLEY,S.C.TRIPURA,parties.IN.UNK,TUS,5312,42.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-44,tripura,1981,44,RAIMA VALLEY,C.MOG,parties.IN.INC_I,INC(I),1132,8.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tripura-44,tripura,1981,44,RAIMA VALLEY,S.C.CHAKMA,parties.IN.IND,IND,39,0.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

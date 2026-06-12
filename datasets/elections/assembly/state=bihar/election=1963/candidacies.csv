@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1962-bihar-165,bihar,1963,165,BANKA,VINDHYABASANI DEVI,parties.IN.INC,INC,12288,41.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-bihar-165,bihar,1963,165,BANKA,B.M.SINGH,parties.IN.IND,IND,10027,34.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-bihar-165,bihar,1963,165,BANKA,B.MANDAL,parties.IN.IND,IND,6986,23.84,3,lost,U,,,,challenger,src-1b7bc1c9d39a

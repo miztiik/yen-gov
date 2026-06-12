@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1967-kerala-53,kerala,1972,53,TRICHUR,P.A.ANTONY,parties.IN.INC,INC,30501,52.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-kerala-53,kerala,1972,53,TRICHUR,V.R.R.KRISHAN,parties.IN.IND,IND,26637,46.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-kerala-53,kerala,1972,53,TRICHUR,M.S.MENON,parties.IN.IND,IND,561,0.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a

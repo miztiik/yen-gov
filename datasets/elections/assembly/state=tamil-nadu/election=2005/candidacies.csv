@@ -1,0 +1,37 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-tamil-nadu-15,tamil-nadu,2005,15,GUMMIDIPUNDI,Vijayakumar KS,parties.IN.AIADMK,ADMK,83717,56.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-15,tamil-nadu,2005,15,GUMMIDIPUNDI,Venkatachalapathy P.,parties.IN.DMK,DMK,56554,38.47,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-15,tamil-nadu,2005,15,GUMMIDIPUNDI,Baskaran (A)Viduthalai Chezian C.K.,parties.IN.JDU,JD(U),2926,1.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-15,tamil-nadu,2005,15,GUMMIDIPUNDI,Venkatesan G.,parties.IN.IND,IND,1724,1.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-15,tamil-nadu,2005,15,GUMMIDIPUNDI,Venkatesan R.,parties.IN.IND,IND,663,0.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-15,tamil-nadu,2005,15,GUMMIDIPUNDI,Vijaya Kumar S.,parties.IN.IND,IND,206,0.14,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-15,tamil-nadu,2005,15,GUMMIDIPUNDI,Rajendran A.,parties.IN.IND,IND,170,0.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-15,tamil-nadu,2005,15,GUMMIDIPUNDI,Loganathan L.,parties.IN.IND,IND,157,0.11,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-15,tamil-nadu,2005,15,GUMMIDIPUNDI,Marimuthu E.,parties.IN.IND,IND,148,0.1,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-15,tamil-nadu,2005,15,GUMMIDIPUNDI,Pasam A (TMT),parties.IN.IND,IND,137,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-15,tamil-nadu,2005,15,GUMMIDIPUNDI,Padmarajan K. Dr.,parties.IN.IND,IND,115,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-15,tamil-nadu,2005,15,GUMMIDIPUNDI,Yasu Rathinam.S,parties.IN.IND,IND,112,0.08,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-15,tamil-nadu,2005,15,GUMMIDIPUNDI,Kandasamy S.,parties.IN.IND,IND,106,0.07,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-15,tamil-nadu,2005,15,GUMMIDIPUNDI,Subramani M.S.,parties.IN.IND,IND,104,0.07,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-15,tamil-nadu,2005,15,GUMMIDIPUNDI,Thenmozhi U. (TMT),parties.IN.IND,IND,100,0.07,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-15,tamil-nadu,2005,15,GUMMIDIPUNDI,Gopal. G.,parties.IN.IND,IND,77,0.05,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Mythili (TMT),parties.IN.AIADMK,ADMK,87274,52.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Kumar M,parties.IN.DMK,DMK,69626,42.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Elanse4zhian N,parties.IN.UNK,JU(U),1946,1.18,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Mayan T,parties.IN.IND,IND,1101,0.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Radhakrishnan A.V.,parties.IN.IND,IND,1057,0.64,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Ravi K.,parties.IN.IND,IND,960,0.58,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Kumar S,parties.IN.IND,IND,789,0.48,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Mamallan S,parties.IN.IND,IND,783,0.47,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Chgidambaram SU,parties.IN.ABHM,ABHM,409,0.25,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Loganathan T,parties.IN.IND,IND,211,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Manmathan M,parties.IN.IND,IND,179,0.11,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Manikandan S,parties.IN.IND,IND,137,0.08,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Radhakrishnan V,parties.IN.IND,IND,127,0.08,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Padmarajan K.Dr.,parties.IN.IND,IND,95,0.06,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Arunachalam K.,parties.IN.IND,IND,89,0.05,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Shanker R,parties.IN.IND,IND,87,0.05,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Nandakumar S,parties.IN.IND,IND,77,0.05,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Balavinayagam R,parties.IN.IND,IND,77,0.05,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Vanopor Kanagaraj (Alias)Vanoor Inbaraj,parties.IN.IND,IND,72,0.04,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-26,tamil-nadu,2005,26,KANCHEEPURAM,Karthikeyan D,parties.IN.IND,IND,58,0.04,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a

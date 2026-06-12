@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-meghalaya-17,meghalaya,1990,LAITUMKHARAH,12263,8694,70.9,R.KHARSHING,parties.IN.UNK,HPU,4214,48.47,G.M.WAR,parties.IN.INC,INC,3377,837,9.63,src-1b7bc1c9d39a

@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-mizoram-23,mizoram,2004,KOLASIB(ST),549959,10932,1.99,K.Lalrinliana,parties.IN.MNF,MNF,6113,55.92,C.Lalbiakthanga,parties.IN.IND,IND,4819,1294,11.84,src-1b7bc1c9d39a
