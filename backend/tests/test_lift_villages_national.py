@@ -199,8 +199,8 @@ def test_lift_emits_per_district_shards_and_returns_rows(
     assert tn_568.unkeyed_count == 0
     assert tn_568.original_feature_count == 2
     assert tn_568.level == "village"
-    assert tn_568.partition_path == "boundaries/in/villages/state=in_s22/district=568/all.geojson"
-    assert tn_568.layer_id == "boundaries.in.villages.state=in_s22.district=568"
+    assert tn_568.partition_path == "boundaries/in/villages/state=tamil-nadu/district=568/all.geojson"
+    assert tn_568.layer_id == "boundaries.in.villages.state=tamil-nadu.district=568"
     assert tn_568.simplification_algorithm == "coord-precision-round"
     assert tn_568.simplification_tolerance_deg == 10**-4
 
@@ -223,13 +223,13 @@ def test_lift_is_byte_deterministic(tmp_path: Path, lift_module: Any) -> None:
     mapping = {33: "S22"}
 
     lift_module.lift_villages_to_per_district_shards(geojsonl, mapping, datasets_root)
-    shard = datasets_root / "boundaries" / "in" / "villages" / "state=in_s22" / "district=568" / "all.geojson"
+    shard = datasets_root / "boundaries" / "in" / "villages" / "state=tamil-nadu" / "district=568" / "all.geojson"
     sha1 = hashlib.sha256(shard.read_bytes()).hexdigest()
 
     # rerun against fresh datasets_root
     datasets_root2 = tmp_path / "datasets_v2"
     lift_module.lift_villages_to_per_district_shards(geojsonl, mapping, datasets_root2)
-    shard2 = datasets_root2 / "boundaries" / "in" / "villages" / "state=in_s22" / "district=568" / "all.geojson"
+    shard2 = datasets_root2 / "boundaries" / "in" / "villages" / "state=tamil-nadu" / "district=568" / "all.geojson"
     sha2 = hashlib.sha256(shard2.read_bytes()).hexdigest()
 
     assert sha1 == sha2, "byte-determinism broken — features must sort identically across runs"
@@ -270,27 +270,27 @@ def test_remove_stale_shards_deletes_only_non_keep_paths(
     opportunistically removes now-empty district= + state= parent dirs.
     """
     villages = tmp_path / "datasets" / "boundaries" / "in" / "villages"
-    keep_dir = villages / "state=in_s22" / "district=568"
+    keep_dir = villages / "state=tamil-nadu" / "district=568"
     keep_dir.mkdir(parents=True)
     (keep_dir / "all.geojson").write_text("{}", encoding="utf-8")
 
-    stale_district = villages / "state=in_s22" / "district=999"
+    stale_district = villages / "state=tamil-nadu" / "district=999"
     stale_district.mkdir(parents=True)
     (stale_district / "all.geojson").write_text("{}", encoding="utf-8")
 
-    stale_state = villages / "state=in_s08" / "district=50"
+    stale_state = villages / "state=himachal-pradesh" / "district=50"
     stale_state.mkdir(parents=True)
     (stale_state / "all.geojson").write_text("{}", encoding="utf-8")
 
     deleted = lift_module.remove_stale_shards(
         villages,
-        {"boundaries/in/villages/state=in_s22/district=568/all.geojson"},
+        {"boundaries/in/villages/state=tamil-nadu/district=568/all.geojson"},
     )
     assert deleted == 2
     assert (keep_dir / "all.geojson").is_file()
     assert not stale_district.exists()
-    # state=in_s08 dir should be gone since it had only the one stale district
-    assert not (villages / "state=in_s08").exists()
+    # state=himachal-pradesh dir should be gone since it had only the one stale district
+    assert not (villages / "state=himachal-pradesh").exists()
 
 
 def test_remove_stale_shards_handles_missing_dir(tmp_path: Path, lift_module: Any) -> None:

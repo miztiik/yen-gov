@@ -62,15 +62,34 @@ def test_manifest_shape(tmp_path, fake_tree, monkeypatch):
 
 
 def test_real_lgd_states_slug_map_resolves_all_legacy_codes():
-    """The real lgd_states.json MUST cover every legacy in_sXX/in_uXX folder
-    currently under datasets/. If a new code appears that doesn't resolve,
-    M2/M3/M4 cannot execute - fail fast here."""
+    """Forward-guard against accidental re-introduction of legacy
+    ``state=in_sXX`` / ``state=in_uXX`` partitions under ``datasets/``.
+
+    Historically (pre-2026-06 boundary slug rename) this test asserted
+    ``len(pairs) >= 36`` to prove every legacy partition resolved via
+    ``lgd_states.json``. The rename completed across PR #856 (G31
+    derive_hive universal state_slug) + PR #562 (M2 LGD-name slug
+    rename, ADR-0050), so ``discover()`` against the real corpus now
+    returns zero pairs. The assertion is inverted to ``len(pairs) == 0``
+    so any future PR that accidentally writes a legacy-shaped
+    partition under ``datasets/`` fails this test loudly.
+
+    The slug_re check below stays in place as a defensive sanity gate:
+    if a legacy partition IS re-introduced and discover() finds it, the
+    derived ``new.name`` should still be a kebab-case slug
+    (``state=tamil-nadu`` etc.), not a malformed value.
+    """
     slug_map = rpk._load_slug_map()
     real_root = rpk.REPO / "datasets"
     pairs = rpk.discover(real_root, slug_map)
-    # Smoke: at least the boundary partitions are discoverable
-    assert len(pairs) >= 36, f"expected >=36 state= dirs across datasets/, found {len(pairs)}"
-    # Every pair resolves to a kebab-case slug
+    # Rename complete as of 2026-06 sweep; forward guard.
+    assert len(pairs) == 0, (
+        f"found {len(pairs)} legacy state=in_sXX/in_uXX partitions under "
+        "datasets/; rename completed at PR #856 + PR #562 (ADR-0050) so "
+        "this should be zero. A non-zero result means a PR accidentally "
+        "re-introduced a legacy-shaped partition."
+    )
+    # Every pair (if any future regression occurs) resolves to kebab-case
     import re as _re
     slug_re = _re.compile(r"^state=[a-z0-9]+(-[a-z0-9]+)*$")
     assert all(slug_re.match(p.new.name) for p in pairs)
