@@ -1,5 +1,5 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,PRATAPGARH,336989,149184,44.27,RAJKUMAR PAL,parties.IN.UNK,ADS,52949,35.49,BRIJESH VERMA,parties.IN.SP,SP,23228,29721,19.92,src-1b7bc1c9d39a
+IN-AC-2008-uttar-pradesh-1037,uttar-pradesh,2019,PRATAPGARH,336989,149184,44.27,RAJKUMAR PAL,parties.IN.ADS_IN_UP,ADS,52949,35.49,BRIJESH VERMA,parties.IN.SP,SP,23228,29721,19.92,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-1048,uttar-pradesh,2019,RAMPUR,390725,160881,41.17,Dr. Tazeen Fatma,parties.IN.SP,SP,79043,49.13,Bharat Bhushan,parties.IN.BJP,BJP,71327,7716,4.79,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-726,uttar-pradesh,2019,JALALPUR,393038,229797,58.47,Subhash Rai,parties.IN.SP,SP,72611,31.6,Dr. Chhaya Verma,parties.IN.BSP,BSP,71821,790,0.35,src-1b7bc1c9d39a
 IN-AC-2008-uttar-pradesh-760,uttar-pradesh,2019,BALHA,357305,185425,51.9,SAROJ SONKAR,parties.IN.BJP,BJP,89641,48.34,KIRAN BHARTI,parties.IN.SP,SP,43154,46487,25.07,src-1b7bc1c9d39a

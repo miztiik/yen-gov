@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-jharkhand-2195,jharkhand,2015,LOHARDAGA,216477,146430,67.64,Sukhdeo Bhagat,parties.IN.INC,INC,73859,50.44,Niru Shanti Bhagat,parties.IN.UNK,AP,50571,23288,15.9,src-1b7bc1c9d39a
+IN-AC-2008-jharkhand-2195,jharkhand,2015,LOHARDAGA,216477,146430,67.64,Sukhdeo Bhagat,parties.IN.INC,INC,73859,50.44,Niru Shanti Bhagat,parties.IN.AP,AP,50571,23288,15.9,src-1b7bc1c9d39a

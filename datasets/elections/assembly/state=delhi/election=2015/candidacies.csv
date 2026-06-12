@@ -62,7 +62,7 @@ IN-AC-2008-delhi-eci6,delhi,2015,6,RITHALA,MOHINDER GOYAL,parties.IN.AAAP,AAAP,9
 IN-AC-2008-delhi-eci6,delhi,2015,6,RITHALA,KULWANT RANA,parties.IN.BJP,BJP,64219,38.91,2,lost,U,44,Graduate,Ex MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci6,delhi,2015,6,RITHALA,JAGDISH YADAV,parties.IN.INC,INC,5367,3.25,3,forfeit,U,58,Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci6,delhi,2015,6,RITHALA,PAWAN KAUSHIK,parties.IN.BSP,BSP,542,0.33,5,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci6,delhi,2015,6,RITHALA,ANURAG MISHRA,parties.IN.UNK,RBHP,266,0.16,6,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci6,delhi,2015,6,RITHALA,ANURAG MISHRA,parties.IN.RBHP,RBHP,266,0.16,6,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci6,delhi,2015,6,RITHALA,SUMEET KUMAR SINHA,parties.IN.SASAPT,SASAPT,156,0.09,7,forfeit,U,38,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci6,delhi,2015,6,RITHALA,SUNJEET,parties.IN.DJP,DJP,127,0.08,8,forfeit,U,40,5th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci6,delhi,2015,6,RITHALA,VIRENDER JHA,parties.IN.PBI,PBI,126,0.08,9,forfeit,U,52,8th Pass,Self-employed,challenger,src-1b7bc1c9d39a
@@ -72,12 +72,12 @@ IN-AC-2008-delhi-eci7,delhi,2015,7,BAWANA,GUGAN SINGH,parties.IN.BJP,BJP,58371,3
 IN-AC-2008-delhi-eci7,delhi,2015,7,BAWANA,SURENDER KUMAR,parties.IN.INC,INC,14749,7.87,3,forfeit,U,57,12th Pass,Ex MLA,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci7,delhi,2015,7,BAWANA,GAJANAND,parties.IN.BSP,BSP,3641,1.94,4,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci7,delhi,2015,7,BAWANA,AMOD PASWAN,parties.IN.BJDI,BJDI,425,0.23,6,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci7,delhi,2015,7,BAWANA,RAM BABU,parties.IN.UNK,RBHP,364,0.19,7,forfeit,U,62,8th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci7,delhi,2015,7,BAWANA,RAM BABU,parties.IN.RBHP,RBHP,364,0.19,7,forfeit,U,62,8th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci8,delhi,2015,8,MUNDKA,SUKHVIR SINGH,parties.IN.AAAP,AAAP,94206,57.22,1,won,U,53,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci8,delhi,2015,8,MUNDKA,AZAD SINGH,parties.IN.BJP,BJP,53380,32.42,2,lost,U,63,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci8,delhi,2015,8,MUNDKA,REETA,parties.IN.INC,INC,13446,8.17,3,forfeit,U,34,12th Pass,District Council,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci8,delhi,2015,8,MUNDKA,OM PARKASH,parties.IN.BSP,BSP,778,0.47,4,forfeit,U,51,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci8,delhi,2015,8,MUNDKA,RAVI SWAROOP,parties.IN.UNK,RBHP,550,0.33,6,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci8,delhi,2015,8,MUNDKA,RAVI SWAROOP,parties.IN.RBHP,RBHP,550,0.33,6,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci8,delhi,2015,8,MUNDKA,UDEY VIR,parties.IN.SASAPT,SASAPT,361,0.22,7,forfeit,U,60,8th Pass,Managerial Position,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci8,delhi,2015,8,MUNDKA,VIRANDER SINGH,parties.IN.IND,IND,341,0.21,8,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci8,delhi,2015,8,MUNDKA,RAMBALI SHAH,parties.IN.IND,IND,240,0.15,9,forfeit,U,47,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
@@ -340,7 +340,7 @@ IN-AC-2008-delhi-eci33,delhi,2015,33,DWARKA,KAMLESHWARI MISTRI,parties.IN.PBI,PB
 IN-AC-2008-delhi-eci34,delhi,2015,34,MATIALA,GULAB SINGH,parties.IN.AAAP,AAAP,127665,54.91,1,won,U,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci34,delhi,2015,34,MATIALA,RAJESH GAHLOT,parties.IN.BJP,BJP,80661,34.7,2,lost,U,50,Graduate,Self-employed,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci34,delhi,2015,34,MATIALA,SUMESH SHOKEEN,parties.IN.INC,INC,20284,8.73,3,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci34,delhi,2015,34,MATIALA,SURESH KUMAR PATEL,parties.IN.UNK,RBHP,728,0.31,5,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci34,delhi,2015,34,MATIALA,SURESH KUMAR PATEL,parties.IN.RBHP,RBHP,728,0.31,5,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci34,delhi,2015,34,MATIALA,SANJAY KUMAR,parties.IN.BSP,BSP,723,0.31,6,forfeit,U,39,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci34,delhi,2015,34,MATIALA,GULAB SINGH,parties.IN.IND,IND,376,0.16,7,forfeit,U,65,8th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci34,delhi,2015,34,MATIALA,RAM BILAS MISHRA,parties.IN.IND,IND,221,0.1,8,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
@@ -361,7 +361,7 @@ IN-AC-2008-delhi-eci35,delhi,2015,35,NAJAFGARH,INDERJEET,parties.IN.IND,IND,295,
 IN-AC-2008-delhi-eci35,delhi,2015,35,NAJAFGARH,LALIT VASHIST,parties.IN.IND,IND,259,0.16,10,forfeit,U,38,Graduate,Insurance Agent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci35,delhi,2015,35,NAJAFGARH,DHARAMBIR SINGH,parties.IN.IND,IND,132,0.08,11,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci35,delhi,2015,35,NAJAFGARH,KAILASH CHAND,parties.IN.IND,IND,85,0.05,12,forfeit,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci35,delhi,2015,35,NAJAFGARH,AJIT SINGH,parties.IN.UNK,RBHP,74,0.05,13,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci35,delhi,2015,35,NAJAFGARH,AJIT SINGH,parties.IN.RBHP,RBHP,74,0.05,13,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci35,delhi,2015,35,NAJAFGARH,NEELAM,parties.IN.IND,IND,70,0.04,14,forfeit,U,41,10th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci36,delhi,2015,36,BIJWASAN,COL DEVINDER SEHRAWAT,parties.IN.AAAP,AAAP,65006,54.99,1,won,U,49,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci36,delhi,2015,36,BIJWASAN,SAT PRAKASH RANA,parties.IN.BJP,BJP,45470,38.46,2,lost,U,49,Post Graduate,MLA,incumbent,src-1b7bc1c9d39a
@@ -577,7 +577,7 @@ IN-AC-2008-delhi-eci60,delhi,2015,60,KRISHNA NAGAR,KIRAN BEDI,parties.IN.BJP,BJP
 IN-AC-2008-delhi-eci60,delhi,2015,60,KRISHNA NAGAR,BANSI LAL,parties.IN.INC,INC,6189,4.51,3,forfeit,U,60,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci60,delhi,2015,60,KRISHNA NAGAR,YOGESH KUMAR,parties.IN.BSP,BSP,501,0.36,4,forfeit,U,34,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci60,delhi,2015,60,KRISHNA NAGAR,CHANDAN LAL PREMI,parties.IN.CPI,CPI,339,0.25,6,forfeit,U,76,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci60,delhi,2015,60,KRISHNA NAGAR,PURNIMA JOHN,parties.IN.UNK,SPP,169,0.12,7,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci60,delhi,2015,60,KRISHNA NAGAR,PURNIMA JOHN,parties.IN.SPP,SPP,169,0.12,7,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci60,delhi,2015,60,KRISHNA NAGAR,VIRENDR PRADHAN,parties.IN.IND,IND,90,0.07,8,forfeit,U,36,8th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci60,delhi,2015,60,KRISHNA NAGAR,SAHRUR,parties.IN.HCP,HCP,73,0.05,9,forfeit,U,39,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci60,delhi,2015,60,KRISHNA NAGAR,ADVOCATE MANJEET SINGH,parties.IN.IND,IND,53,0.04,10,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
@@ -639,7 +639,7 @@ IN-AC-2008-delhi-eci67,delhi,2015,67,BABARPUR,MOHD SHAHIN,parties.IN.IND,IND,149
 IN-AC-2008-delhi-eci67,delhi,2015,67,BABARPUR,ANIL KUMAR SHARMA,parties.IN.RBCP,RBCP,142,0.11,7,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci67,delhi,2015,67,BABARPUR,KESAR,parties.IN.PECP,PECP,96,0.07,8,forfeit,U,35,8th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci67,delhi,2015,67,BABARPUR,PRADEEP JAIN,parties.IN.IND,IND,89,0.07,9,forfeit,U,45,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci67,delhi,2015,67,BABARPUR,ARUN THAKUR,parties.IN.UNK,SPP,62,0.05,10,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci67,delhi,2015,67,BABARPUR,ARUN THAKUR,parties.IN.SPP,SPP,62,0.05,10,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci67,delhi,2015,67,BABARPUR,NADEEM AHMAD,parties.IN.IND,IND,52,0.04,11,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci67,delhi,2015,67,BABARPUR,"MOHD, NAZIR",parties.IN.AASAP,AASAP,51,0.04,12,forfeit,U,41,5th Pass,Private Company,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci67,delhi,2015,67,BABARPUR,MOHD ARIF,parties.IN.IND,IND,44,0.03,13,forfeit,U,63,Others,Traditional Medicine,challenger,src-1b7bc1c9d39a
@@ -666,7 +666,7 @@ IN-AC-2008-delhi-eci70,delhi,2015,70,KARAWAL NAGAR,SATAN PAL DAYMA,parties.IN.IN
 IN-AC-2008-delhi-eci70,delhi,2015,70,KARAWAL NAGAR,DHARMENDRA SINGH,parties.IN.BSP,BSP,2202,1.29,4,forfeit,U,45,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci70,delhi,2015,70,KARAWAL NAGAR,RANJIT TIWARI,parties.IN.CPIM,CPM,712,0.42,6,forfeit,U,43,12th Pass,Medical Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci70,delhi,2015,70,KARAWAL NAGAR,SUNDER SINGH DEDHA,parties.IN.IND,IND,696,0.41,7,forfeit,U,48,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-delhi-eci70,delhi,2015,70,KARAWAL NAGAR,DHARM DASS,parties.IN.UNK,RBHP,279,0.16,8,forfeit,U,59,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-delhi-eci70,delhi,2015,70,KARAWAL NAGAR,DHARM DASS,parties.IN.RBHP,RBHP,279,0.16,8,forfeit,U,59,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci70,delhi,2015,70,KARAWAL NAGAR,JOGINDER SINGH,parties.IN.IND,IND,211,0.12,9,forfeit,U,38,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci70,delhi,2015,70,KARAWAL NAGAR,SHYAM PAL SINGH,parties.IN.NAPT,NAPT,151,0.09,10,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-delhi-eci70,delhi,2015,70,KARAWAL NAGAR,SARYUG NARYAN,parties.IN.SASAPT,SASAPT,146,0.09,11,forfeit,U,54,Post Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
