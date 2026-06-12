@@ -134,12 +134,12 @@ def compare_event(
     Args:
         parity_rows: iterable of Shape-B rows from one or more event
             adapters (yen-gov-elections + zero or more external sources).
-        party_alliances: optional ``(party_id, period_label) -> alliance``
-            map from ``datasets/data/entities/party_alliances.csv``.
-            When provided AND the yen-gov-side party_id has an entry,
-            the alliance is surfaced in ``party_id_alliance``; otherwise
-            the column is empty (the "alliance not yet curated" badge
-            signal per Q6).
+        party_alliances: optional ``(party_id, event_id) -> alliance``
+            map from ``datasets/data/entities/party_alliances.csv``
+            (v2.0 schema 2026-06-12). When provided AND the
+            yen-gov-side party_id has an entry, the alliance is
+            surfaced in ``party_id_alliance``; otherwise the column is
+            empty (the "alliance not yet curated" badge signal per Q6).
 
     Returns:
         list of ``ConstituencyVerdictRow`` sorted by ``constituency_no``.

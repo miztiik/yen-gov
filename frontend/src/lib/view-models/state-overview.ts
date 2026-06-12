@@ -41,6 +41,7 @@ import {
   assemblySummaryPath,
   electoralEntitiesPath,
 } from "../canonical/election-csv-paths";
+import { electionStatePartition } from "../election-partitions";
 import type { PartyTotals, SourceRef } from "../data";
 import { dedupeToPills, type PublisherPill, type SourceRow } from "../sources";
 import {
@@ -180,7 +181,14 @@ async function runQueries(
   // `registerCsvAsTable` (parties.csv / source.csv). dim_party_alliances
   // flipped to inline `read_csv(party_alliances.csv, columns=...)` in
   // X1a-fu2-C (parquet retired); same JOIN keys on (party_id,
-  // period_label) - the only swap is the source of dpa rows.
+  // event_id) - the only swap is the source of dpa rows. v2.0 schema
+  // (2026-06-12, plan TODO/20260612-alliance-phase-1-structural-fix-plan.md):
+  // renamed period_label -> event_id (D1 fix - column joins the
+  // canonical route event_id directly) + added state (D2 fix -
+  // disambiguates per-state cohorts that share an event_id) + dropped
+  // short_name. JOIN filters on (event_id, state OR "IN") so national
+  // events (state="IN") light up on every state page while per-state
+  // rows only show on their own state page.
   const [candClause, sumClause, electoralClause, partyAlliancesClause] = await Promise.all([
     csvColumnsClause(candPath),
     csvColumnsClause(sumPath),
@@ -195,6 +203,12 @@ async function runQueries(
   ]);
 
   const evt = sqlString(event);
+  // D2 fix: scope the alliance JOIN to (state OR "IN"). `electionStatePartition`
+  // converts the loader's `state_code` ("S22") to the LGD state slug
+  // ("tamil-nadu") that party_alliances.csv.state carries for state-
+  // scoped events. National-event rows carry state="IN" and are visible
+  // from every state page.
+  const state_slug_for_alliance = sqlString(electionStatePartition(state_code));
 
   // Party pivot from per-candidacy CSV. Aggregate seats_contested
   // (distinct entity_id per party), seats_won (position=1), and votes
@@ -242,7 +256,8 @@ async function runQueries(
       ON dp.party_id = p.resolved_party_id
     LEFT JOIN read_csv('${partyAlliancesUrl}', ${partyAlliancesClause}) dpa
       ON dpa.party_id = dp.party_id
-      AND dpa.period_label = ${evt}
+      AND dpa.event_id = ${evt}
+      AND (dpa.state = ${state_slug_for_alliance} OR dpa.state = 'IN')
     ORDER BY p.seats_won DESC, p.votes DESC
   `;
   const parties = await query<PartyRow>(partySql);

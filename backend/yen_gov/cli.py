@@ -1574,13 +1574,19 @@ def parity_event(
 def _load_party_alliances_for_parity_event(
     root: Path,
 ) -> dict[tuple[str, str], str]:
-    """Project party_alliances.csv to ``(party_id, period_label) -> alliance``.
+    """Project party_alliances.csv to ``(party_id, event_id) -> alliance``.
 
     Used by the ``parity-event`` command to surface the alliance label
     on the verdict CSV's ``party_id_alliance`` column. When the file is
     absent or the row lacks an alliance value, the verdict's column is
     empty - the "alliance not yet curated for this event" badge signal
     per Q6.
+
+    v2.0 schema (2026-06-12, plan TODO/20260612-alliance-phase-1-structural-fix-plan.md):
+    column renamed period_label -> event_id; state column added but the
+    parity-event verdict key remains (party_id, event_id) -- callers
+    that care about per-state disambiguation can extend the key shape
+    in a follow-up.
     """
     import csv as _csv
 
@@ -1598,10 +1604,10 @@ def _load_party_alliances_for_parity_event(
         reader = _csv.DictReader(fh)
         for row in reader:
             pid = (row.get("party_id") or "").strip()
-            period = (row.get("period_label") or "").strip()
+            event_id = (row.get("event_id") or "").strip()
             alliance = (row.get("alliance") or "").strip()
-            if pid and period and alliance:
-                out[(pid, period)] = alliance
+            if pid and event_id and alliance:
+                out[(pid, event_id)] = alliance
     return out
 
 

@@ -76,6 +76,7 @@
     buildPartyKeyToPid,
     hiddenPidSet,
   } from "../lib/charts/india-pc-map-helpers";
+  import AllianceTotals from "../lib/elections/AllianceTotals.svelte";
 
   interface Props {
     /** Route params; `event` is the event slug (e.g. "general-2024"). */
@@ -756,6 +757,22 @@
         </p>
       {/if}
     </section>
+
+    <!-- Alliance totals (Phase 1 of TODO/20260612-alliance-phase-1-
+         structural-fix-plan.md). state_slug="IN" scopes the alliance
+         lookup to national-event rows in party_alliances.csv; the 4
+         already-curated national events (general-2024 today;
+         2019/2014/2009 in Phase 1b) light up as a single panel with
+         the alliance-first total + an optional per-party breakdown. -->
+    <AllianceTotals
+      event={event}
+      state_slug="IN"
+      winners={winners.map((w) => ({
+        party_id: w.party_id,
+        party_short: w.party_short,
+        party_eci_code: w.party_eci_code,
+      }))}
+    />
 
     <!-- Scatter chart (PR-W4c MUST-FEATURE).
          TODO/20260612 Row A.5 + E: lock_body=true hides the Body chip
