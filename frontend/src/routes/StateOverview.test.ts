@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildKpiTiles } from "./StateOverview.svelte";
+import { buildKpiTiles, NO_ASSEMBLY_UT_SLUGS } from "./StateOverview.svelte";
 import type { ConstituencyEntry } from "../lib/data";
 import type { District } from "../lib/view-models/districts";
 
@@ -69,5 +69,32 @@ describe("buildKpiTiles", () => {
     const assemblies = tiles.find(t => t.key === "assemblies");
     // en-IN groups as 1,234 (no lakhs separator for 4-digit numbers).
     expect(assemblies?.value).toBe("1,234");
+  });
+});
+
+describe("NO_ASSEMBLY_UT_SLUGS", () => {
+  it("enumerates exactly the 5 UTs without a Vidhan Sabha", () => {
+    expect(NO_ASSEMBLY_UT_SLUGS.size).toBe(5);
+    expect([...NO_ASSEMBLY_UT_SLUGS].sort()).toEqual([
+      "andaman-and-nicobar-islands",
+      "chandigarh",
+      "dadra-and-nagar-haveli-and-daman-and-diu",
+      "ladakh",
+      "lakshadweep",
+    ]);
+  });
+
+  it("excludes the 3 UTs that DO have assemblies (Delhi / Puducherry / J&K)", () => {
+    // Slugs are the canonical entities.json display_name shape (what
+    // states.slug() actually returns at runtime), not the seed shape.
+    expect(NO_ASSEMBLY_UT_SLUGS.has("nct-of-delhi")).toBe(false);
+    expect(NO_ASSEMBLY_UT_SLUGS.has("puducherry")).toBe(false);
+    expect(NO_ASSEMBLY_UT_SLUGS.has("jammu-and-kashmir-ut")).toBe(false);
+  });
+
+  it("excludes regular states", () => {
+    for (const s of ["tamil-nadu", "karnataka", "kerala", "uttar-pradesh", "sikkim", "goa"]) {
+      expect(NO_ASSEMBLY_UT_SLUGS.has(s)).toBe(false);
+    }
   });
 });
