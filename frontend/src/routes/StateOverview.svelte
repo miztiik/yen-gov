@@ -30,6 +30,30 @@
     maximumFractionDigits: 2,
   });
 
+  /** Slugs of Indian UTs that do NOT have a Vidhan Sabha (state
+   *  legislature). Administered by the Centre via a Lt. Governor; no
+   *  elected MLAs, no constituencies.json SOT, no "Assembly Map" surface.
+   *  Excludes Delhi (U05), Puducherry (U07), Jammu & Kashmir (U08) which
+   *  DO have assemblies. Structural fact of Indian polity, not a data gap;
+   *  hard-coded as a 5-row Set rather than derived from absence of SOT so
+   *  a bootstrap-pending state (genuine data gap) gets the "Assembly Map"
+   *  copy + spinner, not the "no legislature" copy.
+   *
+   *  The slugs MUST be the literal output of `slugify(display_name)`
+   *  from `datasets/taxonomy/entities.json` (the runtime catalogue
+   *  `states.slug()` resolves through), NOT the short slugs in the
+   *  `state_iso_seed.csv` backend bootstrap. U01's display_name is
+   *  "Andaman and Nicobar Islands" so the slug carries the `-islands`
+   *  suffix; the seed file's shorter `andaman-and-nicobar` is never
+   *  what the frontend router sees. */
+  export const NO_ASSEMBLY_UT_SLUGS: ReadonlySet<string> = new Set([
+    "andaman-and-nicobar-islands",
+    "chandigarh",
+    "dadra-and-nagar-haveli-and-daman-and-diu",
+    "ladakh",
+    "lakshadweep",
+  ]);
+
   /** Builds the KPI tile set from reference data + summary electors.
    *
    *  - `acs === null`: empty array (caller decides whether to render
@@ -408,6 +432,17 @@
     buildKpiTiles(acs, districts, summary?.totals?.electors ?? null),
   );
 
+  // No-assembly UT detection: the citizen lands on /ladakh expecting an
+  // Indian-polity-honest page; "Ladakh Assembly Map" is structurally
+  // wrong because Ladakh has no Vidhan Sabha. Drives the hero copy + the
+  // optional UT explainer below; the KPI section is independently hidden
+  // by `acs_status !== "failed"` (which fires for these same 5 UTs as a
+  // side effect of constituencies.json being absent).
+  const current_slug = $derived(state_code ? states.slug(state_code) : null);
+  const is_no_assembly_ut = $derived(
+    current_slug !== null && NO_ASSEMBLY_UT_SLUGS.has(current_slug),
+  );
+
   // Retry callable for the failed arm (PR-E pattern). Captures current
   // event + state_code at click-time; re-invokes the loader and re-routes
   // the result back into summaryResult.
@@ -683,16 +718,25 @@
 <main class="max-w-screen-2xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
     <div class="border-l-4 border-red-500 pl-3 py-0.5">
-      <h1 class="text-2xl font-bold leading-tight text-slate-900">
-        {states.name(state_code)} Assembly Map
-      </h1>
-      <p class="text-sm text-slate-500">
-        {#if acs && acs.length > 0}
-          Interactive map showing all {acs.length} assembly constituencies
-        {:else}
-          Interactive map of assembly constituencies
-        {/if}
-      </p>
+      {#if is_no_assembly_ut}
+        <h1 class="text-2xl font-bold leading-tight text-slate-900">
+          {states.name(state_code)}
+        </h1>
+        <p class="text-sm text-slate-500">
+          Union Territory administered by the Centre. No state legislature.
+        </p>
+      {:else}
+        <h1 class="text-2xl font-bold leading-tight text-slate-900">
+          {states.name(state_code)} Assembly Map
+        </h1>
+        <p class="text-sm text-slate-500">
+          {#if acs && acs.length > 0}
+            Interactive map showing all {acs.length} assembly constituencies
+          {:else}
+            Interactive map of assembly constituencies
+          {/if}
+        </p>
+      {/if}
     </div>
     <p class="text-sm text-slate-600">
       {#if event_row}
