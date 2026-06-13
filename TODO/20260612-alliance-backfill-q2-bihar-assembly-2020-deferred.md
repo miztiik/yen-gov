@@ -78,3 +78,14 @@ Note: LJP (Lok Janshakti Party, Chirag Paswan, 134 contested) is listed in the W
 | --- | --- | --- |
 | 2026-06-13 | open | Q2.4 handover authored. NDA composition extracted from Wikipedia; VIP (Vikassheel Insaan Party, Mukesh Sahani, 11 seats) flagged as STOP-AND-SURFACE per brief. |
 | 2026-06-13 | DEFERRED | Event deferred pending party-catalogue extension for `Vikassheel Insaan Party` (separate PR; needs Hans + Max consult per party-identity doctrine). Mahagathbandhan + GDSF compositions pre-extracted in this handover for trivial uncomment when VIP lands. |
+| 2026-06-14 | **CLOSED** | Q2.4 deferral resolved: `parties.IN.VIPMS` (Vikassheel Insaan Party, Mukesh Sahani) minted in the Q2.4+Q3 PR (user-authorised 2026-06-14 — "go on do it"). 15 alliance rows shipped (4 NDA + 5 Mahagathbandhan + 5 GDSF + 1 unallied LJP) + 1 new source.csv row `src-d5fb5fb008fc`. Replacement handover-doc: [20260614-alliance-backfill-q2-4-bihar-assembly-2020.md](./20260614-alliance-backfill-q2-4-bihar-assembly-2020.md). This deferred-doc archived as historical record; the live citation is now the 2026-06-14 closure handover-doc. |
+
+## CLOSURE 2026-06-14
+
+This deferred-doc is CLOSED. Q2.4 shipped via the Q2.4+Q3 PR on 2026-06-14. See [the closure handover-doc](./20260614-alliance-backfill-q2-4-bihar-assembly-2020.md) for:
+- Wikipedia source citation with verbatim alliance-composition quote
+- The `parties.IN.VIPMS` mint row (alphabetically positioned between `parties.IN.VIP` and `parties.IN.VJC`)
+- All 15 shipped alliance rows (4 NDA + 5 Mahagathbandhan + 5 GDSF + 1 unallied LJP)
+- Hans-discipline rationale (pre-poll-vs-post-poll, partial-coverage on Janvadi-Soc, no silent demotion)
+
+The original deferred-doc above remains for historical context.
