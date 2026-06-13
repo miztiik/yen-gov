@@ -1,9 +1,109 @@
+<script module lang="ts">
+  // Pure helper for the State Overview KPI tile hero block. Extracted so
+  // vitest pins the count + tile-set contract without mounting the
+  // component (yen-gov pattern: see CountingMethodDoc.svelte +
+  // IndicatorDoc.svelte for the <script module> + sibling .test.ts
+  // precedent). The helper is total: every loading / partial-data
+  // permutation has a defined output so a renderer that forgets a guard
+  // still degrades gracefully.
+
+  import type { ConstituencyEntry } from "../lib/data";
+  import type { District } from "../lib/view-models/districts";
+
+  /** One KPI tile spec consumed by the grid. `icon_name` is the
+   *  TopicIcon registry key (kebab-case filename under public/icons/
+   *  without `.svg`). `chip_bg` + `chip_fg` are literal Tailwind class
+   *  strings so JIT picks them up (NOT dynamic colour interpolation -
+   *  Tailwind cannot see `bg-${color}-500/15` at runtime). */
+  export interface KpiTile {
+    readonly key: string;
+    readonly label: string;
+    readonly value: string;
+    readonly icon_name: string;
+    readonly chip_bg: string;
+    readonly chip_fg: string;
+  }
+
+  const INT_FMT_IN = new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 });
+  const COMPACT_FMT_IN = new Intl.NumberFormat("en-IN", {
+    notation: "compact",
+    maximumFractionDigits: 2,
+  });
+
+  /** Builds the KPI tile set from reference data + summary electors.
+   *
+   *  - `acs === null`: empty array (caller decides whether to render
+   *    skeletons or hide the section based on `acs_status`).
+   *  - `districts === null` with `acs` ready: DISTRICTS tile shows "-"
+   *    (em-dash) so the row count stays stable rather than the column
+   *    silently reflowing while a slower fetch resolves.
+   *  - `electors` null / 0 / undefined: TOTAL VOTERS tile omitted; the
+   *    grid reflows from 5 to 4 columns at lg.
+   *  - RESERVED counts SC + ST (everything that is not "GEN"); GENERAL
+   *    counts "GEN". Sum equals acs.length by construction. */
+  export function buildKpiTiles(
+    acs: readonly ConstituencyEntry[] | null,
+    districts: readonly District[] | null,
+    electors: number | null | undefined,
+  ): KpiTile[] {
+    if (!acs) return [];
+    const reserved = acs.filter(c => c.reservation !== "GEN").length;
+    const general = acs.length - reserved;
+    const tiles: KpiTile[] = [
+      {
+        key: "assemblies",
+        label: "Assemblies",
+        value: INT_FMT_IN.format(acs.length),
+        icon_name: "landmark",
+        chip_bg: "bg-blue-500/15",
+        chip_fg: "text-blue-700",
+      },
+      {
+        key: "districts",
+        label: "Districts",
+        value: districts ? INT_FMT_IN.format(districts.length) : "-",
+        icon_name: "compass",
+        chip_bg: "bg-purple-500/15",
+        chip_fg: "text-purple-700",
+      },
+      {
+        key: "reserved",
+        label: "Reserved",
+        value: INT_FMT_IN.format(reserved),
+        icon_name: "shield",
+        chip_bg: "bg-red-500/15",
+        chip_fg: "text-red-700",
+      },
+      {
+        key: "general",
+        label: "General",
+        value: INT_FMT_IN.format(general),
+        icon_name: "shield",
+        chip_bg: "bg-slate-500/15",
+        chip_fg: "text-slate-700",
+      },
+    ];
+    if (electors != null && electors > 0) {
+      tiles.push({
+        key: "voters",
+        label: "Total voters",
+        value: COMPACT_FMT_IN.format(electors),
+        icon_name: "users",
+        chip_bg: "bg-cyan-500/15",
+        chip_fg: "text-cyan-700",
+      });
+    }
+    return tiles;
+  }
+</script>
+
 <script lang="ts">
-  import {
-    fetchConstituencies,
-    type ConstituencyEntry,
-  } from "../lib/data";
-  import { loadDistricts, type District } from "../lib/view-models/districts";
+  // Types `ConstituencyEntry` and `District` are imported in the
+  // `<script module>` block above and shared with the instance scope
+  // (Svelte 5 module/instance share the same TS module). Importing
+  // them here too would duplicate-identifier under svelte-check.
+  import { fetchConstituencies } from "../lib/data";
+  import { loadDistricts } from "../lib/view-models/districts";
   // PR-F (Phase 1.3b): StateOverview reads state-hub data through the
   // canonical Parquet store via DuckDB-WASM (view-models/state-overview.ts),
   // replacing the per-shard result.summary.json fetch. PR-G (Phase 1.3c)
@@ -300,6 +400,14 @@
     return m;
   });
 
+  // KPI tile hero block (UX-only). `buildKpiTiles` is the <script module>
+  // pure helper above; the $derived re-runs on any of (acs, districts,
+  // summary.totals.electors). Empty array while acs is null (loading
+  // state renders skeletons; failed state hides the whole section).
+  const kpi_tiles = $derived(
+    buildKpiTiles(acs, districts, summary?.totals?.electors ?? null),
+  );
+
   // Retry callable for the failed arm (PR-E pattern). Captures current
   // event + state_code at click-time; re-invokes the loader and re-routes
   // the result back into summaryResult.
@@ -574,7 +682,18 @@
 {:else}
 <main class="max-w-screen-2xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
-    <h1 class="text-2xl font-bold leading-tight">{states.name(state_code)}</h1>
+    <div class="border-l-4 border-red-500 pl-3 py-0.5">
+      <h1 class="text-2xl font-bold leading-tight text-slate-900">
+        {states.name(state_code)} Assembly Map
+      </h1>
+      <p class="text-sm text-slate-500">
+        {#if acs && acs.length > 0}
+          Interactive map showing all {acs.length} assembly constituencies
+        {:else}
+          Interactive map of assembly constituencies
+        {/if}
+      </p>
+    </div>
     <p class="text-sm text-slate-600">
       {#if event_row}
         {selected_event_id ? "Election" : "Most recent assembly election"}: {event_row.display}.
@@ -619,6 +738,51 @@
   {#if !state_code}
     <div class="text-slate-500">Resolving state …</div>
   {:else}
+    <!-- State Overview KPI tile hero block (UX-only; spec from Jony
+         2026-06-13). Reference-data tiles (assemblies / districts /
+         reserved / general) render as long as the constituencies-ref
+         fetch is not in the `failed` arm; the optional total-voters
+         tile lights up only when summary.totals.electors > 0. Skeleton
+         while acs is mid-flight; hidden entirely on failed (the
+         existing election-section copy below carries the citizen
+         signal - no need for a second "data unavailable" surface). -->
+    {#if acs_status !== "failed"}
+      <section data-testid="state-overview-kpi" class="space-y-3">
+        <div class="border-l-4 border-red-500 pl-3 py-0.5">
+          <h2 class="text-lg font-bold text-slate-900">State Overview</h2>
+        </div>
+        {#if acs_status === "loading"}
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3" aria-hidden="true">
+            {#each [0, 1, 2, 3] as i (i)}
+              <div class="animate-pulse bg-slate-100 rounded-xl h-24 ring-1 ring-slate-200/70"></div>
+            {/each}
+          </div>
+        {:else}
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 {kpi_tiles.length >= 5 ? 'lg:grid-cols-5' : 'lg:grid-cols-4'}">
+            {#each kpi_tiles as t (t.key)}
+              <div
+                data-testid="kpi-tile"
+                data-kpi-key={t.key}
+                class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200/70 p-4"
+              >
+                <div class="flex items-center gap-3">
+                  <div class="rounded-md p-2 shrink-0 {t.chip_bg} {t.chip_fg}">
+                    <TopicIcon name={t.icon_name} cls="w-5 h-5" />
+                  </div>
+                  <div class="text-[10px] uppercase tracking-[0.12em] text-slate-500 font-semibold">
+                    {t.label}
+                  </div>
+                </div>
+                <div class="text-3xl font-bold tabular-nums text-slate-800 mt-2">
+                  {t.value}
+                </div>
+              </div>
+            {/each}
+          </div>
+        {/if}
+      </section>
+    {/if}
+
     <!-- Recency banner (ADR-0023 §3 recency rule). When polling closed
          within the last 90 days, the citizen wants to know about the
          election first; otherwise the government card leads. -->
