@@ -119,6 +119,18 @@
         { "name": "is_sentinel", "dtype": "boolean", "nullable": true }
       ]
     },
+    "datasets/data/entities/parties_leadership.csv": {
+      "notes": "Term-shape party-leadership register (one row per (party, leadership term)). Composite PK (party_id, valid_from); valid_to nullable (null = currently serving, never datetime.now per CLAUDE.md anti-pattern). Sole writer: backend/yen_gov/sources/wikidata/party_leadership.py per PR-7 of TODO/20260613-party-deferred-followups-plan.md (Max 2a / 2d / 2e verdicts). Source axis: Wikidata SPARQL pinned snapshot (P488 chairperson PRIMARY, P3975 secretary general FALLBACK; P39 qualifier carries the role label, P580 / P582 the term bounds). role is free-text since Wikidata position labels are open-ended ('President', 'General Secretary', 'National Convenor', 'Working President'); no enum closure. person_wikidata_qid nullable so hand-curated overrides without a Wikidata entry can still land. source_id FKs into source.csv per CLAUDE.md section 12; nullable so a hand-curated row can land before its source ledger entry exists (rare). PR-7 ships the schema rails + ingester only; PR-9 will pin the first SPARQL snapshot and emit data rows. Frontend consumer: PR-11 (party tooltip).",
+      "columns": [
+        { "name": "party_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/parties.csv.party_id" },
+        { "name": "role", "dtype": "string", "nullable": false },
+        { "name": "person_name", "dtype": "string", "nullable": false },
+        { "name": "person_wikidata_qid", "dtype": "string", "nullable": true },
+        { "name": "valid_from", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "valid_to", "dtype": "string", "nullable": true },
+        { "name": "source_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/source.csv.source_id" }
+      ]
+    },
     "datasets/data/entities/party_alliances.csv": {
       "notes": "Per-event party alliance memberships (composite PK: party_id + event_id + state). One row per (party, election event, state) triple where an alliance was declared; alliance null = party contested unallied. v2.0 (2026-06-12, plan TODO/20260612-alliance-phase-1-structural-fix-plan.md): MAJOR breaking - renamed period_label -> event_id so the column joins citizen-route canonical event_id values (`general-2024`, `assembly-2024`); added state (LGD state slug like `tamil-nadu` for state-scoped events, literal `IN` for national events) to disambiguate per-state cohorts that share an event_id (e.g. 5-state May 2026 simultaneous cohort); dropped short_name (Holy Law #6 - readers join through party_id FK to parties.csv.short_name). Frontend JOIN: state-overview view-model reads via inline read_csv(...) keyed on (party_id, event_id, state).",
       "columns": [
