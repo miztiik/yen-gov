@@ -377,47 +377,38 @@ describe("loadPartyDetail", () => {
 
   it("assembles ls_history + vs_history + totals from the DuckDB rows", async () => {
     mockedLoadPartyMeta.mockResolvedValue(metaFixture());
-    // Loader fires 4 queries in order:
-    //   1. vsHistorySql  (VS party-aggregate rows)
-    //   2. lsHistorySql  (LS party-aggregate rows; was: synthesised from
-    //                     pc-winner-party-id counts pre-PR. Closed by the
-    //                     LS-aggregate-ingest PR (2026-06-13) per PR-4
-    //                     closure-ledger known-degradation #1.)
-    //   3. strongholdSql (per-AC/PC winner rows where this party won)
-    //   4. entitySql     (electoral.csv name JOIN; skipped when 0 strongholds)
+    // Loader fires 2 queries in order: party-page history mart, then
+    // party-page strongholds mart. The full electoral corpus is scanned
+    // only by the backend derive-party-pages command.
     mockedQuery
       .mockResolvedValueOnce([
-        // VS 2021 party-aggregate
-        { year: 2021, period_label: "AcGenApr2021", indicator_id: "party-seats-won", value_numeric: 133 },
-        { year: 2021, period_label: "AcGenApr2021", indicator_id: "party-vote-share-pct", value_numeric: 37.7 },
-        { year: 2021, period_label: "AcGenApr2021", indicator_id: "party-contested-acs", value_numeric: 188 },
-      ])
-      .mockResolvedValueOnce([
-        // LS 2024 party-aggregate (was: synthesised count-only).
-        { year: 2024, period_label: "LsGenJun2024", indicator_id: "party-seats-won", value_numeric: 22 },
-        { year: 2024, period_label: "LsGenJun2024", indicator_id: "party-vote-share-pct", value_numeric: 26.7 },
-        { year: 2024, period_label: "LsGenJun2024", indicator_id: "party-contested-pcs", value_numeric: 22 },
-      ])
-      .mockResolvedValueOnce([
         {
-          entity_id: "IN-S22-AC-2008-167",
+          body: "assembly",
+          year: 2021,
           period_label: "AcGenApr2021",
-          winner_party_id: "parties.IN.DMK",
+          seats: 133,
+          vote_share_pct: 37.7,
+          contested: 188,
+        },
+        {
+          body: "parliament",
+          year: 2024,
+          period_label: "LsGenJun2024",
+          seats: 22,
+          vote_share_pct: 26.7,
+          contested: 22,
         },
       ])
       .mockResolvedValueOnce([
-        // electoral.csv row uses the LGD-slug shape with an LGD-
-        // sequential suffix (4025), but carries the natural-key
-        // fields (`entity_kind`, `delim_year`, `state`, `eci_no`)
-        // that JOIN back to the per-state CSV peer entity_id
-        // `IN-S22-AC-2008-167` via the 4-tuple translator.
         {
-          entity_id: "IN-AC-2008-tamil-nadu-4025",
-          name: "Mylapore",
-          entity_kind: "ac",
-          delim_year: 2008,
+          body: "assembly",
+          rank: 1,
+          entity_id: "IN-S22-AC-2008-167",
+          constituency_name: "Mylapore",
           state: "tamil-nadu",
-          eci_no: 167,
+          wins: 1,
+          contested: 1,
+          results: "W",
         },
       ]);
 
@@ -438,6 +429,13 @@ describe("loadPartyDetail", () => {
     expect(out!.totals.ls_seats).toBe(22);
     expect(out!.totals.vs_seats).toBe(133);
     expect(out!.totals.peak_vs_year).toBe(2021);
+
+    const registered = mockedRegisterCsvFile.mock.calls.map(([url]) => String(url));
+    expect(registered.some((url) => url.includes("/data/marts/party_pages/history.csv"))).toBe(true);
+    expect(registered.some((url) => url.includes("/data/marts/party_pages/strongholds.csv"))).toBe(true);
+    expect(registered.some((url) => url.includes("/data/datapoints/electoral/"))).toBe(false);
+    const sql = mockedQuery.mock.calls.map(([q]) => String(q)).join("\n");
+    expect(sql).not.toContain("data/datapoints/electoral");
   });
 
   it("returns empty bodies when one of LS / VS has no data (national-only / state-only parties)", async () => {
@@ -445,16 +443,19 @@ describe("loadPartyDetail", () => {
       party_id: "parties.IN.LS_ONLY",
       short: "LSONLY",
     }));
-    // 4 queries: vsAggregate (empty); lsAggregate (one cycle);
-    // stronghold (empty -> entity JOIN skipped, so only 3 mocks needed).
+    // 2 queries: history mart, strongholds mart.
     mockedQuery
-      .mockResolvedValueOnce([]) // vs aggregate
       .mockResolvedValueOnce([
-        { year: 2024, period_label: "LsGenJun2024", indicator_id: "party-seats-won", value_numeric: 5 },
-        { year: 2024, period_label: "LsGenJun2024", indicator_id: "party-vote-share-pct", value_numeric: 1.2 },
-        { year: 2024, period_label: "LsGenJun2024", indicator_id: "party-contested-pcs", value_numeric: 12 },
+        {
+          body: "parliament",
+          year: 2024,
+          period_label: "LsGenJun2024",
+          seats: 5,
+          vote_share_pct: 1.2,
+          contested: 12,
+        },
       ])
-      .mockResolvedValueOnce([]); // stronghold rows empty
+      .mockResolvedValueOnce([]);
     const out = await loadPartyDetail("parties.IN.LS_ONLY");
     expect(out!.vs_history).toEqual([]);
     expect(out!.ls_history).toHaveLength(1);
@@ -491,27 +492,22 @@ describe("loadPartyDetail", () => {
     expect(out).not.toBeNull();
   });
 
-  it("falls back to empty constituency_name when the peer entity_id parses to an unknown state code", async () => {
-    // A stronghold row whose peer entity_id uses an unknown ECI st_code
-    // (e.g. `S99`) won't parse via `parsePeerEntityId` -> excluded from
-    // the JOIN tuple list -> no electoral.csv row matches -> the
-    // lookup miss falls back to empty constituency_name + state. The
-    // page surface renders the empty fallback instead of the citizen-
-    // readable name. This locks in the defensive behaviour declared in
-    // the translator module.
+  it("passes through empty constituency_name/state from the mart", async () => {
     mockedLoadPartyMeta.mockResolvedValue(metaFixture());
     mockedQuery
-      .mockResolvedValueOnce([]) // vs aggregate
-      .mockResolvedValueOnce([]) // ls aggregate (was: ls synthesis pre-PR)
+      .mockResolvedValueOnce([])
       .mockResolvedValueOnce([
         {
+          body: "assembly",
+          rank: 1,
           entity_id: "IN-S99-AC-2008-1",
-          period_label: "AcGenApr2021",
-          winner_party_id: "parties.IN.DMK",
+          constituency_name: "",
+          state: "",
+          wins: 1,
+          contested: 1,
+          results: "W",
         },
       ]);
-    // No 4th mock: the entity JOIN is skipped because peerKeys is
-    // empty (the only stronghold row failed to parse).
     const out = await loadPartyDetail("parties.IN.DMK");
     expect(out!.vs_strongholds).toHaveLength(1);
     expect(out!.vs_strongholds[0]!.entity_id).toBe("IN-S99-AC-2008-1");

@@ -694,6 +694,42 @@ def derive_national_reference(
     )
 
 
+@app.command("derive-party-pages")
+def derive_party_pages(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Compute party-page derived marts from canonical electoral CSVs."""
+    from yen_gov.canonical.derived.party_pages import refresh_party_page_marts
+
+    root_resolved = root.resolve()
+    result = refresh_party_page_marts(root_resolved)
+    typer.echo(
+        "derive-party-pages: wrote "
+        f"{result.history_path.relative_to(root_resolved).as_posix()} "
+        f"({result.history_rows} rows)"
+    )
+    typer.echo(
+        "derive-party-pages: wrote "
+        f"{result.strongholds_path.relative_to(root_resolved).as_posix()} "
+        f"({result.stronghold_rows} rows)"
+    )
+    typer.echo(
+        "derive-party-pages: wrote "
+        f"{result.manifest_path.relative_to(root_resolved).as_posix()} "
+        f"(input files: {result.input_file_count}; "
+        f"party pages: {result.party_count}; "
+        f"signature: {result.input_signature[:12]})"
+    )
+
+
 def _read_long_csv(path: Path) -> list[dict[str, object]]:
     """Read a 4-column long-format CSV (entity_id, time, value, source_id).
 
@@ -720,6 +756,26 @@ def _read_long_csv(path: Path) -> list[dict[str, object]]:
                 }
             )
     return out
+
+
+def _refresh_party_pages_after_electoral_ingest(root: Path, prefix: str) -> None:
+    """Refresh party-page marts after an electoral ingest command.
+
+    The older elections writer path is still mid-rip: some commands write
+    per-state electoral datapoint CSVs directly, while others still flow
+    through the envelope writer. This shared post-step keeps CLI ingests from
+    leaving `/parties/<slug>` read models stale; Tier-B validation catches any
+    non-CLI path that edits the same inputs without running this refresh.
+    """
+    from yen_gov.canonical.derived.party_pages import refresh_party_page_marts
+
+    result = refresh_party_page_marts(root)
+    typer.echo(
+        f"{prefix}: refreshed party-page marts "
+        f"({result.history_rows} history rows, "
+        f"{result.stronghold_rows} stronghold rows, "
+        f"signature {result.input_signature[:12]})"
+    )
 
 
 
@@ -820,6 +876,7 @@ def ingest_eci_ae_panel(
     )
     typer.echo(f"ingest-eci-ae-panel: events={','.join(result.events)}")
     typer.echo(f"ingest-eci-ae-panel: report={result.report_path.as_posix()}")
+    _refresh_party_pages_after_electoral_ingest(root, "ingest-eci-ae-panel")
 
 
 @app.command("ingest-eci-ls")
@@ -890,6 +947,7 @@ def ingest_eci_ls(
             "mapped to parties.IN.UNK"
         )
     typer.echo(f"ingest-eci-ls: event={result.event_id}")
+    _refresh_party_pages_after_electoral_ingest(root, "ingest-eci-ls")
 
 
 @app.command("ingest-ls-ge-tcpd")
@@ -966,6 +1024,7 @@ def ingest_ls_ge_tcpd_cmd(
             "strings mapped to parties.IN.UNK"
         )
     typer.echo(f"ingest-ls-ge-tcpd: event={result.event_id}")
+    _refresh_party_pages_after_electoral_ingest(root, "ingest-ls-ge-tcpd")
 
 
 
