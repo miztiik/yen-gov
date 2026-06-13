@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-1976-nagaland-8,nagaland,1994,8,WESTERN ANGAMI,N.T.Nakhro,parties.IN.INC,INC,3990,53.88,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-nagaland-8,nagaland,1994,8,WESTERN ANGAMI,Ahulie,parties.IN.UNK,NPC,3415,46.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-8,nagaland,1994,8,WESTERN ANGAMI,Ahulie,parties.IN.NPC,NPC,3415,46.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a

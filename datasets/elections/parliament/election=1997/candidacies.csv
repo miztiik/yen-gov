@@ -5,7 +5,7 @@ IN-PC-1976-delhi-4,delhi,1997,4,EASTDELHI,H.K.L. Bhagat,parties.IN.IND,IND,12136
 IN-PC-1976-delhi-4,delhi,1997,4,EASTDELHI,Dr. Masood Ahmed,parties.IN.NLP,NLP,4371,0.8,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1997,4,EASTDELHI,Mahender Sharma,parties.IN.IND,IND,2025,0.37,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1997,4,EASTDELHI,Raja Mavai,parties.IN.JP,JP,1556,0.29,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-delhi-4,delhi,1997,4,EASTDELHI,Jai Ram Singh Jai,parties.IN.UNK,BKD(J),1196,0.22,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-delhi-4,delhi,1997,4,EASTDELHI,Jai Ram Singh Jai,parties.IN.BKD_J,BKD(J),1196,0.22,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1997,4,EASTDELHI,Gordhan,parties.IN.IND,IND,940,0.17,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1997,4,EASTDELHI,Ganga Ram,parties.IN.IND,IND,909,0.17,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1997,4,EASTDELHI,Atique Muzaffarpuri Urf Atiqur Rehman,parties.IN.UNK,QP,610,0.11,10,forfeit,U,,,,challenger,src-31c65dbec869
@@ -48,7 +48,7 @@ IN-PC-1976-rajasthan-25,rajasthan,1997,25,NAGAUR,Bhanuprakash Mirdha,parties.IN.
 IN-PC-1976-rajasthan-25,rajasthan,1997,25,NAGAUR,Ramniwas Mirdha,parties.IN.INC,INC,285765,47.36,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-rajasthan-25,rajasthan,1997,25,NAGAUR,Shivdan Ram,parties.IN.BSP,BSP,15702,2.6,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-rajasthan-25,rajasthan,1997,25,NAGAUR,Anil Kumar,parties.IN.JD,JD,15077,2.5,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-81,uttar-pradesh,1997,81,BAGHPAT,Ajit Singh,parties.IN.UNK,BKKP,331985,62.77,1,won,U,,,,incumbent,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-81,uttar-pradesh,1997,81,BAGHPAT,Ajit Singh,parties.IN.BKKP,BKKP,331985,62.77,1,won,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-81,uttar-pradesh,1997,81,BAGHPAT,Mukhiya Gurjar,parties.IN.INC,INC,100545,19.01,2,lost,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-81,uttar-pradesh,1997,81,BAGHPAT,Tripal Singh Dhama,parties.IN.BJP,BJP,94404,17.85,3,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-81,uttar-pradesh,1997,81,BAGHPAT,+ACI-Kaka Jogindar Singh Urf +ACIAIg-Dharti Pakad+ACIAIg-+ACI-,parties.IN.IND,IND,752,0.14,4,forfeit,U,,,,challenger,src-31c65dbec869

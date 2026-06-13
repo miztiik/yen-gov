@@ -523,7 +523,7 @@ IN-AC-1976-west-bengal-77,west-bengal,1991,77,NABADWIP,BISWANATH MITRA,parties.I
 IN-AC-1976-west-bengal-77,west-bengal,1991,77,NABADWIP,SATIS DEBNATH,parties.IN.INC,INC,35645,34.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-77,west-bengal,1991,77,NABADWIP,BANI GHOSH,parties.IN.BJP,BJP,12651,12.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-78,west-bengal,1991,78,SANTIPUR,AJOY DEY,parties.IN.INC,INC,56107,43.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-78,west-bengal,1991,78,SANTIPUR,ASIM GHOSH,parties.IN.UNK,RCPI,54666,42.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-78,west-bengal,1991,78,SANTIPUR,ASIM GHOSH,parties.IN.RCPI,RCPI,54666,42.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-78,west-bengal,1991,78,SANTIPUR,CHITTARANJAN KAR,parties.IN.BJP,BJP,15542,12.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-78,west-bengal,1991,78,SANTIPUR,KSHITISH CHANDRA MONDAL,parties.IN.BSP,BSP,983,0.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-78,west-bengal,1991,78,SANTIPUR,SACHINDER NATH BHATTACHARYA,parties.IN.IND,IND,455,0.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -690,7 +690,7 @@ IN-AC-1976-west-bengal-104,west-bengal,1991,104,BARUIPUR,BABLU DAS,parties.IN.IN
 IN-AC-1976-west-bengal-104,west-bengal,1991,104,BARUIPUR,SK. KADER ALI,parties.IN.IND,IND,398,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-104,west-bengal,1991,104,BARUIPUR,KRISHNAPADA SARDAR,parties.IN.BSP,BSP,311,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-104,west-bengal,1991,104,BARUIPUR,ATUL NASKAR,parties.IN.IND,IND,307,0.25,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-104,west-bengal,1991,104,BARUIPUR,MD. ABDULLA KABO,parties.IN.UNK,BDD,92,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-104,west-bengal,1991,104,BARUIPUR,MD. ABDULLA KABO,parties.IN.BDD,BDD,92,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-105,west-bengal,1991,105,CANNING WEST,BIMAL MISTRY,parties.IN.CPIM,CPM,54624,47,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-105,west-bengal,1991,105,CANNING WEST,GOBINDA CHANDRA NASKAR,parties.IN.INC,INC,41137,35.4,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-105,west-bengal,1991,105,CANNING WEST,CHANDRA KANTA ROY,parties.IN.BJP,BJP,10277,8.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -911,13 +911,13 @@ IN-AC-1976-west-bengal-141,west-bengal,1991,141,SHYAMPUKUR,SHAMAL BANERJEE,parti
 IN-AC-1976-west-bengal-141,west-bengal,1991,141,SHYAMPUKUR,CHUNI LAL CHAKRABORTY,parties.IN.BJP,BJP,6609,11.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-141,west-bengal,1991,141,SHYAMPUKUR,ASHIM RAY,parties.IN.JP,JP,363,0.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-141,west-bengal,1991,141,SHYAMPUKUR,DWIPENDRA PAL,parties.IN.IND,IND,168,0.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-141,west-bengal,1991,141,SHYAMPUKUR,HARIDAS GHOSH,parties.IN.UNK,INC(O),88,0.15,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-141,west-bengal,1991,141,SHYAMPUKUR,HARIDAS GHOSH,parties.IN.INC_O,INC(O),88,0.15,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-141,west-bengal,1991,141,SHYAMPUKUR,BURMAN MADAN,parties.IN.IND,IND,84,0.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-141,west-bengal,1991,141,SHYAMPUKUR,SHIB PRASAD CHOWDHURY,parties.IN.IND,IND,41,0.07,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-142,west-bengal,1991,142,JORABAGAN,SUBRATA MUKHERJEE,parties.IN.INC,INC,26508,46.76,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-142,west-bengal,1991,142,JORABAGAN,SHANTI LAL JAIN,parties.IN.BJP,BJP,19017,33.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-142,west-bengal,1991,142,JORABAGAN,SUREKHA SHYAM SUNDER,parties.IN.JD,JD,10818,19.08,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-142,west-bengal,1991,142,JORABAGAN,GANADEB BALLICK,parties.IN.UNK,INC(O),110,0.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-142,west-bengal,1991,142,JORABAGAN,GANADEB BALLICK,parties.IN.INC_O,INC(O),110,0.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-142,west-bengal,1991,142,JORABAGAN,RAJENDRA PRASAD SEWAK,parties.IN.DDP,DDP,77,0.14,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-142,west-bengal,1991,142,JORABAGAN,KALWANI KANAILAL,parties.IN.IND,IND,60,0.11,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-142,west-bengal,1991,142,JORABAGAN,SHRAWAN KUMAR SUREKA,parties.IN.IND,IND,53,0.09,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1223,7 +1223,7 @@ IN-AC-1976-west-bengal-182,west-bengal,1991,182,CHANDERNAGORE,CHATTERJEE SANDHYA
 IN-AC-1976-west-bengal-182,west-bengal,1991,182,CHANDERNAGORE,KAMAL MUKHERJEE,parties.IN.INC,INC,49171,42.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-182,west-bengal,1991,182,CHANDERNAGORE,SUNIL KUMAR ROY,parties.IN.BJP,BJP,13944,12.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-182,west-bengal,1991,182,CHANDERNAGORE,MILAN RAKSHIT,parties.IN.IND,IND,524,0.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-182,west-bengal,1991,182,CHANDERNAGORE,MADAN MOHAN ROY,parties.IN.UNK,INC(O),346,0.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-182,west-bengal,1991,182,CHANDERNAGORE,MADAN MOHAN ROY,parties.IN.INC_O,INC(O),346,0.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-183,west-bengal,1991,183,SINGUR,BIDYUT KUMAR DAS,parties.IN.CPIM,CPM,57706,49.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-183,west-bengal,1991,183,SINGUR,CHANDRA SEKHAR BACK,parties.IN.INC,INC,52462,45.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-183,west-bengal,1991,183,SINGUR,SUNIL KUMAR DUTTA,parties.IN.BJP,BJP,5485,4.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1233,7 +1233,7 @@ IN-AC-1976-west-bengal-184,west-bengal,1991,184,HARIPAL,KALI KRASAD BISWAS,parti
 IN-AC-1976-west-bengal-184,west-bengal,1991,184,HARIPAL,TUSAR SINHA ROY,parties.IN.INC,INC,44328,43.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-184,west-bengal,1991,184,HARIPAL,AJIT KUMAR SINGHA,parties.IN.BJP,BJP,4120,4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-184,west-bengal,1991,184,HARIPAL,CHITTA RANJAN BASU,parties.IN.WPI,WPI,2867,2.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-184,west-bengal,1991,184,HARIPAL,GHANTESWAR DAS,parties.IN.UNK,INC(O),226,0.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-184,west-bengal,1991,184,HARIPAL,GHANTESWAR DAS,parties.IN.INC_O,INC(O),226,0.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-185,west-bengal,1991,185,TARAKESWAR,SANTI CHATTERJEE,parties.IN.IND,IND,60018,57.52,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-185,west-bengal,1991,185,TARAKESWAR,BALAILAL SHETH,parties.IN.INC,INC,37462,35.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-185,west-bengal,1991,185,TARAKESWAR,ASHIM KUMAR PAUL,parties.IN.BJP,BJP,6513,6.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1289,7 +1289,7 @@ IN-AC-1976-west-bengal-195,west-bengal,1991,195,GOGHAT,NAYAN KUMAR MOLLICK,parti
 IN-AC-1976-west-bengal-196,west-bengal,1991,196,CHANDRAKONA,UMAPATI CHAKRABORTTY,parties.IN.CPIM,CPM,63978,56.78,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-196,west-bengal,1991,196,CHANDRAKONA,SATYA BOSAL,parties.IN.UCPI,UCPI,40806,36.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-196,west-bengal,1991,196,CHANDRAKONA,JAGAN NATH DUTTA,parties.IN.BJP,BJP,6590,5.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-196,west-bengal,1991,196,CHANDRAKONA,PANCHANON SIGNHA,parties.IN.UNK,INC(O),539,0.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-196,west-bengal,1991,196,CHANDRAKONA,PANCHANON SIGNHA,parties.IN.INC_O,INC(O),539,0.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-196,west-bengal,1991,196,CHANDRAKONA,BANGSHI BADAN BANK,parties.IN.IND,IND,458,0.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-196,west-bengal,1991,196,CHANDRAKONA,MOHIMA RANJAN SANTRA,parties.IN.IND,IND,312,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-197,west-bengal,1991,197,GHATAL,RATAN CHANDRA PAKHIRA,parties.IN.CPIM,CPM,58942,55.02,1,won,U,,,,incumbent,src-1b7bc1c9d39a
@@ -1398,7 +1398,7 @@ IN-AC-1976-west-bengal-216,west-bengal,1991,216,SABANG,GOURANGA SAMANTA,parties.
 IN-AC-1976-west-bengal-216,west-bengal,1991,216,SABANG,JANA NAGENDRA NATH,parties.IN.BJP,BJP,1028,0.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-216,west-bengal,1991,216,SABANG,BHUSAN CHANDRA MONDAL,parties.IN.IND,IND,577,0.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-216,west-bengal,1991,216,SABANG,TAPAS MAITY,parties.IN.AMB,AMB,97,0.09,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-217,west-bengal,1991,217,PINGLA,HARI PADA JANA,parties.IN.UNK,DSP(PC),51402,51.35,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-217,west-bengal,1991,217,PINGLA,HARI PADA JANA,parties.IN.DSP_P,DSP(PC),51402,51.35,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-217,west-bengal,1991,217,PINGLA,SAKTI PADA MAHAPATRA,parties.IN.INC,INC,40326,40.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-217,west-bengal,1991,217,PINGLA,MOTI LAL KHATUA,parties.IN.BJP,BJP,6717,6.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-217,west-bengal,1991,217,PINGLA,BHAKTI PADA DE,parties.IN.IND,IND,1197,1.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1877,11 +1877,11 @@ IN-AC-1976-west-bengal-291,west-bengal,1991,291,RAMPURHAT,NADIA BIHARI DAS,parti
 IN-AC-1976-west-bengal-291,west-bengal,1991,291,RAMPURHAT,BALRAM MONDAL,parties.IN.AMB,AMB,512,0.54,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-291,west-bengal,1991,291,RAMPURHAT,HOSSAIN REZA,parties.IN.IUML,MUL,295,0.31,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-291,west-bengal,1991,291,RAMPURHAT,PRASANNA KUMAR MONDAL,parties.IN.IND,IND,165,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-292,west-bengal,1991,292,HANSAN,TRILOCHON DAS,parties.IN.UNK,RCPI(RB),37878,42.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-292,west-bengal,1991,292,HANSAN,TRILOCHON DAS,parties.IN.RCPI_R,RCPI(RB),37878,42.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-292,west-bengal,1991,292,HANSAN,ASIT KUMAR MAL,parties.IN.INC,INC,31767,35.26,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-292,west-bengal,1991,292,HANSAN,SARBESWAR MONDAL,parties.IN.BJP,BJP,14599,16.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-292,west-bengal,1991,292,HANSAN,BAIDAY NATH MAL,parties.IN.IND,IND,3589,3.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-292,west-bengal,1991,292,HANSAN,UMA KANTA RAY,parties.IN.UNK,RCPI(GS),983,1.09,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-292,west-bengal,1991,292,HANSAN,UMA KANTA RAY,parties.IN.RCPI_GS,RCPI(GS),983,1.09,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-292,west-bengal,1991,292,HANSAN,RANAJIT MAL,parties.IN.AMB,AMB,527,0.59,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-292,west-bengal,1991,292,HANSAN,JITENDRA MONDAL,parties.IN.IND,IND,499,0.55,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-292,west-bengal,1991,292,HANSAN,DEBESH DAS,parties.IN.IUML,MUL,240,0.27,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a

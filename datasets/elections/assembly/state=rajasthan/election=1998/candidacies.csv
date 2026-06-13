@@ -52,7 +52,7 @@ IN-AC-1976-rajasthan-6,rajasthan,1998,6,GANGANAGAR,DR. BRIJ MOHAN,parties.IN.IND
 IN-AC-1976-rajasthan-6,rajasthan,1998,6,GANGANAGAR,GOVIND TANTIA,parties.IN.SHS,SHS,110,0.11,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-6,rajasthan,1998,6,GANGANAGAR,RAKESH,parties.IN.SP,SP,87,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-6,rajasthan,1998,6,GANGANAGAR,CHANANRAM,parties.IN.RJVP,RJVP,60,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-6,rajasthan,1998,6,GANGANAGAR,MADAN LAL,parties.IN.UNK,ABRC(D),44,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-6,rajasthan,1998,6,GANGANAGAR,MADAN LAL,parties.IN.ABRC_D,ABRC(D),44,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-7,rajasthan,1998,7,KESRISINGHPUR,HIRA LAL INDORA,parties.IN.INC,INC,35906,47.39,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-7,rajasthan,1998,7,KESRISINGHPUR,OM PRAKASH MAHENDRA,parties.IN.BJP,BJP,32472,42.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-7,rajasthan,1998,7,KESRISINGHPUR,SAHI RAM,parties.IN.CPIM,CPM,3971,5.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -159,7 +159,7 @@ IN-AC-1976-rajasthan-18,rajasthan,1998,18,RATANGARH,SHAYAM LAL,parties.IN.IND,IN
 IN-AC-1976-rajasthan-19,rajasthan,1998,19,SARDARSHAHAR,BHANWAR LAL SHARMA,parties.IN.INC,INC,71088,65.44,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-19,rajasthan,1998,19,SARDARSHAHAR,ASHOK KUMAR,parties.IN.BJP,BJP,33538,30.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-19,rajasthan,1998,19,SARDARSHAHAR,RAMESH POTALIA,parties.IN.CPIM,CPM,3812,3.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-19,rajasthan,1998,19,SARDARSHAHAR,HAR DAYAL,parties.IN.UNK,RVS,196,0.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-19,rajasthan,1998,19,SARDARSHAHAR,HAR DAYAL,parties.IN.RVS,RVS,196,0.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-20,rajasthan,1998,20,CHURU,RAJENDRA RATHORE,parties.IN.BJP,BJP,55257,52.56,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-20,rajasthan,1998,20,CHURU,ASHK ALI,parties.IN.INC,INC,48979,46.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-20,rajasthan,1998,20,CHURU,SATYANARAYAN,parties.IN.BSP,BSP,692,0.66,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -452,7 +452,7 @@ IN-AC-1976-rajasthan-56,rajasthan,1998,56,KOTPUTLI,RAM KARAN,parties.IN.IND,IND,
 IN-AC-1976-rajasthan-56,rajasthan,1998,56,KOTPUTLI,SUGAN CHAND,parties.IN.IND,IND,7884,7.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-56,rajasthan,1998,56,KOTPUTLI,GULLA RAM,parties.IN.IND,IND,1556,1.43,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-56,rajasthan,1998,56,KOTPUTLI,VED PRAKASH,parties.IN.IND,IND,1089,1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-56,rajasthan,1998,56,KOTPUTLI,RAJPAL,parties.IN.UNK,BKMP,912,0.84,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-56,rajasthan,1998,56,KOTPUTLI,RAJPAL,parties.IN.BKMP,BKMP,912,0.84,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-57,rajasthan,1998,57,BANSUR,JAGAT SINGH DAYAMA,parties.IN.BSP,BSP,30799,29.94,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-57,rajasthan,1998,57,BANSUR,ROHITASH KUMAR,parties.IN.BJP,BJP,30361,29.52,2,lost,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-57,rajasthan,1998,57,BANSUR,RAM SINGH YADAV,parties.IN.INC,INC,16982,16.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1364,7 +1364,7 @@ IN-AC-1976-rajasthan-187,rajasthan,1998,187,BILARA,SADDEEK,parties.IN.IND,IND,66
 IN-AC-1976-rajasthan-188,rajasthan,1998,188,BHOPALGARH,PARAS RAM MADERANA,parties.IN.INC,INC,57312,54.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-188,rajasthan,1998,188,BHOPALGARH,BHERA RAM CHOUDHARY,parties.IN.BJP,BJP,33566,32.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-188,rajasthan,1998,188,BHOPALGARH,MANA RAM,parties.IN.BSP,BSP,11622,11.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-188,rajasthan,1998,188,BHOPALGARH,SOHAN RAM,parties.IN.UNK,BKD(J),1645,1.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-188,rajasthan,1998,188,BHOPALGARH,SOHAN RAM,parties.IN.BKD_J,BKD(J),1645,1.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-188,rajasthan,1998,188,BHOPALGARH,FAGLOO RAM,parties.IN.IND,IND,415,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-189,rajasthan,1998,189,OSIAN,NARENDRA SINGH BHATI,parties.IN.INC,INC,43947,51.02,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-189,rajasthan,1998,189,OSIAN,RAGHVENDRA PRATAP SINGH,parties.IN.BJP,BJP,25189,29.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a

@@ -1,0 +1,11 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-PC-1962-madhya-pradesh-13,madhya-pradesh,1963,13,BILASPUR,C.SINGH,parties.IN.INC,INC,86229,61.42,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1962-madhya-pradesh-13,madhya-pradesh,1963,13,BILASPUR,M.L.SHUKLA,parties.IN.JS,JS,54156,38.58,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1962-maharashtra-22,maharashtra,1963,22,NASIK,Y.B.R.CHAVAN,parties.IN.INC,INC,0,,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1962-west-bengal-1,west-bengal,1963,1,COOCH,P.C.BARMAN,parties.IN.INC,INC,122205,53.91,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1962-west-bengal-1,west-bengal,1963,1,COOCH,B.K.DASCHOUDHURY,parties.IN.AIFB,FB,62611,27.62,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1962-west-bengal-1,west-bengal,1963,1,COOCH,D.N.BARMA,parties.IN.IND,IND,23248,10.26,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1962-west-bengal-1,west-bengal,1963,1,COOCH,D.C.DAKUA,parties.IN.CPI,CPI,17760,7.83,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1962-west-bengal-1,west-bengal,1963,1,COOCH,A.K.BARMASOUDH,parties.IN.IND,IND,868,0.38,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1962-west-bengal-34,west-bengal,1963,34,BURDWAN,N.C.CHATTERJEE,parties.IN.IND,IND,109877,52.67,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1962-west-bengal-34,west-bengal,1963,34,BURDWAN,N.C.CHOUDHRY,parties.IN.INC,INC,98734,47.33,2,lost,U,,,,challenger,src-31c65dbec869

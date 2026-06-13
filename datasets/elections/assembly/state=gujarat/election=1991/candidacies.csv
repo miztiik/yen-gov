@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-1976-gujarat-25,gujarat,1991,25,JAMNAGAR,K.P.VISHANDAS,parties.IN.BJP,BJP,29764,58.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-25,gujarat,1991,25,JAMNAGAR,H.VIRAMGAMI,parties.IN.UNK,JD(G),16843,32.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-25,gujarat,1991,25,JAMNAGAR,H.VIRAMGAMI,parties.IN.JD_G,JD(G),16843,32.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-gujarat-25,gujarat,1991,25,JAMNAGAR,J.TANNA,parties.IN.IND,IND,2390,4.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-gujarat-25,gujarat,1991,25,JAMNAGAR,U.M.MAKWANA,parties.IN.JD,JD,1379,2.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-gujarat-25,gujarat,1991,25,JAMNAGAR,A.PATEL,parties.IN.JP,JP,216,0.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

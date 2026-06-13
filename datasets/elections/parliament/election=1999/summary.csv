@@ -53,7 +53,7 @@ IN-PC-1976-assam-14,assam,1999,LAKHIMPUR,1060744,743823,70.12,Ranee Narah,partie
 IN-PC-1976-assam-2,assam,1999,SILCHAR,827760,592867,71.62,Sontosh Mohan Dev,parties.IN.INC,INC,329256,55.54,Kabindra Purkayastha,parties.IN.BJP,BJP,221504,107752,18.18,src-31c65dbec869
 IN-PC-1976-assam-3,assam,1999,AUTONOMOUS DISTRICT,535818,386800,72.19,Dr Jayanta Rongpi,parties.IN.CPIMLL,CPI(ML)(L),208789,53.98,Biren Singh Engti,parties.IN.INC,INC,148914,59875,15.48,src-31c65dbec869
 IN-PC-1976-assam-4,assam,1999,DHUBRI,1050547,809069,77.01,Abdul Hamid,parties.IN.INC,INC,279812,34.58,Dr Pannalal Oswal,parties.IN.BJP,BJP,258472,21340,2.63,src-31c65dbec869
-IN-PC-1976-assam-5,assam,1999,KOKRAJHAR,1168480,890015,76.17,Sansuma Khunggur Bwismuthiary,parties.IN.IND,IND,334367,37.57,Theodore Kisku Rapaz,parties.IN.UNK,URMCA,246942,87425,9.82,src-31c65dbec869
+IN-PC-1976-assam-5,assam,1999,KOKRAJHAR,1168480,890015,76.17,Sansuma Khunggur Bwismuthiary,parties.IN.IND,IND,334367,37.57,Theodore Kisku Rapaz,parties.IN.URMCA,URMCA,246942,87425,9.82,src-31c65dbec869
 IN-PC-1976-assam-6,assam,1999,BARPETA,1023625,754333,73.69,A F Golam Osmani,parties.IN.INC,INC,325838,43.2,Ramani Kanta Deka,parties.IN.BJP,BJP,236476,89362,11.85,src-31c65dbec869
 IN-PC-1976-assam-7,assam,1999,GAUHATI,1354869,837428,61.81,Bijoya Chakravarty,parties.IN.BJP,BJP,384771,45.95,Bhubaneswar Kalita,parties.IN.INC,INC,309533,75238,8.99,src-31c65dbec869
 IN-PC-1976-assam-8,assam,1999,MANGALDOI,1180131,832398,70.53,Madhab Rajbangshi,parties.IN.INC,INC,283749,34.09,Munindra Singha Lahkar,parties.IN.BJP,BJP,267315,16434,1.98,src-31c65dbec869
@@ -160,7 +160,7 @@ IN-PC-1976-haryana-6,haryana,1999,FARIDABAD,1330157,745484,56.04,Ram Chander Bai
 IN-PC-1976-haryana-7,haryana,1999,MAHENDRAGARH,1236918,744706,60.21,Dr. Sudha Yadav,parties.IN.BJP,BJP,420706,56.49,Inderjit Singh,parties.IN.INC,INC,281566,139140,18.68,src-31c65dbec869
 IN-PC-1976-haryana-8,haryana,1999,BHIWANI,1053603,733042,69.57,Ajay Singh Chautala,parties.IN.INLD,INLD,381255,52.01,Dharambir,parties.IN.INC,INC,177849,203406,27.75,src-31c65dbec869
 IN-PC-1976-haryana-9,haryana,1999,HISSAR,1025344,639302,62.35,Surender Singh Barwala,parties.IN.INLD,INLD,396540,62.03,Birender Singh,parties.IN.INC,INC,236088,160452,25.1,src-31c65dbec869
-IN-PC-1976-himachal-pradesh-1,himachal-pradesh,1999,SIMLA,945063,500164,52.92,Lt. Col. Dhani Ram Shandil,parties.IN.UNK,HVC,264002,52.78,Gangu Ram Musafir,parties.IN.INC,INC,217072,46930,9.38,src-31c65dbec869
+IN-PC-1976-himachal-pradesh-1,himachal-pradesh,1999,SIMLA,945063,500164,52.92,Lt. Col. Dhani Ram Shandil,parties.IN.HVC,HVC,264002,52.78,Gangu Ram Musafir,parties.IN.INC,INC,217072,46930,9.38,src-31c65dbec869
 IN-PC-1976-himachal-pradesh-2,himachal-pradesh,1999,MANDI,968826,525240,54.21,Maheshwar Singh,parties.IN.BJP,BJP,325929,62.05,Kaul Singh,parties.IN.INC,INC,194904,131025,24.94,src-31c65dbec869
 IN-PC-1976-himachal-pradesh-3,himachal-pradesh,1999,KANGRA,935090,552860,59.12,Shanta Kumar,parties.IN.BJP,BJP,325066,58.8,Sat Mahajan,parties.IN.INC,INC,224324,100742,18.22,src-31c65dbec869
 IN-PC-1976-himachal-pradesh-4,himachal-pradesh,1999,HAMIRPUR,937500,555440,59.25,Suresh Chandel,parties.IN.BJP,BJP,336172,60.52,Thakur Ram Lal,parties.IN.INC,INC,206925,129247,23.27,src-31c65dbec869
@@ -343,7 +343,7 @@ IN-PC-1976-punjab-13,punjab,1999,FEROZEPUR,1214129,750100,61.78,Zora Singh,parti
 IN-PC-1976-punjab-2,punjab,1999,AMRITSAR,1244316,589600,47.38,Raghunandan Lal  Bhatia,parties.IN.INC,INC,296533,50.29,Daya Singh Sodhi,parties.IN.BJP,BJP,264534,31999,5.42,src-31c65dbec869
 IN-PC-1976-punjab-3,punjab,1999,TARN TARAN,1101496,594675,53.99,Tarlochan Singh  Tur,parties.IN.SAD,SAD,305899,51.44,Gurinder Partap Singh Kairon,parties.IN.INC,INC,230282,75617,12.72,src-31c65dbec869
 IN-PC-1976-punjab-4,punjab,1999,JULLUNDUR,1142090,562889,49.29,Balbir Singh,parties.IN.INC,INC,267209,47.47,Prabhjot  Kaur,parties.IN.SAD,SAD,232643,34566,6.14,src-31c65dbec869
-IN-PC-1976-punjab-5,punjab,1999,PHILLAUR,1144089,613664,53.64,Santosh  Chowdhary,parties.IN.INC,INC,263540,42.95,Satnam Singh  Kainth,parties.IN.UNK,DBSM,236962,26578,4.34,src-31c65dbec869
+IN-PC-1976-punjab-5,punjab,1999,PHILLAUR,1144089,613664,53.64,Santosh  Chowdhary,parties.IN.INC,INC,263540,42.95,Satnam Singh  Kainth,parties.IN.DBSM,DBSM,236962,26578,4.34,src-31c65dbec869
 IN-PC-1976-punjab-6,punjab,1999,HOSHIARPUR,1112971,580260,52.14,Charanjit Singh Channi,parties.IN.INC,INC,256211,44.15,Kamal Chaudhry,parties.IN.BJP,BJP,222005,34206,5.89,src-31c65dbec869
 IN-PC-1976-punjab-7,punjab,1999,ROPAR,1266744,711537,56.17,Shamsher Singh,parties.IN.INC,INC,326651,45.91,Satwinder Kaur,parties.IN.SAD,SAD,249270,77381,10.88,src-31c65dbec869
 IN-PC-1976-punjab-8,punjab,1999,PATIALA,1310354,781794,59.66,Preneet Kaur,parties.IN.INC,INC,360125,46.06,Surjit Singh Rakhra,parties.IN.SAD,SAD,281217,78908,10.09,src-31c65dbec869
@@ -381,7 +381,7 @@ IN-PC-1976-tamil-nadu-12,tamil-nadu,1999,CHIDAMBARAM,1110229,724305,65.24,"Ponnu
 IN-PC-1976-tamil-nadu-13,tamil-nadu,1999,DHARMAPURI,1226879,715771,58.34,"Elangovan, P.D.",parties.IN.PMK,PMK,340162,47.52,"Munusamy, K.P.",parties.IN.AIADMK,ADMK,314622,25540,3.56,src-31c65dbec869
 IN-PC-1976-tamil-nadu-14,tamil-nadu,1999,KRISHNAGIRI,1163690,681212,58.54,"Vetriselvan, V.",parties.IN.DMK,DMK,347737,51.05,"Thambidurai, M.",parties.IN.AIADMK,ADMK,315913,31824,4.67,src-31c65dbec869
 IN-PC-1976-tamil-nadu-15,tamil-nadu,1999,RASIPURAM,1161452,629001,54.16,"Saroja, V. Dr.",parties.IN.AIADMK,ADMK,304843,48.46,"Uthayarasu, S.",parties.IN.PMK,PMK,266438,38405,6.1,src-31c65dbec869
-IN-PC-1976-tamil-nadu-16,tamil-nadu,1999,SALEM,1257383,731277,58.16,"Selvaganapathi, T.M.",parties.IN.AIADMK,ADMK,363689,49.73,"Ramamurthy, K.",parties.IN.UNK,TRC,338278,25411,3.47,src-31c65dbec869
+IN-PC-1976-tamil-nadu-16,tamil-nadu,1999,SALEM,1257383,731277,58.16,"Selvaganapathi, T.M.",parties.IN.AIADMK,ADMK,363689,49.73,"Ramamurthy, K.",parties.IN.TRC,TRC,338278,25411,3.47,src-31c65dbec869
 IN-PC-1976-tamil-nadu-17,tamil-nadu,1999,TIRUCHENGODE,1527064,834015,54.62,"Kannappan, M.",parties.IN.MDMK,MDMK,409293,49.08,"Palanisamy, K.",parties.IN.AIADMK,ADMK,404737,4556,0.55,src-31c65dbec869
 IN-PC-1976-tamil-nadu-18,tamil-nadu,1999,NILGIRIS,1348475,729000,54.06,"Mathan, M. (Alias) Master Mathan, M.",parties.IN.BJP,BJP,369828,50.73,"Prabhu, R.",parties.IN.INC,INC,345869,23959,3.29,src-31c65dbec869
 IN-PC-1976-tamil-nadu-19,tamil-nadu,1999,GOBICHETTIPALAYAM,1066362,626188,58.72,"Kaliappan, K.K.",parties.IN.AIADMK,ADMK,299184,47.78,"Arjun, K.G.S.",parties.IN.DMK,DMK,269172,30012,4.79,src-31c65dbec869

@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-sikkim-7,sikkim,1980,CHAKUNG,3509,2315,65.97,C.B.RAI,parties.IN.UNK,SCR,1152,49.76,S.K.RAI,parties.IN.SJP,SJP,861,291,12.57,src-1b7bc1c9d39a
+IN-AC-1976-sikkim-7,sikkim,1980,CHAKUNG,3509,2315,65.97,C.B.RAI,parties.IN.SCR,SCR,1152,49.76,S.K.RAI,parties.IN.SJP,SJP,861,291,12.57,src-1b7bc1c9d39a

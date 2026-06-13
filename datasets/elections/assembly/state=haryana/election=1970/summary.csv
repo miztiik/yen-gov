@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1967-haryana-29,haryana,1970,JULANA,52879,42559,80.48,D.SINGH,parties.IN.UNK,NCN,23592,55.43,F.SINGH,parties.IN.UNK,NCJ,17764,5828,13.69,src-1b7bc1c9d39a
-IN-AC-1967-haryana-45,haryana,1970,BAHADURGARH,65380,43154,66,H.LAL,parties.IN.UNK,NCN,22426,51.97,K.SINGH,parties.IN.UNK,NCJ,17760,4666,10.82,src-1b7bc1c9d39a
+IN-AC-1967-haryana-29,haryana,1970,JULANA,52879,42559,80.48,D.SINGH,parties.IN.NCN,NCN,23592,55.43,F.SINGH,parties.IN.UNK,NCJ,17764,5828,13.69,src-1b7bc1c9d39a
+IN-AC-1967-haryana-45,haryana,1970,BAHADURGARH,65380,43154,66,H.LAL,parties.IN.NCN,NCN,22426,51.97,K.SINGH,parties.IN.UNK,NCJ,17760,4666,10.82,src-1b7bc1c9d39a
 IN-AC-1967-haryana-48,haryana,1970,PALWAL,62675,43512,69.42,K.SINGH,parties.IN.UNK,NCJ,17695,40.67,R.NAND,parties.IN.IND,IND,9548,8147,18.73,src-1b7bc1c9d39a
 IN-AC-1967-haryana-63,haryana,1970,BADHRA,61044,40896,66.99,L.RANI,parties.IN.UNK,NCJ,19753,48.3,A.SINGH,parties.IN.IND,IND,11443,8310,20.32,src-1b7bc1c9d39a
 IN-AC-1967-haryana-81,haryana,1970,ELLENABAD,60442,44152,73.05,OM PRAKASH,parties.IN.UNK,NCJ,31024,70.27,P.RAJ,parties.IN.IND,IND,12278,18746,42.46,src-1b7bc1c9d39a

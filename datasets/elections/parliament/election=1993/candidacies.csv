@@ -1,5 +1,5 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-PC-1976-bihar-35,bihar,1993,35,PATNA,R.YADAV,parties.IN.UNK,JD(B),339563,53.44,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-35,bihar,1993,35,PATNA,R.YADAV,parties.IN.JD_B,JD(B),339563,53.44,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-35,bihar,1993,35,PATNA,S.N.SHRIVASTVA,parties.IN.BJP,BJP,179620,28.27,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-35,bihar,1993,35,PATNA,C.P.THAKUR,parties.IN.INC,INC,76241,12,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-35,bihar,1993,35,PATNA,R.N.YADAV,parties.IN.CPI,CPI,26238,4.13,4,forfeit,U,,,,challenger,src-31c65dbec869
@@ -16,7 +16,7 @@ IN-PC-1976-bihar-35,bihar,1993,35,PATNA,H.KRISHNA,parties.IN.IND,IND,358,0.06,14
 IN-PC-1976-bihar-35,bihar,1993,35,PATNA,C.H.PRASAD,parties.IN.IND,IND,356,0.06,15,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-35,bihar,1993,35,PATNA,S.S.YADAV,parties.IN.IND,IND,314,0.05,16,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-35,bihar,1993,35,PATNA,Y.PANDEY,parties.IN.IND,IND,301,0.05,17,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-35,bihar,1993,35,PATNA,V.ANAND,parties.IN.UNK,ABDM,289,0.05,18,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-35,bihar,1993,35,PATNA,V.ANAND,parties.IN.ABDM,ABDM,289,0.05,18,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-35,bihar,1993,35,PATNA,MR.AMIN,parties.IN.IND,IND,265,0.04,19,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-35,bihar,1993,35,PATNA,K.DEVI(W),parties.IN.IND,IND,255,0.04,20,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-35,bihar,1993,35,PATNA,R.KU.SHANDILYA,parties.IN.IND,IND,254,0.04,21,forfeit,U,,,,challenger,src-31c65dbec869
@@ -68,7 +68,7 @@ IN-PC-1976-kerala-8,kerala,1993,8,OTTAPPALAM(SC),K.J.S.URF D.PAKAD,parties.IN.IN
 IN-PC-1976-kerala-8,kerala,1993,8,OTTAPPALAM(SC),V.PARAKKULOM,parties.IN.IND,IND,1264,0.19,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-kerala-8,kerala,1993,8,OTTAPPALAM(SC),R.THAMPI,parties.IN.BSP,BSP,1106,0.16,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-4,punjab,1993,4,JULUNDHAR,UMRAO SINGH,parties.IN.INC,INC,286923,49.76,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-punjab-4,punjab,1993,4,JULUNDHAR,K.S.WADALA,parties.IN.UNK,SAD(B),170939,29.65,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-punjab-4,punjab,1993,4,JULUNDHAR,K.S.WADALA,parties.IN.SAD_B,SAD(B),170939,29.65,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-4,punjab,1993,4,JULUNDHAR,H.LAKHA,parties.IN.BSP,BSP,52216,9.06,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-4,punjab,1993,4,JULUNDHAR,B.D.TONDON,parties.IN.BJP,BJP,27677,4.8,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-4,punjab,1993,4,JULUNDHAR,A.S.BAINS,parties.IN.SAD,SAD,18319,3.18,5,forfeit,U,,,,challenger,src-31c65dbec869

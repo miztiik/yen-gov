@@ -3,7 +3,7 @@ IN-AC-1976-haryana-1,haryana,1996,1,KALKA,CHANDER MOHAN,parties.IN.INC,INC,54929
 IN-AC-1976-haryana-1,haryana,1996,1,KALKA,SHAM LAL,parties.IN.BJP,BJP,34300,25.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-1,haryana,1996,1,KALKA,PARDEEP KUMAR,parties.IN.SAP,SAP,33714,25.14,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-1,haryana,1996,1,KALKA,KAUR SINGH,parties.IN.BSP,BSP,4901,3.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-1,haryana,1996,1,KALKA,RAJINDER SINGH,parties.IN.UNK,ARS,1739,1.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-1,haryana,1996,1,KALKA,RAJINDER SINGH,parties.IN.ARS,ARS,1739,1.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-1,haryana,1996,1,KALKA,KURRIA,parties.IN.IND,IND,1339,1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-1,haryana,1996,1,KALKA,BHARAT RAJ SINGH,parties.IN.JD,JD,629,0.47,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-1,haryana,1996,1,KALKA,DARA CHAND,parties.IN.IND,IND,533,0.4,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -17,7 +17,7 @@ IN-AC-1976-haryana-1,haryana,1996,1,KALKA,RAM GOPAL,parties.IN.IND,IND,139,0.1,1
 IN-AC-1976-haryana-1,haryana,1996,1,KALKA,SATYA NARAIN,parties.IN.IND,IND,108,0.08,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-1,haryana,1996,1,KALKA,SITA DEVI,parties.IN.IND,IND,102,0.08,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-1,haryana,1996,1,KALKA,ISHWAR SINGH,parties.IN.IND,IND,62,0.05,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-2,haryana,1996,2,NARAINGARH,RAJ KUMAR,parties.IN.UNK,HVP,22309,27.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-2,haryana,1996,2,NARAINGARH,RAJ KUMAR,parties.IN.HVP,HVP,22309,27.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-2,haryana,1996,2,NARAINGARH,MAN SINGH S/O PIRTHI CHAND,parties.IN.BSP,BSP,14262,17.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-2,haryana,1996,2,NARAINGARH,RAM SINGH,parties.IN.SAP,SAP,14015,17.11,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-2,haryana,1996,2,NARAINGARH,OM PARKASH,parties.IN.INC,INC,11059,13.5,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
@@ -111,7 +111,7 @@ IN-AC-1976-haryana-5,haryana,1996,5,YAMUNANAGAR,SITA DEVI,parties.IN.IND,IND,59,
 IN-AC-1976-haryana-5,haryana,1996,5,YAMUNANAGAR,RAM PARKASH,parties.IN.IND,IND,54,0.05,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-5,haryana,1996,5,YAMUNANAGAR,PRITAM SINGH,parties.IN.IND,IND,37,0.04,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-5,haryana,1996,5,YAMUNANAGAR,HARVEL SINGH,parties.IN.IND,IND,35,0.03,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-6,haryana,1996,6,JAGADHRI,SUBHASH CHAND,parties.IN.UNK,HVP,26709,29.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-6,haryana,1996,6,JAGADHRI,SUBHASH CHAND,parties.IN.HVP,HVP,26709,29.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-6,haryana,1996,6,JAGADHRI,BISHAN LAL SAINI,parties.IN.BSP,BSP,20074,22.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-6,haryana,1996,6,JAGADHRI,OM PARKASH SHARMA,parties.IN.INC,INC,14434,15.88,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-6,haryana,1996,6,JAGADHRI,RAJ KUMAR SAINI,parties.IN.SAP,SAP,13890,15.29,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
@@ -176,7 +176,7 @@ IN-AC-1976-haryana-9,haryana,1996,9,AMBALA CITY,ANIL SHARMA,parties.IN.ICS,ICS,8
 IN-AC-1976-haryana-9,haryana,1996,9,AMBALA CITY,JAGJIT SINGH MAHI,parties.IN.IND,IND,82,0.11,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-9,haryana,1996,9,AMBALA CITY,NARESH KUMAR SHARMA,parties.IN.SHS,SHS,73,0.1,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-10,haryana,1996,10,NAGGAL,NIRMAL SINGH,parties.IN.IND,IND,34822,38.43,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-haryana-10,haryana,1996,10,NAGGAL,JASBIR SINGH MALLAUR,parties.IN.UNK,HVP,15162,16.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-10,haryana,1996,10,NAGGAL,JASBIR SINGH MALLAUR,parties.IN.HVP,HVP,15162,16.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-10,haryana,1996,10,NAGGAL,JAGIR SINGH,parties.IN.SAP,SAP,14611,16.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-10,haryana,1996,10,NAGGAL,RAJPAL,parties.IN.BSP,BSP,12741,14.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-10,haryana,1996,10,NAGGAL,HARMOHINDER SINGH CHATHA,parties.IN.INC,INC,9518,10.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -204,12 +204,12 @@ IN-AC-1976-haryana-11,haryana,1996,11,INDRI,BHIM SEN,parties.IN.IND,IND,20930,21
 IN-AC-1976-haryana-11,haryana,1996,11,INDRI,DES RAJ,parties.IN.INC,INC,16698,17.25,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-11,haryana,1996,11,INDRI,DALBIR,parties.IN.BSP,BSP,15663,16.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-11,haryana,1996,11,INDRI,ANGREJ SINGH,parties.IN.SAP,SAP,14109,14.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-11,haryana,1996,11,INDRI,VED PAL,parties.IN.UNK,HVP,12773,13.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-11,haryana,1996,11,INDRI,VED PAL,parties.IN.HVP,HVP,12773,13.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-11,haryana,1996,11,INDRI,SURINDER SINGH,parties.IN.IND,IND,8994,9.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-11,haryana,1996,11,INDRI,LAXMAN SINGH,parties.IN.JD,JD,2188,2.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-11,haryana,1996,11,INDRI,JAI BHAGWAN,parties.IN.AIIC_T,AIIC(T),1332,1.38,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-11,haryana,1996,11,INDRI,ASHWANI KUMAR,parties.IN.JP,JP,398,0.41,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-11,haryana,1996,11,INDRI,SEWA RAM,parties.IN.UNK,BHJS,387,0.4,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-11,haryana,1996,11,INDRI,SEWA RAM,parties.IN.BHJS,BHJS,387,0.4,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-11,haryana,1996,11,INDRI,AMAR SINGH,parties.IN.IND,IND,380,0.39,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-11,haryana,1996,11,INDRI,RAVINDER KUMAR,parties.IN.IND,IND,330,0.34,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-11,haryana,1996,11,INDRI,PAWAN KUMAR,parties.IN.IND,IND,285,0.29,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -233,7 +233,7 @@ IN-AC-1976-haryana-11,haryana,1996,11,INDRI,JOGINDER SHARMA,parties.IN.IND,IND,6
 IN-AC-1976-haryana-12,haryana,1996,12,NILOKHERI,JAI SINGH,parties.IN.INC,INC,31536,36.02,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-12,haryana,1996,12,NILOKHERI,BAKSHISH SINGH,parties.IN.SAP,SAP,21954,25.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-12,haryana,1996,12,NILOKHERI,RAJINDER SINGH,parties.IN.IND,IND,12881,14.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-12,haryana,1996,12,NILOKHERI,CHANDA SINGH,parties.IN.UNK,HVP,8673,9.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-12,haryana,1996,12,NILOKHERI,CHANDA SINGH,parties.IN.HVP,HVP,8673,9.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-12,haryana,1996,12,NILOKHERI,AMARJIT,parties.IN.BSP,BSP,6146,7.02,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-12,haryana,1996,12,NILOKHERI,RATTAN LAL,parties.IN.IND,IND,2039,2.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-12,haryana,1996,12,NILOKHERI,SURENDAR,parties.IN.JD,JD,1065,1.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -285,7 +285,7 @@ IN-AC-1976-haryana-13,haryana,1996,13,KARNAL,INDER KUMAR,parties.IN.IND,IND,20,0
 IN-AC-1976-haryana-13,haryana,1996,13,KARNAL,AJAY KUMAR,parties.IN.IND,IND,19,0.02,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-14,haryana,1996,14,JUNDLA,NAFE SINGH,parties.IN.SAP,SAP,26722,34.54,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-14,haryana,1996,14,JUNDLA,RAJ KUMAR,parties.IN.INC,INC,15470,19.99,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-haryana-14,haryana,1996,14,JUNDLA,MANPHOOL SINGH,parties.IN.UNK,HVP,11750,15.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-14,haryana,1996,14,JUNDLA,MANPHOOL SINGH,parties.IN.HVP,HVP,11750,15.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-14,haryana,1996,14,JUNDLA,ISHWAR KAUR,parties.IN.BSP,BSP,6575,8.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-14,haryana,1996,14,JUNDLA,RAM SHARAN,parties.IN.IND,IND,6536,8.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-14,haryana,1996,14,JUNDLA,JAI PARKASH,parties.IN.JD,JD,2871,3.71,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -345,13 +345,13 @@ IN-AC-1976-haryana-15,haryana,1996,15,GHARAUNDA,SURAT SINGH,parties.IN.IND,IND,5
 IN-AC-1976-haryana-15,haryana,1996,15,GHARAUNDA,PRITHVI SINGH,parties.IN.IND,IND,42,0.05,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-15,haryana,1996,15,GHARAUNDA,SUKHBIR,parties.IN.IND,IND,31,0.04,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-16,haryana,1996,16,ASSANDH,KRISHAN LAL,parties.IN.SAP,SAP,28333,37.9,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-haryana-16,haryana,1996,16,ASSANDH,RAJINDER SINGH,parties.IN.UNK,HVP,25840,34.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-16,haryana,1996,16,ASSANDH,RAJINDER SINGH,parties.IN.HVP,HVP,25840,34.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-16,haryana,1996,16,ASSANDH,JAI KUMAR,parties.IN.INC,INC,9695,12.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-16,haryana,1996,16,ASSANDH,RAM KUMAR,parties.IN.BSP,BSP,3327,4.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-16,haryana,1996,16,ASSANDH,GEETA RAM,parties.IN.JD,JD,2492,3.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-16,haryana,1996,16,ASSANDH,VED PAL,parties.IN.IND,IND,2405,3.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-16,haryana,1996,16,ASSANDH,RAM DHARI,parties.IN.AIIC_T,AIIC(T),1283,1.72,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-16,haryana,1996,16,ASSANDH,DHARAM PAL,parties.IN.UNK,JHM,690,0.92,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-16,haryana,1996,16,ASSANDH,DHARAM PAL,parties.IN.JHM,JHM,690,0.92,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-16,haryana,1996,16,ASSANDH,SATYAWAN,parties.IN.IND,IND,180,0.24,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-16,haryana,1996,16,ASSANDH,SUNDER KUMAR,parties.IN.IND,IND,154,0.21,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-16,haryana,1996,16,ASSANDH,MOHENDER,parties.IN.IND,IND,109,0.15,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -365,7 +365,7 @@ IN-AC-1976-haryana-17,haryana,1996,17,PANIPAT,PARTAP SINGH,parties.IN.BSP,BSP,17
 IN-AC-1976-haryana-17,haryana,1996,17,PANIPAT,YASIM ALI,parties.IN.IND,IND,1024,0.88,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-17,haryana,1996,17,PANIPAT,NARAIN PARKASH,parties.IN.AIIC_T,AIIC(T),449,0.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-17,haryana,1996,17,PANIPAT,SANTOKH SINGH,parties.IN.CPIM,CPM,426,0.37,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-17,haryana,1996,17,PANIPAT,HARI SINGH,parties.IN.UNK,JHM,389,0.34,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-17,haryana,1996,17,PANIPAT,HARI SINGH,parties.IN.JHM,JHM,389,0.34,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-17,haryana,1996,17,PANIPAT,RAJ BALA,parties.IN.IND,IND,382,0.33,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-17,haryana,1996,17,PANIPAT,VIJAY KUMAR S/O HARI CHAND,parties.IN.IND,IND,294,0.25,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-17,haryana,1996,17,PANIPAT,ROHTASH,parties.IN.IND,IND,282,0.24,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -380,7 +380,7 @@ IN-AC-1976-haryana-17,haryana,1996,17,PANIPAT,AMAR SINGH JOHRI,parties.IN.IND,IN
 IN-AC-1976-haryana-17,haryana,1996,17,PANIPAT,HARBANS SINGH,parties.IN.IND,IND,36,0.03,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-17,haryana,1996,17,PANIPAT,DINESH KUMAR,parties.IN.IND,IND,34,0.03,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-17,haryana,1996,17,PANIPAT,SAHI RAM,parties.IN.IND,IND,29,0.03,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-18,haryana,1996,18,SAMBHALKA,KARTAR SINGH BHADANA,parties.IN.UNK,HVP,20103,23.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-18,haryana,1996,18,SAMBHALKA,KARTAR SINGH BHADANA,parties.IN.HVP,HVP,20103,23.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-18,haryana,1996,18,SAMBHALKA,PHOOL PATI,parties.IN.SAP,SAP,17723,20.31,2,lost,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-18,haryana,1996,18,SAMBHALKA,KATAR SINGH CHHOKAR,parties.IN.INC,INC,11693,13.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-18,haryana,1996,18,SAMBHALKA,HARI SINGH NALWA,parties.IN.IND,IND,9313,10.67,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
@@ -401,7 +401,7 @@ IN-AC-1976-haryana-18,haryana,1996,18,SAMBHALKA,RAM PAL,parties.IN.IND,IND,166,0
 IN-AC-1976-haryana-18,haryana,1996,18,SAMBHALKA,MOTI,parties.IN.IND,IND,105,0.12,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-18,haryana,1996,18,SAMBHALKA,RAM SINGH,parties.IN.IND,IND,97,0.11,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-18,haryana,1996,18,SAMBHALKA,RAM PHAL,parties.IN.IND,IND,69,0.08,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-19,haryana,1996,19,NAULTHA,BIJENDER,parties.IN.UNK,HVP,24790,31.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-19,haryana,1996,19,NAULTHA,BIJENDER,parties.IN.HVP,HVP,24790,31.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-19,haryana,1996,19,NAULTHA,SATBIR SINGH KADIAN,parties.IN.SAP,SAP,23667,29.82,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-19,haryana,1996,19,NAULTHA,SATBIR,parties.IN.INC,INC,12113,15.26,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-19,haryana,1996,19,NAULTHA,RAJ BALA,parties.IN.BSP,BSP,9938,12.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -438,7 +438,7 @@ IN-AC-1976-haryana-20,haryana,1996,20,SHAHABAD,SANTOKH SINGH,parties.IN.IND,IND,
 IN-AC-1976-haryana-20,haryana,1996,20,SHAHABAD,OM PARKASH,parties.IN.IND,IND,91,0.11,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-20,haryana,1996,20,SHAHABAD,JAGIR SINGH,parties.IN.IND,IND,82,0.1,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-20,haryana,1996,20,SHAHABAD,ANGREJ SINGH,parties.IN.IND,IND,75,0.09,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-20,haryana,1996,20,SHAHABAD,RAJINDER KUMAR KAWATRA,parties.IN.UNK,BKD(J),67,0.08,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-20,haryana,1996,20,SHAHABAD,RAJINDER KUMAR KAWATRA,parties.IN.BKD_J,BKD(J),67,0.08,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-21,haryana,1996,21,RADAUR,BANTA RAM,parties.IN.SAP,SAP,30765,36.85,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-21,haryana,1996,21,RADAUR,RAM SINGH,parties.IN.INC,INC,21184,25.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-21,haryana,1996,21,RADAUR,RATTAN LAL KATARIA,parties.IN.BJP,BJP,11700,14.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -463,7 +463,7 @@ IN-AC-1976-haryana-21,haryana,1996,21,RADAUR,AMI SINGH,parties.IN.IND,IND,78,0.0
 IN-AC-1976-haryana-21,haryana,1996,21,RADAUR,MEHAR CHAND,parties.IN.IND,IND,52,0.06,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-22,haryana,1996,22,THANESAR,ASHOK KUMAR,parties.IN.SAP,SAP,25175,25.57,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-22,haryana,1996,22,THANESAR,RAMESH KUMAR,parties.IN.IND,IND,20200,20.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-22,haryana,1996,22,THANESAR,SAHAB SINGH SAINI,parties.IN.UNK,HVP,17640,17.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-22,haryana,1996,22,THANESAR,SAHAB SINGH SAINI,parties.IN.HVP,HVP,17640,17.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-22,haryana,1996,22,THANESAR,PAWAN GARG,parties.IN.INC,INC,12626,12.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-22,haryana,1996,22,THANESAR,RAM PARKASH,parties.IN.AIIC_T,AIIC(T),11068,11.24,5,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-22,haryana,1996,22,THANESAR,SIRI PARKASH MISHRA,parties.IN.IND,IND,5248,5.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -477,14 +477,14 @@ IN-AC-1976-haryana-22,haryana,1996,22,THANESAR,SURESH KUMAR,parties.IN.IND,IND,1
 IN-AC-1976-haryana-22,haryana,1996,22,THANESAR,DARSHAN SINGH KHANNA,parties.IN.IND,IND,119,0.12,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-22,haryana,1996,22,THANESAR,VED PARKASH,parties.IN.IND,IND,119,0.12,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-22,haryana,1996,22,THANESAR,KRISHAN KUMAR KAUSHIK,parties.IN.IND,IND,109,0.11,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-22,haryana,1996,22,THANESAR,NIKKA RAM,parties.IN.UNK,BKD(J),107,0.11,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-22,haryana,1996,22,THANESAR,NIKKA RAM,parties.IN.BKD_J,BKD(J),107,0.11,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-22,haryana,1996,22,THANESAR,PAWAN KUMAR,parties.IN.IND,IND,89,0.09,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-22,haryana,1996,22,THANESAR,BIRKHA RAM SAINI,parties.IN.IND,IND,83,0.08,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-22,haryana,1996,22,THANESAR,HANS RAJ SHORGEER,parties.IN.IND,IND,44,0.04,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-23,haryana,1996,23,PEHOWA,JASVINDER SINGH SANDHU,parties.IN.SAP,SAP,35482,39.1,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-23,haryana,1996,23,PEHOWA,BALBIR SINGH SAINI,parties.IN.INC,INC,21887,24.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-23,haryana,1996,23,PEHOWA,GURINDERJEET SINGH NAT,parties.IN.IND,IND,12550,13.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-23,haryana,1996,23,PEHOWA,JASMER SINGH SHEOKAND,parties.IN.UNK,HVP,11657,12.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-23,haryana,1996,23,PEHOWA,JASMER SINGH SHEOKAND,parties.IN.HVP,HVP,11657,12.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-23,haryana,1996,23,PEHOWA,SATPAL KASHYAP,parties.IN.BSP,BSP,2226,2.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-23,haryana,1996,23,PEHOWA,SURESH,parties.IN.IND,IND,1439,1.59,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-23,haryana,1996,23,PEHOWA,GIAN SINGH S/O JOGINDER SINGH,parties.IN.AIIC_T,AIIC(T),998,1.1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -517,7 +517,7 @@ IN-AC-1976-haryana-23,haryana,1996,23,PEHOWA,HARNAM SINGH,parties.IN.IND,IND,30,
 IN-AC-1976-haryana-23,haryana,1996,23,PEHOWA,CHHAJJU RAM SAINI,parties.IN.IND,IND,29,0.03,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-24,haryana,1996,24,GUHLA,DILLU RAM,parties.IN.INC,INC,34385,35.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-24,haryana,1996,24,GUHLA,AMAR SINGH,parties.IN.SAP,SAP,31599,32.85,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-haryana-24,haryana,1996,24,GUHLA,ISHWAR SINGH,parties.IN.UNK,HVP,25894,26.92,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-24,haryana,1996,24,GUHLA,ISHWAR SINGH,parties.IN.HVP,HVP,25894,26.92,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-24,haryana,1996,24,GUHLA,BUTA RAM,parties.IN.BSP,BSP,835,0.87,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-24,haryana,1996,24,GUHLA,CHANDAN RAM,parties.IN.CPIM,CPM,793,0.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-24,haryana,1996,24,GUHLA,TEJ PAL,parties.IN.AIIC_T,AIIC(T),515,0.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -532,7 +532,7 @@ IN-AC-1976-haryana-24,haryana,1996,24,GUHLA,OM PARKASH S/O RAM CHAND,parties.IN.
 IN-AC-1976-haryana-24,haryana,1996,24,GUHLA,OM PARKASH S/O SEVA RAM,parties.IN.IND,IND,128,0.13,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-24,haryana,1996,24,GUHLA,JOGI RAM,parties.IN.IND,IND,47,0.05,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,CHARAN DASS,parties.IN.SAP,SAP,27384,33.65,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,ROSHAN LAL TIWARI,parties.IN.UNK,HVP,23145,28.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,ROSHAN LAL TIWARI,parties.IN.HVP,HVP,23145,28.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,SURINDER KUMAR,parties.IN.IND,IND,15330,18.84,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,RAJINDER KUMAR,parties.IN.INC,INC,9235,11.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,JASBIR,parties.IN.BSP,BSP,3535,4.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -541,8 +541,8 @@ IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,JAGDISH,parties.IN.IND,IND,331,0.4
 IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,ARUNA KUMARI,parties.IN.IND,IND,326,0.4,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,HARWESHWAR PAL,parties.IN.IND,IND,206,0.25,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,RAGHUBIR CHAND,parties.IN.IND,IND,187,0.23,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,OM PARKASH S/O RAM KISHAN,parties.IN.UNK,ARS,181,0.22,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,MANGE RAM,parties.IN.UNK,JHM,175,0.22,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,OM PARKASH S/O RAM KISHAN,parties.IN.ARS,ARS,181,0.22,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,MANGE RAM,parties.IN.JHM,JHM,175,0.22,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,OM PARKASH S/O BANARASI DASS,parties.IN.JD,JD,166,0.2,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,PYARE LAL,parties.IN.IND,IND,136,0.17,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,KRISHAN KUMAR,parties.IN.IND,IND,135,0.17,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -558,7 +558,7 @@ IN-AC-1976-haryana-25,haryana,1996,25,KAITHAL,BALWAN SINGH,parties.IN.IND,IND,19
 IN-AC-1976-haryana-26,haryana,1996,26,PUNDRI,NARENDRA SHARMA,parties.IN.IND,IND,21542,25.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-26,haryana,1996,26,PUNDRI,ISHWAR SINGH,parties.IN.INC,INC,20311,23.94,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-26,haryana,1996,26,PUNDRI,MAKKHAN SINGH,parties.IN.SAP,SAP,16323,19.24,3,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-haryana-26,haryana,1996,26,PUNDRI,KRISHAN KUMAR WALIA,parties.IN.UNK,HVP,15226,17.94,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-26,haryana,1996,26,PUNDRI,KRISHAN KUMAR WALIA,parties.IN.HVP,HVP,15226,17.94,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-26,haryana,1996,26,PUNDRI,BALDEV SINGH,parties.IN.BSP,BSP,7319,8.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-26,haryana,1996,26,PUNDRI,SHER SINGH,parties.IN.CPI,CPI,860,1.01,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-26,haryana,1996,26,PUNDRI,OM PARKASH,parties.IN.IND,IND,585,0.69,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -588,7 +588,7 @@ IN-AC-1976-haryana-26,haryana,1996,26,PUNDRI,MAM CHAND,parties.IN.IND,IND,16,0.0
 IN-AC-1976-haryana-26,haryana,1996,26,PUNDRI,ROSHNI W/O NANHA,parties.IN.IND,IND,15,0.02,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-26,haryana,1996,26,PUNDRI,PAWAN KUMAR,parties.IN.IND,IND,5,0.01,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-27,haryana,1996,27,PAI,RAM PAL,parties.IN.SAP,SAP,24291,31.6,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-haryana-27,haryana,1996,27,PAI,NAR SINGH,parties.IN.UNK,HVP,22016,28.64,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-haryana-27,haryana,1996,27,PAI,NAR SINGH,parties.IN.HVP,HVP,22016,28.64,2,lost,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-27,haryana,1996,27,PAI,TAJINDER PAL SINGH,parties.IN.INC,INC,14938,19.44,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-27,haryana,1996,27,PAI,RAM SINGH,parties.IN.BSP,BSP,9854,12.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-27,haryana,1996,27,PAI,GURCHARAN SINGH,parties.IN.AIIC_T,AIIC(T),4211,5.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -609,7 +609,7 @@ IN-AC-1976-haryana-27,haryana,1996,27,PAI,RANDHIR SINGH,parties.IN.IND,IND,34,0.
 IN-AC-1976-haryana-27,haryana,1996,27,PAI,SURJEET,parties.IN.IND,IND,33,0.04,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-28,haryana,1996,28,HASSANGARH,BALWANT SINGH,parties.IN.SAP,SAP,20454,34.75,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-28,haryana,1996,28,HASSANGARH,VEERENDRA KUMAR,parties.IN.AIIC_T,AIIC(T),15108,25.67,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-haryana-28,haryana,1996,28,HASSANGARH,BASANTI DEVI,parties.IN.UNK,HVP,10200,17.33,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-28,haryana,1996,28,HASSANGARH,BASANTI DEVI,parties.IN.HVP,HVP,10200,17.33,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-28,haryana,1996,28,HASSANGARH,RAMBHAJ,parties.IN.INC,INC,8129,13.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-28,haryana,1996,28,HASSANGARH,RAJENDRA,parties.IN.IND,IND,2097,3.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-28,haryana,1996,28,HASSANGARH,RANBIR,parties.IN.IND,IND,974,1.65,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -622,7 +622,7 @@ IN-AC-1976-haryana-28,haryana,1996,28,HASSANGARH,RAJ SINGH S/O DARIYAV SINGH,par
 IN-AC-1976-haryana-28,haryana,1996,28,HASSANGARH,TIKARAM,parties.IN.IND,IND,37,0.06,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-28,haryana,1996,28,HASSANGARH,HOSHIYAAR SINGH,parties.IN.IND,IND,15,0.03,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-29,haryana,1996,29,KILOI,SHRI KRISHAN,parties.IN.SAP,SAP,27884,40.37,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-haryana-29,haryana,1996,29,KILOI,RAM PHOOL,parties.IN.UNK,HVP,19719,28.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-29,haryana,1996,29,KILOI,RAM PHOOL,parties.IN.HVP,HVP,19719,28.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-29,haryana,1996,29,KILOI,KRISHAN MURTI,parties.IN.INC,INC,16846,24.39,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-29,haryana,1996,29,KILOI,DULI CHAND,parties.IN.BSP,BSP,1134,1.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-29,haryana,1996,29,KILOI,RATTAN,parties.IN.IND,IND,914,1.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -646,7 +646,7 @@ IN-AC-1976-haryana-29,haryana,1996,29,KILOI,BALDEV SINGH,parties.IN.IND,IND,29,0
 IN-AC-1976-haryana-29,haryana,1996,29,KILOI,OM KANWAR,parties.IN.IND,IND,28,0.04,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-29,haryana,1996,29,KILOI,RAM KUMARI,parties.IN.IND,IND,23,0.03,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-29,haryana,1996,29,KILOI,BALRAJ SINGH,parties.IN.IND,IND,15,0.02,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-30,haryana,1996,30,ROHTAK,SHRI KISHAN DASS,parties.IN.UNK,HVP,56863,64.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-30,haryana,1996,30,ROHTAK,SHRI KISHAN DASS,parties.IN.HVP,HVP,56863,64.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-30,haryana,1996,30,ROHTAK,SUBHASH BATRA,parties.IN.INC,INC,24045,27.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-30,haryana,1996,30,ROHTAK,GULSHAN RAI,parties.IN.IND,IND,1903,2.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-30,haryana,1996,30,ROHTAK,SATYA NARAIN DHANVANTRI,parties.IN.SAP,SAP,1716,1.96,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -683,7 +683,7 @@ IN-AC-1976-haryana-30,haryana,1996,30,ROHTAK,KAPTAN,parties.IN.IND,IND,13,0.01,3
 IN-AC-1976-haryana-30,haryana,1996,30,ROHTAK,SATISH KUMAR S/O SHAM LAL,parties.IN.IND,IND,5,0.01,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-31,haryana,1996,31,MEHAM,BALBIR,parties.IN.SAP,SAP,24210,32.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-31,haryana,1996,31,MEHAM,ANAND SINGH,parties.IN.INC,INC,23953,31.89,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-haryana-31,haryana,1996,31,MEHAM,SARUP SINGH,parties.IN.UNK,HVP,20382,27.14,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-haryana-31,haryana,1996,31,MEHAM,SARUP SINGH,parties.IN.HVP,HVP,20382,27.14,3,lost,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-31,haryana,1996,31,MEHAM,DEEPAK,parties.IN.BSP,BSP,2244,2.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-31,haryana,1996,31,MEHAM,BALRAJ,parties.IN.IND,IND,2163,2.88,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-31,haryana,1996,31,MEHAM,NAFE SINGH,parties.IN.IND,IND,342,0.46,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -727,7 +727,7 @@ IN-AC-1976-haryana-32,haryana,1996,32,KALANAUR,SURESH KUMAR,parties.IN.IND,IND,3
 IN-AC-1976-haryana-32,haryana,1996,32,KALANAUR,LAKHMI CHAND,parties.IN.IND,IND,25,0.04,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-33,haryana,1996,33,BERI,VIRENDER PAL,parties.IN.SAP,SAP,20522,30.2,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-33,haryana,1996,33,BERI,RAGHBIR SINGH,parties.IN.INC,INC,16435,24.19,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-haryana-33,haryana,1996,33,BERI,OM PRAKASH BERI,parties.IN.UNK,HVP,16061,23.64,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-33,haryana,1996,33,BERI,OM PRAKASH BERI,parties.IN.HVP,HVP,16061,23.64,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-33,haryana,1996,33,BERI,SURENDER,parties.IN.IND,IND,6676,9.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-33,haryana,1996,33,BERI,ANAND PRAKASH,parties.IN.SP,SP,2734,4.02,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-33,haryana,1996,33,BERI,USHA,parties.IN.IND,IND,2019,2.97,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -750,7 +750,7 @@ IN-AC-1976-haryana-33,haryana,1996,33,BERI,RAJENDER,parties.IN.IND,IND,43,0.06,2
 IN-AC-1976-haryana-33,haryana,1996,33,BERI,DHARAMBBIR S/O RAMANAND,parties.IN.IND,IND,43,0.06,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-33,haryana,1996,33,BERI,RISHI PRAKASH,parties.IN.IND,IND,36,0.05,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-33,haryana,1996,33,BERI,BRAHMANAND,parties.IN.IND,IND,24,0.04,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,DHARMAVIR,parties.IN.UNK,HVP,27840,41.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,DHARMAVIR,parties.IN.HVP,HVP,27840,41.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,SURAJ BHAN S/O CHANDRAM,parties.IN.INC,INC,11517,17.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,AMAR SINGH,parties.IN.IND,IND,8176,12.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,RAJPAL,parties.IN.SAP,SAP,6838,10.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -763,7 +763,7 @@ IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,GHISA RAM,parties.IN.IND,IND,399,
 IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,KAMLESH,parties.IN.IND,IND,356,0.53,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,ZILE SINGH,parties.IN.SHS,SHS,331,0.49,12,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,GANGA RAM,parties.IN.IND,IND,328,0.49,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,SATBIR,parties.IN.UNK,JHM,314,0.47,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,SATBIR,parties.IN.JHM,JHM,314,0.47,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,JANAK SINGH,parties.IN.IND,IND,197,0.29,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,VINOD,parties.IN.IND,IND,180,0.27,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,JAIPAL,parties.IN.IND,IND,155,0.23,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -780,7 +780,7 @@ IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,KRISHAN SINGH,parties.IN.IND,IND,
 IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,JAGAT SINGH JAKHAR,parties.IN.IND,IND,33,0.05,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,BRIJ MOHAN,parties.IN.IND,IND,27,0.04,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-34,haryana,1996,34,SALHAWAS,RATTAN SINGH,parties.IN.IND,IND,25,0.04,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-35,haryana,1996,35,JHAJJAR(SC),Kanta,parties.IN.UNK,HVP,45573,58.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-35,haryana,1996,35,JHAJJAR(SC),Kanta,parties.IN.HVP,HVP,45573,58.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-35,haryana,1996,35,JHAJJAR(SC),Shakuntla,parties.IN.SJP_R,SJP(R),19534,25.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-35,haryana,1996,35,JHAJJAR(SC),Kirpa Ram,parties.IN.INC,INC,11927,15.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-35,haryana,1996,35,JHAJJAR(SC),Pyare Lal,parties.IN.AIIC_T,AIIC(T),310,0.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -789,11 +789,11 @@ IN-AC-1976-haryana-35,haryana,1996,35,JHAJJAR(SC),Jai Singh,parties.IN.IND,IND,1
 IN-AC-1976-haryana-35,haryana,1996,35,JHAJJAR(SC),Dhanjay Kumar,parties.IN.IND,IND,85,0.11,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-35,haryana,1996,35,JHAJJAR(SC),Niranjan,parties.IN.IND,IND,47,0.06,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-36,haryana,1996,36,BADLI,DHIR PAL SINGH,parties.IN.SAP,SAP,23305,35.01,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-haryana-36,haryana,1996,36,BADLI,MANPHOOL SINGH,parties.IN.UNK,HVP,17743,26.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-36,haryana,1996,36,BADLI,MANPHOOL SINGH,parties.IN.HVP,HVP,17743,26.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-36,haryana,1996,36,BADLI,ISHWAR SINGH,parties.IN.INC,INC,13450,20.21,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-36,haryana,1996,36,BADLI,SATVIR,parties.IN.IND,IND,4309,6.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-36,haryana,1996,36,BADLI,SOMVIR,parties.IN.AIIC_T,AIIC(T),3666,5.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-36,haryana,1996,36,BADLI,DAYA SAGAR,parties.IN.UNK,JHM,2626,3.95,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-36,haryana,1996,36,BADLI,DAYA SAGAR,parties.IN.JHM,JHM,2626,3.95,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-36,haryana,1996,36,BADLI,SANJAY KUMAR,parties.IN.JP,JP,340,0.51,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-36,haryana,1996,36,BADLI,RAJ SINGH,parties.IN.SHS,SHS,241,0.36,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-36,haryana,1996,36,BADLI,ANITA,parties.IN.IND,IND,185,0.28,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -810,12 +810,12 @@ IN-AC-1976-haryana-36,haryana,1996,36,BADLI,CHAND RAM,parties.IN.IND,IND,28,0.04
 IN-AC-1976-haryana-36,haryana,1996,36,BADLI,HARI CHANDER,parties.IN.IND,IND,26,0.04,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-36,haryana,1996,36,BADLI,RAM KANWAR,parties.IN.IND,IND,19,0.03,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-37,haryana,1996,37,BAHADURGARH,NAFE SINGH S/O UMRAO SINGH,parties.IN.SAP,SAP,27555,33.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-37,haryana,1996,37,BAHADURGARH,RAJ PAL,parties.IN.UNK,HVP,26657,32.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-37,haryana,1996,37,BAHADURGARH,RAJ PAL,parties.IN.HVP,HVP,26657,32.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-37,haryana,1996,37,BAHADURGARH,SURAJ MAL,parties.IN.INC,INC,13700,16.79,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-37,haryana,1996,37,BAHADURGARH,BIKANU,parties.IN.IND,IND,4301,5.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-37,haryana,1996,37,BAHADURGARH,KARAN SINGH,parties.IN.IND,IND,3053,3.74,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-37,haryana,1996,37,BAHADURGARH,MAHINDER S/O SIS RAM,parties.IN.JP,JP,3012,3.69,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-37,haryana,1996,37,BAHADURGARH,BHAGWAN DASS,parties.IN.UNK,JHM,1305,1.6,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-37,haryana,1996,37,BAHADURGARH,BHAGWAN DASS,parties.IN.JHM,JHM,1305,1.6,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-37,haryana,1996,37,BAHADURGARH,NARESH,parties.IN.IND,IND,447,0.55,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-37,haryana,1996,37,BAHADURGARH,NAFE SINGH S/O SHUJHA CHAND,parties.IN.SP,SP,274,0.34,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-37,haryana,1996,37,BAHADURGARH,PANNA LAL,parties.IN.AIIC_T,AIIC(T),208,0.25,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -830,17 +830,17 @@ IN-AC-1976-haryana-37,haryana,1996,37,BAHADURGARH,BHAGAT SINGH,parties.IN.IND,IN
 IN-AC-1976-haryana-37,haryana,1996,37,BAHADURGARH,MEHAR SINGH,parties.IN.IND,IND,81,0.1,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-37,haryana,1996,37,BAHADURGARH,VIJAY KUMAR,parties.IN.IND,IND,75,0.09,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-38,haryana,1996,38,BARODA,RAMESH KUMAR,parties.IN.SAP,SAP,28181,41.51,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-haryana-38,haryana,1996,38,BARODA,CHANDER BHAN,parties.IN.UNK,HVP,26197,38.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-38,haryana,1996,38,BARODA,CHANDER BHAN,parties.IN.HVP,HVP,26197,38.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-38,haryana,1996,38,BARODA,KAMLESH,parties.IN.IND,IND,4468,6.58,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-38,haryana,1996,38,BARODA,BHALLE RAM,parties.IN.INC,INC,3738,5.51,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-haryana-38,haryana,1996,38,BARODA,UPENDER,parties.IN.UNK,JHM,2111,3.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-38,haryana,1996,38,BARODA,UPENDER,parties.IN.JHM,JHM,2111,3.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-38,haryana,1996,38,BARODA,CHARAN SINGH,parties.IN.IND,IND,1530,2.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-38,haryana,1996,38,BARODA,KAPTAN,parties.IN.JP,JP,473,0.7,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-38,haryana,1996,38,BARODA,TARA CHAND S/O MAI DAYAL,parties.IN.IND,IND,454,0.67,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-38,haryana,1996,38,BARODA,SARITA,parties.IN.IND,IND,398,0.59,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-38,haryana,1996,38,BARODA,LAKHAMI CHAND,parties.IN.IND,IND,196,0.29,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-38,haryana,1996,38,BARODA,TARA CHAND S/O DESRAJ,parties.IN.IND,IND,142,0.21,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-39,haryana,1996,39,GOHANA,JAGBIR SINGH,parties.IN.UNK,HVP,22837,28.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-39,haryana,1996,39,GOHANA,JAGBIR SINGH,parties.IN.HVP,HVP,22837,28.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-39,haryana,1996,39,GOHANA,KISHAN SINGH,parties.IN.SAP,SAP,21965,27.77,2,lost,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-39,haryana,1996,39,GOHANA,RAM DHARI,parties.IN.INC,INC,17825,22.54,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-39,haryana,1996,39,GOHANA,KITAB SINGH,parties.IN.IND,IND,9666,12.22,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
@@ -871,14 +871,14 @@ IN-AC-1976-haryana-39,haryana,1996,39,GOHANA,PARTAP SINGH S/O DHARAM PAL SINGH,p
 IN-AC-1976-haryana-39,haryana,1996,39,GOHANA,DAYA NAND,parties.IN.IND,IND,47,0.06,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-39,haryana,1996,39,GOHANA,OM PARKASH,parties.IN.IND,IND,40,0.05,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-39,haryana,1996,39,GOHANA,SURAJ MAL,parties.IN.IND,IND,30,0.04,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-40,haryana,1996,40,KAILANA,RAMESH CHANDER,parties.IN.UNK,HVP,24390,30.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-40,haryana,1996,40,KAILANA,RAMESH CHANDER,parties.IN.HVP,HVP,24390,30.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-40,haryana,1996,40,KAILANA,VED SINGH,parties.IN.SAP,SAP,22724,28.38,2,lost,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-40,haryana,1996,40,KAILANA,JITENDER SINGH,parties.IN.IND,IND,18446,23.04,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-40,haryana,1996,40,KAILANA,VINOD,parties.IN.BSP,BSP,3147,3.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-40,haryana,1996,40,KAILANA,JAI BHAGWAN,parties.IN.IND,IND,2913,3.64,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-40,haryana,1996,40,KAILANA,SHANTI DEVI,parties.IN.INC,INC,2751,3.44,6,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-40,haryana,1996,40,KAILANA,AMARNATH,parties.IN.JD,JD,991,1.24,7,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-haryana-40,haryana,1996,40,KAILANA,NANHI,parties.IN.UNK,JHM,734,0.92,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-40,haryana,1996,40,KAILANA,NANHI,parties.IN.JHM,JHM,734,0.92,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-40,haryana,1996,40,KAILANA,RANBIR S/O RAM SARUP,parties.IN.IND,IND,714,0.89,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-40,haryana,1996,40,KAILANA,RAMESH KUMAR S/O RAMPAT,parties.IN.IND,IND,377,0.47,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-40,haryana,1996,40,KAILANA,KAILASH KUMAR,parties.IN.IND,IND,331,0.41,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -936,7 +936,7 @@ IN-AC-1976-haryana-41,haryana,1996,41,SONEPAT,RAJ SINGH,parties.IN.IND,IND,40,0.
 IN-AC-1976-haryana-41,haryana,1996,41,SONEPAT,RAMESH KUMAR,parties.IN.IND,IND,32,0.04,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-41,haryana,1996,41,SONEPAT,SHYAM LAL,parties.IN.IND,IND,22,0.02,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-42,haryana,1996,42,RAI,SURAJ MAL,parties.IN.SAP,SAP,23490,32.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-42,haryana,1996,42,RAI,MOHANDER,parties.IN.UNK,HVP,19512,26.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-42,haryana,1996,42,RAI,MOHANDER,parties.IN.HVP,HVP,19512,26.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-42,haryana,1996,42,RAI,MAHA SINGH,parties.IN.INC,INC,7332,10,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-42,haryana,1996,42,RAI,SHAM LAL,parties.IN.AIIC_T,AIIC(T),6654,9.08,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-42,haryana,1996,42,RAI,SHAMSHER,parties.IN.IND,IND,4924,6.72,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -954,7 +954,7 @@ IN-AC-1976-haryana-42,haryana,1996,42,RAI,ISHWAR,parties.IN.IND,IND,139,0.19,16,
 IN-AC-1976-haryana-42,haryana,1996,42,RAI,JAI PAL SINGH,parties.IN.IND,IND,89,0.12,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-42,haryana,1996,42,RAI,SUKHBIR,parties.IN.IND,IND,68,0.09,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-42,haryana,1996,42,RAI,SATYAWAN,parties.IN.IND,IND,39,0.05,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-43,haryana,1996,43,ROHAT,KRISHANA GAHLAWAT,parties.IN.UNK,HVP,23799,34.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-43,haryana,1996,43,ROHAT,KRISHANA GAHLAWAT,parties.IN.HVP,HVP,23799,34.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-43,haryana,1996,43,ROHAT,PADAM SINGH,parties.IN.SAP,SAP,21676,31.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-43,haryana,1996,43,ROHAT,SUKHBIR,parties.IN.IND,IND,10809,15.6,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-43,haryana,1996,43,ROHAT,RAMPAL DAHIYA,parties.IN.INC,INC,5878,8.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -981,7 +981,7 @@ IN-AC-1976-haryana-43,haryana,1996,43,ROHAT,NAROTTAM,parties.IN.IND,IND,42,0.06,
 IN-AC-1976-haryana-43,haryana,1996,43,ROHAT,MUKESH,parties.IN.SHS,SHS,42,0.06,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-43,haryana,1996,43,ROHAT,ROHTASH,parties.IN.IND,IND,40,0.06,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-43,haryana,1996,43,ROHAT,RAJ PAL S/O CHET RAM,parties.IN.IND,IND,34,0.05,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-44,haryana,1996,44,KALAYAT,RAM BHAJ,parties.IN.UNK,HVP,23351,36.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-44,haryana,1996,44,KALAYAT,RAM BHAJ,parties.IN.HVP,HVP,23351,36.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-44,haryana,1996,44,KALAYAT,DINA RAM,parties.IN.SAP,SAP,18233,28.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-44,haryana,1996,44,KALAYAT,JOGI RAM,parties.IN.INC,INC,8581,13.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-44,haryana,1996,44,KALAYAT,BAL DEV,parties.IN.AIIC_T,AIIC(T),7383,11.51,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
@@ -996,14 +996,14 @@ IN-AC-1976-haryana-44,haryana,1996,44,KALAYAT,JOGI RAM,parties.IN.IND,IND,127,0.
 IN-AC-1976-haryana-44,haryana,1996,44,KALAYAT,RAM KUMAR,parties.IN.IND,IND,102,0.16,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-44,haryana,1996,44,KALAYAT,SATYAWAN,parties.IN.IND,IND,71,0.11,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-45,haryana,1996,45,NARWANA,RANDEEP SINGH,parties.IN.INC,INC,28286,32.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-45,haryana,1996,45,NARWANA,JAI PARKASH,parties.IN.UNK,HVP,27437,31.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-45,haryana,1996,45,NARWANA,JAI PARKASH,parties.IN.HVP,HVP,27437,31.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-45,haryana,1996,45,NARWANA,OM PARKASH S/O DEVI LAL,parties.IN.SAP,SAP,25783,29.74,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-45,haryana,1996,45,NARWANA,OM PARKASH S/O KAPUR CHAND,parties.IN.BSP,BSP,1310,1.51,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-45,haryana,1996,45,NARWANA,ASHOK,parties.IN.IND,IND,694,0.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-45,haryana,1996,45,NARWANA,SUBE SINGH,parties.IN.IND,IND,439,0.51,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-45,haryana,1996,45,NARWANA,RANDHIR SINGH,parties.IN.IND,IND,436,0.5,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-45,haryana,1996,45,NARWANA,SAT PAL,parties.IN.IND,IND,269,0.31,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-45,haryana,1996,45,NARWANA,MANPHOOL,parties.IN.UNK,BHJS,216,0.25,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-45,haryana,1996,45,NARWANA,MANPHOOL,parties.IN.BHJS,BHJS,216,0.25,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-45,haryana,1996,45,NARWANA,RAMESH,parties.IN.IND,IND,212,0.24,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-45,haryana,1996,45,NARWANA,JAI SINGH,parties.IN.IND,IND,175,0.2,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-45,haryana,1996,45,NARWANA,KULBIR SINGH,parties.IN.IND,IND,115,0.13,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1032,7 +1032,7 @@ IN-AC-1976-haryana-45,haryana,1996,45,NARWANA,AMRIT LAL,parties.IN.IND,IND,18,0.
 IN-AC-1976-haryana-46,haryana,1996,46,UCHANA KALAN,BIRENDER SINGH,parties.IN.AIIC_T,AIIC(T),21755,28.18,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-46,haryana,1996,46,UCHANA KALAN,BHAG SINGH,parties.IN.SAP,SAP,17843,23.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-46,haryana,1996,46,UCHANA KALAN,DESH RAJ,parties.IN.INC,INC,17794,23.05,3,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-haryana-46,haryana,1996,46,UCHANA KALAN,JAGPHOOL SINGH,parties.IN.UNK,HVP,10841,14.04,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-haryana-46,haryana,1996,46,UCHANA KALAN,JAGPHOOL SINGH,parties.IN.HVP,HVP,10841,14.04,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-46,haryana,1996,46,UCHANA KALAN,ROSHANI,parties.IN.BSP,BSP,5743,7.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-46,haryana,1996,46,UCHANA KALAN,PREM SINGH,parties.IN.IND,IND,1040,1.35,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-46,haryana,1996,46,UCHANA KALAN,RAJINDER SINGH CHAHAL,parties.IN.IND,IND,503,0.65,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1056,10 +1056,10 @@ IN-AC-1976-haryana-47,haryana,1996,47,RAJOND,SATISH,parties.IN.IND,IND,1495,2.27
 IN-AC-1976-haryana-47,haryana,1996,47,RAJOND,RAM CHANDER,parties.IN.CPIM,CPM,938,1.42,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-47,haryana,1996,47,RAJOND,CHANDER BHAN,parties.IN.IND,IND,832,1.26,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-47,haryana,1996,47,RAJOND,SATBIR,parties.IN.IND,IND,577,0.87,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-47,haryana,1996,47,RAJOND,SURESH KUMAR,parties.IN.UNK,JHM,527,0.8,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-47,haryana,1996,47,RAJOND,SURESH KUMAR,parties.IN.JHM,JHM,527,0.8,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-47,haryana,1996,47,RAJOND,GULJAR SINGH,parties.IN.JD,JD,393,0.6,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-47,haryana,1996,47,RAJOND,PURAN CHAND,parties.IN.IND,IND,332,0.5,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-47,haryana,1996,47,RAJOND,RAM DHARI,parties.IN.UNK,ARS,274,0.42,13,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-haryana-47,haryana,1996,47,RAJOND,RAM DHARI,parties.IN.ARS,ARS,274,0.42,13,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-47,haryana,1996,47,RAJOND,RAM PHAL,parties.IN.JP,JP,229,0.35,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-47,haryana,1996,47,RAJOND,RADHE SHYAM,parties.IN.IND,IND,170,0.26,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-47,haryana,1996,47,RAJOND,DIWAN SINGH,parties.IN.IND,IND,166,0.25,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1081,14 +1081,14 @@ IN-AC-1976-haryana-47,haryana,1996,47,RAJOND,GOPI RAM,parties.IN.IND,IND,35,0.05
 IN-AC-1976-haryana-47,haryana,1996,47,RAJOND,SULTAN SINGH,parties.IN.IND,IND,31,0.05,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-47,haryana,1996,47,RAJOND,AZMER,parties.IN.IND,IND,30,0.05,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-47,haryana,1996,47,RAJOND,BHAGWAN DASS,parties.IN.IND,IND,25,0.04,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-48,haryana,1996,48,JIND,BRIJ MOHAN,parties.IN.UNK,HVP,40803,44.48,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-haryana-48,haryana,1996,48,JIND,BRIJ MOHAN,parties.IN.HVP,HVP,40803,44.48,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-48,haryana,1996,48,JIND,MANGE RAM,parties.IN.INC,INC,22245,24.25,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-48,haryana,1996,48,JIND,SHANKER DASS,parties.IN.SAP,SAP,15959,17.4,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-48,haryana,1996,48,JIND,JAI PARKASH,parties.IN.BSP,BSP,3888,4.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-48,haryana,1996,48,JIND,PARMA NAND,parties.IN.AIIC_T,AIIC(T),2570,2.8,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-48,haryana,1996,48,JIND,SURESH KUMAR S/O MAMAN RAM,parties.IN.IND,IND,933,1.02,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-48,haryana,1996,48,JIND,HARISH KUMAR,parties.IN.IND,IND,873,0.95,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-48,haryana,1996,48,JIND,RAM CHANDER,parties.IN.UNK,JHM,492,0.54,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-48,haryana,1996,48,JIND,RAM CHANDER,parties.IN.JHM,JHM,492,0.54,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-48,haryana,1996,48,JIND,RAMESH,parties.IN.CPIM,CPM,398,0.43,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-48,haryana,1996,48,JIND,GURDEEP,parties.IN.IND,IND,385,0.42,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-48,haryana,1996,48,JIND,PARTAP,parties.IN.IND,IND,361,0.39,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1127,7 +1127,7 @@ IN-AC-1976-haryana-48,haryana,1996,48,JIND,SURENDER,parties.IN.IND,IND,20,0.02,4
 IN-AC-1976-haryana-48,haryana,1996,48,JIND,RAM PHAL,parties.IN.IND,IND,18,0.02,44,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-48,haryana,1996,48,JIND,SAJJAN KUMAR,parties.IN.IND,IND,17,0.02,45,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-48,haryana,1996,48,JIND,SURESH KUMAR S/O RISHAL SINGH,parties.IN.IND,IND,16,0.02,46,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-49,haryana,1996,49,JULANA,SATYA NARAIN LATHAR,parties.IN.UNK,HVP,34195,46.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-49,haryana,1996,49,JULANA,SATYA NARAIN LATHAR,parties.IN.HVP,HVP,34195,46.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-49,haryana,1996,49,JULANA,SURAJ BHAN S/O HARNARAIN,parties.IN.SAP,SAP,22425,30.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-49,haryana,1996,49,JULANA,PARMINDER SINGH,parties.IN.AIIC_T,AIIC(T),5211,7.13,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-49,haryana,1996,49,JULANA,CHANDER BHAN,parties.IN.SP,SP,2553,3.49,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
@@ -1158,11 +1158,11 @@ IN-AC-1976-haryana-49,haryana,1996,49,JULANA,SUCHINDER,parties.IN.IND,IND,49,0.0
 IN-AC-1976-haryana-49,haryana,1996,49,JULANA,DALBIR,parties.IN.IND,IND,48,0.07,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-49,haryana,1996,49,JULANA,VED PARKASH,parties.IN.IND,IND,48,0.07,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,RAMPHAL S/O JODHA RAM,parties.IN.SAP,SAP,21502,25.22,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,RANBIR SINGH,parties.IN.UNK,HVP,17301,20.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,RANBIR SINGH,parties.IN.HVP,HVP,17301,20.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,KAMAL,parties.IN.IND,IND,16285,19.1,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,BACHAN SINGH,parties.IN.INC,INC,16164,18.96,4,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,BAL RAM,parties.IN.BSP,BSP,5332,6.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,HEM LATA,parties.IN.UNK,JHM,4722,5.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,HEM LATA,parties.IN.JHM,JHM,4722,5.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,PARAS RAM,parties.IN.IND,IND,1109,1.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,RAJKUMAR,parties.IN.IND,IND,267,0.31,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,HOKAM SINGH,parties.IN.JD,JD,215,0.25,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1188,7 +1188,7 @@ IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,INDER,parties.IN.IND,IND,56,0.07,2
 IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,ASHA RAM,parties.IN.IND,IND,52,0.06,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,VINOD KUMAR,parties.IN.IND,IND,52,0.06,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,AJAY,parties.IN.IND,IND,51,0.06,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,JIYA LAL,parties.IN.UNK,BHJS,47,0.06,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,JIYA LAL,parties.IN.BHJS,BHJS,47,0.06,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,KALI RAM,parties.IN.IND,IND,40,0.05,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,RAMSARUP,parties.IN.IND,IND,35,0.04,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-50,haryana,1996,50,SAFIDON,MADAN,parties.IN.IND,IND,29,0.03,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1330,7 +1330,7 @@ IN-AC-1976-haryana-53,haryana,1996,53,BALLABGARH,KISHAN KUMAR,parties.IN.IND,IND
 IN-AC-1976-haryana-53,haryana,1996,53,BALLABGARH,SHYAM LAL,parties.IN.IND,IND,28,0.03,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-53,haryana,1996,53,BALLABGARH,ANIL KUMAR,parties.IN.IND,IND,24,0.02,41,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-53,haryana,1996,53,BALLABGARH,JAI KISHORE,parties.IN.IND,IND,21,0.02,42,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-54,haryana,1996,54,PALWAL,KARAN SINGH DALAL,parties.IN.UNK,HVP,40219,50.64,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-haryana-54,haryana,1996,54,PALWAL,KARAN SINGH DALAL,parties.IN.HVP,HVP,40219,50.64,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-54,haryana,1996,54,PALWAL,SUBHASH CHAUDHARY,parties.IN.BSP,BSP,13832,17.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-54,haryana,1996,54,PALWAL,KISHAN CHAND,parties.IN.INC,INC,9808,12.35,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-54,haryana,1996,54,PALWAL,DEVENDER SINGH CHAUHAN,parties.IN.SAP,SAP,7203,9.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1351,17 +1351,17 @@ IN-AC-1976-haryana-54,haryana,1996,54,PALWAL,RAJ SINGH KHUTELA,parties.IN.IND,IN
 IN-AC-1976-haryana-54,haryana,1996,54,PALWAL,DEV KUMAR ANAND,parties.IN.IND,IND,42,0.05,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-54,haryana,1996,54,PALWAL,HARI LAL,parties.IN.IND,IND,41,0.05,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-54,haryana,1996,54,PALWAL,BIMLA DEVI,parties.IN.IND,IND,39,0.05,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,JAGDISH NAYAR,parties.IN.UNK,HVP,28318,40.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,JAGDISH NAYAR,parties.IN.HVP,HVP,28318,40.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,UDAI BHAN,parties.IN.IND,IND,22748,32.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,LAKHMI CHAND,parties.IN.SAP,SAP,6611,9.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,RAM RATTAN,parties.IN.INC,INC,4660,6.74,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,SIRI CHAND,parties.IN.BSP,BSP,2401,3.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,CHANDAN SINGH,parties.IN.AIIC_T,AIIC(T),1968,2.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,JAIVIR,parties.IN.UNK,ARS,389,0.56,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,JAIVIR,parties.IN.ARS,ARS,389,0.56,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,SOBHA RAM,parties.IN.JSP,JSTP,326,0.47,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,RAMJI LAL,parties.IN.UNK,BHJS,305,0.44,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,RAMJI LAL,parties.IN.BHJS,BHJS,305,0.44,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,BHANU PARKASH CHAUHAN,parties.IN.IND,IND,275,0.4,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,DARYAV SINGH,parties.IN.UNK,JHM,262,0.38,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,DARYAV SINGH,parties.IN.JHM,JHM,262,0.38,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,TIKAM,parties.IN.IND,IND,149,0.22,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,GHASI RAM,parties.IN.IND,IND,125,0.18,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,MOHAR PAL,parties.IN.IND,IND,111,0.16,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1372,7 +1372,7 @@ IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,GOPAL,parties.IN.IND,IND,66,0.1,
 IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,SHIV LAL,parties.IN.IND,IND,56,0.08,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,BABU LAL,parties.IN.IND,IND,44,0.06,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-55,haryana,1996,55,HASSANPUR,HOTI LAL,parties.IN.IND,IND,43,0.06,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-56,haryana,1996,56,HATHIN,HARSH KUMAR,parties.IN.UNK,HVP,16252,23.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-56,haryana,1996,56,HATHIN,HARSH KUMAR,parties.IN.HVP,HVP,16252,23.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-56,haryana,1996,56,HATHIN,AJMAT KHAN,parties.IN.AIIC_T,AIIC(T),10131,14.65,2,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-56,haryana,1996,56,HATHIN,JALEB KHAN,parties.IN.IND,IND,10069,14.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-56,haryana,1996,56,HATHIN,MAHENDRA,parties.IN.SAP,SAP,9268,13.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1400,7 +1400,7 @@ IN-AC-1976-haryana-56,haryana,1996,56,HATHIN,JALLI,parties.IN.IND,IND,45,0.07,25
 IN-AC-1976-haryana-56,haryana,1996,56,HATHIN,RISHPAL,parties.IN.IND,IND,45,0.07,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-56,haryana,1996,56,HATHIN,HARKISHAN,parties.IN.IND,IND,42,0.06,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-57,haryana,1996,57,FEROZEPUR JHIRKA,AZAD,parties.IN.SAP,SAP,24056,30.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-57,haryana,1996,57,FEROZEPUR JHIRKA,ABDUL RAZAQ S/O SHADI KHAN,parties.IN.UNK,HVP,21414,26.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-57,haryana,1996,57,FEROZEPUR JHIRKA,ABDUL RAZAQ S/O SHADI KHAN,parties.IN.HVP,HVP,21414,26.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-57,haryana,1996,57,FEROZEPUR JHIRKA,SHAKRULLA KHAN,parties.IN.INC,INC,15864,19.96,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-57,haryana,1996,57,FEROZEPUR JHIRKA,ISHAQ,parties.IN.AIIC_T,AIIC(T),6751,8.49,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-57,haryana,1996,57,FEROZEPUR JHIRKA,IDRISH,parties.IN.BSP,BSP,4463,5.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1442,7 +1442,7 @@ IN-AC-1976-haryana-58,haryana,1996,58,NUH,KHURSHID AHMAD S/O KABIR AHMAD,parties
 IN-AC-1976-haryana-58,haryana,1996,58,NUH,HAMID HUSSAIN,parties.IN.SAP,SAP,12274,18.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-58,haryana,1996,58,NUH,MOHD. AZAZ,parties.IN.IND,IND,8301,12.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-58,haryana,1996,58,NUH,MOHD. ILYAS,parties.IN.IND,IND,7379,10.98,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-haryana-58,haryana,1996,58,NUH,HABIBUR REHMAN,parties.IN.UNK,HVP,6602,9.83,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-58,haryana,1996,58,NUH,HABIBUR REHMAN,parties.IN.HVP,HVP,6602,9.83,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-58,haryana,1996,58,NUH,DIN MOHD.,parties.IN.INC,INC,4293,6.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-58,haryana,1996,58,NUH,MAHBOOB,parties.IN.SP,SP,1734,2.58,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-58,haryana,1996,58,NUH,SUBHAN KHAN,parties.IN.IND,IND,1546,2.3,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1520,7 +1520,7 @@ IN-AC-1976-haryana-59,haryana,1996,59,TAORU,JAI NARAI,parties.IN.IND,IND,15,0.02
 IN-AC-1976-haryana-59,haryana,1996,59,TAORU,YAHUDA,parties.IN.IND,IND,13,0.02,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-59,haryana,1996,59,TAORU,MAM CHAND,parties.IN.IND,IND,13,0.02,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-59,haryana,1996,59,TAORU,MOHINDER PAL,parties.IN.IND,IND,8,0.01,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-60,haryana,1996,60,SOHNA,NARBIR SINGH,parties.IN.UNK,HVP,30411,35.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-60,haryana,1996,60,SOHNA,NARBIR SINGH,parties.IN.HVP,HVP,30411,35.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-60,haryana,1996,60,SOHNA,DHARAM PAL,parties.IN.INC,INC,20606,23.74,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-60,haryana,1996,60,SOHNA,ARIDAMAN,parties.IN.SAP,SAP,19227,22.15,3,lost,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-60,haryana,1996,60,SOHNA,RAJENDER KUMAR,parties.IN.BSP,BSP,8781,10.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1588,7 +1588,7 @@ IN-AC-1976-haryana-61,haryana,1996,61,GURGAON,ASHOK KUMAR S/O RAM KISHAN,parties
 IN-AC-1976-haryana-61,haryana,1996,61,GURGAON,RAJ PAL,parties.IN.IND,IND,25,0.02,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-61,haryana,1996,61,GURGAON,CHANDER PRABHA,parties.IN.IND,IND,24,0.02,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-61,haryana,1996,61,GURGAON,HARI KISHAN,parties.IN.IND,IND,10,0.01,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-62,haryana,1996,62,PATAUDI,NARAYAN SINGH S/O BICHHA RAM,parties.IN.UNK,HVP,31834,43.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-62,haryana,1996,62,PATAUDI,NARAYAN SINGH S/O BICHHA RAM,parties.IN.HVP,HVP,31834,43.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-62,haryana,1996,62,PATAUDI,RAM VEER SINGH,parties.IN.SAP,SAP,16409,22.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-62,haryana,1996,62,PATAUDI,MOHAN LAL,parties.IN.INC,INC,11694,15.86,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-62,haryana,1996,62,PATAUDI,NARAYAN SINGH S/O GIRDHARI LAL,parties.IN.BSP,BSP,3708,5.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1607,7 +1607,7 @@ IN-AC-1976-haryana-62,haryana,1996,62,PATAUDI,DHANPAT SINGH MEHRA,parties.IN.IND
 IN-AC-1976-haryana-62,haryana,1996,62,PATAUDI,SURESH,parties.IN.IND,IND,47,0.06,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-62,haryana,1996,62,PATAUDI,BABURAM,parties.IN.IND,IND,45,0.06,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-62,haryana,1996,62,PATAUDI,SURESH KUMAR,parties.IN.IND,IND,40,0.05,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-63,haryana,1996,63,BADHRA,NRIPENDER,parties.IN.UNK,HVP,42142,52.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-63,haryana,1996,63,BADHRA,NRIPENDER,parties.IN.HVP,HVP,42142,52.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-63,haryana,1996,63,BADHRA,RAVINDER,parties.IN.SAP,SAP,14715,18.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-63,haryana,1996,63,BADHRA,RANSINGH,parties.IN.IND,IND,14575,18.32,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-63,haryana,1996,63,BADHRA,DHARAMPAL S/O LALURAM,parties.IN.INC,INC,3929,4.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1632,7 +1632,7 @@ IN-AC-1976-haryana-63,haryana,1996,63,BADHRA,SURENDER,parties.IN.IND,IND,47,0.06
 IN-AC-1976-haryana-63,haryana,1996,63,BADHRA,OMPARKASH S/O JAILAL,parties.IN.IND,IND,45,0.06,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-63,haryana,1996,63,BADHRA,MUNSHI RAM,parties.IN.IND,IND,39,0.05,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-63,haryana,1996,63,BADHRA,PARTAP,parties.IN.IND,IND,28,0.04,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-64,haryana,1996,64,DADRI,SATPAL SANGWAN,parties.IN.UNK,HVP,33690,44.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-64,haryana,1996,64,DADRI,SATPAL SANGWAN,parties.IN.HVP,HVP,33690,44.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-64,haryana,1996,64,DADRI,JAGJIT SINGH,parties.IN.INC,INC,22269,29.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-64,haryana,1996,64,DADRI,SHAKUNTLA DEVI,parties.IN.SAP,SAP,9968,13.26,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-64,haryana,1996,64,DADRI,HUKAM SINGH,parties.IN.SP,SP,4006,5.33,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
@@ -1674,7 +1674,7 @@ IN-AC-1976-haryana-64,haryana,1996,64,DADRI,KARAN SINGH,parties.IN.IND,IND,19,0.
 IN-AC-1976-haryana-64,haryana,1996,64,DADRI,HARSARUP,parties.IN.IND,IND,14,0.02,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-64,haryana,1996,64,DADRI,ANVIR,parties.IN.IND,IND,13,0.02,41,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-64,haryana,1996,64,DADRI,MAHINDER KUMAR,parties.IN.IND,IND,12,0.02,42,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,CHHATER SINGH CHAUHAN,parties.IN.UNK,HVP,33788,47.5,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,CHHATER SINGH CHAUHAN,parties.IN.HVP,HVP,33788,47.5,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,SHASHI RANJAN,parties.IN.INC,INC,19017,26.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,JAGAT SINGH,parties.IN.SAP,SAP,8772,12.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,PHOOL BAI,parties.IN.BSP,BSP,3756,5.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1685,7 +1685,7 @@ IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,PANNA LAL,parties.IN.IND,IND
 IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,SATYAVIR,parties.IN.JP,JP,181,0.25,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,RAJBIR SINGH,parties.IN.IND,IND,152,0.21,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,BALJEET,parties.IN.IND,IND,146,0.21,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,RAGHBIR SINGH,parties.IN.UNK,JHM,130,0.18,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,RAGHBIR SINGH,parties.IN.JHM,JHM,130,0.18,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,VIRENDER,parties.IN.IND,IND,124,0.17,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,RAM MEHAR,parties.IN.IND,IND,109,0.15,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,SATBIR SINGH,parties.IN.IND,IND,99,0.14,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1716,7 +1716,7 @@ IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,KAMLESH,parties.IN.IND,IND,1
 IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,SOHAN PAL SINGH,parties.IN.IND,IND,16,0.02,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,TULSI RAM,parties.IN.IND,IND,13,0.02,41,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-65,haryana,1996,65,MUNDHAL KHURD,KARTAR,parties.IN.IND,IND,12,0.02,42,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,RAM BHAJAN,parties.IN.UNK,HVP,44584,59.2,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,RAM BHAJAN,parties.IN.HVP,HVP,44584,59.2,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,SHIV KUMAR S/O KEDAR NATH,parties.IN.INC,INC,19712,26.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,SHIV SHANKAR,parties.IN.AIIC_T,AIIC(T),6488,8.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,RAM SINGH,parties.IN.SAP,SAP,1028,1.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1725,7 +1725,7 @@ IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,HANS RAJ,parties.IN.IND,IND,410,0.
 IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,RAM AVTAR,parties.IN.IND,IND,322,0.43,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,SURESH KUMAR,parties.IN.ABHM,ABHM,174,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,PARI PAL,parties.IN.IND,IND,165,0.22,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,OM PARKASH,parties.IN.UNK,JHM,102,0.14,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,OM PARKASH,parties.IN.JHM,JHM,102,0.14,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,TOLA RAM,parties.IN.IND,IND,93,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,SHIV KUMAR S/O CHANDER BHAN,parties.IN.IND,IND,88,0.12,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,TEJ PAL S/O HAR SWAROOP,parties.IN.IND,IND,84,0.11,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1752,7 +1752,7 @@ IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,RAN SINGH,parties.IN.IND,IND,22,0.
 IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,MUKESH KUMAR S/O PREM NATH,parties.IN.IND,IND,21,0.03,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,MUKESH KUMAR S/O RAM NIWAS,parties.IN.IND,IND,18,0.02,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-66,haryana,1996,66,BHIWANI,RAMESH CHAND,parties.IN.IND,IND,13,0.02,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,BANSI LAL,parties.IN.UNK,HVP,47274,53.6,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,BANSI LAL,parties.IN.HVP,HVP,47274,53.6,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,DHARAM BIR,parties.IN.INC,INC,34472,39.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,JOGINDER,parties.IN.SAP,SAP,2685,3.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,RAMESH,parties.IN.JD,JD,647,0.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1763,7 +1763,7 @@ IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,RADHEY SHYAM,parties.IN.IND,IND,183
 IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,MANGAL SINGH,parties.IN.IND,IND,132,0.15,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,BALBIR,parties.IN.IND,IND,128,0.15,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,BHIM SINGH,parties.IN.IND,IND,128,0.15,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,DHARAM PAL S/O MASANA RAM,parties.IN.UNK,JHM,127,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,DHARAM PAL S/O MASANA RAM,parties.IN.JHM,JHM,127,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,MAHENDER,parties.IN.IND,IND,100,0.11,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,PARBHU RAM,parties.IN.IND,IND,91,0.1,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,ZILE SINGH,parties.IN.IND,IND,87,0.1,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1792,7 +1792,7 @@ IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,SANTOSH KUMAR,parties.IN.IND,IND,17
 IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,VIJAY KUMAR,parties.IN.IND,IND,17,0.02,38,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,RAJPAL,parties.IN.IND,IND,16,0.02,39,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-67,haryana,1996,67,TOSHAM,SHEO NARAIN,parties.IN.IND,IND,15,0.02,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-68,haryana,1996,68,LOHARU,SOMVIR SINGH,parties.IN.UNK,HVP,47559,57.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-68,haryana,1996,68,LOHARU,SOMVIR SINGH,parties.IN.HVP,HVP,47559,57.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-68,haryana,1996,68,LOHARU,HIRANAND ARYA,parties.IN.SAP,SAP,11126,13.54,2,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-68,haryana,1996,68,LOHARU,RAMESH,parties.IN.IND,IND,7822,9.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-68,haryana,1996,68,LOHARU,RAJ SINGH,parties.IN.IND,IND,3857,4.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1823,7 +1823,7 @@ IN-AC-1976-haryana-68,haryana,1996,68,LOHARU,NARENDER SINGH S/O RAM NARAIN,parti
 IN-AC-1976-haryana-68,haryana,1996,68,LOHARU,SUBH RAM,parties.IN.IND,IND,43,0.05,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-68,haryana,1996,68,LOHARU,KAILASH,parties.IN.IND,IND,40,0.05,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-68,haryana,1996,68,LOHARU,UMED SINGH,parties.IN.IND,IND,34,0.04,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-69,haryana,1996,69,BAWANI KHERA,JAGAN NATH S/O GUR DAYAL,parties.IN.UNK,HVP,44372,57.22,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-haryana-69,haryana,1996,69,BAWANI KHERA,JAGAN NATH S/O GUR DAYAL,parties.IN.HVP,HVP,44372,57.22,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-69,haryana,1996,69,BAWANI KHERA,RAGHVIR SINGH RANGA,parties.IN.SAP,SAP,13838,17.84,2,lost,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-69,haryana,1996,69,BAWANI KHERA,AMAR SINGH,parties.IN.INC,INC,10480,13.51,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-69,haryana,1996,69,BAWANI KHERA,SURESH,parties.IN.BSP,BSP,4012,5.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1833,7 +1833,7 @@ IN-AC-1976-haryana-69,haryana,1996,69,BAWANI KHERA,JAGDISH MISTRI,parties.IN.IND
 IN-AC-1976-haryana-69,haryana,1996,69,BAWANI KHERA,MEWA SINGH,parties.IN.JP,JP,447,0.58,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-69,haryana,1996,69,BAWANI KHERA,HARPHOOL SINGH,parties.IN.AIIC_T,AIIC(T),418,0.54,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-69,haryana,1996,69,BAWANI KHERA,KRISHNA DEVI,parties.IN.JD,JD,267,0.34,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-69,haryana,1996,69,BAWANI KHERA,BALBIR SINGH,parties.IN.UNK,JHM,128,0.17,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-69,haryana,1996,69,BAWANI KHERA,BALBIR SINGH,parties.IN.JHM,JHM,128,0.17,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-69,haryana,1996,69,BAWANI KHERA,HARDEV SINGH,parties.IN.IND,IND,114,0.15,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-69,haryana,1996,69,BAWANI KHERA,RAM KUMAR,parties.IN.IND,IND,99,0.13,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-69,haryana,1996,69,BAWANI KHERA,MOHINDER SINGH,parties.IN.IND,IND,98,0.13,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1849,7 +1849,7 @@ IN-AC-1976-haryana-69,haryana,1996,69,BAWANI KHERA,BALWAN,parties.IN.IND,IND,44,
 IN-AC-1976-haryana-69,haryana,1996,69,BAWANI KHERA,ANITA PAWAR,parties.IN.IND,IND,32,0.04,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-69,haryana,1996,69,BAWANI KHERA,LEKHI RAM S/O SUBE SINGH,parties.IN.IND,IND,25,0.03,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-70,haryana,1996,70,BARWALA,RELU RAM,parties.IN.IND,IND,30046,34.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-70,haryana,1996,70,BARWALA,ANANT RAM,parties.IN.UNK,HVP,19257,22.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-70,haryana,1996,70,BARWALA,ANANT RAM,parties.IN.HVP,HVP,19257,22.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-70,haryana,1996,70,BARWALA,SURINDER S/O TIKKA RAM,parties.IN.SAP,SAP,16865,19.59,3,lost,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-70,haryana,1996,70,BARWALA,NAR SINGH,parties.IN.BSP,BSP,7880,9.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-70,haryana,1996,70,BARWALA,JAI NARAYAN,parties.IN.INC,INC,7271,8.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1884,7 +1884,7 @@ IN-AC-1976-haryana-70,haryana,1996,70,BARWALA,RAM KUMAR S/O RAMJI LAL,parties.IN
 IN-AC-1976-haryana-70,haryana,1996,70,BARWALA,ISHWER SINGH,parties.IN.IND,IND,25,0.03,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-70,haryana,1996,70,BARWALA,JITENDER SINGH,parties.IN.IND,IND,14,0.02,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-70,haryana,1996,70,BARWALA,HOSHIAR SINGH,parties.IN.IND,IND,4,0,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-71,haryana,1996,71,NARNAUND,JASWANT SINGH,parties.IN.UNK,HVP,31439,41.04,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-haryana-71,haryana,1996,71,NARNAUND,JASWANT SINGH,parties.IN.HVP,HVP,31439,41.04,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-71,haryana,1996,71,NARNAUND,VIRENDER SINGH S/O DIWAN SINGH,parties.IN.INC,INC,20666,26.98,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-71,haryana,1996,71,NARNAUND,RAM DASS,parties.IN.SAP,SAP,14717,19.21,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-71,haryana,1996,71,NARNAUND,VIRENDER SINGH S/O SAJJAN SINGH,parties.IN.BSP,BSP,3308,4.32,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1922,7 +1922,7 @@ IN-AC-1976-haryana-71,haryana,1996,71,NARNAUND,JASWANT S/O SARDARA,parties.IN.IN
 IN-AC-1976-haryana-71,haryana,1996,71,NARNAUND,RAM TILAK,parties.IN.IND,IND,29,0.04,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-71,haryana,1996,71,NARNAUND,AJMER,parties.IN.IND,IND,24,0.03,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-71,haryana,1996,71,NARNAUND,RAMESH,parties.IN.IND,IND,11,0.01,38,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-72,haryana,1996,72,HANSI,ATTAR SINGH,parties.IN.UNK,HVP,51767,60.55,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-haryana-72,haryana,1996,72,HANSI,ATTAR SINGH,parties.IN.HVP,HVP,51767,60.55,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-72,haryana,1996,72,HANSI,AMIR CHAND S/O HAR GOBIND,parties.IN.INC,INC,23096,27.01,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-72,haryana,1996,72,HANSI,RAM MEHAR,parties.IN.SAP,SAP,6934,8.11,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-72,haryana,1996,72,HANSI,AJIT SINGH,parties.IN.AIIC_T,AIIC(T),1117,1.31,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
@@ -1969,7 +1969,7 @@ IN-AC-1976-haryana-72,haryana,1996,72,HANSI,INDER SINGH,parties.IN.IND,IND,21,0.
 IN-AC-1976-haryana-72,haryana,1996,72,HANSI,SEWA SINGH,parties.IN.IND,IND,19,0.02,45,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-72,haryana,1996,72,HANSI,HANS RAJ S/O TIKAYA RAM,parties.IN.IND,IND,19,0.02,46,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-72,haryana,1996,72,HANSI,RAJENDER,parties.IN.IND,IND,19,0.02,47,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-73,haryana,1996,73,BHATTU KALAN,MANI RAM GODARA,parties.IN.UNK,HVP,41433,48.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-73,haryana,1996,73,BHATTU KALAN,MANI RAM GODARA,parties.IN.HVP,HVP,41433,48.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-73,haryana,1996,73,BHATTU KALAN,SAMPAT SINGH,parties.IN.SAP,SAP,33355,38.84,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-73,haryana,1996,73,BHATTU KALAN,RAN SINGH,parties.IN.INC,INC,8659,10.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-73,haryana,1996,73,BHATTU KALAN,SURJIT SINGH,parties.IN.BSP,BSP,701,0.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -2033,7 +2033,7 @@ IN-AC-1976-haryana-74,haryana,1996,74,HISSAR,HARISH KUMAR THUKRAL,parties.IN.IND
 IN-AC-1976-haryana-74,haryana,1996,74,HISSAR,NATTHU RAM,parties.IN.IND,IND,49,0.05,45,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-74,haryana,1996,74,HISSAR,RAJ KUMAR DHANAK,parties.IN.IND,IND,48,0.05,46,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-74,haryana,1996,74,HISSAR,RAM KISHAN,parties.IN.IND,IND,48,0.05,47,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-75,haryana,1996,75,GHIRAI,KANWAL SINGH,parties.IN.UNK,HVP,21497,27.24,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-haryana-75,haryana,1996,75,GHIRAI,KANWAL SINGH,parties.IN.HVP,HVP,21497,27.24,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-75,haryana,1996,75,GHIRAI,CHHATAR PAL SINGH,parties.IN.IND,IND,21171,26.82,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-75,haryana,1996,75,GHIRAI,PURAN SINGH,parties.IN.SAP,SAP,12551,15.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-75,haryana,1996,75,GHIRAI,SURESH KUMAR S/O JAGAN NATH,parties.IN.INC,INC,9638,12.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -2082,7 +2082,7 @@ IN-AC-1976-haryana-75,haryana,1996,75,GHIRAI,SADHU,parties.IN.IND,IND,26,0.03,46
 IN-AC-1976-haryana-75,haryana,1996,75,GHIRAI,JAI SINGH,parties.IN.IND,IND,23,0.03,47,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-76,haryana,1996,76,TOHANA,VINOD KUMAR,parties.IN.SAP,SAP,39957,41.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-76,haryana,1996,76,TOHANA,S. HARPAL SINGH,parties.IN.INC,INC,29575,30.88,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-haryana-76,haryana,1996,76,TOHANA,S. RAGHVIR SINGH,parties.IN.UNK,HVP,16392,17.11,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-76,haryana,1996,76,TOHANA,S. RAGHVIR SINGH,parties.IN.HVP,HVP,16392,17.11,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-76,haryana,1996,76,TOHANA,COM. HARPAL SINGH,parties.IN.CPIM,CPM,2339,2.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-76,haryana,1996,76,TOHANA,JASWANT RAM,parties.IN.IND,IND,1587,1.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-76,haryana,1996,76,TOHANA,VED PARKASH,parties.IN.IND,IND,1444,1.51,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -2107,7 +2107,7 @@ IN-AC-1976-haryana-76,haryana,1996,76,TOHANA,SHIV CHAND,parties.IN.IND,IND,48,0.
 IN-AC-1976-haryana-76,haryana,1996,76,TOHANA,GURVINDER SINGH,parties.IN.IND,IND,45,0.05,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-76,haryana,1996,76,TOHANA,PARAMJIT,parties.IN.IND,IND,43,0.04,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-76,haryana,1996,76,TOHANA,RAM SINGH,parties.IN.IND,IND,34,0.04,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-77,haryana,1996,77,RATIA,RAM SARUP RAMA,parties.IN.UNK,HVP,28044,34.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-77,haryana,1996,77,RATIA,RAM SARUP RAMA,parties.IN.HVP,HVP,28044,34.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-77,haryana,1996,77,RATIA,ATMA SINGH,parties.IN.SAP,SAP,17327,21.54,2,lost,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-77,haryana,1996,77,RATIA,MAHABIR PRASHAD,parties.IN.IND,IND,12138,15.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-77,haryana,1996,77,RATIA,GIAN CHAND,parties.IN.INC,INC,11255,13.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -2138,7 +2138,7 @@ IN-AC-1976-haryana-77,haryana,1996,77,RATIA,BALDEV SINGH S/O KHETA SINGH,parties
 IN-AC-1976-haryana-77,haryana,1996,77,RATIA,RULDU RAM,parties.IN.IND,IND,45,0.06,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-77,haryana,1996,77,RATIA,SARWAN,parties.IN.IND,IND,37,0.05,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-77,haryana,1996,77,RATIA,RAM SARUP S/O CHET RAM,parties.IN.IND,IND,37,0.05,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-78,haryana,1996,78,FATEHABAD,HARMINDER SINGH,parties.IN.UNK,HVP,36199,38.71,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-haryana-78,haryana,1996,78,FATEHABAD,HARMINDER SINGH,parties.IN.HVP,HVP,36199,38.71,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-78,haryana,1996,78,FATEHABAD,LILA KRISHAN,parties.IN.INC,INC,18078,19.33,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-78,haryana,1996,78,FATEHABAD,SHARAD KUMAR,parties.IN.SAP,SAP,15572,16.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-78,haryana,1996,78,FATEHABAD,RAM RAJ,parties.IN.IND,IND,8766,9.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -2176,9 +2176,9 @@ IN-AC-1976-haryana-78,haryana,1996,78,FATEHABAD,SHISHPAL,parties.IN.IND,IND,36,0
 IN-AC-1976-haryana-78,haryana,1996,78,FATEHABAD,SANT LAL,parties.IN.IND,IND,30,0.03,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-78,haryana,1996,78,FATEHABAD,PAWAN KUMAR S/O BIRBAL,parties.IN.IND,IND,30,0.03,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-79,haryana,1996,79,ADAMPUR,BHAJAN LAL,parties.IN.INC,INC,54140,57.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-79,haryana,1996,79,ADAMPUR,SURENDER SINGH,parties.IN.UNK,HVP,34133,36.03,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1996,79,ADAMPUR,SURENDER SINGH,parties.IN.HVP,HVP,34133,36.03,2,lost,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-79,haryana,1996,79,ADAMPUR,GURMESH,parties.IN.SAP,SAP,3581,3.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-79,haryana,1996,79,ADAMPUR,KANSHI RAM,parties.IN.UNK,JHM,569,0.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-79,haryana,1996,79,ADAMPUR,KANSHI RAM,parties.IN.JHM,JHM,569,0.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-79,haryana,1996,79,ADAMPUR,RAJ KUMAR,parties.IN.IND,IND,297,0.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-79,haryana,1996,79,ADAMPUR,BHAGIRATH,parties.IN.IND,IND,285,0.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-79,haryana,1996,79,ADAMPUR,RAM PHAL,parties.IN.JD,JD,274,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -2206,7 +2206,7 @@ IN-AC-1976-haryana-79,haryana,1996,79,ADAMPUR,SHANKAR LAL,parties.IN.IND,IND,22,
 IN-AC-1976-haryana-79,haryana,1996,79,ADAMPUR,MANGE RAM,parties.IN.IND,IND,20,0.02,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-79,haryana,1996,79,ADAMPUR,RAM KUMAR S/O KALU RAM,parties.IN.IND,IND,19,0.02,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-80,haryana,1996,80,DARBA KALAN,VIDYA DEVI,parties.IN.SAP,SAP,36944,38.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-80,haryana,1996,80,DARBA KALAN,PRAHLAD SINGH,parties.IN.UNK,HVP,36750,38.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-80,haryana,1996,80,DARBA KALAN,PRAHLAD SINGH,parties.IN.HVP,HVP,36750,38.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-80,haryana,1996,80,DARBA KALAN,K.V. SINGH,parties.IN.INC,INC,19602,20.43,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-80,haryana,1996,80,DARBA KALAN,BALDEV SINGH,parties.IN.IND,IND,301,0.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-80,haryana,1996,80,DARBA KALAN,KHYALI RAM,parties.IN.JD,JD,276,0.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -2224,7 +2224,7 @@ IN-AC-1976-haryana-80,haryana,1996,80,DARBA KALAN,RAM SINGH,parties.IN.IND,IND,1
 IN-AC-1976-haryana-80,haryana,1996,80,DARBA KALAN,KHOR SINGH,parties.IN.IND,IND,104,0.11,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-80,haryana,1996,80,DARBA KALAN,SUBHASH,parties.IN.IND,IND,90,0.09,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-81,haryana,1996,81,ELLENABAD,BHAGI RAM,parties.IN.SAP,SAP,37107,40.86,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-haryana-81,haryana,1996,81,ELLENABAD,KARNAIL SINGH,parties.IN.UNK,HVP,29909,32.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-81,haryana,1996,81,ELLENABAD,KARNAIL SINGH,parties.IN.HVP,HVP,29909,32.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-81,haryana,1996,81,ELLENABAD,MANI RAM,parties.IN.INC,INC,17071,18.8,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-81,haryana,1996,81,ELLENABAD,JOGINDER SINGH,parties.IN.CPI,CPI,1907,2.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-81,haryana,1996,81,ELLENABAD,BAHADER SINGH,parties.IN.IND,IND,805,0.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -2293,7 +2293,7 @@ IN-AC-1976-haryana-82,haryana,1996,82,SIRSA,AMAR SINGH,parties.IN.IND,IND,47,0.0
 IN-AC-1976-haryana-82,haryana,1996,82,SIRSA,SUBHASH CHANDER S/O CHANDGI RAM,parties.IN.IND,IND,46,0.05,47,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-83,haryana,1996,83,RORI,OM PARKASH S/O DEVI LAL,parties.IN.SAP,SAP,41867,45.28,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-83,haryana,1996,83,RORI,JAGDISH NEHRA,parties.IN.INC,INC,33485,36.22,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-haryana-83,haryana,1996,83,RORI,SUKHDEV SINGH,parties.IN.UNK,HVP,12087,13.07,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-haryana-83,haryana,1996,83,RORI,SUKHDEV SINGH,parties.IN.HVP,HVP,12087,13.07,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-83,haryana,1996,83,RORI,AAD RAM,parties.IN.IND,IND,514,0.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-83,haryana,1996,83,RORI,BHURA SINGH,parties.IN.IND,IND,497,0.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-83,haryana,1996,83,RORI,BUTA SINGH,parties.IN.IND,IND,488,0.53,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -2317,7 +2317,7 @@ IN-AC-1976-haryana-83,haryana,1996,83,RORI,MANGAL SINGH,parties.IN.IND,IND,74,0.
 IN-AC-1976-haryana-83,haryana,1996,83,RORI,SURESH KUMAR,parties.IN.IND,IND,57,0.06,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-83,haryana,1996,83,RORI,SURRENDER KUMAR,parties.IN.IND,IND,42,0.05,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-84,haryana,1996,84,DABWALI,MANI RAM,parties.IN.SAP,SAP,29434,35.81,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-haryana-84,haryana,1996,84,DABWALI,JAGSIR SINGH,parties.IN.UNK,HVP,20697,25.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-84,haryana,1996,84,DABWALI,JAGSIR SINGH,parties.IN.HVP,HVP,20697,25.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-84,haryana,1996,84,DABWALI,LABH SINGH,parties.IN.INC,INC,18379,22.36,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-84,haryana,1996,84,DABWALI,LILU RAM,parties.IN.BSP,BSP,7386,8.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-84,haryana,1996,84,DABWALI,PIARA SINGH,parties.IN.AIIC_T,AIIC(T),1115,1.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -2339,7 +2339,7 @@ IN-AC-1976-haryana-84,haryana,1996,84,DABWALI,BABU RAM,parties.IN.IND,IND,111,0.
 IN-AC-1976-haryana-84,haryana,1996,84,DABWALI,SAHIB RAM,parties.IN.IND,IND,101,0.12,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-84,haryana,1996,84,DABWALI,AMAR SINGH,parties.IN.IND,IND,94,0.11,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-84,haryana,1996,84,DABWALI,VIMLA DEVI,parties.IN.IND,IND,93,0.11,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-85,haryana,1996,85,BAWAL,JASWANT SINGH,parties.IN.UNK,HVP,38973,47.61,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-haryana-85,haryana,1996,85,BAWAL,JASWANT SINGH,parties.IN.HVP,HVP,38973,47.61,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-85,haryana,1996,85,BAWAL,SHAKUNTALA BHAGWARIA,parties.IN.INC,INC,23974,29.29,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-haryana-85,haryana,1996,85,BAWAL,VED PARKASH BAWALIA,parties.IN.SAP,SAP,6424,7.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-85,haryana,1996,85,BAWAL,RAMESHWAR DAYAL RAJORIA,parties.IN.SP,SP,5793,7.08,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -2377,7 +2377,7 @@ IN-AC-1976-haryana-86,haryana,1996,86,REWARI,AMAR PHUL,parties.IN.IND,IND,69,0.0
 IN-AC-1976-haryana-86,haryana,1996,86,REWARI,SUMER SINGH,parties.IN.IND,IND,37,0.04,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-86,haryana,1996,86,REWARI,JAGDISH,parties.IN.IND,IND,34,0.04,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-86,haryana,1996,86,REWARI,RAM CHANDER,parties.IN.IND,IND,29,0.04,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-87,haryana,1996,87,JATUSANA,JAGDISH YADAV,parties.IN.UNK,HVP,38185,41.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-87,haryana,1996,87,JATUSANA,JAGDISH YADAV,parties.IN.HVP,HVP,38185,41.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-87,haryana,1996,87,JATUSANA,INDERJEET SINGH S/O BIRENDER SINGH,parties.IN.INC,INC,29304,31.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-87,haryana,1996,87,JATUSANA,RAJINDER SINGH LODHA,parties.IN.SAP,SAP,16706,18.07,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-87,haryana,1996,87,JATUSANA,RAO BALBIR SINGH,parties.IN.BSP,BSP,4426,4.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -2448,7 +2448,7 @@ IN-AC-1976-haryana-88,haryana,1996,88,MAHENDRAGARH,GAJRAJ SINGH,parties.IN.IND,I
 IN-AC-1976-haryana-88,haryana,1996,88,MAHENDRAGARH,BALBIR,parties.IN.IND,IND,34,0.04,46,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-88,haryana,1996,88,MAHENDRAGARH,JITENDER,parties.IN.IND,IND,28,0.03,47,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-89,haryana,1996,89,ATELI,NARENDER SINGH,parties.IN.INC,INC,22114,26.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-89,haryana,1996,89,ATELI,RAO OMPRAKASH ENGINEER S/O NAND LAL,parties.IN.UNK,HVP,19270,22.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-89,haryana,1996,89,ATELI,RAO OMPRAKASH ENGINEER S/O NAND LAL,parties.IN.HVP,HVP,19270,22.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-89,haryana,1996,89,ATELI,AJIT SINGH,parties.IN.SP,SP,15686,18.54,3,lost,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-haryana-89,haryana,1996,89,ATELI,NARESH YADAV,parties.IN.BSP,BSP,9846,11.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-89,haryana,1996,89,ATELI,NIHAL SINGH,parties.IN.SAP,SAP,7534,8.91,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
@@ -2505,7 +2505,7 @@ IN-AC-1976-haryana-90,haryana,1996,90,NARNAUL,HARIRAM,parties.IN.IND,IND,683,0.8
 IN-AC-1976-haryana-90,haryana,1996,90,NARNAUL,THAVAR SINGH,parties.IN.JD,JD,564,0.69,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-90,haryana,1996,90,NARNAUL,JITENDER KUMAR,parties.IN.IND,IND,375,0.46,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-90,haryana,1996,90,NARNAUL,MAHESH,parties.IN.IND,IND,128,0.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-90,haryana,1996,90,NARNAUL,INDRAJ,parties.IN.UNK,BHJS,112,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-90,haryana,1996,90,NARNAUL,INDRAJ,parties.IN.BHJS,BHJS,112,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-90,haryana,1996,90,NARNAUL,AJAY KUMAR,parties.IN.IND,IND,105,0.13,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-90,haryana,1996,90,NARNAUL,HOSHIYAR SINGH,parties.IN.IND,IND,100,0.12,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-90,haryana,1996,90,NARNAUL,VIGHA NAND,parties.IN.IND,IND,87,0.11,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
