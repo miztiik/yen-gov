@@ -94,7 +94,7 @@ Citizen Section 5 surfaced these as the questions citizens ask on a party page t
 | PR-3 | Item 1 — Backbone wiring (DELIM_BY_GE_YEAR + 10 PcGeEvent constants + tests) | [ ] PENDING | — | ~2h |
 | PR-4 | Item 1 — Methodology breaks (2 new rows for `lspc-delim-1967` + `lspc-delim-1976`) | [ ] PENDING | — | ~1h |
 | PR-5 | Item 1 — 1967 cohort entity seeding (~520 electoral.csv rows + 15 crosswalk overrides) | [x] COLLAPSED-with-receipt | — | ~30 min |
-| PR-6 | Item 1 — Pre-1990 party-resolver alias expansion (~30-50 aliases + INC_I row + BJS/JNP/LKD/BLD lineage) | [ ] PENDING | — | ~5h |
+| PR-6 | Item 1 — Pre-1990 party-resolver alias expansion (~30-50 aliases + INC_I row + BJS/JNP/LKD/BLD lineage) | [x] COLLAPSED-with-receipt | — | ~30 min |
 | PR-7 | Item 3 — `parties_leadership.csv` schema + columns.json + JSON Schema + ingester module (no data yet) | [ ] PENDING | — | ~4h |
 | PR-8 | Item 1 — Pre-1999 LS ingest DISPATCH (10 cycles × ~3min wall-clock + regen + tile-layout audit) | [ ] PENDING | — | ~3h |
 | PR-9 | Item 3 — Wikidata SPARQL JSON snapshot + parties_leadership.csv data load (~80 parties × ~3 leaders) | [ ] PENDING | — | ~3h |
@@ -118,17 +118,15 @@ Wave 1 (parallel, file-disjoint, ~5 subagents):
         | (Wave 1 PRs merge as they're ready; Wave 2 starts after dependencies green)
         v
 Wave 2 (parallel where possible):
-  PR-5  (datasets/data/entities/electoral.csv 520 row additions + pc_historical_crosswalk.csv 15 overrides)
-        depends on: PR-3 (DELIM_BY_GE_YEAR), PR-4 (methodology refs)
-  PR-6  (parties.csv alias additions + INC_I row + lineage)
-        depends on: PR-3
+  PR-5  (COLLAPSED-with-receipt 2026-06-13 — all 4 PC cohorts already on disk)
+  PR-6  (COLLAPSED-with-receipt 2026-06-13 — TCPD 1962-1998 already at 99.73% row-coverage)
   PR-9  (operator pulls SPARQL JSON; ingester emits parties_leadership.csv)
         depends on: PR-7
         |
         v
 Wave 3 (sequential — ingest + frontend wiring):
   PR-8  (DISPATCH pre-1999 ingest; 10 cycles × all states; regen_ls_party_rollups.py for each)
-        depends on: PR-3 + PR-4 + PR-5 + PR-6
+        depends on: PR-3 + PR-4 (PR-5 + PR-6 collapsed; their gates already satisfied on disk)
   PR-10 (frontend: caption removal + methodology-break markers + BJP 1980 strip)
         depends on: PR-8 (pre-1999 data must be on disk)
   PR-11 (frontend: tooltip + header read leadership table)
@@ -424,6 +422,67 @@ assert resolve_party_label("JNP", year=1977) == "parties.IN.JNP"
 assert resolve_party_label("BJS", year=1971) == "parties.IN.BJS"
 ```
 
+### Update 2026-06-13 — COLLAPSED with receipt
+
+Orchestrator pre-flight on origin/main HEAD d27e1554b (PR-5 merge SHA;
+identical to this PR's branch base) discovered the party_resolver
+already achieves 99.73% row-coverage on the full TCPD
+`datasets/ephemeral/All_States_GE.csv` 1962-1998 LS GE corpus (54,592
+of 54,742 candidacy rows; 483 of 516 distinct party labels). All 30
+top-frequency historical TCPD labels (covering 48,948 of the 54,742
+corpus rows = 89.4%) resolve cleanly to canonical party_ids that are
+ALREADY on `datasets/data/entities/parties.csv` (2,705 rows; 5,011
+indexed aliases).
+
+The 5 specific party_ids the scope above named as `NEW` are already on
+disk with one naming refinement: the canonical project id for the
+Janata Party (1977-1988) is `parties.IN.JP`, and the TCPD label `JNP`
+resolves to it via the alias pipe-list `JANATA PARTY|JAP|JNP|JNP (JP)`
+on that row. Per the orchestrator brief's adaptation directive ("If
+party_id naming convention differs, defer naming to the existing
+convention") this is the correct resolution; the load-bearing oracle
+above is satisfied semantically (`JNP` → canonical Janata-Party id),
+the only divergence is the literal id-tail (`JP` vs `JNP`).
+
+The lineage chain Hans 3b needs for PR-10's BJP-1980 founding chip
+("Descended from Bharatiya Jana Sangh") IS in place today on the
+existing BJS row: `parties.IN.BJS.successor_party_ids =
+parties.IN.JP|parties.IN.BJP`. PR-10 can ship the chip without any
+parties.csv edit from PR-6.
+
+The 33 long-tail UNK labels (150 rows = 0.27%) are SMP/BJC/KCP/PHJ/URC/
+DBP/TEC/NCJ/MLP/ML and 23 others, each appearing in 1-34 corpus rows.
+Per CLAUDE.md section 0a authority table, mapping each of these to a
+canonical party_id is a Hans+Max curator-disambiguation question (e.g.
+"SMP" could be Samajwadi Mazdoor Party OR Samyukta Maharashtra
+Parishad across different states/decades) and NOT autonomous-agent
+territory. The plan-doc's own ESCALATE E4 default ("assign to
+`parties.IN.UNK`, surface in the UNK ledger for Hans+Max review, do
+NOT block other rows") already authorises this residual.
+
+PR-6 collapses to a regression-checkable test
+(`backend/tests/test_canonical_party_resolver_pre1999_coverage.py`,
+4 test cases) locking:
+
+- All 30 top-frequency TCPD historical labels resolve to expected
+  canonical party_ids
+- INC(I) doctrine-lock: `INC(I)` → `parties.IN.INC_I`, plain `INC` →
+  `parties.IN.INC` (Hans+Max methodology-break discipline)
+- BJS lineage chain: `parties.IN.BJS.successor_party_ids` contains
+  `parties.IN.BJP` (Hans 3b PR-10 prerequisite)
+- TCPD 1962-1998 row-coverage >= 99% (optional probe; SKIPs if
+  ephemeral file absent; runs locally where operator has the TCPD
+  panel pulled). Baseline 99.73%.
+
+The ~30-50 NEW row work that PR-6 originally scoped is NOT needed.
+
+No-op receipt per CLAUDE.md section 10 "no-op rows carry a receipt":
+the test IS the receipt + this plan-doc update names the discovery and
+the 0.27% residual gap. PR-8's UNK rate is already 0.27% (far below
+the < 5% target + the > 10% ESCALATE-E4 floor); PR-8 dependency on
+PR-6 collapses (its dependency graph reduces to PR-3 + PR-4). PR-10's
+BJP-1980 annotation can proceed (lineage chain in place).
+
 ## 9. PR-7 — Wikidata leadership schema + ingester module (NO data)
 
 **Item**: Closure-ledger item 3, schema + ingester PR. Max Q2.2d/2e verdicts.
@@ -452,7 +511,7 @@ $header -eq "party_id,role,person_name,person_wikidata_qid,valid_from,valid_to,s
 
 ## 10. PR-8 — Pre-1999 LS ingest DISPATCH
 
-**Item**: Closure-ledger item 1, ingest dispatch PR. Depends on PR-3 + PR-4 + PR-5 + PR-6.
+**Item**: Closure-ledger item 1, ingest dispatch PR. Depends on PR-3 + PR-4 (PR-5 and PR-6 collapsed 2026-06-13; their gates were already satisfied on disk before this sprint started — see their respective section updates).
 
 ### Scope
 
