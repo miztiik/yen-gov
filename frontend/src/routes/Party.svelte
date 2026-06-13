@@ -241,6 +241,7 @@
   import { states } from "../lib/states.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import DualAxisBarLine from "../lib/charts/DualAxisBarLine/DualAxisBarLine.svelte";
+  import RecognitionStrip from "../lib/parties/RecognitionStrip.svelte";
 
   interface Props {
     params: { slug: string };
@@ -521,6 +522,7 @@
     <!-- (4) LS DualAxisBarLine -->
     {#if !meta.is_sentinel && ls_bars.length > 0}
       <section class="space-y-2" data-testid="party-ls-chart">
+        <RecognitionStrip party_id={meta.party_id} />
         <div class="flex items-end justify-between">
           <h2 class="text-lg font-semibold text-slate-800">
             Lok Sabha &mdash; every election contested
