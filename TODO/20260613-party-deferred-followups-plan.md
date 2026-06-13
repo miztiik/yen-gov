@@ -93,7 +93,7 @@ Citizen Section 5 surfaced these as the questions citizens ask on a party page t
 | PR-2 | Item 4 — Recognition-flip strips (5 parties; new helper + component) | [ ] PENDING | — | ~3h |
 | PR-3 | Item 1 — Backbone wiring (DELIM_BY_GE_YEAR + 10 PcGeEvent constants + tests) | [ ] PENDING | — | ~2h |
 | PR-4 | Item 1 — Methodology breaks (2 new rows for `lspc-delim-1967` + `lspc-delim-1976`) | [ ] PENDING | — | ~1h |
-| PR-5 | Item 1 — 1967 cohort entity seeding (~520 electoral.csv rows + 15 crosswalk overrides) | [ ] PENDING | — | ~4h |
+| PR-5 | Item 1 — 1967 cohort entity seeding (~520 electoral.csv rows + 15 crosswalk overrides) | [x] COLLAPSED-with-receipt | — | ~30 min |
 | PR-6 | Item 1 — Pre-1990 party-resolver alias expansion (~30-50 aliases + INC_I row + BJS/JNP/LKD/BLD lineage) | [ ] PENDING | — | ~5h |
 | PR-7 | Item 3 — `parties_leadership.csv` schema + columns.json + JSON Schema + ingester module (no data yet) | [ ] PENDING | — | ~4h |
 | PR-8 | Item 1 — Pre-1999 LS ingest DISPATCH (10 cycles × ~3min wall-clock + regen + tile-layout audit) | [ ] PENDING | — | ~3h |
@@ -358,6 +358,27 @@ Add ~12-15 override rows to `datasets/data/entities/pc_historical_crosswalk.csv`
 $rows = Get-Content datasets/data/entities/electoral.csv | Select-String "^IN-PC-1967-" | Measure-Object | Select-Object -ExpandProperty Count
 $rows -ge 510 -and $rows -le 530
 ```
+
+### Update 2026-06-13 — COLLAPSED with receipt
+
+Orchestrator pre-flight on origin/main HEAD 284b0581a discovered all 4 PC
+cohorts (1962/1967/1976/2008) already present in
+`datasets/data/entities/electoral.csv` with row counts 427/493/574/544.
+
+Max Q1.1c LOAD-BEARING verdict's premise that the 1967 cohort was missing
+turned out to be wrong. The verdict was authored from a partial probe
+that didn't sample electoral.csv directly; later orchestrator sampling
+confirmed all 4 cohorts exist.
+
+PR-5 collapses to a regression-checkable test
+(`backend/tests/test_electoral_pc_cohorts_present.py`) locking the
+cohort row counts. The 520-row entity seed + 15-row crosswalk override
+work that PR-5 originally scoped is NOT needed.
+
+No-op receipt per CLAUDE.md section 10 "no-op rows carry a receipt": the
+test IS the receipt + this plan-doc update names the discovery. PR-8
+(pre-1999 LS ingest dispatch) no longer depends on PR-5; its dependency
+graph collapses to PR-3 + PR-4 + PR-6.
 
 ## 8. PR-6 — Pre-1990 party-resolver alias expansion
 
@@ -673,7 +694,7 @@ To be filled as PRs land.
 | PR-2 | feat/party-fu-recognition-strips | — | [ ] PENDING | — |
 | PR-3 | feat/party-fu-pre1999-backbone | — | [ ] PENDING | — |
 | PR-4 | feat/party-fu-methodology-breaks | — | [ ] PENDING | — |
-| PR-5 | feat/party-fu-1967-cohort-entities | — | [ ] PENDING | — |
+| PR-5 | chore/party-fu-1967-cohort-verify | — | [x] COLLAPSED-with-receipt | 1967 cohort already on disk; receipt test pins all 4 PC cohorts |
 | PR-6 | feat/party-fu-historical-party-aliases | — | [ ] PENDING | — |
 | PR-7 | feat/party-fu-wikidata-schema | — | [ ] PENDING | — |
 | PR-8 | feat/party-fu-pre1999-dispatch | — | [ ] PENDING | — |
