@@ -153,7 +153,7 @@ IN-PC-1962-assam-1,assam,1962,1,CACHAR,DESHA RANJAN NATH,parties.IN.PSP,PSP,1566
 IN-PC-1962-assam-2,assam,1962,2,KARIMGANJ,NIHAR RANJAN LASKAR,parties.IN.INC,INC,112584,50.13,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-assam-2,assam,1962,2,KARIMGANJ,MUKTESWAR CHOUDHURY,parties.IN.IND,IND,62059,27.63,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-assam-2,assam,1962,2,KARIMGANJ,NITAI CHAND PATNI,parties.IN.IND,IND,49939,22.24,3,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1962-assam-3,assam,1962,3,AUTONOMOUS DISTRICTS,GILBERT G. SWELL,parties.IN.UNK,HLC,91850,61.83,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1962-assam-3,assam,1962,3,AUTONOMOUS DISTRICTS,GILBERT G. SWELL,parties.IN.AHL,HLC,91850,61.83,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-assam-3,assam,1962,3,AUTONOMOUS DISTRICTS,JETLIE E. TARIANG,parties.IN.INC,INC,56701,38.17,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-assam-4,assam,1962,4,DHUBRI,MAU GHYSUDDIN AHAMMAD,parties.IN.INC,INC,89407,42.69,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-assam-4,assam,1962,4,DHUBRI,WILLIAMSON SANGMA,parties.IN.IND,IND,61891,29.55,2,lost,U,,,,challenger,src-31c65dbec869
@@ -535,11 +535,11 @@ IN-PC-1962-kerala-2,kerala,1962,2,TELLICHERRY,S. K. POTTEKKATT,parties.IN.IND,IN
 IN-PC-1962-kerala-2,kerala,1962,2,TELLICHERRY,K. T. SUKUMARAN,parties.IN.INC,INC,151886,41.19,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-kerala-3,kerala,1962,3,BADAGARA,A. V. RAGHAVAN,parties.IN.IND,IND,204315,60.86,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-kerala-3,kerala,1962,3,BADAGARA,K. B. MENON,parties.IN.PSP,PSP,131408,39.14,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1962-kerala-4,kerala,1962,4,KOZHIKODE,C. H. MUHAMMED KOYA,parties.IN.UNK,ML,104277,33.97,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1962-kerala-4,kerala,1962,4,KOZHIKODE,C. H. MUHAMMED KOYA,parties.IN.IUML,ML,104277,33.97,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-kerala-4,kerala,1962,4,KOZHIKODE,H. MANJUNATHA RAO,parties.IN.CPI,CPI,103514,33.72,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-kerala-4,kerala,1962,4,KOZHIKODE,K. P. KUTTYKRISHNAN NAIR,parties.IN.INC,INC,89332,29.1,3,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-kerala-4,kerala,1962,4,KOZHIKODE,T. N. BHARATHAN,parties.IN.JS,JS,9834,3.2,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1962-kerala-5,kerala,1962,5,MANJERI,MUHAMMAD ISMAIL SAHIB,parties.IN.UNK,ML,97290,40.5,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1962-kerala-5,kerala,1962,5,MANJERI,MUHAMMAD ISMAIL SAHIB,parties.IN.IUML,ML,97290,40.5,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-kerala-5,kerala,1962,5,MANJERI,MUHAMMAD KUNJU,parties.IN.CPI,CPI,92962,38.7,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-kerala-5,kerala,1962,5,MANJERI,SHOUKKATHALI PUTHANVEETTIL,parties.IN.INC,INC,49977,20.8,3,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-kerala-6,kerala,1962,6,PALGHAT,KUNHAN PATINJARA VEETILPADI,parties.IN.CPI,CPI,131688,65.62,1,won,U,,,,challenger,src-31c65dbec869
@@ -547,7 +547,7 @@ IN-PC-1962-kerala-6,kerala,1962,6,PALGHAT,V. EACHARAN,parties.IN.INC,INC,59353,2
 IN-PC-1962-kerala-6,kerala,1962,6,PALGHAT,K. KRISHNANKUTTY,parties.IN.JS,JS,9650,4.81,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-kerala-7,kerala,1962,7,POONANI,IMBICHI BAVA EZHUKUDIKKAL,parties.IN.CPI,CPI,128288,50.03,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-kerala-7,kerala,1962,7,POONANI,K. S. ACHUTHAN,parties.IN.INC,INC,70489,27.49,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1962-kerala-7,kerala,1962,7,POONANI,ALI KUNHI KOLLIYIL,parties.IN.UNK,ML,46471,18.12,3,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1962-kerala-7,kerala,1962,7,POONANI,ALI KUNHI KOLLIYIL,parties.IN.IUML,ML,46471,18.12,3,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-kerala-7,kerala,1962,7,POONANI,K. HARI GOVIND,parties.IN.JS,JS,11185,4.36,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-kerala-8,kerala,1962,8,TRICHUR,KRISHNA WARRIAR,parties.IN.CPI,CPI,164899,50.9,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-kerala-8,kerala,1962,8,TRICHUR,SEETHA RAMAN,parties.IN.INC,INC,159072,49.1,2,lost,U,,,,challenger,src-31c65dbec869
@@ -1185,10 +1185,10 @@ IN-PC-1962-rajasthan-22,rajasthan,1962,22,NAGAUR,RIJU MAL,parties.IN.IND,IND,202
 IN-PC-1962-tripura-1,tripura,1962,1,TRIPURA WEST,BIRENDRA CHANDRA DUTTA,parties.IN.CPI,CPI,86084,52.12,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-tripura-1,tripura,1962,1,TRIPURA WEST,SUKHAMOY SEN GUPTA,parties.IN.INC,INC,69095,41.83,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-tripura-1,tripura,1962,1,TRIPURA WEST,NARAYAN CHANDRA DEY,parties.IN.PSP,PSP,6302,3.82,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1962-tripura-1,tripura,1962,1,TRIPURA WEST,SNEHA KUMAR CHAKMA,parties.IN.UNK,EIT,3687,2.23,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1962-tripura-1,tripura,1962,1,TRIPURA WEST,SNEHA KUMAR CHAKMA,parties.IN.EIT,EIT,3687,2.23,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-tripura-2,tripura,1962,2,TRIPURA EAST,DASARATHA DEB,parties.IN.CPI,CPI,77539,50.38,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-tripura-2,tripura,1962,2,TRIPURA EAST,JITENDRA MOHAN DEB BARMA,parties.IN.INC,INC,67491,43.85,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1962-tripura-2,tripura,1962,2,TRIPURA EAST,SNEHA KUMAR CHAKMA,parties.IN.UNK,EIT,8887,5.77,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1962-tripura-2,tripura,1962,2,TRIPURA EAST,SNEHA KUMAR CHAKMA,parties.IN.EIT,EIT,8887,5.77,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-uttar-pradesh-1,uttar-pradesh,1962,1,TEHRI GARHAWAL,MANABENDRA SHAH,parties.IN.INC,INC,0,,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-uttar-pradesh-2,uttar-pradesh,1962,2,GARHWAL,BHAKTA DARSHAN,parties.IN.INC,INC,67959,48.06,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1962-uttar-pradesh-2,uttar-pradesh,1962,2,GARHWAL,CHANDRA SINGH GARHWALI,parties.IN.IND,IND,34182,24.17,2,lost,U,,,,challenger,src-31c65dbec869

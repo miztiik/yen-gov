@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1967-punjab-73,punjab,1970,ANANDPUR,57214,43238,75.57,Z.SINGH,parties.IN.UNK,NCJ,21747,50.3,S.SINGH,parties.IN.SAD,SAD,20552,1195,2.77,src-1b7bc1c9d39a
-IN-AC-1967-punjab-81,punjab,1970,DAKALA,58918,46373,78.71,M.KAUR,parties.IN.SAD,SAD,25118,54.17,V.KAUR,parties.IN.UNK,NCJ,10494,14624,31.54,src-1b7bc1c9d39a
+IN-AC-1967-punjab-73,punjab,1970,ANANDPUR,57214,43238,75.57,Z.SINGH,parties.IN.NCJ,NCJ,21747,50.3,S.SINGH,parties.IN.SAD,SAD,20552,1195,2.77,src-1b7bc1c9d39a
+IN-AC-1967-punjab-81,punjab,1970,DAKALA,58918,46373,78.71,M.KAUR,parties.IN.SAD,SAD,25118,54.17,V.KAUR,parties.IN.NCJ,NCJ,10494,14624,31.54,src-1b7bc1c9d39a
 IN-AC-1967-punjab-94,punjab,1970,LEHRA,63115,35062,55.55,H.SINGH,parties.IN.SAD,SAD,28755,82.01,B.BHAN,parties.IN.IND,IND,4735,24020,68.51,src-1b7bc1c9d39a

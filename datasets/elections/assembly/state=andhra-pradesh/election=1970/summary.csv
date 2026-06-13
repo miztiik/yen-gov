@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1967-andhra-pradesh-141,andhra-pradesh,1970,PUNGANUR,73857,38901,52.67,R.SUNDRAMMANNI,parties.IN.UNK,NCJ,36433,93.66,C.NARAYANASWAMY,parties.IN.IND,IND,1856,34577,88.89,src-1b7bc1c9d39a
-IN-AC-1967-andhra-pradesh-217,andhra-pradesh,1970,SINDDPET,68865,50269,73,M.MOHAN,parties.IN.IND,IND,31633,62.93,P.V.R.RAO,parties.IN.UNK,NCJ,11563,20070,39.93,src-1b7bc1c9d39a
-IN-AC-1967-andhra-pradesh-51,andhra-pradesh,1970,RAMCHANDRAPURAM,73940,-1,0,M.S.SANJEEVI,parties.IN.UNK,NCJ,-1,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1967-andhra-pradesh-141,andhra-pradesh,1970,PUNGANUR,73857,38901,52.67,R.SUNDRAMMANNI,parties.IN.NCJ,NCJ,36433,93.66,C.NARAYANASWAMY,parties.IN.IND,IND,1856,34577,88.89,src-1b7bc1c9d39a
+IN-AC-1967-andhra-pradesh-217,andhra-pradesh,1970,SINDDPET,68865,50269,73,M.MOHAN,parties.IN.IND,IND,31633,62.93,P.V.R.RAO,parties.IN.NCJ,NCJ,11563,20070,39.93,src-1b7bc1c9d39a
+IN-AC-1967-andhra-pradesh-51,andhra-pradesh,1970,RAMCHANDRAPURAM,73940,-1,0,M.S.SANJEEVI,parties.IN.NCJ,NCJ,-1,,,,,,,,src-1b7bc1c9d39a
 IN-AC-1967-andhra-pradesh-63,andhra-pradesh,1970,UNDI,73779,57039,77.31,K.A.GOKARAJU,parties.IN.IND,IND,43731,76.67,SRIRAMARAJU,parties.IN.IND,IND,13308,30423,53.34,src-1b7bc1c9d39a
 IN-AC-1967-andhra-pradesh-81,andhra-pradesh,1970,TIRUVUR,72042,47545,66,R.KOTA,parties.IN.IND,IND,30749,64.67,S.BHIMALA,parties.IN.IND,IND,9008,21741,45.72,src-1b7bc1c9d39a

@@ -309,11 +309,11 @@ IN-AC-1976-assam-28,assam,1991,28,GOSSAIGAON,ANDRIAS SOREN,parties.IN.IND,IND,59
 IN-AC-1976-assam-29,assam,1991,29,KOKRAJHAR WEST,PARAMESWAR BRAHMA,parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-30,assam,1991,30,KOKRAJHAR EAST,PRAMILA BRAHMA,parties.IN.IND,IND,66390,79.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-30,assam,1991,30,KOKRAJHAR EAST,DHWAJENDRA BRAHMA,parties.IN.INC,INC,11691,13.95,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-assam-30,assam,1991,30,KOKRAJHAR EAST,CHARAN NARZARY,parties.IN.UNK,PTCA,5702,6.81,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-assam-30,assam,1991,30,KOKRAJHAR EAST,CHARAN NARZARY,parties.IN.PTC,PTCA,5702,6.81,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-assam-31,assam,1991,31,SIDLI,KHIREN BORGOYARY,parties.IN.IND,IND,77024,78.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-31,assam,1991,31,SIDLI,LOUIS ISLARY,parties.IN.INC,INC,12829,13.07,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-31,assam,1991,31,SIDLI,BIRENDRA CHANDRA BORO,parties.IN.AGP,AGP,7561,7.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-assam-31,assam,1991,31,SIDLI,BIRAJ MOHAN BASUMATARY,parties.IN.UNK,PTCA,732,0.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-31,assam,1991,31,SIDLI,BIRAJ MOHAN BASUMATARY,parties.IN.PTC,PTCA,732,0.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-32,assam,1991,32,BONGAIGAON,PHANI BHOOSAN CHOUDHARY,parties.IN.AGP,AGP,27055,39.72,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-assam-32,assam,1991,32,BONGAIGAON,BALI NARAYAN SINGHA,parties.IN.CPIM,CPM,21279,31.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-32,assam,1991,32,BONGAIGAON,DHRUBA NARAYAN BARUA,parties.IN.INC,INC,13511,19.84,3,lost,U,,,,crossover,src-1b7bc1c9d39a
@@ -693,7 +693,7 @@ IN-AC-1976-assam-57,assam,1991,57,RANGIYA,DHARANI DHAR BARO,parties.IN.IND,IND,7
 IN-AC-1976-assam-57,assam,1991,57,RANGIYA,KAMINI MOHAN SARMA,parties.IN.CPI,CPI,3328,4.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-57,assam,1991,57,RANGIYA,NARENDRA SARMA,parties.IN.NAGP,NAGP,1683,2.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-57,assam,1991,57,RANGIYA,JAGANNATH SARMA,parties.IN.INC,INC,1484,1.96,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-assam-57,assam,1991,57,RANGIYA,BIPIN BASUMATARY,parties.IN.UNK,PTCA,1478,1.95,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-57,assam,1991,57,RANGIYA,BIPIN BASUMATARY,parties.IN.PTC,PTCA,1478,1.95,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-57,assam,1991,57,RANGIYA,MUNINDRA SINHA LAHKAR,parties.IN.BJP,BJP,1046,1.38,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-57,assam,1991,57,RANGIYA,ABDUL KHALEK,parties.IN.JD,JD,856,1.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-57,assam,1991,57,RANGIYA,GHANSHYAM KALITA,parties.IN.IND,IND,665,0.88,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -710,7 +710,7 @@ IN-AC-1976-assam-58,assam,1991,58,TAMULPUR,JNAKENDRA DAS,parties.IN.IND,IND,7442
 IN-AC-1976-assam-58,assam,1991,58,TAMULPUR,AMBARISH CH. LAHARI,parties.IN.INC,INC,7242,8.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-58,assam,1991,58,TAMULPUR,GOPINATH DAS,parties.IN.NAGP,NAGP,5052,6.15,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-58,assam,1991,58,TAMULPUR,PABIN RABHA,parties.IN.UNK,URC,4540,5.53,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-assam-58,assam,1991,58,TAMULPUR,ACHINA BASUMATARY,parties.IN.UNK,PTCA,4313,5.25,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-58,assam,1991,58,TAMULPUR,ACHINA BASUMATARY,parties.IN.PTC,PTCA,4313,5.25,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-58,assam,1991,58,TAMULPUR,KALINDRA PAL DAS,parties.IN.UPCA,UPCA,4280,5.21,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-58,assam,1991,58,TAMULPUR,MARCUS MURMU,parties.IN.IND,IND,3398,4.14,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-58,assam,1991,58,TAMULPUR,HARESHWAR KNOWAR,parties.IN.IND,IND,2315,2.82,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -774,12 +774,12 @@ IN-AC-1976-assam-61,assam,1991,61,DHARMAPUR,DHARANI BARMAN,parties.IN.IND,IND,10
 IN-AC-1976-assam-61,assam,1991,61,DHARMAPUR,KSHITISH BARMAN,parties.IN.IND,IND,97,0.17,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-62,assam,1991,62,BARAMA,PANI RAM RABHA,parties.IN.NAGP,NAGP,21927,30.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-62,assam,1991,62,BARAMA,REKHA RANI DAS BORO,parties.IN.AGP,AGP,19599,26.85,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-assam-62,assam,1991,62,BARAMA,THANESWAR BORO,parties.IN.UNK,PTCA,18143,24.85,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-62,assam,1991,62,BARAMA,THANESWAR BORO,parties.IN.PTC,PTCA,18143,24.85,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-62,assam,1991,62,BARAMA,KHAGENDRA NATH BASUMATARY,parties.IN.INC,INC,13030,17.85,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-62,assam,1991,62,BARAMA,BANI KANTA BASUMATARY,parties.IN.UNK,URC,304,0.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-63,assam,1991,63,CHAPAGURI,SUREN SWARGIARY,parties.IN.AGP,AGP,24634,32.69,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-assam-63,assam,1991,63,CHAPAGURI,JOG MOHAN BARKACHARY,parties.IN.IND,IND,23759,31.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-assam-63,assam,1991,63,CHAPAGURI,JANAK BORO,parties.IN.UNK,PTCA,14563,19.33,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-63,assam,1991,63,CHAPAGURI,JANAK BORO,parties.IN.PTC,PTCA,14563,19.33,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-63,assam,1991,63,CHAPAGURI,KHARGESWAR DEKA,parties.IN.IND,IND,6011,7.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-63,assam,1991,63,CHAPAGURI,BIMAL GAYARI,parties.IN.INC,INC,3377,4.48,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-assam-63,assam,1991,63,CHAPAGURI,BIRENDRA RABHA,parties.IN.IND,IND,2353,3.12,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -847,14 +847,14 @@ IN-AC-1976-assam-69,assam,1991,69,UDALGURI,JAMAN SINGH BRAHMA,parties.IN.INC,INC
 IN-AC-1976-assam-69,assam,1991,69,UDALGURI,BINAI KHUNGUR BASUMATARI,parties.IN.IND,IND,24091,35.47,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-assam-69,assam,1991,69,UDALGURI,NARAYAN BORAH,parties.IN.AGP,AGP,10073,14.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-69,assam,1991,69,UDALGURI,MAHESHWAR BORO,parties.IN.IND,IND,2314,3.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-assam-69,assam,1991,69,UDALGURI,NOAS BASUMATARI,parties.IN.UNK,PTCA,1755,2.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-69,assam,1991,69,UDALGURI,NOAS BASUMATARI,parties.IN.PTC,PTCA,1755,2.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-69,assam,1991,69,UDALGURI,JITENDRA NATH BORO,parties.IN.JD,JD,872,1.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-69,assam,1991,69,UDALGURI,GOPAL DAIMARI,parties.IN.IND,IND,659,0.97,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-70,assam,1991,70,MAJBAT,SILVIUS CONDPAN,parties.IN.INC,INC,24337,42.24,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-assam-70,assam,1991,70,MAJBAT,RAMESHWAR BORO,parties.IN.IND,IND,10383,18.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-70,assam,1991,70,MAJBAT,HARSA BDR. BISWAKARMA,parties.IN.AGP,AGP,5392,9.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-70,assam,1991,70,MAJBAT,KESHOB BARUAH,parties.IN.IND,IND,4840,8.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-assam-70,assam,1991,70,MAJBAT,ASHWINI KR. BASUMATARI,parties.IN.UNK,PTCA,4678,8.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-70,assam,1991,70,MAJBAT,ASHWINI KR. BASUMATARI,parties.IN.PTC,PTCA,4678,8.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-70,assam,1991,70,MAJBAT,SIRAJUL HAQUE,parties.IN.IND,IND,2739,4.75,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-70,assam,1991,70,MAJBAT,REBOTI UPADHAYA,parties.IN.JD,JD,2448,4.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-70,assam,1991,70,MAJBAT,PUSPA THAPA,parties.IN.BJP,BJP,886,1.54,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -874,7 +874,7 @@ IN-AC-1976-assam-71,assam,1991,71,DHEKIAJULI,GOPAL SATNAMI,parties.IN.IND,IND,45
 IN-AC-1976-assam-72,assam,1991,72,BARCHALLA,RUDRA PARAJULI,parties.IN.INC,INC,26911,41.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-72,assam,1991,72,BARCHALLA,PRAFULLA KUMAR GOSWAMI,parties.IN.AGP,AGP,10739,16.69,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-assam-72,assam,1991,72,BARCHALLA,SOMESHWAR NATH,parties.IN.NAGP,NAGP,8995,13.98,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-assam-72,assam,1991,72,BARCHALLA,LILA KANTA BODO,parties.IN.UNK,PTCA,7783,12.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-72,assam,1991,72,BARCHALLA,LILA KANTA BODO,parties.IN.PTC,PTCA,7783,12.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-72,assam,1991,72,BARCHALLA,DHARMESWAR SAIKIA,parties.IN.IND,IND,3584,5.57,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-72,assam,1991,72,BARCHALLA,UTTAM DAS,parties.IN.IND,IND,3454,5.37,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-72,assam,1991,72,BARCHALLA,GOLAK NATH,parties.IN.IND,IND,683,1.06,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -905,7 +905,7 @@ IN-AC-1976-assam-74,assam,1991,74,RANGAPARA,KHILANDAR BARLA,parties.IN.ICS_SCS,I
 IN-AC-1976-assam-74,assam,1991,74,RANGAPARA,MILTON QUEAH,parties.IN.UPCA,UPCA,406,0.67,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-74,assam,1991,74,RANGAPARA,SURENDRA SARMA,parties.IN.IND,IND,162,0.27,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-75,assam,1991,75,SOOTEA,KUSHAL SAHU,parties.IN.INC,INC,24172,35.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-assam-75,assam,1991,75,SOOTEA,NAGEN BASUMATARI,parties.IN.UNK,PTCA,12140,18.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-75,assam,1991,75,SOOTEA,NAGEN BASUMATARI,parties.IN.PTC,PTCA,12140,18.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-75,assam,1991,75,SOOTEA,GIRIN BORA,parties.IN.NAGP,NAGP,10670,15.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-75,assam,1991,75,SOOTEA,RABIN SAIKIA,parties.IN.AGP,AGP,7940,11.82,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-assam-75,assam,1991,75,SOOTEA,GOLOK KAKATI,parties.IN.JD,JD,2538,3.78,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
@@ -1419,7 +1419,7 @@ IN-AC-1976-assam-110,assam,1991,110,NAOBOICHA,MONI KUMAR SUBBA,parties.IN.INC,IN
 IN-AC-1976-assam-110,assam,1991,110,NAOBOICHA,SARBESWAR BORAH,parties.IN.AGP,AGP,9868,14.04,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-110,assam,1991,110,NAOBOICHA,RAFIUDDIN AHMED,parties.IN.IND,IND,6858,9.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-110,assam,1991,110,NAOBOICHA,PRABIN SAIKIA,parties.IN.NAGP,NAGP,3913,5.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-assam-110,assam,1991,110,NAOBOICHA,BIRACHON DOLEY,parties.IN.UNK,PTCA,3443,4.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-110,assam,1991,110,NAOBOICHA,BIRACHON DOLEY,parties.IN.PTC,PTCA,3443,4.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-110,assam,1991,110,NAOBOICHA,HOREN BORUAH,parties.IN.CPI,CPI,2679,3.81,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-110,assam,1991,110,NAOBOICHA,JITENDRA BHUYAN,parties.IN.IND,IND,2489,3.54,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-110,assam,1991,110,NAOBOICHA,TARUN DOLEY,parties.IN.IND,IND,1818,2.59,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1451,14 +1451,14 @@ IN-AC-1976-assam-111,assam,1991,111,LAKHIMPUR,EUNUS ALI HAZARIKA,parties.IN.IND,
 IN-AC-1976-assam-111,assam,1991,111,LAKHIMPUR,BOGAMOL DUTTA,parties.IN.IND,IND,268,0.44,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-111,assam,1991,111,LAKHIMPUR,TARAK BORA,parties.IN.IND,IND,213,0.35,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-111,assam,1991,111,LAKHIMPUR,BIPIN DUTTA,parties.IN.IND,IND,121,0.2,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-assam-111,assam,1991,111,LAKHIMPUR,APU DILIP KUMAR MORANG,parties.IN.UNK,PTCA,85,0.14,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-111,assam,1991,111,LAKHIMPUR,APU DILIP KUMAR MORANG,parties.IN.PTC,PTCA,85,0.14,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-112,assam,1991,112,DHAKUAKHANA,BHARAT CHANDRA NARAH,parties.IN.AGP,AGP,23891,30.81,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-assam-112,assam,1991,112,DHAKUAKHANA,PARAMANANDA DOLEY,parties.IN.INC,INC,18505,23.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-112,assam,1991,112,DHAKUAKHANA,SONADHAR PATIR,parties.IN.JD,JD,12616,16.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-112,assam,1991,112,DHAKUAKHANA,BHAGIRAM KUTUM,parties.IN.IND,IND,11348,14.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-112,assam,1991,112,DHAKUAKHANA,LALIT PEGU,parties.IN.CPI,CPI,3330,4.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-112,assam,1991,112,DHAKUAKHANA,RAGHU NATH PAMEHGAM,parties.IN.IND,IND,2756,3.55,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-assam-112,assam,1991,112,DHAKUAKHANA,BIBHICHAN PEGU,parties.IN.UNK,PTCA,2295,2.96,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-112,assam,1991,112,DHAKUAKHANA,BIBHICHAN PEGU,parties.IN.PTC,PTCA,2295,2.96,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-112,assam,1991,112,DHAKUAKHANA,DEBESWAR PEGU,parties.IN.NAGP,NAGP,1249,1.61,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-112,assam,1991,112,DHAKUAKHANA,MAL CHANDRA TAKOE,parties.IN.IND,IND,558,0.72,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-112,assam,1991,112,DHAKUAKHANA,MOYING CHANDRA PEGU,parties.IN.IND,IND,480,0.62,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1469,7 +1469,7 @@ IN-AC-1976-assam-113,assam,1991,113,DHEMAJI,DILIP KUMAR SAIKIA,parties.IN.AGP,AG
 IN-AC-1976-assam-113,assam,1991,113,DHEMAJI,DURGESWAR PATIR,parties.IN.INC,INC,15719,18.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-113,assam,1991,113,DHEMAJI,UPEN PANGGING,parties.IN.CPIM,CPM,10570,12.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-113,assam,1991,113,DHEMAJI,RANOJ PEGU,parties.IN.IND,IND,7579,9.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-assam-113,assam,1991,113,DHEMAJI,HEMA LAGACHU,parties.IN.UNK,PTCA,6948,8.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-113,assam,1991,113,DHEMAJI,HEMA LAGACHU,parties.IN.PTC,PTCA,6948,8.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-113,assam,1991,113,DHEMAJI,KESHAB SONOWAL,parties.IN.CPI,CPI,4845,5.81,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-113,assam,1991,113,DHEMAJI,BHARAT DEORI,parties.IN.IND,IND,4207,5.05,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-113,assam,1991,113,DHEMAJI,BALIRAM DEVRI,parties.IN.NAGP,NAGP,3064,3.68,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1484,7 +1484,7 @@ IN-AC-1976-assam-114,assam,1991,114,JONAI,BIJOY PEGU,parties.IN.UNK,URC,12333,15
 IN-AC-1976-assam-114,assam,1991,114,JONAI,PRADAN BORUAH,parties.IN.IND,IND,11147,14.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-114,assam,1991,114,JONAI,SUKRACHARYA MUSAHARJY,parties.IN.IND,IND,9970,12.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-114,assam,1991,114,JONAI,LAKHYO NATH KOULI,parties.IN.AGP,AGP,4467,5.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-assam-114,assam,1991,114,JONAI,BIDYADHAR DOLEY,parties.IN.UNK,PTCA,4438,5.65,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-114,assam,1991,114,JONAI,BIDYADHAR DOLEY,parties.IN.PTC,PTCA,4438,5.65,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-114,assam,1991,114,JONAI,TARUN MILI,parties.IN.JD,JD,4077,5.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-114,assam,1991,114,JONAI,PADMAWATI KULI,parties.IN.ICS_SCS,ICS(SCS),2198,2.8,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-114,assam,1991,114,JONAI,MALAYA PEGU,parties.IN.IND,IND,2007,2.56,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -1,8 +1,8 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1967-rajasthan-81,rajasthan,1970,81,TONK,S.PRASAD,parties.IN.UNK,NCJ,24636,62.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-rajasthan-81,rajasthan,1970,81,TONK,S.PRASAD,parties.IN.NCJ,NCJ,24636,62.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-81,rajasthan,1970,81,TONK,M.R.BEG,parties.IN.IND,IND,14278,36.47,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-81,rajasthan,1970,81,TONK,B.LAL,parties.IN.IND,IND,236,0.6,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-rajasthan-89,rajasthan,1970,89,NASIRABAD,S.SINGH,parties.IN.UNK,NCJ,20483,57.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-rajasthan-89,rajasthan,1970,89,NASIRABAD,S.SINGH,parties.IN.NCJ,NCJ,20483,57.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-89,rajasthan,1970,89,NASIRABAD,B.LAL,parties.IN.SWA,SWA,9524,26.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-89,rajasthan,1970,89,NASIRABAD,H.SINGH,parties.IN.IND,IND,5076,14.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-89,rajasthan,1970,89,NASIRABAD,K.SINGH,parties.IN.IND,IND,583,1.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

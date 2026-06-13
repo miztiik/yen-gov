@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Satish Kumar,parties.IN.SAP,SAP,58999,47.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Kuamar Puspanjay,parties.IN.RJD,RJD,48302,38.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Arun Kumar Singh,parties.IN.UNK,LOK JAN SHAKTI,12269,9.79,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Arun Kumar Singh,parties.IN.LOK_JAN_SHAKTI,LOK JAN SHAKTI,12269,9.79,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Vijay Paswan,parties.IN.BSP,BSP,1468,1.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Narayan Singh,parties.IN.IND,IND,811,0.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Dinesh Azad,parties.IN.IND,IND,667,0.53,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a

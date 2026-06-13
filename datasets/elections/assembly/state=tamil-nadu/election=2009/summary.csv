@@ -2,8 +2,8 @@ entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pc
 IN-AC-1976-tamil-nadu-103,tamil-nadu,2009,THONOAMUTHUR,420186,201566,47.97,Kandaswamy M.N,parties.IN.INC,INC,112350,55.74,Thangavelu. K.,parties.IN.DMDK,DMDK,40863,71487,35.47,src-1b7bc1c9d39a
 IN-AC-1976-tamil-nadu-134,tamil-nadu,2009,CUMBUM,165427,112165,67.8,"Ramakrishan N,",parties.IN.DMK,DMK,81515,72.67,Arun Kumar. R.,parties.IN.DMDK,DMDK,24142,57373,51.15,src-1b7bc1c9d39a
 IN-AC-1976-tamil-nadu-137,tamil-nadu,2009,THIRUMANGLAM,169523,138191,81.52,L.Athiyaman,parties.IN.DMK,DMK,79422,57.47,M. Ramlingam.M,parties.IN.AIADMK,ADMK,40156,39266,28.41,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-197,tamil-nadu,2009,ILAYANGUDI,145800,84873,58.21,Mathi Arasan S,parties.IN.UNK,DMKO,61084,71.97,A. Balakrishan,parties.IN.UNK,DMPDK,19628,41456,48.84,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-197,tamil-nadu,2009,ILAYANGUDI,145800,84873,58.21,Mathi Arasan S,parties.IN.DMKO,DMKO,61084,71.97,A. Balakrishan,parties.IN.DMPDK,DMPDK,19628,41456,48.84,src-1b7bc1c9d39a
 IN-AC-1976-tamil-nadu-225,tamil-nadu,2009,TIRUCHENDUR,166975,110931,66.44,Anitha R. R.,parties.IN.DMK,DMK,75223,67.81,T. Narayanan,parties.IN.UNK,AIAMK,28362,46861,42.24,src-1b7bc1c9d39a
 IN-AC-1976-tamil-nadu-226,tamil-nadu,2009,SRIVAIKUNTAM,140639,84480,60.07,M.B. Sudalaiyandi,parties.IN.INC,INC,53827,63.72,M. Soundarapan.,parties.IN.DMDK,DMDK,22468,31359,37.12,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-51,tamil-nadu,2009,VANDAVASI (SC),174376,132750,76.13,J. Kamalakanna,parties.IN.DMK,DMK,78827,59.38,P. Munusamy,parties.IN.UNK,AADMK,40810,38017,28.64,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-51,tamil-nadu,2009,VANDAVASI (SC),174376,132750,76.13,J. Kamalakanna,parties.IN.DMK,DMK,78827,59.38,P. Munusamy,parties.IN.AADMK,AADMK,40810,38017,28.64,src-1b7bc1c9d39a
 IN-AC-1976-tamil-nadu-78,tamil-nadu,2009,BARGUR,197892,130913,66.15,Narasiman K.R.K,parties.IN.DMK,DMK,89481,68.35,Chandran V.,parties.IN.IND,IND,30378,59103,45.15,src-1b7bc1c9d39a

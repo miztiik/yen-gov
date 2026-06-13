@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-1976-assam-22,assam,2009,22,SALMARA SOUTH,Wazed Ali Choudhary,parties.IN.INC,INC,53469,51.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-assam-22,assam,2009,22,SALMARA SOUTH,A. Rahman Ajmal,parties.IN.UNK,AIDUF,46916,45.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-22,assam,2009,22,SALMARA SOUTH,A. Rahman Ajmal,parties.IN.AIDUF,AIDUF,46916,45.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-22,assam,2009,22,SALMARA SOUTH,Dewan J. Abedin,parties.IN.IND,IND,1328,1.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-22,assam,2009,22,SALMARA SOUTH,Alek Chand,parties.IN.NCP,NCP,808,0.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-assam-22,assam,2009,22,SALMARA SOUTH,Shfiqul Hussain Prince),parties.IN.BJP,BJP,594,0.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

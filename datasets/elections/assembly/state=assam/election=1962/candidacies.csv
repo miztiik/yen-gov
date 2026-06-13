@@ -1,10 +1,10 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1962-assam-1,assam,1962,1,LUNGLEH,SAPRAWNGA,parties.IN.UNK,HLC,5563,45.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-1,assam,1962,1,LUNGLEH,SAPRAWNGA,parties.IN.AHL,HLC,5563,45.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-1,assam,1962,1,LUNGLEH,R. DENGTHUAMA,parties.IN.IND,IND,4513,37.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-1,assam,1962,1,LUNGLEH,R. SAPZOVA,parties.IN.IND,IND,2079,17.1,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-assam-2,assam,1962,2,AIJAL EAST,R. THANHLIRA,parties.IN.UNK,HLC,10321,84.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-2,assam,1962,2,AIJAL EAST,R. THANHLIRA,parties.IN.AHL,HLC,10321,84.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-2,assam,1962,2,AIJAL EAST,LALSAWIA,parties.IN.INC,INC,1939,15.82,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-assam-3,assam,1962,3,AIJAL WEST,CH. CHHUNGA,parties.IN.UNK,HLC,16070,73.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-3,assam,1962,3,AIJAL WEST,CH. CHHUNGA,parties.IN.AHL,HLC,16070,73.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-3,assam,1962,3,AIJAL WEST,A. THANGLURA,parties.IN.INC,INC,5771,26.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-4,assam,1962,4,RATABARI,BAIDYANATH MOOKERJEE,parties.IN.INC,INC,13403,42.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-4,assam,1962,4,RATABARI,BISWANATH UPADHYAYA,parties.IN.PSP,PSP,12081,38.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -55,41 +55,41 @@ IN-AC-1962-assam-15,assam,1962,15,LAKHIPUR,KHIRODHAR MAJHI,parties.IN.IND,IND,58
 IN-AC-1962-assam-16,assam,1962,16,UDHARBAND,DWARIKA NATH TEWARI,parties.IN.INC,INC,16336,73.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-16,assam,1962,16,UDHARBAND,ANIL KUMAR BARMAN,parties.IN.PSP,PSP,5854,26.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-17,assam,1962,17,NORTH CACHAR HILLS,J. B. HAGJER,parties.IN.INC,INC,5708,50.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-assam-17,assam,1962,17,NORTH CACHAR HILLS,MOHAN HAMDHAN,parties.IN.UNK,HLC,5693,49.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-17,assam,1962,17,NORTH CACHAR HILLS,MOHAN HAMDHAN,parties.IN.AHL,HLC,5693,49.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-18,assam,1962,18,MIKIR HILLS EAST,SAI SAI TERANG,parties.IN.INC,INC,7059,43.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-18,assam,1962,18,MIKIR HILLS EAST,BARELONG TERANG,parties.IN.IND,IND,4750,29.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-18,assam,1962,18,MIKIR HILLS EAST,LOCHANDRA MAIBANGSA,parties.IN.IND,IND,2209,13.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-assam-18,assam,1962,18,MIKIR HILLS EAST,RAIDANG INGTI,parties.IN.UNK,HLC,2163,13.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-18,assam,1962,18,MIKIR HILLS EAST,RAIDANG INGTI,parties.IN.AHL,HLC,2163,13.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-19,assam,1962,19,MIKIR HILLS WEST,CHATRASING TERON,parties.IN.INC,INC,10020,65.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-assam-19,assam,1962,19,MIKIR HILLS WEST,BASA INGTI KATHAR,parties.IN.UNK,HLC,5169,34.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-assam-20,assam,1962,20,JOWAI,ENOWELL POHSHNA,parties.IN.UNK,HLC,10762,46.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-19,assam,1962,19,MIKIR HILLS WEST,BASA INGTI KATHAR,parties.IN.AHL,HLC,5169,34.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-20,assam,1962,20,JOWAI,ENOWELL POHSHNA,parties.IN.AHL,HLC,10762,46.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-20,assam,1962,20,JOWAI,KISTOBIN RYMBAI,parties.IN.IND,IND,4537,19.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-20,assam,1962,20,JOWAI,DISINGH SHALLAM,parties.IN.IND,IND,4347,18.86,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-20,assam,1962,20,JOWAI,LARSINGH KHYRIEM,parties.IN.IND,IND,3397,14.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-assam-21,assam,1962,21,NONGPOH,BRINGTON BUHAI LYNGDOH,parties.IN.UNK,HLC,13076,73.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-21,assam,1962,21,NONGPOH,BRINGTON BUHAI LYNGDOH,parties.IN.AHL,HLC,13076,73.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-21,assam,1962,21,NONGPOH,AJRA SINGH KHONGPHAI,parties.IN.INC,INC,2926,16.44,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-21,assam,1962,21,NONGPOH,JORMANIK SIEM,parties.IN.IND,IND,1796,10.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-assam-22,assam,1962,22,SHILLONG,WILSON READE,parties.IN.UNK,HLC,10751,49.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-22,assam,1962,22,SHILLONG,WILSON READE,parties.IN.AHL,HLC,10751,49.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-22,assam,1962,22,SHILLONG,ARON ALLEY,parties.IN.INC,INC,7754,35.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-22,assam,1962,22,SHILLONG,BINOY KUMAR LAHIRI,parties.IN.CPI,CPI,3027,13.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-22,assam,1962,22,SHILLONG,UMESH CHANDRA DEKA,parties.IN.IND,IND,154,0.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-assam-23,assam,1962,23,NONGSTOIN,HOPING STONE LYNGDOH,parties.IN.UNK,HLC,9825,67.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-23,assam,1962,23,NONGSTOIN,HOPING STONE LYNGDOH,parties.IN.AHL,HLC,9825,67.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-23,assam,1962,23,NONGSTOIN,BHATIAR SYIEM,parties.IN.INC,INC,2827,19.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-23,assam,1962,23,NONGSTOIN,NEANDER SYIEM,parties.IN.IND,IND,1623,11.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-23,assam,1962,23,NONGSTOIN,NORMAN SINGH SYIEMLIEH,parties.IN.IND,IND,299,2.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-assam-24,assam,1962,24,CHERRAPUNJI,STANLEY D. D. NICHOLS ROY,parties.IN.UNK,HLC,18786,70.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-24,assam,1962,24,CHERRAPUNJI,STANLEY D. D. NICHOLS ROY,parties.IN.AHL,HLC,18786,70.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-24,assam,1962,24,CHERRAPUNJI,MAHAM SINGH,parties.IN.INC,INC,7721,29.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-assam-25,assam,1962,25,BAGHMARA,WILLIAMSON SANGMA,parties.IN.UNK,HLC,7855,60.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-25,assam,1962,25,BAGHMARA,WILLIAMSON SANGMA,parties.IN.AHL,HLC,7855,60.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-25,assam,1962,25,BAGHMARA,DINGMIN NENGMINZA,parties.IN.INC,INC,4796,36.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-25,assam,1962,25,BAGHMARA,NITAR MARAK,parties.IN.ACK,ACK,317,2.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-assam-26,assam,1962,26,DAINADUBI,NALLINDRA SANGMA,parties.IN.UNK,HLC,6238,69.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-26,assam,1962,26,DAINADUBI,NALLINDRA SANGMA,parties.IN.AHL,HLC,6238,69.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-26,assam,1962,26,DAINADUBI,AARON SANGMA,parties.IN.INC,INC,2102,23.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-26,assam,1962,26,DAINADUBI,JANATHAN SANGMA,parties.IN.ACK,ACK,648,7.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-assam-27,assam,1962,27,TURA,EMERSON MOMIN,parties.IN.UNK,HLC,7979,55.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-27,assam,1962,27,TURA,EMERSON MOMIN,parties.IN.AHL,HLC,7979,55.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-27,assam,1962,27,TURA,NOHO SANGMA,parties.IN.INC,INC,3750,26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-27,assam,1962,27,TURA,JENDEN MARAK,parties.IN.ACK,ACK,2694,18.68,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-28,assam,1962,28,PHULBARI,EMONSINGH SANGMA,parties.IN.INC,INC,6104,51.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-assam-28,assam,1962,28,PHULBARI,BRONSON MOMIN,parties.IN.UNK,HLC,4340,36.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-assam-28,assam,1962,28,PHULBARI,BRONSON MOMIN,parties.IN.AHL,HLC,4340,36.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-28,assam,1962,28,PHULBARI,HEMSON MARAK,parties.IN.ACK,ACK,1510,12.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-29,assam,1962,29,MANKACHAR,ZAHIRUL ISLAM,parties.IN.IND,IND,10744,49.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-assam-29,assam,1962,29,MANKACHAR,KOBAD HUSSAIN AHMED,parties.IN.INC,INC,10492,48.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a

@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-1976-uttarakhand-29,uttarakhand,2005,29,KOTDWAR,Surendra Singh Negi,parties.IN.INC,INC,24429,56.03,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-uttarakhand-29,uttarakhand,2005,29,KOTDWAR,Anil Kumar Baluni,parties.IN.BJP,BJP,16529,37.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-29,uttarakhand,2005,29,KOTDWAR,Arvind Singh,parties.IN.UNK,UKKD(D),1430,3.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttarakhand-29,uttarakhand,2005,29,KOTDWAR,Arvind Singh,parties.IN.UKKD_D,UKKD(D),1430,3.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-uttarakhand-29,uttarakhand,2005,29,KOTDWAR,Sanjeev Aggarwal,parties.IN.SP,SP,640,1.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-uttarakhand-29,uttarakhand,2005,29,KOTDWAR,Kailash Chandra Istwal,parties.IN.UKKD,UKKD,574,1.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

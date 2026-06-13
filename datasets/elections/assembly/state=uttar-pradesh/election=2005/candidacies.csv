@@ -2,7 +2,7 @@ entity_id,state,election_year,constituency_no,constituency_name,candidate_name,p
 IN-AC-1976-uttar-pradesh-162,uttar-pradesh,2005,162,HAINSARBAZAR,Algaoo Prasad Chauhan,parties.IN.UNK,S.P,63238,41.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-uttar-pradesh-162,uttar-pradesh,2005,162,HAINSARBAZAR,Dashrath Prasad Chauhan,parties.IN.BSP,BSP,63144,41.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-uttar-pradesh-162,uttar-pradesh,2005,162,HAINSARBAZAR,Ram Milan,parties.IN.BJP,BJP,12224,8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-162,uttar-pradesh,2005,162,HAINSARBAZAR,Omehari Beldar,parties.IN.UNK,SDBSP,5963,3.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-162,uttar-pradesh,2005,162,HAINSARBAZAR,Omehari Beldar,parties.IN.SDBSP,SDBSP,5963,3.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-uttar-pradesh-162,uttar-pradesh,2005,162,HAINSARBAZAR,Saty Prakash,parties.IN.IND,IND,2911,1.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-uttar-pradesh-162,uttar-pradesh,2005,162,HAINSARBAZAR,Ram Kripal,parties.IN.INC,INC,2232,1.46,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-uttar-pradesh-162,uttar-pradesh,2005,162,HAINSARBAZAR,Shiv Kumar,parties.IN.IND,IND,1523,1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -47,7 +47,7 @@ IN-AC-1976-uttar-pradesh-261,uttar-pradesh,2005,261,ALLAHABADWEST,Kavita Sharma,
 IN-AC-1976-uttar-pradesh-261,uttar-pradesh,2005,261,ALLAHABADWEST,Ram Singh,parties.IN.IND,IND,222,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-uttar-pradesh-261,uttar-pradesh,2005,261,ALLAHABADWEST,Ajesh Kumar,parties.IN.IND,IND,200,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-uttar-pradesh-339,uttar-pradesh,2005,339,NAAGAL,Smt. Satto Devi,parties.IN.BSP,BSP,67637,58.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-339,uttar-pradesh,2005,339,NAAGAL,Rajnish,parties.IN.UNK,NLD,36313,31.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-339,uttar-pradesh,2005,339,NAAGAL,Rajnish,parties.IN.NLD,NLD,36313,31.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-uttar-pradesh-339,uttar-pradesh,2005,339,NAAGAL,Mahipal Singh,parties.IN.BJP,BJP,4280,3.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-uttar-pradesh-339,uttar-pradesh,2005,339,NAAGAL,Amrit Singh,parties.IN.INC,INC,3508,3.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-uttar-pradesh-339,uttar-pradesh,2005,339,NAAGAL,Rakesh,parties.IN.ASP,ASP,1285,1.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -1,8 +1,8 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1967-assam-13,assam,1970,13,DHOLAI,S.P.BAINDYA,parties.IN.UNK,NCJ,17968,55.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-assam-13,assam,1970,13,DHOLAI,S.P.BAINDYA,parties.IN.NCJ,NCJ,17968,55.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-13,assam,1970,13,DHOLAI,S.C.CHOWDHURY,parties.IN.SUCI,SUC,13384,41.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-13,assam,1970,13,DHOLAI,S.BARETHA,parties.IN.IND,IND,853,2.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-assam-77,assam,1970,77,TEZPUR,B.C.BHAGAWATI,parties.IN.UNK,NCJ,13620,61.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-assam-77,assam,1970,77,TEZPUR,B.C.BHAGAWATI,parties.IN.NCJ,NCJ,13620,61.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-77,assam,1970,77,TEZPUR,R.SARMA,parties.IN.CPI,CPI,4535,20.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-77,assam,1970,77,TEZPUR,A.KALITA,parties.IN.IND,IND,2828,12.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-77,assam,1970,77,TEZPUR,P.N.SINHA,parties.IN.IND,IND,1340,6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
