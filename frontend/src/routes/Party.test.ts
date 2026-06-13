@@ -13,6 +13,7 @@ import {
   getAvatarStyle,
   partyRowFromMeta,
   sentinelFraming,
+  showPuclAttribution,
   sparkline,
   type AvatarStyle,
   type PartyKpiStrip,
@@ -265,19 +266,39 @@ describe("partyRowFromMeta", () => {
 describe("sentinelFraming", () => {
   it("returns the IND framing for the Independent sentinel", () => {
     const out = sentinelFraming("parties.IN.IND")!;
-    expect(out).toMatch(/Independent candidates/);
-    expect(out).toMatch(/not a single political party/);
+    expect(out).toMatch(/Independent isn't one party/);
+    expect(out).toMatch(/everyone who ran without a party/);
+    expect(out).toMatch(/numbers below mix them all together/);
   });
 
   it("returns the NOTA framing for the NOTA sentinel", () => {
     const out = sentinelFraming("parties.IN.NOTA")!;
-    expect(out).toMatch(/NOTA \(None of the Above\)/);
-    expect(out).toMatch(/leading candidate is still elected/);
+    expect(out).toMatch(/NOTA lets you vote against every candidate/);
+    expect(out).toMatch(/leading candidate still wins/);
+    expect(out).toMatch(/no re-election/);
   });
 
   it("returns null for a non-sentinel party (the consumer skips the line)", () => {
     expect(sentinelFraming("parties.IN.INC")).toBeNull();
     expect(sentinelFraming("parties.IN.BJP")).toBeNull();
+  });
+});
+
+// --- showPuclAttribution --------------------------------------------------
+
+describe("showPuclAttribution", () => {
+  it("returns true ONLY for the NOTA sentinel", () => {
+    expect(showPuclAttribution("parties.IN.NOTA")).toBe(true);
+  });
+
+  it("returns false for the Independent sentinel (PUCL framing is NOTA-only)", () => {
+    expect(showPuclAttribution("parties.IN.IND")).toBe(false);
+  });
+
+  it("returns false for real parties (regression check)", () => {
+    expect(showPuclAttribution("parties.IN.INC")).toBe(false);
+    expect(showPuclAttribution("parties.IN.BJP")).toBe(false);
+    expect(showPuclAttribution("parties.IN.AAP")).toBe(false);
   });
 });
 

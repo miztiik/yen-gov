@@ -195,21 +195,36 @@
   }
 
   /** Sentinel one-liner under the H1. Returns null when the party is
-   *  not a sentinel (the caller skips the line). */
+   *  not a sentinel (the caller skips the line). Citizen-tested text
+   *  per docs/archive/plans/20260612-party-rendering-and-party-pages-plan.md
+   *  closure-ledger item 2 + TODO/20260613-party-deferred-followups-plan.md
+   *  section 0 doctrine-lock (Citizen 1a/1b overrides Hans 1a/1b - body
+   *  drops PUCL citation and "aggregate"/"residual" jargon). */
   export function sentinelFraming(party_id: string): string | null {
     if (party_id === "parties.IN.IND") {
       return (
-        "Independent candidates are individual contestants, not a single political party. " +
-        "The aggregate figures below sum across all Independent candidates."
+        "Independent isn't one party. It's everyone who ran without a party - " +
+        "thousands of different people across many decades. " +
+        "The numbers below mix them all together."
       );
     }
     if (party_id === "parties.IN.NOTA") {
       return (
-        "NOTA (None of the Above) is a ballot option, not a party. " +
-        "Even if NOTA leads, the leading candidate is still elected."
+        "NOTA lets you vote against every candidate on the ballot. " +
+        "Even if NOTA gets more votes than any candidate, " +
+        "the leading candidate still wins - there is no re-election."
       );
     }
     return null;
+  }
+
+  /** Pure: should the NOTA-specific PUCL v. Union of India footnote
+   *  render in the metadata footer? Only NOTA per Citizen verdict in
+   *  TODO/20260613-party-deferred-followups-plan.md section 3
+   *  ("footnote it or drop it" - we footnote in slate-400 small text
+   *  so the citizen body strip stays jargon-free). */
+  export function showPuclAttribution(party_id: string): boolean {
+    return party_id === "parties.IN.NOTA";
   }
 
   /** Pure: render the W/L sparkline as a string of Unicode block chars.
@@ -692,6 +707,14 @@
           </a>
         {/if}
       </div>
+      {#if showPuclAttribution(meta.party_id)}
+        <p
+          class="text-[11px] text-slate-400 mt-2"
+          data-testid="party-nota-puc-attribution"
+        >
+          Introduced by the Supreme Court in PUCL v. Union of India (Sep 2013).
+        </p>
+      {/if}
     </footer>
   {/if}
 </main>
