@@ -71,6 +71,7 @@ from yen_gov.canonical.adapters.eci_ls import (  # noqa: E402
     build_pc_envelope,
     build_pc_envelope_from_tcpd,
 )
+from yen_gov.canonical.derived.party_pages import refresh_party_page_marts  # noqa: E402
 from yen_gov.canonical.seed.reservation_sources import (  # noqa: E402
     SLUG_TO_ECI_STATE_CODE,
 )
@@ -437,6 +438,12 @@ def main(years: list[int] | None = None) -> int:
         grand_total_replaced += year_replaced
 
     print(f"\n=== GRAND TOTAL: +{grand_total_added} added, {grand_total_replaced} replaced ===")
+    mart = refresh_party_page_marts(REPO_ROOT)
+    print(
+        "party-page marts: "
+        f"{mart.history_rows} history rows, {mart.stronghold_rows} stronghold rows, "
+        f"signature {mart.input_signature[:12]}"
+    )
     return 0
 
 

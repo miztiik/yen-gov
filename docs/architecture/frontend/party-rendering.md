@@ -1,6 +1,6 @@
 # Party rendering — PartyPill contract + `/parties/<slug>` link doctrine
 
-**Last Updated**: 2026-06-12
+**Last Updated**: 2026-06-13
 **Status**: Active citizen contract. PR-0 of [TODO/20260612-party-rendering-and-party-pages-plan.md](../../../TODO/20260612-party-rendering-and-party-pages-plan.md) shipped this doc; PRs 1-4 of the same plan execute against it.
 
 This page is the binding contract for how political parties render across yen-gov citizen surfaces. It sits alongside [colours.md](colours.md) (the 3-tier party-colour resolver) and [url-grammar.md](url-grammar.md) (ADR-0053, the `/parties/<slug>` route grammar). The colour resolver and URL grammar are the two underlying capabilities; THIS doc is the rule that says every surface uses them consistently.
@@ -63,6 +63,18 @@ Per [url-grammar.md ADR-0053](url-grammar.md#adr-0053-party-rendering-and-per-pa
 - Slug derivation: lowercased `party_id` tail with `_` -> `-` (via [`partyIdToSlug`](../../../frontend/src/lib/slug.ts)). Sentinel overrides: IND -> `independent`, NOTA -> `nota`, AC (Arunachal Congress) -> `arunachal-congress`, GOA (Goa party vs state slug) -> `goemcarancho-otrec-astro`, MAHAD (Mahakranti Dal vs Maharashtra AC) -> `mahakranti-dal`. UNK -> NULL (no page).
 
 Link builder: `link.party(party_id): string | null` from [links.ts](../../../frontend/src/lib/links.ts). Returns `null` for UNK and any falsy input; callers MUST handle null by skipping the `<a>` wrapper.
+
+## Party detail data loading
+
+The `/parties/<slug>` detail page reads the backend-derived party-page marts:
+
+- `datasets/data/marts/party_pages/history.csv`
+- `datasets/data/marts/party_pages/strongholds.csv`
+- `datasets/data/marts/party_pages/manifest.csv`
+
+The generator is `python -m yen_gov derive-party-pages --root .` and the implementation lives at `backend/yen_gov/canonical/derived/party_pages.py`. The mart is a reproducible read model over canonical electoral rows, not a source of truth. The browser MUST NOT read `datasets/data/datapoints/electoral/*.csv` for one party page; that corpus is large and belongs in backend precompute. Tier-B validation recomputes the mart input signature and fails when an electoral ingest changes the source CSVs without refreshing the mart.
+
+Citizen methodology constraints: Parliament and Assembly stay separate; vote share is votes-weighted where vote totals are available; missing coverage is a gap, not zero; `parties.IN.IND` and `parties.IN.NOTA` keep their sentinel framing; alliance membership is not added to a party's own totals.
 
 ## See also
 
