@@ -1,12 +1,80 @@
 party_id,event_id,state,alliance,source_id
+parties.IN.AIMIM,assembly-2019,maharashtra,,src-6be1c4cb7a81
+parties.IN.MNS,assembly-2019,maharashtra,,src-6be1c4cb7a81
+parties.IN.SP,assembly-2019,maharashtra,,src-6be1c4cb7a81
+parties.IN.VBA,assembly-2019,maharashtra,,src-6be1c4cb7a81
+parties.IN.BVA,assembly-2019,maharashtra,Maha Aghadi,src-6be1c4cb7a81
+parties.IN.INC,assembly-2019,maharashtra,Maha Aghadi,src-6be1c4cb7a81
+parties.IN.NCP,assembly-2019,maharashtra,Maha Aghadi,src-6be1c4cb7a81
+parties.IN.PWP,assembly-2019,maharashtra,Maha Aghadi,src-6be1c4cb7a81
+parties.IN.SWP,assembly-2019,maharashtra,Maha Aghadi,src-6be1c4cb7a81
+parties.IN.BJP,assembly-2019,maharashtra,Mahayuti,src-6be1c4cb7a81
+parties.IN.SHS,assembly-2019,maharashtra,Mahayuti,src-6be1c4cb7a81
+parties.IN.AISMK,assembly-2021,tamil-nadu,,src-1bde6be308c3
 parties.IN.AITC,assembly-2021,west-bengal,,src-33e3388cf85e
 parties.IN.BJP,assembly-2021,west-bengal,,src-33e3388cf85e
+parties.IN.BSP,assembly-2021,tamil-nadu,,src-1bde6be308c3
+parties.IN.CPIMLL,assembly-2021,tamil-nadu,,src-1bde6be308c3
+parties.IN.IJK,assembly-2021,tamil-nadu,,src-1bde6be308c3
+parties.IN.MNM,assembly-2021,tamil-nadu,,src-1bde6be308c3
+parties.IN.NTK,assembly-2021,tamil-nadu,,src-1bde6be308c3
+parties.IN.PT,assembly-2021,tamil-nadu,,src-1bde6be308c3
+parties.IN.AIADMK,assembly-2021,tamil-nadu,AIADMK+,src-1bde6be308c3
+parties.IN.BJP,assembly-2021,tamil-nadu,AIADMK+,src-1bde6be308c3
+parties.IN.PB,assembly-2021,tamil-nadu,AIADMK+,src-1bde6be308c3
+parties.IN.PMK,assembly-2021,tamil-nadu,AIADMK+,src-1bde6be308c3
+parties.IN.TMC_M,assembly-2021,tamil-nadu,AIADMK+,src-1bde6be308c3
+parties.IN.AIMIM,assembly-2021,tamil-nadu,AMMK+,src-1bde6be308c3
+parties.IN.AMMK,assembly-2021,tamil-nadu,AMMK+,src-1bde6be308c3
+parties.IN.DMDK,assembly-2021,tamil-nadu,AMMK+,src-1bde6be308c3
+parties.IN.SDPI,assembly-2021,tamil-nadu,AMMK+,src-1bde6be308c3
+parties.IN.CPI,assembly-2021,kerala,LDF,src-12feeb60dda8
+parties.IN.CPIM,assembly-2021,kerala,LDF,src-12feeb60dda8
+parties.IN.INL,assembly-2021,kerala,LDF,src-12feeb60dda8
+parties.IN.JDS,assembly-2021,kerala,LDF,src-12feeb60dda8
+parties.IN.JKC,assembly-2021,kerala,LDF,src-12feeb60dda8
+parties.IN.KECM,assembly-2021,kerala,LDF,src-12feeb60dda8
+parties.IN.KEC_B,assembly-2021,kerala,LDF,src-12feeb60dda8
+parties.IN.LJD,assembly-2021,kerala,LDF,src-12feeb60dda8
+parties.IN.NCP,assembly-2021,kerala,LDF,src-12feeb60dda8
+parties.IN.AIADMK,assembly-2021,kerala,NDA,src-12feeb60dda8
+parties.IN.BDJS,assembly-2021,kerala,NDA,src-12feeb60dda8
+parties.IN.BJP,assembly-2021,kerala,NDA,src-12feeb60dda8
+parties.IN.AIFB,assembly-2021,tamil-nadu,SPA,src-1bde6be308c3
+parties.IN.CPI,assembly-2021,tamil-nadu,SPA,src-1bde6be308c3
+parties.IN.CPIM,assembly-2021,tamil-nadu,SPA,src-1bde6be308c3
+parties.IN.DMK,assembly-2021,tamil-nadu,SPA,src-1bde6be308c3
+parties.IN.INC,assembly-2021,tamil-nadu,SPA,src-1bde6be308c3
+parties.IN.IUML,assembly-2021,tamil-nadu,SPA,src-1bde6be308c3
+parties.IN.KMDK,assembly-2021,tamil-nadu,SPA,src-1bde6be308c3
+parties.IN.MDMK,assembly-2021,tamil-nadu,SPA,src-1bde6be308c3
+parties.IN.VCK,assembly-2021,tamil-nadu,SPA,src-1bde6be308c3
 parties.IN.AIFB,assembly-2021,west-bengal,Sanyukta Morcha,src-33e3388cf85e
 parties.IN.AISF,assembly-2021,west-bengal,Sanyukta Morcha,src-33e3388cf85e
 parties.IN.CPI,assembly-2021,west-bengal,Sanyukta Morcha,src-33e3388cf85e
 parties.IN.CPIM,assembly-2021,west-bengal,Sanyukta Morcha,src-33e3388cf85e
 parties.IN.INC,assembly-2021,west-bengal,Sanyukta Morcha,src-33e3388cf85e
 parties.IN.RSP,assembly-2021,west-bengal,Sanyukta Morcha,src-33e3388cf85e
+parties.IN.INC,assembly-2021,kerala,UDF,src-12feeb60dda8
+parties.IN.IUML,assembly-2021,kerala,UDF,src-12feeb60dda8
+parties.IN.KEC,assembly-2021,kerala,UDF,src-12feeb60dda8
+parties.IN.KECJ,assembly-2021,kerala,UDF,src-12feeb60dda8
+parties.IN.RSP,assembly-2021,kerala,UDF,src-12feeb60dda8
+parties.IN.BSP,assembly-2022,uttar-pradesh,,src-861d0a089c96
+parties.IN.INC,assembly-2022,uttar-pradesh,,src-861d0a089c96
+parties.IN.ADS,assembly-2022,uttar-pradesh,NDA,src-861d0a089c96
+parties.IN.BJP,assembly-2022,uttar-pradesh,NDA,src-861d0a089c96
+parties.IN.NINSHAD,assembly-2022,uttar-pradesh,NDA,src-861d0a089c96
+parties.IN.APNDLK,assembly-2022,uttar-pradesh,SP+,src-861d0a089c96
+parties.IN.MD,assembly-2022,uttar-pradesh,SP+,src-861d0a089c96
+parties.IN.NCP,assembly-2022,uttar-pradesh,SP+,src-861d0a089c96
+parties.IN.PSPL,assembly-2022,uttar-pradesh,SP+,src-861d0a089c96
+parties.IN.RLD,assembly-2022,uttar-pradesh,SP+,src-861d0a089c96
+parties.IN.SBSP,assembly-2022,uttar-pradesh,SP+,src-861d0a089c96
+parties.IN.SP,assembly-2022,uttar-pradesh,SP+,src-861d0a089c96
+parties.IN.BJP,assembly-2023,karnataka,,src-725f300a8a5d
+parties.IN.INC,assembly-2023,karnataka,,src-725f300a8a5d
+parties.IN.JDS,assembly-2023,karnataka,,src-725f300a8a5d
 parties.IN.MNS,assembly-2024,maharashtra,,src-80a8269260ff
 parties.IN.CPIM,assembly-2024,maharashtra,MVA,src-80a8269260ff
 parties.IN.INC,assembly-2024,maharashtra,MVA,src-80a8269260ff
