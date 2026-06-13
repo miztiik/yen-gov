@@ -191,10 +191,206 @@ LS_1999 = PcGeEvent(
 )
 
 
+# Pre-1999 LS GE backbone (PR-3 of TODO/20260613-party-deferred-followups-plan.md).
+#
+# Adds 10 historical Parliament general elections (1962-1998) to the event
+# registry so future ingest runs can iterate the complete LS GE list. This PR
+# is backbone only: it lands the constants + delimitation crosswalk; the
+# actual TCPD ingest follows in PR-8 of the same plan.
+#
+# Polling-month convention: each ``period_label`` carries the FIRST polling
+# month per Wikipedia LS GE entries cross-referenced against TCPD's lowercase
+# ``month`` column in ``datasets/ephemeral/All_States_GE.csv``. Two named
+# overrides on first-polling-month per plan-doc PR-3 brief:
+#   - 1991 = Jun (NOT May): polling was split by Rajiv Gandhi's assassination
+#     (20 May polling + Jun 12 + Jun 15 phases), with results declared 19 Jun
+#     1991; Jun is the canonical month for the cycle.
+#   - 1998 = Feb (NOT Mar despite TCPD month='3'): first polling was 16 Feb
+#     1998; results 10 Mar. Feb is the citizen-recognised polling-month.
+#
+# ``period_seq`` follows the documented identity.py convention (month number
+# 1..12 from ``parse_period_label._MONTH_NUM``). This is a deliberate split
+# from the existing 6 LS_<YEAR>_EVENT constants above (which use sequential
+# rank 1..6 for historical reasons); changing the existing 6 would invalidate
+# already-emitted ``observation_id`` hashes.
+
+# 1998 (12th Parliament): polling Feb 16 - Mar 7 1998 (first poll Feb 16),
+# results declared 1998-03-02. **1976 delimitation** (DelimID 3 in TCPD).
+# Chhattisgarh/Jharkhand/Uttarakhand did not yet exist.
+LS_1998_EVENT = Period(period_label="LsGenFeb1998", year=1998, period_seq=2)
+LS_1998 = PcGeEvent(
+    period=LS_1998_EVENT,
+    delim_year=1976,
+    source_title=(
+        "General Election to Lok Sabha 1998 — Constituency-wise candidate "
+        "results (TCPD compilation of ECI returns)"
+    ),
+    vintage="1998",
+    source_input_id="tcpd_ge",
+)
+
+
+# 1996 (11th Parliament): polling Apr 27 - May 7 1996 (first poll Apr 27),
+# results declared 1996-05-15. **1976 delimitation** (DelimID 3 in TCPD).
+LS_1996_EVENT = Period(period_label="LsGenMay1996", year=1996, period_seq=5)
+LS_1996 = PcGeEvent(
+    period=LS_1996_EVENT,
+    delim_year=1976,
+    source_title=(
+        "General Election to Lok Sabha 1996 — Constituency-wise candidate "
+        "results (TCPD compilation of ECI returns)"
+    ),
+    vintage="1996",
+    source_input_id="tcpd_ge",
+)
+
+
+# 1991 (10th Parliament): polling phase 1 May 20 1991, then (after Rajiv
+# Gandhi assassination 21 May) phase 2 Jun 12 + phase 3 Jun 15, results
+# declared 1991-06-19. **1976 delimitation** (DelimID 3 in TCPD). Jun (NOT
+# May) is the citizen-recognised cycle month per the assassination-split
+# convention.
+LS_1991_EVENT = Period(period_label="LsGenJun1991", year=1991, period_seq=6)
+LS_1991 = PcGeEvent(
+    period=LS_1991_EVENT,
+    delim_year=1976,
+    source_title=(
+        "General Election to Lok Sabha 1991 — Constituency-wise candidate "
+        "results (TCPD compilation of ECI returns)"
+    ),
+    vintage="1991",
+    source_input_id="tcpd_ge",
+)
+
+
+# 1989 (9th Parliament): polling Nov 22-26 1989, results declared 1989-11-29.
+# **1976 delimitation** (DelimID 3 in TCPD).
+LS_1989_EVENT = Period(period_label="LsGenNov1989", year=1989, period_seq=11)
+LS_1989 = PcGeEvent(
+    period=LS_1989_EVENT,
+    delim_year=1976,
+    source_title=(
+        "General Election to Lok Sabha 1989 — Constituency-wise candidate "
+        "results (TCPD compilation of ECI returns)"
+    ),
+    vintage="1989",
+    source_input_id="tcpd_ge",
+)
+
+
+# 1984 (8th Parliament): polling Dec 24-28 1984 (most polling within Dec;
+# few stragglers slipped into early Jan 1985), results declared 1984-12-31.
+# **1976 delimitation** (DelimID 3 in TCPD).
+LS_1984_EVENT = Period(period_label="LsGenDec1984", year=1984, period_seq=12)
+LS_1984 = PcGeEvent(
+    period=LS_1984_EVENT,
+    delim_year=1976,
+    source_title=(
+        "General Election to Lok Sabha 1984 — Constituency-wise candidate "
+        "results (TCPD compilation of ECI returns)"
+    ),
+    vintage="1984",
+    source_input_id="tcpd_ge",
+)
+
+
+# 1980 (7th Parliament): polling Jan 3-6 1980, results declared 1980-01-07.
+# **1976 delimitation** (DelimID 3 in TCPD).
+LS_1980_EVENT = Period(period_label="LsGenJan1980", year=1980, period_seq=1)
+LS_1980 = PcGeEvent(
+    period=LS_1980_EVENT,
+    delim_year=1976,
+    source_title=(
+        "General Election to Lok Sabha 1980 — Constituency-wise candidate "
+        "results (TCPD compilation of ECI returns)"
+    ),
+    vintage="1980",
+    source_input_id="tcpd_ge",
+)
+
+
+# 1977 (6th Parliament): polling Mar 16-20 1977, results declared 1977-03-22.
+# **1976 delimitation** (DelimID 3 in TCPD). First general election held
+# after the 1976 delimitation order; the 1976 boundaries governed nine
+# consecutive general elections (1977 through 2004).
+LS_1977_EVENT = Period(period_label="LsGenMar1977", year=1977, period_seq=3)
+LS_1977 = PcGeEvent(
+    period=LS_1977_EVENT,
+    delim_year=1976,
+    source_title=(
+        "General Election to Lok Sabha 1977 — Constituency-wise candidate "
+        "results (TCPD compilation of ECI returns)"
+    ),
+    vintage="1977",
+    source_input_id="tcpd_ge",
+)
+
+
+# 1971 (5th Parliament): polling Mar 1-10 1971, results declared 1971-03-11.
+# **1967 delimitation** (DelimID 2 in TCPD), shared with 1967.
+LS_1971_EVENT = Period(period_label="LsGenMar1971", year=1971, period_seq=3)
+LS_1971 = PcGeEvent(
+    period=LS_1971_EVENT,
+    delim_year=1967,
+    source_title=(
+        "General Election to Lok Sabha 1971 — Constituency-wise candidate "
+        "results (TCPD compilation of ECI returns)"
+    ),
+    vintage="1971",
+    source_input_id="tcpd_ge",
+)
+
+
+# 1967 (4th Parliament): polling Feb 17-21 1967, results declared 1967-02-28.
+# **1967 delimitation** (DelimID 2 in TCPD). Distinct cohort from 1962 — the
+# 1967 boundaries reflect the post-1956 States Reorganisation territorial
+# rearrangement that did not yet apply to the 1962 cycle.
+LS_1967_EVENT = Period(period_label="LsGenFeb1967", year=1967, period_seq=2)
+LS_1967 = PcGeEvent(
+    period=LS_1967_EVENT,
+    delim_year=1967,
+    source_title=(
+        "General Election to Lok Sabha 1967 — Constituency-wise candidate "
+        "results (TCPD compilation of ECI returns)"
+    ),
+    vintage="1967",
+    source_input_id="tcpd_ge",
+)
+
+
+# 1962 (3rd Parliament): polling Feb 19-25 1962, results declared 1962-02-25.
+# Its own delimitation cohort (DelimID 1 in TCPD, pre-1967 reorganisation).
+# TCPD month='2' confirms Feb (the brief proposal's ``LsGenJan1962`` was a
+# typo; the brief's own polling-month convention parenthetical agrees on Feb).
+LS_1962_EVENT = Period(period_label="LsGenFeb1962", year=1962, period_seq=2)
+LS_1962 = PcGeEvent(
+    period=LS_1962_EVENT,
+    delim_year=1962,
+    source_title=(
+        "General Election to Lok Sabha 1962 — Constituency-wise candidate "
+        "results (TCPD compilation of ECI returns)"
+    ),
+    vintage="1962",
+    source_input_id="tcpd_ge",
+)
+
+
 #: GE-year -> event registry. The 2024 row is the ECI Report-33 path (kept for
-#: completeness); historical years (1999-2019) are the TCPD-panel path. Phase 2
-#: of EGC-B2 extends this as each year's PR lands.
+#: completeness); 1962-2019 are the TCPD-panel path. The pre-1999 cohort
+#: (1962-1998) is backbone only — added in PR-3 of
+#: TODO/20260613-party-deferred-followups-plan.md so future ingest runs can
+#: iterate the full 16-event list; actual ingest follows in PR-8.
 EVENT_BY_GE_YEAR: dict[int, PcGeEvent] = {
+    1962: LS_1962,
+    1967: LS_1967,
+    1971: LS_1971,
+    1977: LS_1977,
+    1980: LS_1980,
+    1984: LS_1984,
+    1989: LS_1989,
+    1991: LS_1991,
+    1996: LS_1996,
+    1998: LS_1998,
     1999: LS_1999,
     2004: LS_2004,
     2009: LS_2009,
