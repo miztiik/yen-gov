@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-1976-west-bengal-1,west-bengal,1996,1,MEKLIGANJ,RAMESH ROY,parties.IN.AIFB,FBL,40982,32.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-1,west-bengal,1996,1,MEKLIGANJ,SUNIL CHANDRA RAY,parties.IN.INC,INC,38999,30.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-1,west-bengal,1996,1,MEKLIGANJ,ADHIKARY PARESH,parties.IN.UNK,FB(S),27644,21.87,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-1,west-bengal,1996,1,MEKLIGANJ,ADHIKARY PARESH,parties.IN.FB_S,FB(S),27644,21.87,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-1,west-bengal,1996,1,MEKLIGANJ,SATISH CHANDRA RAY,parties.IN.BJP,BJP,12109,9.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-1,west-bengal,1996,1,MEKLIGANJ,ANIL ROY,parties.IN.BSP,BSP,2508,1.98,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-1,west-bengal,1996,1,MEKLIGANJ,NAYAN CHAND BARMAN,parties.IN.AMB,AMB,2332,1.84,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -9,17 +9,17 @@ IN-AC-1976-west-bengal-1,west-bengal,1996,1,MEKLIGANJ,ABIRAM ROY,parties.IN.IND,
 IN-AC-1976-west-bengal-2,west-bengal,1996,2,SITALKUCHI,SUDHIR PRAMANIK,parties.IN.CPIM,CPM,74984,57.91,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-2,west-bengal,1996,2,SITALKUCHI,BIRENDRA NARAYAN BARMA,parties.IN.INC,INC,42227,32.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-2,west-bengal,1996,2,SITALKUCHI,HEM CHANDRA BARMAN,parties.IN.BJP,BJP,10127,7.82,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-2,west-bengal,1996,2,SITALKUCHI,SUDHA RANJAN ROY,parties.IN.UNK,FB(S),1628,1.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-2,west-bengal,1996,2,SITALKUCHI,SUDHA RANJAN ROY,parties.IN.FB_S,FB(S),1628,1.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-2,west-bengal,1996,2,SITALKUCHI,SUBODH BARMAN,parties.IN.AMB,AMB,523,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-3,west-bengal,1996,3,MATHABHANGA,DINESH CHANDRA DAKUA,parties.IN.CPIM,CPM,64052,52.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-3,west-bengal,1996,3,MATHABHANGA,JATINDRA NATH BARMAN,parties.IN.INC,INC,46731,38.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-3,west-bengal,1996,3,MATHABHANGA,ABINASH SINHA,parties.IN.BJP,BJP,10624,8.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-3,west-bengal,1996,3,MATHABHANGA,SACHINDRA NATH BARMAN,parties.IN.AMB,AMB,953,0.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-3,west-bengal,1996,3,MATHABHANGA,HARIPADA ADHIKARY,parties.IN.UNK,FB(S),528,0.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-3,west-bengal,1996,3,MATHABHANGA,HARIPADA ADHIKARY,parties.IN.FB_S,FB(S),528,0.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-4,west-bengal,1996,4,COOCH BEHAR NORTH,MIHIR GOSWAMI,parties.IN.INC,INC,59375,47.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-4,west-bengal,1996,4,COOCH BEHAR NORTH,APARAJITA GOPPI,parties.IN.AIFB,FBL,52511,41.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-4,west-bengal,1996,4,COOCH BEHAR NORTH,HARIPADA PAUL,parties.IN.BJP,BJP,10070,8.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-4,west-bengal,1996,4,COOCH BEHAR NORTH,BIMAL KANTI BASU,parties.IN.UNK,FB(S),1703,1.36,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-4,west-bengal,1996,4,COOCH BEHAR NORTH,BIMAL KANTI BASU,parties.IN.FB_S,FB(S),1703,1.36,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-4,west-bengal,1996,4,COOCH BEHAR NORTH,PAPIYA BARMAN,parties.IN.BSP,BSP,1268,1.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-4,west-bengal,1996,4,COOCH BEHAR NORTH,BADAL ROY,parties.IN.IND,IND,328,0.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-4,west-bengal,1996,4,COOCH BEHAR NORTH,NIRENDRA PRASAD KARJEE,parties.IN.AMB,AMB,238,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -27,7 +27,7 @@ IN-AC-1976-west-bengal-4,west-bengal,1996,4,COOCH BEHAR NORTH,SUBHAS CHAKRABORTY
 IN-AC-1976-west-bengal-5,west-bengal,1996,5,COOCH BEHAR WEST,SOUMINDRA CHANDRA DAS,parties.IN.AIFB,FBL,67686,48.08,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-5,west-bengal,1996,5,COOCH BEHAR WEST,AHAMMED ABDUL JALIL,parties.IN.INC,INC,53950,38.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-5,west-bengal,1996,5,COOCH BEHAR WEST,SHYAM CHARAN SARKAR,parties.IN.BJP,BJP,11544,8.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-5,west-bengal,1996,5,COOCH BEHAR WEST,MANIK CHANDRA DAS,parties.IN.UNK,FB(S),6514,4.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-5,west-bengal,1996,5,COOCH BEHAR WEST,MANIK CHANDRA DAS,parties.IN.FB_S,FB(S),6514,4.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-5,west-bengal,1996,5,COOCH BEHAR WEST,NRIPEN KARJEE,parties.IN.IND,IND,842,0.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-5,west-bengal,1996,5,COOCH BEHAR WEST,HARIBALA ROY,parties.IN.AMB,AMB,141,0.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-5,west-bengal,1996,5,COOCH BEHAR WEST,ASHOKE DAS,parties.IN.IND,IND,98,0.07,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -37,7 +37,7 @@ IN-AC-1976-west-bengal-6,west-bengal,1996,6,SITAI,ASOK MANDAL,parties.IN.INC,INC
 IN-AC-1976-west-bengal-6,west-bengal,1996,6,SITAI,PRANABENDRA NATH CHAKRABORTY,parties.IN.BJP,BJP,7151,4.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-6,west-bengal,1996,6,SITAI,DINESH RAY,parties.IN.BSP,BSP,1241,0.85,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-6,west-bengal,1996,6,SITAI,CHOUHITRA RAY SARKAR,parties.IN.IND,IND,409,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-7,west-bengal,1996,7,DINHATA,KAMAL GUHA,parties.IN.UNK,FB(S),70531,49.58,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-7,west-bengal,1996,7,DINHATA,KAMAL GUHA,parties.IN.FB_S,FB(S),70531,49.58,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-7,west-bengal,1996,7,DINHATA,DIPAK SEN GUPTA,parties.IN.AIFB,FBL,37520,26.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-7,west-bengal,1996,7,DINHATA,KAMAL DEY SARKAR,parties.IN.INC,INC,29899,21.02,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-7,west-bengal,1996,7,DINHATA,JOGESH CHANDRA RAY,parties.IN.BJP,BJP,3875,2.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -46,7 +46,7 @@ IN-AC-1976-west-bengal-8,west-bengal,1996,8,NATABARI,SIBENDRA NARAYAN CHOWDHURI,
 IN-AC-1976-west-bengal-8,west-bengal,1996,8,NATABARI,RABINDRA NATH GHOSH,parties.IN.INC,INC,48172,40.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-8,west-bengal,1996,8,NATABARI,RABINDRA NATH BARMAN,parties.IN.BJP,BJP,10556,8.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-8,west-bengal,1996,8,NATABARI,NARAYAN CHANDRA DAS,parties.IN.BSP,BSP,2126,1.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-8,west-bengal,1996,8,NATABARI,ABDUL RAHAMAN,parties.IN.UNK,FB(S),866,0.72,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-8,west-bengal,1996,8,NATABARI,ABDUL RAHAMAN,parties.IN.FB_S,FB(S),866,0.72,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-8,west-bengal,1996,8,NATABARI,ACHHAR UDDIN AHMED,parties.IN.IND,IND,473,0.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-8,west-bengal,1996,8,NATABARI,DALENDRA ROY,parties.IN.AMB,AMB,149,0.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-9,west-bengal,1996,9,TUFANGANJ,PUSPA CHANDRA DAS,parties.IN.CPIM,CPM,66436,54.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
@@ -91,7 +91,7 @@ IN-AC-1976-west-bengal-15,west-bengal,1996,15,DHUPGURI,BISHNU PADA ROY,parties.I
 IN-AC-1976-west-bengal-15,west-bengal,1996,15,DHUPGURI,ANANDA MOHAN ROY,parties.IN.IND,IND,1027,0.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-15,west-bengal,1996,15,DHUPGURI,JAGADA NANDA ROY,parties.IN.IND,IND,427,0.37,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-15,west-bengal,1996,15,DHUPGURI,RAICHARAN SIDDHYA,parties.IN.IND,IND,364,0.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-15,west-bengal,1996,15,DHUPGURI,GOBINDA ROY,parties.IN.UNK,FB(S),270,0.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-15,west-bengal,1996,15,DHUPGURI,GOBINDA ROY,parties.IN.FB_S,FB(S),270,0.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-15,west-bengal,1996,15,DHUPGURI,KHOKARAM ROY PRAMANIK,parties.IN.IND,IND,180,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-15,west-bengal,1996,15,DHUPGURI,HARIPADA MAJUMDAR,parties.IN.IND,IND,133,0.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-16,west-bengal,1996,16,NAGRAKATA,CHAITAN MUNDA,parties.IN.CPIM,CPM,71274,58.52,1,won,U,,,,incumbent,src-1b7bc1c9d39a
@@ -105,7 +105,7 @@ IN-AC-1976-west-bengal-17,west-bengal,1996,17,MAINAGURI,NARAYAN CHANDRA ROY,part
 IN-AC-1976-west-bengal-17,west-bengal,1996,17,MAINAGURI,NARENDRA NATH BARMAN,parties.IN.IND,IND,402,0.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-17,west-bengal,1996,17,MAINAGURI,SURESH CHANDRA ROY,parties.IN.IND,IND,371,0.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-17,west-bengal,1996,17,MAINAGURI,CHAKRADHAR ROY,parties.IN.IND,IND,334,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-17,west-bengal,1996,17,MAINAGURI,GOBINDA ROY,parties.IN.UNK,FB(S),295,0.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-17,west-bengal,1996,17,MAINAGURI,GOBINDA ROY,parties.IN.FB_S,FB(S),295,0.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-17,west-bengal,1996,17,MAINAGURI,SANAT CHANDRA ROY,parties.IN.AMB,AMB,287,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-17,west-bengal,1996,17,MAINAGURI,MADHU SUDAN ROY,parties.IN.IND,IND,255,0.21,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-18,west-bengal,1996,18,MAL,JAGANNATH ORAON,parties.IN.CPIM,CPM,60559,54.79,1,won,U,,,,incumbent,src-1b7bc1c9d39a
@@ -121,7 +121,7 @@ IN-AC-1976-west-bengal-19,west-bengal,1996,19,KRANTI,CHANDRA SEKHAR CHOUDHURI,pa
 IN-AC-1976-west-bengal-20,west-bengal,1996,20,JALPAIGURI,ANUPAM SEN,parties.IN.INC,INC,48597,43.85,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-20,west-bengal,1996,20,JALPAIGURI,SUDHANSU MAJUMDER,parties.IN.AIFB,FBL,44889,40.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-20,west-bengal,1996,20,JALPAIGURI,RABINDRA NARAYAN CHOWDHURY,parties.IN.BJP,BJP,6894,6.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-20,west-bengal,1996,20,JALPAIGURI,MUKULESH CHANDRA SANYAL,parties.IN.UNK,FB(S),5433,4.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-20,west-bengal,1996,20,JALPAIGURI,MUKULESH CHANDRA SANYAL,parties.IN.FB_S,FB(S),5433,4.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-20,west-bengal,1996,20,JALPAIGURI,KSHITISH CHANDRA MANDAL,parties.IN.BSP,BSP,2140,1.93,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-20,west-bengal,1996,20,JALPAIGURI,SUBARATA DATTA GUPTA,parties.IN.IND,IND,1118,1.01,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-20,west-bengal,1996,20,JALPAIGURI,SANKAR DAS,parties.IN.CPIMLL,CPI(ML)(L),937,0.85,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -133,7 +133,7 @@ IN-AC-1976-west-bengal-21,west-bengal,1996,21,RAJGANJ,JAGENDRA NATH ROY,parties.
 IN-AC-1976-west-bengal-21,west-bengal,1996,21,RAJGANJ,KALI CHARAN ROY,parties.IN.IND,IND,1886,1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-21,west-bengal,1996,21,RAJGANJ,SANATI KUMAR SARKAR,parties.IN.BSP,BSP,1211,0.64,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-21,west-bengal,1996,21,RAJGANJ,KSHUDIRAM BARMAN,parties.IN.IND,IND,1170,0.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-21,west-bengal,1996,21,RAJGANJ,KSHITISH SAHA,parties.IN.UNK,FB(S),855,0.45,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-21,west-bengal,1996,21,RAJGANJ,KSHITISH SAHA,parties.IN.FB_S,FB(S),855,0.45,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-21,west-bengal,1996,21,RAJGANJ,HARENDRA NATH ROY,parties.IN.AMB,AMB,401,0.21,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-22,west-bengal,1996,22,KALIMPONG,GAULAN LEPCHA,parties.IN.GNLF,GNLF,50362,55.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-22,west-bengal,1996,22,KALIMPONG,NORDEN LAMA,parties.IN.ABGL,ABGL,17121,18.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -294,7 +294,7 @@ IN-AC-1976-west-bengal-42,west-bengal,1996,42,HARISHCHANDRAPUR,KASHI DAS,parties
 IN-AC-1976-west-bengal-42,west-bengal,1996,42,HARISHCHANDRAPUR,JAYANTI JHA,parties.IN.IND,IND,1125,0.94,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-42,west-bengal,1996,42,HARISHCHANDRAPUR,RATHINDRA NATH PAUL,parties.IN.IND,IND,941,0.78,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-42,west-bengal,1996,42,HARISHCHANDRAPUR,PABAN AGARWALA,parties.IN.IND,IND,447,0.37,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-42,west-bengal,1996,42,HARISHCHANDRAPUR,SAHADEB MANDAL,parties.IN.UNK,FB(S),173,0.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-42,west-bengal,1996,42,HARISHCHANDRAPUR,SAHADEB MANDAL,parties.IN.FB_S,FB(S),173,0.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-42,west-bengal,1996,42,HARISHCHANDRAPUR,SATTAR,parties.IN.IND,IND,132,0.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-43,west-bengal,1996,43,RATUA,SAMAR MUKHERJEE,parties.IN.INC,INC,53347,48.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-43,west-bengal,1996,43,RATUA,MOZAMMEL HAQUE,parties.IN.CPIM,CPM,50381,45.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -415,7 +415,7 @@ IN-AC-1976-west-bengal-58,west-bengal,1996,58,MURSHIDABAD,SANKAR SAHA,parties.IN
 IN-AC-1976-west-bengal-58,west-bengal,1996,58,MURSHIDABAD,REJUANUL HAQUE,parties.IN.IND,IND,133,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-58,west-bengal,1996,58,MURSHIDABAD,SEKHAR GHOSH,parties.IN.IND,IND,127,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-58,west-bengal,1996,58,MURSHIDABAD,TARUN KANTI SARKAR,parties.IN.IND,IND,103,0.07,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-58,west-bengal,1996,58,MURSHIDABAD,ARUP ROY,parties.IN.UNK,FB(S),87,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-58,west-bengal,1996,58,MURSHIDABAD,ARUP ROY,parties.IN.FB_S,FB(S),87,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-58,west-bengal,1996,58,MURSHIDABAD,SARKAR SHERALI,parties.IN.IND,IND,81,0.05,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-59,west-bengal,1996,59,JALANGI,UNUS SARKAR,parties.IN.CPIM,CPM,79348,53.32,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-59,west-bengal,1996,59,JALANGI,SAMSUZZOHA BISWAS,parties.IN.INC,INC,58174,39.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -478,7 +478,7 @@ IN-AC-1976-west-bengal-66,west-bengal,1996,66,KHARGRAM,MADHAB CHANDRA MARJIT,par
 IN-AC-1976-west-bengal-66,west-bengal,1996,66,KHARGRAM,SATYANDRA NATH MANDAL,parties.IN.BJP,BJP,7347,5.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-66,west-bengal,1996,66,KHARGRAM,SADHAN MARJIT,parties.IN.CPIMLL,CPI(ML)(L),1054,0.82,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-66,west-bengal,1996,66,KHARGRAM,SRIMANTA MANDAL,parties.IN.IND,IND,406,0.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-66,west-bengal,1996,66,KHARGRAM,ANANDA DALUI,parties.IN.UNK,FB(S),245,0.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-66,west-bengal,1996,66,KHARGRAM,ANANDA DALUI,parties.IN.FB_S,FB(S),245,0.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-67,west-bengal,1996,67,BARWAN,DEBABRATA BANERJEE,parties.IN.RSP,RSP,59537,50.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-67,west-bengal,1996,67,BARWAN,ALI HOSSAIN MONDAL,parties.IN.INC,INC,49335,41.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-67,west-bengal,1996,67,BARWAN,JITENDRANATH GHOSH,parties.IN.BJP,BJP,8120,6.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1034,7 +1034,7 @@ IN-AC-1976-west-bengal-144,west-bengal,1996,144,BARA BAZAR,MD. SAJID ALI,parties
 IN-AC-1976-west-bengal-144,west-bengal,1996,144,BARA BAZAR,SHYAM KUMAR SONKAR,parties.IN.SAP,SAP,277,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-144,west-bengal,1996,144,BARA BAZAR,PANDEY SRIDHAR,parties.IN.AIIC_T,AIIC(T),233,0.51,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-144,west-bengal,1996,144,BARA BAZAR,SHUKAT RAHMANI,parties.IN.IND,IND,203,0.45,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-144,west-bengal,1996,144,BARA BAZAR,RAJU MALLICK,parties.IN.UNK,FB(S),173,0.38,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-144,west-bengal,1996,144,BARA BAZAR,RAJU MALLICK,parties.IN.FB_S,FB(S),173,0.38,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-144,west-bengal,1996,144,BARA BAZAR,IQBAL AHMED,parties.IN.IND,IND,93,0.21,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-144,west-bengal,1996,144,BARA BAZAR,DINESH TIWARI,parties.IN.IND,IND,86,0.19,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-144,west-bengal,1996,144,BARA BAZAR,BINOD SHARMA,parties.IN.IND,IND,80,0.18,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1124,7 +1124,7 @@ IN-AC-1976-west-bengal-153,west-bengal,1996,153,ENTALLY,SULTAN AHMED,parties.IN.
 IN-AC-1976-west-bengal-153,west-bengal,1996,153,ENTALLY,ZIAUDDIN AHMED,parties.IN.CPIM,CPM,42794,43.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-153,west-bengal,1996,153,ENTALLY,AGARWAL FATECHAND,parties.IN.BJP,BJP,4085,4.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-153,west-bengal,1996,153,ENTALLY,FEROZ AHMED,parties.IN.BSP,BSP,457,0.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-153,west-bengal,1996,153,ENTALLY,ARUN BISWAS,parties.IN.UNK,AICDBPP,392,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-153,west-bengal,1996,153,ENTALLY,ARUN BISWAS,parties.IN.AICDBPP,AICDBPP,392,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-153,west-bengal,1996,153,ENTALLY,MD. SAJID ALI,parties.IN.IND,IND,319,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-153,west-bengal,1996,153,ENTALLY,REYAZUDDIN,parties.IN.IND,IND,288,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-153,west-bengal,1996,153,ENTALLY,SHAFI NISHAT,parties.IN.AIIC_T,AIIC(T),235,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1255,7 +1255,7 @@ IN-AC-1976-west-bengal-167,west-bengal,1996,167,JAGATBALLAVPUR,BANGALI SHARMA,pa
 IN-AC-1976-west-bengal-168,west-bengal,1996,168,PANCHLA,GULSAN MULLICK,parties.IN.INC,INC,65091,49.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-168,west-bengal,1996,168,PANCHLA,SAILEN MONDAL,parties.IN.AIFB,FBL,56777,43.1,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-168,west-bengal,1996,168,PANCHLA,RANJAN PAUL,parties.IN.BJP,BJP,7961,6.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-168,west-bengal,1996,168,PANCHLA,SANTOSH KUMAR DAS,parties.IN.UNK,FB(S),1912,1.45,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-168,west-bengal,1996,168,PANCHLA,SANTOSH KUMAR DAS,parties.IN.FB_S,FB(S),1912,1.45,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-169,west-bengal,1996,169,SANKRAIL,SITAL KUMAR SARDAR,parties.IN.INC,INC,65599,47.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-169,west-bengal,1996,169,SANKRAIL,BASUDEB DHALI,parties.IN.CPIM,CPM,60611,43.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-169,west-bengal,1996,169,SANKRAIL,RAMESH CHANDRA SARDAR,parties.IN.BJP,BJP,12495,8.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1392,7 +1392,7 @@ IN-AC-1976-west-bengal-190,west-bengal,1996,190,POLBA,SAKTIPADA KHANRA,parties.I
 IN-AC-1976-west-bengal-190,west-bengal,1996,190,POLBA,MAINUL HAQUE,parties.IN.INC,INC,57872,46.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-190,west-bengal,1996,190,POLBA,JALADHAR CHAKRABORTY,parties.IN.BJP,BJP,2465,1.98,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-190,west-bengal,1996,190,POLBA,RABIN DAS,parties.IN.SHS,SHS,976,0.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-190,west-bengal,1996,190,POLBA,RABINDRA NATH CHATTOPADHYAY,parties.IN.UNK,FB(S),290,0.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-190,west-bengal,1996,190,POLBA,RABINDRA NATH CHATTOPADHYAY,parties.IN.FB_S,FB(S),290,0.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-190,west-bengal,1996,190,POLBA,SATKARI CHATTOPADHYAY,parties.IN.IDPP,IDPP,85,0.07,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-191,west-bengal,1996,191,DHANIAKHALI,KRIPASINDHU SAHA,parties.IN.AIFB,FBL,76412,60.68,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-191,west-bengal,1996,191,DHANIAKHALI,ASIMA PATRA,parties.IN.INC,INC,44474,35.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -1614,14 +1614,14 @@ IN-AC-1976-west-bengal-232,west-bengal,1996,232,BINPUR,AMRIT SAREN,parties.IN.IN
 IN-AC-1976-west-bengal-233,west-bengal,1996,233,BANDUAN,LAKHIRAM KISKU,parties.IN.CPIM,CPM,53680,56.19,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-233,west-bengal,1996,233,BANDUAN,SITAL CHANDRA HEMBRAM,parties.IN.INC,INC,18097,18.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-233,west-bengal,1996,233,BANDUAN,KAMALA KANTA BASKEY,parties.IN.IND,IND,17440,18.25,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-233,west-bengal,1996,233,BANDUAN,AJIT KUMAR HANSDA,parties.IN.UNK,JMM(M),2809,2.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-233,west-bengal,1996,233,BANDUAN,AJIT KUMAR HANSDA,parties.IN.JMM_M,JMM(M),2809,2.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-233,west-bengal,1996,233,BANDUAN,SURENDRA KISKU,parties.IN.BJP,BJP,1664,1.74,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-233,west-bengal,1996,233,BANDUAN,JOGYESWAR MURMU,parties.IN.JKP,JKP,782,0.82,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-233,west-bengal,1996,233,BANDUAN,RAMA KANAI KISKU,parties.IN.IND,IND,605,0.63,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-233,west-bengal,1996,233,BANDUAN,NIRANJAN SOREN,parties.IN.AMB,AMB,460,0.48,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-234,west-bengal,1996,234,MANBAZAR,KAMALA KANTA MAHATA,parties.IN.CPIM,CPM,53155,49.24,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-234,west-bengal,1996,234,MANBAZAR,SITARAM MAHATA,parties.IN.INC,INC,47514,44.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-234,west-bengal,1996,234,MANBAZAR,BALAHARI MURMU,parties.IN.UNK,JMM(M),4301,3.98,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-234,west-bengal,1996,234,MANBAZAR,BALAHARI MURMU,parties.IN.JMM_M,JMM(M),4301,3.98,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-234,west-bengal,1996,234,MANBAZAR,NIL KAMAL MAHATA,parties.IN.BJP,BJP,1464,1.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-234,west-bengal,1996,234,MANBAZAR,PRAKASH CHANDRA MAHATA,parties.IN.IND,IND,791,0.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-234,west-bengal,1996,234,MANBAZAR,RAM CHANDRA MAHATA,parties.IN.JMM,JMM,717,0.66,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1655,7 +1655,7 @@ IN-AC-1976-west-bengal-238,west-bengal,1996,238,JAIPUR,DHANARAM MAHATA,parties.I
 IN-AC-1976-west-bengal-238,west-bengal,1996,238,JAIPUR,AMULYA MAHATA,parties.IN.AMB,AMB,664,0.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-238,west-bengal,1996,238,JAIPUR,ASLAM UDDIN SADAGAR,parties.IN.IND,IND,229,0.21,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-238,west-bengal,1996,238,JAIPUR,SAMBHU NATH SUTRADHAR,parties.IN.IND,IND,185,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-238,west-bengal,1996,238,JAIPUR,KUMBHA KARNA MAHATA,parties.IN.UNK,JMM(M),155,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-238,west-bengal,1996,238,JAIPUR,KUMBHA KARNA MAHATA,parties.IN.JMM_M,JMM(M),155,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-239,west-bengal,1996,239,PURULIA,MAMATA MUKHERJEE,parties.IN.CPIM,CPM,59120,48.06,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-239,west-bengal,1996,239,PURULIA,SUKUMAR ROY,parties.IN.INC,INC,56738,46.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-239,west-bengal,1996,239,PURULIA,MAHADEV MAHATA,parties.IN.JMM,JMM,2997,2.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1664,7 +1664,7 @@ IN-AC-1976-west-bengal-239,west-bengal,1996,239,PURULIA,RABINDRA NATH PRAMANIK,p
 IN-AC-1976-west-bengal-239,west-bengal,1996,239,PURULIA,BISWAS SUMIT,parties.IN.IND,IND,314,0.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-239,west-bengal,1996,239,PURULIA,DHIREN RAJAK,parties.IN.JKP,JKP,244,0.2,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-239,west-bengal,1996,239,PURULIA,SASADHAR MAHATO,parties.IN.IND,IND,157,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-239,west-bengal,1996,239,PURULIA,NOOR MOHAMMAD,parties.IN.UNK,JMM(M),151,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-239,west-bengal,1996,239,PURULIA,NOOR MOHAMMAD,parties.IN.JMM_M,JMM(M),151,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-239,west-bengal,1996,239,PURULIA,MICHAEL NAG,parties.IN.IND,IND,139,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-239,west-bengal,1996,239,PURULIA,SAGAR MAHATA,parties.IN.IND,IND,128,0.1,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-240,west-bengal,1996,240,PARA,BILASI BALA SAHIS,parties.IN.CPIM,CPM,64837,59.52,1,won,U,,,,incumbent,src-1b7bc1c9d39a
@@ -1685,7 +1685,7 @@ IN-AC-1976-west-bengal-242,west-bengal,1996,242,KASHIPUR,BHUDEB HEMBRAM,parties.
 IN-AC-1976-west-bengal-243,west-bengal,1996,243,HURA,ABINAS MAHATO,parties.IN.CPIM,CPM,54490,54.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-243,west-bengal,1996,243,HURA,BAGHAMBAR MAHATO,parties.IN.JMM,JMM,23606,23.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-243,west-bengal,1996,243,HURA,BHAIRAB CHANDRA MAHATO,parties.IN.INC,INC,13065,13.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-243,west-bengal,1996,243,HURA,JOGENDRA NATH HANSDA,parties.IN.UNK,JMM(M),4177,4.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-243,west-bengal,1996,243,HURA,JOGENDRA NATH HANSDA,parties.IN.JMM_M,JMM(M),4177,4.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-243,west-bengal,1996,243,HURA,ARUNAVA BANERJEE,parties.IN.BJP,BJP,2827,2.83,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-243,west-bengal,1996,243,HURA,ANADI PRASAD MAJEE,parties.IN.IND,IND,1376,1.38,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-243,west-bengal,1996,243,HURA,LAXMI KANTA MAHATO,parties.IN.AMB,AMB,292,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1877,7 +1877,7 @@ IN-AC-1976-west-bengal-268,west-bengal,1996,268,BHATAR,SRIPAT HARIJAN,parties.IN
 IN-AC-1976-west-bengal-269,west-bengal,1996,269,GALSI,IDRISH MONDAL,parties.IN.AIFB,FBL,70242,60.82,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-269,west-bengal,1996,269,GALSI,SYED IMDAD ALI,parties.IN.INC,INC,31327,27.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-269,west-bengal,1996,269,GALSI,NILMADHAB MONDAL,parties.IN.BJP,BJP,11007,9.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-269,west-bengal,1996,269,GALSI,MUKHOPADHYAY SWAPAN,parties.IN.UNK,FB(S),2068,1.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-269,west-bengal,1996,269,GALSI,MUKHOPADHYAY SWAPAN,parties.IN.FB_S,FB(S),2068,1.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-269,west-bengal,1996,269,GALSI,BURMAN SHIB SHANKAR,parties.IN.IND,IND,850,0.74,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-270,west-bengal,1996,270,BURDWAN NORTH,NISITH ADHIKARY,parties.IN.CPIM,CPM,93617,62.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-270,west-bengal,1996,270,BURDWAN NORTH,RAIMONI DAS,parties.IN.INC,INC,46081,30.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -2006,7 +2006,7 @@ IN-AC-1976-west-bengal-290,west-bengal,1996,290,MAYURESWAR,GAJAL DALUI,parties.I
 IN-AC-1976-west-bengal-291,west-bengal,1996,291,RAMPURHAT,MAHAMMAD HANNAN,parties.IN.AIFB,FBL,51139,44.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-291,west-bengal,1996,291,RAMPURHAT,SATYEN DAS,parties.IN.BJP,BJP,40916,35.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-291,west-bengal,1996,291,RAMPURHAT,TRIDIB BHATTACHARJEE,parties.IN.INC,INC,18645,16.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-291,west-bengal,1996,291,RAMPURHAT,SIDDHARTHA ROY,parties.IN.UNK,FB(S),1014,0.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-291,west-bengal,1996,291,RAMPURHAT,SIDDHARTHA ROY,parties.IN.FB_S,FB(S),1014,0.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-291,west-bengal,1996,291,RAMPURHAT,BECHARAM SARKAR,parties.IN.IND,IND,963,0.84,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-291,west-bengal,1996,291,RAMPURHAT,ASHOK DAWN,parties.IN.IND,IND,723,0.63,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-291,west-bengal,1996,291,RAMPURHAT,HASNAT KHURSID YEASIN,parties.IN.IND,IND,377,0.33,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -2024,7 +2024,7 @@ IN-AC-1976-west-bengal-293,west-bengal,1996,293,NALHATI,SHARIF HOSSAIN (DALIM MA
 IN-AC-1976-west-bengal-293,west-bengal,1996,293,NALHATI,RAM GOPAL BHATTAR,parties.IN.BJP,BJP,9598,9.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-293,west-bengal,1996,293,NALHATI,OLI ABAD,parties.IN.IND,IND,1207,1.14,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-293,west-bengal,1996,293,NALHATI,SUBHAS GHOSH (SUBOL),parties.IN.IND,IND,1140,1.08,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-293,west-bengal,1996,293,NALHATI,BHABANI CHATTERJEE,parties.IN.UNK,FB(S),1087,1.03,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-293,west-bengal,1996,293,NALHATI,BHABANI CHATTERJEE,parties.IN.FB_S,FB(S),1087,1.03,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-293,west-bengal,1996,293,NALHATI,MEHEBUB ALI,parties.IN.IND,IND,951,0.9,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-293,west-bengal,1996,293,NALHATI,SUDHIR KUMAR PAL,parties.IN.IND,IND,296,0.28,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-west-bengal-293,west-bengal,1996,293,NALHATI,SHAIKH SAGIR,parties.IN.IUML,IUML,251,0.24,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a

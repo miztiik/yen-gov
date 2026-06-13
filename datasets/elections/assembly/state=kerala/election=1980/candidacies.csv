@@ -165,14 +165,14 @@ IN-AC-1976-kerala-49,kerala,1980,49,PALGHAT,K. APPUKKUTTAN,parties.IN.IND,IND,18
 IN-AC-1976-kerala-50,kerala,1980,50,CHITTUR,K. KRISHNANKUTTY,parties.IN.JP,JNP,23882,38.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-kerala-50,kerala,1980,50,CHITTUR,P. SANKAR,parties.IN.CPI,CPI,23578,38.12,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-kerala-50,kerala,1980,50,CHITTUR,V. P. SREEDHARAN,parties.IN.IND,IND,10677,17.26,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-kerala-50,kerala,1980,50,CHITTUR,M. KESAVAN,parties.IN.UNK,JNP(S),2985,4.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-50,kerala,1980,50,CHITTUR,M. KESAVAN,parties.IN.JNP_S,JNP(S),2985,4.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-kerala-50,kerala,1980,50,CHITTUR,N. M. PONNAN,parties.IN.IND,IND,456,0.74,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-kerala-50,kerala,1980,50,CHITTUR,C. C. THARUKUTTY,parties.IN.IND,IND,271,0.44,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-kerala-51,kerala,1980,51,KOLLENGODE,C. VASUDEVA MENON,parties.IN.CPIM,CPM,36688,50.42,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-kerala-51,kerala,1980,51,KOLLENGODE,A. SUNNA SAHIB,parties.IN.INC_I,INC(I),34156,46.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-kerala-51,kerala,1980,51,KOLLENGODE,A. RAMAN,parties.IN.IND,IND,732,1.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-kerala-51,kerala,1980,51,KOLLENGODE,P. NARAYANANKUTTY MENON,parties.IN.IND,IND,639,0.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-kerala-51,kerala,1980,51,KOLLENGODE,A. ALAVIKUTTY,parties.IN.UNK,JNP(S),551,0.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-51,kerala,1980,51,KOLLENGODE,A. ALAVIKUTTY,parties.IN.JNP_S,JNP(S),551,0.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-kerala-52,kerala,1980,52,COYALMANNAM,T. K. ARUMUGHAN,parties.IN.CPIM,CPM,34530,54.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-kerala-52,kerala,1980,52,COYALMANNAM,V. MANI,parties.IN.INC_I,INC(I),28210,44.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-kerala-52,kerala,1980,52,COYALMANNAM,P. THAYANKAN,parties.IN.IND,IND,1105,1.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -530,7 +530,7 @@ IN-AC-1976-kerala-125,kerala,1980,125,ERAVIPURAM,UMAYANALLOOR SHAMSUDIN,parties.
 IN-AC-1976-kerala-125,kerala,1980,125,ERAVIPURAM,G. CHANDRASEKHARAN PILLAI,parties.IN.IND,IND,37,0.05,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-kerala-126,kerala,1980,126,CHATHANOOR,J. CHITHARANJAN,parties.IN.CPI,CPI,34037,50.15,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-kerala-126,kerala,1980,126,CHATHANOOR,VARINJAM VASU PILLAI,parties.IN.JP,JNP,28670,42.24,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-kerala-126,kerala,1980,126,CHATHANOOR,PHILIP M. PRASAD,parties.IN.UNK,JNP(S),3104,4.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-126,kerala,1980,126,CHATHANOOR,PHILIP M. PRASAD,parties.IN.JNP_S,JNP(S),3104,4.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-kerala-126,kerala,1980,126,CHATHANOOR,A. ABDUL SAMEI,parties.IN.IND,IND,715,1.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-kerala-126,kerala,1980,126,CHATHANOOR,A. RAGHAVAN,parties.IN.IND,IND,591,0.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-kerala-126,kerala,1980,126,CHATHANOOR,K. BADARUDDIN,parties.IN.SUCI,SUC,377,0.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -577,7 +577,7 @@ IN-AC-1976-kerala-134,kerala,1980,134,TRIVANDRUM NORTH,K. V. PANICKER,parties.IN
 IN-AC-1976-kerala-135,kerala,1980,135,TRIVANDRUM WEST,P. A. MOHEMMED KANNU,parties.IN.IUML,MUL,31490,49.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-kerala-135,kerala,1980,135,TRIVANDRUM WEST,K. C. VAMADEVAN,parties.IN.RSP,RSP,26231,41.04,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-kerala-135,kerala,1980,135,TRIVANDRUM WEST,JAMES FERNANDES,parties.IN.IND,IND,4388,6.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-kerala-135,kerala,1980,135,TRIVANDRUM WEST,P. MURALEEDHARAN NAIR,parties.IN.UNK,JNP(S),1215,1.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-135,kerala,1980,135,TRIVANDRUM WEST,P. MURALEEDHARAN NAIR,parties.IN.JNP_S,JNP(S),1215,1.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-kerala-135,kerala,1980,135,TRIVANDRUM WEST,BHASHEER MOHAMMED KUNJU,parties.IN.IND,IND,193,0.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-kerala-135,kerala,1980,135,TRIVANDRUM WEST,A. VISWADEVAN,parties.IN.IND,IND,165,0.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-kerala-135,kerala,1980,135,TRIVANDRUM WEST,J. M. DAISY,parties.IN.IND,IND,120,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

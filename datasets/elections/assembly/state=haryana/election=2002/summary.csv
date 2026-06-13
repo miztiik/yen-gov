@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-haryana-5,haryana,2002,YAMUNANAGAR,164421,116371,70.78,Dr. MALIK CHAND GAMBHIR s/o Sh. BARKAT RAM GAMBHIR,parties.IN.INLD,INLD,37520,32.24,SAHIB SINGH,parties.IN.UNK,HVP,24758,12762,10.96,src-1b7bc1c9d39a
+IN-AC-1976-haryana-5,haryana,2002,YAMUNANAGAR,164421,116371,70.78,Dr. MALIK CHAND GAMBHIR s/o Sh. BARKAT RAM GAMBHIR,parties.IN.INLD,INLD,37520,32.24,SAHIB SINGH,parties.IN.HVP,HVP,24758,12762,10.96,src-1b7bc1c9d39a

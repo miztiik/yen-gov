@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-1967-punjab-1,punjab,1969,1,MUKTSAR,GURUEV SINGH,parties.IN.SAD,SAD,26958,52.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-1,punjab,1969,1,MUKTSAR,MATU RAM,parties.IN.INC,INC,23382,45.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-punjab-1,punjab,1969,1,MUKTSAR,DHARA SINGH,parties.IN.UNK,RPA,927,1.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-punjab-1,punjab,1969,1,MUKTSAR,DHARA SINGH,parties.IN.RPA,RPA,927,1.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-2,punjab,1969,2,GIDDAR BAHA,PARKASH SINGH,parties.IN.SAD,SAD,30625,60.88,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1967-punjab-2,punjab,1969,2,GIDDAR BAHA,MOHINDER SINGH,parties.IN.INC,INC,19418,38.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-2,punjab,1969,2,GIDDAR BAHA,LUDAN SINGH,parties.IN.IND,IND,265,0.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -36,14 +36,14 @@ IN-AC-1967-punjab-8,punjab,1969,8,GURU HAR SAHAI,CHANAN SINGH,parties.IN.CPIM,CP
 IN-AC-1967-punjab-8,punjab,1969,8,GURU HAR SAHAI,UMAR DIN,parties.IN.IND,IND,252,0.55,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-9,punjab,1969,9,FEROZEPUR,BALMUKAND,parties.IN.BJS,BJS,19776,49.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-9,punjab,1969,9,FEROZEPUR,GARDHARA SINGH,parties.IN.INC,INC,17182,42.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-punjab-9,punjab,1969,9,FEROZEPUR,RAM CHAND,parties.IN.UNK,RPA,1530,3.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-punjab-9,punjab,1969,9,FEROZEPUR,RAM CHAND,parties.IN.RPA,RPA,1530,3.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-9,punjab,1969,9,FEROZEPUR,LABH SINGH,parties.IN.SSP,SSP,875,2.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-9,punjab,1969,9,FEROZEPUR,BAKHTAWAR SINGH,parties.IN.IND,IND,216,0.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-9,punjab,1969,9,FEROZEPUR,MULKH RAJ,parties.IN.IND,IND,211,0.53,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-9,punjab,1969,9,FEROZEPUR,SURAKHSHA RANI,parties.IN.IND,IND,174,0.44,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-10,punjab,1969,10,FEROZEPUR CANTONMENT,MOHINDER SINGH S/O F . SINGH,parties.IN.SAD,SAD,20716,59.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-10,punjab,1969,10,FEROZEPUR CANTONMENT,MOHINDER SINGH S/O A . SINGH,parties.IN.INC,INC,12679,36.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-punjab-10,punjab,1969,10,FEROZEPUR CANTONMENT,BALDEV RAJ,parties.IN.UNK,RPA,588,1.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-punjab-10,punjab,1969,10,FEROZEPUR CANTONMENT,BALDEV RAJ,parties.IN.RPA,RPA,588,1.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-10,punjab,1969,10,FEROZEPUR CANTONMENT,MAST RAM,parties.IN.IND,IND,575,1.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-11,punjab,1969,11,ZIRA,METAB SINGH,parties.IN.INC,INC,24176,48.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-11,punjab,1969,11,ZIRA,GURDEV SINGH,parties.IN.SAD,SAD,19157,38.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -175,7 +175,7 @@ IN-AC-1967-punjab-38,punjab,1969,38,PATHANKOT,JAIMAL SINGH,parties.IN.PBI,PBI,29
 IN-AC-1967-punjab-38,punjab,1969,38,PATHANKOT,MOHINDER SINGH SETHI,parties.IN.IND,IND,239,0.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-39,punjab,1969,39,BALACHAUR,TULSI RAM,parties.IN.INC,INC,25895,58.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-39,punjab,1969,39,BALACHAUR,GURBAKHASH SINGH,parties.IN.SWA,SWA,17308,38.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-punjab-39,punjab,1969,39,BALACHAUR,NARAIN DASS,parties.IN.UNK,RPA,1372,3.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-punjab-39,punjab,1969,39,BALACHAUR,NARAIN DASS,parties.IN.RPA,RPA,1372,3.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-40,punjab,1969,40,GARHSHANKAR,RATTAN SINGH,parties.IN.INC,INC,17961,39.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-40,punjab,1969,40,GARHSHANKAR,DARSHAN SINGH CANADIAN,parties.IN.CPI,CPI,16296,35.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-40,punjab,1969,40,GARHSHANKAR,JAGDISH SINGH,parties.IN.BJS,BJS,7537,16.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -183,7 +183,7 @@ IN-AC-1967-punjab-40,punjab,1969,40,GARHSHANKAR,HARBHAJ RAM,parties.IN.IND,IND,3
 IN-AC-1967-punjab-41,punjab,1969,41,MAHILPUR,KARTAR SINGH,parties.IN.SAD,SAD,22053,51.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-41,punjab,1969,41,MAHILPUR,GURMAIL SINGH,parties.IN.INC,INC,14224,33.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-41,punjab,1969,41,MAHILPUR,GURDEV SINGH KATOCH,parties.IN.RPI,RPI,3827,9.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-punjab-41,punjab,1969,41,MAHILPUR,GURBACHAN SINGH,parties.IN.UNK,RPA,1592,3.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-punjab-41,punjab,1969,41,MAHILPUR,GURBACHAN SINGH,parties.IN.RPA,RPA,1592,3.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-41,punjab,1969,41,MAHILPUR,KARNAIL SINGH,parties.IN.IND,IND,787,1.85,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-42,punjab,1969,42,HOSHIARPUR,BALBIR SINGH,parties.IN.SSP,SSP,16155,38.27,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1967-punjab-42,punjab,1969,42,HOSHIARPUR,AMAR SINGH,parties.IN.INC,INC,12636,29.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -221,7 +221,7 @@ IN-AC-1967-punjab-48,punjab,1969,48,SULTANPUR,JAGI RAM,parties.IN.IND,IND,2768,5
 IN-AC-1967-punjab-49,punjab,1969,49,PHAGWARA,SADHU RAM,parties.IN.INC,INC,22289,47.91,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1967-punjab-49,punjab,1969,49,PHAGWARA,SWARNA,parties.IN.BJS,BJS,20736,44.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-49,punjab,1969,49,PHAGWARA,GARDHARA SINGH,parties.IN.IND,IND,2304,4.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-punjab-49,punjab,1969,49,PHAGWARA,JOGINDER PAUL,parties.IN.UNK,RPA,1191,2.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-punjab-49,punjab,1969,49,PHAGWARA,JOGINDER PAUL,parties.IN.RPA,RPA,1191,2.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-50,punjab,1969,50,JULLUNDUR NORTH,GURDIAL SAINI,parties.IN.INC,INC,25437,60.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-50,punjab,1969,50,JULLUNDUR NORTH,LAL CHAND SUBERWAL,parties.IN.BJS,BJS,15884,37.68,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1967-punjab-50,punjab,1969,50,JULLUNDUR NORTH,LAL CHAND S/O RAKHA RAM,parties.IN.IND,IND,463,1.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -230,7 +230,7 @@ IN-AC-1967-punjab-50,punjab,1969,50,JULLUNDUR NORTH,LAL CHAND S/O HARI KISHAN,pa
 IN-AC-1967-punjab-50,punjab,1969,50,JULLUNDUR NORTH,GURDIAL S/O GIRDHARI LAL,parties.IN.IND,IND,95,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-51,punjab,1969,51,JULLUNDUR SOUTH,MAN MOHAN KALIA,parties.IN.BJS,BJS,19655,48.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-51,punjab,1969,51,JULLUNDUR SOUTH,KARTAR SINGH,parties.IN.INC,INC,13956,34.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-punjab-51,punjab,1969,51,JULLUNDUR SOUTH,LAHORI RAM BAILEY,parties.IN.UNK,RPA,6845,16.92,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-punjab-51,punjab,1969,51,JULLUNDUR SOUTH,LAHORI RAM BAILEY,parties.IN.RPA,RPA,6845,16.92,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-52,punjab,1969,52,JULLUNDUR CANTONMENT,SAROOP SINGH,parties.IN.INC,INC,13213,38.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-52,punjab,1969,52,JULLUNDUR CANTONMENT,RAJINDER SINGH,parties.IN.IND,IND,9926,28.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-52,punjab,1969,52,JULLUNDUR CANTONMENT,ROMESH CHANDER,parties.IN.IND,IND,8205,23.89,3,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -249,10 +249,10 @@ IN-AC-1967-punjab-54,punjab,1969,54,KARTARPUR,PIARA RAM DHANOWALI,parties.IN.RPI
 IN-AC-1967-punjab-54,punjab,1969,54,KARTARPUR,PHUMAN RAM,parties.IN.ILP,ILP,1076,2.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-54,punjab,1969,54,KARTARPUR,TULSI RAM,parties.IN.IND,IND,505,1.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-54,punjab,1969,54,KARTARPUR,BHOLI,parties.IN.IND,IND,496,1.14,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-punjab-54,punjab,1969,54,KARTARPUR,MOHAN LAL,parties.IN.UNK,RPA,90,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-punjab-54,punjab,1969,54,KARTARPUR,MOHAN LAL,parties.IN.RPA,RPA,90,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-55,punjab,1969,55,JAMSHER,DARSHAN SINGH KAYPEE,parties.IN.INC,INC,16315,42.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-55,punjab,1969,55,JAMSHER,NAZAR SINGH,parties.IN.SAD,SAD,13828,35.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-punjab-55,punjab,1969,55,JAMSHER,MOHINDER SINGH,parties.IN.UNK,RPA,5802,15.07,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-punjab-55,punjab,1969,55,JAMSHER,MOHINDER SINGH,parties.IN.RPA,RPA,5802,15.07,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-55,punjab,1969,55,JAMSHER,NASIB CHAND,parties.IN.RPI,RPI,2551,6.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-56,punjab,1969,56,NAKODAR,DARBARA SINGH,parties.IN.IND,IND,24914,53.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-56,punjab,1969,56,NAKODAR,DARSHAN SINGH,parties.IN.INC,INC,18507,39.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -295,7 +295,7 @@ IN-AC-1967-punjab-64,punjab,1969,64,QILA RAIPUR,GURNAM SINGH,parties.IN.INC,INC,
 IN-AC-1967-punjab-65,punjab,1969,65,DAKHA,BASANT SINGH,parties.IN.SAD,SAD,22641,59.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-65,punjab,1969,65,DAKHA,JAGIR SINGH,parties.IN.INC,INC,11476,29.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-65,punjab,1969,65,DAKHA,GURDIAL SINGH,parties.IN.IND,IND,1705,4.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-punjab-65,punjab,1969,65,DAKHA,PARKASH SINGH,parties.IN.UNK,RPA,1391,3.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-punjab-65,punjab,1969,65,DAKHA,PARKASH SINGH,parties.IN.RPA,RPA,1391,3.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-65,punjab,1969,65,DAKHA,BAWA SINGH,parties.IN.PSP,PSP,387,1.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-65,punjab,1969,65,DAKHA,DARSHAN,parties.IN.PBI,PBI,383,1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-punjab-65,punjab,1969,65,DAKHA,SHIAM SINGH,parties.IN.RPI,RPI,318,0.83,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

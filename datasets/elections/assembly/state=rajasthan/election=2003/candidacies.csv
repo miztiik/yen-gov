@@ -5,13 +5,13 @@ IN-AC-1976-rajasthan-1,rajasthan,2003,1,BHADRA,SANJEEV KUMAR,parties.IN.INC,INC,
 IN-AC-1976-rajasthan-1,rajasthan,2003,1,BHADRA,PREM PRATAP SINGH,parties.IN.INLD,INLD,13446,10.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-1,rajasthan,2003,1,BHADRA,GYAN SINGH,parties.IN.IND,IND,13148,10.02,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-1,rajasthan,2003,1,BHADRA,RAJENDRA KUMAR,parties.IN.BSP,BSP,3362,2.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-1,rajasthan,2003,1,BHADRA,BHANWAR LAL,parties.IN.UNK,RSNM,1441,1.1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-1,rajasthan,2003,1,BHADRA,BHANWAR LAL,parties.IN.RSNM,RSNM,1441,1.1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-2,rajasthan,2003,2,NOHAR,BAHADUR SINGH,parties.IN.INLD,INLD,41843,29.03,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-2,rajasthan,2003,2,NOHAR,SUCHITRA,parties.IN.INC,INC,35340,24.52,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-2,rajasthan,2003,2,NOHAR,RAM KISHAN,parties.IN.BJP,BJP,27809,19.29,3,lost,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-2,rajasthan,2003,2,NOHAR,RAJENDRA,parties.IN.IND,IND,22627,15.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-2,rajasthan,2003,2,NOHAR,SITA RAM,parties.IN.BSP,BSP,6548,4.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-2,rajasthan,2003,2,NOHAR,VIKRAM SINGH,parties.IN.UNK,RSNM,5326,3.69,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-2,rajasthan,2003,2,NOHAR,VIKRAM SINGH,parties.IN.RSNM,RSNM,5326,3.69,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-2,rajasthan,2003,2,NOHAR,PRATAP SINGH,parties.IN.RLD,RLD,2154,1.49,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-2,rajasthan,2003,2,NOHAR,LILA DHAR,parties.IN.LPSP,LPSP,1744,1.21,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-2,rajasthan,2003,2,NOHAR,MAHIPAL,parties.IN.IND,IND,759,0.53,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -31,7 +31,7 @@ IN-AC-1976-rajasthan-4,rajasthan,2003,4,HANUMANGARH,JASPAL SINGH S/O RAM SINGH,p
 IN-AC-1976-rajasthan-4,rajasthan,2003,4,HANUMANGARH,ARJUN RAM,parties.IN.IND,IND,3262,2.32,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-4,rajasthan,2003,4,HANUMANGARH,VEER SINGH,parties.IN.BSP,BSP,2474,1.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-4,rajasthan,2003,4,HANUMANGARH,SATPAL,parties.IN.IND,IND,2177,1.55,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-4,rajasthan,2003,4,HANUMANGARH,YADVENDRA,parties.IN.UNK,RSNM,1817,1.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-4,rajasthan,2003,4,HANUMANGARH,YADVENDRA,parties.IN.RSNM,RSNM,1817,1.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-4,rajasthan,2003,4,HANUMANGARH,VINOD KUMAR S/O PREM RATAN,parties.IN.IND,IND,1122,0.8,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-4,rajasthan,2003,4,HANUMANGARH,SHYAM LAL,parties.IN.CPI,CPI,911,0.65,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-4,rajasthan,2003,4,HANUMANGARH,VIKAS KUMAR,parties.IN.IND,IND,562,0.4,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -86,7 +86,7 @@ IN-AC-1976-rajasthan-9,rajasthan,2003,9,RAISINGHNAGAR,JAGGA BALI,parties.IN.IND,
 IN-AC-1976-rajasthan-10,rajasthan,2003,10,PILIBANGA,RAM PRATAP KASANIYA,parties.IN.IND,IND,33673,23.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-10,rajasthan,2003,10,PILIBANGA,GANGAJAL,parties.IN.BJP,BJP,31596,21.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-10,rajasthan,2003,10,PILIBANGA,JAGTAR SINGH,parties.IN.INC,INC,29579,20.26,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-10,rajasthan,2003,10,PILIBANGA,BALRAM VERMA,parties.IN.UNK,RSNM,17654,12.09,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-10,rajasthan,2003,10,PILIBANGA,BALRAM VERMA,parties.IN.RSNM,RSNM,17654,12.09,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-10,rajasthan,2003,10,PILIBANGA,RANJEET SINGH,parties.IN.BSP,BSP,9190,6.3,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-10,rajasthan,2003,10,PILIBANGA,RAJENDRA SINGH,parties.IN.IND,IND,8835,6.05,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-10,rajasthan,2003,10,PILIBANGA,SAHAB RAM,parties.IN.IND,IND,8114,5.56,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -97,7 +97,7 @@ IN-AC-1976-rajasthan-10,rajasthan,2003,10,PILIBANGA,DEVSI RAM,parties.IN.IND,IND
 IN-AC-1976-rajasthan-11,rajasthan,2003,11,SURATGARH,ASHOK NAGPAL,parties.IN.BJP,BJP,104549,44.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-11,rajasthan,2003,11,SURATGARH,VIJAY LAXMI BISHNOI,parties.IN.INC,INC,69230,29.45,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-11,rajasthan,2003,11,SURATGARH,SUSHIL KUMAR,parties.IN.INLD,INLD,22724,9.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-11,rajasthan,2003,11,SURATGARH,RAMSWAROOP GHORELA,parties.IN.UNK,RSNM,14606,6.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-11,rajasthan,2003,11,SURATGARH,RAMSWAROOP GHORELA,parties.IN.RSNM,RSNM,14606,6.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-11,rajasthan,2003,11,SURATGARH,BASANTI DEVI,parties.IN.BSP,BSP,12933,5.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-11,rajasthan,2003,11,SURATGARH,MAHAVEER PARSHAD PAREEK,parties.IN.IND,IND,3143,1.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-11,rajasthan,2003,11,SURATGARH,THAKAR RAM,parties.IN.LPSP,LPSP,1772,0.75,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -108,7 +108,7 @@ IN-AC-1976-rajasthan-11,rajasthan,2003,11,SURATGARH,VIKASDEEP,parties.IN.SHS,SHS
 IN-AC-1976-rajasthan-11,rajasthan,2003,11,SURATGARH,NAGANDRA SINGH,parties.IN.SP,SP,767,0.33,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-12,rajasthan,2003,12,LUNKARANSAR,VIRENDRA,parties.IN.INC,INC,79986,40.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-12,rajasthan,2003,12,LUNKARANSAR,MANIK CHAND,parties.IN.BJP,BJP,59032,29.53,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-12,rajasthan,2003,12,LUNKARANSAR,GOPAL KRISHAN,parties.IN.UNK,RSNM,33392,16.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-12,rajasthan,2003,12,LUNKARANSAR,GOPAL KRISHAN,parties.IN.RSNM,RSNM,33392,16.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-12,rajasthan,2003,12,LUNKARANSAR,GANESHRAM KADIYA,parties.IN.BSP,BSP,12199,6.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-12,rajasthan,2003,12,LUNKARANSAR,BHANWAR LAL,parties.IN.IND,IND,4768,2.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-12,rajasthan,2003,12,LUNKARANSAR,MANIRAM SIYAG,parties.IN.INLD,INLD,4376,2.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -120,7 +120,7 @@ IN-AC-1976-rajasthan-13,rajasthan,2003,13,BIKANER,SUNIL SERVATA,parties.IN.IND,I
 IN-AC-1976-rajasthan-13,rajasthan,2003,13,BIKANER,DR. DURGA GAHLOT,parties.IN.IND,IND,1103,1.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-13,rajasthan,2003,13,BIKANER,KEDAR NATH,parties.IN.IND,IND,659,0.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-13,rajasthan,2003,13,BIKANER,GANESH LAL JOSHI,parties.IN.IND,IND,269,0.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-14,rajasthan,2003,14,KOLAYAT,DEVI SINGH BHATI,parties.IN.UNK,RSNM,67197,37.57,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-14,rajasthan,2003,14,KOLAYAT,DEVI SINGH BHATI,parties.IN.RSNM,RSNM,67197,37.57,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-14,rajasthan,2003,14,KOLAYAT,RUGHNATH SINGH BHATI,parties.IN.INC,INC,56491,31.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-14,rajasthan,2003,14,KOLAYAT,GOPAL GEHLOT,parties.IN.BJP,BJP,47410,26.5,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-14,rajasthan,2003,14,KOLAYAT,RAVI DAS MEGHWAL,parties.IN.LJNSP,LJNSP,4278,2.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -128,7 +128,7 @@ IN-AC-1976-rajasthan-14,rajasthan,2003,14,KOLAYAT,MOOL CHAND,parties.IN.RLD,RLD,
 IN-AC-1976-rajasthan-14,rajasthan,2003,14,KOLAYAT,DHARMPAL BISHNOI,parties.IN.NCP,NCP,1399,0.78,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-15,rajasthan,2003,15,NOKHA,GOVIND RAM,parties.IN.BJP,BJP,62930,52.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-15,rajasthan,2003,15,NOKHA,REWAT RAM,parties.IN.INC,INC,35755,30.07,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-15,rajasthan,2003,15,NOKHA,JAVANA RAM,parties.IN.UNK,RSNM,12804,10.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-15,rajasthan,2003,15,NOKHA,JAVANA RAM,parties.IN.RSNM,RSNM,12804,10.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-15,rajasthan,2003,15,NOKHA,BUDHA RAM,parties.IN.INLD,INLD,3099,2.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-15,rajasthan,2003,15,NOKHA,MOOL CHAND,parties.IN.IND,IND,2899,2.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-15,rajasthan,2003,15,NOKHA,RAWAT RAM,parties.IN.RLD,RLD,1424,1.2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -139,10 +139,10 @@ IN-AC-1976-rajasthan-16,rajasthan,2003,16,DUNGARGARH,TARA CHAND,parties.IN.IND,I
 IN-AC-1976-rajasthan-16,rajasthan,2003,16,DUNGARGARH,TOLA RAM,parties.IN.INLD,INLD,5306,4.17,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-16,rajasthan,2003,16,DUNGARGARH,ISAR NATH,parties.IN.BSP,BSP,3876,3.05,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-16,rajasthan,2003,16,DUNGARGARH,BASU DEV,parties.IN.IND,IND,1584,1.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-16,rajasthan,2003,16,DUNGARGARH,POONAM CHAND SHARMA,parties.IN.UNK,RSNM,1183,0.93,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-16,rajasthan,2003,16,DUNGARGARH,POONAM CHAND SHARMA,parties.IN.RSNM,RSNM,1183,0.93,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-17,rajasthan,2003,17,SUJANGARH,KHEMA RAM MEGHWAL,parties.IN.BJP,BJP,54294,47.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-17,rajasthan,2003,17,SUJANGARH,MASTER BHANWAR LAL,parties.IN.INC,INC,48674,42.6,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-17,rajasthan,2003,17,SUJANGARH,ENG. CHAGNA RAM KALVA,parties.IN.UNK,RSNM,5041,4.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-17,rajasthan,2003,17,SUJANGARH,ENG. CHAGNA RAM KALVA,parties.IN.RSNM,RSNM,5041,4.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-17,rajasthan,2003,17,SUJANGARH,SOHAN RAM MEGHWAL,parties.IN.BSP,BSP,2087,1.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-17,rajasthan,2003,17,SUJANGARH,REWAT MAL,parties.IN.IND,IND,1994,1.75,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-17,rajasthan,2003,17,SUJANGARH,RATAN LAL,parties.IN.IND,IND,1605,1.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -150,7 +150,7 @@ IN-AC-1976-rajasthan-17,rajasthan,2003,17,SUJANGARH,KANA RAM KANTIWAL,parties.IN
 IN-AC-1976-rajasthan-18,rajasthan,2003,18,RATANGARH,RAJ KUMAR RINWA,parties.IN.IND,IND,37789,37.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-18,rajasthan,2003,18,RATANGARH,HARI SHANKAR BHABHRA,parties.IN.BJP,BJP,36282,36.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-18,rajasthan,2003,18,RATANGARH,JAIDEV PRASAD INDORIA,parties.IN.INC,INC,11128,11.07,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-18,rajasthan,2003,18,RATANGARH,SAMUNDRA SINGH RATHORE,parties.IN.UNK,RSNM,7184,7.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-18,rajasthan,2003,18,RATANGARH,SAMUNDRA SINGH RATHORE,parties.IN.RSNM,RSNM,7184,7.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-18,rajasthan,2003,18,RATANGARH,HEERA LAL,parties.IN.IND,IND,4101,4.08,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-18,rajasthan,2003,18,RATANGARH,PARSARAM,parties.IN.BSP,BSP,1413,1.41,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-18,rajasthan,2003,18,RATANGARH,AMAR CHAND CHOUDHARY,parties.IN.IND,IND,1385,1.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -163,14 +163,14 @@ IN-AC-1976-rajasthan-19,rajasthan,2003,19,SARDARSHAHAR,YUSUF KHAN,parties.IN.JDS
 IN-AC-1976-rajasthan-20,rajasthan,2003,20,CHURU,RAJENDRA RATHORE,parties.IN.BJP,BJP,56484,48.55,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-20,rajasthan,2003,20,CHURU,HUSSAIN SAYED,parties.IN.INC,INC,48559,41.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-20,rajasthan,2003,20,CHURU,RAMA KANT,parties.IN.BSP,BSP,6772,5.82,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-20,rajasthan,2003,20,CHURU,KARNI SINGH SHEKHAWAT,parties.IN.UNK,RSNM,1628,1.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-20,rajasthan,2003,20,CHURU,KARNI SINGH SHEKHAWAT,parties.IN.RSNM,RSNM,1628,1.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-20,rajasthan,2003,20,CHURU,AMAR SINGH,parties.IN.IND,IND,1009,0.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-20,rajasthan,2003,20,CHURU,SHABIR KHAN,parties.IN.IND,IND,809,0.7,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-20,rajasthan,2003,20,CHURU,RAMJAS MEGHWAL,parties.IN.IND,IND,599,0.51,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-20,rajasthan,2003,20,CHURU,MOHAN LAL,parties.IN.LJNSP,LJNSP,489,0.42,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-21,rajasthan,2003,21,TARANAGAR,DR. CHANDRA SHEKHAR BAID,parties.IN.INC,INC,42708,34.66,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-21,rajasthan,2003,21,TARANAGAR,JAI NARAYAN POONIA,parties.IN.INLD,INLD,40549,32.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-21,rajasthan,2003,21,TARANAGAR,RATAN SINGH RATHORE,parties.IN.UNK,RSNM,17513,14.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-21,rajasthan,2003,21,TARANAGAR,RATAN SINGH RATHORE,parties.IN.RSNM,RSNM,17513,14.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-21,rajasthan,2003,21,TARANAGAR,MOHAR SINGH,parties.IN.BSP,BSP,12822,10.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-21,rajasthan,2003,21,TARANAGAR,LEKH RAM DHUKIYA,parties.IN.BJP,BJP,5810,4.72,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-21,rajasthan,2003,21,TARANAGAR,LAXMI NARAIN,parties.IN.IND,IND,1420,1.15,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -181,7 +181,7 @@ IN-AC-1976-rajasthan-21,rajasthan,2003,21,TARANAGAR,PREM SINGH,parties.IN.IND,IN
 IN-AC-1976-rajasthan-22,rajasthan,2003,22,SADULPUR,NAND LAL POONIA,parties.IN.INC,INC,33101,30.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-22,rajasthan,2003,22,SADULPUR,KAMLA,parties.IN.BJP,BJP,29977,27.25,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-22,rajasthan,2003,22,SADULPUR,INDER SINGH POONIA,parties.IN.BSP,BSP,26197,23.81,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-22,rajasthan,2003,22,SADULPUR,RAM NIWAS,parties.IN.UNK,RSNM,14524,13.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-22,rajasthan,2003,22,SADULPUR,RAM NIWAS,parties.IN.RSNM,RSNM,14524,13.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-22,rajasthan,2003,22,SADULPUR,GANPAT RAM,parties.IN.IND,IND,2370,2.15,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-22,rajasthan,2003,22,SADULPUR,MAI CHAND,parties.IN.CPIM,CPM,1741,1.58,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-22,rajasthan,2003,22,SADULPUR,SURAJ BHAN,parties.IN.IND,IND,1353,1.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -199,7 +199,7 @@ IN-AC-1976-rajasthan-24,rajasthan,2003,24,SURAJGARH,BABU LAL KHANDA,parties.IN.I
 IN-AC-1976-rajasthan-24,rajasthan,2003,24,SURAJGARH,HANUMAN PRASAD,parties.IN.INC,INC,31076,25.9,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-24,rajasthan,2003,24,SURAJGARH,SAHI RAM,parties.IN.IND,IND,1404,1.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-24,rajasthan,2003,24,SURAJGARH,DHARAM PAL,parties.IN.BSP,BSP,1276,1.06,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-24,rajasthan,2003,24,SURAJGARH,JAGDISH,parties.IN.UNK,RSNM,1046,0.87,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-24,rajasthan,2003,24,SURAJGARH,JAGDISH,parties.IN.RSNM,RSNM,1046,0.87,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-24,rajasthan,2003,24,SURAJGARH,ASHOK,parties.IN.IND,IND,650,0.54,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-24,rajasthan,2003,24,SURAJGARH,RATAN SINGH,parties.IN.CPIMLL,CPI(ML)(L),639,0.53,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-24,rajasthan,2003,24,SURAJGARH,MAN SINGH,parties.IN.SP,SP,508,0.42,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -208,7 +208,7 @@ IN-AC-1976-rajasthan-25,rajasthan,2003,25,KHETRI,DR. JITENDRA SINGH,parties.IN.I
 IN-AC-1976-rajasthan-25,rajasthan,2003,25,KHETRI,RAMOTAR MALPURIA,parties.IN.BSP,BSP,7774,7.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-25,rajasthan,2003,25,KHETRI,BIRDU RAM SAINI,parties.IN.CPI,CPI,2264,2.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-25,rajasthan,2003,25,KHETRI,BUDH RAM,parties.IN.IND,IND,965,0.91,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-25,rajasthan,2003,25,KHETRI,NARPAT SINGH RATHORE,parties.IN.UNK,RSNM,869,0.82,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-25,rajasthan,2003,25,KHETRI,NARPAT SINGH RATHORE,parties.IN.RSNM,RSNM,869,0.82,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-26,rajasthan,2003,26,GUDHA,RANVEER SINGH,parties.IN.LJNSP,LJNSP,43890,38.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-26,rajasthan,2003,26,GUDHA,RAM NIWAS,parties.IN.BJP,BJP,32050,28.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-26,rajasthan,2003,26,GUDHA,SHIV NATH SINGH,parties.IN.INC,INC,22947,20.12,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
@@ -254,13 +254,13 @@ IN-AC-1976-rajasthan-31,rajasthan,2003,31,LACHHMANGARH,KESAR DEV,parties.IN.BJP,
 IN-AC-1976-rajasthan-31,rajasthan,2003,31,LACHHMANGARH,PARASRAM MORDIA,parties.IN.INC,INC,52557,42.79,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-31,rajasthan,2003,31,LACHHMANGARH,PEMA RAM,parties.IN.CPIM,CPM,3690,3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-31,rajasthan,2003,31,LACHHMANGARH,MOOL CHAND,parties.IN.IND,IND,1040,0.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-31,rajasthan,2003,31,LACHHMANGARH,SEVARAM,parties.IN.UNK,RSNM,553,0.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-31,rajasthan,2003,31,LACHHMANGARH,SEVARAM,parties.IN.RSNM,RSNM,553,0.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-31,rajasthan,2003,31,LACHHMANGARH,KISHAN LAL,parties.IN.IND,IND,449,0.37,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-31,rajasthan,2003,31,LACHHMANGARH,CHOTHU MAL,parties.IN.IND,IND,435,0.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-31,rajasthan,2003,31,LACHHMANGARH,INDER,parties.IN.IND,IND,184,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-32,rajasthan,2003,32,SIKAR,RAJ KUMARI SHARMA,parties.IN.BJP,BJP,57557,45.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-32,rajasthan,2003,32,SIKAR,RAJENDRA PAREEK,parties.IN.INC,INC,55650,44.2,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-32,rajasthan,2003,32,SIKAR,BHANWAR LAL JANJID,parties.IN.UNK,RSNM,4157,3.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-32,rajasthan,2003,32,SIKAR,BHANWAR LAL JANJID,parties.IN.RSNM,RSNM,4157,3.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-32,rajasthan,2003,32,SIKAR,MOHAMMAD ILYAS ADVOCATE,parties.IN.BSP,BSP,2520,2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-32,rajasthan,2003,32,SIKAR,ABDUL AZIZ AZAD,parties.IN.SP,SP,1279,1.02,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-32,rajasthan,2003,32,SIKAR,BIMLA OLA,parties.IN.INLD,INLD,796,0.63,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -280,7 +280,7 @@ IN-AC-1976-rajasthan-33,rajasthan,2003,33,DHOD,AMRA RAM,parties.IN.CPIM,CPM,4464
 IN-AC-1976-rajasthan-33,rajasthan,2003,33,DHOD,RAMESHWAR LAL,parties.IN.BJP,BJP,23500,18.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-33,rajasthan,2003,33,DHOD,RAM DEV SINGH MAHARIA,parties.IN.IND,IND,18745,15.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-33,rajasthan,2003,33,DHOD,OM PRAKASH JHINGAR,parties.IN.INC,INC,16733,13.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-33,rajasthan,2003,33,DHOD,RAJ KUMAR SHARMA,parties.IN.UNK,RSNM,10953,8.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-33,rajasthan,2003,33,DHOD,RAJ KUMAR SHARMA,parties.IN.RSNM,RSNM,10953,8.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-33,rajasthan,2003,33,DHOD,GHASI RAM,parties.IN.BSP,BSP,4732,3.79,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-33,rajasthan,2003,33,DHOD,SURAJ PRAKASH KHINCHI,parties.IN.IND,IND,1904,1.53,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-33,rajasthan,2003,33,DHOD,JALU RAM,parties.IN.IND,IND,1314,1.05,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -291,7 +291,7 @@ IN-AC-1976-rajasthan-33,rajasthan,2003,33,DHOD,JESHA RAM BUGALIA,parties.IN.IND,
 IN-AC-1976-rajasthan-34,rajasthan,2003,34,DANTA - RAMGARH,NARAIN SINGH,parties.IN.INC,INC,40588,31.18,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-34,rajasthan,2003,34,DANTA - RAMGARH,MADAN LAL PUJARI,parties.IN.IND,IND,25626,19.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-34,rajasthan,2003,34,DANTA - RAMGARH,GOVIND SINGH LAMBA,parties.IN.BJP,BJP,21412,16.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-34,rajasthan,2003,34,DANTA - RAMGARH,BASANT LAL MORWAL,parties.IN.UNK,RSNM,19405,14.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-34,rajasthan,2003,34,DANTA - RAMGARH,BASANT LAL MORWAL,parties.IN.RSNM,RSNM,19405,14.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-34,rajasthan,2003,34,DANTA - RAMGARH,HARPHOOL SINGH,parties.IN.CPIM,CPM,13278,10.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-34,rajasthan,2003,34,DANTA - RAMGARH,BHAGWANA,parties.IN.BSP,BSP,3708,2.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-34,rajasthan,2003,34,DANTA - RAMGARH,MAN PRAKASH,parties.IN.IND,IND,2791,2.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -323,7 +323,7 @@ IN-AC-1976-rajasthan-37,rajasthan,2003,37,NEEM-KA-THANA,DHARAMPAL,parties.IN.IND
 IN-AC-1976-rajasthan-37,rajasthan,2003,37,NEEM-KA-THANA,MOHAN LAL MODI,parties.IN.INC,INC,23392,18.79,4,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-37,rajasthan,2003,37,NEEM-KA-THANA,MANOJ,parties.IN.BSP,BSP,7690,6.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-37,rajasthan,2003,37,NEEM-KA-THANA,SUNDAR LAL,parties.IN.IND,IND,2048,1.65,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-37,rajasthan,2003,37,NEEM-KA-THANA,RADHEYSHAYAM,parties.IN.UNK,RSNM,1085,0.87,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-37,rajasthan,2003,37,NEEM-KA-THANA,RADHEYSHAYAM,parties.IN.RSNM,RSNM,1085,0.87,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-37,rajasthan,2003,37,NEEM-KA-THANA,RAMESH CHAND KHANDELWAL S/O VIJAY AYAL,parties.IN.IND,IND,939,0.75,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-37,rajasthan,2003,37,NEEM-KA-THANA,DASHRATH KUMAR SAIN,parties.IN.IND,IND,818,0.66,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-37,rajasthan,2003,37,NEEM-KA-THANA,MUKESH,parties.IN.IND,IND,667,0.54,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -333,14 +333,14 @@ IN-AC-1976-rajasthan-38,rajasthan,2003,38,CHOMU,RAM LAL SHARMA,parties.IN.BJP,BJ
 IN-AC-1976-rajasthan-38,rajasthan,2003,38,CHOMU,BHAGWAN SAHAY SAINI,parties.IN.INC,INC,43749,31.83,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-38,rajasthan,2003,38,CHOMU,PUSKAR SINGH,parties.IN.IND,IND,38004,27.65,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-38,rajasthan,2003,38,CHOMU,RAJ KANWAR,parties.IN.IND,IND,3226,2.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-38,rajasthan,2003,38,CHOMU,TEJ SINGH BHAGHAWAS,parties.IN.UNK,RSNM,1260,0.92,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-38,rajasthan,2003,38,CHOMU,TEJ SINGH BHAGHAWAS,parties.IN.RSNM,RSNM,1260,0.92,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-38,rajasthan,2003,38,CHOMU,SUNDAR LAL,parties.IN.JDU,JD(U),1252,0.91,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-38,rajasthan,2003,38,CHOMU,SATISH KUMAR,parties.IN.SP,SP,1188,0.86,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-38,rajasthan,2003,38,CHOMU,FAUJI KALU RAM,parties.IN.IND,IND,704,0.51,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-39,rajasthan,2003,39,AMBER,LAL CHAND KATARIA,parties.IN.INC,INC,49518,32.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-39,rajasthan,2003,39,AMBER,NAVIN PILANIA,parties.IN.BJP,BJP,43582,28.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-39,rajasthan,2003,39,AMBER,RAM SAHAI,parties.IN.IND,IND,29335,19.4,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-39,rajasthan,2003,39,AMBER,MADHU SHARMA,parties.IN.UNK,RSNM,10148,6.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-39,rajasthan,2003,39,AMBER,MADHU SHARMA,parties.IN.RSNM,RSNM,10148,6.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-39,rajasthan,2003,39,AMBER,SHANKAR LAL ARYA,parties.IN.IND,IND,6021,3.98,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-39,rajasthan,2003,39,AMBER,SITA RAM SHARMA (BAGDA),parties.IN.IND,IND,4103,2.71,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-39,rajasthan,2003,39,AMBER,KAILASH CHAND PRAJAPATI,parties.IN.CPI,CPI,2974,1.97,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -359,7 +359,7 @@ IN-AC-1976-rajasthan-40,rajasthan,2003,40,JAIPUR RURAL,VAKAR UL- AHAD,parties.IN
 IN-AC-1976-rajasthan-40,rajasthan,2003,40,JAIPUR RURAL,JAI SHRI KRISHAN SHARMA,parties.IN.IND,IND,337,0.29,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-40,rajasthan,2003,40,JAIPUR RURAL,JAGDISH KAROL,parties.IN.JP,JP,302,0.26,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-40,rajasthan,2003,40,JAIPUR RURAL,DEVKI NANDAN SHARMA,parties.IN.IND,IND,255,0.22,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-40,rajasthan,2003,40,JAIPUR RURAL,PRAKASH RIJHWANI,parties.IN.UNK,RSNM,211,0.18,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-40,rajasthan,2003,40,JAIPUR RURAL,PRAKASH RIJHWANI,parties.IN.RSNM,RSNM,211,0.18,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-40,rajasthan,2003,40,JAIPUR RURAL,DR. SHABIR KHAN,parties.IN.JDU,JD(U),146,0.13,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-41,rajasthan,2003,41,HAWAMAHAL,SURENDRA PAREEK,parties.IN.BJP,BJP,34353,63.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-41,rajasthan,2003,41,HAWAMAHAL,RIKHAB CHAND SHAH,parties.IN.INC,INC,17392,32.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -372,7 +372,7 @@ IN-AC-1976-rajasthan-41,rajasthan,2003,41,HAWAMAHAL,YOGENDRA SHARMA,parties.IN.J
 IN-AC-1976-rajasthan-41,rajasthan,2003,41,HAWAMAHAL,SANWAR LAL SHARMA,parties.IN.RJD,RJD,151,0.28,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-42,rajasthan,2003,42,JOHRIBAZAR,KALICHARAN SARAF,parties.IN.BJP,BJP,88016,54.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-42,rajasthan,2003,42,JOHRIBAZAR,SHAH IKRAMUDDIN,parties.IN.INC,INC,62277,38.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-42,rajasthan,2003,42,JOHRIBAZAR,SOMENDRA SHARMA,parties.IN.UNK,RSNM,4344,2.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-42,rajasthan,2003,42,JOHRIBAZAR,SOMENDRA SHARMA,parties.IN.RSNM,RSNM,4344,2.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-42,rajasthan,2003,42,JOHRIBAZAR,SITA RAM JAISWAL,parties.IN.IND,IND,2187,1.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-42,rajasthan,2003,42,JOHRIBAZAR,MOHAN KESWANI,parties.IN.BSP,BSP,1573,0.97,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-42,rajasthan,2003,42,JOHRIBAZAR,BALBEER SINGH,parties.IN.SHS,SHS,964,0.59,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -399,7 +399,7 @@ IN-AC-1976-rajasthan-44,rajasthan,2003,44,BANI PARK,DHAN RAJ,parties.IN.BSP,BSP,
 IN-AC-1976-rajasthan-44,rajasthan,2003,44,BANI PARK,YOGESH KUMAR SHARMA,parties.IN.IND,IND,1968,0.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-44,rajasthan,2003,44,BANI PARK,RAMA KANT,parties.IN.IND,IND,1620,0.67,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-44,rajasthan,2003,44,BANI PARK,SHIV KUMAR SHARMA,parties.IN.IND,IND,1245,0.51,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-44,rajasthan,2003,44,BANI PARK,SHYAM SUNDER,parties.IN.UNK,RSNM,1002,0.41,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-44,rajasthan,2003,44,BANI PARK,SHYAM SUNDER,parties.IN.RSNM,RSNM,1002,0.41,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-44,rajasthan,2003,44,BANI PARK,MANOJ JAIN,parties.IN.IND,IND,987,0.41,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-44,rajasthan,2003,44,BANI PARK,RAJESH SHARMA,parties.IN.NCP,NCP,901,0.37,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-44,rajasthan,2003,44,BANI PARK,TEJ PRAKASH KALLA,parties.IN.IND,IND,738,0.3,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -447,7 +447,7 @@ IN-AC-1976-rajasthan-48,rajasthan,2003,48,PHAGI,KUNDAN LAL NENAWAT,parties.IN.RL
 IN-AC-1976-rajasthan-48,rajasthan,2003,48,PHAGI,NATHU RAM KALA,parties.IN.INLD,INLD,1046,1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-48,rajasthan,2003,48,PHAGI,ANITA REGAR,parties.IN.IND,IND,657,0.63,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-48,rajasthan,2003,48,PHAGI,GANESH BAIRWA,parties.IN.LJNSP,LJNSP,484,0.46,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-48,rajasthan,2003,48,PHAGI,RAMSWAROOP SISODIA,parties.IN.UNK,RSNM,430,0.41,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-48,rajasthan,2003,48,PHAGI,RAMSWAROOP SISODIA,parties.IN.RSNM,RSNM,430,0.41,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-49,rajasthan,2003,49,LALSOT,VIRENDRA,parties.IN.BJP,BJP,67508,58.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-49,rajasthan,2003,49,LALSOT,PARSADI LAL,parties.IN.INC,INC,45652,39.28,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-49,rajasthan,2003,49,LALSOT,KIRAN DEVI,parties.IN.SP,SP,3050,2.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -477,7 +477,7 @@ IN-AC-1976-rajasthan-52,rajasthan,2003,52,DAUSA,ASHOK KUMAR BANSHIWAL,parties.IN
 IN-AC-1976-rajasthan-52,rajasthan,2003,52,DAUSA,DEVI SHANKAR,parties.IN.IND,IND,497,0.52,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-53,rajasthan,2003,53,BASSI,KANHAIYA LAL MEENA,parties.IN.BJP,BJP,58757,48.33,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-53,rajasthan,2003,53,BASSI,JAGDISH PRASAD TIWARI,parties.IN.INC,INC,57765,47.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-53,rajasthan,2003,53,BASSI,SANDEEP KUMAR SHARMA,parties.IN.UNK,RSNM,2595,2.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-53,rajasthan,2003,53,BASSI,SANDEEP KUMAR SHARMA,parties.IN.RSNM,RSNM,2595,2.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-53,rajasthan,2003,53,BASSI,HARI KISHAN,parties.IN.BSP,BSP,2446,2.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-54,rajasthan,2003,54,JAMWA RAMGARH,RAM CHANDRA,parties.IN.INC,INC,37811,34.66,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-54,rajasthan,2003,54,JAMWA RAMGARH,RAMNARAYAN,parties.IN.BSP,BSP,32801,30.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -533,7 +533,7 @@ IN-AC-1976-rajasthan-59,rajasthan,2003,59,MANDAWAR,MAJOR O.P. YADAV,parties.IN.I
 IN-AC-1976-rajasthan-59,rajasthan,2003,59,MANDAWAR,MAHENDRA SHASTRI,parties.IN.INC,INC,8709,9.3,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-59,rajasthan,2003,59,MANDAWAR,RAJA RAM,parties.IN.RPD,RPD,3313,3.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-59,rajasthan,2003,59,MANDAWAR,OM PAL SINGH,parties.IN.IND,IND,1080,1.15,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-59,rajasthan,2003,59,MANDAWAR,SURESH CHAND,parties.IN.UNK,RSNM,782,0.83,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-59,rajasthan,2003,59,MANDAWAR,SURESH CHAND,parties.IN.RSNM,RSNM,782,0.83,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-59,rajasthan,2003,59,MANDAWAR,SHER SINGH,parties.IN.LJNSP,LJNSP,658,0.7,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-59,rajasthan,2003,59,MANDAWAR,NEPAL SINGH,parties.IN.IND,IND,416,0.44,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-59,rajasthan,2003,59,MANDAWAR,SUBE SINGH YADAV,parties.IN.SP,SP,354,0.38,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -605,7 +605,7 @@ IN-AC-1976-rajasthan-65,rajasthan,2003,65,RAJGARH,PRAHALAD,parties.IN.RPD,RPD,12
 IN-AC-1976-rajasthan-65,rajasthan,2003,65,RAJGARH,RAM PRASAD,parties.IN.IND,IND,1093,1.06,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-65,rajasthan,2003,65,RAJGARH,RAMESH CHAND,parties.IN.IND,IND,610,0.59,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-65,rajasthan,2003,65,RAJGARH,RAM SINGH,parties.IN.IND,IND,476,0.46,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-65,rajasthan,2003,65,RAJGARH,LILA RAM,parties.IN.UNK,RSNM,391,0.38,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-65,rajasthan,2003,65,RAJGARH,LILA RAM,parties.IN.RSNM,RSNM,391,0.38,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-66,rajasthan,2003,66,LACHHMANGARH,JAGAT SINGH,parties.IN.INC,INC,40095,31.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-66,rajasthan,2003,66,LACHHMANGARH,DHARAMVEER,parties.IN.BJP,BJP,33218,26.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-66,rajasthan,2003,66,LACHHMANGARH,NASRU KHAN,parties.IN.INLD,INLD,30008,23.81,3,lost,U,,,,crossover,src-1b7bc1c9d39a
@@ -645,7 +645,7 @@ IN-AC-1976-rajasthan-69,rajasthan,2003,69,NAGAR,MURARI LAL,parties.IN.INLD,INLD,
 IN-AC-1976-rajasthan-69,rajasthan,2003,69,NAGAR,BANNE SINGH,parties.IN.IND,IND,4986,5.77,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-69,rajasthan,2003,69,NAGAR,KHURSHID AHMED,parties.IN.LJNSP,LJNSP,3119,3.61,7,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-69,rajasthan,2003,69,NAGAR,SRINATH SINGH,parties.IN.JDU,JD(U),1662,1.92,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-69,rajasthan,2003,69,NAGAR,MOOL CHAND,parties.IN.UNK,RAM,900,1.04,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-69,rajasthan,2003,69,NAGAR,MOOL CHAND,parties.IN.RAM,RAM,900,1.04,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-69,rajasthan,2003,69,NAGAR,LAXMI NARAYAN BHARTI,parties.IN.SHS,SHS,650,0.75,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-69,rajasthan,2003,69,NAGAR,SEWA RAM JATAV,parties.IN.RPD,RPD,495,0.57,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-69,rajasthan,2003,69,NAGAR,GANGARAM,parties.IN.IND,IND,232,0.27,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -692,13 +692,13 @@ IN-AC-1976-rajasthan-73,rajasthan,2003,73,RUPBAS,BUDHIRAM LEHARI,parties.IN.BJP,
 IN-AC-1976-rajasthan-73,rajasthan,2003,73,RUPBAS,CHANDRA BHAN SINGH,parties.IN.RLD,RLD,14186,17.51,5,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-73,rajasthan,2003,73,RUPBAS,RAM CHAND,parties.IN.BRVP,BRVP,1684,2.08,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-73,rajasthan,2003,73,RUPBAS,GAMMAN SINGH,parties.IN.LJNSP,LJNSP,559,0.69,7,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-73,rajasthan,2003,73,RUPBAS,MAN SINGH CHANDERBANSI,parties.IN.UNK,RSNM,556,0.69,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-73,rajasthan,2003,73,RUPBAS,MAN SINGH CHANDERBANSI,parties.IN.RSNM,RSNM,556,0.69,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-73,rajasthan,2003,73,RUPBAS,BHUDEV SINGH,parties.IN.NCP,NCP,385,0.48,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-74,rajasthan,2003,74,NADBAI,KRISHNENDRA KAUR (DEEPA),parties.IN.IND,IND,27299,28.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-74,rajasthan,2003,74,NADBAI,SANJAY KUMAR,parties.IN.BSP,BSP,20239,21.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-74,rajasthan,2003,74,NADBAI,YASHWANT SINGH RAMU,parties.IN.INC,INC,19150,20.15,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-74,rajasthan,2003,74,NADBAI,JITENDRA SINGH,parties.IN.BJP,BJP,13949,14.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-74,rajasthan,2003,74,NADBAI,BHAJAN LAL,parties.IN.UNK,RSNM,5969,6.28,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-74,rajasthan,2003,74,NADBAI,BHAJAN LAL,parties.IN.RSNM,RSNM,5969,6.28,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-74,rajasthan,2003,74,NADBAI,SWARAJ DEVI,parties.IN.RLD,RLD,3802,4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-74,rajasthan,2003,74,NADBAI,NAWAB SINGH,parties.IN.IND,IND,1194,1.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-74,rajasthan,2003,74,NADBAI,CHANDRA KANTA SINGH,parties.IN.NCP,NCP,924,0.97,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -715,7 +715,7 @@ IN-AC-1976-rajasthan-75,rajasthan,2003,75,WEIR,UDAY SINGH,parties.IN.RLD,RLD,567
 IN-AC-1976-rajasthan-75,rajasthan,2003,75,WEIR,BHAG CHAND KOLI,parties.IN.SP,SP,434,0.5,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-75,rajasthan,2003,75,WEIR,JHANDE,parties.IN.SHS,SHS,235,0.27,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-76,rajasthan,2003,76,BAYANA,ATAR SINGH BADANA,parties.IN.BJP,BJP,41377,37.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-76,rajasthan,2003,76,BAYANA,DHRUVENDRA SINGH,parties.IN.UNK,RSNM,21972,19.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-76,rajasthan,2003,76,BAYANA,DHRUVENDRA SINGH,parties.IN.RSNM,RSNM,21972,19.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-76,rajasthan,2003,76,BAYANA,BRIJENDRA SINGH SOOPA,parties.IN.INC,INC,16941,15.37,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-76,rajasthan,2003,76,BAYANA,BALGOVIND MAVAI,parties.IN.BSP,BSP,15883,14.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-76,rajasthan,2003,76,BAYANA,JAGAN SINGH,parties.IN.INLD,INLD,5678,5.15,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -733,7 +733,7 @@ IN-AC-1976-rajasthan-77,rajasthan,2003,77,RAJAKHERA,NARAYAN SINGH,parties.IN.RKP
 IN-AC-1976-rajasthan-78,rajasthan,2003,78,DHOLPUR,BANWARI LAL,parties.IN.INC,INC,57101,48.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-78,rajasthan,2003,78,DHOLPUR,SHIV RAM,parties.IN.BJP,BJP,51987,43.79,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-78,rajasthan,2003,78,DHOLPUR,GOVIND SINGH,parties.IN.BSP,BSP,5747,4.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-78,rajasthan,2003,78,DHOLPUR,HUKAM SINGH,parties.IN.UNK,RSNM,2690,2.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-78,rajasthan,2003,78,DHOLPUR,HUKAM SINGH,parties.IN.RSNM,RSNM,2690,2.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-78,rajasthan,2003,78,DHOLPUR,RAKESH,parties.IN.IND,IND,1190,1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-79,rajasthan,2003,79,BARI,DALJEET SINGH,parties.IN.INC,INC,46482,38.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-79,rajasthan,2003,79,BARI,JASWANT,parties.IN.BJP,BJP,44502,37.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -746,7 +746,7 @@ IN-AC-1976-rajasthan-79,rajasthan,2003,79,BARI,KISHAN SINGH GURJAR,parties.IN.IN
 IN-AC-1976-rajasthan-80,rajasthan,2003,80,KARAULI,SURESH MEENA,parties.IN.BSP,BSP,24421,22.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-80,rajasthan,2003,80,KARAULI,KRISHAN CHANDRA,parties.IN.BJP,BJP,24266,22.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-80,rajasthan,2003,80,KARAULI,HANSRAM GURJAR,parties.IN.SP,SP,20380,18.78,3,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-80,rajasthan,2003,80,KARAULI,SATYANARAIN SINGH,parties.IN.UNK,RSNM,17817,16.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-80,rajasthan,2003,80,KARAULI,SATYANARAIN SINGH,parties.IN.RSNM,RSNM,17817,16.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-80,rajasthan,2003,80,KARAULI,JANARDHAN SINGH GEHLOT,parties.IN.INC,INC,9465,8.72,5,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-80,rajasthan,2003,80,KARAULI,AJAY SINGH,parties.IN.IND,IND,7325,6.75,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-80,rajasthan,2003,80,KARAULI,ASHOK SINGH,parties.IN.IND,IND,3820,3.52,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -771,7 +771,7 @@ IN-AC-1976-rajasthan-82,rajasthan,2003,82,KHANDAR,NUNDI LAL,parties.IN.RLD,RLD,6
 IN-AC-1976-rajasthan-82,rajasthan,2003,82,KHANDAR,BABULAL,parties.IN.JDS,JD(S),569,0.63,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-83,rajasthan,2003,83,SAWAI MADHOPUR,KIRODI LAL,parties.IN.BJP,BJP,71574,57.52,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-83,rajasthan,2003,83,SAWAI MADHOPUR,YASMIN ABRAR,parties.IN.INC,INC,41488,33.34,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-83,rajasthan,2003,83,SAWAI MADHOPUR,BHARAT SINGH,parties.IN.UNK,RSNM,3944,3.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-83,rajasthan,2003,83,SAWAI MADHOPUR,BHARAT SINGH,parties.IN.RSNM,RSNM,3944,3.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-83,rajasthan,2003,83,SAWAI MADHOPUR,MOTILAL,parties.IN.INLD,INLD,3186,2.56,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-83,rajasthan,2003,83,SAWAI MADHOPUR,RAM GOPAL,parties.IN.CPI,CPI,1428,1.15,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-83,rajasthan,2003,83,SAWAI MADHOPUR,RAM PRAKASH BAIRWA,parties.IN.IND,IND,1174,0.94,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -799,7 +799,7 @@ IN-AC-1976-rajasthan-85,rajasthan,2003,85,GANGAPUR,HARI NARAYAN,parties.IN.IND,I
 IN-AC-1976-rajasthan-85,rajasthan,2003,85,GANGAPUR,SHREMAN,parties.IN.RLD,RLD,1002,0.91,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-85,rajasthan,2003,85,GANGAPUR,MOHAN SINGH,parties.IN.IND,IND,755,0.69,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-85,rajasthan,2003,85,GANGAPUR,BRIJ MOHAN,parties.IN.IND,IND,429,0.39,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-85,rajasthan,2003,85,GANGAPUR,VIJAY SHANKAR,parties.IN.UNK,RSNM,347,0.32,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-85,rajasthan,2003,85,GANGAPUR,VIJAY SHANKAR,parties.IN.RSNM,RSNM,347,0.32,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-85,rajasthan,2003,85,GANGAPUR,ABDUL HAMEED,parties.IN.IND,IND,203,0.19,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-85,rajasthan,2003,85,GANGAPUR,GEETA,parties.IN.IND,IND,183,0.17,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-86,rajasthan,2003,86,HINDAUN,KALU RAM,parties.IN.INLD,INLD,47847,40.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
@@ -812,7 +812,7 @@ IN-AC-1976-rajasthan-86,rajasthan,2003,86,HINDAUN,PHOOLWATI KOLI,parties.IN.IND,
 IN-AC-1976-rajasthan-87,rajasthan,2003,87,MAHUWA,HARIGYAN SINGH,parties.IN.BJP,BJP,51975,45.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-87,rajasthan,2003,87,MAHUWA,HARI SINGH,parties.IN.INC,INC,30231,26.75,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-87,rajasthan,2003,87,MAHUWA,IMAMUDDIN URF MAMMU,parties.IN.BSP,BSP,19212,17,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-87,rajasthan,2003,87,MAHUWA,ROOP SINGH,parties.IN.UNK,RSNM,5150,4.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-87,rajasthan,2003,87,MAHUWA,ROOP SINGH,parties.IN.RSNM,RSNM,5150,4.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-87,rajasthan,2003,87,MAHUWA,NARAYAN LAL MEENA,parties.IN.NCP,NCP,2628,2.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-87,rajasthan,2003,87,MAHUWA,LEELA KHERLA,parties.IN.JDU,JD(U),796,0.7,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-87,rajasthan,2003,87,MAHUWA,GIRDHARI LAL JANGID,parties.IN.JP,JP,782,0.69,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -938,10 +938,10 @@ IN-AC-1976-rajasthan-103,rajasthan,2003,103,HINDOLI,KHUBA RAM MEHRA,parties.IN.B
 IN-AC-1976-rajasthan-103,rajasthan,2003,103,HINDOLI,PYARE LAL,parties.IN.RLD,RLD,2008,2.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-103,rajasthan,2003,103,HINDOLI,MANJU DEVI,parties.IN.IND,IND,1780,2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-103,rajasthan,2003,103,HINDOLI,JAMNA LAL,parties.IN.IND,IND,1505,1.69,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-103,rajasthan,2003,103,HINDOLI,VIMAL KUMAR,parties.IN.UNK,RSNM,887,1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-103,rajasthan,2003,103,HINDOLI,VIMAL KUMAR,parties.IN.RSNM,RSNM,887,1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-104,rajasthan,2003,104,NAINWA,RAM NARAYAN,parties.IN.INC,INC,39847,45.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-104,rajasthan,2003,104,NAINWA,HEMRAJ,parties.IN.BJP,BJP,36962,42.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-104,rajasthan,2003,104,NAINWA,RAM SINGH,parties.IN.UNK,RSNM,7102,8.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-104,rajasthan,2003,104,NAINWA,RAM SINGH,parties.IN.RSNM,RSNM,7102,8.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-104,rajasthan,2003,104,NAINWA,SOJI,parties.IN.IND,IND,2117,2.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-104,rajasthan,2003,104,NAINWA,BODHI LAL,parties.IN.SP,SP,1338,1.53,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-105,rajasthan,2003,105,PATAN,BABU LAL,parties.IN.BJP,BJP,33691,40.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
@@ -956,9 +956,9 @@ IN-AC-1976-rajasthan-106,rajasthan,2003,106,BUNDI,KULDEEP,parties.IN.SHS,SHS,210
 IN-AC-1976-rajasthan-107,rajasthan,2003,107,KOTA,OM BIRLA,parties.IN.BJP,BJP,87197,51.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-107,rajasthan,2003,107,KOTA,SHANTI KUMAR DHARIWAL,parties.IN.INC,INC,77096,45.84,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-107,rajasthan,2003,107,KOTA,TRIBUHUNESHWAR SHARMA,parties.IN.IND,IND,1608,0.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-107,rajasthan,2003,107,KOTA,ATUL SHRIVASTAVA,parties.IN.UNK,RSNM,1053,0.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-107,rajasthan,2003,107,KOTA,ATUL SHRIVASTAVA,parties.IN.RSNM,RSNM,1053,0.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-107,rajasthan,2003,107,KOTA,VIJAY KUMAR CHATURVEDI,parties.IN.SHS,SHS,832,0.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-107,rajasthan,2003,107,KOTA,BASANT VALECHA,parties.IN.UNK,ABRAHP,394,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-107,rajasthan,2003,107,KOTA,BASANT VALECHA,parties.IN.ABRAHP,ABRAHP,394,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-108,rajasthan,2003,108,LADPURA,BHAWANI SINGH RAJAWAT,parties.IN.BJP,BJP,69053,49.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-108,rajasthan,2003,108,LADPURA,POONAM GOYAL,parties.IN.INC,INC,62852,44.7,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-108,rajasthan,2003,108,LADPURA,RAJESH GUPTA,parties.IN.IND,IND,2516,1.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -967,10 +967,10 @@ IN-AC-1976-rajasthan-108,rajasthan,2003,108,LADPURA,BAJRANG LAL,parties.IN.IND,I
 IN-AC-1976-rajasthan-108,rajasthan,2003,108,LADPURA,NARENDRA KUMAR TIWARI,parties.IN.JDS,JD(S),483,0.34,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-108,rajasthan,2003,108,LADPURA,CHOUTHMAL,parties.IN.IND,IND,463,0.33,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-108,rajasthan,2003,108,LADPURA,SURESH CHAND,parties.IN.SHS,SHS,452,0.32,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-108,rajasthan,2003,108,LADPURA,NAND SINGH HADA,parties.IN.UNK,RSNM,449,0.32,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-108,rajasthan,2003,108,LADPURA,NAND SINGH HADA,parties.IN.RSNM,RSNM,449,0.32,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-108,rajasthan,2003,108,LADPURA,GOVIND SHARMA,parties.IN.IND,IND,361,0.26,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-108,rajasthan,2003,108,LADPURA,AMITA MEHRA,parties.IN.IND,IND,275,0.2,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-108,rajasthan,2003,108,LADPURA,SAVITRI MAHAWAR,parties.IN.UNK,ABRAHP,255,0.18,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-108,rajasthan,2003,108,LADPURA,SAVITRI MAHAWAR,parties.IN.ABRAHP,ABRAHP,255,0.18,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-109,rajasthan,2003,109,DIGOD,BHARAT SINGH,parties.IN.INC,INC,58070,51.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-109,rajasthan,2003,109,DIGOD,LALIT KISHORE CHATURVEDI,parties.IN.BJP,BJP,47323,42.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-109,rajasthan,2003,109,DIGOD,MANVEER SINGH,parties.IN.IND,IND,2548,2.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1097,7 +1097,7 @@ IN-AC-1976-rajasthan-133,rajasthan,2003,133,SAGWARA,TARA CHAND BHAGORA,parties.I
 IN-AC-1976-rajasthan-133,rajasthan,2003,133,SAGWARA,RAMESH CHAND ROT,parties.IN.BSP,BSP,2365,2.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-134,rajasthan,2003,134,CHORASI,SUSHIL,parties.IN.BJP,BJP,44327,41.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-134,rajasthan,2003,134,CHORASI,SHANKAR LAL AHARI,parties.IN.INC,INC,40018,37.9,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-134,rajasthan,2003,134,CHORASI,VIRENDRA,parties.IN.UNK,RSNM,9388,8.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-134,rajasthan,2003,134,CHORASI,VIRENDRA,parties.IN.RSNM,RSNM,9388,8.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-134,rajasthan,2003,134,CHORASI,UDAI LAL,parties.IN.NCP,NCP,5420,5.13,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-134,rajasthan,2003,134,CHORASI,DEVI LAL,parties.IN.CPIM,CPM,4250,4.02,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-134,rajasthan,2003,134,CHORASI,BALMUKUND,parties.IN.BSP,BSP,2188,2.07,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1181,7 +1181,7 @@ IN-AC-1976-rajasthan-148,rajasthan,2003,148,GONGUNDA,MEGH RAJ,parties.IN.CPI,CPI
 IN-AC-1976-rajasthan-149,rajasthan,2003,149,KUMBHALGARH,SURENDRA SINGH RATHORE,parties.IN.BJP,BJP,58526,55.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-149,rajasthan,2003,149,KUMBHALGARH,HEERA LAL DEVPURA,parties.IN.INC,INC,33882,31.98,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-149,rajasthan,2003,149,KUMBHALGARH,VIJAY LAXMI,parties.IN.NCP,NCP,4755,4.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-149,rajasthan,2003,149,KUMBHALGARH,GOVIND SINGH SHAKTAWAT,parties.IN.UNK,RSNM,2845,2.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-149,rajasthan,2003,149,KUMBHALGARH,GOVIND SINGH SHAKTAWAT,parties.IN.RSNM,RSNM,2845,2.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-149,rajasthan,2003,149,KUMBHALGARH,BHANWARLAL MALI,parties.IN.IND,IND,2783,2.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-149,rajasthan,2003,149,KUMBHALGARH,RAMESHWAR LAL,parties.IN.SP,SP,1774,1.67,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-149,rajasthan,2003,149,KUMBHALGARH,NARAIN LAL JAVA,parties.IN.IND,IND,1375,1.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1217,7 +1217,7 @@ IN-AC-1976-rajasthan-155,rajasthan,2003,155,JAHAZPUR,RATAN LAL TAMBI,parties.IN.
 IN-AC-1976-rajasthan-155,rajasthan,2003,155,JAHAZPUR,NARAYAN LAL GUJAR,parties.IN.IND,IND,10568,10.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-155,rajasthan,2003,155,JAHAZPUR,OM PRAKASH,parties.IN.NCP,NCP,3202,3.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-155,rajasthan,2003,155,JAHAZPUR,RAMJAS MEENA,parties.IN.BSP,BSP,2314,2.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-155,rajasthan,2003,155,JAHAZPUR,PARASHRAM SHARMA,parties.IN.UNK,RSNM,1920,1.84,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-155,rajasthan,2003,155,JAHAZPUR,PARASHRAM SHARMA,parties.IN.RSNM,RSNM,1920,1.84,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-155,rajasthan,2003,155,JAHAZPUR,CHHITAR LAL REGAR,parties.IN.IND,IND,1742,1.67,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-155,rajasthan,2003,155,JAHAZPUR,DURGA LAL PRAJAPATI,parties.IN.IND,IND,1530,1.47,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-155,rajasthan,2003,155,JAHAZPUR,SUNIL KUMAR,parties.IN.LJNSP,LJNSP,1261,1.21,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1244,7 +1244,7 @@ IN-AC-1976-rajasthan-160,rajasthan,2003,160,RAIPUR,C.D. DEWAL,parties.IN.INC,INC
 IN-AC-1976-rajasthan-160,rajasthan,2003,160,RAIPUR,HEERA SINGH CHAUHAN,parties.IN.BJP,BJP,37725,44.06,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-160,rajasthan,2003,160,RAIPUR,SOHAN LAL JAT,parties.IN.IND,IND,2414,2.82,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-160,rajasthan,2003,160,RAIPUR,SHIV RAM KUMAWAT,parties.IN.BSP,BSP,1761,2.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-160,rajasthan,2003,160,RAIPUR,ASHOK SINGH HAZIWAS,parties.IN.UNK,RSNM,1653,1.93,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-160,rajasthan,2003,160,RAIPUR,ASHOK SINGH HAZIWAS,parties.IN.RSNM,RSNM,1653,1.93,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-161,rajasthan,2003,161,SOJAT,LAXMI NARAYAN DAVE,parties.IN.BJP,BJP,43165,48.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-161,rajasthan,2003,161,SOJAT,MADHAV SINGH DEEVAN,parties.IN.INC,INC,39073,43.85,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-161,rajasthan,2003,161,SOJAT,HIMMATA RAM,parties.IN.IND,IND,2563,2.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1264,7 +1264,7 @@ IN-AC-1976-rajasthan-162,rajasthan,2003,162,KHARCHI,MANGI LAL MEGHWAL,parties.IN
 IN-AC-1976-rajasthan-163,rajasthan,2003,163,DESURI,LAXMI BARUPAL,parties.IN.BJP,BJP,28289,36.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-163,rajasthan,2003,163,DESURI,NEERAJ DANGI,parties.IN.INC,INC,27656,35.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-163,rajasthan,2003,163,DESURI,ACHALA RAM,parties.IN.IND,IND,6732,8.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-163,rajasthan,2003,163,DESURI,LAHARA RAM SARGARA,parties.IN.UNK,RSNM,4137,5.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-163,rajasthan,2003,163,DESURI,LAHARA RAM SARGARA,parties.IN.RSNM,RSNM,4137,5.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-163,rajasthan,2003,163,DESURI,NENA RAM,parties.IN.IND,IND,2675,3.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-163,rajasthan,2003,163,DESURI,DUDA RAM BAVRI,parties.IN.IND,IND,1880,2.41,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-163,rajasthan,2003,163,DESURI,AATMA RAM MEGHWAL,parties.IN.INLD,INLD,1637,2.1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1295,12 +1295,12 @@ IN-AC-1976-rajasthan-165,rajasthan,2003,165,SUMERPUR,SHANKER LAL NARBAN,parties.
 IN-AC-1976-rajasthan-166,rajasthan,2003,166,BALI,PUSPENDRA SINGH,parties.IN.BJP,BJP,45191,52.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-166,rajasthan,2003,166,BALI,JAI SINGH,parties.IN.INC,INC,35014,40.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-166,rajasthan,2003,166,BALI,BHAGA RAM,parties.IN.IND,IND,1879,2.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-166,rajasthan,2003,166,BALI,NARAYAN SINGH,parties.IN.UNK,RSNM,1528,1.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-166,rajasthan,2003,166,BALI,NARAYAN SINGH,parties.IN.RSNM,RSNM,1528,1.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-166,rajasthan,2003,166,BALI,SHANKAR LAL,parties.IN.AITC,AITC,1338,1.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-166,rajasthan,2003,166,BALI,KEVAL CHANDRA,parties.IN.IND,IND,976,1.14,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-167,rajasthan,2003,167,SIROHI,SANYAM LODHA,parties.IN.INC,INC,43330,41.94,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-167,rajasthan,2003,167,SIROHI,TARA BHANDARI,parties.IN.BJP,BJP,39194,37.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-167,rajasthan,2003,167,SIROHI,DALIP SINGH,parties.IN.UNK,RSNM,6907,6.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-167,rajasthan,2003,167,SIROHI,DALIP SINGH,parties.IN.RSNM,RSNM,6907,6.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-167,rajasthan,2003,167,SIROHI,HATHIRAM,parties.IN.BSP,BSP,4918,4.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-167,rajasthan,2003,167,SIROHI,BABULAL,parties.IN.IND,IND,3692,3.57,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-167,rajasthan,2003,167,SIROHI,HAKMARAM,parties.IN.IND,IND,2876,2.78,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1312,7 +1312,7 @@ IN-AC-1976-rajasthan-167,rajasthan,2003,167,SIROHI,GANPAT SINGH,parties.IN.IND,I
 IN-AC-1976-rajasthan-168,rajasthan,2003,168,PINDWARA ABU,SAMARAM,parties.IN.BJP,BJP,41919,40.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-168,rajasthan,2003,168,PINDWARA ABU,GANGA BEN,parties.IN.INC,INC,36147,34.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-168,rajasthan,2003,168,PINDWARA ABU,LALARAM GARASEEYA,parties.IN.IND,IND,7930,7.67,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-168,rajasthan,2003,168,PINDWARA ABU,ACHAL SINGH,parties.IN.UNK,RSNM,5373,5.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-168,rajasthan,2003,168,PINDWARA ABU,ACHAL SINGH,parties.IN.RSNM,RSNM,5373,5.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-168,rajasthan,2003,168,PINDWARA ABU,SHOBHARAM,parties.IN.IND,IND,4163,4.03,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-168,rajasthan,2003,168,PINDWARA ABU,MEETHARAM,parties.IN.BSP,BSP,3421,3.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-168,rajasthan,2003,168,PINDWARA ABU,PREMLATA,parties.IN.IND,IND,2432,2.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1323,7 +1323,7 @@ IN-AC-1976-rajasthan-169,rajasthan,2003,169,REODAR,CHHOGARAM BAKOLIA,parties.IN.
 IN-AC-1976-rajasthan-169,rajasthan,2003,169,REODAR,POONJARAM,parties.IN.IND,IND,15296,15.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-169,rajasthan,2003,169,REODAR,BHANUDEVI KOLI,parties.IN.IND,IND,4313,4.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-169,rajasthan,2003,169,REODAR,RAJENDRA KUMAR,parties.IN.BSP,BSP,2387,2.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-169,rajasthan,2003,169,REODAR,NARAYAN LAL,parties.IN.UNK,RSNM,2379,2.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-169,rajasthan,2003,169,REODAR,NARAYAN LAL,parties.IN.RSNM,RSNM,2379,2.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-169,rajasthan,2003,169,REODAR,DEVARAM KOLI,parties.IN.IND,IND,1222,1.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-170,rajasthan,2003,170,SANCHORE,JEEWARAM CHOUDHARY,parties.IN.BJP,BJP,107975,61.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-170,rajasthan,2003,170,SANCHORE,HEERALAL VISHNOI,parties.IN.INC,INC,63380,36.17,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
@@ -1335,7 +1335,7 @@ IN-AC-1976-rajasthan-172,rajasthan,2003,172,BHINMAL,SAMARJIT SINGH,parties.IN.IN
 IN-AC-1976-rajasthan-172,rajasthan,2003,172,BHINMAL,POORARAM CHOUDHARY,parties.IN.BJP,BJP,64833,49.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-173,rajasthan,2003,173,JALORE,JOGESHWAR GARG,parties.IN.BJP,BJP,41265,43.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-173,rajasthan,2003,173,JALORE,RAMLAL MEGHWAL,parties.IN.INC,INC,36826,38.53,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-173,rajasthan,2003,173,JALORE,GANESHIRAM MEGHWAL,parties.IN.UNK,RSNM,9484,9.92,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-173,rajasthan,2003,173,JALORE,GANESHIRAM MEGHWAL,parties.IN.RSNM,RSNM,9484,9.92,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-173,rajasthan,2003,173,JALORE,JOGARAM,parties.IN.IND,IND,3384,3.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-173,rajasthan,2003,173,JALORE,MOHAN LAL PARMAR URF MOHAN RAM PARMAR,parties.IN.IND,IND,2984,3.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-173,rajasthan,2003,173,JALORE,HASTI MAL,parties.IN.RJD,RJD,1625,1.7,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1398,7 +1398,7 @@ IN-AC-1976-rajasthan-181,rajasthan,2003,181,JAISALMER,DEVENDRA SINGH,parties.IN.
 IN-AC-1976-rajasthan-181,rajasthan,2003,181,JAISALMER,MOOL SINGH,parties.IN.SP,SP,1076,0.66,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-182,rajasthan,2003,182,SHERGARH,BABU SINGH RATHORE,parties.IN.BJP,BJP,57355,47.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-182,rajasthan,2003,182,SHERGARH,KHET SINGH RATHORE,parties.IN.INC,INC,45788,37.76,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-182,rajasthan,2003,182,SHERGARH,JASWANT SINGH INDA,parties.IN.UNK,RSNM,11336,9.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-182,rajasthan,2003,182,SHERGARH,JASWANT SINGH INDA,parties.IN.RSNM,RSNM,11336,9.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-182,rajasthan,2003,182,SHERGARH,JETHA RAM LAWA (MEGHWAL),parties.IN.IND,IND,4459,3.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-182,rajasthan,2003,182,SHERGARH,UMMED MEGHWAL,parties.IN.IND,IND,2334,1.92,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-183,rajasthan,2003,183,JODHPUR,SURYA KANTA VYAS,parties.IN.BJP,BJP,29160,44.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
@@ -1406,7 +1406,7 @@ IN-AC-1976-rajasthan-183,rajasthan,2003,183,JODHPUR,JUGAL KABRA,parties.IN.INC,I
 IN-AC-1976-rajasthan-183,rajasthan,2003,183,JODHPUR,DR. GULAM RABANEE,parties.IN.IND,IND,8958,13.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-183,rajasthan,2003,183,JODHPUR,ANIL KOTHARI,parties.IN.SHS,SHS,772,1.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-183,rajasthan,2003,183,JODHPUR,ATAUR RAHMAN,parties.IN.NCP,NCP,346,0.52,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-183,rajasthan,2003,183,JODHPUR,UMA VYAS,parties.IN.UNK,RSNM,342,0.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-183,rajasthan,2003,183,JODHPUR,UMA VYAS,parties.IN.RSNM,RSNM,342,0.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-183,rajasthan,2003,183,JODHPUR,JAHID HASAN,parties.IN.BSP,BSP,265,0.4,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-183,rajasthan,2003,183,JODHPUR,MOHAMMAD KALEEM,parties.IN.JDS,JD(S),161,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-184,rajasthan,2003,184,SARDARPURA,ASHOK GEHLOT,parties.IN.INC,INC,58509,56.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
@@ -1421,14 +1421,14 @@ IN-AC-1976-rajasthan-184,rajasthan,2003,184,SARDARPURA,MEHMUDA BEGUM ABBASI,part
 IN-AC-1976-rajasthan-184,rajasthan,2003,184,SARDARPURA,BALVEER SINGH GEHLOT,parties.IN.IND,IND,108,0.1,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-185,rajasthan,2003,185,SURSAGAR,MOHAN MEGHAWAL,parties.IN.BJP,BJP,82228,48.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-185,rajasthan,2003,185,SURSAGAR,BHANWAR LAL BALAI S/O SUDA RAM,parties.IN.INC,INC,76443,44.8,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-185,rajasthan,2003,185,SURSAGAR,NATTHU RAM MEGHWAL,parties.IN.UNK,RSNM,3827,2.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-185,rajasthan,2003,185,SURSAGAR,NATTHU RAM MEGHWAL,parties.IN.RSNM,RSNM,3827,2.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-185,rajasthan,2003,185,SURSAGAR,BHANWAR LAL BALAI S/O RAJU RAM,parties.IN.IND,IND,2430,1.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-185,rajasthan,2003,185,SURSAGAR,MEETHU LAL MAHARAJ,parties.IN.NCP,NCP,1796,1.05,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-185,rajasthan,2003,185,SURSAGAR,PREM MEHRA,parties.IN.INLD,INLD,1605,0.94,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-185,rajasthan,2003,185,SURSAGAR,GOPAL,parties.IN.IND,IND,1350,0.79,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-185,rajasthan,2003,185,SURSAGAR,BHIKHEE DEVI,parties.IN.JKNPP,JKNPP,940,0.55,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-186,rajasthan,2003,186,LUNI,RAM SINGH VISHNOI,parties.IN.INC,INC,37574,33.75,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-186,rajasthan,2003,186,LUNI,JOGA RAM PATEL,parties.IN.UNK,RSNM,36218,32.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-186,rajasthan,2003,186,LUNI,JOGA RAM PATEL,parties.IN.RSNM,RSNM,36218,32.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-186,rajasthan,2003,186,LUNI,HANUMAN RAM VISHNOI,parties.IN.BJP,BJP,20137,18.09,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-186,rajasthan,2003,186,LUNI,JAGDISH,parties.IN.BSP,BSP,13793,12.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-186,rajasthan,2003,186,LUNI,RUGHA RAM CHOUDARY,parties.IN.IND,IND,2121,1.91,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1438,13 +1438,13 @@ IN-AC-1976-rajasthan-187,rajasthan,2003,187,BILARA,RAJENDRA CHOUDHARY,parties.IN
 IN-AC-1976-rajasthan-187,rajasthan,2003,187,BILARA,UNKAR RAM,parties.IN.IND,IND,16782,13.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-187,rajasthan,2003,187,BILARA,PROF. MALA RAM,parties.IN.BSP,BSP,11812,9.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-187,rajasthan,2003,187,BILARA,GORDHAN RAM CHOUDHARY,parties.IN.INLD,INLD,4415,3.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-187,rajasthan,2003,187,BILARA,MOHAN SINGH,parties.IN.UNK,RSNM,3919,3.12,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-187,rajasthan,2003,187,BILARA,MOHAN SINGH,parties.IN.RSNM,RSNM,3919,3.12,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-187,rajasthan,2003,187,BILARA,PUKHRAJ MEGHWAL,parties.IN.IND,IND,1981,1.58,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-187,rajasthan,2003,187,BILARA,OM PRAKASH,parties.IN.SHS,SHS,1472,1.17,8,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-187,rajasthan,2003,187,BILARA,KISHAN SINGH KHARIA,parties.IN.SP,SP,1352,1.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-188,rajasthan,2003,188,BHOPALGARH,MAHIPAL MADERNA,parties.IN.INC,INC,43659,35.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-188,rajasthan,2003,188,BHOPALGARH,NARAYAN RAM BEDA,parties.IN.BJP,BJP,38675,31.68,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-188,rajasthan,2003,188,BHOPALGARH,DHANNA RAM,parties.IN.UNK,RSNM,19261,15.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-188,rajasthan,2003,188,BHOPALGARH,DHANNA RAM,parties.IN.RSNM,RSNM,19261,15.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-188,rajasthan,2003,188,BHOPALGARH,PRADEEP GEHLOT,parties.IN.BSP,BSP,17605,14.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-188,rajasthan,2003,188,BHOPALGARH,GEETA MEGHWAL,parties.IN.LJNSP,LJNSP,2876,2.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-189,rajasthan,2003,189,OSIAN,BANNE SINGH,parties.IN.BJP,BJP,47414,46.54,1,won,U,,,,crossover,src-1b7bc1c9d39a
@@ -1453,7 +1453,7 @@ IN-AC-1976-rajasthan-189,rajasthan,2003,189,OSIAN,SHARAVAN KUMAR,parties.IN.BSP,
 IN-AC-1976-rajasthan-189,rajasthan,2003,189,OSIAN,GOPAL SINGH BHALASARIA,parties.IN.SP,SP,2774,2.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-189,rajasthan,2003,189,OSIAN,RAJNI,parties.IN.INLD,INLD,2704,2.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-190,rajasthan,2003,190,PHALODI,RAM NARAYAN VISHNOI,parties.IN.BJP,BJP,48525,35.14,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-190,rajasthan,2003,190,PHALODI,PRAKASH CHAND CHHANGANI,parties.IN.UNK,RSNM,43146,31.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-190,rajasthan,2003,190,PHALODI,PRAKASH CHAND CHHANGANI,parties.IN.RSNM,RSNM,43146,31.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-190,rajasthan,2003,190,PHALODI,JEPU KHAN,parties.IN.INC,INC,36466,26.4,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-190,rajasthan,2003,190,PHALODI,DERAWAR SINGH RAJPUROHIT,parties.IN.IND,IND,3607,2.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-190,rajasthan,2003,190,PHALODI,KISHNA RAM MEGHWAL,parties.IN.IND,IND,3320,2.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1469,7 +1469,7 @@ IN-AC-1976-rajasthan-192,rajasthan,2003,192,JAYAL,MADAN LAL MEGHWAL,parties.IN.B
 IN-AC-1976-rajasthan-192,rajasthan,2003,192,JAYAL,MOHAN LAL BARUPAL,parties.IN.INC,INC,33585,37.48,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-192,rajasthan,2003,192,JAYAL,LUNA RAM,parties.IN.INLD,INLD,5558,6.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-192,rajasthan,2003,192,JAYAL,TILOKA RAM,parties.IN.BSP,BSP,4030,4.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-192,rajasthan,2003,192,JAYAL,SANWLA RAM,parties.IN.UNK,RSNM,3983,4.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-192,rajasthan,2003,192,JAYAL,SANWLA RAM,parties.IN.RSNM,RSNM,3983,4.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-192,rajasthan,2003,192,JAYAL,ANDA RAM,parties.IN.RLD,RLD,3277,3.66,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-192,rajasthan,2003,192,JAYAL,OM PRAKASH,parties.IN.IND,IND,1901,2.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-193,rajasthan,2003,193,LADNU,MANOHAR SINGH,parties.IN.BJP,BJP,45928,40.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
@@ -1488,7 +1488,7 @@ IN-AC-1976-rajasthan-194,rajasthan,2003,194,DEEDWANA,BHAGIRATH RAM S/O PEMA RAM,
 IN-AC-1976-rajasthan-194,rajasthan,2003,194,DEEDWANA,MANGA RAM,parties.IN.IND,IND,1971,1.72,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-194,rajasthan,2003,194,DEEDWANA,NABAB KHAN,parties.IN.RLD,RLD,1410,1.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-194,rajasthan,2003,194,DEEDWANA,KANHAIYA LAL,parties.IN.IND,IND,1183,1.03,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-194,rajasthan,2003,194,DEEDWANA,PANNE SINGH,parties.IN.UNK,RSNM,1093,0.95,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-194,rajasthan,2003,194,DEEDWANA,PANNE SINGH,parties.IN.RSNM,RSNM,1093,0.95,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-194,rajasthan,2003,194,DEEDWANA,BHAGIRTH RAM,parties.IN.IND,IND,851,0.74,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-194,rajasthan,2003,194,DEEDWANA,GEETA DEVI,parties.IN.IND,IND,847,0.74,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-195,rajasthan,2003,195,NAWAN,HARISH CHAND,parties.IN.BJP,BJP,39655,33.87,1,won,U,,,,incumbent,src-1b7bc1c9d39a
@@ -1496,7 +1496,7 @@ IN-AC-1976-rajasthan-195,rajasthan,2003,195,NAWAN,MAHENDRA CHOUDHARY,parties.IN.
 IN-AC-1976-rajasthan-195,rajasthan,2003,195,NAWAN,DARA SINGH,parties.IN.IND,IND,21439,18.31,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-195,rajasthan,2003,195,NAWAN,SHYOPAT SINGH,parties.IN.CPIM,CPM,6791,5.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-195,rajasthan,2003,195,NAWAN,VISHNU SINGH,parties.IN.IND,IND,3013,2.57,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-195,rajasthan,2003,195,NAWAN,OM PRAKASH,parties.IN.UNK,RSNM,2550,2.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-195,rajasthan,2003,195,NAWAN,OM PRAKASH,parties.IN.RSNM,RSNM,2550,2.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-195,rajasthan,2003,195,NAWAN,RAMESHWAR LAL,parties.IN.BSP,BSP,1434,1.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-195,rajasthan,2003,195,NAWAN,CHATURBHUJ,parties.IN.SHS,SHS,1414,1.21,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-195,rajasthan,2003,195,NAWAN,INDRA DEVI,parties.IN.INLD,INLD,1037,0.89,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1504,7 +1504,7 @@ IN-AC-1976-rajasthan-195,rajasthan,2003,195,NAWAN,KAILASH,parties.IN.IND,IND,939
 IN-AC-1976-rajasthan-196,rajasthan,2003,196,MAKRANA,BHANWAR LAL RAJPUROHIT,parties.IN.BJP,BJP,45014,33.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-196,rajasthan,2003,196,MAKRANA,SHRI RAM,parties.IN.IND,IND,42160,31.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-196,rajasthan,2003,196,MAKRANA,ABDUL RAHMAN CHOUDHARY,parties.IN.INC,INC,40972,30.38,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-196,rajasthan,2003,196,MAKRANA,HIMMAT SINGH,parties.IN.UNK,RSNM,2874,2.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-196,rajasthan,2003,196,MAKRANA,HIMMAT SINGH,parties.IN.RSNM,RSNM,2874,2.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-196,rajasthan,2003,196,MAKRANA,CHAMPA LAL,parties.IN.SHS,SHS,1099,0.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-196,rajasthan,2003,196,MAKRANA,ROOPA RAM,parties.IN.IND,IND,897,0.67,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-196,rajasthan,2003,196,MAKRANA,BHAGIRATH SINGH,parties.IN.INLD,INLD,830,0.62,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1528,7 +1528,7 @@ IN-AC-1976-rajasthan-199,rajasthan,2003,199,MERTA,MANGI LAL DANGA,parties.IN.INC
 IN-AC-1976-rajasthan-199,rajasthan,2003,199,MERTA,MOTIRAM,parties.IN.INLD,INLD,6923,5.82,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-199,rajasthan,2003,199,MERTA,SHANKAR LAL,parties.IN.BSP,BSP,5514,4.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-199,rajasthan,2003,199,MERTA,MAHENDRA KUMAR,parties.IN.IND,IND,1744,1.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-199,rajasthan,2003,199,MERTA,SATYANARAYAN SINGH RAJPUROHIT,parties.IN.UNK,RSNM,1714,1.44,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-199,rajasthan,2003,199,MERTA,SATYANARAYAN SINGH RAJPUROHIT,parties.IN.RSNM,RSNM,1714,1.44,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-199,rajasthan,2003,199,MERTA,PURKHA RAM BHANWARIA,parties.IN.SP,SP,761,0.64,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-199,rajasthan,2003,199,MERTA,BABU LAL INANIYA,parties.IN.IND,IND,504,0.42,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-199,rajasthan,2003,199,MERTA,TEJA RAM JAIPAL,parties.IN.IND,IND,317,0.27,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -1536,7 +1536,7 @@ IN-AC-1976-rajasthan-200,rajasthan,2003,200,MUNDWA,USHA PUNIA,parties.IN.BJP,BJP
 IN-AC-1976-rajasthan-200,rajasthan,2003,200,MUNDWA,HANUMAN SINGH,parties.IN.INLD,INLD,35724,29.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-200,rajasthan,2003,200,MUNDWA,HABIBURREHMAN,parties.IN.INC,INC,32479,26.82,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-200,rajasthan,2003,200,MUNDWA,SITA RAM,parties.IN.BSP,BSP,4356,3.6,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-200,rajasthan,2003,200,MUNDWA,NARAYAN SINGH,parties.IN.UNK,RSNM,3349,2.77,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-200,rajasthan,2003,200,MUNDWA,NARAYAN SINGH,parties.IN.RSNM,RSNM,3349,2.77,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-200,rajasthan,2003,200,MUNDWA,HEM SINGH,parties.IN.CPI,CPI,2179,1.8,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-200,rajasthan,2003,200,MUNDWA,SHAUKAT ALI,parties.IN.IND,IND,2153,1.78,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-rajasthan-200,rajasthan,2003,200,MUNDWA,BHANWRA RAM URF BHANWAR LAL,parties.IN.IND,IND,1824,1.51,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a

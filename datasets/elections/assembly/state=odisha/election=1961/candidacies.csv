@@ -1,47 +1,47 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-1962-odisha-1,odisha,1961,1,OMERKOTE,TRIPATHY SADASIVA,parties.IN.INC,INC,7007,50.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-1,odisha,1961,1,OMERKOTE,ABDUL RAHIMAN KHAN,parties.IN.UNK,GP,6876,49.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-1,odisha,1961,1,OMERKOTE,ABDUL RAHIMAN KHAN,parties.IN.GP,GP,6876,49.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-2,odisha,1961,2,DABUGAM,TRIPATHY JAGANNATH,parties.IN.INC,INC,7850,56.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-2,odisha,1961,2,DABUGAM,SAHU KASIVISWANATH,parties.IN.UNK,GP,5946,43.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-2,odisha,1961,2,DABUGAM,SAHU KASIVISWANATH,parties.IN.GP,GP,5946,43.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-3,odisha,1961,3,NOWRANGPUR (SC),HARIJAN MIRU,parties.IN.INC,INC,6034,51.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-3,odisha,1961,3,NOWRANGPUR (SC),NAIK CHONDROSEKHAR DENAI,parties.IN.UNK,GP,5749,48.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-3,odisha,1961,3,NOWRANGPUR (SC),NAIK CHONDROSEKHAR DENAI,parties.IN.GP,GP,5749,48.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-4,odisha,1961,4,JEYPORE,PATNAIK RAGHUNATH,parties.IN.INC,INC,6530,54.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-4,odisha,1961,4,JEYPORE,BAXIPATRA HARISHCHANDRA,parties.IN.CPI,CPI,2635,21.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-4,odisha,1961,4,JEYPORE,MISRA HARIHAR,parties.IN.UNK,GP,2327,19.38,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-4,odisha,1961,4,JEYPORE,MISRA HARIHAR,parties.IN.GP,GP,2327,19.38,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-4,odisha,1961,4,JEYPORE,NAYAK RAGHUNATH,parties.IN.IND,IND,380,3.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-4,odisha,1961,4,JEYPORE,DAMBO KULODHORO,parties.IN.IND,IND,134,1.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-5,odisha,1961,5,KOTPAD (SC),BAKRIA MAHADEBO,parties.IN.INC,INC,8160,61.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-5,odisha,1961,5,KOTPAD (SC),NAYAK LAICHAN,parties.IN.UNK,GP,3147,23.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-5,odisha,1961,5,KOTPAD (SC),NAYAK LAICHAN,parties.IN.GP,GP,3147,23.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-5,odisha,1961,5,KOTPAD (SC),MIRGAN JHITURU,parties.IN.CPI,CPI,1304,9.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-5,odisha,1961,5,KOTPAD (SC),BISSAYI GORA,parties.IN.IND,IND,629,4.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-6,odisha,1961,6,MALKANGIRI (ST),NAYAK GURU,parties.IN.UNK,GP,6230,59.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-6,odisha,1961,6,MALKANGIRI (ST),NAYAK GURU,parties.IN.GP,GP,6230,59.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-6,odisha,1961,6,MALKANGIRI (ST),BURUDA JAGONATH,parties.IN.INC,INC,4306,40.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-7,odisha,1961,7,PADWA,MAHAPATRA GANESWAR,parties.IN.INC,INC,3434,43.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-7,odisha,1961,7,PADWA,GOUDO LAXMAN,parties.IN.UNK,GP,2819,35.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-7,odisha,1961,7,PADWA,GOUDO LAXMAN,parties.IN.GP,GP,2819,35.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-7,odisha,1961,7,PADWA,NAYAK SADASIBO,parties.IN.IND,IND,1672,21.1,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-8,odisha,1961,8,KORAPUT (ST),TOYAKA SANGANNA,parties.IN.INC,INC,5011,53.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-8,odisha,1961,8,KORAPUT (ST),PUJARI LACHMAN,parties.IN.UNK,GP,4287,46.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-8,odisha,1961,8,KORAPUT (ST),PUJARI LACHMAN,parties.IN.GP,GP,4287,46.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-9,odisha,1961,9,POTTANGI (ST),PANGI MUSURI SANTA,parties.IN.INC,INC,4204,50.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-9,odisha,1961,9,POTTANGI (ST),"BOINA, ALLAYA",parties.IN.UNK,GP,4127,49.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-9,odisha,1961,9,POTTANGI (ST),"BOINA, ALLAYA",parties.IN.GP,GP,4127,49.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-10,odisha,1961,10,RAYAGADA (ST),MANDANGI KAMAYYA,parties.IN.INC,INC,5592,59.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-10,odisha,1961,10,RAYAGADA (ST),ULLAKA SYAMOGHONO,parties.IN.UNK,GP,3834,40.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-10,odisha,1961,10,RAYAGADA (ST),ULLAKA SYAMOGHONO,parties.IN.GP,GP,3834,40.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-11,odisha,1961,11,GUNUPUR,PATRO NARASINGO,parties.IN.INC,INC,9323,52.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-11,odisha,1961,11,GUNUPUR,SOHU NABINCHANDRO,parties.IN.UNK,GP,3338,18.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-11,odisha,1961,11,GUNUPUR,SOHU NABINCHANDRO,parties.IN.GP,GP,3338,18.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-11,odisha,1961,11,GUNUPUR,PATNAIK SOMONATH,parties.IN.CPI,CPI,2888,16.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-11,odisha,1961,11,GUNUPUR,GAMANGO SANYA,parties.IN.IND,IND,2109,11.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-12,odisha,1961,12,BISSAMCUTTACK (ST),CHOWDHARY BISWANATH,parties.IN.UNK,GP,6643,60.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-12,odisha,1961,12,BISSAMCUTTACK (ST),CHOWDHARY BISWANATH,parties.IN.GP,GP,6643,60.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-12,odisha,1961,12,BISSAMCUTTACK (ST),PIDIKAKA SANYASICHARNAN,parties.IN.INC,INC,4353,39.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-13,odisha,1961,13,PARLAKIMEDI,NALLA KURMANAIKULU,parties.IN.INC,INC,12780,49.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-13,odisha,1961,13,PARLAKIMEDI,MISRA JAGANNATH,parties.IN.CPI,CPI,10463,40.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-13,odisha,1961,13,PARLAKIMEDI,RAJAGURU SATYANARAYANA,parties.IN.UNK,GP,1723,6.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-13,odisha,1961,13,PARLAKIMEDI,RAJAGURU SATYANARAYANA,parties.IN.GP,GP,1723,6.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-13,odisha,1961,13,PARLAKIMEDI,PATNAIK BROJOKISHOR,parties.IN.IND,IND,944,3.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-14,odisha,1961,14,R. UDAIGIRI (ST),BHOYA RAMO,parties.IN.INC,INC,3235,51.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-14,odisha,1961,14,R. UDAIGIRI (ST),NAIK GOPINATH,parties.IN.IND,IND,2522,40.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-14,odisha,1961,14,R. UDAIGIRI (ST),DOLAI BAINA,parties.IN.UNK,GP,484,7.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-14,odisha,1961,14,R. UDAIGIRI (ST),DOLAI BAINA,parties.IN.GP,GP,484,7.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-15,odisha,1961,15,DIGAPAHANDI,MAHAPATRA RAGHUNATH,parties.IN.INC,INC,15237,58.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-15,odisha,1961,15,DIGAPAHANDI,PRODHAN GOVIND,parties.IN.CPI,CPI,8749,33.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-15,odisha,1961,15,DIGAPAHANDI,MISRA LAKSHMINARAYAN,parties.IN.IND,IND,1417,5.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-15,odisha,1961,15,DIGAPAHANDI,MEKAPS CHANDRASEKHAR,parties.IN.UNK,GP,688,2.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-15,odisha,1961,15,DIGAPAHANDI,MEKAPS CHANDRASEKHAR,parties.IN.GP,GP,688,2.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-16,odisha,1961,16,MOHANA (SC),NAIK BISWNATH,parties.IN.INC,INC,6001,55.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-16,odisha,1961,16,MOHANA (SC),NAIK MOHANTRO,parties.IN.IND,IND,4747,44.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-17,odisha,1961,17,BERHAMPUR,NARENDRA DEO SISIRKUMAR,parties.IN.IND,IND,19810,62,1,won,U,,,,challenger,src-1b7bc1c9d39a
@@ -51,7 +51,7 @@ IN-AC-1962-odisha-17,odisha,1961,17,BERHAMPUR,DAS DANDAPANI,parties.IN.IND,IND,1
 IN-AC-1962-odisha-17,odisha,1961,17,BERHAMPUR,CHIMALAPATI VAMANAMURTY,parties.IN.PSP,PSP,489,1.53,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-17,odisha,1961,17,BERHAMPUR,SAHOO KASINATH,parties.IN.IND,IND,479,1.5,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-18,odisha,1961,18,PATRAPUR (SC),JANI TRILOCHANA,parties.IN.INC,INC,7428,75.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-18,odisha,1961,18,PATRAPUR (SC),PADHANA BUDAIA,parties.IN.UNK,GP,1359,13.83,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-18,odisha,1961,18,PATRAPUR (SC),PADHANA BUDAIA,parties.IN.GP,GP,1359,13.83,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-18,odisha,1961,18,PATRAPUR (SC),BEHARA NARAHARI,parties.IN.IND,IND,1040,10.58,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-19,odisha,1961,19,DURA,P. VENKATA JAGANATHA RAO,parties.IN.INC,INC,11853,50.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-19,odisha,1961,19,DURA,SAHU NARASIMHA,parties.IN.IND,IND,10336,43.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -59,25 +59,25 @@ IN-AC-1962-odisha-19,odisha,1961,19,DURA,DAMALA KRISHNA RAO,parties.IN.IND,IND,1
 IN-AC-1962-odisha-20,odisha,1961,20,CHATRAPUR,MAHAPATRA LAKSHMAN,parties.IN.CPI,CPI,8289,43.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-20,odisha,1961,20,CHATRAPUR,V. SITARAMAYYA,parties.IN.INC,INC,6494,33.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-20,odisha,1961,20,CHATRAPUR,BEHERA RAGHUNATH,parties.IN.IND,IND,2191,11.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-20,odisha,1961,20,CHATRAPUR,MAHAPATRA GOVINDA CHANDRA,parties.IN.UNK,GP,1424,7.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-20,odisha,1961,20,CHATRAPUR,MAHAPATRA GOVINDA CHANDRA,parties.IN.GP,GP,1424,7.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-20,odisha,1961,20,CHATRAPUR,SAMANTARA RADHAMOHAN,parties.IN.IND,IND,712,3.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-21,odisha,1961,21,KHALLIKOTE,MARDARAJ DEO RAMCHANDRA,parties.IN.INC,INC,14658,59.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-21,odisha,1961,21,KHALLIKOTE,SAHU NARAYAN,parties.IN.IND,IND,6355,25.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-21,odisha,1961,21,KHALLIKOTE,MISRA ANATARAM,parties.IN.UNK,GP,3468,14.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-21,odisha,1961,21,KHALLIKOTE,MISRA ANATARAM,parties.IN.GP,GP,3468,14.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-22,odisha,1961,22,HINJILI,NAYAK BRUNDABAN,parties.IN.INC,INC,18256,85.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-22,odisha,1961,22,HINJILI,PADHI SASHIBHUSAN,parties.IN.IND,IND,1996,9.4,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-22,odisha,1961,22,HINJILI,KATAKATA SYAMBABU SUBUDHI,parties.IN.IND,IND,711,3.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-22,odisha,1961,22,HINJILI,PODAL HARIBANDHU,parties.IN.IND,IND,270,1.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-23,odisha,1961,23,KODALA WEST,DAS BISWANATH,parties.IN.INC,INC,15409,50.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-23,odisha,1961,23,KODALA WEST,MAHARANA BANAMALI,parties.IN.PSP,PSP,11688,38.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-23,odisha,1961,23,KODALA WEST,EMARPU DASARATHI,parties.IN.UNK,GP,3598,11.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-23,odisha,1961,23,KODALA WEST,EMARPU DASARATHI,parties.IN.GP,GP,3598,11.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-24,odisha,1961,24,KODALA EAST,PANIGARHI LINGARAJ,parties.IN.INC,INC,9247,44.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-24,odisha,1961,24,KODALA EAST,PATNAIK DIBAKAR,parties.IN.PSP,PSP,6955,33.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-24,odisha,1961,24,KODALA EAST,JAGADEB GOVINDCHANDRA HARICHANDAN,parties.IN.UNK,GP,3890,18.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-24,odisha,1961,24,KODALA EAST,JAGADEB GOVINDCHANDRA HARICHANDAN,parties.IN.GP,GP,3890,18.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-24,odisha,1961,24,KODALA EAST,BISOYI NATABAR,parties.IN.IND,IND,484,2.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-25,odisha,1961,25,BHANJANAGAR,PRADHAN MAGUNICHARAN,parties.IN.INC,INC,17910,68.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-25,odisha,1961,25,BHANJANAGAR,MAHANTY SADANANDA,parties.IN.CPI,CPI,5204,19.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-25,odisha,1961,25,BHANJANAGAR,PATRA BHA GIRATHI CHINAM,parties.IN.UNK,GP,1810,6.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-25,odisha,1961,25,BHANJANAGAR,PATRA BHA GIRATHI CHINAM,parties.IN.GP,GP,1810,6.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-25,odisha,1961,25,BHANJANAGAR,PADHY MADHUSUDAN,parties.IN.IND,IND,1193,4.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-26,odisha,1961,26,JAGANNATH PRASAD (SC),NAIK UDIA,parties.IN.INC,INC,13800,71.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-26,odisha,1961,26,JAGANNATH PRASAD (SC),NAIK SUMA,parties.IN.CPI,CPI,4042,20.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -89,209 +89,209 @@ IN-AC-1962-odisha-27,odisha,1961,27,ASKA,RAO JAGANATH RAM DASANDAS,parties.IN.IN
 IN-AC-1962-odisha-28,odisha,1961,28,SURUDA,NAIK ARJUNA,parties.IN.INC,INC,7424,34.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-28,odisha,1961,28,SURUDA,SWAIN GANTAYAT,parties.IN.IND,IND,5967,27.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-28,odisha,1961,28,SURUDA,DAS TRILOCHANA,parties.IN.IND,IND,3246,14.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-28,odisha,1961,28,SURUDA,MISRA SATYANARAYAN,parties.IN.UNK,GP,3078,14.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-28,odisha,1961,28,SURUDA,MISRA SATYANARAYAN,parties.IN.GP,GP,3078,14.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-28,odisha,1961,28,SURUDA,SAHU RADHAMOHAN,parties.IN.IND,IND,910,4.19,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-28,odisha,1961,28,SURUDA,MAHAPATRAA MADHUSUDAN,parties.IN.IND,IND,792,3.64,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-28,odisha,1961,28,SURUDA,GAUDO KANHU CHARANA,parties.IN.IND,IND,327,1.5,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-29,odisha,1961,29,BALLIGUDA (ST),PODRA DUBARA,parties.IN.UNK,GP,3557,48.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-29,odisha,1961,29,BALLIGUDA (ST),PODRA DUBARA,parties.IN.GP,GP,3557,48.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-29,odisha,1961,29,BALLIGUDA (ST),PODRA JADABO,parties.IN.INC,INC,2999,40.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-29,odisha,1961,29,BALLIGUDA (ST),BEHERA SRICHANDRA,parties.IN.IND,IND,692,9.42,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-29,odisha,1961,29,BALLIGUDA (ST),MALIK MURUMUTHA,parties.IN.IND,IND,101,1.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-30,odisha,1961,30,G UDAYAGIRI (ST),PADHI SARANGADHAR,parties.IN.INC,INC,4470,48.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-30,odisha,1961,30,G UDAYAGIRI (ST),PODHAN SAUL,parties.IN.UNK,GP,4224,45.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-30,odisha,1961,30,G UDAYAGIRI (ST),PODHAN SAUL,parties.IN.GP,GP,4224,45.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-30,odisha,1961,30,G UDAYAGIRI (ST),BAHERA INIKISI,parties.IN.IND,IND,586,6.31,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-31,odisha,1961,31,PHULBANI,PADHI HIMANUSEKHARA,parties.IN.INC,INC,3959,40.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-31,odisha,1961,31,PHULBANI,RATHA NANDAKISHOR,parties.IN.UNK,GP,3708,37.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-31,odisha,1961,31,PHULBANI,RATHA NANDAKISHOR,parties.IN.GP,GP,3708,37.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-31,odisha,1961,31,PHULBANI,PRADHANA CHAKRAPATI,parties.IN.IND,IND,1167,11.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-31,odisha,1961,31,PHULBANI,BISWAL KRUPASINDHA,parties.IN.IND,IND,1012,10.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-32,odisha,1961,32,BOUDH (SC),DIPA ANIRUDHA,parties.IN.UNK,GP,7869,61.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-32,odisha,1961,32,BOUDH (SC),DIPA ANIRUDHA,parties.IN.GP,GP,7869,61.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-32,odisha,1961,32,BOUDH (SC),BEHARA BASANTA,parties.IN.INC,INC,4856,38.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-33,odisha,1961,33,MADANPUR RAMPUR,DEO BIRAKESHARI,parties.IN.UNK,GP,11085,61.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-33,odisha,1961,33,MADANPUR RAMPUR,DEO BIRAKESHARI,parties.IN.GP,GP,11085,61.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-33,odisha,1961,33,MADANPUR RAMPUR,SINGH DEO JOGESHACHANDRA,parties.IN.INC,INC,5273,29.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-33,odisha,1961,33,MADANPUR RAMPUR,JAIN JAGADISH PRASAD,parties.IN.IND,IND,1174,6.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-33,odisha,1961,33,MADANPUR RAMPUR,AGRABALA KISHANLAL,parties.IN.IND,IND,409,2.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-34,odisha,1961,34,BHAWANIPATNA (ST),MAJHI ANCHAL,parties.IN.UNK,GP,12391,80.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-34,odisha,1961,34,BHAWANIPATNA (ST),MAJHI ANCHAL,parties.IN.GP,GP,12391,80.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-34,odisha,1961,34,BHAWANIPATNA (ST),MAJHI DANARDAN,parties.IN.INC,INC,3081,19.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-35,odisha,1961,35,KASHIPUR,DEBI NABAKUMARI,parties.IN.UNK,GP,6309,60.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-35,odisha,1961,35,KASHIPUR,DEBI NABAKUMARI,parties.IN.GP,GP,6309,60.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-35,odisha,1961,35,KASHIPUR,DEBI BINAPANI,parties.IN.INC,INC,4151,39.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-36,odisha,1961,36,KOKSARA (SC),NAIK DAYANIDHI,parties.IN.UNK,GP,16913,79.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-36,odisha,1961,36,KOKSARA (SC),NAIK DAYANIDHI,parties.IN.GP,GP,16913,79.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-36,odisha,1961,36,KOKSARA (SC),MAHANANDA SADASHIBA,parties.IN.INC,INC,3342,15.74,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-36,odisha,1961,36,KOKSARA (SC),NAIK TANAKADHAR,parties.IN.IND,IND,971,4.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-37,odisha,1961,37,JUNAGARH,NAIK MAHESWAR,parties.IN.UNK,GP,10559,70.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-37,odisha,1961,37,JUNAGARH,NAIK MAHESWAR,parties.IN.GP,GP,10559,70.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-37,odisha,1961,37,JUNAGARH,BAHERA PRASANNA KUMAR,parties.IN.INC,INC,3140,20.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-37,odisha,1961,37,JUNAGARH,MAHAPATRA GANGADHAR,parties.IN.IND,IND,911,6.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-37,odisha,1961,37,JUNAGARH,SETH DWARIKA PRASAD,parties.IN.IND,IND,366,2.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-38,odisha,1961,38,DHARAMGARH (ST),NAIK MUKUND,parties.IN.UNK,GP,12900,81.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-38,odisha,1961,38,DHARAMGARH (ST),NAIK MUKUND,parties.IN.GP,GP,12900,81.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-38,odisha,1961,38,DHARAMGARH (ST),MAJHI JUGESWAR,parties.IN.INC,INC,2856,18.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-39,odisha,1961,39,KHARIAR,DEO ANUPSINGH,parties.IN.INC,INC,11595,70.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-39,odisha,1961,39,KHARIAR,TEWARI KAPILANARAYANA,parties.IN.UNK,GP,4182,25.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-39,odisha,1961,39,KHARIAR,TEWARI KAPILANARAYANA,parties.IN.GP,GP,4182,25.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-39,odisha,1961,39,KHARIAR,PATEL JIHATRAM,parties.IN.IND,IND,590,3.6,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-40,odisha,1961,40,NAWAPARA (ST),MAJHI GAHSHIRAM,parties.IN.IND,IND,5798,54.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-40,odisha,1961,40,NAWAPARA (ST),GOND OMKARSINGH,parties.IN.INC,INC,4819,45.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-41,odisha,1961,41,KANTABANJI,DEO MAHARAJA SHRI RAJENDRA NARAYAN SINGH,parties.IN.UNK,GP,10266,72.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-41,odisha,1961,41,KANTABANJI,DEO MAHARAJA SHRI RAJENDRA NARAYAN SINGH,parties.IN.GP,GP,10266,72.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-41,odisha,1961,41,KANTABANJI,DEBI CHANDRA KUMARI,parties.IN.INC,INC,2911,20.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-41,odisha,1961,41,KANTABANJI,RANA LAXMAN,parties.IN.IND,IND,753,5.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-41,odisha,1961,41,KANTABANJI,SWAIN HARIBANDHU,parties.IN.IND,IND,193,1.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-42,odisha,1961,42,TITILAGARH (SC),MAHANANDA ACHYUTANAND,parties.IN.UNK,GP,11399,77.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-42,odisha,1961,42,TITILAGARH (SC),MAHANANDA ACHYUTANAND,parties.IN.GP,GP,11399,77.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-42,odisha,1961,42,TITILAGARH (SC),MAHANANDA JAYARAM,parties.IN.INC,INC,2705,18.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-42,odisha,1961,42,TITILAGARH (SC),GANDA BHAGAT,parties.IN.IND,IND,665,4.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-43,odisha,1961,43,SAINTALA,SAHOO AINTHU,parties.IN.UNK,GP,11247,68.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-43,odisha,1961,43,SAINTALA,SAHOO AINTHU,parties.IN.GP,GP,11247,68.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-43,odisha,1961,43,SAINTALA,BOHIDAR DIBAKAR,parties.IN.INC,INC,5137,31.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-44,odisha,1961,44,PATNAGARH (ST),BHOI RAMESH CHANDRA,parties.IN.UNK,GP,13414,74.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-44,odisha,1961,44,PATNAGARH (ST),BHOI RAMESH CHANDRA,parties.IN.GP,GP,13414,74.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-44,odisha,1961,44,PATNAGARH (ST),GODAVIA JAGANNATH,parties.IN.INC,INC,3216,17.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-44,odisha,1961,44,PATNAGARH (ST),BARIHA SOBHAKAR,parties.IN.IND,IND,1441,7.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-45,odisha,1961,45,LOISINGHA,MISRA RAM PRASAD,parties.IN.UNK,GP,14121,64.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-45,odisha,1961,45,LOISINGHA,MISRA RAM PRASAD,parties.IN.GP,GP,14121,64.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-45,odisha,1961,45,LOISINGHA,SAI LOKESWAR,parties.IN.INC,INC,4419,20.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-45,odisha,1961,45,LOISINGHA,MISHRA NRUSINGHA,parties.IN.IND,IND,1912,8.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-45,odisha,1961,45,LOISINGHA,PANSARI JUGAL KISHORE,parties.IN.IND,IND,1293,5.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-46,odisha,1961,46,BOLANGIR (ST),SINGH CHANDRA SEKHAR,parties.IN.UNK,GP,16361,77.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-46,odisha,1961,46,BOLANGIR (ST),SINGH CHANDRA SEKHAR,parties.IN.GP,GP,16361,77.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-46,odisha,1961,46,BOLANGIR (ST),KUANAR GOUTAM,parties.IN.INC,INC,4807,22.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-47,odisha,1961,47,TUSRA,MISRA NANDA KISHORE,parties.IN.UNK,GP,11813,63.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-47,odisha,1961,47,TUSRA,MISRA NANDA KISHORE,parties.IN.GP,GP,11813,63.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-47,odisha,1961,47,TUSRA,MISRA NITYANANDA,parties.IN.INC,INC,6217,33.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-47,odisha,1961,47,TUSRA,NEHER KULAMANI,parties.IN.IND,IND,557,3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-48,odisha,1961,48,BINKA,NANDA ANTARAMA,parties.IN.UNK,GP,6219,46.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-48,odisha,1961,48,BINKA,NANDA ANTARAMA,parties.IN.GP,GP,6219,46.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-48,odisha,1961,48,BINKA,SUBUDHI SOMANATH,parties.IN.INC,INC,5659,42.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-48,odisha,1961,48,BINKA,RAIGURU NILAMBARA,parties.IN.IND,IND,1484,11.11,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-49,odisha,1961,49,SONEPUR (SC),GANDA DAULATA,parties.IN.UNK,GP,5968,58.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-49,odisha,1961,49,SONEPUR (SC),GANDA DAULATA,parties.IN.GP,GP,5968,58.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-49,odisha,1961,49,SONEPUR (SC),NAIK KRUPASINDHU,parties.IN.INC,INC,3396,33.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-49,odisha,1961,49,SONEPUR (SC),CHAMAR GOPI,parties.IN.IND,IND,798,7.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-50,odisha,1961,50,MELCHHAMUNDA,PADHEE SACHIDANAND,parties.IN.INC,INC,5797,37.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-50,odisha,1961,50,MELCHHAMUNDA,BAHIDAR PRAFULLAKUMAR,parties.IN.UNK,GP,3990,26.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-50,odisha,1961,50,MELCHHAMUNDA,BAHIDAR PRAFULLAKUMAR,parties.IN.GP,GP,3990,26.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-50,odisha,1961,50,MELCHHAMUNDA,PADHAN LAKNATH,parties.IN.IND,IND,1467,9.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-50,odisha,1961,50,MELCHHAMUNDA,SAHU MANA,parties.IN.IND,IND,1283,8.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-50,odisha,1961,50,MELCHHAMUNDA,SAHU BRAJAMOHAN,parties.IN.IND,IND,1142,7.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-50,odisha,1961,50,MELCHHAMUNDA,MISRA ANIRUDHA,parties.IN.IND,IND,1090,7.11,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-50,odisha,1961,50,MELCHHAMUNDA,SAHU BANAMALI,parties.IN.IND,IND,560,3.65,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-51,odisha,1961,51,PADAMPUR (ST),SINGH BARIHA BIR BIKRAMADITYA,parties.IN.INC,INC,7707,54.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-51,odisha,1961,51,PADAMPUR (ST),SINGH LAL MITRODAY,parties.IN.UNK,GP,6323,45.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-51,odisha,1961,51,PADAMPUR (ST),SINGH LAL MITRODAY,parties.IN.GP,GP,6323,45.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-52,odisha,1961,52,BARGARH,PADHAN GANANATH,parties.IN.IND,IND,6106,34.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-52,odisha,1961,52,BARGARH,HOTA BHARATCHANDRA,parties.IN.INC,INC,5134,28.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-52,odisha,1961,52,BARGARH,KAR DINABANDHU,parties.IN.UNK,GP,3290,18.5,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-52,odisha,1961,52,BARGARH,KAR DINABANDHU,parties.IN.GP,GP,3290,18.5,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-52,odisha,1961,52,BARGARH,MISRA CHATURBHUJ,parties.IN.IND,IND,1517,8.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-52,odisha,1961,52,BARGARH,BHESRA DURJODHAN,parties.IN.IND,IND,908,5.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-52,odisha,1961,52,BARGARH,BHOSAGAR BRUSABHANU,parties.IN.IND,IND,829,4.66,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-53,odisha,1961,53,BIJEPUR (SC),NAG MOHAN,parties.IN.INC,INC,7965,43.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-53,odisha,1961,53,BIJEPUR (SC),MAHANAND BAHADUR,parties.IN.UNK,GP,5284,28.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-53,odisha,1961,53,BIJEPUR (SC),MAHANAND BAHADUR,parties.IN.GP,GP,5284,28.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-53,odisha,1961,53,BIJEPUR (SC),SETH GOPAL,parties.IN.IND,IND,4985,27.34,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-54,odisha,1961,54,BHATLI,PADHAN SARASWATI,parties.IN.INC,INC,10900,51.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-54,odisha,1961,54,BHATLI,BANCHHOR NATABAR,parties.IN.CPI,CPI,6441,30.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-54,odisha,1961,54,BHATLI,DASH SHRIBATSA,parties.IN.UNK,GP,1706,8.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-54,odisha,1961,54,BHATLI,DASH SHRIBATSA,parties.IN.GP,GP,1706,8.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-54,odisha,1961,54,BHATLI,BAGAR DAYADHARI,parties.IN.IND,IND,1400,6.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-54,odisha,1961,54,BHATLI,SENAPATI MANGARAJ,parties.IN.PSP,PSP,832,3.91,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-55,odisha,1961,55,SAMBALPUR,BABU BANAMALI,parties.IN.INC,INC,11868,50.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-55,odisha,1961,55,SAMBALPUR,SUPAKAR SRADDHAKAR,parties.IN.UNK,GP,9902,41.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-55,odisha,1961,55,SAMBALPUR,SUPAKAR SRADDHAKAR,parties.IN.GP,GP,9902,41.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-55,odisha,1961,55,SAMBALPUR,LATH HARISHANKAR,parties.IN.IND,IND,1056,4.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-55,odisha,1961,55,SAMBALPUR,GANDA KAET,parties.IN.IND,IND,801,3.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-56,odisha,1961,56,ATTABIRA (SC),CHHURIA DALGANJAN,parties.IN.INC,INC,5508,45.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-56,odisha,1961,56,ATTABIRA (SC),GHASI BHIKHARI,parties.IN.UNK,GP,5250,42.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-56,odisha,1961,56,ATTABIRA (SC),GHASI BHIKHARI,parties.IN.GP,GP,5250,42.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-56,odisha,1961,56,ATTABIRA (SC),GANDA DWITIYA,parties.IN.IND,IND,1476,12.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-57,odisha,1961,57,KATARBAGA,MISRA BISHNU PRASAD,parties.IN.UNK,GP,6386,39.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-57,odisha,1961,57,KATARBAGA,MISRA BISHNU PRASAD,parties.IN.GP,GP,6386,39.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-57,odisha,1961,57,KATARBAGA,PANDA PURUSHOTAM,parties.IN.INC,INC,5875,36.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-57,odisha,1961,57,KATARBAGA,PANDA GOURA CHANDRA,parties.IN.IND,IND,1519,9.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-57,odisha,1961,57,KATARBAGA,DAVID MUNJNI,parties.IN.IND,IND,1229,7.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-57,odisha,1961,57,KATARBAGA,DUBE KEDARNATH,parties.IN.IND,IND,1146,7.09,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-58,odisha,1961,58,DEOGARH (ST),THAKUR JAYADEB,parties.IN.UNK,GP,10653,54.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-58,odisha,1961,58,DEOGARH (ST),THAKUR JAYADEB,parties.IN.GP,GP,10653,54.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-58,odisha,1961,58,DEOGARH (ST),MAJHI BANESHWAR,parties.IN.INC,INC,9042,45.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-59,odisha,1961,59,RAIRAKHOL,DEB BHANUGANG TRIBHUBAN RAJA,parties.IN.UNK,GP,12270,58.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-59,odisha,1961,59,RAIRAKHOL,DEB BHANUGANG TRIBHUBAN RAJA,parties.IN.GP,GP,12270,58.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-59,odisha,1961,59,RAIRAKHOL,DEB HARI PRASAD,parties.IN.INC,INC,8612,41.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-60,odisha,1961,60,BRAJRAJNAGAR,PANDA PRASANNA KUMAR,parties.IN.CPI,CPI,10103,50.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-60,odisha,1961,60,BRAJRAJNAGAR,PANI BIJOY KUMAR,parties.IN.INC,INC,6387,31.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-60,odisha,1961,60,BRAJRAJNAGAR,SAI RAGHUNANDAN,parties.IN.UNK,GP,2006,9.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-60,odisha,1961,60,BRAJRAJNAGAR,SAI RAGHUNANDAN,parties.IN.GP,GP,2006,9.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-60,odisha,1961,60,BRAJRAJNAGAR,PADHAN GANDHIA,parties.IN.JP,JP,1680,8.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-61,odisha,1961,61,JHARSUGUDA (ST),BARIHA BINOD BIHARI,parties.IN.INC,INC,8611,47.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-61,odisha,1961,61,JHARSUGUDA (ST),NAIK MONOHAR,parties.IN.UNK,GP,6621,36.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-61,odisha,1961,61,JHARSUGUDA (ST),NAIK MONOHAR,parties.IN.GP,GP,6621,36.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-61,odisha,1961,61,JHARSUGUDA (ST),TUDU HARAMITRA,parties.IN.IND,IND,1578,8.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-61,odisha,1961,61,JHARSUGUDA (ST),KISHAN DILESWAR,parties.IN.JP,JP,1326,7.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-62,odisha,1961,62,SUNDERGARH,PATEL HARIHAR,parties.IN.UNK,GP,14204,56.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-62,odisha,1961,62,SUNDERGARH,PATEL HARIHAR,parties.IN.GP,GP,14204,56.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-62,odisha,1961,62,SUNDERGARH,NAIK KRUPANIDHI,parties.IN.INC,INC,7709,30.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-62,odisha,1961,62,SUNDERGARH,KUSUM DWAKANATH,parties.IN.IND,IND,1386,5.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-62,odisha,1961,62,SUNDERGARH,PATEL RAMCHARAN,parties.IN.PSP,PSP,1175,4.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-62,odisha,1961,62,SUNDERGARH,KISAN DASARU,parties.IN.JP,JP,560,2.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-63,odisha,1961,63,TALSARA (ST),PRADHAN GANGADHAR,parties.IN.UNK,GP,10990,45.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-63,odisha,1961,63,TALSARA (ST),PRADHAN GANGADHAR,parties.IN.GP,GP,10990,45.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-63,odisha,1961,63,TALSARA (ST),KUJUR MORIS,parties.IN.IND,IND,6294,26.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-63,odisha,1961,63,TALSARA (ST),ORAM DEONIS LAKRA,parties.IN.INC,INC,4921,20.35,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-63,odisha,1961,63,TALSARA (ST),MUNDA ELIAS,parties.IN.JP,JP,1978,8.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-64,odisha,1961,64,RAJGANGPUR (ST),AMAT RANGABALABH,parties.IN.INC,INC,6645,32.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-64,odisha,1961,64,RAJGANGPUR (ST),AMAT DEBANAND,parties.IN.UNK,GP,6284,31.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-64,odisha,1961,64,RAJGANGPUR (ST),AMAT DEBANAND,parties.IN.GP,GP,6284,31.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-64,odisha,1961,64,RAJGANGPUR (ST),XESS ALBUNUS,parties.IN.IND,IND,2379,11.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-64,odisha,1961,64,RAJGANGPUR (ST),LUGNU CHRISTODAS,parties.IN.JP,JP,2296,11.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-64,odisha,1961,64,RAJGANGPUR (ST),ORAM SANTIPRAKASH,parties.IN.IND,IND,1097,5.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-64,odisha,1961,64,RAJGANGPUR (ST),TOPPO JAMES,parties.IN.PSP,PSP,959,4.73,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-64,odisha,1961,64,RAJGANGPUR (ST),TOPPO SAMUEL,parties.IN.IND,IND,602,2.97,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-65,odisha,1961,65,BISRA (ST),BHAGAT PREMCHAND,parties.IN.UNK,GP,6783,26.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-65,odisha,1961,65,BISRA (ST),BHAGAT PREMCHAND,parties.IN.GP,GP,6783,26.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-65,odisha,1961,65,BISRA (ST),KHARIA JUNAS,parties.IN.INC,INC,6199,24.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-65,odisha,1961,65,BISRA (ST),XESS THEOPHILE,parties.IN.IND,IND,4837,19.23,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-65,odisha,1961,65,BISRA (ST),MUNDA PRABHUSAHAYA,parties.IN.JP,JP,4722,18.77,4,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-65,odisha,1961,65,BISRA (ST),MUNDA NIRMAL,parties.IN.IND,IND,2613,10.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-66,odisha,1961,66,BONAI (ST),MOHAPATRA HEMENDRA PRASAD,parties.IN.UNK,GP,12816,71.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-66,odisha,1961,66,BONAI (ST),MOHAPATRA HEMENDRA PRASAD,parties.IN.GP,GP,12816,71.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-66,odisha,1961,66,BONAI (ST),DANDPAT HAMANDA KUMAR SINGH,parties.IN.INC,INC,2780,15.58,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-66,odisha,1961,66,BONAI (ST),MUNDA LUCAS,parties.IN.JP,JP,2242,12.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-67,odisha,1961,67,CHAMPUA (ST),NAIK GURU CHARAN,parties.IN.UNK,GP,5088,50.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-67,odisha,1961,67,CHAMPUA (ST),NAIK GURU CHARAN,parties.IN.GP,GP,5088,50.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-67,odisha,1961,67,CHAMPUA (ST),NAIK BAIRIGANJAN,parties.IN.INC,INC,3100,30.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-67,odisha,1961,67,CHAMPUA (ST),NAIK BAIRAGI,parties.IN.CPI,CPI,1068,10.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-67,odisha,1961,67,CHAMPUA (ST),MUNDA RAGHUNATH,parties.IN.IND,IND,487,4.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-67,odisha,1961,67,CHAMPUA (ST),NAIK LALMOHAN,parties.IN.IND,IND,214,2.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-67,odisha,1961,67,CHAMPUA (ST),NAIK KALAKAR,parties.IN.IND,IND,183,1.8,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-68,odisha,1961,68,PATNA,MISHRA RAJBALABH,parties.IN.UNK,GP,8441,55.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-68,odisha,1961,68,PATNA,MISHRA RAJBALABH,parties.IN.GP,GP,8441,55.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-68,odisha,1961,68,PATNA,PRUSTY ANIRUDHA,parties.IN.INC,INC,5373,35.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-68,odisha,1961,68,PATNA,SAHOO BIRABAR,parties.IN.IND,IND,854,5.6,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-68,odisha,1961,68,PATNA,SETHI BIRENDRA KUMAR,parties.IN.IND,IND,586,3.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-69,odisha,1961,69,KEONJHAR,BHANI DEO JANARDAN,parties.IN.UNK,GP,4657,44.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-69,odisha,1961,69,KEONJHAR,BHANI DEO JANARDAN,parties.IN.GP,GP,4657,44.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-69,odisha,1961,69,KEONJHAR,MISRA BIMBADHAR,parties.IN.INC,INC,3078,29.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-69,odisha,1961,69,KEONJHAR,ROUT BIHMASEN,parties.IN.IND,IND,915,8.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-69,odisha,1961,69,KEONJHAR,MOHAPATRA KRUSHNA CHANDRA,parties.IN.IND,IND,631,5.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-69,odisha,1961,69,KEONJHAR,DAS AMBIKA PADA,parties.IN.IND,IND,518,4.92,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-69,odisha,1961,69,KEONJHAR,MUNDA SADANAND,parties.IN.IND,IND,405,3.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-69,odisha,1961,69,KEONJHAR,PATNAIK BIRABHADRA,parties.IN.IND,IND,328,3.11,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-70,odisha,1961,70,TELKOI (ST),MUNDA GOVINDA,parties.IN.UNK,GP,3704,50.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-70,odisha,1961,70,TELKOI (ST),MUNDA GOVINDA,parties.IN.GP,GP,3704,50.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-70,odisha,1961,70,TELKOI (ST),GIRI BRHMANANDA,parties.IN.INC,INC,2524,34.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-70,odisha,1961,70,TELKOI (ST),MOHAPATRA KRUSHNA CHANDRA,parties.IN.IND,IND,862,11.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-70,odisha,1961,70,TELKOI (ST),MUNDA GOPINATH,parties.IN.IND,IND,242,3.3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-71,odisha,1961,71,RAMACHANDRAPUR,KUANR MURALIDHAR,parties.IN.INC,INC,9200,60.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-71,odisha,1961,71,RAMACHANDRAPUR,JENA UPENDRANATH,parties.IN.UNK,GP,4848,31.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-71,odisha,1961,71,RAMACHANDRAPUR,JENA UPENDRANATH,parties.IN.GP,GP,4848,31.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-71,odisha,1961,71,RAMACHANDRAPUR,TRIYA KISHORECHANDRA,parties.IN.IND,IND,501,3.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-71,odisha,1961,71,RAMACHANDRAPUR,JENA DIBAKAR,parties.IN.PSP,PSP,490,3.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-71,odisha,1961,71,RAMACHANDRAPUR,RAUT NIRAKAR,parties.IN.IND,IND,207,1.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-72,odisha,1961,72,ANANDPUR (SC),SETHI MAKAR,parties.IN.INC,INC,6820,55.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-72,odisha,1961,72,ANANDPUR (SC),JENA DIRAKISOR,parties.IN.UNK,GP,3971,32.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-72,odisha,1961,72,ANANDPUR (SC),JENA DIRAKISOR,parties.IN.GP,GP,3971,32.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-72,odisha,1961,72,ANANDPUR (SC),JENA DASRATHI,parties.IN.PSP,PSP,1474,12.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-73,odisha,1961,73,PAL LAHORA,PRADHAN PABITRA MOHAN,parties.IN.INC,INC,9570,47.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-73,odisha,1961,73,PAL LAHORA,SINGH DEO MAHINDRA BAHADUR RAJA SANKER PRATAP,parties.IN.UNK,GP,8278,41.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-73,odisha,1961,73,PAL LAHORA,SINGH DEO MAHINDRA BAHADUR RAJA SANKER PRATAP,parties.IN.GP,GP,8278,41.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-73,odisha,1961,73,PAL LAHORA,MALIK GOBINDA,parties.IN.IND,IND,1616,8.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-73,odisha,1961,73,PAL LAHORA,NAYAK DAITARI,parties.IN.IND,IND,663,3.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-74,odisha,1961,74,TALCHER,PRADHAN PABITRA MOHAN,parties.IN.INC,INC,17745,60.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-74,odisha,1961,74,TALCHER,DEB ROUTRAY ALHAD CHANDRA,parties.IN.UNK,GP,8360,28.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-74,odisha,1961,74,TALCHER,DEB ROUTRAY ALHAD CHANDRA,parties.IN.GP,GP,8360,28.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-74,odisha,1961,74,TALCHER,MISRA SRINIVAS,parties.IN.CPI,CPI,3124,10.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-75,odisha,1961,75,K. NAGAR,TRIPATHY BRUNDABAN,parties.IN.UNK,GP,11395,50.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-75,odisha,1961,75,K. NAGAR,TRIPATHY BRUNDABAN,parties.IN.GP,GP,11395,50.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-75,odisha,1961,75,K. NAGAR,NAYAK DUKHABANDHU,parties.IN.INC,INC,11166,49.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-76,odisha,1961,76,DHENKANAL,DEVI RATNAPROVA,parties.IN.UNK,GP,16583,59.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-76,odisha,1961,76,DHENKANAL,DEVI RATNAPROVA,parties.IN.GP,GP,16583,59.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-76,odisha,1961,76,DHENKANAL,PATTANAYAK BIJOYANANDA,parties.IN.INC,INC,11201,40.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-77,odisha,1961,77,GONDIA (ST),DEHURI KALIA,parties.IN.UNK,GP,10785,55.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-77,odisha,1961,77,GONDIA (ST),DEHURI KALIA,parties.IN.GP,GP,10785,55.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-77,odisha,1961,77,GONDIA (ST),PRADAN BINODA,parties.IN.INC,INC,7129,36.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-77,odisha,1961,77,GONDIA (ST),DEHURI RAJI,parties.IN.IND,IND,1606,8.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-78,odisha,1961,78,CHENDIPADA (SC),NAYAK PADA,parties.IN.INC,INC,7806,43.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-78,odisha,1961,78,CHENDIPADA (SC),SETHI NIMEI,parties.IN.CPI,CPI,6572,36.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-78,odisha,1961,78,CHENDIPADA (SC),NAIK KULAMANI,parties.IN.UNK,GP,3136,17.52,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-78,odisha,1961,78,CHENDIPADA (SC),NAIK KULAMANI,parties.IN.GP,GP,3136,17.52,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-78,odisha,1961,78,CHENDIPADA (SC),NAIK ARKHIT,parties.IN.IND,IND,386,2.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-79,odisha,1961,79,ANGUL,SINGH KUMUDA CHANDRA,parties.IN.INC,INC,8752,45.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-79,odisha,1961,79,ANGUL,PRADHAN HRUSHIKESH,parties.IN.CPI,CPI,4941,25.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-79,odisha,1961,79,ANGUL,TRIPATHY HRUDANANDA,parties.IN.IND,IND,2484,12.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-79,odisha,1961,79,ANGUL,PATTNAIK BALAKRUSHNA,parties.IN.UNK,GP,1863,9.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-79,odisha,1961,79,ANGUL,PATTNAIK BALAKRUSHNA,parties.IN.GP,GP,1863,9.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-79,odisha,1961,79,ANGUL,SAHV DAITARI,parties.IN.IND,IND,708,3.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-79,odisha,1961,79,ANGUL,CHOUDHRY PRAHALAD,parties.IN.IND,IND,524,2.72,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-80,odisha,1961,80,ATHMALLIK,PANIGRAHY KHETRAMOHAN,parties.IN.UNK,GP,4951,33.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-80,odisha,1961,80,ATHMALLIK,PANIGRAHY KHETRAMOHAN,parties.IN.GP,GP,4951,33.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-80,odisha,1961,80,ATHMALLIK,PADHAN HARIBANDHU,parties.IN.INC,INC,4065,27.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-80,odisha,1961,80,ATHMALLIK,MAHANTY BASUDEB,parties.IN.IND,IND,1765,12.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-80,odisha,1961,80,ATHMALLIK,PRADHAN KALINDI CHARAN,parties.IN.IND,IND,1577,10.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-80,odisha,1961,80,ATHMALLIK,PRADHAN PURANDAR,parties.IN.IND,IND,1294,8.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-80,odisha,1961,80,ATHMALLIK,VISHNUPRASAD GANGARAM,parties.IN.IND,IND,1017,6.93,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-81,odisha,1961,81,BANPUR,MISHRA RAGHUNATH,parties.IN.UNK,GP,10266,46.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-81,odisha,1961,81,BANPUR,MISHRA RAGHUNATH,parties.IN.GP,GP,10266,46.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-81,odisha,1961,81,BANPUR,RAUTARA SATCHIDANANDA,parties.IN.INC,INC,4862,21.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-81,odisha,1961,81,BANPUR,MAHARATHI RAMACHANDRA,parties.IN.IND,IND,3536,15.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-81,odisha,1961,81,BANPUR,BARAL SRICHARAN,parties.IN.CPI,CPI,3351,15.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-81,odisha,1961,81,BANPUR,FANIGRAHI SUDARSAN,parties.IN.IND,IND,157,0.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-82,odisha,1961,82,DASPALLA (SC),NAYAK SAHEB,parties.IN.INC,INC,10278,71.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-82,odisha,1961,82,DASPALLA (SC),NAIK SRIDHAR,parties.IN.UNK,GP,1747,12.14,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-82,odisha,1961,82,DASPALLA (SC),NAIK SRIDHAR,parties.IN.GP,GP,1747,12.14,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-82,odisha,1961,82,DASPALLA (SC),NAYAK BHABAGRAHI,parties.IN.IND,IND,772,5.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-82,odisha,1961,82,DASPALLA (SC),NAYK BHRAMAR,parties.IN.IND,IND,689,4.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-82,odisha,1961,82,DASPALLA (SC),NAHAK ARAKHIT,parties.IN.IND,IND,594,4.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -299,66 +299,66 @@ IN-AC-1962-odisha-82,odisha,1961,82,DASPALLA (SC),NAIK BASUDEV,parties.IN.IND,IN
 IN-AC-1962-odisha-83,odisha,1961,83,KHANDPARA,SINGH MARDARAJ BHARAMARBAR RAY HARIHAR,parties.IN.INC,INC,12891,65.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-83,odisha,1961,83,KHANDPARA,MOHARANA NARASINGH,parties.IN.IND,IND,3002,15.32,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-83,odisha,1961,83,KHANDPARA,SAHU ANTARJAMI,parties.IN.IND,IND,2879,14.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-83,odisha,1961,83,KHANDPARA,SINGH SAMANT RAGHUNATH,parties.IN.UNK,GP,827,4.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-83,odisha,1961,83,KHANDPARA,SINGH SAMANT RAGHUNATH,parties.IN.GP,GP,827,4.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-84,odisha,1961,84,NAYAGARH,SINGH BRUNDABAN CHANDRA,parties.IN.INC,INC,6022,27.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-84,odisha,1961,84,NAYAGARH,DORA BASUDEV,parties.IN.CPI,CPI,5307,24.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-84,odisha,1961,84,NAYAGARH,MOHANTY ACHUTANAND,parties.IN.IND,IND,4571,20.92,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-84,odisha,1961,84,NAYAGARH,PATNAIK RAJAKISHORE,parties.IN.IND,IND,1815,8.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-84,odisha,1961,84,NAYAGARH,RATH RAMA CHANDRA,parties.IN.PSP,PSP,1163,5.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-84,odisha,1961,84,NAYAGARH,NAYAK NARAYAN,parties.IN.IND,IND,1093,5,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-84,odisha,1961,84,NAYAGARH,SAMANTARA GOPINATH,parties.IN.UNK,GP,1043,4.77,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-84,odisha,1961,84,NAYAGARH,SAMANTARA GOPINATH,parties.IN.GP,GP,1043,4.77,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-84,odisha,1961,84,NAYAGARH,MOHAPATRA KHETRABASI,parties.IN.IND,IND,832,3.81,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-85,odisha,1961,85,RANPUR,RAM RAMACHANDRA,parties.IN.CPI,CPI,14053,48.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-85,odisha,1961,85,RANPUR,RAY RAGHUNATH,parties.IN.INC,INC,14048,48.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-85,odisha,1961,85,RANPUR,DAS MADANMOHAN,parties.IN.UNK,GP,717,2.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-85,odisha,1961,85,RANPUR,DAS MADANMOHAN,parties.IN.GP,GP,717,2.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-86,odisha,1961,86,BEGUNIA,PAIKRAY GONGADHAR,parties.IN.CPI,CPI,16117,50.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-86,odisha,1961,86,BEGUNIA,CHAMPATIRAY SATYANANDA,parties.IN.INC,INC,15616,49.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-87,odisha,1961,87,KHURDA,PATNAIK BANAMALI,parties.IN.INC,INC,17136,57.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-87,odisha,1961,87,KHURDA,PATNAIK PRANANATH,parties.IN.CPI,CPI,8652,29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-87,odisha,1961,87,KHURDA,RAUTARAY MADHABCHANDRA,parties.IN.IND,IND,1705,5.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-87,odisha,1961,87,KHURDA,MOHANTY NANDAKISHORE,parties.IN.IND,IND,1613,5.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-87,odisha,1961,87,KHURDA,SAHA SURENDRANATH,parties.IN.UNK,GP,729,2.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-87,odisha,1961,87,KHURDA,SAHA SURENDRANATH,parties.IN.GP,GP,729,2.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-88,odisha,1961,88,BHUBANESWAR,MAHANTY SATYAPRIYA,parties.IN.INC,INC,16547,61.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-88,odisha,1961,88,BHUBANESWAR,DAS MOHAN,parties.IN.CPI,CPI,5548,20.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-88,odisha,1961,88,BHUBANESWAR,PATTANAIK DURGAPRASANNA,parties.IN.UNK,GP,2874,10.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-88,odisha,1961,88,BHUBANESWAR,PATTANAIK DURGAPRASANNA,parties.IN.GP,GP,2874,10.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-88,odisha,1961,88,BHUBANESWAR,SUNDARA SURENDRA,parties.IN.IND,IND,1821,6.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-89,odisha,1961,89,BALIPATNA (SC),BHOI GOPINATH,parties.IN.INC,INC,5712,64.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-89,odisha,1961,89,BALIPATNA (SC),BHOI SATYABADI,parties.IN.UNK,GP,3136,35.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-89,odisha,1961,89,BALIPATNA (SC),BHOI SATYABADI,parties.IN.GP,GP,3136,35.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-90,odisha,1961,90,BRAHMAGIRI,PATRA GOPABADHU,parties.IN.IND,IND,14252,49.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-90,odisha,1961,90,BRAHMAGIRI,SAMANTASINGHAR PADAMACHARAN,parties.IN.INC,INC,6014,20.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-90,odisha,1961,90,BRAHMAGIRI,MAHAPATRA SOMANATH,parties.IN.IND,IND,4008,13.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-90,odisha,1961,90,BRAHMAGIRI,JENA UDAYANATH,parties.IN.IND,IND,3648,12.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-90,odisha,1961,90,BRAHMAGIRI,DALAI SARBESWAR,parties.IN.UNK,GP,940,3.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-90,odisha,1961,90,BRAHMAGIRI,DALAI SARBESWAR,parties.IN.GP,GP,940,3.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-91,odisha,1961,91,PURI,PRATHIHARI BHAGWAN,parties.IN.INC,INC,10940,44.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-91,odisha,1961,91,PURI,BAHINIPATI HARIHAR,parties.IN.PSP,PSP,9386,38.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-91,odisha,1961,91,PURI,CHAUDHURY,parties.IN.UNK,GP,2143,8.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-91,odisha,1961,91,PURI,CHAUDHURY,parties.IN.GP,GP,2143,8.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-91,odisha,1961,91,PURI,PATNAIK SUNDARMONI,parties.IN.IND,IND,1173,4.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-91,odisha,1961,91,PURI,TRIPATHY MURARI,parties.IN.IND,IND,993,4.03,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-92,odisha,1961,92,SATYABADI,DEB RAJ RAJ,parties.IN.UNK,GP,10145,36.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-92,odisha,1961,92,SATYABADI,DEB RAJ RAJ,parties.IN.GP,GP,10145,36.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-92,odisha,1961,92,SATYABADI,MAHAPATRA GANGADHAR,parties.IN.INC,INC,9979,35.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-92,odisha,1961,92,SATYABADI,PARIDA BISWANATH,parties.IN.IND,IND,4778,17.12,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-92,odisha,1961,92,SATYABADI,DAS BALAKRUSHNA,parties.IN.IND,IND,3001,10.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-93,odisha,1961,93,PIPILI,PATNAIK RAMACHANDRA,parties.IN.INC,INC,7416,39.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-93,odisha,1961,93,PIPILI,JENA GOPALBANDHU,parties.IN.IND,IND,5851,31.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-93,odisha,1961,93,PIPILI,NAYAK LASMIDHAR,parties.IN.UNK,GP,3342,17.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-93,odisha,1961,93,PIPILI,NAYAK LASMIDHAR,parties.IN.GP,GP,3342,17.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-93,odisha,1961,93,PIPILI,MISRA GANGADHAR,parties.IN.IND,IND,2052,11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-94,odisha,1961,94,KAKATPUR,MOHANTY UPENDRA,parties.IN.INC,INC,17539,49.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-94,odisha,1961,94,KAKATPUR,SWAIN GATIKRUSHNA,parties.IN.CPI,CPI,12486,35.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-94,odisha,1961,94,KAKATPUR,RAUTRA SARATCHANDRA,parties.IN.IND,IND,1737,4.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-94,odisha,1961,94,KAKATPUR,MAHANTY ADWAITA CHARAN,parties.IN.IND,IND,1683,4.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-94,odisha,1961,94,KAKATPUR,MOHANTY RAJSISHORE,parties.IN.IND,IND,1269,3.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-94,odisha,1961,94,KAKATPUR,MITRA RABINKUMAR,parties.IN.UNK,GP,667,1.87,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-94,odisha,1961,94,KAKATPUR,MITRA RABINKUMAR,parties.IN.GP,GP,667,1.87,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-94,odisha,1961,94,KAKATPUR,BARIK BRAHMANANDA,parties.IN.IND,IND,220,0.62,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-95,odisha,1961,95,NIMAPARA (SC),SETHI GOBINDA,parties.IN.INC,INC,17783,53.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-95,odisha,1961,95,NIMAPARA (SC),DAS BHARAT,parties.IN.CPI,CPI,13045,39.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-95,odisha,1961,95,NIMAPARA (SC),BHOI PRAHALLAD,parties.IN.UNK,GP,2153,6.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-95,odisha,1961,95,NIMAPARA (SC),BHOI PRAHALLAD,parties.IN.GP,GP,2153,6.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-96,odisha,1961,96,BANKI,PRAHARAJ GOKULANANDA,parties.IN.PSP,PSP,13428,40.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-96,odisha,1961,96,BANKI,ROUT JOGESH CHANDRA,parties.IN.INC,INC,12977,39.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-96,odisha,1961,96,BANKI,BHRAMARBAR RAY,parties.IN.UNK,GP,6468,19.68,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-96,odisha,1961,96,BANKI,BHRAMARBAR RAY,parties.IN.GP,GP,6468,19.68,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-96,odisha,1961,96,BANKI,AMARENDRA MAN SINGH,parties.IN.IND,IND,0,0,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-97,odisha,1961,97,BARAMBA,NAYAK BIDYADHAR,parties.IN.INC,INC,18660,45.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-97,odisha,1961,97,BARAMBA,PATTNAIK PRATAPCHANDRA,parties.IN.IND,IND,16375,40.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-97,odisha,1961,97,BARAMBA,DEVI KANAKLATA,parties.IN.UNK,GP,5641,13.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-97,odisha,1961,97,BARAMBA,DEVI KANAKLATA,parties.IN.GP,GP,5641,13.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-97,odisha,1961,97,BARAMBA,RANISAHIBA,parties.IN.IND,IND,0,0,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-98,odisha,1961,98,ATHGARH,DASH ACHUTANANDA,parties.IN.IND,IND,9371,39.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-98,odisha,1961,98,ATHGARH,JENA DURIYODHAN,parties.IN.INC,INC,7120,29.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -367,36 +367,36 @@ IN-AC-1962-odisha-98,odisha,1961,98,ATHGARH,PATNAIK MADHUSUDAN,parties.IN.IND,IN
 IN-AC-1962-odisha-98,odisha,1961,98,ATHGARH,SWAIN CHATURBHUJA,parties.IN.IND,IND,1338,5.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-99,odisha,1961,99,CUTTACK CITY,MITRA BIREN,parties.IN.INC,INC,15442,59.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-99,odisha,1961,99,CUTTACK CITY,SAHA SURAJMAL,parties.IN.IND,IND,9746,37.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-99,odisha,1961,99,CUTTACK CITY,MAHANTY SHIHA NARAYAN,parties.IN.UNK,GP,571,2.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-99,odisha,1961,99,CUTTACK CITY,MAHANTY SHIHA NARAYAN,parties.IN.GP,GP,571,2.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-100,odisha,1961,100,CHOUDWAR,PATTANIK BIJOYANANDA,parties.IN.INC,INC,24523,65.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-100,odisha,1961,100,CHOUDWAR,SAHU SATRUGHNA,parties.IN.IND,IND,9342,24.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-100,odisha,1961,100,CHOUDWAR,BEHERA AKULANANDA,parties.IN.PSP,PSP,2330,6.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-100,odisha,1961,100,CHOUDWAR,BHUYAN DIBAKAR,parties.IN.IND,IND,1226,3.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-101,odisha,1961,101,CUTTACK SADAR (SC),MALLICK LAXMAN,parties.IN.INC,INC,14355,63.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-101,odisha,1961,101,CUTTACK SADAR (SC),SETHI PRAHLAD,parties.IN.CPI,CPI,4811,21.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-101,odisha,1961,101,CUTTACK SADAR (SC),SETHI KRUSHNA CHANDRA,parties.IN.UNK,GP,3434,15.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-101,odisha,1961,101,CUTTACK SADAR (SC),SETHI KRUSHNA CHANDRA,parties.IN.GP,GP,3434,15.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-102,odisha,1961,102,JAGATSINGHPUR,DEY PRIYANATH,parties.IN.INC,INC,9439,29.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-102,odisha,1961,102,JAGATSINGHPUR,RATH DURGA CHARAN,parties.IN.PSP,PSP,8850,27.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-102,odisha,1961,102,JAGATSINGHPUR,MOHAPATRA SOMNATH,parties.IN.UNK,GP,7344,22.6,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-102,odisha,1961,102,JAGATSINGHPUR,MOHAPATRA SOMNATH,parties.IN.GP,GP,7344,22.6,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-102,odisha,1961,102,JAGATSINGHPUR,KHUNTIA TRILOCHAN,parties.IN.IND,IND,4820,14.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-102,odisha,1961,102,JAGATSINGHPUR,PALATA SINGH DEBENDRA,parties.IN.IND,IND,1364,4.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-102,odisha,1961,102,JAGATSINGHPUR,KANUNGO HEMENDRANATH,parties.IN.IND,IND,685,2.11,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-103,odisha,1961,103,GOVINDPUR (SC),MALLIK KANDURI CHARAN,parties.IN.PSP,PSP,12840,54.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-103,odisha,1961,103,GOVINDPUR (SC),MALLICK NATH CHARAN,parties.IN.INC,INC,9481,40.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-103,odisha,1961,103,GOVINDPUR (SC),BHOI BIJAY KUMAR,parties.IN.UNK,GP,1301,5.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-103,odisha,1961,103,GOVINDPUR (SC),BHOI BIJAY KUMAR,parties.IN.GP,GP,1301,5.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-104,odisha,1961,104,MAHANGA,PATNAIK SURENDRANATH,parties.IN.INC,INC,13506,44.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-104,odisha,1961,104,MAHANGA,DASA PRADIPTA KISHORE,parties.IN.PSP,PSP,9941,33.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-104,odisha,1961,104,MAHANGA,PRADHAN GOKULANAND,parties.IN.UNK,GP,2962,9.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-104,odisha,1961,104,MAHANGA,PRADHAN GOKULANAND,parties.IN.GP,GP,2962,9.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-104,odisha,1961,104,MAHANGA,JENA SATCHINDANANDA,parties.IN.IND,IND,2101,6.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-104,odisha,1961,104,MAHANGA,SATPATHY JUGALKISHORE,parties.IN.IND,IND,1250,4.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-104,odisha,1961,104,MAHANGA,SAMAL SANKAR,parties.IN.IND,IND,315,1.05,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-105,odisha,1961,105,SALEPUR (SC),BEHERA BAIDHAR,parties.IN.PSP,PSP,10484,45.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-105,odisha,1961,105,SALEPUR (SC),MALLIK HAREKRUSHNA,parties.IN.INC,INC,9415,40.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-105,odisha,1961,105,SALEPUR (SC),KANDI KALANDI,parties.IN.CPI,CPI,1986,8.6,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-105,odisha,1961,105,SALEPUR (SC),SAMAL ARJUNA,parties.IN.UNK,GP,1203,5.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-105,odisha,1961,105,SALEPUR (SC),SAMAL ARJUNA,parties.IN.GP,GP,1203,5.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-106,odisha,1961,106,BALIKUDA,DAS BIPIN BIHARI,parties.IN.INC,INC,11841,42.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-106,odisha,1961,106,BALIKUDA,MOHANTY BAIKUNTHANATH,parties.IN.PSP,PSP,9497,33.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-106,odisha,1961,106,BALIKUDA,BISWAL MADHUSUDAN,parties.IN.UNK,GP,6699,23.89,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-106,odisha,1961,106,BALIKUDA,BISWAL MADHUSUDAN,parties.IN.GP,GP,6699,23.89,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-107,odisha,1961,107,ERSAMA,RATNAMALI JEMA,parties.IN.INC,INC,20665,53.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-107,odisha,1961,107,ERSAMA,CHOUDHURY LOKNATH,parties.IN.CPI,CPI,16957,43.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-107,odisha,1961,107,ERSAMA,SAHU DIJABAR,parties.IN.IND,IND,1217,3.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -406,7 +406,7 @@ IN-AC-1962-odisha-108,odisha,1961,108,TIRTOL,PARIJI JADUMANI,parties.IN.IND,IND,
 IN-AC-1962-odisha-108,odisha,1961,108,TIRTOL,DAS JUDHISTIR,parties.IN.IND,IND,2598,8.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-109,odisha,1961,109,PATKURA,MISHRA LOKANATH,parties.IN.INC,INC,14418,59.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-109,odisha,1961,109,PATKURA,SATPATHY CHAKRADHAR,parties.IN.PSP,PSP,8177,33.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-109,odisha,1961,109,PATKURA,SATPATHY BISHNIMOHAN,parties.IN.UNK,GP,1419,5.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-109,odisha,1961,109,PATKURA,SATPATHY BISHNIMOHAN,parties.IN.GP,GP,1419,5.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-109,odisha,1961,109,PATKURA,MOHANTY RAGHUNATH,parties.IN.IND,IND,342,1.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-110,odisha,1961,110,RAJNAGAR,NAYAK PADMA CHARAN,parties.IN.IND,IND,14223,43.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-110,odisha,1961,110,RAJNAGAR,MANGARAJ JADUMONI,parties.IN.INC,INC,5879,17.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -415,10 +415,10 @@ IN-AC-1962-odisha-110,odisha,1961,110,RAJNAGAR,MISRA BHAGBAN,parties.IN.IND,IND,
 IN-AC-1962-odisha-110,odisha,1961,110,RAJNAGAR,SAMANTARAY GANGADHAR,parties.IN.IND,IND,2073,6.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-110,odisha,1961,110,RAJNAGAR,DEI SARASWATI,parties.IN.IND,IND,1021,3.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-110,odisha,1961,110,RAJNAGAR,TRIPATHY NARENDRANATH,parties.IN.PSP,PSP,568,1.72,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-110,odisha,1961,110,RAJNAGAR,MOHANTY SURENDRANATH,parties.IN.UNK,GP,560,1.7,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-110,odisha,1961,110,RAJNAGAR,MOHANTY SURENDRANATH,parties.IN.GP,GP,560,1.7,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-111,odisha,1961,111,AUL,BHANJA DEO RAJA SAILENDRA NARAYAN,parties.IN.INC,INC,18856,55.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-111,odisha,1961,111,AUL,DAS PRAFULLA CHANDRA,parties.IN.IND,IND,9549,28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-111,odisha,1961,111,AUL,MAHAPATRA UPENDRA SAMAR SINGH,parties.IN.UNK,GP,5699,16.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-111,odisha,1961,111,AUL,MAHAPATRA UPENDRA SAMAR SINGH,parties.IN.GP,GP,5699,16.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-112,odisha,1961,112,KENDRAPARA,SAHU DHRUBA CHARAN,parties.IN.PSP,PSP,20156,52.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-112,odisha,1961,112,KENDRAPARA,NAYAK PURUSOTTAM,parties.IN.INC,INC,15940,41.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-112,odisha,1961,112,KENDRAPARA,PANDA DURYODHAN,parties.IN.IND,IND,2575,6.66,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -426,26 +426,26 @@ IN-AC-1962-odisha-113,odisha,1961,113,PATTAMUNDEI (SC),MALIK PRAHALLAD,parties.I
 IN-AC-1962-odisha-113,odisha,1961,113,PATTAMUNDEI (SC),MALIK TRIBRIKRAM,parties.IN.PSP,PSP,14635,49.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-114,odisha,1961,114,BINJHARPUR,NAYAK CHITTARANJAN,parties.IN.INC,INC,18540,50.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-114,odisha,1961,114,BINJHARPUR,DAS BANKABEHARI,parties.IN.PSP,PSP,17405,47.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-114,odisha,1961,114,BINJHARPUR,NAYAK RADHASHYAM,parties.IN.UNK,GP,459,1.26,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-114,odisha,1961,114,BINJHARPUR,NAYAK RADHASHYAM,parties.IN.GP,GP,459,1.26,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-115,odisha,1961,115,BERCHANA,LENKA DHANANJAYA,parties.IN.INC,INC,14111,41.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-115,odisha,1961,115,BERCHANA,DAS JAGANNATH,parties.IN.PSP,PSP,11154,33.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-115,odisha,1961,115,BERCHANA,JENA DUSASAN,parties.IN.CPI,CPI,8438,25.04,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-116,odisha,1961,116,DHARMASALA,DUTTA GADADHEP,parties.IN.INC,INC,12989,50.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-116,odisha,1961,116,DHARMASALA,MOHANTY PARMAANDA,parties.IN.PSP,PSP,7575,29.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-116,odisha,1961,116,DHARMASALA,BAL PITAMBAR,parties.IN.UNK,GP,5215,20.23,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-116,odisha,1961,116,DHARMASALA,BAL PITAMBAR,parties.IN.GP,GP,5215,20.23,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-117,odisha,1961,117,SUKINDA (SC),SINGH BAIDHAR,parties.IN.INC,INC,7617,51.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-117,odisha,1961,117,SUKINDA (SC),JENA MUNISWAR,parties.IN.UNK,GP,3657,24.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-117,odisha,1961,117,SUKINDA (SC),JENA MUNISWAR,parties.IN.GP,GP,3657,24.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-117,odisha,1961,117,SUKINDA (SC),JENA PITAMBAR,parties.IN.PSP,PSP,2248,15.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-117,odisha,1961,117,SUKINDA (SC),SETHI DHANI,parties.IN.IND,IND,1234,8.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-118,odisha,1961,118,JAJPUR WEST,PATTANAYAK MADAN MOHAN,parties.IN.INC,INC,15036,54.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-118,odisha,1961,118,JAJPUR WEST,PANDA BANAMALI,parties.IN.UNK,GP,7210,26.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-118,odisha,1961,118,JAJPUR WEST,PANDA BANAMALI,parties.IN.GP,GP,7210,26.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-118,odisha,1961,118,JAJPUR WEST,MOHANTY BIPIN BIHARI,parties.IN.PSP,PSP,1731,6.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-118,odisha,1961,118,JAJPUR WEST,DAS JAGANNATH,parties.IN.IND,IND,1714,6.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-118,odisha,1961,118,JAJPUR WEST,PAL PHANI,parties.IN.CPI,CPI,1071,3.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-118,odisha,1961,118,JAJPUR WEST,ROY CHANDRA MONI,parties.IN.IND,IND,528,1.92,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-118,odisha,1961,118,JAJPUR WEST,JENA GADADHAR,parties.IN.IND,IND,194,0.71,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-119,odisha,1961,119,JAJPUR EAST (SC),DAS SANTANU KUMAR,parties.IN.INC,INC,9956,51.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-119,odisha,1961,119,JAJPUR EAST (SC),BEHERA NITYANANDA,parties.IN.UNK,GP,5379,27.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-119,odisha,1961,119,JAJPUR EAST (SC),BEHERA NITYANANDA,parties.IN.GP,GP,5379,27.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-119,odisha,1961,119,JAJPUR EAST (SC),JENA MANGULI CHARAN,parties.IN.PSP,PSP,4128,21.21,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-120,odisha,1961,120,DHAMNAGAR,JENA MURALIDHAR,parties.IN.INC,INC,19852,49.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-120,odisha,1961,120,DHAMNAGAR,NAYAK BAISHNAB,parties.IN.PSP,PSP,19106,47.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -457,43 +457,43 @@ IN-AC-1962-odisha-121,odisha,1961,121,BASUDEBPUR,KAR KAMALA PRASAD,parties.IN.IN
 IN-AC-1962-odisha-122,odisha,1961,122,CHANDBALI (SC),JENA BAIRAGI,parties.IN.INC,INC,14461,49.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-122,odisha,1961,122,CHANDBALI (SC),DAS BRUNDABAN,parties.IN.IND,IND,6079,20.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-122,odisha,1961,122,CHANDBALI (SC),SETHI GOLAK,parties.IN.CPI,CPI,4977,16.97,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-122,odisha,1961,122,CHANDBALI (SC),DAS GHANASHYAM,parties.IN.UNK,GP,3816,13.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-122,odisha,1961,122,CHANDBALI (SC),DAS GHANASHYAM,parties.IN.GP,GP,3816,13.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-123,odisha,1961,123,BHADRAK,MOHAPATRA NITYANANDA,parties.IN.IND,IND,14091,56.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-123,odisha,1961,123,BHADRAK,MAHAMMED HANEEF,parties.IN.INC,INC,9908,39.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-123,odisha,1961,123,BHADRAK,SHAIK BAKSHI,parties.IN.UNK,GP,869,3.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-123,odisha,1961,123,BHADRAK,SHAIK BAKSHI,parties.IN.GP,GP,869,3.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-124,odisha,1961,124,SORO,PANIGRAHI KARUNAKAR,parties.IN.INC,INC,7709,27.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-124,odisha,1961,124,SORO,DAS GAJENDRA PRASAD,parties.IN.CPI,CPI,6488,23.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-124,odisha,1961,124,SORO,DAS MOHAPATRA JADUNATH,parties.IN.IND,IND,6413,23.15,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-124,odisha,1961,124,SORO,PRADHAN UPENDRA,parties.IN.PSP,PSP,5491,19.82,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-124,odisha,1961,124,SORO,PANDA PITAMBAR,parties.IN.UNK,GP,1601,5.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-124,odisha,1961,124,SORO,PANDA PITAMBAR,parties.IN.GP,GP,1601,5.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-125,odisha,1961,125,SIMULIA (SC),DAS BHAGIRATHA,parties.IN.INC,INC,9228,41.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-125,odisha,1961,125,SIMULIA (SC),JENA UTSAB,parties.IN.PSP,PSP,8475,37.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-125,odisha,1961,125,SIMULIA (SC),SETHI PURASTAM,parties.IN.UNK,GP,4712,21.02,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-126,odisha,1961,126,NILGIRI,MARDARAJ HARICHANDAN RAJA RAJENDRACHANDRA,parties.IN.UNK,GP,13049,39.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-125,odisha,1961,125,SIMULIA (SC),SETHI PURASTAM,parties.IN.GP,GP,4712,21.02,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-126,odisha,1961,126,NILGIRI,MARDARAJ HARICHANDAN RAJA RAJENDRACHANDRA,parties.IN.GP,GP,13049,39.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-126,odisha,1961,126,NILGIRI,RAJA BALARAM,parties.IN.INC,INC,10454,31.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-126,odisha,1961,126,NILGIRI,DAS BANAMALI,parties.IN.CPI,CPI,9570,28.94,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-127,odisha,1961,127,BALASORE,DE BIJOY KRISHNA,parties.IN.INC,INC,11511,49.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-127,odisha,1961,127,BALASORE,DAS RABINDRA MOHAN,parties.IN.PSP,PSP,9501,40.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-127,odisha,1961,127,BALASORE,NAIK BASUDEB,parties.IN.UNK,GP,1198,5.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-127,odisha,1961,127,BALASORE,NAIK BASUDEB,parties.IN.GP,GP,1198,5.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-127,odisha,1961,127,BALASORE,PANI AKSHOY,parties.IN.CPI,CPI,1185,5.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-128,odisha,1961,128,BASTA,BAUG MAHESWAR,parties.IN.PSP,PSP,11750,48.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-128,odisha,1961,128,BASTA,PRAHARAJ AKSHOY NARAYAN,parties.IN.INC,INC,10409,43.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-128,odisha,1961,128,BASTA,PRAHARAJ CHOUDHURY MRUTYUNJOY NARAYAN,parties.IN.UNK,GP,2012,8.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-128,odisha,1961,128,BASTA,PRAHARAJ CHOUDHURY MRUTYUNJOY NARAYAN,parties.IN.GP,GP,2012,8.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-129,odisha,1961,129,BHOGRAI,DAS PYARI MOHAN,parties.IN.PSP,PSP,16863,59.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-129,odisha,1961,129,BHOGRAI,DAS DURGA SANKAR,parties.IN.INC,INC,10855,38.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-129,odisha,1961,129,BHOGRAI,CHAND JOGENDRA,parties.IN.UNK,GP,512,1.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-129,odisha,1961,129,BHOGRAI,CHAND JOGENDRA,parties.IN.GP,GP,512,1.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-130,odisha,1961,130,JALESWAR,PAUL PRASANNA KUMAR,parties.IN.PSP,PSP,14054,53.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-130,odisha,1961,130,JALESWAR,JENA JOGES CHANDRA,parties.IN.INC,INC,11077,41.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-130,odisha,1961,130,JALESWAR,NANDI PRIYANATH,parties.IN.UNK,GP,906,3.42,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-130,odisha,1961,130,JALESWAR,NANDI PRIYANATH,parties.IN.GP,GP,906,3.42,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-130,odisha,1961,130,JALESWAR,SOREN LAKSHAN,parties.IN.IND,IND,477,1.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-131,odisha,1961,131,KUNTA,DASH PRASANNA KUMAR,parties.IN.PSP,PSP,7298,40.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-131,odisha,1961,131,KUNTA,KAMILA JAGANNATH,parties.IN.INC,INC,5716,31.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-131,odisha,1961,131,KUNTA,DEBI HEMALATA,parties.IN.IND,IND,2107,11.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-131,odisha,1961,131,KUNTA,SAI MADHAB CHANDRA,parties.IN.UNK,GP,2040,11.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-131,odisha,1961,131,KUNTA,SAI MADHAB CHANDRA,parties.IN.GP,GP,2040,11.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-131,odisha,1961,131,KUNTA,SOREN SURUP CHANDRA,parties.IN.IND,IND,724,4.05,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-132,odisha,1961,132,BAISINGA (SC),PATRA ARJUN,parties.IN.PSP,PSP,8405,42.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-132,odisha,1961,132,BAISINGA (SC),PATRA DURLAV,parties.IN.INC,INC,5837,29.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-132,odisha,1961,132,BAISINGA (SC),SINGH MADHAB CHANDRA,parties.IN.UNK,GP,3663,18.63,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-132,odisha,1961,132,BAISINGA (SC),SINGH MADHAB CHANDRA,parties.IN.GP,GP,3663,18.63,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-132,odisha,1961,132,BAISINGA (SC),SING SITARAM,parties.IN.IND,IND,1206,6.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-132,odisha,1961,132,BAISINGA (SC),SENAPATI SADANADA,parties.IN.IND,IND,553,2.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-133,odisha,1961,133,UDALA (ST),TUDU MAN MOHAN,parties.IN.INC,INC,6173,46.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
@@ -501,33 +501,33 @@ IN-AC-1962-odisha-133,odisha,1961,133,UDALA (ST),MAJHI DEBI,parties.IN.PSP,PSP,3
 IN-AC-1962-odisha-133,odisha,1961,133,UDALA (ST),TIN MANIKRAM,parties.IN.CPI,CPI,2330,17.7,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-133,odisha,1961,133,UDALA (ST),MAJHI SHAMA,parties.IN.IND,IND,1160,8.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-134,odisha,1961,134,KARANJIA,BEHERA PRAVAKAR,parties.IN.INC,INC,4599,30.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-134,odisha,1961,134,KARANJIA,SHAH DEO LALL LOKENATH,parties.IN.UNK,GP,3064,20.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-134,odisha,1961,134,KARANJIA,SHAH DEO LALL LOKENATH,parties.IN.GP,GP,3064,20.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-134,odisha,1961,134,KARANJIA,SAHU BISWANATH,parties.IN.PSP,PSP,2954,19.57,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-134,odisha,1961,134,KARANJIA,MAHANTA DAITARI,parties.IN.IND,IND,1931,12.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-134,odisha,1961,134,KARANJIA,SANDIL GHASIRAM,parties.IN.IND,IND,1542,10.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-134,odisha,1961,134,KARANJIA,MAHANTA BHAGIRATI,parties.IN.IND,IND,803,5.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-134,odisha,1961,134,KARANJIA,NAIK HAREKRUSHNA,parties.IN.IND,IND,205,1.36,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-135,odisha,1961,135,JASHIPUR (ST),TRIYA MOCHIRAM,parties.IN.INC,INC,3183,31.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-135,odisha,1961,135,JASHIPUR (ST),NAYAK DURGACHARAN,parties.IN.UNK,GP,2612,26.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-135,odisha,1961,135,JASHIPUR (ST),NAYAK DURGACHARAN,parties.IN.GP,GP,2612,26.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-135,odisha,1961,135,JASHIPUR (ST),SANKHIAL NILAMANI,parties.IN.IND,IND,2140,21.43,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-135,odisha,1961,135,JASHIPUR (ST),CHATTAR BALARAM,parties.IN.PSP,PSP,1233,12.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-135,odisha,1961,135,JASHIPUR (ST),DAS GONESWAR,parties.IN.IND,IND,817,8.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-136,odisha,1961,136,RAIRANGPUR (ST),SINGH CHANDRA MOHAN,parties.IN.INC,INC,6894,38.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-136,odisha,1961,136,RAIRANGPUR (ST),SOREN LALMOHAN,parties.IN.JP,JP,6171,34.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-136,odisha,1961,136,RAIRANGPUR (ST),MAJHI BHADU,parties.IN.UNK,GP,4491,25.05,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-136,odisha,1961,136,RAIRANGPUR (ST),MAJHI BHADU,parties.IN.GP,GP,4491,25.05,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-136,odisha,1961,136,RAIRANGPUR (ST),PURTTY LAKSHMAN SINGH,parties.IN.IND,IND,372,2.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-137,odisha,1961,137,BAHALDA (ST),SOREN SUNARAM,parties.IN.INC,INC,10602,53.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-137,odisha,1961,137,BAHALDA (ST),MAJHEE MAHINDRA,parties.IN.UNK,GP,4759,23.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-137,odisha,1961,137,BAHALDA (ST),MAJHEE MAHINDRA,parties.IN.GP,GP,4759,23.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-137,odisha,1961,137,BAHALDA (ST),TRIYA HARDEV,parties.IN.JP,JP,4627,23.15,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-138,odisha,1961,138,BANGIRIPOSI (ST),NAYAK ISWAR CHANDRA,parties.IN.INC,INC,5226,37.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-138,odisha,1961,138,BANGIRIPOSI (ST),NAYAK RADHAMOHAN,parties.IN.UNK,GP,4673,33.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-138,odisha,1961,138,BANGIRIPOSI (ST),NAYAK RADHAMOHAN,parties.IN.GP,GP,4673,33.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-138,odisha,1961,138,BANGIRIPOSI (ST),TUDU DHYANCHANDRA,parties.IN.IND,IND,1496,10.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-138,odisha,1961,138,BANGIRIPOSI (ST),DANDAPAT BASUBED,parties.IN.PSP,PSP,1467,10.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-138,odisha,1961,138,BANGIRIPOSI (ST),SOREN SRI HARISH CHANDRA,parties.IN.IND,IND,766,5.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-138,odisha,1961,138,BANGIRIPOSI (ST),MURMU MAKARDWAJ,parties.IN.IND,IND,308,2.21,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-139,odisha,1961,139,BARIPADA,SAHU SANTOSH KUMAR,parties.IN.INC,INC,4397,29.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-139,odisha,1961,139,BARIPADA,MAHANTA PURNA CHANDRA,parties.IN.PSP,PSP,3869,25.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-odisha-139,odisha,1961,139,BARIPADA,BHANJ DEO LAL SAHEB NALIN CHANDRA,parties.IN.UNK,GP,3004,20.05,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-odisha-139,odisha,1961,139,BARIPADA,BHANJ DEO LAL SAHEB NALIN CHANDRA,parties.IN.GP,GP,3004,20.05,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-139,odisha,1961,139,BARIPADA,ABDUL MOMIN,parties.IN.CPI,CPI,1666,11.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-139,odisha,1961,139,BARIPADA,DAS BIBHUTI BHUSAN,parties.IN.IND,IND,1045,6.98,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1962-odisha-139,odisha,1961,139,BARIPADA,MOHANTA PADMA LOCHAN,parties.IN.IND,IND,1001,6.68,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a

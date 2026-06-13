@@ -113,7 +113,7 @@ IN-AC-1967-rajasthan-18,rajasthan,1967,18,CHURU,A. SINGH,parties.IN.IND,IND,266,
 IN-AC-1967-rajasthan-18,rajasthan,1967,18,CHURU,H. LAL,parties.IN.CPIM,CPM,251,0.63,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-19,rajasthan,1967,19,SADULPUR,S. RAM,parties.IN.INC,INC,18385,39.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-19,rajasthan,1967,19,SADULPUR,M. SINGH,parties.IN.CPIM,CPM,10620,23.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-rajasthan-19,rajasthan,1967,19,SADULPUR,T. RAM,parties.IN.UNK,JTP,10002,21.75,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-rajasthan-19,rajasthan,1967,19,SADULPUR,T. RAM,parties.IN.JTP,JTP,10002,21.75,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-19,rajasthan,1967,19,SADULPUR,M. SINGH,parties.IN.SWA,SWA,6977,15.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-20,rajasthan,1967,20,PILANI,M.C. KATEWA,parties.IN.SWA,SWA,23115,52.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-20,rajasthan,1967,20,PILANI,H. LAL,parties.IN.INC,INC,17277,39.44,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
@@ -237,7 +237,7 @@ IN-AC-1967-rajasthan-42,rajasthan,1967,42,PHAGI,G.L. GOTHWAL,parties.IN.IND,IND,
 IN-AC-1967-rajasthan-42,rajasthan,1967,42,PHAGI,NANGA,parties.IN.IND,IND,1421,4.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-42,rajasthan,1967,42,PHAGI,V.R. NARSLIA,parties.IN.IND,IND,718,2.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-43,rajasthan,1967,43,LALSOT,S. RAM,parties.IN.SWA,SWA,17511,50.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-rajasthan-43,rajasthan,1967,43,LALSOT,S. RAM,parties.IN.UNK,JTP,9719,28.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-rajasthan-43,rajasthan,1967,43,LALSOT,S. RAM,parties.IN.JTP,JTP,9719,28.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-43,rajasthan,1967,43,LALSOT,R. SAHAI,parties.IN.INC,INC,7345,21.24,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-44,rajasthan,1967,44,SIKRAI,K. LAL,parties.IN.INC,INC,21586,51.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-44,rajasthan,1967,44,SIKRAI,R. PRASAD,parties.IN.SWA,SWA,20405,48.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -260,11 +260,11 @@ IN-AC-1967-rajasthan-48,rajasthan,1967,48,JAMUWA RAMGARH,B. LAL,parties.IN.INC,I
 IN-AC-1967-rajasthan-48,rajasthan,1967,48,JAMUWA RAMGARH,D. SAHAI,parties.IN.IND,IND,4078,11.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-48,rajasthan,1967,48,JAMUWA RAMGARH,GULAB,parties.IN.IND,IND,3093,8.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-49,rajasthan,1967,49,BAIRATH,D. SINGH,parties.IN.INC,INC,18232,47.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-rajasthan-49,rajasthan,1967,49,BAIRATH,K. DEVI,parties.IN.UNK,JTP,17063,44.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-rajasthan-49,rajasthan,1967,49,BAIRATH,K. DEVI,parties.IN.JTP,JTP,17063,44.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-49,rajasthan,1967,49,BAIRATH,C. BAI,parties.IN.SWA,SWA,2784,7.31,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-50,rajasthan,1967,50,KOTPUTLI,S. RAM,parties.IN.SWA,SWA,14602,36.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-50,rajasthan,1967,50,KOTPUTLI,R.K. SINGH,parties.IN.INC,INC,10957,27.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-rajasthan-50,rajasthan,1967,50,KOTPUTLI,U. SINGH,parties.IN.UNK,JTP,8792,22,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-rajasthan-50,rajasthan,1967,50,KOTPUTLI,U. SINGH,parties.IN.JTP,JTP,8792,22,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-50,rajasthan,1967,50,KOTPUTLI,BHIKHAN,parties.IN.IND,IND,2821,7.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-50,rajasthan,1967,50,KOTPUTLI,B. RAJ,parties.IN.IND,IND,875,2.19,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-rajasthan-50,rajasthan,1967,50,KOTPUTLI,JHANJHU,parties.IN.IND,IND,569,1.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a

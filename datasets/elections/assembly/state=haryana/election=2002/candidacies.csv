@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,Dr. MALIK CHAND GAMBHIR s/o Sh. BARKAT RAM GAMBHIR,parties.IN.INLD,INLD,37520,32.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,SAHIB SINGH,parties.IN.UNK,HVP,24758,21.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,SAHIB SINGH,parties.IN.HVP,HVP,24758,21.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,Dr. KRISHNA PANDIT w/o Late Sh. JAI PARKASH,parties.IN.INC,INC,22290,19.15,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,GHANSHYAM DASS,parties.IN.BJP,BJP,14997,12.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,RANDHIR SINGH,parties.IN.IND,IND,7734,6.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

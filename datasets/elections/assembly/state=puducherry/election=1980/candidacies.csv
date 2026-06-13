@@ -19,12 +19,12 @@ IN-AC-1976-puducherry-3,puducherry,1980,3,RAJ BHAVAN,M. K. JEEVARATHINA ODAYAR,p
 IN-AC-1976-puducherry-3,puducherry,1980,3,RAJ BHAVAN,M. V. VAITHILINGAM,parties.IN.IND,IND,479,11.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-3,puducherry,1980,3,RAJ BHAVAN,N. KALIAPERUMAL,parties.IN.IND,IND,70,1.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-3,puducherry,1980,3,RAJ BHAVAN,MARIUS BALA,parties.IN.IND,IND,37,0.9,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-3,puducherry,1980,3,RAJ BHAVAN,THIAGI THIRUKAMU,parties.IN.UNK,JNP(S),36,0.88,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-puducherry-3,puducherry,1980,3,RAJ BHAVAN,THIAGI THIRUKAMU,parties.IN.JNP_S,JNP(S),36,0.88,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-4,puducherry,1980,4,BUSSY,C. M. ACHRAFF,parties.IN.INC_I,INC(I),2898,69.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-4,puducherry,1980,4,BUSSY,R. P. JOSEPH,parties.IN.ADK,ADK,716,17.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-4,puducherry,1980,4,BUSSY,A. JAYARAJ,parties.IN.IND,IND,469,11.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-4,puducherry,1980,4,BUSSY,E. RAMACHANDRAN,parties.IN.IND,IND,60,1.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-4,puducherry,1980,4,BUSSY,A. PHILOMINA,parties.IN.UNK,JNP(S),35,0.84,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-puducherry-4,puducherry,1980,4,BUSSY,A. PHILOMINA,parties.IN.JNP_S,JNP(S),35,0.84,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-5,puducherry,1980,5,OUPALAM,SITHA VEDANAYAGAM,parties.IN.DMK,DMK,5419,70.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-5,puducherry,1980,5,OUPALAM,C. N. PARTHASARATHY,parties.IN.ADK,ADK,2177,28.14,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-5,puducherry,1980,5,OUPALAM,GADJENDIRIN BASKARA,parties.IN.IND,IND,52,0.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -80,7 +80,7 @@ IN-AC-1976-puducherry-17,puducherry,1980,17,VILLENOUR,S. SELLAPPAN ALIAS MEENAKS
 IN-AC-1976-puducherry-17,puducherry,1980,17,VILLENOUR,N. SINNATHAMBI,parties.IN.IND,IND,1739,20.19,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-18,puducherry,1980,18,OZHUKARAI,G. PERUMAL RAJA,parties.IN.DMK,DMK,5493,66.06,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-18,puducherry,1980,18,OZHUKARAI,R. SOMASIMDARA,parties.IN.ADK,ADK,2685,32.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-18,puducherry,1980,18,OZHUKARAI,MOHAMED ILYAS,parties.IN.UNK,JNP(S),97,1.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-puducherry-18,puducherry,1980,18,OZHUKARAI,MOHAMED ILYAS,parties.IN.JNP_S,JNP(S),97,1.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-18,puducherry,1980,18,OZHUKARAI,R. GANAPATHY,parties.IN.IND,IND,20,0.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-18,puducherry,1980,18,OZHUKARAI,S. MUNISAMY,parties.IN.IND,IND,20,0.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-19,puducherry,1980,19,THATTANCHAVADY,V. PETHAPERUMAL,parties.IN.JP,JNP,4824,48.85,1,won,U,,,,incumbent,src-1b7bc1c9d39a
@@ -89,7 +89,7 @@ IN-AC-1976-puducherry-19,puducherry,1980,19,THATTANCHAVADY,A. R. SOOSAIRAJ,parti
 IN-AC-1976-puducherry-20,puducherry,1980,20,REDDIARPALAYAM,RENUKA APPADURAI,parties.IN.INC_I,INC(I),5409,52.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-20,puducherry,1980,20,REDDIARPALAYAM,N. GURUSAMY,parties.IN.CPI,CPI,2516,24.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-20,puducherry,1980,20,REDDIARPALAYAM,R. VENGATACHALA COUNDER,parties.IN.JP,JNP,2142,20.79,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-20,puducherry,1980,20,REDDIARPALAYAM,P.DURAI,parties.IN.UNK,JNP(S),238,2.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-puducherry-20,puducherry,1980,20,REDDIARPALAYAM,P.DURAI,parties.IN.JNP_S,JNP(S),238,2.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-21,puducherry,1980,21,LAWSPET,M. O. H. FAROOK,parties.IN.INC_I,INC(I),8980,78.68,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-21,puducherry,1980,21,LAWSPET,G. GOPALAKRISHNAN,parties.IN.ADK,ADK,2126,18.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-puducherry-21,puducherry,1980,21,LAWSPET,A. SEMON,parties.IN.IND,IND,226,1.98,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a

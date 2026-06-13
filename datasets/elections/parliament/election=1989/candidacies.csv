@@ -70,7 +70,7 @@ IN-PC-1976-andhra-pradesh-13,andhra-pradesh,1989,13,VIJAYAWADA,CHIGURUPATI NAGES
 IN-PC-1976-andhra-pradesh-13,andhra-pradesh,1989,13,VIJAYAWADA,LAVANAM,parties.IN.IND,IND,1452,0.18,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-andhra-pradesh-13,andhra-pradesh,1989,13,VIJAYAWADA,PUPPALA SIVASANKARARAI,parties.IN.IND,IND,1415,0.18,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-andhra-pradesh-13,andhra-pradesh,1989,13,VIJAYAWADA,BOPPURI MOJES,parties.IN.IND,IND,1122,0.14,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-andhra-pradesh-13,andhra-pradesh,1989,13,VIJAYAWADA,NANNAPANENEI BASKARARAO,parties.IN.UNK,VJS,1093,0.14,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-13,andhra-pradesh,1989,13,VIJAYAWADA,NANNAPANENEI BASKARARAO,parties.IN.VJS,VJS,1093,0.14,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-andhra-pradesh-13,andhra-pradesh,1989,13,VIJAYAWADA,MOHMMAD FEROJ TAJ,parties.IN.IND,IND,933,0.12,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-andhra-pradesh-13,andhra-pradesh,1989,13,VIJAYAWADA,BUDDIRAJU VENKATESWARARAO,parties.IN.IND,IND,663,0.08,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-andhra-pradesh-14,andhra-pradesh,1989,14,TENALI,BASAVAPANNAYYA SINGAM,parties.IN.INC,INC,345150,54.6,1,won,U,,,,challenger,src-31c65dbec869
@@ -200,7 +200,7 @@ IN-PC-1976-andhra-pradesh-31,andhra-pradesh,1989,31,SECUNDERABAD,B.RAGHUNATH,par
 IN-PC-1976-andhra-pradesh-31,andhra-pradesh,1989,31,SECUNDERABAD,AMANULLAH KHAN,parties.IN.IND,IND,412,0.06,19,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-andhra-pradesh-31,andhra-pradesh,1989,31,SECUNDERABAD,SURYA GUPTA S.,parties.IN.IND,IND,392,0.06,20,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-andhra-pradesh-31,andhra-pradesh,1989,31,SECUNDERABAD,M.AZHARUDDIN,parties.IN.IND,IND,343,0.05,21,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-andhra-pradesh-31,andhra-pradesh,1989,31,SECUNDERABAD,RAVEENDRA,parties.IN.UNK,DLP,298,0.05,22,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-31,andhra-pradesh,1989,31,SECUNDERABAD,RAVEENDRA,parties.IN.DLP,DLP,298,0.05,22,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-andhra-pradesh-31,andhra-pradesh,1989,31,SECUNDERABAD,I.S.SWAMY DEVANAND,parties.IN.IND,IND,192,0.03,23,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-andhra-pradesh-32,andhra-pradesh,1989,32,SIDDIPET,YELLAIAH NANDI,parties.IN.INC,INC,378172,52.45,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-andhra-pradesh-32,andhra-pradesh,1989,32,SIDDIPET,G.VIJAYA RAMA RAO,parties.IN.TDP,TDP,291335,40.41,2,lost,U,,,,incumbent,src-31c65dbec869
@@ -238,7 +238,7 @@ IN-PC-1976-andhra-pradesh-37,andhra-pradesh,1989,37,KARIMNAGAR,ASAD KHAN,parties
 IN-PC-1976-andhra-pradesh-37,andhra-pradesh,1989,37,KARIMNAGAR,GURRAM RAJESHWAR REDDY,parties.IN.IND,IND,18460,2.92,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-andhra-pradesh-37,andhra-pradesh,1989,37,KARIMNAGAR,VEMPAT MADHUSUDHAN,parties.IN.JP,JNP (JP),10032,1.59,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-andhra-pradesh-37,andhra-pradesh,1989,37,KARIMNAGAR,KORVI VENUGOPAL,parties.IN.BSP,BSP,10027,1.59,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-andhra-pradesh-37,andhra-pradesh,1989,37,KARIMNAGAR,ANJANEYULU DEVERAJU,parties.IN.UNK,LKD (B),4660,0.74,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-37,andhra-pradesh,1989,37,KARIMNAGAR,ANJANEYULU DEVERAJU,parties.IN.LKD_B,LKD (B),4660,0.74,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-andhra-pradesh-37,andhra-pradesh,1989,37,KARIMNAGAR,MAMINDLA CHINNA BHOOMALAH,parties.IN.LKP,LKP,3942,0.62,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-andhra-pradesh-37,andhra-pradesh,1989,37,KARIMNAGAR,N.BALACHANDER,parties.IN.IND,IND,3684,0.58,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-andhra-pradesh-37,andhra-pradesh,1989,37,KARIMNAGAR,GOTTIMUKKULA EASWARA CHARI,parties.IN.IND,IND,3446,0.55,11,forfeit,U,,,,challenger,src-31c65dbec869
@@ -282,7 +282,7 @@ IN-PC-1976-arunachal-pradesh-2,arunachal-pradesh,1989,2,ARUNACHAL EAST,KHAPRISO 
 IN-PC-1976-bihar-1,bihar,1989,1,BAGAHA,MAHENDRA BAITHA,parties.IN.JD,JD,232362,59.52,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-1,bihar,1989,1,BAGAHA,BHOLARAI,parties.IN.INC,INC,144330,36.97,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-1,bihar,1989,1,BAGAHA,HIRA RAM,parties.IN.IND,IND,5749,1.47,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-1,bihar,1989,1,BAGAHA,MANSAROVER RAM,parties.IN.UNK,LKD (B),4037,1.03,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-1,bihar,1989,1,BAGAHA,MANSAROVER RAM,parties.IN.LKD_B,LKD (B),4037,1.03,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-1,bihar,1989,1,BAGAHA,GHOOGHLI RAM,parties.IN.DDP,DDP,3889,1,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-2,bihar,1989,2,BETTIAH,DHARMESH PRASSAD VERMA,parties.IN.JD,JD,209009,40.94,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-2,bihar,1989,2,BETTIAH,ABDUL MOGANI KAIFI,parties.IN.CPI,CPI,160661,31.47,2,lost,U,,,,challenger,src-31c65dbec869
@@ -292,7 +292,7 @@ IN-PC-1976-bihar-2,bihar,1989,2,BETTIAH,JAYA PRAKASH,parties.IN.BJS,BJS,5948,1.1
 IN-PC-1976-bihar-2,bihar,1989,2,BETTIAH,RAGHUNATH SAHA,parties.IN.DDP,DDP,2177,0.43,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-2,bihar,1989,2,BETTIAH,DEV NARAYAN PRASSAD SASTRI,parties.IN.IND,IND,1844,0.36,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-2,bihar,1989,2,BETTIAH,RAJINDRA PRASAD,parties.IN.IND,IND,1294,0.25,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-2,bihar,1989,2,BETTIAH,SHIVAJI ARYA,parties.IN.UNK,LKD (B),1239,0.24,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-2,bihar,1989,2,BETTIAH,SHIVAJI ARYA,parties.IN.LKD_B,LKD (B),1239,0.24,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-2,bihar,1989,2,BETTIAH,RAMESHVAR MISRA,parties.IN.IND,IND,1020,0.2,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-2,bihar,1989,2,BETTIAH,MANJUR KHAN,parties.IN.IND,IND,853,0.17,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-2,bihar,1989,2,BETTIAH,RAGHUNATH GUPTA,parties.IN.IND,IND,678,0.13,12,forfeit,U,,,,challenger,src-31c65dbec869
@@ -303,7 +303,7 @@ IN-PC-1976-bihar-3,bihar,1989,3,MOTIHARI,KAMALA MISHRA MADHUKAR,parties.IN.CPI,C
 IN-PC-1976-bihar-3,bihar,1989,3,MOTIHARI,PRABHAVATI GUPTA,parties.IN.INC,INC,104485,19.23,3,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-bihar-3,bihar,1989,3,MOTIHARI,RAJ KISHOR BHAGATH,parties.IN.DDP,DDP,5317,0.98,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-3,bihar,1989,3,MOTIHARI,VIJAY K. SINHA,parties.IN.JP,JNP (JP),2895,0.53,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-3,bihar,1989,3,MOTIHARI,KESHAV KUMAR JHA,parties.IN.UNK,LKD (B),1252,0.23,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-3,bihar,1989,3,MOTIHARI,KESHAV KUMAR JHA,parties.IN.LKD_B,LKD (B),1252,0.23,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-3,bihar,1989,3,MOTIHARI,ASHUTHOSH PANDAY,parties.IN.IND,IND,577,0.11,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-3,bihar,1989,3,MOTIHARI,RAMCHANDRA PRASAD SINGH,parties.IN.IND,IND,413,0.08,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-4,bihar,1989,4,GOPALGANJ,RAJMANGAL MISHRA,parties.IN.JD,JD,429563,63.02,1,won,U,,,,challenger,src-31c65dbec869
@@ -314,7 +314,7 @@ IN-PC-1976-bihar-4,bihar,1989,4,GOPALGANJ,PRADEEP KUMAR,parties.IN.IND,IND,2027,
 IN-PC-1976-bihar-4,bihar,1989,4,GOPALGANJ,JAMIL AHMAD,parties.IN.IND,IND,1628,0.24,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-4,bihar,1989,4,GOPALGANJ,RAMESHWAR SINGH,parties.IN.IND,IND,1499,0.22,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-4,bihar,1989,4,GOPALGANJ,CHADURBHUJ PRASSAD,parties.IN.IND,IND,1099,0.16,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-4,bihar,1989,4,GOPALGANJ,SHIVRAJ PRASSAD,parties.IN.UNK,LKD (B),870,0.13,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-4,bihar,1989,4,GOPALGANJ,SHIVRAJ PRASSAD,parties.IN.LKD_B,LKD (B),870,0.13,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-4,bihar,1989,4,GOPALGANJ,SIPAHI RAI,parties.IN.IND,IND,787,0.12,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-5,bihar,1989,5,SIWAN,JANARDAN TIWARI,parties.IN.BJP,BJP,334637,60.52,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-5,bihar,1989,5,SIWAN,ABDUL GAFFUR,parties.IN.INC,INC,175686,31.78,2,lost,U,,,,incumbent,src-31c65dbec869
@@ -338,7 +338,7 @@ IN-PC-1976-bihar-5,bihar,1989,5,SIWAN,SAYAD ND. JAKI NAQUAVI,parties.IN.IND,IND,
 IN-PC-1976-bihar-5,bihar,1989,5,SIWAN,SARAYU PRASSAD,parties.IN.IND,IND,223,0.04,20,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-6,bihar,1989,6,MAHARAJGANJ,CHANRASBEKHAR,parties.IN.JD,JD,382488,65.27,1,won,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-bihar-6,bihar,1989,6,MAHARAJGANJ,KRISHNA PRATAP,parties.IN.INC,INC,165170,28.18,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-6,bihar,1989,6,MAHARAJGANJ,RAMDEO SINGH,parties.IN.UNK,LKD (B),25605,4.37,3,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-bihar-6,bihar,1989,6,MAHARAJGANJ,RAMDEO SINGH,parties.IN.LKD_B,LKD (B),25605,4.37,3,forfeit,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-bihar-6,bihar,1989,6,MAHARAJGANJ,NIZAMUDIN KHAN,parties.IN.IND,IND,1844,0.31,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-6,bihar,1989,6,MAHARAJGANJ,MAHESH SINGH,parties.IN.IND,IND,1800,0.31,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-6,bihar,1989,6,MAHARAJGANJ,BABULAL YADAV,parties.IN.DDP,DDP,1784,0.3,6,forfeit,U,,,,challenger,src-31c65dbec869
@@ -353,7 +353,7 @@ IN-PC-1976-bihar-6,bihar,1989,6,MAHARAJGANJ,VINOD SHARMA,parties.IN.IND,IND,373,
 IN-PC-1976-bihar-7,bihar,1989,7,CHAPRA,LALOO PRASSAD,parties.IN.JD,JD,333897,51.14,1,won,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-bihar-7,bihar,1989,7,CHAPRA,TAJIV RANJAN SINGH,parties.IN.JP,JNP (JP),192015,29.41,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-7,bihar,1989,7,CHAPRA,HAIRA LAL RAI,parties.IN.INC,INC,117327,17.97,3,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-7,bihar,1989,7,CHAPRA,RAMENDRA PRASSAD,parties.IN.UNK,LKD (B),2876,0.44,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-7,bihar,1989,7,CHAPRA,RAMENDRA PRASSAD,parties.IN.LKD_B,LKD (B),2876,0.44,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-7,bihar,1989,7,CHAPRA,MAHBUB MIA,parties.IN.IND,IND,1153,0.18,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-7,bihar,1989,7,CHAPRA,RAM MARAIN SINGH,parties.IN.IND,IND,1057,0.16,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-7,bihar,1989,7,CHAPRA,OM PRAKASH SHARMA,parties.IN.BSP,BSP,899,0.14,7,forfeit,U,,,,challenger,src-31c65dbec869
@@ -370,7 +370,7 @@ IN-PC-1976-bihar-7,bihar,1989,7,CHAPRA,KAMESHVAR OIHA,parties.IN.IND,IND,164,0.0
 IN-PC-1976-bihar-7,bihar,1989,7,CHAPRA,AGIT SINGH,parties.IN.IND,IND,132,0.02,18,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-8,bihar,1989,8,HAJIPUR,RAM VILAS PASWAN,parties.IN.JD,JD,615129,84.08,1,won,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-bihar-8,bihar,1989,8,HAJIPUR,MAHABIR PASWAN,parties.IN.INC,INC,110681,15.13,2,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-8,bihar,1989,8,HAJIPUR,NAGINA RAM,parties.IN.UNK,LKD (B),2238,0.31,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-8,bihar,1989,8,HAJIPUR,NAGINA RAM,parties.IN.LKD_B,LKD (B),2238,0.31,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-8,bihar,1989,8,HAJIPUR,MAHENDRA BAGAT,parties.IN.PVP,PVP,1833,0.25,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-8,bihar,1989,8,HAJIPUR,DASHRATH PASWAN,parties.IN.DDP,DDP,1711,0.23,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-9,bihar,1989,9,VAISHALI,USHA SINGH,parties.IN.JD,JD,441514,62.84,1,won,U,,,,challenger,src-31c65dbec869
@@ -398,7 +398,7 @@ IN-PC-1976-bihar-9,bihar,1989,9,VAISHALI,ASHOK KUMAR SINGH,parties.IN.IND,IND,14
 IN-PC-1976-bihar-9,bihar,1989,9,VAISHALI,NAND KISHORE SAHI,parties.IN.IND,IND,125,0.02,23,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-10,bihar,1989,10,MUZAFFARPUR,GEORGE FARNANDES,parties.IN.JD,JD,492615,68.86,1,won,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-bihar-10,bihar,1989,10,MUZAFFARPUR,LALITESHWAR PD. SAHI,parties.IN.INC,INC,207605,29.02,2,lost,U,,,,incumbent,src-31c65dbec869
-IN-PC-1976-bihar-10,bihar,1989,10,MUZAFFARPUR,RAM KARAN SAHANI,parties.IN.UNK,LKD (B),4198,0.59,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-10,bihar,1989,10,MUZAFFARPUR,RAM KARAN SAHANI,parties.IN.LKD_B,LKD (B),4198,0.59,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-10,bihar,1989,10,MUZAFFARPUR,ASHOK BHARTI,parties.IN.IND,IND,2517,0.35,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-10,bihar,1989,10,MUZAFFARPUR,ASHOK KUMAR,parties.IN.IND,IND,1553,0.22,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-10,bihar,1989,10,MUZAFFARPUR,GIRJA NANDAN PD. SINGH,parties.IN.DDP,DDP,1045,0.15,6,forfeit,U,,,,challenger,src-31c65dbec869
@@ -418,7 +418,7 @@ IN-PC-1976-bihar-10,bihar,1989,10,MUZAFFARPUR,SURJDEO PRASAD SWAMI,parties.IN.IN
 IN-PC-1976-bihar-11,bihar,1989,11,SITAMARHI,HUKUMDEO NARAYAN YADAV,parties.IN.JD,JD,335796,51.88,1,won,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-bihar-11,bihar,1989,11,SITAMARHI,NAGENDRA PD. YADAV,parties.IN.INC,INC,164935,25.48,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-11,bihar,1989,11,SITAMARHI,THANKUR PD. SINGH,parties.IN.BJP,BJP,88366,13.65,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-11,bihar,1989,11,SITAMARHI,INDAL SINGH NAVIN,parties.IN.UNK,LKD (B),44063,6.81,4,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-bihar-11,bihar,1989,11,SITAMARHI,INDAL SINGH NAVIN,parties.IN.LKD_B,LKD (B),44063,6.81,4,forfeit,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-bihar-11,bihar,1989,11,SITAMARHI,MD. MUSHTAQUE KHAN,parties.IN.IND,IND,7044,1.09,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-11,bihar,1989,11,SITAMARHI,SATYENDRANATH VERMA,parties.IN.SOP_L,SOP(L),2790,0.43,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-11,bihar,1989,11,SITAMARHI,MIRTUNJAY JHA,parties.IN.DDP,DDP,1796,0.28,7,forfeit,U,,,,challenger,src-31c65dbec869
@@ -428,7 +428,7 @@ IN-PC-1976-bihar-12,bihar,1989,12,SHEOHAR,HARI KISHOR SINGH,parties.IN.JD,JD,463
 IN-PC-1976-bihar-12,bihar,1989,12,SHEOHAR,MADHUREENDRA KUMAR SINGH,parties.IN.INC,INC,149212,23.85,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-12,bihar,1989,12,SHEOHAR,BHOLA NATH RAY,parties.IN.IND,IND,3556,0.57,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-12,bihar,1989,12,SHEOHAR,JAGAN NATH RAY,parties.IN.DDP,DDP,2203,0.35,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-12,bihar,1989,12,SHEOHAR,RAJNANDAN SAH,parties.IN.UNK,LKD (B),1533,0.25,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-12,bihar,1989,12,SHEOHAR,RAJNANDAN SAH,parties.IN.LKD_B,LKD (B),1533,0.25,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-12,bihar,1989,12,SHEOHAR,DAVENDRA SINGH,parties.IN.IND,IND,1316,0.21,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-12,bihar,1989,12,SHEOHAR,SATYDEO CHAUDHRY,parties.IN.IND,IND,1305,0.21,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-12,bihar,1989,12,SHEOHAR,SURENDRA SINGH,parties.IN.IND,IND,860,0.14,8,forfeit,U,,,,challenger,src-31c65dbec869
@@ -449,7 +449,7 @@ IN-PC-1976-bihar-13,bihar,1989,13,MADHUBANI,ABDUL HASSAN,parties.IN.IND,IND,618,
 IN-PC-1976-bihar-13,bihar,1989,13,MADHUBANI,A. QUDUSH,parties.IN.IND,IND,527,0.1,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-14,bihar,1989,14,JHANJHARPUR,DEVANDRA PRASSAD YADAV,parties.IN.JD,JD,339454,63.8,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-14,bihar,1989,14,JHANJHARPUR,GAURI SANKAR RAJHANS,parties.IN.INC,INC,180118,33.85,2,lost,U,,,,incumbent,src-31c65dbec869
-IN-PC-1976-bihar-14,bihar,1989,14,JHANJHARPUR,RADHAKANT PHADARI,parties.IN.UNK,LKD (B),3843,0.72,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-14,bihar,1989,14,JHANJHARPUR,RADHAKANT PHADARI,parties.IN.LKD_B,LKD (B),3843,0.72,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-14,bihar,1989,14,JHANJHARPUR,VAHANDRA LAL MANDAL,parties.IN.IND,IND,1389,0.26,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-14,bihar,1989,14,JHANJHARPUR,RAMDE YADAV,parties.IN.IND,IND,1348,0.25,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-14,bihar,1989,14,JHANJHARPUR,SHARAVAN KUMAR MISHRA,parties.IN.IND,IND,1204,0.23,6,forfeit,U,,,,challenger,src-31c65dbec869
@@ -473,7 +473,7 @@ IN-PC-1976-bihar-15,bihar,1989,15,DARBHANGA,NASEEM RAHMANI,parties.IN.IND,IND,66
 IN-PC-1976-bihar-15,bihar,1989,15,DARBHANGA,BHUBNESHWAR PRAKASH KUSHWAHA,parties.IN.IND,IND,530,0.08,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-15,bihar,1989,15,DARBHANGA,NARENDRA JHA (JAIWAR),parties.IN.IND,IND,502,0.08,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-15,bihar,1989,15,DARBHANGA,MD. NASEEM (RAJA),parties.IN.IND,IND,499,0.08,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-15,bihar,1989,15,DARBHANGA,DARWARI LAL KEWAT,parties.IN.UNK,LKD (B),441,0.07,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-15,bihar,1989,15,DARBHANGA,DARWARI LAL KEWAT,parties.IN.LKD_B,LKD (B),441,0.07,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-15,bihar,1989,15,DARBHANGA,THAKKO MAHTO,parties.IN.IND,IND,411,0.06,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-15,bihar,1989,15,DARBHANGA,PREMANAND CHOUDHARY,parties.IN.IND,IND,360,0.06,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-15,bihar,1989,15,DARBHANGA,MD. MOJAHID,parties.IN.IND,IND,326,0.05,14,forfeit,U,,,,challenger,src-31c65dbec869
@@ -490,7 +490,7 @@ IN-PC-1976-bihar-16,bihar,1989,16,ROSERA,RAM BHAGAT PASWAN,parties.IN.INC,INC,18
 IN-PC-1976-bihar-16,bihar,1989,16,ROSERA,RAM SEWAK HAZARI,parties.IN.IND,IND,18320,2.96,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-16,bihar,1989,16,ROSERA,RAM PRASSAD PASWAN,parties.IN.IND,IND,5095,0.82,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-16,bihar,1989,16,ROSERA,RAHA RAM,parties.IN.DDP,DDP,3494,0.56,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-16,bihar,1989,16,ROSERA,SIHESWAR MANJHI,parties.IN.UNK,LKD (B),3054,0.49,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-16,bihar,1989,16,ROSERA,SIHESWAR MANJHI,parties.IN.LKD_B,LKD (B),3054,0.49,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-16,bihar,1989,16,ROSERA,NAND KISHORE MAHTO,parties.IN.IND,IND,1392,0.22,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-16,bihar,1989,16,ROSERA,KAMESHWAR PASWAN,parties.IN.IND,IND,1365,0.22,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-16,bihar,1989,16,ROSERA,UDESH BAITHA,parties.IN.IND,IND,1000,0.16,9,forfeit,U,,,,challenger,src-31c65dbec869
@@ -498,7 +498,7 @@ IN-PC-1976-bihar-16,bihar,1989,16,ROSERA,ASHARFI MOCHI,parties.IN.IND,IND,972,0.
 IN-PC-1976-bihar-16,bihar,1989,16,ROSERA,NANDA PASWAN,parties.IN.IND,IND,955,0.15,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-17,bihar,1989,17,SAMASTIPUR,MANJAI LAL,parties.IN.JD,JD,451477,64.96,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-17,bihar,1989,17,SAMASTIPUR,RAMDEO RAI,parties.IN.INC,INC,213796,30.76,2,lost,U,,,,incumbent,src-31c65dbec869
-IN-PC-1976-bihar-17,bihar,1989,17,SAMASTIPUR,SHIVA SHANKAR SAHNI,parties.IN.UNK,LKD (B),8894,1.28,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-17,bihar,1989,17,SAMASTIPUR,SHIVA SHANKAR SAHNI,parties.IN.LKD_B,LKD (B),8894,1.28,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-17,bihar,1989,17,SAMASTIPUR,SURESH CHOUDHARY,parties.IN.IND,IND,5425,0.78,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-17,bihar,1989,17,SAMASTIPUR,JIA RAM SINGH,parties.IN.IND,IND,2424,0.35,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-17,bihar,1989,17,SAMASTIPUR,JOGI RAI,parties.IN.DDP,DDP,1516,0.22,6,forfeit,U,,,,challenger,src-31c65dbec869
@@ -540,12 +540,12 @@ IN-PC-1976-bihar-18,bihar,1989,18,BARH,MD. ISLAM,parties.IN.IND,IND,210,0.03,18,
 IN-PC-1976-bihar-18,bihar,1989,18,BARH,RAJDEV PD. SINGH,parties.IN.IND,IND,179,0.03,19,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-18,bihar,1989,18,BARH,RAJIV RANJAN PD.,parties.IN.IND,IND,174,0.02,20,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-18,bihar,1989,18,BARH,SUBODH KUMAR SAHU,parties.IN.IND,IND,170,0.02,21,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-18,bihar,1989,18,BARH,RAVINDRA NATH SINGH,parties.IN.UNK,LKD (B),163,0.02,22,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-18,bihar,1989,18,BARH,RAVINDRA NATH SINGH,parties.IN.LKD_B,LKD (B),163,0.02,22,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-18,bihar,1989,18,BARH,SHIV NANDAN PRASAD,parties.IN.IND,IND,141,0.02,23,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-18,bihar,1989,18,BARH,ARUN KUMAR SINGH,parties.IN.IND,IND,75,0.01,24,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-19,bihar,1989,19,BALIA,SURYANARAYAN SINGH,parties.IN.CPI,CPI,324353,63.36,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-19,bihar,1989,19,BALIA,CHANDRA BHATU DEVI,parties.IN.INC,INC,162904,31.82,2,lost,U,,,,incumbent,src-31c65dbec869
-IN-PC-1976-bihar-19,bihar,1989,19,BALIA,MADHU SUDAN PASWAN,parties.IN.UNK,LKD (B),7934,1.55,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-19,bihar,1989,19,BALIA,MADHU SUDAN PASWAN,parties.IN.LKD_B,LKD (B),7934,1.55,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-19,bihar,1989,19,BALIA,MD. JAMALUDDIN,parties.IN.IND,IND,3965,0.77,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-19,bihar,1989,19,BALIA,ANGAD SINGH,parties.IN.DDP,DDP,3650,0.71,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-19,bihar,1989,19,BALIA,SIYA RAM MAHTO PRABHANJAU,parties.IN.IND,IND,3257,0.64,6,forfeit,U,,,,challenger,src-31c65dbec869
@@ -687,7 +687,7 @@ IN-PC-1976-bihar-32,bihar,1989,32,MONGHYR,JAGAT NARAYAN BHAGAT,parties.IN.IND,IN
 IN-PC-1976-bihar-32,bihar,1989,32,MONGHYR,SUK DEO MANDAL,parties.IN.IND,IND,302,0.04,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-33,bihar,1989,33,BEGUSARAI,LALIT VIJAY SINGH,parties.IN.JD,JD,333570,55.25,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-33,bihar,1989,33,BEGUSARAI,KRISHNA SAHI,parties.IN.INC,INC,258849,42.88,2,lost,U,,,,incumbent,src-31c65dbec869
-IN-PC-1976-bihar-33,bihar,1989,33,BEGUSARAI,JAY SHANKAR YADAV,parties.IN.UNK,LKD (B),2429,0.4,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-33,bihar,1989,33,BEGUSARAI,JAY SHANKAR YADAV,parties.IN.LKD_B,LKD (B),2429,0.4,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-33,bihar,1989,33,BEGUSARAI,LADU LAL TANTI,parties.IN.IND,IND,2224,0.37,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-33,bihar,1989,33,BEGUSARAI,RAM BAHADUR SINGH,parties.IN.IND,IND,1941,0.32,5,forfeit,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-bihar-33,bihar,1989,33,BEGUSARAI,SITA RAM SHAH,parties.IN.DDP,DDP,1785,0.3,6,forfeit,U,,,,challenger,src-31c65dbec869
@@ -705,7 +705,7 @@ IN-PC-1976-bihar-34,bihar,1989,34,NALANDA,SITA RAM SINGH,parties.IN.JP,JNP (JP),
 IN-PC-1976-bihar-34,bihar,1989,34,NALANDA,SHISHUPAL KUMAR,parties.IN.IND,IND,756,0.11,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-34,bihar,1989,34,NALANDA,SHIBOO MAHTO,parties.IN.IND,IND,555,0.08,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-34,bihar,1989,34,NALANDA,UDIR PRASAD,parties.IN.IND,IND,508,0.07,12,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-34,bihar,1989,34,NALANDA,VIJAYANAND PRASAD,parties.IN.UNK,LKD (B),489,0.07,13,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-34,bihar,1989,34,NALANDA,VIJAYANAND PRASAD,parties.IN.LKD_B,LKD (B),489,0.07,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-34,bihar,1989,34,NALANDA,ANIL KUMAR,parties.IN.IND,IND,301,0.04,14,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-35,bihar,1989,35,PATNA,SHAILENDRA NATH SRIVASTAVA,parties.IN.BJP,BJP,187666,30.2,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-35,bihar,1989,35,PATNA,C.P.THAKUR,parties.IN.INC,INC,166073,26.73,2,lost,U,,,,incumbent,src-31c65dbec869
@@ -719,7 +719,7 @@ IN-PC-1976-bihar-35,bihar,1989,35,PATNA,AHOK SINGH CHANDRABANSHI,parties.IN.IND,
 IN-PC-1976-bihar-35,bihar,1989,35,PATNA,MITHILESH YADAV,parties.IN.IND,IND,765,0.12,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-35,bihar,1989,35,PATNA,JAI SHANKER PD. JHA,parties.IN.JP,JNP (JP),630,0.1,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-35,bihar,1989,35,PATNA,KAMAL NATH CHOUDHARY,parties.IN.SUCI,SUC,576,0.09,12,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-35,bihar,1989,35,PATNA,PRABHAT KUMAR,parties.IN.UNK,LKD (B),525,0.08,13,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-35,bihar,1989,35,PATNA,PRABHAT KUMAR,parties.IN.LKD_B,LKD (B),525,0.08,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-35,bihar,1989,35,PATNA,UMA RAI,parties.IN.IND,IND,495,0.08,14,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-35,bihar,1989,35,PATNA,DINESH SINGH,parties.IN.IND,IND,433,0.07,15,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-35,bihar,1989,35,PATNA,BHAI KEDAR NATH,parties.IN.IND,IND,410,0.07,16,forfeit,U,,,,challenger,src-31c65dbec869
@@ -744,7 +744,7 @@ IN-PC-1976-bihar-36,bihar,1989,36,ARRAH,RAMESHWAR PRASAD,parties.IN.IPF,IPF,1782
 IN-PC-1976-bihar-36,bihar,1989,36,ARRAH,TULSI SINGH,parties.IN.JD,JD,161771,29.64,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-36,bihar,1989,36,ARRAH,BALIRAM BHAGAT,parties.IN.INC,INC,125384,22.97,3,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-bihar-36,bihar,1989,36,ARRAH,SATINDER NARAYAN SINGH,parties.IN.BJP,BJP,54246,9.94,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-36,bihar,1989,36,ARRAH,RAMAWADESH SINGH,parties.IN.UNK,LKD (B),9365,1.72,5,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-bihar-36,bihar,1989,36,ARRAH,RAMAWADESH SINGH,parties.IN.LKD_B,LKD (B),9365,1.72,5,forfeit,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-bihar-36,bihar,1989,36,ARRAH,SANT KUMAR SINGH,parties.IN.SSD,SSD,2628,0.48,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-36,bihar,1989,36,ARRAH,DEVENDER KUMAR SINGH,parties.IN.IND,IND,1704,0.31,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-36,bihar,1989,36,ARRAH,RAJENDRA PRASAD SINGH,parties.IN.IND,IND,1473,0.27,8,forfeit,U,,,,challenger,src-31c65dbec869
@@ -768,7 +768,7 @@ IN-PC-1976-bihar-37,bihar,1989,37,BUXAR,RANJI SINGH,parties.IN.BKUS,BKUS,3504,0.
 IN-PC-1976-bihar-37,bihar,1989,37,BUXAR,SURAJ PRASAD SINGH,parties.IN.IND,IND,1925,0.35,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-37,bihar,1989,37,BUXAR,SHOBHNATH RAM,parties.IN.BSP,BSP,1841,0.34,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-37,bihar,1989,37,BUXAR,KALIKA SINGH,parties.IN.IND,IND,1456,0.27,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-37,bihar,1989,37,BUXAR,SUBHAS CHANDRA SINGH,parties.IN.UNK,LKD (B),1206,0.22,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-37,bihar,1989,37,BUXAR,SUBHAS CHANDRA SINGH,parties.IN.LKD_B,LKD (B),1206,0.22,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-37,bihar,1989,37,BUXAR,SHEONATH PANDEY,parties.IN.IND,IND,1124,0.21,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-37,bihar,1989,37,BUXAR,RAMNEH SAH,parties.IN.IND,IND,1006,0.18,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-37,bihar,1989,37,BUXAR,SHYAM SUNDER SINGH,parties.IN.JP,JNP (JP),900,0.16,11,forfeit,U,,,,challenger,src-31c65dbec869
@@ -784,14 +784,14 @@ IN-PC-1976-bihar-38,bihar,1989,38,SASARAM,CHHEDI PASWAN,parties.IN.JD,JD,306615,
 IN-PC-1976-bihar-38,bihar,1989,38,SASARAM,MEERA KUMAR,parties.IN.INC,INC,192959,36.31,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-bihar-38,bihar,1989,38,SASARAM,PARSU RAM LAL,parties.IN.IPF,IPF,14082,2.65,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-38,bihar,1989,38,SASARAM,KALWSHWAR RAM,parties.IN.BSP,BSP,12973,2.44,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-38,bihar,1989,38,SASARAM,RAM VACHEN RAM,parties.IN.UNK,LKD (B),2194,0.41,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-38,bihar,1989,38,SASARAM,RAM VACHEN RAM,parties.IN.LKD_B,LKD (B),2194,0.41,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-38,bihar,1989,38,SASARAM,ARUN KUMAR RAM,parties.IN.IND,IND,1739,0.33,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-38,bihar,1989,38,SASARAM,GHASITA RAM COUDHARY,parties.IN.IND,IND,870,0.16,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-39,bihar,1989,39,BIKRAMGANJ,RAM PARSAD SINGH,parties.IN.JD,JD,219941,40.86,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-39,bihar,1989,39,BIKRAMGANJ,TAPESHWAR SINGH,parties.IN.INC,INC,93948,17.45,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-bihar-39,bihar,1989,39,BIKRAMGANJ,BACHCHAN SINGH,parties.IN.IPF,IPF,88085,16.36,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-39,bihar,1989,39,BIKRAMGANJ,KASHI NATH CHAUDHARY,parties.IN.BJP,BJP,78774,14.63,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-39,bihar,1989,39,BIKRAMGANJ,RAM AWADESH SINGH,parties.IN.UNK,LKD (B),45561,8.46,5,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-bihar-39,bihar,1989,39,BIKRAMGANJ,RAM AWADESH SINGH,parties.IN.LKD_B,LKD (B),45561,8.46,5,forfeit,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-bihar-39,bihar,1989,39,BIKRAMGANJ,GULAB RAM,parties.IN.DDP,DDP,2127,0.4,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-39,bihar,1989,39,BIKRAMGANJ,RAM EKBAL VARSI,parties.IN.SOP_L,SOP(L),1445,0.27,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-39,bihar,1989,39,BIKRAMGANJ,RAM SHEO SINGH,parties.IN.IND,IND,1185,0.22,8,forfeit,U,,,,challenger,src-31c65dbec869
@@ -863,7 +863,7 @@ IN-PC-1976-bihar-44,bihar,1989,44,CHATRA,UPENDER NATH VERMA,parties.IN.JD,JD,224
 IN-PC-1976-bihar-44,bihar,1989,44,CHATRA,YOGEHSWAR PARSAD YOGESH,parties.IN.INC,INC,147468,32.53,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-44,bihar,1989,44,CHATRA,RAJA RAM,parties.IN.IPF,IPF,35502,7.83,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-44,bihar,1989,44,CHATRA,MD. WAHAZUL HAQUE,parties.IN.IND,IND,26400,5.82,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-44,bihar,1989,44,CHATRA,PURAN CHAND,parties.IN.UNK,LKD (B),5890,1.3,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-44,bihar,1989,44,CHATRA,PURAN CHAND,parties.IN.LKD_B,LKD (B),5890,1.3,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-44,bihar,1989,44,CHATRA,CHANDRA CHUSHAN PRASAD SHARMA,parties.IN.IND,IND,2850,0.63,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-44,bihar,1989,44,CHATRA,JAMAL MIYA,parties.IN.JMM,JMM,2313,0.51,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-44,bihar,1989,44,CHATRA,SHAMBHU SINGH,parties.IN.IND,IND,1666,0.37,8,forfeit,U,,,,challenger,src-31c65dbec869
@@ -887,7 +887,7 @@ IN-PC-1976-bihar-46,bihar,1989,46,GIRIDIH,SURFRAZ AHMAD,parties.IN.INC,INC,13370
 IN-PC-1976-bihar-46,bihar,1989,46,GIRIDIH,LALCHAND MAHTO,parties.IN.JD,JD,26602,5.48,4,forfeit,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-bihar-46,bihar,1989,46,GIRIDIH,B.K.DUBEY,parties.IN.IND,IND,2366,0.49,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-46,bihar,1989,46,GIRIDIH,KRISHNA M.,parties.IN.DDP,DDP,1531,0.32,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-47,bihar,1989,47,DHANBAD,A.K.ROY,parties.IN.UNK,M-COR,247013,38.78,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-47,bihar,1989,47,DHANBAD,A.K.ROY,parties.IN.MCO,M-COR,247013,38.78,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-47,bihar,1989,47,DHANBAD,SAMRESH SINGH,parties.IN.BJP,BJP,233442,36.65,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-47,bihar,1989,47,DHANBAD,SHANKAR DAYAL SINGH,parties.IN.INC,INC,118770,18.64,3,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-bihar-47,bihar,1989,47,DHANBAD,VIRJU,parties.IN.IND,IND,5521,0.87,4,forfeit,U,,,,challenger,src-31c65dbec869
@@ -916,7 +916,7 @@ IN-PC-1976-bihar-48,bihar,1989,48,HAZARIBAGH,TIRBESHI GHOSH,parties.IN.IPF,IPF,2
 IN-PC-1976-bihar-48,bihar,1989,48,HAZARIBAGH,ARJUN RAM,parties.IN.IND,IND,10937,2.06,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-48,bihar,1989,48,HAZARIBAGH,BIJAY RANA,parties.IN.DDP,DDP,4543,0.86,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-48,bihar,1989,48,HAZARIBAGH,MD. YUNUS ANSARI,parties.IN.IND,IND,2194,0.41,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-48,bihar,1989,48,HAZARIBAGH,MADAN MOHAN BAKTA,parties.IN.UNK,LKD (B),1960,0.37,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-48,bihar,1989,48,HAZARIBAGH,MADAN MOHAN BAKTA,parties.IN.LKD_B,LKD (B),1960,0.37,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-48,bihar,1989,48,HAZARIBAGH,SHRI PAL TIWARI,parties.IN.IND,IND,1656,0.31,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-48,bihar,1989,48,HAZARIBAGH,IBRAHIM,parties.IN.IND,IND,1561,0.29,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-48,bihar,1989,48,HAZARIBAGH,JOHN PANKAJ,parties.IN.IND,IND,1311,0.25,11,forfeit,U,,,,challenger,src-31c65dbec869
@@ -929,7 +929,7 @@ IN-PC-1976-bihar-49,bihar,1989,49,RANCHI,GULAM MUSTAFA,parties.IN.JKD,JKD,2992,0
 IN-PC-1976-bihar-49,bihar,1989,49,RANCHI,RAJ KISHORE BHAIYA,parties.IN.DDP,DDP,2768,0.59,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-49,bihar,1989,49,RANCHI,AJAY KUMAR KACHCHAP,parties.IN.IND,IND,1769,0.38,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-49,bihar,1989,49,RANCHI,SANT LAL WADHWA,parties.IN.IND,IND,1631,0.35,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-49,bihar,1989,49,RANCHI,THEODORE KUJUR,parties.IN.UNK,LKD (B),1280,0.27,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-49,bihar,1989,49,RANCHI,THEODORE KUJUR,parties.IN.LKD_B,LKD (B),1280,0.27,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-49,bihar,1989,49,RANCHI,SHAFIQUE ALAM,parties.IN.IND,IND,1013,0.22,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-49,bihar,1989,49,RANCHI,SATYA NAIAIN SINGH,parties.IN.IND,IND,942,0.2,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-49,bihar,1989,49,RANCHI,RAJENDRA SINGH,parties.IN.CPIM,CPM,899,0.19,13,forfeit,U,,,,challenger,src-31c65dbec869
@@ -938,7 +938,7 @@ IN-PC-1976-bihar-49,bihar,1989,49,RANCHI,JITWAI MAHTO,parties.IN.IND,IND,782,0.1
 IN-PC-1976-bihar-49,bihar,1989,49,RANCHI,AWADHASWAR CHOWDHARY,parties.IN.IND,IND,651,0.14,16,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-49,bihar,1989,49,RANCHI,MANOHAR MAHTO,parties.IN.IND,IND,603,0.13,17,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-49,bihar,1989,49,RANCHI,SHIV PRASAD AGARWAL,parties.IN.IND,IND,602,0.13,18,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-49,bihar,1989,49,RANCHI,SERAJ ANSARI,parties.IN.UNK,LMS,575,0.12,19,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-49,bihar,1989,49,RANCHI,SERAJ ANSARI,parties.IN.LMD,LMS,575,0.12,19,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-50,bihar,1989,50,JAMSHEDPUR,SHAILENDRA MAHTO,parties.IN.JMM,JMM,140006,27.12,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-50,bihar,1989,50,JAMSHEDPUR,CHANDAN BAGCHI,parties.IN.INC,INC,131122,25.4,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-50,bihar,1989,50,JAMSHEDPUR,RUDRA PRATAP SARANGI,parties.IN.BJP,BJP,118582,22.97,3,lost,U,,,,challenger,src-31c65dbec869
@@ -959,7 +959,7 @@ IN-PC-1976-bihar-51,bihar,1989,51,SINGHBHUM,DEVENDRA MANJHI,parties.IN.IND,IND,4
 IN-PC-1976-bihar-51,bihar,1989,51,SINGHBHUM,JAIRAM CHANDRA TUDU,parties.IN.JKD,JKD,6606,2.39,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-51,bihar,1989,51,SINGHBHUM,KALOI BIRUA,parties.IN.IND,IND,2592,0.94,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-51,bihar,1989,51,SINGHBHUM,RAMASHWAR BODRA,parties.IN.DDP,DDP,1859,0.67,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-51,bihar,1989,51,SINGHBHUM,YOGENDER MUNI,parties.IN.UNK,LKD (B),1751,0.63,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-bihar-51,bihar,1989,51,SINGHBHUM,YOGENDER MUNI,parties.IN.LKD_B,LKD (B),1751,0.63,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-51,bihar,1989,51,SINGHBHUM,MEWA LAL HONHAGA,parties.IN.IND,IND,1545,0.56,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-51,bihar,1989,51,SINGHBHUM,SONARAM NAG,parties.IN.IND,IND,905,0.33,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-51,bihar,1989,51,SINGHBHUM,MAIKEL NAG,parties.IN.IND,IND,749,0.27,11,forfeit,U,,,,challenger,src-31c65dbec869
@@ -986,7 +986,7 @@ IN-PC-1976-bihar-54,bihar,1989,54,PALAMAU,JAORWAR RAM,parties.IN.JD,JD,142573,37
 IN-PC-1976-bihar-54,bihar,1989,54,PALAMAU,RAM DEO RAM,parties.IN.BJP,BJP,109177,28.56,2,lost,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-bihar-54,bihar,1989,54,PALAMAU,KAMLA KUMARI,parties.IN.INC,INC,89267,23.35,3,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-bihar-54,bihar,1989,54,PALAMAU,KISHORE KUMAR,parties.IN.IPF,IPF,22965,6.01,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-bihar-54,bihar,1989,54,PALAMAU,JAGJIBAN RAM,parties.IN.UNK,LKD (B),8117,2.12,5,forfeit,U,,,,incumbent,src-31c65dbec869
+IN-PC-1976-bihar-54,bihar,1989,54,PALAMAU,JAGJIBAN RAM,parties.IN.LKD_B,LKD (B),8117,2.12,5,forfeit,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-bihar-54,bihar,1989,54,PALAMAU,BIRBAL RAM,parties.IN.DDP,DDP,3737,0.98,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-54,bihar,1989,54,PALAMAU,UNDESWAR RAM,parties.IN.PBI,PBI,3341,0.87,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-bihar-54,bihar,1989,54,PALAMAU,BHIKHAM MOCHI,parties.IN.IND,IND,3117,0.82,8,forfeit,U,,,,challenger,src-31c65dbec869
@@ -1004,7 +1004,7 @@ IN-PC-1976-chandigarh-1,chandigarh,1989,1,CHANDIGARH,SHYAM BAHADUR SINGH,parties
 IN-PC-1976-chandigarh-1,chandigarh,1989,1,CHANDIGARH,JAGAT RAM,parties.IN.IND,IND,257,0.12,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-chandigarh-1,chandigarh,1989,1,CHANDIGARH,RAM CHAND,parties.IN.IND,IND,165,0.08,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-chandigarh-1,chandigarh,1989,1,CHANDIGARH,BHUPINDER SINGH,parties.IN.SADM,SAD(M),133,0.06,14,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-chandigarh-1,chandigarh,1989,1,CHANDIGARH,GURBACHAN SINGH ANAND,parties.IN.UNK,LKD (B),132,0.06,15,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-chandigarh-1,chandigarh,1989,1,CHANDIGARH,GURBACHAN SINGH ANAND,parties.IN.LKD_B,LKD (B),132,0.06,15,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-chandigarh-1,chandigarh,1989,1,CHANDIGARH,JOGINDER SINGH,parties.IN.IND,IND,124,0.06,16,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-chandigarh-1,chandigarh,1989,1,CHANDIGARH,SURJIT SINGH SODHI S/O VERYAM SINGH,parties.IN.IND,IND,117,0.05,17,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-chandigarh-1,chandigarh,1989,1,CHANDIGARH,CHARAN JEET SINGH,parties.IN.IND,IND,96,0.04,18,forfeit,U,,,,challenger,src-31c65dbec869
@@ -1039,7 +1039,7 @@ IN-PC-1976-delhi-1,delhi,1989,1,NEW DELHI,GAJANAND SHARMA,parties.IN.IND,IND,334
 IN-PC-1976-delhi-1,delhi,1989,1,NEW DELHI,RAKESH KAPOOR,parties.IN.DDP,DDP,330,0.14,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-1,delhi,1989,1,NEW DELHI,VICTOR DAVID,parties.IN.IND,IND,318,0.14,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-1,delhi,1989,1,NEW DELHI,CHHIDAN LAL SELALAN BALMIKI,parties.IN.LMD,LMD,289,0.12,12,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-delhi-1,delhi,1989,1,NEW DELHI,KANTA LAXMI,parties.IN.UNK,LKD (B),279,0.12,13,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-delhi-1,delhi,1989,1,NEW DELHI,KANTA LAXMI,parties.IN.LKD_B,LKD (B),279,0.12,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-1,delhi,1989,1,NEW DELHI,IS CHAUHAN,parties.IN.IND,IND,245,0.11,14,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-1,delhi,1989,1,NEW DELHI,AFZAL KHAN,parties.IN.IND,IND,234,0.1,15,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-1,delhi,1989,1,NEW DELHI,SHANKAR PRASAD BARUA,parties.IN.IND,IND,230,0.1,16,forfeit,U,,,,challenger,src-31c65dbec869
@@ -1055,10 +1055,10 @@ IN-PC-1976-delhi-2,delhi,1989,2,SOUTH DELHI,K. L. KAPOOR,parties.IN.IND,IND,822,
 IN-PC-1976-delhi-2,delhi,1989,2,SOUTH DELHI,GANDHI,parties.IN.IND,IND,736,0.15,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-2,delhi,1989,2,SOUTH DELHI,MAJOR K. V. BAKSHI,parties.IN.IND,IND,590,0.12,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-2,delhi,1989,2,SOUTH DELHI,SUBHASH CHOPRA,parties.IN.IND,IND,558,0.12,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-delhi-2,delhi,1989,2,SOUTH DELHI,JAGDISH GUPTA,parties.IN.UNK,ICJ(TG),547,0.11,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-delhi-2,delhi,1989,2,SOUTH DELHI,JAGDISH GUPTA,parties.IN.ICJ_TG,ICJ(TG),547,0.11,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-2,delhi,1989,2,SOUTH DELHI,P. CHAKRABORTY,parties.IN.IND,IND,539,0.11,12,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-delhi-2,delhi,1989,2,SOUTH DELHI,BABU LAL SAGAR,parties.IN.UNK,RPI(GG),539,0.11,13,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-delhi-2,delhi,1989,2,SOUTH DELHI,PIARE MIAN,parties.IN.UNK,LKD (B),510,0.11,14,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-delhi-2,delhi,1989,2,SOUTH DELHI,BABU LAL SAGAR,parties.IN.RPI_GG,RPI(GG),539,0.11,13,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-delhi-2,delhi,1989,2,SOUTH DELHI,PIARE MIAN,parties.IN.LKD_B,LKD (B),510,0.11,14,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-2,delhi,1989,2,SOUTH DELHI,SUDERSHAN KUMAR,parties.IN.IND,IND,453,0.1,15,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-2,delhi,1989,2,SOUTH DELHI,SUBHASH CHAND,parties.IN.IND,IND,381,0.08,16,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-2,delhi,1989,2,SOUTH DELHI,DASRATH,parties.IN.DDP,DDP,355,0.07,17,forfeit,U,,,,challenger,src-31c65dbec869
@@ -1088,13 +1088,13 @@ IN-PC-1976-delhi-3,delhi,1989,3,OUTER DELHI,TARIF SINGH,parties.IN.JD,JD,384076,
 IN-PC-1976-delhi-3,delhi,1989,3,OUTER DELHI,BHARAT SINGH,parties.IN.INC,INC,331743,42.72,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-delhi-3,delhi,1989,3,OUTER DELHI,JAI RAM SINGH JAI,parties.IN.BSP,BSP,24392,3.14,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-3,delhi,1989,3,OUTER DELHI,JAGDISH LOHIA,parties.IN.JP,JNP (JP),4982,0.64,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-delhi-3,delhi,1989,3,OUTER DELHI,CH. KAMAL SINGH,parties.IN.UNK,ICJ(TG),3561,0.46,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-delhi-3,delhi,1989,3,OUTER DELHI,CH. KAMAL SINGH,parties.IN.ICJ_TG,ICJ(TG),3561,0.46,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-3,delhi,1989,3,OUTER DELHI,JAI RAM MAURYA,parties.IN.IND,IND,2872,0.37,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-3,delhi,1989,3,OUTER DELHI,SHIV KUMAR TYAGI,parties.IN.IND,IND,2407,0.31,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-3,delhi,1989,3,OUTER DELHI,MADAN LAL,parties.IN.IND,IND,1680,0.22,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-3,delhi,1989,3,OUTER DELHI,PURSHOTAM,parties.IN.IND,IND,1471,0.19,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-3,delhi,1989,3,OUTER DELHI,SHIV LAL,parties.IN.DDP,DDP,1407,0.18,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-delhi-3,delhi,1989,3,OUTER DELHI,SUSHIL,parties.IN.UNK,LKD (B),1096,0.14,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-delhi-3,delhi,1989,3,OUTER DELHI,SUSHIL,parties.IN.LKD_B,LKD (B),1096,0.14,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-3,delhi,1989,3,OUTER DELHI,NOORUDDIN KHAN,parties.IN.IND,IND,1080,0.14,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-3,delhi,1989,3,OUTER DELHI,RAJESHWAR,parties.IN.IND,IND,920,0.12,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-3,delhi,1989,3,OUTER DELHI,MADAN LAL GOYAL,parties.IN.HMS,HMS,849,0.11,14,forfeit,U,,,,challenger,src-31c65dbec869
@@ -1144,17 +1144,17 @@ IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,CHARANJIT SINGH,parties.IN.IND,IND,49
 IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,ADYA PRASAD,parties.IN.IND,IND,2900,0.4,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,RASHID SALEEM,parties.IN.RPI,RPI,2742,0.38,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,BRIJESH KUMAR,parties.IN.IND,IND,2633,0.36,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,ROHTASH SINGH MANN,parties.IN.UNK,ICJ(TG),2111,0.29,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,ROHTASH SINGH MANN,parties.IN.ICJ_TG,ICJ(TG),2111,0.29,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,SOMAY SINGH,parties.IN.IND,IND,1992,0.28,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,BHAGWAN SAHAI,parties.IN.IND,IND,1945,0.27,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,VIJAY PAL SINGH,parties.IN.DDP,DDP,1915,0.27,14,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,NARESH,parties.IN.IND,IND,1663,0.23,15,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,RAM KARAN,parties.IN.IND,IND,1603,0.22,16,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,SHARIF AHMED,parties.IN.IND,IND,1469,0.2,17,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,PAWAN KUMAR,parties.IN.UNK,PDI,1392,0.19,18,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,PAWAN KUMAR,parties.IN.PDI,PDI,1392,0.19,18,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,PARMOD JAIN,parties.IN.IND,IND,1275,0.18,19,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,HUMAYU KHAN,parties.IN.IND,IND,1217,0.17,20,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,SANWAL DASS,parties.IN.UNK,LKD (B),1144,0.16,21,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,SANWAL DASS,parties.IN.LKD_B,LKD (B),1144,0.16,21,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,C. S. RATHOUR,parties.IN.IND,IND,1014,0.14,22,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,JAGAT SINGH,parties.IN.IND,IND,1003,0.14,23,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-4,delhi,1989,4,EAST DELHI,VIDYA RAM MISHRA,parties.IN.IND,IND,983,0.14,24,forfeit,U,,,,challenger,src-31c65dbec869
@@ -1233,7 +1233,7 @@ IN-PC-1976-delhi-6,delhi,1989,6,DELHI SADAR,JAGDISH RAI,parties.IN.IND,IND,299,0
 IN-PC-1976-delhi-6,delhi,1989,6,DELHI SADAR,SHRI RAM,parties.IN.JP,JNP (JP),286,0.09,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-6,delhi,1989,6,DELHI SADAR,SHATRUGHAN SINGH,parties.IN.IND,IND,190,0.06,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-6,delhi,1989,6,DELHI SADAR,VINAY DUA,parties.IN.IND,IND,185,0.06,14,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-delhi-6,delhi,1989,6,DELHI SADAR,SATPRAKASH GUPTA,parties.IN.UNK,LKD (B),166,0.05,15,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-delhi-6,delhi,1989,6,DELHI SADAR,SATPRAKASH GUPTA,parties.IN.LKD_B,LKD (B),166,0.05,15,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-6,delhi,1989,6,DELHI SADAR,SUNIL GUPTA,parties.IN.IND,IND,161,0.05,16,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-6,delhi,1989,6,DELHI SADAR,JIVAN LAL,parties.IN.HSS,HSS,160,0.05,17,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-6,delhi,1989,6,DELHI SADAR,RAJ KUMAR MAHAJAN,parties.IN.IND,IND,150,0.05,18,forfeit,U,,,,challenger,src-31c65dbec869
@@ -1260,7 +1260,7 @@ IN-PC-1976-delhi-7,delhi,1989,7,KAROL BAGH,KARAN SINGH DEWAN,parties.IN.RPI,RPI,
 IN-PC-1976-delhi-7,delhi,1989,7,KAROL BAGH,SUNDER LAL,parties.IN.IND,IND,248,0.09,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-7,delhi,1989,7,KAROL BAGH,RAI SAHAB SONI,parties.IN.IND,IND,235,0.08,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-7,delhi,1989,7,KAROL BAGH,BABU LAL TORI,parties.IN.IND,IND,156,0.05,11,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-delhi-7,delhi,1989,7,KAROL BAGH,HEM RAJ,parties.IN.UNK,LMS,128,0.04,12,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-delhi-7,delhi,1989,7,KAROL BAGH,HEM RAJ,parties.IN.LMD,LMS,128,0.04,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-7,delhi,1989,7,KAROL BAGH,LEKH RAM SARSONIA,parties.IN.IND,IND,121,0.04,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-7,delhi,1989,7,KAROL BAGH,ASHOK KUMAR BACHAWANDIA,parties.IN.IND,IND,76,0.03,14,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-delhi-7,delhi,1989,7,KAROL BAGH,RAGHUBIR SINGH AZAD,parties.IN.IND,IND,59,0.02,15,forfeit,U,,,,challenger,src-31c65dbec869
@@ -1517,7 +1517,7 @@ IN-PC-1976-gujarat-22,gujarat,1989,22,BARODA,S.L.PATEL,parties.IN.IND,IND,7787,1
 IN-PC-1976-gujarat-22,gujarat,1989,22,BARODA,JASPAL SINGH,parties.IN.IND,IND,1828,0.27,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-gujarat-22,gujarat,1989,22,BARODA,THAKKAR GITABEN JAYENDRABHAI,parties.IN.DDP,DDP,1558,0.23,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-gujarat-22,gujarat,1989,22,BARODA,PREM JAYPRAKAH B.PREM,parties.IN.IND,IND,1102,0.16,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-gujarat-22,gujarat,1989,22,BARODA,SAIYED ABDULAZIZJJALALUDIN,parties.IN.UNK,LKD (B),949,0.14,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-gujarat-22,gujarat,1989,22,BARODA,SAIYED ABDULAZIZJJALALUDIN,parties.IN.LKD_B,LKD (B),949,0.14,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-gujarat-22,gujarat,1989,22,BARODA,SADARIY ATMARAM BHIKHABHAI,parties.IN.IND,IND,581,0.08,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-gujarat-22,gujarat,1989,22,BARODA,KANCHANBHAI KALABHAI ROHIT,parties.IN.IND,IND,413,0.06,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-gujarat-22,gujarat,1989,22,BARODA,VAGHELA PIYUSHKUMAR LALGIBHAI,parties.IN.IND,IND,396,0.06,11,forfeit,U,,,,challenger,src-31c65dbec869
@@ -1556,7 +1556,7 @@ IN-PC-1976-haryana-1,haryana,1989,1,AMBALA,AMAN KUMAR,parties.IN.BSP,BSP,45389,7
 IN-PC-1976-haryana-1,haryana,1989,1,AMBALA,NAR SINGH S/O NETA RAM,parties.IN.IND,IND,7036,1.23,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-1,haryana,1989,1,AMBALA,NAR SINGH S/O KALDORI,parties.IN.DDP,DDP,5056,0.89,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-1,haryana,1989,1,AMBALA,MUKH RAM,parties.IN.IND,IND,2280,0.4,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-1,haryana,1989,1,AMBALA,SUMER CHAND YATRI,parties.IN.UNK,LKD (B),2088,0.37,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-haryana-1,haryana,1989,1,AMBALA,SUMER CHAND YATRI,parties.IN.LKD_B,LKD (B),2088,0.37,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-1,haryana,1989,1,AMBALA,KARTAR CHAND,parties.IN.IND,IND,2014,0.35,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-1,haryana,1989,1,AMBALA,NATHI RAM,parties.IN.IND,IND,1767,0.31,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-2,haryana,1989,2,KURUKSHETRA,GURDIAL SINGH SAINI,parties.IN.JD,JD,301640,49.72,1,won,U,,,,challenger,src-31c65dbec869
@@ -1571,7 +1571,7 @@ IN-PC-1976-haryana-2,haryana,1989,2,KURUKSHETRA,GURDEV SINGH SAINI,parties.IN.IN
 IN-PC-1976-haryana-2,haryana,1989,2,KURUKSHETRA,LACHMAN DASS,parties.IN.DDP,DDP,1233,0.2,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-2,haryana,1989,2,KURUKSHETRA,RAGHUBIR,parties.IN.IND,IND,858,0.14,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-2,haryana,1989,2,KURUKSHETRA,JITENDER,parties.IN.IND,IND,703,0.12,12,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-2,haryana,1989,2,KURUKSHETRA,LAL SINGH SAINI,parties.IN.UNK,LKD (B),663,0.11,13,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-haryana-2,haryana,1989,2,KURUKSHETRA,LAL SINGH SAINI,parties.IN.LKD_B,LKD (B),663,0.11,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-2,haryana,1989,2,KURUKSHETRA,DEVIDAYAL,parties.IN.IND,IND,616,0.1,14,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-2,haryana,1989,2,KURUKSHETRA,SURINDER KUMAR,parties.IN.IND,IND,578,0.1,15,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-2,haryana,1989,2,KURUKSHETRA,JAGDISH PARSAD,parties.IN.IND,IND,534,0.09,16,forfeit,U,,,,challenger,src-31c65dbec869
@@ -1631,7 +1631,7 @@ IN-PC-1976-haryana-4,haryana,1989,4,SONEPAT,YOGESH KUMAR,parties.IN.BSP,BSP,2190
 IN-PC-1976-haryana-4,haryana,1989,4,SONEPAT,RAJENDER SINGH S/OHARI SINGH,parties.IN.DDP,DDP,1446,0.24,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-4,haryana,1989,4,SONEPAT,OM RANI,parties.IN.IND,IND,1406,0.23,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-4,haryana,1989,4,SONEPAT,ANANG PAL,parties.IN.IND,IND,1363,0.23,11,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-4,haryana,1989,4,SONEPAT,OM PARKASH,parties.IN.UNK,LKD (B),880,0.15,12,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-haryana-4,haryana,1989,4,SONEPAT,OM PARKASH,parties.IN.LKD_B,LKD (B),880,0.15,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-4,haryana,1989,4,SONEPAT,RANBIR,parties.IN.IND,IND,854,0.14,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-4,haryana,1989,4,SONEPAT,BHIM SINGH,parties.IN.IND,IND,746,0.12,14,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-4,haryana,1989,4,SONEPAT,HIRA LAL,parties.IN.IND,IND,661,0.11,15,forfeit,U,,,,challenger,src-31c65dbec869
@@ -1676,10 +1676,10 @@ IN-PC-1976-haryana-6,haryana,1989,6,FARIDABAD,PHOOL SINGH,parties.IN.IND,IND,247
 IN-PC-1976-haryana-6,haryana,1989,6,FARIDABAD,MANI RAM SHARMA,parties.IN.IND,IND,1059,0.15,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-6,haryana,1989,6,FARIDABAD,RAM IQBAL PARSAD,parties.IN.DDP,DDP,1045,0.15,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-6,haryana,1989,6,FARIDABAD,JAI PAL SINGH,parties.IN.IND,IND,1001,0.14,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-6,haryana,1989,6,FARIDABAD,KANWAL SINGH,parties.IN.UNK,PDL,918,0.13,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-haryana-6,haryana,1989,6,FARIDABAD,KANWAL SINGH,parties.IN.PDL,PDL,918,0.13,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-6,haryana,1989,6,FARIDABAD,PHOOL CHAND AGGARWAL,parties.IN.IND,IND,700,0.1,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-6,haryana,1989,6,FARIDABAD,MIR SINGH,parties.IN.IND,IND,665,0.1,11,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-6,haryana,1989,6,FARIDABAD,NIHAL,parties.IN.UNK,LKD (B),654,0.09,12,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-haryana-6,haryana,1989,6,FARIDABAD,NIHAL,parties.IN.LKD_B,LKD (B),654,0.09,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-6,haryana,1989,6,FARIDABAD,ADITYA VESH,parties.IN.IND,IND,623,0.09,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-6,haryana,1989,6,FARIDABAD,DAYALA,parties.IN.IND,IND,419,0.06,14,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-6,haryana,1989,6,FARIDABAD,ANIL KUMAR GUPTA,parties.IN.IND,IND,416,0.06,15,forfeit,U,,,,challenger,src-31c65dbec869
@@ -1700,7 +1700,7 @@ IN-PC-1976-haryana-7,haryana,1989,7,MAHENDRAGARH,BUDH RAM,parties.IN.IND,IND,103
 IN-PC-1976-haryana-7,haryana,1989,7,MAHENDRAGARH,MAHAVIR,parties.IN.IND,IND,910,0.14,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-7,haryana,1989,7,MAHENDRAGARH,CHIRANJI,parties.IN.IND,IND,844,0.13,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-7,haryana,1989,7,MAHENDRAGARH,JASWANT,parties.IN.IND,IND,798,0.13,14,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-7,haryana,1989,7,MAHENDRAGARH,MAHABIR,parties.IN.UNK,LKD (B),646,0.1,15,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-haryana-7,haryana,1989,7,MAHENDRAGARH,MAHABIR,parties.IN.LKD_B,LKD (B),646,0.1,15,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-7,haryana,1989,7,MAHENDRAGARH,BHOOP SINGH,parties.IN.IND,IND,617,0.1,16,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-7,haryana,1989,7,MAHENDRAGARH,CHATURBHUJ DIXIT,parties.IN.IND,IND,594,0.09,17,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-haryana-7,haryana,1989,7,MAHENDRAGARH,SUDARSHAN KUMAR,parties.IN.IND,IND,320,0.05,18,forfeit,U,,,,challenger,src-31c65dbec869
@@ -1992,7 +1992,7 @@ IN-PC-1976-karnataka-2,karnataka,1989,2,GULBARGA,SHAMKAR KODLA,parties.IN.RPI,RP
 IN-PC-1976-karnataka-2,karnataka,1989,2,GULBARGA,AMBIKA PRASAD TIWARI,parties.IN.IND,IND,4599,0.77,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-2,karnataka,1989,2,GULBARGA,GUNDAPPA BADLAD,parties.IN.IND,IND,4556,0.76,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-2,karnataka,1989,2,GULBARGA,ABDUL JALEEL,parties.IN.IND,IND,4364,0.73,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-karnataka-2,karnataka,1989,2,GULBARGA,VEERANNA TIMMAJI,parties.IN.UNK,LKD (B),3962,0.66,10,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-karnataka-2,karnataka,1989,2,GULBARGA,VEERANNA TIMMAJI,parties.IN.LKD_B,LKD (B),3962,0.66,10,forfeit,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-karnataka-2,karnataka,1989,2,GULBARGA,HAMEED PASHA SARMAST,parties.IN.IND,IND,1597,0.27,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-3,karnataka,1989,3,RAICHUR,R.AMBANNA NAIK DORE,parties.IN.INC,INC,228065,45.91,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-3,karnataka,1989,3,RAICHUR,NAZEER AHMED SIDSIDDIQUI,parties.IN.JD,JD,139143,28.01,2,lost,U,,,,challenger,src-31c65dbec869
@@ -2040,13 +2040,13 @@ IN-PC-1976-karnataka-10,karnataka,1989,10,KOLAR,C.D.SHIVANNA,parties.IN.JP,JNP (
 IN-PC-1976-karnataka-10,karnataka,1989,10,KOLAR,N.VENKETESHU,parties.IN.IND,IND,19775,2.93,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-10,karnataka,1989,10,KOLAR,B.VENKATASWAMAPPA,parties.IN.IND,IND,4426,0.66,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-10,karnataka,1989,10,KOLAR,S.GURULINGAPPA,parties.IN.IND,IND,3378,0.5,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-karnataka-10,karnataka,1989,10,KOLAR,T.KRISHNAN,parties.IN.UNK,LKD (B),1962,0.29,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-karnataka-10,karnataka,1989,10,KOLAR,T.KRISHNAN,parties.IN.LKD_B,LKD (B),1962,0.29,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-10,karnataka,1989,10,KOLAR,YADIGUR GANGADHARAM,parties.IN.IND,IND,1827,0.27,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-11,karnataka,1989,11,KANAKAPURA,M.V.CHANDRASHEKHARA MURTHY,parties.IN.INC,INC,472265,52.99,1,won,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-karnataka-11,karnataka,1989,11,KANAKAPURA,C.NARAYANASWAMY,parties.IN.JD,JD,217044,24.35,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-11,karnataka,1989,11,KANAKAPURA,B.L.LAKKE GOWDA,parties.IN.JP,JNP (JP),185716,20.84,3,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-11,karnataka,1989,11,KANAKAPURA,M.BASAPPAJI,parties.IN.KRS,KRS,10553,1.18,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-karnataka-11,karnataka,1989,11,KANAKAPURA,K.G.ASHWATHANARAYANAIAH,parties.IN.UNK,LKD (B),2832,0.32,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-karnataka-11,karnataka,1989,11,KANAKAPURA,K.G.ASHWATHANARAYANAIAH,parties.IN.LKD_B,LKD (B),2832,0.32,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-11,karnataka,1989,11,KANAKAPURA,C.MEHADEVASWAMY,parties.IN.IND,IND,2772,0.31,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-12,karnataka,1989,12,BANGALORE NORTH,C.K.JAFFER SHARIEFF,parties.IN.INC,INC,390460,51.85,1,won,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-karnataka-12,karnataka,1989,12,BANGALORE NORTH,LAWRENCE V.FERNANDES,parties.IN.JD,JD,283336,37.63,2,lost,U,,,,challenger,src-31c65dbec869
@@ -2173,11 +2173,11 @@ IN-PC-1976-karnataka-24,karnataka,1989,24,DHARWAD NORTH,S.F.KORLAHALLI,parties.I
 IN-PC-1976-karnataka-24,karnataka,1989,24,DHARWAD NORTH,SAROJINI MAHISHI,parties.IN.IND,IND,5787,0.95,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-24,karnataka,1989,24,DHARWAD NORTH,A.G.BETAGERI,parties.IN.IUML,MUL,3877,0.64,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-24,karnataka,1989,24,DHARWAD NORTH,C.M.DEVENDRA NAYAK,parties.IN.IND,IND,2126,0.35,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-karnataka-24,karnataka,1989,24,DHARWAD NORTH,MAHADEVASWAMY,parties.IN.UNK,KGP,1915,0.32,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-karnataka-24,karnataka,1989,24,DHARWAD NORTH,MAHADEVASWAMY,parties.IN.KGP,KGP,1915,0.32,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-24,karnataka,1989,24,DHARWAD NORTH,P.H.PATEL,parties.IN.IND,IND,1279,0.21,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-24,karnataka,1989,24,DHARWAD NORTH,A.H.A.JAMADAR,parties.IN.IND,IND,979,0.16,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-24,karnataka,1989,24,DHARWAD NORTH,M.S.BADAKALI,parties.IN.IND,IND,956,0.16,12,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-karnataka-24,karnataka,1989,24,DHARWAD NORTH,G.S.HEGDE,parties.IN.UNK,LKD (B),885,0.15,13,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-karnataka-24,karnataka,1989,24,DHARWAD NORTH,G.S.HEGDE,parties.IN.LKD_B,LKD (B),885,0.15,13,forfeit,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-karnataka-24,karnataka,1989,24,DHARWAD NORTH,R.D.KAREGOUDAR,parties.IN.IND,IND,631,0.1,14,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-karnataka-25,karnataka,1989,25,BELGAUM,SIDNAL SHANMUKAPPA BASSAPPA,parties.IN.INC,INC,210329,32.5,1,won,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-karnataka-25,karnataka,1989,25,BELGAUM,AMAR VASANTRAO PATIL,parties.IN.JD,JD,187281,28.94,2,lost,U,,,,challenger,src-31c65dbec869
@@ -2448,7 +2448,7 @@ IN-PC-1976-madhya-pradesh-2,madhya-pradesh,1989,2,BHIND,MAKKHOO,parties.IN.IND,I
 IN-PC-1976-madhya-pradesh-2,madhya-pradesh,1989,2,BHIND,SIRDAR,parties.IN.IND,IND,3605,0.78,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-2,madhya-pradesh,1989,2,BHIND,LALJI SINGH,parties.IN.DDP,DDP,3403,0.74,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-2,madhya-pradesh,1989,2,BHIND,PRAHLAD DASS,parties.IN.IND,IND,2216,0.48,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-madhya-pradesh-2,madhya-pradesh,1989,2,BHIND,KANHIYALAL OMARE,parties.IN.UNK,LKD (B),1383,0.3,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-2,madhya-pradesh,1989,2,BHIND,KANHIYALAL OMARE,parties.IN.LKD_B,LKD (B),1383,0.3,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-2,madhya-pradesh,1989,2,BHIND,SUHAGMAL JAIN,parties.IN.IND,IND,570,0.12,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-2,madhya-pradesh,1989,2,BHIND,MOHANDAS RAMAYANI,parties.IN.IND,IND,417,0.09,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-2,madhya-pradesh,1989,2,BHIND,MAHESH KUMAR SHAKHA,parties.IN.IND,IND,313,0.07,14,forfeit,U,,,,challenger,src-31c65dbec869
@@ -2469,7 +2469,7 @@ IN-PC-1976-madhya-pradesh-3,madhya-pradesh,1989,3,GWALIOR,PYARE LAL KUSHWAHA,par
 IN-PC-1976-madhya-pradesh-3,madhya-pradesh,1989,3,GWALIOR,KALAYAN SINGH JAMMAR,parties.IN.IND,IND,1272,0.26,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-3,madhya-pradesh,1989,3,GWALIOR,PREETAM SINGH,parties.IN.IND,IND,1244,0.26,14,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-3,madhya-pradesh,1989,3,GWALIOR,PRADEEP KUMAR JAYASWAL,parties.IN.IND,IND,1152,0.24,15,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-madhya-pradesh-3,madhya-pradesh,1989,3,GWALIOR,LOOK MAN SINGH RAI,parties.IN.UNK,LKD (B),1028,0.21,16,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-3,madhya-pradesh,1989,3,GWALIOR,LOOK MAN SINGH RAI,parties.IN.LKD_B,LKD (B),1028,0.21,16,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-3,madhya-pradesh,1989,3,GWALIOR,SUNDER SINGH,parties.IN.IND,IND,873,0.18,17,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-3,madhya-pradesh,1989,3,GWALIOR,YADUNANDAN PRASAD PANDEY,parties.IN.IND,IND,688,0.14,18,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-3,madhya-pradesh,1989,3,GWALIOR,ASHOK KUMAR KAUSHAL,parties.IN.IND,IND,642,0.13,19,forfeit,U,,,,challenger,src-31c65dbec869
@@ -2505,7 +2505,7 @@ IN-PC-1976-madhya-pradesh-7,madhya-pradesh,1989,7,DAMOH,DHAN SINGH CHOUDHARY,par
 IN-PC-1976-madhya-pradesh-7,madhya-pradesh,1989,7,DAMOH,VIJAY KUMAR PATHAK,parties.IN.IND,IND,3153,0.58,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-7,madhya-pradesh,1989,7,DAMOH,CHANDRA BHAN,parties.IN.IND,IND,2973,0.54,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-7,madhya-pradesh,1989,7,DAMOH,PADAM CHAND KUTTA BABA,parties.IN.IND,IND,2365,0.43,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-madhya-pradesh-7,madhya-pradesh,1989,7,DAMOH,K.L.CHOURASIA,parties.IN.UNK,LKD (B),2024,0.37,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-7,madhya-pradesh,1989,7,DAMOH,K.L.CHOURASIA,parties.IN.LKD_B,LKD (B),2024,0.37,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-7,madhya-pradesh,1989,7,DAMOH,CHANDAN SINGH,parties.IN.IND,IND,1693,0.31,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-7,madhya-pradesh,1989,7,DAMOH,LAKHAN LAL,parties.IN.IND,IND,1627,0.3,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-7,madhya-pradesh,1989,7,DAMOH,SHEIKH MUSLIM,parties.IN.IND,IND,1352,0.25,12,forfeit,U,,,,challenger,src-31c65dbec869
@@ -2522,7 +2522,7 @@ IN-PC-1976-madhya-pradesh-8,madhya-pradesh,1989,8,SATNA,RAM NIWAS CHAURASIA,part
 IN-PC-1976-madhya-pradesh-8,madhya-pradesh,1989,8,SATNA,ABDUL SAKOOR,parties.IN.IND,IND,4196,0.88,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-8,madhya-pradesh,1989,8,SATNA,DINESH SINGH DINNU,parties.IN.IND,IND,3579,0.75,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-8,madhya-pradesh,1989,8,SATNA,CHANDRA MANI PRASAD,parties.IN.IND,IND,3288,0.69,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-madhya-pradesh-8,madhya-pradesh,1989,8,SATNA,RAM BIHARI KUSHWAHA,parties.IN.UNK,LKD (B),3213,0.68,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-8,madhya-pradesh,1989,8,SATNA,RAM BIHARI KUSHWAHA,parties.IN.LKD_B,LKD (B),3213,0.68,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-8,madhya-pradesh,1989,8,SATNA,LAL CHAND,parties.IN.IND,IND,2471,0.52,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-8,madhya-pradesh,1989,8,SATNA,SAMPAT KUMAR MISHRA,parties.IN.IND,IND,1670,0.35,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-8,madhya-pradesh,1989,8,SATNA,SHILA SINGH KUSHWAHA,parties.IN.IND,IND,1430,0.3,14,forfeit,U,,,,challenger,src-31c65dbec869
@@ -2544,7 +2544,7 @@ IN-PC-1976-madhya-pradesh-9,madhya-pradesh,1989,9,REWA,DADDI KOL,parties.IN.IND,
 IN-PC-1976-madhya-pradesh-9,madhya-pradesh,1989,9,REWA,JAMILUDDIN SIDDIQUI,parties.IN.IND,IND,1373,0.26,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-9,madhya-pradesh,1989,9,REWA,RAGHUNATH,parties.IN.IND,IND,1024,0.2,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-9,madhya-pradesh,1989,9,REWA,RAM ASHRAYA CHAURASIYA,parties.IN.IND,IND,997,0.19,14,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-madhya-pradesh-9,madhya-pradesh,1989,9,REWA,SUBHASH SHRIVASTAVA,parties.IN.UNK,LKD (B),741,0.14,15,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-9,madhya-pradesh,1989,9,REWA,SUBHASH SHRIVASTAVA,parties.IN.LKD_B,LKD (B),741,0.14,15,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-9,madhya-pradesh,1989,9,REWA,JAGDISH DWIVEDI,parties.IN.IND,IND,677,0.13,16,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-9,madhya-pradesh,1989,9,REWA,KRISHNA DEO,parties.IN.IND,IND,606,0.12,17,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-9,madhya-pradesh,1989,9,REWA,REKHA RANJAN SINGH,parties.IN.IND,IND,594,0.11,18,forfeit,U,,,,challenger,src-31c65dbec869
@@ -2569,7 +2569,7 @@ IN-PC-1976-madhya-pradesh-11,madhya-pradesh,1989,11,SHAHDOL,MANMOHAN SINGH,parti
 IN-PC-1976-madhya-pradesh-11,madhya-pradesh,1989,11,SHAHDOL,JIVAN DAS,parties.IN.RSP,RSP,8986,2.18,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-11,madhya-pradesh,1989,11,SHAHDOL,GOPAL SINGH,parties.IN.AIFB,FBL,8135,1.97,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-11,madhya-pradesh,1989,11,SHAHDOL,SHYAM KARAN,parties.IN.IND,IND,6448,1.56,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-madhya-pradesh-11,madhya-pradesh,1989,11,SHAHDOL,GOPAL,parties.IN.UNK,LKD (B),6051,1.47,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-11,madhya-pradesh,1989,11,SHAHDOL,GOPAL,parties.IN.LKD_B,LKD (B),6051,1.47,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-11,madhya-pradesh,1989,11,SHAHDOL,AMAR SINGH,parties.IN.IND,IND,2802,0.68,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-12,madhya-pradesh,1989,12,SURGUJA,LARANGSAI,parties.IN.BJP,BJP,206428,54.43,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-12,madhya-pradesh,1989,12,SURGUJA,VIJAY PRATAP SINGH,parties.IN.INC,INC,132231,34.87,2,lost,U,,,,incumbent,src-31c65dbec869
@@ -2607,14 +2607,14 @@ IN-PC-1976-madhya-pradesh-15,madhya-pradesh,1989,15,BILASPUR,A.L.ANANT,parties.I
 IN-PC-1976-madhya-pradesh-16,madhya-pradesh,1989,16,SARANGARH,PARASRAM BHARDWAJ,parties.IN.INC,INC,223385,44.69,1,won,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-16,madhya-pradesh,1989,16,SARANGARH,POORANLAL JANGDE,parties.IN.IND,IND,152170,30.44,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-16,madhya-pradesh,1989,16,SARANGARH,DAU RAM,parties.IN.BSP,BSP,113894,22.79,3,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-madhya-pradesh-16,madhya-pradesh,1989,16,SARANGARH,GHASI RAM KURRE,parties.IN.UNK,LKD (B),8033,1.61,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-16,madhya-pradesh,1989,16,SARANGARH,GHASI RAM KURRE,parties.IN.LKD_B,LKD (B),8033,1.61,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-16,madhya-pradesh,1989,16,SARANGARH,KALI RAM,parties.IN.IND,IND,2352,0.47,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-17,madhya-pradesh,1989,17,RAIPUR,RAMESH BAIS,parties.IN.BJP,BJP,271599,53.9,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-17,madhya-pradesh,1989,17,RAIPUR,KAYER BHUSHAN,parties.IN.INC,INC,187120,37.13,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-17,madhya-pradesh,1989,17,RAIPUR,KUNTI KURRE,parties.IN.BSP,BSP,17201,3.41,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-17,madhya-pradesh,1989,17,RAIPUR,SURENDRA RAO,parties.IN.IND,IND,5542,1.1,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-17,madhya-pradesh,1989,17,RAIPUR,DINESH,parties.IN.IND,IND,4136,0.82,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-madhya-pradesh-17,madhya-pradesh,1989,17,RAIPUR,KRISHNA BHAGWAN,parties.IN.UNK,LKD (B),3023,0.6,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-17,madhya-pradesh,1989,17,RAIPUR,KRISHNA BHAGWAN,parties.IN.LKD_B,LKD (B),3023,0.6,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-17,madhya-pradesh,1989,17,RAIPUR,GULAM MOHAMMAD,parties.IN.IND,IND,2606,0.52,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-17,madhya-pradesh,1989,17,RAIPUR,RAJESH KUMAR GONNADE,parties.IN.RPK,RPK,2158,0.43,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-17,madhya-pradesh,1989,17,RAIPUR,SURAJDEO SINGH,parties.IN.JP,JNP (JP),1941,0.39,9,forfeit,U,,,,challenger,src-31c65dbec869
@@ -2663,7 +2663,7 @@ IN-PC-1976-madhya-pradesh-21,madhya-pradesh,1989,21,DURG,RAMCHANDRA VISHWAKARAM,
 IN-PC-1976-madhya-pradesh-21,madhya-pradesh,1989,21,DURG,BHANU PRATAP SINGH,parties.IN.IND,IND,2337,0.38,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-21,madhya-pradesh,1989,21,DURG,GENDALAL JAIN,parties.IN.IND,IND,1801,0.29,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-21,madhya-pradesh,1989,21,DURG,MAHENDER KUMAR DILLIWAR,parties.IN.IND,IND,1767,0.29,14,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-madhya-pradesh-21,madhya-pradesh,1989,21,DURG,M.HALEEM,parties.IN.UNK,LKD (B),1437,0.23,15,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-21,madhya-pradesh,1989,21,DURG,M.HALEEM,parties.IN.LKD_B,LKD (B),1437,0.23,15,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-21,madhya-pradesh,1989,21,DURG,RAJESH TAMRAKAR,parties.IN.IND,IND,771,0.12,16,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-21,madhya-pradesh,1989,21,DURG,DHARAM CHAND MOHAN BHAIYA,parties.IN.IND,IND,683,0.11,17,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-21,madhya-pradesh,1989,21,DURG,R.P.SHARMA,parties.IN.IND,IND,646,0.1,18,forfeit,U,,,,challenger,src-31c65dbec869
@@ -2680,7 +2680,7 @@ IN-PC-1976-madhya-pradesh-22,madhya-pradesh,1989,22,RAJNANDGAON,KHUSH RAM JANCHO
 IN-PC-1976-madhya-pradesh-22,madhya-pradesh,1989,22,RAJNANDGAON,HARI THAKUR,parties.IN.IND,IND,5550,1.15,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-22,madhya-pradesh,1989,22,RAJNANDGAON,RAJESH KUMAR,parties.IN.IND,IND,4879,1.01,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-22,madhya-pradesh,1989,22,RAJNANDGAON,BISAHU RAM,parties.IN.DDP,DDP,4006,0.83,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-madhya-pradesh-22,madhya-pradesh,1989,22,RAJNANDGAON,JIVRAKHAN SINGH,parties.IN.UNK,LKD (B),3728,0.77,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-22,madhya-pradesh,1989,22,RAJNANDGAON,JIVRAKHAN SINGH,parties.IN.LKD_B,LKD (B),3728,0.77,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-22,madhya-pradesh,1989,22,RAJNANDGAON,ABHAY CHAITANYA BRAHMACHARI,parties.IN.IND,IND,3615,0.75,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-22,madhya-pradesh,1989,22,RAJNANDGAON,RAMPRASAD AGARWAL,parties.IN.IND,IND,3221,0.67,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-22,madhya-pradesh,1989,22,RAJNANDGAON,SARVAJEET SINGH,parties.IN.JP,JNP (JP),3189,0.66,11,forfeit,U,,,,challenger,src-31c65dbec869
@@ -2762,7 +2762,7 @@ IN-PC-1976-madhya-pradesh-28,madhya-pradesh,1989,28,BETUL,ANAND VIRENDRA KUMAR,p
 IN-PC-1976-madhya-pradesh-28,madhya-pradesh,1989,28,BETUL,RAM SINGH CHAUHAN,parties.IN.IND,IND,1361,0.35,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-28,madhya-pradesh,1989,28,BETUL,CHANDRA SHEKAR,parties.IN.BSP,BSP,1082,0.27,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-28,madhya-pradesh,1989,28,BETUL,GORE LAL,parties.IN.IND,IND,1009,0.26,11,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-madhya-pradesh-28,madhya-pradesh,1989,28,BETUL,BHAGWANT RAO KAWADKHAR,parties.IN.UNK,LKD (B),994,0.25,12,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-28,madhya-pradesh,1989,28,BETUL,BHAGWANT RAO KAWADKHAR,parties.IN.LKD_B,LKD (B),994,0.25,12,forfeit,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-28,madhya-pradesh,1989,28,BETUL,SURAT SUKTAYA,parties.IN.IND,IND,522,0.13,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-28,madhya-pradesh,1989,28,BETUL,CHANDRA SHEKHAR BARANGA PRACHARYA,parties.IN.IND,IND,444,0.11,14,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-29,madhya-pradesh,1989,29,HOSHANGABAD,SARTAJ SINGH,parties.IN.BJP,BJP,278402,52.98,1,won,U,,,,challenger,src-31c65dbec869
@@ -2785,7 +2785,7 @@ IN-PC-1976-madhya-pradesh-30,madhya-pradesh,1989,30,BHOPAL,U.H.KAMBLE,parties.IN
 IN-PC-1976-madhya-pradesh-30,madhya-pradesh,1989,30,BHOPAL,MANOHAR KUMAR,parties.IN.IND,IND,4064,0.67,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-30,madhya-pradesh,1989,30,BHOPAL,RAJESH KUMAR,parties.IN.DDP,DDP,3334,0.55,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-30,madhya-pradesh,1989,30,BHOPAL,G.S.RAUT,parties.IN.IND,IND,3264,0.54,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-madhya-pradesh-30,madhya-pradesh,1989,30,BHOPAL,POORAN SINGH KUSHWAH,parties.IN.UNK,LKD (B),2763,0.46,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-30,madhya-pradesh,1989,30,BHOPAL,POORAN SINGH KUSHWAH,parties.IN.LKD_B,LKD (B),2763,0.46,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-30,madhya-pradesh,1989,30,BHOPAL,RAMCHANDRAN BATHAM,parties.IN.IND,IND,2252,0.37,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-30,madhya-pradesh,1989,30,BHOPAL,NARAYAN SOMKUNWAR,parties.IN.IND,IND,2109,0.35,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-30,madhya-pradesh,1989,30,BHOPAL,JAGAT PATHAK,parties.IN.JP,JNP (JP),1775,0.29,12,forfeit,U,,,,challenger,src-31c65dbec869
@@ -2825,7 +2825,7 @@ IN-PC-1976-madhya-pradesh-31,madhya-pradesh,1989,31,VIDISHA,SHAHAVUDDIN,parties.
 IN-PC-1976-madhya-pradesh-31,madhya-pradesh,1989,31,VIDISHA,RADHELAL AGARWAL,parties.IN.IND,IND,1953,0.37,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-31,madhya-pradesh,1989,31,VIDISHA,ASHOK KUMAR MAHESHWARI,parties.IN.IND,IND,1463,0.28,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-31,madhya-pradesh,1989,31,VIDISHA,OM PARKASH SONI,parties.IN.IND,IND,1367,0.26,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-madhya-pradesh-31,madhya-pradesh,1989,31,VIDISHA,HORILAL SHAKYA KUSHWAHA,parties.IN.UNK,LKD (B),1184,0.22,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-31,madhya-pradesh,1989,31,VIDISHA,HORILAL SHAKYA KUSHWAHA,parties.IN.LKD_B,LKD (B),1184,0.22,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-31,madhya-pradesh,1989,31,VIDISHA,HARGOVIND,parties.IN.IND,IND,956,0.18,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-31,madhya-pradesh,1989,31,VIDISHA,MOHAMMAD HAMID,parties.IN.IND,IND,533,0.1,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-32,madhya-pradesh,1989,32,RAJGARH,PYARELA KHANDELWAR,parties.IN.BJP,BJP,289258,53.59,1,won,U,,,,challenger,src-31c65dbec869
@@ -2835,7 +2835,7 @@ IN-PC-1976-madhya-pradesh-32,madhya-pradesh,1989,32,RAJGARH,PURSHOTTAM SINGH,par
 IN-PC-1976-madhya-pradesh-32,madhya-pradesh,1989,32,RAJGARH,RAMCHANDRA,parties.IN.JP,JNP (JP),4442,0.82,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-32,madhya-pradesh,1989,32,RAJGARH,UMAR KHAN,parties.IN.BSP,BSP,3541,0.66,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-32,madhya-pradesh,1989,32,RAJGARH,VIRENDERA SINGH CHHABRA,parties.IN.IND,IND,1704,0.32,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-madhya-pradesh-32,madhya-pradesh,1989,32,RAJGARH,BADRUDDIN,parties.IN.UNK,LKD (B),761,0.14,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-32,madhya-pradesh,1989,32,RAJGARH,BADRUDDIN,parties.IN.LKD_B,LKD (B),761,0.14,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-32,madhya-pradesh,1989,32,RAJGARH,PREM NARAYAN,parties.IN.IND,IND,547,0.1,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-32,madhya-pradesh,1989,32,RAJGARH,SAIDUR REHMAN,parties.IN.IND,IND,303,0.06,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-madhya-pradesh-33,madhya-pradesh,1989,33,SHAJAPUR,PHOOL CHAND VERMA,parties.IN.BJP,BJP,313804,53.45,1,won,U,,,,challenger,src-31c65dbec869
@@ -2972,7 +2972,7 @@ IN-PC-1976-maharashtra-5,maharashtra,1989,5,BOMBAY SOUTH CENTRAL,LAXMAN ALIAS RA
 IN-PC-1976-maharashtra-5,maharashtra,1989,5,BOMBAY SOUTH CENTRAL,MOON MALA RUSHI,parties.IN.BSP,BSP,902,0.2,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-5,maharashtra,1989,5,BOMBAY SOUTH CENTRAL,KASHINATH SARJERAO SHINDE,parties.IN.IND,IND,887,0.2,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-5,maharashtra,1989,5,BOMBAY SOUTH CENTRAL,SINGH RAM JANAM BALA,parties.IN.DDP,DDP,727,0.16,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-5,maharashtra,1989,5,BOMBAY SOUTH CENTRAL,ANSARI ABDUL HAMEED (GOGA),parties.IN.UNK,LKD (B),537,0.12,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-5,maharashtra,1989,5,BOMBAY SOUTH CENTRAL,ANSARI ABDUL HAMEED (GOGA),parties.IN.LKD_B,LKD (B),537,0.12,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-5,maharashtra,1989,5,BOMBAY SOUTH CENTRAL,BANDU SHINGRE ALIAS SHINGRE GURUJI,parties.IN.IND,IND,404,0.09,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-5,maharashtra,1989,5,BOMBAY SOUTH CENTRAL,KANOJIYA RADHEYSHYAM MUNNILAL,parties.IN.IND,IND,247,0.06,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-5,maharashtra,1989,5,BOMBAY SOUTH CENTRAL,NAIQUE GOVINDA SUBRAI,parties.IN.IND,IND,139,0.03,14,forfeit,U,,,,challenger,src-31c65dbec869
@@ -2983,7 +2983,7 @@ IN-PC-1976-maharashtra-6,maharashtra,1989,6,BOMBAY NORTH CENTRAL,RUSTAM SHERIAR 
 IN-PC-1976-maharashtra-6,maharashtra,1989,6,BOMBAY NORTH CENTRAL,TANAJI SADU HIRVE,parties.IN.BSP,BSP,2578,0.45,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-6,maharashtra,1989,6,BOMBAY NORTH CENTRAL,R. M. VARMA,parties.IN.DDP,DDP,1810,0.32,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-6,maharashtra,1989,6,BOMBAY NORTH CENTRAL,VASANTRAO RAMBHAU TONPE,parties.IN.IND,IND,1504,0.27,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-6,maharashtra,1989,6,BOMBAY NORTH CENTRAL,K. P. YADAV,parties.IN.UNK,LKD (B),1099,0.19,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-6,maharashtra,1989,6,BOMBAY NORTH CENTRAL,K. P. YADAV,parties.IN.LKD_B,LKD (B),1099,0.19,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-6,maharashtra,1989,6,BOMBAY NORTH CENTRAL,BHAGWAN BAPU KAMBLE,parties.IN.IND,IND,674,0.12,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-6,maharashtra,1989,6,BOMBAY NORTH CENTRAL,SUDARSHAN KHARAT,parties.IN.IND,IND,661,0.12,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-6,maharashtra,1989,6,BOMBAY NORTH CENTRAL,R. B. ACHARYA,parties.IN.IND,IND,373,0.07,11,forfeit,U,,,,challenger,src-31c65dbec869
@@ -2996,7 +2996,7 @@ IN-PC-1976-maharashtra-7,maharashtra,1989,7,BOMBAY NORTH EAST,SUBEDAR YADAV,part
 IN-PC-1976-maharashtra-7,maharashtra,1989,7,BOMBAY NORTH EAST,KERU CHIMAJI PANDE,parties.IN.BSP,BSP,1434,0.16,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-7,maharashtra,1989,7,BOMBAY NORTH EAST,SHASHIDHAR SHETTY,parties.IN.IND,IND,1019,0.12,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-7,maharashtra,1989,7,BOMBAY NORTH EAST,GOVIND BHADRICHA,parties.IN.IND,IND,816,0.09,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-7,maharashtra,1989,7,BOMBAY NORTH EAST,HARSHESH PAREKH,parties.IN.UNK,HPI,814,0.09,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-7,maharashtra,1989,7,BOMBAY NORTH EAST,HARSHESH PAREKH,parties.IN.HPI,HPI,814,0.09,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-7,maharashtra,1989,7,BOMBAY NORTH EAST,SARFARAZ AHMED DEHLVI,parties.IN.HJP,HJP,588,0.07,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-7,maharashtra,1989,7,BOMBAY NORTH EAST,ASHOK DARJI,parties.IN.IND,IND,516,0.06,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-7,maharashtra,1989,7,BOMBAY NORTH EAST,VASANT RAMACHANDRA PATIL,parties.IN.IND,IND,436,0.05,13,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3007,13 +3007,13 @@ IN-PC-1976-maharashtra-8,maharashtra,1989,8,BOMBAY NORTH WEST,SHARAD RAO,parties
 IN-PC-1976-maharashtra-8,maharashtra,1989,8,BOMBAY NORTH WEST,M. S. BHATIA,parties.IN.IND,IND,2270,0.33,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-8,maharashtra,1989,8,BOMBAY NORTH WEST,CHANDSINGH PIWAL,parties.IN.BSP,BSP,1638,0.24,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-8,maharashtra,1989,8,BOMBAY NORTH WEST,JOHN BABURAO PIRAMAL,parties.IN.IND,IND,1165,0.17,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,1989,8,BOMBAY NORTH WEST,DAXESH PANDYA,parties.IN.UNK,HPI,1120,0.16,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-8,maharashtra,1989,8,BOMBAY NORTH WEST,DAXESH PANDYA,parties.IN.HPI,HPI,1120,0.16,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-8,maharashtra,1989,8,BOMBAY NORTH WEST,ASHOK JAIN,parties.IN.IND,IND,1059,0.15,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-8,maharashtra,1989,8,BOMBAY NORTH WEST,ASHRAF KHAN,parties.IN.IND,IND,977,0.14,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-8,maharashtra,1989,8,BOMBAY NORTH WEST,PUNDALIK NAGRE,parties.IN.IND,IND,746,0.11,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-8,maharashtra,1989,8,BOMBAY NORTH WEST,DORAB PHIROZSHAW PATEL,parties.IN.IND,IND,688,0.1,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-8,maharashtra,1989,8,BOMBAY NORTH WEST,SANDESH MALIYAL,parties.IN.IND,IND,667,0.1,12,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,1989,8,BOMBAY NORTH WEST,MOLLY DAMANIA,parties.IN.UNK,LKD (B),616,0.09,13,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-8,maharashtra,1989,8,BOMBAY NORTH WEST,MOLLY DAMANIA,parties.IN.LKD_B,LKD (B),616,0.09,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-8,maharashtra,1989,8,BOMBAY NORTH WEST,RAKESH SOBHAGCHAND DOSHI,parties.IN.GPI,GPI,571,0.08,14,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-8,maharashtra,1989,8,BOMBAY NORTH WEST,NANDLAL R. PANDEY,parties.IN.DDP,DDP,556,0.08,15,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-8,maharashtra,1989,8,BOMBAY NORTH WEST,KASTURI RAJA,parties.IN.HJP,HJP,536,0.08,16,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3027,9 +3027,9 @@ IN-PC-1976-maharashtra-9,maharashtra,1989,9,BOMBAY NORTH,GOPALBHAI MEHROTRA,part
 IN-PC-1976-maharashtra-9,maharashtra,1989,9,BOMBAY NORTH,JAYESH BHAYANI,parties.IN.GPI,GPI,1571,0.18,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-9,maharashtra,1989,9,BOMBAY NORTH,BANWARILAL DADHICHA,parties.IN.DDP,DDP,1373,0.16,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-9,maharashtra,1989,9,BOMBAY NORTH,RAJNATH GUPTA,parties.IN.BSP,BSP,850,0.1,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-9,maharashtra,1989,9,BOMBAY NORTH,SHAH MAYUR MANAHAR,parties.IN.UNK,HPI,816,0.09,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-9,maharashtra,1989,9,BOMBAY NORTH,SHAH MAYUR MANAHAR,parties.IN.HPI,HPI,816,0.09,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-9,maharashtra,1989,9,BOMBAY NORTH,RAMESHANKAR YADAV,parties.IN.IND,IND,754,0.09,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-9,maharashtra,1989,9,BOMBAY NORTH,SHARMA RAM KEVAL,parties.IN.UNK,LKD (B),741,0.09,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-9,maharashtra,1989,9,BOMBAY NORTH,SHARMA RAM KEVAL,parties.IN.LKD_B,LKD (B),741,0.09,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-9,maharashtra,1989,9,BOMBAY NORTH,P. S. MANI,parties.IN.IND,IND,643,0.07,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-9,maharashtra,1989,9,BOMBAY NORTH,LEO REBELLO,parties.IN.IND,IND,639,0.07,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-9,maharashtra,1989,9,BOMBAY NORTH,MAHTA NANDANSINGH DINESHCHANDRA,parties.IN.IND,IND,477,0.05,14,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3041,7 +3041,7 @@ IN-PC-1976-maharashtra-10,maharashtra,1989,10,THANE,GHOLAP SHANTARAM GOPAL,parti
 IN-PC-1976-maharashtra-10,maharashtra,1989,10,THANE,ADHAV RAMBHAU RAMCHANDRA,parties.IN.BRP,BRP,12002,1.37,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-10,maharashtra,1989,10,THANE,HUMANE RAHUL TANBAJI,parties.IN.BSP,BSP,4492,0.51,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-10,maharashtra,1989,10,THANE,OCHANI PARMANAND SHEVAKRAM,parties.IN.IND,IND,3134,0.36,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-10,maharashtra,1989,10,THANE,SHAHANI AKIL JALIL,parties.IN.UNK,LKD (B),1675,0.19,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-10,maharashtra,1989,10,THANE,SHAHANI AKIL JALIL,parties.IN.LKD_B,LKD (B),1675,0.19,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-10,maharashtra,1989,10,THANE,KHANAPURKAR MADHU,parties.IN.IND,IND,1396,0.16,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-10,maharashtra,1989,10,THANE,PRABHU LAXMAN NARAYAN,parties.IN.DDP,DDP,1026,0.12,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-10,maharashtra,1989,10,THANE,RAMESH KACHHARAM ACHHRA,parties.IN.IND,IND,648,0.07,9,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3085,7 +3085,7 @@ IN-PC-1976-maharashtra-15,maharashtra,1989,15,NANDURBAR,VALVI KUWARSING FULJI,pa
 IN-PC-1976-maharashtra-15,maharashtra,1989,15,NANDURBAR,VASAVE KISHOR UTARYA,parties.IN.DDP,DDP,3591,0.78,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-15,maharashtra,1989,15,NANDURBAR,CHAUDHARI BHAVRAO LALA,parties.IN.IND,IND,2591,0.56,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-15,maharashtra,1989,15,NANDURBAR,GAVIT SHIVAJI SAKARYA,parties.IN.IND,IND,1709,0.37,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-15,maharashtra,1989,15,NANDURBAR,SANGVIKAR LALSING KHATYA,parties.IN.UNK,LKD (B),1136,0.25,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-15,maharashtra,1989,15,NANDURBAR,SANGVIKAR LALSING KHATYA,parties.IN.LKD_B,LKD (B),1136,0.25,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-16,maharashtra,1989,16,ERANDOL,PATIL UTTAMRAO LAXMANRAO,parties.IN.BJP,BJP,217057,43.25,1,won,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-maharashtra-16,maharashtra,1989,16,ERANDOL,PATIL VIJAY NAVAL,parties.IN.INC,INC,212500,42.34,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-maharashtra-16,maharashtra,1989,16,ERANDOL,PATIL MADHUKAR ATMARAM,parties.IN.JD,JD,52437,10.45,3,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3095,7 +3095,7 @@ IN-PC-1976-maharashtra-16,maharashtra,1989,16,ERANDOL,NANNAWARE DIGAMBAR AVCHIT,
 IN-PC-1976-maharashtra-16,maharashtra,1989,16,ERANDOL,KHAAIRNAR SADASHIV DAULAT,parties.IN.IND,IND,1518,0.3,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-16,maharashtra,1989,16,ERANDOL,JAIN POPATLAL FULCHAND,parties.IN.IND,IND,1265,0.25,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-16,maharashtra,1989,16,ERANDOL,PATIL LAXMAN DADAJI,parties.IN.IND,IND,1054,0.21,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-16,maharashtra,1989,16,ERANDOL,SONAWANE REGHUNATH GANPAT,parties.IN.UNK,LKD (B),1019,0.2,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-16,maharashtra,1989,16,ERANDOL,SONAWANE REGHUNATH GANPAT,parties.IN.LKD_B,LKD (B),1019,0.2,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-16,maharashtra,1989,16,ERANDOL,PATIL GORAKSHA RAGHUNATH,parties.IN.IND,IND,1007,0.2,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-16,maharashtra,1989,16,ERANDOL,ERANDE VISHWASRAO BHAURAO PARDHADIKAR,parties.IN.IND,IND,881,0.18,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-16,maharashtra,1989,16,ERANDOL,PATIL DHANSING RAMU,parties.IN.IND,IND,402,0.08,13,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3107,7 +3107,7 @@ IN-PC-1976-maharashtra-17,maharashtra,1989,17,JALGAON,TAYADE NAMDEO SAMPAT,parti
 IN-PC-1976-maharashtra-17,maharashtra,1989,17,JALGAON,MUKUNDA LOTU SAPKALE,parties.IN.IND,IND,3080,0.51,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-17,maharashtra,1989,17,JALGAON,KALE SHRIRISH PANDIT,parties.IN.DDP,DDP,1505,0.25,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-17,maharashtra,1989,17,JALGAON,GANGADHAR NATHU DESHMUKH,parties.IN.IND,IND,1483,0.25,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-17,maharashtra,1989,17,JALGAON,GANESH KAUTIK DHENGE,parties.IN.UNK,LKD (B),1211,0.2,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-17,maharashtra,1989,17,JALGAON,GANESH KAUTIK DHENGE,parties.IN.LKD_B,LKD (B),1211,0.2,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-17,maharashtra,1989,17,JALGAON,LAXMINARAYAN GANPATAL UPADHYAY,parties.IN.IND,IND,1022,0.17,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-17,maharashtra,1989,17,JALGAON,SHIRANAME PRAKASH DEOCHANDRAO,parties.IN.IND,IND,793,0.13,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-17,maharashtra,1989,17,JALGAON,MURLIDHAR GENDU BODOWADE,parties.IN.IND,IND,731,0.12,12,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3186,7 +3186,7 @@ IN-PC-1976-maharashtra-22,maharashtra,1989,22,RAMTEK,BHIMRAO VITHALRAO KAPSE,par
 IN-PC-1976-maharashtra-22,maharashtra,1989,22,RAMTEK,MURLIDHAR DEWAJI GURNULE,parties.IN.DDP,DDP,1122,0.2,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-22,maharashtra,1989,22,RAMTEK,PANDURANG PUNDLINK PAONIKAR,parties.IN.IND,IND,1049,0.18,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-22,maharashtra,1989,22,RAMTEK,SENGAR MANSINHA GAJRAJSINHA,parties.IN.IND,IND,951,0.17,12,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-22,maharashtra,1989,22,RAMTEK,LATABAI VIJAY KUMAR KSHATRIYA,parties.IN.UNK,LKD (B),677,0.12,13,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-22,maharashtra,1989,22,RAMTEK,LATABAI VIJAY KUMAR KSHATRIYA,parties.IN.LKD_B,LKD (B),677,0.12,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-22,maharashtra,1989,22,RAMTEK,BAGALE VAMAN NIMBA,parties.IN.IND,IND,641,0.11,14,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-22,maharashtra,1989,22,RAMTEK,DNYANESHWAR GOVINDA KAPSE,parties.IN.IND,IND,600,0.11,15,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-22,maharashtra,1989,22,RAMTEK,NARAYAN DOMAJI LICHADE,parties.IN.IND,IND,568,0.1,16,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3204,7 +3204,7 @@ IN-PC-1976-maharashtra-23,maharashtra,1989,23,NAGPUR,GANGADHAR RAMKRUSHNRAO TELR
 IN-PC-1976-maharashtra-23,maharashtra,1989,23,NAGPUR,PANCHBHAI SADASHIO DAULATRAO,parties.IN.IND,IND,1662,0.23,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-23,maharashtra,1989,23,NAGPUR,DHAWADE YAMUNABAI PRABHAKARRAO,parties.IN.IND,IND,1405,0.2,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-23,maharashtra,1989,23,NAGPUR,JAINARAYAN CHUNNILAL SHRIVASTAV,parties.IN.IND,IND,1304,0.18,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-23,maharashtra,1989,23,NAGPUR,DATTU HEMRAJ LIKHAR,parties.IN.UNK,LKD (B),1192,0.17,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-maharashtra-23,maharashtra,1989,23,NAGPUR,DATTU HEMRAJ LIKHAR,parties.IN.LKD_B,LKD (B),1192,0.17,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-23,maharashtra,1989,23,NAGPUR,KHOBRAGADE SHANKARRAO SHRIRAM,parties.IN.IND,IND,1100,0.15,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-23,maharashtra,1989,23,NAGPUR,JAIN KESHRICHAND KANHYALAL,parties.IN.IND,IND,939,0.13,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-23,maharashtra,1989,23,NAGPUR,GONDANE UDHHAORAO PANDURANG,parties.IN.IND,IND,846,0.12,13,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3515,7 +3515,7 @@ IN-PC-1976-maharashtra-48,maharashtra,1989,48,KOLHAPUR,MAHITE AMBAJI TATOBA,part
 IN-PC-1976-maharashtra-48,maharashtra,1989,48,KOLHAPUR,PRAJAPATI JOKHAN SHIVAPUJAN,parties.IN.DDP,DDP,1222,0.24,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-maharashtra-48,maharashtra,1989,48,KOLHAPUR,MAHADIK RAJARAM DINKAR,parties.IN.IND,IND,982,0.19,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-manipur-1,manipur,1989,1,INNER MANIPUR,N.TOMBI SINGH,parties.IN.INC,INC,154679,39.63,1,won,U,,,,incumbent,src-31c65dbec869
-IN-PC-1976-manipur-1,manipur,1989,1,INNER MANIPUR,HAOBAM BHUBAN,parties.IN.UNK,MRP,147128,37.7,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-manipur-1,manipur,1989,1,INNER MANIPUR,HAOBAM BHUBAN,parties.IN.MPP,MRP,147128,37.7,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-manipur-1,manipur,1989,1,INNER MANIPUR,NGANGOM MOHENDRA,parties.IN.CPI,CPI,48531,12.44,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-manipur-1,manipur,1989,1,INNER MANIPUR,SHAMULAILATPAM MODUMANGOL SHARMA,parties.IN.BJP,BJP,19559,5.01,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-manipur-1,manipur,1989,1,INNER MANIPUR,OINAM TOMBA,parties.IN.IND,IND,10981,2.81,5,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3535,10 +3535,10 @@ IN-PC-1976-meghalaya-2,meghalaya,1989,2,TURA,LAMBERTH K. SANGMA,parties.IN.IND,I
 IN-PC-1976-meghalaya-2,meghalaya,1989,2,TURA,ROBIN REMA,parties.IN.CPI,CPI,14078,7.64,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-mizoram-1,mizoram,1989,1,MIZORAM,C.SILVERA,parties.IN.INC,INC,109571,48.45,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-mizoram-1,mizoram,1989,1,MIZORAM,ZORAMTHANGA,parties.IN.MNF,MNF,70749,31.28,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-mizoram-1,mizoram,1989,1,MIZORAM,MALSWMA COLNEY,parties.IN.UNK,DP,43667,19.31,3,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-mizoram-1,mizoram,1989,1,MIZORAM,MALSWMA COLNEY,parties.IN.DP,DP,43667,19.31,3,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-mizoram-1,mizoram,1989,1,MIZORAM,BINDE BASU CHAKMA,parties.IN.IND,IND,2159,0.95,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-nagaland-1,nagaland,1989,1,NAGALAND,SHIKINO SAM,parties.IN.INC,INC,363071,60.29,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-nagaland-1,nagaland,1989,1,NAGALAND,VIZOL,parties.IN.UNK,NPC,239124,39.71,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-nagaland-1,nagaland,1989,1,NAGALAND,VIZOL,parties.IN.NPC,NPC,239124,39.71,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-1,odisha,1989,1,MAYURBHANJ,BHAGEY GOBARDHAN,parties.IN.JD,JD,145867,46.48,1,won,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-odisha-1,odisha,1989,1,MAYURBHANJ,SARASWATI HEMBRAM,parties.IN.INC,INC,123279,39.29,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-1,odisha,1989,1,MAYURBHANJ,BRUNDABAN MARANDI,parties.IN.IND,IND,16165,5.15,3,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3583,13 +3583,13 @@ IN-PC-1976-odisha-6,odisha,1989,6,CUTTACK,SRIKANTA JENA,parties.IN.JD,JD,414828,
 IN-PC-1976-odisha-6,odisha,1989,6,CUTTACK,JAYANTI PATNAIK,parties.IN.INC,INC,210143,32.72,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-odisha-6,odisha,1989,6,CUTTACK,SAMANTA NARAYAN SRICHANDAN MAHAPATRA,parties.IN.JP,JNP (JP),7577,1.18,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-6,odisha,1989,6,CUTTACK,BANUDHAR SETHY,parties.IN.BSP,BSP,4366,0.68,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-odisha-6,odisha,1989,6,CUTTACK,DHRUBANANDA BEHRA,parties.IN.UNK,DLP,2646,0.41,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-odisha-6,odisha,1989,6,CUTTACK,DHRUBANANDA BEHRA,parties.IN.DLP,DLP,2646,0.41,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-6,odisha,1989,6,CUTTACK,DHRUBA CHARAN SAHU,parties.IN.IND,IND,1377,0.21,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-6,odisha,1989,6,CUTTACK,SOUBHAGYA DAS,parties.IN.DDP,DDP,1217,0.19,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-7,odisha,1989,7,JAGATSINGHPUR,LOKANATH CHOUDHARY,parties.IN.CPI,CPI,408057,59.48,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-7,odisha,1989,7,JAGATSINGHPUR,BASUDEV MOHAPATRA,parties.IN.INC,INC,259921,37.89,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-7,odisha,1989,7,JAGATSINGHPUR,PRADIPTA KUMAR,parties.IN.JP,JNP (JP),6143,0.9,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-odisha-7,odisha,1989,7,JAGATSINGHPUR,RAJKISHORE CHHATOI,parties.IN.UNK,KGP,5321,0.78,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-odisha-7,odisha,1989,7,JAGATSINGHPUR,RAJKISHORE CHHATOI,parties.IN.KGP,KGP,5321,0.78,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-7,odisha,1989,7,JAGATSINGHPUR,SULOCHANA OJHA,parties.IN.IND,IND,2683,0.39,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-7,odisha,1989,7,JAGATSINGHPUR,DHRUBA CHARAN DAS,parties.IN.DDP,DDP,2116,0.31,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-7,odisha,1989,7,JAGATSINGHPUR,DEBENDRA KUMAR PARIDA,parties.IN.IND,IND,1787,0.26,7,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3597,14 +3597,14 @@ IN-PC-1976-odisha-8,odisha,1989,8,PURI,NILAMANI ROUTRAY,parties.IN.JD,JD,367618,
 IN-PC-1976-odisha-8,odisha,1989,8,PURI,BRAJAMOHAN MOHANTI,parties.IN.INC,INC,228046,37.13,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-odisha-8,odisha,1989,8,PURI,HEMCHAND CHOUDHURY,parties.IN.JP,JNP (JP),8343,1.36,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-8,odisha,1989,8,PURI,MAHESH PRASAD RATH,parties.IN.DDP,DDP,4171,0.68,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-odisha-8,odisha,1989,8,PURI,SARAT ROUTRAY,parties.IN.UNK,KGP,3330,0.54,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-odisha-8,odisha,1989,8,PURI,SARAT ROUTRAY,parties.IN.KGP,KGP,3330,0.54,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-8,odisha,1989,8,PURI,RAJKISHORE DASH,parties.IN.IND,IND,1798,0.29,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-8,odisha,1989,8,PURI,GANGADHAR SAHOO,parties.IN.IND,IND,944,0.15,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-9,odisha,1989,9,BHUBANESWAR,SIVAJI PATNAIK,parties.IN.CPIM,CPM,332005,58.51,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-9,odisha,1989,9,BHUBANESWAR,BIPIN DASH,parties.IN.INC,INC,186659,32.9,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-9,odisha,1989,9,BHUBANESWAR,SHANTI DASH,parties.IN.BJP,BJP,13984,2.46,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-9,odisha,1989,9,BHUBANESWAR,RAMACHANDRA DEO,parties.IN.JP,JNP (JP),9335,1.65,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-odisha-9,odisha,1989,9,BHUBANESWAR,ARAKHIT PRADHAN,parties.IN.UNK,KGP,9027,1.59,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-odisha-9,odisha,1989,9,BHUBANESWAR,ARAKHIT PRADHAN,parties.IN.KGP,KGP,9027,1.59,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-9,odisha,1989,9,BHUBANESWAR,KULAMANI SAHOO,parties.IN.IND,IND,7781,1.37,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-9,odisha,1989,9,BHUBANESWAR,BIBEKANANDA PANIGRAHI,parties.IN.IND,IND,3004,0.53,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-9,odisha,1989,9,BHUBANESWAR,PRABODH KUMAR DAS,parties.IN.DDP,DDP,2169,0.38,8,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3649,12 +3649,12 @@ IN-PC-1976-odisha-17,odisha,1989,17,SAMBALPUR,KISAN PATTNAIK,parties.IN.IND,IND,
 IN-PC-1976-odisha-17,odisha,1989,17,SAMBALPUR,PURUSOTTAM BAG,parties.IN.IND,IND,5099,0.86,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-17,odisha,1989,17,SAMBALPUR,SASIBHUSAN PRADHAN,parties.IN.IND,IND,2721,0.46,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-17,odisha,1989,17,SAMBALPUR,LOKNATH PRADHAN,parties.IN.IND,IND,1974,0.33,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-odisha-17,odisha,1989,17,SAMBALPUR,SASHIBHUSHAN BHOI,parties.IN.UNK,OPF,1000,0.17,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-odisha-17,odisha,1989,17,SAMBALPUR,SASHIBHUSHAN BHOI,parties.IN.OPF,OPF,1000,0.17,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-18,odisha,1989,18,DEOGARH,RAVI NARAYAN PANI,parties.IN.JD,JD,324121,59.13,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-18,odisha,1989,18,DEOGARH,SRIBALLAV PANIGRAHI,parties.IN.INC,INC,202704,36.98,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-odisha-18,odisha,1989,18,DEOGARH,PURNA CHANDRA PATRA,parties.IN.IND,IND,11328,2.07,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-18,odisha,1989,18,DEOGARH,NARACHARI PATEL,parties.IN.IND,IND,8280,1.51,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-odisha-18,odisha,1989,18,DEOGARH,AMERENDRA NARAYAN DILESWAR,parties.IN.UNK,OPF,1682,0.31,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-odisha-18,odisha,1989,18,DEOGARH,AMERENDRA NARAYAN DILESWAR,parties.IN.OPF,OPF,1682,0.31,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-19,odisha,1989,19,DHENKANAL,BHAJAMAN BEHRA,parties.IN.JD,JD,336435,58.94,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-odisha-19,odisha,1989,19,DHENKANAL,RAJA RAMAKHYA PRASAD SINGHDEO,parties.IN.INC,INC,213430,37.39,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-odisha-19,odisha,1989,19,DHENKANAL,BIPIN BEHARI MISHRA,parties.IN.IND,IND,7982,1.4,3,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3674,7 +3674,7 @@ IN-PC-1976-odisha-21,odisha,1989,21,KEONJHAR,SALKHU HEMBRAM,parties.IN.IND,IND,2
 IN-PC-1976-puducherry-1,puducherry,1989,1,PONDICHERRY,P. SHANMUGAM,parties.IN.INC,INC,190562,50.47,1,won,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-puducherry-1,puducherry,1989,1,PONDICHERRY,N. MANIMARAN,parties.IN.DMK,DMK,157250,41.65,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-puducherry-1,puducherry,1989,1,PONDICHERRY,BAVANY MADURACAYY,parties.IN.PMK,PMK,25021,6.63,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-puducherry-1,puducherry,1989,1,PONDICHERRY,C. BALAMUTHUVAL,parties.IN.UNK,LKD (B),965,0.26,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-puducherry-1,puducherry,1989,1,PONDICHERRY,C. BALAMUTHUVAL,parties.IN.LKD_B,LKD (B),965,0.26,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-puducherry-1,puducherry,1989,1,PONDICHERRY,P. D. PANNEER SALVAN,parties.IN.TMM,TMM,943,0.25,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-puducherry-1,puducherry,1989,1,PONDICHERRY,R. ARANGANATHAN,parties.IN.IND,IND,723,0.19,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-puducherry-1,puducherry,1989,1,PONDICHERRY,M. KANDEEBAN,parties.IN.IND,IND,538,0.14,7,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3686,7 +3686,7 @@ IN-PC-1976-punjab-1,punjab,1989,1,GURDASPUR,SUKHBANS KAUR,parties.IN.INC,INC,220
 IN-PC-1976-punjab-1,punjab,1989,1,GURDASPUR,CHAUN SINGH SIDHU,parties.IN.SADM,SAD(M),143540,26.35,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-1,punjab,1989,1,GURDASPUR,JAG DUTT,parties.IN.BJP,BJP,128714,23.63,3,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-1,punjab,1989,1,GURDASPUR,DHARAM CHAND,parties.IN.BSP,BSP,17198,3.16,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-punjab-1,punjab,1989,1,GURDASPUR,ISARE B.DAS,parties.IN.UNK,SAD(B),9725,1.79,5,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-punjab-1,punjab,1989,1,GURDASPUR,ISARE B.DAS,parties.IN.SAD_B,SAD(B),9725,1.79,5,forfeit,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-punjab-1,punjab,1989,1,GURDASPUR,DHARAM PAL KAPAI,parties.IN.IND,IND,5171,0.95,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-1,punjab,1989,1,GURDASPUR,AVINAS RANI,parties.IN.UNK,IGC,4400,0.81,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-1,punjab,1989,1,GURDASPUR,LUBHAYA,parties.IN.IND,IND,3544,0.65,8,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3696,11 +3696,11 @@ IN-PC-1976-punjab-1,punjab,1989,1,GURDASPUR,HANS RAJ,parties.IN.IND,IND,2078,0.3
 IN-PC-1976-punjab-1,punjab,1989,1,GURDASPUR,MELA RAM,parties.IN.IND,IND,2015,0.37,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-1,punjab,1989,1,GURDASPUR,BISHAMBAR DAS,parties.IN.IND,IND,1022,0.19,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-1,punjab,1989,1,GURDASPUR,RAGHUNATH,parties.IN.DDP,DDP,509,0.09,14,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-punjab-1,punjab,1989,1,GURDASPUR,UDHAM SINGH,parties.IN.UNK,BJMD,330,0.06,15,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-punjab-1,punjab,1989,1,GURDASPUR,UDHAM SINGH,parties.IN.JMD,BJMD,330,0.06,15,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,KIRPAL SINGH,parties.IN.IND,IND,272427,47.03,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,RAGHUNANDAN LAL BHATIA,parties.IN.INC,INC,149214,25.76,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,BALDEV PARKASH,parties.IN.BJP,BJP,105831,18.27,3,lost,U,,,,crossover,src-31c65dbec869
-IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,MANJI SINGH CALCUTTA,parties.IN.UNK,SAD(B),17958,3.1,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,MANJI SINGH CALCUTTA,parties.IN.SAD_B,SAD(B),17958,3.1,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,IQBAL SINGH BHAGOWALIA,parties.IN.BSP,BSP,11696,2.02,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,KARTAR KAUR,parties.IN.IND,IND,3048,0.53,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,TARA SINGH,parties.IN.IND,IND,2222,0.38,7,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3723,9 +3723,9 @@ IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,HEMANT,parties.IN.IND,IND,383,0.07,23
 IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,VIDYA SAGAR SINGH,parties.IN.IND,IND,339,0.06,24,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,TARLOCHAN SINGH JUDGE,parties.IN.IND,IND,339,0.06,25,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,SARABJIT SINGH GUMTALA,parties.IN.IND,IND,337,0.06,26,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,ASHOK KUMAR,parties.IN.UNK,PNF,314,0.05,27,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,ASHOK KUMAR,parties.IN.PNF,PNF,314,0.05,27,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,DEEPINDER SINGH,parties.IN.DDP,DDP,314,0.05,28,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,RAMRAJINDER SINGH KIRTI,parties.IN.UNK,BJMD,216,0.04,29,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,RAMRAJINDER SINGH KIRTI,parties.IN.JMD,BJMD,216,0.04,29,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-2,punjab,1989,2,AMRITSAR,BITA SINGH,parties.IN.IND,IND,210,0.04,30,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-3,punjab,1989,3,TARN TARAN,SIMARANJIT SINGH MANN,parties.IN.SADM,SAD(M),527707,89.16,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-3,punjab,1989,3,TARN TARAN,AJIT SINGH MANN,parties.IN.INC,INC,47290,7.99,2,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3734,7 +3734,7 @@ IN-PC-1976-punjab-3,punjab,1989,3,TARN TARAN,JASWANT SINGH DHOLAN,parties.IN.IND
 IN-PC-1976-punjab-3,punjab,1989,3,TARN TARAN,SARDUL SINGH NONA,parties.IN.BSP,BSP,3682,0.62,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-3,punjab,1989,3,TARN TARAN,JAGAT RAM,parties.IN.IND,IND,1369,0.23,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-3,punjab,1989,3,TARN TARAN,ISHER SINGH,parties.IN.IND,IND,976,0.16,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-punjab-3,punjab,1989,3,TARN TARAN,CHANAN SINGH MOHAN BHANDARIAN,parties.IN.UNK,BJMD,574,0.1,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-punjab-3,punjab,1989,3,TARN TARAN,CHANAN SINGH MOHAN BHANDARIAN,parties.IN.JMD,BJMD,574,0.1,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-3,punjab,1989,3,TARN TARAN,TARLOCHAN SINGH TUR,parties.IN.IND,IND,366,0.06,9,forfeit,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-punjab-3,punjab,1989,3,TARN TARAN,BALWINDER SINGH BOMB,parties.IN.IND,IND,294,0.05,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-3,punjab,1989,3,TARN TARAN,DAIL SINGH THEKEDAR,parties.IN.IND,IND,197,0.03,11,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3758,17 +3758,17 @@ IN-PC-1976-punjab-4,punjab,1989,4,JULLUNDUR,WARYAM SINGH,parties.IN.IND,IND,551,
 IN-PC-1976-punjab-4,punjab,1989,4,JULLUNDUR,SARBJIT SINGH,parties.IN.IND,IND,514,0.09,18,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-4,punjab,1989,4,JULLUNDUR,ARVIND KUMAR TULI,parties.IN.IND,IND,513,0.09,19,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-4,punjab,1989,4,JULLUNDUR,RAGHBIR SINGH RANA,parties.IN.IND,IND,486,0.09,20,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-punjab-4,punjab,1989,4,JULLUNDUR,GURPREET SINGH DHILLON,parties.IN.UNK,LKD (B),483,0.09,21,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-punjab-4,punjab,1989,4,JULLUNDUR,GURPREET SINGH DHILLON,parties.IN.LKD_B,LKD (B),483,0.09,21,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-4,punjab,1989,4,JULLUNDUR,KULBHUSHAN KUMAR,parties.IN.IND,IND,474,0.09,22,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-4,punjab,1989,4,JULLUNDUR,JAGDISH SINGH,parties.IN.ILP,ILP,406,0.07,23,forfeit,U,,,,crossover,src-31c65dbec869
-IN-PC-1976-punjab-4,punjab,1989,4,JULLUNDUR,BIR SINGH,parties.IN.UNK,BJMD,378,0.07,24,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-punjab-4,punjab,1989,4,JULLUNDUR,BIR SINGH,parties.IN.JMD,BJMD,378,0.07,24,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-4,punjab,1989,4,JULLUNDUR,MIT SINGH,parties.IN.IND,IND,344,0.06,25,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-4,punjab,1989,4,JULLUNDUR,JAI PAL,parties.IN.IND,IND,318,0.06,26,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-4,punjab,1989,4,JULLUNDUR,JASWANT RAI,parties.IN.IND,IND,281,0.05,27,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-4,punjab,1989,4,JULLUNDUR,MOHINDER SINGH,parties.IN.IND,IND,123,0.02,28,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-4,punjab,1989,4,JULLUNDUR,MOHINDER KUMAR JAIN,parties.IN.IND,IND,114,0.02,29,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-5,punjab,1989,5,PHILLAUR,HARBHAJAN LAKHA,parties.IN.BSP,BSP,173592,29.25,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-punjab-5,punjab,1989,5,PHILLAUR,CHARANJIT SINGH,parties.IN.UNK,SAD(B),165468,27.89,2,lost,U,,,,incumbent,src-31c65dbec869
+IN-PC-1976-punjab-5,punjab,1989,5,PHILLAUR,CHARANJIT SINGH,parties.IN.SAD_B,SAD(B),165468,27.89,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-punjab-5,punjab,1989,5,PHILLAUR,SUNDER SINGH,parties.IN.INC,INC,164637,27.75,3,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-punjab-5,punjab,1989,5,PHILLAUR,BHAGAT RAM,parties.IN.CPIM,CPM,72104,12.15,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-5,punjab,1989,5,PHILLAUR,TERSEM LAL,parties.IN.CPIMLL,CPI(ML),6640,1.12,5,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3784,10 +3784,10 @@ IN-PC-1976-punjab-6,punjab,1989,6,HOSHIARPUR,VIKRAM SINGH,parties.IN.JD,JD,46093
 IN-PC-1976-punjab-6,punjab,1989,6,HOSHIARPUR,DALJIT SINGH,parties.IN.JP,JNP (JP),4927,0.9,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-6,punjab,1989,6,HOSHIARPUR,JAWAHAR LAL,parties.IN.IND,IND,3615,0.66,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-6,punjab,1989,6,HOSHIARPUR,MOHAN SINGH,parties.IN.IND,IND,3596,0.66,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-punjab-6,punjab,1989,6,HOSHIARPUR,JASWINDER SINGH,parties.IN.UNK,SAD(B),2811,0.51,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-punjab-6,punjab,1989,6,HOSHIARPUR,JASWINDER SINGH,parties.IN.SAD_B,SAD(B),2811,0.51,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-6,punjab,1989,6,HOSHIARPUR,MOHINDER SINGH,parties.IN.DDP,DDP,2205,0.4,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-punjab-6,punjab,1989,6,HOSHIARPUR,KANTA DEVI,parties.IN.UNK,LKD (B),1762,0.32,11,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-punjab-6,punjab,1989,6,HOSHIARPUR,NIRMAL SINGH,parties.IN.UNK,BJMD,870,0.16,12,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-punjab-6,punjab,1989,6,HOSHIARPUR,KANTA DEVI,parties.IN.LKD_B,LKD (B),1762,0.32,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-punjab-6,punjab,1989,6,HOSHIARPUR,NIRMAL SINGH,parties.IN.JMD,BJMD,870,0.16,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-6,punjab,1989,6,HOSHIARPUR,OM PARKASH,parties.IN.IND,IND,824,0.15,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-7,punjab,1989,7,ROPAR,BIMAL KAUR,parties.IN.SADM,SAD(M),424010,60.38,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-7,punjab,1989,7,ROPAR,RAJA SINGH,parties.IN.INC,INC,193434,27.54,2,lost,U,,,,challenger,src-31c65dbec869
@@ -3800,7 +3800,7 @@ IN-PC-1976-punjab-7,punjab,1989,7,ROPAR,JAGIR SINGH,parties.IN.IND,IND,1819,0.26
 IN-PC-1976-punjab-7,punjab,1989,7,ROPAR,HARDEV SINGH,parties.IN.IND,IND,1439,0.2,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-8,punjab,1989,8,PATIALA,ATINDERPAL SINGH,parties.IN.IND,IND,294172,46.59,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-8,punjab,1989,8,PATIALA,VINOD KUMAR S/O KIDAR NATH,parties.IN.INC,INC,212912,33.72,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-punjab-8,punjab,1989,8,PATIALA,BALWANT SINGH,parties.IN.UNK,SAD(B),51351,8.13,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-punjab-8,punjab,1989,8,PATIALA,BALWANT SINGH,parties.IN.SAD_B,SAD(B),51351,8.13,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-8,punjab,1989,8,PATIALA,HARDAIL SINGH,parties.IN.BSP,BSP,27686,4.38,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-8,punjab,1989,8,PATIALA,KIRPAL SINGH,parties.IN.SAD,SAD,18190,2.88,5,forfeit,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-punjab-8,punjab,1989,8,PATIALA,KAKA SINGH,parties.IN.IND,IND,4024,0.64,6,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3823,7 +3823,7 @@ IN-PC-1976-punjab-8,punjab,1989,8,PATIALA,GIANI RAM SINGH,parties.IN.IND,IND,451
 IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,RAJINDER KAUR BULARA,parties.IN.SADM,SAD(M),357349,53.48,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,GURCHARAN SINGH GALIB,parties.IN.INC,INC,223620,33.47,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,INDERJIT SINGH,parties.IN.BSP,BSP,34328,5.14,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,JAGDEV SINGH JASSOWAL,parties.IN.UNK,SAD(B),25258,3.78,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,JAGDEV SINGH JASSOWAL,parties.IN.SAD_B,SAD(B),25258,3.78,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,RAJINDER PARSHAD,parties.IN.IND,IND,3779,0.57,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,LAL CHAND VERMA,parties.IN.IND,IND,3278,0.49,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,HARVINDER SINGH CHAUHAN,parties.IN.IND,IND,2978,0.45,7,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3835,7 +3835,7 @@ IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,KULWANT SINGH,parties.IN.JP,JNP (JP),
 IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,PRAVEEN KUMAR,parties.IN.IND,IND,1267,0.19,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,RAM PARKASH BAGGA,parties.IN.IND,IND,1211,0.18,14,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,KANAYA PARSHAD,parties.IN.IND,IND,968,0.14,15,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,NARESH JAGGI,parties.IN.UNK,LKD (B),909,0.14,16,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,NARESH JAGGI,parties.IN.LKD_B,LKD (B),909,0.14,16,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,JAGDISH LAL,parties.IN.IND,IND,859,0.13,17,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,DEEP BIRLA,parties.IN.IND,IND,844,0.13,18,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,VARINDER AGGARWAL,parties.IN.IND,IND,804,0.12,19,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3847,7 +3847,7 @@ IN-PC-1976-punjab-9,punjab,1989,9,LUDHIANA,GURCHARAN SINGH GIANI,parties.IN.PKD,
 IN-PC-1976-punjab-10,punjab,1989,10,SANGRUR,RAJDEV SINGH,parties.IN.SADM,SAD(M),242443,36.72,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-10,punjab,1989,10,SANGRUR,CHAND SINGH,parties.IN.CPIM,CPM,137900,20.89,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-10,punjab,1989,10,SANGRUR,SOM DUTT,parties.IN.INC,INC,106981,16.2,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-punjab-10,punjab,1989,10,SANGRUR,SUKH DEV SINGH DHINDSA,parties.IN.UNK,SAD(B),67041,10.15,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-punjab-10,punjab,1989,10,SANGRUR,SUKH DEV SINGH DHINDSA,parties.IN.SAD_B,SAD(B),67041,10.15,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-10,punjab,1989,10,SANGRUR,TOTA SINGH,parties.IN.SAD,SAD,66057,10.01,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-10,punjab,1989,10,SANGRUR,ATMA SINGH,parties.IN.BSP,BSP,17607,2.67,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-10,punjab,1989,10,SANGRUR,JAMIL,parties.IN.IND,IND,5471,0.83,7,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3859,7 +3859,7 @@ IN-PC-1976-punjab-10,punjab,1989,10,SANGRUR,MIT SINGH,parties.IN.IND,IND,2444,0.
 IN-PC-1976-punjab-11,punjab,1989,11,BHATINDA,SUCHA SINGH,parties.IN.SADM,SAD(M),316979,53.18,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-11,punjab,1989,11,BHATINDA,GURDEV SINGH GILL,parties.IN.INC,INC,109599,18.39,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-11,punjab,1989,11,BHATINDA,MAKHAN SINGH,parties.IN.CPI,CPI,93784,15.73,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-punjab-11,punjab,1989,11,BHATINDA,GURDEV SINGH BADAL,parties.IN.UNK,SAD(B),35030,5.88,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-punjab-11,punjab,1989,11,BHATINDA,GURDEV SINGH BADAL,parties.IN.SAD_B,SAD(B),35030,5.88,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-11,punjab,1989,11,BHATINDA,PRITAM SINGH,parties.IN.IND,IND,15240,2.56,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-11,punjab,1989,11,BHATINDA,TEJA SINGH DARDI,parties.IN.SAD,SAD,11340,1.9,6,forfeit,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-punjab-11,punjab,1989,11,BHATINDA,SURJAN SINGH JOGA,parties.IN.IND,IND,4113,0.69,7,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3873,7 +3873,7 @@ IN-PC-1976-punjab-11,punjab,1989,11,BHATINDA,HARBHAJAN SINGH,parties.IN.IND,IND,
 IN-PC-1976-punjab-12,punjab,1989,12,FARIDKOT,JAGDEV SINGH,parties.IN.SADM,SAD(M),305521,48.63,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-12,punjab,1989,12,FARIDKOT,HARCHARAN SINGH,parties.IN.INC,INC,148138,23.58,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-12,punjab,1989,12,FARIDKOT,BALJIT SINGH,parties.IN.BSP,BSP,60879,9.69,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-punjab-12,punjab,1989,12,FARIDKOT,SHAMINDER SINGH,parties.IN.UNK,SAD(B),52967,8.43,4,forfeit,U,,,,incumbent,src-31c65dbec869
+IN-PC-1976-punjab-12,punjab,1989,12,FARIDKOT,SHAMINDER SINGH,parties.IN.SAD_B,SAD(B),52967,8.43,4,forfeit,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-punjab-12,punjab,1989,12,FARIDKOT,JAGRUP SINGH,parties.IN.CPI,CPI,24038,3.83,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-12,punjab,1989,12,FARIDKOT,PRITAM SINGH,parties.IN.RPI,RPI,12878,2.05,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-punjab-12,punjab,1989,12,FARIDKOT,NATESH KUMAR,parties.IN.IND,IND,4519,0.72,7,forfeit,U,,,,challenger,src-31c65dbec869
@@ -3984,7 +3984,7 @@ IN-PC-1976-rajasthan-5,rajasthan,1989,5,SIKAR,SHYAM LAL,parties.IN.IND,IND,942,0
 IN-PC-1976-rajasthan-5,rajasthan,1989,5,SIKAR,THAKUR GANGA SINGH SHEKHAWAT,parties.IN.IND,IND,873,0.12,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-rajasthan-5,rajasthan,1989,5,SIKAR,KALU RAM,parties.IN.IND,IND,843,0.12,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-rajasthan-5,rajasthan,1989,5,SIKAR,GOVINDRAM JADIYA,parties.IN.IND,IND,685,0.09,11,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-rajasthan-5,rajasthan,1989,5,SIKAR,RAJENDRA,parties.IN.UNK,LKD (B),488,0.07,12,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-rajasthan-5,rajasthan,1989,5,SIKAR,RAJENDRA,parties.IN.LKD_B,LKD (B),488,0.07,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-rajasthan-5,rajasthan,1989,5,SIKAR,MALARAM KUMMAWAT,parties.IN.IND,IND,422,0.06,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-rajasthan-5,rajasthan,1989,5,SIKAR,SHYAM SUNDER,parties.IN.IND,IND,406,0.06,14,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-rajasthan-5,rajasthan,1989,5,SIKAR,MAL SINGH,parties.IN.IND,IND,388,0.05,15,forfeit,U,,,,challenger,src-31c65dbec869
@@ -4190,7 +4190,7 @@ IN-PC-1976-rajasthan-24,rajasthan,1989,24,JODHPUR,JAGDISH,parties.IN.IND,IND,606
 IN-PC-1976-rajasthan-24,rajasthan,1989,24,JODHPUR,AMAR CHAND,parties.IN.IND,IND,3000,0.51,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-rajasthan-24,rajasthan,1989,24,JODHPUR,INDER SINGH,parties.IN.IND,IND,2935,0.5,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-rajasthan-24,rajasthan,1989,24,JODHPUR,SURAJ MAL,parties.IN.BSP,BSP,2834,0.48,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-rajasthan-24,rajasthan,1989,24,JODHPUR,JASWANT SINGH S/O DHAN SINGH,parties.IN.UNK,LKD (B),1852,0.31,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-rajasthan-24,rajasthan,1989,24,JODHPUR,JASWANT SINGH S/O DHAN SINGH,parties.IN.LKD_B,LKD (B),1852,0.31,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-rajasthan-24,rajasthan,1989,24,JODHPUR,RAM PARTAP SINGH SANNKHLA,parties.IN.IND,IND,1283,0.22,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-rajasthan-24,rajasthan,1989,24,JODHPUR,RAJENDER SINGH GEHLOT,parties.IN.IND,IND,1275,0.22,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-rajasthan-24,rajasthan,1989,24,JODHPUR,VISHWA DEV PUROHIT,parties.IN.IND,IND,1055,0.18,12,forfeit,U,,,,challenger,src-31c65dbec869
@@ -4215,7 +4215,7 @@ IN-PC-1976-rajasthan-25,rajasthan,1989,25,NAGAUR,HEM SINGH,parties.IN.IND,IND,53
 IN-PC-1976-rajasthan-25,rajasthan,1989,25,NAGAUR,RAN LAL,parties.IN.IND,IND,470,0.07,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-sikkim-1,sikkim,1989,1,SIKKIM,NANDU THAPA,parties.IN.SSP,SSP,91608,68.52,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-sikkim-1,sikkim,1989,1,SIKKIM,DIL KUMARI BHANDARI,parties.IN.INC,INC,28822,21.56,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-sikkim-1,sikkim,1989,1,SIKKIM,RAM CHANDRA POUDYAL,parties.IN.UNK,RIS,12858,9.62,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-sikkim-1,sikkim,1989,1,SIKKIM,RAM CHANDRA POUDYAL,parties.IN.RIS,RIS,12858,9.62,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-sikkim-1,sikkim,1989,1,SIKKIM,SONAM TOPGYAL GENSAPA,parties.IN.IND,IND,411,0.31,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,D. PANDIAN,parties.IN.INC,INC,445197,54.84,1,won,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,N. V. M. SOMU,parties.IN.DMK,DMK,331426,40.83,2,lost,U,,,,incumbent,src-31c65dbec869
@@ -4226,7 +4226,7 @@ IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,V. S. PRAKASAM,parties.IN
 IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,KUMARI NAMBI,parties.IN.IND,IND,808,0.1,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,B. NATHAN,parties.IN.IND,IND,737,0.09,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,K. ANANDARAJ,parties.IN.IND,IND,704,0.09,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,R.SERAN,parties.IN.UNK,LKD (B),704,0.09,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,R.SERAN,parties.IN.LKD_B,LKD (B),704,0.09,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,D. A. VARADA DESIGAN,parties.IN.IND,IND,648,0.08,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,K. SAMSUDEEN,parties.IN.IND,IND,627,0.08,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,M. SARANGAPANI,parties.IN.IND,IND,608,0.07,13,forfeit,U,,,,challenger,src-31c65dbec869
@@ -4234,7 +4234,7 @@ IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,K. MANOGARAN,parties.IN.I
 IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,P. THAMILARASAN,parties.IN.IND,IND,536,0.07,15,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,D. RAJENDRAN,parties.IN.IND,IND,508,0.06,16,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,P. ABDUL PARIT,parties.IN.IND,IND,483,0.06,17,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,M. KAILASAM,parties.IN.UNK,SLL,391,0.05,18,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,M. KAILASAM,parties.IN.SLL,SLL,391,0.05,18,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,G. KANNIAPPAN,parties.IN.IND,IND,358,0.04,19,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,NAGABHUSHANAM,parties.IN.IND,IND,356,0.04,20,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-1,tamil-nadu,1989,1,MADRAS NORTH,MANIK CHAND NAHAR,parties.IN.IND,IND,316,0.04,21,forfeit,U,,,,challenger,src-31c65dbec869
@@ -4264,7 +4264,7 @@ IN-PC-1976-tamil-nadu-2,tamil-nadu,1989,2,MADRAS CENTRAL,"ABDUL KHADER, A.",part
 IN-PC-1976-tamil-nadu-2,tamil-nadu,1989,2,MADRAS CENTRAL,"RAGHAVENDRA RAO,",parties.IN.IND,IND,262,0.04,17,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-2,tamil-nadu,1989,2,MADRAS CENTRAL,SHUNMUGAM. A.,parties.IN.IND,IND,253,0.04,18,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-2,tamil-nadu,1989,2,MADRAS CENTRAL,"SUNDERESAN, M.",parties.IN.IND,IND,236,0.04,19,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-tamil-nadu-2,tamil-nadu,1989,2,MADRAS CENTRAL,JAICHANDRA NAIKKR T. ALIAS JAYACHANORA,parties.IN.UNK,LKD (B),203,0.03,20,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-2,tamil-nadu,1989,2,MADRAS CENTRAL,JAICHANDRA NAIKKR T. ALIAS JAYACHANORA,parties.IN.LKD_B,LKD (B),203,0.03,20,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-2,tamil-nadu,1989,2,MADRAS CENTRAL,"VENKATESAN, G.",parties.IN.IND,IND,188,0.03,21,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-2,tamil-nadu,1989,2,MADRAS CENTRAL,"JOHN WILSON, M.",parties.IN.IND,IND,179,0.03,22,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-2,tamil-nadu,1989,2,MADRAS CENTRAL,"VINCENT, K.",parties.IN.IND,IND,156,0.03,23,forfeit,U,,,,challenger,src-31c65dbec869
@@ -4303,7 +4303,7 @@ IN-PC-1976-tamil-nadu-4,tamil-nadu,1989,4,SRIPERUMBUDUR,"GANESAN, K.",parties.IN
 IN-PC-1976-tamil-nadu-4,tamil-nadu,1989,4,SRIPERUMBUDUR,"GOPALAN, N.",parties.IN.IND,IND,74913,10.61,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-4,tamil-nadu,1989,4,SRIPERUMBUDUR,"APPAN, G.A.",parties.IN.IND,IND,2892,0.41,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-4,tamil-nadu,1989,4,SRIPERUMBUDUR,"SUNDARESAN, K.",parties.IN.IND,IND,2421,0.34,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-tamil-nadu-4,tamil-nadu,1989,4,SRIPERUMBUDUR,"SERAN PARAYAN, R. ALIAS SERAN, R.",parties.IN.UNK,LKD (B),1695,0.24,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-4,tamil-nadu,1989,4,SRIPERUMBUDUR,"SERAN PARAYAN, R. ALIAS SERAN, R.",parties.IN.LKD_B,LKD (B),1695,0.24,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-4,tamil-nadu,1989,4,SRIPERUMBUDUR,"VARADARAJ, T.",parties.IN.IND,IND,1387,0.2,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-4,tamil-nadu,1989,4,SRIPERUMBUDUR,"MAGALINGAM, K.",parties.IN.IND,IND,1150,0.16,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-4,tamil-nadu,1989,4,SRIPERUMBUDUR,"CHOCKALINGAM, M.",parties.IN.IND,IND,857,0.12,9,forfeit,U,,,,challenger,src-31c65dbec869
@@ -4378,7 +4378,7 @@ IN-PC-1976-tamil-nadu-10,tamil-nadu,1989,10,TINDIVANAM,"DHAYANITHI, N.",parties.
 IN-PC-1976-tamil-nadu-10,tamil-nadu,1989,10,TINDIVANAM,"SHANMUGHAM, S.",parties.IN.PMK,PMK,142996,22.07,3,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-10,tamil-nadu,1989,10,TINDIVANAM,"ILANGOVAN, P.",parties.IN.TMM,TMM,3446,0.53,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-10,tamil-nadu,1989,10,TINDIVANAM,"SIVA, M.",parties.IN.IND,IND,1668,0.26,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-tamil-nadu-10,tamil-nadu,1989,10,TINDIVANAM,"PAUL, K.",parties.IN.UNK,LKD (B),1248,0.19,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-10,tamil-nadu,1989,10,TINDIVANAM,"PAUL, K.",parties.IN.LKD_B,LKD (B),1248,0.19,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-10,tamil-nadu,1989,10,TINDIVANAM,RAJENDRAN,parties.IN.IND,IND,774,0.12,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-11,tamil-nadu,1989,11,CUDDALORE,P. R. S. VENKATESAN,parties.IN.INC,INC,331617,50.58,1,won,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-tamil-nadu-11,tamil-nadu,1989,11,CUDDALORE,G. BHASKARAN,parties.IN.DMK,DMK,214782,32.76,2,lost,U,,,,challenger,src-31c65dbec869
@@ -4390,7 +4390,7 @@ IN-PC-1976-tamil-nadu-11,tamil-nadu,1989,11,CUDDALORE,S.KESAVAN,parties.IN.IND,I
 IN-PC-1976-tamil-nadu-12,tamil-nadu,1989,12,CHIDAMBARAM,"VALLALPERUMAN, P.",parties.IN.INC,INC,205229,30.98,1,won,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-tamil-nadu-12,tamil-nadu,1989,12,CHIDAMBARAM,"AYYASAMY, A.",parties.IN.DMK,DMK,176946,26.71,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-12,tamil-nadu,1989,12,CHIDAMBARAM,"ELUMALAI, R.",parties.IN.PMK,PMK,158155,23.87,3,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-tamil-nadu-12,tamil-nadu,1989,12,CHIDAMBARAM,"ELAYAPERUMAL, L.",parties.IN.UNK,HPI,120197,18.14,4,lost,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-tamil-nadu-12,tamil-nadu,1989,12,CHIDAMBARAM,"ELAYAPERUMAL, L.",parties.IN.HPI,HPI,120197,18.14,4,lost,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-tamil-nadu-12,tamil-nadu,1989,12,CHIDAMBARAM,"VEERAMANI, R.",parties.IN.TMM,TMM,2025,0.31,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-13,tamil-nadu,1989,13,DHARMAPURI,"SEKHAR, M. G.",parties.IN.ADK,ADK,315921,46.52,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-13,tamil-nadu,1989,13,DHARMAPURI,"ELANGOVAN, B. D.",parties.IN.PMK,PMK,202901,29.88,2,lost,U,,,,challenger,src-31c65dbec869
@@ -4409,7 +4409,7 @@ IN-PC-1976-tamil-nadu-14,tamil-nadu,1989,14,KRISHNAGIRI,"RAMAKRISHNA REDDY, R.",
 IN-PC-1976-tamil-nadu-15,tamil-nadu,1989,15,RASIPURAM,"DEVARAJAN, B.",parties.IN.INC,INC,421674,67.01,1,won,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-tamil-nadu-15,tamil-nadu,1989,15,RASIPURAM,"MAYAVAN, R.",parties.IN.DMK,DMK,169699,26.97,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-15,tamil-nadu,1989,15,RASIPURAM,"JAYABAL, P.",parties.IN.PMK,PMK,28971,4.6,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-tamil-nadu-15,tamil-nadu,1989,15,RASIPURAM,"MANICKAM, T. K.",parties.IN.UNK,LKD (B),2273,0.36,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-15,tamil-nadu,1989,15,RASIPURAM,"MANICKAM, T. K.",parties.IN.LKD_B,LKD (B),2273,0.36,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-15,tamil-nadu,1989,15,RASIPURAM,"PONNITHURAI, T. M.",parties.IN.IND,IND,1988,0.32,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-15,tamil-nadu,1989,15,RASIPURAM,"RAMASAMY, P.",parties.IN.TMM,TMM,1830,0.29,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-15,tamil-nadu,1989,15,RASIPURAM,"MURUGESAN, P.",parties.IN.IND,IND,1283,0.2,7,forfeit,U,,,,challenger,src-31c65dbec869
@@ -4550,7 +4550,7 @@ IN-PC-1976-tamil-nadu-24,tamil-nadu,1989,24,MADURAI,V.VELUSAMY,parties.IN.DMK,DM
 IN-PC-1976-tamil-nadu-24,tamil-nadu,1989,24,MADURAI,K.PONNIAH,parties.IN.PMK,PMK,2834,0.4,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-24,tamil-nadu,1989,24,MADURAI,J.S.KRISHANAN,parties.IN.IND,IND,2230,0.31,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-24,tamil-nadu,1989,24,MADURAI,A.JAMES RAJA,parties.IN.TMM,TMM,1188,0.17,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-tamil-nadu-24,tamil-nadu,1989,24,MADURAI,T.S.SUNDARAM,parties.IN.UNK,LKD (B),871,0.12,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-24,tamil-nadu,1989,24,MADURAI,T.S.SUNDARAM,parties.IN.LKD_B,LKD (B),871,0.12,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-24,tamil-nadu,1989,24,MADURAI,K.RAMAN,parties.IN.IND,IND,826,0.12,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-24,tamil-nadu,1989,24,MADURAI,S.P.BALU,parties.IN.IND,IND,742,0.1,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-24,tamil-nadu,1989,24,MADURAI,B.JAYARAMAN,parties.IN.IND,IND,688,0.1,9,forfeit,U,,,,challenger,src-31c65dbec869
@@ -4640,7 +4640,7 @@ IN-PC-1976-tamil-nadu-33,tamil-nadu,1989,33,SIVAGANGA,"CHIDAMBARAM, P.",parties.
 IN-PC-1976-tamil-nadu-33,tamil-nadu,1989,33,SIVAGANGA,"GANESAN, A.",parties.IN.DMK,DMK,210738,32.26,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-33,tamil-nadu,1989,33,SIVAGANGA,"RAJANGAM, V.",parties.IN.IND,IND,3576,0.55,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-33,tamil-nadu,1989,33,SIVAGANGA,"RAJU, A.P",parties.IN.PMK,PMK,2391,0.37,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-tamil-nadu-33,tamil-nadu,1989,33,SIVAGANGA,"MANI, A.",parties.IN.UNK,PWA,1964,0.3,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-33,tamil-nadu,1989,33,SIVAGANGA,"MANI, A.",parties.IN.PWA,PWA,1964,0.3,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-33,tamil-nadu,1989,33,SIVAGANGA,"VELLACHAMY, K.R.",parties.IN.IND,IND,1616,0.25,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-33,tamil-nadu,1989,33,SIVAGANGA,"BALUYADAV, U",parties.IN.IND,IND,1243,0.19,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-tamil-nadu-33,tamil-nadu,1989,33,SIVAGANGA,"KARUTHAPANDIAN, T.K.",parties.IN.IND,IND,910,0.14,8,forfeit,U,,,,challenger,src-31c65dbec869
@@ -4746,7 +4746,7 @@ IN-PC-1976-uttar-pradesh-2,uttar-pradesh,1989,2,GARHWAL,SATPALJI MAHARAJ,parties
 IN-PC-1976-uttar-pradesh-2,uttar-pradesh,1989,2,GARHWAL,MANOSH KANT ALIAS MANOHAR KANT DHYANI,parties.IN.BJP,BJP,18631,4.68,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-2,uttar-pradesh,1989,2,GARHWAL,ARJUN SINGH GUSAIN,parties.IN.UKKD,UKD,14211,3.57,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-2,uttar-pradesh,1989,2,GARHWAL,RAMI DEVI,parties.IN.BSP,BSP,7492,1.88,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-2,uttar-pradesh,1989,2,GARHWAL,BANSHIDHAR DOBHAL,parties.IN.UNK,LKD (B),4969,1.25,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-2,uttar-pradesh,1989,2,GARHWAL,BANSHIDHAR DOBHAL,parties.IN.LKD_B,LKD (B),4969,1.25,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-2,uttar-pradesh,1989,2,GARHWAL,JAGMOHAN PRASSD,parties.IN.IND,IND,4872,1.22,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-2,uttar-pradesh,1989,2,GARHWAL,MOHAN LAL,parties.IN.IND,IND,4189,1.05,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-2,uttar-pradesh,1989,2,GARHWAL,LAXMAN SINGH RAWAT,parties.IN.JP,JNP (JP),3554,0.89,9,forfeit,U,,,,challenger,src-31c65dbec869
@@ -4796,7 +4796,7 @@ IN-PC-1976-uttar-pradesh-5,uttar-pradesh,1989,5,BIJNOR,KALWA S/O MALHOO,parties.
 IN-PC-1976-uttar-pradesh-6,uttar-pradesh,1989,6,AMROHA,HAR GOVIND,parties.IN.JD,JD,271559,50.16,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-6,uttar-pradesh,1989,6,AMROHA,KHURSHEED AHMAD,parties.IN.INC,INC,123477,22.81,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-6,uttar-pradesh,1989,6,AMROHA,JALEEL AHMAD,parties.IN.BSP,BSP,86630,16,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-6,uttar-pradesh,1989,6,AMROHA,ISHRAT ALI,parties.IN.UNK,LKD (B),31525,5.82,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-6,uttar-pradesh,1989,6,AMROHA,ISHRAT ALI,parties.IN.LKD_B,LKD (B),31525,5.82,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-6,uttar-pradesh,1989,6,AMROHA,RAJ BEER,parties.IN.IND,IND,5121,0.95,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-6,uttar-pradesh,1989,6,AMROHA,JAGDISH,parties.IN.IND,IND,5058,0.93,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-6,uttar-pradesh,1989,6,AMROHA,RAM KISHAN,parties.IN.IND,IND,4287,0.79,7,forfeit,U,,,,challenger,src-31c65dbec869
@@ -4843,7 +4843,7 @@ IN-PC-1976-uttar-pradesh-9,uttar-pradesh,1989,9,SAMBHAL,RAJ KUMAR SINGH,parties.
 IN-PC-1976-uttar-pradesh-10,uttar-pradesh,1989,10,BUDAUN,SHARAD YADAV,parties.IN.JD,JD,225712,47,1,won,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-10,uttar-pradesh,1989,10,BUDAUN,RAM NARESH YADAV,parties.IN.INC,INC,133626,27.82,2,lost,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-10,uttar-pradesh,1989,10,BUDAUN,MOHAMMED SHAHID WLLAH KHAN,parties.IN.IND,IND,78108,16.26,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-10,uttar-pradesh,1989,10,BUDAUN,DULI RAM,parties.IN.UNK,LKD (B),24636,5.13,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-10,uttar-pradesh,1989,10,BUDAUN,DULI RAM,parties.IN.LKD_B,LKD (B),24636,5.13,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-10,uttar-pradesh,1989,10,BUDAUN,SYED ANWER ALI,parties.IN.BSP,BSP,9279,1.93,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-10,uttar-pradesh,1989,10,BUDAUN,SHER BAHADUR,parties.IN.DDP,DDP,2895,0.6,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-10,uttar-pradesh,1989,10,BUDAUN,MOHAR SINGH,parties.IN.IND,IND,2780,0.58,7,forfeit,U,,,,challenger,src-31c65dbec869
@@ -4854,7 +4854,7 @@ IN-PC-1976-uttar-pradesh-11,uttar-pradesh,1989,11,AONLA,JAI PAL SINGH KASHYAP,pa
 IN-PC-1976-uttar-pradesh-11,uttar-pradesh,1989,11,AONLA,YAQUB ALI,parties.IN.IND,IND,47463,11.42,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-11,uttar-pradesh,1989,11,AONLA,KALYAN SINGH,parties.IN.IND,IND,27971,6.73,4,forfeit,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-11,uttar-pradesh,1989,11,AONLA,RAM PAL SINGH YADAV,parties.IN.BSP,BSP,15289,3.68,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-11,uttar-pradesh,1989,11,AONLA,KEDAR NATH,parties.IN.UNK,LKD (B),11866,2.85,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-11,uttar-pradesh,1989,11,AONLA,KEDAR NATH,parties.IN.LKD_B,LKD (B),11866,2.85,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-11,uttar-pradesh,1989,11,AONLA,BASHIR KHAN,parties.IN.IND,IND,10878,2.62,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-11,uttar-pradesh,1989,11,AONLA,CHHATAR PAL,parties.IN.DDP,DDP,7733,1.86,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-11,uttar-pradesh,1989,11,AONLA,JAI NARAIN,parties.IN.HMS,HMS,4955,1.19,9,forfeit,U,,,,challenger,src-31c65dbec869
@@ -4867,7 +4867,7 @@ IN-PC-1976-uttar-pradesh-12,uttar-pradesh,1989,12,BAREILLY,MANA RAZA KHAN,partie
 IN-PC-1976-uttar-pradesh-12,uttar-pradesh,1989,12,BAREILLY,KAUSAR ALI KHAN,parties.IN.BSP,BSP,7643,1.83,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-12,uttar-pradesh,1989,12,BAREILLY,SATYA PARKASH,parties.IN.CPI,CPI,5783,1.38,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-12,uttar-pradesh,1989,12,BAREILLY,VED NARAYAN TRIPATHI,parties.IN.IND,IND,5721,1.37,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-12,uttar-pradesh,1989,12,BAREILLY,MOHAN LAL,parties.IN.UNK,LKD (B),4991,1.19,8,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-12,uttar-pradesh,1989,12,BAREILLY,MOHAN LAL,parties.IN.LKD_B,LKD (B),4991,1.19,8,forfeit,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-12,uttar-pradesh,1989,12,BAREILLY,KUNWAR SEN,parties.IN.IND,IND,3340,0.8,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-12,uttar-pradesh,1989,12,BAREILLY,JAGDISH VIKAT,parties.IN.HMS,HMS,3168,0.76,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-12,uttar-pradesh,1989,12,BAREILLY,RAM RAKHSPAL,parties.IN.DDP,DDP,3110,0.74,11,forfeit,U,,,,challenger,src-31c65dbec869
@@ -4898,7 +4898,7 @@ IN-PC-1976-uttar-pradesh-14,uttar-pradesh,1989,14,SHAHJAHANPUR,KUNWAR JOTENDER P
 IN-PC-1976-uttar-pradesh-14,uttar-pradesh,1989,14,SHAHJAHANPUR,NIRBHAI CHANDER SETH,parties.IN.BJP,BJP,89989,19.08,3,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-14,uttar-pradesh,1989,14,SHAHJAHANPUR,RAM LAL VERMA,parties.IN.BSP,BSP,19043,4.04,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-14,uttar-pradesh,1989,14,SHAHJAHANPUR,KAKA JOGINDER SINGH URF DHARTI PAKAR,parties.IN.IND,IND,10017,2.12,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-14,uttar-pradesh,1989,14,SHAHJAHANPUR,HUKUM SINGH,parties.IN.UNK,LKD (B),8817,1.87,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,1989,14,SHAHJAHANPUR,HUKUM SINGH,parties.IN.LKD_B,LKD (B),8817,1.87,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-14,uttar-pradesh,1989,14,SHAHJAHANPUR,RAJA RAM,parties.IN.JP,JNP (JP),5987,1.27,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-14,uttar-pradesh,1989,14,SHAHJAHANPUR,PRAHALAD SHAH,parties.IN.DDP,DDP,4921,1.04,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-14,uttar-pradesh,1989,14,SHAHJAHANPUR,OM PRAKASH MISHRA,parties.IN.IND,IND,2870,0.61,9,forfeit,U,,,,challenger,src-31c65dbec869
@@ -4995,7 +4995,7 @@ IN-PC-1976-uttar-pradesh-23,uttar-pradesh,1989,23,RAE BARELI,RAJENDRA PRATAP SIN
 IN-PC-1976-uttar-pradesh-23,uttar-pradesh,1989,23,RAE BARELI,SURENDRA BAHADUR SINGH,parties.IN.BJP,BJP,61585,13.34,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-23,uttar-pradesh,1989,23,RAE BARELI,KAKA JOGINDINDER SINGH URF DHARTI PAKAR,parties.IN.IND,IND,14168,3.07,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-23,uttar-pradesh,1989,23,RAE BARELI,SUDARSHAN RAM,parties.IN.BSP,BSP,13892,3.01,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-23,uttar-pradesh,1989,23,RAE BARELI,MAHADEV PRASAD,parties.IN.UNK,LKD (B),10762,2.33,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-23,uttar-pradesh,1989,23,RAE BARELI,MAHADEV PRASAD,parties.IN.LKD_B,LKD (B),10762,2.33,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-23,uttar-pradesh,1989,23,RAE BARELI,BASUDEV PRASAD,parties.IN.JP,JNP (JP),10742,2.33,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-23,uttar-pradesh,1989,23,RAE BARELI,UDAI PRATAP SINGH,parties.IN.DDP,DDP,9465,2.05,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-23,uttar-pradesh,1989,23,RAE BARELI,RAIS AHMAD UFR RAIS BABA,parties.IN.IND,IND,5918,1.28,9,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5015,7 +5015,7 @@ IN-PC-1976-uttar-pradesh-23,uttar-pradesh,1989,23,RAE BARELI,LAXMI NARAIN,partie
 IN-PC-1976-uttar-pradesh-24,uttar-pradesh,1989,24,PRATAPGARH,RAJA DINESH SINGH,parties.IN.INC,INC,165870,39.53,1,won,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-24,uttar-pradesh,1989,24,PRATAPGARH,ABHAI PRATAP SINGH,parties.IN.JD,JD,161664,38.53,2,lost,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-24,uttar-pradesh,1989,24,PRATAPGARH,VIRENDER KUMAR,parties.IN.BSP,BSP,31429,7.49,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-24,uttar-pradesh,1989,24,PRATAPGARH,RAMESHWER PRASAD MISRA,parties.IN.UNK,LKD (B),21603,5.15,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-24,uttar-pradesh,1989,24,PRATAPGARH,RAMESHWER PRASAD MISRA,parties.IN.LKD_B,LKD (B),21603,5.15,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-24,uttar-pradesh,1989,24,PRATAPGARH,IMRAN,parties.IN.IND,IND,10171,2.42,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-24,uttar-pradesh,1989,24,PRATAPGARH,KUMUDINI PATI,parties.IN.IND,IND,7017,1.67,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-24,uttar-pradesh,1989,24,PRATAPGARH,JAI RAM SAROJ,parties.IN.SSD,SSD,6666,1.59,7,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5089,7 +5089,7 @@ IN-PC-1976-uttar-pradesh-26,uttar-pradesh,1989,26,SULTANPUR,KAMRED ISLAM ULLAH,p
 IN-PC-1976-uttar-pradesh-27,uttar-pradesh,1989,27,AKBARPUR,RAM AWADH,parties.IN.JD,JD,216807,42.22,1,won,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-27,uttar-pradesh,1989,27,AKBARPUR,RAM PIYARE SUMAN,parties.IN.INC,INC,130973,25.51,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-27,uttar-pradesh,1989,27,AKBARPUR,ASHOK KUMAR,parties.IN.BSP,BSP,125901,24.52,3,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-27,uttar-pradesh,1989,27,AKBARPUR,RAJESH KUMAR,parties.IN.UNK,LKD (B),9677,1.88,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-27,uttar-pradesh,1989,27,AKBARPUR,RAJESH KUMAR,parties.IN.LKD_B,LKD (B),9677,1.88,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-27,uttar-pradesh,1989,27,AKBARPUR,SHIV PAL,parties.IN.DDP,DDP,6820,1.33,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-27,uttar-pradesh,1989,27,AKBARPUR,KEWALI DEVI,parties.IN.IND,IND,6057,1.18,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-27,uttar-pradesh,1989,27,AKBARPUR,CHHOTE LAL,parties.IN.IND,IND,5386,1.05,7,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5105,7 +5105,7 @@ IN-PC-1976-uttar-pradesh-28,uttar-pradesh,1989,28,FAIZABAD,SUKH DEO,parties.IN.I
 IN-PC-1976-uttar-pradesh-28,uttar-pradesh,1989,28,FAIZABAD,ASHOK KUMAR,parties.IN.IND,IND,4007,0.87,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-28,uttar-pradesh,1989,28,FAIZABAD,CHIMAN BHAI PATEL,parties.IN.IND,IND,2654,0.58,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-28,uttar-pradesh,1989,28,FAIZABAD,KAMLENDRA BAHADUR SINGH,parties.IN.IND,IND,2608,0.57,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-28,uttar-pradesh,1989,28,FAIZABAD,RAJ KUMAR SHARMA,parties.IN.UNK,LKD (B),2251,0.49,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-28,uttar-pradesh,1989,28,FAIZABAD,RAJ KUMAR SHARMA,parties.IN.LKD_B,LKD (B),2251,0.49,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-28,uttar-pradesh,1989,28,FAIZABAD,CHANDRA PRAKASH LAKSHMANI,parties.IN.IND,IND,2227,0.48,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-28,uttar-pradesh,1989,28,FAIZABAD,KISHORI DAS,parties.IN.IND,IND,1966,0.43,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-28,uttar-pradesh,1989,28,FAIZABAD,SURYA NATH VERMA,parties.IN.IND,IND,1590,0.35,13,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5115,7 +5115,7 @@ IN-PC-1976-uttar-pradesh-29,uttar-pradesh,1989,29,BARA BANKI,RAM KINKAR,parties.
 IN-PC-1976-uttar-pradesh-29,uttar-pradesh,1989,29,BARA BANKI,VIJAY KUMAR,parties.IN.BSP,BSP,76834,17.53,3,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-29,uttar-pradesh,1989,29,BARA BANKI,VIDYA PRASAD,parties.IN.DDP,DDP,14379,3.28,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-29,uttar-pradesh,1989,29,BARA BANKI,LALLA,parties.IN.IND,IND,3712,0.85,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-29,uttar-pradesh,1989,29,BARA BANKI,MUNESHWAR,parties.IN.UNK,LKD (B),3116,0.71,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-29,uttar-pradesh,1989,29,BARA BANKI,MUNESHWAR,parties.IN.LKD_B,LKD (B),3116,0.71,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-29,uttar-pradesh,1989,29,BARA BANKI,RAM AUTAR,parties.IN.IND,IND,2822,0.64,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-29,uttar-pradesh,1989,29,BARA BANKI,SHRI PAL,parties.IN.IND,IND,1811,0.41,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-29,uttar-pradesh,1989,29,BARA BANKI,SWAMI ASHOKA NAND,parties.IN.IND,IND,1263,0.29,9,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5167,8 +5167,8 @@ IN-PC-1976-uttar-pradesh-34,uttar-pradesh,1989,34,BASTI,RAM AWADH PRASAD,parties
 IN-PC-1976-uttar-pradesh-34,uttar-pradesh,1989,34,BASTI,PADARATH,parties.IN.BSP,BSP,67188,14.94,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-34,uttar-pradesh,1989,34,BASTI,DUKHI RAM RAHI,parties.IN.JP,JNP (JP),18766,4.17,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-34,uttar-pradesh,1989,34,BASTI,KUMAREY,parties.IN.DDP,DDP,16340,3.63,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-34,uttar-pradesh,1989,34,BASTI,RAM ACHAL,parties.IN.UNK,LKD (B),10415,2.32,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-34,uttar-pradesh,1989,34,BASTI,BHIKHI RAM,parties.IN.UNK,MUM,4503,1,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-34,uttar-pradesh,1989,34,BASTI,RAM ACHAL,parties.IN.LKD_B,LKD (B),10415,2.32,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-34,uttar-pradesh,1989,34,BASTI,BHIKHI RAM,parties.IN.MMUP,MUM,4503,1,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-34,uttar-pradesh,1989,34,BASTI,RAM MILAN TYAGI,parties.IN.IND,IND,4126,0.92,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-34,uttar-pradesh,1989,34,BASTI,SANGRAM SINGH,parties.IN.UPRP,UPRP,2338,0.52,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-35,uttar-pradesh,1989,35,DOMARIAGANJ,BRIJ BHUSHAN TIWARI,parties.IN.JD,JD,264696,49.52,1,won,U,,,,crossover,src-31c65dbec869
@@ -5184,7 +5184,7 @@ IN-PC-1976-uttar-pradesh-36,uttar-pradesh,1989,36,KHALILABAD,MASUD AHMAD,parties
 IN-PC-1976-uttar-pradesh-36,uttar-pradesh,1989,36,KHALILABAD,CHANDRA SHEKHAR,parties.IN.INC,INC,92133,18.82,3,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-36,uttar-pradesh,1989,36,KHALILABAD,KRISHNA CHANDER,parties.IN.IND,IND,37895,7.74,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-36,uttar-pradesh,1989,36,KHALILABAD,RADHEY SHYAM,parties.IN.DDP,DDP,10525,2.15,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-36,uttar-pradesh,1989,36,KHALILABAD,PARMATAMA PARSAD,parties.IN.UNK,LKD (B),9179,1.87,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-36,uttar-pradesh,1989,36,KHALILABAD,PARMATAMA PARSAD,parties.IN.LKD_B,LKD (B),9179,1.87,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-36,uttar-pradesh,1989,36,KHALILABAD,CHINTA MANI,parties.IN.IND,IND,6953,1.42,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-36,uttar-pradesh,1989,36,KHALILABAD,USHA DEVI,parties.IN.IND,IND,5152,1.05,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-36,uttar-pradesh,1989,36,KHALILABAD,MOHD. ISHAK,parties.IN.IND,IND,2985,0.61,9,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5196,7 +5196,7 @@ IN-PC-1976-uttar-pradesh-37,uttar-pradesh,1989,37,BANSGAON,MAHABIR PRASAD,partie
 IN-PC-1976-uttar-pradesh-37,uttar-pradesh,1989,37,BANSGAON,PHIRANGI PRASAD VISHARAD,parties.IN.IND,IND,152258,32.21,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-37,uttar-pradesh,1989,37,BANSGAON,MOLAI,parties.IN.BSP,BSP,85768,18.14,3,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-37,uttar-pradesh,1989,37,BANSGAON,RAM SURAT,parties.IN.JP,JNP (JP),45149,9.55,4,forfeit,U,,,,crossover,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-37,uttar-pradesh,1989,37,BANSGAON,GIRJA PRASAD RANA,parties.IN.UNK,LKD (B),11138,2.36,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-37,uttar-pradesh,1989,37,BANSGAON,GIRJA PRASAD RANA,parties.IN.LKD_B,LKD (B),11138,2.36,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-37,uttar-pradesh,1989,37,BANSGAON,SAHJAWAL,parties.IN.DDP,DDP,10463,2.21,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-37,uttar-pradesh,1989,37,BANSGAON,SHYAM SUNDAR,parties.IN.IND,IND,5382,1.14,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-38,uttar-pradesh,1989,38,GORAKHPUR,AVEDYA NATH,parties.IN.HMS,HMS,193821,42.75,1,won,U,,,,challenger,src-31c65dbec869
@@ -5219,7 +5219,7 @@ IN-PC-1976-uttar-pradesh-39,uttar-pradesh,1989,39,MAHARAJGANJ,ANSARI,parties.IN.
 IN-PC-1976-uttar-pradesh-39,uttar-pradesh,1989,39,MAHARAJGANJ,TRIBENI,parties.IN.IND,IND,2975,0.61,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-40,uttar-pradesh,1989,40,PADRAUNA,BALESHAR,parties.IN.JD,JD,143760,32.18,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-40,uttar-pradesh,1989,40,PADRAUNA,KUNWAR CHANDRA PRATAP NARAYAN SINGH,parties.IN.INC,INC,95479,21.37,2,lost,U,,,,incumbent,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-40,uttar-pradesh,1989,40,PADRAUNA,SIRAJ AHMED,parties.IN.UNK,LKD (B),66556,14.9,3,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-40,uttar-pradesh,1989,40,PADRAUNA,SIRAJ AHMED,parties.IN.LKD_B,LKD (B),66556,14.9,3,forfeit,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-40,uttar-pradesh,1989,40,PADRAUNA,GOVIND PRASAD RAI,parties.IN.BJP,BJP,52288,11.7,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-40,uttar-pradesh,1989,40,PADRAUNA,KAMALA ALIAS AMLA,parties.IN.BSP,BSP,34248,7.67,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-40,uttar-pradesh,1989,40,PADRAUNA,PARUSHOTAM KAUSHIK,parties.IN.JP,JNP (JP),18951,4.24,6,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5233,7 +5233,7 @@ IN-PC-1976-uttar-pradesh-41,uttar-pradesh,1989,41,DEORIA,RAJMANGAL,parties.IN.JD
 IN-PC-1976-uttar-pradesh-41,uttar-pradesh,1989,41,DEORIA,SHASHI SHARMA,parties.IN.INC,INC,145870,28.31,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-41,uttar-pradesh,1989,41,DEORIA,ATAULLAH,parties.IN.BSP,BSP,76675,14.88,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-41,uttar-pradesh,1989,41,DEORIA,CHAITANYA DEV,parties.IN.IND,IND,16172,3.14,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-41,uttar-pradesh,1989,41,DEORIA,VIJAI,parties.IN.UNK,LKD (B),9848,1.91,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-41,uttar-pradesh,1989,41,DEORIA,VIJAI,parties.IN.LKD_B,LKD (B),9848,1.91,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-41,uttar-pradesh,1989,41,DEORIA,AGARDI MANI TRIPATHI,parties.IN.DDP,DDP,6509,1.26,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-41,uttar-pradesh,1989,41,DEORIA,MAHESH,parties.IN.IND,IND,6285,1.22,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-41,uttar-pradesh,1989,41,DEORIA,KESHWA CHANDRA PANDEY,parties.IN.IND,IND,5789,1.12,8,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5244,7 +5244,7 @@ IN-PC-1976-uttar-pradesh-42,uttar-pradesh,1989,42,SALEMPUR,RAM NAGINA MISRA,part
 IN-PC-1976-uttar-pradesh-42,uttar-pradesh,1989,42,SALEMPUR,RAM NATH SINGH KUSHWAHA,parties.IN.BSP,BSP,58962,12.14,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-42,uttar-pradesh,1989,42,SALEMPUR,RAM ASHARAYA,parties.IN.IND,IND,20887,4.3,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-42,uttar-pradesh,1989,42,SALEMPUR,VISHWANATH,parties.IN.PBI,PBI,18272,3.76,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-42,uttar-pradesh,1989,42,SALEMPUR,RAM NARESH KUSHWAHA,parties.IN.UNK,LKD (B),13187,2.72,6,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-42,uttar-pradesh,1989,42,SALEMPUR,RAM NARESH KUSHWAHA,parties.IN.LKD_B,LKD (B),13187,2.72,6,forfeit,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-42,uttar-pradesh,1989,42,SALEMPUR,RAM NARAYAN SINGH,parties.IN.IND,IND,6308,1.3,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-42,uttar-pradesh,1989,42,SALEMPUR,MOHAN RAJBHAR,parties.IN.IND,IND,4567,0.94,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-42,uttar-pradesh,1989,42,SALEMPUR,SHARDANAND CHAURASIA,parties.IN.DDP,DDP,4458,0.92,9,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5253,7 +5253,7 @@ IN-PC-1976-uttar-pradesh-43,uttar-pradesh,1989,43,BALLIA,CHANDRA SHEKHAR,parties
 IN-PC-1976-uttar-pradesh-43,uttar-pradesh,1989,43,BALLIA,JAGANNATH CHAUDHARY,parties.IN.INC,INC,161016,33.57,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-43,uttar-pradesh,1989,43,BALLIA,INDRA DEO,parties.IN.BSP,BSP,46913,9.78,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-43,uttar-pradesh,1989,43,BALLIA,BADAN,parties.IN.IND,IND,5168,1.08,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-43,uttar-pradesh,1989,43,BALLIA,CHANDRA DEO,parties.IN.UNK,LKD (B),2630,0.55,5,forfeit,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-43,uttar-pradesh,1989,43,BALLIA,CHANDRA DEO,parties.IN.LKD_B,LKD (B),2630,0.55,5,forfeit,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-43,uttar-pradesh,1989,43,BALLIA,RAJ NARAIN,parties.IN.BKUS,BKUS,2391,0.5,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-43,uttar-pradesh,1989,43,BALLIA,SHEO SHANKAR,parties.IN.IND,IND,1741,0.36,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-43,uttar-pradesh,1989,43,BALLIA,CHHITESWAR PRASAD,parties.IN.IND,IND,1709,0.36,8,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5265,7 +5265,7 @@ IN-PC-1976-uttar-pradesh-43,uttar-pradesh,1989,43,BALLIA,KRANTIKARI SUBHASH,part
 IN-PC-1976-uttar-pradesh-44,uttar-pradesh,1989,44,GHOSI,KALP NATH,parties.IN.INC,INC,195886,40.29,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-44,uttar-pradesh,1989,44,GHOSI,RAJKUMAR,parties.IN.JD,JD,128596,26.45,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-44,uttar-pradesh,1989,44,GHOSI,BISMILLAH,parties.IN.BSP,BSP,126986,26.12,3,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-44,uttar-pradesh,1989,44,GHOSI,MOHAN,parties.IN.UNK,LKD (B),8093,1.66,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-44,uttar-pradesh,1989,44,GHOSI,MOHAN,parties.IN.LKD_B,LKD (B),8093,1.66,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-44,uttar-pradesh,1989,44,GHOSI,LAXIMI,parties.IN.DDP,DDP,6975,1.43,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-44,uttar-pradesh,1989,44,GHOSI,SANTOSH KUMAR,parties.IN.JP,JNP (JP),5530,1.14,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-44,uttar-pradesh,1989,44,GHOSI,DASHRATH,parties.IN.IND,IND,5005,1.03,7,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5275,7 +5275,7 @@ IN-PC-1976-uttar-pradesh-44,uttar-pradesh,1989,44,GHOSI,MANDATTA,parties.IN.IND,
 IN-PC-1976-uttar-pradesh-45,uttar-pradesh,1989,45,AZAMGARH,RAM KISHANA,parties.IN.BSP,BSP,142171,31.94,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-45,uttar-pradesh,1989,45,AZAMGARH,TRIDURARI PUJAN PRATAP SINGH ALIAS BACHCHA BABU,parties.IN.JD,JD,133090,29.9,2,lost,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-45,uttar-pradesh,1989,45,AZAMGARH,SANTOSH,parties.IN.INC,INC,100642,22.61,3,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-45,uttar-pradesh,1989,45,AZAMGARH,ALAM BADI,parties.IN.UNK,MUM,21336,4.79,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-45,uttar-pradesh,1989,45,AZAMGARH,ALAM BADI,parties.IN.MMUP,MUM,21336,4.79,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-45,uttar-pradesh,1989,45,AZAMGARH,KEDAR NATH,parties.IN.JP,JNP (JP),19079,4.29,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-45,uttar-pradesh,1989,45,AZAMGARH,SATISH,parties.IN.DDP,DDP,6464,1.45,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-45,uttar-pradesh,1989,45,AZAMGARH,GRISHCHAND ALIAS GIRISH KHARE,parties.IN.IND,IND,5705,1.28,7,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5293,7 +5293,7 @@ IN-PC-1976-uttar-pradesh-47,uttar-pradesh,1989,47,MACHHLISHAHR,SHIV SHARAN VERMA
 IN-PC-1976-uttar-pradesh-47,uttar-pradesh,1989,47,MACHHLISHAHR,SHRIPATI MISHRA,parties.IN.INC,INC,133979,31.37,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-47,uttar-pradesh,1989,47,MACHHLISHAHR,RAM SAMUJH,parties.IN.BSP,BSP,43709,10.23,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-47,uttar-pradesh,1989,47,MACHHLISHAHR,DHARM RAJ SINGH GAUTAM,parties.IN.UPRP,UPRP,27116,6.35,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-47,uttar-pradesh,1989,47,MACHHLISHAHR,KEDAR NATH RAI,parties.IN.UNK,LKD (B),11688,2.74,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-47,uttar-pradesh,1989,47,MACHHLISHAHR,KEDAR NATH RAI,parties.IN.LKD_B,LKD (B),11688,2.74,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-47,uttar-pradesh,1989,47,MACHHLISHAHR,RISHI DEO SRIVASTAVA,parties.IN.DDP,DDP,5698,1.33,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-47,uttar-pradesh,1989,47,MACHHLISHAHR,SRIPAL DUBEY,parties.IN.SUCI,SUC,3788,0.89,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-48,uttar-pradesh,1989,48,JAUNPUR,RAJA YADVENDRA DUTTA,parties.IN.BJP,BJP,124026,27.24,1,won,U,,,,challenger,src-31c65dbec869
@@ -5306,7 +5306,7 @@ IN-PC-1976-uttar-pradesh-48,uttar-pradesh,1989,48,JAUNPUR,MADAN LAL KESHARI,part
 IN-PC-1976-uttar-pradesh-48,uttar-pradesh,1989,48,JAUNPUR,OM PRAKASH SWARNKAR,parties.IN.IND,IND,9590,2.11,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-48,uttar-pradesh,1989,48,JAUNPUR,JAGDAMBA SINGH,parties.IN.DDP,DDP,9281,2.04,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-48,uttar-pradesh,1989,48,JAUNPUR,RADHEY SHYAM,parties.IN.IND,IND,4838,1.06,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-48,uttar-pradesh,1989,48,JAUNPUR,JAMUNA PRASAD TRIGUNAIT,parties.IN.UNK,LKD (B),4448,0.98,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-48,uttar-pradesh,1989,48,JAUNPUR,JAMUNA PRASAD TRIGUNAIT,parties.IN.LKD_B,LKD (B),4448,0.98,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-48,uttar-pradesh,1989,48,JAUNPUR,VIJAI PRATAP,parties.IN.IND,IND,3050,0.67,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-48,uttar-pradesh,1989,48,JAUNPUR,HARI LAL PAL,parties.IN.IND,IND,2827,0.62,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-49,uttar-pradesh,1989,49,SAIDPUR,RAM RAGAR,parties.IN.BJP,BJP,204807,49.81,1,won,U,,,,challenger,src-31c65dbec869
@@ -5340,7 +5340,7 @@ IN-PC-1976-uttar-pradesh-51,uttar-pradesh,1989,51,CHANDAULI,SHEO MURAT,parties.I
 IN-PC-1976-uttar-pradesh-51,uttar-pradesh,1989,51,CHANDAULI,JASWANT,parties.IN.DDP,DDP,3768,0.76,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-51,uttar-pradesh,1989,51,CHANDAULI,UPENDRA PRATAP,parties.IN.IND,IND,3721,0.75,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-51,uttar-pradesh,1989,51,CHANDAULI,ABDUL LATEEF,parties.IN.IND,IND,3444,0.7,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-51,uttar-pradesh,1989,51,CHANDAULI,SRI NATH,parties.IN.UNK,LKD (B),3324,0.67,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-51,uttar-pradesh,1989,51,CHANDAULI,SRI NATH,parties.IN.LKD_B,LKD (B),3324,0.67,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-51,uttar-pradesh,1989,51,CHANDAULI,RAM KISUN,parties.IN.SSD,SSD,2930,0.59,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-51,uttar-pradesh,1989,51,CHANDAULI,AWADHESH,parties.IN.IND,IND,1993,0.4,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-51,uttar-pradesh,1989,51,CHANDAULI,SAVITRI,parties.IN.IND,IND,1477,0.3,13,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5360,7 +5360,7 @@ IN-PC-1976-uttar-pradesh-52,uttar-pradesh,1989,52,VARANASI,RAM DAS,parties.IN.IN
 IN-PC-1976-uttar-pradesh-52,uttar-pradesh,1989,52,VARANASI,RAM MURAT,parties.IN.DDP,DDP,3111,0.72,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-52,uttar-pradesh,1989,52,VARANASI,NANHE,parties.IN.IND,IND,2461,0.57,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-52,uttar-pradesh,1989,52,VARANASI,RAM BALI HISRA BYAS,parties.IN.RRP,RRP,2103,0.49,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-52,uttar-pradesh,1989,52,VARANASI,RAJ NATH PANDEY,parties.IN.UNK,LKD (B),2077,0.48,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-52,uttar-pradesh,1989,52,VARANASI,RAJ NATH PANDEY,parties.IN.LKD_B,LKD (B),2077,0.48,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-52,uttar-pradesh,1989,52,VARANASI,AMAR NATH GUPTA,parties.IN.IND,IND,2042,0.47,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-52,uttar-pradesh,1989,52,VARANASI,GAJA NAND DAS,parties.IN.IND,IND,1822,0.42,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-52,uttar-pradesh,1989,52,VARANASI,MOHAN SWAROOP VERMA,parties.IN.SOP,SOP,1522,0.35,11,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5383,7 +5383,7 @@ IN-PC-1976-uttar-pradesh-54,uttar-pradesh,1989,54,MIRZAPUR,YUSA BEG,parties.IN.J
 IN-PC-1976-uttar-pradesh-54,uttar-pradesh,1989,54,MIRZAPUR,UMAKANT,parties.IN.INC,INC,119736,26.24,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-54,uttar-pradesh,1989,54,MIRZAPUR,RAM KISHOR,parties.IN.BSP,BSP,62798,13.76,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-54,uttar-pradesh,1989,54,MIRZAPUR,BIRENDRA,parties.IN.BJP,BJP,42333,9.28,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-54,uttar-pradesh,1989,54,MIRZAPUR,RAM PYARE,parties.IN.UNK,LKD (B),5169,1.13,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-54,uttar-pradesh,1989,54,MIRZAPUR,RAM PYARE,parties.IN.LKD_B,LKD (B),5169,1.13,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-54,uttar-pradesh,1989,54,MIRZAPUR,RAJ DHAR,parties.IN.JP,JNP (JP),4836,1.06,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-54,uttar-pradesh,1989,54,MIRZAPUR,SANT K. R. CHOWDHARY,parties.IN.IND,IND,4525,0.99,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-54,uttar-pradesh,1989,54,MIRZAPUR,AJIT KUMAR,parties.IN.IND,IND,4099,0.9,8,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5472,14 +5472,14 @@ IN-PC-1976-uttar-pradesh-60,uttar-pradesh,1989,60,HAMIRPUR,DIMAN RAGHUNATH SINGH
 IN-PC-1976-uttar-pradesh-60,uttar-pradesh,1989,60,HAMIRPUR,TEJ PRATAP SINGH,parties.IN.IND,IND,17557,4.32,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-60,uttar-pradesh,1989,60,HAMIRPUR,GAYA PRASAD,parties.IN.IND,IND,11588,2.85,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-60,uttar-pradesh,1989,60,HAMIRPUR,NIRMAL DIXIT,parties.IN.DDP,DDP,8760,2.16,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-60,uttar-pradesh,1989,60,HAMIRPUR,CHANDRA BHAN,parties.IN.UNK,LKD (B),7198,1.77,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-60,uttar-pradesh,1989,60,HAMIRPUR,CHANDRA BHAN,parties.IN.LKD_B,LKD (B),7198,1.77,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-60,uttar-pradesh,1989,60,HAMIRPUR,PURAN,parties.IN.IND,IND,3831,0.94,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-61,uttar-pradesh,1989,61,JHANSI,RAJENDRA AGNIHOTRI,parties.IN.BJP,BJP,283571,49.59,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-61,uttar-pradesh,1989,61,JHANSI,SUJAN SINGHBUNDELA,parties.IN.INC,INC,180373,31.55,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-61,uttar-pradesh,1989,61,JHANSI,BABU LAL SWARNKAR,parties.IN.BSP,BSP,35353,6.18,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-61,uttar-pradesh,1989,61,JHANSI,RAM SWARU BADAL,parties.IN.CPI,CPI,23365,4.09,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-61,uttar-pradesh,1989,61,JHANSI,RAM BABU OJHA,parties.IN.DDP,DDP,8788,1.54,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-61,uttar-pradesh,1989,61,JHANSI,CHINTAMANI,parties.IN.UNK,LKD (B),7284,1.27,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-61,uttar-pradesh,1989,61,JHANSI,CHINTAMANI,parties.IN.LKD_B,LKD (B),7284,1.27,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-61,uttar-pradesh,1989,61,JHANSI,GIBUA,parties.IN.IND,IND,7254,1.27,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-61,uttar-pradesh,1989,61,JHANSI,PRADEEP,parties.IN.IND,IND,4938,0.86,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-61,uttar-pradesh,1989,61,JHANSI,JAGDISH ALIAS CHUNNU MEHRA,parties.IN.IND,IND,3469,0.61,9,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5511,8 +5511,8 @@ IN-PC-1976-uttar-pradesh-64,uttar-pradesh,1989,64,BILHAUR,ARUN KUMAR NEHRU,parti
 IN-PC-1976-uttar-pradesh-64,uttar-pradesh,1989,64,BILHAUR,JAGDISH AWASTHI,parties.IN.INC,INC,138815,27.99,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-64,uttar-pradesh,1989,64,BILHAUR,JAIVEER,parties.IN.BSP,BSP,23360,4.71,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-64,uttar-pradesh,1989,64,BILHAUR,JAGDISH PRASAD,parties.IN.IND,IND,14286,2.88,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-64,uttar-pradesh,1989,64,BILHAUR,RAM GOPAL,parties.IN.UNK,LKD (B),7242,1.46,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-64,uttar-pradesh,1989,64,BILHAUR,MAHENDRA PAL,parties.IN.UNK,ICJ(TG),6320,1.27,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-64,uttar-pradesh,1989,64,BILHAUR,RAM GOPAL,parties.IN.LKD_B,LKD (B),7242,1.46,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-64,uttar-pradesh,1989,64,BILHAUR,MAHENDRA PAL,parties.IN.ICJ_TG,ICJ(TG),6320,1.27,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-64,uttar-pradesh,1989,64,BILHAUR,SHYAM SINGH,parties.IN.JP,JNP (JP),5463,1.1,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-64,uttar-pradesh,1989,64,BILHAUR,ARVIND,parties.IN.IND,IND,3230,0.65,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-64,uttar-pradesh,1989,64,BILHAUR,RAMCHANDRA,parties.IN.DDP,DDP,2815,0.57,9,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5556,7 +5556,7 @@ IN-PC-1976-uttar-pradesh-66,uttar-pradesh,1989,66,ETAWAH,RAMESH CHANDRA,parties.
 IN-PC-1976-uttar-pradesh-66,uttar-pradesh,1989,66,ETAWAH,MAHESH CHAND,parties.IN.JP,JNP (JP),7601,1.55,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-66,uttar-pradesh,1989,66,ETAWAH,RAM SINGH,parties.IN.IND,IND,3360,0.69,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-66,uttar-pradesh,1989,66,ETAWAH,SHIV NARAYAN,parties.IN.DDP,DDP,2842,0.58,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-66,uttar-pradesh,1989,66,ETAWAH,RAM AVTAR SINGH KUSHVAHA,parties.IN.UNK,LKD (B),2326,0.47,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-66,uttar-pradesh,1989,66,ETAWAH,RAM AVTAR SINGH KUSHVAHA,parties.IN.LKD_B,LKD (B),2326,0.47,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-66,uttar-pradesh,1989,66,ETAWAH,MAHESH YADAV,parties.IN.IND,IND,1849,0.38,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-66,uttar-pradesh,1989,66,ETAWAH,SHYAM SUNDER,parties.IN.IND,IND,1592,0.33,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-66,uttar-pradesh,1989,66,ETAWAH,SACHCHIDA NAND DIXIT,parties.IN.IND,IND,1052,0.21,11,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5649,7 +5649,7 @@ IN-PC-1976-uttar-pradesh-73,uttar-pradesh,1989,73,AGRA,BRIJ MOHAN,parties.IN.IND
 IN-PC-1976-uttar-pradesh-73,uttar-pradesh,1989,73,AGRA,SUDHIR KUMAR SINGH,parties.IN.IND,IND,602,0.16,18,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-73,uttar-pradesh,1989,73,AGRA,VIJAY KUMAR GARG,parties.IN.IND,IND,595,0.16,19,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-73,uttar-pradesh,1989,73,AGRA,RAJENDRA PAL SINGH,parties.IN.IND,IND,555,0.15,20,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-73,uttar-pradesh,1989,73,AGRA,DURESH BHAGEL,parties.IN.UNK,LKD (B),513,0.14,21,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-73,uttar-pradesh,1989,73,AGRA,DURESH BHAGEL,parties.IN.LKD_B,LKD (B),513,0.14,21,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-73,uttar-pradesh,1989,73,AGRA,SRI CHAND,parties.IN.IND,IND,484,0.13,22,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-73,uttar-pradesh,1989,73,AGRA,MAHENDRA KUMAR AGARWAL,parties.IN.IND,IND,435,0.12,23,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-73,uttar-pradesh,1989,73,AGRA,AMAR NATH,parties.IN.IND,IND,419,0.11,24,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5690,7 +5690,7 @@ IN-PC-1976-uttar-pradesh-76,uttar-pradesh,1989,76,ALIGARH,RANVIR SINGH,parties.I
 IN-PC-1976-uttar-pradesh-76,uttar-pradesh,1989,76,ALIGARH,GOBARDHAN,parties.IN.IND,IND,3624,0.8,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-76,uttar-pradesh,1989,76,ALIGARH,TALEWAR,parties.IN.JP,JNP (JP),3284,0.72,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-76,uttar-pradesh,1989,76,ALIGARH,SINGH PAL SINGH,parties.IN.IND,IND,2391,0.53,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-76,uttar-pradesh,1989,76,ALIGARH,RAM NARESH SINGH,parties.IN.UNK,LKD (B),2371,0.52,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-76,uttar-pradesh,1989,76,ALIGARH,RAM NARESH SINGH,parties.IN.LKD_B,LKD (B),2371,0.52,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-76,uttar-pradesh,1989,76,ALIGARH,HARI SINGH SAINI,parties.IN.DDP,DDP,1426,0.31,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-76,uttar-pradesh,1989,76,ALIGARH,AMAR NATH,parties.IN.IND,IND,1221,0.27,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-76,uttar-pradesh,1989,76,ALIGARH,KHUSHIDUR REHMAN KHAN,parties.IN.IND,IND,1205,0.27,12,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5702,7 +5702,7 @@ IN-PC-1976-uttar-pradesh-77,uttar-pradesh,1989,77,KHURJA,URMILA,parties.IN.BSP,B
 IN-PC-1976-uttar-pradesh-77,uttar-pradesh,1989,77,KHURJA,LAKSHMI CHAND,parties.IN.BJP,BJP,9845,2.3,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-77,uttar-pradesh,1989,77,KHURJA,RAM SWARUP,parties.IN.DDP,DDP,4675,1.09,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-77,uttar-pradesh,1989,77,KHURJA,RAJENDER,parties.IN.IND,IND,3500,0.82,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-77,uttar-pradesh,1989,77,KHURJA,RAGHU RAJ,parties.IN.UNK,LKD (B),2442,0.57,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-77,uttar-pradesh,1989,77,KHURJA,RAGHU RAJ,parties.IN.LKD_B,LKD (B),2442,0.57,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-77,uttar-pradesh,1989,77,KHURJA,DHEER SINGH,parties.IN.IND,IND,2193,0.51,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-77,uttar-pradesh,1989,77,KHURJA,MUKUT PAL,parties.IN.IND,IND,2059,0.48,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-77,uttar-pradesh,1989,77,KHURJA,RAM SARAN,parties.IN.IND,IND,982,0.23,10,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5716,7 +5716,7 @@ IN-PC-1976-uttar-pradesh-78,uttar-pradesh,1989,78,BULANDSHAHR,BIRBLE SINGH,parti
 IN-PC-1976-uttar-pradesh-78,uttar-pradesh,1989,78,BULANDSHAHR,KUNWAR PAL,parties.IN.DDP,DDP,4336,0.91,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-78,uttar-pradesh,1989,78,BULANDSHAHR,RAJPAL SINGH,parties.IN.IND,IND,3437,0.72,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-78,uttar-pradesh,1989,78,BULANDSHAHR,HIRA LAL,parties.IN.IND,IND,2100,0.44,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-78,uttar-pradesh,1989,78,BULANDSHAHR,BARNI A.K.,parties.IN.UNK,LKD (B),1335,0.28,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-78,uttar-pradesh,1989,78,BULANDSHAHR,BARNI A.K.,parties.IN.LKD_B,LKD (B),1335,0.28,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-78,uttar-pradesh,1989,78,BULANDSHAHR,VISHWA NATH KHANNA,parties.IN.IND,IND,1058,0.22,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-78,uttar-pradesh,1989,78,BULANDSHAHR,RAM PHAL,parties.IN.IND,IND,1039,0.22,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-78,uttar-pradesh,1989,78,BULANDSHAHR,HANS RAJ SINGH,parties.IN.IND,IND,1009,0.21,13,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5757,10 +5757,10 @@ IN-PC-1976-uttar-pradesh-80,uttar-pradesh,1989,80,MEERUT,GUFRAN,parties.IN.IND,I
 IN-PC-1976-uttar-pradesh-80,uttar-pradesh,1989,80,MEERUT,VINOD,parties.IN.IND,IND,2550,0.48,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-80,uttar-pradesh,1989,80,MEERUT,NAHIDA MALIK,parties.IN.IND,IND,1729,0.32,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-80,uttar-pradesh,1989,80,MEERUT,GOD SAY GOPAL VINAYAK,parties.IN.HMS,HMS,1333,0.25,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-80,uttar-pradesh,1989,80,MEERUT,HARI SINGH AZAD,parties.IN.UNK,LTP,1272,0.24,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-80,uttar-pradesh,1989,80,MEERUT,HARI SINGH AZAD,parties.IN.ABLTP,LTP,1272,0.24,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-80,uttar-pradesh,1989,80,MEERUT,HEM CHAND NIMESH,parties.IN.IND,IND,1139,0.21,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-80,uttar-pradesh,1989,80,MEERUT,RAKESH KUMAR,parties.IN.DDP,DDP,993,0.19,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-80,uttar-pradesh,1989,80,MEERUT,JEET SINGH,parties.IN.UNK,LKD (B),822,0.15,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-80,uttar-pradesh,1989,80,MEERUT,JEET SINGH,parties.IN.LKD_B,LKD (B),822,0.15,11,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-80,uttar-pradesh,1989,80,MEERUT,PATRAM SINGH,parties.IN.IND,IND,816,0.15,12,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-80,uttar-pradesh,1989,80,MEERUT,TASNEEM AHMAD,parties.IN.IND,IND,615,0.11,13,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-80,uttar-pradesh,1989,80,MEERUT,MADAN PRAKASH,parties.IN.IND,IND,358,0.07,14,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5771,7 +5771,7 @@ IN-PC-1976-uttar-pradesh-81,uttar-pradesh,1989,81,BAGHPAT,OM PRAKASH,parties.IN.
 IN-PC-1976-uttar-pradesh-81,uttar-pradesh,1989,81,BAGHPAT,NATTHU SINGH,parties.IN.IND,IND,1894,0.33,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-81,uttar-pradesh,1989,81,BAGHPAT,ATAR SINGH SHARMA,parties.IN.IND,IND,1450,0.25,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-81,uttar-pradesh,1989,81,BAGHPAT,RAJENDRA SINGH,parties.IN.IND,IND,1160,0.2,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-81,uttar-pradesh,1989,81,BAGHPAT,GANGA RAM AMBEDKAR,parties.IN.UNK,LKD (B),795,0.14,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-81,uttar-pradesh,1989,81,BAGHPAT,GANGA RAM AMBEDKAR,parties.IN.LKD_B,LKD (B),795,0.14,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-81,uttar-pradesh,1989,81,BAGHPAT,SANJAY,parties.IN.DDP,DDP,785,0.14,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-81,uttar-pradesh,1989,81,BAGHPAT,SATYA PRAKASH,parties.IN.IND,IND,534,0.09,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-81,uttar-pradesh,1989,81,BAGHPAT,NARENDRA,parties.IN.IND,IND,399,0.07,10,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5799,7 +5799,7 @@ IN-PC-1976-uttar-pradesh-83,uttar-pradesh,1989,83,KAIRANA,KANWAR SINGH,parties.I
 IN-PC-1976-uttar-pradesh-83,uttar-pradesh,1989,83,KAIRANA,MAHAVEER (SINGH),parties.IN.IND,IND,2945,0.57,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-83,uttar-pradesh,1989,83,KAIRANA,SAHENDRA,parties.IN.IND,IND,2399,0.46,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-83,uttar-pradesh,1989,83,KAIRANA,TEJ PAL SINGH,parties.IN.IND,IND,1614,0.31,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-83,uttar-pradesh,1989,83,KAIRANA,MUSHIR AHMED,parties.IN.UNK,LKD (B),1583,0.3,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-83,uttar-pradesh,1989,83,KAIRANA,MUSHIR AHMED,parties.IN.LKD_B,LKD (B),1583,0.3,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-83,uttar-pradesh,1989,83,KAIRANA,PRAMOD KUMAR,parties.IN.DDP,DDP,1457,0.28,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-83,uttar-pradesh,1989,83,KAIRANA,MURARI LAL,parties.IN.RRP,RRP,798,0.15,10,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-uttar-pradesh-83,uttar-pradesh,1989,83,KAIRANA,SUSHIL KUMAR,parties.IN.IND,IND,746,0.14,11,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5828,7 +5828,7 @@ IN-PC-1976-west-bengal-1,west-bengal,1989,1,COOCH BEHAR,MAHENDRA NATH DAS,partie
 IN-PC-1976-west-bengal-1,west-bengal,1989,1,COOCH BEHAR,NRIPEN KARJEE,parties.IN.IND,IND,3289,0.4,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-1,west-bengal,1989,1,COOCH BEHAR,MANINDRA NATH ROY,parties.IN.IND,IND,2204,0.27,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-1,west-bengal,1989,1,COOCH BEHAR,KARNESWAR BARMAN,parties.IN.AMB,AMB,2159,0.26,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-west-bengal-1,west-bengal,1989,1,COOCH BEHAR,KHAGEN BARMAN,parties.IN.UNK,INC(O),1165,0.14,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-1,west-bengal,1989,1,COOCH BEHAR,KHAGEN BARMAN,parties.IN.INC_O,INC(O),1165,0.14,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-2,west-bengal,1989,2,ALIPURDUARS,PIUS TIRKEY,parties.IN.RSP,RSP,384119,54.93,1,won,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-west-bengal-2,west-bengal,1989,2,ALIPURDUARS,DENIS LAKRA,parties.IN.INC,INC,298476,42.68,2,lost,U,,,,crossover,src-31c65dbec869
 IN-PC-1976-west-bengal-2,west-bengal,1989,2,ALIPURDUARS,BASUMATA AJOY KUMAR,parties.IN.IND,IND,8765,1.25,3,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5848,7 +5848,7 @@ IN-PC-1976-west-bengal-4,west-bengal,1989,4,DARJEELING,INDERJEET,parties.IN.GNLF
 IN-PC-1976-west-bengal-4,west-bengal,1989,4,DARJEELING,ANANDA PATHAK,parties.IN.CPIM,CPM,289965,37.65,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-west-bengal-4,west-bengal,1989,4,DARJEELING,MOHAN KUMAR RAI,parties.IN.IND,IND,18843,2.45,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-4,west-bengal,1989,4,DARJEELING,KRISHNA BHAKTA POUDYAL,parties.IN.IND,IND,9668,1.26,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-west-bengal-4,west-bengal,1989,4,DARJEELING,J. D. S. RAI,parties.IN.UNK,GOL(BG),4426,0.57,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-4,west-bengal,1989,4,DARJEELING,J. D. S. RAI,parties.IN.ABGL,GOL(BG),4426,0.57,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-4,west-bengal,1989,4,DARJEELING,BIRENDRA NATH BARMAN,parties.IN.IND,IND,3744,0.49,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-4,west-bengal,1989,4,DARJEELING,ARUN PRASAD SARKAR,parties.IN.BSP,BSP,2452,0.32,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-4,west-bengal,1989,4,DARJEELING,P. P. RAI,parties.IN.IND,IND,2009,0.26,8,forfeit,U,,,,challenger,src-31c65dbec869
@@ -5940,7 +5940,7 @@ IN-PC-1976-west-bengal-17,west-bengal,1989,17,DIAMOND HARBOUR,MAYA GHOSH,parties
 IN-PC-1976-west-bengal-17,west-bengal,1989,17,DIAMOND HARBOUR,KHAN AZIZUL ISLAM,parties.IN.IUML,MUL,21984,3,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-17,west-bengal,1989,17,DIAMOND HARBOUR,DHANOORAM JAISWARA,parties.IN.BSP,BSP,3394,0.46,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-17,west-bengal,1989,17,DIAMOND HARBOUR,MD. IBRAHIM KHAN,parties.IN.IND,IND,1330,0.18,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-west-bengal-17,west-bengal,1989,17,DIAMOND HARBOUR,SHAIKH ABDUL WADUJ,parties.IN.UNK,INC(O),570,0.08,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-17,west-bengal,1989,17,DIAMOND HARBOUR,SHAIKH ABDUL WADUJ,parties.IN.INC_O,INC(O),570,0.08,6,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-18,west-bengal,1989,18,JADAVPUR,MALINI BHATTACHARYA,parties.IN.CPIM,CPM,441188,50.19,1,won,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-18,west-bengal,1989,18,JADAVPUR,MAMATA BANERJEE,parties.IN.INC,INC,410288,46.67,2,lost,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-west-bengal-18,west-bengal,1989,18,JADAVPUR,UTTAM BASU,parties.IN.BJP,BJP,9874,1.12,3,forfeit,U,,,,challenger,src-31c65dbec869
@@ -6088,14 +6088,14 @@ IN-PC-1976-west-bengal-33,west-bengal,1989,33,JHARGRAM,MATILAL HANSDA,parties.IN
 IN-PC-1976-west-bengal-33,west-bengal,1989,33,JHARGRAM,PANCHANAN HANSDA,parties.IN.INC,INC,167046,23.92,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-33,west-bengal,1989,33,JHARGRAM,NAREN HANSDA,parties.IN.JKD,JKD,129508,18.54,3,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-33,west-bengal,1989,33,JHARGRAM,MANGAL BASKEY,parties.IN.AMB,AMB,2606,0.37,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-west-bengal-33,west-bengal,1989,33,JHARGRAM,HARDHAN HANSDA,parties.IN.UNK,WBS(BM),1285,0.18,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-33,west-bengal,1989,33,JHARGRAM,HARDHAN HANSDA,parties.IN.WBS_BM,WBS(BM),1285,0.18,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-34,west-bengal,1989,34,PURULIA,CHITTA RANJAN MAHATA,parties.IN.AIFB,FBL,379191,56.01,1,won,U,,,,incumbent,src-31c65dbec869
 IN-PC-1976-west-bengal-34,west-bengal,1989,34,PURULIA,SITARAM MAHATO,parties.IN.INC,INC,240296,35.49,2,lost,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-34,west-bengal,1989,34,PURULIA,SURAJ NARAYAN MAHATO,parties.IN.JMM,JMM,40876,6.04,3,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-34,west-bengal,1989,34,PURULIA,DAMAN CHANDRA KUIRY,parties.IN.AMB,AMB,6454,0.95,4,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-34,west-bengal,1989,34,PURULIA,MOHAN LAL CHOUBEY,parties.IN.BJP,BJP,5233,0.77,5,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-34,west-bengal,1989,34,PURULIA,SARIT KUMAR CHAKRABARTY,parties.IN.IND,IND,2141,0.32,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-west-bengal-34,west-bengal,1989,34,PURULIA,ISHAN CHANDRA KUMAR,parties.IN.UNK,WBS(BM),1126,0.17,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-34,west-bengal,1989,34,PURULIA,ISHAN CHANDRA KUMAR,parties.IN.WBS_BM,WBS(BM),1126,0.17,7,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-34,west-bengal,1989,34,PURULIA,SUKUMAR DAS,parties.IN.IND,IND,707,0.1,8,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-34,west-bengal,1989,34,PURULIA,RADHA RAMAN GHOSH,parties.IN.IND,IND,680,0.1,9,forfeit,U,,,,challenger,src-31c65dbec869
 IN-PC-1976-west-bengal-34,west-bengal,1989,34,PURULIA,RAM SAMUJH YADAV,parties.IN.DDP,DDP,347,0.05,10,forfeit,U,,,,challenger,src-31c65dbec869

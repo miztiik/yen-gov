@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
 IN-AC-1976-manipur-1,manipur,1998,KHUNDRAKPAM,18736,15576,83.13,Lairellakpam Lala,parties.IN.MSCP,MSCP,2817,18.09,Konsam Tomba,parties.IN.MPP,MPP,2613,204,1.31,src-1b7bc1c9d39a
 IN-AC-1976-manipur-4,manipur,1998,KSHETRIGAO,21972,19793,90.08,Md. Muhammuddin Shah,parties.IN.MSCP,MSCP,5630,28.44,Basant Kumar Wangkhem,parties.IN.SAP,SAP,5140,490,2.47,src-1b7bc1c9d39a
-IN-AC-1976-manipur-49,manipur,1998,TADUBI,33407,0,0,Haokholet Kipgen,parties.IN.UNK,FPM,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-manipur-49,manipur,1998,TADUBI,33407,0,0,Haokholet Kipgen,parties.IN.FPM,FPM,0,,,,,,,,src-1b7bc1c9d39a
 IN-AC-1976-manipur-57,manipur,1998,HENGLEP,20176,16275,80.67,T. Thangzalam Haokip,parties.IN.MSCP,MSCP,7094,43.59,Jainson Haokip,parties.IN.KNA,KNA,4724,2370,14.56,src-1b7bc1c9d39a
 IN-AC-1976-manipur-60,manipur,1998,SINGHAT,21633,18839,87.08,Thangkhanlal,parties.IN.INC,INC,9670,51.33,T. Ngaizanem,parties.IN.MSCP,MSCP,9169,501,2.66,src-1b7bc1c9d39a

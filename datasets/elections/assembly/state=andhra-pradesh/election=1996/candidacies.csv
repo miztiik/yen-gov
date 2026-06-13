@@ -1,11 +1,11 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-1976-andhra-pradesh-4,andhra-pradesh,1996,4,HARISHCHANDRAPURAM,Atchannaidu Kinjarapu,parties.IN.IDP,IDP,62918,61.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-4,andhra-pradesh,1996,4,HARISHCHANDRAPURAM,Sampathirao Raghav Rao,parties.IN.INC,INC,30712,30.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-4,andhra-pradesh,1996,4,HARISHCHANDRAPURAM,Budda Mohana Reddy,parties.IN.UNK,NTRTDP( L.P.),6989,6.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-4,andhra-pradesh,1996,4,HARISHCHANDRAPURAM,Budda Mohana Reddy,parties.IN.NTRTDP_LP,NTRTDP( L.P.),6989,6.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-4,andhra-pradesh,1996,4,HARISHCHANDRAPURAM,Chinthada Dharmarao,parties.IN.BSP,BSP,1122,1.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-4,andhra-pradesh,1996,4,HARISHCHANDRAPURAM,IPPILI Tatarao,parties.IN.IND,IND,88,0.09,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-4,andhra-pradesh,1996,4,HARISHCHANDRAPURAM,Madusudana Rao Balaga,parties.IN.IND,IND,50,0.05,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-6,andhra-pradesh,1996,6,PAHAPATNAM,Lakshmi Parvathi Nandamuri,parties.IN.UNK,NTR TDP (L.P.),43558,48.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-6,andhra-pradesh,1996,6,PAHAPATNAM,Lakshmi Parvathi Nandamuri,parties.IN.NTRTDP_LP,NTR TDP (L.P.),43558,48.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-6,andhra-pradesh,1996,6,PAHAPATNAM,Venamma Kalamata,parties.IN.TDP,TDP,29410,33.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-6,andhra-pradesh,1996,6,PAHAPATNAM,Narayanarao Dharmana,parties.IN.INC,INC,15947,17.94,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-36,andhra-pradesh,1996,36,NARASIPATNAM,Vechalapu Sri Ramamurthy,parties.IN.TDP,TDP,61740,54.4,1,won,U,,,,crossover,src-1b7bc1c9d39a
@@ -15,13 +15,13 @@ IN-AC-1976-andhra-pradesh-36,andhra-pradesh,1996,36,NARASIPATNAM,Bolem Venkatara
 IN-AC-1976-andhra-pradesh-36,andhra-pradesh,1996,36,NARASIPATNAM,Geddam Rama Mohananarao,parties.IN.IND,IND,210,0.19,5,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-53,andhra-pradesh,1996,53,MUMMIDIVARAM(SC),Ganti Mohana Chandra Balayogi,parties.IN.TDP,TDP,46562,46.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-53,andhra-pradesh,1996,53,MUMMIDIVARAM(SC),Gollapallil Surya Rao,parties.IN.INC,INC,32066,32.01,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-53,andhra-pradesh,1996,53,MUMMIDIVARAM(SC),Babumohan Palli,parties.IN.UNK,NTR/TDP (LP),15309,15.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-53,andhra-pradesh,1996,53,MUMMIDIVARAM(SC),Babumohan Palli,parties.IN.NTRTDP_LP,NTR/TDP (LP),15309,15.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-53,andhra-pradesh,1996,53,MUMMIDIVARAM(SC),Ratnam Rajababu Lanka,parties.IN.IND,IND,5316,5.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-53,andhra-pradesh,1996,53,MUMMIDIVARAM(SC),Apparao Pulagala,parties.IN.BSP,BSP,656,0.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-53,andhra-pradesh,1996,53,MUMMIDIVARAM(SC),P V Chakravarthi,parties.IN.IND,IND,274,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-57,andhra-pradesh,1996,57,NAGARAM,Pulaparty Narayana Murty,parties.IN.TDP,TDP,32539,36.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-57,andhra-pradesh,1996,57,NAGARAM,Bhathula Venkata Rao,parties.IN.INC,INC,22058,24.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-57,andhra-pradesh,1996,57,NAGARAM,Undru Sesha Ratnam,parties.IN.UNK,NTR TDP(LP),18026,20.4,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-57,andhra-pradesh,1996,57,NAGARAM,Undru Sesha Ratnam,parties.IN.NTRTDP_LP,NTR TDP(LP),18026,20.4,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-57,andhra-pradesh,1996,57,NAGARAM,Ganapathi Rao Neethipudi,parties.IN.IND,IND,14135,15.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-57,andhra-pradesh,1996,57,NAGARAM,Manukonda Subba Rao,parties.IN.BJP,BJP,814,0.92,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-57,andhra-pradesh,1996,57,NAGARAM,Thota Rama Chandra Rao,parties.IN.IND,IND,333,0.38,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -31,7 +31,7 @@ IN-AC-1976-andhra-pradesh-57,andhra-pradesh,1996,57,NAGARAM,Bhathula Venkatrao,p
 IN-AC-1976-andhra-pradesh-57,andhra-pradesh,1996,57,NAGARAM,Vundru Ananda Rao,parties.IN.IND,IND,78,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-59,andhra-pradesh,1996,59,NARSAPUR,Kothapalli Janakiram,parties.IN.TDP,TDP,59875,50.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-59,andhra-pradesh,1996,59,NARSAPUR,Parakala Prabhakar,parties.IN.INC,INC,54198,45.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-59,andhra-pradesh,1996,59,NARSAPUR,Nadapana SuryaNarayana,parties.IN.UNK,NTR TDP(LP),3669,3.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-59,andhra-pradesh,1996,59,NARSAPUR,Nadapana SuryaNarayana,parties.IN.NTRTDP_LP,NTR TDP(LP),3669,3.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-59,andhra-pradesh,1996,59,NARSAPUR,Estherurani Muvvala,parties.IN.BSP,BSP,569,0.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-59,andhra-pradesh,1996,59,NARSAPUR,Guntamukkala Mallikarjuna Rao,parties.IN.BRP,BRP,125,0.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-59,andhra-pradesh,1996,59,NARSAPUR,Chinta Devanand,parties.IN.IND,IND,67,0.06,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -44,7 +44,7 @@ IN-AC-1976-andhra-pradesh-143,andhra-pradesh,1996,143,PUNGANUR,T Nagaraja,partie
 IN-AC-1976-andhra-pradesh-143,andhra-pradesh,1996,143,PUNGANUR,D Ramanjulu,parties.IN.IND,IND,55,0.05,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-164,andhra-pradesh,1996,164,HINDUPUR,Nandamuri Harikrishna,parties.IN.TDP,TDP,83202,72,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-164,andhra-pradesh,1996,164,HINDUPUR,R Lakshminarayana Reddy,parties.IN.INC,INC,24992,21.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-164,andhra-pradesh,1996,164,HINDUPUR,P RamaLinga Reddy,parties.IN.UNK,NTR(TDP),5509,4.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-164,andhra-pradesh,1996,164,HINDUPUR,P RamaLinga Reddy,parties.IN.NTRTDP_LP,NTR(TDP),5509,4.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-164,andhra-pradesh,1996,164,HINDUPUR,Kaleem Basha M.R.,parties.IN.IND,IND,723,0.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-164,andhra-pradesh,1996,164,HINDUPUR,Siddam Kondaiah,parties.IN.IND,IND,275,0.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-164,andhra-pradesh,1996,164,HINDUPUR,Chakalappagari Gopalappa,parties.IN.IND,IND,272,0.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -60,7 +60,7 @@ IN-AC-1976-andhra-pradesh-166,andhra-pradesh,1996,166,PENUKONDA,N. Anjaneyulu,pa
 IN-AC-1976-andhra-pradesh-166,andhra-pradesh,1996,166,PENUKONDA,S. Rajasekhara Reddy,parties.IN.IND,IND,143,0.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-181,andhra-pradesh,1996,181,DHONA,K.E. Prabhakar,parties.IN.TDP,TDP,64459,62.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-181,andhra-pradesh,1996,181,DHONA,Hari Chakra Pani Reddy,parties.IN.INC,INC,35881,34.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-181,andhra-pradesh,1996,181,DHONA,Segu Venkata Ramanaiah,parties.IN.UNK,NTR TDP(LP),1287,1.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-181,andhra-pradesh,1996,181,DHONA,Segu Venkata Ramanaiah,parties.IN.NTRTDP_LP,NTR TDP(LP),1287,1.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-181,andhra-pradesh,1996,181,DHONA,P Venkatesware Reddy,parties.IN.IND,IND,227,0.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-181,andhra-pradesh,1996,181,DHONA,M. Pdda narasimhudu,parties.IN.IND,IND,217,0.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-181,andhra-pradesh,1996,181,DHONA,S. Prathap Reddy,parties.IN.IND,IND,136,0.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -77,7 +77,7 @@ IN-AC-1976-andhra-pradesh-181,andhra-pradesh,1996,181,DHONA,Golla Thimma Gurudu,
 IN-AC-1976-andhra-pradesh-181,andhra-pradesh,1996,181,DHONA,E. Laxmana Goud,parties.IN.IND,IND,23,0.02,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-192,andhra-pradesh,1996,192,JADCHERLA,M. Chandra Sekhar,parties.IN.TDP,TDP,76063,68.48,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-192,andhra-pradesh,1996,192,JADCHERLA,Gunna Sudhakar Reddy,parties.IN.INC,INC,28328,25.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,1996,192,JADCHERLA,B. Ramchandra Reddy,parties.IN.UNK,NTR TDP (LP),5458,4.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,1996,192,JADCHERLA,B. Ramchandra Reddy,parties.IN.NTRTDP_LP,NTR TDP (LP),5458,4.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-192,andhra-pradesh,1996,192,JADCHERLA,Dhanala vengal Rao,parties.IN.SHS,SHS,618,0.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-192,andhra-pradesh,1996,192,JADCHERLA,R. Pruthvi Raja Reddy,parties.IN.AIIC_T,AIIC(T),254,0.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-192,andhra-pradesh,1996,192,JADCHERLA,Krishna Reddy,parties.IN.IND,IND,254,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -94,7 +94,7 @@ IN-AC-1976-andhra-pradesh-240,andhra-pradesh,1996,240,NIRMAL,Ayyannagari Bhumaia
 IN-AC-1976-andhra-pradesh-240,andhra-pradesh,1996,240,NIRMAL,Boda Vijaya Kumar,parties.IN.BRP,BRP,379,0.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-256,andhra-pradesh,1996,256,JAGTIAL,Jeevan Reddy .T.,parties.IN.INC,INC,83291,70.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-256,andhra-pradesh,1996,256,JAGTIAL,Bandari Venugopal,parties.IN.TDP,TDP,29381,25.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-256,andhra-pradesh,1996,256,JAGTIAL,Banda Bhasker Reddy,parties.IN.UNK,NTR TDP(LP),1814,1.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-256,andhra-pradesh,1996,256,JAGTIAL,Banda Bhasker Reddy,parties.IN.NTRTDP_LP,NTR TDP(LP),1814,1.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-256,andhra-pradesh,1996,256,JAGTIAL,Anumalla Bheemaiah,parties.IN.BSP,BSP,1772,1.51,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-256,andhra-pradesh,1996,256,JAGTIAL,P. Gangadhar,parties.IN.IND,IND,352,0.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-256,andhra-pradesh,1996,256,JAGTIAL,B. David,parties.IN.IND,IND,349,0.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -103,11 +103,11 @@ IN-AC-1976-andhra-pradesh-256,andhra-pradesh,1996,256,JAGTIAL,L. Chandrshekhar,p
 IN-AC-1976-andhra-pradesh-273,andhra-pradesh,1996,273,MULUG(ST),Cherpa Bhojarao,parties.IN.TDP,TDP,43865,43.33,1,won,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-273,andhra-pradesh,1996,273,MULUG(ST),Jagan Naik P.,parties.IN.INC,INC,30316,29.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-273,andhra-pradesh,1996,273,MULUG(ST),Kaka Lingaiah,parties.IN.IND,IND,15283,15.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-273,andhra-pradesh,1996,273,MULUG(ST),Parushuram Porika,parties.IN.UNK,NTRTDR(LP),11761,11.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-273,andhra-pradesh,1996,273,MULUG(ST),Parushuram Porika,parties.IN.NTRTDP_LP,NTRTDR(LP),11761,11.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-281,andhra-pradesh,1996,281,SHUJANAGAR,Ramreddi Venkata Reddy,parties.IN.INC,INC,67184,55.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-281,andhra-pradesh,1996,281,SHUJANAGAR,T.V. Chowdhary,parties.IN.CPI,CPI,48117,40.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-281,andhra-pradesh,1996,281,SHUJANAGAR,Potlapalli Srisailam,parties.IN.IND,IND,2505,2.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-281,andhra-pradesh,1996,281,SHUJANAGAR,Kodamasimham Panduranga Charyulu,parties.IN.UNK,NTRTDR(LP),859,0.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-281,andhra-pradesh,1996,281,SHUJANAGAR,Kodamasimham Panduranga Charyulu,parties.IN.NTRTDP_LP,NTRTDR(LP),859,0.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-281,andhra-pradesh,1996,281,SHUJANAGAR,Danda Lingaiah,parties.IN.IND,IND,697,0.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-281,andhra-pradesh,1996,281,SHUJANAGAR,Gadde Muralimohana Rao,parties.IN.BSP,BSP,482,0.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-andhra-pradesh-281,andhra-pradesh,1996,281,SHUJANAGAR,Kamala Banoth,parties.IN.IND,IND,383,0.32,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

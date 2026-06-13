@@ -1,5 +1,5 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-PC-1976-bihar-35,bihar,1993,PATNA,1173277,635422,54.16,R.YADAV,parties.IN.UNK,JD(B),339563,53.44,S.N.SHRIVASTVA,parties.IN.BJP,BJP,179620,159943,25.17,src-31c65dbec869
+IN-PC-1976-bihar-35,bihar,1993,PATNA,1173277,635422,54.16,R.YADAV,parties.IN.JD_B,JD(B),339563,53.44,S.N.SHRIVASTVA,parties.IN.BJP,BJP,179620,159943,25.17,src-31c65dbec869
 IN-PC-1976-kerala-8,kerala,1993,OTTAPPALAM(SC),981499,676390,68.91,S.SIVARAMAN,parties.IN.CPIM,CPM,377184,55.76,R.K.BALAKRISHNAN,parties.IN.INC,INC,244510,132674,19.61,src-31c65dbec869
-IN-PC-1976-punjab-4,punjab,1993,JULUNDHAR,963829,576616,59.83,UMRAO SINGH,parties.IN.INC,INC,286923,49.76,K.S.WADALA,parties.IN.UNK,SAD(B),170939,115984,20.11,src-31c65dbec869
+IN-PC-1976-punjab-4,punjab,1993,JULUNDHAR,963829,576616,59.83,UMRAO SINGH,parties.IN.INC,INC,286923,49.76,K.S.WADALA,parties.IN.SAD_B,SAD(B),170939,115984,20.11,src-31c65dbec869
 IN-PC-1976-tamil-nadu-22,tamil-nadu,1993,PALANI,30799,658145,2136.9,KUMARASWAMY,parties.IN.AIADMK,ADMK,278955,42.39,SMT.SUBBULAXMI,parties.IN.DMK,DMK,234070,44885,6.82,src-31c65dbec869

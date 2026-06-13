@@ -38,7 +38,7 @@ IN-AC-1976-punjab-7,punjab,2002,7,GURDASPUR,KARTAR SINGH,parties.IN.IND,IND,1060
 IN-AC-1976-punjab-7,punjab,2002,7,GURDASPUR,VIJAY KUMAR,parties.IN.IND,IND,4728,5.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-7,punjab,2002,7,GURDASPUR,JASPAL SINGH,parties.IN.BSP,BSP,3054,3.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-7,punjab,2002,7,GURDASPUR,NARINDER SINGH,parties.IN.RRD,RRD,694,0.87,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-punjab-7,punjab,2002,7,GURDASPUR,SUKHWINDER SINGH,parties.IN.UNK,PBLP,686,0.86,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-7,punjab,2002,7,GURDASPUR,SUKHWINDER SINGH,parties.IN.PBLP,PBLP,686,0.86,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-7,punjab,2002,7,GURDASPUR,JASWINDER SINGH,parties.IN.LJNSP,LJNSP,652,0.81,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-7,punjab,2002,7,GURDASPUR,MAJID MASIH,parties.IN.SADM,SAD(M),472,0.59,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-8,punjab,2002,8,DINA NAGAR,ARUNA,parties.IN.INC,INC,36765,48.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
@@ -51,7 +51,7 @@ IN-AC-1976-punjab-9,punjab,2002,9,NAROT MEHRA,RUMAL CHAND,parties.IN.INC,INC,321
 IN-AC-1976-punjab-9,punjab,2002,9,NAROT MEHRA,BISHAMBAR DASS,parties.IN.BJP,BJP,21594,30.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-9,punjab,2002,9,NAROT MEHRA,RAM LAL,parties.IN.IND,IND,6845,9.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-9,punjab,2002,9,NAROT MEHRA,SHIV KUMAR,parties.IN.BSP,BSP,4461,6.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-punjab-9,punjab,2002,9,NAROT MEHRA,RAM PAL,parties.IN.UNK,PBLP,1869,2.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-9,punjab,2002,9,NAROT MEHRA,RAM PAL,parties.IN.PBLP,PBLP,1869,2.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-9,punjab,2002,9,NAROT MEHRA,HAZARI LAL,parties.IN.IND,IND,1445,2.01,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-9,punjab,2002,9,NAROT MEHRA,SAT PAL,parties.IN.SHS,SHS,1168,1.63,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-9,punjab,2002,9,NAROT MEHRA,RAJ KUMAR,parties.IN.NCP,NCP,928,1.29,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -124,7 +124,7 @@ IN-AC-1976-punjab-19,punjab,2002,19,AMRITSAR SOUTH,MANJIT SINGH CALCUTTA,parties
 IN-AC-1976-punjab-19,punjab,2002,19,AMRITSAR SOUTH,MANJIT SINGH MANZIL,parties.IN.IND,IND,576,0.91,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-19,punjab,2002,19,AMRITSAR SOUTH,FAQIR CHAND,parties.IN.LJNSP,LJNSP,475,0.75,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-19,punjab,2002,19,AMRITSAR SOUTH,DR. MUKHTIAR SINGH,parties.IN.LBP,LBP,215,0.34,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-punjab-19,punjab,2002,19,AMRITSAR SOUTH,GURCHARAN SINGH MANNI,parties.IN.UNK,PBLP,207,0.33,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-19,punjab,2002,19,AMRITSAR SOUTH,GURCHARAN SINGH MANNI,parties.IN.PBLP,PBLP,207,0.33,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-19,punjab,2002,19,AMRITSAR SOUTH,HARDIP SINGH LALLI,parties.IN.RJD,RJD,160,0.25,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-19,punjab,2002,19,AMRITSAR SOUTH,AVTAR SINGH BOPARAI,parties.IN.IND,IND,142,0.22,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-19,punjab,2002,19,AMRITSAR SOUTH,KULDIP MAHAJAN,parties.IN.IND,IND,122,0.19,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -259,15 +259,15 @@ IN-AC-1976-punjab-36,punjab,2002,36,NUR MAHAL,PARAMJIT SINGH,parties.IN.SADM,SAD
 IN-AC-1976-punjab-36,punjab,2002,36,NUR MAHAL,KASHMIR SINGH,parties.IN.CPIM,CPM,2693,3.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-36,punjab,2002,36,NUR MAHAL,HARJINDER SINGH,parties.IN.IND,IND,2315,2.68,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-36,punjab,2002,36,NUR MAHAL,AJIT SINGH,parties.IN.IND,IND,2264,2.62,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-punjab-36,punjab,2002,36,NUR MAHAL,BAHADUR SINGH,parties.IN.UNK,PBLP,1320,1.53,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-36,punjab,2002,36,NUR MAHAL,BAHADUR SINGH,parties.IN.PBLP,PBLP,1320,1.53,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-36,punjab,2002,36,NUR MAHAL,KULJIT SINGH,parties.IN.SP,SP,466,0.54,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-36,punjab,2002,36,NUR MAHAL,KULWANT SINGH,parties.IN.BSP_A,BSP(A),280,0.32,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-37,punjab,2002,37,BANGA,TARLOCHAN SINGH,parties.IN.INC,INC,27574,34.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-37,punjab,2002,37,BANGA,MOHAN LAL,parties.IN.BSP,BSP,23919,30.18,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-punjab-37,punjab,2002,37,BANGA,SATNAM SINGH KAINTH,parties.IN.UNK,DBSM,23664,29.86,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-punjab-37,punjab,2002,37,BANGA,SATNAM SINGH KAINTH,parties.IN.DBSM,DBSM,23664,29.86,3,lost,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-punjab-37,punjab,2002,37,BANGA,AVTAR CHAND,parties.IN.CPIM,CPM,1336,1.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-37,punjab,2002,37,BANGA,BALDEV SINGH BIKA,parties.IN.IND,IND,1268,1.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-punjab-37,punjab,2002,37,BANGA,BALDEV SINGH GHAI,parties.IN.UNK,PBLP,1119,1.41,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-37,punjab,2002,37,BANGA,BALDEV SINGH GHAI,parties.IN.PBLP,PBLP,1119,1.41,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-37,punjab,2002,37,BANGA,GULSHAN RAI,parties.IN.IND,IND,363,0.46,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-38,punjab,2002,38,NAWAN SHAHR,PARKASH SINGH,parties.IN.INC,INC,32667,32.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-38,punjab,2002,38,NAWAN SHAHR,RAM KISHAN,parties.IN.BSP,BSP,27321,27.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -321,7 +321,7 @@ IN-AC-1976-punjab-43,punjab,2002,43,PHAGWARA,BALDEV RAJ,parties.IN.SADM,SAD(M),6
 IN-AC-1976-punjab-43,punjab,2002,43,PHAGWARA,SUCHA SINGH,parties.IN.LBP,LBP,644,0.75,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-43,punjab,2002,43,PHAGWARA,JAGDISH,parties.IN.LJNSP,LJNSP,543,0.63,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-43,punjab,2002,43,PHAGWARA,SANJEEV KUMAR,parties.IN.BSP_A,BSP(A),259,0.3,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-punjab-43,punjab,2002,43,PHAGWARA,SATWINDER SINGH,parties.IN.UNK,PBLP,139,0.16,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-43,punjab,2002,43,PHAGWARA,SATWINDER SINGH,parties.IN.PBLP,PBLP,139,0.16,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-44,punjab,2002,44,BALACHAUR,NAND LAL,parties.IN.SAD,SAD,33629,41.8,1,won,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-punjab-44,punjab,2002,44,BALACHAUR,RAM KISHAN KATARIA,parties.IN.INC,INC,23286,28.95,2,lost,U,,,,crossover,src-1b7bc1c9d39a
 IN-AC-1976-punjab-44,punjab,2002,44,BALACHAUR,HARGOPAL SINGH,parties.IN.BSP,BSP,14366,17.86,3,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -335,7 +335,7 @@ IN-AC-1976-punjab-45,punjab,2002,45,GARHSHANKAR,DARSHAN SINGH,parties.IN.CPIM,CP
 IN-AC-1976-punjab-45,punjab,2002,45,GARHSHANKAR,BHAGAT RAM,parties.IN.IND,IND,9867,13.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-45,punjab,2002,45,GARHSHANKAR,MANJIT SINGH,parties.IN.CPI,CPI,6582,8.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-45,punjab,2002,45,GARHSHANKAR,NARINDER PAL SINGH,parties.IN.SADM,SAD(M),2355,3.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-punjab-45,punjab,2002,45,GARHSHANKAR,ONKAR SINGH,parties.IN.UNK,PBLP,579,0.78,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-45,punjab,2002,45,GARHSHANKAR,ONKAR SINGH,parties.IN.PBLP,PBLP,579,0.78,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-45,punjab,2002,45,GARHSHANKAR,AMRITPAL SINGH,parties.IN.IND,IND,557,0.75,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-46,punjab,2002,46,MAHILPUR,SOHAN SINGH THANDAL,parties.IN.SAD,SAD,27724,42.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-46,punjab,2002,46,MAHILPUR,AVTAR SINGH KARIMPURI,parties.IN.BSP,BSP,18444,28.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -361,7 +361,7 @@ IN-AC-1976-punjab-47,punjab,2002,47,HOSHIARPUR,GAIN SINGH SANDHU,parties.IN.PRBP
 IN-AC-1976-punjab-48,punjab,2002,48,SHAM CHAURASI,RAM LUBHAYA,parties.IN.INC,INC,24446,31.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-48,punjab,2002,48,SHAM CHAURASI,MOHINDER KAUR JOSH,parties.IN.IND,IND,22965,29.34,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
 IN-AC-1976-punjab-48,punjab,2002,48,SHAM CHAURASI,SATISH KUMAR,parties.IN.BSP,BSP,11526,14.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-punjab-48,punjab,2002,48,SHAM CHAURASI,ONKAR SINGH JHAMAT,parties.IN.UNK,DBSM,10372,13.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-48,punjab,2002,48,SHAM CHAURASI,ONKAR SINGH JHAMAT,parties.IN.DBSM,DBSM,10372,13.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-48,punjab,2002,48,SHAM CHAURASI,SURJIT SINGH,parties.IN.SADM,SAD(M),5370,6.86,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-48,punjab,2002,48,SHAM CHAURASI,MOHAN LAL PEHALWAN,parties.IN.IND,IND,1769,2.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-48,punjab,2002,48,SHAM CHAURASI,OM PARKASH JAKHU,parties.IN.LJNSP,LJNSP,792,1.01,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -632,7 +632,7 @@ IN-AC-1976-punjab-83,punjab,2002,83,BARNALA,BHOLA SINGH VIRK,parties.IN.LBP,LBP,
 IN-AC-1976-punjab-83,punjab,2002,83,BARNALA,PARAMJIT SINGH,parties.IN.SADM,SAD(M),11402,11.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-83,punjab,2002,83,BARNALA,NARESH KUMARI BAWA,parties.IN.BSP,BSP,4625,4.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-83,punjab,2002,83,BARNALA,RAJINDER KAUR,parties.IN.IND,IND,4285,4.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-punjab-83,punjab,2002,83,BARNALA,JANGIR SINGH,parties.IN.UNK,PBLP,1468,1.49,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-83,punjab,2002,83,BARNALA,JANGIR SINGH,parties.IN.PBLP,PBLP,1468,1.49,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-83,punjab,2002,83,BARNALA,MIT SINGH SEHJRA,parties.IN.IND,IND,545,0.55,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-83,punjab,2002,83,BARNALA,SURJIT SINGH,parties.IN.NCP,NCP,507,0.52,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1976-punjab-84,punjab,2002,84,BHADAUR,BALBIR SINGH GHUNAS,parties.IN.SAD,SAD,43558,50.54,1,won,U,,,,challenger,src-1b7bc1c9d39a

@@ -77,13 +77,13 @@ IN-AC-1967-assam-37,assam,1972,37,GOSSAIGAON,MATHIAS TURU,parties.IN.INC,INC,222
 IN-AC-1967-assam-37,assam,1972,37,GOSSAIGAON,MATHIAS MARANDI,parties.IN.IND,IND,5739,17.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-37,assam,1972,37,GOSSAIGAON,AMIYA KUMAR BRAHMA,parties.IN.NCO,NCO,4093,12.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-37,assam,1972,37,GOSSAIGAON,RAMENDRA B. CHOUDHURY,parties.IN.IND,IND,1463,4.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-assam-38,assam,1972,38,KOKRAJHAR WEST,CHARAN NARZARY,parties.IN.UNK,PTC,18420,49.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-assam-38,assam,1972,38,KOKRAJHAR WEST,CHARAN NARZARY,parties.IN.PTC,PTC,18420,49.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-38,assam,1972,38,KOKRAJHAR WEST,RANENDRA BASUMATARY,parties.IN.INC,INC,17665,47.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-38,assam,1972,38,KOKRAJHAR WEST,P. CHANDRA BASUMATARY,parties.IN.IND,IND,1415,3.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-39,assam,1972,39,KOKRAJHAR EAST,SARAT CHANDRA SINHA,parties.IN.INC,INC,32649,80.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-39,assam,1972,39,KOKRAJHAR EAST,BEPIN DAIMARY,parties.IN.CPIM,CPM,7932,19.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-40,assam,1972,40,SIDLI,UTTAM BRAHMA,parties.IN.INC,INC,20692,53.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-assam-40,assam,1972,40,SIDLI,CHARAN NARZARY,parties.IN.UNK,PTC,17731,46.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-assam-40,assam,1972,40,SIDLI,CHARAN NARZARY,parties.IN.PTC,PTC,17731,46.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-41,assam,1972,41,BIJNI,GOLAK CHANDRA PATGIRI,parties.IN.INC,INC,13860,36.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-41,assam,1972,41,BIJNI,MAHODAR CHANDRA PATHAK,parties.IN.IND,IND,13271,35.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-41,assam,1972,41,BIJNI,DURGA PRASAD SAHA,parties.IN.IND,IND,9546,25.21,3,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -222,7 +222,7 @@ IN-AC-1967-assam-70,assam,1972,70,KALAIGAON,NAGEN SARMA,parties.IN.SOP,SOP,3652,
 IN-AC-1967-assam-70,assam,1972,70,KALAIGAON,DANDI RAM DUTTA,parties.IN.IND,IND,3488,10.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-70,assam,1972,70,KALAIGAON,MAHI RAM BORA,parties.IN.IND,IND,2764,8.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-70,assam,1972,70,KALAIGAON,PANI RAM DAS,parties.IN.IND,IND,2647,8.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-assam-70,assam,1972,70,KALAIGAON,JITENDRA NATH BARO,parties.IN.UNK,PTC,2017,6.33,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-assam-70,assam,1972,70,KALAIGAON,JITENDRA NATH BARO,parties.IN.PTC,PTC,2017,6.33,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-70,assam,1972,70,KALAIGAON,BINOD BIHARI DEB NATH,parties.IN.IND,IND,1061,3.33,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-71,assam,1972,71,RANGAMATI,UPENDRA DAS,parties.IN.INC,INC,14799,51.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-71,assam,1972,71,RANGAMATI,NAKUL CHANDRA DAS,parties.IN.IND,IND,8587,29.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -242,7 +242,7 @@ IN-AC-1967-assam-73,assam,1972,73,DALGAON,MATARI KHAGENDRAN BASU,parties.IN.IND,
 IN-AC-1967-assam-73,assam,1972,73,DALGAON,KHAGENDRAN BASUMATARI,parties.IN.IND,IND,2414,7.37,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-73,assam,1972,73,DALGAON,SIMON BASKEY,parties.IN.IND,IND,1981,6.05,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-74,assam,1972,74,UDALAGURI,BAHADUR BASUMATARI,parties.IN.INC,INC,16470,47.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-assam-74,assam,1972,74,UDALAGURI,BINOY KUMAR BASUMATARI,parties.IN.UNK,PTC,12576,36.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-assam-74,assam,1972,74,UDALAGURI,BINOY KUMAR BASUMATARI,parties.IN.PTC,PTC,12576,36.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-74,assam,1972,74,UDALAGURI,MOHAN CHANDRA MECH,parties.IN.IND,IND,2284,6.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-74,assam,1972,74,UDALAGURI,PRINSON DAIMARI,parties.IN.IND,IND,2051,5.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-74,assam,1972,74,UDALAGURI,MANGAL CHANDI BRAHMA,parties.IN.SOP,SOP,1473,4.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -410,7 +410,7 @@ IN-AC-1967-assam-112,assam,1972,112,NAOBOTHA,NILA DAS,parties.IN.IND,IND,1892,5.
 IN-AC-1967-assam-112,assam,1972,112,NAOBOTHA,PRAFUILLA SAIKIA,parties.IN.IND,IND,658,2.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-112,assam,1972,112,NAOBOTHA,MURULI SAIKIA,parties.IN.IND,IND,363,1.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-113,assam,1972,113,NORTH LAKHIMPUR,GOVIND CHANDRA BORA,parties.IN.INC,INC,11446,34.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-assam-113,assam,1972,113,NORTH LAKHIMPUR,BIRASON DOLEY,parties.IN.UNK,PTC,9234,28.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-assam-113,assam,1972,113,NORTH LAKHIMPUR,BIRASON DOLEY,parties.IN.PTC,PTC,9234,28.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-113,assam,1972,113,NORTH LAKHIMPUR,SARAT CHELLENG,parties.IN.IND,IND,5936,18.02,3,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-113,assam,1972,113,NORTH LAKHIMPUR,BHODRESWAR GOGOI,parties.IN.IND,IND,4723,14.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-113,assam,1972,113,NORTH LAKHIMPUR,MINARAN SAIKIA,parties.IN.IND,IND,1159,3.52,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -418,7 +418,7 @@ IN-AC-1967-assam-113,assam,1972,113,NORTH LAKHIMPUR,GOPAL DUTTA,parties.IN.IND,I
 IN-AC-1967-assam-114,assam,1972,114,DHAKUKHANA,LAKSHYA NATH DOLEY,parties.IN.INC,INC,12865,36.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-114,assam,1972,114,DHAKUKHANA,NAMESWAR PEGU,parties.IN.CPI,CPI,10110,29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-114,assam,1972,114,DHAKUKHANA,MONDESHWAR DEURI,parties.IN.IND,IND,9305,26.69,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-assam-114,assam,1972,114,DHAKUKHANA,DIXON BOSUNATARI,parties.IN.UNK,PTC,2130,6.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-assam-114,assam,1972,114,DHAKUKHANA,DIXON BOSUNATARI,parties.IN.PTC,PTC,2130,6.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-114,assam,1972,114,DHAKUKHANA,HALDHAR YEIN,parties.IN.IND,IND,451,1.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-115,assam,1972,115,DHEMAJI,ROMESH MOHON KULI,parties.IN.SWA,SWA,21663,46.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-1967-assam-115,assam,1972,115,DHEMAJI,LALI KUMAR DOLEY,parties.IN.INC,INC,18789,40.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
