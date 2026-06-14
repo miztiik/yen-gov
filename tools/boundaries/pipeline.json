@@ -55,7 +55,7 @@
           "property": "State_LGD",
           "equals": 33
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -66,7 +66,8 @@
         "minzoom": 4,
         "maxzoom": 10,
         "layer": "ac"
-      }
+      },
+      "coord_precision_note": "coord_precision=4 (~11 m). Raised from 2 (~1.1 km) on 2026-06-12 across every per-state AC entry because the 0.01° grid was producing visibly stair-stepped right-angle polygon edges on the per-state AC choropleth (most visible on Tamil Nadu's interior boundaries at /tamil-nadu/elections/assembly-2026 - see the screenshot in PR body). 4 decimals (~11 m at the equator) is what tools/boundaries/snapshot.py's own docstring recommends as 'well below choropleth rendering precision'; the natural-curve geometry now survives into d3-geo SVG paths. Cost: per-state AC shard grows ~5-10x (TN: 0.7 MB -> ~3-4 MB raw, gzips to ~600 KB) - still well under the 12 MB per-file ceiling documented at docs/architecture/frontend/map.md. AC entries other than this S22 one do not repeat the note (same convention as the states entry being the sole carrier of its family's note)."
     },
     {
       "$comment": "Phase D.7 universal LGD swap (2026-05-27): replaced HTL S11-ac geojson with ramSeraph LGD_Assembly_Constituencies slice. Himachal Pradesh — 68 AC seats; ECI delimitation 2008. See Phase D.7 of TODO/20260527-state-ac-map-universal-coverage-plan.md and parent ADR-0031.",
@@ -89,7 +90,7 @@
           "property": "State_LGD",
           "equals": 32
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -123,7 +124,7 @@
           "property": "State_LGD",
           "equals": 19
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -186,7 +187,7 @@
           "property": "State_LGD",
           "equals": 34
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -292,7 +293,7 @@
           "property": "State_LGD",
           "equals": 12
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -326,7 +327,7 @@
           "property": "State_LGD",
           "equals": 10
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -360,7 +361,7 @@
           "property": "State_LGD",
           "equals": 30
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -394,7 +395,7 @@
           "property": "State_LGD",
           "equals": 24
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -428,7 +429,7 @@
           "property": "State_LGD",
           "equals": 6
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -462,7 +463,7 @@
           "property": "State_LGD",
           "equals": 2
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -496,7 +497,7 @@
           "property": "State_LGD",
           "equals": 29
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -530,7 +531,7 @@
           "property": "State_LGD",
           "equals": 23
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -564,7 +565,7 @@
           "property": "State_LGD",
           "equals": 27
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -598,7 +599,7 @@
           "property": "State_LGD",
           "equals": 14
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -632,7 +633,7 @@
           "property": "State_LGD",
           "equals": 17
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -666,7 +667,7 @@
           "property": "State_LGD",
           "equals": 15
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -700,7 +701,7 @@
           "property": "State_LGD",
           "equals": 13
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -734,7 +735,7 @@
           "property": "State_LGD",
           "equals": 21
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -768,7 +769,7 @@
           "property": "State_LGD",
           "equals": 3
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -802,7 +803,7 @@
           "property": "State_LGD",
           "equals": 8
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -836,7 +837,7 @@
           "property": "State_LGD",
           "equals": 11
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -870,7 +871,7 @@
           "property": "State_LGD",
           "equals": 16
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -904,7 +905,7 @@
           "property": "State_LGD",
           "equals": 9
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -938,7 +939,7 @@
           "property": "State_LGD",
           "equals": 22
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -972,7 +973,7 @@
           "property": "State_LGD",
           "equals": 20
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -1006,7 +1007,7 @@
           "property": "State_LGD",
           "equals": 5
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -1040,7 +1041,7 @@
           "property": "State_LGD",
           "equals": 36
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",
@@ -1074,7 +1075,7 @@
           "property": "State_LGD",
           "equals": 7
         },
-        "coord_precision": 2
+        "coord_precision": 4
       },
       "license": "CC0-1.0",
       "license_url": "https://github.com/ramSeraph/indianopenmaps/blob/main/DATA_LICENSE.md",

@@ -132,8 +132,10 @@ ward only ever belongs to one ULB. Citizen drill-down on
 
 ## Byte-budget + auto-fallback per shard
 
-Every shard is enforced under `SNAPSHOT_BYTE_BUDGET` (currently 12 MB,
-declared in `tools/boundaries/_paths.py`). High-density shards (UP,
+Every shard is enforced under `SNAPSHOT_BYTE_BUDGET` (currently 16 MB,
+declared in `tools/boundaries/snapshot.py`; raised from 12 MB on
+2026-06-12 when the per-state AC coord_precision bump from 2 → 4 pushed
+UP's 404-AC shard from 1.4 MB to 12.9 MB). High-density shards (UP,
 MP, MH panchayats; metro ULB wards) breach the budget at native
 precision. The C.1.c pattern from PR #443 (and inherited by C.2.b /
 C.3.b / C.4.a) handles this:

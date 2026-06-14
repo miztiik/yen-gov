@@ -3,11 +3,11 @@
 // Phase A.4 of docs/archive/plans/20260529-boundary-rip-and-replace-plan.md.
 //
 // Per-state Playwright coverage matrix that asserts every state's AC
-// drilldown page renders correctly. This is the citizen-facing
+// choropleth on the state-election page renders correctly. This is the citizen-facing
 // counterpart to the unit-level `state-ac-registry-coverage.test.ts`
 // contract: the unit test asserts the STATE_AC registry covers every
-// on-disk shard; THIS spec asserts the end-to-end pathway (map mount
-// + footer link + boundary fetch + SoT-name binding) works on the
+// on-disk shard; THIS spec asserts the end-to-end pathway (state event
+// page + D3/SVG map mount + boundary fetch) works on the
 // live frontend.
 //
 // Default invocation runs a 5-code canary subset (CANARY_CODES below)
@@ -18,7 +18,10 @@
 // .github/workflows/e2e-ac-full.yml. Per
 // docs/archive/plans/20260531-e2e-runtime-trim-plan.md PR-2 - keeping the per-PR
 // gate cheap while preserving exhaustive coverage as a time-based
-// safety net.
+// safety net. States whose latest Assembly event is still
+// `pending_upstream` fall back to their newest complete Assembly event;
+// states with no complete Assembly event are skipped explicitly because
+// the state-election page does not mount the AC map until result rows exist.
 //
 // State-code lists are INLINED here (not imported from sources.ts).
 // The vitest contract `state-ac-registry-coverage.test.ts` enforces
@@ -30,15 +33,9 @@
 //
 // Per-state assertions (all must pass for the state to be "green"):
 //   1. Page mounts without pageerror / requestfailed for /data/...
-//   2. H1 is non-empty AND is NOT the literal "AC 1" placeholder -
-//      it must be the resolved SoT name (e.g. "NIPPANI" for S10,
-//      "BEHAT" for S24).
-//   3. Map canvas (canvas.maplibregl-canvas) mounts.
-//   4. Footer attribution link is the centralised A.3 link, rendered
-//      icon-only with the label moved to the `title` attribute (citizen
-//      hovers to see the label; one click navigates to the docs):
-//      `<a href="/about?section=maps" title="Boundary sources & licensing">ⓘ</a>`.
-//   5. The map's own GET request for the boundary shard returns 200.
+//   2. State-election H1 is non-empty and the map section mounts.
+//   3. D3 SVG map mounts and renders at least one AC feature path.
+//   4. The map's own GET request for the boundary shard returns 200.
 //      We listen via `page.waitForResponse` (set up BEFORE goto) rather
 //      than firing a manual fetch - manual `fetch(method:"HEAD")` from
 //      page context triggers a `requestfailed` because Vite's
@@ -67,12 +64,28 @@ interface EntityRow {
   entity_valid_to: number | null;
 }
 
+interface ElectionEventRow {
+  event_id: string;
+  kind: string;
+  display: string;
+  polled_on: string;
+  data_status?: string;
+}
+
+interface ElectionEventsCatalogue {
+  states: Record<string, ElectionEventRow[]>;
+}
+
 const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..");
 const entitiesPath = resolve(repoRoot, "datasets", "taxonomy", "entities.json");
+const electionEventsPath = resolve(repoRoot, "datasets", "taxonomy", "election_events.json");
 
 const entities = (
   JSON.parse(readFileSync(entitiesPath, "utf-8")) as { entities: EntityRow[] }
 ).entities;
+const electionEvents = JSON.parse(
+  readFileSync(electionEventsPath, "utf-8"),
+) as ElectionEventsCatalogue;
 
 const codeToSlug: Record<string, string> = {};
 for (const e of entities) {
@@ -84,6 +97,18 @@ for (const e of entities) {
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "");
   }
+}
+
+function defaultAssemblyEvent(code: string): ElectionEventRow | null {
+  const rows = electionEvents.states[code] ?? [];
+  const assemblyRows = rows.filter(
+    (r) => r.kind === "assembly" && r.data_status !== "pending_upstream",
+  );
+  const candidates = assemblyRows.length > 0 ? assemblyRows : rows;
+  if (candidates.length === 0) return null;
+  return candidates.reduce((latest, row) =>
+    row.polled_on > latest.polled_on ? row : latest,
+  );
 }
 
 // State / UT codes for which `boundaries/electoral/delim=2008/ac/state=<lgd-slug>/all.geojson`
@@ -150,14 +175,23 @@ test.describe("STATE_AC per-state coverage", () => {
       });
       continue;
     }
-    test(`${code} (${slug}) /${slug}/ac/1 renders cleanly`, async ({ page }) => {
+    const event = defaultAssemblyEvent(code);
+    if (!event || event.kind !== "assembly" || event.data_status === "pending_upstream") {
+      test.skip(
+        `${code}: no complete assembly event available for AC map e2e`,
+        () => {},
+      );
+      continue;
+    }
+
+    test(`${code} (${slug}) /${slug}/elections/${event.event_id} renders AC map cleanly`, async ({ page }) => {
       // The AC boundary shard partition is keyed by the canonical LGD
       // slug (ADR-0048 LGD-canonical rename, e.g. `state=delhi`,
       // `state=uttar-pradesh`), which is NOT always the same as the
       // URL slug used for navigation (e.g. `nct-of-delhi`,
       // `jammu-and-kashmir-ut`). Rather than re-derive the partition
       // slug here, match the map's own GET for ANY AC shard returning
-      // 200 — the drilldown page only loads this state's shard, so the
+      // 200 — the state-election page only loads this state's shard, so the
       // first 200 match IS this state's boundary, and we verify the
       // EXACT fetch the citizen-facing render makes. TopoJSON siblings
       // exist for AC shards (ADR-0047), so accept either extension.
@@ -175,32 +209,29 @@ test.describe("STATE_AC per-state coverage", () => {
         )
         .catch(() => null);
 
-      await page.goto(`/${slug}/ac/1`);
+      await page.goto(`/${slug}/elections/${encodeURIComponent(event.event_id)}`);
       await page.waitForLoadState("networkidle", { timeout: 30_000 });
 
-      // H1 must resolve to a real SoT name (not the loading placeholder).
+      // State-election page must resolve to real event chrome.
       const h1 = page.locator("h1").first();
       await expect(h1).toBeVisible({ timeout: 15_000 });
-      await expect
-        .poll(async () => (await h1.textContent())?.trim() ?? "", { timeout: 15_000 })
-        .not.toBe("AC 1");
       const heading = (await h1.textContent())?.trim() ?? "";
       expect(heading.length, `${code}: H1 should be non-empty`).toBeGreaterThan(0);
-
-      // Map canvas must mount.
-      await expect(page.locator("canvas.maplibregl-canvas").first()).toBeVisible({
+      await expect(page.getByTestId("state-event-map")).toBeVisible({
         timeout: 15_000,
       });
 
-      // Footer attribution = centralised A.3 link, icon-only with the
-      // label preserved on the `title` attribute (hover-tooltip).
-      const attrLink = page
-        .locator(`.maplibregl-ctrl-attrib-inner a[href$="/about?section=maps"]`)
-        .first();
-      await expect(attrLink).toHaveAttribute(
-        "title",
-        /Boundary sources & licensing/,
-      );
+      // D3 SVG map must mount and render constituency features.
+      const svg = page.getByTestId("state-event-map-geo").locator("svg").first();
+      await expect(svg).toBeVisible({
+        timeout: 15_000,
+      });
+      await expect
+        .poll(
+          async () => page.locator(".state-ac-map-d3__feature").count(),
+          { timeout: 15_000 },
+        )
+        .toBeGreaterThan(0);
 
       // Boundary shard load (via the map's own GET, captured above).
       const shardResponse = await shardResponsePromise;

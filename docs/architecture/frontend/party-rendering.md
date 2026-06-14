@@ -60,7 +60,7 @@ Per [url-grammar.md ADR-0053](url-grammar.md#adr-0053-party-rendering-and-per-pa
 
 - Parties index at `/parties` (alphabetical + recognition filter + search; PartiesIndex.svelte, body lands in PR-3 of the plan-doc).
 - Per-party detail at `/parties/<slug>` (header + KPIs + LS chart + VS chart + strongholds + metadata footer; Party.svelte, body lands in PR-4 of the plan-doc).
-- Slug derivation: lowercased `party_id` tail with `_` -> `-` (via [`partyIdToSlug`](../../../frontend/src/lib/slug.ts)). Sentinel overrides: IND -> `independent`, NOTA -> `nota`, AC (Arunachal Congress) -> `arunachal-congress`, GOA (Goa party vs state slug) -> `goemcarancho-otrec-astro`, MAHAD (Mahakranti Dal vs Maharashtra AC) -> `mahakranti-dal`. UNK -> NULL (no page).
+- Slug derivation: lowercased `party_id` tail with `_` -> `-` (via [`partyIdToSlug`](../../../frontend/src/lib/slug.ts)). Sentinel overrides: IND -> `independent`, NOTA -> `nota`, AC (Arunachal Congress) -> `arunachal-congress`, GOA (Goa party vs state slug) -> `goemcarancho-otrec-astro`, MAHAD (Mahakranti Dal vs Maharashtra AC) -> `mahakranti-dal`, JIND (party tail vs Haryana AC slug) -> `jind-party`. UNK -> NULL (no page).
 
 Link builder: `link.party(party_id): string | null` from [links.ts](../../../frontend/src/lib/links.ts). Returns `null` for UNK and any falsy input; callers MUST handle null by skipping the `<a>` wrapper.
 

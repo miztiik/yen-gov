@@ -15,11 +15,12 @@
 //   - `frontend/src/routes/DevChartsSandbox.svelte` (developer surface
 //     not on the citizen route table).
 //
-// What counts as a violation: any `{X.party_short}` or `{X.party_id}`
-// Svelte template expression (NOT inside a `<script>` / `<style>`
-// block, NOT inside a `${...}` JS template-literal interpolation, NOT
-// a `{#each}` / `{:else}` / `{/if}` / `{@const}` block directive) whose
-// 5-line preceding context does NOT contain any of:
+// What counts as a violation: any rendered text `{X.party_short}` or
+// `{X.party_id}` Svelte template expression (NOT inside a `<script>` /
+// `<style>` block, NOT inside a `${...}` JS template-literal interpolation,
+// NOT a `{#each}` / `{:else}` / `{/if}` / `{@const}` block directive, NOT
+// an attribute / component prop expression like `party_id={X.party_id}`)
+// whose 5-line preceding context does NOT contain any of:
 //   - `<PartyPill\b`            (the surface adopted PartyPill)
 //   - `href={link.party(`       (the surface wraps the token in the
 //                                canonical per-party link)
@@ -157,7 +158,11 @@ function findViolations(rel: string, src: string): Violation[] {
   for (let i = 0; i < lines.length; i++) {
     const ln = lines[i];
     TOKEN_RE.lastIndex = 0;
-    if (!TOKEN_RE.test(ln)) continue;
+    const renderedMatches = [...ln.matchAll(TOKEN_RE)].filter((m) => {
+      const index = m.index ?? 0;
+      return !/=\s*$/.test(ln.slice(0, index));
+    });
+    if (renderedMatches.length === 0) continue;
 
     // Context: this line + up to CONTEXT_BEFORE prior lines. PartyPill
     // / link / data-allow may sit on this line OR an opening line of a
@@ -250,6 +255,16 @@ describe("party-rendering contract (PR-2)", () => {
 
   it("ignores {#each ... (x.party_id)} block-directive key expressions", () => {
     const sample = `{#each parties as p (p.party_id)}\n  <PartyPill party_id={p.party_id}/>\n{/each}`;
+    expect(findViolations("test", sample)).toEqual([]);
+  });
+
+  it("ignores party_id / party_short attribute and component-prop expressions", () => {
+    const sample = [
+      `<a data-party-id={p.party_id}>`,
+      `  <RecognitionStrip party_id={p.party_id} />`,
+      `  <PartyPill party_id={p.party_id} party_short={p.party_short} />`,
+      `</a>`,
+    ].join("\n");
     expect(findViolations("test", sample)).toEqual([]);
   });
 

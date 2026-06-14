@@ -76,7 +76,7 @@ export function parseAcSlug(slug: string): number | null {
  *     fallback shows `party_short_raw` as plain text per the
  *     no-silent-demotion rule (CLAUDE.md §10).
  *
- * Plus three non-sentinel disambiguators caught by the Tier-A
+ * Plus four non-sentinel disambiguators caught by the Tier-A
  * disjointness contract (`frontend/src/contracts/url-namespace-disjointness.test.ts`):
  *   - `parties.IN.AC` (Arunachal Congress) -> bare tail `ac` collides
  *     with the RESERVED `ac` chrome token (bare-AC sub-namespace
@@ -88,6 +88,10 @@ export function parseAcSlug(slug: string): number | null {
  *     collides with the AC slug `mahad` (Maharashtra constituency
  *     no. 194). Spelled-out to `mahakranti-dal` (the party's full
  *     name slugified).
+ *   - `parties.IN.JIND` -> bare tail `jind` collides with the current
+ *     Haryana AC slug `jind`. The parties.csv `full` cell is `NA's`,
+ *     so use the explicit namespace disambiguator `jind-party` rather
+ *     than inventing a full party name.
  *
  * Same citizen-framing doctrine in every case: when the bare tail
  * collides with an existing reserved token / state slug / AC slug,
@@ -98,6 +102,7 @@ const SENTINEL_SLUG_OVERRIDES = new Map<string, string>([
   ["parties.IN.IND", "independent"],
   ["parties.IN.AC", "arunachal-congress"],
   ["parties.IN.GOA", "goemcarancho-otrec-astro"],
+  ["parties.IN.JIND", "jind-party"],
   ["parties.IN.MAHAD", "mahakranti-dal"],
 ]);
 

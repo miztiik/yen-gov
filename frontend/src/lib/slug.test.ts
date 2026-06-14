@@ -118,6 +118,14 @@ describe("partyIdToSlug (ADR-0053)", () => {
     expect(partyIdToSlug("parties.IN.MAHAD")).toBe("mahakranti-dal");
   });
 
+  it("applies the JIND party disambiguator override (vs current AC slug)", () => {
+    // Bare tail `jind` collides with the current Haryana AC slug
+    // `jind`. parties.csv does not carry a useful full name for this
+    // row (`full` is `NA's`), so the namespace suffix is the least
+    // misleading disambiguator.
+    expect(partyIdToSlug("parties.IN.JIND")).toBe("jind-party");
+  });
+
   it("emits the bare tail for NOTA (no override needed)", () => {
     expect(partyIdToSlug("parties.IN.NOTA")).toBe("nota");
   });
@@ -164,6 +172,10 @@ describe("partyIdFromSlug (ADR-0053)", () => {
 
   it("reverses the Mahakranti Dal disambiguator override", () => {
     expect(partyIdFromSlug("mahakranti-dal")).toBe("parties.IN.MAHAD");
+  });
+
+  it("reverses the JIND party disambiguator override", () => {
+    expect(partyIdFromSlug("jind-party")).toBe("parties.IN.JIND");
   });
 
   it("recovers parties.IN.NOTA from the bare nota slug", () => {
