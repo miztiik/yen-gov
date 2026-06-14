@@ -1,5 +1,5 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-andhra-pradesh-152,andhra-pradesh,1993,152,RAYACHOTY,Narayan Reddy:M,parties.IN.INC,INC,52903,54.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-152,andhra-pradesh,1993,152,RAYACHOTY,Palakondrayudu,parties.IN.TDP,TDP,43370,45.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-184,andhra-pradesh,1993,184,PANYAM,K.V.B. Reddy,parties.IN.INC,INC,67306,65.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-184,andhra-pradesh,1993,184,PANYAM,Smt. Renuka Chaudhary,parties.IN.TDP,TDP,35695,34.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-andhra-pradesh-152,andhra-pradesh,1993,152,RAYACHOTY,Narayan Reddy:M,parties.IN.INC,INC,52903,54.95,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-152,andhra-pradesh,1993,152,RAYACHOTY,Palakondrayudu,parties.IN.TDP,TDP,43370,45.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-184,andhra-pradesh,1993,184,PANYAM,K.V.B. Reddy,parties.IN.INC,INC,67306,65.34,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-184,andhra-pradesh,1993,184,PANYAM,Smt. Renuka Chaudhary,parties.IN.TDP,TDP,35695,34.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,

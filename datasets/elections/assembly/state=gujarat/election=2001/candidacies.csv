@@ -1,13 +1,13 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,AMIN NARHARIBHAI HIRABHAI(NARHARI AMIN),parties.IN.INC,INC,59203,56.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,PATEL BABUBHAI JAMANADAS(BJP),parties.IN.BJP,BJP,40733,39.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,SOLANKI JIVANLAL THAKARSHIBHAI,parties.IN.IND,IND,2080,2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,BAVCHA KISHOR MATAJI,parties.IN.IND,IND,575,0.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,MARCHAND JAGADIFBHAI ARVINDBHAI(JAGDISH MERCHANT,parties.IN.BSP,BSP,456,0.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,SHAH SHAILESHBHAI KANTILAL,parties.IN.IND,IND,387,0.37,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,THAKKAR BHARATKUMAR MOHANLAL,parties.IN.IND,IND,240,0.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,DESAI BALUBHAI KARSHANBHAI,parties.IN.SP,SP,181,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,JANI HARISHANKARBHAI NANDLAL,parties.IN.IND,IND,119,0.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,BAROT HAMIRBHAI HARIBHAI,parties.IN.IND,IND,91,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,PARMAR VASANTBHAI KARSHANBHAI,parties.IN.IND,IND,87,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,THAKOR ARUN SHIVAJI,parties.IN.IND,IND,67,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,AMIN NARHARIBHAI HIRABHAI(NARHARI AMIN),parties.IN.INC,INC,59203,56.81,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,PATEL BABUBHAI JAMANADAS(BJP),parties.IN.BJP,BJP,40733,39.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,SOLANKI JIVANLAL THAKARSHIBHAI,parties.IN.IND,IND,2080,2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,BAVCHA KISHOR MATAJI,parties.IN.IND,IND,575,0.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,MARCHAND JAGADIFBHAI ARVINDBHAI(JAGDISH MERCHANT,parties.IN.BSP,BSP,456,0.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,SHAH SHAILESHBHAI KANTILAL,parties.IN.IND,IND,387,0.37,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,THAKKAR BHARATKUMAR MOHANLAL,parties.IN.IND,IND,240,0.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,DESAI BALUBHAI KARSHANBHAI,parties.IN.SP,SP,181,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,JANI HARISHANKARBHAI NANDLAL,parties.IN.IND,IND,119,0.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,BAROT HAMIRBHAI HARIBHAI,parties.IN.IND,IND,91,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,PARMAR VASANTBHAI KARSHANBHAI,parties.IN.IND,IND,87,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-67,gujarat,2001,67,SABARMATI,THAKOR ARUN SHIVAJI,parties.IN.IND,IND,67,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

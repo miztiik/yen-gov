@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-nagaland-26,nagaland,2004,AONGLENDEN,10448,9520,91.12,C. APOK JAMIR,parties.IN.INC,INC,6742,70.82,ALEMPOKBA,parties.IN.NPF,NPF,2778,3964,41.64,src-1b7bc1c9d39a
-IN-AC-1976-nagaland-45,nagaland,2004,TEHOK,13718,13523,98.58,SHABOH,parties.IN.INC,INC,6723,49.72,C.L. JOHN,parties.IN.NPF,NPF,6541,182,1.35,src-1b7bc1c9d39a
-IN-AC-1976-nagaland-6,nagaland,2004,TENNING,19245,18852,97.96,TARIE,parties.IN.NPF,NPF,7395,39.23,WIZABO,parties.IN.INC,INC,4985,2410,12.79,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-nagaland-26,nagaland,2004,AONGLENDEN,10448,9520,91.12,C. APOK JAMIR,parties.IN.INC,INC,6742,70.82,ALEMPOKBA,parties.IN.NPF,NPF,2778,3964,41.64,src-1b7bc1c9d39a,minor,
+IN-AC-1976-nagaland-45,nagaland,2004,TEHOK,13718,13523,98.58,SHABOH,parties.IN.INC,INC,6723,49.72,C.L. JOHN,parties.IN.NPF,NPF,6541,182,1.35,src-1b7bc1c9d39a,minor,
+IN-AC-1976-nagaland-6,nagaland,2004,TENNING,19245,18852,97.96,TARIE,parties.IN.NPF,NPF,7395,39.23,WIZABO,parties.IN.INC,INC,4985,2410,12.79,src-1b7bc1c9d39a,minor,

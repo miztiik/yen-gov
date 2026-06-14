@@ -1,26 +1,26 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-west-bengal-88,west-bengal,1999,88,ASHOKENAGAR,Badal Bhattacharya,parties.IN.BJP,BJP,59922,47.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-88,west-bengal,1999,88,ASHOKENAGAR,Rekha Goswami,parties.IN.CPIM,CPM,50424,39.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-88,west-bengal,1999,88,ASHOKENAGAR,Narayan Saha(Naru),parties.IN.INC,INC,14000,11.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-88,west-bengal,1999,88,ASHOKENAGAR,Nil Ratan Biswas,parties.IN.BSP,BSP,1362,1.08,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-88,west-bengal,1999,88,ASHOKENAGAR,Gopal Biswas,parties.IN.IND,IND,547,0.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-88,west-bengal,1999,88,ASHOKENAGAR,Arun Kumar Chatterjee,parties.IN.IND,IND,298,0.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-125,west-bengal,1999,125,PATHARPAQTIMA,Jajneswar Das,parties.IN.CPIM,CPM,54333,48.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-125,west-bengal,1999,125,PATHARPAQTIMA,Samir Jana,parties.IN.AITC,AITC,36970,32.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-125,west-bengal,1999,125,PATHARPAQTIMA,Sakti Pada Mondal,parties.IN.INC,INC,18869,16.77,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-125,west-bengal,1999,125,PATHARPAQTIMA,Phani Bhusan Guchhait,parties.IN.IND,IND,2349,2.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-141,west-bengal,1999,141,SHYAMPUKUR,Pulak Chandra Das,parties.IN.AITC,AITC,31823,51,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-141,west-bengal,1999,141,SHYAMPUKUR,Nihar Roy Chowdhury,parties.IN.AIFB,FBL,23846,38.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-141,west-bengal,1999,141,SHYAMPUKUR,Samir Chakraborty,parties.IN.INC,INC,5486,8.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-141,west-bengal,1999,141,SHYAMPUKUR,Gopal Ghosh,parties.IN.IND,IND,767,1.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-141,west-bengal,1999,141,SHYAMPUKUR,Manoj Chakraborty,parties.IN.IND,IND,481,0.77,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-204,west-bengal,1999,204,MAHISADAL,Deepak Ghosh,parties.IN.AITC,AITC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-204,west-bengal,1999,204,MAHISADAL,Bera Sukumar,parties.IN.INC,INC,0,,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-204,west-bengal,1999,204,MAHISADAL,Subrata Kumar Maiti,parties.IN.CPIM,CPM,0,,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-204,west-bengal,1999,204,MAHISADAL,Bipradas Chatterjee,parties.IN.CPIMLL,CPI(ML)(L),0,,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-204,west-bengal,1999,204,MAHISADAL,Ram Gopal Parmanik,parties.IN.IND,IND,0,,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-241,west-bengal,1999,241,RAGHUNATHPUR(SC),Uma Rani Bauri,parties.IN.CPIM,CPM,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-241,west-bengal,1999,241,RAGHUNATHPUR(SC),Navraj Bauri,parties.IN.AITC,AITC,0,,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-241,west-bengal,1999,241,RAGHUNATHPUR(SC),Narottam Bauri,parties.IN.INC,INC,0,,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-241,west-bengal,1999,241,RAGHUNATHPUR(SC),Kushadhwaj Mandal,parties.IN.IND,IND,0,,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-241,west-bengal,1999,241,RAGHUNATHPUR(SC),Sadhu Bouri,parties.IN.IND,IND,0,,5,lost,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-west-bengal-88,west-bengal,1999,88,ASHOKENAGAR,Badal Bhattacharya,parties.IN.BJP,BJP,59922,47.35,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-88,west-bengal,1999,88,ASHOKENAGAR,Rekha Goswami,parties.IN.CPIM,CPM,50424,39.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-88,west-bengal,1999,88,ASHOKENAGAR,Narayan Saha(Naru),parties.IN.INC,INC,14000,11.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-88,west-bengal,1999,88,ASHOKENAGAR,Nil Ratan Biswas,parties.IN.BSP,BSP,1362,1.08,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-88,west-bengal,1999,88,ASHOKENAGAR,Gopal Biswas,parties.IN.IND,IND,547,0.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-88,west-bengal,1999,88,ASHOKENAGAR,Arun Kumar Chatterjee,parties.IN.IND,IND,298,0.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-125,west-bengal,1999,125,PATHARPAQTIMA,Jajneswar Das,parties.IN.CPIM,CPM,54333,48.29,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-125,west-bengal,1999,125,PATHARPAQTIMA,Samir Jana,parties.IN.AITC,AITC,36970,32.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-125,west-bengal,1999,125,PATHARPAQTIMA,Sakti Pada Mondal,parties.IN.INC,INC,18869,16.77,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-125,west-bengal,1999,125,PATHARPAQTIMA,Phani Bhusan Guchhait,parties.IN.IND,IND,2349,2.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-141,west-bengal,1999,141,SHYAMPUKUR,Pulak Chandra Das,parties.IN.AITC,AITC,31823,51,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-141,west-bengal,1999,141,SHYAMPUKUR,Nihar Roy Chowdhury,parties.IN.AIFB,FBL,23846,38.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-141,west-bengal,1999,141,SHYAMPUKUR,Samir Chakraborty,parties.IN.INC,INC,5486,8.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-141,west-bengal,1999,141,SHYAMPUKUR,Gopal Ghosh,parties.IN.IND,IND,767,1.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-141,west-bengal,1999,141,SHYAMPUKUR,Manoj Chakraborty,parties.IN.IND,IND,481,0.77,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-204,west-bengal,1999,204,MAHISADAL,Deepak Ghosh,parties.IN.AITC,AITC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-204,west-bengal,1999,204,MAHISADAL,Bera Sukumar,parties.IN.INC,INC,0,,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-204,west-bengal,1999,204,MAHISADAL,Subrata Kumar Maiti,parties.IN.CPIM,CPM,0,,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-204,west-bengal,1999,204,MAHISADAL,Bipradas Chatterjee,parties.IN.CPIMLL,CPI(ML)(L),0,,4,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-204,west-bengal,1999,204,MAHISADAL,Ram Gopal Parmanik,parties.IN.IND,IND,0,,5,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-241,west-bengal,1999,241,RAGHUNATHPUR(SC),Uma Rani Bauri,parties.IN.CPIM,CPM,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-241,west-bengal,1999,241,RAGHUNATHPUR(SC),Navraj Bauri,parties.IN.AITC,AITC,0,,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-241,west-bengal,1999,241,RAGHUNATHPUR(SC),Narottam Bauri,parties.IN.INC,INC,0,,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-241,west-bengal,1999,241,RAGHUNATHPUR(SC),Kushadhwaj Mandal,parties.IN.IND,IND,0,,4,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-241,west-bengal,1999,241,RAGHUNATHPUR(SC),Sadhu Bouri,parties.IN.IND,IND,0,,5,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,

@@ -1,6 +1,6 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-uttar-pradesh-186,uttar-pradesh,1997,MANIRAM,285846,113087,39.56,Chandresh Paswan,parties.IN.SP,SP,52677,46.58,Chaudhari Shambhoo Sharan Singh,parties.IN.BJP,BJP,41510,11167,9.87,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-312,uttar-pradesh,1997,FARRUKHABAD,257923,124292,48.19,Prabha Dwivedi,parties.IN.BJP,BJP,71154,57.25,Lal Bahadur Singh Shakya,parties.IN.SP,SP,51943,19211,15.46,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-380,uttar-pradesh,1997,DIBAT,211365,98582,46.64,Ram Singh,parties.IN.BJP,BJP,52204,52.95,Anil Kumar,parties.IN.BSP,BSP,21998,30206,30.64,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-42,uttar-pradesh,1997,SAHASWAN,218807,128091,58.54,Omkar Singh,parties.IN.SP,SP,63802,49.81,Mir. Yusuf Ali,parties.IN.BSP,BSP,38265,25537,19.94,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-43,uttar-pradesh,1997,BILSI,200351,115527,57.66,Bhola Shanker Morya,parties.IN.BSP,BSP,48467,41.95,Yogendra Kumar Sagar,parties.IN.BJP,BJP,47524,943,0.81,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-uttar-pradesh-186,uttar-pradesh,1997,MANIRAM,285846,113087,39.56,Chandresh Paswan,parties.IN.SP,SP,52677,46.58,Chaudhari Shambhoo Sharan Singh,parties.IN.BJP,BJP,41510,11167,9.87,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-312,uttar-pradesh,1997,FARRUKHABAD,257923,124292,48.19,Prabha Dwivedi,parties.IN.BJP,BJP,71154,57.25,Lal Bahadur Singh Shakya,parties.IN.SP,SP,51943,19211,15.46,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-380,uttar-pradesh,1997,DIBAT,211365,98582,46.64,Ram Singh,parties.IN.BJP,BJP,52204,52.95,Anil Kumar,parties.IN.BSP,BSP,21998,30206,30.64,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-42,uttar-pradesh,1997,SAHASWAN,218807,128091,58.54,Omkar Singh,parties.IN.SP,SP,63802,49.81,Mir. Yusuf Ali,parties.IN.BSP,BSP,38265,25537,19.94,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-43,uttar-pradesh,1997,BILSI,200351,115527,57.66,Bhola Shanker Morya,parties.IN.BSP,BSP,48467,41.95,Yogendra Kumar Sagar,parties.IN.BJP,BJP,47524,943,0.81,src-1b7bc1c9d39a,minor,

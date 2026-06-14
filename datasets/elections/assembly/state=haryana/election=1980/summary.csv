@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-haryana-33,haryana,1980,BERI,63787,44958,70.48,A.SINGH,parties.IN.JNP_SC,JNP(SC),23174,51.55,B.SINGH,parties.IN.INC_I,INC(I),20917,2257,5.02,src-1b7bc1c9d39a
-IN-AC-1976-haryana-73,haryana,1980,BHATTU KALAN,61623,50279,81.59,R.SINGH,parties.IN.INC_I,INC(I),28107,55.9,S.SINGH,parties.IN.JNP_SC,JNP(SC),18344,9763,19.42,src-1b7bc1c9d39a
-IN-AC-1976-haryana-89,haryana,1980,ATELI,77524,52672,67.94,B.SINGH,parties.IN.INC_I,INC(I),35243,66.91,L.NARAIN,parties.IN.JNP_SC,JNP(SC),7575,27668,52.53,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-haryana-33,haryana,1980,BERI,63787,44958,70.48,A.SINGH,parties.IN.JNP_SC,JNP(SC),23174,51.55,B.SINGH,parties.IN.INC_I,INC(I),20917,2257,5.02,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-73,haryana,1980,BHATTU KALAN,61623,50279,81.59,R.SINGH,parties.IN.INC_I,INC(I),28107,55.9,S.SINGH,parties.IN.JNP_SC,JNP(SC),18344,9763,19.42,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-89,haryana,1980,ATELI,77524,52672,67.94,B.SINGH,parties.IN.INC_I,INC(I),35243,66.91,L.NARAIN,parties.IN.JNP_SC,JNP(SC),7575,27668,52.53,src-1b7bc1c9d39a,minor,

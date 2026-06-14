@@ -1,8 +1,8 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1962-maharashtra-55,maharashtra,1964,55,AMBEGAON,SMT.V.A.AWATE,parties.IN.INC,INC,-1,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-maharashtra-128,maharashtra,1964,128,BHAGUR,A.T.KALE,parties.IN.INC,INC,15607,61.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-maharashtra-128,maharashtra,1964,128,BHAGUR,B.DUTTUMANJI,parties.IN.RPI,RPI,9862,38.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-maharashtra-208,maharashtra,1964,208,SAOLI,W.V.GANDAMWAR,parties.IN.INC,INC,31081,66.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-maharashtra-208,maharashtra,1964,208,SAOLI,V.A.PATIL,parties.IN.PSP,PSP,12378,26.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-maharashtra-208,maharashtra,1964,208,SAOLI,D.L.KALE,parties.IN.IND,IND,2661,5.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-maharashtra-208,maharashtra,1964,208,SAOLI,M.G.BORKUTE,parties.IN.IND,IND,298,0.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1962-maharashtra-55,maharashtra,1964,55,AMBEGAON,SMT.V.A.AWATE,parties.IN.INC,INC,-1,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-maharashtra-128,maharashtra,1964,128,BHAGUR,A.T.KALE,parties.IN.INC,INC,15607,61.28,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-maharashtra-128,maharashtra,1964,128,BHAGUR,B.DUTTUMANJI,parties.IN.RPI,RPI,9862,38.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-maharashtra-208,maharashtra,1964,208,SAOLI,W.V.GANDAMWAR,parties.IN.INC,INC,31081,66.96,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-maharashtra-208,maharashtra,1964,208,SAOLI,V.A.PATIL,parties.IN.PSP,PSP,12378,26.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-maharashtra-208,maharashtra,1964,208,SAOLI,D.L.KALE,parties.IN.IND,IND,2661,5.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-maharashtra-208,maharashtra,1964,208,SAOLI,M.G.BORKUTE,parties.IN.IND,IND,298,0.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

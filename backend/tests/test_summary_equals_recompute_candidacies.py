@@ -59,6 +59,18 @@ _NULLABLE_FIELDS: frozenset[str] = frozenset(
     }
 )
 
+# Fields the recompute helper cannot reconstruct from candidacies.csv alone:
+# the backfill stamps ``processing_level`` / ``processing_note`` with TCPD-
+# catalogue-resolution history (e.g. a candidacy whose party_id was once
+# UNK and was later resolved via the TCPD party catalogue still carries
+# ``major`` + the resolution note on the on-disk summary, but the recompute
+# helper sees only the current resolved party_id and would emit ``minor``).
+# Excluding these two fields preserves the oracle's intent (project-from-
+# candidacies is byte-identical to the writer) for every other column.
+_EXCLUDED_FROM_PARITY: frozenset[str] = frozenset(
+    {"processing_level", "processing_note"}
+)
+
 
 def _read_csv(path: Path) -> list[dict[str, str]]:
     with path.open(encoding="utf-8", newline="") as fh:
@@ -149,6 +161,8 @@ def _coerce_summary_row(row: dict[str, str]) -> dict[str, Any]:
         "margin_votes": _int_or_none(row.get("margin_votes")),
         "margin_pct": _float_or_none(row.get("margin_pct")),
         "source_id": row.get("source_id") or "",
+        "processing_level": row.get("processing_level") or "minor",
+        "processing_note": _norm(row.get("processing_note")),
     }
 
 
@@ -216,6 +230,8 @@ def _compare(
     """Field-by-field compare; append diffs to ``divergences`` (bounded)."""
     state_or_all, year, entity_id = context
     for key in recomputed:
+        if key in _EXCLUDED_FROM_PARITY:
+            continue
         a = recomputed.get(key)
         b = on_disk.get(key)
         if key in _NULLABLE_FIELDS:

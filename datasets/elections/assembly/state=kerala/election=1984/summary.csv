@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-kerala-115,kerala,1984,PUNALOOR,99136,94133,94.95,V.S.PILLAI,parties.IN.KECJ,KEC(J),46553,49.45,P.K.SREENIVASAN,parties.IN.CPI,CPI,45579,974,1.03,src-1b7bc1c9d39a
-IN-AC-1976-kerala-33,kerala,1984,MANJERI,89885,84441,93.94,I.KURIKKAL.M.P.M,parties.IN.IUML,MUL,47988,56.83,M.C.MOHAMMED,parties.IN.IML,IML,26179,21809,25.83,src-1b7bc1c9d39a
-IN-AC-1976-kerala-70,kerala,1984,PARUR,80431,65934,81.98,A.C.JOSE,parties.IN.IND,IND,32781,49.72,S.PILLAI,parties.IN.CPI,CPI,31335,1446,2.2,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-kerala-115,kerala,1984,PUNALOOR,99136,94133,94.95,V.S.PILLAI,parties.IN.KECJ,KEC(J),46553,49.45,P.K.SREENIVASAN,parties.IN.CPI,CPI,45579,974,1.03,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-33,kerala,1984,MANJERI,89885,84441,93.94,I.KURIKKAL.M.P.M,parties.IN.IUML,MUL,47988,56.83,M.C.MOHAMMED,parties.IN.IML,IML,26179,21809,25.83,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-70,kerala,1984,PARUR,80431,65934,81.98,A.C.JOSE,parties.IN.IND,IND,32781,49.72,S.PILLAI,parties.IN.CPI,CPI,31335,1446,2.2,src-1b7bc1c9d39a,minor,

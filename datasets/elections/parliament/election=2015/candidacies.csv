@@ -1,43 +1,43 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Dayakar Pasunoori,parties.IN.BRS,TRS,615544,59.95,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Sarvey Sathyanarayana,parties.IN.INC,INC,156315,15.22,2,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Devaiah Pagidipati,parties.IN.BJP,BJP,129868,12.65,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Jajala Bhaskar,parties.IN.SP,SP,28371,2.76,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Nalla Suryaprakash,parties.IN.YSRCP,YSRCP,23352,2.27,5,forfeit,U,,,,crossover,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Prof- Gali Vinod Kumar,parties.IN.IND,INDEPENDENT,14788,1.44,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Jannu Mahendar,parties.IN.IND,INDEPENDENT,8612,0.84,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Pendela Devaraju,parties.IN.IND,INDEPENDENT,7330,0.71,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Barla Srinivas,parties.IN.IND,INDEPENDENT,7026,0.68,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Sanora Johnson,parties.IN.IND,INDEPENDENT,5991,0.58,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Gangaram Saibaba,parties.IN.IND,INDEPENDENT,4178,0.41,11,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Gabbeta Basu,parties.IN.IND,INDEPENDENT,3921,0.38,12,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Kamakam Devadasu,parties.IN.TECPI,TCPI,3307,0.32,13,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Yeachu Sunil,parties.IN.IND,INDEPENDENT,2867,0.28,14,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Pasula Rammurithy,parties.IN.UNK,DBP,2403,0.23,15,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Velthru Mallaiah,parties.IN.RPI,RPI,2079,0.2,16,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Jeedi Sadanandam,parties.IN.PSP,PSP,1929,0.19,17,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Guggilla Sagar,parties.IN.IND,INDEPENDENT,1832,0.18,18,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Bandi Ksamthi Kumar,parties.IN.TKRRP,TKRRP,1667,0.16,19,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Venula Ramesh,parties.IN.IND,INDEPENDENT,1540,0.15,20,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Palvai Venu,parties.IN.AYCP,AYCP,1404,0.14,21,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Banda Susheela,parties.IN.IND,INDEPENDENT,1404,0.14,22,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Ripeeka Prem Kumar,parties.IN.IND,INDEPENDENT,1004,0.1,23,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,24,RATLAM(ST) JHABUA,Kantilal Bhuria,parties.IN.INC,INC,536743,51.36,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,24,RATLAM(ST) JHABUA,Nirmala Dileep Singh Bhuriya,parties.IN.BJP,BJP,447911,42.86,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,24,RATLAM(ST) JHABUA,Vijay Hari,parties.IN.JDU,JD(United),21572,2.06,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,24,RATLAM(ST) JHABUA,Kasan Singh Chouhan,parties.IN.RKSP,RKSP,14301,1.37,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,24,RATLAM(ST) JHABUA,Pawan Singh Dodiyar,parties.IN.IND,INDEPENDENT,9238,0.88,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,24,RATLAM(ST) JHABUA,Joseph Ramasingh,parties.IN.IND,INDEPENDENT,6623,0.63,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,24,RATLAM(ST) JHABUA,Kailash Vasuniya,parties.IN.BMUP,BMP,5362,0.51,7,forfeit,U,,,,crossover,src-31c65dbec869
-IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,24,RATLAM(ST) JHABUA,Jalam Singh Patel,parties.IN.SSP,SSP,3321,0.32,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Mamta Thakur,parties.IN.AITC,AITC,539999,43.68,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Debesh Das,parties.IN.CPIM,CPM,328214,26.55,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Subrata Thakur,parties.IN.BJP,BJP,314126,25.41,3,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Kuntal Mondal,parties.IN.INC,INC,29149,2.36,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Pranita Mandal,parties.IN.IND,IND,8598,0.7,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Guru Chand Das,parties.IN.GCMM,GCMM,3991,0.32,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Subrata Kumar Biswas,parties.IN.IND,IND,3536,0.29,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Tarak Chandra Sarkar,parties.IN.IND,IND,3248,0.26,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Tarapada Biswas,parties.IN.AMB,AB,2301,0.19,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Kishor Biswas,parties.IN.IND,IND,1986,0.16,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Ram Mohan Sarkar,parties.IN.BMUP,BMP,1074,0.09,11,forfeit,U,,,,challenger,src-31c65dbec869
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Dayakar Pasunoori,parties.IN.BRS,TRS,615544,59.95,1,won,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Sarvey Sathyanarayana,parties.IN.INC,INC,156315,15.22,2,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Devaiah Pagidipati,parties.IN.BJP,BJP,129868,12.65,3,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Jajala Bhaskar,parties.IN.SP,SP,28371,2.76,4,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Nalla Suryaprakash,parties.IN.YSRCP,YSRCP,23352,2.27,5,forfeit,U,,,,crossover,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Prof- Gali Vinod Kumar,parties.IN.IND,INDEPENDENT,14788,1.44,6,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Jannu Mahendar,parties.IN.IND,INDEPENDENT,8612,0.84,7,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Pendela Devaraju,parties.IN.IND,INDEPENDENT,7330,0.71,8,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Barla Srinivas,parties.IN.IND,INDEPENDENT,7026,0.68,9,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Sanora Johnson,parties.IN.IND,INDEPENDENT,5991,0.58,10,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Gangaram Saibaba,parties.IN.IND,INDEPENDENT,4178,0.41,11,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Gabbeta Basu,parties.IN.IND,INDEPENDENT,3921,0.38,12,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Kamakam Devadasu,parties.IN.TECPI,TCPI,3307,0.32,13,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Yeachu Sunil,parties.IN.IND,INDEPENDENT,2867,0.28,14,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Pasula Rammurithy,parties.IN.UNK,DBP,2403,0.23,15,forfeit,U,,,,challenger,src-31c65dbec869,major,Publisher label 'DBP' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Velthru Mallaiah,parties.IN.RPI,RPI,2079,0.2,16,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Jeedi Sadanandam,parties.IN.PSP,PSP,1929,0.19,17,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Guggilla Sagar,parties.IN.IND,INDEPENDENT,1832,0.18,18,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Bandi Ksamthi Kumar,parties.IN.TKRRP,TKRRP,1667,0.16,19,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Venula Ramesh,parties.IN.IND,INDEPENDENT,1540,0.15,20,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Palvai Venu,parties.IN.AYCP,AYCP,1404,0.14,21,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Banda Susheela,parties.IN.IND,INDEPENDENT,1404,0.14,22,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-andhra-pradesh-420,andhra-pradesh,2015,15,WARANGAL(SC),Ripeeka Prem Kumar,parties.IN.IND,INDEPENDENT,1004,0.1,23,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,24,RATLAM(ST) JHABUA,Kantilal Bhuria,parties.IN.INC,INC,536743,51.36,1,won,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,24,RATLAM(ST) JHABUA,Nirmala Dileep Singh Bhuriya,parties.IN.BJP,BJP,447911,42.86,2,lost,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,24,RATLAM(ST) JHABUA,Vijay Hari,parties.IN.JDU,JD(United),21572,2.06,3,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,24,RATLAM(ST) JHABUA,Kasan Singh Chouhan,parties.IN.RKSP,RKSP,14301,1.37,4,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,24,RATLAM(ST) JHABUA,Pawan Singh Dodiyar,parties.IN.IND,INDEPENDENT,9238,0.88,5,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,24,RATLAM(ST) JHABUA,Joseph Ramasingh,parties.IN.IND,INDEPENDENT,6623,0.63,6,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,24,RATLAM(ST) JHABUA,Kailash Vasuniya,parties.IN.BMUP,BMP,5362,0.51,7,forfeit,U,,,,crossover,src-31c65dbec869,minor,
+IN-PC-2008-madhya-pradesh-320,madhya-pradesh,2015,24,RATLAM(ST) JHABUA,Jalam Singh Patel,parties.IN.SSP,SSP,3321,0.32,8,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Mamta Thakur,parties.IN.AITC,AITC,539999,43.68,1,won,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Debesh Das,parties.IN.CPIM,CPM,328214,26.55,2,lost,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Subrata Thakur,parties.IN.BJP,BJP,314126,25.41,3,lost,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Kuntal Mondal,parties.IN.INC,INC,29149,2.36,4,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Pranita Mandal,parties.IN.IND,IND,8598,0.7,5,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Guru Chand Das,parties.IN.GCMM,GCMM,3991,0.32,6,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Subrata Kumar Biswas,parties.IN.IND,IND,3536,0.29,7,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Tarak Chandra Sarkar,parties.IN.IND,IND,3248,0.26,8,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Tarapada Biswas,parties.IN.AMB,AB,2301,0.19,9,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Kishor Biswas,parties.IN.IND,IND,1986,0.16,10,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-2008-west-bengal-228,west-bengal,2015,14,BANGAON,Ram Mohan Sarkar,parties.IN.BMUP,BMP,1074,0.09,11,forfeit,U,,,,challenger,src-31c65dbec869,minor,

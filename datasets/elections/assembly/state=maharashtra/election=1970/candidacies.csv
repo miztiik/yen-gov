@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1967-maharashtra-33,maharashtra,1970,33,PAREL,S.M.WAMAN,parties.IN.IND,IND,31592,51.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-maharashtra-33,maharashtra,1970,33,PAREL,D.S.KRISHNAJI,parties.IN.CPI,CPI,29913,48.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1967-maharashtra-33,maharashtra,1970,33,PAREL,S.M.WAMAN,parties.IN.IND,IND,31592,51.36,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-maharashtra-33,maharashtra,1970,33,PAREL,D.S.KRISHNAJI,parties.IN.CPI,CPI,29913,48.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,

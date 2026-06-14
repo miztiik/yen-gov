@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-kerala-128,kerala,1985,ATTINGAL,89839,70900,78.92,P.VIJAYADAS,parties.IN.ICS,ICS,36430,51.38,S.KUNJUKRISHNAN,parties.IN.INC,INC,30997,5433,7.66,src-1b7bc1c9d39a
-IN-AC-1976-kerala-13,kerala,1985,PERINGALAM,94099,79053,84.01,E.T.M.BASHEER,parties.IN.IML,IML,42410,53.65,P.K.MOHHAMMED,parties.IN.IUML,MUL,30668,11742,14.86,src-1b7bc1c9d39a
-IN-AC-1976-kerala-3,kerala,1985,UDMA,94591,77187,81.6,PURUSHOTTAMAN.K,parties.IN.CPIM,CPM,37827,49.01,M.K.NAMBIAR,parties.IN.INC,INC,37011,816,1.06,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-kerala-128,kerala,1985,ATTINGAL,89839,70900,78.92,P.VIJAYADAS,parties.IN.ICS,ICS,36430,51.38,S.KUNJUKRISHNAN,parties.IN.INC,INC,30997,5433,7.66,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-13,kerala,1985,PERINGALAM,94099,79053,84.01,E.T.M.BASHEER,parties.IN.IML,IML,42410,53.65,P.K.MOHHAMMED,parties.IN.IUML,MUL,30668,11742,14.86,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-3,kerala,1985,UDMA,94591,77187,81.6,PURUSHOTTAMAN.K,parties.IN.CPIM,CPM,37827,49.01,M.K.NAMBIAR,parties.IN.INC,INC,37011,816,1.06,src-1b7bc1c9d39a,minor,

@@ -1,5 +1,5 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-rajasthan-510,rajasthan,2014,NASIRABAD,185958,135171,72.69,Ramnarayan,parties.IN.INC,INC,66648,49.31,Sarita Devi Gena,parties.IN.BJP,BJP,66262,386,0.29,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-543,rajasthan,2014,WEIR,211665,130694,61.75,Bhajan Lal Jatay,parties.IN.INC,INC,77305,59.15,Ganga Ram Koli,parties.IN.BJP,BJP,52197,25108,19.21,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-630,rajasthan,2014,SURAJGARH,232702,162696,69.92,Sharwan Kumar,parties.IN.INC,INC,70527,43.35,Dr. Digamber Singh,parties.IN.BJP,BJP,67257,3270,2.01,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-eci190,rajasthan,2014,KOTA SOUTH,221079,144295,65.27,Sandeep Sharma,parties.IN.BJP,BJP,84233,58.38,Shivkant Nandwana,parties.IN.INC,INC,58526,25707,17.82,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-2008-rajasthan-510,rajasthan,2014,NASIRABAD,185958,135171,72.69,Ramnarayan,parties.IN.INC,INC,66648,49.31,Sarita Devi Gena,parties.IN.BJP,BJP,66262,386,0.29,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-543,rajasthan,2014,WEIR,211665,130694,61.75,Bhajan Lal Jatay,parties.IN.INC,INC,77305,59.15,Ganga Ram Koli,parties.IN.BJP,BJP,52197,25108,19.21,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-630,rajasthan,2014,SURAJGARH,232702,162696,69.92,Sharwan Kumar,parties.IN.INC,INC,70527,43.35,Dr. Digamber Singh,parties.IN.BJP,BJP,67257,3270,2.01,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-eci190,rajasthan,2014,KOTA SOUTH,221079,144295,65.27,Sandeep Sharma,parties.IN.BJP,BJP,84233,58.38,Shivkant Nandwana,parties.IN.INC,INC,58526,25707,17.82,src-1b7bc1c9d39a,minor,

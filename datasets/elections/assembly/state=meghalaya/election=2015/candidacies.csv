@@ -1,9 +1,9 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-meghalaya-1681,meghalaya,2015,32,NONGSTOIN,DIOSSTARNESS JYNDIANG (E),parties.IN.HSPDP,HSPDP,11189,46.62,1,won,U,,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1681,meghalaya,2015,32,NONGSTOIN,GABRIEL,parties.IN.INC,INC,8425,35.1,2,lost,U,,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1681,meghalaya,2015,32,NONGSTOIN,FENELA LYNGDOH NONGLAIT,parties.IN.INDE,INDE,3131,13.04,3,forfeit,U,,Doctorate,Lawyer,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1681,meghalaya,2015,32,NONGSTOIN,MOSKLANDAR MARNGAR,parties.IN.UDP,UDP,1257,5.24,4,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1700,meghalaya,2015,59,CHOKPOT,Bluebell R. Sangma (W),parties.IN.INC,INC,8042,40.76,1,won,U,,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1700,meghalaya,2015,59,CHOKPOT,Phillipoled. Marak,parties.IN.NPP,NPP,5492,27.83,2,lost,U,,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1700,meghalaya,2015,59,CHOKPOT,Kalpana D. Sangma (W),parties.IN.GNC,GNC,5009,25.39,3,lost,U,,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1700,meghalaya,2015,59,CHOKPOT,Thinkernin R. Marak,parties.IN.IND,IND,1189,6.03,4,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-meghalaya-1681,meghalaya,2015,32,NONGSTOIN,DIOSSTARNESS JYNDIANG (E),parties.IN.HSPDP,HSPDP,11189,46.62,1,won,U,,Graduate,Self-employed,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1681,meghalaya,2015,32,NONGSTOIN,GABRIEL,parties.IN.INC,INC,8425,35.1,2,lost,U,,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1681,meghalaya,2015,32,NONGSTOIN,FENELA LYNGDOH NONGLAIT,parties.IN.INDE,INDE,3131,13.04,3,forfeit,U,,Doctorate,Lawyer,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1681,meghalaya,2015,32,NONGSTOIN,MOSKLANDAR MARNGAR,parties.IN.UDP,UDP,1257,5.24,4,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1700,meghalaya,2015,59,CHOKPOT,Bluebell R. Sangma (W),parties.IN.INC,INC,8042,40.76,1,won,U,,Graduate,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1700,meghalaya,2015,59,CHOKPOT,Phillipoled. Marak,parties.IN.NPP,NPP,5492,27.83,2,lost,U,,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1700,meghalaya,2015,59,CHOKPOT,Kalpana D. Sangma (W),parties.IN.GNC,GNC,5009,25.39,3,lost,U,,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1700,meghalaya,2015,59,CHOKPOT,Thinkernin R. Marak,parties.IN.IND,IND,1189,6.03,4,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,

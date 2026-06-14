@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-himachal-pradesh-12,himachal-pradesh,2011,NALAGARH,68414,55999,81.85,L.S. Rana,parties.IN.INC,INC,28799,51.43,Gurnam Kaur,parties.IN.BJP,BJP,27200,1599,2.86,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-16,himachal-pradesh,2011,RAINKA (SC),52812,39157,74.14,Hirdaya Ram,parties.IN.BJP,BJP,20804,53.13,Vinay Kumar,parties.IN.INC,INC,17278,3526,9.01,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-himachal-pradesh-12,himachal-pradesh,2011,NALAGARH,68414,55999,81.85,L.S. Rana,parties.IN.INC,INC,28799,51.43,Gurnam Kaur,parties.IN.BJP,BJP,27200,1599,2.86,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-16,himachal-pradesh,2011,RAINKA (SC),52812,39157,74.14,Hirdaya Ram,parties.IN.BJP,BJP,20804,53.13,Vinay Kumar,parties.IN.INC,INC,17278,3526,9.01,src-1b7bc1c9d39a,minor,

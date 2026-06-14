@@ -1,61 +1,61 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-arunachal-pradesh-1381,arunachal-pradesh,2019,ANINI,4287,3744,87.33,MOPI MIHU,parties.IN.BJP,BJP,2416,64.53,SINGE MILLI,parties.IN.INC,INC,1282,1134,30.29,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1382,arunachal-pradesh,2019,BORDUMSA - DIYUN,18509,16228,87.68,SOMLUNG MOSSANG,parties.IN.IND,IND,6330,39.01,Jawra Maio,parties.IN.BJP,BJP,3951,2379,14.66,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1383,arunachal-pradesh,2019,BORDURIA BOGAPANI,8218,7526,91.58,Wanglin Lowangdong,parties.IN.INC,INC,2499,33.2,Jowang Hosai,parties.IN.BJP,BJP,2402,97,1.28,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1384,arunachal-pradesh,2019,CHANGLANG NORTH,9468,7925,83.7,TESAM PONGTE,parties.IN.BJP,BJP,5417,68.35,THINGHAAP TAIJU,parties.IN.INC,INC,2402,3015,38.04,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1385,arunachal-pradesh,2019,CHANGLANG SOUTH,5720,5172,90.42,PHOSUM KHIMHUN,parties.IN.BJP,BJP,2848,55.07,LATLANG TANGHA,parties.IN.INC,INC,2265,583,11.28,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1386,arunachal-pradesh,2019,CHOWKHAM,14084,10859,77.1,CHOWNA MEIN,parties.IN.BJP,BJP,8908,82.03,Khunang Kri,parties.IN.INC,INC,1617,7291,67.14,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1387,arunachal-pradesh,2019,DAMBUK,11913,10710,89.9,GUM TAYENG,parties.IN.BJP,BJP,5584,52.14,TONY PERTIN,parties.IN.NPEP,NPEP,4711,873,8.15,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1388,arunachal-pradesh,2019,HAYULIANG,12275,11129,90.66,DASANGLU PUL,parties.IN.BJP,BJP,6149,55.25,LUPALUM KRI,parties.IN.INC,INC,4817,1332,11.97,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1389,arunachal-pradesh,2019,KANUBARI,11155,10174,91.21,GABRIEL DENWANG WANGSU,parties.IN.BJP,BJP,6707,65.92,NOKCHAI BOHAM,parties.IN.INC,INC,2471,4236,41.63,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1390,arunachal-pradesh,2019,KHONSA EAST,9438,7466,79.11,Wanglam Sawin,parties.IN.BJP,BJP,5051,67.65,Danhang Phuksa,parties.IN.NPEP,NPEP,1670,3381,45.28,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1391,arunachal-pradesh,2019,KHONSA WEST,10186,9647,94.71,Smt. Chakat Aboh,parties.IN.IND,IND,5705,59.14,Shri Azet Homtok,parties.IN.IND,IND,3818,1887,19.56,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1392,arunachal-pradesh,2019,LEKANG,18522,15976,86.25,JUMMUM ETE DEORI,parties.IN.BJP,BJP,8980,56.21,TAKAM SANJOY,parties.IN.INC,INC,3487,5493,34.38,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1393,arunachal-pradesh,2019,LONGDING PUMAO,11683,10534,90.17,TANPHO WANGNAW,parties.IN.BJP,BJP,4463,42.37,THANGWANG WANGHAM,parties.IN.NPEP,NPEP,3768,695,6.6,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1394,arunachal-pradesh,2019,MARIYANG-GEKU,10727,10111,94.26,KANGGONG TAKU,parties.IN.JDU,JD(U),5366,53.07,ANONG PERME,parties.IN.BJP,BJP,4106,1260,12.46,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1395,arunachal-pradesh,2019,MEBO,10872,10223,94.03,LOMBO TAYENG,parties.IN.INC,INC,5238,51.24,Dr. DANGI PERME,parties.IN.BJP,BJP,4866,372,3.64,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1396,arunachal-pradesh,2019,MIAO,19974,15901,79.61,KAMLUNG MOSANG,parties.IN.BJP,BJP,9760,61.38,CHATU LONGRI,parties.IN.INC,INC,5904,3856,24.25,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1397,arunachal-pradesh,2019,NAMPONG,8966,7908,88.2,LAISAM SIMAI,parties.IN.BJP,BJP,3761,47.56,TAINAN JAMES JUGLI,parties.IN.NPEP,NPEP,2251,1510,19.1,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1398,arunachal-pradesh,2019,NAMSAI,22858,19189,83.95,CHAU ZINGNU NAMCHOOM,parties.IN.BJP,BJP,13392,69.79,SHRI MUALIN AGAN,parties.IN.NPEP,NPEP,2637,10755,56.05,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1399,arunachal-pradesh,2019,NAMSANG,9186,7102,77.31,Wangki Lowang,parties.IN.BJP,BJP,3202,45.09,Ngonglin Boi,parties.IN.JDU,JD(U),1520,1682,23.69,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1400,arunachal-pradesh,2019,NARI-KOYU,7536,6678,88.61,KENTO RINA,parties.IN.BJP,BJP,2489,37.27,TOJIR KADU,parties.IN.INC,INC,2273,216,3.23,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1401,arunachal-pradesh,2019,PANGIN,13045,11299,86.62,Ojing Tasing,parties.IN.BJP,BJP,7647,67.68,Tapang Taloh,parties.IN.INC,INC,3595,4052,35.86,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1402,arunachal-pradesh,2019,PASIGHAT EAST,20842,16894,81.06,KALING MOYONG,parties.IN.BJP,BJP,8851,52.39,BOSIRAM SIRAM,parties.IN.INC,INC,7609,1242,7.35,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1403,arunachal-pradesh,2019,PASIGHAT WEST,13322,12112,90.92,NINONG ERING,parties.IN.INC,INC,5210,43.02,Er. TATUNG JAMOH,parties.IN.BJP,BJP,4639,571,4.72,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1404,arunachal-pradesh,2019,PONGCHAU WAKKA,13504,12488,92.48,HONCHUN NGANDAM,parties.IN.BJP,BJP,6837,54.75,THANGKAI KHUSUMCHAI,parties.IN.INC,INC,3099,3738,29.93,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1405,arunachal-pradesh,2019,ROING,12238,9795,80.04,Mutchu Mithi,parties.IN.NPEP,NPEP,4950,50.54,LAETA UMBREY,parties.IN.BJP,BJP,4550,400,4.09,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1406,arunachal-pradesh,2019,TEZU,18886,16300,86.31,Karikho Kri,parties.IN.IND,IND,7538,46.25,Dr. Mohesh Chai,parties.IN.BJP,BJP,7383,155,0.96,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1407,arunachal-pradesh,2019,TUTING YINGKIONG,12265,10368,84.53,ALO LIBANG,parties.IN.BJP,BJP,5800,55.94,GEGONG APANG,parties.IN.JDS,JD(S),4191,1609,15.52,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1408,arunachal-pradesh,2019,ALONG EAST,13322,0,0,Kento Jini,parties.IN.BJP,BJP,0,,,,,,,,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1409,arunachal-pradesh,2019,ALONG WEST,13266,11654,87.85,TUMKE BAGRA,parties.IN.BJP,BJP,6000,51.48,TOPIN ETE,parties.IN.JDU,JD(U),5034,966,8.28,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1410,arunachal-pradesh,2019,BAMENG,11094,9774,88.1,GORUK PORDUNG,parties.IN.BJP,BJP,5043,51.6,KUMAR WAII,parties.IN.NPEP,NPEP,4650,393,4.02,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1411,arunachal-pradesh,2019,BASAR,17467,13350,76.43,Gokar Basar,parties.IN.NPEP,NPEP,6626,49.63,Gojen Gadi,parties.IN.BJP,BJP,6386,240,1.79,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1412,arunachal-pradesh,2019,BOMDILA,10062,8059,80.09,Shri Dongru Siongju,parties.IN.JDU,JD(U),2994,37.15,Shri Japu Deru,parties.IN.BJP,BJP,2761,233,2.89,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1413,arunachal-pradesh,2019,CHAYANG TAJO,11878,10361,87.23,HAYENG MANGFI,parties.IN.JDU,JD(U),5435,52.46,LACHING KACHA YANGFO,parties.IN.BJP,BJP,4801,634,6.12,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1414,arunachal-pradesh,2019,DAPORIJO,16507,12373,74.96,Taniya Soki,parties.IN.BJP,BJP,6019,48.65,Dikto Yekar,parties.IN.JDU,JD(U),5897,122,0.99,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1415,arunachal-pradesh,2019,DIRANG,14020,0,0,Shri Phurpa Tsering,parties.IN.BJP,BJP,0,,,,,,,,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1416,arunachal-pradesh,2019,DOIMUKH,21938,16191,73.8,TANA HALI TARA,parties.IN.BJP,BJP,8403,51.9,Nabam Vivek,parties.IN.NPEP,NPEP,6018,2385,14.73,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1417,arunachal-pradesh,2019,DUMPORIJO,11709,9840,84.04,Rode Bui,parties.IN.BJP,BJP,4635,47.1,PAKNGA BAGE,parties.IN.NPEP,NPEP,3657,978,9.94,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1418,arunachal-pradesh,2019,ITANAGAR,61252,27451,44.82,Techi Kaso,parties.IN.JDU,JD(U),12162,44.3,Kipa Babu,parties.IN.BJP,BJP,11860,302,1.1,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1419,arunachal-pradesh,2019,KALAKTANG,9637,8393,87.09,SHRI DORJEE WANGDI KHARMA,parties.IN.JDU,JD(U),5026,59.88,SHRI TENZING NORBU THONGDOK,parties.IN.BJP,BJP,3254,1772,21.11,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1420,arunachal-pradesh,2019,KOLORIANG,12690,11078,87.3,Lokam Tassar,parties.IN.BJP,BJP,5748,51.89,Pani Taram,parties.IN.NPEP,NPEP,5292,456,4.12,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1421,arunachal-pradesh,2019,LIKABALI,11314,9690,85.65,KARDO NYIGYOR,parties.IN.PPA,PPA,3714,38.33,TAPAK LENDO,parties.IN.BJP,BJP,3536,178,1.84,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1422,arunachal-pradesh,2019,LIROMOBA,12355,10759,87.08,NYAMAR KARBAK,parties.IN.BJP,BJP,5616,52.2,JARPUM GAMLIN,parties.IN.NPEP,NPEP,4870,746,6.94,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1423,arunachal-pradesh,2019,LUMLA,8918,7991,89.61,JAMBEY TASHI,parties.IN.BJP,BJP,4567,57.15,JAMPA THIRNLY KUNKHAP,parties.IN.NPEP,NPEP,3279,1288,16.12,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1424,arunachal-pradesh,2019,MECHUKA,9501,8489,89.35,PASANG DORJEE SONA,parties.IN.BJP,BJP,4261,50.19,TORI RAGYOR,parties.IN.NPEP,NPEP,4193,68,0.8,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1425,arunachal-pradesh,2019,MUKTO,7342,6084,82.87,Pema Khandu,parties.IN.BJP,BJP,4304,70.74,Thupten Kunphen,parties.IN.INC,INC,1685,2619,43.04,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1426,arunachal-pradesh,2019,NACHO,10970,9466,86.29,Nakap Nalo,parties.IN.BJP,BJP,5053,53.38,Tanga Byaling,parties.IN.INC,INC,4355,698,7.37,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1427,arunachal-pradesh,2019,NYAPIN,12825,10892,84.93,Bamang Felix,parties.IN.BJP,BJP,5517,50.65,Tai Nikio,parties.IN.INC,INC,5363,154,1.41,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1428,arunachal-pradesh,2019,PAKKE KESSANG,7936,6880,86.69,BIYURAM WAHGE,parties.IN.BJP,BJP,4506,65.49,ATUM WELLY,parties.IN.INC,INC,2284,2222,32.29,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1429,arunachal-pradesh,2019,PALIN,14670,12736,86.82,BALO RAJA,parties.IN.BJP,BJP,5727,44.97,TAKAM PARIO,parties.IN.INC,INC,4997,730,5.73,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1430,arunachal-pradesh,2019,RAGA,15441,13012,84.27,Tarin Dakpe,parties.IN.NPEP,NPEP,3385,26.01,Nido Pavitra,parties.IN.PPA,PPA,3219,166,1.27,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1431,arunachal-pradesh,2019,RUMGONG,11286,10141,89.85,Talem Taboh,parties.IN.JDU,JD(U),4949,48.8,Tamiyo Taga,parties.IN.BJP,BJP,4864,85,0.84,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1432,arunachal-pradesh,2019,SAGALEE,12750,10892,85.43,NABAM TUKI,parties.IN.INC,INC,4886,44.86,Tarh Hari,parties.IN.NPEP,NPEP,3565,1321,12.13,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1433,arunachal-pradesh,2019,SEPPA EAST,10328,8397,81.3,TAPUK TAKU,parties.IN.NPEP,NPEP,4184,49.83,EALING TALLANG,parties.IN.BJP,BJP,4155,29,0.35,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1434,arunachal-pradesh,2019,SEPPA WEST,7291,6669,91.47,MAMA NATUNG,parties.IN.BJP,BJP,4059,60.86,TANI LOFFA,parties.IN.JDU,JD(U),2505,1554,23.3,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1435,arunachal-pradesh,2019,TALI,13123,10964,83.55,JIKKE TAKO,parties.IN.JDU,JD(U),5518,50.33,THAJI GICHAK KIOGI,parties.IN.BJP,BJP,5413,105,0.96,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1436,arunachal-pradesh,2019,TALIHA,10377,8983,86.57,Nyato Rigia,parties.IN.BJP,BJP,5024,55.93,Rudham Sindhu,parties.IN.NPEP,NPEP,3821,1203,13.39,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1437,arunachal-pradesh,2019,TAWANG,9970,7623,76.46,TSERING TASHI,parties.IN.BJP,BJP,5547,72.77,THUPTEN TEMPA,parties.IN.INC,INC,1955,3592,47.12,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1438,arunachal-pradesh,2019,THRIZINO-BURAGAON,13166,10533,80,KUMSI SIDISOW,parties.IN.BJP,BJP,8772,83.28,KALO DUSUSOW,parties.IN.INC,INC,1637,7135,67.74,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1439,arunachal-pradesh,2019,YACHULI,15976,0,0,TABA TEDIR,parties.IN.BJP,BJP,0,,,,,,,,src-1b7bc1c9d39a
-IN-AC-2008-arunachal-pradesh-1440,arunachal-pradesh,2019,ZIRO HAPOLI,23349,18199,77.94,TAGE TAKI,parties.IN.BJP,BJP,9853,54.14,NANI RIBIA,parties.IN.INC,INC,8079,1774,9.75,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-2008-arunachal-pradesh-1381,arunachal-pradesh,2019,ANINI,4287,3744,87.33,MOPI MIHU,parties.IN.BJP,BJP,2416,64.53,SINGE MILLI,parties.IN.INC,INC,1282,1134,30.29,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1382,arunachal-pradesh,2019,BORDUMSA - DIYUN,18509,16228,87.68,SOMLUNG MOSSANG,parties.IN.IND,IND,6330,39.01,Jawra Maio,parties.IN.BJP,BJP,3951,2379,14.66,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1383,arunachal-pradesh,2019,BORDURIA BOGAPANI,8218,7526,91.58,Wanglin Lowangdong,parties.IN.INC,INC,2499,33.2,Jowang Hosai,parties.IN.BJP,BJP,2402,97,1.28,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1384,arunachal-pradesh,2019,CHANGLANG NORTH,9468,7925,83.7,TESAM PONGTE,parties.IN.BJP,BJP,5417,68.35,THINGHAAP TAIJU,parties.IN.INC,INC,2402,3015,38.04,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1385,arunachal-pradesh,2019,CHANGLANG SOUTH,5720,5172,90.42,PHOSUM KHIMHUN,parties.IN.BJP,BJP,2848,55.07,LATLANG TANGHA,parties.IN.INC,INC,2265,583,11.28,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1386,arunachal-pradesh,2019,CHOWKHAM,14084,10859,77.1,CHOWNA MEIN,parties.IN.BJP,BJP,8908,82.03,Khunang Kri,parties.IN.INC,INC,1617,7291,67.14,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1387,arunachal-pradesh,2019,DAMBUK,11913,10710,89.9,GUM TAYENG,parties.IN.BJP,BJP,5584,52.14,TONY PERTIN,parties.IN.NPEP,NPEP,4711,873,8.15,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1388,arunachal-pradesh,2019,HAYULIANG,12275,11129,90.66,DASANGLU PUL,parties.IN.BJP,BJP,6149,55.25,LUPALUM KRI,parties.IN.INC,INC,4817,1332,11.97,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1389,arunachal-pradesh,2019,KANUBARI,11155,10174,91.21,GABRIEL DENWANG WANGSU,parties.IN.BJP,BJP,6707,65.92,NOKCHAI BOHAM,parties.IN.INC,INC,2471,4236,41.63,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1390,arunachal-pradesh,2019,KHONSA EAST,9438,7466,79.11,Wanglam Sawin,parties.IN.BJP,BJP,5051,67.65,Danhang Phuksa,parties.IN.NPEP,NPEP,1670,3381,45.28,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1391,arunachal-pradesh,2019,KHONSA WEST,10186,9647,94.71,Smt. Chakat Aboh,parties.IN.IND,IND,5705,59.14,Shri Azet Homtok,parties.IN.IND,IND,3818,1887,19.56,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1392,arunachal-pradesh,2019,LEKANG,18522,15976,86.25,JUMMUM ETE DEORI,parties.IN.BJP,BJP,8980,56.21,TAKAM SANJOY,parties.IN.INC,INC,3487,5493,34.38,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1393,arunachal-pradesh,2019,LONGDING PUMAO,11683,10534,90.17,TANPHO WANGNAW,parties.IN.BJP,BJP,4463,42.37,THANGWANG WANGHAM,parties.IN.NPEP,NPEP,3768,695,6.6,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1394,arunachal-pradesh,2019,MARIYANG-GEKU,10727,10111,94.26,KANGGONG TAKU,parties.IN.JDU,JD(U),5366,53.07,ANONG PERME,parties.IN.BJP,BJP,4106,1260,12.46,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1395,arunachal-pradesh,2019,MEBO,10872,10223,94.03,LOMBO TAYENG,parties.IN.INC,INC,5238,51.24,Dr. DANGI PERME,parties.IN.BJP,BJP,4866,372,3.64,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1396,arunachal-pradesh,2019,MIAO,19974,15901,79.61,KAMLUNG MOSANG,parties.IN.BJP,BJP,9760,61.38,CHATU LONGRI,parties.IN.INC,INC,5904,3856,24.25,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1397,arunachal-pradesh,2019,NAMPONG,8966,7908,88.2,LAISAM SIMAI,parties.IN.BJP,BJP,3761,47.56,TAINAN JAMES JUGLI,parties.IN.NPEP,NPEP,2251,1510,19.1,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1398,arunachal-pradesh,2019,NAMSAI,22858,19189,83.95,CHAU ZINGNU NAMCHOOM,parties.IN.BJP,BJP,13392,69.79,SHRI MUALIN AGAN,parties.IN.NPEP,NPEP,2637,10755,56.05,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1399,arunachal-pradesh,2019,NAMSANG,9186,7102,77.31,Wangki Lowang,parties.IN.BJP,BJP,3202,45.09,Ngonglin Boi,parties.IN.JDU,JD(U),1520,1682,23.69,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1400,arunachal-pradesh,2019,NARI-KOYU,7536,6678,88.61,KENTO RINA,parties.IN.BJP,BJP,2489,37.27,TOJIR KADU,parties.IN.INC,INC,2273,216,3.23,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1401,arunachal-pradesh,2019,PANGIN,13045,11299,86.62,Ojing Tasing,parties.IN.BJP,BJP,7647,67.68,Tapang Taloh,parties.IN.INC,INC,3595,4052,35.86,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1402,arunachal-pradesh,2019,PASIGHAT EAST,20842,16894,81.06,KALING MOYONG,parties.IN.BJP,BJP,8851,52.39,BOSIRAM SIRAM,parties.IN.INC,INC,7609,1242,7.35,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1403,arunachal-pradesh,2019,PASIGHAT WEST,13322,12112,90.92,NINONG ERING,parties.IN.INC,INC,5210,43.02,Er. TATUNG JAMOH,parties.IN.BJP,BJP,4639,571,4.72,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1404,arunachal-pradesh,2019,PONGCHAU WAKKA,13504,12488,92.48,HONCHUN NGANDAM,parties.IN.BJP,BJP,6837,54.75,THANGKAI KHUSUMCHAI,parties.IN.INC,INC,3099,3738,29.93,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1405,arunachal-pradesh,2019,ROING,12238,9795,80.04,Mutchu Mithi,parties.IN.NPEP,NPEP,4950,50.54,LAETA UMBREY,parties.IN.BJP,BJP,4550,400,4.09,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1406,arunachal-pradesh,2019,TEZU,18886,16300,86.31,Karikho Kri,parties.IN.IND,IND,7538,46.25,Dr. Mohesh Chai,parties.IN.BJP,BJP,7383,155,0.96,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1407,arunachal-pradesh,2019,TUTING YINGKIONG,12265,10368,84.53,ALO LIBANG,parties.IN.BJP,BJP,5800,55.94,GEGONG APANG,parties.IN.JDS,JD(S),4191,1609,15.52,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1408,arunachal-pradesh,2019,ALONG EAST,13322,0,0,Kento Jini,parties.IN.BJP,BJP,0,,,,,,,,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1409,arunachal-pradesh,2019,ALONG WEST,13266,11654,87.85,TUMKE BAGRA,parties.IN.BJP,BJP,6000,51.48,TOPIN ETE,parties.IN.JDU,JD(U),5034,966,8.28,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1410,arunachal-pradesh,2019,BAMENG,11094,9774,88.1,GORUK PORDUNG,parties.IN.BJP,BJP,5043,51.6,KUMAR WAII,parties.IN.NPEP,NPEP,4650,393,4.02,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1411,arunachal-pradesh,2019,BASAR,17467,13350,76.43,Gokar Basar,parties.IN.NPEP,NPEP,6626,49.63,Gojen Gadi,parties.IN.BJP,BJP,6386,240,1.79,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1412,arunachal-pradesh,2019,BOMDILA,10062,8059,80.09,Shri Dongru Siongju,parties.IN.JDU,JD(U),2994,37.15,Shri Japu Deru,parties.IN.BJP,BJP,2761,233,2.89,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1413,arunachal-pradesh,2019,CHAYANG TAJO,11878,10361,87.23,HAYENG MANGFI,parties.IN.JDU,JD(U),5435,52.46,LACHING KACHA YANGFO,parties.IN.BJP,BJP,4801,634,6.12,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1414,arunachal-pradesh,2019,DAPORIJO,16507,12373,74.96,Taniya Soki,parties.IN.BJP,BJP,6019,48.65,Dikto Yekar,parties.IN.JDU,JD(U),5897,122,0.99,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1415,arunachal-pradesh,2019,DIRANG,14020,0,0,Shri Phurpa Tsering,parties.IN.BJP,BJP,0,,,,,,,,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1416,arunachal-pradesh,2019,DOIMUKH,21938,16191,73.8,TANA HALI TARA,parties.IN.BJP,BJP,8403,51.9,Nabam Vivek,parties.IN.NPEP,NPEP,6018,2385,14.73,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1417,arunachal-pradesh,2019,DUMPORIJO,11709,9840,84.04,Rode Bui,parties.IN.BJP,BJP,4635,47.1,PAKNGA BAGE,parties.IN.NPEP,NPEP,3657,978,9.94,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1418,arunachal-pradesh,2019,ITANAGAR,61252,27451,44.82,Techi Kaso,parties.IN.JDU,JD(U),12162,44.3,Kipa Babu,parties.IN.BJP,BJP,11860,302,1.1,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1419,arunachal-pradesh,2019,KALAKTANG,9637,8393,87.09,SHRI DORJEE WANGDI KHARMA,parties.IN.JDU,JD(U),5026,59.88,SHRI TENZING NORBU THONGDOK,parties.IN.BJP,BJP,3254,1772,21.11,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1420,arunachal-pradesh,2019,KOLORIANG,12690,11078,87.3,Lokam Tassar,parties.IN.BJP,BJP,5748,51.89,Pani Taram,parties.IN.NPEP,NPEP,5292,456,4.12,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1421,arunachal-pradesh,2019,LIKABALI,11314,9690,85.65,KARDO NYIGYOR,parties.IN.PPA,PPA,3714,38.33,TAPAK LENDO,parties.IN.BJP,BJP,3536,178,1.84,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1422,arunachal-pradesh,2019,LIROMOBA,12355,10759,87.08,NYAMAR KARBAK,parties.IN.BJP,BJP,5616,52.2,JARPUM GAMLIN,parties.IN.NPEP,NPEP,4870,746,6.94,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1423,arunachal-pradesh,2019,LUMLA,8918,7991,89.61,JAMBEY TASHI,parties.IN.BJP,BJP,4567,57.15,JAMPA THIRNLY KUNKHAP,parties.IN.NPEP,NPEP,3279,1288,16.12,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1424,arunachal-pradesh,2019,MECHUKA,9501,8489,89.35,PASANG DORJEE SONA,parties.IN.BJP,BJP,4261,50.19,TORI RAGYOR,parties.IN.NPEP,NPEP,4193,68,0.8,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1425,arunachal-pradesh,2019,MUKTO,7342,6084,82.87,Pema Khandu,parties.IN.BJP,BJP,4304,70.74,Thupten Kunphen,parties.IN.INC,INC,1685,2619,43.04,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1426,arunachal-pradesh,2019,NACHO,10970,9466,86.29,Nakap Nalo,parties.IN.BJP,BJP,5053,53.38,Tanga Byaling,parties.IN.INC,INC,4355,698,7.37,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1427,arunachal-pradesh,2019,NYAPIN,12825,10892,84.93,Bamang Felix,parties.IN.BJP,BJP,5517,50.65,Tai Nikio,parties.IN.INC,INC,5363,154,1.41,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1428,arunachal-pradesh,2019,PAKKE KESSANG,7936,6880,86.69,BIYURAM WAHGE,parties.IN.BJP,BJP,4506,65.49,ATUM WELLY,parties.IN.INC,INC,2284,2222,32.29,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1429,arunachal-pradesh,2019,PALIN,14670,12736,86.82,BALO RAJA,parties.IN.BJP,BJP,5727,44.97,TAKAM PARIO,parties.IN.INC,INC,4997,730,5.73,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1430,arunachal-pradesh,2019,RAGA,15441,13012,84.27,Tarin Dakpe,parties.IN.NPEP,NPEP,3385,26.01,Nido Pavitra,parties.IN.PPA,PPA,3219,166,1.27,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1431,arunachal-pradesh,2019,RUMGONG,11286,10141,89.85,Talem Taboh,parties.IN.JDU,JD(U),4949,48.8,Tamiyo Taga,parties.IN.BJP,BJP,4864,85,0.84,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1432,arunachal-pradesh,2019,SAGALEE,12750,10892,85.43,NABAM TUKI,parties.IN.INC,INC,4886,44.86,Tarh Hari,parties.IN.NPEP,NPEP,3565,1321,12.13,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1433,arunachal-pradesh,2019,SEPPA EAST,10328,8397,81.3,TAPUK TAKU,parties.IN.NPEP,NPEP,4184,49.83,EALING TALLANG,parties.IN.BJP,BJP,4155,29,0.35,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1434,arunachal-pradesh,2019,SEPPA WEST,7291,6669,91.47,MAMA NATUNG,parties.IN.BJP,BJP,4059,60.86,TANI LOFFA,parties.IN.JDU,JD(U),2505,1554,23.3,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1435,arunachal-pradesh,2019,TALI,13123,10964,83.55,JIKKE TAKO,parties.IN.JDU,JD(U),5518,50.33,THAJI GICHAK KIOGI,parties.IN.BJP,BJP,5413,105,0.96,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1436,arunachal-pradesh,2019,TALIHA,10377,8983,86.57,Nyato Rigia,parties.IN.BJP,BJP,5024,55.93,Rudham Sindhu,parties.IN.NPEP,NPEP,3821,1203,13.39,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1437,arunachal-pradesh,2019,TAWANG,9970,7623,76.46,TSERING TASHI,parties.IN.BJP,BJP,5547,72.77,THUPTEN TEMPA,parties.IN.INC,INC,1955,3592,47.12,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1438,arunachal-pradesh,2019,THRIZINO-BURAGAON,13166,10533,80,KUMSI SIDISOW,parties.IN.BJP,BJP,8772,83.28,KALO DUSUSOW,parties.IN.INC,INC,1637,7135,67.74,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1439,arunachal-pradesh,2019,YACHULI,15976,0,0,TABA TEDIR,parties.IN.BJP,BJP,0,,,,,,,,src-1b7bc1c9d39a,minor,
+IN-AC-2008-arunachal-pradesh-1440,arunachal-pradesh,2019,ZIRO HAPOLI,23349,18199,77.94,TAGE TAKI,parties.IN.BJP,BJP,9853,54.14,NANI RIBIA,parties.IN.INC,INC,8079,1774,9.75,src-1b7bc1c9d39a,minor,

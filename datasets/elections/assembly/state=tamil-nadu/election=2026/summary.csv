@@ -1,235 +1,235 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-tamil-nadu-3857,tamil-nadu,2026,ARAKKONAM (SC),200986,182340,90.72,V. Gandhiraj,parties.IN.TVK,TVK,73776,40.46,Ezhil Caroline,parties.IN.VCK,VCK,50655,23121,12.68,src-3da941c21223
-IN-AC-2008-tamil-nadu-3858,tamil-nadu,2026,ARCOT,246786,225786,91.49,S.m.sukumar,parties.IN.AIADMK,ADMK,105608,46.77,G.vijay Mohan,parties.IN.TVK,TVK,62888,42720,18.92,src-3da941c21223
-IN-AC-2008-tamil-nadu-3859,tamil-nadu,2026,KATPADI,230148,203497,88.42,Dr M Sudhakar,parties.IN.TVK,TVK,69868,34.33,V. Ramu,parties.IN.AIADMK,ADMK,63998,5870,2.88,src-3da941c21223
-IN-AC-2008-tamil-nadu-3860,tamil-nadu,2026,RANIPET,248962,221038,88.78,Thahira,parties.IN.TVK,TVK,91149,41.24,R. Gandhi,parties.IN.DMK,DMK,85362,5787,2.62,src-3da941c21223
-IN-AC-2008-tamil-nadu-3861,tamil-nadu,2026,SHOLINGUR,258076,233684,90.55,G.kapil,parties.IN.TVK,TVK,84506,36.16,K.saravanan,parties.IN.PMK,PMK,78820,5686,2.43,src-3da941c21223
-IN-AC-2008-tamil-nadu-3862,tamil-nadu,2026,TIRUTTANI,262500,238798,90.97,G.hari,parties.IN.AIADMK,ADMK,89169,37.34,M.sathya Kumar,parties.IN.TVK,TVK,83376,5793,2.43,src-3da941c21223
-IN-AC-2008-tamil-nadu-3863,tamil-nadu,2026,ARANI,256474,230162,89.74,Jayasudha. L,parties.IN.AIADMK,ADMK,76735,33.34,Mahalakshmi Govarthanan,parties.IN.DMK,DMK,71104,5631,2.45,src-3da941c21223
-IN-AC-2008-tamil-nadu-3864,tamil-nadu,2026,CHEYYAR,240008,222570,92.73,Mukkur N. Subramanian,parties.IN.AIADMK,ADMK,86680,38.95,Dusi K Mohan,parties.IN.TVK,TVK,65599,21081,9.48,src-3da941c21223
-IN-AC-2008-tamil-nadu-3865,tamil-nadu,2026,GINGEE,242992,216652,89.16,Ganeshkumar A,parties.IN.PMK,PMK,78201,36.1,Gingee Masthan K S,parties.IN.DMK,DMK,65556,12645,5.84,src-3da941c21223
-IN-AC-2008-tamil-nadu-3866,tamil-nadu,2026,MAILAM,209098,189221,90.49,Shanmugam C Ve,parties.IN.AIADMK,ADMK,82353,43.52,Vijay Niranjan A,parties.IN.TVK,TVK,52312,30041,15.87,src-3da941c21223
-IN-AC-2008-tamil-nadu-3867,tamil-nadu,2026,POLUR,235091,211743,90.07,Abishek. R,parties.IN.TVK,TVK,67961,32.1,Saravanan. P,parties.IN.DMDK,DMDK,67734,227,0.11,src-3da941c21223
-IN-AC-2008-tamil-nadu-3868,tamil-nadu,2026,VANDAVASI (SC),213574,191204,89.53,Ambethkumar. S,parties.IN.DMK,DMK,63805,33.37,Rani. P,parties.IN.AIADMK,ADMK,60472,3333,1.74,src-3da941c21223
-IN-AC-2008-tamil-nadu-3869,tamil-nadu,2026,ANNA NAGAR,188908,163339,86.46,V.k.ramkumar,parties.IN.TVK,TVK,71375,43.7,N.chitrarasu,parties.IN.DMK,DMK,50012,21363,13.08,src-3da941c21223
-IN-AC-2008-tamil-nadu-3870,tamil-nadu,2026,CHEPAUK-THIRUVALLIKENI,166050,140741,84.76,Udhayanidhi Stalin,parties.IN.DMK,DMK,62992,44.76,Selvam. D,parties.IN.TVK,TVK,55852,7140,5.08,src-3da941c21223
-IN-AC-2008-tamil-nadu-3871,tamil-nadu,2026,EGMORE (SC),138796,119738,86.27,Rajmohan,parties.IN.TVK,TVK,53901,45.02,Tamilan Prasanna,parties.IN.DMK,DMK,43097,10804,9.03,src-3da941c21223
-IN-AC-2008-tamil-nadu-3872,tamil-nadu,2026,HARBOUR,120142,99622,82.92,P K Sekarbabu,parties.IN.DMK,DMK,45254,45.43,Sinora P S Ashok,parties.IN.TVK,TVK,33504,11750,11.8,src-3da941c21223
-IN-AC-2008-tamil-nadu-3873,tamil-nadu,2026,THOUSAND LIGHTS,157551,131824,83.67,Prabhakar.j.c.d,parties.IN.TVK,TVK,58965,44.73,Ezhilan Naganathan,parties.IN.DMK,DMK,43824,15141,11.49,src-3da941c21223
-IN-AC-2008-tamil-nadu-3874,tamil-nadu,2026,VILLIVAKKAM,163416,141452,86.56,Aadhav Arjuna,parties.IN.TVK,TVK,66445,46.97,Karthik Mohan,parties.IN.DMK,DMK,49143,17302,12.23,src-3da941c21223
-IN-AC-2008-tamil-nadu-3875,tamil-nadu,2026,DR.RADHAKRISHNAN NAGAR,199394,181210,90.88,N. Marie Wilson,parties.IN.TVK,TVK,97800,53.97,J. John Ebenezer,parties.IN.DMK,DMK,48132,49668,27.41,src-3da941c21223
-IN-AC-2008-tamil-nadu-3876,tamil-nadu,2026,KOLATHUR,211833,184051,86.88,V. S. Babu,parties.IN.TVK,TVK,82997,45.09,M. K. Stalin,parties.IN.DMK,DMK,74202,8795,4.77,src-3da941c21223
-IN-AC-2008-tamil-nadu-3877,tamil-nadu,2026,PERAMBUR,226345,204384,90.3,C. Joseph Vijay,parties.IN.TVK,TVK,120365,58.89,R.d. Shekar,parties.IN.DMK,DMK,66650,53715,26.28,src-3da941c21223
-IN-AC-2008-tamil-nadu-3879,tamil-nadu,2026,THIRU-VI-KA-NAGAR (SC),181658,143903,79.22,M. R. Pallavi,parties.IN.TVK,TVK,69125,48.04,K. S. Ravichandran,parties.IN.DMK,DMK,46792,22333,15.52,src-3da941c21223
-IN-AC-2008-tamil-nadu-3880,tamil-nadu,2026,THIRUVOTTIYUR,244931,207088,84.55,Senthil Kumar. N,parties.IN.TVK,TVK,110067,53.15,Sundararaj. L,parties.IN.CPIM,CPI(M),56503,53564,25.87,src-3da941c21223
-IN-AC-2008-tamil-nadu-3881,tamil-nadu,2026,MYLAPORE,199496,150594,75.49,Venkataramanan. P,parties.IN.TVK,TVK,70070,46.53,Velu. Dha,parties.IN.DMK,DMK,41098,28972,19.24,src-3da941c21223
-IN-AC-2008-tamil-nadu-3882,tamil-nadu,2026,SAIDAPET,204177,160401,78.56,Arul Prakasam. M,parties.IN.TVK,TVK,81205,50.63,Subramanian. Ma,parties.IN.DMK,DMK,52691,28514,17.78,src-3da941c21223
-IN-AC-2008-tamil-nadu-3883,tamil-nadu,2026,SHOZHINGANALLUR,553978,447295,80.74,Ecr P Saravanan,parties.IN.TVK,TVK,220382,49.27,S. Aravind Ramesh,parties.IN.DMK,DMK,123602,96780,21.64,src-3da941c21223
-IN-AC-2008-tamil-nadu-3884,tamil-nadu,2026,THIYAGARAYANAGAR,158791,133928,84.34,Anand N,parties.IN.TVK,TVK,51632,38.55,Sathiyanarayanan B,parties.IN.AIADMK,ADMK,38605,13027,9.72,src-3da941c21223
-IN-AC-2008-tamil-nadu-3885,tamil-nadu,2026,VELACHERY,217208,184815,85.09,Kumar. R,parties.IN.TVK,TVK,80430,43.52,Ashok. M.k,parties.IN.AIADMK,ADMK,47125,33305,18.02,src-3da941c21223
-IN-AC-2008-tamil-nadu-3886,tamil-nadu,2026,VIRUGAMPAKKAM,200627,172831,86.15,Sabarinathan.r,parties.IN.TVK,TVK,76092,44.03,Prabhakara Raja.a.m.v,parties.IN.DMK,DMK,49006,27086,15.68,src-3da941c21223
-IN-AC-2008-tamil-nadu-3887,tamil-nadu,2026,ARIYALUR,263156,235858,89.63,Rajendran S,parties.IN.AIADMK,ADMK,95219,40.37,Latha Balu,parties.IN.DMK,DMK,70721,24498,10.39,src-3da941c21223
-IN-AC-2008-tamil-nadu-3888,tamil-nadu,2026,BHUVANAGIRI,233353,207310,88.84,Arunmozhithevan . A,parties.IN.AIADMK,ADMK,75707,36.52,Saravanan. Durai . K,parties.IN.DMK,DMK,73220,2487,1.2,src-3da941c21223
-IN-AC-2008-tamil-nadu-3889,tamil-nadu,2026,CHIDAMBARAM,231325,196586,84.98,Thamimun Ansari. M,parties.IN.DMK,DMK,69739,35.48,Pandian. K.a,parties.IN.AIADMK,ADMK,63992,5747,2.93,src-3da941c21223
-IN-AC-2008-tamil-nadu-3890,tamil-nadu,2026,JAYANKONDAM,263862,228548,86.62,Vaithilingam G.,parties.IN.PMK,PMK,88992,38.94,Kannan Ka.so.ka.,parties.IN.DMK,DMK,70502,18490,8.09,src-3da941c21223
-IN-AC-2008-tamil-nadu-3891,tamil-nadu,2026,KATTUMANNARKOIL (SC),226509,187905,82.96,L.e. Jothimani,parties.IN.VCK,VCK,85179,45.33,A. Sozhan,parties.IN.PMK,PMK,52116,33063,17.59,src-3da941c21223
-IN-AC-2008-tamil-nadu-3892,tamil-nadu,2026,KUNNAM,268155,230570,85.98,Sivasankar. S.s,parties.IN.DMK,DMK,87237,37.84,Saranya. A,parties.IN.AIADMK,ADMK,71680,15557,6.75,src-3da941c21223
-IN-AC-2008-tamil-nadu-3893,tamil-nadu,2026,COIMBATORE (NORTH),296994,226109,76.13,V. Sampathkumar,parties.IN.TVK,TVK,92500,40.91,Durai. Senthamil Selvan B.e,parties.IN.DMK,DMK,70508,21992,9.73,src-3da941c21223
-IN-AC-2008-tamil-nadu-3894,tamil-nadu,2026,COIMBATORE (SOUTH),188912,156499,82.84,V Senthilbalaji,parties.IN.DMK,DMK,59724,38.16,V. Senthilkumar,parties.IN.TVK,TVK,57453,2271,1.45,src-3da941c21223
-IN-AC-2008-tamil-nadu-3895,tamil-nadu,2026,KAVUNDAMPALAYAM,422240,363991,86.2,Kanimozhi Santhosh,parties.IN.TVK,TVK,146466,40.24,Arunkumar Prg,parties.IN.AIADMK,ADMK,104326,42140,11.58,src-3da941c21223
-IN-AC-2008-tamil-nadu-3896,tamil-nadu,2026,PALLADAM,329875,301014,91.25,K.ramkumar,parties.IN.TVK,TVK,121297,40.3,K.p.paramasivam,parties.IN.AIADMK,ADMK,83400,37897,12.59,src-3da941c21223
-IN-AC-2008-tamil-nadu-3897,tamil-nadu,2026,SINGANALLUR,269997,221033,81.86,K.s.sri Giri Prasath,parties.IN.TVK,TVK,84163,38.08,V.srinidhi,parties.IN.INC,INC,65024,19139,8.66,src-3da941c21223
-IN-AC-2008-tamil-nadu-3898,tamil-nadu,2026,SULUR,307699,273544,88.9,Nm.sukumar,parties.IN.TVK,TVK,90531,33.1,V.p.kandasamy,parties.IN.AIADMK,ADMK,85741,4790,1.76,src-3da941c21223
-IN-AC-2008-tamil-nadu-3899,tamil-nadu,2026,CUDDALORE,223243,190378,85.28,B.rajkumar,parties.IN.TVK,TVK,70856,37.22,A.s.chandarasekaran,parties.IN.INC,INC,55337,15519,8.15,src-3da941c21223
-IN-AC-2008-tamil-nadu-3900,tamil-nadu,2026,KURINJIPADI,238287,213965,89.79,M.r.k.panneerselvam,parties.IN.DMK,DMK,76695,35.84,A Bhuvanenthiran,parties.IN.AIADMK,ADMK,69106,7589,3.54,src-3da941c21223
-IN-AC-2008-tamil-nadu-3901,tamil-nadu,2026,NEYVELI,191337,168780,88.21,Rajendran.r,parties.IN.AIADMK,ADMK,63731,37.76,Saba.rajendran,parties.IN.DMK,DMK,52769,10962,6.5,src-3da941c21223
-IN-AC-2008-tamil-nadu-3902,tamil-nadu,2026,PANRUTI,241839,210767,87.15,Mohan. K,parties.IN.AIADMK,ADMK,78398,37.2,Abdur Rahman. A.r,parties.IN.VCK,VCK,67735,10663,5.06,src-3da941c21223
-IN-AC-2008-tamil-nadu-3903,tamil-nadu,2026,TITTAKUDI (SC),209006,175754,84.09,Ganesan C.v,parties.IN.DMK,DMK,63106,35.91,Rajasekar A,parties.IN.TVK,TVK,60477,2629,1.5,src-3da941c21223
-IN-AC-2008-tamil-nadu-3904,tamil-nadu,2026,VRIDDHACHALAM,240844,209186,86.86,Premallatha Vijayakant,parties.IN.DMDK,DMDK,69351,33.15,Vijay.s,parties.IN.TVK,TVK,66964,2387,1.14,src-3da941c21223
-IN-AC-2008-tamil-nadu-3905,tamil-nadu,2026,DHARMAPURI,260979,238579,91.42,Sowmiya Anbumani,parties.IN.PMK,PMK,93713,39.28,Sivan. M.,parties.IN.TVK,TVK,72817,20896,8.76,src-3da941c21223
-IN-AC-2008-tamil-nadu-3906,tamil-nadu,2026,HARUR (SC),245971,220042,89.46,Sampathkumar. V,parties.IN.AIADMK,ADMK,75523,34.32,Shanmugam. A,parties.IN.DMK,DMK,72194,3329,1.51,src-3da941c21223
-IN-AC-2008-tamil-nadu-3907,tamil-nadu,2026,METTUR,255869,231105,90.32,Venkatachalam. G,parties.IN.AIADMK,ADMK,86498,37.43,Midhun Chakravarthy. M,parties.IN.DMK,DMK,67393,19105,8.27,src-3da941c21223
-IN-AC-2008-tamil-nadu-3908,tamil-nadu,2026,PALACODU,240861,225257,93.52,Anbalagan. K.p.,parties.IN.AIADMK,ADMK,102807,45.64,Gopi. R.,parties.IN.TVK,TVK,63765,39042,17.33,src-3da941c21223
-IN-AC-2008-tamil-nadu-3909,tamil-nadu,2026,PAPPIREDDIPATTI,257016,236621,92.06,Maragatham Vetrivel,parties.IN.AIADMK,ADMK,101829,43.03,Palaniappan. P,parties.IN.DMK,DMK,68715,33114,13.99,src-3da941c21223
-IN-AC-2008-tamil-nadu-3910,tamil-nadu,2026,PENNAGARAM,248832,228666,91.9,Gajendran. S.,parties.IN.TVK,TVK,81240,35.53,Selvam. V.,parties.IN.PMK,PMK,78075,3165,1.39,src-3da941c21223
-IN-AC-2008-tamil-nadu-3911,tamil-nadu,2026,ATHOOR,262329,237183,90.41,I. Periasamy,parties.IN.DMK,DMK,106240,44.79,N. Kalaiselvi,parties.IN.TVK,TVK,83872,22368,9.43,src-3da941c21223
-IN-AC-2008-tamil-nadu-3912,tamil-nadu,2026,DINDIGUL,242126,212024,87.57,Senthilkumar. I.p,parties.IN.DMK,DMK,74489,35.13,Nazeer Raja. G,parties.IN.TVK,TVK,73358,1131,0.53,src-3da941c21223
-IN-AC-2008-tamil-nadu-3913,tamil-nadu,2026,NATHAM,261393,239140,91.49,Natham Viswanathan R,parties.IN.AIADMK,ADMK,85708,35.84,Selvakumar K,parties.IN.DMK,DMK,73839,11869,4.96,src-3da941c21223
-IN-AC-2008-tamil-nadu-3914,tamil-nadu,2026,NILAKKOTTAI (SC),221565,197593,89.18,Ayyanar.r,parties.IN.TVK,TVK,68580,34.71,Nagajothi.s,parties.IN.DMK,DMK,65655,2925,1.48,src-3da941c21223
-IN-AC-2008-tamil-nadu-3915,tamil-nadu,2026,ODDANCHATRAM,220263,201624,91.54,Sakkarapani. R,parties.IN.DMK,DMK,93099,46.17,Vidiyal S. Sekar,parties.IN.BJP,BJP,49850,43249,21.45,src-3da941c21223
-IN-AC-2008-tamil-nadu-3916,tamil-nadu,2026,PALANI,239881,208619,86.97,Ravimanoharan. K,parties.IN.AIADMK,ADMK,66986,32.11,Dr. Praveen Kumar. M,parties.IN.TVK,TVK,66293,693,0.33,src-3da941c21223
-IN-AC-2008-tamil-nadu-3917,tamil-nadu,2026,DHARAPURAM (SC),222434,199944,89.89,Sathyabama.p,parties.IN.AIADMK,ADMK,81100,40.56,Indirani.t,parties.IN.DMK,DMK,64373,16727,8.36,src-3da941c21223
-IN-AC-2008-tamil-nadu-3918,tamil-nadu,2026,ERODE (EAST),179592,162453,90.46,M.vijay Balaji,parties.IN.TVK,TVK,69747,42.93,Gopinath Palaniyappan,parties.IN.INC,INC,45781,23966,14.75,src-3da941c21223
-IN-AC-2008-tamil-nadu-3919,tamil-nadu,2026,ERODE (WEST),250217,221400,88.48,Ananth Moghan K.k.,parties.IN.TVK,TVK,96836,43.74,S. Muthusamy,parties.IN.DMK,DMK,74586,22250,10.05,src-3da941c21223
-IN-AC-2008-tamil-nadu-3920,tamil-nadu,2026,KANGAYAM,219586,203534,92.69,Nsn Nataraj,parties.IN.AIADMK,ADMK,71122,34.94,Mani Gounder,parties.IN.TVK,TVK,62989,8133,3.99,src-3da941c21223
-IN-AC-2008-tamil-nadu-3921,tamil-nadu,2026,KUMARAPALAYAM,220072,205324,93.3,C.vijayalakshmi,parties.IN.TVK,TVK,81179,39.54,P.thangamani,parties.IN.AIADMK,ADMK,73483,7696,3.75,src-3da941c21223
-IN-AC-2008-tamil-nadu-3922,tamil-nadu,2026,MODAKKURICHI,207697,190759,91.84,D.shanmugan,parties.IN.TVK,TVK,60715,31.83,S.kirthika,parties.IN.BJP,BJP,58285,2430,1.28,src-3da941c21223
-IN-AC-2008-tamil-nadu-3923,tamil-nadu,2026,ATTUR (SC),228219,208296,91.27,Jayasankaran. A.p.,parties.IN.AIADMK,ADMK,80843,38.81,Selvabharathi. R.,parties.IN.TVK,TVK,65525,15318,7.35,src-3da941c21223
-IN-AC-2008-tamil-nadu-3924,tamil-nadu,2026,GANGAVALLI (SC),218375,196679,90.06,Nallathambi. A,parties.IN.AIADMK,ADMK,73167,37.2,Chinnadurai. K,parties.IN.DMK,DMK,58763,14404,7.32,src-3da941c21223
-IN-AC-2008-tamil-nadu-3925,tamil-nadu,2026,KALLAKURICHI (SC),281622,249626,88.64,Arul Vignesh C,parties.IN.TVK,TVK,81132,32.5,Rajeevgandhi S,parties.IN.AIADMK,ADMK,80334,798,0.32,src-3da941c21223
-IN-AC-2008-tamil-nadu-3926,tamil-nadu,2026,RISHIVANDIYAM,273641,244795,89.46,Karthikeyan K,parties.IN.DMK,DMK,89711,36.65,Ashok Kumar G,parties.IN.TVK,TVK,84849,4862,1.99,src-3da941c21223
-IN-AC-2008-tamil-nadu-3927,tamil-nadu,2026,SANKARAPURAM,266003,235528,88.54,Rakesh R,parties.IN.AIADMK,ADMK,80250,34.07,Udhayasuriyan T,parties.IN.DMK,DMK,76810,3440,1.46,src-3da941c21223
-IN-AC-2008-tamil-nadu-3928,tamil-nadu,2026,YERCAUD (ST),272937,253592,92.91,Usharani. P,parties.IN.AIADMK,ADMK,87772,34.61,Lakshmi Janarthanan. J,parties.IN.TVK,TVK,85583,2189,0.86,src-3da941c21223
-IN-AC-2008-tamil-nadu-3929,tamil-nadu,2026,CHENGALPATTU,372889,324010,86.89,S. Thiyagarajan,parties.IN.TVK,TVK,137136,42.32,Karthik Dhandapani,parties.IN.DMK,DMK,101495,35641,11,src-3da941c21223
-IN-AC-2008-tamil-nadu-3930,tamil-nadu,2026,CHEYYUR (SC),204049,187584,91.93,Rajasekar. E,parties.IN.AIADMK,ADMK,63809,34.02,Mohan Raja.m.g.k,parties.IN.TVK,TVK,58141,5668,3.03,src-3da941c21223
-IN-AC-2008-tamil-nadu-3931,tamil-nadu,2026,KANCHEEPURAM,278841,246317,88.34,R.v. Ranjithkumar,parties.IN.TVK,TVK,91350,37.09,V. Somasundaram,parties.IN.AIADMK,ADMK,75862,15488,6.29,src-3da941c21223
-IN-AC-2008-tamil-nadu-3932,tamil-nadu,2026,MADURANTAKAM (SC),212666,198251,93.22,Maragatham Kumaravel.k,parties.IN.AIADMK,ADMK,69284,34.95,Ezhil Katharine Ezhilmalai,parties.IN.TVK,TVK,62090,7194,3.63,src-3da941c21223
-IN-AC-2008-tamil-nadu-3933,tamil-nadu,2026,THIRUPORUR,294452,262409,89.12,B.vijayaraj,parties.IN.TVK,TVK,110095,41.96,R. Panneerdoss,parties.IN.VCK,VCK,70744,39351,15,src-3da941c21223
-IN-AC-2008-tamil-nadu-3934,tamil-nadu,2026,UTHIRAMERUR,246248,227765,92.49,Munirathinam.j,parties.IN.TVK,TVK,84917,37.28,Sundar.k,parties.IN.DMK,DMK,70694,14223,6.24,src-3da941c21223
-IN-AC-2008-tamil-nadu-3935,tamil-nadu,2026,COLACHAL,266055,199013,74.8,Tharahai Cuthbert,parties.IN.INC,INC,66207,33.27,Prem Alex Lawrence,parties.IN.TVK,TVK,63374,2833,1.43,src-3da941c21223
-IN-AC-2008-tamil-nadu-3936,tamil-nadu,2026,KANNIYAKUMARI,289561,239150,82.59,Thalavai Sundaram. N,parties.IN.AIADMK,ADMK,75045,31.38,Mahesh.r,parties.IN.DMK,DMK,74831,214,0.09,src-3da941c21223
-IN-AC-2008-tamil-nadu-3937,tamil-nadu,2026,KILLIYOOR,247289,177534,71.79,Rajesh Kumar. S,parties.IN.INC,INC,66434,37.42,Sabin. S,parties.IN.TVK,TVK,65123,1311,0.74,src-3da941c21223
-IN-AC-2008-tamil-nadu-3938,tamil-nadu,2026,NAGERCOIL,259361,196280,75.68,Austin,parties.IN.DMK,DMK,69880,35.6,Bervin Kings G,parties.IN.TVK,TVK,62310,7570,3.85,src-3da941c21223
-IN-AC-2008-tamil-nadu-3939,tamil-nadu,2026,PADMANABHAPURAM,237160,180555,76.13,Chellaswamy. R,parties.IN.CPIM,CPI(M),68938,38.18,Krishna Kumar. S,parties.IN.TVK,TVK,53369,15569,8.62,src-3da941c21223
-IN-AC-2008-tamil-nadu-3940,tamil-nadu,2026,VILAVANCODE,228697,174927,76.49,Praveen T.t,parties.IN.INC,INC,70755,40.45,Michael Kumar K,parties.IN.TVK,TVK,49785,20970,11.99,src-3da941c21223
-IN-AC-2008-tamil-nadu-3941,tamil-nadu,2026,ARAVAKURICHI,195538,181078,92.61,Elango. R,parties.IN.DMK,DMK,70827,39.11,Karthikeyan. P,parties.IN.TVK,TVK,51445,19382,10.7,src-3da941c21223
-IN-AC-2008-tamil-nadu-3942,tamil-nadu,2026,KARUR,230068,216829,94.25,M.r. Vijayabhaskar,parties.IN.AIADMK,ADMK,71542,32.99,Mathiyalagan V.p,parties.IN.TVK,TVK,69721,1821,0.84,src-3da941c21223
-IN-AC-2008-tamil-nadu-3943,tamil-nadu,2026,KRISHNARAYAPURAM (SC),203090,189357,93.24,Sathya. M,parties.IN.TVK,TVK,62378,32.94,Dr. Dhivya. S,parties.IN.AIADMK,ADMK,58875,3503,1.85,src-3da941c21223
-IN-AC-2008-tamil-nadu-3944,tamil-nadu,2026,MANAPPARAI,268165,241216,89.95,R. Kathiravan,parties.IN.TVK,TVK,83041,34.43,Dr. Pl. Vijayakumar,parties.IN.AIADMK,ADMK,81615,1426,0.6,src-3da941c21223
-IN-AC-2008-tamil-nadu-3945,tamil-nadu,2026,VEDASANDUR,243998,226554,92.85,Saminathan. T,parties.IN.DMK,DMK,84948,37.5,Paramasivam. V.p.b.,parties.IN.AIADMK,ADMK,74885,10063,4.45,src-3da941c21223
-IN-AC-2008-tamil-nadu-3946,tamil-nadu,2026,VIRALIMALAI,225159,203921,90.57,Vijayabaskar. C,parties.IN.AIADMK,ADMK,105773,51.87,Murugesan. P,parties.IN.TVK,TVK,43700,62073,30.44,src-3da941c21223
-IN-AC-2008-tamil-nadu-3947,tamil-nadu,2026,BARGUR,240476,213960,88.97,E.c. Govindarasan,parties.IN.AIADMK,ADMK,71240,33.3,E. Muralidharan,parties.IN.TVK,TVK,66999,4241,1.99,src-3da941c21223
-IN-AC-2008-tamil-nadu-3948,tamil-nadu,2026,HOSUR,343040,277770,80.97,Balakrishnareddy. P,parties.IN.AIADMK,ADMK,109867,39.55,Vendarkarasan.s,parties.IN.TVK,TVK,82064,27803,10.01,src-3da941c21223
-IN-AC-2008-tamil-nadu-3949,tamil-nadu,2026,KRISHNAGIRI,269394,230181,85.44,Mukundhan.p,parties.IN.TVK,TVK,89374,38.83,Ashokkumar.k,parties.IN.AIADMK,ADMK,70530,18844,8.19,src-3da941c21223
-IN-AC-2008-tamil-nadu-3950,tamil-nadu,2026,THALLI,237961,205878,86.52,Ramachandran. T,parties.IN.CPI,CPI,78283,38.02,Dr.nagesh Kumar. C,parties.IN.BJP,BJP,73043,5240,2.54,src-3da941c21223
-IN-AC-2008-tamil-nadu-3951,tamil-nadu,2026,UTHANGARAI (SC),235925,205530,87.12,N Elaiyaraja,parties.IN.TVK,TVK,70201,34.16,T M Tamilselvam,parties.IN.AIADMK,ADMK,65003,5198,2.53,src-3da941c21223
-IN-AC-2008-tamil-nadu-3952,tamil-nadu,2026,VEPPANAHALLI,246739,222608,90.22,Srinivasan.p.s,parties.IN.DMK,DMK,74691,33.55,Munusamy.k.p,parties.IN.AIADMK,ADMK,74553,138,0.06,src-3da941c21223
-IN-AC-2008-tamil-nadu-3953,tamil-nadu,2026,MADURAI CENTRAL,199725,148586,74.4,Madhar Badhurudeen,parties.IN.TVK,TVK,63414,42.68,Palanivel Thiaga Rajan,parties.IN.DMK,DMK,44286,19128,12.88,src-3da941c21223
-IN-AC-2008-tamil-nadu-3954,tamil-nadu,2026,MADURAI EAST,336738,271566,80.65,Karthikeyan S,parties.IN.TVK,TVK,118777,43.74,Moorthy P,parties.IN.DMK,DMK,102230,16547,6.1,src-3da941c21223
-IN-AC-2008-tamil-nadu-3955,tamil-nadu,2026,MADURAI NORTH,221326,161801,73.11,A.kallanai,parties.IN.TVK,TVK,72853,45.03,G.thalapathi,parties.IN.DMK,DMK,54815,18038,11.15,src-3da941c21223
-IN-AC-2008-tamil-nadu-3957,tamil-nadu,2026,MADURAI WEST,275689,216403,78.5,Thangapandi Sr,parties.IN.TVK,TVK,88250,40.78,Balaji R,parties.IN.DMK,DMK,76319,11931,5.51,src-3da941c21223
-IN-AC-2008-tamil-nadu-3958,tamil-nadu,2026,MELUR,230061,190726,82.9,P.viswanathan,parties.IN.INC,INC,60080,31.5,A.maduraiveeran,parties.IN.TVK,TVK,57356,2724,1.43,src-3da941c21223
-IN-AC-2008-tamil-nadu-3959,tamil-nadu,2026,KUMBAKONAM,254383,208288,81.88,Vinoth,parties.IN.TVK,TVK,78650,37.76,Anbalagan G,parties.IN.DMK,DMK,77971,679,0.33,src-3da941c21223
-IN-AC-2008-tamil-nadu-3960,tamil-nadu,2026,MAYILADUTHURAI,234622,188461,80.33,Jamal Mohamed Younoos. Y.n,parties.IN.INC,INC,68011,36.09,Palanisamy. A M.com.,parties.IN.PMK,PMK,57166,10845,5.76,src-3da941c21223
-IN-AC-2008-tamil-nadu-3961,tamil-nadu,2026,PAPANASAM,256617,207723,80.95,A.m. Shahjahan,parties.IN.IUML,IUML,69284,33.35,Azarudeen Uduman Ali,parties.IN.TVK,TVK,68219,1065,0.51,src-3da941c21223
-IN-AC-2008-tamil-nadu-3962,tamil-nadu,2026,POOMPUHAR,259332,219324,84.57,Nivedha M Murugan,parties.IN.DMK,DMK,81096,36.98,Pavunraj. S,parties.IN.AIADMK,ADMK,72836,8260,3.77,src-3da941c21223
-IN-AC-2008-tamil-nadu-3963,tamil-nadu,2026,SIRKAZHI (SC),241432,200448,83.02,Senthilselvan.r,parties.IN.DMK,DMK,71449,35.64,Sakthi.m,parties.IN.AIADMK,ADMK,60032,11417,5.69,src-3da941c21223
-IN-AC-2008-tamil-nadu-3964,tamil-nadu,2026,THIRUVIDAIMARUDUR (SC),257014,208944,81.3,Govi.chezhiaan,parties.IN.DMK,DMK,79951,38.26,S.prabakaran,parties.IN.TVK,TVK,65835,14116,6.75,src-3da941c21223
-IN-AC-2008-tamil-nadu-3965,tamil-nadu,2026,KILVELUR (SC),170633,151637,88.87,Latha. T,parties.IN.CPIM,CPI(M),56108,37,Senthil Pandian. P,parties.IN.TVK,TVK,53830,2278,1.5,src-3da941c21223
-IN-AC-2008-tamil-nadu-3966,tamil-nadu,2026,NAGAPATTINAM,174736,151326,86.6,M.h.jawahirullah,parties.IN.DMK,DMK,56305,37.21,M.sugumar,parties.IN.TVK,TVK,46524,9781,6.47,src-3da941c21223
-IN-AC-2008-tamil-nadu-3967,tamil-nadu,2026,NANNILAM,267576,231444,86.5,Kamaraj. R,parties.IN.AIADMK,ADMK,103462,44.7,Mohamed Mubarak,parties.IN.DMK,DMK,61738,41724,18.02,src-3da941c21223
-IN-AC-2008-tamil-nadu-3968,tamil-nadu,2026,THIRUTHURAIPOONDI (SC),226940,191030,84.18,Marimuthu.k,parties.IN.CPI,CPI,74062,38.77,Pandiyan.s,parties.IN.TVK,TVK,61140,12922,6.76,src-3da941c21223
-IN-AC-2008-tamil-nadu-3969,tamil-nadu,2026,THIRUVARUR,260145,217875,83.75,Kalaivanan Poondi K,parties.IN.DMK,DMK,93408,42.87,Veeramani V,parties.IN.TVK,TVK,75260,18148,8.33,src-3da941c21223
-IN-AC-2008-tamil-nadu-3970,tamil-nadu,2026,VEDARANYAM,187527,162216,86.5,Manian. O.s,parties.IN.AIADMK,ADMK,59172,36.48,Pugazhendi. M,parties.IN.DMK,DMK,51841,7331,4.52,src-3da941c21223
-IN-AC-2008-tamil-nadu-3971,tamil-nadu,2026,NAMAKKAL,237915,212283,89.23,Dilip C S,parties.IN.TVK,TVK,79744,37.56,Sridevi Mohan P S,parties.IN.AIADMK,ADMK,68736,11008,5.18,src-3da941c21223
-IN-AC-2008-tamil-nadu-3972,tamil-nadu,2026,PARAMATHI-VELUR,205215,188845,92.02,Sekar S,parties.IN.AIADMK,ADMK,61349,32.49,Moorthiy K S,parties.IN.DMK,DMK,61041,308,0.17,src-3da941c21223
-IN-AC-2008-tamil-nadu-3973,tamil-nadu,2026,RASIPURAM (SC),222304,204680,92.07,Logesh Tamilselvan D,parties.IN.TVK,TVK,74808,36.55,Premkumar S D,parties.IN.BJP,BJP,60297,14511,7.09,src-3da941c21223
-IN-AC-2008-tamil-nadu-3974,tamil-nadu,2026,SANKARI,260590,243779,93.55,Vetrivel. S,parties.IN.AIADMK,ADMK,87342,35.83,Senthilkumar. K,parties.IN.TVK,TVK,77825,9517,3.91,src-3da941c21223
-IN-AC-2008-tamil-nadu-3975,tamil-nadu,2026,SENTHAMANGALAM (ST),229482,209687,91.37,P Chandrasekar,parties.IN.TVK,TVK,68815,32.82,C Chandrasekaran,parties.IN.AIADMK,ADMK,66160,2655,1.27,src-3da941c21223
-IN-AC-2008-tamil-nadu-3976,tamil-nadu,2026,TIRUCHENGODU,209099,191122,91.4,Arunraj K G,parties.IN.TVK,TVK,79500,41.6,Srmt Sekar (a) Chandrasekar R,parties.IN.AIADMK,ADMK,51328,28172,14.74,src-3da941c21223
-IN-AC-2008-tamil-nadu-3977,tamil-nadu,2026,AVANASHI (SC),253372,231600,91.41,Kamali.s,parties.IN.TVK,TVK,84209,36.36,Dr. L. Murugan,parties.IN.BJP,BJP,68836,15373,6.64,src-3da941c21223
-IN-AC-2008-tamil-nadu-3978,tamil-nadu,2026,BHAVANISAGAR (SC),237629,214595,90.31,V.p.tamilselvi,parties.IN.TVK,TVK,72391,33.73,A.bannari,parties.IN.AIADMK,ADMK,67822,4569,2.13,src-3da941c21223
-IN-AC-2008-tamil-nadu-3979,tamil-nadu,2026,COONOOR,177978,141394,79.44,M. Raju,parties.IN.DMK,DMK,50470,35.69,A. Ramu,parties.IN.AIADMK,ADMK,42371,8099,5.72,src-3da941c21223
-IN-AC-2008-tamil-nadu-3980,tamil-nadu,2026,GUDALUR (SC),185460,151241,81.55,Dhravidamani.m,parties.IN.DMK,DMK,65590,43.37,Pon.jayaseelan,parties.IN.AIADMK,ADMK,42757,22833,15.1,src-3da941c21223
-IN-AC-2008-tamil-nadu-3981,tamil-nadu,2026,METTUPPALAYAM,282235,244319,86.57,Sunilanand,parties.IN.TVK,TVK,75664,30.97,Smt.kavitha Kalyanasundaram,parties.IN.DMK,DMK,67896,7768,3.18,src-3da941c21223
-IN-AC-2008-tamil-nadu-3982,tamil-nadu,2026,UDHAGAMANDALAM,188968,148704,78.69,Bhojarajan.m,parties.IN.BJP,BJP,48488,32.61,Ibrahim.r,parties.IN.TVK,TVK,47512,976,0.66,src-3da941c21223
-IN-AC-2008-tamil-nadu-3983,tamil-nadu,2026,KULITHALAI,223376,209091,93.6,Suriyanur. A. Chandran,parties.IN.DMK,DMK,68138,32.59,G.balasubramani,parties.IN.TVK,TVK,67559,579,0.28,src-3da941c21223
-IN-AC-2008-tamil-nadu-3984,tamil-nadu,2026,LALGUDI,212403,185213,87.2,Leemarose Martin,parties.IN.AIADMK,ADMK,60795,32.82,Ku Pa Krishnan,parties.IN.TVK,TVK,58056,2739,1.47,src-3da941c21223
-IN-AC-2008-tamil-nadu-3985,tamil-nadu,2026,MANACHANALLUR,236632,209780,88.65,Kathiravan. S,parties.IN.DMK,DMK,81447,38.82,V.saravanan,parties.IN.TVK,TVK,69083,12364,5.89,src-3da941c21223
-IN-AC-2008-tamil-nadu-3986,tamil-nadu,2026,MUSIRI,214146,189141,88.32,M.vignesh,parties.IN.TVK,TVK,71281,37.69,N.s.karunairaaja,parties.IN.DMK,DMK,53839,17442,9.22,src-3da941c21223
-IN-AC-2008-tamil-nadu-3987,tamil-nadu,2026,PERAMBALUR (SC),290731,253654,87.25,Sivakumar. K,parties.IN.TVK,TVK,90882,35.83,Dr. Jayalakshmi. S.t,parties.IN.DMK,DMK,76489,14393,5.68,src-3da941c21223
-IN-AC-2008-tamil-nadu-3988,tamil-nadu,2026,THURAIYUR (SC),210753,184426,87.51,Ravisankar.m,parties.IN.TVK,TVK,66263,35.93,E.saroja,parties.IN.AIADMK,ADMK,56649,9614,5.21,src-3da941c21223
-IN-AC-2008-tamil-nadu-3989,tamil-nadu,2026,KINATHUKADAVU,305919,267917,87.58,Vignesh K,parties.IN.TVK,TVK,99950,37.31,Sabari Karthikeyan K.v.k.s,parties.IN.DMK,DMK,88240,11710,4.37,src-3da941c21223
-IN-AC-2008-tamil-nadu-3990,tamil-nadu,2026,MADATHUKULAM,214837,188249,87.62,R Jayaramakrishnan,parties.IN.DMK,DMK,70458,37.43,C Shanmugavelu,parties.IN.AMMK,AMMKMNKZ,54490,15968,8.48,src-3da941c21223
-IN-AC-2008-tamil-nadu-3991,tamil-nadu,2026,POLLACHI,204008,181196,88.82,K. Nithyanandhan,parties.IN.DMK,DMK,62013,34.22,Pollachi V. Jayaraman,parties.IN.AIADMK,ADMK,57386,4627,2.55,src-3da941c21223
-IN-AC-2008-tamil-nadu-3992,tamil-nadu,2026,THONDAMUTHUR,293379,258549,88.13,S.p.velumani,parties.IN.AIADMK,ADMK,93316,36.09,Sathish Raju (alias) K.p.r. Sathish,parties.IN.TVK,TVK,78591,14725,5.69,src-3da941c21223
-IN-AC-2008-tamil-nadu-3993,tamil-nadu,2026,UDUMALAIPETTAI,231009,203575,88.12,Jayakumar M.,parties.IN.DMK,DMK,68549,33.67,Radhakrishnan K.,parties.IN.AIADMK,ADMK,65667,2882,1.41,src-3da941c21223
-IN-AC-2008-tamil-nadu-3994,tamil-nadu,2026,VALPARAI (SC),173659,150431,86.62,Kutty (alias) Sudhakar. A,parties.IN.DMK,DMK,54671,36.34,Dr. Sridharan. A,parties.IN.TVK,TVK,45300,9371,6.23,src-3da941c21223
-IN-AC-2008-tamil-nadu-3995,tamil-nadu,2026,ARANTHANGI,229834,182730,79.51,Mohamed Farvas. J,parties.IN.TVK,TVK,73244,40.08,Ramachandran . T,parties.IN.INC,INC,63182,10062,5.5,src-3da941c21223
-IN-AC-2008-tamil-nadu-3996,tamil-nadu,2026,MUDHUKULATHUR,299702,231373,77.2,R.s.rajakannappan,parties.IN.DMK,DMK,68003,29.39,Malarvizhi. B,parties.IN.TVK,TVK,51405,16598,7.17,src-3da941c21223
-IN-AC-2008-tamil-nadu-3997,tamil-nadu,2026,PARAMAKUDI (SC),235109,189753,80.71,Advocate. Kathiravan. K.k,parties.IN.DMK,DMK,59161,31.18,Gopirajan. G,parties.IN.TVK,TVK,55613,3548,1.87,src-3da941c21223
-IN-AC-2008-tamil-nadu-3998,tamil-nadu,2026,RAMANATHAPURAM,312463,237576,76.03,Katharbatcha Muthuramalingam,parties.IN.DMK,DMK,89137,37.52,Shahul Hameed,parties.IN.TVK,TVK,76678,12459,5.24,src-3da941c21223
-IN-AC-2008-tamil-nadu-3999,tamil-nadu,2026,TIRUCHULI,205681,181250,88.12,Thangam Thenarasu,parties.IN.DMK,DMK,75085,41.43,Samayan.s,parties.IN.TVK,TVK,61600,13485,7.44,src-3da941c21223
-IN-AC-2008-tamil-nadu-4000,tamil-nadu,2026,TIRUVADANAI,284130,220278,77.53,Rajeev,parties.IN.TVK,TVK,69551,31.57,Rm. Karumanickam,parties.IN.INC,INC,67038,2513,1.14,src-3da941c21223
-IN-AC-2008-tamil-nadu-4001,tamil-nadu,2026,EDAPPADI,276472,258263,93.41,Edappadi Palaniswami. K,parties.IN.AIADMK,ADMK,148933,57.67,Premkumar. K,parties.IN.IND,IND,50823,98110,37.99,src-3da941c21223
-IN-AC-2008-tamil-nadu-4002,tamil-nadu,2026,OMALUR,294863,271119,91.95,Mani. R,parties.IN.AIADMK,ADMK,112246,41.4,Adhiyamaan. R.v,parties.IN.TVK,TVK,97707,14539,5.36,src-3da941c21223
-IN-AC-2008-tamil-nadu-4003,tamil-nadu,2026,SALEM (NORTH),238685,210712,88.28,Sivakumar. K,parties.IN.TVK,TVK,85710,40.68,Rajendran. R,parties.IN.DMK,DMK,71676,14034,6.66,src-3da941c21223
-IN-AC-2008-tamil-nadu-4004,tamil-nadu,2026,SALEM (SOUTH),226880,207902,91.64,Vijay Tamilan Parthiban. A,parties.IN.TVK,TVK,91371,43.95,Loganathan. M,parties.IN.DMK,DMK,58002,33369,16.05,src-3da941c21223
-IN-AC-2008-tamil-nadu-4005,tamil-nadu,2026,SALEM (WEST),258040,234407,90.84,Lakshmanan.s,parties.IN.TVK,TVK,120407,51.37,Karthe.m,parties.IN.PMK,PMK,45540,74867,31.94,src-3da941c21223
-IN-AC-2008-tamil-nadu-4006,tamil-nadu,2026,VEERAPANDI,250504,235875,94.16,Palanivel. M.s,parties.IN.TVK,TVK,79907,33.88,Sri Balaji Sugumar. S,parties.IN.AIADMK,ADMK,75836,4071,1.73,src-3da941c21223
-IN-AC-2008-tamil-nadu-4007,tamil-nadu,2026,ALANGUDI,212139,180483,85.08,Siva.v.meyyanathan,parties.IN.DMK,DMK,64929,35.98,Kandasamy,parties.IN.TVK,TVK,51952,12977,7.2,src-3da941c21223
-IN-AC-2008-tamil-nadu-4008,tamil-nadu,2026,KARAIKUDI,306124,229267,74.89,Dr.prabhu. Tk,parties.IN.TVK,TVK,101358,44.21,Mangudi. S,parties.IN.INC,INC,55284,46074,20.1,src-3da941c21223
-IN-AC-2008-tamil-nadu-4009,tamil-nadu,2026,MANAMADURAI (SC),260203,208643,80.18,Elangovan.d,parties.IN.TVK,TVK,69971,33.54,Tamilarasi.a,parties.IN.DMK,DMK,68763,1208,0.58,src-3da941c21223
-IN-AC-2008-tamil-nadu-4010,tamil-nadu,2026,SIVAGANGA,278609,214067,76.83,Kulanthai Rani A,parties.IN.TVK,TVK,73737,34.45,Senthilnathan Pr,parties.IN.AIADMK,ADMK,58656,15081,7.05,src-3da941c21223
-IN-AC-2008-tamil-nadu-4011,tamil-nadu,2026,THIRUMAYAM,220622,182612,82.77,Regupathy.s,parties.IN.DMK,DMK,58201,31.87,Chinthamani.c,parties.IN.TVK,TVK,56709,1492,0.82,src-3da941c21223
-IN-AC-2008-tamil-nadu-4012,tamil-nadu,2026,TIRUPPATTUR,275999,215710,78.16,Seenivasa Sethupathy. R,parties.IN.TVK,TVK,83375,38.65,Periakaruppan. Kr,parties.IN.DMK,DMK,83374,1,0,src-3da941c21223
-IN-AC-2008-tamil-nadu-4013,tamil-nadu,2026,ALANDUR,301127,261570,86.86,M.harish,parties.IN.TVK,TVK,112205,42.9,T.m.anbarasan,parties.IN.DMK,DMK,82596,29609,11.32,src-3da941c21223
-IN-AC-2008-tamil-nadu-4014,tamil-nadu,2026,AMBATTUR,337081,259986,77.13,Balamurugan.g,parties.IN.TVK,TVK,133339,51.29,Dr A.p. Poornima,parties.IN.DMK,DMK,74558,58781,22.61,src-3da941c21223
-IN-AC-2008-tamil-nadu-4015,tamil-nadu,2026,MADURAVOYAL,373321,293692,78.67,Rhevanth Charan,parties.IN.TVK,TVK,141725,48.26,Ganapathy. K,parties.IN.DMK,DMK,80216,61509,20.95,src-3da941c21223
-IN-AC-2008-tamil-nadu-4016,tamil-nadu,2026,PALLAVARAM,337024,283677,84.17,J.kamatchi,parties.IN.TVK,TVK,133611,47.1,D.murugesan,parties.IN.DMDK,DMDK,78918,54693,19.28,src-3da941c21223
-IN-AC-2008-tamil-nadu-4017,tamil-nadu,2026,SRIPERUMBUDUR (SC),381807,331088,86.72,Thennarasu.k,parties.IN.TVK,TVK,147611,44.58,K. Selvaperunthagai,parties.IN.INC,INC,93365,54246,16.38,src-3da941c21223
-IN-AC-2008-tamil-nadu-4018,tamil-nadu,2026,TAMBARAM,330181,278809,84.44,D.sarathkumar,parties.IN.TVK,TVK,118967,42.67,R.s.kiruthika Devi,parties.IN.DMK,DMK,83346,35621,12.78,src-3da941c21223
-IN-AC-2008-tamil-nadu-4019,tamil-nadu,2026,KADAYANALLUR,269723,221951,82.29,Rajendran. T. M,parties.IN.DMK,DMK,79832,35.97,C. Krishnamurali,parties.IN.AIADMK,ADMK,73579,6253,2.82,src-3da941c21223
-IN-AC-2008-tamil-nadu-4020,tamil-nadu,2026,RAJAPALAYAM,214646,183020,85.27,Jegadeshwari. K,parties.IN.TVK,TVK,65548,35.81,Thangapandian. S,parties.IN.DMK,DMK,54943,10605,5.79,src-3da941c21223
-IN-AC-2008-tamil-nadu-4021,tamil-nadu,2026,SANKARANKOVIL (SC),239035,196480,82.2,Dr. Dhilipan Jaishankar,parties.IN.AIADMK,ADMK,64865,33.01,C. Ramarajan,parties.IN.TVK,TVK,58376,6489,3.3,src-3da941c21223
-IN-AC-2008-tamil-nadu-4022,tamil-nadu,2026,SRIVILLIPUTHUR (SC),224903,193471,86.02,Karthik.a,parties.IN.TVK,TVK,65653,33.93,Mahalingam.p,parties.IN.CPI,CPI,57072,8581,4.43,src-3da941c21223
-IN-AC-2008-tamil-nadu-4023,tamil-nadu,2026,TENKASI,282002,234987,83.33,Dr.kalai Kathiravan,parties.IN.DMK,DMK,79699,33.92,S.selva Mohandas Pandian,parties.IN.AIADMK,ADMK,69400,10299,4.39,src-3da941c21223
-IN-AC-2008-tamil-nadu-4024,tamil-nadu,2026,VASUDEVANALLUR (SC),229179,189795,82.82,E. Raja,parties.IN.DMK,DMK,63045,33.22,Ananthan Ayyasamy,parties.IN.BJP,BJP,56462,6583,3.47,src-3da941c21223
-IN-AC-2008-tamil-nadu-4025,tamil-nadu,2026,MANNARGUDI,234554,194100,82.75,Kamaraj. S,parties.IN.AMMK,AMMKMNKZ,68416,35.25,Rajaa.t.r.b,parties.IN.DMK,DMK,66850,1566,0.81,src-3da941c21223
-IN-AC-2008-tamil-nadu-4026,tamil-nadu,2026,ORATHANADU,233758,195304,83.55,R. Vaithilingam,parties.IN.DMK,DMK,86759,44.42,Dr. K. Arvind,parties.IN.TVK,TVK,51731,35028,17.93,src-3da941c21223
-IN-AC-2008-tamil-nadu-4027,tamil-nadu,2026,PATTUKKOTTAI,242451,183745,75.79,Annadurai K,parties.IN.DMK,DMK,65963,35.9,Mathan C,parties.IN.TVK,TVK,52209,13754,7.49,src-3da941c21223
-IN-AC-2008-tamil-nadu-4028,tamil-nadu,2026,PERAVURANI,213974,176274,82.38,Ashokkumar. N,parties.IN.DMK,DMK,60919,34.56,Govi.elango,parties.IN.AIADMK,ADMK,57757,3162,1.79,src-3da941c21223
-IN-AC-2008-tamil-nadu-4029,tamil-nadu,2026,THANJAVUR,252841,198798,78.63,R. Vijaysaravanan,parties.IN.TVK,TVK,87705,44.12,Shan. Ramanathan,parties.IN.DMK,DMK,70750,16955,8.53,src-3da941c21223
-IN-AC-2008-tamil-nadu-4030,tamil-nadu,2026,THIRUVAIYARU,258597,222111,85.89,Durai. Chandrasekaran,parties.IN.DMK,DMK,80425,36.21,Mathi. Manikandan,parties.IN.TVK,TVK,71870,8555,3.85,src-3da941c21223
-IN-AC-2008-tamil-nadu-4031,tamil-nadu,2026,ANDIPATTI,257997,217329,84.24,Maharajan.a,parties.IN.DMK,DMK,74324,34.2,Pandi.v,parties.IN.TVK,TVK,64770,9554,4.4,src-3da941c21223
-IN-AC-2008-tamil-nadu-4032,tamil-nadu,2026,BODINAYAKANUR,264386,220628,83.45,Panneerselvam.o,parties.IN.DMK,DMK,85206,38.62,Prakash.s,parties.IN.TVK,TVK,78401,6805,3.08,src-3da941c21223
-IN-AC-2008-tamil-nadu-4033,tamil-nadu,2026,CUMBUM,257323,210574,81.83,Jeganathmishra Pla,parties.IN.TVK,TVK,85394,40.55,Eramakrishnan N,parties.IN.DMK,DMK,84643,751,0.35,src-3da941c21223
-IN-AC-2008-tamil-nadu-4034,tamil-nadu,2026,PERIYAKULAM (SC),266570,211209,79.23,Sabari Iyngaran G.,parties.IN.TVK,TVK,85656,40.56,Sakthivel P.,parties.IN.VCK,VCK,66335,19321,9.15,src-3da941c21223
-IN-AC-2008-tamil-nadu-4035,tamil-nadu,2026,SHOLAVANDAN (SC),215348,189080,87.8,Karuppaiah.m.v,parties.IN.TVK,TVK,63907,33.8,Venkatesan.a,parties.IN.DMK,DMK,61229,2678,1.42,src-3da941c21223
-IN-AC-2008-tamil-nadu-4036,tamil-nadu,2026,USILAMPATTI,267969,224048,83.61,Vijay. M,parties.IN.TVK,TVK,65743,29.34,Mahendran. I,parties.IN.AIADMK,ADMK,63938,1805,0.8,src-3da941c21223
-IN-AC-2008-tamil-nadu-4037,tamil-nadu,2026,KOVILPATTI,242359,194232,80.14,Karunanithi.k,parties.IN.DMK,DMK,61643,31.74,Balasubramanian.s,parties.IN.TVK,TVK,60800,843,0.44,src-3da941c21223
-IN-AC-2008-tamil-nadu-4038,tamil-nadu,2026,OTTAPIDARAM (SC),244686,196117,80.15,P .mathanraja,parties.IN.TVK,TVK,81625,41.62,P.m.ramajeyam,parties.IN.DMK,DMK,52542,29083,14.83,src-3da941c21223
-IN-AC-2008-tamil-nadu-4039,tamil-nadu,2026,SRIVAIKUNTAM,214630,176421,82.2,Saravanan. G,parties.IN.TVK,TVK,58814,33.34,Shanmuganathan. S. P,parties.IN.AIADMK,ADMK,57628,1186,0.67,src-3da941c21223
-IN-AC-2008-tamil-nadu-4040,tamil-nadu,2026,THOOTHUKKUDI,250803,204712,81.62,Srinath,parties.IN.TVK,TVK,100536,49.11,P. Geetha Jeevan,parties.IN.DMK,DMK,62805,37731,18.43,src-3da941c21223
-IN-AC-2008-tamil-nadu-4041,tamil-nadu,2026,TIRUCHENDUR,233061,186050,79.83,Anitha R. Radhakrishnan,parties.IN.DMK,DMK,72723,39.09,J. Murugan,parties.IN.TVK,TVK,66851,5872,3.16,src-3da941c21223
-IN-AC-2008-tamil-nadu-4042,tamil-nadu,2026,VILATHIKULAM,205465,174814,85.08,Markandayan G V,parties.IN.DMK,DMK,58395,33.4,P. Kasiram,parties.IN.TVK,TVK,50167,8228,4.7,src-3da941c21223
-IN-AC-2008-tamil-nadu-4043,tamil-nadu,2026,GANDHARVAKOTTAI (SC),196104,167618,85.47,N. Subramanian,parties.IN.TVK,TVK,58795,35.08,C. Uthayakumar,parties.IN.BJP,BJP,47756,11039,6.59,src-3da941c21223
-IN-AC-2008-tamil-nadu-4044,tamil-nadu,2026,PUDUKKOTTAI,226009,190378,84.23,V. Muthuraja,parties.IN.DMK,DMK,66825,35.1,K.m. Shariff,parties.IN.TVK,TVK,64958,1867,0.98,src-3da941c21223
-IN-AC-2008-tamil-nadu-4045,tamil-nadu,2026,SRIRANGAM,287214,254985,88.78,Ramesh,parties.IN.TVK,TVK,103235,40.49,S. Durairaj,parties.IN.DMK,DMK,69645,33590,13.18,src-3da941c21223
-IN-AC-2008-tamil-nadu-4046,tamil-nadu,2026,THIRUVERUMBUR,259701,213583,82.24,Vijayakumar (a) Navalpattu S. Viji,parties.IN.TVK,TVK,89837,42.06,Anbil Mahesh Poyyamozhi,parties.IN.DMK,DMK,81132,8705,4.07,src-3da941c21223
-IN-AC-2008-tamil-nadu-4047,tamil-nadu,2026,TIRUCHIRAPPALLI (EAST),220240,182493,82.86,C. Joseph Vijay,parties.IN.TVK,TVK,91381,50.07,S. Inigo Irudayaraj,parties.IN.DMK,DMK,63965,27416,15.02,src-3da941c21223
-IN-AC-2008-tamil-nadu-4048,tamil-nadu,2026,TIRUCHIRAPPALLI (WEST),238980,196347,82.16,K.n.nehru,parties.IN.DMK,DMK,88235,44.94,G.ramamoorthi,parties.IN.TVK,TVK,83449,4786,2.44,src-3da941c21223
-IN-AC-2008-tamil-nadu-4049,tamil-nadu,2026,ALANGULAM,255730,220857,86.36,Paul Manoj Pandian,parties.IN.DMK,DMK,69170,31.32,K R P Prabakaran,parties.IN.AIADMK,ADMK,61372,7798,3.53,src-3da941c21223
-IN-AC-2008-tamil-nadu-4050,tamil-nadu,2026,AMBASAMUDRAM,228246,191195,83.77,Dr.esakki Subaya,parties.IN.AIADMK,ADMK,65589,34.3,V.p.durai,parties.IN.INC,INC,55344,10245,5.35,src-3da941c21223
-IN-AC-2008-tamil-nadu-4051,tamil-nadu,2026,NANGUNERI,257480,209419,81.33,Reddiarpatti V. Narayanan,parties.IN.TVK,TVK,74952,35.79,Ruby.r.manoharan,parties.IN.INC,INC,58533,16419,7.84,src-3da941c21223
-IN-AC-2008-tamil-nadu-4052,tamil-nadu,2026,PALAYAMKOTTAI,257498,180620,70.14,M.abdul Wahab,parties.IN.DMK,DMK,79744,44.15,Maria John,parties.IN.TVK,TVK,65939,13805,7.64,src-3da941c21223
-IN-AC-2008-tamil-nadu-4053,tamil-nadu,2026,RADHAPURAM,247310,199931,80.84,Dr.sathish Christopher,parties.IN.TVK,TVK,69947,34.99,Appavu.m,parties.IN.DMK,DMK,57634,12313,6.16,src-3da941c21223
-IN-AC-2008-tamil-nadu-4054,tamil-nadu,2026,TIRUNELVELI,276296,218425,79.05,Murughan.r.s.,parties.IN.TVK,TVK,75840,34.72,Subramanian.s,parties.IN.DMK,DMK,64426,11414,5.22,src-3da941c21223
-IN-AC-2008-tamil-nadu-4055,tamil-nadu,2026,ANTHIYUR,207413,185775,89.57,Haribaskar.p,parties.IN.AIADMK,ADMK,60042,32.32,Sivabalan.m,parties.IN.DMK,DMK,58782,1260,0.68,src-3da941c21223
-IN-AC-2008-tamil-nadu-4056,tamil-nadu,2026,BHAVANI,223221,208323,93.33,Karuppanan. K.c,parties.IN.AIADMK,ADMK,75577,36.28,Balakrishnan,parties.IN.TVK,TVK,68181,7396,3.55,src-3da941c21223
-IN-AC-2008-tamil-nadu-4057,tamil-nadu,2026,GOBICHETTIPALAYAM,239198,219727,91.86,Sengottaiyan.k.a,parties.IN.TVK,TVK,82612,37.6,Nallasivam.n,parties.IN.DMK,DMK,65992,16620,7.57,src-3da941c21223
-IN-AC-2008-tamil-nadu-4058,tamil-nadu,2026,PERUNDURAI,214451,200686,93.58,Jayakumar. S,parties.IN.AIADMK,ADMK,70302,35.03,Thoppu Venkatachalam (alias) N.d. Venkatachalam,parties.IN.DMK,DMK,60609,9693,4.83,src-3da941c21223
-IN-AC-2008-tamil-nadu-4059,tamil-nadu,2026,TIRUPPUR (NORTH),315863,263457,83.41,V.sathyabama,parties.IN.TVK,TVK,131401,49.88,M.s.m.anandan,parties.IN.AIADMK,ADMK,61409,69992,26.57,src-3da941c21223
-IN-AC-2008-tamil-nadu-4060,tamil-nadu,2026,TIRUPPUR (SOUTH),197104,179814,91.23,Balamurugan. S,parties.IN.TVK,TVK,73793,41.04,Dineshkumar. N,parties.IN.DMK,DMK,60892,12901,7.18,src-3da941c21223
-IN-AC-2008-tamil-nadu-4061,tamil-nadu,2026,AVADI,436522,346005,79.26,R.ramesh Kumar,parties.IN.TVK,TVK,180384,52.13,S.m.nasar,parties.IN.DMK,DMK,104073,76311,22.05,src-3da941c21223
-IN-AC-2008-tamil-nadu-4062,tamil-nadu,2026,GUMMIDIPOONDI,254175,232522,91.48,S.vijayakumar,parties.IN.TVK,TVK,94320,40.56,Sudhakar.v,parties.IN.AIADMK,ADMK,66375,27945,12.01,src-3da941c21223
-IN-AC-2008-tamil-nadu-4063,tamil-nadu,2026,MADAVARAM,431866,361998,83.82,M.l.vijayprabhu,parties.IN.TVK,TVK,190462,52.61,S.sudharsanam,parties.IN.DMK,DMK,95477,94985,26.23,src-3da941c21223
-IN-AC-2008-tamil-nadu-4064,tamil-nadu,2026,PONNERI (SC),251421,226819,90.21,Dr.ravi.m.s,parties.IN.TVK,TVK,110439,48.69,Durai Chandrasekar,parties.IN.INC,INC,54671,55768,24.59,src-3da941c21223
-IN-AC-2008-tamil-nadu-4065,tamil-nadu,2026,POONAMALLEE (SC),368694,308894,83.78,Prakasam.r,parties.IN.TVK,TVK,161309,52.22,Krishnaswamy.a,parties.IN.DMK,DMK,88569,72740,23.55,src-3da941c21223
-IN-AC-2008-tamil-nadu-4066,tamil-nadu,2026,THIRUVALLUR,251111,226428,90.17,Dr. T. Arunkumar,parties.IN.TVK,TVK,92190,40.71,V.g. Raajendran,parties.IN.DMK,DMK,67430,24760,10.93,src-3da941c21223
-IN-AC-2008-tamil-nadu-4067,tamil-nadu,2026,CHENGAM (SC),269423,242897,90.15,S.velu,parties.IN.AIADMK,ADMK,87802,36.15,K Bharathidhasan,parties.IN.TVK,TVK,74524,13278,5.47,src-3da941c21223
-IN-AC-2008-tamil-nadu-4068,tamil-nadu,2026,JOLARPET,237465,213042,89.72,Veeramani K.c.,parties.IN.AIADMK,ADMK,78633,36.91,Munisamy C,parties.IN.TVK,TVK,62550,16083,7.55,src-3da941c21223
-IN-AC-2008-tamil-nadu-4069,tamil-nadu,2026,KALASAPAKKAM,233595,214127,91.67,Agri Krishnamurthy. S S,parties.IN.AIADMK,ADMK,89629,41.86,Saravanan. P.s.t,parties.IN.DMK,DMK,62889,26740,12.49,src-3da941c21223
-IN-AC-2008-tamil-nadu-4070,tamil-nadu,2026,KILPENNATHUR,241209,219790,91.12,Ramachandran.s,parties.IN.AIADMK,ADMK,90503,41.18,Pitchandi.k,parties.IN.DMK,DMK,60038,30465,13.86,src-3da941c21223
-IN-AC-2008-tamil-nadu-4071,tamil-nadu,2026,TIRUPPATTUR,227352,202925,89.26,Dr.thirupathi. N,parties.IN.TVK,TVK,105098,51.79,Nallathambi. A,parties.IN.DMK,DMK,56835,48263,23.78,src-3da941c21223
-IN-AC-2008-tamil-nadu-4072,tamil-nadu,2026,TIRUVANNAMALAI,250026,220066,88.02,Velu. E.v,parties.IN.DMK,DMK,88273,40.11,Arul Arumugam,parties.IN.TVK,TVK,85818,2455,1.11,src-3da941c21223
-IN-AC-2008-tamil-nadu-4073,tamil-nadu,2026,AMBUR,214898,195584,91.01,Vilwanathan. A.c.,parties.IN.DMK,DMK,74102,37.89,Imthiyaz Pandarattudu Abdu,parties.IN.TVK,TVK,66971,7131,3.65,src-3da941c21223
-IN-AC-2008-tamil-nadu-4074,tamil-nadu,2026,ANAIKATTU,240640,216318,89.89,D.velazhagan,parties.IN.AIADMK,ADMK,76302,35.27,A.p.nandakumar,parties.IN.DMK,DMK,69221,7081,3.27,src-3da941c21223
-IN-AC-2008-tamil-nadu-4075,tamil-nadu,2026,GUDIYATTAM (SC),252064,229076,90.88,K.sindu,parties.IN.TVK,TVK,82858,36.17,K.b.pradap,parties.IN.DMDK,DMDK,72761,10097,4.41,src-3da941c21223
-IN-AC-2008-tamil-nadu-4076,tamil-nadu,2026,KILVAITHINANKUPPAM (SC),217021,189892,87.5,Thenral Kumar. E,parties.IN.TVK,TVK,74305,39.13,Jegan Moorthy. M,parties.IN.AIADMK,ADMK,54050,20255,10.67,src-3da941c21223
-IN-AC-2008-tamil-nadu-4077,tamil-nadu,2026,VANIYAMBADI,243320,212534,87.35,Syed Farooq Basha Ssb,parties.IN.IUML,IUML,73181,34.43,Syed Bhurhanudeen,parties.IN.TVK,TVK,70199,2982,1.4,src-3da941c21223
-IN-AC-2008-tamil-nadu-4078,tamil-nadu,2026,VELLORE,214946,190527,88.64,M.m.vinoth Kannan,parties.IN.TVK,TVK,73032,38.33,P.karthikeyan,parties.IN.DMK,DMK,66255,6777,3.56,src-3da941c21223
-IN-AC-2008-tamil-nadu-4079,tamil-nadu,2026,TIRUKKOYILUR,243404,217318,89.28,Palanisamy S,parties.IN.AIADMK,ADMK,73033,33.61,Vijay R Baranibalaaji,parties.IN.TVK,TVK,72748,285,0.13,src-3da941c21223
-IN-AC-2008-tamil-nadu-4080,tamil-nadu,2026,TINDIVANAM (SC),219300,196026,89.39,Vanni Arasu,parties.IN.VCK,VCK,63833,32.56,Arjunan. P,parties.IN.AIADMK,ADMK,63099,734,0.37,src-3da941c21223
-IN-AC-2008-tamil-nadu-4081,tamil-nadu,2026,ULUNDURPETTAI,300789,271002,90.1,Vasanthavel G R,parties.IN.DMK,DMK,98471,36.34,Kumaraguru R,parties.IN.AIADMK,ADMK,96194,2277,0.84,src-3da941c21223
-IN-AC-2008-tamil-nadu-4082,tamil-nadu,2026,VANUR (SC),209885,192119,91.54,Gowtham D,parties.IN.DMK,DMK,68873,35.85,Suresh P,parties.IN.TVK,TVK,61839,7034,3.66,src-3da941c21223
-IN-AC-2008-tamil-nadu-4083,tamil-nadu,2026,VIKRAVANDI,229182,209231,91.29,Sivakumar C,parties.IN.PMK,PMK,69727,33.33,Vijai Vadivel A,parties.IN.TVK,TVK,68817,910,0.44,src-3da941c21223
-IN-AC-2008-tamil-nadu-4084,tamil-nadu,2026,VILUPPURAM,245994,215422,87.57,Lakshmanan R,parties.IN.DMK,DMK,72982,33.88,Mohanraj N,parties.IN.TVK,TVK,68863,4119,1.91,src-3da941c21223
-IN-AC-2008-tamil-nadu-4085,tamil-nadu,2026,ARUPPUKKOTTAI,208168,178413,85.71,Ramachandran. K.k.s.s.r,parties.IN.DMK,DMK,65104,36.49,Karthik Kumar. K,parties.IN.TVK,TVK,60161,4943,2.77,src-3da941c21223
-IN-AC-2008-tamil-nadu-4086,tamil-nadu,2026,SATTUR,230149,198734,86.35,Kadarkarairaj. A,parties.IN.DMK,DMK,62060,31.23,Nainar Nagenthran,parties.IN.BJP,BJP,56071,5989,3.02,src-3da941c21223
-IN-AC-2008-tamil-nadu-4087,tamil-nadu,2026,SIVAKASI,228465,193517,84.7,Keerthana S,parties.IN.TVK,TVK,68709,35.51,Ashokan G,parties.IN.INC,INC,57039,11670,6.04,src-3da941c21223
-IN-AC-2008-tamil-nadu-4088,tamil-nadu,2026,THIRUMANGALAM,262948,230980,87.84,Manimaran.m,parties.IN.DMK,DMK,88291,38.22,Udhayakumar.r.b,parties.IN.AIADMK,ADMK,64484,23807,10.3,src-3da941c21223
-IN-AC-2008-tamil-nadu-4089,tamil-nadu,2026,THIRUPARANKUNDRAM,311705,255466,81.96,Nirmalkumar. R.,parties.IN.TVK,TVK,114316,44.75,Kiruthiga Thangapandi,parties.IN.DMK,DMK,72763,41553,16.27,src-3da941c21223
-IN-AC-2008-tamil-nadu-4090,tamil-nadu,2026,VIRUDHUNAGAR,200938,167832,83.52,Selvam P,parties.IN.TVK,TVK,63653,37.93,Vijayaprabhakar,parties.IN.DMDK,DMDK,54262,9391,5.6,src-3da941c21223
-IN-AC-2008-tamil-nadu-eci17,tamil-nadu,2026,ROYAPURAM,159672,127356,79.76,K.v. Vijay Damu,parties.IN.TVK,TVK,59091,46.4,Dr. A. Subair Khan,parties.IN.DMK,DMK,44842,14249,11.19,src-3da941c21223
-IN-AC-2008-tamil-nadu-eci192,tamil-nadu,2026,MADURAI SOUTH,180003,141503,78.61,M.m.gopison,parties.IN.TVK,TVK,62415,44.11,M.boominathan,parties.IN.DMK,DMK,40886,21529,15.22,src-3da941c21223
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-2008-tamil-nadu-3857,tamil-nadu,2026,ARAKKONAM (SC),200986,182340,90.72,V. Gandhiraj,parties.IN.TVK,TVK,73776,40.46,Ezhil Caroline,parties.IN.VCK,VCK,50655,23121,12.68,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3858,tamil-nadu,2026,ARCOT,246786,225786,91.49,S.m.sukumar,parties.IN.AIADMK,ADMK,105608,46.77,G.vijay Mohan,parties.IN.TVK,TVK,62888,42720,18.92,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3859,tamil-nadu,2026,KATPADI,230148,203497,88.42,Dr M Sudhakar,parties.IN.TVK,TVK,69868,34.33,V. Ramu,parties.IN.AIADMK,ADMK,63998,5870,2.88,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3860,tamil-nadu,2026,RANIPET,248962,221038,88.78,Thahira,parties.IN.TVK,TVK,91149,41.24,R. Gandhi,parties.IN.DMK,DMK,85362,5787,2.62,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3861,tamil-nadu,2026,SHOLINGUR,258076,233684,90.55,G.kapil,parties.IN.TVK,TVK,84506,36.16,K.saravanan,parties.IN.PMK,PMK,78820,5686,2.43,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3862,tamil-nadu,2026,TIRUTTANI,262500,238798,90.97,G.hari,parties.IN.AIADMK,ADMK,89169,37.34,M.sathya Kumar,parties.IN.TVK,TVK,83376,5793,2.43,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3863,tamil-nadu,2026,ARANI,256474,230162,89.74,Jayasudha. L,parties.IN.AIADMK,ADMK,76735,33.34,Mahalakshmi Govarthanan,parties.IN.DMK,DMK,71104,5631,2.45,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3864,tamil-nadu,2026,CHEYYAR,240008,222570,92.73,Mukkur N. Subramanian,parties.IN.AIADMK,ADMK,86680,38.95,Dusi K Mohan,parties.IN.TVK,TVK,65599,21081,9.48,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3865,tamil-nadu,2026,GINGEE,242992,216652,89.16,Ganeshkumar A,parties.IN.PMK,PMK,78201,36.1,Gingee Masthan K S,parties.IN.DMK,DMK,65556,12645,5.84,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3866,tamil-nadu,2026,MAILAM,209098,189221,90.49,Shanmugam C Ve,parties.IN.AIADMK,ADMK,82353,43.52,Vijay Niranjan A,parties.IN.TVK,TVK,52312,30041,15.87,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3867,tamil-nadu,2026,POLUR,235091,211743,90.07,Abishek. R,parties.IN.TVK,TVK,67961,32.1,Saravanan. P,parties.IN.DMDK,DMDK,67734,227,0.11,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3868,tamil-nadu,2026,VANDAVASI (SC),213574,191204,89.53,Ambethkumar. S,parties.IN.DMK,DMK,63805,33.37,Rani. P,parties.IN.AIADMK,ADMK,60472,3333,1.74,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3869,tamil-nadu,2026,ANNA NAGAR,188908,163339,86.46,V.k.ramkumar,parties.IN.TVK,TVK,71375,43.7,N.chitrarasu,parties.IN.DMK,DMK,50012,21363,13.08,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3870,tamil-nadu,2026,CHEPAUK-THIRUVALLIKENI,166050,140741,84.76,Udhayanidhi Stalin,parties.IN.DMK,DMK,62992,44.76,Selvam. D,parties.IN.TVK,TVK,55852,7140,5.08,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3871,tamil-nadu,2026,EGMORE (SC),138796,119738,86.27,Rajmohan,parties.IN.TVK,TVK,53901,45.02,Tamilan Prasanna,parties.IN.DMK,DMK,43097,10804,9.03,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3872,tamil-nadu,2026,HARBOUR,120142,99622,82.92,P K Sekarbabu,parties.IN.DMK,DMK,45254,45.43,Sinora P S Ashok,parties.IN.TVK,TVK,33504,11750,11.8,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3873,tamil-nadu,2026,THOUSAND LIGHTS,157551,131824,83.67,Prabhakar.j.c.d,parties.IN.TVK,TVK,58965,44.73,Ezhilan Naganathan,parties.IN.DMK,DMK,43824,15141,11.49,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3874,tamil-nadu,2026,VILLIVAKKAM,163416,141452,86.56,Aadhav Arjuna,parties.IN.TVK,TVK,66445,46.97,Karthik Mohan,parties.IN.DMK,DMK,49143,17302,12.23,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3875,tamil-nadu,2026,DR.RADHAKRISHNAN NAGAR,199394,181210,90.88,N. Marie Wilson,parties.IN.TVK,TVK,97800,53.97,J. John Ebenezer,parties.IN.DMK,DMK,48132,49668,27.41,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3876,tamil-nadu,2026,KOLATHUR,211833,184051,86.88,V. S. Babu,parties.IN.TVK,TVK,82997,45.09,M. K. Stalin,parties.IN.DMK,DMK,74202,8795,4.77,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3877,tamil-nadu,2026,PERAMBUR,226345,204384,90.3,C. Joseph Vijay,parties.IN.TVK,TVK,120365,58.89,R.d. Shekar,parties.IN.DMK,DMK,66650,53715,26.28,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3879,tamil-nadu,2026,THIRU-VI-KA-NAGAR (SC),181658,143903,79.22,M. R. Pallavi,parties.IN.TVK,TVK,69125,48.04,K. S. Ravichandran,parties.IN.DMK,DMK,46792,22333,15.52,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3880,tamil-nadu,2026,THIRUVOTTIYUR,244931,207088,84.55,Senthil Kumar. N,parties.IN.TVK,TVK,110067,53.15,Sundararaj. L,parties.IN.CPIM,CPI(M),56503,53564,25.87,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3881,tamil-nadu,2026,MYLAPORE,199496,150594,75.49,Venkataramanan. P,parties.IN.TVK,TVK,70070,46.53,Velu. Dha,parties.IN.DMK,DMK,41098,28972,19.24,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3882,tamil-nadu,2026,SAIDAPET,204177,160401,78.56,Arul Prakasam. M,parties.IN.TVK,TVK,81205,50.63,Subramanian. Ma,parties.IN.DMK,DMK,52691,28514,17.78,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3883,tamil-nadu,2026,SHOZHINGANALLUR,553978,447295,80.74,Ecr P Saravanan,parties.IN.TVK,TVK,220382,49.27,S. Aravind Ramesh,parties.IN.DMK,DMK,123602,96780,21.64,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3884,tamil-nadu,2026,THIYAGARAYANAGAR,158791,133928,84.34,Anand N,parties.IN.TVK,TVK,51632,38.55,Sathiyanarayanan B,parties.IN.AIADMK,ADMK,38605,13027,9.72,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3885,tamil-nadu,2026,VELACHERY,217208,184815,85.09,Kumar. R,parties.IN.TVK,TVK,80430,43.52,Ashok. M.k,parties.IN.AIADMK,ADMK,47125,33305,18.02,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3886,tamil-nadu,2026,VIRUGAMPAKKAM,200627,172831,86.15,Sabarinathan.r,parties.IN.TVK,TVK,76092,44.03,Prabhakara Raja.a.m.v,parties.IN.DMK,DMK,49006,27086,15.68,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3887,tamil-nadu,2026,ARIYALUR,263156,235858,89.63,Rajendran S,parties.IN.AIADMK,ADMK,95219,40.37,Latha Balu,parties.IN.DMK,DMK,70721,24498,10.39,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3888,tamil-nadu,2026,BHUVANAGIRI,233353,207310,88.84,Arunmozhithevan . A,parties.IN.AIADMK,ADMK,75707,36.52,Saravanan. Durai . K,parties.IN.DMK,DMK,73220,2487,1.2,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3889,tamil-nadu,2026,CHIDAMBARAM,231325,196586,84.98,Thamimun Ansari. M,parties.IN.DMK,DMK,69739,35.48,Pandian. K.a,parties.IN.AIADMK,ADMK,63992,5747,2.93,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3890,tamil-nadu,2026,JAYANKONDAM,263862,228548,86.62,Vaithilingam G.,parties.IN.PMK,PMK,88992,38.94,Kannan Ka.so.ka.,parties.IN.DMK,DMK,70502,18490,8.09,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3891,tamil-nadu,2026,KATTUMANNARKOIL (SC),226509,187905,82.96,L.e. Jothimani,parties.IN.VCK,VCK,85179,45.33,A. Sozhan,parties.IN.PMK,PMK,52116,33063,17.59,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3892,tamil-nadu,2026,KUNNAM,268155,230570,85.98,Sivasankar. S.s,parties.IN.DMK,DMK,87237,37.84,Saranya. A,parties.IN.AIADMK,ADMK,71680,15557,6.75,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3893,tamil-nadu,2026,COIMBATORE (NORTH),296994,226109,76.13,V. Sampathkumar,parties.IN.TVK,TVK,92500,40.91,Durai. Senthamil Selvan B.e,parties.IN.DMK,DMK,70508,21992,9.73,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3894,tamil-nadu,2026,COIMBATORE (SOUTH),188912,156499,82.84,V Senthilbalaji,parties.IN.DMK,DMK,59724,38.16,V. Senthilkumar,parties.IN.TVK,TVK,57453,2271,1.45,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3895,tamil-nadu,2026,KAVUNDAMPALAYAM,422240,363991,86.2,Kanimozhi Santhosh,parties.IN.TVK,TVK,146466,40.24,Arunkumar Prg,parties.IN.AIADMK,ADMK,104326,42140,11.58,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3896,tamil-nadu,2026,PALLADAM,329875,301014,91.25,K.ramkumar,parties.IN.TVK,TVK,121297,40.3,K.p.paramasivam,parties.IN.AIADMK,ADMK,83400,37897,12.59,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3897,tamil-nadu,2026,SINGANALLUR,269997,221033,81.86,K.s.sri Giri Prasath,parties.IN.TVK,TVK,84163,38.08,V.srinidhi,parties.IN.INC,INC,65024,19139,8.66,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3898,tamil-nadu,2026,SULUR,307699,273544,88.9,Nm.sukumar,parties.IN.TVK,TVK,90531,33.1,V.p.kandasamy,parties.IN.AIADMK,ADMK,85741,4790,1.76,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3899,tamil-nadu,2026,CUDDALORE,223243,190378,85.28,B.rajkumar,parties.IN.TVK,TVK,70856,37.22,A.s.chandarasekaran,parties.IN.INC,INC,55337,15519,8.15,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3900,tamil-nadu,2026,KURINJIPADI,238287,213965,89.79,M.r.k.panneerselvam,parties.IN.DMK,DMK,76695,35.84,A Bhuvanenthiran,parties.IN.AIADMK,ADMK,69106,7589,3.54,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3901,tamil-nadu,2026,NEYVELI,191337,168780,88.21,Rajendran.r,parties.IN.AIADMK,ADMK,63731,37.76,Saba.rajendran,parties.IN.DMK,DMK,52769,10962,6.5,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3902,tamil-nadu,2026,PANRUTI,241839,210767,87.15,Mohan. K,parties.IN.AIADMK,ADMK,78398,37.2,Abdur Rahman. A.r,parties.IN.VCK,VCK,67735,10663,5.06,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3903,tamil-nadu,2026,TITTAKUDI (SC),209006,175754,84.09,Ganesan C.v,parties.IN.DMK,DMK,63106,35.91,Rajasekar A,parties.IN.TVK,TVK,60477,2629,1.5,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3904,tamil-nadu,2026,VRIDDHACHALAM,240844,209186,86.86,Premallatha Vijayakant,parties.IN.DMDK,DMDK,69351,33.15,Vijay.s,parties.IN.TVK,TVK,66964,2387,1.14,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3905,tamil-nadu,2026,DHARMAPURI,260979,238579,91.42,Sowmiya Anbumani,parties.IN.PMK,PMK,93713,39.28,Sivan. M.,parties.IN.TVK,TVK,72817,20896,8.76,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3906,tamil-nadu,2026,HARUR (SC),245971,220042,89.46,Sampathkumar. V,parties.IN.AIADMK,ADMK,75523,34.32,Shanmugam. A,parties.IN.DMK,DMK,72194,3329,1.51,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3907,tamil-nadu,2026,METTUR,255869,231105,90.32,Venkatachalam. G,parties.IN.AIADMK,ADMK,86498,37.43,Midhun Chakravarthy. M,parties.IN.DMK,DMK,67393,19105,8.27,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3908,tamil-nadu,2026,PALACODU,240861,225257,93.52,Anbalagan. K.p.,parties.IN.AIADMK,ADMK,102807,45.64,Gopi. R.,parties.IN.TVK,TVK,63765,39042,17.33,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3909,tamil-nadu,2026,PAPPIREDDIPATTI,257016,236621,92.06,Maragatham Vetrivel,parties.IN.AIADMK,ADMK,101829,43.03,Palaniappan. P,parties.IN.DMK,DMK,68715,33114,13.99,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3910,tamil-nadu,2026,PENNAGARAM,248832,228666,91.9,Gajendran. S.,parties.IN.TVK,TVK,81240,35.53,Selvam. V.,parties.IN.PMK,PMK,78075,3165,1.39,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3911,tamil-nadu,2026,ATHOOR,262329,237183,90.41,I. Periasamy,parties.IN.DMK,DMK,106240,44.79,N. Kalaiselvi,parties.IN.TVK,TVK,83872,22368,9.43,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3912,tamil-nadu,2026,DINDIGUL,242126,212024,87.57,Senthilkumar. I.p,parties.IN.DMK,DMK,74489,35.13,Nazeer Raja. G,parties.IN.TVK,TVK,73358,1131,0.53,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3913,tamil-nadu,2026,NATHAM,261393,239140,91.49,Natham Viswanathan R,parties.IN.AIADMK,ADMK,85708,35.84,Selvakumar K,parties.IN.DMK,DMK,73839,11869,4.96,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3914,tamil-nadu,2026,NILAKKOTTAI (SC),221565,197593,89.18,Ayyanar.r,parties.IN.TVK,TVK,68580,34.71,Nagajothi.s,parties.IN.DMK,DMK,65655,2925,1.48,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3915,tamil-nadu,2026,ODDANCHATRAM,220263,201624,91.54,Sakkarapani. R,parties.IN.DMK,DMK,93099,46.17,Vidiyal S. Sekar,parties.IN.BJP,BJP,49850,43249,21.45,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3916,tamil-nadu,2026,PALANI,239881,208619,86.97,Ravimanoharan. K,parties.IN.AIADMK,ADMK,66986,32.11,Dr. Praveen Kumar. M,parties.IN.TVK,TVK,66293,693,0.33,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3917,tamil-nadu,2026,DHARAPURAM (SC),222434,199944,89.89,Sathyabama.p,parties.IN.AIADMK,ADMK,81100,40.56,Indirani.t,parties.IN.DMK,DMK,64373,16727,8.36,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3918,tamil-nadu,2026,ERODE (EAST),179592,162453,90.46,M.vijay Balaji,parties.IN.TVK,TVK,69747,42.93,Gopinath Palaniyappan,parties.IN.INC,INC,45781,23966,14.75,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3919,tamil-nadu,2026,ERODE (WEST),250217,221400,88.48,Ananth Moghan K.k.,parties.IN.TVK,TVK,96836,43.74,S. Muthusamy,parties.IN.DMK,DMK,74586,22250,10.05,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3920,tamil-nadu,2026,KANGAYAM,219586,203534,92.69,Nsn Nataraj,parties.IN.AIADMK,ADMK,71122,34.94,Mani Gounder,parties.IN.TVK,TVK,62989,8133,3.99,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3921,tamil-nadu,2026,KUMARAPALAYAM,220072,205324,93.3,C.vijayalakshmi,parties.IN.TVK,TVK,81179,39.54,P.thangamani,parties.IN.AIADMK,ADMK,73483,7696,3.75,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3922,tamil-nadu,2026,MODAKKURICHI,207697,190759,91.84,D.shanmugan,parties.IN.TVK,TVK,60715,31.83,S.kirthika,parties.IN.BJP,BJP,58285,2430,1.28,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3923,tamil-nadu,2026,ATTUR (SC),228219,208296,91.27,Jayasankaran. A.p.,parties.IN.AIADMK,ADMK,80843,38.81,Selvabharathi. R.,parties.IN.TVK,TVK,65525,15318,7.35,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3924,tamil-nadu,2026,GANGAVALLI (SC),218375,196679,90.06,Nallathambi. A,parties.IN.AIADMK,ADMK,73167,37.2,Chinnadurai. K,parties.IN.DMK,DMK,58763,14404,7.32,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3925,tamil-nadu,2026,KALLAKURICHI (SC),281622,249626,88.64,Arul Vignesh C,parties.IN.TVK,TVK,81132,32.5,Rajeevgandhi S,parties.IN.AIADMK,ADMK,80334,798,0.32,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3926,tamil-nadu,2026,RISHIVANDIYAM,273641,244795,89.46,Karthikeyan K,parties.IN.DMK,DMK,89711,36.65,Ashok Kumar G,parties.IN.TVK,TVK,84849,4862,1.99,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3927,tamil-nadu,2026,SANKARAPURAM,266003,235528,88.54,Rakesh R,parties.IN.AIADMK,ADMK,80250,34.07,Udhayasuriyan T,parties.IN.DMK,DMK,76810,3440,1.46,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3928,tamil-nadu,2026,YERCAUD (ST),272937,253592,92.91,Usharani. P,parties.IN.AIADMK,ADMK,87772,34.61,Lakshmi Janarthanan. J,parties.IN.TVK,TVK,85583,2189,0.86,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3929,tamil-nadu,2026,CHENGALPATTU,372889,324010,86.89,S. Thiyagarajan,parties.IN.TVK,TVK,137136,42.32,Karthik Dhandapani,parties.IN.DMK,DMK,101495,35641,11,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3930,tamil-nadu,2026,CHEYYUR (SC),204049,187584,91.93,Rajasekar. E,parties.IN.AIADMK,ADMK,63809,34.02,Mohan Raja.m.g.k,parties.IN.TVK,TVK,58141,5668,3.03,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3931,tamil-nadu,2026,KANCHEEPURAM,278841,246317,88.34,R.v. Ranjithkumar,parties.IN.TVK,TVK,91350,37.09,V. Somasundaram,parties.IN.AIADMK,ADMK,75862,15488,6.29,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3932,tamil-nadu,2026,MADURANTAKAM (SC),212666,198251,93.22,Maragatham Kumaravel.k,parties.IN.AIADMK,ADMK,69284,34.95,Ezhil Katharine Ezhilmalai,parties.IN.TVK,TVK,62090,7194,3.63,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3933,tamil-nadu,2026,THIRUPORUR,294452,262409,89.12,B.vijayaraj,parties.IN.TVK,TVK,110095,41.96,R. Panneerdoss,parties.IN.VCK,VCK,70744,39351,15,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3934,tamil-nadu,2026,UTHIRAMERUR,246248,227765,92.49,Munirathinam.j,parties.IN.TVK,TVK,84917,37.28,Sundar.k,parties.IN.DMK,DMK,70694,14223,6.24,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3935,tamil-nadu,2026,COLACHAL,266055,199013,74.8,Tharahai Cuthbert,parties.IN.INC,INC,66207,33.27,Prem Alex Lawrence,parties.IN.TVK,TVK,63374,2833,1.43,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3936,tamil-nadu,2026,KANNIYAKUMARI,289561,239150,82.59,Thalavai Sundaram. N,parties.IN.AIADMK,ADMK,75045,31.38,Mahesh.r,parties.IN.DMK,DMK,74831,214,0.09,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3937,tamil-nadu,2026,KILLIYOOR,247289,177534,71.79,Rajesh Kumar. S,parties.IN.INC,INC,66434,37.42,Sabin. S,parties.IN.TVK,TVK,65123,1311,0.74,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3938,tamil-nadu,2026,NAGERCOIL,259361,196280,75.68,Austin,parties.IN.DMK,DMK,69880,35.6,Bervin Kings G,parties.IN.TVK,TVK,62310,7570,3.85,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3939,tamil-nadu,2026,PADMANABHAPURAM,237160,180555,76.13,Chellaswamy. R,parties.IN.CPIM,CPI(M),68938,38.18,Krishna Kumar. S,parties.IN.TVK,TVK,53369,15569,8.62,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3940,tamil-nadu,2026,VILAVANCODE,228697,174927,76.49,Praveen T.t,parties.IN.INC,INC,70755,40.45,Michael Kumar K,parties.IN.TVK,TVK,49785,20970,11.99,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3941,tamil-nadu,2026,ARAVAKURICHI,195538,181078,92.61,Elango. R,parties.IN.DMK,DMK,70827,39.11,Karthikeyan. P,parties.IN.TVK,TVK,51445,19382,10.7,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3942,tamil-nadu,2026,KARUR,230068,216829,94.25,M.r. Vijayabhaskar,parties.IN.AIADMK,ADMK,71542,32.99,Mathiyalagan V.p,parties.IN.TVK,TVK,69721,1821,0.84,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3943,tamil-nadu,2026,KRISHNARAYAPURAM (SC),203090,189357,93.24,Sathya. M,parties.IN.TVK,TVK,62378,32.94,Dr. Dhivya. S,parties.IN.AIADMK,ADMK,58875,3503,1.85,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3944,tamil-nadu,2026,MANAPPARAI,268165,241216,89.95,R. Kathiravan,parties.IN.TVK,TVK,83041,34.43,Dr. Pl. Vijayakumar,parties.IN.AIADMK,ADMK,81615,1426,0.6,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3945,tamil-nadu,2026,VEDASANDUR,243998,226554,92.85,Saminathan. T,parties.IN.DMK,DMK,84948,37.5,Paramasivam. V.p.b.,parties.IN.AIADMK,ADMK,74885,10063,4.45,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3946,tamil-nadu,2026,VIRALIMALAI,225159,203921,90.57,Vijayabaskar. C,parties.IN.AIADMK,ADMK,105773,51.87,Murugesan. P,parties.IN.TVK,TVK,43700,62073,30.44,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3947,tamil-nadu,2026,BARGUR,240476,213960,88.97,E.c. Govindarasan,parties.IN.AIADMK,ADMK,71240,33.3,E. Muralidharan,parties.IN.TVK,TVK,66999,4241,1.99,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3948,tamil-nadu,2026,HOSUR,343040,277770,80.97,Balakrishnareddy. P,parties.IN.AIADMK,ADMK,109867,39.55,Vendarkarasan.s,parties.IN.TVK,TVK,82064,27803,10.01,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3949,tamil-nadu,2026,KRISHNAGIRI,269394,230181,85.44,Mukundhan.p,parties.IN.TVK,TVK,89374,38.83,Ashokkumar.k,parties.IN.AIADMK,ADMK,70530,18844,8.19,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3950,tamil-nadu,2026,THALLI,237961,205878,86.52,Ramachandran. T,parties.IN.CPI,CPI,78283,38.02,Dr.nagesh Kumar. C,parties.IN.BJP,BJP,73043,5240,2.54,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3951,tamil-nadu,2026,UTHANGARAI (SC),235925,205530,87.12,N Elaiyaraja,parties.IN.TVK,TVK,70201,34.16,T M Tamilselvam,parties.IN.AIADMK,ADMK,65003,5198,2.53,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3952,tamil-nadu,2026,VEPPANAHALLI,246739,222608,90.22,Srinivasan.p.s,parties.IN.DMK,DMK,74691,33.55,Munusamy.k.p,parties.IN.AIADMK,ADMK,74553,138,0.06,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3953,tamil-nadu,2026,MADURAI CENTRAL,199725,148586,74.4,Madhar Badhurudeen,parties.IN.TVK,TVK,63414,42.68,Palanivel Thiaga Rajan,parties.IN.DMK,DMK,44286,19128,12.88,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3954,tamil-nadu,2026,MADURAI EAST,336738,271566,80.65,Karthikeyan S,parties.IN.TVK,TVK,118777,43.74,Moorthy P,parties.IN.DMK,DMK,102230,16547,6.1,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3955,tamil-nadu,2026,MADURAI NORTH,221326,161801,73.11,A.kallanai,parties.IN.TVK,TVK,72853,45.03,G.thalapathi,parties.IN.DMK,DMK,54815,18038,11.15,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3957,tamil-nadu,2026,MADURAI WEST,275689,216403,78.5,Thangapandi Sr,parties.IN.TVK,TVK,88250,40.78,Balaji R,parties.IN.DMK,DMK,76319,11931,5.51,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3958,tamil-nadu,2026,MELUR,230061,190726,82.9,P.viswanathan,parties.IN.INC,INC,60080,31.5,A.maduraiveeran,parties.IN.TVK,TVK,57356,2724,1.43,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3959,tamil-nadu,2026,KUMBAKONAM,254383,208288,81.88,Vinoth,parties.IN.TVK,TVK,78650,37.76,Anbalagan G,parties.IN.DMK,DMK,77971,679,0.33,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3960,tamil-nadu,2026,MAYILADUTHURAI,234622,188461,80.33,Jamal Mohamed Younoos. Y.n,parties.IN.INC,INC,68011,36.09,Palanisamy. A M.com.,parties.IN.PMK,PMK,57166,10845,5.76,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3961,tamil-nadu,2026,PAPANASAM,256617,207723,80.95,A.m. Shahjahan,parties.IN.IUML,IUML,69284,33.35,Azarudeen Uduman Ali,parties.IN.TVK,TVK,68219,1065,0.51,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3962,tamil-nadu,2026,POOMPUHAR,259332,219324,84.57,Nivedha M Murugan,parties.IN.DMK,DMK,81096,36.98,Pavunraj. S,parties.IN.AIADMK,ADMK,72836,8260,3.77,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3963,tamil-nadu,2026,SIRKAZHI (SC),241432,200448,83.02,Senthilselvan.r,parties.IN.DMK,DMK,71449,35.64,Sakthi.m,parties.IN.AIADMK,ADMK,60032,11417,5.69,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3964,tamil-nadu,2026,THIRUVIDAIMARUDUR (SC),257014,208944,81.3,Govi.chezhiaan,parties.IN.DMK,DMK,79951,38.26,S.prabakaran,parties.IN.TVK,TVK,65835,14116,6.75,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3965,tamil-nadu,2026,KILVELUR (SC),170633,151637,88.87,Latha. T,parties.IN.CPIM,CPI(M),56108,37,Senthil Pandian. P,parties.IN.TVK,TVK,53830,2278,1.5,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3966,tamil-nadu,2026,NAGAPATTINAM,174736,151326,86.6,M.h.jawahirullah,parties.IN.DMK,DMK,56305,37.21,M.sugumar,parties.IN.TVK,TVK,46524,9781,6.47,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3967,tamil-nadu,2026,NANNILAM,267576,231444,86.5,Kamaraj. R,parties.IN.AIADMK,ADMK,103462,44.7,Mohamed Mubarak,parties.IN.DMK,DMK,61738,41724,18.02,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3968,tamil-nadu,2026,THIRUTHURAIPOONDI (SC),226940,191030,84.18,Marimuthu.k,parties.IN.CPI,CPI,74062,38.77,Pandiyan.s,parties.IN.TVK,TVK,61140,12922,6.76,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3969,tamil-nadu,2026,THIRUVARUR,260145,217875,83.75,Kalaivanan Poondi K,parties.IN.DMK,DMK,93408,42.87,Veeramani V,parties.IN.TVK,TVK,75260,18148,8.33,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3970,tamil-nadu,2026,VEDARANYAM,187527,162216,86.5,Manian. O.s,parties.IN.AIADMK,ADMK,59172,36.48,Pugazhendi. M,parties.IN.DMK,DMK,51841,7331,4.52,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3971,tamil-nadu,2026,NAMAKKAL,237915,212283,89.23,Dilip C S,parties.IN.TVK,TVK,79744,37.56,Sridevi Mohan P S,parties.IN.AIADMK,ADMK,68736,11008,5.18,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3972,tamil-nadu,2026,PARAMATHI-VELUR,205215,188845,92.02,Sekar S,parties.IN.AIADMK,ADMK,61349,32.49,Moorthiy K S,parties.IN.DMK,DMK,61041,308,0.17,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3973,tamil-nadu,2026,RASIPURAM (SC),222304,204680,92.07,Logesh Tamilselvan D,parties.IN.TVK,TVK,74808,36.55,Premkumar S D,parties.IN.BJP,BJP,60297,14511,7.09,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3974,tamil-nadu,2026,SANKARI,260590,243779,93.55,Vetrivel. S,parties.IN.AIADMK,ADMK,87342,35.83,Senthilkumar. K,parties.IN.TVK,TVK,77825,9517,3.91,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3975,tamil-nadu,2026,SENTHAMANGALAM (ST),229482,209687,91.37,P Chandrasekar,parties.IN.TVK,TVK,68815,32.82,C Chandrasekaran,parties.IN.AIADMK,ADMK,66160,2655,1.27,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3976,tamil-nadu,2026,TIRUCHENGODU,209099,191122,91.4,Arunraj K G,parties.IN.TVK,TVK,79500,41.6,Srmt Sekar (a) Chandrasekar R,parties.IN.AIADMK,ADMK,51328,28172,14.74,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3977,tamil-nadu,2026,AVANASHI (SC),253372,231600,91.41,Kamali.s,parties.IN.TVK,TVK,84209,36.36,Dr. L. Murugan,parties.IN.BJP,BJP,68836,15373,6.64,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3978,tamil-nadu,2026,BHAVANISAGAR (SC),237629,214595,90.31,V.p.tamilselvi,parties.IN.TVK,TVK,72391,33.73,A.bannari,parties.IN.AIADMK,ADMK,67822,4569,2.13,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3979,tamil-nadu,2026,COONOOR,177978,141394,79.44,M. Raju,parties.IN.DMK,DMK,50470,35.69,A. Ramu,parties.IN.AIADMK,ADMK,42371,8099,5.72,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3980,tamil-nadu,2026,GUDALUR (SC),185460,151241,81.55,Dhravidamani.m,parties.IN.DMK,DMK,65590,43.37,Pon.jayaseelan,parties.IN.AIADMK,ADMK,42757,22833,15.1,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3981,tamil-nadu,2026,METTUPPALAYAM,282235,244319,86.57,Sunilanand,parties.IN.TVK,TVK,75664,30.97,Smt.kavitha Kalyanasundaram,parties.IN.DMK,DMK,67896,7768,3.18,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3982,tamil-nadu,2026,UDHAGAMANDALAM,188968,148704,78.69,Bhojarajan.m,parties.IN.BJP,BJP,48488,32.61,Ibrahim.r,parties.IN.TVK,TVK,47512,976,0.66,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3983,tamil-nadu,2026,KULITHALAI,223376,209091,93.6,Suriyanur. A. Chandran,parties.IN.DMK,DMK,68138,32.59,G.balasubramani,parties.IN.TVK,TVK,67559,579,0.28,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3984,tamil-nadu,2026,LALGUDI,212403,185213,87.2,Leemarose Martin,parties.IN.AIADMK,ADMK,60795,32.82,Ku Pa Krishnan,parties.IN.TVK,TVK,58056,2739,1.47,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3985,tamil-nadu,2026,MANACHANALLUR,236632,209780,88.65,Kathiravan. S,parties.IN.DMK,DMK,81447,38.82,V.saravanan,parties.IN.TVK,TVK,69083,12364,5.89,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3986,tamil-nadu,2026,MUSIRI,214146,189141,88.32,M.vignesh,parties.IN.TVK,TVK,71281,37.69,N.s.karunairaaja,parties.IN.DMK,DMK,53839,17442,9.22,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3987,tamil-nadu,2026,PERAMBALUR (SC),290731,253654,87.25,Sivakumar. K,parties.IN.TVK,TVK,90882,35.83,Dr. Jayalakshmi. S.t,parties.IN.DMK,DMK,76489,14393,5.68,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3988,tamil-nadu,2026,THURAIYUR (SC),210753,184426,87.51,Ravisankar.m,parties.IN.TVK,TVK,66263,35.93,E.saroja,parties.IN.AIADMK,ADMK,56649,9614,5.21,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3989,tamil-nadu,2026,KINATHUKADAVU,305919,267917,87.58,Vignesh K,parties.IN.TVK,TVK,99950,37.31,Sabari Karthikeyan K.v.k.s,parties.IN.DMK,DMK,88240,11710,4.37,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3990,tamil-nadu,2026,MADATHUKULAM,214837,188249,87.62,R Jayaramakrishnan,parties.IN.DMK,DMK,70458,37.43,C Shanmugavelu,parties.IN.AMMK,AMMKMNKZ,54490,15968,8.48,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3991,tamil-nadu,2026,POLLACHI,204008,181196,88.82,K. Nithyanandhan,parties.IN.DMK,DMK,62013,34.22,Pollachi V. Jayaraman,parties.IN.AIADMK,ADMK,57386,4627,2.55,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3992,tamil-nadu,2026,THONDAMUTHUR,293379,258549,88.13,S.p.velumani,parties.IN.AIADMK,ADMK,93316,36.09,Sathish Raju (alias) K.p.r. Sathish,parties.IN.TVK,TVK,78591,14725,5.69,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3993,tamil-nadu,2026,UDUMALAIPETTAI,231009,203575,88.12,Jayakumar M.,parties.IN.DMK,DMK,68549,33.67,Radhakrishnan K.,parties.IN.AIADMK,ADMK,65667,2882,1.41,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3994,tamil-nadu,2026,VALPARAI (SC),173659,150431,86.62,Kutty (alias) Sudhakar. A,parties.IN.DMK,DMK,54671,36.34,Dr. Sridharan. A,parties.IN.TVK,TVK,45300,9371,6.23,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3995,tamil-nadu,2026,ARANTHANGI,229834,182730,79.51,Mohamed Farvas. J,parties.IN.TVK,TVK,73244,40.08,Ramachandran . T,parties.IN.INC,INC,63182,10062,5.5,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3996,tamil-nadu,2026,MUDHUKULATHUR,299702,231373,77.2,R.s.rajakannappan,parties.IN.DMK,DMK,68003,29.39,Malarvizhi. B,parties.IN.TVK,TVK,51405,16598,7.17,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3997,tamil-nadu,2026,PARAMAKUDI (SC),235109,189753,80.71,Advocate. Kathiravan. K.k,parties.IN.DMK,DMK,59161,31.18,Gopirajan. G,parties.IN.TVK,TVK,55613,3548,1.87,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3998,tamil-nadu,2026,RAMANATHAPURAM,312463,237576,76.03,Katharbatcha Muthuramalingam,parties.IN.DMK,DMK,89137,37.52,Shahul Hameed,parties.IN.TVK,TVK,76678,12459,5.24,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-3999,tamil-nadu,2026,TIRUCHULI,205681,181250,88.12,Thangam Thenarasu,parties.IN.DMK,DMK,75085,41.43,Samayan.s,parties.IN.TVK,TVK,61600,13485,7.44,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4000,tamil-nadu,2026,TIRUVADANAI,284130,220278,77.53,Rajeev,parties.IN.TVK,TVK,69551,31.57,Rm. Karumanickam,parties.IN.INC,INC,67038,2513,1.14,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4001,tamil-nadu,2026,EDAPPADI,276472,258263,93.41,Edappadi Palaniswami. K,parties.IN.AIADMK,ADMK,148933,57.67,Premkumar. K,parties.IN.IND,IND,50823,98110,37.99,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4002,tamil-nadu,2026,OMALUR,294863,271119,91.95,Mani. R,parties.IN.AIADMK,ADMK,112246,41.4,Adhiyamaan. R.v,parties.IN.TVK,TVK,97707,14539,5.36,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4003,tamil-nadu,2026,SALEM (NORTH),238685,210712,88.28,Sivakumar. K,parties.IN.TVK,TVK,85710,40.68,Rajendran. R,parties.IN.DMK,DMK,71676,14034,6.66,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4004,tamil-nadu,2026,SALEM (SOUTH),226880,207902,91.64,Vijay Tamilan Parthiban. A,parties.IN.TVK,TVK,91371,43.95,Loganathan. M,parties.IN.DMK,DMK,58002,33369,16.05,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4005,tamil-nadu,2026,SALEM (WEST),258040,234407,90.84,Lakshmanan.s,parties.IN.TVK,TVK,120407,51.37,Karthe.m,parties.IN.PMK,PMK,45540,74867,31.94,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4006,tamil-nadu,2026,VEERAPANDI,250504,235875,94.16,Palanivel. M.s,parties.IN.TVK,TVK,79907,33.88,Sri Balaji Sugumar. S,parties.IN.AIADMK,ADMK,75836,4071,1.73,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4007,tamil-nadu,2026,ALANGUDI,212139,180483,85.08,Siva.v.meyyanathan,parties.IN.DMK,DMK,64929,35.98,Kandasamy,parties.IN.TVK,TVK,51952,12977,7.2,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4008,tamil-nadu,2026,KARAIKUDI,306124,229267,74.89,Dr.prabhu. Tk,parties.IN.TVK,TVK,101358,44.21,Mangudi. S,parties.IN.INC,INC,55284,46074,20.1,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4009,tamil-nadu,2026,MANAMADURAI (SC),260203,208643,80.18,Elangovan.d,parties.IN.TVK,TVK,69971,33.54,Tamilarasi.a,parties.IN.DMK,DMK,68763,1208,0.58,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4010,tamil-nadu,2026,SIVAGANGA,278609,214067,76.83,Kulanthai Rani A,parties.IN.TVK,TVK,73737,34.45,Senthilnathan Pr,parties.IN.AIADMK,ADMK,58656,15081,7.05,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4011,tamil-nadu,2026,THIRUMAYAM,220622,182612,82.77,Regupathy.s,parties.IN.DMK,DMK,58201,31.87,Chinthamani.c,parties.IN.TVK,TVK,56709,1492,0.82,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4012,tamil-nadu,2026,TIRUPPATTUR,275999,215710,78.16,Seenivasa Sethupathy. R,parties.IN.TVK,TVK,83375,38.65,Periakaruppan. Kr,parties.IN.DMK,DMK,83374,1,0,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4013,tamil-nadu,2026,ALANDUR,301127,261570,86.86,M.harish,parties.IN.TVK,TVK,112205,42.9,T.m.anbarasan,parties.IN.DMK,DMK,82596,29609,11.32,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4014,tamil-nadu,2026,AMBATTUR,337081,259986,77.13,Balamurugan.g,parties.IN.TVK,TVK,133339,51.29,Dr A.p. Poornima,parties.IN.DMK,DMK,74558,58781,22.61,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4015,tamil-nadu,2026,MADURAVOYAL,373321,293692,78.67,Rhevanth Charan,parties.IN.TVK,TVK,141725,48.26,Ganapathy. K,parties.IN.DMK,DMK,80216,61509,20.95,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4016,tamil-nadu,2026,PALLAVARAM,337024,283677,84.17,J.kamatchi,parties.IN.TVK,TVK,133611,47.1,D.murugesan,parties.IN.DMDK,DMDK,78918,54693,19.28,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4017,tamil-nadu,2026,SRIPERUMBUDUR (SC),381807,331088,86.72,Thennarasu.k,parties.IN.TVK,TVK,147611,44.58,K. Selvaperunthagai,parties.IN.INC,INC,93365,54246,16.38,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4018,tamil-nadu,2026,TAMBARAM,330181,278809,84.44,D.sarathkumar,parties.IN.TVK,TVK,118967,42.67,R.s.kiruthika Devi,parties.IN.DMK,DMK,83346,35621,12.78,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4019,tamil-nadu,2026,KADAYANALLUR,269723,221951,82.29,Rajendran. T. M,parties.IN.DMK,DMK,79832,35.97,C. Krishnamurali,parties.IN.AIADMK,ADMK,73579,6253,2.82,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4020,tamil-nadu,2026,RAJAPALAYAM,214646,183020,85.27,Jegadeshwari. K,parties.IN.TVK,TVK,65548,35.81,Thangapandian. S,parties.IN.DMK,DMK,54943,10605,5.79,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4021,tamil-nadu,2026,SANKARANKOVIL (SC),239035,196480,82.2,Dr. Dhilipan Jaishankar,parties.IN.AIADMK,ADMK,64865,33.01,C. Ramarajan,parties.IN.TVK,TVK,58376,6489,3.3,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4022,tamil-nadu,2026,SRIVILLIPUTHUR (SC),224903,193471,86.02,Karthik.a,parties.IN.TVK,TVK,65653,33.93,Mahalingam.p,parties.IN.CPI,CPI,57072,8581,4.43,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4023,tamil-nadu,2026,TENKASI,282002,234987,83.33,Dr.kalai Kathiravan,parties.IN.DMK,DMK,79699,33.92,S.selva Mohandas Pandian,parties.IN.AIADMK,ADMK,69400,10299,4.39,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4024,tamil-nadu,2026,VASUDEVANALLUR (SC),229179,189795,82.82,E. Raja,parties.IN.DMK,DMK,63045,33.22,Ananthan Ayyasamy,parties.IN.BJP,BJP,56462,6583,3.47,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4025,tamil-nadu,2026,MANNARGUDI,234554,194100,82.75,Kamaraj. S,parties.IN.AMMK,AMMKMNKZ,68416,35.25,Rajaa.t.r.b,parties.IN.DMK,DMK,66850,1566,0.81,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4026,tamil-nadu,2026,ORATHANADU,233758,195304,83.55,R. Vaithilingam,parties.IN.DMK,DMK,86759,44.42,Dr. K. Arvind,parties.IN.TVK,TVK,51731,35028,17.93,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4027,tamil-nadu,2026,PATTUKKOTTAI,242451,183745,75.79,Annadurai K,parties.IN.DMK,DMK,65963,35.9,Mathan C,parties.IN.TVK,TVK,52209,13754,7.49,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4028,tamil-nadu,2026,PERAVURANI,213974,176274,82.38,Ashokkumar. N,parties.IN.DMK,DMK,60919,34.56,Govi.elango,parties.IN.AIADMK,ADMK,57757,3162,1.79,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4029,tamil-nadu,2026,THANJAVUR,252841,198798,78.63,R. Vijaysaravanan,parties.IN.TVK,TVK,87705,44.12,Shan. Ramanathan,parties.IN.DMK,DMK,70750,16955,8.53,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4030,tamil-nadu,2026,THIRUVAIYARU,258597,222111,85.89,Durai. Chandrasekaran,parties.IN.DMK,DMK,80425,36.21,Mathi. Manikandan,parties.IN.TVK,TVK,71870,8555,3.85,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4031,tamil-nadu,2026,ANDIPATTI,257997,217329,84.24,Maharajan.a,parties.IN.DMK,DMK,74324,34.2,Pandi.v,parties.IN.TVK,TVK,64770,9554,4.4,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4032,tamil-nadu,2026,BODINAYAKANUR,264386,220628,83.45,Panneerselvam.o,parties.IN.DMK,DMK,85206,38.62,Prakash.s,parties.IN.TVK,TVK,78401,6805,3.08,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4033,tamil-nadu,2026,CUMBUM,257323,210574,81.83,Jeganathmishra Pla,parties.IN.TVK,TVK,85394,40.55,Eramakrishnan N,parties.IN.DMK,DMK,84643,751,0.35,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4034,tamil-nadu,2026,PERIYAKULAM (SC),266570,211209,79.23,Sabari Iyngaran G.,parties.IN.TVK,TVK,85656,40.56,Sakthivel P.,parties.IN.VCK,VCK,66335,19321,9.15,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4035,tamil-nadu,2026,SHOLAVANDAN (SC),215348,189080,87.8,Karuppaiah.m.v,parties.IN.TVK,TVK,63907,33.8,Venkatesan.a,parties.IN.DMK,DMK,61229,2678,1.42,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4036,tamil-nadu,2026,USILAMPATTI,267969,224048,83.61,Vijay. M,parties.IN.TVK,TVK,65743,29.34,Mahendran. I,parties.IN.AIADMK,ADMK,63938,1805,0.8,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4037,tamil-nadu,2026,KOVILPATTI,242359,194232,80.14,Karunanithi.k,parties.IN.DMK,DMK,61643,31.74,Balasubramanian.s,parties.IN.TVK,TVK,60800,843,0.44,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4038,tamil-nadu,2026,OTTAPIDARAM (SC),244686,196117,80.15,P .mathanraja,parties.IN.TVK,TVK,81625,41.62,P.m.ramajeyam,parties.IN.DMK,DMK,52542,29083,14.83,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4039,tamil-nadu,2026,SRIVAIKUNTAM,214630,176421,82.2,Saravanan. G,parties.IN.TVK,TVK,58814,33.34,Shanmuganathan. S. P,parties.IN.AIADMK,ADMK,57628,1186,0.67,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4040,tamil-nadu,2026,THOOTHUKKUDI,250803,204712,81.62,Srinath,parties.IN.TVK,TVK,100536,49.11,P. Geetha Jeevan,parties.IN.DMK,DMK,62805,37731,18.43,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4041,tamil-nadu,2026,TIRUCHENDUR,233061,186050,79.83,Anitha R. Radhakrishnan,parties.IN.DMK,DMK,72723,39.09,J. Murugan,parties.IN.TVK,TVK,66851,5872,3.16,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4042,tamil-nadu,2026,VILATHIKULAM,205465,174814,85.08,Markandayan G V,parties.IN.DMK,DMK,58395,33.4,P. Kasiram,parties.IN.TVK,TVK,50167,8228,4.7,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4043,tamil-nadu,2026,GANDHARVAKOTTAI (SC),196104,167618,85.47,N. Subramanian,parties.IN.TVK,TVK,58795,35.08,C. Uthayakumar,parties.IN.BJP,BJP,47756,11039,6.59,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4044,tamil-nadu,2026,PUDUKKOTTAI,226009,190378,84.23,V. Muthuraja,parties.IN.DMK,DMK,66825,35.1,K.m. Shariff,parties.IN.TVK,TVK,64958,1867,0.98,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4045,tamil-nadu,2026,SRIRANGAM,287214,254985,88.78,Ramesh,parties.IN.TVK,TVK,103235,40.49,S. Durairaj,parties.IN.DMK,DMK,69645,33590,13.18,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4046,tamil-nadu,2026,THIRUVERUMBUR,259701,213583,82.24,Vijayakumar (a) Navalpattu S. Viji,parties.IN.TVK,TVK,89837,42.06,Anbil Mahesh Poyyamozhi,parties.IN.DMK,DMK,81132,8705,4.07,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4047,tamil-nadu,2026,TIRUCHIRAPPALLI (EAST),220240,182493,82.86,C. Joseph Vijay,parties.IN.TVK,TVK,91381,50.07,S. Inigo Irudayaraj,parties.IN.DMK,DMK,63965,27416,15.02,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4048,tamil-nadu,2026,TIRUCHIRAPPALLI (WEST),238980,196347,82.16,K.n.nehru,parties.IN.DMK,DMK,88235,44.94,G.ramamoorthi,parties.IN.TVK,TVK,83449,4786,2.44,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4049,tamil-nadu,2026,ALANGULAM,255730,220857,86.36,Paul Manoj Pandian,parties.IN.DMK,DMK,69170,31.32,K R P Prabakaran,parties.IN.AIADMK,ADMK,61372,7798,3.53,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4050,tamil-nadu,2026,AMBASAMUDRAM,228246,191195,83.77,Dr.esakki Subaya,parties.IN.AIADMK,ADMK,65589,34.3,V.p.durai,parties.IN.INC,INC,55344,10245,5.35,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4051,tamil-nadu,2026,NANGUNERI,257480,209419,81.33,Reddiarpatti V. Narayanan,parties.IN.TVK,TVK,74952,35.79,Ruby.r.manoharan,parties.IN.INC,INC,58533,16419,7.84,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4052,tamil-nadu,2026,PALAYAMKOTTAI,257498,180620,70.14,M.abdul Wahab,parties.IN.DMK,DMK,79744,44.15,Maria John,parties.IN.TVK,TVK,65939,13805,7.64,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4053,tamil-nadu,2026,RADHAPURAM,247310,199931,80.84,Dr.sathish Christopher,parties.IN.TVK,TVK,69947,34.99,Appavu.m,parties.IN.DMK,DMK,57634,12313,6.16,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4054,tamil-nadu,2026,TIRUNELVELI,276296,218425,79.05,Murughan.r.s.,parties.IN.TVK,TVK,75840,34.72,Subramanian.s,parties.IN.DMK,DMK,64426,11414,5.22,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4055,tamil-nadu,2026,ANTHIYUR,207413,185775,89.57,Haribaskar.p,parties.IN.AIADMK,ADMK,60042,32.32,Sivabalan.m,parties.IN.DMK,DMK,58782,1260,0.68,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4056,tamil-nadu,2026,BHAVANI,223221,208323,93.33,Karuppanan. K.c,parties.IN.AIADMK,ADMK,75577,36.28,Balakrishnan,parties.IN.TVK,TVK,68181,7396,3.55,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4057,tamil-nadu,2026,GOBICHETTIPALAYAM,239198,219727,91.86,Sengottaiyan.k.a,parties.IN.TVK,TVK,82612,37.6,Nallasivam.n,parties.IN.DMK,DMK,65992,16620,7.57,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4058,tamil-nadu,2026,PERUNDURAI,214451,200686,93.58,Jayakumar. S,parties.IN.AIADMK,ADMK,70302,35.03,Thoppu Venkatachalam (alias) N.d. Venkatachalam,parties.IN.DMK,DMK,60609,9693,4.83,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4059,tamil-nadu,2026,TIRUPPUR (NORTH),315863,263457,83.41,V.sathyabama,parties.IN.TVK,TVK,131401,49.88,M.s.m.anandan,parties.IN.AIADMK,ADMK,61409,69992,26.57,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4060,tamil-nadu,2026,TIRUPPUR (SOUTH),197104,179814,91.23,Balamurugan. S,parties.IN.TVK,TVK,73793,41.04,Dineshkumar. N,parties.IN.DMK,DMK,60892,12901,7.18,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4061,tamil-nadu,2026,AVADI,436522,346005,79.26,R.ramesh Kumar,parties.IN.TVK,TVK,180384,52.13,S.m.nasar,parties.IN.DMK,DMK,104073,76311,22.05,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4062,tamil-nadu,2026,GUMMIDIPOONDI,254175,232522,91.48,S.vijayakumar,parties.IN.TVK,TVK,94320,40.56,Sudhakar.v,parties.IN.AIADMK,ADMK,66375,27945,12.01,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4063,tamil-nadu,2026,MADAVARAM,431866,361998,83.82,M.l.vijayprabhu,parties.IN.TVK,TVK,190462,52.61,S.sudharsanam,parties.IN.DMK,DMK,95477,94985,26.23,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4064,tamil-nadu,2026,PONNERI (SC),251421,226819,90.21,Dr.ravi.m.s,parties.IN.TVK,TVK,110439,48.69,Durai Chandrasekar,parties.IN.INC,INC,54671,55768,24.59,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4065,tamil-nadu,2026,POONAMALLEE (SC),368694,308894,83.78,Prakasam.r,parties.IN.TVK,TVK,161309,52.22,Krishnaswamy.a,parties.IN.DMK,DMK,88569,72740,23.55,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4066,tamil-nadu,2026,THIRUVALLUR,251111,226428,90.17,Dr. T. Arunkumar,parties.IN.TVK,TVK,92190,40.71,V.g. Raajendran,parties.IN.DMK,DMK,67430,24760,10.93,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4067,tamil-nadu,2026,CHENGAM (SC),269423,242897,90.15,S.velu,parties.IN.AIADMK,ADMK,87802,36.15,K Bharathidhasan,parties.IN.TVK,TVK,74524,13278,5.47,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4068,tamil-nadu,2026,JOLARPET,237465,213042,89.72,Veeramani K.c.,parties.IN.AIADMK,ADMK,78633,36.91,Munisamy C,parties.IN.TVK,TVK,62550,16083,7.55,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4069,tamil-nadu,2026,KALASAPAKKAM,233595,214127,91.67,Agri Krishnamurthy. S S,parties.IN.AIADMK,ADMK,89629,41.86,Saravanan. P.s.t,parties.IN.DMK,DMK,62889,26740,12.49,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4070,tamil-nadu,2026,KILPENNATHUR,241209,219790,91.12,Ramachandran.s,parties.IN.AIADMK,ADMK,90503,41.18,Pitchandi.k,parties.IN.DMK,DMK,60038,30465,13.86,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4071,tamil-nadu,2026,TIRUPPATTUR,227352,202925,89.26,Dr.thirupathi. N,parties.IN.TVK,TVK,105098,51.79,Nallathambi. A,parties.IN.DMK,DMK,56835,48263,23.78,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4072,tamil-nadu,2026,TIRUVANNAMALAI,250026,220066,88.02,Velu. E.v,parties.IN.DMK,DMK,88273,40.11,Arul Arumugam,parties.IN.TVK,TVK,85818,2455,1.11,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4073,tamil-nadu,2026,AMBUR,214898,195584,91.01,Vilwanathan. A.c.,parties.IN.DMK,DMK,74102,37.89,Imthiyaz Pandarattudu Abdu,parties.IN.TVK,TVK,66971,7131,3.65,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4074,tamil-nadu,2026,ANAIKATTU,240640,216318,89.89,D.velazhagan,parties.IN.AIADMK,ADMK,76302,35.27,A.p.nandakumar,parties.IN.DMK,DMK,69221,7081,3.27,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4075,tamil-nadu,2026,GUDIYATTAM (SC),252064,229076,90.88,K.sindu,parties.IN.TVK,TVK,82858,36.17,K.b.pradap,parties.IN.DMDK,DMDK,72761,10097,4.41,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4076,tamil-nadu,2026,KILVAITHINANKUPPAM (SC),217021,189892,87.5,Thenral Kumar. E,parties.IN.TVK,TVK,74305,39.13,Jegan Moorthy. M,parties.IN.AIADMK,ADMK,54050,20255,10.67,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4077,tamil-nadu,2026,VANIYAMBADI,243320,212534,87.35,Syed Farooq Basha Ssb,parties.IN.IUML,IUML,73181,34.43,Syed Bhurhanudeen,parties.IN.TVK,TVK,70199,2982,1.4,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4078,tamil-nadu,2026,VELLORE,214946,190527,88.64,M.m.vinoth Kannan,parties.IN.TVK,TVK,73032,38.33,P.karthikeyan,parties.IN.DMK,DMK,66255,6777,3.56,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4079,tamil-nadu,2026,TIRUKKOYILUR,243404,217318,89.28,Palanisamy S,parties.IN.AIADMK,ADMK,73033,33.61,Vijay R Baranibalaaji,parties.IN.TVK,TVK,72748,285,0.13,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4080,tamil-nadu,2026,TINDIVANAM (SC),219300,196026,89.39,Vanni Arasu,parties.IN.VCK,VCK,63833,32.56,Arjunan. P,parties.IN.AIADMK,ADMK,63099,734,0.37,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4081,tamil-nadu,2026,ULUNDURPETTAI,300789,271002,90.1,Vasanthavel G R,parties.IN.DMK,DMK,98471,36.34,Kumaraguru R,parties.IN.AIADMK,ADMK,96194,2277,0.84,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4082,tamil-nadu,2026,VANUR (SC),209885,192119,91.54,Gowtham D,parties.IN.DMK,DMK,68873,35.85,Suresh P,parties.IN.TVK,TVK,61839,7034,3.66,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4083,tamil-nadu,2026,VIKRAVANDI,229182,209231,91.29,Sivakumar C,parties.IN.PMK,PMK,69727,33.33,Vijai Vadivel A,parties.IN.TVK,TVK,68817,910,0.44,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4084,tamil-nadu,2026,VILUPPURAM,245994,215422,87.57,Lakshmanan R,parties.IN.DMK,DMK,72982,33.88,Mohanraj N,parties.IN.TVK,TVK,68863,4119,1.91,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4085,tamil-nadu,2026,ARUPPUKKOTTAI,208168,178413,85.71,Ramachandran. K.k.s.s.r,parties.IN.DMK,DMK,65104,36.49,Karthik Kumar. K,parties.IN.TVK,TVK,60161,4943,2.77,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4086,tamil-nadu,2026,SATTUR,230149,198734,86.35,Kadarkarairaj. A,parties.IN.DMK,DMK,62060,31.23,Nainar Nagenthran,parties.IN.BJP,BJP,56071,5989,3.02,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4087,tamil-nadu,2026,SIVAKASI,228465,193517,84.7,Keerthana S,parties.IN.TVK,TVK,68709,35.51,Ashokan G,parties.IN.INC,INC,57039,11670,6.04,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4088,tamil-nadu,2026,THIRUMANGALAM,262948,230980,87.84,Manimaran.m,parties.IN.DMK,DMK,88291,38.22,Udhayakumar.r.b,parties.IN.AIADMK,ADMK,64484,23807,10.3,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4089,tamil-nadu,2026,THIRUPARANKUNDRAM,311705,255466,81.96,Nirmalkumar. R.,parties.IN.TVK,TVK,114316,44.75,Kiruthiga Thangapandi,parties.IN.DMK,DMK,72763,41553,16.27,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-4090,tamil-nadu,2026,VIRUDHUNAGAR,200938,167832,83.52,Selvam P,parties.IN.TVK,TVK,63653,37.93,Vijayaprabhakar,parties.IN.DMDK,DMDK,54262,9391,5.6,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-eci17,tamil-nadu,2026,ROYAPURAM,159672,127356,79.76,K.v. Vijay Damu,parties.IN.TVK,TVK,59091,46.4,Dr. A. Subair Khan,parties.IN.DMK,DMK,44842,14249,11.19,src-3da941c21223,minor,
+IN-AC-2008-tamil-nadu-eci192,tamil-nadu,2026,MADURAI SOUTH,180003,141503,78.61,M.m.gopison,parties.IN.TVK,TVK,62415,44.11,M.boominathan,parties.IN.DMK,DMK,40886,21529,15.22,src-3da941c21223,minor,

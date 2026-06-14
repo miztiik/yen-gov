@@ -1,16 +1,16 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-tamil-nadu-126,tamil-nadu,1998,126,COONOOR,Ranganathan M,parties.IN.DMK,DMK,47850,50.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-126,tamil-nadu,1998,126,COONOOR,Karuppusamy S,parties.IN.AIADMK,ADMK,37945,40.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-126,tamil-nadu,1998,126,COONOOR,Arumugam P.,parties.IN.INC,INC,7189,7.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-126,tamil-nadu,1998,126,COONOOR,Siddhan +AEA- Guruswami Siddhan G.,parties.IN.ATMK,ATMK,1144,1.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Thangamthenarasu,parties.IN.DMK,DMK,40223,39.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Panchavarnam V.S.,parties.IN.AIADMK,ADMK,38272,37.19,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Manickam P.T.,parties.IN.PT,PT,12484,12.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Palaniswamy K.,parties.IN.IND,IND,9525,9.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Chandran K.,parties.IN.INC,INC,1329,1.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Samayan A.,parties.IN.IND,IND,386,0.38,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Dr. Padmarajan K.,parties.IN.IND,IND,262,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Karutha Pandian T. K.,parties.IN.IND,IND,219,0.21,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Malai Chamy M.,parties.IN.IND,IND,99,0.1,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Thirunavukkarasu M.,parties.IN.IND,IND,64,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Boominathan E.,parties.IN.IND,IND,51,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-tamil-nadu-126,tamil-nadu,1998,126,COONOOR,Ranganathan M,parties.IN.DMK,DMK,47850,50.84,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-126,tamil-nadu,1998,126,COONOOR,Karuppusamy S,parties.IN.AIADMK,ADMK,37945,40.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-126,tamil-nadu,1998,126,COONOOR,Arumugam P.,parties.IN.INC,INC,7189,7.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-126,tamil-nadu,1998,126,COONOOR,Siddhan +AEA- Guruswami Siddhan G.,parties.IN.ATMK,ATMK,1144,1.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Thangamthenarasu,parties.IN.DMK,DMK,40223,39.08,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Panchavarnam V.S.,parties.IN.AIADMK,ADMK,38272,37.19,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Manickam P.T.,parties.IN.PT,PT,12484,12.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Palaniswamy K.,parties.IN.IND,IND,9525,9.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Chandran K.,parties.IN.INC,INC,1329,1.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Samayan A.,parties.IN.IND,IND,386,0.38,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Dr. Padmarajan K.,parties.IN.IND,IND,262,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Karutha Pandian T. K.,parties.IN.IND,IND,219,0.21,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Malai Chamy M.,parties.IN.IND,IND,99,0.1,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Thirunavukkarasu M.,parties.IN.IND,IND,64,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-204,tamil-nadu,1998,204,ARUPPUKOTTAI,Boominathan E.,parties.IN.IND,IND,51,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

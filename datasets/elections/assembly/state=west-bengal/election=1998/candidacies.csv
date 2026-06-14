@@ -1,43 +1,43 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-west-bengal-104,west-bengal,1998,104,BARUIPUR,Sujan Chakraborty,parties.IN.CPIM,CPM,76054,55.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-104,west-bengal,1998,104,BARUIPUR,Arup Bhadra,parties.IN.AITC,AITC,52762,38.31,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-104,west-bengal,1998,104,BARUIPUR,Rajen Paul,parties.IN.INC,INC,8083,5.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-104,west-bengal,1998,104,BARUIPUR,Abdus Sobhan Sarder,parties.IN.BSP,BSP,456,0.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-104,west-bengal,1998,104,BARUIPUR,Arun Mondal,parties.IN.IND,IND,201,0.15,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-104,west-bengal,1998,104,BARUIPUR,Pankaj Sardar,parties.IN.IND,IND,174,0.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-131,west-bengal,1998,131,JAGADAL,Haripada Biswas,parties.IN.AIFB,FBL,53407,41.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-131,west-bengal,1998,131,JAGADAL,Somnath Talukdar,parties.IN.AITC,AITC,43941,33.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-131,west-bengal,1998,131,JAGADAL,Provakar Tewari,parties.IN.BJP,BJP,19981,15.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-131,west-bengal,1998,131,JAGADAL,Kedar Singh,parties.IN.INC,INC,11739,9.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-131,west-bengal,1998,131,JAGADAL,Narendra Pratap Mishra,parties.IN.SAP,SAP,430,0.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-131,west-bengal,1998,131,JAGADAL,Samir Chandra Das,parties.IN.IND,IND,313,0.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Ajit Pandey,parties.IN.CPIM,CPM,19902,36.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Nayna Bandyopadhyay,parties.IN.WBTC,WBTC,18021,33.25,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Abdur Rauf Ansari,parties.IN.INC,INC,15711,28.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Prof. Syed Haider Hasan Kazimi,parties.IN.RJD,RJD,329,0.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Ajit Kumar Das,parties.IN.IND,IND,89,0.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Sujan Mukherjee,parties.IN.IND,IND,50,0.09,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Bablu Singh,parties.IN.IND,IND,45,0.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Aloke Chatterjee,parties.IN.IND,IND,28,0.05,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Ramen Pandey,parties.IN.IND,IND,16,0.03,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-149,west-bengal,1998,149,RASHBEHARIAVENUE,Sobhandeb Chattopadhyay,parties.IN.WBTC,WBTC,31979,53.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-149,west-bengal,1998,149,RASHBEHARIAVENUE,Biplab Chatterjee,parties.IN.CPIM,CPM,18446,30.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-149,west-bengal,1998,149,RASHBEHARIAVENUE,Soumyadeep Basu,parties.IN.INC,INC,9052,15.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-149,west-bengal,1998,149,RASHBEHARIAVENUE,Kanika Mukherjee,parties.IN.IND,IND,117,0.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-149,west-bengal,1998,149,RASHBEHARIAVENUE,Amalendu Ghosh,parties.IN.IND,IND,105,0.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-149,west-bengal,1998,149,RASHBEHARIAVENUE,Kalyan Kumar Rakshit,parties.IN.IND,IND,74,0.12,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-149,west-bengal,1998,149,RASHBEHARIAVENUE,Samir Guha,parties.IN.IND,IND,44,0.07,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-149,west-bengal,1998,149,RASHBEHARIAVENUE,Mridula Mukherjee,parties.IN.IND,IND,24,0.04,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-178,west-bengal,1998,178,CHANDITALA,Bhakta Ram Pan,parties.IN.CPIM,CPM,72610,52.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-178,west-bengal,1998,178,CHANDITALA,Amit Mitra,parties.IN.WBTC,WBTC,57091,41.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-178,west-bengal,1998,178,CHANDITALA,Bikiran Banerjee,parties.IN.INC,INC,7907,5.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-178,west-bengal,1998,178,CHANDITALA,Swapan Das,parties.IN.IND,IND,161,0.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-199,west-bengal,1998,199,NANDANPUR,SK. Dr. Omar Ali,parties.IN.CPIM,CPM,53657,50.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-199,west-bengal,1998,199,NANDANPUR,Saumen Mahapatra,parties.IN.AITC,AITC,52509,49.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-199,west-bengal,1998,199,NANDANPUR,Sri Tapan Kumar Maity,parties.IN.IND,IND,312,0.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-269,west-bengal,1998,269,GALSI,Mehbub Mondal,parties.IN.AIFB,FBL,72733,60.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-269,west-bengal,1998,269,GALSI,Champak Garai,parties.IN.INC,INC,21026,17.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-269,west-bengal,1998,269,GALSI,Nil Madhab Mondal,parties.IN.BJP,BJP,19662,16.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-269,west-bengal,1998,269,GALSI,Paresh Chandra Pal,parties.IN.AITC,AITC,5912,4.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-290,west-bengal,1998,290,MAYUNESWAR,Bisnu Let,parties.IN.CPIM,CPM,60649,57.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-290,west-bengal,1998,290,MAYUNESWAR,Arjun Saha,parties.IN.BJP,BJP,45008,42.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-west-bengal-104,west-bengal,1998,104,BARUIPUR,Sujan Chakraborty,parties.IN.CPIM,CPM,76054,55.22,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-104,west-bengal,1998,104,BARUIPUR,Arup Bhadra,parties.IN.AITC,AITC,52762,38.31,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-104,west-bengal,1998,104,BARUIPUR,Rajen Paul,parties.IN.INC,INC,8083,5.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-104,west-bengal,1998,104,BARUIPUR,Abdus Sobhan Sarder,parties.IN.BSP,BSP,456,0.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-104,west-bengal,1998,104,BARUIPUR,Arun Mondal,parties.IN.IND,IND,201,0.15,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-104,west-bengal,1998,104,BARUIPUR,Pankaj Sardar,parties.IN.IND,IND,174,0.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-131,west-bengal,1998,131,JAGADAL,Haripada Biswas,parties.IN.AIFB,FBL,53407,41.14,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-131,west-bengal,1998,131,JAGADAL,Somnath Talukdar,parties.IN.AITC,AITC,43941,33.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-131,west-bengal,1998,131,JAGADAL,Provakar Tewari,parties.IN.BJP,BJP,19981,15.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-131,west-bengal,1998,131,JAGADAL,Kedar Singh,parties.IN.INC,INC,11739,9.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-131,west-bengal,1998,131,JAGADAL,Narendra Pratap Mishra,parties.IN.SAP,SAP,430,0.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-131,west-bengal,1998,131,JAGADAL,Samir Chandra Das,parties.IN.IND,IND,313,0.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Ajit Pandey,parties.IN.CPIM,CPM,19902,36.73,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Nayna Bandyopadhyay,parties.IN.WBTC,WBTC,18021,33.25,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Abdur Rauf Ansari,parties.IN.INC,INC,15711,28.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Prof. Syed Haider Hasan Kazimi,parties.IN.RJD,RJD,329,0.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Ajit Kumar Das,parties.IN.IND,IND,89,0.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Sujan Mukherjee,parties.IN.IND,IND,50,0.09,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Bablu Singh,parties.IN.IND,IND,45,0.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Aloke Chatterjee,parties.IN.IND,IND,28,0.05,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-145,west-bengal,1998,145,BOWBAZAR,Ramen Pandey,parties.IN.IND,IND,16,0.03,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-149,west-bengal,1998,149,RASHBEHARIAVENUE,Sobhandeb Chattopadhyay,parties.IN.WBTC,WBTC,31979,53.44,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-149,west-bengal,1998,149,RASHBEHARIAVENUE,Biplab Chatterjee,parties.IN.CPIM,CPM,18446,30.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-149,west-bengal,1998,149,RASHBEHARIAVENUE,Soumyadeep Basu,parties.IN.INC,INC,9052,15.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-149,west-bengal,1998,149,RASHBEHARIAVENUE,Kanika Mukherjee,parties.IN.IND,IND,117,0.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-149,west-bengal,1998,149,RASHBEHARIAVENUE,Amalendu Ghosh,parties.IN.IND,IND,105,0.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-149,west-bengal,1998,149,RASHBEHARIAVENUE,Kalyan Kumar Rakshit,parties.IN.IND,IND,74,0.12,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-149,west-bengal,1998,149,RASHBEHARIAVENUE,Samir Guha,parties.IN.IND,IND,44,0.07,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-149,west-bengal,1998,149,RASHBEHARIAVENUE,Mridula Mukherjee,parties.IN.IND,IND,24,0.04,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-178,west-bengal,1998,178,CHANDITALA,Bhakta Ram Pan,parties.IN.CPIM,CPM,72610,52.7,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-178,west-bengal,1998,178,CHANDITALA,Amit Mitra,parties.IN.WBTC,WBTC,57091,41.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-178,west-bengal,1998,178,CHANDITALA,Bikiran Banerjee,parties.IN.INC,INC,7907,5.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-178,west-bengal,1998,178,CHANDITALA,Swapan Das,parties.IN.IND,IND,161,0.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-199,west-bengal,1998,199,NANDANPUR,SK. Dr. Omar Ali,parties.IN.CPIM,CPM,53657,50.39,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-199,west-bengal,1998,199,NANDANPUR,Saumen Mahapatra,parties.IN.AITC,AITC,52509,49.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-199,west-bengal,1998,199,NANDANPUR,Sri Tapan Kumar Maity,parties.IN.IND,IND,312,0.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-269,west-bengal,1998,269,GALSI,Mehbub Mondal,parties.IN.AIFB,FBL,72733,60.95,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-269,west-bengal,1998,269,GALSI,Champak Garai,parties.IN.INC,INC,21026,17.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-269,west-bengal,1998,269,GALSI,Nil Madhab Mondal,parties.IN.BJP,BJP,19662,16.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-269,west-bengal,1998,269,GALSI,Paresh Chandra Pal,parties.IN.AITC,AITC,5912,4.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-290,west-bengal,1998,290,MAYUNESWAR,Bisnu Let,parties.IN.CPIM,CPM,60649,57.4,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-290,west-bengal,1998,290,MAYUNESWAR,Arjun Saha,parties.IN.BJP,BJP,45008,42.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,

@@ -1,16 +1,16 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,Km. Madan Sahu,parties.IN.BJP,BJP,64185,47.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,Mohan Patel,parties.IN.INC,INC,54520,40.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,U R Gangrale,parties.IN.IND,IND,6524,4.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,Md. Hanif,parties.IN.IND,IND,3603,2.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,Niranjana Sahu,parties.IN.CSM,CSM,2231,1.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,Sitaram Thakur,parties.IN.IND,IND,1694,1.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,Shrikant Kaser,parties.IN.NCP,NCP,654,0.48,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,R K Deshlahre,parties.IN.IND,IND,438,0.32,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,S B Markandey,parties.IN.IND,IND,413,0.3,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,G. Ram Sivna,parties.IN.IND,IND,294,0.22,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,P Ram Sahu,parties.IN.IND,IND,219,0.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,G. Lokesh,parties.IN.AJP,AJP,209,0.15,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,Ramjan Khan,parties.IN.IND,IND,191,0.14,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,B. Mandavi,parties.IN.IND,IND,184,0.14,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,Harilal Patel,parties.IN.SSP,SSP,135,0.1,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,Km. Madan Sahu,parties.IN.BJP,BJP,64185,47.37,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,Mohan Patel,parties.IN.INC,INC,54520,40.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,U R Gangrale,parties.IN.IND,IND,6524,4.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,Md. Hanif,parties.IN.IND,IND,3603,2.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,Niranjana Sahu,parties.IN.CSM,CSM,2231,1.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,Sitaram Thakur,parties.IN.IND,IND,1694,1.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,Shrikant Kaser,parties.IN.NCP,NCP,654,0.48,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,R K Deshlahre,parties.IN.IND,IND,438,0.32,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,S B Markandey,parties.IN.IND,IND,413,0.3,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,G. Ram Sivna,parties.IN.IND,IND,294,0.22,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,P Ram Sahu,parties.IN.IND,IND,219,0.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,G. Lokesh,parties.IN.AJP,AJP,209,0.15,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,Ramjan Khan,parties.IN.IND,IND,191,0.14,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,B. Mandavi,parties.IN.IND,IND,184,0.14,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-chhattisgarh-2408,chhattisgarh,2011,59,SANJARI BALOD,Harilal Patel,parties.IN.SSP,SSP,135,0.1,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

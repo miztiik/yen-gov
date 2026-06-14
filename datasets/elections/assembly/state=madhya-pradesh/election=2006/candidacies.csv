@@ -1,44 +1,44 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,K.C.Ghuwara,parties.IN.BJP,BJP,38880,33.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Rekha Yadav,parties.IN.BJS,BJS,34494,29.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Jagdish Shukla,parties.IN.INC,INC,20241,17.55,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Naseem Khan,parties.IN.IND,IND,3931,3.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Nirmal Singh,parties.IN.IND,IND,1964,1.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Sukhlal Joshi,parties.IN.CPI,CPI,1958,1.7,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Dwarka,parties.IN.IND,IND,1554,1.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Soni Ashok Kumar,parties.IN.IND,IND,1325,1.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Manish Kumar,parties.IN.IND,IND,1250,1.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Ahirwar Dashrath,parties.IN.IND,IND,1247,1.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,K.M.Chandra,parties.IN.RSD,RSD,1025,0.89,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Ramkali Yadav,parties.IN.IND,IND,969,0.84,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Alok Kumar (Paappu Bhaiya),parties.IN.IND,IND,949,0.82,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Kraparam,parties.IN.IND,IND,924,0.8,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,S.S.Yadav,parties.IN.SP,SP,881,0.76,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Agrawal Vinod,parties.IN.IND,IND,770,0.67,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Gokal,parties.IN.IND,IND,605,0.52,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Jayram Yadav,parties.IN.IND,IND,595,0.52,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Prabodh Kumar,parties.IN.IND,IND,535,0.46,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Jagdish,parties.IN.IND,IND,467,0.4,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Ahirwar Hariram,parties.IN.IND,IND,406,0.35,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Mahesh Kumar,parties.IN.IND,IND,353,0.31,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Shivraj Singh,parties.IN.BJP,BJP,66689,59.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Rajkumar Patel,parties.IN.INC,INC,30164,26.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Gulzar Singh Markam,parties.IN.G_G_P,G.G.P,7900,7,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Santosh Gour,parties.IN.IND,IND,2085,1.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Shri Ram Neta,parties.IN.IND,IND,1284,1.14,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Narmada P.D.M.Yadav,parties.IN.UNK,S.P,894,0.79,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Hardev Patel (Gond),parties.IN.IND,IND,856,0.76,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Suresh Kumar,parties.IN.IND,IND,726,0.64,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Ajay Dinkar,parties.IN.IND,IND,632,0.56,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Shobha Ram Sharma,parties.IN.IND,IND,320,0.28,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Abdul Jabbar,parties.IN.IND,IND,261,0.23,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Balkishan,parties.IN.IND,IND,236,0.21,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Ad.Ahmad Shaeed Qureshi,parties.IN.IND,IND,215,0.19,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Kali Charan Vaidhya,parties.IN.IND,IND,212,0.19,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Khushilal,parties.IN.IND,IND,210,0.19,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Mo. Nafees Mansuri,parties.IN.IND,IND,205,0.18,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-193,madhya-pradesh,2006,193,PANDHANA,DEVENDER VERMA,parties.IN.BJP,BJP,45459,47.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-193,madhya-pradesh,2006,193,PANDHANA,HIRALAL SILAWAT,parties.IN.INC,INC,33475,34.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-193,madhya-pradesh,2006,193,PANDHANA,VASUDEV SUKHRAM ATOOT,parties.IN.BJS,BJS,12623,13.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-193,madhya-pradesh,2006,193,PANDHANA,UMASHANKAR VERMA,parties.IN.IND,IND,2922,3.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-193,madhya-pradesh,2006,193,PANDHANA,NAVNEET GAJBHIYE,parties.IN.GGP,GGP,1607,1.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,K.C.Ghuwara,parties.IN.BJP,BJP,38880,33.71,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Rekha Yadav,parties.IN.BJS,BJS,34494,29.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Jagdish Shukla,parties.IN.INC,INC,20241,17.55,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Naseem Khan,parties.IN.IND,IND,3931,3.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Nirmal Singh,parties.IN.IND,IND,1964,1.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Sukhlal Joshi,parties.IN.CPI,CPI,1958,1.7,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Dwarka,parties.IN.IND,IND,1554,1.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Soni Ashok Kumar,parties.IN.IND,IND,1325,1.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Manish Kumar,parties.IN.IND,IND,1250,1.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Ahirwar Dashrath,parties.IN.IND,IND,1247,1.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,K.M.Chandra,parties.IN.RSD,RSD,1025,0.89,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Ramkali Yadav,parties.IN.IND,IND,969,0.84,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Alok Kumar (Paappu Bhaiya),parties.IN.IND,IND,949,0.82,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Kraparam,parties.IN.IND,IND,924,0.8,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,S.S.Yadav,parties.IN.SP,SP,881,0.76,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Agrawal Vinod,parties.IN.IND,IND,770,0.67,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Gokal,parties.IN.IND,IND,605,0.52,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Jayram Yadav,parties.IN.IND,IND,595,0.52,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Prabodh Kumar,parties.IN.IND,IND,535,0.46,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Jagdish,parties.IN.IND,IND,467,0.4,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Ahirwar Hariram,parties.IN.IND,IND,406,0.35,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,47,MALEHRA,Mahesh Kumar,parties.IN.IND,IND,353,0.31,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Shivraj Singh,parties.IN.BJP,BJP,66689,59.07,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Rajkumar Patel,parties.IN.INC,INC,30164,26.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Gulzar Singh Markam,parties.IN.G_G_P,G.G.P,7900,7,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Santosh Gour,parties.IN.IND,IND,2085,1.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Shri Ram Neta,parties.IN.IND,IND,1284,1.14,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Narmada P.D.M.Yadav,parties.IN.UNK,S.P,894,0.79,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,major,Publisher label 'S.P' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Hardev Patel (Gond),parties.IN.IND,IND,856,0.76,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Suresh Kumar,parties.IN.IND,IND,726,0.64,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Ajay Dinkar,parties.IN.IND,IND,632,0.56,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Shobha Ram Sharma,parties.IN.IND,IND,320,0.28,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Abdul Jabbar,parties.IN.IND,IND,261,0.23,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Balkishan,parties.IN.IND,IND,236,0.21,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Ad.Ahmad Shaeed Qureshi,parties.IN.IND,IND,215,0.19,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Kali Charan Vaidhya,parties.IN.IND,IND,212,0.19,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Khushilal,parties.IN.IND,IND,210,0.19,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,144,BUDHNI,Mo. Nafees Mansuri,parties.IN.IND,IND,205,0.18,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-193,madhya-pradesh,2006,193,PANDHANA,DEVENDER VERMA,parties.IN.BJP,BJP,45459,47.31,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-193,madhya-pradesh,2006,193,PANDHANA,HIRALAL SILAWAT,parties.IN.INC,INC,33475,34.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-193,madhya-pradesh,2006,193,PANDHANA,VASUDEV SUKHRAM ATOOT,parties.IN.BJS,BJS,12623,13.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-193,madhya-pradesh,2006,193,PANDHANA,UMASHANKAR VERMA,parties.IN.IND,IND,2922,3.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-193,madhya-pradesh,2006,193,PANDHANA,NAVNEET GAJBHIYE,parties.IN.GGP,GGP,1607,1.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

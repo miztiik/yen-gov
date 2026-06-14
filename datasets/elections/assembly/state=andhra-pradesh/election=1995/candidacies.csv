@@ -1,7 +1,7 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-andhra-pradesh-3,andhra-pradesh,1995,3,TEKKALI,A.P. Hanumanthu,parties.IN.TDP,TDP,48050,65.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-3,andhra-pradesh,1995,3,TEKKALI,Peerupalli V. Rao,parties.IN.INC,INC,25853,34.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-62,andhra-pradesh,1995,62,BHIMAVARAM,V.N.R. Penumatsa,parties.IN.TDP,TDP,51478,53.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-62,andhra-pradesh,1995,62,BHIMAVARAM,K.K.K. Bhupathiraju,parties.IN.INC,INC,44823,46.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-163,andhra-pradesh,1995,163,GORANTLA,N.K. Istappa,parties.IN.TDP,TDP,56223,64.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-163,andhra-pradesh,1995,163,GORANTLA,L. Ramana Reddy,parties.IN.INC,INC,30781,35.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-andhra-pradesh-3,andhra-pradesh,1995,3,TEKKALI,A.P. Hanumanthu,parties.IN.TDP,TDP,48050,65.02,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-3,andhra-pradesh,1995,3,TEKKALI,Peerupalli V. Rao,parties.IN.INC,INC,25853,34.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-62,andhra-pradesh,1995,62,BHIMAVARAM,V.N.R. Penumatsa,parties.IN.TDP,TDP,51478,53.46,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-62,andhra-pradesh,1995,62,BHIMAVARAM,K.K.K. Bhupathiraju,parties.IN.INC,INC,44823,46.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-163,andhra-pradesh,1995,163,GORANTLA,N.K. Istappa,parties.IN.TDP,TDP,56223,64.62,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-163,andhra-pradesh,1995,163,GORANTLA,L. Ramana Reddy,parties.IN.INC,INC,30781,35.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,

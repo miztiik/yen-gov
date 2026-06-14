@@ -273,6 +273,8 @@ def _assembly_candidacy_row(*, entity_id: str, position: int) -> dict:
         "profession": "Politics",
         "candidate_type": "incumbent",
         "source_id": "tcpd-ge-2021",
+        "processing_level": "minor",
+        "processing_note": None,
     }
 
 
@@ -291,7 +293,7 @@ def test_writes_assembly_candidacies_file_class(tmp_path):
         "entity_id,state,election_year,constituency_no,constituency_name,"
         "candidate_name,party_id,party_short_raw,votes,vote_share_pct,"
         "position,result,sex,age,education,profession,candidate_type,"
-        "source_id"
+        "source_id,processing_level,processing_note"
     )
     # No PK on candidacies; input order is preserved (stable sort by empty key).
     assert lines[1].startswith("IN-AC-2008-S22-234,tamil-nadu,2021,234,Kanyakumari,Candidate 2,")
@@ -333,6 +335,8 @@ def test_writes_assembly_summary_file_class_with_pk_sort(tmp_path):
                 "margin_votes": 35000,
                 "margin_pct": 19.45,
                 "source_id": "tcpd-ae-2021",
+                "processing_level": "minor",
+                "processing_note": None,
             },
             {
                 "entity_id": "IN-AC-2008-S22-001",
@@ -352,6 +356,8 @@ def test_writes_assembly_summary_file_class_with_pk_sort(tmp_path):
                 "margin_votes": 35000,
                 "margin_pct": 20.59,
                 "source_id": "tcpd-ae-2021",
+                "processing_level": "minor",
+                "processing_note": None,
             },
         ],
     )
@@ -372,7 +378,7 @@ def test_writes_parliament_candidacies_file_class_with_mandatory_state(tmp_path)
         "entity_id,state,election_year,constituency_no,constituency_name,"
         "candidate_name,party_id,party_short_raw,votes,vote_share_pct,"
         "position,result,sex,age,education,profession,candidate_type,"
-        "source_id"
+        "source_id,processing_level,processing_note"
     )
     assert "tamil-nadu" in lines[1]
 
@@ -416,6 +422,8 @@ def test_writes_parliament_summary_file_class(tmp_path):
                 "margin_votes": 150000,
                 "margin_pct": 13.64,
                 "source_id": "tcpd-ge-2024",
+                "processing_level": "minor",
+                "processing_note": None,
             },
         ],
     )
@@ -425,7 +433,7 @@ def test_writes_parliament_summary_file_class(tmp_path):
         "turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,"
         "winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,"
         "runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,"
-        "source_id"
+        "source_id,processing_level,processing_note"
     )
     assert lines[1].startswith("IN-PC-2008-S22-39,tamil-nadu,2024,Kanyakumari,")
     # winner_votes is integer-dtype number; 550000 must emit without ".0".

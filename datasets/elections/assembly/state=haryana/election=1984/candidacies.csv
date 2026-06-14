@@ -1,6 +1,6 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-haryana-59,haryana,1984,59,TAORU,T.HUSSAIN,parties.IN.ICJ,ICJ,25570,41.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-59,haryana,1984,59,TAORU,K.AHMED,parties.IN.INC,INC,22387,36.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-59,haryana,1984,59,TAORU,R.KUMAR,parties.IN.IND,IND,11919,19.23,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-59,haryana,1984,59,TAORU,B.M.RAM,parties.IN.BJP,BJP,2004,3.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-59,haryana,1984,59,TAORU,K.SINGH,parties.IN.IND,IND,91,0.15,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-haryana-59,haryana,1984,59,TAORU,T.HUSSAIN,parties.IN.ICJ,ICJ,25570,41.26,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-59,haryana,1984,59,TAORU,K.AHMED,parties.IN.INC,INC,22387,36.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-59,haryana,1984,59,TAORU,R.KUMAR,parties.IN.IND,IND,11919,19.23,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-59,haryana,1984,59,TAORU,B.M.RAM,parties.IN.BJP,BJP,2004,3.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-59,haryana,1984,59,TAORU,K.SINGH,parties.IN.IND,IND,91,0.15,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

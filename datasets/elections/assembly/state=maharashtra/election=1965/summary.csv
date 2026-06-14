@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1962-maharashtra-190,maharashtra,1965,NAGPUR III,89458,42874,47.93,P.R.WASNIK,parties.IN.INC,INC,22357,52.15,B.U.WAHANE,parties.IN.REP,REP,20251,2106,4.92,src-1b7bc1c9d39a
-IN-AC-1962-maharashtra-218,maharashtra,1965,YEOTMAL,65021,43386,66.73,J.B.DHOTE,parties.IN.IND,IND,25609,59.03,N.V.TATAD,parties.IN.INC,INC,16728,8881,20.47,src-1b7bc1c9d39a
-IN-AC-1962-maharashtra-43,maharashtra,1965,MAHAD,58162,33379,57.39,S.B.SAWANT,parties.IN.INC,INC,17020,50.99,P.K.RAMESHWAR,parties.IN.IND,IND,16359,661,1.98,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1962-maharashtra-190,maharashtra,1965,NAGPUR III,89458,42874,47.93,P.R.WASNIK,parties.IN.INC,INC,22357,52.15,B.U.WAHANE,parties.IN.REP,REP,20251,2106,4.92,src-1b7bc1c9d39a,minor,
+IN-AC-1962-maharashtra-218,maharashtra,1965,YEOTMAL,65021,43386,66.73,J.B.DHOTE,parties.IN.IND,IND,25609,59.03,N.V.TATAD,parties.IN.INC,INC,16728,8881,20.47,src-1b7bc1c9d39a,minor,
+IN-AC-1962-maharashtra-43,maharashtra,1965,MAHAD,58162,33379,57.39,S.B.SAWANT,parties.IN.INC,INC,17020,50.99,P.K.RAMESHWAR,parties.IN.IND,IND,16359,661,1.98,src-1b7bc1c9d39a,minor,

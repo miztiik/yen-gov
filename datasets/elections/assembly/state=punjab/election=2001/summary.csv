@@ -1,2 +1,2 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-punjab-13,punjab,2001,MAJITHA,123829,87761,70.87,Raj Mohinder Singh,parties.IN.SAD,SAD,51168,58.3,Swinder Singh,parties.IN.INC,INC,34136,17032,19.4,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-punjab-13,punjab,2001,MAJITHA,123829,87761,70.87,Raj Mohinder Singh,parties.IN.SAD,SAD,51168,58.3,Swinder Singh,parties.IN.INC,INC,34136,17032,19.4,src-1b7bc1c9d39a,minor,

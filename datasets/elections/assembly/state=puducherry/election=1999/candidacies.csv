@@ -1,8 +1,8 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-puducherry-4,puducherry,1999,4,BUSSY,A. Anbalagan,parties.IN.AIADMK,ADMK,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-4,puducherry,1999,4,BUSSY,Annibal Kennedy,parties.IN.DMK,DMK,0,,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-4,puducherry,1999,4,BUSSY,M. Ilango,parties.IN.JDS,JD(S),0,,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-4,puducherry,1999,4,BUSSY,Mohamed Zackaria,parties.IN.RJD,RJD,0,,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-4,puducherry,1999,4,BUSSY,Arokiaraj,parties.IN.IND,IND,0,,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-4,puducherry,1999,4,BUSSY,Kennedy,parties.IN.IND,IND,0,,6,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-4,puducherry,1999,4,BUSSY,Mohammed Ibrahim,parties.IN.IND,IND,0,,7,lost,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-puducherry-4,puducherry,1999,4,BUSSY,A. Anbalagan,parties.IN.AIADMK,ADMK,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-4,puducherry,1999,4,BUSSY,Annibal Kennedy,parties.IN.DMK,DMK,0,,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-4,puducherry,1999,4,BUSSY,M. Ilango,parties.IN.JDS,JD(S),0,,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-4,puducherry,1999,4,BUSSY,Mohamed Zackaria,parties.IN.RJD,RJD,0,,4,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-4,puducherry,1999,4,BUSSY,Arokiaraj,parties.IN.IND,IND,0,,5,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-4,puducherry,1999,4,BUSSY,Kennedy,parties.IN.IND,IND,0,,6,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-4,puducherry,1999,4,BUSSY,Mohammed Ibrahim,parties.IN.IND,IND,0,,7,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,

@@ -12,6 +12,8 @@ There is no per-shard sources array. There is no embedded URL on an observation 
 
 This is enforced at the writer (UPSERT into DuckDB with deterministic source_id derivation) and at the consumer (frontend contract tests reject any observation with NULL or dangling `source_id`).
 
+**Paired with [`processing_level` + `processing_note`](data-quality.md#per-row-processing-level-vocabulary)** (closed enum `minor` | `major` + free-text rationale, OWID-aligned). `source_id` says where the row came from; `processing_level` + `processing_note` say what we did to it. The two together close the citizen-facing audit loop.
+
 ## The shape: citation, not fetch
 
 Each row in `source.csv` represents **one citation** — one publisher × one report × one vintage — not one fetch event. The natural key is the triple `(producer, title, vintage)`. The `source_id` is a deterministic 12-character hash of that triple:

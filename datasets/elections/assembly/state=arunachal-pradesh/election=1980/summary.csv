@@ -1,31 +1,31 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-arunachal-pradesh-1,arunachal-pradesh,1980,TAWANG I,5473,3669,67.04,KARMA WANGOHU,parties.IN.PPA,PPA,2555,69.64,PEM GOMBU,parties.IN.INC_I,INC(I),1114,1441,39.28,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-10,arunachal-pradesh,1980,ZIRO,15528,8287,53.37,PADI YUBBE,parties.IN.IND,IND,2231,26.92,GYATI TAKKA,parties.IN.PPA,PPA,2179,52,0.63,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-11,arunachal-pradesh,1980,RAGA TALI,9304,4845,52.07,BOA TAME,parties.IN.PPA,PPA,2983,61.57,KABAK MEM,parties.IN.INC_I,INC(I),1015,1968,40.62,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-12,arunachal-pradesh,1980,DAPORIJO,10786,8748,81.11,TADAK DULOM,parties.IN.INC_I,INC(I),5077,58.04,KEBOM NGUBA,parties.IN.PPA,PPA,3646,1431,16.36,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-13,arunachal-pradesh,1980,TAKSING TALIHA,8971,5893,65.69,PUNJI MARA,parties.IN.INC_I,INC(I),3292,55.86,TARA PAYENG,parties.IN.PPA,PPA,2601,691,11.72,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-14,arunachal-pradesh,1980,MECHUKA,4849,3745,77.23,PASANG WANGCHUK SONA,parties.IN.IND,IND,1541,41.15,TADIK CHIJE,parties.IN.INC_I,INC(I),1159,382,10.2,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-15,arunachal-pradesh,1980,ALONG NORTH,8905,6468,72.63,TALONG TAGGU,parties.IN.INC_I,INC(I),3311,51.19,LIJUM RONYA,parties.IN.PPA,PPA,3157,154,2.38,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-16,arunachal-pradesh,1980,ALONG SOUTH,9488,6984,73.61,TUMPAKETE,parties.IN.PPA,PPA,3602,51.58,BOKEN ETTE,parties.IN.INC_I,INC(I),2077,1525,21.84,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-17,arunachal-pradesh,1980,BASAR,9001,7600,84.44,TOMO RIBA,parties.IN.PPA,PPA,3913,51.49,TODAK BASAR,parties.IN.INC_I,INC(I),3511,402,5.29,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-18,arunachal-pradesh,1980,PASIGHAT,11784,8836,74.98,TALO KADU,parties.IN.PPA,PPA,5603,63.41,TALOM RUKBO,parties.IN.INC_I,INC(I),3233,2370,26.82,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-19,arunachal-pradesh,1980,YINGKIONG PANGIN,11685,8484,72.61,GEGONG APANG,parties.IN.INC_I,INC(I),4799,56.57,BANI DANGGEN,parties.IN.PPA,PPA,2184,2615,30.83,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-2,arunachal-pradesh,1980,TAWANG II,5156,3944,76.49,TSERING TASHI,parties.IN.PPA,PPA,1900,48.17,TASHI KHANDU,parties.IN.INC_I,INC(I),1886,14,0.35,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-20,arunachal-pradesh,1980,MARIYANG MEBO,9536,6702,70.28,ONYOK ROME,parties.IN.PPA,PPA,4191,62.53,KABANG BORANG,parties.IN.INC_I,INC(I),2511,1680,25.06,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-21,arunachal-pradesh,1980,ANINI,4189,1886,45.02,TADE TACHO,parties.IN.IND,IND,1177,62.41,ITA PULU,parties.IN.IND,IND,709,468,24.82,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-22,arunachal-pradesh,1980,ROING,5622,4489,79.85,AKEN LEGO,parties.IN.PPA,PPA,2260,50.35,MUKUT MITHI,parties.IN.IND,IND,1285,975,21.72,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-23,arunachal-pradesh,1980,NAMSAI CHOWKHAM,15689,11491,73.24,CHAU KHOUK MANPOONG,parties.IN.PPA,PPA,6089,52.99,CHOW TEWA MIEN,parties.IN.INC_I,INC(I),5402,687,5.98,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-24,arunachal-pradesh,1980,TEZU HAYULIANG,12181,8220,67.48,KHAPRISE KRONG,parties.IN.INC_I,INC(I),5497,66.87,YIASANG MIHIM,parties.IN.PPA,PPA,1533,3964,48.22,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-25,arunachal-pradesh,1980,NOADIHING NAMPONG,6198,4672,75.38,SAMCHOM NGEMU,parties.IN.INC_I,INC(I),2538,54.32,NONGTU LUNGPHI,parties.IN.PPA,PPA,1419,1119,23.95,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-26,arunachal-pradesh,1980,CHANGLANG,5929,4513,76.12,TENGAM NGEMU,parties.IN.INC_I,INC(I),2018,44.72,KHONGMAN,parties.IN.PPA,PPA,1708,310,6.87,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-27,arunachal-pradesh,1980,KHONSA SOUTH,7812,4930,63.11,T. L. RAJKUMAR,parties.IN.INC_I,INC(I),2806,56.92,SIJEN KONG KANG,parties.IN.PPA,PPA,1737,1069,21.69,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-28,arunachal-pradesh,1980,KHONSA NORTH,8055,5623,69.81,WANGLAT,parties.IN.PPA,PPA,2685,47.75,NOKMEY NAMATI,parties.IN.INC_U,INC(U),1996,689,12.25,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-29,arunachal-pradesh,1980,NIAUSA KANUBARI,8529,0,0,WANGHLU WANGSHU,parties.IN.PPA,PPA,0,,,,,,,,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-3,arunachal-pradesh,1980,DIRANG KALAKTANG,7812,5825,74.56,NIMA TSERING RUPA,parties.IN.INC_I,INC(I),3169,54.4,DORJEE TSERING SAMPHUNG,parties.IN.INC_U,INC(U),1501,1668,28.63,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-30,arunachal-pradesh,1980,PONGCHOU WAKKA,7796,1960,25.14,HAIJEN PONGLAHAM,parties.IN.INC_I,INC(I),1136,57.96,ATEM BIHAM,parties.IN.PPA,PPA,297,839,42.81,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-4,arunachal-pradesh,1980,BOMDILA,6016,4048,67.29,SINAM DUSUSOW BOMDILA,parties.IN.PPA,PPA,2133,52.69,RINCHIN KHARU NAFRA,parties.IN.INC_I,INC(I),1915,218,5.38,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-5,arunachal-pradesh,1980,SEPPA,12009,6509,54.2,NYARI WELLI,parties.IN.PPA,PPA,2817,43.28,MODI SENGI,parties.IN.INC_I,INC(I),2339,478,7.35,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-6,arunachal-pradesh,1980,CHAYANG TAJO,10096,5429,53.77,KAMENG DOLO,parties.IN.IND,IND,1894,34.89,TAME YANGFO,parties.IN.PPA,PPA,1859,35,0.65,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-7,arunachal-pradesh,1980,KALORIANG,7067,4126,58.38,LOKAM TADO,parties.IN.INC_I,INC(I),2377,57.61,CHERA TALO,parties.IN.IND,IND,1749,628,15.22,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-8,arunachal-pradesh,1980,NYAPIN PALIN,9184,4762,51.85,TADAR TANG,parties.IN.INC_I,INC(I),2362,49.6,TADAR TANIANG,parties.IN.PPA,PPA,2086,276,5.79,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-9,arunachal-pradesh,1980,DOIMUKH SAGALEE,11991,8129,67.79,TECHI TAKAR,parties.IN.INC_I,INC(I),4225,51.97,KHODA TANA,parties.IN.PPA,PPA,3904,321,3.94,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-arunachal-pradesh-1,arunachal-pradesh,1980,TAWANG I,5473,3669,67.04,KARMA WANGOHU,parties.IN.PPA,PPA,2555,69.64,PEM GOMBU,parties.IN.INC_I,INC(I),1114,1441,39.28,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-10,arunachal-pradesh,1980,ZIRO,15528,8287,53.37,PADI YUBBE,parties.IN.IND,IND,2231,26.92,GYATI TAKKA,parties.IN.PPA,PPA,2179,52,0.63,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-11,arunachal-pradesh,1980,RAGA TALI,9304,4845,52.07,BOA TAME,parties.IN.PPA,PPA,2983,61.57,KABAK MEM,parties.IN.INC_I,INC(I),1015,1968,40.62,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-12,arunachal-pradesh,1980,DAPORIJO,10786,8748,81.11,TADAK DULOM,parties.IN.INC_I,INC(I),5077,58.04,KEBOM NGUBA,parties.IN.PPA,PPA,3646,1431,16.36,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-13,arunachal-pradesh,1980,TAKSING TALIHA,8971,5893,65.69,PUNJI MARA,parties.IN.INC_I,INC(I),3292,55.86,TARA PAYENG,parties.IN.PPA,PPA,2601,691,11.72,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-14,arunachal-pradesh,1980,MECHUKA,4849,3745,77.23,PASANG WANGCHUK SONA,parties.IN.IND,IND,1541,41.15,TADIK CHIJE,parties.IN.INC_I,INC(I),1159,382,10.2,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-15,arunachal-pradesh,1980,ALONG NORTH,8905,6468,72.63,TALONG TAGGU,parties.IN.INC_I,INC(I),3311,51.19,LIJUM RONYA,parties.IN.PPA,PPA,3157,154,2.38,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-16,arunachal-pradesh,1980,ALONG SOUTH,9488,6984,73.61,TUMPAKETE,parties.IN.PPA,PPA,3602,51.58,BOKEN ETTE,parties.IN.INC_I,INC(I),2077,1525,21.84,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-17,arunachal-pradesh,1980,BASAR,9001,7600,84.44,TOMO RIBA,parties.IN.PPA,PPA,3913,51.49,TODAK BASAR,parties.IN.INC_I,INC(I),3511,402,5.29,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-18,arunachal-pradesh,1980,PASIGHAT,11784,8836,74.98,TALO KADU,parties.IN.PPA,PPA,5603,63.41,TALOM RUKBO,parties.IN.INC_I,INC(I),3233,2370,26.82,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-19,arunachal-pradesh,1980,YINGKIONG PANGIN,11685,8484,72.61,GEGONG APANG,parties.IN.INC_I,INC(I),4799,56.57,BANI DANGGEN,parties.IN.PPA,PPA,2184,2615,30.83,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-2,arunachal-pradesh,1980,TAWANG II,5156,3944,76.49,TSERING TASHI,parties.IN.PPA,PPA,1900,48.17,TASHI KHANDU,parties.IN.INC_I,INC(I),1886,14,0.35,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-20,arunachal-pradesh,1980,MARIYANG MEBO,9536,6702,70.28,ONYOK ROME,parties.IN.PPA,PPA,4191,62.53,KABANG BORANG,parties.IN.INC_I,INC(I),2511,1680,25.06,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-21,arunachal-pradesh,1980,ANINI,4189,1886,45.02,TADE TACHO,parties.IN.IND,IND,1177,62.41,ITA PULU,parties.IN.IND,IND,709,468,24.82,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-22,arunachal-pradesh,1980,ROING,5622,4489,79.85,AKEN LEGO,parties.IN.PPA,PPA,2260,50.35,MUKUT MITHI,parties.IN.IND,IND,1285,975,21.72,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-23,arunachal-pradesh,1980,NAMSAI CHOWKHAM,15689,11491,73.24,CHAU KHOUK MANPOONG,parties.IN.PPA,PPA,6089,52.99,CHOW TEWA MIEN,parties.IN.INC_I,INC(I),5402,687,5.98,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-24,arunachal-pradesh,1980,TEZU HAYULIANG,12181,8220,67.48,KHAPRISE KRONG,parties.IN.INC_I,INC(I),5497,66.87,YIASANG MIHIM,parties.IN.PPA,PPA,1533,3964,48.22,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-25,arunachal-pradesh,1980,NOADIHING NAMPONG,6198,4672,75.38,SAMCHOM NGEMU,parties.IN.INC_I,INC(I),2538,54.32,NONGTU LUNGPHI,parties.IN.PPA,PPA,1419,1119,23.95,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-26,arunachal-pradesh,1980,CHANGLANG,5929,4513,76.12,TENGAM NGEMU,parties.IN.INC_I,INC(I),2018,44.72,KHONGMAN,parties.IN.PPA,PPA,1708,310,6.87,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-27,arunachal-pradesh,1980,KHONSA SOUTH,7812,4930,63.11,T. L. RAJKUMAR,parties.IN.INC_I,INC(I),2806,56.92,SIJEN KONG KANG,parties.IN.PPA,PPA,1737,1069,21.69,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-28,arunachal-pradesh,1980,KHONSA NORTH,8055,5623,69.81,WANGLAT,parties.IN.PPA,PPA,2685,47.75,NOKMEY NAMATI,parties.IN.INC_U,INC(U),1996,689,12.25,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-29,arunachal-pradesh,1980,NIAUSA KANUBARI,8529,0,0,WANGHLU WANGSHU,parties.IN.PPA,PPA,0,,,,,,,,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-3,arunachal-pradesh,1980,DIRANG KALAKTANG,7812,5825,74.56,NIMA TSERING RUPA,parties.IN.INC_I,INC(I),3169,54.4,DORJEE TSERING SAMPHUNG,parties.IN.INC_U,INC(U),1501,1668,28.63,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-30,arunachal-pradesh,1980,PONGCHOU WAKKA,7796,1960,25.14,HAIJEN PONGLAHAM,parties.IN.INC_I,INC(I),1136,57.96,ATEM BIHAM,parties.IN.PPA,PPA,297,839,42.81,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-4,arunachal-pradesh,1980,BOMDILA,6016,4048,67.29,SINAM DUSUSOW BOMDILA,parties.IN.PPA,PPA,2133,52.69,RINCHIN KHARU NAFRA,parties.IN.INC_I,INC(I),1915,218,5.38,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-5,arunachal-pradesh,1980,SEPPA,12009,6509,54.2,NYARI WELLI,parties.IN.PPA,PPA,2817,43.28,MODI SENGI,parties.IN.INC_I,INC(I),2339,478,7.35,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-6,arunachal-pradesh,1980,CHAYANG TAJO,10096,5429,53.77,KAMENG DOLO,parties.IN.IND,IND,1894,34.89,TAME YANGFO,parties.IN.PPA,PPA,1859,35,0.65,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-7,arunachal-pradesh,1980,KALORIANG,7067,4126,58.38,LOKAM TADO,parties.IN.INC_I,INC(I),2377,57.61,CHERA TALO,parties.IN.IND,IND,1749,628,15.22,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-8,arunachal-pradesh,1980,NYAPIN PALIN,9184,4762,51.85,TADAR TANG,parties.IN.INC_I,INC(I),2362,49.6,TADAR TANIANG,parties.IN.PPA,PPA,2086,276,5.79,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-9,arunachal-pradesh,1980,DOIMUKH SAGALEE,11991,8129,67.79,TECHI TAKAR,parties.IN.INC_I,INC(I),4225,51.97,KHODA TANA,parties.IN.PPA,PPA,3904,321,3.94,src-1b7bc1c9d39a,minor,

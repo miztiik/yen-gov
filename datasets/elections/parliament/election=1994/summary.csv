@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-PC-1976-andhra-pradesh-26,andhra-pradesh,1994,KURNOOL,973112,568198,58.39,K.J.S. Prakash Reddy,parties.IN.INC,INC,293922,51.73,S.V.S. Reddy,parties.IN.TDP,TD,274276,19646,3.46,src-31c65dbec869
-IN-PC-1976-madhya-pradesh-32,madhya-pradesh,1994,RAJGARH,913839,504172,55.17,Laxman Singh,parties.IN.INC,INC,332967,66.04,Duttaraya Rao,parties.IN.BJP,BJP,171205,161762,32.08,src-31c65dbec869
-IN-PC-1976-odisha-1,odisha,1994,MAYURBHANJ,823829,291957,35.44,Sushila Tiriya,parties.IN.INC,INC,157714,54.02,Laxman Tudu,parties.IN.JD,JD,134243,23471,8.04,src-31c65dbec869
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-PC-1976-andhra-pradesh-26,andhra-pradesh,1994,KURNOOL,973112,568198,58.39,K.J.S. Prakash Reddy,parties.IN.INC,INC,293922,51.73,S.V.S. Reddy,parties.IN.TDP,TD,274276,19646,3.46,src-31c65dbec869,minor,
+IN-PC-1976-madhya-pradesh-32,madhya-pradesh,1994,RAJGARH,913839,504172,55.17,Laxman Singh,parties.IN.INC,INC,332967,66.04,Duttaraya Rao,parties.IN.BJP,BJP,171205,161762,32.08,src-31c65dbec869,minor,
+IN-PC-1976-odisha-1,odisha,1994,MAYURBHANJ,823829,291957,35.44,Sushila Tiriya,parties.IN.INC,INC,157714,54.02,Laxman Tudu,parties.IN.JD,JD,134243,23471,8.04,src-31c65dbec869,minor,

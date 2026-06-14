@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-gujarat-27,gujarat,1981,KALAWAD,83107,46505,55.96,T.K.KARABHAI,parties.IN.IND,IND,26753,57.53,P.K.BACHAR,parties.IN.INC,INC,18244,8509,18.3,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-78,gujarat,1981,NARODA,118728,47514,40.02,L.BACHANI,parties.IN.BJP,BJP,20552,43.25,B.JUMANI,parties.IN.INC,INC,15140,5412,11.39,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-83,gujarat,1981,MEHSANA,96272,60294,62.63,A.R.BHAVSINHJI,parties.IN.INC,INC,25130,41.68,P.H.DHANABHAI,parties.IN.JP,JNP,20288,4842,8.03,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-gujarat-27,gujarat,1981,KALAWAD,83107,46505,55.96,T.K.KARABHAI,parties.IN.IND,IND,26753,57.53,P.K.BACHAR,parties.IN.INC,INC,18244,8509,18.3,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-78,gujarat,1981,NARODA,118728,47514,40.02,L.BACHANI,parties.IN.BJP,BJP,20552,43.25,B.JUMANI,parties.IN.INC,INC,15140,5412,11.39,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-83,gujarat,1981,MEHSANA,96272,60294,62.63,A.R.BHAVSINHJI,parties.IN.INC,INC,25130,41.68,P.H.DHANABHAI,parties.IN.JP,JNP,20288,4842,8.03,src-1b7bc1c9d39a,minor,

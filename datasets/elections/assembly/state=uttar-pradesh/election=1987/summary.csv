@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-uttar-pradesh-120,uttar-pradesh,1987,PATTI,172251,107153,62.21,A.P.SINGH,parties.IN.INC,INC,75259,70.24,R.SAMUJI,parties.IN.BSP,BSP,17115,58144,54.27,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-16,uttar-pradesh,1987,KASHIPUR,156361,98336,62.89,A.AHMED,parties.IN.ID,ID,43213,43.94,A.RIZVI,parties.IN.INC,INC,35062,8151,8.28,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-323,uttar-pradesh,1987,RATH,151019,84119,55.7,R.SINGH,parties.IN.INC,INC,42788,50.87,D.R.S.LODHI,parties.IN.BSP,BSP,26823,15965,18.98,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-uttar-pradesh-120,uttar-pradesh,1987,PATTI,172251,107153,62.21,A.P.SINGH,parties.IN.INC,INC,75259,70.24,R.SAMUJI,parties.IN.BSP,BSP,17115,58144,54.27,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-16,uttar-pradesh,1987,KASHIPUR,156361,98336,62.89,A.AHMED,parties.IN.ID,ID,43213,43.94,A.RIZVI,parties.IN.INC,INC,35062,8151,8.28,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-323,uttar-pradesh,1987,RATH,151019,84119,55.7,R.SINGH,parties.IN.INC,INC,42788,50.87,D.R.S.LODHI,parties.IN.BSP,BSP,26823,15965,18.98,src-1b7bc1c9d39a,minor,

@@ -1,25 +1,25 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Inder Singh Namdhari,parties.IN.IND,IND,41637,30.37,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Anil Kumar Chaurasiya,parties.IN.AJSU,AJSU,31444,22.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Sajid Ahmed Sidique,parties.IN.BSP,BSP,16132,11.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Krishna Nand Tripathi,parties.IN.INC,INC,15747,11.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Anand Shankar,parties.IN.JVM,JVM(P),7823,5.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Binay Ku Singh,parties.IN.NCP,NCP,7220,5.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Jai Prakash Mini,parties.IN.CPIMLL,CPI (MLL),2519,1.84,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Shiv Prasad Agarwal,parties.IN.ABMSD,ABMSD,1774,1.29,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Krisnna Dev Singh,parties.IN.CPI,CPI,1721,1.26,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Fuleshwaeri Devi,parties.IN.IND,IND,1603,1.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Ajoy Bux Roy,parties.IN.IND,IND,1155,0.84,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Neelu Mishra,parties.IN.JDU,JD(U),1135,0.83,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Basuri Ram,parties.IN.IND,IND,1092,0.8,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Kedar Ram,parties.IN.IND,IND,852,0.62,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Fuli Singh,parties.IN.IND,IND,825,0.6,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Ramgovind Ram,parties.IN.IND,IND,657,0.48,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Jusal Ram,parties.IN.IND,IND,619,0.45,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Bipin Bihar Lal,parties.IN.IND,IND,617,0.45,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Rajesh Kumar,parties.IN.IND,IND,502,0.37,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Gopal Ram,parties.IN.IND,IND,472,0.34,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Mahendra Singh,parties.IN.IND,IND,466,0.34,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Binesh Bhuiyan,parties.IN.IND,IND,418,0.3,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Lalu Ram,parties.IN.IND,IND,357,0.26,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Manoj Mishra,parties.IN.IND,IND,290,0.21,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Inder Singh Namdhari,parties.IN.IND,IND,41637,30.37,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Anil Kumar Chaurasiya,parties.IN.AJSU,AJSU,31444,22.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Sajid Ahmed Sidique,parties.IN.BSP,BSP,16132,11.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Krishna Nand Tripathi,parties.IN.INC,INC,15747,11.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Anand Shankar,parties.IN.JVM,JVM(P),7823,5.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Binay Ku Singh,parties.IN.NCP,NCP,7220,5.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Jai Prakash Mini,parties.IN.CPIMLL,CPI (MLL),2519,1.84,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Shiv Prasad Agarwal,parties.IN.ABMSD,ABMSD,1774,1.29,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Krisnna Dev Singh,parties.IN.CPI,CPI,1721,1.26,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Fuleshwaeri Devi,parties.IN.IND,IND,1603,1.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Ajoy Bux Roy,parties.IN.IND,IND,1155,0.84,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Neelu Mishra,parties.IN.JDU,JD(U),1135,0.83,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Basuri Ram,parties.IN.IND,IND,1092,0.8,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Kedar Ram,parties.IN.IND,IND,852,0.62,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Fuli Singh,parties.IN.IND,IND,825,0.6,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Ramgovind Ram,parties.IN.IND,IND,657,0.48,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Jusal Ram,parties.IN.IND,IND,619,0.45,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Bipin Bihar Lal,parties.IN.IND,IND,617,0.45,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Rajesh Kumar,parties.IN.IND,IND,502,0.37,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Gopal Ram,parties.IN.IND,IND,472,0.34,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Mahendra Singh,parties.IN.IND,IND,466,0.34,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Binesh Bhuiyan,parties.IN.IND,IND,418,0.3,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Lalu Ram,parties.IN.IND,IND,357,0.26,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-76,jharkhand,2007,76,DALTONGUNJ,Manoj Mishra,parties.IN.IND,IND,290,0.21,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

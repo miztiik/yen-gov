@@ -1,59 +1,59 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Deependra Singh,parties.IN.INC,INC,355074,66.87,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Abhimanyu,parties.IN.BJP,BJP,123116,23.18,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Balwan Suhag,parties.IN.INLD,INLD,41726,7.86,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Satyandra,parties.IN.IND,IND,2928,0.55,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Sajjan Singh,parties.IN.IND,IND,2049,0.39,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Pradeep Kumar,parties.IN.IND,IND,1447,0.27,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Rajesh Kumar,parties.IN.IND,IND,1296,0.24,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Ramphal,parties.IN.IND,IND,763,0.14,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Azad Singh,parties.IN.BPC,BPC,673,0.13,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Kamred Anoop Singh,parties.IN.IND,IND,588,0.11,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Zora Singh,parties.IN.JDS,JD(S),474,0.09,11,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Bimla,parties.IN.BRP,BRP,331,0.06,12,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Narendra Singh,parties.IN.IND,IND,254,0.05,13,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Naphe,parties.IN.IND,IND,177,0.03,14,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Ajay Kumar,parties.IN.IND,IND,126,0.02,15,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-karnataka-21,karnataka,2005,21,SHIMOGA,S.Bangarappa,parties.IN.SP,SP,269013,36,1,won,U,,,,incumbent,src-31c65dbec869
-IN-PC-1976-karnataka-21,karnataka,2005,21,SHIMOGA,Ayanur Manjunatha,parties.IN.INC,INC,252376,33.77,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-karnataka-21,karnataka,2005,21,SHIMOGA,Bhanuprakash,parties.IN.BJP,BJP,148640,19.89,3,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-karnataka-21,karnataka,2005,21,SHIMOGA,L.T.Thimmappa Hegade,parties.IN.JDS,JD(S),54578,7.3,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-karnataka-21,karnataka,2005,21,SHIMOGA,Shivalinga Swami,parties.IN.JDU,JD(U),8834,1.18,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-karnataka-21,karnataka,2005,21,SHIMOGA,Bhadre Shivappa,parties.IN.IND,IND,8737,1.17,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-karnataka-21,karnataka,2005,21,SHIMOGA,K.S.Sathyanarayana,parties.IN.JP,JP,5141,0.69,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,Pannyan Raveendran,parties.IN.CPI,CPI,390324,51.41,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,Adv.V.S.Sivakumar,parties.IN.INC,INC,316124,41.64,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,C.K.Padmanabhan,parties.IN.BJP,BJP,36690,4.83,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,V.S.Sivakumar,parties.IN.IND,IND,4467,0.59,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,S.Sivakumar,parties.IN.IND,IND,3049,0.4,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,Chennan Raveendran,parties.IN.IND,IND,2196,0.29,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,K.Arun Kumar,parties.IN.IND,IND,1983,0.26,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,Pannyode Raveendran,parties.IN.IND,IND,1365,0.18,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,B.Imamudeen,parties.IN.IND,IND,764,0.1,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,V.T.Cherian,parties.IN.IND,IND,481,0.06,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,Nedumam Jayakumar,parties.IN.IND,IND,476,0.06,11,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,Mohana Krishnan.M.,parties.IN.IND,IND,382,0.05,12,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,K.R.Meena,parties.IN.IND,IND,374,0.05,13,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,Babington,parties.IN.IND,IND,338,0.04,14,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,Dr.K.Padmarajan,parties.IN.IND,IND,224,0.03,15,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Priya Sunil Dutt,parties.IN.INC,INC,346294,64.45,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Madhukar Raghunath Sirpotdar,parties.IN.SHS,SHS,174750,32.52,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Manjit Singh Abrol,parties.IN.RPIA,RPI(A),5069,0.94,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Znyosho (Kondekar)Rashtrapathi,parties.IN.IND,IND,2676,0.5,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Bharatlal Mohanlal Bhatia,parties.IN.IND,IND,1392,0.26,5,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Jitendra Raut,parties.IN.IND,IND,872,0.16,6,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Bhimrao Dagdu Lawate,parties.IN.RSPS,RSPS,770,0.14,7,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Jonh Baburao Perimal,parties.IN.IND,IND,749,0.14,8,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Nilesh Maruti Ghag,parties.IN.IND,IND,667,0.12,9,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Krishnadutt Dubey,parties.IN.IND,IND,666,0.12,10,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Kamble Dayanand Nivruti,parties.IN.IND,IND,659,0.12,11,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Vishwakarma Mishrilal,parties.IN.RMJD,RMJD,657,0.12,12,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Arora Rakesh Vishwanath,parties.IN.KKJHS,KKJHS,594,0.11,13,forfeit,U,,,,crossover,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Advocate Gaud Rajaram Matadin,parties.IN.IND,IND,541,0.1,14,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Kishor Bhagwan Jagtar,parties.IN.IND,IND,509,0.09,15,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Prof.Waghmare Subhash Rajanna,parties.IN.PRCP,PRCP,452,0.08,16,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-west-bengal-38,west-bengal,2005,38,ASANSOL,Bansagopal Choudhury,parties.IN.CPIM,CPM,410740,61.33,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-west-bengal-38,west-bengal,2005,38,ASANSOL,Ghatak Moloy,parties.IN.AITC,AITC,180799,27,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-west-bengal-38,west-bengal,2005,38,ASANSOL,Provat Goswami,parties.IN.INC,INC,52570,7.85,3,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-west-bengal-38,west-bengal,2005,38,ASANSOL,Shakti Ranjan Mondal,parties.IN.IND,IND,12912,1.93,4,forfeit,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-west-bengal-38,west-bengal,2005,38,ASANSOL,Kanchan Kumar Chakraborty,parties.IN.IND,IND,12719,1.9,5,forfeit,U,,,,challenger,src-31c65dbec869
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Deependra Singh,parties.IN.INC,INC,355074,66.87,1,won,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Abhimanyu,parties.IN.BJP,BJP,123116,23.18,2,lost,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Balwan Suhag,parties.IN.INLD,INLD,41726,7.86,3,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Satyandra,parties.IN.IND,IND,2928,0.55,4,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Sajjan Singh,parties.IN.IND,IND,2049,0.39,5,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Pradeep Kumar,parties.IN.IND,IND,1447,0.27,6,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Rajesh Kumar,parties.IN.IND,IND,1296,0.24,7,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Ramphal,parties.IN.IND,IND,763,0.14,8,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Azad Singh,parties.IN.BPC,BPC,673,0.13,9,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Kamred Anoop Singh,parties.IN.IND,IND,588,0.11,10,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Zora Singh,parties.IN.JDS,JD(S),474,0.09,11,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Bimla,parties.IN.BRP,BRP,331,0.06,12,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Narendra Singh,parties.IN.IND,IND,254,0.05,13,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Naphe,parties.IN.IND,IND,177,0.03,14,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-haryana-5,haryana,2005,5,ROHTAK(PC),Ajay Kumar,parties.IN.IND,IND,126,0.02,15,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-karnataka-21,karnataka,2005,21,SHIMOGA,S.Bangarappa,parties.IN.SP,SP,269013,36,1,won,U,,,,incumbent,src-31c65dbec869,minor,
+IN-PC-1976-karnataka-21,karnataka,2005,21,SHIMOGA,Ayanur Manjunatha,parties.IN.INC,INC,252376,33.77,2,lost,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-karnataka-21,karnataka,2005,21,SHIMOGA,Bhanuprakash,parties.IN.BJP,BJP,148640,19.89,3,lost,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-karnataka-21,karnataka,2005,21,SHIMOGA,L.T.Thimmappa Hegade,parties.IN.JDS,JD(S),54578,7.3,4,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-karnataka-21,karnataka,2005,21,SHIMOGA,Shivalinga Swami,parties.IN.JDU,JD(U),8834,1.18,5,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-karnataka-21,karnataka,2005,21,SHIMOGA,Bhadre Shivappa,parties.IN.IND,IND,8737,1.17,6,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-karnataka-21,karnataka,2005,21,SHIMOGA,K.S.Sathyanarayana,parties.IN.JP,JP,5141,0.69,7,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,Pannyan Raveendran,parties.IN.CPI,CPI,390324,51.41,1,won,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,Adv.V.S.Sivakumar,parties.IN.INC,INC,316124,41.64,2,lost,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,C.K.Padmanabhan,parties.IN.BJP,BJP,36690,4.83,3,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,V.S.Sivakumar,parties.IN.IND,IND,4467,0.59,4,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,S.Sivakumar,parties.IN.IND,IND,3049,0.4,5,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,Chennan Raveendran,parties.IN.IND,IND,2196,0.29,6,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,K.Arun Kumar,parties.IN.IND,IND,1983,0.26,7,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,Pannyode Raveendran,parties.IN.IND,IND,1365,0.18,8,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,B.Imamudeen,parties.IN.IND,IND,764,0.1,9,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,V.T.Cherian,parties.IN.IND,IND,481,0.06,10,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,Nedumam Jayakumar,parties.IN.IND,IND,476,0.06,11,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,Mohana Krishnan.M.,parties.IN.IND,IND,382,0.05,12,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,K.R.Meena,parties.IN.IND,IND,374,0.05,13,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,Babington,parties.IN.IND,IND,338,0.04,14,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-kerala-20,kerala,2005,20,THIRUVANANTHAPURAM,Dr.K.Padmarajan,parties.IN.IND,IND,224,0.03,15,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Priya Sunil Dutt,parties.IN.INC,INC,346294,64.45,1,won,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Madhukar Raghunath Sirpotdar,parties.IN.SHS,SHS,174750,32.52,2,lost,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Manjit Singh Abrol,parties.IN.RPIA,RPI(A),5069,0.94,3,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Znyosho (Kondekar)Rashtrapathi,parties.IN.IND,IND,2676,0.5,4,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Bharatlal Mohanlal Bhatia,parties.IN.IND,IND,1392,0.26,5,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Jitendra Raut,parties.IN.IND,IND,872,0.16,6,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Bhimrao Dagdu Lawate,parties.IN.RSPS,RSPS,770,0.14,7,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Jonh Baburao Perimal,parties.IN.IND,IND,749,0.14,8,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Nilesh Maruti Ghag,parties.IN.IND,IND,667,0.12,9,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Krishnadutt Dubey,parties.IN.IND,IND,666,0.12,10,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Kamble Dayanand Nivruti,parties.IN.IND,IND,659,0.12,11,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Vishwakarma Mishrilal,parties.IN.RMJD,RMJD,657,0.12,12,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Arora Rakesh Vishwanath,parties.IN.KKJHS,KKJHS,594,0.11,13,forfeit,U,,,,crossover,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Advocate Gaud Rajaram Matadin,parties.IN.IND,IND,541,0.1,14,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Kishor Bhagwan Jagtar,parties.IN.IND,IND,509,0.09,15,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-8,maharashtra,2005,8,MUMBAINORTHWEST,Prof.Waghmare Subhash Rajanna,parties.IN.PRCP,PRCP,452,0.08,16,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-west-bengal-38,west-bengal,2005,38,ASANSOL,Bansagopal Choudhury,parties.IN.CPIM,CPM,410740,61.33,1,won,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-west-bengal-38,west-bengal,2005,38,ASANSOL,Ghatak Moloy,parties.IN.AITC,AITC,180799,27,2,lost,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-west-bengal-38,west-bengal,2005,38,ASANSOL,Provat Goswami,parties.IN.INC,INC,52570,7.85,3,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-west-bengal-38,west-bengal,2005,38,ASANSOL,Shakti Ranjan Mondal,parties.IN.IND,IND,12912,1.93,4,forfeit,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-west-bengal-38,west-bengal,2005,38,ASANSOL,Kanchan Kumar Chakraborty,parties.IN.IND,IND,12719,1.9,5,forfeit,U,,,,challenger,src-31c65dbec869,minor,

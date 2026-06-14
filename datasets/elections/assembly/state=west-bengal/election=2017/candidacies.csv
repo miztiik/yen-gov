@@ -1,6 +1,6 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-west-bengal-2038,west-bengal,2017,216,KANTHI DAKSHIN,Chandrima Bhattacharya,parties.IN.AITC,AITC,95369,56.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2038,west-bengal,2017,216,KANTHI DAKSHIN,Sourindra Mohan Jana,parties.IN.BJP,BJP,52843,31.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2038,west-bengal,2017,216,KANTHI DAKSHIN,Uttam Pradhan,parties.IN.CPI,CPI,17423,10.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2038,west-bengal,2017,216,KANTHI DAKSHIN,Naba Kumar Nanda,parties.IN.INC,INC,2270,1.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2038,west-bengal,2017,216,KANTHI DAKSHIN,Shrabani Pahari,parties.IN.SUCI,SUCI(Communist),1476,0.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-west-bengal-2038,west-bengal,2017,216,KANTHI DAKSHIN,Chandrima Bhattacharya,parties.IN.AITC,AITC,95369,56.3,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-2038,west-bengal,2017,216,KANTHI DAKSHIN,Sourindra Mohan Jana,parties.IN.BJP,BJP,52843,31.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-2038,west-bengal,2017,216,KANTHI DAKSHIN,Uttam Pradhan,parties.IN.CPI,CPI,17423,10.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-2038,west-bengal,2017,216,KANTHI DAKSHIN,Naba Kumar Nanda,parties.IN.INC,INC,2270,1.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-2038,west-bengal,2017,216,KANTHI DAKSHIN,Shrabani Pahari,parties.IN.SUCI,SUCI(Communist),1476,0.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

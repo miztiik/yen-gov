@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-mizoram-23,mizoram,2004,23,KOLASIB(ST),K.Lalrinliana,parties.IN.MNF,MNF,6113,55.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-23,mizoram,2004,23,KOLASIB(ST),C.Lalbiakthanga,parties.IN.IND,IND,4819,44.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-mizoram-23,mizoram,2004,23,KOLASIB(ST),K.Lalrinliana,parties.IN.MNF,MNF,6113,55.92,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-23,mizoram,2004,23,KOLASIB(ST),C.Lalbiakthanga,parties.IN.IND,IND,4819,44.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,

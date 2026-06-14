@@ -1,166 +1,166 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-arunachal-pradesh-1,arunachal-pradesh,2004,1,LUMLA,T.G.RINPOCHE,parties.IN.INC,INC,3318,53.79,1,won,U,37,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-1,arunachal-pradesh,2004,1,LUMLA,JAMBEY WANGDI,parties.IN.IND,IND,2851,46.21,2,lost,U,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-2,arunachal-pradesh,2004,2,TAWANG,TSEWANG DHONDUP,parties.IN.INC,INC,3786,60.8,1,won,U,45,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-2,arunachal-pradesh,2004,2,TAWANG,THUPTEN TEMPA,parties.IN.IND,IND,2441,39.2,2,lost,U,46,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-5,arunachal-pradesh,2004,5,KALAKTANG,SHRI RINCHIN KHANDU KHRIMEY,parties.IN.IND,IND,3149,55.55,1,won,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-5,arunachal-pradesh,2004,5,KALAKTANG,SHRI D.K.THONGDOK,parties.IN.INC,INC,2520,44.45,2,lost,U,46,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-6,arunachal-pradesh,2004,6,THRIZINO-BURAGAON,SHRI NARESH GLOW,parties.IN.INC,INC,3366,50.35,1,won,U,45,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-6,arunachal-pradesh,2004,6,THRIZINO-BURAGAON,SHRI GOVARDHAN NIMASOW,parties.IN.BJP,BJP,3319,49.65,2,lost,U,52,5th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-7,arunachal-pradesh,2004,7,BOMDILA,R.T. KHUNJUJU,parties.IN.BJP,BJP,2955,46.65,1,won,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-7,arunachal-pradesh,2004,7,BOMDILA,JAPU DERU,parties.IN.INC,INC,2417,38.16,2,lost,U,45,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-7,arunachal-pradesh,2004,7,BOMDILA,PREM KHANDU THUNGON,parties.IN.IND,IND,819,12.93,3,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-7,arunachal-pradesh,2004,7,BOMDILA,SHERGE THUNGON,parties.IN.NCP,NCP,143,2.26,4,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-8,arunachal-pradesh,2004,8,BAMENG,KUMAR WAII,parties.IN.INC,INC,3860,52.96,1,won,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-8,arunachal-pradesh,2004,8,BAMENG,MEKUP DOLO,parties.IN.BJP,BJP,3428,47.04,2,lost,U,50,Illiterate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-9,arunachal-pradesh,2004,9,CHAYANGTAJO,KAMENG DOLO,parties.IN.BJP,BJP,4068,54.68,1,won,U,45,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-9,arunachal-pradesh,2004,9,CHAYANGTAJO,TARA BAGANG,parties.IN.INC,INC,3371,45.32,2,lost,U,38,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-10,arunachal-pradesh,2004,10,SEPPA EAST,ATUM WELLY,parties.IN.INC,INC,3939,53.12,1,won,U,43,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-10,arunachal-pradesh,2004,10,SEPPA EAST,TAME PHASSANG,parties.IN.IND,IND,3476,46.88,2,lost,U,30,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-11,arunachal-pradesh,2004,11,SEPPA WEST,TANI LOFFA,parties.IN.BJP,BJP,3123,56.22,1,won,U,40,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-11,arunachal-pradesh,2004,11,SEPPA WEST,HARI NOTUNG,parties.IN.INC,INC,2432,43.78,2,lost,U,50,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-12,arunachal-pradesh,2004,12,PAKKE-KASANG,TECHI HEMU,parties.IN.BJP,BJP,2898,58.64,1,won,U,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-12,arunachal-pradesh,2004,12,PAKKE-KASANG,NIANI NATUNG,parties.IN.INC,INC,2044,41.36,2,lost,U,36,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-13,arunachal-pradesh,2004,13,ITANAGAR,SHRI KIPA BABU,parties.IN.BJP,BJP,9575,49.17,1,won,U,31,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-13,arunachal-pradesh,2004,13,ITANAGAR,SHRI LICHI LEGI,parties.IN.INC,INC,7950,40.82,2,lost,U,52,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-13,arunachal-pradesh,2004,13,ITANAGAR,DR. BIMAN NATUNG,parties.IN.NCP,NCP,1950,10.01,3,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-14,arunachal-pradesh,2004,14,DOIMUKH,SHRI NGURANG PINCH,parties.IN.IND,IND,5243,35.88,1,won,U,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-14,arunachal-pradesh,2004,14,DOIMUKH,SHRI TABA HARE,parties.IN.BJP,BJP,4970,34.01,2,lost,U,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-14,arunachal-pradesh,2004,14,DOIMUKH,SHRI T.C. TELI,parties.IN.INC,INC,3988,27.29,3,lost,U,40,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-14,arunachal-pradesh,2004,14,DOIMUKH,SHRI YOWA TAKAR,parties.IN.IND,IND,412,2.82,4,forfeit,U,58,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-16,arunachal-pradesh,2004,16,YACHULI,NIKH KAMIN,parties.IN.NCP,NCP,6191,54.39,1,won,U,42,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-16,arunachal-pradesh,2004,16,YACHULI,LIKHA MAJ,parties.IN.INC,INC,5099,44.79,2,lost,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-16,arunachal-pradesh,2004,16,YACHULI,TALLA JORAM,parties.IN.BJP,BJP,93,0.82,3,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-17,arunachal-pradesh,2004,17,ZIRO-HAPOLI,NANI RIBIA,parties.IN.IND,IND,7125,55.3,1,won,U,44,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-17,arunachal-pradesh,2004,17,ZIRO-HAPOLI,PADI RICHO,parties.IN.INC,INC,5760,44.7,2,lost,U,39,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-18,arunachal-pradesh,2004,18,PALIN,BALO RAJA,parties.IN.BJP,BJP,5545,54.37,1,won,U,34,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-18,arunachal-pradesh,2004,18,PALIN,TAKAM SANJOY,parties.IN.INC,INC,4653,45.63,2,lost,U,37,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-19,arunachal-pradesh,2004,19,NYAPIN,TATAR KIPA,parties.IN.INC,INC,3794,45.77,1,won,U,36,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-19,arunachal-pradesh,2004,19,NYAPIN,BAMANG FELIX,parties.IN.AC,AC,3615,43.61,2,lost,U,39,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-19,arunachal-pradesh,2004,19,NYAPIN,TAI TAGAK,parties.IN.BJP,BJP,881,10.63,3,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-20,arunachal-pradesh,2004,20,TALI,TAKAM SORANG,parties.IN.INC,INC,3155,54.4,1,won,U,30,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-20,arunachal-pradesh,2004,20,TALI,GICHAK THAJI KIOGI,parties.IN.BJP,BJP,2645,45.6,2,lost,U,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-21,arunachal-pradesh,2004,21,KOLORIANG,LOKAM TASAR,parties.IN.IND,IND,3823,51.54,1,won,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-21,arunachal-pradesh,2004,21,KOLORIANG,KAHFA BENGIA,parties.IN.INC,INC,3594,48.46,2,lost,U,41,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-22,arunachal-pradesh,2004,22,NACHO,TANGA BYALING,parties.IN.INC,INC,3235,51.34,1,won,U,58,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-22,arunachal-pradesh,2004,22,NACHO,TARIK RAVA,parties.IN.IND,IND,1519,24.11,2,lost,U,35,Illiterate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-22,arunachal-pradesh,2004,22,NACHO,TAI RAI,parties.IN.IND,IND,1063,16.87,3,lost,U,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-22,arunachal-pradesh,2004,22,NACHO,TARING DUI,parties.IN.BJP,BJP,484,7.68,4,forfeit,U,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-23,arunachal-pradesh,2004,23,TALIHA,NYATO RIGIA,parties.IN.INC,INC,2881,57.48,1,won,U,38,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-23,arunachal-pradesh,2004,23,TALIHA,TANING TASIRING,parties.IN.IND,IND,2034,40.58,2,lost,U,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-23,arunachal-pradesh,2004,23,TALIHA,TARA PAYENG,parties.IN.BJP,BJP,97,1.94,3,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-24,arunachal-pradesh,2004,24,DAPORIJO,DAKLO NIDAK,parties.IN.AC,AC,3652,36.29,1,won,U,44,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-24,arunachal-pradesh,2004,24,DAPORIJO,YARI DULOM,parties.IN.INC,INC,3260,32.39,2,lost,U,51,Illiterate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-24,arunachal-pradesh,2004,24,DAPORIJO,TAPEN SIGA,parties.IN.BJP,BJP,3152,31.32,3,lost,U,46,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-25,arunachal-pradesh,2004,25,RAGA,NIDO PAVITRA,parties.IN.IND,IND,4258,39.58,1,won,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-25,arunachal-pradesh,2004,25,RAGA,TALO MUGLI,parties.IN.BJP,BJP,3029,28.16,2,lost,U,35,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-25,arunachal-pradesh,2004,25,RAGA,KABAK TACHO,parties.IN.NCP,NCP,2092,19.45,3,lost,U,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-25,arunachal-pradesh,2004,25,RAGA,LIGU TACHO,parties.IN.INC,INC,1378,12.81,4,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-26,arunachal-pradesh,2004,26,DUMPORIJO,TAKAR MARDE,parties.IN.INC,INC,3379,39.37,1,won,U,42,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-26,arunachal-pradesh,2004,26,DUMPORIJO,TAKAR DONI,parties.IN.IND,IND,3224,37.56,2,lost,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-26,arunachal-pradesh,2004,26,DUMPORIJO,YABIK GONGO,parties.IN.AC,AC,1103,12.85,3,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-26,arunachal-pradesh,2004,26,DUMPORIJO,RODE BUI,parties.IN.BJP,BJP,877,10.22,4,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-27,arunachal-pradesh,2004,27,LIROMOBA,JARBOM GAMLIN,parties.IN.INC,INC,4404,51.7,1,won,U,43,Graduate Professional,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-27,arunachal-pradesh,2004,27,LIROMOBA,LIJUM RONYA,parties.IN.IND,IND,3965,46.55,2,lost,U,59,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-27,arunachal-pradesh,2004,27,LIROMOBA,DR. JAMES MITUM BOJE,parties.IN.BJP,BJP,149,1.75,3,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-28,arunachal-pradesh,2004,28,LIKABALI,JOMDE KENA,parties.IN.IND,IND,4081,57.5,1,won,U,40,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-28,arunachal-pradesh,2004,28,LIKABALI,RIMA TAIPODIA,parties.IN.INC,INC,3017,42.5,2,lost,U,48,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-29,arunachal-pradesh,2004,29,BASAR,SRI GOJEN GADI,parties.IN.IND,IND,7755,64.38,1,won,U,50,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-29,arunachal-pradesh,2004,29,BASAR,SRI EKEN RIBA,parties.IN.INC,INC,4291,35.62,2,lost,U,50,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-30,arunachal-pradesh,2004,30,ALONG WEST,GADAM ETE,parties.IN.INC,INC,3926,48.34,1,won,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-30,arunachal-pradesh,2004,30,ALONG WEST,JUMBI BAGRA,parties.IN.IND,IND,3636,44.77,2,lost,U,46,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-30,arunachal-pradesh,2004,30,ALONG WEST,IGE ETE,parties.IN.BJP,BJP,529,6.51,3,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-30,arunachal-pradesh,2004,30,ALONG WEST,TUJO BAGRA,parties.IN.IND,IND,31,0.38,4,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-31,arunachal-pradesh,2004,31,ALONG EAST,KITO SORA,parties.IN.INC,INC,4604,53.38,1,won,U,45,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-31,arunachal-pradesh,2004,31,ALONG EAST,YOMTO JINI,parties.IN.BJP,BJP,3938,45.66,2,lost,U,34,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-31,arunachal-pradesh,2004,31,ALONG EAST,TUJO BAGRA,parties.IN.IND,IND,83,0.96,3,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-32,arunachal-pradesh,2004,32,RUMGONG,DIBANG TATAK,parties.IN.INC,INC,3742,44.74,1,won,U,39,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-32,arunachal-pradesh,2004,32,RUMGONG,TAMIYO TAGA,parties.IN.IND,IND,3254,38.91,2,lost,U,51,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-32,arunachal-pradesh,2004,32,RUMGONG,KARMA JERANG,parties.IN.BJP,BJP,1367,16.35,3,forfeit,U,35,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-33,arunachal-pradesh,2004,33,MECHUKA,TADIK CHIJE,parties.IN.INC,INC,3680,55.08,1,won,U,58,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-33,arunachal-pradesh,2004,33,MECHUKA,PASANG WANGCHUK SONA,parties.IN.IND,IND,3001,44.92,2,lost,U,62,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-34,arunachal-pradesh,2004,34,TUTING-YINGKIONG,GEGONG APANG,parties.IN.INC,INC,6286,79.17,1,won,U,61,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-34,arunachal-pradesh,2004,34,TUTING-YINGKIONG,OJING KOMBOH,parties.IN.BJP,BJP,1654,20.83,2,lost,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-35,arunachal-pradesh,2004,35,PANGIN,TAPANG TALOH,parties.IN.BJP,BJP,5163,54.7,1,won,U,38,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-35,arunachal-pradesh,2004,35,PANGIN,TANYONG TATAK,parties.IN.INC,INC,4275,45.3,2,lost,U,51,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-36,arunachal-pradesh,2004,36,NARI-KOYU,TAKO DABI,parties.IN.INC,INC,1969,40.18,1,won,U,48,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-36,arunachal-pradesh,2004,36,NARI-KOYU,KARTO KAYE,parties.IN.IND,IND,1754,35.8,2,lost,U,37,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-36,arunachal-pradesh,2004,36,NARI-KOYU,TANYA DABI,parties.IN.AC,AC,923,18.84,3,lost,U,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-36,arunachal-pradesh,2004,36,NARI-KOYU,KOJUM KOYU,parties.IN.BJP,BJP,254,5.18,4,forfeit,U,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-37,arunachal-pradesh,2004,37,PASIGHAT WEST,OMAK APANG,parties.IN.INC,INC,4894,57.27,1,won,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-37,arunachal-pradesh,2004,37,PASIGHAT WEST,TANGOR TAPAK,parties.IN.BJP,BJP,3651,42.73,2,lost,U,42,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-38,arunachal-pradesh,2004,38,PASIGHAT EAST,BOSIRAM SIRAM,parties.IN.BJP,BJP,5267,47.38,1,won,U,38,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-38,arunachal-pradesh,2004,38,PASIGHAT EAST,NINONG ERING,parties.IN.INC,INC,4145,37.29,2,lost,U,46,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-38,arunachal-pradesh,2004,38,PASIGHAT EAST,NANOM JAMOH,parties.IN.IND,IND,1596,14.36,3,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-38,arunachal-pradesh,2004,38,PASIGHAT EAST,OKEP JAMOH,parties.IN.AC,AC,108,0.97,4,forfeit,U,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-39,arunachal-pradesh,2004,39,MEBO,LOMBO TAYENG,parties.IN.INC,INC,3607,50.82,1,won,U,40,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-39,arunachal-pradesh,2004,39,MEBO,RALOM BORANG,parties.IN.IND,IND,3490,49.18,2,lost,U,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-40,arunachal-pradesh,2004,40,MARIYANG-GEKU,J.K. PANGGENG,parties.IN.AC,AC,4376,50.88,1,won,U,51,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-40,arunachal-pradesh,2004,40,MARIYANG-GEKU,KABANG BORANG,parties.IN.INC,INC,2491,28.96,2,lost,U,63,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-40,arunachal-pradesh,2004,40,MARIYANG-GEKU,KANGIR JAMOH,parties.IN.BJP,BJP,879,10.22,3,forfeit,U,57,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-40,arunachal-pradesh,2004,40,MARIYANG-GEKU,DANA PERTIN,parties.IN.IND,IND,855,9.94,4,forfeit,U,55,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-41,arunachal-pradesh,2004,41,ANINI,RAJESH TACHO,parties.IN.INC,INC,1263,41.57,1,won,U,47,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-41,arunachal-pradesh,2004,41,ANINI,PARO MOLO,parties.IN.AC,AC,1003,33.02,2,lost,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-41,arunachal-pradesh,2004,41,ANINI,TASKU TAYU,parties.IN.BJP,BJP,772,25.41,3,lost,U,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-42,arunachal-pradesh,2004,42,DAMBUK,RODING PERTIN,parties.IN.IND,IND,3513,46.88,1,won,U,38,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-42,arunachal-pradesh,2004,42,DAMBUK,JOMIN TAYENG,parties.IN.INC,INC,3462,46.2,2,lost,U,60,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-42,arunachal-pradesh,2004,42,DAMBUK,BASSU PERME,parties.IN.BJP,BJP,385,5.14,3,forfeit,U,54,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-42,arunachal-pradesh,2004,42,DAMBUK,PUNNYA APUM,parties.IN.AC,AC,133,1.77,4,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-43,arunachal-pradesh,2004,43,ROING,MUKUT MITHI,parties.IN.INC,INC,3837,60.55,1,won,U,50,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-43,arunachal-pradesh,2004,43,ROING,LAETA UMBREY,parties.IN.BJP,BJP,2500,39.45,2,lost,U,48,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-44,arunachal-pradesh,2004,44,TEZU,KARIKHO KRI,parties.IN.IND,IND,5684,61.01,1,won,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-44,arunachal-pradesh,2004,44,TEZU,NAKUL CHAI,parties.IN.INC,INC,3272,35.12,2,lost,U,49,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-44,arunachal-pradesh,2004,44,TEZU,GOFAILUM KRI,parties.IN.BJP,BJP,361,3.87,3,forfeit,U,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-45,arunachal-pradesh,2004,45,HAYULIANG,KALIKHO PUL,parties.IN.INC,INC,4658,60.37,1,won,U,35,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-45,arunachal-pradesh,2004,45,HAYULIANG,KHAPRISO KRONG,parties.IN.BJP,BJP,3058,39.63,2,lost,U,54,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-46,arunachal-pradesh,2004,46,CHOWKHAM,CHOW TEWA MEIN,parties.IN.BJP,BJP,2431,29.07,1,won,U,61,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-46,arunachal-pradesh,2004,46,CHOWKHAM,CHOW INDRAJIT NAMCHOOM,parties.IN.IND,IND,1796,21.48,2,lost,U,61,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-46,arunachal-pradesh,2004,46,CHOWKHAM,NANG FRICA NAMSHUM,parties.IN.INC,INC,1721,20.58,3,lost,U,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-46,arunachal-pradesh,2004,46,CHOWKHAM,SOKIO DELLANG,parties.IN.IND,IND,1615,19.31,4,lost,U,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-46,arunachal-pradesh,2004,46,CHOWKHAM,CHOW NOUMEE NAMSHOOM,parties.IN.NCP,NCP,800,9.57,5,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-47,arunachal-pradesh,2004,47,NAMSAI,CHOW PINGTHIKA NAMCHOOM,parties.IN.IND,IND,6069,46.48,1,won,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-47,arunachal-pradesh,2004,47,NAMSAI,C.P.NAMCHOOM,parties.IN.INC,INC,5559,42.57,2,lost,U,62,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-47,arunachal-pradesh,2004,47,NAMSAI,CHOWLIK MANPOONG,parties.IN.BJP,BJP,1429,10.94,3,forfeit,U,46,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-48,arunachal-pradesh,2004,48,LEKANG,CHOWNA MEIN,parties.IN.INC,INC,5091,52.1,1,won,U,56,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-48,arunachal-pradesh,2004,48,LEKANG,CHOW NACHING LOONGCHOT,parties.IN.IND,IND,2073,21.21,2,lost,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-48,arunachal-pradesh,2004,48,LEKANG,SOTAI KRI,parties.IN.BJP,BJP,1457,14.91,3,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-48,arunachal-pradesh,2004,48,LEKANG,CHOW MITHILA MAUNGLANG,parties.IN.IND,IND,877,8.97,4,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-48,arunachal-pradesh,2004,48,LEKANG,CHAU PINKKHAM MUNGLANG,parties.IN.NCP,NCP,274,2.8,5,forfeit,U,31,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-49,arunachal-pradesh,2004,49,BORDUMSA-DIYUM,C.C. SINGPHO,parties.IN.INC,INC,3816,40.63,1,won,U,54,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-49,arunachal-pradesh,2004,49,BORDUMSA-DIYUM,MAYONG MAIO,parties.IN.IND,IND,3272,34.84,2,lost,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-49,arunachal-pradesh,2004,49,BORDUMSA-DIYUM,LAJALA SINGPHO,parties.IN.IND,IND,2027,21.58,3,lost,U,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-49,arunachal-pradesh,2004,49,BORDUMSA-DIYUM,UMBONTANG SINGPHO,parties.IN.NCP,NCP,277,2.95,4,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-50,arunachal-pradesh,2004,50,MIAO,KAMLUNG MOSSANG,parties.IN.INC,INC,5587,53.09,1,won,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-50,arunachal-pradesh,2004,50,MIAO,K.K. MOKLOM,parties.IN.IND,IND,4936,46.91,2,lost,U,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-51,arunachal-pradesh,2004,51,NAMPONG,SETONG SENA,parties.IN.INC,INC,3910,59.38,1,won,U,42,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-51,arunachal-pradesh,2004,51,NAMPONG,KOMOLI MOSANG,parties.IN.IND,IND,2675,40.62,2,lost,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-52,arunachal-pradesh,2004,52,CHANGLANG SOUTH,PHOSUM KHIMHUN,parties.IN.IND,IND,1994,50.04,1,won,U,40,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-52,arunachal-pradesh,2004,52,CHANGLANG SOUTH,NGUNGTIM CHANGMI,parties.IN.INC,INC,1991,49.96,2,lost,U,42,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-53,arunachal-pradesh,2004,53,CHANGLANG NORTH,WANGNIA PONGTE,parties.IN.INC,INC,3356,44.33,1,won,U,60,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-53,arunachal-pradesh,2004,53,CHANGLANG NORTH,THINGHAP TAIJU,parties.IN.IND,IND,2553,33.73,2,lost,U,43,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-53,arunachal-pradesh,2004,53,CHANGLANG NORTH,TENGAM NGEMU,parties.IN.BJP,BJP,1661,21.94,3,lost,U,59,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-54,arunachal-pradesh,2004,54,NAMSANG,WANGKI LOWANG,parties.IN.INC,INC,3449,62.13,1,won,U,42,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-54,arunachal-pradesh,2004,54,NAMSANG,WANGPHA LOWANG,parties.IN.IND,IND,1284,23.13,2,lost,U,59,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-54,arunachal-pradesh,2004,54,NAMSANG,WINDONG SAWIN,parties.IN.IND,IND,818,14.74,3,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-55,arunachal-pradesh,2004,55,KHONSA EAST,KAMTHOK LOWANG,parties.IN.IND,IND,4459,77.98,1,won,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-55,arunachal-pradesh,2004,55,KHONSA EAST,CHOPNEI CHIMYANG,parties.IN.AC,AC,1060,18.54,2,lost,U,51,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-55,arunachal-pradesh,2004,55,KHONSA EAST,T.L.RAJKUMAR,parties.IN.INC,INC,199,3.48,3,forfeit,U,53,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-56,arunachal-pradesh,2004,56,KHONSA WEST,THAJAM ABOH,parties.IN.INC,INC,3239,45.87,1,won,U,25,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-56,arunachal-pradesh,2004,56,KHONSA WEST,YUMSEM MATEY,parties.IN.IND,IND,3134,44.38,2,lost,U,35,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-56,arunachal-pradesh,2004,56,KHONSA WEST,HANGLIAM SUMNYAN,parties.IN.IND,IND,688,9.74,3,forfeit,U,25,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-57,arunachal-pradesh,2004,57,BORDURIA- BOGAPANI,WANGLIN LOWANGDONG,parties.IN.IND,IND,2909,59.51,1,won,U,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-57,arunachal-pradesh,2004,57,BORDURIA- BOGAPANI,LOWANGCHA WANGLAT,parties.IN.INC,INC,1979,40.49,2,lost,U,55,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-58,arunachal-pradesh,2004,58,KANUBARI,NEWLAI TINGKHATRA,parties.IN.INC,INC,2194,31.34,1,won,U,51,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-58,arunachal-pradesh,2004,58,KANUBARI,LAICHOI WANGPAN,parties.IN.NCP,NCP,2055,29.35,2,lost,U,34,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-58,arunachal-pradesh,2004,58,KANUBARI,HEJAM PONGLAHAM,parties.IN.IND,IND,1134,16.2,3,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-58,arunachal-pradesh,2004,58,KANUBARI,NOKSONG BOHAM,parties.IN.BJP,BJP,1015,14.5,4,forfeit,U,59,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-58,arunachal-pradesh,2004,58,KANUBARI,ALINI WANGCHA (RAJKUMARI),parties.IN.IND,IND,603,8.61,5,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-59,arunachal-pradesh,2004,59,LONGDING-PUMAO,THANWANG WANGHAM,parties.IN.NCP,NCP,2567,34.96,1,won,U,36,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-59,arunachal-pradesh,2004,59,LONGDING-PUMAO,TINGPONG WANGHAM,parties.IN.INC,INC,2188,29.8,2,lost,U,47,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-59,arunachal-pradesh,2004,59,LONGDING-PUMAO,TANPHO WANGNAW,parties.IN.IND,IND,1603,21.83,3,lost,U,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-59,arunachal-pradesh,2004,59,LONGDING-PUMAO,PONGSA SAHAM,parties.IN.BJP,BJP,856,11.66,4,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-59,arunachal-pradesh,2004,59,LONGDING-PUMAO,TINGJEM WANGSU,parties.IN.AC,AC,129,1.76,5,forfeit,U,34,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-60,arunachal-pradesh,2004,60,PONGCHAO-WAKKA,HONCHUN NGANDAM,parties.IN.INC,INC,4821,42.83,1,won,U,39,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-60,arunachal-pradesh,2004,60,PONGCHAO-WAKKA,ANOK WANGSA,parties.IN.NCP,NCP,3324,29.53,2,lost,U,41,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-60,arunachal-pradesh,2004,60,PONGCHAO-WAKKA,NASIB GAGANG GAPAHAM,parties.IN.AC,AC,1715,15.23,3,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-arunachal-pradesh-60,arunachal-pradesh,2004,60,PONGCHAO-WAKKA,KAPNYAI WANGSA,parties.IN.BJP,BJP,1397,12.41,4,forfeit,U,35,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-arunachal-pradesh-1,arunachal-pradesh,2004,1,LUMLA,T.G.RINPOCHE,parties.IN.INC,INC,3318,53.79,1,won,U,37,Post Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-1,arunachal-pradesh,2004,1,LUMLA,JAMBEY WANGDI,parties.IN.IND,IND,2851,46.21,2,lost,U,34,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-2,arunachal-pradesh,2004,2,TAWANG,TSEWANG DHONDUP,parties.IN.INC,INC,3786,60.8,1,won,U,45,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-2,arunachal-pradesh,2004,2,TAWANG,THUPTEN TEMPA,parties.IN.IND,IND,2441,39.2,2,lost,U,46,Post Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-5,arunachal-pradesh,2004,5,KALAKTANG,SHRI RINCHIN KHANDU KHRIMEY,parties.IN.IND,IND,3149,55.55,1,won,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-5,arunachal-pradesh,2004,5,KALAKTANG,SHRI D.K.THONGDOK,parties.IN.INC,INC,2520,44.45,2,lost,U,46,12th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-6,arunachal-pradesh,2004,6,THRIZINO-BURAGAON,SHRI NARESH GLOW,parties.IN.INC,INC,3366,50.35,1,won,U,45,10th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-6,arunachal-pradesh,2004,6,THRIZINO-BURAGAON,SHRI GOVARDHAN NIMASOW,parties.IN.BJP,BJP,3319,49.65,2,lost,U,52,5th Pass,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-7,arunachal-pradesh,2004,7,BOMDILA,R.T. KHUNJUJU,parties.IN.BJP,BJP,2955,46.65,1,won,U,41,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-7,arunachal-pradesh,2004,7,BOMDILA,JAPU DERU,parties.IN.INC,INC,2417,38.16,2,lost,U,45,10th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-7,arunachal-pradesh,2004,7,BOMDILA,PREM KHANDU THUNGON,parties.IN.IND,IND,819,12.93,3,forfeit,U,54,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-7,arunachal-pradesh,2004,7,BOMDILA,SHERGE THUNGON,parties.IN.NCP,NCP,143,2.26,4,forfeit,U,39,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-8,arunachal-pradesh,2004,8,BAMENG,KUMAR WAII,parties.IN.INC,INC,3860,52.96,1,won,U,34,10th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-8,arunachal-pradesh,2004,8,BAMENG,MEKUP DOLO,parties.IN.BJP,BJP,3428,47.04,2,lost,U,50,Illiterate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-9,arunachal-pradesh,2004,9,CHAYANGTAJO,KAMENG DOLO,parties.IN.BJP,BJP,4068,54.68,1,won,U,45,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-9,arunachal-pradesh,2004,9,CHAYANGTAJO,TARA BAGANG,parties.IN.INC,INC,3371,45.32,2,lost,U,38,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-10,arunachal-pradesh,2004,10,SEPPA EAST,ATUM WELLY,parties.IN.INC,INC,3939,53.12,1,won,U,43,12th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-10,arunachal-pradesh,2004,10,SEPPA EAST,TAME PHASSANG,parties.IN.IND,IND,3476,46.88,2,lost,U,30,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-11,arunachal-pradesh,2004,11,SEPPA WEST,TANI LOFFA,parties.IN.BJP,BJP,3123,56.22,1,won,U,40,Graduate,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-11,arunachal-pradesh,2004,11,SEPPA WEST,HARI NOTUNG,parties.IN.INC,INC,2432,43.78,2,lost,U,50,10th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-12,arunachal-pradesh,2004,12,PAKKE-KASANG,TECHI HEMU,parties.IN.BJP,BJP,2898,58.64,1,won,U,36,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-12,arunachal-pradesh,2004,12,PAKKE-KASANG,NIANI NATUNG,parties.IN.INC,INC,2044,41.36,2,lost,U,36,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-13,arunachal-pradesh,2004,13,ITANAGAR,SHRI KIPA BABU,parties.IN.BJP,BJP,9575,49.17,1,won,U,31,Post Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-13,arunachal-pradesh,2004,13,ITANAGAR,SHRI LICHI LEGI,parties.IN.INC,INC,7950,40.82,2,lost,U,52,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-13,arunachal-pradesh,2004,13,ITANAGAR,DR. BIMAN NATUNG,parties.IN.NCP,NCP,1950,10.01,3,forfeit,U,38,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-14,arunachal-pradesh,2004,14,DOIMUKH,SHRI NGURANG PINCH,parties.IN.IND,IND,5243,35.88,1,won,U,41,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-14,arunachal-pradesh,2004,14,DOIMUKH,SHRI TABA HARE,parties.IN.BJP,BJP,4970,34.01,2,lost,U,51,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-14,arunachal-pradesh,2004,14,DOIMUKH,SHRI T.C. TELI,parties.IN.INC,INC,3988,27.29,3,lost,U,40,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-14,arunachal-pradesh,2004,14,DOIMUKH,SHRI YOWA TAKAR,parties.IN.IND,IND,412,2.82,4,forfeit,U,58,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-16,arunachal-pradesh,2004,16,YACHULI,NIKH KAMIN,parties.IN.NCP,NCP,6191,54.39,1,won,U,42,10th Pass,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-16,arunachal-pradesh,2004,16,YACHULI,LIKHA MAJ,parties.IN.INC,INC,5099,44.79,2,lost,U,29,10th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-16,arunachal-pradesh,2004,16,YACHULI,TALLA JORAM,parties.IN.BJP,BJP,93,0.82,3,forfeit,U,36,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-17,arunachal-pradesh,2004,17,ZIRO-HAPOLI,NANI RIBIA,parties.IN.IND,IND,7125,55.3,1,won,U,44,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-17,arunachal-pradesh,2004,17,ZIRO-HAPOLI,PADI RICHO,parties.IN.INC,INC,5760,44.7,2,lost,U,39,10th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-18,arunachal-pradesh,2004,18,PALIN,BALO RAJA,parties.IN.BJP,BJP,5545,54.37,1,won,U,34,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-18,arunachal-pradesh,2004,18,PALIN,TAKAM SANJOY,parties.IN.INC,INC,4653,45.63,2,lost,U,37,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-19,arunachal-pradesh,2004,19,NYAPIN,TATAR KIPA,parties.IN.INC,INC,3794,45.77,1,won,U,36,12th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-19,arunachal-pradesh,2004,19,NYAPIN,BAMANG FELIX,parties.IN.AC,AC,3615,43.61,2,lost,U,39,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-19,arunachal-pradesh,2004,19,NYAPIN,TAI TAGAK,parties.IN.BJP,BJP,881,10.63,3,forfeit,U,34,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-20,arunachal-pradesh,2004,20,TALI,TAKAM SORANG,parties.IN.INC,INC,3155,54.4,1,won,U,30,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-20,arunachal-pradesh,2004,20,TALI,GICHAK THAJI KIOGI,parties.IN.BJP,BJP,2645,45.6,2,lost,U,29,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-21,arunachal-pradesh,2004,21,KOLORIANG,LOKAM TASAR,parties.IN.IND,IND,3823,51.54,1,won,U,43,8th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-21,arunachal-pradesh,2004,21,KOLORIANG,KAHFA BENGIA,parties.IN.INC,INC,3594,48.46,2,lost,U,41,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-22,arunachal-pradesh,2004,22,NACHO,TANGA BYALING,parties.IN.INC,INC,3235,51.34,1,won,U,58,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-22,arunachal-pradesh,2004,22,NACHO,TARIK RAVA,parties.IN.IND,IND,1519,24.11,2,lost,U,35,Illiterate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-22,arunachal-pradesh,2004,22,NACHO,TAI RAI,parties.IN.IND,IND,1063,16.87,3,lost,U,35,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-22,arunachal-pradesh,2004,22,NACHO,TARING DUI,parties.IN.BJP,BJP,484,7.68,4,forfeit,U,49,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-23,arunachal-pradesh,2004,23,TALIHA,NYATO RIGIA,parties.IN.INC,INC,2881,57.48,1,won,U,38,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-23,arunachal-pradesh,2004,23,TALIHA,TANING TASIRING,parties.IN.IND,IND,2034,40.58,2,lost,U,36,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-23,arunachal-pradesh,2004,23,TALIHA,TARA PAYENG,parties.IN.BJP,BJP,97,1.94,3,forfeit,U,51,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-24,arunachal-pradesh,2004,24,DAPORIJO,DAKLO NIDAK,parties.IN.AC,AC,3652,36.29,1,won,U,44,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-24,arunachal-pradesh,2004,24,DAPORIJO,YARI DULOM,parties.IN.INC,INC,3260,32.39,2,lost,U,51,Illiterate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-24,arunachal-pradesh,2004,24,DAPORIJO,TAPEN SIGA,parties.IN.BJP,BJP,3152,31.32,3,lost,U,46,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-25,arunachal-pradesh,2004,25,RAGA,NIDO PAVITRA,parties.IN.IND,IND,4258,39.58,1,won,U,42,10th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-25,arunachal-pradesh,2004,25,RAGA,TALO MUGLI,parties.IN.BJP,BJP,3029,28.16,2,lost,U,35,10th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-25,arunachal-pradesh,2004,25,RAGA,KABAK TACHO,parties.IN.NCP,NCP,2092,19.45,3,lost,U,33,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-25,arunachal-pradesh,2004,25,RAGA,LIGU TACHO,parties.IN.INC,INC,1378,12.81,4,forfeit,U,37,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-26,arunachal-pradesh,2004,26,DUMPORIJO,TAKAR MARDE,parties.IN.INC,INC,3379,39.37,1,won,U,42,10th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-26,arunachal-pradesh,2004,26,DUMPORIJO,TAKAR DONI,parties.IN.IND,IND,3224,37.56,2,lost,U,44,10th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-26,arunachal-pradesh,2004,26,DUMPORIJO,YABIK GONGO,parties.IN.AC,AC,1103,12.85,3,forfeit,U,43,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-26,arunachal-pradesh,2004,26,DUMPORIJO,RODE BUI,parties.IN.BJP,BJP,877,10.22,4,forfeit,U,29,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-27,arunachal-pradesh,2004,27,LIROMOBA,JARBOM GAMLIN,parties.IN.INC,INC,4404,51.7,1,won,U,43,Graduate Professional,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-27,arunachal-pradesh,2004,27,LIROMOBA,LIJUM RONYA,parties.IN.IND,IND,3965,46.55,2,lost,U,59,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-27,arunachal-pradesh,2004,27,LIROMOBA,DR. JAMES MITUM BOJE,parties.IN.BJP,BJP,149,1.75,3,forfeit,U,44,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-28,arunachal-pradesh,2004,28,LIKABALI,JOMDE KENA,parties.IN.IND,IND,4081,57.5,1,won,U,40,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-28,arunachal-pradesh,2004,28,LIKABALI,RIMA TAIPODIA,parties.IN.INC,INC,3017,42.5,2,lost,U,48,12th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-29,arunachal-pradesh,2004,29,BASAR,SRI GOJEN GADI,parties.IN.IND,IND,7755,64.38,1,won,U,50,5th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-29,arunachal-pradesh,2004,29,BASAR,SRI EKEN RIBA,parties.IN.INC,INC,4291,35.62,2,lost,U,50,Graduate Professional,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-30,arunachal-pradesh,2004,30,ALONG WEST,GADAM ETE,parties.IN.INC,INC,3926,48.34,1,won,U,31,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-30,arunachal-pradesh,2004,30,ALONG WEST,JUMBI BAGRA,parties.IN.IND,IND,3636,44.77,2,lost,U,46,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-30,arunachal-pradesh,2004,30,ALONG WEST,IGE ETE,parties.IN.BJP,BJP,529,6.51,3,forfeit,U,44,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-30,arunachal-pradesh,2004,30,ALONG WEST,TUJO BAGRA,parties.IN.IND,IND,31,0.38,4,forfeit,U,26,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-31,arunachal-pradesh,2004,31,ALONG EAST,KITO SORA,parties.IN.INC,INC,4604,53.38,1,won,U,45,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-31,arunachal-pradesh,2004,31,ALONG EAST,YOMTO JINI,parties.IN.BJP,BJP,3938,45.66,2,lost,U,34,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-31,arunachal-pradesh,2004,31,ALONG EAST,TUJO BAGRA,parties.IN.IND,IND,83,0.96,3,forfeit,U,26,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-32,arunachal-pradesh,2004,32,RUMGONG,DIBANG TATAK,parties.IN.INC,INC,3742,44.74,1,won,U,39,12th Pass,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-32,arunachal-pradesh,2004,32,RUMGONG,TAMIYO TAGA,parties.IN.IND,IND,3254,38.91,2,lost,U,51,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-32,arunachal-pradesh,2004,32,RUMGONG,KARMA JERANG,parties.IN.BJP,BJP,1367,16.35,3,forfeit,U,35,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-33,arunachal-pradesh,2004,33,MECHUKA,TADIK CHIJE,parties.IN.INC,INC,3680,55.08,1,won,U,58,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-33,arunachal-pradesh,2004,33,MECHUKA,PASANG WANGCHUK SONA,parties.IN.IND,IND,3001,44.92,2,lost,U,62,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-34,arunachal-pradesh,2004,34,TUTING-YINGKIONG,GEGONG APANG,parties.IN.INC,INC,6286,79.17,1,won,U,61,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-34,arunachal-pradesh,2004,34,TUTING-YINGKIONG,OJING KOMBOH,parties.IN.BJP,BJP,1654,20.83,2,lost,U,42,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-35,arunachal-pradesh,2004,35,PANGIN,TAPANG TALOH,parties.IN.BJP,BJP,5163,54.7,1,won,U,38,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-35,arunachal-pradesh,2004,35,PANGIN,TANYONG TATAK,parties.IN.INC,INC,4275,45.3,2,lost,U,51,12th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-36,arunachal-pradesh,2004,36,NARI-KOYU,TAKO DABI,parties.IN.INC,INC,1969,40.18,1,won,U,48,Graduate Professional,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-36,arunachal-pradesh,2004,36,NARI-KOYU,KARTO KAYE,parties.IN.IND,IND,1754,35.8,2,lost,U,37,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-36,arunachal-pradesh,2004,36,NARI-KOYU,TANYA DABI,parties.IN.AC,AC,923,18.84,3,lost,U,51,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-36,arunachal-pradesh,2004,36,NARI-KOYU,KOJUM KOYU,parties.IN.BJP,BJP,254,5.18,4,forfeit,U,44,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-37,arunachal-pradesh,2004,37,PASIGHAT WEST,OMAK APANG,parties.IN.INC,INC,4894,57.27,1,won,U,33,Post Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-37,arunachal-pradesh,2004,37,PASIGHAT WEST,TANGOR TAPAK,parties.IN.BJP,BJP,3651,42.73,2,lost,U,42,Graduate Professional,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-38,arunachal-pradesh,2004,38,PASIGHAT EAST,BOSIRAM SIRAM,parties.IN.BJP,BJP,5267,47.38,1,won,U,38,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-38,arunachal-pradesh,2004,38,PASIGHAT EAST,NINONG ERING,parties.IN.INC,INC,4145,37.29,2,lost,U,46,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-38,arunachal-pradesh,2004,38,PASIGHAT EAST,NANOM JAMOH,parties.IN.IND,IND,1596,14.36,3,forfeit,U,42,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-38,arunachal-pradesh,2004,38,PASIGHAT EAST,OKEP JAMOH,parties.IN.AC,AC,108,0.97,4,forfeit,U,51,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-39,arunachal-pradesh,2004,39,MEBO,LOMBO TAYENG,parties.IN.INC,INC,3607,50.82,1,won,U,40,12th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-39,arunachal-pradesh,2004,39,MEBO,RALOM BORANG,parties.IN.IND,IND,3490,49.18,2,lost,U,37,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-40,arunachal-pradesh,2004,40,MARIYANG-GEKU,J.K. PANGGENG,parties.IN.AC,AC,4376,50.88,1,won,U,51,Graduate Professional,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-40,arunachal-pradesh,2004,40,MARIYANG-GEKU,KABANG BORANG,parties.IN.INC,INC,2491,28.96,2,lost,U,63,10th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-40,arunachal-pradesh,2004,40,MARIYANG-GEKU,KANGIR JAMOH,parties.IN.BJP,BJP,879,10.22,3,forfeit,U,57,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-40,arunachal-pradesh,2004,40,MARIYANG-GEKU,DANA PERTIN,parties.IN.IND,IND,855,9.94,4,forfeit,U,55,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-41,arunachal-pradesh,2004,41,ANINI,RAJESH TACHO,parties.IN.INC,INC,1263,41.57,1,won,U,47,10th Pass,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-41,arunachal-pradesh,2004,41,ANINI,PARO MOLO,parties.IN.AC,AC,1003,33.02,2,lost,U,38,10th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-41,arunachal-pradesh,2004,41,ANINI,TASKU TAYU,parties.IN.BJP,BJP,772,25.41,3,lost,U,37,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-42,arunachal-pradesh,2004,42,DAMBUK,RODING PERTIN,parties.IN.IND,IND,3513,46.88,1,won,U,38,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-42,arunachal-pradesh,2004,42,DAMBUK,JOMIN TAYENG,parties.IN.INC,INC,3462,46.2,2,lost,U,60,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-42,arunachal-pradesh,2004,42,DAMBUK,BASSU PERME,parties.IN.BJP,BJP,385,5.14,3,forfeit,U,54,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-42,arunachal-pradesh,2004,42,DAMBUK,PUNNYA APUM,parties.IN.AC,AC,133,1.77,4,forfeit,U,33,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-43,arunachal-pradesh,2004,43,ROING,MUKUT MITHI,parties.IN.INC,INC,3837,60.55,1,won,U,50,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-43,arunachal-pradesh,2004,43,ROING,LAETA UMBREY,parties.IN.BJP,BJP,2500,39.45,2,lost,U,48,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-44,arunachal-pradesh,2004,44,TEZU,KARIKHO KRI,parties.IN.IND,IND,5684,61.01,1,won,U,33,10th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-44,arunachal-pradesh,2004,44,TEZU,NAKUL CHAI,parties.IN.INC,INC,3272,35.12,2,lost,U,49,12th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-44,arunachal-pradesh,2004,44,TEZU,GOFAILUM KRI,parties.IN.BJP,BJP,361,3.87,3,forfeit,U,36,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-45,arunachal-pradesh,2004,45,HAYULIANG,KALIKHO PUL,parties.IN.INC,INC,4658,60.37,1,won,U,35,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-45,arunachal-pradesh,2004,45,HAYULIANG,KHAPRISO KRONG,parties.IN.BJP,BJP,3058,39.63,2,lost,U,54,Graduate,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-46,arunachal-pradesh,2004,46,CHOWKHAM,CHOW TEWA MEIN,parties.IN.BJP,BJP,2431,29.07,1,won,U,61,Graduate,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-46,arunachal-pradesh,2004,46,CHOWKHAM,CHOW INDRAJIT NAMCHOOM,parties.IN.IND,IND,1796,21.48,2,lost,U,61,12th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-46,arunachal-pradesh,2004,46,CHOWKHAM,NANG FRICA NAMSHUM,parties.IN.INC,INC,1721,20.58,3,lost,U,39,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-46,arunachal-pradesh,2004,46,CHOWKHAM,SOKIO DELLANG,parties.IN.IND,IND,1615,19.31,4,lost,U,49,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-46,arunachal-pradesh,2004,46,CHOWKHAM,CHOW NOUMEE NAMSHOOM,parties.IN.NCP,NCP,800,9.57,5,forfeit,U,39,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-47,arunachal-pradesh,2004,47,NAMSAI,CHOW PINGTHIKA NAMCHOOM,parties.IN.IND,IND,6069,46.48,1,won,U,48,10th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-47,arunachal-pradesh,2004,47,NAMSAI,C.P.NAMCHOOM,parties.IN.INC,INC,5559,42.57,2,lost,U,62,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-47,arunachal-pradesh,2004,47,NAMSAI,CHOWLIK MANPOONG,parties.IN.BJP,BJP,1429,10.94,3,forfeit,U,46,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-48,arunachal-pradesh,2004,48,LEKANG,CHOWNA MEIN,parties.IN.INC,INC,5091,52.1,1,won,U,56,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-48,arunachal-pradesh,2004,48,LEKANG,CHOW NACHING LOONGCHOT,parties.IN.IND,IND,2073,21.21,2,lost,U,40,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-48,arunachal-pradesh,2004,48,LEKANG,SOTAI KRI,parties.IN.BJP,BJP,1457,14.91,3,forfeit,U,41,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-48,arunachal-pradesh,2004,48,LEKANG,CHOW MITHILA MAUNGLANG,parties.IN.IND,IND,877,8.97,4,forfeit,U,33,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-48,arunachal-pradesh,2004,48,LEKANG,CHAU PINKKHAM MUNGLANG,parties.IN.NCP,NCP,274,2.8,5,forfeit,U,31,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-49,arunachal-pradesh,2004,49,BORDUMSA-DIYUM,C.C. SINGPHO,parties.IN.INC,INC,3816,40.63,1,won,U,54,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-49,arunachal-pradesh,2004,49,BORDUMSA-DIYUM,MAYONG MAIO,parties.IN.IND,IND,3272,34.84,2,lost,U,34,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-49,arunachal-pradesh,2004,49,BORDUMSA-DIYUM,LAJALA SINGPHO,parties.IN.IND,IND,2027,21.58,3,lost,U,30,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-49,arunachal-pradesh,2004,49,BORDUMSA-DIYUM,UMBONTANG SINGPHO,parties.IN.NCP,NCP,277,2.95,4,forfeit,U,29,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-50,arunachal-pradesh,2004,50,MIAO,KAMLUNG MOSSANG,parties.IN.INC,INC,5587,53.09,1,won,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-50,arunachal-pradesh,2004,50,MIAO,K.K. MOKLOM,parties.IN.IND,IND,4936,46.91,2,lost,U,51,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-51,arunachal-pradesh,2004,51,NAMPONG,SETONG SENA,parties.IN.INC,INC,3910,59.38,1,won,U,42,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-51,arunachal-pradesh,2004,51,NAMPONG,KOMOLI MOSANG,parties.IN.IND,IND,2675,40.62,2,lost,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-52,arunachal-pradesh,2004,52,CHANGLANG SOUTH,PHOSUM KHIMHUN,parties.IN.IND,IND,1994,50.04,1,won,U,40,12th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-52,arunachal-pradesh,2004,52,CHANGLANG SOUTH,NGUNGTIM CHANGMI,parties.IN.INC,INC,1991,49.96,2,lost,U,42,Graduate,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-53,arunachal-pradesh,2004,53,CHANGLANG NORTH,WANGNIA PONGTE,parties.IN.INC,INC,3356,44.33,1,won,U,60,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-53,arunachal-pradesh,2004,53,CHANGLANG NORTH,THINGHAP TAIJU,parties.IN.IND,IND,2553,33.73,2,lost,U,43,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-53,arunachal-pradesh,2004,53,CHANGLANG NORTH,TENGAM NGEMU,parties.IN.BJP,BJP,1661,21.94,3,lost,U,59,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-54,arunachal-pradesh,2004,54,NAMSANG,WANGKI LOWANG,parties.IN.INC,INC,3449,62.13,1,won,U,42,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-54,arunachal-pradesh,2004,54,NAMSANG,WANGPHA LOWANG,parties.IN.IND,IND,1284,23.13,2,lost,U,59,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-54,arunachal-pradesh,2004,54,NAMSANG,WINDONG SAWIN,parties.IN.IND,IND,818,14.74,3,forfeit,U,25,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-55,arunachal-pradesh,2004,55,KHONSA EAST,KAMTHOK LOWANG,parties.IN.IND,IND,4459,77.98,1,won,U,36,10th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-55,arunachal-pradesh,2004,55,KHONSA EAST,CHOPNEI CHIMYANG,parties.IN.AC,AC,1060,18.54,2,lost,U,51,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-55,arunachal-pradesh,2004,55,KHONSA EAST,T.L.RAJKUMAR,parties.IN.INC,INC,199,3.48,3,forfeit,U,53,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-56,arunachal-pradesh,2004,56,KHONSA WEST,THAJAM ABOH,parties.IN.INC,INC,3239,45.87,1,won,U,25,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-56,arunachal-pradesh,2004,56,KHONSA WEST,YUMSEM MATEY,parties.IN.IND,IND,3134,44.38,2,lost,U,35,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-56,arunachal-pradesh,2004,56,KHONSA WEST,HANGLIAM SUMNYAN,parties.IN.IND,IND,688,9.74,3,forfeit,U,25,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-57,arunachal-pradesh,2004,57,BORDURIA- BOGAPANI,WANGLIN LOWANGDONG,parties.IN.IND,IND,2909,59.51,1,won,U,48,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-57,arunachal-pradesh,2004,57,BORDURIA- BOGAPANI,LOWANGCHA WANGLAT,parties.IN.INC,INC,1979,40.49,2,lost,U,55,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-58,arunachal-pradesh,2004,58,KANUBARI,NEWLAI TINGKHATRA,parties.IN.INC,INC,2194,31.34,1,won,U,51,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-58,arunachal-pradesh,2004,58,KANUBARI,LAICHOI WANGPAN,parties.IN.NCP,NCP,2055,29.35,2,lost,U,34,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-58,arunachal-pradesh,2004,58,KANUBARI,HEJAM PONGLAHAM,parties.IN.IND,IND,1134,16.2,3,forfeit,U,52,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-58,arunachal-pradesh,2004,58,KANUBARI,NOKSONG BOHAM,parties.IN.BJP,BJP,1015,14.5,4,forfeit,U,59,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-58,arunachal-pradesh,2004,58,KANUBARI,ALINI WANGCHA (RAJKUMARI),parties.IN.IND,IND,603,8.61,5,forfeit,U,29,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-59,arunachal-pradesh,2004,59,LONGDING-PUMAO,THANWANG WANGHAM,parties.IN.NCP,NCP,2567,34.96,1,won,U,36,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-59,arunachal-pradesh,2004,59,LONGDING-PUMAO,TINGPONG WANGHAM,parties.IN.INC,INC,2188,29.8,2,lost,U,47,10th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-59,arunachal-pradesh,2004,59,LONGDING-PUMAO,TANPHO WANGNAW,parties.IN.IND,IND,1603,21.83,3,lost,U,39,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-59,arunachal-pradesh,2004,59,LONGDING-PUMAO,PONGSA SAHAM,parties.IN.BJP,BJP,856,11.66,4,forfeit,U,32,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-59,arunachal-pradesh,2004,59,LONGDING-PUMAO,TINGJEM WANGSU,parties.IN.AC,AC,129,1.76,5,forfeit,U,34,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-60,arunachal-pradesh,2004,60,PONGCHAO-WAKKA,HONCHUN NGANDAM,parties.IN.INC,INC,4821,42.83,1,won,U,39,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-60,arunachal-pradesh,2004,60,PONGCHAO-WAKKA,ANOK WANGSA,parties.IN.NCP,NCP,3324,29.53,2,lost,U,41,12th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-60,arunachal-pradesh,2004,60,PONGCHAO-WAKKA,NASIB GAGANG GAPAHAM,parties.IN.AC,AC,1715,15.23,3,forfeit,U,32,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-arunachal-pradesh-60,arunachal-pradesh,2004,60,PONGCHAO-WAKKA,KAPNYAI WANGSA,parties.IN.BJP,BJP,1397,12.41,4,forfeit,U,35,,,challenger,src-1b7bc1c9d39a,minor,

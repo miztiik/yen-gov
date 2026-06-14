@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-uttar-pradesh-217,uttar-pradesh,1982,LALGANJ,157552,79730,50.61,RAVINDRA,parties.IN.INC,INC,27349,34.3,I.DUTT,parties.IN.LKD,LKD,17924,9425,11.82,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-268,uttar-pradesh,1982,KARCHANA,151489,64551,42.61,R.R.S.MANIJI,parties.IN.IND,IND,31805,49.27,R.K.SHUKLA,parties.IN.INC,INC,20992,10813,16.75,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-344,uttar-pradesh,1982,PATIALI,129439,69772,53.9,R.SINGH,parties.IN.INC,INC,24654,35.34,J.SINGH,parties.IN.BJP,BJP,19494,5160,7.4,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-uttar-pradesh-217,uttar-pradesh,1982,LALGANJ,157552,79730,50.61,RAVINDRA,parties.IN.INC,INC,27349,34.3,I.DUTT,parties.IN.LKD,LKD,17924,9425,11.82,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-268,uttar-pradesh,1982,KARCHANA,151489,64551,42.61,R.R.S.MANIJI,parties.IN.IND,IND,31805,49.27,R.K.SHUKLA,parties.IN.INC,INC,20992,10813,16.75,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-344,uttar-pradesh,1982,PATIALI,129439,69772,53.9,R.SINGH,parties.IN.INC,INC,24654,35.34,J.SINGH,parties.IN.BJP,BJP,19494,5160,7.4,src-1b7bc1c9d39a,minor,

@@ -1,23 +1,23 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-goa-11,goa,2005,11,TALEIGAO,Atanasio Monserrate,parties.IN.INC,INC,11657,66.5,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-goa-11,goa,2005,11,TALEIGAO,Pradeep Nagvenkar,parties.IN.BJP,BJP,5429,30.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-goa-11,goa,2005,11,TALEIGAO,Floriano Lobo,parties.IN.GSP,GSP,207,1.18,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-goa-11,goa,2005,11,TALEIGAO,Patel Rajendra Prasad,parties.IN.IND,IND,133,0.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-goa-11,goa,2005,11,TALEIGAO,D'Souza Martha Filomena,parties.IN.IND,IND,57,0.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-goa-11,goa,2005,11,TALEIGAO,Arvind S.Naik,parties.IN.IND,IND,47,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-goa-14,goa,2005,14,CUMBARJUA,Pandurang A. Madakaikar,parties.IN.INC,INC,8468,45.54,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-goa-14,goa,2005,14,CUMBARJUA,Nirmala P.Sawant,parties.IN.IND,IND,4713,25.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-goa-14,goa,2005,14,CUMBARJUA,Krishna Saju Kuttikar,parties.IN.BJP,BJP,4637,24.94,3,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-goa-14,goa,2005,14,CUMBARJUA,Vijay Kumar Anant Shet,parties.IN.M_G,M.G.,526,2.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-goa-14,goa,2005,14,CUMBARJUA,Christopher Fonseca,parties.IN.CPI,CPI,251,1.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-goa-28,goa,2005,28,BENAULIM,Pacheco Francisco Xavier,parties.IN.NCP,NCP,8386,56.41,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-goa-28,goa,2005,28,BENAULIM,Monte Cruz Francisco Piedade,parties.IN.UGDP,UGDP,5510,37.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-goa-28,goa,2005,28,BENAULIM,Dr. Fernandes Piedade,parties.IN.IND,IND,525,3.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-goa-28,goa,2005,28,BENAULIM,Premanand A.Lotlikar,parties.IN.BJP,BJP,446,3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-goa-30,goa,2005,30,MARGAO,Kamat Digamber Vasant,parties.IN.INC,INC,8682,53.64,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-goa-30,goa,2005,30,MARGAO,Sharmad Trivikram Raiturkar,parties.IN.BJP,BJP,7305,45.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-goa-30,goa,2005,30,MARGAO,Ali Jaffar Fatokhi,parties.IN.IND,IND,108,0.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-goa-30,goa,2005,30,MARGAO,Mukund Poi Palondicar,parties.IN.IND,IND,91,0.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-goa-40,goa,2005,40,POINGUINIM,Tawadkar Ramesh Bombo,parties.IN.BJP,BJP,5356,48.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-goa-40,goa,2005,40,POINGUINIM,Fernandes Isidore Diogo,parties.IN.INC,INC,4467,40.51,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-goa-40,goa,2005,40,POINGUINIM,Monterio Leao Fhilipe,parties.IN.IND,IND,1205,10.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-goa-11,goa,2005,11,TALEIGAO,Atanasio Monserrate,parties.IN.INC,INC,11657,66.5,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-11,goa,2005,11,TALEIGAO,Pradeep Nagvenkar,parties.IN.BJP,BJP,5429,30.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-11,goa,2005,11,TALEIGAO,Floriano Lobo,parties.IN.GSP,GSP,207,1.18,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-11,goa,2005,11,TALEIGAO,Patel Rajendra Prasad,parties.IN.IND,IND,133,0.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-11,goa,2005,11,TALEIGAO,D'Souza Martha Filomena,parties.IN.IND,IND,57,0.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-11,goa,2005,11,TALEIGAO,Arvind S.Naik,parties.IN.IND,IND,47,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-14,goa,2005,14,CUMBARJUA,Pandurang A. Madakaikar,parties.IN.INC,INC,8468,45.54,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-14,goa,2005,14,CUMBARJUA,Nirmala P.Sawant,parties.IN.IND,IND,4713,25.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-14,goa,2005,14,CUMBARJUA,Krishna Saju Kuttikar,parties.IN.BJP,BJP,4637,24.94,3,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-14,goa,2005,14,CUMBARJUA,Vijay Kumar Anant Shet,parties.IN.M_G,M.G.,526,2.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-14,goa,2005,14,CUMBARJUA,Christopher Fonseca,parties.IN.CPI,CPI,251,1.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-28,goa,2005,28,BENAULIM,Pacheco Francisco Xavier,parties.IN.NCP,NCP,8386,56.41,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-28,goa,2005,28,BENAULIM,Monte Cruz Francisco Piedade,parties.IN.UGDP,UGDP,5510,37.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-28,goa,2005,28,BENAULIM,Dr. Fernandes Piedade,parties.IN.IND,IND,525,3.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-28,goa,2005,28,BENAULIM,Premanand A.Lotlikar,parties.IN.BJP,BJP,446,3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-30,goa,2005,30,MARGAO,Kamat Digamber Vasant,parties.IN.INC,INC,8682,53.64,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-30,goa,2005,30,MARGAO,Sharmad Trivikram Raiturkar,parties.IN.BJP,BJP,7305,45.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-30,goa,2005,30,MARGAO,Ali Jaffar Fatokhi,parties.IN.IND,IND,108,0.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-30,goa,2005,30,MARGAO,Mukund Poi Palondicar,parties.IN.IND,IND,91,0.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-40,goa,2005,40,POINGUINIM,Tawadkar Ramesh Bombo,parties.IN.BJP,BJP,5356,48.57,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-40,goa,2005,40,POINGUINIM,Fernandes Isidore Diogo,parties.IN.INC,INC,4467,40.51,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-40,goa,2005,40,POINGUINIM,Monterio Leao Fhilipe,parties.IN.IND,IND,1205,10.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

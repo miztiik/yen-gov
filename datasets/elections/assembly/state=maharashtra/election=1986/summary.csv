@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-maharashtra-263,maharashtra,1986,JAOLI,120522,85717,71.12,K.G.GOVIND,parties.IN.INC,INC,44852,52.33,J.P.ALIAS.B.D,parties.IN.ICS,ICS,39035,5817,6.79,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-271,maharashtra,1986,SANGLI,120860,73107,60.49,P.S.HARI,parties.IN.JP,JNP,36977,50.58,P.V.SHAMRAO,parties.IN.INC,INC,34346,2631,3.6,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-4,maharashtra,1986,RAIRANGPUR(ST),90991,52755,57.98,C.P.MAJHI,parties.IN.JP,JNP,22528,42.7,R.MAJI,parties.IN.INC,INC,18824,3704,7.02,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-maharashtra-263,maharashtra,1986,JAOLI,120522,85717,71.12,K.G.GOVIND,parties.IN.INC,INC,44852,52.33,J.P.ALIAS.B.D,parties.IN.ICS,ICS,39035,5817,6.79,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-271,maharashtra,1986,SANGLI,120860,73107,60.49,P.S.HARI,parties.IN.JP,JNP,36977,50.58,P.V.SHAMRAO,parties.IN.INC,INC,34346,2631,3.6,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-4,maharashtra,1986,RAIRANGPUR(ST),90991,52755,57.98,C.P.MAJHI,parties.IN.JP,JNP,22528,42.7,R.MAJI,parties.IN.INC,INC,18824,3704,7.02,src-1b7bc1c9d39a,minor,

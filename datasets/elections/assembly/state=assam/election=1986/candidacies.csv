@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-assam-89,assam,1986,89,KALIABOR,G.HAZARIKA,parties.IN.IND,IND,35917,75.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-assam-89,assam,1986,89,KALIABOR,B.NAG,parties.IN.INC,INC,10427,22.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-assam-89,assam,1986,89,KALIABOR,A.KHALEQUE,parties.IN.IND,IND,955,2.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-assam-89,assam,1986,89,KALIABOR,G.HAZARIKA,parties.IN.IND,IND,35917,75.94,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-assam-89,assam,1986,89,KALIABOR,B.NAG,parties.IN.INC,INC,10427,22.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-assam-89,assam,1986,89,KALIABOR,A.KHALEQUE,parties.IN.IND,IND,955,2.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

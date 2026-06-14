@@ -1,7 +1,7 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1967-uttar-pradesh-203,uttar-pradesh,1971,203,SEORAHI,R.N.MISRA,parties.IN.INC,INC,20880,46.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-uttar-pradesh-203,uttar-pradesh,1971,203,SEORAHI,A.S.PRASAD,parties.IN.SOP,SOP,9538,21.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-uttar-pradesh-203,uttar-pradesh,1971,203,SEORAHI,R.ALI,parties.IN.NCO,NCO,5536,12.26,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-uttar-pradesh-203,uttar-pradesh,1971,203,SEORAHI,K.S.ARYA,parties.IN.BKD,BKD,5381,11.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-uttar-pradesh-203,uttar-pradesh,1971,203,SEORAHI,K.GUPTA,parties.IN.IND,IND,2992,6.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-uttar-pradesh-203,uttar-pradesh,1971,203,SEORAHI,A.K.KUMAR,parties.IN.BJS,BJS,830,1.84,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1967-uttar-pradesh-203,uttar-pradesh,1971,203,SEORAHI,R.N.MISRA,parties.IN.INC,INC,20880,46.24,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-uttar-pradesh-203,uttar-pradesh,1971,203,SEORAHI,A.S.PRASAD,parties.IN.SOP,SOP,9538,21.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-uttar-pradesh-203,uttar-pradesh,1971,203,SEORAHI,R.ALI,parties.IN.NCO,NCO,5536,12.26,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-uttar-pradesh-203,uttar-pradesh,1971,203,SEORAHI,K.S.ARYA,parties.IN.BKD,BKD,5381,11.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-uttar-pradesh-203,uttar-pradesh,1971,203,SEORAHI,K.GUPTA,parties.IN.IND,IND,2992,6.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-uttar-pradesh-203,uttar-pradesh,1971,203,SEORAHI,A.K.KUMAR,parties.IN.BJS,BJS,830,1.84,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

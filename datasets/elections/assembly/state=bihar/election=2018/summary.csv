@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-bihar-1109,bihar,2018,JOKIHAT,270475,145745,53.88,Shahnawaz -E,parties.IN.RJD,RJD,81240,55.74,MD. Murhid Alam,parties.IN.JDU,JD(United),40016,41224,28.28,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,JAHANABAD,287029,141298,49.23,Kumar Krishna Mohan Alis Sudyk Yadav,parties.IN.RJD,RJD,76598,54.21,Abhi Ram Sharma,parties.IN.JDU,JD(United),41255,35343,25.01,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1302,bihar,2018,BHABUA,259306,134664,51.93,Rinki Rani Pandey 'E',parties.IN.BJP,BJP,64413,47.83,Shambhu Singh Patel,parties.IN.INC,INC,49547,14866,11.04,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-2008-bihar-1109,bihar,2018,JOKIHAT,270475,145745,53.88,Shahnawaz -E,parties.IN.RJD,RJD,81240,55.74,MD. Murhid Alam,parties.IN.JDU,JD(United),40016,41224,28.28,src-1b7bc1c9d39a,minor,
+IN-AC-2008-bihar-1178,bihar,2018,JAHANABAD,287029,141298,49.23,Kumar Krishna Mohan Alis Sudyk Yadav,parties.IN.RJD,RJD,76598,54.21,Abhi Ram Sharma,parties.IN.JDU,JD(United),41255,35343,25.01,src-1b7bc1c9d39a,minor,
+IN-AC-2008-bihar-1302,bihar,2018,BHABUA,259306,134664,51.93,Rinki Rani Pandey 'E',parties.IN.BJP,BJP,64413,47.83,Shambhu Singh Patel,parties.IN.INC,INC,49547,14866,11.04,src-1b7bc1c9d39a,minor,

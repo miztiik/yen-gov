@@ -1,8 +1,8 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-maharashtra-6,maharashtra,1984,6,RATANAGIRI,G.S.RAMACHANDRA,parties.IN.BJP,BJP,23777,48.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-6,maharashtra,1984,6,RATANAGIRI,S.G.SITARAM,parties.IN.INC,INC,21340,43.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-6,maharashtra,1984,6,RATANAGIRI,B.Y.PADMAKAR,parties.IN.IND,IND,1600,3.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-6,maharashtra,1984,6,RATANAGIRI,N.S.SHANKAR,parties.IN.IND,IND,849,1.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-6,maharashtra,1984,6,RATANAGIRI,S.V.DATTATRAY,parties.IN.IND,IND,666,1.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-6,maharashtra,1984,6,RATANAGIRI,T.R.BHIMRAO,parties.IN.IND,IND,432,0.88,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-6,maharashtra,1984,6,RATANAGIRI,H.T.AHAMED,parties.IN.IND,IND,268,0.55,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-maharashtra-6,maharashtra,1984,6,RATANAGIRI,G.S.RAMACHANDRA,parties.IN.BJP,BJP,23777,48.59,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-6,maharashtra,1984,6,RATANAGIRI,S.G.SITARAM,parties.IN.INC,INC,21340,43.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-6,maharashtra,1984,6,RATANAGIRI,B.Y.PADMAKAR,parties.IN.IND,IND,1600,3.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-6,maharashtra,1984,6,RATANAGIRI,N.S.SHANKAR,parties.IN.IND,IND,849,1.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-6,maharashtra,1984,6,RATANAGIRI,S.V.DATTATRAY,parties.IN.IND,IND,666,1.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-6,maharashtra,1984,6,RATANAGIRI,T.R.BHIMRAO,parties.IN.IND,IND,432,0.88,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-6,maharashtra,1984,6,RATANAGIRI,H.T.AHAMED,parties.IN.IND,IND,268,0.55,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

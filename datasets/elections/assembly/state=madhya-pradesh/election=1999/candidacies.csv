@@ -1,14 +1,14 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-madhya-pradesh-29,madhya-pradesh,1999,29,GUNA,Kailash Narayan Sharma,parties.IN.INC,INC,57710,59.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-29,madhya-pradesh,1999,29,GUNA,Bhagchand Sogani(Vakil),parties.IN.BJP,BJP,37032,38.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-29,madhya-pradesh,1999,29,GUNA,Comrade Ghanshyan Sharma,parties.IN.CPI,CPI,2151,2.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-29,madhya-pradesh,1999,29,GUNA,Shailendra Singh,parties.IN.NCP,NCP,225,0.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-29,madhya-pradesh,1999,29,GUNA,Keval Singh Yadav,parties.IN.JDS,JD(S),190,0.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-298,madhya-pradesh,1999,298,MANAWAR(ST),Balwantsingh Mandloi(Jamli),parties.IN.INC,INC,40611,50.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-298,madhya-pradesh,1999,298,MANAWAR(ST),Hemlata Chhattarsingh Darbar,parties.IN.BJP,BJP,36315,45.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-298,madhya-pradesh,1999,298,MANAWAR(ST),Rajendra (Raoji Chikli),parties.IN.IND,IND,2652,3.31,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-298,madhya-pradesh,1999,298,MANAWAR(ST),Ramsingh Patel,parties.IN.IND,IND,525,0.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-304,madhya-pradesh,1999,304,ALIRAJPUR(ST),Vesta Patel,parties.IN.INC,INC,35342,60.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-304,madhya-pradesh,1999,304,ALIRAJPUR(ST),Rajendra Singh Patel,parties.IN.IND,IND,15667,26.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-304,madhya-pradesh,1999,304,ALIRAJPUR(ST),Bhagirath Bhanwar,parties.IN.BJP,BJP,7525,12.79,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-304,madhya-pradesh,1999,304,ALIRAJPUR(ST),Jal Singh Urf Jalam Singh Patel,parties.IN.JDU,JD(U),317,0.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-madhya-pradesh-29,madhya-pradesh,1999,29,GUNA,Kailash Narayan Sharma,parties.IN.INC,INC,57710,59.31,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-29,madhya-pradesh,1999,29,GUNA,Bhagchand Sogani(Vakil),parties.IN.BJP,BJP,37032,38.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-29,madhya-pradesh,1999,29,GUNA,Comrade Ghanshyan Sharma,parties.IN.CPI,CPI,2151,2.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-29,madhya-pradesh,1999,29,GUNA,Shailendra Singh,parties.IN.NCP,NCP,225,0.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-29,madhya-pradesh,1999,29,GUNA,Keval Singh Yadav,parties.IN.JDS,JD(S),190,0.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-298,madhya-pradesh,1999,298,MANAWAR(ST),Balwantsingh Mandloi(Jamli),parties.IN.INC,INC,40611,50.7,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-298,madhya-pradesh,1999,298,MANAWAR(ST),Hemlata Chhattarsingh Darbar,parties.IN.BJP,BJP,36315,45.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-298,madhya-pradesh,1999,298,MANAWAR(ST),Rajendra (Raoji Chikli),parties.IN.IND,IND,2652,3.31,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-298,madhya-pradesh,1999,298,MANAWAR(ST),Ramsingh Patel,parties.IN.IND,IND,525,0.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-304,madhya-pradesh,1999,304,ALIRAJPUR(ST),Vesta Patel,parties.IN.INC,INC,35342,60.05,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-304,madhya-pradesh,1999,304,ALIRAJPUR(ST),Rajendra Singh Patel,parties.IN.IND,IND,15667,26.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-304,madhya-pradesh,1999,304,ALIRAJPUR(ST),Bhagirath Bhanwar,parties.IN.BJP,BJP,7525,12.79,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-304,madhya-pradesh,1999,304,ALIRAJPUR(ST),Jal Singh Urf Jalam Singh Patel,parties.IN.JDU,JD(U),317,0.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

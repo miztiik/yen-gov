@@ -1,29 +1,29 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Babita Devi,parties.IN.JMM,JMM,60552,34.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Lambodar Mahto,parties.IN.AJSU,AJSUP,59211,34.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Madhav Lal Singh,parties.IN.BJP,BJP,42038,24.16,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Nikhil Kumar Soren,parties.IN.IND,IND,1996,1.15,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,HemLal Mahto,parties.IN.IND,IND,1423,0.82,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Umesh Kumr Mahto,parties.IN.UNK,JMM(Ulgulan),1385,0.8,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Gautam Tiwari,parties.IN.IND,IND,886,0.51,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Dhananjay Kumar Prajapati,parties.IN.IND,IND,637,0.37,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Deonarayan Murmu,parties.IN.JDP,JDP,594,0.34,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Juli Devi,parties.IN.LJVM,LJVM,436,0.25,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Tekochand Mahto,parties.IN.IND,IND,398,0.23,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,MD. Sultan,parties.IN.RLSP,RLSP,314,0.18,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Khudi Ram Mahto,parties.IN.IND,IND,279,0.16,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Seema Devi,parties.IN.JMM,JMM,77129,52.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Sudesh Kumar Mahto,parties.IN.AP,AP,63619,43.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Amit Singh Munda,parties.IN.IND,IND,1239,0.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Seema Devi,parties.IN.IND,IND,1048,0.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Jyoti Prasad,parties.IN.RLSP,RLSP,809,0.55,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Lalchan Mahto,parties.IN.IND,IND,332,0.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Sanjay Prasad Yadav,parties.IN.UNK,JAP (L),282,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Deepak Kumar Manjhi,parties.IN.IND,IND,236,0.16,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Dhanpati Mahto,parties.IN.IND,IND,233,0.16,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Sitaram Munda,parties.IN.JDP,JDP,233,0.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2183,jharkhand,2018,71,KOLEBIRA,Naman Bixal Kongari,parties.IN.INC,INC,40355,33.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2183,jharkhand,2018,71,KOLEBIRA,Basant Soreng,parties.IN.BJP,BJP,30690,25.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2183,jharkhand,2018,71,KOLEBIRA,Anil Kandulna,parties.IN.RSP,RSP,23802,20.01,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2183,jharkhand,2018,71,KOLEBIRA,Menon Ekka,parties.IN.JKP,Jharkhand Party,16455,13.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-jharkhand-2183,jharkhand,2018,71,KOLEBIRA,Basant Dung-Dung,parties.IN.IND,IND,3952,3.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Babita Devi,parties.IN.JMM,JMM,60552,34.8,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Lambodar Mahto,parties.IN.AJSU,AJSUP,59211,34.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Madhav Lal Singh,parties.IN.BJP,BJP,42038,24.16,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Nikhil Kumar Soren,parties.IN.IND,IND,1996,1.15,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,HemLal Mahto,parties.IN.IND,IND,1423,0.82,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Umesh Kumr Mahto,parties.IN.UNK,JMM(Ulgulan),1385,0.8,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,major,Publisher label 'JMM(Ulgulan)' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Gautam Tiwari,parties.IN.IND,IND,886,0.51,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Dhananjay Kumar Prajapati,parties.IN.IND,IND,637,0.37,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Deonarayan Murmu,parties.IN.JDP,JDP,594,0.34,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Juli Devi,parties.IN.LJVM,LJVM,436,0.25,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Tekochand Mahto,parties.IN.IND,IND,398,0.23,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,MD. Sultan,parties.IN.RLSP,RLSP,314,0.18,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2162,jharkhand,2018,34,GOMIYA,Khudi Ram Mahto,parties.IN.IND,IND,279,0.16,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Seema Devi,parties.IN.JMM,JMM,77129,52.28,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Sudesh Kumar Mahto,parties.IN.AP,AP,63619,43.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Amit Singh Munda,parties.IN.IND,IND,1239,0.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Seema Devi,parties.IN.IND,IND,1048,0.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Jyoti Prasad,parties.IN.RLSP,RLSP,809,0.55,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Lalchan Mahto,parties.IN.IND,IND,332,0.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Sanjay Prasad Yadav,parties.IN.UNK,JAP (L),282,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,major,Publisher label 'JAP (L)' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Deepak Kumar Manjhi,parties.IN.IND,IND,236,0.16,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Dhanpati Mahto,parties.IN.IND,IND,233,0.16,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2215,jharkhand,2018,61,SILLI,Sitaram Munda,parties.IN.JDP,JDP,233,0.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2183,jharkhand,2018,71,KOLEBIRA,Naman Bixal Kongari,parties.IN.INC,INC,40355,33.93,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2183,jharkhand,2018,71,KOLEBIRA,Basant Soreng,parties.IN.BJP,BJP,30690,25.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2183,jharkhand,2018,71,KOLEBIRA,Anil Kandulna,parties.IN.RSP,RSP,23802,20.01,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2183,jharkhand,2018,71,KOLEBIRA,Menon Ekka,parties.IN.JKP,Jharkhand Party,16455,13.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2183,jharkhand,2018,71,KOLEBIRA,Basant Dung-Dung,parties.IN.IND,IND,3952,3.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

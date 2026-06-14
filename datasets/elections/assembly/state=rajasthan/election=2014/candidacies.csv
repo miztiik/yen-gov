@@ -1,24 +1,24 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Sharwan Kumar,parties.IN.INC,INC,70527,43.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Dr. Digamber Singh,parties.IN.BJP,BJP,67257,41.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Neeta Yadav,parties.IN.IND,IND,20979,12.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Urmila Meghwal,parties.IN.MP,MP,1111,0.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Ramchandra Kulhari,parties.IN.CPIMLL,CPI(ML),832,0.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Surendar,parties.IN.IND,IND,681,0.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Subhash Khandwa,parties.IN.IND,IND,607,0.37,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Anita,parties.IN.IND,IND,369,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Ishwar Singh,parties.IN.IND,IND,333,0.2,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-543,rajasthan,2014,75,WEIR,Bhajan Lal Jatay,parties.IN.INC,INC,77305,59.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-543,rajasthan,2014,75,WEIR,Ganga Ram Koli,parties.IN.BJP,BJP,52197,39.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-543,rajasthan,2014,75,WEIR,Amar Chand,parties.IN.IND,IND,1192,0.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-510,rajasthan,2014,102,NASIRABAD,Ramnarayan,parties.IN.INC,INC,66648,49.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-510,rajasthan,2014,102,NASIRABAD,Sarita Devi Gena,parties.IN.BJP,BJP,66262,49.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-510,rajasthan,2014,102,NASIRABAD,Idarish Mohammad Pathan,parties.IN.JP,JP,1469,1.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-510,rajasthan,2014,102,NASIRABAD,Vijay Singh Rawat,parties.IN.ABAP,ABAP,792,0.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-eci190,rajasthan,2014,190,KOTA SOUTH,Sandeep Sharma,parties.IN.BJP,BJP,84233,58.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-eci190,rajasthan,2014,190,KOTA SOUTH,Shivkant Nandwana,parties.IN.INC,INC,58526,40.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-eci190,rajasthan,2014,190,KOTA SOUTH,Roop Singh,parties.IN.BYS,BYS,622,0.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-eci190,rajasthan,2014,190,KOTA SOUTH,Shailendra Rishi,parties.IN.IND,IND,384,0.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-eci190,rajasthan,2014,190,KOTA SOUTH,E.N.Kishore Mehra,parties.IN.IND,IND,273,0.19,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-eci190,rajasthan,2014,190,KOTA SOUTH,Dr. Rama Kishan Soni,parties.IN.IND,IND,145,0.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-rajasthan-eci190,rajasthan,2014,190,KOTA SOUTH,Ravi prakash,parties.IN.IND,IND,112,0.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Sharwan Kumar,parties.IN.INC,INC,70527,43.35,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Dr. Digamber Singh,parties.IN.BJP,BJP,67257,41.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Neeta Yadav,parties.IN.IND,IND,20979,12.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Urmila Meghwal,parties.IN.MP,MP,1111,0.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Ramchandra Kulhari,parties.IN.CPIMLL,CPI(ML),832,0.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Surendar,parties.IN.IND,IND,681,0.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Subhash Khandwa,parties.IN.IND,IND,607,0.37,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Anita,parties.IN.IND,IND,369,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-630,rajasthan,2014,26,SURAJGARH,Ishwar Singh,parties.IN.IND,IND,333,0.2,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-543,rajasthan,2014,75,WEIR,Bhajan Lal Jatay,parties.IN.INC,INC,77305,59.15,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-543,rajasthan,2014,75,WEIR,Ganga Ram Koli,parties.IN.BJP,BJP,52197,39.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-543,rajasthan,2014,75,WEIR,Amar Chand,parties.IN.IND,IND,1192,0.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-510,rajasthan,2014,102,NASIRABAD,Ramnarayan,parties.IN.INC,INC,66648,49.31,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-510,rajasthan,2014,102,NASIRABAD,Sarita Devi Gena,parties.IN.BJP,BJP,66262,49.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-510,rajasthan,2014,102,NASIRABAD,Idarish Mohammad Pathan,parties.IN.JP,JP,1469,1.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-510,rajasthan,2014,102,NASIRABAD,Vijay Singh Rawat,parties.IN.ABAP,ABAP,792,0.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-eci190,rajasthan,2014,190,KOTA SOUTH,Sandeep Sharma,parties.IN.BJP,BJP,84233,58.38,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-eci190,rajasthan,2014,190,KOTA SOUTH,Shivkant Nandwana,parties.IN.INC,INC,58526,40.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-eci190,rajasthan,2014,190,KOTA SOUTH,Roop Singh,parties.IN.BYS,BYS,622,0.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-eci190,rajasthan,2014,190,KOTA SOUTH,Shailendra Rishi,parties.IN.IND,IND,384,0.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-eci190,rajasthan,2014,190,KOTA SOUTH,E.N.Kishore Mehra,parties.IN.IND,IND,273,0.19,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-eci190,rajasthan,2014,190,KOTA SOUTH,Dr. Rama Kishan Soni,parties.IN.IND,IND,145,0.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-rajasthan-eci190,rajasthan,2014,190,KOTA SOUTH,Ravi prakash,parties.IN.IND,IND,112,0.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

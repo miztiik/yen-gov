@@ -1,80 +1,80 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-karnataka-10,karnataka,1996,10,GULBARGA,Kaiser Mahmood Maniyar,parties.IN.JD,JD,48923,38.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-10,karnataka,1996,10,GULBARGA,S. K. Kanta,parties.IN.SP,SP,41684,33.03,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-10,karnataka,1996,10,GULBARGA,Somashekhar. C. Devani,parties.IN.BJP,BJP,23610,18.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-10,karnataka,1996,10,GULBARGA,S.H. Katti,parties.IN.BSP,BSP,6627,5.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-10,karnataka,1996,10,GULBARGA,C.B. Patil Okaly,parties.IN.INC,INC,4769,3.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-10,karnataka,1996,10,GULBARGA,Venkatrao Sindhe,parties.IN.RPI,RPI,383,0.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-10,karnataka,1996,10,GULBARGA,Parameshwar Bhimrao,parties.IN.IND,IND,223,0.18,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-27,karnataka,1996,27,YELBURGA,Rudragouda Hunsihal,parties.IN.JD,JD,36245,46.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-27,karnataka,1996,27,YELBURGA,Shivasharanappa Gouda Patil,parties.IN.INC,INC,33683,42.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-27,karnataka,1996,27,YELBURGA,Andappa Gurulingappa Somapur,parties.IN.BJP,BJP,8692,11.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,P.S. Prakash,parties.IN.JD,JD,14430,29.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Perikal M. Mallappa,parties.IN.INC,INC,12800,26.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,R.V. Devaraj,parties.IN.UNK,KCP,9691,19.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Mahaveer,parties.IN.BJP,BJP,8217,16.88,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,G. Narayanakumar,parties.IN.IND,IND,986,2.03,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,S. Murhty,parties.IN.IND,IND,699,1.44,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,B.R. Srikanth,parties.IN.JP,JP,361,0.74,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Abdul Gaffar,parties.IN.IND,IND,175,0.36,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Jamaheed Pasha,parties.IN.IND,IND,160,0.33,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,T. Muneshwarasa,parties.IN.IND,IND,143,0.29,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,K. Somashekara,parties.IN.IND,IND,82,0.17,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,S. Sudhakar,parties.IN.IND,IND,64,0.13,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,R.S.N. Gowda,parties.IN.KP,KP,58,0.12,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,B.N. Nagaraj,parties.IN.IND,IND,57,0.12,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,L. Mallikarjun,parties.IN.AIIC_T,AIIC(T),57,0.12,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Guinness Hottepaksha Rangaswamy,parties.IN.IND,IND,56,0.12,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,K.M. Narayan,parties.IN.IND,IND,56,0.12,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,P. Basappa,parties.IN.IND,IND,49,0.1,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,G. Vasu,parties.IN.IND,IND,44,0.09,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,M. Muddaiah,parties.IN.IND,IND,40,0.08,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,C.R. Venkatesh Prasad,parties.IN.IND,IND,40,0.08,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Nagaraj,parties.IN.IND,IND,39,0.08,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Subramani,parties.IN.IND,IND,35,0.07,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,B. Shivanna,parties.IN.IND,IND,33,0.07,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,B.S. Seetharam Rao,parties.IN.IND,IND,33,0.07,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Ashok T.M.,parties.IN.IND,IND,32,0.07,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,T.V. Prabhu,parties.IN.IND,IND,26,0.05,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Sampangiraj,parties.IN.IND,IND,26,0.05,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,M. Muniraju,parties.IN.IND,IND,24,0.05,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Thangamuthu,parties.IN.IND,IND,23,0.05,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,R. Ramaiah,parties.IN.IND,IND,23,0.05,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Padma Srinivasan,parties.IN.IND,IND,22,0.05,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Abdulla,parties.IN.IND,IND,18,0.04,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,R. Eswaraiah,parties.IN.IND,IND,18,0.04,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Dr. Padmachari,parties.IN.IND,IND,18,0.04,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,R. Anil Kumar,parties.IN.IND,IND,12,0.02,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Abraham T.J.,parties.IN.IND,IND,12,0.02,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Hanuman Prasad Panday,parties.IN.IND,IND,8,0.02,38,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Jesuraja,parties.IN.IND,IND,7,0.01,39,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Thammegowda,parties.IN.IND,IND,6,0.01,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-97,karnataka,1996,97,DODDABALLAPUR,R.G. Venkatachalaiah,parties.IN.JD,JD,52450,46.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-97,karnataka,1996,97,DODDABALLAPUR,A. Narasimhaiah,parties.IN.IND,IND,50501,44.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-97,karnataka,1996,97,DODDABALLAPUR,C.D. Sathya Narayana Gowda,parties.IN.INC,INC,9218,8.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-97,karnataka,1996,97,DODDABALLAPUR,Dr. D. R. Venkatesh Gowda,parties.IN.IND,IND,197,0.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-109,karnataka,1996,109,KRISHNARAJPET,B. Prakash,parties.IN.IND,IND,29524,29.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-109,karnataka,1996,109,KRISHNARAJPET,B. Javarayee Gowda,parties.IN.JD,JD,26969,26.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-109,karnataka,1996,109,KRISHNARAJPET,A.B. Javarappa,parties.IN.INC,INC,18868,18.82,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-109,karnataka,1996,109,KRISHNARAJPET,M.B. Gowda,parties.IN.BJP,BJP,11684,11.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-109,karnataka,1996,109,KRISHNARAJPET,K.R. Jayaramu,parties.IN.KRRS,KRRS,6551,6.53,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-109,karnataka,1996,109,KRISHNARAJPET,Basthi Rangappa,parties.IN.IND,IND,3523,3.51,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-109,karnataka,1996,109,KRISHNARAJPET,M. Puttaswamy Gowda,parties.IN.IND,IND,3159,3.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-166,karnataka,1996,166,SORAB,S. Kumar Bangarappa,parties.IN.UNK,KCP,44689,59.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-166,karnataka,1996,166,SORAB,M.R. Patil,parties.IN.BJP,BJP,12108,16.07,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-166,karnataka,1996,166,SORAB,Basuru Chandrappa Gowda,parties.IN.IND,IND,8140,10.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-166,karnataka,1996,166,SORAB,P Channaverappa Gowda,parties.IN.INC,INC,5866,7.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-166,karnataka,1996,166,SORAB,Pani Rajappa,parties.IN.IND,IND,4519,6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-169,karnataka,1996,169,BHATKAL,Shivanand Naik,parties.IN.BJP,BJP,46145,56.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-169,karnataka,1996,169,BHATKAL,Naik Damodar Gardikar,parties.IN.JD,JD,28718,35.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-169,karnataka,1996,169,BHATKAL,M.S. Naik,parties.IN.INC,INC,5904,7.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-169,karnataka,1996,169,BHATKAL,I.M. Rizwan,parties.IN.IND,IND,1202,1.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-194,karnataka,1996,194,BAILHONGAL,Koujalagi Mahantesh Shivanand,parties.IN.JD,JD,33220,46.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-194,karnataka,1996,194,BAILHONGAL,Bolasheeti Baburao Annappa,parties.IN.IND,IND,20941,29.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-194,karnataka,1996,194,BAILHONGAL,Muragod Mallappa Gangappa,parties.IN.INC,INC,16392,22.79,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-194,karnataka,1996,194,BAILHONGAL,Shankarayya Shivalingayya Mallayyanavaramath,parties.IN.BJP,BJP,1373,1.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-215,karnataka,1996,215,GUDLEGUD,Sheelavant Rajashekhar Veranna,parties.IN.BJP,BJP,35932,47.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-215,karnataka,1996,215,GUDLEGUD,Hulageri Mallanna Kapaleppa,parties.IN.INC,INC,19337,25.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-215,karnataka,1996,215,GUDLEGUD,Raveendra Pralhad Kalaburgi,parties.IN.JD,JD,18047,23.74,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-215,karnataka,1996,215,GUDLEGUD,Kazi Kutubuddin Bashasab,parties.IN.IND,IND,2580,3.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-215,karnataka,1996,215,GUDLEGUD,Madar Konappa Shiddappa,parties.IN.IND,IND,138,0.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-karnataka-10,karnataka,1996,10,GULBARGA,Kaiser Mahmood Maniyar,parties.IN.JD,JD,48923,38.76,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-10,karnataka,1996,10,GULBARGA,S. K. Kanta,parties.IN.SP,SP,41684,33.03,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-10,karnataka,1996,10,GULBARGA,Somashekhar. C. Devani,parties.IN.BJP,BJP,23610,18.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-10,karnataka,1996,10,GULBARGA,S.H. Katti,parties.IN.BSP,BSP,6627,5.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-10,karnataka,1996,10,GULBARGA,C.B. Patil Okaly,parties.IN.INC,INC,4769,3.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-10,karnataka,1996,10,GULBARGA,Venkatrao Sindhe,parties.IN.RPI,RPI,383,0.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-10,karnataka,1996,10,GULBARGA,Parameshwar Bhimrao,parties.IN.IND,IND,223,0.18,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-27,karnataka,1996,27,YELBURGA,Rudragouda Hunsihal,parties.IN.JD,JD,36245,46.1,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-27,karnataka,1996,27,YELBURGA,Shivasharanappa Gouda Patil,parties.IN.INC,INC,33683,42.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-27,karnataka,1996,27,YELBURGA,Andappa Gurulingappa Somapur,parties.IN.BJP,BJP,8692,11.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,P.S. Prakash,parties.IN.JD,JD,14430,29.64,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Perikal M. Mallappa,parties.IN.INC,INC,12800,26.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,R.V. Devaraj,parties.IN.UNK,KCP,9691,19.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a,major,Publisher label 'KCP' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Mahaveer,parties.IN.BJP,BJP,8217,16.88,4,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,G. Narayanakumar,parties.IN.IND,IND,986,2.03,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,S. Murhty,parties.IN.IND,IND,699,1.44,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,B.R. Srikanth,parties.IN.JP,JP,361,0.74,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Abdul Gaffar,parties.IN.IND,IND,175,0.36,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Jamaheed Pasha,parties.IN.IND,IND,160,0.33,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,T. Muneshwarasa,parties.IN.IND,IND,143,0.29,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,K. Somashekara,parties.IN.IND,IND,82,0.17,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,S. Sudhakar,parties.IN.IND,IND,64,0.13,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,R.S.N. Gowda,parties.IN.KP,KP,58,0.12,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,B.N. Nagaraj,parties.IN.IND,IND,57,0.12,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,L. Mallikarjun,parties.IN.AIIC_T,AIIC(T),57,0.12,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Guinness Hottepaksha Rangaswamy,parties.IN.IND,IND,56,0.12,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,K.M. Narayan,parties.IN.IND,IND,56,0.12,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,P. Basappa,parties.IN.IND,IND,49,0.1,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,G. Vasu,parties.IN.IND,IND,44,0.09,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,M. Muddaiah,parties.IN.IND,IND,40,0.08,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,C.R. Venkatesh Prasad,parties.IN.IND,IND,40,0.08,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Nagaraj,parties.IN.IND,IND,39,0.08,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Subramani,parties.IN.IND,IND,35,0.07,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,B. Shivanna,parties.IN.IND,IND,33,0.07,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,B.S. Seetharam Rao,parties.IN.IND,IND,33,0.07,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Ashok T.M.,parties.IN.IND,IND,32,0.07,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,T.V. Prabhu,parties.IN.IND,IND,26,0.05,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Sampangiraj,parties.IN.IND,IND,26,0.05,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,M. Muniraju,parties.IN.IND,IND,24,0.05,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Thangamuthu,parties.IN.IND,IND,23,0.05,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,R. Ramaiah,parties.IN.IND,IND,23,0.05,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Padma Srinivasan,parties.IN.IND,IND,22,0.05,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Abdulla,parties.IN.IND,IND,18,0.04,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,R. Eswaraiah,parties.IN.IND,IND,18,0.04,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Dr. Padmachari,parties.IN.IND,IND,18,0.04,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,R. Anil Kumar,parties.IN.IND,IND,12,0.02,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Abraham T.J.,parties.IN.IND,IND,12,0.02,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Hanuman Prasad Panday,parties.IN.IND,IND,8,0.02,38,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Jesuraja,parties.IN.IND,IND,7,0.01,39,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-79,karnataka,1996,79,CHICKPET,Thammegowda,parties.IN.IND,IND,6,0.01,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-97,karnataka,1996,97,DODDABALLAPUR,R.G. Venkatachalaiah,parties.IN.JD,JD,52450,46.68,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-97,karnataka,1996,97,DODDABALLAPUR,A. Narasimhaiah,parties.IN.IND,IND,50501,44.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-97,karnataka,1996,97,DODDABALLAPUR,C.D. Sathya Narayana Gowda,parties.IN.INC,INC,9218,8.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-97,karnataka,1996,97,DODDABALLAPUR,Dr. D. R. Venkatesh Gowda,parties.IN.IND,IND,197,0.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-109,karnataka,1996,109,KRISHNARAJPET,B. Prakash,parties.IN.IND,IND,29524,29.44,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-109,karnataka,1996,109,KRISHNARAJPET,B. Javarayee Gowda,parties.IN.JD,JD,26969,26.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-109,karnataka,1996,109,KRISHNARAJPET,A.B. Javarappa,parties.IN.INC,INC,18868,18.82,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-109,karnataka,1996,109,KRISHNARAJPET,M.B. Gowda,parties.IN.BJP,BJP,11684,11.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-109,karnataka,1996,109,KRISHNARAJPET,K.R. Jayaramu,parties.IN.KRRS,KRRS,6551,6.53,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-109,karnataka,1996,109,KRISHNARAJPET,Basthi Rangappa,parties.IN.IND,IND,3523,3.51,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-109,karnataka,1996,109,KRISHNARAJPET,M. Puttaswamy Gowda,parties.IN.IND,IND,3159,3.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-166,karnataka,1996,166,SORAB,S. Kumar Bangarappa,parties.IN.UNK,KCP,44689,59.33,1,won,U,,,,challenger,src-1b7bc1c9d39a,major,Publisher label 'KCP' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-1976-karnataka-166,karnataka,1996,166,SORAB,M.R. Patil,parties.IN.BJP,BJP,12108,16.07,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-166,karnataka,1996,166,SORAB,Basuru Chandrappa Gowda,parties.IN.IND,IND,8140,10.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-166,karnataka,1996,166,SORAB,P Channaverappa Gowda,parties.IN.INC,INC,5866,7.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-166,karnataka,1996,166,SORAB,Pani Rajappa,parties.IN.IND,IND,4519,6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-169,karnataka,1996,169,BHATKAL,Shivanand Naik,parties.IN.BJP,BJP,46145,56.3,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-169,karnataka,1996,169,BHATKAL,Naik Damodar Gardikar,parties.IN.JD,JD,28718,35.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-169,karnataka,1996,169,BHATKAL,M.S. Naik,parties.IN.INC,INC,5904,7.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-169,karnataka,1996,169,BHATKAL,I.M. Rizwan,parties.IN.IND,IND,1202,1.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-194,karnataka,1996,194,BAILHONGAL,Koujalagi Mahantesh Shivanand,parties.IN.JD,JD,33220,46.19,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-194,karnataka,1996,194,BAILHONGAL,Bolasheeti Baburao Annappa,parties.IN.IND,IND,20941,29.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-194,karnataka,1996,194,BAILHONGAL,Muragod Mallappa Gangappa,parties.IN.INC,INC,16392,22.79,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-194,karnataka,1996,194,BAILHONGAL,Shankarayya Shivalingayya Mallayyanavaramath,parties.IN.BJP,BJP,1373,1.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-215,karnataka,1996,215,GUDLEGUD,Sheelavant Rajashekhar Veranna,parties.IN.BJP,BJP,35932,47.26,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-215,karnataka,1996,215,GUDLEGUD,Hulageri Mallanna Kapaleppa,parties.IN.INC,INC,19337,25.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-215,karnataka,1996,215,GUDLEGUD,Raveendra Pralhad Kalaburgi,parties.IN.JD,JD,18047,23.74,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-215,karnataka,1996,215,GUDLEGUD,Kazi Kutubuddin Bashasab,parties.IN.IND,IND,2580,3.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-215,karnataka,1996,215,GUDLEGUD,Madar Konappa Shiddappa,parties.IN.IND,IND,138,0.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

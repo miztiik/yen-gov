@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-uttar-pradesh-394,uttar-pradesh,1994,394,HASTINA,Gopal Kali,parties.IN.BJP,BJP,40812,52.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-394,uttar-pradesh,1994,394,HASTINA,Mukesh Singh,parties.IN.BSP,BSP,36407,47.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-uttar-pradesh-394,uttar-pradesh,1994,394,HASTINA,Gopal Kali,parties.IN.BJP,BJP,40812,52.85,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-394,uttar-pradesh,1994,394,HASTINA,Mukesh Singh,parties.IN.BSP,BSP,36407,47.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,

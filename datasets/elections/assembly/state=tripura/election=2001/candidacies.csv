@@ -1,12 +1,12 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-tripura-9,tripura,2001,9,BANAMALIPUR,PRASANTA KAPALI,parties.IN.CPI,CPI,6304,38.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tripura-9,tripura,2001,9,BANAMALIPUR,RATAN CHAKRABORTI,parties.IN.AITC,AITC,4914,29.67,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-tripura-9,tripura,2001,9,BANAMALIPUR,MAHITOSH SAHA,parties.IN.INC,INC,4889,29.52,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tripura-9,tripura,2001,9,BANAMALIPUR,ARUN DEBNATH,parties.IN.IND,IND,287,1.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tripura-9,tripura,2001,9,BANAMALIPUR,PAPRI HALDAR,parties.IN.LJP,LOK JAN SHAKTI PARTY,169,1.02,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tripura-55,tripura,2001,55,BAGBASSA,Subodh Nath,parties.IN.CPIM,CPM,9868,49.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tripura-55,tripura,2001,55,BAGBASSA,Jyotirmoy Nath,parties.IN.INC,INC,7313,36.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tripura-55,tripura,2001,55,BAGBASSA,Sundar Mukharjee,parties.IN.JDU,JD(U),1524,7.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tripura-55,tripura,2001,55,BAGBASSA,Karuna Nath,parties.IN.BJP,BJP,1014,5.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tripura-55,tripura,2001,55,BAGBASSA,Santimoy Purakayastha,parties.IN.AMB,AMB,258,1.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tripura-55,tripura,2001,55,BAGBASSA,Radha Gobinda De,parties.IN.IND,IND,7,0.04,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-tripura-9,tripura,2001,9,BANAMALIPUR,PRASANTA KAPALI,parties.IN.CPI,CPI,6304,38.06,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tripura-9,tripura,2001,9,BANAMALIPUR,RATAN CHAKRABORTI,parties.IN.AITC,AITC,4914,29.67,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tripura-9,tripura,2001,9,BANAMALIPUR,MAHITOSH SAHA,parties.IN.INC,INC,4889,29.52,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tripura-9,tripura,2001,9,BANAMALIPUR,ARUN DEBNATH,parties.IN.IND,IND,287,1.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tripura-9,tripura,2001,9,BANAMALIPUR,PAPRI HALDAR,parties.IN.LJP,LOK JAN SHAKTI PARTY,169,1.02,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tripura-55,tripura,2001,55,BAGBASSA,Subodh Nath,parties.IN.CPIM,CPM,9868,49.38,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tripura-55,tripura,2001,55,BAGBASSA,Jyotirmoy Nath,parties.IN.INC,INC,7313,36.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tripura-55,tripura,2001,55,BAGBASSA,Sundar Mukharjee,parties.IN.JDU,JD(U),1524,7.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tripura-55,tripura,2001,55,BAGBASSA,Karuna Nath,parties.IN.BJP,BJP,1014,5.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tripura-55,tripura,2001,55,BAGBASSA,Santimoy Purakayastha,parties.IN.AMB,AMB,258,1.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tripura-55,tripura,2001,55,BAGBASSA,Radha Gobinda De,parties.IN.IND,IND,7,0.04,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

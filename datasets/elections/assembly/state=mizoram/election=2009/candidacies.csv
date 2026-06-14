@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-mizoram-1592,mizoram,2009,29,SOUTH TUIPUI,John. Siamkunga,parties.IN.INC,INC,6179,68.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1592,mizoram,2009,29,SOUTH TUIPUI,K. Lalsanga,parties.IN.IND,IND,2871,31.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-mizoram-1592,mizoram,2009,29,SOUTH TUIPUI,John. Siamkunga,parties.IN.INC,INC,6179,68.28,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1592,mizoram,2009,29,SOUTH TUIPUI,K. Lalsanga,parties.IN.IND,IND,2871,31.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,

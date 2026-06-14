@@ -1,17 +1,17 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Harihar Karan,parties.IN.IND,IND,29765,43.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Sudipta Chandra Ray,parties.IN.INC,INC,27543,40.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Prashanta Kumar Sahoo,parties.IN.BJP,BJP,5479,8.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Kishore Kumar Panigrahi,parties.IN.JD,JD,3312,4.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Dhobei Behera,parties.IN.IND,IND,891,1.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Bamadev Manthan,parties.IN.IND,IND,326,0.48,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Rabinarayan Naik,parties.IN.IND,IND,228,0.34,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Biswanath Nayak,parties.IN.IND,IND,160,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Khetrabasi Sethy,parties.IN.IND,IND,67,0.1,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-odisha-94,odisha,1997,94,NAWAPARA,Jagannath Pattnaik,parties.IN.INC,INC,31425,38.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-odisha-94,odisha,1997,94,NAWAPARA,Basanta Kumar Panda,parties.IN.BJP,BJP,25107,30.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-odisha-94,odisha,1997,94,NAWAPARA,Surjya Majhi,parties.IN.JD,JD,25079,30.73,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-odisha-120,odisha,1997,120,KAMAKHYANAGAR,Premalata Mohapatra,parties.IN.INC,INC,60695,61.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-odisha-120,odisha,1997,120,KAMAKHYANAGAR,Rudra Narayan Pany,parties.IN.BJP,BJP,32491,32.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-odisha-120,odisha,1997,120,KAMAKHYANAGAR,Brahmananda Biswal,parties.IN.IND,IND,3357,3.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-odisha-120,odisha,1997,120,KAMAKHYANAGAR,Nagendra Kumar Pradhan,parties.IN.JD,JD,2680,2.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Harihar Karan,parties.IN.IND,IND,29765,43.92,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Sudipta Chandra Ray,parties.IN.INC,INC,27543,40.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Prashanta Kumar Sahoo,parties.IN.BJP,BJP,5479,8.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Kishore Kumar Panigrahi,parties.IN.JD,JD,3312,4.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Dhobei Behera,parties.IN.IND,IND,891,1.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Bamadev Manthan,parties.IN.IND,IND,326,0.48,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Rabinarayan Naik,parties.IN.IND,IND,228,0.34,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Biswanath Nayak,parties.IN.IND,IND,160,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-odisha-64,odisha,1997,64,DASPALLA,Khetrabasi Sethy,parties.IN.IND,IND,67,0.1,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-odisha-94,odisha,1997,94,NAWAPARA,Jagannath Pattnaik,parties.IN.INC,INC,31425,38.51,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-odisha-94,odisha,1997,94,NAWAPARA,Basanta Kumar Panda,parties.IN.BJP,BJP,25107,30.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-odisha-94,odisha,1997,94,NAWAPARA,Surjya Majhi,parties.IN.JD,JD,25079,30.73,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-odisha-120,odisha,1997,120,KAMAKHYANAGAR,Premalata Mohapatra,parties.IN.INC,INC,60695,61.17,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-odisha-120,odisha,1997,120,KAMAKHYANAGAR,Rudra Narayan Pany,parties.IN.BJP,BJP,32491,32.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-odisha-120,odisha,1997,120,KAMAKHYANAGAR,Brahmananda Biswal,parties.IN.IND,IND,3357,3.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-odisha-120,odisha,1997,120,KAMAKHYANAGAR,Nagendra Kumar Pradhan,parties.IN.JD,JD,2680,2.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

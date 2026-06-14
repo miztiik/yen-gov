@@ -1,74 +1,74 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1967-nagaland-1,nagaland,1964,1,DIMAPUR TOWN,SHRI GOVINDA CH. PAIRA,parties.IN.IND,IND,2226,56.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-1,nagaland,1964,1,DIMAPUR TOWN,SHRI KEVICHUSA,parties.IN.IND,IND,1722,43.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-2,nagaland,1964,2,DIMAPUR,SHRI DEBALAL MECH.,parties.IN.IND,IND,1575,59.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-2,nagaland,1964,2,DIMAPUR,SHRI VILHUMA ANGAMI,parties.IN.IND,IND,1060,40.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-3,nagaland,1964,3,GHASPANI,SHRI LANGKAM,parties.IN.IND,IND,1024,36.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-3,nagaland,1964,3,GHASPANI,SHRI KHELHOSE SEMA,parties.IN.IND,IND,879,31.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-3,nagaland,1964,3,GHASPANI,SHRI N.Z. MKRITSU,parties.IN.IND,IND,641,22.73,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-3,nagaland,1964,3,GHASPANI,SHRI NGUTSONYU,parties.IN.IND,IND,276,9.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-4,nagaland,1964,4,TENING,SHRI LALKHOLAM,parties.IN.IND,IND,1235,56.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-4,nagaland,1964,4,TENING,SHRI HUTHOMBO,parties.IN.IND,IND,700,32.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-4,nagaland,1964,4,TENING,SHRI LUTJAKAI,parties.IN.IND,IND,232,10.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-5,nagaland,1964,5,PEREN,SHRI LONGBE,parties.IN.IND,IND,1624,74.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-5,nagaland,1964,5,PEREN,SHRI LEVI,parties.IN.IND,IND,557,25.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-6,nagaland,1964,6,WESTREN ANGAMI,SHRI T.N. ANGAMI,parties.IN.IND,IND,1756,65.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-6,nagaland,1964,6,WESTREN ANGAMI,SHRI KEVICHUSA,parties.IN.IND,IND,910,34.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-7,nagaland,1964,7,KOHIMA TOWN,SHRI JASOKIE,parties.IN.IND,IND,2182,81.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-7,nagaland,1964,7,KOHIMA TOWN,SHRI SILIE HARALU,parties.IN.IND,IND,442,16.6,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-7,nagaland,1964,7,KOHIMA TOWN,SHRI SHYAMLAL MUNSHI,parties.IN.IND,IND,38,1.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-8,nagaland,1964,8,NORTHERN ANGAMI I,SHRI NEITUO,parties.IN.IND,IND,1937,81.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-8,nagaland,1964,8,NORTHERN ANGAMI I,SHRI Z. YEKRULIE,parties.IN.IND,IND,439,18.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-9,nagaland,1964,9,NORTHERN ANGAMI I I,SHRI LHOUSUOHIE,parties.IN.IND,IND,2025,63.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-9,nagaland,1964,9,NORTHERN ANGAMI I I,SHRI THINUOCHULIE,parties.IN.IND,IND,1181,36.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-10,nagaland,1964,10,TSEMINYU,SHRI VIYEKHA,parties.IN.IND,IND,1660,65.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-10,nagaland,1964,10,TSEMINYU,SHRI RIGA THONG,parties.IN.IND,IND,889,34.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-11,nagaland,1964,11,PUGHOBOTO,SHRI KIYELHO (UNCONTESTED),parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-12,nagaland,1964,12,SOUTHERN ANGAMI I,SHRI NGUROHIE ZAO,parties.IN.IND,IND,1205,46.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-12,nagaland,1964,12,SOUTHERN ANGAMI I,SHRI KEHOZO KHIEYA,parties.IN.IND,IND,981,37.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-12,nagaland,1964,12,SOUTHERN ANGAMI I,SHRI VITSONI,parties.IN.IND,IND,409,15.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-13,nagaland,1964,13,SOUTHERN ANGAMI I I,SHRI VIZOL,parties.IN.IND,IND,1696,60.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-13,nagaland,1964,13,SOUTHERN ANGAMI I I,SHRI HOSAL KIN,parties.IN.IND,IND,1122,39.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-14,nagaland,1964,14,PFUTSERO,SHRI WEZHULHU,parties.IN.IND,IND,1633,69.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-14,nagaland,1964,14,PFUTSERO,SHRI KEWETSO RITSE,parties.IN.IND,IND,701,30.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-15,nagaland,1964,15,CHAZOUBA,SHRI PUDENU DEMO (UNCONTESTED),parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-16,nagaland,1964,16,CHAZOUBA,SHRI NETSUTSO THEYO,parties.IN.IND,IND,1459,64.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-16,nagaland,1964,16,CHAZOUBA,SHRI PHUKUVE,parties.IN.IND,IND,790,35.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-17,nagaland,1964,17,PHEK,SHRI LHUTHIPRU (UNCONTESTED),parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-18,nagaland,1964,18,CHIZAMI,SHRI LHUSETSU,parties.IN.IND,IND,1509,60.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-18,nagaland,1964,18,CHIZAMI,SHRI WETZULO,parties.IN.IND,IND,563,22.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-18,nagaland,1964,18,CHIZAMI,SHRI WEZOLO,parties.IN.IND,IND,406,16.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-19,nagaland,1964,19,MELURI,SHRI AMON ( UNCONTESTED),parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-20,nagaland,1964,20,TULI,SHRI KAJENKABA,parties.IN.IND,IND,943,54.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-20,nagaland,1964,20,TULI,SHRI NOKLENSAMA JAMIR,parties.IN.IND,IND,800,45.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-21,nagaland,1964,21,ARKAKONG,SHRI R.C. CHITEN JAMIR (UNCONTESTED),parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-22,nagaland,1964,22,YISEMYONG,SHRI SUZUMAR IMSONG (UNCONTESTED),parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-23,nagaland,1964,23,MONGOYA,SHRI BENDANGANGSHI,parties.IN.IND,IND,1258,80.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-23,nagaland,1964,23,MONGOYA,SHRI TENOMAYANG AO,parties.IN.IND,IND,301,19.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-24,nagaland,1964,24,MOKOKCHUNG TOWN,SHRI KHELHOSHE SEMA,parties.IN.IND,IND,670,50.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-24,nagaland,1964,24,MOKOKCHUNG TOWN,SHRI TEKASOSANG,parties.IN.IND,IND,644,49.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-25,nagaland,1964,25,AUNGLENDEN,SHRI IMSUMEREN,parties.IN.IND,IND,1788,88.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-25,nagaland,1964,25,AUNGLENDEN,SHRI KARIBA AO.,parties.IN.IND,IND,242,11.92,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-26,nagaland,1964,26,KORIDANG,SHRI TAJEN,parties.IN.IND,IND,1753,87.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-26,nagaland,1964,26,KORIDANG,SHRI I. CHUBATEMSU,parties.IN.IND,IND,246,12.31,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-27,nagaland,1964,27,IMPUR,SHRI P. SHILU AO.,parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-28,nagaland,1964,28,JANGPETKONG,SHRI R. LESEN,parties.IN.IND,IND,1867,80.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-28,nagaland,1964,28,JANGPETKONG,SHRI IMTITOSHI LANU,parties.IN.IND,IND,439,19.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-29,nagaland,1964,29,ALONGTAKI,SHRI ZULUTEMBA (UNCONTESTED),parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-30,nagaland,1964,30,AKULUTO,SHRI HOKISHE SEMA (UNCONTESTED),parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-31,nagaland,1964,31,ATOIZU,SHRI KIYEKHU SHIKHU,parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-32,nagaland,1964,32,SUROHOTO,SHRI NIHOVI AVEMI,parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-33,nagaland,1964,33,AGHUNATO,SHRI IHEZE,parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-34,nagaland,1964,34,ZHUNHEBOTO,SHRI KIHOTO,parties.IN.IND,IND,1423,55.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-34,nagaland,1964,34,ZHUNHEBOTO,SHRI TOKHENO,parties.IN.IND,IND,1162,44.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-35,nagaland,1964,35,SATAKHA,SHRI YESHITO,parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-36,nagaland,1964,36,TYUILONGCHUM,SHRI TSANTHUNGO NGULLIE,parties.IN.IND,IND,1143,45.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-36,nagaland,1964,36,TYUILONGCHUM,SHRI S. EZUNG,parties.IN.IND,IND,1027,41.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-36,nagaland,1964,36,TYUILONGCHUM,SHRI CHUMDEMO EZUNG,parties.IN.IND,IND,318,12.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-37,nagaland,1964,37,WOKHA,SHRI N.L. ODYO,parties.IN.IND,IND,1310,54.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-37,nagaland,1964,37,WOKHA,SHRI TSATHEO MURRY,parties.IN.IND,IND,1110,45.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-38,nagaland,1964,38,MOILAN WOZHURO,SHRI NSEMO OVUNG,parties.IN.IND,IND,1412,76.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-38,nagaland,1964,38,MOILAN WOZHURO,SHRI MHONDAMO,parties.IN.IND,IND,444,23.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-39,nagaland,1964,39,SANIS,SHRI MHODAMO KITHAN,parties.IN.IND,IND,1267,57.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-39,nagaland,1964,39,SANIS,SHRI ETSSORHOMO EZUNG,parties.IN.IND,IND,924,42.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-nagaland-40,nagaland,1964,40,BHANDARI,SHRI TSENLAMO KIKON,parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1967-nagaland-1,nagaland,1964,1,DIMAPUR TOWN,SHRI GOVINDA CH. PAIRA,parties.IN.IND,IND,2226,56.38,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-1,nagaland,1964,1,DIMAPUR TOWN,SHRI KEVICHUSA,parties.IN.IND,IND,1722,43.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-2,nagaland,1964,2,DIMAPUR,SHRI DEBALAL MECH.,parties.IN.IND,IND,1575,59.77,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-2,nagaland,1964,2,DIMAPUR,SHRI VILHUMA ANGAMI,parties.IN.IND,IND,1060,40.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-3,nagaland,1964,3,GHASPANI,SHRI LANGKAM,parties.IN.IND,IND,1024,36.31,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-3,nagaland,1964,3,GHASPANI,SHRI KHELHOSE SEMA,parties.IN.IND,IND,879,31.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-3,nagaland,1964,3,GHASPANI,SHRI N.Z. MKRITSU,parties.IN.IND,IND,641,22.73,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-3,nagaland,1964,3,GHASPANI,SHRI NGUTSONYU,parties.IN.IND,IND,276,9.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-4,nagaland,1964,4,TENING,SHRI LALKHOLAM,parties.IN.IND,IND,1235,56.99,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-4,nagaland,1964,4,TENING,SHRI HUTHOMBO,parties.IN.IND,IND,700,32.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-4,nagaland,1964,4,TENING,SHRI LUTJAKAI,parties.IN.IND,IND,232,10.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-5,nagaland,1964,5,PEREN,SHRI LONGBE,parties.IN.IND,IND,1624,74.46,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-5,nagaland,1964,5,PEREN,SHRI LEVI,parties.IN.IND,IND,557,25.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-6,nagaland,1964,6,WESTREN ANGAMI,SHRI T.N. ANGAMI,parties.IN.IND,IND,1756,65.87,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-6,nagaland,1964,6,WESTREN ANGAMI,SHRI KEVICHUSA,parties.IN.IND,IND,910,34.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-7,nagaland,1964,7,KOHIMA TOWN,SHRI JASOKIE,parties.IN.IND,IND,2182,81.97,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-7,nagaland,1964,7,KOHIMA TOWN,SHRI SILIE HARALU,parties.IN.IND,IND,442,16.6,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-7,nagaland,1964,7,KOHIMA TOWN,SHRI SHYAMLAL MUNSHI,parties.IN.IND,IND,38,1.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-8,nagaland,1964,8,NORTHERN ANGAMI I,SHRI NEITUO,parties.IN.IND,IND,1937,81.52,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-8,nagaland,1964,8,NORTHERN ANGAMI I,SHRI Z. YEKRULIE,parties.IN.IND,IND,439,18.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-9,nagaland,1964,9,NORTHERN ANGAMI I I,SHRI LHOUSUOHIE,parties.IN.IND,IND,2025,63.16,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-9,nagaland,1964,9,NORTHERN ANGAMI I I,SHRI THINUOCHULIE,parties.IN.IND,IND,1181,36.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-10,nagaland,1964,10,TSEMINYU,SHRI VIYEKHA,parties.IN.IND,IND,1660,65.12,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-10,nagaland,1964,10,TSEMINYU,SHRI RIGA THONG,parties.IN.IND,IND,889,34.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-11,nagaland,1964,11,PUGHOBOTO,SHRI KIYELHO (UNCONTESTED),parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-12,nagaland,1964,12,SOUTHERN ANGAMI I,SHRI NGUROHIE ZAO,parties.IN.IND,IND,1205,46.44,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-12,nagaland,1964,12,SOUTHERN ANGAMI I,SHRI KEHOZO KHIEYA,parties.IN.IND,IND,981,37.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-12,nagaland,1964,12,SOUTHERN ANGAMI I,SHRI VITSONI,parties.IN.IND,IND,409,15.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-13,nagaland,1964,13,SOUTHERN ANGAMI I I,SHRI VIZOL,parties.IN.IND,IND,1696,60.18,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-13,nagaland,1964,13,SOUTHERN ANGAMI I I,SHRI HOSAL KIN,parties.IN.IND,IND,1122,39.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-14,nagaland,1964,14,PFUTSERO,SHRI WEZHULHU,parties.IN.IND,IND,1633,69.97,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-14,nagaland,1964,14,PFUTSERO,SHRI KEWETSO RITSE,parties.IN.IND,IND,701,30.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-15,nagaland,1964,15,CHAZOUBA,SHRI PUDENU DEMO (UNCONTESTED),parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-16,nagaland,1964,16,CHAZOUBA,SHRI NETSUTSO THEYO,parties.IN.IND,IND,1459,64.87,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-16,nagaland,1964,16,CHAZOUBA,SHRI PHUKUVE,parties.IN.IND,IND,790,35.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-17,nagaland,1964,17,PHEK,SHRI LHUTHIPRU (UNCONTESTED),parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-18,nagaland,1964,18,CHIZAMI,SHRI LHUSETSU,parties.IN.IND,IND,1509,60.9,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-18,nagaland,1964,18,CHIZAMI,SHRI WETZULO,parties.IN.IND,IND,563,22.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-18,nagaland,1964,18,CHIZAMI,SHRI WEZOLO,parties.IN.IND,IND,406,16.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-19,nagaland,1964,19,MELURI,SHRI AMON ( UNCONTESTED),parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-20,nagaland,1964,20,TULI,SHRI KAJENKABA,parties.IN.IND,IND,943,54.1,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-20,nagaland,1964,20,TULI,SHRI NOKLENSAMA JAMIR,parties.IN.IND,IND,800,45.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-21,nagaland,1964,21,ARKAKONG,SHRI R.C. CHITEN JAMIR (UNCONTESTED),parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-22,nagaland,1964,22,YISEMYONG,SHRI SUZUMAR IMSONG (UNCONTESTED),parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-23,nagaland,1964,23,MONGOYA,SHRI BENDANGANGSHI,parties.IN.IND,IND,1258,80.69,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-23,nagaland,1964,23,MONGOYA,SHRI TENOMAYANG AO,parties.IN.IND,IND,301,19.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-24,nagaland,1964,24,MOKOKCHUNG TOWN,SHRI KHELHOSHE SEMA,parties.IN.IND,IND,670,50.99,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-24,nagaland,1964,24,MOKOKCHUNG TOWN,SHRI TEKASOSANG,parties.IN.IND,IND,644,49.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-25,nagaland,1964,25,AUNGLENDEN,SHRI IMSUMEREN,parties.IN.IND,IND,1788,88.08,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-25,nagaland,1964,25,AUNGLENDEN,SHRI KARIBA AO.,parties.IN.IND,IND,242,11.92,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-26,nagaland,1964,26,KORIDANG,SHRI TAJEN,parties.IN.IND,IND,1753,87.69,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-26,nagaland,1964,26,KORIDANG,SHRI I. CHUBATEMSU,parties.IN.IND,IND,246,12.31,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-27,nagaland,1964,27,IMPUR,SHRI P. SHILU AO.,parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-28,nagaland,1964,28,JANGPETKONG,SHRI R. LESEN,parties.IN.IND,IND,1867,80.96,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-28,nagaland,1964,28,JANGPETKONG,SHRI IMTITOSHI LANU,parties.IN.IND,IND,439,19.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-29,nagaland,1964,29,ALONGTAKI,SHRI ZULUTEMBA (UNCONTESTED),parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-30,nagaland,1964,30,AKULUTO,SHRI HOKISHE SEMA (UNCONTESTED),parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-31,nagaland,1964,31,ATOIZU,SHRI KIYEKHU SHIKHU,parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-32,nagaland,1964,32,SUROHOTO,SHRI NIHOVI AVEMI,parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-33,nagaland,1964,33,AGHUNATO,SHRI IHEZE,parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-34,nagaland,1964,34,ZHUNHEBOTO,SHRI KIHOTO,parties.IN.IND,IND,1423,55.05,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-34,nagaland,1964,34,ZHUNHEBOTO,SHRI TOKHENO,parties.IN.IND,IND,1162,44.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-35,nagaland,1964,35,SATAKHA,SHRI YESHITO,parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-36,nagaland,1964,36,TYUILONGCHUM,SHRI TSANTHUNGO NGULLIE,parties.IN.IND,IND,1143,45.94,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-36,nagaland,1964,36,TYUILONGCHUM,SHRI S. EZUNG,parties.IN.IND,IND,1027,41.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-36,nagaland,1964,36,TYUILONGCHUM,SHRI CHUMDEMO EZUNG,parties.IN.IND,IND,318,12.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-37,nagaland,1964,37,WOKHA,SHRI N.L. ODYO,parties.IN.IND,IND,1310,54.13,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-37,nagaland,1964,37,WOKHA,SHRI TSATHEO MURRY,parties.IN.IND,IND,1110,45.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-38,nagaland,1964,38,MOILAN WOZHURO,SHRI NSEMO OVUNG,parties.IN.IND,IND,1412,76.08,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-38,nagaland,1964,38,MOILAN WOZHURO,SHRI MHONDAMO,parties.IN.IND,IND,444,23.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-39,nagaland,1964,39,SANIS,SHRI MHODAMO KITHAN,parties.IN.IND,IND,1267,57.83,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-39,nagaland,1964,39,SANIS,SHRI ETSSORHOMO EZUNG,parties.IN.IND,IND,924,42.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-nagaland-40,nagaland,1964,40,BHANDARI,SHRI TSENLAMO KIKON,parties.IN.IND,IND,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,

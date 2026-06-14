@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-haryana-78,haryana,1998,FATEHABAD,132766,96646,72.79,Sampat Singh,parties.IN.HLD_R,HLD(R),39712,41.09,Jarnail Kaur,parties.IN.HVP,HVP,32550,7162,7.41,src-1b7bc1c9d39a
-IN-AC-1976-haryana-79,haryana,1998,ADAMPUR,121882,91708,75.24,Kuldeep Singh Bishnoi,parties.IN.INC,INC,49077,53.51,Hari Singh,parties.IN.HVP,HVP,31302,17775,19.38,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-haryana-78,haryana,1998,FATEHABAD,132766,96646,72.79,Sampat Singh,parties.IN.HLD_R,HLD(R),39712,41.09,Jarnail Kaur,parties.IN.HVP,HVP,32550,7162,7.41,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-79,haryana,1998,ADAMPUR,121882,91708,75.24,Kuldeep Singh Bishnoi,parties.IN.INC,INC,49077,53.51,Hari Singh,parties.IN.HVP,HVP,31302,17775,19.38,src-1b7bc1c9d39a,minor,

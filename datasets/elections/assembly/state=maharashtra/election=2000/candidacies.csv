@@ -1,12 +1,12 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-maharashtra-19,maharashtra,2000,19,COLABAUDIVADA,Dinaz Marazban,parties.IN.SHS,SHS,16368,52.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-19,maharashtra,2000,19,COLABAUDIVADA,Annie Shekhar,parties.IN.INC,INC,13803,44.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-19,maharashtra,2000,19,COLABAUDIVADA,Mohammed A Farid,parties.IN.IND,IND,475,1.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-19,maharashtra,2000,19,COLABAUDIVADA,Qureshi Mohamed Rais,parties.IN.RLD,RLD,246,0.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-19,maharashtra,2000,19,COLABAUDIVADA,Rathod Naresh Fulsingh,parties.IN.NMP,NMP,187,0.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-19,maharashtra,2000,19,COLABAUDIVADA,Ashok Jikare Shinde,parties.IN.IND,IND,150,0.48,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-19,maharashtra,2000,19,COLABAUDIVADA,Prabhu Sarojini Nagppa,parties.IN.IND,IND,118,0.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-280,maharashtra,2000,280,SHAHUWADI,G.Sanjeevanidevi.Sanjaysingh,parties.IN.INC,INC,55209,46.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-280,maharashtra,2000,280,SHAHUWADI,P.B.Yashwantrao,parties.IN.IND,IND,51088,42.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-280,maharashtra,2000,280,SHAHUWADI,L.Ramesh Kondiram,parties.IN.SHS,SHS,11746,9.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-280,maharashtra,2000,280,SHAHUWADI,G.Sanjeevani Ananda,parties.IN.IND,IND,1864,1.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-maharashtra-19,maharashtra,2000,19,COLABAUDIVADA,Dinaz Marazban,parties.IN.SHS,SHS,16368,52.22,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-19,maharashtra,2000,19,COLABAUDIVADA,Annie Shekhar,parties.IN.INC,INC,13803,44.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-19,maharashtra,2000,19,COLABAUDIVADA,Mohammed A Farid,parties.IN.IND,IND,475,1.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-19,maharashtra,2000,19,COLABAUDIVADA,Qureshi Mohamed Rais,parties.IN.RLD,RLD,246,0.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-19,maharashtra,2000,19,COLABAUDIVADA,Rathod Naresh Fulsingh,parties.IN.NMP,NMP,187,0.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-19,maharashtra,2000,19,COLABAUDIVADA,Ashok Jikare Shinde,parties.IN.IND,IND,150,0.48,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-19,maharashtra,2000,19,COLABAUDIVADA,Prabhu Sarojini Nagppa,parties.IN.IND,IND,118,0.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-280,maharashtra,2000,280,SHAHUWADI,G.Sanjeevanidevi.Sanjaysingh,parties.IN.INC,INC,55209,46.04,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-280,maharashtra,2000,280,SHAHUWADI,P.B.Yashwantrao,parties.IN.IND,IND,51088,42.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-280,maharashtra,2000,280,SHAHUWADI,L.Ramesh Kondiram,parties.IN.SHS,SHS,11746,9.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-280,maharashtra,2000,280,SHAHUWADI,G.Sanjeevani Ananda,parties.IN.IND,IND,1864,1.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

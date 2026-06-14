@@ -1,2 +1,2 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-haryana-59,haryana,1988,TAORU,99957,53929,53.95,T.HUSSAIN,parties.IN.LKD,LKD,43207,80.12,H.KHAN,parties.IN.INC,INC,5606,37601,69.72,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-haryana-59,haryana,1988,TAORU,99957,53929,53.95,T.HUSSAIN,parties.IN.LKD,LKD,43207,80.12,H.KHAN,parties.IN.INC,INC,5606,37601,69.72,src-1b7bc1c9d39a,minor,

@@ -1,7 +1,7 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-manipur-2,manipur,1978,2,HEINGANG,L.N.SINGH,parties.IN.IND,IND,4230,36.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-2,manipur,1978,2,HEINGANG,W.J.SINGH,parties.IN.JP,JNP,2961,25.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-2,manipur,1978,2,HEINGANG,N.K.SINGH,parties.IN.IND,IND,1604,13.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-2,manipur,1978,2,HEINGANG,W.M.SINGH,parties.IN.IND,IND,1285,11.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-2,manipur,1978,2,HEINGANG,R.K.UDAYASANA,parties.IN.INC,INC,1153,9.91,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-2,manipur,1978,2,HEINGANG,Y.I.SINGH,parties.IN.INC_I,INC(I),398,3.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-manipur-2,manipur,1978,2,HEINGANG,L.N.SINGH,parties.IN.IND,IND,4230,36.37,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-2,manipur,1978,2,HEINGANG,W.J.SINGH,parties.IN.JP,JNP,2961,25.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-2,manipur,1978,2,HEINGANG,N.K.SINGH,parties.IN.IND,IND,1604,13.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-2,manipur,1978,2,HEINGANG,W.M.SINGH,parties.IN.IND,IND,1285,11.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-2,manipur,1978,2,HEINGANG,R.K.UDAYASANA,parties.IN.INC,INC,1153,9.91,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-2,manipur,1978,2,HEINGANG,Y.I.SINGH,parties.IN.INC_I,INC(I),398,3.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

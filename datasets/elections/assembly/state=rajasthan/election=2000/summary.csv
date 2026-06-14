@@ -1,8 +1,8 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-rajasthan-12,rajasthan,2000,LUNKARANSAR,315743,172499,54.63,Manik Chand Surana,parties.IN.BJP,BJP,83623,48.48,Beerendra Alias Virendra,parties.IN.INC,INC,62173,21450,12.44,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-125,rajasthan,2000,NIMBAHERA,180477,99636,55.21,Smt. Madhu Dadhich,parties.IN.INC,INC,48201,48.38,Narain Singh Jhala,parties.IN.BJP,BJP,48190,11,0.01,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-136,rajasthan,2000,ASPUR(ST),152832,66824,43.72,Raiya Meena,parties.IN.INC,INC,36024,53.91,Kanak Mal Katara,parties.IN.BJP,BJP,30800,5224,7.82,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-158,rajasthan,2000,ASIND,125298,74905,59.78,Ram Lal Gurjar,parties.IN.BJP,BJP,39181,52.31,Hangami Lal Mewada,parties.IN.INC,INC,35377,3804,5.08,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-22,rajasthan,2000,SADULPUR,145600,97082,66.68,Nand Lal Punia,parties.IN.IND,IND,41285,42.53,Indra Singh Punia,parties.IN.IND,IND,35477,5808,5.99,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-59,rajasthan,2000,MANDAWAR,121906,78520,64.41,Dharam Pal Choudhary,parties.IN.BJP,BJP,39863,50.77,Maj. O.P. Yadav,parties.IN.INC,INC,34430,5433,6.92,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-9,rajasthan,2000,RAISINGHNAGAR(SC),150167,83486,55.6,Sohan Lal,parties.IN.INC,INC,46369,55.54,Isar Ram,parties.IN.BJP,BJP,36564,9805,11.74,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-rajasthan-12,rajasthan,2000,LUNKARANSAR,315743,172499,54.63,Manik Chand Surana,parties.IN.BJP,BJP,83623,48.48,Beerendra Alias Virendra,parties.IN.INC,INC,62173,21450,12.44,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-125,rajasthan,2000,NIMBAHERA,180477,99636,55.21,Smt. Madhu Dadhich,parties.IN.INC,INC,48201,48.38,Narain Singh Jhala,parties.IN.BJP,BJP,48190,11,0.01,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-136,rajasthan,2000,ASPUR(ST),152832,66824,43.72,Raiya Meena,parties.IN.INC,INC,36024,53.91,Kanak Mal Katara,parties.IN.BJP,BJP,30800,5224,7.82,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-158,rajasthan,2000,ASIND,125298,74905,59.78,Ram Lal Gurjar,parties.IN.BJP,BJP,39181,52.31,Hangami Lal Mewada,parties.IN.INC,INC,35377,3804,5.08,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-22,rajasthan,2000,SADULPUR,145600,97082,66.68,Nand Lal Punia,parties.IN.IND,IND,41285,42.53,Indra Singh Punia,parties.IN.IND,IND,35477,5808,5.99,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-59,rajasthan,2000,MANDAWAR,121906,78520,64.41,Dharam Pal Choudhary,parties.IN.BJP,BJP,39863,50.77,Maj. O.P. Yadav,parties.IN.INC,INC,34430,5433,6.92,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-9,rajasthan,2000,RAISINGHNAGAR(SC),150167,83486,55.6,Sohan Lal,parties.IN.INC,INC,46369,55.54,Isar Ram,parties.IN.BJP,BJP,36564,9805,11.74,src-1b7bc1c9d39a,minor,

@@ -1,11 +1,11 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,A.C.Moideen,parties.IN.CPIM,CPM,56731,44.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,K. Muraleedharan,parties.IN.INC,INC,53016,41.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,Sobha Surendran,parties.IN.BJP,BJP,10643,8.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,Dasan Kuttookaran,parties.IN.BSP,BSP,1969,1.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,Moideen,parties.IN.IND,IND,966,0.77,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,S.Devan,parties.IN.IND,IND,965,0.76,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,Adv. Thomas Kurian,parties.IN.IND,IND,912,0.72,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,Thoppil Rajappan,parties.IN.IND,IND,402,0.32,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,K.MuraleedharanKozhikode,parties.IN.IND,IND,325,0.26,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,K.K.Muraleedharan,parties.IN.IND,IND,316,0.25,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,A.C.Moideen,parties.IN.CPIM,CPM,56731,44.94,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,K. Muraleedharan,parties.IN.INC,INC,53016,41.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,Sobha Surendran,parties.IN.BJP,BJP,10643,8.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,Dasan Kuttookaran,parties.IN.BSP,BSP,1969,1.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,Moideen,parties.IN.IND,IND,966,0.77,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,S.Devan,parties.IN.IND,IND,965,0.76,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,Adv. Thomas Kurian,parties.IN.IND,IND,912,0.72,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,Thoppil Rajappan,parties.IN.IND,IND,402,0.32,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,K.MuraleedharanKozhikode,parties.IN.IND,IND,325,0.26,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-55,kerala,2004,55,WADAKKANCHERRY,K.K.Muraleedharan,parties.IN.IND,IND,316,0.25,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

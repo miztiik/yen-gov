@@ -1,8 +1,8 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-PC-1976-delhi-4,delhi,1997,EASTDELHI,2230553,543200,24.35,Lal Bihari Tiwari,parties.IN.BJP,BJP,264550,48.7,Dr. Ashok Kumar Walia,parties.IN.INC,INC,142027,122523,22.55,src-31c65dbec869
-IN-PC-1976-kerala-11,kerala,1997,ERNAKULUM,1072701,539227,50.27,Adv. Sebastian Paul,parties.IN.IND,IND,251865,46.71,Prof. Antony Isaac,parties.IN.INC,INC,243172,8693,1.61,src-31c65dbec869
-IN-PC-1976-madhya-pradesh-27,madhya-pradesh,1997,CHHINDWARA,996033,670220,67.29,Sunderlal Patwa,parties.IN.BJP,BJP,344302,51.37,Kamalnath,parties.IN.INC,INC,306622,37680,5.62,src-31c65dbec869
-IN-PC-1976-odisha-10,odisha,1997,ASKA,1120173,465904,41.59,Nabeen Patnaik,parties.IN.JD,JD,263902,56.64,Ramchandra Rath,parties.IN.INC,INC,195732,68170,14.63,src-31c65dbec869
-IN-PC-1976-punjab-7,punjab,1997,ROPAR,1222279,818524,66.97,Satwinder Kaur,parties.IN.SAD,SAD,394508,48.2,Buta Singh,parties.IN.INC,INC,265308,129200,15.79,src-31c65dbec869
-IN-PC-1976-rajasthan-25,rajasthan,1997,NAGAUR,1170086,603440,51.57,Bhanuprakash Mirdha,parties.IN.BJP,BJP,286896,47.54,Ramniwas Mirdha,parties.IN.INC,INC,285765,1131,0.18,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-81,uttar-pradesh,1997,BAGHPAT,1286529,528864,41.11,Ajit Singh,parties.IN.BKKP,BKKP,331985,62.77,Mukhiya Gurjar,parties.IN.INC,INC,100545,231440,43.76,src-31c65dbec869
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-PC-1976-delhi-4,delhi,1997,EASTDELHI,2230553,543200,24.35,Lal Bihari Tiwari,parties.IN.BJP,BJP,264550,48.7,Dr. Ashok Kumar Walia,parties.IN.INC,INC,142027,122523,22.55,src-31c65dbec869,minor,
+IN-PC-1976-kerala-11,kerala,1997,ERNAKULUM,1072701,539227,50.27,Adv. Sebastian Paul,parties.IN.IND,IND,251865,46.71,Prof. Antony Isaac,parties.IN.INC,INC,243172,8693,1.61,src-31c65dbec869,minor,
+IN-PC-1976-madhya-pradesh-27,madhya-pradesh,1997,CHHINDWARA,996033,670220,67.29,Sunderlal Patwa,parties.IN.BJP,BJP,344302,51.37,Kamalnath,parties.IN.INC,INC,306622,37680,5.62,src-31c65dbec869,minor,
+IN-PC-1976-odisha-10,odisha,1997,ASKA,1120173,465904,41.59,Nabeen Patnaik,parties.IN.JD,JD,263902,56.64,Ramchandra Rath,parties.IN.INC,INC,195732,68170,14.63,src-31c65dbec869,minor,
+IN-PC-1976-punjab-7,punjab,1997,ROPAR,1222279,818524,66.97,Satwinder Kaur,parties.IN.SAD,SAD,394508,48.2,Buta Singh,parties.IN.INC,INC,265308,129200,15.79,src-31c65dbec869,minor,
+IN-PC-1976-rajasthan-25,rajasthan,1997,NAGAUR,1170086,603440,51.57,Bhanuprakash Mirdha,parties.IN.BJP,BJP,286896,47.54,Ramniwas Mirdha,parties.IN.INC,INC,285765,1131,0.18,src-31c65dbec869,minor,
+IN-PC-1976-uttar-pradesh-81,uttar-pradesh,1997,BAGHPAT,1286529,528864,41.11,Ajit Singh,parties.IN.BKKP,BKKP,331985,62.77,Mukhiya Gurjar,parties.IN.INC,INC,100545,231440,43.76,src-31c65dbec869,minor,

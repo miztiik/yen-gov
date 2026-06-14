@@ -1,16 +1,16 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Abhay Singh Chautala,parties.IN.INLD,INLD,64813,50.75,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Bharat Singh Beniwal,parties.IN.INC,INC,58586,45.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Kusum Lata Choudhary,parties.IN.SBP,SBP,1353,1.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Sailender Kumar,parties.IN.IND,IND,1192,0.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Vinod Kumar,parties.IN.IND,IND,684,0.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Rameshar,parties.IN.IND,IND,338,0.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Bharat Singh Mochiwali,parties.IN.IND,IND,157,0.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Vinod Aulakh,parties.IN.IND,IND,124,0.1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Raj Kumar,parties.IN.HSP,HSP,122,0.1,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Lilu Ram Balmiki,parties.IN.IND,IND,83,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Bharat Singh Banwala,parties.IN.IND,IND,62,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Mange Ram Hudda,parties.IN.IND,IND,56,0.04,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Jaiver,parties.IN.IND,IND,54,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Krishan Kumar,parties.IN.IND,IND,51,0.04,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Deepak Goyal,parties.IN.IND,IND,36,0.03,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Abhay Singh Chautala,parties.IN.INLD,INLD,64813,50.75,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Bharat Singh Beniwal,parties.IN.INC,INC,58586,45.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Kusum Lata Choudhary,parties.IN.SBP,SBP,1353,1.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Sailender Kumar,parties.IN.IND,IND,1192,0.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Vinod Kumar,parties.IN.IND,IND,684,0.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Rameshar,parties.IN.IND,IND,338,0.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Bharat Singh Mochiwali,parties.IN.IND,IND,157,0.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Vinod Aulakh,parties.IN.IND,IND,124,0.1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Raj Kumar,parties.IN.HSP,HSP,122,0.1,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Lilu Ram Balmiki,parties.IN.IND,IND,83,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Bharat Singh Banwala,parties.IN.IND,IND,62,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Mange Ram Hudda,parties.IN.IND,IND,56,0.04,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Jaiver,parties.IN.IND,IND,54,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Krishan Kumar,parties.IN.IND,IND,51,0.04,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-haryana-417,haryana,2010,46,ELLENABAD,Deepak Goyal,parties.IN.IND,IND,36,0.03,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

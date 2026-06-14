@@ -1,2 +1,2 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-nagaland-30,nagaland,1999,ALONGTAKI,12953,12235,94.46,L.Yanger,parties.IN.IND,IND,5313,43.42,Nukshi Longkumer,parties.IN.INC,INC,5141,172,1.4,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-nagaland-30,nagaland,1999,ALONGTAKI,12953,12235,94.46,L.Yanger,parties.IN.IND,IND,5313,43.42,Nukshi Longkumer,parties.IN.INC,INC,5141,172,1.4,src-1b7bc1c9d39a,minor,

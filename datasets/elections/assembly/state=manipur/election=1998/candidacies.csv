@@ -1,25 +1,25 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,Lairellakpam Lala,parties.IN.MSCP,MSCP,2817,18.09,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,Konsam Tomba,parties.IN.MPP,MPP,2613,16.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,Thangjam Shyam,parties.IN.INC,INC,2349,15.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,W. Shyamkishore,parties.IN.JD,JD,2127,13.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,Th. Nilakamal,parties.IN.CPIM,CPM,1992,12.79,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,Y. Rajen,parties.IN.FPM,FPM,1652,10.61,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,Th. Nabakumar,parties.IN.SAP,SAP,1101,7.07,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,N. Jila,parties.IN.RJD,RJD,839,5.39,8,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,Th. Biren,parties.IN.IND,IND,86,0.55,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-4,manipur,1998,4,KSHETRIGAO,Md. Muhammuddin Shah,parties.IN.MSCP,MSCP,5630,28.44,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-manipur-4,manipur,1998,4,KSHETRIGAO,Basant Kumar Wangkhem,parties.IN.SAP,SAP,5140,25.97,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-manipur-4,manipur,1998,4,KSHETRIGAO,Md. Rameezuddin,parties.IN.INC,INC,3487,17.62,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-4,manipur,1998,4,KSHETRIGAO,Athokpam Lala,parties.IN.CPI,CPI,3466,17.51,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-4,manipur,1998,4,KSHETRIGAO,Kshetrimayum Brajamani Singh,parties.IN.MPP,MPP,1156,5.84,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-4,manipur,1998,4,KSHETRIGAO,Irengbam Sanatomba Singh,parties.IN.BJP,BJP,914,4.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-49,manipur,1998,49,TADUBI,Haokholet Kipgen,parties.IN.FPM,FPM,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-57,manipur,1998,57,HENGLEP,T. Thangzalam Haokip,parties.IN.MSCP,MSCP,7094,43.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-57,manipur,1998,57,HENGLEP,Jainson Haokip,parties.IN.KNA,KNA,4724,29.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-57,manipur,1998,57,HENGLEP,T. Manga Vaiphei,parties.IN.INC,INC,3467,21.3,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-57,manipur,1998,57,HENGLEP,Sehpu Haokip,parties.IN.RJD,RJD,929,5.71,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-manipur-57,manipur,1998,57,HENGLEP,T. Kamkhanpao,parties.IN.IND,IND,36,0.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-57,manipur,1998,57,HENGLEP,Jamkholet,parties.IN.IND,IND,25,0.15,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-60,manipur,1998,60,SINGHAT,Thangkhanlal,parties.IN.INC,INC,9670,51.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-manipur-60,manipur,1998,60,SINGHAT,T. Ngaizanem,parties.IN.MSCP,MSCP,9169,48.67,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,Lairellakpam Lala,parties.IN.MSCP,MSCP,2817,18.09,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,Konsam Tomba,parties.IN.MPP,MPP,2613,16.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,Thangjam Shyam,parties.IN.INC,INC,2349,15.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,W. Shyamkishore,parties.IN.JD,JD,2127,13.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,Th. Nilakamal,parties.IN.CPIM,CPM,1992,12.79,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,Y. Rajen,parties.IN.FPM,FPM,1652,10.61,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,Th. Nabakumar,parties.IN.SAP,SAP,1101,7.07,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,N. Jila,parties.IN.RJD,RJD,839,5.39,8,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-1,manipur,1998,1,KHUNDRAKPAM,Th. Biren,parties.IN.IND,IND,86,0.55,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-4,manipur,1998,4,KSHETRIGAO,Md. Muhammuddin Shah,parties.IN.MSCP,MSCP,5630,28.44,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-4,manipur,1998,4,KSHETRIGAO,Basant Kumar Wangkhem,parties.IN.SAP,SAP,5140,25.97,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-4,manipur,1998,4,KSHETRIGAO,Md. Rameezuddin,parties.IN.INC,INC,3487,17.62,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-4,manipur,1998,4,KSHETRIGAO,Athokpam Lala,parties.IN.CPI,CPI,3466,17.51,4,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-4,manipur,1998,4,KSHETRIGAO,Kshetrimayum Brajamani Singh,parties.IN.MPP,MPP,1156,5.84,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-4,manipur,1998,4,KSHETRIGAO,Irengbam Sanatomba Singh,parties.IN.BJP,BJP,914,4.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-49,manipur,1998,49,TADUBI,Haokholet Kipgen,parties.IN.FPM,FPM,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-57,manipur,1998,57,HENGLEP,T. Thangzalam Haokip,parties.IN.MSCP,MSCP,7094,43.59,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-57,manipur,1998,57,HENGLEP,Jainson Haokip,parties.IN.KNA,KNA,4724,29.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-57,manipur,1998,57,HENGLEP,T. Manga Vaiphei,parties.IN.INC,INC,3467,21.3,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-57,manipur,1998,57,HENGLEP,Sehpu Haokip,parties.IN.RJD,RJD,929,5.71,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-57,manipur,1998,57,HENGLEP,T. Kamkhanpao,parties.IN.IND,IND,36,0.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-57,manipur,1998,57,HENGLEP,Jamkholet,parties.IN.IND,IND,25,0.15,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-60,manipur,1998,60,SINGHAT,Thangkhanlal,parties.IN.INC,INC,9670,51.33,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-manipur-60,manipur,1998,60,SINGHAT,T. Ngaizanem,parties.IN.MSCP,MSCP,9169,48.67,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,

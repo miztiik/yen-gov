@@ -1,342 +1,342 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-meghalaya-1,meghalaya,2003,1,WAR-JAINTIA,SHRI. RIANG LENON TARIANG,parties.IN.UDP,UDP,7211,41.56,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-1,meghalaya,2003,1,WAR-JAINTIA,SHRI. JOHNDENG POHRMEN,parties.IN.INC,INC,5991,34.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-1,meghalaya,2003,1,WAR-JAINTIA,SHRI CAMILLUS ALBERT LAMIN,parties.IN.NCP,NCP,3438,19.82,3,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-1,meghalaya,2003,1,WAR-JAINTIA,SMTI. H. MARINA DKHAR,parties.IN.HSPDP,HPDP,474,2.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-1,meghalaya,2003,1,WAR-JAINTIA,SHRI. G.W. POHTI,parties.IN.KHNAM,KHNAM,236,1.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-2,meghalaya,2003,2,RYMBAI,NEHLANG LYNGDOH,parties.IN.INC,INC,12224,46.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-2,meghalaya,2003,2,RYMBAI,OBIL KYNDAIT,parties.IN.IND,IND,7972,30.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-2,meghalaya,2003,2,RYMBAI,SIMON SIANGSHAI,parties.IN.NCP,NCP,5870,22.52,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-3,meghalaya,2003,3,SUTNGA-SHANGPUNG,SHITLANG PALE,parties.IN.INC,INC,8182,45.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-3,meghalaya,2003,3,SUTNGA-SHANGPUNG,SHRI. OLIVERNEAT CHYRMANG,parties.IN.UDP,UDP,5722,32.03,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-3,meghalaya,2003,3,SUTNGA-SHANGPUNG,THIANGA NGAMLAI,parties.IN.BJP,BJP,1738,9.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-3,meghalaya,2003,3,SUTNGA-SHANGPUNG,SHRI. E.C. BONIFACE BAMON,parties.IN.NCP,NCP,1500,8.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-3,meghalaya,2003,3,SUTNGA-SHANGPUNG,SHNGAINLANG BAMON,parties.IN.IND,IND,722,4.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-4,meghalaya,2003,4,RALIANG,SHRI. MIHSALAN SUCHIANG,parties.IN.UDP,UDP,6336,30.4,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-4,meghalaya,2003,4,RALIANG,SHRI. WANBAIT CHULET,parties.IN.NCP,NCP,5178,24.85,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-4,meghalaya,2003,4,RALIANG,SHRI. GILBERT STEN,parties.IN.MDP,MDP,3971,19.06,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-4,meghalaya,2003,4,RALIANG,SHRI. WIKIL DHAR,parties.IN.HSPDP,HPDP,3363,16.14,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-4,meghalaya,2003,4,RALIANG,SMTI. RITA M.V. LYNGDOH,parties.IN.INC,INC,1991,9.55,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-5,meghalaya,2003,5,NARTIANG,SHRI. DRAISON KHARSHIING,parties.IN.MDP,MDP,4975,27.09,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-5,meghalaya,2003,5,NARTIANG,SHRI. H. BRITAINWAR DAN,parties.IN.UDP,UDP,4640,25.26,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-5,meghalaya,2003,5,NARTIANG,SHRI . HILARIUS DKHAR,parties.IN.NCP,NCP,3559,19.38,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-5,meghalaya,2003,5,NARTIANG,SHRI. HENRY LAMIN,parties.IN.INC,INC,3541,19.28,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-5,meghalaya,2003,5,NARTIANG,SHRI HALLELSTAR LYNGDOH,parties.IN.HSPDP,HPDP,1291,7.03,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-5,meghalaya,2003,5,NARTIANG,SHRI. SATI DKHAR,parties.IN.PDM,PDM,362,1.97,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-6,meghalaya,2003,6,NONGBAH-WAHIAJER,SHRI. KYRMEN SUSNGI,parties.IN.UDP,UDP,9667,53.84,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-6,meghalaya,2003,6,NONGBAH-WAHIAJER,SHRI. EDMUND SPEAKERSON LYNGDOH,parties.IN.INC,INC,7886,43.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-6,meghalaya,2003,6,NONGBAH-WAHIAJER,SHRI LAITSING SHILLA,parties.IN.NCP,NCP,245,1.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-6,meghalaya,2003,6,NONGBAH-WAHIAJER,SHRI JYLLIEW ROY LAMIN,parties.IN.HSPDP,HPDP,158,0.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-7,meghalaya,2003,7,JOWAI,SHRI. SINGH MULIEH,parties.IN.UDP,UDP,8967,49.36,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-7,meghalaya,2003,7,JOWAI,DR. ROYTRE CHRISTOPHER LALOO,parties.IN.INC,INC,8306,45.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-7,meghalaya,2003,7,JOWAI,SMTI. PHIDALIA TOI,parties.IN.NCP,NCP,688,3.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-7,meghalaya,2003,7,JOWAI,SHRI. PHILOMATH PASSAH,parties.IN.BJP,BJP,128,0.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-7,meghalaya,2003,7,JOWAI,SHRI. NOREN TALANG,parties.IN.IND,IND,78,0.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-8,meghalaya,2003,8,MAWHATI,SHRI. PHINGWELL MUKTIEH,parties.IN.INC,INC,5021,35.5,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-8,meghalaya,2003,8,MAWHATI,SHRI. S.R. MOKSHA,parties.IN.UDP,UDP,4270,30.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-8,meghalaya,2003,8,MAWHATI,DR. JERIN SYIEM,parties.IN.NCP,NCP,3770,26.66,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-8,meghalaya,2003,8,MAWHATI,SHRI. MURMANIK SYIEM,parties.IN.KHNAM,KHNAM,1082,7.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-9,meghalaya,2003,9,UMROI,SHRI. STANLYWISS RYMBAI,parties.IN.INC,INC,8352,53.5,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-9,meghalaya,2003,9,UMROI,SHRI. E.K.MAWLONG,parties.IN.UDP,UDP,7259,46.5,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-10,meghalaya,2003,10,NONGPOH,SHRI. D.D.LAPANG,parties.IN.INC,INC,7808,51.14,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-10,meghalaya,2003,10,NONGPOH,SHRI. CONSTANTINE LYNGDOH,parties.IN.UDP,UDP,6100,39.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-10,meghalaya,2003,10,NONGPOH,SHRI. E.G. KHONGJOH,parties.IN.BJP,BJP,691,4.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-10,meghalaya,2003,10,NONGPOH,SHRI. K.N. ROBERTS,parties.IN.KHNAM,KHNAM,670,4.39,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. J.DRINGWEL RYMBAI,parties.IN.INC,INC,3888,27.89,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. ARTIST RANEE,parties.IN.UDP,UDP,2687,19.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. ORAL SYNGKLI,parties.IN.IND,IND,2132,15.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. JRIANGSING PHANBUH,parties.IN.NCP,NCP,1661,11.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. NIRJO MARAK,parties.IN.IND,IND,1519,10.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. THRE NONGRUM,parties.IN.PDM,PDM,709,5.09,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. SNOMIK KALWING,parties.IN.KHNAM,KHNAM,453,3.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. ANDREW M.MARAK,parties.IN.IND,IND,395,2.83,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. AUGUSTIN WAHLANG,parties.IN.BJP,BJP,294,2.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. COMFORT DOLOI,parties.IN.HSPDP,HPDP,204,1.46,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-12,meghalaya,2003,12,MAIRANG,SHRI. BOLDNESS L.NONGRUM,parties.IN.INC,INC,5594,28.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-12,meghalaya,2003,12,MAIRANG,SHRI. FULLER LYNGDOH MAWNAI,parties.IN.HSPDP,HPDP,4796,24.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-12,meghalaya,2003,12,MAIRANG,SHRI. RASOR RANI,parties.IN.MDP,MDP,4549,23.2,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-12,meghalaya,2003,12,MAIRANG,SHRI. SRIMSHON ROY RYNTATHIANG,parties.IN.UDP,UDP,2847,14.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-12,meghalaya,2003,12,MAIRANG,SHRI. ROSLIN LYNGDOH MAWLONG,parties.IN.NCP,NCP,1458,7.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-12,meghalaya,2003,12,MAIRANG,SHRI. TARCISIOUS MAWLOT,parties.IN.KHNAM,KHNAM,360,1.84,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-13,meghalaya,2003,13,NONGSPUNG,SHRI. JOHN ANTHONY LYNGDOH,parties.IN.UDP,UDP,7037,43.92,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-13,meghalaya,2003,13,NONGSPUNG,SHRI. S. LONIAK MARBANIANG,parties.IN.HSPDP,HPDP,4937,30.81,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-13,meghalaya,2003,13,NONGSPUNG,SHRI. WINSTONE SYIEMIONG,parties.IN.NCP,NCP,2332,14.55,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-13,meghalaya,2003,13,NONGSPUNG,SHRI. SROLON LYNGDOH LYNGKHOI,parties.IN.INC,INC,1144,7.14,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-13,meghalaya,2003,13,NONGSPUNG,SHRI. WENTON MARBANIANG,parties.IN.MDP,MDP,210,1.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-13,meghalaya,2003,13,NONGSPUNG,SHRI. BASHU S.MARBANIANG,parties.IN.KHNAM,KHNAM,183,1.14,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-13,meghalaya,2003,13,NONGSPUNG,SHRI. FIRSTARWELL M.BANIANG,parties.IN.KFDP,KFDP,181,1.13,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-14,meghalaya,2003,14,SOHIONG,SHRI. H.DONKUPAR R. LYNGDOH,parties.IN.INC,INC,9518,52.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-14,meghalaya,2003,14,SOHIONG,SHRI . RAIN AUGUSTINE LYNGDOH,parties.IN.UDP,UDP,7209,40.04,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-14,meghalaya,2003,14,SOHIONG,SHRI. MEBANSAN LYNDEM,parties.IN.KHNAM,KHNAM,695,3.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-14,meghalaya,2003,14,SOHIONG,SHRI. H.BROSTARWELL LYNGDOH,parties.IN.HSPDP,HPDP,259,1.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-14,meghalaya,2003,14,SOHIONG,SHRI. LOSTERFIELD KHARBUKI,parties.IN.NCP,NCP,202,1.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-14,meghalaya,2003,14,SOHIONG,SHRI. NIT SHABONG,parties.IN.IND,IND,121,0.67,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-15,meghalaya,2003,15,MYLLIEM,SHRI. PYNSHAI M. SYIEM,parties.IN.IND,IND,5632,39.6,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-15,meghalaya,2003,15,MYLLIEM,SHRI ORIS SYIEM MYRIAW,parties.IN.INC,INC,3083,21.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-15,meghalaya,2003,15,MYLLIEM,SHRI. SOUNDER S. CAJEE,parties.IN.PDM,PDM,2848,20.02,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-15,meghalaya,2003,15,MYLLIEM,SMTI. LARISHA KURKALANG,parties.IN.HSPDP,HPDP,1304,9.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-15,meghalaya,2003,15,MYLLIEM,SHRI. JOHN NEWMAN PURI,parties.IN.KHNAM,KHNAM,597,4.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-15,meghalaya,2003,15,MYLLIEM,SHRI. PHERLIN WAR,parties.IN.UDP,UDP,556,3.91,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-15,meghalaya,2003,15,MYLLIEM,SHRI. SPAR LYNGDOH,parties.IN.NCP,NCP,203,1.43,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-16,meghalaya,2003,16,MALKI-NONGTHYMMAI,SHRI. TONY CURTIS LYNGDOH,parties.IN.INC,INC,5384,47.6,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-16,meghalaya,2003,16,MALKI-NONGTHYMMAI,SHRI. BINDO M. LANONG,parties.IN.UDP,UDP,2792,24.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-16,meghalaya,2003,16,MALKI-NONGTHYMMAI,SHRI. PYNLAPPHANG S.WARJRI,parties.IN.KHNAM,KHNAM,1700,15.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-16,meghalaya,2003,16,MALKI-NONGTHYMMAI,SHRI. MIQUEL BADWAR,parties.IN.NCP,NCP,673,5.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-16,meghalaya,2003,16,MALKI-NONGTHYMMAI,SHRI. BASIL LAMIN,parties.IN.BJP,BJP,491,4.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-16,meghalaya,2003,16,MALKI-NONGTHYMMAI,SHRI. ANTHONY KHARBULI,parties.IN.HSPDP,HPDP,204,1.8,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-16,meghalaya,2003,16,MALKI-NONGTHYMMAI,SHRI. MICHEAL KHARPURI,parties.IN.MDP,MDP,66,0.58,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-17,meghalaya,2003,17,LAITUMKHIRAH,SHRI. ROBERT GARNETT LYNGDOH,parties.IN.INC,INC,4672,54.34,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-17,meghalaya,2003,17,LAITUMKHIRAH,DR. WERLOK KHARSHIING,parties.IN.BJP,BJP,1578,18.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-17,meghalaya,2003,17,LAITUMKHIRAH,SHRI. BARISTER MYRTHONG,parties.IN.UDP,UDP,1495,17.39,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-17,meghalaya,2003,17,LAITUMKHIRAH,SHRI. VICKY S.LYNGDOH,parties.IN.NCP,NCP,565,6.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-17,meghalaya,2003,17,LAITUMKHIRAH,SHRI. RAYNOLD CAVINSON DIENGDOH,parties.IN.MDP,MDP,288,3.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-18,meghalaya,2003,18,PYNTHORUMKHRAH,SHRI. A.L.HEK,parties.IN.BJP,BJP,10798,69.95,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-18,meghalaya,2003,18,PYNTHORUMKHRAH,SHRI. ONWARD L. NONGTDU,parties.IN.INC,INC,3639,23.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-18,meghalaya,2003,18,PYNTHORUMKHRAH,SHRI. KAUSHIK RN. BHATTACHARJEE,parties.IN.NCP,NCP,1000,6.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-19,meghalaya,2003,19,JAIAW,SHRI. PAUL LYNGDOH,parties.IN.KHNAM,KHNAM,5873,57.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-19,meghalaya,2003,19,JAIAW,SHRI. MARTAMLIN PYRBOT,parties.IN.HSPDP,HPDP,2283,22.26,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-19,meghalaya,2003,19,JAIAW,SHRI. AUBRY H.SCOTT LYNGDOH,parties.IN.MDP,MDP,1347,13.13,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-19,meghalaya,2003,19,JAIAW,SHRI. R.LOVER SHULLAI,parties.IN.INC,INC,519,5.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-19,meghalaya,2003,19,JAIAW,SMTI. MAYA R. KYNDIAH,parties.IN.UDP,UDP,234,2.28,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-20,meghalaya,2003,20,MAWKHAR,SHRI. FRIDAY LYNGDOH,parties.IN.INC,INC,3568,59.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-20,meghalaya,2003,20,MAWKHAR,SHRI. JAMES MARVIN PARIAT,parties.IN.KHNAM,KHNAM,1150,19.03,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-20,meghalaya,2003,20,MAWKHAR,SHRI. HARDINGE L.MASSAR,parties.IN.UDP,UDP,732,12.11,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-20,meghalaya,2003,20,MAWKHAR,SHRI. MOON PYRBOT,parties.IN.BJP,BJP,369,6.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-20,meghalaya,2003,20,MAWKHAR,SHRI. PRADEEP G.JYRWA,parties.IN.NCP,NCP,224,3.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-21,meghalaya,2003,21,MAWPREM,SHRI. ARDHENDU CHOUDHURI,parties.IN.NCP,NCP,3979,38.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-21,meghalaya,2003,21,MAWPREM,SHRI. DHRUBANATH JOSHI,parties.IN.INC,INC,2822,27.09,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-21,meghalaya,2003,21,MAWPREM,SHRI. BIR BAHADUR CHETTRI,parties.IN.BJP,BJP,2466,23.67,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-21,meghalaya,2003,21,MAWPREM,SHRI. WANBOK S. LYNGDOH,parties.IN.IND,IND,1068,10.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-21,meghalaya,2003,21,MAWPREM,SHRI. SOM RANA,parties.IN.IND,IND,82,0.79,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Jopsimon Phanbuh,parties.IN.BJP,BJP,3114,38.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Sanbor Shullai,parties.IN.NCP,NCP,1475,18.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Stalin Lyngdoh,parties.IN.INC,INC,1341,16.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Sounder S.Cajee,parties.IN.IND,IND,517,6.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Anthony Lyngdoh,parties.IN.KHNAM,KHNAM,459,5.69,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Irene Patricia Hujon,parties.IN.MDP,MDP,319,3.96,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Wanbok S.Lyngdoh,parties.IN.UDP,UDP,286,3.55,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Amstar Lyngdoh,parties.IN.IND,IND,263,3.26,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Biru Joshi,parties.IN.IND,IND,98,1.22,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,H.Aintis Kharphuli,parties.IN.IND,IND,82,1.02,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Romeo Phira Rani,parties.IN.HSPDP,HSPDP,56,0.69,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,R.S. Jana Nongbet,parties.IN.IND,IND,30,0.37,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Nit Shabong,parties.IN.IND,IND,23,0.29,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-23,meghalaya,2003,23,MAWLAI,SHRI. PROCESS T.SAWKMIE,parties.IN.MDP,MDP,8031,49,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-23,meghalaya,2003,23,MAWLAI,SHRI. FOUNDER S.CAJEE,parties.IN.PDM,PDM,6249,38.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-23,meghalaya,2003,23,MAWLAI,SHRI. SHINGLY NONGKHLAW,parties.IN.UDP,UDP,1576,9.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-23,meghalaya,2003,23,MAWLAI,SMTI. AMANDA PATHAW,parties.IN.INC,INC,535,3.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-24,meghalaya,2003,24,SOHRYNGKHAM,SHRI. CHARLES PYNGROPE,parties.IN.INC,INC,4388,28.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-24,meghalaya,2003,24,SOHRYNGKHAM,SHRI. J.ULYSSES NONGRUM,parties.IN.IND,IND,4161,27.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-24,meghalaya,2003,24,SOHRYNGKHAM,SHRI. SANBOR SWELL LYNGDOH,parties.IN.MDP,MDP,3530,23.28,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-24,meghalaya,2003,24,SOHRYNGKHAM,SHRI. DAVID KHARSATI,parties.IN.UDP,UDP,1612,10.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-24,meghalaya,2003,24,SOHRYNGKHAM,SHRI CAMPBELL KHARSATI,parties.IN.HSPDP,HPDP,1475,9.73,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-25,meghalaya,2003,25,DIENGLIENG,SHRI. MARTLE N. MUKHIM,parties.IN.MDP,MDP,5238,41.79,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-25,meghalaya,2003,25,DIENGLIENG,SHRI. TEILANG STAR BLAH,parties.IN.KHNAM,KHNAM,2775,22.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-25,meghalaya,2003,25,DIENGLIENG,SHRI. CHANDRA L.NONGBRI,parties.IN.UDP,UDP,2409,19.22,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-25,meghalaya,2003,25,DIENGLIENG,SHRI GROSSWELL MYLLIEMNGAP,parties.IN.INC,INC,1445,11.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-25,meghalaya,2003,25,DIENGLIENG,SHRI. LAMPHARANG E. LYNGDOH,parties.IN.KFDP,KFDP,405,3.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-25,meghalaya,2003,25,DIENGLIENG,SHRI. ROLAN SINGH NONGRUM,parties.IN.NCP,NCP,263,2.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. LAMBOR MALNGIANG,parties.IN.KHNAM,KHNAM,2929,18.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. H.S.SHYLLA,parties.IN.UDP,UDP,2847,18.32,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. SANBOR SHULLAI,parties.IN.IND,IND,1977,12.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. WAIBHA KHYRIEM KYNDIAH,parties.IN.INC,INC,1821,11.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. ARDENT MILLER BASAIAWMOIT,parties.IN.IND,IND,1346,8.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. ELSTON ROY KHARKONGOR,parties.IN.PDM,PDM,1306,8.4,6,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. HILARIUS WARBAH,parties.IN.MDP,MDP,1216,7.82,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. EDARSTAR LYNGDOH NONGBRI,parties.IN.NCP,NCP,1184,7.62,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. CARMELSTONE SOHTUN,parties.IN.IND,IND,728,4.68,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. DAWINGSON KHARKONGOR,parties.IN.HSPDP,HPDP,152,0.98,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. DENTIST MOHON ROY K'KONGOR,parties.IN.KFDP,KFDP,35,0.23,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. PRESTONE TYNSONG,parties.IN.INC,INC,2832,21.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SMTI. SYRPAI KHONGLAH,parties.IN.MDP,MDP,2415,18.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. DOMINIC ROBLIN NONGKYNRIH,parties.IN.KFDP,KFDP,1857,14.09,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. RICHARDSTONE JANA NONGBET,parties.IN.UDP,UDP,1602,12.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. SAMUEL KHONGBUH MASSAR,parties.IN.IND,IND,1552,11.77,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. KHLUR SING LYNGDOH,parties.IN.NCP,NCP,769,5.83,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. HOREN NONGSTENG,parties.IN.HSPDP,HPDP,643,4.88,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. JESTERFIELD KHONGWIR,parties.IN.KHNAM,KHNAM,591,4.48,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. YOUNGSTENSHON TYNSONG,parties.IN.IND,IND,563,4.27,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SMTI. VERONICA MARBANIANG,parties.IN.IND,IND,244,1.85,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. K.LALHLUNA,parties.IN.SAP,SAP,113,0.86,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-28,meghalaya,2003,28,NONGSHKEN,SHRI. KHAN KHONGDKHAR,parties.IN.INC,INC,4235,35.98,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-28,meghalaya,2003,28,NONGSHKEN,SHRI. GANOLD STONE MASSAR,parties.IN.KHNAM,KHNAM,3182,27.04,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-28,meghalaya,2003,28,NONGSHKEN,SHRI. MONARCH SHABONG,parties.IN.IND,IND,1858,15.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-28,meghalaya,2003,28,NONGSHKEN,SHRI. N.BELERIS KHARDUIA,parties.IN.UDP,UDP,1783,15.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-28,meghalaya,2003,28,NONGSHKEN,SHRI. SAINDURLANG IAWIM,parties.IN.BJP,BJP,412,3.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-28,meghalaya,2003,28,NONGSHKEN,SHRI. PREMIER SING KHONGBEH,parties.IN.HSPDP,HPDP,171,1.45,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-28,meghalaya,2003,28,NONGSHKEN,SHRI. S.TIPSNGI LASO,parties.IN.SAP,SAP,128,1.09,7,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-29,meghalaya,2003,29,SOHRA,DR. FLINDER ANDERSON KHONGLAM,parties.IN.HSPDP,HPDP,4093,32.17,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-29,meghalaya,2003,29,SOHRA,SHRI. PHLOUR W. KHONGJEE,parties.IN.UDP,UDP,3536,27.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-29,meghalaya,2003,29,SOHRA,SHRI. WALTER DAVID LYNGWI,parties.IN.INC,INC,3201,25.16,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-29,meghalaya,2003,29,SOHRA,SHRI. WANSTEP DIENGDOH,parties.IN.KHNAM,KHNAM,1742,13.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-29,meghalaya,2003,29,SOHRA,SHRI KODIN NONGRUM,parties.IN.NCP,NCP,153,1.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-30,meghalaya,2003,30,SHELLA,DONKUPAR ROY,parties.IN.UDP,UDP,3145,32.93,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-30,meghalaya,2003,30,SHELLA,SHRI PYNDAPBORTHIAW SAIBON,parties.IN.KHNAM,KHNAM,2923,30.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-30,meghalaya,2003,30,SHELLA,SHRI. G. GRANDERSON SYIEMLIEH,parties.IN.INC,INC,2172,22.74,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-30,meghalaya,2003,30,SHELLA,SHRI KONDRO K. KSANLAM,parties.IN.IND,IND,1046,10.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-30,meghalaya,2003,30,SHELLA,SHRI. BISANLING DKHAR,parties.IN.HSPDP,HPDP,227,2.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-30,meghalaya,2003,30,SHELLA,SHRI. PORIMOR SHONGLAIT,parties.IN.NCP,NCP,37,0.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-31,meghalaya,2003,31,MAWSYNRAM,SHRI. D.PLASLANDING IANGJUH,parties.IN.MDP,MDP,5467,41.16,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-31,meghalaya,2003,31,MAWSYNRAM,SHRI. GOPAL STONE HYNNIEWTA,parties.IN.INC,INC,4707,35.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-31,meghalaya,2003,31,MAWSYNRAM,SHRI. E.WALLENCE BASTERFIELD JYRWA,parties.IN.IND,IND,1030,7.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-31,meghalaya,2003,31,MAWSYNRAM,SHRI. I.ROCKFELLER RANGDKHEW,parties.IN.KHNAM,KHNAM,1001,7.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-31,meghalaya,2003,31,MAWSYNRAM,SHRI. SUMIS MARAK,parties.IN.SAP,SAP,570,4.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-31,meghalaya,2003,31,MAWSYNRAM,SHRI. MESTONNATH KHARCHANDY,parties.IN.NCP,NCP,506,3.81,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-32,meghalaya,2003,32,MAWKYRWAT,SHRI. B.BIRES NONGSIEJ,parties.IN.UDP,UDP,4903,31.24,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-32,meghalaya,2003,32,MAWKYRWAT,SHRI. ROWELL LYNGDOH,parties.IN.INC,INC,3610,23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-32,meghalaya,2003,32,MAWKYRWAT,SHRI. BRESTERWELL NONGSIEJ,parties.IN.HSPDP,HPDP,2799,17.83,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-32,meghalaya,2003,32,MAWKYRWAT,SHRI. ENBIN K.RASWAI,parties.IN.MDP,MDP,2479,15.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-32,meghalaya,2003,32,MAWKYRWAT,SHRI. BIB EDWIN WANNIANG,parties.IN.KHNAM,KHNAM,1384,8.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-32,meghalaya,2003,32,MAWKYRWAT,SHRI. SHANBORLIN LYNGDOH,parties.IN.NCP,NCP,277,1.76,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-32,meghalaya,2003,32,MAWKYRWAT,SHRI. ENDRO IAWPHNIAW,parties.IN.BJP,BJP,169,1.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-32,meghalaya,2003,32,MAWKYRWAT,SHRI. KHRAWBOK MAWLIEN,parties.IN.CPI,CPI,74,0.47,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-33,meghalaya,2003,33,PARIONG,SMTI. IRIN LYNGDOH,parties.IN.INC,INC,4427,35.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-33,meghalaya,2003,33,PARIONG,SHRI. TUBARLIN LYNGDOH,parties.IN.HSPDP,HPDP,4398,35.71,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-33,meghalaya,2003,33,PARIONG,SHRI. MANHUN THABAH,parties.IN.KHNAM,KHNAM,1157,9.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-33,meghalaya,2003,33,PARIONG,SHRI. MANSTANRY KHARSYNTIEW,parties.IN.UDP,UDP,909,7.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-33,meghalaya,2003,33,PARIONG,SHRI. KOMLIN LAWRINIANG,parties.IN.BJP,BJP,821,6.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-33,meghalaya,2003,33,PARIONG,SHRI. SHANBORLIN LYNGDOH NONGLAIT,parties.IN.MDP,MDP,321,2.61,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-33,meghalaya,2003,33,PARIONG,SHRI. KWENTAL RYNGAD,parties.IN.NCP,NCP,282,2.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-34,meghalaya,2003,34,NONGSTOIN,SHRI. HOPINGSTONE LYNGDOH,parties.IN.HSPDP,HPDP,7495,36.07,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-34,meghalaya,2003,34,NONGSTOIN,SHRI. FRANCIS K.MAWLOT,parties.IN.INC,INC,7001,33.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-34,meghalaya,2003,34,NONGSTOIN,SHRI. NONDI DIENGNGAN,parties.IN.NCP,NCP,1935,9.31,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-34,meghalaya,2003,34,NONGSTOIN,SHRI. EVERALD D.NONGSIANG,parties.IN.UDP,UDP,1630,7.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-34,meghalaya,2003,34,NONGSTOIN,SHRI. MORNINGSTAR TYMPUIN,parties.IN.MDP,MDP,1285,6.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-34,meghalaya,2003,34,NONGSTOIN,SHRI. SHANBORLANG LYNGDOH,parties.IN.KHNAM,KHNAM,1141,5.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-34,meghalaya,2003,34,NONGSTOIN,SHRI. D.DIDIMUS SOHPHOH,parties.IN.BJP,BJP,293,1.41,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-35,meghalaya,2003,35,LANGRIN,SHRI. MARTIN M.DANGGO,parties.IN.INC,INC,5509,36.11,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-35,meghalaya,2003,35,LANGRIN,SHRI. PROBIN K.RASWAI,parties.IN.NCP,NCP,4007,26.27,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-35,meghalaya,2003,35,LANGRIN,SHRI. KHRANGLIN LYNGKHOI,parties.IN.UDP,UDP,3514,23.04,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-35,meghalaya,2003,35,LANGRIN,SHRI. ROSLAND IAWPHNIAW,parties.IN.BJP,BJP,878,5.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-35,meghalaya,2003,35,LANGRIN,SHRI. TRUEMAN RNGAID,parties.IN.KHNAM,KHNAM,853,5.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-35,meghalaya,2003,35,LANGRIN,RANGSANDOR SYIEM,parties.IN.HSPDP,HPDP,494,3.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-36,meghalaya,2003,36,MAWTHENGKUT,SHRI FRANCIS PONDIT R. SANGMA,parties.IN.IND,IND,5114,30.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-36,meghalaya,2003,36,MAWTHENGKUT,SHRI. H.LEDISHON NONGSIANG,parties.IN.INC,INC,4254,25.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-36,meghalaya,2003,36,MAWTHENGKUT,SHRI. PHLASTINGWEL PANGNIANG,parties.IN.HSPDP,HPDP,3300,19.89,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-36,meghalaya,2003,36,MAWTHENGKUT,SHRI J. G. RYNNIAW,parties.IN.MDP,MDP,1866,11.25,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-36,meghalaya,2003,36,MAWTHENGKUT,SMTI. MAYSALIN WAR,parties.IN.NCP,NCP,1613,9.72,5,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-36,meghalaya,2003,36,MAWTHENGKUT,DR. ALEXANDER LYNGDOH,parties.IN.IND,IND,445,2.68,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-37,meghalaya,2003,37,BAGHMARA,SHRI SENGRAN SANGMA,parties.IN.INC,INC,7703,51.98,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-37,meghalaya,2003,37,BAGHMARA,SHRI LOTSING SANGMA,parties.IN.NCP,NCP,6055,40.86,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-37,meghalaya,2003,37,BAGHMARA,SHRI ROBERT T. SANGMA,parties.IN.IND,IND,1060,7.15,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-38,meghalaya,2003,38,RONGRENGGIRI,SMTI DEBORA C. MARAK,parties.IN.INC,INC,7533,36.63,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-38,meghalaya,2003,38,RONGRENGGIRI,SHRI MARCUISE MARAK,parties.IN.NCP,NCP,7472,36.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-38,meghalaya,2003,38,RONGRENGGIRI,SHRI PROJEND D. SANGMA,parties.IN.IND,IND,5187,25.22,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-38,meghalaya,2003,38,RONGRENGGIRI,SHRI ISMAIL MARAK,parties.IN.BJP,BJP,374,1.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-39,meghalaya,2003,39,RONGJENG,SHRI PREDICKSON G. MOMIN,parties.IN.IND,IND,5998,44.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-39,meghalaya,2003,39,RONGJENG,SHRI ASHUTOSH MARAK,parties.IN.NCP,NCP,3634,27.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-39,meghalaya,2003,39,RONGJENG,SHRI SUJIT SANGMA,parties.IN.INC,INC,2834,21.24,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-39,meghalaya,2003,39,RONGJENG,SHRI PLEANDER G. MOMIN,parties.IN.UDP,UDP,599,4.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-39,meghalaya,2003,39,RONGJENG,SMTI. BINDU MOMIN,parties.IN.BJP,BJP,280,2.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-40,meghalaya,2003,40,KHARKUTTA,SHRI ELSTONE D. MARAK,parties.IN.NCP,NCP,6568,41.49,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-40,meghalaya,2003,40,KHARKUTTA,SHRI SUBASH MARAK,parties.IN.INC,INC,3230,20.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-40,meghalaya,2003,40,KHARKUTTA,SHRI OMILLO K SANGMA,parties.IN.IND,IND,3034,19.16,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-40,meghalaya,2003,40,KHARKUTTA,SHRI LUDERBERG CH. MOMIN,parties.IN.UDP,UDP,2009,12.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-40,meghalaya,2003,40,KHARKUTTA,SHRI CARY MARAK,parties.IN.IND,IND,990,6.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-41,meghalaya,2003,41,MENDIPATHAR,SHRI BENINSTAND G. MOMIN,parties.IN.UDP,UDP,7756,45.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-41,meghalaya,2003,41,MENDIPATHAR,SHRI FRANKENSTEIN W. MOMIN,parties.IN.INC,INC,6791,40.02,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-41,meghalaya,2003,41,MENDIPATHAR,SHRI SILGRING MARAK,parties.IN.NCP,NCP,2423,14.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-42,meghalaya,2003,42,RESUBELPARA,SHRI TIMOTHY SHIRA,parties.IN.NCP,NCP,7957,53.33,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-42,meghalaya,2003,42,RESUBELPARA,SHRI SALSENG C. MARAK,parties.IN.INC,INC,6963,46.67,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-43,meghalaya,2003,43,SONGSAK,SHRI HELTONE N MARAK,parties.IN.UDP,UDP,4875,34,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-43,meghalaya,2003,43,SONGSAK,SHRI TONSING N MARAK,parties.IN.INC,INC,4693,32.73,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-43,meghalaya,2003,43,SONGSAK,SHRI ANDERSON SANGMA,parties.IN.NCP,NCP,4467,31.16,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-43,meghalaya,2003,43,SONGSAK,SMTI ANILLA D SHIRA,parties.IN.BJP,BJP,302,2.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-44,meghalaya,2003,44,BAJENGDOBA,SHRI JOHN MANNER MARAK,parties.IN.NCP,NCP,7756,51.8,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-44,meghalaya,2003,44,BAJENGDOBA,SHRI CHAMBERLINE B. MARAK,parties.IN.INC,INC,5923,39.56,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-44,meghalaya,2003,44,BAJENGDOBA,SHRI RESTERBROWN SANGMA,parties.IN.UDP,UDP,728,4.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-44,meghalaya,2003,44,BAJENGDOBA,SHRI JOHINDRO MOMIN,parties.IN.GNC,GNC,567,3.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-45,meghalaya,2003,45,TIKRIKILLA,SHRI MONINDRA RABHA,parties.IN.NCP,NCP,4436,29.25,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-45,meghalaya,2003,45,TIKRIKILLA,SHRI KAPIN CH. BORO,parties.IN.INC,INC,3767,24.84,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-45,meghalaya,2003,45,TIKRIKILLA,SHRI LEMISON SANGMA,parties.IN.PDM,PDM,3738,24.65,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-45,meghalaya,2003,45,TIKRIKILLA,SHRI MRINAL MARAK,parties.IN.UDP,UDP,2009,13.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-45,meghalaya,2003,45,TIKRIKILLA,SHRI PILLARSON G. MOMIN,parties.IN.IND,IND,1215,8.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-46,meghalaya,2003,46,DADENGGIRI,SHRI EDMUND K SANGMA,parties.IN.NCP,NCP,7948,43.26,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-46,meghalaya,2003,46,DADENGGIRI,SHRI AUGUSTINE MARAK,parties.IN.INC,INC,7625,41.51,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-46,meghalaya,2003,46,DADENGGIRI,SHRI SENGBAN R. SANGMA,parties.IN.IND,IND,1290,7.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-46,meghalaya,2003,46,DADENGGIRI,SHRI HEMRITH MARAK,parties.IN.BJP,BJP,913,4.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-46,meghalaya,2003,46,DADENGGIRI,SHRI JOVA MARAK,parties.IN.UDP,UDP,345,1.88,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-46,meghalaya,2003,46,DADENGGIRI,SHRI WITHERSON MARAK,parties.IN.CPI,CPI,250,1.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-47,meghalaya,2003,47,RONGCHUGIRI,SHRI BECKSTAR SANGMA,parties.IN.NCP,NCP,3170,26.12,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-47,meghalaya,2003,47,RONGCHUGIRI,SHRI CHANANG K MARAK,parties.IN.IND,IND,2891,23.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-47,meghalaya,2003,47,RONGCHUGIRI,SHRI SHERJEE M. SANGMA,parties.IN.UDP,UDP,2235,18.42,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-47,meghalaya,2003,47,RONGCHUGIRI,SHRI PAUL B. MARAK,parties.IN.INC,INC,2011,16.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-47,meghalaya,2003,47,RONGCHUGIRI,SHRI ROYNATH SANGMA,parties.IN.IND,IND,1471,12.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-47,meghalaya,2003,47,RONGCHUGIRI,SHRI TRETIARSON MARAK,parties.IN.BJP,BJP,356,2.93,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-48,meghalaya,2003,48,PHULBARI,SHRI MANIRUL ISLAM SARKAR,parties.IN.INC,INC,7170,37.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-48,meghalaya,2003,48,PHULBARI,SHRI APERSON G. MOMIN,parties.IN.BJP,BJP,5616,29.71,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-48,meghalaya,2003,48,PHULBARI,SHRI ABU TAHER MONDAL,parties.IN.NCP,NCP,5612,29.69,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-48,meghalaya,2003,48,PHULBARI,SHRI AYNAL HAQUE HAZARIKA,parties.IN.UDP,UDP,259,1.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-48,meghalaya,2003,48,PHULBARI,SHRI ANOWAR ISLAM,parties.IN.SP,SP,245,1.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-49,meghalaya,2003,49,RAJABALA,SHRI SAYEEDULLAH NONGRUM,parties.IN.INC,INC,7125,41,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-49,meghalaya,2003,49,RAJABALA,SHRI CLEMENT MARAK,parties.IN.NCP,NCP,6911,39.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-49,meghalaya,2003,49,RAJABALA,SHRI AKHIL HAJONG,parties.IN.BJP,BJP,2386,13.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-49,meghalaya,2003,49,RAJABALA,SHRI SHYAMAL KANTI DARING,parties.IN.IND,IND,789,4.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-49,meghalaya,2003,49,RAJABALA,SHRI JAFFAR KHARKONGOR,parties.IN.UDP,UDP,165,0.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-50,meghalaya,2003,50,SELSELLA,SHRI CYPRIAN R. SANGMA,parties.IN.NCP,NCP,2875,25.27,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-50,meghalaya,2003,50,SELSELLA,SHRI ATUL C. MARAK,parties.IN.INC,INC,2705,23.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-50,meghalaya,2003,50,SELSELLA,SHRI MOSES SANGMA,parties.IN.IND,IND,1644,14.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-50,meghalaya,2003,50,SELSELLA,SHRI CREBILSON MARAK,parties.IN.UDP,UDP,1186,10.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-50,meghalaya,2003,50,SELSELLA,SHRI TAIRIPSON A. SANGMA,parties.IN.IND,IND,1153,10.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-50,meghalaya,2003,50,SELSELLA,SHRI IRENGSING A. SANGMA,parties.IN.BJP,BJP,1059,9.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-50,meghalaya,2003,50,SELSELLA,SHRI BHUBANI HAJONG,parties.IN.IND,IND,612,5.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-50,meghalaya,2003,50,SELSELLA,SHRI ROCKFELLER MOMIN,parties.IN.GNC,GNC,144,1.27,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI SENGMAN R. MARAK,parties.IN.IND,IND,4746,30.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI CRINATHSON A. SANGMA,parties.IN.NCP,NCP,3184,20.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,DR. H. JIMMY MOMIN,parties.IN.IND,IND,2293,14.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI METHRONA R. MARAK,parties.IN.IND,IND,1534,9.97,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI SALMAN SANGMA,parties.IN.INC,INC,1050,6.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI KENDURA K. SANGMA,parties.IN.IND,IND,972,6.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI ARWISH MARAK,parties.IN.IND,IND,609,3.96,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI LUDWIG ERHERD SANGMA,parties.IN.PDM,PDM,342,2.22,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI HENISING A. SANGMA,parties.IN.GNC,GNC,329,2.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI CHEYPA MARAK,parties.IN.IND,IND,225,1.46,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI JOGEN A. SANGMA,parties.IN.UDP,UDP,105,0.68,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-52,meghalaya,2003,52,TURA,SHRI BILLYKID SANGMA,parties.IN.IND,IND,7171,30.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-52,meghalaya,2003,52,TURA,SHRI JOHN LESLEE SANGMA,parties.IN.IND,IND,5394,22.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-52,meghalaya,2003,52,TURA,SHRI JOHN S. D. SHIRA,parties.IN.IND,IND,3370,14.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-52,meghalaya,2003,52,TURA,SHRI KULERT CHERAN MOMIN,parties.IN.NCP,NCP,3304,14,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-52,meghalaya,2003,52,TURA,SHRI JOYLANCE MOMIN,parties.IN.INC,INC,2175,9.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-52,meghalaya,2003,52,TURA,SHRI ROSTER SANGMA,parties.IN.BJP,BJP,1693,7.17,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-52,meghalaya,2003,52,TURA,SHRI INDRAJIT A. SANGMA,parties.IN.IND,IND,493,2.09,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-53,meghalaya,2003,53,CHOKPOT,SHRI MASONSING M. SANGMA,parties.IN.NCP,NCP,5122,40.22,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-53,meghalaya,2003,53,CHOKPOT,SHRI CLIFFORD R. MARAK,parties.IN.GNC,GNC,3068,24.09,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-53,meghalaya,2003,53,CHOKPOT,SHRI JIPSON MARAK,parties.IN.INC,INC,2546,19.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-53,meghalaya,2003,53,CHOKPOT,SHRI GREATERSON CH. MARAK,parties.IN.IND,IND,1226,9.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-53,meghalaya,2003,53,CHOKPOT,SHRI BESTERFIELD SANGMA,parties.IN.IND,IND,772,6.06,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-54,meghalaya,2003,54,KHERAPARA,SHRI BRENING A. SANGMA,parties.IN.NCP,NCP,5418,41.3,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-54,meghalaya,2003,54,KHERAPARA,SHRI KENETHSON SANGMA,parties.IN.INC,INC,2714,20.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-54,meghalaya,2003,54,KHERAPARA,SHRI ENISON MARAK,parties.IN.IND,IND,2713,20.68,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-54,meghalaya,2003,54,KHERAPARA,SHRI STEPHEN MOMIN,parties.IN.GNC,GNC,1478,11.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-54,meghalaya,2003,54,KHERAPARA,SHRI SAHASON R. MARAK,parties.IN.IND,IND,796,6.07,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-55,meghalaya,2003,55,DALU,SHRI SAMUEL SANGMA,parties.IN.NCP,NCP,3760,34,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-55,meghalaya,2003,55,DALU,SHRI NITYANARAYAN SIMCHANG,parties.IN.BJP,BJP,3492,31.57,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-55,meghalaya,2003,55,DALU,SHRI ARCHIBOLD A. SANGMA,parties.IN.IND,IND,1904,17.22,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-55,meghalaya,2003,55,DALU,SHRI PANSENG R. MARAK,parties.IN.INC,INC,1583,14.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-55,meghalaya,2003,55,DALU,SHRI PREMANANDA SANGMA,parties.IN.IND,IND,321,2.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-56,meghalaya,2003,56,DALAMGIRI,SHRI ADMIRAL SANGMA,parties.IN.NCP,NCP,5627,46.02,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-56,meghalaya,2003,56,DALAMGIRI,SHRI IRA MARAK,parties.IN.INC,INC,4017,32.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-56,meghalaya,2003,56,DALAMGIRI,SHRI WIDNALD MARAK,parties.IN.GNC,GNC,2583,21.13,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-57,meghalaya,2003,57,RANGSAKONA,SHRI ZENITH M SANGMA,parties.IN.INC,INC,5452,41.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-57,meghalaya,2003,57,RANGSAKONA,SHRI ADOLF LU HITLER R. MARAK,parties.IN.NCP,NCP,5117,39.14,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-57,meghalaya,2003,57,RANGSAKONA,SHRI GLAXSTONE MARAK,parties.IN.UDP,UDP,1115,8.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-57,meghalaya,2003,57,RANGSAKONA,SHRI LABINDRO MARAK,parties.IN.PDM,PDM,691,5.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-57,meghalaya,2003,57,RANGSAKONA,SMTI STELLA MARIE A. SANGMA,parties.IN.IND,IND,385,2.94,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-57,meghalaya,2003,57,RANGSAKONA,SHRI ROHIDAS MARAK,parties.IN.GNC,GNC,314,2.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-58,meghalaya,2003,58,AMPATIGIRI,DR. MUKUL SANGMA,parties.IN.INC,INC,7080,40.99,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-58,meghalaya,2003,58,AMPATIGIRI,SHRI ERIL SANGMA,parties.IN.NCP,NCP,4941,28.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-58,meghalaya,2003,58,AMPATIGIRI,SHRI AMIYA KR. HAJONG,parties.IN.BJP,BJP,3710,21.48,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-58,meghalaya,2003,58,AMPATIGIRI,SHRI MONENDRO AGITOK,parties.IN.IND,IND,1110,6.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-58,meghalaya,2003,58,AMPATIGIRI,SHRI RUPARTH ARENG,parties.IN.CPI,CPI,227,1.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-58,meghalaya,2003,58,AMPATIGIRI,SHRI MONENDRO MARAK,parties.IN.IND,IND,203,1.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-59,meghalaya,2003,59,SALMANPURA,SHRI. GOPINATH SANGMA,parties.IN.NCP,NCP,6341,42.04,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-59,meghalaya,2003,59,SALMANPURA,SHRI NIMARSON MOMIN,parties.IN.UDP,UDP,5498,36.45,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-59,meghalaya,2003,59,SALMANPURA,SHRI SEMFORD B. SANGMA,parties.IN.INC,INC,2014,13.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-59,meghalaya,2003,59,SALMANPURA,SHRI ISMAIL A. SANGMA,parties.IN.BJP,BJP,878,5.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-59,meghalaya,2003,59,SALMANPURA,SHRI MECKENSON SANGMA,parties.IN.IND,IND,353,2.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-60,meghalaya,2003,60,MAHENDRAGANJ,SHRI NIDHU RAM HAJONG,parties.IN.NCP,NCP,6479,44.07,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-60,meghalaya,2003,60,MAHENDRAGANJ,SHRI ABDUS SALEH,parties.IN.IND,IND,4780,32.51,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-60,meghalaya,2003,60,MAHENDRAGANJ,SHRI RAMESH CH. BARMAN,parties.IN.BJP,BJP,1742,11.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-60,meghalaya,2003,60,MAHENDRAGANJ,SHRI GOLAM MOSTAFA,parties.IN.IND,IND,903,6.14,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-60,meghalaya,2003,60,MAHENDRAGANJ,SHRI DHABAL CH. BARMAN,parties.IN.MDP,MDP,598,4.07,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-60,meghalaya,2003,60,MAHENDRAGANJ,SHRI MUKUL DAS,parties.IN.INC,INC,199,1.35,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-meghalaya-1,meghalaya,2003,1,WAR-JAINTIA,SHRI. RIANG LENON TARIANG,parties.IN.UDP,UDP,7211,41.56,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-1,meghalaya,2003,1,WAR-JAINTIA,SHRI. JOHNDENG POHRMEN,parties.IN.INC,INC,5991,34.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-1,meghalaya,2003,1,WAR-JAINTIA,SHRI CAMILLUS ALBERT LAMIN,parties.IN.NCP,NCP,3438,19.82,3,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-1,meghalaya,2003,1,WAR-JAINTIA,SMTI. H. MARINA DKHAR,parties.IN.HSPDP,HPDP,474,2.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-1,meghalaya,2003,1,WAR-JAINTIA,SHRI. G.W. POHTI,parties.IN.KHNAM,KHNAM,236,1.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-2,meghalaya,2003,2,RYMBAI,NEHLANG LYNGDOH,parties.IN.INC,INC,12224,46.9,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-2,meghalaya,2003,2,RYMBAI,OBIL KYNDAIT,parties.IN.IND,IND,7972,30.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-2,meghalaya,2003,2,RYMBAI,SIMON SIANGSHAI,parties.IN.NCP,NCP,5870,22.52,3,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-3,meghalaya,2003,3,SUTNGA-SHANGPUNG,SHITLANG PALE,parties.IN.INC,INC,8182,45.8,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-3,meghalaya,2003,3,SUTNGA-SHANGPUNG,SHRI. OLIVERNEAT CHYRMANG,parties.IN.UDP,UDP,5722,32.03,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-3,meghalaya,2003,3,SUTNGA-SHANGPUNG,THIANGA NGAMLAI,parties.IN.BJP,BJP,1738,9.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-3,meghalaya,2003,3,SUTNGA-SHANGPUNG,SHRI. E.C. BONIFACE BAMON,parties.IN.NCP,NCP,1500,8.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-3,meghalaya,2003,3,SUTNGA-SHANGPUNG,SHNGAINLANG BAMON,parties.IN.IND,IND,722,4.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-4,meghalaya,2003,4,RALIANG,SHRI. MIHSALAN SUCHIANG,parties.IN.UDP,UDP,6336,30.4,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-4,meghalaya,2003,4,RALIANG,SHRI. WANBAIT CHULET,parties.IN.NCP,NCP,5178,24.85,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-4,meghalaya,2003,4,RALIANG,SHRI. GILBERT STEN,parties.IN.MDP,MDP,3971,19.06,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-4,meghalaya,2003,4,RALIANG,SHRI. WIKIL DHAR,parties.IN.HSPDP,HPDP,3363,16.14,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-4,meghalaya,2003,4,RALIANG,SMTI. RITA M.V. LYNGDOH,parties.IN.INC,INC,1991,9.55,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-5,meghalaya,2003,5,NARTIANG,SHRI. DRAISON KHARSHIING,parties.IN.MDP,MDP,4975,27.09,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-5,meghalaya,2003,5,NARTIANG,SHRI. H. BRITAINWAR DAN,parties.IN.UDP,UDP,4640,25.26,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-5,meghalaya,2003,5,NARTIANG,SHRI . HILARIUS DKHAR,parties.IN.NCP,NCP,3559,19.38,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-5,meghalaya,2003,5,NARTIANG,SHRI. HENRY LAMIN,parties.IN.INC,INC,3541,19.28,4,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-5,meghalaya,2003,5,NARTIANG,SHRI HALLELSTAR LYNGDOH,parties.IN.HSPDP,HPDP,1291,7.03,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-5,meghalaya,2003,5,NARTIANG,SHRI. SATI DKHAR,parties.IN.PDM,PDM,362,1.97,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-6,meghalaya,2003,6,NONGBAH-WAHIAJER,SHRI. KYRMEN SUSNGI,parties.IN.UDP,UDP,9667,53.84,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-6,meghalaya,2003,6,NONGBAH-WAHIAJER,SHRI. EDMUND SPEAKERSON LYNGDOH,parties.IN.INC,INC,7886,43.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-6,meghalaya,2003,6,NONGBAH-WAHIAJER,SHRI LAITSING SHILLA,parties.IN.NCP,NCP,245,1.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-6,meghalaya,2003,6,NONGBAH-WAHIAJER,SHRI JYLLIEW ROY LAMIN,parties.IN.HSPDP,HPDP,158,0.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-7,meghalaya,2003,7,JOWAI,SHRI. SINGH MULIEH,parties.IN.UDP,UDP,8967,49.36,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-7,meghalaya,2003,7,JOWAI,DR. ROYTRE CHRISTOPHER LALOO,parties.IN.INC,INC,8306,45.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-7,meghalaya,2003,7,JOWAI,SMTI. PHIDALIA TOI,parties.IN.NCP,NCP,688,3.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-7,meghalaya,2003,7,JOWAI,SHRI. PHILOMATH PASSAH,parties.IN.BJP,BJP,128,0.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-7,meghalaya,2003,7,JOWAI,SHRI. NOREN TALANG,parties.IN.IND,IND,78,0.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-8,meghalaya,2003,8,MAWHATI,SHRI. PHINGWELL MUKTIEH,parties.IN.INC,INC,5021,35.5,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-8,meghalaya,2003,8,MAWHATI,SHRI. S.R. MOKSHA,parties.IN.UDP,UDP,4270,30.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-8,meghalaya,2003,8,MAWHATI,DR. JERIN SYIEM,parties.IN.NCP,NCP,3770,26.66,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-8,meghalaya,2003,8,MAWHATI,SHRI. MURMANIK SYIEM,parties.IN.KHNAM,KHNAM,1082,7.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-9,meghalaya,2003,9,UMROI,SHRI. STANLYWISS RYMBAI,parties.IN.INC,INC,8352,53.5,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-9,meghalaya,2003,9,UMROI,SHRI. E.K.MAWLONG,parties.IN.UDP,UDP,7259,46.5,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-10,meghalaya,2003,10,NONGPOH,SHRI. D.D.LAPANG,parties.IN.INC,INC,7808,51.14,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-10,meghalaya,2003,10,NONGPOH,SHRI. CONSTANTINE LYNGDOH,parties.IN.UDP,UDP,6100,39.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-10,meghalaya,2003,10,NONGPOH,SHRI. E.G. KHONGJOH,parties.IN.BJP,BJP,691,4.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-10,meghalaya,2003,10,NONGPOH,SHRI. K.N. ROBERTS,parties.IN.KHNAM,KHNAM,670,4.39,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. J.DRINGWEL RYMBAI,parties.IN.INC,INC,3888,27.89,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. ARTIST RANEE,parties.IN.UDP,UDP,2687,19.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. ORAL SYNGKLI,parties.IN.IND,IND,2132,15.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. JRIANGSING PHANBUH,parties.IN.NCP,NCP,1661,11.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. NIRJO MARAK,parties.IN.IND,IND,1519,10.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. THRE NONGRUM,parties.IN.PDM,PDM,709,5.09,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. SNOMIK KALWING,parties.IN.KHNAM,KHNAM,453,3.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. ANDREW M.MARAK,parties.IN.IND,IND,395,2.83,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. AUGUSTIN WAHLANG,parties.IN.BJP,BJP,294,2.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-11,meghalaya,2003,11,JIRANG,SHRI. COMFORT DOLOI,parties.IN.HSPDP,HPDP,204,1.46,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-12,meghalaya,2003,12,MAIRANG,SHRI. BOLDNESS L.NONGRUM,parties.IN.INC,INC,5594,28.53,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-12,meghalaya,2003,12,MAIRANG,SHRI. FULLER LYNGDOH MAWNAI,parties.IN.HSPDP,HPDP,4796,24.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-12,meghalaya,2003,12,MAIRANG,SHRI. RASOR RANI,parties.IN.MDP,MDP,4549,23.2,3,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-12,meghalaya,2003,12,MAIRANG,SHRI. SRIMSHON ROY RYNTATHIANG,parties.IN.UDP,UDP,2847,14.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-12,meghalaya,2003,12,MAIRANG,SHRI. ROSLIN LYNGDOH MAWLONG,parties.IN.NCP,NCP,1458,7.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-12,meghalaya,2003,12,MAIRANG,SHRI. TARCISIOUS MAWLOT,parties.IN.KHNAM,KHNAM,360,1.84,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-13,meghalaya,2003,13,NONGSPUNG,SHRI. JOHN ANTHONY LYNGDOH,parties.IN.UDP,UDP,7037,43.92,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-13,meghalaya,2003,13,NONGSPUNG,SHRI. S. LONIAK MARBANIANG,parties.IN.HSPDP,HPDP,4937,30.81,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-13,meghalaya,2003,13,NONGSPUNG,SHRI. WINSTONE SYIEMIONG,parties.IN.NCP,NCP,2332,14.55,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-13,meghalaya,2003,13,NONGSPUNG,SHRI. SROLON LYNGDOH LYNGKHOI,parties.IN.INC,INC,1144,7.14,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-13,meghalaya,2003,13,NONGSPUNG,SHRI. WENTON MARBANIANG,parties.IN.MDP,MDP,210,1.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-13,meghalaya,2003,13,NONGSPUNG,SHRI. BASHU S.MARBANIANG,parties.IN.KHNAM,KHNAM,183,1.14,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-13,meghalaya,2003,13,NONGSPUNG,SHRI. FIRSTARWELL M.BANIANG,parties.IN.KFDP,KFDP,181,1.13,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-14,meghalaya,2003,14,SOHIONG,SHRI. H.DONKUPAR R. LYNGDOH,parties.IN.INC,INC,9518,52.87,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-14,meghalaya,2003,14,SOHIONG,SHRI . RAIN AUGUSTINE LYNGDOH,parties.IN.UDP,UDP,7209,40.04,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-14,meghalaya,2003,14,SOHIONG,SHRI. MEBANSAN LYNDEM,parties.IN.KHNAM,KHNAM,695,3.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-14,meghalaya,2003,14,SOHIONG,SHRI. H.BROSTARWELL LYNGDOH,parties.IN.HSPDP,HPDP,259,1.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-14,meghalaya,2003,14,SOHIONG,SHRI. LOSTERFIELD KHARBUKI,parties.IN.NCP,NCP,202,1.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-14,meghalaya,2003,14,SOHIONG,SHRI. NIT SHABONG,parties.IN.IND,IND,121,0.67,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-15,meghalaya,2003,15,MYLLIEM,SHRI. PYNSHAI M. SYIEM,parties.IN.IND,IND,5632,39.6,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-15,meghalaya,2003,15,MYLLIEM,SHRI ORIS SYIEM MYRIAW,parties.IN.INC,INC,3083,21.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-15,meghalaya,2003,15,MYLLIEM,SHRI. SOUNDER S. CAJEE,parties.IN.PDM,PDM,2848,20.02,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-15,meghalaya,2003,15,MYLLIEM,SMTI. LARISHA KURKALANG,parties.IN.HSPDP,HPDP,1304,9.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-15,meghalaya,2003,15,MYLLIEM,SHRI. JOHN NEWMAN PURI,parties.IN.KHNAM,KHNAM,597,4.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-15,meghalaya,2003,15,MYLLIEM,SHRI. PHERLIN WAR,parties.IN.UDP,UDP,556,3.91,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-15,meghalaya,2003,15,MYLLIEM,SHRI. SPAR LYNGDOH,parties.IN.NCP,NCP,203,1.43,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-16,meghalaya,2003,16,MALKI-NONGTHYMMAI,SHRI. TONY CURTIS LYNGDOH,parties.IN.INC,INC,5384,47.6,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-16,meghalaya,2003,16,MALKI-NONGTHYMMAI,SHRI. BINDO M. LANONG,parties.IN.UDP,UDP,2792,24.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-16,meghalaya,2003,16,MALKI-NONGTHYMMAI,SHRI. PYNLAPPHANG S.WARJRI,parties.IN.KHNAM,KHNAM,1700,15.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-16,meghalaya,2003,16,MALKI-NONGTHYMMAI,SHRI. MIQUEL BADWAR,parties.IN.NCP,NCP,673,5.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-16,meghalaya,2003,16,MALKI-NONGTHYMMAI,SHRI. BASIL LAMIN,parties.IN.BJP,BJP,491,4.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-16,meghalaya,2003,16,MALKI-NONGTHYMMAI,SHRI. ANTHONY KHARBULI,parties.IN.HSPDP,HPDP,204,1.8,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-16,meghalaya,2003,16,MALKI-NONGTHYMMAI,SHRI. MICHEAL KHARPURI,parties.IN.MDP,MDP,66,0.58,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-17,meghalaya,2003,17,LAITUMKHIRAH,SHRI. ROBERT GARNETT LYNGDOH,parties.IN.INC,INC,4672,54.34,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-17,meghalaya,2003,17,LAITUMKHIRAH,DR. WERLOK KHARSHIING,parties.IN.BJP,BJP,1578,18.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-17,meghalaya,2003,17,LAITUMKHIRAH,SHRI. BARISTER MYRTHONG,parties.IN.UDP,UDP,1495,17.39,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-17,meghalaya,2003,17,LAITUMKHIRAH,SHRI. VICKY S.LYNGDOH,parties.IN.NCP,NCP,565,6.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-17,meghalaya,2003,17,LAITUMKHIRAH,SHRI. RAYNOLD CAVINSON DIENGDOH,parties.IN.MDP,MDP,288,3.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-18,meghalaya,2003,18,PYNTHORUMKHRAH,SHRI. A.L.HEK,parties.IN.BJP,BJP,10798,69.95,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-18,meghalaya,2003,18,PYNTHORUMKHRAH,SHRI. ONWARD L. NONGTDU,parties.IN.INC,INC,3639,23.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-18,meghalaya,2003,18,PYNTHORUMKHRAH,SHRI. KAUSHIK RN. BHATTACHARJEE,parties.IN.NCP,NCP,1000,6.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-19,meghalaya,2003,19,JAIAW,SHRI. PAUL LYNGDOH,parties.IN.KHNAM,KHNAM,5873,57.26,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-19,meghalaya,2003,19,JAIAW,SHRI. MARTAMLIN PYRBOT,parties.IN.HSPDP,HPDP,2283,22.26,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-19,meghalaya,2003,19,JAIAW,SHRI. AUBRY H.SCOTT LYNGDOH,parties.IN.MDP,MDP,1347,13.13,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-19,meghalaya,2003,19,JAIAW,SHRI. R.LOVER SHULLAI,parties.IN.INC,INC,519,5.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-19,meghalaya,2003,19,JAIAW,SMTI. MAYA R. KYNDIAH,parties.IN.UDP,UDP,234,2.28,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-20,meghalaya,2003,20,MAWKHAR,SHRI. FRIDAY LYNGDOH,parties.IN.INC,INC,3568,59.04,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-20,meghalaya,2003,20,MAWKHAR,SHRI. JAMES MARVIN PARIAT,parties.IN.KHNAM,KHNAM,1150,19.03,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-20,meghalaya,2003,20,MAWKHAR,SHRI. HARDINGE L.MASSAR,parties.IN.UDP,UDP,732,12.11,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-20,meghalaya,2003,20,MAWKHAR,SHRI. MOON PYRBOT,parties.IN.BJP,BJP,369,6.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-20,meghalaya,2003,20,MAWKHAR,SHRI. PRADEEP G.JYRWA,parties.IN.NCP,NCP,224,3.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-21,meghalaya,2003,21,MAWPREM,SHRI. ARDHENDU CHOUDHURI,parties.IN.NCP,NCP,3979,38.2,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-21,meghalaya,2003,21,MAWPREM,SHRI. DHRUBANATH JOSHI,parties.IN.INC,INC,2822,27.09,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-21,meghalaya,2003,21,MAWPREM,SHRI. BIR BAHADUR CHETTRI,parties.IN.BJP,BJP,2466,23.67,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-21,meghalaya,2003,21,MAWPREM,SHRI. WANBOK S. LYNGDOH,parties.IN.IND,IND,1068,10.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-21,meghalaya,2003,21,MAWPREM,SHRI. SOM RANA,parties.IN.IND,IND,82,0.79,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Jopsimon Phanbuh,parties.IN.BJP,BJP,3114,38.62,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Sanbor Shullai,parties.IN.NCP,NCP,1475,18.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Stalin Lyngdoh,parties.IN.INC,INC,1341,16.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Sounder S.Cajee,parties.IN.IND,IND,517,6.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Anthony Lyngdoh,parties.IN.KHNAM,KHNAM,459,5.69,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Irene Patricia Hujon,parties.IN.MDP,MDP,319,3.96,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Wanbok S.Lyngdoh,parties.IN.UDP,UDP,286,3.55,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Amstar Lyngdoh,parties.IN.IND,IND,263,3.26,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Biru Joshi,parties.IN.IND,IND,98,1.22,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,H.Aintis Kharphuli,parties.IN.IND,IND,82,1.02,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Romeo Phira Rani,parties.IN.HSPDP,HSPDP,56,0.69,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,R.S. Jana Nongbet,parties.IN.IND,IND,30,0.37,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-22,meghalaya,2003,22,LABAN,Nit Shabong,parties.IN.IND,IND,23,0.29,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-23,meghalaya,2003,23,MAWLAI,SHRI. PROCESS T.SAWKMIE,parties.IN.MDP,MDP,8031,49,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-23,meghalaya,2003,23,MAWLAI,SHRI. FOUNDER S.CAJEE,parties.IN.PDM,PDM,6249,38.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-23,meghalaya,2003,23,MAWLAI,SHRI. SHINGLY NONGKHLAW,parties.IN.UDP,UDP,1576,9.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-23,meghalaya,2003,23,MAWLAI,SMTI. AMANDA PATHAW,parties.IN.INC,INC,535,3.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-24,meghalaya,2003,24,SOHRYNGKHAM,SHRI. CHARLES PYNGROPE,parties.IN.INC,INC,4388,28.93,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-24,meghalaya,2003,24,SOHRYNGKHAM,SHRI. J.ULYSSES NONGRUM,parties.IN.IND,IND,4161,27.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-24,meghalaya,2003,24,SOHRYNGKHAM,SHRI. SANBOR SWELL LYNGDOH,parties.IN.MDP,MDP,3530,23.28,3,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-24,meghalaya,2003,24,SOHRYNGKHAM,SHRI. DAVID KHARSATI,parties.IN.UDP,UDP,1612,10.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-24,meghalaya,2003,24,SOHRYNGKHAM,SHRI CAMPBELL KHARSATI,parties.IN.HSPDP,HPDP,1475,9.73,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-25,meghalaya,2003,25,DIENGLIENG,SHRI. MARTLE N. MUKHIM,parties.IN.MDP,MDP,5238,41.79,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-25,meghalaya,2003,25,DIENGLIENG,SHRI. TEILANG STAR BLAH,parties.IN.KHNAM,KHNAM,2775,22.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-25,meghalaya,2003,25,DIENGLIENG,SHRI. CHANDRA L.NONGBRI,parties.IN.UDP,UDP,2409,19.22,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-25,meghalaya,2003,25,DIENGLIENG,SHRI GROSSWELL MYLLIEMNGAP,parties.IN.INC,INC,1445,11.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-25,meghalaya,2003,25,DIENGLIENG,SHRI. LAMPHARANG E. LYNGDOH,parties.IN.KFDP,KFDP,405,3.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-25,meghalaya,2003,25,DIENGLIENG,SHRI. ROLAN SINGH NONGRUM,parties.IN.NCP,NCP,263,2.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. LAMBOR MALNGIANG,parties.IN.KHNAM,KHNAM,2929,18.85,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. H.S.SHYLLA,parties.IN.UDP,UDP,2847,18.32,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. SANBOR SHULLAI,parties.IN.IND,IND,1977,12.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. WAIBHA KHYRIEM KYNDIAH,parties.IN.INC,INC,1821,11.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. ARDENT MILLER BASAIAWMOIT,parties.IN.IND,IND,1346,8.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. ELSTON ROY KHARKONGOR,parties.IN.PDM,PDM,1306,8.4,6,forfeit,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. HILARIUS WARBAH,parties.IN.MDP,MDP,1216,7.82,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. EDARSTAR LYNGDOH NONGBRI,parties.IN.NCP,NCP,1184,7.62,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. CARMELSTONE SOHTUN,parties.IN.IND,IND,728,4.68,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. DAWINGSON KHARKONGOR,parties.IN.HSPDP,HPDP,152,0.98,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-26,meghalaya,2003,26,NONGKREM,SHRI. DENTIST MOHON ROY K'KONGOR,parties.IN.KFDP,KFDP,35,0.23,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. PRESTONE TYNSONG,parties.IN.INC,INC,2832,21.49,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SMTI. SYRPAI KHONGLAH,parties.IN.MDP,MDP,2415,18.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. DOMINIC ROBLIN NONGKYNRIH,parties.IN.KFDP,KFDP,1857,14.09,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. RICHARDSTONE JANA NONGBET,parties.IN.UDP,UDP,1602,12.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. SAMUEL KHONGBUH MASSAR,parties.IN.IND,IND,1552,11.77,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. KHLUR SING LYNGDOH,parties.IN.NCP,NCP,769,5.83,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. HOREN NONGSTENG,parties.IN.HSPDP,HPDP,643,4.88,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. JESTERFIELD KHONGWIR,parties.IN.KHNAM,KHNAM,591,4.48,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. YOUNGSTENSHON TYNSONG,parties.IN.IND,IND,563,4.27,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SMTI. VERONICA MARBANIANG,parties.IN.IND,IND,244,1.85,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-27,meghalaya,2003,27,LYNGKYRDEM,SHRI. K.LALHLUNA,parties.IN.SAP,SAP,113,0.86,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-28,meghalaya,2003,28,NONGSHKEN,SHRI. KHAN KHONGDKHAR,parties.IN.INC,INC,4235,35.98,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-28,meghalaya,2003,28,NONGSHKEN,SHRI. GANOLD STONE MASSAR,parties.IN.KHNAM,KHNAM,3182,27.04,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-28,meghalaya,2003,28,NONGSHKEN,SHRI. MONARCH SHABONG,parties.IN.IND,IND,1858,15.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-28,meghalaya,2003,28,NONGSHKEN,SHRI. N.BELERIS KHARDUIA,parties.IN.UDP,UDP,1783,15.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-28,meghalaya,2003,28,NONGSHKEN,SHRI. SAINDURLANG IAWIM,parties.IN.BJP,BJP,412,3.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-28,meghalaya,2003,28,NONGSHKEN,SHRI. PREMIER SING KHONGBEH,parties.IN.HSPDP,HPDP,171,1.45,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-28,meghalaya,2003,28,NONGSHKEN,SHRI. S.TIPSNGI LASO,parties.IN.SAP,SAP,128,1.09,7,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-29,meghalaya,2003,29,SOHRA,DR. FLINDER ANDERSON KHONGLAM,parties.IN.HSPDP,HPDP,4093,32.17,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-29,meghalaya,2003,29,SOHRA,SHRI. PHLOUR W. KHONGJEE,parties.IN.UDP,UDP,3536,27.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-29,meghalaya,2003,29,SOHRA,SHRI. WALTER DAVID LYNGWI,parties.IN.INC,INC,3201,25.16,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-29,meghalaya,2003,29,SOHRA,SHRI. WANSTEP DIENGDOH,parties.IN.KHNAM,KHNAM,1742,13.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-29,meghalaya,2003,29,SOHRA,SHRI KODIN NONGRUM,parties.IN.NCP,NCP,153,1.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-30,meghalaya,2003,30,SHELLA,DONKUPAR ROY,parties.IN.UDP,UDP,3145,32.93,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-30,meghalaya,2003,30,SHELLA,SHRI PYNDAPBORTHIAW SAIBON,parties.IN.KHNAM,KHNAM,2923,30.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-30,meghalaya,2003,30,SHELLA,SHRI. G. GRANDERSON SYIEMLIEH,parties.IN.INC,INC,2172,22.74,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-30,meghalaya,2003,30,SHELLA,SHRI KONDRO K. KSANLAM,parties.IN.IND,IND,1046,10.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-30,meghalaya,2003,30,SHELLA,SHRI. BISANLING DKHAR,parties.IN.HSPDP,HPDP,227,2.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-30,meghalaya,2003,30,SHELLA,SHRI. PORIMOR SHONGLAIT,parties.IN.NCP,NCP,37,0.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-31,meghalaya,2003,31,MAWSYNRAM,SHRI. D.PLASLANDING IANGJUH,parties.IN.MDP,MDP,5467,41.16,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-31,meghalaya,2003,31,MAWSYNRAM,SHRI. GOPAL STONE HYNNIEWTA,parties.IN.INC,INC,4707,35.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-31,meghalaya,2003,31,MAWSYNRAM,SHRI. E.WALLENCE BASTERFIELD JYRWA,parties.IN.IND,IND,1030,7.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-31,meghalaya,2003,31,MAWSYNRAM,SHRI. I.ROCKFELLER RANGDKHEW,parties.IN.KHNAM,KHNAM,1001,7.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-31,meghalaya,2003,31,MAWSYNRAM,SHRI. SUMIS MARAK,parties.IN.SAP,SAP,570,4.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-31,meghalaya,2003,31,MAWSYNRAM,SHRI. MESTONNATH KHARCHANDY,parties.IN.NCP,NCP,506,3.81,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-32,meghalaya,2003,32,MAWKYRWAT,SHRI. B.BIRES NONGSIEJ,parties.IN.UDP,UDP,4903,31.24,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-32,meghalaya,2003,32,MAWKYRWAT,SHRI. ROWELL LYNGDOH,parties.IN.INC,INC,3610,23,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-32,meghalaya,2003,32,MAWKYRWAT,SHRI. BRESTERWELL NONGSIEJ,parties.IN.HSPDP,HPDP,2799,17.83,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-32,meghalaya,2003,32,MAWKYRWAT,SHRI. ENBIN K.RASWAI,parties.IN.MDP,MDP,2479,15.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-32,meghalaya,2003,32,MAWKYRWAT,SHRI. BIB EDWIN WANNIANG,parties.IN.KHNAM,KHNAM,1384,8.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-32,meghalaya,2003,32,MAWKYRWAT,SHRI. SHANBORLIN LYNGDOH,parties.IN.NCP,NCP,277,1.76,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-32,meghalaya,2003,32,MAWKYRWAT,SHRI. ENDRO IAWPHNIAW,parties.IN.BJP,BJP,169,1.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-32,meghalaya,2003,32,MAWKYRWAT,SHRI. KHRAWBOK MAWLIEN,parties.IN.CPI,CPI,74,0.47,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-33,meghalaya,2003,33,PARIONG,SMTI. IRIN LYNGDOH,parties.IN.INC,INC,4427,35.95,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-33,meghalaya,2003,33,PARIONG,SHRI. TUBARLIN LYNGDOH,parties.IN.HSPDP,HPDP,4398,35.71,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-33,meghalaya,2003,33,PARIONG,SHRI. MANHUN THABAH,parties.IN.KHNAM,KHNAM,1157,9.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-33,meghalaya,2003,33,PARIONG,SHRI. MANSTANRY KHARSYNTIEW,parties.IN.UDP,UDP,909,7.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-33,meghalaya,2003,33,PARIONG,SHRI. KOMLIN LAWRINIANG,parties.IN.BJP,BJP,821,6.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-33,meghalaya,2003,33,PARIONG,SHRI. SHANBORLIN LYNGDOH NONGLAIT,parties.IN.MDP,MDP,321,2.61,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-33,meghalaya,2003,33,PARIONG,SHRI. KWENTAL RYNGAD,parties.IN.NCP,NCP,282,2.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-34,meghalaya,2003,34,NONGSTOIN,SHRI. HOPINGSTONE LYNGDOH,parties.IN.HSPDP,HPDP,7495,36.07,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-34,meghalaya,2003,34,NONGSTOIN,SHRI. FRANCIS K.MAWLOT,parties.IN.INC,INC,7001,33.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-34,meghalaya,2003,34,NONGSTOIN,SHRI. NONDI DIENGNGAN,parties.IN.NCP,NCP,1935,9.31,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-34,meghalaya,2003,34,NONGSTOIN,SHRI. EVERALD D.NONGSIANG,parties.IN.UDP,UDP,1630,7.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-34,meghalaya,2003,34,NONGSTOIN,SHRI. MORNINGSTAR TYMPUIN,parties.IN.MDP,MDP,1285,6.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-34,meghalaya,2003,34,NONGSTOIN,SHRI. SHANBORLANG LYNGDOH,parties.IN.KHNAM,KHNAM,1141,5.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-34,meghalaya,2003,34,NONGSTOIN,SHRI. D.DIDIMUS SOHPHOH,parties.IN.BJP,BJP,293,1.41,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-35,meghalaya,2003,35,LANGRIN,SHRI. MARTIN M.DANGGO,parties.IN.INC,INC,5509,36.11,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-35,meghalaya,2003,35,LANGRIN,SHRI. PROBIN K.RASWAI,parties.IN.NCP,NCP,4007,26.27,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-35,meghalaya,2003,35,LANGRIN,SHRI. KHRANGLIN LYNGKHOI,parties.IN.UDP,UDP,3514,23.04,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-35,meghalaya,2003,35,LANGRIN,SHRI. ROSLAND IAWPHNIAW,parties.IN.BJP,BJP,878,5.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-35,meghalaya,2003,35,LANGRIN,SHRI. TRUEMAN RNGAID,parties.IN.KHNAM,KHNAM,853,5.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-35,meghalaya,2003,35,LANGRIN,RANGSANDOR SYIEM,parties.IN.HSPDP,HPDP,494,3.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-36,meghalaya,2003,36,MAWTHENGKUT,SHRI FRANCIS PONDIT R. SANGMA,parties.IN.IND,IND,5114,30.82,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-36,meghalaya,2003,36,MAWTHENGKUT,SHRI. H.LEDISHON NONGSIANG,parties.IN.INC,INC,4254,25.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-36,meghalaya,2003,36,MAWTHENGKUT,SHRI. PHLASTINGWEL PANGNIANG,parties.IN.HSPDP,HPDP,3300,19.89,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-36,meghalaya,2003,36,MAWTHENGKUT,SHRI J. G. RYNNIAW,parties.IN.MDP,MDP,1866,11.25,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-36,meghalaya,2003,36,MAWTHENGKUT,SMTI. MAYSALIN WAR,parties.IN.NCP,NCP,1613,9.72,5,forfeit,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-36,meghalaya,2003,36,MAWTHENGKUT,DR. ALEXANDER LYNGDOH,parties.IN.IND,IND,445,2.68,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-37,meghalaya,2003,37,BAGHMARA,SHRI SENGRAN SANGMA,parties.IN.INC,INC,7703,51.98,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-37,meghalaya,2003,37,BAGHMARA,SHRI LOTSING SANGMA,parties.IN.NCP,NCP,6055,40.86,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-37,meghalaya,2003,37,BAGHMARA,SHRI ROBERT T. SANGMA,parties.IN.IND,IND,1060,7.15,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-38,meghalaya,2003,38,RONGRENGGIRI,SMTI DEBORA C. MARAK,parties.IN.INC,INC,7533,36.63,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-38,meghalaya,2003,38,RONGRENGGIRI,SHRI MARCUISE MARAK,parties.IN.NCP,NCP,7472,36.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-38,meghalaya,2003,38,RONGRENGGIRI,SHRI PROJEND D. SANGMA,parties.IN.IND,IND,5187,25.22,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-38,meghalaya,2003,38,RONGRENGGIRI,SHRI ISMAIL MARAK,parties.IN.BJP,BJP,374,1.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-39,meghalaya,2003,39,RONGJENG,SHRI PREDICKSON G. MOMIN,parties.IN.IND,IND,5998,44.95,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-39,meghalaya,2003,39,RONGJENG,SHRI ASHUTOSH MARAK,parties.IN.NCP,NCP,3634,27.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-39,meghalaya,2003,39,RONGJENG,SHRI SUJIT SANGMA,parties.IN.INC,INC,2834,21.24,3,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-39,meghalaya,2003,39,RONGJENG,SHRI PLEANDER G. MOMIN,parties.IN.UDP,UDP,599,4.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-39,meghalaya,2003,39,RONGJENG,SMTI. BINDU MOMIN,parties.IN.BJP,BJP,280,2.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-40,meghalaya,2003,40,KHARKUTTA,SHRI ELSTONE D. MARAK,parties.IN.NCP,NCP,6568,41.49,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-40,meghalaya,2003,40,KHARKUTTA,SHRI SUBASH MARAK,parties.IN.INC,INC,3230,20.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-40,meghalaya,2003,40,KHARKUTTA,SHRI OMILLO K SANGMA,parties.IN.IND,IND,3034,19.16,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-40,meghalaya,2003,40,KHARKUTTA,SHRI LUDERBERG CH. MOMIN,parties.IN.UDP,UDP,2009,12.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-40,meghalaya,2003,40,KHARKUTTA,SHRI CARY MARAK,parties.IN.IND,IND,990,6.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-41,meghalaya,2003,41,MENDIPATHAR,SHRI BENINSTAND G. MOMIN,parties.IN.UDP,UDP,7756,45.7,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-41,meghalaya,2003,41,MENDIPATHAR,SHRI FRANKENSTEIN W. MOMIN,parties.IN.INC,INC,6791,40.02,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-41,meghalaya,2003,41,MENDIPATHAR,SHRI SILGRING MARAK,parties.IN.NCP,NCP,2423,14.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-42,meghalaya,2003,42,RESUBELPARA,SHRI TIMOTHY SHIRA,parties.IN.NCP,NCP,7957,53.33,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-42,meghalaya,2003,42,RESUBELPARA,SHRI SALSENG C. MARAK,parties.IN.INC,INC,6963,46.67,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-43,meghalaya,2003,43,SONGSAK,SHRI HELTONE N MARAK,parties.IN.UDP,UDP,4875,34,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-43,meghalaya,2003,43,SONGSAK,SHRI TONSING N MARAK,parties.IN.INC,INC,4693,32.73,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-43,meghalaya,2003,43,SONGSAK,SHRI ANDERSON SANGMA,parties.IN.NCP,NCP,4467,31.16,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-43,meghalaya,2003,43,SONGSAK,SMTI ANILLA D SHIRA,parties.IN.BJP,BJP,302,2.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-44,meghalaya,2003,44,BAJENGDOBA,SHRI JOHN MANNER MARAK,parties.IN.NCP,NCP,7756,51.8,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-44,meghalaya,2003,44,BAJENGDOBA,SHRI CHAMBERLINE B. MARAK,parties.IN.INC,INC,5923,39.56,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-44,meghalaya,2003,44,BAJENGDOBA,SHRI RESTERBROWN SANGMA,parties.IN.UDP,UDP,728,4.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-44,meghalaya,2003,44,BAJENGDOBA,SHRI JOHINDRO MOMIN,parties.IN.GNC,GNC,567,3.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-45,meghalaya,2003,45,TIKRIKILLA,SHRI MONINDRA RABHA,parties.IN.NCP,NCP,4436,29.25,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-45,meghalaya,2003,45,TIKRIKILLA,SHRI KAPIN CH. BORO,parties.IN.INC,INC,3767,24.84,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-45,meghalaya,2003,45,TIKRIKILLA,SHRI LEMISON SANGMA,parties.IN.PDM,PDM,3738,24.65,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-45,meghalaya,2003,45,TIKRIKILLA,SHRI MRINAL MARAK,parties.IN.UDP,UDP,2009,13.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-45,meghalaya,2003,45,TIKRIKILLA,SHRI PILLARSON G. MOMIN,parties.IN.IND,IND,1215,8.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-46,meghalaya,2003,46,DADENGGIRI,SHRI EDMUND K SANGMA,parties.IN.NCP,NCP,7948,43.26,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-46,meghalaya,2003,46,DADENGGIRI,SHRI AUGUSTINE MARAK,parties.IN.INC,INC,7625,41.51,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-46,meghalaya,2003,46,DADENGGIRI,SHRI SENGBAN R. SANGMA,parties.IN.IND,IND,1290,7.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-46,meghalaya,2003,46,DADENGGIRI,SHRI HEMRITH MARAK,parties.IN.BJP,BJP,913,4.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-46,meghalaya,2003,46,DADENGGIRI,SHRI JOVA MARAK,parties.IN.UDP,UDP,345,1.88,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-46,meghalaya,2003,46,DADENGGIRI,SHRI WITHERSON MARAK,parties.IN.CPI,CPI,250,1.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-47,meghalaya,2003,47,RONGCHUGIRI,SHRI BECKSTAR SANGMA,parties.IN.NCP,NCP,3170,26.12,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-47,meghalaya,2003,47,RONGCHUGIRI,SHRI CHANANG K MARAK,parties.IN.IND,IND,2891,23.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-47,meghalaya,2003,47,RONGCHUGIRI,SHRI SHERJEE M. SANGMA,parties.IN.UDP,UDP,2235,18.42,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-47,meghalaya,2003,47,RONGCHUGIRI,SHRI PAUL B. MARAK,parties.IN.INC,INC,2011,16.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-47,meghalaya,2003,47,RONGCHUGIRI,SHRI ROYNATH SANGMA,parties.IN.IND,IND,1471,12.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-47,meghalaya,2003,47,RONGCHUGIRI,SHRI TRETIARSON MARAK,parties.IN.BJP,BJP,356,2.93,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-48,meghalaya,2003,48,PHULBARI,SHRI MANIRUL ISLAM SARKAR,parties.IN.INC,INC,7170,37.93,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-48,meghalaya,2003,48,PHULBARI,SHRI APERSON G. MOMIN,parties.IN.BJP,BJP,5616,29.71,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-48,meghalaya,2003,48,PHULBARI,SHRI ABU TAHER MONDAL,parties.IN.NCP,NCP,5612,29.69,3,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-48,meghalaya,2003,48,PHULBARI,SHRI AYNAL HAQUE HAZARIKA,parties.IN.UDP,UDP,259,1.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-48,meghalaya,2003,48,PHULBARI,SHRI ANOWAR ISLAM,parties.IN.SP,SP,245,1.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-49,meghalaya,2003,49,RAJABALA,SHRI SAYEEDULLAH NONGRUM,parties.IN.INC,INC,7125,41,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-49,meghalaya,2003,49,RAJABALA,SHRI CLEMENT MARAK,parties.IN.NCP,NCP,6911,39.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-49,meghalaya,2003,49,RAJABALA,SHRI AKHIL HAJONG,parties.IN.BJP,BJP,2386,13.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-49,meghalaya,2003,49,RAJABALA,SHRI SHYAMAL KANTI DARING,parties.IN.IND,IND,789,4.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-49,meghalaya,2003,49,RAJABALA,SHRI JAFFAR KHARKONGOR,parties.IN.UDP,UDP,165,0.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-50,meghalaya,2003,50,SELSELLA,SHRI CYPRIAN R. SANGMA,parties.IN.NCP,NCP,2875,25.27,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-50,meghalaya,2003,50,SELSELLA,SHRI ATUL C. MARAK,parties.IN.INC,INC,2705,23.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-50,meghalaya,2003,50,SELSELLA,SHRI MOSES SANGMA,parties.IN.IND,IND,1644,14.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-50,meghalaya,2003,50,SELSELLA,SHRI CREBILSON MARAK,parties.IN.UDP,UDP,1186,10.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-50,meghalaya,2003,50,SELSELLA,SHRI TAIRIPSON A. SANGMA,parties.IN.IND,IND,1153,10.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-50,meghalaya,2003,50,SELSELLA,SHRI IRENGSING A. SANGMA,parties.IN.BJP,BJP,1059,9.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-50,meghalaya,2003,50,SELSELLA,SHRI BHUBANI HAJONG,parties.IN.IND,IND,612,5.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-50,meghalaya,2003,50,SELSELLA,SHRI ROCKFELLER MOMIN,parties.IN.GNC,GNC,144,1.27,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI SENGMAN R. MARAK,parties.IN.IND,IND,4746,30.84,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI CRINATHSON A. SANGMA,parties.IN.NCP,NCP,3184,20.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,DR. H. JIMMY MOMIN,parties.IN.IND,IND,2293,14.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI METHRONA R. MARAK,parties.IN.IND,IND,1534,9.97,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI SALMAN SANGMA,parties.IN.INC,INC,1050,6.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI KENDURA K. SANGMA,parties.IN.IND,IND,972,6.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI ARWISH MARAK,parties.IN.IND,IND,609,3.96,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI LUDWIG ERHERD SANGMA,parties.IN.PDM,PDM,342,2.22,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI HENISING A. SANGMA,parties.IN.GNC,GNC,329,2.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI CHEYPA MARAK,parties.IN.IND,IND,225,1.46,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-51,meghalaya,2003,51,RONGRAM,SHRI JOGEN A. SANGMA,parties.IN.UDP,UDP,105,0.68,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-52,meghalaya,2003,52,TURA,SHRI BILLYKID SANGMA,parties.IN.IND,IND,7171,30.39,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-52,meghalaya,2003,52,TURA,SHRI JOHN LESLEE SANGMA,parties.IN.IND,IND,5394,22.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-52,meghalaya,2003,52,TURA,SHRI JOHN S. D. SHIRA,parties.IN.IND,IND,3370,14.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-52,meghalaya,2003,52,TURA,SHRI KULERT CHERAN MOMIN,parties.IN.NCP,NCP,3304,14,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-52,meghalaya,2003,52,TURA,SHRI JOYLANCE MOMIN,parties.IN.INC,INC,2175,9.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-52,meghalaya,2003,52,TURA,SHRI ROSTER SANGMA,parties.IN.BJP,BJP,1693,7.17,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-52,meghalaya,2003,52,TURA,SHRI INDRAJIT A. SANGMA,parties.IN.IND,IND,493,2.09,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-53,meghalaya,2003,53,CHOKPOT,SHRI MASONSING M. SANGMA,parties.IN.NCP,NCP,5122,40.22,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-53,meghalaya,2003,53,CHOKPOT,SHRI CLIFFORD R. MARAK,parties.IN.GNC,GNC,3068,24.09,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-53,meghalaya,2003,53,CHOKPOT,SHRI JIPSON MARAK,parties.IN.INC,INC,2546,19.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-53,meghalaya,2003,53,CHOKPOT,SHRI GREATERSON CH. MARAK,parties.IN.IND,IND,1226,9.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-53,meghalaya,2003,53,CHOKPOT,SHRI BESTERFIELD SANGMA,parties.IN.IND,IND,772,6.06,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-54,meghalaya,2003,54,KHERAPARA,SHRI BRENING A. SANGMA,parties.IN.NCP,NCP,5418,41.3,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-54,meghalaya,2003,54,KHERAPARA,SHRI KENETHSON SANGMA,parties.IN.INC,INC,2714,20.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-54,meghalaya,2003,54,KHERAPARA,SHRI ENISON MARAK,parties.IN.IND,IND,2713,20.68,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-54,meghalaya,2003,54,KHERAPARA,SHRI STEPHEN MOMIN,parties.IN.GNC,GNC,1478,11.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-54,meghalaya,2003,54,KHERAPARA,SHRI SAHASON R. MARAK,parties.IN.IND,IND,796,6.07,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-55,meghalaya,2003,55,DALU,SHRI SAMUEL SANGMA,parties.IN.NCP,NCP,3760,34,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-55,meghalaya,2003,55,DALU,SHRI NITYANARAYAN SIMCHANG,parties.IN.BJP,BJP,3492,31.57,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-55,meghalaya,2003,55,DALU,SHRI ARCHIBOLD A. SANGMA,parties.IN.IND,IND,1904,17.22,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-55,meghalaya,2003,55,DALU,SHRI PANSENG R. MARAK,parties.IN.INC,INC,1583,14.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-55,meghalaya,2003,55,DALU,SHRI PREMANANDA SANGMA,parties.IN.IND,IND,321,2.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-56,meghalaya,2003,56,DALAMGIRI,SHRI ADMIRAL SANGMA,parties.IN.NCP,NCP,5627,46.02,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-56,meghalaya,2003,56,DALAMGIRI,SHRI IRA MARAK,parties.IN.INC,INC,4017,32.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-56,meghalaya,2003,56,DALAMGIRI,SHRI WIDNALD MARAK,parties.IN.GNC,GNC,2583,21.13,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-57,meghalaya,2003,57,RANGSAKONA,SHRI ZENITH M SANGMA,parties.IN.INC,INC,5452,41.7,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-57,meghalaya,2003,57,RANGSAKONA,SHRI ADOLF LU HITLER R. MARAK,parties.IN.NCP,NCP,5117,39.14,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-57,meghalaya,2003,57,RANGSAKONA,SHRI GLAXSTONE MARAK,parties.IN.UDP,UDP,1115,8.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-57,meghalaya,2003,57,RANGSAKONA,SHRI LABINDRO MARAK,parties.IN.PDM,PDM,691,5.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-57,meghalaya,2003,57,RANGSAKONA,SMTI STELLA MARIE A. SANGMA,parties.IN.IND,IND,385,2.94,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-57,meghalaya,2003,57,RANGSAKONA,SHRI ROHIDAS MARAK,parties.IN.GNC,GNC,314,2.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-58,meghalaya,2003,58,AMPATIGIRI,DR. MUKUL SANGMA,parties.IN.INC,INC,7080,40.99,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-58,meghalaya,2003,58,AMPATIGIRI,SHRI ERIL SANGMA,parties.IN.NCP,NCP,4941,28.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-58,meghalaya,2003,58,AMPATIGIRI,SHRI AMIYA KR. HAJONG,parties.IN.BJP,BJP,3710,21.48,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-58,meghalaya,2003,58,AMPATIGIRI,SHRI MONENDRO AGITOK,parties.IN.IND,IND,1110,6.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-58,meghalaya,2003,58,AMPATIGIRI,SHRI RUPARTH ARENG,parties.IN.CPI,CPI,227,1.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-58,meghalaya,2003,58,AMPATIGIRI,SHRI MONENDRO MARAK,parties.IN.IND,IND,203,1.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-59,meghalaya,2003,59,SALMANPURA,SHRI. GOPINATH SANGMA,parties.IN.NCP,NCP,6341,42.04,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-59,meghalaya,2003,59,SALMANPURA,SHRI NIMARSON MOMIN,parties.IN.UDP,UDP,5498,36.45,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-59,meghalaya,2003,59,SALMANPURA,SHRI SEMFORD B. SANGMA,parties.IN.INC,INC,2014,13.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-59,meghalaya,2003,59,SALMANPURA,SHRI ISMAIL A. SANGMA,parties.IN.BJP,BJP,878,5.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-59,meghalaya,2003,59,SALMANPURA,SHRI MECKENSON SANGMA,parties.IN.IND,IND,353,2.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-60,meghalaya,2003,60,MAHENDRAGANJ,SHRI NIDHU RAM HAJONG,parties.IN.NCP,NCP,6479,44.07,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-60,meghalaya,2003,60,MAHENDRAGANJ,SHRI ABDUS SALEH,parties.IN.IND,IND,4780,32.51,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-60,meghalaya,2003,60,MAHENDRAGANJ,SHRI RAMESH CH. BARMAN,parties.IN.BJP,BJP,1742,11.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-60,meghalaya,2003,60,MAHENDRAGANJ,SHRI GOLAM MOSTAFA,parties.IN.IND,IND,903,6.14,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-60,meghalaya,2003,60,MAHENDRAGANJ,SHRI DHABAL CH. BARMAN,parties.IN.MDP,MDP,598,4.07,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-60,meghalaya,2003,60,MAHENDRAGANJ,SHRI MUKUL DAS,parties.IN.INC,INC,199,1.35,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

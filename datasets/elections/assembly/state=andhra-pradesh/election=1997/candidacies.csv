@@ -1,32 +1,32 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-andhra-pradesh-113,andhra-pradesh,1997,113,MARTUR,Narasimha Rao (Narasaiah) Gottipati,parties.IN.TDP,TDP,109993,93.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-113,andhra-pradesh,1997,113,MARTUR,Balamma Nannapaneni,parties.IN.INC,INC,7450,6.3,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-113,andhra-pradesh,1997,113,MARTUR,Chinnaiah Devarapalli,parties.IN.IND,IND,255,0.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-113,andhra-pradesh,1997,113,MARTUR,Avula Koteswara Rao,parties.IN.IND,IND,174,0.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-113,andhra-pradesh,1997,113,MARTUR,Anka Rao Vallepu,parties.IN.IND,IND,151,0.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-113,andhra-pradesh,1997,113,MARTUR,Peddipogu Vajra Rao,parties.IN.IND,IND,141,0.12,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-113,andhra-pradesh,1997,113,MARTUR,Bandi Srinivasalu,parties.IN.IND,IND,91,0.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Narapusetty Papa Rao,parties.IN.TDP,TDP,63432,52.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Pitchi Reddy Sanikommu,parties.IN.INC,INC,55031,45.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Venkata Ramanaiah Makineni,parties.IN.NTRTDP_LP,NTR TDP(LP),951,0.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Akula Venkatesh Naidu,parties.IN.IND,IND,351,0.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,China Kotaiah Korivi,parties.IN.IND,IND,281,0.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Yangala Koterswara Rao,parties.IN.IND,IND,252,0.21,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Munaga Srinivasulu,parties.IN.IND,IND,178,0.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Abdul Gafoor Syed,parties.IN.IND,IND,124,0.1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Parsapu Chalamaiah,parties.IN.IND,IND,86,0.07,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Obulapuram Malleswara Rao,parties.IN.IND,IND,74,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Bhuma Shobha Rani,parties.IN.TDP,TDP,75345,71.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Erigela Ramapulla Reddy,parties.IN.INC,INC,28184,26.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Induri Prabhakara Reddy,parties.IN.IND,IND,404,0.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Junnu Prasada Reddy,parties.IN.IND,IND,250,0.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Erigela Viswanatha Reddy,parties.IN.IND,IND,129,0.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Gandham Veera Raghava Reddy,parties.IN.IND,IND,123,0.12,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Erigela Prathap Reddy,parties.IN.IND,IND,76,0.07,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Erigela Ramachandra Reddy,parties.IN.IND,IND,74,0.07,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Ramakrishna Reddy Injeti,parties.IN.IND,IND,74,0.07,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Gandham Vijaya BhaskaraReddy,parties.IN.IND,IND,66,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Nasari Venkateswarlu,parties.IN.IND,IND,64,0.06,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,R. Bhupalreddy,parties.IN.IND,IND,50,0.05,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Vadla Ramachari,parties.IN.IND,IND,44,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Singam Venkatarami Reddy,parties.IN.IND,IND,37,0.04,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-andhra-pradesh-113,andhra-pradesh,1997,113,MARTUR,Narasimha Rao (Narasaiah) Gottipati,parties.IN.TDP,TDP,109993,93.01,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-113,andhra-pradesh,1997,113,MARTUR,Balamma Nannapaneni,parties.IN.INC,INC,7450,6.3,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-113,andhra-pradesh,1997,113,MARTUR,Chinnaiah Devarapalli,parties.IN.IND,IND,255,0.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-113,andhra-pradesh,1997,113,MARTUR,Avula Koteswara Rao,parties.IN.IND,IND,174,0.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-113,andhra-pradesh,1997,113,MARTUR,Anka Rao Vallepu,parties.IN.IND,IND,151,0.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-113,andhra-pradesh,1997,113,MARTUR,Peddipogu Vajra Rao,parties.IN.IND,IND,141,0.12,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-113,andhra-pradesh,1997,113,MARTUR,Bandi Srinivasalu,parties.IN.IND,IND,91,0.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Narapusetty Papa Rao,parties.IN.TDP,TDP,63432,52.53,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Pitchi Reddy Sanikommu,parties.IN.INC,INC,55031,45.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Venkata Ramanaiah Makineni,parties.IN.NTRTDP_LP,NTR TDP(LP),951,0.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Akula Venkatesh Naidu,parties.IN.IND,IND,351,0.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,China Kotaiah Korivi,parties.IN.IND,IND,281,0.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Yangala Koterswara Rao,parties.IN.IND,IND,252,0.21,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Munaga Srinivasulu,parties.IN.IND,IND,178,0.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Abdul Gafoor Syed,parties.IN.IND,IND,124,0.1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Parsapu Chalamaiah,parties.IN.IND,IND,86,0.07,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-121,andhra-pradesh,1997,121,DARSI,Obulapuram Malleswara Rao,parties.IN.IND,IND,74,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Bhuma Shobha Rani,parties.IN.TDP,TDP,75345,71.81,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Erigela Ramapulla Reddy,parties.IN.INC,INC,28184,26.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Induri Prabhakara Reddy,parties.IN.IND,IND,404,0.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Junnu Prasada Reddy,parties.IN.IND,IND,250,0.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Erigela Viswanatha Reddy,parties.IN.IND,IND,129,0.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Gandham Veera Raghava Reddy,parties.IN.IND,IND,123,0.12,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Erigela Prathap Reddy,parties.IN.IND,IND,76,0.07,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Erigela Ramachandra Reddy,parties.IN.IND,IND,74,0.07,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Ramakrishna Reddy Injeti,parties.IN.IND,IND,74,0.07,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Gandham Vijaya BhaskaraReddy,parties.IN.IND,IND,66,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Nasari Venkateswarlu,parties.IN.IND,IND,64,0.06,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,R. Bhupalreddy,parties.IN.IND,IND,50,0.05,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Vadla Ramachari,parties.IN.IND,IND,44,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-183,andhra-pradesh,1997,183,ALLAGADDU,Singam Venkatarami Reddy,parties.IN.IND,IND,37,0.04,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

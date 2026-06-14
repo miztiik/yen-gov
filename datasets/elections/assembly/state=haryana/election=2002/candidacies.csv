@@ -1,18 +1,18 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,Dr. MALIK CHAND GAMBHIR s/o Sh. BARKAT RAM GAMBHIR,parties.IN.INLD,INLD,37520,32.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,SAHIB SINGH,parties.IN.HVP,HVP,24758,21.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,Dr. KRISHNA PANDIT w/o Late Sh. JAI PARKASH,parties.IN.INC,INC,22290,19.15,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,GHANSHYAM DASS,parties.IN.BJP,BJP,14997,12.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,RANDHIR SINGH,parties.IN.IND,IND,7734,6.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,JOGINDER SINGH CHAWLA,parties.IN.BSP,BSP,3809,3.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,SUSHIL KUMAR JAIN,parties.IN.IND,IND,1011,0.87,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,SUBHASH CHAND,parties.IN.IND,IND,843,0.72,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,ASHOK KUMAR,parties.IN.IND,IND,643,0.55,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,PAWAN KUMAR DHIMAN,parties.IN.NCP,NCP,600,0.52,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,PARMAL SINGH KAMBOJ,parties.IN.RJD,RJD,510,0.44,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,MALAK CHAND s/o Sh. LAL CHAND,parties.IN.IND,IND,398,0.34,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,SHYAM LAL,parties.IN.RSD,RSD,329,0.28,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,SANJAY,parties.IN.IND,IND,323,0.28,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,RAM PAL,parties.IN.IND,IND,310,0.27,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,KRISHANA KUMARI w/o Sh. ASHOK KUMAR,parties.IN.IND,IND,161,0.14,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,MAN SINGH,parties.IN.IND,IND,135,0.12,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,Dr. MALIK CHAND GAMBHIR s/o Sh. BARKAT RAM GAMBHIR,parties.IN.INLD,INLD,37520,32.24,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,SAHIB SINGH,parties.IN.HVP,HVP,24758,21.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,Dr. KRISHNA PANDIT w/o Late Sh. JAI PARKASH,parties.IN.INC,INC,22290,19.15,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,GHANSHYAM DASS,parties.IN.BJP,BJP,14997,12.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,RANDHIR SINGH,parties.IN.IND,IND,7734,6.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,JOGINDER SINGH CHAWLA,parties.IN.BSP,BSP,3809,3.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,SUSHIL KUMAR JAIN,parties.IN.IND,IND,1011,0.87,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,SUBHASH CHAND,parties.IN.IND,IND,843,0.72,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,ASHOK KUMAR,parties.IN.IND,IND,643,0.55,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,PAWAN KUMAR DHIMAN,parties.IN.NCP,NCP,600,0.52,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,PARMAL SINGH KAMBOJ,parties.IN.RJD,RJD,510,0.44,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,MALAK CHAND s/o Sh. LAL CHAND,parties.IN.IND,IND,398,0.34,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,SHYAM LAL,parties.IN.RSD,RSD,329,0.28,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,SANJAY,parties.IN.IND,IND,323,0.28,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,RAM PAL,parties.IN.IND,IND,310,0.27,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,KRISHANA KUMARI w/o Sh. ASHOK KUMAR,parties.IN.IND,IND,161,0.14,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-5,haryana,2002,5,YAMUNANAGAR,MAN SINGH,parties.IN.IND,IND,135,0.12,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

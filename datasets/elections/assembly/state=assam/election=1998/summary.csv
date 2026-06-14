@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-assam-110,assam,1998,NAOBOICHA,119787,92075,76.87,Moniram Pathori,parties.IN.AGP,AGP,33959,36.88,Simon Tirkey,parties.IN.IND,IND,22131,11828,12.84,src-1b7bc1c9d39a
-IN-AC-1976-assam-12,assam,1998,UDHARBOND,108193,75852,70.11,Ajit Singh,parties.IN.INC,INC,34879,45.98,Joy Prakash Tewari,parties.IN.AGP,AGP,20723,14156,18.66,src-1b7bc1c9d39a
-IN-AC-1976-assam-41,assam,1998,BHABANIPUR,92804,71205,76.73,Binod Gayary,parties.IN.PDF,PDF,24686,34.67,Dr. Manoranjan Das,parties.IN.AGP,AGP,22814,1872,2.63,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-assam-110,assam,1998,NAOBOICHA,119787,92075,76.87,Moniram Pathori,parties.IN.AGP,AGP,33959,36.88,Simon Tirkey,parties.IN.IND,IND,22131,11828,12.84,src-1b7bc1c9d39a,minor,
+IN-AC-1976-assam-12,assam,1998,UDHARBOND,108193,75852,70.11,Ajit Singh,parties.IN.INC,INC,34879,45.98,Joy Prakash Tewari,parties.IN.AGP,AGP,20723,14156,18.66,src-1b7bc1c9d39a,minor,
+IN-AC-1976-assam-41,assam,1998,BHABANIPUR,92804,71205,76.73,Binod Gayary,parties.IN.PDF,PDF,24686,34.67,Dr. Manoranjan Das,parties.IN.AGP,AGP,22814,1872,2.63,src-1b7bc1c9d39a,minor,

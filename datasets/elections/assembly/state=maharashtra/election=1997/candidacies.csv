@@ -1,11 +1,11 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-maharashtra-70,maharashtra,1997,70,NIPHAD,Kadam Mandakini Raosaheb,parties.IN.SHS,SHS,52491,51.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-70,maharashtra,1997,70,NIPHAD,Boraste Manikrao Madhavrao,parties.IN.INC,INC,46967,45.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-70,maharashtra,1997,70,NIPHAD,Kadam Sadanand Kacheshwar,parties.IN.JD,JD,1883,1.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-70,maharashtra,1997,70,NIPHAD,Pangavane Subash Raghunath,parties.IN.IND,IND,601,0.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-70,maharashtra,1997,70,NIPHAD,Gite Digambar Valu,parties.IN.IND,IND,248,0.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-234,maharashtra,1997,234,SHIRDI,Vikhe Radhakrishna Eknathrao,parties.IN.SHS,SHS,58557,56.21,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-234,maharashtra,1997,234,SHIRDI,Deokar Ravindra Marutirao,parties.IN.INC,INC,44568,42.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-234,maharashtra,1997,234,SHIRDI,Deokar Nivrutti Murlidhar,parties.IN.IND,IND,607,0.58,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-234,maharashtra,1997,234,SHIRDI,Gaikwad Balasaheb Namdeo,parties.IN.IND,IND,274,0.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-234,maharashtra,1997,234,SHIRDI,Gaikwad Ramrao Keru,parties.IN.IND,IND,164,0.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-maharashtra-70,maharashtra,1997,70,NIPHAD,Kadam Mandakini Raosaheb,parties.IN.SHS,SHS,52491,51.37,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-70,maharashtra,1997,70,NIPHAD,Boraste Manikrao Madhavrao,parties.IN.INC,INC,46967,45.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-70,maharashtra,1997,70,NIPHAD,Kadam Sadanand Kacheshwar,parties.IN.JD,JD,1883,1.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-70,maharashtra,1997,70,NIPHAD,Pangavane Subash Raghunath,parties.IN.IND,IND,601,0.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-70,maharashtra,1997,70,NIPHAD,Gite Digambar Valu,parties.IN.IND,IND,248,0.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-234,maharashtra,1997,234,SHIRDI,Vikhe Radhakrishna Eknathrao,parties.IN.SHS,SHS,58557,56.21,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-234,maharashtra,1997,234,SHIRDI,Deokar Ravindra Marutirao,parties.IN.INC,INC,44568,42.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-234,maharashtra,1997,234,SHIRDI,Deokar Nivrutti Murlidhar,parties.IN.IND,IND,607,0.58,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-234,maharashtra,1997,234,SHIRDI,Gaikwad Balasaheb Namdeo,parties.IN.IND,IND,274,0.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-234,maharashtra,1997,234,SHIRDI,Gaikwad Ramrao Keru,parties.IN.IND,IND,164,0.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

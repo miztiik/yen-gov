@@ -1,24 +1,24 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Dr. Renu Jogi,parties.IN.INC,INC,59465,52.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Bhupendra Singh,parties.IN.BJP,BJP,35995,31.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Baldao Prasad Sahu,parties.IN.IND,IND,4050,3.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Manohar,parties.IN.IND,IND,2169,1.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Ravi Kumar,parties.IN.IND,IND,1774,1.55,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Shivkumar Moni,parties.IN.IND,IND,1711,1.5,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Pritam Pandram,parties.IN.GGP,GGP,1405,1.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Chamaru Singh Bhaina,parties.IN.NCP,NCP,1197,1.05,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Shambu Prasad Adhivakta,parties.IN.IND,IND,1051,0.92,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Dr. Urmila Marko,parties.IN.IND,IND,973,0.85,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Pramal Kumar Gawal,parties.IN.IND,IND,772,0.68,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Sant Ram Dogare,parties.IN.IND,IND,612,0.54,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Vinod Maravi,parties.IN.IND,IND,602,0.53,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Sadheylal,parties.IN.IND,IND,410,0.36,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Shiv Prasad,parties.IN.IND,IND,364,0.32,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Dilharan Singh,parties.IN.IND,IND,341,0.3,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Sant Kumar Netam,parties.IN.IND,IND,337,0.29,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Baldev Dhruv,parties.IN.LJNSP,LJNSP,215,0.19,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Govind Singh Dubey,parties.IN.IND,IND,203,0.18,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Indramani Singh,parties.IN.IND,IND,185,0.16,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Gayaram,parties.IN.IND,IND,182,0.16,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Syed Salamat,parties.IN.CSP,CSP,158,0.14,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Mukesh Jalaan,parties.IN.RPIA,RPI(A),137,0.12,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Dr. Renu Jogi,parties.IN.INC,INC,59465,52.02,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Bhupendra Singh,parties.IN.BJP,BJP,35995,31.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Baldao Prasad Sahu,parties.IN.IND,IND,4050,3.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Manohar,parties.IN.IND,IND,2169,1.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Ravi Kumar,parties.IN.IND,IND,1774,1.55,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Shivkumar Moni,parties.IN.IND,IND,1711,1.5,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Pritam Pandram,parties.IN.GGP,GGP,1405,1.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Chamaru Singh Bhaina,parties.IN.NCP,NCP,1197,1.05,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Shambu Prasad Adhivakta,parties.IN.IND,IND,1051,0.92,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Dr. Urmila Marko,parties.IN.IND,IND,973,0.85,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Pramal Kumar Gawal,parties.IN.IND,IND,772,0.68,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Sant Ram Dogare,parties.IN.IND,IND,612,0.54,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Vinod Maravi,parties.IN.IND,IND,602,0.53,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Sadheylal,parties.IN.IND,IND,410,0.36,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Shiv Prasad,parties.IN.IND,IND,364,0.32,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Dilharan Singh,parties.IN.IND,IND,341,0.3,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Sant Kumar Netam,parties.IN.IND,IND,337,0.29,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Baldev Dhruv,parties.IN.LJNSP,LJNSP,215,0.19,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Govind Singh Dubey,parties.IN.IND,IND,203,0.18,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Indramani Singh,parties.IN.IND,IND,185,0.16,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Gayaram,parties.IN.IND,IND,182,0.16,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Syed Salamat,parties.IN.CSP,CSP,158,0.14,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-25,chhattisgarh,2006,25,KOTA,Mukesh Jalaan,parties.IN.RPIA,RPI(A),137,0.12,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

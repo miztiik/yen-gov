@@ -1,5 +1,5 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1962-assam-75,assam,1963,75,NOWGONG,RUPRAM SUT,parties.IN.INC,INC,19365,55.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-assam-75,assam,1963,75,NOWGONG,PHANI BORA,parties.IN.CPI,CPI,8371,23.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-assam-75,assam,1963,75,NOWGONG,H.GOSWAMI,parties.IN.PSP,PSP,7016,20.02,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-assam-75,assam,1963,75,NOWGONG,M.R.SARDAR,parties.IN.IND,IND,294,0.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1962-assam-75,assam,1963,75,NOWGONG,RUPRAM SUT,parties.IN.INC,INC,19365,55.26,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-assam-75,assam,1963,75,NOWGONG,PHANI BORA,parties.IN.CPI,CPI,8371,23.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-assam-75,assam,1963,75,NOWGONG,H.GOSWAMI,parties.IN.PSP,PSP,7016,20.02,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-assam-75,assam,1963,75,NOWGONG,M.R.SARDAR,parties.IN.IND,IND,294,0.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

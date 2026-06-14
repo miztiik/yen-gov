@@ -1,146 +1,146 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-andhra-pradesh-12,andhra-pradesh,2008,12,THERLAM,Thentu Lakshmu Naidu,parties.IN.TDP,TD,55863,74.39,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-12,andhra-pradesh,2008,12,THERLAM,Reddi Lakshmu Naidu,parties.IN.LSP,LSP,13583,18.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-12,andhra-pradesh,2008,12,THERLAM,Mahesh Gudivada,parties.IN.IND,IND,3724,4.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-12,andhra-pradesh,2008,12,THERLAM,Yegoti Simhachalam,parties.IN.IND,IND,1924,2.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Dr. Mallu Ravi,parties.IN.INC,INC,45175,37.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,M.Chandra Shekhar,parties.IN.TDP,TD,43069,35.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Charlakola Laxma Reddy,parties.IN.BRS,TRS,20744,17.19,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Mala Jangilamma,parties.IN.IND,IND,1771,1.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Balavardhan Goud,parties.IN.MP,MP,1564,1.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Harijana Danaiah,parties.IN.IND,IND,1236,1.02,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Mudavath Chandi,parties.IN.IND,IND,892,0.74,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Depalli Yadaiah,parties.IN.IND,IND,678,0.56,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Ravula Kistaiah,parties.IN.IND,IND,558,0.46,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,M.Chenna Reddy,parties.IN.IND,IND,536,0.44,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Vela Nagaiah,parties.IN.IND,IND,521,0.43,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Bachamgari Seenaiah Goud,parties.IN.IND,IND,480,0.4,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Mogulamma,parties.IN.IND,IND,435,0.36,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Tara Singh,parties.IN.IND,IND,418,0.35,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Kanduri Narsaiah,parties.IN.IND,IND,366,0.3,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Kanduri Kurmaiah,parties.IN.IND,IND,313,0.26,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Udandapur Pentaiah,parties.IN.IND,IND,281,0.23,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,A.Seenaiah,parties.IN.IND,IND,245,0.2,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Veljala Basavaiah,parties.IN.IND,IND,240,0.2,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,G.Gopala Krishna,parties.IN.IND,IND,221,0.18,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Sajeeda Begum,parties.IN.IND,IND,213,0.18,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Sathyamma,parties.IN.IND,IND,194,0.16,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Gafar,parties.IN.IND,IND,184,0.15,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Yetti Lingaiah,parties.IN.IND,IND,182,0.15,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Yetti Chinna Venkataiah,parties.IN.IND,IND,162,0.13,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-202,andhra-pradesh,2008,202,VIKARABAD(SC),G. Prasad Kumar,parties.IN.INC,INC,67814,53.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-202,andhra-pradesh,2008,202,VIKARABAD(SC),B. Sanjeeva Rao,parties.IN.TDP,TDP,38922,30.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-202,andhra-pradesh,2008,202,VIKARABAD(SC),A. Chandra Shekar,parties.IN.BRS,TRS,15415,12.27,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-202,andhra-pradesh,2008,202,VIKARABAD(SC),Jajula Bhaskar Rao,parties.IN.IND,IND,1471,1.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-202,andhra-pradesh,2008,202,VIKARABAD(SC),S.Narsimlu,parties.IN.IND,IND,1081,0.86,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-202,andhra-pradesh,2008,202,VIKARABAD(SC),Jaidupally Yadaiah,parties.IN.IND,IND,898,0.71,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,T. MANEMMA,parties.IN.INC,INC,34795,31.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,DR. K.LAXMAN,parties.IN.BJP,BJP,32720,29.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,NAYINI NARASIMHA REDDY,parties.IN.BRS,TRS,19867,17.83,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,S. VEERAIAH,parties.IN.CPIM,CPM,16618,14.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,P.ROHIT KUMAR,parties.IN.LS,LS,5810,5.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,SRINIVAS KACHE,parties.IN.IND,IND,405,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,E.ELLESHWAR,parties.IN.ANC,ANC,335,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,MOHD. GHOUSE MOHUDDIN,parties.IN.IND,IND,299,0.27,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,ASHOK EDAPALLY,parties.IN.IND,IND,250,0.22,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,MIR HASAN ALI KHAN,parties.IN.IND,IND,198,0.18,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,NARENDER KARAN KOTE,parties.IN.IND,IND,136,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,TALASANI SRINIVAS YADAV,parties.IN.TDP,TD,50031,41.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,PITLA KRISHNA,parties.IN.INC,INC,31964,26.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,T. PADMA RAO,parties.IN.BRS,TRS,28256,23.45,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,MAGANTI PRADEEP KUMAR,parties.IN.LSP,LSP,5908,4.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,NOMULA PRAKASH RAO,parties.IN.MP,MP,2153,1.79,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,A. SATHI REDDY,parties.IN.IND,IND,578,0.48,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,MALOOLM ANTHONY TAYLOR,parties.IN.IND,IND,430,0.36,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,KARRA KASHI VISHVA NATHAM,parties.IN.IND,IND,283,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,R. ROHINI KUMAR,parties.IN.IND,IND,204,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,GUNOA YADAGIRI,parties.IN.IND,IND,190,0.16,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,B. KRISHNA SWAMY,parties.IN.IND,IND,179,0.15,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,JANNAVULA SRINIVAS RAO,parties.IN.IND,IND,128,0.11,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,T.V.NITYAND,parties.IN.IND,IND,121,0.1,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,DAYANAND KONDA,parties.IN.IND,IND,72,0.06,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-210,andhra-pradesh,2008,210,KUAIRATABAD,P.VISHNVVARDHAN REDDY,parties.IN.INC,INC,254676,66.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-210,andhra-pradesh,2008,210,KUAIRATABAD,K.SRINIVASA RAO,parties.IN.LSP,LSP,58407,15.36,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-210,andhra-pradesh,2008,210,KUAIRATABAD,MOHD. KHAJA ARIFUDDIN,parties.IN.BRS,TRS,54134,14.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-210,andhra-pradesh,2008,210,KUAIRATABAD,D.SARALA DEVI,parties.IN.CPIM,CPM,4253,1.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-210,andhra-pradesh,2008,210,KUAIRATABAD,K.GATTAIAH,parties.IN.ANC,ANC,3867,1.02,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-210,andhra-pradesh,2008,210,KUAIRATABAD,M.SAMBA SIVA PRASAD,parties.IN.IND,IND,2505,0.66,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-210,andhra-pradesh,2008,210,KUAIRATABAD,KARRA SITARAMAM,parties.IN.IND,IND,1288,0.34,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-210,andhra-pradesh,2008,210,KUAIRATABAD,SHABAD RAMESH,parties.IN.IND,IND,1015,0.27,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-220,andhra-pradesh,2008,220,SIDDIPET,TANNERU HARISH RAO,parties.IN.BRS,TRS,76270,67.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-220,andhra-pradesh,2008,220,SIDDIPET,ANJAIAH BHYRI,parties.IN.INC,INC,17335,15.29,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-220,andhra-pradesh,2008,220,SIDDIPET,YELLU RAVINDER REDDY,parties.IN.TDP,TD,16494,14.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-220,andhra-pradesh,2008,220,SIDDIPET,BATHULA CHANDRAM,parties.IN.IND,IND,3306,2.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,SOLIPETA RAMLINGA REDDY,parties.IN.BRS,TRS,42345,39.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,CHERUKU MUTHYAM REDDY,parties.IN.TDP,TD,37203,34.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,B. MANOHAR RAO,parties.IN.INC,INC,19028,17.81,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,DARAM RAMESH,parties.IN.IND,IND,1975,1.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,MOTHEY RAJAIAH,parties.IN.IND,IND,1871,1.75,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,V.MALLESHAM MUDIRAJ,parties.IN.IND,IND,1814,1.7,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,MARPALLY PRABHAKAR,parties.IN.IND,IND,960,0.9,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,JAKKULA NARSIMLU,parties.IN.IND,IND,932,0.87,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,THOTA KAMALAKER REDDY,parties.IN.IND,IND,692,0.65,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-228,andhra-pradesh,2008,228,RAMAYAMPET,MYNAMPALLI HAMMANTA RAO,parties.IN.TDP,TD,49341,38.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-228,andhra-pradesh,2008,228,RAMAYAMPET,SMT. M.PADMA DEVENDER REDDY,parties.IN.BRS,TRS,38368,30.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-228,andhra-pradesh,2008,228,RAMAYAMPET,ANTHIREDDYGARI VITTALREDDY,parties.IN.INC,INC,33543,26.46,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-228,andhra-pradesh,2008,228,RAMAYAMPET,SIDDIREDDI SRINIVAS REDDY,parties.IN.IND,IND,1902,1.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-228,andhra-pradesh,2008,228,RAMAYAMPET,GONDI BHUJANGAM,parties.IN.IND,IND,1577,1.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-228,andhra-pradesh,2008,228,RAMAYAMPET,DUDA YADESHWER,parties.IN.IND,IND,1212,0.96,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-228,andhra-pradesh,2008,228,RAMAYAMPET,K.BAL RAJ GOUD,parties.IN.IND,IND,831,0.66,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-233,andhra-pradesh,2008,233,YELLAREDDY,JANARDHAN GOUD BOGUDAMEEDI,parties.IN.INC,INC,46841,39.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-233,andhra-pradesh,2008,233,YELLAREDDY,RAVINDER REDDY ENUGU,parties.IN.BRS,TRS,34496,28.85,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-233,andhra-pradesh,2008,233,YELLAREDDY,SURENDER,parties.IN.TDP,TD,32585,27.26,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-233,andhra-pradesh,2008,233,YELLAREDDY,SINGAM KASHEERAM,parties.IN.IND,IND,2960,2.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-233,andhra-pradesh,2008,233,YELLAREDDY,G.SHANKAR,parties.IN.IND,IND,2673,2.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-238,andhra-pradesh,2008,238,DICHPALLI,AKULA LALITHA,parties.IN.INC,INC,39756,37.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-238,andhra-pradesh,2008,238,DICHPALLI,VENKATESHWARA RAO MANDAVA,parties.IN.TDP,TD,31308,29.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-238,andhra-pradesh,2008,238,DICHPALLI,ANAND REDDY .G,parties.IN.BRS,TRS,29617,27.73,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-238,andhra-pradesh,2008,238,DICHPALLI,M.LINGAM,parties.IN.IND,IND,3252,3.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-238,andhra-pradesh,2008,238,DICHPALLI,A.NARAYANA,parties.IN.IND,IND,1616,1.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-238,andhra-pradesh,2008,238,DICHPALLI,RAVI,parties.IN.IND,IND,653,0.61,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-238,andhra-pradesh,2008,238,DICHPALLI,NOOR SINGH,parties.IN.IND,IND,611,0.57,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-243,andhra-pradesh,2008,243,KHANAPUR(ST),SUMAN RAMESH RATHOD,parties.IN.TDP,TD,40219,37.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-243,andhra-pradesh,2008,243,KHANAPUR(ST),MESRAM NAGORAO,parties.IN.INC,INC,39506,36.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-243,andhra-pradesh,2008,243,KHANAPUR(ST),AJMEERA GOVIND NAIK,parties.IN.BRS,TRS,22803,21.09,3,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-243,andhra-pradesh,2008,243,KHANAPUR(ST),MADAVI SEETHA DEVI,parties.IN.IND,IND,2805,2.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-243,andhra-pradesh,2008,243,KHANAPUR(ST),KASTURI BHEEMANNA,parties.IN.IND,IND,1591,1.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-243,andhra-pradesh,2008,243,KHANAPUR(ST),KOTNAK LAXMAN,parties.IN.IND,IND,1193,1.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-250,andhra-pradesh,2008,250,MYADARAM(SC),KOPPULA ESHWAR,parties.IN.BRS,TRS,62123,45.61,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-250,andhra-pradesh,2008,250,MYADARAM(SC),GUMMADI KUMARA SWAMY,parties.IN.INC,INC,33986,24.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-250,andhra-pradesh,2008,250,MYADARAM(SC),MALEM MALLESHAM,parties.IN.TDP,TDP,30336,22.27,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-250,andhra-pradesh,2008,250,MYADARAM(SC),GORRE RAMESH,parties.IN.IND,IND,4961,3.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-250,andhra-pradesh,2008,250,MYADARAM(SC),YERRALA GATTAIAH,parties.IN.CPI,CPI,4801,3.52,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-251,andhra-pradesh,2008,251,HUZURABAD,CAPT.V LAKSHMI KANTHA RAO,parties.IN.BRS,TRS,53547,44.73,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-251,andhra-pradesh,2008,251,HUZURABAD,K.SUDARSHAN REDDY,parties.IN.INC,INC,32727,27.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-251,andhra-pradesh,2008,251,HUZURABAD,ENUGALA PEDDI REDDY,parties.IN.TDP,TD,26946,22.51,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-251,andhra-pradesh,2008,251,HUZURABAD,VENKAT SWAMY MARRI,parties.IN.CPI,CPI,3488,2.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-251,andhra-pradesh,2008,251,HUZURABAD,BATHULA RAJALINGAM,parties.IN.IND,IND,1705,1.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-251,andhra-pradesh,2008,251,HUZURABAD,CHITTAMPALLI ALLAIAH,parties.IN.IND,IND,1303,1.09,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-252,andhra-pradesh,2008,252,KAMALAPUR,ETATALA RAJENDER,parties.IN.BRS,TRS,54092,44.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-252,andhra-pradesh,2008,252,KAMALAPUR,DAMODAR REDDY MUDDASANI,parties.IN.TDP,TD,31808,26.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-252,andhra-pradesh,2008,252,KAMALAPUR,PARIPATI RAVINDAR REDDY,parties.IN.INC,INC,25152,20.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-252,andhra-pradesh,2008,252,KAMALAPUR,ENUGALA BHEEMA RAO,parties.IN.IND,IND,7880,6.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-252,andhra-pradesh,2008,252,KAMALAPUR,LINGAMPALLI SRINIVAS REDDY,parties.IN.IND,IND,2523,2.08,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-261,andhra-pradesh,2008,261,CHERIYAL,PRATAP REDDY KOMMURI,parties.IN.BRS,TRS,45288,47.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-261,andhra-pradesh,2008,261,CHERIYAL,VAISHALI PONNALA,parties.IN.INC,INC,30824,32.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-261,andhra-pradesh,2008,261,CHERIYAL,AMUDALA MALLA REDDY,parties.IN.CPIM,CPM,13225,13.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-261,andhra-pradesh,2008,261,CHERIYAL,MUSTYALA MANOHAR,parties.IN.IND,IND,3859,4.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-261,andhra-pradesh,2008,261,CHERIYAL,MAHESHWAR PITLA,parties.IN.IND,IND,1751,1.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-261,andhra-pradesh,2008,261,CHERIYAL,MD. MUSHEERUDDIN,parties.IN.IND,IND,1186,1.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-268,andhra-pradesh,2008,268,GHANPUR(SC),KADIYAM SRI HARI,parties.IN.TDP,TD,39663,35.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-268,andhra-pradesh,2008,268,GHANPUR(SC),THATIKONDA RAJAIAH,parties.IN.INC,INC,35545,32.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-268,andhra-pradesh,2008,268,GHANPUR(SC),GUNDE VIJAYA RAMA RAO,parties.IN.BRS,TRS,31897,28.76,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-268,andhra-pradesh,2008,268,GHANPUR(SC),LAXMINARAYANA KOTHA,parties.IN.IND,IND,1856,1.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-268,andhra-pradesh,2008,268,GHANPUR(SC),GANGARAPU RAJU,parties.IN.IND,IND,1113,1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-268,andhra-pradesh,2008,268,GHANPUR(SC),PERUMANOLA VENKATESHWARU,parties.IN.IND,IND,820,0.74,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),DR.KUDUDULA NAGESH,parties.IN.BRS,TRS,45867,39.27,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),MOTHUKU PALLY NARSIMHULU,parties.IN.TDP,TDP,41943,35.91,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),SHAGA LAZARUS,parties.IN.INC,INC,22357,19.14,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),YONTE PAKA SWAROOPA RANI,parties.IN.IND,IND,1991,1.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),PALADUGU GOURAMMA ALIAS MARY KUMARI,parties.IN.IND,IND,1562,1.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),KOTHA KISHTAIAH,parties.IN.IND,IND,971,0.83,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),POTTA VENKATAIAH,parties.IN.IND,IND,809,0.69,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),MOTHKU PALLY RAGHU,parties.IN.IND,IND,377,0.32,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),JOGU SUDARSHAN,parties.IN.IND,IND,328,0.28,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),JANA PALA MARAIAH,parties.IN.IND,IND,296,0.25,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),BALLEM NARSIMHULU,parties.IN.IND,IND,296,0.25,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-andhra-pradesh-12,andhra-pradesh,2008,12,THERLAM,Thentu Lakshmu Naidu,parties.IN.TDP,TD,55863,74.39,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-12,andhra-pradesh,2008,12,THERLAM,Reddi Lakshmu Naidu,parties.IN.LSP,LSP,13583,18.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-12,andhra-pradesh,2008,12,THERLAM,Mahesh Gudivada,parties.IN.IND,IND,3724,4.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-12,andhra-pradesh,2008,12,THERLAM,Yegoti Simhachalam,parties.IN.IND,IND,1924,2.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Dr. Mallu Ravi,parties.IN.INC,INC,45175,37.43,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,M.Chandra Shekhar,parties.IN.TDP,TD,43069,35.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Charlakola Laxma Reddy,parties.IN.BRS,TRS,20744,17.19,3,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Mala Jangilamma,parties.IN.IND,IND,1771,1.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Balavardhan Goud,parties.IN.MP,MP,1564,1.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Harijana Danaiah,parties.IN.IND,IND,1236,1.02,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Mudavath Chandi,parties.IN.IND,IND,892,0.74,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Depalli Yadaiah,parties.IN.IND,IND,678,0.56,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Ravula Kistaiah,parties.IN.IND,IND,558,0.46,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,M.Chenna Reddy,parties.IN.IND,IND,536,0.44,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Vela Nagaiah,parties.IN.IND,IND,521,0.43,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Bachamgari Seenaiah Goud,parties.IN.IND,IND,480,0.4,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Mogulamma,parties.IN.IND,IND,435,0.36,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Tara Singh,parties.IN.IND,IND,418,0.35,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Kanduri Narsaiah,parties.IN.IND,IND,366,0.3,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Kanduri Kurmaiah,parties.IN.IND,IND,313,0.26,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Udandapur Pentaiah,parties.IN.IND,IND,281,0.23,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,A.Seenaiah,parties.IN.IND,IND,245,0.2,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Veljala Basavaiah,parties.IN.IND,IND,240,0.2,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,G.Gopala Krishna,parties.IN.IND,IND,221,0.18,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Sajeeda Begum,parties.IN.IND,IND,213,0.18,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Sathyamma,parties.IN.IND,IND,194,0.16,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Gafar,parties.IN.IND,IND,184,0.15,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Yetti Lingaiah,parties.IN.IND,IND,182,0.15,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-192,andhra-pradesh,2008,192,JADCHERLA,Yetti Chinna Venkataiah,parties.IN.IND,IND,162,0.13,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-202,andhra-pradesh,2008,202,VIKARABAD(SC),G. Prasad Kumar,parties.IN.INC,INC,67814,53.99,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-202,andhra-pradesh,2008,202,VIKARABAD(SC),B. Sanjeeva Rao,parties.IN.TDP,TDP,38922,30.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-202,andhra-pradesh,2008,202,VIKARABAD(SC),A. Chandra Shekar,parties.IN.BRS,TRS,15415,12.27,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-202,andhra-pradesh,2008,202,VIKARABAD(SC),Jajula Bhaskar Rao,parties.IN.IND,IND,1471,1.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-202,andhra-pradesh,2008,202,VIKARABAD(SC),S.Narsimlu,parties.IN.IND,IND,1081,0.86,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-202,andhra-pradesh,2008,202,VIKARABAD(SC),Jaidupally Yadaiah,parties.IN.IND,IND,898,0.71,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,T. MANEMMA,parties.IN.INC,INC,34795,31.23,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,DR. K.LAXMAN,parties.IN.BJP,BJP,32720,29.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,NAYINI NARASIMHA REDDY,parties.IN.BRS,TRS,19867,17.83,3,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,S. VEERAIAH,parties.IN.CPIM,CPM,16618,14.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,P.ROHIT KUMAR,parties.IN.LS,LS,5810,5.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,SRINIVAS KACHE,parties.IN.IND,IND,405,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,E.ELLESHWAR,parties.IN.ANC,ANC,335,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,MOHD. GHOUSE MOHUDDIN,parties.IN.IND,IND,299,0.27,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,ASHOK EDAPALLY,parties.IN.IND,IND,250,0.22,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,MIR HASAN ALI KHAN,parties.IN.IND,IND,198,0.18,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-206,andhra-pradesh,2008,206,MUSHEERABAD,NARENDER KARAN KOTE,parties.IN.IND,IND,136,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,TALASANI SRINIVAS YADAV,parties.IN.TDP,TD,50031,41.52,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,PITLA KRISHNA,parties.IN.INC,INC,31964,26.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,T. PADMA RAO,parties.IN.BRS,TRS,28256,23.45,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,MAGANTI PRADEEP KUMAR,parties.IN.LSP,LSP,5908,4.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,NOMULA PRAKASH RAO,parties.IN.MP,MP,2153,1.79,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,A. SATHI REDDY,parties.IN.IND,IND,578,0.48,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,MALOOLM ANTHONY TAYLOR,parties.IN.IND,IND,430,0.36,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,KARRA KASHI VISHVA NATHAM,parties.IN.IND,IND,283,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,R. ROHINI KUMAR,parties.IN.IND,IND,204,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,GUNOA YADAGIRI,parties.IN.IND,IND,190,0.16,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,B. KRISHNA SWAMY,parties.IN.IND,IND,179,0.15,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,JANNAVULA SRINIVAS RAO,parties.IN.IND,IND,128,0.11,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,T.V.NITYAND,parties.IN.IND,IND,121,0.1,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-209,andhra-pradesh,2008,209,SECUNDERABAD,DAYANAND KONDA,parties.IN.IND,IND,72,0.06,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-210,andhra-pradesh,2008,210,KUAIRATABAD,P.VISHNVVARDHAN REDDY,parties.IN.INC,INC,254676,66.99,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-210,andhra-pradesh,2008,210,KUAIRATABAD,K.SRINIVASA RAO,parties.IN.LSP,LSP,58407,15.36,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-210,andhra-pradesh,2008,210,KUAIRATABAD,MOHD. KHAJA ARIFUDDIN,parties.IN.BRS,TRS,54134,14.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-210,andhra-pradesh,2008,210,KUAIRATABAD,D.SARALA DEVI,parties.IN.CPIM,CPM,4253,1.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-210,andhra-pradesh,2008,210,KUAIRATABAD,K.GATTAIAH,parties.IN.ANC,ANC,3867,1.02,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-210,andhra-pradesh,2008,210,KUAIRATABAD,M.SAMBA SIVA PRASAD,parties.IN.IND,IND,2505,0.66,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-210,andhra-pradesh,2008,210,KUAIRATABAD,KARRA SITARAMAM,parties.IN.IND,IND,1288,0.34,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-210,andhra-pradesh,2008,210,KUAIRATABAD,SHABAD RAMESH,parties.IN.IND,IND,1015,0.27,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-220,andhra-pradesh,2008,220,SIDDIPET,TANNERU HARISH RAO,parties.IN.BRS,TRS,76270,67.25,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-220,andhra-pradesh,2008,220,SIDDIPET,ANJAIAH BHYRI,parties.IN.INC,INC,17335,15.29,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-220,andhra-pradesh,2008,220,SIDDIPET,YELLU RAVINDER REDDY,parties.IN.TDP,TD,16494,14.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-220,andhra-pradesh,2008,220,SIDDIPET,BATHULA CHANDRAM,parties.IN.IND,IND,3306,2.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,SOLIPETA RAMLINGA REDDY,parties.IN.BRS,TRS,42345,39.64,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,CHERUKU MUTHYAM REDDY,parties.IN.TDP,TD,37203,34.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,B. MANOHAR RAO,parties.IN.INC,INC,19028,17.81,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,DARAM RAMESH,parties.IN.IND,IND,1975,1.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,MOTHEY RAJAIAH,parties.IN.IND,IND,1871,1.75,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,V.MALLESHAM MUDIRAJ,parties.IN.IND,IND,1814,1.7,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,MARPALLY PRABHAKAR,parties.IN.IND,IND,960,0.9,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,JAKKULA NARSIMLU,parties.IN.IND,IND,932,0.87,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-221,andhra-pradesh,2008,221,DOMMAT,THOTA KAMALAKER REDDY,parties.IN.IND,IND,692,0.65,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-228,andhra-pradesh,2008,228,RAMAYAMPET,MYNAMPALLI HAMMANTA RAO,parties.IN.TDP,TD,49341,38.92,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-228,andhra-pradesh,2008,228,RAMAYAMPET,SMT. M.PADMA DEVENDER REDDY,parties.IN.BRS,TRS,38368,30.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-228,andhra-pradesh,2008,228,RAMAYAMPET,ANTHIREDDYGARI VITTALREDDY,parties.IN.INC,INC,33543,26.46,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-228,andhra-pradesh,2008,228,RAMAYAMPET,SIDDIREDDI SRINIVAS REDDY,parties.IN.IND,IND,1902,1.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-228,andhra-pradesh,2008,228,RAMAYAMPET,GONDI BHUJANGAM,parties.IN.IND,IND,1577,1.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-228,andhra-pradesh,2008,228,RAMAYAMPET,DUDA YADESHWER,parties.IN.IND,IND,1212,0.96,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-228,andhra-pradesh,2008,228,RAMAYAMPET,K.BAL RAJ GOUD,parties.IN.IND,IND,831,0.66,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-233,andhra-pradesh,2008,233,YELLAREDDY,JANARDHAN GOUD BOGUDAMEEDI,parties.IN.INC,INC,46841,39.18,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-233,andhra-pradesh,2008,233,YELLAREDDY,RAVINDER REDDY ENUGU,parties.IN.BRS,TRS,34496,28.85,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-233,andhra-pradesh,2008,233,YELLAREDDY,SURENDER,parties.IN.TDP,TD,32585,27.26,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-233,andhra-pradesh,2008,233,YELLAREDDY,SINGAM KASHEERAM,parties.IN.IND,IND,2960,2.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-233,andhra-pradesh,2008,233,YELLAREDDY,G.SHANKAR,parties.IN.IND,IND,2673,2.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-238,andhra-pradesh,2008,238,DICHPALLI,AKULA LALITHA,parties.IN.INC,INC,39756,37.22,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-238,andhra-pradesh,2008,238,DICHPALLI,VENKATESHWARA RAO MANDAVA,parties.IN.TDP,TD,31308,29.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-238,andhra-pradesh,2008,238,DICHPALLI,ANAND REDDY .G,parties.IN.BRS,TRS,29617,27.73,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-238,andhra-pradesh,2008,238,DICHPALLI,M.LINGAM,parties.IN.IND,IND,3252,3.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-238,andhra-pradesh,2008,238,DICHPALLI,A.NARAYANA,parties.IN.IND,IND,1616,1.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-238,andhra-pradesh,2008,238,DICHPALLI,RAVI,parties.IN.IND,IND,653,0.61,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-238,andhra-pradesh,2008,238,DICHPALLI,NOOR SINGH,parties.IN.IND,IND,611,0.57,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-243,andhra-pradesh,2008,243,KHANAPUR(ST),SUMAN RAMESH RATHOD,parties.IN.TDP,TD,40219,37.2,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-243,andhra-pradesh,2008,243,KHANAPUR(ST),MESRAM NAGORAO,parties.IN.INC,INC,39506,36.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-243,andhra-pradesh,2008,243,KHANAPUR(ST),AJMEERA GOVIND NAIK,parties.IN.BRS,TRS,22803,21.09,3,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-243,andhra-pradesh,2008,243,KHANAPUR(ST),MADAVI SEETHA DEVI,parties.IN.IND,IND,2805,2.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-243,andhra-pradesh,2008,243,KHANAPUR(ST),KASTURI BHEEMANNA,parties.IN.IND,IND,1591,1.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-243,andhra-pradesh,2008,243,KHANAPUR(ST),KOTNAK LAXMAN,parties.IN.IND,IND,1193,1.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-250,andhra-pradesh,2008,250,MYADARAM(SC),KOPPULA ESHWAR,parties.IN.BRS,TRS,62123,45.61,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-250,andhra-pradesh,2008,250,MYADARAM(SC),GUMMADI KUMARA SWAMY,parties.IN.INC,INC,33986,24.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-250,andhra-pradesh,2008,250,MYADARAM(SC),MALEM MALLESHAM,parties.IN.TDP,TDP,30336,22.27,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-250,andhra-pradesh,2008,250,MYADARAM(SC),GORRE RAMESH,parties.IN.IND,IND,4961,3.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-250,andhra-pradesh,2008,250,MYADARAM(SC),YERRALA GATTAIAH,parties.IN.CPI,CPI,4801,3.52,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-251,andhra-pradesh,2008,251,HUZURABAD,CAPT.V LAKSHMI KANTHA RAO,parties.IN.BRS,TRS,53547,44.73,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-251,andhra-pradesh,2008,251,HUZURABAD,K.SUDARSHAN REDDY,parties.IN.INC,INC,32727,27.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-251,andhra-pradesh,2008,251,HUZURABAD,ENUGALA PEDDI REDDY,parties.IN.TDP,TD,26946,22.51,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-251,andhra-pradesh,2008,251,HUZURABAD,VENKAT SWAMY MARRI,parties.IN.CPI,CPI,3488,2.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-251,andhra-pradesh,2008,251,HUZURABAD,BATHULA RAJALINGAM,parties.IN.IND,IND,1705,1.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-251,andhra-pradesh,2008,251,HUZURABAD,CHITTAMPALLI ALLAIAH,parties.IN.IND,IND,1303,1.09,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-252,andhra-pradesh,2008,252,KAMALAPUR,ETATALA RAJENDER,parties.IN.BRS,TRS,54092,44.54,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-252,andhra-pradesh,2008,252,KAMALAPUR,DAMODAR REDDY MUDDASANI,parties.IN.TDP,TD,31808,26.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-252,andhra-pradesh,2008,252,KAMALAPUR,PARIPATI RAVINDAR REDDY,parties.IN.INC,INC,25152,20.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-252,andhra-pradesh,2008,252,KAMALAPUR,ENUGALA BHEEMA RAO,parties.IN.IND,IND,7880,6.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-252,andhra-pradesh,2008,252,KAMALAPUR,LINGAMPALLI SRINIVAS REDDY,parties.IN.IND,IND,2523,2.08,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-261,andhra-pradesh,2008,261,CHERIYAL,PRATAP REDDY KOMMURI,parties.IN.BRS,TRS,45288,47.11,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-261,andhra-pradesh,2008,261,CHERIYAL,VAISHALI PONNALA,parties.IN.INC,INC,30824,32.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-261,andhra-pradesh,2008,261,CHERIYAL,AMUDALA MALLA REDDY,parties.IN.CPIM,CPM,13225,13.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-261,andhra-pradesh,2008,261,CHERIYAL,MUSTYALA MANOHAR,parties.IN.IND,IND,3859,4.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-261,andhra-pradesh,2008,261,CHERIYAL,MAHESHWAR PITLA,parties.IN.IND,IND,1751,1.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-261,andhra-pradesh,2008,261,CHERIYAL,MD. MUSHEERUDDIN,parties.IN.IND,IND,1186,1.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-268,andhra-pradesh,2008,268,GHANPUR(SC),KADIYAM SRI HARI,parties.IN.TDP,TD,39663,35.77,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-268,andhra-pradesh,2008,268,GHANPUR(SC),THATIKONDA RAJAIAH,parties.IN.INC,INC,35545,32.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-268,andhra-pradesh,2008,268,GHANPUR(SC),GUNDE VIJAYA RAMA RAO,parties.IN.BRS,TRS,31897,28.76,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-268,andhra-pradesh,2008,268,GHANPUR(SC),LAXMINARAYANA KOTHA,parties.IN.IND,IND,1856,1.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-268,andhra-pradesh,2008,268,GHANPUR(SC),GANGARAPU RAJU,parties.IN.IND,IND,1113,1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-268,andhra-pradesh,2008,268,GHANPUR(SC),PERUMANOLA VENKATESHWARU,parties.IN.IND,IND,820,0.74,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),DR.KUDUDULA NAGESH,parties.IN.BRS,TRS,45867,39.27,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),MOTHUKU PALLY NARSIMHULU,parties.IN.TDP,TDP,41943,35.91,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),SHAGA LAZARUS,parties.IN.INC,INC,22357,19.14,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),YONTE PAKA SWAROOPA RANI,parties.IN.IND,IND,1991,1.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),PALADUGU GOURAMMA ALIAS MARY KUMARI,parties.IN.IND,IND,1562,1.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),KOTHA KISHTAIAH,parties.IN.IND,IND,971,0.83,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),POTTA VENKATAIAH,parties.IN.IND,IND,809,0.69,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),MOTHKU PALLY RAGHU,parties.IN.IND,IND,377,0.32,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),JOGU SUDARSHAN,parties.IN.IND,IND,328,0.28,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),JANA PALA MARAIAH,parties.IN.IND,IND,296,0.25,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-291,andhra-pradesh,2008,291,ALAIR(SC),BALLEM NARSIMHULU,parties.IN.IND,IND,296,0.25,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

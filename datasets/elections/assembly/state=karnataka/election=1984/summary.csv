@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-karnataka-101,karnataka,1984,NAGMANGALA,82243,63053,76.67,H.T.KRISHNAPPA,parties.IN.IND,IND,23744,37.66,KEMPAMMA(W),parties.IN.JP,JNP,15879,7865,12.48,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-102,karnataka,1984,MADDUR,87324,74086,84.84,J.M.MANCHGOWDA(W),parties.IN.INC,INC,40665,54.89,K.P.SRIKANTEGOWDA,parties.IN.JP,JNP,30253,10412,14.06,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-karnataka-101,karnataka,1984,NAGMANGALA,82243,63053,76.67,H.T.KRISHNAPPA,parties.IN.IND,IND,23744,37.66,KEMPAMMA(W),parties.IN.JP,JNP,15879,7865,12.48,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-102,karnataka,1984,MADDUR,87324,74086,84.84,J.M.MANCHGOWDA(W),parties.IN.INC,INC,40665,54.89,K.P.SRIKANTEGOWDA,parties.IN.JP,JNP,30253,10412,14.06,src-1b7bc1c9d39a,minor,

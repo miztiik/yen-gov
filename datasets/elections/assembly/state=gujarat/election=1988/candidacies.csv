@@ -1,18 +1,18 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,V.R.NATHABHAI,parties.IN.INC,INC,19847,42.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,G.K.DEVA,parties.IN.JP,JNP,12240,26.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,M.K.KARMANBHA,parties.IN.IND,IND,9653,20.56,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,P.J.SAVJIBHAI,parties.IN.IND,IND,3098,6.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,H.G.MUNJA,parties.IN.IND,IND,612,1.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,J.D.AJABHAI,parties.IN.IND,IND,517,1.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,J.K.DAHYALAL,parties.IN.IND,IND,500,1.07,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,S.K.RAVABHA,parties.IN.IND,IND,187,0.4,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,Z.M.VALUBHA,parties.IN.IND,IND,103,0.22,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,D.N.JOSHI,parties.IN.IND,IND,80,0.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,N.D.HAMIR,parties.IN.IND,IND,58,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,G.R.VERASHI,parties.IN.IND,IND,45,0.1,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-41,gujarat,1988,41,MALIYA,S.D.SAMANTBHAI,parties.IN.BJP,BJP,41503,63.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-41,gujarat,1988,41,MALIYA,P.J.MALDEBHAI,parties.IN.INC,INC,21698,33.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-41,gujarat,1988,41,MALIYA,S.M.BADHABHAI,parties.IN.RPI,RPI,1117,1.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-41,gujarat,1988,41,MALIYA,B.R.UKABHAI,parties.IN.IND,IND,336,0.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-41,gujarat,1988,41,MALIYA,B.L .NARAN,parties.IN.IND,IND,254,0.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,V.R.NATHABHAI,parties.IN.INC,INC,19847,42.28,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,G.K.DEVA,parties.IN.JP,JNP,12240,26.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,M.K.KARMANBHA,parties.IN.IND,IND,9653,20.56,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,P.J.SAVJIBHAI,parties.IN.IND,IND,3098,6.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,H.G.MUNJA,parties.IN.IND,IND,612,1.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,J.D.AJABHAI,parties.IN.IND,IND,517,1.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,J.K.DAHYALAL,parties.IN.IND,IND,500,1.07,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,S.K.RAVABHA,parties.IN.IND,IND,187,0.4,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,Z.M.VALUBHA,parties.IN.IND,IND,103,0.22,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,D.N.JOSHI,parties.IN.IND,IND,80,0.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,N.D.HAMIR,parties.IN.IND,IND,58,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-31,gujarat,1988,31,DWARKA,G.R.VERASHI,parties.IN.IND,IND,45,0.1,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-41,gujarat,1988,41,MALIYA,S.D.SAMANTBHAI,parties.IN.BJP,BJP,41503,63.94,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-41,gujarat,1988,41,MALIYA,P.J.MALDEBHAI,parties.IN.INC,INC,21698,33.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-41,gujarat,1988,41,MALIYA,S.M.BADHABHAI,parties.IN.RPI,RPI,1117,1.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-41,gujarat,1988,41,MALIYA,B.R.UKABHAI,parties.IN.IND,IND,336,0.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-41,gujarat,1988,41,MALIYA,B.L .NARAN,parties.IN.IND,IND,254,0.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

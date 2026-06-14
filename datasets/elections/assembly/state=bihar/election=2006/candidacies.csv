@@ -1,25 +1,25 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI VISHWANATH SINGH,parties.IN.JDU,JD(U),38613,46.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI MAHAMMAD HAMID MUBARAK,parties.IN.INC,INC,35855,42.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI CHHOTE LAL CHOUREY,parties.IN.JDP,JDP,2261,2.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI SOVBRAN RAJAK,parties.IN.IND,IND,1615,1.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI YUGAL KISHOR PASWAN,parties.IN.IND,IND,1423,1.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI SAGHIR AHMAD,parties.IN.SP,SP,1216,1.45,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI KANHU SOREN,parties.IN.IND,IND,963,1.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI KARPURI THAKUR,parties.IN.IND,IND,480,0.57,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI PRAMOD KUMAR PASWAN,parties.IN.IND,IND,440,0.53,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI NALINI MANDAL,parties.IN.IND,IND,368,0.44,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI NAGENDRA CHANDRA MANDAL,parties.IN.IND,IND,361,0.43,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Nitin Naveen,parties.IN.BJP,BJP,76025,82.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Ajay Kumar Singh,parties.IN.INC,INC,10858,11.76,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Chandan Rai,parties.IN.SP,SP,1484,1.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Surendra Kumar Upadhyay,parties.IN.IND,IND,657,0.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Anjani Kumar,parties.IN.RLD,RLD,580,0.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Raju Kumar Vidyarthi,parties.IN.IND,IND,577,0.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Dinesh Kumar Dev,parties.IN.IND,IND,513,0.56,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Mithlesh Kumar,parties.IN.IJP,IJP,328,0.36,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Chandra Dev Thakur,parties.IN.IND,IND,315,0.34,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Vinay Kumar,parties.IN.IND,IND,302,0.33,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Manoj Kumar,parties.IN.IND,IND,287,0.31,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Ashok Prasad,parties.IN.IND,IND,222,0.24,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Arvind Prasad Singh,parties.IN.IND,IND,216,0.23,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI VISHWANATH SINGH,parties.IN.JDU,JD(U),38613,46.19,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI MAHAMMAD HAMID MUBARAK,parties.IN.INC,INC,35855,42.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI CHHOTE LAL CHOUREY,parties.IN.JDP,JDP,2261,2.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI SOVBRAN RAJAK,parties.IN.IND,IND,1615,1.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI YUGAL KISHOR PASWAN,parties.IN.IND,IND,1423,1.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI SAGHIR AHMAD,parties.IN.SP,SP,1216,1.45,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI KANHU SOREN,parties.IN.IND,IND,963,1.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI KARPURI THAKUR,parties.IN.IND,IND,480,0.57,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI PRAMOD KUMAR PASWAN,parties.IN.IND,IND,440,0.53,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI NALINI MANDAL,parties.IN.IND,IND,368,0.44,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-146,bihar,2006,146,MANIHARI,SRI NAGENDRA CHANDRA MANDAL,parties.IN.IND,IND,361,0.43,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Nitin Naveen,parties.IN.BJP,BJP,76025,82.31,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Ajay Kumar Singh,parties.IN.INC,INC,10858,11.76,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Chandan Rai,parties.IN.SP,SP,1484,1.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Surendra Kumar Upadhyay,parties.IN.IND,IND,657,0.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Anjani Kumar,parties.IN.RLD,RLD,580,0.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Raju Kumar Vidyarthi,parties.IN.IND,IND,577,0.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Dinesh Kumar Dev,parties.IN.IND,IND,513,0.56,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Mithlesh Kumar,parties.IN.IJP,IJP,328,0.36,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Chandra Dev Thakur,parties.IN.IND,IND,315,0.34,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Vinay Kumar,parties.IN.IND,IND,302,0.33,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Manoj Kumar,parties.IN.IND,IND,287,0.31,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Ashok Prasad,parties.IN.IND,IND,222,0.24,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-188,bihar,2006,188,PATNA WEST,Arvind Prasad Singh,parties.IN.IND,IND,216,0.23,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

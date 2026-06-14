@@ -1,5 +1,5 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-west-bengal-264,west-bengal,2010,264,DURGAPUR -I,Archana Bhattacharya,parties.IN.CPIM,CPM,53513,51.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-264,west-bengal,2010,264,DURGAPUR -I,Karmakar Banshi Badan,parties.IN.INC,INC,44696,42.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-264,west-bengal,2010,264,DURGAPUR -I,Koushik Roychoudhury,parties.IN.BJP,BJP,4243,4.07,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-264,west-bengal,2010,264,DURGAPUR -I,Sunil Yadab,parties.IN.RJD,RJD,1735,1.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-west-bengal-264,west-bengal,2010,264,DURGAPUR -I,Archana Bhattacharya,parties.IN.CPIM,CPM,53513,51.36,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-264,west-bengal,2010,264,DURGAPUR -I,Karmakar Banshi Badan,parties.IN.INC,INC,44696,42.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-264,west-bengal,2010,264,DURGAPUR -I,Koushik Roychoudhury,parties.IN.BJP,BJP,4243,4.07,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-264,west-bengal,2010,264,DURGAPUR -I,Sunil Yadab,parties.IN.RJD,RJD,1735,1.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

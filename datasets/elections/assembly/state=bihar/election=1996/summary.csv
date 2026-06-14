@@ -1,15 +1,15 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-bihar-132,bihar,1996,JOKIHAT,170377,108239,63.53,Sarfaraz,parties.IN.JD,JD,41932,38.74,Manjar Alam,parties.IN.SP,SP,29302,12630,11.67,src-1b7bc1c9d39a
-IN-AC-1976-bihar-176,bihar,1996,KATORIA,183101,88155,48.15,Bhola Prasad Yadav,parties.IN.JD,JD,46157,52.36,Upendra Prasad Choudhary,parties.IN.BJP,BJP,14279,31878,36.16,src-1b7bc1c9d39a
-IN-AC-1976-bihar-200,bihar,1996,HARNAUT,164152,113063,68.88,Arun Kumar Singh,parties.IN.SAP,SAP,62299,55.1,Shishu Ranjan,parties.IN.JD,JD,31085,31214,27.61,src-1b7bc1c9d39a
-IN-AC-1976-bihar-209,bihar,1996,DINAPUR,198466,74600,37.59,Vijay Singh Yadav,parties.IN.BJP,BJP,36704,49.2,Ramanand Yadav,parties.IN.JD,JD,36116,588,0.79,src-1b7bc1c9d39a
-IN-AC-1976-bihar-213,bihar,1996,PALIGANJ,212475,115704,54.46,Janardan Sharma,parties.IN.BJP,BJP,34037,29.42,Ashok Kumar Verma,parties.IN.JD,JD,30908,3129,2.71,src-1b7bc1c9d39a
-IN-AC-1976-bihar-223,bihar,1996,PIRO,167050,102531,61.38,Sivanand Tiwari,parties.IN.SAP,SAP,37383,36.46,Chandradeep Singh,parties.IN.CPIMLL,CPI(ML)(L),30717,6666,6.5,src-1b7bc1c9d39a
-IN-AC-1976-bihar-236,bihar,1996,NABINAGAR,184506,115983,62.86,Lovely Anand,parties.IN.SP,SP,56144,48.41,Bheem Kumar,parties.IN.JD,JD,48801,7343,6.33,src-1b7bc1c9d39a
-IN-AC-1976-bihar-254,bihar,1996,BARACHATTI(SC),170522,81343,47.7,Jeetan Ram Manjhee,parties.IN.JD,JD,41404,50.9,Krishna Paswan,parties.IN.BJP,BJP,27775,13629,16.75,src-1b7bc1c9d39a
-IN-AC-1976-bihar-26,bihar,1996,BAIKUNTHPUR,192384,114787,59.67,Deodat Prasad,parties.IN.JD,JD,64379,56.09,Braj Kishore Narayan Singh,parties.IN.SP,SP,47832,16547,14.42,src-1b7bc1c9d39a
-IN-AC-1976-bihar-306,bihar,1996,RANCHI,208878,115394,55.24,Chandreshwar Prasad Singh,parties.IN.BJP,BJP,46513,40.31,Jai Singh Yadav,parties.IN.JD,JD,39662,6851,5.94,src-1b7bc1c9d39a
-IN-AC-1976-bihar-32,bihar,1996,ZIRADEI,159000,84645,53.24,Sheo Shanker Yadav,parties.IN.JD,JD,39551,46.73,Dhruv Shanker Pd. Singh,parties.IN.BJP,BJP,37148,2403,2.84,src-1b7bc1c9d39a
-IN-AC-1976-bihar-37,bihar,1996,MASGRAKH,159028,82656,51.98,Tarkeshwer Singh,parties.IN.IND,IND,43851,53.05,Chandani Devi,parties.IN.JD,JD,21739,22112,26.75,src-1b7bc1c9d39a
-IN-AC-1976-bihar-65,bihar,1996,BELSAND,158734,91923,57.91,Vrishin Patel,parties.IN.SAP,SAP,33381,36.31,Nagendra Prasad Singh,parties.IN.JD,JD,31598,1783,1.94,src-1b7bc1c9d39a
-IN-AC-1976-bihar-94,bihar,1996,WARISNAGAR(SC),162754,87552,53.79,Bhikhar Baitha,parties.IN.JD,JD,29195,33.35,Sanjay Kumar Horaijan,parties.IN.BJP,BJP,27442,1753,2.01,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-bihar-132,bihar,1996,JOKIHAT,170377,108239,63.53,Sarfaraz,parties.IN.JD,JD,41932,38.74,Manjar Alam,parties.IN.SP,SP,29302,12630,11.67,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-176,bihar,1996,KATORIA,183101,88155,48.15,Bhola Prasad Yadav,parties.IN.JD,JD,46157,52.36,Upendra Prasad Choudhary,parties.IN.BJP,BJP,14279,31878,36.16,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-200,bihar,1996,HARNAUT,164152,113063,68.88,Arun Kumar Singh,parties.IN.SAP,SAP,62299,55.1,Shishu Ranjan,parties.IN.JD,JD,31085,31214,27.61,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-209,bihar,1996,DINAPUR,198466,74600,37.59,Vijay Singh Yadav,parties.IN.BJP,BJP,36704,49.2,Ramanand Yadav,parties.IN.JD,JD,36116,588,0.79,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-213,bihar,1996,PALIGANJ,212475,115704,54.46,Janardan Sharma,parties.IN.BJP,BJP,34037,29.42,Ashok Kumar Verma,parties.IN.JD,JD,30908,3129,2.71,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-223,bihar,1996,PIRO,167050,102531,61.38,Sivanand Tiwari,parties.IN.SAP,SAP,37383,36.46,Chandradeep Singh,parties.IN.CPIMLL,CPI(ML)(L),30717,6666,6.5,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-236,bihar,1996,NABINAGAR,184506,115983,62.86,Lovely Anand,parties.IN.SP,SP,56144,48.41,Bheem Kumar,parties.IN.JD,JD,48801,7343,6.33,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-254,bihar,1996,BARACHATTI(SC),170522,81343,47.7,Jeetan Ram Manjhee,parties.IN.JD,JD,41404,50.9,Krishna Paswan,parties.IN.BJP,BJP,27775,13629,16.75,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-26,bihar,1996,BAIKUNTHPUR,192384,114787,59.67,Deodat Prasad,parties.IN.JD,JD,64379,56.09,Braj Kishore Narayan Singh,parties.IN.SP,SP,47832,16547,14.42,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-306,bihar,1996,RANCHI,208878,115394,55.24,Chandreshwar Prasad Singh,parties.IN.BJP,BJP,46513,40.31,Jai Singh Yadav,parties.IN.JD,JD,39662,6851,5.94,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-32,bihar,1996,ZIRADEI,159000,84645,53.24,Sheo Shanker Yadav,parties.IN.JD,JD,39551,46.73,Dhruv Shanker Pd. Singh,parties.IN.BJP,BJP,37148,2403,2.84,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-37,bihar,1996,MASGRAKH,159028,82656,51.98,Tarkeshwer Singh,parties.IN.IND,IND,43851,53.05,Chandani Devi,parties.IN.JD,JD,21739,22112,26.75,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-65,bihar,1996,BELSAND,158734,91923,57.91,Vrishin Patel,parties.IN.SAP,SAP,33381,36.31,Nagendra Prasad Singh,parties.IN.JD,JD,31598,1783,1.94,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-94,bihar,1996,WARISNAGAR(SC),162754,87552,53.79,Bhikhar Baitha,parties.IN.JD,JD,29195,33.35,Sanjay Kumar Horaijan,parties.IN.BJP,BJP,27442,1753,2.01,src-1b7bc1c9d39a,minor,

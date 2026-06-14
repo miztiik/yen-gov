@@ -55,6 +55,7 @@ from pathlib import Path
 from typing import Any
 
 from yen_gov.canonical.csv_writer import write_csv
+from yen_gov.canonical.processing_quality import derive_processing
 from yen_gov.canonical.reingest.assembly_results import (
     NOTA_TOKENS,
     party_lookup_from_parties_csv,
@@ -188,6 +189,11 @@ def build_candidacy_rows_from_eci_legacy(
             continue
         position = _int_or_none(src.get("rank"))
         is_winner = (src.get("is_winner") or "").strip() == "1"
+        # PR (2026-06-14): see assembly_results.build_candidacy_rows for the
+        # processing_level + processing_note doctrine; UNK fall-through is
+        # the only fresh-write trigger for ``major``.
+        party_id_resolved = lookup.get(raw_party.upper()) or "parties.IN.UNK"
+        proc_level, proc_note = derive_processing(party_id_resolved, raw_party)
         rows.append(
             {
                 "entity_id": entity_id,
@@ -199,7 +205,7 @@ def build_candidacy_rows_from_eci_legacy(
                 # PR-3 (2026-06-10): every candidacy row carries a non-empty
                 # canonical party_id. See assembly_results.build_candidacy_rows
                 # for the rationale (mirror of party_resolver.SENTINELS['UNK']).
-                "party_id": lookup.get(raw_party.upper()) or "parties.IN.UNK",
+                "party_id": party_id_resolved,
                 "party_short_raw": raw_party or None,
                 "votes": _int_or_none(src.get("votes")) or 0,
                 "vote_share_pct": _float_or_none(src.get("vote_share_pct")),
@@ -218,6 +224,8 @@ def build_candidacy_rows_from_eci_legacy(
                 "profession": None,
                 "candidate_type": None,
                 "source_id": source_id,
+                "processing_level": proc_level,
+                "processing_note": proc_note,
             }
         )
     rows.sort(

@@ -1,18 +1,18 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-haryana-33,haryana,1980,33,BERI,A.SINGH,parties.IN.JNP_SC,JNP(SC),23174,51.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-33,haryana,1980,33,BERI,B.SINGH,parties.IN.INC_I,INC(I),20917,46.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-33,haryana,1980,33,BERI,R.KUMAR,parties.IN.IND,IND,359,0.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-33,haryana,1980,33,BERI,RAGHBIR,parties.IN.IND,IND,265,0.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-33,haryana,1980,33,BERI,I.SINGH,parties.IN.IND,IND,243,0.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-73,haryana,1980,73,BHATTU KALAN,R.SINGH,parties.IN.INC_I,INC(I),28107,55.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-73,haryana,1980,73,BHATTU KALAN,S.SINGH,parties.IN.JNP_SC,JNP(SC),18344,36.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-73,haryana,1980,73,BHATTU KALAN,N.SINGH,parties.IN.JNP_JP,JNP(JP),2528,5.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-73,haryana,1980,73,BHATTU KALAN,T.C.DHILLON,parties.IN.IND,IND,602,1.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-73,haryana,1980,73,BHATTU KALAN,J.C.MANJHU,parties.IN.IND,IND,369,0.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-73,haryana,1980,73,BHATTU KALAN,R.RICHHPAL,parties.IN.IND,IND,262,0.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-73,haryana,1980,73,BHATTU KALAN,H.SINGH,parties.IN.IND,IND,67,0.13,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-89,haryana,1980,89,ATELI,B.SINGH,parties.IN.INC_I,INC(I),35243,66.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-89,haryana,1980,89,ATELI,L.NARAIN,parties.IN.JNP_SC,JNP(SC),7575,14.38,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-89,haryana,1980,89,ATELI,R.SINGH,parties.IN.JP,JNP,6610,12.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-89,haryana,1980,89,ATELI,MURLINDHAR,parties.IN.BJP,BJP,2353,4.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-89,haryana,1980,89,ATELI,M.SHYAM,parties.IN.IND,IND,891,1.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-haryana-33,haryana,1980,33,BERI,A.SINGH,parties.IN.JNP_SC,JNP(SC),23174,51.55,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-33,haryana,1980,33,BERI,B.SINGH,parties.IN.INC_I,INC(I),20917,46.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-33,haryana,1980,33,BERI,R.KUMAR,parties.IN.IND,IND,359,0.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-33,haryana,1980,33,BERI,RAGHBIR,parties.IN.IND,IND,265,0.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-33,haryana,1980,33,BERI,I.SINGH,parties.IN.IND,IND,243,0.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-73,haryana,1980,73,BHATTU KALAN,R.SINGH,parties.IN.INC_I,INC(I),28107,55.9,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-73,haryana,1980,73,BHATTU KALAN,S.SINGH,parties.IN.JNP_SC,JNP(SC),18344,36.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-73,haryana,1980,73,BHATTU KALAN,N.SINGH,parties.IN.JNP_JP,JNP(JP),2528,5.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-73,haryana,1980,73,BHATTU KALAN,T.C.DHILLON,parties.IN.IND,IND,602,1.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-73,haryana,1980,73,BHATTU KALAN,J.C.MANJHU,parties.IN.IND,IND,369,0.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-73,haryana,1980,73,BHATTU KALAN,R.RICHHPAL,parties.IN.IND,IND,262,0.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-73,haryana,1980,73,BHATTU KALAN,H.SINGH,parties.IN.IND,IND,67,0.13,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-89,haryana,1980,89,ATELI,B.SINGH,parties.IN.INC_I,INC(I),35243,66.91,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-89,haryana,1980,89,ATELI,L.NARAIN,parties.IN.JNP_SC,JNP(SC),7575,14.38,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-89,haryana,1980,89,ATELI,R.SINGH,parties.IN.JP,JNP,6610,12.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-89,haryana,1980,89,ATELI,MURLINDHAR,parties.IN.BJP,BJP,2353,4.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-89,haryana,1980,89,ATELI,M.SHYAM,parties.IN.IND,IND,891,1.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
