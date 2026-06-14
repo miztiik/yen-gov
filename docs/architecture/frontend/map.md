@@ -205,12 +205,14 @@ Vite's `import.meta.glob` would let the bundler see the per-district shards at b
 
 ### Test coverage (CLAUDE.md §15)
 
-Four files in `frontend/src/lib/` + one in `frontend/src/contracts/`:
+Boundary frontend tests are consumer canaries, not corpus validation:
 
 - `boundaries.path.test.ts` (unit, ~18 tests) — pure resolver, no I/O. Asserts Hive-relative paths.
 - `boundaries.integration.test.ts` (integration, 9 tests) — `fetch` mocked at the loader's contract boundary (Holy Law #7 carve-out: the loader's contract IS the fetch boundary). Exercises path composition, 404-as-null, network-error-as-null, single-fetch-no-index-probe for villages.
-- `boundaries.contract.test.ts` (contract, ~46 tests) — round-trips `boundaryRelPath` against the on-disk TN village shards; samples first/middle/last features for join-key property presence.
-- `boundaries-conform.test.ts` in `frontend/src/contracts/` (T.0d) - every `**/*.geojson` under `boundaries/in/` matches a known Hive-shape pattern; legacy sidecar / index manifest survivors are gated to zero; `datasets/boundaries/boundary_layers.parquet` exists; the states layer carries its `State_LGD` join key.
+- `boundaries.contract.test.ts` (contract) - fixed resolver and loader canaries. It must not generate one assertion per boundary shard.
+- `boundaries-conform.test.ts` in `frontend/src/contracts/` (T.0d) - bounded canaries for Hive path grammar, legacy sidecar absence, ledger presence, states join key, and representative TopoJSON decode.
+- `state-panchayats-*.test.ts` and `state-wards-*.test.ts` - generated-registry freshness (`python tools/boundaries/generate_frontend_registry.py --check`) plus fixed sentinel entries from `frontend/src/lib/boundaries/generated-sources.ts`; they do not recursively read `datasets/boundaries/in/panchayats` or `datasets/boundaries/in/wards`.
+- `state-blocks-registry-coverage.test.ts` and `state-ac-registry-coverage.test.ts` - low-cardinality canaries. AC stays hand-authored because the Row-B encoding receipt covers `datasets/boundaries/in/**`, not `datasets/boundaries/electoral/**`.
 
 Full boundary gzip-budget checks live at the boundary tooling seam, not in frontend vitest. Run `python tools/boundaries/simplify.py --dry-run --skip-parquet` whenever a PR changes boundary geometry or simplification policy.
 
