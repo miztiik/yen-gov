@@ -371,3 +371,173 @@ def test_write_leadership_csv_upserts_on_pk(tmp_path: Path) -> None:
     assert rows_by_party["parties.IN.BJP"]["person_wikidata_qid"] == "Q3104873"
     assert rows_by_party["parties.IN.INC"]["person_name"] == "Mallikarjun Kharge"
     assert rows_by_party["parties.IN.AAP"]["role"] == "National Convenor"
+
+
+# ---------------------------------------------------------------------------
+# PR-9: live-fetch helpers (Wikipedia REST + Wikidata SPARQL).
+# ---------------------------------------------------------------------------
+#
+# The HTTP transport is stubbed via monkeypatch on the private _http_*
+# helpers. CLAUDE.md section 15 + 7 carve out mocks for genuinely-external
+# I/O boundaries; pinning the transport keeps the test deterministic and
+# offline while still exercising the request-shape + response-parse glue.
+
+
+def test_wikipedia_url_to_article_title_strips_prefix() -> None:
+    from yen_gov.sources.wikidata.party_leadership import (
+        _wikipedia_url_to_article_title,
+    )
+
+    assert (
+        _wikipedia_url_to_article_title(
+            "https://en.wikipedia.org/wiki/Aam_Aadmi_Party"
+        )
+        == "Aam_Aadmi_Party"
+    )
+    assert (
+        _wikipedia_url_to_article_title(
+            "https://en.wikipedia.org/wiki/Apna_Dal_(Sonelal)"
+        )
+        == "Apna_Dal_(Sonelal)"
+    )
+    # Non-Wikipedia URL or off-language wiki returns None.
+    assert _wikipedia_url_to_article_title("https://example.org/wiki/Foo") is None
+    assert (
+        _wikipedia_url_to_article_title("https://hi.wikipedia.org/wiki/Foo") is None
+    )
+    # Empty / None passthroughs.
+    assert _wikipedia_url_to_article_title("") is None
+
+
+def test_resolve_qids_caches_to_disk_and_skips_already_known(
+    tmp_path: Path, monkeypatch
+) -> None:
+    """Live-resolution helper writes the QID map atomically and re-runs
+    skip parties whose Q-id is already cached."""
+    from yen_gov.sources.wikidata import party_leadership as pl
+
+    cache_path = tmp_path / "qid-cache.json"
+
+    # Pre-populate cache with one entry; only the second party should be
+    # fetched on the next call.
+    cache_path.write_text(json.dumps({"Q748724": "parties.IN.BJP"}), encoding="utf-8")
+
+    calls: list[str] = []
+
+    def fake_get(url: str) -> dict:
+        calls.append(url)
+        # Return a minimal Wikipedia REST summary shape.
+        return {"wikibase_item": "Q129844"}
+
+    monkeypatch.setattr(pl, "_http_get_json", fake_get)
+    # Skip the polite sleep in tests.
+    monkeypatch.setattr(pl, "_INTER_REQUEST_SLEEP_SECS", 0.0)
+
+    result = pl.resolve_qids_from_wikipedia(
+        {
+            "parties.IN.BJP": "https://en.wikipedia.org/wiki/Bharatiya_Janata_Party",
+            "parties.IN.AAP": "https://en.wikipedia.org/wiki/Aam_Aadmi_Party",
+        },
+        cached_map_path=cache_path,
+    )
+
+    # BJP already cached -> 1 HTTP call (for AAP only).
+    assert len(calls) == 1
+    assert "Aam_Aadmi_Party" in calls[0]
+    assert result == {
+        "Q748724": "parties.IN.BJP",
+        "Q129844": "parties.IN.AAP",
+    }
+
+    # Cache file on disk reflects the merged map.
+    on_disk = json.loads(cache_path.read_text(encoding="utf-8"))
+    assert on_disk == {
+        "Q129844": "parties.IN.AAP",
+        "Q748724": "parties.IN.BJP",
+    }
+
+
+def test_resolve_qids_skips_404_and_missing_wikibase_item(
+    tmp_path: Path, monkeypatch
+) -> None:
+    """Wikipedia REST 404s and pages without a wikibase_item are skipped
+    silently — they do NOT abort the run nor poison the cache."""
+    import urllib.error
+
+    from yen_gov.sources.wikidata import party_leadership as pl
+
+    cache_path = tmp_path / "qid-cache.json"
+
+    def fake_get(url: str) -> dict:
+        if "GGP" in url:
+            raise urllib.error.HTTPError(
+                url, 404, "Not Found", hdrs=None, fp=None  # type: ignore[arg-type]
+            )
+        if "Bare" in url:
+            return {}  # no wikibase_item
+        return {"wikibase_item": "Q129844"}
+
+    monkeypatch.setattr(pl, "_http_get_json", fake_get)
+    monkeypatch.setattr(pl, "_INTER_REQUEST_SLEEP_SECS", 0.0)
+
+    result = pl.resolve_qids_from_wikipedia(
+        {
+            "parties.IN.AAP": "https://en.wikipedia.org/wiki/Aam_Aadmi_Party",
+            "parties.IN.GGP": "https://en.wikipedia.org/wiki/GGP_Stale",
+            "parties.IN.BARE": "https://en.wikipedia.org/wiki/Bare_Stub",
+        },
+        cached_map_path=cache_path,
+    )
+
+    # Only AAP resolved; GGP + BARE silently skipped.
+    assert result == {"Q129844": "parties.IN.AAP"}
+
+
+def test_fetch_sparql_snapshot_posts_query_and_writes_pretty_json(
+    tmp_path: Path, monkeypatch
+) -> None:
+    """The SPARQL POST helper builds a VALUES clause from the qids,
+    submits via the stubbed HTTP layer, and writes the JSON snapshot in
+    deterministic pretty form."""
+    from yen_gov.sources.wikidata import party_leadership as pl
+
+    captured: dict[str, object] = {}
+
+    def fake_post(url: str, fields: dict[str, str]) -> dict:
+        captured["url"] = url
+        captured["query"] = fields["query"]
+        return {
+            "head": {"vars": ["party"]},
+            "results": {
+                "bindings": [
+                    {
+                        "party": {
+                            "type": "uri",
+                            "value": "http://www.wikidata.org/entity/Q10230",
+                        }
+                    }
+                ]
+            },
+        }
+
+    monkeypatch.setattr(pl, "_http_post_form_json", fake_post)
+
+    out = tmp_path / "snapshot.json"
+    n = pl.fetch_sparql_snapshot(["Q10230", "Q10225", "Q129844"], out)
+
+    assert n == 1
+    assert captured["url"] == "https://query.wikidata.org/sparql"
+    # VALUES list is alphabetised so the snapshot is deterministic regardless
+    # of caller iteration order.
+    query = captured["query"]
+    assert isinstance(query, str)
+    assert "wd:Q10225 wd:Q10230 wd:Q129844" in query
+    # PreferredRank rank filter was deliberately dropped in PR-9 — the wider
+    # query covers the full term-shape history.
+    assert "wikibase:PreferredRank" not in query
+
+    # The snapshot file should be pretty-printed + sorted-keys so diffs
+    # across runs are deterministic.
+    on_disk = out.read_text(encoding="utf-8")
+    assert on_disk.endswith("\n")
+    assert "\n  " in on_disk  # indented JSON

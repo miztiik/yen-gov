@@ -54,6 +54,14 @@ datasets/ephemeral/pre-regen-parquet-snapshot/
 datasets/ephemeral/indiavotes-snapshots/
 .venv-parity/
 
+# PR-9 (Wikidata party-leadership snapshots): the SPARQL JSON response is
+# operator-fetched via `python -m yen_gov.sources.wikidata.party_leadership
+# snapshot`. The committed artefacts are datasets/data/entities/parties_leadership.csv
+# (the canonical store) + datasets/_ops/wikidata-party-qids.json (the
+# Wikipedia->Q-id resolution cache); the daily snapshot JSON itself is
+# throwaway local state.
+datasets/ephemeral/wikidata-party-leadership-*.json
+
 
 # TopoJSON converter idempotency sidecars (local-only; cross-worktree re-emit is cheap and deterministic).
 *.topojson.meta.json
