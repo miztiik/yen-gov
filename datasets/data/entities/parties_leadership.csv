@@ -1,1 +1,18 @@
 party_id,role,person_name,person_wikidata_qid,valid_from,valid_to,source_id
+parties.IN.BJD,President,Naveen Patnaik,Q1190856,1997-12-26,,src-631faac30c7d
+parties.IN.BJP,President,Amit Shah,Q4746875,2014-01-01,2020-01-01,src-631faac30c7d
+parties.IN.BJP,President,Jagat Prakash Nadda,Q16193764,2020-01-20,,src-631faac30c7d
+parties.IN.CPIM,President,M. A. Baby,Q12053082,2025-04-06,,src-631faac30c7d
+parties.IN.DMK,President,M. K. Stalin,Q983475,2018-01-01,,src-631faac30c7d
+parties.IN.INC,President,Sonia Gandhi,Q163225,2019-08-10,2022-10-26,src-631faac30c7d
+parties.IN.INC,President,Mallikarjun Kharge,Q6744197,2022-10-26,,src-631faac30c7d
+parties.IN.JKNC,President,Sheikh Muhammad Abdullah,Q983328,1939-01-01,1981-01-01,src-631faac30c7d
+parties.IN.JKNC,President,Farooq Abdullah,Q3517911,1981-01-01,2002-01-01,src-631faac30c7d
+parties.IN.JKNC,President,Omar Abdullah,Q2745305,2002-01-01,2009-01-01,src-631faac30c7d
+parties.IN.JKNC,President,Farooq Abdullah,Q3517911,2009-01-01,,src-631faac30c7d
+parties.IN.JKPDP,President,Mufti Mohammad Sayeed,Q6095720,1999-01-01,2016-01-01,src-631faac30c7d
+parties.IN.JKPDP,President,Mehbooba Mufti,Q6809265,2016-01-01,,src-631faac30c7d
+parties.IN.NPP,President,Conrad Sangma,Q5162596,2016-03-01,,src-631faac30c7d
+parties.IN.SHS,President,Uddhav Thackeray,Q3634346,2013-01-23,2022-10-10,src-631faac30c7d
+parties.IN.TDP,President,Nara Chandrababu Naidu,Q3518013,1995-01-01,,src-631faac30c7d
+parties.IN.TVK,President,C. Joseph Vijay,Q528496,2024-01-01,,src-631faac30c7d

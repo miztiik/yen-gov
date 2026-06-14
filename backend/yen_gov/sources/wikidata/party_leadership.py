@@ -24,8 +24,14 @@ Per PR-7 of TODO/20260613-party-deferred-followups-plan.md + Max 2a / 2d /
   * Position label: P39 (position held) qualifier carries the actual role
     name ("President", "General Secretary", "National Convenor"). Free-
     text - we do NOT enum-close ``role`` because Wikidata labels are open.
-  * Preferred rank only: ``wikibase:rank wikibase:PreferredRank`` filters
-    out historical statements that have been superseded.
+  * Preferred rank only: Originally the query carried a
+    ``wikibase:rank wikibase:PreferredRank`` filter to keep current
+    leaders only. PR-9 (2026-06-14) discovered that almost no Indian
+    party Wikidata items mark statements as preferred rank (5 of 75
+    parties resolved); dropping the filter widens to the full term-shape
+    history (past + present) which is what the leadership table needs.
+    The ``(party_id, valid_from)`` dedup in :func:`parse_sparql_fixture`
+    correctly handles same-person-under-both-P488-and-P3975 duplicates.
 
 The pinned SPARQL query shape (paste this into query.wikidata.org and save
 the JSON response in the ephemeral fixture path):
@@ -40,7 +46,6 @@ the JSON response in the ephemeral fixture path):
       OPTIONAL { ?stmt pq:P580 ?startTime. }
       OPTIONAL { ?stmt pq:P582 ?endTime. }
       OPTIONAL { ?stmt pq:P39 ?role. }
-      ?stmt wikibase:rank wikibase:PreferredRank.
       SERVICE wikibase:label {
         bd:serviceParam wikibase:language "en".
       }
@@ -70,6 +75,10 @@ from __future__ import annotations
 
 import csv
 import json
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Final, Iterable
@@ -303,3 +312,353 @@ def write_leadership_csv(
             writer.writerow(row)
 
     return len(ordered)
+
+
+# ---------------------------------------------------------------------------
+# PR-9: Live SPARQL snapshot (operator-named carve-out from Holy Law #1)
+# ---------------------------------------------------------------------------
+#
+# PR-9 of TODO/20260613-party-deferred-followups-plan.md (closure ledger
+# section 18 item 6). User explicitly authorised the live-fetch path:
+# "happy to relax cache doctrine". The operator runs this CLI locally
+# (NEVER in production / CI / GitHub Pages — they don't have a backend at
+# runtime per Holy Law #1); the committed artefact is the CSV.
+#
+# The Wikipedia summary REST API resolves an article URL to its
+# wikibase_item Q-id (one round-trip per party); the resulting Q-id map is
+# committed at datasets/_ops/wikidata-party-qids.json so subsequent
+# refreshes don't re-resolve already-known parties. The SPARQL query is
+# the same one documented in the module-level docstring.
+
+
+_WIKIDATA_SPARQL_URL: Final[str] = "https://query.wikidata.org/sparql"
+_WIKIPEDIA_SUMMARY_API: Final[str] = "https://en.wikipedia.org/api/rest_v1/page/summary"
+_USER_AGENT: Final[str] = (
+    "yen-gov/1.0 (https://github.com/miztiik/yen-gov; "
+    "Wikidata SPARQL operator-snapshot tool for party-leadership ingest)"
+)
+_HTTP_TIMEOUT_SECS: Final[int] = 60
+_INTER_REQUEST_SLEEP_SECS: Final[float] = 0.2  # be polite to en.wikipedia REST
+
+
+def _http_get_json(url: str) -> dict:
+    """GET a URL with the polite User-Agent header and return parsed JSON.
+
+    Raises ``urllib.error.HTTPError`` on non-2xx; the caller decides whether
+    to surface (default) or skip (the resolver swallows 404 because some
+    parties.csv ``wikipedia`` columns point at redirects or removed pages).
+    """
+    request = urllib.request.Request(url, headers={"User-Agent": _USER_AGENT})
+    with urllib.request.urlopen(request, timeout=_HTTP_TIMEOUT_SECS) as response:
+        return json.loads(response.read().decode("utf-8"))
+
+
+def _http_post_form_json(url: str, fields: dict[str, str]) -> dict:
+    """POST a form to a URL expecting JSON back; polite User-Agent + Accept."""
+    body = urllib.parse.urlencode(fields).encode("utf-8")
+    request = urllib.request.Request(
+        url,
+        data=body,
+        headers={
+            "User-Agent": _USER_AGENT,
+            "Accept": "application/sparql-results+json",
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+    )
+    with urllib.request.urlopen(request, timeout=_HTTP_TIMEOUT_SECS) as response:
+        return json.loads(response.read().decode("utf-8"))
+
+
+def _wikipedia_url_to_article_title(wikipedia_url: str) -> str | None:
+    """Extract the URL-encoded article title from an en.wikipedia.org URL.
+
+    Accepts the two forms parties.csv carries:
+    ``https://en.wikipedia.org/wiki/<Title>`` and
+    ``http://en.wikipedia.org/wiki/<Title>``. Returns ``None`` for any URL
+    that does not match the ``en.wikipedia.org/wiki/`` shape; the caller
+    skips and surfaces a warning.
+    """
+    if not wikipedia_url:
+        return None
+    parsed = urllib.parse.urlparse(wikipedia_url.strip())
+    if parsed.netloc not in ("en.wikipedia.org",):
+        return None
+    if not parsed.path.startswith("/wiki/"):
+        return None
+    return parsed.path[len("/wiki/") :]
+
+
+def resolve_qids_from_wikipedia(
+    wikipedia_urls_by_party_id: dict[str, str],
+    cached_map_path: Path | None = None,
+) -> dict[str, str]:
+    """Resolve each party_id -> Q-id via the Wikipedia summary REST API.
+
+    Args:
+        wikipedia_urls_by_party_id: ``{party_id: wikipedia_url}`` for every
+            party whose Wikipedia URL is populated.
+        cached_map_path: Optional path to a JSON file caching prior
+            resolutions as ``{"Q748724": "parties.IN.BJP"}``. When set and
+            the file exists, parties already in the cache (by party_id ->
+            Q-id reverse lookup) are skipped. Newly-resolved entries are
+            merged into the cache on disk after each successful fetch so a
+            mid-run abort still preserves prior work.
+
+    Returns:
+        ``{qid: party_id}`` map — same shape the parser expects. Includes
+        every cached + newly-resolved party. Parties whose Wikipedia URL
+        doesn't resolve (404 / no wikibase_item) are silently skipped (a
+        warning is printed to stderr).
+    """
+    import sys
+
+    # Load existing cache (qid -> party_id).
+    qid_to_party_id: dict[str, str] = {}
+    if cached_map_path is not None and cached_map_path.exists():
+        qid_to_party_id = json.loads(cached_map_path.read_text(encoding="utf-8"))
+
+    # Build reverse lookup so we can skip already-known parties without
+    # paying for another round-trip.
+    known_party_ids = set(qid_to_party_id.values())
+
+    to_resolve = {
+        pid: url
+        for pid, url in wikipedia_urls_by_party_id.items()
+        if pid not in known_party_ids
+    }
+    if not to_resolve:
+        return qid_to_party_id
+
+    print(
+        f"resolving {len(to_resolve)} new Wikipedia URL(s) to Q-ids "
+        f"(skipped {len(known_party_ids)} already cached) ...",
+        file=sys.stderr,
+    )
+
+    for party_id, wikipedia_url in sorted(to_resolve.items()):
+        article_title = _wikipedia_url_to_article_title(wikipedia_url)
+        if article_title is None:
+            print(
+                f"  skip {party_id}: not an en.wikipedia.org/wiki/ URL "
+                f"({wikipedia_url!r})",
+                file=sys.stderr,
+            )
+            continue
+
+        # URL-encode again so spaces and parens survive
+        api_url = f"{_WIKIPEDIA_SUMMARY_API}/{article_title}"
+        try:
+            payload = _http_get_json(api_url)
+        except urllib.error.HTTPError as exc:
+            print(
+                f"  skip {party_id}: Wikipedia REST API {exc.code} "
+                f"({api_url})",
+                file=sys.stderr,
+            )
+            continue
+
+        qid = payload.get("wikibase_item")
+        if not qid:
+            print(
+                f"  skip {party_id}: no wikibase_item on Wikipedia article "
+                f"({api_url})",
+                file=sys.stderr,
+            )
+            continue
+
+        qid_to_party_id[qid] = party_id
+        print(f"  resolved {party_id} -> {qid}", file=sys.stderr)
+
+        # Persist after each successful resolve so a mid-run abort keeps
+        # prior work.
+        if cached_map_path is not None:
+            cached_map_path.parent.mkdir(parents=True, exist_ok=True)
+            cached_map_path.write_text(
+                json.dumps(
+                    dict(sorted(qid_to_party_id.items())),
+                    indent=2,
+                    ensure_ascii=False,
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+
+        time.sleep(_INTER_REQUEST_SLEEP_SECS)
+
+    return qid_to_party_id
+
+
+def fetch_sparql_snapshot(qids: Iterable[str], output_path: Path) -> int:
+    """POST the documented SPARQL query for ``qids`` and write the JSON.
+
+    The query is the same as the module-level docstring example MINUS the
+    ``wikibase:PreferredRank`` filter. PR-9 (2026-06-14) discovered that
+    Wikidata's Indian-party leadership statements are almost never marked
+    as preferred rank; the filter dropped 75-party coverage to 5 bindings.
+    Dropping the filter widens to the full term-shape history (past +
+    present); the parser's ``(party_id, valid_from)`` dedup correctly
+    merges duplicate statements from the same person under both P488
+    (chairperson) + P3975 (general secretary).
+
+    Returns the number of bindings the SPARQL endpoint returned. Output
+    JSON is pretty-printed with sorted keys for deterministic diffs.
+    """
+    qid_clause = " ".join(f"wd:{qid}" for qid in sorted(qids))
+    query = (
+        "SELECT ?party ?partyLabel ?chief ?chiefLabel ?role ?roleLabel "
+        "?startTime ?endTime WHERE {\n"
+        f"  VALUES ?party {{ {qid_clause} }}\n"
+        "  ?party p:P488|p:P3975 ?stmt.\n"
+        "  ?stmt ps:P488|ps:P3975 ?chief.\n"
+        "  OPTIONAL { ?stmt pq:P580 ?startTime. }\n"
+        "  OPTIONAL { ?stmt pq:P582 ?endTime. }\n"
+        "  OPTIONAL { ?stmt pq:P39 ?role. }\n"
+        '  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }\n'
+        "}"
+    )
+
+    payload = _http_post_form_json(_WIKIDATA_SPARQL_URL, {"query": query})
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+
+    return len(payload.get("results", {}).get("bindings", []))
+
+
+def main(argv: list[str] | None = None) -> int:
+    """Operator CLI for the live-snapshot path (PR-9 carve-out).
+
+    Subcommands:
+      * ``resolve-qids``: read parties.csv, resolve each populated
+        wikipedia URL to a Q-id via the Wikipedia REST API, write/update
+        the Q-id map at ``datasets/_ops/wikidata-party-qids.json``.
+      * ``snapshot``: POST the SPARQL query with the resolved Q-ids, write
+        the JSON response under
+        ``datasets/ephemeral/wikidata-party-leadership-<YYYY-MM-DD>.json``.
+      * ``ingest``: parse a snapshot JSON via :func:`parse_sparql_fixture`
+        and write/upsert ``datasets/data/entities/parties_leadership.csv``.
+      * ``refresh``: all three in one go (the operator's happy path).
+    """
+    import argparse
+    import sys
+    from datetime import date
+
+    parser = argparse.ArgumentParser(
+        prog="python -m yen_gov.sources.wikidata.party_leadership",
+        description=(
+            "Operator CLI for the Wikidata party-leadership snapshot "
+            "(PR-9 carve-out per CLAUDE.md Holy Law #1 escape hatch)."
+        ),
+    )
+    parser.add_argument(
+        "--repo-root",
+        type=Path,
+        default=Path.cwd(),
+        help="Repo root (default: cwd). Used to locate parties.csv + write paths.",
+    )
+    subparsers = parser.add_subparsers(dest="command", required=True)
+    subparsers.add_parser("resolve-qids", help="Resolve wikipedia URLs -> Q-ids")
+    subparsers.add_parser("snapshot", help="POST SPARQL query, write JSON")
+    subparsers.add_parser(
+        "ingest", help="Parse latest snapshot JSON, write parties_leadership.csv"
+    )
+    subparsers.add_parser(
+        "refresh", help="resolve-qids + snapshot + ingest in one shot"
+    )
+
+    args = parser.parse_args(argv)
+    repo_root: Path = args.repo_root.resolve()
+
+    parties_csv = repo_root / "datasets" / "data" / "entities" / "parties.csv"
+    qid_map_path = repo_root / "datasets" / "_ops" / "wikidata-party-qids.json"
+    snapshot_dir = repo_root / "datasets" / "ephemeral"
+    snapshot_path = snapshot_dir / f"wikidata-party-leadership-{date.today().isoformat()}.json"
+    leadership_csv = repo_root / "datasets" / "data" / "entities" / "parties_leadership.csv"
+
+    # Deterministic source_id per ADR-0032 / ADR-0042.
+    # Producer + title + vintage are stable across snapshots; the snapshot
+    # WINDOW changes daily but the citation identity is the dataset, not the
+    # individual fetch (Wikidata is a continuously-edited wiki, so we cite
+    # the query + endpoint as a single ongoing source rather than per-day).
+    from yen_gov.canonical.citation import derive_source_id
+
+    source_id = derive_source_id(
+        producer="Wikimedia Foundation",
+        title=(
+            "Wikidata Query Service party leadership snapshot "
+            "(P488 chairperson + P3975 secretary general + P39 role qualifier + "
+            "P580 / P582 term bounds)"
+        ),
+        vintage="continuous",
+    )
+
+    if args.command in ("resolve-qids", "refresh"):
+        wiki_by_pid: dict[str, str] = {}
+        with parties_csv.open("r", encoding="utf-8", newline="") as handle:
+            for row in csv.DictReader(handle):
+                url = (row.get("wikipedia") or "").strip()
+                if url:
+                    wiki_by_pid[row["party_id"]] = url
+        print(f"parties.csv: {len(wiki_by_pid)} rows have wikipedia URLs", file=sys.stderr)
+        qid_to_party_id = resolve_qids_from_wikipedia(wiki_by_pid, qid_map_path)
+        print(
+            f"qid map ({qid_map_path.name}): {len(qid_to_party_id)} entries",
+            file=sys.stderr,
+        )
+
+    if args.command in ("snapshot", "refresh"):
+        if not qid_map_path.exists():
+            print(
+                f"ERROR: {qid_map_path} not found. Run `resolve-qids` first.",
+                file=sys.stderr,
+            )
+            return 2
+        qid_to_party_id = json.loads(qid_map_path.read_text(encoding="utf-8"))
+        bindings_count = fetch_sparql_snapshot(
+            qid_to_party_id.keys(), snapshot_path
+        )
+        print(
+            f"SPARQL snapshot: {bindings_count} bindings -> {snapshot_path.relative_to(repo_root)}",
+            file=sys.stderr,
+        )
+
+    if args.command in ("ingest", "refresh"):
+        if not qid_map_path.exists():
+            print(f"ERROR: {qid_map_path} not found.", file=sys.stderr)
+            return 2
+        qid_to_party_id = json.loads(qid_map_path.read_text(encoding="utf-8"))
+        # For `ingest`, find the most recent snapshot if not freshly fetched.
+        if not snapshot_path.exists():
+            candidates = sorted(snapshot_dir.glob("wikidata-party-leadership-*.json"))
+            if not candidates:
+                print(
+                    f"ERROR: no snapshot JSON found under {snapshot_dir}/. "
+                    f"Run `snapshot` first.",
+                    file=sys.stderr,
+                )
+                return 2
+            snapshot_path_to_read = candidates[-1]
+        else:
+            snapshot_path_to_read = snapshot_path
+        print(
+            f"ingest: reading {snapshot_path_to_read.relative_to(repo_root)}",
+            file=sys.stderr,
+        )
+        rows = parse_sparql_fixture(snapshot_path_to_read, qid_to_party_id, source_id)
+        written = write_leadership_csv(rows, leadership_csv)
+        print(
+            f"wrote {written} rows to {leadership_csv.relative_to(repo_root)} "
+            f"(from {len(rows)} parsed bindings after dedup)",
+            file=sys.stderr,
+        )
+
+    return 0
+
+
+if __name__ == "__main__":
+    import sys
+
+    sys.exit(main())

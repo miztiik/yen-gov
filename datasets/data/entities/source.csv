@@ -198,6 +198,7 @@ src-62ad755d363e,Wikipedia,List of political parties in India + per-party infobo
 src-62ae71639079,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Arunachal Pradesh, 2019",2019,
 src-62c198f8f7f2,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Manipur, 1980",1980,
 src-6308bd3d63d5,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Kerala, 1996",1996,
+src-631faac30c7d,Wikimedia Foundation,Wikidata Query Service party leadership snapshot (P488 chairperson + P3975 secretary general + P39 role qualifier + P580 / P582 term bounds),continuous,https://query.wikidata.org/sparql
 src-64ddaa273372,Wikipedia,List of Chief Ministers of Uttarakhand,operator-snapshot-2026-05,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Uttarakhand
 src-650b1c25d1f7,NITI Aayog India Climate & Energy Dashboard,"Distribution Operational Performance API (state-wise billing efficiency, collection efficiency, T&D losses)",2024-25,https://icedapi.niti.gov.in/energy/electricity/distribution/operationalPerformanceStates
 src-6591ed259187,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Tamil Nadu, 1984",1984,
@@ -247,6 +248,7 @@ src-7fbafbbf1777,Election Commission of India,"Statistical Report on General Ele
 src-80947ea0fc08,Wikipedia,List of Chief Ministers of Uttar Pradesh,operator-snapshot-2026-05,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Uttar_Pradesh
 src-80a8269260ff,Wikipedia,Mahayuti and Maha Vikas Aghadi - coalition members at the 2024 Maharashtra Legislative Assembly election,2024-11,https://en.wikipedia.org/wiki/2024_Maharashtra_Legislative_Assembly_election
 src-80f8486f3490,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Tamil Nadu, 1991",1991,
+src-8173e0235fc5,thecont1,india-votes-data,2026-06-11,https://raw.githubusercontent.com/thecont1/india-votes-data/main/data/csv/2024Assembly-MH.csv
 src-81f99a4321ae,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S05 AcGenFeb2017,AcGenFeb2017,
 src-8412f0292338,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of NCT of Delhi, 2008",2008,
 src-841460ac0eb1,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Gujarat, 1998",1998,
@@ -472,4 +474,3 @@ src-feaa0f5df7fd,Wikipedia,List of Chief Ministers of Uttar Pradesh,,https://en.
 src-ff0e2853d3c7,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Rajasthan, 1993",1993,
 src-ff4d01017475,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S18 AcGenJun2024,AcGenJun2024,https://www.eci.gov.in/eci-backend/public/all_files/AE-2024-statistical-report-OR/10-Detailed-Results.xlsx
 src-ff8f98360b1b,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Assam, 2001",2001,
-src-8173e0235fc5,thecont1,india-votes-data,2026-06-11,https://raw.githubusercontent.com/thecont1/india-votes-data/main/data/csv/2024Assembly-MH.csv
