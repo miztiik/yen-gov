@@ -41,6 +41,7 @@ function metaFixture(overrides: Partial<PartyMeta> = {}): PartyMeta {
     wikipedia: null,
     name_native_script: null,
     is_sentinel: false,
+    leader: null,
     ...overrides,
   };
 }

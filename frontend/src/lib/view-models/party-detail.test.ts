@@ -102,7 +102,10 @@ beforeEach(() => {
   stubMethodologyBreaksFetch();
 });
 
-/** Build a minimal PartyMeta for the loader mock. */
+/** Build a minimal PartyMeta for the loader mock. PR-11: includes
+ *  `leader: null` since the PartyMeta type now carries a leader field
+ *  populated by `loadPartyMeta` from parties_leadership.csv (default
+ *  null = no current leader on disk; the common case today). */
 function metaFixture(overrides: Partial<PartyMeta> = {}): PartyMeta {
   return {
     party_id: "parties.IN.DMK",
@@ -117,6 +120,7 @@ function metaFixture(overrides: Partial<PartyMeta> = {}): PartyMeta {
     wikipedia: "https://en.wikipedia.org/wiki/Dravida_Munnetra_Kazhagam",
     name_native_script: null,
     is_sentinel: false,
+    leader: null,
     ...overrides,
   };
 }

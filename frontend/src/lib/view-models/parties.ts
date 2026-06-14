@@ -32,6 +32,39 @@ const PARTIES_CSV_REL = "datasets/data/entities/parties.csv";
 /** Runtime URL the browser fetches via DuckDB-WASM HTTP-Range reads. */
 const PARTIES_CSV_URL = `${DATA_BASE}/data/entities/parties.csv`;
 
+/** PR-11 (TODO/20260613-party-deferred-followups-plan.md section 13):
+ *  parties_leadership.csv is the term-shape party-leadership register
+ *  shipped by PR-7+PR-9 (Wikidata SPARQL snapshot). The tooltip + the
+ *  per-party header read the CURRENT row per party (valid_to empty);
+ *  historic rows stay in the corpus for time-travel analysis but are
+ *  not surfaced today. */
+const LEADERSHIP_CSV_REL = "datasets/data/entities/parties_leadership.csv";
+const LEADERSHIP_CSV_URL = `${DATA_BASE}/data/entities/parties_leadership.csv`;
+
+/** Citizen-renderable shape for one party's current leader, projected
+ *  from the term-shape parties_leadership.csv row whose `valid_to` is
+ *  empty (= currently serving per the writer contract). */
+export interface PartyLeader {
+  /** Human-readable name as the publisher cites them, e.g.
+   *  "Mallikarjun Kharge". */
+  name: string;
+  /** Free-text role label per the parties_leadership.csv contract
+   *  (e.g. "President", "General Secretary", "National Convenor").
+   *  Wikidata position labels are open-ended so the column carries
+   *  no enum closure. */
+  role: string;
+  /** Wikidata Q-id when the publisher carries one (e.g. "Q6744197").
+   *  Null when the row was hand-curated without a Wikidata entry. */
+  person_wikidata_qid: string | null;
+  /** Term start in raw `YYYY-MM-DD` shape per the CSV. Citizen-facing
+   *  surfaces format this via `formatLeaderSince`; the raw string
+   *  stays on the type so consumers can render their own format
+   *  (Path-B decision per PR-11 brief: "since" date is per-leader
+   *  data the citizen cares about; no synthetic "as of <vintage>"
+   *  framing is plumbed). */
+  since: string;
+}
+
 /**
  * Citizen-readable identity metadata for one party row in
  * `datasets/data/entities/parties.csv`. Shape locked to the v1.1
@@ -84,6 +117,14 @@ export interface PartyMeta {
    *  truthy-looking founded_year for NOTA (2013 was the PUCL v Union
    *  of India ruling, not a party founding). */
   is_sentinel: boolean;
+  /** PR-11: current party leader (the parties_leadership.csv row with
+   *  empty `valid_to`) when one exists, else null. Null is the common
+   *  case today - the first Wikidata SPARQL snapshot bound only ~9 of
+   *  75 known party Q-ids (most Indian-party leadership graph is
+   *  genuinely sparse on Wikidata). Set by `loadPartyMeta`; the bulk
+   *  `loadAllPartiesMeta` Map carries `null` as a placeholder so the
+   *  /parties index page does not pay the leader-load cost. */
+  leader: PartyLeader | null;
 }
 
 /** Raw DuckDB row shape - mirrors parties.csv columns.json typed
@@ -130,7 +171,9 @@ function splitPipe(value: string | null | undefined): string[] {
 
 /** Project a raw DuckDB row into the typed `PartyMeta` shape. Pure;
  *  exported so the loader test can drive it against synthetic rows
- *  without going through DuckDB. */
+ *  without going through DuckDB. The `leader` field is a placeholder
+ *  here (`null`); `loadPartyMeta` merges in the resolved leader via
+ *  a parallel `loadCurrentLeaders` fetch. */
 export function toPartyMeta(row: RawPartiesRow): PartyMeta | null {
   const party_id = trimmedOrNull(row.party_id);
   if (!party_id) return null;
@@ -147,7 +190,132 @@ export function toPartyMeta(row: RawPartiesRow): PartyMeta | null {
     wikipedia: trimmedOrNull(row.wikipedia),
     name_native_script: trimmedOrNull(row.name_native_script),
     is_sentinel: row.is_sentinel === true,
+    leader: null,
   };
+}
+
+// --- PR-11: parties_leadership.csv loader --------------------------------
+
+/** Raw DuckDB row shape mirroring parties_leadership.csv columns.json
+ *  typed projection. Every column is `string | null` because the CSV
+ *  carries 7 string columns and DuckDB-WASM round-trips them as such. */
+interface RawLeadershipRow {
+  party_id: string | null;
+  role: string | null;
+  person_name: string | null;
+  person_wikidata_qid: string | null;
+  valid_from: string | null;
+  valid_to: string | null;
+  source_id: string | null;
+}
+
+/** Project a raw leadership row into a `PartyLeader` IFF the row is
+ *  CURRENT (`valid_to` empty / null per writer contract). Historic
+ *  rows return null; rows missing required fields (name / role /
+ *  valid_from) return null defensively. Pure; exported for vitest. */
+export function toCurrentLeader(row: RawLeadershipRow): PartyLeader | null {
+  // Historic rows (valid_to populated) MUST NOT surface as current.
+  if (trimmedOrNull(row.valid_to) !== null) return null;
+  const name = trimmedOrNull(row.person_name);
+  const role = trimmedOrNull(row.role);
+  const since = trimmedOrNull(row.valid_from);
+  if (!name || !role || !since) return null;
+  return {
+    name,
+    role,
+    person_wikidata_qid: trimmedOrNull(row.person_wikidata_qid),
+    since,
+  };
+}
+
+/** Module-level promise cache for the current-leaders Map; parallel
+ *  to `allPartiesPromise`. Reset by `__resetForTests`. */
+let currentLeadersPromise: Promise<Map<string, PartyLeader>> | null = null;
+
+async function fetchCurrentLeaders(): Promise<Map<string, PartyLeader>> {
+  await registerCsvFile(LEADERSHIP_CSV_URL);
+  const columnsClause = await csvColumnsClause(LEADERSHIP_CSV_REL);
+  // SQL-level current-row filter so the JS path only sees rows the
+  // projection is happy to keep. DuckDB-WASM treats empty CSV cells
+  // as NULL with the typed columns= projection; the `OR = ''` clause
+  // is belt-and-braces in case a future writer emits literal empty.
+  const rows = await query<RawLeadershipRow>(`
+    SELECT
+      party_id,
+      role,
+      person_name,
+      person_wikidata_qid,
+      valid_from,
+      valid_to,
+      source_id
+    FROM read_csv('${LEADERSHIP_CSV_URL}', ${columnsClause}, header=true)
+    WHERE valid_to IS NULL OR valid_to = ''
+  `);
+  const map = new Map<string, PartyLeader>();
+  for (const raw of rows) {
+    const party_id = trimmedOrNull(raw.party_id);
+    const leader = toCurrentLeader(raw);
+    if (party_id && leader) {
+      // PK on the CSV writer is `(party_id, valid_from)` so two
+      // current-rows for one party_id are impossible by contract.
+      // Defensive first-write-wins keeps the loader pure.
+      if (!map.has(party_id)) map.set(party_id, leader);
+    }
+  }
+  return map;
+}
+
+/** Bulk fetch the current-leader row per party from
+ *  parties_leadership.csv. Cached for the lifetime of the browser
+ *  tab; returns the SAME Promise on every call. */
+export function loadCurrentLeaders(): Promise<Map<string, PartyLeader>> {
+  if (!currentLeadersPromise) {
+    currentLeadersPromise = fetchCurrentLeaders().catch((err) => {
+      currentLeadersPromise = null;
+      throw err;
+    });
+  }
+  return currentLeadersPromise;
+}
+
+/** Per-key accessor for the current leader of one party. Returns
+ *  `null` when no current row exists (the common case today - most
+ *  parties have no Wikidata leadership binding). */
+export async function loadPartyLeader(
+  party_id: string | null | undefined,
+): Promise<PartyLeader | null> {
+  if (!party_id) return null;
+  const map = await loadCurrentLeaders();
+  return map.get(party_id) ?? null;
+}
+
+/** Citizen-friendly format for a `YYYY-MM-DD` term-start string from
+ *  the leadership CSV. Pure; exported so the tooltip + per-party
+ *  header + the vitest pin all agree on the rendered form. Falls
+ *  back to the raw input string when the shape is malformed (no
+ *  fabrication, no exception). */
+const MONTH_ABBR = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+] as const;
+export function formatLeaderSince(yyyymmdd: string): string {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(yyyymmdd);
+  if (!m) return yyyymmdd;
+  const year = m[1]!;
+  const month = parseInt(m[2]!, 10);
+  const day = parseInt(m[3]!, 10);
+  if (month < 1 || month > 12 || day < 1 || day > 31) return yyyymmdd;
+  return `${day} ${MONTH_ABBR[month - 1]} ${year}`;
 }
 
 /** Module-level promise cache. One `loadAllPartiesMeta()` invocation
@@ -206,13 +374,25 @@ export function loadAllPartiesMeta(): Promise<Map<string, PartyMeta>> {
 /** Resolve one party's identity metadata. Returns `null` for any
  *  party_id absent from parties.csv (including malformed input) -
  *  callers branch on truthiness. Cache-hits share the bulk Map; cold
- *  calls trigger the bulk fetch once. */
+ *  calls trigger the bulk fetch once.
+ *
+ *  PR-11: also merges in the current leader row (from
+ *  parties_leadership.csv) on the returned object via a parallel
+ *  `loadCurrentLeaders` fetch. The bulk-Map values keep
+ *  `leader: null` so /parties index consumers do not pay the
+ *  leader-load cost; only per-key callers (PartyTooltip,
+ *  party-detail) trigger the second fetch. */
 export async function loadPartyMeta(
   party_id: string | null | undefined,
 ): Promise<PartyMeta | null> {
   if (!party_id) return null;
-  const map = await loadAllPartiesMeta();
-  return map.get(party_id) ?? null;
+  const [partiesMap, leadersMap] = await Promise.all([
+    loadAllPartiesMeta(),
+    loadCurrentLeaders(),
+  ]);
+  const meta = partiesMap.get(party_id);
+  if (!meta) return null;
+  return { ...meta, leader: leadersMap.get(party_id) ?? null };
 }
 
 /** Test-only cache reset. NOT exported from index.ts; consumed by the
@@ -220,6 +400,7 @@ export async function loadPartyMeta(
 export function __resetForTests(): void {
   allPartiesPromise = null;
   allPartySummariesPromise = null;
+  currentLeadersPromise = null;
 }
 
 // --- PR-3: parties index summary ------------------------------------------

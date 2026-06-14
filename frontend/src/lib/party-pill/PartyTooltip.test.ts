@@ -40,6 +40,7 @@ function mkMeta(overrides: Partial<PartyMeta> = {}): PartyMeta {
     wikipedia: "https://en.wikipedia.org/wiki/Bharatiya_Janata_Party",
     name_native_script: null,
     is_sentinel: false,
+    leader: null,
     ...overrides,
   };
 }
