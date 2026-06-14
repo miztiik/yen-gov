@@ -23,8 +23,13 @@ vi.mock("./parties", () => ({
   loadPartyMeta: vi.fn(),
 }));
 
+vi.mock("./party-current-strength", () => ({
+  loadPartyCurrentStrength: vi.fn(),
+}));
+
 import { query, registerCsvFile } from "../duckdb";
 import { loadPartyMeta, type PartyMeta } from "./parties";
+import { loadPartyCurrentStrength } from "./party-current-strength";
 import {
   __resetForTests,
   bodyForPeriodLabel,
@@ -43,6 +48,7 @@ import {
 const mockedQuery = vi.mocked(query);
 const mockedRegisterCsvFile = vi.mocked(registerCsvFile);
 const mockedLoadPartyMeta = vi.mocked(loadPartyMeta);
+const mockedLoadPartyCurrentStrength = vi.mocked(loadPartyCurrentStrength);
 
 /** Stub the global `fetch` used by `fetchLsMethodologyBreaks` so the
  *  view-model loader doesn't hit the network during tests. Each test
@@ -99,6 +105,11 @@ beforeEach(() => {
   mockedRegisterCsvFile.mockReset();
   mockedRegisterCsvFile.mockResolvedValue(undefined);
   mockedLoadPartyMeta.mockReset();
+  mockedLoadPartyCurrentStrength.mockReset();
+  // Default: the strip loader returns null so existing tests that
+  // only stub the 2 detail-loader queries (history + strongholds)
+  // don't have to absorb the strip loader's 2 extra parallel queries.
+  mockedLoadPartyCurrentStrength.mockResolvedValue(null);
   stubMethodologyBreaksFetch();
 });
 
@@ -727,5 +738,66 @@ describe("loadPartyDetail", () => {
     expect(out!.vs_strongholds[0]!.entity_id).toBe("IN-S99-AC-2008-1");
     expect(out!.vs_strongholds[0]!.constituency_name).toBe("");
     expect(out!.vs_strongholds[0]!.state).toBe("");
+  });
+
+  // PR-7b: the Current Strength strip view-model is plumbed in
+  // parallel with the existing history / strongholds reads. The
+  // detail loader surfaces whatever the strip loader returns -
+  // typically a populated `PartyCurrentStrength` for live parties
+  // and `null` for sentinels (NOTA / UNK). This test pins both
+  // the populated path and the suppression path.
+  it("surfaces current_strength from the strip loader on the view-model", async () => {
+    mockedLoadPartyMeta.mockResolvedValue(metaFixture());
+    mockedQuery.mockResolvedValue([]);
+    mockedLoadPartyCurrentStrength.mockResolvedValue({
+      parliament_latest: {
+        year: 2024,
+        event_id: "general-2024",
+        month_label: "Jun 2024",
+        seats_won: 22,
+        seats_total: 543,
+        vote_share_pct: 26.7,
+        rank_label: null,
+      },
+      state_assemblies_latest: {
+        seats_won: 133,
+        seats_total: 234,
+        state_count: 1,
+        latest_event_label: "Tamil Nadu State Assembly, Apr 2021",
+        latest_event_sort_key: "2021-04",
+      },
+      last_contested_label: "Parliament General Election, Jun 2024",
+    });
+    const out = await loadPartyDetail("parties.IN.DMK");
+    expect(out).not.toBeNull();
+    expect(out!.current_strength).not.toBeNull();
+    expect(out!.current_strength!.parliament_latest!.seats_won).toBe(22);
+    expect(out!.current_strength!.state_assemblies_latest!.state_count).toBe(1);
+    expect(out!.current_strength!.last_contested_label).toBe(
+      "Parliament General Election, Jun 2024",
+    );
+    expect(mockedLoadPartyCurrentStrength).toHaveBeenCalledWith(
+      "parties.IN.DMK",
+      expect.objectContaining({ is_sentinel: false }),
+    );
+  });
+
+  it("surfaces current_strength=null for sentinel parties (NOTA / UNK)", async () => {
+    mockedLoadPartyMeta.mockResolvedValue(metaFixture({
+      party_id: "parties.IN.NOTA",
+      short: "NOTA",
+      full: "None of the Above",
+      is_sentinel: true,
+      recognition_scope: "sentinel",
+      founded_year: 2013,
+    }));
+    mockedQuery.mockResolvedValue([]);
+    mockedLoadPartyCurrentStrength.mockResolvedValue(null);
+    const out = await loadPartyDetail("parties.IN.NOTA");
+    expect(out!.current_strength).toBeNull();
+    expect(mockedLoadPartyCurrentStrength).toHaveBeenCalledWith(
+      "parties.IN.NOTA",
+      expect.objectContaining({ is_sentinel: true }),
+    );
   });
 });
