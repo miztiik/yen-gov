@@ -104,6 +104,86 @@ describe("toPartyMeta", () => {
     expect(meta!.home_state_codes).toEqual(["IN-BR", "IN-HR"]);
   });
 
+  // PR-6: per-party AboutCard uses splitPipe-decoded aliases +
+  // predecessor / successor lists. Verify the loader explodes each
+  // raw VARCHAR column into a string[] (the splitPipe helper handles
+  // null / empty-string / single / multi cases uniformly).
+  it("splits pipe-delimited aliases into a string[]", () => {
+    const meta = toPartyMeta({
+      party_id: "parties.IN.AAAP",
+      short: "AAAP",
+      full: "Aapki Apni Adhikar Party",
+      founded_year: null,
+      dissolved_year: null,
+      recognition_scope: null,
+      home_state_codes: null,
+      symbol_asset: null,
+      brand_colour: null,
+      wikipedia: null,
+      name_native_script: null,
+      is_sentinel: null,
+      aliases: "AAAAP|AAAP",
+    });
+    expect(meta!.aliases).toEqual(["AAAAP", "AAAP"]);
+  });
+
+  it("defaults aliases / predecessor / successor to [] when null or absent", () => {
+    const meta = toPartyMeta({
+      party_id: "parties.IN.AAP",
+      short: "AAP",
+      full: "Aam Aadmi Party",
+      founded_year: 2012,
+      dissolved_year: null,
+      recognition_scope: "national",
+      home_state_codes: null,
+      symbol_asset: null,
+      brand_colour: null,
+      wikipedia: null,
+      name_native_script: null,
+      is_sentinel: null,
+      aliases: null,
+      predecessor_party_ids: null,
+      successor_party_ids: null,
+    });
+    expect(meta!.aliases).toEqual([]);
+    expect(meta!.predecessor_party_ids).toEqual([]);
+    expect(meta!.successor_party_ids).toEqual([]);
+  });
+
+  it("splits pipe-delimited predecessor_party_ids + successor_party_ids", () => {
+    // Janata Party (1977-1988) merged from a coalition of regional
+    // parties and broke up into BJP + JD + SAMAJ. Verify both sides
+    // of the lineage split correctly.
+    const meta = toPartyMeta({
+      party_id: "parties.IN.JP",
+      short: "JP",
+      full: "Janata Party",
+      founded_year: 1977,
+      dissolved_year: 1988,
+      recognition_scope: "defunct",
+      home_state_codes: null,
+      symbol_asset: null,
+      brand_colour: null,
+      wikipedia: null,
+      name_native_script: null,
+      is_sentinel: null,
+      predecessor_party_ids:
+        "parties.IN.BJS|parties.IN.INC_O|parties.IN.BLD|parties.IN.SP",
+      successor_party_ids: "parties.IN.BJP|parties.IN.JD|parties.IN.SAMAJ",
+    });
+    expect(meta!.predecessor_party_ids).toEqual([
+      "parties.IN.BJS",
+      "parties.IN.INC_O",
+      "parties.IN.BLD",
+      "parties.IN.SP",
+    ]);
+    expect(meta!.successor_party_ids).toEqual([
+      "parties.IN.BJP",
+      "parties.IN.JD",
+      "parties.IN.SAMAJ",
+    ]);
+  });
+
   it("coerces bigint founded_year (DuckDB BIGINT round-trip) to number", () => {
     const meta = toPartyMeta({
       party_id: "parties.IN.AAP",
