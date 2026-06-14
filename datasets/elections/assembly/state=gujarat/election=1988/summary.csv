@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-gujarat-31,gujarat,1988,DWARKA,96837,46940,48.47,V.R.NATHABHAI,parties.IN.INC,INC,19847,42.28,G.K.DEVA,parties.IN.JP,JNP,12240,7607,16.2,src-1b7bc1c9d39a,minor,
-IN-AC-1976-gujarat-41,gujarat,1988,MALIYA,103066,64908,62.98,S.D.SAMANTBHAI,parties.IN.BJP,BJP,41503,63.94,P.J.MALDEBHAI,parties.IN.INC,INC,21698,19805,30.51,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-31,gujarat,1988,DWARKA,96837,46940,48.47,V.R.NATHABHAI,parties.IN.INC,INC,19847,42.28,G.K.DEVA,parties.IN.JP,JNP,12240,7607,16.2,src-0c1b8f274551,minor,
+IN-AC-1976-gujarat-41,gujarat,1988,MALIYA,103066,64908,62.98,S.D.SAMANTBHAI,parties.IN.BJP,BJP,41503,63.94,P.J.MALDEBHAI,parties.IN.INC,INC,21698,19805,30.51,src-0c1b8f274551,minor,

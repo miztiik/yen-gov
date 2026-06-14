@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-west-bengal-157,west-bengal,2003,VIDYASAGAR,99342,66748,67.19,ANADI KUMAR SAHU,parties.IN.CPIM,CPM,42321,63.4,MAHUA MONDAL,parties.IN.INC,INC,19492,22829,34.2,src-1b7bc1c9d39a,minor,
-IN-AC-1976-west-bengal-179,west-bengal,2003,UTTARPARA,195575,135490,69.28,J.Krishna Chattopadhyay,parties.IN.CPIM,CPM,66826,49.32,Indrajit Ghosh (PABA),parties.IN.AITC,AITC,50648,16178,11.94,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-157,west-bengal,2003,VIDYASAGAR,99342,66748,67.19,ANADI KUMAR SAHU,parties.IN.CPIM,CPM,42321,63.4,MAHUA MONDAL,parties.IN.INC,INC,19492,22829,34.2,src-0c1b8f274551,minor,
+IN-AC-1976-west-bengal-179,west-bengal,2003,UTTARPARA,195575,135490,69.28,J.Krishna Chattopadhyay,parties.IN.CPIM,CPM,66826,49.32,Indrajit Ghosh (PABA),parties.IN.AITC,AITC,50648,16178,11.94,src-0c1b8f274551,minor,

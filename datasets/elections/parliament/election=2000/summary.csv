@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-PC-1976-karnataka-5,karnataka,2000,BELLARY,1238477,489797,39.55,Kolur Basavanagoud,parties.IN.INC,INC,259851,53.05,K.S. Veerabhadrappa,parties.IN.BJP,BJP,163831,96020,19.6,src-31c65dbec869,minor,
-IN-PC-1976-odisha-10,odisha,2000,ASKA,1176003,409956,34.86,Kumudini Patnaik,parties.IN.BJD,BJD,288240,70.31,Umakanta Mishra,parties.IN.INC,INC,108767,179473,43.78,src-31c65dbec869,minor,
-IN-PC-1976-rajasthan-7,rajasthan,2000,DAUSA,1265248,669984,52.95,Rama Pilot,parties.IN.INC,INC,349439,52.16,R.K.Sharma,parties.IN.BJP,BJP,284175,65264,9.74,src-31c65dbec869,minor,
-IN-PC-1976-uttar-pradesh-67,uttar-pradesh,2000,KANNAUJ,1155230,710067,61.47,Akhilesh Yadav,parties.IN.SP,SP,306054,43.1,Akbar Ahmad Dumpy,parties.IN.BSP,BSP,247329,58725,8.27,src-31c65dbec869,minor,
-IN-PC-1976-west-bengal-29,west-bengal,2000,PANSKURA,1007395,841204,83.5,Dr. Bikram Sarkar,parties.IN.AITC,AITC,426779,50.73,Gurudas Dasgupta,parties.IN.CPI,CPI,385298,41481,4.93,src-31c65dbec869,minor,
+IN-PC-1976-karnataka-5,karnataka,2000,BELLARY,1238477,489797,39.55,Kolur Basavanagoud,parties.IN.INC,INC,259851,53.05,K.S. Veerabhadrappa,parties.IN.BJP,BJP,163831,96020,19.6,src-d4b15132ad0e,minor,
+IN-PC-1976-odisha-10,odisha,2000,ASKA,1176003,409956,34.86,Kumudini Patnaik,parties.IN.BJD,BJD,288240,70.31,Umakanta Mishra,parties.IN.INC,INC,108767,179473,43.78,src-d4b15132ad0e,minor,
+IN-PC-1976-rajasthan-7,rajasthan,2000,DAUSA,1265248,669984,52.95,Rama Pilot,parties.IN.INC,INC,349439,52.16,R.K.Sharma,parties.IN.BJP,BJP,284175,65264,9.74,src-d4b15132ad0e,minor,
+IN-PC-1976-uttar-pradesh-67,uttar-pradesh,2000,KANNAUJ,1155230,710067,61.47,Akhilesh Yadav,parties.IN.SP,SP,306054,43.1,Akbar Ahmad Dumpy,parties.IN.BSP,BSP,247329,58725,8.27,src-d4b15132ad0e,minor,
+IN-PC-1976-west-bengal-29,west-bengal,2000,PANSKURA,1007395,841204,83.5,Dr. Bikram Sarkar,parties.IN.AITC,AITC,426779,50.73,Gurudas Dasgupta,parties.IN.CPI,CPI,385298,41481,4.93,src-d4b15132ad0e,minor,

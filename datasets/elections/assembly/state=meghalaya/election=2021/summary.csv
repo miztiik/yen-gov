@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-2008-meghalaya-1671,meghalaya,2021,MAWPHLANG,33208,27474,82.73,EUGENESON LYNGDOH,parties.IN.UDP,United Democratic Party,13285,48.35,KENNEDY CORNELIUS KHYRIEM,parties.IN.INC,INC,8884,4401,16.01,src-1b7bc1c9d39a,minor,
-IN-AC-2008-meghalaya-1672,meghalaya,2021,MAWRYNGKNENG,36820,28875,78.42,PYNIAID SING SYIEM,parties.IN.NPP,NPP,14177,49.1,HIGHLANDER KHARMALKI,parties.IN.INC,INC,12361,1816,6.29,src-1b7bc1c9d39a,minor,
-IN-AC-2008-meghalaya-1709,meghalaya,2021,RAJABALA,32890,29729,90.39,MD. ABDUS SALEH,parties.IN.NPP,NPP,11823,39.77,HASHINA YASMIN MONDAL,parties.IN.INC,INC,9897,1926,6.48,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1671,meghalaya,2021,MAWPHLANG,33208,27474,82.73,EUGENESON LYNGDOH,parties.IN.UDP,United Democratic Party,13285,48.35,KENNEDY CORNELIUS KHYRIEM,parties.IN.INC,INC,8884,4401,16.01,src-0c1b8f274551,minor,
+IN-AC-2008-meghalaya-1672,meghalaya,2021,MAWRYNGKNENG,36820,28875,78.42,PYNIAID SING SYIEM,parties.IN.NPP,NPP,14177,49.1,HIGHLANDER KHARMALKI,parties.IN.INC,INC,12361,1816,6.29,src-0c1b8f274551,minor,
+IN-AC-2008-meghalaya-1709,meghalaya,2021,RAJABALA,32890,29729,90.39,MD. ABDUS SALEH,parties.IN.NPP,NPP,11823,39.77,HASHINA YASMIN MONDAL,parties.IN.INC,INC,9897,1926,6.48,src-0c1b8f274551,minor,

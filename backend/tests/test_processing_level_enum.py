@@ -134,3 +134,73 @@ def test_derive_processing_enum_membership(
     level, _ = derive_processing(party_id, short_raw)
     assert level in _VALID_LEVELS
     assert level == expected_level
+
+
+def _load_backfill_summary_tags():
+    """Import the segment-aware summary classifier from
+    ``tools/backfill_processing_level.py`` without making ``tools``
+    importable globally. Stays inside ``tmp_path``-style discipline by
+    importing through a local path lookup."""
+    import importlib.util
+
+    repo_root = Path(__file__).resolve().parents[2]
+    module_path = repo_root / "tools" / "backfill_processing_level.py"
+    spec = importlib.util.spec_from_file_location(
+        "_backfill_processing_level_under_test", module_path,
+    )
+    assert spec is not None and spec.loader is not None, (
+        f"could not load module spec from {module_path}"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_tcpd_sourced_ls_summary_rows_tag_major(tmp_path: Path) -> None:
+    """Parliament-chamber summary rows for the TCPD-sourced LS years
+    (1999, 2004, 2009, 2014, 2019) flip from ``minor`` to ``major`` with
+    the segment-aggregation note. Assembly chamber AND parliament 2024+
+    stay ``minor``. UNK rows still win over the segment override.
+
+    Exercised via the backfill helper's ``_expected_summary_tags`` directly
+    (no real-corpus walk per CLAUDE.md section 10 anti-pattern; the Tier-B
+    validator + the parity oracle in
+    ``test_summary_equals_recompute_candidacies.py`` cover the on-disk
+    cross-product)."""
+
+    backfill = _load_backfill_summary_tags()
+    inc_row = {"winner_party_id": "parties.IN.INC", "winner_party_short_raw": "INC"}
+    unk_row = {"winner_party_id": UNK_PARTY_ID, "winner_party_short_raw": "MYSTERY"}
+
+    # All five TCPD LS years -> major + segment note.
+    for year in ("1999", "2004", "2009", "2014", "2019"):
+        level, note = backfill._expected_summary_tags(
+            inc_row, chamber="parliament", election_year=year,
+        )
+        assert level == "major", f"parliament {year} INC should flip to major"
+        assert "TCPD All_States_GA.csv" in note
+        assert "AC-segment aggregation" in note
+
+    # 2024 onward stays minor (direct-PC TCPD CSV is published).
+    level_2024, note_2024 = backfill._expected_summary_tags(
+        inc_row, chamber="parliament", election_year="2024",
+    )
+    assert level_2024 == "minor"
+    assert note_2024 == ""
+
+    # Assembly chamber never flips, even for TCPD LS years.
+    for year in ("1999", "2004", "2009", "2014", "2019"):
+        level, note = backfill._expected_summary_tags(
+            inc_row, chamber="assembly", election_year=year,
+        )
+        assert level == "minor", f"assembly {year} INC must NOT flip to major"
+        assert note == ""
+
+    # UNK winner gate still wins over the segment override.
+    level_unk, note_unk = backfill._expected_summary_tags(
+        unk_row, chamber="parliament", election_year="2009",
+    )
+    assert level_unk == "major"
+    assert "MYSTERY" in note_unk
+    assert "unk-ledger" in note_unk
+    assert "TCPD All_States_GA.csv" not in note_unk

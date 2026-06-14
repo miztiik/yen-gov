@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-kerala-65,kerala,1994,GURUVAYOOR,130049,74373,57.19,P T KUNHUMOHAMMED,parties.IN.IND,IND,32560,43.78,ABDU SAMAD SAMADANI,parties.IN.IUML,IUML,30508,2052,2.76,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-65,kerala,1994,GURUVAYOOR,130049,74373,57.19,P T KUNHUMOHAMMED,parties.IN.IND,IND,32560,43.78,ABDU SAMAD SAMADANI,parties.IN.IUML,IUML,30508,2052,2.76,src-0c1b8f274551,minor,

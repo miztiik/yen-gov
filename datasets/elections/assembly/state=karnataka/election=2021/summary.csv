@@ -1,5 +1,5 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-2008-karnataka-3511,karnataka,2021,BASAVAKALYAN,239782,147432,61.49,SHARANU SALAGAR,parties.IN.BJP,BJP,71012,48.17,MALA B NARAYANRAO,parties.IN.INC,INC,50383,20629,14,src-1b7bc1c9d39a,minor,
-IN-AC-2008-karnataka-3524,karnataka,2021,SINDGI,234584,163782,69.82,BHUSANUR RAMESH BALAPPA,parties.IN.BJP,BJP,93865,57.31,ASHOK. MALLAPPA. MANAGULI,parties.IN.INC,INC,62680,31185,19.04,src-1b7bc1c9d39a,minor,
-IN-AC-2008-karnataka-3599,karnataka,2021,HANGAL,204564,171726,83.95,MANE SHRINIVAS,parties.IN.INC,INC,87490,50.95,SHIVARAJ SHARANAPPA SAJJANAR,parties.IN.BJP,BJP,80117,7373,4.3,src-1b7bc1c9d39a,minor,
-IN-AC-2008-karnataka-3617,karnataka,2021,MASKI,206429,145663,70.56,BASANAGOUDA TURUVIHAL,parties.IN.INC,INC,86337,59.27,PRATAP GOUDA PATIL,parties.IN.BJP,BJP,55731,30606,21.01,src-1b7bc1c9d39a,minor,
+IN-AC-2008-karnataka-3511,karnataka,2021,BASAVAKALYAN,239782,147432,61.49,SHARANU SALAGAR,parties.IN.BJP,BJP,71012,48.17,MALA B NARAYANRAO,parties.IN.INC,INC,50383,20629,14,src-0c1b8f274551,minor,
+IN-AC-2008-karnataka-3524,karnataka,2021,SINDGI,234584,163782,69.82,BHUSANUR RAMESH BALAPPA,parties.IN.BJP,BJP,93865,57.31,ASHOK. MALLAPPA. MANAGULI,parties.IN.INC,INC,62680,31185,19.04,src-0c1b8f274551,minor,
+IN-AC-2008-karnataka-3599,karnataka,2021,HANGAL,204564,171726,83.95,MANE SHRINIVAS,parties.IN.INC,INC,87490,50.95,SHIVARAJ SHARANAPPA SAJJANAR,parties.IN.BJP,BJP,80117,7373,4.3,src-0c1b8f274551,minor,
+IN-AC-2008-karnataka-3617,karnataka,2021,MASKI,206429,145663,70.56,BASANAGOUDA TURUVIHAL,parties.IN.INC,INC,86337,59.27,PRATAP GOUDA PATIL,parties.IN.BJP,BJP,55731,30606,21.01,src-0c1b8f274551,minor,

@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-madhya-pradesh-141,madhya-pradesh,2000,RAJIM,147760,96741,65.47,Amitesh Shukla,parties.IN.INC,INC,51309,53.04,Dr. Neena Singh,parties.IN.BJP,BJP,39942,11367,11.75,src-1b7bc1c9d39a,minor,
-IN-AC-1976-madhya-pradesh-179,madhya-pradesh,2000,KIRNAPUR,112717,75613,67.08,Pushplata Likhiram Kawre,parties.IN.INC,INC,40061,52.98,Bhuvanlal Parthi,parties.IN.BJP,BJP,17851,22210,29.37,src-1b7bc1c9d39a,minor,
-IN-AC-1976-madhya-pradesh-196,madhya-pradesh,2000,JABALPURCENTRAL,102367,44690,43.66,Naresh Saraf,parties.IN.INC,INC,24009,53.72,Anaro Devi Onkar Tiwari,parties.IN.BJP,BJP,13910,10099,22.59,src-1b7bc1c9d39a,minor,
-IN-AC-1976-madhya-pradesh-209,madhya-pradesh,2000,LAKHANDON(ST),133192,81406,61.12,Beni Parte,parties.IN.INC,INC,47538,58.4,Rampyare Kulste,parties.IN.BJP,BJP,22546,24992,30.7,src-1b7bc1c9d39a,minor,
-IN-AC-1976-madhya-pradesh-245,madhya-pradesh,2000,BHOJPUR,174168,92299,52.99,Naresh Singh Patel,parties.IN.BJP,BJP,42800,46.37,Shaligram Vakeel,parties.IN.INC,INC,39761,3039,3.29,src-1b7bc1c9d39a,minor,
-IN-AC-1976-madhya-pradesh-85,madhya-pradesh,2000,SUHAGPUR,178860,90609,50.66,Shabnam Mousi,parties.IN.IND,IND,39937,44.08,Lallu Singh,parties.IN.BJP,BJP,22074,17863,19.72,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-141,madhya-pradesh,2000,RAJIM,147760,96741,65.47,Amitesh Shukla,parties.IN.INC,INC,51309,53.04,Dr. Neena Singh,parties.IN.BJP,BJP,39942,11367,11.75,src-0c1b8f274551,minor,
+IN-AC-1976-madhya-pradesh-179,madhya-pradesh,2000,KIRNAPUR,112717,75613,67.08,Pushplata Likhiram Kawre,parties.IN.INC,INC,40061,52.98,Bhuvanlal Parthi,parties.IN.BJP,BJP,17851,22210,29.37,src-0c1b8f274551,minor,
+IN-AC-1976-madhya-pradesh-196,madhya-pradesh,2000,JABALPURCENTRAL,102367,44690,43.66,Naresh Saraf,parties.IN.INC,INC,24009,53.72,Anaro Devi Onkar Tiwari,parties.IN.BJP,BJP,13910,10099,22.59,src-0c1b8f274551,minor,
+IN-AC-1976-madhya-pradesh-209,madhya-pradesh,2000,LAKHANDON(ST),133192,81406,61.12,Beni Parte,parties.IN.INC,INC,47538,58.4,Rampyare Kulste,parties.IN.BJP,BJP,22546,24992,30.7,src-0c1b8f274551,minor,
+IN-AC-1976-madhya-pradesh-245,madhya-pradesh,2000,BHOJPUR,174168,92299,52.99,Naresh Singh Patel,parties.IN.BJP,BJP,42800,46.37,Shaligram Vakeel,parties.IN.INC,INC,39761,3039,3.29,src-0c1b8f274551,minor,
+IN-AC-1976-madhya-pradesh-85,madhya-pradesh,2000,SUHAGPUR,178860,90609,50.66,Shabnam Mousi,parties.IN.IND,IND,39937,44.08,Lallu Singh,parties.IN.BJP,BJP,22074,17863,19.72,src-0c1b8f274551,minor,

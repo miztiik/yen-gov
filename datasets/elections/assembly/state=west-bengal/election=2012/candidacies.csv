@@ -1,11 +1,11 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
-IN-AC-2008-west-bengal-1980,west-bengal,2012,230,DASPUR,Mamata Bhunia (E),parties.IN.AITC,AITC,94860,52.11,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-2008-west-bengal-1980,west-bengal,2012,230,DASPUR,S. Mukharji,parties.IN.CPIM,CPM,75941,41.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-2008-west-bengal-1980,west-bengal,2012,230,DASPUR,A. Mal,parties.IN.BJP,BJP,7980,4.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-2008-west-bengal-1980,west-bengal,2012,230,DASPUR,S. Pradhan,parties.IN.UNK,RJSP,3256,1.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,major,Publisher label 'RJSP' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
-IN-AC-2008-west-bengal-1889,west-bengal,2012,252,BANKURA,M. Misra,parties.IN.AITC,AITC,72954,49.66,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-2008-west-bengal-1889,west-bengal,2012,252,BANKURA,N. J. Dasgupta,parties.IN.CPIM,CPM,57815,39.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-2008-west-bengal-1889,west-bengal,2012,252,BANKURA,M. De(Chatterjee),parties.IN.BJP,BJP,7910,5.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-2008-west-bengal-1889,west-bengal,2012,252,BANKURA,R. Dhar,parties.IN.IND,IND,4030,2.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-2008-west-bengal-1889,west-bengal,2012,252,BANKURA,G.C. Hembram,parties.IN.JMM,JMM,2128,1.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-2008-west-bengal-1889,west-bengal,2012,252,BANKURA,C. Kisku,parties.IN.JD,JD,2080,1.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-1980,west-bengal,2012,230,DASPUR,Mamata Bhunia (E),parties.IN.AITC,AITC,94860,52.11,1,won,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-2008-west-bengal-1980,west-bengal,2012,230,DASPUR,S. Mukharji,parties.IN.CPIM,CPM,75941,41.72,2,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-2008-west-bengal-1980,west-bengal,2012,230,DASPUR,A. Mal,parties.IN.BJP,BJP,7980,4.38,3,forfeit,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-2008-west-bengal-1980,west-bengal,2012,230,DASPUR,S. Pradhan,parties.IN.UNK,RJSP,3256,1.79,4,forfeit,U,,,,challenger,src-0c1b8f274551,major,Publisher label 'RJSP' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-2008-west-bengal-1889,west-bengal,2012,252,BANKURA,M. Misra,parties.IN.AITC,AITC,72954,49.66,1,won,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-2008-west-bengal-1889,west-bengal,2012,252,BANKURA,N. J. Dasgupta,parties.IN.CPIM,CPM,57815,39.35,2,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-2008-west-bengal-1889,west-bengal,2012,252,BANKURA,M. De(Chatterjee),parties.IN.BJP,BJP,7910,5.38,3,forfeit,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-2008-west-bengal-1889,west-bengal,2012,252,BANKURA,R. Dhar,parties.IN.IND,IND,4030,2.74,4,forfeit,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-2008-west-bengal-1889,west-bengal,2012,252,BANKURA,G.C. Hembram,parties.IN.JMM,JMM,2128,1.45,5,forfeit,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-2008-west-bengal-1889,west-bengal,2012,252,BANKURA,C. Kisku,parties.IN.JD,JD,2080,1.42,6,forfeit,U,,,,challenger,src-0c1b8f274551,minor,

@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-west-bengal-10,west-bengal,1988,KUMARGRAM(ST),110398,77460,70.16,S.TOPPO,parties.IN.RSP,RSP,49595,64.03,K.N.THAKUR,parties.IN.INC,INC,27297,22298,28.79,src-1b7bc1c9d39a,minor,
-IN-AC-1976-west-bengal-258,west-bengal,1988,BARABANI,132259,95385,72.12,M.UPADHYAY,parties.IN.INC,INC,45424,47.62,S.R.DAS,parties.IN.CPIM,CPM,44771,653,0.68,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-10,west-bengal,1988,KUMARGRAM(ST),110398,77460,70.16,S.TOPPO,parties.IN.RSP,RSP,49595,64.03,K.N.THAKUR,parties.IN.INC,INC,27297,22298,28.79,src-0c1b8f274551,minor,
+IN-AC-1976-west-bengal-258,west-bengal,1988,BARABANI,132259,95385,72.12,M.UPADHYAY,parties.IN.INC,INC,45424,47.62,S.R.DAS,parties.IN.CPIM,CPM,44771,653,0.68,src-0c1b8f274551,minor,

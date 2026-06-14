@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-goa-11,goa,2005,TALEIGAO,27270,17530,64.28,Atanasio Monserrate,parties.IN.INC,INC,11657,66.5,Pradeep Nagvenkar,parties.IN.BJP,BJP,5429,6228,35.53,src-1b7bc1c9d39a,minor,
-IN-AC-1976-goa-14,goa,2005,CUMBARJUA,26390,18595,70.46,Pandurang A. Madakaikar,parties.IN.INC,INC,8468,45.54,Nirmala P.Sawant,parties.IN.IND,IND,4713,3755,20.19,src-1b7bc1c9d39a,minor,
-IN-AC-1976-goa-28,goa,2005,BENAULIM,23104,14867,64.35,Pacheco Francisco Xavier,parties.IN.NCP,NCP,8386,56.41,Monte Cruz Francisco Piedade,parties.IN.UGDP,UGDP,5510,2876,19.35,src-1b7bc1c9d39a,minor,
-IN-AC-1976-goa-30,goa,2005,MARGAO,25613,16186,63.19,Kamat Digamber Vasant,parties.IN.INC,INC,8682,53.64,Sharmad Trivikram Raiturkar,parties.IN.BJP,BJP,7305,1377,8.51,src-1b7bc1c9d39a,minor,
-IN-AC-1976-goa-40,goa,2005,POINGUINIM,14900,11028,74.01,Tawadkar Ramesh Bombo,parties.IN.BJP,BJP,5356,48.57,Fernandes Isidore Diogo,parties.IN.INC,INC,4467,889,8.06,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-11,goa,2005,TALEIGAO,27270,17530,64.28,Atanasio Monserrate,parties.IN.INC,INC,11657,66.5,Pradeep Nagvenkar,parties.IN.BJP,BJP,5429,6228,35.53,src-0c1b8f274551,minor,
+IN-AC-1976-goa-14,goa,2005,CUMBARJUA,26390,18595,70.46,Pandurang A. Madakaikar,parties.IN.INC,INC,8468,45.54,Nirmala P.Sawant,parties.IN.IND,IND,4713,3755,20.19,src-0c1b8f274551,minor,
+IN-AC-1976-goa-28,goa,2005,BENAULIM,23104,14867,64.35,Pacheco Francisco Xavier,parties.IN.NCP,NCP,8386,56.41,Monte Cruz Francisco Piedade,parties.IN.UGDP,UGDP,5510,2876,19.35,src-0c1b8f274551,minor,
+IN-AC-1976-goa-30,goa,2005,MARGAO,25613,16186,63.19,Kamat Digamber Vasant,parties.IN.INC,INC,8682,53.64,Sharmad Trivikram Raiturkar,parties.IN.BJP,BJP,7305,1377,8.51,src-0c1b8f274551,minor,
+IN-AC-1976-goa-40,goa,2005,POINGUINIM,14900,11028,74.01,Tawadkar Ramesh Bombo,parties.IN.BJP,BJP,5356,48.57,Fernandes Isidore Diogo,parties.IN.INC,INC,4467,889,8.06,src-0c1b8f274551,minor,

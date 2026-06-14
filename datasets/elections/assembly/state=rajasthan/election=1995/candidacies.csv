@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
-IN-AC-1976-rajasthan-76,rajasthan,1995,76,BAYANA,Brijendra Singh Supa,parties.IN.INC,INC,24862,58.86,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-rajasthan-76,rajasthan,1995,76,BAYANA,Shivcharan Singh,parties.IN.BJP,BJP,17378,41.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-rajasthan-131,rajasthan,1995,131,BANSWARA,Bhawani Joshi,parties.IN.BJP,BJP,35644,50.85,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-rajasthan-131,rajasthan,1995,131,BANSWARA,Dinesh Joshi,parties.IN.INC,INC,34457,49.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-rajasthan-153,rajasthan,1995,153,BHILWARA,Ramrichpal Nuwal,parties.IN.BJP,BJP,47334,51.5,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-rajasthan-153,rajasthan,1995,153,BHILWARA,Devendra Singh,parties.IN.INC,INC,44573,48.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-76,rajasthan,1995,76,BAYANA,Brijendra Singh Supa,parties.IN.INC,INC,24862,58.86,1,won,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-rajasthan-76,rajasthan,1995,76,BAYANA,Shivcharan Singh,parties.IN.BJP,BJP,17378,41.14,2,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-rajasthan-131,rajasthan,1995,131,BANSWARA,Bhawani Joshi,parties.IN.BJP,BJP,35644,50.85,1,won,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-rajasthan-131,rajasthan,1995,131,BANSWARA,Dinesh Joshi,parties.IN.INC,INC,34457,49.15,2,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-rajasthan-153,rajasthan,1995,153,BHILWARA,Ramrichpal Nuwal,parties.IN.BJP,BJP,47334,51.5,1,won,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-rajasthan-153,rajasthan,1995,153,BHILWARA,Devendra Singh,parties.IN.INC,INC,44573,48.5,2,lost,U,,,,challenger,src-0c1b8f274551,minor,

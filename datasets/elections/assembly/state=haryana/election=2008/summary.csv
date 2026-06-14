@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-haryana-11,haryana,2008,INDRI,139468,115275,82.65,BHIMSAIN MEHTA,parties.IN.INC,INC,38833,33.69,RAKESH KUMAR KAMBOJ,parties.IN.HJCBL,HJC(BL),32968,5865,5.09,src-1b7bc1c9d39a,minor,
-IN-AC-1976-haryana-39,haryana,2008,GOHANA,117263,86676,73.92,JAGBIR SINGH MALIK,parties.IN.INC,INC,44540,51.39,DR. KRISHAN CHANDER BANGAR,parties.IN.INLD,INLD,22378,22162,25.57,src-1b7bc1c9d39a,minor,
-IN-AC-1976-haryana-79,haryana,2008,ADAMPUR,137480,115143,83.75,BHAJAN LAL S/O KHEIRAJ,parties.IN.HJCBL,HJC(BL),56841,49.37,RANJIT SINGH,parties.IN.INC,INC,30653,26188,22.75,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-11,haryana,2008,INDRI,139468,115275,82.65,BHIMSAIN MEHTA,parties.IN.INC,INC,38833,33.69,RAKESH KUMAR KAMBOJ,parties.IN.HJCBL,HJC(BL),32968,5865,5.09,src-0c1b8f274551,minor,
+IN-AC-1976-haryana-39,haryana,2008,GOHANA,117263,86676,73.92,JAGBIR SINGH MALIK,parties.IN.INC,INC,44540,51.39,DR. KRISHAN CHANDER BANGAR,parties.IN.INLD,INLD,22378,22162,25.57,src-0c1b8f274551,minor,
+IN-AC-1976-haryana-79,haryana,2008,ADAMPUR,137480,115143,83.75,BHAJAN LAL S/O KHEIRAJ,parties.IN.HJCBL,HJC(BL),56841,49.37,RANJIT SINGH,parties.IN.INC,INC,30653,26188,22.75,src-0c1b8f274551,minor,

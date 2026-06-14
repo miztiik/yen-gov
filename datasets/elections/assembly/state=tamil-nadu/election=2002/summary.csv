@@ -1,5 +1,5 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-tamil-nadu-135,tamil-nadu,2002,ANDIPATTI,208576,134734,64.6,JAYALALITHAA J.,parties.IN.AIADMK,ADMK,78437,58.22,VAIGAI SEKAR alias BALASUNDARAM S.,parties.IN.DMK,DMK,37236,41201,30.58,src-1b7bc1c9d39a,minor,
-IN-AC-1976-tamil-nadu-14,tamil-nadu,2002,SAIDAPET,248003,129433,52.19,RADHA RAVI,parties.IN.AIADMK,ADMK,65868,50.89,SUBRAMANIAN MA.,parties.IN.DMK,DMK,53943,11925,9.21,src-1b7bc1c9d39a,minor,
-IN-AC-1976-tamil-nadu-24,tamil-nadu,2002,ACHARAPAKAM,167240,103911,62.13,A.BHUVARAGHAMOORTHY,parties.IN.AIADMK,ADMK,55507,53.42,D. PARVENTHAN,parties.IN.PMK,PMK,37590,17917,17.24,src-1b7bc1c9d39a,minor,
-IN-AC-1976-tamil-nadu-39,tamil-nadu,2002,VINIYAMBADI,202883,129217,63.69,VADIVEL. R,parties.IN.AIADMK,ADMK,63599,49.22,ANIFA. E. M,parties.IN.DMK,DMK,43878,19721,15.26,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-135,tamil-nadu,2002,ANDIPATTI,208576,134734,64.6,JAYALALITHAA J.,parties.IN.AIADMK,ADMK,78437,58.22,VAIGAI SEKAR alias BALASUNDARAM S.,parties.IN.DMK,DMK,37236,41201,30.58,src-0c1b8f274551,minor,
+IN-AC-1976-tamil-nadu-14,tamil-nadu,2002,SAIDAPET,248003,129433,52.19,RADHA RAVI,parties.IN.AIADMK,ADMK,65868,50.89,SUBRAMANIAN MA.,parties.IN.DMK,DMK,53943,11925,9.21,src-0c1b8f274551,minor,
+IN-AC-1976-tamil-nadu-24,tamil-nadu,2002,ACHARAPAKAM,167240,103911,62.13,A.BHUVARAGHAMOORTHY,parties.IN.AIADMK,ADMK,55507,53.42,D. PARVENTHAN,parties.IN.PMK,PMK,37590,17917,17.24,src-0c1b8f274551,minor,
+IN-AC-1976-tamil-nadu-39,tamil-nadu,2002,VINIYAMBADI,202883,129217,63.69,VADIVEL. R,parties.IN.AIADMK,ADMK,63599,49.22,ANIFA. E. M,parties.IN.DMK,DMK,43878,19721,15.26,src-0c1b8f274551,minor,

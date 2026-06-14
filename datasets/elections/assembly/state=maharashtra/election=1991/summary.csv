@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-maharashtra-141,maharashtra,1991,RAMTEK,171537,94584,55.14,A.R.DESHMUKH(MAHAJAN),parties.IN.INC,INC,44812,47.38,G.A.K.Y.RAO,parties.IN.IND,IND,42798,2014,2.13,src-1b7bc1c9d39a,minor,
-IN-AC-1976-maharashtra-249,maharashtra,1991,KASBA PETH,135998,69344,50.99,T.V.VITHOBA,parties.IN.INC,INC,37100,53.5,G.BAPAT,parties.IN.BJP,BJP,31775,5325,7.68,src-1b7bc1c9d39a,minor,
-IN-AC-1976-maharashtra-255,maharashtra,1991,BARAMATI,159402,106194,66.62,A.A.PAWAR,parties.IN.INC,INC,96032,90.43,K.H.KHANDERAO,parties.IN.BJP,BJP,9117,86915,81.84,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-141,maharashtra,1991,RAMTEK,171537,94584,55.14,A.R.DESHMUKH(MAHAJAN),parties.IN.INC,INC,44812,47.38,G.A.K.Y.RAO,parties.IN.IND,IND,42798,2014,2.13,src-0c1b8f274551,minor,
+IN-AC-1976-maharashtra-249,maharashtra,1991,KASBA PETH,135998,69344,50.99,T.V.VITHOBA,parties.IN.INC,INC,37100,53.5,G.BAPAT,parties.IN.BJP,BJP,31775,5325,7.68,src-0c1b8f274551,minor,
+IN-AC-1976-maharashtra-255,maharashtra,1991,BARAMATI,159402,106194,66.62,A.A.PAWAR,parties.IN.INC,INC,96032,90.43,K.H.KHANDERAO,parties.IN.BJP,BJP,9117,86915,81.84,src-0c1b8f274551,minor,

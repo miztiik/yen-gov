@@ -1,5 +1,5 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
-IN-AC-1976-tripura-37,tripura,1999,37,HRISHYAMUKH,Balaram Reang,parties.IN.CPI,CPI,13340,58.24,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-tripura-37,tripura,1999,37,HRISHYAMUKH,Gouri Sankar Reang,parties.IN.TUS,TUJS,5735,25.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-tripura-37,tripura,1999,37,HRISHYAMUKH,Daichand Reang,parties.IN.INC,INC,3576,15.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-tripura-37,tripura,1999,37,HRISHYAMUKH,Daniel Sangma,parties.IN.IND,IND,255,1.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tripura-37,tripura,1999,37,HRISHYAMUKH,Balaram Reang,parties.IN.CPI,CPI,13340,58.24,1,won,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-tripura-37,tripura,1999,37,HRISHYAMUKH,Gouri Sankar Reang,parties.IN.TUS,TUJS,5735,25.04,2,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-tripura-37,tripura,1999,37,HRISHYAMUKH,Daichand Reang,parties.IN.INC,INC,3576,15.61,3,forfeit,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-tripura-37,tripura,1999,37,HRISHYAMUKH,Daniel Sangma,parties.IN.IND,IND,255,1.11,4,forfeit,U,,,,challenger,src-0c1b8f274551,minor,

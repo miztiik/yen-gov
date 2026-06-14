@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-maharashtra-166,maharashtra,2001,PUSAD,184311,134603,73.03,NAIK MANOHARRAO RAJUSING,parties.IN.NCP,NCP,77549,57.61,MUKHARE RAJAN SHIVAJIRAO,parties.IN.SHS,SHS,27105,50444,37.47,src-1b7bc1c9d39a,minor,
-IN-AC-1976-maharashtra-253,maharashtra,2001,DAUND,230325,126425,54.89,KUL RANJANA SUBHASHRAO,parties.IN.NCP,NCP,91840,72.64,KALE VASUDEO SHANKAR,parties.IN.BJP,BJP,29862,61978,49.02,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-166,maharashtra,2001,PUSAD,184311,134603,73.03,NAIK MANOHARRAO RAJUSING,parties.IN.NCP,NCP,77549,57.61,MUKHARE RAJAN SHIVAJIRAO,parties.IN.SHS,SHS,27105,50444,37.47,src-0c1b8f274551,minor,
+IN-AC-1976-maharashtra-253,maharashtra,2001,DAUND,230325,126425,54.89,KUL RANJANA SUBHASHRAO,parties.IN.NCP,NCP,91840,72.64,KALE VASUDEO SHANKAR,parties.IN.BJP,BJP,29862,61978,49.02,src-0c1b8f274551,minor,

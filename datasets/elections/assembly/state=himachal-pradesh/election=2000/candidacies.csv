@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
-IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2000,14,SOLANUDIVADA,Jogeswar Doley,parties.IN.AGP,AGP,22989,32.95,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2000,14,SOLANUDIVADA,Rajib Lochan Pegu,parties.IN.INC,INC,17495,25.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2000,14,SOLANUDIVADA,Durgeswar Doley,parties.IN.BJP,BJP,17063,24.45,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2000,14,SOLANUDIVADA,Purusuttom Doley,parties.IN.IND,IND,11891,17.04,4,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2000,14,SOLANUDIVADA,Mal Chandra Pegu,parties.IN.NCP,NCP,339,0.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2000,14,SOLANUDIVADA,Jogeswar Doley,parties.IN.AGP,AGP,22989,32.95,1,won,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2000,14,SOLANUDIVADA,Rajib Lochan Pegu,parties.IN.INC,INC,17495,25.07,2,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2000,14,SOLANUDIVADA,Durgeswar Doley,parties.IN.BJP,BJP,17063,24.45,3,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2000,14,SOLANUDIVADA,Purusuttom Doley,parties.IN.IND,IND,11891,17.04,4,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2000,14,SOLANUDIVADA,Mal Chandra Pegu,parties.IN.NCP,NCP,339,0.49,5,forfeit,U,,,,challenger,src-0c1b8f274551,minor,

@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
-IN-AC-1976-tripura-8,tripura,2009,8,TOWN BORDOWALI,Asish Kr. Shah,parties.IN.INC,INC,12937,55.16,1,won,U,,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-tripura-8,tripura,2009,8,TOWN BORDOWALI,Shyamal Roy,parties.IN.AIFB,AIFB,9693,41.33,2,lost,U,,Literate,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-tripura-8,tripura,2009,8,TOWN BORDOWALI,Sujit Kr. Dutta,parties.IN.BJP,BJP,461,1.97,3,forfeit,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-tripura-8,tripura,2009,8,TOWN BORDOWALI,Pralaysaran Chakrabarty,parties.IN.IND,IND,225,0.96,4,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-tripura-8,tripura,2009,8,TOWN BORDOWALI,Govinda Majumder,parties.IN.AMB,AB,138,0.59,5,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tripura-8,tripura,2009,8,TOWN BORDOWALI,Asish Kr. Shah,parties.IN.INC,INC,12937,55.16,1,won,U,,12th Pass,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-tripura-8,tripura,2009,8,TOWN BORDOWALI,Shyamal Roy,parties.IN.AIFB,AIFB,9693,41.33,2,lost,U,,Literate,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-tripura-8,tripura,2009,8,TOWN BORDOWALI,Sujit Kr. Dutta,parties.IN.BJP,BJP,461,1.97,3,forfeit,U,,Graduate Professional,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-tripura-8,tripura,2009,8,TOWN BORDOWALI,Pralaysaran Chakrabarty,parties.IN.IND,IND,225,0.96,4,forfeit,U,,12th Pass,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-tripura-8,tripura,2009,8,TOWN BORDOWALI,Govinda Majumder,parties.IN.AMB,AB,138,0.59,5,forfeit,U,,Graduate,,challenger,src-0c1b8f274551,minor,

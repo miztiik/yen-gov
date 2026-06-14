@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,SATTANKULAM,155093,100446,64.77,NEELAMEGAVARNAM L.,parties.IN.AIADMK,ADMK,56945,56.69,MAHENDRAN A.,parties.IN.INC,INC,39453,17492,17.41,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,SATTANKULAM,155093,100446,64.77,NEELAMEGAVARNAM L.,parties.IN.AIADMK,ADMK,56945,56.69,MAHENDRAN A.,parties.IN.INC,INC,39453,17492,17.41,src-0c1b8f274551,minor,

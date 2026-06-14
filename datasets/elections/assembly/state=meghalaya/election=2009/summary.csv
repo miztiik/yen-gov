@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-meghalaya-17,meghalaya,2009,LAITUMKHRAH (ST),14326,10582,73.87,M. Ampareen Lyngdoh,parties.IN.INC,INC,5800,54.81,Malcolm B. Tariang,parties.IN.UDP,UDP,3473,2327,21.99,src-1b7bc1c9d39a,minor,
-IN-AC-1976-meghalaya-9,meghalaya,2009,UMROI,25855,23908,92.47,S. Rymbai,parties.IN.INC,INC,11773,49.24,G. B. Lyngdoh,parties.IN.UDP,UDP,11327,446,1.86,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-17,meghalaya,2009,LAITUMKHRAH (ST),14326,10582,73.87,M. Ampareen Lyngdoh,parties.IN.INC,INC,5800,54.81,Malcolm B. Tariang,parties.IN.UDP,UDP,3473,2327,21.99,src-0c1b8f274551,minor,
+IN-AC-1976-meghalaya-9,meghalaya,2009,UMROI,25855,23908,92.47,S. Rymbai,parties.IN.INC,INC,11773,49.24,G. B. Lyngdoh,parties.IN.UDP,UDP,11327,446,1.86,src-0c1b8f274551,minor,

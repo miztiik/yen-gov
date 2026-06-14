@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
-IN-AC-2008-chhattisgarh-2402,chhattisgarh,2014,79,ANTAGARH,Bhojraj Nag,parties.IN.BJP,BJP,63616,84.03,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-2008-chhattisgarh-2402,chhattisgarh,2014,79,ANTAGARH,Rupdhar Pudo,parties.IN.AMBEDKARITE_PARTY_OF_INDIA,API,12086,15.97,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-chhattisgarh-2402,chhattisgarh,2014,79,ANTAGARH,Bhojraj Nag,parties.IN.BJP,BJP,63616,84.03,1,won,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-2008-chhattisgarh-2402,chhattisgarh,2014,79,ANTAGARH,Rupdhar Pudo,parties.IN.AMBEDKARITE_PARTY_OF_INDIA,API,12086,15.97,2,forfeit,U,,,,challenger,src-0c1b8f274551,minor,

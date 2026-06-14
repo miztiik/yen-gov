@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-madhya-pradesh-178,madhya-pradesh,1992,LANJI,92580,50303,54.33,Dilip Bhattare,parties.IN.BJP,BJP,30943,61.51,Yeshwant Rao Khogal,parties.IN.INC,INC,19360,11583,23.02,src-1b7bc1c9d39a,minor,
-IN-AC-1976-madhya-pradesh-234,madhya-pradesh,1992,BUDHNI,124697,75456,60.51,Mohan Lal Shishir,parties.IN.BJP,BJP,38015,50.38,Raj Kumar Patel,parties.IN.INC,INC,37441,574,0.76,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-178,madhya-pradesh,1992,LANJI,92580,50303,54.33,Dilip Bhattare,parties.IN.BJP,BJP,30943,61.51,Yeshwant Rao Khogal,parties.IN.INC,INC,19360,11583,23.02,src-0c1b8f274551,minor,
+IN-AC-1976-madhya-pradesh-234,madhya-pradesh,1992,BUDHNI,124697,75456,60.51,Mohan Lal Shishir,parties.IN.BJP,BJP,38015,50.38,Raj Kumar Patel,parties.IN.INC,INC,37441,574,0.76,src-0c1b8f274551,minor,

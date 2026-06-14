@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-andhra-pradesh-112,andhra-pradesh,1991,PARCHUR,139080,92054,66.19,G.V.REDDY,parties.IN.INC,INC,52024,56.51,A.DAMACHERLA,parties.IN.TDP,TDP,37514,14510,15.76,src-1b7bc1c9d39a,minor,
-IN-AC-1976-andhra-pradesh-160,andhra-pradesh,1991,PULIVENDLA,156942,122030,77.75,S.P.REDDY,parties.IN.INC,INC,109318,89.58,B.R.ANNEREDDY,parties.IN.TDP,TDP,11870,97448,79.85,src-1b7bc1c9d39a,minor,
-IN-AC-1976-andhra-pradesh-166,andhra-pradesh,1991,PENUKONDA,141144,103274,73.17,R.REDDY.S.V,parties.IN.INC,INC,66563,64.45,G.LINGAPPA,parties.IN.TDP,TDP,36010,30553,29.58,src-1b7bc1c9d39a,minor,
-IN-AC-1976-andhra-pradesh-42,andhra-pradesh,1991,JAGGAMPETA,131512,97224,73.93,T.V.CHALAM,parties.IN.INC,INC,51150,52.61,J.V.APPARAO,parties.IN.TDP,TDP,44530,6620,6.81,src-1b7bc1c9d39a,minor,
-IN-AC-1976-andhra-pradesh-69,andhra-pradesh,1991,DENDULUR,124733,97299,78.01,V.D.MOGANTI(W),parties.IN.INC,INC,50640,52.05,G.S.RAO,parties.IN.TDP,TDP,45446,5194,5.34,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-112,andhra-pradesh,1991,PARCHUR,139080,92054,66.19,G.V.REDDY,parties.IN.INC,INC,52024,56.51,A.DAMACHERLA,parties.IN.TDP,TDP,37514,14510,15.76,src-0c1b8f274551,minor,
+IN-AC-1976-andhra-pradesh-160,andhra-pradesh,1991,PULIVENDLA,156942,122030,77.75,S.P.REDDY,parties.IN.INC,INC,109318,89.58,B.R.ANNEREDDY,parties.IN.TDP,TDP,11870,97448,79.85,src-0c1b8f274551,minor,
+IN-AC-1976-andhra-pradesh-166,andhra-pradesh,1991,PENUKONDA,141144,103274,73.17,R.REDDY.S.V,parties.IN.INC,INC,66563,64.45,G.LINGAPPA,parties.IN.TDP,TDP,36010,30553,29.58,src-0c1b8f274551,minor,
+IN-AC-1976-andhra-pradesh-42,andhra-pradesh,1991,JAGGAMPETA,131512,97224,73.93,T.V.CHALAM,parties.IN.INC,INC,51150,52.61,J.V.APPARAO,parties.IN.TDP,TDP,44530,6620,6.81,src-0c1b8f274551,minor,
+IN-AC-1976-andhra-pradesh-69,andhra-pradesh,1991,DENDULUR,124733,97299,78.01,V.D.MOGANTI(W),parties.IN.INC,INC,50640,52.05,G.S.RAO,parties.IN.TDP,TDP,45446,5194,5.34,src-0c1b8f274551,minor,

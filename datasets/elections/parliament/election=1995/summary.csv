@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-PC-1976-bihar-1,bihar,1995,AMBALA,874889,0,0,Lovely Singh,parties.IN.SP,SP,0,,,,,,,,src-31c65dbec869,minor,
-IN-PC-1976-maharashtra-1,maharashtra,1995,AMBALA,755126,0,0,Baba Saheb Thide,parties.IN.INC,INC,0,,M.D. Raosulke,parties.IN.INC,INC,0,0,,src-31c65dbec869,minor,
-IN-PC-1976-west-bengal-10,west-bengal,1995,BEHRAMPUR,69213,0,0,P. Mukherjee,parties.IN.RSP,RSP,0,,,,,,,,src-31c65dbec869,minor,
+IN-PC-1976-bihar-1,bihar,1995,AMBALA,874889,0,0,Lovely Singh,parties.IN.SP,SP,0,,,,,,,,src-d4b15132ad0e,minor,
+IN-PC-1976-maharashtra-1,maharashtra,1995,AMBALA,755126,0,0,Baba Saheb Thide,parties.IN.INC,INC,0,,M.D. Raosulke,parties.IN.INC,INC,0,0,,src-d4b15132ad0e,minor,
+IN-PC-1976-west-bengal-10,west-bengal,1995,BEHRAMPUR,69213,0,0,P. Mukherjee,parties.IN.RSP,RSP,0,,,,,,,,src-d4b15132ad0e,minor,
