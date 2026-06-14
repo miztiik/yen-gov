@@ -4,14 +4,14 @@
 
 **Level**: 4 (4+ files, structural; spans citizen-chrome vocabulary + visual reshape + 3 new view-model surfaces + per-card source provenance + a doc-rename sweep; ~10-11 PRs in 4 waves).
 
-**Scope.** Reimagine the per-party page at `/parties/<slug>` (e.g. `/parties/bjp`, `/parties/dmk`) per the 2026-06-14 user direction. The current page (shipped via [docs/archive/plans/20260612-party-rendering-and-party-pages-plan.md](../docs/archive/plans/20260612-party-rendering-and-party-pages-plan.md) PR-4 and the [docs/archive/plans/20260613-party-deferred-followups-plan.md](../docs/archive/plans/20260613-party-deferred-followups-plan.md) sprint, all rows now merged on `main` as of `d09f8827c`) ships with seven concrete defects flagged by the user:
+**Scope.** Reimagine the per-party page at `/parties/<slug>` (e.g. `/parties/bjp`, `/parties/dmk`) per the 2026-06-14 user direction. The current page (shipped via [docs/archive/plans/20260612-party-rendering-and-party-pages-plan.md](../../archive/plans/20260612-party-rendering-and-party-pages-plan.md) PR-4 and the [docs/archive/plans/20260613-party-deferred-followups-plan.md](../../archive/plans/20260613-party-deferred-followups-plan.md) sprint, all rows now merged on `main` as of `d09f8827c`) ships with seven concrete defects flagged by the user:
 
 1. Citizen-chrome leaks transliterated South Asian language nouns (`Lok Sabha`, `Vidhan Sabha`) across the latest-of one-liners, KPI tile labels, chart H2s, stronghold subheaders, and the recognition-strip wording. The url-grammar policy already locks `Parliament` / `Assembly` as the chrome forms on the elections surface; the party page never applied it.
 2. Strongholds rows render as text + Unicode block glyphs (`won 7 of 10 (70%) ▮▮▮▮▮▮▮▯▯▯`), which the user calls ugly. Jony never blessed this; it shipped as the v1 honest-degradation.
 3. Stronghold rows show only the constituency name with no state context. A citizen reading "BAREILLY CITY" cannot tell which state it sits in. Constituency-name collisions across states ("Kalyan" in Maharashtra and Karnataka) make this load-bearing, not cosmetic.
 4. The header avatar is a brand-colour SQUARE with the party short token written inside. When `parties.csv.symbol_asset` exists (e.g. `party-symbols/lotus.svg` for BJP) the symbol image is never rendered. When no asset exists, the geometry should be a CIRCLE, not a square.
 5. The metadata footer (founded year, recognition, home states, wiki, native-script) is a horizontal row of text + icon pairs the user calls text-heavy. The native-script field (e.g. `भारतीय जनता पार्टी`) violates the same English-only chrome policy.
-6. Both Parliament + state Assembly DualAxisBarLine charts read ugly. The dual-Y-axis encoding (bars = seats, line = vote-share %) forces the citizen to track two grids, two unit-formats, two ramps. The methodology-break tooltip leaks internal operator state (`lspc-delim-1976` subtitle + repo-path / `PR-N` references in the `note` body), violating the no-implementation-disclosure rule in [docs/concepts/citizen-first.md ADR-0021](../docs/concepts/citizen-first.md#adr-0021-no-implementation-disclosure-on-public-pages).
+6. Both Parliament + state Assembly DualAxisBarLine charts read ugly. The dual-Y-axis encoding (bars = seats, line = vote-share %) forces the citizen to track two grids, two unit-formats, two ramps. The methodology-break tooltip leaks internal operator state (`lspc-delim-1976` subtitle + repo-path / `PR-N` references in the `note` body), violating the no-implementation-disclosure rule in [docs/concepts/citizen-first.md ADR-0021](../../concepts/citizen-first.md#adr-0021-no-implementation-disclosure-on-public-pages).
 7. The page answers ONE citizen question well ("how did this party do over time?") but never answers "where does this party sit RIGHT NOW?", "who do they ride with?", "where are they fighting next?". Holy Law #9 (provenance) is also unsatisfied: the page carries no per-card source-pill back to `datasets/data/entities/source.csv`.
 
 ## 0. Operating contract
@@ -40,7 +40,7 @@ Where personas diverged, the doctrine-lock table below records the orchestrator-
 
 None expected on the happy path. Two real Level-5 triggers if they fire:
 
-- **E1**: PR-10 (chart structural change) qualifies as a NEW renderer per the [docs/concepts/schema-is-the-design-system.md](../docs/concepts/schema-is-the-design-system.md) closed-renderer-set discipline. Default disposition: add a `mode: "composite"` prop to the existing `DualAxisBarLine` (additive extension to the closed-renderer extension log already present in that doc) NOT mint a new `CompositeShareBar` primitive. If implementation reveals the additive extension is insufficient (e.g. the composite-bar encoding fundamentally differs from the dual-axis encoding), STOP and re-debate Gregor + Jony before minting a new primitive.
+- **E1**: PR-10 (chart structural change) qualifies as a NEW renderer per the [docs/concepts/schema-is-the-design-system.md](../../concepts/schema-is-the-design-system.md) closed-renderer-set discipline. Default disposition: add a `mode: "composite"` prop to the existing `DualAxisBarLine` (additive extension to the closed-renderer extension log already present in that doc) NOT mint a new `CompositeShareBar` primitive. If implementation reveals the additive extension is insufficient (e.g. the composite-bar encoding fundamentally differs from the dual-axis encoding), STOP and re-debate Gregor + Jony before minting a new primitive.
 - **E2**: Any of the M3 head-to-head queries surface a derivation footgun (e.g. the rival is sentinel `parties.IN.IND` because the constituency's runner-up is always an Independent). Default disposition: filter sentinels out of rival-eligibility; cap the v1 to parties with `>=3 LS cycles AND recognition_scope IN ('national', 'state')`. If filtering still produces an offensive rival pick, STOP and consult Max + Hans.
 
 ### Doctrine locks (do NOT re-litigate during execution)
@@ -53,7 +53,7 @@ These are the orchestrator-resolved verdicts where personas disagreed or where a
 | Stronghold row geometry | Jony J1 - 10-cell SVG dot strip (6px diameter, 4px gap). Wins = brand-colour fill; loss = paper fill + 1px slate-300 ring; did-not-contest = diagonal-hatch (reuse `party-stronghold-hatch` pattern from `PartyStrongholdMap.svelte`). Cap at 10 cells; pad shorter histories with did-not-contest. Drop the Unicode-block glyphs entirely. | Jony |
 | Stronghold state-context | Jony J2 (inline state name prefix with middle-dot separator) - OVERRIDES Hans H3 (group-by-state subheader). Format: `Uttar Pradesh \u00b7 BAREILLY CITY` (state name slate-500; constituency name slate-800; middle-dot separator; constituency truncates before state). State name from `states.name(state_code)` already in scope. Reason: the section's load-bearing signal is the lifetime ranking, which group-subheaders destroy. Hans's state-collision concern (Kalyan-MH-vs-KA) is satisfied by the inline prefix; the grouping was the form, not the floor. CLAUDE.md section 0a UX authority is Jony+Citizen. | Jony (UX) overrides Hans (governance form) |
 | Header avatar shape | Jony J4 - CIRCLE in all cases (with symbol, without symbol, sentinel). With symbol: 80px circle, paper-white fill, 3px brand-colour ring, symbol image 48x48 centred (16px padding). Without symbol: 80px circle, paper-white fill, 3px brand-colour ring, party short token 20px bold slate-900 centred. Sentinel (IND, NOTA): 80px circle, slate-200 fill, NO ring, slate-600 token. | Jony |
-| Native-script field (`name_native_script`) rendering | DROP from the citizen surface entirely. Column stays on `parties.csv` (Holy Law #9 provenance). No Glossary-line carve-out on this page; the H1 already carries the English form. Mirror the drop in [PartyTooltip.svelte](../frontend/src/lib/party-pill/PartyTooltip.svelte). | Hans H4 + Jony J5 |
+| Native-script field (`name_native_script`) rendering | DROP from the citizen surface entirely. Column stays on `parties.csv` (Holy Law #9 provenance). No Glossary-line carve-out on this page; the H1 already carries the English form. Mirror the drop in [PartyTooltip.svelte](../../../frontend/src/lib/party-pill/PartyTooltip.svelte). | Hans H4 + Jony J5 |
 | Footer reshape | Jony J5 - desktop (>=1024px) side-rail "About this party" card (240px right rail); mobile (<1024px) labelled `<dl>` definition list under strongholds. Rows: Founded -> Recognition -> Home states -> Wikipedia -> Aliases -> Lineage. No native-script. No "Native script" icon. | Jony |
 | Founding-year framing | Hans H6 - "Active since 1980" (live parties) / "Active 1925-1991" (defunct). Drop the bare "Founded 1980" / "Dissolved 1991" pair. Years-active counter is implicit; do not add it. | Hans |
 | Recognition-scope citizen vocabulary | Hans H7 - `national` -> "Nationally recognised party"; `state` -> "State-recognised party"; `unrecognised_registered` -> "Registered party (unrecognised)"; `defunct` -> "Defunct"; `sentinel` -> "Special category". | Hans |
@@ -61,8 +61,8 @@ These are the orchestrator-resolved verdicts where personas disagreed or where a
 | Section glyphs | Jony J3g - Parliament chart + KPI + stronghold subheader gets `landmark.svg` (already in `frontend/public/icons/`). State Assembly equivalents get `flag.svg` (already in `frontend/public/icons/`). No new icon assets; no new dep. | Jony |
 | Chart structural call (PR-10) | Add `mode: "composite"` prop to existing `DualAxisBarLine` (NOT a new primitive). Composite mode: bar height = vote-share %; bar darkness ratio from the bottom = `seats_won / seats_contested`. Single Y-axis (vote-share, 0-100). Methodology-break markers + caption stay anchored to the X band. Both Parliament + State Assembly charts flip to composite mode. Default `mode` prop value remains "dual-axis" so the 0 other callers in the codebase break. | Jony J6 + Gregor authority (extension-log additive bump) |
 | Three new surfaces in scope for this plan | PR-7 "Current strength" strip + PR-8 "Who they ride with" alliance strip + PR-9 per-card source-pill strip. PR-7 corroborated by Jony J8 #1 + Max M2; PR-8 by Max M5; PR-9 by Max M7+M8 + Holy Law #9. M3 head-to-head card is OUT-OF-SCOPE for this plan (deferred to a follow-on plan because rival-derivation depth + sentinel-handling complexity warrants its own PR-arc). | Orchestrator + Max + Jony |
-| Documentation rename (language-name scrub) | The existing citizen-chrome policy in [docs/architecture/frontend/url-grammar.md](../docs/architecture/frontend/url-grammar.md) is currently labelled by the name of one specific South Asian language; the user mandate is to rephrase to a language-neutral framing ("English-only citizen-chrome policy") WHILE keeping the policy in force. The rename also covers 4 sibling docs + CLAUDE.md line 86. Scrub is doc-only; the grep gate `git grep -iE "lok.sabha\|vidhan.sabha"` stays in force, naming the specific tokens not the policy. KEEP unchanged: `design-system.md` script-name + font-shaping content (script-name is not the language-name and is load-bearing technical context); archived plan-doc receipts (historical, not the policy surface). | Hans H5 |
-| Coverage of `name_native_script` data | The column remains on `parties.csv`. Future operator-only diagnostics surfaces (if ever shipped) MAY render it; the citizen surface MUST NOT. The catalogue line in [docs/concepts/party-identity.md](../docs/concepts/party-identity.md) updates to "per the English-only citizen-chrome policy". | Hans H4 |
+| Documentation rename (language-name scrub) | The existing citizen-chrome policy in [docs/architecture/frontend/url-grammar.md](../../architecture/frontend/url-grammar.md) is currently labelled by the name of one specific South Asian language; the user mandate is to rephrase to a language-neutral framing ("English-only citizen-chrome policy") WHILE keeping the policy in force. The rename also covers 4 sibling docs + CLAUDE.md line 86. Scrub is doc-only; the grep gate `git grep -iE "lok.sabha\|vidhan.sabha"` stays in force, naming the specific tokens not the policy. KEEP unchanged: `design-system.md` script-name + font-shaping content (script-name is not the language-name and is load-bearing technical context); archived plan-doc receipts (historical, not the policy surface). | Hans H5 |
+| Coverage of `name_native_script` data | The column remains on `parties.csv`. Future operator-only diagnostics surfaces (if ever shipped) MAY render it; the citizen surface MUST NOT. The catalogue line in [docs/concepts/party-identity.md](../../concepts/party-identity.md) updates to "per the English-only citizen-chrome policy". | Hans H4 |
 
 ### Deferred citizen-asks (logged for future plans; NOT in scope here)
 
@@ -83,19 +83,20 @@ These get filed into a follow-on plan-doc only when the user prioritises them; t
 
 | Row | Title | Status | PR | Effort |
 | --- | --- | --- | --- | --- |
-| PR-1 | Citizen-chrome vocabulary scrub on `/parties/<slug>` - chart H2s, KPI tile labels, latest-of one-liners, stronghold subheaders, sentence rewrites (Hans H1 verbatim) | [ ] PENDING | - | ~2h |
-| PR-2 | Methodology-break tooltip + caption + writer-side note scrub (Jony J7; cleans `methodology_breaks.json` of operator narrative; view-model `cleanNote()` helper as belt-and-braces) | [ ] PENDING | - | ~2h |
-| PR-3 | Documentation rename - language-name scrub in url-grammar.md + electoral-hierarchy.md + party-identity.md + indicator-naming.md + CLAUDE.md (Hans H5; replacement label "English-only citizen-chrome policy") | [ ] PENDING | - | ~1h |
-| PR-4 | Header avatar circle + symbol-image + sentinel treatment (Jony J4); also rewires `getAvatarStyle()` helper signature and updates tests | [ ] PENDING | - | ~3h |
-| PR-5 | Stronghold row redesign - 10-cell SVG dot strip + inline state-name prefix (Jony J1 + J2); drops Unicode-block sparkline | [ ] PENDING | - | ~3h |
-| PR-6 | Side-rail "About this party" card + Hans H6 founding framing + Hans H7 recognition vocabulary + drop `name_native_script` rendering (Jony J5 + Hans H4 + H6 + H7) | [ ] PENDING | - | ~3h |
-| PR-7 | "Where this party sits today" current-strength strip (Max M2; new view-model + new component; reads `marts/party_pages/history.csv` filtered to MAX(year) per body + optional `office_holdings.csv` for chief-executive count) | [ ] PENDING | - | ~5h |
-| PR-8 | "Who they ride with" alliance context strip (Max M5; new view-model + new component; reads `party_alliances.csv` filtered to latest event per body) | [ ] PENDING | - | ~4h |
-| PR-9 | Per-card coverage badges + bottom-of-page source-pill strip (Max M7 + M8; satisfies Holy Law #9); new helper + footer strip | [ ] PENDING | - | ~3h |
-| PR-10 | `DualAxisBarLine` composite mode + section-glyph wiring (Jony J6 + J3g; additive `mode: "composite"` prop; closed-renderer extension-log bump) | [ ] PENDING | - | ~4h |
-| PR-11 | Closure - archive plan-doc to `docs/archive/plans/` + Section 6 closure ledger + durable distillation per `docs/how-to/distill-a-plan.md` | [ ] PENDING | - | ~30min |
+| PR-1 | Citizen-chrome vocabulary scrub on `/parties/<slug>` - chart H2s, KPI tile labels, latest-of one-liners, stronghold subheaders, sentence rewrites (Hans H1 verbatim) | [x] DONE | [#1013](https://github.com/miztiik/yen-gov/pull/1013) `f00d9a82a` | ~2h |
+| PR-2 | Methodology-break tooltip + caption + writer-side note scrub (Jony J7; cleans `methodology_breaks.json` of operator narrative; view-model `cleanNote()` helper as belt-and-braces) | [x] DONE | [#1016](https://github.com/miztiik/yen-gov/pull/1016) `fcb25f901` | ~2h |
+| PR-3 | Documentation rename - language-name scrub in url-grammar.md + electoral-hierarchy.md + party-identity.md + indicator-naming.md + CLAUDE.md (Hans H5; replacement label "English-only citizen-chrome policy") | [x] DONE | [#1011](https://github.com/miztiik/yen-gov/pull/1011) `677ed49ce` | ~1h |
+| PR-4 | Header avatar circle + symbol-image + sentinel treatment (Jony J4); also rewires `getAvatarStyle()` helper signature and updates tests | [x] DONE | [#1017](https://github.com/miztiik/yen-gov/pull/1017) `94d6cf9b0` | ~3h |
+| PR-5 | Stronghold row redesign - 10-cell SVG dot strip + inline state-name prefix (Jony J1 + J2); drops Unicode-block sparkline | [x] DONE | [#1018](https://github.com/miztiik/yen-gov/pull/1018) `7f7379da8` | ~3h |
+| PR-6 | Side-rail "About this party" card + Hans H6 founding framing + Hans H7 recognition vocabulary + drop `name_native_script` rendering (Jony J5 + Hans H4 + H6 + H7) | [x] DONE | [#1019](https://github.com/miztiik/yen-gov/pull/1019) `5e8e41cc5` | ~3h |
+| PR-7a | Widen `marts/party_pages/history.csv` with `state` + `party_votes` + `total_votes` columns (ESCALATE E2 path-C split of the original combined PR-7; writer/mart side first) | [x] DONE | [#1024](https://github.com/miztiik/yen-gov/pull/1024) `c3f94b38c` | ~3h |
+| PR-7b | "Where this party sits today" current-strength strip - new `PartyCurrentStrength.svelte` consuming the PR-7a-widened mart (31 chambers: 28 states + Delhi + Puducherry + J&K UT) | [x] DONE | [#1026](https://github.com/miztiik/yen-gov/pull/1026) `a0d20cfcf` | ~5h |
+| PR-8 | "Who they ride with" alliance context strip (Max M5; new view-model + new component; reads `party_alliances.csv` filtered to latest event per body; role classification derived from PR-7a seat counts) | [x] DONE | [#1027](https://github.com/miztiik/yen-gov/pull/1027) `3878b421b` | ~4h |
+| PR-9 | Per-card coverage badges + bottom-of-page source-pill strip + Tier-A `party-page-provenance.test.ts` contract enforcing Holy Law #9 + Path A backfill of 5 missing `source_id`s (TCPD-compiled ECI LS General returns 1962/1989/1991/1996/1998; orchestrator-authorized scope expansion) | [x] DONE | [#1028](https://github.com/miztiik/yen-gov/pull/1028) `2963716a6` | ~3h |
+| PR-10 | `DualAxisBarLine` composite mode + section-glyph wiring (Jony J6 + J3g; additive `mode: "composite"` prop; closed-renderer extension-log bump) | [x] DONE | [#1030](https://github.com/miztiik/yen-gov/pull/1030) `29ff478ee` | ~4h |
+| PR-11 | Closure - archive plan-doc to `docs/archive/plans/` + Section 14 closure ledger + durable distillation per `docs/how-to/distill-a-plan.md` | [x] DONE | this PR | ~30min |
 
-**Total**: 11 PRs / 4 waves / ~30h wall-clock if parallelised correctly.
+**Total shipped**: 11 PRs across 4 waves (10 plan rows + PR-7 ESCALATE E2 split into 7a+7b + closure). Original estimate ~30h wall-clock; actual cadence across the 2026-06-14 ship loop.
 
 ## 2. Wave + dependency graph
 
@@ -246,15 +247,15 @@ The BEFORE strings are not enumerated in this plan-doc per the user mandate (the
 
 > **Rewrite rule**: wherever a doc names one specific South Asian language as part of the citizen-chrome policy label or body, replace the language-name with a language-neutral framing. The replacement label for the policy is **"English-only citizen-chrome policy"**. Body-paragraph phrases that name the same language as a citizen-vocabulary anchor (e.g. patterns like "learned the [lang] term first", "[lang] tokens in URLs", "No [lang]/English mixing") rewrite to language-neutral equivalents ("learned the local-language term first", "transliterated tokens in URLs", "Single-script titles, no transliteration").
 
-1. **MOD [docs/architecture/frontend/url-grammar.md](../docs/architecture/frontend/url-grammar.md)** - rewrite the policy section heading at line 244 (a `### <prior-label> (PR-0 2026-06-09)` heading whose label names the language) to `### English-only citizen-chrome policy (PR-0 2026-06-09)`. Apply the rewrite rule to the body paragraphs at lines 246 (Context), 255 (Carve-outs), 257 (Mechanical scrub gate). The grep-gate regex `git grep -iE "lok.sabha|vidhan.sabha"` STAYS in force - it names the specific tokens, not the policy. The "PR-W1a" historical receipt stays.
-2. **MOD [docs/concepts/electoral-hierarchy.md](../docs/concepts/electoral-hierarchy.md)** - apply the rewrite rule to line 53 (the URL-tokens line) and any adjacent body sentence that names the language as a citizen-vocabulary anchor.
-3. **MOD [docs/concepts/party-identity.md](../docs/concepts/party-identity.md)** - apply the rewrite rule to line 100 (the `name_native_script` table row referencing the prior policy label by name). The replacement text scope-widens from "elections surface" to "citizen surface" because the policy now applies to the party page per PR-1 of this plan: the row becomes `"UI policy filters it OUT on the citizen surface per the English-only citizen-chrome policy."`
-4. **MOD [docs/concepts/indicator-naming.md](../docs/concepts/indicator-naming.md)** - apply the rewrite rule to line 114 (the title-mixing rule); replacement text is `"English only. Single-script titles, no transliteration."`
-5. **MOD [CLAUDE.md](../CLAUDE.md)** - apply the rewrite rule to line 86 (the URL-grammar pin citing the prior policy label by name). Drop the "elections surface" qualifier (policy now applies to the party page too); replacement text is `"... + English-only citizen-chrome policy, 2026-06-09)."`
+1. **MOD [docs/architecture/frontend/url-grammar.md](../../architecture/frontend/url-grammar.md)** - rewrite the policy section heading at line 244 (a `### <prior-label> (PR-0 2026-06-09)` heading whose label names the language) to `### English-only citizen-chrome policy (PR-0 2026-06-09)`. Apply the rewrite rule to the body paragraphs at lines 246 (Context), 255 (Carve-outs), 257 (Mechanical scrub gate). The grep-gate regex `git grep -iE "lok.sabha|vidhan.sabha"` STAYS in force - it names the specific tokens, not the policy. The "PR-W1a" historical receipt stays.
+2. **MOD [docs/concepts/electoral-hierarchy.md](../../concepts/electoral-hierarchy.md)** - apply the rewrite rule to line 53 (the URL-tokens line) and any adjacent body sentence that names the language as a citizen-vocabulary anchor.
+3. **MOD [docs/concepts/party-identity.md](../../concepts/party-identity.md)** - apply the rewrite rule to line 100 (the `name_native_script` table row referencing the prior policy label by name). The replacement text scope-widens from "elections surface" to "citizen surface" because the policy now applies to the party page per PR-1 of this plan: the row becomes `"UI policy filters it OUT on the citizen surface per the English-only citizen-chrome policy."`
+4. **MOD [docs/concepts/indicator-naming.md](../../concepts/indicator-naming.md)** - apply the rewrite rule to line 114 (the title-mixing rule); replacement text is `"English only. Single-script titles, no transliteration."`
+5. **MOD [CLAUDE.md](../../../CLAUDE.md)** - apply the rewrite rule to line 86 (the URL-grammar pin citing the prior policy label by name). Drop the "elections surface" qualifier (policy now applies to the party page too); replacement text is `"... + English-only citizen-chrome policy, 2026-06-09)."`
 
 ### KEEP UNCHANGED
 
-- [docs/architecture/frontend/design-system.md](../docs/architecture/frontend/design-system.md) lines 74, 91, 93 - the font-shaping content names a SCRIPT (not the citizen-chrome language) and is load-bearing technical context for the GSUB / conjunct shaping discussion. The English-only policy never bound the font subset; only the chrome. Per Hans H5 verbatim.
+- [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md) lines 74, 91, 93 - the font-shaping content names a SCRIPT (not the citizen-chrome language) and is load-bearing technical context for the GSUB / conjunct shaping discussion. The English-only policy never bound the font subset; only the chrome. Per Hans H5 verbatim.
 - Archived plan-docs under `docs/archive/plans/` carrying receipts of the OLD policy name (e.g. `20260609-election-experience-overhaul-plan.md` line 155, `20260610-electoral-data-quality-and-party-catalogue-plan.md` line 132, `20260613-party-deferred-followups-plan.md`). Archives are historical receipts, not the policy surface; touching them rewrites history.
 - The grep-gate regex `git grep -iE "lok.sabha|vidhan.sabha"` STAYS in force at its current location in url-grammar.md.
 
@@ -263,7 +264,7 @@ The BEFORE strings are not enumerated in this plan-doc per the user mandate (the
 The subagent composes the verification regex at execution time by reading the BEFORE strings from each file - the literal language-name patterns are not enumerated in this plan-doc per the user mandate.
 
 1. After the rewrite, `git grep -inE "<prior-policy-label-regex>" -- "docs/architecture/" "docs/concepts/" "CLAUDE.md"` MUST return zero matches (where `<prior-policy-label-regex>` is the regex matching the prior label as the subagent observes it before edit; archive matches are out of scope - the grep restricts to live doc roots).
-2. The font-shaping content in [docs/architecture/frontend/design-system.md](../docs/architecture/frontend/design-system.md) MUST still contain its existing script-name references (proves we did not over-scrub).
+2. The font-shaping content in [docs/architecture/frontend/design-system.md](../../architecture/frontend/design-system.md) MUST still contain its existing script-name references (proves we did not over-scrub).
 3. Markdownlint / repo doc-style check stays green.
 4. The CLAUDE.md cross-link to url-grammar.md still resolves (the heading-anchor for the renamed section becomes `#english-only-citizen-chrome-policy-pr-0-2026-06-09`; bump the link in CLAUDE.md in the SAME PR).
 
@@ -801,7 +802,7 @@ This single composite bar carries TWO indicators (vote-share + seat-conversion) 
 
 ### Schema-is-the-design-system extension log
 
-Per [docs/concepts/schema-is-the-design-system.md](../docs/concepts/schema-is-the-design-system.md) the closed-renderer extension log already contains a `DualAxisBarLine` entry with 4 qualifying indicators. Adding the `mode: "composite"` prop is an ADDITIVE extension of the SAME primitive (not a new primitive); update the extension-log entry to name the new mode + its qualifying indicators:
+Per [docs/concepts/schema-is-the-design-system.md](../../concepts/schema-is-the-design-system.md) the closed-renderer extension log already contains a `DualAxisBarLine` entry with 4 qualifying indicators. Adding the `mode: "composite"` prop is an ADDITIVE extension of the SAME primitive (not a new primitive); update the extension-log entry to name the new mode + its qualifying indicators:
 
 - Parliament: vote-share + seat-conversion - the citizen-facing primary view post-redesign.
 - State Assembly: parallel.
@@ -835,37 +836,53 @@ Plus the browser-smoke geometry assertion: ` <rect data-mode="composite" data-ov
 
 ## 13. PR-11 - Plan-doc archive + distillation
 
-**Scope**. Close the plan and distill durable learnings per `docs/how-to/distill-a-plan.md`.
-
-### Steps
-
-1. Verify all 10 implementation rows are `[x] DONE` in the Reckoner (Section 1).
-2. Author Section 14 closure stanza here: per-PR ledger (PR # + SHA + 1-line "what shipped"); persona-debate distillation pointer (Jony / Max / Hans verdict files cited); 3 durable lessons for `/memories/lessons.md` (e.g. "doctrine-lock the chrome vocabulary in a per-page closed-list before adding view-models that re-author the strings"; "writer-side scrub of operator narrative beats renderer-side guards alone"; "side-rail layout flip needs the `lg:grid-cols-[1fr_240px]` shell at the route-level, not inside the side-rail component").
-3. Lift any durable doctrinal additions into the right `docs/` home (specifically: if PR-10's composite-mode shape generalises, fold it into [docs/architecture/frontend/charts/dual-axis-bar-line.md](../docs/architecture/frontend/charts/dual-axis-bar-line.md) with the new shape spec; if PR-3's rename produces a doctrinal phrase the codebase will lean on, ensure the url-grammar.md section is the authoritative anchor).
-4. `git mv TODO/20260614-party-page-reimagination-plan.md docs/archive/plans/20260614-party-page-reimagination-plan.md` and update any cross-links.
-5. Open the closure PR with title `docs(plans): archive 20260614 party-page-reimagination plan (PR-11 closure)`.
-
-### Acceptance gates
-
-1. Test path GONE: `git ls-files TODO/20260614-party-page-reimagination-plan.md` returns empty.
-2. Archive path EXISTS: `Test-Path docs/archive/plans/20260614-party-page-reimagination-plan.md`.
-3. Closure stanza heading EXISTS: `Select-String -Path docs/archive/plans/20260614-party-page-reimagination-plan.md -Pattern "## 14. Plan complete"`.
-4. No broken relative links to the old TODO/ path remain in the repo.
-
-### Load-bearing oracle
-
-```pwsh
-$gone = git ls-files TODO/20260614-party-page-reimagination-plan.md
-if ($gone) { Write-Error "Old plan path still tracked"; exit 1 }
-Test-Path docs/archive/plans/20260614-party-page-reimagination-plan.md
-$broken = git grep -l "TODO/20260614-party-page-reimagination" -- "*.md"
-if ($broken) { Write-Error "Broken cross-links: $broken"; exit 1 }
-"ok"
-```
+**Closed.** The plan-doc was archived to its current location at [docs/archive/plans/20260614-party-page-reimagination-plan.md](20260614-party-page-reimagination-plan.md) via `git mv`, cross-links were rewritten across the repo, and the closure stanza was authored in Section 14 below per [docs/how-to/distill-a-plan.md](../../how-to/distill-a-plan.md). Three durable lessons were lifted to user-memory at `/memories/lessons-2026-06-14-party-page-reimagination.md`. The composite-mode spec landed in [docs/architecture/frontend/charts/dual-axis-bar-line.md](../../architecture/frontend/charts/dual-axis-bar-line.md); the Holy Law #9 enforcement receipt landed in [docs/concepts/data-provenance.md](../../concepts/data-provenance.md). See Section 14 for the full per-PR ledger + persona-debate distillation.
 
 ## 14. Plan complete
 
-This section is filled at PR-11 close. Per-row PR ledger + persona-debate distillation pointer + 3 durable lessons land here.
+**Closed** at PR-11 on 2026-06-14. The party-page reimagination shipped end-to-end across 11 PRs in 4 waves on `origin/main`. The plan-doc is now an archived audit ledger; durable doctrine has been lifted into the right `docs/` homes per [docs/how-to/distill-a-plan.md](../../how-to/distill-a-plan.md), and 3 agent-only execution lessons were written to user-memory at `/memories/lessons-2026-06-14-party-page-reimagination.md`.
+
+### Per-PR ledger
+
+| PR | Merge SHA | What shipped |
+| --- | --- | --- |
+| [#1013](https://github.com/miztiik/yen-gov/pull/1013) | `f00d9a82a` | PR-1: chrome-vocabulary scrub across `/parties/<slug>` (chart H2s, KPI labels, latest-of one-liners, stronghold subheaders) per Hans H1 verbatim. |
+| [#1016](https://github.com/miztiik/yen-gov/pull/1016) | `fcb25f901` | PR-2: methodology-break tooltip + caption + writer-side `note` scrub on `methodology_breaks.json` + `cleanNote()` view-model belt-and-braces. |
+| [#1011](https://github.com/miztiik/yen-gov/pull/1011) | `677ed49ce` | PR-3: docs rename (language-name scrub) across url-grammar.md + electoral-hierarchy.md + party-identity.md + indicator-naming.md + CLAUDE.md; replacement label "English-only citizen-chrome policy". |
+| [#1017](https://github.com/miztiik/yen-gov/pull/1017) | `94d6cf9b0` | PR-4: header avatar circle + symbol-image + sentinel treatment per Jony J4; rewires `getAvatarStyle()` helper. |
+| [#1018](https://github.com/miztiik/yen-gov/pull/1018) | `7f7379da8` | PR-5: stronghold row redesign - 10-cell SVG dot strip + inline state-name prefix; drops Unicode-block sparkline. |
+| [#1019](https://github.com/miztiik/yen-gov/pull/1019) | `5e8e41cc5` | PR-6: side-rail "About this party" card + Hans H6 founding framing + Hans H7 recognition vocabulary + `name_native_script` render-drop. |
+| [#1024](https://github.com/miztiik/yen-gov/pull/1024) | `c3f94b38c` | PR-7a (ESCALATE E2 path-C split): widen `marts/party_pages/history.csv` with `state` + `party_votes` + `total_votes` columns. Mart-grain change extracted from the original combined PR-7 so the consumer could land cleanly. |
+| [#1026](https://github.com/miztiik/yen-gov/pull/1026) | `a0d20cfcf` | PR-7b (consumer): `PartyCurrentStrength.svelte` "where this party sits today" strip - Parliament + 31-chamber state-assembly aggregate from the PR-7a-widened mart. Renders below the header card, above the latest-of one-liners. |
+| [#1027](https://github.com/miztiik/yen-gov/pull/1027) | `3878b421b` | PR-8: alliance context strip ("who they ride with") - new view-model + component reading `party_alliances.csv` filtered to latest event per body; role classification derived from PR-7a seat counts. |
+| [#1028](https://github.com/miztiik/yen-gov/pull/1028) | `2963716a6` | PR-9: per-card coverage badges + bottom-of-page source-pill strip + Tier-A `party-page-provenance.test.ts` contract enforcing Holy Law #9 on every card on `/parties/<slug>`. Orchestrator-authorized Path A scope expansion: backfilled 5 missing `source_id`s on TCPD-compiled ECI LS General returns for 1962/1989/1991/1996/1998 so the new enforcer would land green. |
+| [#1030](https://github.com/miztiik/yen-gov/pull/1030) | `29ff478ee` | PR-10: `DualAxisBarLine` composite mode (additive `mode: "composite" \| "dual-axis"` prop; default preserved) + section-glyph wiring (`landmark.svg` + `flag.svg`). Closed-renderer extension-log bump in `docs/concepts/schema-is-the-design-system.md`. |
+| this PR | (closure) | PR-11: archived plan-doc to `docs/archive/plans/`; rewrote 7 internal `TODO/...` references in the now-historical Section 13 recipe; fixed the 32 relative cross-links in the body for the new home; folded composite-mode spec into `docs/architecture/frontend/charts/dual-axis-bar-line.md`; added Holy Law #9 enforcement receipt to `docs/concepts/data-provenance.md`; rewrote 1 cross-link in `docs/concepts/schema-is-the-design-system.md`. |
+
+### What was achieved
+
+1. **Citizen-first end-to-end.** The `/parties/<slug>` page now opens with a citizen-readable header (avatar + symbol + sentinel treatment), an immediate "where this party sits today" current-strength strip (Parliament + 31 chambers of state assembly coverage), then an alliance context strip, all the existing topic cards (each carrying a coverage badge), the redesigned stronghold row (10-cell SVG dot strip), and ends in a source-pill strip that names every producer + title + vintage that fed the page. Chrome vocabulary is English-only; no operator narrative leaks; no implementation disclosure.
+2. **Holy Law #9 mechanically enforced.** PR-9's Tier-A contract test `party-page-provenance.test.ts` now blocks any future PR that ships a card on `/parties/<slug>` without `source_id` attribution. The 5-row Path A backfill in the same PR cleared a chronic 5-event gap on TCPD-compiled ECI LS General returns so the new enforcer landed green; that backfill stays as canonical data on `source.csv` going forward.
+3. **Mart grain widened with the writer, then consumed.** PR-7a + PR-7b proved the right shape for "structural mart change + UI consumer in different PRs" - the writer ships first with a contract test (Tier-A schema), the consumer ships next with view-model + Svelte component referencing the new columns. This split (forced by ESCALATE E2) is faster than the combined PR would have been and is reusable for future grain widenings.
+4. **Closed-renderer extension log proven additive-friendly.** PR-10 added `mode: "composite"` to `DualAxisBarLine` without minting a new primitive. The closed-renderer-set discipline (from `docs/concepts/schema-is-the-design-system.md`) absorbed the change as an extension-log bump; the two existing call sites flipped over in the same PR.
+
+### What was deliberately NOT done
+
+- **The original combined PR-7 was split into PR-7a + PR-7b** under ESCALATE E2. The mart writer + view-model consumer landed as separate PRs because the mart grain change qualified as a Level-3 cross-cutting change (writer + schema + reader) and the user-facing consumer was a Level-2 component-add. Splitting kept each PR within its correction-level envelope; recombining would have produced a 4+ file structural PR worth a separate Level-4 review.
+- **AAP `parties.IN.AAM-AADMI-PARTY` party-id-aliasing was flagged but not fixed.** `/parties/aap` resolves via slug-route but the canonical party-id alias chain is incomplete for one historical join surface (alliance attribution for Punjab AE 2022). This was discovered during PR-8 §13 browser smoke; tracked separately. NOT in this plan's scope.
+- **"31 chambers" vs "36 jurisdictions" terminology was deliberately reconciled.** PR-7b uses "state assemblies (latest cycles)" + "31 chambers" because the citizen reads chamber-counts on a parliament-of-Westminster framing; the underlying entity-tier count (36 = 28 states + 8 UTs) is operator-facing data infrastructure not citizen-readable copy. The current-strength strip names "1,469 seats across 14 states out of 4,123 total" to be concrete about the cycle the citizen is reading, not the abstract count of chambers.
+- **One accessibility warning surfaced during §13 browser smoke on the new stronghold dot strip; deliberately NOT fixed.** Per CLAUDE.md Non-Goal #0 (a11y descoped 2026-05-12), no `aria-*` enforcement is in force at project level. The dot strip is non-interactive decoration alongside the textual "Top-10 states" list; the text carries the data.
+
+### Persona-debate distillation pointer
+
+The single contested design call across the plan was PR-7's mart-shape question (Hans Path C "widen the existing history mart in place" vs Max Path D "mint a new `party_current_strength.csv` mart"). The user selected **Path C** under ESCALATE E2; the in-place widening of `marts/party_pages/history.csv` (Hans+Max owners per CLAUDE.md section 0a data-shape authority) became PR-7a. Rationale: the mart already carried per-(party, body, event) rows; adding `state` + `party_votes` + `total_votes` columns is a pure additive widen, preserves the writer's existing PK, and avoids minting a parallel mart with overlapping ownership. The "current strength" framing is a consumer-side projection, not a new canonical fact - which makes it a view-model concern (PR-7b), not a mart concern. Persona verdict files for the other 9 PRs (where authority was unambiguous - e.g. Jony alone on visual design rows, Hans alone on chrome-vocabulary rows) were not authored as separate files; the row scope in Sections 3-12 above is the authoritative verdict.
+
+### Durable lessons (lifted to `/memories/lessons-2026-06-14-party-page-reimagination.md`)
+
+1. **Mart-grain widening that has a UI consumer in the same plan = SPLIT into writer-PR + consumer-PR.** ESCALATE E2 on PR-7 vindicated this; the combined PR would have crossed Level-3 + Level-2 boundaries and made review intractable. The writer-PR ships the schema test green; the consumer-PR ships the view-model + Svelte component against the now-widened mart.
+2. **Holy Law #9 Tier-A enforcer + Path A backfill in the SAME PR is the right shape.** PR-9 demonstrated this: shipping the enforcer first would have failed the gate on 5 chronic `source_id` gaps; shipping the backfill first would have left no enforcement scaffold. Combined PR ships green and prevents regression. The backfill is named in the PR body + handover-doc as scope expansion, not silent.
+3. **Closed-renderer extension via additive props beats new-primitive minting.** PR-10's `mode: "composite"` prop kept the closed-renderer set closed (per `docs/concepts/schema-is-the-design-system.md`) while delivering the citizen-facing single-axis composite-bar encoding. Future chart variations on existing primitives should default to additive `mode` props with the old behaviour preserved as the default value.
+
 
 ## Execution contract (autonomous - follow blindly, do not re-plan)
 
@@ -883,25 +900,25 @@ When this plan is in context and the instruction is "implement it", execute as t
 
 ## See also
 
-- [CLAUDE.md](../CLAUDE.md) - section 0a authority table (Hans+Max data shape; Jony+Citizen UX; Gregor contracts), section 10 anti-patterns, Holy Law #9 provenance, Holy Law #4 docs.
-- [docs/agents/bootstrap.md](../docs/agents/bootstrap.md) - the 8-step persona startup ritual.
-- [docs/agents/guardrails.md](../docs/agents/guardrails.md) - what every persona must honour.
-- [docs/concepts/citizen-first.md](../docs/concepts/citizen-first.md) - the 7-step question-first pipeline + ADR-0021 no-implementation-disclosure rule that informs PR-2's tooltip scrub.
-- [docs/concepts/schema-is-the-design-system.md](../docs/concepts/schema-is-the-design-system.md) - the closed-renderer extension log that PR-10 amends.
-- [docs/architecture/frontend/url-grammar.md](../docs/architecture/frontend/url-grammar.md) - the existing citizen-chrome policy whose label PR-3 renames (policy unchanged).
-- [docs/concepts/party-identity.md](../docs/concepts/party-identity.md) - the `name_native_script` column whose rendering PR-6 drops.
-- [docs/concepts/electoral-hierarchy.md](../docs/concepts/electoral-hierarchy.md) - the chrome-vocabulary line PR-3 rewrites.
-- [docs/concepts/indicator-naming.md](../docs/concepts/indicator-naming.md) - the title-mixing rule PR-3 rewrites.
-- [docs/archive/plans/20260612-party-rendering-and-party-pages-plan.md](../docs/archive/plans/20260612-party-rendering-and-party-pages-plan.md) - the original PR-4 that shipped the page now being reimagined.
-- [docs/archive/plans/20260613-party-deferred-followups-plan.md](../docs/archive/plans/20260613-party-deferred-followups-plan.md) - the closed sprint that landed methodology-break markers (PR-10) + stronghold choropleth (PR-12); commit `d09f8827c`.
-- [frontend/src/routes/Party.svelte](../frontend/src/routes/Party.svelte) - the page being reimagined.
-- [frontend/src/lib/view-models/party-detail.ts](../frontend/src/lib/view-models/party-detail.ts) - the view-model that PRs 7/8/9 extend.
-- [frontend/src/lib/charts/DualAxisBarLine/DualAxisBarLine.svelte](../frontend/src/lib/charts/DualAxisBarLine/DualAxisBarLine.svelte) - the primitive PR-10 extends with composite mode.
-- [datasets/data/entities/parties.csv](../datasets/data/entities/parties.csv) - source of `symbol_asset`, `brand_colour`, `name_native_script` (column stays; render drops).
-- [datasets/data/entities/source.csv](../datasets/data/entities/source.csv) - the citation ledger PR-9 wires per Holy Law #9.
-- [datasets/data/entities/party_alliances.csv](../datasets/data/entities/party_alliances.csv) - the source PR-8 reads.
-- [datasets/data/marts/party_pages/history.csv](../datasets/data/marts/party_pages/history.csv) + [strongholds.csv](../datasets/data/marts/party_pages/strongholds.csv) - the marts PR-7 + PR-9 read.
-- [datasets/taxonomy/methodology_breaks.json](../datasets/taxonomy/methodology_breaks.json) - the file whose `note` text PR-2 scrubs.
-- [frontend/public/icons/landmark.svg](../frontend/public/icons/landmark.svg) + [flag.svg](../frontend/public/icons/flag.svg) - the section glyphs PR-10 wires.
-- [docs/how-to/ship-a-pr.md](../docs/how-to/ship-a-pr.md) - the PR lifecycle the Execution contract references.
-- [docs/how-to/distill-a-plan.md](../docs/how-to/distill-a-plan.md) - the closure ritual PR-11 follows.
+- [CLAUDE.md](../../../CLAUDE.md) - section 0a authority table (Hans+Max data shape; Jony+Citizen UX; Gregor contracts), section 10 anti-patterns, Holy Law #9 provenance, Holy Law #4 docs.
+- [docs/agents/bootstrap.md](../../agents/bootstrap.md) - the 8-step persona startup ritual.
+- [docs/agents/guardrails.md](../../agents/guardrails.md) - what every persona must honour.
+- [docs/concepts/citizen-first.md](../../concepts/citizen-first.md) - the 7-step question-first pipeline + ADR-0021 no-implementation-disclosure rule that informs PR-2's tooltip scrub.
+- [docs/concepts/schema-is-the-design-system.md](../../concepts/schema-is-the-design-system.md) - the closed-renderer extension log that PR-10 amends.
+- [docs/architecture/frontend/url-grammar.md](../../architecture/frontend/url-grammar.md) - the existing citizen-chrome policy whose label PR-3 renames (policy unchanged).
+- [docs/concepts/party-identity.md](../../concepts/party-identity.md) - the `name_native_script` column whose rendering PR-6 drops.
+- [docs/concepts/electoral-hierarchy.md](../../concepts/electoral-hierarchy.md) - the chrome-vocabulary line PR-3 rewrites.
+- [docs/concepts/indicator-naming.md](../../concepts/indicator-naming.md) - the title-mixing rule PR-3 rewrites.
+- [docs/archive/plans/20260612-party-rendering-and-party-pages-plan.md](../../archive/plans/20260612-party-rendering-and-party-pages-plan.md) - the original PR-4 that shipped the page now being reimagined.
+- [docs/archive/plans/20260613-party-deferred-followups-plan.md](../../archive/plans/20260613-party-deferred-followups-plan.md) - the closed sprint that landed methodology-break markers (PR-10) + stronghold choropleth (PR-12); commit `d09f8827c`.
+- [frontend/src/routes/Party.svelte](../../../frontend/src/routes/Party.svelte) - the page being reimagined.
+- [frontend/src/lib/view-models/party-detail.ts](../../../frontend/src/lib/view-models/party-detail.ts) - the view-model that PRs 7/8/9 extend.
+- [frontend/src/lib/charts/DualAxisBarLine/DualAxisBarLine.svelte](../../../frontend/src/lib/charts/DualAxisBarLine/DualAxisBarLine.svelte) - the primitive PR-10 extends with composite mode.
+- [datasets/data/entities/parties.csv](../../../datasets/data/entities/parties.csv) - source of `symbol_asset`, `brand_colour`, `name_native_script` (column stays; render drops).
+- [datasets/data/entities/source.csv](../../../datasets/data/entities/source.csv) - the citation ledger PR-9 wires per Holy Law #9.
+- [datasets/data/entities/party_alliances.csv](../../../datasets/data/entities/party_alliances.csv) - the source PR-8 reads.
+- [datasets/data/marts/party_pages/history.csv](../../../datasets/data/marts/party_pages/history.csv) + [strongholds.csv](../../../datasets/data/marts/party_pages/strongholds.csv) - the marts PR-7 + PR-9 read.
+- [datasets/taxonomy/methodology_breaks.json](../../../datasets/taxonomy/methodology_breaks.json) - the file whose `note` text PR-2 scrubs.
+- [frontend/public/icons/landmark.svg](../../../frontend/public/icons/landmark.svg) + [flag.svg](../../../frontend/public/icons/flag.svg) - the section glyphs PR-10 wires.
+- [docs/how-to/ship-a-pr.md](../../how-to/ship-a-pr.md) - the PR lifecycle the Execution contract references.
+- [docs/how-to/distill-a-plan.md](../../how-to/distill-a-plan.md) - the closure ritual PR-11 follows.

@@ -91,7 +91,7 @@ Bars + line on a shared X axis with dual Y axes (left for bars, right for line /
 
 **Reuse guard.** Future bar+line uses MUST mount this primitive; new "bar+line" surfaces that bypass it violate the closed-set rule.
 
-#### Mode: `composite` (PR-10 of [TODO/20260614-party-page-reimagination-plan.md](../../TODO/20260614-party-page-reimagination-plan.md), 2026-06-14)
+#### Mode: `composite` (PR-10 of [docs/archive/plans/20260614-party-page-reimagination-plan.md](../archive/plans/20260614-party-page-reimagination-plan.md), 2026-06-14)
 
 Additive `mode: "composite" | "dual-axis"` prop (default `"dual-axis"` preserves the pre-PR-10 contract for every existing caller). In composite mode the renderer collapses to a SINGLE Y axis:
 
