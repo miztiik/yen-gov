@@ -244,6 +244,7 @@ High-cardinality frontend registry inventory for panchayats and wards is generat
 Frontend `frontend/src/contracts/boundaries-conform.test.ts` keeps bounded consumer canaries for Hive path grammar, sidecar absence, ledger presence, states join key, and representative TopoJSON decode. It must not walk every boundary shard or create one default Vitest case per corpus file.
 
 Default frontend tests must not scale with corpus cardinality. Frontend tests prove consumer behavior with fixtures and representative canaries. Exhaustive corpus validation belongs to producer receipts plus backend Tier-B validation.
+The source-level guardrail lives at `frontend/src/contracts/no-frontend-corpus-explosion.test.ts`; it scans frontend test files only and rejects broad dataset globs, recursive dataset walkers, and generated test cases fed by unbounded corpus lists before they can turn into another boundary-corpus test explosion.
 
 ## Design rationale
 

@@ -102,7 +102,7 @@ Stop and ask the user before proceeding if any row requires:
 | A | Move corpus proof to Tier-B and cut frontend to canaries | [x] DONE | - | L |
 | B | Add committed boundary encoding receipt | [x] DONE | - | M |
 | C | Generate high-cardinality boundary registries from the ledger | [x] DONE | - | L |
-| D | Land doctrine guardrail against future frontend corpus explosion | [ ] PENDING | - | M |
+| D | Land doctrine guardrail against future frontend corpus explosion | [x] DONE | - | M |
 
 ## 2. Row A - Move corpus proof to Tier-B and cut frontend to canaries
 
