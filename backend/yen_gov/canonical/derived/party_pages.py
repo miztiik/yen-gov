@@ -70,6 +70,7 @@ class _HistoryAgg:
     party_id: str
     body: str
     period_label: str
+    state: str
     year: int
     seats: float = 0.0
     contested: float | None = None
@@ -103,9 +104,9 @@ def refresh_party_page_marts(repo_root: Path) -> PartyPageMartResult:
     input_rels = _input_rels(root)
     input_signature = compute_input_signature(root, input_rels)
 
-    history_aggs: dict[tuple[str, str, str], _HistoryAgg] = {}
-    total_votes_direct: dict[tuple[str, str], float] = defaultdict(float)
-    total_votes_fallback: dict[tuple[str, str], float] = defaultdict(float)
+    history_aggs: dict[tuple[str, str, str, str], _HistoryAgg] = {}
+    total_votes_direct: dict[tuple[str, str, str], float] = defaultdict(float)
+    total_votes_fallback: dict[tuple[str, str, str], float] = defaultdict(float)
     winner_events: dict[tuple[str, str], list[_WinnerEvent]] = defaultdict(list)
 
     for rel in _electoral_datapoint_rels(root):
@@ -124,24 +125,37 @@ def refresh_party_page_marts(repo_root: Path) -> PartyPageMartResult:
 
                 if indicator_id in ("ac-votes-polled", "pc-votes-polled"):
                     if value_numeric is not None:
-                        total_votes_direct[(body, period_label)] += value_numeric
+                        state_code = _state_code_from_entity_id(entity_id)
+                        state_slug = eci_to_slug.get(state_code) if state_code else None
+                        if state_slug is None:
+                            continue
+                        total_votes_direct[(body, period_label, state_slug)] += value_numeric
                     continue
                 if indicator_id == "votes-polled":
                     if value_numeric is not None:
-                        total_votes_fallback[(body, period_label)] += value_numeric
+                        state_code = _state_code_from_entity_id(entity_id)
+                        state_slug = eci_to_slug.get(state_code) if state_code else None
+                        if state_slug is None:
+                            continue
+                        total_votes_fallback[(body, period_label, state_slug)] += value_numeric
                     continue
 
                 if indicator_id in HISTORY_INDICATORS:
                     party_id = _party_id_from_aggregate_entity(entity_id)
                     if party_id is None or party_id not in party_ids:
                         continue
-                    key = (party_id, body, period_label)
+                    state_code = _state_code_from_entity_id(entity_id)
+                    state_slug = eci_to_slug.get(state_code) if state_code else None
+                    if state_slug is None:
+                        continue
+                    key = (party_id, body, period_label, state_slug)
                     agg = history_aggs.get(key)
                     if agg is None:
                         agg = _HistoryAgg(
                             party_id=party_id,
                             body=body,
                             period_label=period_label,
+                            state=state_slug,
                             year=int(row.get("year") or 0),
                         )
                         history_aggs[key] = agg
@@ -336,17 +350,44 @@ def _party_id_from_aggregate_entity(entity_id: str) -> str | None:
     return f"parties.IN.{tail}"
 
 
+_STATE_CODE_RE = re.compile(r"^[SU]\d{2}$")
+
+
+def _state_code_from_entity_id(entity_id: str) -> str | None:
+    """Extract the state code (S## / U##) from any electoral entity_id.
+
+    Handles three on-disk shapes:
+
+    - ``IN-S22-AcGenApr2021-PARTY-DMK`` (party-aggregate; state at parts[1])
+    - ``IN-S22-AC-1976-1`` / ``IN-S22-AcGenApr2021`` (AC entity / votes-polled
+      fallback; state at parts[1])
+    - ``IN-PC-1976-S22-1`` / ``IN-PC-1976-S22-1-LsGenMay2004-C01`` (PC entity;
+      state at parts[3])
+
+    Returns None when the shape is unrecognised; callers MUST skip such rows
+    so the per-state mart never carries a phantom row with no state.
+    """
+    parts = entity_id.split("-")
+    if len(parts) < 3 or parts[0] != "IN":
+        return None
+    if _STATE_CODE_RE.match(parts[1]):
+        return parts[1]
+    if parts[1] == "PC" and len(parts) >= 4 and _STATE_CODE_RE.match(parts[3]):
+        return parts[3]
+    return None
+
+
 def _history_rows(
     aggs: Iterable[_HistoryAgg],
     *,
-    total_votes_direct: dict[tuple[str, str], float],
-    total_votes_fallback: dict[tuple[str, str], float],
+    total_votes_direct: dict[tuple[str, str, str], float],
+    total_votes_fallback: dict[tuple[str, str, str], float],
 ) -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
     for agg in aggs:
-        denominator = total_votes_direct.get((agg.body, agg.period_label), 0.0)
+        denominator = total_votes_direct.get((agg.body, agg.period_label, agg.state), 0.0)
         if denominator <= 0:
-            denominator = total_votes_fallback.get((agg.body, agg.period_label), 0.0)
+            denominator = total_votes_fallback.get((agg.body, agg.period_label, agg.state), 0.0)
         vote_share = None
         if denominator > 0 and agg.party_votes is not None:
             vote_share = round(agg.party_votes / denominator * 100.0, 6)
@@ -360,10 +401,13 @@ def _history_rows(
                 "party_id": agg.party_id,
                 "body": agg.body,
                 "period_label": agg.period_label,
+                "state": agg.state,
                 "year": agg.year,
                 "seats": int(agg.seats),
                 "vote_share_pct": vote_share,
                 "contested": int(agg.contested) if agg.contested is not None else None,
+                "party_votes": int(agg.party_votes) if agg.party_votes is not None else None,
+                "total_votes": int(denominator) if denominator > 0 else None,
                 "source_ids": "|".join(sorted(agg.source_ids)) or None,
                 "derivation": "computed_from_canonical_electoral_rows",
             }

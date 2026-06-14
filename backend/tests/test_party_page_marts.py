@@ -197,10 +197,13 @@ def test_refresh_party_page_marts_writes_history_and_strongholds(tmp_path: Path)
             "party_id": "parties.IN.DMK",
             "body": "assembly",
             "period_label": "AcGenApr2021",
+            "state": "tamil-nadu",
             "year": "2021",
             "seats": "2",
             "vote_share_pct": "40",
             "contested": "3",
+            "party_votes": "120",
+            "total_votes": "300",
             "source_ids": "src-a",
             "derivation": "computed_from_canonical_electoral_rows",
         }

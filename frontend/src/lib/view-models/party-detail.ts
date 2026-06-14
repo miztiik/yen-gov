@@ -544,16 +544,30 @@ async function fetchPartyDetail(
   ]);
   const safePartyId = party_id.replace(/'/g, "''");
 
+  // SUM(BIGINT) in DuckDB promotes to HUGEINT, which duckdb-wasm
+  // serializes as a string that JS Number.isFinite() rejects (intOrNull
+  // would then coerce to null, then `?? 0` would surface as 0 seats on
+  // the citizen-facing headline). CAST back to BIGINT so the result
+  // lands as a plain JS bigint that intOrNull handles correctly.
   const historySql = `
+    WITH per_state AS (
+      SELECT body, period_label, year, seats, vote_share_pct, contested, party_votes, total_votes
+      FROM read_csv('${PARTY_HISTORY_URL}', ${historyClause}, header=true)
+      WHERE party_id = '${safePartyId}'
+    )
     SELECT
       body,
       period_label,
-      year,
-      seats,
-      vote_share_pct,
-      contested
-    FROM read_csv('${PARTY_HISTORY_URL}', ${historyClause}, header=true)
-    WHERE party_id = '${safePartyId}'
+      MIN(year) AS year,
+      CAST(SUM(seats) AS BIGINT) AS seats,
+      CASE
+        WHEN SUM(total_votes) > 0 THEN SUM(party_votes) * 100.0 / SUM(total_votes)
+        WHEN COUNT(vote_share_pct) > 0 THEN AVG(vote_share_pct)
+        ELSE NULL
+      END AS vote_share_pct,
+      CAST(SUM(contested) AS BIGINT) AS contested
+    FROM per_state
+    GROUP BY body, period_label
     ORDER BY year, period_label
   `;
   const historyRows = await query<RawPartyHistoryMartRow>(historySql);
