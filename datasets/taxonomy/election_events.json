@@ -71,7 +71,7 @@
         "display": "Andhra Pradesh Assembly · May 2024",
         "polled_on": "2024-05-13",
         "term_end_estimated": "2029-05-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Held concurrently with Parliament 2024 (single phase, 13 May 2024).",
         "event_id_aliases": [
           "AcGenJun2024"
@@ -374,7 +374,7 @@
         "display": "Arunachal Pradesh Assembly · April 2024",
         "polled_on": "2024-04-19",
         "term_end_estimated": "2029-04-18",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Held concurrently with Parliament 2024 phase 1.",
         "event_id_aliases": [
           "AcGenJun2024"
@@ -895,7 +895,7 @@
         "display": "Bihar Assembly · November 2025",
         "polled_on": "2025-11-11",
         "term_end_estimated": "2030-11-10",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Statistical Report Section 10 ingested 2026-05-12 from category_id=16 (UI: https://www.eci.gov.in/statistical-report/ae/2025/16). 243 ACs.",
         "event_id_aliases": [
           "AcGenNov2025"
@@ -1381,7 +1381,7 @@
         "display": "Haryana Assembly · October 2024",
         "polled_on": "2024-10-05",
         "term_end_estimated": "2029-10-04",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "event_id_aliases": [
           "AcGenOct2024"
         ]
@@ -2447,7 +2447,7 @@
         "display": "Madhya Pradesh Assembly · November 2023",
         "polled_on": "2023-11-17",
         "term_end_estimated": "2028-11-16",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Single-phase poll on 17 November 2023; counting on 3 December 2023. BJP won 163 of 230 seats. Ingested from the legacy /full-statistical-reports/ static URL template (no /api/election-result entry).",
         "event_id_aliases": [
           "AcGenNov2023"
@@ -3028,7 +3028,7 @@
         "display": "Mizoram Assembly · November 2023",
         "polled_on": "2023-11-07",
         "term_end_estimated": "2028-11-06",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Single-phase poll on 7 November 2023; counting on 4 December 2023 (delayed one day at state request to avoid Sunday). Zoram People's Movement (ZPM) won 27 of 40 seats, ending MNF rule. Ingested from the legacy /full-statistical-reports/ static URL template.",
         "event_id_aliases": [
           "AcGenNov2023"
@@ -3295,7 +3295,7 @@
         "display": "Odisha Assembly · May-June 2024",
         "polled_on": "2024-06-01",
         "term_end_estimated": "2029-05-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Held concurrently with Parliament 2024 across 4 phases.",
         "event_id_aliases": [
           "AcGenJun2024"
@@ -3550,7 +3550,7 @@
         "display": "Sikkim Assembly · April 2024",
         "polled_on": "2024-04-19",
         "term_end_estimated": "2029-04-18",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Held concurrently with Parliament 2024 phase 1 (single phase, 19 April 2024).",
         "event_id_aliases": [
           "AcGenJun2024"
@@ -4277,7 +4277,7 @@
         "display": "Chhattisgarh Assembly · November 2023",
         "polled_on": "2023-11-07",
         "term_end_estimated": "2028-11-06",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Two-phase poll: 20 seats on 7 November 2023, remaining 70 seats on 17 November 2023; counting on 3 December 2023. BJP won 54 of 90 seats, ending Congress's single term. Ingested from the legacy /full-statistical-reports/ static URL template.",
         "event_id_aliases": [
           "AcGenNov2023"
@@ -4388,7 +4388,7 @@
         "display": "Jharkhand Assembly · November 2024",
         "polled_on": "2024-11-20",
         "term_end_estimated": "2029-11-19",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "event_id_aliases": [
           "AcGenNov2024"
         ]
@@ -4483,7 +4483,7 @@
         "display": "Telangana Assembly · November 2023",
         "polled_on": "2023-11-30",
         "term_end_estimated": "2028-11-29",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Single-phase poll on 30 November 2023; counting on 3 December 2023. Indian National Congress won 64 of 119 seats, defeating BRS (39) which had governed since the state's 2014 creation. Ingested from the legacy /full-statistical-reports/ static URL template.",
         "event_id_aliases": [
           "AcGenNov2023"
@@ -4689,7 +4689,7 @@
         "display": "NCT of Delhi Assembly · February 2025",
         "polled_on": "2025-02-05",
         "term_end_estimated": "2030-02-04",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Delhi is a Union Territory with a Legislative Assembly. The Assembly's powers are limited (Article 239AA): public order, police, and land are reserved to the Lieutenant Governor.",
         "event_id_aliases": [
           "AcGenFeb2025"
@@ -5029,7 +5029,7 @@
         "display": "Jammu & Kashmir Assembly · September-October 2024",
         "polled_on": "2024-10-01",
         "term_end_estimated": "2029-09-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "First elected government in J&K since 2018. The state was reorganised into a Union Territory on 31 October 2019; this Assembly's powers under Article 239A and the J&K Reorganisation Act 2019 are narrower than a full state's.",
         "event_id_aliases": [
           "AcGenOct2024"
