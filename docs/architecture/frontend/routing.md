@@ -10,9 +10,9 @@ The operational form of the URL scheme decided in [ADR-0028](../../reference/dec
 
 ## Mode
 
-**Path routing** on GitHub Pages via the standard SPA fallback: `_site/404.html` is a copy of `_site/index.html`. GitHub Pages serves `404.html` for any unknown path; the bundled router takes over from `window.location.pathname`. ADR-0028 supersedes ADR-0016's hash-routing decision.
+**Path routing** on GitHub Pages via the SPA fallback shim. GitHub Pages serves `_site/404.html` for any unknown path under the deployed base (`/yen-gov/` on the project Pages site). The shim in [frontend/public/404.html](../../../frontend/public/404.html) captures the requested path, bounces to the deploy base, and the boot script in [frontend/index.html](../../../frontend/index.html) restores the path before [frontend/src/lib/router.svelte.ts](../../../frontend/src/lib/router.svelte.ts) matches routes. ADR-0028 supersedes ADR-0016's hash-routing decision.
 
-The fallback file is regenerated as part of the Vite build (`postbuild` step copies `dist/index.html` → `dist/404.html`).
+The fallback prefers `sessionStorage["yg:redirect"]`; if storage is blocked, it carries the path through `?yg-redirect=` for one boot frame and then removes the temporary query via `history.replaceState`. Vite substitutes the deploy base into `dist/404.html` through `template404Plugin` in [frontend/vite.config.ts](../../../frontend/vite.config.ts).
 
 ## Route grammar (Grammar A end-state, per ADR-0037)
 

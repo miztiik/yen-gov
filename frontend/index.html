@@ -33,16 +33,27 @@
     />
     <!--
       SPA boot shim. The 404.html stashes the requested path in
-      sessionStorage and bounces to `/`. Here we pop it back and rewrite
-      the URL via history.replaceState BEFORE the SPA initialises, so the
-      router sees the real path on first render.
+      sessionStorage (or, when storage is blocked, `?yg-redirect=`) and
+      bounces to the deploy base. Here we restore it and rewrite the URL via
+      history.replaceState BEFORE the SPA initialises, so the router sees the
+      real path on first render.
     -->
     <script>
       (function () {
         try {
-          var saved = sessionStorage.getItem("yg:redirect");
+          var saved = null;
+          try {
+            saved = sessionStorage.getItem("yg:redirect");
+            if (saved) sessionStorage.removeItem("yg:redirect");
+          } catch (_storage) {
+            saved = null;
+          }
+          if (!saved) {
+            var params = new URLSearchParams(location.search);
+            saved = params.get("yg-redirect");
+          }
           if (!saved) return;
-          sessionStorage.removeItem("yg:redirect");
+          if (saved.charAt(0) !== "/") saved = "/" + saved;
           var meta = document.querySelector('meta[name="yg-base"]');
           var base = meta ? meta.getAttribute("content") : "/";
           if (!base.endsWith("/")) base += "/";
