@@ -14,7 +14,6 @@ import {
   partyRowFromMeta,
   sentinelFraming,
   showPuclAttribution,
-  sparkline,
   type AvatarStyle,
   type PartyKpiStrip,
 } from "./Party.svelte";
@@ -373,18 +372,5 @@ describe("showPuclAttribution", () => {
     expect(showPuclAttribution("parties.IN.INC")).toBe(false);
     expect(showPuclAttribution("parties.IN.BJP")).toBe(false);
     expect(showPuclAttribution("parties.IN.AAP")).toBe(false);
-  });
-});
-
-// --- sparkline ------------------------------------------------------------
-
-describe("sparkline", () => {
-  it("renders W as filled square and L as empty square", () => {
-    expect(sparkline(["W", "W", "L"])).toBe("\u25AE\u25AE\u25AF");
-    expect(sparkline(["L", "W", "L", "W"])).toBe("\u25AF\u25AE\u25AF\u25AE");
-  });
-
-  it("returns an empty string for an empty input (defensive)", () => {
-    expect(sparkline([])).toBe("");
   });
 });

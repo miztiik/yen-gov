@@ -11,7 +11,8 @@
    *       active range
    *   (4) LS DualAxisBarLine - seats (bars) + vote-share (line)
    *   (5) VS DualAxisBarLine - parallel
-   *   (6) Strongholds top-10 per body - text + tiny W/L sparkline
+   *   (6) Strongholds top-10 per body - [state name] - [constituency]
+   *       + right-flush 10-cell SVG dot strip (PR-5)
    *   (7) Metadata footer - founded / dissolved / recognition / home
    *       states / native script / wiki / lineage / aliases
    *
@@ -231,11 +232,6 @@
     return party_id === "parties.IN.NOTA";
   }
 
-  /** Pure: render the W/L sparkline as a string of Unicode block chars.
-   *  ▮ (filled square) = won; ▯ (empty square) = lost / no-contest. */
-  export function sparkline(results: readonly ("W" | "L")[]): string {
-    return results.map((r) => (r === "W" ? "\u25AE" : "\u25AF")).join("");
-  }
 </script>
 
 <script lang="ts">
@@ -247,10 +243,12 @@
   import DualAxisBarLine from "../lib/charts/DualAxisBarLine/DualAxisBarLine.svelte";
   import RecognitionStrip from "../lib/parties/RecognitionStrip.svelte";
   import PartyStrongholdMap from "../lib/parties/PartyStrongholdMap.svelte";
+  import StrongholdDotStrip from "../lib/parties/StrongholdDotStrip.svelte";
   import {
     homeStateEciCodes,
     mapPcStrongholdsToChoroplethRows,
   } from "../lib/parties/stronghold-choropleth-rows";
+  import { stateNameFromEntityId } from "../lib/parties/party-detail-utils";
   import { formatLeaderSince } from "../lib/view-models/parties";
 
   interface Props {
@@ -671,21 +669,28 @@
               class="divide-y divide-slate-100 border border-slate-200 rounded bg-white"
             >
               {#each view_model.ls_strongholds as s (s.entity_id)}
-                {@const winRate = ((s.wins / s.contested) * 100).toFixed(0)}
+                {@const parsed = stateNameFromEntityId(s.entity_id, (c) => states.name(c))}
                 <li
-                  class="flex items-center justify-between gap-2 px-3 py-2 text-sm"
+                  class="flex items-center gap-3 px-3 py-2 text-sm"
                   data-testid="party-stronghold-ls"
+                  data-state={parsed.state_code}
                 >
-                  <span class="flex-1 truncate text-slate-800"
-                    >{s.constituency_name || s.entity_id}</span
-                  >
-                  <span class="shrink-0 text-slate-500 tabular-nums">
-                    won {s.wins} of {s.contested} ({winRate}%)
+                  <span class="flex-1 min-w-0 flex items-baseline gap-1.5 truncate">
+                    {#if parsed.state_name}
+                      <span class="text-slate-500">{parsed.state_name}</span>
+                      <span class="text-slate-400" aria-hidden="true">·</span>
+                    {/if}
+                    <span class="font-medium text-slate-800 truncate"
+                      >{s.constituency_name || s.entity_id}</span
+                    >
                   </span>
                   <span
-                    class="shrink-0 font-mono text-xs text-slate-400 tracking-wider"
+                    class="shrink-0 text-xs text-slate-500 tabular-nums"
                     title={s.results.join("")}
-                  >{sparkline(s.results)}</span>
+                  >
+                    won {s.wins} of {s.contested}
+                  </span>
+                  <StrongholdDotStrip results={s.results} brand_colour={bar_color} />
                 </li>
               {/each}
             </ul>
@@ -699,21 +704,28 @@
               class="divide-y divide-slate-100 border border-slate-200 rounded bg-white"
             >
               {#each view_model.vs_strongholds as s (s.entity_id)}
-                {@const winRate = ((s.wins / s.contested) * 100).toFixed(0)}
+                {@const parsed = stateNameFromEntityId(s.entity_id, (c) => states.name(c))}
                 <li
-                  class="flex items-center justify-between gap-2 px-3 py-2 text-sm"
+                  class="flex items-center gap-3 px-3 py-2 text-sm"
                   data-testid="party-stronghold-vs"
+                  data-state={parsed.state_code}
                 >
-                  <span class="flex-1 truncate text-slate-800"
-                    >{s.constituency_name || s.entity_id}</span
-                  >
-                  <span class="shrink-0 text-slate-500 tabular-nums">
-                    won {s.wins} of {s.contested} ({winRate}%)
+                  <span class="flex-1 min-w-0 flex items-baseline gap-1.5 truncate">
+                    {#if parsed.state_name}
+                      <span class="text-slate-500">{parsed.state_name}</span>
+                      <span class="text-slate-400" aria-hidden="true">·</span>
+                    {/if}
+                    <span class="font-medium text-slate-800 truncate"
+                      >{s.constituency_name || s.entity_id}</span
+                    >
                   </span>
                   <span
-                    class="shrink-0 font-mono text-xs text-slate-400 tracking-wider"
+                    class="shrink-0 text-xs text-slate-500 tabular-nums"
                     title={s.results.join("")}
-                  >{sparkline(s.results)}</span>
+                  >
+                    won {s.wins} of {s.contested}
+                  </span>
+                  <StrongholdDotStrip results={s.results} brand_colour={bar_color} />
                 </li>
               {/each}
             </ul>
