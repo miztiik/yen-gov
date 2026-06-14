@@ -6,6 +6,8 @@
 // is covered by the e2e spec (`frontend/e2e/party-detail.spec.ts`)
 // and the CLAUDE.md section 13 in-browser smoke.
 
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import {
   buildCompositeTooltip,
@@ -458,5 +460,75 @@ describe("buildCompositeTooltip", () => {
       0,
     );
     expect(out.lines[2]).toEqual({ label: "Seat conversion", value: "50.0%" });
+  });
+});
+
+// --- D6 (PR-4): redundant `0.0%` baseline label is suppressed ------------
+//
+// Plan-doc TODO/20260615-party-page-citizen-fixes-plan.md row PR-4.
+// The x-axis IS the zero line; rendering "0.0%" / "0" at the chart
+// baseline is redundant chrome that visually collides with the year
+// ticks. The structural fix wraps both the LEFT_TICKS and the
+// RIGHT_TICKS label `<text>` nodes in a `{#if t > 0}` guard. The
+// gridline `<line>` element at `t === 0` MUST still render so the
+// chart baseline remains anchored.
+//
+// Because `@testing-library/svelte` is NOT installed in this repo,
+// the in-browser behaviour is verified via the CLAUDE.md section 13
+// smoke + the e2e spec; this vitest pin asserts the structural
+// invariant directly on the .svelte source so a future refactor that
+// drops the guard fails CI.
+
+describe("D6 PR-4: y-axis tick labels suppress the t === 0 baseline label", () => {
+  const SVELTE_SRC = readFileSync(
+    fileURLToPath(new URL("./DualAxisBarLine.svelte", import.meta.url)),
+    "utf8",
+  );
+
+  it("wraps the LEFT_TICKS <text> label node in a {#if t > 0} guard", () => {
+    // The each-block at LEFT_TICKS must contain a `{#if t > 0}` guard
+    // that wraps the `<text>` node emitting `bar_format(t)`.
+    const each_start = SVELTE_SRC.indexOf("{#each LEFT_TICKS as t");
+    expect(each_start, "LEFT_TICKS each-block present").toBeGreaterThan(-1);
+    const each_end = SVELTE_SRC.indexOf("{/each}", each_start);
+    expect(each_end, "LEFT_TICKS each-block closes").toBeGreaterThan(each_start);
+    const block = SVELTE_SRC.slice(each_start, each_end);
+    expect(block, "LEFT_TICKS carries the {#if t > 0} guard").toContain(
+      "{#if t > 0}",
+    );
+    expect(block, "LEFT_TICKS guard wraps the bar_format(t) label").toMatch(
+      /\{#if t > 0\}[\s\S]*?\{bar_format\(t\)\}[\s\S]*?\{\/if\}/,
+    );
+  });
+
+  it("wraps the RIGHT_TICKS <text> label node in a {#if t > 0} guard", () => {
+    const each_start = SVELTE_SRC.indexOf("{#each RIGHT_TICKS as t");
+    expect(each_start, "RIGHT_TICKS each-block present").toBeGreaterThan(-1);
+    const each_end = SVELTE_SRC.indexOf("{/each}", each_start);
+    expect(each_end, "RIGHT_TICKS each-block closes").toBeGreaterThan(each_start);
+    const block = SVELTE_SRC.slice(each_start, each_end);
+    expect(block, "RIGHT_TICKS carries the {#if t > 0} guard").toContain(
+      "{#if t > 0}",
+    );
+    expect(block, "RIGHT_TICKS guard wraps the line_format(t) label").toMatch(
+      /\{#if t > 0\}[\s\S]*?\{line_format\(t\)\}[\s\S]*?\{\/if\}/,
+    );
+  });
+
+  it("keeps the LEFT_TICKS gridline <line> outside the guard so the baseline still renders at t === 0", () => {
+    const each_start = SVELTE_SRC.indexOf("{#each LEFT_TICKS as t");
+    const each_end = SVELTE_SRC.indexOf("{/each}", each_start);
+    const block = SVELTE_SRC.slice(each_start, each_end);
+    // The `<line ... y1={left_y_scale(t)} ...>` node must appear in
+    // the each-block BEFORE the `{#if t > 0}` guard so that t === 0
+    // still emits the gridline (the chart baseline).
+    const line_idx = block.indexOf("<line");
+    const guard_idx = block.indexOf("{#if t > 0}");
+    expect(line_idx, "gridline <line> present").toBeGreaterThan(-1);
+    expect(guard_idx, "label guard present").toBeGreaterThan(-1);
+    expect(
+      line_idx,
+      "gridline appears before the label guard (so t === 0 still renders the gridline)",
+    ).toBeLessThan(guard_idx);
   });
 });

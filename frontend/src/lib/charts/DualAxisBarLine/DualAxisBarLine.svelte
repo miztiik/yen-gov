@@ -614,26 +614,35 @@
             stroke="#e2e8f0"
             stroke-dasharray={t === 0 ? "0" : "2 2"}
           />
-          <text
-            x={-8}
-            y={left_y_scale(t)}
-            text-anchor="end"
-            dominant-baseline="middle"
-            class="fill-slate-500 text-[10px]"
-          >{bar_format(t)}</text>
+          <!-- D6 (PR-4): suppress the t === 0 label. The x-axis IS the
+               zero line; rendering "0.0%" / "0" at the baseline is
+               redundant chrome that overlaps the year ticks. The
+               gridline above still renders, so the baseline is anchored. -->
+          {#if t > 0}
+            <text
+              x={-8}
+              y={left_y_scale(t)}
+              text-anchor="end"
+              dominant-baseline="middle"
+              class="fill-slate-500 text-[10px]"
+            >{bar_format(t)}</text>
+          {/if}
         {/each}
 
         <!-- Right Y ticks (labels only; reuse the left grid). Hidden
              in composite mode - there is no right axis to label. -->
         {#if mode === "dual-axis"}
           {#each RIGHT_TICKS as t (`ry-${t}`)}
-            <text
-              x={inner_w + 8}
-              y={right_y_scale(t)}
-              text-anchor="start"
-              dominant-baseline="middle"
-              class="fill-slate-500 text-[10px]"
-            >{line_format(t)}</text>
+            <!-- D6 (PR-4): suppress the t === 0 label, mirrors LEFT_TICKS. -->
+            {#if t > 0}
+              <text
+                x={inner_w + 8}
+                y={right_y_scale(t)}
+                text-anchor="start"
+                dominant-baseline="middle"
+                class="fill-slate-500 text-[10px]"
+              >{line_format(t)}</text>
+            {/if}
           {/each}
         {/if}
 
