@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-madhya-pradesh-104,madhya-pradesh,1988,KHARSIA,90005,81864,90.95,K.A.SINGH,parties.IN.INC,INC,43912,53.64,K.D.S.JUDEO,parties.IN.BJP,BJP,35254,8658,10.58,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-16,madhya-pradesh,1988,LASHKAR EAST,89928,40591,45.14,R.S.B.S.POTNIS,parties.IN.BJP,BJP,19946,49.14,H.C.GOYAL,parties.IN.INC,INC,18621,1325,3.27,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-9,madhya-pradesh,1988,GOHAD(SC),85981,49559,57.64,S.SINGH,parties.IN.INC,INC,27409,55.31,S.RAM,parties.IN.BJP,BJP,20228,7181,14.49,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-madhya-pradesh-104,madhya-pradesh,1988,KHARSIA,90005,81864,90.95,K.A.SINGH,parties.IN.INC,INC,43912,53.64,K.D.S.JUDEO,parties.IN.BJP,BJP,35254,8658,10.58,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-16,madhya-pradesh,1988,LASHKAR EAST,89928,40591,45.14,R.S.B.S.POTNIS,parties.IN.BJP,BJP,19946,49.14,H.C.GOYAL,parties.IN.INC,INC,18621,1325,3.27,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-9,madhya-pradesh,1988,GOHAD(SC),85981,49559,57.64,S.SINGH,parties.IN.INC,INC,27409,55.31,S.RAM,parties.IN.BJP,BJP,20228,7181,14.49,src-1b7bc1c9d39a,minor,

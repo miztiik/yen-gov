@@ -1,81 +1,81 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Chaudhary Rakesh Singh (Advocate),parties.IN.INC,INC,34653,33.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Chaturi Singh Yadav,parties.IN.BSP,BSP,29662,28.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Rama Shankar Singh,parties.IN.MPVC,MPVC,23801,22.81,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Ram Bhuvan Singh Kushwah,parties.IN.BJP,BJP,9165,8.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Malkhan Singh,parties.IN.SP,SP,5624,5.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Jagdish Jatav,parties.IN.JD,JD,479,0.46,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Rajkumar Soni,parties.IN.LSWP,LSWP,471,0.45,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Ramkumar Tripathi,parties.IN.IND,IND,219,0.21,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Birendra Singh,parties.IN.IND,IND,117,0.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Hariom,parties.IN.ABHM,ABHM,110,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Hemesh Kumar,parties.IN.IND,IND,44,0.04,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Vidya Vatee Patel,parties.IN.BSP,BSP,24649,27.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Sanjeev Mohan Gupta,parties.IN.INC,INC,20794,23.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Anju Mishra,parties.IN.BJP,BJP,13552,15.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Gyanendra Singh,parties.IN.AIIC_T,AIIC(T),10209,11.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Vishwambher Nath Pandey,parties.IN.CPI,CPI,8961,9.99,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Surendra Pathak,parties.IN.SVSP,SVSP,4469,4.98,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Tulsi Das Kol,parties.IN.IND,IND,3275,3.65,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,B.D. Patel,parties.IN.JD,JD,1875,2.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Ram Monoher Saket,parties.IN.SAP,SAP,475,0.53,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Jaiveer Singh,parties.IN.IND,IND,428,0.48,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Ram Pal Singh,parties.IN.IND,IND,392,0.44,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Ram Lal Kol,parties.IN.IND,IND,325,0.36,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Ram Milan,parties.IN.IND,IND,214,0.24,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Bhuvneshwar Prasad Pandey,parties.IN.IND,IND,63,0.07,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Pavan Kumar Dubey,parties.IN.IND,IND,58,0.06,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-81,madhya-pradesh,1996,81,NOWROZABAD,Meena Singh,parties.IN.BJP,BJP,23932,33.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-81,madhya-pradesh,1996,81,NOWROZABAD,Arjun Singh Dhurve,parties.IN.INC,INC,21658,30.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-81,madhya-pradesh,1996,81,NOWROZABAD,Manohar Singh Maravi,parties.IN.BSP,BSP,9483,13.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-81,madhya-pradesh,1996,81,NOWROZABAD,Baliram,parties.IN.JD,JD,7484,10.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-81,madhya-pradesh,1996,81,NOWROZABAD,Nageshwar,parties.IN.MPVC,MPVC,7357,10.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-81,madhya-pradesh,1996,81,NOWROZABAD,Dhyan Singh,parties.IN.IND,IND,891,1.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-81,madhya-pradesh,1996,81,NOWROZABAD,Ramkripal,parties.IN.LTSP,LTSP,406,0.57,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-81,madhya-pradesh,1996,81,NOWROZABAD,Kamlesh,parties.IN.IND,IND,191,0.27,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-109,madhya-pradesh,1996,109,TANAKHAR(ST),Hira Singh Markam,parties.IN.GGP,GGP,39596,46,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-109,madhya-pradesh,1996,109,TANAKHAR(ST),Daleshwar Pratap Singh,parties.IN.INC,INC,23664,27.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-109,madhya-pradesh,1996,109,TANAKHAR(ST),Kumari Shyam Kanwar,parties.IN.BJP,BJP,15130,17.58,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-109,madhya-pradesh,1996,109,TANAKHAR(ST),Bachan Sai,parties.IN.AIIC_T,AIIC(T),4069,4.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-109,madhya-pradesh,1996,109,TANAKHAR(ST),Ved Lal,parties.IN.IND,IND,2346,2.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-109,madhya-pradesh,1996,109,TANAKHAR(ST),Chauwan Singh Kanwar,parties.IN.IND,IND,1267,1.47,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-114,madhya-pradesh,1996,114,JARHAGAON(SC),Churawan Mangeshkar,parties.IN.INC,INC,27523,40.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-114,madhya-pradesh,1996,114,JARHAGAON(SC),Chowadas Khandekar,parties.IN.BJP,BJP,27433,40.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-114,madhya-pradesh,1996,114,JARHAGAON(SC),Advocate T.R. Nirala,parties.IN.BSP,BSP,11622,17.03,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-114,madhya-pradesh,1996,114,JARHAGAON(SC),Nira Devi,parties.IN.JD,JD,607,0.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-114,madhya-pradesh,1996,114,JARHAGAON(SC),Prem Kumar,parties.IN.IND,IND,528,0.77,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-114,madhya-pradesh,1996,114,JARHAGAON(SC),Kamlesh Lavhatre,parties.IN.AIIC_T,AIIC(T),526,0.77,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-115,madhya-pradesh,1996,115,TAKHATPUR,Balram Singh,parties.IN.INC,INC,22880,31.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-115,madhya-pradesh,1996,115,TAKHATPUR,Shankar Mali,parties.IN.BSP,BSP,21537,29.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-115,madhya-pradesh,1996,115,TAKHATPUR,Tha. Chhedi Singh,parties.IN.BJP,BJP,17206,23.57,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-115,madhya-pradesh,1996,115,TAKHATPUR,Dr. Urmila Marko,parties.IN.GGP,GGP,7803,10.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-115,madhya-pradesh,1996,115,TAKHATPUR,Dr. Badri Jaiswal,parties.IN.MPVC,MPVC,2672,3.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-115,madhya-pradesh,1996,115,TAKHATPUR,Satyendra Kumar Paswan,parties.IN.JD,JD,644,0.88,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-115,madhya-pradesh,1996,115,TAKHATPUR,Ramnath Dubey,parties.IN.IND,IND,258,0.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Dr. Dayaram Sahu,parties.IN.BJP,BJP,29184,35.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Shri Ghanaram Sahu,parties.IN.INC,INC,28991,35.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Shri Keju Ram Verma,parties.IN.BSP,BSP,19366,23.74,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Shri Netram Sahu,parties.IN.JD,JD,2026,2.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Shri Noharsingh Gajendra,parties.IN.IND,IND,726,0.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Dr Basant Kumar Chandrakar,parties.IN.IND,IND,558,0.68,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Dr. (SMT.) Toran Devi Sahu,parties.IN.LSP,LSP,247,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Shri Khemlal Angare,parties.IN.IND,IND,209,0.26,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Shri Shravan Kumar Sahu,parties.IN.IND,IND,135,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Shri Bhanupratap Sahu,parties.IN.SDP_MP,SDP(MP),120,0.15,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-286,madhya-pradesh,1996,286,SHAHPUR,Sanyogita devi Dhairyasheelrao Desmukh,parties.IN.INC,INC,45603,53.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-286,madhya-pradesh,1996,286,SHAHPUR,Amritlal Vallabhdas tarwala (Mannibhai),parties.IN.BJP,BJP,37728,43.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-286,madhya-pradesh,1996,286,SHAHPUR,Govind Rajaram,parties.IN.BSP,BSP,1316,1.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-286,madhya-pradesh,1996,286,SHAHPUR,Chandrashekhar Jawaharlal,parties.IN.SHS,SHS,1142,1.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-305,madhya-pradesh,1996,305,JOBAT(ST),Sulochana,parties.IN.INC,INC,32336,62.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-305,madhya-pradesh,1996,305,JOBAT(ST),Dariyav Singh,parties.IN.BJP,BJP,11277,21.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-305,madhya-pradesh,1996,305,JOBAT(ST),Sumer Singh,parties.IN.AIIC_T,AIIC(T),5620,10.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-305,madhya-pradesh,1996,305,JOBAT(ST),Pema,parties.IN.JD,JD,1892,3.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-305,madhya-pradesh,1996,305,JOBAT(ST),Keval Singh,parties.IN.BSP,BSP,346,0.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-305,madhya-pradesh,1996,305,JOBAT(ST),Bheru Singh,parties.IN.IND,IND,83,0.16,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-313,madhya-pradesh,1996,313,ALOT(SC),Ashok Navrattan Sokhla,parties.IN.BJP,BJP,40804,49.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-313,madhya-pradesh,1996,313,ALOT(SC),Premchand Guddu,parties.IN.INC,INC,36658,44.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-313,madhya-pradesh,1996,313,ALOT(SC),Jivanul Ganj,parties.IN.SHS,SHS,1788,2.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-313,madhya-pradesh,1996,313,ALOT(SC),Jagdish,parties.IN.IND,IND,1058,1.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-313,madhya-pradesh,1996,313,ALOT(SC),Mogi Lal,parties.IN.BSP,BSP,653,0.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-313,madhya-pradesh,1996,313,ALOT(SC),Bagrau Singh Chandra Vanshi,parties.IN.IND,IND,523,0.64,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-313,madhya-pradesh,1996,313,ALOT(SC),Narasingh (Wala),parties.IN.IND,IND,236,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Chaudhary Rakesh Singh (Advocate),parties.IN.INC,INC,34653,33.21,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Chaturi Singh Yadav,parties.IN.BSP,BSP,29662,28.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Rama Shankar Singh,parties.IN.MPVC,MPVC,23801,22.81,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Ram Bhuvan Singh Kushwah,parties.IN.BJP,BJP,9165,8.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Malkhan Singh,parties.IN.SP,SP,5624,5.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Jagdish Jatav,parties.IN.JD,JD,479,0.46,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Rajkumar Soni,parties.IN.LSWP,LSWP,471,0.45,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Ramkumar Tripathi,parties.IN.IND,IND,219,0.21,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Birendra Singh,parties.IN.IND,IND,117,0.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Hariom,parties.IN.ABHM,ABHM,110,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-12,madhya-pradesh,1996,12,BHIND,Hemesh Kumar,parties.IN.IND,IND,44,0.04,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Vidya Vatee Patel,parties.IN.BSP,BSP,24649,27.47,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Sanjeev Mohan Gupta,parties.IN.INC,INC,20794,23.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Anju Mishra,parties.IN.BJP,BJP,13552,15.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Gyanendra Singh,parties.IN.AIIC_T,AIIC(T),10209,11.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Vishwambher Nath Pandey,parties.IN.CPI,CPI,8961,9.99,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Surendra Pathak,parties.IN.SVSP,SVSP,4469,4.98,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Tulsi Das Kol,parties.IN.IND,IND,3275,3.65,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,B.D. Patel,parties.IN.JD,JD,1875,2.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Ram Monoher Saket,parties.IN.SAP,SAP,475,0.53,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Jaiveer Singh,parties.IN.IND,IND,428,0.48,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Ram Pal Singh,parties.IN.IND,IND,392,0.44,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Ram Lal Kol,parties.IN.IND,IND,325,0.36,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Ram Milan,parties.IN.IND,IND,214,0.24,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Bhuvneshwar Prasad Pandey,parties.IN.IND,IND,63,0.07,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-67,madhya-pradesh,1996,67,GURH,Pavan Kumar Dubey,parties.IN.IND,IND,58,0.06,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-81,madhya-pradesh,1996,81,NOWROZABAD,Meena Singh,parties.IN.BJP,BJP,23932,33.52,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-81,madhya-pradesh,1996,81,NOWROZABAD,Arjun Singh Dhurve,parties.IN.INC,INC,21658,30.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-81,madhya-pradesh,1996,81,NOWROZABAD,Manohar Singh Maravi,parties.IN.BSP,BSP,9483,13.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-81,madhya-pradesh,1996,81,NOWROZABAD,Baliram,parties.IN.JD,JD,7484,10.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-81,madhya-pradesh,1996,81,NOWROZABAD,Nageshwar,parties.IN.MPVC,MPVC,7357,10.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-81,madhya-pradesh,1996,81,NOWROZABAD,Dhyan Singh,parties.IN.IND,IND,891,1.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-81,madhya-pradesh,1996,81,NOWROZABAD,Ramkripal,parties.IN.LTSP,LTSP,406,0.57,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-81,madhya-pradesh,1996,81,NOWROZABAD,Kamlesh,parties.IN.IND,IND,191,0.27,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-109,madhya-pradesh,1996,109,TANAKHAR(ST),Hira Singh Markam,parties.IN.GGP,GGP,39596,46,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-109,madhya-pradesh,1996,109,TANAKHAR(ST),Daleshwar Pratap Singh,parties.IN.INC,INC,23664,27.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-109,madhya-pradesh,1996,109,TANAKHAR(ST),Kumari Shyam Kanwar,parties.IN.BJP,BJP,15130,17.58,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-109,madhya-pradesh,1996,109,TANAKHAR(ST),Bachan Sai,parties.IN.AIIC_T,AIIC(T),4069,4.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-109,madhya-pradesh,1996,109,TANAKHAR(ST),Ved Lal,parties.IN.IND,IND,2346,2.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-109,madhya-pradesh,1996,109,TANAKHAR(ST),Chauwan Singh Kanwar,parties.IN.IND,IND,1267,1.47,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-114,madhya-pradesh,1996,114,JARHAGAON(SC),Churawan Mangeshkar,parties.IN.INC,INC,27523,40.33,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-114,madhya-pradesh,1996,114,JARHAGAON(SC),Chowadas Khandekar,parties.IN.BJP,BJP,27433,40.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-114,madhya-pradesh,1996,114,JARHAGAON(SC),Advocate T.R. Nirala,parties.IN.BSP,BSP,11622,17.03,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-114,madhya-pradesh,1996,114,JARHAGAON(SC),Nira Devi,parties.IN.JD,JD,607,0.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-114,madhya-pradesh,1996,114,JARHAGAON(SC),Prem Kumar,parties.IN.IND,IND,528,0.77,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-114,madhya-pradesh,1996,114,JARHAGAON(SC),Kamlesh Lavhatre,parties.IN.AIIC_T,AIIC(T),526,0.77,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-115,madhya-pradesh,1996,115,TAKHATPUR,Balram Singh,parties.IN.INC,INC,22880,31.34,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-115,madhya-pradesh,1996,115,TAKHATPUR,Shankar Mali,parties.IN.BSP,BSP,21537,29.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-115,madhya-pradesh,1996,115,TAKHATPUR,Tha. Chhedi Singh,parties.IN.BJP,BJP,17206,23.57,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-115,madhya-pradesh,1996,115,TAKHATPUR,Dr. Urmila Marko,parties.IN.GGP,GGP,7803,10.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-115,madhya-pradesh,1996,115,TAKHATPUR,Dr. Badri Jaiswal,parties.IN.MPVC,MPVC,2672,3.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-115,madhya-pradesh,1996,115,TAKHATPUR,Satyendra Kumar Paswan,parties.IN.JD,JD,644,0.88,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-115,madhya-pradesh,1996,115,TAKHATPUR,Ramnath Dubey,parties.IN.IND,IND,258,0.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Dr. Dayaram Sahu,parties.IN.BJP,BJP,29184,35.78,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Shri Ghanaram Sahu,parties.IN.INC,INC,28991,35.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Shri Keju Ram Verma,parties.IN.BSP,BSP,19366,23.74,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Shri Netram Sahu,parties.IN.JD,JD,2026,2.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Shri Noharsingh Gajendra,parties.IN.IND,IND,726,0.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Dr Basant Kumar Chandrakar,parties.IN.IND,IND,558,0.68,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Dr. (SMT.) Toran Devi Sahu,parties.IN.LSP,LSP,247,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Shri Khemlal Angare,parties.IN.IND,IND,209,0.26,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Shri Shravan Kumar Sahu,parties.IN.IND,IND,135,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-165,madhya-pradesh,1996,165,GUNDERDEHI,Shri Bhanupratap Sahu,parties.IN.SDP_MP,SDP(MP),120,0.15,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-286,madhya-pradesh,1996,286,SHAHPUR,Sanyogita devi Dhairyasheelrao Desmukh,parties.IN.INC,INC,45603,53.16,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-286,madhya-pradesh,1996,286,SHAHPUR,Amritlal Vallabhdas tarwala (Mannibhai),parties.IN.BJP,BJP,37728,43.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-286,madhya-pradesh,1996,286,SHAHPUR,Govind Rajaram,parties.IN.BSP,BSP,1316,1.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-286,madhya-pradesh,1996,286,SHAHPUR,Chandrashekhar Jawaharlal,parties.IN.SHS,SHS,1142,1.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-305,madhya-pradesh,1996,305,JOBAT(ST),Sulochana,parties.IN.INC,INC,32336,62.72,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-305,madhya-pradesh,1996,305,JOBAT(ST),Dariyav Singh,parties.IN.BJP,BJP,11277,21.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-305,madhya-pradesh,1996,305,JOBAT(ST),Sumer Singh,parties.IN.AIIC_T,AIIC(T),5620,10.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-305,madhya-pradesh,1996,305,JOBAT(ST),Pema,parties.IN.JD,JD,1892,3.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-305,madhya-pradesh,1996,305,JOBAT(ST),Keval Singh,parties.IN.BSP,BSP,346,0.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-305,madhya-pradesh,1996,305,JOBAT(ST),Bheru Singh,parties.IN.IND,IND,83,0.16,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-313,madhya-pradesh,1996,313,ALOT(SC),Ashok Navrattan Sokhla,parties.IN.BJP,BJP,40804,49.93,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-313,madhya-pradesh,1996,313,ALOT(SC),Premchand Guddu,parties.IN.INC,INC,36658,44.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-313,madhya-pradesh,1996,313,ALOT(SC),Jivanul Ganj,parties.IN.SHS,SHS,1788,2.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-313,madhya-pradesh,1996,313,ALOT(SC),Jagdish,parties.IN.IND,IND,1058,1.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-313,madhya-pradesh,1996,313,ALOT(SC),Mogi Lal,parties.IN.BSP,BSP,653,0.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-313,madhya-pradesh,1996,313,ALOT(SC),Bagrau Singh Chandra Vanshi,parties.IN.IND,IND,523,0.64,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-313,madhya-pradesh,1996,313,ALOT(SC),Narasingh (Wala),parties.IN.IND,IND,236,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

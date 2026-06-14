@@ -1,5 +1,5 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-karnataka-40,karnataka,1980,HARIHAR,90171,60388,66.97,H.SHIVAPPA,parties.IN.INC_I,INC(I),29997,49.67,A.G.REDDY,parties.IN.INC_U,INC(U),16303,13694,22.67,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-49,karnataka,1980,HOLALKERE,80934,62482,77.2,M.B.THIPPERUDRAPPA,parties.IN.INC_I,INC(I),31326,50.14,G.C.MANJUNATH,parties.IN.JP,JNP,19588,11738,18.79,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-57,karnataka,1980,TUMKUR,87400,60657,69.4,S.S.AHMED,parties.IN.INC_I,INC(I),32639,53.81,VEERANNA,parties.IN.JP,JNP,15436,17203,28.36,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-82,karnataka,1980,BASAVANAGUDI,98001,52247,53.31,H.L .T.GOWDA,parties.IN.JP,JNP,17242,33,N.L.RAU,parties.IN.INC_I,INC(I),16534,708,1.35,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-karnataka-40,karnataka,1980,HARIHAR,90171,60388,66.97,H.SHIVAPPA,parties.IN.INC_I,INC(I),29997,49.67,A.G.REDDY,parties.IN.INC_U,INC(U),16303,13694,22.67,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-49,karnataka,1980,HOLALKERE,80934,62482,77.2,M.B.THIPPERUDRAPPA,parties.IN.INC_I,INC(I),31326,50.14,G.C.MANJUNATH,parties.IN.JP,JNP,19588,11738,18.79,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-57,karnataka,1980,TUMKUR,87400,60657,69.4,S.S.AHMED,parties.IN.INC_I,INC(I),32639,53.81,VEERANNA,parties.IN.JP,JNP,15436,17203,28.36,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-82,karnataka,1980,BASAVANAGUDI,98001,52247,53.31,H.L .T.GOWDA,parties.IN.JP,JNP,17242,33,N.L.RAU,parties.IN.INC_I,INC(I),16534,708,1.35,src-1b7bc1c9d39a,minor,

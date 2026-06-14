@@ -1,66 +1,66 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-maharashtra-37,maharashtra,1996,37,KHERWADI,Shrikant Krishnaji Sarmalkar,parties.IN.SHS,SHS,37272,52.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-37,maharashtra,1996,37,KHERWADI,Kamble Vijay Baburao,parties.IN.INC,INC,31355,44.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-37,maharashtra,1996,37,KHERWADI,Bapuji Sitaram Ramteke,parties.IN.RPI,RPI,1098,1.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-37,maharashtra,1996,37,KHERWADI,Khan Rais Khan,parties.IN.AIMF,AIMF,677,0.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-37,maharashtra,1996,37,KHERWADI,Madhav Deshpande,parties.IN.IND,IND,467,0.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-37,maharashtra,1996,37,KHERWADI,Daima Badriprasad Ganpatram,parties.IN.IND,IND,210,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-37,maharashtra,1996,37,KHERWADI,Indrasen Singh,parties.IN.IND,IND,145,0.2,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Pramod Shirwalkar,parties.IN.BJP,BJP,45328,38.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Arjun Dangle,parties.IN.RPI,RPI,33874,28.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Parvati Parihar,parties.IN.INC,INC,33683,28.74,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Jai Sankar Shetty,parties.IN.JP,JP,998,0.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,S.M. Mukundan,parties.IN.IND,IND,591,0.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Randive Mama,parties.IN.IND,IND,570,0.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,T. Dharma Lingam Tangraj Nadar,parties.IN.IND,IND,558,0.48,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Shivaji D. Thorat,parties.IN.IND,IND,504,0.43,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Hubnarayan H. Hubey,parties.IN.IND,IND,387,0.33,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Ashok Hiranand Kaknani,parties.IN.IND,IND,204,0.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Kishor Bhagwandas Mirgh,parties.IN.ABJS,ABJS,190,0.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Praveen Khanna,parties.IN.AIIC_T,AIIC(T),161,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Anand Jasbirsingh,parties.IN.IND,IND,142,0.12,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-48,maharashtra,1996,48,NEHRUNAGAR,Malik Nawab Mohammed,parties.IN.SP,SP,40348,46.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-48,maharashtra,1996,48,NEHRUNAGAR,Acharya Sharad Narayan,parties.IN.SHS,SHS,33091,38.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-48,maharashtra,1996,48,NEHRUNAGAR,Shelar Kisan Bhikaji,parties.IN.INC,INC,11343,13.15,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-48,maharashtra,1996,48,NEHRUNAGAR,Bhole Anil Bhaskar,parties.IN.BSP,BSP,977,1.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-48,maharashtra,1996,48,NEHRUNAGAR,Anand Jasbir Singh,parties.IN.AIIC_T,AIIC(T),496,0.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-87,maharashtra,1996,87,SINDKHEDA,D.V. Patil,parties.IN.IND,IND,31493,34.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-87,maharashtra,1996,87,SINDKHEDA,Patil Ramkrushna Dodha,parties.IN.SHS,SHS,28562,30.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-87,maharashtra,1996,87,SINDKHEDA,Ashatai Mangalsing Alias Thansing Jeebhau,parties.IN.JD,JD,19487,21.09,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-87,maharashtra,1996,87,SINDKHEDA,Patil Rangrao Madhavrao,parties.IN.INC,INC,11764,12.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-87,maharashtra,1996,87,SINDKHEDA,Patil Dattatray Dayaram,parties.IN.IND,IND,1074,1.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,Patil Satish Bhaskarrao,parties.IN.INC,INC,59931,58.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,Patil Chimanrao Rupchand,parties.IN.SHS,SHS,34406,33.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,Patil Shantaram Bhila,parties.IN.IND,IND,3014,2.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,Mahajan Sanjay Bhimrao,parties.IN.IND,IND,2411,2.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,Nikam Mohan Girdhar,parties.IN.RPI,RPI,1053,1.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,More Jayawant Vasantrao,parties.IN.IND,IND,261,0.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,Vanjari Charansing Ganpat,parties.IN.AIIC_T,AIIC(T),206,0.2,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,Jain Popatlal Fulchand,parties.IN.IND,IND,189,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,Kambale Ramesh Namdeo,parties.IN.IND,IND,187,0.18,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-95,maharashtra,1996,95,JALGAON,Jain Sureshkumar Bhikamchand,parties.IN.SHS,SHS,73532,61.54,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-95,maharashtra,1996,95,JALGAON,Ravindra Pralhadrao Patil,parties.IN.INC,INC,45964,38.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Madan Madhukar Yerawar,parties.IN.BJP,BJP,33627,31.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Anil Shankarrao Mangulkar,parties.IN.INC,INC,22776,21.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Annasabeh Alias Bhimsing Ramchandrasingh Solanke,parties.IN.JD,JD,14611,13.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Himmat Pande Patil,parties.IN.IND,IND,13042,12.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Shrikant Alias Baloo Chaudhari,parties.IN.IND,IND,8162,7.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Yembahwar Nanabhau Barayanrao,parties.IN.IND,IND,5305,4.9,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Anil Anna Gote,parties.IN.SJP_M,SJP(M),4501,4.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Balasaheb Gawande,parties.IN.BSP,BSP,3911,3.61,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Asif Khan,parties.IN.IND,IND,1916,1.77,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Swasakale Bhaskar Krishnaji,parties.IN.IND,IND,351,0.32,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Sanatkumar Soni,parties.IN.IND,IND,101,0.09,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-217,maharashtra,1996,217,SOLAPURCITYNORTH,Mengaji Narsing Madhavrao,parties.IN.BJP,BJP,35126,53.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-217,maharashtra,1996,217,SOLAPURCITYNORTH,Chakote Vishwanath Baburao,parties.IN.INC,INC,23982,36.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-217,maharashtra,1996,217,SOLAPURCITYNORTH,Kalshetti Siddhappa Shivbasappa,parties.IN.CPIM,CPM,5601,8.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-217,maharashtra,1996,217,SOLAPURCITYNORTH,Sagari Moulasab Jamalsab,parties.IN.BSP,BSP,533,0.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-217,maharashtra,1996,217,SOLAPURCITYNORTH,Prof. Pyati Basavraj Alias (Raju) Bhimashankar,parties.IN.IND,IND,71,0.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-217,maharashtra,1996,217,SOLAPURCITYNORTH,Jogdankar Haridas Baburao,parties.IN.IND,IND,67,0.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-270,maharashtra,1996,270,BHILWADIWANGI,Yadav Deshmukh Pruthviraj Sayajirao,parties.IN.IND,IND,72526,51.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-270,maharashtra,1996,270,BHILWADIWANGI,Dr. Patangrao Shripatrao Kadam,parties.IN.INC,INC,68146,48.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-270,maharashtra,1996,270,BHILWADIWANGI,Sadamate Mahadev Yashwant,parties.IN.IND,IND,410,0.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-270,maharashtra,1996,270,BHILWADIWANGI,Kadam Patangrao Dada,parties.IN.IND,IND,334,0.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-270,maharashtra,1996,270,BHILWADIWANGI,Yuvraj Shivajirao Gotpagar,parties.IN.BSP,BSP,294,0.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-270,maharashtra,1996,270,BHILWADIWANGI,Chaugule Ashok Ramchandra,parties.IN.IND,IND,123,0.09,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-270,maharashtra,1996,270,BHILWADIWANGI,Kamble Gorakh Dattu,parties.IN.IND,IND,104,0.07,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-maharashtra-37,maharashtra,1996,37,KHERWADI,Shrikant Krishnaji Sarmalkar,parties.IN.SHS,SHS,37272,52.33,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-37,maharashtra,1996,37,KHERWADI,Kamble Vijay Baburao,parties.IN.INC,INC,31355,44.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-37,maharashtra,1996,37,KHERWADI,Bapuji Sitaram Ramteke,parties.IN.RPI,RPI,1098,1.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-37,maharashtra,1996,37,KHERWADI,Khan Rais Khan,parties.IN.AIMF,AIMF,677,0.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-37,maharashtra,1996,37,KHERWADI,Madhav Deshpande,parties.IN.IND,IND,467,0.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-37,maharashtra,1996,37,KHERWADI,Daima Badriprasad Ganpatram,parties.IN.IND,IND,210,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-37,maharashtra,1996,37,KHERWADI,Indrasen Singh,parties.IN.IND,IND,145,0.2,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Pramod Shirwalkar,parties.IN.BJP,BJP,45328,38.68,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Arjun Dangle,parties.IN.RPI,RPI,33874,28.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Parvati Parihar,parties.IN.INC,INC,33683,28.74,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Jai Sankar Shetty,parties.IN.JP,JP,998,0.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,S.M. Mukundan,parties.IN.IND,IND,591,0.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Randive Mama,parties.IN.IND,IND,570,0.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,T. Dharma Lingam Tangraj Nadar,parties.IN.IND,IND,558,0.48,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Shivaji D. Thorat,parties.IN.IND,IND,504,0.43,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Hubnarayan H. Hubey,parties.IN.IND,IND,387,0.33,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Ashok Hiranand Kaknani,parties.IN.IND,IND,204,0.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Kishor Bhagwandas Mirgh,parties.IN.ABJS,ABJS,190,0.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Praveen Khanna,parties.IN.AIIC_T,AIIC(T),161,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-47,maharashtra,1996,47,CHEMBUR,Anand Jasbirsingh,parties.IN.IND,IND,142,0.12,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-48,maharashtra,1996,48,NEHRUNAGAR,Malik Nawab Mohammed,parties.IN.SP,SP,40348,46.78,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-48,maharashtra,1996,48,NEHRUNAGAR,Acharya Sharad Narayan,parties.IN.SHS,SHS,33091,38.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-48,maharashtra,1996,48,NEHRUNAGAR,Shelar Kisan Bhikaji,parties.IN.INC,INC,11343,13.15,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-48,maharashtra,1996,48,NEHRUNAGAR,Bhole Anil Bhaskar,parties.IN.BSP,BSP,977,1.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-48,maharashtra,1996,48,NEHRUNAGAR,Anand Jasbir Singh,parties.IN.AIIC_T,AIIC(T),496,0.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-87,maharashtra,1996,87,SINDKHEDA,D.V. Patil,parties.IN.IND,IND,31493,34.09,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-87,maharashtra,1996,87,SINDKHEDA,Patil Ramkrushna Dodha,parties.IN.SHS,SHS,28562,30.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-87,maharashtra,1996,87,SINDKHEDA,Ashatai Mangalsing Alias Thansing Jeebhau,parties.IN.JD,JD,19487,21.09,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-87,maharashtra,1996,87,SINDKHEDA,Patil Rangrao Madhavrao,parties.IN.INC,INC,11764,12.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-87,maharashtra,1996,87,SINDKHEDA,Patil Dattatray Dayaram,parties.IN.IND,IND,1074,1.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,Patil Satish Bhaskarrao,parties.IN.INC,INC,59931,58.95,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,Patil Chimanrao Rupchand,parties.IN.SHS,SHS,34406,33.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,Patil Shantaram Bhila,parties.IN.IND,IND,3014,2.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,Mahajan Sanjay Bhimrao,parties.IN.IND,IND,2411,2.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,Nikam Mohan Girdhar,parties.IN.RPI,RPI,1053,1.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,More Jayawant Vasantrao,parties.IN.IND,IND,261,0.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,Vanjari Charansing Ganpat,parties.IN.AIIC_T,AIIC(T),206,0.2,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,Jain Popatlal Fulchand,parties.IN.IND,IND,189,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-91,maharashtra,1996,91,PAROLA,Kambale Ramesh Namdeo,parties.IN.IND,IND,187,0.18,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-95,maharashtra,1996,95,JALGAON,Jain Sureshkumar Bhikamchand,parties.IN.SHS,SHS,73532,61.54,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-95,maharashtra,1996,95,JALGAON,Ravindra Pralhadrao Patil,parties.IN.INC,INC,45964,38.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Madan Madhukar Yerawar,parties.IN.BJP,BJP,33627,31.05,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Anil Shankarrao Mangulkar,parties.IN.INC,INC,22776,21.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Annasabeh Alias Bhimsing Ramchandrasingh Solanke,parties.IN.JD,JD,14611,13.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Himmat Pande Patil,parties.IN.IND,IND,13042,12.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Shrikant Alias Baloo Chaudhari,parties.IN.IND,IND,8162,7.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Yembahwar Nanabhau Barayanrao,parties.IN.IND,IND,5305,4.9,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Anil Anna Gote,parties.IN.SJP_M,SJP(M),4501,4.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Balasaheb Gawande,parties.IN.BSP,BSP,3911,3.61,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Asif Khan,parties.IN.IND,IND,1916,1.77,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Swasakale Bhaskar Krishnaji,parties.IN.IND,IND,351,0.32,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-163,maharashtra,1996,163,YAVATMAL,Sanatkumar Soni,parties.IN.IND,IND,101,0.09,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-217,maharashtra,1996,217,SOLAPURCITYNORTH,Mengaji Narsing Madhavrao,parties.IN.BJP,BJP,35126,53.73,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-217,maharashtra,1996,217,SOLAPURCITYNORTH,Chakote Vishwanath Baburao,parties.IN.INC,INC,23982,36.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-217,maharashtra,1996,217,SOLAPURCITYNORTH,Kalshetti Siddhappa Shivbasappa,parties.IN.CPIM,CPM,5601,8.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-217,maharashtra,1996,217,SOLAPURCITYNORTH,Sagari Moulasab Jamalsab,parties.IN.BSP,BSP,533,0.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-217,maharashtra,1996,217,SOLAPURCITYNORTH,Prof. Pyati Basavraj Alias (Raju) Bhimashankar,parties.IN.IND,IND,71,0.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-217,maharashtra,1996,217,SOLAPURCITYNORTH,Jogdankar Haridas Baburao,parties.IN.IND,IND,67,0.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-270,maharashtra,1996,270,BHILWADIWANGI,Yadav Deshmukh Pruthviraj Sayajirao,parties.IN.IND,IND,72526,51.1,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-270,maharashtra,1996,270,BHILWADIWANGI,Dr. Patangrao Shripatrao Kadam,parties.IN.INC,INC,68146,48.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-270,maharashtra,1996,270,BHILWADIWANGI,Sadamate Mahadev Yashwant,parties.IN.IND,IND,410,0.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-270,maharashtra,1996,270,BHILWADIWANGI,Kadam Patangrao Dada,parties.IN.IND,IND,334,0.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-270,maharashtra,1996,270,BHILWADIWANGI,Yuvraj Shivajirao Gotpagar,parties.IN.BSP,BSP,294,0.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-270,maharashtra,1996,270,BHILWADIWANGI,Chaugule Ashok Ramchandra,parties.IN.IND,IND,123,0.09,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-270,maharashtra,1996,270,BHILWADIWANGI,Kamble Gorakh Dattu,parties.IN.IND,IND,104,0.07,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

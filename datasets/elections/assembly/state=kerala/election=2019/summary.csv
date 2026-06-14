@@ -1,7 +1,7 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-kerala-3719,kerala,2019,AROOR,191858,154534,80.55,Adv.SHANIMOL OSMAN,parties.IN.INC,INC,69356,44.88,Adv.Manu.C.Pulickal,parties.IN.CPIM,CPM,67277,2079,1.34,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3745,kerala,2019,ERANAKULAM,155104,89932,57.98,T.J. VINOD,parties.IN.INC,INC,37891,42.13,Adv. MANU ROY,parties.IN.IND,IND,34141,3750,4.17,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3769,kerala,2019,MANJESHWAR,214779,162755,75.78,M C Kamaruddin,parties.IN.IUML,IUML,65407,40.19,Raveesh Thanthri Kuntar,parties.IN.BJP,BJP,57484,7923,4.87,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3783,kerala,2019,PALA,179018,127962,71.48,Mani.C.Kappan,parties.IN.NCP,NCP,54137,42.31,Adv.Jose Tom,parties.IN.IND,IND,51194,2943,2.3,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3818,kerala,2019,KONNI,197186,138859,70.42,Adv. K.U.JENISH KUMAR,parties.IN.CPIM,CPM,54099,38.96,P. MOHANRAJ,parties.IN.INC,INC,44146,9953,7.17,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3835,kerala,2019,VATTIYOORKAVU,197201,123910,62.83,Adv. V.K.Prasanth,parties.IN.CPIM,CPM,54830,44.25,Dr. K.Mohankumar,parties.IN.INC,INC,40365,14465,11.67,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-2008-kerala-3719,kerala,2019,AROOR,191858,154534,80.55,Adv.SHANIMOL OSMAN,parties.IN.INC,INC,69356,44.88,Adv.Manu.C.Pulickal,parties.IN.CPIM,CPM,67277,2079,1.34,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3745,kerala,2019,ERANAKULAM,155104,89932,57.98,T.J. VINOD,parties.IN.INC,INC,37891,42.13,Adv. MANU ROY,parties.IN.IND,IND,34141,3750,4.17,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3769,kerala,2019,MANJESHWAR,214779,162755,75.78,M C Kamaruddin,parties.IN.IUML,IUML,65407,40.19,Raveesh Thanthri Kuntar,parties.IN.BJP,BJP,57484,7923,4.87,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3783,kerala,2019,PALA,179018,127962,71.48,Mani.C.Kappan,parties.IN.NCP,NCP,54137,42.31,Adv.Jose Tom,parties.IN.IND,IND,51194,2943,2.3,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3818,kerala,2019,KONNI,197186,138859,70.42,Adv. K.U.JENISH KUMAR,parties.IN.CPIM,CPM,54099,38.96,P. MOHANRAJ,parties.IN.INC,INC,44146,9953,7.17,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3835,kerala,2019,VATTIYOORKAVU,197201,123910,62.83,Adv. V.K.Prasanth,parties.IN.CPIM,CPM,54830,44.25,Dr. K.Mohankumar,parties.IN.INC,INC,40365,14465,11.67,src-1b7bc1c9d39a,minor,

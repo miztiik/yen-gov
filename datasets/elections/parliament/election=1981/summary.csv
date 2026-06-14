@@ -1,9 +1,9 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-PC-1976-madhya-pradesh-5,madhya-pradesh,1981,SAGAR(SC),596498,303682,50.91,R.P.AHIRWAR,parties.IN.BJP,BJP,143620,47.29,R.L.THAKKAR,parties.IN.INC,INC,139595,4025,1.32,src-31c65dbec869
-IN-PC-1976-maharashtra-51,maharashtra,1981,NANDRBAR(ST),,303101,,G.M.HODLYA,parties.IN.INC,INC,188550,62.21,A.S.F.JADHAV,parties.IN.JP,JNP,61157,127393,42.03,src-31c65dbec869
-IN-PC-1976-odisha-6,odisha,1981,CUTTACK,704852,280474,39.79,J.PATNAIK(W),parties.IN.INC_I,INC(I),156906,55.94,R.RAY,parties.IN.LKD,LKD,107054,49852,17.77,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-12,uttar-pradesh,1981,BARELLY,614536,247613,40.29,B.A.AHMAD(W),parties.IN.INC_I,INC(I),114231,46.13,S.K.GANGWAR,parties.IN.BJP,BJP,78935,35296,14.25,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-25,uttar-pradesh,1981,AMETHI,675683,307523,45.51,R.GHANDHI,parties.IN.INC_I,INC(I),258884,84.18,S.YADAV,parties.IN.LKD,LKD,21188,237696,77.29,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-54,uttar-pradesh,1981,MIRZAPUR,723350,203448,28.13,UMAKANT,parties.IN.INC_I,INC(I),92182,45.31,M.Y.BEG,parties.IN.LKD,LKD,62012,30170,14.83,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-56,uttar-pradesh,1981,ALLAHABAD,711146,183023,25.74,K.P.TIWARI,parties.IN.INC_I,INC(I),84612,46.23,M.AHMAD,parties.IN.LKD,LKD,37921,46691,25.51,src-31c65dbec869
-IN-PC-1976-west-bengal-26,west-bengal,1981,SERAMPORE,774081,438769,56.68,AJIT BEG,parties.IN.CPIM,CPM,265372,60.48,S.M.ROY,parties.IN.INC_I,INC(I),168823,96549,22,src-31c65dbec869
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-PC-1976-madhya-pradesh-5,madhya-pradesh,1981,SAGAR(SC),596498,303682,50.91,R.P.AHIRWAR,parties.IN.BJP,BJP,143620,47.29,R.L.THAKKAR,parties.IN.INC,INC,139595,4025,1.32,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-51,maharashtra,1981,NANDRBAR(ST),,303101,,G.M.HODLYA,parties.IN.INC,INC,188550,62.21,A.S.F.JADHAV,parties.IN.JP,JNP,61157,127393,42.03,src-31c65dbec869,minor,
+IN-PC-1976-odisha-6,odisha,1981,CUTTACK,704852,280474,39.79,J.PATNAIK(W),parties.IN.INC_I,INC(I),156906,55.94,R.RAY,parties.IN.LKD,LKD,107054,49852,17.77,src-31c65dbec869,minor,
+IN-PC-1976-uttar-pradesh-12,uttar-pradesh,1981,BARELLY,614536,247613,40.29,B.A.AHMAD(W),parties.IN.INC_I,INC(I),114231,46.13,S.K.GANGWAR,parties.IN.BJP,BJP,78935,35296,14.25,src-31c65dbec869,minor,
+IN-PC-1976-uttar-pradesh-25,uttar-pradesh,1981,AMETHI,675683,307523,45.51,R.GHANDHI,parties.IN.INC_I,INC(I),258884,84.18,S.YADAV,parties.IN.LKD,LKD,21188,237696,77.29,src-31c65dbec869,minor,
+IN-PC-1976-uttar-pradesh-54,uttar-pradesh,1981,MIRZAPUR,723350,203448,28.13,UMAKANT,parties.IN.INC_I,INC(I),92182,45.31,M.Y.BEG,parties.IN.LKD,LKD,62012,30170,14.83,src-31c65dbec869,minor,
+IN-PC-1976-uttar-pradesh-56,uttar-pradesh,1981,ALLAHABAD,711146,183023,25.74,K.P.TIWARI,parties.IN.INC_I,INC(I),84612,46.23,M.AHMAD,parties.IN.LKD,LKD,37921,46691,25.51,src-31c65dbec869,minor,
+IN-PC-1976-west-bengal-26,west-bengal,1981,SERAMPORE,774081,438769,56.68,AJIT BEG,parties.IN.CPIM,CPM,265372,60.48,S.M.ROY,parties.IN.INC_I,INC(I),168823,96549,22,src-31c65dbec869,minor,

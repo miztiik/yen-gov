@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-west-bengal-232,west-bengal,2000,BINPUR(ST),139273,101629,72.97,Chuni Bala Hansda,parties.IN.JKP_N,JKP(N),51695,50.87,Dibakar Hansda,parties.IN.CPIM,CPM,39285,12410,12.21,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-288,west-bengal,2000,SURI,172173,118509,68.83,Braja Mukherjee,parties.IN.CPIM,CPM,62093,52.4,Chattaraj Suniti,parties.IN.AITC,AITC,44972,17121,14.45,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-57,west-bengal,2000,NABAGRAM,163185,126000,77.21,Nripen Chaudhuri,parties.IN.CPIM,CPM,62648,49.72,Syamal Ray,parties.IN.INC,INC,54339,8309,6.59,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-west-bengal-232,west-bengal,2000,BINPUR(ST),139273,101629,72.97,Chuni Bala Hansda,parties.IN.JKP_N,JKP(N),51695,50.87,Dibakar Hansda,parties.IN.CPIM,CPM,39285,12410,12.21,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-288,west-bengal,2000,SURI,172173,118509,68.83,Braja Mukherjee,parties.IN.CPIM,CPM,62093,52.4,Chattaraj Suniti,parties.IN.AITC,AITC,44972,17121,14.45,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-57,west-bengal,2000,NABAGRAM,163185,126000,77.21,Nripen Chaudhuri,parties.IN.CPIM,CPM,62648,49.72,Syamal Ray,parties.IN.INC,INC,54339,8309,6.59,src-1b7bc1c9d39a,minor,

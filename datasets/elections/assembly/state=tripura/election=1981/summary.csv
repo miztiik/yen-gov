@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-tripura-16,tripura,1981,BISHALGARH,14663,12998,88.64,B.L.SAHA,parties.IN.CPIM,CPM,7428,57.15,T.ALI,parties.IN.INC_I,INC(I),5303,2125,16.35,src-1b7bc1c9d39a
-IN-AC-1976-tripura-44,tripura,1981,RAIMA VALLEY,16085,12645,78.61,R.K.D.BARMA,parties.IN.CPIM,CPM,6162,48.73,S.C.TRIPURA,parties.IN.TUS,TUS,5312,850,6.72,src-1b7bc1c9d39a
-IN-AC-1976-tripura-6,tripura,1981,AGARTALA,20375,16422,80.6,M.SARKAR,parties.IN.CPIM,CPM,9328,56.8,N.C.BHATTACHARJEE,parties.IN.INC_I,INC(I),6338,2990,18.21,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-tripura-16,tripura,1981,BISHALGARH,14663,12998,88.64,B.L.SAHA,parties.IN.CPIM,CPM,7428,57.15,T.ALI,parties.IN.INC_I,INC(I),5303,2125,16.35,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tripura-44,tripura,1981,RAIMA VALLEY,16085,12645,78.61,R.K.D.BARMA,parties.IN.CPIM,CPM,6162,48.73,S.C.TRIPURA,parties.IN.TUS,TUS,5312,850,6.72,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tripura-6,tripura,1981,AGARTALA,20375,16422,80.6,M.SARKAR,parties.IN.CPIM,CPM,9328,56.8,N.C.BHATTACHARJEE,parties.IN.INC_I,INC(I),6338,2990,18.21,src-1b7bc1c9d39a,minor,

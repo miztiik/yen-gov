@@ -1,56 +1,56 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-maharashtra-2,maharashtra,2006,2,VENGURLA,Kambali Shankar Shivram,parties.IN.INC,INC,65290,80.45,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-2,maharashtra,2006,2,VENGURLA,Ramesh Naik,parties.IN.SHS,SHS,12787,15.76,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-2,maharashtra,2006,2,VENGURLA,Somnath Vasant Tomke,parties.IN.IND,IND,3075,3.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-5,maharashtra,2006,5,RAJAPUR,Kadam Ganpat Daulat,parties.IN.INC,INC,45778,48.77,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-5,maharashtra,2006,5,RAJAPUR,Rajan Prabhakar Salvi,parties.IN.SHS,SHS,42070,44.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-5,maharashtra,2006,5,RAJAPUR,Gothankar Mahadeo Krishnaji,parties.IN.IND,IND,3502,3.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-5,maharashtra,2006,5,RAJAPUR,Khanvilkar Vilasrao Rajaram,parties.IN.ABHM,ABHM,2518,2.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-7,maharashtra,2006,7,SANGAMESHWAR,Bane Subhash Shantaram,parties.IN.INC,INC,43081,41.25,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-7,maharashtra,2006,7,SANGAMESHWAR,Mane Ravindra,parties.IN.SHS,SHS,33708,32.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-7,maharashtra,2006,7,SANGAMESHWAR,Suresh Laxman Bhayje,parties.IN.IND,IND,24312,23.28,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-7,maharashtra,2006,7,SANGAMESHWAR,Kamble Sandeep Bandu,parties.IN.IND,IND,1477,1.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-7,maharashtra,2006,7,SANGAMESHWAR,Pramila Bharati,parties.IN.ABHM,ABHM,1251,1.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-7,maharashtra,2006,7,SANGAMESHWAR,Anant Ram Chandra Jadhav,parties.IN.IND,IND,599,0.57,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-13,maharashtra,2006,13,SHRIVARDHAN,Tukaram Surve,parties.IN.SHS,SHS,61995,52.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-13,maharashtra,2006,13,SHRIVARDHAN,Shaymbhai Sawant,parties.IN.INC,INC,46240,39.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-13,maharashtra,2006,13,SHRIVARDHAN,Ali Kuachali,parties.IN.IND,IND,10075,8.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-31,maharashtra,2006,31,NAIGAON,Kalidas Nilkanth Kolambkar,parties.IN.INC,INC,44694,59.56,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-31,maharashtra,2006,31,NAIGAON,Shradoha S. Jadhav,parties.IN.SHS,SHS,22283,29.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-31,maharashtra,2006,31,NAIGAON,M.M.Sansare,parties.IN.BBM,BBM,4105,5.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-31,maharashtra,2006,31,NAIGAON,Jairam Baliram Talake,parties.IN.ABS,ABS,3044,4.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-31,maharashtra,2006,31,NAIGAON,Gandhi Dilip Ramchandra,parties.IN.IND,IND,570,0.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-31,maharashtra,2006,31,NAIGAON,Imran Mubarak Shaikh,parties.IN.IND,IND,342,0.46,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,BHARSARALE PRAKASH GUNWANT,parties.IN.INC,INC,45908,39.03,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,S.V.GAWANDE ALIAS BALASAHEB HINGNIRAR,parties.IN.SHS,SHIVSENA,41042,34.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,WATH PUNDLIKRAO NARAYAN RAO,parties.IN.BBM,BBM,19217,16.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,KANCHAN MALA KULDEEP,parties.IN.IND,IND,4597,3.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,WANCHADE DEORAO GONDUJI,parties.IN.IND,IND,1913,1.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,VIJAY YASHWANTRAO VILHEKAR,parties.IN.IND,IND,1197,1.02,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,MIRZA ZAHEDBAIG MIRZA RAHEMTTWLLA BAIG,parties.IN.IND,IND,937,0.8,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,ABHAY ARUN GAWANDE,parties.IN.IND,IND,802,0.68,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,PRAKASH VISHWANATH BHARSAKALE,parties.IN.IND,IND,692,0.59,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,TAYADE JAGDISH ALIAS BALASAHEB SHAMRAO,parties.IN.IND,IND,689,0.59,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,PAWAR SUKHDEO SHAMRAO,parties.IN.IND,IND,361,0.31,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,BAODDIN HANIFODDIN,parties.IN.IND,IND,258,0.22,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Wadettiwar Vijay Namdeo,parties.IN.INC,INC,73832,48.67,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Gajbe Dr. Rameshkumar Baburaoji,parties.IN.BJP,BJP,54088,35.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Ashok Pandharinath Ramteke,parties.IN.RPI_D,RPI(D),7450,4.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Diwakar Pendam,parties.IN.IND,IND,4155,2.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Netaji Rajgadkar,parties.IN.IND,IND,2562,1.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Dr. Dilip Laxman Shiwarkar,parties.IN.IND,IND,2247,1.48,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Borkar Ramesh Narayan (Teacher),parties.IN.IND,IND,1323,0.87,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Wairagade Ajay Rambhauji,parties.IN.IND,IND,1107,0.73,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Dhone Sukhdev Mahadeorao,parties.IN.IND,IND,794,0.52,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Qureshi Mohammad Ikhlak Mohammad Yusuf,parties.IN.SP,SP,590,0.39,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Hargovind Bangaram Masram,parties.IN.GGP,GGP,577,0.38,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Jambhule Bhagwan Dinbaji,parties.IN.IND,IND,488,0.32,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Sarang alias Puroshottam Bhaurao Dabhekar,parties.IN.IND,IND,398,0.26,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Er. Bhaiyya Mahadeorao Ramateke,parties.IN.IND,IND,348,0.23,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,J.T. Lonbale,parties.IN.JDS,JDS,323,0.21,15,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Bagde Jeevan Deorao,parties.IN.RP_K,RP(K),313,0.21,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Gajbhe Ramesh Sakharam,parties.IN.IND,IND,256,0.17,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Jitendra Adaku Raut,parties.IN.ABMP,ABMP,255,0.17,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Gajbhe Ramesh Donu,parties.IN.IND,IND,219,0.14,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Gajbhe Ramesh Laxman,parties.IN.IND,IND,203,0.13,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Rajesh Sukhdev Gaikwad,parties.IN.KKJHS,KJHS,162,0.11,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-maharashtra-2,maharashtra,2006,2,VENGURLA,Kambali Shankar Shivram,parties.IN.INC,INC,65290,80.45,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-2,maharashtra,2006,2,VENGURLA,Ramesh Naik,parties.IN.SHS,SHS,12787,15.76,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-2,maharashtra,2006,2,VENGURLA,Somnath Vasant Tomke,parties.IN.IND,IND,3075,3.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-5,maharashtra,2006,5,RAJAPUR,Kadam Ganpat Daulat,parties.IN.INC,INC,45778,48.77,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-5,maharashtra,2006,5,RAJAPUR,Rajan Prabhakar Salvi,parties.IN.SHS,SHS,42070,44.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-5,maharashtra,2006,5,RAJAPUR,Gothankar Mahadeo Krishnaji,parties.IN.IND,IND,3502,3.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-5,maharashtra,2006,5,RAJAPUR,Khanvilkar Vilasrao Rajaram,parties.IN.ABHM,ABHM,2518,2.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-7,maharashtra,2006,7,SANGAMESHWAR,Bane Subhash Shantaram,parties.IN.INC,INC,43081,41.25,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-7,maharashtra,2006,7,SANGAMESHWAR,Mane Ravindra,parties.IN.SHS,SHS,33708,32.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-7,maharashtra,2006,7,SANGAMESHWAR,Suresh Laxman Bhayje,parties.IN.IND,IND,24312,23.28,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-7,maharashtra,2006,7,SANGAMESHWAR,Kamble Sandeep Bandu,parties.IN.IND,IND,1477,1.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-7,maharashtra,2006,7,SANGAMESHWAR,Pramila Bharati,parties.IN.ABHM,ABHM,1251,1.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-7,maharashtra,2006,7,SANGAMESHWAR,Anant Ram Chandra Jadhav,parties.IN.IND,IND,599,0.57,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-13,maharashtra,2006,13,SHRIVARDHAN,Tukaram Surve,parties.IN.SHS,SHS,61995,52.4,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-13,maharashtra,2006,13,SHRIVARDHAN,Shaymbhai Sawant,parties.IN.INC,INC,46240,39.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-13,maharashtra,2006,13,SHRIVARDHAN,Ali Kuachali,parties.IN.IND,IND,10075,8.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-31,maharashtra,2006,31,NAIGAON,Kalidas Nilkanth Kolambkar,parties.IN.INC,INC,44694,59.56,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-31,maharashtra,2006,31,NAIGAON,Shradoha S. Jadhav,parties.IN.SHS,SHS,22283,29.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-31,maharashtra,2006,31,NAIGAON,M.M.Sansare,parties.IN.BBM,BBM,4105,5.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-31,maharashtra,2006,31,NAIGAON,Jairam Baliram Talake,parties.IN.ABS,ABS,3044,4.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-31,maharashtra,2006,31,NAIGAON,Gandhi Dilip Ramchandra,parties.IN.IND,IND,570,0.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-31,maharashtra,2006,31,NAIGAON,Imran Mubarak Shaikh,parties.IN.IND,IND,342,0.46,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,BHARSARALE PRAKASH GUNWANT,parties.IN.INC,INC,45908,39.03,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,S.V.GAWANDE ALIAS BALASAHEB HINGNIRAR,parties.IN.SHS,SHIVSENA,41042,34.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,WATH PUNDLIKRAO NARAYAN RAO,parties.IN.BBM,BBM,19217,16.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,KANCHAN MALA KULDEEP,parties.IN.IND,IND,4597,3.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,WANCHADE DEORAO GONDUJI,parties.IN.IND,IND,1913,1.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,VIJAY YASHWANTRAO VILHEKAR,parties.IN.IND,IND,1197,1.02,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,MIRZA ZAHEDBAIG MIRZA RAHEMTTWLLA BAIG,parties.IN.IND,IND,937,0.8,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,ABHAY ARUN GAWANDE,parties.IN.IND,IND,802,0.68,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,PRAKASH VISHWANATH BHARSAKALE,parties.IN.IND,IND,692,0.59,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,TAYADE JAGDISH ALIAS BALASAHEB SHAMRAO,parties.IN.IND,IND,689,0.59,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,PAWAR SUKHDEO SHAMRAO,parties.IN.IND,IND,361,0.31,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-118,maharashtra,2006,118,DARYAPUR,BAODDIN HANIFODDIN,parties.IN.IND,IND,258,0.22,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Wadettiwar Vijay Namdeo,parties.IN.INC,INC,73832,48.67,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Gajbe Dr. Rameshkumar Baburaoji,parties.IN.BJP,BJP,54088,35.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Ashok Pandharinath Ramteke,parties.IN.RPI_D,RPI(D),7450,4.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Diwakar Pendam,parties.IN.IND,IND,4155,2.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Netaji Rajgadkar,parties.IN.IND,IND,2562,1.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Dr. Dilip Laxman Shiwarkar,parties.IN.IND,IND,2247,1.48,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Borkar Ramesh Narayan (Teacher),parties.IN.IND,IND,1323,0.87,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Wairagade Ajay Rambhauji,parties.IN.IND,IND,1107,0.73,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Dhone Sukhdev Mahadeorao,parties.IN.IND,IND,794,0.52,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Qureshi Mohammad Ikhlak Mohammad Yusuf,parties.IN.SP,SP,590,0.39,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Hargovind Bangaram Masram,parties.IN.GGP,GGP,577,0.38,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Jambhule Bhagwan Dinbaji,parties.IN.IND,IND,488,0.32,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Sarang alias Puroshottam Bhaurao Dabhekar,parties.IN.IND,IND,398,0.26,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Er. Bhaiyya Mahadeorao Ramateke,parties.IN.IND,IND,348,0.23,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,J.T. Lonbale,parties.IN.JDS,JDS,323,0.21,15,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Bagde Jeevan Deorao,parties.IN.RP_K,RP(K),313,0.21,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Gajbhe Ramesh Sakharam,parties.IN.IND,IND,256,0.17,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Jitendra Adaku Raut,parties.IN.ABMP,ABMP,255,0.17,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Gajbhe Ramesh Donu,parties.IN.IND,IND,219,0.14,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Gajbhe Ramesh Laxman,parties.IN.IND,IND,203,0.13,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-158,maharashtra,2006,158,CHIMUR,Rajesh Sukhdev Gaikwad,parties.IN.KKJHS,KJHS,162,0.11,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-rajasthan-135,rajasthan,2006,DUNGARPUR,160611,94398,58.77,PUNJI LAL PARMAR (E),parties.IN.INC,INC,49067,51.98,SURMAL PARMAR,parties.IN.BJP,BJP,39188,9879,10.47,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-70,rajasthan,2006,DEEG,121793,61689,50.65,Maharani Divya Singh,parties.IN.BJP,BJP,33332,54.03,Laxman Singh,parties.IN.INC,INC,26611,6721,10.89,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-rajasthan-135,rajasthan,2006,DUNGARPUR,160611,94398,58.77,PUNJI LAL PARMAR (E),parties.IN.INC,INC,49067,51.98,SURMAL PARMAR,parties.IN.BJP,BJP,39188,9879,10.47,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-70,rajasthan,2006,DEEG,121793,61689,50.65,Maharani Divya Singh,parties.IN.BJP,BJP,33332,54.03,Laxman Singh,parties.IN.INC,INC,26611,6721,10.89,src-1b7bc1c9d39a,minor,

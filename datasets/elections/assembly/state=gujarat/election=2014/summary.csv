@@ -1,18 +1,18 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-gujarat-2702,gujarat,2014,MANINAGAR,159913,86270,53.95,Patel Suresh Bhai Dhanji Bhai,parties.IN.BJP,BJP,67689,78.46,Jain(K) Jatin Vijay (A),parties.IN.INC,INC,18037,49652,57.55,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2706,gujarat,2014,LATHI,130661,125512,96.06,U.B.Natha Bhai,parties.IN.BJP,BJP,59722,47.58,H.B.(Bhabha),parties.IN.INC,INC,57096,2626,2.09,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2710,gujarat,2014,ANAND,171360,147757,86.23,Rohit Patel (M),parties.IN.BJP,BJP,75850,51.33,Kanti Bhai (B),parties.IN.INC,INC,70607,5243,3.54,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2718,gujarat,2014,DEESA,155810,140961,90.47,Gova Bhai Hamira Bhai Rabari,parties.IN.INC,INC,73962,52.47,Parmar(T) Leba Bhai Chamnaji,parties.IN.BJP,BJP,63568,10394,7.37,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2727,gujarat,2014,MANDVI (ST),167536,170852,101.98,C.A. Mohan Bhai,parties.IN.INC,INC,91242,53.4,V.H. Mahesh Bhai,parties.IN.BJP,BJP,68673,22569,13.21,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2744,gujarat,2014,TALAJA,127036,98200,77.3,G.S.Jeram Bhai,parties.IN.BJP,BJP,50290,51.21,V.P.Magan Bhai,parties.IN.INC,INC,41067,9223,9.39,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2757,gujarat,2014,LIMKHEDA,134082,108069,80.6,B.V.Jokhna Bhai,parties.IN.BJP,BJP,66057,61.12,M.C.Kalu Bhai,parties.IN.INC,INC,42012,24045,22.24,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2772,gujarat,2014,KHAMBHALIA,157837,136895,86.73,A.M. Markhi Bhai,parties.IN.INC,INC,66410,48.51,A.M.H. Bera,parties.IN.BJP,BJP,65202,1208,0.88,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2775,gujarat,2014,MANGROL,128541,111863,87.03,V.B.Kala Bhai,parties.IN.INC,INC,66498,59.45,Y.L.Rama Bhai,parties.IN.BJP,BJP,43816,22682,20.28,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2776,gujarat,2014,SOMNATH,157925,163463,103.51,J.B. Barad,parties.IN.BJP,BJP,86640,53,Dr.N.J.Chotai,parties.IN.INC,INC,60971,25669,15.7,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2779,gujarat,2014,VISAVADAR,148736,128269,86.24,R.H Madhauji Bhai,parties.IN.INC,INC,67128,52.33,B.K Patel,parties.IN.BJP,BJP,56868,10260,8,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2780,gujarat,2014,ABDASA,143507,142322,99.17,G.S.S.Hari Chandra,parties.IN.INC,INC,67863,47.68,C.N. Patel,parties.IN.BJP,BJP,67099,764,0.53,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2786,gujarat,2014,RAPAR,118161,117602,99.53,P.A. Mehta,parties.IN.BJP,BJP,59165,50.31,B.M. Shah,parties.IN.INC,INC,44151,15014,12.77,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2791,gujarat,2014,MATAR,152785,115102,75.34,K.J.Solanki,parties.IN.BJP,BJP,59576,51.76,K.H.Paramar,parties.IN.INC,INC,50966,8610,7.48,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2833,gujarat,2014,RAJKOT WEST,166970,141172,84.55,V.R.Rudani,parties.IN.BJP,BJP,81092,57.44,K.J.Bhagvanji Bhai,parties.IN.INC,INC,57352,23740,16.81,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2834,gujarat,2014,TANKARA,150173,123698,82.37,M.B.H. Bhai,parties.IN.BJP,BJP,65833,53.22,K.L.K. Bhai,parties.IN.INC,INC,54102,11731,9.48,src-1b7bc1c9d39a
-IN-AC-2008-gujarat-2838,gujarat,2014,HIMATNAGAR,174855,166756,95.37,C.R. Ranjitsinh,parties.IN.BJP,BJP,81052,48.61,Dr.V.R.Patel,parties.IN.INC,INC,78490,2562,1.54,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-2008-gujarat-2702,gujarat,2014,MANINAGAR,159913,86270,53.95,Patel Suresh Bhai Dhanji Bhai,parties.IN.BJP,BJP,67689,78.46,Jain(K) Jatin Vijay (A),parties.IN.INC,INC,18037,49652,57.55,src-1b7bc1c9d39a,minor,
+IN-AC-2008-gujarat-2706,gujarat,2014,LATHI,130661,125512,96.06,U.B.Natha Bhai,parties.IN.BJP,BJP,59722,47.58,H.B.(Bhabha),parties.IN.INC,INC,57096,2626,2.09,src-1b7bc1c9d39a,minor,
+IN-AC-2008-gujarat-2710,gujarat,2014,ANAND,171360,147757,86.23,Rohit Patel (M),parties.IN.BJP,BJP,75850,51.33,Kanti Bhai (B),parties.IN.INC,INC,70607,5243,3.54,src-1b7bc1c9d39a,minor,
+IN-AC-2008-gujarat-2718,gujarat,2014,DEESA,155810,140961,90.47,Gova Bhai Hamira Bhai Rabari,parties.IN.INC,INC,73962,52.47,Parmar(T) Leba Bhai Chamnaji,parties.IN.BJP,BJP,63568,10394,7.37,src-1b7bc1c9d39a,minor,
+IN-AC-2008-gujarat-2727,gujarat,2014,MANDVI (ST),167536,170852,101.98,C.A. Mohan Bhai,parties.IN.INC,INC,91242,53.4,V.H. Mahesh Bhai,parties.IN.BJP,BJP,68673,22569,13.21,src-1b7bc1c9d39a,minor,
+IN-AC-2008-gujarat-2744,gujarat,2014,TALAJA,127036,98200,77.3,G.S.Jeram Bhai,parties.IN.BJP,BJP,50290,51.21,V.P.Magan Bhai,parties.IN.INC,INC,41067,9223,9.39,src-1b7bc1c9d39a,minor,
+IN-AC-2008-gujarat-2757,gujarat,2014,LIMKHEDA,134082,108069,80.6,B.V.Jokhna Bhai,parties.IN.BJP,BJP,66057,61.12,M.C.Kalu Bhai,parties.IN.INC,INC,42012,24045,22.24,src-1b7bc1c9d39a,minor,
+IN-AC-2008-gujarat-2772,gujarat,2014,KHAMBHALIA,157837,136895,86.73,A.M. Markhi Bhai,parties.IN.INC,INC,66410,48.51,A.M.H. Bera,parties.IN.BJP,BJP,65202,1208,0.88,src-1b7bc1c9d39a,minor,
+IN-AC-2008-gujarat-2775,gujarat,2014,MANGROL,128541,111863,87.03,V.B.Kala Bhai,parties.IN.INC,INC,66498,59.45,Y.L.Rama Bhai,parties.IN.BJP,BJP,43816,22682,20.28,src-1b7bc1c9d39a,minor,
+IN-AC-2008-gujarat-2776,gujarat,2014,SOMNATH,157925,163463,103.51,J.B. Barad,parties.IN.BJP,BJP,86640,53,Dr.N.J.Chotai,parties.IN.INC,INC,60971,25669,15.7,src-1b7bc1c9d39a,minor,
+IN-AC-2008-gujarat-2779,gujarat,2014,VISAVADAR,148736,128269,86.24,R.H Madhauji Bhai,parties.IN.INC,INC,67128,52.33,B.K Patel,parties.IN.BJP,BJP,56868,10260,8,src-1b7bc1c9d39a,minor,
+IN-AC-2008-gujarat-2780,gujarat,2014,ABDASA,143507,142322,99.17,G.S.S.Hari Chandra,parties.IN.INC,INC,67863,47.68,C.N. Patel,parties.IN.BJP,BJP,67099,764,0.53,src-1b7bc1c9d39a,minor,
+IN-AC-2008-gujarat-2786,gujarat,2014,RAPAR,118161,117602,99.53,P.A. Mehta,parties.IN.BJP,BJP,59165,50.31,B.M. Shah,parties.IN.INC,INC,44151,15014,12.77,src-1b7bc1c9d39a,minor,
+IN-AC-2008-gujarat-2791,gujarat,2014,MATAR,152785,115102,75.34,K.J.Solanki,parties.IN.BJP,BJP,59576,51.76,K.H.Paramar,parties.IN.INC,INC,50966,8610,7.48,src-1b7bc1c9d39a,minor,
+IN-AC-2008-gujarat-2833,gujarat,2014,RAJKOT WEST,166970,141172,84.55,V.R.Rudani,parties.IN.BJP,BJP,81092,57.44,K.J.Bhagvanji Bhai,parties.IN.INC,INC,57352,23740,16.81,src-1b7bc1c9d39a,minor,
+IN-AC-2008-gujarat-2834,gujarat,2014,TANKARA,150173,123698,82.37,M.B.H. Bhai,parties.IN.BJP,BJP,65833,53.22,K.L.K. Bhai,parties.IN.INC,INC,54102,11731,9.48,src-1b7bc1c9d39a,minor,
+IN-AC-2008-gujarat-2838,gujarat,2014,HIMATNAGAR,174855,166756,95.37,C.R. Ranjitsinh,parties.IN.BJP,BJP,81052,48.61,Dr.V.R.Patel,parties.IN.INC,INC,78490,2562,1.54,src-1b7bc1c9d39a,minor,

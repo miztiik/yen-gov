@@ -233,6 +233,7 @@ _CANDIDACIES_HEADER = [
     "constituency_name", "candidate_name", "party_id", "party_short_raw",
     "votes", "vote_share_pct", "position", "result", "sex", "age",
     "education", "profession", "candidate_type", "source_id",
+    "processing_level", "processing_note",
 ]
 _PARLIAMENT_SUMMARY_HEADER = [
     "entity_id", "state", "election_year", "constituency_name", "electors",
@@ -240,6 +241,7 @@ _PARLIAMENT_SUMMARY_HEADER = [
     "winner_party_short_raw", "winner_votes", "winner_share_pct",
     "runnerup_candidate", "runnerup_party_id", "runnerup_party_short_raw",
     "runnerup_votes", "margin_votes", "margin_pct", "source_id",
+    "processing_level", "processing_note",
 ]
 
 
@@ -296,6 +298,7 @@ def _candidacy_row(
         f"Candidate {position}", party_id, party_id, str(50000 - position),
         str(45.5 - position), str(position), result, sex, str(45 + position),
         "Graduate", "Politics", "incumbent", source_id,
+        "minor", "",
     ]
 
 
@@ -447,6 +450,7 @@ def test_parliament_summary_rejects_missing_state_column(tmp_path):
                 "IN-PC-2008-S22-39", "", "2024", "Kanyakumari", "1500000",
                 "1100000", "73.33", "Eve", "p-bjp", "BJP", "550000", "50.0", "Frank",
                 "p-dmk", "DMK", "400000", "150000", "13.64", "tcpd-ge-2024",
+                "minor", "",
             ],
         ],
     )

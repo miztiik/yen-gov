@@ -1,6 +1,6 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-gujarat-120,gujarat,1991,GODHRA,140835,60854,43.21,C.K.RAULJI,parties.IN.BJP,BJP,34319,56.4,C.P.S.PRATAPSINGH,parties.IN.INC,INC,23175,11144,18.32,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-138,gujarat,1991,BORSAD,131075,62500,47.68,G.U.FATESINH,parties.IN.INC,INC,43101,68.96,T.H.DESAIBHAI,parties.IN.BJP,BJP,18162,24939,39.9,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-155,gujarat,1991,VAGRA,127208,83625,65.74,S.M.BHUKHANBHAI,parties.IN.INC,INC,44245,52.91,R.U.AMIRSINH,parties.IN.BJP,BJP,31217,13028,15.58,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-25,gujarat,1991,JAMNAGAR,112103,51079,45.56,K.P.VISHANDAS,parties.IN.BJP,BJP,29764,58.27,H.VIRAMGAMI,parties.IN.JD_G,JD(G),16843,12921,25.3,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-45,gujarat,1991,AMRELI,117466,41278,35.14,P.URPALA,parties.IN.BJP,BJP,18744,45.41,L.SAVALIA,parties.IN.INC,INC,16132,2612,6.33,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-gujarat-120,gujarat,1991,GODHRA,140835,60854,43.21,C.K.RAULJI,parties.IN.BJP,BJP,34319,56.4,C.P.S.PRATAPSINGH,parties.IN.INC,INC,23175,11144,18.32,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-138,gujarat,1991,BORSAD,131075,62500,47.68,G.U.FATESINH,parties.IN.INC,INC,43101,68.96,T.H.DESAIBHAI,parties.IN.BJP,BJP,18162,24939,39.9,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-155,gujarat,1991,VAGRA,127208,83625,65.74,S.M.BHUKHANBHAI,parties.IN.INC,INC,44245,52.91,R.U.AMIRSINH,parties.IN.BJP,BJP,31217,13028,15.58,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-25,gujarat,1991,JAMNAGAR,112103,51079,45.56,K.P.VISHANDAS,parties.IN.BJP,BJP,29764,58.27,H.VIRAMGAMI,parties.IN.JD_G,JD(G),16843,12921,25.3,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-45,gujarat,1991,AMRELI,117466,41278,35.14,P.URPALA,parties.IN.BJP,BJP,18744,45.41,L.SAVALIA,parties.IN.INC,INC,16132,2612,6.33,src-1b7bc1c9d39a,minor,

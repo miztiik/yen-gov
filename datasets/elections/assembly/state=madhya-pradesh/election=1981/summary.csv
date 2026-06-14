@@ -1,2 +1,2 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-madhya-pradesh-155,madhya-pradesh,1981,KONTA(ST),62868,15431,24.55,M.HANDARAM,parties.IN.INC,INC,6358,41.2,P.H.MASA,parties.IN.BJP,BJP,6255,103,0.66,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-madhya-pradesh-155,madhya-pradesh,1981,KONTA(ST),62868,15431,24.55,M.HANDARAM,parties.IN.INC,INC,6358,41.2,P.H.MASA,parties.IN.BJP,BJP,6255,103,0.66,src-1b7bc1c9d39a,minor,

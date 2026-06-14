@@ -1,2 +1,2 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-haryana-425,haryana,2020,BARODA,178664,123094,68.9,INDU RAJ,parties.IN.INC,INC,60636,49.26,YOGESHWAR DUTT,parties.IN.BJP,BJP,50070,10566,8.58,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-2008-haryana-425,haryana,2020,BARODA,178664,123094,68.9,INDU RAJ,parties.IN.INC,INC,60636,49.26,YOGESHWAR DUTT,parties.IN.BJP,BJP,50070,10566,8.58,src-1b7bc1c9d39a,minor,

@@ -1,8 +1,8 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1967-uttar-pradesh-287,uttar-pradesh,1968,287,KISHUNPUR,INDRAJIT,parties.IN.INC,INC,12011,41.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-uttar-pradesh-287,uttar-pradesh,1968,287,KISHUNPUR,S.PRASAD,parties.IN.BJS,BJS,8782,30.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-uttar-pradesh-287,uttar-pradesh,1968,287,KISHUNPUR,JAGESHWAR,parties.IN.SSP,SSP,6313,21.76,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-uttar-pradesh-287,uttar-pradesh,1968,287,KISHUNPUR,R.SAHAI,parties.IN.IND,IND,770,2.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-uttar-pradesh-287,uttar-pradesh,1968,287,KISHUNPUR,R.D.SONKAR,parties.IN.IND,IND,468,1.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-uttar-pradesh-287,uttar-pradesh,1968,287,KISHUNPUR,B.SINGH,parties.IN.IND,IND,448,1.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-uttar-pradesh-287,uttar-pradesh,1968,287,KISHUNPUR,B.DIN,parties.IN.IND,IND,216,0.74,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1967-uttar-pradesh-287,uttar-pradesh,1968,287,KISHUNPUR,INDRAJIT,parties.IN.INC,INC,12011,41.41,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-uttar-pradesh-287,uttar-pradesh,1968,287,KISHUNPUR,S.PRASAD,parties.IN.BJS,BJS,8782,30.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-uttar-pradesh-287,uttar-pradesh,1968,287,KISHUNPUR,JAGESHWAR,parties.IN.SSP,SSP,6313,21.76,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-uttar-pradesh-287,uttar-pradesh,1968,287,KISHUNPUR,R.SAHAI,parties.IN.IND,IND,770,2.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-uttar-pradesh-287,uttar-pradesh,1968,287,KISHUNPUR,R.D.SONKAR,parties.IN.IND,IND,468,1.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-uttar-pradesh-287,uttar-pradesh,1968,287,KISHUNPUR,B.SINGH,parties.IN.IND,IND,448,1.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-uttar-pradesh-287,uttar-pradesh,1968,287,KISHUNPUR,B.DIN,parties.IN.IND,IND,216,0.74,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

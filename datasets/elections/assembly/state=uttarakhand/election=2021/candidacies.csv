@@ -1,8 +1,8 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-uttarakhand-286,uttarakhand,2021,49,SALT,MAHESH JEENA,parties.IN.BJP,BJP,21874,52.2,1,won,M,54,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-286,uttarakhand,2021,49,SALT,Smt. GANGA PANCHOLI,parties.IN.INC,INC,17177,40.99,2,lost,F,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-286,uttarakhand,2021,49,SALT,SURENDRA SINGH,parties.IN.IND,IND,620,1.48,4,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-286,uttarakhand,2021,49,SALT,JAGDISH CHANDRA,parties.IN.UPP,UTTARAKHAND PARIVARTAN PARTY,493,1.18,5,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-286,uttarakhand,2021,49,SALT,SHIV SINGH RAWAT,parties.IN.IND,IND,466,1.11,6,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-286,uttarakhand,2021,49,SALT,PAN SINGH,parties.IN.IND,IND,346,0.83,7,forfeit,M,68,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-uttarakhand-286,uttarakhand,2021,49,SALT,NAND KISHOR,parties.IN.PPID,Peoples Party of India (Democratic),209,0.5,8,forfeit,M,42,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-uttarakhand-286,uttarakhand,2021,49,SALT,MAHESH JEENA,parties.IN.BJP,BJP,21874,52.2,1,won,M,54,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-uttarakhand-286,uttarakhand,2021,49,SALT,Smt. GANGA PANCHOLI,parties.IN.INC,INC,17177,40.99,2,lost,F,50,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-uttarakhand-286,uttarakhand,2021,49,SALT,SURENDRA SINGH,parties.IN.IND,IND,620,1.48,4,forfeit,M,43,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-uttarakhand-286,uttarakhand,2021,49,SALT,JAGDISH CHANDRA,parties.IN.UPP,UTTARAKHAND PARIVARTAN PARTY,493,1.18,5,forfeit,M,38,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-uttarakhand-286,uttarakhand,2021,49,SALT,SHIV SINGH RAWAT,parties.IN.IND,IND,466,1.11,6,forfeit,M,56,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-uttarakhand-286,uttarakhand,2021,49,SALT,PAN SINGH,parties.IN.IND,IND,346,0.83,7,forfeit,M,68,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-uttarakhand-286,uttarakhand,2021,49,SALT,NAND KISHOR,parties.IN.PPID,Peoples Party of India (Democratic),209,0.5,8,forfeit,M,42,,,challenger,src-1b7bc1c9d39a,minor,

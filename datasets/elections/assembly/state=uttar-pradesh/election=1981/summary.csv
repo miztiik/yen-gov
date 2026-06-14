@@ -1,5 +1,5 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-uttar-pradesh-318,uttar-pradesh,1981,TINDWARI,129818,69714,53.7,V.P.SINGH,parties.IN.INC_I,INC(I),62738,89.99,B.B.BARHMCHARAI,parties.IN.BJP,BJP,3113,59625,85.52,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-38,uttar-pradesh,1981,BILASPUR,158373,65219,41.18,D.J.SINGH,parties.IN.INC_I,INC(I),24598,37.72,S.LAL,parties.IN.LKD,LKD,22401,2197,3.37,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-40,uttar-pradesh,1981,BISAULI,128836,53374,41.43,K.V.SINGH,parties.IN.INC_I,INC(I),22767,42.66,S.DEVI(W),parties.IN.LKD,LKD,15580,7187,13.47,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-66,uttar-pradesh,1981,SHAHJAHANPUR,135851,58993,43.42,N.S.A.KHAN,parties.IN.INC_I,INC(I),24588,41.68,R.R.MISRA,parties.IN.BJP,BJP,22127,2461,4.17,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-uttar-pradesh-318,uttar-pradesh,1981,TINDWARI,129818,69714,53.7,V.P.SINGH,parties.IN.INC_I,INC(I),62738,89.99,B.B.BARHMCHARAI,parties.IN.BJP,BJP,3113,59625,85.52,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-38,uttar-pradesh,1981,BILASPUR,158373,65219,41.18,D.J.SINGH,parties.IN.INC_I,INC(I),24598,37.72,S.LAL,parties.IN.LKD,LKD,22401,2197,3.37,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-40,uttar-pradesh,1981,BISAULI,128836,53374,41.43,K.V.SINGH,parties.IN.INC_I,INC(I),22767,42.66,S.DEVI(W),parties.IN.LKD,LKD,15580,7187,13.47,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-66,uttar-pradesh,1981,SHAHJAHANPUR,135851,58993,43.42,N.S.A.KHAN,parties.IN.INC_I,INC(I),24588,41.68,R.R.MISRA,parties.IN.BJP,BJP,22127,2461,4.17,src-1b7bc1c9d39a,minor,

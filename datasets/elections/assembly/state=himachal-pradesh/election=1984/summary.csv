@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-himachal-pradesh-39,himachal-pradesh,1984,PRAGPUR(SC),30836,25204,81.74,Y.RAJ,parties.IN.INC,INC,13315,52.83,V.KUMAR,parties.IN.BJP,BJP,11650,1665,6.61,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-65,himachal-pradesh,1984,DHARAMPUR,32353,22310,68.96,N.SINGH,parties.IN.INC,INC,17366,77.84,B.DEV,parties.IN.BJP,BJP,4755,12611,56.53,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-himachal-pradesh-39,himachal-pradesh,1984,PRAGPUR(SC),30836,25204,81.74,Y.RAJ,parties.IN.INC,INC,13315,52.83,V.KUMAR,parties.IN.BJP,BJP,11650,1665,6.61,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-65,himachal-pradesh,1984,DHARAMPUR,32353,22310,68.96,N.SINGH,parties.IN.INC,INC,17366,77.84,B.DEV,parties.IN.BJP,BJP,4755,12611,56.53,src-1b7bc1c9d39a,minor,

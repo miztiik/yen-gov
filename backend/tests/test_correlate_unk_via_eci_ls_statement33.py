@@ -74,6 +74,8 @@ CANDIDACIES_FIELDNAMES = [
     "profession",
     "candidate_type",
     "source_id",
+    "processing_level",
+    "processing_note",
 ]
 
 

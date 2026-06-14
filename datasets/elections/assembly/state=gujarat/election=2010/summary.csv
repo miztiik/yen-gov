@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-gujarat-10,gujarat,2010,CHOTILA,184601,108587,58.82,K.B.Vasharambhai,parties.IN.BJP,BJP,49376,45.47,S.B.Chauhan,parties.IN.SHS,SHS,27008,22368,20.6,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-128,gujarat,2010,KATHLAL,165999,110078,66.31,D.K.BhulaBhai,parties.IN.BJP,BJP,62120,56.43,G.M.Zala. (Bavaji),parties.IN.INC,INC,40573,21547,19.57,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-gujarat-10,gujarat,2010,CHOTILA,184601,108587,58.82,K.B.Vasharambhai,parties.IN.BJP,BJP,49376,45.47,S.B.Chauhan,parties.IN.SHS,SHS,27008,22368,20.6,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-128,gujarat,2010,KATHLAL,165999,110078,66.31,D.K.BhulaBhai,parties.IN.BJP,BJP,62120,56.43,G.M.Zala. (Bavaji),parties.IN.INC,INC,40573,21547,19.57,src-1b7bc1c9d39a,minor,

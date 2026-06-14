@@ -1,5 +1,5 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-west-bengal-188,west-bengal,2008,BALAGARH(SC),159212,131019,82.29,Bhuban Pramanick,parties.IN.CPIM,CPM,60101,45.87,Ashim Majhi,parties.IN.AITC,AITC,51691,8410,6.42,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-206,west-bengal,2008,NANDIGRAM,161744,153400,94.84,Phiroja Bibi,parties.IN.IATC,IATC,93022,60.64,P. Bharti,parties.IN.CPI,CPI,53473,39549,25.78,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-41,west-bengal,2008,KHARBA,161123,135273,83.96,ASIF MEHBUB,parties.IN.INC,INC,67067,49.58,ANJUMANARA,parties.IN.CPIM,CPM,56674,10393,7.68,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-48,west-bengal,2008,SUJAPUR,146781,132273,90.12,Mausam Noor,parties.IN.INC,INC,74935,56.65,K. Sekh,parties.IN.CPI,CPI,53730,21205,16.03,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-west-bengal-188,west-bengal,2008,BALAGARH(SC),159212,131019,82.29,Bhuban Pramanick,parties.IN.CPIM,CPM,60101,45.87,Ashim Majhi,parties.IN.AITC,AITC,51691,8410,6.42,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-206,west-bengal,2008,NANDIGRAM,161744,153400,94.84,Phiroja Bibi,parties.IN.IATC,IATC,93022,60.64,P. Bharti,parties.IN.CPI,CPI,53473,39549,25.78,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-41,west-bengal,2008,KHARBA,161123,135273,83.96,ASIF MEHBUB,parties.IN.INC,INC,67067,49.58,ANJUMANARA,parties.IN.CPIM,CPM,56674,10393,7.68,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-48,west-bengal,2008,SUJAPUR,146781,132273,90.12,Mausam Noor,parties.IN.INC,INC,74935,56.65,K. Sekh,parties.IN.CPI,CPI,53730,21205,16.03,src-1b7bc1c9d39a,minor,

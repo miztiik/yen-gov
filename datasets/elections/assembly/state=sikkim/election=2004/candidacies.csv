@@ -1,88 +1,88 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-sikkim-1,sikkim,2004,1,YOKSAM,KALAWATI SUBBA,parties.IN.SDF,SDF,3947,60.9,1,won,U,68,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-1,sikkim,2004,1,YOKSAM,MANGAL BIR SUBBA,parties.IN.INC,INC,2427,37.45,2,lost,U,48,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-1,sikkim,2004,1,YOKSAM,AKAR DHOJ LIMBU,parties.IN.SHRP,SHRP,107,1.65,3,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-2,sikkim,2004,2,TASHIDING,DAWA NARBU TAKARPA,parties.IN.SDF,SDF,3509,65.32,1,won,U,57,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-2,sikkim,2004,2,TASHIDING,SONAM DADUL KAZI,parties.IN.INC,INC,1778,33.1,2,lost,U,32,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-2,sikkim,2004,2,TASHIDING,PULLING LEPCHA,parties.IN.IND,IND,85,1.58,3,forfeit,U,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-3,sikkim,2004,3,GEYZING,SHER BAHADUR SUBEDI,parties.IN.SDF,SDF,4227,62.44,1,won,U,46,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-3,sikkim,2004,3,GEYZING,DAL BDR. GURUNG,parties.IN.INC,INC,2410,35.6,2,lost,U,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-3,sikkim,2004,3,GEYZING,DHAN BAHADUR GURUNG,parties.IN.IND,IND,69,1.02,3,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-3,sikkim,2004,3,GEYZING,CHANDRA BAHADUR KATWAL,parties.IN.IND,IND,64,0.95,4,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-4,sikkim,2004,4,DENTAM,DEEPAK KUMAR GURUNG,parties.IN.SDF,SDF,4158,65.42,1,won,U,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-4,sikkim,2004,4,DENTAM,SHER HANG SUBBA,parties.IN.INC,INC,2093,32.93,2,lost,U,36,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-4,sikkim,2004,4,DENTAM,MANGAL DHOJ SUBBA,parties.IN.IND,IND,105,1.65,3,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-5,sikkim,2004,5,BARMIOK,NARENDRA KUMAR SUBBA,parties.IN.SDF,SDF,4029,71.92,1,won,U,36,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-5,sikkim,2004,5,BARMIOK,PUSPAK RAM SUBBA,parties.IN.INC,INC,1479,26.4,2,lost,U,36,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-5,sikkim,2004,5,BARMIOK,OM PRAKASH BISTA,parties.IN.IND,IND,48,0.86,3,forfeit,U,30,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-5,sikkim,2004,5,BARMIOK,PURAN KUMAR CHETTRI,parties.IN.IND,IND,46,0.82,4,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-6,sikkim,2004,6,RINCHENPONG,DAWCHO LEPCHA,parties.IN.SDF,SDF,5303,81.58,1,won,U,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-6,sikkim,2004,6,RINCHENPONG,PEMA KINZANG BHUTIA,parties.IN.INC,INC,1061,16.32,2,forfeit,U,31,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-6,sikkim,2004,6,RINCHENPONG,NIMA SHERPA,parties.IN.IND,IND,79,1.22,3,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-6,sikkim,2004,6,RINCHENPONG,PHUR TSH. LEPCHA,parties.IN.IND,IND,57,0.88,4,forfeit,U,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-7,sikkim,2004,7,CHAKUNG,PREM SINGH TAMANG,parties.IN.SDF,SDF,6702,94.42,1,won,U,36,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-7,sikkim,2004,7,CHAKUNG,SATISH MOHAN PRADHAN,parties.IN.INC,INC,201,2.83,2,forfeit,U,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-7,sikkim,2004,7,CHAKUNG,KUL MAN MUKHIA,parties.IN.CPIM,CPM,144,2.03,3,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-7,sikkim,2004,7,CHAKUNG,PHUR TSH. LEPCHA,parties.IN.IND,IND,51,0.72,4,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-8,sikkim,2004,8,SOREONG,RAM BDR. LIMBU(SUBBA),parties.IN.SDF,SDF,5553,72.65,1,won,U,53,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-8,sikkim,2004,8,SOREONG,ASHOK KUMAR SUBBA,parties.IN.INC,INC,1871,24.48,2,lost,U,54,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-8,sikkim,2004,8,SOREONG,AKAR DHOJ LIMBU,parties.IN.SHRP,SHRP,220,2.88,3,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-9,sikkim,2004,9,DARAMDIN,RAN BAHADUR SUBBA,parties.IN.SDF,SDF,6380,87.13,1,won,U,52,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-9,sikkim,2004,9,DARAMDIN,AMAR SUBBA,parties.IN.INC,INC,819,11.19,2,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-9,sikkim,2004,9,DARAMDIN,PUSHKER LIMBU,parties.IN.IND,IND,123,1.68,3,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-10,sikkim,2004,10,JORTHANG-NAYABAZAR,KEDAR NATH RAI,parties.IN.SDF,SDF,7863,81.71,1,won,U,45,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-10,sikkim,2004,10,JORTHANG-NAYABAZAR,PURNA KRI. RAI,parties.IN.INC,INC,1536,15.96,2,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-10,sikkim,2004,10,JORTHANG-NAYABAZAR,PADAM PRASAD SHARMA,parties.IN.BJP,BJP,224,2.33,3,forfeit,U,29,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-11,sikkim,2004,11,RALANG,DORJEE DAZOM BHUTIA,parties.IN.SDF,SDF,4131,77.32,1,won,U,57,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-11,sikkim,2004,11,RALANG,CHOZANG BHUTIA,parties.IN.INC,INC,1212,22.68,2,lost,U,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-15,sikkim,2004,15,RATEYPANI - WEST PENDAM,AITA SINGH BARAILY (KAMI),parties.IN.SDF,SDF,6553,83.46,1,won,U,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-15,sikkim,2004,15,RATEYPANI - WEST PENDAM,JANGA BIR DARNAL,parties.IN.INC,INC,1170,14.9,2,forfeit,U,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-15,sikkim,2004,15,RATEYPANI - WEST PENDAM,TEK BAHADUR THATAL,parties.IN.IND,IND,129,1.64,3,forfeit,U,54,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-16,sikkim,2004,16,TEMI-TARKU,GARJAMAN GURUNG,parties.IN.SDF,SDF,6403,75.62,1,won,U,41,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-16,sikkim,2004,16,TEMI-TARKU,LAXMI PRASAD TIWARI,parties.IN.INC,INC,1947,23,2,lost,U,61,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-16,sikkim,2004,16,TEMI-TARKU,MAN BDR. RAI,parties.IN.IND,IND,117,1.38,3,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-17,sikkim,2004,17,CENTRAL PENDAM-EAST PENDAM,SOMNATH POUDYAL,parties.IN.SDF,SDF,5620,59.11,1,won,U,44,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-17,sikkim,2004,17,CENTRAL PENDAM-EAST PENDAM,NAR BAHADUR BHANDARI,parties.IN.INC,INC,2165,22.77,2,lost,U,63,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-17,sikkim,2004,17,CENTRAL PENDAM-EAST PENDAM,GARJAMAN RAI,parties.IN.IND,IND,1565,16.46,3,forfeit,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-17,sikkim,2004,17,CENTRAL PENDAM-EAST PENDAM,AMRIT NARAYAN GIRI,parties.IN.SHRP,SHRP,157,1.65,4,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-18,sikkim,2004,18,RHENOCK,BHIM PD. DHUNGEL,parties.IN.SDF,SDF,4647,75.45,1,won,U,31,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-18,sikkim,2004,18,RHENOCK,KHARANANDA UPRETI,parties.IN.INC,INC,1354,21.98,2,lost,U,52,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-18,sikkim,2004,18,RHENOCK,SHANTI CHHETRI,parties.IN.BJP,BJP,158,2.57,3,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-19,sikkim,2004,19,REGU,KARNA BDR. CHAMLING,parties.IN.SDF,SDF,5662,84.28,1,won,U,45,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-19,sikkim,2004,19,REGU,ARUN KUMAR RAI,parties.IN.INC,INC,1056,15.72,2,forfeit,U,52,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-20,sikkim,2004,20,PATHING,MINGMA TSHERING SHERPA,parties.IN.SDF,SDF,4930,67.41,1,won,U,56,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-20,sikkim,2004,20,PATHING,TSETEN TASHI BHUTIA,parties.IN.INC,INC,2275,31.11,2,lost,U,42,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-20,sikkim,2004,20,PATHING,KARSANG SHERPA,parties.IN.SHRP,SHRP,108,1.48,3,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-21,sikkim,2004,21,LOOSING PACHEKHANI,MANITA THAPA,parties.IN.SDF,SDF,4394,71.73,1,won,U,35,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-21,sikkim,2004,21,LOOSING PACHEKHANI,BHARAT BASNETT,parties.IN.INC,INC,1651,26.95,2,lost,U,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-21,sikkim,2004,21,LOOSING PACHEKHANI,PASSANG TAMANG,parties.IN.SHRP,SHRP,81,1.32,3,forfeit,U,65,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-22,sikkim,2004,22,KHAMDONG,BIRKHA MAN RAMUDAMU,parties.IN.SDF,SDF,6160,74.59,1,won,U,55,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-22,sikkim,2004,22,KHAMDONG,SANTOSH KUMAR BARDEWA,parties.IN.INC,INC,1929,23.36,2,lost,U,53,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-22,sikkim,2004,22,KHAMDONG,DIL KUMARI DARNAL,parties.IN.SHRP,SHRP,170,2.06,3,forfeit,U,27,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-23,sikkim,2004,23,DJONGU,SONAM GYATSO LEPCHA,parties.IN.SDF,SDF,3344,65.34,1,won,U,39,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-23,sikkim,2004,23,DJONGU,SONAM CHYODA LEPCHA,parties.IN.INC,INC,1774,34.66,2,lost,U,46,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-24,sikkim,2004,24,LACHEN MANGSHILA,HISHEY LACHUNGPA,parties.IN.SDF,SDF,4906,75.56,1,won,U,36,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-24,sikkim,2004,24,LACHEN MANGSHILA,ANIL LACHENPA,parties.IN.INC,INC,1587,24.44,2,lost,U,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-26,sikkim,2004,26,RAKDONG TENTEK,NORZONG LEPCHA,parties.IN.SDF,SDF,3809,61.85,1,won,U,33,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-26,sikkim,2004,26,RAKDONG TENTEK,PHUCHUNG BHUTIA,parties.IN.INC,INC,2116,34.36,2,lost,U,48,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-26,sikkim,2004,26,RAKDONG TENTEK,NIMA RAPZANG LAMA,parties.IN.BJP,BJP,233,3.78,3,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-27,sikkim,2004,27,MARTAM,DORJEE TSHERING LEPCHA,parties.IN.SDF,SDF,5668,74.44,1,won,U,46,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-27,sikkim,2004,27,MARTAM,SONAM TSH. BHUTIA,parties.IN.INC,INC,1946,25.56,2,lost,U,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-28,sikkim,2004,28,RUMTEK,MENLOM LEPCHA,parties.IN.SDF,SDF,5639,56.61,1,won,U,35,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-28,sikkim,2004,28,RUMTEK,DELAY NAMGYAL BARFUNGPA,parties.IN.INC,INC,4323,43.39,2,lost,U,39,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-29,sikkim,2004,29,ASSAM-LINGJEY,KUNGA ZANGPO BHUTIA,parties.IN.SDF,SDF,4641,64.77,1,won,U,57,Literate,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-29,sikkim,2004,29,ASSAM-LINGJEY,KUNGA NIMA LEPCHA,parties.IN.INC,INC,2415,33.71,2,lost,U,54,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-29,sikkim,2004,29,ASSAM-LINGJEY,LALL BDR. LEPCHA,parties.IN.SHRP,SHRP,109,1.52,3,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-30,sikkim,2004,30,RANKA,NIMTHIT LEPCHA,parties.IN.SDF,SDF,5083,60.3,1,won,U,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-30,sikkim,2004,30,RANKA,PINTSO CHOPEL LEPCHA,parties.IN.INC,INC,3230,38.32,2,lost,U,38,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-30,sikkim,2004,30,RANKA,TASHI TOPGAY BHUTIA,parties.IN.SHRP,SHRP,117,1.39,3,forfeit,U,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-31,sikkim,2004,31,GANGTOK,NARENDRA KR. PRADHAN,parties.IN.SDF,SDF,5952,66.69,1,won,U,53,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-31,sikkim,2004,31,GANGTOK,NAR BAHADUR BHANDARI,parties.IN.INC,INC,2829,31.7,2,lost,U,63,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-31,sikkim,2004,31,GANGTOK,DEVI PD. DAHAL,parties.IN.SSP,SSP,90,1.01,3,forfeit,U,30,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-31,sikkim,2004,31,GANGTOK,BHIM CHETTRI,parties.IN.SHRP,SHRP,54,0.61,4,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-32,sikkim,2004,32,SANGHA,TSHERING LAMA,parties.IN.INC,INC,675,32.33,1,won,U,42,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-32,sikkim,2004,32,SANGHA,PALDEN LAMA,parties.IN.IND,IND,587,28.11,2,lost,U,44,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-32,sikkim,2004,32,SANGHA,NAMKHA GYALTSE BHUTIA,parties.IN.SDF,SDF,449,21.5,3,lost,U,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-32,sikkim,2004,32,SANGHA,THINLEY GYATSO LEPCHA,parties.IN.IND,IND,310,14.85,4,forfeit,U,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-32,sikkim,2004,32,SANGHA,SAMDUP DORJEE LAMA,parties.IN.BJP,BJP,52,2.49,5,forfeit,U,26,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-sikkim-32,sikkim,2004,32,SANGHA,SONAM DORJEE,parties.IN.IND,IND,15,0.72,6,forfeit,U,34,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-sikkim-1,sikkim,2004,1,YOKSAM,KALAWATI SUBBA,parties.IN.SDF,SDF,3947,60.9,1,won,U,68,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-1,sikkim,2004,1,YOKSAM,MANGAL BIR SUBBA,parties.IN.INC,INC,2427,37.45,2,lost,U,48,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-1,sikkim,2004,1,YOKSAM,AKAR DHOJ LIMBU,parties.IN.SHRP,SHRP,107,1.65,3,forfeit,U,38,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-2,sikkim,2004,2,TASHIDING,DAWA NARBU TAKARPA,parties.IN.SDF,SDF,3509,65.32,1,won,U,57,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-2,sikkim,2004,2,TASHIDING,SONAM DADUL KAZI,parties.IN.INC,INC,1778,33.1,2,lost,U,32,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-2,sikkim,2004,2,TASHIDING,PULLING LEPCHA,parties.IN.IND,IND,85,1.58,3,forfeit,U,32,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-3,sikkim,2004,3,GEYZING,SHER BAHADUR SUBEDI,parties.IN.SDF,SDF,4227,62.44,1,won,U,46,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-3,sikkim,2004,3,GEYZING,DAL BDR. GURUNG,parties.IN.INC,INC,2410,35.6,2,lost,U,39,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-3,sikkim,2004,3,GEYZING,DHAN BAHADUR GURUNG,parties.IN.IND,IND,69,1.02,3,forfeit,U,26,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-3,sikkim,2004,3,GEYZING,CHANDRA BAHADUR KATWAL,parties.IN.IND,IND,64,0.95,4,forfeit,U,33,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-4,sikkim,2004,4,DENTAM,DEEPAK KUMAR GURUNG,parties.IN.SDF,SDF,4158,65.42,1,won,U,29,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-4,sikkim,2004,4,DENTAM,SHER HANG SUBBA,parties.IN.INC,INC,2093,32.93,2,lost,U,36,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-4,sikkim,2004,4,DENTAM,MANGAL DHOJ SUBBA,parties.IN.IND,IND,105,1.65,3,forfeit,U,26,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-5,sikkim,2004,5,BARMIOK,NARENDRA KUMAR SUBBA,parties.IN.SDF,SDF,4029,71.92,1,won,U,36,Graduate Professional,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-5,sikkim,2004,5,BARMIOK,PUSPAK RAM SUBBA,parties.IN.INC,INC,1479,26.4,2,lost,U,36,12th Pass,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-5,sikkim,2004,5,BARMIOK,OM PRAKASH BISTA,parties.IN.IND,IND,48,0.86,3,forfeit,U,30,5th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-5,sikkim,2004,5,BARMIOK,PURAN KUMAR CHETTRI,parties.IN.IND,IND,46,0.82,4,forfeit,U,29,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-6,sikkim,2004,6,RINCHENPONG,DAWCHO LEPCHA,parties.IN.SDF,SDF,5303,81.58,1,won,U,33,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-6,sikkim,2004,6,RINCHENPONG,PEMA KINZANG BHUTIA,parties.IN.INC,INC,1061,16.32,2,forfeit,U,31,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-6,sikkim,2004,6,RINCHENPONG,NIMA SHERPA,parties.IN.IND,IND,79,1.22,3,forfeit,U,28,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-6,sikkim,2004,6,RINCHENPONG,PHUR TSH. LEPCHA,parties.IN.IND,IND,57,0.88,4,forfeit,U,50,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-7,sikkim,2004,7,CHAKUNG,PREM SINGH TAMANG,parties.IN.SDF,SDF,6702,94.42,1,won,U,36,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-7,sikkim,2004,7,CHAKUNG,SATISH MOHAN PRADHAN,parties.IN.INC,INC,201,2.83,2,forfeit,U,39,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-7,sikkim,2004,7,CHAKUNG,KUL MAN MUKHIA,parties.IN.CPIM,CPM,144,2.03,3,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-7,sikkim,2004,7,CHAKUNG,PHUR TSH. LEPCHA,parties.IN.IND,IND,51,0.72,4,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-8,sikkim,2004,8,SOREONG,RAM BDR. LIMBU(SUBBA),parties.IN.SDF,SDF,5553,72.65,1,won,U,53,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-8,sikkim,2004,8,SOREONG,ASHOK KUMAR SUBBA,parties.IN.INC,INC,1871,24.48,2,lost,U,54,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-8,sikkim,2004,8,SOREONG,AKAR DHOJ LIMBU,parties.IN.SHRP,SHRP,220,2.88,3,forfeit,U,38,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-9,sikkim,2004,9,DARAMDIN,RAN BAHADUR SUBBA,parties.IN.SDF,SDF,6380,87.13,1,won,U,52,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-9,sikkim,2004,9,DARAMDIN,AMAR SUBBA,parties.IN.INC,INC,819,11.19,2,forfeit,U,28,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-9,sikkim,2004,9,DARAMDIN,PUSHKER LIMBU,parties.IN.IND,IND,123,1.68,3,forfeit,U,34,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-10,sikkim,2004,10,JORTHANG-NAYABAZAR,KEDAR NATH RAI,parties.IN.SDF,SDF,7863,81.71,1,won,U,45,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-10,sikkim,2004,10,JORTHANG-NAYABAZAR,PURNA KRI. RAI,parties.IN.INC,INC,1536,15.96,2,forfeit,U,42,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-10,sikkim,2004,10,JORTHANG-NAYABAZAR,PADAM PRASAD SHARMA,parties.IN.BJP,BJP,224,2.33,3,forfeit,U,29,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-11,sikkim,2004,11,RALANG,DORJEE DAZOM BHUTIA,parties.IN.SDF,SDF,4131,77.32,1,won,U,57,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-11,sikkim,2004,11,RALANG,CHOZANG BHUTIA,parties.IN.INC,INC,1212,22.68,2,lost,U,42,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-15,sikkim,2004,15,RATEYPANI - WEST PENDAM,AITA SINGH BARAILY (KAMI),parties.IN.SDF,SDF,6553,83.46,1,won,U,43,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-15,sikkim,2004,15,RATEYPANI - WEST PENDAM,JANGA BIR DARNAL,parties.IN.INC,INC,1170,14.9,2,forfeit,U,37,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-15,sikkim,2004,15,RATEYPANI - WEST PENDAM,TEK BAHADUR THATAL,parties.IN.IND,IND,129,1.64,3,forfeit,U,54,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-16,sikkim,2004,16,TEMI-TARKU,GARJAMAN GURUNG,parties.IN.SDF,SDF,6403,75.62,1,won,U,41,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-16,sikkim,2004,16,TEMI-TARKU,LAXMI PRASAD TIWARI,parties.IN.INC,INC,1947,23,2,lost,U,61,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-16,sikkim,2004,16,TEMI-TARKU,MAN BDR. RAI,parties.IN.IND,IND,117,1.38,3,forfeit,U,45,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-17,sikkim,2004,17,CENTRAL PENDAM-EAST PENDAM,SOMNATH POUDYAL,parties.IN.SDF,SDF,5620,59.11,1,won,U,44,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-17,sikkim,2004,17,CENTRAL PENDAM-EAST PENDAM,NAR BAHADUR BHANDARI,parties.IN.INC,INC,2165,22.77,2,lost,U,63,Graduate,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-17,sikkim,2004,17,CENTRAL PENDAM-EAST PENDAM,GARJAMAN RAI,parties.IN.IND,IND,1565,16.46,3,forfeit,U,44,Graduate Professional,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-17,sikkim,2004,17,CENTRAL PENDAM-EAST PENDAM,AMRIT NARAYAN GIRI,parties.IN.SHRP,SHRP,157,1.65,4,forfeit,U,36,10th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-18,sikkim,2004,18,RHENOCK,BHIM PD. DHUNGEL,parties.IN.SDF,SDF,4647,75.45,1,won,U,31,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-18,sikkim,2004,18,RHENOCK,KHARANANDA UPRETI,parties.IN.INC,INC,1354,21.98,2,lost,U,52,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-18,sikkim,2004,18,RHENOCK,SHANTI CHHETRI,parties.IN.BJP,BJP,158,2.57,3,forfeit,U,53,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-19,sikkim,2004,19,REGU,KARNA BDR. CHAMLING,parties.IN.SDF,SDF,5662,84.28,1,won,U,45,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-19,sikkim,2004,19,REGU,ARUN KUMAR RAI,parties.IN.INC,INC,1056,15.72,2,forfeit,U,52,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-20,sikkim,2004,20,PATHING,MINGMA TSHERING SHERPA,parties.IN.SDF,SDF,4930,67.41,1,won,U,56,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-20,sikkim,2004,20,PATHING,TSETEN TASHI BHUTIA,parties.IN.INC,INC,2275,31.11,2,lost,U,42,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-20,sikkim,2004,20,PATHING,KARSANG SHERPA,parties.IN.SHRP,SHRP,108,1.48,3,forfeit,U,30,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-21,sikkim,2004,21,LOOSING PACHEKHANI,MANITA THAPA,parties.IN.SDF,SDF,4394,71.73,1,won,U,35,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-21,sikkim,2004,21,LOOSING PACHEKHANI,BHARAT BASNETT,parties.IN.INC,INC,1651,26.95,2,lost,U,42,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-21,sikkim,2004,21,LOOSING PACHEKHANI,PASSANG TAMANG,parties.IN.SHRP,SHRP,81,1.32,3,forfeit,U,65,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-22,sikkim,2004,22,KHAMDONG,BIRKHA MAN RAMUDAMU,parties.IN.SDF,SDF,6160,74.59,1,won,U,55,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-22,sikkim,2004,22,KHAMDONG,SANTOSH KUMAR BARDEWA,parties.IN.INC,INC,1929,23.36,2,lost,U,53,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-22,sikkim,2004,22,KHAMDONG,DIL KUMARI DARNAL,parties.IN.SHRP,SHRP,170,2.06,3,forfeit,U,27,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-23,sikkim,2004,23,DJONGU,SONAM GYATSO LEPCHA,parties.IN.SDF,SDF,3344,65.34,1,won,U,39,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-23,sikkim,2004,23,DJONGU,SONAM CHYODA LEPCHA,parties.IN.INC,INC,1774,34.66,2,lost,U,46,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-24,sikkim,2004,24,LACHEN MANGSHILA,HISHEY LACHUNGPA,parties.IN.SDF,SDF,4906,75.56,1,won,U,36,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-24,sikkim,2004,24,LACHEN MANGSHILA,ANIL LACHENPA,parties.IN.INC,INC,1587,24.44,2,lost,U,45,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-26,sikkim,2004,26,RAKDONG TENTEK,NORZONG LEPCHA,parties.IN.SDF,SDF,3809,61.85,1,won,U,33,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-26,sikkim,2004,26,RAKDONG TENTEK,PHUCHUNG BHUTIA,parties.IN.INC,INC,2116,34.36,2,lost,U,48,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-26,sikkim,2004,26,RAKDONG TENTEK,NIMA RAPZANG LAMA,parties.IN.BJP,BJP,233,3.78,3,forfeit,U,34,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-27,sikkim,2004,27,MARTAM,DORJEE TSHERING LEPCHA,parties.IN.SDF,SDF,5668,74.44,1,won,U,46,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-27,sikkim,2004,27,MARTAM,SONAM TSH. BHUTIA,parties.IN.INC,INC,1946,25.56,2,lost,U,32,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-28,sikkim,2004,28,RUMTEK,MENLOM LEPCHA,parties.IN.SDF,SDF,5639,56.61,1,won,U,35,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-28,sikkim,2004,28,RUMTEK,DELAY NAMGYAL BARFUNGPA,parties.IN.INC,INC,4323,43.39,2,lost,U,39,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-29,sikkim,2004,29,ASSAM-LINGJEY,KUNGA ZANGPO BHUTIA,parties.IN.SDF,SDF,4641,64.77,1,won,U,57,Literate,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-29,sikkim,2004,29,ASSAM-LINGJEY,KUNGA NIMA LEPCHA,parties.IN.INC,INC,2415,33.71,2,lost,U,54,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-29,sikkim,2004,29,ASSAM-LINGJEY,LALL BDR. LEPCHA,parties.IN.SHRP,SHRP,109,1.52,3,forfeit,U,33,8th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-30,sikkim,2004,30,RANKA,NIMTHIT LEPCHA,parties.IN.SDF,SDF,5083,60.3,1,won,U,30,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-30,sikkim,2004,30,RANKA,PINTSO CHOPEL LEPCHA,parties.IN.INC,INC,3230,38.32,2,lost,U,38,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-30,sikkim,2004,30,RANKA,TASHI TOPGAY BHUTIA,parties.IN.SHRP,SHRP,117,1.39,3,forfeit,U,43,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-31,sikkim,2004,31,GANGTOK,NARENDRA KR. PRADHAN,parties.IN.SDF,SDF,5952,66.69,1,won,U,53,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-31,sikkim,2004,31,GANGTOK,NAR BAHADUR BHANDARI,parties.IN.INC,INC,2829,31.7,2,lost,U,63,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-31,sikkim,2004,31,GANGTOK,DEVI PD. DAHAL,parties.IN.SSP,SSP,90,1.01,3,forfeit,U,30,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-31,sikkim,2004,31,GANGTOK,BHIM CHETTRI,parties.IN.SHRP,SHRP,54,0.61,4,forfeit,U,42,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-32,sikkim,2004,32,SANGHA,TSHERING LAMA,parties.IN.INC,INC,675,32.33,1,won,U,42,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-32,sikkim,2004,32,SANGHA,PALDEN LAMA,parties.IN.IND,IND,587,28.11,2,lost,U,44,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-32,sikkim,2004,32,SANGHA,NAMKHA GYALTSE BHUTIA,parties.IN.SDF,SDF,449,21.5,3,lost,U,49,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-32,sikkim,2004,32,SANGHA,THINLEY GYATSO LEPCHA,parties.IN.IND,IND,310,14.85,4,forfeit,U,33,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-32,sikkim,2004,32,SANGHA,SAMDUP DORJEE LAMA,parties.IN.BJP,BJP,52,2.49,5,forfeit,U,26,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-sikkim-32,sikkim,2004,32,SANGHA,SONAM DORJEE,parties.IN.IND,IND,15,0.72,6,forfeit,U,34,,,challenger,src-1b7bc1c9d39a,minor,

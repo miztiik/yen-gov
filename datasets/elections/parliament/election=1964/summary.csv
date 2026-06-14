@@ -1,7 +1,7 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-PC-1962-bihar-19,bihar,1964,SAHARSA,426782,211255,49.5,L.CHAUDHRY,parties.IN.INC,INC,101269,47.94,B.N.MANDAL,parties.IN.SSP,SSP,99434,1835,0.87,src-31c65dbec869
-IN-PC-1962-bihar-29,bihar,1964,MONGHYR,374823,168355,44.92,L.M.RAMCHANDRA,parties.IN.SSP,SSP,81620,48.48,S.N.BHAGAT,parties.IN.INC,INC,72706,8914,5.29,src-31c65dbec869
-IN-PC-1962-madhya-pradesh-15,madhya-pradesh,1964,MAHASAMUD,470198,86920,18.49,V.C.SHUKLA,parties.IN.INC,INC,46671,53.69,PURSHOTTAMLAL,parties.IN.PSP,PSP,24850,21821,25.1,src-31c65dbec869
-IN-PC-1962-maharashtra-35,maharashtra,1964,CHANDA,424370,200833,47.32,G.M.KANNAMWAR,parties.IN.INC,INC,105163,52.36,K.M.KAUSHIK,parties.IN.IND,IND,79529,25634,12.76,src-31c65dbec869
-IN-PC-1962-rajasthan-15,rajasthan,1964,BHILWARA,456499,109173,23.92,S.CHARAN,parties.IN.INC,INC,70167,64.27,N.SINGH,parties.IN.SWA,SWA,27310,42857,39.25,src-31c65dbec869
-IN-PC-1962-uttar-pradesh-56,uttar-pradesh,1964,PHULPUR,409292,176487,43.12,V.L.PANDIT,parties.IN.INC,INC,110549,62.64,S.JAISWAR,parties.IN.SSP,SSP,52529,58020,32.88,src-31c65dbec869
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-PC-1962-bihar-19,bihar,1964,SAHARSA,426782,211255,49.5,L.CHAUDHRY,parties.IN.INC,INC,101269,47.94,B.N.MANDAL,parties.IN.SSP,SSP,99434,1835,0.87,src-31c65dbec869,minor,
+IN-PC-1962-bihar-29,bihar,1964,MONGHYR,374823,168355,44.92,L.M.RAMCHANDRA,parties.IN.SSP,SSP,81620,48.48,S.N.BHAGAT,parties.IN.INC,INC,72706,8914,5.29,src-31c65dbec869,minor,
+IN-PC-1962-madhya-pradesh-15,madhya-pradesh,1964,MAHASAMUD,470198,86920,18.49,V.C.SHUKLA,parties.IN.INC,INC,46671,53.69,PURSHOTTAMLAL,parties.IN.PSP,PSP,24850,21821,25.1,src-31c65dbec869,minor,
+IN-PC-1962-maharashtra-35,maharashtra,1964,CHANDA,424370,200833,47.32,G.M.KANNAMWAR,parties.IN.INC,INC,105163,52.36,K.M.KAUSHIK,parties.IN.IND,IND,79529,25634,12.76,src-31c65dbec869,minor,
+IN-PC-1962-rajasthan-15,rajasthan,1964,BHILWARA,456499,109173,23.92,S.CHARAN,parties.IN.INC,INC,70167,64.27,N.SINGH,parties.IN.SWA,SWA,27310,42857,39.25,src-31c65dbec869,minor,
+IN-PC-1962-uttar-pradesh-56,uttar-pradesh,1964,PHULPUR,409292,176487,43.12,V.L.PANDIT,parties.IN.INC,INC,110549,62.64,S.JAISWAR,parties.IN.SSP,SSP,52529,58020,32.88,src-31c65dbec869,minor,

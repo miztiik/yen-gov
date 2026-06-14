@@ -1,16 +1,16 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,DASARI SUDHA,parties.IN.YSRCP,YSRCP,112211,76.25,1,won,F,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,PANATHALA SURESH,parties.IN.BJP,BJP,21678,14.73,2,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,KAMALAMMA. P.M.,parties.IN.INC,INC,6235,4.24,3,forfeit,F,65,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,T. HARI PRASAD,parties.IN.IND,IND,668,0.45,5,forfeit,M,34,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,BURAGA RATNAM,parties.IN.IND,IND,409,0.28,6,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,O. OBULESU,parties.IN.UNK,Telugu Janata Party,405,0.28,7,forfeit,M,43,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,RAJESH JELLI,parties.IN.IND,IND,338,0.23,8,forfeit,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,DOCTOR GODA RAMESH KUMAR,parties.IN.NAVAP,Navataram Party,327,0.22,9,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,PALLE. NAGARAJU,parties.IN.IPBP,India Praja Bandhu Party,308,0.21,10,forfeit,M,49,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,KOTAPATI NARASIMHULU,parties.IN.IND,IND,171,0.12,11,forfeit,M,44,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,SEELI PEDDA CHENNAIAH,parties.IN.MANP,Mana Party,168,0.11,12,forfeit,M,55,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,SANGATI MANOHAR,parties.IN.UNK,Mahajana Rajyam Party,165,0.11,13,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,SINGAMALA VENKATESHWARLU,parties.IN.NRCP,Navarang Congress Party,158,0.11,14,forfeit,M,65,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,D. CHINNA,parties.IN.IND,IND,145,0.1,15,forfeit,M,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,SAGILI SUDHARSHANAM,parties.IN.UNK,Jana Sahayaka Sakthi,127,0.09,16,forfeit,M,56,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,DASARI SUDHA,parties.IN.YSRCP,YSRCP,112211,76.25,1,won,F,49,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,PANATHALA SURESH,parties.IN.BJP,BJP,21678,14.73,2,forfeit,M,38,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,KAMALAMMA. P.M.,parties.IN.INC,INC,6235,4.24,3,forfeit,F,65,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,T. HARI PRASAD,parties.IN.IND,IND,668,0.45,5,forfeit,M,34,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,BURAGA RATNAM,parties.IN.IND,IND,409,0.28,6,forfeit,M,50,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,O. OBULESU,parties.IN.UNK,Telugu Janata Party,405,0.28,7,forfeit,M,43,,,challenger,src-1b7bc1c9d39a,major,Publisher label 'Telugu Janata Party' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,RAJESH JELLI,parties.IN.IND,IND,338,0.23,8,forfeit,M,33,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,DOCTOR GODA RAMESH KUMAR,parties.IN.NAVAP,Navataram Party,327,0.22,9,forfeit,M,37,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,PALLE. NAGARAJU,parties.IN.IPBP,India Praja Bandhu Party,308,0.21,10,forfeit,M,49,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,KOTAPATI NARASIMHULU,parties.IN.IND,IND,171,0.12,11,forfeit,M,44,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,SEELI PEDDA CHENNAIAH,parties.IN.MANP,Mana Party,168,0.11,12,forfeit,M,55,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,SANGATI MANOHAR,parties.IN.UNK,Mahajana Rajyam Party,165,0.11,13,forfeit,M,47,,,challenger,src-1b7bc1c9d39a,major,Publisher label 'Mahajana Rajyam Party' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,SINGAMALA VENKATESHWARLU,parties.IN.NRCP,Navarang Congress Party,158,0.11,14,forfeit,M,65,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,D. CHINNA,parties.IN.IND,IND,145,0.1,15,forfeit,M,37,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-3409,andhra-pradesh,2021,124,BADVEL,SAGILI SUDHARSHANAM,parties.IN.UNK,Jana Sahayaka Sakthi,127,0.09,16,forfeit,M,56,,,challenger,src-1b7bc1c9d39a,major,Publisher label 'Jana Sahayaka Sakthi' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.

@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-nagaland-1469,nagaland,2021,51,NOKSEN,H. CHUBA CHANG,parties.IN.NDPP,NDPP,1,,1,won,M,70,Graduate,Party Worker,crossover,src-1b7bc1c9d39a
-IN-AC-2008-nagaland-1481,nagaland,2021,58,SHAMATOR CHESSORE,S. KEOSHU YIMCHUNGER,parties.IN.NDPP,NDPP,1,,1,won,M,44,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-nagaland-1469,nagaland,2021,51,NOKSEN,H. CHUBA CHANG,parties.IN.NDPP,NDPP,1,,1,won,M,70,Graduate,Party Worker,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-nagaland-1481,nagaland,2021,58,SHAMATOR CHESSORE,S. KEOSHU YIMCHUNGER,parties.IN.NDPP,NDPP,1,,1,won,M,44,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a,minor,

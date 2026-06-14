@@ -1,15 +1,15 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-west-bengal-2065,west-bengal,2013,51,ENGLISHBAZAR,Krishnendu Narayan Choudhary,parties.IN.INC,INC,70791,39.33,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2065,west-bengal,2013,51,ENGLISHBAZAR,Koushik Nisra (Saheb),parties.IN.CPI,CPI,50339,27.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2065,west-bengal,2013,51,ENGLISHBAZAR,Narendra Nath Tiwari,parties.IN.INC,INC,45271,25.15,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2065,west-bengal,2013,51,ENGLISHBAZAR,Sanjit Misra,parties.IN.BJP,BJP,9442,5.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2065,west-bengal,2013,51,ENGLISHBAZAR,Satish Rajbanshl,parties.IN.IND,IND,2851,1.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2065,west-bengal,2013,51,ENGLISHBAZAR,Md. Anisur Rahaman,parties.IN.IND,IND,1296,0.72,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-1934,west-bengal,2013,293,NALHATI,Dipak Chatterjee,parties.IN.AIFB,AIFB,55341,33,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-1934,west-bengal,2013,293,NALHATI,Abdur Rahaman,parties.IN.INC,INC,47595,28.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-1934,west-bengal,2013,293,NALHATI,Biplab Otha,parties.IN.INC,INC,47041,28.05,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-1934,west-bengal,2013,293,NALHATI,Anil Singha,parties.IN.BJP,BJP,12219,7.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-1934,west-bengal,2013,293,NALHATI,Md. Noorul Hoda,parties.IN.AIUD,AIUD,1953,1.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-1934,west-bengal,2013,293,NALHATI,Dhananjoy Bandopadhayay,parties.IN.IND,IND,1368,0.82,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-1934,west-bengal,2013,293,NALHATI,Nurul Islam (Swapan),parties.IN.BJP,BJP,1227,0.73,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-1934,west-bengal,2013,293,NALHATI,Kaosar Sekh,parties.IN.IND,IND,957,0.57,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-west-bengal-2065,west-bengal,2013,51,ENGLISHBAZAR,Krishnendu Narayan Choudhary,parties.IN.INC,INC,70791,39.33,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-2065,west-bengal,2013,51,ENGLISHBAZAR,Koushik Nisra (Saheb),parties.IN.CPI,CPI,50339,27.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-2065,west-bengal,2013,51,ENGLISHBAZAR,Narendra Nath Tiwari,parties.IN.INC,INC,45271,25.15,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-2065,west-bengal,2013,51,ENGLISHBAZAR,Sanjit Misra,parties.IN.BJP,BJP,9442,5.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-2065,west-bengal,2013,51,ENGLISHBAZAR,Satish Rajbanshl,parties.IN.IND,IND,2851,1.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-2065,west-bengal,2013,51,ENGLISHBAZAR,Md. Anisur Rahaman,parties.IN.IND,IND,1296,0.72,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-1934,west-bengal,2013,293,NALHATI,Dipak Chatterjee,parties.IN.AIFB,AIFB,55341,33,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-1934,west-bengal,2013,293,NALHATI,Abdur Rahaman,parties.IN.INC,INC,47595,28.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-1934,west-bengal,2013,293,NALHATI,Biplab Otha,parties.IN.INC,INC,47041,28.05,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-1934,west-bengal,2013,293,NALHATI,Anil Singha,parties.IN.BJP,BJP,12219,7.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-1934,west-bengal,2013,293,NALHATI,Md. Noorul Hoda,parties.IN.AIUD,AIUD,1953,1.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-1934,west-bengal,2013,293,NALHATI,Dhananjoy Bandopadhayay,parties.IN.IND,IND,1368,0.82,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-1934,west-bengal,2013,293,NALHATI,Nurul Islam (Swapan),parties.IN.BJP,BJP,1227,0.73,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-1934,west-bengal,2013,293,NALHATI,Kaosar Sekh,parties.IN.IND,IND,957,0.57,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

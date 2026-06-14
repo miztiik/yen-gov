@@ -1,117 +1,117 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Kashiram,parties.IN.SP,SP,45742,34.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Chandrapal Singh S/o Banshidhar,parties.IN.BJP,BJP,29127,22.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Surendra Alias Kukku,parties.IN.BSP,BSP,21905,16.56,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Vijay Pal Singh,parties.IN.RTKP,RTKP,14857,11.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Jagan Singh,parties.IN.INC,INC,11242,8.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Hariom,parties.IN.ABHM,ABHM,4756,3.6,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Suresh,parties.IN.IND,IND,2085,1.58,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Ram Bharosey Lal,parties.IN.IND,IND,758,0.57,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Bansi Singh,parties.IN.IND,IND,459,0.35,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Om Prakash,parties.IN.IND,IND,391,0.3,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Rampal,parties.IN.IND,IND,344,0.26,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Bahoran Singh,parties.IN.IND,IND,314,0.24,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Chandrapal S/o Dori Lal,parties.IN.IND,IND,301,0.23,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,B.K. Gupta,parties.IN.BJP,BJP,40203,33.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Ejaz Ahmad,parties.IN.SP,SP,25771,21.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Riyaz Ahmad,parties.IN.RTKP,RTKP,21255,17.82,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Haroon Ahmad,parties.IN.SJP_R,SJP(R),8992,7.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Amjad Hussain Alias Pappu,parties.IN.BSP,BSP,6864,5.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Raj Rai Singh,parties.IN.INC,INC,5852,4.91,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Shyam Lal Balmiki,parties.IN.IND,IND,3073,2.58,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Naresh Singh,parties.IN.IND,IND,2608,2.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Hilal Ahmad,parties.IN.IND,IND,1502,1.26,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Ram Bhajan,parties.IN.IND,IND,774,0.65,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Balvindar Singh,parties.IN.IND,IND,577,0.48,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Hari Shanker,parties.IN.IND,IND,520,0.44,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Girdhari Lal,parties.IN.SAD,AD,437,0.37,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Kamlesh,parties.IN.IND,IND,304,0.25,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Dil Firoz Ahmad,parties.IN.IND,IND,287,0.24,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Ranu,parties.IN.IND,IND,232,0.19,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Ram Kumar Advocate,parties.IN.SP,SP,48192,41.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Mohd. Gayasuddin Alias Gyas Bhai,parties.IN.BSP,BSP,29868,25.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Rajendra Prasad Mishra,parties.IN.KMBP,KMBP,18621,15.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Krishna Pal Singh Yadav,parties.IN.INC,INC,7678,6.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Gomti Prasad Lodhi,parties.IN.RTKP,RTKP,5793,4.94,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Hari Shankar Mishra,parties.IN.IND,IND,2000,1.71,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Suresh Kumar,parties.IN.IND,IND,1633,1.39,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Kamlesh Kumar,parties.IN.IND,IND,1521,1.3,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Sundar Lal,parties.IN.IND,IND,587,0.5,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Moti Lal Pal,parties.IN.SAD,AD,453,0.39,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Mahesh,parties.IN.IND,IND,370,0.32,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Vishwambhar Nath,parties.IN.IND,IND,279,0.24,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Vidhya Sagar,parties.IN.IND,IND,245,0.21,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,A. Salam,parties.IN.SAD,AD,30570,25.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Brijesh Kumar,parties.IN.BJP,BJP,28535,23.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Usha Singh,parties.IN.SP,SP,27221,22.77,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Lal Bahadur Singh,parties.IN.BSP,BSP,20224,16.91,4,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Om Prakash,parties.IN.INC,INC,6065,5.07,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Vinai Pratap Singh,parties.IN.IND,IND,2253,1.88,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Rajendra Kumar Sharma,parties.IN.RTKP,RTKP,1212,1.01,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Ram Asrey,parties.IN.BSD,BSD,1047,0.88,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Kali Charan,parties.IN.IND,IND,917,0.77,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Ashok Kumar,parties.IN.IND,IND,850,0.71,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Anwar,parties.IN.IND,IND,672,0.56,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Janmejai Singh,parties.IN.BSP,BSP,45083,33.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Shakir Ali,parties.IN.SP,SP,45054,33.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Janhavi Mani,parties.IN.BJP,BJP,23805,17.94,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Suyash Mani,parties.IN.INC,INC,5965,4.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Ram Chandra Nishad,parties.IN.SAD,AD,3601,2.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Bechai,parties.IN.IND,IND,2760,2.08,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Kedar,parties.IN.IND,IND,1968,1.48,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Virendra Rai,parties.IN.RTKP,RTKP,1366,1.03,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Jiut,parties.IN.RLD,RLD,1217,0.92,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Anirudh,parties.IN.IND,IND,576,0.43,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Rakesh Singh,parties.IN.AJBP,AJBP,557,0.42,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Ajai Kumar,parties.IN.IND,IND,372,0.28,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Hira Lal,parties.IN.BJS,BJS,335,0.25,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Rajjan Pal Singh,parties.IN.BJP,BJP,33004,29.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Munabbar Hussain,parties.IN.SP,SP,31145,28.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Parvez Ali,parties.IN.BSP,BSP,26429,23.97,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Shashi Prabha Shakya,parties.IN.RTKP,RTKP,9168,8.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Istyak Ali,parties.IN.INC,INC,6846,6.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Asrafi Devi,parties.IN.IND,IND,1490,1.35,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Rajesh,parties.IN.IND,IND,802,0.73,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Suraj Pal,parties.IN.IND,IND,493,0.45,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Subhash Chandra,parties.IN.IND,IND,190,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Ram Kishor,parties.IN.IND,IND,147,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Rajeshwar,parties.IN.IND,IND,138,0.13,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Rambabu,parties.IN.IND,IND,136,0.12,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Bhagwan Singh,parties.IN.IND,IND,128,0.12,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Nem Singh,parties.IN.IND,IND,91,0.08,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Girja Shankar,parties.IN.IND,IND,72,0.07,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Devendra Pratap,parties.IN.RYKP,RYKP,22118,23.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Baboo Ram Kashyap,parties.IN.BSP,BSP,21923,23.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Resham Devi,parties.IN.SP,SP,21508,22.84,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Brijesh Kumar,parties.IN.BJP,BJP,13913,14.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Dr. Akhilesh Gaur,parties.IN.INC,INC,7575,8.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Mahabuddin,parties.IN.NLP,NLP,3730,3.96,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Hetram Maurya,parties.IN.IND,IND,1011,1.07,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Haridas Jatav,parties.IN.IND,IND,809,0.86,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Ramdulare,parties.IN.IND,IND,279,0.3,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Naresh Singh,parties.IN.IND,IND,247,0.26,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Surendra,parties.IN.IND,IND,240,0.25,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Dr. Hariom Mishra,parties.IN.BNRP,BNRP,230,0.24,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Lalsingh,parties.IN.IND,IND,185,0.2,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Chandra Pal,parties.IN.IND,IND,165,0.18,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Kanchan,parties.IN.IND,IND,121,0.13,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Jagnath,parties.IN.IND,IND,114,0.12,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Jagat Singh,parties.IN.SP,SP,34047,29.25,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Rao Mushrrat Begum,parties.IN.RLD,RLD,32468,27.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Dharampal Singh,parties.IN.BJP,BJP,22182,19.06,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Shiv Kumar,parties.IN.BSP,BSP,17555,15.08,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Ranvir Singh Saini,parties.IN.RTKP,RTKP,5592,4.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Babu Singh,parties.IN.INC,INC,1502,1.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Karan Singh Saini,parties.IN.JSP,JSAP,1201,1.03,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Salam Tulla,parties.IN.IND,IND,1117,0.96,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Upendra,parties.IN.IND,IND,464,0.4,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Pappu,parties.IN.IND,IND,275,0.24,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Pradeep Kumar,parties.IN.RLD,RLD,60343,38.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Dr. Sushil Chaudhary,parties.IN.ABLTC,ABLTC,46336,29.78,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Shiv Kumar,parties.IN.BSP,BSP,31372,20.16,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Shagufta Khan,parties.IN.SP,SP,12719,8.18,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Bhushan Dutt Chaudhary,parties.IN.IND,IND,1758,1.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Sahab Singh,parties.IN.INC,INC,1397,0.9,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Arun,parties.IN.IND,IND,721,0.46,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Eltaf,parties.IN.IND,IND,553,0.36,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Parkash Chand,parties.IN.IND,IND,380,0.24,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Kashiram,parties.IN.SP,SP,45742,34.58,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Chandrapal Singh S/o Banshidhar,parties.IN.BJP,BJP,29127,22.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Surendra Alias Kukku,parties.IN.BSP,BSP,21905,16.56,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Vijay Pal Singh,parties.IN.RTKP,RTKP,14857,11.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Jagan Singh,parties.IN.INC,INC,11242,8.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Hariom,parties.IN.ABHM,ABHM,4756,3.6,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Suresh,parties.IN.IND,IND,2085,1.58,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Ram Bharosey Lal,parties.IN.IND,IND,758,0.57,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Bansi Singh,parties.IN.IND,IND,459,0.35,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Om Prakash,parties.IN.IND,IND,391,0.3,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Rampal,parties.IN.IND,IND,344,0.26,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Bahoran Singh,parties.IN.IND,IND,314,0.24,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-39,uttar-pradesh,2000,39,SHAHABAD(SC),Chandrapal S/o Dori Lal,parties.IN.IND,IND,301,0.23,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,B.K. Gupta,parties.IN.BJP,BJP,40203,33.71,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Ejaz Ahmad,parties.IN.SP,SP,25771,21.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Riyaz Ahmad,parties.IN.RTKP,RTKP,21255,17.82,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Haroon Ahmad,parties.IN.SJP_R,SJP(R),8992,7.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Amjad Hussain Alias Pappu,parties.IN.BSP,BSP,6864,5.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Raj Rai Singh,parties.IN.INC,INC,5852,4.91,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Shyam Lal Balmiki,parties.IN.IND,IND,3073,2.58,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Naresh Singh,parties.IN.IND,IND,2608,2.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Hilal Ahmad,parties.IN.IND,IND,1502,1.26,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Ram Bhajan,parties.IN.IND,IND,774,0.65,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Balvindar Singh,parties.IN.IND,IND,577,0.48,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Hari Shanker,parties.IN.IND,IND,520,0.44,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Girdhari Lal,parties.IN.SAD,AD,437,0.37,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Kamlesh,parties.IN.IND,IND,304,0.25,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Dil Firoz Ahmad,parties.IN.IND,IND,287,0.24,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-57,uttar-pradesh,2000,57,PILIBHIT,Ranu,parties.IN.IND,IND,232,0.19,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Ram Kumar Advocate,parties.IN.SP,SP,48192,41.11,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Mohd. Gayasuddin Alias Gyas Bhai,parties.IN.BSP,BSP,29868,25.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Rajendra Prasad Mishra,parties.IN.KMBP,KMBP,18621,15.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Krishna Pal Singh Yadav,parties.IN.INC,INC,7678,6.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Gomti Prasad Lodhi,parties.IN.RTKP,RTKP,5793,4.94,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Hari Shankar Mishra,parties.IN.IND,IND,2000,1.71,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Suresh Kumar,parties.IN.IND,IND,1633,1.39,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Kamlesh Kumar,parties.IN.IND,IND,1521,1.3,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Sundar Lal,parties.IN.IND,IND,587,0.5,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Moti Lal Pal,parties.IN.SAD,AD,453,0.39,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Mahesh,parties.IN.IND,IND,370,0.32,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Vishwambhar Nath,parties.IN.IND,IND,279,0.24,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-94,uttar-pradesh,2000,94,UNNAO,Vidhya Sagar,parties.IN.IND,IND,245,0.21,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,A. Salam,parties.IN.SAD,AD,30570,25.57,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Brijesh Kumar,parties.IN.BJP,BJP,28535,23.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Usha Singh,parties.IN.SP,SP,27221,22.77,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Lal Bahadur Singh,parties.IN.BSP,BSP,20224,16.91,4,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Om Prakash,parties.IN.INC,INC,6065,5.07,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Vinai Pratap Singh,parties.IN.IND,IND,2253,1.88,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Rajendra Kumar Sharma,parties.IN.RTKP,RTKP,1212,1.01,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Ram Asrey,parties.IN.BSD,BSD,1047,0.88,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Kali Charan,parties.IN.IND,IND,917,0.77,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Ashok Kumar,parties.IN.IND,IND,850,0.71,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-118,uttar-pradesh,2000,118,PRATAPGARH,Anwar,parties.IN.IND,IND,672,0.56,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Janmejai Singh,parties.IN.BSP,BSP,45083,33.98,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Shakir Ali,parties.IN.SP,SP,45054,33.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Janhavi Mani,parties.IN.BJP,BJP,23805,17.94,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Suyash Mani,parties.IN.INC,INC,5965,4.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Ram Chandra Nishad,parties.IN.SAD,AD,3601,2.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Bechai,parties.IN.IND,IND,2760,2.08,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Kedar,parties.IN.IND,IND,1968,1.48,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Virendra Rai,parties.IN.RTKP,RTKP,1366,1.03,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Jiut,parties.IN.RLD,RLD,1217,0.92,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Anirudh,parties.IN.IND,IND,576,0.43,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Rakesh Singh,parties.IN.AJBP,AJBP,557,0.42,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Ajai Kumar,parties.IN.IND,IND,372,0.28,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-201,uttar-pradesh,2000,201,GUARIBAJAR,Hira Lal,parties.IN.BJS,BJS,335,0.25,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Rajjan Pal Singh,parties.IN.BJP,BJP,33004,29.93,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Munabbar Hussain,parties.IN.SP,SP,31145,28.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Parvez Ali,parties.IN.BSP,BSP,26429,23.97,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Shashi Prabha Shakya,parties.IN.RTKP,RTKP,9168,8.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Istyak Ali,parties.IN.INC,INC,6846,6.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Asrafi Devi,parties.IN.IND,IND,1490,1.35,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Rajesh,parties.IN.IND,IND,802,0.73,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Suraj Pal,parties.IN.IND,IND,493,0.45,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Subhash Chandra,parties.IN.IND,IND,190,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Ram Kishor,parties.IN.IND,IND,147,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Rajeshwar,parties.IN.IND,IND,138,0.13,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Rambabu,parties.IN.IND,IND,136,0.12,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Bhagwan Singh,parties.IN.IND,IND,128,0.12,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Nem Singh,parties.IN.IND,IND,91,0.08,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-344,uttar-pradesh,2000,344,PATIALI,Girja Shankar,parties.IN.IND,IND,72,0.07,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Devendra Pratap,parties.IN.RYKP,RYKP,22118,23.49,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Baboo Ram Kashyap,parties.IN.BSP,BSP,21923,23.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Resham Devi,parties.IN.SP,SP,21508,22.84,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Brijesh Kumar,parties.IN.BJP,BJP,13913,14.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Dr. Akhilesh Gaur,parties.IN.INC,INC,7575,8.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Mahabuddin,parties.IN.NLP,NLP,3730,3.96,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Hetram Maurya,parties.IN.IND,IND,1011,1.07,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Haridas Jatav,parties.IN.IND,IND,809,0.86,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Ramdulare,parties.IN.IND,IND,279,0.3,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Naresh Singh,parties.IN.IND,IND,247,0.26,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Surendra,parties.IN.IND,IND,240,0.25,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Dr. Hariom Mishra,parties.IN.BNRP,BNRP,230,0.24,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Lalsingh,parties.IN.IND,IND,185,0.2,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Chandra Pal,parties.IN.IND,IND,165,0.18,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Kanchan,parties.IN.IND,IND,121,0.13,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-346,uttar-pradesh,2000,346,SORAN,Jagnath,parties.IN.IND,IND,114,0.12,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Jagat Singh,parties.IN.SP,SP,34047,29.25,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Rao Mushrrat Begum,parties.IN.RLD,RLD,32468,27.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Dharampal Singh,parties.IN.BJP,BJP,22182,19.06,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Shiv Kumar,parties.IN.BSP,BSP,17555,15.08,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Ranvir Singh Saini,parties.IN.RTKP,RTKP,5592,4.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Babu Singh,parties.IN.INC,INC,1502,1.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Karan Singh Saini,parties.IN.JSP,JSAP,1201,1.03,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Salam Tulla,parties.IN.IND,IND,1117,0.96,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Upendra,parties.IN.IND,IND,464,0.4,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-412,uttar-pradesh,2000,412,THANABHAWAN,Pappu,parties.IN.IND,IND,275,0.24,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Pradeep Kumar,parties.IN.RLD,RLD,60343,38.79,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Dr. Sushil Chaudhary,parties.IN.ABLTC,ABLTC,46336,29.78,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Shiv Kumar,parties.IN.BSP,BSP,31372,20.16,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Shagufta Khan,parties.IN.SP,SP,12719,8.18,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Bhushan Dutt Chaudhary,parties.IN.IND,IND,1758,1.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Sahab Singh,parties.IN.INC,INC,1397,0.9,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Arun,parties.IN.IND,IND,721,0.46,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Eltaf,parties.IN.IND,IND,553,0.36,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-413,uttar-pradesh,2000,413,NABUR,Parkash Chand,parties.IN.IND,IND,380,0.24,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

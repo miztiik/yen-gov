@@ -1,2 +1,2 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-maharashtra-2904,maharashtra,2012,KAIJ,296749,179952,60.64,P.Alias.R.S.Sathe,parties.IN.NCP,NCP,85750,47.65,T.S. V. Prakash,parties.IN.BJP,BJP,77444,8306,4.61,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-2008-maharashtra-2904,maharashtra,2012,KAIJ,296749,179952,60.64,P.Alias.R.S.Sathe,parties.IN.NCP,NCP,85750,47.65,T.S. V. Prakash,parties.IN.BJP,BJP,77444,8306,4.61,src-1b7bc1c9d39a,minor,

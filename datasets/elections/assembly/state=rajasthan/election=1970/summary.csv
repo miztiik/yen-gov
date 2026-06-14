@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1967-rajasthan-81,rajasthan,1970,TONK,54363,39150,72.02,S.PRASAD,parties.IN.NCJ,NCJ,24636,62.93,M.R.BEG,parties.IN.IND,IND,14278,10358,26.46,src-1b7bc1c9d39a
-IN-AC-1967-rajasthan-89,rajasthan,1970,NASIRABAD,56776,35666,62.82,S.SINGH,parties.IN.NCJ,NCJ,20483,57.43,B.LAL,parties.IN.SWA,SWA,9524,10959,30.73,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1967-rajasthan-81,rajasthan,1970,TONK,54363,39150,72.02,S.PRASAD,parties.IN.NCJ,NCJ,24636,62.93,M.R.BEG,parties.IN.IND,IND,14278,10358,26.46,src-1b7bc1c9d39a,minor,
+IN-AC-1967-rajasthan-89,rajasthan,1970,NASIRABAD,56776,35666,62.82,S.SINGH,parties.IN.NCJ,NCJ,20483,57.43,B.LAL,parties.IN.SWA,SWA,9524,10959,30.73,src-1b7bc1c9d39a,minor,

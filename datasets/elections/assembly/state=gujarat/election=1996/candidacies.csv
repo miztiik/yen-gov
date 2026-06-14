@@ -1,13 +1,13 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-gujarat-131,gujarat,1996,131,NADIAD,Desai Dhirenbahi Madhubhai,parties.IN.INC,INC,31506,42.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-131,gujarat,1996,131,NADIAD,Jeswani Durgaben Khushi Ram,parties.IN.BJP,BJP,21706,29.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-131,gujarat,1996,131,NADIAD,Brahm Bhatt Chittranjan Bhai Ghanshyam Bhai,parties.IN.RAJPA,RJP,20250,27.38,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-131,gujarat,1996,131,NADIAD,Barot Paresh Ghanshyam Bhai,parties.IN.IND,IND,156,0.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-131,gujarat,1996,131,NADIAD,Ayekanad Bipin Chandra Shashtriji,parties.IN.IND,IND,135,0.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-131,gujarat,1996,131,NADIAD,Makwana Manubhai Vasrambhai,parties.IN.IND,IND,117,0.16,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-131,gujarat,1996,131,NADIAD,Khalasi Ji tendrabhai Govind Bhai,parties.IN.IND,IND,78,0.11,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-179,gujarat,1996,179,DHARAMPUR(SC),Chaudhary Hirabhai Ramjibhai,parties.IN.BJP,BJP,32470,43.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-179,gujarat,1996,179,DHARAMPUR(SC),Patel Kishanbhai Vestabhai,parties.IN.INC,INC,25146,33.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-179,gujarat,1996,179,DHARAMPUR(SC),Anandbhai Balubhai Bhoya,parties.IN.UNK,RJP(G),14790,19.7,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-179,gujarat,1996,179,DHARAMPUR(SC),Mahala Nanubhai Bhayalbhai,parties.IN.JD,JD,1922,2.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-gujarat-179,gujarat,1996,179,DHARAMPUR(SC),Paneria Karshanbhai Nichchabahi,parties.IN.IND,IND,759,1.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-gujarat-131,gujarat,1996,131,NADIAD,Desai Dhirenbahi Madhubhai,parties.IN.INC,INC,31506,42.61,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-131,gujarat,1996,131,NADIAD,Jeswani Durgaben Khushi Ram,parties.IN.BJP,BJP,21706,29.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-131,gujarat,1996,131,NADIAD,Brahm Bhatt Chittranjan Bhai Ghanshyam Bhai,parties.IN.RAJPA,RJP,20250,27.38,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-131,gujarat,1996,131,NADIAD,Barot Paresh Ghanshyam Bhai,parties.IN.IND,IND,156,0.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-131,gujarat,1996,131,NADIAD,Ayekanad Bipin Chandra Shashtriji,parties.IN.IND,IND,135,0.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-131,gujarat,1996,131,NADIAD,Makwana Manubhai Vasrambhai,parties.IN.IND,IND,117,0.16,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-131,gujarat,1996,131,NADIAD,Khalasi Ji tendrabhai Govind Bhai,parties.IN.IND,IND,78,0.11,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-179,gujarat,1996,179,DHARAMPUR(SC),Chaudhary Hirabhai Ramjibhai,parties.IN.BJP,BJP,32470,43.24,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-179,gujarat,1996,179,DHARAMPUR(SC),Patel Kishanbhai Vestabhai,parties.IN.INC,INC,25146,33.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-179,gujarat,1996,179,DHARAMPUR(SC),Anandbhai Balubhai Bhoya,parties.IN.UNK,RJP(G),14790,19.7,3,lost,U,,,,challenger,src-1b7bc1c9d39a,major,Publisher label 'RJP(G)' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-1976-gujarat-179,gujarat,1996,179,DHARAMPUR(SC),Mahala Nanubhai Bhayalbhai,parties.IN.JD,JD,1922,2.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-gujarat-179,gujarat,1996,179,DHARAMPUR(SC),Paneria Karshanbhai Nichchabahi,parties.IN.IND,IND,759,1.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

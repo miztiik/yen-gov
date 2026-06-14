@@ -1,10 +1,10 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-PC-1976-bihar-53,bihar,1982,LOHARDAGA(ST),638943,245741,38.46,S.ORAON(W),parties.IN.INC,INC,134670,54.8,L.ORAON,parties.IN.BJP,BJP,59221,75449,30.7,src-31c65dbec869
-IN-PC-1976-madhya-pradesh-25,madhya-pradesh,1982,JABALPUR,672798,275110,40.89,B.PANANJPE,parties.IN.BJP,BJP,134442,48.87,R.K.JIJIBAI(W),parties.IN.INC,INC,121204,13238,4.81,src-31c65dbec869
-IN-PC-1976-maharashtra-10,maharashtra,1982,THANE,889904,337865,37.97,P.J.SHIAVRAM,parties.IN.BJP,BJP,144458,42.76,P.M.HEGDE,parties.IN.INC,INC,99651,44807,13.27,src-31c65dbec869
-IN-PC-1976-rajasthan-10,rajasthan,1982,BAYANA(SC),674118,186534,27.67,L.R.KEN,parties.IN.INC,INC,101706,54.52,B.R.LAHARI,parties.IN.IND,IND,45750,55956,29.99,src-31c65dbec869
-IN-PC-1976-rajasthan-18,rajasthan,1982,UDAIPUR,729573,358685,49.16,D.VERMA,parties.IN.INC,INC,187268,52.21,S.S.BHANDARI,parties.IN.BJP,BJP,143079,44189,12.32,src-31c65dbec869
-IN-PC-1976-tamil-nadu-25,tamil-nadu,1982,PERIYAKULAM,735391,503651,68.49,JAKKAY.S.T.K,parties.IN.ADK,ADK,252377,50.11,C.ERAMADDRISHNAN.N,parties.IN.DMK,DMK,183117,69260,13.75,src-31c65dbec869
-IN-PC-1976-uttar-pradesh-2,uttar-pradesh,1982,GARHWAL,603296,280704,46.53,H.N.BAHUGUNA,parties.IN.IND,IND,149669,53.32,C.MOHAN,parties.IN.INC,INC,120645,29024,10.34,src-31c65dbec869
-IN-PC-1976-west-bengal-16,west-bengal,1982,MATHURAPUR(SC),674577,484454,71.82,N.SINHA,parties.IN.CPIM,CPM,254758,52.59,G.NASKAR,parties.IN.INC_I,INC(I),199282,55476,11.45,src-31c65dbec869
-IN-PC-1976-west-bengal-17,west-bengal,1982,DIAMOND HARBOUR,700277,486606,69.49,A.DATTA,parties.IN.CPIM,CPM,296980,61.03,J.ABEDIN,parties.IN.INC,INC,180757,116223,23.88,src-31c65dbec869
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-PC-1976-bihar-53,bihar,1982,LOHARDAGA(ST),638943,245741,38.46,S.ORAON(W),parties.IN.INC,INC,134670,54.8,L.ORAON,parties.IN.BJP,BJP,59221,75449,30.7,src-31c65dbec869,minor,
+IN-PC-1976-madhya-pradesh-25,madhya-pradesh,1982,JABALPUR,672798,275110,40.89,B.PANANJPE,parties.IN.BJP,BJP,134442,48.87,R.K.JIJIBAI(W),parties.IN.INC,INC,121204,13238,4.81,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-10,maharashtra,1982,THANE,889904,337865,37.97,P.J.SHIAVRAM,parties.IN.BJP,BJP,144458,42.76,P.M.HEGDE,parties.IN.INC,INC,99651,44807,13.27,src-31c65dbec869,minor,
+IN-PC-1976-rajasthan-10,rajasthan,1982,BAYANA(SC),674118,186534,27.67,L.R.KEN,parties.IN.INC,INC,101706,54.52,B.R.LAHARI,parties.IN.IND,IND,45750,55956,29.99,src-31c65dbec869,minor,
+IN-PC-1976-rajasthan-18,rajasthan,1982,UDAIPUR,729573,358685,49.16,D.VERMA,parties.IN.INC,INC,187268,52.21,S.S.BHANDARI,parties.IN.BJP,BJP,143079,44189,12.32,src-31c65dbec869,minor,
+IN-PC-1976-tamil-nadu-25,tamil-nadu,1982,PERIYAKULAM,735391,503651,68.49,JAKKAY.S.T.K,parties.IN.ADK,ADK,252377,50.11,C.ERAMADDRISHNAN.N,parties.IN.DMK,DMK,183117,69260,13.75,src-31c65dbec869,minor,
+IN-PC-1976-uttar-pradesh-2,uttar-pradesh,1982,GARHWAL,603296,280704,46.53,H.N.BAHUGUNA,parties.IN.IND,IND,149669,53.32,C.MOHAN,parties.IN.INC,INC,120645,29024,10.34,src-31c65dbec869,minor,
+IN-PC-1976-west-bengal-16,west-bengal,1982,MATHURAPUR(SC),674577,484454,71.82,N.SINHA,parties.IN.CPIM,CPM,254758,52.59,G.NASKAR,parties.IN.INC_I,INC(I),199282,55476,11.45,src-31c65dbec869,minor,
+IN-PC-1976-west-bengal-17,west-bengal,1982,DIAMOND HARBOUR,700277,486606,69.49,A.DATTA,parties.IN.CPIM,CPM,296980,61.03,J.ABEDIN,parties.IN.INC,INC,180757,116223,23.88,src-31c65dbec869,minor,

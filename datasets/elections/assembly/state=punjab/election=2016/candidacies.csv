@@ -1,8 +1,8 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-punjab-240,punjab,2016,24,KHADOOR SAHIB,Sh Ravinder Singh Brahampura (E),parties.IN.SAD,SAD,83080,77.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-240,punjab,2016,24,KHADOOR SAHIB,Sh Bhupinder Singh,parties.IN.IND,IND,17416,16.22,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-240,punjab,2016,24,KHADOOR SAHIB,Dr. Sumail Singh Sindhu,parties.IN.IND,IND,2243,2.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-240,punjab,2016,24,KHADOOR SAHIB,Sh. Puran Singh Seikh,parties.IN.BSP,BSP,1815,1.69,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-punjab-240,punjab,2016,24,KHADOOR SAHIB,Sh. Anantjit Singh Sandhu,parties.IN.IND,IND,1621,1.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-240,punjab,2016,24,KHADOOR SAHIB,Sh. Sukhdev Singh Khosla,parties.IN.IND,IND,677,0.63,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-punjab-240,punjab,2016,24,KHADOOR SAHIB,Sh. Harjit Singh,parties.IN.IND,IND,489,0.46,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-punjab-240,punjab,2016,24,KHADOOR SAHIB,Sh Ravinder Singh Brahampura (E),parties.IN.SAD,SAD,83080,77.4,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-punjab-240,punjab,2016,24,KHADOOR SAHIB,Sh Bhupinder Singh,parties.IN.IND,IND,17416,16.22,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-punjab-240,punjab,2016,24,KHADOOR SAHIB,Dr. Sumail Singh Sindhu,parties.IN.IND,IND,2243,2.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-punjab-240,punjab,2016,24,KHADOOR SAHIB,Sh. Puran Singh Seikh,parties.IN.BSP,BSP,1815,1.69,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-punjab-240,punjab,2016,24,KHADOOR SAHIB,Sh. Anantjit Singh Sandhu,parties.IN.IND,IND,1621,1.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-punjab-240,punjab,2016,24,KHADOOR SAHIB,Sh. Sukhdev Singh Khosla,parties.IN.IND,IND,677,0.63,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-punjab-240,punjab,2016,24,KHADOOR SAHIB,Sh. Harjit Singh,parties.IN.IND,IND,489,0.46,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

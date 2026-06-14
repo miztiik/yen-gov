@@ -1,22 +1,22 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-west-bengal-41,west-bengal,2008,41,KHARBA,ASIF MEHBUB,parties.IN.INC,INC,67067,49.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-41,west-bengal,2008,41,KHARBA,ANJUMANARA,parties.IN.CPIM,CPM,56674,41.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-41,west-bengal,2008,41,KHARBA,SITAL CHAKRABORTY,parties.IN.BJP,BJP,6985,5.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-41,west-bengal,2008,41,KHARBA,ABDUL KHALEQUE,parties.IN.AITC,AITC,4547,3.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-48,west-bengal,2008,48,SUJAPUR,Mausam Noor,parties.IN.INC,INC,74935,56.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-48,west-bengal,2008,48,SUJAPUR,K. Sekh,parties.IN.CPI,CPI,53730,40.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-48,west-bengal,2008,48,SUJAPUR,Sayed Ali,parties.IN.IND,IND,1310,0.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-48,west-bengal,2008,48,SUJAPUR,Md. Ezaruddin,parties.IN.UNK,MLKSC,1070,0.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-48,west-bengal,2008,48,SUJAPUR,Samual Hoque,parties.IN.IND,IND,950,0.72,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-48,west-bengal,2008,48,SUJAPUR,Sanjoy Roy,parties.IN.IND,IND,278,0.21,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-188,west-bengal,2008,188,BALAGARH(SC),Bhuban Pramanick,parties.IN.CPIM,CPM,60101,45.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-188,west-bengal,2008,188,BALAGARH(SC),Ashim Majhi,parties.IN.AITC,AITC,51691,39.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-188,west-bengal,2008,188,BALAGARH(SC),Bangshi Routh,parties.IN.BJP,BJP,8833,6.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-188,west-bengal,2008,188,BALAGARH(SC),Biswanath Malik,parties.IN.INC,INC,5864,4.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-188,west-bengal,2008,188,BALAGARH(SC),Goutam Mondal,parties.IN.CPIMLL,CPI(ML),4530,3.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-206,west-bengal,2008,206,NANDIGRAM,Phiroja Bibi,parties.IN.IATC,IATC,93022,60.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-206,west-bengal,2008,206,NANDIGRAM,P. Bharti,parties.IN.CPI,CPI,53473,34.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-206,west-bengal,2008,206,NANDIGRAM,Bijan Km. Das,parties.IN.BJP,BJP,4079,2.66,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-206,west-bengal,2008,206,NANDIGRAM,Badsha Alam,parties.IN.PDCI,PDCI,1311,0.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-206,west-bengal,2008,206,NANDIGRAM,Golehar Bibi,parties.IN.IND,IND,863,0.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-206,west-bengal,2008,206,NANDIGRAM,A.S.Giri,parties.IN.IND,IND,652,0.43,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-west-bengal-41,west-bengal,2008,41,KHARBA,ASIF MEHBUB,parties.IN.INC,INC,67067,49.58,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-41,west-bengal,2008,41,KHARBA,ANJUMANARA,parties.IN.CPIM,CPM,56674,41.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-41,west-bengal,2008,41,KHARBA,SITAL CHAKRABORTY,parties.IN.BJP,BJP,6985,5.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-41,west-bengal,2008,41,KHARBA,ABDUL KHALEQUE,parties.IN.AITC,AITC,4547,3.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-48,west-bengal,2008,48,SUJAPUR,Mausam Noor,parties.IN.INC,INC,74935,56.65,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-48,west-bengal,2008,48,SUJAPUR,K. Sekh,parties.IN.CPI,CPI,53730,40.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-48,west-bengal,2008,48,SUJAPUR,Sayed Ali,parties.IN.IND,IND,1310,0.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-48,west-bengal,2008,48,SUJAPUR,Md. Ezaruddin,parties.IN.UNK,MLKSC,1070,0.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,major,Publisher label 'MLKSC' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-1976-west-bengal-48,west-bengal,2008,48,SUJAPUR,Samual Hoque,parties.IN.IND,IND,950,0.72,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-48,west-bengal,2008,48,SUJAPUR,Sanjoy Roy,parties.IN.IND,IND,278,0.21,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-188,west-bengal,2008,188,BALAGARH(SC),Bhuban Pramanick,parties.IN.CPIM,CPM,60101,45.87,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-188,west-bengal,2008,188,BALAGARH(SC),Ashim Majhi,parties.IN.AITC,AITC,51691,39.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-188,west-bengal,2008,188,BALAGARH(SC),Bangshi Routh,parties.IN.BJP,BJP,8833,6.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-188,west-bengal,2008,188,BALAGARH(SC),Biswanath Malik,parties.IN.INC,INC,5864,4.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-188,west-bengal,2008,188,BALAGARH(SC),Goutam Mondal,parties.IN.CPIMLL,CPI(ML),4530,3.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-206,west-bengal,2008,206,NANDIGRAM,Phiroja Bibi,parties.IN.IATC,IATC,93022,60.64,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-206,west-bengal,2008,206,NANDIGRAM,P. Bharti,parties.IN.CPI,CPI,53473,34.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-206,west-bengal,2008,206,NANDIGRAM,Bijan Km. Das,parties.IN.BJP,BJP,4079,2.66,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-206,west-bengal,2008,206,NANDIGRAM,Badsha Alam,parties.IN.PDCI,PDCI,1311,0.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-206,west-bengal,2008,206,NANDIGRAM,Golehar Bibi,parties.IN.IND,IND,863,0.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-206,west-bengal,2008,206,NANDIGRAM,A.S.Giri,parties.IN.IND,IND,652,0.43,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

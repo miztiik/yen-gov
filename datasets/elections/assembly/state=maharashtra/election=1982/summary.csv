@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-maharashtra-113,maharashtra,1982,MEDSHI,97010,60980,62.86,G.K.KUNDLIKRAO,parties.IN.INC,INC,29728,48.75,S.V.KONDJI,parties.IN.ICS,ICS,26527,3201,5.25,src-1b7bc1c9d39a
-IN-AC-1976-maharashtra-212,maharashtra,1982,OMERGA,112684,63210,56.09,B.B.RAMRAO,parties.IN.ICS,ICS,34301,54.27,H.K.VISHWAMBHAR,parties.IN.INC,INC,27471,6830,10.81,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-maharashtra-113,maharashtra,1982,MEDSHI,97010,60980,62.86,G.K.KUNDLIKRAO,parties.IN.INC,INC,29728,48.75,S.V.KONDJI,parties.IN.ICS,ICS,26527,3201,5.25,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-212,maharashtra,1982,OMERGA,112684,63210,56.09,B.B.RAMRAO,parties.IN.ICS,ICS,34301,54.27,H.K.VISHWAMBHAR,parties.IN.INC,INC,27471,6830,10.81,src-1b7bc1c9d39a,minor,

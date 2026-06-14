@@ -1,17 +1,17 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,Zameer Ahmed Khan,parties.IN.JDS,JD(S),19943,42.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,R.V.Devaraj,parties.IN.INC,INC,16265,34.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,Pramila Nesargi,parties.IN.BJP,BJP,9944,21.12,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,Syed Naveed Ahmed (Annu),parties.IN.IND,IND,277,0.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,R.Murthy,parties.IN.IND,IND,164,0.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,G.V.Rama Chandraiah,parties.IN.JDU,JD(U),115,0.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,S.Sheryar Khan,parties.IN.SP,SP,104,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,Manik Dhongadi,parties.IN.IND,IND,48,0.1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,Guinnes Hotte Paksha Rangaswamy,parties.IN.IND,IND,41,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,A.Mahadeva,parties.IN.IND,IND,41,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,L.Gangadhara Naik,parties.IN.IND,IND,40,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,K.M.Narayana,parties.IN.IND,IND,26,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,N.Narasimma Murtya,parties.IN.IND,IND,24,0.05,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,V.K.Praveen,parties.IN.IND,IND,21,0.04,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,Azgar(a) Maheem S.M,parties.IN.IND,IND,16,0.03,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,Ishtaq Ahmed,parties.IN.IND,IND,13,0.03,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,Zameer Ahmed Khan,parties.IN.JDS,JD(S),19943,42.36,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,R.V.Devaraj,parties.IN.INC,INC,16265,34.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,Pramila Nesargi,parties.IN.BJP,BJP,9944,21.12,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,Syed Naveed Ahmed (Annu),parties.IN.IND,IND,277,0.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,R.Murthy,parties.IN.IND,IND,164,0.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,G.V.Rama Chandraiah,parties.IN.JDU,JD(U),115,0.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,S.Sheryar Khan,parties.IN.SP,SP,104,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,Manik Dhongadi,parties.IN.IND,IND,48,0.1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,Guinnes Hotte Paksha Rangaswamy,parties.IN.IND,IND,41,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,A.Mahadeva,parties.IN.IND,IND,41,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,L.Gangadhara Naik,parties.IN.IND,IND,40,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,K.M.Narayana,parties.IN.IND,IND,26,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,N.Narasimma Murtya,parties.IN.IND,IND,24,0.05,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,V.K.Praveen,parties.IN.IND,IND,21,0.04,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,Azgar(a) Maheem S.M,parties.IN.IND,IND,16,0.03,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-81,karnataka,2005,81,CHAMARAJAPET,Ishtaq Ahmed,parties.IN.IND,IND,13,0.03,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

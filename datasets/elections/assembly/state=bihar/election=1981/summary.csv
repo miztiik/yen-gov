@@ -1,8 +1,8 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-bihar-1,bihar,1981,DHANAHA,94219,43149,45.8,R.PRASAD,parties.IN.INC_I,INC(I),20675,47.92,N.PRASAD,parties.IN.LKD,LKD,14979,5696,13.21,src-1b7bc1c9d39a
-IN-AC-1976-bihar-116,bihar,1981,SINGHESHWAR,121121,74626,61.61,R.K.YADAV,parties.IN.INC_I,INC(I),41481,55.59,A.L.YADAV,parties.IN.LKD,LKD,29811,11670,15.64,src-1b7bc1c9d39a
-IN-AC-1976-bihar-203,bihar,1981,BAKHTIARPUR,133878,88209,65.89,R.S.YADAV,parties.IN.INC_I,INC(I),59453,67.4,K.K.SINGH,parties.IN.BJP,BJP,9347,50106,56.8,src-1b7bc1c9d39a
-IN-AC-1976-bihar-221,bihar,1981,DUMRAON,138976,63502,45.69,V.N.BHARTI,parties.IN.INC,INC,24881,39.18,R.A.SINGH,parties.IN.CPI,CPI,18767,6114,9.63,src-1b7bc1c9d39a
-IN-AC-1976-bihar-305,bihar,1981,KHIJRI(ST),125846,55042,43.74,K.MUNDA,parties.IN.BJP,BJP,24880,45.2,S.LAKRA,parties.IN.INC_I,INC(I),21416,3464,6.29,src-1b7bc1c9d39a
-IN-AC-1976-bihar-37,bihar,1981,MASRAKH,127619,39865,31.24,H.K.SINGH,parties.IN.IND,IND,18736,47,K.N.RAI,parties.IN.IND,IND,8297,10439,26.19,src-1b7bc1c9d39a
-IN-AC-1976-bihar-43,bihar,1981,PARSA,128132,51989,40.57,P.DEVI(W),parties.IN.INC_I,INC(I),29642,57.02,B.P.SINGH,parties.IN.JP,JNP,14079,15563,29.94,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-bihar-1,bihar,1981,DHANAHA,94219,43149,45.8,R.PRASAD,parties.IN.INC_I,INC(I),20675,47.92,N.PRASAD,parties.IN.LKD,LKD,14979,5696,13.21,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-116,bihar,1981,SINGHESHWAR,121121,74626,61.61,R.K.YADAV,parties.IN.INC_I,INC(I),41481,55.59,A.L.YADAV,parties.IN.LKD,LKD,29811,11670,15.64,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-203,bihar,1981,BAKHTIARPUR,133878,88209,65.89,R.S.YADAV,parties.IN.INC_I,INC(I),59453,67.4,K.K.SINGH,parties.IN.BJP,BJP,9347,50106,56.8,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-221,bihar,1981,DUMRAON,138976,63502,45.69,V.N.BHARTI,parties.IN.INC,INC,24881,39.18,R.A.SINGH,parties.IN.CPI,CPI,18767,6114,9.63,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-305,bihar,1981,KHIJRI(ST),125846,55042,43.74,K.MUNDA,parties.IN.BJP,BJP,24880,45.2,S.LAKRA,parties.IN.INC_I,INC(I),21416,3464,6.29,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-37,bihar,1981,MASRAKH,127619,39865,31.24,H.K.SINGH,parties.IN.IND,IND,18736,47,K.N.RAI,parties.IN.IND,IND,8297,10439,26.19,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-43,bihar,1981,PARSA,128132,51989,40.57,P.DEVI(W),parties.IN.INC_I,INC(I),29642,57.02,B.P.SINGH,parties.IN.JP,JNP,14079,15563,29.94,src-1b7bc1c9d39a,minor,

@@ -1,5 +1,5 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-mizoram-10,mizoram,1982,N.VANLAIPHAI,5519,3555,64.41,LAINGHENGA,parties.IN.PPC,PPC,1924,54.12,THANGTINKHUMA,parties.IN.INC,INC,950,974,27.4,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-13,mizoram,1982,KHAWHAI,6383,3899,61.08,J.H.LIANCHUNGNUNGA,parties.IN.PPC,PPC,1770,45.4,H.THANSANGA,parties.IN.INC,INC,1378,392,10.06,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-22,mizoram,1982,PHULDUNGSEI,6110,4097,67.05,R.ZADINGA,parties.IN.PPC,PPC,1885,46.01,VAIVENGA,parties.IN.INC,INC,1677,208,5.08,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-23,mizoram,1982,SATEEK,6915,4059,58.7,C.PAHLIRA,parties.IN.IND,IND,1504,37.05,J.THANGHUMA,parties.IN.IND,IND,1261,243,5.98,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-mizoram-10,mizoram,1982,N.VANLAIPHAI,5519,3555,64.41,LAINGHENGA,parties.IN.PPC,PPC,1924,54.12,THANGTINKHUMA,parties.IN.INC,INC,950,974,27.4,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-13,mizoram,1982,KHAWHAI,6383,3899,61.08,J.H.LIANCHUNGNUNGA,parties.IN.PPC,PPC,1770,45.4,H.THANSANGA,parties.IN.INC,INC,1378,392,10.06,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-22,mizoram,1982,PHULDUNGSEI,6110,4097,67.05,R.ZADINGA,parties.IN.PPC,PPC,1885,46.01,VAIVENGA,parties.IN.INC,INC,1677,208,5.08,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-23,mizoram,1982,SATEEK,6915,4059,58.7,C.PAHLIRA,parties.IN.IND,IND,1504,37.05,J.THANGHUMA,parties.IN.IND,IND,1261,243,5.98,src-1b7bc1c9d39a,minor,

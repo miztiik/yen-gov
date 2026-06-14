@@ -1,18 +1,18 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Saji Cheryan 'E',parties.IN.CPIM,CPM,67303,44.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Adv. D. VijayaKumar,parties.IN.INC,INC,46347,30.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Adv. P.S. Sreedharan Pillai,parties.IN.BJP,BJP,35270,23.2,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Swami Sukbakash Saraswathi,parties.IN.IND,IND,800,0.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Rajeev Pallathu,parties.IN.AAP,AAP,368,0.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Mobran Achary,parties.IN.IND,IND,263,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Jiji Puntbala,parties.IN.RLD,RLD,248,0.16,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Aji.M. Chalakeri,parties.IN.IND,IND,137,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Madhu Chengannur,parties.IN.UNK,SUCI (Communist ),124,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Sreedharan Pillai,parties.IN.IND,IND,121,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Somanatha Warrier.T.K,parties.IN.IND,IND,98,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Adv.Unni Karthikeyan,parties.IN.IND,IND,57,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Subhash Naga,parties.IN.AMBEDKARITE_PARTY_OF_INDIA,API,53,0.03,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Murali Naga,parties.IN.IND,IND,44,0.03,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,A.K. Shaji,parties.IN.IND,IND,39,0.03,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Sivaprasad Gandhi.K.M,parties.IN.IND,IND,21,0.01,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,M. C. Jayalal,parties.IN.IND,IND,20,0.01,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Saji Cheryan 'E',parties.IN.CPIM,CPM,67303,44.27,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Adv. D. VijayaKumar,parties.IN.INC,INC,46347,30.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Adv. P.S. Sreedharan Pillai,parties.IN.BJP,BJP,35270,23.2,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Swami Sukbakash Saraswathi,parties.IN.IND,IND,800,0.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Rajeev Pallathu,parties.IN.AAP,AAP,368,0.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Mobran Achary,parties.IN.IND,IND,263,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Jiji Puntbala,parties.IN.RLD,RLD,248,0.16,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Aji.M. Chalakeri,parties.IN.IND,IND,137,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Madhu Chengannur,parties.IN.UNK,SUCI (Communist ),124,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,major,Publisher label 'SUCI (Communist )' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Sreedharan Pillai,parties.IN.IND,IND,121,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Somanatha Warrier.T.K,parties.IN.IND,IND,98,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Adv.Unni Karthikeyan,parties.IN.IND,IND,57,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Subhash Naga,parties.IN.AMBEDKARITE_PARTY_OF_INDIA,API,53,0.03,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Murali Naga,parties.IN.IND,IND,44,0.03,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,A.K. Shaji,parties.IN.IND,IND,39,0.03,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,Sivaprasad Gandhi.K.M,parties.IN.IND,IND,21,0.01,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-kerala-3802,kerala,2018,110,CHENGANNUR,M. C. Jayalal,parties.IN.IND,IND,20,0.01,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

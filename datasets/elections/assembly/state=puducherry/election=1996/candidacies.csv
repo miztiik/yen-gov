@@ -1,271 +1,271 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,S. ANANDAVELU,parties.IN.AIADMK,ADMK,11009,56.26,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,G. PALANIRAJA,parties.IN.DMK,DMK,8098,41.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,S. RAJAMANICKAM @ ELANGO,parties.IN.MDMK,MDMK,157,0.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,N. EZHILARASAN,parties.IN.IND,IND,95,0.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,V. SELVAKUMAR,parties.IN.JP,JP,81,0.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,P. BASKAR,parties.IN.IND,IND,45,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,K. ARUMUGAM,parties.IN.IND,IND,37,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,N. VIJAYAKUMAR,parties.IN.IND,IND,18,0.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,R. KRISHNAN,parties.IN.IND,IND,17,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,JANAKIRAMAN,parties.IN.IND,IND,10,0.05,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,P. KANNAN,parties.IN.IND,IND,6501,63.21,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,S. NARAYANASAMY,parties.IN.INC,INC,3195,31.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,S. THIAGARAJAN,parties.IN.BJP,BJP,304,2.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,PANNEERSELVAM,parties.IN.AIIC_T,AIIC(T),125,1.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,DEVATHA OUPENDRAN,parties.IN.JP,JP,49,0.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,K.S. RANGADURAI,parties.IN.IND,IND,27,0.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,GOVINDAMMAL,parties.IN.IND,IND,22,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,A. SRIKANTH,parties.IN.IND,IND,20,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,K. MANAVALAN,parties.IN.IND,IND,16,0.16,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,N.R. JANAKIRAMAN,parties.IN.IND,IND,14,0.14,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,V. RAMAMOORTHY,parties.IN.IND,IND,12,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,S.P. SIVAKUMAR,parties.IN.DMK,DMK,2697,58.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,A. GANDHIRASU,parties.IN.INC,INC,1159,25.16,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,LOUIE PRAGASSA KANNAIYA,parties.IN.IND,IND,559,12.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,M. VISWESWARAN,parties.IN.BJP,BJP,105,2.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,G. RAJMOHAN YADAV,parties.IN.IND,IND,39,0.85,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,D. RAMAJAYAM,parties.IN.AIIC_T,AIIC(T),28,0.61,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,G. KRISHNARAJU,parties.IN.IND,IND,8,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,A. SAMY AROKIASAMY,parties.IN.IND,IND,8,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,V. AMIRTHALINGAM @ BABU,parties.IN.JP,JP,4,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,C.M. ACHRAFF,parties.IN.INC,INC,2208,46.26,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,ABDUL RACHIDE,parties.IN.CPI,CPI,1378,28.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,R. RAVINDIRAN,parties.IN.JD,JD,954,19.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,M. ARUMAISELVAM,parties.IN.IND,IND,118,2.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,"RAJALAKSHMI, PA",parties.IN.BJP,BJP,46,0.96,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,B. IRUDAYA RAJ @ B. IDAYAVENDHANE,parties.IN.IND,IND,25,0.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,D. VEERAPPAN,parties.IN.IND,IND,21,0.44,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,KAREEM,parties.IN.IND,IND,12,0.25,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,H. RAJA MOHAMMED,parties.IN.IND,IND,6,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,S. INDIRA,parties.IN.IND,IND,5,0.1,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,S. RATHINAM @ MANOHAR,parties.IN.TMC_M,TMC(M),6866,50.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,U.C. ARUMUGHAM,parties.IN.AIADMK,ADMK,5866,43.39,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,P.K. LOGANATHAN,parties.IN.MGRK,MGRK,226,1.67,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,V.M. MURUGAN,parties.IN.IND,IND,158,1.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,A. GABRIAL,parties.IN.MDMK,MDMK,141,1.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,T. KALAIMARAN,parties.IN.BSP,BSP,102,0.75,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,M. ANANDHAN,parties.IN.IND,IND,26,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,K. DHANARAJ,parties.IN.IND,IND,26,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,K. RAJA,parties.IN.IND,IND,22,0.16,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,R. KUPPUSAMY,parties.IN.IND,IND,17,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,MASILAMANI @ V.K. MANI,parties.IN.IND,IND,17,0.13,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,M. KALIAPERUMAL,parties.IN.IND,IND,17,0.13,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,P. KALIDASS,parties.IN.IND,IND,11,0.08,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,V. KAMARAJ,parties.IN.IND,IND,10,0.07,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,M. MATHIAZHAGAN,parties.IN.IND,IND,8,0.06,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,P.N. ANTOINE,parties.IN.IND,IND,3,0.02,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,S. VEERAMUTHU,parties.IN.IND,IND,3,0.02,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,R. SIVA,parties.IN.DMK,DMK,8105,49.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,"K. PARASURAMAN, B.A.B.L.",parties.IN.AIADMK,ADMK,5107,30.97,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,C. PANDOURANGAM,parties.IN.MDMK,MDMK,2925,17.74,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,V. MOHANRAJ,parties.IN.IND,IND,135,0.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,K. MOTTOU,parties.IN.IND,IND,69,0.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,D. SHIVARRAJI,parties.IN.JP,JP,44,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,M.V. LAKSHMANAN,parties.IN.MGRK,MGRK,41,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,S.G. RAJA NARAYANAN,parties.IN.IND,IND,19,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,N. LOGANATHAN,parties.IN.IND,IND,18,0.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,P. SEZHIAN,parties.IN.IND,IND,14,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,S. KANNIAPPAN,parties.IN.IND,IND,6,0.04,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,N. KANNIAYAKUMARAN,parties.IN.IND,IND,5,0.03,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-7,puducherry,1996,7,NELLITHOPE,R.V. JANAKIRAMAN,parties.IN.DMK,DMK,8803,52.31,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-7,puducherry,1996,7,NELLITHOPE,D. RAMACHANDIREN,parties.IN.AIADMK,ADMK,7354,43.7,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-7,puducherry,1996,7,NELLITHOPE,K. ARUNAGIRI,parties.IN.JD,JD,364,2.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-7,puducherry,1996,7,NELLITHOPE,S. RAJA,parties.IN.BJP,BJP,204,1.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-7,puducherry,1996,7,NELLITHOPE,J. PETER,parties.IN.IND,IND,48,0.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-7,puducherry,1996,7,NELLITHOPE,K. BALASUBRAMANIAN,parties.IN.IND,IND,27,0.16,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-7,puducherry,1996,7,NELLITHOPE,A. ALEXANDAR,parties.IN.IND,IND,21,0.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-7,puducherry,1996,7,NELLITHOPE,P. SELVAM,parties.IN.IND,IND,7,0.04,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,M. MANJINI,parties.IN.CPI,CPI,11380,49.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,V. KOTHANDARAMAN SABABATHY,parties.IN.INC,INC,8278,36.15,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,G. THIRUVARASAN,parties.IN.PMK,PMK,2506,10.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,"S. SIVARAMAN, B.SC.",parties.IN.IND,IND,263,1.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,P. JAYAKUMAR,parties.IN.BJP,BJP,153,0.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,K. SUBRAMANIAN @ K.S. MANI,parties.IN.CPIMLL,CPI(ML)(L),123,0.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,JACOB,parties.IN.IND,IND,79,0.34,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,"RAMALINGAM, B.A.",parties.IN.IND,IND,56,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,K. SHANKAR @ DHANAKODI,parties.IN.IND,IND,32,0.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,M. SUNDARAPANDIAN,parties.IN.IND,IND,17,0.07,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,G. SAKKARAVARTHY,parties.IN.IND,IND,15,0.07,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,S. RAMSINGH,parties.IN.PMK,PMK,7382,37.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,T. JAYAMOORTHY,parties.IN.DMK,DMK,6329,32.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,S. SREEDHARAN,parties.IN.AIADMK,ADMK,3770,19.34,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,P. PURUSOTHAMAN,parties.IN.IND,IND,1754,9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,V. DEAVARAJAN,parties.IN.IND,IND,81,0.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,P. JAYA,parties.IN.IND,IND,67,0.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,R. ASHOK,parties.IN.BJP,BJP,57,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,M. ADHINARAYANANE,parties.IN.IND,IND,23,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,J. JAYAMOORTHY,parties.IN.IND,IND,22,0.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,K. RAMESH,parties.IN.IND,IND,11,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,R. RAJARAMAN,parties.IN.JD,JD,8311,62.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,K. PAKKIRIAMMAL,parties.IN.INC,INC,3454,26.07,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,P. MUTHUKRISHNAN,parties.IN.DMK,DMK,1043,7.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,S. PARGUNAN,parties.IN.JP,JP,140,1.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,A. THIAGARAJAN,parties.IN.IND,IND,104,0.79,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,P. KATHIRAVAN,parties.IN.IND,IND,90,0.68,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,M. MALLIGA,parties.IN.IND,IND,32,0.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,D. JANAKIRAMAN,parties.IN.AIIC_T,AIIC(T),32,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,G. KOGILA,parties.IN.IND,IND,20,0.15,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,R. KUMARASELVAN,parties.IN.IND,IND,16,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,S. BALARAMAN,parties.IN.IND,IND,6,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,V. VAITHILINGAM,parties.IN.INC,INC,7563,54.86,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,V. MUTHUNARAYANA REDDIAR,parties.IN.IND,IND,5036,36.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,P.M. MATHY @ SUBBARAYAN,parties.IN.DMK,DMK,567,4.11,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,P. JAYARAMAN,parties.IN.IND,IND,224,1.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,S. KUMAR,parties.IN.IND,IND,84,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,M. RAJU,parties.IN.IND,IND,67,0.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,C. CHINNASAMY,parties.IN.AIIC_T,AIIC(T),64,0.46,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,K. LAKSHMINARAYANAN,parties.IN.IND,IND,47,0.34,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,P. SENGALVARAYAN,parties.IN.IND,IND,37,0.27,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,K. EZHILARASI,parties.IN.IND,IND,36,0.26,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,P. RAJAVELU,parties.IN.IND,IND,35,0.25,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,S. MURUGESAN,parties.IN.IND,IND,19,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,S. PUNNIAKODY,parties.IN.IND,IND,6,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-12,puducherry,1996,12,KURUVINATHAM,T. THIAGARAJAN,parties.IN.INC,INC,7209,48.85,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-12,puducherry,1996,12,KURUVINATHAM,R. RAMANATHAN,parties.IN.MDMK,MDMK,7022,47.58,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-12,puducherry,1996,12,KURUVINATHAM,A. ANNAPOORNI,parties.IN.DMK,DMK,305,2.07,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-12,puducherry,1996,12,KURUVINATHAM,M. SHANMUGAM,parties.IN.BSP,BSP,89,0.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-12,puducherry,1996,12,KURUVINATHAM,M. MUTHUNARAYANAN,parties.IN.IND,IND,83,0.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-12,puducherry,1996,12,KURUVINATHAM,C. MANI,parties.IN.JP,JP,50,0.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-13,puducherry,1996,13,BAHOUR,M. KANDASAMY,parties.IN.TMC_M,TMC(M),7921,51.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-13,puducherry,1996,13,BAHOUR,P. RAJAVELU,parties.IN.INC,INC,7221,47.36,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-13,puducherry,1996,13,BAHOUR,N. JAYARAMAN,parties.IN.IND,IND,81,0.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-13,puducherry,1996,13,BAHOUR,V. BALARAMAN,parties.IN.IND,IND,23,0.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,S. ARASI,parties.IN.AIADMK,ADMK,5707,37.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,K. JAYARAJ,parties.IN.DMK,DMK,5586,36.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,L. KALIVARADAN,parties.IN.CPIM,CPM,2921,18.98,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,S. KOMALA,parties.IN.IND,IND,456,2.96,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,M. KUPPUSAMY,parties.IN.BSP,BSP,119,0.77,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,M. KRISHNAMURTHY,parties.IN.IND,IND,113,0.73,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,S. DEIVASIGAMANI,parties.IN.IND,IND,99,0.64,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,M. RANGASAMY,parties.IN.IND,IND,96,0.62,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,D. ANGALAN,parties.IN.IND,IND,87,0.57,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,S. P. VEERAPPAN,parties.IN.BJP,BJP,65,0.42,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,K. SEGAR,parties.IN.IND,IND,58,0.38,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,K. DEVANATHAN @ EGANATHAN,parties.IN.IND,IND,35,0.23,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,K. NAVAPPAN,parties.IN.IND,IND,29,0.19,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,N. VEERAPPAN,parties.IN.IND,IND,13,0.08,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,M. SIVAKUMAR,parties.IN.IND,IND,7,0.05,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-15,puducherry,1996,15,MANNADIPETH,K. RAJASEGARAN,parties.IN.TMC_M,TMC(M),8113,51.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-15,puducherry,1996,15,MANNADIPETH,N. RAJARAM,parties.IN.INC,INC,6866,43.69,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-15,puducherry,1996,15,MANNADIPETH,R. GOVINDARAJAN,parties.IN.IND,IND,335,2.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-15,puducherry,1996,15,MANNADIPETH,N. MURUGAIYAN,parties.IN.BJP,BJP,175,1.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-15,puducherry,1996,15,MANNADIPETH,S. PERUMAL,parties.IN.IND,IND,131,0.83,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-15,puducherry,1996,15,MANNADIPETH,T. ARUNACHALAM @ ANNA,parties.IN.IND,IND,43,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-15,puducherry,1996,15,MANNADIPETH,V. KOTHANDARAMAN,parties.IN.IND,IND,31,0.2,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-15,puducherry,1996,15,MANNADIPETH,R. ARCHUNAN,parties.IN.IND,IND,20,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,V. NAGARATHINAM,parties.IN.TMC_M,TMC(M),7380,53.78,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,N. MARIMUTHU,parties.IN.INC,INC,5232,38.13,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,I. ELUMALAI,parties.IN.IND,IND,226,1.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,P. MURUGAN,parties.IN.IND,IND,192,1.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,T. ARULSELVI,parties.IN.IND,IND,185,1.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,S. IYYANAR,parties.IN.IND,IND,117,0.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,P. SUNDAR RAJAN,parties.IN.BSP,BSP,115,0.84,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,M. P. DATCHINAMURTHY,parties.IN.PMK,PMK,114,0.83,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,G. NARAYANASAMY,parties.IN.IND,IND,81,0.59,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,S. BALARAMAN,parties.IN.IND,IND,45,0.33,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,N. ARIKRISHNAN,parties.IN.IND,IND,30,0.22,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,R. VENKATCHALAM,parties.IN.IND,IND,5,0.04,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,C. JAYAKUMAR,parties.IN.TMC_M,TMC(M),12205,64.56,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,P. ANANDBASKARAN,parties.IN.INC,INC,6509,34.43,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,K. KANDAPPAN,parties.IN.IND,IND,40,0.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,P. SUGUMARAN @ JAYAKUMAR,parties.IN.IND,IND,30,0.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,M.V. RAGUPATHY,parties.IN.IND,IND,21,0.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,G. SIVAGAMY,parties.IN.IND,IND,21,0.11,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,S. STANLEY ALLWIN,parties.IN.IND,IND,21,0.11,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,B. NATARAJAN,parties.IN.IND,IND,18,0.1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,S. ARIKRISHNAN,parties.IN.IND,IND,15,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,M.K. PALANI,parties.IN.IND,IND,14,0.07,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,J. SARAVANAN,parties.IN.IND,IND,12,0.06,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,K. NATARAJAN,parties.IN.AIADMK,ADMK,7794,41.1,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,R.R. SOMASUNDARAM,parties.IN.DMK,DMK,6252,32.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,A. NAMASIVAYAM,parties.IN.MDMK,MDMK,4301,22.68,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,A. JAYA,parties.IN.IND,IND,274,1.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,A. MOHAMADOU IBRAHIM,parties.IN.BSP,BSP,116,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,G. ADHIMOOLAM,parties.IN.IND,IND,97,0.51,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,M.A. AKBAR,parties.IN.IND,IND,50,0.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,U. MURUGESAN,parties.IN.IND,IND,27,0.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,G.R. MUNUSAMY,parties.IN.IND,IND,18,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,D. PRABAGARAN,parties.IN.IND,IND,17,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,V. DEVADASSU,parties.IN.IND,IND,7,0.04,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,T. MANICKAVASAGAN,parties.IN.IND,IND,6,0.03,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,T.G. RADHAKRISHNAN,parties.IN.IND,IND,3,0.02,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,K. OLAGANATHAN,parties.IN.IND,IND,3,0.02,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-19,puducherry,1996,19,THATTANCHAVADY,N. RANGASAMY,parties.IN.INC,INC,9989,42.95,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-19,puducherry,1996,19,THATTANCHAVADY,V. PETHAPERUMAL,parties.IN.JD,JD,7699,33.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-19,puducherry,1996,19,THATTANCHAVADY,V. RATHINAVELU,parties.IN.DMK,DMK,5223,22.46,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-19,puducherry,1996,19,THATTANCHAVADY,K. RAJASEKARAN,parties.IN.IND,IND,112,0.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-19,puducherry,1996,19,THATTANCHAVADY,R. MANOGARAN,parties.IN.IND,IND,110,0.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-19,puducherry,1996,19,THATTANCHAVADY,N. AJEVAR,parties.IN.IND,IND,53,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-19,puducherry,1996,19,THATTANCHAVADY,R. SUNDARABABU,parties.IN.IND,IND,52,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-19,puducherry,1996,19,THATTANCHAVADY,A. VELU COUNDER,parties.IN.IND,IND,17,0.07,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,R. VISWANATHAN,parties.IN.CPI,CPI,17206,65.58,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,"NA, MANIMARAN",parties.IN.AIADMK,ADMK,5966,22.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,A.M. KRISHNAMOORTHY,parties.IN.BJP,BJP,1294,4.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,N.T. SAMPATHKUMAR,parties.IN.MGRK,MGRK,1028,3.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,K. VENKATACHALAM,parties.IN.AIIC_T,AIIC(T),326,1.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,D. UMASUDAN,parties.IN.JP,JP,231,0.88,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,D. RAGAVAN,parties.IN.IND,IND,78,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,E. SAMMANTHAM,parties.IN.IND,IND,61,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,E. GEORGE,parties.IN.IND,IND,25,0.1,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,K. ERANYAN @ ETHIRAJ,parties.IN.IND,IND,20,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,N. KESAVAN,parties.IN.DMK,DMK,16442,54.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,M.O.H.F. SHAJAHAN,parties.IN.INC,INC,10211,33.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,SANKARAN,parties.IN.CPIM,CPM,2596,8.59,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,L. KARUNAKARAN,parties.IN.BJP,BJP,359,1.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,V. JANAKIRAMAN,parties.IN.IND,IND,220,0.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,S. ANANDAN @ LOGANATHAN,parties.IN.IND,IND,138,0.46,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,P. CHITRADEVI,parties.IN.JP,JP,93,0.31,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,E. CHANDRASEGARAN,parties.IN.IND,IND,57,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,JEGAN @ JAGADEESAN,parties.IN.IND,IND,36,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,R. SANKAR,parties.IN.IND,IND,27,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,K. JAYARAMAN,parties.IN.IND,IND,24,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,B. DHANDAPANI,parties.IN.IND,IND,12,0.04,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,N. RAMACHANDRAN,parties.IN.IND,IND,12,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-22,puducherry,1996,22,COTCHERY,R. NALAMAGARAJAN,parties.IN.INC,INC,7630,47.53,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-22,puducherry,1996,22,COTCHERY,G. PANJAVARNAM,parties.IN.IND,IND,5968,37.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-22,puducherry,1996,22,COTCHERY,S. SHANMUGAM,parties.IN.DMK,DMK,2319,14.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-22,puducherry,1996,22,COTCHERY,SARADAME @ RAJESWARY,parties.IN.IND,IND,57,0.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-22,puducherry,1996,22,COTCHERY,P. MUTHUKRISHNAN,parties.IN.PMK,PMK,50,0.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-22,puducherry,1996,22,COTCHERY,POOVAM K. ELANGOVAN,parties.IN.BSP,BSP,30,0.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-23,puducherry,1996,23,KARAIKAL,A.M.H. NAZEEM,parties.IN.DMK,DMK,9474,71.01,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-23,puducherry,1996,23,KARAIKAL,H.M. ABDUL KADER,parties.IN.AIADMK,ADMK,2946,22.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-23,puducherry,1996,23,KARAIKAL,M.G. DESIGAN,parties.IN.IND,IND,476,3.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-23,puducherry,1996,23,KARAIKAL,THIYAGA. THIRUNVUKKARASU,parties.IN.BJP,BJP,273,2.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-23,puducherry,1996,23,KARAIKAL,L. JANARTHANAN,parties.IN.MDMK,MDMK,111,0.83,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-23,puducherry,1996,23,KARAIKAL,T. ARULDASS,parties.IN.IND,IND,40,0.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-23,puducherry,1996,23,KARAIKAL,K. VIJAYALACHUMY,parties.IN.IND,IND,22,0.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-24,puducherry,1996,24,KARAIKAL SOUTH,A.V. SUBRAMANIAN,parties.IN.INC,INC,6676,57.48,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-24,puducherry,1996,24,KARAIKAL SOUTH,S. SAVARIRAJAN,parties.IN.DMK,DMK,4717,40.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-24,puducherry,1996,24,KARAIKAL SOUTH,KALPAKAM GANESAN,parties.IN.BJP,BJP,106,0.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-24,puducherry,1996,24,KARAIKAL SOUTH,A.M. ISMAIL,parties.IN.JD,JD,103,0.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-24,puducherry,1996,24,KARAIKAL SOUTH,O. THETHIRUSAMY,parties.IN.IND,IND,13,0.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-25,puducherry,1996,25,NERAVY-GRAND ALDEE,V.M.C. SIVAKUMAR,parties.IN.DMK,DMK,7595,53.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-25,puducherry,1996,25,NERAVY-GRAND ALDEE,S.T.P. DIRAVIDAMANI,parties.IN.IND,IND,4385,30.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-25,puducherry,1996,25,NERAVY-GRAND ALDEE,A.M.K. BALU,parties.IN.AIADMK,ADMK,2159,15.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-25,puducherry,1996,25,NERAVY-GRAND ALDEE,A. SULTAL AREEF,parties.IN.IND,IND,59,0.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-25,puducherry,1996,25,NERAVY-GRAND ALDEE,MURUGAIYAN @ KALAIMANI,parties.IN.IND,IND,14,0.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-26,puducherry,1996,26,TIRUNALLAR,R. KAMALAKANNAN,parties.IN.INC,INC,6063,48.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-26,puducherry,1996,26,TIRUNALLAR,A. SOUNDARENGAN,parties.IN.DMK,DMK,4938,39.53,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-26,puducherry,1996,26,TIRUNALLAR,S. AMBALAVANAN,parties.IN.PMK,PMK,1492,11.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-27,puducherry,1996,27,NEDUNCADU,A. MARIMUTHU,parties.IN.DMK,DMK,6899,54.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-27,puducherry,1996,27,NEDUNCADU,M. CHANDIRAKASU,parties.IN.INC,INC,5116,40.74,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-27,puducherry,1996,27,NEDUNCADU,M. KALIAPERUMAL,parties.IN.CPIM,CPM,479,3.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-27,puducherry,1996,27,NEDUNCADU,S. RAJENDIRAN,parties.IN.IND,IND,65,0.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-28,puducherry,1996,28,MAHE,E. VALSARAJ,parties.IN.INC,INC,4184,45.58,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-28,puducherry,1996,28,MAHE,MANOLY MUHAMMAD,parties.IN.IND,IND,3915,42.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-28,puducherry,1996,28,MAHE,V.P. KRISHNARAJ,parties.IN.BJP,BJP,1047,11.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-28,puducherry,1996,28,MAHE,K.K. MUSTHAFA,parties.IN.IND,IND,34,0.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-29,puducherry,1996,29,PALLOOR,A.V. SREEDHARAN,parties.IN.INC,INC,4253,45.4,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-29,puducherry,1996,29,PALLOOR,PANANGATIL KHADER,parties.IN.JD,JD,2929,31.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-29,puducherry,1996,29,PALLOOR,P.K. SATHYANANDAN,parties.IN.IND,IND,1131,12.07,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-29,puducherry,1996,29,PALLOOR,C.P. GANESHAN,parties.IN.BJP,BJP,1029,10.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-29,puducherry,1996,29,PALLOOR,K.P. MOOSA HAJI,parties.IN.IND,IND,25,0.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-30,puducherry,1996,30,YANAM,MALLADI KRISHNA RAO,parties.IN.IND,IND,8445,62.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-30,puducherry,1996,30,YANAM,VELAGA RAJESWARA RAO,parties.IN.INC,INC,3602,26.58,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-30,puducherry,1996,30,YANAM,KAMICHETTY VENUGOPALARAONAIDU,parties.IN.IND,IND,1347,9.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-30,puducherry,1996,30,YANAM,KOTNALA PRABHAKARA RAO,parties.IN.IND,IND,58,0.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-30,puducherry,1996,30,YANAM,KAPAGANTY MURALI,parties.IN.IND,IND,36,0.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-30,puducherry,1996,30,YANAM,ELIPE RAJ KUMAR,parties.IN.IND,IND,33,0.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-30,puducherry,1996,30,YANAM,YERRA SUBRAHMANYESWARA RAO,parties.IN.IND,IND,21,0.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-puducherry-30,puducherry,1996,30,YANAM,MALLADI UDHAYA LAKSHMI,parties.IN.IND,IND,12,0.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,S. ANANDAVELU,parties.IN.AIADMK,ADMK,11009,56.26,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,G. PALANIRAJA,parties.IN.DMK,DMK,8098,41.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,S. RAJAMANICKAM @ ELANGO,parties.IN.MDMK,MDMK,157,0.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,N. EZHILARASAN,parties.IN.IND,IND,95,0.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,V. SELVAKUMAR,parties.IN.JP,JP,81,0.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,P. BASKAR,parties.IN.IND,IND,45,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,K. ARUMUGAM,parties.IN.IND,IND,37,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,N. VIJAYAKUMAR,parties.IN.IND,IND,18,0.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,R. KRISHNAN,parties.IN.IND,IND,17,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-1,puducherry,1996,1,MUTHIALPET,JANAKIRAMAN,parties.IN.IND,IND,10,0.05,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,P. KANNAN,parties.IN.IND,IND,6501,63.21,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,S. NARAYANASAMY,parties.IN.INC,INC,3195,31.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,S. THIAGARAJAN,parties.IN.BJP,BJP,304,2.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,PANNEERSELVAM,parties.IN.AIIC_T,AIIC(T),125,1.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,DEVATHA OUPENDRAN,parties.IN.JP,JP,49,0.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,K.S. RANGADURAI,parties.IN.IND,IND,27,0.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,GOVINDAMMAL,parties.IN.IND,IND,22,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,A. SRIKANTH,parties.IN.IND,IND,20,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,K. MANAVALAN,parties.IN.IND,IND,16,0.16,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,N.R. JANAKIRAMAN,parties.IN.IND,IND,14,0.14,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-2,puducherry,1996,2,CASSICADE,V. RAMAMOORTHY,parties.IN.IND,IND,12,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,S.P. SIVAKUMAR,parties.IN.DMK,DMK,2697,58.54,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,A. GANDHIRASU,parties.IN.INC,INC,1159,25.16,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,LOUIE PRAGASSA KANNAIYA,parties.IN.IND,IND,559,12.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,M. VISWESWARAN,parties.IN.BJP,BJP,105,2.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,G. RAJMOHAN YADAV,parties.IN.IND,IND,39,0.85,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,D. RAMAJAYAM,parties.IN.AIIC_T,AIIC(T),28,0.61,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,G. KRISHNARAJU,parties.IN.IND,IND,8,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,A. SAMY AROKIASAMY,parties.IN.IND,IND,8,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-3,puducherry,1996,3,RAJ BHAVAN,V. AMIRTHALINGAM @ BABU,parties.IN.JP,JP,4,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,C.M. ACHRAFF,parties.IN.INC,INC,2208,46.26,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,ABDUL RACHIDE,parties.IN.CPI,CPI,1378,28.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,R. RAVINDIRAN,parties.IN.JD,JD,954,19.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,M. ARUMAISELVAM,parties.IN.IND,IND,118,2.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,"RAJALAKSHMI, PA",parties.IN.BJP,BJP,46,0.96,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,B. IRUDAYA RAJ @ B. IDAYAVENDHANE,parties.IN.IND,IND,25,0.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,D. VEERAPPAN,parties.IN.IND,IND,21,0.44,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,KAREEM,parties.IN.IND,IND,12,0.25,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,H. RAJA MOHAMMED,parties.IN.IND,IND,6,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-4,puducherry,1996,4,BUSSY,S. INDIRA,parties.IN.IND,IND,5,0.1,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,S. RATHINAM @ MANOHAR,parties.IN.TMC_M,TMC(M),6866,50.79,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,U.C. ARUMUGHAM,parties.IN.AIADMK,ADMK,5866,43.39,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,P.K. LOGANATHAN,parties.IN.MGRK,MGRK,226,1.67,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,V.M. MURUGAN,parties.IN.IND,IND,158,1.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,A. GABRIAL,parties.IN.MDMK,MDMK,141,1.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,T. KALAIMARAN,parties.IN.BSP,BSP,102,0.75,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,M. ANANDHAN,parties.IN.IND,IND,26,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,K. DHANARAJ,parties.IN.IND,IND,26,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,K. RAJA,parties.IN.IND,IND,22,0.16,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,R. KUPPUSAMY,parties.IN.IND,IND,17,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,MASILAMANI @ V.K. MANI,parties.IN.IND,IND,17,0.13,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,M. KALIAPERUMAL,parties.IN.IND,IND,17,0.13,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,P. KALIDASS,parties.IN.IND,IND,11,0.08,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,V. KAMARAJ,parties.IN.IND,IND,10,0.07,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,M. MATHIAZHAGAN,parties.IN.IND,IND,8,0.06,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,P.N. ANTOINE,parties.IN.IND,IND,3,0.02,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-5,puducherry,1996,5,OUPALAM,S. VEERAMUTHU,parties.IN.IND,IND,3,0.02,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,R. SIVA,parties.IN.DMK,DMK,8105,49.16,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,"K. PARASURAMAN, B.A.B.L.",parties.IN.AIADMK,ADMK,5107,30.97,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,C. PANDOURANGAM,parties.IN.MDMK,MDMK,2925,17.74,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,V. MOHANRAJ,parties.IN.IND,IND,135,0.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,K. MOTTOU,parties.IN.IND,IND,69,0.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,D. SHIVARRAJI,parties.IN.JP,JP,44,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,M.V. LAKSHMANAN,parties.IN.MGRK,MGRK,41,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,S.G. RAJA NARAYANAN,parties.IN.IND,IND,19,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,N. LOGANATHAN,parties.IN.IND,IND,18,0.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,P. SEZHIAN,parties.IN.IND,IND,14,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,S. KANNIAPPAN,parties.IN.IND,IND,6,0.04,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-6,puducherry,1996,6,ORLEAMPETH,N. KANNIAYAKUMARAN,parties.IN.IND,IND,5,0.03,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-7,puducherry,1996,7,NELLITHOPE,R.V. JANAKIRAMAN,parties.IN.DMK,DMK,8803,52.31,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-7,puducherry,1996,7,NELLITHOPE,D. RAMACHANDIREN,parties.IN.AIADMK,ADMK,7354,43.7,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-7,puducherry,1996,7,NELLITHOPE,K. ARUNAGIRI,parties.IN.JD,JD,364,2.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-7,puducherry,1996,7,NELLITHOPE,S. RAJA,parties.IN.BJP,BJP,204,1.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-7,puducherry,1996,7,NELLITHOPE,J. PETER,parties.IN.IND,IND,48,0.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-7,puducherry,1996,7,NELLITHOPE,K. BALASUBRAMANIAN,parties.IN.IND,IND,27,0.16,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-7,puducherry,1996,7,NELLITHOPE,A. ALEXANDAR,parties.IN.IND,IND,21,0.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-7,puducherry,1996,7,NELLITHOPE,P. SELVAM,parties.IN.IND,IND,7,0.04,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,M. MANJINI,parties.IN.CPI,CPI,11380,49.69,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,V. KOTHANDARAMAN SABABATHY,parties.IN.INC,INC,8278,36.15,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,G. THIRUVARASAN,parties.IN.PMK,PMK,2506,10.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,"S. SIVARAMAN, B.SC.",parties.IN.IND,IND,263,1.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,P. JAYAKUMAR,parties.IN.BJP,BJP,153,0.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,K. SUBRAMANIAN @ K.S. MANI,parties.IN.CPIMLL,CPI(ML)(L),123,0.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,JACOB,parties.IN.IND,IND,79,0.34,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,"RAMALINGAM, B.A.",parties.IN.IND,IND,56,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,K. SHANKAR @ DHANAKODI,parties.IN.IND,IND,32,0.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,M. SUNDARAPANDIAN,parties.IN.IND,IND,17,0.07,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-8,puducherry,1996,8,MODELIARPETH,G. SAKKARAVARTHY,parties.IN.IND,IND,15,0.07,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,S. RAMSINGH,parties.IN.PMK,PMK,7382,37.86,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,T. JAYAMOORTHY,parties.IN.DMK,DMK,6329,32.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,S. SREEDHARAN,parties.IN.AIADMK,ADMK,3770,19.34,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,P. PURUSOTHAMAN,parties.IN.IND,IND,1754,9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,V. DEAVARAJAN,parties.IN.IND,IND,81,0.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,P. JAYA,parties.IN.IND,IND,67,0.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,R. ASHOK,parties.IN.BJP,BJP,57,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,M. ADHINARAYANANE,parties.IN.IND,IND,23,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,J. JAYAMOORTHY,parties.IN.IND,IND,22,0.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-9,puducherry,1996,9,ARIANKUPPAM,K. RAMESH,parties.IN.IND,IND,11,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,R. RAJARAMAN,parties.IN.JD,JD,8311,62.73,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,K. PAKKIRIAMMAL,parties.IN.INC,INC,3454,26.07,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,P. MUTHUKRISHNAN,parties.IN.DMK,DMK,1043,7.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,S. PARGUNAN,parties.IN.JP,JP,140,1.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,A. THIAGARAJAN,parties.IN.IND,IND,104,0.79,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,P. KATHIRAVAN,parties.IN.IND,IND,90,0.68,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,M. MALLIGA,parties.IN.IND,IND,32,0.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,D. JANAKIRAMAN,parties.IN.AIIC_T,AIIC(T),32,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,G. KOGILA,parties.IN.IND,IND,20,0.15,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,R. KUMARASELVAN,parties.IN.IND,IND,16,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-10,puducherry,1996,10,EMBALOM,S. BALARAMAN,parties.IN.IND,IND,6,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,V. VAITHILINGAM,parties.IN.INC,INC,7563,54.86,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,V. MUTHUNARAYANA REDDIAR,parties.IN.IND,IND,5036,36.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,P.M. MATHY @ SUBBARAYAN,parties.IN.DMK,DMK,567,4.11,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,P. JAYARAMAN,parties.IN.IND,IND,224,1.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,S. KUMAR,parties.IN.IND,IND,84,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,M. RAJU,parties.IN.IND,IND,67,0.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,C. CHINNASAMY,parties.IN.AIIC_T,AIIC(T),64,0.46,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,K. LAKSHMINARAYANAN,parties.IN.IND,IND,47,0.34,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,P. SENGALVARAYAN,parties.IN.IND,IND,37,0.27,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,K. EZHILARASI,parties.IN.IND,IND,36,0.26,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,P. RAJAVELU,parties.IN.IND,IND,35,0.25,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,S. MURUGESAN,parties.IN.IND,IND,19,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-11,puducherry,1996,11,NETTAPAKKAM,S. PUNNIAKODY,parties.IN.IND,IND,6,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-12,puducherry,1996,12,KURUVINATHAM,T. THIAGARAJAN,parties.IN.INC,INC,7209,48.85,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-12,puducherry,1996,12,KURUVINATHAM,R. RAMANATHAN,parties.IN.MDMK,MDMK,7022,47.58,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-12,puducherry,1996,12,KURUVINATHAM,A. ANNAPOORNI,parties.IN.DMK,DMK,305,2.07,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-12,puducherry,1996,12,KURUVINATHAM,M. SHANMUGAM,parties.IN.BSP,BSP,89,0.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-12,puducherry,1996,12,KURUVINATHAM,M. MUTHUNARAYANAN,parties.IN.IND,IND,83,0.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-12,puducherry,1996,12,KURUVINATHAM,C. MANI,parties.IN.JP,JP,50,0.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-13,puducherry,1996,13,BAHOUR,M. KANDASAMY,parties.IN.TMC_M,TMC(M),7921,51.95,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-13,puducherry,1996,13,BAHOUR,P. RAJAVELU,parties.IN.INC,INC,7221,47.36,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-13,puducherry,1996,13,BAHOUR,N. JAYARAMAN,parties.IN.IND,IND,81,0.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-13,puducherry,1996,13,BAHOUR,V. BALARAMAN,parties.IN.IND,IND,23,0.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,S. ARASI,parties.IN.AIADMK,ADMK,5707,37.08,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,K. JAYARAJ,parties.IN.DMK,DMK,5586,36.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,L. KALIVARADAN,parties.IN.CPIM,CPM,2921,18.98,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,S. KOMALA,parties.IN.IND,IND,456,2.96,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,M. KUPPUSAMY,parties.IN.BSP,BSP,119,0.77,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,M. KRISHNAMURTHY,parties.IN.IND,IND,113,0.73,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,S. DEIVASIGAMANI,parties.IN.IND,IND,99,0.64,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,M. RANGASAMY,parties.IN.IND,IND,96,0.62,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,D. ANGALAN,parties.IN.IND,IND,87,0.57,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,S. P. VEERAPPAN,parties.IN.BJP,BJP,65,0.42,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,K. SEGAR,parties.IN.IND,IND,58,0.38,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,K. DEVANATHAN @ EGANATHAN,parties.IN.IND,IND,35,0.23,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,K. NAVAPPAN,parties.IN.IND,IND,29,0.19,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,N. VEERAPPAN,parties.IN.IND,IND,13,0.08,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-14,puducherry,1996,14,THIRUBUVANAI,M. SIVAKUMAR,parties.IN.IND,IND,7,0.05,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-15,puducherry,1996,15,MANNADIPETH,K. RAJASEGARAN,parties.IN.TMC_M,TMC(M),8113,51.63,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-15,puducherry,1996,15,MANNADIPETH,N. RAJARAM,parties.IN.INC,INC,6866,43.69,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-15,puducherry,1996,15,MANNADIPETH,R. GOVINDARAJAN,parties.IN.IND,IND,335,2.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-15,puducherry,1996,15,MANNADIPETH,N. MURUGAIYAN,parties.IN.BJP,BJP,175,1.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-15,puducherry,1996,15,MANNADIPETH,S. PERUMAL,parties.IN.IND,IND,131,0.83,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-15,puducherry,1996,15,MANNADIPETH,T. ARUNACHALAM @ ANNA,parties.IN.IND,IND,43,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-15,puducherry,1996,15,MANNADIPETH,V. KOTHANDARAMAN,parties.IN.IND,IND,31,0.2,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-15,puducherry,1996,15,MANNADIPETH,R. ARCHUNAN,parties.IN.IND,IND,20,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,V. NAGARATHINAM,parties.IN.TMC_M,TMC(M),7380,53.78,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,N. MARIMUTHU,parties.IN.INC,INC,5232,38.13,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,I. ELUMALAI,parties.IN.IND,IND,226,1.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,P. MURUGAN,parties.IN.IND,IND,192,1.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,T. ARULSELVI,parties.IN.IND,IND,185,1.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,S. IYYANAR,parties.IN.IND,IND,117,0.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,P. SUNDAR RAJAN,parties.IN.BSP,BSP,115,0.84,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,M. P. DATCHINAMURTHY,parties.IN.PMK,PMK,114,0.83,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,G. NARAYANASAMY,parties.IN.IND,IND,81,0.59,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,S. BALARAMAN,parties.IN.IND,IND,45,0.33,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,N. ARIKRISHNAN,parties.IN.IND,IND,30,0.22,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-16,puducherry,1996,16,OSSUDU,R. VENKATCHALAM,parties.IN.IND,IND,5,0.04,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,C. JAYAKUMAR,parties.IN.TMC_M,TMC(M),12205,64.56,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,P. ANANDBASKARAN,parties.IN.INC,INC,6509,34.43,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,K. KANDAPPAN,parties.IN.IND,IND,40,0.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,P. SUGUMARAN @ JAYAKUMAR,parties.IN.IND,IND,30,0.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,M.V. RAGUPATHY,parties.IN.IND,IND,21,0.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,G. SIVAGAMY,parties.IN.IND,IND,21,0.11,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,S. STANLEY ALLWIN,parties.IN.IND,IND,21,0.11,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,B. NATARAJAN,parties.IN.IND,IND,18,0.1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,S. ARIKRISHNAN,parties.IN.IND,IND,15,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,M.K. PALANI,parties.IN.IND,IND,14,0.07,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-17,puducherry,1996,17,VILLENOUR,J. SARAVANAN,parties.IN.IND,IND,12,0.06,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,K. NATARAJAN,parties.IN.AIADMK,ADMK,7794,41.1,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,R.R. SOMASUNDARAM,parties.IN.DMK,DMK,6252,32.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,A. NAMASIVAYAM,parties.IN.MDMK,MDMK,4301,22.68,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,A. JAYA,parties.IN.IND,IND,274,1.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,A. MOHAMADOU IBRAHIM,parties.IN.BSP,BSP,116,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,G. ADHIMOOLAM,parties.IN.IND,IND,97,0.51,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,M.A. AKBAR,parties.IN.IND,IND,50,0.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,U. MURUGESAN,parties.IN.IND,IND,27,0.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,G.R. MUNUSAMY,parties.IN.IND,IND,18,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,D. PRABAGARAN,parties.IN.IND,IND,17,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,V. DEVADASSU,parties.IN.IND,IND,7,0.04,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,T. MANICKAVASAGAN,parties.IN.IND,IND,6,0.03,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,T.G. RADHAKRISHNAN,parties.IN.IND,IND,3,0.02,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-18,puducherry,1996,18,OZHUKARAI,K. OLAGANATHAN,parties.IN.IND,IND,3,0.02,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-19,puducherry,1996,19,THATTANCHAVADY,N. RANGASAMY,parties.IN.INC,INC,9989,42.95,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-19,puducherry,1996,19,THATTANCHAVADY,V. PETHAPERUMAL,parties.IN.JD,JD,7699,33.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-19,puducherry,1996,19,THATTANCHAVADY,V. RATHINAVELU,parties.IN.DMK,DMK,5223,22.46,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-19,puducherry,1996,19,THATTANCHAVADY,K. RAJASEKARAN,parties.IN.IND,IND,112,0.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-19,puducherry,1996,19,THATTANCHAVADY,R. MANOGARAN,parties.IN.IND,IND,110,0.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-19,puducherry,1996,19,THATTANCHAVADY,N. AJEVAR,parties.IN.IND,IND,53,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-19,puducherry,1996,19,THATTANCHAVADY,R. SUNDARABABU,parties.IN.IND,IND,52,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-19,puducherry,1996,19,THATTANCHAVADY,A. VELU COUNDER,parties.IN.IND,IND,17,0.07,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,R. VISWANATHAN,parties.IN.CPI,CPI,17206,65.58,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,"NA, MANIMARAN",parties.IN.AIADMK,ADMK,5966,22.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,A.M. KRISHNAMOORTHY,parties.IN.BJP,BJP,1294,4.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,N.T. SAMPATHKUMAR,parties.IN.MGRK,MGRK,1028,3.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,K. VENKATACHALAM,parties.IN.AIIC_T,AIIC(T),326,1.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,D. UMASUDAN,parties.IN.JP,JP,231,0.88,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,D. RAGAVAN,parties.IN.IND,IND,78,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,E. SAMMANTHAM,parties.IN.IND,IND,61,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,E. GEORGE,parties.IN.IND,IND,25,0.1,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-20,puducherry,1996,20,REDDIARPALAYAM,K. ERANYAN @ ETHIRAJ,parties.IN.IND,IND,20,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,N. KESAVAN,parties.IN.DMK,DMK,16442,54.4,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,M.O.H.F. SHAJAHAN,parties.IN.INC,INC,10211,33.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,SANKARAN,parties.IN.CPIM,CPM,2596,8.59,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,L. KARUNAKARAN,parties.IN.BJP,BJP,359,1.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,V. JANAKIRAMAN,parties.IN.IND,IND,220,0.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,S. ANANDAN @ LOGANATHAN,parties.IN.IND,IND,138,0.46,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,P. CHITRADEVI,parties.IN.JP,JP,93,0.31,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,E. CHANDRASEGARAN,parties.IN.IND,IND,57,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,JEGAN @ JAGADEESAN,parties.IN.IND,IND,36,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,R. SANKAR,parties.IN.IND,IND,27,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,K. JAYARAMAN,parties.IN.IND,IND,24,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,B. DHANDAPANI,parties.IN.IND,IND,12,0.04,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-21,puducherry,1996,21,LAWSPET,N. RAMACHANDRAN,parties.IN.IND,IND,12,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-22,puducherry,1996,22,COTCHERY,R. NALAMAGARAJAN,parties.IN.INC,INC,7630,47.53,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-22,puducherry,1996,22,COTCHERY,G. PANJAVARNAM,parties.IN.IND,IND,5968,37.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-22,puducherry,1996,22,COTCHERY,S. SHANMUGAM,parties.IN.DMK,DMK,2319,14.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-22,puducherry,1996,22,COTCHERY,SARADAME @ RAJESWARY,parties.IN.IND,IND,57,0.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-22,puducherry,1996,22,COTCHERY,P. MUTHUKRISHNAN,parties.IN.PMK,PMK,50,0.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-22,puducherry,1996,22,COTCHERY,POOVAM K. ELANGOVAN,parties.IN.BSP,BSP,30,0.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-23,puducherry,1996,23,KARAIKAL,A.M.H. NAZEEM,parties.IN.DMK,DMK,9474,71.01,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-23,puducherry,1996,23,KARAIKAL,H.M. ABDUL KADER,parties.IN.AIADMK,ADMK,2946,22.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-23,puducherry,1996,23,KARAIKAL,M.G. DESIGAN,parties.IN.IND,IND,476,3.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-23,puducherry,1996,23,KARAIKAL,THIYAGA. THIRUNVUKKARASU,parties.IN.BJP,BJP,273,2.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-23,puducherry,1996,23,KARAIKAL,L. JANARTHANAN,parties.IN.MDMK,MDMK,111,0.83,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-23,puducherry,1996,23,KARAIKAL,T. ARULDASS,parties.IN.IND,IND,40,0.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-23,puducherry,1996,23,KARAIKAL,K. VIJAYALACHUMY,parties.IN.IND,IND,22,0.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-24,puducherry,1996,24,KARAIKAL SOUTH,A.V. SUBRAMANIAN,parties.IN.INC,INC,6676,57.48,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-24,puducherry,1996,24,KARAIKAL SOUTH,S. SAVARIRAJAN,parties.IN.DMK,DMK,4717,40.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-24,puducherry,1996,24,KARAIKAL SOUTH,KALPAKAM GANESAN,parties.IN.BJP,BJP,106,0.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-24,puducherry,1996,24,KARAIKAL SOUTH,A.M. ISMAIL,parties.IN.JD,JD,103,0.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-24,puducherry,1996,24,KARAIKAL SOUTH,O. THETHIRUSAMY,parties.IN.IND,IND,13,0.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-25,puducherry,1996,25,NERAVY-GRAND ALDEE,V.M.C. SIVAKUMAR,parties.IN.DMK,DMK,7595,53.44,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-25,puducherry,1996,25,NERAVY-GRAND ALDEE,S.T.P. DIRAVIDAMANI,parties.IN.IND,IND,4385,30.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-25,puducherry,1996,25,NERAVY-GRAND ALDEE,A.M.K. BALU,parties.IN.AIADMK,ADMK,2159,15.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-25,puducherry,1996,25,NERAVY-GRAND ALDEE,A. SULTAL AREEF,parties.IN.IND,IND,59,0.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-25,puducherry,1996,25,NERAVY-GRAND ALDEE,MURUGAIYAN @ KALAIMANI,parties.IN.IND,IND,14,0.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-26,puducherry,1996,26,TIRUNALLAR,R. KAMALAKANNAN,parties.IN.INC,INC,6063,48.53,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-26,puducherry,1996,26,TIRUNALLAR,A. SOUNDARENGAN,parties.IN.DMK,DMK,4938,39.53,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-26,puducherry,1996,26,TIRUNALLAR,S. AMBALAVANAN,parties.IN.PMK,PMK,1492,11.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-27,puducherry,1996,27,NEDUNCADU,A. MARIMUTHU,parties.IN.DMK,DMK,6899,54.93,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-27,puducherry,1996,27,NEDUNCADU,M. CHANDIRAKASU,parties.IN.INC,INC,5116,40.74,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-27,puducherry,1996,27,NEDUNCADU,M. KALIAPERUMAL,parties.IN.CPIM,CPM,479,3.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-27,puducherry,1996,27,NEDUNCADU,S. RAJENDIRAN,parties.IN.IND,IND,65,0.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-28,puducherry,1996,28,MAHE,E. VALSARAJ,parties.IN.INC,INC,4184,45.58,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-28,puducherry,1996,28,MAHE,MANOLY MUHAMMAD,parties.IN.IND,IND,3915,42.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-28,puducherry,1996,28,MAHE,V.P. KRISHNARAJ,parties.IN.BJP,BJP,1047,11.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-28,puducherry,1996,28,MAHE,K.K. MUSTHAFA,parties.IN.IND,IND,34,0.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-29,puducherry,1996,29,PALLOOR,A.V. SREEDHARAN,parties.IN.INC,INC,4253,45.4,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-29,puducherry,1996,29,PALLOOR,PANANGATIL KHADER,parties.IN.JD,JD,2929,31.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-29,puducherry,1996,29,PALLOOR,P.K. SATHYANANDAN,parties.IN.IND,IND,1131,12.07,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-29,puducherry,1996,29,PALLOOR,C.P. GANESHAN,parties.IN.BJP,BJP,1029,10.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-29,puducherry,1996,29,PALLOOR,K.P. MOOSA HAJI,parties.IN.IND,IND,25,0.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-30,puducherry,1996,30,YANAM,MALLADI KRISHNA RAO,parties.IN.IND,IND,8445,62.31,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-30,puducherry,1996,30,YANAM,VELAGA RAJESWARA RAO,parties.IN.INC,INC,3602,26.58,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-30,puducherry,1996,30,YANAM,KAMICHETTY VENUGOPALARAONAIDU,parties.IN.IND,IND,1347,9.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-30,puducherry,1996,30,YANAM,KOTNALA PRABHAKARA RAO,parties.IN.IND,IND,58,0.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-30,puducherry,1996,30,YANAM,KAPAGANTY MURALI,parties.IN.IND,IND,36,0.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-30,puducherry,1996,30,YANAM,ELIPE RAJ KUMAR,parties.IN.IND,IND,33,0.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-30,puducherry,1996,30,YANAM,YERRA SUBRAHMANYESWARA RAO,parties.IN.IND,IND,21,0.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-30,puducherry,1996,30,YANAM,MALLADI UDHAYA LAKSHMI,parties.IN.IND,IND,12,0.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

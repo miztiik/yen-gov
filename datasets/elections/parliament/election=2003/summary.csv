@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-PC-1976-kerala-11,kerala,2003,ERNAKULAM,1088644,730725,67.12,Dr.Sebastian Paul,parties.IN.IND,IND,335308,45.89,M.O.John,parties.IN.INC,INC,313176,22132,3.03,src-31c65dbec869
-IN-PC-1976-maharashtra-37,maharashtra,2003,SOLAPUR,1122658,613696,54.66,Mohite P.P.Shankarrao,parties.IN.BJP,BJP,352360,57.42,Anandrao Narayan Deokate,parties.IN.INC,INC,229543,122817,20.02,src-31c65dbec869
-IN-PC-1976-west-bengal-12,west-bengal,2003,NAWADWIP,1357861,1107683,81.58,ALAKESH DAS,parties.IN.CPIM,CPM,520630,47,ABIR RANJAN BISWAS,parties.IN.JMD,A.I.T.C,421830,98800,8.92,src-31c65dbec869
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-PC-1976-kerala-11,kerala,2003,ERNAKULAM,1088644,730725,67.12,Dr.Sebastian Paul,parties.IN.IND,IND,335308,45.89,M.O.John,parties.IN.INC,INC,313176,22132,3.03,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-37,maharashtra,2003,SOLAPUR,1122658,613696,54.66,Mohite P.P.Shankarrao,parties.IN.BJP,BJP,352360,57.42,Anandrao Narayan Deokate,parties.IN.INC,INC,229543,122817,20.02,src-31c65dbec869,minor,
+IN-PC-1976-west-bengal-12,west-bengal,2003,NAWADWIP,1357861,1107683,81.58,ALAKESH DAS,parties.IN.CPIM,CPM,520630,47,ABIR RANJAN BISWAS,parties.IN.JMD,A.I.T.C,421830,98800,8.92,src-31c65dbec869,minor,

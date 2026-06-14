@@ -1,436 +1,436 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Kaveti Sammaiah,parties.IN.BRS,TRS,56262,44.27,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Allola Indrakaran Reddy,parties.IN.INC,INC,41033,32.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Palvai Rajyalaxmi,parties.IN.TDP,TDP,19771,15.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Udinepalli Mallesh,parties.IN.IND,IND,3434,2.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,A. Sevya,parties.IN.IND,IND,2242,1.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,K. Sudharshan Rao,parties.IN.IND,IND,1434,1.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Amruth Lal M.,parties.IN.IND,IND,807,0.64,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Royya Bhaskar,parties.IN.IND,IND,589,0.46,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Katam Pochaiah,parties.IN.IND,IND,583,0.46,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Aitharaju Lachaiah,parties.IN.IND,IND,497,0.39,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Chilaka Raju Sathaiah,parties.IN.IND,IND,432,0.34,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Nallala Odelu,parties.IN.BRS,TRS,67887,60.45,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),G. Vinod,parties.IN.INC,INC,23603,21.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Boda Janardhan,parties.IN.TDP,TDP,6683,5.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Elijala Dayakar,parties.IN.IND,IND,4747,4.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Paranda Subash,parties.IN.IND,IND,1448,1.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Olapu Srinivas,parties.IN.IND,IND,1267,1.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Balemla Ayodya,parties.IN.IND,IND,1229,1.09,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Sundilla Rajaiah,parties.IN.IND,IND,734,0.65,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Bathula Madhu,parties.IN.AIFB,AIFB,688,0.61,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Nallala Srinivas,parties.IN.IND,IND,677,0.6,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Balemla Ramesh,parties.IN.IND,IND,524,0.47,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Durgam Narsimhulu.,parties.IN.IND,IND,441,0.39,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Nathi Mysaiah,parties.IN.IND,IND,419,0.37,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Tallapalli Laxmaiam,parties.IN.IND,IND,302,0.27,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Kaluvala Srinivas,parties.IN.IND,IND,292,0.26,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Ramtenki Vijaya,parties.IN.IND,IND,251,0.22,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Chukka Yadagiri,parties.IN.IND,IND,247,0.22,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Kasipeta Narsaiah.,parties.IN.IND,IND,246,0.22,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),K.Laxmappa,parties.IN.IND,IND,216,0.19,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Janjam Rajaiaha,parties.IN.IND,IND,214,0.19,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Jeniue Vishnuvardhan.,parties.IN.IND,IND,185,0.16,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Aravind Reddy Gaddam,parties.IN.BRS,TRS,95311,73.17,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Gone Hanmanatha Rao.,parties.IN.TDP,TDP,17264,13.25,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Rachakonda Krishna Rao,parties.IN.INC,INC,12648,9.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Venkanna Dharavath,parties.IN.IND,IND,1795,1.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Cherukupally Laxmaiah,parties.IN.IND,IND,649,0.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Venkatadri Kandukuri,parties.IN.IND,IND,466,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Bhujanga Rao Sunkara,parties.IN.AIFB,AIFB,459,0.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Vantala Narsimha,parties.IN.IND,IND,440,0.34,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Jogaiah Aluvala,parties.IN.IND,IND,324,0.25,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Bhadhawath Biksham,parties.IN.IND,IND,256,0.2,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Jeedi Venkanna,parties.IN.IND,IND,232,0.18,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Boddu Shankar,parties.IN.IND,IND,231,0.18,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Basys Banoth,parties.IN.IND,IND,176,0.14,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Eanugu.Ravinder Reddy,parties.IN.BRS,TRS,72491,52.3,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Ali Shabbir Mohammed,parties.IN.INC,INC,34829,25.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Surender Jajala,parties.IN.TDP,TDP,11858,8.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Siddiramulu D,parties.IN.IND,IND,3423,2.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Manthri Bagaiah,parties.IN.IND,IND,2161,1.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Bandari Rajireddy,parties.IN.IND,IND,2062,1.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Meesala Ramulu,parties.IN.IND,IND,1491,1.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Manthri Raju,parties.IN.IND,IND,914,0.66,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Rameh Talari,parties.IN.IND,IND,844,0.61,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Badu Rao Talari,parties.IN.IND,IND,733,0.53,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Narsimlu P,parties.IN.IND,IND,483,0.35,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Gaddameedi Raju,parties.IN.IND,IND,481,0.35,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Nawaz B,parties.IN.IND,IND,452,0.33,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Chander,parties.IN.IND,IND,412,0.3,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Dole Balaiah,parties.IN.IND,IND,400,0.29,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Guguloth Bhagya,parties.IN.IND,IND,341,0.25,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Pabbe.Mollaiah,parties.IN.IND,IND,293,0.21,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Dobballi Ravinder,parties.IN.IND,IND,292,0.21,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Ramakistaiah.T.,parties.IN.IND,IND,252,0.18,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mudavat Narayana,parties.IN.IND,IND,234,0.17,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Shanker Sanga,parties.IN.IND,IND,221,0.16,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Kothapally Raju,parties.IN.IND,IND,183,0.13,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mandala Prabhakar,parties.IN.IND,IND,173,0.12,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Guguloth Mohan,parties.IN.IND,IND,170,0.12,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Lambadi Shanker,parties.IN.IND,IND,169,0.12,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Bhupal R,parties.IN.IND,IND,155,0.11,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,K. Babu,parties.IN.IND,IND,146,0.11,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Dibba Chinna Gangaram.,parties.IN.IND,IND,142,0.1,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Gosu Babu,parties.IN.IND,IND,120,0.09,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Ravuji Megavath,parties.IN.IND,IND,119,0.09,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Osman Ali Hajari,parties.IN.IND,IND,115,0.08,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Chinna Veeranna Bikkaji,parties.IN.IND,IND,111,0.08,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Narsimulu,parties.IN.IND,IND,103,0.07,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Bhoopathi. Y,parties.IN.IND,IND,102,0.07,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mohan Gugloth.,parties.IN.IND,IND,100,0.07,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Parshuram.R,parties.IN.IND,IND,94,0.07,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mallesham.B,parties.IN.IND,IND,90,0.06,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Hanmanth Reddy C,parties.IN.IND,IND,86,0.06,38,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Busa Venkanna,parties.IN.IND,IND,81,0.06,39,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Lal Singh L,parties.IN.IND,IND,81,0.06,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Munya Sabavat,parties.IN.IND,IND,76,0.05,41,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Balavathula Vithal Rao,parties.IN.IND,IND,74,0.05,42,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Maddela Pentaiah.,parties.IN.IND,IND,72,0.05,43,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mogiligari Rachaiah,parties.IN.IND,IND,69,0.05,44,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Ramesh J,parties.IN.IND,IND,69,0.05,45,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Ghovu Pentaiah,parties.IN.IND,IND,65,0.05,46,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Venktaiah.K.,parties.IN.IND,IND,59,0.04,47,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Bodala Chandram,parties.IN.IND,IND,57,0.04,48,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Sanjeeva E,parties.IN.IND,IND,57,0.04,49,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Sakru Maloth,parties.IN.IND,IND,55,0.04,50,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mallaiah M,parties.IN.IND,IND,54,0.04,51,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mothi Ram Lambani Sabavat,parties.IN.IND,IND,54,0.04,52,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Venkataiah J,parties.IN.IND,IND,52,0.04,53,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Bondugula Ravinder,parties.IN.IND,IND,51,0.04,54,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Devaiah R,parties.IN.IND,IND,50,0.04,55,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,E. Pochaiah,parties.IN.IND,IND,50,0.04,56,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Kanigiri Ramesh,parties.IN.IND,IND,46,0.03,57,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Gangamma. P,parties.IN.IND,IND,42,0.03,58,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,D. Yellamma,parties.IN.IND,IND,42,0.03,59,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Kanigiri Ashirvadam,parties.IN.IND,IND,41,0.03,60,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Kanigiri Raju,parties.IN.IND,IND,40,0.03,61,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Rjender Police,parties.IN.IND,IND,40,0.03,62,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Venkatesh,parties.IN.IND,IND,40,0.03,63,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Rasmai Bhaskar Rao,parties.IN.IND,IND,36,0.03,64,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Kantha Rao Y,parties.IN.IND,IND,35,0.03,65,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mood Suryam,parties.IN.IND,IND,35,0.03,66,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Jangala Bheemaia,parties.IN.IND,IND,34,0.02,67,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,M. Gangaram,parties.IN.IND,IND,33,0.02,68,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Dasharath Maloth,parties.IN.IND,IND,33,0.02,69,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Muthaiah E.,parties.IN.IND,IND,30,0.02,70,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Lingam Pally Narsimlu,parties.IN.IND,IND,30,0.02,71,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Gadda Meddi Narsimlu,parties.IN.IND,IND,28,0.02,72,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Sakriya Nayak Lambadi,parties.IN.IND,IND,24,0.02,73,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Shinu L.,parties.IN.IND,IND,16,0.01,74,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mohan Singh L,parties.IN.IND,IND,14,0.01,75,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Endala Lakshmi Narayana,parties.IN.BJP,BJP,64176,53.12,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Dharmapuri  Srinivas,parties.IN.INC,INC,52195,43.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Arikala Narsa Reddy,parties.IN.TDP,TDP,1793,1.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Mohd. Ismail,parties.IN.IND,IND,792,0.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Esam Ramulu,parties.IN.UNK,DBP,539,0.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Bhukya Krishna. Naik,parties.IN.IND,IND,329,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Gaddam Vikram Reddy,parties.IN.IND,IND,196,0.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),B. Nagaraj,parties.IN.IND,IND,196,0.16,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Gaddam Nagaraju,parties.IN.IND,IND,171,0.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Tatikonda Ramu,parties.IN.IND,IND,163,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Md. Nazeer,parties.IN.BSP_AP,BSP(AP),154,0.13,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Chakradhar Sharma Rotte,parties.IN.AIFB,AIFB,118,0.1,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,K.V. S. Rao,parties.IN.BRS,TRS,80495,64.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,J.R.Rao,parties.IN.INC,INC,23970,19.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,P.Rajalingam,parties.IN.IND,IND,4874,3.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,S.Vishwanatham,parties.IN.TDP,TDP,3800,3.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,B.Mallesham,parties.IN.IND,IND,2353,1.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,V.Guruvaiah,parties.IN.IND,IND,1086,0.87,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,L.Ramesh,parties.IN.IND,IND,817,0.66,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,D.Chinna Sayanna,parties.IN.IND,IND,661,0.53,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,C.Rajanna,parties.IN.IND,IND,641,0.52,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,N. Muthanna,parties.IN.IND,IND,456,0.37,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,C.Prasad,parties.IN.IND,IND,406,0.33,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,Parsa Devanna,parties.IN.IND,IND,389,0.31,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,K. Ramulu,parties.IN.IND,IND,308,0.25,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,K.Narsaiah,parties.IN.IND,IND,307,0.25,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,B.Bhaskar,parties.IN.IND,IND,297,0.24,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,G.Narsaiah,parties.IN.IND,IND,242,0.19,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,B.V. Rao,parties.IN.IND,IND,237,0.19,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,M.D.Naik,parties.IN.IND,IND,191,0.15,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,R.Ramavath,parties.IN.IND,IND,147,0.12,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,B.Rajendhar,parties.IN.IND,IND,143,0.11,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,N.BaluNaik,parties.IN.IND,IND,131,0.11,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,K.Prabhakar,parties.IN.IND,IND,128,0.1,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,B. Bhaskar,parties.IN.IND,IND,122,0.1,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,A.Rajpal,parties.IN.IND,IND,119,0.1,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,M.Srinivas,parties.IN.IND,IND,118,0.09,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,A.Khan,parties.IN.IND,IND,114,0.09,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,Thad Nagesh,parties.IN.IND,IND,106,0.09,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,D. Prabudas,parties.IN.IND,IND,90,0.07,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,A. Balasiah,parties.IN.IND,IND,87,0.07,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,B. Srinivas,parties.IN.IND,IND,87,0.07,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,R. Ravi,parties.IN.IND,IND,72,0.06,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,D.Saidulu,parties.IN.IND,IND,69,0.06,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,N. A. Singh,parties.IN.IND,IND,69,0.06,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,"L, Rajaiah",parties.IN.IND,IND,67,0.05,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,N. Paramesh,parties.IN.IND,IND,66,0.05,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,R. P. Ram,parties.IN.IND,IND,66,0.05,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,R. Naagu,parties.IN.IND,IND,65,0.05,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,S. Narsaiah,parties.IN.IND,IND,65,0.05,38,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,B.Mallaiah,parties.IN.IND,IND,64,0.05,39,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,A. Ramreddy,parties.IN.IND,IND,61,0.05,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,N. Veeraiah,parties.IN.IND,IND,51,0.04,41,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,K. Ravi,parties.IN.IND,IND,49,0.04,42,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,D. Rajeshwar,parties.IN.IND,IND,46,0.04,43,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,M. Ailaiah,parties.IN.IND,IND,46,0.04,44,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,M. Surender,parties.IN.IND,IND,46,0.04,45,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,D. Ravinder,parties.IN.IND,IND,45,0.04,46,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,D.Sudharshan,parties.IN.IND,IND,44,0.04,47,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,S. Narsimhulu,parties.IN.IND,IND,44,0.04,48,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,K. Mohan,parties.IN.IND,IND,41,0.03,49,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,R. Pathaki,parties.IN.IND,IND,39,0.03,50,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,M. Laxmaiah,parties.IN.IND,IND,37,0.03,51,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,Y. Eedukanti,parties.IN.IND,IND,36,0.03,52,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,R. Hariya,parties.IN.IND,IND,35,0.03,53,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,S. muthenna,parties.IN.IND,IND,35,0.03,54,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,D. Shyam,parties.IN.IND,IND,29,0.02,55,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,N Chandru,parties.IN.IND,IND,29,0.02,56,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,S. Lingam,parties.IN.IND,IND,28,0.02,57,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,D. Bhumanna,parties.IN.IND,IND,25,0.02,58,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,E. Venkateshwarlu,parties.IN.IND,IND,22,0.02,59,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,A. S. Kumar,parties.IN.IND,IND,22,0.02,60,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,N.Lakkidas,parties.IN.IND,IND,20,0.02,61,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,S. Poshanna,parties.IN.IND,IND,20,0.02,62,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,S.Gangadhar,parties.IN.IND,IND,19,0.02,63,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,A. Ramachandram,parties.IN.IND,IND,17,0.01,64,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,K. Vilas Kumar,parties.IN.IND,IND,15,0.01,65,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,P.C.Peddulu,parties.IN.IND,IND,14,0.01,66,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,Y..Rajapurnanandam,parties.IN.IND,IND,13,0.01,67,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci22,andhra-pradesh,2010,22,DHARMAPURI (SC),E. Koppula,parties.IN.BRS,TRS,86720,67.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci22,andhra-pradesh,2010,22,DHARMAPURI (SC),A. L. Kumar,parties.IN.INC,INC,27829,21.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci22,andhra-pradesh,2010,22,DHARMAPURI (SC),N. Narayana,parties.IN.TDP,TDP,7779,6.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci22,andhra-pradesh,2010,22,DHARMAPURI (SC),Pulluri Laxminarayana,parties.IN.IND,IND,2639,2.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci22,andhra-pradesh,2010,22,DHARMAPURI (SC),Alagurthi Laxmianarayana.,parties.IN.IND,IND,2610,2.05,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci28,andhra-pradesh,2010,28,VEMULAWADA,Ramesh Chennamaneni,parties.IN.BRS,TRS,79146,65.42,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci28,andhra-pradesh,2010,28,VEMULAWADA,A. Srinivas,parties.IN.INC,INC,28695,23.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci28,andhra-pradesh,2010,28,VEMULAWADA,Devarakonda Srinvas,parties.IN.IND,IND,8759,7.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci28,andhra-pradesh,2010,28,VEMULAWADA,G. V.Rao,parties.IN.TDP,TDP,4387,3.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.T Ramarao,parties.IN.BRS,TRS,87876,66.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.K.Mahender Reddy,parties.IN.INC,INC,19657,14.78,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,P.K Kumar,parties.IN.TDP,TDP,3509,2.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,G.P.Chowdari,parties.IN.IND,IND,3411,2.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,N.P.Ramulu,parties.IN.IND,IND,2974,2.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Rajaiah,parties.IN.IND,IND,2377,1.79,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,G.Kumar,parties.IN.IND,IND,1808,1.36,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Ravi,parties.IN.IND,IND,1158,0.87,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,D.Srinivas,parties.IN.IND,IND,1134,0.85,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,D.Swamy,parties.IN.IND,IND,1072,0.81,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,R.Boompalli,parties.IN.IND,IND,652,0.49,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,U.Ravinder,parties.IN.IND,IND,611,0.46,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,P.Vasantha,parties.IN.IND,IND,465,0.35,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Kalpana,parties.IN.IND,IND,431,0.32,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,T.K.Kumar Gaud,parties.IN.IND,IND,408,0.31,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,R.Tharvva,parties.IN.IND,IND,392,0.29,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Rajaiah,parties.IN.IND,IND,364,0.27,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,G.Prabhakar Goud,parties.IN.IND,IND,331,0.25,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Y.Raju,parties.IN.IND,IND,326,0.25,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,J.Santhosha,parties.IN.IND,IND,271,0.2,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,D.Narsaiah,parties.IN.IND,IND,269,0.2,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Srinivas Reddy,parties.IN.IND,IND,230,0.17,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,G.Poolavva,parties.IN.IND,IND,201,0.15,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Thota Madhu,parties.IN.IND,IND,138,0.1,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,P.Ananthi,parties.IN.IND,IND,136,0.1,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,B.Ailaiah,parties.IN.IND,IND,133,0.1,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,B.Kanukavva,parties.IN.IND,IND,115,0.09,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Suraj.G.,parties.IN.IND,IND,114,0.09,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Karuna,parties.IN.IND,IND,110,0.08,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,R.Padma,parties.IN.IND,IND,106,0.08,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Kishan,parties.IN.IND,IND,103,0.08,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Vishnuprasad,parties.IN.AIFB,AIFB,100,0.08,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Ramaswamy,parties.IN.IND,IND,97,0.07,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,D.Swamy,parties.IN.IND,IND,94,0.07,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,T.Ravinder,parties.IN.IND,IND,88,0.07,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Kishan,parties.IN.IND,IND,78,0.06,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Jhirupathi,parties.IN.IND,IND,78,0.06,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,P.Ramachandram,parties.IN.IND,IND,77,0.06,38,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Bitla Ashok,parties.IN.IND,IND,72,0.05,39,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,J.Laxminarayana,parties.IN.IND,IND,67,0.05,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,S.Yashoda,parties.IN.IND,IND,65,0.05,41,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,T.M.S.Kumar,parties.IN.IND,IND,64,0.05,42,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Venkataiah,parties.IN.IND,IND,61,0.05,43,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,D.Rajedner,parties.IN.IND,IND,61,0.05,44,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,S.Subadra,parties.IN.IND,IND,59,0.04,45,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,R.Ramulu,parties.IN.IND,IND,58,0.04,46,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,A.Gopi,parties.IN.IND,IND,57,0.04,47,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,C.Chandramouli,parties.IN.IND,IND,54,0.04,48,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,D.Raju.G.,parties.IN.IND,IND,53,0.04,49,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,S.Komuraiah,parties.IN.IND,IND,51,0.04,50,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,A.Parashuram,parties.IN.IND,IND,50,0.04,51,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Kanakaiah,parties.IN.IND,IND,49,0.04,52,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Narsimlu,parties.IN.IND,IND,47,0.04,53,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,M.S.Reddy,parties.IN.IND,IND,45,0.03,54,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,B.Ramulu,parties.IN.IND,IND,42,0.03,55,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Y.Sathaiah,parties.IN.IND,IND,40,0.03,56,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Laxman,parties.IN.IND,IND,39,0.03,57,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Narsimlu,parties.IN.IND,IND,38,0.03,58,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Mallesham,parties.IN.IND,IND,36,0.03,59,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,E.Lingam,parties.IN.IND,IND,33,0.02,60,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Chanda Laxmi,parties.IN.IND,IND,32,0.02,61,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,V.Rajkumar,parties.IN.IND,IND,32,0.02,62,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,O.Mallesham,parties.IN.IND,IND,30,0.02,63,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,V.Venkat Reddy,parties.IN.IND,IND,29,0.02,64,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,T.Manoj Kumar,parties.IN.IND,IND,27,0.02,65,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,B.Swami,parties.IN.IND,IND,26,0.02,66,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Mohan,parties.IN.IND,IND,26,0.02,67,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Kamarapu Shyam  ( Alies),parties.IN.IND,IND,25,0.02,68,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,B.Kanakaiah,parties.IN.IND,IND,24,0.02,69,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Madavi Naresh,parties.IN.IND,IND,22,0.02,70,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,P.S.Reddy,parties.IN.IND,IND,21,0.02,71,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,A.Ramesh,parties.IN.IND,IND,19,0.01,72,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,B.Narsaiah,parties.IN.IND,IND,19,0.01,73,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,A.Shiva kumar,parties.IN.IND,IND,18,0.01,74,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,B.Komuraiah,parties.IN.IND,IND,18,0.01,75,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,S.Yadagiri,parties.IN.IND,IND,17,0.01,76,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Shiva Kumar Y.,parties.IN.IND,IND,11,0.01,77,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,S.Chandraiah,parties.IN.IND,IND,8,0.01,78,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,E.Rajender,parties.IN.BRS,TRS,93026,67.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,D.R.Muddasani,parties.IN.TDP,TDP,13799,9.99,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,V.K.Mohan Rao,parties.IN.INC,INC,12540,9.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G.Mahender,parties.IN.IND,IND,3931,2.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Rajaiah,parties.IN.IND,IND,1824,1.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,M.Kumar Swamy,parties.IN.IND,IND,1799,1.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Madhu,parties.IN.IND,IND,1409,1.02,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Bochu Krishna,parties.IN.IND,IND,1266,0.92,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Koinkonda Bhikshapathi,parties.IN.IND,IND,845,0.61,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,D.Venkataswam. Y,parties.IN.IND,IND,793,0.57,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Suresh Thikka,parties.IN.IND,IND,667,0.48,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,D.Kishan,parties.IN.IND,IND,576,0.42,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G.Srinivas,parties.IN.IND,IND,487,0.35,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,T.C.Mouli,parties.IN.IND,IND,420,0.3,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,J.Nagaraju,parties.IN.IND,IND,306,0.22,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G.Surender,parties.IN.IND,IND,232,0.17,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G.Ramesh,parties.IN.IND,IND,212,0.15,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,B.Ravi,parties.IN.IND,IND,204,0.15,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G.Narsaiah,parties.IN.IND,IND,199,0.14,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G.B.Nayak,parties.IN.IND,IND,196,0.14,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,B.V.Kumar,parties.IN.IND,IND,193,0.14,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,A.Thirupathi,parties.IN.IND,IND,179,0.13,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,J.V.Yellaiah,parties.IN.IND,IND,160,0.12,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G.Chinna,parties.IN.IND,IND,140,0.1,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Mogili,parties.IN.IND,IND,139,0.1,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,C.Jilla,parties.IN.IND,IND,128,0.09,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,B.Rao Bochu,parties.IN.IND,IND,121,0.09,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.A.Swamy,parties.IN.IND,IND,112,0.08,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,N.Jilla,parties.IN.IND,IND,111,0.08,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Gajji Mogili,parties.IN.IND,IND,106,0.08,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,S. Elthuri,parties.IN.IND,IND,104,0.08,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G. Yadagiri,parties.IN.IND,IND,103,0.07,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,M.Upender,parties.IN.IND,IND,100,0.07,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,N.Ramu,parties.IN.IND,IND,97,0.07,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Ravi,parties.IN.IND,IND,94,0.07,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Ramesh,parties.IN.IND,IND,89,0.06,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,A.Raghu,parties.IN.IND,IND,82,0.06,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,K.Gangya,parties.IN.IND,IND,76,0.06,38,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Mallaiah,parties.IN.IND,IND,73,0.05,39,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,R. Bollaram,parties.IN.IND,IND,68,0.05,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Chandramouli,parties.IN.IND,IND,62,0.04,41,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Kishan,parties.IN.IND,IND,61,0.04,42,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,J.A.Singh,parties.IN.IND,IND,57,0.04,43,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,D.Bhadraiah,parties.IN.IND,IND,57,0.04,44,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,R. Satish,parties.IN.IND,IND,52,0.04,45,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,S. Thirupathi,parties.IN.IND,IND,52,0.04,46,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,M.Rajender,parties.IN.IND,IND,47,0.03,47,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,"P,Subash",parties.IN.IND,IND,46,0.03,48,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G.S.Kumar,parties.IN.IND,IND,43,0.03,49,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,K.Narsimhulu,parties.IN.IND,IND,41,0.03,50,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Ramesh Muda,parties.IN.IND,IND,41,0.03,51,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,A.Surender,parties.IN.IND,IND,39,0.03,52,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,N.Sammaiah,parties.IN.IND,IND,38,0.03,53,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Raju,parties.IN.IND,IND,38,0.03,54,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,B.A.Komuraiah,parties.IN.IND,IND,38,0.03,55,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Mogili,parties.IN.IND,IND,38,0.03,56,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,B.Surya,parties.IN.IND,IND,37,0.03,57,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,J.Somanna,parties.IN.IND,IND,36,0.03,58,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,B.Hatya,parties.IN.IND,IND,32,0.02,59,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,S. Yakaiah,parties.IN.IND,IND,32,0.02,60,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,J. Kommalu,parties.IN.IND,IND,30,0.02,61,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Aku Ramesh,parties.IN.IND,IND,28,0.02,62,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Aku Subash,parties.IN.IND,IND,28,0.02,63,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Sadanandam,parties.IN.IND,IND,26,0.02,64,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,L Mallu,parties.IN.IND,IND,25,0.02,65,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Aku Shankar,parties.IN.IND,IND,24,0.02,66,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,A.Biyapathi,parties.IN.IND,IND,21,0.02,67,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G. Sarangapani,parties.IN.IND,IND,16,0.01,68,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,S. Rajaiah,parties.IN.IND,IND,14,0.01,69,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci33,andhra-pradesh,2010,33,SIDDIPET,T.Harish Rao,parties.IN.BRS,TRS,108799,82.15,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci33,andhra-pradesh,2010,33,SIDDIPET,T.Srinivas Goud,parties.IN.INC,INC,12921,9.76,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci33,andhra-pradesh,2010,33,SIDDIPET,P.Babu Mohan,parties.IN.TDP,TDP,5258,3.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci33,andhra-pradesh,2010,33,SIDDIPET,Nishani Krishna,parties.IN.IND,IND,2906,2.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci33,andhra-pradesh,2010,33,SIDDIPET,A.Prakash,parties.IN.IND,IND,2100,1.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci33,andhra-pradesh,2010,33,SIDDIPET,G.Bansilal,parties.IN.IND,IND,458,0.35,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),O.V.Bhaskar,parties.IN.BRS,TRS,88449,74.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.D.Rao,parties.IN.INC,INC,20925,17.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),V.N.Reddy,parties.IN.TDP,TDP,5762,4.88,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.Elander,parties.IN.IND,IND,827,0.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),E.Sarangapani,parties.IN.IND,IND,481,0.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.Ramesh,parties.IN.IND,IND,325,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),Katta Raju,parties.IN.IND,IND,190,0.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.Sadanaday,parties.IN.IND,IND,115,0.1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),P.Raju,parties.IN.IND,IND,94,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),R.Lauudyi,parties.IN.IND,IND,65,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),J.Prabhakar,parties.IN.IND,IND,57,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.Kanakaiah,parties.IN.IND,IND,54,0.05,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),J.Kumaraswamy,parties.IN.IND,IND,53,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),E.Venu,parties.IN.AIFB,AIFB,48,0.04,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),A.Venrataswamy,parties.IN.IND,IND,35,0.03,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),I.Ravi,parties.IN.IND,IND,35,0.03,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),S.Kumaraswamy,parties.IN.IND,IND,35,0.03,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Ramesh,parties.IN.IND,IND,31,0.03,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),G.Venrataiah,parties.IN.IND,IND,29,0.02,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),A.Ramulu,parties.IN.IND,IND,25,0.02,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.Rajkumar,parties.IN.IND,IND,25,0.02,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),C.S.Rayavarapu,parties.IN.IND,IND,22,0.02,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),G.Swamy,parties.IN.IND,IND,21,0.02,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),A.Veeranna,parties.IN.IND,IND,19,0.02,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),A.Yakaiah,parties.IN.IND,IND,19,0.02,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),J.Bhaskar,parties.IN.IND,IND,19,0.02,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),A.Shyamson,parties.IN.IND,IND,18,0.02,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),J.Raju,parties.IN.IND,IND,18,0.02,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),R.Joddmunthala,parties.IN.IND,IND,18,0.02,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),N.Ananday,parties.IN.IND,IND,17,0.01,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Raju,parties.IN.IND,IND,17,0.01,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),L.Ailraj,parties.IN.IND,IND,16,0.01,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),E.Bhaskar,parties.IN.IND,IND,15,0.01,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.Saritha,parties.IN.IND,IND,13,0.01,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),G.Lingaiah,parties.IN.IND,IND,13,0.01,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),D.Johnan,parties.IN.IND,IND,13,0.01,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),A.Veerasingh,parties.IN.IND,IND,12,0.01,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.Janardhan,parties.IN.IND,IND,12,0.01,38,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),T.Kumaraswamy,parties.IN.IND,IND,12,0.01,39,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),P.Karunakar,parties.IN.IND,IND,12,0.01,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),D.Ratan Kumar,parties.IN.IND,IND,11,0.01,41,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),R.Bharmavath,parties.IN.IND,IND,11,0.01,42,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),S.Kumar,parties.IN.IND,IND,11,0.01,43,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.S.Prasad,parties.IN.IND,IND,10,0.01,44,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.Ananday,parties.IN.IND,IND,10,0.01,45,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),P.Yellaiah,parties.IN.IND,IND,10,0.01,46,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),P.Sambaiah,parties.IN.IND,IND,10,0.01,47,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),G.Kornelu,parties.IN.IND,IND,9,0.01,48,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Kumar,parties.IN.IND,IND,9,0.01,49,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),R.Ravi,parties.IN.IND,IND,9,0.01,50,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),M.Kandakatla,parties.IN.IND,IND,8,0.01,51,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),L.Babbi,parties.IN.IND,IND,8,0.01,52,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),S.Kumar,parties.IN.IND,IND,8,0.01,53,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),J.Anjaiah,parties.IN.IND,IND,6,0.01,54,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),D.N.Prasad,parties.IN.IND,IND,6,0.01,55,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),N.P.Gonda,parties.IN.IND,IND,6,0.01,56,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),M.Jabru,parties.IN.IND,IND,6,0.01,57,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),R.Baske,parties.IN.IND,IND,6,0.01,58,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),S.Chandraiah,parties.IN.IND,IND,6,0.01,59,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),J.Lullo,parties.IN.IND,IND,5,0,60,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Swamy,parties.IN.IND,IND,5,0,61,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),R.Komuriah,parties.IN.IND,IND,5,0,62,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),S.Angothu,parties.IN.IND,IND,5,0,63,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Babu,parties.IN.IND,IND,4,0,64,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),R.Bunga,parties.IN.IND,IND,4,0,65,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),S.Yakub Raj,parties.IN.IND,IND,4,0,66,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Rambabu,parties.IN.IND,IND,3,0,67,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),V.Sadananday,parties.IN.IND,IND,3,0,68,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),P.Manne,parties.IN.IND,IND,2,0,69,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Dasharadham,parties.IN.IND,IND,2,0,70,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Venkataswamy,parties.IN.IND,IND,2,0,71,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Barmauath,parties.IN.IND,IND,1,0,72,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),G.Raju,parties.IN.IND,IND,0,0,73,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),V.Suresh,parties.IN.IND,IND,0,0,74,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Kaveti Sammaiah,parties.IN.BRS,TRS,56262,44.27,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Allola Indrakaran Reddy,parties.IN.INC,INC,41033,32.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Palvai Rajyalaxmi,parties.IN.TDP,TDP,19771,15.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Udinepalli Mallesh,parties.IN.IND,IND,3434,2.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,A. Sevya,parties.IN.IND,IND,2242,1.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,K. Sudharshan Rao,parties.IN.IND,IND,1434,1.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Amruth Lal M.,parties.IN.IND,IND,807,0.64,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Royya Bhaskar,parties.IN.IND,IND,589,0.46,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Katam Pochaiah,parties.IN.IND,IND,583,0.46,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Aitharaju Lachaiah,parties.IN.IND,IND,497,0.39,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci1,andhra-pradesh,2010,1,SIRPUR,Chilaka Raju Sathaiah,parties.IN.IND,IND,432,0.34,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Nallala Odelu,parties.IN.BRS,TRS,67887,60.45,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),G. Vinod,parties.IN.INC,INC,23603,21.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Boda Janardhan,parties.IN.TDP,TDP,6683,5.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Elijala Dayakar,parties.IN.IND,IND,4747,4.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Paranda Subash,parties.IN.IND,IND,1448,1.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Olapu Srinivas,parties.IN.IND,IND,1267,1.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Balemla Ayodya,parties.IN.IND,IND,1229,1.09,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Sundilla Rajaiah,parties.IN.IND,IND,734,0.65,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Bathula Madhu,parties.IN.AIFB,AIFB,688,0.61,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Nallala Srinivas,parties.IN.IND,IND,677,0.6,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Balemla Ramesh,parties.IN.IND,IND,524,0.47,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Durgam Narsimhulu.,parties.IN.IND,IND,441,0.39,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Nathi Mysaiah,parties.IN.IND,IND,419,0.37,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Tallapalli Laxmaiam,parties.IN.IND,IND,302,0.27,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Kaluvala Srinivas,parties.IN.IND,IND,292,0.26,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Ramtenki Vijaya,parties.IN.IND,IND,251,0.22,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Chukka Yadagiri,parties.IN.IND,IND,247,0.22,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Kasipeta Narsaiah.,parties.IN.IND,IND,246,0.22,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),K.Laxmappa,parties.IN.IND,IND,216,0.19,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Janjam Rajaiaha,parties.IN.IND,IND,214,0.19,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci2,andhra-pradesh,2010,2,CHENNUR (SC),Jeniue Vishnuvardhan.,parties.IN.IND,IND,185,0.16,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Aravind Reddy Gaddam,parties.IN.BRS,TRS,95311,73.17,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Gone Hanmanatha Rao.,parties.IN.TDP,TDP,17264,13.25,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Rachakonda Krishna Rao,parties.IN.INC,INC,12648,9.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Venkanna Dharavath,parties.IN.IND,IND,1795,1.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Cherukupally Laxmaiah,parties.IN.IND,IND,649,0.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Venkatadri Kandukuri,parties.IN.IND,IND,466,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Bhujanga Rao Sunkara,parties.IN.AIFB,AIFB,459,0.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Vantala Narsimha,parties.IN.IND,IND,440,0.34,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Jogaiah Aluvala,parties.IN.IND,IND,324,0.25,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Bhadhawath Biksham,parties.IN.IND,IND,256,0.2,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Jeedi Venkanna,parties.IN.IND,IND,232,0.18,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Boddu Shankar,parties.IN.IND,IND,231,0.18,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci4,andhra-pradesh,2010,4,MANCHERIAL,Basys Banoth,parties.IN.IND,IND,176,0.14,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Eanugu.Ravinder Reddy,parties.IN.BRS,TRS,72491,52.3,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Ali Shabbir Mohammed,parties.IN.INC,INC,34829,25.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Surender Jajala,parties.IN.TDP,TDP,11858,8.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Siddiramulu D,parties.IN.IND,IND,3423,2.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Manthri Bagaiah,parties.IN.IND,IND,2161,1.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Bandari Rajireddy,parties.IN.IND,IND,2062,1.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Meesala Ramulu,parties.IN.IND,IND,1491,1.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Manthri Raju,parties.IN.IND,IND,914,0.66,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Rameh Talari,parties.IN.IND,IND,844,0.61,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Badu Rao Talari,parties.IN.IND,IND,733,0.53,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Narsimlu P,parties.IN.IND,IND,483,0.35,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Gaddameedi Raju,parties.IN.IND,IND,481,0.35,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Nawaz B,parties.IN.IND,IND,452,0.33,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Chander,parties.IN.IND,IND,412,0.3,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Dole Balaiah,parties.IN.IND,IND,400,0.29,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Guguloth Bhagya,parties.IN.IND,IND,341,0.25,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Pabbe.Mollaiah,parties.IN.IND,IND,293,0.21,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Dobballi Ravinder,parties.IN.IND,IND,292,0.21,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Ramakistaiah.T.,parties.IN.IND,IND,252,0.18,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mudavat Narayana,parties.IN.IND,IND,234,0.17,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Shanker Sanga,parties.IN.IND,IND,221,0.16,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Kothapally Raju,parties.IN.IND,IND,183,0.13,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mandala Prabhakar,parties.IN.IND,IND,173,0.12,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Guguloth Mohan,parties.IN.IND,IND,170,0.12,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Lambadi Shanker,parties.IN.IND,IND,169,0.12,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Bhupal R,parties.IN.IND,IND,155,0.11,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,K. Babu,parties.IN.IND,IND,146,0.11,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Dibba Chinna Gangaram.,parties.IN.IND,IND,142,0.1,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Gosu Babu,parties.IN.IND,IND,120,0.09,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Ravuji Megavath,parties.IN.IND,IND,119,0.09,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Osman Ali Hajari,parties.IN.IND,IND,115,0.08,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Chinna Veeranna Bikkaji,parties.IN.IND,IND,111,0.08,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Narsimulu,parties.IN.IND,IND,103,0.07,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Bhoopathi. Y,parties.IN.IND,IND,102,0.07,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mohan Gugloth.,parties.IN.IND,IND,100,0.07,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Parshuram.R,parties.IN.IND,IND,94,0.07,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mallesham.B,parties.IN.IND,IND,90,0.06,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Hanmanth Reddy C,parties.IN.IND,IND,86,0.06,38,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Busa Venkanna,parties.IN.IND,IND,81,0.06,39,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Lal Singh L,parties.IN.IND,IND,81,0.06,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Munya Sabavat,parties.IN.IND,IND,76,0.05,41,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Balavathula Vithal Rao,parties.IN.IND,IND,74,0.05,42,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Maddela Pentaiah.,parties.IN.IND,IND,72,0.05,43,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mogiligari Rachaiah,parties.IN.IND,IND,69,0.05,44,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Ramesh J,parties.IN.IND,IND,69,0.05,45,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Ghovu Pentaiah,parties.IN.IND,IND,65,0.05,46,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Venktaiah.K.,parties.IN.IND,IND,59,0.04,47,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Bodala Chandram,parties.IN.IND,IND,57,0.04,48,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Sanjeeva E,parties.IN.IND,IND,57,0.04,49,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Sakru Maloth,parties.IN.IND,IND,55,0.04,50,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mallaiah M,parties.IN.IND,IND,54,0.04,51,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mothi Ram Lambani Sabavat,parties.IN.IND,IND,54,0.04,52,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Venkataiah J,parties.IN.IND,IND,52,0.04,53,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Bondugula Ravinder,parties.IN.IND,IND,51,0.04,54,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Devaiah R,parties.IN.IND,IND,50,0.04,55,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,E. Pochaiah,parties.IN.IND,IND,50,0.04,56,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Kanigiri Ramesh,parties.IN.IND,IND,46,0.03,57,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Gangamma. P,parties.IN.IND,IND,42,0.03,58,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,D. Yellamma,parties.IN.IND,IND,42,0.03,59,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Kanigiri Ashirvadam,parties.IN.IND,IND,41,0.03,60,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Kanigiri Raju,parties.IN.IND,IND,40,0.03,61,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Rjender Police,parties.IN.IND,IND,40,0.03,62,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Venkatesh,parties.IN.IND,IND,40,0.03,63,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Rasmai Bhaskar Rao,parties.IN.IND,IND,36,0.03,64,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Kantha Rao Y,parties.IN.IND,IND,35,0.03,65,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mood Suryam,parties.IN.IND,IND,35,0.03,66,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Jangala Bheemaia,parties.IN.IND,IND,34,0.02,67,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,M. Gangaram,parties.IN.IND,IND,33,0.02,68,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Dasharath Maloth,parties.IN.IND,IND,33,0.02,69,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Muthaiah E.,parties.IN.IND,IND,30,0.02,70,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Lingam Pally Narsimlu,parties.IN.IND,IND,30,0.02,71,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Gadda Meddi Narsimlu,parties.IN.IND,IND,28,0.02,72,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Sakriya Nayak Lambadi,parties.IN.IND,IND,24,0.02,73,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Shinu L.,parties.IN.IND,IND,16,0.01,74,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci15,andhra-pradesh,2010,15,YELLAREDDY,Mohan Singh L,parties.IN.IND,IND,14,0.01,75,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Endala Lakshmi Narayana,parties.IN.BJP,BJP,64176,53.12,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Dharmapuri  Srinivas,parties.IN.INC,INC,52195,43.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Arikala Narsa Reddy,parties.IN.TDP,TDP,1793,1.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Mohd. Ismail,parties.IN.IND,IND,792,0.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Esam Ramulu,parties.IN.UNK,DBP,539,0.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,major,Publisher label 'DBP' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Bhukya Krishna. Naik,parties.IN.IND,IND,329,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Gaddam Vikram Reddy,parties.IN.IND,IND,196,0.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),B. Nagaraj,parties.IN.IND,IND,196,0.16,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Gaddam Nagaraju,parties.IN.IND,IND,171,0.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Tatikonda Ramu,parties.IN.IND,IND,163,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Md. Nazeer,parties.IN.BSP_AP,BSP(AP),154,0.13,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci17,andhra-pradesh,2010,17,NIZAMABAD (URBAN),Chakradhar Sharma Rotte,parties.IN.AIFB,AIFB,118,0.1,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,K.V. S. Rao,parties.IN.BRS,TRS,80495,64.68,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,J.R.Rao,parties.IN.INC,INC,23970,19.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,P.Rajalingam,parties.IN.IND,IND,4874,3.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,S.Vishwanatham,parties.IN.TDP,TDP,3800,3.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,B.Mallesham,parties.IN.IND,IND,2353,1.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,V.Guruvaiah,parties.IN.IND,IND,1086,0.87,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,L.Ramesh,parties.IN.IND,IND,817,0.66,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,D.Chinna Sayanna,parties.IN.IND,IND,661,0.53,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,C.Rajanna,parties.IN.IND,IND,641,0.52,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,N. Muthanna,parties.IN.IND,IND,456,0.37,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,C.Prasad,parties.IN.IND,IND,406,0.33,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,Parsa Devanna,parties.IN.IND,IND,389,0.31,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,K. Ramulu,parties.IN.IND,IND,308,0.25,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,K.Narsaiah,parties.IN.IND,IND,307,0.25,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,B.Bhaskar,parties.IN.IND,IND,297,0.24,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,G.Narsaiah,parties.IN.IND,IND,242,0.19,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,B.V. Rao,parties.IN.IND,IND,237,0.19,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,M.D.Naik,parties.IN.IND,IND,191,0.15,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,R.Ramavath,parties.IN.IND,IND,147,0.12,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,B.Rajendhar,parties.IN.IND,IND,143,0.11,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,N.BaluNaik,parties.IN.IND,IND,131,0.11,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,K.Prabhakar,parties.IN.IND,IND,128,0.1,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,B. Bhaskar,parties.IN.IND,IND,122,0.1,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,A.Rajpal,parties.IN.IND,IND,119,0.1,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,M.Srinivas,parties.IN.IND,IND,118,0.09,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,A.Khan,parties.IN.IND,IND,114,0.09,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,Thad Nagesh,parties.IN.IND,IND,106,0.09,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,D. Prabudas,parties.IN.IND,IND,90,0.07,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,A. Balasiah,parties.IN.IND,IND,87,0.07,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,B. Srinivas,parties.IN.IND,IND,87,0.07,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,R. Ravi,parties.IN.IND,IND,72,0.06,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,D.Saidulu,parties.IN.IND,IND,69,0.06,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,N. A. Singh,parties.IN.IND,IND,69,0.06,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,"L, Rajaiah",parties.IN.IND,IND,67,0.05,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,N. Paramesh,parties.IN.IND,IND,66,0.05,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,R. P. Ram,parties.IN.IND,IND,66,0.05,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,R. Naagu,parties.IN.IND,IND,65,0.05,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,S. Narsaiah,parties.IN.IND,IND,65,0.05,38,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,B.Mallaiah,parties.IN.IND,IND,64,0.05,39,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,A. Ramreddy,parties.IN.IND,IND,61,0.05,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,N. Veeraiah,parties.IN.IND,IND,51,0.04,41,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,K. Ravi,parties.IN.IND,IND,49,0.04,42,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,D. Rajeshwar,parties.IN.IND,IND,46,0.04,43,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,M. Ailaiah,parties.IN.IND,IND,46,0.04,44,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,M. Surender,parties.IN.IND,IND,46,0.04,45,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,D. Ravinder,parties.IN.IND,IND,45,0.04,46,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,D.Sudharshan,parties.IN.IND,IND,44,0.04,47,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,S. Narsimhulu,parties.IN.IND,IND,44,0.04,48,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,K. Mohan,parties.IN.IND,IND,41,0.03,49,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,R. Pathaki,parties.IN.IND,IND,39,0.03,50,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,M. Laxmaiah,parties.IN.IND,IND,37,0.03,51,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,Y. Eedukanti,parties.IN.IND,IND,36,0.03,52,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,R. Hariya,parties.IN.IND,IND,35,0.03,53,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,S. muthenna,parties.IN.IND,IND,35,0.03,54,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,D. Shyam,parties.IN.IND,IND,29,0.02,55,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,N Chandru,parties.IN.IND,IND,29,0.02,56,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,S. Lingam,parties.IN.IND,IND,28,0.02,57,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,D. Bhumanna,parties.IN.IND,IND,25,0.02,58,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,E. Venkateshwarlu,parties.IN.IND,IND,22,0.02,59,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,A. S. Kumar,parties.IN.IND,IND,22,0.02,60,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,N.Lakkidas,parties.IN.IND,IND,20,0.02,61,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,S. Poshanna,parties.IN.IND,IND,20,0.02,62,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,S.Gangadhar,parties.IN.IND,IND,19,0.02,63,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,A. Ramachandram,parties.IN.IND,IND,17,0.01,64,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,K. Vilas Kumar,parties.IN.IND,IND,15,0.01,65,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,P.C.Peddulu,parties.IN.IND,IND,14,0.01,66,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci20,andhra-pradesh,2010,20,KORATLA,Y..Rajapurnanandam,parties.IN.IND,IND,13,0.01,67,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci22,andhra-pradesh,2010,22,DHARMAPURI (SC),E. Koppula,parties.IN.BRS,TRS,86720,67.97,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci22,andhra-pradesh,2010,22,DHARMAPURI (SC),A. L. Kumar,parties.IN.INC,INC,27829,21.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci22,andhra-pradesh,2010,22,DHARMAPURI (SC),N. Narayana,parties.IN.TDP,TDP,7779,6.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci22,andhra-pradesh,2010,22,DHARMAPURI (SC),Pulluri Laxminarayana,parties.IN.IND,IND,2639,2.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci22,andhra-pradesh,2010,22,DHARMAPURI (SC),Alagurthi Laxmianarayana.,parties.IN.IND,IND,2610,2.05,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci28,andhra-pradesh,2010,28,VEMULAWADA,Ramesh Chennamaneni,parties.IN.BRS,TRS,79146,65.42,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci28,andhra-pradesh,2010,28,VEMULAWADA,A. Srinivas,parties.IN.INC,INC,28695,23.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci28,andhra-pradesh,2010,28,VEMULAWADA,Devarakonda Srinvas,parties.IN.IND,IND,8759,7.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci28,andhra-pradesh,2010,28,VEMULAWADA,G. V.Rao,parties.IN.TDP,TDP,4387,3.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.T Ramarao,parties.IN.BRS,TRS,87876,66.05,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.K.Mahender Reddy,parties.IN.INC,INC,19657,14.78,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,P.K Kumar,parties.IN.TDP,TDP,3509,2.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,G.P.Chowdari,parties.IN.IND,IND,3411,2.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,N.P.Ramulu,parties.IN.IND,IND,2974,2.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Rajaiah,parties.IN.IND,IND,2377,1.79,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,G.Kumar,parties.IN.IND,IND,1808,1.36,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Ravi,parties.IN.IND,IND,1158,0.87,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,D.Srinivas,parties.IN.IND,IND,1134,0.85,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,D.Swamy,parties.IN.IND,IND,1072,0.81,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,R.Boompalli,parties.IN.IND,IND,652,0.49,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,U.Ravinder,parties.IN.IND,IND,611,0.46,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,P.Vasantha,parties.IN.IND,IND,465,0.35,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Kalpana,parties.IN.IND,IND,431,0.32,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,T.K.Kumar Gaud,parties.IN.IND,IND,408,0.31,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,R.Tharvva,parties.IN.IND,IND,392,0.29,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Rajaiah,parties.IN.IND,IND,364,0.27,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,G.Prabhakar Goud,parties.IN.IND,IND,331,0.25,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Y.Raju,parties.IN.IND,IND,326,0.25,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,J.Santhosha,parties.IN.IND,IND,271,0.2,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,D.Narsaiah,parties.IN.IND,IND,269,0.2,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Srinivas Reddy,parties.IN.IND,IND,230,0.17,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,G.Poolavva,parties.IN.IND,IND,201,0.15,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Thota Madhu,parties.IN.IND,IND,138,0.1,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,P.Ananthi,parties.IN.IND,IND,136,0.1,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,B.Ailaiah,parties.IN.IND,IND,133,0.1,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,B.Kanukavva,parties.IN.IND,IND,115,0.09,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Suraj.G.,parties.IN.IND,IND,114,0.09,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Karuna,parties.IN.IND,IND,110,0.08,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,R.Padma,parties.IN.IND,IND,106,0.08,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Kishan,parties.IN.IND,IND,103,0.08,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Vishnuprasad,parties.IN.AIFB,AIFB,100,0.08,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Ramaswamy,parties.IN.IND,IND,97,0.07,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,D.Swamy,parties.IN.IND,IND,94,0.07,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,T.Ravinder,parties.IN.IND,IND,88,0.07,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Kishan,parties.IN.IND,IND,78,0.06,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Jhirupathi,parties.IN.IND,IND,78,0.06,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,P.Ramachandram,parties.IN.IND,IND,77,0.06,38,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Bitla Ashok,parties.IN.IND,IND,72,0.05,39,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,J.Laxminarayana,parties.IN.IND,IND,67,0.05,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,S.Yashoda,parties.IN.IND,IND,65,0.05,41,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,T.M.S.Kumar,parties.IN.IND,IND,64,0.05,42,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Venkataiah,parties.IN.IND,IND,61,0.05,43,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,D.Rajedner,parties.IN.IND,IND,61,0.05,44,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,S.Subadra,parties.IN.IND,IND,59,0.04,45,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,R.Ramulu,parties.IN.IND,IND,58,0.04,46,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,A.Gopi,parties.IN.IND,IND,57,0.04,47,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,C.Chandramouli,parties.IN.IND,IND,54,0.04,48,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,D.Raju.G.,parties.IN.IND,IND,53,0.04,49,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,S.Komuraiah,parties.IN.IND,IND,51,0.04,50,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,A.Parashuram,parties.IN.IND,IND,50,0.04,51,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Kanakaiah,parties.IN.IND,IND,49,0.04,52,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Narsimlu,parties.IN.IND,IND,47,0.04,53,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,M.S.Reddy,parties.IN.IND,IND,45,0.03,54,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,B.Ramulu,parties.IN.IND,IND,42,0.03,55,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Y.Sathaiah,parties.IN.IND,IND,40,0.03,56,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Laxman,parties.IN.IND,IND,39,0.03,57,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Narsimlu,parties.IN.IND,IND,38,0.03,58,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Mallesham,parties.IN.IND,IND,36,0.03,59,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,E.Lingam,parties.IN.IND,IND,33,0.02,60,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Chanda Laxmi,parties.IN.IND,IND,32,0.02,61,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,V.Rajkumar,parties.IN.IND,IND,32,0.02,62,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,O.Mallesham,parties.IN.IND,IND,30,0.02,63,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,V.Venkat Reddy,parties.IN.IND,IND,29,0.02,64,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,T.Manoj Kumar,parties.IN.IND,IND,27,0.02,65,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,B.Swami,parties.IN.IND,IND,26,0.02,66,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,K.Mohan,parties.IN.IND,IND,26,0.02,67,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Kamarapu Shyam  ( Alies),parties.IN.IND,IND,25,0.02,68,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,B.Kanakaiah,parties.IN.IND,IND,24,0.02,69,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Madavi Naresh,parties.IN.IND,IND,22,0.02,70,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,P.S.Reddy,parties.IN.IND,IND,21,0.02,71,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,A.Ramesh,parties.IN.IND,IND,19,0.01,72,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,B.Narsaiah,parties.IN.IND,IND,19,0.01,73,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,A.Shiva kumar,parties.IN.IND,IND,18,0.01,74,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,B.Komuraiah,parties.IN.IND,IND,18,0.01,75,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,S.Yadagiri,parties.IN.IND,IND,17,0.01,76,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,Shiva Kumar Y.,parties.IN.IND,IND,11,0.01,77,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci29,andhra-pradesh,2010,29,SIRCILLA,S.Chandraiah,parties.IN.IND,IND,8,0.01,78,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,E.Rajender,parties.IN.BRS,TRS,93026,67.36,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,D.R.Muddasani,parties.IN.TDP,TDP,13799,9.99,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,V.K.Mohan Rao,parties.IN.INC,INC,12540,9.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G.Mahender,parties.IN.IND,IND,3931,2.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Rajaiah,parties.IN.IND,IND,1824,1.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,M.Kumar Swamy,parties.IN.IND,IND,1799,1.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Madhu,parties.IN.IND,IND,1409,1.02,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Bochu Krishna,parties.IN.IND,IND,1266,0.92,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Koinkonda Bhikshapathi,parties.IN.IND,IND,845,0.61,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,D.Venkataswam. Y,parties.IN.IND,IND,793,0.57,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Suresh Thikka,parties.IN.IND,IND,667,0.48,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,D.Kishan,parties.IN.IND,IND,576,0.42,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G.Srinivas,parties.IN.IND,IND,487,0.35,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,T.C.Mouli,parties.IN.IND,IND,420,0.3,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,J.Nagaraju,parties.IN.IND,IND,306,0.22,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G.Surender,parties.IN.IND,IND,232,0.17,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G.Ramesh,parties.IN.IND,IND,212,0.15,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,B.Ravi,parties.IN.IND,IND,204,0.15,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G.Narsaiah,parties.IN.IND,IND,199,0.14,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G.B.Nayak,parties.IN.IND,IND,196,0.14,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,B.V.Kumar,parties.IN.IND,IND,193,0.14,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,A.Thirupathi,parties.IN.IND,IND,179,0.13,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,J.V.Yellaiah,parties.IN.IND,IND,160,0.12,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G.Chinna,parties.IN.IND,IND,140,0.1,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Mogili,parties.IN.IND,IND,139,0.1,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,C.Jilla,parties.IN.IND,IND,128,0.09,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,B.Rao Bochu,parties.IN.IND,IND,121,0.09,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.A.Swamy,parties.IN.IND,IND,112,0.08,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,N.Jilla,parties.IN.IND,IND,111,0.08,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Gajji Mogili,parties.IN.IND,IND,106,0.08,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,S. Elthuri,parties.IN.IND,IND,104,0.08,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G. Yadagiri,parties.IN.IND,IND,103,0.07,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,M.Upender,parties.IN.IND,IND,100,0.07,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,N.Ramu,parties.IN.IND,IND,97,0.07,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Ravi,parties.IN.IND,IND,94,0.07,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Ramesh,parties.IN.IND,IND,89,0.06,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,A.Raghu,parties.IN.IND,IND,82,0.06,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,K.Gangya,parties.IN.IND,IND,76,0.06,38,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Mallaiah,parties.IN.IND,IND,73,0.05,39,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,R. Bollaram,parties.IN.IND,IND,68,0.05,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Chandramouli,parties.IN.IND,IND,62,0.04,41,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Kishan,parties.IN.IND,IND,61,0.04,42,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,J.A.Singh,parties.IN.IND,IND,57,0.04,43,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,D.Bhadraiah,parties.IN.IND,IND,57,0.04,44,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,R. Satish,parties.IN.IND,IND,52,0.04,45,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,S. Thirupathi,parties.IN.IND,IND,52,0.04,46,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,M.Rajender,parties.IN.IND,IND,47,0.03,47,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,"P,Subash",parties.IN.IND,IND,46,0.03,48,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G.S.Kumar,parties.IN.IND,IND,43,0.03,49,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,K.Narsimhulu,parties.IN.IND,IND,41,0.03,50,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Ramesh Muda,parties.IN.IND,IND,41,0.03,51,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,A.Surender,parties.IN.IND,IND,39,0.03,52,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,N.Sammaiah,parties.IN.IND,IND,38,0.03,53,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Raju,parties.IN.IND,IND,38,0.03,54,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,B.A.Komuraiah,parties.IN.IND,IND,38,0.03,55,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Mogili,parties.IN.IND,IND,38,0.03,56,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,B.Surya,parties.IN.IND,IND,37,0.03,57,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,J.Somanna,parties.IN.IND,IND,36,0.03,58,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,B.Hatya,parties.IN.IND,IND,32,0.02,59,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,S. Yakaiah,parties.IN.IND,IND,32,0.02,60,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,J. Kommalu,parties.IN.IND,IND,30,0.02,61,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Aku Ramesh,parties.IN.IND,IND,28,0.02,62,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Aku Subash,parties.IN.IND,IND,28,0.02,63,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,P.Sadanandam,parties.IN.IND,IND,26,0.02,64,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,L Mallu,parties.IN.IND,IND,25,0.02,65,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,Aku Shankar,parties.IN.IND,IND,24,0.02,66,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,A.Biyapathi,parties.IN.IND,IND,21,0.02,67,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,G. Sarangapani,parties.IN.IND,IND,16,0.01,68,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci31,andhra-pradesh,2010,31,HUZURABAD,S. Rajaiah,parties.IN.IND,IND,14,0.01,69,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci33,andhra-pradesh,2010,33,SIDDIPET,T.Harish Rao,parties.IN.BRS,TRS,108799,82.15,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci33,andhra-pradesh,2010,33,SIDDIPET,T.Srinivas Goud,parties.IN.INC,INC,12921,9.76,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci33,andhra-pradesh,2010,33,SIDDIPET,P.Babu Mohan,parties.IN.TDP,TDP,5258,3.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci33,andhra-pradesh,2010,33,SIDDIPET,Nishani Krishna,parties.IN.IND,IND,2906,2.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci33,andhra-pradesh,2010,33,SIDDIPET,A.Prakash,parties.IN.IND,IND,2100,1.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci33,andhra-pradesh,2010,33,SIDDIPET,G.Bansilal,parties.IN.IND,IND,458,0.35,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),O.V.Bhaskar,parties.IN.BRS,TRS,88449,74.85,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.D.Rao,parties.IN.INC,INC,20925,17.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),V.N.Reddy,parties.IN.TDP,TDP,5762,4.88,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.Elander,parties.IN.IND,IND,827,0.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),E.Sarangapani,parties.IN.IND,IND,481,0.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.Ramesh,parties.IN.IND,IND,325,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),Katta Raju,parties.IN.IND,IND,190,0.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.Sadanaday,parties.IN.IND,IND,115,0.1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),P.Raju,parties.IN.IND,IND,94,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),R.Lauudyi,parties.IN.IND,IND,65,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),J.Prabhakar,parties.IN.IND,IND,57,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.Kanakaiah,parties.IN.IND,IND,54,0.05,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),J.Kumaraswamy,parties.IN.IND,IND,53,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),E.Venu,parties.IN.AIFB,AIFB,48,0.04,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),A.Venrataswamy,parties.IN.IND,IND,35,0.03,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),I.Ravi,parties.IN.IND,IND,35,0.03,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),S.Kumaraswamy,parties.IN.IND,IND,35,0.03,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Ramesh,parties.IN.IND,IND,31,0.03,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),G.Venrataiah,parties.IN.IND,IND,29,0.02,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),A.Ramulu,parties.IN.IND,IND,25,0.02,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.Rajkumar,parties.IN.IND,IND,25,0.02,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),C.S.Rayavarapu,parties.IN.IND,IND,22,0.02,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),G.Swamy,parties.IN.IND,IND,21,0.02,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),A.Veeranna,parties.IN.IND,IND,19,0.02,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),A.Yakaiah,parties.IN.IND,IND,19,0.02,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),J.Bhaskar,parties.IN.IND,IND,19,0.02,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),A.Shyamson,parties.IN.IND,IND,18,0.02,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),J.Raju,parties.IN.IND,IND,18,0.02,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),R.Joddmunthala,parties.IN.IND,IND,18,0.02,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),N.Ananday,parties.IN.IND,IND,17,0.01,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Raju,parties.IN.IND,IND,17,0.01,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),L.Ailraj,parties.IN.IND,IND,16,0.01,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),E.Bhaskar,parties.IN.IND,IND,15,0.01,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.Saritha,parties.IN.IND,IND,13,0.01,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),G.Lingaiah,parties.IN.IND,IND,13,0.01,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),D.Johnan,parties.IN.IND,IND,13,0.01,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),A.Veerasingh,parties.IN.IND,IND,12,0.01,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.Janardhan,parties.IN.IND,IND,12,0.01,38,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),T.Kumaraswamy,parties.IN.IND,IND,12,0.01,39,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),P.Karunakar,parties.IN.IND,IND,12,0.01,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),D.Ratan Kumar,parties.IN.IND,IND,11,0.01,41,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),R.Bharmavath,parties.IN.IND,IND,11,0.01,42,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),S.Kumar,parties.IN.IND,IND,11,0.01,43,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.S.Prasad,parties.IN.IND,IND,10,0.01,44,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),K.Ananday,parties.IN.IND,IND,10,0.01,45,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),P.Yellaiah,parties.IN.IND,IND,10,0.01,46,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),P.Sambaiah,parties.IN.IND,IND,10,0.01,47,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),G.Kornelu,parties.IN.IND,IND,9,0.01,48,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Kumar,parties.IN.IND,IND,9,0.01,49,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),R.Ravi,parties.IN.IND,IND,9,0.01,50,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),M.Kandakatla,parties.IN.IND,IND,8,0.01,51,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),L.Babbi,parties.IN.IND,IND,8,0.01,52,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),S.Kumar,parties.IN.IND,IND,8,0.01,53,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),J.Anjaiah,parties.IN.IND,IND,6,0.01,54,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),D.N.Prasad,parties.IN.IND,IND,6,0.01,55,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),N.P.Gonda,parties.IN.IND,IND,6,0.01,56,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),M.Jabru,parties.IN.IND,IND,6,0.01,57,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),R.Baske,parties.IN.IND,IND,6,0.01,58,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),S.Chandraiah,parties.IN.IND,IND,6,0.01,59,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),J.Lullo,parties.IN.IND,IND,5,0,60,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Swamy,parties.IN.IND,IND,5,0,61,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),R.Komuriah,parties.IN.IND,IND,5,0,62,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),S.Angothu,parties.IN.IND,IND,5,0,63,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Babu,parties.IN.IND,IND,4,0,64,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),R.Bunga,parties.IN.IND,IND,4,0,65,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),S.Yakub Raj,parties.IN.IND,IND,4,0,66,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Rambabu,parties.IN.IND,IND,3,0,67,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),V.Sadananday,parties.IN.IND,IND,3,0,68,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),P.Manne,parties.IN.IND,IND,2,0,69,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Dasharadham,parties.IN.IND,IND,2,0,70,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Venkataswamy,parties.IN.IND,IND,2,0,71,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),B.Barmauath,parties.IN.IND,IND,1,0,72,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),G.Raju,parties.IN.IND,IND,0,0,73,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-andhra-pradesh-eci105,andhra-pradesh,2010,105,WARANGAL (WEST),V.Suresh,parties.IN.IND,IND,0,0,74,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

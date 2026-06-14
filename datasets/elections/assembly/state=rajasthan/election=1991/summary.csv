@@ -1,5 +1,5 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-rajasthan-154,rajasthan,1991,MANDALGARH,132794,82682,62.26,B.L.JOSHI,parties.IN.INC,INC,40644,49.16,B.P.GURUJEE,parties.IN.BJP,BJP,38567,2077,2.52,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-70,rajasthan,1991,DEEG,97005,62480,64.41,A.SINGH,parties.IN.IND,IND,33202,53.14,S.SINGH,parties.IN.INC,INC,19898,13304,21.29,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-84,rajasthan,1991,BAMANWAS(ST),129543,68757,53.08,H.LAL,parties.IN.INC,INC,32124,46.72,K.LAL,parties.IN.BJP,BJP,29055,3069,4.46,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-89,rajasthan,1991,NIWAI(SC),115110,71254,61.9,K.MEGHWAL,parties.IN.BJP,BJP,34057,47.8,D.P.BAIRWA,parties.IN.INC,INC,33851,206,0.29,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-rajasthan-154,rajasthan,1991,MANDALGARH,132794,82682,62.26,B.L.JOSHI,parties.IN.INC,INC,40644,49.16,B.P.GURUJEE,parties.IN.BJP,BJP,38567,2077,2.52,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-70,rajasthan,1991,DEEG,97005,62480,64.41,A.SINGH,parties.IN.IND,IND,33202,53.14,S.SINGH,parties.IN.INC,INC,19898,13304,21.29,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-84,rajasthan,1991,BAMANWAS(ST),129543,68757,53.08,H.LAL,parties.IN.INC,INC,32124,46.72,K.LAL,parties.IN.BJP,BJP,29055,3069,4.46,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-89,rajasthan,1991,NIWAI(SC),115110,71254,61.9,K.MEGHWAL,parties.IN.BJP,BJP,34057,47.8,D.P.BAIRWA,parties.IN.INC,INC,33851,206,0.29,src-1b7bc1c9d39a,minor,

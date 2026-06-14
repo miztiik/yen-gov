@@ -1,11 +1,11 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-haryana-54,haryana,1989,54,NUH,HASSAN  Mohd.,parties.IN.IND,IND,32729,55.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-54,haryana,1989,54,NUH,MOHD. ILYAS,parties.IN.INC,INC,14206,24.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-54,haryana,1989,54,NUH,H.HUSSAIN,parties.IN.IND,IND,8939,15.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-54,haryana,1989,54,NUH,B.LAL,parties.IN.IND,IND,985,1.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-54,haryana,1989,54,NUH,P.C.PREMI,parties.IN.IND,IND,523,0.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-54,haryana,1989,54,NUH,AKBAR,parties.IN.IND,IND,301,0.51,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-54,haryana,1989,54,NUH,SAFI MOHD.,parties.IN.IND,IND,252,0.43,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-54,haryana,1989,54,NUH,K.AHMAD,parties.IN.IND,IND,246,0.42,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-54,haryana,1989,54,NUH,MOHD. SAFI,parties.IN.IND,IND,239,0.41,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-54,haryana,1989,54,NUH,SAHOOD,parties.IN.IND,IND,224,0.38,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-haryana-54,haryana,1989,54,NUH,HASSAN  Mohd.,parties.IN.IND,IND,32729,55.81,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-54,haryana,1989,54,NUH,MOHD. ILYAS,parties.IN.INC,INC,14206,24.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-54,haryana,1989,54,NUH,H.HUSSAIN,parties.IN.IND,IND,8939,15.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-54,haryana,1989,54,NUH,B.LAL,parties.IN.IND,IND,985,1.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-54,haryana,1989,54,NUH,P.C.PREMI,parties.IN.IND,IND,523,0.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-54,haryana,1989,54,NUH,AKBAR,parties.IN.IND,IND,301,0.51,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-54,haryana,1989,54,NUH,SAFI MOHD.,parties.IN.IND,IND,252,0.43,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-54,haryana,1989,54,NUH,K.AHMAD,parties.IN.IND,IND,246,0.42,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-54,haryana,1989,54,NUH,MOHD. SAFI,parties.IN.IND,IND,239,0.41,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-54,haryana,1989,54,NUH,SAHOOD,parties.IN.IND,IND,224,0.38,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

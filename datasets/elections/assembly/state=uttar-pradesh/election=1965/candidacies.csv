@@ -1,5 +1,5 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1962-uttar-pradesh-183,uttar-pradesh,1965,183,BANSI NORTH,K.K.K.NAYAR,parties.IN.JS,JS,23876,54.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-uttar-pradesh-183,uttar-pradesh,1965,183,BANSI NORTH,D.SHANKER,parties.IN.INC,INC,17384,39.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-uttar-pradesh-183,uttar-pradesh,1965,183,BANSI NORTH,D.RAM,parties.IN.IND,IND,1467,3.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-uttar-pradesh-183,uttar-pradesh,1965,183,BANSI NORTH,F.HAQ,parties.IN.IND,IND,849,1.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1962-uttar-pradesh-183,uttar-pradesh,1965,183,BANSI NORTH,K.K.K.NAYAR,parties.IN.JS,JS,23876,54.79,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-uttar-pradesh-183,uttar-pradesh,1965,183,BANSI NORTH,D.SHANKER,parties.IN.INC,INC,17384,39.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-uttar-pradesh-183,uttar-pradesh,1965,183,BANSI NORTH,D.RAM,parties.IN.IND,IND,1467,3.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-uttar-pradesh-183,uttar-pradesh,1965,183,BANSI NORTH,F.HAQ,parties.IN.IND,IND,849,1.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

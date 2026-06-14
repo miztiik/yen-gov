@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-bihar-40,bihar,1982,JALALPUR,134041,43810,32.68,S.K.SINGH,parties.IN.INC,INC,13789,31.47,R.K.RAI,parties.IN.CPI,CPI,12129,1660,3.78,src-1b7bc1c9d39a
-IN-AC-1976-bihar-54,bihar,1982,SAHEBGANJ,127390,75764,59.47,S.S.SINGH,parties.IN.INC,INC,29973,39.56,K.K.SINHA(W),parties.IN.IND,IND,20982,8991,11.87,src-1b7bc1c9d39a
-IN-AC-1976-bihar-98,bihar,1982,DALSINGHSARAI,139328,88231,63.33,V.K.CHOUDHARY,parties.IN.INC,INC,44330,50.24,R.P.MAHTO,parties.IN.IND,IND,16049,28281,32.05,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-bihar-40,bihar,1982,JALALPUR,134041,43810,32.68,S.K.SINGH,parties.IN.INC,INC,13789,31.47,R.K.RAI,parties.IN.CPI,CPI,12129,1660,3.78,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-54,bihar,1982,SAHEBGANJ,127390,75764,59.47,S.S.SINGH,parties.IN.INC,INC,29973,39.56,K.K.SINHA(W),parties.IN.IND,IND,20982,8991,11.87,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-98,bihar,1982,DALSINGHSARAI,139328,88231,63.33,V.K.CHOUDHARY,parties.IN.INC,INC,44330,50.24,R.P.MAHTO,parties.IN.IND,IND,16049,28281,32.05,src-1b7bc1c9d39a,minor,

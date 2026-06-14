@@ -1,13 +1,13 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-madhya-pradesh-2508,madhya-pradesh,2015,171,DEWAS,Gayatri Raje Puar,parties.IN.BJP,BJP,89385,59.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2508,madhya-pradesh,2015,171,DEWAS,Jai Prakash Shastri,parties.IN.INC,INC,58580,39.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2508,madhya-pradesh,2015,171,DEWAS,Sunny Singh Kanwar,parties.IN.IPI,IPI,760,0.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2508,madhya-pradesh,2015,171,DEWAS,Haji Hatam Bhai(Darbar),parties.IN.SP,SP,635,0.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Chander Singh Sisodia(E),parties.IN.BJP,BJP,81449,52.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Subhash Kumar Sojatia,parties.IN.INC,INC,68504,44.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Abdul Rashid,parties.IN.IND,IND,1416,0.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Shyam Lal Malviya,parties.IN.IND,IND,852,0.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Devi Lal Dhakad,parties.IN.IND,IND,652,0.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Mehmood,parties.IN.IND,IND,509,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Prahalad Singh Chauhan,parties.IN.IND,IND,275,0.18,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Balaram Hatela,parties.IN.IND,IND,268,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-madhya-pradesh-2508,madhya-pradesh,2015,171,DEWAS,Gayatri Raje Puar,parties.IN.BJP,BJP,89385,59.85,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-madhya-pradesh-2508,madhya-pradesh,2015,171,DEWAS,Jai Prakash Shastri,parties.IN.INC,INC,58580,39.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-madhya-pradesh-2508,madhya-pradesh,2015,171,DEWAS,Sunny Singh Kanwar,parties.IN.IPI,IPI,760,0.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-madhya-pradesh-2508,madhya-pradesh,2015,171,DEWAS,Haji Hatam Bhai(Darbar),parties.IN.SP,SP,635,0.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Chander Singh Sisodia(E),parties.IN.BJP,BJP,81449,52.91,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Subhash Kumar Sojatia,parties.IN.INC,INC,68504,44.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Abdul Rashid,parties.IN.IND,IND,1416,0.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Shyam Lal Malviya,parties.IN.IND,IND,852,0.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Devi Lal Dhakad,parties.IN.IND,IND,652,0.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Mehmood,parties.IN.IND,IND,509,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Prahalad Singh Chauhan,parties.IN.IND,IND,275,0.18,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-madhya-pradesh-2594,madhya-pradesh,2015,227,GAROTH,Balaram Hatela,parties.IN.IND,IND,268,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

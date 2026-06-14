@@ -1,11 +1,11 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Anil Kumar Verma,parties.IN.BJP,BJP,0,,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Natthu Lal,parties.IN.INC,INC,0,,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Rajeshwari,parties.IN.SP,SP,0,,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Shiv Prasad,parties.IN.BSP,BSP,0,,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Shri Ram Verma,parties.IN.JDS,JD(S),0,,5,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Rajeshwari Sonkar,parties.IN.AJBP,AJBP,0,,6,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Mashesh Prasad,parties.IN.IND,IND,0,,7,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Raj Bahadur,parties.IN.IND,IND,0,,8,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Susheel Chandra,parties.IN.IND,IND,0,,9,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Shri Ram,parties.IN.IND,IND,0,,10,lost,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Anil Kumar Verma,parties.IN.BJP,BJP,0,,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Natthu Lal,parties.IN.INC,INC,0,,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Rajeshwari,parties.IN.SP,SP,0,,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Shiv Prasad,parties.IN.BSP,BSP,0,,4,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Shri Ram Verma,parties.IN.JDS,JD(S),0,,5,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Rajeshwari Sonkar,parties.IN.AJBP,AJBP,0,,6,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Mashesh Prasad,parties.IN.IND,IND,0,,7,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Raj Bahadur,parties.IN.IND,IND,0,,8,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Susheel Chandra,parties.IN.IND,IND,0,,9,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-87,uttar-pradesh,1999,87,BAWAN(SC),Shri Ram,parties.IN.IND,IND,0,,10,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,

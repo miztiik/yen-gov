@@ -1,29 +1,29 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Rajendren K.S.K,parties.IN.INC,INC,60933,51.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Raju K.,parties.IN.AIADMK,ADMK,29818,25.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Sivamuthu Kumaran D,parties.IN.DMDK,DMDK,21272,18.04,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Seetharaman +AEA- Sasiraman C,parties.IN.BJP,BJP,1308,1.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Arokiyam K.,parties.IN.IND,IND,1090,0.92,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Boominathan N.,parties.IN.IND,IND,452,0.38,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Magudapathi R.,parties.IN.IND,IND,401,0.34,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Puyal Ponnaiah K.,parties.IN.IND,IND,328,0.28,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Raju R.L.,parties.IN.IND,IND,243,0.21,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Bose U.,parties.IN.IND,IND,241,0.2,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Pandian P.,parties.IN.IND,IND,181,0.15,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Mahalingam +AEA- Chittrarasu,parties.IN.PT,PT,175,0.15,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Suvichelvan D.,parties.IN.UNK,MMK,168,0.14,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Palpandy M.,parties.IN.IND,IND,164,0.14,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Dr.John Britto Selvaraj S.,parties.IN.IND,IND,149,0.13,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Dr. Padmarajan K.,parties.IN.IND,IND,138,0.12,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Noormuhamad A,parties.IN.IND,IND,110,0.09,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Palani Ganesh S.K.,parties.IN.IND,IND,97,0.08,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Vimal Raj K.,parties.IN.IND,IND,91,0.08,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Chandrasekaran R.,parties.IN.IND,IND,85,0.07,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Vairam K,parties.IN.IND,IND,84,0.07,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Muthusamy P.,parties.IN.IND,IND,75,0.06,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Ravichandran M.,parties.IN.IND,IND,65,0.06,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Syed Thalif Alisha S.,parties.IN.IND,IND,55,0.05,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Durgarani N.,parties.IN.IND,IND,55,0.05,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Movendran P,parties.IN.IND,IND,45,0.04,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Selvam m.(Thoothai.M.Selvam),parties.IN.IND,IND,40,0.03,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Senthil Kumar P.,parties.IN.IND,IND,32,0.03,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Rajendren K.S.K,parties.IN.INC,INC,60933,51.68,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Raju K.,parties.IN.AIADMK,ADMK,29818,25.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Sivamuthu Kumaran D,parties.IN.DMDK,DMDK,21272,18.04,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Seetharaman +AEA- Sasiraman C,parties.IN.BJP,BJP,1308,1.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Arokiyam K.,parties.IN.IND,IND,1090,0.92,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Boominathan N.,parties.IN.IND,IND,452,0.38,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Magudapathi R.,parties.IN.IND,IND,401,0.34,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Puyal Ponnaiah K.,parties.IN.IND,IND,328,0.28,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Raju R.L.,parties.IN.IND,IND,243,0.21,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Bose U.,parties.IN.IND,IND,241,0.2,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Pandian P.,parties.IN.IND,IND,181,0.15,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Mahalingam +AEA- Chittrarasu,parties.IN.PT,PT,175,0.15,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Suvichelvan D.,parties.IN.UNK,MMK,168,0.14,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,major,Publisher label 'MMK' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Palpandy M.,parties.IN.IND,IND,164,0.14,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Dr.John Britto Selvaraj S.,parties.IN.IND,IND,149,0.13,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Dr. Padmarajan K.,parties.IN.IND,IND,138,0.12,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Noormuhamad A,parties.IN.IND,IND,110,0.09,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Palani Ganesh S.K.,parties.IN.IND,IND,97,0.08,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Vimal Raj K.,parties.IN.IND,IND,91,0.08,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Chandrasekaran R.,parties.IN.IND,IND,85,0.07,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Vairam K,parties.IN.IND,IND,84,0.07,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Muthusamy P.,parties.IN.IND,IND,75,0.06,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Ravichandran M.,parties.IN.IND,IND,65,0.06,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Syed Thalif Alisha S.,parties.IN.IND,IND,55,0.05,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Durgarani N.,parties.IN.IND,IND,55,0.05,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Movendran P,parties.IN.IND,IND,45,0.04,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Selvam m.(Thoothai.M.Selvam),parties.IN.IND,IND,40,0.03,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-142,tamil-nadu,2007,142,MADURAIWEST,Senthil Kumar P.,parties.IN.IND,IND,32,0.03,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

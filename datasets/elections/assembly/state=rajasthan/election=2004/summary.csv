@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-rajasthan-199,rajasthan,2004,MERTA,171063,113593,66.4,RAMCHANDRA,parties.IN.INC,INC,55150,48.55,RAM PRATAP BAGAAR,parties.IN.BJP,BJP,49886,5264,4.63,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-58,rajasthan,2004,BEHROR,151450,108309,71.51,CHAND NATH,parties.IN.BJP,BJP,51188,47.26,DR. JASWANT SINGH YADAV,parties.IN.IND,IND,38101,13087,12.08,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-rajasthan-199,rajasthan,2004,MERTA,171063,113593,66.4,RAMCHANDRA,parties.IN.INC,INC,55150,48.55,RAM PRATAP BAGAAR,parties.IN.BJP,BJP,49886,5264,4.63,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-58,rajasthan,2004,BEHROR,151450,108309,71.51,CHAND NATH,parties.IN.BJP,BJP,51188,47.26,DR. JASWANT SINGH YADAV,parties.IN.IND,IND,38101,13087,12.08,src-1b7bc1c9d39a,minor,

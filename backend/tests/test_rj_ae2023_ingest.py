@@ -109,6 +109,8 @@ def test_candidacies_csv_header_is_canonical(candidacies: list[dict[str, str]]) 
         "profession",
         "candidate_type",
         "source_id",
+        "processing_level",
+        "processing_note",
     ]
     assert candidacies, "no rows in candidacies.csv"
     assert list(candidacies[0].keys()) == expected, (
@@ -137,6 +139,8 @@ def test_summary_csv_header_is_canonical(summary: list[dict[str, str]]) -> None:
         "margin_votes",
         "margin_pct",
         "source_id",
+        "processing_level",
+        "processing_note",
     ]
     assert summary, "no rows in summary.csv"
     assert list(summary[0].keys()) == expected, (

@@ -92,6 +92,8 @@ _CANDIDACIES_COLUMNS: dict[str, str] = {
     "profession": "VARCHAR",
     "candidate_type": "VARCHAR",
     "source_id": "VARCHAR",
+    "processing_level": "VARCHAR",
+    "processing_note": "VARCHAR",
 }
 
 

@@ -1,11 +1,11 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Ganesan V.,parties.IN.DMK,DMK,61956,43.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Ramalingam K.,parties.IN.AIADMK,ADMK,48070,33.83,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Karuppusamy P.,parties.IN.JDU,JD(U),26433,18.61,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Jayaseelan V.,parties.IN.IND,IND,1695,1.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Alaxandar P.,parties.IN.IND,IND,950,0.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Thanavel P.,parties.IN.IND,IND,853,0.6,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Velmurugan S.,parties.IN.IND,IND,677,0.48,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Kolanjinathan V.,parties.IN.IND,IND,528,0.37,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Ramesh A.,parties.IN.IND,IND,461,0.32,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Muthusamy C.,parties.IN.IND,IND,449,0.32,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Ganesan V.,parties.IN.DMK,DMK,61956,43.61,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Ramalingam K.,parties.IN.AIADMK,ADMK,48070,33.83,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Karuppusamy P.,parties.IN.JDU,JD(U),26433,18.61,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Jayaseelan V.,parties.IN.IND,IND,1695,1.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Alaxandar P.,parties.IN.IND,IND,950,0.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Thanavel P.,parties.IN.IND,IND,853,0.6,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Velmurugan S.,parties.IN.IND,IND,677,0.48,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Kolanjinathan V.,parties.IN.IND,IND,528,0.37,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Ramesh A.,parties.IN.IND,IND,461,0.32,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-70,tamil-nadu,2004,70,MANGALORE,Muthusamy C.,parties.IN.IND,IND,449,0.32,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

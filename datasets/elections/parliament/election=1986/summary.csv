@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-PC-1976-bihar-29,bihar,1986,BANKA,770286,360556,46.81,M.SINGH(W),parties.IN.INC,INC,186237,51.65,G.FERNENDES,parties.IN.JP,JNP,156853,29384,8.15,src-31c65dbec869
-IN-PC-1976-karnataka-3,karnataka,1986,RAICHUR,734816,369256,50.25,M.Y.CHORPADE,parties.IN.INC,INC,169696,45.96,R.A.NAIK,parties.IN.JP,JNP,164014,5682,1.54,src-31c65dbec869
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-PC-1976-bihar-29,bihar,1986,BANKA,770286,360556,46.81,M.SINGH(W),parties.IN.INC,INC,186237,51.65,G.FERNENDES,parties.IN.JP,JNP,156853,29384,8.15,src-31c65dbec869,minor,
+IN-PC-1976-karnataka-3,karnataka,1986,RAICHUR,734816,369256,50.25,M.Y.CHORPADE,parties.IN.INC,INC,169696,45.96,R.A.NAIK,parties.IN.JP,JNP,164014,5682,1.54,src-31c65dbec869,minor,

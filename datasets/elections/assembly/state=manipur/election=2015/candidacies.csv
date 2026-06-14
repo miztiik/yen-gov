@@ -1,7 +1,7 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-manipur-1526,manipur,2015,5,THONGJU,Thongam Biswajit Singh,parties.IN.BJP,BJP,14606,56.06,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1526,manipur,2015,5,THONGJU,Bijoy Koijam,parties.IN.INC,INC,11393,43.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1526,manipur,2015,5,THONGJU,Dr. Gurumayum Tonsana Sharma,parties.IN.MDPF,MDPF,54,0.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1525,manipur,2015,9,THANGMEIBAND,Khumukcham Joykishan(E),parties.IN.BJP,BJP,12104,54.14,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1525,manipur,2015,9,THANGMEIBAND,Jyotin Waikhom,parties.IN.INC,INC,10197,45.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1525,manipur,2015,9,THANGMEIBAND,Dr. Gurumayum Tonsana Sharma,parties.IN.MDPF,MDPF,55,0.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-manipur-1526,manipur,2015,5,THONGJU,Thongam Biswajit Singh,parties.IN.BJP,BJP,14606,56.06,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1526,manipur,2015,5,THONGJU,Bijoy Koijam,parties.IN.INC,INC,11393,43.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1526,manipur,2015,5,THONGJU,Dr. Gurumayum Tonsana Sharma,parties.IN.MDPF,MDPF,54,0.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1525,manipur,2015,9,THANGMEIBAND,Khumukcham Joykishan(E),parties.IN.BJP,BJP,12104,54.14,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1525,manipur,2015,9,THANGMEIBAND,Jyotin Waikhom,parties.IN.INC,INC,10197,45.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1525,manipur,2015,9,THANGMEIBAND,Dr. Gurumayum Tonsana Sharma,parties.IN.MDPF,MDPF,55,0.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

@@ -1,2 +1,2 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-uttarakhand-286,uttarakhand,2021,SALT,96241,41906,43.54,MAHESH JEENA,parties.IN.BJP,BJP,21874,52.2,Smt. GANGA PANCHOLI,parties.IN.INC,INC,17177,4697,11.21,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-2008-uttarakhand-286,uttarakhand,2021,SALT,96241,41906,43.54,MAHESH JEENA,parties.IN.BJP,BJP,21874,52.2,Smt. GANGA PANCHOLI,parties.IN.INC,INC,17177,4697,11.21,src-1b7bc1c9d39a,minor,

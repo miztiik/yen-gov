@@ -1,11 +1,11 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-meghalaya-9,meghalaya,2009,9,UMROI,S. Rymbai,parties.IN.INC,INC,11773,49.24,1,won,U,,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-9,meghalaya,2009,9,UMROI,G. B. Lyngdoh,parties.IN.UDP,UDP,11327,47.38,2,lost,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-9,meghalaya,2009,9,UMROI,E. K. S. Sutnga,parties.IN.HSPDP,HSPDP,601,2.51,3,forfeit,U,,Graduate Professional,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-9,meghalaya,2009,9,UMROI,Phrina Warjri,parties.IN.IND,IND,207,0.87,4,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-17,meghalaya,2009,17,LAITUMKHRAH (ST),M. Ampareen Lyngdoh,parties.IN.INC,INC,5800,54.81,1,won,U,,Doctorate,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-17,meghalaya,2009,17,LAITUMKHRAH (ST),Malcolm B. Tariang,parties.IN.UDP,UDP,3473,32.82,2,lost,U,,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-17,meghalaya,2009,17,LAITUMKHRAH (ST),Andrew Aibok Tyrwa,parties.IN.IND,IND,485,4.58,3,forfeit,U,,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-17,meghalaya,2009,17,LAITUMKHRAH (ST),Stephen Nongbet,parties.IN.BJP,BJP,317,3,4,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-17,meghalaya,2009,17,LAITUMKHRAH (ST),Romeo Ph. Rani,parties.IN.HSPDP,HSPDP,273,2.58,5,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-17,meghalaya,2009,17,LAITUMKHRAH (ST),George Garry Nongkhlaw,parties.IN.IND,IND,234,2.21,6,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-meghalaya-9,meghalaya,2009,9,UMROI,S. Rymbai,parties.IN.INC,INC,11773,49.24,1,won,U,,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-9,meghalaya,2009,9,UMROI,G. B. Lyngdoh,parties.IN.UDP,UDP,11327,47.38,2,lost,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-9,meghalaya,2009,9,UMROI,E. K. S. Sutnga,parties.IN.HSPDP,HSPDP,601,2.51,3,forfeit,U,,Graduate Professional,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-9,meghalaya,2009,9,UMROI,Phrina Warjri,parties.IN.IND,IND,207,0.87,4,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-17,meghalaya,2009,17,LAITUMKHRAH (ST),M. Ampareen Lyngdoh,parties.IN.INC,INC,5800,54.81,1,won,U,,Doctorate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-17,meghalaya,2009,17,LAITUMKHRAH (ST),Malcolm B. Tariang,parties.IN.UDP,UDP,3473,32.82,2,lost,U,,Post Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-17,meghalaya,2009,17,LAITUMKHRAH (ST),Andrew Aibok Tyrwa,parties.IN.IND,IND,485,4.58,3,forfeit,U,,Post Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-17,meghalaya,2009,17,LAITUMKHRAH (ST),Stephen Nongbet,parties.IN.BJP,BJP,317,3,4,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-17,meghalaya,2009,17,LAITUMKHRAH (ST),Romeo Ph. Rani,parties.IN.HSPDP,HSPDP,273,2.58,5,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-17,meghalaya,2009,17,LAITUMKHRAH (ST),George Garry Nongkhlaw,parties.IN.IND,IND,234,2.21,6,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a,minor,

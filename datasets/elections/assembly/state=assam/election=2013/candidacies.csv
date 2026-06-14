@@ -1,13 +1,13 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Mandira Roy,parties.IN.INC,INC,52814,47.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Mehsubul Hassan Laskar,parties.IN.AIUDF,AIUDF,51899,46.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Sashadhar Paul,parties.IN.BJP,BJP,2742,2.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Kamrul Islam Choudhury,parties.IN.AGP,AGP,933,0.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Matiur Rahman Barbhuiya,parties.IN.IND,IND,634,0.57,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Hasan Raja Laskar,parties.IN.IND,IND,598,0.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Sahidullah Ahmed Mazumder,parties.IN.IND,IND,333,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Alokesh Bhattacharjee,parties.IN.IND,IND,290,0.26,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Baharul Islam Mazumder,parties.IN.IND,IND,215,0.19,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Kamar Uddin Ahmed Choudhury,parties.IN.IND,IND,180,0.16,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Ikramul Haque Barbhuiya,parties.IN.IND,IND,175,0.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Islam Uddin Laskar,parties.IN.IND,IND,156,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Mandira Roy,parties.IN.INC,INC,52814,47.59,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Mehsubul Hassan Laskar,parties.IN.AIUDF,AIUDF,51899,46.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Sashadhar Paul,parties.IN.BJP,BJP,2742,2.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Kamrul Islam Choudhury,parties.IN.AGP,AGP,933,0.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Matiur Rahman Barbhuiya,parties.IN.IND,IND,634,0.57,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Hasan Raja Laskar,parties.IN.IND,IND,598,0.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Sahidullah Ahmed Mazumder,parties.IN.IND,IND,333,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Alokesh Bhattacharjee,parties.IN.IND,IND,290,0.26,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Baharul Islam Mazumder,parties.IN.IND,IND,215,0.19,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Kamar Uddin Ahmed Choudhury,parties.IN.IND,IND,180,0.16,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Ikramul Haque Barbhuiya,parties.IN.IND,IND,175,0.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-assam-1785,assam,2013,8,ALGAPUR,Islam Uddin Laskar,parties.IN.IND,IND,156,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

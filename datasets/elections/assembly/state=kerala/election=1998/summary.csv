@@ -1,5 +1,5 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-kerala-126,kerala,1998,CHATHANNUR,158953,111089,69.89,Adv. N. Anirudhan,parties.IN.CPI,CPI,53471,48.13,C. V. Padmarajan,parties.IN.INC,INC,49533,3938,3.54,src-1b7bc1c9d39a
-IN-AC-1976-kerala-62,kerala,1998,MLALA,145666,105211,72.23,W. S. Sasi,parties.IN.CPI,CPI,49211,46.77,T.U.Radhakrishanan,parties.IN.INC,INC,48939,272,0.25,src-1b7bc1c9d39a
-IN-AC-1976-kerala-72,kerala,1998,ERNAKULAM,172746,99181,57.41,Adv. Sebastian Paul,parties.IN.IND,IND,48827,49.23,Leno Jacob,parties.IN.INC,INC,44887,3940,3.97,src-1b7bc1c9d39a
-IN-AC-1976-kerala-96,kerala,1998,VAIKOM,140186,109169,77.87,P. Narayanan,parties.IN.CPI,CPI,52433,48.03,Adv. V. P. Sajeendran,parties.IN.INC,INC,51157,1276,1.17,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-kerala-126,kerala,1998,CHATHANNUR,158953,111089,69.89,Adv. N. Anirudhan,parties.IN.CPI,CPI,53471,48.13,C. V. Padmarajan,parties.IN.INC,INC,49533,3938,3.54,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-62,kerala,1998,MLALA,145666,105211,72.23,W. S. Sasi,parties.IN.CPI,CPI,49211,46.77,T.U.Radhakrishanan,parties.IN.INC,INC,48939,272,0.25,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-72,kerala,1998,ERNAKULAM,172746,99181,57.41,Adv. Sebastian Paul,parties.IN.IND,IND,48827,49.23,Leno Jacob,parties.IN.INC,INC,44887,3940,3.97,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-96,kerala,1998,VAIKOM,140186,109169,77.87,P. Narayanan,parties.IN.CPI,CPI,52433,48.03,Adv. V. P. Sajeendran,parties.IN.INC,INC,51157,1276,1.17,src-1b7bc1c9d39a,minor,

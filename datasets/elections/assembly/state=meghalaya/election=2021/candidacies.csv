@@ -1,14 +1,14 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-meghalaya-1672,meghalaya,2021,13,MAWRYNGKNENG,PYNIAID SING SYIEM,parties.IN.NPP,NPP,14177,49.1,1,won,M,35,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1672,meghalaya,2021,13,MAWRYNGKNENG,HIGHLANDER KHARMALKI,parties.IN.INC,INC,12361,42.81,2,lost,M,51,Graduate Professional,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1672,meghalaya,2021,13,MAWRYNGKNENG,NORBERT MARBOH,parties.IN.IND,IND,1400,4.85,3,forfeit,M,39,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1672,meghalaya,2021,13,MAWRYNGKNENG,ESRON MARWEIN,parties.IN.IND,IND,485,1.68,4,forfeit,M,44,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1672,meghalaya,2021,13,MAWRYNGKNENG,ARBIANGKAM KHARSOHMAT,parties.IN.IND,IND,214,0.74,6,forfeit,M,36,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1671,meghalaya,2021,24,MAWPHLANG,EUGENESON LYNGDOH,parties.IN.UDP,United Democratic Party,13285,48.35,1,won,M,35,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1671,meghalaya,2021,24,MAWPHLANG,KENNEDY CORNELIUS KHYRIEM,parties.IN.INC,INC,8884,32.34,2,lost,M,53,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1671,meghalaya,2021,24,MAWPHLANG,LAMPHRANG BLAH,parties.IN.NPP,NPP,5103,18.57,3,lost,M,51,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1709,meghalaya,2021,47,RAJABALA,MD. ABDUS SALEH,parties.IN.NPP,NPP,11823,39.77,1,won,M,53,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1709,meghalaya,2021,47,RAJABALA,HASHINA YASMIN MONDAL,parties.IN.INC,INC,9897,33.29,2,lost,F,37,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1709,meghalaya,2021,47,RAJABALA,ASHAHEL D. SHIRA,parties.IN.UDP,United Democratic Party,7247,24.38,3,lost,M,44,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1709,meghalaya,2021,47,RAJABALA,KINGSTONE B. MARAK,parties.IN.BJP,BJP,333,1.12,4,forfeit,M,30,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-meghalaya-1709,meghalaya,2021,47,RAJABALA,CARLA R. SANGMA,parties.IN.IND,IND,255,0.86,5,forfeit,M,26,10th Pass,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-meghalaya-1672,meghalaya,2021,13,MAWRYNGKNENG,PYNIAID SING SYIEM,parties.IN.NPP,NPP,14177,49.1,1,won,M,35,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1672,meghalaya,2021,13,MAWRYNGKNENG,HIGHLANDER KHARMALKI,parties.IN.INC,INC,12361,42.81,2,lost,M,51,Graduate Professional,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1672,meghalaya,2021,13,MAWRYNGKNENG,NORBERT MARBOH,parties.IN.IND,IND,1400,4.85,3,forfeit,M,39,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1672,meghalaya,2021,13,MAWRYNGKNENG,ESRON MARWEIN,parties.IN.IND,IND,485,1.68,4,forfeit,M,44,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1672,meghalaya,2021,13,MAWRYNGKNENG,ARBIANGKAM KHARSOHMAT,parties.IN.IND,IND,214,0.74,6,forfeit,M,36,Others,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1671,meghalaya,2021,24,MAWPHLANG,EUGENESON LYNGDOH,parties.IN.UDP,United Democratic Party,13285,48.35,1,won,M,35,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1671,meghalaya,2021,24,MAWPHLANG,KENNEDY CORNELIUS KHYRIEM,parties.IN.INC,INC,8884,32.34,2,lost,M,53,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1671,meghalaya,2021,24,MAWPHLANG,LAMPHRANG BLAH,parties.IN.NPP,NPP,5103,18.57,3,lost,M,51,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1709,meghalaya,2021,47,RAJABALA,MD. ABDUS SALEH,parties.IN.NPP,NPP,11823,39.77,1,won,M,53,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1709,meghalaya,2021,47,RAJABALA,HASHINA YASMIN MONDAL,parties.IN.INC,INC,9897,33.29,2,lost,F,37,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1709,meghalaya,2021,47,RAJABALA,ASHAHEL D. SHIRA,parties.IN.UDP,United Democratic Party,7247,24.38,3,lost,M,44,10th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1709,meghalaya,2021,47,RAJABALA,KINGSTONE B. MARAK,parties.IN.BJP,BJP,333,1.12,4,forfeit,M,30,Graduate Professional,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-meghalaya-1709,meghalaya,2021,47,RAJABALA,CARLA R. SANGMA,parties.IN.IND,IND,255,0.86,5,forfeit,M,26,10th Pass,,challenger,src-1b7bc1c9d39a,minor,

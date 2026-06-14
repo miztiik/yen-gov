@@ -1,122 +1,122 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-mizoram-1,mizoram,1993,1,TUIPANG,K. ROKHAW,parties.IN.IND,IND,3697,51.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-1,mizoram,1993,1,TUIPANG,T. T. VAKHU,parties.IN.INC,INC,3544,48.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-2,mizoram,1993,2,SAIHA,ZAKHU HLYCHHO,parties.IN.MNF,MNF,5232,54.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-2,mizoram,1993,2,SAIHA,S. HIATO,parties.IN.INC,INC,4356,45.43,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-3,mizoram,1993,3,SANGAU,S. T. RUALYAPA,parties.IN.INC,INC,2794,48.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-3,mizoram,1993,3,SANGAU,H. RAMMAWI,parties.IN.MNF,MNF,2669,46.23,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-3,mizoram,1993,3,SANGAU,THATCHEMA,parties.IN.IND,IND,310,5.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-4,mizoram,1993,4,LAWNGTLAI,T. HRANGHLUTA,parties.IN.MNF,MNF,5714,42.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-4,mizoram,1993,4,LAWNGTLAI,B. THANCHUNGA,parties.IN.INC,INC,5622,41.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-4,mizoram,1993,4,LAWNGTLAI,F. LALRAMLIANA,parties.IN.IND,IND,1317,9.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-4,mizoram,1993,4,LAWNGTLAI,J. ZIRLIANA,parties.IN.BJP,BJP,767,5.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-5,mizoram,1993,5,CHAWNGTE,NIRUPAM,parties.IN.INC,INC,6964,67.61,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-5,mizoram,1993,5,CHAWNGTE,NILMONI,parties.IN.BJP,BJP,3205,31.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-5,mizoram,1993,5,CHAWNGTE,KAPLIANNAWLA,parties.IN.MNF,MNF,131,1.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-6,mizoram,1993,6,TLABUNG,HARIKRISTO CHAKMA,parties.IN.INC,INC,4375,49.93,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-6,mizoram,1993,6,TLABUNG,K. DINGLIANA,parties.IN.MNF,MNF,1722,19.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-6,mizoram,1993,6,TLABUNG,S. D. TALUKDER,parties.IN.BJP,BJP,1420,16.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-6,mizoram,1993,6,TLABUNG,SAILOTHANGA SAILO,parties.IN.IND,IND,1245,14.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-7,mizoram,1993,7,BUARPUI,P. LALBIAKA,parties.IN.INC,INC,3195,43.38,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-7,mizoram,1993,7,BUARPUI,LALTHANKAIA,parties.IN.MNF,MNF,2246,30.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-7,mizoram,1993,7,BUARPUI,PRODIP,parties.IN.BJP,BJP,992,13.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-7,mizoram,1993,7,BUARPUI,LALNGOVA ZADENG,parties.IN.IND,IND,932,12.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-8,mizoram,1993,8,LUNGLEI SOUTH,H. LALRUATA,parties.IN.MNF,MNF,3777,53.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-8,mizoram,1993,8,LUNGLEI SOUTH,F. SAPA,parties.IN.INC,INC,3311,46.71,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-9,mizoram,1993,9,LUNGLEI NORTH,R. LALTHANGLIANA,parties.IN.MNF,MNF,4004,52.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-9,mizoram,1993,9,LUNGLEI NORTH,R. LALRINZUALA,parties.IN.IND,IND,3612,47.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-10,mizoram,1993,10,TAWIPUI,F. LALZUALA,parties.IN.MNF,MNF,3955,52.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-10,mizoram,1993,10,TAWIPUI,THANCHHUMA,parties.IN.INC,INC,3533,47.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-10,mizoram,1993,10,TAWIPUI,P. SIAMLIANA,parties.IN.IND,IND,23,0.31,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-11,mizoram,1993,11,VANVA,H. THANGKIMA,parties.IN.IND,IND,2230,44.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-11,mizoram,1993,11,VANVA,MALSAWMA,parties.IN.MNF,MNF,1919,38.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-11,mizoram,1993,11,VANVA,R. LALDUKHIMA,parties.IN.IND,IND,837,16.79,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-12,mizoram,1993,12,HNAHTHIAL,L. P. THANGZIKA,parties.IN.MNF,MNF,2190,36.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-12,mizoram,1993,12,HNAHTHIAL,SANGHLIRA COLBERT,parties.IN.INC,INC,2006,33.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-12,mizoram,1993,12,HNAHTHIAL,LALHRIMA SAILO,parties.IN.IND,IND,1856,30.64,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-12,mizoram,1993,12,HNAHTHIAL,P. SIAMLIANA,parties.IN.IND,IND,6,0.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-13,mizoram,1993,13,NORTH VANLAIPHAI,C. L. RUALA,parties.IN.INC,INC,2891,49.87,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-13,mizoram,1993,13,NORTH VANLAIPHAI,R. KHAWPUITHANGA,parties.IN.MNF,MNF,2843,49.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-13,mizoram,1993,13,NORTH VANLAIPHAI,RUALPAWLA,parties.IN.IND,IND,63,1.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-14,mizoram,1993,14,KHAWBUNG,HRANGTHANGA COLNEY,parties.IN.IND,IND,3754,53.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-14,mizoram,1993,14,KHAWBUNG,K. VANLALAUVA,parties.IN.MNF,MNF,3302,46.8,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-15,mizoram,1993,15,CHAMPHAI,ZORAMTHANGA,parties.IN.MNF,MNF,5712,51.05,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-15,mizoram,1993,15,CHAMPHAI,R. THANGLIANA,parties.IN.INC,INC,5477,48.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-16,mizoram,1993,16,KHAWHAI,LALBIAKZUALA,parties.IN.INC,INC,2625,56.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-16,mizoram,1993,16,KHAWHAI,C. LIANSANGA,parties.IN.MNF,MNF,2055,43.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-17,mizoram,1993,17,SAITUAL,C. CHAWNGKUNGA,parties.IN.IND,IND,3446,54.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-17,mizoram,1993,17,SAITUAL,RAMUNDANGA,parties.IN.MNF,MNF,2824,45.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-18,mizoram,1993,18,KHAWZAWL,C. VULLUAIA,parties.IN.IND,IND,3506,50.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-18,mizoram,1993,18,KHAWZAWL,TAWNLUIA,parties.IN.MNF,MNF,3460,49.67,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-19,mizoram,1993,19,NGOPA,H. ZATHUAMA,parties.IN.IND,IND,4529,54.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-19,mizoram,1993,19,NGOPA,J. LALTHANGLIANA,parties.IN.IND,IND,3803,45.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-20,mizoram,1993,20,SUANGPUILAWN,F. LAWMKIAM,parties.IN.IND,IND,2005,40.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-20,mizoram,1993,20,SUANGPUILAWN,J. LIANHMINGTHANGA,parties.IN.IND,IND,1832,36.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-20,mizoram,1993,20,SUANGPUILAWN,J. H. RAMNGHINGLOVA,parties.IN.MNF,MNF,1132,22.78,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-21,mizoram,1993,21,RATU,LALRINCHHANA,parties.IN.MNF,MNF,2865,35.17,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-21,mizoram,1993,21,RATU,KENNETH CHAWNGLIANA,parties.IN.INC,INC,2843,34.9,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-21,mizoram,1993,21,RATU,J. THANKUNGA,parties.IN.IND,IND,2439,29.94,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-22,mizoram,1993,22,KAWNPUI,R. L. VALLA,parties.IN.INC,INC,3680,44.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-22,mizoram,1993,22,KAWNPUI,J. KAPTHIANGA,parties.IN.MNF,MNF,3662,44.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-22,mizoram,1993,22,KAWNPUI,LALHLUNTHANGA,parties.IN.IND,IND,925,11.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-23,mizoram,1993,23,KOLASIB,ZOSIAMA PACHUAU,parties.IN.IND,IND,4231,50.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-23,mizoram,1993,23,KOLASIB,AICHHINGA,parties.IN.MNF,MNF,3784,45.32,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-23,mizoram,1993,23,KOLASIB,KHAWLREMTHANGA,parties.IN.IND,IND,335,4.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-24,mizoram,1993,24,BILKHAWTHLIR,VAIVENGA,parties.IN.INC,INC,3566,52.98,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-24,mizoram,1993,24,BILKHAWTHLIR,LALDUHOMA,parties.IN.MNF,MNF,3109,46.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-24,mizoram,1993,24,BILKHAWTHLIR,H. LALTANPUIA,parties.IN.IND,IND,36,0.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-24,mizoram,1993,24,BILKHAWTHLIR,H. THANGLAWRA,parties.IN.IND,IND,20,0.3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-25,mizoram,1993,25,LOKICHERRA,JOHN ROTLUANGLIANA,parties.IN.INC,INC,3067,45.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-25,mizoram,1993,25,LOKICHERRA,F. AITHANGA,parties.IN.MNF,MNF,2504,36.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-25,mizoram,1993,25,LOKICHERRA,A. SAWIBUNGA,parties.IN.BJP,BJP,917,13.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-25,mizoram,1993,25,LOKICHERRA,NGURKHAMA,parties.IN.IND,IND,196,2.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-25,mizoram,1993,25,LOKICHERRA,V.L. BIAKSANGA,parties.IN.IND,IND,48,0.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-25,mizoram,1993,25,LOKICHERRA,LALGURA,parties.IN.IND,IND,25,0.37,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-25,mizoram,1993,25,LOKICHERRA,R.L. THANZINGA,parties.IN.IND,IND,24,0.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-26,mizoram,1993,26,KAWRTHAH,SAIKAPTHIANGA,parties.IN.INC,INC,3293,48.87,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-26,mizoram,1993,26,KAWRTHAH,K. LALTHANKHUMA,parties.IN.MNF,MNF,1430,21.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-26,mizoram,1993,26,KAWRTHAH,CHAWNGZIKA RIANG,parties.IN.BJP,BJP,1089,16.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-26,mizoram,1993,26,KAWRTHAH,LALTHANSANGA,parties.IN.IND,IND,662,9.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-26,mizoram,1993,26,KAWRTHAH,J. NGURA,parties.IN.IND,IND,252,3.74,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-26,mizoram,1993,26,KAWRTHAH,A. ROMAWIA,parties.IN.IND,IND,12,0.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-27,mizoram,1993,27,MAMIT,LALTHUTHANGA,parties.IN.INC,INC,2940,38.42,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-27,mizoram,1993,27,MAMIT,F. LALNIENGA,parties.IN.MNF,MNF,2801,36.6,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-27,mizoram,1993,27,MAMIT,K. ROSAWMLIANA,parties.IN.IND,IND,1096,14.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-27,mizoram,1993,27,MAMIT,VANLALHRUAIA,parties.IN.BJP,BJP,779,10.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-27,mizoram,1993,27,MAMIT,T. T. ZOHMINGTHANGA,parties.IN.IND,IND,37,0.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-28,mizoram,1993,28,PHULDUNGSEI,LIANSUAMA,parties.IN.INC,INC,4212,45.35,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-28,mizoram,1993,28,PHULDUNGSEI,F. HRANGVELA,parties.IN.MNF,MNF,2594,27.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-28,mizoram,1993,28,PHULDUNGSEI,LALTHLAMUANI,parties.IN.IND,IND,1533,16.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-28,mizoram,1993,28,PHULDUNGSEI,C. VANIALRAWNA,parties.IN.BJP,BJP,835,8.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-28,mizoram,1993,28,PHULDUNGSEI,BINOD BASU,parties.IN.IND,IND,113,1.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-29,mizoram,1993,29,SATEEK,B. LALTHENGLIANA,parties.IN.MNF,MNF,4034,50.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-29,mizoram,1993,29,SATEEK,CHAWNGZUALA,parties.IN.INC,INC,3635,45.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-29,mizoram,1993,29,SATEEK,LALCHHANHIMA SAILO,parties.IN.IND,IND,317,3.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-29,mizoram,1993,29,SATEEK,R. C. HRANGCHHUMA,parties.IN.IND,IND,39,0.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-30,mizoram,1993,30,SERCHHIP,LAL THANHAWLA,parties.IN.INC,INC,5267,56.95,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-30,mizoram,1993,30,SERCHHIP,R. LALAWIA,parties.IN.MNF,MNF,3981,43.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-31,mizoram,1993,31,LUNGPHO,P. C. BAWITLUANGA,parties.IN.INC,INC,2825,39.48,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-31,mizoram,1993,31,LUNGPHO,R. SAIKHUMA,parties.IN.MNF,MNF,2270,31.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-31,mizoram,1993,31,LUNGPHO,VANLALHLAAA,parties.IN.IND,IND,2060,28.79,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-32,mizoram,1993,32,TLUNGVEL,P. C. ZORAMSANGLIANA,parties.IN.INC,INC,2772,42.48,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-32,mizoram,1993,32,TLUNGVEL,R. ZAKAMLOVA,parties.IN.MNF,MNF,2530,38.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-32,mizoram,1993,32,TLUNGVEL,BIAKCHHUNGA,parties.IN.IND,IND,1224,18.76,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-33,mizoram,1993,33,AIZAWL NORTH-I,LALHMINGTHANGA,parties.IN.IND,IND,4719,53.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-33,mizoram,1993,33,AIZAWL NORTH-I,LALHLIMPUII,parties.IN.MNF,MNF,4175,46.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-34,mizoram,1993,34,AIZAWL NORTH II,F. MALSAWMA,parties.IN.MNF,MNF,5108,50.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-34,mizoram,1993,34,AIZAWL NORTH II,BRIG. T. SAILO,parties.IN.IND,IND,4780,47.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-34,mizoram,1993,34,AIZAWL NORTH II,F. ROCHHUNGA,parties.IN.IND,IND,244,2.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-35,mizoram,1993,35,AIZAWL EAST-I,J. LALSANGZUALA,parties.IN.INC,INC,4651,51.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-35,mizoram,1993,35,AIZAWL EAST-I,LALKHAWLIANA,parties.IN.MNF,MNF,4382,48.51,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-36,mizoram,1993,36,AIZAWL EAST-II,F. LALREMSIAMA,parties.IN.MNF,MNF,3831,50.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-36,mizoram,1993,36,AIZAWL EAST-II,ROKAMLOVA,parties.IN.INC,INC,3791,49.74,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-37,mizoram,1993,37,AIZAWL WEST I,LALKHANA,parties.IN.MNF,MNF,6306,54.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-37,mizoram,1993,37,AIZAWL WEST I,K. L. LIANCHIA,parties.IN.IND,IND,5184,45.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-38,mizoram,1993,38,AIZAWL WEST-II,J. V. HLUNA,parties.IN.IND,IND,5087,50.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-38,mizoram,1993,38,AIZAWL WEST-II,RUALCHHINA,parties.IN.MNF,MNF,5035,49.74,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-39,mizoram,1993,39,AIZAWL SOUTH - I,R. TLANGHMINGTHANGA,parties.IN.MNF,MNF,5228,52.81,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-39,mizoram,1993,39,AIZAWL SOUTH - I,F. LALTHLAMUNANA,parties.IN.INC,INC,4671,47.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-40,mizoram,1993,40,AIZAWL SOUTH - II,LALSAWTA,parties.IN.MNF,MNF,5297,52.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-40,mizoram,1993,40,AIZAWL SOUTH - II,SAINGHAKA,parties.IN.INC,INC,4414,43.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-40,mizoram,1993,40,AIZAWL SOUTH - II,VANALALSAWMA,parties.IN.IND,IND,384,3.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-mizoram-40,mizoram,1993,40,AIZAWL SOUTH - II,PAUL ZAKHUMA HAUHNAR,parties.IN.IND,IND,72,0.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-mizoram-1,mizoram,1993,1,TUIPANG,K. ROKHAW,parties.IN.IND,IND,3697,51.06,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-1,mizoram,1993,1,TUIPANG,T. T. VAKHU,parties.IN.INC,INC,3544,48.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-2,mizoram,1993,2,SAIHA,ZAKHU HLYCHHO,parties.IN.MNF,MNF,5232,54.57,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-2,mizoram,1993,2,SAIHA,S. HIATO,parties.IN.INC,INC,4356,45.43,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-3,mizoram,1993,3,SANGAU,S. T. RUALYAPA,parties.IN.INC,INC,2794,48.4,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-3,mizoram,1993,3,SANGAU,H. RAMMAWI,parties.IN.MNF,MNF,2669,46.23,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-3,mizoram,1993,3,SANGAU,THATCHEMA,parties.IN.IND,IND,310,5.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-4,mizoram,1993,4,LAWNGTLAI,T. HRANGHLUTA,parties.IN.MNF,MNF,5714,42.58,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-4,mizoram,1993,4,LAWNGTLAI,B. THANCHUNGA,parties.IN.INC,INC,5622,41.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-4,mizoram,1993,4,LAWNGTLAI,F. LALRAMLIANA,parties.IN.IND,IND,1317,9.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-4,mizoram,1993,4,LAWNGTLAI,J. ZIRLIANA,parties.IN.BJP,BJP,767,5.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-5,mizoram,1993,5,CHAWNGTE,NIRUPAM,parties.IN.INC,INC,6964,67.61,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-5,mizoram,1993,5,CHAWNGTE,NILMONI,parties.IN.BJP,BJP,3205,31.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-5,mizoram,1993,5,CHAWNGTE,KAPLIANNAWLA,parties.IN.MNF,MNF,131,1.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-6,mizoram,1993,6,TLABUNG,HARIKRISTO CHAKMA,parties.IN.INC,INC,4375,49.93,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-6,mizoram,1993,6,TLABUNG,K. DINGLIANA,parties.IN.MNF,MNF,1722,19.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-6,mizoram,1993,6,TLABUNG,S. D. TALUKDER,parties.IN.BJP,BJP,1420,16.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-6,mizoram,1993,6,TLABUNG,SAILOTHANGA SAILO,parties.IN.IND,IND,1245,14.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-7,mizoram,1993,7,BUARPUI,P. LALBIAKA,parties.IN.INC,INC,3195,43.38,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-7,mizoram,1993,7,BUARPUI,LALTHANKAIA,parties.IN.MNF,MNF,2246,30.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-7,mizoram,1993,7,BUARPUI,PRODIP,parties.IN.BJP,BJP,992,13.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-7,mizoram,1993,7,BUARPUI,LALNGOVA ZADENG,parties.IN.IND,IND,932,12.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-8,mizoram,1993,8,LUNGLEI SOUTH,H. LALRUATA,parties.IN.MNF,MNF,3777,53.29,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-8,mizoram,1993,8,LUNGLEI SOUTH,F. SAPA,parties.IN.INC,INC,3311,46.71,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-9,mizoram,1993,9,LUNGLEI NORTH,R. LALTHANGLIANA,parties.IN.MNF,MNF,4004,52.57,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-9,mizoram,1993,9,LUNGLEI NORTH,R. LALRINZUALA,parties.IN.IND,IND,3612,47.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-10,mizoram,1993,10,TAWIPUI,F. LALZUALA,parties.IN.MNF,MNF,3955,52.66,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-10,mizoram,1993,10,TAWIPUI,THANCHHUMA,parties.IN.INC,INC,3533,47.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-10,mizoram,1993,10,TAWIPUI,P. SIAMLIANA,parties.IN.IND,IND,23,0.31,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-11,mizoram,1993,11,VANVA,H. THANGKIMA,parties.IN.IND,IND,2230,44.73,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-11,mizoram,1993,11,VANVA,MALSAWMA,parties.IN.MNF,MNF,1919,38.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-11,mizoram,1993,11,VANVA,R. LALDUKHIMA,parties.IN.IND,IND,837,16.79,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-12,mizoram,1993,12,HNAHTHIAL,L. P. THANGZIKA,parties.IN.MNF,MNF,2190,36.15,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-12,mizoram,1993,12,HNAHTHIAL,SANGHLIRA COLBERT,parties.IN.INC,INC,2006,33.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-12,mizoram,1993,12,HNAHTHIAL,LALHRIMA SAILO,parties.IN.IND,IND,1856,30.64,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-12,mizoram,1993,12,HNAHTHIAL,P. SIAMLIANA,parties.IN.IND,IND,6,0.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-13,mizoram,1993,13,NORTH VANLAIPHAI,C. L. RUALA,parties.IN.INC,INC,2891,49.87,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-13,mizoram,1993,13,NORTH VANLAIPHAI,R. KHAWPUITHANGA,parties.IN.MNF,MNF,2843,49.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-13,mizoram,1993,13,NORTH VANLAIPHAI,RUALPAWLA,parties.IN.IND,IND,63,1.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-14,mizoram,1993,14,KHAWBUNG,HRANGTHANGA COLNEY,parties.IN.IND,IND,3754,53.2,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-14,mizoram,1993,14,KHAWBUNG,K. VANLALAUVA,parties.IN.MNF,MNF,3302,46.8,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-15,mizoram,1993,15,CHAMPHAI,ZORAMTHANGA,parties.IN.MNF,MNF,5712,51.05,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-15,mizoram,1993,15,CHAMPHAI,R. THANGLIANA,parties.IN.INC,INC,5477,48.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-16,mizoram,1993,16,KHAWHAI,LALBIAKZUALA,parties.IN.INC,INC,2625,56.09,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-16,mizoram,1993,16,KHAWHAI,C. LIANSANGA,parties.IN.MNF,MNF,2055,43.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-17,mizoram,1993,17,SAITUAL,C. CHAWNGKUNGA,parties.IN.IND,IND,3446,54.96,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-17,mizoram,1993,17,SAITUAL,RAMUNDANGA,parties.IN.MNF,MNF,2824,45.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-18,mizoram,1993,18,KHAWZAWL,C. VULLUAIA,parties.IN.IND,IND,3506,50.33,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-18,mizoram,1993,18,KHAWZAWL,TAWNLUIA,parties.IN.MNF,MNF,3460,49.67,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-19,mizoram,1993,19,NGOPA,H. ZATHUAMA,parties.IN.IND,IND,4529,54.36,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-19,mizoram,1993,19,NGOPA,J. LALTHANGLIANA,parties.IN.IND,IND,3803,45.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-20,mizoram,1993,20,SUANGPUILAWN,F. LAWMKIAM,parties.IN.IND,IND,2005,40.35,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-20,mizoram,1993,20,SUANGPUILAWN,J. LIANHMINGTHANGA,parties.IN.IND,IND,1832,36.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-20,mizoram,1993,20,SUANGPUILAWN,J. H. RAMNGHINGLOVA,parties.IN.MNF,MNF,1132,22.78,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-21,mizoram,1993,21,RATU,LALRINCHHANA,parties.IN.MNF,MNF,2865,35.17,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-21,mizoram,1993,21,RATU,KENNETH CHAWNGLIANA,parties.IN.INC,INC,2843,34.9,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-21,mizoram,1993,21,RATU,J. THANKUNGA,parties.IN.IND,IND,2439,29.94,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-22,mizoram,1993,22,KAWNPUI,R. L. VALLA,parties.IN.INC,INC,3680,44.51,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-22,mizoram,1993,22,KAWNPUI,J. KAPTHIANGA,parties.IN.MNF,MNF,3662,44.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-22,mizoram,1993,22,KAWNPUI,LALHLUNTHANGA,parties.IN.IND,IND,925,11.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-23,mizoram,1993,23,KOLASIB,ZOSIAMA PACHUAU,parties.IN.IND,IND,4231,50.67,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-23,mizoram,1993,23,KOLASIB,AICHHINGA,parties.IN.MNF,MNF,3784,45.32,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-23,mizoram,1993,23,KOLASIB,KHAWLREMTHANGA,parties.IN.IND,IND,335,4.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-24,mizoram,1993,24,BILKHAWTHLIR,VAIVENGA,parties.IN.INC,INC,3566,52.98,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-24,mizoram,1993,24,BILKHAWTHLIR,LALDUHOMA,parties.IN.MNF,MNF,3109,46.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-24,mizoram,1993,24,BILKHAWTHLIR,H. LALTANPUIA,parties.IN.IND,IND,36,0.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-24,mizoram,1993,24,BILKHAWTHLIR,H. THANGLAWRA,parties.IN.IND,IND,20,0.3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-25,mizoram,1993,25,LOKICHERRA,JOHN ROTLUANGLIANA,parties.IN.INC,INC,3067,45.23,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-25,mizoram,1993,25,LOKICHERRA,F. AITHANGA,parties.IN.MNF,MNF,2504,36.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-25,mizoram,1993,25,LOKICHERRA,A. SAWIBUNGA,parties.IN.BJP,BJP,917,13.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-25,mizoram,1993,25,LOKICHERRA,NGURKHAMA,parties.IN.IND,IND,196,2.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-25,mizoram,1993,25,LOKICHERRA,V.L. BIAKSANGA,parties.IN.IND,IND,48,0.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-25,mizoram,1993,25,LOKICHERRA,LALGURA,parties.IN.IND,IND,25,0.37,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-25,mizoram,1993,25,LOKICHERRA,R.L. THANZINGA,parties.IN.IND,IND,24,0.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-26,mizoram,1993,26,KAWRTHAH,SAIKAPTHIANGA,parties.IN.INC,INC,3293,48.87,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-26,mizoram,1993,26,KAWRTHAH,K. LALTHANKHUMA,parties.IN.MNF,MNF,1430,21.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-26,mizoram,1993,26,KAWRTHAH,CHAWNGZIKA RIANG,parties.IN.BJP,BJP,1089,16.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-26,mizoram,1993,26,KAWRTHAH,LALTHANSANGA,parties.IN.IND,IND,662,9.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-26,mizoram,1993,26,KAWRTHAH,J. NGURA,parties.IN.IND,IND,252,3.74,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-26,mizoram,1993,26,KAWRTHAH,A. ROMAWIA,parties.IN.IND,IND,12,0.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-27,mizoram,1993,27,MAMIT,LALTHUTHANGA,parties.IN.INC,INC,2940,38.42,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-27,mizoram,1993,27,MAMIT,F. LALNIENGA,parties.IN.MNF,MNF,2801,36.6,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-27,mizoram,1993,27,MAMIT,K. ROSAWMLIANA,parties.IN.IND,IND,1096,14.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-27,mizoram,1993,27,MAMIT,VANLALHRUAIA,parties.IN.BJP,BJP,779,10.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-27,mizoram,1993,27,MAMIT,T. T. ZOHMINGTHANGA,parties.IN.IND,IND,37,0.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-28,mizoram,1993,28,PHULDUNGSEI,LIANSUAMA,parties.IN.INC,INC,4212,45.35,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-28,mizoram,1993,28,PHULDUNGSEI,F. HRANGVELA,parties.IN.MNF,MNF,2594,27.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-28,mizoram,1993,28,PHULDUNGSEI,LALTHLAMUANI,parties.IN.IND,IND,1533,16.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-28,mizoram,1993,28,PHULDUNGSEI,C. VANIALRAWNA,parties.IN.BJP,BJP,835,8.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-28,mizoram,1993,28,PHULDUNGSEI,BINOD BASU,parties.IN.IND,IND,113,1.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-29,mizoram,1993,29,SATEEK,B. LALTHENGLIANA,parties.IN.MNF,MNF,4034,50.27,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-29,mizoram,1993,29,SATEEK,CHAWNGZUALA,parties.IN.INC,INC,3635,45.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-29,mizoram,1993,29,SATEEK,LALCHHANHIMA SAILO,parties.IN.IND,IND,317,3.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-29,mizoram,1993,29,SATEEK,R. C. HRANGCHHUMA,parties.IN.IND,IND,39,0.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-30,mizoram,1993,30,SERCHHIP,LAL THANHAWLA,parties.IN.INC,INC,5267,56.95,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-30,mizoram,1993,30,SERCHHIP,R. LALAWIA,parties.IN.MNF,MNF,3981,43.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-31,mizoram,1993,31,LUNGPHO,P. C. BAWITLUANGA,parties.IN.INC,INC,2825,39.48,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-31,mizoram,1993,31,LUNGPHO,R. SAIKHUMA,parties.IN.MNF,MNF,2270,31.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-31,mizoram,1993,31,LUNGPHO,VANLALHLAAA,parties.IN.IND,IND,2060,28.79,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-32,mizoram,1993,32,TLUNGVEL,P. C. ZORAMSANGLIANA,parties.IN.INC,INC,2772,42.48,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-32,mizoram,1993,32,TLUNGVEL,R. ZAKAMLOVA,parties.IN.MNF,MNF,2530,38.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-32,mizoram,1993,32,TLUNGVEL,BIAKCHHUNGA,parties.IN.IND,IND,1224,18.76,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-33,mizoram,1993,33,AIZAWL NORTH-I,LALHMINGTHANGA,parties.IN.IND,IND,4719,53.06,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-33,mizoram,1993,33,AIZAWL NORTH-I,LALHLIMPUII,parties.IN.MNF,MNF,4175,46.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-34,mizoram,1993,34,AIZAWL NORTH II,F. MALSAWMA,parties.IN.MNF,MNF,5108,50.41,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-34,mizoram,1993,34,AIZAWL NORTH II,BRIG. T. SAILO,parties.IN.IND,IND,4780,47.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-34,mizoram,1993,34,AIZAWL NORTH II,F. ROCHHUNGA,parties.IN.IND,IND,244,2.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-35,mizoram,1993,35,AIZAWL EAST-I,J. LALSANGZUALA,parties.IN.INC,INC,4651,51.49,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-35,mizoram,1993,35,AIZAWL EAST-I,LALKHAWLIANA,parties.IN.MNF,MNF,4382,48.51,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-36,mizoram,1993,36,AIZAWL EAST-II,F. LALREMSIAMA,parties.IN.MNF,MNF,3831,50.26,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-36,mizoram,1993,36,AIZAWL EAST-II,ROKAMLOVA,parties.IN.INC,INC,3791,49.74,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-37,mizoram,1993,37,AIZAWL WEST I,LALKHANA,parties.IN.MNF,MNF,6306,54.88,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-37,mizoram,1993,37,AIZAWL WEST I,K. L. LIANCHIA,parties.IN.IND,IND,5184,45.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-38,mizoram,1993,38,AIZAWL WEST-II,J. V. HLUNA,parties.IN.IND,IND,5087,50.26,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-38,mizoram,1993,38,AIZAWL WEST-II,RUALCHHINA,parties.IN.MNF,MNF,5035,49.74,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-39,mizoram,1993,39,AIZAWL SOUTH - I,R. TLANGHMINGTHANGA,parties.IN.MNF,MNF,5228,52.81,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-39,mizoram,1993,39,AIZAWL SOUTH - I,F. LALTHLAMUNANA,parties.IN.INC,INC,4671,47.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-40,mizoram,1993,40,AIZAWL SOUTH - II,LALSAWTA,parties.IN.MNF,MNF,5297,52.1,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-40,mizoram,1993,40,AIZAWL SOUTH - II,SAINGHAKA,parties.IN.INC,INC,4414,43.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-40,mizoram,1993,40,AIZAWL SOUTH - II,VANALALSAWMA,parties.IN.IND,IND,384,3.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-40,mizoram,1993,40,AIZAWL SOUTH - II,PAUL ZAKHUMA HAUHNAR,parties.IN.IND,IND,72,0.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

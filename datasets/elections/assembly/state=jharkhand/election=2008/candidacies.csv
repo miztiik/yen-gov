@@ -1,15 +1,15 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Ramchandra Ram  'E',parties.IN.CPI,CPI,30700,26.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Jai Prakash Singh Bhogta,parties.IN.JVMP,JVMP,23092,19.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Yogendra Nath Baitha,parties.IN.INC,INC,19700,16.89,3,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Kumar Ujjawal,parties.IN.BJP,BJP,18234,15.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Anjali Bhokta,parties.IN.IND,IND,4593,3.94,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Sunil Kumar Paswan,parties.IN.IND,IND,4493,3.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Manoj Rajak,parties.IN.IND,IND,3350,2.87,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Meena Devi,parties.IN.JP,JP,2190,1.88,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Kuldeep Ganjhu,parties.IN.IND,IND,2156,1.85,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Ramtahal Turi,parties.IN.IND,IND,2074,1.78,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Raj Kumar Rajak,parties.IN.IND,IND,1974,1.69,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Kailash Bhuiyan,parties.IN.IND,IND,1564,1.34,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Tarkeshwar Ganjhu,parties.IN.IND,IND,1508,1.29,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Gulab Ram,parties.IN.IND,IND,1032,0.88,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Ramchandra Ram  'E',parties.IN.CPI,CPI,30700,26.32,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Jai Prakash Singh Bhogta,parties.IN.JVMP,JVMP,23092,19.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Yogendra Nath Baitha,parties.IN.INC,INC,19700,16.89,3,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Kumar Ujjawal,parties.IN.BJP,BJP,18234,15.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Anjali Bhokta,parties.IN.IND,IND,4593,3.94,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Sunil Kumar Paswan,parties.IN.IND,IND,4493,3.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Manoj Rajak,parties.IN.IND,IND,3350,2.87,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Meena Devi,parties.IN.JP,JP,2190,1.88,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Kuldeep Ganjhu,parties.IN.IND,IND,2156,1.85,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Ramtahal Turi,parties.IN.IND,IND,2074,1.78,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Raj Kumar Rajak,parties.IN.IND,IND,1974,1.69,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Kailash Bhuiyan,parties.IN.IND,IND,1564,1.34,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Tarkeshwar Ganjhu,parties.IN.IND,IND,1508,1.29,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jharkhand-26,jharkhand,2008,26,SIMARIA(SC),Gulab Ram,parties.IN.IND,IND,1032,0.88,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

@@ -1,5 +1,5 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-PC-1976-bihar-1,bihar,1995,1,AMBALA,Lovely Singh,parties.IN.SP,SP,0,,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-1,maharashtra,1995,1,AMBALA,Baba Saheb Thide,parties.IN.INC,INC,0,,1,won,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-maharashtra-1,maharashtra,1995,1,AMBALA,M.D. Raosulke,parties.IN.INC,INC,0,,2,lost,U,,,,challenger,src-31c65dbec869
-IN-PC-1976-west-bengal-10,west-bengal,1995,10,BEHRAMPUR,P. Mukherjee,parties.IN.RSP,RSP,0,,1,won,U,,,,challenger,src-31c65dbec869
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-PC-1976-bihar-1,bihar,1995,1,AMBALA,Lovely Singh,parties.IN.SP,SP,0,,1,won,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-1,maharashtra,1995,1,AMBALA,Baba Saheb Thide,parties.IN.INC,INC,0,,1,won,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-1,maharashtra,1995,1,AMBALA,M.D. Raosulke,parties.IN.INC,INC,0,,2,lost,U,,,,challenger,src-31c65dbec869,minor,
+IN-PC-1976-west-bengal-10,west-bengal,1995,10,BEHRAMPUR,P. Mukherjee,parties.IN.RSP,RSP,0,,1,won,U,,,,challenger,src-31c65dbec869,minor,

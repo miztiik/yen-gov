@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-karnataka-107,karnataka,1986,SRIRANGAPATNA,97834,74839,76.5,VIJAYALAXMANNA,parties.IN.JP,JNP,38855,51.92,A.C.SRIKANTAIAH,parties.IN.INC,INC,34241,4614,6.17,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-115,karnataka,1986,CHAMARAJA,104093,47506,45.64,P.M.CHIKKABORAIAH,parties.IN.JP,JNP,25583,53.85,B.N.K.GOWDA,parties.IN.INC,INC,18724,6859,14.44,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-53,karnataka,1986,KALLAMBELLA,91388,64318,70.38,B.GANGANNA,parties.IN.JP,JNP,28814,44.8,S.HANUMANTHAIAH,parties.IN.INC,INC,18452,10362,16.11,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-karnataka-107,karnataka,1986,SRIRANGAPATNA,97834,74839,76.5,VIJAYALAXMANNA,parties.IN.JP,JNP,38855,51.92,A.C.SRIKANTAIAH,parties.IN.INC,INC,34241,4614,6.17,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-115,karnataka,1986,CHAMARAJA,104093,47506,45.64,P.M.CHIKKABORAIAH,parties.IN.JP,JNP,25583,53.85,B.N.K.GOWDA,parties.IN.INC,INC,18724,6859,14.44,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-53,karnataka,1986,KALLAMBELLA,91388,64318,70.38,B.GANGANNA,parties.IN.JP,JNP,28814,44.8,S.HANUMANTHAIAH,parties.IN.INC,INC,18452,10362,16.11,src-1b7bc1c9d39a,minor,

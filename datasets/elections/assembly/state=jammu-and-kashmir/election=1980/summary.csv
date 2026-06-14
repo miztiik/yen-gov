@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-jammu-and-kashmir-43,jammu-and-kashmir,1980,LEH,31310,19106,61.02,S.ANGDOO,parties.IN.IND,IND,9173,48.01,T.TARGAIS,parties.IN.INC_I,INC(I),5861,3312,17.33,src-1b7bc1c9d39a
-IN-AC-1976-jammu-and-kashmir-70,jammu-and-kashmir,1980,HIRANAGAR,39483,30877,78.2,B.SINGH,parties.IN.BJP,BJP,14846,48.08,R.DAS,parties.IN.INC_I,INC(I),8857,5989,19.4,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-jammu-and-kashmir-43,jammu-and-kashmir,1980,LEH,31310,19106,61.02,S.ANGDOO,parties.IN.IND,IND,9173,48.01,T.TARGAIS,parties.IN.INC_I,INC(I),5861,3312,17.33,src-1b7bc1c9d39a,minor,
+IN-AC-1976-jammu-and-kashmir-70,jammu-and-kashmir,1980,HIRANAGAR,39483,30877,78.2,B.SINGH,parties.IN.BJP,BJP,14846,48.08,R.DAS,parties.IN.INC_I,INC(I),8857,5989,19.4,src-1b7bc1c9d39a,minor,

@@ -1,26 +1,26 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,DASHRATH SINGH LODHI (DASSU BHAIYA),parties.IN.BJP,BJP,42986,35.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,RATNESH SOLOMON,parties.IN.INC,INC,39041,32.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,HARIRAM THAKUR,parties.IN.GGP,GGP,24718,20.27,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,DR. LAKHAN LAL SAHU,parties.IN.BSP,BSP,5635,4.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,HARIRAM,parties.IN.IND,IND,2582,2.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,TEJRAM,parties.IN.SP,SP,2262,1.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,KHILAN SINGH,parties.IN.IND,IND,2198,1.8,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,LAKHAN (ROHIT),parties.IN.IND,IND,1532,1.26,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,AMARSINGH LODHI,parties.IN.IND,IND,988,0.81,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,ASHOKSINGH SARASHWAR,parties.IN.INC,INC,33660,31.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,KAILASH AGRAWAL,parties.IN.BJP,BJP,28387,26.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,KANKAR MUNJARE,parties.IN.JP,JP,23611,21.75,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,SUKHLAL KUSHWAHA,parties.IN.RSMD,RSMD,6848,6.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,BHANU PRATAP SINGH CHOUDHARY,parties.IN.BSP,BSP,6727,6.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,SMT. HIRASAN UIKEY,parties.IN.GGP,GGP,1724,1.59,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,RAJESH MANESHWAR ALIES RAJU BHAIYA,parties.IN.IND,IND,1556,1.43,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,SATYAVAN VASHNIK,parties.IN.IND,IND,1467,1.35,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,ANIL DONGRE,parties.IN.RPIA,RPI(A),797,0.73,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,KALICHARAN VAIDYA,parties.IN.IND,IND,670,0.62,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,DHANESHWAR LILLHARE (LODHI),parties.IN.IND,IND,622,0.57,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,DELENDRA,parties.IN.IND,IND,587,0.54,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,PRASANNA CHOURADIYA,parties.IN.SP,SP,574,0.53,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,GOVARDHAN MOHARE,parties.IN.RLD,RLD,519,0.48,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,GOVARDHAN PATLE ALIES HITLAR,parties.IN.IND,IND,447,0.41,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,ADVOCATE AHMAD SAYEED QUARAISHI,parties.IN.IND,IND,339,0.31,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,DASHRATH SINGH LODHI (DASSU BHAIYA),parties.IN.BJP,BJP,42986,35.25,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,RATNESH SOLOMON,parties.IN.INC,INC,39041,32.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,HARIRAM THAKUR,parties.IN.GGP,GGP,24718,20.27,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,DR. LAKHAN LAL SAHU,parties.IN.BSP,BSP,5635,4.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,HARIRAM,parties.IN.IND,IND,2582,2.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,TEJRAM,parties.IN.SP,SP,2262,1.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,KHILAN SINGH,parties.IN.IND,IND,2198,1.8,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,LAKHAN (ROHIT),parties.IN.IND,IND,1532,1.26,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-52,madhya-pradesh,2004,52,NOHATA,AMARSINGH LODHI,parties.IN.IND,IND,988,0.81,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,ASHOKSINGH SARASHWAR,parties.IN.INC,INC,33660,31.01,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,KAILASH AGRAWAL,parties.IN.BJP,BJP,28387,26.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,KANKAR MUNJARE,parties.IN.JP,JP,23611,21.75,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,SUKHLAL KUSHWAHA,parties.IN.RSMD,RSMD,6848,6.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,BHANU PRATAP SINGH CHOUDHARY,parties.IN.BSP,BSP,6727,6.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,SMT. HIRASAN UIKEY,parties.IN.GGP,GGP,1724,1.59,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,RAJESH MANESHWAR ALIES RAJU BHAIYA,parties.IN.IND,IND,1556,1.43,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,SATYAVAN VASHNIK,parties.IN.IND,IND,1467,1.35,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,ANIL DONGRE,parties.IN.RPIA,RPI(A),797,0.73,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,KALICHARAN VAIDYA,parties.IN.IND,IND,670,0.62,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,DHANESHWAR LILLHARE (LODHI),parties.IN.IND,IND,622,0.57,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,DELENDRA,parties.IN.IND,IND,587,0.54,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,PRASANNA CHOURADIYA,parties.IN.SP,SP,574,0.53,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,GOVARDHAN MOHARE,parties.IN.RLD,RLD,519,0.48,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,GOVARDHAN PATLE ALIES HITLAR,parties.IN.IND,IND,447,0.41,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-93,madhya-pradesh,2004,93,BALAGHAT,ADVOCATE AHMAD SAYEED QUARAISHI,parties.IN.IND,IND,339,0.31,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

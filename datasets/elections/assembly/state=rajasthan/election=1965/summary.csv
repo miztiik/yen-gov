@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1962-rajasthan-162,rajasthan,1965,NOHAR,63668,39265,61.67,D.RAM,parties.IN.IND,IND,21957,55.92,Y.SINGH,parties.IN.INC,INC,17308,4649,11.84,src-1b7bc1c9d39a
-IN-AC-1962-rajasthan-34,rajasthan,1965,BANSUR,59999,31648,52.75,B.PRASAD,parties.IN.INC,INC,20065,63.4,RAMJI LAL,parties.IN.IND,IND,10712,9353,29.55,src-1b7bc1c9d39a
-IN-AC-1962-rajasthan-50,rajasthan,1965,RAJAKHERA,57246,30852,53.89,DAMODAR VYAS,parties.IN.INC,INC,18714,60.66,M.SINGH,parties.IN.IND,IND,9672,9042,29.31,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1962-rajasthan-162,rajasthan,1965,NOHAR,63668,39265,61.67,D.RAM,parties.IN.IND,IND,21957,55.92,Y.SINGH,parties.IN.INC,INC,17308,4649,11.84,src-1b7bc1c9d39a,minor,
+IN-AC-1962-rajasthan-34,rajasthan,1965,BANSUR,59999,31648,52.75,B.PRASAD,parties.IN.INC,INC,20065,63.4,RAMJI LAL,parties.IN.IND,IND,10712,9353,29.55,src-1b7bc1c9d39a,minor,
+IN-AC-1962-rajasthan-50,rajasthan,1965,RAJAKHERA,57246,30852,53.89,DAMODAR VYAS,parties.IN.INC,INC,18714,60.66,M.SINGH,parties.IN.IND,IND,9672,9042,29.31,src-1b7bc1c9d39a,minor,

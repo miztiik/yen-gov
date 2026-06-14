@@ -1,7 +1,7 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-karnataka-3479,karnataka,2009,CHANNAPATNA,183793,147665,80.34,Ashwath. M.C.,parties.IN.JDS,JD(S),64517,43.69,C.P.Yogeshwara,parties.IN.BJP,BJP,62235,2282,1.54,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3484,karnataka,2009,RAMANAGARAM,173939,124245,71.43,K. Raju,parties.IN.JDS,JD(S),60774,48.91,C.M. Lingappa,parties.IN.INC,INC,38724,22050,17.74,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3489,karnataka,2009,GOVINDRAJ NAGAR,246476,126749,51.42,Priya Krishna,parties.IN.INC,INC,64176,50.63,V. Somanna,parties.IN.BJP,BJP,58937,5239,4.13,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3513,karnataka,2009,BIDAR,185232,98929,53.41,Raheem Khan,parties.IN.INC,INC,39595,40.02,Suryakant Nagmarpalli,parties.IN.BJP,BJP,28781,10814,10.93,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3529,karnataka,2009,KOLLEGAL,180177,133524,74.11,G.N. N. Swamy,parties.IN.BJP,BJP,49553,37.11,S. Jayanna.,parties.IN.INC,INC,41286,8267,6.19,src-1b7bc1c9d39a
-IN-AC-2008-karnataka-3582,karnataka,2009,CHITTAPUR,183801,106276,57.82,Valmiki Nayak,parties.IN.BJP,BJP,48365,45.51,Priyank Kharge,parties.IN.INC,INC,46759,1606,1.51,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-2008-karnataka-3479,karnataka,2009,CHANNAPATNA,183793,147665,80.34,Ashwath. M.C.,parties.IN.JDS,JD(S),64517,43.69,C.P.Yogeshwara,parties.IN.BJP,BJP,62235,2282,1.54,src-1b7bc1c9d39a,minor,
+IN-AC-2008-karnataka-3484,karnataka,2009,RAMANAGARAM,173939,124245,71.43,K. Raju,parties.IN.JDS,JD(S),60774,48.91,C.M. Lingappa,parties.IN.INC,INC,38724,22050,17.74,src-1b7bc1c9d39a,minor,
+IN-AC-2008-karnataka-3489,karnataka,2009,GOVINDRAJ NAGAR,246476,126749,51.42,Priya Krishna,parties.IN.INC,INC,64176,50.63,V. Somanna,parties.IN.BJP,BJP,58937,5239,4.13,src-1b7bc1c9d39a,minor,
+IN-AC-2008-karnataka-3513,karnataka,2009,BIDAR,185232,98929,53.41,Raheem Khan,parties.IN.INC,INC,39595,40.02,Suryakant Nagmarpalli,parties.IN.BJP,BJP,28781,10814,10.93,src-1b7bc1c9d39a,minor,
+IN-AC-2008-karnataka-3529,karnataka,2009,KOLLEGAL,180177,133524,74.11,G.N. N. Swamy,parties.IN.BJP,BJP,49553,37.11,S. Jayanna.,parties.IN.INC,INC,41286,8267,6.19,src-1b7bc1c9d39a,minor,
+IN-AC-2008-karnataka-3582,karnataka,2009,CHITTAPUR,183801,106276,57.82,Valmiki Nayak,parties.IN.BJP,BJP,48365,45.51,Priyank Kharge,parties.IN.INC,INC,46759,1606,1.51,src-1b7bc1c9d39a,minor,

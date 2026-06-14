@@ -1,7 +1,7 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2004,37,GULER,HARBANS SINGH RANA,parties.IN.BJP,BJP,18806,48.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2004,37,GULER,NEERAJ BHARTI,parties.IN.INC,INC,17699,45.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2004,37,GULER,BHANU PARKASH CHOUDHARY,parties.IN.IND,IND,958,2.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2004,37,GULER,SMT. BRAHAMI DEVI,parties.IN.BSP,BSP,604,1.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2004,37,GULER,SUBHASH CHAND,parties.IN.IND,IND,541,1.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2004,37,GULER,SQUADRON LEADER LAKSHMAN SINGH (RETD.),parties.IN.HVC,HVC,265,0.68,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2004,37,GULER,HARBANS SINGH RANA,parties.IN.BJP,BJP,18806,48.38,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2004,37,GULER,NEERAJ BHARTI,parties.IN.INC,INC,17699,45.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2004,37,GULER,BHANU PARKASH CHOUDHARY,parties.IN.IND,IND,958,2.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2004,37,GULER,SMT. BRAHAMI DEVI,parties.IN.BSP,BSP,604,1.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2004,37,GULER,SUBHASH CHAND,parties.IN.IND,IND,541,1.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2004,37,GULER,SQUADRON LEADER LAKSHMAN SINGH (RETD.),parties.IN.HVC,HVC,265,0.68,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

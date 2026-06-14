@@ -1,5 +1,5 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-PC-2008-gujarat-344,gujarat,2013,PORBANDAR,1495066,452560,30.27,R.V. Hansrajbhai,parties.IN.BJP,BJP,289893,64.06,A.V. Gordhanbhai,parties.IN.INC,INC,144370,145523,32.16,src-31c65dbec869
-IN-PC-2008-gujarat-357,gujarat,2013,BANASKANTHA,1466767,568174,38.74,C.H. Parthibhai,parties.IN.BJP,BJP,307988,54.21,G.K. Mukesh Kumar,parties.IN.INC,INC,236011,71977,12.67,src-31c65dbec869
-IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2013,MANDI,1124066,582246,51.8,Pratibha Singh,parties.IN.INC,INC,353492,60.71,Jai Ram Thakur,parties.IN.BJP,BJP,216765,136727,23.48,src-31c65dbec869
-IN-PC-2008-west-bengal-258,west-bengal,2013,HOWRAH,1447174,954381,65.95,Prasun Banerjee,parties.IN.AITC,AITC,426387,44.68,Sridip Bhattacharya,parties.IN.CPIM,CPM,399422,26965,2.83,src-31c65dbec869
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-PC-2008-gujarat-344,gujarat,2013,PORBANDAR,1495066,452560,30.27,R.V. Hansrajbhai,parties.IN.BJP,BJP,289893,64.06,A.V. Gordhanbhai,parties.IN.INC,INC,144370,145523,32.16,src-31c65dbec869,minor,
+IN-PC-2008-gujarat-357,gujarat,2013,BANASKANTHA,1466767,568174,38.74,C.H. Parthibhai,parties.IN.BJP,BJP,307988,54.21,G.K. Mukesh Kumar,parties.IN.INC,INC,236011,71977,12.67,src-31c65dbec869,minor,
+IN-PC-2008-himachal-pradesh-9,himachal-pradesh,2013,MANDI,1124066,582246,51.8,Pratibha Singh,parties.IN.INC,INC,353492,60.71,Jai Ram Thakur,parties.IN.BJP,BJP,216765,136727,23.48,src-31c65dbec869,minor,
+IN-PC-2008-west-bengal-258,west-bengal,2013,HOWRAH,1447174,954381,65.95,Prasun Banerjee,parties.IN.AITC,AITC,426387,44.68,Sridip Bhattacharya,parties.IN.CPIM,CPM,399422,26965,2.83,src-31c65dbec869,minor,

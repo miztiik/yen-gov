@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-uttar-pradesh-159,uttar-pradesh,1978,MANKAPUR(SC),124495,49078,39.42,C.C.LAL,parties.IN.INC_I,INC(I),25490,51.94,S.NATH,parties.IN.JP,JNP,17602,7888,16.07,src-1b7bc1c9d39a
-IN-AC-1976-uttar-pradesh-346,uttar-pradesh,1978,SORON,108420,41302,38.09,M.P.SINGH,parties.IN.INC_I,INC(I),15636,37.86,R.KUMAR,parties.IN.JP,JNP,10442,5194,12.58,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-uttar-pradesh-159,uttar-pradesh,1978,MANKAPUR(SC),124495,49078,39.42,C.C.LAL,parties.IN.INC_I,INC(I),25490,51.94,S.NATH,parties.IN.JP,JNP,17602,7888,16.07,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-346,uttar-pradesh,1978,SORON,108420,41302,38.09,M.P.SINGH,parties.IN.INC_I,INC(I),15636,37.86,R.KUMAR,parties.IN.JP,JNP,10442,5194,12.58,src-1b7bc1c9d39a,minor,

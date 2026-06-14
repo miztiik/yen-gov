@@ -1,61 +1,61 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-manipur-1501,manipur,2022,ANDRO,36353,33423,91.94,Thounaojam Shyamkumar,parties.IN.BJP,BJP,16739,50.08,Lourembam Sanjoy Singh,parties.IN.NPP,NPP,15282,1457,4.36,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1502,manipur,2022,BISHNUPUR,32740,29558,90.28,Konthoujam Govindas Singh,parties.IN.BJP,BJP,13611,46.05,Oinam Nabakishore Singh,parties.IN.JDU,JD(U),12202,1409,4.77,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1503,manipur,2022,HEINGANG,34448,31596,91.72,NONGTHOMBAM BIREN SINGH,parties.IN.BJP,BJP,24814,78.54,PANGEIJAM SARATCHANDRA SINGH,parties.IN.INC,INC,6543,18271,57.83,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1504,manipur,2022,KEIRAO,30824,28103,91.17,Lourembam Rameshwor Meetei,parties.IN.BJP,BJP,17335,61.68,Md. Nasiruddin Khan,parties.IN.NPP,NPP,9126,8209,29.21,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1505,manipur,2022,KEISHAMTHONG,28310,25352,89.55,SAPAM NISHIKANT SINGH,parties.IN.IND,IND,8874,35,Maheshwar Thounaojam,parties.IN.RPIA,RPI(A),8687,187,0.73,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1506,manipur,2022,KHUNDRAKPAM,27864,24911,89.4,Thokchom Lokeshwar Singh,parties.IN.INC,INC,12211,49.02,Thangjam Mohendro Singh,parties.IN.BJP,BJP,11996,215,0.86,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1507,manipur,2022,KHURAI,36233,33110,91.38,LEISHANGTHEM SUSINDRO MEITEI,parties.IN.BJP,BJP,11131,33.62,LAITONJAM JAYANANDA SINGH,parties.IN.NPP,NPP,8894,2237,6.76,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1508,manipur,2022,KONTHOUJAM,30557,28400,92.94,Dr. Sapam Ranjan Singh,parties.IN.BJP,BJP,13432,47.3,Konthoujam Sharat Singh,parties.IN.NPP,NPP,13038,394,1.39,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1509,manipur,2022,KSHETRIGAO,37227,34100,91.6,Sheikh Noorul Hassan,parties.IN.NPP,NPP,13118,38.47,Nahakpam Indrajit Singh,parties.IN.BJP,BJP,12376,742,2.18,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1510,manipur,2022,KUMBI,28309,26087,92.15,Sanasam Premchandra Singh,parties.IN.BJP,BJP,8513,32.63,Ahanthem Shanjoy Singh,parties.IN.JDU,JD(U),8141,372,1.42,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1511,manipur,2022,LAMLAI,30608,28665,93.65,Khongbantabam Ibomcha,parties.IN.BJP,BJP,10105,35.25,Kshetrimayum Biren Singh,parties.IN.JDU,JD(U),9984,121,0.42,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1512,manipur,2022,LAMSANG,34004,31770,93.43,Sorokhaibam Rajen Singh,parties.IN.BJP,BJP,15185,47.8,Pukhrambam Sumati Devi,parties.IN.NPP,NPP,14785,400,1.26,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1513,manipur,2022,LANGTHABAL,28635,26267,91.73,Karam Shyam,parties.IN.BJP,BJP,10815,41.17,Okram Joy Singh,parties.IN.INC,INC,8762,2053,7.81,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1514,manipur,2022,LILONG,36774,33969,92.37,Mohd Abdul Nasir,parties.IN.JDU,JD(U),16886,49.71,Y. Antas Khan,parties.IN.BJP,BJP,16316,570,1.68,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1515,manipur,2022,MAYANG IMPHAL,32599,30679,94.11,Kongkham Robindro Singh,parties.IN.BJP,BJP,14642,47.73,Dr. Khumujam Ratankumar Singh,parties.IN.INC,INC,8513,6129,19.98,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1516,manipur,2022,MOIRANG,39960,36096,90.33,Thongam Shanti Singh,parties.IN.NPP,NPP,14349,39.75,Mairembam Prithviraj Singh,parties.IN.BJP,BJP,12118,2231,6.18,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1517,manipur,2022,NAMBOL,33330,30834,92.51,THOUNAOJAM BASANTA KUMAR SINGH,parties.IN.BJP,BJP,16885,54.76,NAMEIRAKPAM LOKEN SINGH,parties.IN.INC,INC,13825,3060,9.92,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1518,manipur,2022,NAORIYA PAKHANGLAKPA,35625,32964,92.53,Sagolshem Kebi Devi,parties.IN.BJP,BJP,11058,33.55,Soibam Subhaschandra Singh,parties.IN.NPP,NPP,10527,531,1.62,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1519,manipur,2022,OINAM,29090,26641,91.58,Irengbam Nalini Devi,parties.IN.NPP,NPP,10808,40.57,Laishram Radhakishore Singh,parties.IN.BJP,BJP,10366,442,1.66,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1520,manipur,2022,PATSOI,38151,34836,91.31,Sapam Kunjakeswor (Keba) Singh,parties.IN.BJP,BJP,12186,34.98,Akoijam Mirabai Devi,parties.IN.INC,INC,11499,687,1.97,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1521,manipur,2022,SAGOLBAND,23454,20244,86.31,Rajkumar Imo Singh,parties.IN.BJP,BJP,11054,54.6,Dr. Khwairakpam Loken Singh,parties.IN.JDU,JD(U),8398,2656,13.12,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1522,manipur,2022,SEKMAI,30518,27201,89.13,Heikham Dingo Singh,parties.IN.BJP,BJP,10010,36.8,Ayangbam Oken Singh,parties.IN.NPP,NPP,6677,3333,12.25,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1523,manipur,2022,SINGJAMEI,21205,19015,89.67,Yumnam Khemchand Singh,parties.IN.BJP,BJP,8709,45.8,Oinam Romen Singh,parties.IN.NPP,NPP,6414,2295,12.07,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1524,manipur,2022,THANGA,23559,21135,89.71,Tongbram Robindro Singh,parties.IN.BJP,BJP,13095,61.96,Birla Haobijam,parties.IN.INC,INC,7844,5251,24.85,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1525,manipur,2022,THANGMEIBAND,28845,24302,84.25,Khumukcham Joykisan Singh,parties.IN.JDU,JD(U),13629,56.08,Jotin Waikhom,parties.IN.BJP,BJP,9856,3773,15.52,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1526,manipur,2022,THONGJU,32723,29510,90.18,Thongam Biswajit Singh,parties.IN.BJP,BJP,15338,51.98,Seram Neken Singh,parties.IN.INC,INC,8649,6689,22.67,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1527,manipur,2022,THOUBAL,33207,29581,89.08,Okram Ibobi Singh,parties.IN.INC,INC,15085,51,Leitanthem Basanta Singh,parties.IN.BJP,BJP,12542,2543,8.6,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1528,manipur,2022,URIPOK,26281,23041,87.67,KHWAIRAKPAM RAGHUMANI SINGH,parties.IN.BJP,BJP,8335,36.17,YUMNAM JOYKUMAR SINGH,parties.IN.NPP,NPP,7426,909,3.94,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1529,manipur,2022,WANGKHEI,37644,32461,86.23,Thangjam Arunkumar,parties.IN.JDU,JD(U),11593,35.71,Okram Henry,parties.IN.BJP,BJP,10840,753,2.32,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1530,manipur,2022,WANGKHEM,33626,30277,90.04,Keisham Meghachandra Singh,parties.IN.INC,INC,8889,29.36,Yumnam Nabachandra Singh,parties.IN.BJP,BJP,7597,1292,4.27,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1531,manipur,2022,WANGOI,29784,28224,94.76,KHURAIJAM LOKEN SINGH,parties.IN.NPP,NPP,15606,55.29,Oinam Lukhoi Singh,parties.IN.BJP,BJP,12340,3266,11.57,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1532,manipur,2022,YAISKUL,27416,24157,88.11,Thokchom Satyabrata Singh,parties.IN.BJP,BJP,9724,40.25,Huidrom Vikramjit Singh,parties.IN.NPP,NPP,9092,632,2.61,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1533,manipur,2022,CHANDEL,49721,46882,94.29,SS. Olish,parties.IN.BJP,BJP,37066,79.06,Langhu Paulhring Anal,parties.IN.NPF,NPF,9725,27341,58.32,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1534,manipur,2022,CHINGAI,48405,40898,84.49,KHASHIM VASHUM,parties.IN.NPF,NPF,12837,31.39,NINGAM CHAMROY,parties.IN.NPP,NPP,10501,2336,5.71,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1535,manipur,2022,CHURACHANDPUR,65338,47671,72.96,L.M. KHAUTE,parties.IN.JDU,JD(U),18231,38.24,V HANGKHANLIAN,parties.IN.BJP,BJP,17607,624,1.31,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1536,manipur,2022,HEIROK,34115,31748,93.06,Thokchom Radheshyam Singh,parties.IN.BJP,BJP,13589,42.8,Moirangthem Okendro,parties.IN.INC,INC,13186,403,1.27,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1537,manipur,2022,HENGLEP,31767,27596,86.87,Letzamang Haokip,parties.IN.BJP,BJP,13897,50.36,T. Manga Vaiphei,parties.IN.INC,INC,6049,7848,28.44,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1538,manipur,2022,HIYANGLAM,28112,26263,93.42,DR. YUMNAM RADHESHYAM SINGH,parties.IN.BJP,BJP,8613,32.8,DR. HUIDROM JITEN SINGH,parties.IN.INC,INC,6584,2029,7.73,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1539,manipur,2022,JIRIBAM,29523,26648,90.26,MD. ACHAB UDDIN,parties.IN.JDU,JD(U),12313,46.21,NAMEIRAKPAM BUDHACHANDRA SINGH,parties.IN.BJP,BJP,11897,416,1.56,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1540,manipur,2022,KAKCHING,30595,27135,88.69,MAYANGLAMBAM RAMESHWAR SINGH,parties.IN.NPP,NPP,8546,31.49,Yengkhom Surchandra Singh,parties.IN.BJP,BJP,7341,1205,4.44,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1541,manipur,2022,KANGPOKPI,27768,25119,90.46,Nemcha Kipgen,parties.IN.BJP,BJP,14412,57.37,Soshim Gurung,parties.IN.JDU,JD(U),9016,5396,21.48,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1542,manipur,2022,KARONG,58490,49360,84.39,J Kumo Sha,parties.IN.IND,IND,17191,34.83,R Yuh Jonathan Tao,parties.IN.BJP,BJP,13649,3542,7.18,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1543,manipur,2022,KHANGABOK,38172,35035,91.78,Surjakumar Okram,parties.IN.INC,INC,17435,49.76,Khundrakpam Menjor Mangang,parties.IN.BJP,BJP,9632,7803,22.27,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1544,manipur,2022,MAO,55478,50974,91.88,Losii Dikho,parties.IN.NPF,NPF,29591,58.05,Woba Joram,parties.IN.IND,IND,21078,8513,16.7,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1545,manipur,2022,NUNGBA,30169,25201,83.53,Dinganglung Gangmei,parties.IN.BJP,BJP,14464,57.39,Gaikhangam,parties.IN.INC,INC,10678,3786,15.02,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1546,manipur,2022,PHUNGYAR,34390,30838,89.67,LEISHIYO KEISHING,parties.IN.NPF,NPF,11642,37.75,AWUNG SHIMRAY HOPINGSON,parties.IN.BJP,BJP,10863,779,2.52,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1547,manipur,2022,SAIKOT,62199,52590,84.55,Paolienlal Haokip,parties.IN.BJP,BJP,18457,35.1,Khaipao Haokip,parties.IN.NPP,NPP,12586,5871,11.17,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1548,manipur,2022,SAIKUL,28888,26436,91.51,Kimneo Haokip Hangshing,parties.IN.UNK,KPA,6710,25.38,Kenn Raikhan,parties.IN.IND,IND,5461,1249,4.72,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1549,manipur,2022,SAITU,44370,39512,89.05,Haokholet Kipgen,parties.IN.IND,IND,12456,31.52,Ngamthang Haokip,parties.IN.BJP,BJP,9762,2694,6.81,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1550,manipur,2022,SINGHAT,27753,23632,85.15,Chinlunthang,parties.IN.UNK,KPA,12098,51.19,Ginsuanhau Zou,parties.IN.BJP,BJP,10179,1919,8.12,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1551,manipur,2022,SUGNU,27796,25031,90.05,KANGUJAM RANJIT SINGH,parties.IN.INC,INC,12673,50.63,MAYANGLAMBAM BINOD,parties.IN.BJP,BJP,11657,1016,4.06,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1552,manipur,2022,TADUBI,51252,45179,88.15,N. Kayisii,parties.IN.NPP,NPP,21601,47.81,M. Francis Ngajokpa,parties.IN.NPF,NPF,21052,549,1.21,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1553,manipur,2022,TAMEI,42059,38644,91.88,Awangbow Newmai,parties.IN.NPF,NPF,19643,50.83,Z. Kikhonbou Newmai,parties.IN.NPP,NPP,17945,1698,4.39,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1554,manipur,2022,TAMENGLONG,37101,30653,82.62,Janghemlung Panmei,parties.IN.NPP,NPP,10456,34.11,Huri Golmei,parties.IN.BJP,BJP,9147,1309,4.27,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1555,manipur,2022,TENGNOUPAL,44791,41902,93.55,LETPAO HAOKIP,parties.IN.BJP,BJP,21663,51.7,D. Korungthang,parties.IN.NPF,NPF,15252,6411,15.3,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1556,manipur,2022,THANLON,17374,13340,76.78,Vungzagin Valte,parties.IN.BJP,BJP,4863,36.45,Khanthang Tonsing,parties.IN.NPP,NPP,4112,751,5.63,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1557,manipur,2022,TIPAIMUKH,18398,12728,69.18,Ngursanglur Sanate,parties.IN.JDU,JD(U),6267,49.24,Chalton Lien Amo,parties.IN.BJP,BJP,5018,1249,9.82,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1558,manipur,2022,UKHRUL,51395,40073,77.97,RAM MUIVAH,parties.IN.NPF,NPF,15503,38.69,ALFRED KANNGAM S. ARTHUR,parties.IN.INC,INC,14561,942,2.35,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1559,manipur,2022,WABGAI,32118,29353,91.39,Dr.USHAM DEBEN SINGH,parties.IN.BJP,BJP,9138,31.13,MD.FAJUR RAHIM,parties.IN.INC,INC,9088,50,0.17,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1560,manipur,2022,WANGJING TENTHA,33610,30498,90.74,Paonam Brojen Singh,parties.IN.BJP,BJP,15765,51.69,Moirangthem Hemanta Singh,parties.IN.INC,INC,13852,1913,6.27,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-2008-manipur-1501,manipur,2022,ANDRO,36353,33423,91.94,Thounaojam Shyamkumar,parties.IN.BJP,BJP,16739,50.08,Lourembam Sanjoy Singh,parties.IN.NPP,NPP,15282,1457,4.36,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1502,manipur,2022,BISHNUPUR,32740,29558,90.28,Konthoujam Govindas Singh,parties.IN.BJP,BJP,13611,46.05,Oinam Nabakishore Singh,parties.IN.JDU,JD(U),12202,1409,4.77,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1503,manipur,2022,HEINGANG,34448,31596,91.72,NONGTHOMBAM BIREN SINGH,parties.IN.BJP,BJP,24814,78.54,PANGEIJAM SARATCHANDRA SINGH,parties.IN.INC,INC,6543,18271,57.83,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1504,manipur,2022,KEIRAO,30824,28103,91.17,Lourembam Rameshwor Meetei,parties.IN.BJP,BJP,17335,61.68,Md. Nasiruddin Khan,parties.IN.NPP,NPP,9126,8209,29.21,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1505,manipur,2022,KEISHAMTHONG,28310,25352,89.55,SAPAM NISHIKANT SINGH,parties.IN.IND,IND,8874,35,Maheshwar Thounaojam,parties.IN.RPIA,RPI(A),8687,187,0.73,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1506,manipur,2022,KHUNDRAKPAM,27864,24911,89.4,Thokchom Lokeshwar Singh,parties.IN.INC,INC,12211,49.02,Thangjam Mohendro Singh,parties.IN.BJP,BJP,11996,215,0.86,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1507,manipur,2022,KHURAI,36233,33110,91.38,LEISHANGTHEM SUSINDRO MEITEI,parties.IN.BJP,BJP,11131,33.62,LAITONJAM JAYANANDA SINGH,parties.IN.NPP,NPP,8894,2237,6.76,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1508,manipur,2022,KONTHOUJAM,30557,28400,92.94,Dr. Sapam Ranjan Singh,parties.IN.BJP,BJP,13432,47.3,Konthoujam Sharat Singh,parties.IN.NPP,NPP,13038,394,1.39,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1509,manipur,2022,KSHETRIGAO,37227,34100,91.6,Sheikh Noorul Hassan,parties.IN.NPP,NPP,13118,38.47,Nahakpam Indrajit Singh,parties.IN.BJP,BJP,12376,742,2.18,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1510,manipur,2022,KUMBI,28309,26087,92.15,Sanasam Premchandra Singh,parties.IN.BJP,BJP,8513,32.63,Ahanthem Shanjoy Singh,parties.IN.JDU,JD(U),8141,372,1.42,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1511,manipur,2022,LAMLAI,30608,28665,93.65,Khongbantabam Ibomcha,parties.IN.BJP,BJP,10105,35.25,Kshetrimayum Biren Singh,parties.IN.JDU,JD(U),9984,121,0.42,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1512,manipur,2022,LAMSANG,34004,31770,93.43,Sorokhaibam Rajen Singh,parties.IN.BJP,BJP,15185,47.8,Pukhrambam Sumati Devi,parties.IN.NPP,NPP,14785,400,1.26,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1513,manipur,2022,LANGTHABAL,28635,26267,91.73,Karam Shyam,parties.IN.BJP,BJP,10815,41.17,Okram Joy Singh,parties.IN.INC,INC,8762,2053,7.81,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1514,manipur,2022,LILONG,36774,33969,92.37,Mohd Abdul Nasir,parties.IN.JDU,JD(U),16886,49.71,Y. Antas Khan,parties.IN.BJP,BJP,16316,570,1.68,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1515,manipur,2022,MAYANG IMPHAL,32599,30679,94.11,Kongkham Robindro Singh,parties.IN.BJP,BJP,14642,47.73,Dr. Khumujam Ratankumar Singh,parties.IN.INC,INC,8513,6129,19.98,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1516,manipur,2022,MOIRANG,39960,36096,90.33,Thongam Shanti Singh,parties.IN.NPP,NPP,14349,39.75,Mairembam Prithviraj Singh,parties.IN.BJP,BJP,12118,2231,6.18,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1517,manipur,2022,NAMBOL,33330,30834,92.51,THOUNAOJAM BASANTA KUMAR SINGH,parties.IN.BJP,BJP,16885,54.76,NAMEIRAKPAM LOKEN SINGH,parties.IN.INC,INC,13825,3060,9.92,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1518,manipur,2022,NAORIYA PAKHANGLAKPA,35625,32964,92.53,Sagolshem Kebi Devi,parties.IN.BJP,BJP,11058,33.55,Soibam Subhaschandra Singh,parties.IN.NPP,NPP,10527,531,1.62,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1519,manipur,2022,OINAM,29090,26641,91.58,Irengbam Nalini Devi,parties.IN.NPP,NPP,10808,40.57,Laishram Radhakishore Singh,parties.IN.BJP,BJP,10366,442,1.66,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1520,manipur,2022,PATSOI,38151,34836,91.31,Sapam Kunjakeswor (Keba) Singh,parties.IN.BJP,BJP,12186,34.98,Akoijam Mirabai Devi,parties.IN.INC,INC,11499,687,1.97,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1521,manipur,2022,SAGOLBAND,23454,20244,86.31,Rajkumar Imo Singh,parties.IN.BJP,BJP,11054,54.6,Dr. Khwairakpam Loken Singh,parties.IN.JDU,JD(U),8398,2656,13.12,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1522,manipur,2022,SEKMAI,30518,27201,89.13,Heikham Dingo Singh,parties.IN.BJP,BJP,10010,36.8,Ayangbam Oken Singh,parties.IN.NPP,NPP,6677,3333,12.25,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1523,manipur,2022,SINGJAMEI,21205,19015,89.67,Yumnam Khemchand Singh,parties.IN.BJP,BJP,8709,45.8,Oinam Romen Singh,parties.IN.NPP,NPP,6414,2295,12.07,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1524,manipur,2022,THANGA,23559,21135,89.71,Tongbram Robindro Singh,parties.IN.BJP,BJP,13095,61.96,Birla Haobijam,parties.IN.INC,INC,7844,5251,24.85,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1525,manipur,2022,THANGMEIBAND,28845,24302,84.25,Khumukcham Joykisan Singh,parties.IN.JDU,JD(U),13629,56.08,Jotin Waikhom,parties.IN.BJP,BJP,9856,3773,15.52,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1526,manipur,2022,THONGJU,32723,29510,90.18,Thongam Biswajit Singh,parties.IN.BJP,BJP,15338,51.98,Seram Neken Singh,parties.IN.INC,INC,8649,6689,22.67,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1527,manipur,2022,THOUBAL,33207,29581,89.08,Okram Ibobi Singh,parties.IN.INC,INC,15085,51,Leitanthem Basanta Singh,parties.IN.BJP,BJP,12542,2543,8.6,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1528,manipur,2022,URIPOK,26281,23041,87.67,KHWAIRAKPAM RAGHUMANI SINGH,parties.IN.BJP,BJP,8335,36.17,YUMNAM JOYKUMAR SINGH,parties.IN.NPP,NPP,7426,909,3.94,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1529,manipur,2022,WANGKHEI,37644,32461,86.23,Thangjam Arunkumar,parties.IN.JDU,JD(U),11593,35.71,Okram Henry,parties.IN.BJP,BJP,10840,753,2.32,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1530,manipur,2022,WANGKHEM,33626,30277,90.04,Keisham Meghachandra Singh,parties.IN.INC,INC,8889,29.36,Yumnam Nabachandra Singh,parties.IN.BJP,BJP,7597,1292,4.27,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1531,manipur,2022,WANGOI,29784,28224,94.76,KHURAIJAM LOKEN SINGH,parties.IN.NPP,NPP,15606,55.29,Oinam Lukhoi Singh,parties.IN.BJP,BJP,12340,3266,11.57,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1532,manipur,2022,YAISKUL,27416,24157,88.11,Thokchom Satyabrata Singh,parties.IN.BJP,BJP,9724,40.25,Huidrom Vikramjit Singh,parties.IN.NPP,NPP,9092,632,2.61,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1533,manipur,2022,CHANDEL,49721,46882,94.29,SS. Olish,parties.IN.BJP,BJP,37066,79.06,Langhu Paulhring Anal,parties.IN.NPF,NPF,9725,27341,58.32,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1534,manipur,2022,CHINGAI,48405,40898,84.49,KHASHIM VASHUM,parties.IN.NPF,NPF,12837,31.39,NINGAM CHAMROY,parties.IN.NPP,NPP,10501,2336,5.71,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1535,manipur,2022,CHURACHANDPUR,65338,47671,72.96,L.M. KHAUTE,parties.IN.JDU,JD(U),18231,38.24,V HANGKHANLIAN,parties.IN.BJP,BJP,17607,624,1.31,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1536,manipur,2022,HEIROK,34115,31748,93.06,Thokchom Radheshyam Singh,parties.IN.BJP,BJP,13589,42.8,Moirangthem Okendro,parties.IN.INC,INC,13186,403,1.27,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1537,manipur,2022,HENGLEP,31767,27596,86.87,Letzamang Haokip,parties.IN.BJP,BJP,13897,50.36,T. Manga Vaiphei,parties.IN.INC,INC,6049,7848,28.44,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1538,manipur,2022,HIYANGLAM,28112,26263,93.42,DR. YUMNAM RADHESHYAM SINGH,parties.IN.BJP,BJP,8613,32.8,DR. HUIDROM JITEN SINGH,parties.IN.INC,INC,6584,2029,7.73,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1539,manipur,2022,JIRIBAM,29523,26648,90.26,MD. ACHAB UDDIN,parties.IN.JDU,JD(U),12313,46.21,NAMEIRAKPAM BUDHACHANDRA SINGH,parties.IN.BJP,BJP,11897,416,1.56,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1540,manipur,2022,KAKCHING,30595,27135,88.69,MAYANGLAMBAM RAMESHWAR SINGH,parties.IN.NPP,NPP,8546,31.49,Yengkhom Surchandra Singh,parties.IN.BJP,BJP,7341,1205,4.44,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1541,manipur,2022,KANGPOKPI,27768,25119,90.46,Nemcha Kipgen,parties.IN.BJP,BJP,14412,57.37,Soshim Gurung,parties.IN.JDU,JD(U),9016,5396,21.48,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1542,manipur,2022,KARONG,58490,49360,84.39,J Kumo Sha,parties.IN.IND,IND,17191,34.83,R Yuh Jonathan Tao,parties.IN.BJP,BJP,13649,3542,7.18,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1543,manipur,2022,KHANGABOK,38172,35035,91.78,Surjakumar Okram,parties.IN.INC,INC,17435,49.76,Khundrakpam Menjor Mangang,parties.IN.BJP,BJP,9632,7803,22.27,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1544,manipur,2022,MAO,55478,50974,91.88,Losii Dikho,parties.IN.NPF,NPF,29591,58.05,Woba Joram,parties.IN.IND,IND,21078,8513,16.7,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1545,manipur,2022,NUNGBA,30169,25201,83.53,Dinganglung Gangmei,parties.IN.BJP,BJP,14464,57.39,Gaikhangam,parties.IN.INC,INC,10678,3786,15.02,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1546,manipur,2022,PHUNGYAR,34390,30838,89.67,LEISHIYO KEISHING,parties.IN.NPF,NPF,11642,37.75,AWUNG SHIMRAY HOPINGSON,parties.IN.BJP,BJP,10863,779,2.52,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1547,manipur,2022,SAIKOT,62199,52590,84.55,Paolienlal Haokip,parties.IN.BJP,BJP,18457,35.1,Khaipao Haokip,parties.IN.NPP,NPP,12586,5871,11.17,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1548,manipur,2022,SAIKUL,28888,26436,91.51,Kimneo Haokip Hangshing,parties.IN.UNK,KPA,6710,25.38,Kenn Raikhan,parties.IN.IND,IND,5461,1249,4.72,src-1b7bc1c9d39a,major,Publisher label 'KPA' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-2008-manipur-1549,manipur,2022,SAITU,44370,39512,89.05,Haokholet Kipgen,parties.IN.IND,IND,12456,31.52,Ngamthang Haokip,parties.IN.BJP,BJP,9762,2694,6.81,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1550,manipur,2022,SINGHAT,27753,23632,85.15,Chinlunthang,parties.IN.UNK,KPA,12098,51.19,Ginsuanhau Zou,parties.IN.BJP,BJP,10179,1919,8.12,src-1b7bc1c9d39a,major,Publisher label 'KPA' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-2008-manipur-1551,manipur,2022,SUGNU,27796,25031,90.05,KANGUJAM RANJIT SINGH,parties.IN.INC,INC,12673,50.63,MAYANGLAMBAM BINOD,parties.IN.BJP,BJP,11657,1016,4.06,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1552,manipur,2022,TADUBI,51252,45179,88.15,N. Kayisii,parties.IN.NPP,NPP,21601,47.81,M. Francis Ngajokpa,parties.IN.NPF,NPF,21052,549,1.21,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1553,manipur,2022,TAMEI,42059,38644,91.88,Awangbow Newmai,parties.IN.NPF,NPF,19643,50.83,Z. Kikhonbou Newmai,parties.IN.NPP,NPP,17945,1698,4.39,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1554,manipur,2022,TAMENGLONG,37101,30653,82.62,Janghemlung Panmei,parties.IN.NPP,NPP,10456,34.11,Huri Golmei,parties.IN.BJP,BJP,9147,1309,4.27,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1555,manipur,2022,TENGNOUPAL,44791,41902,93.55,LETPAO HAOKIP,parties.IN.BJP,BJP,21663,51.7,D. Korungthang,parties.IN.NPF,NPF,15252,6411,15.3,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1556,manipur,2022,THANLON,17374,13340,76.78,Vungzagin Valte,parties.IN.BJP,BJP,4863,36.45,Khanthang Tonsing,parties.IN.NPP,NPP,4112,751,5.63,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1557,manipur,2022,TIPAIMUKH,18398,12728,69.18,Ngursanglur Sanate,parties.IN.JDU,JD(U),6267,49.24,Chalton Lien Amo,parties.IN.BJP,BJP,5018,1249,9.82,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1558,manipur,2022,UKHRUL,51395,40073,77.97,RAM MUIVAH,parties.IN.NPF,NPF,15503,38.69,ALFRED KANNGAM S. ARTHUR,parties.IN.INC,INC,14561,942,2.35,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1559,manipur,2022,WABGAI,32118,29353,91.39,Dr.USHAM DEBEN SINGH,parties.IN.BJP,BJP,9138,31.13,MD.FAJUR RAHIM,parties.IN.INC,INC,9088,50,0.17,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1560,manipur,2022,WANGJING TENTHA,33610,30498,90.74,Paonam Brojen Singh,parties.IN.BJP,BJP,15765,51.69,Moirangthem Hemanta Singh,parties.IN.INC,INC,13852,1913,6.27,src-1b7bc1c9d39a,minor,

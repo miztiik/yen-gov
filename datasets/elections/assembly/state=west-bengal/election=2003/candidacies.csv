@@ -1,13 +1,13 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-west-bengal-157,west-bengal,2003,157,VIDYASAGAR,ANADI KUMAR SAHU,parties.IN.CPIM,CPM,42321,63.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-157,west-bengal,2003,157,VIDYASAGAR,MAHUA MONDAL,parties.IN.INC,INC,19492,29.2,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-157,west-bengal,2003,157,VIDYASAGAR,ASHOK SINHA,parties.IN.BJP,BJP,3577,5.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-157,west-bengal,2003,157,VIDYASAGAR,SURENDRA KUMAR RABI DAS,parties.IN.BSP,BSP,423,0.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-157,west-bengal,2003,157,VIDYASAGAR,TAMAL SAHA,parties.IN.IND,IND,414,0.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-157,west-bengal,2003,157,VIDYASAGAR,SUKANTO MAJUMDER,parties.IN.IND,IND,194,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-157,west-bengal,2003,157,VIDYASAGAR,SAMIR SAHA,parties.IN.IND,IND,172,0.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-157,west-bengal,2003,157,VIDYASAGAR,ABHIJIT NAG,parties.IN.IND,IND,155,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-179,west-bengal,2003,179,UTTARPARA,J.Krishna Chattopadhyay,parties.IN.CPIM,CPM,66826,49.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-179,west-bengal,2003,179,UTTARPARA,Indrajit Ghosh (PABA),parties.IN.AITC,AITC,50648,37.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-179,west-bengal,2003,179,UTTARPARA,Adhir Mukherjee,parties.IN.INC,INC,14703,10.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-west-bengal-179,west-bengal,2003,179,UTTARPARA,Jamirul Isslamanu,parties.IN.JDS,JD(S),3313,2.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-west-bengal-157,west-bengal,2003,157,VIDYASAGAR,ANADI KUMAR SAHU,parties.IN.CPIM,CPM,42321,63.4,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-157,west-bengal,2003,157,VIDYASAGAR,MAHUA MONDAL,parties.IN.INC,INC,19492,29.2,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-157,west-bengal,2003,157,VIDYASAGAR,ASHOK SINHA,parties.IN.BJP,BJP,3577,5.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-157,west-bengal,2003,157,VIDYASAGAR,SURENDRA KUMAR RABI DAS,parties.IN.BSP,BSP,423,0.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-157,west-bengal,2003,157,VIDYASAGAR,TAMAL SAHA,parties.IN.IND,IND,414,0.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-157,west-bengal,2003,157,VIDYASAGAR,SUKANTO MAJUMDER,parties.IN.IND,IND,194,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-157,west-bengal,2003,157,VIDYASAGAR,SAMIR SAHA,parties.IN.IND,IND,172,0.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-157,west-bengal,2003,157,VIDYASAGAR,ABHIJIT NAG,parties.IN.IND,IND,155,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-179,west-bengal,2003,179,UTTARPARA,J.Krishna Chattopadhyay,parties.IN.CPIM,CPM,66826,49.32,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-179,west-bengal,2003,179,UTTARPARA,Indrajit Ghosh (PABA),parties.IN.AITC,AITC,50648,37.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-179,west-bengal,2003,179,UTTARPARA,Adhir Mukherjee,parties.IN.INC,INC,14703,10.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-west-bengal-179,west-bengal,2003,179,UTTARPARA,Jamirul Isslamanu,parties.IN.JDS,JD(S),3313,2.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

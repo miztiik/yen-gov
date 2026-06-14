@@ -1,5 +1,5 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-andhra-pradesh-167,andhra-pradesh,1987,KALYANDURG(SC),117910,69222,58.71,B.C.GOVINDAPPA,parties.IN.TDP,TDP,32956,47.61,L.DEVI(W),parties.IN.INC,INC,28158,4798,6.93,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-175,andhra-pradesh,1987,ALUR(SC),95724,59756,62.43,M.RANGAIAH,parties.IN.TDP,TDP,32649,54.64,RANGANNA,parties.IN.INC,INC,26871,5778,9.67,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-67,andhra-pradesh,1987,TADEPALLIGUDEM,125918,85102,67.59,E.VARALAKSHMI(W),parties.IN.INC,INC,42062,49.43,K.S.R.PASALA(BOJJI),parties.IN.TDP,TDP,42031,31,0.04,src-1b7bc1c9d39a
-IN-AC-1976-andhra-pradesh-73,andhra-pradesh,1987,POLAVARAM(ST),104484,70634,67.6,B.D.RAO,parties.IN.INC,INC,37479,53.06,P.S.DORA,parties.IN.TDP,TDP,33155,4324,6.12,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-andhra-pradesh-167,andhra-pradesh,1987,KALYANDURG(SC),117910,69222,58.71,B.C.GOVINDAPPA,parties.IN.TDP,TDP,32956,47.61,L.DEVI(W),parties.IN.INC,INC,28158,4798,6.93,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-175,andhra-pradesh,1987,ALUR(SC),95724,59756,62.43,M.RANGAIAH,parties.IN.TDP,TDP,32649,54.64,RANGANNA,parties.IN.INC,INC,26871,5778,9.67,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-67,andhra-pradesh,1987,TADEPALLIGUDEM,125918,85102,67.59,E.VARALAKSHMI(W),parties.IN.INC,INC,42062,49.43,K.S.R.PASALA(BOJJI),parties.IN.TDP,TDP,42031,31,0.04,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-73,andhra-pradesh,1987,POLAVARAM(ST),104484,70634,67.6,B.D.RAO,parties.IN.INC,INC,37479,53.06,P.S.DORA,parties.IN.TDP,TDP,33155,4324,6.12,src-1b7bc1c9d39a,minor,

@@ -1,10 +1,10 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1962-rajasthan-34,rajasthan,1965,34,BANSUR,B.PRASAD,parties.IN.INC,INC,20065,63.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-rajasthan-34,rajasthan,1965,34,BANSUR,RAMJI LAL,parties.IN.IND,IND,10712,33.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-rajasthan-34,rajasthan,1965,34,BANSUR,G.SINGH,parties.IN.IND,IND,871,2.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-rajasthan-50,rajasthan,1965,50,RAJAKHERA,DAMODAR VYAS,parties.IN.INC,INC,18714,60.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-rajasthan-50,rajasthan,1965,50,RAJAKHERA,M.SINGH,parties.IN.IND,IND,9672,31.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-rajasthan-50,rajasthan,1965,50,RAJAKHERA,M.CHAND,parties.IN.IND,IND,1837,5.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-rajasthan-50,rajasthan,1965,50,RAJAKHERA,BHORIA,parties.IN.IND,IND,629,2.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-rajasthan-162,rajasthan,1965,162,NOHAR,D.RAM,parties.IN.IND,IND,21957,55.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1962-rajasthan-162,rajasthan,1965,162,NOHAR,Y.SINGH,parties.IN.INC,INC,17308,44.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1962-rajasthan-34,rajasthan,1965,34,BANSUR,B.PRASAD,parties.IN.INC,INC,20065,63.4,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-rajasthan-34,rajasthan,1965,34,BANSUR,RAMJI LAL,parties.IN.IND,IND,10712,33.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-rajasthan-34,rajasthan,1965,34,BANSUR,G.SINGH,parties.IN.IND,IND,871,2.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-rajasthan-50,rajasthan,1965,50,RAJAKHERA,DAMODAR VYAS,parties.IN.INC,INC,18714,60.66,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-rajasthan-50,rajasthan,1965,50,RAJAKHERA,M.SINGH,parties.IN.IND,IND,9672,31.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-rajasthan-50,rajasthan,1965,50,RAJAKHERA,M.CHAND,parties.IN.IND,IND,1837,5.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-rajasthan-50,rajasthan,1965,50,RAJAKHERA,BHORIA,parties.IN.IND,IND,629,2.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-rajasthan-162,rajasthan,1965,162,NOHAR,D.RAM,parties.IN.IND,IND,21957,55.92,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1962-rajasthan-162,rajasthan,1965,162,NOHAR,Y.SINGH,parties.IN.INC,INC,17308,44.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,

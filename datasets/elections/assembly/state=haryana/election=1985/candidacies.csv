@@ -1,42 +1,42 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,K.DASS,parties.IN.INC,INC,36688,52.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,M.SAIN,parties.IN.BJP,BJP,31882,45.27,2,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,D.RAJ,parties.IN.IND,IND,520,0.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,O.PRAKASH,parties.IN.IND,IND,432,0.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,P.KUMAR,parties.IN.IND,IND,334,0.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,R.DASS,parties.IN.IND,IND,140,0.2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,D.KUMAR,parties.IN.IND,IND,133,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,R.KANWAR,parties.IN.IND,IND,132,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,I.MALHOTRA,parties.IN.IND,IND,91,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,S.KUMAR,parties.IN.IND,IND,67,0.1,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-31,haryana,1985,31,MEHAM,D.LAL,parties.IN.LKD,LKD,38598,57.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-31,haryana,1985,31,MEHAM,R.SINGH,parties.IN.INC,INC,27229,40.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-31,haryana,1985,31,MEHAM,J.SINGH,parties.IN.IND,IND,562,0.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-31,haryana,1985,31,MEHAM,J.PAL,parties.IN.IND,IND,190,0.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,S.SINGH,parties.IN.INC,INC,34375,56.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,I.SINGH,parties.IN.LKD,LKD,24904,40.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,H.RAM,parties.IN.IND,IND,553,0.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,D.SINGH,parties.IN.IND,IND,456,0.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,POHLOO,parties.IN.IND,IND,283,0.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,D.SINGH,parties.IN.IND,IND,219,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,LAKHMI,parties.IN.IND,IND,129,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,H.S.NAIN,parties.IN.IND,IND,101,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,R.K.BALMIKI,parties.IN.IND,IND,71,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,S.PAL,parties.IN.IND,IND,71,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-58,haryana,1985,58,NUH,A.KHAN,parties.IN.INC,INC,23669,46.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-58,haryana,1985,58,NUH,S.KHAN,parties.IN.ICJ,ICJ,23556,45.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-58,haryana,1985,58,NUH,I.HUSSAIN,parties.IN.IND,IND,1606,3.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-58,haryana,1985,58,NUH,A.K.P.JADA,parties.IN.CPI,CPI,1529,2.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-58,haryana,1985,58,NUH,ISMAIL,parties.IN.IND,IND,448,0.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-58,haryana,1985,58,NUH,B.LAL,parties.IN.IND,IND,285,0.55,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-58,haryana,1985,58,NUH,MOHD.R.AZAD,parties.IN.IND,IND,101,0.2,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-58,haryana,1985,58,NUH,ISRAIL,parties.IN.IND,IND,99,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-58,haryana,1985,58,NUH,M.C.ARYA,parties.IN.IND,IND,68,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-58,haryana,1985,58,NUH,K.BAX,parties.IN.IND,IND,40,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-76,haryana,1985,76,TOHANA,H.SINGH,parties.IN.INC,INC,41120,61.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-76,haryana,1985,76,TOHANA,S.L.SARDANA,parties.IN.LKD,LKD,15671,23.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-76,haryana,1985,76,TOHANA,H.SINGH,parties.IN.CPIM,CPM,7549,11.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-76,haryana,1985,76,TOHANA,D.RAJ,parties.IN.CPI,CPI,1757,2.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-76,haryana,1985,76,TOHANA,WAKIL,parties.IN.IND,IND,871,1.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-76,haryana,1985,76,TOHANA,N.D.D.ADAMPURIA,parties.IN.IND,IND,215,0.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-haryana-76,haryana,1985,76,TOHANA,K.LAL,parties.IN.IND,IND,112,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,K.DASS,parties.IN.INC,INC,36688,52.1,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,M.SAIN,parties.IN.BJP,BJP,31882,45.27,2,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,D.RAJ,parties.IN.IND,IND,520,0.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,O.PRAKASH,parties.IN.IND,IND,432,0.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,P.KUMAR,parties.IN.IND,IND,334,0.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,R.DASS,parties.IN.IND,IND,140,0.2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,D.KUMAR,parties.IN.IND,IND,133,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,R.KANWAR,parties.IN.IND,IND,132,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,I.MALHOTRA,parties.IN.IND,IND,91,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-30,haryana,1985,30,ROHTAK,S.KUMAR,parties.IN.IND,IND,67,0.1,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-31,haryana,1985,31,MEHAM,D.LAL,parties.IN.LKD,LKD,38598,57.97,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-31,haryana,1985,31,MEHAM,R.SINGH,parties.IN.INC,INC,27229,40.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-31,haryana,1985,31,MEHAM,J.SINGH,parties.IN.IND,IND,562,0.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-31,haryana,1985,31,MEHAM,J.PAL,parties.IN.IND,IND,190,0.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,S.SINGH,parties.IN.INC,INC,34375,56.2,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,I.SINGH,parties.IN.LKD,LKD,24904,40.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,H.RAM,parties.IN.IND,IND,553,0.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,D.SINGH,parties.IN.IND,IND,456,0.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,POHLOO,parties.IN.IND,IND,283,0.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,D.SINGH,parties.IN.IND,IND,219,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,LAKHMI,parties.IN.IND,IND,129,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,H.S.NAIN,parties.IN.IND,IND,101,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,R.K.BALMIKI,parties.IN.IND,IND,71,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-46,haryana,1985,46,UCHANA KALAN,S.PAL,parties.IN.IND,IND,71,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-58,haryana,1985,58,NUH,A.KHAN,parties.IN.INC,INC,23669,46.05,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-58,haryana,1985,58,NUH,S.KHAN,parties.IN.ICJ,ICJ,23556,45.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-58,haryana,1985,58,NUH,I.HUSSAIN,parties.IN.IND,IND,1606,3.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-58,haryana,1985,58,NUH,A.K.P.JADA,parties.IN.CPI,CPI,1529,2.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-58,haryana,1985,58,NUH,ISMAIL,parties.IN.IND,IND,448,0.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-58,haryana,1985,58,NUH,B.LAL,parties.IN.IND,IND,285,0.55,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-58,haryana,1985,58,NUH,MOHD.R.AZAD,parties.IN.IND,IND,101,0.2,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-58,haryana,1985,58,NUH,ISRAIL,parties.IN.IND,IND,99,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-58,haryana,1985,58,NUH,M.C.ARYA,parties.IN.IND,IND,68,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-58,haryana,1985,58,NUH,K.BAX,parties.IN.IND,IND,40,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-76,haryana,1985,76,TOHANA,H.SINGH,parties.IN.INC,INC,41120,61.1,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-76,haryana,1985,76,TOHANA,S.L.SARDANA,parties.IN.LKD,LKD,15671,23.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-76,haryana,1985,76,TOHANA,H.SINGH,parties.IN.CPIM,CPM,7549,11.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-76,haryana,1985,76,TOHANA,D.RAJ,parties.IN.CPI,CPI,1757,2.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-76,haryana,1985,76,TOHANA,WAKIL,parties.IN.IND,IND,871,1.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-76,haryana,1985,76,TOHANA,N.D.D.ADAMPURIA,parties.IN.IND,IND,215,0.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-76,haryana,1985,76,TOHANA,K.LAL,parties.IN.IND,IND,112,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

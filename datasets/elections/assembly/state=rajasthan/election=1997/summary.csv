@@ -1,2 +1,2 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-rajasthan-45,rajasthan,1997,PHULERA,168375,107584,63.9,Ram Narayan Kisan,parties.IN.BJP,BJP,34218,31.81,Navratan Rajoria,parties.IN.IND,IND,27315,6903,6.42,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-rajasthan-45,rajasthan,1997,PHULERA,168375,107584,63.9,Ram Narayan Kisan,parties.IN.BJP,BJP,34218,31.81,Navratan Rajoria,parties.IN.IND,IND,27315,6903,6.42,src-1b7bc1c9d39a,minor,

@@ -1,20 +1,20 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-bihar-105,bihar,2009,BEGUSARAI,178751,88540,49.53,Srikrishna Prasad Singh,parties.IN.BJP,BJP,26907,30.39,Sudarshan Singh,parties.IN.LJSP,LJSP,17648,9259,10.46,src-1b7bc1c9d39a
-IN-AC-1976-bihar-113,bihar,2009,TRIVENIGANJ,192052,95716,49.84,Dileshwar Kamait,parties.IN.UNK,JD (U),41523,43.38,Dinbandhu Yadav,parties.IN.LJP,LJP,30104,11419,11.93,src-1b7bc1c9d39a
-IN-AC-1976-bihar-119,bihar,2009,SIMRI BAKHTIARPUR,215982,101883,47.17,Ch. M.A. Kaiser,parties.IN.INC,INC,35934,35.27,Dr.Arun Kumar,parties.IN.UNK,JD (U),30064,5870,5.76,src-1b7bc1c9d39a
-IN-AC-1976-bihar-130,bihar,2009,ARARIA,220975,107538,48.67,Vijay Kr.Mandal,parties.IN.LJSP,LJSP,50568,47.02,Ajay Kr. Jha,parties.IN.BJP,BJP,37100,13468,12.52,src-1b7bc1c9d39a
-IN-AC-1976-bihar-155,bihar,2009,DHURAIYA,218424,82736,37.88,Manish Kumar,parties.IN.UNK,JD (U),27382,33.1,Naresh Das,parties.IN.RJD,RJD,24687,2695,3.26,src-1b7bc1c9d39a
-IN-AC-1976-bihar-167,bihar,2009,MUNGER,229848,70210,30.55,V.Prasad Gupta,parties.IN.RJD,RJD,33684,47.98,Mohamad Salam,parties.IN.UNK,JD (U),29533,4151,5.92,src-1b7bc1c9d39a
-IN-AC-1976-bihar-186,bihar,2009,FATUHA,221433,83986,37.93,Arun Manjhi,parties.IN.JDU,JDU,38031,45.28,Punit Rai,parties.IN.LJSP,LJSP,27629,10402,12.38,src-1b7bc1c9d39a
-IN-AC-1976-bihar-193,bihar,2009,PHULWARI,298147,115184,38.63,Uday Kumar,parties.IN.RJD,RJD,44485,38.62,Shyam Rajak,parties.IN.UNK,JD (U),43211,1274,1.11,src-1b7bc1c9d39a
-IN-AC-1976-bihar-2,bihar,2009,BAGHA,259114,118432,45.71,Kailash Baitha,parties.IN.UNK,JD (U),54700,46.19,Naresh Ram,parties.IN.INC,INC,43825,10875,9.19,src-1b7bc1c9d39a
-IN-AC-1976-bihar-210,bihar,2009,RAMGARH,208265,103954,49.91,Ambika Singh,parties.IN.RJD,RJD,25335,24.37,Narendra kr.S.,parties.IN.BSP,BSP,22378,2957,2.84,src-1b7bc1c9d39a
-IN-AC-1976-bihar-213,bihar,2009,CHAINPUR,194185,100520,51.77,Brij Kishor Vind,parties.IN.BJP,BJP,34077,33.9,Birendra Singh,parties.IN.RJD,RJD,30708,3369,3.35,src-1b7bc1c9d39a
-IN-AC-1976-bihar-215,bihar,2009,CHENARI,240028,99618,41.5,Murari Pra. Gautam,parties.IN.INC,INC,31622,31.74,Lalan Paswan,parties.IN.RJD,RJD,30472,1150,1.15,src-1b7bc1c9d39a
-IN-AC-1976-bihar-228,bihar,2009,GHOSHI,210983,94302,44.7,Shanti Sharma,parties.IN.IND,IND,29495,31.28,Dinesh Pr.Yadav,parties.IN.RJD,RJD,24295,5200,5.52,src-1b7bc1c9d39a
-IN-AC-1976-bihar-235,bihar,2009,BODHGAYA,213823,81084,37.92,Kr. Saravajeet,parties.IN.LJSP,LJSP,35334,43.58,Vijay Kr. Manjhi,parties.IN.BJP,BJP,27712,7622,9.4,src-1b7bc1c9d39a
-IN-AC-1976-bihar-60,bihar,2009,BOCHAHA,229862,101555,44.18,Musafir Paswan,parties.IN.RJD,RJD,39968,39.36,Ramal Ram,parties.IN.JDU,JD(U),35942,4026,3.97,src-1b7bc1c9d39a
-IN-AC-1976-bihar-62,bihar,2009,AURAI,194245,80899,41.65,Surendra Kumar,parties.IN.RJD,RJD,25384,31.38,Ram Sura Rai,parties.IN.UNK,JD (U),16583,8801,10.88,src-1b7bc1c9d39a
-IN-AC-1976-bihar-9,bihar,2009,NAUTAN,203377,86834,42.7,Narain Prasad,parties.IN.BSP,BSP,28070,32.33,Manorma Prasad,parties.IN.UNK,JD (U),14744,13326,15.35,src-1b7bc1c9d39a
-IN-AC-1976-bihar-93,bihar,2009,KALYANPUR,231416,101134,43.7,Ashok Pr.Verma,parties.IN.RJD,RJD,47192,46.66,Randhir Kumar,parties.IN.UNK,JD (U),28163,19029,18.81,src-1b7bc1c9d39a
-IN-AC-1976-bihar-94,bihar,2009,VARISNAGAR,199556,90382,45.29,Vishwanah Paswan,parties.IN.LJSP,LJSP,36830,40.75,Sanjay Paswan,parties.IN.BJP,BJP,30595,6235,6.9,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-bihar-105,bihar,2009,BEGUSARAI,178751,88540,49.53,Srikrishna Prasad Singh,parties.IN.BJP,BJP,26907,30.39,Sudarshan Singh,parties.IN.LJSP,LJSP,17648,9259,10.46,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-113,bihar,2009,TRIVENIGANJ,192052,95716,49.84,Dileshwar Kamait,parties.IN.UNK,JD (U),41523,43.38,Dinbandhu Yadav,parties.IN.LJP,LJP,30104,11419,11.93,src-1b7bc1c9d39a,major,Publisher label 'JD (U)' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-1976-bihar-119,bihar,2009,SIMRI BAKHTIARPUR,215982,101883,47.17,Ch. M.A. Kaiser,parties.IN.INC,INC,35934,35.27,Dr.Arun Kumar,parties.IN.UNK,JD (U),30064,5870,5.76,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-130,bihar,2009,ARARIA,220975,107538,48.67,Vijay Kr.Mandal,parties.IN.LJSP,LJSP,50568,47.02,Ajay Kr. Jha,parties.IN.BJP,BJP,37100,13468,12.52,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-155,bihar,2009,DHURAIYA,218424,82736,37.88,Manish Kumar,parties.IN.UNK,JD (U),27382,33.1,Naresh Das,parties.IN.RJD,RJD,24687,2695,3.26,src-1b7bc1c9d39a,major,Publisher label 'JD (U)' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-1976-bihar-167,bihar,2009,MUNGER,229848,70210,30.55,V.Prasad Gupta,parties.IN.RJD,RJD,33684,47.98,Mohamad Salam,parties.IN.UNK,JD (U),29533,4151,5.92,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-186,bihar,2009,FATUHA,221433,83986,37.93,Arun Manjhi,parties.IN.JDU,JDU,38031,45.28,Punit Rai,parties.IN.LJSP,LJSP,27629,10402,12.38,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-193,bihar,2009,PHULWARI,298147,115184,38.63,Uday Kumar,parties.IN.RJD,RJD,44485,38.62,Shyam Rajak,parties.IN.UNK,JD (U),43211,1274,1.11,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-2,bihar,2009,BAGHA,259114,118432,45.71,Kailash Baitha,parties.IN.UNK,JD (U),54700,46.19,Naresh Ram,parties.IN.INC,INC,43825,10875,9.19,src-1b7bc1c9d39a,major,Publisher label 'JD (U)' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-1976-bihar-210,bihar,2009,RAMGARH,208265,103954,49.91,Ambika Singh,parties.IN.RJD,RJD,25335,24.37,Narendra kr.S.,parties.IN.BSP,BSP,22378,2957,2.84,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-213,bihar,2009,CHAINPUR,194185,100520,51.77,Brij Kishor Vind,parties.IN.BJP,BJP,34077,33.9,Birendra Singh,parties.IN.RJD,RJD,30708,3369,3.35,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-215,bihar,2009,CHENARI,240028,99618,41.5,Murari Pra. Gautam,parties.IN.INC,INC,31622,31.74,Lalan Paswan,parties.IN.RJD,RJD,30472,1150,1.15,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-228,bihar,2009,GHOSHI,210983,94302,44.7,Shanti Sharma,parties.IN.IND,IND,29495,31.28,Dinesh Pr.Yadav,parties.IN.RJD,RJD,24295,5200,5.52,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-235,bihar,2009,BODHGAYA,213823,81084,37.92,Kr. Saravajeet,parties.IN.LJSP,LJSP,35334,43.58,Vijay Kr. Manjhi,parties.IN.BJP,BJP,27712,7622,9.4,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-60,bihar,2009,BOCHAHA,229862,101555,44.18,Musafir Paswan,parties.IN.RJD,RJD,39968,39.36,Ramal Ram,parties.IN.JDU,JD(U),35942,4026,3.97,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-62,bihar,2009,AURAI,194245,80899,41.65,Surendra Kumar,parties.IN.RJD,RJD,25384,31.38,Ram Sura Rai,parties.IN.UNK,JD (U),16583,8801,10.88,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-9,bihar,2009,NAUTAN,203377,86834,42.7,Narain Prasad,parties.IN.BSP,BSP,28070,32.33,Manorma Prasad,parties.IN.UNK,JD (U),14744,13326,15.35,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-93,bihar,2009,KALYANPUR,231416,101134,43.7,Ashok Pr.Verma,parties.IN.RJD,RJD,47192,46.66,Randhir Kumar,parties.IN.UNK,JD (U),28163,19029,18.81,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-94,bihar,2009,VARISNAGAR,199556,90382,45.29,Vishwanah Paswan,parties.IN.LJSP,LJSP,36830,40.75,Sanjay Paswan,parties.IN.BJP,BJP,30595,6235,6.9,src-1b7bc1c9d39a,minor,

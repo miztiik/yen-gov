@@ -1,7 +1,7 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-PC-1967-assam-5,assam,1968,KOKRAJHAR,415618,86588,20.83,D.B.MATARY,parties.IN.INC,INC,62565,72.26,B.P.RABHA,parties.IN.CPI,CPI,17160,45405,52.44,src-31c65dbec869
-IN-PC-1967-bihar-19,bihar,1968,MADHIPURA,535701,196262,36.64,B.P.MANDAL,parties.IN.IND,IND,94558,48.18,K.K.MANDAL,parties.IN.SSP,SSP,60588,33970,17.31,src-31c65dbec869
-IN-PC-1967-bihar-47,bihar,1968,HAZARIBAGH,498131,120418,24.17,M.S.OBEROI,parties.IN.JP,JAP,75101,62.37,R.N.SHARMA,parties.IN.INC,INC,29035,46066,38.26,src-31c65dbec869
-IN-PC-1967-rajasthan-6,rajasthan,1968,DAUSA,550250,186215,33.84,N.KISHORE,parties.IN.INC,INC,96271,51.7,P.RAJ,parties.IN.SWA,SWA,89944,6327,3.4,src-31c65dbec869
-IN-PC-1967-uttar-pradesh-44,uttar-pradesh,1968,GHOSI,501984,234730,46.76,JHARKHANDEV,parties.IN.CPI,CPI,66748,28.44,K.D.MALVIYA,parties.IN.INC,INC,61550,5198,2.22,src-31c65dbec869
-IN-PC-1967-west-bengal-10,west-bengal,1968,KRISHNAGAR,464751,242337,52.14,I.P.CHAOUDHURI,parties.IN.INC,INC,134361,55.44,S.S.SANYAL,parties.IN.IND,IND,92396,41965,17.31,src-31c65dbec869
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-PC-1967-assam-5,assam,1968,KOKRAJHAR,415618,86588,20.83,D.B.MATARY,parties.IN.INC,INC,62565,72.26,B.P.RABHA,parties.IN.CPI,CPI,17160,45405,52.44,src-31c65dbec869,minor,
+IN-PC-1967-bihar-19,bihar,1968,MADHIPURA,535701,196262,36.64,B.P.MANDAL,parties.IN.IND,IND,94558,48.18,K.K.MANDAL,parties.IN.SSP,SSP,60588,33970,17.31,src-31c65dbec869,minor,
+IN-PC-1967-bihar-47,bihar,1968,HAZARIBAGH,498131,120418,24.17,M.S.OBEROI,parties.IN.JP,JAP,75101,62.37,R.N.SHARMA,parties.IN.INC,INC,29035,46066,38.26,src-31c65dbec869,minor,
+IN-PC-1967-rajasthan-6,rajasthan,1968,DAUSA,550250,186215,33.84,N.KISHORE,parties.IN.INC,INC,96271,51.7,P.RAJ,parties.IN.SWA,SWA,89944,6327,3.4,src-31c65dbec869,minor,
+IN-PC-1967-uttar-pradesh-44,uttar-pradesh,1968,GHOSI,501984,234730,46.76,JHARKHANDEV,parties.IN.CPI,CPI,66748,28.44,K.D.MALVIYA,parties.IN.INC,INC,61550,5198,2.22,src-31c65dbec869,minor,
+IN-PC-1967-west-bengal-10,west-bengal,1968,KRISHNAGAR,464751,242337,52.14,I.P.CHAOUDHURI,parties.IN.INC,INC,134361,55.44,S.S.SANYAL,parties.IN.IND,IND,92396,41965,17.31,src-31c65dbec869,minor,

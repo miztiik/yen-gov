@@ -1,6 +1,6 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-rajasthan-103,rajasthan,2001,103,HINDOLI,Nathu Lal Gurjar,parties.IN.BJP,BJP,34173,51.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-103,rajasthan,2001,103,HINDOLI,Ramkaran,parties.IN.INC,INC,20984,31.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-103,rajasthan,2001,103,HINDOLI,Ramesh Chandra,parties.IN.IND,IND,9631,14.42,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-103,rajasthan,2001,103,HINDOLI,Gantantra Gurjar,parties.IN.SP,SP,1183,1.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-rajasthan-103,rajasthan,2001,103,HINDOLI,Kailash Chand,parties.IN.IND,IND,813,1.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-rajasthan-103,rajasthan,2001,103,HINDOLI,Nathu Lal Gurjar,parties.IN.BJP,BJP,34173,51.17,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-103,rajasthan,2001,103,HINDOLI,Ramkaran,parties.IN.INC,INC,20984,31.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-103,rajasthan,2001,103,HINDOLI,Ramesh Chandra,parties.IN.IND,IND,9631,14.42,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-103,rajasthan,2001,103,HINDOLI,Gantantra Gurjar,parties.IN.SP,SP,1183,1.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-103,rajasthan,2001,103,HINDOLI,Kailash Chand,parties.IN.IND,IND,813,1.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

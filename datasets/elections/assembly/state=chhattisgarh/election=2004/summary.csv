@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-chhattisgarh-34,chhattisgarh,2004,ALAKATARA,166485,97765,58.72,Chatram Devagan,parties.IN.BJP,BJP,39859,40.77,Dr. Rakesh Kumar Singh,parties.IN.INC,INC,29187,10672,10.92,src-1b7bc1c9d39a
-IN-AC-1976-chhattisgarh-85,chhattisgarh,2004,DONGARGAON,112636,80148,71.16,Dr. Raman,parties.IN.BJP,BJP,42115,52.55,Geetadevi Singh,parties.IN.INC,INC,32004,10111,12.62,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-chhattisgarh-34,chhattisgarh,2004,ALAKATARA,166485,97765,58.72,Chatram Devagan,parties.IN.BJP,BJP,39859,40.77,Dr. Rakesh Kumar Singh,parties.IN.INC,INC,29187,10672,10.92,src-1b7bc1c9d39a,minor,
+IN-AC-1976-chhattisgarh-85,chhattisgarh,2004,DONGARGAON,112636,80148,71.16,Dr. Raman,parties.IN.BJP,BJP,42115,52.55,Geetadevi Singh,parties.IN.INC,INC,32004,10111,12.62,src-1b7bc1c9d39a,minor,

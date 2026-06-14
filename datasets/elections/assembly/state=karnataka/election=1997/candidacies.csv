@@ -1,17 +1,17 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-karnataka-46,karnataka,1997,46,MOLAKALMURU,N.V. Gopalakrishna,parties.IN.INC,INC,51916,51.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-46,karnataka,1997,46,MOLAKALMURU,Patel Gom. Thuppeswamy Ethinahatly Gewphry,parties.IN.JD,JD,39809,39.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-46,karnataka,1997,46,MOLAKALMURU,G. Basavaraj Mandimat,parties.IN.BJP,BJP,7700,7.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-46,karnataka,1997,46,MOLAKALMURU,G.Ramachandra Naik,parties.IN.IND,IND,1079,1.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-46,karnataka,1997,46,MOLAKALMURU,N.R. Mllaiah Swamy,parties.IN.IND,IND,500,0.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-63,karnataka,1997,63,CHIKKANAYAKANAHALLY,J.C. Madhuswamy,parties.IN.IND,IND,33768,36.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-63,karnataka,1997,63,CHIKKANAYAKANAHALLY,C.B. Suresh Babu,parties.IN.JD,JD,29089,31.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-63,karnataka,1997,63,CHIKKANAYAKANAHALLY,B. Lakkappa,parties.IN.INC,INC,19769,21.53,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-63,karnataka,1997,63,CHIKKANAYAKANAHALLY,Shankarappa,parties.IN.BJP,BJP,8463,9.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-63,karnataka,1997,63,CHIKKANAYAKANAHALLY,Ramesh Babu,parties.IN.SAP,SAP,464,0.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-63,karnataka,1997,63,CHIKKANAYAKANAHALLY,Prasannakumar Swamy,parties.IN.IND,IND,269,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-94,karnataka,1997,94,RAMANAGRAM,C.M. Lingappa,parties.IN.INC,INC,59924,51.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-94,karnataka,1997,94,RAMANAGRAM,M.H. Amarnath Alias Ambarish,parties.IN.JD,JD,50314,43.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-94,karnataka,1997,94,RAMANAGRAM,D. Girigowda,parties.IN.BJP,BJP,6043,5.18,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-94,karnataka,1997,94,RAMANAGRAM,J.B. Anantha Ramu,parties.IN.IND,IND,225,0.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-karnataka-94,karnataka,1997,94,RAMANAGRAM,Appajaiah,parties.IN.IND,IND,76,0.07,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-karnataka-46,karnataka,1997,46,MOLAKALMURU,N.V. Gopalakrishna,parties.IN.INC,INC,51916,51.4,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-46,karnataka,1997,46,MOLAKALMURU,Patel Gom. Thuppeswamy Ethinahatly Gewphry,parties.IN.JD,JD,39809,39.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-46,karnataka,1997,46,MOLAKALMURU,G. Basavaraj Mandimat,parties.IN.BJP,BJP,7700,7.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-46,karnataka,1997,46,MOLAKALMURU,G.Ramachandra Naik,parties.IN.IND,IND,1079,1.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-46,karnataka,1997,46,MOLAKALMURU,N.R. Mllaiah Swamy,parties.IN.IND,IND,500,0.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-63,karnataka,1997,63,CHIKKANAYAKANAHALLY,J.C. Madhuswamy,parties.IN.IND,IND,33768,36.78,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-63,karnataka,1997,63,CHIKKANAYAKANAHALLY,C.B. Suresh Babu,parties.IN.JD,JD,29089,31.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-63,karnataka,1997,63,CHIKKANAYAKANAHALLY,B. Lakkappa,parties.IN.INC,INC,19769,21.53,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-63,karnataka,1997,63,CHIKKANAYAKANAHALLY,Shankarappa,parties.IN.BJP,BJP,8463,9.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-63,karnataka,1997,63,CHIKKANAYAKANAHALLY,Ramesh Babu,parties.IN.SAP,SAP,464,0.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-63,karnataka,1997,63,CHIKKANAYAKANAHALLY,Prasannakumar Swamy,parties.IN.IND,IND,269,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-94,karnataka,1997,94,RAMANAGRAM,C.M. Lingappa,parties.IN.INC,INC,59924,51.4,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-94,karnataka,1997,94,RAMANAGRAM,M.H. Amarnath Alias Ambarish,parties.IN.JD,JD,50314,43.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-94,karnataka,1997,94,RAMANAGRAM,D. Girigowda,parties.IN.BJP,BJP,6043,5.18,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-94,karnataka,1997,94,RAMANAGRAM,J.B. Anantha Ramu,parties.IN.IND,IND,225,0.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-karnataka-94,karnataka,1997,94,RAMANAGRAM,Appajaiah,parties.IN.IND,IND,76,0.07,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

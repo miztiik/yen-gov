@@ -1,8 +1,8 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-madhya-pradesh-122,madhya-pradesh,1979,122,CHAMPA,M.M.SINGH,parties.IN.JP,JNP,21671,45.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-122,madhya-pradesh,1979,122,CHAMPA,K.P.RATHORE,parties.IN.INC,INC,21187,44.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-122,madhya-pradesh,1979,122,CHAMPA,B.BHAGWAN,parties.IN.IND,IND,2070,4.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-122,madhya-pradesh,1979,122,CHAMPA,B.SONI,parties.IN.IND,IND,1031,2.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-122,madhya-pradesh,1979,122,CHAMPA,PUNIRAM,parties.IN.IND,IND,793,1.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-122,madhya-pradesh,1979,122,CHAMPA,B.SHRIVASTAVA(W),parties.IN.IND,IND,745,1.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-122,madhya-pradesh,1979,122,CHAMPA,S.AURYAWANSHI,parties.IN.IND,IND,307,0.64,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-madhya-pradesh-122,madhya-pradesh,1979,122,CHAMPA,M.M.SINGH,parties.IN.JP,JNP,21671,45.33,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-122,madhya-pradesh,1979,122,CHAMPA,K.P.RATHORE,parties.IN.INC,INC,21187,44.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-122,madhya-pradesh,1979,122,CHAMPA,B.BHAGWAN,parties.IN.IND,IND,2070,4.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-122,madhya-pradesh,1979,122,CHAMPA,B.SONI,parties.IN.IND,IND,1031,2.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-122,madhya-pradesh,1979,122,CHAMPA,PUNIRAM,parties.IN.IND,IND,793,1.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-122,madhya-pradesh,1979,122,CHAMPA,B.SHRIVASTAVA(W),parties.IN.IND,IND,745,1.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-122,madhya-pradesh,1979,122,CHAMPA,S.AURYAWANSHI,parties.IN.IND,IND,307,0.64,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

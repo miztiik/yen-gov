@@ -32,6 +32,7 @@ from typing import Final
 
 from yen_gov.canonical.citation import derive_source_id
 from yen_gov.canonical.party_resolver import load_resolver
+from yen_gov.canonical.processing_quality import derive_processing
 from yen_gov.canonical.reingest.assembly_results import recompute_summary_row
 
 
@@ -297,6 +298,10 @@ def ingest_mh_ae2024(root: Path) -> tuple[int, int, int, int]:
             non_nota_scored.append((total, row, party_id))
 
             share = (total / non_nota_total * 100) if non_nota_total > 0 else 0.0
+            # PR (2026-06-14): see assembly_results.build_candidacy_rows for
+            # the processing_level + processing_note doctrine; UNK fall-
+            # through is the only fresh-write trigger for ``major``.
+            proc_level, proc_note = derive_processing(party_id, party_raw)
             candidacies_rows.append({
                 "entity_id": entity_id,
                 "state": "maharashtra",
@@ -316,6 +321,8 @@ def ingest_mh_ae2024(root: Path) -> tuple[int, int, int, int]:
                 "profession": "",
                 "candidate_type": "challenger",
                 "source_id": source_id,
+                "processing_level": proc_level,
+                "processing_note": proc_note,
             })
             position += 1
 
@@ -378,6 +385,7 @@ def ingest_mh_ae2024(root: Path) -> tuple[int, int, int, int]:
         "constituency_name", "candidate_name", "party_id", "party_short_raw",
         "votes", "vote_share_pct", "position", "result", "sex", "age",
         "education", "profession", "candidate_type", "source_id",
+        "processing_level", "processing_note",
     ]
     with (out_dir / "candidacies.csv").open("w", encoding="utf-8", newline="") as fh:
         writer = csv.DictWriter(fh, fieldnames=cand_fields)
@@ -391,6 +399,7 @@ def ingest_mh_ae2024(root: Path) -> tuple[int, int, int, int]:
         "winner_share_pct", "runnerup_candidate", "runnerup_party_id",
         "runnerup_party_short_raw", "runnerup_votes", "margin_votes",
         "margin_pct", "source_id",
+        "processing_level", "processing_note",
     ]
     with (out_dir / "summary.csv").open("w", encoding="utf-8", newline="") as fh:
         writer = csv.DictWriter(fh, fieldnames=sum_fields)

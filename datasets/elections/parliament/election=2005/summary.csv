@@ -1,6 +1,6 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-PC-1976-haryana-5,haryana,2005,ROHTAK(PC),1065980,531022,49.82,Deependra Singh,parties.IN.INC,INC,355074,66.87,Abhimanyu,parties.IN.BJP,BJP,123116,231958,43.69,src-31c65dbec869
-IN-PC-1976-karnataka-21,karnataka,2005,SHIMOGA,1286181,747319,58.1,S.Bangarappa,parties.IN.SP,SP,269013,36,Ayanur Manjunatha,parties.IN.INC,INC,252376,16637,2.23,src-31c65dbec869
-IN-PC-1976-kerala-20,kerala,2005,THIRUVANANTHAPURAM,1114280,759237,68.14,Pannyan Raveendran,parties.IN.CPI,CPI,390324,51.41,Adv.V.S.Sivakumar,parties.IN.INC,INC,316124,74200,9.77,src-31c65dbec869
-IN-PC-1976-maharashtra-8,maharashtra,2005,MUMBAINORTHWEST,1638808,537317,32.79,Priya Sunil Dutt,parties.IN.INC,INC,346294,64.45,Madhukar Raghunath Sirpotdar,parties.IN.SHS,SHS,174750,171544,31.93,src-31c65dbec869
-IN-PC-1976-west-bengal-38,west-bengal,2005,ASANSOL,1118004,669740,59.9,Bansagopal Choudhury,parties.IN.CPIM,CPM,410740,61.33,Ghatak Moloy,parties.IN.AITC,AITC,180799,229941,34.33,src-31c65dbec869
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-PC-1976-haryana-5,haryana,2005,ROHTAK(PC),1065980,531022,49.82,Deependra Singh,parties.IN.INC,INC,355074,66.87,Abhimanyu,parties.IN.BJP,BJP,123116,231958,43.69,src-31c65dbec869,minor,
+IN-PC-1976-karnataka-21,karnataka,2005,SHIMOGA,1286181,747319,58.1,S.Bangarappa,parties.IN.SP,SP,269013,36,Ayanur Manjunatha,parties.IN.INC,INC,252376,16637,2.23,src-31c65dbec869,minor,
+IN-PC-1976-kerala-20,kerala,2005,THIRUVANANTHAPURAM,1114280,759237,68.14,Pannyan Raveendran,parties.IN.CPI,CPI,390324,51.41,Adv.V.S.Sivakumar,parties.IN.INC,INC,316124,74200,9.77,src-31c65dbec869,minor,
+IN-PC-1976-maharashtra-8,maharashtra,2005,MUMBAINORTHWEST,1638808,537317,32.79,Priya Sunil Dutt,parties.IN.INC,INC,346294,64.45,Madhukar Raghunath Sirpotdar,parties.IN.SHS,SHS,174750,171544,31.93,src-31c65dbec869,minor,
+IN-PC-1976-west-bengal-38,west-bengal,2005,ASANSOL,1118004,669740,59.9,Bansagopal Choudhury,parties.IN.CPIM,CPM,410740,61.33,Ghatak Moloy,parties.IN.AITC,AITC,180799,229941,34.33,src-31c65dbec869,minor,

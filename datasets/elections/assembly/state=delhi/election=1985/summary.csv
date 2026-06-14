@@ -1,4 +1,4 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-delhi-2,delhi,1985,LAXMIBAI NAGAR,39610,18673,47.14,Prem Dass(w),parties.IN.INC,INC,9643,51.64,K.N.SACHDEVA,parties.IN.BJP,BJP,8294,1349,7.22,src-1b7bc1c9d39a
-IN-AC-1976-delhi-24,delhi,1985,NAZAFGARH,149673,70078,46.82,P.C.KAUSHIK,parties.IN.INC,INC,55305,78.92,D.V.SOLANKI,parties.IN.BJP,BJP,7758,47547,67.85,src-1b7bc1c9d39a
-IN-AC-1976-delhi-56,delhi,1985,SHADIPUR,44467,22839,51.36,K.TIRATH(W),parties.IN.INC,INC,14948,65.45,MANGAT RAM,parties.IN.BJP,BJP,7735,7213,31.58,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-delhi-2,delhi,1985,LAXMIBAI NAGAR,39610,18673,47.14,Prem Dass(w),parties.IN.INC,INC,9643,51.64,K.N.SACHDEVA,parties.IN.BJP,BJP,8294,1349,7.22,src-1b7bc1c9d39a,minor,
+IN-AC-1976-delhi-24,delhi,1985,NAZAFGARH,149673,70078,46.82,P.C.KAUSHIK,parties.IN.INC,INC,55305,78.92,D.V.SOLANKI,parties.IN.BJP,BJP,7758,47547,67.85,src-1b7bc1c9d39a,minor,
+IN-AC-1976-delhi-56,delhi,1985,SHADIPUR,44467,22839,51.36,K.TIRATH(W),parties.IN.INC,INC,14948,65.45,MANGAT RAM,parties.IN.BJP,BJP,7735,7213,31.58,src-1b7bc1c9d39a,minor,

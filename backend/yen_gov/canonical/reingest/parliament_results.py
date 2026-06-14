@@ -38,6 +38,7 @@ from pathlib import Path
 from typing import Any
 
 from yen_gov.canonical.csv_writer import write_csv
+from yen_gov.canonical.processing_quality import derive_processing
 from yen_gov.canonical.reingest.assembly_results import (
     DELIM_ID_2008,
     NOTA_PARTY_TOKEN,
@@ -150,6 +151,11 @@ def build_parliament_year(
             unbound.add((state_slug, pc_no))
             continue
         position = _int_or_none(src.get("Position"))
+        # PR (2026-06-14): see assembly_results.build_candidacy_rows for the
+        # processing_level + processing_note doctrine; UNK fall-through is
+        # the only fresh-write trigger for ``major``.
+        party_id_resolved = lookup.get(raw_party.upper()) or "parties.IN.UNK"
+        proc_level, proc_note = derive_processing(party_id_resolved, raw_party)
         candidacies.append(
             {
                 "entity_id": entity_id,
@@ -161,7 +167,7 @@ def build_parliament_year(
                 # PR-3 (2026-06-10): every candidacy row carries a non-empty
                 # canonical party_id. See assembly_results.build_candidacy_rows
                 # for the rationale (mirror of party_resolver.SENTINELS['UNK']).
-                "party_id": lookup.get(raw_party.upper()) or "parties.IN.UNK",
+                "party_id": party_id_resolved,
                 "party_short_raw": raw_party or None,
                 "votes": _int_or_none(src.get("Votes")) or 0,
                 "vote_share_pct": _float_or_none(src.get("Vote_Share_Percentage")),
@@ -173,6 +179,8 @@ def build_parliament_year(
                 "profession": _text_or_none(src.get("TCPD_Prof_Main_Desc")),
                 "candidate_type": _candidate_type(src),
                 "source_id": source_id,
+                "processing_level": proc_level,
+                "processing_note": proc_note,
             }
         )
     candidacies.sort(

@@ -1,22 +1,22 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Kuldeep Kumar,parties.IN.BJP,BJP,24934,37.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Nvprabhat,parties.IN.INC,INC,24338,36.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Munna S.Chauhan,parties.IN.IND,IND,14807,22.04,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Haridas Kataria,parties.IN.IND,IND,702,1.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Gulfam Ali,parties.IN.SP,SP,591,0.88,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Rao Nasim Ahmed,parties.IN.IND,IND,378,0.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Liyakat,parties.IN.UNK,MLKSC,350,0.52,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Dayaram,parties.IN.IND,IND,247,0.37,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Shyam Lal,parties.IN.BJKP,BJKP,207,0.31,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Tikaram,parties.IN.IND,IND,204,0.3,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Mangat S. Ramola,parties.IN.IND,IND,180,0.27,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Vikas Kumar,parties.IN.IND,IND,134,0.2,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Raman Singh,parties.IN.IND,IND,103,0.15,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-42,uttarakhand,2009,42,KAPKOT,Sher Singh,parties.IN.BJP,BJP,13823,45.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-42,uttarakhand,2009,42,KAPKOT,Kunti parihar,parties.IN.NCP,NCP,6656,21.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-42,uttarakhand,2009,42,KAPKOT,Chamu S. Gas.,parties.IN.INC,INC,6413,21.18,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-42,uttarakhand,2009,42,KAPKOT,Harish Chandra,parties.IN.UK,UK,1247,4.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-42,uttarakhand,2009,42,KAPKOT,Kundan Singh,parties.IN.IND,IND,683,2.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-42,uttarakhand,2009,42,KAPKOT,Umesh Rathaur,parties.IN.SP,SP,590,1.95,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-42,uttarakhand,2009,42,KAPKOT,Ramesh Chandra,parties.IN.IND,IND,570,1.88,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-uttarakhand-42,uttarakhand,2009,42,KAPKOT,Kishan Ram,parties.IN.IND,IND,297,0.98,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Kuldeep Kumar,parties.IN.BJP,BJP,24934,37.12,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Nvprabhat,parties.IN.INC,INC,24338,36.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Munna S.Chauhan,parties.IN.IND,IND,14807,22.04,3,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Haridas Kataria,parties.IN.IND,IND,702,1.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Gulfam Ali,parties.IN.SP,SP,591,0.88,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Rao Nasim Ahmed,parties.IN.IND,IND,378,0.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Liyakat,parties.IN.UNK,MLKSC,350,0.52,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,major,Publisher label 'MLKSC' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Dayaram,parties.IN.IND,IND,247,0.37,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Shyam Lal,parties.IN.BJKP,BJKP,207,0.31,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Tikaram,parties.IN.IND,IND,204,0.3,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Mangat S. Ramola,parties.IN.IND,IND,180,0.27,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Vikas Kumar,parties.IN.IND,IND,134,0.2,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-11,uttarakhand,2009,11,VIKASNAGAR,Raman Singh,parties.IN.IND,IND,103,0.15,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-42,uttarakhand,2009,42,KAPKOT,Sher Singh,parties.IN.BJP,BJP,13823,45.65,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-42,uttarakhand,2009,42,KAPKOT,Kunti parihar,parties.IN.NCP,NCP,6656,21.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-42,uttarakhand,2009,42,KAPKOT,Chamu S. Gas.,parties.IN.INC,INC,6413,21.18,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-42,uttarakhand,2009,42,KAPKOT,Harish Chandra,parties.IN.UK,UK,1247,4.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-42,uttarakhand,2009,42,KAPKOT,Kundan Singh,parties.IN.IND,IND,683,2.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-42,uttarakhand,2009,42,KAPKOT,Umesh Rathaur,parties.IN.SP,SP,590,1.95,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-42,uttarakhand,2009,42,KAPKOT,Ramesh Chandra,parties.IN.IND,IND,570,1.88,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttarakhand-42,uttarakhand,2009,42,KAPKOT,Kishan Ram,parties.IN.IND,IND,297,0.98,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

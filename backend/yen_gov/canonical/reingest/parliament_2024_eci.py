@@ -75,6 +75,7 @@ from typing import Any
 
 from yen_gov.canonical.csv_writer import write_csv
 from yen_gov.canonical.name_normaliser import normalise_entity_name
+from yen_gov.canonical.processing_quality import derive_processing
 from yen_gov.canonical.reingest.assembly_results import (
     NOTA_TOKENS,
     _float_or_none,
@@ -303,6 +304,11 @@ def build_parliament_2024(
             continue  # NOTA is a ballot option, not a candidate.
 
         votes = _int_or_none(src.get(_COL_VOTES)) or 0
+        # PR (2026-06-14): see assembly_results.build_candidacy_rows for the
+        # processing_level + processing_note doctrine; UNK fall-through is
+        # the only fresh-write trigger for ``major``.
+        party_id_resolved = lookup.get(raw_party.upper()) or "parties.IN.UNK"
+        proc_level, proc_note = derive_processing(party_id_resolved, raw_party)
         cand: dict[str, Any] = {
             "entity_id": entity_id,
             "state": state_slug,
@@ -313,7 +319,7 @@ def build_parliament_2024(
             # PR-3 (2026-06-10): every candidacy row carries a non-empty
             # canonical party_id. See assembly_results.build_candidacy_rows
             # for the rationale (mirror of party_resolver.SENTINELS['UNK']).
-            "party_id": lookup.get(raw_party.upper()) or "parties.IN.UNK",
+            "party_id": party_id_resolved,
             "party_short_raw": raw_party or None,
             "votes": votes,
             "vote_share_pct": _float_or_none(src.get(_COL_SHARE_OF_VALID)),
@@ -327,6 +333,8 @@ def build_parliament_2024(
             "profession": None,
             "candidate_type": "challenger",
             "source_id": source_id,
+            "processing_level": proc_level,
+            "processing_note": proc_note,
         }
         grouped_raw[entity_id].append(cand)
 

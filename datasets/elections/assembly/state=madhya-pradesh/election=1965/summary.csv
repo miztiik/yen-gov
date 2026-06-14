@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1962-madhya-pradesh-167,madhya-pradesh,1965,JABALPUR III,41641,26917,64.64,MANMOHANDAS,parties.IN.INC,INC,15713,58.38,V.S.SINGH,parties.IN.JS,JS,10667,5046,18.75,src-1b7bc1c9d39a
-IN-AC-1962-madhya-pradesh-222,madhya-pradesh,1965,BERASIA S.C,66965,17312,25.85,H.K.SINGH,parties.IN.INC,INC,9715,56.12,MUNG LAL,parties.IN.HMS,HMS,7597,2118,12.24,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1962-madhya-pradesh-167,madhya-pradesh,1965,JABALPUR III,41641,26917,64.64,MANMOHANDAS,parties.IN.INC,INC,15713,58.38,V.S.SINGH,parties.IN.JS,JS,10667,5046,18.75,src-1b7bc1c9d39a,minor,
+IN-AC-1962-madhya-pradesh-222,madhya-pradesh,1965,BERASIA S.C,66965,17312,25.85,H.K.SINGH,parties.IN.INC,INC,9715,56.12,MUNG LAL,parties.IN.HMS,HMS,7597,2118,12.24,src-1b7bc1c9d39a,minor,

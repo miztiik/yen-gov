@@ -1,8 +1,8 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-PC-1967-gujarat-13,gujarat,1969,BANASKANTHA,427762,193111,45.14,S.K.PATIL,parties.IN.INC,INC,142175,73.62,M.AMERSEY,parties.IN.SWA,SWA,42026,100149,51.86,src-31c65dbec869
-IN-PC-1967-punjab-2,punjab,1969,FFEROZEPUR,465986,190930,40.97,G.SINGH,parties.IN.SAD,SAD,111266,58.28,J.SINGH,parties.IN.INC,INC,58509,52757,27.64,src-31c65dbec869
-IN-PC-1967-punjab-6,punjab,1969,HOSHIARPUR,494190,338681,68.53,J.SINGH,parties.IN.BJS,BJS,163071,48.15,Y.PAL,parties.IN.INC,INC,111232,51839,15.31,src-31c65dbec869
-IN-PC-1967-tamil-nadu-39,tamil-nadu,1969,NAGERCOIL,,370673,,K.NADAR,parties.IN.INC,INC,249437,67.29,MATHIAS.M,parties.IN.IND,IND,121236,128201,34.58,src-31c65dbec869
-IN-PC-1967-uttar-pradesh-25,uttar-pradesh,1969,SULTANPUR,527773,95833,18.16,S.MISRA,parties.IN.BKD,BKD,48041,50.13,K.N.SINGH,parties.IN.IND,IND,47792,249,0.26,src-31c65dbec869
-IN-PC-1967-uttar-pradesh-55,uttar-pradesh,1969,PHULPUR,483204,248608,51.45,J.MISRA,parties.IN.SSP,SSP,83855,33.73,K.D.MALVIYA,parties.IN.INC,INC,61550,22305,8.97,src-31c65dbec869
-IN-PC-1967-west-bengal-30,west-bengal,1969,MINDNAPORE,476288,276309,58.01,V.K.K.MENON,parties.IN.BAC,BAC,187850,67.99,K.D.ROY,parties.IN.INC,INC,81083,106767,38.64,src-31c65dbec869
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-PC-1967-gujarat-13,gujarat,1969,BANASKANTHA,427762,193111,45.14,S.K.PATIL,parties.IN.INC,INC,142175,73.62,M.AMERSEY,parties.IN.SWA,SWA,42026,100149,51.86,src-31c65dbec869,minor,
+IN-PC-1967-punjab-2,punjab,1969,FFEROZEPUR,465986,190930,40.97,G.SINGH,parties.IN.SAD,SAD,111266,58.28,J.SINGH,parties.IN.INC,INC,58509,52757,27.64,src-31c65dbec869,minor,
+IN-PC-1967-punjab-6,punjab,1969,HOSHIARPUR,494190,338681,68.53,J.SINGH,parties.IN.BJS,BJS,163071,48.15,Y.PAL,parties.IN.INC,INC,111232,51839,15.31,src-31c65dbec869,minor,
+IN-PC-1967-tamil-nadu-39,tamil-nadu,1969,NAGERCOIL,,370673,,K.NADAR,parties.IN.INC,INC,249437,67.29,MATHIAS.M,parties.IN.IND,IND,121236,128201,34.58,src-31c65dbec869,minor,
+IN-PC-1967-uttar-pradesh-25,uttar-pradesh,1969,SULTANPUR,527773,95833,18.16,S.MISRA,parties.IN.BKD,BKD,48041,50.13,K.N.SINGH,parties.IN.IND,IND,47792,249,0.26,src-31c65dbec869,minor,
+IN-PC-1967-uttar-pradesh-55,uttar-pradesh,1969,PHULPUR,483204,248608,51.45,J.MISRA,parties.IN.SSP,SSP,83855,33.73,K.D.MALVIYA,parties.IN.INC,INC,61550,22305,8.97,src-31c65dbec869,minor,
+IN-PC-1967-west-bengal-30,west-bengal,1969,MINDNAPORE,476288,276309,58.01,V.K.K.MENON,parties.IN.BAC,BAC,187850,67.99,K.D.ROY,parties.IN.INC,INC,81083,106767,38.64,src-31c65dbec869,minor,

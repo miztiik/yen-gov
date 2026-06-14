@@ -1,169 +1,169 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-mizoram-1577,mizoram,2018,1,HACHHEK,LALRINDIKA RALTE,parties.IN.INC,INC,6202,33.32,1,won,U,,5th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1577,mizoram,2018,1,HACHHEK,LALRINENGA SAILO,parties.IN.MNF,MNF,5836,31.36,2,lost,U,,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1577,mizoram,2018,1,HACHHEK,VANLALRUATA PACHUAU,parties.IN.BJP,BJP,4399,23.64,3,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1577,mizoram,2018,1,HACHHEK,H LALLIANZUALA,parties.IN.IND,IND,1373,7.38,4,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1577,mizoram,2018,1,HACHHEK,EDDY ZOSANGLIANA COLNEY,parties.IN.PRISM,PRISM,250,1.34,5,forfeit,U,,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1577,mizoram,2018,1,HACHHEK,LALZENGHAKI,parties.IN.IND,IND,133,0.71,7,forfeit,U,,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1577,mizoram,2018,1,HACHHEK,J. LALSAILOVA,parties.IN.IND,IND,91,0.49,8,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1577,mizoram,2018,1,HACHHEK,C RAMKINLOVA,parties.IN.NCP,NCP,78,0.42,9,forfeit,U,,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1575,mizoram,2018,2,DAMPA,LALRINTLUANGA SAILO,parties.IN.MNF,MNF,5840,37.99,1,won,U,,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1575,mizoram,2018,2,DAMPA,LALROBIAKA,parties.IN.INC,INC,4183,27.21,2,lost,U,,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1575,mizoram,2018,2,DAMPA,ER. K. LALRIMAWIA,parties.IN.BJP,BJP,3051,19.85,3,lost,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1575,mizoram,2018,2,DAMPA,F LALRINTLUANGI,parties.IN.IND,IND,1920,12.49,4,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1575,mizoram,2018,2,DAMPA,LALRINZUALA CHAWNGTHU,parties.IN.PRISM,PRISM,133,0.87,5,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1575,mizoram,2018,2,DAMPA,LIANZUALA,parties.IN.NPEP,NPEP,106,0.69,6,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1575,mizoram,2018,2,DAMPA,LALCHUHVELA,parties.IN.IND,IND,33,0.21,8,forfeit,U,,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1575,mizoram,2018,2,DAMPA,LALAWMPUIA CHHANGTE,parties.IN.NCP,NCP,28,0.18,9,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1587,mizoram,2018,3,MAMIT,H. LALZIRLIANA,parties.IN.MNF,MNF,6874,35.39,1,won,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1587,mizoram,2018,3,MAMIT,JOHN ROTLUANGLIANA,parties.IN.INC,INC,6467,33.29,2,lost,U,,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1587,mizoram,2018,3,MAMIT,MALSAWMTLUANGA,parties.IN.BJP,BJP,4528,23.31,3,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1587,mizoram,2018,3,MAMIT,C.ZOTHANSANGA,parties.IN.IND,IND,1122,5.78,4,forfeit,U,,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1587,mizoram,2018,3,MAMIT,LIANZUALA,parties.IN.NPEP,NPEP,90,0.46,6,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1587,mizoram,2018,3,MAMIT,LALAWMPUIA CHHANGTE,parties.IN.NCP,NCP,80,0.41,7,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1587,mizoram,2018,3,MAMIT,B.LALHMUNZAWNGA,parties.IN.IND,IND,75,0.39,8,forfeit,U,,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1598,mizoram,2018,4,TUIRIAL,ANDREW H. THANGLIANA,parties.IN.IND,IND,4387,30.8,1,won,U,,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1598,mizoram,2018,4,TUIRIAL,SAILOTHANGA SAILO,parties.IN.MNF,MNF,4183,29.36,2,lost,U,,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1598,mizoram,2018,4,TUIRIAL,JOSEPH L. RALTE,parties.IN.INC,INC,3748,26.31,3,lost,U,,Others,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1598,mizoram,2018,4,TUIRIAL,HMINGDAILOVA KHIANGTE,parties.IN.NPEP,NPEP,1209,8.49,4,forfeit,U,,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1598,mizoram,2018,4,TUIRIAL,JACOB T. VANLAWMA,parties.IN.BJP,BJP,487,3.42,5,forfeit,U,,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1598,mizoram,2018,4,TUIRIAL,B. VANLALHRUAIA,parties.IN.PRISM,PRISM,104,0.73,6,forfeit,U,,Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1598,mizoram,2018,4,TUIRIAL,V. LALENNAWMA,parties.IN.IND,IND,66,0.46,7,forfeit,U,,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1579,mizoram,2018,5,KOLASIB,K. LALRINLIANA,parties.IN.MNF,MNF,5940,33.35,1,won,U,,10th Pass,Ex MLA,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1579,mizoram,2018,5,KOLASIB,LALFAMKIMA,parties.IN.IND,IND,5661,31.78,2,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1579,mizoram,2018,5,KOLASIB,DR. NGURDINGLIANA,parties.IN.INC,INC,5232,29.38,3,lost,U,,Doctorate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1579,mizoram,2018,5,KOLASIB,B. LIANTHLIRA,parties.IN.BJP,BJP,504,2.83,4,forfeit,U,,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1579,mizoram,2018,5,KOLASIB,JOHN LALREMRUATA,parties.IN.NPEP,NPEP,288,1.62,5,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1579,mizoram,2018,5,KOLASIB,ZODINSANGA,parties.IN.PRISM,PRISM,80,0.45,7,forfeit,U,,Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1591,mizoram,2018,6,SERLUI,LALRINSANGA RALTE,parties.IN.MNF,MNF,6128,38.17,1,won,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1591,mizoram,2018,6,SERLUI,LALHMACHHUANA,parties.IN.INC,INC,5201,32.39,2,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1591,mizoram,2018,6,SERLUI,LALMUANPUIA PUNTE,parties.IN.IND,IND,1995,12.43,3,forfeit,U,,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1591,mizoram,2018,6,SERLUI,VANLALHMUAKA,parties.IN.BJP,BJP,1959,12.2,4,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1591,mizoram,2018,6,SERLUI,HMINGCHUNGNUNGA,parties.IN.NPEP,NPEP,638,3.97,5,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1599,mizoram,2018,7,TUIVAWL,LALCHHANDAMA RALTE,parties.IN.MNF,MNF,5207,39.41,1,won,U,,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1599,mizoram,2018,7,TUIVAWL,R. L. PIANMAWIA,parties.IN.INC,INC,5204,39.39,2,lost,U,,12th Pass,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1599,mizoram,2018,7,TUIVAWL,JUDY ZOHMINGLIANI,parties.IN.BJP,BJP,1607,12.16,3,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1599,mizoram,2018,7,TUIVAWL,K. ROMAWIA,parties.IN.IND,IND,1083,8.2,4,forfeit,U,,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1599,mizoram,2018,7,TUIVAWL,H. K. HLIMPAWLTHANGA,parties.IN.IND,IND,58,0.44,5,forfeit,U,,Literate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1572,mizoram,2018,8,CHALFILH,LALRINLIANA SAILO,parties.IN.MNF,MNF,5541,36.99,1,won,U,,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1572,mizoram,2018,8,CHALFILH,F. RUALHLEIA,parties.IN.IND,IND,4534,30.27,2,lost,U,,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1572,mizoram,2018,8,CHALFILH,L. T. HRANGCHAL,parties.IN.INC,INC,4144,27.67,3,lost,U,,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1572,mizoram,2018,8,CHALFILH,P. SANGHMINGTHANGA,parties.IN.BJP,BJP,678,4.53,4,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1593,mizoram,2018,9,TAWI,R.LALZIRLIANA,parties.IN.MNF,MNF,4940,37.35,1,won,U,,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1593,mizoram,2018,9,TAWI,R. LALTHATLUANGA,parties.IN.IND,IND,4756,35.96,2,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1593,mizoram,2018,9,TAWI,ROSIAMNGHETA,parties.IN.INC,INC,2630,19.89,3,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1593,mizoram,2018,9,TAWI,PROF.J.V.HLUNA,parties.IN.BJP,BJP,714,5.4,4,forfeit,U,,Doctorate,Party Worker,crossover,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1593,mizoram,2018,9,TAWI,H.LALREMSIAMA,parties.IN.PRISM,PRISM,97,0.73,5,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1593,mizoram,2018,9,TAWI,LALZENGHAKI,parties.IN.IND,IND,49,0.37,6,forfeit,U,,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1562,mizoram,2018,13,AIZAWL EAST - I,ZORAMTHANGA,parties.IN.MNF,MNF,8358,42.75,1,won,U,,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1562,mizoram,2018,13,AIZAWL EAST - I,K SAPDANGA,parties.IN.IND,IND,5854,29.94,2,lost,U,,Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1562,mizoram,2018,13,AIZAWL EAST - I,K VANLALRAWNA,parties.IN.INC,INC,4768,24.39,3,lost,U,,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1562,mizoram,2018,13,AIZAWL EAST - I,LALDINLIANA SAILO,parties.IN.BJP,BJP,260,1.33,4,forfeit,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1562,mizoram,2018,13,AIZAWL EAST - I,ZOSANGLIANA,parties.IN.IND,IND,146,0.75,5,forfeit,U,,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1562,mizoram,2018,13,AIZAWL EAST - I,K. LALRINPUII,parties.IN.NCP,NCP,102,0.52,6,forfeit,U,,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1569,mizoram,2018,15,AIZAWL WEST I,LALDUHOMA,parties.IN.IND,IND,7889,38.71,1,won,U,,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1569,mizoram,2018,15,AIZAWL WEST I,K. SANGTHUAMA,parties.IN.MNF,MNF,6829,33.51,2,lost,U,,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1569,mizoram,2018,15,AIZAWL WEST I,P.C. LALTLANSANGA,parties.IN.INC,INC,5039,24.73,3,lost,U,,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1569,mizoram,2018,15,AIZAWL WEST I,LALRODINGA COLNEY,parties.IN.BJP,BJP,287,1.41,4,forfeit,U,,Doctorate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1569,mizoram,2018,15,AIZAWL WEST I,ZAICHHAWNA HLAWNDO,parties.IN.IND,IND,228,1.12,5,forfeit,U,,Doctorate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1569,mizoram,2018,15,AIZAWL WEST I,LALHRUAIA,parties.IN.NCP,NCP,46,0.23,7,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1568,mizoram,2018,20,AIZAWL SOUTH-III,F. LALNUNMAWIA,parties.IN.MNF,MNF,7558,43.47,1,won,U,,Doctorate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1568,mizoram,2018,20,AIZAWL SOUTH-III,K.S THANGA,parties.IN.INC,INC,5470,31.46,2,lost,U,,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1568,mizoram,2018,20,AIZAWL SOUTH-III,RD LALRAMMAWIA,parties.IN.IND,IND,3175,18.26,3,lost,U,,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1568,mizoram,2018,20,AIZAWL SOUTH-III,F. LALREMSANGI,parties.IN.BJP,BJP,1046,6.02,4,forfeit,U,,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1568,mizoram,2018,20,AIZAWL SOUTH-III,TLANGNGAIHTHANGA,parties.IN.IND,IND,86,0.49,5,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1582,mizoram,2018,21,LENGTENG,L.THANGMAWIA,parties.IN.MNF,MNF,6430,45.77,1,won,U,,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1582,mizoram,2018,21,LENGTENG,H.ROHLUNA,parties.IN.INC,INC,4658,33.15,2,lost,U,,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1582,mizoram,2018,21,LENGTENG,H.GINZALALA,parties.IN.IND,IND,2657,18.91,3,lost,U,,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1582,mizoram,2018,21,LENGTENG,LALDINNGHETI,parties.IN.BJP,BJP,204,1.45,4,forfeit,U,,Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1582,mizoram,2018,21,LENGTENG,LALHRILZELI HLAWNDO,parties.IN.IND,IND,77,0.55,5,forfeit,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1595,mizoram,2018,22,TUICHANG,TAWNLUIA,parties.IN.MNF,MNF,5146,39.52,1,won,U,,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1595,mizoram,2018,22,TUICHANG,W. CHHUANAWMA,parties.IN.IND,IND,4407,33.85,2,lost,U,,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1595,mizoram,2018,22,TUICHANG,JAMES THANGHMINGMAWIA,parties.IN.INC,INC,3171,24.35,3,lost,U,,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1595,mizoram,2018,22,TUICHANG,LALDUHPUII,parties.IN.BJP,BJP,174,1.34,4,forfeit,U,,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1595,mizoram,2018,22,TUICHANG,LALREMSANGA,parties.IN.IND,IND,97,0.74,5,forfeit,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1573,mizoram,2018,23,CHAMPHAI NORTH,DR ZR.THIAMSANGA,parties.IN.MNF,MNF,6057,41.08,1,won,U,,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1573,mizoram,2018,23,CHAMPHAI NORTH,T.T. ZOTHANSANGA,parties.IN.INC,INC,4964,33.67,2,lost,U,,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1573,mizoram,2018,23,CHAMPHAI NORTH,C.LALCHHAWNTHANGA,parties.IN.IND,IND,2278,15.45,3,forfeit,U,,5th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1573,mizoram,2018,23,CHAMPHAI NORTH,C.HRANGSATKIMA,parties.IN.BJP,BJP,980,6.65,4,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1573,mizoram,2018,23,CHAMPHAI NORTH,B.SUANZALANG,parties.IN.NPEP,NPEP,273,1.85,5,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1573,mizoram,2018,23,CHAMPHAI NORTH,TBC LALVENCHHUNGA,parties.IN.PRISM,PRISM,161,1.09,6,forfeit,U,,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1574,mizoram,2018,24,CHAMPHAI SOUTH,T.J LALNUNTLUANGA,parties.IN.MNF,MNF,5212,36.45,1,won,U,,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1574,mizoram,2018,24,CHAMPHAI SOUTH,LAL THANHAWLA,parties.IN.INC,INC,4163,29.11,2,lost,U,,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1574,mizoram,2018,24,CHAMPHAI SOUTH,C. LALREMLIANA,parties.IN.IND,IND,3957,27.67,3,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1574,mizoram,2018,24,CHAMPHAI SOUTH,RONGHAKA,parties.IN.BJP,BJP,847,5.92,4,forfeit,U,,Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1574,mizoram,2018,24,CHAMPHAI SOUTH,TLANGNGAIHTHANGA,parties.IN.IND,IND,72,0.5,5,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1576,mizoram,2018,25,EAST TUIPUI,RAMTHANMAWIA,parties.IN.MNF,MNF,4384,37.32,1,won,U,,Others,Contractor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1576,mizoram,2018,25,EAST TUIPUI,C.LALTANPUIA,parties.IN.IND,IND,3797,32.33,2,lost,U,,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1576,mizoram,2018,25,EAST TUIPUI,T.SANGKUNGA,parties.IN.INC,INC,3421,29.12,3,lost,U,,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1576,mizoram,2018,25,EAST TUIPUI,DR.VL.ZAHAWMA CHAWNGTHU,parties.IN.BJP,BJP,100,0.85,4,forfeit,U,,Graduate,Doctor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1576,mizoram,2018,25,EAST TUIPUI,SIMEONA,parties.IN.IND,IND,23,0.2,5,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1590,mizoram,2018,26,SERCHHIP,LALDUHOMA,parties.IN.IND,IND,5481,35.26,1,won,U,,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1590,mizoram,2018,26,SERCHHIP,LAL THANHAWLA,parties.IN.INC,INC,5071,32.63,2,lost,U,,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1590,mizoram,2018,26,SERCHHIP,C LALRAMZAUVA,parties.IN.MNF,MNF,4313,27.75,3,lost,U,,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1590,mizoram,2018,26,SERCHHIP,ZAICHHAWNA HLAWNDO,parties.IN.IND,IND,278,1.79,4,forfeit,U,,Doctorate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1590,mizoram,2018,26,SERCHHIP,LALCHUNGLURA,parties.IN.BJP,BJP,211,1.36,5,forfeit,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1590,mizoram,2018,26,SERCHHIP,KAPLIANA PACHUAU,parties.IN.NPEP,NPEP,119,0.77,6,forfeit,U,,10th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1590,mizoram,2018,26,SERCHHIP,VANLALRUATA,parties.IN.PRISM,PRISM,29,0.19,8,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1597,mizoram,2018,27,TUIKUM,ER. LALRINAWMA,parties.IN.MNF,MNF,5439,39.85,1,won,U,,Graduate Professional,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1597,mizoram,2018,27,TUIKUM,SANGZELA TLAU,parties.IN.INC,INC,4042,29.62,2,lost,U,,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1597,mizoram,2018,27,TUIKUM,P.C. VANLALRUATA,parties.IN.IND,IND,3810,27.92,3,lost,U,,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1597,mizoram,2018,27,TUIKUM,LALNUNMAWIA CHHAKCHHUAK,parties.IN.BJP,BJP,140,1.03,4,forfeit,U,,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1597,mizoram,2018,27,TUIKUM,LALRUATFELI HLAWNDO,parties.IN.IND,IND,135,0.99,5,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1597,mizoram,2018,27,TUIKUM,RC ROHMINGTHANGA,parties.IN.PRISM,PRISM,22,0.16,7,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1578,mizoram,2018,28,HRANGTURZO,LALCHAMLIANA,parties.IN.MNF,MNF,4572,35.62,1,won,U,,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1578,mizoram,2018,28,HRANGTURZO,VANLALAWMPUII CHAWNGTHU,parties.IN.INC,INC,3815,29.72,2,lost,U,,Post Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1578,mizoram,2018,28,HRANGTURZO,LALTHANSANGA,parties.IN.IND,IND,3766,29.34,3,lost,U,,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1578,mizoram,2018,28,HRANGTURZO,K.SANGZUALA,parties.IN.BJP,BJP,307,2.39,4,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1578,mizoram,2018,28,HRANGTURZO,LALAWMPUIA RENTHLEI,parties.IN.IND,IND,215,1.67,5,forfeit,U,,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1578,mizoram,2018,28,HRANGTURZO,RL LIANTLUANGA,parties.IN.PRISM,PRISM,111,0.86,6,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1592,mizoram,2018,29,SOUTH TUIPUI,DR R LALTHANGLIANA,parties.IN.MNF,MNF,6126,49.69,1,won,U,,Doctorate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1592,mizoram,2018,29,SOUTH TUIPUI,JOHN SIAMKUNGA,parties.IN.INC,INC,4657,37.78,2,lost,U,,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1592,mizoram,2018,29,SOUTH TUIPUI,PHAIROTHANGA,parties.IN.IND,IND,1359,11.02,3,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1592,mizoram,2018,29,SOUTH TUIPUI,LALNUNPUIA,parties.IN.BJP,BJP,151,1.22,4,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1584,mizoram,2018,30,LUNGLEI NORTH,VANLALTANPUIA,parties.IN.MNF,MNF,5022,35.26,1,won,U,,Doctorate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1584,mizoram,2018,30,LUNGLEI NORTH,V MALSAWMTLUANGA,parties.IN.IND,IND,4627,32.49,2,lost,U,,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1584,mizoram,2018,30,LUNGLEI NORTH,P.C. LALTHANLIANA,parties.IN.INC,INC,4466,31.36,3,lost,U,,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1584,mizoram,2018,30,LUNGLEI NORTH,RAMDINZAUVA,parties.IN.BJP,BJP,66,0.46,4,forfeit,U,,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1583,mizoram,2018,31,LUNGLEI EAST,LAWMAWMA TOCHHAWNG,parties.IN.MNF,MNF,4063,32.91,1,won,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1583,mizoram,2018,31,LUNGLEI EAST,LALRINPUII,parties.IN.IND,IND,3991,32.32,2,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1583,mizoram,2018,31,LUNGLEI EAST,JOSEPH LALHIMPUIA,parties.IN.INC,INC,3836,31.07,3,lost,U,,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1583,mizoram,2018,31,LUNGLEI EAST,H.LALRUATA,parties.IN.BJP,BJP,405,3.28,4,forfeit,U,,Doctorate,Ex Minister,crossover,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1586,mizoram,2018,32,LUNGLEI WEST,C.LALRINSANGA,parties.IN.MNF,MNF,4093,34.44,1,won,U,,Graduate,Ex MLA,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1586,mizoram,2018,32,LUNGLEI WEST,CHALROSANGA RALTE,parties.IN.INC,INC,4016,33.79,2,lost,U,,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1586,mizoram,2018,32,LUNGLEI WEST,LALNUNTLUANGA SAILO,parties.IN.IND,IND,3587,30.18,3,lost,U,,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1586,mizoram,2018,32,LUNGLEI WEST,C.S.CHAWNGCHHUMA,parties.IN.BJP,BJP,142,1.19,4,forfeit,U,,Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1585,mizoram,2018,33,LUNGLEI SOUTH,K PACHHUNGA,parties.IN.MNF,MNF,6245,43.03,1,won,U,,Doctorate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1585,mizoram,2018,33,LUNGLEI SOUTH,R LALNUNTHARA,parties.IN.INC,INC,3804,26.21,2,lost,U,,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1585,mizoram,2018,33,LUNGLEI SOUTH,REV DR K THANZAUVA,parties.IN.IND,IND,3492,24.06,3,lost,U,,Doctorate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1585,mizoram,2018,33,LUNGLEI SOUTH,DR.AICHHUNGA,parties.IN.BJP,BJP,920,6.34,4,forfeit,U,,Graduate Professional,Doctor,crossover,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1594,mizoram,2018,34,THORANG,ZODINTLUANGA RALTE,parties.IN.INC,INC,4499,40.12,1,won,U,,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1594,mizoram,2018,34,THORANG,R.ROHMINGLIANA,parties.IN.MNF,MNF,3259,29.06,2,lost,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1594,mizoram,2018,34,THORANG,JOSEPH LALZAWMLIANA,parties.IN.BJP,BJP,1629,14.53,3,forfeit,U,,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1594,mizoram,2018,34,THORANG,LALRINZUALA,parties.IN.IND,IND,1101,9.82,4,forfeit,U,,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1594,mizoram,2018,34,THORANG,LALHULIANA,parties.IN.NPEP,NPEP,653,5.82,5,forfeit,U,,8th Pass,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1600,mizoram,2018,35,WEST TUIPUI,NIHAR KANTI CHAKMA,parties.IN.INC,INC,5943,45.83,1,won,U,,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1600,mizoram,2018,35,WEST TUIPUI,KINA RANJAN CHAKMA,parties.IN.BJP,BJP,3558,27.44,2,lost,U,,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1600,mizoram,2018,35,WEST TUIPUI,F ROBERT HMINGTHANSANGA,parties.IN.MNF,MNF,3243,25.01,3,lost,U,,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1600,mizoram,2018,35,WEST TUIPUI,B VANLALAUVA,parties.IN.IND,IND,103,0.79,5,forfeit,U,,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1596,mizoram,2018,36,TUICHAWNG,BUDDHA DHAN CHAKMA,parties.IN.BJP,BJP,11419,43.68,1,won,U,,Graduate Professional,Doctor,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1596,mizoram,2018,36,TUICHAWNG,RASIK MOHAN CHAKMA,parties.IN.MNF,MNF,9825,37.59,2,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1596,mizoram,2018,36,TUICHAWNG,KALI KUMAR TONGCHANGYA,parties.IN.INC,INC,4353,16.65,3,forfeit,U,,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1596,mizoram,2018,36,TUICHAWNG,DOYMOY DAVENG CHAKMA,parties.IN.NPEP,NPEP,250,0.96,5,forfeit,U,,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1581,mizoram,2018,37,LAWNGTLAI WEST,C. NGUNLIANCHUNGA,parties.IN.INC,INC,10678,48.88,1,won,U,,8th Pass,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1581,mizoram,2018,37,LAWNGTLAI WEST,C. RAMHLUNA,parties.IN.MNF,MNF,9883,45.24,2,lost,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1581,mizoram,2018,37,LAWNGTLAI WEST,J.B. RUALCHHINGA,parties.IN.BJP,BJP,973,4.45,3,forfeit,U,,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1581,mizoram,2018,37,LAWNGTLAI WEST,VANLALTHAA,parties.IN.IND,IND,177,0.81,4,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1580,mizoram,2018,38,LAWNGTLAI EAST,H. BIAKZAUA,parties.IN.MNF,MNF,8656,48.4,1,won,U,,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1580,mizoram,2018,38,LAWNGTLAI EAST,H. ZOTHANGLIANA,parties.IN.INC,INC,7712,43.12,2,lost,U,,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1580,mizoram,2018,38,LAWNGTLAI EAST,VANUPA ZATHANG,parties.IN.BJP,BJP,1086,6.07,3,forfeit,U,,Post Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1580,mizoram,2018,38,LAWNGTLAI EAST,MC. LALRAMCHHANA,parties.IN.IND,IND,209,1.17,4,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1580,mizoram,2018,38,LAWNGTLAI EAST,C. BIAKCHHUNGA,parties.IN.IND,IND,164,0.92,5,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1589,mizoram,2018,39,SAIHA,DR. K. BEICHHUA,parties.IN.MNF,MNF,8109,49.82,1,won,U,,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1589,mizoram,2018,39,SAIHA,S. HIATO,parties.IN.INC,INC,5641,34.66,2,lost,U,,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1589,mizoram,2018,39,SAIHA,S. VADYU,parties.IN.BJP,BJP,2315,14.22,3,forfeit,U,,Post Graduate,Party Worker,crossover,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1589,mizoram,2018,39,SAIHA,F. THANGCHHUAHA,parties.IN.IND,IND,171,1.05,4,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1588,mizoram,2018,40,PALAK,K.T. ROKHAW,parties.IN.INC,INC,5492,37.44,1,won,U,,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1588,mizoram,2018,40,PALAK,M. CHAKHU,parties.IN.MNF,MNF,4648,31.68,2,lost,U,,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1588,mizoram,2018,40,PALAK,HIPHEI,parties.IN.BJP,BJP,4431,30.2,3,lost,U,,10th Pass,Ex MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-mizoram-1588,mizoram,2018,40,PALAK,S. SATHLU,parties.IN.IND,IND,59,0.4,4,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-mizoram-1577,mizoram,2018,1,HACHHEK,LALRINDIKA RALTE,parties.IN.INC,INC,6202,33.32,1,won,U,,5th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1577,mizoram,2018,1,HACHHEK,LALRINENGA SAILO,parties.IN.MNF,MNF,5836,31.36,2,lost,U,,8th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1577,mizoram,2018,1,HACHHEK,VANLALRUATA PACHUAU,parties.IN.BJP,BJP,4399,23.64,3,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1577,mizoram,2018,1,HACHHEK,H LALLIANZUALA,parties.IN.IND,IND,1373,7.38,4,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1577,mizoram,2018,1,HACHHEK,EDDY ZOSANGLIANA COLNEY,parties.IN.PRISM,PRISM,250,1.34,5,forfeit,U,,Graduate,Self-employed,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1577,mizoram,2018,1,HACHHEK,LALZENGHAKI,parties.IN.IND,IND,133,0.71,7,forfeit,U,,Post Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1577,mizoram,2018,1,HACHHEK,J. LALSAILOVA,parties.IN.IND,IND,91,0.49,8,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1577,mizoram,2018,1,HACHHEK,C RAMKINLOVA,parties.IN.NCP,NCP,78,0.42,9,forfeit,U,,10th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1575,mizoram,2018,2,DAMPA,LALRINTLUANGA SAILO,parties.IN.MNF,MNF,5840,37.99,1,won,U,,8th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1575,mizoram,2018,2,DAMPA,LALROBIAKA,parties.IN.INC,INC,4183,27.21,2,lost,U,,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1575,mizoram,2018,2,DAMPA,ER. K. LALRIMAWIA,parties.IN.BJP,BJP,3051,19.85,3,lost,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1575,mizoram,2018,2,DAMPA,F LALRINTLUANGI,parties.IN.IND,IND,1920,12.49,4,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1575,mizoram,2018,2,DAMPA,LALRINZUALA CHAWNGTHU,parties.IN.PRISM,PRISM,133,0.87,5,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1575,mizoram,2018,2,DAMPA,LIANZUALA,parties.IN.NPEP,NPEP,106,0.69,6,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1575,mizoram,2018,2,DAMPA,LALCHUHVELA,parties.IN.IND,IND,33,0.21,8,forfeit,U,,5th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1575,mizoram,2018,2,DAMPA,LALAWMPUIA CHHANGTE,parties.IN.NCP,NCP,28,0.18,9,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1587,mizoram,2018,3,MAMIT,H. LALZIRLIANA,parties.IN.MNF,MNF,6874,35.39,1,won,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1587,mizoram,2018,3,MAMIT,JOHN ROTLUANGLIANA,parties.IN.INC,INC,6467,33.29,2,lost,U,,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1587,mizoram,2018,3,MAMIT,MALSAWMTLUANGA,parties.IN.BJP,BJP,4528,23.31,3,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1587,mizoram,2018,3,MAMIT,C.ZOTHANSANGA,parties.IN.IND,IND,1122,5.78,4,forfeit,U,,Post Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1587,mizoram,2018,3,MAMIT,LIANZUALA,parties.IN.NPEP,NPEP,90,0.46,6,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1587,mizoram,2018,3,MAMIT,LALAWMPUIA CHHANGTE,parties.IN.NCP,NCP,80,0.41,7,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1587,mizoram,2018,3,MAMIT,B.LALHMUNZAWNGA,parties.IN.IND,IND,75,0.39,8,forfeit,U,,5th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1598,mizoram,2018,4,TUIRIAL,ANDREW H. THANGLIANA,parties.IN.IND,IND,4387,30.8,1,won,U,,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1598,mizoram,2018,4,TUIRIAL,SAILOTHANGA SAILO,parties.IN.MNF,MNF,4183,29.36,2,lost,U,,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1598,mizoram,2018,4,TUIRIAL,JOSEPH L. RALTE,parties.IN.INC,INC,3748,26.31,3,lost,U,,Others,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1598,mizoram,2018,4,TUIRIAL,HMINGDAILOVA KHIANGTE,parties.IN.NPEP,NPEP,1209,8.49,4,forfeit,U,,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1598,mizoram,2018,4,TUIRIAL,JACOB T. VANLAWMA,parties.IN.BJP,BJP,487,3.42,5,forfeit,U,,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1598,mizoram,2018,4,TUIRIAL,B. VANLALHRUAIA,parties.IN.PRISM,PRISM,104,0.73,6,forfeit,U,,Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1598,mizoram,2018,4,TUIRIAL,V. LALENNAWMA,parties.IN.IND,IND,66,0.46,7,forfeit,U,,10th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1579,mizoram,2018,5,KOLASIB,K. LALRINLIANA,parties.IN.MNF,MNF,5940,33.35,1,won,U,,10th Pass,Ex MLA,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1579,mizoram,2018,5,KOLASIB,LALFAMKIMA,parties.IN.IND,IND,5661,31.78,2,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1579,mizoram,2018,5,KOLASIB,DR. NGURDINGLIANA,parties.IN.INC,INC,5232,29.38,3,lost,U,,Doctorate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1579,mizoram,2018,5,KOLASIB,B. LIANTHLIRA,parties.IN.BJP,BJP,504,2.83,4,forfeit,U,,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1579,mizoram,2018,5,KOLASIB,JOHN LALREMRUATA,parties.IN.NPEP,NPEP,288,1.62,5,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1579,mizoram,2018,5,KOLASIB,ZODINSANGA,parties.IN.PRISM,PRISM,80,0.45,7,forfeit,U,,Graduate,Qualified Professional,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1591,mizoram,2018,6,SERLUI,LALRINSANGA RALTE,parties.IN.MNF,MNF,6128,38.17,1,won,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1591,mizoram,2018,6,SERLUI,LALHMACHHUANA,parties.IN.INC,INC,5201,32.39,2,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1591,mizoram,2018,6,SERLUI,LALMUANPUIA PUNTE,parties.IN.IND,IND,1995,12.43,3,forfeit,U,,Graduate,Self-employed,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1591,mizoram,2018,6,SERLUI,VANLALHMUAKA,parties.IN.BJP,BJP,1959,12.2,4,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1591,mizoram,2018,6,SERLUI,HMINGCHUNGNUNGA,parties.IN.NPEP,NPEP,638,3.97,5,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1599,mizoram,2018,7,TUIVAWL,LALCHHANDAMA RALTE,parties.IN.MNF,MNF,5207,39.41,1,won,U,,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1599,mizoram,2018,7,TUIVAWL,R. L. PIANMAWIA,parties.IN.INC,INC,5204,39.39,2,lost,U,,12th Pass,MLA,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1599,mizoram,2018,7,TUIVAWL,JUDY ZOHMINGLIANI,parties.IN.BJP,BJP,1607,12.16,3,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1599,mizoram,2018,7,TUIVAWL,K. ROMAWIA,parties.IN.IND,IND,1083,8.2,4,forfeit,U,,Others,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1599,mizoram,2018,7,TUIVAWL,H. K. HLIMPAWLTHANGA,parties.IN.IND,IND,58,0.44,5,forfeit,U,,Literate,Self-employed,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1572,mizoram,2018,8,CHALFILH,LALRINLIANA SAILO,parties.IN.MNF,MNF,5541,36.99,1,won,U,,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1572,mizoram,2018,8,CHALFILH,F. RUALHLEIA,parties.IN.IND,IND,4534,30.27,2,lost,U,,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1572,mizoram,2018,8,CHALFILH,L. T. HRANGCHAL,parties.IN.INC,INC,4144,27.67,3,lost,U,,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1572,mizoram,2018,8,CHALFILH,P. SANGHMINGTHANGA,parties.IN.BJP,BJP,678,4.53,4,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1593,mizoram,2018,9,TAWI,R.LALZIRLIANA,parties.IN.MNF,MNF,4940,37.35,1,won,U,,10th Pass,Party Worker,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1593,mizoram,2018,9,TAWI,R. LALTHATLUANGA,parties.IN.IND,IND,4756,35.96,2,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1593,mizoram,2018,9,TAWI,ROSIAMNGHETA,parties.IN.INC,INC,2630,19.89,3,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1593,mizoram,2018,9,TAWI,PROF.J.V.HLUNA,parties.IN.BJP,BJP,714,5.4,4,forfeit,U,,Doctorate,Party Worker,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1593,mizoram,2018,9,TAWI,H.LALREMSIAMA,parties.IN.PRISM,PRISM,97,0.73,5,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1593,mizoram,2018,9,TAWI,LALZENGHAKI,parties.IN.IND,IND,49,0.37,6,forfeit,U,,Post Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1562,mizoram,2018,13,AIZAWL EAST - I,ZORAMTHANGA,parties.IN.MNF,MNF,8358,42.75,1,won,U,,Graduate,Party Worker,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1562,mizoram,2018,13,AIZAWL EAST - I,K SAPDANGA,parties.IN.IND,IND,5854,29.94,2,lost,U,,Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1562,mizoram,2018,13,AIZAWL EAST - I,K VANLALRAWNA,parties.IN.INC,INC,4768,24.39,3,lost,U,,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1562,mizoram,2018,13,AIZAWL EAST - I,LALDINLIANA SAILO,parties.IN.BJP,BJP,260,1.33,4,forfeit,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1562,mizoram,2018,13,AIZAWL EAST - I,ZOSANGLIANA,parties.IN.IND,IND,146,0.75,5,forfeit,U,,5th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1562,mizoram,2018,13,AIZAWL EAST - I,K. LALRINPUII,parties.IN.NCP,NCP,102,0.52,6,forfeit,U,,10th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1569,mizoram,2018,15,AIZAWL WEST I,LALDUHOMA,parties.IN.IND,IND,7889,38.71,1,won,U,,Graduate,Party Worker,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1569,mizoram,2018,15,AIZAWL WEST I,K. SANGTHUAMA,parties.IN.MNF,MNF,6829,33.51,2,lost,U,,12th Pass,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1569,mizoram,2018,15,AIZAWL WEST I,P.C. LALTLANSANGA,parties.IN.INC,INC,5039,24.73,3,lost,U,,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1569,mizoram,2018,15,AIZAWL WEST I,LALRODINGA COLNEY,parties.IN.BJP,BJP,287,1.41,4,forfeit,U,,Doctorate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1569,mizoram,2018,15,AIZAWL WEST I,ZAICHHAWNA HLAWNDO,parties.IN.IND,IND,228,1.12,5,forfeit,U,,Doctorate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1569,mizoram,2018,15,AIZAWL WEST I,LALHRUAIA,parties.IN.NCP,NCP,46,0.23,7,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1568,mizoram,2018,20,AIZAWL SOUTH-III,F. LALNUNMAWIA,parties.IN.MNF,MNF,7558,43.47,1,won,U,,Doctorate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1568,mizoram,2018,20,AIZAWL SOUTH-III,K.S THANGA,parties.IN.INC,INC,5470,31.46,2,lost,U,,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1568,mizoram,2018,20,AIZAWL SOUTH-III,RD LALRAMMAWIA,parties.IN.IND,IND,3175,18.26,3,lost,U,,Post Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1568,mizoram,2018,20,AIZAWL SOUTH-III,F. LALREMSANGI,parties.IN.BJP,BJP,1046,6.02,4,forfeit,U,,Post Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1568,mizoram,2018,20,AIZAWL SOUTH-III,TLANGNGAIHTHANGA,parties.IN.IND,IND,86,0.49,5,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1582,mizoram,2018,21,LENGTENG,L.THANGMAWIA,parties.IN.MNF,MNF,6430,45.77,1,won,U,,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1582,mizoram,2018,21,LENGTENG,H.ROHLUNA,parties.IN.INC,INC,4658,33.15,2,lost,U,,Post Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1582,mizoram,2018,21,LENGTENG,H.GINZALALA,parties.IN.IND,IND,2657,18.91,3,lost,U,,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1582,mizoram,2018,21,LENGTENG,LALDINNGHETI,parties.IN.BJP,BJP,204,1.45,4,forfeit,U,,Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1582,mizoram,2018,21,LENGTENG,LALHRILZELI HLAWNDO,parties.IN.IND,IND,77,0.55,5,forfeit,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1595,mizoram,2018,22,TUICHANG,TAWNLUIA,parties.IN.MNF,MNF,5146,39.52,1,won,U,,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1595,mizoram,2018,22,TUICHANG,W. CHHUANAWMA,parties.IN.IND,IND,4407,33.85,2,lost,U,,10th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1595,mizoram,2018,22,TUICHANG,JAMES THANGHMINGMAWIA,parties.IN.INC,INC,3171,24.35,3,lost,U,,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1595,mizoram,2018,22,TUICHANG,LALDUHPUII,parties.IN.BJP,BJP,174,1.34,4,forfeit,U,,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1595,mizoram,2018,22,TUICHANG,LALREMSANGA,parties.IN.IND,IND,97,0.74,5,forfeit,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1573,mizoram,2018,23,CHAMPHAI NORTH,DR ZR.THIAMSANGA,parties.IN.MNF,MNF,6057,41.08,1,won,U,,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1573,mizoram,2018,23,CHAMPHAI NORTH,T.T. ZOTHANSANGA,parties.IN.INC,INC,4964,33.67,2,lost,U,,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1573,mizoram,2018,23,CHAMPHAI NORTH,C.LALCHHAWNTHANGA,parties.IN.IND,IND,2278,15.45,3,forfeit,U,,5th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1573,mizoram,2018,23,CHAMPHAI NORTH,C.HRANGSATKIMA,parties.IN.BJP,BJP,980,6.65,4,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1573,mizoram,2018,23,CHAMPHAI NORTH,B.SUANZALANG,parties.IN.NPEP,NPEP,273,1.85,5,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1573,mizoram,2018,23,CHAMPHAI NORTH,TBC LALVENCHHUNGA,parties.IN.PRISM,PRISM,161,1.09,6,forfeit,U,,10th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1574,mizoram,2018,24,CHAMPHAI SOUTH,T.J LALNUNTLUANGA,parties.IN.MNF,MNF,5212,36.45,1,won,U,,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1574,mizoram,2018,24,CHAMPHAI SOUTH,LAL THANHAWLA,parties.IN.INC,INC,4163,29.11,2,lost,U,,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1574,mizoram,2018,24,CHAMPHAI SOUTH,C. LALREMLIANA,parties.IN.IND,IND,3957,27.67,3,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1574,mizoram,2018,24,CHAMPHAI SOUTH,RONGHAKA,parties.IN.BJP,BJP,847,5.92,4,forfeit,U,,Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1574,mizoram,2018,24,CHAMPHAI SOUTH,TLANGNGAIHTHANGA,parties.IN.IND,IND,72,0.5,5,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1576,mizoram,2018,25,EAST TUIPUI,RAMTHANMAWIA,parties.IN.MNF,MNF,4384,37.32,1,won,U,,Others,Contractor,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1576,mizoram,2018,25,EAST TUIPUI,C.LALTANPUIA,parties.IN.IND,IND,3797,32.33,2,lost,U,,8th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1576,mizoram,2018,25,EAST TUIPUI,T.SANGKUNGA,parties.IN.INC,INC,3421,29.12,3,lost,U,,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1576,mizoram,2018,25,EAST TUIPUI,DR.VL.ZAHAWMA CHAWNGTHU,parties.IN.BJP,BJP,100,0.85,4,forfeit,U,,Graduate,Doctor,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1576,mizoram,2018,25,EAST TUIPUI,SIMEONA,parties.IN.IND,IND,23,0.2,5,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1590,mizoram,2018,26,SERCHHIP,LALDUHOMA,parties.IN.IND,IND,5481,35.26,1,won,U,,Graduate,Party Worker,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1590,mizoram,2018,26,SERCHHIP,LAL THANHAWLA,parties.IN.INC,INC,5071,32.63,2,lost,U,,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1590,mizoram,2018,26,SERCHHIP,C LALRAMZAUVA,parties.IN.MNF,MNF,4313,27.75,3,lost,U,,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1590,mizoram,2018,26,SERCHHIP,ZAICHHAWNA HLAWNDO,parties.IN.IND,IND,278,1.79,4,forfeit,U,,Doctorate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1590,mizoram,2018,26,SERCHHIP,LALCHUNGLURA,parties.IN.BJP,BJP,211,1.36,5,forfeit,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1590,mizoram,2018,26,SERCHHIP,KAPLIANA PACHUAU,parties.IN.NPEP,NPEP,119,0.77,6,forfeit,U,,10th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1590,mizoram,2018,26,SERCHHIP,VANLALRUATA,parties.IN.PRISM,PRISM,29,0.19,8,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1597,mizoram,2018,27,TUIKUM,ER. LALRINAWMA,parties.IN.MNF,MNF,5439,39.85,1,won,U,,Graduate Professional,Party Worker,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1597,mizoram,2018,27,TUIKUM,SANGZELA TLAU,parties.IN.INC,INC,4042,29.62,2,lost,U,,Others,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1597,mizoram,2018,27,TUIKUM,P.C. VANLALRUATA,parties.IN.IND,IND,3810,27.92,3,lost,U,,Post Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1597,mizoram,2018,27,TUIKUM,LALNUNMAWIA CHHAKCHHUAK,parties.IN.BJP,BJP,140,1.03,4,forfeit,U,,Graduate,Self-employed,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1597,mizoram,2018,27,TUIKUM,LALRUATFELI HLAWNDO,parties.IN.IND,IND,135,0.99,5,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1597,mizoram,2018,27,TUIKUM,RC ROHMINGTHANGA,parties.IN.PRISM,PRISM,22,0.16,7,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1578,mizoram,2018,28,HRANGTURZO,LALCHAMLIANA,parties.IN.MNF,MNF,4572,35.62,1,won,U,,Post Graduate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1578,mizoram,2018,28,HRANGTURZO,VANLALAWMPUII CHAWNGTHU,parties.IN.INC,INC,3815,29.72,2,lost,U,,Post Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1578,mizoram,2018,28,HRANGTURZO,LALTHANSANGA,parties.IN.IND,IND,3766,29.34,3,lost,U,,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1578,mizoram,2018,28,HRANGTURZO,K.SANGZUALA,parties.IN.BJP,BJP,307,2.39,4,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1578,mizoram,2018,28,HRANGTURZO,LALAWMPUIA RENTHLEI,parties.IN.IND,IND,215,1.67,5,forfeit,U,,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1578,mizoram,2018,28,HRANGTURZO,RL LIANTLUANGA,parties.IN.PRISM,PRISM,111,0.86,6,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1592,mizoram,2018,29,SOUTH TUIPUI,DR R LALTHANGLIANA,parties.IN.MNF,MNF,6126,49.69,1,won,U,,Doctorate,Party Worker,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1592,mizoram,2018,29,SOUTH TUIPUI,JOHN SIAMKUNGA,parties.IN.INC,INC,4657,37.78,2,lost,U,,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1592,mizoram,2018,29,SOUTH TUIPUI,PHAIROTHANGA,parties.IN.IND,IND,1359,11.02,3,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1592,mizoram,2018,29,SOUTH TUIPUI,LALNUNPUIA,parties.IN.BJP,BJP,151,1.22,4,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1584,mizoram,2018,30,LUNGLEI NORTH,VANLALTANPUIA,parties.IN.MNF,MNF,5022,35.26,1,won,U,,Doctorate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1584,mizoram,2018,30,LUNGLEI NORTH,V MALSAWMTLUANGA,parties.IN.IND,IND,4627,32.49,2,lost,U,,Post Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1584,mizoram,2018,30,LUNGLEI NORTH,P.C. LALTHANLIANA,parties.IN.INC,INC,4466,31.36,3,lost,U,,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1584,mizoram,2018,30,LUNGLEI NORTH,RAMDINZAUVA,parties.IN.BJP,BJP,66,0.46,4,forfeit,U,,Post Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1583,mizoram,2018,31,LUNGLEI EAST,LAWMAWMA TOCHHAWNG,parties.IN.MNF,MNF,4063,32.91,1,won,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1583,mizoram,2018,31,LUNGLEI EAST,LALRINPUII,parties.IN.IND,IND,3991,32.32,2,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1583,mizoram,2018,31,LUNGLEI EAST,JOSEPH LALHIMPUIA,parties.IN.INC,INC,3836,31.07,3,lost,U,,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1583,mizoram,2018,31,LUNGLEI EAST,H.LALRUATA,parties.IN.BJP,BJP,405,3.28,4,forfeit,U,,Doctorate,Ex Minister,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1586,mizoram,2018,32,LUNGLEI WEST,C.LALRINSANGA,parties.IN.MNF,MNF,4093,34.44,1,won,U,,Graduate,Ex MLA,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1586,mizoram,2018,32,LUNGLEI WEST,CHALROSANGA RALTE,parties.IN.INC,INC,4016,33.79,2,lost,U,,Graduate,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1586,mizoram,2018,32,LUNGLEI WEST,LALNUNTLUANGA SAILO,parties.IN.IND,IND,3587,30.18,3,lost,U,,10th Pass,Contractor,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1586,mizoram,2018,32,LUNGLEI WEST,C.S.CHAWNGCHHUMA,parties.IN.BJP,BJP,142,1.19,4,forfeit,U,,Graduate,Journalist or Editor,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1585,mizoram,2018,33,LUNGLEI SOUTH,K PACHHUNGA,parties.IN.MNF,MNF,6245,43.03,1,won,U,,Doctorate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1585,mizoram,2018,33,LUNGLEI SOUTH,R LALNUNTHARA,parties.IN.INC,INC,3804,26.21,2,lost,U,,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1585,mizoram,2018,33,LUNGLEI SOUTH,REV DR K THANZAUVA,parties.IN.IND,IND,3492,24.06,3,lost,U,,Doctorate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1585,mizoram,2018,33,LUNGLEI SOUTH,DR.AICHHUNGA,parties.IN.BJP,BJP,920,6.34,4,forfeit,U,,Graduate Professional,Doctor,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1594,mizoram,2018,34,THORANG,ZODINTLUANGA RALTE,parties.IN.INC,INC,4499,40.12,1,won,U,,12th Pass,Party Worker,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1594,mizoram,2018,34,THORANG,R.ROHMINGLIANA,parties.IN.MNF,MNF,3259,29.06,2,lost,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1594,mizoram,2018,34,THORANG,JOSEPH LALZAWMLIANA,parties.IN.BJP,BJP,1629,14.53,3,forfeit,U,,Graduate,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1594,mizoram,2018,34,THORANG,LALRINZUALA,parties.IN.IND,IND,1101,9.82,4,forfeit,U,,10th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1594,mizoram,2018,34,THORANG,LALHULIANA,parties.IN.NPEP,NPEP,653,5.82,5,forfeit,U,,8th Pass,Self-employed,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1600,mizoram,2018,35,WEST TUIPUI,NIHAR KANTI CHAKMA,parties.IN.INC,INC,5943,45.83,1,won,U,,Graduate Professional,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1600,mizoram,2018,35,WEST TUIPUI,KINA RANJAN CHAKMA,parties.IN.BJP,BJP,3558,27.44,2,lost,U,,10th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1600,mizoram,2018,35,WEST TUIPUI,F ROBERT HMINGTHANSANGA,parties.IN.MNF,MNF,3243,25.01,3,lost,U,,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1600,mizoram,2018,35,WEST TUIPUI,B VANLALAUVA,parties.IN.IND,IND,103,0.79,5,forfeit,U,,Graduate,Self-employed,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1596,mizoram,2018,36,TUICHAWNG,BUDDHA DHAN CHAKMA,parties.IN.BJP,BJP,11419,43.68,1,won,U,,Graduate Professional,Doctor,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1596,mizoram,2018,36,TUICHAWNG,RASIK MOHAN CHAKMA,parties.IN.MNF,MNF,9825,37.59,2,lost,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1596,mizoram,2018,36,TUICHAWNG,KALI KUMAR TONGCHANGYA,parties.IN.INC,INC,4353,16.65,3,forfeit,U,,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1596,mizoram,2018,36,TUICHAWNG,DOYMOY DAVENG CHAKMA,parties.IN.NPEP,NPEP,250,0.96,5,forfeit,U,,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1581,mizoram,2018,37,LAWNGTLAI WEST,C. NGUNLIANCHUNGA,parties.IN.INC,INC,10678,48.88,1,won,U,,8th Pass,Party Worker,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1581,mizoram,2018,37,LAWNGTLAI WEST,C. RAMHLUNA,parties.IN.MNF,MNF,9883,45.24,2,lost,U,,Graduate Professional,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1581,mizoram,2018,37,LAWNGTLAI WEST,J.B. RUALCHHINGA,parties.IN.BJP,BJP,973,4.45,3,forfeit,U,,Graduate,Party Worker,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1581,mizoram,2018,37,LAWNGTLAI WEST,VANLALTHAA,parties.IN.IND,IND,177,0.81,4,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1580,mizoram,2018,38,LAWNGTLAI EAST,H. BIAKZAUA,parties.IN.MNF,MNF,8656,48.4,1,won,U,,Graduate,Party Worker,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1580,mizoram,2018,38,LAWNGTLAI EAST,H. ZOTHANGLIANA,parties.IN.INC,INC,7712,43.12,2,lost,U,,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1580,mizoram,2018,38,LAWNGTLAI EAST,VANUPA ZATHANG,parties.IN.BJP,BJP,1086,6.07,3,forfeit,U,,Post Graduate,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1580,mizoram,2018,38,LAWNGTLAI EAST,MC. LALRAMCHHANA,parties.IN.IND,IND,209,1.17,4,forfeit,U,,12th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1580,mizoram,2018,38,LAWNGTLAI EAST,C. BIAKCHHUNGA,parties.IN.IND,IND,164,0.92,5,forfeit,U,,Graduate,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1589,mizoram,2018,39,SAIHA,DR. K. BEICHHUA,parties.IN.MNF,MNF,8109,49.82,1,won,U,,Graduate Professional,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1589,mizoram,2018,39,SAIHA,S. HIATO,parties.IN.INC,INC,5641,34.66,2,lost,U,,Graduate,Party Worker,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1589,mizoram,2018,39,SAIHA,S. VADYU,parties.IN.BJP,BJP,2315,14.22,3,forfeit,U,,Post Graduate,Party Worker,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1589,mizoram,2018,39,SAIHA,F. THANGCHHUAHA,parties.IN.IND,IND,171,1.05,4,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1588,mizoram,2018,40,PALAK,K.T. ROKHAW,parties.IN.INC,INC,5492,37.44,1,won,U,,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1588,mizoram,2018,40,PALAK,M. CHAKHU,parties.IN.MNF,MNF,4648,31.68,2,lost,U,,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1588,mizoram,2018,40,PALAK,HIPHEI,parties.IN.BJP,BJP,4431,30.2,3,lost,U,,10th Pass,Ex MLA,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1588,mizoram,2018,40,PALAK,S. SATHLU,parties.IN.IND,IND,59,0.4,4,forfeit,U,,8th Pass,,challenger,src-1b7bc1c9d39a,minor,

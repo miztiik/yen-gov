@@ -1,6 +1,6 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-meghalaya-12,meghalaya,2000,12,MAIRANG(ST),Rasor Rani,parties.IN.UDP,UDP,6994,42,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-12,meghalaya,2000,12,MAIRANG(ST),Fuller Lyngdoh Mawnai,parties.IN.HSPDP,HPDP,5200,31.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-12,meghalaya,2000,12,MAIRANG(ST),Steamer M. Syiem,parties.IN.NCP,NCP,3921,23.55,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-12,meghalaya,2000,12,MAIRANG(ST),Kwer Manrose Nongsiej,parties.IN.INC,INC,490,2.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-meghalaya-12,meghalaya,2000,12,MAIRANG(ST),Nit Shabong,parties.IN.IND,IND,46,0.28,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-meghalaya-12,meghalaya,2000,12,MAIRANG(ST),Rasor Rani,parties.IN.UDP,UDP,6994,42,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-12,meghalaya,2000,12,MAIRANG(ST),Fuller Lyngdoh Mawnai,parties.IN.HSPDP,HPDP,5200,31.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-12,meghalaya,2000,12,MAIRANG(ST),Steamer M. Syiem,parties.IN.NCP,NCP,3921,23.55,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-12,meghalaya,2000,12,MAIRANG(ST),Kwer Manrose Nongsiej,parties.IN.INC,INC,490,2.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-12,meghalaya,2000,12,MAIRANG(ST),Nit Shabong,parties.IN.IND,IND,46,0.28,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

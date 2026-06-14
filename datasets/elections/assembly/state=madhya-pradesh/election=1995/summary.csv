@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-1976-madhya-pradesh-137,madhya-pradesh,1995,SARAIPALI,116426,74697,64.16,D.B. Singh,parties.IN.BJP,BJP,42512,56.91,Amar Bagga,parties.IN.BJP,BJP,32185,10327,13.82,src-1b7bc1c9d39a
-IN-AC-1976-madhya-pradesh-174,madhya-pradesh,1995,KHAIRAGARH,114120,60034,52.61,Devbrat Singh,parties.IN.INC,INC,39334,65.52,Hemant,parties.IN.BJP,BJP,20700,18634,31.04,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-1976-madhya-pradesh-137,madhya-pradesh,1995,SARAIPALI,116426,74697,64.16,D.B. Singh,parties.IN.BJP,BJP,42512,56.91,Amar Bagga,parties.IN.BJP,BJP,32185,10327,13.82,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-174,madhya-pradesh,1995,KHAIRAGARH,114120,60034,52.61,Devbrat Singh,parties.IN.INC,INC,39334,65.52,Hemant,parties.IN.BJP,BJP,20700,18634,31.04,src-1b7bc1c9d39a,minor,

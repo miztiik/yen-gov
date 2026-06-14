@@ -1,3 +1,3 @@
-entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
-IN-AC-2008-punjab-182,punjab,2014,TALWANDI SABO,132671,118110,89.02,Jeetmohinder Singh Sidhu,parties.IN.SKD,SKD,71747,60.75,Harminder Singh Jassi,parties.IN.INC,INC,25105,46642,39.49,src-1b7bc1c9d39a
-IN-AC-2008-punjab-258,punjab,2014,PATIALA,140314,88947,63.39,Preneet Kaur (W),parties.IN.INC,INC,52967,59.55,Bhagwan Dass Juneja,parties.IN.SAK,SAK,29685,23282,26.18,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
+IN-AC-2008-punjab-182,punjab,2014,TALWANDI SABO,132671,118110,89.02,Jeetmohinder Singh Sidhu,parties.IN.SKD,SKD,71747,60.75,Harminder Singh Jassi,parties.IN.INC,INC,25105,46642,39.49,src-1b7bc1c9d39a,minor,
+IN-AC-2008-punjab-258,punjab,2014,PATIALA,140314,88947,63.39,Preneet Kaur (W),parties.IN.INC,INC,52967,59.55,Bhagwan Dass Juneja,parties.IN.SAK,SAK,29685,23282,26.18,src-1b7bc1c9d39a,minor,

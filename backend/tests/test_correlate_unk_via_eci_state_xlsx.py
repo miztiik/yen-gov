@@ -120,6 +120,8 @@ def _write_candidacies_csv(
         "profession",
         "candidate_type",
         "source_id",
+        "processing_level",
+        "processing_note",
     ]
     defaults = {
         "entity_id": "IN-AC-2008-fixture",
@@ -133,6 +135,8 @@ def _write_candidacies_csv(
         "profession": "Self",
         "candidate_type": "challenger",
         "source_id": "src-fixture",
+        "processing_level": "minor",
+        "processing_note": "",
     }
     with path.open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fieldnames, lineterminator="\n")

@@ -1,13 +1,13 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-2008-manipur-1531,manipur,2020,22,WANGOI,Oinam Lukhoi Singh,parties.IN.BJP,BJP,10960,40.07,1,won,M,45,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1531,manipur,2020,22,WANGOI,Khuraijam Loken Singh,parties.IN.NPP,NPP,10703,39.13,2,lost,M,49,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1531,manipur,2020,22,WANGOI,Salam Joy Singh,parties.IN.INC,INC,5591,20.44,3,lost,M,46,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1514,manipur,2020,30,LILONG,Y. Antas Khan,parties.IN.IND,IND,17106,54.43,1,won,M,33,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1514,manipur,2020,30,LILONG,Mohd. Abdul Nasir,parties.IN.IND,IND,14028,44.63,2,lost,M,45,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1514,manipur,2020,30,LILONG,Md Azizul Haque Khan,parties.IN.INC,INC,142,0.45,4,forfeit,M,69,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1560,manipur,2020,34,WANGJING TENTHA,Paonam Brojen Singh,parties.IN.BJP,BJP,15321,51.73,1,won,M,54,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1560,manipur,2020,34,WANGJING TENTHA,Moirangthem Hemanta Singh,parties.IN.INC,INC,13808,46.62,2,lost,M,60,,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1560,manipur,2020,34,WANGJING TENTHA,Sarangthem Manaobi,parties.IN.IND,IND,331,1.12,3,forfeit,M,64,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1549,manipur,2020,51,SAITU,NGAMTHANG HAOKIP,parties.IN.BJP,BJP,24549,66.42,1,won,M,68,,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1549,manipur,2020,51,SAITU,LAMTINTHANG HAOKIP,parties.IN.INC,INC,12292,33.26,2,lost,M,37,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-manipur-1550,manipur,2020,60,SINGHAT,GINSUANHAU,parties.IN.BJP,BJP,0,,1,won,M,61,,,incumbent,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-manipur-1531,manipur,2020,22,WANGOI,Oinam Lukhoi Singh,parties.IN.BJP,BJP,10960,40.07,1,won,M,45,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1531,manipur,2020,22,WANGOI,Khuraijam Loken Singh,parties.IN.NPP,NPP,10703,39.13,2,lost,M,49,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1531,manipur,2020,22,WANGOI,Salam Joy Singh,parties.IN.INC,INC,5591,20.44,3,lost,M,46,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1514,manipur,2020,30,LILONG,Y. Antas Khan,parties.IN.IND,IND,17106,54.43,1,won,M,33,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1514,manipur,2020,30,LILONG,Mohd. Abdul Nasir,parties.IN.IND,IND,14028,44.63,2,lost,M,45,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1514,manipur,2020,30,LILONG,Md Azizul Haque Khan,parties.IN.INC,INC,142,0.45,4,forfeit,M,69,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1560,manipur,2020,34,WANGJING TENTHA,Paonam Brojen Singh,parties.IN.BJP,BJP,15321,51.73,1,won,M,54,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1560,manipur,2020,34,WANGJING TENTHA,Moirangthem Hemanta Singh,parties.IN.INC,INC,13808,46.62,2,lost,M,60,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1560,manipur,2020,34,WANGJING TENTHA,Sarangthem Manaobi,parties.IN.IND,IND,331,1.12,3,forfeit,M,64,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1549,manipur,2020,51,SAITU,NGAMTHANG HAOKIP,parties.IN.BJP,BJP,24549,66.42,1,won,M,68,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1549,manipur,2020,51,SAITU,LAMTINTHANG HAOKIP,parties.IN.INC,INC,12292,33.26,2,lost,M,37,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-manipur-1550,manipur,2020,60,SINGHAT,GINSUANHAU,parties.IN.BJP,BJP,0,,1,won,M,61,,,incumbent,src-1b7bc1c9d39a,minor,

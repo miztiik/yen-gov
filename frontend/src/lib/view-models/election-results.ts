@@ -198,6 +198,20 @@ export interface ElectionResultRow {
    *  the column will start surfacing SC / ST verbatim with zero code
    *  changes. Projected at every scope. */
   reservation: "GEN" | "SC" | "ST";
+
+  /** OWID-aligned data-quality vocabulary. `"minor"` when the row was
+   *  ingested with mechanical processing only (parsed / normalised /
+   *  schema-conformed); `"major"` when a curator decision is recorded
+   *  on the row - currently the parties.IN.UNK fall-through and the
+   *  Bihar 2000 BJC / KSP TCPD disambiguation. See
+   *  [docs/concepts/data-quality.md](../../../../docs/concepts/data-quality.md).
+   *  Optional today - the loaders project the column when present and
+   *  citizen-facing surfaces light up in the follow-up UI PR. */
+  processing_level?: "minor" | "major";
+  /** Free-text rationale paired with `processing_level === "major"`.
+   *  Empty / null when `processing_level === "minor"`. The UI surfaces
+   *  this string verbatim in the source-pill expander. */
+  processing_note?: string | null;
 }
 
 /** Infer the election body from the event id / slug. */

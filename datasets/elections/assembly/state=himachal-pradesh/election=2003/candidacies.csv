@@ -1,409 +1,409 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1976-himachal-pradesh-1,himachal-pradesh,2003,1,KINNAUR,JAGAT SINGH,parties.IN.INC,INC,19052,54.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-1,himachal-pradesh,2003,1,KINNAUR,TEJWANT SINGH,parties.IN.BJP,BJP,11646,33.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-1,himachal-pradesh,2003,1,KINNAUR,S.C.NEGI,parties.IN.HVC,HVC,2728,7.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-1,himachal-pradesh,2003,1,KINNAUR,SUKH DEV,parties.IN.CPIM,CPM,1638,4.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-2,himachal-pradesh,2003,2,RAMPUR,SINGHI RAM,parties.IN.INC,INC,27757,65.83,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-2,himachal-pradesh,2003,2,RAMPUR,BRIJ LAL,parties.IN.BJP,BJP,10510,24.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-2,himachal-pradesh,2003,2,RAMPUR,GURDYAL,parties.IN.CPIM,CPM,2202,5.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-2,himachal-pradesh,2003,2,RAMPUR,BRESI LAL,parties.IN.SP,SP,1698,4.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-3,himachal-pradesh,2003,3,ROHRU,VIRBHADRA SINGH,parties.IN.INC,INC,32617,68.03,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-3,himachal-pradesh,2003,3,ROHRU,KHUSHI RAM BALNAHTA,parties.IN.BJP,BJP,15328,31.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-4,himachal-pradesh,2003,4,JUBBAL-KOTKHAI,ROHIT THAKUR,parties.IN.INC,INC,21884,54.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-4,himachal-pradesh,2003,4,JUBBAL-KOTKHAI,NARINDER SINGH,parties.IN.BJP,BJP,15040,37.26,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-4,himachal-pradesh,2003,4,JUBBAL-KOTKHAI,RAJPAL SINGH,parties.IN.HVC,HVC,1817,4.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-4,himachal-pradesh,2003,4,JUBBAL-KOTKHAI,INDER SINGH,parties.IN.LMHP,LMHP,1621,4.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-5,himachal-pradesh,2003,5,CHOPAL,SUBHASH CHAND,parties.IN.IND,IND,10910,28.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-5,himachal-pradesh,2003,5,CHOPAL,YOGENDRA CHANDRA,parties.IN.INC,INC,8339,21.46,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-5,himachal-pradesh,2003,5,CHOPAL,SANJAY SHASHTRI,parties.IN.BJP,BJP,6919,17.81,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-5,himachal-pradesh,2003,5,CHOPAL,ARUN KUMAR,parties.IN.IND,IND,6646,17.11,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-5,himachal-pradesh,2003,5,CHOPAL,PRATAP SINGH,parties.IN.IND,IND,4569,11.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-5,himachal-pradesh,2003,5,CHOPAL,ANANT RAM,parties.IN.NCP,NCP,666,1.71,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-5,himachal-pradesh,2003,5,CHOPAL,DALBIR SINGH,parties.IN.SP,SP,534,1.37,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-5,himachal-pradesh,2003,5,CHOPAL,RAMESH CHAND,parties.IN.LJNSP,LJNSP,269,0.69,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-6,himachal-pradesh,2003,6,KUMARSAIN,VIDYA STOKES,parties.IN.INC,INC,17600,43.06,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-6,himachal-pradesh,2003,6,KUMARSAIN,PARMOD KUMAR SHARMA,parties.IN.IND,IND,13329,32.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-6,himachal-pradesh,2003,6,KUMARSAIN,SANDEEP KUMAR,parties.IN.BJP,BJP,8173,20,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-6,himachal-pradesh,2003,6,KUMARSAIN,BHAGAT RAM CHAUHAN,parties.IN.HVC,HVC,1772,4.34,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-7,himachal-pradesh,2003,7,THEOG,RAKESH VERMA,parties.IN.IND,IND,19869,46.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-7,himachal-pradesh,2003,7,THEOG,RAJINDER VERMA,parties.IN.INC,INC,16510,38.47,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-7,himachal-pradesh,2003,7,THEOG,GIAN SINGH CHANDEL,parties.IN.BJP,BJP,3743,8.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-7,himachal-pradesh,2003,7,THEOG,COL. DAULAT SINGH NAGAIK,parties.IN.HVC,HVC,1446,3.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-7,himachal-pradesh,2003,7,THEOG,CHANDAN JOGI,parties.IN.LJNSP,LJNSP,1348,3.14,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-8,himachal-pradesh,2003,8,SIMLA,HARBHAJAN SINGH BHAJJI,parties.IN.INC,INC,12060,38.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-8,himachal-pradesh,2003,8,SIMLA,SANJAY CHAUHAN,parties.IN.CPIM,CPM,9949,31.47,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-8,himachal-pradesh,2003,8,SIMLA,GANESH DUTT,parties.IN.BJP,BJP,9283,29.36,3,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-8,himachal-pradesh,2003,8,SIMLA,DES RAJ SHARMA,parties.IN.IND,IND,323,1.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-9,himachal-pradesh,2003,9,KASUMPTI,SOHAN LAL,parties.IN.IND,IND,16972,36.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-9,himachal-pradesh,2003,9,KASUMPTI,ROOP DASS KASHYAP,parties.IN.BJP,BJP,13487,28.94,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-9,himachal-pradesh,2003,9,KASUMPTI,CHIRANJIV LAL,parties.IN.INC,INC,9652,20.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-9,himachal-pradesh,2003,9,KASUMPTI,TARSEM BHARATI,parties.IN.HVC,HVC,5667,12.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-9,himachal-pradesh,2003,9,KASUMPTI,PAPINDER SINGH,parties.IN.IND,IND,303,0.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-9,himachal-pradesh,2003,9,KASUMPTI,CHET RAM KASHYAP,parties.IN.IND,IND,301,0.65,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-9,himachal-pradesh,2003,9,KASUMPTI,RAVI BHUSHAN CHAUHAN,parties.IN.IND,IND,224,0.48,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,DHARAM PAL THAKUR,parties.IN.INC,INC,15933,40.06,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,GOVIND RAM SHARMA,parties.IN.BJP,BJP,14890,37.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,GURDAS RAM,parties.IN.IND,IND,3694,9.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,VISHAL SHARMA,parties.IN.HVC,HVC,1205,3.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,RAM CHAND PAL,parties.IN.IND,IND,1069,2.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,SURAT RAM,parties.IN.IND,IND,938,2.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,KAILASH CHAND BHARGAV,parties.IN.IND,IND,501,1.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,JEET RAM,parties.IN.IND,IND,440,1.11,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,VIRENDER SHARMA,parties.IN.IND,IND,404,1.02,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,KANTA CHANDEL,parties.IN.SP,SP,206,0.52,10,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,VIJAY SINGH CHAUHAN,parties.IN.IND,IND,203,0.51,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,POONAM SHARMA,parties.IN.IND,IND,178,0.45,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,DIWAKAR SHARMA,parties.IN.IND,IND,116,0.29,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-11,himachal-pradesh,2003,11,DOON,LAJJA RAM,parties.IN.INC,INC,17297,36.29,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-11,himachal-pradesh,2003,11,DOON,VINOD KUMARI,parties.IN.LMHP,LMHP,14877,31.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-11,himachal-pradesh,2003,11,DOON,DHIAN SINGH,parties.IN.BJP,BJP,8278,17.37,3,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-11,himachal-pradesh,2003,11,DOON,AMAR NATH KAUSHAL,parties.IN.HVC,HVC,5659,11.87,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-11,himachal-pradesh,2003,11,DOON,RAMJAN MOHAMMAD,parties.IN.CPI,CPI,786,1.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-11,himachal-pradesh,2003,11,DOON,HARI RAM KAUSHAL,parties.IN.IND,IND,761,1.6,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-12,himachal-pradesh,2003,12,NALAGARH,HARI NARAIAN SINGH,parties.IN.BJP,BJP,22892,42.22,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-12,himachal-pradesh,2003,12,NALAGARH,SUKRITI KUMARI,parties.IN.INC,INC,19809,36.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-12,himachal-pradesh,2003,12,NALAGARH,LAKHVINDER SINGH RANA,parties.IN.IND,IND,11515,21.24,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-13,himachal-pradesh,2003,13,KASAULI,RAGHU RAJ,parties.IN.INC,INC,17886,46.39,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-13,himachal-pradesh,2003,13,KASAULI,VIRENDER KASHYAP,parties.IN.BJP,BJP,14127,36.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-13,himachal-pradesh,2003,13,KASAULI,VINOD KUMAR,parties.IN.HVC,HVC,3491,9.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-13,himachal-pradesh,2003,13,KASAULI,JAI RAM,parties.IN.IND,IND,1545,4.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-13,himachal-pradesh,2003,13,KASAULI,KIRAN BALA,parties.IN.BSP,BSP,766,1.99,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-13,himachal-pradesh,2003,13,KASAULI,BACHAN SINGH,parties.IN.IND,IND,390,1.01,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-13,himachal-pradesh,2003,13,KASAULI,SHAKUN CHOUHAN,parties.IN.SP,SP,352,0.91,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2003,14,SOLAN,DR. RAJEEV BINDAL,parties.IN.BJP,BJP,15332,34.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2003,14,SOLAN,MOHINDER NATH SOFAT,parties.IN.IND,IND,13973,31.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2003,14,SOLAN,MAJOR KRISHNA MOHINI,parties.IN.INC,INC,10665,23.81,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2003,14,SOLAN,MOHINDER SHARMA,parties.IN.HVC,HVC,2742,6.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2003,14,SOLAN,HAMINDER SINGH THAKUR,parties.IN.LMHP,LMHP,1576,3.52,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2003,14,SOLAN,C.R.THAKUR,parties.IN.NCP,NCP,254,0.57,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2003,14,SOLAN,DHARMINDER KUMAR,parties.IN.IND,IND,170,0.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2003,14,SOLAN,JITENDER KUMAR,parties.IN.IND,IND,88,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-15,himachal-pradesh,2003,15,PACHHAD,GANGU RAM MUSAFIR,parties.IN.INC,INC,21671,49.31,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-15,himachal-pradesh,2003,15,PACHHAD,RAM PRAKASH,parties.IN.BJP,BJP,20385,46.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-15,himachal-pradesh,2003,15,PACHHAD,SURINDER SINGH,parties.IN.IND,IND,1890,4.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-16,himachal-pradesh,2003,16,RAINKA,DR. PREM SINGH,parties.IN.INC,INC,19948,54.95,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-16,himachal-pradesh,2003,16,RAINKA,BALBIR SINGH,parties.IN.BJP,BJP,13614,37.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-16,himachal-pradesh,2003,16,RAINKA,MADHU RAM,parties.IN.HVC,HVC,1079,2.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-16,himachal-pradesh,2003,16,RAINKA,GORKH RAM,parties.IN.IND,IND,969,2.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-16,himachal-pradesh,2003,16,RAINKA,MOHAN LAL AZAD,parties.IN.LJNSP,LJNSP,692,1.91,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-17,himachal-pradesh,2003,17,SHILLAI,HARSH WARDHAN,parties.IN.INC,INC,17326,44.76,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-17,himachal-pradesh,2003,17,SHILLAI,JAGAT SINGH,parties.IN.IND,IND,9902,25.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-17,himachal-pradesh,2003,17,SHILLAI,DALIP SINGH,parties.IN.BJP,BJP,8379,21.64,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-17,himachal-pradesh,2003,17,SHILLAI,SITA RAM SHARMA,parties.IN.HVC,HVC,3105,8.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-18,himachal-pradesh,2003,18,PAONTA DOON,SUKH RAM,parties.IN.BJP,BJP,22647,39.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-18,himachal-pradesh,2003,18,PAONTA DOON,KIRNESH JUNG,parties.IN.LMHP,LMHP,16785,29.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-18,himachal-pradesh,2003,18,PAONTA DOON,RATTAN SINGH,parties.IN.INC,INC,16044,28.18,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-18,himachal-pradesh,2003,18,PAONTA DOON,RAJENDER MOHAN,parties.IN.HVC,HVC,1459,2.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-19,himachal-pradesh,2003,19,NAHAN,SADANAND CHAUHAN,parties.IN.LJNSP,LJNSP,14551,34.93,1,won,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-19,himachal-pradesh,2003,19,NAHAN,KUSH PARMAR,parties.IN.INC,INC,13360,32.07,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-19,himachal-pradesh,2003,19,NAHAN,SHYAMA SHARMA,parties.IN.BJP,BJP,10079,24.2,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-19,himachal-pradesh,2003,19,NAHAN,VIRENDER SHARMA,parties.IN.HVC,HVC,1582,3.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-19,himachal-pradesh,2003,19,NAHAN,JASMAT SINGH,parties.IN.CPIM,CPM,827,1.99,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-19,himachal-pradesh,2003,19,NAHAN,DURGA RAM,parties.IN.IND,IND,740,1.78,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-19,himachal-pradesh,2003,19,NAHAN,AMAN DEEP,parties.IN.IND,IND,516,1.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-20,himachal-pradesh,2003,20,KOTKEHLOOR,THAKUR RAM LAL,parties.IN.INC,INC,19509,41.2,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-20,himachal-pradesh,2003,20,KOTKEHLOOR,RANDHEER KUMAR,parties.IN.BJP,BJP,16507,34.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-20,himachal-pradesh,2003,20,KOTKEHLOOR,KRISHAN KUMAR,parties.IN.HVC,HVC,8276,17.48,3,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-20,himachal-pradesh,2003,20,KOTKEHLOOR,DHARMENDER SINGH,parties.IN.IND,IND,1254,2.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-20,himachal-pradesh,2003,20,KOTKEHLOOR,RATTAN LAL,parties.IN.CPI,CPI,1028,2.17,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-20,himachal-pradesh,2003,20,KOTKEHLOOR,DURGA DASS,parties.IN.BSP,BSP,774,1.63,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-21,himachal-pradesh,2003,21,BILASPUR,TILAK RAJ,parties.IN.INC,INC,22868,50.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-21,himachal-pradesh,2003,21,BILASPUR,JAGAT PRAKASH NADDA,parties.IN.BJP,BJP,20142,44.84,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-21,himachal-pradesh,2003,21,BILASPUR,BALDEV SINGH THAKUR,parties.IN.HVC,HVC,1167,2.6,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-21,himachal-pradesh,2003,21,BILASPUR,NARESH KUMAR PANDIT,parties.IN.IND,IND,434,0.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-21,himachal-pradesh,2003,21,BILASPUR,DHARAM SINGH,parties.IN.LJNSP,LJNSP,308,0.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-22,himachal-pradesh,2003,22,GHUMARWIN,KARAM DEV DHARMANI,parties.IN.BJP,BJP,20609,43.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-22,himachal-pradesh,2003,22,GHUMARWIN,KASHMIR SINGH,parties.IN.INC,INC,17202,35.97,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-22,himachal-pradesh,2003,22,GHUMARWIN,GIAN CHAND RATTAN,parties.IN.HVC,HVC,8736,18.27,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-22,himachal-pradesh,2003,22,GHUMARWIN,ZULFIKAR ALI BHUTTO,parties.IN.LJNSP,LJNSP,749,1.57,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-22,himachal-pradesh,2003,22,GHUMARWIN,DHARAM SINGH,parties.IN.BSP,BSP,525,1.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-23,himachal-pradesh,2003,23,GEHARWIN,DR. BEERU RAM KISHORE,parties.IN.IND,IND,21512,47.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-23,himachal-pradesh,2003,23,GEHARWIN,RIKHI RAM KONDAL,parties.IN.BJP,BJP,19958,44.24,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-23,himachal-pradesh,2003,23,GEHARWIN,ROOP RANI,parties.IN.INC,INC,1693,3.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-23,himachal-pradesh,2003,23,GEHARWIN,DHARMINDER KUMAR,parties.IN.IND,IND,1680,3.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-23,himachal-pradesh,2003,23,GEHARWIN,RAJESH KUMAR,parties.IN.LJNSP,LJNSP,275,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-24,himachal-pradesh,2003,24,NADAUN,SUKHVINDER SINGH,parties.IN.INC,INC,14379,33.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-24,himachal-pradesh,2003,24,NADAUN,PRABHAT CHAND,parties.IN.IND,IND,9794,23.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-24,himachal-pradesh,2003,24,NADAUN,BABU RAM,parties.IN.BJP,BJP,8657,20.38,3,lost,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-24,himachal-pradesh,2003,24,NADAUN,THAKUR RAGHUBIR SINGH,parties.IN.IND,IND,8313,19.57,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-24,himachal-pradesh,2003,24,NADAUN,VIRENDER,parties.IN.LJNSP,LJNSP,647,1.52,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-24,himachal-pradesh,2003,24,NADAUN,KAVISHKA,parties.IN.HVC,HVC,437,1.03,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-24,himachal-pradesh,2003,24,NADAUN,PRITHI CHAND,parties.IN.IND,IND,259,0.61,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-25,himachal-pradesh,2003,25,HAMIRPUR,ANITA VERMA,parties.IN.INC,INC,20749,44.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-25,himachal-pradesh,2003,25,HAMIRPUR,URMIL THAKUR,parties.IN.BJP,BJP,13884,29.93,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-25,himachal-pradesh,2003,25,HAMIRPUR,NARENDER THAKUR(GUDDU),parties.IN.IND,IND,10290,22.18,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-25,himachal-pradesh,2003,25,HAMIRPUR,NARESH KUMAR(DARJI),parties.IN.IND,IND,985,2.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-25,himachal-pradesh,2003,25,HAMIRPUR,SITA RAM,parties.IN.HVC,HVC,483,1.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-26,himachal-pradesh,2003,26,BAMSAN,PREM KUMAR DHUMAL,parties.IN.BJP,BJP,29325,66.73,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-26,himachal-pradesh,2003,26,BAMSAN,KULDEEP SINGH PATHANIA,parties.IN.INC,INC,13627,31.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-26,himachal-pradesh,2003,26,BAMSAN,PIAR CHAND JASROTIA,parties.IN.IND,IND,537,1.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-26,himachal-pradesh,2003,26,BAMSAN,GOPI CHAND ATTARI,parties.IN.BSP,BSP,455,1.04,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-27,himachal-pradesh,2003,27,MEWA,ISHWAR DASS DHIMAN,parties.IN.BJP,BJP,22778,49.19,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-27,himachal-pradesh,2003,27,MEWA,SURESH KUMAR,parties.IN.INC,INC,21449,46.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-27,himachal-pradesh,2003,27,MEWA,AMIN CHAND,parties.IN.IND,IND,943,2.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-27,himachal-pradesh,2003,27,MEWA,ISHWARI DEVI,parties.IN.HVC,HVC,588,1.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-27,himachal-pradesh,2003,27,MEWA,DHANI RAM SHUKLA,parties.IN.BSP,BSP,345,0.75,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-27,himachal-pradesh,2003,27,MEWA,PARVEEN KUMAR,parties.IN.NCP,NCP,199,0.43,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-28,himachal-pradesh,2003,28,NADAUNTA,BALDEV SHARMA,parties.IN.BJP,BJP,23796,50.12,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-28,himachal-pradesh,2003,28,NADAUNTA,VIDYA KUMARI,parties.IN.INC,INC,11235,23.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-28,himachal-pradesh,2003,28,NADAUNTA,MANJIT SINGH,parties.IN.IND,IND,10568,22.26,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-28,himachal-pradesh,2003,28,NADAUNTA,RATTAN SINGH,parties.IN.IND,IND,753,1.59,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-28,himachal-pradesh,2003,28,NADAUNTA,VINOD KUMAR,parties.IN.IND,IND,601,1.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-28,himachal-pradesh,2003,28,NADAUNTA,TULSI RAM,parties.IN.IND,IND,525,1.11,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-29,himachal-pradesh,2003,29,GAGRET,KULDEEP KUMAR,parties.IN.INC,INC,23297,56.65,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-29,himachal-pradesh,2003,29,GAGRET,BALBIR SINGH,parties.IN.BJP,BJP,16119,39.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-29,himachal-pradesh,2003,29,GAGRET,TARSEM LAL,parties.IN.ABHM,ABHM,524,1.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-29,himachal-pradesh,2003,29,GAGRET,PREM DASS BHARDWAJ,parties.IN.HVC,HVC,493,1.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-29,himachal-pradesh,2003,29,GAGRET,PARKASH CHAND DHIMAN,parties.IN.NCP,NCP,353,0.86,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-29,himachal-pradesh,2003,29,GAGRET,LEKH RAJ KATNORIA,parties.IN.BSP,BSP,336,0.82,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-30,himachal-pradesh,2003,30,CHINTPURNI,RAKESH KALIA,parties.IN.INC,INC,26581,60.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-30,himachal-pradesh,2003,30,CHINTPURNI,PRAVEEN SHARMA,parties.IN.BJP,BJP,15640,35.51,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-30,himachal-pradesh,2003,30,CHINTPURNI,THAKUR RAM DASS KATWAL,parties.IN.BSP,BSP,522,1.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-30,himachal-pradesh,2003,30,CHINTPURNI,RAJENDER SHARMA,parties.IN.IND,IND,416,0.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-30,himachal-pradesh,2003,30,CHINTPURNI,COLONEL RAMESH CHAND PRASHAR,parties.IN.NCP,NCP,413,0.94,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-30,himachal-pradesh,2003,30,CHINTPURNI,AJIT KUMAR,parties.IN.SP,SP,385,0.87,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-30,himachal-pradesh,2003,30,CHINTPURNI,RAJ KUMAR JASWAL,parties.IN.ABHM,ABHM,91,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,MUKESH AGNIHOTRI,parties.IN.INC,INC,16360,32.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,JAGROOP SINGH,parties.IN.IND,IND,11336,22.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,JAI KRISHAN SHARMA,parties.IN.BJP,BJP,10634,21.39,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,VIJAY KUMAR JOSHI,parties.IN.HVC,HVC,5102,10.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,JAGJIT SINGH MANKOTIA,parties.IN.IND,IND,2588,5.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,DR.(COLONEL) SURINDRA SINGH RANA,parties.IN.NCP,NCP,1138,2.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,DR.LEKH RAJ KHANNA,parties.IN.IND,IND,1035,2.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,CH.PARMOD KUMAR,parties.IN.BSP,BSP,990,1.99,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,PREM BHATIA,parties.IN.LJNSP,LJNSP,529,1.06,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-32,himachal-pradesh,2003,32,UNA,SATPAL SINGH SATTI,parties.IN.BJP,BJP,27651,48.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-32,himachal-pradesh,2003,32,UNA,VIRENDER GAUTAM,parties.IN.INC,INC,27600,48.41,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-32,himachal-pradesh,2003,32,UNA,HEM RAJ,parties.IN.BSP,BSP,1018,1.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-32,himachal-pradesh,2003,32,UNA,KHUSHHAL SINGH SABHARWAL,parties.IN.SJP_R,SJP(R),746,1.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-33,himachal-pradesh,2003,33,KUTLEHAR,VIRENDER KUMAR,parties.IN.BJP,BJP,12380,28.83,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-33,himachal-pradesh,2003,33,KUTLEHAR,SAROJ THAKUR,parties.IN.INC,INC,8464,19.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-33,himachal-pradesh,2003,33,KUTLEHAR,RAM DASS MALANGAR,parties.IN.IND,IND,8062,18.77,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-33,himachal-pradesh,2003,33,KUTLEHAR,MAHENDER PAL,parties.IN.IND,IND,6851,15.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-33,himachal-pradesh,2003,33,KUTLEHAR,PT. DES RAJ MODGIL,parties.IN.BSP,BSP,6748,15.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-33,himachal-pradesh,2003,33,KUTLEHAR,AJAY KUMAR,parties.IN.IND,IND,436,1.02,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-34,himachal-pradesh,2003,34,NURPUR,SAT MAHAJAN,parties.IN.INC,INC,32049,53.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-34,himachal-pradesh,2003,34,NURPUR,RAKESH PATHANIA,parties.IN.BJP,BJP,22450,37.27,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-34,himachal-pradesh,2003,34,NURPUR,RANJIT SINGH BAKHSHI,parties.IN.IND,IND,2852,4.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-34,himachal-pradesh,2003,34,NURPUR,AMAR SINGH,parties.IN.BSP,BSP,984,1.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-34,himachal-pradesh,2003,34,NURPUR,NARENDER KUMAR,parties.IN.LJNSP,LJNSP,676,1.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-34,himachal-pradesh,2003,34,NURPUR,HARNAM SINGH,parties.IN.IND,IND,617,1.02,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-34,himachal-pradesh,2003,34,NURPUR,YASH PAL SINGH,parties.IN.IND,IND,447,0.74,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-34,himachal-pradesh,2003,34,NURPUR,BALBIR SINGH,parties.IN.SP,SP,169,0.28,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-35,himachal-pradesh,2003,35,GANGATH,BODH RAJ,parties.IN.INC,INC,24499,48.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-35,himachal-pradesh,2003,35,GANGATH,DES RAJ,parties.IN.BJP,BJP,22220,44.09,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-35,himachal-pradesh,2003,35,GANGATH,EX.NAIB SUBERDAR HANS RAJ JASSAL,parties.IN.BSP,BSP,1243,2.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-35,himachal-pradesh,2003,35,GANGATH,ASHOK KUMAR,parties.IN.IND,IND,832,1.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-35,himachal-pradesh,2003,35,GANGATH,SURINDER KUMAR,parties.IN.HVC,HVC,794,1.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-35,himachal-pradesh,2003,35,GANGATH,SHYAM LAL BARU,parties.IN.IND,IND,644,1.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-35,himachal-pradesh,2003,35,GANGATH,PIARA RAM,parties.IN.LJNSP,LJNSP,169,0.34,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-36,himachal-pradesh,2003,36,JAWALI,SUJAN SINGH,parties.IN.INC,INC,27147,52.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-36,himachal-pradesh,2003,36,JAWALI,RAJAN SUSHANT,parties.IN.BJP,BJP,21314,40.84,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-36,himachal-pradesh,2003,36,JAWALI,KRISHAN KUMAR,parties.IN.HVC,HVC,2452,4.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-36,himachal-pradesh,2003,36,JAWALI,RAJESH KUMAR,parties.IN.LJNSP,LJNSP,526,1.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-36,himachal-pradesh,2003,36,JAWALI,RATTAN CHAND,parties.IN.BSP,BSP,409,0.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-36,himachal-pradesh,2003,36,JAWALI,VINOD KUMAR,parties.IN.SP,SP,337,0.65,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2003,37,GULER,CHANDER KUMAR,parties.IN.INC,INC,21936,54.49,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2003,37,GULER,HARBANS SINGH,parties.IN.BJP,BJP,16002,39.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2003,37,GULER,JOGINDER SINGH PATHANIA,parties.IN.SP,SP,903,2.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2003,37,GULER,AZAD KUMAR,parties.IN.CPI,CPI,495,1.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2003,37,GULER,MALOOK SINGH,parties.IN.NCP,NCP,350,0.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2003,37,GULER,PAWAN KUMAR,parties.IN.LJNSP,LJNSP,319,0.79,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2003,37,GULER,RAM RATTAN,parties.IN.BSP,BSP,249,0.62,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-38,himachal-pradesh,2003,38,JASWAN,BIKRAM SINGH,parties.IN.BJP,BJP,17180,47.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-38,himachal-pradesh,2003,38,JASWAN,VIPLOVE THAKUR,parties.IN.INC,INC,14994,41.28,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-38,himachal-pradesh,2003,38,JASWAN,RAMEL SINGH,parties.IN.LJNSP,LJNSP,2445,6.73,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-38,himachal-pradesh,2003,38,JASWAN,GOKAL,parties.IN.HVC,HVC,667,1.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-38,himachal-pradesh,2003,38,JASWAN,PAWAN KUMAR,parties.IN.BSP,BSP,656,1.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-38,himachal-pradesh,2003,38,JASWAN,KUSH RAJ SINGH,parties.IN.NCP,NCP,381,1.05,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-39,himachal-pradesh,2003,39,PRAGPUR,NAVEEN DHIMAN,parties.IN.IND,IND,16585,40.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-39,himachal-pradesh,2003,39,PRAGPUR,YOG RAJ,parties.IN.IND,IND,12359,29.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-39,himachal-pradesh,2003,39,PRAGPUR,PARDEEP KUMAR,parties.IN.INC,INC,5749,13.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-39,himachal-pradesh,2003,39,PRAGPUR,ANITA KUMARI SANDAL,parties.IN.BJP,BJP,2683,6.51,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-39,himachal-pradesh,2003,39,PRAGPUR,PRITAM CHAND SHERIA,parties.IN.HVC,HVC,2656,6.44,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-39,himachal-pradesh,2003,39,PRAGPUR,SURINDER PAL SINGH,parties.IN.LJNSP,LJNSP,720,1.75,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-39,himachal-pradesh,2003,39,PRAGPUR,BALDEV RAJ,parties.IN.IND,IND,463,1.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,RAMESH CHAND,parties.IN.BJP,BJP,22459,50.31,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,SANJAY RATTAN,parties.IN.IND,IND,8730,19.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,KEWAL SINGH PATHANIA,parties.IN.INC,INC,7786,17.44,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,GULZAR MOHAMMAD,parties.IN.HVC,HVC,1393,3.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,KUSHAL SINGH,parties.IN.IND,IND,1254,2.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,KISHAN PARMAR,parties.IN.SP,SP,1123,2.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,MOHINDER KUMAR,parties.IN.BSP,BSP,515,1.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,VIJAY KUMAR,parties.IN.IND,IND,508,1.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,PIARE LAL,parties.IN.LJNSP,LJNSP,346,0.78,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,KARAM CHAND KANGA,parties.IN.IND,IND,343,0.77,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,KESHAV DUTT,parties.IN.NCP,NCP,186,0.42,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-41,himachal-pradesh,2003,41,THURAL,RAVINDER SINGH,parties.IN.BJP,BJP,19278,50.14,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-41,himachal-pradesh,2003,41,THURAL,JAGDISH CHAND SEPEHIA,parties.IN.INC,INC,16467,42.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-41,himachal-pradesh,2003,41,THURAL,BALWANT SINGH,parties.IN.IND,IND,1774,4.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-41,himachal-pradesh,2003,41,THURAL,DINESH KUMAR,parties.IN.BSP,BSP,574,1.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-41,himachal-pradesh,2003,41,THURAL,MANIKYA DEV CHAND,parties.IN.SP,SP,357,0.93,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-42,himachal-pradesh,2003,42,RAJGIR,ATMA RAM,parties.IN.BJP,BJP,15018,41.83,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-42,himachal-pradesh,2003,42,RAJGIR,DR.MILKHI RAM GOMA,parties.IN.INC,INC,13763,38.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-42,himachal-pradesh,2003,42,RAJGIR,PRITAM CHAND,parties.IN.IND,IND,6005,16.72,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-42,himachal-pradesh,2003,42,RAJGIR,UTTAM SINGH,parties.IN.SP,SP,451,1.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-42,himachal-pradesh,2003,42,RAJGIR,PARKASH CHAND,parties.IN.HVC,HVC,440,1.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-42,himachal-pradesh,2003,42,RAJGIR,SUDESH KUMARI,parties.IN.LJNSP,LJNSP,229,0.64,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,SUDHIR SHARMA,parties.IN.INC,INC,22371,53.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,DULO RAM,parties.IN.BJP,BJP,16132,38.87,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,KASHMIR SINGH,parties.IN.BSP,BSP,715,1.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,BABA DHUNI NATH JI,parties.IN.LJNSP,LJNSP,557,1.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,RAJESH KUMAR,parties.IN.HVC,HVC,508,1.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,MILAP CHAND,parties.IN.IND,IND,421,1.01,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,MEDA RAM,parties.IN.LMHP,LMHP,421,1.01,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,JAGDISH CHAND,parties.IN.CPI,CPI,221,0.53,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,DHANI RAM,parties.IN.IND,IND,161,0.39,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,BRIJ BEHARI LAL,parties.IN.INC,INC,24333,53.8,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,PARVEEN KUMAR,parties.IN.BJP,BJP,17090,37.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,RAMESH BHAU,parties.IN.IND,IND,734,1.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,GOPAL CHAND,parties.IN.HVC,HVC,731,1.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,KAMLESH KUMARI,parties.IN.BSP,BSP,666,1.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,AJIT KUMAR,parties.IN.LJNSP,LJNSP,631,1.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,JAGDISH RAM,parties.IN.NCP,NCP,385,0.85,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,SUNITABEN JASHUBHAI PATEL,parties.IN.SP,SP,296,0.65,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,KAPOOR CHAND,parties.IN.IND,IND,264,0.58,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,ANIL KUMAR,parties.IN.IND,IND,95,0.21,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-45,himachal-pradesh,2003,45,SULAH,JAGJIWAN PAUL,parties.IN.INC,INC,23851,63.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-45,himachal-pradesh,2003,45,SULAH,BIPAN SINGH PARMAR,parties.IN.BJP,BJP,12921,34.16,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-45,himachal-pradesh,2003,45,SULAH,KULDEEP SINGH,parties.IN.IND,IND,353,0.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-45,himachal-pradesh,2003,45,SULAH,JOGINDER SINGH,parties.IN.BSP,BSP,321,0.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-45,himachal-pradesh,2003,45,SULAH,JAGROOP SINGH,parties.IN.LJNSP,LJNSP,268,0.71,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-45,himachal-pradesh,2003,45,SULAH,RAM DEV,parties.IN.SP,SP,106,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-46,himachal-pradesh,2003,46,NAGROTA,G.S. BALI,parties.IN.INC,INC,27925,57.65,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-46,himachal-pradesh,2003,46,NAGROTA,CH.RAM CHAND BHATIA,parties.IN.BJP,BJP,17531,36.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-46,himachal-pradesh,2003,46,NAGROTA,RAMESH KUMAR,parties.IN.HVC,HVC,835,1.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-46,himachal-pradesh,2003,46,NAGROTA,CHANDU LAL,parties.IN.BSP,BSP,534,1.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-46,himachal-pradesh,2003,46,NAGROTA,MULAKH RAJ,parties.IN.LJNSP,LJNSP,421,0.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-46,himachal-pradesh,2003,46,NAGROTA,SHAKTI CHAND CHAUDHARY,parties.IN.IND,IND,416,0.86,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-46,himachal-pradesh,2003,46,NAGROTA,SUSHMA BEHL,parties.IN.SP,SP,406,0.84,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-46,himachal-pradesh,2003,46,NAGROTA,BIKRAM SINGH,parties.IN.NCP,NCP,370,0.76,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-47,himachal-pradesh,2003,47,SHAHPUR,MAJOR VIJAY SINGH MANKOTIA,parties.IN.INC,INC,24572,50.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-47,himachal-pradesh,2003,47,SHAHPUR,SARVEEN CHAUDHARY,parties.IN.BJP,BJP,20276,41.61,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-47,himachal-pradesh,2003,47,SHAHPUR,KAMAL KISHORE,parties.IN.IND,IND,2837,5.82,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-47,himachal-pradesh,2003,47,SHAHPUR,RAM SWAROOP,parties.IN.SP,SP,636,1.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-47,himachal-pradesh,2003,47,SHAHPUR,SUNIL DUTT,parties.IN.HVC,HVC,407,0.84,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-48,himachal-pradesh,2003,48,DHARAMSALA,CHANDRESH KUMARI,parties.IN.INC,INC,22181,52.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-48,himachal-pradesh,2003,48,DHARAMSALA,KISHAN KAPOOR,parties.IN.BJP,BJP,17063,40.03,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-48,himachal-pradesh,2003,48,DHARAMSALA,RAM SWAROOP,parties.IN.HVC,HVC,2473,5.8,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-48,himachal-pradesh,2003,48,DHARAMSALA,UTTAM KAPOOR,parties.IN.IND,IND,423,0.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-48,himachal-pradesh,2003,48,DHARAMSALA,JASWANT SINGH,parties.IN.SP,SP,246,0.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-48,himachal-pradesh,2003,48,DHARAMSALA,SUDESH KUMAR,parties.IN.LJNSP,LJNSP,237,0.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-49,himachal-pradesh,2003,49,KANGRA,SURINDER KUMAR,parties.IN.INC,INC,18836,38.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-49,himachal-pradesh,2003,49,KANGRA,RATTAN LAL JAGTAMBA,parties.IN.BJP,BJP,13803,28.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-49,himachal-pradesh,2003,49,KANGRA,CHAUDHARY VIDYA SAGAR,parties.IN.IND,IND,9882,20.41,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-49,himachal-pradesh,2003,49,KANGRA,DAULAT RAM,parties.IN.HVC,HVC,3118,6.44,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-49,himachal-pradesh,2003,49,KANGRA,HIMAL CHAND,parties.IN.CPI,CPI,1517,3.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-49,himachal-pradesh,2003,49,KANGRA,DEEPAK KUMAR,parties.IN.ABHM,ABHM,488,1.01,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-49,himachal-pradesh,2003,49,KANGRA,DHARMENDER KUMAR,parties.IN.LJNSP,LJNSP,478,0.99,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-49,himachal-pradesh,2003,49,KANGRA,PUSHPA DEVI,parties.IN.NCP,NCP,297,0.61,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-50,himachal-pradesh,2003,50,BHATTIYAT,KULDIP SINGH PATHANIA,parties.IN.IND,IND,13948,34.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-50,himachal-pradesh,2003,50,BHATTIYAT,BHUPINDER SINGH CHAUHAN,parties.IN.IND,IND,11722,29.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-50,himachal-pradesh,2003,50,BHATTIYAT,KISHORI LAL,parties.IN.BJP,BJP,7957,19.71,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-50,himachal-pradesh,2003,50,BHATTIYAT,SHIV KUMAR,parties.IN.INC,INC,6744,16.71,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-51,himachal-pradesh,2003,51,BANIKHET,ASHA KUMARI,parties.IN.INC,INC,24348,47.24,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-51,himachal-pradesh,2003,51,BANIKHET,RENU CHADHA,parties.IN.BJP,BJP,23488,45.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-51,himachal-pradesh,2003,51,BANIKHET,RAJENDER KUMAR,parties.IN.CPI,CPI,1266,2.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-51,himachal-pradesh,2003,51,BANIKHET,BIAS DEV,parties.IN.IND,IND,1021,1.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-51,himachal-pradesh,2003,51,BANIKHET,SHAUKAT ALI,parties.IN.HVC,HVC,644,1.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-51,himachal-pradesh,2003,51,BANIKHET,HEM RAJ,parties.IN.SP,SP,475,0.92,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-51,himachal-pradesh,2003,51,BANIKHET,BODH RAJ RANA,parties.IN.IND,IND,304,0.59,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-52,himachal-pradesh,2003,52,RAJNAGAR,SURINDER BHARDWAJ,parties.IN.INC,INC,20613,48.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-52,himachal-pradesh,2003,52,RAJNAGAR,MOHAN LAL,parties.IN.BJP,BJP,17301,40.65,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-52,himachal-pradesh,2003,52,RAJNAGAR,NAND KUMAR,parties.IN.HVC,HVC,2186,5.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-52,himachal-pradesh,2003,52,RAJNAGAR,AJAY KUMAR,parties.IN.IND,IND,1478,3.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-52,himachal-pradesh,2003,52,RAJNAGAR,KARAM SINGH,parties.IN.LJNSP,LJNSP,987,2.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-53,himachal-pradesh,2003,53,CHAMBA,HARSH MAHAJAN,parties.IN.INC,INC,21829,50.04,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-53,himachal-pradesh,2003,53,CHAMBA,B.K.CHAUHAN,parties.IN.BJP,BJP,19642,45.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-53,himachal-pradesh,2003,53,CHAMBA,CHANDRA MANI,parties.IN.IND,IND,850,1.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-53,himachal-pradesh,2003,53,CHAMBA,NAND LAL,parties.IN.LJNSP,LJNSP,654,1.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-53,himachal-pradesh,2003,53,CHAMBA,D.P.MALHOTRA,parties.IN.HVC,HVC,650,1.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-54,himachal-pradesh,2003,54,BHARMOUR,THAKAR SINGH,parties.IN.INC,INC,21869,61.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-54,himachal-pradesh,2003,54,BHARMOUR,TULSI RAM,parties.IN.BJP,BJP,12177,34.29,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-54,himachal-pradesh,2003,54,BHARMOUR,KARTAR SINGH,parties.IN.HVC,HVC,626,1.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-54,himachal-pradesh,2003,54,BHARMOUR,RAM PRASAD,parties.IN.SP,SP,468,1.32,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-54,himachal-pradesh,2003,54,BHARMOUR,EX.SUB.JARAM SINGH,parties.IN.IND,IND,371,1.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-55,himachal-pradesh,2003,55,LAHAUL AND SPITI,RAGHBIR SINGH,parties.IN.INC,INC,9458,56.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-55,himachal-pradesh,2003,55,LAHAUL AND SPITI,DR.RAM LAL MARKANDA,parties.IN.HVC,HVC,4690,28.11,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-55,himachal-pradesh,2003,55,LAHAUL AND SPITI,YUV RAJ BODH,parties.IN.BJP,BJP,1961,11.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-55,himachal-pradesh,2003,55,LAHAUL AND SPITI,HIRA LAL,parties.IN.IND,IND,328,1.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-55,himachal-pradesh,2003,55,LAHAUL AND SPITI,AMARJEET SINGH,parties.IN.LMHP,LMHP,122,0.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-55,himachal-pradesh,2003,55,LAHAUL AND SPITI,SHAM CHAND,parties.IN.IND,IND,55,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-55,himachal-pradesh,2003,55,LAHAUL AND SPITI,PHUNCHOG RAI,parties.IN.IND,IND,35,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-55,himachal-pradesh,2003,55,LAHAUL AND SPITI,RIGZIN,parties.IN.IND,IND,33,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-56,himachal-pradesh,2003,56,KULU,RAJ KRISHAN GOUR,parties.IN.INC,INC,21547,33.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-56,himachal-pradesh,2003,56,KULU,GOVIND SINGH THAKUR,parties.IN.IND,IND,14277,22.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-56,himachal-pradesh,2003,56,KULU,KARAN SINGH,parties.IN.BJP,BJP,13033,20.38,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-56,himachal-pradesh,2003,56,KULU,DHARAM VIR,parties.IN.IND,IND,12953,20.26,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-56,himachal-pradesh,2003,56,KULU,MASTER JAWAHAR LAL,parties.IN.BSP,BSP,1384,2.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-56,himachal-pradesh,2003,56,KULU,CHARAN DASS,parties.IN.SP,SP,747,1.17,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-57,himachal-pradesh,2003,57,BANJAR,KHIMI RAM,parties.IN.BJP,BJP,30842,46.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-57,himachal-pradesh,2003,57,BANJAR,SATYA PARKASH THAKUR,parties.IN.INC,INC,26300,40.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-57,himachal-pradesh,2003,57,BANJAR,ACHHAR SINGH,parties.IN.IND,IND,6364,9.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-57,himachal-pradesh,2003,57,BANJAR,DALIP SINGH,parties.IN.LMHP,LMHP,2207,3.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-58,himachal-pradesh,2003,58,ANI,ISHWAR DASS,parties.IN.INC,INC,22978,44.46,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-58,himachal-pradesh,2003,58,ANI,TEJ RAM,parties.IN.BJP,BJP,15385,29.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-58,himachal-pradesh,2003,58,ANI,KHUB RAM ANAND,parties.IN.IND,IND,8544,16.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-58,himachal-pradesh,2003,58,ANI,DIWAN SINGH,parties.IN.HVC,HVC,1881,3.64,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-58,himachal-pradesh,2003,58,ANI,ROOP DASS,parties.IN.IND,IND,1041,2.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-58,himachal-pradesh,2003,58,ANI,BALAK RAM,parties.IN.IND,IND,801,1.55,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-58,himachal-pradesh,2003,58,ANI,BALAK RAM JOSHI,parties.IN.SP,SP,642,1.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-58,himachal-pradesh,2003,58,ANI,KEHAR SINGH,parties.IN.IND,IND,405,0.78,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-59,himachal-pradesh,2003,59,KARSOG,MAST RAM,parties.IN.INC,INC,19124,43.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-59,himachal-pradesh,2003,59,KARSOG,JOGINDER PAL,parties.IN.BJP,BJP,13213,29.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-59,himachal-pradesh,2003,59,KARSOG,MANSA RAM,parties.IN.HVC,HVC,11730,26.62,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-60,himachal-pradesh,2003,60,CHACHIOT,JAI RAM THAKUR,parties.IN.BJP,BJP,21040,43.63,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-60,himachal-pradesh,2003,60,CHACHIOT,SHIV LAL,parties.IN.HVC,HVC,13452,27.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-60,himachal-pradesh,2003,60,CHACHIOT,CHET RAM,parties.IN.INC,INC,9158,18.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-60,himachal-pradesh,2003,60,CHACHIOT,JASSI DEVI,parties.IN.LMHP,LMHP,3664,7.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-60,himachal-pradesh,2003,60,CHACHIOT,SANT RAM,parties.IN.CPI,CPI,907,1.88,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-61,himachal-pradesh,2003,61,NACHAN,TEK CHAND,parties.IN.INC,INC,17479,35.91,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-61,himachal-pradesh,2003,61,NACHAN,DILE RAM,parties.IN.BJP,BJP,15869,32.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-61,himachal-pradesh,2003,61,NACHAN,DAMODAR SINGH,parties.IN.HVC,HVC,11295,23.2,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-61,himachal-pradesh,2003,61,NACHAN,KRISHAN KUMAR,parties.IN.IND,IND,2285,4.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-61,himachal-pradesh,2003,61,NACHAN,SUNDER LAL,parties.IN.IND,IND,1448,2.97,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-61,himachal-pradesh,2003,61,NACHAN,MOTI RAM,parties.IN.IND,IND,300,0.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-62,himachal-pradesh,2003,62,SUNDERNAGAR,SOHAN LAL THAKUR,parties.IN.INC,INC,20248,54.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-62,himachal-pradesh,2003,62,SUNDERNAGAR,ROOP SINGH,parties.IN.BJP,BJP,15610,42.1,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-62,himachal-pradesh,2003,62,SUNDERNAGAR,DEVENDER KUMAR SALWANI,parties.IN.HVC,HVC,763,2.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-62,himachal-pradesh,2003,62,SUNDERNAGAR,DEVENDER SHARMA,parties.IN.IND,IND,461,1.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-63,himachal-pradesh,2003,63,BALH,DAMODAR DASS,parties.IN.BJP,BJP,18392,32.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-63,himachal-pradesh,2003,63,BALH,PRAKASH CHAUDHARY,parties.IN.HVC,HVC,18204,32.48,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-63,himachal-pradesh,2003,63,BALH,MAHANT RAM,parties.IN.IND,IND,9143,16.31,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-63,himachal-pradesh,2003,63,BALH,KASHMIR SINGH,parties.IN.INC,INC,6724,12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-63,himachal-pradesh,2003,63,BALH,LAL SINGH,parties.IN.LMHP,LMHP,1827,3.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-63,himachal-pradesh,2003,63,BALH,PRASHOTAM RAM,parties.IN.IND,IND,836,1.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-63,himachal-pradesh,2003,63,BALH,PADAM SINGH,parties.IN.IND,IND,477,0.85,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-63,himachal-pradesh,2003,63,BALH,CHAMAN LAL,parties.IN.IND,IND,451,0.8,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-64,himachal-pradesh,2003,64,GOPALPUR,RANGILA RAM RAO,parties.IN.INC,INC,20959,43.65,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-64,himachal-pradesh,2003,64,GOPALPUR,COL.INDER SINGH,parties.IN.BJP,BJP,18440,38.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-64,himachal-pradesh,2003,64,GOPALPUR,TEG SINGH THAKUR,parties.IN.HVC,HVC,5639,11.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-64,himachal-pradesh,2003,64,GOPALPUR,PARO DEVI,parties.IN.LMHP,LMHP,1094,2.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-64,himachal-pradesh,2003,64,GOPALPUR,MOTI RAM,parties.IN.IND,IND,809,1.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-64,himachal-pradesh,2003,64,GOPALPUR,VIDYA SAGAR SHARMA,parties.IN.IND,IND,680,1.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-64,himachal-pradesh,2003,64,GOPALPUR,BALBIR SINGH,parties.IN.IND,IND,283,0.59,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-64,himachal-pradesh,2003,64,GOPALPUR,DHAMESHWAR RAM,parties.IN.IND,IND,107,0.22,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-65,himachal-pradesh,2003,65,DHARAMPUR,MOHINDER SINGH,parties.IN.LMHP,LMHP,16854,37.25,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-65,himachal-pradesh,2003,65,DHARAMPUR,KARAMVIR,parties.IN.BJP,BJP,12944,28.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-65,himachal-pradesh,2003,65,DHARAMPUR,THAKUR NATHA SINGH,parties.IN.INC,INC,9702,21.44,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-65,himachal-pradesh,2003,65,DHARAMPUR,NANAK CHAND BHARDWAJ,parties.IN.HVC,HVC,3703,8.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-65,himachal-pradesh,2003,65,DHARAMPUR,SAJU RAM,parties.IN.LJNSP,LJNSP,996,2.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-65,himachal-pradesh,2003,65,DHARAMPUR,DAMODAR SINGH,parties.IN.BSP,BSP,740,1.64,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-65,himachal-pradesh,2003,65,DHARAMPUR,SURESH KUMAR,parties.IN.NCP,NCP,311,0.69,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-66,himachal-pradesh,2003,66,JOGINDER NAGAR,SURENDER PAL,parties.IN.INC,INC,24518,53.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-66,himachal-pradesh,2003,66,JOGINDER NAGAR,GULAB SINGH,parties.IN.BJP,BJP,17981,39.52,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-66,himachal-pradesh,2003,66,JOGINDER NAGAR,PREM NATH,parties.IN.LMHP,LMHP,1012,2.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-66,himachal-pradesh,2003,66,JOGINDER NAGAR,ANJNA,parties.IN.HVC,HVC,859,1.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-66,himachal-pradesh,2003,66,JOGINDER NAGAR,DUNI CHAND,parties.IN.IND,IND,565,1.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-66,himachal-pradesh,2003,66,JOGINDER NAGAR,SURENDRA PAUL,parties.IN.LJNSP,LJNSP,346,0.76,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-66,himachal-pradesh,2003,66,JOGINDER NAGAR,JAI SINGH,parties.IN.IND,IND,214,0.47,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-67,himachal-pradesh,2003,67,DARANG,KAUL SINGH,parties.IN.INC,INC,27508,51.29,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-67,himachal-pradesh,2003,67,DARANG,RAMESH CHAND,parties.IN.BJP,BJP,20668,38.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-67,himachal-pradesh,2003,67,DARANG,DINA NATH,parties.IN.HVC,HVC,3502,6.53,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-67,himachal-pradesh,2003,67,DARANG,DHARAM SINGH,parties.IN.LMHP,LMHP,1522,2.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-67,himachal-pradesh,2003,67,DARANG,PARAM DEV,parties.IN.NCP,NCP,431,0.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-68,himachal-pradesh,2003,68,MANDI,SUKH RAM,parties.IN.HVC,HVC,23816,51.89,1,won,U,,,,incumbent,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-68,himachal-pradesh,2003,68,MANDI,DURGA DUTT,parties.IN.INC,INC,11426,24.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-68,himachal-pradesh,2003,68,MANDI,KIRAN KUMARI,parties.IN.BJP,BJP,7687,16.75,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-68,himachal-pradesh,2003,68,MANDI,NARENDER KUMAR,parties.IN.LMHP,LMHP,2520,5.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1976-himachal-pradesh-68,himachal-pradesh,2003,68,MANDI,AMAR NIRGOTRA,parties.IN.IND,IND,450,0.98,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1976-himachal-pradesh-1,himachal-pradesh,2003,1,KINNAUR,JAGAT SINGH,parties.IN.INC,INC,19052,54.33,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-1,himachal-pradesh,2003,1,KINNAUR,TEJWANT SINGH,parties.IN.BJP,BJP,11646,33.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-1,himachal-pradesh,2003,1,KINNAUR,S.C.NEGI,parties.IN.HVC,HVC,2728,7.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-1,himachal-pradesh,2003,1,KINNAUR,SUKH DEV,parties.IN.CPIM,CPM,1638,4.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-2,himachal-pradesh,2003,2,RAMPUR,SINGHI RAM,parties.IN.INC,INC,27757,65.83,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-2,himachal-pradesh,2003,2,RAMPUR,BRIJ LAL,parties.IN.BJP,BJP,10510,24.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-2,himachal-pradesh,2003,2,RAMPUR,GURDYAL,parties.IN.CPIM,CPM,2202,5.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-2,himachal-pradesh,2003,2,RAMPUR,BRESI LAL,parties.IN.SP,SP,1698,4.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-3,himachal-pradesh,2003,3,ROHRU,VIRBHADRA SINGH,parties.IN.INC,INC,32617,68.03,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-3,himachal-pradesh,2003,3,ROHRU,KHUSHI RAM BALNAHTA,parties.IN.BJP,BJP,15328,31.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-4,himachal-pradesh,2003,4,JUBBAL-KOTKHAI,ROHIT THAKUR,parties.IN.INC,INC,21884,54.22,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-4,himachal-pradesh,2003,4,JUBBAL-KOTKHAI,NARINDER SINGH,parties.IN.BJP,BJP,15040,37.26,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-4,himachal-pradesh,2003,4,JUBBAL-KOTKHAI,RAJPAL SINGH,parties.IN.HVC,HVC,1817,4.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-4,himachal-pradesh,2003,4,JUBBAL-KOTKHAI,INDER SINGH,parties.IN.LMHP,LMHP,1621,4.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-5,himachal-pradesh,2003,5,CHOPAL,SUBHASH CHAND,parties.IN.IND,IND,10910,28.08,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-5,himachal-pradesh,2003,5,CHOPAL,YOGENDRA CHANDRA,parties.IN.INC,INC,8339,21.46,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-5,himachal-pradesh,2003,5,CHOPAL,SANJAY SHASHTRI,parties.IN.BJP,BJP,6919,17.81,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-5,himachal-pradesh,2003,5,CHOPAL,ARUN KUMAR,parties.IN.IND,IND,6646,17.11,4,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-5,himachal-pradesh,2003,5,CHOPAL,PRATAP SINGH,parties.IN.IND,IND,4569,11.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-5,himachal-pradesh,2003,5,CHOPAL,ANANT RAM,parties.IN.NCP,NCP,666,1.71,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-5,himachal-pradesh,2003,5,CHOPAL,DALBIR SINGH,parties.IN.SP,SP,534,1.37,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-5,himachal-pradesh,2003,5,CHOPAL,RAMESH CHAND,parties.IN.LJNSP,LJNSP,269,0.69,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-6,himachal-pradesh,2003,6,KUMARSAIN,VIDYA STOKES,parties.IN.INC,INC,17600,43.06,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-6,himachal-pradesh,2003,6,KUMARSAIN,PARMOD KUMAR SHARMA,parties.IN.IND,IND,13329,32.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-6,himachal-pradesh,2003,6,KUMARSAIN,SANDEEP KUMAR,parties.IN.BJP,BJP,8173,20,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-6,himachal-pradesh,2003,6,KUMARSAIN,BHAGAT RAM CHAUHAN,parties.IN.HVC,HVC,1772,4.34,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-7,himachal-pradesh,2003,7,THEOG,RAKESH VERMA,parties.IN.IND,IND,19869,46.3,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-7,himachal-pradesh,2003,7,THEOG,RAJINDER VERMA,parties.IN.INC,INC,16510,38.47,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-7,himachal-pradesh,2003,7,THEOG,GIAN SINGH CHANDEL,parties.IN.BJP,BJP,3743,8.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-7,himachal-pradesh,2003,7,THEOG,COL. DAULAT SINGH NAGAIK,parties.IN.HVC,HVC,1446,3.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-7,himachal-pradesh,2003,7,THEOG,CHANDAN JOGI,parties.IN.LJNSP,LJNSP,1348,3.14,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-8,himachal-pradesh,2003,8,SIMLA,HARBHAJAN SINGH BHAJJI,parties.IN.INC,INC,12060,38.15,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-8,himachal-pradesh,2003,8,SIMLA,SANJAY CHAUHAN,parties.IN.CPIM,CPM,9949,31.47,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-8,himachal-pradesh,2003,8,SIMLA,GANESH DUTT,parties.IN.BJP,BJP,9283,29.36,3,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-8,himachal-pradesh,2003,8,SIMLA,DES RAJ SHARMA,parties.IN.IND,IND,323,1.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-9,himachal-pradesh,2003,9,KASUMPTI,SOHAN LAL,parties.IN.IND,IND,16972,36.42,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-9,himachal-pradesh,2003,9,KASUMPTI,ROOP DASS KASHYAP,parties.IN.BJP,BJP,13487,28.94,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-9,himachal-pradesh,2003,9,KASUMPTI,CHIRANJIV LAL,parties.IN.INC,INC,9652,20.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-9,himachal-pradesh,2003,9,KASUMPTI,TARSEM BHARATI,parties.IN.HVC,HVC,5667,12.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-9,himachal-pradesh,2003,9,KASUMPTI,PAPINDER SINGH,parties.IN.IND,IND,303,0.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-9,himachal-pradesh,2003,9,KASUMPTI,CHET RAM KASHYAP,parties.IN.IND,IND,301,0.65,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-9,himachal-pradesh,2003,9,KASUMPTI,RAVI BHUSHAN CHAUHAN,parties.IN.IND,IND,224,0.48,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,DHARAM PAL THAKUR,parties.IN.INC,INC,15933,40.06,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,GOVIND RAM SHARMA,parties.IN.BJP,BJP,14890,37.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,GURDAS RAM,parties.IN.IND,IND,3694,9.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,VISHAL SHARMA,parties.IN.HVC,HVC,1205,3.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,RAM CHAND PAL,parties.IN.IND,IND,1069,2.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,SURAT RAM,parties.IN.IND,IND,938,2.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,KAILASH CHAND BHARGAV,parties.IN.IND,IND,501,1.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,JEET RAM,parties.IN.IND,IND,440,1.11,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,VIRENDER SHARMA,parties.IN.IND,IND,404,1.02,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,KANTA CHANDEL,parties.IN.SP,SP,206,0.52,10,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,VIJAY SINGH CHAUHAN,parties.IN.IND,IND,203,0.51,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,POONAM SHARMA,parties.IN.IND,IND,178,0.45,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-10,himachal-pradesh,2003,10,ARKI,DIWAKAR SHARMA,parties.IN.IND,IND,116,0.29,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-11,himachal-pradesh,2003,11,DOON,LAJJA RAM,parties.IN.INC,INC,17297,36.29,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-11,himachal-pradesh,2003,11,DOON,VINOD KUMARI,parties.IN.LMHP,LMHP,14877,31.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-11,himachal-pradesh,2003,11,DOON,DHIAN SINGH,parties.IN.BJP,BJP,8278,17.37,3,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-11,himachal-pradesh,2003,11,DOON,AMAR NATH KAUSHAL,parties.IN.HVC,HVC,5659,11.87,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-11,himachal-pradesh,2003,11,DOON,RAMJAN MOHAMMAD,parties.IN.CPI,CPI,786,1.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-11,himachal-pradesh,2003,11,DOON,HARI RAM KAUSHAL,parties.IN.IND,IND,761,1.6,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-12,himachal-pradesh,2003,12,NALAGARH,HARI NARAIAN SINGH,parties.IN.BJP,BJP,22892,42.22,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-12,himachal-pradesh,2003,12,NALAGARH,SUKRITI KUMARI,parties.IN.INC,INC,19809,36.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-12,himachal-pradesh,2003,12,NALAGARH,LAKHVINDER SINGH RANA,parties.IN.IND,IND,11515,21.24,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-13,himachal-pradesh,2003,13,KASAULI,RAGHU RAJ,parties.IN.INC,INC,17886,46.39,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-13,himachal-pradesh,2003,13,KASAULI,VIRENDER KASHYAP,parties.IN.BJP,BJP,14127,36.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-13,himachal-pradesh,2003,13,KASAULI,VINOD KUMAR,parties.IN.HVC,HVC,3491,9.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-13,himachal-pradesh,2003,13,KASAULI,JAI RAM,parties.IN.IND,IND,1545,4.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-13,himachal-pradesh,2003,13,KASAULI,KIRAN BALA,parties.IN.BSP,BSP,766,1.99,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-13,himachal-pradesh,2003,13,KASAULI,BACHAN SINGH,parties.IN.IND,IND,390,1.01,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-13,himachal-pradesh,2003,13,KASAULI,SHAKUN CHOUHAN,parties.IN.SP,SP,352,0.91,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2003,14,SOLAN,DR. RAJEEV BINDAL,parties.IN.BJP,BJP,15332,34.22,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2003,14,SOLAN,MOHINDER NATH SOFAT,parties.IN.IND,IND,13973,31.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2003,14,SOLAN,MAJOR KRISHNA MOHINI,parties.IN.INC,INC,10665,23.81,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2003,14,SOLAN,MOHINDER SHARMA,parties.IN.HVC,HVC,2742,6.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2003,14,SOLAN,HAMINDER SINGH THAKUR,parties.IN.LMHP,LMHP,1576,3.52,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2003,14,SOLAN,C.R.THAKUR,parties.IN.NCP,NCP,254,0.57,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2003,14,SOLAN,DHARMINDER KUMAR,parties.IN.IND,IND,170,0.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-14,himachal-pradesh,2003,14,SOLAN,JITENDER KUMAR,parties.IN.IND,IND,88,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-15,himachal-pradesh,2003,15,PACHHAD,GANGU RAM MUSAFIR,parties.IN.INC,INC,21671,49.31,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-15,himachal-pradesh,2003,15,PACHHAD,RAM PRAKASH,parties.IN.BJP,BJP,20385,46.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-15,himachal-pradesh,2003,15,PACHHAD,SURINDER SINGH,parties.IN.IND,IND,1890,4.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-16,himachal-pradesh,2003,16,RAINKA,DR. PREM SINGH,parties.IN.INC,INC,19948,54.95,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-16,himachal-pradesh,2003,16,RAINKA,BALBIR SINGH,parties.IN.BJP,BJP,13614,37.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-16,himachal-pradesh,2003,16,RAINKA,MADHU RAM,parties.IN.HVC,HVC,1079,2.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-16,himachal-pradesh,2003,16,RAINKA,GORKH RAM,parties.IN.IND,IND,969,2.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-16,himachal-pradesh,2003,16,RAINKA,MOHAN LAL AZAD,parties.IN.LJNSP,LJNSP,692,1.91,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-17,himachal-pradesh,2003,17,SHILLAI,HARSH WARDHAN,parties.IN.INC,INC,17326,44.76,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-17,himachal-pradesh,2003,17,SHILLAI,JAGAT SINGH,parties.IN.IND,IND,9902,25.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-17,himachal-pradesh,2003,17,SHILLAI,DALIP SINGH,parties.IN.BJP,BJP,8379,21.64,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-17,himachal-pradesh,2003,17,SHILLAI,SITA RAM SHARMA,parties.IN.HVC,HVC,3105,8.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-18,himachal-pradesh,2003,18,PAONTA DOON,SUKH RAM,parties.IN.BJP,BJP,22647,39.78,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-18,himachal-pradesh,2003,18,PAONTA DOON,KIRNESH JUNG,parties.IN.LMHP,LMHP,16785,29.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-18,himachal-pradesh,2003,18,PAONTA DOON,RATTAN SINGH,parties.IN.INC,INC,16044,28.18,3,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-18,himachal-pradesh,2003,18,PAONTA DOON,RAJENDER MOHAN,parties.IN.HVC,HVC,1459,2.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-19,himachal-pradesh,2003,19,NAHAN,SADANAND CHAUHAN,parties.IN.LJNSP,LJNSP,14551,34.93,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-19,himachal-pradesh,2003,19,NAHAN,KUSH PARMAR,parties.IN.INC,INC,13360,32.07,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-19,himachal-pradesh,2003,19,NAHAN,SHYAMA SHARMA,parties.IN.BJP,BJP,10079,24.2,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-19,himachal-pradesh,2003,19,NAHAN,VIRENDER SHARMA,parties.IN.HVC,HVC,1582,3.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-19,himachal-pradesh,2003,19,NAHAN,JASMAT SINGH,parties.IN.CPIM,CPM,827,1.99,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-19,himachal-pradesh,2003,19,NAHAN,DURGA RAM,parties.IN.IND,IND,740,1.78,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-19,himachal-pradesh,2003,19,NAHAN,AMAN DEEP,parties.IN.IND,IND,516,1.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-20,himachal-pradesh,2003,20,KOTKEHLOOR,THAKUR RAM LAL,parties.IN.INC,INC,19509,41.2,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-20,himachal-pradesh,2003,20,KOTKEHLOOR,RANDHEER KUMAR,parties.IN.BJP,BJP,16507,34.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-20,himachal-pradesh,2003,20,KOTKEHLOOR,KRISHAN KUMAR,parties.IN.HVC,HVC,8276,17.48,3,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-20,himachal-pradesh,2003,20,KOTKEHLOOR,DHARMENDER SINGH,parties.IN.IND,IND,1254,2.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-20,himachal-pradesh,2003,20,KOTKEHLOOR,RATTAN LAL,parties.IN.CPI,CPI,1028,2.17,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-20,himachal-pradesh,2003,20,KOTKEHLOOR,DURGA DASS,parties.IN.BSP,BSP,774,1.63,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-21,himachal-pradesh,2003,21,BILASPUR,TILAK RAJ,parties.IN.INC,INC,22868,50.91,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-21,himachal-pradesh,2003,21,BILASPUR,JAGAT PRAKASH NADDA,parties.IN.BJP,BJP,20142,44.84,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-21,himachal-pradesh,2003,21,BILASPUR,BALDEV SINGH THAKUR,parties.IN.HVC,HVC,1167,2.6,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-21,himachal-pradesh,2003,21,BILASPUR,NARESH KUMAR PANDIT,parties.IN.IND,IND,434,0.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-21,himachal-pradesh,2003,21,BILASPUR,DHARAM SINGH,parties.IN.LJNSP,LJNSP,308,0.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-22,himachal-pradesh,2003,22,GHUMARWIN,KARAM DEV DHARMANI,parties.IN.BJP,BJP,20609,43.1,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-22,himachal-pradesh,2003,22,GHUMARWIN,KASHMIR SINGH,parties.IN.INC,INC,17202,35.97,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-22,himachal-pradesh,2003,22,GHUMARWIN,GIAN CHAND RATTAN,parties.IN.HVC,HVC,8736,18.27,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-22,himachal-pradesh,2003,22,GHUMARWIN,ZULFIKAR ALI BHUTTO,parties.IN.LJNSP,LJNSP,749,1.57,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-22,himachal-pradesh,2003,22,GHUMARWIN,DHARAM SINGH,parties.IN.BSP,BSP,525,1.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-23,himachal-pradesh,2003,23,GEHARWIN,DR. BEERU RAM KISHORE,parties.IN.IND,IND,21512,47.68,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-23,himachal-pradesh,2003,23,GEHARWIN,RIKHI RAM KONDAL,parties.IN.BJP,BJP,19958,44.24,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-23,himachal-pradesh,2003,23,GEHARWIN,ROOP RANI,parties.IN.INC,INC,1693,3.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-23,himachal-pradesh,2003,23,GEHARWIN,DHARMINDER KUMAR,parties.IN.IND,IND,1680,3.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-23,himachal-pradesh,2003,23,GEHARWIN,RAJESH KUMAR,parties.IN.LJNSP,LJNSP,275,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-24,himachal-pradesh,2003,24,NADAUN,SUKHVINDER SINGH,parties.IN.INC,INC,14379,33.84,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-24,himachal-pradesh,2003,24,NADAUN,PRABHAT CHAND,parties.IN.IND,IND,9794,23.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-24,himachal-pradesh,2003,24,NADAUN,BABU RAM,parties.IN.BJP,BJP,8657,20.38,3,lost,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-24,himachal-pradesh,2003,24,NADAUN,THAKUR RAGHUBIR SINGH,parties.IN.IND,IND,8313,19.57,4,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-24,himachal-pradesh,2003,24,NADAUN,VIRENDER,parties.IN.LJNSP,LJNSP,647,1.52,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-24,himachal-pradesh,2003,24,NADAUN,KAVISHKA,parties.IN.HVC,HVC,437,1.03,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-24,himachal-pradesh,2003,24,NADAUN,PRITHI CHAND,parties.IN.IND,IND,259,0.61,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-25,himachal-pradesh,2003,25,HAMIRPUR,ANITA VERMA,parties.IN.INC,INC,20749,44.73,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-25,himachal-pradesh,2003,25,HAMIRPUR,URMIL THAKUR,parties.IN.BJP,BJP,13884,29.93,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-25,himachal-pradesh,2003,25,HAMIRPUR,NARENDER THAKUR(GUDDU),parties.IN.IND,IND,10290,22.18,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-25,himachal-pradesh,2003,25,HAMIRPUR,NARESH KUMAR(DARJI),parties.IN.IND,IND,985,2.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-25,himachal-pradesh,2003,25,HAMIRPUR,SITA RAM,parties.IN.HVC,HVC,483,1.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-26,himachal-pradesh,2003,26,BAMSAN,PREM KUMAR DHUMAL,parties.IN.BJP,BJP,29325,66.73,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-26,himachal-pradesh,2003,26,BAMSAN,KULDEEP SINGH PATHANIA,parties.IN.INC,INC,13627,31.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-26,himachal-pradesh,2003,26,BAMSAN,PIAR CHAND JASROTIA,parties.IN.IND,IND,537,1.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-26,himachal-pradesh,2003,26,BAMSAN,GOPI CHAND ATTARI,parties.IN.BSP,BSP,455,1.04,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-27,himachal-pradesh,2003,27,MEWA,ISHWAR DASS DHIMAN,parties.IN.BJP,BJP,22778,49.19,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-27,himachal-pradesh,2003,27,MEWA,SURESH KUMAR,parties.IN.INC,INC,21449,46.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-27,himachal-pradesh,2003,27,MEWA,AMIN CHAND,parties.IN.IND,IND,943,2.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-27,himachal-pradesh,2003,27,MEWA,ISHWARI DEVI,parties.IN.HVC,HVC,588,1.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-27,himachal-pradesh,2003,27,MEWA,DHANI RAM SHUKLA,parties.IN.BSP,BSP,345,0.75,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-27,himachal-pradesh,2003,27,MEWA,PARVEEN KUMAR,parties.IN.NCP,NCP,199,0.43,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-28,himachal-pradesh,2003,28,NADAUNTA,BALDEV SHARMA,parties.IN.BJP,BJP,23796,50.12,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-28,himachal-pradesh,2003,28,NADAUNTA,VIDYA KUMARI,parties.IN.INC,INC,11235,23.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-28,himachal-pradesh,2003,28,NADAUNTA,MANJIT SINGH,parties.IN.IND,IND,10568,22.26,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-28,himachal-pradesh,2003,28,NADAUNTA,RATTAN SINGH,parties.IN.IND,IND,753,1.59,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-28,himachal-pradesh,2003,28,NADAUNTA,VINOD KUMAR,parties.IN.IND,IND,601,1.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-28,himachal-pradesh,2003,28,NADAUNTA,TULSI RAM,parties.IN.IND,IND,525,1.11,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-29,himachal-pradesh,2003,29,GAGRET,KULDEEP KUMAR,parties.IN.INC,INC,23297,56.65,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-29,himachal-pradesh,2003,29,GAGRET,BALBIR SINGH,parties.IN.BJP,BJP,16119,39.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-29,himachal-pradesh,2003,29,GAGRET,TARSEM LAL,parties.IN.ABHM,ABHM,524,1.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-29,himachal-pradesh,2003,29,GAGRET,PREM DASS BHARDWAJ,parties.IN.HVC,HVC,493,1.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-29,himachal-pradesh,2003,29,GAGRET,PARKASH CHAND DHIMAN,parties.IN.NCP,NCP,353,0.86,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-29,himachal-pradesh,2003,29,GAGRET,LEKH RAJ KATNORIA,parties.IN.BSP,BSP,336,0.82,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-30,himachal-pradesh,2003,30,CHINTPURNI,RAKESH KALIA,parties.IN.INC,INC,26581,60.35,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-30,himachal-pradesh,2003,30,CHINTPURNI,PRAVEEN SHARMA,parties.IN.BJP,BJP,15640,35.51,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-30,himachal-pradesh,2003,30,CHINTPURNI,THAKUR RAM DASS KATWAL,parties.IN.BSP,BSP,522,1.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-30,himachal-pradesh,2003,30,CHINTPURNI,RAJENDER SHARMA,parties.IN.IND,IND,416,0.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-30,himachal-pradesh,2003,30,CHINTPURNI,COLONEL RAMESH CHAND PRASHAR,parties.IN.NCP,NCP,413,0.94,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-30,himachal-pradesh,2003,30,CHINTPURNI,AJIT KUMAR,parties.IN.SP,SP,385,0.87,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-30,himachal-pradesh,2003,30,CHINTPURNI,RAJ KUMAR JASWAL,parties.IN.ABHM,ABHM,91,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,MUKESH AGNIHOTRI,parties.IN.INC,INC,16360,32.91,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,JAGROOP SINGH,parties.IN.IND,IND,11336,22.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,JAI KRISHAN SHARMA,parties.IN.BJP,BJP,10634,21.39,3,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,VIJAY KUMAR JOSHI,parties.IN.HVC,HVC,5102,10.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,JAGJIT SINGH MANKOTIA,parties.IN.IND,IND,2588,5.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,DR.(COLONEL) SURINDRA SINGH RANA,parties.IN.NCP,NCP,1138,2.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,DR.LEKH RAJ KHANNA,parties.IN.IND,IND,1035,2.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,CH.PARMOD KUMAR,parties.IN.BSP,BSP,990,1.99,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-31,himachal-pradesh,2003,31,SANTOKGARH,PREM BHATIA,parties.IN.LJNSP,LJNSP,529,1.06,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-32,himachal-pradesh,2003,32,UNA,SATPAL SINGH SATTI,parties.IN.BJP,BJP,27651,48.5,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-32,himachal-pradesh,2003,32,UNA,VIRENDER GAUTAM,parties.IN.INC,INC,27600,48.41,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-32,himachal-pradesh,2003,32,UNA,HEM RAJ,parties.IN.BSP,BSP,1018,1.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-32,himachal-pradesh,2003,32,UNA,KHUSHHAL SINGH SABHARWAL,parties.IN.SJP_R,SJP(R),746,1.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-33,himachal-pradesh,2003,33,KUTLEHAR,VIRENDER KUMAR,parties.IN.BJP,BJP,12380,28.83,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-33,himachal-pradesh,2003,33,KUTLEHAR,SAROJ THAKUR,parties.IN.INC,INC,8464,19.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-33,himachal-pradesh,2003,33,KUTLEHAR,RAM DASS MALANGAR,parties.IN.IND,IND,8062,18.77,3,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-33,himachal-pradesh,2003,33,KUTLEHAR,MAHENDER PAL,parties.IN.IND,IND,6851,15.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-33,himachal-pradesh,2003,33,KUTLEHAR,PT. DES RAJ MODGIL,parties.IN.BSP,BSP,6748,15.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-33,himachal-pradesh,2003,33,KUTLEHAR,AJAY KUMAR,parties.IN.IND,IND,436,1.02,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-34,himachal-pradesh,2003,34,NURPUR,SAT MAHAJAN,parties.IN.INC,INC,32049,53.2,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-34,himachal-pradesh,2003,34,NURPUR,RAKESH PATHANIA,parties.IN.BJP,BJP,22450,37.27,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-34,himachal-pradesh,2003,34,NURPUR,RANJIT SINGH BAKHSHI,parties.IN.IND,IND,2852,4.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-34,himachal-pradesh,2003,34,NURPUR,AMAR SINGH,parties.IN.BSP,BSP,984,1.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-34,himachal-pradesh,2003,34,NURPUR,NARENDER KUMAR,parties.IN.LJNSP,LJNSP,676,1.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-34,himachal-pradesh,2003,34,NURPUR,HARNAM SINGH,parties.IN.IND,IND,617,1.02,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-34,himachal-pradesh,2003,34,NURPUR,YASH PAL SINGH,parties.IN.IND,IND,447,0.74,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-34,himachal-pradesh,2003,34,NURPUR,BALBIR SINGH,parties.IN.SP,SP,169,0.28,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-35,himachal-pradesh,2003,35,GANGATH,BODH RAJ,parties.IN.INC,INC,24499,48.61,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-35,himachal-pradesh,2003,35,GANGATH,DES RAJ,parties.IN.BJP,BJP,22220,44.09,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-35,himachal-pradesh,2003,35,GANGATH,EX.NAIB SUBERDAR HANS RAJ JASSAL,parties.IN.BSP,BSP,1243,2.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-35,himachal-pradesh,2003,35,GANGATH,ASHOK KUMAR,parties.IN.IND,IND,832,1.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-35,himachal-pradesh,2003,35,GANGATH,SURINDER KUMAR,parties.IN.HVC,HVC,794,1.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-35,himachal-pradesh,2003,35,GANGATH,SHYAM LAL BARU,parties.IN.IND,IND,644,1.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-35,himachal-pradesh,2003,35,GANGATH,PIARA RAM,parties.IN.LJNSP,LJNSP,169,0.34,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-36,himachal-pradesh,2003,36,JAWALI,SUJAN SINGH,parties.IN.INC,INC,27147,52.02,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-36,himachal-pradesh,2003,36,JAWALI,RAJAN SUSHANT,parties.IN.BJP,BJP,21314,40.84,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-36,himachal-pradesh,2003,36,JAWALI,KRISHAN KUMAR,parties.IN.HVC,HVC,2452,4.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-36,himachal-pradesh,2003,36,JAWALI,RAJESH KUMAR,parties.IN.LJNSP,LJNSP,526,1.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-36,himachal-pradesh,2003,36,JAWALI,RATTAN CHAND,parties.IN.BSP,BSP,409,0.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-36,himachal-pradesh,2003,36,JAWALI,VINOD KUMAR,parties.IN.SP,SP,337,0.65,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2003,37,GULER,CHANDER KUMAR,parties.IN.INC,INC,21936,54.49,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2003,37,GULER,HARBANS SINGH,parties.IN.BJP,BJP,16002,39.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2003,37,GULER,JOGINDER SINGH PATHANIA,parties.IN.SP,SP,903,2.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2003,37,GULER,AZAD KUMAR,parties.IN.CPI,CPI,495,1.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2003,37,GULER,MALOOK SINGH,parties.IN.NCP,NCP,350,0.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2003,37,GULER,PAWAN KUMAR,parties.IN.LJNSP,LJNSP,319,0.79,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2003,37,GULER,RAM RATTAN,parties.IN.BSP,BSP,249,0.62,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-38,himachal-pradesh,2003,38,JASWAN,BIKRAM SINGH,parties.IN.BJP,BJP,17180,47.3,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-38,himachal-pradesh,2003,38,JASWAN,VIPLOVE THAKUR,parties.IN.INC,INC,14994,41.28,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-38,himachal-pradesh,2003,38,JASWAN,RAMEL SINGH,parties.IN.LJNSP,LJNSP,2445,6.73,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-38,himachal-pradesh,2003,38,JASWAN,GOKAL,parties.IN.HVC,HVC,667,1.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-38,himachal-pradesh,2003,38,JASWAN,PAWAN KUMAR,parties.IN.BSP,BSP,656,1.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-38,himachal-pradesh,2003,38,JASWAN,KUSH RAJ SINGH,parties.IN.NCP,NCP,381,1.05,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-39,himachal-pradesh,2003,39,PRAGPUR,NAVEEN DHIMAN,parties.IN.IND,IND,16585,40.24,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-39,himachal-pradesh,2003,39,PRAGPUR,YOG RAJ,parties.IN.IND,IND,12359,29.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-39,himachal-pradesh,2003,39,PRAGPUR,PARDEEP KUMAR,parties.IN.INC,INC,5749,13.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-39,himachal-pradesh,2003,39,PRAGPUR,ANITA KUMARI SANDAL,parties.IN.BJP,BJP,2683,6.51,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-39,himachal-pradesh,2003,39,PRAGPUR,PRITAM CHAND SHERIA,parties.IN.HVC,HVC,2656,6.44,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-39,himachal-pradesh,2003,39,PRAGPUR,SURINDER PAL SINGH,parties.IN.LJNSP,LJNSP,720,1.75,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-39,himachal-pradesh,2003,39,PRAGPUR,BALDEV RAJ,parties.IN.IND,IND,463,1.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,RAMESH CHAND,parties.IN.BJP,BJP,22459,50.31,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,SANJAY RATTAN,parties.IN.IND,IND,8730,19.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,KEWAL SINGH PATHANIA,parties.IN.INC,INC,7786,17.44,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,GULZAR MOHAMMAD,parties.IN.HVC,HVC,1393,3.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,KUSHAL SINGH,parties.IN.IND,IND,1254,2.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,KISHAN PARMAR,parties.IN.SP,SP,1123,2.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,MOHINDER KUMAR,parties.IN.BSP,BSP,515,1.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,VIJAY KUMAR,parties.IN.IND,IND,508,1.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,PIARE LAL,parties.IN.LJNSP,LJNSP,346,0.78,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,KARAM CHAND KANGA,parties.IN.IND,IND,343,0.77,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-40,himachal-pradesh,2003,40,JAWALAMUKHI,KESHAV DUTT,parties.IN.NCP,NCP,186,0.42,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-41,himachal-pradesh,2003,41,THURAL,RAVINDER SINGH,parties.IN.BJP,BJP,19278,50.14,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-41,himachal-pradesh,2003,41,THURAL,JAGDISH CHAND SEPEHIA,parties.IN.INC,INC,16467,42.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-41,himachal-pradesh,2003,41,THURAL,BALWANT SINGH,parties.IN.IND,IND,1774,4.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-41,himachal-pradesh,2003,41,THURAL,DINESH KUMAR,parties.IN.BSP,BSP,574,1.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-41,himachal-pradesh,2003,41,THURAL,MANIKYA DEV CHAND,parties.IN.SP,SP,357,0.93,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-42,himachal-pradesh,2003,42,RAJGIR,ATMA RAM,parties.IN.BJP,BJP,15018,41.83,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-42,himachal-pradesh,2003,42,RAJGIR,DR.MILKHI RAM GOMA,parties.IN.INC,INC,13763,38.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-42,himachal-pradesh,2003,42,RAJGIR,PRITAM CHAND,parties.IN.IND,IND,6005,16.72,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-42,himachal-pradesh,2003,42,RAJGIR,UTTAM SINGH,parties.IN.SP,SP,451,1.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-42,himachal-pradesh,2003,42,RAJGIR,PARKASH CHAND,parties.IN.HVC,HVC,440,1.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-42,himachal-pradesh,2003,42,RAJGIR,SUDESH KUMARI,parties.IN.LJNSP,LJNSP,229,0.64,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,SUDHIR SHARMA,parties.IN.INC,INC,22371,53.9,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,DULO RAM,parties.IN.BJP,BJP,16132,38.87,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,KASHMIR SINGH,parties.IN.BSP,BSP,715,1.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,BABA DHUNI NATH JI,parties.IN.LJNSP,LJNSP,557,1.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,RAJESH KUMAR,parties.IN.HVC,HVC,508,1.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,MILAP CHAND,parties.IN.IND,IND,421,1.01,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,MEDA RAM,parties.IN.LMHP,LMHP,421,1.01,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,JAGDISH CHAND,parties.IN.CPI,CPI,221,0.53,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-43,himachal-pradesh,2003,43,BAIJNATH,DHANI RAM,parties.IN.IND,IND,161,0.39,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,BRIJ BEHARI LAL,parties.IN.INC,INC,24333,53.8,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,PARVEEN KUMAR,parties.IN.BJP,BJP,17090,37.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,RAMESH BHAU,parties.IN.IND,IND,734,1.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,GOPAL CHAND,parties.IN.HVC,HVC,731,1.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,KAMLESH KUMARI,parties.IN.BSP,BSP,666,1.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,AJIT KUMAR,parties.IN.LJNSP,LJNSP,631,1.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,JAGDISH RAM,parties.IN.NCP,NCP,385,0.85,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,SUNITABEN JASHUBHAI PATEL,parties.IN.SP,SP,296,0.65,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,KAPOOR CHAND,parties.IN.IND,IND,264,0.58,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-44,himachal-pradesh,2003,44,PALAMPUR,ANIL KUMAR,parties.IN.IND,IND,95,0.21,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-45,himachal-pradesh,2003,45,SULAH,JAGJIWAN PAUL,parties.IN.INC,INC,23851,63.06,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-45,himachal-pradesh,2003,45,SULAH,BIPAN SINGH PARMAR,parties.IN.BJP,BJP,12921,34.16,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-45,himachal-pradesh,2003,45,SULAH,KULDEEP SINGH,parties.IN.IND,IND,353,0.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-45,himachal-pradesh,2003,45,SULAH,JOGINDER SINGH,parties.IN.BSP,BSP,321,0.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-45,himachal-pradesh,2003,45,SULAH,JAGROOP SINGH,parties.IN.LJNSP,LJNSP,268,0.71,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-45,himachal-pradesh,2003,45,SULAH,RAM DEV,parties.IN.SP,SP,106,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-46,himachal-pradesh,2003,46,NAGROTA,G.S. BALI,parties.IN.INC,INC,27925,57.65,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-46,himachal-pradesh,2003,46,NAGROTA,CH.RAM CHAND BHATIA,parties.IN.BJP,BJP,17531,36.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-46,himachal-pradesh,2003,46,NAGROTA,RAMESH KUMAR,parties.IN.HVC,HVC,835,1.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-46,himachal-pradesh,2003,46,NAGROTA,CHANDU LAL,parties.IN.BSP,BSP,534,1.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-46,himachal-pradesh,2003,46,NAGROTA,MULAKH RAJ,parties.IN.LJNSP,LJNSP,421,0.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-46,himachal-pradesh,2003,46,NAGROTA,SHAKTI CHAND CHAUDHARY,parties.IN.IND,IND,416,0.86,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-46,himachal-pradesh,2003,46,NAGROTA,SUSHMA BEHL,parties.IN.SP,SP,406,0.84,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-46,himachal-pradesh,2003,46,NAGROTA,BIKRAM SINGH,parties.IN.NCP,NCP,370,0.76,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-47,himachal-pradesh,2003,47,SHAHPUR,MAJOR VIJAY SINGH MANKOTIA,parties.IN.INC,INC,24572,50.43,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-47,himachal-pradesh,2003,47,SHAHPUR,SARVEEN CHAUDHARY,parties.IN.BJP,BJP,20276,41.61,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-47,himachal-pradesh,2003,47,SHAHPUR,KAMAL KISHORE,parties.IN.IND,IND,2837,5.82,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-47,himachal-pradesh,2003,47,SHAHPUR,RAM SWAROOP,parties.IN.SP,SP,636,1.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-47,himachal-pradesh,2003,47,SHAHPUR,SUNIL DUTT,parties.IN.HVC,HVC,407,0.84,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-48,himachal-pradesh,2003,48,DHARAMSALA,CHANDRESH KUMARI,parties.IN.INC,INC,22181,52.04,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-48,himachal-pradesh,2003,48,DHARAMSALA,KISHAN KAPOOR,parties.IN.BJP,BJP,17063,40.03,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-48,himachal-pradesh,2003,48,DHARAMSALA,RAM SWAROOP,parties.IN.HVC,HVC,2473,5.8,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-48,himachal-pradesh,2003,48,DHARAMSALA,UTTAM KAPOOR,parties.IN.IND,IND,423,0.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-48,himachal-pradesh,2003,48,DHARAMSALA,JASWANT SINGH,parties.IN.SP,SP,246,0.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-48,himachal-pradesh,2003,48,DHARAMSALA,SUDESH KUMAR,parties.IN.LJNSP,LJNSP,237,0.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-49,himachal-pradesh,2003,49,KANGRA,SURINDER KUMAR,parties.IN.INC,INC,18836,38.9,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-49,himachal-pradesh,2003,49,KANGRA,RATTAN LAL JAGTAMBA,parties.IN.BJP,BJP,13803,28.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-49,himachal-pradesh,2003,49,KANGRA,CHAUDHARY VIDYA SAGAR,parties.IN.IND,IND,9882,20.41,3,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-49,himachal-pradesh,2003,49,KANGRA,DAULAT RAM,parties.IN.HVC,HVC,3118,6.44,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-49,himachal-pradesh,2003,49,KANGRA,HIMAL CHAND,parties.IN.CPI,CPI,1517,3.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-49,himachal-pradesh,2003,49,KANGRA,DEEPAK KUMAR,parties.IN.ABHM,ABHM,488,1.01,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-49,himachal-pradesh,2003,49,KANGRA,DHARMENDER KUMAR,parties.IN.LJNSP,LJNSP,478,0.99,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-49,himachal-pradesh,2003,49,KANGRA,PUSHPA DEVI,parties.IN.NCP,NCP,297,0.61,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-50,himachal-pradesh,2003,50,BHATTIYAT,KULDIP SINGH PATHANIA,parties.IN.IND,IND,13948,34.55,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-50,himachal-pradesh,2003,50,BHATTIYAT,BHUPINDER SINGH CHAUHAN,parties.IN.IND,IND,11722,29.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-50,himachal-pradesh,2003,50,BHATTIYAT,KISHORI LAL,parties.IN.BJP,BJP,7957,19.71,3,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-50,himachal-pradesh,2003,50,BHATTIYAT,SHIV KUMAR,parties.IN.INC,INC,6744,16.71,4,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-51,himachal-pradesh,2003,51,BANIKHET,ASHA KUMARI,parties.IN.INC,INC,24348,47.24,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-51,himachal-pradesh,2003,51,BANIKHET,RENU CHADHA,parties.IN.BJP,BJP,23488,45.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-51,himachal-pradesh,2003,51,BANIKHET,RAJENDER KUMAR,parties.IN.CPI,CPI,1266,2.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-51,himachal-pradesh,2003,51,BANIKHET,BIAS DEV,parties.IN.IND,IND,1021,1.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-51,himachal-pradesh,2003,51,BANIKHET,SHAUKAT ALI,parties.IN.HVC,HVC,644,1.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-51,himachal-pradesh,2003,51,BANIKHET,HEM RAJ,parties.IN.SP,SP,475,0.92,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-51,himachal-pradesh,2003,51,BANIKHET,BODH RAJ RANA,parties.IN.IND,IND,304,0.59,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-52,himachal-pradesh,2003,52,RAJNAGAR,SURINDER BHARDWAJ,parties.IN.INC,INC,20613,48.43,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-52,himachal-pradesh,2003,52,RAJNAGAR,MOHAN LAL,parties.IN.BJP,BJP,17301,40.65,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-52,himachal-pradesh,2003,52,RAJNAGAR,NAND KUMAR,parties.IN.HVC,HVC,2186,5.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-52,himachal-pradesh,2003,52,RAJNAGAR,AJAY KUMAR,parties.IN.IND,IND,1478,3.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-52,himachal-pradesh,2003,52,RAJNAGAR,KARAM SINGH,parties.IN.LJNSP,LJNSP,987,2.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-53,himachal-pradesh,2003,53,CHAMBA,HARSH MAHAJAN,parties.IN.INC,INC,21829,50.04,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-53,himachal-pradesh,2003,53,CHAMBA,B.K.CHAUHAN,parties.IN.BJP,BJP,19642,45.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-53,himachal-pradesh,2003,53,CHAMBA,CHANDRA MANI,parties.IN.IND,IND,850,1.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-53,himachal-pradesh,2003,53,CHAMBA,NAND LAL,parties.IN.LJNSP,LJNSP,654,1.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-53,himachal-pradesh,2003,53,CHAMBA,D.P.MALHOTRA,parties.IN.HVC,HVC,650,1.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-54,himachal-pradesh,2003,54,BHARMOUR,THAKAR SINGH,parties.IN.INC,INC,21869,61.58,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-54,himachal-pradesh,2003,54,BHARMOUR,TULSI RAM,parties.IN.BJP,BJP,12177,34.29,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-54,himachal-pradesh,2003,54,BHARMOUR,KARTAR SINGH,parties.IN.HVC,HVC,626,1.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-54,himachal-pradesh,2003,54,BHARMOUR,RAM PRASAD,parties.IN.SP,SP,468,1.32,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-54,himachal-pradesh,2003,54,BHARMOUR,EX.SUB.JARAM SINGH,parties.IN.IND,IND,371,1.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-55,himachal-pradesh,2003,55,LAHAUL AND SPITI,RAGHBIR SINGH,parties.IN.INC,INC,9458,56.7,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-55,himachal-pradesh,2003,55,LAHAUL AND SPITI,DR.RAM LAL MARKANDA,parties.IN.HVC,HVC,4690,28.11,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-55,himachal-pradesh,2003,55,LAHAUL AND SPITI,YUV RAJ BODH,parties.IN.BJP,BJP,1961,11.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-55,himachal-pradesh,2003,55,LAHAUL AND SPITI,HIRA LAL,parties.IN.IND,IND,328,1.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-55,himachal-pradesh,2003,55,LAHAUL AND SPITI,AMARJEET SINGH,parties.IN.LMHP,LMHP,122,0.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-55,himachal-pradesh,2003,55,LAHAUL AND SPITI,SHAM CHAND,parties.IN.IND,IND,55,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-55,himachal-pradesh,2003,55,LAHAUL AND SPITI,PHUNCHOG RAI,parties.IN.IND,IND,35,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-55,himachal-pradesh,2003,55,LAHAUL AND SPITI,RIGZIN,parties.IN.IND,IND,33,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-56,himachal-pradesh,2003,56,KULU,RAJ KRISHAN GOUR,parties.IN.INC,INC,21547,33.7,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-56,himachal-pradesh,2003,56,KULU,GOVIND SINGH THAKUR,parties.IN.IND,IND,14277,22.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-56,himachal-pradesh,2003,56,KULU,KARAN SINGH,parties.IN.BJP,BJP,13033,20.38,3,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-56,himachal-pradesh,2003,56,KULU,DHARAM VIR,parties.IN.IND,IND,12953,20.26,4,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-56,himachal-pradesh,2003,56,KULU,MASTER JAWAHAR LAL,parties.IN.BSP,BSP,1384,2.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-56,himachal-pradesh,2003,56,KULU,CHARAN DASS,parties.IN.SP,SP,747,1.17,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-57,himachal-pradesh,2003,57,BANJAR,KHIMI RAM,parties.IN.BJP,BJP,30842,46.93,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-57,himachal-pradesh,2003,57,BANJAR,SATYA PARKASH THAKUR,parties.IN.INC,INC,26300,40.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-57,himachal-pradesh,2003,57,BANJAR,ACHHAR SINGH,parties.IN.IND,IND,6364,9.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-57,himachal-pradesh,2003,57,BANJAR,DALIP SINGH,parties.IN.LMHP,LMHP,2207,3.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-58,himachal-pradesh,2003,58,ANI,ISHWAR DASS,parties.IN.INC,INC,22978,44.46,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-58,himachal-pradesh,2003,58,ANI,TEJ RAM,parties.IN.BJP,BJP,15385,29.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-58,himachal-pradesh,2003,58,ANI,KHUB RAM ANAND,parties.IN.IND,IND,8544,16.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-58,himachal-pradesh,2003,58,ANI,DIWAN SINGH,parties.IN.HVC,HVC,1881,3.64,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-58,himachal-pradesh,2003,58,ANI,ROOP DASS,parties.IN.IND,IND,1041,2.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-58,himachal-pradesh,2003,58,ANI,BALAK RAM,parties.IN.IND,IND,801,1.55,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-58,himachal-pradesh,2003,58,ANI,BALAK RAM JOSHI,parties.IN.SP,SP,642,1.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-58,himachal-pradesh,2003,58,ANI,KEHAR SINGH,parties.IN.IND,IND,405,0.78,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-59,himachal-pradesh,2003,59,KARSOG,MAST RAM,parties.IN.INC,INC,19124,43.4,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-59,himachal-pradesh,2003,59,KARSOG,JOGINDER PAL,parties.IN.BJP,BJP,13213,29.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-59,himachal-pradesh,2003,59,KARSOG,MANSA RAM,parties.IN.HVC,HVC,11730,26.62,3,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-60,himachal-pradesh,2003,60,CHACHIOT,JAI RAM THAKUR,parties.IN.BJP,BJP,21040,43.63,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-60,himachal-pradesh,2003,60,CHACHIOT,SHIV LAL,parties.IN.HVC,HVC,13452,27.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-60,himachal-pradesh,2003,60,CHACHIOT,CHET RAM,parties.IN.INC,INC,9158,18.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-60,himachal-pradesh,2003,60,CHACHIOT,JASSI DEVI,parties.IN.LMHP,LMHP,3664,7.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-60,himachal-pradesh,2003,60,CHACHIOT,SANT RAM,parties.IN.CPI,CPI,907,1.88,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-61,himachal-pradesh,2003,61,NACHAN,TEK CHAND,parties.IN.INC,INC,17479,35.91,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-61,himachal-pradesh,2003,61,NACHAN,DILE RAM,parties.IN.BJP,BJP,15869,32.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-61,himachal-pradesh,2003,61,NACHAN,DAMODAR SINGH,parties.IN.HVC,HVC,11295,23.2,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-61,himachal-pradesh,2003,61,NACHAN,KRISHAN KUMAR,parties.IN.IND,IND,2285,4.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-61,himachal-pradesh,2003,61,NACHAN,SUNDER LAL,parties.IN.IND,IND,1448,2.97,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-61,himachal-pradesh,2003,61,NACHAN,MOTI RAM,parties.IN.IND,IND,300,0.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-62,himachal-pradesh,2003,62,SUNDERNAGAR,SOHAN LAL THAKUR,parties.IN.INC,INC,20248,54.6,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-62,himachal-pradesh,2003,62,SUNDERNAGAR,ROOP SINGH,parties.IN.BJP,BJP,15610,42.1,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-62,himachal-pradesh,2003,62,SUNDERNAGAR,DEVENDER KUMAR SALWANI,parties.IN.HVC,HVC,763,2.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-62,himachal-pradesh,2003,62,SUNDERNAGAR,DEVENDER SHARMA,parties.IN.IND,IND,461,1.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-63,himachal-pradesh,2003,63,BALH,DAMODAR DASS,parties.IN.BJP,BJP,18392,32.81,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-63,himachal-pradesh,2003,63,BALH,PRAKASH CHAUDHARY,parties.IN.HVC,HVC,18204,32.48,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-63,himachal-pradesh,2003,63,BALH,MAHANT RAM,parties.IN.IND,IND,9143,16.31,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-63,himachal-pradesh,2003,63,BALH,KASHMIR SINGH,parties.IN.INC,INC,6724,12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-63,himachal-pradesh,2003,63,BALH,LAL SINGH,parties.IN.LMHP,LMHP,1827,3.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-63,himachal-pradesh,2003,63,BALH,PRASHOTAM RAM,parties.IN.IND,IND,836,1.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-63,himachal-pradesh,2003,63,BALH,PADAM SINGH,parties.IN.IND,IND,477,0.85,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-63,himachal-pradesh,2003,63,BALH,CHAMAN LAL,parties.IN.IND,IND,451,0.8,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-64,himachal-pradesh,2003,64,GOPALPUR,RANGILA RAM RAO,parties.IN.INC,INC,20959,43.65,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-64,himachal-pradesh,2003,64,GOPALPUR,COL.INDER SINGH,parties.IN.BJP,BJP,18440,38.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-64,himachal-pradesh,2003,64,GOPALPUR,TEG SINGH THAKUR,parties.IN.HVC,HVC,5639,11.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-64,himachal-pradesh,2003,64,GOPALPUR,PARO DEVI,parties.IN.LMHP,LMHP,1094,2.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-64,himachal-pradesh,2003,64,GOPALPUR,MOTI RAM,parties.IN.IND,IND,809,1.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-64,himachal-pradesh,2003,64,GOPALPUR,VIDYA SAGAR SHARMA,parties.IN.IND,IND,680,1.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-64,himachal-pradesh,2003,64,GOPALPUR,BALBIR SINGH,parties.IN.IND,IND,283,0.59,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-64,himachal-pradesh,2003,64,GOPALPUR,DHAMESHWAR RAM,parties.IN.IND,IND,107,0.22,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-65,himachal-pradesh,2003,65,DHARAMPUR,MOHINDER SINGH,parties.IN.LMHP,LMHP,16854,37.25,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-65,himachal-pradesh,2003,65,DHARAMPUR,KARAMVIR,parties.IN.BJP,BJP,12944,28.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-65,himachal-pradesh,2003,65,DHARAMPUR,THAKUR NATHA SINGH,parties.IN.INC,INC,9702,21.44,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-65,himachal-pradesh,2003,65,DHARAMPUR,NANAK CHAND BHARDWAJ,parties.IN.HVC,HVC,3703,8.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-65,himachal-pradesh,2003,65,DHARAMPUR,SAJU RAM,parties.IN.LJNSP,LJNSP,996,2.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-65,himachal-pradesh,2003,65,DHARAMPUR,DAMODAR SINGH,parties.IN.BSP,BSP,740,1.64,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-65,himachal-pradesh,2003,65,DHARAMPUR,SURESH KUMAR,parties.IN.NCP,NCP,311,0.69,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-66,himachal-pradesh,2003,66,JOGINDER NAGAR,SURENDER PAL,parties.IN.INC,INC,24518,53.89,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-66,himachal-pradesh,2003,66,JOGINDER NAGAR,GULAB SINGH,parties.IN.BJP,BJP,17981,39.52,2,lost,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-66,himachal-pradesh,2003,66,JOGINDER NAGAR,PREM NATH,parties.IN.LMHP,LMHP,1012,2.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-66,himachal-pradesh,2003,66,JOGINDER NAGAR,ANJNA,parties.IN.HVC,HVC,859,1.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-66,himachal-pradesh,2003,66,JOGINDER NAGAR,DUNI CHAND,parties.IN.IND,IND,565,1.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-66,himachal-pradesh,2003,66,JOGINDER NAGAR,SURENDRA PAUL,parties.IN.LJNSP,LJNSP,346,0.76,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-66,himachal-pradesh,2003,66,JOGINDER NAGAR,JAI SINGH,parties.IN.IND,IND,214,0.47,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-67,himachal-pradesh,2003,67,DARANG,KAUL SINGH,parties.IN.INC,INC,27508,51.29,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-67,himachal-pradesh,2003,67,DARANG,RAMESH CHAND,parties.IN.BJP,BJP,20668,38.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-67,himachal-pradesh,2003,67,DARANG,DINA NATH,parties.IN.HVC,HVC,3502,6.53,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-67,himachal-pradesh,2003,67,DARANG,DHARAM SINGH,parties.IN.LMHP,LMHP,1522,2.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-67,himachal-pradesh,2003,67,DARANG,PARAM DEV,parties.IN.NCP,NCP,431,0.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-68,himachal-pradesh,2003,68,MANDI,SUKH RAM,parties.IN.HVC,HVC,23816,51.89,1,won,U,,,,incumbent,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-68,himachal-pradesh,2003,68,MANDI,DURGA DUTT,parties.IN.INC,INC,11426,24.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-68,himachal-pradesh,2003,68,MANDI,KIRAN KUMARI,parties.IN.BJP,BJP,7687,16.75,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-68,himachal-pradesh,2003,68,MANDI,NARENDER KUMAR,parties.IN.LMHP,LMHP,2520,5.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-68,himachal-pradesh,2003,68,MANDI,AMAR NIRGOTRA,parties.IN.IND,IND,450,0.98,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

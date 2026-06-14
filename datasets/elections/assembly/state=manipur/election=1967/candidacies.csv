@@ -1,157 +1,157 @@
-entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
-IN-AC-1967-manipur-1,manipur,1967,1,SAGOLMANG,M . IBOHAL,parties.IN.CPI,CPI,3856,36.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-1,manipur,1967,1,SAGOLMANG,T . B . SINGH,parties.IN.INC,INC,2268,21.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-1,manipur,1967,1,SAGOLMANG,L . BIRACHANDRA,parties.IN.IND,IND,1856,17.73,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-1,manipur,1967,1,SAGOLMANG,W . KULLO,parties.IN.PSP,PSP,879,8.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-1,manipur,1967,1,SAGOLMANG,T . KOMLAJAO,parties.IN.IND,IND,785,7.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-1,manipur,1967,1,SAGOLMANG,Y. K . SINGH,parties.IN.CPIM,CPM,658,6.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-1,manipur,1967,1,SAGOLMANG,T . BOKUL,parties.IN.IND,IND,164,1.57,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-2,manipur,1967,2,KHURAI,K . B . SHARMA,parties.IN.SSP,SSP,4482,37.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-2,manipur,1967,2,KHURAI,R . U . SINGH,parties.IN.INC,INC,3724,31.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-2,manipur,1967,2,KHURAI,N . T . SINGH,parties.IN.IND,IND,2341,19.64,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-2,manipur,1967,2,KHURAI,L . I . SINGH,parties.IN.IND,IND,839,7.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-2,manipur,1967,2,KHURAI,K . I . SINGH,parties.IN.CPIM,CPM,359,3.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-2,manipur,1967,2,KHURAI,N . M . SINGH,parties.IN.IND,IND,175,1.47,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-3,manipur,1967,3,WANGKHEI,L . A . SINGH,parties.IN.SSP,SSP,5110,40.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-3,manipur,1967,3,WANGKHEI,W . I . SINGH,parties.IN.INC,INC,4881,38.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-3,manipur,1967,3,WANGKHEI,Q . A . WAHID,parties.IN.IND,IND,975,7.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-3,manipur,1967,3,WANGKHEI,W . K . SINGH,parties.IN.PSP,PSP,921,7.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-3,manipur,1967,3,WANGKHEI,A . S . SHARMA,parties.IN.IND,IND,594,4.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-3,manipur,1967,3,WANGKHEI,Y . B . SINGH,parties.IN.IND,IND,177,1.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-4,manipur,1967,4,THOGJU,S . A . SINGH,parties.IN.INC,INC,4465,35.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-4,manipur,1967,4,THOGJU,H . S . SINGH,parties.IN.SSP,SSP,4251,34.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-4,manipur,1967,4,THOGJU,SULEIMAN,parties.IN.IND,IND,2017,16.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-4,manipur,1967,4,THOGJU,T . T . SINGH,parties.IN.IND,IND,741,5.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-4,manipur,1967,4,THOGJU,M . G . SINGH,parties.IN.PSP,PSP,463,3.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-4,manipur,1967,4,THOGJU,T . K . SINGH,parties.IN.IND,IND,261,2.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-4,manipur,1967,4,THOGJU,U . M . SINGH,parties.IN.IND,IND,177,1.43,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-4,manipur,1967,4,THOGJU,O . R . SINGH,parties.IN.IND,IND,39,0.31,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-5,manipur,1967,5,TOP CHINGTHA,A . ALI,parties.IN.IND,IND,3726,27.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-5,manipur,1967,5,TOP CHINGTHA,P . P . SINGH,parties.IN.CPI,CPI,2783,20.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-5,manipur,1967,5,TOP CHINGTHA,N . N . SINGH,parties.IN.INC,INC,2745,20.09,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-5,manipur,1967,5,TOP CHINGTHA,K . K . SINGH,parties.IN.IND,IND,2536,18.56,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-5,manipur,1967,5,TOP CHINGTHA,JAMKHOGIN,parties.IN.IND,IND,784,5.74,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-5,manipur,1967,5,TOP CHINGTHA,S . B . SINGH,parties.IN.IND,IND,508,3.72,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-5,manipur,1967,5,TOP CHINGTHA,S . K . SINGH,parties.IN.CPIM,CPM,444,3.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-5,manipur,1967,5,TOP CHINGTHA,T . G . SINGH,parties.IN.IND,IND,135,0.99,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-6,manipur,1967,6,MAYANG INPHAL,C . RAJMOHON,parties.IN.IND,IND,4253,33.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-6,manipur,1967,6,MAYANG INPHAL,K . GULAMJAT,parties.IN.IND,IND,3438,26.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-6,manipur,1967,6,MAYANG INPHAL,T . TOYAIMA,parties.IN.INC,INC,2995,23.36,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-6,manipur,1967,6,MAYANG INPHAL,SULEIMAN,parties.IN.IND,IND,2136,16.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-7,manipur,1967,7,SINGJAMEI,A . BIRAMANGOL,parties.IN.IND,IND,3389,24.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-7,manipur,1967,7,SINGJAMEI,I . TOMPOK,parties.IN.IND,IND,3087,22.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-7,manipur,1967,7,SINGJAMEI,T . CHANDRASEKHOR,parties.IN.SSP,SSP,2896,21.23,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-7,manipur,1967,7,SINGJAMEI,H . BARUNI,parties.IN.INC,INC,2735,20.05,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-7,manipur,1967,7,SINGJAMEI,R . K . MANISANA,parties.IN.IND,IND,767,5.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-7,manipur,1967,7,SINGJAMEI,K . BABUSAHEB,parties.IN.IND,IND,695,5.09,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-7,manipur,1967,7,SINGJAMEI,S . BIRA,parties.IN.IND,IND,75,0.55,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-8,manipur,1967,8,SAGOLBAND,S . GAMBHIR,parties.IN.INC,INC,6595,52,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-8,manipur,1967,8,SAGOLBAND,N . IBOMCHA,parties.IN.IND,IND,6088,48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-9,manipur,1967,9,KEISAMTHONG,L . THAMBOU,parties.IN.INC,INC,4488,33.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-9,manipur,1967,9,KEISAMTHONG,L . MANAOBI,parties.IN.IND,IND,4305,32.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-9,manipur,1967,9,KEISAMTHONG,L . KULLACHANDRA,parties.IN.IND,IND,3477,25.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-9,manipur,1967,9,KEISAMTHONG,R . K . MANISANA,parties.IN.IND,IND,946,7.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-9,manipur,1967,9,KEISAMTHONG,S . TOLEMNACHA,parties.IN.IND,IND,164,1.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-10,manipur,1967,10,URIPOK THANGMEIBAND,N . TOMBI,parties.IN.INC,INC,5841,53,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-10,manipur,1967,10,URIPOK THANGMEIBAND,R . K . UPENDRA,parties.IN.SSP,SSP,2546,23.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-10,manipur,1967,10,URIPOK THANGMEIBAND,N . TOMPOK,parties.IN.IND,IND,2075,18.83,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-10,manipur,1967,10,URIPOK THANGMEIBAND,S . INDRAMANI,parties.IN.IND,IND,559,5.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-11,manipur,1967,11,KONTHOUJAM,S . TOMBI,parties.IN.INC,INC,4522,39.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-11,manipur,1967,11,KONTHOUJAM,A . KULLACHANDRA,parties.IN.IND,IND,4297,37.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-11,manipur,1967,11,KONTHOUJAM,T . BABU,parties.IN.CPI,CPI,2444,21.23,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-11,manipur,1967,11,KONTHOUJAM,H . KONDO,parties.IN.IND,IND,162,1.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-11,manipur,1967,11,KONTHOUJAM,Y . TOMBA,parties.IN.IND,IND,88,0.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-12,manipur,1967,12,SEKMAI LAMSANG,K . CHAOBA,parties.IN.INC,INC,4206,42.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-12,manipur,1967,12,SEKMAI LAMSANG,K . JUGESHWRO,parties.IN.CPI,CPI,2586,26.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-12,manipur,1967,12,SEKMAI LAMSANG,K . AMBIKA,parties.IN.IND,IND,2201,22.26,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-12,manipur,1967,12,SEKMAI LAMSANG,A . NGANBA,parties.IN.IND,IND,895,9.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-13,manipur,1967,13,NAMOOL,Y . YAIMA,parties.IN.IND,IND,6084,45.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-13,manipur,1967,13,NAMOOL,S . SHARMA,parties.IN.INC,INC,3753,28.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-13,manipur,1967,13,NAMOOL,K . KEITOMBI,parties.IN.CPI,CPI,2135,16.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-13,manipur,1967,13,NAMOOL,O . L . ROTON,parties.IN.IND,IND,757,5.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-13,manipur,1967,13,NAMOOL,A . ANGAHAL,parties.IN.IND,IND,585,4.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-14,manipur,1967,14,BISHENPUR,L . IBOMCHA,parties.IN.INC,INC,5784,46.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-14,manipur,1967,14,BISHENPUR,A . KETUKI,parties.IN.SSP,SSP,3327,26.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-14,manipur,1967,14,BISHENPUR,M . NILACHANDRA,parties.IN.IND,IND,3220,25.74,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-14,manipur,1967,14,BISHENPUR,S . ANGOUBA,parties.IN.IND,IND,179,1.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-15,manipur,1967,15,THANGA,M . K . SINGH,parties.IN.INC,INC,5823,46.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-15,manipur,1967,15,THANGA,H . KANGJAMBA,parties.IN.SSP,SSP,4571,36.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-15,manipur,1967,15,THANGA,IBOCHA,parties.IN.IND,IND,1096,8.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-15,manipur,1967,15,THANGA,K . MANIANGOU,parties.IN.IND,IND,701,5.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-15,manipur,1967,15,THANGA,BHANU,parties.IN.IND,IND,284,2.28,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-16,manipur,1967,16,LILONG,ALIMUDDIN,parties.IN.INC,INC,5199,39.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-16,manipur,1967,16,LILONG,H . RAHAMAN,parties.IN.IND,IND,4984,37.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-16,manipur,1967,16,LILONG,T . JATRA,parties.IN.IND,IND,3116,23.43,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-17,manipur,1967,17,THOUBAL,W . MANI,parties.IN.INC,INC,2943,22.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-17,manipur,1967,17,THOUBAL,L . CHAOYAIMA,parties.IN.IND,IND,2546,19.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-17,manipur,1967,17,THOUBAL,A . IBOMCHA,parties.IN.IND,IND,2408,18.56,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-17,manipur,1967,17,THOUBAL,S . CHOURJIT,parties.IN.IND,IND,1673,12.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-17,manipur,1967,17,THOUBAL,K . I . SINGH,parties.IN.IND,IND,1489,11.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-17,manipur,1967,17,THOUBAL,W . NIMAICHAND,parties.IN.IND,IND,1418,10.93,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-17,manipur,1967,17,THOUBAL,N . KALA,parties.IN.CPIM,CPM,416,3.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-17,manipur,1967,17,THOUBAL,A . JUGESWOR,parties.IN.PSP,PSP,80,0.62,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-18,manipur,1967,18,KHANGABOK,M . CHAOBA,parties.IN.INC,INC,4380,35.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-18,manipur,1967,18,KHANGABOK,T . ACHOUBA,parties.IN.IND,IND,4060,32.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-18,manipur,1967,18,KHANGABOK,T . BIRA,parties.IN.CPI,CPI,3258,26.25,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-18,manipur,1967,18,KHANGABOK,N . NITYAI,parties.IN.IND,IND,267,2.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-18,manipur,1967,18,KHANGABOK,K . I . SINGH,parties.IN.CPIM,CPM,216,1.74,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-18,manipur,1967,18,KHANGABOK,T . CHAKRABATI,parties.IN.IND,IND,134,1.08,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-18,manipur,1967,18,KHANGABOK,L . N . SINGH,parties.IN.IND,IND,96,0.77,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-19,manipur,1967,19,KAKCHING,Y . NIMAI,parties.IN.SSP,SSP,5095,36.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-19,manipur,1967,19,KAKCHING,M . IBOTOMBI,parties.IN.INC,INC,3491,25.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-19,manipur,1967,19,KAKCHING,N . J . SINGH,parties.IN.IND,IND,2568,18.5,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-19,manipur,1967,19,KAKCHING,L . KHOMDON,parties.IN.IND,IND,1876,13.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-19,manipur,1967,19,KAKCHING,N . KOMLA,parties.IN.IND,IND,849,6.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,T . ANOUBI,parties.IN.SSP,SSP,3120,23.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,N . KANHAI,parties.IN.INC,INC,2703,20.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,K . N . SINGH,parties.IN.IND,IND,1774,13.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,E . BIRAMANI,parties.IN.IND,IND,1663,12.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,E . GANDHA,parties.IN.IND,IND,1494,11.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,E . NODI,parties.IN.IND,IND,1163,8.92,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,H . AMUCHOU,parties.IN.IND,IND,946,7.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,M . APABI,parties.IN.IND,IND,99,0.76,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,K . IBOHAL,parties.IN.PSP,PSP,74,0.57,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-21,manipur,1967,21,TENGNOUPAL,PAOKHOHANG,parties.IN.IND,IND,2603,30.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-21,manipur,1967,21,TENGNOUPAL,K . LEITHIL,parties.IN.IND,IND,2399,28.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-21,manipur,1967,21,TENGNOUPAL,S . K . NEISHEIL,parties.IN.IND,IND,1606,19.06,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-21,manipur,1967,21,TENGNOUPAL,N . MONO,parties.IN.IND,IND,1543,18.31,4,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-21,manipur,1967,21,TENGNOUPAL,K . HRANGBUNG,parties.IN.INC,INC,277,3.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-22,manipur,1967,22,PHUNGYAR PHAISHA,K . ENVEY,parties.IN.INC,INC,3247,66.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-22,manipur,1967,22,PHUNGYAR PHAISHA,H . L . KIM,parties.IN.IND,IND,850,17.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-22,manipur,1967,22,PHUNGYAR PHAISHA,B . S . JAMES,parties.IN.SSP,SSP,807,16.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-23,manipur,1967,23,UKHRUL,L . SOLOMON,parties.IN.INC,INC,2995,87.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-23,manipur,1967,23,UKHRUL,P . MINGTHING,parties.IN.IND,IND,447,12.99,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-24,manipur,1967,24,MAO EAST,SHOUKHOTHANG,parties.IN.IND,IND,848,52.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-24,manipur,1967,24,MAO EAST,S . LARBO,parties.IN.IND,IND,732,45.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-24,manipur,1967,24,MAO EAST,L . KIPGEN,parties.IN.IND,IND,24,1.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-25,manipur,1967,25,MAO WEST,S . LARHO,parties.IN.INC,INC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-26,manipur,1967,26,TAMEI,D . KIPGEN,parties.IN.IND,IND,1621,45.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-26,manipur,1967,26,TAMEI,H . NGAILERT,parties.IN.IND,IND,1297,36.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-26,manipur,1967,26,TAMEI,K . AMABA,parties.IN.IND,IND,352,9.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-26,manipur,1967,26,TAMEI,D . ATHIBA,parties.IN.INC,INC,215,6.08,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-26,manipur,1967,26,TAMEI,A . KABUI,parties.IN.IND,IND,49,1.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-27,manipur,1967,27,TAMENGLONG,KAKHANGAI,parties.IN.IND,IND,622,50.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-27,manipur,1967,27,TAMENGLONG,A . M . TUNDAS,parties.IN.INC,INC,396,31.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-27,manipur,1967,27,TAMENGLONG,R . MATHIUHOM,parties.IN.IND,IND,165,13.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-27,manipur,1967,27,TAMENGLONG,NOLENDRO,parties.IN.SSP,SSP,40,3.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-27,manipur,1967,27,TAMENGLONG,HUMANNANG,parties.IN.IND,IND,20,1.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-28,manipur,1967,28,JIRIBAM,S . B . SINGH,parties.IN.INC,INC,4536,37.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-28,manipur,1967,28,JIRIBAM,S . HRANGCHAL,parties.IN.IND,IND,2301,19.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-28,manipur,1967,28,JIRIBAM,TAIVEL,parties.IN.IND,IND,1844,15.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-28,manipur,1967,28,JIRIBAM,M . T . AHMED,parties.IN.IND,IND,1593,13.3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-28,manipur,1967,28,JIRIBAM,DAMKHOSAT,parties.IN.IND,IND,869,7.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-28,manipur,1967,28,JIRIBAM,J . BARDHAN,parties.IN.IND,IND,563,4.7,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-28,manipur,1967,28,JIRIBAM,S . I . J . SHARMA,parties.IN.SSP,SSP,275,2.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-29,manipur,1967,29,THANLON,GOUKHENPAO,parties.IN.INC,INC,4198,31.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-29,manipur,1967,29,THANLON,PIANGCHINKHAN,parties.IN.IND,IND,3492,26.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-29,manipur,1967,29,THANLON,THANGKHUPERENG,parties.IN.IND,IND,2650,20.12,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-29,manipur,1967,29,THANLON,KAMKHANTHANG,parties.IN.IND,IND,1582,12.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-29,manipur,1967,29,THANLON,VUNGKHOM,parties.IN.IND,IND,987,7.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-29,manipur,1967,29,THANLON,JAIKUNGA,parties.IN.IND,IND,262,1.99,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-30,manipur,1967,30,CHURACHANDPUR,LALROUKUNG,parties.IN.IND,IND,3558,25.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-30,manipur,1967,30,CHURACHANDPUR,SEMKHUPAU,parties.IN.IND,IND,2654,19.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-30,manipur,1967,30,CHURACHANDPUR,H . THONGJOM,parties.IN.IND,IND,2643,19.23,3,lost,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-30,manipur,1967,30,CHURACHANDPUR,PAUNEIKHAI,parties.IN.INC,INC,2099,15.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-30,manipur,1967,30,CHURACHANDPUR,SOMKHOLAL,parties.IN.IND,IND,1886,13.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-30,manipur,1967,30,CHURACHANDPUR,R . SENA,parties.IN.IND,IND,593,4.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-1967-manipur-30,manipur,1967,30,CHURACHANDPUR,K . A . KHAIJANG,parties.IN.IND,IND,308,2.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-1967-manipur-1,manipur,1967,1,SAGOLMANG,M . IBOHAL,parties.IN.CPI,CPI,3856,36.84,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-1,manipur,1967,1,SAGOLMANG,T . B . SINGH,parties.IN.INC,INC,2268,21.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-1,manipur,1967,1,SAGOLMANG,L . BIRACHANDRA,parties.IN.IND,IND,1856,17.73,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-1,manipur,1967,1,SAGOLMANG,W . KULLO,parties.IN.PSP,PSP,879,8.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-1,manipur,1967,1,SAGOLMANG,T . KOMLAJAO,parties.IN.IND,IND,785,7.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-1,manipur,1967,1,SAGOLMANG,Y. K . SINGH,parties.IN.CPIM,CPM,658,6.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-1,manipur,1967,1,SAGOLMANG,T . BOKUL,parties.IN.IND,IND,164,1.57,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-2,manipur,1967,2,KHURAI,K . B . SHARMA,parties.IN.SSP,SSP,4482,37.6,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-2,manipur,1967,2,KHURAI,R . U . SINGH,parties.IN.INC,INC,3724,31.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-2,manipur,1967,2,KHURAI,N . T . SINGH,parties.IN.IND,IND,2341,19.64,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-2,manipur,1967,2,KHURAI,L . I . SINGH,parties.IN.IND,IND,839,7.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-2,manipur,1967,2,KHURAI,K . I . SINGH,parties.IN.CPIM,CPM,359,3.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-2,manipur,1967,2,KHURAI,N . M . SINGH,parties.IN.IND,IND,175,1.47,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-3,manipur,1967,3,WANGKHEI,L . A . SINGH,parties.IN.SSP,SSP,5110,40.37,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-3,manipur,1967,3,WANGKHEI,W . I . SINGH,parties.IN.INC,INC,4881,38.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-3,manipur,1967,3,WANGKHEI,Q . A . WAHID,parties.IN.IND,IND,975,7.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-3,manipur,1967,3,WANGKHEI,W . K . SINGH,parties.IN.PSP,PSP,921,7.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-3,manipur,1967,3,WANGKHEI,A . S . SHARMA,parties.IN.IND,IND,594,4.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-3,manipur,1967,3,WANGKHEI,Y . B . SINGH,parties.IN.IND,IND,177,1.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-4,manipur,1967,4,THOGJU,S . A . SINGH,parties.IN.INC,INC,4465,35.97,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-4,manipur,1967,4,THOGJU,H . S . SINGH,parties.IN.SSP,SSP,4251,34.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-4,manipur,1967,4,THOGJU,SULEIMAN,parties.IN.IND,IND,2017,16.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-4,manipur,1967,4,THOGJU,T . T . SINGH,parties.IN.IND,IND,741,5.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-4,manipur,1967,4,THOGJU,M . G . SINGH,parties.IN.PSP,PSP,463,3.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-4,manipur,1967,4,THOGJU,T . K . SINGH,parties.IN.IND,IND,261,2.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-4,manipur,1967,4,THOGJU,U . M . SINGH,parties.IN.IND,IND,177,1.43,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-4,manipur,1967,4,THOGJU,O . R . SINGH,parties.IN.IND,IND,39,0.31,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-5,manipur,1967,5,TOP CHINGTHA,A . ALI,parties.IN.IND,IND,3726,27.27,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-5,manipur,1967,5,TOP CHINGTHA,P . P . SINGH,parties.IN.CPI,CPI,2783,20.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-5,manipur,1967,5,TOP CHINGTHA,N . N . SINGH,parties.IN.INC,INC,2745,20.09,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-5,manipur,1967,5,TOP CHINGTHA,K . K . SINGH,parties.IN.IND,IND,2536,18.56,4,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-5,manipur,1967,5,TOP CHINGTHA,JAMKHOGIN,parties.IN.IND,IND,784,5.74,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-5,manipur,1967,5,TOP CHINGTHA,S . B . SINGH,parties.IN.IND,IND,508,3.72,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-5,manipur,1967,5,TOP CHINGTHA,S . K . SINGH,parties.IN.CPIM,CPM,444,3.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-5,manipur,1967,5,TOP CHINGTHA,T . G . SINGH,parties.IN.IND,IND,135,0.99,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-6,manipur,1967,6,MAYANG INPHAL,C . RAJMOHON,parties.IN.IND,IND,4253,33.17,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-6,manipur,1967,6,MAYANG INPHAL,K . GULAMJAT,parties.IN.IND,IND,3438,26.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-6,manipur,1967,6,MAYANG INPHAL,T . TOYAIMA,parties.IN.INC,INC,2995,23.36,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-6,manipur,1967,6,MAYANG INPHAL,SULEIMAN,parties.IN.IND,IND,2136,16.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-7,manipur,1967,7,SINGJAMEI,A . BIRAMANGOL,parties.IN.IND,IND,3389,24.84,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-7,manipur,1967,7,SINGJAMEI,I . TOMPOK,parties.IN.IND,IND,3087,22.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-7,manipur,1967,7,SINGJAMEI,T . CHANDRASEKHOR,parties.IN.SSP,SSP,2896,21.23,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-7,manipur,1967,7,SINGJAMEI,H . BARUNI,parties.IN.INC,INC,2735,20.05,4,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-7,manipur,1967,7,SINGJAMEI,R . K . MANISANA,parties.IN.IND,IND,767,5.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-7,manipur,1967,7,SINGJAMEI,K . BABUSAHEB,parties.IN.IND,IND,695,5.09,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-7,manipur,1967,7,SINGJAMEI,S . BIRA,parties.IN.IND,IND,75,0.55,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-8,manipur,1967,8,SAGOLBAND,S . GAMBHIR,parties.IN.INC,INC,6595,52,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-8,manipur,1967,8,SAGOLBAND,N . IBOMCHA,parties.IN.IND,IND,6088,48,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-9,manipur,1967,9,KEISAMTHONG,L . THAMBOU,parties.IN.INC,INC,4488,33.54,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-9,manipur,1967,9,KEISAMTHONG,L . MANAOBI,parties.IN.IND,IND,4305,32.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-9,manipur,1967,9,KEISAMTHONG,L . KULLACHANDRA,parties.IN.IND,IND,3477,25.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-9,manipur,1967,9,KEISAMTHONG,R . K . MANISANA,parties.IN.IND,IND,946,7.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-9,manipur,1967,9,KEISAMTHONG,S . TOLEMNACHA,parties.IN.IND,IND,164,1.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-10,manipur,1967,10,URIPOK THANGMEIBAND,N . TOMBI,parties.IN.INC,INC,5841,53,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-10,manipur,1967,10,URIPOK THANGMEIBAND,R . K . UPENDRA,parties.IN.SSP,SSP,2546,23.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-10,manipur,1967,10,URIPOK THANGMEIBAND,N . TOMPOK,parties.IN.IND,IND,2075,18.83,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-10,manipur,1967,10,URIPOK THANGMEIBAND,S . INDRAMANI,parties.IN.IND,IND,559,5.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-11,manipur,1967,11,KONTHOUJAM,S . TOMBI,parties.IN.INC,INC,4522,39.28,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-11,manipur,1967,11,KONTHOUJAM,A . KULLACHANDRA,parties.IN.IND,IND,4297,37.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-11,manipur,1967,11,KONTHOUJAM,T . BABU,parties.IN.CPI,CPI,2444,21.23,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-11,manipur,1967,11,KONTHOUJAM,H . KONDO,parties.IN.IND,IND,162,1.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-11,manipur,1967,11,KONTHOUJAM,Y . TOMBA,parties.IN.IND,IND,88,0.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-12,manipur,1967,12,SEKMAI LAMSANG,K . CHAOBA,parties.IN.INC,INC,4206,42.54,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-12,manipur,1967,12,SEKMAI LAMSANG,K . JUGESHWRO,parties.IN.CPI,CPI,2586,26.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-12,manipur,1967,12,SEKMAI LAMSANG,K . AMBIKA,parties.IN.IND,IND,2201,22.26,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-12,manipur,1967,12,SEKMAI LAMSANG,A . NGANBA,parties.IN.IND,IND,895,9.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-13,manipur,1967,13,NAMOOL,Y . YAIMA,parties.IN.IND,IND,6084,45.7,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-13,manipur,1967,13,NAMOOL,S . SHARMA,parties.IN.INC,INC,3753,28.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-13,manipur,1967,13,NAMOOL,K . KEITOMBI,parties.IN.CPI,CPI,2135,16.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-13,manipur,1967,13,NAMOOL,O . L . ROTON,parties.IN.IND,IND,757,5.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-13,manipur,1967,13,NAMOOL,A . ANGAHAL,parties.IN.IND,IND,585,4.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-14,manipur,1967,14,BISHENPUR,L . IBOMCHA,parties.IN.INC,INC,5784,46.24,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-14,manipur,1967,14,BISHENPUR,A . KETUKI,parties.IN.SSP,SSP,3327,26.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-14,manipur,1967,14,BISHENPUR,M . NILACHANDRA,parties.IN.IND,IND,3220,25.74,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-14,manipur,1967,14,BISHENPUR,S . ANGOUBA,parties.IN.IND,IND,179,1.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-15,manipur,1967,15,THANGA,M . K . SINGH,parties.IN.INC,INC,5823,46.68,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-15,manipur,1967,15,THANGA,H . KANGJAMBA,parties.IN.SSP,SSP,4571,36.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-15,manipur,1967,15,THANGA,IBOCHA,parties.IN.IND,IND,1096,8.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-15,manipur,1967,15,THANGA,K . MANIANGOU,parties.IN.IND,IND,701,5.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-15,manipur,1967,15,THANGA,BHANU,parties.IN.IND,IND,284,2.28,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-16,manipur,1967,16,LILONG,ALIMUDDIN,parties.IN.INC,INC,5199,39.09,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-16,manipur,1967,16,LILONG,H . RAHAMAN,parties.IN.IND,IND,4984,37.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-16,manipur,1967,16,LILONG,T . JATRA,parties.IN.IND,IND,3116,23.43,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-17,manipur,1967,17,THOUBAL,W . MANI,parties.IN.INC,INC,2943,22.69,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-17,manipur,1967,17,THOUBAL,L . CHAOYAIMA,parties.IN.IND,IND,2546,19.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-17,manipur,1967,17,THOUBAL,A . IBOMCHA,parties.IN.IND,IND,2408,18.56,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-17,manipur,1967,17,THOUBAL,S . CHOURJIT,parties.IN.IND,IND,1673,12.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-17,manipur,1967,17,THOUBAL,K . I . SINGH,parties.IN.IND,IND,1489,11.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-17,manipur,1967,17,THOUBAL,W . NIMAICHAND,parties.IN.IND,IND,1418,10.93,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-17,manipur,1967,17,THOUBAL,N . KALA,parties.IN.CPIM,CPM,416,3.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-17,manipur,1967,17,THOUBAL,A . JUGESWOR,parties.IN.PSP,PSP,80,0.62,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-18,manipur,1967,18,KHANGABOK,M . CHAOBA,parties.IN.INC,INC,4380,35.29,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-18,manipur,1967,18,KHANGABOK,T . ACHOUBA,parties.IN.IND,IND,4060,32.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-18,manipur,1967,18,KHANGABOK,T . BIRA,parties.IN.CPI,CPI,3258,26.25,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-18,manipur,1967,18,KHANGABOK,N . NITYAI,parties.IN.IND,IND,267,2.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-18,manipur,1967,18,KHANGABOK,K . I . SINGH,parties.IN.CPIM,CPM,216,1.74,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-18,manipur,1967,18,KHANGABOK,T . CHAKRABATI,parties.IN.IND,IND,134,1.08,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-18,manipur,1967,18,KHANGABOK,L . N . SINGH,parties.IN.IND,IND,96,0.77,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-19,manipur,1967,19,KAKCHING,Y . NIMAI,parties.IN.SSP,SSP,5095,36.71,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-19,manipur,1967,19,KAKCHING,M . IBOTOMBI,parties.IN.INC,INC,3491,25.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-19,manipur,1967,19,KAKCHING,N . J . SINGH,parties.IN.IND,IND,2568,18.5,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-19,manipur,1967,19,KAKCHING,L . KHOMDON,parties.IN.IND,IND,1876,13.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-19,manipur,1967,19,KAKCHING,N . KOMLA,parties.IN.IND,IND,849,6.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,T . ANOUBI,parties.IN.SSP,SSP,3120,23.93,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,N . KANHAI,parties.IN.INC,INC,2703,20.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,K . N . SINGH,parties.IN.IND,IND,1774,13.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,E . BIRAMANI,parties.IN.IND,IND,1663,12.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,E . GANDHA,parties.IN.IND,IND,1494,11.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,E . NODI,parties.IN.IND,IND,1163,8.92,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,H . AMUCHOU,parties.IN.IND,IND,946,7.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,M . APABI,parties.IN.IND,IND,99,0.76,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-20,manipur,1967,20,HIYANGLAM SUGNOO,K . IBOHAL,parties.IN.PSP,PSP,74,0.57,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-21,manipur,1967,21,TENGNOUPAL,PAOKHOHANG,parties.IN.IND,IND,2603,30.89,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-21,manipur,1967,21,TENGNOUPAL,K . LEITHIL,parties.IN.IND,IND,2399,28.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-21,manipur,1967,21,TENGNOUPAL,S . K . NEISHEIL,parties.IN.IND,IND,1606,19.06,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-21,manipur,1967,21,TENGNOUPAL,N . MONO,parties.IN.IND,IND,1543,18.31,4,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-21,manipur,1967,21,TENGNOUPAL,K . HRANGBUNG,parties.IN.INC,INC,277,3.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-22,manipur,1967,22,PHUNGYAR PHAISHA,K . ENVEY,parties.IN.INC,INC,3247,66.21,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-22,manipur,1967,22,PHUNGYAR PHAISHA,H . L . KIM,parties.IN.IND,IND,850,17.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-22,manipur,1967,22,PHUNGYAR PHAISHA,B . S . JAMES,parties.IN.SSP,SSP,807,16.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-23,manipur,1967,23,UKHRUL,L . SOLOMON,parties.IN.INC,INC,2995,87.01,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-23,manipur,1967,23,UKHRUL,P . MINGTHING,parties.IN.IND,IND,447,12.99,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-24,manipur,1967,24,MAO EAST,SHOUKHOTHANG,parties.IN.IND,IND,848,52.87,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-24,manipur,1967,24,MAO EAST,S . LARBO,parties.IN.IND,IND,732,45.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-24,manipur,1967,24,MAO EAST,L . KIPGEN,parties.IN.IND,IND,24,1.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-25,manipur,1967,25,MAO WEST,S . LARHO,parties.IN.INC,INC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-26,manipur,1967,26,TAMEI,D . KIPGEN,parties.IN.IND,IND,1621,45.87,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-26,manipur,1967,26,TAMEI,H . NGAILERT,parties.IN.IND,IND,1297,36.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-26,manipur,1967,26,TAMEI,K . AMABA,parties.IN.IND,IND,352,9.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-26,manipur,1967,26,TAMEI,D . ATHIBA,parties.IN.INC,INC,215,6.08,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-26,manipur,1967,26,TAMEI,A . KABUI,parties.IN.IND,IND,49,1.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-27,manipur,1967,27,TAMENGLONG,KAKHANGAI,parties.IN.IND,IND,622,50.04,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-27,manipur,1967,27,TAMENGLONG,A . M . TUNDAS,parties.IN.INC,INC,396,31.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-27,manipur,1967,27,TAMENGLONG,R . MATHIUHOM,parties.IN.IND,IND,165,13.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-27,manipur,1967,27,TAMENGLONG,NOLENDRO,parties.IN.SSP,SSP,40,3.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-27,manipur,1967,27,TAMENGLONG,HUMANNANG,parties.IN.IND,IND,20,1.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-28,manipur,1967,28,JIRIBAM,S . B . SINGH,parties.IN.INC,INC,4536,37.86,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-28,manipur,1967,28,JIRIBAM,S . HRANGCHAL,parties.IN.IND,IND,2301,19.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-28,manipur,1967,28,JIRIBAM,TAIVEL,parties.IN.IND,IND,1844,15.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-28,manipur,1967,28,JIRIBAM,M . T . AHMED,parties.IN.IND,IND,1593,13.3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-28,manipur,1967,28,JIRIBAM,DAMKHOSAT,parties.IN.IND,IND,869,7.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-28,manipur,1967,28,JIRIBAM,J . BARDHAN,parties.IN.IND,IND,563,4.7,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-28,manipur,1967,28,JIRIBAM,S . I . J . SHARMA,parties.IN.SSP,SSP,275,2.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-29,manipur,1967,29,THANLON,GOUKHENPAO,parties.IN.INC,INC,4198,31.87,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-29,manipur,1967,29,THANLON,PIANGCHINKHAN,parties.IN.IND,IND,3492,26.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-29,manipur,1967,29,THANLON,THANGKHUPERENG,parties.IN.IND,IND,2650,20.12,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-29,manipur,1967,29,THANLON,KAMKHANTHANG,parties.IN.IND,IND,1582,12.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-29,manipur,1967,29,THANLON,VUNGKHOM,parties.IN.IND,IND,987,7.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-29,manipur,1967,29,THANLON,JAIKUNGA,parties.IN.IND,IND,262,1.99,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-30,manipur,1967,30,CHURACHANDPUR,LALROUKUNG,parties.IN.IND,IND,3558,25.89,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-30,manipur,1967,30,CHURACHANDPUR,SEMKHUPAU,parties.IN.IND,IND,2654,19.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-30,manipur,1967,30,CHURACHANDPUR,H . THONGJOM,parties.IN.IND,IND,2643,19.23,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-30,manipur,1967,30,CHURACHANDPUR,PAUNEIKHAI,parties.IN.INC,INC,2099,15.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-30,manipur,1967,30,CHURACHANDPUR,SOMKHOLAL,parties.IN.IND,IND,1886,13.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-30,manipur,1967,30,CHURACHANDPUR,R . SENA,parties.IN.IND,IND,593,4.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1967-manipur-30,manipur,1967,30,CHURACHANDPUR,K . A . KHAIJANG,parties.IN.IND,IND,308,2.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,

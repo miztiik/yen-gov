@@ -61,6 +61,7 @@ from pathlib import Path
 from typing import Any, Final
 
 from yen_gov.canonical.csv_writer import write_csv
+from yen_gov.canonical.processing_quality import derive_processing
 from yen_gov.canonical.reingest.elections import (
     ASSEMBLY_CANDIDACIES_FC,
     ASSEMBLY_SUMMARY_FC,
@@ -331,6 +332,12 @@ def build_candidacy_rows(
             unbound.add(eci_no)
             continue
         position = _int_or_none(src.get("Position"))
+        # PR (2026-06-14): every candidacy row carries the OWID-aligned
+        # processing_level + processing_note pair. UNK fall-through is the
+        # only fresh-write trigger for ``major``; everything else defaults
+        # to ``minor`` + empty note. See processing_quality.derive_processing.
+        party_id_resolved = lookup.get(raw_party.upper()) or "parties.IN.UNK"
+        proc_level, proc_note = derive_processing(party_id_resolved, raw_party)
         rows.append(
             {
                 "entity_id": entity_id,
@@ -347,7 +354,7 @@ def build_candidacy_rows(
                 # silent demotion"). Mirror of party_resolver.SENTINELS['UNK'];
                 # inlined here to keep canonical/reingest free of a hard
                 # import edge to canonical/party_resolver at module load.
-                "party_id": lookup.get(raw_party.upper()) or "parties.IN.UNK",
+                "party_id": party_id_resolved,
                 "party_short_raw": raw_party or None,
                 "votes": _int_or_none(src.get("Votes")) or 0,
                 "vote_share_pct": _float_or_none(src.get("Vote_Share_Percentage")),
@@ -359,6 +366,8 @@ def build_candidacy_rows(
                 "profession": _text_or_none(src.get("TCPD_Prof_Main_Desc")),
                 "candidate_type": _candidate_type(src),
                 "source_id": source_id,
+                "processing_level": proc_level,
+                "processing_note": proc_note,
             }
         )
     rows.sort(
@@ -421,6 +430,12 @@ def recompute_summary_row(
     else:
         margin_pct = None
 
+    # PR (2026-06-14): summary processing tag mirrors the winner candidacy.
+    # When the winner_party_id resolves to parties.IN.UNK, the summary row
+    # carries ``major`` + the same UNK note shape as the candidacy.
+    winner_party_id = winner.get("party_id") or ""
+    winner_party_short_raw = winner.get("party_short_raw") or ""
+    proc_level, proc_note = derive_processing(winner_party_id, winner_party_short_raw)
     return {
         "entity_id": entity_id,
         "state": state_slug,
@@ -441,6 +456,8 @@ def recompute_summary_row(
         "margin_votes": (winner["votes"] - runner["votes"]) if runner else None,
         "margin_pct": margin_pct,
         "source_id": source_id,
+        "processing_level": proc_level,
+        "processing_note": proc_note,
     }
 
 
