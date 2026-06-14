@@ -66,8 +66,14 @@ test.describe("/parties/:slug per-party detail", () => {
     await expect(vsChart).toBeVisible();
     await expect(vsChart.locator("svg")).toBeVisible();
 
-    // (7) Metadata footer - at least the recognition badge appears.
-    await expect(page.getByTestId("party-meta-recognition")).toBeVisible();
+    // (7) About card - at least the recognition row appears.
+    // The recognition row renders inside PartyAboutCard (PR-6); the
+    // card is mounted twice (mobile + desktop) with the visible mount
+    // gated by the `lg` breakpoint. `.first()` picks whichever is in
+    // the live layout for the test viewport.
+    await expect(
+      page.getByTestId("party-about-recognition").first(),
+    ).toBeVisible();
   });
 
   test("/parties/dmk renders the DMK detail page (anchor avatar + state party recognition)", async ({
