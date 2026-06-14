@@ -1,6 +1,6 @@
 # tools/boundaries
 
-**Last Updated**: 2026-05-22
+**Last Updated**: 2026-06-14
 
 Builds the boundary tree at `datasets/boundaries/in/` consumed by the frontend [map](../../docs/architecture/frontend/map.md), plus the parquet ledger at `datasets/boundaries/boundary_layers.parquet` that carries provenance + simplification metadata + dropped-feature counts (T.0d, 2026-05-22 — see [ADR-0031 Amendment](../../docs/architecture/data/boundaries.md#adr-0031-boundary-geometry-strategy)). The pipeline downloads upstream GeoJSON / SHP / 7z-archived GeoJSONL, simplifies via `coord_precision` rounding (and for PMTiles outputs, [mapshaper](https://github.com/mbloch/mapshaper) + [tippecanoe](https://github.com/felt/tippecanoe)), and emits to Hive-partitioned paths.
 
@@ -12,6 +12,7 @@ This tool is **local-only** by design (see [Why local-only](#why-local-only)). R
 | --- | --- |
 | [pipeline.json](pipeline.json) | Declarative list of upstream URLs, output paths, simplification + tippecanoe options per file. Edit this to add states or change sources. |
 | [build.py](build.py) | Orchestrator. Self-contained (stdlib only). Reads `pipeline.json`, downloads, simplifies, packs, writes manifest. |
+| [generate_frontend_registry.py](generate_frontend_registry.py) | Generates `frontend/src/lib/boundaries/generated-sources.ts` from `datasets/data/entities/boundary_encoding.csv` for high-cardinality panchayat and ward registries. Run with `--check` to verify freshness. |
 
 ## Outputs
 

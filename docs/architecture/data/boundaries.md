@@ -239,6 +239,8 @@ Boundary corpus shape is now producer-side Tier B. `python -m yen_gov validate -
 
 Refresh the receipt with `python -m tools.topojson.emit_receipt --root .` after any boundary encoding change. The receipt is an encoding contract, not a provenance ledger; source-bearing boundary metadata remains in `datasets/data/entities/boundary_layer.csv`.
 
+High-cardinality frontend registry inventory for panchayats and wards is generated from that receipt by `python tools/boundaries/generate_frontend_registry.py`. The generated module is `frontend/src/lib/boundaries/generated-sources.ts`; `frontend/src/lib/boundaries/sources.ts` re-exports the generated public names while retaining hand-authored labels, caveats, and low-cardinality registries. AC layers stay hand-authored for now because `boundary_encoding.csv` covers `datasets/boundaries/in/**`, while AC geometry lives under `datasets/boundaries/electoral/**`; do not invent an AC source until a receipt covers that subtree.
+
 Frontend `frontend/src/contracts/boundaries-conform.test.ts` keeps bounded consumer canaries for Hive path grammar, sidecar absence, ledger presence, states join key, and representative TopoJSON decode. It must not walk every boundary shard or create one default Vitest case per corpus file.
 
 Default frontend tests must not scale with corpus cardinality. Frontend tests prove consumer behavior with fixtures and representative canaries. Exhaustive corpus validation belongs to producer receipts plus backend Tier-B validation.

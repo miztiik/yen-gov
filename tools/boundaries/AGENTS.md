@@ -1,6 +1,6 @@
 # AGENTS.md - tools/boundaries
 
-**Last Updated**: 2026-05-15
+**Last Updated**: 2026-06-14
 
 Canonical rationale lives in [docs/architecture/data/boundaries.md](../../docs/architecture/data/boundaries.md) and source catalogue decisions live in [docs/reference/boundary-data-sources.md](../../docs/reference/boundary-data-sources.md). This file is only the module map for the boundary build tools.
 
@@ -16,6 +16,7 @@ ASCII only: use plain keyboard characters; write "-", "->", ">=", "section", and
 - **POSIX paths in manifest.** Output `path` strings are forward-slash, repo-relative (CLAUDE.md section 2). The script normalises before writing.
 - **Atomic downloads.** `download()` writes to `<dest>.part` then `replace()`s; partial files never appear with the canonical name.
 - **Fail loudly.** `subprocess.run(check=True)` everywhere. A silent simplification or pack failure would publish a bad manifest.
+- **Generated frontend registry.** `generate_frontend_registry.py` reads `datasets/data/entities/boundary_encoding.csv` plus hand-authored state labels in `frontend/src/lib/boundaries/sources.ts`, then writes `frontend/src/lib/boundaries/generated-sources.ts`. Use `--check` in tests and before committing; do not hand-edit the generated module.
 
 ## Editing pipeline.json
 
