@@ -46,7 +46,14 @@ const mockedLoadPartyMeta = vi.mocked(loadPartyMeta);
 /** Stub the global `fetch` used by `fetchLsMethodologyBreaks` so the
  *  view-model loader doesn't hit the network during tests. Each test
  *  installs its own response shape; `beforeEach` resets the stub. */
-let fetchSpy: ReturnType<typeof vi.spyOn> | null = null;
+// Use a plain `any` here: `vi.spyOn(global, 'fetch')` returns a
+// `MockInstance` whose generic shape conflicts with the loose
+// `MockInstance<(this: unknown, ...args: unknown[]) => unknown>`
+// default — vitest accepts both at runtime but TS rejects the
+// implicit unification. The cast keeps the test code small without
+// dragging the full lib.dom `fetch` type signature into scope.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let fetchSpy: any = null;
 function stubMethodologyBreaksFetch(
   rows: MethodologyBreakRow[] = [
     {
