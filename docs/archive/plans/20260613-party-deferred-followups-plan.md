@@ -4,7 +4,7 @@
 
 **Level**: 4 (4+ files, structural; spans data ingest + frontend UX + schema extension; ~12 PRs in 3 waves).
 
-**Scope**: Close all 5 deferred follow-ups flagged in the closure ledger of [docs/archive/plans/20260612-party-rendering-and-party-pages-plan.md](../docs/archive/plans/20260612-party-rendering-and-party-pages-plan.md) section 9 / section 2:
+**Scope**: Close all 5 deferred follow-ups flagged in the closure ledger of [20260612-party-rendering-and-party-pages-plan.md](./20260612-party-rendering-and-party-pages-plan.md) section 9 / section 2:
 
 1. NOTA legal-context caveat + Independent aggregate-not-entity framing strips
 2. AAP / SHS_UBT / NCP_SP recognition-flip annotation strips (extended to 5 parties: + SHS + NCP parent-inverses per Hans verdict)
@@ -98,10 +98,10 @@ Citizen Section 5 surfaced these as the questions citizens ask on a party page t
 | PR-7 | Item 3 — `parties_leadership.csv` schema + columns.json + JSON Schema + ingester module (no data yet) | [x] SHIPPED | #995 `284b0581a` | ~4h |
 | PR-8 | Item 1 — Pre-1999 LS ingest DISPATCH (5 cycles × ~3min wall-clock + regen + tile-layout audit) | [x] SHIPPED | #1003 `5c251a23e` | ~3h |
 | PR-9 | Item 3 — Wikidata SPARQL JSON snapshot + parties_leadership.csv data load (~80 parties × ~3 leaders) | [ ] DEFERRED — operator-blocked (live SPARQL endpoint) | — | ~3h |
-| PR-10 | Item 1 — Frontend cleanup: remove pre-1999 caption + add methodology-break markers on DualAxisBarLine + ship BJP 1980 founding strip | [ ] PENDING | — | ~3h |
+| PR-10 | Item 1 — Frontend cleanup: remove pre-1999 caption + add methodology-break markers on DualAxisBarLine + ship BJP 1980 founding strip | [x] SHIPPED | #1007 `059d2e42e` | ~3h |
 | PR-11 | Item 3 — Frontend wiring: PartyPill tooltip + Party.svelte header reads leadership table; stale-snapshot caption | [ ] DEFERRED — depends on PR-9 | — | ~3h |
-| PR-12 | Item 5 — Stronghold choropleth (PartyStrongholdMap component + view-model + Party.svelte integration; A+B variant) | [ ] PENDING | — | ~5h |
-| PR-13 | Closure: archive plan-doc to `docs/archive/plans/` + section 14 closure ledger fill | [ ] PENDING | — | ~30 min |
+| PR-12 | Item 5 — Stronghold choropleth (PartyStrongholdMap component + view-model + Party.svelte integration; A+B variant) | [x] SHIPPED | #1005 `10e9168da` | ~5h |
+| PR-13 | Closure: archive plan-doc to `docs/archive/plans/` + section 14 closure ledger fill | [x] SHIPPED | this PR | ~30 min |
 
 **Total**: 13 PRs / 3 waves / ~36h wall-clock if parallelised correctly.
 
@@ -758,7 +758,49 @@ To be filled as PRs land.
 | PR-7 | feat/party-fu-wikidata-schema | #995 | [x] SHIPPED | `284b0581a` |
 | PR-8 | feat/party-fu-pre1999-dispatch | #1003 | [x] SHIPPED | `5c251a23e` (10,777 rows / 31 states / 5 cycles + 139 events + Path-A unblocks) |
 | PR-9 | feat/party-fu-wikidata-data-load | — | [ ] DEFERRED | operator-blocked (live Wikidata SPARQL endpoint per user direction) |
-| PR-10 | feat/party-fu-frontend-pre1999-cleanup | — | [ ] PENDING | — |
+| PR-10 | feat/party-fu-pr10-frontend-cleanup | #1007 | [x] SHIPPED | `059d2e42e` (caption drop + methodology markers + BJP lineage strip; visibleLsMethodologyBreaks filter added to align chart+caption automatically) |
 | PR-11 | feat/party-fu-frontend-leader-display | — | [ ] DEFERRED | depends on PR-9 data load |
-| PR-12 | feat/party-fu-stronghold-choropleth | — | [ ] PENDING | — |
+| PR-12 | feat/party-fu-stronghold-choropleth | #1005 | [x] SHIPPED | `10e9168da` (PartyStrongholdMap with PC choropleth + brand_colour discrete buckets; Path-A oracle reframe to top-10 per mart shape; AC choropleth + tooltip-year deferred per honest-degradation doctrine, see section 17) |
 | PR-13 | docs(plans): archive 20260613 deferred-followups plan | — | [ ] PENDING | — |
+
+
+## 17. Plan complete
+
+Closed 2026-06-14. **10 of 13 PRs SHIPPED** (8 implementation + 2 reckoner-sync + this closure). 2 of the remaining 3 rows are DEFERRED on a single user-named blocker (PR-9 = operator-blocked live Wikidata SPARQL endpoint; PR-11 = depends on PR-9 data load). Counting against the as-briefed scope, this is the maximum-feasible delivery without operator intervention.
+
+Per-PR distillation map (where each row's durable findings live now that the plan-doc is archived):
+
+| PR | Merge SHA | Distilled to |
+|---|---|---|
+| PR-1 | 4c45658a3 | inline-landed: rontend/src/lib/parties/recognition-strip.ts NOTA + IND cases + RecognitionStrip.svelte body |
+| PR-2 | d89f158a5 | inline-landed: same ecognition-strip.ts module extended to 5 parties (AAP / SS_UBT / NCP_SP / SHS / NCP) |
+| PR-3 | 129481bd4 | inline-landed: ackend/yen_gov/sources/eci/ls_constituencywise.py `DELIM_BY_GE_YEAR` + 10 `PcGeEvent` constants; doctrine is encoded as test rows in ackend/tests/test_pc_crosswalk_pre1999_backbone.py |
+| PR-4 | c8e932e27 | inline-landed: `datasets/taxonomy/methodology_breaks.json` `lspc-delim-1967` + `lspc-delim-1976` rows (loaded by PR-10 view-model into PartyDetailViewModel.ls_methodology_breaks) |
+| PR-5 | d27e1554b | COLLAPSED — receipt-only. 4 pinning tests in ackend/tests/test_pc_cohort_1967_receipt.py |
+| PR-6 | 44a05856e | COLLAPSED — receipt-only. 4 resolver-coverage tests in ackend/tests/test_party_resolver_pre1990_receipt.py |
+| PR-7 | 284b0581a | inline-landed: `datasets/data/entities/parties_leadership.csv` (header + empty rows), columns.json, JSON Schema, ingester module |
+| PR-8 | 5c251a23e | inline-landed: `datasets/data/datapoints/electoral/*.csv` (10,777 new pre-1999 rows / 31 states / 5 cycles) + `datasets/taxonomy/election_events.json` (139 new entries) + `datasets/data/entities/pc_historical_crosswalk.csv` (+8 DNH+DD pre-1999 -> U03 rows) + `datasets/taxonomy/entities.json` `legacy_id` field on S10/S22/U05 + `backend/yen_gov/sources/eci/ls_constituencywise.py` `load_state_code_lookup` legacy_id indexing |
+| PR-10 |  59d2e42e | inline-landed: `frontend/src/routes/Party.svelte` (caption drop + chart-extension) + `frontend/src/lib/charts/DualAxisBarLine/DualAxisBarLine.svelte` (`methodology_breaks` prop) + `frontend/src/lib/view-models/party-detail.ts` (loader + `visibleLsMethodologyBreaks` filter) + `frontend/src/lib/parties/recognition-strip.ts` (`lineage` kind + BJP case with Hans 3b verdict) |
+| PR-12 | 10e9168da | inline-landed: `frontend/src/lib/parties/PartyStrongholdMap.svelte` + `stronghold-choropleth-rows.ts` (pure mapper + ISO->ECI lookup + brand-derived 4-stop ramp) + `frontend/e2e/party-stronghold-choropleth.spec.ts` (4 oracle scenarios) |
+
+Plan-doc remains as the audit ledger; do not edit further. New work starts a new plan-doc.
+
+## 18. Known degraded UX (citizen-asks for future plan-docs)
+
+The following limitations are CITIZEN-VISIBLE and were honestly-degraded inline by their respective PRs per CLAUDE.md section 10 `no band-aid` doctrine. Each requires a separate Hans+Max plan-doc to lift:
+
+1. **AC stronghold choropleth NOT rendered (PR-12)**. `datasets/boundaries/electoral/delim=2024/ac/<state-slug>/all.topojson` does not exist on disk; only delim=2008 and delim=2026 boundary tiers survive. Mart AC entity_ids reference delim=1976 numbering for older states (e.g. DMK TN AC#2 = HARBOUR in 1976, NOT Ponneri in delim=2008). Semantically-correct AC choropleth requires a delim-aware AC renumbering crosswalk authored upstream. The existing top-10 AC text list renders unchanged below for both state-only and national parties. Future plan-doc: `Hans+Max: AC choropleth and the delim-renumbering crosswalk`.
+
+2. **Stronghold tooltip `latest W/L in YYYY` suffix dropped (PR-12)**. The strongholds mart drops per-event period_label after the fold, so the frontend can't deterministically reconstruct the latest year. Tooltip shows `Won X of Y contests` only. Future plan-doc: extend `backend/yen_gov/canonical/derived/party_pages.py` `_stronghold_rows` to emit `latest_period_label` per row; thread through the view-model + UI; one-PR back-end + one-PR front-end.
+
+3. **/parties/jnp 404s today (PR-10)**. The BJP recognition-strip cross-links to `[Janata Party](/parties/jnp)`, but `parties.IN.JNP` is not yet minted in `datasets/data/entities/parties.csv`. Documented inline in `recognition-strip.ts`. Future plan-doc: `Hans+Max: historical-parties seed (JNP, BJS, LKD, BLD, INC_I, INC_S minimal stubs so the cross-link grammar resolves)`.
+
+4. **Pre-1999 LS cycles 1967/1971/1977/1980/1984 deferred (PR-8)**. PR-8 shipped 5 of the 10 planned pre-1999 cycles (1962, 1989, 1991, 1996, 1998). The other 5 require a separate ingest source — TCPD `All_States_GE.csv` does not carry per-PC granularity for those years. Future plan-doc: `Hans+Max: pre-1999 LS data source survey (TCPD vs ECI vs CSDS Lokniti)`.
+
+5. **PC join coverage 97% (PR-12)**. 11 of 364 mart rows across the 5 oracle parties don't match the delim=2024 PC topojson (mostly delim=1976 BSP UP historical seats with no current boundary). They fall through to `absent` silently. Future plan-doc: same delim-renumbering crosswalk that fixes #1 closes this too.
+
+6. **Wikidata leadership table empty (PR-9 DEFERRED + PR-11 BLOCKED)**. `parties_leadership.csv` schema + ingester shipped in PR-7, but the live SPARQL endpoint snapshot requires operator-named access patterns the orchestrator was not authorised to dispatch. ~80 parties x ~3 leaders worth of header/snapshot data still empty. PR-11's frontend wiring (PartyPill tooltip + Party.svelte header leadership table) waits on this. Future plan-doc: `Operator: Wikidata SPARQL snapshot + parties_leadership.csv data load`.
+
+7. **`test_parties_csv_v11::test_non_sentinel_rows_leave_is_sentinel_empty` chronic-on-main pytest failure**. Inherited from baseline (BJC + KSP rows have `is_sentinel=false` instead of empty string on origin/main `bb963ca61`). NOT caused by any of the 8 PRs in this plan; flagged for the next `backend/datasets` cleanup pass.
+
+Each numbered item above is a complete enough seed for a future agent to author the lift-PR brief without re-discovery.
