@@ -194,19 +194,68 @@ describe("formatLatestSentence", () => {
 // --- getAvatarStyle -------------------------------------------------------
 
 describe("getAvatarStyle", () => {
-  it("returns the anchor treatment for INC (full-bleed coloured square)", () => {
+  it("returns the symbol treatment for BJP (anchor brand colour + lotus image)", () => {
     const out: AvatarStyle = getAvatarStyle(
-      "parties.IN.INC",
-      partyRowFromMeta(metaFixture()),
+      "parties.IN.BJP",
+      partyRowFromMeta(
+        metaFixture({
+          party_id: "parties.IN.BJP",
+          short: "BJP",
+          brand_colour: null,
+          symbol_asset: "party-symbols/lotus.svg",
+        }),
+      ),
       false,
+      "party-symbols/lotus.svg",
     );
-    expect(out.kind).toBe("anchor");
-    expect(out.fill).toBe("#1d4ed8"); // INC blue
-    expect(out.ring).toBeNull();
-    expect(out.ink).toMatch(/^#[0-9a-f]{6}$/i); // luminance-picked
+    expect(out.kind).toBe("symbol");
+    expect(out.fill).toBe("var(--surface)");
+    // Ring carries the resolver's BJP anchor hex (curated saffron;
+    // current value `#ea580c`). We assert it's a hex string rather
+    // than pinning the literal so a future anchor-table tweak in
+    // resolver.ts doesn't pull this test into its blast radius.
+    expect(out.ring).toMatch(/^#[0-9a-f]{6}$/i);
+    expect(out.ring).not.toBeNull();
+    expect(out.symbol_url).not.toBeNull();
+    expect(out.symbol_url!.endsWith("party-symbols/lotus.svg")).toBe(true);
   });
 
-  it("returns the brand treatment for a party with a brand_colour but no anchor", () => {
+  it("returns the symbol treatment for INC (anchor brand colour + hand image)", () => {
+    const out = getAvatarStyle(
+      "parties.IN.INC",
+      partyRowFromMeta(
+        metaFixture({ symbol_asset: "party-symbols/hand.svg" }),
+      ),
+      false,
+      "party-symbols/hand.svg",
+    );
+    expect(out.kind).toBe("symbol");
+    expect(out.fill).toBe("var(--surface)");
+    expect(out.ring).toBe("#1d4ed8"); // INC anchor (blue-700)
+    expect(out.symbol_url).not.toBeNull();
+    expect(out.symbol_url!.endsWith("party-symbols/hand.svg")).toBe(true);
+  });
+
+  it("returns the symbol treatment for DMK (brand-tier colour + rising-sun image)", () => {
+    const out = getAvatarStyle(
+      "parties.IN.DMK",
+      {
+        party_id: "parties.IN.DMK",
+        brand_colour: { hex: "#dc2626", confidence: "high" },
+      },
+      false,
+      "party-symbols/rising-sun.svg",
+    );
+    expect(out.kind).toBe("symbol");
+    expect(out.fill).toBe("var(--surface)");
+    // DMK is resolver-anchored (`#dc2626` rising-sun red); ring is
+    // hex regardless of which tier resolved it.
+    expect(out.ring).toMatch(/^#[0-9a-f]{6}$/i);
+    expect(out.symbol_url).not.toBeNull();
+    expect(out.symbol_url!.endsWith("party-symbols/rising-sun.svg")).toBe(true);
+  });
+
+  it("returns the token treatment when no symbol_asset is present", () => {
     const out = getAvatarStyle(
       "parties.IN.BJD",
       {
@@ -214,34 +263,57 @@ describe("getAvatarStyle", () => {
         brand_colour: { hex: "#16a34a", confidence: "high" },
       },
       false,
+      null,
     );
-    expect(out.kind).toBe("brand");
-    expect(out.fill).toBeNull();
+    expect(out.kind).toBe("token");
+    expect(out.fill).toBe("var(--surface)");
     expect(out.ring).toBe("#16a34a");
-    expect(out.ink).toBe("#0f172a");
+    expect(out.ink).toBe("#0f172a"); // slate-900
+    expect(out.symbol_url).toBeNull();
   });
 
-  it("returns the fallback treatment when no anchor + no brand_colour", () => {
+  it("returns the token treatment for the fallback tier (algorithmic palette colour on ring)", () => {
     const out = getAvatarStyle(
       "parties.IN.FICTIONAL_PARTY",
       { party_id: "parties.IN.FICTIONAL_PARTY", brand_colour: null },
       false,
+      null,
     );
-    expect(out.kind).toBe("fallback");
-    expect(out.fill).toBeNull();
-    expect(out.ring).toBeNull();
-    expect(out.swatch).toMatch(/^#[0-9a-f]{6}$/i);
+    expect(out.kind).toBe("token");
+    expect(out.fill).toBe("var(--surface)");
+    // Algorithmic palette resolves to SOME hex; we don't pin the
+    // value (hash-dependent across PALETTE bumps).
+    expect(out.ring).toMatch(/^#[0-9a-f]{6}$/i);
+    expect(out.symbol_url).toBeNull();
   });
 
-  it("returns the sentinel treatment for NOTA (grey neutral, regardless of resolver)", () => {
+  it("returns the sentinel treatment for NOTA (slate-200 fill, no ring, slate-600 token)", () => {
+    const out = getAvatarStyle("parties.IN.NOTA", null, true, null);
+    expect(out.kind).toBe("sentinel");
+    expect(out.fill).toBe("#e2e8f0"); // slate-200
+    expect(out.ring).toBeNull();
+    expect(out.ink).toBe("#475569"); // slate-600
+    expect(out.symbol_url).toBeNull();
+  });
+
+  it("returns the sentinel treatment for IND (slate-200 fill, no ring, slate-600 token)", () => {
+    const out = getAvatarStyle("parties.IN.IND", null, true, null);
+    expect(out.kind).toBe("sentinel");
+    expect(out.fill).toBe("#e2e8f0");
+    expect(out.ring).toBeNull();
+    expect(out.ink).toBe("#475569");
+    expect(out.symbol_url).toBeNull();
+  });
+
+  it("ignores symbol_asset for sentinel parties (sentinel takes precedence)", () => {
     const out = getAvatarStyle(
       "parties.IN.NOTA",
       null,
       true,
+      "party-symbols/should-be-ignored.svg",
     );
     expect(out.kind).toBe("sentinel");
-    expect(out.fill).toBe("#cbd5e1");
-    expect(out.ink).toBe("#334155");
+    expect(out.symbol_url).toBeNull();
   });
 });
 

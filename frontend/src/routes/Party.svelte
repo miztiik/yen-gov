@@ -41,7 +41,7 @@
     getPartyColor,
     type PartyRowForResolver,
   } from "../lib/colors/resolver";
-  import { pickInkForFill } from "../lib/party-pill/party-pill-resolve";
+  import { glyphUrlFor } from "../lib/PartySymbolGlyph.svelte";
 
   /** Pure: derive the 4-tile KPI strip values from the view-model. */
   export interface PartyKpiStrip {
@@ -122,67 +122,68 @@
     return `${body_label} (${latest.year}): ${seatsPart}${sharePart}${framing}.`;
   }
 
-  /** Avatar treatment tier - mirrors the 3-tier party-colour resolver +
-   *  a fourth "sentinel" tier for IND/NOTA. */
-  export type AvatarKind = "anchor" | "brand" | "fallback" | "sentinel";
+  /** Avatar treatment - geometry is uniformly a circle; the shape
+   *  decision is "render symbol image", "render short token", or
+   *  "render sentinel-grey token". Jony J4 (TODO/20260614-party-page-
+   *  reimagination-plan.md section 6): symbol presence + sentinel
+   *  status collapse the prior 4-tier (anchor/brand/fallback/sentinel)
+   *  taxonomy into 3 visual treatments that all share the circle
+   *  geometry. Brand colour lives on the ring; never behind a symbol
+   *  (ECI symbols are authored for high contrast on white - the lotus
+   *  on saffron was the prior page's worst signal-to-noise). */
+  export type AvatarKind = "symbol" | "token" | "sentinel";
 
-  /** Pure: derive the avatar style for the header card. Anchor =
-   *  full-bleed coloured square. Brand = paper square + 3px coloured
-   *  ring. Fallback = paper square + small coloured swatch. Sentinel
-   *  = grey neutral square. */
+  /** Pure: derive the avatar style for the header card.
+   *  - `symbol`:   paper-white fill + brand ring + centred SVG image.
+   *  - `token`:    paper-white fill + brand ring + centred short token.
+   *  - `sentinel`: slate-200 fill + NO ring + slate-600 token. The
+   *                absent ring is the visual signal "not a party in
+   *                the same sense" - matches the recognition strip. */
   export interface AvatarStyle {
     kind: AvatarKind;
-    /** Background fill for anchor; null for the other tiers. */
-    fill: string | null;
-    /** Ring colour for brand; null otherwise. */
+    /** Background fill for the circle (always set). */
+    fill: string;
+    /** Ring colour - brand colour for symbol/token; null for sentinel. */
     ring: string | null;
-    /** Ink colour (text on the square). */
+    /** Token ink colour - used when kind is "token" or "sentinel". */
     ink: string;
-    /** Small swatch colour for fallback; null otherwise. */
-    swatch: string | null;
+    /** Resolved symbol image URL - non-null iff kind is "symbol". */
+    symbol_url: string | null;
   }
 
   export function getAvatarStyle(
     party_id: string,
     row: PartyRowForResolver | null,
     is_sentinel: boolean,
+    symbol_asset: string | null,
   ): AvatarStyle {
     if (is_sentinel) {
       return {
         kind: "sentinel",
-        fill: "#cbd5e1", // slate-300 - the canonical neutral
+        fill: "#e2e8f0", // slate-200 - the canonical sentinel neutral
         ring: null,
-        ink: "#334155", // slate-700
-        swatch: null,
+        ink: "#475569", // slate-600
+        symbol_url: null,
       };
     }
     const resolved = getPartyColor(party_id, row);
-    switch (resolved.source) {
-      case "anchor":
-        return {
-          kind: "anchor",
-          fill: resolved.hex,
-          ring: null,
-          ink: pickInkForFill(resolved.hex),
-          swatch: null,
-        };
-      case "brand":
-        return {
-          kind: "brand",
-          fill: null,
-          ring: resolved.hex,
-          ink: "#0f172a",
-          swatch: null,
-        };
-      case "fallback":
-        return {
-          kind: "fallback",
-          fill: null,
-          ring: null,
-          ink: "#0f172a",
-          swatch: resolved.hex,
-        };
+    const symbol_url = glyphUrlFor(symbol_asset);
+    if (symbol_url) {
+      return {
+        kind: "symbol",
+        fill: "var(--surface)",
+        ring: resolved.hex,
+        ink: "#0f172a", // slate-900 (unused at render-time for kind=symbol)
+        symbol_url,
+      };
     }
+    return {
+      kind: "token",
+      fill: "var(--surface)",
+      ring: resolved.hex,
+      ink: "#0f172a", // slate-900
+      symbol_url: null,
+    };
   }
 
   /** Build the PartyRowForResolver shape from a PartyMeta - mirrors the
@@ -294,7 +295,12 @@
   const kpis = $derived(view_model ? computeKpis(view_model) : null);
   const avatar = $derived(
     meta
-      ? getAvatarStyle(meta.party_id, partyRowFromMeta(meta), meta.is_sentinel)
+      ? getAvatarStyle(
+          meta.party_id,
+          partyRowFromMeta(meta),
+          meta.is_sentinel,
+          meta.symbol_asset,
+        )
       : null,
   );
   const sentinel_line = $derived(meta ? sentinelFraming(meta.party_id) : null);
@@ -442,23 +448,24 @@
       data-testid="party-header"
     >
       <div
-        class="relative shrink-0 flex h-20 w-20 items-center justify-center rounded-md text-xl font-bold tracking-wider"
-        style:background-color={avatar.fill ?? "var(--surface)"}
-        style:color={avatar.ink}
-        style:border={avatar.ring
-          ? `3px solid ${avatar.ring}`
-          : avatar.kind === "fallback"
-            ? "1px solid var(--line)"
-            : "none"}
+        class="relative shrink-0 flex h-20 w-20 items-center justify-center rounded-full"
+        style:background-color={avatar.fill}
+        style:border={avatar.ring ? `3px solid ${avatar.ring}` : "none"}
         data-testid="party-avatar"
         data-treatment={avatar.kind}
       >
-        {meta.short}
-        {#if avatar.swatch}
+        {#if avatar.kind === "symbol" && avatar.symbol_url}
+          <img
+            src={avatar.symbol_url}
+            width="48"
+            height="48"
+            alt=""
+          />
+        {:else}
           <span
-            class="absolute -bottom-1 -right-1 inline-block h-3 w-3 rounded-full ring-2 ring-white"
-            style:background-color={avatar.swatch}
-          ></span>
+            class="text-xl font-bold tracking-wider"
+            style:color={avatar.ink}>{meta.short}</span
+          >
         {/if}
       </div>
       <div class="flex-1 min-w-0 space-y-1.5">
