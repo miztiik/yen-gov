@@ -229,19 +229,24 @@ export function paletteFromBrand(
   };
 }
 
-/** Pure: parse the `home_state_codes` column from parties.csv into
+/** Pure: parse the `home_state_codes` field from a PartyMeta into
  *  the set of ECI state codes (S/U series) the party regards as home.
- *  The column shape is `|`-separated ISO 3166-2 codes like
- *  "IN-TN|IN-PY" (DMK); we extract the ECI-equivalent suffix via the
- *  small inline lookup below. Returns an empty set when the field
- *  is blank or all entries fail the lookup. */
+ *  Accepts EITHER the `string[]` shape PartyMeta exposes (already
+ *  split from the parties.csv pipe-delimited column) OR the raw
+ *  pipe-delimited string for callers that haven't split yet. The
+ *  individual entries are ISO 3166-2 codes like "IN-TN"; we map them
+ *  to ECI codes via the small inline lookup below. Returns an empty
+ *  set when the field is blank or all entries fail the lookup. */
 export function homeStateEciCodes(
-  home_state_codes_field: string | null | undefined,
+  home_state_codes_field: string | string[] | null | undefined,
 ): Set<string> {
   const out = new Set<string>();
   if (!home_state_codes_field) return out;
-  for (const tok of home_state_codes_field.split("|")) {
-    const trimmed = tok.trim();
+  const tokens = Array.isArray(home_state_codes_field)
+    ? home_state_codes_field
+    : home_state_codes_field.split("|");
+  for (const tok of tokens) {
+    const trimmed = (tok ?? "").trim();
     if (!trimmed) continue;
     const eci = ISO_TO_ECI_STATE[trimmed];
     if (eci) out.add(eci);

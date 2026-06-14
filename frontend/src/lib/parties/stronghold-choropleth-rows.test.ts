@@ -274,20 +274,28 @@ describe("paletteFromBrand", () => {
 });
 
 describe("homeStateEciCodes", () => {
-  it("parses DMK home_state_codes (TN + PY)", () => {
+  it("parses DMK home_state_codes from pipe-delimited string (TN + PY)", () => {
     expect(homeStateEciCodes("IN-TN|IN-PY")).toEqual(new Set(["S22", "U07"]));
+  });
+  it("parses DMK home_state_codes from a string[] (PartyMeta shape)", () => {
+    expect(homeStateEciCodes(["IN-TN", "IN-PY"])).toEqual(
+      new Set(["S22", "U07"]),
+    );
   });
   it("returns empty set for empty / null / whitespace", () => {
     expect(homeStateEciCodes(null)).toEqual(new Set());
     expect(homeStateEciCodes(undefined)).toEqual(new Set());
     expect(homeStateEciCodes("")).toEqual(new Set());
+    expect(homeStateEciCodes([])).toEqual(new Set());
     expect(homeStateEciCodes(" | | ")).toEqual(new Set());
+    expect(homeStateEciCodes(["", "  "])).toEqual(new Set());
   });
   it("silently drops unknown ISO codes", () => {
-    // "IN-XX" doesn't map; "IN-KA" does -> S10
     expect(homeStateEciCodes("IN-KA|IN-XX")).toEqual(new Set(["S10"]));
+    expect(homeStateEciCodes(["IN-KA", "IN-XX"])).toEqual(new Set(["S10"]));
   });
   it("dedupes when the same code appears twice", () => {
     expect(homeStateEciCodes("IN-TN|IN-TN")).toEqual(new Set(["S22"]));
+    expect(homeStateEciCodes(["IN-TN", "IN-TN"])).toEqual(new Set(["S22"]));
   });
 });
