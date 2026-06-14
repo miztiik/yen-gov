@@ -11,8 +11,9 @@
     Body    : full name; "Founded YYYY" iff founded_year populated;
               "Dissolved YYYY" iff dissolved_year populated; recognition
               badge with lucide `landmark` glyph iff recognition_scope
-              populated; native script italic iff name_native_script
-              populated.
+              populated. (PR-6: native-script rendering was retired;
+              the citizen tooltip is intentionally Latin-only - native
+              names live on the per-party page about-card.)
     Footer  : Wikipedia external link (target="_blank" rel="noopener
               noreferrer") iff wikipedia URL populated. Renders "Wikipedia"
               as text when the lucide `external-link` icon is unregistered
@@ -21,8 +22,8 @@
   Sentinel handling (per docs/concepts/party-identity.md section 4 +
   Jony A2 verdict): NOTA / IND / UNK rows surface only the short + full
   + recognition badge (`recognition_scope === "sentinel"`); the founded
-  / dissolved / native_script / wiki lines are suppressed so we never
-  cite "Founded 2013" for NOTA (the date is the PUCL v Union of India
+  / dissolved / wiki lines are suppressed so we never cite
+  "Founded 2013" for NOTA (the date is the PUCL v Union of India
   ruling, not a party founding event). UNK never reaches this component
   - PartyPill's `shouldOpenTooltipFor` guard rejects it upstream.
 
@@ -78,9 +79,6 @@
     /** ECI recognition scope (e.g. "national", "state",
      *  "unrecognised_registered", "sentinel"). Null when blank. */
     recognitionScope: string | null;
-    /** Non-Latin party name (e.g. "आम आदमी पार्टी"). Null when blank
-     *  OR when the party is a sentinel. */
-    nativeScript: string | null;
     /** Wikipedia URL; null when blank OR when the party is a sentinel
      *  (sentinels have no wiki entry). */
     wikipediaUrl: string | null;
@@ -118,7 +116,6 @@
         foundedLine: null,
         dissolvedLine: null,
         recognitionScope: null,
-        nativeScript: null,
         wikipediaUrl: null,
         leader: null,
       };
@@ -134,7 +131,6 @@
         foundedLine: null,
         dissolvedLine: null,
         recognitionScope: null,
-        nativeScript: null,
         wikipediaUrl: null,
         leader: null,
       };
@@ -148,10 +144,10 @@
       symbolAsset: hasSymbol ? meta.symbol_asset! : "",
       short: meta.short,
       full: meta.full,
-      // Sentinels suppress founded / dissolved / native script / wiki
-      // even when the upstream row carries truthy values; per
-      // party-identity.md section 4 the date on NOTA is the ruling
-      // year, not a founding event.
+      // Sentinels suppress founded / dissolved / wiki even when the
+      // upstream row carries truthy values; per party-identity.md
+      // section 4 the date on NOTA is the ruling year, not a founding
+      // event.
       foundedLine:
         !isSentinel && meta.founded_year != null
           ? `Founded ${meta.founded_year}`
@@ -161,7 +157,6 @@
           ? `Dissolved ${meta.dissolved_year}`
           : null,
       recognitionScope: meta.recognition_scope,
-      nativeScript: isSentinel ? null : meta.name_native_script,
       wikipediaUrl: isSentinel ? null : meta.wikipedia,
       // PR-11: suppress leader for sentinels (IND/NOTA do not have a
       // "leader" in the parliamentary sense). For non-sentinels with
@@ -330,14 +325,6 @@
           >
             <TopicIcon name="landmark" cls="w-3 h-3 text-slate-400 shrink-0" />
             <span>{view.recognitionScope}</span>
-          </div>
-        {/if}
-        {#if view.nativeScript}
-          <div
-            class="text-[11px] text-slate-500 italic"
-            data-testid="tooltip-native-script"
-          >
-            {view.nativeScript}
           </div>
         {/if}
         {#if view.leader}

@@ -39,6 +39,9 @@ function mkMeta(overrides: Partial<PartyMeta> = {}): PartyMeta {
     brand_colour: "#ea580c",
     wikipedia: "https://en.wikipedia.org/wiki/Bharatiya_Janata_Party",
     name_native_script: null,
+    aliases: [],
+    predecessor_party_ids: [],
+    successor_party_ids: [],
     is_sentinel: false,
     leader: null,
     ...overrides,
@@ -164,20 +167,6 @@ describe("buildTooltipViewModel - (f) sentinel handling", () => {
     expect(view.foundedLine).toBeNull();
   });
 
-  it("suppresses native script for sentinels", () => {
-    const view = buildTooltipViewModel(
-      mkMeta({
-        party_id: "parties.IN.IND",
-        short: "IND",
-        recognition_scope: "sentinel",
-        name_native_script: "some-native-form",
-        is_sentinel: true,
-      }),
-      false,
-    );
-    expect(view.nativeScript).toBeNull();
-  });
-
   it("PRESERVES short + full + recognition for sentinels (those ARE meaningful)", () => {
     const view = buildTooltipViewModel(
       mkMeta({
@@ -194,20 +183,6 @@ describe("buildTooltipViewModel - (f) sentinel handling", () => {
     expect(view.short).toBe("IND");
     expect(view.full).toBe("Independent");
     expect(view.recognitionScope).toBe("sentinel");
-  });
-
-  it("surfaces native script for NON-sentinel parties (e.g. AAP)", () => {
-    const view = buildTooltipViewModel(
-      mkMeta({
-        party_id: "parties.IN.AAP",
-        short: "AAP",
-        full: "Aam Aadmi Party",
-        name_native_script: "आम आदमी पार्टी",
-        is_sentinel: false,
-      }),
-      false,
-    );
-    expect(view.nativeScript).toBe("आम आदमी पार्टी");
   });
 });
 

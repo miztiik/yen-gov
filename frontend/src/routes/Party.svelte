@@ -244,6 +244,13 @@
   import RecognitionStrip from "../lib/parties/RecognitionStrip.svelte";
   import PartyStrongholdMap from "../lib/parties/PartyStrongholdMap.svelte";
   import StrongholdDotStrip from "../lib/parties/StrongholdDotStrip.svelte";
+  // PR-6: recognitionLabel + PartyAboutCard share the same Hans H7
+  // vocabulary; importing keeps the in-header subline and the
+  // side-rail card on a single source of truth (future copy tweaks
+  // happen in one place; the AboutCard vitest pin covers both paths).
+  import PartyAboutCard, {
+    recognitionLabel,
+  } from "../lib/parties/PartyAboutCard.svelte";
   import {
     homeStateEciCodes,
     mapPcStrongholdsToChoroplethRows,
@@ -378,23 +385,10 @@
     meta ? homeStateEciCodes(meta.home_state_codes) : new Set<string>(),
   );
 
-  // Recognition badge label.
-  function recognitionLabel(scope: string | null): string {
-    switch (scope) {
-      case "national":
-        return "National party";
-      case "state":
-        return "State party";
-      case "unrecognised_registered":
-        return "Unrecognised registered party";
-      case "defunct":
-        return "Defunct";
-      case "sentinel":
-        return "Special";
-      default:
-        return "Recognition unknown";
-    }
-  }
+  // Recognition badge label is sourced from PartyAboutCard's exported
+  // helper (Hans H7 vocabulary, PR-6). Single source of truth - the
+  // in-header subline (line 483) and the side-rail card render the
+  // same string for the same scope.
 </script>
 
 <main
@@ -503,6 +497,20 @@
         {/if}
       </div>
     </header>
+
+    <!--
+      PR-6 layout: header sits full-width above. Sections (2)-(6) live
+      in the LEFT column of a 1fr+240px grid at `lg`+; the right column
+      hosts the "About this party" side-rail (PartyAboutCard). On
+      narrow viewports the grid collapses to a single column and the
+      mobile-mode AboutCard renders below strongholds (`lg:hidden`
+      slot at the bottom of the left column). PUCL attribution survives
+      as a full-width block AFTER the grid for NOTA.
+    -->
+    <div
+      class="lg:grid lg:grid-cols-[1fr_240px] lg:gap-6 lg:items-start space-y-6 lg:space-y-0"
+    >
+      <div class="space-y-6 min-w-0">
 
     <!-- (2) Latest-of one-liner per body. Hidden for sentinels until
          a meaningful value lands. -->
@@ -734,76 +742,36 @@
       </section>
     {/if}
 
-    <!-- (7) Metadata footer -->
-    <footer
-      class="border-t border-slate-200 pt-4 space-y-2 text-xs text-slate-600"
-      data-testid="party-metadata"
-    >
-      <div class="flex flex-wrap items-center gap-x-4 gap-y-1.5">
-        {#if meta.founded_year}
-          <span
-            class="inline-flex items-center gap-1.5"
-            data-testid="party-meta-founded"
-          >
-            <TopicIcon name="calendar" cls="w-3.5 h-3.5 text-slate-500 shrink-0" />
-            Founded {meta.founded_year}
-          </span>
-        {/if}
-        {#if meta.dissolved_year}
-          <span
-            class="inline-flex items-center gap-1.5"
-            data-testid="party-meta-dissolved"
-          >
-            <TopicIcon name="x-circle" cls="w-3.5 h-3.5 text-slate-500 shrink-0" />
-            Dissolved {meta.dissolved_year}
-          </span>
-        {/if}
-        <span
-          class="inline-flex items-center gap-1.5"
-          data-testid="party-meta-recognition"
-        >
-          <TopicIcon name="landmark" cls="w-3.5 h-3.5 text-slate-500 shrink-0" />
-          {recognitionLabel(meta.recognition_scope)}
-        </span>
-        {#each meta.home_state_codes as code (code)}
-          <span
-            class="inline-flex items-center gap-1.5"
-            data-testid="party-meta-home-state"
-          >
-            <TopicIcon name="map-pin" cls="w-3.5 h-3.5 text-slate-500 shrink-0" />
-            {states.name(code) || code}
-          </span>
-        {/each}
-        {#if meta.name_native_script}
-          <span
-            class="inline-flex items-center gap-1.5 italic"
-            data-testid="party-meta-native"
-          >
-            <TopicIcon name="languages" cls="w-3.5 h-3.5 text-slate-500 shrink-0" />
-            {meta.name_native_script}
-          </span>
-        {/if}
-        {#if meta.wikipedia}
-          <a
-            href={meta.wikipedia}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 text-sky-600 hover:underline"
-            data-testid="party-meta-wiki"
-          >
-            <TopicIcon name="external-link" cls="w-3.5 h-3.5 shrink-0" />
-            Wikipedia
-          </a>
-        {/if}
+    <!-- (7) About this party (PR-6).
+         Renders TWICE: once below strongholds as a mobile <dl>
+         (`lg:hidden`), once in the right column of the grid as a
+         desktop bordered side-rail (`hidden lg:block`). Both mounts
+         render IDENTICAL content; the mobile flag toggles the wrapper
+         styling. The PUCL attribution for NOTA is NOT part of the
+         card - it survives as a full-width block below the grid. -->
+        <div class="lg:hidden">
+          <PartyAboutCard
+            {meta}
+            statesNameFn={(c) => states.name(c)}
+            mobile
+          />
+        </div>
       </div>
-      {#if showPuclAttribution(meta.party_id)}
-        <p
-          class="text-[11px] text-slate-400 mt-2"
-          data-testid="party-nota-puc-attribution"
-        >
-          Introduced by the Supreme Court in PUCL v. Union of India (Sep 2013).
-        </p>
-      {/if}
-    </footer>
+      <aside class="hidden lg:block">
+        <PartyAboutCard
+          {meta}
+          statesNameFn={(c) => states.name(c)}
+        />
+      </aside>
+    </div>
+
+    {#if showPuclAttribution(meta.party_id)}
+      <p
+        class="text-[11px] text-slate-400"
+        data-testid="party-nota-puc-attribution"
+      >
+        Introduced by the Supreme Court in PUCL v. Union of India (Sep 2013).
+      </p>
+    {/if}
   {/if}
 </main>

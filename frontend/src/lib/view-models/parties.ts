@@ -111,6 +111,25 @@ export interface PartyMeta {
    *  Citizen-surface filtering on the elections route is the consumer's
    *  call (No-Hindi policy lives in url-grammar.md). */
   name_native_script: string | null;
+  /** PR-6: Citizen-readable alternate party names from
+   *  `parties.csv::aliases` (pipe-delimited list exploded at the loader
+   *  boundary). Empty array when upstream blank. The per-party page
+   *  About card renders these as a comma-joined inline string when
+   *  non-empty; the tooltip does NOT render aliases (Jony A2 - tooltip
+   *  body is intentionally short). */
+  aliases: string[];
+  /** PR-6: Opaque `parties.IN.<X>` ids for predecessor parties from
+   *  `parties.csv::predecessor_party_ids` (pipe-delimited list).
+   *  Empty array when upstream blank. The per-party page About card
+   *  renders these as a comma-joined list of links via `link.party()`
+   *  (which returns null for UNK, in which case the consumer renders
+   *  plain text). */
+  predecessor_party_ids: string[];
+  /** PR-6: Opaque `parties.IN.<X>` ids for successor parties from
+   *  `parties.csv::successor_party_ids` (pipe-delimited list).
+   *  Empty array when upstream blank. Same rendering rule as
+   *  `predecessor_party_ids`. */
+  successor_party_ids: string[];
   /** True for the 3 sentinel rows (`parties.IN.UNK`, `parties.IN.IND`,
    *  `parties.IN.NOTA`). The tooltip uses this to suppress the wiki
    *  link + founded line for sentinels even when DuckDB returns a
@@ -145,6 +164,13 @@ interface RawPartiesRow {
   wikipedia: string | null;
   name_native_script: string | null;
   is_sentinel: boolean | null;
+  // PR-6: 3 new pipe-delimited list columns plumbed through the
+  // PartyMeta typed projection. Declared optional so the existing
+  // fixture rows in parties.test.ts that omit them stay valid; the
+  // splitPipe(undefined) projection collapses missing values to [].
+  aliases?: string | null;
+  predecessor_party_ids?: string | null;
+  successor_party_ids?: string | null;
 }
 
 function trimmedOrNull(value: string | null | undefined): string | null {
@@ -189,6 +215,9 @@ export function toPartyMeta(row: RawPartiesRow): PartyMeta | null {
     brand_colour: trimmedOrNull(row.brand_colour),
     wikipedia: trimmedOrNull(row.wikipedia),
     name_native_script: trimmedOrNull(row.name_native_script),
+    aliases: splitPipe(row.aliases),
+    predecessor_party_ids: splitPipe(row.predecessor_party_ids),
+    successor_party_ids: splitPipe(row.successor_party_ids),
     is_sentinel: row.is_sentinel === true,
     leader: null,
   };
@@ -344,6 +373,9 @@ async function fetchAllPartiesMeta(): Promise<Map<string, PartyMeta>> {
       brand_colour,
       wikipedia,
       name_native_script,
+      aliases,
+      predecessor_party_ids,
+      successor_party_ids,
       is_sentinel
     FROM read_csv('${PARTIES_CSV_URL}', ${columnsClause}, header=true)
   `);

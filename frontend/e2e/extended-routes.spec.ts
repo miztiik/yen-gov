@@ -324,7 +324,4 @@ test.describe("extended routes", () => {
     // The new pill grammar starts with the literal "Source:" prefix.
     await expect(footer.getByText(/^Source:/).first()).toBeVisible({ timeout: 45_000 });
   });
-    expect(["live-fetch", "archived-snapshot", "transcribed", "editorial"])
-      .toContain(method);
-  });
 });
