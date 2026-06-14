@@ -58,6 +58,7 @@ root before committing boundary geometry. The validator enforces:
 1. **Hive path shape**: every `.geojson` and `.topojson` under `datasets/boundaries/in/**` matches a known boundary Hive family.
 2. **Sibling pair is the durable contract**: every `.topojson` under `datasets/boundaries/in/**` has a sibling `.geojson` in the same directory. The 2026-05-31 user-ratified decision kept both encodings as durable siblings and deleted the sibling-retirement plan. The loader's topo-first / geojson-fallback path is the design, not a transitional state.
 3. **Feature-count parity**: TopoJSON object geometry count equals sibling GeoJSON `features.length` per shard. Coordinate equality is NOT asserted (quantization is by design lossy).
+4. **Encoding receipt**: `datasets/data/entities/boundary_encoding.csv` has exactly one row per TopoJSON shard under `datasets/boundaries/in/**`; every row's paths exist, hashes match disk, feature counts match disk, and no receipt row points at an orphan path. Refresh it with `python -m tools.topojson.emit_receipt --root .` after changing boundary encodings.
 
 [frontend/src/contracts/boundaries-conform.test.ts](../../../frontend/src/contracts/boundaries-conform.test.ts)
 keeps bounded canaries for Hive path grammar, sidecar absence, ledger

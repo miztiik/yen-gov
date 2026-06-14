@@ -235,6 +235,9 @@ Boundary corpus shape is now producer-side Tier B. `python -m yen_gov validate -
 - `tier_b_boundary_hive_path_shape`: every `.geojson` and `.topojson` under `datasets/boundaries/in/` matches a known Hive path family.
 - `tier_b_boundary_topo_sibling_pairs`: every `.topojson` under `datasets/boundaries/in/` has a sibling `.geojson`; GeoJSON-only legacy shards are still allowed.
 - `tier_b_boundary_topo_feature_count_parity`: every TopoJSON/GeoJSON pair has matching geometry/feature counts.
+- `tier_b_boundary_encoding_receipt`: `datasets/data/entities/boundary_encoding.csv` exists when TopoJSON shards exist; every row's paths exist; recorded hashes and feature counts match disk; GeoJSON and TopoJSON feature counts match; every TopoJSON shard has exactly one receipt row; orphan receipt rows fail loudly.
+
+Refresh the receipt with `python -m tools.topojson.emit_receipt --root .` after any boundary encoding change. The receipt is an encoding contract, not a provenance ledger; source-bearing boundary metadata remains in `datasets/data/entities/boundary_layer.csv`.
 
 Frontend `frontend/src/contracts/boundaries-conform.test.ts` keeps bounded consumer canaries for Hive path grammar, sidecar absence, ledger presence, states join key, and representative TopoJSON decode. It must not walk every boundary shard or create one default Vitest case per corpus file.
 

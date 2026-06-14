@@ -23,7 +23,7 @@ corpus validation from CI is protecting.
 | Tier | What it asserts | Where it runs | Wall time |
 | --- | --- | --- | --- |
 | **A — schema sanity** | Every `*.schema.json` validates against the JSON Schema 2020-12 meta-schema; `x-version` is `<major>.<minor>`; `x-changelog` is non-empty and its tail entry's `version` matches `x-version`; malformed JSON is reported, not crashed on. | `pytest -q` in `backend/`, via fixture tests in `tests/test_validate.py` that construct synthetic schemas in `tmp_path`. Always on; runs in CI. | <1s |
-| **B - corpus conformance** | Every `*.json` under `datasets/` and `config/` declares `$schema` and `$schema_version`; the schema resolves; the declared version is accepted by the active compatibility contract; the file validates against the schema the reader is allowed to use. It also owns exhaustive boundary corpus facts: known Hive path shape under `datasets/boundaries/in/`, TopoJSON -> GeoJSON sibling presence, and TopoJSON/GeoJSON feature-count parity. Row E consumes `datasets/schema-compatibility.json` for the `json-corpus` surface; Row H defines the retained historical schema path and resolver used when a future entry needs declared-version validation. | `python -m yen_gov validate --root .` invoked locally before committing changes that touch `datasets/**`, `config/**`, `datasets/schemas/**`, or boundary geometry. NOT gated in CI. | Corpus-sized; local-only |
+| **B - corpus conformance** | Every `*.json` under `datasets/` and `config/` declares `$schema` and `$schema_version`; the schema resolves; the declared version is accepted by the active compatibility contract; the file validates against the schema the reader is allowed to use. It also owns exhaustive boundary corpus facts: known Hive path shape under `datasets/boundaries/in/`, TopoJSON -> GeoJSON sibling presence, TopoJSON/GeoJSON feature-count parity, and the committed `datasets/data/entities/boundary_encoding.csv` receipt (paths, hashes, counts, one row per TopoJSON shard, no orphans). Row E consumes `datasets/schema-compatibility.json` for the `json-corpus` surface; Row H defines the retained historical schema path and resolver used when a future entry needs declared-version validation. | `python -m yen_gov validate --root .` invoked locally before committing changes that touch `datasets/**`, `config/**`, `datasets/schemas/**`, or boundary geometry. NOT gated in CI. | Corpus-sized; local-only |
 
 ## Why Tier B is local-only
 
@@ -89,8 +89,9 @@ Tier B must not accept an artifact by guessing defaults for missing historical f
   All cases use `tmp_path` and construct synthetic schemas/data. None
    walk the on-disk corpus. Boundary Tier-B tests seed tiny GeoJSON /
    TopoJSON fixture pairs to cover Hive path shape, sibling presence,
-   feature-count parity, and regression guards that `run()` chains each
-   check.
+   feature-count parity, boundary encoding receipt hash/count drift,
+   receipt row uniqueness/orphans, and regression guards that `run()`
+   chains each check.
 - `backend/tests/test_admin_schemas.py` — same pattern, one altitude
   up. Tests the `/api/schemas` FastAPI route by pointing it at a
   `tmp_path` fixture corpus via the `YEN_GOV_REPO_ROOT` env var

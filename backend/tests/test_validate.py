@@ -1,10 +1,14 @@
 import json
+import csv
+import hashlib
 from pathlib import Path
 
 import pytest
 
 from yen_gov.core.schema_registry import schema_version
 from yen_gov.validate import (
+    BOUNDARY_ENCODING_RECEIPT,
+    BOUNDARY_ENCODING_RECEIPT_COLUMNS,
     ENERGY_INDICATOR_DIR,
     LEGACY_BOUNDARY_SIDECARS_ALLOWLIST,
     LEGACY_INDICATOR_SHARDS_ALLOWLIST,
@@ -15,6 +19,7 @@ from yen_gov.validate import (
     tier_a,
     tier_b,
     tier_b_boundary_hive_path_shape,
+    tier_b_boundary_encoding_receipt,
     tier_b_boundary_topo_feature_count_parity,
     tier_b_boundary_topo_sibling_pairs,
     tier_b_legacy_boundary_sidecars,
@@ -651,6 +656,68 @@ def _seed_boundary_sidecar_allowlist(tmp_path: Path) -> None:
     allow_path.write_text("# Test fixture allowlist\n", encoding="utf-8")
 
 
+def _sha256_fixture(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as fh:
+        for chunk in iter(lambda: fh.read(65536), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _seed_topojson_receipt_inputs(tmp_path: Path) -> None:
+    config_path = tmp_path / "config" / "topojson.json"
+    config_path.parent.mkdir(parents=True, exist_ok=True)
+    config_path.write_text('{"default_quantization":100000}\n', encoding="utf-8")
+    version_path = tmp_path / "tools" / "topojson" / ".mapshaper-version"
+    version_path.parent.mkdir(parents=True, exist_ok=True)
+    version_path.write_text("0.7.22\n", encoding="utf-8")
+
+
+def _boundary_encoding_row(
+    tmp_path: Path,
+    topo_rel: str,
+    *,
+    geo_rel: str | None = None,
+    topojson_object: str = "layer",
+    geojson_feature_count: int | None = None,
+    topojson_feature_count: int | None = None,
+    geojson_sha256: str | None = None,
+    topojson_sha256: str | None = None,
+) -> dict[str, str]:
+    geo_rel = geo_rel or topo_rel.removesuffix(".topojson") + ".geojson"
+    if geojson_feature_count is None:
+        geojson_feature_count = len(json.loads((tmp_path / geo_rel).read_text(encoding="utf-8"))["features"])
+    if topojson_feature_count is None:
+        geometries = json.loads((tmp_path / topo_rel).read_text(encoding="utf-8"))["objects"][topojson_object]["geometries"]
+        topojson_feature_count = len(geometries)
+    geojson_sha256 = geojson_sha256 or _sha256_fixture(tmp_path / geo_rel)
+    topojson_sha256 = topojson_sha256 or _sha256_fixture(tmp_path / topo_rel)
+    config_hash = _sha256_fixture(tmp_path / "config" / "topojson.json")
+    return {
+        "topojson_path": topo_rel,
+        "geojson_path": geo_rel,
+        "layer_id": "",
+        "level": "state",
+        "topojson_object": topojson_object,
+        "geojson_feature_count": str(geojson_feature_count),
+        "topojson_feature_count": str(topojson_feature_count),
+        "geojson_sha256": geojson_sha256,
+        "topojson_sha256": topojson_sha256,
+        "mapshaper_version": "0.7.22",
+        "topojson_config_hash": config_hash,
+        "generated_by": "tools.topojson.emit_receipt",
+    }
+
+
+def _write_boundary_encoding_receipt(tmp_path: Path, rows: list[dict[str, str]]) -> None:
+    path = tmp_path / BOUNDARY_ENCODING_RECEIPT
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="") as fh:
+        writer = csv.DictWriter(fh, fieldnames=list(BOUNDARY_ENCODING_RECEIPT_COLUMNS), lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+
+
 def test_boundary_hive_path_shape_accepts_known_samples(tmp_path: Path):
     samples = [
         "datasets/boundaries/in/country/all.geojson",
@@ -740,21 +807,107 @@ def test_boundary_topo_sibling_pairs_chained_into_run(tmp_path: Path):
     assert len(matches) == 1, f"run() must chain tier_b_boundary_topo_sibling_pairs, got: {fails}"
 
 
-def test_boundary_topo_feature_count_parity_chained_into_run(tmp_path: Path):
+def test_boundary_encoding_receipt_required_when_topojson_exists(tmp_path: Path):
+    _write_boundary_geojson(tmp_path, "datasets/boundaries/in/states/all.geojson")
+    _write_boundary_topojson(tmp_path, "datasets/boundaries/in/states/all.topojson")
+
+    fails = tier_b_boundary_encoding_receipt(tmp_path)
+    assert len(fails) == 1
+    assert fails[0].file == BOUNDARY_ENCODING_RECEIPT.as_posix()
+    assert "missing boundary encoding receipt" in fails[0].message
+
+
+def test_boundary_encoding_receipt_passes_matching_fixture(tmp_path: Path):
+    _seed_topojson_receipt_inputs(tmp_path)
+    _write_boundary_geojson(tmp_path, "datasets/boundaries/in/states/all.geojson", feature_count=2)
+    _write_boundary_topojson(tmp_path, "datasets/boundaries/in/states/all.topojson", geometry_count=2)
+    _write_boundary_encoding_receipt(
+        tmp_path,
+        [_boundary_encoding_row(tmp_path, "datasets/boundaries/in/states/all.topojson")],
+    )
+
+    fails = tier_b_boundary_encoding_receipt(tmp_path)
+    assert fails == [], f"expected no receipt failures, got: {fails}"
+
+
+def test_boundary_encoding_receipt_rejects_hash_mutation(tmp_path: Path):
+    _seed_topojson_receipt_inputs(tmp_path)
+    _write_boundary_geojson(tmp_path, "datasets/boundaries/in/states/all.geojson")
+    _write_boundary_topojson(tmp_path, "datasets/boundaries/in/states/all.topojson")
+    row = _boundary_encoding_row(
+        tmp_path,
+        "datasets/boundaries/in/states/all.topojson",
+        topojson_sha256="0" * 64,
+    )
+    _write_boundary_encoding_receipt(tmp_path, [row])
+
+    fails = tier_b_boundary_encoding_receipt(tmp_path)
+    assert any("topojson_sha256 mismatch" in f.message for f in fails), fails
+
+
+def test_boundary_encoding_receipt_rejects_count_mutation(tmp_path: Path):
+    _seed_topojson_receipt_inputs(tmp_path)
+    _write_boundary_geojson(tmp_path, "datasets/boundaries/in/states/all.geojson", feature_count=2)
+    _write_boundary_topojson(tmp_path, "datasets/boundaries/in/states/all.topojson", geometry_count=2)
+    row = _boundary_encoding_row(
+        tmp_path,
+        "datasets/boundaries/in/states/all.topojson",
+        geojson_feature_count=1,
+    )
+    _write_boundary_encoding_receipt(tmp_path, [row])
+
+    fails = tier_b_boundary_encoding_receipt(tmp_path)
+    assert any("recorded geojson_feature_count 1 != disk feature count 2" in f.message for f in fails), fails
+
+
+def test_boundary_encoding_receipt_rejects_duplicate_and_missing_rows(tmp_path: Path):
+    _seed_topojson_receipt_inputs(tmp_path)
+    _write_boundary_geojson(tmp_path, "datasets/boundaries/in/states/all.geojson")
+    _write_boundary_topojson(tmp_path, "datasets/boundaries/in/states/all.topojson")
+    _write_boundary_geojson(tmp_path, "datasets/boundaries/in/districts/all.geojson")
+    _write_boundary_topojson(tmp_path, "datasets/boundaries/in/districts/all.topojson")
+    row = _boundary_encoding_row(tmp_path, "datasets/boundaries/in/states/all.topojson")
+    _write_boundary_encoding_receipt(tmp_path, [row, row.copy()])
+
+    fails = tier_b_boundary_encoding_receipt(tmp_path)
+    assert any("has 2 receipt rows" in f.message for f in fails), fails
+    assert any("missing receipt row for topojson shard 'datasets/boundaries/in/districts/all.topojson'" in f.message for f in fails), fails
+
+
+def test_boundary_encoding_receipt_rejects_orphan_row(tmp_path: Path):
+    _seed_topojson_receipt_inputs(tmp_path)
+    _write_boundary_geojson(tmp_path, "datasets/boundaries/in/states/all.geojson")
+    _write_boundary_topojson(tmp_path, "datasets/boundaries/in/states/all.topojson")
+    row = _boundary_encoding_row(tmp_path, "datasets/boundaries/in/states/all.topojson")
+    row["topojson_path"] = "datasets/boundaries/in/states/orphan.topojson"
+    row["geojson_path"] = "datasets/boundaries/in/states/orphan.geojson"
+    _write_boundary_encoding_receipt(tmp_path, [row])
+
+    fails = tier_b_boundary_encoding_receipt(tmp_path)
+    assert any("orphan topojson_path 'datasets/boundaries/in/states/orphan.topojson'" in f.message for f in fails), fails
+    assert any("missing receipt row for topojson shard 'datasets/boundaries/in/states/all.topojson'" in f.message for f in fails), fails
+
+
+def test_boundary_encoding_receipt_chained_into_run(tmp_path: Path):
     _seed_repo(tmp_path)
     _seed_boundary_sidecar_allowlist(tmp_path)
-    _write_boundary_geojson(tmp_path, "datasets/boundaries/in/districts/all.geojson", feature_count=2)
-    _write_boundary_topojson(tmp_path, "datasets/boundaries/in/districts/all.topojson", geometry_count=1)
+    _seed_topojson_receipt_inputs(tmp_path)
+    _write_boundary_geojson(tmp_path, "datasets/boundaries/in/states/all.geojson", feature_count=2)
+    _write_boundary_topojson(tmp_path, "datasets/boundaries/in/states/all.topojson", geometry_count=2)
+    row = _boundary_encoding_row(
+        tmp_path,
+        "datasets/boundaries/in/states/all.topojson",
+        topojson_feature_count=1,
+    )
+    _write_boundary_encoding_receipt(tmp_path, [row])
 
     fails = run(tmp_path)
     matches = [
         f for f in fails
-        if f.file == "datasets/boundaries/in/districts/all.topojson"
-        and "topojson geometry count 1 != sibling geojson feature count 2" in f.message
+        if f.file == BOUNDARY_ENCODING_RECEIPT.as_posix()
+        and "recorded topojson_feature_count 1 != disk geometry count 2" in f.message
     ]
-    assert len(matches) == 1, (
-        f"run() must chain tier_b_boundary_topo_feature_count_parity, got: {fails}"
-    )
+    assert len(matches) == 1, f"run() must chain tier_b_boundary_encoding_receipt, got: {fails}"
 
 
 # ---------------------------------------------------------------------------

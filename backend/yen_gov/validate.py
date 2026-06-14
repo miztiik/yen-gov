@@ -35,6 +35,8 @@ Tier B — data conformance:
 
 from __future__ import annotations
 
+import csv
+import hashlib
 import json
 import re
 from dataclasses import dataclass
@@ -74,6 +76,23 @@ LEGACY_INDICATOR_SHARDS_ALLOWLIST = Path("datasets/_ops/meadow-shard-contract.tx
 LEGACY_BOUNDARY_SIDECARS_DIR = Path("datasets/boundaries")
 LEGACY_BOUNDARY_SIDECARS_ALLOWLIST = Path("datasets/_ops/legacy-boundary-sidecars.txt")
 BOUNDARY_GEOMETRY_DIR = Path("datasets/boundaries/in")
+BOUNDARY_ENCODING_RECEIPT = Path("datasets/data/entities/boundary_encoding.csv")
+TOPOJSON_CONFIG_PATH = Path("config/topojson.json")
+TOPOJSON_MAPSHAPER_VERSION_PATH = Path("tools/topojson/.mapshaper-version")
+BOUNDARY_ENCODING_RECEIPT_COLUMNS: tuple[str, ...] = (
+    "topojson_path",
+    "geojson_path",
+    "layer_id",
+    "level",
+    "topojson_object",
+    "geojson_feature_count",
+    "topojson_feature_count",
+    "geojson_sha256",
+    "topojson_sha256",
+    "mapshaper_version",
+    "topojson_config_hash",
+    "generated_by",
+)
 
 _BOUNDARY_HIVE_PATH_SHAPES: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("country", re.compile(r"^country/all\.(?:geojson|topojson)$")),
@@ -240,6 +259,14 @@ def _posix(p: Path, root: Path) -> str:
 def _load_json(p: Path) -> object:
     with p.open(encoding="utf-8") as fh:
         return json.load(fh)
+
+
+def _sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as fh:
+        for chunk in iter(lambda: fh.read(65536), b""):
+            h.update(chunk)
+    return h.hexdigest()
 
 
 def load_schemas(schemas_dir: Path) -> tuple[dict[str, dict], list[Failure]]:
@@ -755,6 +782,35 @@ def _topojson_geometry_count(payload: object) -> tuple[int | None, str | None]:
     return total, None
 
 
+def _topojson_geometry_count_for_object(
+    payload: object, object_name: str
+) -> tuple[int | None, str | None]:
+    if not isinstance(payload, dict):
+        return None, "top-level must be an object"
+    if payload.get("type") != "Topology":
+        return None, "type must be 'Topology'"
+    objects = payload.get("objects")
+    if not isinstance(objects, dict) or not objects:
+        return None, "objects must be a non-empty object"
+    if object_name not in objects:
+        return None, f"objects[{object_name!r}] is missing"
+    obj = objects[object_name]
+    if not isinstance(obj, dict):
+        return None, f"objects[{object_name!r}] must be an object"
+    obj_type = obj.get("type")
+    if obj_type == "GeometryCollection":
+        geometries = obj.get("geometries")
+        if not isinstance(geometries, list):
+            return None, f"objects[{object_name!r}].geometries must be an array"
+        return len(geometries), None
+    if isinstance(obj_type, str) and obj_type in _TOPOJSON_SINGLE_GEOMETRY_TYPES:
+        return 1, None
+    return None, (
+        f"objects[{object_name!r}].type must be GeometryCollection or a "
+        "supported TopoJSON geometry type"
+    )
+
+
 def tier_b_boundary_topo_feature_count_parity(root: Path) -> list[Failure]:
     """Require TopoJSON geometry count to match sibling GeoJSON features."""
     failures: list[Failure] = []
@@ -806,6 +862,245 @@ def tier_b_boundary_topo_feature_count_parity(root: Path) -> list[Failure]:
                     f"feature count {geo_count} for {geo_rel!r}.",
                 )
             )
+    return failures
+
+
+def _receipt_path_value(row: dict[str, str], column: str) -> str:
+    return (row.get(column) or "").strip()
+
+
+def _receipt_row_path(
+    row: dict[str, str], column: str, receipt_rel: str, row_number: int
+) -> tuple[Path | None, Failure | None]:
+    value = _receipt_path_value(row, column)
+    if not value:
+        return None, Failure(receipt_rel, "B", f"row {row_number}: {column} is empty")
+    if "\\" in value:
+        return None, Failure(receipt_rel, "B", f"row {row_number}: {column} contains a backslash")
+    if re.match(r"^[A-Za-z]:", value):
+        return None, Failure(receipt_rel, "B", f"row {row_number}: {column} must not contain a drive letter")
+    path = PurePosixPath(value)
+    if path.is_absolute() or ".." in path.parts:
+        return None, Failure(receipt_rel, "B", f"row {row_number}: {column} must be relative")
+    if not value.startswith("datasets/boundaries/in/"):
+        return None, Failure(
+            receipt_rel,
+            "B",
+            f"row {row_number}: {column}={value!r} must live under datasets/boundaries/in/",
+        )
+    return Path(*path.parts), None
+
+
+def _receipt_int(
+    row: dict[str, str], column: str, receipt_rel: str, row_number: int
+) -> tuple[int | None, Failure | None]:
+    value = (row.get(column) or "").strip()
+    try:
+        parsed = int(value)
+    except ValueError:
+        return None, Failure(receipt_rel, "B", f"row {row_number}: {column}={value!r} is not an integer")
+    if parsed < 0:
+        return None, Failure(receipt_rel, "B", f"row {row_number}: {column} must be >= 0")
+    return parsed, None
+
+
+def tier_b_boundary_encoding_receipt(root: Path) -> list[Failure]:
+    """Validate the committed TopoJSON/GeoJSON boundary encoding receipt."""
+    failures: list[Failure] = []
+    receipt_path = root / BOUNDARY_ENCODING_RECEIPT
+    receipt_rel = BOUNDARY_ENCODING_RECEIPT.as_posix()
+    topojson_paths = [
+        path for path in _iter_boundary_geometry_files(root) if path.suffix == ".topojson"
+    ]
+    topojson_rels = {_posix(path, root) for path in topojson_paths}
+
+    if topojson_paths and not receipt_path.exists():
+        return [
+            Failure(
+                receipt_rel,
+                "B",
+                "missing boundary encoding receipt: TopoJSON files exist under "
+                f"{BOUNDARY_GEOMETRY_DIR.as_posix()} but {receipt_rel} is absent. "
+                "Run `python -m tools.topojson.emit_receipt --root .`.",
+            )
+        ]
+    if not receipt_path.exists():
+        return failures
+
+    try:
+        with receipt_path.open("r", encoding="utf-8", newline="") as fh:
+            reader = csv.DictReader(fh)
+            if reader.fieldnames != list(BOUNDARY_ENCODING_RECEIPT_COLUMNS):
+                return [
+                    Failure(
+                        receipt_rel,
+                        "B",
+                        "boundary encoding receipt header mismatch: expected "
+                        f"{list(BOUNDARY_ENCODING_RECEIPT_COLUMNS)!r}, got {reader.fieldnames!r}.",
+                    )
+                ]
+            rows = list(reader)
+    except csv.Error as e:
+        return [Failure(receipt_rel, "B", f"invalid CSV: {e}")]
+
+    pinned_mapshaper_version: str | None = None
+    version_path = root / TOPOJSON_MAPSHAPER_VERSION_PATH
+    if version_path.exists():
+        pinned_mapshaper_version = version_path.read_text(encoding="utf-8").strip()
+    config_hash: str | None = None
+    config_path = root / TOPOJSON_CONFIG_PATH
+    if config_path.exists():
+        config_hash = _sha256_file(config_path)
+
+    receipt_topo_counts: dict[str, int] = {}
+    for row_number, row in enumerate(rows, start=2):
+        topo_rel_path, topo_failure = _receipt_row_path(row, "topojson_path", receipt_rel, row_number)
+        if topo_failure is not None:
+            failures.append(topo_failure)
+            continue
+        geo_rel_path, geo_failure = _receipt_row_path(row, "geojson_path", receipt_rel, row_number)
+        if geo_failure is not None:
+            failures.append(geo_failure)
+            continue
+        assert topo_rel_path is not None
+        assert geo_rel_path is not None
+        topo_rel = topo_rel_path.as_posix()
+        geo_rel = geo_rel_path.as_posix()
+        receipt_topo_counts[topo_rel] = receipt_topo_counts.get(topo_rel, 0) + 1
+
+        if topo_rel not in topojson_rels:
+            failures.append(
+                Failure(receipt_rel, "B", f"row {row_number}: orphan topojson_path {topo_rel!r}")
+            )
+        if not (root / topo_rel_path).exists():
+            failures.append(Failure(receipt_rel, "B", f"row {row_number}: missing {topo_rel!r}"))
+            continue
+        if not (root / geo_rel_path).exists():
+            failures.append(Failure(receipt_rel, "B", f"row {row_number}: missing {geo_rel!r}"))
+            continue
+
+        expected_geo_rel = topo_rel.removesuffix(".topojson") + ".geojson"
+        if geo_rel != expected_geo_rel:
+            failures.append(
+                Failure(
+                    receipt_rel,
+                    "B",
+                    f"row {row_number}: geojson_path {geo_rel!r} is not sibling {expected_geo_rel!r}",
+                )
+            )
+
+        geo_count, geo_count_failure = _receipt_int(
+            row, "geojson_feature_count", receipt_rel, row_number
+        )
+        topo_count, topo_count_failure = _receipt_int(
+            row, "topojson_feature_count", receipt_rel, row_number
+        )
+        for failure in (geo_count_failure, topo_count_failure):
+            if failure is not None:
+                failures.append(failure)
+        if geo_count is None or topo_count is None:
+            continue
+        if geo_count != topo_count:
+            failures.append(
+                Failure(
+                    receipt_rel,
+                    "B",
+                    f"row {row_number}: geojson_feature_count {geo_count} != "
+                    f"topojson_feature_count {topo_count}",
+                )
+            )
+
+        expected_geo_hash = _sha256_file(root / geo_rel_path)
+        expected_topo_hash = _sha256_file(root / topo_rel_path)
+        if (row.get("geojson_sha256") or "").strip() != expected_geo_hash:
+            failures.append(
+                Failure(receipt_rel, "B", f"row {row_number}: geojson_sha256 mismatch for {geo_rel!r}")
+            )
+        if (row.get("topojson_sha256") or "").strip() != expected_topo_hash:
+            failures.append(
+                Failure(receipt_rel, "B", f"row {row_number}: topojson_sha256 mismatch for {topo_rel!r}")
+            )
+
+        try:
+            geo_payload = _load_json(root / geo_rel_path)
+        except json.JSONDecodeError as e:
+            failures.append(Failure(geo_rel, "B", f"invalid JSON: {e.msg} (line {e.lineno})"))
+            continue
+        try:
+            topo_payload = _load_json(root / topo_rel_path)
+        except json.JSONDecodeError as e:
+            failures.append(Failure(topo_rel, "B", f"invalid JSON: {e.msg} (line {e.lineno})"))
+            continue
+
+        actual_geo_count, geo_error = _geojson_feature_count(geo_payload)
+        if geo_error is not None:
+            failures.append(Failure(geo_rel, "B", geo_error))
+            continue
+        topojson_object = (row.get("topojson_object") or "").strip()
+        actual_topo_count, topo_error = _topojson_geometry_count_for_object(
+            topo_payload, topojson_object
+        )
+        if topo_error is not None:
+            failures.append(Failure(topo_rel, "B", topo_error))
+            continue
+        if geo_count != actual_geo_count:
+            failures.append(
+                Failure(
+                    receipt_rel,
+                    "B",
+                    f"row {row_number}: recorded geojson_feature_count {geo_count} != "
+                    f"disk feature count {actual_geo_count} for {geo_rel!r}",
+                )
+            )
+        if topo_count != actual_topo_count:
+            failures.append(
+                Failure(
+                    receipt_rel,
+                    "B",
+                    f"row {row_number}: recorded topojson_feature_count {topo_count} != "
+                    f"disk geometry count {actual_topo_count} for {topo_rel!r}",
+                )
+            )
+        if actual_geo_count != actual_topo_count:
+            failures.append(
+                Failure(
+                    receipt_rel,
+                    "B",
+                    f"row {row_number}: disk geojson feature count {actual_geo_count} != "
+                    f"disk topojson geometry count {actual_topo_count} for {topo_rel!r}",
+                )
+            )
+
+        if (
+            pinned_mapshaper_version is not None
+            and (row.get("mapshaper_version") or "").strip() != pinned_mapshaper_version
+        ):
+            failures.append(
+                Failure(receipt_rel, "B", f"row {row_number}: mapshaper_version does not match pin")
+            )
+        if config_hash is not None and (row.get("topojson_config_hash") or "").strip() != config_hash:
+            failures.append(
+                Failure(
+                    receipt_rel,
+                    "B",
+                    f"row {row_number}: topojson_config_hash does not match config/topojson.json",
+                )
+            )
+
+    for topo_rel, count in sorted(receipt_topo_counts.items()):
+        if count != 1:
+            failures.append(
+                Failure(
+                    receipt_rel,
+                    "B",
+                    f"topojson_path {topo_rel!r} has {count} receipt rows; expected exactly one",
+                )
+            )
+    for missing in sorted(topojson_rels - set(receipt_topo_counts)):
+        failures.append(
+            Failure(receipt_rel, "B", f"missing receipt row for topojson shard {missing!r}")
+        )
+
     return failures
 
 
@@ -1523,7 +1818,7 @@ def run(root: Path) -> list[Failure]:
         + tier_b_legacy_boundary_sidecars(root)
         + tier_b_boundary_hive_path_shape(root)
         + tier_b_boundary_topo_sibling_pairs(root)
-        + tier_b_boundary_topo_feature_count_parity(root)
+        + tier_b_boundary_encoding_receipt(root)
         + tier_b_no_new_sub_fuel_shards(root)
         + tier_b_meadow_vintage_matches_source_id(root)
         + tier_b_indicator_freshness_declared(root)

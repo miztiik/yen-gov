@@ -41,6 +41,30 @@ python -m tools.topojson.convert_layer `
 FeatureCollection (e.g. `states`, `districts`). `--config` is optional;
 defaults to `config/topojson.json` at the repo root.
 
+## Boundary encoding receipt
+
+After converting or adding any TopoJSON shard, refresh the committed
+receipt:
+
+```powershell
+python -m tools.topojson.emit_receipt --root .
+```
+
+The command scans `datasets/boundaries/in/**/*.topojson` and writes
+`datasets/data/entities/boundary_encoding.csv`. The CSV has one row per
+TopoJSON shard and records the sibling GeoJSON path, TopoJSON object key,
+GeoJSON and TopoJSON feature counts, SHA-256 hashes for both encodings,
+the pinned mapshaper version, and the SHA-256 of `config/topojson.json`.
+Paths are repo-relative POSIX paths. Re-running the command against an
+unchanged corpus is byte-stable.
+
+Backend Tier-B consumes this receipt via `python -m yen_gov validate
+--root .`. The validator fails when a receipt row points at missing files,
+when hashes or counts drift from disk, when a TopoJSON shard has zero or
+multiple receipt rows, or when a receipt row names an orphan TopoJSON path.
+The local-only `*.topojson.meta.json` sidecars remain an idempotency cache;
+`boundary_encoding.csv` is the committed contract surface.
+
 ## Determinism contract
 
 - Subprocess env injects `LC_ALL=C` + `LC_NUMERIC=C` so mapshaper's
