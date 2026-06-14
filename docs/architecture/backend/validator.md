@@ -182,15 +182,23 @@ canary discipline as the rest of the frontend contracts.
 ## Default frontend corpus-cardinality guardrail
 
 Default frontend tests must not scale with corpus cardinality. No default
-frontend Vitest may create one test per dataset file, shard, row,
-district, village, ward, panchayat, constituency, party, indicator, path,
-or schema artifact. Frontend tests prove consumer behavior with fixtures
-and representative canaries. Exhaustive corpus validation belongs to
-producer receipts plus backend Tier-B validation.
+frontend Vitest may create generated cases for each dataset artifact, shard,
+row, district, village, ward, panchayat, constituency, party, indicator,
+path, or schema artifact. Frontend tests prove consumer behavior with
+fixtures and representative canaries. Exhaustive corpus validation belongs
+to producer receipts plus backend Tier-B validation.
 
 If a default frontend test uses broad `globSync`, recursive `readdirSync`,
 or loops over `datasets/**` to generate test cases, it is presumed wrong
 unless bounded by a small explicit canary list.
+
+The frontend-side tripwire is
+`frontend/src/contracts/no-frontend-corpus-explosion.test.ts`. It scans
+frontend test source files, not `datasets/**`, and rejects broad dataset
+globs, recursive dataset walkers, and generated `it` / `test` blocks fed by
+unbounded corpus lists. If a future contract needs exhaustive proof, add it
+here in Tier B with fixture tests in `backend/tests/test_validate.py` and a
+producer receipt when the corpus fact is high-cardinality.
 
 ## Rejected designs
 

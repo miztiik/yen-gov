@@ -40,7 +40,7 @@ A new integrity test needs to name the contract it defends. If the answer is "ev
 - A new citizen-visible route or a meaningful change to an existing one MUST extend [`frontend/e2e/golden-path.spec.ts`](../../frontend/e2e/golden-path.spec.ts) (or add a sibling spec) with at least: route loads, no `pageerror`, one DOM assertion that proves the new content is there, one provenance (`SourceList`) assertion if the route surfaces data.
 - Mocks remain forbidden ([Holy Law #7](../../CLAUDE.md)) except: (a) `fetch` in unit tests of loaders — the loader's contract IS the fetch boundary, so mocking it is testing the contract; (b) explicit user request.
 - **No pytest test walks the real on-disk corpus.** Any test that opens files under `datasets/**` or `config/**` of the real repo (directly, via a CLI subprocess, or via an HTTP route that itself walks) is Tier-B conformance smuggled into Tier A — see [CLAUDE.md §10](../../CLAUDE.md). Use a `tmp_path` fixture corpus and inject the root through an env var (e.g. `YEN_GOV_REPO_ROOT`). Red flag for review: any single backend test with a duration > 5 s. Reference fix: commit `7d407d0` ([`admin/schemas.py`](../../backend/yen_gov/admin/schemas.py) + [`test_admin_schemas.py`](../../backend/tests/test_admin_schemas.py)).
-- **No default frontend test scales with corpus cardinality.** No default frontend Vitest may create one test per dataset file, shard, row, district, village, ward, panchayat, constituency, party, indicator, path, or schema artifact. Frontend tests prove consumer behavior with fixtures and representative canaries. Exhaustive corpus validation belongs to producer receipts plus backend Tier-B validation. Review smell: broad `globSync`, recursive `readdirSync`, or loops over `datasets/**` that generate test cases, unless bounded by a small explicit canary list.
+- **No default frontend test scales with corpus cardinality.** No default frontend Vitest may create generated cases for each dataset artifact, shard, row, district, village, ward, panchayat, constituency, party, indicator, path, or schema artifact. Frontend tests prove consumer behavior with fixtures and representative canaries. Exhaustive corpus validation belongs to producer receipts plus backend Tier-B validation. Review smell: broad `globSync`, recursive `readdirSync`, or loops over `datasets/**` that generate test cases, unless bounded by a small explicit canary list. [`frontend/src/contracts/no-frontend-corpus-explosion.test.ts`](../../frontend/src/contracts/no-frontend-corpus-explosion.test.ts) enforces this by scanning frontend test source files only; source scans are constant-size and are allowed.
 - A red test at commit time blocks the commit. "Skip this for now" is a structural-fix request ([§5](../../CLAUDE.md)), not a casual override.
 
 ## Schema Versions In Tests
@@ -185,6 +185,14 @@ As of 2026-06-14, this same Tier-B command also owns exhaustive boundary
 geometry corpus checks for known Hive path shape, TopoJSON sibling pairs,
 and TopoJSON/GeoJSON feature-count parity. Frontend boundary tests keep
 only bounded canaries.
+
+The frontend guardrail test
+[`frontend/src/contracts/no-frontend-corpus-explosion.test.ts`](../../frontend/src/contracts/no-frontend-corpus-explosion.test.ts)
+keeps default Vitest honest: broad dataset globs, recursive dataset
+directory walkers, and generated test cases fed by those lists are rejected
+at source-review time. It does not scan `datasets/**`; it scans frontend
+test source files, so its runtime is tied to source size rather than corpus
+size.
 
 ### Boundary gzip budget check
 
