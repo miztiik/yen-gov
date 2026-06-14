@@ -1,8 +1,8 @@
 # DualAxisBarLine — dual-axis bar + line primitive
 
-**Last Updated**: 2026-06-12
+**Last Updated**: 2026-06-14
 
-Closed-renderer extension shipped in PR-4 of [TODO/20260612-party-rendering-and-party-pages-plan.md](../../../../TODO/20260612-party-rendering-and-party-pages-plan.md). Inline-folded ADR lives in [docs/concepts/schema-is-the-design-system.md](../../../concepts/schema-is-the-design-system.md#dualaxisbarline-pr-4-of-todo20260612-party-rendering-and-party-pages-plan-2026-06-12) per the no-new-ADR-file routing contract.
+Closed-renderer extension shipped in PR-4 of [docs/archive/plans/20260612-party-rendering-and-party-pages-plan.md](../../../archive/plans/20260612-party-rendering-and-party-pages-plan.md). Composite mode (additive `mode: "composite"` prop) shipped in PR-10 of [docs/archive/plans/20260614-party-page-reimagination-plan.md](../../../archive/plans/20260614-party-page-reimagination-plan.md). Inline-folded ADR lives in [docs/concepts/schema-is-the-design-system.md](../../../concepts/schema-is-the-design-system.md#dualaxisbarline-pr-4-of-todo20260612-party-rendering-and-party-pages-plan-2026-06-12) per the no-new-ADR-file routing contract.
 
 ## What it is
 
@@ -24,6 +24,33 @@ Closed-renderer extension shipped in PR-4 of [TODO/20260612-party-rendering-and-
 | `line_format` | `(n: number) => string` | Line value formatter; when the sample (1.0) includes `%` the right axis caps at 100. |
 | `height` | `number?` | SVG height. Default 360. |
 | `mobile_label_stride` | `number?` | X-label stride at viewport < 640px. Default 4. |
+| `mode` | `"dual-axis" \| "composite"` | Encoding mode. Default `"dual-axis"` (legacy: bars + line on two Y axes). `"composite"` collapses to a single 0-100 Y axis where bar HEIGHT = `bars[i].value` (vote-share %) and bar fill is split into a saturated lower band of height `bars[i].value * (line[i].value / line_denominator)` (seats-won subset) plus a 40%-opacity upper band (didn't-convert remainder). Line series is hidden in composite mode (the conversion ratio is in the fill geometry, not a separate series). See [Mode: composite](#mode-composite) below. |
+
+## Mode: composite
+
+Added 2026-06-14 in PR-10 of [docs/archive/plans/20260614-party-page-reimagination-plan.md](../../../archive/plans/20260614-party-page-reimagination-plan.md). Default is preserved as `"dual-axis"`; consumers opt in.
+
+The composite encoding answers the citizen question "what share of the vote did the party get, and how much of that converted to seats?" in ONE bar geometry on ONE Y axis (0-100%). Per cycle:
+
+- **X position**: cycle year (existing band scale).
+- **Bar height**: `vote_share_pct` (single Y axis labelled "Vote share %").
+- **Bar fill (lower band)**: from the bottom up to `bar_height * (seats_won / seats_contested)`, the brand colour at full saturation. This is the seat-conversion subset.
+- **Bar fill (upper band)**: from the seat-conversion band up to the bar top, the brand colour at 40% opacity. This is the "didn't convert" remainder.
+- **Bar width**: per the existing band scale.
+- **Tooltip**: `Year: 2024 - vote share 36.5% - seats 211 of 543 contested (seat conversion 38.9%)`.
+
+The line series is hidden in composite mode; the conversion story lives in the fill geometry, not a parallel series. Methodology-break markers + caption stay anchored to the X band (unchanged from `"dual-axis"` mode).
+
+**Geometry assertions** (vitest + browser smoke): the chart SVG carries `<rect data-mode="composite" data-overlay="seats-fill">` elements per cycle so contract tests can pin the two-band split without mounting Svelte.
+
+**Qualifying indicators** (closed-renderer extension-log entry):
+
+- Parliament: vote-share + seat-conversion (citizen-facing primary view on `/parties/<slug>`).
+- State Assembly: parallel.
+- Future: per-event vote-share + winner-margin.
+- Future: per-state turnout + valid-vote-share.
+
+Full doctrine: [docs/concepts/schema-is-the-design-system.md](../../../concepts/schema-is-the-design-system.md#closed-renderer-extension-log).
 
 ## Mobile behaviour
 
