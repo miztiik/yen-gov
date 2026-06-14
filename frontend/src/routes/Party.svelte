@@ -75,16 +75,19 @@
   }
 
   /** Pure: format the citizen-readable latest-of one-liner for ONE body
-   *  (e.g. "Lok Sabha (2024): 99 of 543 seats . 21.2% vote share . v
-   *  from peak 415 in 1984."). Returns null when the history is empty
-   *  so the consumer can skip the line entirely.
+   *  (e.g. "Parliament (2024): 99 of 543 seats won, 21.2% of votes -
+   *  down from the party's peak of 415 seats in 1984."). Returns null
+   *  when the history is empty so the consumer can skip the line
+   *  entirely.
    *
-   *  Peak/low framing:
+   *  Peak/low framing (PR-1 plan-doc 20260614, Hans H1 verbatim:
+   *  comma separators, named verbs, no glyphs):
    *    - When the latest sits BELOW the all-time peak: surface the peak
-   *      as a "v from peak X in Y" downbeat citizen anchor.
-   *    - When the latest IS the all-time peak AND there is an earlier
-   *      low: surface the low as a "^ from earlier low X in Y" upbeat
+   *      as a "- down from the party's peak of X seats in Y" downbeat
    *      citizen anchor.
+   *    - When the latest IS the all-time peak AND there is an earlier
+   *      low: surface the low as a "- up from the party's earlier low
+   *      of X in Y" upbeat citizen anchor.
    *    - When the latest is the only cycle (or the series is flat at the
    *      latest's value): no framing - the bare seats + share line
    *      stands on its own. */
@@ -105,16 +108,16 @@
       if (p.seats < low.seats) low = p;
     }
     const totalStr = total_seats > 0 ? ` of ${total_seats}` : "";
-    const seatsPart = `${latest.seats}${totalStr} seats`;
+    const seatsPart = `${latest.seats}${totalStr} seats won`;
     const sharePart =
       latest.vote_share_pct == null
         ? ""
-        : ` . ${latest.vote_share_pct.toFixed(1)}% vote share`;
+        : `, ${latest.vote_share_pct.toFixed(1)}% of votes`;
     let framing = "";
     if (peak.year !== latest.year && peak.seats > latest.seats) {
-      framing = ` . v from peak ${peak.seats} in ${peak.year}`;
+      framing = ` - down from the party's peak of ${peak.seats} seats in ${peak.year}`;
     } else if (low.year !== latest.year && low.seats < latest.seats) {
-      framing = ` . ^ from earlier low ${low.seats} in ${low.year}`;
+      framing = ` - up from the party's earlier low of ${low.seats} in ${low.year}`;
     }
     return `${body_label} (${latest.year}): ${seatsPart}${sharePart}${framing}.`;
   }
@@ -294,22 +297,22 @@
       : null,
   );
   const sentinel_line = $derived(meta ? sentinelFraming(meta.party_id) : null);
-  // LS body sub-line. Citizen-facing label is "Lok Sabha"; the chart
-  // sub-section sets its own header text. We hardcode the body labels
-  // here so the test can pin the sentence shape without going through
-  // a label registry.
+  // LS body sub-line. Citizen-facing label is "Parliament" per the
+  // PR-1 plan-doc 20260614 Hans H1 verdict; the chart sub-section sets
+  // its own header text. We hardcode the body labels here so the test
+  // can pin the sentence shape without going through a label registry.
   const ls_latest = $derived(
     view_model
-      ? formatLatestSentence(view_model.ls_history, 543, "Lok Sabha")
+      ? formatLatestSentence(view_model.ls_history, 543, "Parliament")
       : null,
   );
   // VS body sub-line. Total seats are state-specific (Tamil Nadu = 234,
   // UP = 403, etc.); the v1 page uses 0 (no "of N" denominator) because
-  // a per-party VS bar mixes states. Future PR can split the bar by
-  // state and surface the per-state denominator.
+  // a per-party state-Assembly bar mixes states. Future PR can split
+  // the bar by state and surface the per-state denominator.
   const vs_latest = $derived(
     view_model
-      ? formatLatestSentence(view_model.vs_history, 0, "Vidhan Sabha")
+      ? formatLatestSentence(view_model.vs_history, 0, "State Assembly")
       : null,
   );
   const ls_peak = $derived(view_model?.totals.peak_ls_seats ?? 0);
@@ -466,7 +469,7 @@
         </h1>
         <p class="text-sm text-slate-600" data-testid="party-subline">
           {recognitionLabel(meta.recognition_scope)}{#if ls_peak > 0}
-            <span class="text-slate-400"> . </span>peak {ls_peak} LS seats in {ls_peak_year}
+            <span class="text-slate-400"> . </span>peak {ls_peak} Parliament seats in {ls_peak_year}
           {/if}
         </p>
         {#if sentinel_line}
@@ -505,7 +508,7 @@
           class="rounded border border-slate-200 bg-white p-3 text-center"
           data-testid="party-kpi-ls-seats"
         >
-          <div class="text-xs text-slate-500">Lok Sabha seats won</div>
+          <div class="text-xs text-slate-500">Parliament seats won</div>
           <div class="text-xl font-bold tabular-nums text-slate-900">
             {kpis.ls_seats.toLocaleString()}
           </div>
@@ -514,7 +517,7 @@
           class="rounded border border-slate-200 bg-white p-3 text-center"
           data-testid="party-kpi-vs-seats"
         >
-          <div class="text-xs text-slate-500">Vidhan Sabha seats won</div>
+          <div class="text-xs text-slate-500">State Assembly seats won</div>
           <div class="text-xl font-bold tabular-nums text-slate-900">
             {kpis.vs_seats.toLocaleString()}
           </div>
@@ -546,7 +549,7 @@
         <RecognitionStrip party_id={meta.party_id} />
         <div class="flex items-end justify-between">
           <h2 class="text-lg font-semibold text-slate-800">
-            Lok Sabha &mdash; every election contested
+            Parliament - every general election contested
           </h2>
           {#if ls_peak > 0}
             <span class="text-xs text-slate-500">
@@ -584,7 +587,7 @@
       <section class="space-y-2" data-testid="party-vs-chart">
         <div class="flex items-end justify-between">
           <h2 class="text-lg font-semibold text-slate-800">
-            Vidhan Sabha &mdash; every state assembly election contested
+            State Assembly - every election contested
           </h2>
           {#if vs_peak > 0}
             <span class="text-xs text-slate-500">
@@ -612,8 +615,9 @@
           class="text-xs text-slate-500"
           data-testid="party-strongholds-coverage"
         >
-          Strongholds computed over 1999&ndash;2024 LS / 2008&ndash;2026 AE;
-          pre-coverage history not yet ingested.
+          Strongholds computed from Parliament elections 1999-2024 and
+          State Assembly elections 2008-2026. Earlier history not yet
+          ingested.
         </p>
 
         <!-- PR-12 stronghold choropleth (PC body only this PR; AC
@@ -630,7 +634,7 @@
               rows={pcStrongholdRows}
               brand_colour={meta.brand_colour}
               home_states={homeStates}
-              title="Lok Sabha strongholds map"
+              title="Parliament strongholds map"
               caption="Stronghold map shows this party's top-10 constituencies by lifetime wins. For per-cycle winners see the respective election pages."
               data_testid="party-pc-stronghold-map"
               polygon_testid="pc-stronghold"
@@ -642,7 +646,7 @@
 
         {#if view_model.ls_strongholds.length > 0}
           <div class="space-y-1" data-testid="party-ls-strongholds">
-            <h3 class="text-sm font-semibold text-slate-700">Lok Sabha</h3>
+            <h3 class="text-sm font-semibold text-slate-700">Parliament strongholds</h3>
             <ul
               class="divide-y divide-slate-100 border border-slate-200 rounded bg-white"
             >
@@ -670,7 +674,7 @@
 
         {#if view_model.vs_strongholds.length > 0}
           <div class="space-y-1" data-testid="party-vs-strongholds">
-            <h3 class="text-sm font-semibold text-slate-700">Vidhan Sabha</h3>
+            <h3 class="text-sm font-semibold text-slate-700">State Assembly strongholds</h3>
             <ul
               class="divide-y divide-slate-100 border border-slate-200 rounded bg-white"
             >

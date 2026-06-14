@@ -42,7 +42,7 @@ test.describe("/parties/:slug per-party detail", () => {
     await expect(page.getByTestId("party-name")).toContainText("Indian National Congress");
     const avatar = page.getByTestId("party-avatar");
     await expect(avatar).toHaveAttribute("data-treatment", "anchor");
-    // Sub-line: recognition badge + "peak ... LS seats in YYYY" (INC has
+    // Sub-line: recognition badge + "peak ... Parliament seats in YYYY" (INC has
     // pre-1999 LS gap so peak might be 0; the sub-line still renders
     // the recognition label).
     await expect(page.getByTestId("party-subline")).toContainText(/party/i);
