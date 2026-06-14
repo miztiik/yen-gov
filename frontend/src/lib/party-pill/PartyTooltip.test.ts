@@ -40,6 +40,7 @@ function mkMeta(overrides: Partial<PartyMeta> = {}): PartyMeta {
     wikipedia: "https://en.wikipedia.org/wiki/Bharatiya_Janata_Party",
     name_native_script: null,
     is_sentinel: false,
+    leader: null,
     ...overrides,
   };
 }
@@ -243,5 +244,89 @@ describe("clampTooltipPlacement", () => {
     // viewport border, so both axes are >= 4.
     expect(pos.left).toBeGreaterThanOrEqual(4);
     expect(pos.top).toBeGreaterThanOrEqual(4);
+  });
+});
+
+// --- PR-11: leader projection --------------------------------------------
+//
+// The tooltip body now carries a "President: <name> . since <date>"
+// line when the loader resolved a current leader (parties_leadership.csv
+// row with empty valid_to). Hidden when null OR when the party is a
+// sentinel (Jony A2 sentinel-suppression doctrine extended to leader).
+
+describe("buildTooltipViewModel - (g) leader line projection", () => {
+  it("surfaces leader.role + leader.name + formatted since-date when populated", () => {
+    const view = buildTooltipViewModel(
+      mkMeta({
+        leader: {
+          name: "Jagat Prakash Nadda",
+          role: "President",
+          person_wikidata_qid: "Q16193764",
+          since: "2020-01-20",
+        },
+      }),
+      false,
+    );
+    expect(view.leader).not.toBeNull();
+    expect(view.leader!.role).toBe("President");
+    expect(view.leader!.name).toBe("Jagat Prakash Nadda");
+    expect(view.leader!.sinceLabel).toBe("20 Jan 2020");
+  });
+
+  it("hides leader when meta.leader is null (no leadership row - the common case)", () => {
+    const view = buildTooltipViewModel(mkMeta({ leader: null }), false);
+    expect(view.leader).toBeNull();
+  });
+
+  it("suppresses leader for sentinel parties (Jony A2 sentinel-suppression doctrine)", () => {
+    // Defensive: even if a future Wikidata snapshot bound IND/NOTA to
+    // a fake leader, the tooltip MUST NOT render it - sentinels have
+    // no leader in the parliamentary sense.
+    const view = buildTooltipViewModel(
+      mkMeta({
+        party_id: "parties.IN.IND",
+        short: "IND",
+        full: "Independent",
+        recognition_scope: "sentinel",
+        is_sentinel: true,
+        leader: {
+          name: "Someone Hypothetical",
+          role: "Spokesperson",
+          person_wikidata_qid: null,
+          since: "2024-01-01",
+        },
+      }),
+      false,
+    );
+    expect(view.leader).toBeNull();
+  });
+
+  it("hides leader when the view-model is loading", () => {
+    const view = buildTooltipViewModel(null, true);
+    expect(view.leader).toBeNull();
+  });
+
+  it("hides leader when meta is missing (loader returned null)", () => {
+    const view = buildTooltipViewModel(null, false);
+    expect(view.leader).toBeNull();
+  });
+
+  it("preserves the raw role string verbatim (open-ended Wikidata position labels)", () => {
+    // The CSV `role` column has no enum closure (Wikidata position
+    // labels are open-ended); the tooltip MUST render whatever the
+    // upstream emits without re-mapping. Verifies the projector does
+    // not normalise "General Secretary" -> "President".
+    const view = buildTooltipViewModel(
+      mkMeta({
+        leader: {
+          name: "Some Person",
+          role: "General Secretary",
+          person_wikidata_qid: null,
+          since: "2024-04-06",
+        },
+      }),
+      false,
+    );
+    expect(view.leader!.role).toBe("General Secretary");
   });
 });

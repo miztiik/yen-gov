@@ -250,6 +250,7 @@
     homeStateEciCodes,
     mapPcStrongholdsToChoroplethRows,
   } from "../lib/parties/stronghold-choropleth-rows";
+  import { formatLeaderSince } from "../lib/view-models/parties";
 
   interface Props {
     params: { slug: string };
@@ -472,6 +473,21 @@
             <span class="text-slate-400"> . </span>peak {ls_peak} Parliament seats in {ls_peak_year}
           {/if}
         </p>
+        {#if meta.leader && !meta.is_sentinel}
+          <p
+            class="text-sm text-slate-600"
+            data-testid="party-leader-line"
+          >
+            Led by <span class="font-semibold text-slate-800"
+              >{meta.leader.name}</span
+            >
+            <span class="text-slate-500"
+              >({meta.leader.role} since {formatLeaderSince(
+                meta.leader.since,
+              )})</span
+            >
+          </p>
+        {/if}
         {#if sentinel_line}
           <p
             class="text-xs text-slate-500 italic max-w-prose"
