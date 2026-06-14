@@ -346,6 +346,30 @@ Add a synthetic bad-test snippet fixture inside the guard test and assert it is 
 - A guard test or equivalent default gate prevents future high-cardinality frontend corpus walks.
 - Docs name the new tier boundary unambiguously.
 
+## Plan complete
+
+Closed 2026-06-14. All rows merged.
+
+| Row | PR | Merge SHA | Distillation |
+| --- | --- | --- | --- |
+| A | #1006 | `bfef56190` | Tier boundary distilled to `docs/architecture/testing.md`, `docs/architecture/backend/validator.md`, `docs/architecture/frontend/topojson-loader.md`, and `docs/architecture/data/boundaries.md`. |
+| B | #1020 | `66a78c351` | Boundary encoding receipt documented in `docs/architecture/data/csv-column-contract.md`, `docs/architecture/backend/validator.md`, `docs/architecture/frontend/topojson-loader.md`, and `docs/architecture/data/boundaries.md`. |
+| C | #1022 | `e1d4a4041` | Generated registry contract documented in `docs/architecture/frontend/map.md`, `docs/architecture/frontend/topojson-loader.md`, and `docs/architecture/data/boundaries.md`. |
+| D | #1023 | `fddcbbc88` | Corpus-explosion guardrail distilled to `CLAUDE.md`, `docs/architecture/testing.md`, `docs/architecture/backend/validator.md`, and `docs/architecture/frontend/topojson-loader.md`. |
+
+What changed:
+
+- Default frontend Vitest no longer owns high-cardinality boundary/JSON corpus proof.
+- Exhaustive boundary and JSON corpus commitments now live in backend Tier-B validation and producer receipts.
+- Panchayat/ward frontend registries are generated from `datasets/data/entities/boundary_encoding.csv` instead of hand-maintained as a second inventory.
+- `frontend/src/contracts/no-frontend-corpus-explosion.test.ts` prevents future default frontend tests from adding unbounded dataset walks.
+
+Residual note:
+
+- AC geometry still lives under `datasets/boundaries/electoral/**` and remains hand-authored in `STATE_AC`; Row C explicitly deferred AC registry generation until a receipt covers the electoral boundary subtree.
+
+Plan-doc remains as the audit ledger; do not edit further. New work starts a new plan-doc.
+
 ## Execution contract (autonomous - follow blindly, do not re-plan)
 
 When this plan is in context and the instruction is "implement it", execute as the ORCHESTRATOR with NO further questions except at an ESCALATE trigger. There is no processing step after this block - the rules below are the whole instruction set.
