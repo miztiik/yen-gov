@@ -124,7 +124,15 @@ def _is_nota(party_name: str, candidate_name: str) -> bool:
 
 
 def load_state_code_lookup(datasets_root: Path) -> dict[str, str]:
-    """Build ``{normalised_display_name: entity_code}`` for S*/U* entities."""
+    """Build ``{normalised_display_name: entity_code}`` for S*/U* entities.
+
+    Also indexes each entity's ``legacy_id`` (when populated) so pre-rename
+    historical published names resolve forward to the current entity_code.
+    Used by the TCPD LS GE pre-1999 ingest to map e.g. "Madras"->"S22"
+    (renamed to Tamil Nadu 1969), "Mysore"->"S10" (renamed to Karnataka
+    1973), "Delhi"->"U05" (NCT status from 1991). Same-entity-same-
+    boundaries renames only; per-PC reorgs go through the
+    pc_historical_crosswalk override path."""
     entities_path = datasets_root / "taxonomy" / "entities.json"
     raw = json.loads(entities_path.read_text(encoding="utf-8"))
     lookup: dict[str, str] = {}
@@ -132,6 +140,9 @@ def load_state_code_lookup(datasets_root: Path) -> dict[str, str]:
         code = str(row.get("entity_code", ""))
         if code[:1] in ("S", "U"):
             lookup[_norm(str(row.get("display_name", "")))] = code
+            legacy = row.get("legacy_id")
+            if legacy:
+                lookup[_norm(str(legacy))] = code
     return lookup
 
 

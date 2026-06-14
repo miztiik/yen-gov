@@ -111,3 +111,11 @@ ge_year,tcpd_state,tcpd_constituency_no,state_code,pc_no,match_method,note
 2019,Jammu & Kashmir,4,U09,1,ut_reorg,Ladakh became a separate Union Territory on 31 October 2019. Coded to Ladakh (U09).
 2019,Jammu & Kashmir,5,U08,4,ut_reorg,Jammu & Kashmir became a Union Territory (U08) on 31 October 2019; Ladakh split off. Coded to the modern J&K UT numbering.
 2019,Jammu & Kashmir,6,U08,5,ut_reorg,Jammu & Kashmir became a Union Territory (U08) on 31 October 2019; Ladakh split off. Coded to the modern J&K UT numbering.
+1989,Dadra & Nagar Haveli,1,U03,2,merge,"Pre-1999 DNH UT mapped to merged-modern U03 (effective 26 Jan 2020); modern pc_no 2. Same-PC convention with existing 1999+ rows."
+1989,Daman & Diu,1,U03,1,merge,"Pre-1999 Daman & Diu UT mapped to merged-modern U03 (effective 26 Jan 2020); modern pc_no 1. Same-PC convention with existing 1999+ rows."
+1991,Dadra & Nagar Haveli,1,U03,2,merge,"Pre-1999 DNH UT mapped to merged-modern U03 (effective 26 Jan 2020); modern pc_no 2. Same-PC convention with existing 1999+ rows."
+1991,Daman & Diu,1,U03,1,merge,"Pre-1999 Daman & Diu UT mapped to merged-modern U03 (effective 26 Jan 2020); modern pc_no 1. Same-PC convention with existing 1999+ rows."
+1996,Dadra & Nagar Haveli,1,U03,2,merge,"Pre-1999 DNH UT mapped to merged-modern U03 (effective 26 Jan 2020); modern pc_no 2. Same-PC convention with existing 1999+ rows."
+1996,Daman & Diu,1,U03,1,merge,"Pre-1999 Daman & Diu UT mapped to merged-modern U03 (effective 26 Jan 2020); modern pc_no 1. Same-PC convention with existing 1999+ rows."
+1998,Dadra & Nagar Haveli,1,U03,2,merge,"Pre-1999 DNH UT mapped to merged-modern U03 (effective 26 Jan 2020); modern pc_no 2. Same-PC convention with existing 1999+ rows."
+1998,Daman & Diu,1,U03,1,merge,"Pre-1999 Daman & Diu UT mapped to merged-modern U03 (effective 26 Jan 2020); modern pc_no 1. Same-PC convention with existing 1999+ rows."
