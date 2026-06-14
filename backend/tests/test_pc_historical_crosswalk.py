@@ -139,8 +139,11 @@ def test_committed_csv_family_row_counts() -> None:
     dd = [r for r in rows if r["tcpd_state"] in ("Daman & Diu", "Dadra & Nagar Haveli")]
     assert len(ap) == 84  # 42 seats x 2 years (2009, 2014)
     assert len(jk) == 18  # 6 seats x 3 years (2009, 2014, 2019)
-    assert len(dd) == 10  # 2 seats x 5 years (1999-2019)
-    assert len(rows) == 112
+    # PR-8 (TODO/20260613-party-deferred-followups-plan.md): added 8 rows
+    # mapping pre-1999 DNH+DD UTs to merged-modern U03 for 1989/1991/1996/1998
+    # (2 seats x 4 years), bringing the family total to 18 (was 10 for 1999-2019).
+    assert len(dd) == 18  # 2 seats x 9 years (1989-2019)
+    assert len(rows) == 120
 
 
 # --- resolver -------------------------------------------------------------

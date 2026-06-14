@@ -142,8 +142,9 @@
       "entity_valid_from": 1956,
       "entity_valid_to": null,
       "iso_3166_2": "IN-KA",
+      "legacy_id": "Mysore",
       "lgd_code": "29",
-      "notes": "Renamed from Mysore 1973."
+      "notes": "Renamed from Mysore 1973. legacy_id carries the pre-1973 published name so TCPD LS GE ingest 1962-1971 resolves; same entity, same boundaries."
     },
     {
       "entity_id": "IN-S11",
@@ -298,9 +299,10 @@
       "entity_valid_from": 1947,
       "entity_valid_to": null,
       "iso_3166_2": "IN-TN",
+      "legacy_id": "Madras",
       "lgd_code": "33",
       "display_name_local": "தமிழ்நாடு",
-      "notes": "First-slice state for yen-gov ingest."
+      "notes": "First-slice state for yen-gov ingest. Renamed from Madras 1969; legacy_id carries the pre-1969 published name so TCPD LS GE ingest 1962-1967 resolves; same entity, same boundaries."
     },
     {
       "entity_id": "IN-S23",
@@ -455,8 +457,9 @@
       "entity_valid_from": 1991,
       "entity_valid_to": null,
       "iso_3166_2": "IN-DL",
+      "legacy_id": "Delhi",
       "lgd_code": "07",
-      "notes": "UT with legislature (NCT status from 1991). Comparability tier: special — see state-tiers.json."
+      "notes": "UT with legislature (NCT status from 1991). Comparability tier: special — see state-tiers.json. legacy_id carries the pre-1991 published name 'Delhi' so TCPD LS GE ingest 1962-1989 resolves; continuous identity (NCT status promotion 1991 didn't change boundaries or PCs)."
     },
     {
       "entity_id": "IN-U07",

@@ -112,6 +112,66 @@
         "event_id_aliases": [
           "LsGenOct1999"
         ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "Andhra Pradesh - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/andhra-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Andhra Pradesh - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/andhra-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Andhra Pradesh - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/andhra-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Andhra Pradesh - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/andhra-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Andhra Pradesh - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/andhra-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
+        ]
       }
     ],
     "S02": [
@@ -319,6 +379,54 @@
         "event_id_aliases": [
           "AcGenJun2024"
         ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Arunachal Pradesh - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/arunachal-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Arunachal Pradesh - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/arunachal-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Arunachal Pradesh - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/arunachal-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Arunachal Pradesh - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/arunachal-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
+        ]
       }
     ],
     "S03": [
@@ -524,6 +632,54 @@
         "data_status": "complete",
         "event_id_aliases": [
           "AcGenMay2026"
+        ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "Assam - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/assam_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Assam - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/assam_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Assam - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/assam_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Assam - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/assam_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
         ]
       }
     ],
@@ -744,6 +900,66 @@
         "event_id_aliases": [
           "AcGenNov2025"
         ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "Bihar - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/bihar_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Bihar - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/bihar_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Bihar - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/bihar_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Bihar - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/bihar_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Bihar - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/bihar_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
+        ]
       }
     ],
     "S05": [
@@ -914,6 +1130,54 @@
         "notes": "Single-phase poll on 14 February 2022. 40 ACs. Ingested from hand-downloaded old.eci.gov.in Section 10 XLSX (sources: []).",
         "event_id_aliases": [
           "AcGenFeb2022"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Goa - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/goa_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Goa - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/goa_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Goa - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/goa_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Goa - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/goa_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
         ]
       }
     ],
@@ -1120,6 +1384,54 @@
         "data_status": "pending_upstream",
         "event_id_aliases": [
           "AcGenOct2024"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Haryana - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/haryana_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Haryana - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/haryana_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Haryana - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/haryana_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Haryana - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/haryana_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
         ]
       }
     ],
@@ -1328,6 +1640,66 @@
         "event_id_aliases": [
           "AcGenNov2022"
         ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "Himachal Pradesh - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/himachal-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Himachal Pradesh - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/himachal-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Himachal Pradesh - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/himachal-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Himachal Pradesh - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/himachal-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Himachal Pradesh - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/himachal-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
+        ]
       }
     ],
     "S10": [
@@ -1534,6 +1906,66 @@
         "notes": "Single-phase poll on 10 May 2023. 224 ACs. Ingested from hand-downloaded old.eci.gov.in Section 10 XLSX (sources: []).",
         "event_id_aliases": [
           "AcGenMay2023"
+        ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "Karnataka - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/karnataka_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Karnataka - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/karnataka_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Karnataka - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/karnataka_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Karnataka - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/karnataka_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Karnataka - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/karnataka_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
         ]
       }
     ],
@@ -1753,6 +2185,66 @@
         "event_id_aliases": [
           "AcGenMay2026"
         ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "Kerala - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/kerala_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Kerala - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/kerala_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Kerala - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/kerala_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Kerala - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/kerala_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Kerala - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/kerala_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
+        ]
       }
     ],
     "S12": [
@@ -1959,6 +2451,66 @@
         "notes": "Single-phase poll on 17 November 2023; counting on 3 December 2023. BJP won 163 of 230 seats. Ingested from the legacy /full-statistical-reports/ static URL template (no /api/election-result entry).",
         "event_id_aliases": [
           "AcGenNov2023"
+        ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "Madhya Pradesh - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/madhya-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Madhya Pradesh - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/madhya-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Madhya Pradesh - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/madhya-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Madhya Pradesh - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/madhya-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Madhya Pradesh - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/madhya-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
         ]
       }
     ],
@@ -2202,6 +2754,66 @@
         "event_id_aliases": [
           "AcGenNov2024"
         ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "Maharashtra - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/maharashtra_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Maharashtra - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/maharashtra_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Maharashtra - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/maharashtra_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Maharashtra - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/maharashtra_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Maharashtra - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/maharashtra_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
+        ]
       }
     ],
     "S16": [
@@ -2420,6 +3032,54 @@
         "notes": "Single-phase poll on 7 November 2023; counting on 4 December 2023 (delayed one day at state request to avoid Sunday). Zoram People's Movement (ZPM) won 27 of 40 seats, ending MNF rule. Ingested from the legacy /full-statistical-reports/ static URL template.",
         "event_id_aliases": [
           "AcGenNov2023"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Mizoram - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/mizoram_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Mizoram - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/mizoram_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Mizoram - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/mizoram_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Mizoram - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/mizoram_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
         ]
       }
     ],
@@ -2640,6 +3300,66 @@
         "event_id_aliases": [
           "AcGenJun2024"
         ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "Odisha - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/odisha_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Odisha - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/odisha_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Odisha - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/odisha_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Odisha - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/odisha_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Odisha - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/odisha_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
+        ]
       }
     ],
     "S21": [
@@ -2834,6 +3554,54 @@
         "notes": "Held concurrently with Parliament 2024 phase 1 (single phase, 19 April 2024).",
         "event_id_aliases": [
           "AcGenJun2024"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Sikkim - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/sikkim_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Sikkim - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/sikkim_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Sikkim - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/sikkim_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Sikkim - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/sikkim_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
         ]
       }
     ],
@@ -3065,6 +3833,66 @@
         "event_id_aliases": [
           "AcGenMay2026"
         ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "Tamil Nadu - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/tamil-nadu_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Tamil Nadu - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/tamil-nadu_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Tamil Nadu - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/tamil-nadu_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Tamil Nadu - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/tamil-nadu_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Tamil Nadu - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/tamil-nadu_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
+        ]
       }
     ],
     "S25": [
@@ -3270,6 +4098,66 @@
         "data_status": "complete",
         "event_id_aliases": [
           "AcGenMay2026"
+        ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "West Bengal - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/west-bengal_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "West Bengal - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/west-bengal_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "West Bengal - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/west-bengal_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "West Bengal - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/west-bengal_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "West Bengal - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/west-bengal_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
         ]
       }
     ],
@@ -3806,6 +4694,66 @@
         "event_id_aliases": [
           "AcGenFeb2025"
         ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "NCT of Delhi - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/delhi_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "NCT of Delhi - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/delhi_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "NCT of Delhi - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/delhi_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "NCT of Delhi - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/delhi_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "NCT of Delhi - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/delhi_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
+        ]
       }
     ],
     "U07": [
@@ -4024,6 +4972,54 @@
         "event_id_aliases": [
           "AcGenMay2026"
         ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Puducherry - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/puducherry_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Puducherry - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/puducherry_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Puducherry - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/puducherry_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Puducherry - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/puducherry_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
+        ]
       }
     ],
     "U08": [
@@ -4110,6 +5106,42 @@
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Jammu and Kashmir (UT) - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/jammu-and-kashmir_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Jammu and Kashmir (UT) - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/jammu-and-kashmir_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Jammu and Kashmir (UT) - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/jammu-and-kashmir_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
         ]
       }
     ],
@@ -4305,6 +5337,54 @@
         "notes": "Single-phase poll on 20 February 2022. 117 ACs. Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX.",
         "event_id_aliases": [
           "AcGenFeb2022"
+        ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "Punjab - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/punjab_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Punjab - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/punjab_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Punjab - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/punjab_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Punjab - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/punjab_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
         ]
       }
     ],
@@ -4536,6 +5616,66 @@
         "notes": "Seven-phase poll: 10 February – 7 March 2022. 403 ACs. Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX.",
         "event_id_aliases": [
           "AcGenFeb2022"
+        ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "Uttar Pradesh - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/uttar-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Uttar Pradesh - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/uttar-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Uttar Pradesh - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/uttar-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Uttar Pradesh - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/uttar-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Uttar Pradesh - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/uttar-pradesh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
         ]
       }
     ],
@@ -4855,6 +5995,66 @@
         "event_id_aliases": [
           "AcGenMar2022"
         ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "Manipur - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/manipur_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Manipur - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/manipur_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Manipur - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/manipur_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Manipur - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/manipur_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Manipur - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/manipur_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
+        ]
       }
     ],
     "S06": [
@@ -5098,6 +6298,66 @@
         "event_id_aliases": [
           "AcGenDec2022"
         ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "Gujarat - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/gujarat_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Gujarat - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/gujarat_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Gujarat - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/gujarat_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Gujarat - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/gujarat_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Gujarat - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/gujarat_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
+        ]
       }
     ],
     "S23": [
@@ -5293,6 +6553,66 @@
         "event_id_aliases": [
           "AcGenFeb2023"
         ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "Tripura - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/tripura_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Tripura - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/tripura_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Tripura - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/tripura_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Tripura - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/tripura_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Tripura - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/tripura_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
+        ]
       }
     ],
     "S15": [
@@ -5487,6 +6807,54 @@
         "notes": "Single-phase poll on 27 February 2023. 59 ACs (Sohiong countermanded; held 22 May 2023). Ingested from hand-downloaded ECI Section-10 Statistical Report XLSX.",
         "event_id_aliases": [
           "AcGenFeb2023"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Meghalaya - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/meghalaya_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Meghalaya - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/meghalaya_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Meghalaya - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/meghalaya_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Meghalaya - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/meghalaya_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
         ]
       }
     ],
@@ -5695,6 +7063,54 @@
         "event_id_aliases": [
           "AcGenFeb2023"
         ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Nagaland - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/nagaland_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Nagaland - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/nagaland_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Nagaland - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/nagaland_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Nagaland - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/nagaland_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
+        ]
       }
     ],
     "S20": [
@@ -5902,6 +7318,66 @@
         "event_id_aliases": [
           "AcGenNov2023"
         ]
+      },
+      {
+        "event_id": "general-1962",
+        "kind": "parliament",
+        "display": "Rajasthan - Parliament 1962",
+        "polled_on": "1962-02-25",
+        "term_end_estimated": "1967-03-04",
+        "data_status": "complete",
+        "notes": "National Parliament 1962 (3rd Lok Sabha; multi-phase 16 Feb - 24 Feb 1962, counted 25 Feb 1962). State slice of the all-India event general-1962. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1962 period_label values in datasets/data/datapoints/electoral/rajasthan_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1962"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Rajasthan - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/rajasthan_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Rajasthan - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/rajasthan_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Rajasthan - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/rajasthan_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Rajasthan - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/rajasthan_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
+        ]
       }
     ],
     "U01": [
@@ -5975,6 +7451,54 @@
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Andaman and Nicobar Islands - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/andaman-and-nicobar_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Andaman and Nicobar Islands - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/andaman-and-nicobar_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Andaman and Nicobar Islands - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/andaman-and-nicobar_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Andaman and Nicobar Islands - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/andaman-and-nicobar_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
         ]
       }
     ],
@@ -6050,6 +7574,54 @@
         "event_id_aliases": [
           "LsGenOct1999"
         ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Chandigarh - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/chandigarh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Chandigarh - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/chandigarh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Chandigarh - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/chandigarh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Chandigarh - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/chandigarh_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
+        ]
       }
     ],
     "U03": [
@@ -6123,6 +7695,54 @@
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Dadra and Nagar Haveli and Daman and Diu - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/dadra-and-nagar-haveli-and-daman-and-diu_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Dadra and Nagar Haveli and Daman and Diu - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/dadra-and-nagar-haveli-and-daman-and-diu_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Dadra and Nagar Haveli and Daman and Diu - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/dadra-and-nagar-haveli-and-daman-and-diu_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Dadra and Nagar Haveli and Daman and Diu - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/dadra-and-nagar-haveli-and-daman-and-diu_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
         ]
       }
     ],
@@ -6198,6 +7818,54 @@
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
+        ]
+      },
+      {
+        "event_id": "general-1998",
+        "kind": "parliament",
+        "display": "Lakshadweep - Parliament 1998",
+        "polled_on": "1998-02-22",
+        "term_end_estimated": "1999-10-06",
+        "data_status": "complete",
+        "notes": "National Parliament 1998 (12th Lok Sabha; multi-phase 16-22 Feb 1998 (one cycle reused after govt fell), counted 28 Feb 1998). State slice of the all-India event general-1998. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenFeb1998 period_label values in datasets/data/datapoints/electoral/lakshadweep_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenFeb1998"
+        ]
+      },
+      {
+        "event_id": "general-1991",
+        "kind": "parliament",
+        "display": "Lakshadweep - Parliament 1991",
+        "polled_on": "1991-06-15",
+        "term_end_estimated": "1996-05-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1991 (10th Lok Sabha; multi-phase 20 May - 15 Jun 1991 (Rajiv Gandhi assassination 21 May halted then resumed); counted 18 Jun 1991). State slice of the all-India event general-1991. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenJun1991 period_label values in datasets/data/datapoints/electoral/lakshadweep_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenJun1991"
+        ]
+      },
+      {
+        "event_id": "general-1996",
+        "kind": "parliament",
+        "display": "Lakshadweep - Parliament 1996",
+        "polled_on": "1996-05-07",
+        "term_end_estimated": "1998-02-16",
+        "data_status": "complete",
+        "notes": "National Parliament 1996 (11th Lok Sabha; multi-phase 27 Apr - 7 May 1996, counted 10 May 1996). State slice of the all-India event general-1996. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenMay1996 period_label values in datasets/data/datapoints/electoral/lakshadweep_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenMay1996"
+        ]
+      },
+      {
+        "event_id": "general-1989",
+        "kind": "parliament",
+        "display": "Lakshadweep - Parliament 1989",
+        "polled_on": "1989-11-26",
+        "term_end_estimated": "1990-11-10",
+        "data_status": "complete",
+        "notes": "National Parliament 1989 (9th Lok Sabha; multi-phase 22-26 Nov 1989, counted 27 Nov 1989). State slice of the all-India event general-1989. The state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-8 (TODO/20260613-party-deferred-followups-plan.md) backfill: row added so the on-disk LsGenNov1989 period_label values in datasets/data/datapoints/electoral/lakshadweep_election_results.csv resolve via event_id_aliases.",
+        "event_id_aliases": [
+          "LsGenNov1989"
         ]
       }
     ],
