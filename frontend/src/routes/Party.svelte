@@ -563,13 +563,6 @@
           bar_format={(n) => n.toLocaleString()}
           line_format={(n) => `${n.toFixed(1)}%`}
         />
-        <p
-          class="text-[11px] text-slate-400"
-          data-testid="party-ls-coverage"
-        >
-          Pre-1999 LS history not yet ingested; numbers shown are
-          1999&ndash;2024 cycles only.
-        </p>
       </section>
     {/if}
 
