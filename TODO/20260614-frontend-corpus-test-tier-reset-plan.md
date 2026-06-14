@@ -100,7 +100,7 @@ Stop and ask the user before proceeding if any row requires:
 | Row | Title | Status | PR | Effort |
 | --- | --- | --- | --- | --- |
 | A | Move corpus proof to Tier-B and cut frontend to canaries | [x] DONE | - | L |
-| B | Add committed boundary encoding receipt | [ ] PENDING | - | M |
+| B | Add committed boundary encoding receipt | [x] DONE | - | M |
 | C | Generate high-cardinality boundary registries from the ledger | [ ] PENDING | - | L |
 | D | Land doctrine guardrail against future frontend corpus explosion | [ ] PENDING | - | M |
 

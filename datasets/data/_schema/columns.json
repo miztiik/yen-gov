@@ -174,6 +174,23 @@
         { "name": "delimitation_vintage", "dtype": "string", "nullable": true }
       ]
     },
+    "datasets/data/entities/boundary_encoding.csv": {
+      "notes": "Committed producer receipt for boundary render encodings. One row per TopoJSON shard under datasets/boundaries/in/** with its GeoJSON sibling path, TopoJSON object key, structural feature counts, byte hashes, mapshaper pin, and config hash. Produced by python -m tools.topojson.emit_receipt; validated by backend Tier-B tier_b_boundary_encoding_receipt. layer_id is nullable because boundary_layer.csv is an inventory ledger whose historical path vocabulary does not resolve every current slugged boundary path.",
+      "columns": [
+        { "name": "topojson_path", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "geojson_path", "dtype": "string", "nullable": false },
+        { "name": "layer_id", "dtype": "string", "nullable": true, "fk": "datasets/data/entities/boundary_layer.csv.layer_id" },
+        { "name": "level", "dtype": "string", "nullable": false },
+        { "name": "topojson_object", "dtype": "string", "nullable": false },
+        { "name": "geojson_feature_count", "dtype": "integer", "nullable": false },
+        { "name": "topojson_feature_count", "dtype": "integer", "nullable": false },
+        { "name": "geojson_sha256", "dtype": "string", "nullable": false },
+        { "name": "topojson_sha256", "dtype": "string", "nullable": false },
+        { "name": "mapshaper_version", "dtype": "string", "nullable": false },
+        { "name": "topojson_config_hash", "dtype": "string", "nullable": false },
+        { "name": "generated_by", "dtype": "string", "nullable": false }
+      ]
+    },
     "datasets/data/entities/office.csv": {
       "notes": "Office register per plan section 20.4 (one row per office). Sourced from datasets/governments/dim_offices.parquet by B2b.3 reingest. jurisdiction_entity_id FKs into geo.csv (state or country grain). office_kind is open-ended (cm|pm|president|vice_president|cabinet_minister|...); enum NOT closed at v1 to admit future cabinet/PM rows without a schema bump.",
       "columns": [
