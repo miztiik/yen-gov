@@ -242,6 +242,11 @@
   import TopicIcon from "../lib/TopicIcon.svelte";
   import DualAxisBarLine from "../lib/charts/DualAxisBarLine/DualAxisBarLine.svelte";
   import RecognitionStrip from "../lib/parties/RecognitionStrip.svelte";
+  import PartyStrongholdMap from "../lib/parties/PartyStrongholdMap.svelte";
+  import {
+    homeStateEciCodes,
+    mapPcStrongholdsToChoroplethRows,
+  } from "../lib/parties/stronghold-choropleth-rows";
 
   interface Props {
     params: { slug: string };
@@ -348,6 +353,22 @@
     if (!meta) return "#64748b";
     return getPartyColor(meta.party_id, partyRowFromMeta(meta)).hex;
   });
+
+  // PR-12 stronghold choropleth: derive the PC-side choropleth rows
+  // from the LS stronghold mart and the home-state ECI code set from
+  // parties.csv. The mapper silently drops rows whose entity_id does
+  // not match the PC pattern; the home_states set drives state-
+  // cropping for parties with <= 3 home states. National parties
+  // (home_states empty or >3) render full-India. See
+  // [stronghold-choropleth-rows.ts](../lib/parties/stronghold-choropleth-rows.ts).
+  const pcStrongholdRows = $derived(
+    view_model
+      ? mapPcStrongholdsToChoroplethRows(view_model.ls_strongholds)
+      : [],
+  );
+  const homeStates = $derived(
+    meta ? homeStateEciCodes(meta.home_state_codes) : new Set<string>(),
+  );
 
   // Recognition badge label.
   function recognitionLabel(scope: string | null): string {
@@ -588,6 +609,30 @@
           Strongholds computed over 1999&ndash;2024 LS / 2008&ndash;2026 AE;
           pre-coverage history not yet ingested.
         </p>
+
+        <!-- PR-12 stronghold choropleth (PC body only this PR; AC
+             deferred per the delim mismatch documented in
+             stronghold-choropleth-rows.ts). Hidden under 640px per
+             Jony 2g + Citizen 3a (the existing top-10 text list
+             below remains visible across all viewports). -->
+        {#if pcStrongholdRows.length > 0}
+          <div class="hidden sm:block" data-testid="party-pc-stronghold-map-wrap">
+            <PartyStrongholdMap
+              topojson_path="/boundaries/electoral/delim=2024/pc/all.topojson"
+              feature_key="unique_id"
+              state_property="state_ut_code"
+              rows={pcStrongholdRows}
+              brand_colour={meta.brand_colour}
+              home_states={homeStates}
+              title="Lok Sabha strongholds map"
+              caption="Stronghold map shows this party's top-10 constituencies by lifetime wins. For per-cycle winners see the respective election pages."
+              data_testid="party-pc-stronghold-map"
+              polygon_testid="pc-stronghold"
+              width={320}
+              height={360}
+            />
+          </div>
+        {/if}
 
         {#if view_model.ls_strongholds.length > 0}
           <div class="space-y-1" data-testid="party-ls-strongholds">
