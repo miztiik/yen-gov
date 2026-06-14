@@ -1,6 +1,6 @@
 {
   "$schema": "./columns.schema.json",
-  "$schema_version": "2.0",
+  "$schema_version": "2.1",
   "file_classes": {
     "datasets/data/variables.csv": {
       "notes": "Catalogue: one row per indicator (variable). Spec: csv-column-contract.md section 3.1.",
@@ -396,6 +396,24 @@
         { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" },
         { "name": "processing_level", "dtype": "string", "nullable": false, "enum": ["minor", "major"] },
         { "name": "processing_note", "dtype": "string", "nullable": true }
+      ]
+    },
+    "datasets/elections/parliament/election=*/mcc_seizures.csv": {
+      "notes": "ECI MCC-period daily enforcement-seizures press-note series (17th Lok Sabha General Election 2019). One row per (state_slug, date) pair across the publisher-reported MCC enforcement window (29-Mar-2019 through 07-Apr-2019 in the 2019 vintage; 36 states/UTs x 10 dates = 360 rows). The publisher's TOTAL column is preserved verbatim per D3 ('no derived totals') - total_seizure_inr_crore is NOT computed at write time and consumers MUST NOT recompute it (publisher rounds intermediate sums and may diverge from components by a few thousandths of a crore). state_slug is the LGD state-name slug (e.g. tamil-nadu) for current-spine UTs and the HISTORICAL slug for pre-2020-merger UTs (dadra-and-nagar-haveli, daman-and-diu) since the publisher's 2019 rows are historically distinct; no FK declared here because the column carries per-event publisher-distinct identity, not a state_codes.csv reference. date is ISO-8601 (YYYY-MM-DD). Empty publisher cells map to NULL (NOT 0) since the press-note uses blank for 'no action reported' (publisher silence, not zero-seizure). PK is (state_slug, date) in that declaration order so rows sort state-major then date-minor on emit. Spec: TODO/20260614-three-ephemeral-ingests-plan.md section 2.A.1.",
+      "columns": [
+        { "name": "state_slug", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "date", "dtype": "string", "nullable": false, "pk": true },
+        { "name": "cash_inr_crore", "dtype": "number", "nullable": true },
+        { "name": "liquor_qty_lakh_litres", "dtype": "number", "nullable": true },
+        { "name": "liquor_value_inr_crore", "dtype": "number", "nullable": true },
+        { "name": "drugs_qty_kg", "dtype": "number", "nullable": true },
+        { "name": "drugs_value_inr_crore", "dtype": "number", "nullable": true },
+        { "name": "precious_metals_qty_kg", "dtype": "number", "nullable": true },
+        { "name": "precious_metals_value_inr_crore", "dtype": "number", "nullable": true },
+        { "name": "other_items_seizure_value_inr_crore", "dtype": "number", "nullable": true },
+        { "name": "total_seizure_inr_crore", "dtype": "number", "nullable": true },
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" },
+        { "name": "processing_level", "dtype": "string", "nullable": false, "enum": ["minor", "major"] }
       ]
     },
     "datasets/data/methodology_breaks.csv": {

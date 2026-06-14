@@ -1900,6 +1900,7 @@ def ingest_mh_ae2024_cmd(
     typer.echo(f"  missing ACs (gap):      {missing_acs} eci_nos not in electoral.csv")
     typer.echo("  election_events.json:   S13 assembly-2024 -> complete")
 
+
 @app.command("ingest-eci-ae-form10")
 def ingest_eci_ae_form10_cmd(
     root: Path = typer.Option(
@@ -1965,3 +1966,56 @@ def ingest_eci_ae_form10_cmd(
                     "reason": r.reason,
                 })
         typer.echo(f"report written to {report_csv}")
+
+
+@app.command("ingest-eci-mcc-seizures-2019")
+def ingest_eci_mcc_seizures_2019(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+    input_csv: Path = typer.Option(
+        ...,
+        "--input",
+        "-i",
+        help=(
+            "Publisher ephemeral CSV "
+            "(typically datasets/ephemeral/2019_eci_seizures.csv)."
+        ),
+        exists=True,
+        dir_okay=False,
+    ),
+) -> None:
+    """Ingest ECI MCC-period daily enforcement-seizures press note (2019).
+
+    Reads the publisher's 360-row CSV (36 states/UTs x 10 dates spanning
+    29-Mar-2019 through 07-Apr-2019) and emits the canonical per-event CSV:
+
+      ``datasets/elections/parliament/election=2019/mcc_seizures.csv``
+
+    The publisher's TOTAL is preserved verbatim (D3 'no derived totals');
+    empty publisher cells map to NULL (publisher silence, NOT zero-seizure).
+    Pre-2020-merger UTs (Dadra and Nagar Haveli, Daman and Diu) are kept
+    on their HISTORICAL slugs because the 2019 rows are historically
+    distinct (the post-2020 merged slug would collapse two valid rows
+    per date into a duplicate-PK conflict).
+
+    Spec: PR-A of TODO/20260614-three-ephemeral-ingests-plan.md.
+    """
+    from yen_gov.canonical.adapters.eci.mcc_seizures import ingest
+
+    result = ingest(
+        input_csv=input_csv,
+        repo_root=root,
+        election_year=2019,
+    )
+    typer.echo("ingest-eci-mcc-seizures-2019: OK")
+    typer.echo(f"  output:          {result.output_path.relative_to(root).as_posix()}")
+    typer.echo(f"  rows written:    {result.row_count}")
+    typer.echo(f"  unique states:   {result.unique_state_slugs}")
+    typer.echo(f"  unique dates:    {result.unique_dates}")

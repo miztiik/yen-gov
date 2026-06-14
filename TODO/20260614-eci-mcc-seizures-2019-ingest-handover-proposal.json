@@ -1,0 +1,13 @@
+{
+  "proposed_id": "mcc-enforcement-seizures",
+  "family": "elections",
+  "concept": "MCC-period daily enforcement-seizures press-note series",
+  "unit": "INR_crore",
+  "normalisation": "absolute",
+  "entity_kind": "state",
+  "source_producer": "Election Commission of India",
+  "source_title": "Press Note - Daily Enforcement Seizures during 17th Lok Sabha General Election (MCC)",
+  "source_vintage": "2019",
+  "update_period_days": 1825,
+  "justification": "Per-event self-contained file (datasets/elections/parliament/election=*/mcc_seizures.csv) carrying the ECI's MCC-period daily enforcement-seizures press note as a 13-column long-format CSV (state_slug, date, 9 measurement columns, source_id, processing_level). Mints no new meadow-tier indicator; the file is a citizen-facing exhibit (one file per general election) parallel to the per-event candidacies.csv / summary.csv files already present under parliament/election=*. The pre-flight gate is run for documentation completeness per the plan-doc DoD; verdict mint_new expected (no existing concept covers MCC-window enforcement seizures). Update cadence 1825 days = once per 5-year general-election cycle."
+}
