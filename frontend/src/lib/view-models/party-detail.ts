@@ -20,6 +20,10 @@ import { csvColumnsClause } from "../canonical/csv-columns";
 import { DATA_BASE } from "../paths";
 import { cleanNote } from "../methodology/clean-note";
 import { loadPartyMeta, type PartyMeta } from "./parties";
+import {
+  loadPartyCurrentStrength,
+  type PartyCurrentStrength,
+} from "./party-current-strength";
 
 /** Party-page mart paths (repo-relative for columns.json lookup +
  *  runtime URL for DuckDB-WASM HTTP reads). */
@@ -163,6 +167,11 @@ export interface PartyDetailViewModel {
    *  these on every party (LS or VS only) because the chart-side
    *  filter is cheap and avoids per-route branching at the consumer. */
   ls_methodology_breaks: MethodologyBreakRow[];
+  /** PR-7: "Where this party sits today" Current Strength strip
+   *  view-model. Null for sentinel parties (NOTA / UNK) or for
+   *  parties with no contested history at all - the consumer
+   *  (`PartyCurrentStrength.svelte`) renders nothing when null. */
+  current_strength: PartyCurrentStrength | null;
 }
 
 /** Raw history-row shape from DuckDB. */
@@ -533,6 +542,15 @@ async function fetchPartyDetail(
   const ls_methodology_breaks_promise = fetchLsMethodologyBreaks().catch(
     () => [] as MethodologyBreakRow[],
   );
+  // PR-7: the Current Strength strip reads the same party-page history
+  // mart this loader does, so it can run fully in parallel with the
+  // existing DuckDB reads. The loader internally registers the CSV +
+  // resolves the columns clause via its own boundary; we surface its
+  // null sentinel directly when load fails so the strip is suppressed
+  // rather than the whole detail page.
+  const current_strength_promise = loadPartyCurrentStrength(party_id, {
+    is_sentinel: metadata.is_sentinel,
+  }).catch(() => null);
   await Promise.all([
     registerCsvFile(PARTY_HISTORY_URL),
     registerCsvFile(PARTY_STRONGHOLDS_URL),
@@ -612,6 +630,7 @@ async function fetchPartyDetail(
     all_ls_methodology_breaks,
     ls_history,
   );
+  const current_strength = await current_strength_promise;
 
   return {
     metadata,
@@ -621,6 +640,7 @@ async function fetchPartyDetail(
     vs_strongholds,
     totals,
     ls_methodology_breaks,
+    current_strength,
   };
 }
 

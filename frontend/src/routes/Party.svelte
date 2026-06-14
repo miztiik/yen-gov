@@ -251,6 +251,13 @@
   import PartyAboutCard, {
     recognitionLabel,
   } from "../lib/parties/PartyAboutCard.svelte";
+  // PR-7: "Where this party sits today" strip sits directly under the
+  // header card and above the latest-of one-liners on /parties/<slug>.
+  // The view-model is built upstream by `loadPartyCurrentStrength`
+  // and arrives on `view_model.current_strength`; this component
+  // self-suppresses for sentinels (defence in depth) and for parties
+  // with no contested history.
+  import PartyCurrentStrength from "../lib/parties/PartyCurrentStrength.svelte";
   import {
     homeStateEciCodes,
     mapPcStrongholdsToChoroplethRows,
@@ -497,6 +504,16 @@
         {/if}
       </div>
     </header>
+
+    <!-- PR-7: "Where this party sits today" strip. Sits directly
+         under the header card and above the latest-of one-liners.
+         Hidden for sentinel parties (NOTA / UNK) via both the upstream
+         view-model returning null AND the component's own
+         `is_sentinel` short-circuit (defence in depth). -->
+    <PartyCurrentStrength
+      current_strength={view_model.current_strength}
+      is_sentinel={meta.is_sentinel}
+    />
 
     <!--
       PR-6 layout: header sits full-width above. Sections (2)-(6) live

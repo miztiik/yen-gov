@@ -71,6 +71,10 @@ function viewModelFixture(
     vs_strongholds: [],
     totals,
     ls_methodology_breaks: [],
+    // PR-7: Current Strength strip view-model. Default `null` so
+    // existing pure-helper tests don't have to fabricate a populated
+    // strip shape; new strip-aware tests override per-case.
+    current_strength: null,
     ...overrides,
   };
 }
