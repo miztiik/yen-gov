@@ -33,6 +33,8 @@ import {
   foldStrongholdRows,
   loadPartyDetail,
   partyIdTail,
+  pickLsMethodologyBreaks,
+  type MethodologyBreakRow,
   type PartyHistoryPoint,
   type PartyStronghold,
 } from "./party-detail";
@@ -41,12 +43,55 @@ const mockedQuery = vi.mocked(query);
 const mockedRegisterCsvFile = vi.mocked(registerCsvFile);
 const mockedLoadPartyMeta = vi.mocked(loadPartyMeta);
 
+/** Stub the global `fetch` used by `fetchLsMethodologyBreaks` so the
+ *  view-model loader doesn't hit the network during tests. Each test
+ *  installs its own response shape; `beforeEach` resets the stub. */
+let fetchSpy: ReturnType<typeof vi.spyOn> | null = null;
+function stubMethodologyBreaksFetch(
+  rows: MethodologyBreakRow[] = [
+    {
+      methodology_version: "lspc-delim-1967",
+      at_year: 1967,
+      at_period_seq: 2,
+      kind: "frame_change",
+      note: "Parliament constituency boundaries shifted from the 1951-Order delimitation to the 1962 Delimitation Commission output.",
+      publisher_url: null,
+      supersedes_methodology_version: null,
+    },
+    {
+      methodology_version: "lspc-delim-1976",
+      at_year: 1977,
+      at_period_seq: 3,
+      kind: "frame_change",
+      note: "Parliament constituency boundaries shifted to the 1971-72 Delimitation Commission output, frozen by 42nd Amendment until 2008.",
+      publisher_url: null,
+      supersedes_methodology_version: "lspc-delim-1967",
+    },
+  ],
+): void {
+  fetchSpy?.mockRestore();
+  fetchSpy = vi.spyOn(global, "fetch").mockImplementation(async (url) => {
+    if (String(url).includes("methodology_breaks.json")) {
+      return new Response(
+        JSON.stringify({
+          $schema: "../schemas/methodology-break.schema.json",
+          $schema_version: "1.0",
+          methodology_breaks: rows,
+        }),
+        { status: 200, headers: { "Content-Type": "application/json" } },
+      );
+    }
+    throw new Error(`unexpected fetch in test: ${String(url)}`);
+  });
+}
+
 beforeEach(() => {
   __resetForTests();
   mockedQuery.mockReset();
   mockedRegisterCsvFile.mockReset();
   mockedRegisterCsvFile.mockResolvedValue(undefined);
   mockedLoadPartyMeta.mockReset();
+  stubMethodologyBreaksFetch();
 });
 
 /** Build a minimal PartyMeta for the loader mock. */
@@ -346,6 +391,74 @@ describe("computeTotals", () => {
   });
 });
 
+// --- pickLsMethodologyBreaks (PR-10) --------------------------------------
+
+describe("pickLsMethodologyBreaks", () => {
+  it("returns only the 2 lspc-delim methodology_versions that PR-10 surfaces", () => {
+    const rows: MethodologyBreakRow[] = [
+      {
+        methodology_version: "lspc-delim-1967",
+        at_year: 1967,
+        at_period_seq: 2,
+        kind: "frame_change",
+        note: "irrelevant text for the unit test",
+      },
+      {
+        methodology_version: "lspc-delim-1976",
+        at_year: 1977,
+        at_period_seq: 3,
+        kind: "frame_change",
+        note: "irrelevant text for the unit test",
+      },
+      {
+        methodology_version: "lspc-delim-2008",
+        at_year: 2009,
+        at_period_seq: 5,
+        kind: "frame_change",
+        note: "post-1998 delim break - NOT surfaced on the LS chart per PR-10",
+      },
+      {
+        methodology_version: "cpi-rebase-2012",
+        at_year: 2012,
+        at_period_seq: 1,
+        kind: "rebase",
+        note: "unrelated indicator family - filtered out",
+      },
+    ];
+    const got = pickLsMethodologyBreaks(rows);
+    expect(got).toHaveLength(2);
+    expect(got.map((r) => r.methodology_version)).toEqual([
+      "lspc-delim-1967",
+      "lspc-delim-1976",
+    ]);
+  });
+
+  it("returns rows in at_year ascending order regardless of input order", () => {
+    const rows: MethodologyBreakRow[] = [
+      {
+        methodology_version: "lspc-delim-1976",
+        at_year: 1977,
+        at_period_seq: 3,
+        kind: "frame_change",
+        note: "second break",
+      },
+      {
+        methodology_version: "lspc-delim-1967",
+        at_year: 1967,
+        at_period_seq: 2,
+        kind: "frame_change",
+        note: "first break",
+      },
+    ];
+    const got = pickLsMethodologyBreaks(rows);
+    expect(got.map((r) => r.at_year)).toEqual([1967, 1977]);
+  });
+
+  it("returns empty for an empty catalogue (defensive)", () => {
+    expect(pickLsMethodologyBreaks([])).toEqual([]);
+  });
+});
+
 // --- loadPartyDetail outer shape ------------------------------------------
 
 describe("loadPartyDetail", () => {
@@ -429,6 +542,14 @@ describe("loadPartyDetail", () => {
     expect(out!.totals.ls_seats).toBe(22);
     expect(out!.totals.vs_seats).toBe(133);
     expect(out!.totals.peak_vs_year).toBe(2021);
+
+    // PR-10: ls_methodology_breaks populates from the stubbed
+    // catalogue (2 lspc-delim rows, chronologically sorted).
+    expect(out!.ls_methodology_breaks).toHaveLength(2);
+    expect(
+      out!.ls_methodology_breaks.map((r) => r.methodology_version),
+    ).toEqual(["lspc-delim-1967", "lspc-delim-1976"]);
+    expect(out!.ls_methodology_breaks[0]!.kind).toBe("frame_change");
 
     const registered = mockedRegisterCsvFile.mock.calls.map(([url]) => String(url));
     expect(registered.some((url) => url.includes("/data/marts/party_pages/history.csv"))).toBe(true);
