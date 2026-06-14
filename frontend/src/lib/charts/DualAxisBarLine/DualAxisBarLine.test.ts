@@ -9,8 +9,11 @@
 import { describe, expect, it } from "vitest";
 import {
   buildScales,
+  computeMethodologyBreakMarkers,
   pickLabelStride,
   yearFromPeriodLabel,
+  yearNumberFromPeriodLabel,
+  type MethodologyBreakRow,
 } from "./DualAxisBarLine.svelte";
 
 // --- buildScales ----------------------------------------------------------
@@ -114,5 +117,122 @@ describe("yearFromPeriodLabel", () => {
   it("falls back to the raw input when no year suffix matches", () => {
     expect(yearFromPeriodLabel("not-an-event-id")).toBe("not-an-event-id");
     expect(yearFromPeriodLabel("")).toBe("");
+  });
+});
+
+// --- yearNumberFromPeriodLabel + computeMethodologyBreakMarkers (PR-10) ---
+
+describe("yearNumberFromPeriodLabel", () => {
+  it("returns the trailing year as a number", () => {
+    expect(yearNumberFromPeriodLabel("LsGenMay2024")).toBe(2024);
+    expect(yearNumberFromPeriodLabel("LsGenFeb1962")).toBe(1962);
+  });
+
+  it("returns null when no trailing year suffix matches", () => {
+    expect(yearNumberFromPeriodLabel("bogus")).toBeNull();
+    expect(yearNumberFromPeriodLabel("")).toBeNull();
+  });
+});
+
+describe("computeMethodologyBreakMarkers", () => {
+  const lsDomainPrePost: readonly string[] = [
+    "LsGenFeb1962",
+    "LsGenFeb1967",
+    "LsGenMar1971",
+    "LsGenMar1977",
+    "LsGenJan1980",
+    "LsGenDec1984",
+    "LsGenNov1989",
+    "LsGenMay1991",
+    "LsGenMay1996",
+    "LsGenMar1998",
+    "LsGenSep1999",
+    "LsGenMay2004",
+    "LsGenMay2009",
+    "LsGenMay2014",
+    "LsGenMay2019",
+    "LsGenJun2024",
+  ];
+  const delim1967: MethodologyBreakRow = {
+    methodology_version: "lspc-delim-1967",
+    at_year: 1967,
+    at_period_seq: 2,
+    kind: "frame_change",
+    note: "first break",
+  };
+  const delim1976: MethodologyBreakRow = {
+    methodology_version: "lspc-delim-1976",
+    at_year: 1977,
+    at_period_seq: 3,
+    kind: "frame_change",
+    note: "second break",
+  };
+
+  it("returns 2 markers when both lspc-delim rows fall inside the LS chart's full domain", () => {
+    const out = computeMethodologyBreakMarkers(lsDomainPrePost, [
+      delim1967,
+      delim1976,
+    ]);
+    expect(out).toHaveLength(2);
+    expect(out[0]!.row.methodology_version).toBe("lspc-delim-1967");
+    expect(out[0]!.reference_number).toBe(1);
+    expect(out[1]!.row.methodology_version).toBe("lspc-delim-1976");
+    expect(out[1]!.reference_number).toBe(2);
+  });
+
+  it("positions the 1967 marker between LsGenFeb1962 (idx 0) and LsGenFeb1967 (idx 1)", () => {
+    const out = computeMethodologyBreakMarkers(lsDomainPrePost, [delim1967]);
+    expect(out[0]!.idx_before).toBe(0);
+    expect(out[0]!.idx_after).toBe(1);
+  });
+
+  it("positions the 1976 marker between LsGenMar1971 (idx 2) and LsGenMar1977 (idx 3)", () => {
+    const out = computeMethodologyBreakMarkers(lsDomainPrePost, [delim1976]);
+    expect(out[0]!.idx_before).toBe(2);
+    expect(out[0]!.idx_after).toBe(3);
+  });
+
+  it("filters out markers whose at_year sits AT or BEFORE the first visible year (no bar to anchor 'before')", () => {
+    // Chart starts at 1999; the 1967 + 1976 breaks have no pre-bar.
+    const onlyPost1999: readonly string[] = [
+      "LsGenSep1999",
+      "LsGenMay2004",
+      "LsGenMay2009",
+      "LsGenMay2024",
+    ];
+    const out = computeMethodologyBreakMarkers(onlyPost1999, [
+      delim1967,
+      delim1976,
+    ]);
+    expect(out).toEqual([]);
+  });
+
+  it("filters out markers whose at_year sits AFTER the last visible year", () => {
+    // Chart ends 1962-1971; 1977 break has no post-bar.
+    const onlyPre1976: readonly string[] = [
+      "LsGenFeb1962",
+      "LsGenFeb1967",
+      "LsGenMar1971",
+    ];
+    const out = computeMethodologyBreakMarkers(onlyPre1976, [
+      delim1967,
+      delim1976,
+    ]);
+    // Only the 1967 break survives (between 1962 and 1967).
+    expect(out).toHaveLength(1);
+    expect(out[0]!.row.methodology_version).toBe("lspc-delim-1967");
+  });
+
+  it("returns empty for an empty x_domain or empty breaks list", () => {
+    expect(computeMethodologyBreakMarkers([], [delim1967])).toEqual([]);
+    expect(computeMethodologyBreakMarkers(lsDomainPrePost, [])).toEqual([]);
+  });
+
+  it("assigns 1-based reference_numbers in input order (used as footnote labels)", () => {
+    const out = computeMethodologyBreakMarkers(lsDomainPrePost, [
+      delim1967,
+      delim1976,
+    ]);
+    expect(out.map((m) => m.reference_number)).toEqual([1, 2]);
   });
 });

@@ -562,14 +562,20 @@
           line_y_label="Vote %"
           bar_format={(n) => n.toLocaleString()}
           line_format={(n) => `${n.toFixed(1)}%`}
+          methodology_breaks={view_model.ls_methodology_breaks}
         />
-        <p
-          class="text-[11px] text-slate-400"
-          data-testid="party-ls-coverage"
-        >
-          Pre-1999 LS history not yet ingested; numbers shown are
-          1999&ndash;2024 cycles only.
-        </p>
+        {#if view_model.ls_methodology_breaks.length > 0}
+          <p
+            class="text-[11px] text-slate-400"
+            data-testid="party-ls-methodology-caption"
+          >
+            1) delim 1967 (Parliament constituency boundaries shifted from
+            the 1951-Order delimitation to the 1962 Delimitation Commission
+            output); 2) delim 1976 (boundaries shifted to the 1971-72
+            Delimitation Commission output, frozen by 42nd Amendment until
+            2008).
+          </p>
+        {/if}
       </section>
     {/if}
 

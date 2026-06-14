@@ -88,14 +88,32 @@ describe("recognitionStripFor - 5 citizen-tested verbatim strips", () => {
         "[NCP (Sharadchandra Pawar)](/parties/ncp-sp).",
     );
   });
+
+  it("BJP - lineage strip with 2 cross-links (BJS + JNP) per Hans 3b verdict", () => {
+    // PR-10 of TODO/20260613-party-deferred-followups-plan.md.
+    // Verbatim Hans 3b verdict text: do NOT paraphrase. The /parties/jnp
+    // link is forward-looking (the parties.IN.JNP row is minted by the
+    // historical-parties seed PR per umbrella plan section 11); the
+    // /parties/bjs link resolves today.
+    const got = recognitionStripFor("parties.IN.BJP");
+    expect(got).not.toBeNull();
+    const strip = got as RecognitionStripContent;
+    expect(strip.kind).toBe("lineage");
+    expect(strip.party_id).toBe("parties.IN.BJP");
+    expect(strip.body_md).toBe(
+      "BJP was founded in April 1980 after the dissolution of the " +
+        "Janata Party. Its institutional lineage runs " +
+        "[Bharatiya Jana Sangh](/parties/bjs) (1951-1977) -> " +
+        "[Janata Party](/parties/jnp) (1977-1980) -> BJP " +
+        "(1980-present). The chart shows BJP only from its first " +
+        "contested cycle in 1984; for 1952-1977 see Bharatiya Jana " +
+        "Sangh, for the 1977 LS see Janata Party.",
+    );
+  });
 });
 
 describe("recognitionStripFor - null for non-special parties", () => {
-  it("returns null for BJP (regression: most parties have no strip)", () => {
-    expect(recognitionStripFor("parties.IN.BJP")).toBeNull();
-  });
-
-  it("returns null for INC", () => {
+  it("returns null for INC (regression: most parties have no strip)", () => {
     expect(recognitionStripFor("parties.IN.INC")).toBeNull();
   });
 

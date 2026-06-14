@@ -27,6 +27,54 @@ const PARTY_HISTORY_URL = `${DATA_BASE}/data/marts/party_pages/history.csv`;
 const PARTY_STRONGHOLDS_REL = "datasets/data/marts/party_pages/strongholds.csv";
 const PARTY_STRONGHOLDS_URL = `${DATA_BASE}/data/marts/party_pages/strongholds.csv`;
 
+/** PR-10: methodology-breaks catalogue URL. The catalogue ships as a
+ *  hand-authored JSON under `datasets/taxonomy/` (NOT a derived mart);
+ *  the LS chart on /parties/<slug> filters the rows by
+ *  `methodology_version` to surface only the LS-relevant delim breaks. */
+const METHODOLOGY_BREAKS_URL = `${DATA_BASE}/taxonomy/methodology_breaks.json`;
+
+/** Subset of `lspc-delim-*` methodology_versions PR-10 renders as
+ *  vertical markers on the Lok Sabha DualAxisBarLine chart. Per the
+ *  PR-10 brief (Jony 1d): the 2 pre-1999 frame_change rows surfaced
+ *  by PR-8 #1003's new LS coverage (1962/1989/1991/1996/1998 cycles).
+ *  The 2008 delim break is NOT in this list - it lives in the
+ *  post-1998 era already covered before PR-8 and is a different
+ *  signal class. Future agents adding markers SHOULD extend this
+ *  set rather than relax it to a broader filter, so the LS chart's
+ *  marker grammar stays explicit. */
+export const LS_METHODOLOGY_VERSIONS: ReadonlySet<string> = new Set([
+  "lspc-delim-1967",
+  "lspc-delim-1976",
+]);
+
+/** PR-10: one row of the methodology-breaks catalogue exposed on the
+ *  view-model. Mirrors `datasets/schemas/methodology-break.schema.json`
+ *  v1.0 verbatim - any future schema bump (additive) lands here too.
+ *  Optional fields kept optional so a v1.x reader survives a v2.0
+ *  schema without panicking. */
+export interface MethodologyBreakRow {
+  methodology_version: string;
+  at_year: number;
+  at_period_seq: number;
+  kind:
+    | "rebase"
+    | "definition_change"
+    | "frame_change"
+    | "coverage_change"
+    | "reclassification";
+  note: string;
+  publisher_url?: string | null;
+  supersedes_methodology_version?: string | null;
+}
+
+/** Wire shape of `datasets/taxonomy/methodology_breaks.json` per
+ *  `datasets/schemas/methodology-break.schema.json` v1.0. */
+interface MethodologyBreaksCatalogue {
+  $schema?: string;
+  $schema_version?: string;
+  methodology_breaks: MethodologyBreakRow[];
+}
+
 /** One contested election cycle for a party in one body. */
 export interface PartyHistoryPoint {
   /** 4-digit polling year. */
@@ -107,6 +155,13 @@ export interface PartyDetailViewModel {
   vs_strongholds: PartyStronghold[];
   /** Aggregate KPI totals. */
   totals: PartyTotals;
+  /** PR-10: methodology-break rows the LS chart surfaces as vertical
+   *  markers. Empty when the catalogue carries no
+   *  `LS_METHODOLOGY_VERSIONS` row (defensive; today's catalogue
+   *  always carries the 2 lspc-delim rows). The view-model carries
+   *  these on every party (LS or VS only) because the chart-side
+   *  filter is cheap and avoids per-route branching at the consumer. */
+  ls_methodology_breaks: MethodologyBreakRow[];
 }
 
 /** Raw history-row shape from DuckDB. */
@@ -382,13 +437,95 @@ export function computeTotals(
   };
 }
 
+/** Pure: filter a methodology-breaks catalogue to the rows the LS
+ *  chart on /parties/<slug> renders as vertical markers. Pinned to
+ *  `LS_METHODOLOGY_VERSIONS`; rows the catalogue carries but the LS
+ *  chart does NOT surface (other indicator families' breaks; the
+ *  2008 delim break already covered by the pre-PR-8 LS window) are
+ *  silently dropped. Sort order is `at_year` ascending so the first
+ *  vertical marker the citizen sees is also the first (chronological)
+ *  break - the consumer renders footnote numbers 1) 2) ... in that
+ *  order without re-sorting. */
+export function pickLsMethodologyBreaks(
+  rows: readonly MethodologyBreakRow[],
+): MethodologyBreakRow[] {
+  const out = rows.filter((r) =>
+    LS_METHODOLOGY_VERSIONS.has(r.methodology_version),
+  );
+  out.sort((a, b) => a.at_year - b.at_year);
+  return out;
+}
+
+/** Pure: keep only the methodology-break rows that fall strictly
+ *  INSIDE the party's LS chart year domain - i.e. `at_year > first`
+ *  AND `at_year <= last` where first/last are the earliest / latest
+ *  LS cycle years for the party. Mirrors the chart-side filter in
+ *  `DualAxisBarLine.computeMethodologyBreakMarkers` so the caption
+ *  below the chart agrees with the markers rendered above it (a party
+ *  like BJP whose first LS cycle is 1984 sees zero markers AND zero
+ *  caption; DMK whose first LS cycle is 1962 sees both markers AND
+ *  both caption lines). Returns empty when the party has no LS
+ *  history (defensive; the caller already gates on `ls_history.length > 0`
+ *  before rendering the chart). */
+export function visibleLsMethodologyBreaks(
+  rows: readonly MethodologyBreakRow[],
+  ls_history: readonly PartyHistoryPoint[],
+): MethodologyBreakRow[] {
+  if (ls_history.length === 0) return [];
+  let first = ls_history[0]!.year;
+  let last = ls_history[0]!.year;
+  for (const p of ls_history) {
+    if (p.year < first) first = p.year;
+    if (p.year > last) last = p.year;
+  }
+  return rows.filter((r) => r.at_year > first && r.at_year <= last);
+}
+
+/** Module-level Promise cache for the methodology-breaks catalogue.
+ *  The catalogue is tiny (~3KB) and shared across every party page;
+ *  a single in-flight fetch suffices for the lifetime of the tab. */
+let methodologyBreaksCache: Promise<MethodologyBreakRow[]> | null = null;
+
+/** PR-10: fetch + cache the methodology-breaks catalogue, return only
+ *  the LS-relevant subset. A network failure clears the cache so a
+ *  subsequent navigation re-issues the fetch; the loader returns an
+ *  empty list on failure (defensive - the chart still renders without
+ *  markers). */
+export function fetchLsMethodologyBreaks(): Promise<MethodologyBreakRow[]> {
+  if (methodologyBreaksCache !== null) return methodologyBreaksCache;
+  methodologyBreaksCache = fetch(METHODOLOGY_BREAKS_URL)
+    .then(async (res) => {
+      if (!res.ok) {
+        throw new Error(
+          `fetch /taxonomy/methodology_breaks.json failed: ${res.status} ${res.statusText}`,
+        );
+      }
+      const catalogue = (await res.json()) as MethodologyBreaksCatalogue;
+      return pickLsMethodologyBreaks(catalogue.methodology_breaks ?? []);
+    })
+    .catch((err) => {
+      methodologyBreaksCache = null;
+      // Surface the failure to the loader by re-throwing; the party
+      // detail loader catches + clears its own cache so a retry
+      // re-issues both the marts AND this catalogue.
+      throw err;
+    });
+  return methodologyBreaksCache;
+}
+
 async function fetchPartyDetail(
   party_id: string,
   metadata: PartyMeta,
 ): Promise<PartyDetailViewModel> {
   // Register the two small derived mart files. The backend generator
   // pays the full electoral-corpus scan once at ingest/precompute time;
-  // this route reads only rows for the requested party_id.
+  // this route reads only rows for the requested party_id. The
+  // methodology-breaks catalogue is fetched as a plain JSON in parallel
+  // (DuckDB does NOT read this file - it ships as the closed-renderer
+  // contract for the LS chart).
+  const ls_methodology_breaks_promise = fetchLsMethodologyBreaks().catch(
+    () => [] as MethodologyBreakRow[],
+  );
   await Promise.all([
     registerCsvFile(PARTY_HISTORY_URL),
     registerCsvFile(PARTY_STRONGHOLDS_URL),
@@ -449,6 +586,11 @@ async function fetchPartyDetail(
   }
 
   const totals = computeTotals(ls_history, vs_history);
+  const all_ls_methodology_breaks = await ls_methodology_breaks_promise;
+  const ls_methodology_breaks = visibleLsMethodologyBreaks(
+    all_ls_methodology_breaks,
+    ls_history,
+  );
 
   return {
     metadata,
@@ -457,6 +599,7 @@ async function fetchPartyDetail(
     ls_strongholds,
     vs_strongholds,
     totals,
+    ls_methodology_breaks,
   };
 }
 
@@ -530,4 +673,5 @@ export function loadPartyDetail(
 /** Test-only cache reset. NOT exported from index.ts. */
 export function __resetForTests(): void {
   detailCache.clear();
+  methodologyBreaksCache = null;
 }

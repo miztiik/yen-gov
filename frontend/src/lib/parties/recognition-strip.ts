@@ -13,8 +13,19 @@
 // The 5 strip texts are citizen-tested verbatim copy (plan-doc section 4).
 // DO NOT paraphrase. The vitest test pins each body_md byte-for-byte.
 
-/** Three citizen-recognised flavours of recognition-flip annotation. */
-export type RecognitionKind = "rump" | "split-child" | "recognition-flip";
+/** Four citizen-recognised flavours of recognition / lineage annotation.
+ *
+ *  `lineage` = founded-from-a-now-dissolved-parent shape (e.g. BJP
+ *  founded 1980 after Janata Party dissolved). Cited as a sibling of
+ *  `split-child` (whose parent is still live but split) and `rump`
+ *  (whose own pre-split identity is what continues). PR-10 of
+ *  TODO/20260613-party-deferred-followups-plan.md (Hans 3b).
+ */
+export type RecognitionKind =
+  | "rump"
+  | "split-child"
+  | "recognition-flip"
+  | "lineage";
 
 /** Renderable content for ONE party's annotation strip. The component
  *  walks `body_md` for inline `[label](/parties/<slug>)` tokens via
@@ -32,9 +43,9 @@ export interface RecognitionStripContent {
 }
 
 /**
- * Returns the recognition-strip content for the 5 special party_ids
- * (AAP / SS_UBT / NCP_SP / SHS / NCP); returns `null` for everyone
- * else so the component renders nothing.
+ * Returns the recognition-strip content for the 6 special party_ids
+ * (AAP / SS_UBT / NCP_SP / SHS / NCP / BJP); returns `null` for
+ * everyone else so the component renders nothing.
  *
  * Slug shape per `slug.ts::partyIdToSlug`: lowercased tail with `_`
  * -> `-`. Hand-verified against the worktree's parties.csv:
@@ -43,6 +54,18 @@ export interface RecognitionStripContent {
  *   - parties.IN.NCP_SP -> /parties/ncp-sp
  *   - parties.IN.SHS    -> /parties/shs
  *   - parties.IN.NCP    -> /parties/ncp
+ *   - parties.IN.BJP    -> /parties/bjp (lineage strip; cross-links to
+ *                                         parties.IN.BJS and the future
+ *                                         parties.IN.JNP per Hans 3b)
+ *
+ * BJP body_md cross-link targets:
+ *   - /parties/bjs RESOLVES today (parties.IN.BJS exists in
+ *     parties.csv).
+ *   - /parties/jnp is forward-looking; the parties.IN.JNP entity row
+ *     is minted by the historical-parties seed PR (umbrella plan-doc
+ *     TODO/20260613 section 11). The link is shipped now per Hans 3b
+ *     verbatim so the strip lights up automatically when JNP lands
+ *     without re-editing this helper.
  */
 export function recognitionStripFor(
   party_id: string,
@@ -102,6 +125,19 @@ export function recognitionStripFor(
           "The bar chart from 2024 onwards counts only the post-split " +
           "entity. For the breakaway faction (with Sharad Pawar), see " +
           "[NCP (Sharadchandra Pawar)](/parties/ncp-sp).",
+      };
+    case "parties.IN.BJP":
+      return {
+        kind: "lineage",
+        party_id,
+        body_md:
+          "BJP was founded in April 1980 after the dissolution of the " +
+          "Janata Party. Its institutional lineage runs " +
+          "[Bharatiya Jana Sangh](/parties/bjs) (1951-1977) -> " +
+          "[Janata Party](/parties/jnp) (1977-1980) -> BJP " +
+          "(1980-present). The chart shows BJP only from its first " +
+          "contested cycle in 1984; for 1952-1977 see Bharatiya Jana " +
+          "Sangh, for the 1977 LS see Janata Party.",
       };
     default:
       return null;

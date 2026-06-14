@@ -99,6 +99,89 @@
     const m = period_label.match(/(\d{4})$/);
     return m ? m[1]! : period_label;
   }
+
+  /** PR-10: numeric 4-digit polling year, or null when no trailing
+   *  year suffix matches. Powers the methodology-break X-axis seam
+   *  placement: a break at `at_year=Y` sits BETWEEN the last bar whose
+   *  period_label year is <= Y-1 and the first bar whose year is >= Y. */
+  export function yearNumberFromPeriodLabel(
+    period_label: string,
+  ): number | null {
+    const m = period_label.match(/(\d{4})$/);
+    return m ? Number(m[1]) : null;
+  }
+
+  /** PR-10: methodology-break wire shape consumed by the chart. The
+   *  view-model loader (`view-models/party-detail.ts`) builds this
+   *  list; the chart positions a thin vertical marker between the
+   *  last pre-break bar and the first post-break bar. */
+  export interface MethodologyBreakRow {
+    methodology_version: string;
+    at_year: number;
+    at_period_seq: number;
+    kind: string;
+    note: string;
+    publisher_url?: string | null;
+    supersedes_methodology_version?: string | null;
+  }
+
+  /** PR-10: positioning metadata for one methodology-break marker. */
+  export interface MethodologyBreakMarker {
+    /** Index into `x_domain` of the LAST bar BEFORE the break (the
+     *  bar whose year is < at_year). -1 when the break sits to the
+     *  LEFT of the chart's first bar. */
+    idx_before: number;
+    /** Index into `x_domain` of the FIRST bar AT OR AFTER the break
+     *  (the bar whose year is >= at_year). `x_domain.length` when
+     *  the break sits to the RIGHT of the chart's last bar. */
+    idx_after: number;
+    /** 1-based footnote reference number ('1)', '2)', ...). Reflects
+     *  the row's position in the input list (chronological order). */
+    reference_number: number;
+    /** The original wire row (carried through for tooltip rendering). */
+    row: MethodologyBreakRow;
+  }
+
+  /** Pure: compute the marker positions for each methodology-break
+   *  row given the chart's chronological X domain. Markers whose
+   *  `at_year` falls entirely OUTSIDE the visible domain - i.e.
+   *  at-or-before the first visible year, or strictly after the last
+   *  visible year - are filtered out so the chart only renders
+   *  markers the citizen can actually see between visible bars. */
+  export function computeMethodologyBreakMarkers(
+    x_domain: readonly string[],
+    breaks: readonly MethodologyBreakRow[],
+  ): MethodologyBreakMarker[] {
+    if (x_domain.length === 0 || breaks.length === 0) return [];
+    const years = x_domain.map((p) => yearNumberFromPeriodLabel(p));
+    const first = years.find((y) => y !== null) ?? null;
+    const last = [...years].reverse().find((y) => y !== null) ?? null;
+    if (first === null || last === null) return [];
+    const out: MethodologyBreakMarker[] = [];
+    breaks.forEach((row, i) => {
+      if (row.at_year <= first || row.at_year > last) return;
+      let idx_before = -1;
+      for (let j = 0; j < years.length; j += 1) {
+        const y = years[j];
+        if (y !== null && y < row.at_year) idx_before = j;
+      }
+      let idx_after = years.length;
+      for (let j = 0; j < years.length; j += 1) {
+        const y = years[j];
+        if (y !== null && y >= row.at_year) {
+          idx_after = j;
+          break;
+        }
+      }
+      out.push({
+        idx_before,
+        idx_after,
+        reference_number: i + 1,
+        row,
+      });
+    });
+    return out;
+  }
 </script>
 
 <script lang="ts">
@@ -125,6 +208,10 @@
     line_format?: (n: number) => string;
     height?: number;
     mobile_label_stride?: number;
+    /** PR-10: methodology-break rows to render as thin grey vertical
+     *  markers between bars. Default empty preserves the pre-PR-10
+     *  signature for any caller that doesn't surface breaks. */
+    methodology_breaks?: readonly MethodologyBreakRow[];
   }
 
   let {
@@ -138,6 +225,7 @@
     line_format = (n: number) => `${Number(n).toFixed(1)}%`,
     height = 360,
     mobile_label_stride = 4,
+    methodology_breaks = [],
   }: Props = $props();
 
   // Layout constants. Symmetric left/right margins for the dual axes.
@@ -235,6 +323,46 @@
   function onBarLeave(): void {
     tip = null;
   }
+
+  // PR-10 methodology-break markers. Visible positions are computed
+  // from the chart's chronological X domain; tooltip carries the
+  // citizen-readable note + reference number. The midpoint between
+  // the two bracketing bars is in band-space - convert via x_scale
+  // when rendering inside the chart group.
+  const markers = $derived(
+    computeMethodologyBreakMarkers(scales.x_domain, methodology_breaks),
+  );
+  function markerX(m: MethodologyBreakMarker): number {
+    const bw = x_scale.bandwidth();
+    const last_idx = scales.x_domain.length - 1;
+    if (m.idx_before < 0) {
+      const pl = scales.x_domain[m.idx_after] ?? scales.x_domain[0];
+      return pl !== undefined ? (x_scale(pl) ?? 0) : 0;
+    }
+    if (m.idx_after > last_idx) {
+      const pl = scales.x_domain[m.idx_before] ?? scales.x_domain[last_idx];
+      return pl !== undefined ? (x_scale(pl) ?? 0) + bw : 0;
+    }
+    const pl_before = scales.x_domain[m.idx_before];
+    const pl_after = scales.x_domain[m.idx_after];
+    if (pl_before === undefined || pl_after === undefined) return 0;
+    const right_before = (x_scale(pl_before) ?? 0) + bw;
+    const left_after = x_scale(pl_after) ?? 0;
+    return (right_before + left_after) / 2;
+  }
+  function onMarkerEnter(e: MouseEvent, m: MethodologyBreakMarker): void {
+    tip = {
+      x: e.clientX,
+      y: e.clientY,
+      color: "#64748b",
+      title: `${m.reference_number}) ${m.row.at_year} methodology break`,
+      subtitle: m.row.methodology_version,
+      lines: [{ label: "why", value: m.row.note }],
+    };
+  }
+  function onMarkerLeave(): void {
+    tip = null;
+  }
 </script>
 
 {#if scales.x_domain.length === 0}
@@ -325,6 +453,49 @@
             onmouseenter={(e) => onBarEnter(e, b)}
             onmouseleave={onBarLeave}
           />
+        {/each}
+
+        <!-- PR-10 methodology-break markers. Rendered AFTER bars
+             so the dashed vertical line + footnote number sit on
+             top of the bars rather than being clipped under them.
+             The transparent hit rect widens the tap target to ~16px
+             so the marker is touch-reachable on mobile (Jony 1d). -->
+        {#each markers as marker (`mbm-${marker.row.methodology_version}`)}
+          {@const mx = markerX(marker)}
+          <g
+            class="cursor-pointer"
+            data-testid="methodology-break-marker"
+            data-methodology-version={marker.row.methodology_version}
+            data-reference-number={marker.reference_number}
+          >
+            <rect
+              x={mx - 8}
+              y={0}
+              width={16}
+              height={inner_h}
+              fill="transparent"
+              onmouseenter={(e) => onMarkerEnter(e, marker)}
+              onmouseleave={onMarkerLeave}
+              onclick={(e) => onMarkerEnter(e, marker)}
+            />
+            <line
+              x1={mx}
+              x2={mx}
+              y1={0}
+              y2={inner_h}
+              stroke="rgba(100, 116, 139, 0.4)"
+              stroke-width={1}
+              stroke-dasharray="3 2"
+              pointer-events="none"
+            />
+            <text
+              x={mx}
+              y={-6}
+              text-anchor="middle"
+              class="fill-slate-500 text-[10px]"
+              pointer-events="none"
+            >{marker.reference_number})</text>
+          </g>
         {/each}
 
         <!-- Line + dots -->

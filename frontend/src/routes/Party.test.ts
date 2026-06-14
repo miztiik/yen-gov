@@ -67,6 +67,7 @@ function viewModelFixture(
     ls_strongholds: [],
     vs_strongholds: [],
     totals,
+    ls_methodology_breaks: [],
     ...overrides,
   };
 }
