@@ -50,7 +50,7 @@ Regex: `^(general|assembly)(-bye-[a-z0-9-]+|-\d{4})$`.
 
 Five user-mandated binding constraints (do not re-litigate):
 
-1. **No Hindi tokens** in URLs / chrome / code identifiers. Body prefix is `general` (Parliament cohort) / `assembly` (state Assembly cohort) - never `parliament` / `assembly`. One Glossary body line allowed for citizens who learned the Hindi term first; never in slug / heading / code.
+1. **No transliterated tokens** in URLs / chrome / code identifiers. Body prefix is `general` (Parliament cohort) / `assembly` (state Assembly cohort) - never `parliament` / `assembly`. One Glossary body line allowed for citizens who learned the local-language term first; never in slug / heading / code.
 2. **Plain old routing.** No query params, no `#` fragments. Pure path cascades under Grammar A.
 3. **Drop the body-root pages.** No `/parliament/`, no `/assembly/`. Body distinction lives only in the event-slug body prefix.
 4. **Drop the `/pc/` and `/ac/` literals.** The event-slug body prefix already implies constituency type at the leaf (`general-` -> PC; `assembly-` -> AC). Constituency leaf URLs are `/<state>/elections/<event-slug>/<constituency-slug>`.

@@ -83,7 +83,7 @@ In-memory `Path` objects for local I/O may stay platform-native. Rule applies at
 | `.runtime/`     | gitignored | Ephemeral run state. Never a contract surface. |
 | `TODO/`         | optional   | Working scratchpads - non-authoritative. Sole working-docs home; `notes/` was retired 2026-06-08 per [TODO/20260603-data-and-charting-platform-reset-plan.md](TODO/20260603-data-and-charting-platform-reset-plan.md) override O10 (durable content lifted into `docs/`, in-flight handover folded into the relevant TODO/ sub-plan). |
 
-Create folders only when real code is about to land. Identifier convention: use issuing-authority IDs (ISO 3166, ECI codes, LGD codes); see [docs/reference/identifiers.md](docs/reference/identifiers.md). URL grammar is locked at [docs/architecture/frontend/url-grammar.md](docs/architecture/frontend/url-grammar.md) (ADR-0028 + ADR-0037 + PR-0 named divergences for event-grain URLs + No-Hindi policy on the elections surface, 2026-06-09).
+Create folders only when real code is about to land. Identifier convention: use issuing-authority IDs (ISO 3166, ECI codes, LGD codes); see [docs/reference/identifiers.md](docs/reference/identifiers.md). URL grammar is locked at [docs/architecture/frontend/url-grammar.md](docs/architecture/frontend/url-grammar.md) (ADR-0028 + ADR-0037 + PR-0 named divergences for event-grain URLs + English-only citizen-chrome policy, 2026-06-09).
 
 ## 4. Layer and Dependency Rules
 

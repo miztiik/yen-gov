@@ -241,9 +241,9 @@ Regex pin (enforced by [url-namespace-disjointness.test.ts](../../../frontend/sr
 
 **No legacy-URL absorber.** Old `?s=<b64>` and `LsGenJun2024`-style URLs are not redirected; bookmarks lose work. Acceptable today; revisit when a real citizen complaint surfaces.
 
-### No-Hindi policy (PR-0 2026-06-09)
+### English-only citizen-chrome policy (PR-0 2026-06-09)
 
-**Context.** Pre-2026-06 the elections surface mixed English and Hindi tokens: `kind: "lok_sabha"` / `"vidhan_sabha"` in TypeScript enums + JSON schema + Python labels; "Lok Sabha" / "Vidhan Sabha" in citizen-facing chrome strings. Hindi tokens in URLs / chrome / code break the read-aloud test for the median Indian citizen (who reads English on the web but speaks one of 22 scheduled languages at home; Hindi is one), break URL-slug derivation (`lok_sabha` is not a stable slug; ECI Tamil-script editions exist), and bake one language's vocabulary into the spine of an India-wide federal site. Hans-led debate converged: English nouns for code + URL, Hindi tokens allowed only as one Glossary line in page body (never slug / heading / code).
+**Context.** Pre-2026-06 the elections surface mixed English with transliterated tokens from one local language: `kind: "lok_sabha"` / `"vidhan_sabha"` in TypeScript enums + JSON schema + Python labels; "Lok Sabha" / "Vidhan Sabha" in citizen-facing chrome strings. Transliterated tokens in URLs / chrome / code break the read-aloud test for the median Indian citizen (who reads English on the web but speaks one of 22 scheduled languages at home), break URL-slug derivation (`lok_sabha` is not a stable slug; ECI publishes editions in multiple scripts), and bake one language's vocabulary into the spine of an India-wide federal site. Hans-led debate converged: English nouns for code + URL; transliterated tokens allowed only as one Glossary line in page body (never slug / heading / code).
 
 **Decision.** English-only across:
 
@@ -252,9 +252,9 @@ Regex pin (enforced by [url-namespace-disjointness.test.ts](../../../frontend/sr
 - **Code identifiers** - `kind` enum on `election-events.schema.json` is `"parliament" | "assembly" | "general_bye" | "assembly_bye"`. TypeScript `EventKind` union, Python adapter labels, test fixtures, comment prose all match.
 - **Event-id literals** - `general-2024` / `assembly-2023` per slug grammar above.
 
-**Carve-outs.** Constituency-unit nouns "Parliament constituency" / "Assembly constituency" appear in chrome where the per-seat context is needed; the short forms "PC" / "AC" survive in URL slugs (the `<constituency-slug>` leaf), CSV column names (`entity_kind: "ac" | "pc"`), and chart axes. One Glossary line in page body MAY name the local-language synonym ("Parliament constituency (Lok Sabha)", "Assembly constituency (Vidhan Sabha)") for citizens who learned the Hindi term first; never in slug, heading, or code.
+**Carve-outs.** Constituency-unit nouns "Parliament constituency" / "Assembly constituency" appear in chrome where the per-seat context is needed; the short forms "PC" / "AC" survive in URL slugs (the `<constituency-slug>` leaf), CSV column names (`entity_kind: "ac" | "pc"`), and chart axes. One Glossary line in page body MAY name the local-language synonym ("Parliament constituency (Lok Sabha)", "Assembly constituency (Vidhan Sabha)") for citizens who learned the local-language term first; never in slug, heading, or code.
 
-**Mechanical scrub gate.** PR-W1a executes the repo-wide rename + ships a grep gate: `git grep -iE "lok.sabha|vidhan.sabha"` MUST return zero matches across `frontend/src/`, `backend/yen_gov/`, `datasets/schemas/`, `datasets/taxonomy/`, and `docs/`. After PR-W1a the gate is the doctrine; doctrinal rejection of any PR that reintroduces a Hindi token in slug / chrome / code (one-line Glossary body carve-out aside).
+**Mechanical scrub gate.** PR-W1a executes the repo-wide rename + ships a grep gate: `git grep -iE "lok.sabha|vidhan.sabha"` MUST return zero matches across `frontend/src/`, `backend/yen_gov/`, `datasets/schemas/`, `datasets/taxonomy/`, and `docs/`. After PR-W1a the gate is the doctrine; doctrinal rejection of any PR that reintroduces a transliterated token from a local language in slug / chrome / code (one-line Glossary body carve-out aside).
 
 ## See also
 

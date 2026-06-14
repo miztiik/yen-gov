@@ -111,7 +111,7 @@ Max (Indicator Scout, channelling Roser/Ritchie) reads every id as a candidate f
 ### 5.1 Title
 
 - **Sentence case**, not Title Case. `"Outstanding liabilities (% of GSDP)"` not `"Outstanding Liabilities (% Of GSDP)"`. The current corpus is split — `"Crude Birth Rate"` (Title Case) vs `"Installed coal-fired capacity"` (sentence). New ids use sentence case; old ones are §8.
-- **English only.** No Hindi/English mixing in title. Bilingual surfaces are a future ticket; today's frontend renders English.
+- **English only.** Single-script titles, no transliteration. Bilingual surfaces are a future ticket; today's frontend renders English.
 - **Unit in parens at the end**: `"PM2.5 annual mean (µg/m³)"`, `"Outstanding liabilities (% of GSDP)"`, `"Crude birth rate (per 1,000 population)"`.
 - **≤ 60 characters** (legend space).
 - **No direction-of-good in the title.** `"Air pollution — lower is better"` is wrong. The `direction` field carries that; the title stays neutral.
