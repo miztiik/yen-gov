@@ -34,6 +34,7 @@ import {
   loadPartyDetail,
   partyIdTail,
   pickLsMethodologyBreaks,
+  visibleLsMethodologyBreaks,
   type MethodologyBreakRow,
   type PartyHistoryPoint,
   type PartyStronghold,
@@ -466,6 +467,71 @@ describe("pickLsMethodologyBreaks", () => {
   });
 });
 
+// --- visibleLsMethodologyBreaks (PR-10 chart/caption co-gate) -------------
+
+describe("visibleLsMethodologyBreaks", () => {
+  const delim1967: MethodologyBreakRow = {
+    methodology_version: "lspc-delim-1967",
+    at_year: 1967,
+    at_period_seq: 2,
+    kind: "frame_change",
+    note: "first break",
+  };
+  const delim1976: MethodologyBreakRow = {
+    methodology_version: "lspc-delim-1976",
+    at_year: 1977,
+    at_period_seq: 3,
+    kind: "frame_change",
+    note: "second break",
+  };
+  function p(year: number, label: string): PartyHistoryPoint {
+    return {
+      year,
+      period_label: label,
+      seats: 0,
+      vote_share_pct: null,
+      contested: null,
+    };
+  }
+
+  it("DMK case: ls_history 1962-2024 makes BOTH delim breaks visible (chart + caption agree)", () => {
+    const out = visibleLsMethodologyBreaks(
+      [delim1967, delim1976],
+      [p(1962, "LsGenFeb1962"), p(2024, "LsGenJun2024")],
+    );
+    expect(out).toHaveLength(2);
+  });
+
+  it("BJP case: ls_history 1984-2024 (first contested 1984) hides BOTH delim breaks (chart + caption agree)", () => {
+    const out = visibleLsMethodologyBreaks(
+      [delim1967, delim1976],
+      [p(1984, "LsGenDec1984"), p(2024, "LsGenJun2024")],
+    );
+    expect(out).toEqual([]);
+  });
+
+  it("INC pre-1999 cohort: ls_history 1989-2024 hides BOTH delim breaks (first cycle > both at_years)", () => {
+    const out = visibleLsMethodologyBreaks(
+      [delim1967, delim1976],
+      [p(1989, "LsGenNov1989"), p(2024, "LsGenJun2024")],
+    );
+    expect(out).toEqual([]);
+  });
+
+  it("narrow domain 1962-1971 keeps only 1967 break (at_year <= last) and hides 1976 (at_year > last)", () => {
+    const out = visibleLsMethodologyBreaks(
+      [delim1967, delim1976],
+      [p(1962, "LsGenFeb1962"), p(1971, "LsGenMar1971")],
+    );
+    expect(out).toHaveLength(1);
+    expect(out[0]!.methodology_version).toBe("lspc-delim-1967");
+  });
+
+  it("empty ls_history returns empty (defensive; the consumer gates on chart presence)", () => {
+    expect(visibleLsMethodologyBreaks([delim1967, delim1976], [])).toEqual([]);
+  });
+});
+
 // --- loadPartyDetail outer shape ------------------------------------------
 
 describe("loadPartyDetail", () => {
@@ -512,6 +578,14 @@ describe("loadPartyDetail", () => {
         },
         {
           body: "parliament",
+          year: 1962,
+          period_label: "LsGenFeb1962",
+          seats: 7,
+          vote_share_pct: 11.4,
+          contested: 18,
+        },
+        {
+          body: "parliament",
           year: 2024,
           period_label: "LsGenJun2024",
           seats: 22,
@@ -535,23 +609,28 @@ describe("loadPartyDetail", () => {
     const out = await loadPartyDetail("parties.IN.DMK");
     expect(out).not.toBeNull();
     expect(out!.metadata.short).toBe("DMK");
-    expect(out!.ls_history).toHaveLength(1);
-    expect(out!.ls_history[0]!.period_label).toBe("LsGenJun2024");
-    expect(out!.ls_history[0]!.seats).toBe(22);
+    // 2 LS cycles after the fold: 1962 + 2024 (chronologically sorted).
+    expect(out!.ls_history).toHaveLength(2);
+    expect(out!.ls_history[0]!.period_label).toBe("LsGenFeb1962");
+    expect(out!.ls_history[1]!.period_label).toBe("LsGenJun2024");
+    expect(out!.ls_history[1]!.seats).toBe(22);
     // LS rows NOW carry vote_share_pct + contested (PR-4 closure-ledger
     // known-degradation #1 closed by the LS-aggregate-ingest PR, 2026-06-13).
-    expect(out!.ls_history[0]!.vote_share_pct).toBe(26.7);
-    expect(out!.ls_history[0]!.contested).toBe(22);
+    expect(out!.ls_history[1]!.vote_share_pct).toBe(26.7);
+    expect(out!.ls_history[1]!.contested).toBe(22);
     expect(out!.vs_history).toHaveLength(1);
     expect(out!.vs_history[0]!.period_label).toBe("AcGenApr2021");
     expect(out!.vs_strongholds).toHaveLength(1);
     expect(out!.vs_strongholds[0]!.constituency_name).toBe("Mylapore");
-    expect(out!.totals.ls_seats).toBe(22);
+    expect(out!.totals.ls_seats).toBe(29);
     expect(out!.totals.vs_seats).toBe(133);
     expect(out!.totals.peak_vs_year).toBe(2021);
 
     // PR-10: ls_methodology_breaks populates from the stubbed
-    // catalogue (2 lspc-delim rows, chronologically sorted).
+    // catalogue (2 lspc-delim rows, chronologically sorted) AND
+    // survives the visibleLsMethodologyBreaks filter because the
+    // mocked DMK history spans 1962-2024 (both at_year=1967 + 1977
+    // fall strictly inside).
     expect(out!.ls_methodology_breaks).toHaveLength(2);
     expect(
       out!.ls_methodology_breaks.map((r) => r.methodology_version),

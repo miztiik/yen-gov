@@ -456,6 +456,31 @@ export function pickLsMethodologyBreaks(
   return out;
 }
 
+/** Pure: keep only the methodology-break rows that fall strictly
+ *  INSIDE the party's LS chart year domain - i.e. `at_year > first`
+ *  AND `at_year <= last` where first/last are the earliest / latest
+ *  LS cycle years for the party. Mirrors the chart-side filter in
+ *  `DualAxisBarLine.computeMethodologyBreakMarkers` so the caption
+ *  below the chart agrees with the markers rendered above it (a party
+ *  like BJP whose first LS cycle is 1984 sees zero markers AND zero
+ *  caption; DMK whose first LS cycle is 1962 sees both markers AND
+ *  both caption lines). Returns empty when the party has no LS
+ *  history (defensive; the caller already gates on `ls_history.length > 0`
+ *  before rendering the chart). */
+export function visibleLsMethodologyBreaks(
+  rows: readonly MethodologyBreakRow[],
+  ls_history: readonly PartyHistoryPoint[],
+): MethodologyBreakRow[] {
+  if (ls_history.length === 0) return [];
+  let first = ls_history[0]!.year;
+  let last = ls_history[0]!.year;
+  for (const p of ls_history) {
+    if (p.year < first) first = p.year;
+    if (p.year > last) last = p.year;
+  }
+  return rows.filter((r) => r.at_year > first && r.at_year <= last);
+}
+
 /** Module-level Promise cache for the methodology-breaks catalogue.
  *  The catalogue is tiny (~3KB) and shared across every party page;
  *  a single in-flight fetch suffices for the lifetime of the tab. */
@@ -561,7 +586,11 @@ async function fetchPartyDetail(
   }
 
   const totals = computeTotals(ls_history, vs_history);
-  const ls_methodology_breaks = await ls_methodology_breaks_promise;
+  const all_ls_methodology_breaks = await ls_methodology_breaks_promise;
+  const ls_methodology_breaks = visibleLsMethodologyBreaks(
+    all_ls_methodology_breaks,
+    ls_history,
+  );
 
   return {
     metadata,
