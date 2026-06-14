@@ -142,6 +142,63 @@
     row: MethodologyBreakRow;
   }
 
+  /** PR-2 of TODO/20260614-party-page-reimagination-plan.md - per
+   *  Jony J7 the tooltip dispatches a kind-specific verb so the
+   *  citizen reads "Boundaries changed in 1967", not the operator
+   *  string "1) 1967 methodology break". The closed set mirrors the
+   *  five `kind` values declared in
+   *  `datasets/schemas/methodology-break.schema.json` v1.0;
+   *  anything else falls through to the generic "Methodology
+   *  changed in <year>" so a future schema bump that adds a new
+   *  kind still renders a readable headline. */
+  const KIND_VERB: Record<string, string> = {
+    frame_change: "Boundaries changed in",
+    definition_change: "Definition changed in",
+    coverage_change: "Coverage changed in",
+    reclassification: "Reclassified in",
+    rebase: "Rebased in",
+  };
+
+  /** PR-2: build the citizen-facing tooltip payload for one
+   *  methodology-break marker. Pure helper extracted to the script
+   *  module so vitest can pin the contract without mounting Svelte.
+   *  The tooltip drops the operator `methodology_version` subtitle
+   *  (Jony J7), uses a kind-dispatched verb in the title, renders
+   *  the (already-cleaned) `note` as the single body line, and -
+   *  when `publisher_url` is a parseable URL - hangs the publisher
+   *  hostname under a "Source:" hint footer. */
+  export function buildMethodologyTooltip(
+    marker: MethodologyBreakMarker,
+    x: number,
+    y: number,
+  ): MethodologyTooltipPayload {
+    const verb = KIND_VERB[marker.row.kind] ?? "Methodology changed in";
+    const title = `${verb} ${marker.row.at_year}`;
+    const lines = [{ label: "", value: marker.row.note }];
+    let hint: string | undefined;
+    if (marker.row.publisher_url) {
+      try {
+        hint = `Source: ${new URL(marker.row.publisher_url).hostname}`;
+      } catch {
+        hint = undefined;
+      }
+    }
+    return { x, y, color: "#64748b", title, lines, hint };
+  }
+
+  /** PR-2: shape returned by `buildMethodologyTooltip`. Mirrors the
+   *  `TooltipState` interface in `ChartTooltip.svelte` (re-declared
+   *  here so the module block stays standalone-importable from
+   *  vitest without dragging the Svelte runtime in). */
+  export interface MethodologyTooltipPayload {
+    x: number;
+    y: number;
+    color: string;
+    title: string;
+    lines: { label: string; value: string }[];
+    hint?: string;
+  }
+
   /** Pure: compute the marker positions for each methodology-break
    *  row given the chart's chronological X domain. Markers whose
    *  `at_year` falls entirely OUTSIDE the visible domain - i.e.
@@ -351,14 +408,7 @@
     return (right_before + left_after) / 2;
   }
   function onMarkerEnter(e: MouseEvent, m: MethodologyBreakMarker): void {
-    tip = {
-      x: e.clientX,
-      y: e.clientY,
-      color: "#64748b",
-      title: `${m.reference_number}) ${m.row.at_year} methodology break`,
-      subtitle: m.row.methodology_version,
-      lines: [{ label: "why", value: m.row.note }],
-    };
+    tip = buildMethodologyTooltip(m, e.clientX, e.clientY);
   }
   function onMarkerLeave(): void {
     tip = null;

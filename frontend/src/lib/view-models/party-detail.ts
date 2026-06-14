@@ -18,6 +18,7 @@
 import { query, registerCsvFile } from "../duckdb";
 import { csvColumnsClause } from "../canonical/csv-columns";
 import { DATA_BASE } from "../paths";
+import { cleanNote } from "../methodology/clean-note";
 import { loadPartyMeta, type PartyMeta } from "./parties";
 
 /** Party-page mart paths (repo-relative for columns.json lookup +
@@ -445,13 +446,19 @@ export function computeTotals(
  *  silently dropped. Sort order is `at_year` ascending so the first
  *  vertical marker the citizen sees is also the first (chronological)
  *  break - the consumer renders footnote numbers 1) 2) ... in that
- *  order without re-sorting. */
+ *  order without re-sorting.
+ *
+ *  PR-2 of TODO/20260614-party-page-reimagination-plan.md scrubs
+ *  the `note` field through `cleanNote` at this boundary so any
+ *  operator-narrative leak that survives the on-disk hand-scrub
+ *  (the source-of-truth fix) gets filtered before reaching the
+ *  citizen-facing tooltip. Idempotent on already-clean text. */
 export function pickLsMethodologyBreaks(
   rows: readonly MethodologyBreakRow[],
 ): MethodologyBreakRow[] {
-  const out = rows.filter((r) =>
-    LS_METHODOLOGY_VERSIONS.has(r.methodology_version),
-  );
+  const out = rows
+    .filter((r) => LS_METHODOLOGY_VERSIONS.has(r.methodology_version))
+    .map((r) => ({ ...r, note: cleanNote(r.note) }));
   out.sort((a, b) => a.at_year - b.at_year);
   return out;
 }

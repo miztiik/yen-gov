@@ -8,11 +8,13 @@
 
 import { describe, expect, it } from "vitest";
 import {
+  buildMethodologyTooltip,
   buildScales,
   computeMethodologyBreakMarkers,
   pickLabelStride,
   yearFromPeriodLabel,
   yearNumberFromPeriodLabel,
+  type MethodologyBreakMarker,
   type MethodologyBreakRow,
 } from "./DualAxisBarLine.svelte";
 
@@ -234,5 +236,108 @@ describe("computeMethodologyBreakMarkers", () => {
       delim1976,
     ]);
     expect(out.map((m) => m.reference_number)).toEqual([1, 2]);
+  });
+});
+
+// --- buildMethodologyTooltip (PR-2) ---------------------------------------
+
+describe("buildMethodologyTooltip", () => {
+  function markerFixture(
+    overrides: Partial<MethodologyBreakRow> = {},
+  ): MethodologyBreakMarker {
+    return {
+      idx_before: 0,
+      idx_after: 1,
+      reference_number: 1,
+      row: {
+        methodology_version: "lspc-delim-1967",
+        at_year: 1967,
+        at_period_seq: 2,
+        kind: "frame_change",
+        note: "Parliament constituency boundaries shifted from the 1951-Order delimitation to the 1962 Delimitation Commission output.",
+        publisher_url: "https://eci.gov.in/files/file/14045-delimitation-order-1976/",
+        supersedes_methodology_version: null,
+        ...overrides,
+      },
+    };
+  }
+
+  it("uses a kind-dispatched verb in the title (frame_change -> 'Boundaries changed in YYYY')", () => {
+    const out = buildMethodologyTooltip(markerFixture(), 100, 200);
+    expect(out.title).toBe("Boundaries changed in 1967");
+  });
+
+  it("uses 'Definition changed in YYYY' for kind=definition_change", () => {
+    const out = buildMethodologyTooltip(
+      markerFixture({ kind: "definition_change", at_year: 2021 }),
+      0,
+      0,
+    );
+    expect(out.title).toBe("Definition changed in 2021");
+  });
+
+  it("uses 'Reclassified in YYYY' for kind=reclassification", () => {
+    const out = buildMethodologyTooltip(
+      markerFixture({ kind: "reclassification", at_year: 2015 }),
+      0,
+      0,
+    );
+    expect(out.title).toBe("Reclassified in 2015");
+  });
+
+  it("falls back to 'Methodology changed in YYYY' for an unknown kind", () => {
+    const out = buildMethodologyTooltip(
+      markerFixture({ kind: "unknown_kind" as MethodologyBreakRow["kind"] }),
+      0,
+      0,
+    );
+    expect(out.title).toBe("Methodology changed in 1967");
+  });
+
+  it("drops the methodology_version subtitle leak entirely", () => {
+    const out = buildMethodologyTooltip(markerFixture(), 0, 0);
+    expect(out).not.toHaveProperty("subtitle");
+    // The lspc-delim-* identifier must not show up anywhere in the tooltip.
+    const serialised = JSON.stringify(out);
+    expect(serialised).not.toMatch(/lspc-delim/);
+    expect(serialised).not.toMatch(/methodology_version/);
+  });
+
+  it("renders the note verbatim as the single body line (no 'why' label leak)", () => {
+    const out = buildMethodologyTooltip(markerFixture(), 0, 0);
+    expect(out.lines).toHaveLength(1);
+    expect(out.lines[0]!.label).toBe("");
+    expect(out.lines[0]!.value).toContain(
+      "Parliament constituency boundaries",
+    );
+  });
+
+  it("hangs a 'Source: <hostname>' hint when publisher_url parses", () => {
+    const out = buildMethodologyTooltip(markerFixture(), 0, 0);
+    expect(out.hint).toBe("Source: eci.gov.in");
+  });
+
+  it("omits the hint when publisher_url is null", () => {
+    const out = buildMethodologyTooltip(
+      markerFixture({ publisher_url: null }),
+      0,
+      0,
+    );
+    expect(out.hint).toBeUndefined();
+  });
+
+  it("omits the hint when publisher_url is unparseable", () => {
+    const out = buildMethodologyTooltip(
+      markerFixture({ publisher_url: "not-a-url" }),
+      0,
+      0,
+    );
+    expect(out.hint).toBeUndefined();
+  });
+
+  it("passes through the cursor coordinates verbatim", () => {
+    const out = buildMethodologyTooltip(markerFixture(), 123, 456);
+    expect(out.x).toBe(123);
+    expect(out.y).toBe(456);
   });
 });
