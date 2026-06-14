@@ -97,7 +97,7 @@ The parties.csv contract widened from 8 columns to 18 in PR-0 of the electoral-q
 | `successor_party_ids` | Pipe-list of `parties.IN.<X>` slugs; identifies the lineage rows that descend from this party. |
 | `name_history` | JSON-blob: `[{"from": "YYYY", "to": "YYYY", "short": "...", "full": "...", "source_id": "..."}]`. Records rebrandings without moving the id. |
 | `claims_to_parent_name` | Boolean; true for the ECI-favoured side of a contested split (see Q7 design rationale below). |
-| `name_native_script` | Non-Latin name where the publisher emits one; UI policy filters it OUT on the elections surface per the No-Hindi rule. |
+| `name_native_script` | Non-Latin name where the publisher emits one; UI policy filters it OUT on the citizen surface per the English-only citizen-chrome policy. |
 | `is_sentinel` | Boolean; true for the 3 sentinel rows above. |
 
 The schema bump from v1.0 to v1.1 is purely additive (Gregor verdict, Wave 0 / section 7). Schema authority: [`datasets/data/_schema/columns.json`](../../datasets/data/_schema/columns.json) `parties.csv` entry; bump receipt in the same file's `x-changelog`.
