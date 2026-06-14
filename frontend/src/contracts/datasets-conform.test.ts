@@ -1,17 +1,12 @@
 /**
- * Contract test (CLAUDE.md §11): every JSON artifact under datasets/ that
- * is reachable by the frontend MUST validate against its declared $schema,
- * AND its $schema_version MUST be accepted by the shared json-corpus
- * compatibility contract.
+ * Contract test (CLAUDE.md section 11): representative JSON artifacts that
+ * are reachable by the frontend validate against their declared $schema, AND
+ * their $schema_version is accepted by the shared json-corpus compatibility
+ * contract.
  *
- * This closes the consumer-side half of the §11 loop. The backend tests
- * (backend/tests/test_validate.py) cover the producer side; this test
- * makes the frontend's bet that "the data conforms to the contract"
- * verifiable in CI rather than left to convention.
- *
- * Why a glob over the workspace's datasets/ rather than fixtures: the
- * point of the contract is that the *real* shipped artifacts are valid.
- * A fixture would test our test, not our data.
+ * Exhaustive JSON corpus validation is producer-side Tier-B:
+ * `python -m yen_gov validate --root .`. Default frontend vitest must stay
+ * constant-size and must not create one test per shipped JSON artifact.
  */
 import { describe, it, expect } from "vitest";
 import { readFileSync, existsSync } from "node:fs";
@@ -179,37 +174,14 @@ interface DataFileRef {
   rel: string;
 }
 
+interface DataFileCanary extends DataFileRef {
+  risk: string;
+}
+
 interface DataFile extends DataFileRef {
   schema: string | undefined;
   schemaVersion: string | undefined;
   body: Record<string, unknown>;
-}
-
-/**
- * Enumerate every JSON file under datasets/ (cheap — glob only, no parse).
- * Parsing happens lazily inside each `it()` so the I/O runs in the test
- * phase (parallelisable) rather than at collect time (single-threaded).
- * Before this split, collect dominated wall time (~39s collect vs ~6s tests
- * across ~7,500 files); after, collect drops to ~2s and total run halves.
- */
-function listDataFiles(): DataFileRef[] {
-  const files = globSync("**/*.json", {
-    cwd: datasetsDir,
-    absolute: true,
-    // schemas/** - JSON Schema documents, not data.
-    // data/_schema/** - CSV column contract artifact + its schema-of-schemas
-    // (datasets/data/_schema/columns.json + columns.schema.json, sub-plan
-    // B1.1). They live outside datasets/schemas/ because they belong to the
-    // post-rip CSV stack and are validated by their own surface
-    // (backend/tests/test_csv_columns.py asserts columns.json conforms to
-    // columns.schema.json). They carry no observational data and no
-    // sources[], so they are also out of scope for the §12 provenance check.
-    ignore: ["schemas/**", "data/_schema/**"],
-  });
-  return files.map(path => ({
-    path,
-    rel: path.slice(datasetsDir.length + 1).replaceAll("\\", "/"),
-  }));
 }
 
 /** Parse one file on demand. Returns a DataFile with a __parseError sentinel on failure. */
@@ -228,7 +200,38 @@ function parseDataFile(ref: DataFileRef): DataFile {
   };
 }
 
-const DATA_FILE_REFS = listDataFiles();
+const DATA_FILE_CANARIES: DataFileCanary[] = [
+  {
+    risk: "static app bootstrap manifest",
+    rel: "manifest.json",
+    path: resolve(datasetsDir, "manifest.json"),
+  },
+  {
+    risk: "json-corpus compatibility registry",
+    rel: "schema-compatibility.json",
+    path: resolve(datasetsDir, "schema-compatibility.json"),
+  },
+  {
+    risk: "schema release ledger",
+    rel: "schema-evolution.json",
+    path: resolve(datasetsDir, "schema-evolution.json"),
+  },
+  {
+    risk: "large nested election taxonomy",
+    rel: "taxonomy/election_events.json",
+    path: resolve(datasetsDir, "taxonomy", "election_events.json"),
+  },
+  {
+    risk: "boundary source-of-truth JSON relocated under data/entities",
+    rel: "data/entities/boundaries_sot/S22/constituencies.json",
+    path: resolve(datasetsDir, "data", "entities", "boundaries_sot", "S22", "constituencies.json"),
+  },
+  {
+    risk: "boundary sidecar schema outside taxonomy",
+    rel: "boundaries/in/districts/census_code_2011.json",
+    path: resolve(datasetsDir, "boundaries", "in", "districts", "census_code_2011.json"),
+  },
+];
 
 describe("contract — schema registry sanity", () => {
   it("loads every *.schema.json in datasets/schemas/", () => {
@@ -242,8 +245,10 @@ describe("contract — schema registry sanity", () => {
     }
   });
 
-  it("workspace contains at least one shipped data artifact", () => {
-    expect(DATA_FILE_REFS.length).toBeGreaterThan(0);
+  it("explicit data artifact canaries exist", () => {
+    for (const canary of DATA_FILE_CANARIES) {
+      expect(existsSync(canary.path), canary.rel).toBe(true);
+    }
   });
 
   it("accepts current schema versions by default", () => {
@@ -280,51 +285,43 @@ describe("contract — schema registry sanity", () => {
   });
 });
 
-// Per-file conformance. Each data file becomes one test so a failure
-// names the offending file directly in the test output.
-describe("contract — every datasets/*.json validates against its declared $schema", () => {
-  for (const ref of DATA_FILE_REFS) {
-    it(ref.rel, () => {
-      const f = parseDataFile(ref);
-      // Files that don't declare a $schema are out of scope for the contract
-      // (e.g. raw_ephemeral_datasets/ snapshots, internal manifests).
-      if (!f.schema) {
-        return;
-      }
-      const schema = resolveSchema(f.schema);
-      expect(schema, `unknown $schema ${f.schema} in ${f.rel}`).toBeDefined();
-      // CLAUDE.md section 11: $schema_version MUST be accepted by the json-corpus contract.
-      expect(f.schemaVersion, `${f.rel} missing $schema_version`).toBeDefined();
-      const acceptedVersions = JSON_CORPUS_ACCEPTED_VERSIONS.get(schema!.basename) ?? new Set<string>();
-      expect(
-        acceptedVersions.has(f.schemaVersion!),
-        `${f.rel}: $schema_version=${f.schemaVersion} not accepted for ${schema!.basename}; `
-          + `accepted versions: ${formatVersions(acceptedVersions)}`,
-      ).toBe(true);
+// Fixed canary conformance. Full JSON corpus validation stays in backend
+// Tier-B so default frontend test count does not grow with datasets/**.
+describe("contract - JSON artifact canaries validate against declared $schema", () => {
+  it.each(DATA_FILE_CANARIES)("$risk: $rel", (ref) => {
+    const f = parseDataFile(ref);
+    const schema = resolveSchema(f.schema ?? "");
+    expect(schema, `unknown $schema ${f.schema} in ${f.rel}`).toBeDefined();
+    expect(f.schemaVersion, `${f.rel} missing $schema_version`).toBeDefined();
+    const acceptedVersions = JSON_CORPUS_ACCEPTED_VERSIONS.get(schema!.basename) ?? new Set<string>();
+    expect(
+      acceptedVersions.has(f.schemaVersion!),
+      `${f.rel}: $schema_version=${f.schemaVersion} not accepted for ${schema!.basename}; `
+        + `accepted versions: ${formatVersions(acceptedVersions)}`,
+    ).toBe(true);
 
-      const validate = ajv.getSchema(f.schema) ?? ajv.getSchema(schema!.basename) ?? ajv.getSchema(schema!.id);
-      expect(validate, `compiled validator missing for ${f.schema}`).toBeDefined();
-      const ok = validate!(f.body);
-      if (!ok) {
-        const errors = (validate!.errors ?? []).map(
-          e => `  ${e.instancePath || "/"} ${e.message} ${JSON.stringify(e.params)}`,
-        ).join("\n");
-        throw new Error(`${f.rel} fails ${f.schema}:\n${errors}`);
-      }
-    });
-  }
+    const validate = ajv.getSchema(f.schema!) ?? ajv.getSchema(schema!.basename) ?? ajv.getSchema(schema!.id);
+    expect(validate, `compiled validator missing for ${f.schema}`).toBeDefined();
+    const ok = validate!(f.body);
+    if (!ok) {
+      const errors = (validate!.errors ?? []).map(
+        e => `  ${e.instancePath || "/"} ${e.message} ${JSON.stringify(e.params)}`,
+      ).join("\n");
+      throw new Error(`${f.rel} fails ${f.schema}:\n${errors}`);
+    }
+  });
 });
 
-// §12 provenance enforcement is NOT a corpus walk here. It lives on the
+// Section 12 provenance enforcement is NOT a corpus walk here. It lives on the
 // contract surface, not in a parallel per-file gate:
-//   - Legacy JSON shape (§12.2): schemas that need sources[] declare it in
+//   - Legacy JSON shape: schemas that need sources[] declare it in
 //     their `required:` array (e.g. constituency, topic-catalogue, state-tiers,
 //     ~25 schemas total). Ajv already rejects a file missing sources[] in the
 //     preceding `every datasets/*.json validates against its declared $schema`
 //     block. A duplicate corpus walk only added a hand-maintained skiplist of
 //     auxiliary schemas (manifest, concepts, grapher-*-render, census-code-*-
 //     sidecar, ...) and forced every new schema author to also touch the test.
-//   - Per-row shape (§12.1, CSV): observation rows carry `source_id` FK to
+//   - Per-row shape, CSV: observation rows carry `source_id` FK to
 //     datasets/data/entities/source.csv. Enforced by the backend writer
 //     (`derive_source_id` + writer FK gate) and by Tier-A schema sanity on
 //     the `source_id` field — both covered in backend/tests.

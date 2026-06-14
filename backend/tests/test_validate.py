@@ -14,6 +14,9 @@ from yen_gov.validate import (
     run,
     tier_a,
     tier_b,
+    tier_b_boundary_hive_path_shape,
+    tier_b_boundary_topo_feature_count_parity,
+    tier_b_boundary_topo_sibling_pairs,
     tier_b_legacy_boundary_sidecars,
     tier_b_meadow_shard_contract,
     tier_b_meadow_vintage_matches_source_id,
@@ -603,6 +606,155 @@ def test_legacy_boundary_sidecars_check_chained_into_run(tmp_path: Path):
     ]
     assert len(forbidden) == 1, \
         f"run() must chain tier_b_legacy_boundary_sidecars, got: {fails}"
+
+
+# ---------------------------------------------------------------------------
+# Tier-B: boundary Hive shape + TopoJSON sibling/feature-count parity
+# ---------------------------------------------------------------------------
+
+
+def _write_boundary_geojson(tmp_path: Path, rel: str, feature_count: int = 1) -> Path:
+    path = tmp_path / rel
+    path.parent.mkdir(parents=True, exist_ok=True)
+    features = [
+        {"type": "Feature", "properties": {"id": i}, "geometry": None}
+        for i in range(feature_count)
+    ]
+    path.write_text(
+        json.dumps({"type": "FeatureCollection", "features": features}),
+        encoding="utf-8",
+    )
+    return path
+
+
+def _write_boundary_topojson(tmp_path: Path, rel: str, geometry_count: int = 1) -> Path:
+    path = tmp_path / rel
+    path.parent.mkdir(parents=True, exist_ok=True)
+    geometries = [
+        {"type": "Point", "coordinates": [i, 0], "properties": {"id": i}}
+        for i in range(geometry_count)
+    ]
+    path.write_text(
+        json.dumps({
+            "type": "Topology",
+            "objects": {"layer": {"type": "GeometryCollection", "geometries": geometries}},
+            "arcs": [],
+        }),
+        encoding="utf-8",
+    )
+    return path
+
+
+def _seed_boundary_sidecar_allowlist(tmp_path: Path) -> None:
+    allow_path = tmp_path / LEGACY_BOUNDARY_SIDECARS_ALLOWLIST
+    allow_path.parent.mkdir(parents=True, exist_ok=True)
+    allow_path.write_text("# Test fixture allowlist\n", encoding="utf-8")
+
+
+def test_boundary_hive_path_shape_accepts_known_samples(tmp_path: Path):
+    samples = [
+        "datasets/boundaries/in/country/all.geojson",
+        "datasets/boundaries/in/states/all.topojson",
+        "datasets/boundaries/in/panchayats/state=tamil-nadu/district=568/all.geojson",
+        "datasets/boundaries/in/villages/state=jammu-and-kashmir/district=ladakh_leh/all.topojson",
+        "datasets/boundaries/in/postal/scope=unkeyed/all.geojson",
+    ]
+    for rel in samples:
+        if rel.endswith(".topojson"):
+            _write_boundary_topojson(tmp_path, rel)
+        else:
+            _write_boundary_geojson(tmp_path, rel)
+
+    fails = tier_b_boundary_hive_path_shape(tmp_path)
+    assert fails == [], f"expected no Hive-shape failures, got: {fails}"
+
+
+def test_boundary_hive_path_shape_rejects_unknown_family(tmp_path: Path):
+    _write_boundary_geojson(tmp_path, "datasets/boundaries/in/mystery/all.geojson")
+
+    fails = tier_b_boundary_hive_path_shape(tmp_path)
+    assert len(fails) == 1
+    assert fails[0].file == "datasets/boundaries/in/mystery/all.geojson"
+    assert "unrecognised boundary Hive path" in fails[0].message
+
+
+def test_boundary_topo_sibling_pairs_permits_geo_without_topo(tmp_path: Path):
+    _write_boundary_geojson(tmp_path, "datasets/boundaries/in/country/all.geojson")
+
+    fails = tier_b_boundary_topo_sibling_pairs(tmp_path)
+    assert fails == [], f"geojson-only legacy shards are still allowed, got: {fails}"
+
+
+def test_boundary_topo_sibling_pairs_rejects_orphan_topo(tmp_path: Path):
+    _write_boundary_topojson(tmp_path, "datasets/boundaries/in/states/all.topojson")
+
+    fails = tier_b_boundary_topo_sibling_pairs(tmp_path)
+    assert len(fails) == 1
+    assert fails[0].file == "datasets/boundaries/in/states/all.topojson"
+    assert "missing sibling 'states/all.geojson'" in fails[0].message
+
+
+def test_boundary_topo_feature_count_parity_passes_matching_pair(tmp_path: Path):
+    _write_boundary_geojson(tmp_path, "datasets/boundaries/in/districts/all.geojson", feature_count=2)
+    _write_boundary_topojson(tmp_path, "datasets/boundaries/in/districts/all.topojson", geometry_count=2)
+
+    fails = tier_b_boundary_topo_feature_count_parity(tmp_path)
+    assert fails == [], f"expected no feature-count failures, got: {fails}"
+
+
+def test_boundary_topo_feature_count_parity_rejects_mismatch(tmp_path: Path):
+    _write_boundary_geojson(tmp_path, "datasets/boundaries/in/districts/all.geojson", feature_count=2)
+    _write_boundary_topojson(tmp_path, "datasets/boundaries/in/districts/all.topojson", geometry_count=1)
+
+    fails = tier_b_boundary_topo_feature_count_parity(tmp_path)
+    assert len(fails) == 1
+    assert fails[0].file == "datasets/boundaries/in/districts/all.topojson"
+    assert "topojson geometry count 1 != sibling geojson feature count 2" in fails[0].message
+
+
+def test_boundary_hive_path_shape_chained_into_run(tmp_path: Path):
+    _seed_repo(tmp_path)
+    _seed_boundary_sidecar_allowlist(tmp_path)
+    _write_boundary_geojson(tmp_path, "datasets/boundaries/in/mystery/all.geojson")
+
+    fails = run(tmp_path)
+    matches = [
+        f for f in fails
+        if f.file == "datasets/boundaries/in/mystery/all.geojson"
+        and "unrecognised boundary Hive path" in f.message
+    ]
+    assert len(matches) == 1, f"run() must chain tier_b_boundary_hive_path_shape, got: {fails}"
+
+
+def test_boundary_topo_sibling_pairs_chained_into_run(tmp_path: Path):
+    _seed_repo(tmp_path)
+    _seed_boundary_sidecar_allowlist(tmp_path)
+    _write_boundary_topojson(tmp_path, "datasets/boundaries/in/states/all.topojson")
+
+    fails = run(tmp_path)
+    matches = [
+        f for f in fails
+        if f.file == "datasets/boundaries/in/states/all.topojson"
+        and f.message.startswith("topojson shard 'states/all.topojson' is missing sibling")
+    ]
+    assert len(matches) == 1, f"run() must chain tier_b_boundary_topo_sibling_pairs, got: {fails}"
+
+
+def test_boundary_topo_feature_count_parity_chained_into_run(tmp_path: Path):
+    _seed_repo(tmp_path)
+    _seed_boundary_sidecar_allowlist(tmp_path)
+    _write_boundary_geojson(tmp_path, "datasets/boundaries/in/districts/all.geojson", feature_count=2)
+    _write_boundary_topojson(tmp_path, "datasets/boundaries/in/districts/all.topojson", geometry_count=1)
+
+    fails = run(tmp_path)
+    matches = [
+        f for f in fails
+        if f.file == "datasets/boundaries/in/districts/all.topojson"
+        and "topojson geometry count 1 != sibling geojson feature count 2" in f.message
+    ]
+    assert len(matches) == 1, (
+        f"run() must chain tier_b_boundary_topo_feature_count_parity, got: {fails}"
+    )
 
 
 # ---------------------------------------------------------------------------

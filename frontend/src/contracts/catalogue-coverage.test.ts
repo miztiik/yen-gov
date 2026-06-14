@@ -30,10 +30,9 @@
  * See: docs/architecture/frontend/catalogue-drift-detector.md
  */
 import { describe, it, expect } from "vitest";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { globSync } from "glob";
 
 const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..", "..");
 const indicatorsDir = resolve(repoRoot, "datasets", "indicators", "in");
@@ -73,20 +72,19 @@ function loadWiredIds(): Set<string> {
   return out;
 }
 
-/** Indicator ids physically present in datasets/indicators/in/.
+/** Retired indicator-shard children physically present in datasets/indicators/in/.
  *
- * Excludes `*.notes.json` sidecars — those are editorial overlays for an
- * indicator artifact (schema: indicator-notes.schema.json), not indicator
- * artifacts themselves. They live next to the main `<id>.json` and are
- * keyed off the same id; surfacing them here would generate spurious
- * "<id>.notes" orphans that would have to be either wired (meaningless)
- * or allowlisted (mass churn for no signal).
+ * Post-G5 this legacy JSON shard tree is absent. This default frontend test
+ * intentionally avoids a recursive glob: the exhaustive forbidden-path gate
+ * for any recreated shard lives in backend Tier-B
+ * (`tier_b_meadow_shard_contract`). A direct child under the retired tree is
+ * enough signal for this consumer-side sentinel to fail loudly.
  */
 function loadOnDiskIds(): Set<string> {
-  const files = globSync("**/*.json", { cwd: indicatorsDir, absolute: false, posix: true });
+  if (!existsSync(indicatorsDir)) return new Set();
+  const files = readdirSync(indicatorsDir, { withFileTypes: true }).map(entry => entry.name);
   const out = new Set<string>();
   for (const rel of files) {
-    if (rel.endsWith(".notes.json")) continue;
     out.add(rel.replace(/\.json$/, ""));
   }
   return out;

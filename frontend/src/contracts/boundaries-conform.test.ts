@@ -1,16 +1,17 @@
-// Boundary-corpus conformance contract. Runs in frontend-vitest alongside
-// the other frontend/src/contracts/*-conform.test.ts consumers of the
-// committed dataset corpus.
+// Boundary consumer canaries. Exhaustive boundary corpus validation lives in
+// backend Tier-B (`python -m yen_gov validate --root .`). This frontend test
+// stays constant-size: it proves representative loader-facing risks without
+// creating one test per shard.
 //
 // Cheap consumer-side invariants enforced here:
 //
-//   1. Hive-tree shape: every *.geojson under datasets/boundaries/in/ sits at
-//      a well-formed path the frontend loaders know how to fetch.
-//   2. No legacy sidecars: pre-T.0d sidecar shapes (*.sources.json,
-//      *.unkeyed.json, *.metadata.json, *-index.json) are forbidden under
-//      datasets/boundaries/ because the parquet ledger is the source of truth.
-//   3. Parquet ledger exists: operator metadata stays adjacent to the shards.
+//   1. Hive-tree shape: representative *.geojson/*.topojson paths still match
+//      the path grammar the frontend loaders know how to fetch.
+//   2. No legacy sidecars: representative retired sidecar shapes stay absent;
+//      exhaustive sidecar rejection is backend Tier-B.
+//   3. CSV ledger exists: operator metadata stays adjacent to the shards.
 //   4. The states layer still carries the State_LGD join key used by maps.
+//   5. A bounded TopoJSON set decodes and matches sibling GeoJSON counts.
 //
 // Full gzip budget checks are intentionally not in this everyday frontend
 // suite. Run tools/boundaries/simplify.py --dry-run --skip-parquet when a PR
@@ -18,9 +19,8 @@
 
 import { describe, it, expect } from "vitest";
 import { existsSync, readFileSync } from "node:fs";
-import { resolve, sep, posix } from "node:path";
+import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { globSync } from "glob";
 import { feature as topojsonFeature } from "topojson-client";
 import type { Topology, GeometryCollection } from "topojson-specification";
 
@@ -28,35 +28,25 @@ const repoRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..
 const boundaryFamilyRoot = resolve(repoRoot, "datasets", "boundaries");
 const boundariesRoot = resolve(repoRoot, "datasets", "boundaries", "in");
 
-// All *.geojson AND *.topojson under boundaries/in/, POSIX-normalized.
-// Sidecar meta files (*.topojson.meta.json) ride alongside topojson
-// outputs and are NOT boundary shards; they're filtered out below.
-const ALL_GEOJSON = globSync("**/*.geojson", { cwd: boundariesRoot, absolute: false })
-  .map(p => p.split(sep).join(posix.sep))
-  .sort();
-const ALL_TOPOJSON = globSync("**/*.topojson", { cwd: boundariesRoot, absolute: false })
-  .map(p => p.split(sep).join(posix.sep))
-  .sort();
-
 // Hive-path predicates: each kind has one well-formed shape.
 const HIVE_SHAPES: { kind: string; pattern: RegExp }[] = [
-  { kind: "country", pattern: /^country\/all\.geojson$/ },
-  { kind: "states", pattern: /^states\/all\.geojson$/ },
-  { kind: "districts", pattern: /^districts\/all\.geojson$/ },
-  { kind: "subdistricts", pattern: /^subdistricts\/state=[a-z0-9-]+\/all\.geojson$/ },
+  { kind: "country", pattern: /^country\/all\.(?:geojson|topojson)$/ },
+  { kind: "states", pattern: /^states\/all\.(?:geojson|topojson)$/ },
+  { kind: "districts", pattern: /^districts\/all\.(?:geojson|topojson)$/ },
+  { kind: "subdistricts", pattern: /^subdistricts\/state=[a-z0-9-]+\/all\.(?:geojson|topojson)$/ },
   // Development Blocks (LGD lineage). Per-state shards under the same
   // Hive layout as subdistricts. Shipped via C.1.b (TODO/20260529-
   // boundary-rip-and-replace-plan.md); registry lives in
   // `maplibre/sources.ts:BLOCK_BOUNDARY`. UP currently absent (12.8 MB
   // shard exceeds 12 MB budget; deferred to C.1.c).
-  { kind: "blocks", pattern: /^blocks\/state=[a-z0-9-]+\/all\.geojson$/ },
+  { kind: "blocks", pattern: /^blocks\/state=[a-z0-9-]+\/all\.(?:geojson|topojson)$/ },
   // Gram Panchayats (LGD lineage). Per-(state, district) shards under
   // the same Hive layout as villages (nested district-keyed because
   // per-state GP counts would blow the 12 MB shard budget for any
   // high-density state). Shipped via C.2.b (TODO/20260529-boundary-
   // rip-and-replace-plan.md); registry will live in
   // `maplibre/sources.ts:PANCHAYAT_BOUNDARY_BY_DISTRICT` (C.2.c).
-  { kind: "panchayats", pattern: /^panchayats\/state=[a-z0-9-]+\/district=\d+\/all\.geojson$/ },
+  { kind: "panchayats", pattern: /^panchayats\/state=[a-z0-9-]+\/district=\d+\/all\.(?:geojson|topojson)$/ },
   // Villages. District segment is normally a numeric LGD code (645 of
   // 659 partitions today), but the C.4.a J&K + Ladakh lift
   // (PR #453, `tools/boundaries/lift_villages_jk_bhuvan.py`) ships
@@ -66,7 +56,7 @@ const HIVE_SHAPES: { kind: string; pattern: RegExp }[] = [
   // bifurcated districts. The slug alphabet is `[a-z0-9_]+` per the
   // lift script's `CENSUS2011_DISTRICT_TO_MODERN` mapping; the
   // regex below subsumes both the numeric and slug variants.
-  { kind: "villages", pattern: /^villages\/state=[a-z0-9-]+\/district=[a-z0-9_]+\/all\.geojson$/ },
+  { kind: "villages", pattern: /^villages\/state=[a-z0-9-]+\/district=[a-z0-9_]+\/all\.(?:geojson|topojson)$/ },
   // ULB Wards (LGD lineage; SBM_Wards.geojsonl.7z from ramSeraph, MoHUA
   // Swachh Bharat Mission Urban release, CC0 1.0). Per-(state, ulb)
   // shards under a nested ULB-keyed Hive layout (parent partition is
@@ -76,63 +66,72 @@ const HIVE_SHAPES: { kind: string; pattern: RegExp }[] = [
   // C.3.a infrastructure adds the Hive pattern + lift orchestrator
   // before the live lift runs. Registry will live in
   // `maplibre/sources.ts:WARD_BOUNDARY_BY_ULB` (C.3.c).
-  { kind: "wards", pattern: /^wards\/state=[a-z0-9-]+\/ulb=\d+\/all\.geojson$/ },
+  { kind: "wards", pattern: /^wards\/state=[a-z0-9-]+\/ulb=\d+\/all\.(?:geojson|topojson)$/ },
   // Assembly Constituencies (ECI/HTL lineage). Per-state shards under the
   // same Hive layout as subdistricts. Owned by `maplibre/sources.ts`, not
   // the `boundaries.ts` loader; included here so the orphan detector
   // doesn't flag them as legacy.
-  { kind: "ac", pattern: /^ac\/state=[a-z0-9-]+\/all\.geojson$/ },
+  { kind: "ac", pattern: /^ac\/state=[a-z0-9-]+\/all\.(?:geojson|topojson)$/ },
   // Parliamentary Constituencies. Single-file national layout keyed on
   // delimitation_vintage (each delimitation order published by ECI/the
   // Delimitation Commission gets its own partition; the current ingest
   // is the 2024 General Election delimitation). The `delim=YYYY/` Hive
   // segment is mandatory because pre-2008 LS data will need pre-2008
   // boundaries when historical seats are added in a future PR.
-  { kind: "pc", pattern: /^pc\/delim=\d{4}\/all\.geojson$/ },
+  { kind: "pc", pattern: /^pc\/delim=\d{4}\/all\.(?:geojson|topojson)$/ },
   // Postal pincode polygons are orthogonal to the LGD hierarchy. They shard
   // by resolved state when possible, plus a synthetic unkeyed bucket for
   // pincodes whose state could not be resolved from the directory table.
-  { kind: "postal", pattern: /^postal\/(state=[a-z0-9-]+|scope=unkeyed)\/all\.geojson$/ },
+  { kind: "postal", pattern: /^postal\/(state=[a-z0-9-]+|scope=unkeyed)\/all\.(?:geojson|topojson)$/ },
 ];
 
 function isWellFormedHivePath(relPath: string): boolean {
   return HIVE_SHAPES.some(s => s.pattern.test(relPath));
 }
 
-describe("boundaries-conform — every shipped *.geojson is at a well-formed Hive path", () => {
-  it("at least one shard present (sanity)", () => {
-    expect(ALL_GEOJSON.length).toBeGreaterThan(0);
+const HIVE_PATH_CANARIES = [
+  // Root singleton: country silhouette, no join key.
+  "country/all.geojson",
+  // National administrative layers.
+  "states/all.geojson",
+  "districts/all.topojson",
+  // State-partitioned LGD lineage.
+  "subdistricts/state=tamil-nadu/all.geojson",
+  "blocks/state=tamil-nadu/all.geojson",
+  // Nested district/ULB partitions.
+  "panchayats/state=tamil-nadu/district=568/all.topojson",
+  "villages/state=tamil-nadu/district=577/all.geojson",
+  "wards/state=andaman-and-nicobar/ulb=804041/all.topojson",
+  // Orthogonal postal layer.
+  "postal/state=tamil-nadu/all.topojson",
+] as const;
+
+describe("boundaries-conform - bounded Hive path canaries", () => {
+  it.each(HIVE_PATH_CANARIES)("%s matches a known Hive shape and exists", (relPath) => {
+    expect(isWellFormedHivePath(relPath), relPath).toBe(true);
+    expect(existsSync(resolve(boundariesRoot, relPath)), relPath).toBe(true);
   });
 
-  it("no orphan or legacy paths", () => {
-    const orphans = ALL_GEOJSON.filter(p => !isWellFormedHivePath(p));
-    expect(
-      orphans,
-      `unrecognised boundary paths (post-T.0d every *.geojson must match a Hive shape): ${orphans.join(", ")}`,
-    ).toEqual([]);
+  it("rejects an unknown shape canary", () => {
+    expect(isWellFormedHivePath("mystery/state=tamil-nadu/all.geojson")).toBe(false);
   });
 });
 
 describe("boundaries-conform — legacy sidecars are gone (T.0d)", () => {
-  // The T.0d migration deleted 115 sidecars (.sources.json, .metadata.json,
-  // .unkeyed.json) and the S22-villages-index.json manifest. Any survivor
-  // is debt that bypasses the parquet ledger.
-  const SIDECAR_PATTERNS = [
-    "**/*.sources.json",
-    "**/*.unkeyed.json",
-    "**/*.metadata.json",
-    "**/*-index.json",
-  ];
+  const SIDECAR_CANARIES = [
+    // Provenance sidecar.
+    "in/states/all.geojson.sources.json",
+    // Simplification metadata sidecar.
+    "in/districts/all.geojson.metadata.json",
+    // Dropped-feature denominator sidecar.
+    "in/subdistricts/state=tamil-nadu/all.geojson.unkeyed.json",
+    // Retired per-state village index manifest family.
+    "in/villages/state=tamil-nadu/S22-villages-index.json",
+  ] as const;
 
-  for (const pattern of SIDECAR_PATTERNS) {
-    it(`no ${pattern} survivors under datasets/boundaries/`, () => {
-      const survivors = globSync(pattern, { cwd: boundaryFamilyRoot, absolute: false });
-      expect(
-        survivors,
-        `legacy sidecar pattern ${pattern} reappeared under datasets/boundaries/ — provenance + simplification + inventory now live in data/entities/boundary_layer.csv (X1a-fu2-E rip, 2026-06-07; ADR-0031 Amendment 2026-05-22)`,
-      ).toEqual([]);
-    });
-  }
+  it.each(SIDECAR_CANARIES)("%s stays absent", (relPath) => {
+    expect(existsSync(resolve(boundaryFamilyRoot, relPath)), relPath).toBe(false);
+  });
 });
 
 describe("boundaries-conform — csv ledger is on disk", () => {
@@ -197,58 +196,37 @@ describe("boundaries-conform — states/all.geojson carries LGD-keyed features (
   });
 });
 
-// ---------------------------------------------------------------------------
-// TopoJSON siblings (P2.4 of docs/archive/plans/20260531-geojson-to-topojson-migration-plan.md)
-// ---------------------------------------------------------------------------
-//
-// Until P5.4 retires geojson siblings, every shipped *.topojson MUST sit
-// next to a *.geojson sibling at the same Hive path, AND decode to the
-// same feature count. We do NOT assert coordinate equality (quantization
-// is lossy by design per ADR-0047).
+const TOPOJSON_DECODE_CANARIES = [
+  // Root object name + singleton-ish shape.
+  "states/all.topojson",
+  // Large national administrative object.
+  "districts/all.topojson",
+  // State partition path.
+  "subdistricts/state=tamil-nadu/all.topojson",
+  // Nested district partition path.
+  "panchayats/state=tamil-nadu/district=568/all.topojson",
+  // Orthogonal postal layer.
+  "postal/state=tamil-nadu/all.topojson",
+] as const;
 
-describe("boundaries-conform - every *.topojson sits at a well-formed Hive path", () => {
-  it("no orphan topojson at unrecognised paths", () => {
-    const orphans = ALL_TOPOJSON.filter(p => {
-      const geoEquiv = p.replace(/\.topojson$/, ".geojson");
-      return !isWellFormedHivePath(geoEquiv);
-    });
-    expect(
-      orphans,
-      `topojson at unrecognised paths: ${orphans.join(", ")}`,
-    ).toEqual([]);
-  });
-
-  it("every *.topojson has a sibling *.geojson (pre-P5.4 contract)", () => {
-    const missingSibling = ALL_TOPOJSON.filter(
-      t => !ALL_GEOJSON.includes(t.replace(/\.topojson$/, ".geojson")),
-    );
-    expect(
-      missingSibling,
-      `topojson without sibling geojson (forbidden until P5.4 retirement): ${missingSibling.join(", ")}`,
-    ).toEqual([]);
-  });
-});
-
-describe("boundaries-conform - topojson decodes to the same feature count as its geojson sibling", () => {
-  for (const topoRel of ALL_TOPOJSON) {
+describe("boundaries-conform - bounded TopoJSON decode canaries", () => {
+  it.each(TOPOJSON_DECODE_CANARIES)("%s decodes to sibling GeoJSON feature count", (topoRel) => {
     const geoRel = topoRel.replace(/\.topojson$/, ".geojson");
-    it(`${topoRel} feature-count parity with ${geoRel}`, () => {
-      const topoAbs = resolve(boundariesRoot, topoRel);
-      const geoAbs = resolve(boundariesRoot, geoRel);
-      const topo = JSON.parse(readFileSync(topoAbs, "utf8")) as Topology;
-      const geo = JSON.parse(readFileSync(geoAbs, "utf8")) as {
-        features: unknown[];
-      };
-      const objectNames = Object.keys(topo.objects ?? {});
-      expect(objectNames.length).toBeGreaterThan(0);
-      const decoded = topojsonFeature(
-        topo,
-        topo.objects[objectNames[0]] as GeometryCollection,
-      );
-      const decodedFeatures =
-        decoded.type === "FeatureCollection" ? decoded.features : [decoded];
-      expect(decodedFeatures.length).toBe(geo.features.length);
-    });
-  }
+    const topoAbs = resolve(boundariesRoot, topoRel);
+    const geoAbs = resolve(boundariesRoot, geoRel);
+    expect(existsSync(topoAbs), topoRel).toBe(true);
+    expect(existsSync(geoAbs), geoRel).toBe(true);
+    const topo = JSON.parse(readFileSync(topoAbs, "utf8")) as Topology;
+    const geo = JSON.parse(readFileSync(geoAbs, "utf8")) as { features: unknown[] };
+    const objectNames = Object.keys(topo.objects ?? {});
+    expect(objectNames.length).toBeGreaterThan(0);
+    const decoded = topojsonFeature(
+      topo,
+      topo.objects[objectNames[0]] as GeometryCollection,
+    );
+    const decodedFeatures =
+      decoded.type === "FeatureCollection" ? decoded.features : [decoded];
+    expect(decodedFeatures.length).toBe(geo.features.length);
+  });
 });
 

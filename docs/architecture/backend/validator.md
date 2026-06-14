@@ -1,6 +1,6 @@
 # Validator (`yen_gov.validate`)
 
-**Last Updated**: 2026-05-31
+**Last Updated**: 2026-06-14
 
 The two-tier validator that enforces CLAUDE.md §11 (schema versioning)
 and §12 (provenance) shape across schemas and data files. This doc
@@ -23,7 +23,7 @@ corpus validation from CI is protecting.
 | Tier | What it asserts | Where it runs | Wall time |
 | --- | --- | --- | --- |
 | **A — schema sanity** | Every `*.schema.json` validates against the JSON Schema 2020-12 meta-schema; `x-version` is `<major>.<minor>`; `x-changelog` is non-empty and its tail entry's `version` matches `x-version`; malformed JSON is reported, not crashed on. | `pytest -q` in `backend/`, via fixture tests in `tests/test_validate.py` that construct synthetic schemas in `tmp_path`. Always on; runs in CI. | <1s |
-| **B - corpus conformance** | Every `*.json` under `datasets/` and `config/` declares `$schema` and `$schema_version`; the schema resolves; the declared version is accepted by the active compatibility contract; the file validates against the schema the reader is allowed to use. Row E consumes `datasets/schema-compatibility.json` for the `json-corpus` surface; Row H defines the retained historical schema path and resolver used when a future entry needs declared-version validation. | `python -m yen_gov validate --root .` invoked locally before committing changes that touch `datasets/**`, `config/**`, or `datasets/schemas/**`. NOT gated in CI. | ~60s (~5k files) |
+| **B - corpus conformance** | Every `*.json` under `datasets/` and `config/` declares `$schema` and `$schema_version`; the schema resolves; the declared version is accepted by the active compatibility contract; the file validates against the schema the reader is allowed to use. It also owns exhaustive boundary corpus facts: known Hive path shape under `datasets/boundaries/in/`, TopoJSON -> GeoJSON sibling presence, and TopoJSON/GeoJSON feature-count parity. Row E consumes `datasets/schema-compatibility.json` for the `json-corpus` surface; Row H defines the retained historical schema path and resolver used when a future entry needs declared-version validation. | `python -m yen_gov validate --root .` invoked locally before committing changes that touch `datasets/**`, `config/**`, `datasets/schemas/**`, or boundary geometry. NOT gated in CI. | Corpus-sized; local-only |
 
 ## Why Tier B is local-only
 
@@ -41,9 +41,10 @@ defended in two places:
 1. **Producer side, locally**: the engineer making the change runs
    `python -m yen_gov validate --root .` before pushing. CLAUDE.md §11
    and §15 require this for any commit touching schemas or data.
-2. **Consumer side, in the frontend repo**: `frontend/src/contracts/datasets-conform.test.ts`
-   validates fetched samples against the schemas at frontend build /
-   test time.
+2. **Consumer side, in the frontend repo**: fixed frontend canaries validate
+   representative JSON and boundary artifacts against the same contracts at
+   frontend build / test time. They prove reader wiring and schema resolution;
+   they do not duplicate the full producer corpus walk.
 
 Putting a third gate in this repo's CI — walking 4,842 files on every
 PR, including PRs that touch only Python source code — was busywork
@@ -86,7 +87,10 @@ Tier B must not accept an artifact by guessing defaults for missing historical f
 
 - `backend/tests/test_validate.py` — fixture-based, runs in pytest.
   All cases use `tmp_path` and construct synthetic schemas/data. None
-  walk the on-disk corpus.
+   walk the on-disk corpus. Boundary Tier-B tests seed tiny GeoJSON /
+   TopoJSON fixture pairs to cover Hive path shape, sibling presence,
+   feature-count parity, and regression guards that `run()` chains each
+   check.
 - `backend/tests/test_admin_schemas.py` — same pattern, one altitude
   up. Tests the `/api/schemas` FastAPI route by pointing it at a
   `tmp_path` fixture corpus via the `YEN_GOV_REPO_ROOT` env var
@@ -150,29 +154,42 @@ test.
 ## Frontend repo split: where the consumer-side test goes
 
 `frontend/src/contracts/datasets-conform.test.ts` is the consumer-side
-counterpart to backend Tier-B — it walks every `datasets/**/*.json`
-and validates against the declared `$schema`. Today it lives in this
-repo because the frontend is still co-located; per the deployment
-doctrine the frontend will move to a separate repo and pull
-`datasets/**` at runtime from `raw.githubusercontent`.
+counterpart to backend Tier-B. It keeps schema registry sanity,
+schema-compatibility algorithm tests, and a small explicit artifact
+canary list. It must not walk every `datasets/**/*.json`; exhaustive
+JSON corpus validation belongs to Tier B. Today it lives in this repo
+because the frontend is still co-located; per the deployment doctrine
+the frontend will move to a separate repo and pull `datasets/**` at
+runtime from `raw.githubusercontent`.
 
 When that split happens:
 
 1. `datasets-conform.test.ts` moves with the frontend, NOT with the
-   backend. It is the frontend's bet that the data it fetches over
-   HTTP conforms to the schemas it codes against.
+   backend. It remains a fixed canary suite proving the frontend can
+   resolve schemas and validate representative artifacts it fetches over
+   HTTP.
 2. The backend repo's vitest suite goes away entirely.
 3. The "no test walks the real corpus" rule generalises from "no
-   pytest test" to "no test in the backend repo, period, regardless
-   of language". The producer-side gate stays local
+   pytest test" to "no default test in the backend repo, period,
+   regardless of language". The producer-side gate stays local
    (`python -m yen_gov validate --root .` before commit) and the
    consumer-side gate stays in the frontend repo.
 
-Until the split: this test stays here, but it follows the same
-collect-vs-test discipline as everything else — file enumeration is
-cheap (glob only), JSON.parse runs inside each `it()` so the cost
-parallelises across vitest workers rather than blocking the collect
-phase.
+Until the split: this test stays here, but it follows the same fixed
+canary discipline as the rest of the frontend contracts.
+
+## Default frontend corpus-cardinality guardrail
+
+Default frontend tests must not scale with corpus cardinality. No default
+frontend Vitest may create one test per dataset file, shard, row,
+district, village, ward, panchayat, constituency, party, indicator, path,
+or schema artifact. Frontend tests prove consumer behavior with fixtures
+and representative canaries. Exhaustive corpus validation belongs to
+producer receipts plus backend Tier-B validation.
+
+If a default frontend test uses broad `globSync`, recursive `readdirSync`,
+or loops over `datasets/**` to generate test cases, it is presumed wrong
+unless bounded by a small explicit canary list.
 
 ## Rejected designs
 
@@ -250,6 +267,21 @@ corpus walks per CLAUDE.md §10 anti-pattern).
 | --- | --- | --- | --- |
 | `tier_b_meadow_shard_contract` | New `*.json` files under `datasets/indicators/in/`. The legacy folded-indicator shards retire family-by-family. New content must land on the canonical CSV store under `datasets/data/`. | `datasets/_ops/meadow-shard-contract.txt` (one POSIX path per line; `#`-comments + blank lines ignored). | 6 cases - passes when allowlisted, rejects new shard, rejects orphan allowlist entry, no-op when indicators dir absent, requires allowlist when indicators dir present, regression guard that `run()` chains the check. |
 | `tier_b_legacy_boundary_sidecars` | Legacy boundary sidecars (`*.sources.json`, `*.metadata.json`, `*.unkeyed.json`) and per-state villages index manifests under `datasets/boundaries/`. Boundary metadata now lives in `datasets/data/entities/boundary_layer.csv`. | `datasets/_ops/legacy-boundary-sidecars.txt` | 7 cases - passes when allowlisted, rejects sidecars/indexes, rejects orphan allowlist entries, no-op when the boundary tree is absent, requires allowlist when needed, regression guard that `run()` chains the check. |
+
+## Boundary corpus checks
+
+Row A of the frontend corpus test-tier reset moved the exhaustive boundary
+encoding proof from default Vitest into Tier B:
+
+| Function | What it asserts | Tests |
+| --- | --- | --- |
+| `tier_b_boundary_hive_path_shape` | Every `.geojson` and `.topojson` under `datasets/boundaries/in/` matches a known Hive path family. | Fixture accepts representative families, rejects an unknown family, and guards `run()` chaining. |
+| `tier_b_boundary_topo_sibling_pairs` | Every `.topojson` under `datasets/boundaries/in/` has a sibling `.geojson`; GeoJSON-only legacy shards remain allowed. | Fixture permits GeoJSON-only, rejects orphan TopoJSON, and guards `run()` chaining. |
+| `tier_b_boundary_topo_feature_count_parity` | For every TopoJSON/GeoJSON pair, TopoJSON object geometry count equals GeoJSON `features.length`. | Fixture accepts matching pairs, rejects mismatch, and guards `run()` chaining. |
+
+Frontend `boundaries-conform.test.ts` keeps a small canary set for Hive
+path grammar, sidecar absence, ledger presence, states join key, and
+TopoJSON decode. It is not the exhaustive boundary corpus gate.
 
 ### Shape of a forbidden-path check
 
