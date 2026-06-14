@@ -1,6 +1,6 @@
 # Test Coverage Policy
 
-**Last Updated**: 2026-05-31
+**Last Updated**: 2026-06-14
 
 > This is the canonical home for yen-gov's test-tier policy. [CLAUDE.md §15](../../CLAUDE.md) carries a one-paragraph summary and links here. The non-negotiable rules (mock carve-outs, no-corpus-walk, red-suite-blocks-commit) remain in CLAUDE.md because they are contract-grade; the matrix, command snippets, and fixture conventions live here.
 
@@ -22,7 +22,7 @@ When you encounter a deprecated alias in an existing doc: treat "Tier-A" as "Uni
 | Tier | Where it lives | What it asserts | When it's required |
 | --- | --- | --- | --- |
 | **Unit** | [`frontend/src/**/*.test.ts`](../../frontend/src) (vitest), [`backend/tests/test_*.py`](../../backend/tests) (pytest) | Pure functions, formatters, parsers, slug round-trips, math invariants. No I/O, no DOM, no network. | Any change to a pure function or pure module. |
-| **Contract** | [`frontend/src/contracts/*.test.ts`](../../frontend/src/contracts) (ajv against [`datasets/schemas/`](../../datasets/schemas)), [`backend/tests/test_validate.py`](../../backend/tests/test_validate.py), [`backend/tests/test_datasets_integrity.py`](../../backend/tests/test_datasets_integrity.py) | Every `datasets/**/*.json` validates against its declared `$schema`; `$schema_version` is current for writer outputs or accepted by the explicit compatibility contract ([CLAUDE.md section 11](../../CLAUDE.md), [ADR-0047](../reference/decision-index.md)); provenance shape ([CLAUDE.md section 12](../../CLAUDE.md)); cross-registry consistency (frontend catalogue to backend `events.py`, tier partition, allowlisted countermands, no-folded-sidecar regression). | Any schema bump, new emitted artifact, or new loader - producer AND consumer side. |
+| **Contract** | [`frontend/src/contracts/*.test.ts`](../../frontend/src/contracts) (ajv against [`datasets/schemas/`](../../datasets/schemas)), [`backend/tests/test_validate.py`](../../backend/tests/test_validate.py), [`backend/tests/test_datasets_integrity.py`](../../backend/tests/test_datasets_integrity.py) | Frontend contract tests prove consumer behavior with fixtures and representative canaries. Backend validator fixture tests prove Tier-A/Tier-B rules without walking the real corpus. Exhaustive JSON and boundary corpus validation lives in `python -m yen_gov validate --root .`; `$schema_version` is current for writer outputs or accepted by the explicit compatibility contract ([CLAUDE.md section 11](../../CLAUDE.md), [ADR-0047](../reference/decision-index.md)); provenance shape ([CLAUDE.md section 12](../../CLAUDE.md)); cross-registry consistency (frontend catalogue to backend `events.py`, tier partition, allowlisted countermands, no-folded-sidecar regression). | Any schema bump, new emitted artifact, new boundary geometry, or new loader - producer AND consumer side. |
 | **Integration** | [`frontend/src/**/*.test.ts`](../../frontend/src) for loader+fixture composition; [`backend/tests/test_pipeline_*.py`](../../backend/tests) for adapter+pipeline composition. | Loaders compose paths correctly, mocked `fetch` returns the expected shape, the 404-as-null and other graceful-degradation contracts hold; pipeline adapters compose end-to-end against fixture pages. | Any new loader, adapter, or composed pipeline step. |
 | **End-to-end** | [`frontend/e2e/*.spec.ts`](../../frontend/e2e) (Playwright, public citizen site on port 5173); [`admin/e2e/*.spec.ts`](../../admin/e2e) (Playwright, admin operator console on port 5174, mocks `/api/*` via `page.route`). | Citizen-visible route loads without `pageerror`; one DOM assertion that proves the route's content is there; one `SourceList` provenance assertion if the route surfaces data. Admin panels render and exercise their typed API contract via mocked routes. | Any new citizen-visible route or meaningful change to an existing one; any admin panel addition. |
 
@@ -35,11 +35,12 @@ A new integrity test needs to name the contract it defends. If the answer is "ev
 ## Non-negotiables
 
 - A change that touches [`frontend/src/lib/**`](../../frontend/src/lib) MUST have a corresponding `*.test.ts` covering the new or changed behaviour, in the same commit.
-- A new `datasets/**/*.json` artifact (or a schema bump) MUST be covered by the consumer-side contract test [`frontend/src/contracts/datasets-conform.test.ts`](../../frontend/src/contracts/datasets-conform.test.ts) AND validated locally by `python -m yen_gov validate --root .` before commit. Both sides validate; never just one. Writers emit the current schema version; readers accept older versions only through the compatibility contract.
+- A new `datasets/**/*.json` artifact (or a schema bump) MUST be validated locally by `python -m yen_gov validate --root .` before commit. If it adds a new frontend-visible artifact class, update the bounded canary list in [`frontend/src/contracts/datasets-conform.test.ts`](../../frontend/src/contracts/datasets-conform.test.ts) only when the existing canaries do not cover the reader risk. Both sides validate their tier: producer exhaustiveness in Tier-B, consumer wiring in fixed frontend canaries. Writers emit the current schema version; readers accept older versions only through the compatibility contract.
 - A change to `datasets/schema-compatibility.json` or `datasets/schemas/schema-compatibility.schema.json` MUST keep both backend and frontend contract tests green (`backend/tests/test_schema_compatibility_registry.py` and `frontend/src/contracts/schema-compatibility.test.ts`). Runtime behavior changes still belong in the later reader rows that consume the registry.
 - A new citizen-visible route or a meaningful change to an existing one MUST extend [`frontend/e2e/golden-path.spec.ts`](../../frontend/e2e/golden-path.spec.ts) (or add a sibling spec) with at least: route loads, no `pageerror`, one DOM assertion that proves the new content is there, one provenance (`SourceList`) assertion if the route surfaces data.
 - Mocks remain forbidden ([Holy Law #7](../../CLAUDE.md)) except: (a) `fetch` in unit tests of loaders — the loader's contract IS the fetch boundary, so mocking it is testing the contract; (b) explicit user request.
 - **No pytest test walks the real on-disk corpus.** Any test that opens files under `datasets/**` or `config/**` of the real repo (directly, via a CLI subprocess, or via an HTTP route that itself walks) is Tier-B conformance smuggled into Tier A — see [CLAUDE.md §10](../../CLAUDE.md). Use a `tmp_path` fixture corpus and inject the root through an env var (e.g. `YEN_GOV_REPO_ROOT`). Red flag for review: any single backend test with a duration > 5 s. Reference fix: commit `7d407d0` ([`admin/schemas.py`](../../backend/yen_gov/admin/schemas.py) + [`test_admin_schemas.py`](../../backend/tests/test_admin_schemas.py)).
+- **No default frontend test scales with corpus cardinality.** No default frontend Vitest may create one test per dataset file, shard, row, district, village, ward, panchayat, constituency, party, indicator, path, or schema artifact. Frontend tests prove consumer behavior with fixtures and representative canaries. Exhaustive corpus validation belongs to producer receipts plus backend Tier-B validation. Review smell: broad `globSync`, recursive `readdirSync`, or loops over `datasets/**` that generate test cases, unless bounded by a small explicit canary list.
 - A red test at commit time blocks the commit. "Skip this for now" is a structural-fix request ([§5](../../CLAUDE.md)), not a casual override.
 
 ## Schema Versions In Tests
@@ -180,9 +181,14 @@ python -m yen_gov validate --root .
 
 Not gated in CI ([CLAUDE.md §11](../../CLAUDE.md)). Run before committing changes to [`datasets/**`](../../datasets), [`config/**`](../../config), or [`datasets/schemas/**`](../../datasets/schemas). The publish workflow ([`deploy-site.yml`](../../.github/workflows/deploy-site.yml)) copies `datasets/` into `_site/data/` as static bytes and never re-validates them; the runtime-shape gate is the consumer-side ajv contract test ([`datasets-conform.test.ts`](../../frontend/src/contracts/datasets-conform.test.ts)).
 
+As of 2026-06-14, this same Tier-B command also owns exhaustive boundary
+geometry corpus checks for known Hive path shape, TopoJSON sibling pairs,
+and TopoJSON/GeoJSON feature-count parity. Frontend boundary tests keep
+only bounded canaries.
+
 ### Boundary gzip budget check
 
-Boundary GeoJSON byte budgets are data-pipeline validation, not everyday frontend contract tests. The frontend suite keeps cheap consumer contracts (Hive path shape, no legacy sidecars, ledger presence, join-key shape); it does not gzip every shipped boundary shard on every vitest run.
+Boundary GeoJSON byte budgets are data-pipeline validation, not everyday frontend contract tests. The frontend suite keeps cheap consumer canaries (Hive path shape, no legacy sidecars, ledger presence, join-key shape, bounded TopoJSON decode); it does not gzip every shipped boundary shard or validate every sibling pair on every vitest run. Exhaustive shape/sibling/feature-count checks live in backend Tier-B.
 
 Run the full boundary size check from the repo root whenever a PR changes `datasets/boundaries/in/**`, `datasets/boundaries/boundary_layers.parquet`, or `tools/boundaries/simplify.py`:
 

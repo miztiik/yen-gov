@@ -1,6 +1,6 @@
 # Frontend TopoJSON loader
 
-**Last Updated**: 2026-05-31
+**Last Updated**: 2026-06-14
 
 How `frontend/src/lib/boundaries.ts` resolves boundary partitions to a `FeatureCollection` for the choropleth components.
 
@@ -51,13 +51,22 @@ Vite dead-code-eliminates these branches when `VITE_BENCH` is unset, so producti
 
 ## Conformance invariants
 
-[frontend/src/contracts/boundaries-conform.test.ts](../../../frontend/src/contracts/boundaries-conform.test.ts) enforces:
+Exhaustive boundary encoding proof is producer-side Tier B, not default
+frontend Vitest. Run `python -m yen_gov validate --root .` from the repo
+root before committing boundary geometry. The validator enforces:
 
-1. **Sibling pair is the durable contract**: every `.topojson` under `datasets/boundaries/in/**` has a sibling `.geojson` in the same directory. The earlier "cleanup commissioned" framing was REJECTED by the user on 2026-05-31 ("we are using a combination of both") and the sibling-retirement plan was deleted. Both encodings stay; the loader's topo-first / geojson-fallback path is the design, not a transitional state.
-2. **Feature-count parity**: `topojson.feature(t, t.objects.<name>).features.length === geojson.features.length` per shard. Coordinate equality is NOT asserted (quantization is by design lossy).
-3. **No orphan topojson**: every shipped `.topojson` lives at a Hive partition declared in `datasets/boundaries/boundary_layers.parquet`.
+1. **Hive path shape**: every `.geojson` and `.topojson` under `datasets/boundaries/in/**` matches a known boundary Hive family.
+2. **Sibling pair is the durable contract**: every `.topojson` under `datasets/boundaries/in/**` has a sibling `.geojson` in the same directory. The 2026-05-31 user-ratified decision kept both encodings as durable siblings and deleted the sibling-retirement plan. The loader's topo-first / geojson-fallback path is the design, not a transitional state.
+3. **Feature-count parity**: TopoJSON object geometry count equals sibling GeoJSON `features.length` per shard. Coordinate equality is NOT asserted (quantization is by design lossy).
 
-The conformance test is the upstream gap-detector. CI fails on any drift; the loader's fallback path is the runtime safety net, not the contract.
+[frontend/src/contracts/boundaries-conform.test.ts](../../../frontend/src/contracts/boundaries-conform.test.ts)
+keeps bounded canaries for Hive path grammar, sidecar absence, ledger
+presence, the states join key, and representative TopoJSON decode. It is
+the consumer smoke test, not the exhaustive corpus gate.
+
+Default frontend tests must not scale with corpus cardinality. No default
+frontend Vitest may create one test per boundary shard or TopoJSON sibling;
+full corpus validation belongs to producer Tier B.
 
 ## When NOT to use this loader
 
@@ -93,7 +102,7 @@ This section folds in the receipt from the originating ADR that pinned the encod
 
 **Consequences (negative).** Adds Node toolchain (Mapshaper CLI) to dev + CI install requirements (single global package, pinned version - smaller surface than a per-repo `node_modules`). `topojson.feature()` decode step adds ~main-thread cost per page load (Jony metric 3 - must not regress beyond noise floor). Doubles boundary file count during the transition (sibling `.geojson` + `.topojson`); the user's "we are using a combination of both" verdict makes the doubling durable, not transitional. Mapshaper version becomes a contract surface - a version bump = schema-version-style migration (regenerate all topojson under new version, validate diff, swap, drop old).
 
-**Acceptance evidence (2026-05-31).** All 8 Track A boundary layers (country, state, district, subdistrict, AC, PC, ULB-wards, panchayats) AND both Track A2 layers (villages, postal) ship `.topojson` siblings 100% coverage. Loader topojson-first / geojson-fallback contract live in production via `frontend/src/lib/boundaries.ts`. Conformance test asserts feature-count parity per shard via `frontend/src/contracts/boundaries-conform.test.ts` (4137 assertions green per PR #500 gate). PR map: P0 (#486), P1 (#487), P2 (#488), P3 (#489), P4.1 (#490), P4.2 (#491), P4.3 (#493 partial + #500 complete), P4.4 (#494 partial + #502 complete), P4.5 (#495 partial + #504 complete), P4.6 (#492), batched converter (#496), P5.1+P5.2 distill (#498), P5.3 PMTiles successor (#497), P5.4 retirement plan (#499), P5.5 ADR flip (#505).
+**Acceptance evidence (2026-05-31; test-tier placement updated 2026-06-14).** All 8 Track A boundary layers (country, state, district, subdistrict, AC, PC, ULB-wards, panchayats) AND both Track A2 layers (villages, postal) ship `.topojson` siblings 100% coverage. Loader topojson-first / geojson-fallback contract live in production via `frontend/src/lib/boundaries.ts`. PR #500 originally proved feature-count parity in frontend conformance; Row A of `TODO/20260614-frontend-corpus-test-tier-reset-plan.md` moved the exhaustive parity proof to backend Tier B and left fixed frontend canaries. PR map: P0 (#486), P1 (#487), P2 (#488), P3 (#489), P4.1 (#490), P4.2 (#491), P4.3 (#493 partial + #500 complete), P4.4 (#494 partial + #502 complete), P4.5 (#495 partial + #504 complete), P4.6 (#492), batched converter (#496), P5.1+P5.2 distill (#498), P5.3 PMTiles successor (#497), P5.4 retirement plan (#499), P5.5 ADR flip (#505).
 
 ## Rejected alternatives
 

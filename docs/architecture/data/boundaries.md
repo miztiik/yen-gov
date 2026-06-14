@@ -1,6 +1,6 @@
 # Boundaries — disk topology, identifier discipline, ledger
 
-**Last Updated**: 2026-05-25
+**Last Updated**: 2026-06-14
 **Owner**: data layer (`backend/yen_gov/pipelines/boundaries_*` + `tools/lgd/` + `tools/boundaries/`)
 
 This doc captures the rationale behind every design choice that touched the boundary stack as it evolved from "one `india.geojson` outline" through "LGD-coded states + districts" to TN-granular sub-district + village layers, and through the T.0d consolidation (2026-05-22) that moved the tree to Hive partitioning and retired the per-shard sidecars. When this doc disagrees with a plan artifact, **this doc wins** (Holy Law #4 - docs are agent memory; the plan is a working artifact).
@@ -230,7 +230,15 @@ If a future agent proposes adopting geoBoundaries or udit-001 as canonical bound
 
 A Tier-B forbidden-path gate (`tier_b_legacy_boundary_sidecars` in `backend/yen_gov/validate.py`) rejects any future `*.sources.json` / `*.metadata.json` / `*.unkeyed.json` / `*-index.json` under `datasets/boundaries/`. The companion allowlist at `datasets/_ops/legacy-boundary-sidecars.txt` ships empty by design; it exists only to support short-lived overrides during follow-up PRs (with PR-body justification required). Same pattern as `tier_b_meadow_shard_contract`.
 
-Frontend has a paired contract test at `frontend/src/contracts/boundaries-conform.test.ts` that asserts every `**/*.geojson` under `datasets/boundaries/in/` matches a known Hive-shape pattern AND that no legacy sidecar / index manifest survives.
+Boundary corpus shape is now producer-side Tier B. `python -m yen_gov validate --root .` chains:
+
+- `tier_b_boundary_hive_path_shape`: every `.geojson` and `.topojson` under `datasets/boundaries/in/` matches a known Hive path family.
+- `tier_b_boundary_topo_sibling_pairs`: every `.topojson` under `datasets/boundaries/in/` has a sibling `.geojson`; GeoJSON-only legacy shards are still allowed.
+- `tier_b_boundary_topo_feature_count_parity`: every TopoJSON/GeoJSON pair has matching geometry/feature counts.
+
+Frontend `frontend/src/contracts/boundaries-conform.test.ts` keeps bounded consumer canaries for Hive path grammar, sidecar absence, ledger presence, states join key, and representative TopoJSON decode. It must not walk every boundary shard or create one default Vitest case per corpus file.
+
+Default frontend tests must not scale with corpus cardinality. Frontend tests prove consumer behavior with fixtures and representative canaries. Exhaustive corpus validation belongs to producer receipts plus backend Tier-B validation.
 
 ## Design rationale
 

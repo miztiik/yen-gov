@@ -27,6 +27,10 @@ Tier B — data conformance:
     variants). New sub-fuel breakouts (e.g. `installed_capacity_rooftop_solar_mw.json`,
     `installed_capacity_small_hydro_mw.json`) are rejected -- sub-fuel
     detail collapses at lift time per `backend/yen_gov/canonical/adapters/energy/_shared.py:SUB_FUEL_TO_CANONICAL`.
+    * Boundary geometry under datasets/boundaries/in/ is checked for known
+        Hive path shapes, every TopoJSON shard must have a GeoJSON sibling,
+        and sibling feature counts must match. Frontend tests keep canaries;
+        exhaustive boundary corpus proof belongs here.
 """
 
 from __future__ import annotations
@@ -69,6 +73,24 @@ LEGACY_INDICATOR_SHARDS_ALLOWLIST = Path("datasets/_ops/meadow-shard-contract.tx
 # `tier_b_legacy_boundary_sidecars` enforces the doctrine.
 LEGACY_BOUNDARY_SIDECARS_DIR = Path("datasets/boundaries")
 LEGACY_BOUNDARY_SIDECARS_ALLOWLIST = Path("datasets/_ops/legacy-boundary-sidecars.txt")
+BOUNDARY_GEOMETRY_DIR = Path("datasets/boundaries/in")
+
+_BOUNDARY_HIVE_PATH_SHAPES: tuple[tuple[str, re.Pattern[str]], ...] = (
+    ("country", re.compile(r"^country/all\.(?:geojson|topojson)$")),
+    ("states", re.compile(r"^states/all\.(?:geojson|topojson)$")),
+    ("districts", re.compile(r"^districts/all\.(?:geojson|topojson)$")),
+    ("subdistricts", re.compile(r"^subdistricts/state=[a-z0-9-]+/all\.(?:geojson|topojson)$")),
+    ("blocks", re.compile(r"^blocks/state=[a-z0-9-]+/all\.(?:geojson|topojson)$")),
+    ("panchayats", re.compile(r"^panchayats/state=[a-z0-9-]+/district=\d+/all\.(?:geojson|topojson)$")),
+    ("villages", re.compile(r"^villages/state=[a-z0-9-]+/district=[a-z0-9_]+/all\.(?:geojson|topojson)$")),
+    ("wards", re.compile(r"^wards/state=[a-z0-9-]+/ulb=\d+/all\.(?:geojson|topojson)$")),
+    ("ac", re.compile(r"^ac/state=[a-z0-9-]+/all\.(?:geojson|topojson)$")),
+    ("pc", re.compile(r"^pc/delim=\d{4}/all\.(?:geojson|topojson)$")),
+    ("postal", re.compile(r"^postal/(?:state=[a-z0-9-]+|scope=unkeyed)/all\.(?:geojson|topojson)$")),
+)
+_TOPOJSON_SINGLE_GEOMETRY_TYPES = frozenset(
+    {"Point", "MultiPoint", "LineString", "MultiLineString", "Polygon", "MultiPolygon"}
+)
 
 # Indicator catalogue grain-prefix fence (PR-B1 2026-05-26 grain-over-entity
 # rip per ADR-0044). The catalogue at `datasets/taxonomy/indicators.json`
@@ -617,6 +639,173 @@ def tier_b_legacy_boundary_sidecars(root: Path) -> list[Failure]:
             )
         )
 
+    return failures
+
+
+def _iter_boundary_geometry_files(root: Path) -> Iterable[Path]:
+    geometry_dir = root / BOUNDARY_GEOMETRY_DIR
+    if not geometry_dir.exists():
+        return
+    for path in sorted(geometry_dir.rglob("*")):
+        if path.is_file() and path.suffix in {".geojson", ".topojson"}:
+            yield path
+
+
+def _boundary_in_rel(path: Path, root: Path) -> str:
+    return PurePosixPath(
+        path.resolve().relative_to((root / BOUNDARY_GEOMETRY_DIR).resolve())
+    ).as_posix()
+
+
+def _is_known_boundary_hive_path(rel_path: str) -> bool:
+    return any(pattern.fullmatch(rel_path) for _kind, pattern in _BOUNDARY_HIVE_PATH_SHAPES)
+
+
+def tier_b_boundary_hive_path_shape(root: Path) -> list[Failure]:
+    """Validate boundary geometry paths against the known Hive families."""
+    failures: list[Failure] = []
+    known = ", ".join(kind for kind, _pattern in _BOUNDARY_HIVE_PATH_SHAPES)
+    for path in _iter_boundary_geometry_files(root):
+        rel_in = _boundary_in_rel(path, root)
+        if _is_known_boundary_hive_path(rel_in):
+            continue
+        failures.append(
+            Failure(
+                _posix(path, root),
+                "B",
+                f"unrecognised boundary Hive path {rel_in!r}: expected one "
+                f"of the known boundary families {{{known}}} under "
+                f"{BOUNDARY_GEOMETRY_DIR.as_posix()}.",
+            )
+        )
+    return failures
+
+
+def tier_b_boundary_topo_sibling_pairs(root: Path) -> list[Failure]:
+    """Require every TopoJSON shard to retain its GeoJSON sibling."""
+    failures: list[Failure] = []
+    geometry_dir = root / BOUNDARY_GEOMETRY_DIR
+    if not geometry_dir.exists():
+        return failures
+
+    geojson_rels = {
+        _boundary_in_rel(path, root)
+        for path in _iter_boundary_geometry_files(root)
+        if path.suffix == ".geojson"
+    }
+    topojson_paths = [
+        path for path in _iter_boundary_geometry_files(root) if path.suffix == ".topojson"
+    ]
+    for topo_path in topojson_paths:
+        topo_rel = _boundary_in_rel(topo_path, root)
+        geo_rel = topo_rel.removesuffix(".topojson") + ".geojson"
+        if geo_rel in geojson_rels:
+            continue
+        failures.append(
+            Failure(
+                _posix(topo_path, root),
+                "B",
+                f"topojson shard {topo_rel!r} is missing sibling "
+                f"{geo_rel!r}. The durable loader contract is topo-first "
+                "with geojson fallback; topojson shards must not orphan "
+                "their source encoding.",
+            )
+        )
+    return failures
+
+
+def _geojson_feature_count(payload: object) -> tuple[int | None, str | None]:
+    if not isinstance(payload, dict):
+        return None, "top-level must be an object"
+    if payload.get("type") != "FeatureCollection":
+        return None, "type must be 'FeatureCollection'"
+    features = payload.get("features")
+    if not isinstance(features, list):
+        return None, "features must be an array"
+    return len(features), None
+
+
+def _topojson_geometry_count(payload: object) -> tuple[int | None, str | None]:
+    if not isinstance(payload, dict):
+        return None, "top-level must be an object"
+    if payload.get("type") != "Topology":
+        return None, "type must be 'Topology'"
+    objects = payload.get("objects")
+    if not isinstance(objects, dict) or not objects:
+        return None, "objects must be a non-empty object"
+
+    total = 0
+    for name, obj in objects.items():
+        if not isinstance(obj, dict):
+            return None, f"objects[{name!r}] must be an object"
+        obj_type = obj.get("type")
+        if obj_type == "GeometryCollection":
+            geometries = obj.get("geometries")
+            if not isinstance(geometries, list):
+                return None, f"objects[{name!r}].geometries must be an array"
+            total += len(geometries)
+            continue
+        if isinstance(obj_type, str) and obj_type in _TOPOJSON_SINGLE_GEOMETRY_TYPES:
+            total += 1
+            continue
+        return None, (
+            f"objects[{name!r}].type must be GeometryCollection or a "
+            "supported TopoJSON geometry type"
+        )
+    return total, None
+
+
+def tier_b_boundary_topo_feature_count_parity(root: Path) -> list[Failure]:
+    """Require TopoJSON geometry count to match sibling GeoJSON features."""
+    failures: list[Failure] = []
+    for topo_path in _iter_boundary_geometry_files(root):
+        if topo_path.suffix != ".topojson":
+            continue
+        topo_rel = _boundary_in_rel(topo_path, root)
+        geo_rel = topo_rel.removesuffix(".topojson") + ".geojson"
+        geo_path = root / BOUNDARY_GEOMETRY_DIR / Path(geo_rel)
+        if not geo_path.exists():
+            failures.append(
+                Failure(
+                    _posix(topo_path, root),
+                    "B",
+                    f"cannot compare feature counts: missing sibling {geo_rel!r}.",
+                )
+            )
+            continue
+
+        try:
+            topo_payload = _load_json(topo_path)
+        except json.JSONDecodeError as e:
+            failures.append(
+                Failure(_posix(topo_path, root), "B", f"invalid JSON: {e.msg} (line {e.lineno})")
+            )
+            continue
+        try:
+            geo_payload = _load_json(geo_path)
+        except json.JSONDecodeError as e:
+            failures.append(
+                Failure(_posix(geo_path, root), "B", f"invalid JSON: {e.msg} (line {e.lineno})")
+            )
+            continue
+
+        topo_count, topo_error = _topojson_geometry_count(topo_payload)
+        if topo_error is not None:
+            failures.append(Failure(_posix(topo_path, root), "B", topo_error))
+            continue
+        geo_count, geo_error = _geojson_feature_count(geo_payload)
+        if geo_error is not None:
+            failures.append(Failure(_posix(geo_path, root), "B", geo_error))
+            continue
+        if topo_count != geo_count:
+            failures.append(
+                Failure(
+                    _posix(topo_path, root),
+                    "B",
+                    f"topojson geometry count {topo_count} != sibling geojson "
+                    f"feature count {geo_count} for {geo_rel!r}.",
+                )
+            )
     return failures
 
 
@@ -1332,6 +1521,9 @@ def run(root: Path) -> list[Failure]:
         + tier_b(schemas, root)
         + tier_b_meadow_shard_contract(root)
         + tier_b_legacy_boundary_sidecars(root)
+        + tier_b_boundary_hive_path_shape(root)
+        + tier_b_boundary_topo_sibling_pairs(root)
+        + tier_b_boundary_topo_feature_count_parity(root)
         + tier_b_no_new_sub_fuel_shards(root)
         + tier_b_meadow_vintage_matches_source_id(root)
         + tier_b_indicator_freshness_declared(root)
