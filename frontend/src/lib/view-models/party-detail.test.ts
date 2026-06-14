@@ -27,9 +27,14 @@ vi.mock("./party-current-strength", () => ({
   loadPartyCurrentStrength: vi.fn(),
 }));
 
+vi.mock("./party-alliance-context", () => ({
+  loadPartyAllianceContext: vi.fn(),
+}));
+
 import { query, registerCsvFile } from "../duckdb";
 import { loadPartyMeta, type PartyMeta } from "./parties";
 import { loadPartyCurrentStrength } from "./party-current-strength";
+import { loadPartyAllianceContext } from "./party-alliance-context";
 import {
   __resetForTests,
   bodyForPeriodLabel,
@@ -49,6 +54,7 @@ const mockedQuery = vi.mocked(query);
 const mockedRegisterCsvFile = vi.mocked(registerCsvFile);
 const mockedLoadPartyMeta = vi.mocked(loadPartyMeta);
 const mockedLoadPartyCurrentStrength = vi.mocked(loadPartyCurrentStrength);
+const mockedLoadPartyAllianceContext = vi.mocked(loadPartyAllianceContext);
 
 /** Stub the global `fetch` used by `fetchLsMethodologyBreaks` so the
  *  view-model loader doesn't hit the network during tests. Each test
@@ -110,6 +116,12 @@ beforeEach(() => {
   // only stub the 2 detail-loader queries (history + strongholds)
   // don't have to absorb the strip loader's 2 extra parallel queries.
   mockedLoadPartyCurrentStrength.mockResolvedValue(null);
+  mockedLoadPartyAllianceContext.mockReset();
+  // PR-8: same null-by-default discipline as the strength strip -
+  // the Alliance Context loader reads party_alliances.csv +
+  // history.csv via its own DuckDB boundary, so tests that don't
+  // explicitly opt in get the suppressed-strip surface.
+  mockedLoadPartyAllianceContext.mockResolvedValue(null);
   stubMethodologyBreaksFetch();
 });
 
@@ -796,6 +808,70 @@ describe("loadPartyDetail", () => {
     const out = await loadPartyDetail("parties.IN.NOTA");
     expect(out!.current_strength).toBeNull();
     expect(mockedLoadPartyCurrentStrength).toHaveBeenCalledWith(
+      "parties.IN.NOTA",
+      expect.objectContaining({ is_sentinel: true }),
+    );
+  });
+
+  // PR-8: the Alliance Context strip is plumbed in parallel with the
+  // existing detail reads + the PR-7b strength strip. Same suppression
+  // discipline: surface whatever the loader returns; null hides the
+  // strip without breaking the page.
+  it("surfaces alliance_context from the strip loader on the view-model", async () => {
+    mockedLoadPartyMeta.mockResolvedValue(metaFixture());
+    mockedQuery.mockResolvedValue([]);
+    mockedLoadPartyAllianceContext.mockResolvedValue({
+      parliament: {
+        event_label: "Parliament 2024",
+        event_id: "general-2024",
+        alliance: "NDA",
+        role: "led",
+        partner_count: 2,
+        partner_names_top: ["JD(U)", "TDP"],
+        total_alliance_seats: 290,
+      },
+      state_assemblies: [
+        {
+          state: "maharashtra",
+          state_name: "Maharashtra",
+          event_label: "Maharashtra (2024)",
+          event_id: "general-2024",
+          alliance: "Mahayuti",
+          role: "led",
+          partner_count: 1,
+          partner_names_top: ["SHS"],
+          total_alliance_seats: 230,
+        },
+      ],
+    });
+    const out = await loadPartyDetail("parties.IN.DMK");
+    expect(out).not.toBeNull();
+    expect(out!.alliance_context).not.toBeNull();
+    expect(out!.alliance_context!.parliament!.alliance).toBe("NDA");
+    expect(out!.alliance_context!.state_assemblies).toHaveLength(1);
+    expect(out!.alliance_context!.state_assemblies[0]!.alliance).toBe(
+      "Mahayuti",
+    );
+    expect(mockedLoadPartyAllianceContext).toHaveBeenCalledWith(
+      "parties.IN.DMK",
+      expect.objectContaining({ is_sentinel: false }),
+    );
+  });
+
+  it("surfaces alliance_context=null for sentinel parties (NOTA / UNK)", async () => {
+    mockedLoadPartyMeta.mockResolvedValue(metaFixture({
+      party_id: "parties.IN.NOTA",
+      short: "NOTA",
+      full: "None of the Above",
+      is_sentinel: true,
+      recognition_scope: "sentinel",
+      founded_year: 2013,
+    }));
+    mockedQuery.mockResolvedValue([]);
+    mockedLoadPartyAllianceContext.mockResolvedValue(null);
+    const out = await loadPartyDetail("parties.IN.NOTA");
+    expect(out!.alliance_context).toBeNull();
+    expect(mockedLoadPartyAllianceContext).toHaveBeenCalledWith(
       "parties.IN.NOTA",
       expect.objectContaining({ is_sentinel: true }),
     );
