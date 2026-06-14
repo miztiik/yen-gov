@@ -24,6 +24,10 @@ import {
   loadPartyCurrentStrength,
   type PartyCurrentStrength,
 } from "./party-current-strength";
+import {
+  loadPartyAllianceContext,
+  type PartyAllianceContext,
+} from "./party-alliance-context";
 
 /** Party-page mart paths (repo-relative for columns.json lookup +
  *  runtime URL for DuckDB-WASM HTTP reads). */
@@ -172,6 +176,12 @@ export interface PartyDetailViewModel {
    *  parties with no contested history at all - the consumer
    *  (`PartyCurrentStrength.svelte`) renders nothing when null. */
   current_strength: PartyCurrentStrength | null;
+  /** PR-8: "Who they ride with" Alliance Context strip view-model.
+   *  Null for sentinel parties (NOTA / UNK), for Independent
+   *  (parties.IN.IND), and for parties with no alliance rows in
+   *  `datasets/data/entities/party_alliances.csv`. The consumer
+   *  (`PartyAllianceContext.svelte`) renders nothing when null. */
+  alliance_context: PartyAllianceContext | null;
 }
 
 /** Raw history-row shape from DuckDB. */
@@ -551,6 +561,13 @@ async function fetchPartyDetail(
   const current_strength_promise = loadPartyCurrentStrength(party_id, {
     is_sentinel: metadata.is_sentinel,
   }).catch(() => null);
+  // PR-8: the Alliance Context strip reads party_alliances.csv +
+  // history.csv via its own DuckDB boundary; it can run in parallel
+  // with the detail loader's own DuckDB reads. A failure surfaces
+  // null so the strip is suppressed rather than the whole page.
+  const alliance_context_promise = loadPartyAllianceContext(party_id, {
+    is_sentinel: metadata.is_sentinel,
+  }).catch(() => null);
   await Promise.all([
     registerCsvFile(PARTY_HISTORY_URL),
     registerCsvFile(PARTY_STRONGHOLDS_URL),
@@ -631,6 +648,7 @@ async function fetchPartyDetail(
     ls_history,
   );
   const current_strength = await current_strength_promise;
+  const alliance_context = await alliance_context_promise;
 
   return {
     metadata,
@@ -641,6 +659,7 @@ async function fetchPartyDetail(
     totals,
     ls_methodology_breaks,
     current_strength,
+    alliance_context,
   };
 }
 

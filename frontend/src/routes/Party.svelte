@@ -258,6 +258,13 @@
   // self-suppresses for sentinels (defence in depth) and for parties
   // with no contested history.
   import PartyCurrentStrength from "../lib/parties/PartyCurrentStrength.svelte";
+  // PR-8: "Who they ride with" Alliance Context strip sits directly
+  // under the Current Strength strip. The view-model is built by
+  // `loadPartyAllianceContext` and arrives on
+  // `view_model.alliance_context`; this component self-suppresses for
+  // sentinels (defence in depth) and for parties with no alliance
+  // rows on file (Independent + new entrants).
+  import PartyAllianceContext from "../lib/parties/PartyAllianceContext.svelte";
   import {
     homeStateEciCodes,
     mapPcStrongholdsToChoroplethRows,
@@ -512,6 +519,17 @@
          `is_sentinel` short-circuit (defence in depth). -->
     <PartyCurrentStrength
       current_strength={view_model.current_strength}
+      is_sentinel={meta.is_sentinel}
+    />
+
+    <!-- PR-8: "Who they ride with" Alliance Context strip. Sits
+         directly under the Current Strength strip and above the
+         latest-of one-liners. Hidden for sentinels (NOTA / UNK),
+         Independent (parties.IN.IND), and parties with no alliance
+         rows on file - via both the upstream view-model returning
+         null AND the component's own short-circuit. -->
+    <PartyAllianceContext
+      alliance_context={view_model.alliance_context}
       is_sentinel={meta.is_sentinel}
     />
 

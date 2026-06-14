@@ -75,6 +75,10 @@ function viewModelFixture(
     // existing pure-helper tests don't have to fabricate a populated
     // strip shape; new strip-aware tests override per-case.
     current_strength: null,
+    // PR-8: Alliance Context strip view-model. Same null-default
+    // discipline - existing tests don't need to fabricate the
+    // alliance shape; new alliance-aware tests override per-case.
+    alliance_context: null,
     ...overrides,
   };
 }
