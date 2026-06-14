@@ -89,17 +89,17 @@ Citizen Section 5 surfaced these as the questions citizens ask on a party page t
 
 | Row | Title | Status | PR | Effort |
 |---|---|---|---|---|
-| PR-1 | Items 2 — NOTA + Independent strips (frontend-only; rewrites `sentinelFraming()`) | [ ] PENDING | — | ~30 min |
-| PR-2 | Item 4 — Recognition-flip strips (5 parties; new helper + component) | [ ] PENDING | — | ~3h |
-| PR-3 | Item 1 — Backbone wiring (DELIM_BY_GE_YEAR + 10 PcGeEvent constants + tests) | [ ] PENDING | — | ~2h |
-| PR-4 | Item 1 — Methodology breaks (2 new rows for `lspc-delim-1967` + `lspc-delim-1976`) | [ ] PENDING | — | ~1h |
-| PR-5 | Item 1 — 1967 cohort entity seeding (~520 electoral.csv rows + 15 crosswalk overrides) | [x] COLLAPSED-with-receipt | — | ~30 min |
-| PR-6 | Item 1 — Pre-1990 party-resolver alias expansion (~30-50 aliases + INC_I row + BJS/JNP/LKD/BLD lineage) | [x] COLLAPSED-with-receipt | — | ~30 min |
-| PR-7 | Item 3 — `parties_leadership.csv` schema + columns.json + JSON Schema + ingester module (no data yet) | [ ] PENDING | — | ~4h |
-| PR-8 | Item 1 — Pre-1999 LS ingest DISPATCH (10 cycles × ~3min wall-clock + regen + tile-layout audit) | [ ] PENDING | — | ~3h |
-| PR-9 | Item 3 — Wikidata SPARQL JSON snapshot + parties_leadership.csv data load (~80 parties × ~3 leaders) | [ ] PENDING | — | ~3h |
+| PR-1 | Items 2 — NOTA + Independent strips (frontend-only; rewrites `sentinelFraming()`) | [x] SHIPPED | #991 `4c45658a3` | ~30 min |
+| PR-2 | Item 4 — Recognition-flip strips (5 parties; new helper + component) | [x] SHIPPED | #992 `d89f158a5` | ~3h |
+| PR-3 | Item 1 — Backbone wiring (DELIM_BY_GE_YEAR + 10 PcGeEvent constants + tests) | [x] SHIPPED | #993 `129481bd4` | ~2h |
+| PR-4 | Item 1 — Methodology breaks (2 new rows for `lspc-delim-1967` + `lspc-delim-1976`) | [x] SHIPPED | #994 `c8e932e27` | ~1h |
+| PR-5 | Item 1 — 1967 cohort entity seeding (~520 electoral.csv rows + 15 crosswalk overrides) | [x] COLLAPSED-with-receipt | #997 `d27e1554b` | ~30 min |
+| PR-6 | Item 1 — Pre-1990 party-resolver alias expansion (~30-50 aliases + INC_I row + BJS/JNP/LKD/BLD lineage) | [x] COLLAPSED-with-receipt | #999 `44a05856e` | ~30 min |
+| PR-7 | Item 3 — `parties_leadership.csv` schema + columns.json + JSON Schema + ingester module (no data yet) | [x] SHIPPED | #995 `284b0581a` | ~4h |
+| PR-8 | Item 1 — Pre-1999 LS ingest DISPATCH (5 cycles × ~3min wall-clock + regen + tile-layout audit) | [x] SHIPPED | #1003 `5c251a23e` | ~3h |
+| PR-9 | Item 3 — Wikidata SPARQL JSON snapshot + parties_leadership.csv data load (~80 parties × ~3 leaders) | [ ] DEFERRED — operator-blocked (live SPARQL endpoint) | — | ~3h |
 | PR-10 | Item 1 — Frontend cleanup: remove pre-1999 caption + add methodology-break markers on DualAxisBarLine + ship BJP 1980 founding strip | [ ] PENDING | — | ~3h |
-| PR-11 | Item 3 — Frontend wiring: PartyPill tooltip + Party.svelte header reads leadership table; stale-snapshot caption | [ ] PENDING | — | ~3h |
+| PR-11 | Item 3 — Frontend wiring: PartyPill tooltip + Party.svelte header reads leadership table; stale-snapshot caption | [ ] DEFERRED — depends on PR-9 | — | ~3h |
 | PR-12 | Item 5 — Stronghold choropleth (PartyStrongholdMap component + view-model + Party.svelte integration; A+B variant) | [ ] PENDING | — | ~5h |
 | PR-13 | Closure: archive plan-doc to `docs/archive/plans/` + section 14 closure ledger fill | [ ] PENDING | — | ~30 min |
 
@@ -749,16 +749,16 @@ To be filled as PRs land.
 
 | PR | Branch | Merge SHA | Status | Notes |
 |---|---|---|---|---|
-| PR-1 | feat/party-fu-nota-independent-strips | — | [ ] PENDING | — |
-| PR-2 | feat/party-fu-recognition-strips | — | [ ] PENDING | — |
-| PR-3 | feat/party-fu-pre1999-backbone | — | [ ] PENDING | — |
-| PR-4 | feat/party-fu-methodology-breaks | — | [ ] PENDING | — |
-| PR-5 | chore/party-fu-1967-cohort-verify | — | [x] COLLAPSED-with-receipt | 1967 cohort already on disk; receipt test pins all 4 PC cohorts |
-| PR-6 | feat/party-fu-historical-party-aliases | — | [ ] PENDING | — |
-| PR-7 | feat/party-fu-wikidata-schema | — | [ ] PENDING | — |
-| PR-8 | feat/party-fu-pre1999-dispatch | — | [ ] PENDING | — |
-| PR-9 | feat/party-fu-wikidata-data-load | — | [ ] PENDING | — |
+| PR-1 | feat/party-fu-nota-indep-strips | #991 | [x] SHIPPED | `4c45658a3` |
+| PR-2 | feat/party-fu-recognition-flip-strips | #992 | [x] SHIPPED | `d89f158a5` |
+| PR-3 | feat/party-fu-pre1999-backbone | #993 | [x] SHIPPED | `129481bd4` |
+| PR-4 | feat/party-fu-methodology-breaks | #994 | [x] SHIPPED | `c8e932e27` |
+| PR-5 | feat/party-fu-1967-cohort-receipt | #997 | [x] COLLAPSED | `d27e1554b` (4 cohort-receipt tests; entities already on disk) |
+| PR-6 | feat/party-fu-pre1990-aliases-receipt | #999 | [x] COLLAPSED | `44a05856e` (4 resolver-receipt tests; resolver already at 99.73%) |
+| PR-7 | feat/party-fu-wikidata-schema | #995 | [x] SHIPPED | `284b0581a` |
+| PR-8 | feat/party-fu-pre1999-dispatch | #1003 | [x] SHIPPED | `5c251a23e` (10,777 rows / 31 states / 5 cycles + 139 events + Path-A unblocks) |
+| PR-9 | feat/party-fu-wikidata-data-load | — | [ ] DEFERRED | operator-blocked (live Wikidata SPARQL endpoint per user direction) |
 | PR-10 | feat/party-fu-frontend-pre1999-cleanup | — | [ ] PENDING | — |
-| PR-11 | feat/party-fu-frontend-leader-display | — | [ ] PENDING | — |
+| PR-11 | feat/party-fu-frontend-leader-display | — | [ ] DEFERRED | depends on PR-9 data load |
 | PR-12 | feat/party-fu-stronghold-choropleth | — | [ ] PENDING | — |
 | PR-13 | docs(plans): archive 20260613 deferred-followups plan | — | [ ] PENDING | — |
