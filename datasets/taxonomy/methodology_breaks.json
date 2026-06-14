@@ -52,7 +52,7 @@
       "at_year": 1967,
       "at_period_seq": 2,
       "kind": "frame_change",
-      "note": "Parliament constituency boundaries shifted from the 1951-Order delimitation (used 1952-1962) to the 1962 Delimitation Commission output (used 1967 and 1971). Per-constituency comparisons across this year are not valid; per-state aggregates are. PR-4 of TODO/20260613-party-deferred-followups-plan.md (Max Q1.1d). PR-10 will render the marker on DualAxisBarLine.",
+      "note": "Parliament constituency boundaries shifted from the 1951-Order delimitation (used 1952-1962) to the 1962 Delimitation Commission output (used 1967 and 1971). Per-constituency comparisons across this year are not valid; per-state aggregates are.",
       "publisher_url": "https://eci.gov.in/files/file/14045-delimitation-order-1976/",
       "supersedes_methodology_version": null
     },
@@ -61,7 +61,7 @@
       "at_year": 1977,
       "at_period_seq": 3,
       "kind": "frame_change",
-      "note": "Parliament constituency boundaries shifted to the 1971-72 Delimitation Commission output (frozen by 42nd Amendment until 2008). Per-constituency comparisons across 1971->1977 are not valid; per-state aggregates are. PR-4 of TODO/20260613-party-deferred-followups-plan.md (Max Q1.1d). PR-10 will render the marker on DualAxisBarLine.",
+      "note": "Parliament constituency boundaries shifted to the 1971-72 Delimitation Commission output (frozen by 42nd Amendment until 2008). Per-constituency comparisons across 1971->1977 are not valid; per-state aggregates are.",
       "publisher_url": "https://eci.gov.in/files/file/14045-delimitation-order-1976/",
       "supersedes_methodology_version": "lspc-delim-1967"
     },
@@ -70,7 +70,7 @@
       "at_year": 2009,
       "at_period_seq": 5,
       "kind": "frame_change",
-      "note": "Parliament constituency boundaries shifted to the 2008 Delimitation Commission output after the 42nd-Amendment freeze ended. Per-constituency comparisons across 2004->2009 are not valid; per-state aggregates are. PR-4 of TODO/20260613-party-deferred-followups-plan.md (Max Q1.1d) — added alongside lspc-delim-1967 + lspc-delim-1976 so the full pre-1999 + post-1998 delimitation-break chain is represented. PR-10 will render the marker on DualAxisBarLine.",
+      "note": "Parliament constituency boundaries shifted to the 2008 Delimitation Commission output after the 42nd-Amendment freeze ended. Per-constituency comparisons across 2004->2009 are not valid; per-state aggregates are.",
       "publisher_url": "https://eci.gov.in/files/file/14046-delimitation-order-2008/",
       "supersedes_methodology_version": "lspc-delim-1976"
     }
