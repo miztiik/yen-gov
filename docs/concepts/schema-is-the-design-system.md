@@ -1,6 +1,6 @@
 # The schema is the design system
 
-**Last Updated**: 2026-05-27
+**Last Updated**: 2026-06-14
 
 This is a permanent guardrail for yen-gov. It captures the UI/UX standing position formalised during the the IA reset (2026-05-11) and made structural by [ADR-0022](place-first-ia.md#adr-0022-place-first-ia-with-topic-catalogue).
 
@@ -90,6 +90,25 @@ Bars + line on a shared X axis with dual Y axes (left for bars, right for line /
 **Mobile contract.** X-label stride thins to a caller-provided `mobile_label_stride` (default 4) at viewport widths < 640px. Tap-on-bar reveals year + both values via the shared `ChartTooltip`.
 
 **Reuse guard.** Future bar+line uses MUST mount this primitive; new "bar+line" surfaces that bypass it violate the closed-set rule.
+
+#### Mode: `composite` (PR-10 of [TODO/20260614-party-page-reimagination-plan.md](../../TODO/20260614-party-page-reimagination-plan.md), 2026-06-14)
+
+Additive `mode: "composite" | "dual-axis"` prop (default `"dual-axis"` preserves the pre-PR-10 contract for every existing caller). In composite mode the renderer collapses to a SINGLE Y axis:
+
+- **Bar height** encodes the bar series value on the left axis (caller usually passes `bar_y_label="Vote share %"` + a percent-formatting `bar_format`; the left axis is clamped to 100 when the formatter emits a `%`-suffixed string for 1.0).
+- **Bar fill** splits into two stacked rects per X band — an outer `data-overlay="contested-fill"` rect at 40% opacity covering the full bar height, and an inner `data-overlay="seats-fill"` rect at 100% opacity covering `bar_height * (seats_won / seats_contested)` rooted at the bottom. The conversion ratio is clamped to `[0, 1]` (defensive against data errors); when `seats_contested <= 0`, the inner rect collapses to height 0 and the tooltip surfaces `(did not contest)` instead of the conversion line.
+- **Line series + right Y axis + second legend entry are hidden.** Caller passes `line={[]}`.
+- **Tooltip** swaps to the composite payload: `<year>` title, `<period_label>` subtitle, three lines (Vote share / Seats X of Y contested / Seat conversion N%) or two when contested = 0.
+
+**Qualifying indicators (>=2 threshold satisfied):**
+
+1. Per-party Parliament cycle history on `/parties/<slug>`: vote-share % bars with seats-of-contested overlay.
+2. Per-party State Assembly cycle history on the same page: parallel section with the same encoding.
+3. Future: per-event vote-share + winner margin overlay; per-state turnout + valid-vote-share overlay.
+
+**Citizen-precedent.** The composite encoding (bar height = primary rate, bar fill = success ratio) is the OWID Grapher's "stacked discrete bar with fraction overlay" pattern. The page lift gives the citizen a single visual answer to "did the party contest widely, and how often did contesting convert to winning?" — replacing the prior two-axis seats+vote-share juxtaposition that buried the conversion question.
+
+**Section glyphs.** Each per-body section (Parliament + State Assembly) gets a `TopicIcon` glyph on its KPI tile label, chart H2, and stronghold subheader: `landmark` for Parliament; `flag` for State Assembly. Glyphs sit inside `inline-flex items-center gap-2` wrappers preserving the H2/H3 text classes; the underlying `TopicIcon` silent-misses unknown names so an icon-pack regression never crashes the page.
 
 ## What gets rejected at PR
 

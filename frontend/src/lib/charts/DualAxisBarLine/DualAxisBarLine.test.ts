@@ -8,8 +8,10 @@
 
 import { describe, expect, it } from "vitest";
 import {
+  buildCompositeTooltip,
   buildMethodologyTooltip,
   buildScales,
+  composeCompositeBarSegments,
   computeMethodologyBreakMarkers,
   pickLabelStride,
   yearFromPeriodLabel,
@@ -339,5 +341,122 @@ describe("buildMethodologyTooltip", () => {
     const out = buildMethodologyTooltip(markerFixture(), 123, 456);
     expect(out.x).toBe(123);
     expect(out.y).toBe(456);
+  });
+});
+
+// --- composeCompositeBarSegments (PR-10) ----------------------------------
+
+describe("composeCompositeBarSegments", () => {
+  it("returns the full bar as `contested` and a bottom band sized by the seat-conversion ratio", () => {
+    // bar_y=20 + inner_h=100 -> bar_height=80. Half-conversion -> seats
+    // band fills the bottom 40 pixels (80 * 0.5), rooted at y = inner_h
+    // - 40 = 60.
+    const seg = composeCompositeBarSegments(20, 100, 5, 10);
+    expect(seg.contested_y).toBe(20);
+    expect(seg.contested_h).toBe(80);
+    expect(seg.seats_y).toBeCloseTo(60, 5);
+    expect(seg.seats_h).toBeCloseTo(40, 5);
+    expect(seg.seat_conversion_ratio).toBeCloseTo(0.5, 5);
+  });
+
+  it("collapses the seats band to height zero when seats_contested is zero (party did not contest)", () => {
+    const seg = composeCompositeBarSegments(50, 200, 0, 0);
+    expect(seg.contested_h).toBe(150);
+    expect(seg.seats_h).toBe(0);
+    expect(seg.seat_conversion_ratio).toBe(0);
+  });
+
+  it("clamps the seat-conversion ratio to 1 when seats_won exceeds seats_contested (defensive)", () => {
+    // Won > contested is a data error. Defensive: ratio clamps to 1 so
+    // the seats band can't escape the contested band.
+    const seg = composeCompositeBarSegments(0, 100, 12, 10);
+    expect(seg.seat_conversion_ratio).toBe(1);
+    expect(seg.seats_h).toBeCloseTo(100, 5);
+    expect(seg.seats_y).toBeCloseTo(0, 5);
+  });
+
+  it("clamps negative inputs to zero (defensive)", () => {
+    const seg = composeCompositeBarSegments(10, 100, -5, 10);
+    expect(seg.seat_conversion_ratio).toBe(0);
+    expect(seg.seats_h).toBe(0);
+  });
+
+  it("collapses both bands to zero height when bar_y matches inner_h (vote-share is zero)", () => {
+    const seg = composeCompositeBarSegments(100, 100, 5, 10);
+    expect(seg.contested_h).toBe(0);
+    expect(seg.seats_h).toBe(0);
+  });
+});
+
+// --- buildCompositeTooltip (PR-10) ----------------------------------------
+
+describe("buildCompositeTooltip", () => {
+  const fmt = (n: number) => `${n.toFixed(1)}%`;
+
+  it("titles with the year derived from period_label and carries the period_label as subtitle", () => {
+    const out = buildCompositeTooltip(
+      "general-2024",
+      37.4,
+      240,
+      441,
+      fmt,
+      "#FF9933",
+      100,
+      200,
+    );
+    expect(out.title).toBe("2024");
+    expect(out.subtitle).toBe("general-2024");
+    expect(out.color).toBe("#FF9933");
+    expect(out.x).toBe(100);
+    expect(out.y).toBe(200);
+  });
+
+  it("emits three lines when seats_contested > 0: vote-share, seats-of-contested, seat conversion %", () => {
+    const out = buildCompositeTooltip(
+      "general-2024",
+      37.4,
+      240,
+      441,
+      fmt,
+      "#FF9933",
+      0,
+      0,
+    );
+    expect(out.lines).toHaveLength(3);
+    expect(out.lines[0]).toEqual({ label: "Vote share", value: "37.4%" });
+    expect(out.lines[1]).toEqual({ label: "Seats", value: "240 of 441 contested" });
+    expect(out.lines[2]?.label).toBe("Seat conversion");
+    // 240/441 = 0.544..., -> 54.4% (1dp).
+    expect(out.lines[2]?.value).toBe("54.4%");
+  });
+
+  it("omits the seat-conversion line and tags `(did not contest)` when seats_contested is zero", () => {
+    const out = buildCompositeTooltip(
+      "general-1999",
+      0,
+      0,
+      0,
+      fmt,
+      "#FF9933",
+      0,
+      0,
+    );
+    expect(out.lines).toHaveLength(2);
+    expect(out.lines[0]).toEqual({ label: "Vote share", value: "0.0%" });
+    expect(out.lines[1]).toEqual({ label: "Seats", value: "0 won (did not contest)" });
+  });
+
+  it("renders the conversion ratio with one decimal place (5/10 = 50.0%)", () => {
+    const out = buildCompositeTooltip(
+      "general-2014",
+      20.0,
+      5,
+      10,
+      fmt,
+      "#138808",
+      0,
+      0,
+    );
+    expect(out.lines[2]).toEqual({ label: "Seat conversion", value: "50.0%" });
   });
 });

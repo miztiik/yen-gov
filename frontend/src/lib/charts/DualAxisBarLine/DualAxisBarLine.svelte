@@ -199,6 +199,118 @@
     hint?: string;
   }
 
+  /** PR-10 of TODO/20260614-party-page-reimagination-plan.md: per-bar
+   *  geometry for the composite-mode renderer. The composite mode
+   *  collapses the bar + line series into a single bar whose HEIGHT
+   *  encodes vote-share % (single Y axis) and whose FILL splits into
+   *  two stacked rects - a darker bottom band sized
+   *  `bar_height * (seats_won / seats_contested)` (the seat
+   *  conversion ratio) and a 40%-opacity upper band that completes
+   *  the full bar height. Both rects sit on the same X band; the
+   *  consumer plots them via the returned (y, h) pairs.
+   *
+   *  Defensive: `seats_contested <= 0` collapses the conversion
+   *  ratio to 0 (no darker band rendered); negative inputs are
+   *  clamped to 0 to keep the SVG geometry positive. */
+  export interface CompositeBarSegments {
+    /** Y of the contested-fill (full bar) rect - the bar's top. */
+    contested_y: number;
+    /** Height of the contested-fill rect - the full bar height. */
+    contested_h: number;
+    /** Y of the seats-fill (darker bottom band) rect. Sits between
+     *  `inner_h - seats_h` and `inner_h`. */
+    seats_y: number;
+    /** Height of the seats-fill rect -
+     *  `contested_h * (seats_won / seats_contested)`. */
+    seats_h: number;
+    /** Conversion ratio 0..1; 0 when `seats_contested <= 0`. */
+    seat_conversion_ratio: number;
+  }
+
+  export function composeCompositeBarSegments(
+    bar_y: number,
+    inner_h: number,
+    seats_won: number,
+    seats_contested: number,
+  ): CompositeBarSegments {
+    const contested_y = bar_y;
+    const contested_h = Math.max(0, inner_h - bar_y);
+    const denom = Number.isFinite(seats_contested)
+      ? Math.max(0, seats_contested)
+      : 0;
+    const num = Number.isFinite(seats_won) ? Math.max(0, seats_won) : 0;
+    const ratio = denom <= 0 ? 0 : Math.min(1, num / denom);
+    const seats_h = contested_h * ratio;
+    const seats_y = inner_h - seats_h;
+    return {
+      contested_y,
+      contested_h,
+      seats_y,
+      seats_h,
+      seat_conversion_ratio: ratio,
+    };
+  }
+
+  /** PR-10: composite-mode tooltip payload. The citizen reads:
+   *    "<year>"                           (title)
+   *    "<period_label>"                   (subtitle, ECI event id)
+   *    Vote share        36.5%
+   *    Seats             211 of 543 contested
+   *    Seat conversion   38.9%
+   *  When `seats_contested <= 0` the seat-conversion line is
+   *  omitted (no honest ratio to surface). */
+  export function buildCompositeTooltip(
+    period_label: string,
+    vote_share_pct: number,
+    seats_won: number,
+    seats_contested: number,
+    bar_format: (n: number) => string,
+    bar_color: string,
+    x: number,
+    y: number,
+  ): CompositeTooltipPayload {
+    const lines: { label: string; value: string }[] = [
+      { label: "Vote share", value: bar_format(vote_share_pct) },
+    ];
+    if (seats_contested > 0) {
+      lines.push({
+        label: "Seats",
+        value: `${seats_won.toLocaleString()} of ${seats_contested.toLocaleString()} contested`,
+      });
+      const conversion_pct = (seats_won / seats_contested) * 100;
+      lines.push({
+        label: "Seat conversion",
+        value: `${conversion_pct.toFixed(1)}%`,
+      });
+    } else {
+      lines.push({
+        label: "Seats",
+        value: `${seats_won.toLocaleString()} won (did not contest)`,
+      });
+    }
+    return {
+      x,
+      y,
+      color: bar_color,
+      title: yearFromPeriodLabel(period_label),
+      subtitle: period_label,
+      lines,
+    };
+  }
+
+  /** PR-10: shape returned by `buildCompositeTooltip`. Mirrors the
+   *  `TooltipState` interface in `ChartTooltip.svelte` (re-declared
+   *  here so the module block stays standalone-importable from
+   *  vitest without dragging the Svelte runtime in). */
+  export interface CompositeTooltipPayload {
+    x: number;
+    y: number;
+    color: string;
+    title: string;
+    subtitle: string;
+    lines: { label: string; value: string }[];
+  }
+
   /** Pure: compute the marker positions for each methodology-break
    *  row given the chart's chronological X domain. Markers whose
    *  `at_year` falls entirely OUTSIDE the visible domain - i.e.
@@ -248,6 +360,16 @@
   interface BarDatum {
     period_label: string;
     value: number;
+    /** PR-10 composite-mode only: seats won this cycle. Ignored in
+     *  the default `dual-axis` mode. Required when `mode="composite"`
+     *  - the renderer treats missing as 0 (defensive). */
+    seats_won?: number;
+    /** PR-10 composite-mode only: seats this party CONTESTED this
+     *  cycle (denominator of the seat-conversion ratio). Ignored in
+     *  the default `dual-axis` mode. When 0 or missing, the
+     *  conversion ratio collapses to 0 and the darker bottom band
+     *  does not render. */
+    seats_contested?: number;
   }
   interface LineDatum {
     period_label: string;
@@ -269,6 +391,27 @@
      *  markers between bars. Default empty preserves the pre-PR-10
      *  signature for any caller that doesn't surface breaks. */
     methodology_breaks?: readonly MethodologyBreakRow[];
+    /** PR-10 of TODO/20260614-party-page-reimagination-plan.md: the
+     *  renderer's encoding mode.
+     *
+     *  - `"dual-axis"` (default; preserves the pre-PR-10 contract):
+     *    bars on the left axis, line on the right axis. Used by any
+     *    caller that hasn't opted in.
+     *  - `"composite"`: single Y axis (left, labelled with
+     *    `bar_y_label` - caller usually passes "Vote share %"). Each
+     *    bar renders TWO stacked rects on the same X band - an outer
+     *    `contested-fill` rect at 40% opacity covering the full bar
+     *    height, and an inner `seats-fill` rect at 100% opacity
+     *    covering `bar_height * (seats_won / seats_contested)` from
+     *    the bottom. The line series + right Y axis are hidden. The
+     *    bar tooltip surfaces the composite payload (vote-share +
+     *    seats-of-contested + seat-conversion %).
+     *
+     *  The composite mode consumes the optional `seats_won` +
+     *  `seats_contested` fields on each `BarDatum`. Bars missing
+     *  those fields render as a single full-opacity rect (defensive
+     *  fallback identical to the dual-axis mode's bar). */
+    mode?: "composite" | "dual-axis";
   }
 
   let {
@@ -283,6 +426,7 @@
     height = 360,
     mobile_label_stride = 4,
     methodology_breaks = [],
+    mode = "dual-axis",
   }: Props = $props();
 
   // Layout constants. Symmetric left/right margins for the dual axes.
@@ -311,6 +455,16 @@
     return scales.right_y_max;
   });
 
+  // PR-10: same percentage-clamp for the LEFT axis when composite
+  // mode's bar_format produces a `%`-suffixed string for 1.0. In
+  // dual-axis mode the left axis carries an absolute count and the
+  // clamp is a no-op (Math.max(0, left_y_max) === left_y_max).
+  const left_y_cap = $derived.by(() => {
+    const sample = bar_format(1.0);
+    if (sample.includes("%")) return Math.max(100, scales.left_y_max);
+    return scales.left_y_max;
+  });
+
   const x_scale = $derived(
     scaleBand<string>()
       .domain([...scales.x_domain])
@@ -318,7 +472,7 @@
       .padding(0.18),
   );
   const left_y_scale = $derived(
-    scaleLinear().domain([0, scales.left_y_max]).range([inner_h, 0]).nice(),
+    scaleLinear().domain([0, left_y_cap]).range([inner_h, 0]).nice(),
   );
   const right_y_scale = $derived(
     scaleLinear().domain([0, right_y_cap]).range([inner_h, 0]).nice(),
@@ -333,7 +487,7 @@
     for (let i = 0; i <= count; i += 1) out.push(step * i);
     return out;
   }
-  const LEFT_TICKS = $derived(ticks(scales.left_y_max, 5));
+  const LEFT_TICKS = $derived(ticks(left_y_cap, 5));
   const RIGHT_TICKS = $derived(ticks(right_y_cap, 5));
 
   const stride = $derived(
@@ -361,6 +515,19 @@
   // it via the bar/dot mouse handlers.
   let tip = $state<TooltipState | null>(null);
   function onBarEnter(e: MouseEvent, datum: BarDatum): void {
+    if (mode === "composite") {
+      tip = buildCompositeTooltip(
+        datum.period_label,
+        datum.value,
+        datum.seats_won ?? 0,
+        datum.seats_contested ?? 0,
+        bar_format,
+        bar_color,
+        e.clientX,
+        e.clientY,
+      );
+      return;
+    }
     const lineValue = line.find((l) => l.period_label === datum.period_label)?.value;
     const yearStr = yearFromPeriodLabel(datum.period_label);
     tip = {
@@ -456,16 +623,19 @@
           >{bar_format(t)}</text>
         {/each}
 
-        <!-- Right Y ticks (labels only; reuse the left grid). -->
-        {#each RIGHT_TICKS as t (`ry-${t}`)}
-          <text
-            x={inner_w + 8}
-            y={right_y_scale(t)}
-            text-anchor="start"
-            dominant-baseline="middle"
-            class="fill-slate-500 text-[10px]"
-          >{line_format(t)}</text>
-        {/each}
+        <!-- Right Y ticks (labels only; reuse the left grid). Hidden
+             in composite mode - there is no right axis to label. -->
+        {#if mode === "dual-axis"}
+          {#each RIGHT_TICKS as t (`ry-${t}`)}
+            <text
+              x={inner_w + 8}
+              y={right_y_scale(t)}
+              text-anchor="start"
+              dominant-baseline="middle"
+              class="fill-slate-500 text-[10px]"
+            >{line_format(t)}</text>
+          {/each}
+        {/if}
 
         <!-- Axis labels -->
         <text
@@ -475,34 +645,95 @@
           transform="rotate(-90)"
           class="fill-slate-700 text-xs font-medium"
         >{bar_y_label}</text>
-        <text
-          x={inner_h / 2}
-          y={inner_w + 36}
-          text-anchor="middle"
-          transform="rotate(90)"
-          class="fill-slate-700 text-xs font-medium"
-        >{line_y_label}</text>
+        {#if mode === "dual-axis"}
+          <text
+            x={inner_h / 2}
+            y={inner_w + 36}
+            text-anchor="middle"
+            transform="rotate(90)"
+            class="fill-slate-700 text-xs font-medium"
+          >{line_y_label}</text>
+        {/if}
 
-        <!-- Bars -->
+        <!-- Bars. Dual-axis mode: single rect per bar (existing
+             behaviour). Composite mode: two stacked rects per bar -
+             an outer `contested-fill` at 40% opacity spanning the
+             full bar height, and an inner `seats-fill` at full
+             opacity spanning the seat-conversion ratio from the
+             bottom. The hover halo is delivered by an invisible
+             hit rect spanning the full bar so the citizen can
+             aim at any pixel of the cycle (Jony 1d). -->
         {#each bars as b, i (`bar-${b.period_label}-${i}`)}
           {@const bx = x_scale(b.period_label) ?? 0}
           {@const by = left_y_scale(b.value)}
           {@const bw = x_scale.bandwidth()}
           {@const bh = Math.max(0, inner_h - by)}
-          <rect
-            x={bx}
-            y={by}
-            width={bw}
-            height={bh}
-            fill={bar_color}
-            fill-opacity={tip && tip.subtitle === b.period_label ? 1 : 0.85}
-            stroke={tip && tip.subtitle === b.period_label ? "#0f172a" : "none"}
-            stroke-width={tip && tip.subtitle === b.period_label ? 1 : 0}
-            class="cursor-pointer"
-            data-testid={`bar-${b.period_label}`}
-            onmouseenter={(e) => onBarEnter(e, b)}
-            onmouseleave={onBarLeave}
-          />
+          {#if mode === "composite"}
+            {@const seg = composeCompositeBarSegments(
+              by,
+              inner_h,
+              b.seats_won ?? 0,
+              b.seats_contested ?? 0,
+            )}
+            <rect
+              x={bx}
+              y={seg.contested_y}
+              width={bw}
+              height={seg.contested_h}
+              fill={bar_color}
+              fill-opacity={0.4}
+              stroke={tip && tip.subtitle === b.period_label ? "#0f172a" : "none"}
+              stroke-width={tip && tip.subtitle === b.period_label ? 1 : 0}
+              data-mode="composite"
+              data-overlay="contested-fill"
+              data-testid={`bar-${b.period_label}-contested`}
+              pointer-events="none"
+            />
+            {#if seg.seats_h > 0}
+              <rect
+                x={bx}
+                y={seg.seats_y}
+                width={bw}
+                height={seg.seats_h}
+                fill={bar_color}
+                fill-opacity={1}
+                data-mode="composite"
+                data-overlay="seats-fill"
+                data-testid={`bar-${b.period_label}-seats`}
+                pointer-events="none"
+              />
+            {/if}
+            <!-- Hit rect: transparent, covers the full bar so a tap
+                 anywhere on the cycle column wakes the tooltip. -->
+            <rect
+              x={bx}
+              y={seg.contested_y}
+              width={bw}
+              height={seg.contested_h}
+              fill="transparent"
+              class="cursor-pointer"
+              data-mode="composite"
+              data-overlay="hit"
+              data-testid={`bar-${b.period_label}`}
+              onmouseenter={(e) => onBarEnter(e, b)}
+              onmouseleave={onBarLeave}
+            />
+          {:else}
+            <rect
+              x={bx}
+              y={by}
+              width={bw}
+              height={bh}
+              fill={bar_color}
+              fill-opacity={tip && tip.subtitle === b.period_label ? 1 : 0.85}
+              stroke={tip && tip.subtitle === b.period_label ? "#0f172a" : "none"}
+              stroke-width={tip && tip.subtitle === b.period_label ? 1 : 0}
+              class="cursor-pointer"
+              data-testid={`bar-${b.period_label}`}
+              onmouseenter={(e) => onBarEnter(e, b)}
+              onmouseleave={onBarLeave}
+            />
+          {/if}
         {/each}
 
         <!-- PR-10 methodology-break markers. Rendered AFTER bars
@@ -548,33 +779,37 @@
           </g>
         {/each}
 
-        <!-- Line + dots -->
-        {#if line_path}
-          <path
-            d={line_path}
-            fill="none"
-            stroke={line_color}
-            stroke-width={2}
-            stroke-linejoin="round"
-            data-testid="line-path"
-          />
-        {/if}
-        {#each line as l, i (`dot-${l.period_label}-${i}`)}
-          {@const lx = x_scale(l.period_label)}
-          {#if lx !== undefined}
-            {@const cx = lx + x_scale.bandwidth() / 2}
-            {@const cy = right_y_scale(l.value)}
-            <circle
-              {cx}
-              {cy}
-              r={4}
-              fill={line_color}
-              stroke="#ffffff"
-              stroke-width={1.5}
-              data-testid={`dot-${l.period_label}`}
+        <!-- Line + dots. Hidden entirely in composite mode - the
+             vote-share % is carried by the bar height itself, not a
+             separate series. -->
+        {#if mode === "dual-axis"}
+          {#if line_path}
+            <path
+              d={line_path}
+              fill="none"
+              stroke={line_color}
+              stroke-width={2}
+              stroke-linejoin="round"
+              data-testid="line-path"
             />
           {/if}
-        {/each}
+          {#each line as l, i (`dot-${l.period_label}-${i}`)}
+            {@const lx = x_scale(l.period_label)}
+            {#if lx !== undefined}
+              {@const cx = lx + x_scale.bandwidth() / 2}
+              {@const cy = right_y_scale(l.value)}
+              <circle
+                {cx}
+                {cy}
+                r={4}
+                fill={line_color}
+                stroke="#ffffff"
+                stroke-width={1.5}
+                data-testid={`dot-${l.period_label}`}
+              />
+            {/if}
+          {/each}
+        {/if}
 
         <!-- X-axis tick labels (with stride thinning) -->
         {#each scales.x_domain as period, i (`xt-${period}-${i}`)}
@@ -591,29 +826,50 @@
       </g>
     </svg>
 
-    <!-- Legend below the chart. -->
+    <!-- Legend below the chart. Composite mode swaps the dual
+         bar/line legend for a single two-tone bar key (full = seats
+         contested, darker bottom = seats won). -->
     <div
       class="mt-2 flex flex-wrap items-center gap-4 text-xs text-slate-600"
       data-testid="dual-axis-bar-line-legend"
     >
-      <span class="inline-flex items-center gap-1.5">
-        <span
-          class="inline-block h-3 w-3 rounded-sm"
-          style:background-color={bar_color}
-        ></span>
-        {bar_y_label}
-      </span>
-      <span class="inline-flex items-center gap-1.5">
-        <span
-          class="inline-block h-0.5 w-4"
-          style:background-color={line_color}
-        ></span>
-        <span
-          class="inline-block h-2 w-2 rounded-full"
-          style:background-color={line_color}
-        ></span>
-        {line_y_label}
-      </span>
+      {#if mode === "composite"}
+        <span class="inline-flex items-center gap-1.5">
+          <span
+            class="inline-block h-3 w-3 rounded-sm"
+            style:background-color={bar_color}
+            style:opacity={0.4}
+          ></span>
+          Seats contested
+        </span>
+        <span class="inline-flex items-center gap-1.5">
+          <span
+            class="inline-block h-3 w-3 rounded-sm"
+            style:background-color={bar_color}
+          ></span>
+          Seats won
+        </span>
+        <span class="text-slate-500">Bar height = vote share %</span>
+      {:else}
+        <span class="inline-flex items-center gap-1.5">
+          <span
+            class="inline-block h-3 w-3 rounded-sm"
+            style:background-color={bar_color}
+          ></span>
+          {bar_y_label}
+        </span>
+        <span class="inline-flex items-center gap-1.5">
+          <span
+            class="inline-block h-0.5 w-4"
+            style:background-color={line_color}
+          ></span>
+          <span
+            class="inline-block h-2 w-2 rounded-full"
+            style:background-color={line_color}
+          ></span>
+          {line_y_label}
+        </span>
+      {/if}
     </div>
   </div>
 
