@@ -384,6 +384,37 @@
       })),
   );
 
+  // PR-10 of TODO/20260614-party-page-reimagination-plan.md: composite
+  // bar data for `DualAxisBarLine mode="composite"`. Each row carries
+  // vote_share_pct as the bar value + (seats_won, seats_contested) as
+  // the conversion-ratio inputs. Filter cycles with null vote-share or
+  // null/zero contested so the composite renderer always has a finite
+  // ratio to plot. Cycles where the party didn't contest collapse off
+  // the chart (citizen reads "no bar" as "didn't run"); the bar HEIGHT
+  // encoding makes a zero-seat / 100%-contested cycle still informative
+  // (full-height grey bar with no darker overlay = ran widely, won
+  // nothing), which the seats-only encoding could not surface.
+  const ls_bars_composite = $derived(
+    (view_model?.ls_history ?? [])
+      .filter((p) => p.vote_share_pct != null && p.contested != null && p.contested > 0)
+      .map((p) => ({
+        period_label: p.period_label,
+        value: p.vote_share_pct!,
+        seats_won: p.seats,
+        seats_contested: p.contested!,
+      })),
+  );
+  const vs_bars_composite = $derived(
+    (view_model?.vs_history ?? [])
+      .filter((p) => p.vote_share_pct != null && p.contested != null && p.contested > 0)
+      .map((p) => ({
+        period_label: p.period_label,
+        value: p.vote_share_pct!,
+        seats_won: p.seats,
+        seats_contested: p.contested!,
+      })),
+  );
+
   // Bar colour = party brand colour via the resolver.
   const bar_color = $derived.by(() => {
     if (!meta) return "#64748b";
@@ -581,7 +612,10 @@
           class="rounded border border-slate-200 bg-white p-3 text-center"
           data-testid="party-kpi-ls-seats"
         >
-          <div class="text-xs text-slate-500">Parliament seats won</div>
+          <div class="inline-flex items-center justify-center gap-1.5 text-xs text-slate-500">
+            <TopicIcon name="landmark" cls="w-4 h-4 text-slate-500 shrink-0" />
+            <span>Parliament seats won</span>
+          </div>
           <div class="text-xl font-bold tabular-nums text-slate-900">
             {kpis.ls_seats.toLocaleString()}
           </div>
@@ -590,7 +624,10 @@
           class="rounded border border-slate-200 bg-white p-3 text-center"
           data-testid="party-kpi-vs-seats"
         >
-          <div class="text-xs text-slate-500">State Assembly seats won</div>
+          <div class="inline-flex items-center justify-center gap-1.5 text-xs text-slate-500">
+            <TopicIcon name="flag" cls="w-4 h-4 text-slate-500 shrink-0" />
+            <span>State Assembly seats won</span>
+          </div>
           <div class="text-xl font-bold tabular-nums text-slate-900">
             {kpis.vs_seats.toLocaleString()}
           </div>
@@ -621,8 +658,9 @@
       <section class="space-y-2" data-testid="party-ls-chart">
         <RecognitionStrip party_id={meta.party_id} />
         <div class="flex items-end justify-between">
-          <h2 class="text-lg font-semibold text-slate-800">
-            Parliament - every general election contested
+          <h2 class="text-lg font-semibold text-slate-800 inline-flex items-center gap-2">
+            <TopicIcon name="landmark" cls="w-5 h-5 text-slate-500 shrink-0" />
+            <span>Parliament - every general election contested</span>
           </h2>
           {#if ls_peak > 0}
             <span class="text-xs text-slate-500">
@@ -631,13 +669,12 @@
           {/if}
         </div>
         <DualAxisBarLine
-          bars={ls_bars}
-          line={ls_line}
+          mode="composite"
+          bars={ls_bars_composite}
+          line={[]}
           bar_color={bar_color}
-          bar_y_label="Seats"
-          line_y_label="Vote %"
-          bar_format={(n) => n.toLocaleString()}
-          line_format={(n) => `${n.toFixed(1)}%`}
+          bar_y_label="Vote share %"
+          bar_format={(n) => `${n.toFixed(1)}%`}
           methodology_breaks={view_model.ls_methodology_breaks}
         />
         {#if view_model.ls_methodology_breaks.length > 0}
@@ -657,8 +694,9 @@
     {#if !meta.is_sentinel && vs_bars.length > 0}
       <section class="space-y-2" data-testid="party-vs-chart">
         <div class="flex items-end justify-between">
-          <h2 class="text-lg font-semibold text-slate-800">
-            State Assembly - every election contested
+          <h2 class="text-lg font-semibold text-slate-800 inline-flex items-center gap-2">
+            <TopicIcon name="flag" cls="w-5 h-5 text-slate-500 shrink-0" />
+            <span>State Assembly - every election contested</span>
           </h2>
           {#if vs_peak > 0}
             <span class="text-xs text-slate-500">
@@ -667,13 +705,12 @@
           {/if}
         </div>
         <DualAxisBarLine
-          bars={vs_bars}
-          line={vs_line}
+          mode="composite"
+          bars={vs_bars_composite}
+          line={[]}
           bar_color={bar_color}
-          bar_y_label="Seats"
-          line_y_label="Vote %"
-          bar_format={(n) => n.toLocaleString()}
-          line_format={(n) => `${n.toFixed(1)}%`}
+          bar_y_label="Vote share %"
+          bar_format={(n) => `${n.toFixed(1)}%`}
         />
         <PartyCoverageBadge text={view_model.provenance.badges.state_assembly} />
       </section>
@@ -718,7 +755,10 @@
 
         {#if view_model.ls_strongholds.length > 0}
           <div class="space-y-1" data-testid="party-ls-strongholds">
-            <h3 class="text-sm font-semibold text-slate-700">Parliament strongholds</h3>
+            <h3 class="text-sm font-semibold text-slate-700 inline-flex items-center gap-2">
+              <TopicIcon name="landmark" cls="w-4 h-4 text-slate-500 shrink-0" />
+              <span>Parliament strongholds</span>
+            </h3>
             <ul
               class="divide-y divide-slate-100 border border-slate-200 rounded bg-white"
             >
@@ -753,7 +793,10 @@
 
         {#if view_model.vs_strongholds.length > 0}
           <div class="space-y-1" data-testid="party-vs-strongholds">
-            <h3 class="text-sm font-semibold text-slate-700">State Assembly strongholds</h3>
+            <h3 class="text-sm font-semibold text-slate-700 inline-flex items-center gap-2">
+              <TopicIcon name="flag" cls="w-4 h-4 text-slate-500 shrink-0" />
+              <span>State Assembly strongholds</span>
+            </h3>
             <ul
               class="divide-y divide-slate-100 border border-slate-200 rounded bg-white"
             >
