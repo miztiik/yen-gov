@@ -1,0 +1,13 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-assam-22,assam,2009,22,SALMARA SOUTH,Wazed Ali Choudhary,parties.IN.INC,INC,53469,51.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-22,assam,2009,22,SALMARA SOUTH,A. Rahman Ajmal,parties.IN.AIDUF,AIDUF,46916,45.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-22,assam,2009,22,SALMARA SOUTH,Dewan J. Abedin,parties.IN.IND,IND,1328,1.29,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-22,assam,2009,22,SALMARA SOUTH,Alek Chand,parties.IN.NCP,NCP,808,0.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-22,assam,2009,22,SALMARA SOUTH,Shfiqul Hussain Prince),parties.IN.BJP,BJP,594,0.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-71,assam,2009,71,DHEKIAJULI,Bhimananda Tanti,parties.IN.INC,INC,54487,49.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-71,assam,2009,71,DHEKIAJULI,Siba Charan Sahu,parties.IN.AGP,AGP,32940,29.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-71,assam,2009,71,DHEKIAJULI,Lenin Basumatary,parties.IN.AIUDF,AIUDF,14534,13.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-71,assam,2009,71,DHEKIAJULI,Gunadhar Sundi,parties.IN.CPIM,CPM,2924,2.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-71,assam,2009,71,DHEKIAJULI,Mohand Ch. Nag,parties.IN.IND,IND,2292,2.08,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-71,assam,2009,71,DHEKIAJULI,Narendra Kr.Mishra,parties.IN.IND,IND,2132,1.94,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-71,assam,2009,71,DHEKIAJULI,Bishnu Kurmi,parties.IN.NCP,NCP,741,0.67,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

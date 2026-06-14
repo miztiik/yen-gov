@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-gujarat-103,gujarat,1978,103,KHEDBRAHMA(ST),D.J.DOLJIBHAI,parties.IN.INC_I,INC(I),13217,49.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-103,gujarat,1978,103,KHEDBRAHMA(ST),S.S.HAMIBHAI,parties.IN.JP,JNP,11196,41.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-103,gujarat,1978,103,KHEDBRAHMA(ST),B.D.MEGHAJI,parties.IN.IND,IND,1522,5.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-103,gujarat,1978,103,KHEDBRAHMA(ST),K.M.DHANJI,parties.IN.IND,IND,905,3.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

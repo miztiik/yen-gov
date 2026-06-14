@@ -1,0 +1,23 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-assam-12,assam,1998,12,UDHARBOND,Ajit Singh,parties.IN.INC,INC,34879,45.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-12,assam,1998,12,UDHARBOND,Joy Prakash Tewari,parties.IN.AGP,AGP,20723,27.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-12,assam,1998,12,UDHARBOND,Pramila Goswami,parties.IN.BJP,BJP,14055,18.53,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-12,assam,1998,12,UDHARBOND,Siddhartha Bhowmik,parties.IN.IND,IND,5018,6.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-12,assam,1998,12,UDHARBOND,Radha Kanta Tanty,parties.IN.IND,IND,807,1.06,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-12,assam,1998,12,UDHARBOND,Saiful Haque Laskar,parties.IN.IND,IND,145,0.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-12,assam,1998,12,UDHARBOND,Mustafa Choudhoury,parties.IN.IND,IND,126,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-12,assam,1998,12,UDHARBOND,Haripada Roy,parties.IN.IND,IND,72,0.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-12,assam,1998,12,UDHARBOND,Hickzur Rohman,parties.IN.IND,IND,27,0.04,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-41,assam,1998,41,BHABANIPUR,Binod Gayary,parties.IN.PDF,PDF,24686,34.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-41,assam,1998,41,BHABANIPUR,Dr. Manoranjan Das,parties.IN.AGP,AGP,22814,32.04,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-assam-41,assam,1998,41,BHABANIPUR,Chakradhar Das,parties.IN.INC,INC,19184,26.94,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-assam-41,assam,1998,41,BHABANIPUR,Bipulananda Sarma,parties.IN.BJP,BJP,3391,4.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-41,assam,1998,41,BHABANIPUR,Nazim Mollah,parties.IN.URMCA,URMCA,1130,1.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-110,assam,1998,110,NAOBOICHA,Moniram Pathori,parties.IN.AGP,AGP,33959,36.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-110,assam,1998,110,NAOBOICHA,Simon Tirkey,parties.IN.IND,IND,22131,24.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-110,assam,1998,110,NAOBOICHA,Sultan Sadique,parties.IN.INC,INC,16832,18.28,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-110,assam,1998,110,NAOBOICHA,Sahida,parties.IN.IND,IND,15000,16.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-110,assam,1998,110,NAOBOICHA,Amal Goswami,parties.IN.BJP,BJP,2795,3.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-110,assam,1998,110,NAOBOICHA,Premadhar Bora,parties.IN.IND,IND,850,0.92,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-110,assam,1998,110,NAOBOICHA,Eunus Ali,parties.IN.UMFA,UMF,346,0.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-assam-110,assam,1998,110,NAOBOICHA,Iman Ali,parties.IN.IND,IND,162,0.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a

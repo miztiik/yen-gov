@@ -1,0 +1,26 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,NEELAMEGAVARNAM L.,parties.IN.AIADMK,ADMK,56945,56.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,MAHENDRAN A.,parties.IN.INC,INC,39453,39.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,NOOR MUHAMAD A.,parties.IN.IND,IND,633,0.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,SUDALAI S.,parties.IN.SP,SP,552,0.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,SILAMPU SURESH S. DR.,parties.IN.IND,IND,465,0.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,PADMARAJAN K DR.,parties.IN.IND,IND,416,0.41,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,PANDI M,parties.IN.IND,IND,413,0.41,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,JAFFAR ALI A.,parties.IN.IND,IND,303,0.3,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,RAMAKRISHNAN P,parties.IN.IND,IND,175,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,SIVASELVA KUMAR S.,parties.IN.IND,IND,110,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,ANTONY RAJ P.,parties.IN.IND,IND,108,0.11,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,KUMARAN M.R,parties.IN.IND,IND,101,0.1,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,SUNDRAPANDIAN S.,parties.IN.JDU,JD(U),91,0.09,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,GLADSON P.,parties.IN.IND,IND,86,0.09,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,PARTHIBAN M.,parties.IN.IND,IND,82,0.08,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,MOHANRAJ J,parties.IN.IND,IND,69,0.07,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,CHITHIRAI PAULRAJ V,parties.IN.IND,IND,64,0.06,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,SAMUVELRAJ A.,parties.IN.IND,IND,60,0.06,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,SARAVANAN G.,parties.IN.IND,IND,54,0.05,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,KALANTHAI CHANDRASEKHARAN P,parties.IN.IND,IND,50,0.05,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,ALAGAMUTHU O.,parties.IN.IND,IND,48,0.05,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,SAMSUNDER SINGH S,parties.IN.IND,IND,46,0.05,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,MUTHURAMALINGAM N,parties.IN.IND,IND,46,0.05,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,RAFEEK M.Z,parties.IN.IND,IND,46,0.05,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-224,tamil-nadu,2003,224,SATTANKULAM,BENJAMIN D.,parties.IN.IND,IND,30,0.03,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a

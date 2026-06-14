@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-tamil-nadu-41,tamil-nadu,1985,TIRUPPATTUR,134589,92717,68.89,"MANAVALAN,S.P",parties.IN.INC,INC,46031,49.65,"SHANMUGAMMM,G",parties.IN.DMK,DMK,31381,14650,15.8,src-1b7bc1c9d39a
+IN-AC-1976-tamil-nadu-50,tamil-nadu,1985,CHEYYAR,121783,98349,80.76,V.KUPPUSAMY,parties.IN.ADK,ADK,59043,60.03,V.ANBAZHAGAN,parties.IN.DMK,DMK,37675,21368,21.72,src-1b7bc1c9d39a

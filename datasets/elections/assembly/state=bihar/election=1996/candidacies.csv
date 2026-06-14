@@ -1,0 +1,182 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-bihar-26,bihar,1996,26,BAIKUNTHPUR,Deodat Prasad,parties.IN.JD,JD,64379,56.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-26,bihar,1996,26,BAIKUNTHPUR,Braj Kishore Narayan Singh,parties.IN.SP,SP,47832,41.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-26,bihar,1996,26,BAIKUNTHPUR,Narendra Kumar Singh,parties.IN.INC,INC,2351,2.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-26,bihar,1996,26,BAIKUNTHPUR,Munnilal Manjhi,parties.IN.IND,IND,225,0.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-32,bihar,1996,32,ZIRADEI,Sheo Shanker Yadav,parties.IN.JD,JD,39551,46.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-32,bihar,1996,32,ZIRADEI,Dhruv Shanker Pd. Singh,parties.IN.BJP,BJP,37148,43.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-32,bihar,1996,32,ZIRADEI,Gulam Haidar,parties.IN.CPIMLL,CPI(ML),2218,2.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-32,bihar,1996,32,ZIRADEI,Sheodhari Dube,parties.IN.INC,INC,1904,2.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-32,bihar,1996,32,ZIRADEI,Areshad Ali,parties.IN.SP,SP,1249,1.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-32,bihar,1996,32,ZIRADEI,Nesar Ahamad,parties.IN.BSP,BSP,1040,1.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-32,bihar,1996,32,ZIRADEI,Rajlal Yadav,parties.IN.IND,IND,757,0.89,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-32,bihar,1996,32,ZIRADEI,Mahatma Singh,parties.IN.SJP_R,SJP(R),355,0.42,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-32,bihar,1996,32,ZIRADEI,Gulam Shahid,parties.IN.IND,IND,254,0.3,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-32,bihar,1996,32,ZIRADEI,Jitan Yadav,parties.IN.IND,IND,100,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-32,bihar,1996,32,ZIRADEI,Ahasanul Haque,parties.IN.AIIC_T,AIIC(T),69,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Tarkeshwer Singh,parties.IN.IND,IND,43851,53.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Chandani Devi,parties.IN.JD,JD,21739,26.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Harendra Kishore Singh,parties.IN.INC,INC,11225,13.58,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Nagendra Singh,parties.IN.SP,SP,1675,2.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Ram Babu Sah,parties.IN.IND,IND,975,1.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Umakant Tiwari,parties.IN.IND,IND,701,0.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Baham Dayal Singh,parties.IN.IND,IND,313,0.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Jitendra Kumar Singh,parties.IN.IND,IND,203,0.25,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Nurul Hoda Khan,parties.IN.IND,IND,159,0.19,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Rana Pratap Singh,parties.IN.IND,IND,157,0.19,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Shiv Dayal Mahtu,parties.IN.IND,IND,146,0.18,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Mahbub Alam Khan,parties.IN.IND,IND,139,0.17,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Shashi Bhushan Singh,parties.IN.IND,IND,133,0.16,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Bhushan Kumar,parties.IN.IND,IND,103,0.12,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Tani Singh,parties.IN.IND,IND,101,0.12,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Lal Bahadur Mahto,parties.IN.IND,IND,92,0.11,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Anand Bihari Singh,parties.IN.IND,IND,88,0.11,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Param Hansh Singh,parties.IN.IND,IND,85,0.1,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,R N Singh,parties.IN.IND,IND,77,0.09,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Raj Kumar Pd Rai,parties.IN.IND,IND,76,0.09,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Sunil Kumar Singh,parties.IN.IND,IND,73,0.09,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Wakil Singh,parties.IN.IND,IND,71,0.09,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Vijay Kumar Mishra,parties.IN.IND,IND,63,0.08,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Yogendra Singh,parties.IN.IND,IND,59,0.07,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Mohan Prasad Singh,parties.IN.IND,IND,51,0.06,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Vijay Yadav,parties.IN.IND,IND,47,0.06,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Kailash Prasad Gupta,parties.IN.IND,IND,40,0.05,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Awadhesh Ram,parties.IN.IND,IND,37,0.04,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Kameshwer Singh,parties.IN.IND,IND,36,0.04,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Yogendra Rai,parties.IN.IND,IND,36,0.04,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Om Parkash Singh,parties.IN.IND,IND,35,0.04,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Satyendra Singh,parties.IN.IND,IND,23,0.03,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Vinda Singh,parties.IN.IND,IND,16,0.02,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Satendra Kumar Tiwari,parties.IN.IND,IND,16,0.02,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-37,bihar,1996,37,MASGRAKH,Ajit Kumar Singh,parties.IN.IND,IND,15,0.02,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-65,bihar,1996,65,BELSAND,Vrishin Patel,parties.IN.SAP,SAP,33381,36.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-65,bihar,1996,65,BELSAND,Nagendra Prasad Singh,parties.IN.JD,JD,31598,34.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-65,bihar,1996,65,BELSAND,Ramswarth Rai,parties.IN.SP,SP,26228,28.53,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-65,bihar,1996,65,BELSAND,Dewanti Singh,parties.IN.INC,INC,568,0.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-65,bihar,1996,65,BELSAND,Upendra Thakur,parties.IN.IND,IND,148,0.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-94,bihar,1996,94,WARISNAGAR(SC),Bhikhar Baitha,parties.IN.JD,JD,29195,33.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-94,bihar,1996,94,WARISNAGAR(SC),Sanjay Kumar Horaijan,parties.IN.BJP,BJP,27442,31.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-94,bihar,1996,94,WARISNAGAR(SC),Ramsewak Hazari,parties.IN.IND,IND,14364,16.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-94,bihar,1996,94,WARISNAGAR(SC),Parmeshwar Ram,parties.IN.INC,INC,11435,13.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-94,bihar,1996,94,WARISNAGAR(SC),Jabachh Paswan,parties.IN.CPIMLL,CPI(ML)(L),2893,3.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-94,bihar,1996,94,WARISNAGAR(SC),Satruhan Kumar Paswan,parties.IN.SP,SP,2223,2.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-132,bihar,1996,132,JOKIHAT,Sarfaraz,parties.IN.JD,JD,41932,38.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-132,bihar,1996,132,JOKIHAT,Manjar Alam,parties.IN.SP,SP,29302,27.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-132,bihar,1996,132,JOKIHAT,Moidur Rahman,parties.IN.INC,INC,21933,20.26,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-132,bihar,1996,132,JOKIHAT,Jawad Alam,parties.IN.IND,IND,9583,8.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-132,bihar,1996,132,JOKIHAT,Kamal Kishor,parties.IN.BJP,BJP,4808,4.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-132,bihar,1996,132,JOKIHAT,Sultan,parties.IN.IND,IND,681,0.63,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-176,bihar,1996,176,KATORIA,Bhola Prasad Yadav,parties.IN.JD,JD,46157,52.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-176,bihar,1996,176,KATORIA,Upendra Prasad Choudhary,parties.IN.BJP,BJP,14279,16.2,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-176,bihar,1996,176,KATORIA,Bipin Sah,parties.IN.JMM,JMM,12966,14.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-176,bihar,1996,176,KATORIA,Sukdeo Prasad Yadav,parties.IN.SP,SP,10987,12.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-176,bihar,1996,176,KATORIA,Maheshwari Yadav,parties.IN.INC,INC,3535,4.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-176,bihar,1996,176,KATORIA,Bishnu Prasad Yadav,parties.IN.IND,IND,231,0.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Arun Kumar Singh,parties.IN.SAP,SAP,62299,55.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Shishu Ranjan,parties.IN.JD,JD,31085,27.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Narayan Prasad,parties.IN.IND,IND,4689,4.15,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Bhola Prasad Singh,parties.IN.IND,IND,3223,2.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Vir Chand Patel,parties.IN.IND,IND,2030,1.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Damodar Prasad,parties.IN.IND,IND,1941,1.72,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Sunil Kumar Chaudhary,parties.IN.INC,INC,1719,1.52,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Meena Devi,parties.IN.IND,IND,1400,1.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Brijendra Paswan,parties.IN.IND,IND,1033,0.91,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Brij Nandan Yadav,parties.IN.IND,IND,855,0.76,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Amar Kant Paswan,parties.IN.IND,IND,579,0.51,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Kapil Prasad,parties.IN.IND,IND,302,0.27,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Jai Ram Paswan,parties.IN.IND,IND,279,0.25,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Pramod Kumar Nirala,parties.IN.SP,SP,257,0.23,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Lakhan Yadav,parties.IN.IND,IND,166,0.15,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Manish Kumar,parties.IN.IND,IND,120,0.11,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Deoki Yadav,parties.IN.IND,IND,112,0.1,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Thakur Ajay Kant Singh,parties.IN.IND,IND,103,0.09,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Punia Devi,parties.IN.IND,IND,98,0.09,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Purushottam Kumar,parties.IN.IND,IND,84,0.07,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Sanjay Singh,parties.IN.IND,IND,79,0.07,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Ravindra Singh,parties.IN.IND,IND,63,0.06,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Kripal Prasad,parties.IN.IND,IND,54,0.05,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Ram Chandra Singh,parties.IN.IND,IND,52,0.05,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Sailendra Singh,parties.IN.IND,IND,50,0.04,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Ashok Kumar,parties.IN.IND,IND,47,0.04,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Rajendra Prasad Singh,parties.IN.IND,IND,46,0.04,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Manish Kumar,parties.IN.IND,IND,40,0.04,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Arvind Kumar,parties.IN.IND,IND,37,0.03,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Arvind Kumar,parties.IN.IND,IND,30,0.03,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Grijesh Kumar,parties.IN.IND,IND,30,0.03,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Rajendra Prasad,parties.IN.IND,IND,27,0.02,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Ram Lakhan Singh,parties.IN.IND,IND,26,0.02,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Ganauri Prasad Singh,parties.IN.IND,IND,25,0.02,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Suresh Prasad,parties.IN.IND,IND,25,0.02,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Sunil Prasad,parties.IN.IND,IND,24,0.02,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Jai Prakash Narayan,parties.IN.IND,IND,22,0.02,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-200,bihar,1996,200,HARNAUT,Ram Prasad Singh,parties.IN.IND,IND,12,0.01,38,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-209,bihar,1996,209,DINAPUR,Vijay Singh Yadav,parties.IN.BJP,BJP,36704,49.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-209,bihar,1996,209,DINAPUR,Ramanand Yadav,parties.IN.JD,JD,36116,48.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-209,bihar,1996,209,DINAPUR,Ramcharitra Prasad Singh,parties.IN.INC,INC,839,1.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-209,bihar,1996,209,DINAPUR,Moin Ansari,parties.IN.IND,IND,348,0.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-209,bihar,1996,209,DINAPUR,J P Sharma,parties.IN.IND,IND,126,0.17,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-209,bihar,1996,209,DINAPUR,Lemu Rai,parties.IN.IND,IND,126,0.17,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-209,bihar,1996,209,DINAPUR,Ranjan Kumar,parties.IN.IND,IND,115,0.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-209,bihar,1996,209,DINAPUR,Ranvir Singh,parties.IN.IND,IND,83,0.11,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-209,bihar,1996,209,DINAPUR,Sanjay Kumar Yadav,parties.IN.IND,IND,51,0.07,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-209,bihar,1996,209,DINAPUR,Nagarmal Vajoria,parties.IN.IND,IND,32,0.04,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-209,bihar,1996,209,DINAPUR,Uma Kant,parties.IN.IND,IND,30,0.04,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-209,bihar,1996,209,DINAPUR,Sudesh Kumar,parties.IN.IND,IND,30,0.04,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-213,bihar,1996,213,PALIGANJ,Janardan Sharma,parties.IN.BJP,BJP,34037,29.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-213,bihar,1996,213,PALIGANJ,Ashok Kumar Verma,parties.IN.JD,JD,30908,26.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-213,bihar,1996,213,PALIGANJ,Dinanath Singh,parties.IN.SP,SP,24104,20.83,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-213,bihar,1996,213,PALIGANJ,Krishna Deo Yadav,parties.IN.CPIMLL,CPI(ML)(L),24101,20.83,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-213,bihar,1996,213,PALIGANJ,Vinod Sharma,parties.IN.INC,INC,1084,0.94,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-213,bihar,1996,213,PALIGANJ,Yasmin Begum,parties.IN.AIIC_T,AIIC(T),418,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-213,bihar,1996,213,PALIGANJ,Ram Bachan Singh,parties.IN.IND,IND,339,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-213,bihar,1996,213,PALIGANJ,Shashidhar Prasad Singh,parties.IN.SJP_R,SJP(R),280,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-213,bihar,1996,213,PALIGANJ,Umesh Singh,parties.IN.IND,IND,180,0.16,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-213,bihar,1996,213,PALIGANJ,Satyendra Kumar,parties.IN.IND,IND,130,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-213,bihar,1996,213,PALIGANJ,Ajit Narayan Singh,parties.IN.IND,IND,123,0.11,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-223,bihar,1996,223,PIRO,Sivanand Tiwari,parties.IN.SAP,SAP,37383,36.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-223,bihar,1996,223,PIRO,Chandradeep Singh,parties.IN.CPIMLL,CPI(ML)(L),30717,29.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-223,bihar,1996,223,PIRO,Teslal Singh,parties.IN.JD,JD,26794,26.13,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-223,bihar,1996,223,PIRO,Triveni Singh,parties.IN.SP,SP,5140,5.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-223,bihar,1996,223,PIRO,Shashi Kumar Singh,parties.IN.INC,INC,988,0.96,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-223,bihar,1996,223,PIRO,Kashi Nath Singh,parties.IN.IND,IND,394,0.38,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-223,bihar,1996,223,PIRO,Madheshwar Prasad Singh,parties.IN.SJP_R,SJP(R),390,0.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-223,bihar,1996,223,PIRO,Jai Laxmi,parties.IN.AIIC_J,AIIC(J),282,0.28,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-223,bihar,1996,223,PIRO,Parameshwar Kumar Ram,parties.IN.IND,IND,270,0.26,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-223,bihar,1996,223,PIRO,Laxman Singh,parties.IN.IND,IND,173,0.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-236,bihar,1996,236,NABINAGAR,Lovely Anand,parties.IN.SP,SP,56144,48.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-236,bihar,1996,236,NABINAGAR,Bheem Kumar,parties.IN.JD,JD,48801,42.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-236,bihar,1996,236,NABINAGAR,Naresh Singh,parties.IN.BSP,BSP,4210,3.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-236,bihar,1996,236,NABINAGAR,Lakshami Sharma,parties.IN.CPIMLL,CPI(ML)(L),2377,2.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-236,bihar,1996,236,NABINAGAR,Mrityunjay Singh,parties.IN.INC,INC,1696,1.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-236,bihar,1996,236,NABINAGAR,Nirmal Kumar Singh,parties.IN.SP,SP,1446,1.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-236,bihar,1996,236,NABINAGAR,Vijay Kumar Singh,parties.IN.IND,IND,1105,0.95,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-236,bihar,1996,236,NABINAGAR,Lalu Gupta,parties.IN.IND,IND,204,0.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-254,bihar,1996,254,BARACHATTI(SC),Jeetan Ram Manjhee,parties.IN.JD,JD,41404,50.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-254,bihar,1996,254,BARACHATTI(SC),Krishna Paswan,parties.IN.BJP,BJP,27775,34.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-254,bihar,1996,254,BARACHATTI(SC),Ganesh Das,parties.IN.CPIMLL,CPI(ML)(L),8288,10.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-254,bihar,1996,254,BARACHATTI(SC),Raj Kumar Bhuinya,parties.IN.BSP,BSP,1849,2.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-254,bihar,1996,254,BARACHATTI(SC),Ramswaroop Mandal,parties.IN.IND,IND,1447,1.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-254,bihar,1996,254,BARACHATTI(SC),Kulwansh Paswan,parties.IN.INC,INC,314,0.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-254,bihar,1996,254,BARACHATTI(SC),Hemantee Devi,parties.IN.IND,IND,163,0.2,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-254,bihar,1996,254,BARACHATTI(SC),Shree Chand Singh,parties.IN.IND,IND,103,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Chandreshwar Prasad Singh,parties.IN.BJP,BJP,46513,40.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Jai Singh Yadav,parties.IN.JD,JD,39662,34.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,R P Raja,parties.IN.INC,INC,23896,20.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Bhuneshwar Anuj,parties.IN.JMM,JMM,1258,1.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Raju Mahto,parties.IN.JPP,JPP,773,0.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Dharmraj Yadav,parties.IN.AIFB,FBL,558,0.48,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Mansoor Alam,parties.IN.IND,IND,465,0.4,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Suresh Sharma,parties.IN.IND,IND,405,0.35,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Somnath Oraon,parties.IN.JP,JP,354,0.31,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Teja Singh,parties.IN.IND,IND,302,0.26,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Satyadeo Sahu,parties.IN.IND,IND,250,0.22,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Azam Ahamd,parties.IN.IND,IND,190,0.16,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Praveen Prabhakar,parties.IN.IND,IND,163,0.14,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Alim Khan,parties.IN.IND,IND,139,0.12,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Vimal Kumar Poddar,parties.IN.IND,IND,104,0.09,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Meera Kumari,parties.IN.IND,IND,84,0.07,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Matloob Imam,parties.IN.AIIC_T,AIIC(T),63,0.05,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Dinesh Singh,parties.IN.IND,IND,62,0.05,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Kalim,parties.IN.IND,IND,58,0.05,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Abha Roba,parties.IN.IND,IND,55,0.05,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-306,bihar,1996,306,RANCHI,Kapil Nath Sahu,parties.IN.IND,IND,40,0.03,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -1,0 +1,18 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1985,59,RANBIR SINGH PURA,M.M.SAYED,parties.IN.INC,INC,19615,55.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1985,59,RANBIR SINGH PURA,R.S.CHIP,parties.IN.JKNC,JKN,13701,38.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1985,59,RANBIR SINGH PURA,T.DASS,parties.IN.IND,IND,758,2.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1985,59,RANBIR SINGH PURA,K.SINGH,parties.IN.IND,IND,569,1.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1985,59,RANBIR SINGH PURA,H.S.P.SINGH,parties.IN.IND,IND,278,0.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1985,59,RANBIR SINGH PURA,J.AKHTAR,parties.IN.IND,IND,140,0.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1985,59,RANBIR SINGH PURA,J.R.SHARMA,parties.IN.IND,IND,81,0.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1985,59,RANBIR SINGH PURA,K.GORIA,parties.IN.IND,IND,81,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1985,59,RANBIR SINGH PURA,D.R.MANHAS,parties.IN.IND,IND,55,0.15,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1985,59,RANBIR SINGH PURA,N.K.GUPTA,parties.IN.IND,IND,41,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1985,59,RANBIR SINGH PURA,H.S.RISHI,parties.IN.IND,IND,40,0.11,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1985,59,RANBIR SINGH PURA,N.K.MAHAJAN,parties.IN.IND,IND,39,0.11,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1985,59,RANBIR SINGH PURA,B.SINGH,parties.IN.IND,IND,38,0.11,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1985,59,RANBIR SINGH PURA,K.S.BAGI,parties.IN.IND,IND,26,0.07,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1985,59,RANBIR SINGH PURA,A.K.GUPTA,parties.IN.IND,IND,19,0.05,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1985,59,RANBIR SINGH PURA,OM.PRAKASH BHAGAT,parties.IN.IND,IND,16,0.05,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,1985,59,RANBIR SINGH PURA,K.KUMAR,parties.IN.IND,IND,12,0.03,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a

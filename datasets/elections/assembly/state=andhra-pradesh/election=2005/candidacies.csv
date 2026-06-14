@@ -1,0 +1,18 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-andhra-pradesh-166,andhra-pradesh,2005,166,PENUKONDA,Paritala Sunithamma,parties.IN.TDP,TDP,65730,54.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-166,andhra-pradesh,2005,166,PENUKONDA,Boya Sreeramulu,parties.IN.INC,INC,46878,39.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-166,andhra-pradesh,2005,166,PENUKONDA,Goddala Nagabhushanam,parties.IN.BSP,BSP,2364,1.98,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-166,andhra-pradesh,2005,166,PENUKONDA,K.Maruthi,parties.IN.IND,IND,1543,1.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-166,andhra-pradesh,2005,166,PENUKONDA,B.Krishna Reddy,parties.IN.IND,IND,1142,0.96,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-166,andhra-pradesh,2005,166,PENUKONDA,B.Mallesh,parties.IN.IND,IND,647,0.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-166,andhra-pradesh,2005,166,PENUKONDA,Boginene Varadappa,parties.IN.IND,IND,466,0.39,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-166,andhra-pradesh,2005,166,PENUKONDA,B.Chandrayudu,parties.IN.IND,IND,435,0.36,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-166,andhra-pradesh,2005,166,PENUKONDA,T.Narasimhulu,parties.IN.IND,IND,339,0.28,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-199,andhra-pradesh,2005,199,MAKTHAL,Chittemram Mohan Reddy,parties.IN.INC,INC,64878,65.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-199,andhra-pradesh,2005,199,MAKTHAL,Sugappa,parties.IN.IND,IND,24799,25.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-199,andhra-pradesh,2005,199,MAKTHAL,Ganapathi Naidu.B.,parties.IN.BSP,BSP,2866,2.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-199,andhra-pradesh,2005,199,MAKTHAL,Jalajam Satyanarayana,parties.IN.BCUF,BC UP,2498,2.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-199,andhra-pradesh,2005,199,MAKTHAL,Captain Srinivasulu,parties.IN.IND,IND,1838,1.86,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-199,andhra-pradesh,2005,199,MAKTHAL,L.Muralidhar Rao,parties.IN.JP,JP,741,0.75,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-199,andhra-pradesh,2005,199,MAKTHAL,K.Laxman,parties.IN.IND,IND,645,0.65,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-199,andhra-pradesh,2005,199,MAKTHAL,Jakkula Vankataiah,parties.IN.IND,IND,621,0.63,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a

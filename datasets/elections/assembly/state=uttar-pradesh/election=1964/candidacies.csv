@@ -1,0 +1,18 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1962-uttar-pradesh-107,uttar-pradesh,1964,107,MOHANLALGANJ,KHYALI RAM,parties.IN.PSP,PSP,10759,31.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-uttar-pradesh-107,uttar-pradesh,1964,107,MOHANLALGANJ,PRABHOO DAYAL,parties.IN.JS,JS,9442,27.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-uttar-pradesh-107,uttar-pradesh,1964,107,MOHANLALGANJ,M.LAL,parties.IN.INC,INC,6918,20.31,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-uttar-pradesh-107,uttar-pradesh,1964,107,MOHANLALGANJ,KAILASH,parties.IN.SOC,SOC,6669,19.58,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-uttar-pradesh-107,uttar-pradesh,1964,107,MOHANLALGANJ,M.L.KURLI,parties.IN.IND,IND,268,0.79,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-uttar-pradesh-165,uttar-pradesh,1964,165,MANKAPUR,K.A.SINGH,parties.IN.INC,INC,34366,74.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-uttar-pradesh-165,uttar-pradesh,1964,165,MANKAPUR,DEVANDRA NATH,parties.IN.JS,JS,5960,12.98,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-uttar-pradesh-165,uttar-pradesh,1964,165,MANKAPUR,G.SINGH,parties.IN.IND,IND,5590,12.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-uttar-pradesh-200,uttar-pradesh,1964,200,SHAYM DEURWA,S.L.SEXENA,parties.IN.IND,IND,19944,50.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-uttar-pradesh-200,uttar-pradesh,1964,200,SHAYM DEURWA,BAKSHISH ALI,parties.IN.PSP,PSP,6788,17.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-uttar-pradesh-200,uttar-pradesh,1964,200,SHAYM DEURWA,SADESHWARI,parties.IN.INC,INC,4769,12.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-uttar-pradesh-200,uttar-pradesh,1964,200,SHAYM DEURWA,R.NARAIN,parties.IN.SOC,SOC,3996,10.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-uttar-pradesh-200,uttar-pradesh,1964,200,SHAYM DEURWA,SAHABZADA,parties.IN.JS,JS,3836,9.75,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-uttar-pradesh-204,uttar-pradesh,1964,204,SINDHUWA JOBNA,DASARATH KPRASAD,parties.IN.INC,INC,17697,46.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-uttar-pradesh-204,uttar-pradesh,1964,204,SINDHUWA JOBNA,SRINARAIN,parties.IN.JS,JS,13686,36.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-uttar-pradesh-204,uttar-pradesh,1964,204,SINDHUWA JOBNA,DURYODHAN,parties.IN.IND,IND,4144,10.96,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1962-uttar-pradesh-204,uttar-pradesh,1964,204,SINDHUWA JOBNA,R.BANSHI,parties.IN.IND,IND,2279,6.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

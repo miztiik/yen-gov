@@ -1,0 +1,8 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1962-west-bengal-20,west-bengal,1963,20,SILIGURI,A.K.MOITRA,parties.IN.INC,INC,14143,51.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-20,west-bengal,1963,20,SILIGURI,PREM THAPA,parties.IN.IND,IND,6211,22.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-20,west-bengal,1963,20,SILIGURI,S.K.BANERJEE,parties.IN.AIFB,FB,3924,14.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-20,west-bengal,1963,20,SILIGURI,C.MAZUMDAR,parties.IN.CPI,CPI,3171,11.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-233,west-bengal,1963,233,BHRDWAN,B.K.CHOUDHURY,parties.IN.COM,COM,17853,42.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-233,west-bengal,1963,233,BHRDWAN,A.MUKHERJEE,parties.IN.INC,INC,14505,34.25,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-west-bengal-233,west-bengal,1963,233,BHRDWAN,D.TAH,parties.IN.IND,IND,9998,23.6,3,lost,U,,,,challenger,src-1b7bc1c9d39a

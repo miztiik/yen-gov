@@ -1,0 +1,16 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1962-punjab-2,punjab,1964,2,SERAJ,JIT RAM,parties.IN.INC,INC,6308,52.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-2,punjab,1964,2,SERAJ,BANSI RAM,parties.IN.IND,IND,5656,47.28,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1962-punjab-29,punjab,1964,29,JIND,DAL SINGH,parties.IN.INC,INC,28285,64.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-29,punjab,1964,29,JIND,INDER SINGH,parties.IN.IND,IND,14940,34.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-29,punjab,1964,29,JIND,R.RAM,parties.IN.IND,IND,535,1.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-111,punjab,1964,111,PATTI,U.SINGH,parties.IN.INC,INC,22452,51.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-111,punjab,1964,111,PATTI,DINDAR SINGH,parties.IN.IND,IND,18747,42.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-111,punjab,1964,111,PATTI,K.SINGH,parties.IN.SAD,AD,2746,6.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-122,punjab,1964,122,BEAS,SOHAN SINGH,parties.IN.INC,INC,22623,54.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-122,punjab,1964,122,BEAS,GURBACHAN SINGH,parties.IN.IND,IND,18615,45.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-149,punjab,1964,149,MAHAL KALAN,RANJIT SINGH,parties.IN.INC,INC,22800,53.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-149,punjab,1964,149,MAHAL KALAN,H.S.L.BADDI,parties.IN.IND,IND,17696,41.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-149,punjab,1964,149,MAHAL KALAN,J.SINGH,parties.IN.IND,IND,1224,2.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-149,punjab,1964,149,MAHAL KALAN,H.S.SEHNA,parties.IN.IND,IND,386,0.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-punjab-149,punjab,1964,149,MAHAL KALAN,J.SINGH,parties.IN.IND,IND,367,0.86,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

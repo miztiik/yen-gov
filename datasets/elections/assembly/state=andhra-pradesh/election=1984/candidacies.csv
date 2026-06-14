@@ -1,0 +1,24 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-andhra-pradesh-89,andhra-pradesh,1984,89,BANDAR,R.R. VADDI,parties.IN.TDP,TDP,44193,52.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-89,andhra-pradesh,1984,89,BANDAR,C.VEERASWAMY,parties.IN.INC,INC,31577,37.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-89,andhra-pradesh,1984,89,BANDAR,L.PEDASINGU,parties.IN.IND,IND,6583,7.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-89,andhra-pradesh,1984,89,BANDAR,T.S.MURTHY,parties.IN.IND,IND,818,0.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-89,andhra-pradesh,1984,89,BANDAR,C.R.RAO,parties.IN.IND,IND,297,0.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-89,andhra-pradesh,1984,89,BANDAR,P.VENKATESWARLU,parties.IN.IND,IND,200,0.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-89,andhra-pradesh,1984,89,BANDAR,I.K.MOHAMMED,parties.IN.IND,IND,139,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-89,andhra-pradesh,1984,89,BANDAR,K.S.BABU,parties.IN.IND,IND,77,0.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-213,andhra-pradesh,1984,213,ASAFNAGAR,MOH.V.R.KHAN,parties.IN.IND,IND,34584,47.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-213,andhra-pradesh,1984,213,ASAFNAGAR,G.N.RAO,parties.IN.TDP,TDP,32885,45.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-213,andhra-pradesh,1984,213,ASAFNAGAR,B.S.YADAV,parties.IN.INC,INC,5064,6.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-213,andhra-pradesh,1984,213,ASAFNAGAR,M.NERMATE,parties.IN.IND,IND,88,0.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-213,andhra-pradesh,1984,213,ASAFNAGAR,G.R.REDDY,parties.IN.IND,IND,73,0.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-213,andhra-pradesh,1984,213,ASAFNAGAR,R.SURENDAR,parties.IN.IND,IND,60,0.08,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-213,andhra-pradesh,1984,213,ASAFNAGAR,S.YOUSUFUDDINN,parties.IN.IND,IND,53,0.07,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-213,andhra-pradesh,1984,213,ASAFNAGAR,YELLAIAH,parties.IN.IND,IND,48,0.07,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-213,andhra-pradesh,1984,213,ASAFNAGAR,S.BASHEERULLAH,parties.IN.IND,IND,35,0.05,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-213,andhra-pradesh,1984,213,ASAFNAGAR,S.J.SINGH,parties.IN.IND,IND,35,0.05,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-213,andhra-pradesh,1984,213,ASAFNAGAR,V.SHIVAJI,parties.IN.IND,IND,30,0.04,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-213,andhra-pradesh,1984,213,ASAFNAGAR,"K.MOH,A. AZIZ",parties.IN.IND,IND,27,0.04,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-213,andhra-pradesh,1984,213,ASAFNAGAR,I.U.ANSARI,parties.IN.IND,IND,26,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-213,andhra-pradesh,1984,213,ASAFNAGAR,S.IBRAHIM,parties.IN.IND,IND,22,0.03,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-andhra-pradesh-213,andhra-pradesh,1984,213,ASAFNAGAR,A.M.CHARY,parties.IN.IND,IND,19,0.03,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a

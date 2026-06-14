@@ -1,0 +1,23 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-punjab-41,punjab,2004,41,KAPURTHALA,SUKHJINDER KAUR,parties.IN.INC,INC,47890,56.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-41,punjab,2004,41,KAPURTHALA,RAGHBIR SINGH,parties.IN.SAD,SAD,34600,40.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-41,punjab,2004,41,KAPURTHALA,TARSEM SINGH,parties.IN.BSP,BSP,1003,1.18,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-41,punjab,2004,41,KAPURTHALA,RAKESH SHARMA,parties.IN.IND,IND,555,0.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-41,punjab,2004,41,KAPURTHALA,JAGIR SINGH,parties.IN.SADM,SAD(M),406,0.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-41,punjab,2004,41,KAPURTHALA,SARWAN SINGH,parties.IN.IND,IND,241,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-41,punjab,2004,41,KAPURTHALA,JARNAIL SINGH,parties.IN.IND,IND,178,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-41,punjab,2004,41,KAPURTHALA,BHAJAN SINGH,parties.IN.IND,IND,136,0.16,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-41,punjab,2004,41,KAPURTHALA,PARVINDER SINGH,parties.IN.IND,IND,108,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-41,punjab,2004,41,KAPURTHALA,SUNIL KUMAR,parties.IN.IND,IND,75,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-41,punjab,2004,41,KAPURTHALA,SURINDER PAL SINGH,parties.IN.IND,IND,66,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-45,punjab,2004,45,GARSHANKAR,LOV KUMAR GOLDI,parties.IN.INC,INC,37378,47.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-45,punjab,2004,45,GARSHANKAR,MOHINDER PAL MANN,parties.IN.BJP,BJP,19298,24.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-45,punjab,2004,45,GARSHANKAR,MAHAN SINGH,parties.IN.CPIM,CPM,9129,11.59,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-45,punjab,2004,45,GARSHANKAR,SHINGARA RAM SAHUNGRA,parties.IN.IND,IND,5989,7.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-45,punjab,2004,45,GARSHANKAR,RASHPAL SINGH RAJU,parties.IN.BSP,BSP,4139,5.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-45,punjab,2004,45,GARSHANKAR,PARVEEN KUMAR,parties.IN.IND,IND,765,0.97,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-45,punjab,2004,45,GARSHANKAR,GURDEV RAM,parties.IN.LJNSP,LJNSP,754,0.96,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-45,punjab,2004,45,GARSHANKAR,NACHHATTAR SINGH,parties.IN.IND,IND,487,0.62,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-45,punjab,2004,45,GARSHANKAR,JAI PAL SINGH,parties.IN.IND,IND,362,0.46,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-45,punjab,2004,45,GARSHANKAR,AMRITPAL SINGH,parties.IN.IND,IND,227,0.29,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-punjab-45,punjab,2004,45,GARSHANKAR,ONKAR SINGH,parties.IN.IND,IND,205,0.26,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -64,6 +64,7 @@ import {
   loadElectionResults,
   projectAsConstituencyRanks,
   projectAsWinnersByEntity,
+  _slugToStateCodeForTests,
   type ElectionResultRow,
 } from "./election-results";
 import { loadConstituencyResult } from "./legacy/constituency";
@@ -223,6 +224,27 @@ describe("bodyFromEvent", () => {
   });
 });
 
+describe("stateCodeOf slug -> ECI lookup (FU#1)", () => {
+  // Pins the canonical LGD slugs -> ECI state code lookup and the
+  // alias overlay added for FU#1 closure (TODO/20260612-pc-choropleth-
+  // tile-and-party-filter-restoration-plan.md). The probe at PR-time
+  // showed parliament_2024 summary winners for A&N carry the slug
+  // "andaman-and-nicobar-islands" verbatim (vs the LGD canonical
+  // "andaman-and-nicobar" in `ECI_TO_LGD_SLUG`); without the alias
+  // overlay, the loader fell through to the uppercase fallback and
+  // constructed a unit_id that never matched the tile layout.
+  it("maps canonical LGD slugs to ECI codes", () => {
+    expect(_slugToStateCodeForTests("tamil-nadu")).toBe("S22");
+    expect(_slugToStateCodeForTests("andaman-and-nicobar")).toBe("U01");
+  });
+  it("maps the electoral.csv alias for A&N to U01 (FU#1)", () => {
+    expect(_slugToStateCodeForTests("andaman-and-nicobar-islands")).toBe("U01");
+  });
+  it("falls back to uppercase for unknown slugs", () => {
+    expect(_slugToStateCodeForTests("xx")).toBe("XX");
+  });
+});
+
 describe("loadElectionResults - scope guards", () => {
   // `describeFailure` wraps the raw Error.message with citizen-friendly copy
   // and logs the raw message via console.warn (see lib/loader-result.ts).
@@ -301,6 +323,7 @@ describe("projection helpers", () => {
       turnout_pct: null,
       electors: null,
       votes_polled: null,
+      margin_votes: null,
       winner_age: null,
       winner_candidate_name: null,
       reservation: "GEN",
@@ -330,6 +353,7 @@ describe("projection helpers", () => {
       turnout_pct: null,
       electors: null,
       votes_polled: null,
+      margin_votes: null,
       winner_age: null,
       winner_candidate_name: null,
       reservation: "GEN",
@@ -510,6 +534,10 @@ describe("regression: LEFT JOIN dim_parties present on all 3 scopes (W2b oracle)
     expect(sql).toMatch(
       /LEFT JOIN dim_parties dp ON dp\.party_id = s\.winner_party_id/,
     );
+    // TODO/20260612 Row B pin: margin_votes is projected at NATIONAL-PC
+    // scope so the scatter chart's radius encoding can read it from the
+    // loader. Reverting the SELECT line makes this test RED.
+    expect(sql).toMatch(/s\.margin_votes\s+AS margin_votes/);
   });
 
   it("STATE-AC scope SQL contains LEFT JOIN dim_parties on s.winner_party_id", async () => {
@@ -520,6 +548,10 @@ describe("regression: LEFT JOIN dim_parties present on all 3 scopes (W2b oracle)
     expect(sql).toMatch(
       /LEFT JOIN dim_parties dp ON dp\.party_id = s\.winner_party_id/,
     );
+    // TODO/20260612 Row B pin: margin_votes is also projected at
+    // STATE-AC scope so the state-event surface's scatter chart picks
+    // up the same radius encoding.
+    expect(sql).toMatch(/s\.margin_votes\s+AS margin_votes/);
   });
 
   it("CONSTITUENCY scope candidates SQL contains LEFT JOIN dim_parties on ec.party_id", async () => {

@@ -46,7 +46,7 @@ def test_state_hydro_allocated_uses_allocated_concept():
 
 
 def test_state_hydro_snapshot_uses_snapshot_concept():
-    row = next(r for r in _rows() if r["indicator_id"] == "state-installed-capacity-snapshot-mw-hydro")
+    row = next(r for r in _rows() if r["indicator_id"] == "installed-capacity-snapshot-mw-hydro")
     assert row["concept_id"] == "hydro-mw-snapshot"
 
 

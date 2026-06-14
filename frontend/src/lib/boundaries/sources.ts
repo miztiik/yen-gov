@@ -1800,12 +1800,62 @@ export async function resolveSource(entry: BoundaryEntry): Promise<ResolvedSourc
 // shards + reconstruction scripts, not a consolidated 545-feature artifact),
 // so the local snapshot under DATA_BASE is the canonical source; `geojson_url`
 // points at the supplement repo only as a provenance pointer of last resort.
+//
+// THIS IS THE delim=2024 ENTRY; the delim=2008 sibling lives at
+// `INDIA_PC_2008` below. Route selects via `event.delim_year` in
+// StateElection / NationalElection (LS 2024 -> INDIA_PC; LS 2019/2014/2009
+// -> INDIA_PC_2008; pre-2009 -> placeholder card, no geometry on disk).
 export const INDIA_PC: BoundaryEntry = {
   id: "india-pc",
   label: "India — Parliamentary Constituencies (2024 delimitation)",
   geojson_local_path: "boundaries/electoral/delim=2024/pc/all.geojson",
   geojson_url:
     "https://github.com/shijithpk/2024_maps_supplement",
+  join_property: "unique_id",
+};
+
+// PC boundaries under the 2008 Delimitation Commission Order — operative for
+// the 17th / 16th / 15th Lok Sabha elections (LS 2019, 2014, 2009). 543
+// features. Upstream: datameet/maps `india_pc_2019_simplified.geojson` (CC0
+// 1.0, authored by Arun Ganesh as a simplified derivative of the DataMeet
+// Trust raw shapefile under CC-BY-SA 2.5). Staged via
+// `tools/boundaries/_prep_datameet_pc_2008.py` and emitted by
+// `tools/boundaries/snapshot.py` to the on-disk path below; see
+// `tools/boundaries/pipeline.json` for the per-entry $comment with the
+// "Pre delimitation" carve-out narrative (the 6 states exempted from
+// re-delimitation by the 2008 Order retain their 1976 boundaries; ECI
+// conducted LS 2009 / 2014 / 2019 against those boundaries; honest to cite
+// as delim=2008 because 2008 IS the operative Order).
+//
+// JOIN KEY differs from `INDIA_PC` (the delim=2024 sibling). Both use
+// `unique_id` as the property NAME, but the SHAPE differs:
+//   - INDIA_PC (delim=2024):   `<state_ut_code>_<ls_seat_code>` (numeric)
+//   - INDIA_PC_2008:           `<state_ut_code>_<pc_name_slug>` (slugged)
+// The delim=2008 layer is name-slug based because canonical
+// `datasets/data/entities/electoral.csv` carries unreliable `eci_no` values
+// for delim=2008 PCs (22 of 544 are zero; many of the populated values are
+// misaligned with ECI's actual 2009 LS numbering — verified for HP, Kerala,
+// Bihar, Tamil Nadu in the V6 pre-flight of plan
+// TODO/20260612-pc-delim-2008-boundary-ingest-plan.md). The kebab-case PC
+// name slug derived via `slugify(pc_name)` is the stable cross-source key.
+// Frontend builders (StateElection / NationalElection PC winners) construct
+// the matching key as `${state_code}_${slugify(row.name)}` for delim=2008
+// events. The components stay grain-agnostic — they read
+// `feature.properties[boundary.join_property]` and `row.unique_id` without
+// caring about the underlying shape.
+//
+// SPECIAL CASE — Ladakh: the upstream datameet feature carries
+// `st_name='Jammu & Kashmir'` for pc_no=4 "Ladakh" (the pre-2019 J&K state
+// composite included Ladakh). At preprocessor time the Ladakh PC alone is
+// split to `state_ut_code='U09'` while the other 5 J&K PCs map to `'U08'`
+// (post-2019 J&K UT). This matches the temporal modelling in canonical
+// `electoral.csv` where Ladakh is a separate `state=ladakh` entity.
+export const INDIA_PC_2008: BoundaryEntry = {
+  id: "india-pc-2008",
+  label: "India — Parliamentary Constituencies (2008 delimitation)",
+  geojson_local_path: "boundaries/electoral/delim=2008/pc/all.geojson",
+  geojson_url:
+    "https://github.com/datameet/maps/tree/master/parliamentary-constituencies",
   join_property: "unique_id",
 };
 

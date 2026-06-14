@@ -1,18 +1,18 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,NEERAJ TAMANG ZIMBA,parties.IN.BJP,BJP,88161,61.8,1,won,M,37,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,BINOY TAMANG,parties.IN.IND,IND,41623,29.18,2,lost,M,54,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,AMAR LAMA,parties.IN.UNK,All India Jana Andolan Party,3242,2.27,3,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,AMAR LAMA,parties.IN.AIJAP,All India Jana Andolan Party,3242,2.27,3,forfeit,M,57,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,K. B. WATTAR (RAI),parties.IN.CPIM,CPM,2087,1.46,4,forfeit,M,65,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,SWARAJ THAPA,parties.IN.IND,IND,1768,1.24,5,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,SARDA RAI SUBBA,parties.IN.IND,IND,1270,0.89,7,forfeit,F,52,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,SANJAY THAKURI,parties.IN.UNK,Indian Democratic Republican Front,1183,0.83,8,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,SANJAY THAKURI,parties.IN.IDRP,Indian Democratic Republican Front,1183,0.83,8,forfeit,M,53,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,AMAR LOKSOM,parties.IN.GRAC,Gorkha Rashtriya Congress,1166,0.82,9,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-1960,west-bengal,2019,23,DARJEELING,BIPLOV RAI,parties.IN.ABGL,Akhil Bharatiya Gorkha League,668,0.47,10,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2109,west-bengal,2019,29,ISLAMPUR,ABDUL KARIM CHOWDHARY,parties.IN.AITC,AITC,77528,53.08,1,won,M,73,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2109,west-bengal,2019,29,ISLAMPUR,DR. SAUMYAROOP MANDAL,parties.IN.BJP,BJP,56141,38.44,2,lost,M,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2109,west-bengal,2019,29,ISLAMPUR,MUZAFFAR HUSSAIN,parties.IN.INC,INC,5208,3.57,3,forfeit,M,50,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2109,west-bengal,2019,29,ISLAMPUR,GUHANEOGI SHANTIPROKASH,parties.IN.CPIM,CPM,5128,3.51,4,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-west-bengal-2109,west-bengal,2019,29,ISLAMPUR,DR. MD. TABIBUR RAHMAN,parties.IN.UNK,Indian Democratic People’s Party,652,0.45,6,forfeit,M,64,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-west-bengal-2109,west-bengal,2019,29,ISLAMPUR,DR. MD. TABIBUR RAHMAN,parties.IN.IDPP,Indian Democratic People’s Party,652,0.45,6,forfeit,M,64,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2110,west-bengal,2019,34,KALIAGANJ,Tapan Deb Singha,parties.IN.AITC,AITC,97428,44.65,1,won,M,59,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2110,west-bengal,2019,34,KALIAGANJ,Kamal Chandra Sarkar,parties.IN.BJP,BJP,95014,43.54,2,lost,M,59,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-west-bengal-2110,west-bengal,2019,34,KALIAGANJ,Dhitashri Roy,parties.IN.INC,INC,18857,8.64,3,forfeit,F,48,,,challenger,src-1b7bc1c9d39a

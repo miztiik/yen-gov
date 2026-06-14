@@ -1,0 +1,31 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-arunachal-pradesh-1,arunachal-pradesh,1984,TAWANG I,6059,4592,75.79,KARMA WANGCHU,parties.IN.INC,INC,2992,65.16,TASHI NORBU,parties.IN.PPA,PPA,1600,1392,30.32,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-10,arunachal-pradesh,1984,ZIRO,16695,11563,69.26,GYATI TAKA,parties.IN.INC,INC,2938,25.41,PADI YUBE,parties.IN.IND,IND,2809,129,1.12,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-11,arunachal-pradesh,1984,RIGA-TALI,10259,6898,67.24,BOA TAMO,parties.IN.INC,INC,1762,25.54,MEM KABAK,parties.IN.BJP,BJP,1686,76,1.1,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-12,arunachal-pradesh,1984,DAPORIJO,13174,10344,78.52,TADAK DULOM,parties.IN.INC,INC,4651,44.96,LARBIN NACHI,parties.IN.BJP,BJP,4629,22,0.21,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-13,arunachal-pradesh,1984,DAKSING-TALIHA,11119,8138,73.19,PUNJI MARA,parties.IN.INC,INC,3504,43.06,TARA PAYENG,parties.IN.BJP,BJP,2844,660,8.11,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-14,arunachal-pradesh,1984,MACHUKA,5443,4187,76.92,TADIK CHIJE,parties.IN.IND,IND,1492,35.63,P.W. SONA,parties.IN.INC,INC,1310,182,4.34,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-15,arunachal-pradesh,1984,ALONG NORTH,10903,8728,80.05,LIJUM RONYA,parties.IN.BJP,BJP,2811,32.21,TALONG TAGGU,parties.IN.INC,INC,2763,48,0.55,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-16,arunachal-pradesh,1984,ALONG SOUTH,11390,8614,75.63,DOI ADO,parties.IN.PPA,PPA,4523,52.51,BOKEN ETE,parties.IN.IND,IND,3270,1253,14.55,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-17,arunachal-pradesh,1984,BASAR,10956,8912,81.34,TODAK BASAR,parties.IN.INC,INC,5701,63.97,TAMAR KARLO,parties.IN.PPA,PPA,3211,2490,27.94,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-18,arunachal-pradesh,1984,PASIGHAT,13659,10179,74.52,TAPUM JAMOH,parties.IN.PPA,PPA,5231,51.39,TARUNG PABIN,parties.IN.INC,INC,4948,283,2.78,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-19,arunachal-pradesh,1984,YINGKIONG-PANGIN,13389,10390,77.6,GEOGONG APANG,parties.IN.INC,INC,6880,66.22,TANUNG MIZE,parties.IN.PPA,PPA,3510,3370,32.44,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-2,arunachal-pradesh,1984,TAWANG II,6421,4878,75.97,TSERING TASHI,parties.IN.INC,INC,3139,64.35,TSERING CHUKI,parties.IN.PPA,PPA,1739,1400,28.7,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-20,arunachal-pradesh,1984,MERIANG-MEBO,10498,8104,77.2,BAKIN PERTIN,parties.IN.PPA,PPA,4167,51.42,KABANG BORANG,parties.IN.INC,INC,3937,230,2.84,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-21,arunachal-pradesh,1984,ANINI,4420,2484,56.2,TADE TACHO,parties.IN.INC,INC,1303,52.46,MARU MILI,parties.IN.IND,IND,773,530,21.34,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-22,arunachal-pradesh,1984,ROING,8964,6447,71.92,MUKUT MITHI,parties.IN.INC,INC,3023,46.89,ABOM BORNAG,parties.IN.PPA,PPA,2228,795,12.33,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-23,arunachal-pradesh,1984,NAMSAI CHOWKHAM,18772,13306,70.88,C.P. NAMSHOOM,parties.IN.IND,IND,5816,43.71,CHAU KHOUK MANPOONG,parties.IN.INC,INC,5634,182,1.37,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-24,arunachal-pradesh,1984,TEZU HAYULIANG,13931,9955,71.46,KHAPRISO KRONG,parties.IN.INC,INC,5297,53.21,SOBENG TAYANG,parties.IN.IND,IND,4343,954,9.58,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-25,arunachal-pradesh,1984,NOADIHING NAMPONG,8426,5995,71.15,KAMOLI MOSSANG,parties.IN.IND,IND,2937,48.99,SAMCHOM NGEMU,parties.IN.INC,INC,2682,255,4.25,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-26,arunachal-pradesh,1984,CHANGLANG,7432,5759,77.49,TENGAM NGEMU,parties.IN.INC,INC,3055,53.05,WANGNIA PONGTE,parties.IN.IND,IND,2573,482,8.37,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-27,arunachal-pradesh,1984,KHONSA SOUTH,8392,6224,74.17,T.L. RAJKUMAR,parties.IN.INC,INC,2656,42.67,SIJEN KONGKANG,parties.IN.PPA,PPA,1478,1178,18.92,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-28,arunachal-pradesh,1984,KHONSA NORTH,9581,6800,70.97,KAPCHEN RAJKUMAR,parties.IN.INC,INC,2284,33.59,L. WANGLAT,parties.IN.IND,IND,1786,498,7.33,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-29,arunachal-pradesh,1984,NIAUSA KANUBARI,9584,5749,59.99,NOKSONG BOHAM,parties.IN.INC,INC,2257,39.26,RAWANG WANGHAM,parties.IN.IND,IND,646,1611,28.02,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-3,arunachal-pradesh,1984,DIRANG- KALAKTONG,10284,8002,77.81,R.K. KHRIMEY,parties.IN.IND,IND,3925,49.05,NIMA TSERING KHRIME,parties.IN.INC,INC,3444,481,6.01,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-30,arunachal-pradesh,1984,PONGCHOU WAKKA,8830,3793,42.96,HEJAM PONGLAHAM,parties.IN.INC,INC,1442,38.02,ANOK,parties.IN.PPA,PPA,1081,361,9.52,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-4,arunachal-pradesh,1984,BOMDILA,7315,5257,71.87,JAPU DERU,parties.IN.PPA,PPA,1894,36.03,SINAM DUSUSOW,parties.IN.INC,INC,1737,157,2.99,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-5,arunachal-pradesh,1984,SEPPA,13793,9673,70.13,NYARI WELLI,parties.IN.INC,INC,3419,35.35,MAPE DADA,parties.IN.IND,IND,3376,43,0.45,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-6,arunachal-pradesh,1984,CHAYANGTAJO,11211,8777,78.29,KAMENG DOLO,parties.IN.INC,INC,4744,54.05,MAI SONAM,parties.IN.IND,IND,4033,711,8.1,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-7,arunachal-pradesh,1984,KOLORIANG,7826,0,0,CHERA TALO (UNCONTESTED),parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-8,arunachal-pradesh,1984,NYAPIN PALIM,10795,7953,73.67,TADAR TANG,parties.IN.INC,INC,3265,41.05,KAMEN RINGU,parties.IN.PPA,PPA,2836,429,5.39,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-9,arunachal-pradesh,1984,DOIMUKH-SAGALEE,19525,13016,66.66,TECHI TAKAR,parties.IN.INC,INC,5203,39.97,NABAM ATUM,parties.IN.IND,IND,3075,2128,16.35,src-1b7bc1c9d39a

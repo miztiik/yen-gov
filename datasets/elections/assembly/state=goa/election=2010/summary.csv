@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-goa-19,goa,2010,VALPOI,17669,14879,84.21,R.V.Pratapsingh,parties.IN.INC,INC,11642,78.24,H.S.Tukaram,parties.IN.BJP,BJP,3237,8405,56.48,src-1b7bc1c9d39a

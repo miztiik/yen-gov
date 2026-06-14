@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-haryana-347,haryana,2019,1,KALKA,PARDEEP CHAUDHARY,parties.IN.INC,INC,57948,45.26,1,won,U,58,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-347,haryana,2019,1,KALKA,LATIKA SHARMA,parties.IN.BJP,BJP,52017,40.63,2,lost,U,54,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-haryana-347,haryana,2019,1,KALKA,KIRAN CHAUDHARY,parties.IN.JNJP,JNJP,7739,6.04,3,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-347,haryana,2019,1,KALKA,KIRAN CHAUDHARY,parties.IN.JJP,JNJP,7739,6.04,3,forfeit,U,38,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-347,haryana,2019,1,KALKA,SATINDER SINGH,parties.IN.INLD,INLD,4963,3.88,4,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-347,haryana,2019,1,KALKA,ASHWANI NAGRA,parties.IN.BSP,BSP,2573,2.01,5,forfeit,U,35,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-347,haryana,2019,1,KALKA,UMESH KUMAR,parties.IN.IND,IND,684,0.53,7,forfeit,U,29,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -15,7 +15,7 @@ IN-AC-2008-haryana-350,haryana,2019,2,PANCHKULA,Karundeep Chaudhary,parties.IN.I
 IN-AC-2008-haryana-350,haryana,2019,2,PANCHKULA,Roshan Lal Kocher,parties.IN.BSP,BSP,1055,0.84,5,forfeit,U,68,Graduate Professional,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-350,haryana,2019,2,PANCHKULA,Yogeshwar Sharma,parties.IN.AAAP,AAAP,959,0.76,6,forfeit,U,43,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-350,haryana,2019,2,PANCHKULA,Manoj Kumar,parties.IN.RTRJP,RtrJP,765,0.61,7,forfeit,U,38,12th Pass,Ex Military,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-350,haryana,2019,2,PANCHKULA,Ajay Gautam,parties.IN.JNJP,JNJP,677,0.54,8,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-350,haryana,2019,2,PANCHKULA,Ajay Gautam,parties.IN.JJP,JNJP,677,0.54,8,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-350,haryana,2019,2,PANCHKULA,Madhu Anand,parties.IN.SWARAJ,SWARAJ,470,0.37,9,forfeit,U,70,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-350,haryana,2019,2,PANCHKULA,Sunita,parties.IN.IND,IND,350,0.28,10,forfeit,U,36,12th Pass,Aanganwadi,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-350,haryana,2019,2,PANCHKULA,Mukhtiar Singh,parties.IN.IND,IND,309,0.25,11,forfeit,U,79,12th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
@@ -25,7 +25,7 @@ IN-AC-2008-haryana-350,haryana,2019,2,PANCHKULA,Gurtej Singh ( Bhola),parties.IN
 IN-AC-2008-haryana-350,haryana,2019,2,PANCHKULA,Rahul Kumar Sharma,parties.IN.JANSP,JanSP,78,0.06,15,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-349,haryana,2019,3,NARAINGARH,SHALLEY,parties.IN.INC,INC,53470,39.56,1,won,U,53,8th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-349,haryana,2019,3,NARAINGARH,SURENDER SINGH,parties.IN.BJP,BJP,32870,24.32,2,lost,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-349,haryana,2019,3,NARAINGARH,Ram Singh Dhillon,parties.IN.JNJP,JNJP,18753,13.87,3,forfeit,U,66,Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-349,haryana,2019,3,NARAINGARH,Ram Singh Dhillon,parties.IN.JJP,JNJP,18753,13.87,3,forfeit,U,66,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-349,haryana,2019,3,NARAINGARH,GULSHAN KUMAR,parties.IN.LTSP,LTSP,15454,11.43,4,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-349,haryana,2019,3,NARAINGARH,MADAN PAL,parties.IN.BSP,BSP,7926,5.86,5,forfeit,U,62,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-349,haryana,2019,3,NARAINGARH,Jagmal Singh Rolloyo,parties.IN.INLD,INLD,2242,1.66,6,forfeit,U,61,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -44,7 +44,7 @@ IN-AC-2008-haryana-344,haryana,2019,4,AMBALA CANTT.,LAkhbir Singh Alias Latika,p
 IN-AC-2008-haryana-345,haryana,2019,5,AMBALA CITY,Aseem Goel Naneola,parties.IN.BJP,BJP,64896,42.2,1,won,U,39,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-345,haryana,2019,5,AMBALA CITY,Nirmal Singh Mohra,parties.IN.IND,IND,55944,36.38,2,lost,U,66,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-345,haryana,2019,5,AMBALA CITY,Jasbir Mallour,parties.IN.INC,INC,20091,13.07,3,forfeit,U,53,12th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-haryana-345,haryana,2019,5,AMBALA CITY,Harpal Singh Kamboj,parties.IN.JNJP,JNJP,5711,3.71,4,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-345,haryana,2019,5,AMBALA CITY,Harpal Singh Kamboj,parties.IN.JJP,JNJP,5711,3.71,4,forfeit,U,49,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-345,haryana,2019,5,AMBALA CITY,Ravinder Singh,parties.IN.BSP,BSP,2890,1.88,5,forfeit,U,58,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-345,haryana,2019,5,AMBALA CITY,ANSHUL KUMAR AGGARWAL,parties.IN.AAAP,AAAP,868,0.56,7,forfeit,U,28,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-345,haryana,2019,5,AMBALA CITY,SHARAN PAL SACHDEVA,parties.IN.LTSP,LTSP,585,0.38,8,forfeit,U,58,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
@@ -54,7 +54,7 @@ IN-AC-2008-haryana-345,haryana,2019,5,AMBALA CITY,RAJESH PAHUJA,parties.IN.IND,I
 IN-AC-2008-haryana-348,haryana,2019,6,MULANA,Varun Chaudhary,parties.IN.INC,INC,67051,43.6,1,won,U,39,Graduate Professional,"Petrol Pumps, Agricultural Business",challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-348,haryana,2019,6,MULANA,Rajbir Singh,parties.IN.BJP,BJP,65363,42.5,2,lost,U,52,10th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-348,haryana,2019,6,MULANA,Krishan Dass,parties.IN.BSP,BSP,10451,6.8,3,forfeit,U,60,Others,Ex Govt Employee,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-348,haryana,2019,6,MULANA,Amar Nath,parties.IN.JNJP,JNJP,4790,3.11,4,forfeit,U,63,Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-348,haryana,2019,6,MULANA,Amar Nath,parties.IN.JJP,JNJP,4790,3.11,4,forfeit,U,63,Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-348,haryana,2019,6,MULANA,Daya Rani,parties.IN.INLD,INLD,4479,2.91,5,forfeit,U,41,10th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-348,haryana,2019,6,MULANA,Anil Kumar,parties.IN.IND,IND,486,0.32,7,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-348,haryana,2019,6,MULANA,Mewa Dass,parties.IN.IND,IND,377,0.25,8,forfeit,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -62,7 +62,7 @@ IN-AC-2008-haryana-348,haryana,2019,6,MULANA,Suraj Bhan,parties.IN.IND,IND,205,0
 IN-AC-2008-haryana-351,haryana,2019,7,SADHAURA,RENU BALA,parties.IN.INC,INC,65806,40.01,1,won,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-351,haryana,2019,7,SADHAURA,BALWANT SINGH,parties.IN.BJP,BJP,48786,29.66,2,lost,U,69,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-351,haryana,2019,7,SADHAURA,SAHI RAM,parties.IN.BSP,BSP,25874,15.73,3,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-351,haryana,2019,7,SADHAURA,Dr. KUSUM Sherwal,parties.IN.JNJP,JNJP,14960,9.1,4,forfeit,U,48,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-351,haryana,2019,7,SADHAURA,Dr. KUSUM Sherwal,parties.IN.JJP,JNJP,14960,9.1,4,forfeit,U,48,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-351,haryana,2019,7,SADHAURA,NATHI RAM Khera,parties.IN.LTSP,LTSP,2880,1.75,5,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-351,haryana,2019,7,SADHAURA,SUSHMA DEVI,parties.IN.INLD,INLD,1285,0.78,6,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-351,haryana,2019,7,SADHAURA,ARUN KUMAR,parties.IN.CPI,CPI,948,0.58,7,forfeit,U,46,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -73,12 +73,12 @@ IN-AC-2008-haryana-351,haryana,2019,7,SADHAURA,DESH RAJ,parties.IN.IND,IND,411,0
 IN-AC-2008-haryana-351,haryana,2019,7,SADHAURA,ANIL KUMAR GAGAT,parties.IN.AIFB,AIFB,400,0.24,13,forfeit,U,37,Post Graduate,Painter,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-351,haryana,2019,7,SADHAURA,BETA MAMCHAND RATTU,parties.IN.IND,IND,348,0.21,14,forfeit,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-351,haryana,2019,7,SADHAURA,DHARAM PAL,parties.IN.RPIA,RPI(A),287,0.17,15,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-351,haryana,2019,7,SADHAURA,NAIB SINGH,parties.IN.UNK,BVD,246,0.15,16,forfeit,U,48,8th Pass,Ex Military,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-351,haryana,2019,7,SADHAURA,NAIB SINGH,parties.IN.BVD,BVD,246,0.15,16,forfeit,U,48,8th Pass,Ex Military,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-351,haryana,2019,7,SADHAURA,CHAMAN LAL,parties.IN.SWARAJ,SWARAJ,225,0.14,17,forfeit,U,65,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-346,haryana,2019,8,JAGADHRI,Kanwar Pal,parties.IN.BJP,BJP,66376,38.88,1,won,U,59,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-346,haryana,2019,8,JAGADHRI,Akram Khan,parties.IN.INC,INC,50003,29.29,2,lost,U,49,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-346,haryana,2019,8,JAGADHRI,Adarsh Pal Singh,parties.IN.BSP,BSP,47988,28.11,3,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-346,haryana,2019,8,JAGADHRI,Arjun Singh,parties.IN.JNJP,JNJP,2342,1.37,4,forfeit,U,63,8th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-346,haryana,2019,8,JAGADHRI,Arjun Singh,parties.IN.JJP,JNJP,2342,1.37,4,forfeit,U,63,8th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-346,haryana,2019,8,JAGADHRI,Baljeet Sharma,parties.IN.INLD,INLD,861,0.5,6,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-346,haryana,2019,8,JAGADHRI,Yogesh Sethi,parties.IN.IND,IND,641,0.38,7,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-346,haryana,2019,8,JAGADHRI,Naresh Kumar,parties.IN.LTSP,LTSP,460,0.27,8,forfeit,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -89,7 +89,7 @@ IN-AC-2008-haryana-352,haryana,2019,9,YAMUNANAGAR,GHANSHYAM DASS,parties.IN.BJP,
 IN-AC-2008-haryana-352,haryana,2019,9,YAMUNANAGAR,DILBAG SINGH,parties.IN.INLD,INLD,63393,42.05,2,lost,U,48,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-352,haryana,2019,9,YAMUNANAGAR,NIRMAL CHAUHAN,parties.IN.INC,INC,9784,6.49,3,forfeit,U,47,Post Graduate,Municipality Member,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-352,haryana,2019,9,YAMUNANAGAR,YOGESH KUMAR,parties.IN.BSP,BSP,7731,5.13,4,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-352,haryana,2019,9,YAMUNANAGAR,SALESH TYAGI,parties.IN.JNJP,JNJP,2039,1.35,5,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-352,haryana,2019,9,YAMUNANAGAR,SALESH TYAGI,parties.IN.JJP,JNJP,2039,1.35,5,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-352,haryana,2019,9,YAMUNANAGAR,ARVINDER SINGH KHALSA,parties.IN.AAAP,AAAP,615,0.41,7,forfeit,U,51,Post Graduate,Consultant,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-352,haryana,2019,9,YAMUNANAGAR,SHAMMI KAPOOR,parties.IN.IND,IND,430,0.29,8,forfeit,U,41,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-352,haryana,2019,9,YAMUNANAGAR,MANDEEP KAUR,parties.IN.IND,IND,298,0.2,9,forfeit,U,36,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -98,7 +98,7 @@ IN-AC-2008-haryana-352,haryana,2019,9,YAMUNANAGAR,SATISH TYAGI,parties.IN.LTSP,L
 IN-AC-2008-haryana-404,haryana,2019,10,RADAUR,BISHAN LAL,parties.IN.INC,INC,54087,38.05,1,won,U,64,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-404,haryana,2019,10,RADAUR,KARAN DEV,parties.IN.BJP,BJP,51546,36.26,2,lost,U,58,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-404,haryana,2019,10,RADAUR,MAHIPAL SINGH,parties.IN.BSP,BSP,18567,13.06,3,forfeit,U,61,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-404,haryana,2019,10,RADAUR,MANGA RAM,parties.IN.JNJP,JNJP,7161,5.04,4,forfeit,U,52,5th Pass,Agricultural Business,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-404,haryana,2019,10,RADAUR,MANGA RAM,parties.IN.JJP,JNJP,7161,5.04,4,forfeit,U,52,5th Pass,Agricultural Business,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-404,haryana,2019,10,RADAUR,RAJBEER,parties.IN.INLD,INLD,3687,2.59,5,forfeit,U,53,10th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-404,haryana,2019,10,RADAUR,HARBANS KUMAR,parties.IN.LTSP,LTSP,2589,1.82,6,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-404,haryana,2019,10,RADAUR,NARESH LAL,parties.IN.AAAP,AAAP,1419,1,7,forfeit,U,63,Post Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
@@ -109,7 +109,7 @@ IN-AC-2008-haryana-401,haryana,2019,11,LADWA,Mewa Singh,parties.IN.INC,INC,57665
 IN-AC-2008-haryana-401,haryana,2019,11,LADWA,Dr. Pawan Saini,parties.IN.BJP,BJP,45028,32.69,2,lost,U,48,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-401,haryana,2019,11,LADWA,Sapna Barshami,parties.IN.INLD,INLD,15513,11.26,3,forfeit,U,39,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-401,haryana,2019,11,LADWA,Naib Singh,parties.IN.LTSP,LTSP,9099,6.6,4,forfeit,U,55,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-401,haryana,2019,11,LADWA,Dr. Santosh Dahiya,parties.IN.JNJP,JNJP,2918,2.12,5,forfeit,U,53,Doctorate,Principal or Administrator,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-401,haryana,2019,11,LADWA,Dr. Santosh Dahiya,parties.IN.JJP,JNJP,2918,2.12,5,forfeit,U,53,Doctorate,Principal or Administrator,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-401,haryana,2019,11,LADWA,Pal Singh,parties.IN.BSP,BSP,2359,1.71,6,forfeit,U,59,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-401,haryana,2019,11,LADWA,Gurdev Singh Sura,parties.IN.AAAP,AAAP,1481,1.08,7,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-401,haryana,2019,11,LADWA,Gurnam Singh,parties.IN.IND,IND,1307,0.95,8,forfeit,U,59,8th Pass,Insurance Agent,challenger,src-1b7bc1c9d39a
@@ -117,7 +117,7 @@ IN-AC-2008-haryana-401,haryana,2019,11,LADWA,Rajesh Ghisarpari,parties.IN.SHPP,S
 IN-AC-2008-haryana-401,haryana,2019,11,LADWA,Sita Devi,parties.IN.RJP_E,RJP(E),437,0.32,11,forfeit,U,37,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-401,haryana,2019,11,LADWA,Sunita Devi,parties.IN.BSCP,BSCP,416,0.3,12,forfeit,U,32,10th Pass,Household,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-401,haryana,2019,11,LADWA,Kiran Dawar,parties.IN.IND,IND,358,0.26,13,forfeit,U,43,Graduate,Household,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-405,haryana,2019,12,SHAHBAD,RAM KARAN,parties.IN.JNJP,JNJP,69233,55.35,1,won,U,50,5th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-405,haryana,2019,12,SHAHBAD,RAM KARAN,parties.IN.JJP,JNJP,69233,55.35,1,won,U,50,5th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-405,haryana,2019,12,SHAHBAD,KRISHAN KUMAR,parties.IN.BJP,BJP,32106,25.67,2,lost,U,52,Post Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-405,haryana,2019,12,SHAHBAD,ANIL KUMAR DHANTORI,parties.IN.INC,INC,18844,15.07,3,forfeit,U,44,Graduate Professional,Ex MLA,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-405,haryana,2019,12,SHAHBAD,SANDEEP KUMAR,parties.IN.INLD,INLD,1596,1.28,4,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
@@ -126,7 +126,7 @@ IN-AC-2008-haryana-405,haryana,2019,12,SHAHBAD,KULBIR SINGH,parties.IN.LTSP,LTSP
 IN-AC-2008-haryana-406,haryana,2019,13,THANESAR,SUBHASH SUDHA,parties.IN.BJP,BJP,55759,43.03,1,won,U,55,Graduate,Unspecified,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-406,haryana,2019,13,THANESAR,ASHOK KUMAR ARORA,parties.IN.INC,INC,54917,42.38,2,lost,U,60,10th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-406,haryana,2019,13,THANESAR,PARVEEN CHOUDHARY,parties.IN.IND,IND,11939,9.21,3,forfeit,U,42,Post Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-406,haryana,2019,13,THANESAR,YOGESH KUMAR,parties.IN.JNJP,JNJP,2012,1.55,4,forfeit,U,30,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-406,haryana,2019,13,THANESAR,YOGESH KUMAR,parties.IN.JJP,JNJP,2012,1.55,4,forfeit,U,30,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-406,haryana,2019,13,THANESAR,NAVEEN KUMAR,parties.IN.BSP,BSP,1519,1.17,5,forfeit,U,29,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-406,haryana,2019,13,THANESAR,KALAWATI,parties.IN.INLD,INLD,734,0.57,7,forfeit,U,45,Post Graduate,Aanganwadi,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-406,haryana,2019,13,THANESAR,KHUSHI RAM,parties.IN.IND,IND,330,0.25,8,forfeit,U,64,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -141,7 +141,7 @@ IN-AC-2008-haryana-406,haryana,2019,13,THANESAR,RAJ RANI,parties.IN.BSCP,BSCP,83
 IN-AC-2008-haryana-402,haryana,2019,14,PEHOWA,SANDEEP SINGH,parties.IN.BJP,BJP,42613,34.69,1,won,U,33,Graduate,Sports,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-402,haryana,2019,14,PEHOWA,MANDEEP SINGH CHATTHA,parties.IN.INC,INC,37299,30.36,2,lost,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-402,haryana,2019,14,PEHOWA,SWAMI SANDEEP ONKAR,parties.IN.IND,IND,21775,17.73,3,lost,U,29,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-402,haryana,2019,14,PEHOWA,RANDHIR SINGH,parties.IN.JNJP,JNJP,14846,12.09,4,forfeit,U,53,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-402,haryana,2019,14,PEHOWA,RANDHIR SINGH,parties.IN.JJP,JNJP,14846,12.09,4,forfeit,U,53,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-402,haryana,2019,14,PEHOWA,PARDEEP KUMAR,parties.IN.IND,IND,1785,1.45,5,forfeit,U,27,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-402,haryana,2019,14,PEHOWA,ONKAR SINGH,parties.IN.BSP,BSP,1741,1.42,6,forfeit,U,50,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-402,haryana,2019,14,PEHOWA,NASIB SINGH,parties.IN.LTSP,LTSP,765,0.62,7,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -149,7 +149,7 @@ IN-AC-2008-haryana-402,haryana,2019,14,PEHOWA,SANJEEV KUMAR,parties.IN.SHPP,SHPP
 IN-AC-2008-haryana-402,haryana,2019,14,PEHOWA,MANJIT SINGH,parties.IN.INLD,INLD,405,0.33,10,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-402,haryana,2019,14,PEHOWA,TEJ PAL,parties.IN.IND,IND,361,0.29,11,forfeit,U,50,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-402,haryana,2019,14,PEHOWA,KANWALJIT SINGH,parties.IN.IND,IND,188,0.15,12,forfeit,U,30,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-398,haryana,2019,15,GUHLA,Ishwar Singh,parties.IN.JNJP,JNJP,36518,27.82,1,won,U,69,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-398,haryana,2019,15,GUHLA,Ishwar Singh,parties.IN.JJP,JNJP,36518,27.82,1,won,U,69,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-398,haryana,2019,15,GUHLA,Chaudhary Dilu Ram,parties.IN.INC,INC,31944,24.33,2,lost,U,72,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-398,haryana,2019,15,GUHLA,Devender Hans,parties.IN.IND,IND,29473,22.45,3,lost,U,39,10th Pass,Mechanic,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-398,haryana,2019,15,GUHLA,Para Ram alias Ravi Taranwali,parties.IN.BJP,BJP,25203,19.2,4,lost,U,31,12th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
@@ -163,7 +163,7 @@ IN-AC-2008-haryana-398,haryana,2019,15,GUHLA,Raj Kumar,parties.IN.LTSP,LTSP,395,
 IN-AC-2008-haryana-398,haryana,2019,15,GUHLA,Ballu Ram,parties.IN.IND,IND,309,0.24,13,forfeit,U,47,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-400,haryana,2019,16,KALAYAT,KAMLESH DHANDA,parties.IN.BJP,BJP,53805,35.19,1,won,U,52,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-400,haryana,2019,16,KALAYAT,JAI PARKASH,parties.IN.INC,INC,44831,29.32,2,lost,U,64,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-400,haryana,2019,16,KALAYAT,SATVINDER SINGH,parties.IN.JNJP,JNJP,37425,24.48,3,lost,U,63,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-400,haryana,2019,16,KALAYAT,SATVINDER SINGH,parties.IN.JJP,JNJP,37425,24.48,3,lost,U,63,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-400,haryana,2019,16,KALAYAT,Jogi Ram,parties.IN.BSP,BSP,7113,4.65,4,forfeit,U,55,Illiterate,Transport,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-400,haryana,2019,16,KALAYAT,RAKESH SINGH,parties.IN.LTSP,LTSP,2448,1.6,5,forfeit,U,48,10th Pass,Agricultural Business,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-400,haryana,2019,16,KALAYAT,Seema,parties.IN.AAAP,AAAP,1453,0.95,6,forfeit,U,30,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -178,7 +178,7 @@ IN-AC-2008-haryana-400,haryana,2019,16,KALAYAT,Satnarain,parties.IN.RASLP,RasLP,
 IN-AC-2008-haryana-400,haryana,2019,16,KALAYAT,Krishan,parties.IN.IND,IND,207,0.14,16,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-399,haryana,2019,17,KAITHAL,LEELA RAM,parties.IN.BJP,BJP,72664,45.79,1,won,U,58,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-399,haryana,2019,17,KAITHAL,RANDEEP SINGH SURJEWALA,parties.IN.INC,INC,71418,45,2,lost,U,52,Post Graduate,Lawyer,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-haryana-399,haryana,2019,17,KAITHAL,RAMPHAL MALIK,parties.IN.JNJP,JNJP,6358,4.01,3,forfeit,U,57,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-399,haryana,2019,17,KAITHAL,RAMPHAL MALIK,parties.IN.JJP,JNJP,6358,4.01,3,forfeit,U,57,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-399,haryana,2019,17,KAITHAL,JASHVIR,parties.IN.SHPP,SHPP,2243,1.41,4,forfeit,U,36,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-399,haryana,2019,17,KAITHAL,MADAN,parties.IN.BSP,BSP,2212,1.39,5,forfeit,U,37,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-399,haryana,2019,17,KAITHAL,SHYAM LAL,parties.IN.LTSP,LTSP,484,0.3,7,forfeit,U,37,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
@@ -199,7 +199,7 @@ IN-AC-2008-haryana-403,haryana,2019,18,PUNDRI,SATBIR BHANA,parties.IN.INC,INC,28
 IN-AC-2008-haryana-403,haryana,2019,18,PUNDRI,VEDPAL ADVOCATE,parties.IN.BJP,BJP,20990,15.33,3,forfeit,U,51,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-403,haryana,2019,18,PUNDRI,Dinesh Kaushik,parties.IN.IND,IND,16142,11.79,4,forfeit,U,59,Post Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-403,haryana,2019,18,PUNDRI,NARENDER SHARMA,parties.IN.IND,IND,14242,10.4,5,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-403,haryana,2019,18,PUNDRI,Rajesh Kumar (RAJU DHULL PAI),parties.IN.JNJP,JNJP,8138,5.94,6,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-403,haryana,2019,18,PUNDRI,Rajesh Kumar (RAJU DHULL PAI),parties.IN.JJP,JNJP,8138,5.94,6,forfeit,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-403,haryana,2019,18,PUNDRI,SUNITA DHULL,parties.IN.BSP,BSP,5626,4.11,7,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-403,haryana,2019,18,PUNDRI,COMREDE KRISHAN CHAND,parties.IN.SUCI,SUCI(C),838,0.61,8,forfeit,U,57,12th Pass,Agricultural Business,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-403,haryana,2019,18,PUNDRI,SUSHIL KUMAR,parties.IN.SHPP,SHPP,495,0.36,10,forfeit,U,36,Graduate Professional,,challenger,src-1b7bc1c9d39a
@@ -209,7 +209,7 @@ IN-AC-2008-haryana-403,haryana,2019,18,PUNDRI,KRIS SHEOKAND,parties.IN.IND,IND,1
 IN-AC-2008-haryana-394,haryana,2019,19,NILOKHERI,DHARAM PAL GONDER,parties.IN.IND,IND,42979,32.02,1,won,U,62,12th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-394,haryana,2019,19,NILOKHERI,BHAGWAN DASS,parties.IN.BJP,BJP,40757,30.37,2,lost,U,50,Graduate,Qualified Professional,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-394,haryana,2019,19,NILOKHERI,BANTA RAM,parties.IN.INC,INC,19736,14.71,3,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-394,haryana,2019,19,NILOKHERI,BHIM SINGH JALALA,parties.IN.JNJP,JNJP,11278,8.4,4,forfeit,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-394,haryana,2019,19,NILOKHERI,BHIM SINGH JALALA,parties.IN.JJP,JNJP,11278,8.4,4,forfeit,U,61,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-394,haryana,2019,19,NILOKHERI,ARUNA,parties.IN.RTRJP,RtrJP,7067,5.27,5,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-394,haryana,2019,19,NILOKHERI,MUKESH KUMAR GROVER,parties.IN.BSP,BSP,5136,3.83,6,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-394,haryana,2019,19,NILOKHERI,DHARMVEER,parties.IN.IND,IND,2291,1.71,7,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -222,7 +222,7 @@ IN-AC-2008-haryana-394,haryana,2019,19,NILOKHERI,PALA RAM,parties.IN.RASLP,RasLP
 IN-AC-2008-haryana-391,haryana,2019,20,INDRI,RAM KUMAR,parties.IN.BJP,BJP,54221,38.01,1,won,U,68,Post Graduate,MP,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-391,haryana,2019,20,INDRI,RAKESH KAMBOJ,parties.IN.IND,IND,46790,32.8,2,lost,U,53,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-391,haryana,2019,20,INDRI,DR. NAVJOT KASHYAP,parties.IN.INC,INC,16776,11.76,3,forfeit,U,41,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-391,haryana,2019,20,INDRI,GURDEV SINGH,parties.IN.JNJP,JNJP,11946,8.37,4,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-391,haryana,2019,20,INDRI,GURDEV SINGH,parties.IN.JJP,JNJP,11946,8.37,4,forfeit,U,48,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-391,haryana,2019,20,INDRI,HAWA SINGH,parties.IN.BSP,BSP,6564,4.6,5,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-391,haryana,2019,20,INDRI,PARDEEP KAMBOJ,parties.IN.INLD,INLD,1765,1.24,6,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-391,haryana,2019,20,INDRI,KARTA RAM,parties.IN.LTSP,LTSP,1722,1.21,7,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -232,7 +232,7 @@ IN-AC-2008-haryana-391,haryana,2019,20,INDRI,JASBIR,parties.IN.RGD,RGD,526,0.37,
 IN-AC-2008-haryana-391,haryana,2019,20,INDRI,KHATAB SINGH,parties.IN.BSCP,BSCP,215,0.15,12,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-393,haryana,2019,21,KARNAL,Manohar Lal,parties.IN.BJP,BJP,79906,63.72,1,won,U,65,Graduate,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-393,haryana,2019,21,KARNAL,Tarlochan Singh,parties.IN.INC,INC,34718,27.68,2,lost,U,64,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-393,haryana,2019,21,KARNAL,Tej Bahadur,parties.IN.JNJP,JNJP,3192,2.55,3,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-393,haryana,2019,21,KARNAL,Tej Bahadur,parties.IN.JJP,JNJP,3192,2.55,3,forfeit,U,43,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-393,haryana,2019,21,KARNAL,Satish Balmiki,parties.IN.BSP,BSP,2597,2.07,4,forfeit,U,45,10th Pass,Qualified Professional,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-393,haryana,2019,21,KARNAL,Mahinder Pal Rathi,parties.IN.AAAP,AAAP,1402,1.12,6,forfeit,U,66,Graduate Professional,Retired or Pension,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-393,haryana,2019,21,KARNAL,Satpal Sahil Hindustani,parties.IN.IND,IND,858,0.68,7,forfeit,U,38,,,challenger,src-1b7bc1c9d39a
@@ -242,7 +242,7 @@ IN-AC-2008-haryana-393,haryana,2019,21,KARNAL,Master Ramesh Khatri Lambardar,par
 IN-AC-2008-haryana-393,haryana,2019,21,KARNAL,Sant Dharamveer Chotiwala,parties.IN.JDU,JD(U),101,0.08,11,forfeit,U,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-390,haryana,2019,22,GHARAUNDA,HARVINDER KALYAN,parties.IN.BJP,BJP,67209,46.71,1,won,U,52,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-390,haryana,2019,22,GHARAUNDA,ANIL KUMAR,parties.IN.INC,INC,49807,34.62,2,lost,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-390,haryana,2019,22,GHARAUNDA,Umed Singh Kashyap,parties.IN.JNJP,JNJP,13709,9.53,3,forfeit,U,53,Doctorate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-390,haryana,2019,22,GHARAUNDA,Umed Singh Kashyap,parties.IN.JJP,JNJP,13709,9.53,3,forfeit,U,53,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-390,haryana,2019,22,GHARAUNDA,DR MEHAR SINGH,parties.IN.BSP,BSP,5456,3.79,4,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-390,haryana,2019,22,GHARAUNDA,MANINDER RANA,parties.IN.INLD,INLD,2841,1.97,5,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-390,haryana,2019,22,GHARAUNDA,JAGPAL SINGH,parties.IN.IND,IND,1331,0.93,6,forfeit,U,46,Graduate Professional,,challenger,src-1b7bc1c9d39a
@@ -258,7 +258,7 @@ IN-AC-2008-haryana-389,haryana,2019,23,ASSANDH,Narender Singh,parties.IN.BSP,BSP
 IN-AC-2008-haryana-389,haryana,2019,23,ASSANDH,Bakhshish Singh Virk,parties.IN.BJP,BJP,28518,18.6,3,lost,U,62,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-389,haryana,2019,23,ASSANDH,ZILE RAM SHARMA,parties.IN.IND,IND,25137,16.39,4,forfeit,U,62,12th Pass,Ex MLA,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-389,haryana,2019,23,ASSANDH,SANJAY KUMAR,parties.IN.IND,IND,14212,9.27,5,forfeit,U,39,8th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-389,haryana,2019,23,ASSANDH,BRIJ SHARMA,parties.IN.JNJP,JNJP,13756,8.97,6,forfeit,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-389,haryana,2019,23,ASSANDH,BRIJ SHARMA,parties.IN.JJP,JNJP,13756,8.97,6,forfeit,U,54,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-389,haryana,2019,23,ASSANDH,DHARMVIR PADHA,parties.IN.INLD,INLD,2610,1.7,7,forfeit,U,56,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-389,haryana,2019,23,ASSANDH,Manjeet Singh,parties.IN.LTSP,LTSP,1873,1.22,8,forfeit,U,41,Graduate,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-389,haryana,2019,23,ASSANDH,Master Satyavan Turan,parties.IN.SHPP,SHPP,1673,1.09,9,forfeit,U,47,Post Graduate,Home Teacher or Tuition,challenger,src-1b7bc1c9d39a
@@ -266,7 +266,7 @@ IN-AC-2008-haryana-389,haryana,2019,23,ASSANDH,Harjeet Singh,parties.IN.IND,IND,
 IN-AC-2008-haryana-389,haryana,2019,23,ASSANDH,VED PAL,parties.IN.AAAP,AAAP,647,0.42,11,forfeit,U,48,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-389,haryana,2019,23,ASSANDH,Kartar Singh,parties.IN.SUCI,SUCI(C),640,0.42,12,forfeit,U,72,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-396,haryana,2019,24,PANIPAT RURAL,MAHIPAL DHANDA,parties.IN.BJP,BJP,67086,40.77,1,won,U,45,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-haryana-396,haryana,2019,24,PANIPAT RURAL,DEVENDER KADIAN,parties.IN.JNJP,JNJP,45125,27.42,2,lost,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-396,haryana,2019,24,PANIPAT RURAL,DEVENDER KADIAN,parties.IN.JJP,JNJP,45125,27.42,2,lost,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-396,haryana,2019,24,PANIPAT RURAL,SANDEEP BHARDWAJ,parties.IN.IND,IND,20393,12.39,3,forfeit,U,37,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-396,haryana,2019,24,PANIPAT RURAL,BALKAR MALIK,parties.IN.BSP,BSP,11619,7.06,4,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-396,haryana,2019,24,PANIPAT RURAL,OM PARKASH JAIN,parties.IN.INC,INC,10679,6.49,5,forfeit,U,71,10th Pass,"Ex MLA, Panchayat Member",challenger,src-1b7bc1c9d39a
@@ -279,7 +279,7 @@ IN-AC-2008-haryana-396,haryana,2019,24,PANIPAT RURAL,PALE RAM KASHYAP,parties.IN
 IN-AC-2008-haryana-396,haryana,2019,24,PANIPAT RURAL,RAJESH BURSHAM,parties.IN.IND,IND,320,0.19,13,forfeit,U,29,12th Pass,Managerial Position,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci25,haryana,2019,25,PANIPAT CITY,PARMOD KUMAR VIJ,parties.IN.BJP,BJP,76863,62.84,1,won,U,64,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci25,haryana,2019,25,PANIPAT CITY,SANJAY AGGARWAL,parties.IN.INC,INC,37318,30.51,2,lost,U,48,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-eci25,haryana,2019,25,PANIPAT CITY,JAIDEV NAULTHA,parties.IN.JNJP,JNJP,2246,1.84,3,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-eci25,haryana,2019,25,PANIPAT CITY,JAIDEV NAULTHA,parties.IN.JJP,JNJP,2246,1.84,3,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci25,haryana,2019,25,PANIPAT CITY,RAMESH SINGLA,parties.IN.BSP,BSP,1787,1.46,4,forfeit,U,55,12th Pass,Private Company,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci25,haryana,2019,25,PANIPAT CITY,VIJAY KUMAR KALRA,parties.IN.LTSP,LTSP,783,0.64,6,forfeit,U,55,5th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci25,haryana,2019,25,PANIPAT CITY,RAJENDER JINDI BHAI,parties.IN.IND,IND,424,0.35,7,forfeit,U,58,8th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
@@ -290,7 +290,7 @@ IN-AC-2008-haryana-eci25,haryana,2019,25,PANIPAT CITY,NEELAM PRANAMI,parties.IN.
 IN-AC-2008-haryana-eci25,haryana,2019,25,PANIPAT CITY,SWAMI AGNIVESH,parties.IN.IND,IND,137,0.11,12,forfeit,U,43,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-392,haryana,2019,26,ISRANA,BALBIR SINGH,parties.IN.INC,INC,61376,48.21,1,won,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-392,haryana,2019,26,ISRANA,KRISHAN LAL PANWAR,parties.IN.BJP,BJP,41361,32.49,2,lost,U,61,10th Pass,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-haryana-392,haryana,2019,26,ISRANA,DAYANAND URLANA,parties.IN.JNJP,JNJP,17735,13.93,3,forfeit,U,64,Others,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-392,haryana,2019,26,ISRANA,DAYANAND URLANA,parties.IN.JJP,JNJP,17735,13.93,3,forfeit,U,64,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-392,haryana,2019,26,ISRANA,USHA ATKAN,parties.IN.LTSP,LTSP,2697,2.12,4,forfeit,U,38,12th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-392,haryana,2019,26,ISRANA,SUNITA SABHARWAL (JOSHI),parties.IN.BSP,BSP,1725,1.35,5,forfeit,U,50,10th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-392,haryana,2019,26,ISRANA,RAVI KALSAN BANDH,parties.IN.INLD,INLD,1155,0.91,6,forfeit,U,35,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -298,7 +298,7 @@ IN-AC-2008-haryana-392,haryana,2019,26,ISRANA,RAVI BALMIKI,parties.IN.SHPP,SHPP,
 IN-AC-2008-haryana-392,haryana,2019,26,ISRANA,AZAD,parties.IN.AAAP,AAAP,316,0.25,9,forfeit,U,29,12th Pass,Party Worker,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-397,haryana,2019,27,SAMALKHA,Dharam Singh Chhoker,parties.IN.INC,INC,81898,52.16,1,won,U,58,10th Pass,Ex MLA,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-397,haryana,2019,27,SAMALKHA,Shashi Kant Kaushik,parties.IN.BJP,BJP,66956,42.64,2,lost,U,44,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-397,haryana,2019,27,SAMALKHA,Brham Pal Rawal,parties.IN.JNJP,JNJP,4114,2.62,3,forfeit,U,50,10th Pass,Rent,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-397,haryana,2019,27,SAMALKHA,Brham Pal Rawal,parties.IN.JJP,JNJP,4114,2.62,3,forfeit,U,50,10th Pass,Rent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-397,haryana,2019,27,SAMALKHA,Joginder,parties.IN.BSP,BSP,2083,1.33,4,forfeit,U,38,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-397,haryana,2019,27,SAMALKHA,Prem Lata,parties.IN.INLD,INLD,624,0.4,5,forfeit,U,51,Illiterate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-397,haryana,2019,27,SAMALKHA,Capt. Sukhbir Singh,parties.IN.IND,IND,380,0.24,7,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -307,7 +307,7 @@ IN-AC-2008-haryana-397,haryana,2019,27,SAMALKHA,Suresh Rawal,parties.IN.SHPP,SHP
 IN-AC-2008-haryana-397,haryana,2019,27,SAMALKHA,Ravikant Alias Sonu Chhoker,parties.IN.IND,IND,117,0.07,10,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-426,haryana,2019,28,GANAUR,NIRMAL RANI,parties.IN.BJP,BJP,57830,48.33,1,won,U,51,Post Graduate,Household,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-426,haryana,2019,28,GANAUR,KULDIP SHARMA,parties.IN.INC,INC,47550,39.74,2,lost,U,62,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-haryana-426,haryana,2019,28,GANAUR,Randhir Singh Malik,parties.IN.JNJP,JNJP,6518,5.45,3,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-426,haryana,2019,28,GANAUR,Randhir Singh Malik,parties.IN.JJP,JNJP,6518,5.45,3,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-426,haryana,2019,28,GANAUR,JITENDER KUMAR,parties.IN.BSP,BSP,4377,3.66,4,forfeit,U,42,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-426,haryana,2019,28,GANAUR,Bijender Shekhpura,parties.IN.INLD,INLD,1480,1.24,5,forfeit,U,54,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-426,haryana,2019,28,GANAUR,RAJNEESH KUMAR,parties.IN.LTSP,LTSP,744,0.62,6,forfeit,U,41,Post Graduate,Self-employed,challenger,src-1b7bc1c9d39a
@@ -316,7 +316,7 @@ IN-AC-2008-haryana-426,haryana,2019,28,GANAUR,RAMKUMAR,parties.IN.IND,IND,163,0.
 IN-AC-2008-haryana-426,haryana,2019,28,GANAUR,Ayub,parties.IN.PPID,PPID,121,0.1,10,forfeit,U,46,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-431,haryana,2019,29,RAI,Mohan Lal Badoli,parties.IN.BJP,BJP,45377,37.99,1,won,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-431,haryana,2019,29,RAI,JAI TIRATH,parties.IN.INC,INC,42715,35.76,2,lost,U,67,Graduate Professional,Ex MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-haryana-431,haryana,2019,29,RAI,AJIT ANTIL,parties.IN.JNJP,JNJP,17137,14.35,3,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-431,haryana,2019,29,RAI,AJIT ANTIL,parties.IN.JJP,JNJP,17137,14.35,3,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-431,haryana,2019,29,RAI,Raj kumar Sharma,parties.IN.LTSP,LTSP,8422,7.05,4,forfeit,U,51,10th Pass,Hospitality,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-431,haryana,2019,29,RAI,PRAMJEET,parties.IN.BSP,BSP,2890,2.42,5,forfeit,U,47,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-431,haryana,2019,29,RAI,INDERJIT,parties.IN.INLD,INLD,637,0.53,6,forfeit,U,73,Graduate,,challenger,src-1b7bc1c9d39a
@@ -330,7 +330,7 @@ IN-AC-2008-haryana-431,haryana,2019,29,RAI,MOHAN ANTIL,parties.IN.AIFB,AIFB,112,
 IN-AC-2008-haryana-431,haryana,2019,29,RAI,SUNIL KUMAR S/O GULAB SINGH,parties.IN.JMBP,JMBP,107,0.09,15,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-431,haryana,2019,29,RAI,MUKESH TAPSI,parties.IN.RMDVP,RMDVP,102,0.09,16,forfeit,U,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-430,haryana,2019,30,KHARKHAUDA,JAIVEER SINGH,parties.IN.INC,INC,38577,38.05,1,won,U,56,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-haryana-430,haryana,2019,30,KHARKHAUDA,PAWAN KUMAR,parties.IN.JNJP,JNJP,37033,36.53,2,lost,U,39,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-430,haryana,2019,30,KHARKHAUDA,PAWAN KUMAR,parties.IN.JJP,JNJP,37033,36.53,2,lost,U,39,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-430,haryana,2019,30,KHARKHAUDA,MEENA RANI,parties.IN.BJP,BJP,20542,20.26,3,lost,U,35,Post Graduate,District Council,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-430,haryana,2019,30,KHARKHAUDA,SHADI LAL,parties.IN.BSP,BSP,1655,1.63,4,forfeit,U,46,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-430,haryana,2019,30,KHARKHAUDA,SAGAR BAKHETA,parties.IN.LTSP,LTSP,1270,1.25,5,forfeit,U,25,Graduate,,challenger,src-1b7bc1c9d39a
@@ -345,7 +345,7 @@ IN-AC-2008-haryana-433,haryana,2019,31,SONIPAT,KAVITA JAIN,parties.IN.BJP,BJP,46
 IN-AC-2008-haryana-433,haryana,2019,31,SONIPAT,HANS RAJ,parties.IN.LTSP,LTSP,1845,1.38,3,forfeit,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-433,haryana,2019,31,SONIPAT,VIMAL KISHOR,parties.IN.AAAP,AAAP,1661,1.24,4,forfeit,U,50,12th Pass,Engineer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-433,haryana,2019,31,SONIPAT,AZAD SINGH,parties.IN.BSP,BSP,1337,1,5,forfeit,U,60,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-433,haryana,2019,31,SONIPAT,AMIT,parties.IN.JNJP,JNJP,835,0.63,6,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-433,haryana,2019,31,SONIPAT,AMIT,parties.IN.JJP,JNJP,835,0.63,6,forfeit,U,37,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-433,haryana,2019,31,SONIPAT,BALKISHAN SHARMA,parties.IN.INLD,INLD,547,0.41,8,forfeit,U,44,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-433,haryana,2019,31,SONIPAT,MASTER RAMESH KHATRI LAMBARDAR,parties.IN.IND,IND,175,0.13,9,forfeit,U,58,Graduate Professional,Managerial Position,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-433,haryana,2019,31,SONIPAT,ASHA,parties.IN.BHSMWPA,BHSMWPA,100,0.07,10,forfeit,U,39,Post Graduate,Household,challenger,src-1b7bc1c9d39a
@@ -357,7 +357,7 @@ IN-AC-2008-haryana-433,haryana,2019,31,SONIPAT,DHARAMBIR,parties.IN.ADBNP,ADBNP,
 IN-AC-2008-haryana-427,haryana,2019,32,GOHANA,JAGBIR SINGH MALIK,parties.IN.INC,INC,39531,33.39,1,won,U,69,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-427,haryana,2019,32,GOHANA,RAJ KUMAR SAINI,parties.IN.LTSP,LTSP,35379,29.88,2,lost,U,66,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-427,haryana,2019,32,GOHANA,TIRATH RANA,parties.IN.BJP,BJP,26972,22.78,3,lost,U,32,Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-427,haryana,2019,32,GOHANA,KULDEEP MALIK,parties.IN.JNJP,JNJP,11185,9.45,4,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-427,haryana,2019,32,GOHANA,KULDEEP MALIK,parties.IN.JJP,JNJP,11185,9.45,4,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-427,haryana,2019,32,GOHANA,BHUPENDER VAKIL,parties.IN.IND,IND,1585,1.34,5,forfeit,U,43,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-427,haryana,2019,32,GOHANA,DHARAMBIR,parties.IN.BSP,BSP,1470,1.24,6,forfeit,U,39,Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-427,haryana,2019,32,GOHANA,OM PARKASH,parties.IN.INLD,INLD,779,0.66,7,forfeit,U,62,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -368,7 +368,7 @@ IN-AC-2008-haryana-427,haryana,2019,32,GOHANA,RACHNA,parties.IN.IND,IND,148,0.13
 IN-AC-2008-haryana-427,haryana,2019,32,GOHANA,PARDEEP KUMAR,parties.IN.IND,IND,101,0.09,13,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2019,33,BARODA,SRI Krishan Hooda,parties.IN.INC,INC,42566,34.67,1,won,U,74,8th Pass,Rent,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2019,33,BARODA,YOGESHWAR DUTT,parties.IN.BJP,BJP,37726,30.73,2,lost,U,36,Graduate,Ex Police,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-425,haryana,2019,33,BARODA,BHUPINDER MALIK,parties.IN.JNJP,JNJP,32480,26.45,3,lost,U,50,Graduate,Agricultural Business,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-425,haryana,2019,33,BARODA,BHUPINDER MALIK,parties.IN.JJP,JNJP,32480,26.45,3,lost,U,50,Graduate,Agricultural Business,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2019,33,BARODA,NARESH,parties.IN.BSP,BSP,3281,2.67,4,forfeit,U,46,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2019,33,BARODA,JOGINDER,parties.IN.INLD,INLD,3145,2.56,5,forfeit,U,40,Graduate,"Petrol Pumps, Rent",challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2019,33,BARODA,SATYANARAYN,parties.IN.LTSP,LTSP,2382,1.94,6,forfeit,U,51,Literate,,challenger,src-1b7bc1c9d39a
@@ -377,7 +377,7 @@ IN-AC-2008-haryana-425,haryana,2019,33,BARODA,Lokesh Kumar,parties.IN.IND,IND,17
 IN-AC-2008-haryana-425,haryana,2019,33,BARODA,SHAKUNTALA,parties.IN.JMBP,JMBP,176,0.14,10,forfeit,U,39,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2019,33,BARODA,DHARAMPAL,parties.IN.IND,IND,100,0.08,11,forfeit,U,65,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-425,haryana,2019,33,BARODA,WAZIR,parties.IN.IND,IND,55,0.04,12,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-429,haryana,2019,34,JULANA,Amarjeet Dhanda,parties.IN.JNJP,JNJP,61942,49.01,1,won,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-429,haryana,2019,34,JULANA,Amarjeet Dhanda,parties.IN.JJP,JNJP,61942,49.01,1,won,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-429,haryana,2019,34,JULANA,Parminder Singh Dhull,parties.IN.BJP,BJP,37749,29.87,2,lost,U,62,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-429,haryana,2019,34,JULANA,Dharmender Singh Dhull,parties.IN.INC,INC,12440,9.84,3,forfeit,U,43,Doctorate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-429,haryana,2019,34,JULANA,Naresh,parties.IN.BSP,BSP,4020,3.18,4,forfeit,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -394,7 +394,7 @@ IN-AC-2008-haryana-429,haryana,2019,34,JULANA,Raj Singh,parties.IN.IND,IND,104,0
 IN-AC-2008-haryana-429,haryana,2019,34,JULANA,Kapil,parties.IN.IND,IND,82,0.06,16,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-432,haryana,2019,35,SAFIDON,SUBHASH GANGOLI,parties.IN.INC,INC,57468,42.28,1,won,U,51,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-432,haryana,2019,35,SAFIDON,BACHAN SINGH ARYA,parties.IN.BJP,BJP,53810,39.58,2,lost,U,64,Graduate,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-haryana-432,haryana,2019,35,SAFIDON,DAYANAND KUNDU,parties.IN.JNJP,JNJP,7772,5.72,3,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-432,haryana,2019,35,SAFIDON,DAYANAND KUNDU,parties.IN.JJP,JNJP,7772,5.72,3,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-432,haryana,2019,35,SAFIDON,RAJBIR SHARMA,parties.IN.IND,IND,7361,5.42,4,forfeit,U,55,Post Graduate,Engineer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-432,haryana,2019,35,SAFIDON,VIJAY SAINI,parties.IN.LTSP,LTSP,5617,4.13,5,forfeit,U,31,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-432,haryana,2019,35,SAFIDON,JAGDISH BHUKAL,parties.IN.BSP,BSP,2036,1.5,6,forfeit,U,66,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -412,7 +412,7 @@ IN-AC-2008-haryana-428,haryana,2019,36,JIND,BIJENDER,parties.IN.IND,IND,239,0.18
 IN-AC-2008-haryana-428,haryana,2019,36,JIND,RAVINDER KUMAR,parties.IN.IND,IND,200,0.15,11,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-428,haryana,2019,36,JIND,SANT. DHARMVIR CHOTIVALA,parties.IN.IND,IND,170,0.13,12,forfeit,M,47,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-428,haryana,2019,36,JIND,SUNIL KUMAR,parties.IN.RPIA,RPI(A),166,0.13,13,forfeit,M,32,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-428,haryana,2019,36,JIND,KAMAL KUMAR,parties.IN.UNK,BSNP,149,0.11,14,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-428,haryana,2019,36,JIND,KAMAL KUMAR,parties.IN.BSNP,BSNP,149,0.11,14,forfeit,M,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-428,haryana,2019,36,JIND,SHEETAL DEVI,parties.IN.RMEP,RMEP,131,0.1,15,forfeit,F,41,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-428,haryana,2019,36,JIND,OM PARKASH,parties.IN.IND,IND,128,0.1,16,forfeit,M,39,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-428,haryana,2019,36,JIND,SATPAL,parties.IN.IND,IND,119,0.09,17,forfeit,M,63,,,challenger,src-1b7bc1c9d39a
@@ -421,7 +421,7 @@ IN-AC-2008-haryana-428,haryana,2019,36,JIND,SUNITA RANI,parties.IN.UNK,PPI(D),69
 IN-AC-2008-haryana-428,haryana,2019,36,JIND,SANDEEP KUMAR,parties.IN.IND,IND,67,0.05,20,forfeit,M,36,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-428,haryana,2019,36,JIND,RAJPAL,parties.IN.ASP,ASP,52,0.04,21,forfeit,M,51,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-428,haryana,2019,36,JIND,SURENDER BIBIPUR,parties.IN.IND,IND,40,0.03,22,forfeit,M,38,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-387,haryana,2019,37,UCHANA KALAN,DUSHYANT CHAUTALA,parties.IN.JNJP,JNJP,92504,58.39,1,won,U,31,Post Graduate,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-387,haryana,2019,37,UCHANA KALAN,DUSHYANT CHAUTALA,parties.IN.JJP,JNJP,92504,58.39,1,won,U,31,Post Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-387,haryana,2019,37,UCHANA KALAN,PREM LATA,parties.IN.BJP,BJP,45052,28.44,2,lost,U,69,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-387,haryana,2019,37,UCHANA KALAN,SAMARJIT,parties.IN.BSP,BSP,6264,3.95,3,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-387,haryana,2019,37,UCHANA KALAN,RAGHVIR,parties.IN.IND,IND,5705,3.6,4,forfeit,U,54,5th Pass,,challenger,src-1b7bc1c9d39a
@@ -436,7 +436,7 @@ IN-AC-2008-haryana-387,haryana,2019,37,UCHANA KALAN,PAWAN KUMAR,parties.IN.IND,I
 IN-AC-2008-haryana-387,haryana,2019,37,UCHANA KALAN,ANIL GALVE,parties.IN.RPI,RPI,108,0.07,14,forfeit,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-387,haryana,2019,37,UCHANA KALAN,SURENDER SINGH,parties.IN.JMBP,JMBP,77,0.05,15,forfeit,U,27,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-387,haryana,2019,37,UCHANA KALAN,JAI PARKASH,parties.IN.IND,IND,70,0.04,16,forfeit,U,64,10th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-420,haryana,2019,38,NARWANA,RAM NIWAS,parties.IN.JNJP,JNJP,79578,51.91,1,won,U,44,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-420,haryana,2019,38,NARWANA,RAM NIWAS,parties.IN.JJP,JNJP,79578,51.91,1,won,U,44,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-420,haryana,2019,38,NARWANA,SANTOSH RANI,parties.IN.BJP,BJP,48886,31.89,2,lost,U,42,Graduate,"School Teacher, Home Teacher or Tuition",challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-420,haryana,2019,38,NARWANA,VIDYA RANI DANODA,parties.IN.INC,INC,14045,9.16,3,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-420,haryana,2019,38,NARWANA,SUSHIL KUMAR,parties.IN.INLD,INLD,3334,2.17,4,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -448,7 +448,7 @@ IN-AC-2008-haryana-420,haryana,2019,38,NARWANA,KAPIL,parties.IN.SHPP,SHPP,517,0.
 IN-AC-2008-haryana-420,haryana,2019,38,NARWANA,NARESH KUMAR,parties.IN.PPID,PPID,486,0.32,11,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-420,haryana,2019,38,NARWANA,VIKAS,parties.IN.IND,IND,343,0.22,12,forfeit,U,27,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-420,haryana,2019,38,NARWANA,MITHUN SINGH,parties.IN.IND,IND,160,0.1,13,forfeit,U,26,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-424,haryana,2019,39,TOHANA,DEVENDER SINGH BABLI,parties.IN.JNJP,JNJP,100752,56.72,1,won,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-424,haryana,2019,39,TOHANA,DEVENDER SINGH BABLI,parties.IN.JJP,JNJP,100752,56.72,1,won,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-424,haryana,2019,39,TOHANA,SUBHASH BARALA,parties.IN.BJP,BJP,48450,27.28,2,lost,U,52,Others,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-424,haryana,2019,39,TOHANA,PARAMVIR SINGH,parties.IN.INC,INC,16717,9.41,3,forfeit,U,64,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-424,haryana,2019,39,TOHANA,BALJIT BOUDDH,parties.IN.BSP,BSP,2593,1.46,4,forfeit,U,32,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -469,7 +469,7 @@ IN-AC-2008-haryana-424,haryana,2019,39,TOHANA,SANDEEP KUMAR,parties.IN.IND,IND,1
 IN-AC-2008-haryana-424,haryana,2019,39,TOHANA,VIJAY KUMAR JAIN,parties.IN.IND,IND,98,0.06,20,forfeit,U,60,8th Pass,Transport,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-424,haryana,2019,39,TOHANA,MAMU RAM,parties.IN.IND,IND,84,0.05,21,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-418,haryana,2019,40,FATEHABAD,DURA RAM,parties.IN.BJP,BJP,77369,41.97,1,won,U,60,10th Pass,,crossover,src-1b7bc1c9d39a
-IN-AC-2008-haryana-418,haryana,2019,40,FATEHABAD,DR. VIRENDER SIWATCH,parties.IN.JNJP,JNJP,74069,40.18,2,lost,U,59,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-418,haryana,2019,40,FATEHABAD,DR. VIRENDER SIWATCH,parties.IN.JJP,JNJP,74069,40.18,2,lost,U,59,Post Graduate,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-418,haryana,2019,40,FATEHABAD,PRAHLAD SINGH GILLAN KHERA,parties.IN.INC,INC,20898,11.34,3,forfeit,U,64,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-418,haryana,2019,40,FATEHABAD,ZILE SINGH VERMA,parties.IN.BSP,BSP,3137,1.7,4,forfeit,U,46,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-418,haryana,2019,40,FATEHABAD,LAXAY GARG,parties.IN.AAAP,AAAP,2493,1.35,5,forfeit,U,33,Others,,challenger,src-1b7bc1c9d39a
@@ -485,7 +485,7 @@ IN-AC-2008-haryana-418,haryana,2019,40,FATEHABAD,RAJESH VERMA,parties.IN.JMBP,JM
 IN-AC-2008-haryana-418,haryana,2019,40,FATEHABAD,GULSHAN KUMAR (HOTEL WALE),parties.IN.IND,IND,237,0.13,16,forfeit,U,41,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-422,haryana,2019,41,RATIA,Lakshman Napa,parties.IN.BJP,BJP,55160,34.97,1,won,U,52,Graduate Professional,Petrol Pumps,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-422,haryana,2019,41,RATIA,Jarnail Singh,parties.IN.INC,INC,53944,34.2,2,lost,U,58,Graduate,Ex MLA,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-422,haryana,2019,41,RATIA,Manju Bala,parties.IN.JNJP,JNJP,29909,18.96,3,lost,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-422,haryana,2019,41,RATIA,Manju Bala,parties.IN.JJP,JNJP,29909,18.96,3,lost,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-422,haryana,2019,41,RATIA,Kulvinder Singh,parties.IN.SAD,SAD,9965,6.32,4,forfeit,U,36,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-422,haryana,2019,41,RATIA,Surender Kumar,parties.IN.IND,IND,1301,0.82,5,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-422,haryana,2019,41,RATIA,Balwan Singh,parties.IN.BSP,BSP,1244,0.79,6,forfeit,U,64,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
@@ -501,14 +501,14 @@ IN-AC-2008-haryana-422,haryana,2019,41,RATIA,Surjit,parties.IN.PPID,PPID,346,0.2
 IN-AC-2008-haryana-419,haryana,2019,42,KALANWALI,Shishpal Singh,parties.IN.INC,INC,53059,39.76,1,won,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-419,haryana,2019,42,KALANWALI,Rajinder Singh Desujodha,parties.IN.SAD,SAD,33816,25.34,2,lost,U,49,Graduate,Retired Teacher,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-419,haryana,2019,42,KALANWALI,Balkaur Singh,parties.IN.BJP,BJP,30134,22.58,3,lost,U,48,10th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-haryana-419,haryana,2019,42,KALANWALI,Nirmal Singh Malri,parties.IN.JNJP,JNJP,12420,9.31,4,forfeit,U,36,12th Pass,Activist,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-419,haryana,2019,42,KALANWALI,Nirmal Singh Malri,parties.IN.JJP,JNJP,12420,9.31,4,forfeit,U,36,12th Pass,Activist,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-419,haryana,2019,42,KALANWALI,Karnail Singh Odhan,parties.IN.BSP,BSP,1401,1.05,5,forfeit,U,57,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-419,haryana,2019,42,KALANWALI,Pargat Singh Bhiwan,parties.IN.HALP,HaLP,857,0.64,7,forfeit,U,28,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-419,haryana,2019,42,KALANWALI,Kashmir Chand Oad,parties.IN.IND,IND,528,0.4,8,forfeit,U,70,12th Pass,Ex Civil Service,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-419,haryana,2019,42,KALANWALI,Virender Singh,parties.IN.IND,IND,290,0.22,9,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci43,haryana,2019,43,DABWALI,AMIT SIHAG,parties.IN.INC,INC,66885,42.57,1,won,U,37,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci43,haryana,2019,43,DABWALI,ADITYA,parties.IN.BJP,BJP,51238,32.61,2,lost,U,42,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-eci43,haryana,2019,43,DABWALI,SARAVJIT SINGH MASITAN,parties.IN.JNJP,JNJP,23002,14.64,3,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-eci43,haryana,2019,43,DABWALI,SARAVJIT SINGH MASITAN,parties.IN.JJP,JNJP,23002,14.64,3,forfeit,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci43,haryana,2019,43,DABWALI,Dr. SITA RAM,parties.IN.INLD,INLD,8825,5.62,4,forfeit,U,51,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci43,haryana,2019,43,DABWALI,SUBHASH CHANDER,parties.IN.BSP,BSP,1290,0.82,6,forfeit,U,35,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci43,haryana,2019,43,DABWALI,MALKEET SINGH,parties.IN.AAAP,AAAP,1276,0.81,7,forfeit,U,35,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -522,7 +522,7 @@ IN-AC-2008-haryana-421,haryana,2019,44,RANIA,Gobind Kanda,parties.IN.HALP,HaLP,3
 IN-AC-2008-haryana-421,haryana,2019,44,RANIA,Ram Chand Kamboj,parties.IN.BJP,BJP,20709,14.42,3,forfeit,U,35,12th Pass,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-421,haryana,2019,44,RANIA,Ashok Kumar Verma,parties.IN.INLD,INLD,9753,6.79,4,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-421,haryana,2019,44,RANIA,Vineet Kamboj,parties.IN.INC,INC,8979,6.25,5,forfeit,U,28,Graduate Professional,Agricultural Business,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-421,haryana,2019,44,RANIA,Kuldeep Singh,parties.IN.JNJP,JNJP,7622,5.31,6,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-421,haryana,2019,44,RANIA,Kuldeep Singh,parties.IN.JJP,JNJP,7622,5.31,6,forfeit,U,38,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-421,haryana,2019,44,RANIA,Susheel Kumar,parties.IN.IND,IND,1903,1.33,7,forfeit,U,29,Post Graduate,Musician or Artist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-421,haryana,2019,44,RANIA,Amarjeet Singh Chani,parties.IN.AAAP,AAAP,1685,1.17,8,forfeit,U,45,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-421,haryana,2019,44,RANIA,Daya Ram Fatehpur Niyamat Khan,parties.IN.BSP,BSP,889,0.62,9,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
@@ -537,7 +537,7 @@ IN-AC-2008-haryana-423,haryana,2019,45,SIRSA,GOPAL KANDA,parties.IN.HALP,HaLP,44
 IN-AC-2008-haryana-423,haryana,2019,45,SIRSA,GOKUL SETIA,parties.IN.IND,IND,44313,31.23,2,lost,U,30,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-423,haryana,2019,45,SIRSA,PARDEEP RATUSARIA,parties.IN.BJP,BJP,30142,21.24,3,lost,U,51,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-423,haryana,2019,45,SIRSA,HOSHIARI LAL,parties.IN.INC,INC,10111,7.13,4,forfeit,U,72,10th Pass,Rent,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-423,haryana,2019,45,SIRSA,RAJENDER GANERIWALA,parties.IN.JNJP,JNJP,4732,3.33,5,forfeit,U,61,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-423,haryana,2019,45,SIRSA,RAJENDER GANERIWALA,parties.IN.JJP,JNJP,4732,3.33,5,forfeit,U,61,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-423,haryana,2019,45,SIRSA,MANI RAM,parties.IN.IND,IND,1547,1.09,6,forfeit,U,58,12th Pass,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-423,haryana,2019,45,SIRSA,VIRENDER KUMAR,parties.IN.AAAP,AAAP,868,0.61,7,forfeit,U,43,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-423,haryana,2019,45,SIRSA,SARDAR PHOOL CHAND,parties.IN.BSP,BSP,787,0.55,8,forfeit,U,67,Literate,Textile,challenger,src-1b7bc1c9d39a
@@ -554,7 +554,7 @@ IN-AC-2008-haryana-423,haryana,2019,45,SIRSA,HERNEK SINGH KAMBOJ,parties.IN.IND,
 IN-AC-2008-haryana-417,haryana,2019,46,ELLENABAD,Abhay Singh Chautala,parties.IN.INLD,INLD,57055,37.86,1,won,U,54,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-417,haryana,2019,46,ELLENABAD,Pawan Beniwal,parties.IN.BJP,BJP,45133,29.95,2,lost,U,51,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-417,haryana,2019,46,ELLENABAD,Bharat Singh Beniwal,parties.IN.INC,INC,35383,23.48,3,lost,U,61,Literate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-417,haryana,2019,46,ELLENABAD,O. P Sihag,parties.IN.JNJP,JNJP,6569,4.36,4,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-417,haryana,2019,46,ELLENABAD,O. P Sihag,parties.IN.JJP,JNJP,6569,4.36,4,forfeit,U,59,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-417,haryana,2019,46,ELLENABAD,Advocate Ravinder Balyan,parties.IN.BSP,BSP,1947,1.29,5,forfeit,U,25,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-417,haryana,2019,46,ELLENABAD,Ram Saroop,parties.IN.LTSP,LTSP,998,0.66,6,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-417,haryana,2019,46,ELLENABAD,Krishan Verma,parties.IN.AAAP,AAAP,985,0.65,7,forfeit,U,48,12th Pass,Journalist or Editor,challenger,src-1b7bc1c9d39a
@@ -566,7 +566,7 @@ IN-AC-2008-haryana-417,haryana,2019,46,ELLENABAD,Bharat Singh,parties.IN.IND,IND
 IN-AC-2008-haryana-417,haryana,2019,46,ELLENABAD,Bansi Lal,parties.IN.IND,IND,202,0.13,14,forfeit,U,49,5th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-380,haryana,2019,47,ADAMPUR,KULDEEP BISHNOI,parties.IN.INC,INC,63693,51.7,1,won,U,51,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-380,haryana,2019,47,ADAMPUR,SONALI PHOGAT,parties.IN.BJP,BJP,34222,27.78,2,lost,U,40,10th Pass,Actor,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-380,haryana,2019,47,ADAMPUR,RAMESH KUMAR,parties.IN.JNJP,JNJP,15457,12.55,3,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-380,haryana,2019,47,ADAMPUR,RAMESH KUMAR,parties.IN.JJP,JNJP,15457,12.55,3,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-380,haryana,2019,47,ADAMPUR,SURESH,parties.IN.CPIMLL,CPIM,2088,1.69,4,forfeit,U,59,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-380,haryana,2019,47,ADAMPUR,RAJESH GODARA,parties.IN.INLD,INLD,1994,1.62,5,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-380,haryana,2019,47,ADAMPUR,SATVIR,parties.IN.BSP,BSP,1988,1.61,6,forfeit,U,53,Literate,,challenger,src-1b7bc1c9d39a
@@ -579,7 +579,7 @@ IN-AC-2008-haryana-380,haryana,2019,47,ADAMPUR,SUNIL KUMAR,parties.IN.IND,IND,13
 IN-AC-2008-haryana-380,haryana,2019,47,ADAMPUR,KHUSI RAM,parties.IN.IND,IND,120,0.1,14,forfeit,U,47,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-380,haryana,2019,47,ADAMPUR,MANOJ KUMAR,parties.IN.IND,IND,110,0.09,15,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-380,haryana,2019,47,ADAMPUR,AMIT,parties.IN.IND,IND,70,0.06,16,forfeit,U,26,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-388,haryana,2019,48,UKLANA,Anoop Dhanak,parties.IN.JNJP,JNJP,65369,46.84,1,won,U,46,Graduate,Real Estate or Builder or Developer or Construction,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-388,haryana,2019,48,UKLANA,Anoop Dhanak,parties.IN.JJP,JNJP,65369,46.84,1,won,U,46,Graduate,Real Estate or Builder or Developer or Construction,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-388,haryana,2019,48,UKLANA,Asha Khedar,parties.IN.BJP,BJP,41676,29.87,2,lost,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-388,haryana,2019,48,UKLANA,Bala Devi,parties.IN.INC,INC,11573,8.29,3,forfeit,U,42,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-388,haryana,2019,48,UKLANA,Naresh Selwal,parties.IN.IND,IND,10353,7.42,4,forfeit,U,45,,,challenger,src-1b7bc1c9d39a
@@ -594,7 +594,7 @@ IN-AC-2008-haryana-388,haryana,2019,48,UKLANA,Sandeep,parties.IN.LTSP,LTSP,285,0
 IN-AC-2008-haryana-388,haryana,2019,48,UKLANA,Bharti Uklana,parties.IN.IND,IND,244,0.17,14,forfeit,U,46,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-388,haryana,2019,48,UKLANA,Mukesh Duggal,parties.IN.ADBNP,ADBNP,107,0.08,15,forfeit,U,26,8th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-388,haryana,2019,48,UKLANA,Balmiki Rohtash Chhan,parties.IN.BKNP,BKNP,101,0.07,16,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-386,haryana,2019,49,NARNAUND,RAM KUMAR GAUTAM,parties.IN.JNJP,JNJP,73435,47.89,1,won,U,73,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-386,haryana,2019,49,NARNAUND,RAM KUMAR GAUTAM,parties.IN.JJP,JNJP,73435,47.89,1,won,U,73,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-386,haryana,2019,49,NARNAUND,CAPTAIN ABHIMANYU,parties.IN.BJP,BJP,61406,40.04,2,lost,U,51,Post Graduate,Ex Govt Employee,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-386,haryana,2019,49,NARNAUND,BALJEET SIHAG,parties.IN.INC,INC,8245,5.38,3,forfeit,U,61,Graduate,"Real Estate or Builder or Developer or Construction, Contractor",challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-386,haryana,2019,49,NARNAUND,JASSI PETWAR,parties.IN.INLD,INLD,4599,3,4,forfeit,U,30,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -616,7 +616,7 @@ IN-AC-2008-haryana-386,haryana,2019,49,NARNAUND,DINESH KUMAR,parties.IN.IND,IND,
 IN-AC-2008-haryana-386,haryana,2019,49,NARNAUND,AMIT KUMAR,parties.IN.IND,IND,37,0.02,21,forfeit,U,34,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-386,haryana,2019,49,NARNAUND,JOGINDER,parties.IN.IND,IND,25,0.02,22,forfeit,U,31,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-383,haryana,2019,50,HANSI,Vinod Bhayana,parties.IN.BJP,BJP,53191,41.65,1,won,U,62,Graduate,Private Company,crossover,src-1b7bc1c9d39a
-IN-AC-2008-haryana-383,haryana,2019,50,HANSI,Rahul Makkar,parties.IN.JNJP,JNJP,30931,24.22,2,lost,U,31,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-383,haryana,2019,50,HANSI,Rahul Makkar,parties.IN.JJP,JNJP,30931,24.22,2,lost,U,31,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-383,haryana,2019,50,HANSI,Prem Singh Malik,parties.IN.IND,IND,21639,16.94,3,lost,U,59,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-383,haryana,2019,50,HANSI,Hari Ram,parties.IN.LTSP,LTSP,6726,5.27,4,forfeit,U,54,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-383,haryana,2019,50,HANSI,Om Prakash,parties.IN.INC,INC,3468,2.72,5,forfeit,U,58,Graduate,,challenger,src-1b7bc1c9d39a
@@ -640,7 +640,7 @@ IN-AC-2008-haryana-383,haryana,2019,50,HANSI,Mandeep Talu,parties.IN.IND,IND,106
 IN-AC-2008-haryana-383,haryana,2019,50,HANSI,Kaka Sahil Thakral,parties.IN.SPAKP,SPAKP,74,0.06,24,forfeit,U,25,Others,Private Company,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-383,haryana,2019,50,HANSI,Mukul Sindwani,parties.IN.IND,IND,64,0.05,25,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-383,haryana,2019,50,HANSI,Upender Alias Vijay Jakhar,parties.IN.IND,IND,55,0.04,26,forfeit,U,26,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-381,haryana,2019,51,BARWALA,JOGI RAM SIHAG,parties.IN.JNJP,JNJP,45868,36.69,1,won,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-381,haryana,2019,51,BARWALA,JOGI RAM SIHAG,parties.IN.JJP,JNJP,45868,36.69,1,won,U,58,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-381,haryana,2019,51,BARWALA,SURENDER PUNIA,parties.IN.BJP,BJP,41960,33.56,2,lost,U,43,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-381,haryana,2019,51,BARWALA,RAMNIWAS GHORELA,parties.IN.IND,IND,17471,13.97,3,forfeit,U,53,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-381,haryana,2019,51,BARWALA,BHUPENDER GANGWA,parties.IN.INC,INC,8830,7.06,4,forfeit,U,54,Graduate,,challenger,src-1b7bc1c9d39a
@@ -653,7 +653,7 @@ IN-AC-2008-haryana-381,haryana,2019,51,BARWALA,RAGHUVIR SINGH ADVOCATE,parties.I
 IN-AC-2008-haryana-381,haryana,2019,51,BARWALA,VIJAY KUMAR,parties.IN.SHS,SHS,379,0.3,12,forfeit,U,30,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci52,haryana,2019,52,HISAR,DR. KAMAL GUPTA,parties.IN.BJP,BJP,49675,50.39,1,won,U,66,Post Graduate,Doctor,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci52,haryana,2019,52,HISAR,RAM NIWAS RARA,parties.IN.INC,INC,33843,34.33,2,lost,U,55,12th Pass,Unspecified,crossover,src-1b7bc1c9d39a
-IN-AC-2008-haryana-eci52,haryana,2019,52,HISAR,JITENDER SHEORAN MANAV,parties.IN.JNJP,JNJP,6143,6.23,3,forfeit,U,38,Graduate,School Teacher,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-eci52,haryana,2019,52,HISAR,JITENDER SHEORAN MANAV,parties.IN.JJP,JNJP,6143,6.23,3,forfeit,U,38,Graduate,School Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci52,haryana,2019,52,HISAR,AMIT GROVER,parties.IN.IND,IND,2438,2.47,4,forfeit,U,38,12th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci52,haryana,2019,52,HISAR,MANJU DAHIYA,parties.IN.BSP,BSP,1578,1.6,5,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci52,haryana,2019,52,HISAR,PRAMOD BAGRI (VALMIKI),parties.IN.INLD,INLD,824,0.84,7,forfeit,U,42,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
@@ -669,7 +669,7 @@ IN-AC-2008-haryana-eci52,haryana,2019,52,HISAR,ANIL MAHLA,parties.IN.IND,IND,130
 IN-AC-2008-haryana-eci52,haryana,2019,52,HISAR,SANDEEP SAINI FARMANA,parties.IN.JMBP,JMBP,36,0.04,17,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-385,haryana,2019,53,NALWA,RANBIR GANGWA,parties.IN.BJP,BJP,47523,41.09,1,won,U,55,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-385,haryana,2019,53,NALWA,RANDHIR PANIHAR,parties.IN.INC,INC,37851,32.72,2,lost,U,53,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-385,haryana,2019,53,NALWA,VIRENDER CHOUDHARY,parties.IN.JNJP,JNJP,20516,17.74,3,lost,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-385,haryana,2019,53,NALWA,VIRENDER CHOUDHARY,parties.IN.JJP,JNJP,20516,17.74,3,lost,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-385,haryana,2019,53,NALWA,ADVOCATE BAJRANG INDAL,parties.IN.BSP,BSP,3510,3.03,4,forfeit,U,36,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-385,haryana,2019,53,NALWA,RANDEEP LOHCHAB,parties.IN.IND,IND,1828,1.58,5,forfeit,U,43,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-385,haryana,2019,53,NALWA,SATPAL KAJLA,parties.IN.INLD,INLD,1286,1.11,6,forfeit,U,58,10th Pass,,challenger,src-1b7bc1c9d39a
@@ -684,7 +684,7 @@ IN-AC-2008-haryana-385,haryana,2019,53,NALWA,PAWAN KUMAR,parties.IN.IND,IND,140,
 IN-AC-2008-haryana-385,haryana,2019,53,NALWA,JASBIR,parties.IN.IND,IND,103,0.09,16,forfeit,U,48,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-357,haryana,2019,54,LOHARU,JAI PARKASH DALAL,parties.IN.BJP,BJP,61365,44.02,1,won,U,63,Graduate,Rent,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-357,haryana,2019,54,LOHARU,SOMVIR SINGH,parties.IN.INC,INC,43688,31.34,2,lost,U,68,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-357,haryana,2019,54,LOHARU,ALKA ARYA,parties.IN.JNJP,JNJP,27515,19.74,3,lost,U,38,Post Graduate,Household,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-357,haryana,2019,54,LOHARU,ALKA ARYA,parties.IN.JJP,JNJP,27515,19.74,3,lost,U,38,Post Graduate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-357,haryana,2019,54,LOHARU,RAMESH,parties.IN.BSP,BSP,1812,1.3,4,forfeit,U,46,Graduate,Private Company,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-357,haryana,2019,54,LOHARU,RAJ SINGH GAGARWAS,parties.IN.INLD,INLD,1782,1.28,5,forfeit,U,64,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-357,haryana,2019,54,LOHARU,RAJ KUMAR,parties.IN.LTSP,LTSP,771,0.55,6,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
@@ -696,7 +696,7 @@ IN-AC-2008-haryana-357,haryana,2019,54,LOHARU,BHARATH RAM,parties.IN.IND,IND,216
 IN-AC-2008-haryana-357,haryana,2019,54,LOHARU,VEDPARKASH,parties.IN.IND,IND,114,0.08,13,forfeit,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-357,haryana,2019,54,LOHARU,SUBHASH CHAND,parties.IN.IND,IND,112,0.08,14,forfeit,U,65,Literate,Retired or Pension,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-357,haryana,2019,54,LOHARU,JAI KUMAR,parties.IN.IND,IND,49,0.04,15,forfeit,U,36,10th Pass,Managerial Position,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-354,haryana,2019,55,BADHRA,NAINA SINGH,parties.IN.JNJP,JNJP,52938,40.09,1,won,U,52,Graduate,,incumbent,src-1b7bc1c9d39a
+IN-AC-2008-haryana-354,haryana,2019,55,BADHRA,NAINA SINGH,parties.IN.JJP,JNJP,52938,40.09,1,won,U,52,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-354,haryana,2019,55,BADHRA,RANBIR SINGH MAHENDRA,parties.IN.INC,INC,39234,29.72,2,lost,U,75,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-354,haryana,2019,55,BADHRA,SUKHWINDER,parties.IN.BJP,BJP,33169,25.12,3,lost,U,34,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-354,haryana,2019,55,BADHRA,SHIV KUMAR,parties.IN.BSP,BSP,2994,2.27,4,forfeit,U,34,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -707,7 +707,7 @@ IN-AC-2008-haryana-354,haryana,2019,55,BADHRA,PAWAN KUMAR,parties.IN.IND,IND,102
 IN-AC-2008-haryana-354,haryana,2019,55,BADHRA,RANBIR,parties.IN.IND,IND,87,0.07,10,forfeit,U,40,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-354,haryana,2019,55,BADHRA,MANGAL SHEN,parties.IN.IND,IND,54,0.04,11,forfeit,U,28,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-356,haryana,2019,56,DADRI,SOMBIR,parties.IN.IND,IND,43849,34.66,1,won,U,52,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-356,haryana,2019,56,DADRI,SATPAL SANGWAN,parties.IN.JNJP,JNJP,29577,23.38,2,lost,U,77,Graduate,Party Worker,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-356,haryana,2019,56,DADRI,SATPAL SANGWAN,parties.IN.JJP,JNJP,29577,23.38,2,lost,U,77,Graduate,Party Worker,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-356,haryana,2019,56,DADRI,BABITA KUMARI,parties.IN.BJP,BJP,24786,19.59,3,lost,U,29,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-356,haryana,2019,56,DADRI,SURENDER SINGH,parties.IN.RTRJP,RtrJP,8728,6.9,4,forfeit,U,71,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-356,haryana,2019,56,DADRI,MAJOR NIRPENDER SINGH SANGWAN,parties.IN.INC,INC,8022,6.34,5,forfeit,U,64,,,challenger,src-1b7bc1c9d39a
@@ -724,7 +724,7 @@ IN-AC-2008-haryana-356,haryana,2019,56,DADRI,NARESH KUMAR,parties.IN.IND,IND,126
 IN-AC-2008-haryana-356,haryana,2019,56,DADRI,BHASKAR VASHISHTHA,parties.IN.IND,IND,120,0.09,17,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-356,haryana,2019,56,DADRI,PYARE LAL,parties.IN.IND,IND,102,0.08,18,forfeit,U,49,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-355,haryana,2019,57,BHIWANI,GHANSHYAM SARAF,parties.IN.BJP,BJP,61704,47.4,1,won,U,55,Graduate,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-haryana-355,haryana,2019,57,BHIWANI,DR. SHIV SHANKER BHARDWAJ,parties.IN.JNJP,JNJP,33820,25.98,2,lost,U,65,Post Graduate,Doctor,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-355,haryana,2019,57,BHIWANI,DR. SHIV SHANKER BHARDWAJ,parties.IN.JJP,JNJP,33820,25.98,2,lost,U,65,Post Graduate,Doctor,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-355,haryana,2019,57,BHIWANI,AMAR SINGH HALUWASIA,parties.IN.INC,INC,18682,14.35,3,forfeit,U,62,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-355,haryana,2019,57,BHIWANI,AMIT BALMIKI,parties.IN.BSP,BSP,8012,6.15,4,forfeit,U,37,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-355,haryana,2019,57,BHIWANI,AMAN TANWAR RAGHAV,parties.IN.LTSP,LTSP,1785,1.37,5,forfeit,U,45,Post Graduate,Managerial Position,challenger,src-1b7bc1c9d39a
@@ -744,7 +744,7 @@ IN-AC-2008-haryana-355,haryana,2019,57,BHIWANI,NARENDER KUMAR SHARMA,parties.IN.
 IN-AC-2008-haryana-355,haryana,2019,57,BHIWANI,JAGAT SINGH,parties.IN.VINPA,VINPA,89,0.07,20,forfeit,U,66,10th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-361,haryana,2019,58,TOSHAM,KIRAN CHOUDHRY,parties.IN.INC,INC,72699,49.72,1,won,U,64,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-361,haryana,2019,58,TOSHAM,SHASHI RANJAN PARMAR,parties.IN.BJP,BJP,54640,37.37,2,lost,U,53,Graduate Professional,Lawyer,crossover,src-1b7bc1c9d39a
-IN-AC-2008-haryana-361,haryana,2019,58,TOSHAM,SITA RAM,parties.IN.JNJP,JNJP,7522,5.14,3,forfeit,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-361,haryana,2019,58,TOSHAM,SITA RAM,parties.IN.JJP,JNJP,7522,5.14,3,forfeit,U,45,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-361,haryana,2019,58,TOSHAM,NARENDER LARA,parties.IN.BSP,BSP,4513,3.09,4,forfeit,U,33,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-361,haryana,2019,58,TOSHAM,KAMLA RANI,parties.IN.INLD,INLD,2094,1.43,5,forfeit,U,59,12th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-361,haryana,2019,58,TOSHAM,PAWAN HINDUSTANI,parties.IN.AAAP,AAAP,865,0.59,6,forfeit,U,40,Graduate,,challenger,src-1b7bc1c9d39a
@@ -765,7 +765,7 @@ IN-AC-2008-haryana-361,haryana,2019,58,TOSHAM,RAKESH KUMAR,parties.IN.IND,IND,75
 IN-AC-2008-haryana-361,haryana,2019,58,TOSHAM,RAJESH,parties.IN.BAHUMP,BAHUMP,63,0.04,22,forfeit,U,42,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-382,haryana,2019,59,BAWANI KHERA,Bishamber Singh,parties.IN.BJP,BJP,52387,38.51,1,won,U,49,Graduate,MLA,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-382,haryana,2019,59,BAWANI KHERA,Ramkishan Fauji,parties.IN.INC,INC,41492,30.5,2,lost,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-382,haryana,2019,59,BAWANI KHERA,Ram Singh Vaid,parties.IN.JNJP,JNJP,22934,16.86,3,lost,U,60,12th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-382,haryana,2019,59,BAWANI KHERA,Ram Singh Vaid,parties.IN.JJP,JNJP,22934,16.86,3,lost,U,60,12th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-382,haryana,2019,59,BAWANI KHERA,Vikas,parties.IN.RTRJP,RtrJP,9380,6.89,4,forfeit,U,43,12th Pass,Unspecified,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-382,haryana,2019,59,BAWANI KHERA,Banarsi Dass,parties.IN.BSP,BSP,3499,2.57,5,forfeit,U,64,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-382,haryana,2019,59,BAWANI KHERA,Dharam Devi,parties.IN.INLD,INLD,997,0.73,6,forfeit,U,76,Others,,challenger,src-1b7bc1c9d39a
@@ -784,7 +784,7 @@ IN-AC-2008-haryana-414,haryana,2019,60,MEHAM,BALRAJ KUNDU,parties.IN.IND,IND,494
 IN-AC-2008-haryana-414,haryana,2019,60,MEHAM,ANAND SINGH DANGI,parties.IN.INC,INC,37371,26.76,2,lost,U,68,Graduate,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-414,haryana,2019,60,MEHAM,SHAMSHER KHARKARA,parties.IN.BJP,BJP,36106,25.86,3,lost,U,62,Post Graduate,"Real Estate or Builder or Developer or Construction, Private Company",challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-414,haryana,2019,60,MEHAM,ANIL KUMAR BINTU,parties.IN.BSP,BSP,8895,6.37,4,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-414,haryana,2019,60,MEHAM,HARGIAN MOKHRA,parties.IN.JNJP,JNJP,5122,3.67,5,forfeit,U,58,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-414,haryana,2019,60,MEHAM,HARGIAN MOKHRA,parties.IN.JJP,JNJP,5122,3.67,5,forfeit,U,58,10th Pass,Contractor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-414,haryana,2019,60,MEHAM,THAKUR JOGINDER PAL SINGH SAMAR,parties.IN.LTSP,LTSP,1063,0.76,6,forfeit,U,65,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-414,haryana,2019,60,MEHAM,PARMJEET,parties.IN.IND,IND,288,0.21,7,forfeit,U,48,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-414,haryana,2019,60,MEHAM,SATYAVAN PARASHAR,parties.IN.IND,IND,203,0.15,8,forfeit,U,57,Others,Engineer,challenger,src-1b7bc1c9d39a
@@ -803,7 +803,7 @@ IN-AC-2008-haryana-414,haryana,2019,60,MEHAM,JALKARAN BALHARA,parties.IN.IND,IND
 IN-AC-2008-haryana-414,haryana,2019,60,MEHAM,DALIP,parties.IN.IND,IND,19,0.01,22,forfeit,U,72,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-410,haryana,2019,61,GARHI SAMPLA-KILOI,BHUPINDER SINGH HOODA,parties.IN.INC,INC,97755,65.82,1,won,U,72,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-410,haryana,2019,61,GARHI SAMPLA-KILOI,SATISH NANDAL,parties.IN.BJP,BJP,39443,26.56,2,lost,U,55,Others,Real Estate or Builder or Developer or Construction,crossover,src-1b7bc1c9d39a
-IN-AC-2008-haryana-410,haryana,2019,61,GARHI SAMPLA-KILOI,DR SANDEEP HOODA,parties.IN.JNJP,JNJP,5437,3.66,3,forfeit,U,35,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-410,haryana,2019,61,GARHI SAMPLA-KILOI,DR SANDEEP HOODA,parties.IN.JJP,JNJP,5437,3.66,3,forfeit,U,35,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-410,haryana,2019,61,GARHI SAMPLA-KILOI,Dr KAMLESH KUMAR SAINI,parties.IN.LTSP,LTSP,2433,1.64,4,forfeit,U,52,Doctorate,Managerial Position,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-410,haryana,2019,61,GARHI SAMPLA-KILOI,KRISHAN,parties.IN.INLD,INLD,1447,0.97,5,forfeit,U,52,Others,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-410,haryana,2019,61,GARHI SAMPLA-KILOI,MUNI PAL,parties.IN.AAAP,AAAP,714,0.48,6,forfeit,U,43,Graduate,Ex Military,challenger,src-1b7bc1c9d39a
@@ -815,7 +815,7 @@ IN-AC-2008-haryana-eci62,haryana,2019,62,ROHTAK,BHARAT BHUSHAN BATRA,parties.IN.
 IN-AC-2008-haryana-eci62,haryana,2019,62,ROHTAK,MANISH KUMAR GROVER,parties.IN.BJP,BJP,47702,41.54,2,lost,U,65,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci62,haryana,2019,62,ROHTAK,MOHIT DHANWANTRI,parties.IN.IND,IND,9817,8.55,3,forfeit,U,32,Graduate,Carpenter,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci62,haryana,2019,62,ROHTAK,RAMCHANDER JANGRA,parties.IN.LTSP,LTSP,1728,1.5,4,forfeit,U,53,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-eci62,haryana,2019,62,ROHTAK,RAJESH SAINI,parties.IN.JNJP,JNJP,1672,1.46,5,forfeit,U,54,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-eci62,haryana,2019,62,ROHTAK,RAJESH SAINI,parties.IN.JJP,JNJP,1672,1.46,5,forfeit,U,54,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci62,haryana,2019,62,ROHTAK,POONAM,parties.IN.BSP,BSP,1488,1.3,6,forfeit,U,30,Post Graduate,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci62,haryana,2019,62,ROHTAK,PUNEET,parties.IN.INLD,INLD,484,0.42,8,forfeit,U,25,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci62,haryana,2019,62,ROHTAK,DR.R.K.MUDGIL,parties.IN.IND,IND,188,0.16,9,forfeit,U,34,Post Graduate,Medical Professional,challenger,src-1b7bc1c9d39a
@@ -827,7 +827,7 @@ IN-AC-2008-haryana-eci62,haryana,2019,62,ROHTAK,ARUN LATHAR,parties.IN.IND,IND,3
 IN-AC-2008-haryana-eci62,haryana,2019,62,ROHTAK,AASHISH,parties.IN.IND,IND,30,0.03,15,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-412,haryana,2019,63,KALANAUR,Shakuntla Khatak,parties.IN.INC,INC,62151,46.53,1,won,U,51,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-412,haryana,2019,63,KALANAUR,Ramavtar Balmiki,parties.IN.BJP,BJP,51527,38.58,2,lost,U,44,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-412,haryana,2019,63,KALANAUR,Rajender Valmiki,parties.IN.JNJP,JNJP,8482,6.35,3,forfeit,U,50,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-412,haryana,2019,63,KALANAUR,Rajender Valmiki,parties.IN.JJP,JNJP,8482,6.35,3,forfeit,U,50,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-412,haryana,2019,63,KALANAUR,Kashmiri Devi,parties.IN.BSP,BSP,5613,4.2,4,forfeit,U,63,Doctorate,Retired Teacher,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-412,haryana,2019,63,KALANAUR,Phul Singh,parties.IN.LTSP,LTSP,2219,1.66,5,forfeit,U,53,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-412,haryana,2019,63,KALANAUR,Baljraj Khasa Bhalli,parties.IN.INLD,INLD,1100,0.82,6,forfeit,U,61,12th Pass,Panchayat Member,challenger,src-1b7bc1c9d39a
@@ -841,7 +841,7 @@ IN-AC-2008-haryana-412,haryana,2019,63,KALANAUR,Mahabir,parties.IN.PPID,PPID,158
 IN-AC-2008-haryana-408,haryana,2019,64,BAHADURGARH,RAJINDER SINGH JOON,parties.IN.INC,INC,55825,40.77,1,won,U,63,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-408,haryana,2019,64,BAHADURGARH,NARESH KAUSHIK,parties.IN.BJP,BJP,40334,29.45,2,lost,U,52,Graduate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-408,haryana,2019,64,BAHADURGARH,NAFE SINGH RATHEE,parties.IN.INLD,INLD,24799,18.11,3,lost,U,61,10th Pass,Ex MLA,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-408,haryana,2019,64,BAHADURGARH,SANJAY DALAL,parties.IN.JNJP,JNJP,5495,4.01,4,forfeit,U,48,10th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-408,haryana,2019,64,BAHADURGARH,SANJAY DALAL,parties.IN.JJP,JNJP,5495,4.01,4,forfeit,U,48,10th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-408,haryana,2019,64,BAHADURGARH,KISHAN LAL PANCHAL,parties.IN.LTSP,LTSP,3545,2.59,5,forfeit,U,51,5th Pass,Private Company,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-408,haryana,2019,64,BAHADURGARH,ASHISH,parties.IN.BSP,BSP,2540,1.85,6,forfeit,U,27,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-408,haryana,2019,64,BAHADURGARH,ANITA,parties.IN.AAAP,AAAP,2280,1.66,7,forfeit,U,39,10th Pass,Party Worker,challenger,src-1b7bc1c9d39a
@@ -853,11 +853,11 @@ IN-AC-2008-haryana-408,haryana,2019,64,BAHADURGARH,PARVEEN KUMAR,parties.IN.IND,
 IN-AC-2008-haryana-408,haryana,2019,64,BAHADURGARH,VED PARKASH,parties.IN.PPID,PPID,125,0.09,14,forfeit,U,57,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-408,haryana,2019,64,BAHADURGARH,DEVDUTT,parties.IN.IND,IND,106,0.08,15,forfeit,U,66,Illiterate,Service,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-408,haryana,2019,64,BAHADURGARH,JAGDISH,parties.IN.IND,IND,70,0.05,16,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-408,haryana,2019,64,BAHADURGARH,RAMU PRAJAPATI,parties.IN.UNK,RAM,64,0.05,17,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-408,haryana,2019,64,BAHADURGARH,RAMU PRAJAPATI,parties.IN.RAM,RAM,64,0.05,17,forfeit,U,44,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-408,haryana,2019,64,BAHADURGARH,SUNIL KUMAR,parties.IN.IND,IND,61,0.04,18,forfeit,U,30,12th Pass,Managerial Position,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-407,haryana,2019,65,BADLI,KULDEEP VATS,parties.IN.INC,INC,45441,37.54,1,won,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-407,haryana,2019,65,BADLI,OMPRAKASH DHANKHAR,parties.IN.BJP,BJP,34196,28.25,2,lost,U,58,Post Graduate,Unspecified,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-haryana-407,haryana,2019,65,BADLI,SANJAY KABLANA,parties.IN.JNJP,JNJP,28145,23.25,3,lost,U,43,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-407,haryana,2019,65,BADLI,SANJAY KABLANA,parties.IN.JJP,JNJP,28145,23.25,3,lost,U,43,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-407,haryana,2019,65,BADLI,DHARMPAL,parties.IN.IND,IND,5474,4.52,4,forfeit,U,42,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-407,haryana,2019,65,BADLI,PRADEEP RAIYA,parties.IN.BSP,BSP,3955,3.27,5,forfeit,U,31,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-407,haryana,2019,65,BADLI,NARESH PAL,parties.IN.RTRJP,RtrJP,1521,1.26,6,forfeit,U,65,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -872,7 +872,7 @@ IN-AC-2008-haryana-407,haryana,2019,65,BADLI,SATENDER,parties.IN.IND,IND,70,0.06
 IN-AC-2008-haryana-407,haryana,2019,65,BADLI,VINOD KUMAR,parties.IN.IND,IND,28,0.02,16,forfeit,U,45,12th Pass,Transport,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-411,haryana,2019,66,JHAJJAR,GEETA BHUKKAL,parties.IN.INC,INC,46480,41.8,1,won,U,51,Post Graduate,Lawyer,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-411,haryana,2019,66,JHAJJAR,RAKESH KUMAR,parties.IN.BJP,BJP,31481,28.31,2,lost,U,49,Graduate Professional,Retired or Pension,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-411,haryana,2019,66,JHAJJAR,NASEEB KUMAR,parties.IN.JNJP,JNJP,24445,21.98,3,lost,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-411,haryana,2019,66,JHAJJAR,NASEEB KUMAR,parties.IN.JJP,JNJP,24445,21.98,3,lost,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-411,haryana,2019,66,JHAJJAR,AJAY TANWAR,parties.IN.LTSP,LTSP,4116,3.7,4,forfeit,U,44,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-411,haryana,2019,66,JHAJJAR,RAMDHAN,parties.IN.BSP,BSP,2653,2.39,5,forfeit,U,72,Graduate Professional,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-411,haryana,2019,66,JHAJJAR,JOGENDER SINGH,parties.IN.INLD,INLD,945,0.85,6,forfeit,U,40,8th Pass,Taxi Driver,challenger,src-1b7bc1c9d39a
@@ -881,7 +881,7 @@ IN-AC-2008-haryana-411,haryana,2019,66,JHAJJAR,MANPHOOL,parties.IN.IND,IND,159,0
 IN-AC-2008-haryana-411,haryana,2019,66,JHAJJAR,SUNIL KUMAR,parties.IN.IND,IND,55,0.05,10,forfeit,U,32,Graduate,Petrol Pumps,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-409,haryana,2019,67,BERI,Dr. RAGHUVIR SINGH KADIAN,parties.IN.INC,INC,46022,39.4,1,won,U,75,Doctorate,Party Worker,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-409,haryana,2019,67,BERI,VIKRAM KADIAN,parties.IN.BJP,BJP,33070,28.31,2,lost,U,44,Others,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-409,haryana,2019,67,BERI,UPENDER KADIAN,parties.IN.JNJP,JNJP,14969,12.82,3,forfeit,U,36,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-409,haryana,2019,67,BERI,UPENDER KADIAN,parties.IN.JJP,JNJP,14969,12.82,3,forfeit,U,36,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-409,haryana,2019,67,BERI,RAMESH DALAL,parties.IN.BSP,BSP,8764,7.5,4,forfeit,U,58,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-409,haryana,2019,67,BERI,SHIV KUMAR RANGEELA,parties.IN.IND,IND,6059,5.19,5,forfeit,U,37,12th Pass,Musician or Artist,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-409,haryana,2019,67,BERI,AJAY AHLAWAT ADVOCATE,parties.IN.NCP,NCP,2564,2.2,6,forfeit,U,50,Post Graduate,Retired or Pension,challenger,src-1b7bc1c9d39a
@@ -898,7 +898,7 @@ IN-AC-2008-haryana-409,haryana,2019,67,BERI,SUNIL DALAL,parties.IN.IND,IND,52,0.
 IN-AC-2008-haryana-409,haryana,2019,67,BERI,NARSINGH KUKU,parties.IN.SP,SP,51,0.04,18,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-353,haryana,2019,68,ATELI,Sitaram,parties.IN.BJP,BJP,55793,43.97,1,won,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-353,haryana,2019,68,ATELI,Atar Lal,parties.IN.BSP,BSP,37387,29.46,2,lost,U,61,Graduate Professional,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-353,haryana,2019,68,ATELI,Samrat,parties.IN.JNJP,JNJP,13191,10.39,3,forfeit,U,31,Post Graduate,Ex Judiciary,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-353,haryana,2019,68,ATELI,Samrat,parties.IN.JJP,JNJP,13191,10.39,3,forfeit,U,31,Post Graduate,Ex Judiciary,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-353,haryana,2019,68,ATELI,Arjun Singh,parties.IN.INC,INC,9238,7.28,4,forfeit,U,40,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-353,haryana,2019,68,ATELI,Naresh Yadav,parties.IN.IND,IND,4278,3.37,5,forfeit,U,56,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-353,haryana,2019,68,ATELI,Ajay Yadav,parties.IN.IND,IND,2345,1.85,6,forfeit,U,26,Graduate Professional,,challenger,src-1b7bc1c9d39a
@@ -914,7 +914,7 @@ IN-AC-2008-haryana-353,haryana,2019,68,ATELI,Sadhna,parties.IN.IND,IND,49,0.04,1
 IN-AC-2008-haryana-358,haryana,2019,69,MAHENDRAGARH,Rao Dan Singh,parties.IN.INC,INC,46478,32.43,1,won,U,63,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-358,haryana,2019,69,MAHENDRAGARH,Ram Bilas Sharma,parties.IN.BJP,BJP,36258,25.3,2,lost,U,71,Graduate Professional,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-358,haryana,2019,69,MAHENDRAGARH,Sandeep Singh,parties.IN.IND,IND,33077,23.08,3,lost,U,51,Graduate,Ex Govt Employee,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-358,haryana,2019,69,MAHENDRAGARH,Foji Rao Ramesh Palri,parties.IN.JNJP,JNJP,12118,8.45,4,forfeit,U,55,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-358,haryana,2019,69,MAHENDRAGARH,Foji Rao Ramesh Palri,parties.IN.JJP,JNJP,12118,8.45,4,forfeit,U,55,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-358,haryana,2019,69,MAHENDRAGARH,Surender Kaushik,parties.IN.IND,IND,5302,3.7,5,forfeit,U,45,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-358,haryana,2019,69,MAHENDRAGARH,Rakesh Tanwar,parties.IN.RTRJP,RtrJP,3435,2.4,6,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-358,haryana,2019,69,MAHENDRAGARH,Rakesh Alias Gautam Budeen,parties.IN.IND,IND,3351,2.34,7,forfeit,U,35,Post Graduate,Municipality Member,challenger,src-1b7bc1c9d39a
@@ -927,7 +927,7 @@ IN-AC-2008-haryana-358,haryana,2019,69,MAHENDRAGARH,Jagdish Prashad,parties.IN.B
 IN-AC-2008-haryana-358,haryana,2019,69,MAHENDRAGARH,Somesh Kumar,parties.IN.IND,IND,72,0.05,15,forfeit,U,29,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-358,haryana,2019,69,MAHENDRAGARH,Hanuman Singh,parties.IN.IND,IND,57,0.04,16,forfeit,U,64,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-360,haryana,2019,70,NARNAUL,Om Prakash Yadav,parties.IN.BJP,BJP,42732,43.21,1,won,U,63,Graduate,Retired or Pension,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-haryana-360,haryana,2019,70,NARNAUL,Kamlesh Saini,parties.IN.JNJP,JNJP,28017,28.33,2,lost,U,53,12th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-360,haryana,2019,70,NARNAUL,Kamlesh Saini,parties.IN.JJP,JNJP,28017,28.33,2,lost,U,53,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-360,haryana,2019,70,NARNAUL,Narender Singh,parties.IN.INC,INC,25009,25.29,3,lost,U,56,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-360,haryana,2019,70,NARNAUL,Comrade Sita Ram,parties.IN.SUCI,SUCI(C),845,0.85,4,forfeit,U,57,Literate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-360,haryana,2019,70,NARNAUL,Krishan Kumar,parties.IN.BSP,BSP,560,0.57,5,forfeit,U,43,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -936,7 +936,7 @@ IN-AC-2008-haryana-360,haryana,2019,70,NARNAUL,Rajesh Kumar,parties.IN.INLD,INLD
 IN-AC-2008-haryana-360,haryana,2019,70,NARNAUL,Anubhav Saini,parties.IN.BSCP,BSCP,298,0.3,9,forfeit,U,25,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-360,haryana,2019,70,NARNAUL,Madan Lal,parties.IN.BAHUMP,BAHUMP,167,0.17,10,forfeit,U,67,10th Pass,Ex Military,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-359,haryana,2019,71,NANGAL CHAUDHRY,Dr. Abhe Singh Yadav,parties.IN.BJP,BJP,55529,53.57,1,won,U,64,Doctorate,MLA,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-haryana-359,haryana,2019,71,NANGAL CHAUDHRY,Mula Ram,parties.IN.JNJP,JNJP,34914,33.68,2,lost,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-359,haryana,2019,71,NANGAL CHAUDHRY,Mula Ram,parties.IN.JJP,JNJP,34914,33.68,2,lost,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-359,haryana,2019,71,NANGAL CHAUDHRY,Raja Ram,parties.IN.INC,INC,4371,4.22,3,forfeit,U,37,12th Pass,Transport,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-359,haryana,2019,71,NANGAL CHAUDHRY,Suman Devi,parties.IN.INLD,INLD,4341,4.19,4,forfeit,U,25,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-359,haryana,2019,71,NANGAL CHAUDHRY,Gaje Singh,parties.IN.BSP,BSP,2016,1.94,5,forfeit,U,53,Graduate,,challenger,src-1b7bc1c9d39a
@@ -944,7 +944,7 @@ IN-AC-2008-haryana-359,haryana,2019,71,NANGAL CHAUDHRY,Tejpal Yadav,parties.IN.S
 IN-AC-2008-haryana-359,haryana,2019,71,NANGAL CHAUDHRY,Chhaju Ram Rawat,parties.IN.SUCI,SUCI(C),867,0.84,7,forfeit,U,62,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-372,haryana,2019,72,BAWAL,DR. Banwari Lal,parties.IN.BJP,BJP,69049,47.99,1,won,U,62,Graduate Professional,Doctor,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-372,haryana,2019,72,BAWAL,Dr. M.L. Ranga,parties.IN.INC,INC,36804,25.58,2,lost,U,64,Doctorate,Author,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-372,haryana,2019,72,BAWAL,Shyam Sunder Sabharwal,parties.IN.JNJP,JNJP,30446,21.16,3,lost,U,45,Post Graduate,Distributors,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-372,haryana,2019,72,BAWAL,Shyam Sunder Sabharwal,parties.IN.JJP,JNJP,30446,21.16,3,lost,U,45,Post Graduate,Distributors,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-372,haryana,2019,72,BAWAL,Sampat Ram Dahanwal,parties.IN.INLD,INLD,3589,2.49,4,forfeit,U,59,10th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-372,haryana,2019,72,BAWAL,Machhander Rai,parties.IN.BSP,BSP,1637,1.14,5,forfeit,U,40,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-372,haryana,2019,72,BAWAL,Sanjay Kumar,parties.IN.SWARAJ,SWARAJ,475,0.33,7,forfeit,U,38,Post Graduate,School Teacher,challenger,src-1b7bc1c9d39a
@@ -955,7 +955,7 @@ IN-AC-2008-haryana-372,haryana,2019,72,BAWAL,Dr. Attar Singh Dahiya,parties.IN.P
 IN-AC-2008-haryana-372,haryana,2019,72,BAWAL,Rakesh Kumar Katiwal,parties.IN.IND,IND,168,0.12,12,forfeit,U,34,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-413,haryana,2019,73,KOSLI,LAXMAN SINGH YADAV,parties.IN.BJP,BJP,78813,52.42,1,won,U,59,10th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-413,haryana,2019,73,KOSLI,YADUVENDER SINGH,parties.IN.INC,INC,40189,26.73,2,lost,U,63,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-413,haryana,2019,73,KOSLI,RAMPHAL S/ RICHHPAL,parties.IN.JNJP,JNJP,15941,10.6,3,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-413,haryana,2019,73,KOSLI,RAMPHAL S/ RICHHPAL,parties.IN.JJP,JNJP,15941,10.6,3,forfeit,U,57,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-413,haryana,2019,73,KOSLI,DR. AJIT SINGH CHAHAL,parties.IN.BSP,BSP,3612,2.4,4,forfeit,U,44,Doctorate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-413,haryana,2019,73,KOSLI,JAGPHOOL,parties.IN.IND,IND,3219,2.14,5,forfeit,U,49,Graduate Professional,Petrol Pumps,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-413,haryana,2019,73,KOSLI,KIRAN PAL YADAV,parties.IN.INLD,INLD,2322,1.54,6,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
@@ -972,7 +972,7 @@ IN-AC-2008-haryana-378,haryana,2019,74,REWARI,CHIRANJEEV RAO,parties.IN.INC,INC,
 IN-AC-2008-haryana-378,haryana,2019,74,REWARI,SUNIL KUMAR,parties.IN.BJP,BJP,42553,26.99,2,lost,U,55,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-378,haryana,2019,74,REWARI,RANDHIR SINGH KAPRIWAS,parties.IN.IND,IND,36778,23.33,3,lost,U,73,12th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-378,haryana,2019,74,REWARI,PRASHANT SUNNY YADAV,parties.IN.IND,IND,22104,14.02,4,forfeit,U,31,Graduate,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-378,haryana,2019,74,REWARI,MALKHAN SINGH,parties.IN.JNJP,JNJP,3826,2.43,5,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-378,haryana,2019,74,REWARI,MALKHAN SINGH,parties.IN.JJP,JNJP,3826,2.43,5,forfeit,U,45,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-378,haryana,2019,74,REWARI,PRITAM JANGID,parties.IN.BSP,BSP,2455,1.56,6,forfeit,U,51,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-378,haryana,2019,74,REWARI,MANJU BALA,parties.IN.SWARAJ,SWARAJ,1197,0.76,7,forfeit,U,41,Graduate,Municipality Member,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-378,haryana,2019,74,REWARI,CHANDER SHEKHAR SAINI,parties.IN.LTSP,LTSP,1089,0.69,8,forfeit,U,31,Post Graduate,,challenger,src-1b7bc1c9d39a
@@ -985,7 +985,7 @@ IN-AC-2008-haryana-378,haryana,2019,74,REWARI,RAJESH SHARMA,parties.IN.AAAP,AAAP
 IN-AC-2008-haryana-378,haryana,2019,74,REWARI,SURESH DUA,parties.IN.IND,IND,186,0.12,16,forfeit,U,46,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-376,haryana,2019,75,PATAUDI,SATYA PARKASH,parties.IN.BJP,BJP,60633,44.2,1,won,U,52,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-376,haryana,2019,75,PATAUDI,NARENDER SINGH PAHARI,parties.IN.IND,IND,24054,17.53,2,lost,U,47,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-376,haryana,2019,75,PATAUDI,DEEP CHAND,parties.IN.JNJP,JNJP,19629,14.31,3,forfeit,U,51,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-376,haryana,2019,75,PATAUDI,DEEP CHAND,parties.IN.JJP,JNJP,19629,14.31,3,forfeit,U,51,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-376,haryana,2019,75,PATAUDI,SUDHIR KUMAR,parties.IN.INC,INC,18994,13.84,4,forfeit,U,46,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-376,haryana,2019,75,PATAUDI,PARDEEP JATAULI,parties.IN.IND,IND,5062,3.69,5,forfeit,U,39,12th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-376,haryana,2019,75,PATAUDI,SUNIL,parties.IN.BSP,BSP,2140,1.56,6,forfeit,U,35,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
@@ -997,7 +997,7 @@ IN-AC-2008-haryana-376,haryana,2019,75,PATAUDI,NARESH KUMAR S/O MUKHTIAR SINGH,p
 IN-AC-2008-haryana-371,haryana,2019,76,BADSHAHPUR,RAKESH DAULTABAD,parties.IN.IND,IND,106827,47.06,1,won,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-371,haryana,2019,76,BADSHAHPUR,MANISH YADAV,parties.IN.BJP,BJP,96641,42.58,2,lost,U,37,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-371,haryana,2019,76,BADSHAHPUR,RAO KAMALBIR SINGH (MINTU),parties.IN.INC,INC,10610,4.67,3,forfeit,U,53,Post Graduate,Party Worker,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-371,haryana,2019,76,BADSHAHPUR,RISHI RAJ RANA,parties.IN.JNJP,JNJP,2964,1.31,4,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-371,haryana,2019,76,BADSHAHPUR,RISHI RAJ RANA,parties.IN.JJP,JNJP,2964,1.31,4,forfeit,U,44,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-371,haryana,2019,76,BADSHAHPUR,HEMANT KUMAR,parties.IN.IND,IND,1643,0.72,6,forfeit,U,35,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-371,haryana,2019,76,BADSHAHPUR,MAHABIR,parties.IN.BSP,BSP,1533,0.68,7,forfeit,U,64,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-371,haryana,2019,76,BADSHAHPUR,Dr. SATISH YADAV,parties.IN.LTSP,LTSP,1293,0.57,8,forfeit,U,54,Doctorate,Ex Military,challenger,src-1b7bc1c9d39a
@@ -1012,7 +1012,7 @@ IN-AC-2008-haryana-371,haryana,2019,76,BADSHAHPUR,SANDEEP NARUKA,parties.IN.IND,
 IN-AC-2008-haryana-374,haryana,2019,77,GURGAON,SUDHIR SINGLA,parties.IN.BJP,BJP,81953,43.33,1,won,U,53,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-374,haryana,2019,77,GURGAON,MOHIT GROVER,parties.IN.IND,IND,48638,25.72,2,lost,U,26,Post Graduate,Unspecified,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-374,haryana,2019,77,GURGAON,SUKHBIR KATARIA,parties.IN.INC,INC,23126,12.23,3,forfeit,U,55,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-374,haryana,2019,77,GURGAON,SUBE SINGH BOHRA,parties.IN.JNJP,JNJP,9331,4.93,4,forfeit,U,52,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-374,haryana,2019,77,GURGAON,SUBE SINGH BOHRA,parties.IN.JJP,JNJP,9331,4.93,4,forfeit,U,52,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-374,haryana,2019,77,GURGAON,GAJE SINGH KABLANA,parties.IN.IND,IND,8279,4.38,5,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-374,haryana,2019,77,GURGAON,RANBEER SINGH RATHI(R S RATHEE),parties.IN.AAAP,AAAP,5612,2.97,6,forfeit,U,54,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-374,haryana,2019,77,GURGAON,BHOPAL SINGH RAO,parties.IN.IND,IND,4553,2.41,7,forfeit,U,57,12th Pass,Retired or Pension,challenger,src-1b7bc1c9d39a
@@ -1026,7 +1026,7 @@ IN-AC-2008-haryana-374,haryana,2019,77,GURGAON,COMRADE WAZIR SINGH,parties.IN.SU
 IN-AC-2008-haryana-374,haryana,2019,77,GURGAON,GOVNID NARAYAN,parties.IN.JDU,JD(U),220,0.12,16,forfeit,U,45,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-374,haryana,2019,77,GURGAON,DINESH KUMAR,parties.IN.IND,IND,124,0.07,17,forfeit,U,36,Graduate,Shop Keeper,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-379,haryana,2019,78,SOHNA,SANJAY SINGH,parties.IN.BJP,BJP,59117,36.16,1,won,U,45,Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-379,haryana,2019,78,SOHNA,ROHTAS SINGH,parties.IN.JNJP,JNJP,46664,28.54,2,lost,U,67,8th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-379,haryana,2019,78,SOHNA,ROHTAS SINGH,parties.IN.JJP,JNJP,46664,28.54,2,lost,U,67,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-379,haryana,2019,78,SOHNA,JAVED AHMAD,parties.IN.BSP,BSP,39868,24.38,3,lost,U,46,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-379,haryana,2019,78,SOHNA,SHAMSUDDIN,parties.IN.INC,INC,10735,6.57,4,forfeit,U,64,Doctorate,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-379,haryana,2019,78,SOHNA,DHARAM PAL,parties.IN.IND,IND,1978,1.21,5,forfeit,U,47,12th Pass,,challenger,src-1b7bc1c9d39a
@@ -1039,7 +1039,7 @@ IN-AC-2008-haryana-379,haryana,2019,78,SOHNA,SAMAY SINGH,parties.IN.PPID,PPID,38
 IN-AC-2008-haryana-379,haryana,2019,78,SOHNA,SHOKAT,parties.IN.RASLP,RasLP,171,0.1,13,forfeit,U,36,5th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-375,haryana,2019,79,NUH,Aftab Ahmed,parties.IN.INC,INC,52311,41.77,1,won,U,53,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-375,haryana,2019,79,NUH,ZAKIR HUSSAIN,parties.IN.BJP,BJP,48273,38.55,2,lost,U,57,Graduate Professional,Lawyer,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-haryana-375,haryana,2019,79,NUH,TAYYAB HUSSAIN,parties.IN.JNJP,JNJP,17745,14.17,3,forfeit,U,49,Graduate Professional,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-375,haryana,2019,79,NUH,TAYYAB HUSSAIN,parties.IN.JJP,JNJP,17745,14.17,3,forfeit,U,49,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-375,haryana,2019,79,NUH,Nasir Husain,parties.IN.INLD,INLD,3583,2.86,4,forfeit,U,39,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-375,haryana,2019,79,NUH,Arjan,parties.IN.BSP,BSP,1668,1.33,5,forfeit,U,48,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-375,haryana,2019,79,NUH,VISHNU KUMAR,parties.IN.IND,IND,326,0.26,7,forfeit,U,56,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -1051,7 +1051,7 @@ IN-AC-2008-haryana-375,haryana,2019,79,NUH,Imtiyaz Khan,parties.IN.IND,IND,84,0.
 IN-AC-2008-haryana-375,haryana,2019,79,NUH,Jaikam Khan,parties.IN.IND,IND,66,0.05,13,forfeit,U,56,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-373,haryana,2019,80,FEROZEPUR JHIRKA,MAMMAN KHAN,parties.IN.INC,INC,84546,57.62,1,won,U,52,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-373,haryana,2019,80,FEROZEPUR JHIRKA,NASEEM AHMED,parties.IN.BJP,BJP,47542,32.4,2,lost,U,42,Graduate,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-haryana-373,haryana,2019,80,FEROZEPUR JHIRKA,AMAN AHMED,parties.IN.JNJP,JNJP,9818,6.69,3,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-373,haryana,2019,80,FEROZEPUR JHIRKA,AMAN AHMED,parties.IN.JJP,JNJP,9818,6.69,3,forfeit,U,44,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-373,haryana,2019,80,FEROZEPUR JHIRKA,RAGHUBIR,parties.IN.BSP,BSP,1314,0.9,4,forfeit,U,68,Graduate Professional,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-373,haryana,2019,80,FEROZEPUR JHIRKA,MAVASHI,parties.IN.SHPP,SHPP,1169,0.8,5,forfeit,U,30,10th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-373,haryana,2019,80,FEROZEPUR JHIRKA,AYYUB KHAN,parties.IN.INLD,INLD,538,0.37,6,forfeit,U,53,Post Graduate,Lawyer,challenger,src-1b7bc1c9d39a
@@ -1063,7 +1063,7 @@ IN-AC-2008-haryana-373,haryana,2019,80,FEROZEPUR JHIRKA,AARIF KHAN,parties.IN.SP
 IN-AC-2008-haryana-377,haryana,2019,81,PUNAHANA,Mohd Ilyas,parties.IN.INC,INC,35092,28.76,1,won,U,64,Graduate,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-377,haryana,2019,81,PUNAHANA,Rahish Khan,parties.IN.IND,IND,34276,28.09,2,lost,U,52,10th Pass,,incumbent,src-1b7bc1c9d39a
 IN-AC-2008-haryana-377,haryana,2019,81,PUNAHANA,Nauksham Chaudhary,parties.IN.BJP,BJP,21421,17.56,3,lost,U,28,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-377,haryana,2019,81,PUNAHANA,Iqbal,parties.IN.JNJP,JNJP,17327,14.2,4,forfeit,U,54,5th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-377,haryana,2019,81,PUNAHANA,Iqbal,parties.IN.JJP,JNJP,17327,14.2,4,forfeit,U,54,5th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-377,haryana,2019,81,PUNAHANA,Subhan Khan,parties.IN.INLD,INLD,10809,8.86,5,forfeit,U,65,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-377,haryana,2019,81,PUNAHANA,Azmat,parties.IN.IND,IND,734,0.6,6,forfeit,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-377,haryana,2019,81,PUNAHANA,Prahlad,parties.IN.IND,IND,702,0.58,7,forfeit,U,59,8th Pass,,challenger,src-1b7bc1c9d39a
@@ -1075,7 +1075,7 @@ IN-AC-2008-haryana-377,haryana,2019,81,PUNAHANA,Mohd Irshad,parties.IN.IND,IND,1
 IN-AC-2008-haryana-366,haryana,2019,82,HATHIN,PRAVEEN DAGAR,parties.IN.BJP,BJP,46744,29.19,1,won,U,43,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-366,haryana,2019,82,HATHIN,MOHAMMAD ISRAIL,parties.IN.INC,INC,43857,27.38,2,lost,U,54,Others,Ex Govt Employee,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-366,haryana,2019,82,HATHIN,TAYUB HUSAIN URF NAZIR AHMED,parties.IN.BSP,BSP,35233,22,3,lost,U,49,12th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-366,haryana,2019,82,HATHIN,HARSH KUMAR,parties.IN.JNJP,JNJP,30334,18.94,4,lost,U,64,Others,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-366,haryana,2019,82,HATHIN,HARSH KUMAR,parties.IN.JJP,JNJP,30334,18.94,4,lost,U,64,Others,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-366,haryana,2019,82,HATHIN,RANI DEVI,parties.IN.INLD,INLD,1828,1.14,5,forfeit,U,44,Doctorate,College Professor or Lecturer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-366,haryana,2019,82,HATHIN,JAWAHAR DATT,parties.IN.IND,IND,645,0.4,6,forfeit,U,67,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-366,haryana,2019,82,HATHIN,SURENDER,parties.IN.SWARAJ,SWARAJ,270,0.17,8,forfeit,U,43,Graduate Professional,School Teacher,challenger,src-1b7bc1c9d39a
@@ -1084,7 +1084,7 @@ IN-AC-2008-haryana-366,haryana,2019,82,HATHIN,DINESH SINGLA,parties.IN.SHPP,SHPP
 IN-AC-2008-haryana-366,haryana,2019,82,HATHIN,YAMIN KHAN,parties.IN.AAAP,AAAP,192,0.12,11,forfeit,U,68,Graduate,Ex Police,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-367,haryana,2019,83,HODAL,JAGDISH NAYAR,parties.IN.BJP,BJP,55864,45.8,1,won,U,49,12th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-367,haryana,2019,83,HODAL,UDAI BHAN,parties.IN.INC,INC,52477,43.02,2,lost,U,63,12th Pass,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-haryana-367,haryana,2019,83,HODAL,YASHVEER,parties.IN.JNJP,JNJP,8590,7.04,3,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-367,haryana,2019,83,HODAL,YASHVEER,parties.IN.JJP,JNJP,8590,7.04,3,forfeit,U,27,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-367,haryana,2019,83,HODAL,RAM PAL,parties.IN.INLD,INLD,1724,1.41,4,forfeit,U,61,Others,Ex Police,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-367,haryana,2019,83,HODAL,GAYA LAL,parties.IN.BSP,BSP,874,0.72,5,forfeit,U,48,10th Pass,Shop Keeper,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-367,haryana,2019,83,HODAL,RAVINDER,parties.IN.IND,IND,353,0.29,7,forfeit,U,44,Graduate,,challenger,src-1b7bc1c9d39a
@@ -1098,7 +1098,7 @@ IN-AC-2008-haryana-367,haryana,2019,83,HODAL,RAJU,parties.IN.TOP,ToP,109,0.09,14
 IN-AC-2008-haryana-367,haryana,2019,83,HODAL,DHARMENDER,parties.IN.IND,IND,74,0.06,15,forfeit,U,28,Graduate Professional,Lawyer,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-368,haryana,2019,84,PALWAL,DEEPAK MANGLA,parties.IN.BJP,BJP,89426,55.6,1,won,U,52,Graduate Professional,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-368,haryana,2019,84,PALWAL,KARAN SINGH,parties.IN.INC,INC,61130,38.01,2,lost,U,62,Post Graduate,Lawyer,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-haryana-368,haryana,2019,84,PALWAL,GAYA LAL,parties.IN.JNJP,JNJP,6498,4.04,3,forfeit,U,64,12th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-368,haryana,2019,84,PALWAL,GAYA LAL,parties.IN.JJP,JNJP,6498,4.04,3,forfeit,U,64,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-368,haryana,2019,84,PALWAL,SATPAL,parties.IN.INLD,INLD,775,0.48,5,forfeit,U,35,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-368,haryana,2019,84,PALWAL,Dr. K.P. SINGH,parties.IN.IND,IND,490,0.3,6,forfeit,U,61,Graduate Professional,Doctor,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-368,haryana,2019,84,PALWAL,Kuldeep Kaushik,parties.IN.AAAP,AAAP,432,0.27,7,forfeit,U,51,Post Graduate,Principal or Administrator,challenger,src-1b7bc1c9d39a
@@ -1124,14 +1124,14 @@ IN-AC-2008-haryana-365,haryana,2019,86,FARIDABAD NIT,CHANDER BHATIA,parties.IN.I
 IN-AC-2008-haryana-365,haryana,2019,86,FARIDABAD NIT,PRADEEP RANA,parties.IN.IND,IND,3928,2.47,5,forfeit,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-365,haryana,2019,86,FARIDABAD NIT,SANTOSH KUMAR YADAV,parties.IN.AAAP,AAAP,3240,2.04,6,forfeit,U,38,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-365,haryana,2019,86,FARIDABAD NIT,JAGJIT PANNU,parties.IN.INLD,INLD,1240,0.78,8,forfeit,U,49,Post Graduate,Transport,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-365,haryana,2019,86,FARIDABAD NIT,TEJPAL,parties.IN.JNJP,JNJP,1208,0.76,9,forfeit,U,44,10th Pass,,crossover,src-1b7bc1c9d39a
+IN-AC-2008-haryana-365,haryana,2019,86,FARIDABAD NIT,TEJPAL,parties.IN.JJP,JNJP,1208,0.76,9,forfeit,U,44,10th Pass,,crossover,src-1b7bc1c9d39a
 IN-AC-2008-haryana-365,haryana,2019,86,FARIDABAD NIT,VIRENDRA SINGH DANGWAL,parties.IN.CPIMLL,CPIM,733,0.46,10,forfeit,U,59,Post Graduate,Ex Civil Service,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-365,haryana,2019,86,FARIDABAD NIT,NANAK CHAND TALAN,parties.IN.IND,IND,406,0.26,11,forfeit,U,53,12th Pass,Transport,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-365,haryana,2019,86,FARIDABAD NIT,HARI RAM,parties.IN.IND,IND,357,0.22,12,forfeit,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-365,haryana,2019,86,FARIDABAD NIT,RAM PARTAP GAUR,parties.IN.LTSP,LTSP,334,0.21,13,forfeit,U,61,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-365,haryana,2019,86,FARIDABAD NIT,JAI PARKASH SINGH,parties.IN.JMBP,JMBP,256,0.16,14,forfeit,U,46,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-365,haryana,2019,86,FARIDABAD NIT,DINESH RAI,parties.IN.IND,IND,233,0.15,15,forfeit,U,42,Post Graduate,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-365,haryana,2019,86,FARIDABAD NIT,DESHRAJ SINGH RANA,parties.IN.AAAAP,AAAAP,214,0.13,16,forfeit,U,43,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-365,haryana,2019,86,FARIDABAD NIT,DESHRAJ SINGH RANA,parties.IN.AAAP,AAAAP,214,0.13,16,forfeit,U,43,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-365,haryana,2019,86,FARIDABAD NIT,JITENDER KUMAR,parties.IN.IND,IND,209,0.13,17,forfeit,U,39,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-365,haryana,2019,86,FARIDABAD NIT,MANOJ SHARMA,parties.IN.ABHM,ABHM,160,0.1,18,forfeit,U,35,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-365,haryana,2019,86,FARIDABAD NIT,RAVINDER GUPTA,parties.IN.SP,SP,135,0.09,19,forfeit,U,42,Graduate Professional,,challenger,src-1b7bc1c9d39a
@@ -1142,7 +1142,7 @@ IN-AC-2008-haryana-362,haryana,2019,87,BADKHAL,MANOJ CHOUDHARY,parties.IN.BSP,BS
 IN-AC-2008-haryana-362,haryana,2019,87,BADKHAL,AJAY BHADANA,parties.IN.INLD,INLD,2362,1.75,5,forfeit,U,36,Graduate,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-362,haryana,2019,87,BADKHAL,JAGRAM GAUTAM,parties.IN.CPI,CPI,951,0.7,7,forfeit,U,51,10th Pass,Self-employed,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-362,haryana,2019,87,BADKHAL,MUKESH PEHLWAN,parties.IN.SHS,SHS,494,0.37,8,forfeit,U,50,10th Pass,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-362,haryana,2019,87,BADKHAL,ISLAMUDEEN PAPPU,parties.IN.JNJP,JNJP,313,0.23,9,forfeit,U,56,5th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-362,haryana,2019,87,BADKHAL,ISLAMUDEEN PAPPU,parties.IN.JJP,JNJP,313,0.23,9,forfeit,U,56,5th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-362,haryana,2019,87,BADKHAL,JAMIL,parties.IN.RASLP,RasLP,223,0.16,10,forfeit,U,36,Illiterate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-362,haryana,2019,87,BADKHAL,PREM KAPOOR,parties.IN.IND,IND,201,0.15,11,forfeit,U,66,8th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci88,haryana,2019,88,BALLABHGARH,MOOL CHAND SHARMA,parties.IN.BJP,BJP,66708,54.42,1,won,U,55,Post Graduate,,incumbent,src-1b7bc1c9d39a
@@ -1158,7 +1158,7 @@ IN-AC-2008-haryana-eci88,haryana,2019,88,BALLABHGARH,ATUL,parties.IN.IND,IND,303
 IN-AC-2008-haryana-eci88,haryana,2019,88,BALLABHGARH,DEEPAK GAUR,parties.IN.AVIRP,AVIRP,258,0.21,12,forfeit,U,41,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci89,haryana,2019,89,FARIDABAD,Narender Gupta,parties.IN.BJP,BJP,65887,54.41,1,won,U,60,Graduate,Private Company,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci89,haryana,2019,89,FARIDABAD,Lakhan Kumar Singla,parties.IN.INC,INC,44174,36.48,2,lost,U,53,8th Pass,Real Estate or Builder or Developer or Construction,challenger,src-1b7bc1c9d39a
-IN-AC-2008-haryana-eci89,haryana,2019,89,FARIDABAD,Kuldeep Tewatia,parties.IN.JNJP,JNJP,4045,3.34,3,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-eci89,haryana,2019,89,FARIDABAD,Kuldeep Tewatia,parties.IN.JJP,JNJP,4045,3.34,3,forfeit,U,41,10th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci89,haryana,2019,89,FARIDABAD,Mahesh Chand Jain,parties.IN.BSP,BSP,2776,2.29,4,forfeit,U,64,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci89,haryana,2019,89,FARIDABAD,Kumari Suman Lata Vashisth,parties.IN.AAAP,AAAP,1445,1.19,6,forfeit,U,39,Post Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-eci89,haryana,2019,89,FARIDABAD,Renu Khatter,parties.IN.SWARAJ,SWARAJ,424,0.35,7,forfeit,U,42,Graduate,Consultant,challenger,src-1b7bc1c9d39a
@@ -1167,7 +1167,7 @@ IN-AC-2008-haryana-eci89,haryana,2019,89,FARIDABAD,Satay Deo Yadav,parties.IN.RB
 IN-AC-2008-haryana-eci89,haryana,2019,89,FARIDABAD,Sushila Gautam,parties.IN.IND,IND,156,0.13,10,forfeit,U,32,8th Pass,Household,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-370,haryana,2019,90,TIGAON,RAJESH NAGAR,parties.IN.BJP,BJP,97126,57.38,1,won,U,50,12th Pass,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-370,haryana,2019,90,TIGAON,LALIT NAGAR S/O SH. BHARAT SINGH,parties.IN.INC,INC,63285,37.39,2,lost,U,54,Graduate Professional,,incumbent,src-1b7bc1c9d39a
-IN-AC-2008-haryana-370,haryana,2019,90,TIGAON,PARDEEP CHAUDHARY,parties.IN.JNJP,JNJP,2693,1.59,3,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-haryana-370,haryana,2019,90,TIGAON,PARDEEP CHAUDHARY,parties.IN.JJP,JNJP,2693,1.59,3,forfeit,U,35,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-370,haryana,2019,90,TIGAON,UMESH BHATI,parties.IN.INLD,INLD,1538,0.91,5,forfeit,U,49,Others,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-370,haryana,2019,90,TIGAON,BIRESH KUMAR SINGH,parties.IN.JDU,JD(U),854,0.5,6,forfeit,U,41,Graduate,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-haryana-370,haryana,2019,90,TIGAON,LALIT NAGAR S/O SH. VIJAY PAL NAGAR,parties.IN.IND,IND,505,0.3,7,forfeit,U,28,12th Pass,,challenger,src-1b7bc1c9d39a

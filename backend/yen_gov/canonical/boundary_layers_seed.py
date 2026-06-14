@@ -221,6 +221,7 @@ class BoundaryLayerRow(BaseModel):
 
 SOURCE_NICKNAMES: tuple[str, ...] = (
     "datameet",
+    "datameet_pc_2008",
     "htl",
     "shijithpk",
     "shijithpk_pc_2024",
@@ -236,6 +237,22 @@ _BOUNDARY_SOURCE_TRIPLES: dict[str, tuple[str, str, str]] = {
         "DataMeet India Maps Project",
         "datameet/maps Admin2 boundary bundle",
         "operator-snapshot-2026-05",  # publisher declares no vintage; operator-snapshot anchor per ADR-0042
+    ),
+    # 1b. DataMeet India Maps Project — LS PC boundaries under the 2008
+    #     Delimitation Commission Order (FU#3 from PR #958, plan-doc
+    #     TODO/20260612-pc-delim-2008-boundary-ingest-plan.md). Second
+    #     datameet source row: same producer but a distinct
+    #     publication (parliamentary-constituencies subdir) + distinct
+    #     vintage (2008-delimitation, the operative LS 2009/2014/2019
+    #     boundaries). Triple-keyed disambiguation per ADR-0032 mirrors
+    #     the shijithpk vs shijithpk_pc_2024 pair below. The upstream
+    #     simplified GeoJSON (1.9 MB) is by Arun Ganesh under CC0 1.0;
+    #     the raw shapefile (51 MB) is by DataMeet Trust under
+    #     CC-BY-SA 2.5. yen-gov ingests the CC0 simplified derivative.
+    "datameet_pc_2008": (
+        "DataMeet India Maps Project",
+        "India Lok Sabha Parliamentary Constituency boundaries (2008 Delimitation, simplified)",
+        "2008-delimitation",
     ),
     # 2. Hindustan Times Labs (state-AC layers, MIT-applied-to-data)
     "htl": (
@@ -329,6 +346,14 @@ def _build_boundary_source_rows() -> tuple[SourceRow, ...]:
             False,
             "https://github.com/datameet/maps",
             None,
+        ),
+        "datameet_pc_2008": (
+            "CC0-1.0",
+            "silver",
+            "archived-snapshot",
+            False,
+            "https://github.com/datameet/maps/tree/master/parliamentary-constituencies",
+            "India Lok Sabha Parliamentary Constituency boundaries under the 2008 Delimitation Commission Order (operative for LS 2009 / 2014 / 2019). Upstream simplified GeoJSON (1.9 MB) by Arun Ganesh, CC0 1.0 Universal Public Domain Dedication (the raw shapefile sibling is by DataMeet Trust under CC-BY-SA 2.5 India; yen-gov ingests the CC0 simplified derivative). 543 features cover all LS PCs; 39 features across 6 states (J&K, Jharkhand, Arunachal Pradesh, Assam, Manipur, Nagaland) carry status='Pre delimitation' upstream because the 2008 Delimitation Commission Order EXEMPTED those states from re-delimitation — their boundaries reflect the 1976 baseline that ECI used during LS 2009 / 2014 / 2019 in those states. Honestly cited as delim=2008 because the 2008 Order is the operative event (with the carve-out documented inline). The Ladakh PC (datameet pc_no=4 under upstream st_name='Jammu & Kashmir') is split out to the canonical Ladakh UT (U09) at ingest time to match the post-2019 entity modelling in datasets/data/entities/electoral.csv; the other 5 J&K PCs map to U08.",
         ),
         "htl": (
             "unknown-public",

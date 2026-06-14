@@ -694,6 +694,42 @@ def derive_national_reference(
     )
 
 
+@app.command("derive-party-pages")
+def derive_party_pages(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+) -> None:
+    """Compute party-page derived marts from canonical electoral CSVs."""
+    from yen_gov.canonical.derived.party_pages import refresh_party_page_marts
+
+    root_resolved = root.resolve()
+    result = refresh_party_page_marts(root_resolved)
+    typer.echo(
+        "derive-party-pages: wrote "
+        f"{result.history_path.relative_to(root_resolved).as_posix()} "
+        f"({result.history_rows} rows)"
+    )
+    typer.echo(
+        "derive-party-pages: wrote "
+        f"{result.strongholds_path.relative_to(root_resolved).as_posix()} "
+        f"({result.stronghold_rows} rows)"
+    )
+    typer.echo(
+        "derive-party-pages: wrote "
+        f"{result.manifest_path.relative_to(root_resolved).as_posix()} "
+        f"(input files: {result.input_file_count}; "
+        f"party pages: {result.party_count}; "
+        f"signature: {result.input_signature[:12]})"
+    )
+
+
 def _read_long_csv(path: Path) -> list[dict[str, object]]:
     """Read a 4-column long-format CSV (entity_id, time, value, source_id).
 
@@ -720,6 +756,26 @@ def _read_long_csv(path: Path) -> list[dict[str, object]]:
                 }
             )
     return out
+
+
+def _refresh_party_pages_after_electoral_ingest(root: Path, prefix: str) -> None:
+    """Refresh party-page marts after an electoral ingest command.
+
+    The older elections writer path is still mid-rip: some commands write
+    per-state electoral datapoint CSVs directly, while others still flow
+    through the envelope writer. This shared post-step keeps CLI ingests from
+    leaving `/parties/<slug>` read models stale; Tier-B validation catches any
+    non-CLI path that edits the same inputs without running this refresh.
+    """
+    from yen_gov.canonical.derived.party_pages import refresh_party_page_marts
+
+    result = refresh_party_page_marts(root)
+    typer.echo(
+        f"{prefix}: refreshed party-page marts "
+        f"({result.history_rows} history rows, "
+        f"{result.stronghold_rows} stronghold rows, "
+        f"signature {result.input_signature[:12]})"
+    )
 
 
 
@@ -820,6 +876,7 @@ def ingest_eci_ae_panel(
     )
     typer.echo(f"ingest-eci-ae-panel: events={','.join(result.events)}")
     typer.echo(f"ingest-eci-ae-panel: report={result.report_path.as_posix()}")
+    _refresh_party_pages_after_electoral_ingest(root, "ingest-eci-ae-panel")
 
 
 @app.command("ingest-eci-ls")
@@ -890,6 +947,7 @@ def ingest_eci_ls(
             "mapped to parties.IN.UNK"
         )
     typer.echo(f"ingest-eci-ls: event={result.event_id}")
+    _refresh_party_pages_after_electoral_ingest(root, "ingest-eci-ls")
 
 
 @app.command("ingest-ls-ge-tcpd")
@@ -966,6 +1024,7 @@ def ingest_ls_ge_tcpd_cmd(
             "strings mapped to parties.IN.UNK"
         )
     typer.echo(f"ingest-ls-ge-tcpd: event={result.event_id}")
+    _refresh_party_pages_after_electoral_ingest(root, "ingest-ls-ge-tcpd")
 
 
 
@@ -1574,13 +1633,19 @@ def parity_event(
 def _load_party_alliances_for_parity_event(
     root: Path,
 ) -> dict[tuple[str, str], str]:
-    """Project party_alliances.csv to ``(party_id, period_label) -> alliance``.
+    """Project party_alliances.csv to ``(party_id, event_id) -> alliance``.
 
     Used by the ``parity-event`` command to surface the alliance label
     on the verdict CSV's ``party_id_alliance`` column. When the file is
     absent or the row lacks an alliance value, the verdict's column is
     empty - the "alliance not yet curated for this event" badge signal
     per Q6.
+
+    v2.0 schema (2026-06-12, plan TODO/20260612-alliance-phase-1-structural-fix-plan.md):
+    column renamed period_label -> event_id; state column added but the
+    parity-event verdict key remains (party_id, event_id) -- callers
+    that care about per-state disambiguation can extend the key shape
+    in a follow-up.
     """
     import csv as _csv
 
@@ -1598,10 +1663,10 @@ def _load_party_alliances_for_parity_event(
         reader = _csv.DictReader(fh)
         for row in reader:
             pid = (row.get("party_id") or "").strip()
-            period = (row.get("period_label") or "").strip()
+            event_id = (row.get("event_id") or "").strip()
             alliance = (row.get("alliance") or "").strip()
-            if pid and period and alliance:
-                out[(pid, period)] = alliance
+            if pid and event_id and alliance:
+                out[(pid, event_id)] = alliance
     return out
 
 

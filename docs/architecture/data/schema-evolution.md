@@ -1,8 +1,10 @@
 # Schema Evolution
 
-**Last Updated**: 2026-05-31
+**Last Updated**: 2026-06-12
 
 This document is the operational policy for evolving yen-gov schema contracts without unnecessary data rebuilds. [ADR-0047](../../reference/decision-index.md) records the decision; this page records the working rules.
+
+> **Status note (2026-06-12).** The OWID-conformance question ("should `$schema_version` exist on data files at all?") was debated and CLOSED on 2026-06-12 with the user verdict to keep the field as a PERMANENT NAMED DIVERGENCE from OWID. The four OWID concerns the field allegedly conflates are already covered by yen-gov-native surfaces (`x-version` on `.schema.json`; `_meadow/<source>/<vintage>/` + `_ops/` / `.runtime/` for freshness; `source.csv.vintage` per ADR-0042 for publisher edition; `indicators.json.update_period_days` per ADR-0046 for cadence). The chronic drift hazard on 5 hardcoded `"1.0"` tool sites was repaired in the same closure PR via `yen_gov.core.schema_registry.schema_version(<file>)` per CLAUDE.md section 11. The current writer-strict / reader-compatible policy below stays in force unchanged. Closure receipt is captured in [§Schema-version field stamping (permanent named divergence)](#schema-version-field-stamping-permanent-named-divergence) below; the original execution plan-doc (PR-0 ratified verdicts + 4-persona debate trail) is archived at [docs/archive/plans/20260612-schema-version-field-refactor-plan.md](../../../docs/archive/plans/20260612-schema-version-field-refactor-plan.md).
 
 ## Scope
 
@@ -153,6 +155,49 @@ Test cases should prove behavior, not literal version strings.
 - Schema-evolution tests cover valid `values_changed=false`, valid `values_changed=true`, missing retained-schema references, and retained-schema hash/version mismatches using `tmp_path` fixture ledgers.
 - Frontend JSON corpus contract tests use the same compatibility contract as backend validation. Canonical DuckDB-WASM reader tests use the `canonical-manifest-reader` surface for manifest/table registration compatibility.
 - Literal version strings are acceptable in named historical fixtures; otherwise use schema-registry lookups.
+
+## Schema-version field stamping (permanent named divergence)
+
+**Status (2026-06-12, closed via Path A).** The OWID-conformance question on whether to retire `$schema_version` from data emit files was debated on 2026-06-12 by Gregor + Hans + Max + Fowler personas and CLOSED as a **permanent named divergence** per user verdict. This section is the durable closure receipt; the original 4-persona debate trail + PR-0 ratified verdicts + scoped-pivot PR sequence + Path A vs Path B vs Path C user-decision menu are preserved in the archived plan-doc at [docs/archive/plans/20260612-schema-version-field-refactor-plan.md](../../../docs/archive/plans/20260612-schema-version-field-refactor-plan.md).
+
+### What was decided
+
+yen-gov continues to stamp `$schema_version` at the top of every JSON artifact in `datasets/` populated from the schema's own `x-version`. This is a documented divergence from OWID (whose data files carry no such stamp) and survives because:
+
+1. **The citizen never sees the field.** It is operator-axis metadata not surfaced on any chart, source-pill, IndicatorDoc page, or About copy. The OWID-alignment doctrine is a fallback for citizen-surface decisions; this is not a citizen-surface decision.
+2. **The four OWID-named concerns are already realised in yen-gov via four separate native surfaces.** See the table below.
+3. **Adding OWID's `origin.date_accessed` as a 6th column on `source.csv` would re-open the 5-col binding contract** ratified one day earlier (2026-06-11 ADR citation-ledger-5col in [docs/concepts/data-provenance.md](../../concepts/data-provenance.md)) and re-introduce the `fetched_at smear` failure mode from /memories/lessons.md 2026-05-16. The cost of OWID grammar conformance exceeds the benefit in this specific case.
+4. **The five-PR scoped pivot (Path B) was a legitimate alternative.** It was rejected on cost-benefit: 5-7 PRs of writer + schema + on-disk + browser-smoke churn against zero citizen-axis signal gain. The plan-doc's archived section 5 records Path B in full for the next time this question is re-litigated.
+
+| OWID concern | yen-gov-native surface that already covers it |
+| --- | --- |
+| Schema-shape identity | `.schema.json` file's `x-version` (already canonical). The duplicated `$schema_version` stamp on the data file is documentation grade, not load-bearing for the validator (Tier-B reads `$schema` URL to resolve the schema). |
+| Data freshness pointer (`origin.date_accessed`) | `datasets/<family>/_meadow/<source>/<vintage>/` operator snapshot directories + `.runtime/<adapter>/<source_id>.json` sidecars + `_ops/indicators-completeness.json` overlays. The snapshot directory IS the OWID `date_accessed` (immutable per snapshot; new fetch = new directory). |
+| Publisher edition tag (`origin.version_producer`) | `source.csv.vintage` per [ADR-0042](../../concepts/data-provenance.md#adr-0042-sources-schema-v3-vintage-as-period-anchor). Semantic STRONGER than OWID's `version_producer` because it covers vintaged AND operator-snapshot-anchored sources in one field. |
+| Expected refresh cadence (`dataset.update_period_days`) | `datasets/taxonomy/indicators.json` `update_period_days` per ADR-0046. Already on every indicator catalogue row (sampled 100+ rows, zero nulls). Enforced by Tier-B `tier_b_indicator_freshness_declared`. |
+
+### Drift hazard repair (same PR)
+
+Five tool sites historically stamped a hardcoded `"1.0"` literal that did NOT auto-track schema bumps:
+
+- `tools/gen_election_tile_layouts.py` (layout + scopes writers)
+- `tools/lgd/parse_lgd_export.py` (parse-receipt writer)
+- `tools/lgd/snapshot.py` (CSV sources sidecar writer)
+- `tools/boundaries/enrich_census_code_2011.py` (sidecar + coverage writers)
+
+All six emit sites now source `$schema_version` from `yen_gov.core.schema_registry.schema_version(<file>)` per CLAUDE.md section 11 ("Code never hand-types schema-version literals"). The helper reads `datasets/schemas/<file>.schema.json`'s `x-version` once at import time and caches; drift is impossible by construction. CLAUDE.md section 4 forbids importing backend RUNTIME modules from `tools/`; `schema_registry` is a metadata helper that reads `datasets/schemas/` directly, not a runtime module, so the import is in scope and matches the precedent in `tools/emit_indicators_completeness_index.py` (the one already-well-behaved tool that loads the schema dict to read `x-version`).
+
+### What this means for new artifacts going forward
+
+New schemas and new writers continue to stamp `$schema_version` per the existing template (writer-strict per [ADR-0047](#adr-0047-schema-version-compatibility-contract) survives unchanged). Code MUST source the value via `schema_registry.schema_version(<file>)` — never a hand-typed literal. The next time the OWID-conformance question is raised, point at this section + the archived plan-doc; do not re-litigate.
+
+### Cross-links
+
+- [`docs/concepts/owid-alignment.md`](../../concepts/owid-alignment.md) — Named divergence #5 (permanent).
+- [`docs/concepts/data-provenance.md`](../../concepts/data-provenance.md) — 5-col `source.csv` binding contract (2026-06-11); reason this divergence survives.
+- [`CLAUDE.md` section 10](../../../CLAUDE.md) — `$schema_version` is not on the anti-pattern stack; control-plane carve-out for `generated_at` survives unchanged.
+- [`CLAUDE.md` section 11](../../../CLAUDE.md) — "Code never hand-types schema-version literals"; this section's drift-hazard repair enforces it.
+- [docs/archive/plans/20260612-schema-version-field-refactor-plan.md](../../../docs/archive/plans/20260612-schema-version-field-refactor-plan.md) — archived execution plan-doc with full 4-persona debate trail + PR-0 ratified verdicts + Path A vs B vs C user-decision menu.
 
 ## Stop Conditions
 

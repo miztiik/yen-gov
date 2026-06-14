@@ -62,6 +62,11 @@ function resultRow(
     turnout_pct: 68.46,
     electors: null,
     votes_polled: null,
+    // TODO/20260612 Row B contract: ElectionResultRow now requires the
+    // margin_votes field. The constituency-history model ignores it; we
+    // pass null because the on-disk loader leaves it null on uncontested
+    // seats (and the fixture is shape-only, not value-sensitive).
+    margin_votes: null,
     winner_age: null,
     winner_candidate_name: null,
     reservation: "GEN",

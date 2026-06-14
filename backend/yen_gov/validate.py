@@ -1310,6 +1310,19 @@ def tier_b_indicator_url_slug_unique(root: Path) -> list[Failure]:
     return failures
 
 
+def tier_b_party_page_mart_fresh(root: Path) -> list[Failure]:
+    """Reject stale or missing party-page derived marts."""
+    from yen_gov.canonical.derived.party_pages import (
+        MANIFEST_REL,
+        party_page_mart_freshness_failures,
+    )
+
+    return [
+        Failure(MANIFEST_REL.as_posix(), "B", message)
+        for message in party_page_mart_freshness_failures(root)
+    ]
+
+
 def run(root: Path) -> list[Failure]:
     """Run Tier A then Tier B against a repo root."""
     schemas, parse_failures = load_schemas(root / SCHEMAS_SUBDIR)
@@ -1327,4 +1340,5 @@ def run(root: Path) -> list[Failure]:
         + tier_b_no_hand_typed_source_id(root)
         + tier_b_indicator_id_no_grain_prefix(root)
         + tier_b_indicator_url_slug_unique(root)
+        + tier_b_party_page_mart_fresh(root)
     )

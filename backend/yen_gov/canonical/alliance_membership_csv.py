@@ -10,9 +10,10 @@ existing alliance-evidence sources:
    directly from the tenure boundaries.
 
 2. ``datasets/data/entities/party_alliances.csv`` - per-event alliance
-   snapshot (one row per (party_id, period_label, alliance)). Rows with
-   a non-empty ``alliance`` become alliance_membership rows. ``term_start``
-   is resolved to the event's ``polled_on`` date via
+   snapshot (one row per (party_id, event_id, state, alliance); v2.0
+   schema 2026-06-12 per TODO/20260612-alliance-phase-1-structural-fix-plan.md).
+   Rows with a non-empty ``alliance`` become alliance_membership rows.
+   ``term_start`` is resolved to the event's ``polled_on`` date via
    ``datasets/taxonomy/election_events.json``; ``term_end`` is null since
    the event snapshot does not record when the alliance ended.
 
@@ -245,14 +246,15 @@ def _extract_from_party_alliances(
         reader = csv.DictReader(handle)
         for row in reader:
             party_id = (row.get("party_id") or "").strip()
-            period_label = (row.get("period_label") or "").strip()
+            # v2.0 schema: column is event_id (was period_label in v1).
+            event_id = (row.get("event_id") or "").strip()
             alliance = (row.get("alliance") or "").strip()
             source_id = (row.get("source_id") or "").strip()
 
-            if not party_id or not period_label or not alliance or not source_id:
+            if not party_id or not event_id or not alliance or not source_id:
                 continue
 
-            term_start = event_id_to_polled_on.get(period_label)
+            term_start = event_id_to_polled_on.get(event_id)
             if not term_start:
                 continue
 

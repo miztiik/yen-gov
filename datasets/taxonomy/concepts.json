@@ -357,6 +357,17 @@
       "sources": []
     },
     {
+      "concept_id": "contested-pcs",
+      "noun": "Contested PCs",
+      "unit_canonical": "PCs",
+      "normalisation": "absolute",
+      "entity_kinds": [
+        "party"
+      ],
+      "description_short": "Number of distinct parliamentary constituencies in the state where this party fielded a candidate. PC sibling of the AC-grain `contested` concept.",
+      "sources": []
+    },
+    {
       "concept_id": "diesel-hsd",
       "noun": "Diesel (HSD)",
       "unit_canonical": "kt",

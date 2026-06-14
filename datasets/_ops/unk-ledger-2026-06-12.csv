@@ -1,0 +1,182 @@
+body,state_slug,year,event_id,publisher_label,n_rows,tcpd_party_id,tcpd_party_name,tcpd_party_type,tcpd_start_year,tcpd_last_year,tcpd_state_name,skip_reason,next_lookup_source
+assembly,andhra-pradesh,1972,1972,MIL,3,5426,Minorities League,,1972,1972,Andhra_Pradesh,tcpd-state-disambig-contradiction,wikipedia-and-press
+assembly,andhra-pradesh,2010,2010,DBP,1,10139,Desh Bhakt Party,Local Party,1991,2009,All_States,tcpd-state-year-collision,eci-statreport-2010
+assembly,andhra-pradesh,2012,2012,DBP,1,10139,Desh Bhakt Party,Local Party,1991,2009,All_States,tcpd-state-year-collision,eci-statreport-2012
+assembly,andhra-pradesh,2021,2021,JANA SAHAYAKA SAKTHI,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2021
+assembly,andhra-pradesh,2021,2021,MAHAJANA RAJYAM PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2021
+assembly,andhra-pradesh,2021,2021,TELUGU JANATA PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2021
+assembly,assam,1991,1991,URC,55,13038,United Reservation Movement Council Assam,Local Party,1991,2006,Assam,tcpd-state-year-collision,eci-statreport-1991
+assembly,assam,2001,2001,UTNLF,1,13043,United Tribal Nationalists Liberation Front,Local Party,1996,1999,All_States,tcpd-state-year-collision,eci-statreport-2001
+assembly,assam,2021,2021,GANA SURAKSHA PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2021
+assembly,bihar,1969,1969,PHJ,14,2081,Bihar Prant Hul Jharkhand,Local Party,1969,1977,All_States,tcpd-state-year-collision,wikipedia-and-press
+assembly,bihar,1972,1972,PHJ,15,2081,Bihar Prant Hul Jharkhand,Local Party,1969,1977,All_States,tcpd-state-year-collision,wikipedia-and-press
+assembly,bihar,1977,1977,PHJ,5,2081,Bihar Prant Hul Jharkhand,Local Party,1969,1977,All_States,tcpd-state-year-collision,eci-statreport-1977
+assembly,bihar,1995,1995,KSP,1,4881,Kosal Party,,1995,2004,Odisha,,eci-statreport-1995
+assembly,bihar,1998,1998,BJC,1,1411,Bharatiya Jan Congress,Local Party,1993,2000,Bihar,,eci-statreport-1998
+assembly,bihar,2000,2000,BJC,2,1411,Bharatiya Jan Congress,Local Party,1993,2000,Bihar,,eci-statreport-2000
+assembly,bihar,2000,2000,KSP,7,4881,Kosal Party,,1995,2004,Odisha,,eci-statreport-2000
+assembly,bihar,2003,2003,LJNP,1,,,,,,,tcpd-placeholder-only,eci-statreport-2003
+assembly,bihar,2009,2009,JD (U),11,,,,,,,not-in-tcpd-catalogue,eci-statreport-2009
+assembly,bihar,2009,2009,PLAD,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2009
+assembly,bihar,2009,2009,SJP ( R ),1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2009
+assembly,bihar,2014,2014,CPI(L),4,,,,,,,tcpd-placeholder-only,eci-statreport-2014
+assembly,bihar,2018,2018,CPI(MARXIST LENINIST)LIBERATION,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2018
+assembly,delhi,1993,1993,BJC,5,1411,Bharatiya Jan Congress,Local Party,1993,2000,Bihar,,eci-statreport-1993
+assembly,delhi,1993,1993,DBP,9,10139,Desh Bhakt Party,Local Party,1991,2009,All_States,tcpd-state-year-collision,eci-statreport-1993
+assembly,delhi,1998,1998,DBP,3,10139,Desh Bhakt Party,Local Party,1991,2009,All_States,tcpd-state-year-collision,eci-statreport-1998
+assembly,delhi,1998,1998,JSMP,1,4144,Jan Samanta Party,Local Party,1998,2014,All_States,tcpd-state-year-collision,eci-statreport-1998
+assembly,delhi,2003,2003,JSMP,1,4144,Jan Samanta Party,Local Party,1998,2014,All_States,tcpd-state-year-collision,eci-statreport-2003
+assembly,delhi,2004,2004,DBP,1,10139,Desh Bhakt Party,Local Party,1991,2009,All_States,tcpd-state-year-collision,eci-statreport-2004
+assembly,delhi,2008,2008,DBP,3,10139,Desh Bhakt Party,Local Party,1991,2009,All_States,tcpd-state-year-collision,eci-statreport-2008
+assembly,delhi,2013,2013,JSMP,1,4144,Jan Samanta Party,Local Party,1998,2014,All_States,tcpd-state-year-collision,eci-statreport-2013
+assembly,delhi,2015,2015,BVLP,1,18229,Bharat Vishal Party,,2015,2015,Delhi,tcpd-state-year-collision,eci-statreport-2015
+assembly,goa,2022,2022,GOENCHO SWABHIMAN PARTY,4,,,,,,,not-in-tcpd-catalogue,eci-statreport-2022
+assembly,gujarat,1996,1996,RJP(G),1,,,,,,,tcpd-placeholder-only,eci-statreport-1996
+assembly,gujarat,1997,1997,RJP(G),1,,,,,,,tcpd-placeholder-only,eci-statreport-1997
+assembly,gujarat,2020,2020,RASHTRAWADI JAN CHETNA PARTY,2,,,,,,,not-in-tcpd-catalogue,eci-statreport-2020
+assembly,gujarat,2022,2022,GANA SURAKSHA PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2022
+assembly,haryana,1972,1972,BAS,5,394,Akhil Bhartiya Arya Sabha,,1972,1972,Haryana,tcpd-state-disambig-contradiction,wikipedia-and-press
+assembly,haryana,1991,1991,DBP,1,10139,Desh Bhakt Party,Local Party,1991,2009,All_States,tcpd-state-year-collision,eci-statreport-1991
+assembly,haryana,1991,1991,SJJP,4,12651,Sarv Jati Janata Parishad,Local Party,1991,1991,All_States,tcpd-state-year-collision,eci-statreport-1991
+assembly,haryana,2011,2011,BSMP,1,,,,,,,tcpd-placeholder-only,eci-statreport-2011
+assembly,haryana,2019,2019,LSR,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2019
+assembly,haryana,2019,2019,PPI(D),1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2019
+assembly,jammu-and-kashmir,1962,1962,DNC,20,2920,DEMOCRATIC NATIONAL CONFERENCE,Local Party,1962,1967,All_States,tcpd-state-year-collision,wikipedia-and-press
+assembly,jammu-and-kashmir,1967,1967,DNC,20,2920,DEMOCRATIC NATIONAL CONFERENCE,Local Party,1962,1967,All_States,tcpd-state-year-collision,wikipedia-and-press
+assembly,jammu-and-kashmir,1972,1972,JMI,22,4059,JAMAIT-I-ISLAMI,,1972,1977,Jammu_&_Kashmir,tcpd-state-year-collision,wikipedia-and-press
+assembly,jammu-and-kashmir,1977,1977,JMI,19,4059,JAMAIT-I-ISLAMI,,1972,1977,Jammu_&_Kashmir,tcpd-state-year-collision,eci-statreport-1977
+assembly,jammu-and-kashmir,1983,1983,JMI,26,4059,JAMAIT-I-ISLAMI,,1972,1977,Jammu_&_Kashmir,tcpd-state-year-collision,eci-statreport-1983
+assembly,jharkhand,2018,2018,JAP (L),1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2018
+assembly,jharkhand,2018,2018,JMM(ULGULAN),1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2018
+assembly,karnataka,1992,1992,UNKNOWN PARTY,6,,,,,,,not-in-tcpd-catalogue,eci-statreport-1992
+assembly,karnataka,1993,1993,UNKNOWN PARTY,2,,,,,,,not-in-tcpd-catalogue,eci-statreport-1993
+assembly,karnataka,1994,1994,KCP,218,4833,KERALA CONGRESS (PILLAI GROUP),Local Party,1977,1980,Kerala,tcpd-state-year-collision,eci-statreport-1994
+assembly,karnataka,1995,1995,UNKNOWN PARTY,4,,,,,,,not-in-tcpd-catalogue,eci-statreport-1995
+assembly,karnataka,1996,1996,KCP,2,4833,KERALA CONGRESS (PILLAI GROUP),Local Party,1977,1980,Kerala,tcpd-state-year-collision,eci-statreport-1996
+assembly,karnataka,2004,2004,USP,2,8459,Uttarakhand Sanskriti Parishad,,2004,2007,Uttarakhand,tcpd-state-disambig-contradiction,eci-statreport-2004
+assembly,karnataka,2018,2018,JD(SECECULAR),1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2018
+assembly,karnataka,2018,2018,PRRJP,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2018
+assembly,karnataka,2018,2018,RPI(KARNATAKA),1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2018
+assembly,karnataka,2018,2018,RRI(A),1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2018
+assembly,karnataka,2018,2018,SJPL,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2018
+assembly,karnataka,2019,2019,BEROJGAR  AADMI  ADHIKAR PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2019
+assembly,karnataka,2019,2019,YUVA KARNATAKA PAKSHA,2,,,,,,,not-in-tcpd-catalogue,eci-statreport-2019
+assembly,kerala,1970,1970,KSP,1,4881,Kosal Party,,1995,2004,Odisha,,wikipedia-and-press
+assembly,kerala,1977,1977,KCP,15,4833,KERALA CONGRESS (PILLAI GROUP),Local Party,1977,1980,Kerala,tcpd-state-year-collision,eci-statreport-1977
+assembly,kerala,1979,1979,KCP,1,4833,KERALA CONGRESS (PILLAI GROUP),Local Party,1977,1980,Kerala,tcpd-state-year-collision,eci-statreport-1979
+assembly,kerala,1980,1980,KCP,2,4833,KERALA CONGRESS (PILLAI GROUP),Local Party,1977,1980,Kerala,tcpd-state-year-collision,eci-statreport-1980
+assembly,kerala,1992,1992,IC (S),1,,,,,,,not-in-tcpd-catalogue,eci-statreport-1992
+assembly,kerala,2006,2006,MLKSC,1,,,,,,,tcpd-placeholder-only,eci-statreport-2006
+assembly,kerala,2018,2018,SUCI (COMMUNIST ),1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2018
+assembly,kerala,2026,2026,DHRMP,6,,,,,,,not-in-tcpd-catalogue,eci-statreport-2026
+assembly,kerala,2026,2026,EPI,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2026
+assembly,kerala,2026,2026,ISJD,2,,,,,,,not-in-tcpd-catalogue,eci-statreport-2026
+assembly,kerala,2026,2026,JNMRP,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2026
+assembly,kerala,2026,2026,KRSPLM,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2026
+assembly,madhya-pradesh,2006,2006,S.P,1,,,,,,,tcpd-placeholder-only,eci-statreport-2006
+assembly,madhya-pradesh,2018,2018,JSMP,3,4144,Jan Samanta Party,Local Party,1998,2014,All_States,tcpd-state-year-collision,eci-statreport-2018
+assembly,manipur,2022,2022,KPA,2,,,,,,,not-in-tcpd-catalogue,eci-statreport-2022
+assembly,meghalaya,2023,2023,GANA SURAKSHA PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2023
+assembly,nagaland,2023,2023,RISING PEOPLE'S PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2023
+assembly,odisha,1971,1971,PHJ,1,2081,Bihar Prant Hul Jharkhand,Local Party,1969,1977,All_States,tcpd-state-year-collision,wikipedia-and-press
+assembly,odisha,2004,2004,KSP,4,4881,Kosal Party,,1995,2004,Odisha,,eci-statreport-2004
+assembly,puducherry,2001,2001,PMC,9,6266,Pudhucherry Makkal Congress,,2001,2001,Puducherry,tcpd-state-year-collision,eci-statreport-2001
+assembly,puducherry,2006,2006,PMC,9,6266,Pudhucherry Makkal Congress,,2001,2001,Puducherry,tcpd-state-year-collision,eci-statreport-2006
+assembly,puducherry,2019,2019,PEOPLE LIBERATION PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2019
+assembly,punjab,2022,2022,KRISHAK BHARTI PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2022
+assembly,rajasthan,2023,2023,JSR,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2023
+assembly,tamil-nadu,2007,2007,MMK,1,,,,,,,tcpd-placeholder-only,eci-statreport-2007
+assembly,tamil-nadu,2009,2009,AIAMK,1,,,,,,,tcpd-placeholder-only,eci-statreport-2009
+assembly,tamil-nadu,2012,2012,MMK,1,,,,,,,tcpd-placeholder-only,eci-statreport-2012
+assembly,tamil-nadu,2015,2015,AIAMK,1,,,,,,,tcpd-placeholder-only,eci-statreport-2015
+assembly,tamil-nadu,2015,2015,MMK,1,,,,,,,tcpd-placeholder-only,eci-statreport-2015
+assembly,tamil-nadu,2026,2026,IDMK,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2026
+assembly,tamil-nadu,2026,2026,PFTROOBC,2,,,,,,,not-in-tcpd-catalogue,eci-statreport-2026
+assembly,tamil-nadu,2026,2026,TDMK,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2026
+assembly,tamil-nadu,2026,2026,TPMK,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2026
+assembly,tamil-nadu,2026,2026,VSHWTMLK,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2026
+assembly,telangana,2019,2019,RYTHU BIDDA PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2019
+assembly,telangana,2019,2019,TELANGANA REPUBLICAN PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2019
+assembly,telangana,2021,2021,PRAJA EKTHA PARTY,2,,,,,,,not-in-tcpd-catalogue,eci-statreport-2021
+assembly,telangana,2021,2021,PRAJAVANI PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2021
+assembly,telangana,2021,2021,TELANGANA RASHTRA PUNAHNIRMANA SAMITHI,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2021
+assembly,telangana,2021,2021,YUVA TARAM PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2021
+assembly,tripura,2023,2023,NATIONALIST CITIZENS PARTY OF INDIA,2,,,,,,,not-in-tcpd-catalogue,eci-statreport-2023
+assembly,uttar-pradesh,1969,1969,BAS,1,394,Akhil Bhartiya Arya Sabha,,1972,1972,Haryana,tcpd-state-disambig-contradiction,wikipedia-and-press
+assembly,uttar-pradesh,1969,1969,USP,1,8459,Uttarakhand Sanskriti Parishad,,2004,2007,Uttarakhand,tcpd-state-disambig-contradiction,wikipedia-and-press
+assembly,uttar-pradesh,1989,1989,KSP,3,4881,Kosal Party,,1995,2004,Odisha,,eci-statreport-1989
+assembly,uttar-pradesh,1993,1993,DBP,1,10139,Desh Bhakt Party,Local Party,1991,2009,All_States,tcpd-state-year-collision,eci-statreport-1993
+assembly,uttar-pradesh,2003,2003,LJNP,2,,,,,,,tcpd-placeholder-only,eci-statreport-2003
+assembly,uttar-pradesh,2005,2005,S.P,1,,,,,,,tcpd-placeholder-only,eci-statreport-2005
+assembly,uttar-pradesh,2012,2012,JSMP,1,4144,Jan Samanta Party,Local Party,1998,2014,All_States,tcpd-state-year-collision,eci-statreport-2012
+assembly,uttar-pradesh,2014,2014,LOKDAL,2,,,,,,,tcpd-placeholder-only,eci-statreport-2014
+assembly,uttar-pradesh,2018,2018,RJSP,1,,,,,,,tcpd-placeholder-only,eci-statreport-2018
+assembly,uttar-pradesh,2019,2019,BHARTIYA SANGATHIT PARTY(S),1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2019
+assembly,uttar-pradesh,2020,2020,ARJAK ADHIKAR DAL,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2020
+assembly,uttar-pradesh,2022,2022,ACTION PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2022
+assembly,uttar-pradesh,2022,2022,ARJAK ADHIKAR DAL,2,,,,,,,not-in-tcpd-catalogue,eci-statreport-2022
+assembly,uttar-pradesh,2022,2022,BHARATIYA SARVJAN VIKAS PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2022
+assembly,uttar-pradesh,2022,2022,BHARTIYA GADAR PARTY (S),1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2022
+assembly,uttar-pradesh,2022,2022,SAMAGRA VIKAS PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2022
+assembly,uttar-pradesh,2022,2022,SWADESHI HIND PARTY,2,,,,,,,not-in-tcpd-catalogue,eci-statreport-2022
+assembly,uttarakhand,2007,2007,USP,1,8459,Uttarakhand Sanskriti Parishad,,2004,2007,Uttarakhand,tcpd-state-disambig-contradiction,eci-statreport-2007
+assembly,uttarakhand,2009,2009,MLKSC,1,,,,,,,tcpd-placeholder-only,eci-statreport-2009
+assembly,uttarakhand,2022,2022,BHARATIYA SAMAJWADI PARTY (LOKTANTRIK),1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2022
+assembly,uttarakhand,2022,2022,JAN EKTA PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2022
+assembly,uttarakhand,2022,2022,UTTARAKHAND JANATA PARTY,2,,,,,,,not-in-tcpd-catalogue,eci-statreport-2022
+assembly,uttarakhand,2022,2022,UTTARAKHAND JANEKTA PARTY,6,,,,,,,not-in-tcpd-catalogue,eci-statreport-2022
+assembly,west-bengal,1962,1962,GL,4,654,All India Gorkha League,Local Party,1962,1978,Assam,tcpd-state-year-collision,wikipedia-and-press
+assembly,west-bengal,1969,1969,MIL,2,5426,Minorities League,,1972,1972,Andhra_Pradesh,tcpd-state-disambig-contradiction,wikipedia-and-press
+assembly,west-bengal,2008,2008,MLKSC,1,,,,,,,tcpd-placeholder-only,eci-statreport-2008
+assembly,west-bengal,2012,2012,RJSP,1,,,,,,,tcpd-placeholder-only,eci-statreport-2012
+assembly,west-bengal,2014,2014,CPI(L),1,,,,,,,tcpd-placeholder-only,eci-statreport-2014
+assembly,west-bengal,2014,2014,RJSP,1,,,,,,,tcpd-placeholder-only,eci-statreport-2014
+assembly,west-bengal,2021,2021,JSTDVPMTP,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2021
+assembly,west-bengal,2026,2026,BGPM,3,,,,,,,not-in-tcpd-catalogue,eci-statreport-2026
+assembly,west-bengal,2026,2026,JLKM,2,,,,,,,not-in-tcpd-catalogue,eci-statreport-2026
+assembly,west-bengal,2026,2026,JUNP,5,,,,,,,not-in-tcpd-catalogue,eci-statreport-2026
+assembly,west-bengal,2026,2026,RASLJP,2,,,,,,,not-in-tcpd-catalogue,eci-statreport-2026
+parliament,andhra-pradesh,1996,1996,SMP,1,12700,Samdarshi Party,Local Party,1991,1991,All_States,tcpd-state-year-collision,eci-statreport-1996
+parliament,andhra-pradesh,2015,2015,DBP,1,10139,Desh Bhakt Party,Local Party,1991,2009,All_States,tcpd-state-year-collision,eci-statreport-2015
+parliament,assam,1991,1991,URC,9,13038,United Reservation Movement Council Assam,Local Party,1991,2006,Assam,tcpd-state-year-collision,eci-statreport-1991
+parliament,assam,1996,1996,UTNLF,1,13043,United Tribal Nationalists Liberation Front,Local Party,1996,1999,All_States,tcpd-state-year-collision,eci-statreport-1996
+parliament,assam,1998,1998,UTNLF,1,13043,United Tribal Nationalists Liberation Front,Local Party,1996,1999,All_States,tcpd-state-year-collision,eci-statreport-1998
+parliament,assam,1999,1999,UTNLF,1,13043,United Tribal Nationalists Liberation Front,Local Party,1996,1999,All_States,tcpd-state-year-collision,eci-statreport-1999
+parliament,bihar,1971,1971,PHJ,6,2081,Bihar Prant Hul Jharkhand,Local Party,1969,1977,All_States,tcpd-state-year-collision,wikipedia-and-press
+parliament,bihar,1977,1977,PHJ,3,2081,Bihar Prant Hul Jharkhand,Local Party,1969,1977,All_States,tcpd-state-year-collision,eci-statreport-1977
+parliament,bihar,1989,1989,PHJ,1,2081,Bihar Prant Hul Jharkhand,Local Party,1969,1977,All_States,tcpd-state-year-collision,eci-statreport-1989
+parliament,bihar,1998,1998,BJC,14,1411,Bharatiya Jan Congress,Local Party,1993,2000,Bihar,,eci-statreport-1998
+parliament,bihar,2018,2018,RJSP,1,,,,,,,tcpd-placeholder-only,eci-statreport-2018
+parliament,bihar,2019,2019,YUVA KRANTIKARI PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2019
+parliament,chandigarh,1996,1996,SMP,1,12700,Samdarshi Party,Local Party,1991,1991,All_States,tcpd-state-year-collision,eci-statreport-1996
+parliament,delhi,1991,1991,DBP,5,10139,Desh Bhakt Party,Local Party,1991,2009,All_States,tcpd-state-year-collision,eci-statreport-1991
+parliament,delhi,1991,1991,SMP,2,12700,Samdarshi Party,Local Party,1991,1991,All_States,tcpd-state-year-collision,eci-statreport-1991
+parliament,delhi,1996,1996,DBP,3,10139,Desh Bhakt Party,Local Party,1991,2009,All_States,tcpd-state-year-collision,eci-statreport-1996
+parliament,delhi,1996,1996,SMP,4,12700,Samdarshi Party,Local Party,1991,1991,All_States,tcpd-state-year-collision,eci-statreport-1996
+parliament,delhi,1998,1998,JSMP,1,4144,Jan Samanta Party,Local Party,1998,2014,All_States,tcpd-state-year-collision,eci-statreport-1998
+parliament,delhi,1999,1999,DBP,1,10139,Desh Bhakt Party,Local Party,1991,2009,All_States,tcpd-state-year-collision,eci-statreport-1999
+parliament,delhi,2004,2004,DBP,3,10139,Desh Bhakt Party,Local Party,1991,2009,All_States,tcpd-state-year-collision,eci-statreport-2004
+parliament,delhi,2009,2009,DBP,2,10139,Desh Bhakt Party,Local Party,1991,2009,All_States,tcpd-state-year-collision,eci-statreport-2009
+parliament,delhi,2014,2014,BVLP,1,18229,Bharat Vishal Party,,2015,2015,Delhi,tcpd-state-year-collision,eci-statreport-2014
+parliament,delhi,2014,2014,JSMP,1,4144,Jan Samanta Party,Local Party,1998,2014,All_States,tcpd-state-year-collision,eci-statreport-2014
+parliament,gujarat,1991,1991,SMP,1,12700,Samdarshi Party,Local Party,1991,1991,All_States,tcpd-state-year-collision,eci-statreport-1991
+parliament,gujarat,1996,1996,SMP,1,12700,Samdarshi Party,Local Party,1991,1991,All_States,tcpd-state-year-collision,eci-statreport-1996
+parliament,haryana,1991,1991,SJJP,1,12651,Sarv Jati Janata Parishad,Local Party,1991,1991,All_States,tcpd-state-year-collision,eci-statreport-1991
+parliament,haryana,2011,2011,BSMP,1,,,,,,,tcpd-placeholder-only,eci-statreport-2011
+parliament,jammu-and-kashmir,1967,1967,DNC,1,2920,DEMOCRATIC NATIONAL CONFERENCE,Local Party,1962,1967,All_States,tcpd-state-year-collision,wikipedia-and-press
+parliament,jharkhand,2007,2007,LJNP,1,,,,,,,tcpd-placeholder-only,eci-statreport-2007
+parliament,karnataka,1996,1996,KCP,11,4833,KERALA CONGRESS (PILLAI GROUP),Local Party,1977,1980,Kerala,tcpd-state-year-collision,eci-statreport-1996
+parliament,karnataka,2018,2018,HAND,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2018
+parliament,karnataka,2018,2018,LOTUS,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2018
+parliament,kerala,1977,1977,KCP,3,4833,KERALA CONGRESS (PILLAI GROUP),Local Party,1977,1980,Kerala,tcpd-state-year-collision,eci-statreport-1977
+parliament,maharashtra,1996,1996,SMP,12,12700,Samdarshi Party,Local Party,1991,1991,All_States,tcpd-state-year-collision,eci-statreport-1996
+parliament,maharashtra,2018,2018,MLPI(RED FLAG),1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2018
+parliament,tamil-nadu,1989,1989,DNC,1,2920,DEMOCRATIC NATIONAL CONFERENCE,Local Party,1962,1967,All_States,tcpd-state-year-collision,eci-statreport-1989
+parliament,uttar-pradesh,1989,1989,KSP,1,4881,Kosal Party,,1995,2004,Odisha,,eci-statreport-1989
+parliament,uttar-pradesh,1996,1996,SMP,10,12700,Samdarshi Party,Local Party,1991,1991,All_States,tcpd-state-year-collision,eci-statreport-1996
+parliament,uttar-pradesh,2018,2018,BAHUJAN MUKT PARTY,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2018
+parliament,uttar-pradesh,2018,2018,NDAPF,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2018
+parliament,uttar-pradesh,2018,2018,PSSP,1,,,,,,,not-in-tcpd-catalogue,eci-statreport-2018
+parliament,west-bengal,1962,1962,GL,1,654,All India Gorkha League,Local Party,1962,1978,Assam,tcpd-state-year-collision,wikipedia-and-press
+parliament,west-bengal,1996,1996,SMP,2,12700,Samdarshi Party,Local Party,1991,1991,All_States,tcpd-state-year-collision,eci-statreport-1996
+parliament,west-bengal,2013,2013,RJSP,1,,,,,,,tcpd-placeholder-only,eci-statreport-2013

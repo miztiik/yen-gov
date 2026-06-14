@@ -78,7 +78,7 @@ from yen_gov.canonical.boundary_layers_seed import (  # noqa: E402
     compile_to_csv,
 )
 
-from _paths import KIND_TO_LEVEL, _eci_to_slug, derive_hive  # noqa: E402
+from _paths import KIND_TO_LEVEL, _eci_to_slug, _resolve_raw_dir, derive_hive  # noqa: E402
 
 # -----------------------------------------------------------------------------
 # Constants
@@ -1231,6 +1231,19 @@ def main(argv: list[str] | None = None) -> int:
             "the right behaviour for a full rebuild only."
         ),
     )
+    parser.add_argument(
+        "--raw-dir",
+        default=None,
+        help=(
+            "Override the upstream-cache root (default: "
+            "<repo>/.runtime/raw/boundaries, or the value of the "
+            "YENGOV_BOUNDARIES_RAW_DIR env-var when set). Point every "
+            "worktree at one shared cache directory to avoid re-downloading "
+            "multi-GB LGD bundles per worktree. Composes orthogonally with "
+            "the URL-keyed dedup inside the cache dir; this flag only "
+            "moves WHERE the cache directory lives."
+        ),
+    )
     args = parser.parse_args(argv)
 
     root = Path(args.root).resolve()
@@ -1243,7 +1256,12 @@ def main(argv: list[str] | None = None) -> int:
         cfg = json.load(fh)
 
     datasets_root = root / "datasets"
-    raw_root = root / cfg.get("raw_dir", ".runtime/raw/boundaries")
+    raw_root = _resolve_raw_dir(
+        cli_arg=args.raw_dir,
+        env_var_name="YENGOV_BOUNDARIES_RAW_DIR",
+        config_default=cfg.get("raw_dir", ".runtime/raw/boundaries"),
+        repo_root=root,
+    )
 
     entries = cfg["inputs"]
     if args.kind:

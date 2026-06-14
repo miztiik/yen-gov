@@ -1,0 +1,7 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-PC-1976-andhra-pradesh-26,andhra-pradesh,1994,26,KURNOOL,K.J.S. Prakash Reddy,parties.IN.INC,INC,293922,51.73,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-26,andhra-pradesh,1994,26,KURNOOL,S.V.S. Reddy,parties.IN.TDP,TD,274276,48.27,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-32,madhya-pradesh,1994,32,RAJGARH,Laxman Singh,parties.IN.INC,INC,332967,66.04,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-32,madhya-pradesh,1994,32,RAJGARH,Duttaraya Rao,parties.IN.BJP,BJP,171205,33.96,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-odisha-1,odisha,1994,1,MAYURBHANJ,Sushila Tiriya,parties.IN.INC,INC,157714,54.02,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-odisha-1,odisha,1994,1,MAYURBHANJ,Laxman Tudu,parties.IN.JD,JD,134243,45.98,2,lost,U,,,,challenger,src-31c65dbec869

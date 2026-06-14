@@ -36,10 +36,31 @@ from yen_gov.sources.eci.ls_constituencywise import _norm, load_state_code_looku
 
 CROSSWALK_RELPATH = "data/entities/pc_historical_crosswalk.csv"
 
-# Delimitation cycle in force for each Parliament general election. The
-# 1976 delimitation governed 1999 + 2004; the 2008 delimitation governs
-# every election from 2009. Never overridden by the crosswalk.
+# Delimitation cycle in force for each Parliament general election.
+#
+# Four delimitation cohorts cover every LS GE from 1962 onward (load-bearing
+# evidence per the TCPD ``DelimID`` column in
+# ``datasets/ephemeral/All_States_GE.csv``):
+#
+#   - 1962 is its own cohort (DelimID 1, pre-1967 reorganisation).
+#   - 1967 + 1971 share the 1967 delimitation (DelimID 2).
+#   - 1977-2004 share the 1976 delimitation (DelimID 3); the 1976 boundaries
+#     governed nine consecutive general elections.
+#   - 2009-2024 share the 2008 delimitation.
+#
+# Never overridden by the crosswalk; ``delim_year`` is a pure function of
+# ``ge_year`` (Fowler verdict, CLAUDE.md section 0a).
 DELIM_BY_GE_YEAR: dict[int, int] = {
+    1962: 1962,
+    1967: 1967,
+    1971: 1967,
+    1977: 1976,
+    1980: 1976,
+    1984: 1976,
+    1989: 1976,
+    1991: 1976,
+    1996: 1976,
+    1998: 1976,
     1999: 1976,
     2004: 1976,
     2009: 2008,

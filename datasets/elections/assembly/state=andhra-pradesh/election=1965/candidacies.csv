@@ -1,0 +1,13 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1962-andhra-pradesh-58,andhra-pradesh,1965,58,AMALAPURAM,N.R.RAJU,parties.IN.INC,INC,25166,55.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-58,andhra-pradesh,1965,58,AMALAPURAM,K.VENKATARATNAM,parties.IN.IND,IND,20235,44.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-98,andhra-pradesh,1965,98,VEMUR,S.R.CHOUDARY,parties.IN.INC,INC,21866,43.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-98,andhra-pradesh,1965,98,VEMUR,Y.VENKATARAO,parties.IN.SWA,SWA,21378,42.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-98,andhra-pradesh,1965,98,VEMUR,G.JOSEPH,parties.IN.CPI,CPI,6607,13.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-168,andhra-pradesh,1965,168,HINDUPUR,K.S.RAO,parties.IN.INC,INC,17881,56.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-168,andhra-pradesh,1965,168,HINDUPUR,R.DASA,parties.IN.IND,IND,13267,41.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-168,andhra-pradesh,1965,168,HINDUPUR,THIPPANNA,parties.IN.IND,IND,724,2.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-185,andhra-pradesh,1965,185,DHONE,C.R.REDDY,parties.IN.INC,INC,25834,70.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-185,andhra-pradesh,1965,185,DHONE,CHINNA VENKATAPPA,parties.IN.IND,IND,10906,29.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-294,andhra-pradesh,1965,294,CHINNAKONDUR,L.B.KONDA,parties.IN.INC,INC,34970,81.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-294,andhra-pradesh,1965,294,CHINNAKONDUR,J.M.R.KONDAVETI,parties.IN.CPIM,CPM,7948,18.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a

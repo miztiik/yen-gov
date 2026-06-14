@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-PC-1962-madhya-pradesh-13,madhya-pradesh,1963,BILASPUR,439048,140385,31.97,C.SINGH,parties.IN.INC,INC,86229,61.42,M.L.SHUKLA,parties.IN.JS,JS,54156,32073,22.84,src-31c65dbec869
+IN-PC-1962-maharashtra-22,maharashtra,1963,NASIK,373284,0,0,Y.B.R.CHAVAN,parties.IN.INC,INC,0,,,,,,,,src-31c65dbec869
+IN-PC-1962-west-bengal-1,west-bengal,1963,COOCH,533835,226692,42.46,P.C.BARMAN,parties.IN.INC,INC,122205,53.91,B.K.DASCHOUDHURY,parties.IN.AIFB,FB,62611,59594,26.29,src-31c65dbec869
+IN-PC-1962-west-bengal-34,west-bengal,1963,BURDWAN,534273,208611,39.05,N.C.CHATTERJEE,parties.IN.IND,IND,109877,52.67,N.C.CHOUDHRY,parties.IN.INC,INC,98734,11143,5.34,src-31c65dbec869

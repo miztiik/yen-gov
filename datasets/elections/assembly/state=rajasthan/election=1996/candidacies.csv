@@ -1,0 +1,15 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-rajasthan-19,rajasthan,1996,19,SARDARSHAHAR,Bhanwar Lal Sharma,parties.IN.JD,JD,59049,51.76,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-19,rajasthan,1996,19,SARDARSHAHAR,Ram Singh,parties.IN.BJP,BJP,37081,32.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-19,rajasthan,1996,19,SARDARSHAHAR,Patram Jakhar,parties.IN.INC,INC,14884,13.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-19,rajasthan,1996,19,SARDARSHAHAR,Ramesh Potalia,parties.IN.CPIM,CPM,2039,1.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-19,rajasthan,1996,19,SARDARSHAHAR,Hetram,parties.IN.BSP,BSP,711,0.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-19,rajasthan,1996,19,SARDARSHAHAR,Abdul Razak,parties.IN.IND,IND,232,0.2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-19,rajasthan,1996,19,SARDARSHAHAR,Ram Kumar Beniwal,parties.IN.IND,IND,94,0.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-28,rajasthan,1996,28,JHUNJHUNU,Dr. Mool Singh,parties.IN.BJP,BJP,43052,39.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-28,rajasthan,1996,28,JHUNJHUNU,Brijendra Singh Ola,parties.IN.AIIC_T,AIIC(T),30645,28.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-28,rajasthan,1996,28,JHUNJHUNU,Sumitra Singh,parties.IN.INC,INC,20434,18.71,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-28,rajasthan,1996,28,JHUNJHUNU,Mohammed Mahir Azad,parties.IN.BSP,BSP,14128,12.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-28,rajasthan,1996,28,JHUNJHUNU,Biharilal Bhartiya,parties.IN.ABHM,ABHM,554,0.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-28,rajasthan,1996,28,JHUNJHUNU,Akraj Navi,parties.IN.SAP,SAP,239,0.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-28,rajasthan,1996,28,JHUNJHUNU,Krishna Kanwar,parties.IN.IND,IND,145,0.13,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

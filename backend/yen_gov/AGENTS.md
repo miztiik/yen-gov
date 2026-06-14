@@ -1,6 +1,6 @@
 # AGENTS.md - backend/yen_gov
 
-**Last Updated**: 2026-06-10
+**Last Updated**: 2026-06-13
 
 Canonical backend rationale lives in `docs/architecture/backend/`. This file is only a fast module map for agents.
 
@@ -31,6 +31,7 @@ ASCII only: use plain keyboard characters; write "-", "->", ">=", "section", and
 - Core/domain code must not import adapters or infrastructure.
 - Persisted paths are POSIX-relative, never absolute or Windows-style.
 - Canonical CSV writes go through `backend/yen_gov/canonical/csv_writer.py` and the column contract in `datasets/data/_schema/columns.json`.
+- Route-shaped derived read models live under `backend/yen_gov/canonical/derived/` and emit small CSV marts under `datasets/data/marts/`. They are reproducible from canonical CSV inputs and must carry a freshness receipt validated by Tier-B.
 - Cross-file CSV integrity lives in `backend/yen_gov/canonical/csv_validator.py` and Tier-B validator checks.
 - Every emitted observation carries `source_id` FK to `datasets/data/entities/source.csv`.
 - Retired surfaces are enforced by code, not by archived ledgers: new folded indicator shards, legacy boundary sidecars, legacy election JSON/sqlite readers, and retired canonical Parquets are blocked by `backend/yen_gov/validate.py`, `datasets/_ops/*.txt` allowlists, and the owning subsystem docs.

@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
 IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Shahnawaz -E,parties.IN.RJD,RJD,81240,55.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,MD. Murhid Alam,parties.IN.UNK,JD(United),40016,27.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,MD. Murhid Alam,parties.IN.JDU,JD(United),40016,27.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,MD.Shabbir Ahmad,parties.IN.IND,IND,11176,7.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Ghousul Alam,parties.IN.JAP_LOKTANTRIK,JAP(Loktantrik),5314,3.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1109,bihar,2018,50,JOKIHAT,Mohammad Irfan,parties.IN.IND,IND,2229,1.53,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -26,9 +26,9 @@ IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Ram Dular Choudhary,parties.IN.IND,I
 IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Omprakash Singh,parties.IN.IND,IND,313,0.23,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1302,bihar,2018,205,BHABUA,Akshaywar Singh,parties.IN.IND,IND,286,0.21,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Kumar Krishna Mohan Alis Sudyk Yadav,parties.IN.RJD,RJD,76598,54.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Abhi Ram Sharma,parties.IN.UNK,JD(United),41255,29.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Abhi Ram Sharma,parties.IN.JDU,JD(United),41255,29.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Kunti Devi,parties.IN.UNK,CPI(Marxist Leninist)Liberation,8498,6.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Archana Mishra,parties.IN.UNK,SS,2012,1.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Archana Mishra,parties.IN.SHS,SS,2012,1.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Kumari Kusum,parties.IN.IND,IND,1990,1.41,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,MD.Sultan Ahmad,parties.IN.IND,IND,1898,1.34,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1178,bihar,2018,216,JAHANABAD,Prakash Kumar,parties.IN.IND,IND,1099,0.78,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a

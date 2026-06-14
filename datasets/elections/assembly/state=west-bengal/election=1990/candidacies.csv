@@ -1,0 +1,15 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-west-bengal-12,west-bengal,1990,12,ALIPPURDUARS,N.G.MAJUMDAR,parties.IN.RSP,RSP,65774,64.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-12,west-bengal,1990,12,ALIPPURDUARS,N.G.MAJUMDAR,parties.IN.INC,INC,32281,31.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-12,west-bengal,1990,12,ALIPPURDUARS,P.DAS,parties.IN.CPI_ML,CPI (ML),1535,1.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-12,west-bengal,1990,12,ALIPPURDUARS,R.SARKAR,parties.IN.IPF,IPF,1241,1.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-12,west-bengal,1990,12,ALIPPURDUARS,P.ADHIKARY,parties.IN.AMB,AMB,383,0.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-121,west-bengal,1990,121,MAGNAHAT EAST(SC),N.SINHA,parties.IN.CPIM,CPM,59888,58.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-121,west-bengal,1990,121,MAGNAHAT EAST(SC),N.SAHA(W),parties.IN.INC,INC,40809,40.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-121,west-bengal,1990,121,MAGNAHAT EAST(SC),G.MISTRY,parties.IN.IND,IND,894,0.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-121,west-bengal,1990,121,MAGNAHAT EAST(SC),S.N.MONDAL,parties.IN.IND,IND,270,0.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-212,west-bengal,1990,212,RAMNAGAR,M.ROY,parties.IN.CPIM,CPM,63420,60.23,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-212,west-bengal,1990,212,RAMNAGAR,G.PANI,parties.IN.INC,INC,41367,39.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-212,west-bengal,1990,212,RAMNAGAR,R.K.DAS,parties.IN.AMB,AMB,513,0.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-256,west-bengal,1990,256,SONAMUKHI(SC),H.BAURI,parties.IN.CPIM,CPM,60297,69.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-256,west-bengal,1990,256,SONAMUKHI(SC),J.SAHA,parties.IN.INC,INC,25882,30.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a

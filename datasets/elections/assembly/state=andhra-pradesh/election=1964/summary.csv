@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1962-andhra-pradesh-151,andhra-pradesh,1964,VAYALPAD,53363,37538,70.34,P.R.T.REDDI,parties.IN.INC,INC,29612,78.89,C.REDDEPPA,parties.IN.IND,IND,7926,21686,57.78,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-19,andhra-pradesh,1964,PONDURU,53070,18665,35.17,K.NARASAYYA,parties.IN.INC,INC,12039,64.5,K.NARAYANA,parties.IN.SWA,SWA,4799,7240,38.79,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-195,andhra-pradesh,1964,KALWAKURTHY,55434,27047,48.79,T.SHANTABAI,parties.IN.INC,INC,19704,72.85,G.M.REDDY,parties.IN.CPI,CPI,7343,12361,45.7,src-1b7bc1c9d39a
+IN-AC-1962-andhra-pradesh-83,andhra-pradesh,1964,KANKIPADU,55345,44135,79.75,M.L.SWAMY,parties.IN.CPI,CPI,22775,51.6,C.S.RAO,parties.IN.INC,INC,20906,1869,4.23,src-1b7bc1c9d39a

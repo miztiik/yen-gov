@@ -1,0 +1,253 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-goa-1,goa,1989,1,MANDREM,KHALAP RAMAKANT DATTARAM,parties.IN.MAG,MAG,6900,52.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-1,goa,1989,1,MANDREM,POROBO SANGITA GOPAL,parties.IN.INC,INC,5619,42.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-1,goa,1989,1,MANDREM,PARSHEKAR LAXMIKANT YESHWANT,parties.IN.IND,IND,360,2.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-1,goa,1989,1,MANDREM,PARSHEKAR RUDRAJI SHIVRAM,parties.IN.IND,IND,113,0.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-1,goa,1989,1,MANDREM,GAONKAR BABUSO SAVLO,parties.IN.IND,IND,99,0.75,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-1,goa,1989,1,MANDREM,GANTWAL GURUNATH SHANKAR,parties.IN.IND,IND,16,0.12,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-1,goa,1989,1,MANDREM,BARDE ANIL DHYANESHWAR,parties.IN.IND,IND,8,0.06,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-2,goa,1989,2,PERNEM,SALGOANKAR SHANKAR KASHINATH,parties.IN.MAG,MAG,7074,62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-2,goa,1989,2,PERNEM,TALEVNEKAR RAJU BAPU,parties.IN.INC,INC,3545,31.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-2,goa,1989,2,PERNEM,RAUL VASSUDEV SAKHARAM,parties.IN.IND,IND,255,2.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-2,goa,1989,2,PERNEM,ASSOLKAR ARJUN ATMARAM,parties.IN.GBS,GBS,181,1.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-2,goa,1989,2,PERNEM,DESHPARBHU ANANTRAO,parties.IN.IND,IND,168,1.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-2,goa,1989,2,PERNEM,KAMULKAR VIJAY MARUTI,parties.IN.SHS,SHS,142,1.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-2,goa,1989,2,PERNEM,RAO GOPINATH WAMAN,parties.IN.CPI,CPI,45,0.39,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-3,goa,1989,3,DARGALIM,MANDREKAR DEU GUNAJI,parties.IN.MAG,MAG,6544,74.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-3,goa,1989,3,DARGALIM,BANDEKAR SHAMBHU BHAU,parties.IN.INC,INC,1119,12.74,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-3,goa,1989,3,DARGALIM,ARLEKAR ANIL RAMCHANDRA,parties.IN.IND,IND,808,9.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-3,goa,1989,3,DARGALIM,NIPANIKAR BALRAM VISHNU,parties.IN.IND,IND,156,1.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-3,goa,1989,3,DARGALIM,ARLEKAR VISHWANATH NARASOBHA,parties.IN.BJP,BJP,84,0.96,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-3,goa,1989,3,DARGALIM,HALARNAKAR SUBHASH RAMNATH,parties.IN.IND,IND,59,0.67,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-3,goa,1989,3,DARGALIM,MIRAJKAR NARESH MIRAJI,parties.IN.IND,IND,11,0.13,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-4,goa,1989,4,TIVIM,NAIK VINAYAK VITTHAL,parties.IN.MAG,MAG,6797,48.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-4,goa,1989,4,TIVIM,MAULINGKAR PREMNATH ARJUN,parties.IN.INC,INC,4764,33.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-4,goa,1989,4,TIVIM,HALARNAKAR NIKANT PUNDALIK,parties.IN.IND,IND,1877,13.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-4,goa,1989,4,TIVIM,HARMALKAR SANJAY PUNDALIK,parties.IN.IND,IND,284,2.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-4,goa,1989,4,TIVIM,NAIK SUHAS BABURAO,parties.IN.SHS,SHS,116,0.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-4,goa,1989,4,TIVIM,PHADTE ARJUN KRISHNA,parties.IN.GLP,GLP,83,0.59,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-4,goa,1989,4,TIVIM,BEPARI LALA ISMAIL,parties.IN.IND,IND,80,0.57,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-4,goa,1989,4,TIVIM,PRABHU WAMAN SUBHA,parties.IN.IND,IND,51,0.36,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-4,goa,1989,4,TIVIM,DUBHATKAR RAMA VITTHAL,parties.IN.IND,IND,30,0.21,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-4,goa,1989,4,TIVIM,RAUT WAMAN GOPAL,parties.IN.IND,IND,14,0.1,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-4,goa,1989,4,TIVIM,AMBEDKAR RAMNATH,parties.IN.IND,IND,12,0.09,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-5,goa,1989,5,MAPUSA,SIRSAT SURENDRA V.,parties.IN.MAG,MAG,5769,43.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-5,goa,1989,5,MAPUSA,D SOUZA FRANCIES C.J.A.,parties.IN.IND,IND,3612,27.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-5,goa,1989,5,MAPUSA,NEVGI SHAMSUNDER JAIRAM,parties.IN.INC,INC,3421,26.05,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-5,goa,1989,5,MAPUSA,JOSHI RAMPRASAD RAGHUNATH,parties.IN.SHS,SHS,145,1.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-5,goa,1989,5,MAPUSA,KENAUDEKAR DRONACHARYA DATTARAM,parties.IN.IND,IND,110,0.84,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-5,goa,1989,5,MAPUSA,NAIK SHAMSUNDAR RAMAKANT,parties.IN.IND,IND,60,0.46,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-5,goa,1989,5,MAPUSA,DIAS ANTHONY LEAO,parties.IN.IND,IND,17,0.13,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-6,goa,1989,6,SIOLIM,NAIK SALAGONKAR ASHOK TUKARAM,parties.IN.MAG,MAG,6438,45.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-6,goa,1989,6,SIOLIM,CHODANKAR CHANDRAKANT URRAM,parties.IN.INC,INC,6425,45.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-6,goa,1989,6,SIOLIM,NARQUIS MILTEN OLOMPIA,parties.IN.IND,IND,1173,8.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-6,goa,1989,6,SIOLIM,SHIRODKAR MADHUKAR RAOJI,parties.IN.IND,IND,107,0.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-6,goa,1989,6,SIOLIM,CHODANKAR KALIDAS MAHADEV,parties.IN.IND,IND,87,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-6,goa,1989,6,SIOLIM,DIAS ANTHONY LEAO,parties.IN.IND,IND,23,0.16,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-7,goa,1989,7,CALANGUTE,PARULEKAR SURESH VISHWANATH,parties.IN.INC,INC,7182,50.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-7,goa,1989,7,CALANGUTE,MALIK SURIKANT KESHAV,parties.IN.MAG,MAG,6946,48.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-7,goa,1989,7,CALANGUTE,D. RICARDO MINGUEL MASCARENHAS,parties.IN.GLP,GLP,117,0.82,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-8,goa,1989,8,SALIGAO,DE SOUZA WILFRED TITO FERMINO,parties.IN.INC,INC,6229,50.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-8,goa,1989,8,SALIGAO,AHRENKAR PUNAJI PANDURANG,parties.IN.MAG,MAG,5802,47.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-8,goa,1989,8,SALIGAO,YVES ZUZARTE,parties.IN.GLP,GLP,169,1.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-8,goa,1989,8,SALIGAO,NAIK NAGUESH RAGHUVIR,parties.IN.IND,IND,18,0.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-9,goa,1989,9,ALDONA,CHOPDEKAR RATNAKAR MADDU,parties.IN.MAG,MAG,8208,50.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-9,goa,1989,9,ALDONA,NARVEKAR DAYANAND GANESH,parties.IN.INC,INC,7875,48.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-9,goa,1989,9,ALDONA,MIRAJKAR NARESH MIRAJI,parties.IN.IND,IND,68,0.42,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1989,10,PANAJI,JOAN BAPITSTA FLORINI GONSALVES,parties.IN.INC,INC,3983,39.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1989,10,PANAJI,PUSHPASHIL KRISHNA KERKAR,parties.IN.MAG,MAG,2915,29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1989,10,PANAJI,ERASMO DE SEQUEIRA,parties.IN.GLP,GLP,2672,26.58,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1989,10,PANAJI,MADHAV MANOHAT DHOND,parties.IN.BJP,BJP,269,2.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1989,10,PANAJI,MADHAV RAMKRISHNA BIR,parties.IN.JD,JD,143,1.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1989,10,PANAJI,XAVIER CHRISHTANOU FURTADE,parties.IN.IND,IND,61,0.61,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1989,10,PANAJI,ARVIND Y. KARAPUKAR,parties.IN.IND,IND,8,0.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-11,goa,1989,11,TALEIGAO,SOMNATH DATTTA ZUWARKAR,parties.IN.INC,INC,5034,44.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-11,goa,1989,11,TALEIGAO,RAMESH RAGHUVIR SILIMKHAN,parties.IN.MAG,MAG,3655,32.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-11,goa,1989,11,TALEIGAO,MATANHY JOSE SALDANHA,parties.IN.GLP,GLP,1595,14.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-11,goa,1989,11,TALEIGAO,GURU INACIO SHIRODKAR,parties.IN.JD,JD,577,5.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-11,goa,1989,11,TALEIGAO,DIONISIO AUGUTINHO TRINDADE,parties.IN.IND,IND,169,1.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-11,goa,1989,11,TALEIGAO,MINGUEL JOSE MARTINS,parties.IN.IND,IND,93,0.82,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-11,goa,1989,11,TALEIGAO,SAYED DAWOOD YACUB,parties.IN.IND,IND,75,0.66,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-11,goa,1989,11,TALEIGAO,MANOHAR VASANT POI,parties.IN.IND,IND,65,0.57,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-11,goa,1989,11,TALEIGAO,KANNU GOPALAN VAZHAIL,parties.IN.IND,IND,46,0.41,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-12,goa,1989,12,SANTA CRUZ,VICTOR BENAMIN GONSALVES,parties.IN.INC,INC,5729,41.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-12,goa,1989,12,SANTA CRUZ,VICTORIA ROMEO FERNANDES,parties.IN.GLP,GLP,4432,31.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-12,goa,1989,12,SANTA CRUZ,MAHENDRA NARAYAN RAIKAR,parties.IN.MAG,MAG,3674,26.31,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-12,goa,1989,12,SANTA CRUZ,AUDIT RAMCHANDRA SHIRODKAR,parties.IN.GBS,GBS,103,0.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-12,goa,1989,12,SANTA CRUZ,JAIRAM YESHWNAT SAWANT,parties.IN.IND,IND,24,0.17,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1989,13,SANTO. ANDRE,CARMO RAFAEL ANDRE JOSE PEGADO,parties.IN.IND,IND,5097,40.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1989,13,SANTO. ANDRE,AMILKAR ADELINO ALVARES,parties.IN.INC,INC,3727,29.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1989,13,SANTO. ANDRE,KASHINATH MAHADEV GOVENKAR,parties.IN.MAG,MAG,3282,25.94,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1989,13,SANTO. ANDRE,DASHARATH YESHWANT SAWANT,parties.IN.IND,IND,282,2.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1989,13,SANTO. ANDRE,DILIP DHARMA BORKAR,parties.IN.GLP,GLP,183,1.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1989,13,SANTO. ANDRE,JOSE SEBASTIAO FERNANDES,parties.IN.IND,IND,31,0.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1989,13,SANTO. ANDRE,FRANCISCO DO REGO,parties.IN.IND,IND,26,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1989,13,SANTO. ANDRE,CUSTODIO ABREU LUIS,parties.IN.IND,IND,24,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1989,14,CUMBARJUA,DHARMA VASSUDEO CHODANKAR,parties.IN.MAG,MAG,5645,38.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1989,14,CUMBARJUA,NIRMALA PRABHAKAR SAWANT,parties.IN.INC,INC,5189,35.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1989,14,CUMBARJUA,EMIDIO FENELON MONTEIRO,parties.IN.IND,IND,2466,16.82,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1989,14,CUMBARJUA,CRISTOPHER LOURENCE FONSECA,parties.IN.CPI,CPI,697,4.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1989,14,CUMBARJUA,SHRIPAD YESSO NAIK,parties.IN.BJP,BJP,451,3.08,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1989,14,CUMBARJUA,ANAND NARAYAN CHONDANKAR,parties.IN.IND,IND,125,0.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1989,14,CUMBARJUA,GHANSHAM SADASHIV SATOSKAR,parties.IN.IND,IND,38,0.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1989,14,CUMBARJUA,PRAKASH JAGANNATH PHADTE,parties.IN.IND,IND,23,0.16,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1989,14,CUMBARJUA,KUSTA OMNO SALELKAR,parties.IN.IND,IND,14,0.1,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1989,14,CUMBARJUA,MUKUND MORTU SHET,parties.IN.IND,IND,11,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-15,goa,1989,15,BICHOLIM,RAUT PANDURANG DATTARAM,parties.IN.MAG,MAG,6465,50.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-15,goa,1989,15,BICHOLIM,PRABHU ZANTYE HARISH NARAYAN,parties.IN.INC,INC,4897,38.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-15,goa,1989,15,BICHOLIM,LAWANIS RAJANIKANT GAJANAN,parties.IN.IND,IND,879,6.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-15,goa,1989,15,BICHOLIM,PHADTYE ANIRUDHA,parties.IN.GBS,GBS,279,2.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-15,goa,1989,15,BICHOLIM,DESAI RAMNATH PURUSHOTTAM,parties.IN.BJP,BJP,221,1.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-16,goa,1989,16,MAEM,KAKODKAR SHASHIKALAL GURUDUTT,parties.IN.MAG,MAG,7218,64.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-16,goa,1989,16,MAEM,PARAB GAONKAR MANOHAR GANGARAM,parties.IN.INC,INC,2606,23.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-16,goa,1989,16,MAEM,RANE SARDESSAI JEETENDRARAO JAIBA,parties.IN.IND,IND,719,6.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-16,goa,1989,16,MAEM,GADEKAR KAMALKANT KRISHNA,parties.IN.CPI,CPI,378,3.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-16,goa,1989,16,MAEM,MORASKAR PUTTU JAIDEV,parties.IN.IND,IND,175,1.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-16,goa,1989,16,MAEM,PILGAONKAR AJIT BHASKAR,parties.IN.IND,IND,108,0.96,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-16,goa,1989,16,MAEM,SAWANT MAHESH ANANT,parties.IN.IND,IND,17,0.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1989,17,PALE,USGONKAR VINAY KUMAR PUNDLIK,parties.IN.MAG,MAG,8009,62.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1989,17,PALE,VERENKAR CHANDRAKANT VISHWANATH,parties.IN.INC,INC,2821,21.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1989,17,PALE,VAZ GEORGE SABASTIAO,parties.IN.CPI,CPI,816,6.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1989,17,PALE,MANDREKAR UMESH JAGANNATH,parties.IN.SHS,SHS,387,3.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1989,17,PALE,KENEKAR LAVU JAIDAV,parties.IN.IND,IND,281,2.19,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1989,17,PALE,BANDODKAR SITARAM R.,parties.IN.IND,IND,110,0.86,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1989,17,PALE,NAIK RAMCHANDRA WAMAN,parties.IN.IND,IND,101,0.79,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1989,17,PALE,MALIK DIGAMBAR GUNAJI,parties.IN.IND,IND,83,0.65,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1989,17,PALE,NAIK SAHMSUNDAR ANANT,parties.IN.IND,IND,71,0.55,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1989,17,PALE,DAVASKAR NAVNATH PANDURANG,parties.IN.IND,IND,58,0.45,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1989,17,PALE,MALIK NAGESH GOPI,parties.IN.IND,IND,51,0.4,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1989,17,PALE,NAIK SHIRODKAR DAMODAR HARISHCHANDRA,parties.IN.GBS,GBS,26,0.2,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1989,17,PALE,GAONKAR BABUSO SALVO,parties.IN.IND,IND,24,0.19,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1989,17,PALE,GAWAS NILKANT JAIRAM,parties.IN.IND,IND,12,0.09,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-18,goa,1989,18,PORIEM,RANE PRATAPSING RAOJI,parties.IN.INC,INC,7231,57.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-18,goa,1989,18,PORIEM,RANE KRISHNARAO APPASAHEB,parties.IN.MAG,MAG,5126,41.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-18,goa,1989,18,PORIEM,GAWAS SUNDARE RAMCHANDRA,parties.IN.GBS,GBS,113,0.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-19,goa,1989,19,VALPOI,PRABHU BALKRISHNA (ASHOK JAIRAM),parties.IN.INC,INC,5436,54.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-19,goa,1989,19,VALPOI,DESAI BABURAO HARIJIRAO,parties.IN.MAG,MAG,4306,43.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-19,goa,1989,19,VALPOI,KHAN ABDUL RAZAK MIRAMKHAN,parties.IN.GBS,GBS,118,1.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-19,goa,1989,19,VALPOI,AGA RAZAK MAHAMAD,parties.IN.IND,IND,21,0.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-19,goa,1989,19,VALPOI,POKLE SHRIKANT RAMNATH,parties.IN.IND,IND,19,0.19,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-20,goa,1989,20,PONDA,SHIVDAS ATAMARAM SHET VEREKAR,parties.IN.MAG,MAG,6212,43.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-20,goa,1989,20,PONDA,NAIK MOHAN GOVIND,parties.IN.INC,INC,4267,29.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-20,goa,1989,20,PONDA,SAHAKARI MADHAV ATMARAM,parties.IN.IND,IND,2022,14.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-20,goa,1989,20,PONDA,SUNAL NARAYAN DESAI,parties.IN.BJP,BJP,573,4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-20,goa,1989,20,PONDA,KHANOLKAR MAHADEV SATCHIT,parties.IN.IND,IND,484,3.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-20,goa,1989,20,PONDA,MULLA ZAHIRLUDDIN MIRZA,parties.IN.IND,IND,282,1.97,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-20,goa,1989,20,PONDA,PARKAR PRAKASH SHANU,parties.IN.IND,IND,239,1.67,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-20,goa,1989,20,PONDA,SIGAUNKAR PRADEEP KASHI,parties.IN.CPI,CPI,212,1.48,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-20,goa,1989,20,PONDA,USMAN SHAIKH MUSSA,parties.IN.IND,IND,45,0.31,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-21,goa,1989,21,PRIOL,JALMI KASHINATH GOVIND,parties.IN.MAG,MAG,11766,72.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-21,goa,1989,21,PRIOL,SATKAR BABAL BABUSO,parties.IN.INC,INC,4013,24.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-21,goa,1989,21,PRIOL,CHARI RAMESH GOVIND,parties.IN.IND,IND,171,1.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-21,goa,1989,21,PRIOL,NAIK GAONKAR PRABHAKAR PANDURANG,parties.IN.IND,IND,134,0.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-21,goa,1989,21,PRIOL,ASHOK PUTU NAIK,parties.IN.IND,IND,112,0.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-21,goa,1989,21,PRIOL,VILINGKAR SANTOSH VASANTRAO,parties.IN.IND,IND,21,0.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-22,goa,1989,22,MARCAIM,NAIK RAVI SITARAM,parties.IN.MAG,MAG,6561,43.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-22,goa,1989,22,MARCAIM,SHAM MAHANANDU NAIK,parties.IN.INC,INC,4910,32.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-22,goa,1989,22,MARCAIM,GAUNKAR BABUSO SALVO,parties.IN.IND,IND,2939,19.39,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-22,goa,1989,22,MARCAIM,KAPILEHSARKAR DHIRENDRA,parties.IN.IND,IND,267,1.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-22,goa,1989,22,MARCAIM,MULLA ZAHIRUDDIN MIRZA,parties.IN.IND,IND,158,1.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-22,goa,1989,22,MARCAIM,NAIK RAJARAM BHAGWANT,parties.IN.GBS,GBS,76,0.5,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-22,goa,1989,22,MARCAIM,BADKO HIRU NAIK,parties.IN.IND,IND,65,0.43,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-22,goa,1989,22,MARCAIM,SHIVRAM K.POKLE AIAS VINOK K. POKLE,parties.IN.IND,IND,53,0.35,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-22,goa,1989,22,MARCAIM,ATMARAM NAIK PRATAPRAO SADESSAI,parties.IN.IND,IND,52,0.34,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-22,goa,1989,22,MARCAIM,NAIK DATTARAM DATTA,parties.IN.IND,IND,45,0.3,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-22,goa,1989,22,MARCAIM,DAMU MADDU NAIK,parties.IN.IND,IND,26,0.17,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-22,goa,1989,22,MARCAIM,VAMAN PUNDALIK KAMAT,parties.IN.IND,IND,2,0.01,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1989,23,SIRODA,SIRODKAR SUBHAS ANKUSH,parties.IN.INC,INC,6046,42.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1989,23,SIRODA,NAIK RAMDAS TOPYO,parties.IN.MAG,MAG,5761,40.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1989,23,SIRODA,ROHIDAS BABURAO SHIRODKAR,parties.IN.IND,IND,1039,7.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1989,23,SIRODA,GUDINHO JOAQUIM JOAO,parties.IN.IND,IND,522,3.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1989,23,SIRODA,NAIK MHALU GANGARAM,parties.IN.IND,IND,387,2.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1989,23,SIRODA,ATMARAM SHAMBHU NAIK PRATAPRAO SARDESSAI,parties.IN.IND,IND,207,1.44,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1989,23,SIRODA,NAIK UMESH NORU,parties.IN.IND,IND,167,1.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1989,23,SIRODA,PEREIRA MATHEW MILAGRIES,parties.IN.CPIM,CPM,105,0.73,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1989,23,SIRODA,BORKAR YOGANAND POMA,parties.IN.SHS,SHS,63,0.44,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1989,23,SIRODA,DINIZ JOAQUIM DAVID,parties.IN.IND,IND,36,0.25,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1989,24,MORMUGAO,SHAIKH HASSAN HAROON,parties.IN.INC,INC,5394,37.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1989,24,MORMUGAO,VEZ JOHN MANUEL HENRIQUES,parties.IN.MAG,MAG,5182,36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1989,24,MORMUGAO,PARULEKAR RAVINDRA (BAABN) VASANT,parties.IN.IND,IND,3310,22.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1989,24,MORMUGAO,SALKAR ASHA DAMODAR,parties.IN.BJP,BJP,222,1.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1989,24,MORMUGAO,MANDREKAR SITARAM SAULO,parties.IN.CPI,CPI,105,0.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1989,24,MORMUGAO,BRITO JOSE AGNELO,parties.IN.IND,IND,79,0.55,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1989,24,MORMUGAO,MANDREKAR DEELIP D.,parties.IN.JNP_JP,JNP(JP),44,0.31,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1989,24,MORMUGAO,DICHOLKAR SURYAKANT SHANTARAM,parties.IN.IND,IND,41,0.28,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1989,24,MORMUGAO,SATARDEKAR PRABHAKAR SITARAM,parties.IN.IND,IND,19,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1989,25,VASCO DA GAMA,D'SONZA SIMON PETER,parties.IN.INC,INC,5045,36.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1989,25,VASCO DA GAMA,MENEZAS MESQUITA WILFRED,parties.IN.MAG,MAG,4720,34.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1989,25,VASCO DA GAMA,D'SOUZA JOSE PHILIP,parties.IN.IND,IND,2705,19.79,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1989,25,VASCO DA GAMA,TIWARI DAYAPRASAD SHIRAM,parties.IN.IND,IND,705,5.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1989,25,VASCO DA GAMA,LOTLIKAR SHIVRAM RAGHUVIR,parties.IN.BJP,BJP,165,1.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1989,25,VASCO DA GAMA,HENLIKAR GANDHI,parties.IN.IND,IND,154,1.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1989,25,VASCO DA GAMA,PARULIKAR PRAKASH DATTARAM,parties.IN.JD,JD,109,0.8,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1989,25,VASCO DA GAMA,DEVIDAS GANIGA,parties.IN.IND,IND,43,0.31,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1989,25,VASCO DA GAMA,CARDOZO MENINO,parties.IN.IND,IND,21,0.15,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-26,goa,1989,26,CORTALIM,GODINHO MAUVIN,parties.IN.INC,INC,5953,40.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-26,goa,1989,26,CORTALIM,VALADARES FRANCISCO,parties.IN.IND,IND,5117,34.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-26,goa,1989,26,CORTALIM,FERNANDES ANTONIO FRANCISCO,parties.IN.GLP,GLP,3781,25.46,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-27,goa,1989,27,LOUTOLIM,BARBOSA LUIS PROTO ALEIXO,parties.IN.INC,INC,4073,37.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-27,goa,1989,27,LOUTOLIM,FERNANDES SEDY ANTONIO,parties.IN.IND,IND,3958,36.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-27,goa,1989,27,LOUTOLIM,DISA CELSO,parties.IN.GLP,GLP,2661,24.44,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-27,goa,1989,27,LOUTOLIM,BARRETO ANTONIO CAITANO,parties.IN.IND,IND,131,1.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-27,goa,1989,27,LOUTOLIM,FERNANDES JOAQUIM B.P. ANTONIO,parties.IN.IND,IND,67,0.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-28,goa,1989,28,BENAULIM,ALIMNO CHURCHIL BRAZ,parties.IN.INC,INC,9196,70.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-28,goa,1989,28,BENAULIM,PINTO NAZARIO JOSE,parties.IN.IND,IND,3642,27.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-28,goa,1989,28,BENAULIM,CORREIA ALPHONSO ANTONIO FRANCISCO,parties.IN.GLP,GLP,163,1.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-28,goa,1989,28,BENAULIM,FURTADO ANTONIO DAMIAO,parties.IN.IND,IND,54,0.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-29,goa,1989,29,FATORDA,CARDOZ LUIS ALEX,parties.IN.INC,INC,5552,44.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-29,goa,1989,29,FATORDA,LOTLIKAR SURYAKANT DATTA,parties.IN.MAG,MAG,3687,29.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-29,goa,1989,29,FATORDA,DIAS NOLASCO JOAO,parties.IN.IND,IND,3016,24.33,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-29,goa,1989,29,FATORDA,DIAS THOMAS JOAQUIM RAFAEL,parties.IN.IND,IND,140,1.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-30,goa,1989,30,MARGAO,NAIK ANANTA NARCINVA,parties.IN.IND,IND,6447,51.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-30,goa,1989,30,MARGAO,KAMAT DIGAMBAR VASANT,parties.IN.INC,INC,5995,47.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-30,goa,1989,30,MARGAO,RAIKAR ANIL VASUDEV,parties.IN.IND,IND,125,0.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-30,goa,1989,30,MARGAO,NAIK RAVINDRANATH SHANKAR,parties.IN.IND,IND,47,0.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-31,goa,1989,31,CURTORIM,SARDINHA COSME FRANCISCO CAETANO,parties.IN.INC,INC,8876,68.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-31,goa,1989,31,CURTORIM,BARBOSA AGOSTINHO SEVASTIAO,parties.IN.JD,JD,3936,30.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-31,goa,1989,31,CURTORIM,RODRIGUES JOAQUIM FILOMENA,parties.IN.IND,IND,105,0.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-31,goa,1989,31,CURTORIM,DIAS JUDE JOAO,parties.IN.IND,IND,41,0.32,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-32,goa,1989,32,NAVELIM,FALEIRO LUIZINHO JOA-QUIM (UNCONTESTED ELECTED),parties.IN.INC,INC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-33,goa,1989,33,VELIM,FURTADO FARREL BENITO,parties.IN.INC,INC,8962,78.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-33,goa,1989,33,VELIM,RODRIGUES GABRIEL MINGUEL,parties.IN.JD,JD,2256,19.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-33,goa,1989,33,VELIM,FERNANDES ROQGE S. AVELINO,parties.IN.IND,IND,103,0.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-33,goa,1989,33,VELIM,FERNANDES SANJAY R. SANTAN,parties.IN.IND,IND,40,0.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-33,goa,1989,33,VELIM,D SOUZA ASHLEY FELIX,parties.IN.IND,IND,39,0.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-33,goa,1989,33,VELIM,WADKAR MAHADEV GUNO,parties.IN.IND,IND,11,0.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-34,goa,1989,34,CUNCOLIM,FERNANDES MANUEL GREGORIO,parties.IN.INC,INC,4243,33.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-34,goa,1989,34,CUNCOLIM,DESSAI SHEBU BABALI,parties.IN.MAG,MAG,3192,24.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-34,goa,1989,34,CUNCOLIM,MASCARENHAS JOSEPH MINGUI,parties.IN.IND,IND,2398,18.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-34,goa,1989,34,CUNCOLIM,D'SOUZA ARECIO AGAPITO,parties.IN.IND,IND,2338,18.24,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-34,goa,1989,34,CUNCOLIM,VELVATKAR PRAKASH RAMNATH,parties.IN.IND,IND,550,4.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-34,goa,1989,34,CUNCOLIM,DESSAI YESHWANT FECHO,parties.IN.IND,IND,44,0.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-34,goa,1989,34,CUNCOLIM,FERNANDES MILTOM PIEDADE,parties.IN.IND,IND,29,0.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-34,goa,1989,34,CUNCOLIM,DESSAI RAMESH UTTAM,parties.IN.JD,JD,24,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-35,goa,1989,35,SANVORDEM,AMASHEKAR MOHAN ANANT,parties.IN.MAG,MAG,8737,59.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-35,goa,1989,35,SANVORDEM,DESAIMADHAVRAO SHIVAJIRAO,parties.IN.INC,INC,5388,36.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-35,goa,1989,35,SANVORDEM,KHEDAKAR YASHWANT UTTARM,parties.IN.CPI,CPI,629,4.26,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-36,goa,1989,36,SANGUEM,PRABHU DESAI RANU ANANT,parties.IN.MAG,MAG,7092,58.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-36,goa,1989,36,SANGUEM,PANDU VASU NAIK,parties.IN.INC,INC,4509,36.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-36,goa,1989,36,SANGUEM,DESAI DILKUSH FOTU,parties.IN.IND,IND,451,3.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-36,goa,1989,36,SANGUEM,GARVALHO PHILIP CAITAN,parties.IN.IND,IND,93,0.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-36,goa,1989,36,SANGUEM,LOPES AGUSTIN NIKLAU,parties.IN.IND,IND,52,0.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-36,goa,1989,36,SANGUEM,ARUN VISHUNDAS KOSAMBE,parties.IN.IND,IND,16,0.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-37,goa,1989,37,CURCHOREM,DOMNICK FERNANDES,parties.IN.INC,INC,8059,54.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-37,goa,1989,37,CURCHOREM,PRABHU DESAI ANIL HARI,parties.IN.MAG,MAG,6683,44.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-37,goa,1989,37,CURCHOREM,S. DESAI PRAKASH MAHADEO,parties.IN.JNP_JP,JNP(JP),128,0.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-38,goa,1989,38,QUEPEM,VALIP PRAKASH SHANKAR,parties.IN.MAG,MAG,9229,63.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-38,goa,1989,38,QUEPEM,GAUNS DESAI VOIKUNT GOVIND,parties.IN.INC,INC,4919,33.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-38,goa,1989,38,QUEPEM,DESAI AMRUT DIKUSH,parties.IN.IND,IND,413,2.82,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-38,goa,1989,38,QUEPEM,KHAR HAMZA ISSAK,parties.IN.JNP_JP,JNP(JP),74,0.51,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-39,goa,1989,39,CANACONA,BANDEKAR SANJAY VIMAL,parties.IN.MAG,MAG,5938,56.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-39,goa,1989,39,CANACONA,FERNANDES JOAO JOSE JOAQUIM S.,parties.IN.IND,IND,2608,24.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-39,goa,1989,39,CANACONA,KANKONKAR SURESH BHIKU,parties.IN.INC,INC,1897,18.06,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-39,goa,1989,39,CANACONA,SAWANT ANANT GANABA,parties.IN.IND,IND,41,0.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-39,goa,1989,39,CANACONA,VALIP SUKDO DHULO,parties.IN.IND,IND,17,0.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-40,goa,1989,40,POINGUINIM,VASU PAIK GAONKAR,parties.IN.INC,INC,4192,47.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-40,goa,1989,40,POINGUINIM,ACHARYA GOVIND RAGHU CHANDRA,parties.IN.SHS,SHS,4107,46.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-40,goa,1989,40,POINGUINIM,PAINGUINKAR PRABHAKAR NARAYAN,parties.IN.IND,IND,196,2.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-40,goa,1989,40,POINGUINIM,VELIP BABU RAMA,parties.IN.IND,IND,134,1.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-40,goa,1989,40,POINGUINIM,JOSE VIRGILIO COUNTINHO,parties.IN.IND,IND,98,1.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-40,goa,1989,40,POINGUINIM,KAMAT MADHUSUDAN HARI,parties.IN.IND,IND,68,0.76,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-40,goa,1989,40,POINGUINIM,D SOUZA SILVESTRE XAVIER,parties.IN.IND,IND,48,0.54,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-40,goa,1989,40,POINGUINIM,NAIK PRASHANT MUKUND,parties.IN.GLP,GLP,38,0.43,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-40,goa,1989,40,POINGUINIM,PAINGUINKAR KASHIBAI NARAYAN,parties.IN.IND,IND,26,0.29,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a

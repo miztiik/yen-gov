@@ -1,0 +1,6 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-gujarat-103,gujarat,2004,KHEDBRAHMA,174889,102516,58.62,BARA RAMILABEN BAHECHARBHAI,parties.IN.BJP,BJP,44600,43.51,GAMETI VAISHALIBEN SURYAKANTBHAI,parties.IN.INC,INC,44006,594,0.58,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-138,gujarat,2004,BORSAD,168864,94313,55.85,AMIT CHAVDA,parties.IN.INC,INC,52672,55.85,GOHEL UMEDSINH FATESINH (BHAGAT),parties.IN.BJP,BJP,34517,18155,19.25,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-164,gujarat,2004,VYARA,168269,102081,60.67,GAMIT PUNABHAI DHEDABHAI,parties.IN.INC,INC,54994,53.87,GAMIT PRATAPBHAI BABUBHAI,parties.IN.BJP,BJP,41275,13719,13.44,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-179,gujarat,2004,DHARMPUR,173321,111197,64.16,CHHANABHAI KOLUBHAI CHAUDHARY,parties.IN.INC,INC,61722,55.51,BABARBHAI JIVALABHAI BHOYA,parties.IN.BJP,BJP,43806,17916,16.12,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-29,gujarat,2004,BHANVAD,117764,77063,65.44,AYAR BERA MULUBHAI HARDASBHAI,parties.IN.BJP,BJP,48639,63.12,AHIR KANARA VAJSIBHAI HARDAS,parties.IN.INC,INC,22654,25985,33.72,src-1b7bc1c9d39a

@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-madhya-pradesh-245,madhya-pradesh,1997,BHOJPUR,156137,86268,55.25,Ramkisan Chauhan,parties.IN.BJP,BJP,40763,47.25,Bhopati Singh(Badeveer),parties.IN.INC,INC,36337,4426,5.13,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-268,madhya-pradesh,1997,DEPALPUR,136605,97080,71.07,Jagannath (Jagdish Patel),parties.IN.INC,INC,49918,51.42,Premnarayan Patel,parties.IN.BJP,BJP,41948,7970,8.21,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-284,madhya-pradesh,1997,KHANDWA,139293,68675,49.3,Hukumchand Yadav Pahalwan,parties.IN.BJP,BJP,36589,53.28,Dr. Munish Gangacharan Mishra,parties.IN.INC,INC,31354,5235,7.62,src-1b7bc1c9d39a

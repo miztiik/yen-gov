@@ -1,0 +1,804 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-odisha-1,odisha,1985,1,KARANJIA,KARUNAKAR NAIK,parties.IN.INC,INC,15446,45.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-1,odisha,1985,1,KARANJIA,RAGHJUNATH HEMBRAM,parties.IN.JP,JNP,14903,43.76,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-1,odisha,1985,1,KARANJIA,KULAMANI SANKHIAL,parties.IN.IND,IND,3709,10.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-2,odisha,1985,2,JASHIPUR,SAMBHUNATH NAIK,parties.IN.IND,IND,8895,25.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-2,odisha,1985,2,JASHIPUR,SUSHILA TIRIA,parties.IN.INC,INC,8109,23.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-2,odisha,1985,2,JASHIPUR,MANGALSING MUDI,parties.IN.JP,JNP,6345,18.47,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-2,odisha,1985,2,JASHIPUR,KANHURAM HEMBRAM,parties.IN.IND,IND,4277,12.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-2,odisha,1985,2,JASHIPUR,SUNDAR HEMBRAM,parties.IN.IND,IND,4217,12.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-2,odisha,1985,2,JASHIPUR,MICHIRAM TRIYA,parties.IN.IND,IND,1053,3.06,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-2,odisha,1985,2,JASHIPUR,MADHAB NAYAK,parties.IN.IND,IND,920,2.68,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-2,odisha,1985,2,JASHIPUR,PRANABYNDHU NAYAK,parties.IN.IND,IND,544,1.58,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-3,odisha,1985,3,BAHALDA,BAHGEY GOBARDHAN,parties.IN.JP,JNP,19821,62.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-3,odisha,1985,3,BAHALDA,LAXMI MAJHI,parties.IN.INC,INC,8296,26.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-3,odisha,1985,3,BAHALDA,MADHUSUDAN SOREN,parties.IN.IND,IND,2649,8.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-3,odisha,1985,3,BAHALDA,GOBINDA CHANDRA MURMU,parties.IN.BJP,BJP,545,1.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-3,odisha,1985,3,BAHALDA,GOPINATH MARNOY,parties.IN.JKD,JKD,486,1.53,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-4,odisha,1985,4,RAIRANGPUR,BHABENDRA NATH MAJHI,parties.IN.INC,INC,17369,50.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-4,odisha,1985,4,RAIRANGPUR,SUDARSHAN MURMU,parties.IN.BJP,BJP,6840,20.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-4,odisha,1985,4,RAIRANGPUR,SASHIBHUSHAN MARNDI,parties.IN.JP,JNP,6835,20.01,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-4,odisha,1985,4,RAIRANGPUR,BRAJA MOHAN HANSOAH,parties.IN.IND,IND,2459,7.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-4,odisha,1985,4,RAIRANGPUR,JAYGOBINDA HEMBRAM,parties.IN.JKD,JKD,660,1.93,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-5,odisha,1985,5,BANGRIPOSI,KANGOI SINGH,parties.IN.INC,INC,11279,37.17,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-5,odisha,1985,5,BANGRIPOSI,BHIM CHARAN NAIK,parties.IN.CPI,CPI,5589,18.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-5,odisha,1985,5,BANGRIPOSI,PURUSHOTTAM NAIK,parties.IN.BJP,BJP,5429,17.89,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-5,odisha,1985,5,BANGRIPOSI,LACHHMAN SINGH PURTI,parties.IN.JP,JNP,4471,14.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-5,odisha,1985,5,BANGRIPOSI,DASMAT MARNDI,parties.IN.IND,IND,972,3.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-5,odisha,1985,5,BANGRIPOSI,GORACHAND SINGH,parties.IN.JKD,JKD,735,2.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-5,odisha,1985,5,BANGRIPOSI,GHASIRAM MAJHI,parties.IN.IND,IND,734,2.42,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-5,odisha,1985,5,BANGRIPOSI,SANKAR MURMU,parties.IN.IND,IND,527,1.74,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-5,odisha,1985,5,BANGRIPOSI,GHASIRAM MARNDI,parties.IN.IND,IND,403,1.33,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-5,odisha,1985,5,BANGRIPOSI,RAMA NATH DAS,parties.IN.IND,IND,202,0.67,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-6,odisha,1985,6,KULIANA,SARASWATI HEMBRAM,parties.IN.INC,INC,19204,55.56,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-6,odisha,1985,6,KULIANA,KANJHU CHARAN SOREN,parties.IN.JP,JNP,5765,16.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-6,odisha,1985,6,KULIANA,GURU CHARAN MAJHI,parties.IN.IND,IND,4923,14.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-6,odisha,1985,6,KULIANA,INDU BHUSAN HEMBRAM,parties.IN.IND,IND,2516,7.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-6,odisha,1985,6,KULIANA,ROHIDAS NAG,parties.IN.JKD,JKD,1208,3.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-6,odisha,1985,6,KULIANA,PRAFULLA,parties.IN.IND,IND,948,2.74,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-7,odisha,1985,7,BARIPADA,PRASANNA KUMAR DASH,parties.IN.INC,INC,29623,54.64,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-7,odisha,1985,7,BARIPADA,CHHATISH CHANDRA DHAL,parties.IN.IND,IND,11695,21.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-7,odisha,1985,7,BARIPADA,AJAY KUMAR DASH,parties.IN.JP,JNP,6783,12.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-7,odisha,1985,7,BARIPADA,JAY CHANDRA PATRI,parties.IN.IND,IND,3452,6.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-7,odisha,1985,7,BARIPADA,PADMA LOCHAN MOHANTA,parties.IN.JKD,JKD,1316,2.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-7,odisha,1985,7,BARIPADA,JAGANNATH PATRA,parties.IN.IND,IND,797,1.47,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-7,odisha,1985,7,BARIPADA,BISWANATH,parties.IN.IND,IND,544,1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-8,odisha,1985,8,BAISINGA,PRUTHUNATH KISKU,parties.IN.INC,INC,27252,67.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-8,odisha,1985,8,BAISINGA,GANGADHAR MARNDI,parties.IN.CPIM,CPM,8135,20.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-8,odisha,1985,8,BAISINGA,ANANTA MAJHI,parties.IN.JP,JNP,4728,11.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-9,odisha,1985,9,KHUNTA,BIRAM MURMU,parties.IN.INC,INC,21979,47.65,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-9,odisha,1985,9,KHUNTA,BIRABHADRA SINGH,parties.IN.JP,JNP,15836,34.33,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-9,odisha,1985,9,KHUNTA,RASANANDA MAJHI,parties.IN.IND,IND,7775,16.86,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-9,odisha,1985,9,KHUNTA,BISWANATH MURMU,parties.IN.IND,IND,533,1.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-10,odisha,1985,10,UDALA,RAMANESWAR MADHEI,parties.IN.INC,INC,15155,45.91,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-10,odisha,1985,10,UDALA,ROHIDAS SOREN,parties.IN.JP,JNP,11659,35.32,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-10,odisha,1985,10,UDALA,KESAB SOREN,parties.IN.IND,IND,3892,11.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-10,odisha,1985,10,UDALA,SHYAM SUNDER SINGH,parties.IN.IND,IND,905,2.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-10,odisha,1985,10,UDALA,RATHA MURMU,parties.IN.JKD,JKD,739,2.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-10,odisha,1985,10,UDALA,MANMOHAN TUDU,parties.IN.IND,IND,663,2.01,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-11,odisha,1985,11,BHOGRAI,UMARANI PATRA,parties.IN.INC,INC,36379,46.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-11,odisha,1985,11,BHOGRAI,SAMARENDRA KUNDU,parties.IN.JP,JNP,33602,43.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-11,odisha,1985,11,BHOGRAI,SUSHRIPADA PANDA,parties.IN.IND,IND,4558,5.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-11,odisha,1985,11,BHOGRAI,KALI KUMAR PANDA,parties.IN.IND,IND,1304,1.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-11,odisha,1985,11,BHOGRAI,PARESH KUMAR BOSE,parties.IN.BJP,BJP,841,1.08,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-11,odisha,1985,11,BHOGRAI,SAKTIDHAR GHARAI,parties.IN.IND,IND,478,0.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-11,odisha,1985,11,BHOGRAI,DEBENDRA SAHU,parties.IN.IND,IND,339,0.44,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-11,odisha,1985,11,BHOGRAI,SUSHANTA KUMAR CHAND,parties.IN.IND,IND,125,0.16,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-12,odisha,1985,12,JALESWAR,JUDISTHIR JENA,parties.IN.INC,INC,42015,49.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-12,odisha,1985,12,JALESWAR,GADADHAR GIRI,parties.IN.JP,JNP,41673,48.67,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-12,odisha,1985,12,JALESWAR,AMAR KUMAR ACHARYA,parties.IN.IND,IND,808,0.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-12,odisha,1985,12,JALESWAR,KARTICK CHANDRA GHOSE,parties.IN.IND,IND,612,0.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-12,odisha,1985,12,JALESWAR,CHAITANYA SAHU,parties.IN.IND,IND,522,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-13,odisha,1985,13,BASTA,BHUPAL CHANDRA MAHAPATRA,parties.IN.INC,INC,43722,67.84,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-13,odisha,1985,13,BASTA,SAMBHUNATH MOHANTY,parties.IN.CPI,CPI,10985,17.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-13,odisha,1985,13,BASTA,RAGHUNATH MOHANTY,parties.IN.JP,JNP,8297,12.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-13,odisha,1985,13,BASTA,MADHU SADAN BAHERA,parties.IN.IND,IND,1449,2.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-14,odisha,1985,14,BALASORE,GOPANARAYAN DAS,parties.IN.INC,INC,35830,47.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-14,odisha,1985,14,BALASORE,ARUN DAY,parties.IN.CPI,CPI,35761,47.29,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-14,odisha,1985,14,BALASORE,JAGANNATH JEE,parties.IN.BJP,BJP,2206,2.92,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-14,odisha,1985,14,BALASORE,BHASKAR CHANDRA JENA,parties.IN.IND,IND,988,1.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-14,odisha,1985,14,BALASORE,TARULATA BEHERA,parties.IN.IND,IND,645,0.85,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-14,odisha,1985,14,BALASORE,BIBEKANANDA SEN,parties.IN.IND,IND,189,0.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-15,odisha,1985,15,SORO,JADUNATH DAS MOHAPATRA,parties.IN.INC,INC,47851,72.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-15,odisha,1985,15,SORO,PITAMBER PANDA,parties.IN.CPI,CPI,14960,22.77,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-15,odisha,1985,15,SORO,PURUSOTTAM BISWAL,parties.IN.JP,JNP,1828,2.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-15,odisha,1985,15,SORO,LAXMIDHAR SAHU,parties.IN.BJP,BJP,718,1.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-15,odisha,1985,15,SORO,RAMAKANTA MOHANTY,parties.IN.IND,IND,357,0.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-16,odisha,1985,16,SIMULIA,PADAMALOCHAN PANDA,parties.IN.INC,INC,24231,46.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-16,odisha,1985,16,SIMULIA,PARSURAM PANIGRAHI,parties.IN.JP,JNP,16772,32.49,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-16,odisha,1985,16,SIMULIA,PURNA CHANDRA PANDA,parties.IN.CPI,CPI,6371,12.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-16,odisha,1985,16,SIMULIA,HAREKRUSHNA DASH,parties.IN.BJP,BJP,2460,4.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-16,odisha,1985,16,SIMULIA,RADHAKANTA BISWAL,parties.IN.IND,IND,732,1.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-16,odisha,1985,16,SIMULIA,BHASKAR DAS,parties.IN.IND,IND,575,1.11,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-16,odisha,1985,16,SIMULIA,SAROJ BIHARI MOHANTY,parties.IN.IND,IND,183,0.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-16,odisha,1985,16,SIMULIA,LAXMIDHAR BEHERA,parties.IN.IND,IND,178,0.34,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-16,odisha,1985,16,SIMULIA,SADHU CHARAN MOHAPATRA,parties.IN.IND,IND,118,0.23,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-17,odisha,1985,17,NILGIRI,SUKUMAR NAYAK,parties.IN.INC,INC,27299,41.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-17,odisha,1985,17,NILGIRI,PRADIPTA KUMAR PANDA,parties.IN.CPIM,CPM,18796,28.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-17,odisha,1985,17,NILGIRI,CHITTARANJAN SADANGI,parties.IN.JP,JNP,15604,23.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-17,odisha,1985,17,NILGIRI,PURNACHANDRA PANDA,parties.IN.IND,IND,1585,2.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-17,odisha,1985,17,NILGIRI,GURA TAUDU,parties.IN.JMM,JMM,1234,1.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-17,odisha,1985,17,NILGIRI,KRUTIBAS PANIGRAHI,parties.IN.BJP,BJP,747,1.14,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-18,odisha,1985,18,BHANDARIPOKHARI,PANCHANAN MANDAL,parties.IN.INC,INC,27342,42.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-18,odisha,1985,18,BHANDARIPOKHARI,ARJUN CHARAN SETHI,parties.IN.JP,JNP,26320,40.83,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-18,odisha,1985,18,BHANDARIPOKHARI,RATHA DAS,parties.IN.CPI,CPI,8021,12.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-18,odisha,1985,18,BHANDARIPOKHARI,SUBASH SETHI,parties.IN.IND,IND,1230,1.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-18,odisha,1985,18,BHANDARIPOKHARI,MURALIDHAR MALIK,parties.IN.LKD,LKD,1115,1.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-18,odisha,1985,18,BHANDARIPOKHARI,GIRIDHARI DAS,parties.IN.IND,IND,270,0.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-18,odisha,1985,18,BHANDARIPOKHARI,KALAPATARU DAS,parties.IN.IND,IND,166,0.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-19,odisha,1985,19,BHADRAK,JUGAL KISHORE PATTANAYAK,parties.IN.INC,INC,35181,48.34,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-19,odisha,1985,19,BHADRAK,NILAMONI ROUTROY,parties.IN.JP,JNP,28637,39.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-19,odisha,1985,19,BHADRAK,NIRAKAR JENA,parties.IN.CPIM,CPM,4881,6.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-19,odisha,1985,19,BHADRAK,LAXMI NARAYAN MOHAPATRA,parties.IN.BJP,BJP,2223,3.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-19,odisha,1985,19,BHADRAK,S. K. ABUSULTAN,parties.IN.IND,IND,947,1.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-19,odisha,1985,19,BHADRAK,PADAN MOHALA,parties.IN.IND,IND,477,0.66,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-19,odisha,1985,19,BHADRAK,BANWARILAL GUPTA,parties.IN.IND,IND,435,0.6,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-20,odisha,1985,20,DHAMNAGAR,JAGANNATH ROUT,parties.IN.INC,INC,35238,50,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-20,odisha,1985,20,DHAMNAGAR,HRUDANANDA MULIK,parties.IN.JP,JNP,29350,41.64,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-20,odisha,1985,20,DHAMNAGAR,MONMOHAN SAMAL,parties.IN.BJP,BJP,3564,5.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-20,odisha,1985,20,DHAMNAGAR,BHASKAR CHANDRA SAMAL,parties.IN.IND,IND,2205,3.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-20,odisha,1985,20,DHAMNAGAR,ADHIKANDA PRADHAN,parties.IN.IND,IND,120,0.17,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-21,odisha,1985,21,CHANDBALI,NETRANANDA MALIK,parties.IN.INC,INC,38963,52.14,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-21,odisha,1985,21,CHANDBALI,BAIRAGI JENA,parties.IN.JP,JNP,33682,45.07,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-21,odisha,1985,21,CHANDBALI,KANHU DAS,parties.IN.IND,IND,2086,2.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-22,odisha,1985,22,BASUDEVPUR,MADHU SADAN PANIGRAHI,parties.IN.INC,INC,35153,48.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-22,odisha,1985,22,BASUDEVPUR,BIJYOSHREE ROUTROY,parties.IN.JP,JNP,34978,48.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-22,odisha,1985,22,BASUDEVPUR,PRAFULLA MALIK,parties.IN.IND,IND,2101,2.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-22,odisha,1985,22,BASUDEVPUR,SAHADEB DAS,parties.IN.IND,IND,277,0.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-23,odisha,1985,23,SUKINDA,SARATA ROUT,parties.IN.INC,INC,26836,38.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-23,odisha,1985,23,SUKINDA,PRAFULLA CHANDRA GHADAI,parties.IN.JP,JNP,21489,30.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-23,odisha,1985,23,SUKINDA,MAYADHARA NAYAK,parties.IN.IND,IND,14235,20.52,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-23,odisha,1985,23,SUKINDA,AKSHAYA SAHU,parties.IN.IND,IND,4579,6.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-23,odisha,1985,23,SUKINDA,PRASANA KUMAR SINGH SAMANTA,parties.IN.IND,IND,2079,3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-23,odisha,1985,23,SUKINDA,SARANGADHARA MUDULI,parties.IN.IND,IND,161,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-24,odisha,1985,24,KORAI,RAMA CHANDRA KHUNTIA,parties.IN.INC,INC,36102,47.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-24,odisha,1985,24,KORAI,ASHOK DAS,parties.IN.JP,JNP,34808,46.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-24,odisha,1985,24,KORAI,MD. HOSEN RABI GANDHI,parties.IN.IND,IND,4248,5.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-24,odisha,1985,24,KORAI,PURSHOTTAM DAS MASKARA,parties.IN.IND,IND,419,0.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-25,odisha,1985,25,JAJPUR,JAGANNATH MALLICK,parties.IN.JP,JNP,32918,52.06,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-25,odisha,1985,25,JAJPUR,NIRANJANA JENA,parties.IN.INC,INC,30309,47.94,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-26,odisha,1985,26,DHARAMSALA,KANGALI CHARAN PANDA,parties.IN.INC,INC,31590,48.59,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-26,odisha,1985,26,DHARAMSALA,GURU CHANRAN TIKAYAT,parties.IN.JP,JNP,24227,37.26,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-26,odisha,1985,26,DHARAMSALA,BAIRAGI BISWAL,parties.IN.IND,IND,3530,5.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-26,odisha,1985,26,DHARAMSALA,KALPATARU DAS,parties.IN.BJP,BJP,2078,3.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-26,odisha,1985,26,DHARAMSALA,DURGA PRASANA DAS,parties.IN.LKD,LKD,1548,2.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-26,odisha,1985,26,DHARAMSALA,KALAKARA MAHANTY,parties.IN.IND,IND,1064,1.64,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-26,odisha,1985,26,DHARAMSALA,SUSANTA PATNAIK,parties.IN.IND,IND,705,1.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-26,odisha,1985,26,DHARAMSALA,BRAJABANDHU BEHERA,parties.IN.IND,IND,272,0.42,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-27,odisha,1985,27,BARCHANA,SITAKANTA MAHAPATRA,parties.IN.INC,INC,44363,60.33,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-27,odisha,1985,27,BARCHANA,MANAGOVINDA SAMAL,parties.IN.JP,JNP,16926,23.02,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-27,odisha,1985,27,BARCHANA,DIBAKARA BISWAL,parties.IN.CPI,CPI,4181,5.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-27,odisha,1985,27,BARCHANA,HARISH CHANDRA PRADHAN,parties.IN.IND,IND,3128,4.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-27,odisha,1985,27,BARCHANA,PRAMODA KUMAR CHOUDHARY,parties.IN.IND,IND,1590,2.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-27,odisha,1985,27,BARCHANA,JAYANTI DAS,parties.IN.IND,IND,1369,1.86,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-27,odisha,1985,27,BARCHANA,JAYANTA KUMAR BALA,parties.IN.BJP,BJP,965,1.31,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-27,odisha,1985,27,BARCHANA,GADADHARA RANA,parties.IN.IND,IND,488,0.66,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-27,odisha,1985,27,BARCHANA,SATYANARAYAN RAY,parties.IN.IND,IND,274,0.37,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-27,odisha,1985,27,BARCHANA,BRAJAMOHAN SAMAL,parties.IN.IND,IND,246,0.33,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-28,odisha,1985,28,BARI-DERABISI,SRIKANTA KUMAR JENA,parties.IN.JP,JNP,37615,53.35,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-28,odisha,1985,28,BARI-DERABISI,PRAHLLAD MALLIK,parties.IN.INC,INC,30539,43.31,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-28,odisha,1985,28,BARI-DERABISI,KEDAR RAY,parties.IN.IND,IND,1548,2.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-28,odisha,1985,28,BARI-DERABISI,SRIDHAR DASH,parties.IN.BJP,BJP,807,1.14,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-29,odisha,1985,29,BINJHARPUR,NABAKISHORE MALLICK,parties.IN.INC,INC,22195,45.06,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-29,odisha,1985,29,BINJHARPUR,RAMA CHANDRA MALLICK,parties.IN.JP,JNP,18561,37.68,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-29,odisha,1985,29,BINJHARPUR,SURENDRA MALLICK,parties.IN.IND,IND,6622,13.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-29,odisha,1985,29,BINJHARPUR,DUSASANA MALLICK,parties.IN.IND,IND,1880,3.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-30,odisha,1985,30,AUL,OLAGOBINDA NAYAK,parties.IN.INC,INC,40832,52.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-30,odisha,1985,30,AUL,SARAT KUMAR DEB,parties.IN.JP,JNP,36484,46.53,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-30,odisha,1985,30,AUL,SARAT JAGADEB,parties.IN.IND,IND,894,1.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-30,odisha,1985,30,AUL,GANESH CHANDRA ROUT,parties.IN.IND,IND,204,0.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-31,odisha,1985,31,PATAMUNDAI,GANESWAR BEHERA,parties.IN.INC,INC,28938,50.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-31,odisha,1985,31,PATAMUNDAI,RABINDRA KUMAR BEHERA,parties.IN.CPIM,CPM,13644,23.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-31,odisha,1985,31,PATAMUNDAI,TAPASH KUMAR DAS,parties.IN.JP,JNP,10100,17.66,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-31,odisha,1985,31,PATAMUNDAI,NRUSINGHA CHARAN MALLICK,parties.IN.IND,IND,3690,6.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-31,odisha,1985,31,PATAMUNDAI,BHIMASEN MALLIK,parties.IN.IND,IND,824,1.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-32,odisha,1985,32,RAJNAGAR,NALINIKANTA MOHANTY,parties.IN.JP,JNP,39946,50.85,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-32,odisha,1985,32,RAJNAGAR,BOJOY KUMAR PRADHAN,parties.IN.INC,INC,35925,45.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-32,odisha,1985,32,RAJNAGAR,KAILASH CHANDRA MOHANTY,parties.IN.IND,IND,1993,2.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-32,odisha,1985,32,RAJNAGAR,BASANTA KUMAR SETHI,parties.IN.IND,IND,693,0.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-33,odisha,1985,33,KENDRAPARA,BHAGABAT PRASAD MOHANTY,parties.IN.INC,INC,34834,48.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-33,odisha,1985,33,KENDRAPARA,BED PRAKASH AGARWALLA,parties.IN.JP,JNP,32183,44.6,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-33,odisha,1985,33,KENDRAPARA,RABINDRA SAHOO,parties.IN.BJP,BJP,3009,4.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-33,odisha,1985,33,KENDRAPARA,NEPAL CHANDRA SAMANTA,parties.IN.IND,IND,1549,2.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-33,odisha,1985,33,KENDRAPARA,JIBAN KUMAR NAYAK,parties.IN.IND,IND,214,0.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-33,odisha,1985,33,KENDRAPARA,KHAGESWAR NAYAK,parties.IN.IND,IND,206,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-33,odisha,1985,33,KENDRAPARA,BASANANDA MANTHANA,parties.IN.IND,IND,159,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-34,odisha,1985,34,PATKURA,BIJOY MOHAPTRA,parties.IN.JP,JNP,31544,48.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-34,odisha,1985,34,PATKURA,PRATAP CHANDRA JENA,parties.IN.INC,INC,31095,48.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-34,odisha,1985,34,PATKURA,NRUSINGHA CHARAN SAHOO,parties.IN.IND,IND,972,1.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-34,odisha,1985,34,PATKURA,RAMESH CHANDRA ROUT,parties.IN.BJP,BJP,561,0.87,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-34,odisha,1985,34,PATKURA,MATHURANANDA NATH,parties.IN.IND,IND,300,0.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-34,odisha,1985,34,PATKURA,GAJENDRANATH SAMAL,parties.IN.IND,IND,251,0.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-35,odisha,1985,35,TIRTOL,NITYANANDA SAMANARAY,parties.IN.INC,INC,58323,71.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-35,odisha,1985,35,TIRTOL,PRATAP CHANDRA MOHANTY,parties.IN.JP,JNP,21883,26.78,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-35,odisha,1985,35,TIRTOL,NITYANANDA LENKA,parties.IN.IND,IND,1506,1.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-36,odisha,1985,36,ERSAMA,KRUSHNA CHANDRA SWAIN,parties.IN.INC,INC,37510,41.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-36,odisha,1985,36,ERSAMA,DAMODAR ROUT,parties.IN.JP,JNP,32924,36.08,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-36,odisha,1985,36,ERSAMA,DINABANDHU TARAI,parties.IN.CPI,CPI,18835,20.64,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-36,odisha,1985,36,ERSAMA,SUDHAKAR MANTRY,parties.IN.IND,IND,1403,1.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-36,odisha,1985,36,ERSAMA,HARI JENA,parties.IN.IND,IND,374,0.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-36,odisha,1985,36,ERSAMA,KAILASH GACHHAYAT,parties.IN.IND,IND,210,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-37,odisha,1985,37,BALIKUDA,JYOTISH CHANDRA DAS,parties.IN.INC,INC,38443,51.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-37,odisha,1985,37,BALIKUDA,UMESH CHANDRA SWAIN,parties.IN.JP,JNP,31209,42.1,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-37,odisha,1985,37,BALIKUDA,NIRMAL CHANDRA DAS,parties.IN.IND,IND,1868,2.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-37,odisha,1985,37,BALIKUDA,SANJAYA KUMAR MOHANTY,parties.IN.BJP,BJP,1226,1.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-37,odisha,1985,37,BALIKUDA,BICHIT RANANDA MOHANTY,parties.IN.IND,IND,760,1.03,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-37,odisha,1985,37,BALIKUDA,DHULESWAR NAYAK,parties.IN.IND,IND,497,0.67,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-37,odisha,1985,37,BALIKUDA,ADARSH KUMAR LENKA,parties.IN.IND,IND,131,0.18,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-38,odisha,1985,38,JAGATSINGHPUR,KAILASH CHANDRA MALLIK,parties.IN.INC,INC,34905,53.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-38,odisha,1985,38,JAGATSINGHPUR,BISHNU CHARAN DAS,parties.IN.JP,JNP,26819,40.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-38,odisha,1985,38,JAGATSINGHPUR,PRAHALLAD SETHY,parties.IN.CPI,CPI,3934,5.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-39,odisha,1985,39,KISSANNAGAR,BATAKRISHNA JENA,parties.IN.INC,INC,30341,49.58,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-39,odisha,1985,39,KISSANNAGAR,BIRA KISHORE PARIDA,parties.IN.IND,IND,15041,24.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-39,odisha,1985,39,KISSANNAGAR,GOLAK BIHARI NAYAK,parties.IN.JP,JNP,12897,21.08,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-39,odisha,1985,39,KISSANNAGAR,AJIT KUMAR ROY,parties.IN.BJP,BJP,2913,4.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-40,odisha,1985,40,MAHANGA,S. K. MATLUB ALI,parties.IN.INC,INC,35425,52.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-40,odisha,1985,40,MAHANGA,SARAT KUMAR KAR,parties.IN.JP,JNP,27131,40.33,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-40,odisha,1985,40,MAHANGA,BIKRAM KESHARI BURMA,parties.IN.IND,IND,1974,2.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-40,odisha,1985,40,MAHANGA,DEBENDRA KUMAR MAHAPATRA,parties.IN.BJP,BJP,1092,1.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-40,odisha,1985,40,MAHANGA,SANTI LALA CHOUDHARI,parties.IN.IND,IND,941,1.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-40,odisha,1985,40,MAHANGA,NARAYAN MALLICK,parties.IN.IND,IND,271,0.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-40,odisha,1985,40,MAHANGA,BADIRUDDIN KHAN,parties.IN.IND,IND,247,0.37,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-40,odisha,1985,40,MAHANGA,PARKASH KUMAR BAL,parties.IN.IND,IND,194,0.29,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-41,odisha,1985,41,SALEPUR,MAYADHAR SETHI,parties.IN.INC,INC,29630,50.66,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-41,odisha,1985,41,SALEPUR,KALANDI BEHRA,parties.IN.JP,JNP,22508,38.48,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-41,odisha,1985,41,SALEPUR,BAIDHAR BEHERA,parties.IN.IND,IND,5613,9.6,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-41,odisha,1985,41,SALEPUR,HAREKRISHNA MALLICK,parties.IN.BJP,BJP,455,0.78,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-41,odisha,1985,41,SALEPUR,KRISHNACHANDRA SETHI,parties.IN.IND,IND,282,0.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-42,odisha,1985,42,GOBINDPUR,TRILOCHAN KANUNGO,parties.IN.IND,IND,34635,46.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-42,odisha,1985,42,GOBINDPUR,RABINDRA KUMAR MALLICK,parties.IN.INC,INC,33252,44.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-42,odisha,1985,42,GOBINDPUR,ANTARJYAMI PRADHAN,parties.IN.JP,JNP,4348,5.78,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-42,odisha,1985,42,GOBINDPUR,RAM CHANDRA SISU,parties.IN.BJP,BJP,2413,3.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-42,odisha,1985,42,GOBINDPUR,SARDA PRASAD SAMANTARAY,parties.IN.IND,IND,525,0.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-43,odisha,1985,43,CUTTACK SADAR,DOLA GOBIND PRADHAN,parties.IN.INC,INC,34059,52.27,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-43,odisha,1985,43,CUTTACK SADAR,RAJENDRA SINGH,parties.IN.JP,JNP,25703,39.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-43,odisha,1985,43,CUTTACK SADAR,JAYARAM BEHERA,parties.IN.IND,IND,1796,2.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-43,odisha,1985,43,CUTTACK SADAR,MOHIR KUMAR PANDA,parties.IN.LKD,LKD,1491,2.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-43,odisha,1985,43,CUTTACK SADAR,BADAJI CHARAN SAHU,parties.IN.IND,IND,644,0.99,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-43,odisha,1985,43,CUTTACK SADAR,KRISHNA CHANDRA MALLICK,parties.IN.IND,IND,640,0.98,6,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-43,odisha,1985,43,CUTTACK SADAR,JAGABANDHU MOHAPATRA,parties.IN.IND,IND,569,0.87,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-43,odisha,1985,43,CUTTACK SADAR,PRAHLAD CHANDRA PANDA,parties.IN.IND,IND,150,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-43,odisha,1985,43,CUTTACK SADAR,PRASAN KUMAR PARIDA,parties.IN.IND,IND,112,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-44,odisha,1985,44,CUTTACK CITY,SAYAD MUSTAFIZ AHEMAD,parties.IN.JP,JNP,31136,51.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-44,odisha,1985,44,CUTTACK CITY,ASIRBAD BEHERA,parties.IN.INC,INC,23200,38.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-44,odisha,1985,44,CUTTACK CITY,PRABIR PALIT,parties.IN.CPI,CPI,3712,6.15,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-44,odisha,1985,44,CUTTACK CITY,BIJAYA MOHAPATRA,parties.IN.BJP,BJP,1063,1.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-44,odisha,1985,44,CUTTACK CITY,CHITRANJAN DAS,parties.IN.IND,IND,488,0.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-44,odisha,1985,44,CUTTACK CITY,NIRADA PRASAN MISHRA,parties.IN.IND,IND,350,0.58,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-44,odisha,1985,44,CUTTACK CITY,SIBENDRA JEE,parties.IN.IND,IND,282,0.47,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-44,odisha,1985,44,CUTTACK CITY,BAIKUNTHA CHARAN PATNAIK,parties.IN.IND,IND,118,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-45,odisha,1985,45,CHOUDWAR,RASANANDA SAHU,parties.IN.INC,INC,31159,51.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-45,odisha,1985,45,CHOUDWAR,RAJ KISHORE RAM,parties.IN.JP,JNP,27876,45.77,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-45,odisha,1985,45,CHOUDWAR,SURENDRA NATH NAYAK,parties.IN.IND,IND,1569,2.58,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-45,odisha,1985,45,CHOUDWAR,HRUSHIKESH NATH,parties.IN.IND,IND,213,0.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-45,odisha,1985,45,CHOUDWAR,BINODA MISHRA,parties.IN.IND,IND,92,0.15,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-46,odisha,1985,46,BANKI,AKSHAYA KUMAR PATTANAIK,parties.IN.INC,INC,36825,61.34,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-46,odisha,1985,46,BANKI,GHANASHYAM SAHOO,parties.IN.JP,JNP,17878,29.78,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-46,odisha,1985,46,BANKI,GURUBARI NAIK,parties.IN.IND,IND,4596,7.66,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-46,odisha,1985,46,BANKI,RADHANATHA DEURY,parties.IN.IND,IND,733,1.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-47,odisha,1985,47,ATHGARH,JANAKI BALLAV PATNAIK,parties.IN.INC,INC,46200,84.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-47,odisha,1985,47,ATHGARH,SURYANARAYAN MISHRA,parties.IN.JP,JNP,3899,7.12,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-47,odisha,1985,47,ATHGARH,SUBHAS CHANDRA PATTANAYAK,parties.IN.CPI,CPI,3163,5.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-47,odisha,1985,47,ATHGARH,RAJKISHOR MOHANTY,parties.IN.BJP,BJP,1138,2.08,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-47,odisha,1985,47,ATHGARH,BALAKRUSHNA BEHERA,parties.IN.IND,IND,344,0.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-48,odisha,1985,48,BARAMBA,LALIT MOHAN MOHANTY,parties.IN.INC,INC,33128,55.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-48,odisha,1985,48,BARAMBA,RAJASAHEB TRILOCHAN SINGHDEB,parties.IN.IND,IND,21517,36.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-48,odisha,1985,48,BARAMBA,BAMADEV RATHA,parties.IN.JP,JNP,1375,2.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-48,odisha,1985,48,BARAMBA,KAHNU CHARAN BEHERA,parties.IN.BJP,BJP,1062,1.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-48,odisha,1985,48,BARAMBA,BANAMALI PANDA,parties.IN.IND,IND,965,1.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-48,odisha,1985,48,BARAMBA,LAXMIDHAR TRIPATHY,parties.IN.IND,IND,483,0.81,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-48,odisha,1985,48,BARAMBA,GOBERDHAN JENA,parties.IN.IND,IND,387,0.65,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-48,odisha,1985,48,BARAMBA,SURYAMANI TRIPATHY,parties.IN.IND,IND,383,0.65,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-49,odisha,1985,49,BALIPATNA,RAGHAB CHANDRA SETH,parties.IN.INC,INC,22595,45.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-49,odisha,1985,49,BALIPATNA,HRUSHIKESH NAYAK,parties.IN.JP,JNP,22081,44.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-49,odisha,1985,49,BALIPATNA,GANDHARBA BEHERA,parties.IN.IND,IND,2319,4.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-49,odisha,1985,49,BALIPATNA,SARBESWAR BHOI,parties.IN.IND,IND,871,1.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-49,odisha,1985,49,BALIPATNA,BISWANATH BHOI,parties.IN.IND,IND,582,1.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-49,odisha,1985,49,BALIPATNA,SARAT DAS,parties.IN.IND,IND,566,1.15,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-49,odisha,1985,49,BALIPATNA,JNANA RANJAN BEHERA,parties.IN.IND,IND,172,0.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-50,odisha,1985,50,BHUBANESWAR,BIJU PATNAIK,parties.IN.JP,JNP,43495,69.12,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-50,odisha,1985,50,BHUBANESWAR,SATYAPRIYA MOHANTY,parties.IN.INC,INC,15162,24.1,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-50,odisha,1985,50,BHUBANESWAR,ASIS MOHAPATRA,parties.IN.CPI,CPI,3154,5.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-50,odisha,1985,50,BHUBANESWAR,RAMESH SWIAN,parties.IN.IND,IND,629,1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-50,odisha,1985,50,BHUBANESWAR,SANATAN BEHERA,parties.IN.IND,IND,187,0.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-50,odisha,1985,50,BHUBANESWAR,TAPAN KUMAR SINHA,parties.IN.IND,IND,180,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-50,odisha,1985,50,BHUBANESWAR,SABITRI MISHRA,parties.IN.IND,IND,118,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-51,odisha,1985,51,JATNI,SURESH KUMAR ROUTARY,parties.IN.INC,INC,27567,46.56,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-51,odisha,1985,51,JATNI,SARAT CHANDRA PAIKARA,parties.IN.JP,JNP,24881,42.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-51,odisha,1985,51,JATNI,RAGHUVEER YADAV,parties.IN.LKD,LKD,3355,5.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-51,odisha,1985,51,JATNI,AJOY MISHRA,parties.IN.BJP,BJP,1619,2.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-51,odisha,1985,51,JATNI,PRAVAKA MATAGAJ SING,parties.IN.IND,IND,1601,2.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-51,odisha,1985,51,JATNI,KHIROD KUMAR PATNAIK,parties.IN.IND,IND,189,0.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-52,odisha,1985,52,PIPLI,PRADEEP KUMAR MAHARATHY,parties.IN.JP,JNP,25698,43.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-52,odisha,1985,52,PIPLI,BIPIN DAS,parties.IN.INC,INC,25359,43.03,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-52,odisha,1985,52,PIPLI,RAGHUNATH DAS,parties.IN.IND,IND,2321,3.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-52,odisha,1985,52,PIPLI,PRANAKRUSHNA DALABEHERA,parties.IN.IND,IND,1949,3.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-52,odisha,1985,52,PIPLI,SURENDRANATH MOHANTY,parties.IN.LKD,LKD,1363,2.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-52,odisha,1985,52,PIPLI,SATRUGHAN BEHERA,parties.IN.IND,IND,1015,1.72,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-52,odisha,1985,52,PIPLI,BANAMBER PARIDA,parties.IN.IND,IND,683,1.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-52,odisha,1985,52,PIPLI,NARAYAN KANDI,parties.IN.IND,IND,539,0.91,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-53,odisha,1985,53,NIMAPARA,RABINDRA KUMAR SETHY,parties.IN.INC,INC,28143,40.18,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-53,odisha,1985,53,NIMAPARA,BENUDHAR SETHY,parties.IN.JP,JNP,21510,30.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-53,odisha,1985,53,NIMAPARA,BRAHMANANDA MALLIK,parties.IN.CPI,CPI,11110,15.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-53,odisha,1985,53,NIMAPARA,CHARAN BHOI,parties.IN.IND,IND,5450,7.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-53,odisha,1985,53,NIMAPARA,MADHAB MALLIK,parties.IN.IND,IND,2095,2.99,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-53,odisha,1985,53,NIMAPARA,ASHOK KUMAR SETHI,parties.IN.LKD,LKD,1402,2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-53,odisha,1985,53,NIMAPARA,SANKAR SETHI,parties.IN.IND,IND,327,0.47,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-54,odisha,1985,54,KAKATPUR,SURENDRANATH NAIK,parties.IN.JP,JNP,43585,49.64,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-54,odisha,1985,54,KAKATPUR,SASHIBHUSAN MISRA,parties.IN.INC,INC,38014,43.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-54,odisha,1985,54,KAKATPUR,GATIKRISHAN SWAIN,parties.IN.CPI,CPI,5050,5.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-54,odisha,1985,54,KAKATPUR,BAIKUNTHA CH. DAS,parties.IN.BJP,BJP,1151,1.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-55,odisha,1985,55,SATYABADI,RABINDRA KUMAR DAS,parties.IN.INC,INC,30711,52.55,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-55,odisha,1985,55,SATYABADI,CHANDRAMADHAB MISHRA,parties.IN.JP,JNP,23862,40.83,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-55,odisha,1985,55,SATYABADI,NIRODKUMAR MISHRA,parties.IN.BJP,BJP,2895,4.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-55,odisha,1985,55,SATYABADI,PRAFULLA CHANDRA MISHRA,parties.IN.IND,IND,974,1.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-56,odisha,1985,56,PURI,BRAJAKISHOR TRIPATHY,parties.IN.JP,JNP,33561,50.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-56,odisha,1985,56,PURI,GADADHAR MISHRA,parties.IN.INC,INC,29247,44.35,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-56,odisha,1985,56,PURI,BHASKER CHANDRA MOHANTY,parties.IN.LKD,LKD,1870,2.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-56,odisha,1985,56,PURI,PITABAS MISHRA,parties.IN.IND,IND,609,0.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-56,odisha,1985,56,PURI,BISWANATH PADDY,parties.IN.IND,IND,423,0.64,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-56,odisha,1985,56,PURI,MADHUSUDAN DAS,parties.IN.IND,IND,237,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-57,odisha,1985,57,BRAHMAGIRI,GANGADHAR MOHAPATRA,parties.IN.INC,INC,30591,46.78,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-57,odisha,1985,57,BRAHMAGIRI,AJAYA KUMAR JENA,parties.IN.JP,JNP,20610,31.52,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-57,odisha,1985,57,BRAHMAGIRI,KSHITISH CHANDRA BISWAL,parties.IN.CPIM,CPM,8169,12.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-57,odisha,1985,57,BRAHMAGIRI,SURENDRANATH JENA,parties.IN.BJP,BJP,4611,7.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-57,odisha,1985,57,BRAHMAGIRI,DURGA CHARAN KHUNTIA,parties.IN.IND,IND,740,1.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-57,odisha,1985,57,BRAHMAGIRI,KRUSHNA CHANDRA JAGDEB,parties.IN.IND,IND,666,1.02,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-58,odisha,1985,58,CHILKA,DEBENDRANATH MANASINGH,parties.IN.INC,INC,39530,54.8,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-58,odisha,1985,58,CHILKA,BISWA BHUSAN HARICHANDAN,parties.IN.BJP,BJP,30037,41.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-58,odisha,1985,58,CHILKA,SATYA NARAYAN MOHAPATRA,parties.IN.JP,JNP,1512,2.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-58,odisha,1985,58,CHILKA,NARASINGH NAYAK,parties.IN.IND,IND,1057,1.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-59,odisha,1985,59,KHURDA,P.K.PATASANI,parties.IN.IND,IND,32774,50.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-59,odisha,1985,59,KHURDA,B.MISRA,parties.IN.INC,INC,29781,45.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-59,odisha,1985,59,KHURDA,R.PANDA,parties.IN.IND,IND,582,0.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-59,odisha,1985,59,KHURDA,D.MANGARAJ,parties.IN.IND,IND,533,0.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-59,odisha,1985,59,KHURDA,P.SWAIN,parties.IN.IND,IND,430,0.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-59,odisha,1985,59,KHURDA,K.BEWA,parties.IN.IND,IND,416,0.64,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-59,odisha,1985,59,KHURDA,P.MOHANTY,parties.IN.IND,IND,346,0.53,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-59,odisha,1985,59,KHURDA,B.B.PATTANAIK,parties.IN.IND,IND,160,0.25,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-60,odisha,1985,60,BEGUNIA,KAILASH CHANDRA MOHAPATRA,parties.IN.INC,INC,39565,59.99,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-60,odisha,1985,60,BEGUNIA,HARIHARA SAHOO,parties.IN.JP,JNP,11694,17.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-60,odisha,1985,60,BEGUNIA,GANGADHAR PAIKARAY,parties.IN.CPI,CPI,9001,13.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-60,odisha,1985,60,BEGUNIA,BASANT JOYASING,parties.IN.IND,IND,2764,4.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-60,odisha,1985,60,BEGUNIA,GOURANGA CHANDRA MOHAPATRA,parties.IN.BJP,BJP,1549,2.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-60,odisha,1985,60,BEGUNIA,BAURIBANDHU KHATEI,parties.IN.IND,IND,827,1.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-60,odisha,1985,60,BEGUNIA,BANKANIDHI SUBDHI,parties.IN.IND,IND,392,0.59,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-60,odisha,1985,60,BEGUNIA,AMBIKA PRASAD MOHANTY,parties.IN.IND,IND,163,0.25,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-61,odisha,1985,61,RANPUR,RAMAKANTA MISHRA,parties.IN.INC,INC,40642,63.4,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-61,odisha,1985,61,RANPUR,SHANTI DAS,parties.IN.JP,JNP,12961,20.22,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-61,odisha,1985,61,RANPUR,RAMESH CHANDRA PANDA,parties.IN.CPIM,CPM,9244,14.42,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-61,odisha,1985,61,RANPUR,SANKAR MALIK,parties.IN.IND,IND,968,1.51,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-61,odisha,1985,61,RANPUR,BIDHU BHUSHAN PATTANAIK,parties.IN.IND,IND,293,0.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-62,odisha,1985,62,NAYAGARH,BHAGABAT BEHERA,parties.IN.JP,JNP,32962,49.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-62,odisha,1985,62,NAYAGARH,BANSIDHAR SAHOO,parties.IN.INC,INC,28757,43.37,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-62,odisha,1985,62,NAYAGARH,PRATAP KUMAR NANDA,parties.IN.IND,IND,1905,2.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-62,odisha,1985,62,NAYAGARH,DEBARAJ NAIK,parties.IN.IND,IND,1683,2.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-62,odisha,1985,62,NAYAGARH,ACHYUTANANDA MOHANTY,parties.IN.IND,IND,569,0.86,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-62,odisha,1985,62,NAYAGARH,LAXMAN MISHRA,parties.IN.IND,IND,436,0.66,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-63,odisha,1985,63,KHANDAPARA,BIBHUTI BHUSAN SINGH MARDARAJ,parties.IN.INC,INC,33762,51.43,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-63,odisha,1985,63,KHANDAPARA,MAHENDRA KUMAR SWAIN,parties.IN.IND,IND,22997,35.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-63,odisha,1985,63,KHANDAPARA,ARUN KUMAR PATNAIK,parties.IN.JP,JNP,8882,13.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-64,odisha,1985,64,DASPALLA,HARIHAR KARAN,parties.IN.INC,INC,37929,57.92,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-64,odisha,1985,64,DASPALLA,RUDRA MADHAB RAY,parties.IN.JP,JNP,25159,38.42,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-64,odisha,1985,64,DASPALLA,BHABAGRAHI NAYAK,parties.IN.IND,IND,1245,1.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-64,odisha,1985,64,DASPALLA,PRASANNA KUMAR PANDA,parties.IN.IND,IND,1151,1.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-65,odisha,1985,65,JAGANATHPRASAD,DAMBURUDHAR SETHI,parties.IN.INC,INC,27057,77.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-65,odisha,1985,65,JAGANATHPRASAD,SURENDRANATH PATRA,parties.IN.JP,JNP,7945,22.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-66,odisha,1985,66,BHANJANAGAR,UMAKANTA MISRA,parties.IN.INC,INC,32247,57.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-66,odisha,1985,66,BHANJANAGAR,RAMAKRUSHNA GAUDA,parties.IN.JP,JNP,20948,37.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-66,odisha,1985,66,BHANJANAGAR,GOPALA BISOYI,parties.IN.IND,IND,921,1.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-66,odisha,1985,66,BHANJANAGAR,SIVANANDA TRIPATHY,parties.IN.BJP,BJP,782,1.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-66,odisha,1985,66,BHANJANAGAR,S. A. Z. ADENI,parties.IN.IND,IND,637,1.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-66,odisha,1985,66,BHANJANAGAR,TRILOCHAN PRADHAN,parties.IN.IND,IND,613,1.09,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-67,odisha,1985,67,SURUDA,SARAT CHANDRA PANDA,parties.IN.INC,INC,33628,55.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-67,odisha,1985,67,SURUDA,A. N. SINGH DEO,parties.IN.JP,JNP,27351,44.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-68,odisha,1985,68,ASKA,RAGHABA PARIDA,parties.IN.INC,INC,26309,44.78,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-68,odisha,1985,68,ASKA,HARI HARA SWAIN,parties.IN.JP,JNP,19315,32.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-68,odisha,1985,68,ASKA,HARIHARA DAS,parties.IN.CPI,CPI,11855,20.18,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-68,odisha,1985,68,ASKA,SARAT CHANDRA APATA,parties.IN.IND,IND,525,0.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-68,odisha,1985,68,ASKA,LALITA MOHAN SHAU,parties.IN.IND,IND,384,0.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-68,odisha,1985,68,ASKA,M. JAGANATH SAWAMY,parties.IN.IND,IND,365,0.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-69,odisha,1985,69,KAVISURYANAGAR,RADHA GOVINDA SAHU,parties.IN.INC,INC,25039,40.63,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-69,odisha,1985,69,KAVISURYANAGAR,NITYANANDA PRADHAN,parties.IN.CPI,CPI,19993,32.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-69,odisha,1985,69,KAVISURYANAGAR,BIPIN BIHARI SWAIN,parties.IN.JP,JNP,15054,24.43,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-69,odisha,1985,69,KAVISURYANAGAR,RADHA KRISHNA NANDA,parties.IN.IND,IND,677,1.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-69,odisha,1985,69,KAVISURYANAGAR,RAMA CHANDRA SAHU,parties.IN.IND,IND,461,0.75,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-69,odisha,1985,69,KAVISURYANAGAR,K. SYAMABABU SUBUDHI,parties.IN.IND,IND,404,0.66,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-70,odisha,1985,70,KODALA,RAM KRISHNA PATTNAIK,parties.IN.JP,JNP,42911,58.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-70,odisha,1985,70,KODALA,KANHU CHARAN NAYAK,parties.IN.INC,INC,29844,41.02,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-71,odisha,1985,71,KHALLIKOTE,V. SUGNANI KUMARI DEO,parties.IN.JP,JNP,37116,53.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-71,odisha,1985,71,KHALLIKOTE,MAGUNI CHARAN POLAI,parties.IN.INC,INC,30637,44.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-71,odisha,1985,71,KHALLIKOTE,KRUPA SINDHU RATH,parties.IN.IND,IND,1033,1.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-72,odisha,1985,72,CHATRAPUR,ASHOK KUMAR CHOUDHURY,parties.IN.INC,INC,28021,47.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-72,odisha,1985,72,CHATRAPUR,BISWANATH SAHU,parties.IN.CPI,CPI,21274,36.26,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-72,odisha,1985,72,CHATRAPUR,RAMA CHANDRA SETHI,parties.IN.JP,JNP,5286,9.01,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-72,odisha,1985,72,CHATRAPUR,BRAJA SUNDAR PANDA,parties.IN.IND,IND,1812,3.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-72,odisha,1985,72,CHATRAPUR,SADASIVA SAHU,parties.IN.BJP,BJP,968,1.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-72,odisha,1985,72,CHATRAPUR,NIRANJAN TRIPATHY,parties.IN.LKD,LKD,808,1.38,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-72,odisha,1985,72,CHATRAPUR,RAMA CHANDRA BEHERA,parties.IN.IND,IND,499,0.85,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-73,odisha,1985,73,HINJILI,UDAYANATH NAYAK,parties.IN.INC,INC,34755,65.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-73,odisha,1985,73,HINJILI,PADMA CHARAN SABOT,parties.IN.JP,JNP,11056,20.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-73,odisha,1985,73,HINJILI,HARIHARA SAHU,parties.IN.IND,IND,3215,6.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-73,odisha,1985,73,HINJILI,DANDAPANI DAS,parties.IN.IND,IND,1925,3.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-73,odisha,1985,73,HINJILI,CHANDRA SEKHAR SAHU,parties.IN.IND,IND,955,1.79,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-73,odisha,1985,73,HINJILI,K. SYAMA BABU SUBUDHI,parties.IN.IND,IND,586,1.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-73,odisha,1985,73,HINJILI,JUDHISTIR NAYAK,parties.IN.ICJ,ICJ,468,0.88,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-73,odisha,1985,73,HINJILI,R. V. RAMAN MURTHY,parties.IN.IND,IND,359,0.67,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-74,odisha,1985,74,GOPALPUR,GHANA SYAMA BEHERE,parties.IN.INC,INC,35851,67.67,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-74,odisha,1985,74,GOPALPUR,TRINATH BEHERA,parties.IN.IND,IND,15718,29.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-74,odisha,1985,74,GOPALPUR,UMA CHARAN BEHERA,parties.IN.BJP,BJP,979,1.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-74,odisha,1985,74,GOPALPUR,MARKANDA DAS,parties.IN.IND,IND,431,0.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-75,odisha,1985,75,BERHAMPUR,SIBASANKAR SAHANI,parties.IN.INC,INC,26670,51.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-75,odisha,1985,75,BERHAMPUR,BINAYAK MOHAPATRA,parties.IN.IND,IND,17488,33.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-75,odisha,1985,75,BERHAMPUR,ALIKISHOR PATNAYAK,parties.IN.CPIM,CPM,3779,7.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-75,odisha,1985,75,BERHAMPUR,KHALI SAHU,parties.IN.IND,IND,1828,3.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-75,odisha,1985,75,BERHAMPUR,SATISH KUMAR PATRAO,parties.IN.BJP,BJP,1026,1.98,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-75,odisha,1985,75,BERHAMPUR,BALAJI SAHU,parties.IN.IND,IND,609,1.17,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-75,odisha,1985,75,BERHAMPUR,RAMA CHANDRA SAHU,parties.IN.IND,IND,273,0.53,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-75,odisha,1985,75,BERHAMPUR,KASINATH MOHAPATRO,parties.IN.IND,IND,238,0.46,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-76,odisha,1985,76,CHIKATI,CHINTAMANI DAYAN SAMANTARA,parties.IN.INC,INC,43664,61.74,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-76,odisha,1985,76,CHIKATI,USHA DEVI,parties.IN.JP,JNP,27058,38.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-77,odisha,1985,77,MOHANA,SARAT KUMAR JENA,parties.IN.INC,INC,30567,64.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-77,odisha,1985,77,MOHANA,UDAYA NARAYAN DEV,parties.IN.JP,JNP,15166,31.99,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-77,odisha,1985,77,MOHANA,BANCHANIDHI PANDA,parties.IN.IND,IND,1670,3.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-78,odisha,1985,78,RAMAGIRI,HAWADHAR KARJI,parties.IN.IND,IND,17946,47.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-78,odisha,1985,78,RAMAGIRI,GROSANG SAYARA,parties.IN.INC,INC,16081,42.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-78,odisha,1985,78,RAMAGIRI,BHARAT PAIK,parties.IN.JP,JNP,3244,8.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-78,odisha,1985,78,RAMAGIRI,KORA SAMAR,parties.IN.IND,IND,388,1.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-79,odisha,1985,79,PARLAKHEMUNDI,TRINATH SAHU,parties.IN.INC,INC,33310,47.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-79,odisha,1985,79,PARLAKHEMUNDI,DARAPULACHANA NAIDU,parties.IN.JP,JNP,28179,40.31,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-79,odisha,1985,79,PARLAKHEMUNDI,JONNA SUBASH CHANDRA RAO,parties.IN.CPI,CPI,6286,8.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-79,odisha,1985,79,PARLAKHEMUNDI,AMARANATH PATRO,parties.IN.IND,IND,1779,2.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-79,odisha,1985,79,PARLAKHEMUNDI,SITARAM DAS BABAJI,parties.IN.BJP,BJP,350,0.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-80,odisha,1985,80,GUNUPUR,BHAGIRATHI GOMANGO,parties.IN.INC,INC,30047,80.57,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-80,odisha,1985,80,GUNUPUR,BIJAYA KUMAR GOMANGO,parties.IN.JP,JNP,3873,10.38,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-80,odisha,1985,80,GUNUPUR,MINA SABAR,parties.IN.IND,IND,3375,9.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-81,odisha,1985,81,BISSAM-CUTTACK,DAMBARU DHAR ULAKA,parties.IN.INC,INC,28970,66.45,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-81,odisha,1985,81,BISSAM-CUTTACK,SARANG DHAR KAORAKA,parties.IN.IND,IND,9744,22.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-81,odisha,1985,81,BISSAM-CUTTACK,SANYASI CHARAN PIDIKAKA,parties.IN.JP,JNP,4884,11.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-82,odisha,1985,82,RAYAGADA,ULAKA RAMO CHANDRA,parties.IN.INC,INC,38176,75.44,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-82,odisha,1985,82,RAYAGADA,HIMIRIKA LALBEHARI,parties.IN.JP,JNP,8879,17.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-82,odisha,1985,82,RAYAGADA,HIMIRIKA PADMACHARAN,parties.IN.IND,IND,3552,7.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-83,odisha,1985,83,LAKSHMIPUR,ANANTARAM MAJHI,parties.IN.INC,INC,16060,61.51,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-83,odisha,1985,83,LAKSHMIPUR,AKHILL SOUNTA,parties.IN.JP,JNP,10051,38.49,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-84,odisha,1985,84,POTTANGI,CHANDRAMA SAUNTA,parties.IN.INC,INC,10816,43.69,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-84,odisha,1985,84,POTTANGI,JAYARAM PANGI,parties.IN.JP,JNP,10684,43.16,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-84,odisha,1985,84,POTTANGI,GHENUA NAIK,parties.IN.IND,IND,1224,4.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-84,odisha,1985,84,POTTANGI,BISU MUDULI,parties.IN.IND,IND,1035,4.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-84,odisha,1985,84,POTTANGI,PANGI KATRU,parties.IN.BJP,BJP,998,4.03,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-85,odisha,1985,85,KORAPUT,NRUSHIMANANDA BRAHMA,parties.IN.INC,INC,18024,54.24,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-85,odisha,1985,85,KORAPUT,HARISH CHANDRA BAXI PATRA,parties.IN.JP,JNP,12932,38.92,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-85,odisha,1985,85,KORAPUT,RAMESCHANDRA PANIGRAH,parties.IN.BJP,BJP,1277,3.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-85,odisha,1985,85,KORAPUT,DAYANIDHI PATRA KULDIP,parties.IN.IND,IND,838,2.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-85,odisha,1985,85,KORAPUT,LAXMAN NAIK,parties.IN.IND,IND,160,0.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-86,odisha,1985,86,MALKANGIRI,NADIABASI BISWAS,parties.IN.IND,IND,13885,36.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-86,odisha,1985,86,MALKANGIRI,NAKA KANAYYA,parties.IN.JP,JNP,12683,33.76,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-86,odisha,1985,86,MALKANGIRI,NAKA LACHHAMAYA,parties.IN.INC,INC,10105,26.9,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-86,odisha,1985,86,MALKANGIRI,SUKUMAR BARMAN,parties.IN.BJP,BJP,895,2.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-87,odisha,1985,87,CHITRAKONDA,GANGADHAR MADI,parties.IN.INC,INC,10389,49.91,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-87,odisha,1985,87,CHITRAKONDA,PRAHALLAD DORA,parties.IN.JP,JNP,6693,32.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-87,odisha,1985,87,CHITRAKONDA,PRASAD BHUMIA,parties.IN.CPI,CPI,2298,11.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-87,odisha,1985,87,CHITRAKONDA,GANGADHAR JHOLA,parties.IN.IND,IND,1437,6.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-88,odisha,1985,88,KOTPAD,BASUDEV MAJHI,parties.IN.INC,INC,15536,72.8,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-88,odisha,1985,88,KOTPAD,DHONOR MAJHI,parties.IN.IND,IND,3158,14.8,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-88,odisha,1985,88,KOTPAD,PURUSOTAM CHOUDHURY,parties.IN.JP,JNP,2648,12.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-89,odisha,1985,89,JEYPORE,GUPTA PRASAD DAS,parties.IN.INC,INC,31058,71.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-89,odisha,1985,89,JEYPORE,BHARAT BHUSAN PATTANAIK,parties.IN.JP,JNP,5313,12.19,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-89,odisha,1985,89,JEYPORE,LAL LAMBODARSING DEO,parties.IN.BJP,BJP,4663,10.7,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-89,odisha,1985,89,JEYPORE,V. JAGANNADHAM,parties.IN.IND,IND,817,1.87,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-89,odisha,1985,89,JEYPORE,ANANTA BANUA,parties.IN.IND,IND,789,1.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-89,odisha,1985,89,JEYPORE,SOMANATH ROY,parties.IN.IND,IND,483,1.11,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-89,odisha,1985,89,JEYPORE,KULODHAR KHORA,parties.IN.IND,IND,458,1.05,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-90,odisha,1985,90,NOWRANGPUR,HABIBULLA KHAN,parties.IN.INC,INC,33058,76.09,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-90,odisha,1985,90,NOWRANGPUR,SODASIB NAIK,parties.IN.JP,JNP,2896,6.67,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-90,odisha,1985,90,NOWRANGPUR,CHOITANYA BESSOYE,parties.IN.IND,IND,2489,5.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-90,odisha,1985,90,NOWRANGPUR,N. AHMAD,parties.IN.IND,IND,2380,5.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-90,odisha,1985,90,NOWRANGPUR,DURGA PRASA DAS,parties.IN.BJP,BJP,1789,4.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-90,odisha,1985,90,NOWRANGPUR,NOROSINGO TRIPATHY,parties.IN.IND,IND,422,0.97,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-90,odisha,1985,90,NOWRANGPUR,GOVERDHAN BEHRA,parties.IN.IND,IND,411,0.95,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-91,odisha,1985,91,KODINGA,BHOGABATI PUJARI,parties.IN.INC,INC,18544,66.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-91,odisha,1985,91,KODINGA,SAMBARU MAJHI,parties.IN.JP,JNP,9378,33.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-92,odisha,1985,92,DABUGAM,DOMBURU MAJHI,parties.IN.INC,INC,20565,52.13,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-92,odisha,1985,92,DABUGAM,BHOGABAN MAJHI,parties.IN.JP,JNP,17888,45.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-92,odisha,1985,92,DABUGAM,LAXMIDHAR SANTA,parties.IN.BJP,BJP,1000,2.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-93,odisha,1985,93,UMARKOTE,PORAMA PUJARI,parties.IN.INC,INC,17600,49.94,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-93,odisha,1985,93,UMARKOTE,PURNA CHANDRA PUJARI,parties.IN.BJP,BJP,10464,29.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-93,odisha,1985,93,UMARKOTE,RABISING MAJHI,parties.IN.JP,JNP,6497,18.44,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-93,odisha,1985,93,UMARKOTE,DOLOSAYA SAMARATH,parties.IN.IND,IND,373,1.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-93,odisha,1985,93,UMARKOTE,LAXMI NARAYAN MAJHI,parties.IN.IND,IND,307,0.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-94,odisha,1985,94,NAWAPARA,GHASI RAM MAJHI,parties.IN.JP,JNP,22003,49.65,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-94,odisha,1985,94,NAWAPARA,PREM KUMAR AZAD,parties.IN.INC,INC,21259,47.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-94,odisha,1985,94,NAWAPARA,BASUDEV BHOI,parties.IN.BJP,BJP,1056,2.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-95,odisha,1985,95,KHARIAR,ANUP SINGH DEO,parties.IN.INC,INC,11919,25.78,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-95,odisha,1985,95,KHARIAR,DURYADHAN MAJHI,parties.IN.JP,JNP,10925,23.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-95,odisha,1985,95,KHARIAR,KAPIL NARAYAN TIWARI,parties.IN.IND,IND,9960,21.55,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-95,odisha,1985,95,KHARIAR,AWADH NARAYAN TIWARI,parties.IN.IND,IND,5250,11.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-95,odisha,1985,95,KHARIAR,BHAJAN LAL,parties.IN.IND,IND,1709,3.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-95,odisha,1985,95,KHARIAR,SUSANT PATNAIK,parties.IN.IND,IND,1428,3.09,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-95,odisha,1985,95,KHARIAR,KESAB BEHERA,parties.IN.IND,IND,1344,2.91,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-95,odisha,1985,95,KHARIAR,JAMUNA PRASAD NAIL,parties.IN.LKD,LKD,1180,2.55,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-95,odisha,1985,95,KHARIAR,ABDULHADI KHAN,parties.IN.IND,IND,993,2.15,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-95,odisha,1985,95,KHARIAR,LALSINGH BARIK,parties.IN.IND,IND,670,1.45,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-95,odisha,1985,95,KHARIAR,KIRTAN BAG,parties.IN.IND,IND,318,0.69,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-95,odisha,1985,95,KHARIAR,PRAVAS CHANDRA PATNAIK,parties.IN.IND,IND,292,0.63,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-95,odisha,1985,95,KHARIAR,RAJENDRA PRASAD KACHHIA,parties.IN.IND,IND,240,0.52,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-96,odisha,1985,96,DHARAMGARH,JUGARAM BEHERA,parties.IN.INC,INC,17033,61.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-96,odisha,1985,96,DHARAMGARH,PANCHANANA SINDHUR,parties.IN.JP,JNP,7323,26.42,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-96,odisha,1985,96,DHARAMGARH,BISHNU PRASAD DHANGADA MAJHI,parties.IN.BJP,BJP,1494,5.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-96,odisha,1985,96,DHARAMGARH,PANDARU BAG,parties.IN.IND,IND,1108,4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-96,odisha,1985,96,DHARAMGARH,BHANU JAL,parties.IN.IND,IND,759,2.74,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-97,odisha,1985,97,KOKSARA,RAHAS BIHARI BEHERA,parties.IN.INC,INC,15773,42.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-97,odisha,1985,97,KOKSARA,SURENDRA KUMAR PATTAJOSHI,parties.IN.JP,JNP,9971,26.94,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-97,odisha,1985,97,KOKSARA,KRUTIBAS PUJHARI,parties.IN.IND,IND,6047,16.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-97,odisha,1985,97,KOKSARA,JUGAL KISHORE SINGH,parties.IN.IND,IND,2052,5.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-97,odisha,1985,97,KOKSARA,TRILOCHAN NAIK,parties.IN.IND,IND,1257,3.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-97,odisha,1985,97,KOKSARA,BISWANATH AGRAWAL,parties.IN.IND,IND,997,2.69,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-97,odisha,1985,97,KOKSARA,RANSAI NAIK,parties.IN.IND,IND,471,1.27,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-97,odisha,1985,97,KOKSARA,SURENDRA KUMAR BISI,parties.IN.IND,IND,444,1.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1985,98,JUNAGARH,BIKRAM KESHARI DEO,parties.IN.JP,JNP,20384,51.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1985,98,JUNAGARH,JAGANNATH MUND,parties.IN.INC,INC,13616,34.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1985,98,JUNAGARH,SADASHIVA NAIK,parties.IN.IND,IND,1334,3.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1985,98,JUNAGARH,BIRANCHI BHOI,parties.IN.IND,IND,1261,3.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1985,98,JUNAGARH,NARSINGA PANDA,parties.IN.LKD,LKD,1253,3.17,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1985,98,JUNAGARH,GHASI RAM ROUT,parties.IN.IND,IND,735,1.86,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1985,98,JUNAGARH,RUDRA PRASAD SAHOO,parties.IN.IND,IND,732,1.85,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-98,odisha,1985,98,JUNAGARH,SURENDRA KUMAR BISI,parties.IN.IND,IND,154,0.39,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-99,odisha,1985,99,BHAWANIPATNA,BHAKTACHARAN DAS,parties.IN.JP,JNP,16246,45.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-99,odisha,1985,99,BHAWANIPATNA,DAYANIDHI NAIK,parties.IN.INC,INC,15729,44.06,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-99,odisha,1985,99,BHAWANIPATNA,ASHEWAR BAG,parties.IN.IND,IND,1484,4.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-99,odisha,1985,99,BHAWANIPATNA,PREDESHI NAYAK,parties.IN.LKD,LKD,1363,3.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-99,odisha,1985,99,BHAWANIPATNA,JAYA KUMAR NAIK,parties.IN.IND,IND,874,2.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-100,odisha,1985,100,NARLA,KUMARMANI SABAR,parties.IN.INC,INC,14610,53.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-100,odisha,1985,100,NARLA,DHANESWAR MAJHI,parties.IN.JP,JNP,7992,29.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-100,odisha,1985,100,NARLA,BENUDHAR BHOI,parties.IN.CPIM,CPM,3801,13.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-100,odisha,1985,100,NARLA,NAKULA MAJHI,parties.IN.IND,IND,1078,3.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-101,odisha,1985,101,KESINGA,BHUPINDER SINGH,parties.IN.INC,INC,25314,51.61,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-101,odisha,1985,101,KESINGA,KIRANCHANDRA SINGH DEO,parties.IN.JP,JNP,22026,44.91,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-101,odisha,1985,101,KESINGA,HARI PRASA,parties.IN.LKD,LKD,1708,3.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-102,odisha,1985,102,BALLIGUDA,LAXMIKANTA MALLIK,parties.IN.INC,INC,25827,58.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-102,odisha,1985,102,BALLIGUDA,SADANANA KONHAR,parties.IN.JP,JNP,14683,33.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-102,odisha,1985,102,BALLIGUDA,RAJA KISHORE MOLLIK,parties.IN.IND,IND,2099,4.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-102,odisha,1985,102,BALLIGUDA,BALARAM MALLIK,parties.IN.IND,IND,889,2.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-102,odisha,1985,102,BALLIGUDA,MADHAV CHARAN KONHAR,parties.IN.IND,IND,701,1.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-103,odisha,1985,103,UDAYAGIRI,NAGARJUN PRADHAN,parties.IN.INC,INC,25144,58.25,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-103,odisha,1985,103,UDAYAGIRI,PAUL PRADHAN,parties.IN.IND,IND,6104,14.14,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-103,odisha,1985,103,UDAYAGIRI,RANJIT KUMAR PRADHAN,parties.IN.JP,JNP,5940,13.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-103,odisha,1985,103,UDAYAGIRI,TARABATI PRADHAN,parties.IN.IND,IND,4259,9.87,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-103,odisha,1985,103,UDAYAGIRI,BHASKAR PRADHAN,parties.IN.BJP,BJP,1718,3.98,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-104,odisha,1985,104,PHULBANI,ABHIMANYU BEHERA,parties.IN.INC,INC,17572,46.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-104,odisha,1985,104,PHULBANI,SUNYABASI BEHERA,parties.IN.JP,JNP,9272,24.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-104,odisha,1985,104,PHULBANI,PADMANABHA BEHERA,parties.IN.IND,IND,8094,21.49,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-104,odisha,1985,104,PHULBANI,BRAJAMOHAN BEHERA,parties.IN.BJP,BJP,1191,3.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-104,odisha,1985,104,PHULBANI,MAHADEB MAHANANDA,parties.IN.IND,IND,899,2.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-104,odisha,1985,104,PHULBANI,INKISH DIGAL,parties.IN.IND,IND,644,1.71,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-105,odisha,1985,105,BOUDH,SUJIT KUMAR PADHI,parties.IN.INC,INC,26267,42.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-105,odisha,1985,105,BOUDH,GIRISH KUMARI PRADHAN,parties.IN.JP,JNP,18055,29.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-105,odisha,1985,105,BOUDH,GIRISH CHANDRA PANDA,parties.IN.IND,IND,11605,18.69,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-105,odisha,1985,105,BOUDH,DINABANDHU HOTA,parties.IN.BJP,BJP,2513,4.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-105,odisha,1985,105,BOUDH,ANADI BADI,parties.IN.IND,IND,1362,2.19,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-105,odisha,1985,105,BOUDH,PRADOSH KUMAR MISHRA,parties.IN.IND,IND,954,1.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-105,odisha,1985,105,BOUDH,NARAYAN SAHU,parties.IN.IND,IND,654,1.05,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-105,odisha,1985,105,BOUDH,BANAMALI PANIGRAHI,parties.IN.IND,IND,447,0.72,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-105,odisha,1985,105,BOUDH,PRAHALLAD RAI AGRAWALA,parties.IN.IND,IND,224,0.36,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-106,odisha,1985,106,TITILAGARH,PURNA CHANDRA MAHANANDA,parties.IN.INC,INC,20865,65.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-106,odisha,1985,106,TITILAGARH,JOGENDRA BEHERA,parties.IN.JP,JNP,6872,21.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-106,odisha,1985,106,TITILAGARH,LALU MEHER,parties.IN.CPI,CPI,1647,5.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-106,odisha,1985,106,TITILAGARH,BINAMI HARPAL,parties.IN.IND,IND,1043,3.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-106,odisha,1985,106,TITILAGARH,NANDA KUMAR MAHANANDA,parties.IN.IND,IND,568,1.77,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-106,odisha,1985,106,TITILAGARH,UTTAMA NAIK,parties.IN.IND,IND,474,1.48,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-106,odisha,1985,106,TITILAGARH,NILAMANI NAIK,parties.IN.IND,IND,358,1.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-106,odisha,1985,106,TITILAGARH,HEMANTA KUMAR SIPKA,parties.IN.IND,IND,259,0.81,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-107,odisha,1985,107,KANTABANJI,CHAITANYA PRADHAN,parties.IN.IND,IND,19879,46.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-107,odisha,1985,107,KANTABANJI,PRASANNA KUMAR PAL,parties.IN.INC,INC,18460,43.34,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-107,odisha,1985,107,KANTABANJI,TAPICHARAN SAHU,parties.IN.JP,JNP,2332,5.48,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-107,odisha,1985,107,KANTABANJI,PREMSINGH HANSPAL,parties.IN.BJP,BJP,1094,2.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-107,odisha,1985,107,KANTABANJI,KALARSING MATHIRANA,parties.IN.IND,IND,389,0.91,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-107,odisha,1985,107,KANTABANJI,MAHADEB MAJHI,parties.IN.IND,IND,319,0.75,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-107,odisha,1985,107,KANTABANJI,RAMESH CHANRA DAS,parties.IN.IND,IND,116,0.27,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-108,odisha,1985,108,PATNAGARH,SUSHIL KUMAR PRUSHTY,parties.IN.INC,INC,22792,43.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-108,odisha,1985,108,PATNAGARH,BIBEKANANDA MEHER,parties.IN.IND,IND,15476,29.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-108,odisha,1985,108,PATNAGARH,AINTHU SAHOO,parties.IN.JP,JNP,10196,19.26,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-108,odisha,1985,108,PATNAGARH,CHHELLA MAJHI,parties.IN.IND,IND,1956,3.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-108,odisha,1985,108,PATNAGARH,PRIYARAJ BAG,parties.IN.IND,IND,1737,3.28,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-108,odisha,1985,108,PATNAGARH,KAJHUCHARAN KUMBHAR,parties.IN.IND,IND,786,1.48,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-109,odisha,1985,109,SAINTALA,RADHA KANTA PANDA,parties.IN.INC,INC,19447,49.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-109,odisha,1985,109,SAINTALA,JAGNESWAR BABU,parties.IN.JP,JNP,11457,29.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-109,odisha,1985,109,SAINTALA,PARIKHIT MEHER,parties.IN.BJP,BJP,5463,13.96,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-109,odisha,1985,109,SAINTALA,PARAMANANDA BHATI,parties.IN.IND,IND,1202,3.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-109,odisha,1985,109,SAINTALA,BHARAT CHANDRA BEHERA,parties.IN.IND,IND,869,2.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-109,odisha,1985,109,SAINTALA,AKSHYAYA PATTNAIK,parties.IN.IND,IND,686,1.75,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-110,odisha,1985,110,LOISINGHA,BALGOPAL MISHRA,parties.IN.IND,IND,41457,65.37,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-110,odisha,1985,110,LOISINGHA,SURYABHANU MISHRA,parties.IN.INC,INC,18124,28.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-110,odisha,1985,110,LOISINGHA,SAROJ KUMAR MISHRA,parties.IN.JP,JNP,2554,4.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-110,odisha,1985,110,LOISINGHA,BHAGABANA KALET,parties.IN.IND,IND,1281,2.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-111,odisha,1985,111,BOLANGIR,MAHAMMAD MUJAFAR HUSSAIN KHAN,parties.IN.INC,INC,32080,68.85,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-111,odisha,1985,111,BOLANGIR,MURALIDHAR GURU,parties.IN.JP,JNP,9412,20.2,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-111,odisha,1985,111,BOLANGIR,PARSURAM HOTA,parties.IN.BJP,BJP,3274,7.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-111,odisha,1985,111,BOLANGIR,SURENDRA BAG,parties.IN.IND,IND,1827,3.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-112,odisha,1985,112,SONEPUR,ACGYUTA BISWAL,parties.IN.INC,INC,22463,62.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-112,odisha,1985,112,SONEPUR,DEBRAJ SETH,parties.IN.JP,JNP,6389,17.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-112,odisha,1985,112,SONEPUR,MAHAKU NAG,parties.IN.IND,IND,3149,8.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-112,odisha,1985,112,SONEPUR,LAXMI PRASAD BEHERA,parties.IN.IND,IND,1440,4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-112,odisha,1985,112,SONEPUR,ABHIMANYU BARIK,parties.IN.BJP,BJP,1427,3.96,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-112,odisha,1985,112,SONEPUR,SADANANDA MAHANANDA,parties.IN.IND,IND,635,1.76,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-112,odisha,1985,112,SONEPUR,LANKESWAR TANDI,parties.IN.IND,IND,513,1.42,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-113,odisha,1985,113,BINKA,CHITIARANJAN MISHRA,parties.IN.INC,INC,31989,45.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-113,odisha,1985,113,BINKA,PANCHANAN MISHRA,parties.IN.JP,JNP,27095,38.81,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-113,odisha,1985,113,BINKA,PARIKSHITA KARNA,parties.IN.IND,IND,4694,6.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-113,odisha,1985,113,BINKA,RANJIT MEHER,parties.IN.IND,IND,3174,4.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-113,odisha,1985,113,BINKA,JIBARDHAN BHARASAGAR,parties.IN.IND,IND,1939,2.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-113,odisha,1985,113,BINKA,GOVINDA SAHOO,parties.IN.BJP,BJP,921,1.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-114,odisha,1985,114,BIRMAHARAJPUR,KARTIKA PRASAD TARIA,parties.IN.INC,INC,19430,38.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-114,odisha,1985,114,BIRMAHARAJPUR,RABINDRAYAN PANIGRAHI,parties.IN.IND,IND,13374,26.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-114,odisha,1985,114,BIRMAHARAJPUR,SURENDRA PRADHAN,parties.IN.JP,JNP,11123,22.07,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-114,odisha,1985,114,BIRMAHARAJPUR,SANJEEB KUMAR SAHOO,parties.IN.IND,IND,2924,5.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-114,odisha,1985,114,BIRMAHARAJPUR,ANIL KALAYAT,parties.IN.IND,IND,1439,2.85,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-114,odisha,1985,114,BIRMAHARAJPUR,SANAT KUMAR PANIGRAHI,parties.IN.ICS,ICS,1227,2.43,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-114,odisha,1985,114,BIRMAHARAJPUR,BASUDEV PRADHAN,parties.IN.IND,IND,631,1.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-114,odisha,1985,114,BIRMAHARAJPUR,ANANDA CH. BEHERA,parties.IN.IND,IND,262,0.52,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-115,odisha,1985,115,ATHMALLIK,AMARANATH PRADHAN,parties.IN.INC,INC,25602,48.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-115,odisha,1985,115,ATHMALLIK,BALAKRISHNA PATTNAIK,parties.IN.JP,JNP,16594,31.15,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-115,odisha,1985,115,ATHMALLIK,PRADIP CHANDRA DEO,parties.IN.IND,IND,7520,14.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-115,odisha,1985,115,ATHMALLIK,NABAGAHNA NAYAK,parties.IN.IND,IND,1807,3.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-115,odisha,1985,115,ATHMALLIK,CHITTARANJAN DASH,parties.IN.BJP,BJP,1047,1.97,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-115,odisha,1985,115,ATHMALLIK,SARJAN MEHER,parties.IN.IND,IND,307,0.58,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-115,odisha,1985,115,ATHMALLIK,SADHU CHARAN BEHERA,parties.IN.IND,IND,212,0.4,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-115,odisha,1985,115,ATHMALLIK,HABIHARA PATRA,parties.IN.IND,IND,180,0.34,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-116,odisha,1985,116,ANGUL,PRAFULLA MISRA,parties.IN.INC,INC,29692,50.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-116,odisha,1985,116,ANGUL,ADWAIT PRASAD SINGH,parties.IN.JP,JNP,21875,37.13,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-116,odisha,1985,116,ANGUL,RAJKISOR MISRA,parties.IN.IND,IND,2274,3.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-116,odisha,1985,116,ANGUL,HRUSHIKESH PRADHAN,parties.IN.CPI,CPI,1948,3.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-116,odisha,1985,116,ANGUL,BIHARI NAIK,parties.IN.IND,IND,1900,3.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-116,odisha,1985,116,ANGUL,HARAMOHAN DASH,parties.IN.BJP,BJP,1225,2.08,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-117,odisha,1985,117,HINDOL,RABINARAYAN NAIK,parties.IN.INC,INC,20486,47.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-117,odisha,1985,117,HINDOL,TRINATHAN NAYAK,parties.IN.JP,JNP,14797,34.08,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-117,odisha,1985,117,HINDOL,HEMANTA KUMAR BEHERA,parties.IN.IND,IND,6910,15.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-117,odisha,1985,117,HINDOL,MULU PRADHAN,parties.IN.IND,IND,684,1.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-117,odisha,1985,117,HINDOL,KAILASH CHANDRA BEHERA,parties.IN.IND,IND,540,1.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-118,odisha,1985,118,DHENKANAL,NANDINI SATAPATHY,parties.IN.IND,IND,26308,64.09,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-118,odisha,1985,118,DHENKANAL,UCHHAB SAHOO,parties.IN.INC,INC,12290,29.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-118,odisha,1985,118,DHENKANAL,SUSHIL KUMAR PATNAIK,parties.IN.JP,JNP,2006,4.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-118,odisha,1985,118,DHENKANAL,KAMESHWAR PANDA,parties.IN.IND,IND,341,0.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-118,odisha,1985,118,DHENKANAL,ARUNA PATNAIK,parties.IN.IND,IND,103,0.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-119,odisha,1985,119,GONDIA,PRAFULLA KUMAR BHANJA,parties.IN.INC,INC,27593,66.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-119,odisha,1985,119,GONDIA,HALADHAR MISHRA,parties.IN.IND,IND,11040,26.53,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-119,odisha,1985,119,GONDIA,SURENDRA PRASAD SINGH,parties.IN.JP,JNP,2540,6.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-119,odisha,1985,119,GONDIA,SARAT CHANDRA SATPATHY,parties.IN.IND,IND,445,1.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-120,odisha,1985,120,KAMAKHYANAGAR,PRASAN PATTANAYAK,parties.IN.BJP,BJP,28647,48.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-120,odisha,1985,120,KAMAKHYANAGAR,BAIDHAR SWAIN,parties.IN.INC,INC,25535,42.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-120,odisha,1985,120,KAMAKHYANAGAR,SANTABALA DEVI,parties.IN.JP,JNP,2267,3.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-120,odisha,1985,120,KAMAKHYANAGAR,DEBRAJ BARAL,parties.IN.IND,IND,1941,3.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-120,odisha,1985,120,KAMAKHYANAGAR,SUKANTA KUMAR PANDA,parties.IN.IND,IND,342,0.57,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-120,odisha,1985,120,KAMAKHYANAGAR,SAUBHAGYA ROUT,parties.IN.LKD,LKD,274,0.46,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-120,odisha,1985,120,KAMAKHYANAGAR,BHIMSEN DEHURY,parties.IN.IND,IND,218,0.37,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-120,odisha,1985,120,KAMAKHYANAGAR,JOGINATH NAIK,parties.IN.IND,IND,209,0.35,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-120,odisha,1985,120,KAMAKHYANAGAR,MOHARATHI NAYAK,parties.IN.IND,IND,63,0.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-121,odisha,1985,121,PALLAHARA,BIBHUDHENDRA PRATAP DAS,parties.IN.INC,INC,20784,43.97,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-121,odisha,1985,121,PALLAHARA,NRUSINGHA CH. SAHU,parties.IN.JP,JNP,16162,34.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-121,odisha,1985,121,PALLAHARA,BANSHIDHAR SAHU,parties.IN.IND,IND,4856,10.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-121,odisha,1985,121,PALLAHARA,TANKADHAR SAHU,parties.IN.IND,IND,2914,6.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-121,odisha,1985,121,PALLAHARA,AMARENDRA KUMAR DILLESHWARE,parties.IN.IND,IND,2548,5.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-122,odisha,1985,122,TALCHER,BHAJAMAN BEHERA,parties.IN.INC,INC,34992,57.59,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-122,odisha,1985,122,TALCHER,BRUNDABAN BEHERA,parties.IN.JP,JNP,19237,31.66,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-122,odisha,1985,122,TALCHER,NARAYAN NAIK,parties.IN.IND,IND,2717,4.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-122,odisha,1985,122,TALCHER,DAYANINDHI NAIK,parties.IN.IND,IND,2207,3.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-122,odisha,1985,122,TALCHER,PADMA CHARAN NAYAK,parties.IN.IND,IND,1209,1.99,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-122,odisha,1985,122,TALCHER,GOBINDA CHANDRA NAIK,parties.IN.IND,IND,400,0.66,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-123,odisha,1985,123,PADAMPUR,SATYABHUSAN SAHU,parties.IN.INC,INC,28753,64.49,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-123,odisha,1985,123,PADAMPUR,DUKHISHYAM PRADHAN,parties.IN.JP,JNP,9081,20.37,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-123,odisha,1985,123,PADAMPUR,NANDLAL PRASAD TRIVEDY,parties.IN.IND,IND,6753,15.15,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-124,odisha,1985,124,MELCHHAMUNDA,PRAKASHCHANDRA DEBTA,parties.IN.INC,INC,26790,51.58,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-124,odisha,1985,124,MELCHHAMUNDA,MURARIPRASAD MISHRA,parties.IN.JP,JNP,23177,44.62,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-124,odisha,1985,124,MELCHHAMUNDA,DURJODHAN BARIHA,parties.IN.IND,IND,1505,2.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-124,odisha,1985,124,MELCHHAMUNDA,SASHIBHUSAN BHOI,parties.IN.IND,IND,468,0.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-125,odisha,1985,125,BIJEPUR,NIKUNJA BIHARI SINGH,parties.IN.JP,JNP,33691,58.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-125,odisha,1985,125,BIJEPUR,SARAWATI PRADHAN,parties.IN.INC,INC,22880,39.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-125,odisha,1985,125,BIJEPUR,TRIBIKRAM MALLICK,parties.IN.IND,IND,1061,1.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-126,odisha,1985,126,BHATLI,MOHAN NAG,parties.IN.INC,INC,33994,58.97,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-126,odisha,1985,126,BHATLI,BIMBADHAR KUANR,parties.IN.BJP,BJP,18644,32.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-126,odisha,1985,126,BHATLI,TIKELAL BANCHHOR,parties.IN.CPI,CPI,3138,5.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-126,odisha,1985,126,BHATLI,MINKETAN BAG,parties.IN.IND,IND,1320,2.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-126,odisha,1985,126,BHATLI,SEBAK NANDA,parties.IN.IND,IND,548,0.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-127,odisha,1985,127,BARGARH,JADUMMANI PRADHAN,parties.IN.INC,INC,40195,54.21,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-127,odisha,1985,127,BARGARH,ANANDA ACHARYA,parties.IN.JP,JNP,29053,39.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-127,odisha,1985,127,BARGARH,CHAKRADHAR BHOINA,parties.IN.IND,IND,2231,3.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-127,odisha,1985,127,BARGARH,DALGANJAN CHHURIA,parties.IN.IND,IND,2167,2.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-127,odisha,1985,127,BARGARH,RAMENDRA NARAYAN SINGH DEO,parties.IN.IND,IND,505,0.68,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-128,odisha,1985,128,SAMBALPUR,SHADHAKAR SOPAKAR,parties.IN.INC,INC,37113,59.83,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-128,odisha,1985,128,SAMBALPUR,SURESH PUJHARI,parties.IN.IND,IND,12033,19.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-128,odisha,1985,128,SAMBALPUR,JAGISH BAXI,parties.IN.IND,IND,5745,9.26,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-128,odisha,1985,128,SAMBALPUR,PRAMOD DASS,parties.IN.JP,JNP,4082,6.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-128,odisha,1985,128,SAMBALPUR,BASANTKUMAR PAIK,parties.IN.IND,IND,998,1.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-128,odisha,1985,128,SAMBALPUR,MANGAL SINGH,parties.IN.IND,IND,795,1.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-128,odisha,1985,128,SAMBALPUR,IITENDAR HARIPAL,parties.IN.IND,IND,651,1.05,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-128,odisha,1985,128,SAMBALPUR,FAGANU KANDAPANI,parties.IN.IND,IND,610,0.98,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-129,odisha,1985,129,BRAJARAJNAGAR,PRASANNAKUMAR PANDA,parties.IN.CPI,CPI,28165,50.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-129,odisha,1985,129,BRAJARAJNAGAR,BHABANISHANKAR DIKSHIT,parties.IN.INC,INC,25717,46.25,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-129,odisha,1985,129,BRAJARAJNAGAR,SITARAM RUNGTA,parties.IN.BJP,BJP,629,1.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-129,odisha,1985,129,BRAJARAJNAGAR,NIRAKAR,parties.IN.IND,IND,540,0.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-129,odisha,1985,129,BRAJARAJNAGAR,CHATTANYA KANTA,parties.IN.IND,IND,341,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-129,odisha,1985,129,BRAJARAJNAGAR,KASHIRAM TANTY,parties.IN.IND,IND,217,0.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-130,odisha,1985,130,JHARSUGUDA,BIRENDRA PANDEY,parties.IN.INC,INC,31279,66.18,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-130,odisha,1985,130,JHARSUGUDA,ISWAR NAYAK,parties.IN.CPI,CPI,10742,22.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-130,odisha,1985,130,JHARSUGUDA,ISWARI PRASAD PANDEY,parties.IN.JP,JNP,2637,5.58,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-130,odisha,1985,130,JHARSUGUDA,J. CHETTI,parties.IN.IND,IND,643,1.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-130,odisha,1985,130,JHARSUGUDA,BIBHUTI CHANDRA BHOI,parties.IN.IND,IND,613,1.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-130,odisha,1985,130,JHARSUGUDA,JAGANNATH MISHRA,parties.IN.IND,IND,564,1.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-130,odisha,1985,130,JHARSUGUDA,SASHIBHUSAN SAHOO,parties.IN.LKD,LKD,456,0.96,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-130,odisha,1985,130,JHARSUGUDA,BHUBAN BESAN,parties.IN.IND,IND,333,0.7,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-131,odisha,1985,131,LAIKERA,HEMANANDA BISWAL,parties.IN.INC,INC,26745,68.3,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-131,odisha,1985,131,LAIKERA,BINOD BIHARI SINGH BARIHA,parties.IN.JP,JNP,6400,16.34,2,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-131,odisha,1985,131,LAIKERA,BUNDE DHURUA,parties.IN.BJP,BJP,4185,10.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-131,odisha,1985,131,LAIKERA,ELIAS MINZ,parties.IN.JKD,JKD,1038,2.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-131,odisha,1985,131,LAIKERA,RAMESWAR SINGH NAIK,parties.IN.IND,IND,792,2.02,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-132,odisha,1985,132,KUCHINDA,JAGATESHWAR MIRDHA,parties.IN.INC,INC,19927,79.06,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-132,odisha,1985,132,KUCHINDA,BHIMSEN BHOI,parties.IN.BJP,BJP,5277,20.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-133,odisha,1985,133,RAIRAKHOL,ABHIMANYU KUMAR,parties.IN.INC,INC,21461,58.72,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-133,odisha,1985,133,RAIRAKHOL,BASANT KUMAR MAHANANDA,parties.IN.JP,JNP,11119,30.42,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-133,odisha,1985,133,RAIRAKHOL,DHANESHSWAR BADI,parties.IN.IND,IND,2220,6.07,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-133,odisha,1985,133,RAIRAKHOL,PRATIMAN BANCHHOR,parties.IN.IND,IND,1439,3.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-133,odisha,1985,133,RAIRAKHOL,MANDAKANI BEHERA,parties.IN.IND,IND,311,0.85,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-134,odisha,1985,134,DEOGARH,RAJ KISHORE PRADHAN,parties.IN.INC,INC,19925,45.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-134,odisha,1985,134,DEOGARH,PRADIPTA GANGDEB,parties.IN.IND,IND,16733,38.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-134,odisha,1985,134,DEOGARH,BIJOY KUMAR MOHANTY,parties.IN.JP,JNP,3573,8.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-134,odisha,1985,134,DEOGARH,BALARAM SAHU,parties.IN.IND,IND,3275,7.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-135,odisha,1985,135,SUNDARGARH,BHARATENDRA SEKHER DEO,parties.IN.JP,JNP,33605,56.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-135,odisha,1985,135,SUNDARGARH,KISHORE CHANDRA PATEL,parties.IN.INC,INC,22123,36.89,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-135,odisha,1985,135,SUNDARGARH,ASHOK KUMAR DAS,parties.IN.CPI,CPI,1781,2.97,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-135,odisha,1985,135,SUNDARGARH,PITABAS BAGH,parties.IN.IND,IND,1128,1.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-135,odisha,1985,135,SUNDARGARH,BAIJU SINGH,parties.IN.IND,IND,747,1.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-135,odisha,1985,135,SUNDARGARH,BHARAMARBAR GARDIA,parties.IN.IND,IND,359,0.6,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-135,odisha,1985,135,SUNDARGARH,SANAT CHOUDHURY,parties.IN.IND,IND,234,0.39,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-136,odisha,1985,136,TALSARA,GAJADHAR MAJHI,parties.IN.INC,INC,18641,63.74,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-136,odisha,1985,136,TALSARA,NELSON SORENG,parties.IN.LKD,LKD,7115,24.33,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-136,odisha,1985,136,TALSARA,BANAMALI DANDSENA,parties.IN.SUCI,SUC,1784,6.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-136,odisha,1985,136,TALSARA,RAMANUS BARLA,parties.IN.IND,IND,1289,4.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-136,odisha,1985,136,TALSARA,HARIRAM ORAM,parties.IN.IND,IND,415,1.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-137,odisha,1985,137,RAJGANGPUR,MANGALA KISAN,parties.IN.JP,JNP,25250,52.37,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-137,odisha,1985,137,RAJGANGPUR,MUKHARAM NAIK,parties.IN.INC,INC,17194,35.66,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-137,odisha,1985,137,RAJGANGPUR,IGNACE MINJ,parties.IN.JKD,JKD,3558,7.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-137,odisha,1985,137,RAJGANGPUR,PASCAL KULLU,parties.IN.IND,IND,1150,2.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-137,odisha,1985,137,RAJGANGPUR,PREMSAGAR SUNDI,parties.IN.IND,IND,1062,2.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-138,odisha,1985,138,BIRAMITRAPUR,REMISH KERKETTA,parties.IN.INC,INC,16521,52.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-138,odisha,1985,138,BIRAMITRAPUR,NUAS,parties.IN.JKD,JKD,10191,32.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-138,odisha,1985,138,BIRAMITRAPUR,PRABHUDAN TOPNO,parties.IN.JP,JNP,2842,9.11,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-138,odisha,1985,138,BIRAMITRAPUR,DEBANAND AMAT,parties.IN.IND,IND,843,2.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-138,odisha,1985,138,BIRAMITRAPUR,KULAN BAGE,parties.IN.BJP,BJP,785,2.52,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-139,odisha,1985,139,ROURKELA,DILLIP KUMAR RAY,parties.IN.JP,JNP,35552,45.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-139,odisha,1985,139,ROURKELA,LOPAMUDRA MOHANTY,parties.IN.INC,INC,27937,35.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-139,odisha,1985,139,ROURKELA,BISHNU CHARAN MOHANTY,parties.IN.CPIM,CPM,8815,11.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-139,odisha,1985,139,ROURKELA,CHHABIRANI MOHANTY,parties.IN.SUCI,SUC,2692,3.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-139,odisha,1985,139,ROURKELA,BRAJA KISHORE MOHANTY,parties.IN.LKD,LKD,986,1.26,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-139,odisha,1985,139,ROURKELA,ANWAR AHMAD,parties.IN.BJP,BJP,603,0.77,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-139,odisha,1985,139,ROURKELA,ISLAMUDDIN ANSARI,parties.IN.JKD,JKD,587,0.75,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-139,odisha,1985,139,ROURKELA,HARIBANDHU NAG,parties.IN.IND,IND,578,0.74,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-139,odisha,1985,139,ROURKELA,BIJAY ROUTRAY,parties.IN.ICS,ICS,263,0.34,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-139,odisha,1985,139,ROURKELA,BISWANATH PANIGRAHI,parties.IN.IND,IND,164,0.21,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-140,odisha,1985,140,RAGHUNATHPALI,FRIDA TOPNO,parties.IN.INC,INC,18299,48.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-140,odisha,1985,140,RAGHUNATHPALI,RABI DEHURY,parties.IN.JP,JNP,13111,34.7,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-140,odisha,1985,140,RAGHUNATHPALI,BIRUA MIUZ,parties.IN.IND,IND,2700,7.15,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-140,odisha,1985,140,RAGHUNATHPALI,CHRISTODAS LUGUN,parties.IN.JKD,JKD,1329,3.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-140,odisha,1985,140,RAGHUNATHPALI,TRILOCHAN NAYAK,parties.IN.IND,IND,1294,3.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-140,odisha,1985,140,RAGHUNATHPALI,PIUS TIRKEY,parties.IN.BJP,BJP,1051,2.78,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-141,odisha,1985,141,BONAI,BASANTA KUMAR SINGH DANDPAT,parties.IN.INC,INC,10509,28.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-141,odisha,1985,141,BONAI,RABINARAYAN NAIK,parties.IN.CPIM,CPM,9961,27.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-141,odisha,1985,141,BONAI,HEMENDRA PRASAD MAHAPATRA,parties.IN.JP,JNP,8763,24.14,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-141,odisha,1985,141,BONAI,RAMA CHANDRA KISAN,parties.IN.IND,IND,4469,12.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-141,odisha,1985,141,BONAI,HEMANTA KUMAR SINGH DANDPAT,parties.IN.BJP,BJP,1581,4.36,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-141,odisha,1985,141,BONAI,SHAKUNTALA SANDIL,parties.IN.IND,IND,573,1.58,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-141,odisha,1985,141,BONAI,CHANDRAMANI SAHU,parties.IN.IND,IND,445,1.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-142,odisha,1985,142,CHAMPUA,DHANURJAY LAGURI,parties.IN.INC,INC,20920,47.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-142,odisha,1985,142,CHAMPUA,ORAM SAHARAI,parties.IN.JP,JNP,14449,32.75,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-142,odisha,1985,142,CHAMPUA,DULAV DEHURY,parties.IN.CPI,CPI,6554,14.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-142,odisha,1985,142,CHAMPUA,KALKAR NAIK,parties.IN.BJP,BJP,1094,2.48,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-142,odisha,1985,142,CHAMPUA,AKADASI NAIK,parties.IN.IND,IND,716,1.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-142,odisha,1985,142,CHAMPUA,MAHENDRA NAG,parties.IN.IND,IND,380,0.86,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-143,odisha,1985,143,PATNA,HRUSIKESH NAIK,parties.IN.INC,INC,22643,60.77,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-143,odisha,1985,143,PATNA,MAHESHWAR MAJHI,parties.IN.JP,JNP,10980,29.47,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-143,odisha,1985,143,PATNA,HRUSHIKESH SINGH,parties.IN.LKD,LKD,1537,4.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-143,odisha,1985,143,PATNA,LALMOHAN NAIK,parties.IN.BJP,BJP,1230,3.3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-143,odisha,1985,143,PATNA,PRAHALAD CHANDRA NAIK,parties.IN.IND,IND,870,2.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-144,odisha,1985,144,KEONJHAR,CHHOTARAY MAJHI,parties.IN.JP,JNP,17495,48.98,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-144,odisha,1985,144,KEONJHAR,DAMBARUDHAR NAIK,parties.IN.INC,INC,17371,48.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-144,odisha,1985,144,KEONJHAR,GOPAL NAIK,parties.IN.IND,IND,851,2.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-145,odisha,1985,145,TELKOI,PRANABALLAV NAIK,parties.IN.INC,INC,18983,61.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-145,odisha,1985,145,TELKOI,NILADRI NAYAK,parties.IN.JP,JNP,9027,29.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-145,odisha,1985,145,TELKOI,KANHAIN CHARAN DEHURY,parties.IN.IND,IND,1079,3.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-145,odisha,1985,145,TELKOI,LAXMIDHAR DAS,parties.IN.LKD,LKD,958,3.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-145,odisha,1985,145,TELKOI,BISWANATH NAIK,parties.IN.IND,IND,764,2.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-145,odisha,1985,145,TELKOI,AGASTI NAIK,parties.IN.IND,IND,159,0.51,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-146,odisha,1985,146,RAMCHANDRAPUR,NIRANJAN PATNAIK,parties.IN.INC,INC,39049,74.57,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-146,odisha,1985,146,RAMCHANDRAPUR,PRASANNA KUMAR MAHAPATRA,parties.IN.JP,JNP,6769,12.93,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-146,odisha,1985,146,RAMCHANDRAPUR,KHIROD PRASAD SWAIN,parties.IN.BJP,BJP,3315,6.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-146,odisha,1985,146,RAMCHANDRAPUR,DEBAKI RAUT,parties.IN.IND,IND,995,1.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-146,odisha,1985,146,RAMCHANDRAPUR,JAYADEV NAIK,parties.IN.IND,IND,899,1.72,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-146,odisha,1985,146,RAMCHANDRAPUR,SALUKHU HEMBRAM,parties.IN.IND,IND,632,1.21,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-146,odisha,1985,146,RAMCHANDRAPUR,KEDARNATH RATH,parties.IN.IND,IND,336,0.64,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-146,odisha,1985,146,RAMCHANDRAPUR,CHANDRA MANI PATRA,parties.IN.IND,IND,245,0.47,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-146,odisha,1985,146,RAMCHANDRAPUR,BHAGIRATHI JENA,parties.IN.IND,IND,125,0.24,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-147,odisha,1985,147,ANANDAPUR,JAYADEV JENA,parties.IN.INC,INC,31560,60.3,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-odisha-147,odisha,1985,147,ANANDAPUR,DASHARATHI JENA,parties.IN.JP,JNP,17804,34.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-147,odisha,1985,147,ANANDAPUR,MAYADHAR JENA,parties.IN.BJP,BJP,1303,2.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-147,odisha,1985,147,ANANDAPUR,LAXMIDHAR SETHY,parties.IN.IND,IND,893,1.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-147,odisha,1985,147,ANANDAPUR,PRAFULLA SETHY,parties.IN.IND,IND,552,1.05,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-147,odisha,1985,147,ANANDAPUR,GOLAK JENA,parties.IN.IND,IND,229,0.44,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a

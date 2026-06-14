@@ -1,0 +1,30 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-gujarat-10,gujarat,2000,10,CHOTILAGUDIVAD,Makwana Maheshkumar Karamshibhai,parties.IN.BJP,BJP,22315,37.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-10,gujarat,2000,10,CHOTILAGUDIVAD,Lavajibhai Kanjibhai Makwana,parties.IN.INC,INC,13758,23.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-10,gujarat,2000,10,CHOTILAGUDIVAD,Motibhai Hirabhai Samand,parties.IN.SAP,SAP,10507,17.73,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-10,gujarat,2000,10,CHOTILAGUDIVAD,Ambabhai Bhadabhai Olakia,parties.IN.IND,IND,4645,7.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-10,gujarat,2000,10,CHOTILAGUDIVAD,Satubha Kanubha Vaghela,parties.IN.IND,IND,2315,3.91,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-10,gujarat,2000,10,CHOTILAGUDIVAD,Bostar Hardabhai Vastabhai Rabari,parties.IN.BSP,BSP,2127,3.59,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-10,gujarat,2000,10,CHOTILAGUDIVAD,Mer Mavjibhai Kulabhai,parties.IN.IND,IND,1547,2.61,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-10,gujarat,2000,10,CHOTILAGUDIVAD,Nagajibhai Mohanbhai Gabu,parties.IN.IND,IND,765,1.29,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-10,gujarat,2000,10,CHOTILAGUDIVAD,Bhudarbhai Chhaganbhai Detroja,parties.IN.IND,IND,687,1.16,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-10,gujarat,2000,10,CHOTILAGUDIVAD,Bavalfad Khimajibhai Mithabhai,parties.IN.IND,IND,597,1.01,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-74,gujarat,2000,74,SHAHERKOTDA(SC),D.S.Manherkumar,parties.IN.INC,INC,18474,52.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-74,gujarat,2000,74,SHAHERKOTDA(SC),Tulsibhai Dabhi,parties.IN.BJP,BJP,11326,32.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-74,gujarat,2000,74,SHAHERKOTDA(SC),C.P.Natthubhai,parties.IN.JDU,JD(U),1954,5.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-74,gujarat,2000,74,SHAHERKOTDA(SC),Dr.Nitin C. Gurjar,parties.IN.SP,SP,1548,4.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-74,gujarat,2000,74,SHAHERKOTDA(SC),S.J.Kalidas,parties.IN.IND,IND,481,1.37,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-74,gujarat,2000,74,SHAHERKOTDA(SC),P.V.Parmar,parties.IN.NCP,NCP,285,0.81,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-74,gujarat,2000,74,SHAHERKOTDA(SC),K.T.Nakum,parties.IN.JDS,JD(S),242,0.69,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-74,gujarat,2000,74,SHAHERKOTDA(SC),P.B.Vasrambhai,parties.IN.IND,IND,237,0.68,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-74,gujarat,2000,74,SHAHERKOTDA(SC),V.V.Manjibhai,parties.IN.IND,IND,190,0.54,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-74,gujarat,2000,74,SHAHERKOTDA(SC),S.J.Khemchandbhai,parties.IN.IND,IND,176,0.5,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-74,gujarat,2000,74,SHAHERKOTDA(SC),Parmar P. Naranbhai,parties.IN.IND,IND,134,0.38,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-74,gujarat,2000,74,SHAHERKOTDA(SC),M.R.Balvantbhai,parties.IN.IND,IND,63,0.18,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-139,gujarat,2000,139,BHANDRAN,Parmar Rajendrasinh Dhirsinh,parties.IN.IND,IND,49274,47.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-139,gujarat,2000,139,BHANDRAN,Jadav Bhupendrasinh Chhaganbhai (Bhupatsinh Jadav),parties.IN.BJP,BJP,25550,24.47,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-139,gujarat,2000,139,BHANDRAN,Patel Shaileshbhai Rambhai,parties.IN.INC,INC,20492,19.62,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-139,gujarat,2000,139,BHANDRAN,Harijan Iswarbhai Ranchhodbhai,parties.IN.IND,IND,3736,3.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-139,gujarat,2000,139,BHANDRAN,Thakor Natvarbhai Chaturbhai (Vakil),parties.IN.SAP,SAP,2291,2.19,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-139,gujarat,2000,139,BHANDRAN,Sunilbhai Shah,parties.IN.IND,IND,1686,1.61,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-gujarat-139,gujarat,2000,139,BHANDRAN,Parmar Pravinbhai Natubhai,parties.IN.IND,IND,1389,1.33,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -1,0 +1,14 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-rajasthan-58,rajasthan,2004,58,BEHROR,CHAND NATH,parties.IN.BJP,BJP,51188,47.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-58,rajasthan,2004,58,BEHROR,DR. JASWANT SINGH YADAV,parties.IN.IND,IND,38101,35.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-58,rajasthan,2004,58,BEHROR,BASTI RAM,parties.IN.INC,INC,13435,12.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-58,rajasthan,2004,58,BEHROR,RAMNIWAS,parties.IN.BSP,BSP,1430,1.32,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-58,rajasthan,2004,58,BEHROR,MAHANDRA SINGH YADAV,parties.IN.SP,SP,1123,1.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-58,rajasthan,2004,58,BEHROR,SUNIL,parties.IN.IND,IND,1114,1.03,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-58,rajasthan,2004,58,BEHROR,OM PRAKASH,parties.IN.IND,IND,1059,0.98,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-58,rajasthan,2004,58,BEHROR,ROOPKANTA,parties.IN.IND,IND,859,0.79,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-199,rajasthan,2004,199,MERTA,RAMCHANDRA,parties.IN.INC,INC,55150,48.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-199,rajasthan,2004,199,MERTA,RAM PRATAP BAGAAR,parties.IN.BJP,BJP,49886,43.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-199,rajasthan,2004,199,MERTA,JALAM SINGH,parties.IN.BSP,BSP,4505,3.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-199,rajasthan,2004,199,MERTA,PURKHA RAM,parties.IN.SP,SP,2383,2.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-199,rajasthan,2004,199,MERTA,MADAN LAL ROSHISA,parties.IN.IND,IND,1669,1.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

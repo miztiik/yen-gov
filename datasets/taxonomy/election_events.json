@@ -95,7 +95,7 @@
         "display": "Andhra Pradesh - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -107,7 +107,7 @@
         "display": "Andhra Pradesh - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -170,7 +170,7 @@
         "display": "Arunachal Pradesh - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -182,7 +182,7 @@
         "display": "Arunachal Pradesh - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -194,7 +194,7 @@
         "display": "Arunachal Pradesh Assembly · February 1978",
         "polled_on": "1978-02-25",
         "term_end_estimated": "1983-02-24",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "30 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1978"
@@ -206,7 +206,7 @@
         "display": "Arunachal Pradesh Assembly · January 1980",
         "polled_on": "1980-01-03",
         "term_end_estimated": "1985-01-02",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "30 ACs. Public page records polling on 3 January 1980; event id follows the public polling month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenJan1980"
@@ -218,7 +218,7 @@
         "display": "Arunachal Pradesh Assembly · December 1984",
         "polled_on": "1984-12-01",
         "term_end_estimated": "1989-11-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "30 ACs. Poll day recorded as first of month because the public page does not expose a specific poll day in fetched content. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenDec1984"
@@ -230,7 +230,7 @@
         "display": "Arunachal Pradesh Assembly · March 1990",
         "polled_on": "1990-03-01",
         "term_end_estimated": "1995-02-28",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Poll day recorded as first of month because the public page does not expose a specific poll day in fetched content. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMar1990"
@@ -242,7 +242,7 @@
         "display": "Arunachal Pradesh Assembly · March 1995",
         "polled_on": "1995-03-01",
         "term_end_estimated": "2000-02-29",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Poll day recorded as first of month because the public page does not expose a specific poll day in fetched content. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMar1995"
@@ -254,7 +254,7 @@
         "display": "Arunachal Pradesh Assembly · October 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-10-02",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "59 contested ACs reported in the panel slice; public results include 60 assembly seats with at least one unopposed return. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenOct1999"
@@ -266,7 +266,7 @@
         "display": "Arunachal Pradesh Assembly · October 2004",
         "polled_on": "2004-10-07",
         "term_end_estimated": "2009-10-06",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "57 contested ACs reported in the panel slice; public results include 60 assembly seats with unopposed returns. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenOct2004"
@@ -377,7 +377,7 @@
         "display": "Assam - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -389,7 +389,7 @@
         "display": "Assam - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -401,7 +401,7 @@
         "display": "Assam Assembly · February 1978",
         "polled_on": "1978-02-25",
         "term_end_estimated": "1983-02-24",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "126 ACs. Poll held on 25 February 1978. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1978"
@@ -413,7 +413,7 @@
         "display": "Assam Assembly · February 1983",
         "polled_on": "1983-02-20",
         "term_end_estimated": "1988-02-19",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Panel carries 109 ACs for the 14-20 February 1983 election; public summaries report 114 contested seats amid Assam Movement boycott calls and violence. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1983"
@@ -425,7 +425,7 @@
         "display": "Assam Assembly · December 1985",
         "polled_on": "1985-12-01",
         "term_end_estimated": "1990-11-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "126 ACs. Poll held in December 1985 after the Assam Accord; public page does not expose an exact polling day, so the month-first date is used. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenDec1985"
@@ -437,7 +437,7 @@
         "display": "Assam Assembly · June 1991",
         "polled_on": "1991-06-08",
         "term_end_estimated": "1996-06-07",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "126 ACs. Two-phase poll on 6 and 8 June 1991; event date records the final polling day rather than the panel's May month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenJun1991"
@@ -449,7 +449,7 @@
         "display": "Assam Assembly · April 1996",
         "polled_on": "1996-04-27",
         "term_end_estimated": "2001-04-26",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "122 ACs. Poll held on 27 April 1996. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenApr1996"
@@ -461,7 +461,7 @@
         "display": "Assam Assembly · May 2001",
         "polled_on": "2001-05-10",
         "term_end_estimated": "2006-05-09",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "126 ACs. Poll held on 10 May 2001. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay2001"
@@ -473,7 +473,7 @@
         "display": "Assam Assembly · April 2006",
         "polled_on": "2006-04-10",
         "term_end_estimated": "2011-04-09",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "126 ACs. Two-phase poll on 3 and 10 April 2006; event date records the final polling day rather than the panel's May month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenApr2006"
@@ -583,7 +583,7 @@
         "display": "Bihar - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -595,7 +595,7 @@
         "display": "Bihar - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -607,7 +607,7 @@
         "display": "Bihar Assembly · October 1977",
         "polled_on": "1977-10-01",
         "term_end_estimated": "1982-09-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "324 ACs. Public page gives only year-level polling context, so the event id retains the panel month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenOct1977"
@@ -619,7 +619,7 @@
         "display": "Bihar Assembly · May 1980",
         "polled_on": "1980-05-31",
         "term_end_estimated": "1985-05-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "324 ACs. Public page records polling on 31 May 1980; event date uses the public polling date rather than the panel's June month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1980"
@@ -631,7 +631,7 @@
         "display": "Bihar Assembly · March 1985",
         "polled_on": "1985-03-05",
         "term_end_estimated": "1990-03-04",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "324 ACs. Poll held on 2 and 5 March 1985; event date uses the final polling day rather than the panel's February month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMar1985"
@@ -643,7 +643,7 @@
         "display": "Bihar Assembly · February 1990",
         "polled_on": "1990-02-27",
         "term_end_estimated": "1995-02-26",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "324 ACs. Poll held on 27 February 1990. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1990"
@@ -655,7 +655,7 @@
         "display": "Bihar Assembly · March 1995",
         "polled_on": "1995-03-28",
         "term_end_estimated": "2000-03-27",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "324 ACs. Poll held on 25 and 28 March 1995; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMar1995"
@@ -667,7 +667,7 @@
         "display": "Bihar Assembly · February 2000",
         "polled_on": "2000-02-22",
         "term_end_estimated": "2005-02-21",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "324 ACs. Poll held from 12 to 22 February 2000; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2000"
@@ -679,7 +679,7 @@
         "display": "Bihar Assembly · February 2005",
         "polled_on": "2005-02-23",
         "term_end_estimated": null,
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "243 ACs. Three-phase poll on 3, 15, and 23 February 2005. The result was fractured and no government was formed; Bihar returned to polls in October-November 2005. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2005"
@@ -691,7 +691,7 @@
         "display": "Bihar Assembly · October-November 2005",
         "polled_on": "2005-11-19",
         "term_end_estimated": "2010-11-18",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "243 ACs. Fresh election after the February 2005 fractured verdict; four-phase poll on 18 and 26 October, 13 and 19 November 2005. Event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov2005"
@@ -802,7 +802,7 @@
         "display": "Goa - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -814,7 +814,7 @@
         "display": "Goa - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -826,7 +826,7 @@
         "display": "Goa Assembly · November 1989",
         "polled_on": "1989-11-22",
         "term_end_estimated": "1994-11-21",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "40 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1989"
@@ -838,7 +838,7 @@
         "display": "Goa Assembly · November 1994",
         "polled_on": "1994-11-16",
         "term_end_estimated": "1999-11-15",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "40 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1994"
@@ -850,7 +850,7 @@
         "display": "Goa Assembly · June 1999",
         "polled_on": "1999-06-04",
         "term_end_estimated": "2004-06-03",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "40 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenJun1999"
@@ -862,7 +862,7 @@
         "display": "Goa Assembly · May 2002",
         "polled_on": "2002-05-30",
         "term_end_estimated": "2007-05-29",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "40 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay2002"
@@ -874,7 +874,7 @@
         "display": "Goa Assembly · June 2007",
         "polled_on": "2007-06-02",
         "term_end_estimated": "2012-06-01",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "40 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenJun2007"
@@ -973,7 +973,7 @@
         "display": "Haryana - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -985,7 +985,7 @@
         "display": "Haryana - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -997,7 +997,7 @@
         "display": "Haryana Assembly · October 1977",
         "polled_on": "1977-10-06",
         "term_end_estimated": "1982-10-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "90 ACs. Poll held on 6 October 1977. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenOct1977"
@@ -1009,7 +1009,7 @@
         "display": "Haryana Assembly · May 1982",
         "polled_on": "1982-05-19",
         "term_end_estimated": "1987-05-18",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "90 ACs. Poll held on 19 May 1982. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1982"
@@ -1021,7 +1021,7 @@
         "display": "Haryana Assembly · June 1987",
         "polled_on": "1987-06-17",
         "term_end_estimated": "1992-06-16",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "90 ACs. ECI statistical-report text records poll date 17 June 1987. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenJun1987"
@@ -1033,7 +1033,7 @@
         "display": "Haryana Assembly · May 1991",
         "polled_on": "1991-05-20",
         "term_end_estimated": "1996-05-19",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "90 ACs. ECI statistical-report text records poll date 20 May 1991. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1991"
@@ -1045,7 +1045,7 @@
         "display": "Haryana Assembly · May 1996",
         "polled_on": "1996-05-01",
         "term_end_estimated": "2001-04-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "90 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3). Poll day recorded as first of month because the public page gives year-level date context.",
         "event_id_aliases": [
           "AcGenMay1996"
@@ -1057,7 +1057,7 @@
         "display": "Haryana Assembly · February 2000",
         "polled_on": "2000-02-22",
         "term_end_estimated": "2005-02-21",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "90 ACs. Poll held on 22 February 2000. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2000"
@@ -1069,7 +1069,7 @@
         "display": "Haryana Assembly · February 2005",
         "polled_on": "2005-02-03",
         "term_end_estimated": "2010-02-02",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "90 ACs. Poll held on 3 February 2005. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2005"
@@ -1179,7 +1179,7 @@
         "display": "Himachal Pradesh - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -1191,7 +1191,7 @@
         "display": "Himachal Pradesh - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -1203,7 +1203,7 @@
         "display": "Himachal Pradesh Assembly · October 1977",
         "polled_on": "1977-10-01",
         "term_end_estimated": "1982-09-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "68 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3). Poll day recorded as first of month because the public page gives year-level date context.",
         "event_id_aliases": [
           "AcGenOct1977"
@@ -1215,7 +1215,7 @@
         "display": "Himachal Pradesh Assembly · May 1982",
         "polled_on": "1982-05-19",
         "term_end_estimated": "1987-05-18",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "68 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1982"
@@ -1227,7 +1227,7 @@
         "display": "Himachal Pradesh Assembly · May 1985",
         "polled_on": "1985-05-01",
         "term_end_estimated": "1990-04-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "68 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3). Poll day recorded as first of month because the public page gives year-level date context.",
         "event_id_aliases": [
           "AcGenMay1985"
@@ -1239,7 +1239,7 @@
         "display": "Himachal Pradesh Assembly · February 1990",
         "polled_on": "1990-02-27",
         "term_end_estimated": "1995-02-26",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "67 ACs reported in the panel slice. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1990"
@@ -1251,7 +1251,7 @@
         "display": "Himachal Pradesh Assembly · September 1993",
         "polled_on": "1993-09-11",
         "term_end_estimated": "1998-09-10",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "68 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenSep1993"
@@ -1263,7 +1263,7 @@
         "display": "Himachal Pradesh Assembly · February-June 1998",
         "polled_on": "1998-06-03",
         "term_end_estimated": "2003-06-02",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "68 ACs. Public page records polling on 28 February and 3 June 1998; event id follows the first polling month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1998"
@@ -1275,7 +1275,7 @@
         "display": "Himachal Pradesh Assembly · February 2003",
         "polled_on": "2003-02-26",
         "term_end_estimated": "2008-02-25",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "68 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2003"
@@ -1287,7 +1287,7 @@
         "display": "Himachal Pradesh Assembly · November-December 2007",
         "polled_on": "2007-12-19",
         "term_end_estimated": "2012-12-18",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "68 ACs. Public page records polling on 14 November and 19 December 2007; event id follows the first polling month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov2007"
@@ -1386,7 +1386,7 @@
         "display": "Karnataka - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -1398,7 +1398,7 @@
         "display": "Karnataka - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -1410,7 +1410,7 @@
         "display": "Karnataka Assembly · February 1978",
         "polled_on": "1978-02-01",
         "term_end_estimated": "1983-01-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "224 ACs. Panel month is February 1978; public election page exposes the year and ECI report but not an exact polling day, so the month-first date is used. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1978"
@@ -1422,7 +1422,7 @@
         "display": "Karnataka Assembly · May 1983",
         "polled_on": "1983-05-01",
         "term_end_estimated": "1988-04-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "224 ACs. Panel month is May 1983; public election page exposes the year and ECI report but not an exact polling day, so the month-first date is used. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1983"
@@ -1434,7 +1434,7 @@
         "display": "Karnataka Assembly · May 1985",
         "polled_on": "1985-05-01",
         "term_end_estimated": "1990-04-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "224 ACs. Panel month is May 1985; public election page exposes the year and ECI report but not an exact polling day, so the month-first date is used. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1985"
@@ -1446,7 +1446,7 @@
         "display": "Karnataka Assembly · November 1989",
         "polled_on": "1989-11-01",
         "term_end_estimated": "1994-10-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "224 ACs. Panel month is November 1989; public election page exposes the year and ECI report but not an exact polling day, so the month-first date is used. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1989"
@@ -1458,7 +1458,7 @@
         "display": "Karnataka Assembly · December 1994",
         "polled_on": "1994-12-01",
         "term_end_estimated": "1999-11-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "224 ACs. Two-phase poll on 26 November and 1 December 1994; event date records the final polling day rather than the panel's November month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenDec1994"
@@ -1470,7 +1470,7 @@
         "display": "Karnataka Assembly · September 1999",
         "polled_on": "1999-09-11",
         "term_end_estimated": "2004-09-10",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "224 ACs. Two-phase poll on 5 and 11 September 1999; event date records the final polling day rather than the panel's October month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenSep1999"
@@ -1482,7 +1482,7 @@
         "display": "Karnataka Assembly · April 2004",
         "polled_on": "2004-04-26",
         "term_end_estimated": "2009-04-25",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "224 ACs. Two-phase poll on 20 and 26 April 2004; event date records the final polling day rather than the panel's May month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenApr2004"
@@ -1593,7 +1593,7 @@
         "display": "Kerala - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -1605,7 +1605,7 @@
         "display": "Kerala - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -1617,7 +1617,7 @@
         "display": "Kerala Assembly · March 1977",
         "polled_on": "1977-03-19",
         "term_end_estimated": "1982-03-18",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "140 ACs. Poll held on 19 March 1977. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMar1977"
@@ -1629,7 +1629,7 @@
         "display": "Kerala Assembly · January 1980",
         "polled_on": "1980-01-05",
         "term_end_estimated": "1985-01-04",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "140 ACs. Two-phase poll on 3 and 5 January 1980; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenJan1980"
@@ -1641,7 +1641,7 @@
         "display": "Kerala Assembly · May 1982",
         "polled_on": "1982-05-19",
         "term_end_estimated": "1987-05-18",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "140 ACs. Poll held on 19 May 1982. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1982"
@@ -1653,7 +1653,7 @@
         "display": "Kerala Assembly · March 1987",
         "polled_on": "1987-03-23",
         "term_end_estimated": "1992-03-22",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "140 ACs. Main poll held on 23 March 1987; two constituencies were delayed until 2 June 1987 after countermanding. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMar1987"
@@ -1665,7 +1665,7 @@
         "display": "Kerala Assembly · June 1991",
         "polled_on": "1991-06-18",
         "term_end_estimated": "1996-06-17",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "140 ACs. Poll held on 18 June 1991; event id follows the public polling month rather than the panel's month value. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenJun1991"
@@ -1677,7 +1677,7 @@
         "display": "Kerala Assembly · April 1996",
         "polled_on": "1996-04-27",
         "term_end_estimated": "2001-04-26",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "140 ACs. Poll held on 27 April 1996; event id follows the public polling month rather than the panel's month value. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenApr1996"
@@ -1689,7 +1689,7 @@
         "display": "Kerala Assembly · May 2001",
         "polled_on": "2001-05-10",
         "term_end_estimated": "2006-05-09",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "140 ACs. Poll held on 10 May 2001. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay2001"
@@ -1701,7 +1701,7 @@
         "display": "Kerala Assembly · May 2006",
         "polled_on": "2006-05-03",
         "term_end_estimated": "2011-05-02",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "140 ACs. Three-phase poll on 22 April, 29 April, and 3 May 2006; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay2006"
@@ -1811,7 +1811,7 @@
         "display": "Madhya Pradesh - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -1823,7 +1823,7 @@
         "display": "Madhya Pradesh - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -1835,7 +1835,7 @@
         "display": "Madhya Pradesh Assembly · October 1977",
         "polled_on": "1977-10-06",
         "term_end_estimated": "1982-10-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "320 ACs. Poll held on 6 October 1977. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenOct1977"
@@ -1847,7 +1847,7 @@
         "display": "Madhya Pradesh Assembly · May 1980",
         "polled_on": "1980-05-31",
         "term_end_estimated": "1985-05-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "320 ACs. Poll held on 28 and 31 May 1980; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1980"
@@ -1859,7 +1859,7 @@
         "display": "Madhya Pradesh Assembly · February 1985",
         "polled_on": "1985-02-03",
         "term_end_estimated": "1990-02-02",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "320 ACs. Poll held on 3 February 1985. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1985"
@@ -1871,7 +1871,7 @@
         "display": "Madhya Pradesh Assembly · February 1990",
         "polled_on": "1990-02-27",
         "term_end_estimated": "1995-02-26",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "320 ACs. Poll held on 27 February 1990. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1990"
@@ -1883,7 +1883,7 @@
         "display": "Madhya Pradesh Assembly · November 1993",
         "polled_on": "1993-11-24",
         "term_end_estimated": "1998-11-23",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "320 ACs. Poll held on 24 November 1993. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1993"
@@ -1895,7 +1895,7 @@
         "display": "Madhya Pradesh Assembly · November 1998",
         "polled_on": "1998-11-27",
         "term_end_estimated": "2003-11-26",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "320 ACs. Last election before the Madhya Pradesh Reorganisation Act carved out Chhattisgarh; poll held on 27 November 1998. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1998"
@@ -1907,7 +1907,7 @@
         "display": "Madhya Pradesh Assembly · November 2003",
         "polled_on": "2003-11-27",
         "term_end_estimated": "2008-11-26",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "230 ACs. First post-Chhattisgarh-split Madhya Pradesh Assembly election; poll held on 27 November 2003. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov2003"
@@ -2018,7 +2018,7 @@
         "display": "Maharashtra - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -2030,7 +2030,7 @@
         "display": "Maharashtra - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -2042,7 +2042,7 @@
         "display": "Maharashtra Assembly · February 1962",
         "polled_on": "1962-02-01",
         "term_end_estimated": "1967-01-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenFeb1962"
@@ -2054,7 +2054,7 @@
         "display": "Maharashtra Assembly · February 1967",
         "polled_on": "1967-02-01",
         "term_end_estimated": "1972-02-29",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenFeb1967"
@@ -2066,7 +2066,7 @@
         "display": "Maharashtra Assembly · March 1972",
         "polled_on": "1972-03-01",
         "term_end_estimated": "1978-01-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenMar1972"
@@ -2078,7 +2078,7 @@
         "display": "Maharashtra Assembly · February 1978",
         "polled_on": "1978-02-01",
         "term_end_estimated": "1980-04-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenFeb1978"
@@ -2090,7 +2090,7 @@
         "display": "Maharashtra Assembly · May 1980",
         "polled_on": "1980-05-01",
         "term_end_estimated": "1985-01-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenMay1980"
@@ -2102,7 +2102,7 @@
         "display": "Maharashtra Assembly · February 1985",
         "polled_on": "1985-02-01",
         "term_end_estimated": "1990-01-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenFeb1985"
@@ -2114,7 +2114,7 @@
         "display": "Maharashtra Assembly · February 1990",
         "polled_on": "1990-02-01",
         "term_end_estimated": "1995-02-28",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenFeb1990"
@@ -2126,7 +2126,7 @@
         "display": "Maharashtra Assembly · March 1995",
         "polled_on": "1995-03-01",
         "term_end_estimated": "1999-09-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenMar1995"
@@ -2138,7 +2138,7 @@
         "display": "Maharashtra Assembly · October 1999",
         "polled_on": "1999-10-01",
         "term_end_estimated": "2004-09-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenOct1999"
@@ -2150,7 +2150,7 @@
         "display": "Maharashtra Assembly · October 2004",
         "polled_on": "2004-10-01",
         "term_end_estimated": "2009-09-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenOct2004"
@@ -2260,7 +2260,7 @@
         "display": "Mizoram - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -2272,7 +2272,7 @@
         "display": "Mizoram - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -2284,7 +2284,7 @@
         "display": "Mizoram Assembly · May 1978",
         "polled_on": "1978-05-20",
         "term_end_estimated": "1983-05-19",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "30 ACs. Two-phase poll on 17 and 20 May 1978; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1978"
@@ -2296,7 +2296,7 @@
         "display": "Mizoram Assembly · April 1979",
         "polled_on": "1979-04-27",
         "term_end_estimated": "1984-04-26",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "30 ACs. Two-phase poll on 24 and 27 April 1979; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenApr1979"
@@ -2308,7 +2308,7 @@
         "display": "Mizoram Assembly · April 1984",
         "polled_on": "1984-04-25",
         "term_end_estimated": "1989-04-24",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "30 ACs. Poll held on 25 April 1984. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenApr1984"
@@ -2320,7 +2320,7 @@
         "display": "Mizoram Assembly · February 1987",
         "polled_on": "1987-02-16",
         "term_end_estimated": "1992-02-15",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "40 ACs. First statehood-era Mizoram Assembly election; poll held on 16 February 1987. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1987"
@@ -2332,7 +2332,7 @@
         "display": "Mizoram Assembly · November 1989",
         "polled_on": "1989-11-22",
         "term_end_estimated": "1994-11-21",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "40 ACs. Poll held on 22 November 1989 after President's Rule. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1989"
@@ -2344,7 +2344,7 @@
         "display": "Mizoram Assembly · November 1993",
         "polled_on": "1993-11-30",
         "term_end_estimated": "1998-11-29",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "40 ACs. Poll held on 30 November 1993. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1993"
@@ -2356,7 +2356,7 @@
         "display": "Mizoram Assembly · November 1998",
         "polled_on": "1998-11-25",
         "term_end_estimated": "2003-11-24",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "40 ACs. Poll held on 25 November 1998. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1998"
@@ -2368,7 +2368,7 @@
         "display": "Mizoram Assembly · November 2003",
         "polled_on": "2003-11-20",
         "term_end_estimated": "2008-11-19",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "40 ACs. Poll held on 20 November 2003. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov2003"
@@ -2479,7 +2479,7 @@
         "display": "Odisha - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -2491,7 +2491,7 @@
         "display": "Odisha - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -2503,7 +2503,7 @@
         "display": "Odisha Assembly · February 1974",
         "polled_on": "1974-02-01",
         "term_end_estimated": "1979-01-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "146 contested ACs in the panel; public page gives only year-level polling context, so the event id retains the panel month. Chilka had no nomination filed. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1974"
@@ -2515,7 +2515,7 @@
         "display": "Odisha Assembly · October 1977",
         "polled_on": "1977-10-01",
         "term_end_estimated": "1982-09-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "147 ACs. Public page gives only year-level polling context, so the event id retains the panel month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenOct1977"
@@ -2527,7 +2527,7 @@
         "display": "Odisha Assembly · June 1980",
         "polled_on": "1980-06-01",
         "term_end_estimated": "1985-05-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "147 ACs. Public page gives only year-level polling context, so the event id retains the panel month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenJun1980"
@@ -2539,7 +2539,7 @@
         "display": "Odisha Assembly · March 1985",
         "polled_on": "1985-03-05",
         "term_end_estimated": "1990-03-04",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "147 ACs in the panel. Public page records polling on 5 March 1985 and notes that Kakatpur and Keonjhar were affected by candidate deaths in the initial poll. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMar1985"
@@ -2551,7 +2551,7 @@
         "display": "Odisha Assembly · February 1990",
         "polled_on": "1990-02-27",
         "term_end_estimated": "1995-02-26",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "147 ACs. Poll held on 27 February 1990. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1990"
@@ -2563,7 +2563,7 @@
         "display": "Odisha Assembly · March 1995",
         "polled_on": "1995-03-09",
         "term_end_estimated": "2000-03-08",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "147 ACs. Poll held on 7 and 9 March 1995; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMar1995"
@@ -2575,7 +2575,7 @@
         "display": "Odisha Assembly · February 2000",
         "polled_on": "2000-02-22",
         "term_end_estimated": "2005-02-21",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "147 ACs. Poll held on 17 and 22 February 2000; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2000"
@@ -2587,7 +2587,7 @@
         "display": "Odisha Assembly · April 2004",
         "polled_on": "2004-04-26",
         "term_end_estimated": "2009-04-25",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "147 ACs. Poll held on 20 and 26 April 2004; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenApr2004"
@@ -2698,7 +2698,7 @@
         "display": "Sikkim - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -2710,7 +2710,7 @@
         "display": "Sikkim - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -2722,7 +2722,7 @@
         "display": "Sikkim Assembly · October 1979",
         "polled_on": "1979-10-12",
         "term_end_estimated": "1984-10-11",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "32 ACs. Public page records polling on 12 October 1979; event id follows the public polling month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenOct1979"
@@ -2734,7 +2734,7 @@
         "display": "Sikkim Assembly · May 1985",
         "polled_on": "1985-05-03",
         "term_end_estimated": "1990-05-02",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "32 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1985"
@@ -2746,7 +2746,7 @@
         "display": "Sikkim Assembly · November 1989",
         "polled_on": "1989-11-26",
         "term_end_estimated": "1994-11-25",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "32 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1989"
@@ -2758,7 +2758,7 @@
         "display": "Sikkim Assembly · November 1994",
         "polled_on": "1994-11-16",
         "term_end_estimated": "1999-11-15",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "32 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1994"
@@ -2770,7 +2770,7 @@
         "display": "Sikkim Assembly · October 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-10-02",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "32 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenOct1999"
@@ -2782,7 +2782,7 @@
         "display": "Sikkim Assembly · May 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-05-09",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "28 contested ACs reported in the panel slice; public results include 32 assembly seats with several unopposed returns. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay2004"
@@ -2893,7 +2893,7 @@
         "display": "Tamil Nadu - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -2905,7 +2905,7 @@
         "display": "Tamil Nadu - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -2917,7 +2917,7 @@
         "display": "Tamil Nadu Assembly · March 1971",
         "polled_on": "1971-03-01",
         "term_end_estimated": "1977-09-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenMar1971"
@@ -2929,7 +2929,7 @@
         "display": "Tamil Nadu Assembly · October 1977",
         "polled_on": "1977-10-01",
         "term_end_estimated": "1980-05-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenOct1977"
@@ -2941,7 +2941,7 @@
         "display": "Tamil Nadu Assembly · June 1980",
         "polled_on": "1980-06-01",
         "term_end_estimated": "1984-11-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenJun1980"
@@ -2953,7 +2953,7 @@
         "display": "Tamil Nadu Assembly · December 1984",
         "polled_on": "1984-12-01",
         "term_end_estimated": "1988-12-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenDec1984"
@@ -2965,7 +2965,7 @@
         "display": "Tamil Nadu Assembly · January 1989",
         "polled_on": "1989-01-01",
         "term_end_estimated": "1991-01-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenJan1989"
@@ -2977,7 +2977,7 @@
         "display": "Tamil Nadu Assembly · February 1991",
         "polled_on": "1991-02-01",
         "term_end_estimated": "1996-01-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenFeb1991"
@@ -2989,7 +2989,7 @@
         "display": "Tamil Nadu Assembly · February 1996",
         "polled_on": "1996-02-01",
         "term_end_estimated": "2001-04-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenFeb1996"
@@ -3001,7 +3001,7 @@
         "display": "Tamil Nadu Assembly · May 2001",
         "polled_on": "2001-05-01",
         "term_end_estimated": "2006-04-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenMay2001"
@@ -3013,7 +3013,7 @@
         "display": "Tamil Nadu Assembly · May 2006",
         "polled_on": "2006-05-01",
         "term_end_estimated": "2011-04-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenMay2006"
@@ -3123,7 +3123,7 @@
         "display": "West Bengal - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -3135,7 +3135,7 @@
         "display": "West Bengal - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -3147,7 +3147,7 @@
         "display": "West Bengal Assembly · June 1977",
         "polled_on": "1977-06-14",
         "term_end_estimated": "1982-06-13",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "294 ACs. Poll held on 14 June 1977 after the post-Emergency dissolution of the Assembly. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenJun1977"
@@ -3159,7 +3159,7 @@
         "display": "West Bengal Assembly · May 1982",
         "polled_on": "1982-05-19",
         "term_end_estimated": "1987-05-18",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "294 ACs. Poll held on 19 May 1982. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1982"
@@ -3171,7 +3171,7 @@
         "display": "West Bengal Assembly · April 1987",
         "polled_on": "1987-04-10",
         "term_end_estimated": "1992-04-09",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "294 ACs. Poll held on 10 April 1987; event id follows the public polling month rather than the panel's March month token. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenApr1987"
@@ -3183,7 +3183,7 @@
         "display": "West Bengal Assembly · April 1991",
         "polled_on": "1991-04-24",
         "term_end_estimated": "1996-04-23",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "294 ACs. Poll held on 24 April 1991; event id follows the public polling month rather than the panel's February month token. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenApr1991"
@@ -3195,7 +3195,7 @@
         "display": "West Bengal Assembly · May 1996",
         "polled_on": "1996-05-13",
         "term_end_estimated": "2001-05-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "294 ACs. Poll held on 13 May 1996; event id follows the public polling month rather than the panel's February month token. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1996"
@@ -3207,7 +3207,7 @@
         "display": "West Bengal Assembly · May 2001",
         "polled_on": "2001-05-10",
         "term_end_estimated": "2006-05-09",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "294 ACs. Poll held on 10 May 2001. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay2001"
@@ -3219,7 +3219,7 @@
         "display": "West Bengal Assembly · April-May 2006",
         "polled_on": "2006-05-08",
         "term_end_estimated": "2011-05-07",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "294 ACs. Poll held in five phases from 17 April to 8 May 2006; event date uses the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay2006"
@@ -3329,7 +3329,7 @@
         "display": "Chhattisgarh - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -3341,7 +3341,7 @@
         "display": "Chhattisgarh Assembly · December 2003",
         "polled_on": "2003-12-01",
         "term_end_estimated": "2008-11-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "90 ACs. First Chhattisgarh Assembly election after state formation; poll held on 1 December 2003. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenDec2003"
@@ -3452,7 +3452,7 @@
         "display": "Jharkhand Assembly · February 2005",
         "polled_on": "2005-02-23",
         "term_end_estimated": "2010-02-22",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "81 ACs. First Jharkhand Assembly election after state formation; three-phase poll from 3 to 23 February 2005. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2005"
@@ -3511,7 +3511,7 @@
         "display": "Jharkhand - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -3669,7 +3669,7 @@
         "display": "Delhi - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -3681,7 +3681,7 @@
         "display": "Delhi - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -3693,7 +3693,7 @@
         "display": "Delhi Metropolitan Council · October 1977",
         "polled_on": "1977-10-06",
         "term_end_estimated": "1982-10-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "56 contested seats in the Delhi Metropolitan Council. The Council had an advisory role and no legislative powers; stored in the elections family because the ECI AE panel carries the contest. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenOct1977"
@@ -3705,7 +3705,7 @@
         "display": "Delhi Metropolitan Council · May 1983",
         "polled_on": "1983-05-02",
         "term_end_estimated": "1988-05-01",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "56 contested seats in the Delhi Metropolitan Council. The Council had an advisory role and no legislative powers; stored in the elections family because the ECI AE panel carries the contest. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1983"
@@ -3717,7 +3717,7 @@
         "display": "NCT of Delhi Assembly · November 1993",
         "polled_on": "1993-11-06",
         "term_end_estimated": "1998-11-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "70 ACs. First Legislative Assembly election after Delhi was formally declared the National Capital Territory; event id follows the public polling month rather than the panel's month value. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1993"
@@ -3729,7 +3729,7 @@
         "display": "NCT of Delhi Assembly · November 1998",
         "polled_on": "1998-11-25",
         "term_end_estimated": "2003-11-24",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "70 ACs. Poll held on 25 November 1998. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1998"
@@ -3741,7 +3741,7 @@
         "display": "NCT of Delhi Assembly · December 2003",
         "polled_on": "2003-12-01",
         "term_end_estimated": "2008-11-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "70 ACs. Poll held on 1 December 2003. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenDec2003"
@@ -3863,7 +3863,7 @@
         "display": "Puducherry - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -3875,7 +3875,7 @@
         "display": "Puducherry - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -3887,7 +3887,7 @@
         "display": "Puducherry Assembly · October 1977",
         "polled_on": "1977-10-06",
         "term_end_estimated": "1982-10-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "30 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenOct1977"
@@ -3899,7 +3899,7 @@
         "display": "Puducherry Assembly · March 1980",
         "polled_on": "1980-03-01",
         "term_end_estimated": "1985-02-28",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "30 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMar1980"
@@ -3911,7 +3911,7 @@
         "display": "Puducherry Assembly · May 1985",
         "polled_on": "1985-05-03",
         "term_end_estimated": "1990-05-02",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "30 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1985"
@@ -3923,7 +3923,7 @@
         "display": "Puducherry Assembly · February 1990",
         "polled_on": "1990-02-27",
         "term_end_estimated": "1995-02-26",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "30 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1990"
@@ -3935,7 +3935,7 @@
         "display": "Puducherry Assembly · June 1991",
         "polled_on": "1991-06-15",
         "term_end_estimated": "1996-06-14",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "30 ACs. Public page records polling on 15 June 1991; event id follows the public polling month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenJun1991"
@@ -3947,7 +3947,7 @@
         "display": "Puducherry Assembly · April 1996",
         "polled_on": "1996-04-27",
         "term_end_estimated": "2001-04-26",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "30 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenApr1996"
@@ -3959,7 +3959,7 @@
         "display": "Puducherry Assembly · May 2001",
         "polled_on": "2001-05-10",
         "term_end_estimated": "2006-05-09",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "30 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay2001"
@@ -3971,7 +3971,7 @@
         "display": "Puducherry Assembly · May 2006",
         "polled_on": "2006-05-08",
         "term_end_estimated": "2011-05-07",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "30 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay2006"
@@ -4094,7 +4094,7 @@
         "display": "Jammu and kashmir - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -4106,7 +4106,7 @@
         "display": "Jammu and kashmir - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -4169,7 +4169,7 @@
         "display": "Punjab - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -4181,7 +4181,7 @@
         "display": "Punjab - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -4193,7 +4193,7 @@
         "display": "Punjab Assembly · October 1977",
         "polled_on": "1977-10-01",
         "term_end_estimated": "1982-09-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "117 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3). Poll day recorded as first of month because the public page gives year-level date context.",
         "event_id_aliases": [
           "AcGenOct1977"
@@ -4205,7 +4205,7 @@
         "display": "Punjab Assembly · May 1980",
         "polled_on": "1980-05-01",
         "term_end_estimated": "1985-04-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "117 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3). Poll day recorded as first of month because the public page gives year-level date context.",
         "event_id_aliases": [
           "AcGenMay1980"
@@ -4217,7 +4217,7 @@
         "display": "Punjab Assembly · September 1985",
         "polled_on": "1985-09-26",
         "term_end_estimated": "1990-09-25",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "117 ACs. Poll held on 26 September 1985; event id follows the public polling month rather than the panel's month value. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenSep1985"
@@ -4229,7 +4229,7 @@
         "display": "Punjab Assembly · February 1992",
         "polled_on": "1992-02-01",
         "term_end_estimated": "1997-01-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "117 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3). Poll day recorded as first of month because the public page gives year-level date context.",
         "event_id_aliases": [
           "AcGenFeb1992"
@@ -4241,7 +4241,7 @@
         "display": "Punjab Assembly · February 1997",
         "polled_on": "1997-02-07",
         "term_end_estimated": "2002-02-06",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "117 ACs. Poll held on 7 February 1997. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1997"
@@ -4253,7 +4253,7 @@
         "display": "Punjab Assembly · February 2002",
         "polled_on": "2002-02-13",
         "term_end_estimated": "2007-02-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "117 ACs. Poll held on 13 February 2002. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2002"
@@ -4265,7 +4265,7 @@
         "display": "Punjab Assembly · January 2007",
         "polled_on": "2007-01-30",
         "term_end_estimated": "2012-01-29",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "116 contested ACs in the panel slice. Poll held on 30 January 2007. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenJan2007"
@@ -4364,7 +4364,7 @@
         "display": "Uttar Pradesh - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -4376,7 +4376,7 @@
         "display": "Uttar Pradesh - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -4388,7 +4388,7 @@
         "display": "Uttar Pradesh Assembly · February 1974",
         "polled_on": "1974-02-24",
         "term_end_estimated": "1979-02-23",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "424 ACs. Public page records polling on 24 and 26 February 1974; event id follows the public polling month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1974"
@@ -4400,7 +4400,7 @@
         "display": "Uttar Pradesh Assembly · June 1977",
         "polled_on": "1977-06-10",
         "term_end_estimated": "1982-06-09",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "425 ACs. Poll held on 10 June 1977 after the post-Emergency dissolution of the Assembly; event id follows the public polling month rather than the panel's October grouping. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenJun1977"
@@ -4412,7 +4412,7 @@
         "display": "Uttar Pradesh Assembly · May 1980",
         "polled_on": "1980-05-28",
         "term_end_estimated": "1985-05-27",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "425 ACs. Public page records polling on 28 and 31 May 1980. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1980"
@@ -4424,7 +4424,7 @@
         "display": "Uttar Pradesh Assembly · February-May 1985",
         "polled_on": "1985-02-03",
         "term_end_estimated": "1990-02-02",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "425 ACs. Public page records polling on 3 February and 3 May 1985; event id follows the first public polling month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1985"
@@ -4436,7 +4436,7 @@
         "display": "Uttar Pradesh Assembly · November 1989",
         "polled_on": "1989-11-22",
         "term_end_estimated": "1994-11-21",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "425 ACs. Public page records polling on 22 November 1989. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1989"
@@ -4448,7 +4448,7 @@
         "display": "Uttar Pradesh Assembly · May 1991",
         "polled_on": "1991-05-01",
         "term_end_estimated": "1996-04-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "419 contested ACs in the panel. Public page records year-level polling context; event id retains the panel month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1991"
@@ -4460,7 +4460,7 @@
         "display": "Uttar Pradesh Assembly · November 1993",
         "polled_on": "1993-11-01",
         "term_end_estimated": "1998-10-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "423 contested ACs in the panel. Public page records polling in November 1993; event id follows that month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1993"
@@ -4472,7 +4472,7 @@
         "display": "Uttar Pradesh Assembly · September-October 1996",
         "polled_on": "1996-09-30",
         "term_end_estimated": "2001-09-29",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "424 contested ACs in the panel. Public page records polling on 30 September and 7 October 1996, with one constituency postponed after a candidate death; event id follows the first public polling month rather than the panel's July grouping. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenSep1996"
@@ -4484,7 +4484,7 @@
         "display": "Uttar Pradesh Assembly · February-March 2002",
         "polled_on": "2002-02-01",
         "term_end_estimated": "2007-01-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "403 ACs. First Uttar Pradesh Assembly election after the creation of Uttarakhand; public page records a February-March 2002 polling window. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2002"
@@ -4496,7 +4496,7 @@
         "display": "Uttar Pradesh Assembly · April-May 2007",
         "polled_on": "2007-04-07",
         "term_end_estimated": "2012-04-06",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "403 ACs. Seven-phase poll from 7 April to 8 May 2007. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenApr2007"
@@ -4595,7 +4595,7 @@
         "display": "Uttarakhand - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -4607,7 +4607,7 @@
         "display": "Uttarakhand Assembly · February 2002",
         "polled_on": "2002-02-14",
         "term_end_estimated": "2007-02-13",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "70 ACs. First Assembly election for the state, then named Uttaranchal. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2002"
@@ -4619,7 +4619,7 @@
         "display": "Uttarakhand Assembly · February 2007",
         "polled_on": "2007-02-21",
         "term_end_estimated": "2012-02-20",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "69 contested ACs in the panel slice. Single-phase poll on 21 February 2007. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2007"
@@ -4718,7 +4718,7 @@
         "display": "Manipur - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -4730,7 +4730,7 @@
         "display": "Manipur - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -4742,7 +4742,7 @@
         "display": "Manipur Assembly · January 1980",
         "polled_on": "1980-01-06",
         "term_end_estimated": "1985-01-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Two-phase poll on 3 and 6 January 1980; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenJan1980"
@@ -4754,7 +4754,7 @@
         "display": "Manipur Assembly · December 1984-May 1985",
         "polled_on": "1984-12-27",
         "term_end_estimated": "1989-12-26",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Election began on 27 December 1984 with residual polling on 3 May 1985; event id follows the panel year/month. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenDec1984"
@@ -4766,7 +4766,7 @@
         "display": "Manipur Assembly · February 1990",
         "polled_on": "1990-02-12",
         "term_end_estimated": "1995-02-11",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "54 contested ACs in the panel slice. Single-phase poll on 12 February 1990. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1990"
@@ -4778,7 +4778,7 @@
         "display": "Manipur Assembly · February 1995",
         "polled_on": "1995-02-19",
         "term_end_estimated": "2000-02-18",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Two-phase poll on 16 and 19 February 1995; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1995"
@@ -4790,7 +4790,7 @@
         "display": "Manipur Assembly · February 2000",
         "polled_on": "2000-02-22",
         "term_end_estimated": "2005-02-21",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Two-phase poll on 12 and 22 February 2000; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2000"
@@ -4802,7 +4802,7 @@
         "display": "Manipur Assembly · February 2002",
         "polled_on": "2002-02-21",
         "term_end_estimated": "2007-02-20",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Two-phase poll on 14 and 21 February 2002; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2002"
@@ -4814,7 +4814,7 @@
         "display": "Manipur Assembly · February 2007",
         "polled_on": "2007-02-23",
         "term_end_estimated": "2012-02-22",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Multi-phase poll from 8 to 23 February 2007; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2007"
@@ -4913,7 +4913,7 @@
         "display": "Gujarat - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -4925,7 +4925,7 @@
         "display": "Gujarat - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -4937,7 +4937,7 @@
         "display": "Gujarat Assembly · February 1962",
         "polled_on": "1962-02-01",
         "term_end_estimated": "1967-01-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenFeb1962"
@@ -4949,7 +4949,7 @@
         "display": "Gujarat Assembly · February 1967",
         "polled_on": "1967-02-01",
         "term_end_estimated": "1972-02-29",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenFeb1967"
@@ -4961,7 +4961,7 @@
         "display": "Gujarat Assembly · March 1972",
         "polled_on": "1972-03-01",
         "term_end_estimated": "1975-05-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenMar1972"
@@ -4973,7 +4973,7 @@
         "display": "Gujarat Assembly · June 1975",
         "polled_on": "1975-06-01",
         "term_end_estimated": "1980-04-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenJun1975"
@@ -4985,7 +4985,7 @@
         "display": "Gujarat Assembly · May 1980",
         "polled_on": "1980-05-01",
         "term_end_estimated": "1985-04-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenMay1980"
@@ -4997,7 +4997,7 @@
         "display": "Gujarat Assembly · May 1985",
         "polled_on": "1985-05-01",
         "term_end_estimated": "1990-01-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenMay1985"
@@ -5009,7 +5009,7 @@
         "display": "Gujarat Assembly · February 1990",
         "polled_on": "1990-02-01",
         "term_end_estimated": "1995-01-31",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenFeb1990"
@@ -5021,7 +5021,7 @@
         "display": "Gujarat Assembly · February 1995",
         "polled_on": "1995-02-01",
         "term_end_estimated": "1998-02-28",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenFeb1995"
@@ -5033,7 +5033,7 @@
         "display": "Gujarat Assembly · March 1998",
         "polled_on": "1998-03-01",
         "term_end_estimated": "2002-11-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenMar1998"
@@ -5045,7 +5045,7 @@
         "display": "Gujarat Assembly · December 2002",
         "polled_on": "2002-12-01",
         "term_end_estimated": "2007-11-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenDec2002"
@@ -5057,7 +5057,7 @@
         "display": "Gujarat Assembly · December 2007",
         "polled_on": "2007-12-01",
         "term_end_estimated": "2012-11-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "Ingested from ECI Statistical Report Assembly Election panel CSV transcription.",
         "event_id_aliases": [
           "AcGenDec2007"
@@ -5156,7 +5156,7 @@
         "display": "Tripura - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -5168,7 +5168,7 @@
         "display": "Tripura - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -5180,7 +5180,7 @@
         "display": "Tripura Assembly · December 1977",
         "polled_on": "1977-12-31",
         "term_end_estimated": "1982-12-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenDec1977"
@@ -5192,7 +5192,7 @@
         "display": "Tripura Assembly · May 1983",
         "polled_on": "1983-05-01",
         "term_end_estimated": "1988-04-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1983"
@@ -5204,7 +5204,7 @@
         "display": "Tripura Assembly · February 1988",
         "polled_on": "1988-02-02",
         "term_end_estimated": "1993-02-01",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1988"
@@ -5216,7 +5216,7 @@
         "display": "Tripura Assembly · February 1993",
         "polled_on": "1993-02-15",
         "term_end_estimated": "1998-02-14",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1993"
@@ -5228,7 +5228,7 @@
         "display": "Tripura Assembly · February 1998",
         "polled_on": "1998-02-16",
         "term_end_estimated": "2003-02-15",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1998"
@@ -5240,7 +5240,7 @@
         "display": "Tripura Assembly · February 2003",
         "polled_on": "2003-02-26",
         "term_end_estimated": "2008-02-25",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2003"
@@ -5252,7 +5252,7 @@
         "display": "Tripura Assembly · February 2008",
         "polled_on": "2008-02-23",
         "term_end_estimated": "2013-02-22",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2008"
@@ -5351,7 +5351,7 @@
         "display": "Meghalaya - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -5363,7 +5363,7 @@
         "display": "Meghalaya - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -5375,7 +5375,7 @@
         "display": "Meghalaya Assembly · February 1978",
         "polled_on": "1978-02-25",
         "term_end_estimated": "1983-02-24",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1978"
@@ -5387,7 +5387,7 @@
         "display": "Meghalaya Assembly · February 1983",
         "polled_on": "1983-02-17",
         "term_end_estimated": "1988-02-16",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1983"
@@ -5399,7 +5399,7 @@
         "display": "Meghalaya Assembly · February 1988",
         "polled_on": "1988-02-02",
         "term_end_estimated": "1993-02-01",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1988"
@@ -5411,7 +5411,7 @@
         "display": "Meghalaya Assembly · February 1993",
         "polled_on": "1993-02-19",
         "term_end_estimated": "1998-02-18",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1993"
@@ -5423,7 +5423,7 @@
         "display": "Meghalaya Assembly · February 1998",
         "polled_on": "1998-02-16",
         "term_end_estimated": "2003-02-15",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1998"
@@ -5435,7 +5435,7 @@
         "display": "Meghalaya Assembly · February 2003",
         "polled_on": "2003-02-26",
         "term_end_estimated": "2008-02-25",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2003"
@@ -5447,7 +5447,7 @@
         "display": "Meghalaya Assembly · March 2008",
         "polled_on": "2008-03-03",
         "term_end_estimated": "2013-03-02",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMar2008"
@@ -5546,7 +5546,7 @@
         "display": "Nagaland - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -5558,7 +5558,7 @@
         "display": "Nagaland - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -5570,7 +5570,7 @@
         "display": "Nagaland Assembly · November 1977",
         "polled_on": "1977-11-18",
         "term_end_estimated": "1982-11-17",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Poll held on 18 November 1977. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1977"
@@ -5582,7 +5582,7 @@
         "display": "Nagaland Assembly · November 1982",
         "polled_on": "1982-11-10",
         "term_end_estimated": "1987-11-09",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Poll held on 10 November 1982. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1982"
@@ -5594,7 +5594,7 @@
         "display": "Nagaland Assembly · November 1987",
         "polled_on": "1987-11-18",
         "term_end_estimated": "1992-11-17",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Poll held on 18 November 1987. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1987"
@@ -5606,7 +5606,7 @@
         "display": "Nagaland Assembly · January 1989",
         "polled_on": "1989-01-21",
         "term_end_estimated": "1994-01-20",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Public source records polling on 21 January 1989; event id follows the public polling month rather than the panel's counting-month value. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenJan1989"
@@ -5618,7 +5618,7 @@
         "display": "Nagaland Assembly · February 1993",
         "polled_on": "1993-02-15",
         "term_end_estimated": "1998-02-14",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Poll held on 15 February 1993. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1993"
@@ -5630,7 +5630,7 @@
         "display": "Nagaland Assembly · February 1998",
         "polled_on": "1998-02-23",
         "term_end_estimated": "2003-02-22",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Poll held on 23 February 1998; many candidates were elected unopposed. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1998"
@@ -5642,7 +5642,7 @@
         "display": "Nagaland Assembly · February 2003",
         "polled_on": "2003-02-26",
         "term_end_estimated": "2008-02-25",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "60 ACs. Poll held on 26 February 2003. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb2003"
@@ -5753,7 +5753,7 @@
         "display": "Rajasthan - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -5765,7 +5765,7 @@
         "display": "Rajasthan - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -5777,7 +5777,7 @@
         "display": "Rajasthan Assembly · June 1977",
         "polled_on": "1977-06-10",
         "term_end_estimated": "1982-06-09",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "200 ACs. Poll held on 10 June 1977; event id follows the public polling month rather than the panel's month value. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenJun1977"
@@ -5789,7 +5789,7 @@
         "display": "Rajasthan Assembly · May 1980",
         "polled_on": "1980-05-31",
         "term_end_estimated": "1985-05-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "200 ACs. Two-phase poll on 28 and 31 May 1980; event date records the final polling day. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1980"
@@ -5801,7 +5801,7 @@
         "display": "Rajasthan Assembly · May 1985",
         "polled_on": "1985-05-03",
         "term_end_estimated": "1990-05-02",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "200 ACs. Poll held on 3 May 1985. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenMay1985"
@@ -5813,7 +5813,7 @@
         "display": "Rajasthan Assembly · February 1990",
         "polled_on": "1990-02-27",
         "term_end_estimated": "1995-02-26",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "200 ACs. Poll held on 27 February 1990. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenFeb1990"
@@ -5825,7 +5825,7 @@
         "display": "Rajasthan Assembly · November 1993",
         "polled_on": "1993-11-11",
         "term_end_estimated": "1998-11-10",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "199 contested ACs. Poll held on 11 November 1993; Rajakhera was postponed after a candidate death. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1993"
@@ -5837,7 +5837,7 @@
         "display": "Rajasthan Assembly · November 1998",
         "polled_on": "1998-11-25",
         "term_end_estimated": "2003-11-24",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "200 ACs. Poll held on 25 November 1998. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenNov1998"
@@ -5849,7 +5849,7 @@
         "display": "Rajasthan Assembly · December 2003",
         "polled_on": "2003-12-01",
         "term_end_estimated": "2008-11-30",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "200 ACs. Poll held on 1 December 2003. Ingested from All_States_AE.csv via the statewise AE panel path (DelimID=3).",
         "event_id_aliases": [
           "AcGenDec2003"
@@ -5959,7 +5959,7 @@
         "display": "Andaman and nicobar - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -5971,7 +5971,7 @@
         "display": "Andaman and nicobar - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -6033,7 +6033,7 @@
         "display": "Chandigarh - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -6045,7 +6045,7 @@
         "display": "Chandigarh - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -6107,7 +6107,7 @@
         "display": "Dadra and nagar Haveli and daman and diu - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -6119,7 +6119,7 @@
         "display": "Dadra and nagar Haveli and daman and diu - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"
@@ -6182,7 +6182,7 @@
         "display": "Lakshadweep - Parliament 2004",
         "polled_on": "2004-05-10",
         "term_end_estimated": "2009-04-12",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 2004 (14th Lok Sabha; multi-phase 20 Apr - 10 May 2004, counted 13 May 2004). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenMay2004 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenMay2004"
@@ -6194,7 +6194,7 @@
         "display": "Lakshadweep - Parliament 1999",
         "polled_on": "1999-10-03",
         "term_end_estimated": "2004-02-05",
-        "data_status": "pending_upstream",
+        "data_status": "complete",
         "notes": "National Parliament 1999 (13th Lok Sabha; multi-phase 5 Sep - 3 Oct 1999, counted 6 Oct 1999). State slice of the all-India event; the state's MPs sent to the national Parliament, kept separate from the state Assembly per ADR-0023. PR-W2a (2026-06-10) backfill: catalogue row added so the on-disk LsGenOct1999 period_label values in datasets/data/datapoints/electoral/*.csv resolve via event_id_aliases.",
         "event_id_aliases": [
           "LsGenOct1999"

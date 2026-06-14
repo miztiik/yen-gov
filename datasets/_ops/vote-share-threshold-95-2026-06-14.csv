@@ -1,0 +1,580 @@
+state,year,total_votes,n_parties_inside_threshold,cumsum_pct,n_outside_threshold,outside_vote_pct,unk_outside_threshold,outside_labels
+andaman-and-nicobar-islands,1967,36732,3,95.3,1,4.7,0,SWA
+andaman-and-nicobar-islands,1971,44525,2,100.0,0,0.0,0,
+andaman-and-nicobar-islands,1977,60568,2,100.0,0,0.0,0,
+andaman-and-nicobar-islands,1980,78899,3,96.5,2,3.5,0,JNP | JNP(S)
+andaman-and-nicobar-islands,1984,88968,3,96.7,1,3.3,0,IND
+andaman-and-nicobar-islands,1989,113065,4,100.0,0,0.0,0,
+andaman-and-nicobar-islands,1991,107316,3,99.4,1,0.6,0,IND
+andaman-and-nicobar-islands,1996,128212,3,96.8,2,3.2,0,IND | JP
+andaman-and-nicobar-islands,1998,145836,4,97.5,1,2.5,0,IND
+andaman-and-nicobar-islands,1999,145791,2,95.9,2,4.1,0,IND | NCP
+andhra-pradesh,1962,23597218,4,97.7,4,2.3,0,JS | PSP | REP | SOC
+andhra-pradesh,1964,127385,3,96.2,1,3.8,0,SWA
+andhra-pradesh,1965,452090,4,98.5,1,1.5,0,CPI
+andhra-pradesh,1967,27384911,5,97.5,4,2.5,0,BJS | PSP | RPI | SSP
+andhra-pradesh,1968,-2,1,100.0,0,-0.0,0,
+andhra-pradesh,1970,193753,2,96.3,1,3.7,0,CPI
+andhra-pradesh,1971,13073383,7,97.2,7,2.8,0,BCM | BJS | MLP | RPK | RRP | SSP | TEC
+andhra-pradesh,1972,14292623,5,95.7,8,4.3,0,BCM | BJS | DMK | MIL | NCO | RPK | SOP | STS
+andhra-pradesh,1977,16705123,4,97.2,4,2.8,0,CPI | HMS | RPK | RRP
+andhra-pradesh,1978,21111199,5,97.1,7,2.9,0,ADK | BCM | CPI | DMK | RPI | RPK | RRP
+andhra-pradesh,1979,760828,4,97.9,2,2.1,0,BCM | CPI
+andhra-pradesh,1980,17217342,6,96.4,3,3.6,0,BSP | CPM | RRP
+andhra-pradesh,1981,383836,6,100.0,0,0.0,0,
+andhra-pradesh,1983,21117111,4,95.1,6,4.9,0,CPM | ICJ | ICS | JNP | LKD | TDP
+andhra-pradesh,1984,22765979,5,96.0,3,4.0,0,CPM | ICS | JNP
+andhra-pradesh,1985,22974599,4,95.2,4,4.8,0,BJP | CPM | JNP | LKD
+andhra-pradesh,1987,639425,3,96.9,2,3.1,0,CPI | IND
+andhra-pradesh,1988,172219,2,98.9,1,1.1,0,IND
+andhra-pradesh,1989,57515870,6,95.9,21,4.1,0,BJP | BJS | BSP | CPI(ML) | DLP | DMM | ICS(SCS) | IML | JD | JNP (JP) | JNP(JP) | LKD (B) | LKD(B) | LKP | MCPI | MGS | RPI | RPK | SOP(L) | SSP | VJS
+andhra-pradesh,1991,26072184,6,96.0,18,4.0,0,BDLP | BKUS | BSP | ICS(SCS) | IPF | JD | JNP | JP | LAB(B) | LKD | LKP | MCPI | MIM | MSD | NBP | RPK | SRP | SSD
+andhra-pradesh,1993,199274,2,100.0,0,0.0,0,
+andhra-pradesh,1994,31705032,6,96.1,26,3.9,0,ADMK | APNPP | BRP | BSP | CPI(ML) | IUML | JD | JP | LP | MBT | MCPI | MIM | NPP | NSP | RP | RPI | RPI(A) | RPI(K) | RPP | SAP | SJP | SJP(R) | SP | SSP | SWP | TD
+andhra-pradesh,1995,257208,2,100.0,0,0.0,0,
+andhra-pradesh,1996,32162821,7,97.2,29,2.8,0,ABRRP(P) | AIIC(T) | AIMIM | BRP | BSP | CPI(ML)(L) | HPP | IDP | JP | LP | MBT | MCPI(S) | NIP | NTR TDP (L.P.) | NTR TDP (LP) | NTR TDP(LP) | NTR(TDP) | NTR/TDP (LP) | NTRTDP( L.P.) | NTRTDR(LP) | PHK | RPI | RPI(KH) | SAP | SHS | SHSP | SMP | SP | SYP
+andhra-pradesh,1997,343935,2,98.7,2,1.3,0,IND | NTR TDP(LP)
+andhra-pradesh,1998,32548940,6,95.9,22,4.1,0,ABRRP(P) | AIMIM | AIRJP | AJBP | ANP | BRP | BSP | CPI(ML)(L) | JD | JTP | LS | MCPI(S) | NTR TDP (LP) | NTRTDP(LP) | RJD | RPP | SAP | SHS | SHSP | SJP(R) | SP | TGPP
+andhra-pradesh,1999,66675100,5,95.0,24,5.0,0,ABRRP(P) | ADMK | AIMIM | AJBP | ATDP | BJRP | BSP | CPI | CPI(ML)(L) | JD(S) | LS | MBT | MCPI(S) | NCP | NIP | NTRTDP(LP) | PPOI | RJD | RMEP | RPI | RPI(A) | SHS | SHSP | SP
+arunachal-pradesh,1977,50690,2,100.0,0,0.0,0,
+arunachal-pradesh,1978,158988,3,99.5,1,0.5,0,INC
+arunachal-pradesh,1980,344396,4,100.0,0,0.0,0,
+arunachal-pradesh,1984,451263,4,97.7,1,2.3,0,JNP
+arunachal-pradesh,1989,273130,3,100.0,0,0.0,0,
+arunachal-pradesh,1990,349098,3,97.7,1,2.3,0,JNP(JP)
+arunachal-pradesh,1991,260901,3,99.7,1,0.3,0,IND
+arunachal-pradesh,1995,424827,4,97.5,1,2.5,0,JP
+arunachal-pradesh,1996,299110,3,100.0,0,0.0,0,
+arunachal-pradesh,1998,328764,3,98.1,1,1.9,0,JD
+arunachal-pradesh,1999,837195,5,98.7,1,1.3,0,AJBP
+assam,1962,4939472,5,96.2,4,3.8,0,ACK | JS | RCP | SOC
+assam,1963,35046,3,99.2,1,0.8,0,IND
+assam,1964,22262,2,96.6,1,3.4,0,HLC
+assam,1965,37410,4,100.0,0,0.0,0,
+assam,1967,6174299,7,97.8,2,2.2,0,CPM | SWA
+assam,1968,86588,3,100.0,0,0.0,0,
+assam,1970,54528,4,100.0,0,0.0,0,
+assam,1971,3026540,8,95.6,5,4.4,0,CPM | RSP | SSP | SUC | SWA
+assam,1972,3795313,5,97.0,5,3.0,0,BJS | FBL | NCO | PTC | SWA
+assam,1977,3823310,4,96.9,3,3.1,0,CPI | RCI | SUC
+assam,1978,5165053,6,95.3,6,4.7,0,FBL | IGL | PTC | RCI | RSP | SUC
+assam,1980,633960,4,100.0,0,0.0,0,
+assam,1983,2274090,5,97.4,1,2.6,0,CPI
+assam,1985,14889124,5,95.0,5,5.0,0,BJP | CPI | JNP | LKD | RSP
+assam,1986,47299,2,100.0,0,0.0,0,
+assam,1988,45912,3,98.6,2,1.4,0,IND | JNP
+assam,1991,16822818,11,95.1,16,4.9,0,ADC | AJD | AJP | AMB | CPI(ML) | DDP | GGS | IPF | JD(S) | JP | LKD | PTCA | RCPI | RCPI(RB) | SLP | UPCA
+assam,1996,18501010,7,95.7,13,4.3,0,AMB | CPI | CPI(ML)(L) | ICS | JD | JP | RCPI(R) | SAP | SHS | SP | UMFA | URMCA | UTNLF
+assam,1998,8614795,7,95.2,11,4.8,0,CPI | CPI(ML)(L) | JD | PDF | PTCA | RCPI(R) | RJD | SP | UMF | URMCA | UTNLF
+assam,1999,9912467,7,96.1,13,3.9,0,AJBP | AMB | CPI | JD(S) | NCP | PDF | RCPI(R) | RJD | SHS | SP | UBNLF | UMFA | UTNLF
+bihar,1962,19803409,7,97.0,4,3.0,0,HMS | JS | RCP | RRP
+bihar,1963,29301,2,100.0,0,0.0,0,
+bihar,1964,423311,3,97.5,1,2.5,0,JS
+bihar,1967,27184785,7,96.8,3,3.2,0,CPM | JKD | RPI
+bihar,1968,316680,4,95.0,1,5.0,0,BJS
+bihar,1969,15003629,10,96.7,12,3.3,0,BCP | BPS | CPM | FBL | HMS | PBI | PHJ | RPI | RRP | RSP | SUC | SWA
+bihar,1970,326252,5,97.9,4,2.1,0,BKD | CPM | JKP | NCN
+bihar,1971,14895420,9,95.5,16,4.5,0,BRP | CPM | FBL | HSD | ISP | JAP | JKP | MUL | PBI | PHJ | RCI | RRP | RSM | SOC | SUC | SWA
+bihar,1972,17630917,7,95.5,16,4.5,0,BCP | BKD | BRP | FBL | HJS | HSD | ILP | JKD | JKP | MUL | PHJ | RPI | RSM | RSP | SUC | SWA
+bihar,1977,38267621,5,97.6,12,2.4,0,BRP | CPM | FBL | JKD | JKP | MUL | PBI | PHJ | RPI | SSD | SUC | WPI
+bihar,1978,584464,4,100.0,0,0.0,0,
+bihar,1979,64337,5,96.8,1,3.2,0,IND
+bihar,1980,42746566,9,95.9,12,4.1,0,BSP | CPM | FBL | JKD | JMM | JNP(SR) | LKD | RPI | RRP | RSP | SSD | SUC
+bihar,1981,416382,7,98.2,3,1.8,0,CPM | JKD | JMM
+bihar,1982,453546,6,95.4,3,4.6,0,JKD | LKD | SUC
+bihar,1984,25194017,6,95.7,5,4.3,0,CPM | FBL | ICJ | ICS | JMM
+bihar,1985,25470384,6,95.7,8,4.3,0,CPM | DDP | FBL | ICJ | ICS | JMM | RSP | SUC
+bihar,1986,655183,4,96.3,2,3.7,0,BJP | CPI
+bihar,1989,30853493,7,95.2,21,4.8,0,AMB | BJS | BKS | BKUS | BLKD | BSP | CPM | DDP | DMM | HJD | JKD | JNP (JP) | LKD (B) | LMS | M-COR | PBI | PHJ | PVP | SOP(L) | SSD | SUC
+bihar,1990,32063503,9,95.8,37,4.2,0,ABSP | AMB | AVM | AZP | BBP | BDC | BJS | BKUS | BSP | CPI(ML) | DBM | DDP | DMKP | DMM | FBL | HJD | HMS | ICS(SCS) | IML | IP | JKD | JKP | LKD(B) | LSM | MCOR | MCPI | MUL | PBI | PHJD | PVP | RPI | RRP | RSP | SOP(L) | SSD | SUC | UCPI
+bihar,1991,30594991,7,95.1,26,4.9,0,ABSP | AMB | AZP | BKUS | BSP | CPM | DBM | DDP | DMM | FBL | HMS | ICS(SCS) | IPF | JF | JKP | JMS | JNP | LAJM | LKD | M-COR | MSD | PBI | RRP(S) | SKD | SOP(L) | SSD
+bihar,1992,478891,3,96.9,4,3.1,0,ABMSD | BKUS | IND | JP
+bihar,1993,635422,4,97.8,3,2.2,0,ABDM | IND | JP
+bihar,1995,34561054,13,96.3,43,3.7,0,ABA-SJM | ABDBM | ABJS | ABSP | AHFB | AMB | AVAM | BADP | BKD | BKUS | BMS | BRD | CSP-JSD | CVP | DDP | DS | FBL | HJP | HMS | I | ICS | JKP | JLF | JMM(M) | JNMK | JP | JPP | KD | KSP | LKD | LTSM | MCOR | MCPI | MUL | PHJP | PSSS | RSP | SHS | SJP(R) | SMM | SOP(L) | SSD | SUCI
+bihar,1996,35597857,9,96.5,30,3.5,0,ABDBM | ABJS | ABJVP | ABLTASJM | AIIC(J) | AIIC(T) | AMB | BKUS | BLPY | BPI | BSP | CPI(ML) | CPM | FBL | IUML | JKP | JKP(N) | JKPP | JMM(M) | JP | JPP | MCO | PHK | PSSS | RAM | RMEP | SHS | SJP(R) | SSD | VJP
+bihar,1997,118959,4,100.0,0,0.0,0,
+bihar,1998,38314050,11,95.4,28,4.6,0,ABHM | ABMSD | AIIC(S) | AIMF | AIRJP | AJBP | AMB | BJC | BKKGP | BLLP | BMF | BSP | CPI (ML)(L) | CPM | FBL | ICS | JKP | JKPP | JMM(M) | JP | LS | LSWP | MCO | PSSS | RAM | SHS | SSD | SWJP
+bihar,1999,35652429,10,95.3,27,4.7,0,ABHM | ABJS | AJBP | AMB | BHJC | BHJVP | BJC(R) | BMF | BSP | CPM | CVP | FBL | JD(S) | JKP | JMM(U) | JP | KVSB | LS | LSWP | MCO | RLD | RSP | SHS | SJP(R) | SPSP | SSD | UGDP
+chandigarh,1967,49155,4,96.8,1,3.2,0,CPM
+chandigarh,1971,72302,3,99.8,1,0.2,0,VHP
+chandigarh,1977,107081,3,97.7,1,2.3,0,CPI
+chandigarh,1980,124115,4,99.2,1,0.8,0,JNP(S)
+chandigarh,1984,156143,3,95.2,1,4.8,0,IND
+chandigarh,1989,216903,4,97.8,5,2.2,0,BSP | DDP | JNP (JP) | LKD (B) | SAD(M)
+chandigarh,1991,213662,5,97.0,5,3.0,0,DDP | FBL | JD | KMS | MPP
+chandigarh,1996,259007,6,96.0,8,4.0,0,AIIC(T) | BSP(A) | ICS | JD | JP | PHK | SHS | SMP
+chandigarh,1998,282755,3,95.6,7,4.4,0,AD | AJBP | BSP(A) | IND | LS | RJD | SP
+chandigarh,1999,282816,3,95.2,4,4.8,0,AJBP | BSP | BSP(A) | SP
+dadra-and-nagar-haveli,1967,21248,4,95.9,1,4.1,0,BJS
+dadra-and-nagar-haveli,1971,21658,3,100.0,0,0.0,0,
+dadra-and-nagar-haveli,1977,24131,3,100.0,0,0.0,0,
+dadra-and-nagar-haveli,1980,31146,4,100.0,0,0.0,0,
+dadra-and-nagar-haveli,1984,38380,2,96.3,1,3.7,0,JNP
+dadra-and-nagar-haveli,1989,51998,3,98.6,1,1.4,0,BSP
+dadra-and-nagar-haveli,1991,48439,2,97.1,3,2.9,0,BSP | DDP | IND
+dadra-and-nagar-haveli,1996,70809,2,98.0,2,2.0,0,AIIC(T) | IND
+dadra-and-nagar-haveli,1998,72531,2,95.4,2,4.6,0,INC | IND
+dadra-and-nagar-haveli,1999,71905,4,100.0,0,0.0,0,
+daman-and-diu,1989,36538,3,100.0,0,0.0,0,
+daman-and-diu,1991,37937,3,97.2,2,2.8,0,DDP | JD
+daman-and-diu,1996,48488,3,100.0,0,0.0,0,
+daman-and-diu,1998,51596,2,98.0,1,2.0,0,INC
+daman-and-diu,1999,50800,3,99.3,1,0.7,0,SHS
+delhi,1962,894149,4,97.3,3,2.7,0,CPI | HMS | PSP
+delhi,1967,1121161,4,99.8,1,0.2,0,SSP
+delhi,1971,1297884,3,95.9,9,4.1,0,FBL | HMS | IND | NCO | PSP | RPK | SSP | SWA | VHP
+delhi,1972,1403764,4,96.4,5,3.6,0,HMS | NCO | RPI | SOP | SWA
+delhi,1977,3288954,4,98.0,8,2.0,0,CPI | CPM | HMS | MUL | RPI | RPK | RRP | SUC
+delhi,1980,1964438,3,95.1,7,4.9,0,BSP | CPI | ILP | INC(U) | IND | RPI | RRP
+delhi,1983,1775910,4,95.9,4,4.1,0,CPI | CPM | ICS | JNP
+delhi,1984,2223983,4,96.4,2,3.6,0,ICJ | JNP
+delhi,1985,406673,3,97.1,3,2.9,0,CPM | JNP | LKD
+delhi,1989,3047316,4,95.3,17,4.7,0,BSP | DDP | FBL | HMS | HSS | ICJ(TG) | JNP (JP) | LKD (B) | LMD | LMS | LPI | PDI | PPI | RPI | RPI(GG) | RRP | SHP
+delhi,1991,2912863,4,96.6,33,3.4,0,AUM | AZP | BDP | BLMD | BSNP | BSP | CPI | DBP | DDP | DMM | DND | FBL | HMS | HSD | JC | JEM | JKMP | JNP | JP | JPP | KMS | LHM | LKD | LPI(P) | MUB | MUL | PRC | RPI | RPI(A) | RPK | RUD | SAD(M) | SMP
+delhi,1992,193543,3,95.9,13,4.1,0,ABBDP | ABDND | ABMSKP | BLMD | CP | HNP | IND | JEM | LD | PRP | RJMP | SP | SP(RP)
+delhi,1993,3551248,4,95.9,47,4.1,0,ABMSKP | BAD | BJC | BJVP | BKD | BKD(J) | BLMD | BMD | BMSM | BRD | BRP | BSP | BVD | CPI | CPM | DBP | DDP | DND | DPP | ESP | FBL | FBL(M) | GLP | HMS | HSD | ICS | IDSP | IPF | IUML | JEM | JP | LKD | LPI | MB | NDPF | PRC | RMEP | RPI | RUD | RVP | SAD(M) | SHS | SHS(R) | SOP(P) | SOP(RP) | SP | SUCI
+delhi,1996,4019824,4,95.0,47,5.0,0,ABDD | ABHM | ABJVP | ABMSKP | ABSR | AIAHMJKP | AIIC(T) | BAZP | BCVD | BKD(J) | BLPY | BLTMD | BLTP | BPF | BPM | BRD | BSP(R) | BSVP | CPI | CPM | DBP | ESP | FBL | HNP | ICS | ISC | IUML | JEM | JP | JSTP | LPI(V) | MB | MSP | MSS | PHK | PPNMS | PRC | RAM | RMEP | RPI | RSDP | RUD | SABJAN | SAP | SHS | SMP | SP
+delhi,1997,543200,3,98.3,7,1.7,0,ABHM | BKD(J) | DMKP | JP | NLP | QP | RMMP
+delhi,1998,8304995,5,97.0,60,3.0,0,ABDUP | ABGLP | ABGMKP | ABHM | ABJC | ABJS | ABLTC | ABMAD | ABSR | AD | AGRJP | AIIC(S) | AIRJP | AIRKC | AJBP | AP | BCVD | BD | BJJP | BKD(J) | BKMP | BPM | BRVP | CPI | CPI(ML)(L) | CPM | DBP | DVP | HM | ICS | INLD | JMM | JP | JSMP | KMM | LD | LS | LSWP | MSP | NDPF | NLP | PSSS | RAM | RAS | RJC | RJD | RJP | RMEP | RMMP | RPI | RRCD | RUD | SAD(M) | SAP | SHS | SHSP | SJP(R) | SP | UCP | UKKD
+delhi,1999,3793488,3,95.9,18,4.1,0,ABJVP | ABMAD | AIMF | AP | BD | BEP(R) | BPM | CPI(ML)(L) | DBP | IND | JD(S) | LSWP | NCP | NCY | NLP | SP | SPSP | UCP
+goa,1989,921890,4,95.5,9,4.5,0,BJP | BSP | CPI | CPM | GBS | GLP | JNP (JP) | JNP(JP) | SHS
+goa,1991,314666,4,96.0,6,4.0,0,BSP | CPI | DDP | GLP | JD | LKD
+goa,1994,575789,5,95.4,8,4.6,0,BSP | CPI | CPM | GLP | JD | RPI | SHS | SP
+goa,1996,495925,4,97.6,3,2.4,0,CPI | IND | SP
+goa,1998,532766,4,99.7,1,0.3,0,IND
+goa,1999,987102,6,95.6,8,4.4,0,ABHS | CPI | CPM | GMLP | GVP | JD | NCP | SHS
+gujarat,1962,10487383,5,97.4,6,2.6,0,CPI | HMS | JS | REP | RRP | SOC
+gujarat,1964,56735,2,96.2,3,3.8,0,HMS | IND | SWA
+gujarat,1967,12775690,3,95.5,4,4.5,0,BJS | PSP | RPI | SSP
+gujarat,1969,193111,2,95.4,1,4.6,0,IND
+gujarat,1970,41511,2,100.0,0,0.0,0,
+gujarat,1971,6130038,4,95.6,6,4.4,0,BJS | BKD | HMS | PSP | RPK | SSP
+gujarat,1972,7221963,4,96.8,6,3.2,0,CPI | CPM | HMS | RSP | SOP | SWA
+gujarat,1975,8059752,5,96.2,6,3.8,0,BLD | CPI | CPM | RMP | RPI | SP
+gujarat,1977,8112371,2,96.5,1,3.5,0,IND
+gujarat,1978,26840,3,100.0,0,0.0,0,
+gujarat,1980,16644288,5,96.3,6,3.7,0,CPI | CPM | INC(U) | JNP(S) | JNP(SC) | JNP(SR)
+gujarat,1981,154313,4,99.9,1,0.1,0,IN D
+gujarat,1982,142281,4,100.0,0,0.0,0,
+gujarat,1984,10633951,4,96.7,4,3.3,0,CPI | CPM | DDP | LKD
+gujarat,1985,9222623,4,99.0,3,1.0,0,CPI | CPM | DDP
+gujarat,1987,53423,4,100.0,0,0.0,0,
+gujarat,1988,374976,4,99.7,1,0.3,0,RPI
+gujarat,1989,12942999,3,95.4,10,4.6,0,BJS | BSP | DDP | DMM | GJP | IND | JNP (JP) | LKD (B) | RPI | RPK
+gujarat,1990,12685977,4,97.2,22,2.8,0,BJS | BKUS | BSP | CPI | CPM | DDP | DMM | GJL | GJP | HMS | ICS(SCS) | IPF | JNP(JP) | LKD(B) | RPI | RPI(B) | RPK | RPM | SHS | SOP(L) | SOP(P) | YVP
+gujarat,1991,11008213,4,95.9,19,4.1,0,AHF | BJS | BSP | DDP | DMM | FBL | HSH | ICS(SCS) | IND | JNP | JP | MSD | PBI | RPI | RPK | SCP | SLI | SMP | YVP
+gujarat,1995,18048194,4,96.9,23,3.1,0,ABJS | BMSM | BSP | CPI | CPI(ML)(L) | CPM | DDP | GSP | HSS | IUML | LKD | RPI | RPI(D) | RPI(K) | RPM | RSP | RSRP | SAP | SHS | SJP(R) | SOLI | SOP(L) | SP
+gujarat,1996,10157136,4,96.1,19,3.9,0,ABHM | ABJS | BMSM | BSP | CPI | CPM | GAVP | ICS | JD | RJP | RJP (G) | RJP(G) | RPI | RSRP | SAP | SHS | SLI | SMP | SP
+gujarat,1997,246288,4,98.7,6,1.3,0,BMRD | GJJP | JD | NCY | RMEP | SDP (MP)
+gujarat,1998,32564638,4,96.4,16,3.6,0,ABJS | ABMSD | AJBP | BSP | CPI | CPI(ML)(L) | CPM | JD | LSWP | RJD | RPI | RSRP | SAP | SHS | SP | SVSP
+gujarat,1999,13615022,2,97.9,12,2.1,0,AJBP | BSP | CPI | GYVP | IND | JD(S) | JD(U) | LSWP | NCP | RPI | SHS | SP
+haryana,1967,6084204,5,95.1,4,4.9,0,CPI | CPM | PSP | RPI
+haryana,1968,2541938,6,96.3,6,3.7,0,ADS | CPI | CPM | PSP | RPI | SSP
+haryana,1970,214273,3,96.5,1,3.5,0,VHP
+haryana,1971,2992538,6,97.0,8,3.0,0,BKD | CPM | FBL | PBI | PSP | RPK | SAD | SUC
+haryana,1972,3494796,6,97.0,8,3.0,0,BKD | CPI | CPM | HMS | RPI | RPK | SOP | SUC
+haryana,1977,7929503,5,98.8,6,1.2,0,CPI | CPM | FBL | RPI | RPK | SUC
+haryana,1978,431042,3,99.6,1,0.4,0,INC
+haryana,1979,51555,3,97.5,1,2.5,0,RPI
+haryana,1980,4529194,4,98.4,8,1.6,0,BJP | FBL | INC(U) | JNP(JP) | JNP(SC) | RPK | RRP | SUC
+haryana,1982,4910344,4,95.7,4,4.3,0,CPI | CPM | ICS | JNP
+haryana,1984,5135378,5,97.7,2,2.3,0,CPI | JNP
+haryana,1985,316856,5,96.6,2,3.4,0,CPI | CPM
+haryana,1986,82809,1,98.2,1,1.8,0,IND
+haryana,1987,7208651,4,95.8,6,4.2,0,CPI | CPM | ICJ(BG) | ICS(SCS) | JNP | LKD(A)
+haryana,1988,1063445,3,100.0,0,0.0,0,
+haryana,1989,6162359,4,97.0,8,3.0,0,BSP | CPI | DDP | JNP (JP) | LKD (B) | PDL | RPI | SUC
+haryana,1990,63164,2,96.1,1,3.9,0,IND
+haryana,1991,12387300,6,96.0,20,4.0,0,BSP | CPI | CPM | DBP | DDP | FBL | HCYM | HMS | ICS(SCS) | JKMP | KM | LKD | MC(J) | PDL | RKD | RPI | RPK | SJJP | VHP | YAD
+haryana,1993,179675,3,100.0,0,0.0,0,
+haryana,1996,15195231,7,96.3,24,3.7,0,ABDUP | ABHM | ABJS | ARS | BHJS | BKD(J) | BLP | BSP(A) | CPI | CPM | FBL | ICS | JD | JHM | JP | JPS | JSTP | PPNMS | RKD | RKP | RPI | SHS | SJP(R) | SP
+haryana,1998,7741158,6,95.4,17,4.6,0,ABHM | ABHS | ABJS | AIIC(S) | AJBP | BKKGP | BSP(A) | CPI | CPM | IND | JD | JP | LS | MSP | NPAP | SHS | SP
+haryana,1999,6973039,4,95.6,10,4.4,0,ABJS | AJBP | BSP | BSP(A) | CPM | IND | JD(S) | NCP | RPI | SP
+himachal-pradesh,1962,242908,4,95.5,1,4.5,0,JS
+himachal-pradesh,1967,1542883,4,95.2,5,4.8,0,CPI | CPM | PSP | RPI | SSP
+himachal-pradesh,1971,682062,5,97.5,2,2.5,0,CPI | SWA
+himachal-pradesh,1972,878245,5,96.7,3,3.3,0,CPM | NCO | SOP
+himachal-pradesh,1977,2290964,4,97.6,2,2.4,0,CPI | CPM
+himachal-pradesh,1980,1253869,4,97.8,2,2.2,0,CPI | INC(U)
+himachal-pradesh,1982,1550296,4,96.7,3,3.3,0,CPI | CPM | LKD
+himachal-pradesh,1984,1442353,4,97.8,3,2.2,0,CPI | ICJ | LKD
+himachal-pradesh,1985,1640927,4,96.4,3,3.6,0,CPI | CPM | LKD
+himachal-pradesh,1989,1882022,4,96.4,5,3.6,0,BSP | CPI | CPM | IND | JNP (JP)
+himachal-pradesh,1990,2011786,4,95.2,8,4.8,0,BSP | CPI | CPM | DDP | HMS | ICS(SCS) | JNP(JP) | PBI
+himachal-pradesh,1991,1751905,3,95.9,7,4.1,0,CPI | DDP | ICS(SCS) | IND | JNP | JP | PBI
+himachal-pradesh,1993,2325238,4,97.0,7,3.0,0,CPI | CPM | DDP | HKP | ICS | JD | SP
+himachal-pradesh,1994,35217,2,100.0,0,0.0,0,
+himachal-pradesh,1995,58670,2,100.0,0,0.0,0,
+himachal-pradesh,1996,2096940,3,95.1,12,4.9,0,ABSR | AIIC(T) | BSP | CPI | CPM | ICS | JD | JP | RNP | SAP | SHS | SP
+himachal-pradesh,1998,4932752,4,96.6,9,3.4,0,AIRJP | BSP | CPI | CPM | JD | RJP | SHS | SJP(R) | SP
+himachal-pradesh,1999,2133704,3,98.2,6,1.8,0,BSP | CPI | IND | JD(S) | NCP | SP
+jammu-and-kashmir,1962,725866,4,96.2,2,3.8,0,HM | PSP
+jammu-and-kashmir,1967,1662173,4,95.8,3,4.2,0,CPI | DNC | PSP
+jammu-and-kashmir,1971,1166746,3,98.5,2,1.5,0,PSP | SAD
+jammu-and-kashmir,1972,1379006,4,99.2,4,0.8,0,CPI | NCO | SOP | SWA
+jammu-and-kashmir,1977,3170694,5,98.0,2,2.0,0,CPI | JMI
+jammu-and-kashmir,1980,1386986,5,98.9,1,1.1,0,BJP
+jammu-and-kashmir,1983,2194217,5,96.2,5,3.8,0,BJP | CPI | CPM | JNP | LKD
+jammu-and-kashmir,1984,2188156,4,98.2,3,1.8,0,BJP | JKP | LKD
+jammu-and-kashmir,1985,35509,3,100.0,0,0.0,0,
+jammu-and-kashmir,1987,2600739,5,96.8,6,3.2,0,CPI | CPM | ICS(SCS) | JNP | JPP | LKD
+jammu-and-kashmir,1988,279574,3,100.0,0,0.0,0,
+jammu-and-kashmir,1989,1046121,6,96.6,3,3.4,0,JNP (JP) | JPP | PBI
+jammu-and-kashmir,1996,4558802,7,97.3,5,2.7,0,AIIC(T) | AIMF | CPI | CPM | JKAL
+jammu-and-kashmir,1997,31353,2,100.0,0,0.0,0,
+jammu-and-kashmir,1998,2182570,5,96.3,12,3.7,0,ABJS | ABMSD | AIIC(S) | BKKGP | JD | JKAL | JKNC | LS | NPAP | RJD | RPI | SP
+jammu-and-kashmir,1999,1596406,7,95.7,15,4.3,0,ABJS | AJKPPF | BRPP | CPI(ML)(L) | JD(S) | JD(U) | JKNPP | JP | LS | NCP | RJD | RLD | SJP(R) | SPI | SPSP
+karnataka,1977,10270125,2,96.7,3,3.3,0,CPI | IND | RPK
+karnataka,1978,12971745,4,97.8,7,2.2,0,ADK | CPI | CPM | DMK | MUL | RPI | RPK
+karnataka,1980,11108256,3,95.9,6,4.1,0,BJP | CPI | CPM | IND | JNP(S) | SUC
+karnataka,1981,42085,3,98.0,1,2.0,0,IND
+karnataka,1982,100523,4,100.0,0,0.0,0,
+karnataka,1983,12919459,4,96.9,8,3.1,0,ADMK | CPI | CPM | ICJ | ICS | LKD | MUL | RPI
+karnataka,1984,13644136,4,98.4,3,1.6,0,CPI | CPM | LKD
+karnataka,1985,14712727,4,97.8,4,2.2,0,CPI | CPM | ICS | LKD
+karnataka,1986,555919,3,100.0,0,0.0,0,
+karnataka,1989,36680922,7,97.8,18,2.2,0,ADK | BRP | BSP | CPI | CPM | DMM | KGP | KNP | LKD (B) | LKD(B) | MUL | RPI | RPK | SHS | SRP | SSD | SUCI | SVP
+karnataka,1991,15575328,5,95.8,17,4.2,0,BBP | BKUS | BSP | CKN | CPI | CPM | DDP | IND | JNP | KDP | KNP | LKD | MSD | PBI | RPK | RSP | SUP
+karnataka,1992,210279,1,100.0,0,0.0,0,
+karnataka,1993,122202,1,100.0,0,0.0,0,
+karnataka,1994,20705203,6,96.7,17,3.3,0,ADMK | BAMS | BRP | BSP | CPI | CPM | INL | IUML | JP | KCVP | KDP | KP | KRS | RPI | RPI(K) | SJP | SP
+karnataka,1995,163513,1,100.0,0,0.0,0,
+karnataka,1996,19485780,5,97.5,16,2.5,0,AIIC(T) | BNJP | BSP | CPI | CPM | JP | KCVP | KP | KRRS | PHK | PSSS | RPI | SHS | SP | SUP | UIDC
+karnataka,1997,309408,4,99.9,1,0.1,0,SAP
+karnataka,1998,21993206,4,96.2,22,3.8,0,ABHM | AJBP | BMSM | BSP | CPI | CPI(ML)(L) | CPM | IND | JP | KCVP | KRRS | KTVP | KVP | MP | MUL | PDP | PSSS | RJD | RJDP | RPI | SAP | SP
+karnataka,1999,44579173,5,98.0,18,2.0,0,ABHM | ABHS | ABJS | ADMK | AJBP | BRPP | BSP | CPI | CPI(ML)(L) | CPM | KCVP | KRRS | NCP | PPOI | RJD | RPI | SP | SYP
+kerala,1962,5528983,5,95.5,3,4.5,0,JS | RSP | SWA
+kerala,1965,6330337,6,96.2,1,3.8,0,ML
+kerala,1967,12552419,7,97.4,3,2.6,0,BJS | PSP | SWA
+kerala,1970,7946210,11,96.1,8,3.9,0,ASP | BJS | DMK | KSP | NCN | PSP | SUC | SWA
+kerala,1971,6528863,8,95.6,5,4.4,0,BJS | ISP | NCO | SSP | SWA
+kerala,1972,57699,2,100.0,0,0.0,0,
+kerala,1977,17628714,9,96.3,3,3.7,0,ADK | RSP | SUC
+kerala,1978,67716,3,100.0,0,0.0,0,
+kerala,1979,270691,9,99.9,1,0.1,0,KCP
+kerala,1980,17713968,10,96.8,6,3.2,0,ADK | ILP | JNP(S) | KCP | KEC(J) | SUC
+kerala,1982,9562844,11,95.2,3,4.8,0,BJP | IC(S) | NDP
+kerala,1984,11137519,10,96.6,2,3.4,0,BJP | LKD
+kerala,1985,227140,6,100.0,0,0.0,0,
+kerala,1986,70066,3,100.0,0,0.0,0,
+kerala,1987,12744894,9,97.3,2,2.7,0,LKD | RSP
+kerala,1989,14912541,9,97.3,6,2.7,0,BSP | DKP | JD | JNP (JP) | KEC | SUC
+kerala,1991,28429079,10,96.5,13,3.5,0,BSP | CPM(K) | DDP | DKP | DPI | JP | LKD | MMK(M) | NDP | RPI | RSP | SAP | UCPI
+kerala,1992,159215,4,99.2,2,0.8,0,IND | JP
+kerala,1993,676390,3,98.2,2,1.8,0,BSP | IND
+kerala,1994,74373,3,100.0,0,0.0,0,
+kerala,1995,102635,4,100.0,0,0.0,0,
+kerala,1996,28664362,11,97.1,16,2.9,0,AIIC(T) | BLP | BSP | CMPKSC | FBL | ILC | INL | JP | JPSS | KEC(B) | KEC(J) | PDP | SAP | SHS | SLAP | SWJP
+kerala,1997,539227,2,95.2,1,4.8,0,PDP
+kerala,1998,15286475,9,96.9,9,3.1,0,BSP | INL | JP | KEC | NPP | PDP | SAP | SHS | THPI
+kerala,1999,15377976,8,96.1,7,3.9,0,AJBP | BSP | JD(S) | JD(U) | RJD | SHS | SRP
+lakshadweep,1967,11807,1,100.0,0,0.0,0,
+lakshadweep,1977,16386,2,100.0,0,0.0,0,
+lakshadweep,1980,17772,2,96.1,1,3.9,0,INC(I)
+lakshadweep,1984,19023,2,100.0,0,0.0,0,
+lakshadweep,1989,25490,2,100.0,0,0.0,0,
+lakshadweep,1991,25321,2,100.0,0,0.0,0,
+lakshadweep,1996,30188,2,100.0,0,0.0,0,
+lakshadweep,1998,31064,2,100.0,0,0.0,0,
+lakshadweep,1999,29860,2,97.2,2,2.8,0,IND | JD(S)
+madhya-pradesh,1962,13261567,7,95.6,4,4.4,0,CPI | FB | REP | SWA
+madhya-pradesh,1963,195543,3,96.1,1,3.9,0,PSP
+madhya-pradesh,1964,183215,4,100.0,0,0.0,0,
+madhya-pradesh,1965,44229,3,98.8,1,1.2,0,SSP
+madhya-pradesh,1967,18307613,6,95.8,4,4.2,0,CPI | CPM | JAC | RPI
+madhya-pradesh,1968,23284,2,97.8,1,2.2,0,IND
+madhya-pradesh,1970,467754,5,96.7,4,3.3,0,BKD | CPI | HMS | PSP
+madhya-pradesh,1971,8831757,4,95.4,9,4.6,0,BKD | CPI | CPM | FBL | HMS | PSP | RSP | SSP | SWA
+madhya-pradesh,1972,11026112,4,97.5,9,2.5,0,BKD | CPI | CPM | FBL | HMS | NCO | RPI | RPK | SWA
+madhya-pradesh,1977,23520431,4,98.3,5,1.7,0,CPI | CPM | HMS | RPK | RRP
+madhya-pradesh,1979,610130,3,95.4,2,4.6,0,INC | RPI
+madhya-pradesh,1980,24701975,6,95.1,8,4.9,0,CPI | CPM | INC(U) | JNP(JP) | JNP(SR) | RPK | RRP | SUC
+madhya-pradesh,1981,319113,3,96.1,4,3.9,0,CPI | IND | LKD | RPI
+madhya-pradesh,1982,275110,3,100.0,0,0.0,0,
+madhya-pradesh,1984,15653786,3,95.3,4,4.7,0,CPI | ICS | JNP | LKD
+madhya-pradesh,1985,14190603,4,96.1,4,3.9,0,CPI | CPM | ICS | LKD
+madhya-pradesh,1986,241092,2,95.9,2,4.1,0,IND | RPK
+madhya-pradesh,1988,172014,2,96.1,2,3.9,0,ICS(SCS) | IND
+madhya-pradesh,1989,19781699,5,97.5,12,2.5,0,CPI | CPM | DDP | FBL | JNP (JP) | LKD | LKD (B) | MUL | RPI | RPK | RSP | SOP(L)
+madhya-pradesh,1990,19876841,5,96.1,28,3.9,0,BJS | BKUS | BRP | CMM | CPI | CPM | DDP | DMM | FBL | GNP | HMS | ICS(SCS) | IML | INP | IPF | JNP(JP) | KSM | LKD(B) | MSD | MUL | PVP | RPI | RPK | RRP | RSP | SHS | SOP | SOP(L)
+madhya-pradesh,1991,16780366,5,98.4,17,1.6,0,BJS | BKUS | CPI | CPM | DDP | DPI | FBL | GNP | HMS | ICS(SCS) | JKP | JP | LKD | MSD | PVP | RPK | RSP
+madhya-pradesh,1992,125759,2,100.0,0,0.0,0,
+madhya-pradesh,1993,23671840,5,96.3,28,3.7,0,BKD | BKUS | BRP | BVD | CMM | CPI | CPM | CRP | DDP | FBL | GGP | HMS | ICS | IPF | IUML | JMM | KMGR | KSM | LKD | MSD | RPI | RPI(D) | RPI(K) | RRP | SHS | SHS(R) | SJSM | SP
+madhya-pradesh,1994,572520,2,100.0,0,0.0,0,
+madhya-pradesh,1995,134731,2,100.0,0,0.0,0,
+madhya-pradesh,1996,23718294,6,96.0,31,4.0,0,ABHM | BKD | BKUS | BMRD | CMM | CPI | CPI(ML)(L) | CPM | GGP | ICS | JD | JP | KSM | LD | LSP | LSWP | LTSP | MKVP | PSSS | RMEP | RPI | RPI(A) | RPI(D) | RPI(KH) | RSPP | SAP | SDP(MP) | SHS | SLP(L) | SP | SVSP
+madhya-pradesh,1997,922243,2,96.3,6,3.7,0,GGP | IND | JD | JP | RPI | SDP
+madhya-pradesh,1998,53476859,5,95.4,41,4.6,0,ABHM | ABJS | ABLTC | ABMSD | AD | AIRKC | AJBP | BAJP | BKD(J) | BKKGP | BKUS | BMRD | CKMSP | CMM | CPI | CPI(ML)(L) | CPM | CSP | GGP | ICS | INLD | JP | LD | LS | LSWP | MPLP | PSSS | RDNBP | RJD | RPI | RPI(KH) | SAP | SDP(MP) | SHS | SHSP | SJP(R) | SP | SSJP | SSP | SVSP | SWJP
+madhya-pradesh,1999,25593121,3,95.7,28,4.3,0,ABHM | AD | AJBP | BKD(J) | BMSM | CMM | CPI | CPI(ML)(L) | CPM | CSP | GGP | IND | JD(S) | JD(U) | JP | LSWP | NCP | PSJP | RDNBP | RJD | RMEP | RPI | SHS | SHSP | SJP(R) | SP | SSJP | SVSP
+maharashtra,1962,22114894,7,98.9,4,1.1,0,HMS | RRP | SOC | SWA
+maharashtra,1963,57363,2,100.0,0,0.0,0,
+maharashtra,1964,272719,3,96.4,1,3.6,0,RPI
+maharashtra,1965,300326,4,100.0,0,0.0,0,
+maharashtra,1967,26885985,7,95.1,3,4.9,0,CPM | PSP | SWA
+maharashtra,1968,56120,2,95.7,1,4.3,0,IND
+maharashtra,1970,335448,4,100.0,0,0.0,0,
+maharashtra,1971,13913105,10,95.8,5,4.2,0,BKD | CPM | PBI | RPG | SHS
+maharashtra,1972,15506884,9,95.9,7,4.1,0,BKD | CPM | HMS | MUL | NCO | RPK | SWA
+maharashtra,1977,16891349,6,98.5,2,1.5,0,CPI | RPI
+maharashtra,1978,20367221,8,96.3,5,3.7,0,FBL | HMS | MUL | RPI | RPK
+maharashtra,1980,36090471,8,95.5,10,4.5,0,BSP | CPI | CPM | FBL | JNP(S) | JNP(SC) | JNP(SR) | MUL | RPI | SHS
+maharashtra,1981,373177,4,95.7,2,4.3,0,FBL | IND
+maharashtra,1982,462055,4,97.1,1,2.9,0,JNP
+maharashtra,1984,21876559,6,96.4,5,3.6,0,CPI | CPM | LKD | RPI | RPK
+maharashtra,1985,22271825,6,96.6,6,3.4,0,CPI | CPM | FBL | LKD | RPI | RPK
+maharashtra,1986,211579,4,98.0,3,2.0,0,BJP | FBL | JOR
+maharashtra,1987,637616,4,97.1,2,2.9,0,BJP | PWP
+maharashtra,1989,27549090,8,95.8,16,4.2,0,BSP | CPM | DDP | DMM | GPI | HJP | HPI | ICS(SCS) | JNP (JP) | LKD (B) | NRP | RPI | RPK | RPP | SHP | VBP
+maharashtra,1990,29693838,8,95.7,28,4.3,0,AHF(R) | BKUS | BPI | BRSS | BSP | CPI | CPI(ML) | CPM | DDP | DMM | FBL | HJP | HMS | IPF | JNP(JP) | LKD(B) | LMD | MIM | MMS | MUL | PBI | RPI | RPI(B) | RPK | RPPI | SRS | SYP | VBP
+maharashtra,1991,23567218,7,95.5,26,4.5,0,AHF | BKUS | BSP | CPI | DDP | DMM | DPP | GNP | HJP | HMS | ICS(SCS) | JNP | JP | LKD | MSD | NP | PWP | RPI | RPI(KM) | RPK | RPPI | RSD | SRS | SSD | VBP | VPP
+maharashtra,1995,38524263,8,96.2,29,3.8,0,ABJS | BMSM | CPI | CPM | DDP | DPI | FBL | HJP | ICS | INL | IUML | JP | MRC | MUL | MVC | NRP | NVAS | NVPP | PDP | PSSS | RPI | RPI(K) | RSSD | SAP | SJP(M) | SJP(R) | SP | SSP | VPP
+maharashtra,1996,29265059,9,96.1,29,3.9,0,ABBNS | ABJS | AIIC(T) | AIMF | BKS | BMSM | BPI | BRC | BSP | COP | CPI | CPM | HJP | ICS | IUML | JP | MPKP | NRP | NVAS | PDLI | PHK | PPNMS | RPI(KH) | RPPI | SAP | SBHP | SHSP | SJP(M) | SMP
+maharashtra,1997,206360,2,98.2,2,1.8,0,IND | JD
+maharashtra,1998,32429920,7,96.7,26,3.3,0,ABBNS | ABHM | ABHS | ABMSD | ABRSSD | AD | AIRJP | BRC | BSP | CPI | CPM | GGP | HJP | ICS | IUML | JP | MRC | NLP | NPAP | NRP | PSSS | PWPI | RJD | RPPI | SJP(R) | THPI
+maharashtra,1999,65888295,7,95.1,38,4.9,0,ABHM | ABHS | ABMSD | ABS | ADMK | AIMIM | AJBP | BMSM | BRAP | BRC | BSP | CPI | CPM | FBL | GGP | GRC | HJP | IUML | JD(U) | JP | MPKP | MRC | MVC | NLP | NMP | NVAS | NVPP | PWPI | RJD | RPI | RPI(KH) | SBP | SJP(M) | SP | SPSP | STBP | SWJP | THPI
+manipur,1962,264627,4,95.9,1,4.1,0,PSP
+manipur,1967,627177,4,99.3,2,0.7,0,CPM | PSP
+manipur,1971,259761,6,100.0,0,0.0,0,
+manipur,1972,451948,5,96.7,3,3.3,0,BJS | CPM | NCO
+manipur,1974,596421,6,95.0,3,5.0,0,CPM | KNA | NCO
+manipur,1977,465341,5,100.0,0,0.0,0,
+manipur,1978,236874,4,99.5,1,0.5,0,INC
+manipur,1980,1446447,7,96.8,4,3.2,0,CPM | JNP(JP) | JNP(S) | KNA
+manipur,1981,10011,2,100.0,0,0.0,0,
+manipur,1984,1705719,6,95.5,4,4.5,0,CPM | JNP | KNA | LKD
+manipur,1988,14019,2,100.0,0,0.0,0,
+manipur,1989,861125,6,96.2,3,3.8,0,BJP | JD | MPC
+manipur,1990,989987,7,96.5,3,3.5,0,BJP | MHPC | NPP
+manipur,1991,876410,5,95.1,5,4.9,0,CPI | IND | JP | MPP | NPP
+manipur,1995,1145965,9,95.9,6,4.1,0,CPM | JP | KNA | MHPC | NPP | SJP(R)
+manipur,1996,958980,7,95.7,3,4.3,0,ICS | JD | SAP
+manipur,1998,820299,6,96.7,7,3.3,0,CPM | FPM | IND | JD | KNA | LS | SAP
+manipur,1999,893648,8,97.1,3,2.9,0,AJBP | BJP | RJD
+meghalaya,1972,260423,3,99.5,1,0.5,0,CPI
+meghalaya,1977,254046,2,100.0,0,0.0,0,
+meghalaya,1978,378646,4,97.9,2,2.1,0,CPI | INC(I)
+meghalaya,1980,110760,4,100.0,0,0.0,0,
+meghalaya,1983,473050,5,99.5,2,0.5,0,CPI | JNP
+meghalaya,1984,399364,2,96.3,1,3.7,0,CPI
+meghalaya,1988,754207,5,97.1,2,2.9,0,CPI | PDC
+meghalaya,1989,477124,2,95.2,1,4.8,0,CPI
+meghalaya,1990,8694,3,100.0,0,0.0,0,
+meghalaya,1991,511536,3,98.4,2,1.6,0,CPI | HPU
+meghalaya,1993,814899,7,97.3,4,2.7,0,CPI | JD(B) | JP | PDI
+meghalaya,1996,668871,3,98.2,2,1.8,0,CPI | HPU
+meghalaya,1997,12854,3,100.0,0,0.0,0,
+meghalaya,1998,1676487,7,96.2,6,3.8,0,CPI | GNC | HSP | JD | RJD | SP
+meghalaya,1999,654330,6,97.8,4,2.2,0,AJBP | CPI | GNC | IND
+mizoram,1972,222345,2,97.5,1,2.5,0,SOP
+mizoram,1977,100725,2,100.0,0,0.0,0,
+mizoram,1978,140470,2,100.0,0,0.0,0,
+mizoram,1979,163798,4,100.0,0,0.0,0,
+mizoram,1980,128321,2,100.0,0,0.0,0,
+mizoram,1982,15610,3,100.0,0,0.0,0,
+mizoram,1984,185889,3,100.0,0,0.0,0,
+mizoram,1987,230366,3,98.6,1,1.4,0,MNF
+mizoram,1989,494636,5,100.0,0,0.0,0,
+mizoram,1991,240595,3,95.6,1,4.4,0,IND
+mizoram,1993,321234,3,96.9,1,3.1,0,BJP
+mizoram,1996,296886,3,100.0,0,0.0,0,
+mizoram,1998,643514,5,95.4,6,4.6,0,BJP | JD | LS | MDF | RJD | SAP
+mizoram,1999,291786,1,95.6,4,4.4,0,EU | LS | MDF | RJD
+nagaland,1964,62175,1,100.0,0,0.0,0,
+nagaland,1966,4336,2,100.0,0,0.0,0,
+nagaland,1969,138399,3,100.0,0,0.0,0,
+nagaland,1971,159974,2,97.7,1,2.3,0,IND
+nagaland,1974,289899,3,100.0,0,0.0,0,
+nagaland,1977,566148,4,100.0,0,0.0,0,
+nagaland,1980,293004,2,98.8,1,1.2,0,INC(I)
+nagaland,1982,437705,3,100.0,0,0.0,0,
+nagaland,1984,397159,3,100.0,0,0.0,0,
+nagaland,1987,485443,4,99.8,1,0.2,0,BJP
+nagaland,1989,1095491,2,96.9,2,3.1,0,IND | NPP
+nagaland,1991,622831,2,97.0,1,3.0,0,BJP
+nagaland,1993,729729,3,99.1,2,0.9,0,BJP | DLP
+nagaland,1994,7405,2,100.0,0,0.0,0,
+nagaland,1995,12858,2,100.0,0,0.0,0,
+nagaland,1996,757626,2,100.0,0,0.0,0,
+nagaland,1997,-1,1,100.0,0,-0.0,0,
+nagaland,1998,600439,3,100.0,0,0.0,0,
+nagaland,1999,737280,3,99.2,1,0.8,0,LS
+odisha,1961,2932279,5,99.1,1,0.9,0,JP
+odisha,1962,1968965,5,96.2,2,3.8,0,IND | SWA
+odisha,1967,8058327,6,95.8,3,4.2,0,BJS | CPM | SSP
+odisha,1971,8905803,8,95.2,8,4.8,0,BJS | CPM | FBL | JKP | PHJ | SOP | SSP | SUC
+odisha,1972,328080,4,100.0,0,0.0,0,
+odisha,1974,5749825,6,95.7,9,4.3,0,BJS | CPM | FBL | JAC | JKD | JKP | NCO | RCI | SUC
+odisha,1977,10534343,5,97.6,4,2.4,0,CPM | JKD | JKP | SUC
+odisha,1980,12517334,8,96.4,7,3.6,0,BJP | CPM | FBL | JKD | JNP(SR) | RSP | SUC
+odisha,1981,280474,3,100.0,0,0.0,0,
+odisha,1984,8166907,4,96.1,4,3.9,0,BJP | CPI | JKD | LKD
+odisha,1985,8372598,4,95.8,8,4.2,0,BJP | CPM | ICJ | ICS | JKD | JMM | LKD | SUC
+odisha,1989,11190772,5,96.6,8,3.4,0,BJP | BSP | DDP | DLP | JKD | JNP (JP) | KGP | OPF
+odisha,1990,10960587,5,97.4,18,2.6,0,BDLP | BKUS | BOP | BSP | CPM | DDP | FBL | IPF | JKD | JKP | JMM | JNP(JP) | KGP | KRP | NBP | OPF | PBI | UCPI
+odisha,1991,10697057,6,96.5,11,3.5,0,BKUS | BSP | CPM | DDP | HJP | JKP | JMM | JNP | LKD | OVP | PBI
+odisha,1992,54265,2,100.0,0,0.0,0,
+odisha,1993,81602,2,100.0,0,0.0,0,
+odisha,1994,291957,2,100.0,0,0.0,0,
+odisha,1995,15834004,6,96.6,19,3.4,0,BKUS | BSP | CPI(ML)(L) | CPM | DDP | FBL | JKP | JMM(S) | JP | JPP | KP | OCG | OCP | PSS | PSSS | SAP | SJP(R) | SSP | SVP
+odisha,1996,13384620,5,95.8,12,4.2,0,AIIC(T) | CPI | CPI(ML)(L) | HJKP | JKP | JKP(N) | JMM | JP | JTKM | PSSS | SAP | SHS
+odisha,1997,714509,4,100.0,0,0.0,0,
+odisha,1998,13928867,5,96.4,15,3.6,0,AJBP | BSP | CPI | CPI(ML)(L) | CPM | IND | JKP | LS | OCG | PSSS | RJD | SAP | SHS | SJP(R) | SP
+odisha,1999,13267721,4,96.3,13,3.7,0,AJBP | BOP | BRPP | BSP | CPI | CPI(ML)(L) | CPM | IND | JD(U) | JKP | JP | NCP | SHS
+puducherry,1964,167751,3,100.0,1,0.0,0,INC
+puducherry,1967,158872,3,100.0,0,0.0,0,
+puducherry,1969,183134,4,100.0,0,0.0,0,
+puducherry,1971,170088,3,100.0,0,0.0,0,
+puducherry,1974,218498,6,98.7,1,1.3,0,CPM
+puducherry,1977,441942,6,97.2,1,2.8,0,CPI
+puducherry,1980,492996,6,95.2,3,4.8,0,CPI | CPM | INC(U)
+puducherry,1984,270781,3,99.3,1,0.7,0,ICS
+puducherry,1985,301724,6,97.2,6,2.8,0,BJP | CPM | ICS | LKD | MUL | TDP
+puducherry,1989,377588,3,98.7,3,1.3,0,IND | LKD (B) | TMM
+puducherry,1990,420171,7,95.8,8,4.2,0,AMI | BJP | BSP | CPM | ICS(SCS) | JNP(JP) | LKD(B) | TMM
+puducherry,1991,782712,7,95.4,8,4.6,0,BJP | BKUS | CPM | DDP | ICS(SCS) | JP | PMM | TMM
+puducherry,1996,920615,9,95.7,8,4.3,0,AIIC(T) | BSP | CPI(ML)(L) | CPM | ICS | JD | JP | MGRK
+puducherry,1998,423223,3,96.6,6,3.4,0,AJBP | BSP | ICS | IND | RJD | TMC(M)
+puducherry,1999,444162,4,100.0,4,0.0,0,ADMK | DMK | JD(S) | RJD
+punjab,1962,13524860,7,95.7,6,4.3,0,HF | HLS | HMS | PSP | RRP | SOC
+punjab,1964,183380,2,98.5,1,1.5,0,AD
+punjab,1965,42116,2,100.0,0,0.0,0,
+punjab,1967,8544135,8,97.0,3,3.0,0,PSP | RPI | SSP
+punjab,1969,5236697,7,95.7,8,4.3,0,ILP | JMD | PBI | PJP | PSP | RPA | SSP | SWA
+punjab,1970,431433,4,98.4,1,1.6,0,RPI
+punjab,1971,4077469,6,96.6,5,3.4,0,BKD | CPM | PSP | RPK | SSP
+punjab,1972,5222506,6,97.7,8,2.3,0,ILP | JMD | NCO | RPI | RPK | SAG | SOP | SWA
+punjab,1977,11266664,6,95.5,5,4.5,0,CPI | ILP | JMD | RPI | RPK
+punjab,1980,12223002,7,95.3,8,4.7,0,BSP | ILP | INC(U) | JNP(JP) | JNP(S) | JNP(SC) | JNP(SR) | RPI
+punjab,1982,114691,6,97.2,2,2.8,0,CPI | JNP
+punjab,1985,13853708,5,95.9,3,4.1,0,CPM | ICS | JNP
+punjab,1989,7942827,8,95.9,14,4.1,0,BJMD | CPI | CPI(ML) | DDP | ICS(SCS) | IGC | ILP | JNP (JP) | LKD (B) | PKD | PNF | PPP | RPI | SAD
+punjab,1992,6021480,7,96.1,10,3.9,0,BKUS | CPI(ML) | DPP | IPF | JD | JP | LKD | SAD(M) | SBJ(MD) | UCPI
+punjab,1993,576616,5,96.4,2,3.6,0,BSP(A) | IND
+punjab,1994,153240,2,100.0,0,0.0,0,
+punjab,1995,98693,2,100.0,0,0.0,0,
+punjab,1996,8827945,8,96.4,13,3.6,0,ABMSD | AIIC(T) | BKUS | BSP(A) | CPI | CPI(ML)(L) | FBL | ICS | JP | LHP | PVP(P) | RPI | SHS
+punjab,1997,11111355,7,97.1,23,2.9,0,ABLRP | ABRC(D) | ABSR | AIRKC | BAMP | BLLP | BSP(A) | CPI(ML)(L) | CPM | FBL | INDP | JD | JP | LVP | MCPI(S) | NCY | PJM | RPI | SAP | SHS | SJP(R) | SP | UCPI
+punjab,1998,8967289,7,95.6,13,4.4,0,ABJS | ABRC(D) | AIGC | AJBP | BKKP | BSP(A) | CPI(ML)(L) | CPM | ICS | LS | PPVP | RJD | SAD(M)
+punjab,1999,8805709,9,97.0,12,3.0,0,AIGC | AJBP | BKD(J) | BMP(AI) | BSP(A) | CPM | FBL | JD(S) | JD(U) | NCP | RJD | RPI
+rajasthan,1962,10325915,6,96.1,3,3.9,0,HMS | PSP | RRP
+rajasthan,1964,200117,4,100.0,0,0.0,0,
+rajasthan,1965,101765,2,100.0,0,0.0,0,
+rajasthan,1967,13569607,5,96.6,5,3.4,0,CPI | CPM | JTP | PSP | RPI
+rajasthan,1968,186215,2,100.0,0,0.0,0,
+rajasthan,1970,74816,3,100.0,0,0.0,0,
+rajasthan,1971,6924879,6,96.1,5,3.9,0,CPI | CPM | NCO | SOC | VHP
+rajasthan,1972,7775914,5,95.5,5,4.5,0,CPI | CPM | NCO | RPI | VHP
+rajasthan,1977,16660445,4,98.3,5,1.7,0,CPI | CPM | MUL | RRP | VHP
+rajasthan,1978,77071,4,100.0,0,0.0,0,
+rajasthan,1980,18755918,8,98.1,7,1.9,0,BSP | CPI | CPM | JNP(SR) | MUL | RPI | RRP
+rajasthan,1982,610675,4,97.2,2,2.8,0,CPM | JNP
+rajasthan,1984,11240312,5,98.3,4,1.7,0,CPI | CPM | ICJ | ICS
+rajasthan,1985,11926534,5,97.5,4,2.5,0,CPI | CPM | ICJ | ICS
+rajasthan,1988,523264,3,95.8,1,4.2,0,IND
+rajasthan,1989,14293693,4,95.8,10,4.2,0,BJS | BSP | CPI | CPM | DDP | IML | JNP (JP) | LKD (B) | MUL | SRP
+rajasthan,1990,14828623,4,95.3,22,4.7,0,BJS | BKUS | BSP | CPI | CPM | DDP | DMM | FBL | HMS | ICJ(TG) | ICS(SCS) | IDP | IP | JNP(JP) | LKD(B) | MCPI | MUL | SAD(M) | SHS | SMD | SOP | SOP(L)
+rajasthan,1991,12581995,5,98.0,16,2.0,0,AHF | BSP | CPI | CPM | DDP | FBL | HMS | IDP | JKMP | LKD | MSD | MUB | MUL | SAD(M) | SOP(L) | SP
+rajasthan,1993,16835069,4,96.7,23,3.3,0,BJS | BRP | BSP | CPI | CPM | DDP | FBL | IPF | IUML | JD(P) | LKD | MB | MCPI | MCPI(S) | MSD | RVMM | SD | SHS | SOP(L) | SOP(P) | SP | SSP | SVP
+rajasthan,1994,70524,2,100.0,0,0.0,0,
+rajasthan,1995,204248,2,100.0,0,0.0,0,
+rajasthan,1996,13192634,5,96.2,19,3.8,0,ABHM | ABJS | ABMSKP | ABRAHP | BKD | BKUS | BLP | BSP | CPI | CPI(ML)(L) | CPM | KP | PSSS | SAP | SHS | SHSP | SLP(L) | SP | SWD
+rajasthan,1997,711024,4,97.6,1,2.4,0,BSP
+rajasthan,1998,36485439,5,95.6,33,4.4,0,ABHM | ABJS | ABMSKP | ABRAHP | ABRC(D) | AIIC(S) | AIRJP | AITC | AJBP | BKD(J) | BKKGP | BKMP | CPI | CPI(ML)(L) | CPM | GIP | INLD | IUML | LD | LS | MCPI(S) | NPAP | PRISM | PSSS | RJD | RJVP | RPI | RVS | SAP | SHS | SJP(R) | SLP(L) | SP
+rajasthan,1999,16570177,3,95.1,17,4.9,0,ABHM | ABJS | AJBP | CPI | CPI(ML)(L) | CPM | IND | JD(S) | JD(U) | JP | LS | MKSD | NCP | RJD | RJVP | SHS | SP
+sikkim,1979,72339,5,97.5,3,2.5,0,CPM | INC | SCL
+sikkim,1980,53818,4,98.2,1,1.8,0,INC(U)
+sikkim,1984,82646,2,98.2,2,1.8,0,CPI | JNP
+sikkim,1985,97057,3,98.2,4,1.8,0,CPI | CPM | JNP | SPC
+sikkim,1989,267318,3,98.4,2,1.6,0,DPC | IND
+sikkim,1991,115373,2,97.1,1,2.9,0,CPM
+sikkim,1994,173457,4,98.0,3,2.0,0,BJP | CPM | RSP
+sikkim,1996,172174,2,96.6,1,3.4,0,IND
+sikkim,1998,155871,2,98.8,1,1.2,0,IND
+sikkim,1999,410060,3,98.7,2,1.3,0,CPM | IND
+tamil-nadu,1967,381779,2,98.7,1,1.3,0,IND
+tamil-nadu,1969,370673,2,100.0,0,0.0,0,
+tamil-nadu,1971,31382922,6,96.0,6,4.0,0,BJS | CPM | FBL | MUL | PSP | SOP
+tamil-nadu,1977,34968053,7,97.7,4,2.3,0,CPM | FBL | HMS | RPI
+tamil-nadu,1980,37292640,7,96.9,8,3.1,0,BJP | FBL | GKC | INC(U) | JNP(JP) | JNP(S) | JNP(SR) | RPI
+tamil-nadu,1981,78056,4,100.0,0,0.0,0,
+tamil-nadu,1982,503651,4,96.8,1,3.2,0,CPI
+tamil-nadu,1984,43315351,6,95.1,6,4.9,0,AKD | BJP | CPM | GKC | ICJ | TNC
+tamil-nadu,1985,464842,5,100.0,0,0.0,0,
+tamil-nadu,1986,184413,2,98.4,2,1.6,0,IND | JNP
+tamil-nadu,1989,50511198,8,95.9,24,4.1,0,BJP | BMC | CPI | DNC | FBL | HPI | ICJ(BG) | ICS(SCS) | IFT | IJP | IPF | JD | JNP | JNP (JP) | KDC | LKD | LKD (B) | MPP | MUL | PWA | SLL | TMM | TNC(K) | TRM
+tamil-nadu,1991,49302380,7,95.0,28,5.0,0,AJP | AMI | BSP | CPI | DDP | FBL | GMK | ICS(SCS) | IFTP | IJP | IML | IND | IPF | JP | LKD | MGMK | MHA | MPP | MUL | PMM | RPI | SLL | TDI | TLK | TMK | TMM | TMUL | UMSK
+tamil-nadu,1993,658145,3,97.8,4,2.2,0,GMK | IND | TLJ | TNHVK
+tamil-nadu,1994,75777,2,100.0,0,0.0,0,
+tamil-nadu,1996,54338241,10,96.4,32,3.6,0,AIDPF | AIIC(T) | AIVMK | APMK | ATMK | BMC | BSP | CPI(ML)(L) | FBL | HRPI | ICS | JD | JP | KMK | MELPHC | MGRK | MGRM | MMS | PDP | PHK | PJP | RPI | RPI(S) | SAP | SHS | THMM | TLJ | TNHVYK | TNKMI | TNMC | TZP | UCPI
+tamil-nadu,1997,140371,5,96.7,1,3.3,0,INC
+tamil-nadu,1998,25800840,9,95.0,14,5.0,0,AJBP | ATMK | BSP | CPI(ML)(L) | CPM | JP | MADMK | PT | RJD | SAP | SHSP | SP | TLJ | UCPI
+tamil-nadu,1999,27443045,10,95.3,22,4.7,0,AJBP | BMC | CMK | CPI(ML)(L) | DTMK | FBL | IND | INGP | JD(S) | JP | LJSPI | MADMK | NCP | NOC | RJD | RPI(A) | SHS | SPSP | TDK | THMM | TNPWP | TRC
+tripura,1962,319085,3,98.0,1,2.0,0,PSP
+tripura,1967,872450,3,95.9,3,4.1,0,BJS | CPI | SSP
+tripura,1971,412561,4,99.5,1,0.5,0,BJS
+tripura,1972,501473,4,97.6,3,2.4,0,BJS | FBL | TUS
+tripura,1977,1338461,7,96.9,4,3.1,0,CPI | FBL | PBI | RSP
+tripura,1980,830595,4,98.5,2,1.5,0,INC(U) | JNP
+tripura,1981,42065,3,97.5,1,2.5,0,IND
+tripura,1983,927006,4,96.6,6,3.4,0,BJP | CPI | FBL | ICS | JNP | RSP
+tripura,1984,918160,2,96.1,2,3.9,0,BJP | IND
+tripura,1986,16556,3,100.0,0,0.0,0,
+tripura,1988,1136405,4,96.7,5,3.3,0,BJP | CPI | FBL | JNP | RSP
+tripura,1989,1266747,2,97.2,3,2.8,0,AMB | BJP | IND
+tripura,1991,1016708,4,96.3,3,3.7,0,BJP | CPI(ML) | IPF
+tripura,1993,1339838,7,96.4,4,3.6,0,AMB | CPI | FBL | IPF
+tripura,1996,1327952,4,96.7,6,3.3,0,AB | AIIC(T) | AMB | CPI(ML)(L) | IND | JD
+tripura,1998,2735760,4,95.8,8,4.2,0,AMB | CPI | CPI(ML)(L) | FBL | IND | JD | RJD | RSP
+tripura,1999,1227500,4,95.9,8,4.1,0,AJBP | AMB | CPI | CPI(ML)(L) | IND | NCP | RJD | TUJS
+uttar-pradesh,1962,35724070,8,98.3,2,1.7,0,HMS | RRP
+uttar-pradesh,1964,333598,5,96.8,1,3.2,0,SOC
+uttar-pradesh,1965,122178,3,100.0,0,0.0,0,
+uttar-pradesh,1967,43243875,7,95.5,2,4.5,0,CPI | CPM
+uttar-pradesh,1968,263738,5,100.0,0,0.0,0,
+uttar-pradesh,1969,23774995,8,96.1,19,3.9,0,BAS | BKP | BPI | CPM | FBL | HMS | KMP | MAP | MUM | PBI | RPA | RRP | SOC | SUC | SVC | SWA | UJC | USP | USS
+uttar-pradesh,1970,430377,8,95.9,2,4.1,0,FBL | NCN
+uttar-pradesh,1971,20607001,7,98.2,17,1.8,0,CPM | FBL | HMS | ISP | KMP | MUL | MUM | PBI | PSP | RPA | RPK | RRP | RSM | SOC | SOP | SWA | VHP
+uttar-pradesh,1972,612143,6,100.0,0,0.0,0,
+uttar-pradesh,1974,27461219,8,96.0,18,4.0,0,CPM | FBL | HMS | KMP | LTD | LTS | MAP | PBI | RPA | RPI | RPK | RRP | RSM | RSP | SSB | SSD | SUC | SWA
+uttar-pradesh,1977,52459466,4,97.3,12,2.7,0,CPI | CPM | FBL | HMS | KMP | MUL | RPI | RPK | RRP | RSP | SSD | SUC
+uttar-pradesh,1978,660591,3,95.4,2,4.6,0,INC | RPK
+uttar-pradesh,1979,174783,4,97.6,1,2.4,0,CPI
+uttar-pradesh,1980,53962775,8,95.7,15,4.3,0,BSP | CPM | FBL | INC(u) | JNP(JP) | JNP(SR) | LKD | MUM | RPI | RPI(K) | RPK | RRP | RSP | SSD | SUC
+uttar-pradesh,1981,1188907,4,95.1,3,4.9,0,INC(U) | JNP | MUM
+uttar-pradesh,1982,494757,4,98.6,2,1.4,0,CPI | JNP
+uttar-pradesh,1984,34235326,5,95.5,6,4.5,0,CPI | DDP | FBL | ICJ | ICS | MUL
+uttar-pradesh,1985,29755072,6,96.0,7,4.0,0,CPM | DDP | FBL | ICJ | ICS | RPI | RSP
+uttar-pradesh,1987,672999,5,95.5,3,4.5,0,BJP | CPI | LKD
+uttar-pradesh,1988,584286,5,100.0,0,0.0,0,
+uttar-pradesh,1989,77957970,6,95.3,42,4.7,0,BJS | BKP | BKUS | BLMD | BRP | CPM | DDP | DMM | FBL | HMS | HSD | ICJ | ICJ(TG) | ICS(SCS) | IML | IPF | JNP (JP) | JNP(JP) | KMP | KSP | LKD (B) | LKD(B) | LTP | MUL | MUM | NLC | NRP | PBI | QM | RPI | RRP | RSD | RSP | SDP | SOP | SOP(L) | SOP(RP) | SSD | SUC | SUCI | UKD | UPRP
+uttar-pradesh,1991,74892865,6,96.9,51,3.1,0,ABGP | ALD | AUM | BD | BJS | BKUS | BLMD | BRP | CPI | CPI(ML) | CPM | DDP | DMM | FBL | HKSP | HMS | HSD | ICS (SCS) | ICS(SCS) | IIND | IML | IPF | JD(S) | JJP | JKMP | JND | JNP | KMS | LKD | LTP | MDL | MIM | MSD | MUL | NP | NRP | PBI | PRC | RPI | RRP(S) | RSP | SHS | SHS(R) | SMD | SOP(L) | SOP(RP) | SSD | SSP | UKD | UPP | UPRP
+uttar-pradesh,1993,49966339,6,96.6,66,3.4,0,ABBP | ABGP | ABLP | ABSR | ADU | ALD | BEP | BJJP | BJK | BJND | BJS | BJVP | BKD | BKD(J) | BKUS | BLMD | BMKD | BMSM | BRED | BRM | BRP | BSD(ML) | BSSM | BVD | CPI | CPM | DBP | DDP | DMM | FBL | ICS | IPF | IUML | JKC | JP | JSP | KSPL | LKD | LPI | MB | MCPI | MSD | MUL | NDPF | PRC | RADP | RMEP | RPI | RPI(D) | RPI(K) | RRP(V) | RSP | RSSD | RVD | SHS | SHS(R) | SOP | SOP(L) | SOP(RP) | SP(M) | SSD | SSP | UKD | UPRP | UPVM | URP
+uttar-pradesh,1994,77219,2,100.0,0,0.0,0,
+uttar-pradesh,1996,101455333,8,95.6,102,4.4,0,ABAS | ABBP | ABDM | ABDUP | ABHM | ABJND | ABJS | ABJVP | ABKMM | ABLTP | ABRRP | ABRS | AD | AIMF | AIMLF | AIRKC | AKD | ALD | ARS | BCVD | BEP | BHJP | BHJS | BJKP | BJS | BJSP | BJTP | BKD | BKD(J) | BKKP | BKMP | BKVD | BLP | BLTMD | BLTP | BMM | BMP(S) | BRM | BRP | BRPP | BSK | BSP(R) | BSSM | CPI | CPI(ML)(L) | CPM | EKD(UP) | FBL | FOS | GGP | GRC | GSP | HKMP | IBSP | ICS | IDP | INL | ISC | IUML | JKC | JP | JSWP | KRD | KVMP | KVP | LD | LSWP | MMUP | MSS | MUL | NDP | NDPF | NLP | NMNP | PHK | PMSP | PPNMS | PSP | PSS | PSSS | QJD | RAM | RBNNS | RMEP | RPI | RSPP | RSSD | RUD | RVP | SABJAN | SAP | SHS | SHSP | SJP(R) | SKD | SLP(L) | SLP(R) | SMP | SSD | UCPI | UKKD | UPRP
+uttar-pradesh,1997,1108443,5,98.7,1,1.3,0,IND
+uttar-pradesh,1998,56587409,6,96.0,62,4.0,0,ABAS | ABBP | ABGMKP | ABHM | ABJS | ABLC | ABLTP | ABMSD | ABP | ABRC(D) | AD | AGRJP | AIIC(S) | AIMLF | AIRJP | AJBP | ALD | BJJP | BJS | BJTP | BKD | BKD(J) | BKKP | BRVP | BVP | CPI | CPI(ML)(L) | CPM | EKD(UP) | GGP | GIP | GSP | HIP | HKMP | IBSP | IRF | IUML | JD | KMM | KRD | KVP | LS | LSWP | MUL | NLP | NPAP | PMSP | PSP | PSSS | RAM | RAS | RJD | RMEP | RPI | SAP | SHS | SHSP | SJP(R) | SLP(L) | SSD | UKKD | UPRP
+uttar-pradesh,1999,54348992,7,96.2,50,3.8,0,ABBP | ABHM | ABJS | ABLTC | ABLTP | ABP | ABSR | AIMF | AIMLF | AIRKC | AJBP | ASP | BBMKD | BKD | BKD(J) | BLKD | BND | BNJS | BRPP | BSD | CPI | CPI(ML)(L) | CPM | GGP | GSP | HDVP | IUML | JD(S) | JD(U) | JKNPP | JP | JSAP | KRD | LS | LSWP | MUL | NLP | PMSP | PSJP | PSP | RAM | RPI | RSD | RUD | SHS | SJP(R) | SSD | SSJP | SVSP | UKKD
+west-bengal,1962,19296575,6,95.5,9,4.5,0,GL | HMS | JS | LSS | SBP | SOC | SUC | SWA | WPI
+west-bengal,1963,505108,4,96.5,1,3.5,0,COM
+west-bengal,1964,123412,3,100.0,0,0.0,0,
+west-bengal,1967,25490986,7,95.7,4,4.3,0,BJS | PSP | RPI | SWA
+west-bengal,1968,242337,2,100.0,0,0.0,0,
+west-bengal,1969,13680619,12,95.2,15,4.8,0,BBC | BJD | BJS | HMS | IGL | LSS | MFB | MIL | NDF | PBI | PBK | RCI | RPI | SWA | WPI
+west-bengal,1970,217725,3,97.0,1,3.0,0,NCN
+west-bengal,1971,25985285,10,96.1,16,3.9,0,BBC | BIB | BJS | HMS | IGL | JKP | LSS | MFB | PML | RCI | RPI | RSM | SML | SOC | SSP | WPI
+west-bengal,1972,13801136,8,96.3,13,3.7,0,BIB | BJS | HMS | IAL | IGL | JKP | MUL | PBI | RCI | RPI | RSM | SOP | WPI
+west-bengal,1977,29011110,8,97.8,9,2.2,0,BBC | IGL | JKD | MFB | MUL | RCI | RPI | SUC | WPI
+west-bengal,1979,106241,6,96.8,2,3.2,0,SUC | WPI
+west-bengal,1980,20591276,7,96.6,7,3.4,0,BSP | INC(U) | JKD | JNP(S) | MUL | RPI | SUC
+west-bengal,1981,982356,3,97.2,6,2.8,0,BJP | IND | JKD | JNP | MUL | SUC
+west-bengal,1982,23452132,7,96.0,7,4.0,0,BJP | INC(I) | JMM | JNP | LKD | MUL | SUC
+west-bengal,1984,25667556,5,96.6,7,3.4,0,BJP | ICS | IND | JNP | LKD | MUL | SUC
+west-bengal,1985,1232140,3,95.7,3,4.3,0,CPI | ICS | RSP
+west-bengal,1987,26205719,5,95.8,7,4.2,0,BJP | CPI | ICS(SCS) | JNP | LKD | MUL | SUC
+west-bengal,1988,172845,3,96.7,2,3.3,0,BJP | IND
+west-bengal,1989,31658427,7,96.1,15,3.9,0,AMB | BJS | BSP | CPI(ML) | DDP | GNLF | GOL(BG) | INC(O) | JD | JKD | JMM | JNP (JP) | MIM | MUL | WBS(BM)
+west-bengal,1990,394554,3,98.8,4,1.2,0,AMB | CPI (ML) | IND | IPF
+west-bengal,1991,62024316,7,96.9,34,3.1,0,ABGL | AMB | BD | BDD | BJS | BKUS | BPI | BSP | CPI(ML) | DDP | DMM | DSP(PC) | HJP | HMS | HSS | ICS(SCS) | INC(O) | IPF | JD | JKP | JMM | JNP | JP | LKD | MCPI | MIM | MUL | RCPI | RCPI(GS) | RCPI(RB) | SHS | SUP | UCPI | WPI
+west-bengal,1996,73488782,6,95.1,29,4.9,0,ABGL | ABHM | ABJS | AICDBPP | AIIC(T) | AMB | BKUS | BMSM | BSP | CPI(ML)(L) | FB(S) | GNLF | HJKP | IDPP | IND | INL | IUML | JD | JKP | JKP(N) | JMM | JMM(M) | MUL | PBRML | RCPI(R) | SAP | SHS | SMP | SWJP
+west-bengal,1998,37373136,7,96.3,21,3.7,0,AIIC(S) | AITC | AJBP | AMB | BSP | CPI(ML)(L) | FB(S) | IND | INL | JKP | JKP(N) | JMM | LS | MUL | RJD | RPI | SAP | SHS | SJP(R) | SWJP | TRMRPPI
+west-bengal,1999,35594442,7,97.2,14,2.8,0,AMB | BSP | CPI(ML)(L) | IND | JD(S) | JKP | JKP(N) | JMM | JP | MUL | NCP | RJD | SHS | SP

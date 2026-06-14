@@ -27,6 +27,8 @@
   import { states } from "../lib/states.svelte";
   import { navigate } from "../lib/url";
   import { link } from "../lib/links";
+  import PartyPill from "../lib/party-pill/PartyPill.svelte";
+  import { partyRowForResolver } from "../lib/colors/party-row";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import PartySymbolGlyph from "../lib/PartySymbolGlyph.svelte";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
@@ -414,7 +416,12 @@
           <div>
             <div class="text-xs uppercase text-slate-500">Winning party</div>
             <div class="font-semibold">
-              {resolved_pc_winner.party_short ?? "—"}
+              <PartyPill
+                size="sm"
+                party_id={resolved_pc_winner.party_id}
+                party_short={resolved_pc_winner.party_short ?? "\u2014"}
+                row={partyRowForResolver(resolved_pc_winner)}
+              />
             </div>
             <div class="text-slate-500">
               {resolved_pc_winner.winner_candidate_name ?? ""}
@@ -567,9 +574,13 @@
               <td class="align-top">
                 <div class="flex items-center gap-1.5">
                   <PartySymbolGlyph assetPath={c.election_symbol_asset_path} size={16} fallback="placeholder" />
-                  {#if c.party_eci_code && state_code}
-                    <a class="hover:underline" href={link.party(state_code, c.party_eci_code, c.party_short)}>{c.party_short}</a>
-                  {:else}{c.party_short}{/if}
+                  {#if link.party(c.party_id)}
+                    <a class="hover:underline" href={link.party(c.party_id)}>
+                      <PartyPill size="sm" party_id={c.party_id} party_short={c.party_short} row={partyRowForResolver(c)}/>
+                    </a>
+                  {:else}
+                    <PartyPill size="sm" party_id={c.party_id} party_short={c.party_short} row={partyRowForResolver(c)}/>
+                  {/if}
                 </div>
               </td>
               <td class="text-right tabular-nums align-top">{c.votes.toLocaleString()}</td>

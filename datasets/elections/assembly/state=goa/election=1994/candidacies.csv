@@ -1,0 +1,312 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-goa-1,goa,1994,1,MANDREM,PARAB SANGEETA GOPAL,parties.IN.INC,INC,6989,50.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-1,goa,1994,1,MANDREM,KHALAP RAMAKANT DATTARAM,parties.IN.MAG,MAG,6356,45.58,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-1,goa,1994,1,MANDREM,JADHAV CHANDRAKANT SAKHARAM,parties.IN.BSP,BSP,290,2.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-1,goa,1994,1,MANDREM,NAIK BAPLA RAYA,parties.IN.IND,IND,204,1.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-1,goa,1994,1,MANDREM,BHARAT KRISHNA TARI,parties.IN.IND,IND,50,0.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-1,goa,1994,1,MANDREM,ASOLKAR MANOHAR DATTARAM,parties.IN.IND,IND,44,0.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-1,goa,1994,1,MANDREM,HANJUNKAR SUNIL JAGANATH,parties.IN.IND,IND,12,0.09,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-2,goa,1994,2,PERNEM,KOTKAR PARSHURAM NAGESH,parties.IN.MAG,MAG,8198,63.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-2,goa,1994,2,PERNEM,SALGAONKAR SHANKAR KASHINATH,parties.IN.INC,INC,3919,30.16,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-2,goa,1994,2,PERNEM,GAWANDI BABAN GANESH,parties.IN.IND,IND,243,1.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-2,goa,1994,2,PERNEM,KORGAONKAR RATIKANT SHANKAR,parties.IN.IND,IND,213,1.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-2,goa,1994,2,PERNEM,ASOLKAR ARJUN ATMARAM,parties.IN.BSP,BSP,176,1.35,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-goa-2,goa,1994,2,PERNEM,ADV. PRAKASH MAHADEV GOVEKAR,parties.IN.UGDP,UGDP,98,0.75,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-2,goa,1994,2,PERNEM,NARAYAN ARJUN MAYEKAR,parties.IN.IND,IND,78,0.6,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-2,goa,1994,2,PERNEM,PRABHUDESSAI VASANT ATMARAM,parties.IN.IND,IND,68,0.52,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-3,goa,1994,3,DARGALIM,MANDREKAR DEU GUNAJI,parties.IN.MAG,MAG,5915,62.12,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-3,goa,1994,3,DARGALIM,BANDEKAR SHAMBHU BHAU,parties.IN.INC,INC,2569,26.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-3,goa,1994,3,DARGALIM,HARIJAN MANOHAR MAHADEO,parties.IN.IND,IND,406,4.26,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-3,goa,1994,3,DARGALIM,GAONKAR PRADEEP SHANKAR,parties.IN.BSP,BSP,365,3.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-3,goa,1994,3,DARGALIM,SHIRODKAR SHAMSUNDER NARAYAN,parties.IN.UGDP,UGDP,222,2.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-3,goa,1994,3,DARGALIM,RAMA PURUSHOTTAM PEDNEKAR,parties.IN.IND,IND,45,0.47,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-4,goa,1994,4,TIVIM,NARVEKAR DAYANAND GANESH,parties.IN.INC,INC,11299,70.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-4,goa,1994,4,TIVIM,NAIK VINAYAK VITHAL,parties.IN.MAG,MAG,3672,22.77,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-4,goa,1994,4,TIVIM,RAIKAR KALIDAS KASHINATH,parties.IN.IND,IND,954,5.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-4,goa,1994,4,TIVIM,CHODANKAR KRISHNANATH SHAMBHU,parties.IN.IND,IND,79,0.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-4,goa,1994,4,TIVIM,REDKAR DASHARATH MAHADEV,parties.IN.BSP,BSP,73,0.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-4,goa,1994,4,TIVIM,AIRES ALMEIDA,parties.IN.IND,IND,51,0.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-5,goa,1994,5,MAPUSA,SHIRSAT SURENDRA VASANT,parties.IN.MAG,MAG,6972,50.37,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-5,goa,1994,5,MAPUSA,NATEKAR GURUDAS BHALCHANDRA,parties.IN.INC,INC,6488,46.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-5,goa,1994,5,MAPUSA,DIAS ANTHONY LEO,parties.IN.BSP,BSP,206,1.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-5,goa,1994,5,MAPUSA,KANEKAR PRADEEP PUNDALIK,parties.IN.IND,IND,63,0.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-5,goa,1994,5,MAPUSA,MISHAL RAMESH PANDURANG,parties.IN.IND,IND,49,0.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-5,goa,1994,5,MAPUSA,MORAJKAR SATISH CHANDRAKANT,parties.IN.IND,IND,38,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-5,goa,1994,5,MAPUSA,CHARI AUDUT VISHNU,parties.IN.IND,IND,25,0.18,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-6,goa,1994,6,SIOLIM,CHODANKAR CHANDRAKANT UTTAM,parties.IN.MAG,MAG,7373,44.58,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-goa-6,goa,1994,6,SIOLIM,NAIK SALGAONKAR ASHOK TUKARAM,parties.IN.INC,INC,5327,32.21,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-6,goa,1994,6,SIOLIM,FERNANDES FRANCIS GREGORIO,parties.IN.IND,IND,2984,18.04,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-6,goa,1994,6,SIOLIM,PALYEKAR KESHAV SHAMBHU,parties.IN.IND,IND,512,3.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-6,goa,1994,6,SIOLIM,NAIK BHALCHANDRA GANESH,parties.IN.BSP,BSP,199,1.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-6,goa,1994,6,SIOLIM,FERNANDES ROY ROSARIO,parties.IN.IND,IND,77,0.47,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-6,goa,1994,6,SIOLIM,KAMBLE KASHIRAM RAGHOBA,parties.IN.IND,IND,36,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-6,goa,1994,6,SIOLIM,D'SOUZA JOHNSON JOHN,parties.IN.IND,IND,31,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-7,goa,1994,7,CALANGUTE,CARDOZ LEBART TOMAZIN,parties.IN.INC,INC,7716,50.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-7,goa,1994,7,CALANGUTE,PARULEKAR SURESH VISHWANATH,parties.IN.IND,IND,3746,24.55,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-7,goa,1994,7,CALANGUTE,NAIK RAVINDRA BHIKARO,parties.IN.MAG,MAG,2592,16.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-7,goa,1994,7,CALANGUTE,SOUZA FRANSICO VAVEINIO,parties.IN.IND,IND,1045,6.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-7,goa,1994,7,CALANGUTE,HARMALKAR NAMDEV SHANKAR,parties.IN.BSP,BSP,61,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-7,goa,1994,7,CALANGUTE,KORGAONKAR RAJENDRA VASANT,parties.IN.IND,IND,42,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-7,goa,1994,7,CALANGUTE,NAIK CHANDRAKANT BUDHU,parties.IN.IND,IND,35,0.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-7,goa,1994,7,CALANGUTE,MOR CHANDRASHEKAR YESHWANT,parties.IN.IND,IND,21,0.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-8,goa,1994,8,SALIGAO,D'SOUZA WILFRED ANTHONY,parties.IN.INC,INC,6479,45.5,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-8,goa,1994,8,SALIGAO,KALANGUTKAR DILIP SONU,parties.IN.SHS,SHS,5184,36.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-8,goa,1994,8,SALIGAO,MALIK SHRIKANT KESHAV,parties.IN.IND,IND,2369,16.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-8,goa,1994,8,SALIGAO,RODRIGUES AVELINO TRESICAS,parties.IN.IND,IND,96,0.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-8,goa,1994,8,SALIGAO,FERNANDES DIOGO MINGUEL,parties.IN.IND,IND,79,0.55,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-8,goa,1994,8,SALIGAO,SANTOSH VASANT MORAJKAR,parties.IN.BSP,BSP,31,0.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-9,goa,1994,9,ALDONA,D'SA FATIMA JOSEPH PHILIP,parties.IN.INC,INC,8303,46.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-9,goa,1994,9,ALDONA,ASNODKER ULHAS GOPAL,parties.IN.BJP,BJP,7792,43.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-9,goa,1994,9,ALDONA,CHOPDEKAR RATNAKER MADDU,parties.IN.IND,IND,1368,7.69,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-9,goa,1994,9,ALDONA,AUSTIN RODRIGUES,parties.IN.IND,IND,113,0.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-9,goa,1994,9,ALDONA,MIRAJKAR SHOBHA MIRAJI,parties.IN.BSP,BSP,86,0.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-9,goa,1994,9,ALDONA,PINTO FRANCISCO OLITH,parties.IN.IND,IND,31,0.17,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-9,goa,1994,9,ALDONA,FADTE DEELIP NAMDEV,parties.IN.IND,IND,31,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-9,goa,1994,9,ALDONA,LOBO AGNELO ALEIXINHO,parties.IN.IND,IND,29,0.16,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-9,goa,1994,9,ALDONA,EURICO JUDAS MASCARENHAS,parties.IN.IND,IND,23,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-9,goa,1994,9,ALDONA,HALARNKAR DATTADAS JAGANATH,parties.IN.IND,IND,23,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1994,10,PANAJI,PRABHU PARRIKAR MANOHAR GOPALKRISHNA,parties.IN.BJP,BJP,4600,44.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1994,10,PANAJI,PRABHU KESHAV LAXIMIDHAR,parties.IN.INC,INC,3534,34.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1994,10,PANAJI,SURENDRA FURTADO CRISTOVAM,parties.IN.IND,IND,1139,11,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1994,10,PANAJI,SEQUEIRA ERASMO JACK,parties.IN.GLP,GLP,736,7.11,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1994,10,PANAJI,VAIGONKAR DAMODAR VINAYAK,parties.IN.IND,IND,110,1.06,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1994,10,PANAJI,TAMBA RAGHURA-I,parties.IN.UGDP,UGDP,85,0.82,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1994,10,PANAJI,KANAUDEKAR HARICHANDRA AMBAJI,parties.IN.BSP,BSP,56,0.54,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1994,10,PANAJI,PATEL RAJENDRA PRASADSHANKARLAL,parties.IN.IND,IND,34,0.33,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1994,10,PANAJI,KERKAR CHANDRAKANT MAHADEV,parties.IN.IND,IND,33,0.32,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1994,10,PANAJI,VINCENT DIAGO D'SOUZA FRANCIS PETER,parties.IN.IND,IND,14,0.14,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1994,10,PANAJI,HEREDIA EUCLID PETER JOSEPH FRANCISCO,parties.IN.IND,IND,8,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-10,goa,1994,10,PANAJI,STEPHEN VAZ SEBASTIAO VAZ,parties.IN.IND,IND,6,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-11,goa,1994,11,TALEIGAO,ZUWARKAR SOMNATH DATTA,parties.IN.INC,INC,6514,48.16,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-11,goa,1994,11,TALEIGAO,FERNANDES NICHOLAS PEDRO,parties.IN.MAG,MAG,6442,47.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-11,goa,1994,11,TALEIGAO,SALDANHA MATANHY JOSE,parties.IN.GLP,GLP,363,2.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-11,goa,1994,11,TALEIGAO,MORASKAR SANJAY GAJANAN,parties.IN.BSP,BSP,163,1.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-11,goa,1994,11,TALEIGAO,VAZHAIL GOPLAN KANNU,parties.IN.IND,IND,43,0.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-12,goa,1994,12,SANTA CRUZ,VICTORIA FERNANDES ROMEO,parties.IN.IND,IND,5971,35.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-12,goa,1994,12,SANTA CRUZ,GONSALVES VICTOR BENJAMIN,parties.IN.INC,INC,4665,27.94,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-12,goa,1994,12,SANTA CRUZ,HOBLE ANIL RAGHUVIR,parties.IN.IND,IND,3568,21.37,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-12,goa,1994,12,SANTA CRUZ,SAWANT SUBHASH PUNDALIK,parties.IN.BJP,BJP,1766,10.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-12,goa,1994,12,SANTA CRUZ,D'BRAGANZA ANTONIO GABRIEL,parties.IN.IND,IND,357,2.14,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-12,goa,1994,12,SANTA CRUZ,FURTADO ROQUE CRISTOVAM,parties.IN.GLP,GLP,179,1.07,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-12,goa,1994,12,SANTA CRUZ,KUNKALEKAR PANDURANG RAMA,parties.IN.BSP,BSP,102,0.61,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-12,goa,1994,12,SANTA CRUZ,KANDOLKAR RAMDAS SONU,parties.IN.IND,IND,87,0.52,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1994,13,ST. ANDRE,PEGADO CARMO RAFAEL,parties.IN.INC,INC,6433,44.95,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1994,13,ST. ANDRE,PARVATKAR GOVIND BHIKAJI,parties.IN.BJP,BJP,4056,28.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1994,13,ST. ANDRE,CAIADO SIMAO LOWRENCE,parties.IN.UGDP,UGDP,2725,19.04,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1994,13,ST. ANDRE,NAIK KESHAVNATH SHANTARAM,parties.IN.IND,IND,320,2.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1994,13,ST. ANDRE,BORKAR DILIP DHARMA,parties.IN.GLP,GLP,219,1.53,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1994,13,ST. ANDRE,PEREIRA TEOTONIO PAULO,parties.IN.IND,IND,196,1.37,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1994,13,ST. ANDRE,MANGESHKAR ROHIDAS NARAYAN,parties.IN.BSP,BSP,153,1.07,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1994,13,ST. ANDRE,ANTONIO AFONSO JOSE,parties.IN.IND,IND,70,0.49,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1994,13,ST. ANDRE,D'MELLO AGOSTINHO SANTANO,parties.IN.IND,IND,65,0.45,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1994,13,ST. ANDRE,FATERPENKAR SOMNATH TANU,parties.IN.IND,IND,32,0.22,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1994,13,ST. ANDRE,FERNANDES MANUEL PETER AGOSTINHO,parties.IN.IND,IND,24,0.17,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-13,goa,1994,13,ST. ANDRE,PEREIRA VINCENTE LAWRENCE,parties.IN.IND,IND,20,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1994,14,CUMBARJUA,KUTTIKAR KRISHNA SAJU,parties.IN.INC,INC,6738,42.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1994,14,CUMBARJUA,CHODANKAR DHARMA VASSUDEV,parties.IN.MAG,MAG,6428,40.96,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1994,14,CUMBARJUA,EMIDIO F. MONTEIRO,parties.IN.IND,IND,1312,8.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1994,14,CUMBARJUA,SHIRODKAR GURU INACIO,parties.IN.BSP,BSP,378,2.41,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1994,14,CUMBARJUA,GONSALVES BERNARDO OSCAR,parties.IN.IND,IND,237,1.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1994,14,CUMBARJUA,JALMI UTTAM JIVLO,parties.IN.CPI,CPI,204,1.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1994,14,CUMBARJUA,REGO ANTHONY JOAQUIM M.,parties.IN.IND,IND,122,0.78,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1994,14,CUMBARJUA,BERNARDO DE SA,parties.IN.IND,IND,119,0.76,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1994,14,CUMBARJUA,CHODANCAR ANAND NARAYAN,parties.IN.IND,IND,54,0.34,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1994,14,CUMBARJUA,JERMAN TADEUS D'MELLO,parties.IN.IND,IND,29,0.18,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1994,14,CUMBARJUA,PEREIRA I.I.T.I.F.G.T. PEREIRA,parties.IN.IND,IND,22,0.14,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1994,14,CUMBARJUA,PEDNEKAR MAHADEV BABUSO,parties.IN.IND,IND,19,0.12,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1994,14,CUMBARJUA,VASSANT KHOLKAR MUKUND,parties.IN.IND,IND,19,0.12,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-14,goa,1994,14,CUMBARJUA,BANUDAS PASKUVAL DE SA,parties.IN.IND,IND,13,0.08,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-15,goa,1994,15,BICHOLIM,BHATALE PANDURANG KRISHNA,parties.IN.INC,INC,5135,35.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-15,goa,1994,15,BICHOLIM,RAUT PANDURANG DATTARAM,parties.IN.IND,IND,4817,33.17,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-15,goa,1994,15,BICHOLIM,ADV. PARAB KALIDAS VITHOBA,parties.IN.MAG,MAG,4127,28.42,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-15,goa,1994,15,BICHOLIM,BEIG HASHAM NUR MOHAMAD,parties.IN.IND,IND,258,1.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-15,goa,1994,15,BICHOLIM,MISAL DARI BABU,parties.IN.BSP,BSP,185,1.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-16,goa,1994,16,MAEM,KAKODKAR SHASHIKALA GURUDATT,parties.IN.MAG,MAG,5634,45.09,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-16,goa,1994,16,MAEM,GHOPDEKAR MURARI SHAMBA,parties.IN.IND,IND,2370,18.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-16,goa,1994,16,MAEM,GHATWAL KANTA GOPI,parties.IN.INC,INC,1789,14.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-16,goa,1994,16,MAEM,GADEKAR KAMALAKANT KRISHNA,parties.IN.CPIM,CPM,1379,11.04,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-goa-16,goa,1994,16,MAEM,DUBHASHI PUSHPARAJ KASHINATH,parties.IN.IND,IND,927,7.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-16,goa,1994,16,MAEM,DAMODAR KASHINATH SURLEKAR,parties.IN.BSP,BSP,238,1.9,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-16,goa,1994,16,MAEM,SHENAVI PILGAONKAR AJEET BHASKAR,parties.IN.IND,IND,108,0.86,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-16,goa,1994,16,MAEM,MHALU NANI GAONKAR,parties.IN.IND,IND,49,0.39,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1994,17,PALE,MALIK SADANAND UTTAM,parties.IN.MAG,MAG,8346,58.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1994,17,PALE,USGAONKAR VINAYKUMAN PUNDALIK,parties.IN.INC,INC,3572,25.03,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1994,17,PALE,DESSAI LAXIMANRAO DATTARAM,parties.IN.IND,IND,1281,8.98,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1994,17,PALE,GURUDAS PANDU PARWAR,parties.IN.BSP,BSP,455,3.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1994,17,PALE,CHINILKAR SUMANT PRABHAKAR,parties.IN.IND,IND,342,2.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1994,17,PALE,BANDODKAR SUNDAR SITARAM,parties.IN.IND,IND,187,1.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1994,17,PALE,ANANT RAMA MAULINGKAR,parties.IN.UGDP,UGDP,58,0.41,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-17,goa,1994,17,PALE,VISHNU ATMARAM GAWAS,parties.IN.IND,IND,31,0.22,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-18,goa,1994,18,PORIEM,RANE PRATAPSINGH RAOJIRAO,parties.IN.INC,INC,7268,50.93,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-18,goa,1994,18,PORIEM,RANE KRISHNARAO APPASAHEB,parties.IN.MAG,MAG,5840,40.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-18,goa,1994,18,PORIEM,VINCY GONSALVES,parties.IN.CPI,CPI,517,3.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-18,goa,1994,18,PORIEM,GAWAS TARAK RAMA,parties.IN.IND,IND,357,2.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-18,goa,1994,18,PORIEM,RANE JAISINGRAO VENKATRAO,parties.IN.JD,JD,289,2.03,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-19,goa,1994,19,VALPOI,HALDANKAR NARAHARI TUKARAM,parties.IN.BJP,BJP,4853,43.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-19,goa,1994,19,VALPOI,PRABHU BALKRISHNA ALIAS (ASHOK )JAIRAM,parties.IN.INC,INC,3895,35.2,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-19,goa,1994,19,VALPOI,RANE RANJIT JAISINGRAO,parties.IN.JD,JD,961,8.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-19,goa,1994,19,VALPOI,TELI ANANT KRISHNA,parties.IN.IND,IND,911,8.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-19,goa,1994,19,VALPOI,VINCY GONSALVES,parties.IN.CPI,CPI,288,2.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-19,goa,1994,19,VALPOI,KHAN ABDUL RAZAK,parties.IN.BSP,BSP,91,0.82,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-goa-19,goa,1994,19,VALPOI,ANDRADE VALERIANO PAULO,parties.IN.IND,IND,66,0.6,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-20,goa,1994,20,PONDA,VEREKAR SHIVDAS ATMARAM,parties.IN.MAG,MAG,6931,42.38,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-20,goa,1994,20,PONDA,AGUIAR JOILD JOAO,parties.IN.IND,IND,4953,30.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-20,goa,1994,20,PONDA,KATKAR SULOCHANA RAMAKANT,parties.IN.INC,INC,3751,22.93,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-20,goa,1994,20,PONDA,TILVE UMESH PANDURANG,parties.IN.BSP,BSP,339,2.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-20,goa,1994,20,PONDA,NAIK PRAKASH VISHNU,parties.IN.IND,IND,257,1.57,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-20,goa,1994,20,PONDA,KUDALKAR TULSHIDAS KRISHNA,parties.IN.IND,IND,85,0.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-20,goa,1994,20,PONDA,MULLA DASHKIR MULLA,parties.IN.IND,IND,39,0.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-21,goa,1994,21,PRIOL,JALMI DR. KASHINATH GOVIND,parties.IN.MAG,MAG,7982,45.1,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-21,goa,1994,21,PRIOL,VERENKAR MOHAN MAHADEV,parties.IN.IND,IND,6640,37.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-21,goa,1994,21,PRIOL,GAONKAR BABUSSO SAVLO,parties.IN.INC,INC,2816,15.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-21,goa,1994,21,PRIOL,GAUDE SHANTARAM GANESH,parties.IN.BSP,BSP,195,1.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-21,goa,1994,21,PRIOL,PRABHU PRAKASH SHANU,parties.IN.IND,IND,67,0.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-22,goa,1994,22,MARCAIM,NAIK SHRIPAD YESSO,parties.IN.BJP,BJP,9775,56.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-22,goa,1994,22,MARCAIM,NAIK RAVI SITARAM,parties.IN.INC,INC,7075,41.18,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-22,goa,1994,22,MARCAIM,PHADTE PRATAP PANDURANG,parties.IN.CPI,CPI,196,1.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-22,goa,1994,22,MARCAIM,NAIK BODKO HIRU,parties.IN.BSP,BSP,89,0.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-22,goa,1994,22,MARCAIM,PUSPA BHIKU MADKAIKAR ALIAS MRS. ANUPAMA,parties.IN.IND,IND,44,0.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1994,23,SIRODA,SHIRODKAR SUBHASH ANKUSH,parties.IN.INC,INC,6257,37.65,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1994,23,SIRODA,NAIK MANOHAR GOPAL,parties.IN.BJP,BJP,6154,37.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1994,23,SIRODA,GUDINO ALEXINHO MENINO,parties.IN.IND,IND,3254,19.58,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1994,23,SIRODA,SHIRODKAR ROHIDAS BABURAO,parties.IN.IND,IND,392,2.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1994,23,SIRODA,NAIK RAMA BABUSO,parties.IN.UGDP,UGDP,272,1.64,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1994,23,SIRODA,TENDULKAR SATISH MORARI,parties.IN.IND,IND,190,1.14,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1994,23,SIRODA,ALEMAO GABRIAL SALVADOR,parties.IN.IND,IND,55,0.33,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-23,goa,1994,23,SIRODA,BORKAR ROHIDAS SURYA,parties.IN.BSP,BSP,47,0.28,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1994,24,MORMUGAO,VAZ JOHN MANUEL H.,parties.IN.IND,IND,7865,44.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1994,24,MORMUGAO,SHAIKH HASSAN HAROON,parties.IN.INC,INC,5544,31.41,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1994,24,MORMUGAO,LOTLIKAR SHIVRAM RAGHUVIR,parties.IN.BJP,BJP,3236,18.33,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1994,24,MORMUGAO,CHALWADI VISHWANATH BHIMARAO,parties.IN.BSP,BSP,664,3.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1994,24,MORMUGAO,SHINDE TULSHIDAS KULDEEP,parties.IN.IND,IND,104,0.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1994,24,MORMUGAO,HOBLE GAJANAN SHIVA,parties.IN.IND,IND,68,0.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1994,24,MORMUGAO,KHAN HAMZA ISSAQ,parties.IN.SP,SP,62,0.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1994,24,MORMUGAO,DR. AINODIN AGA,parties.IN.IND,IND,61,0.35,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-24,goa,1994,24,MORMUGAO,BOSALE KAILAS SAKHARAM,parties.IN.RPI,RPI,46,0.26,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1994,25,VASCO DA GAMA,MESOUITA MENEZES WILFRED M.,parties.IN.MAG,MAG,6460,38.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1994,25,VASCO DA GAMA,D'SOUZA SIMON PETER,parties.IN.INC,INC,4867,28.81,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1994,25,VASCO DA GAMA,D'SOUZA JOSE FILIP D.,parties.IN.IND,IND,4558,26.98,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1994,25,VASCO DA GAMA,HENRIQUES GANDHI E.,parties.IN.UGDP,UGDP,350,2.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1994,25,VASCO DA GAMA,ANIL G. CHOPDEKAR,parties.IN.IND,IND,161,0.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1994,25,VASCO DA GAMA,BARRETO GERALDO FRANCIS,parties.IN.IND,IND,160,0.95,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1994,25,VASCO DA GAMA,SURYAWANSHI BHANUDAS Y.,parties.IN.BSP,BSP,159,0.94,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1994,25,VASCO DA GAMA,YADAV KASHINATH R.,parties.IN.RPI,RPI,131,0.78,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1994,25,VASCO DA GAMA,MANDREKAR DILIP DATTARAM,parties.IN.SP,SP,30,0.18,9,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-goa-25,goa,1994,25,VASCO DA GAMA,JOMIS D'SOUZA E.,parties.IN.IND,IND,17,0.1,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-26,goa,1994,26,CORTALIM,MAUVIN HELIODORO G.M.,parties.IN.INC,INC,6191,37.51,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-26,goa,1994,26,CORTALIM,BARBOSA LUIS PROTO ALEX,parties.IN.UGDP,UGDP,3132,18.98,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-26,goa,1994,26,CORTALIM,CRISTOPHER FONSECA,parties.IN.CPI,CPI,2219,13.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-26,goa,1994,26,CORTALIM,FERNANDES ANTHONY MENIN F.,parties.IN.BJP,BJP,2126,12.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-26,goa,1994,26,CORTALIM,FERNANDES ANTONIO F.P.,parties.IN.BSP,BSP,1952,11.83,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-goa-26,goa,1994,26,CORTALIM,ROQUEZINHO SOUZA,parties.IN.IND,IND,731,4.43,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-26,goa,1994,26,CORTALIM,VERNEKAR VASUDEO G.,parties.IN.SP,SP,113,0.68,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-26,goa,1994,26,CORTALIM,ANTHONY MATHEW VAZ,parties.IN.IND,IND,40,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-27,goa,1994,27,LOUTOLIM,ALEIXO SEQUEIRA,parties.IN.INC,INC,6846,54.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-27,goa,1994,27,LOUTOLIM,GRACIAS RADHARAO SOCRATES,parties.IN.UGDP,UGDP,5177,41.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-27,goa,1994,27,LOUTOLIM,CARVALHO MANUEL BERNARDO,parties.IN.IND,IND,262,2.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-27,goa,1994,27,LOUTOLIM,PARKAR AJIT,parties.IN.MAG,MAG,110,0.87,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-27,goa,1994,27,LOUTOLIM,BAPTISTA XAVIER,parties.IN.BSP,BSP,90,0.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-27,goa,1994,27,LOUTOLIM,DANIEL OSCAR,parties.IN.IND,IND,44,0.35,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-27,goa,1994,27,LOUTOLIM,CUNHA SEBASTIAO,parties.IN.IND,IND,42,0.33,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-27,goa,1994,27,LOUTOLIM,FERNANDES JUSE,parties.IN.IND,IND,25,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-28,goa,1994,28,BENAULIM,CHURCHIL BRAZ ALEMAO,parties.IN.UGDP,UGDP,8587,63.28,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-28,goa,1994,28,BENAULIM,MONTE CRUZ,parties.IN.INC,INC,4565,33.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-28,goa,1994,28,BENAULIM,JACK ROSARIO RODRIGUES,parties.IN.IND,IND,187,1.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-28,goa,1994,28,BENAULIM,RATOS SEBASTIAO JOAQUIM,parties.IN.IND,IND,104,0.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-28,goa,1994,28,BENAULIM,FURTADO ANTONIO DAMIAO,parties.IN.BSP,BSP,97,0.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-28,goa,1994,28,BENAULIM,RODRIGUES M. CRISTOVAM,parties.IN.IND,IND,29,0.21,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-29,goa,1994,29,FATORDA,CARDOZ LUIS ALEIX,parties.IN.INC,INC,5504,39.16,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-29,goa,1994,29,FATORDA,ANGLE RAMAKANT SOIRU,parties.IN.IND,IND,5154,36.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-29,goa,1994,29,FATORDA,NAIK PRADEEP GAJANAN,parties.IN.MAG,MAG,1199,8.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-29,goa,1994,29,FATORDA,ENG. KORGAONKAR ASHOK TUKARAM,parties.IN.IND,IND,569,4.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-29,goa,1994,29,FATORDA,GOMES JOSE FRANSISCO,parties.IN.BSP,BSP,537,3.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-29,goa,1994,29,FATORDA,SAYED IQBAL,parties.IN.UGDP,UGDP,509,3.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-29,goa,1994,29,FATORDA,J. FELIX AFONSO,parties.IN.IND,IND,198,1.41,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-29,goa,1994,29,FATORDA,BORKAR MHABALESHWAR,parties.IN.IND,IND,171,1.22,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-29,goa,1994,29,FATORDA,MIRANDA CAMILO LUIS,parties.IN.IND,IND,100,0.71,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-29,goa,1994,29,FATORDA,ALBERTO EMILO ALVARES,parties.IN.IND,IND,64,0.46,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-29,goa,1994,29,FATORDA,NAIK RAMDAS PRABHAKAR,parties.IN.IND,IND,37,0.26,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-29,goa,1994,29,FATORDA,SHAMBU SINAI ASSOLDEKAR,parties.IN.IND,IND,14,0.1,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-30,goa,1994,30,MARGAO,KAMAT DIGAMBAR VASANT,parties.IN.BJP,BJP,5009,40.66,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-goa-30,goa,1994,30,MARGAO,NAIK RAJU DAMODAR,parties.IN.INC,INC,2697,21.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-30,goa,1994,30,MARGAO,SHAIK MUHAMD AKABAR DAUDSHAB,parties.IN.UGDP,UGDP,1511,12.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-30,goa,1994,30,MARGAO,RAITURKAR SANTOSH,parties.IN.IND,IND,1493,12.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-30,goa,1994,30,MARGAO,AZGAINKAR MANOHAR,parties.IN.IND,IND,1335,10.84,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-30,goa,1994,30,MARGAO,PEREIRA SAMIRO ALVARO,parties.IN.IND,IND,83,0.67,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-30,goa,1994,30,MARGAO,BARRETO J.J. ROQUE,parties.IN.IND,IND,51,0.41,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-30,goa,1994,30,MARGAO,GOMES FURTADO HAMISH,parties.IN.IND,IND,45,0.37,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-30,goa,1994,30,MARGAO,KRISHNA MUKUND GAONKAR,parties.IN.IND,IND,35,0.28,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-30,goa,1994,30,MARGAO,NAIK KAMALAKAR,parties.IN.BSP,BSP,34,0.28,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-30,goa,1994,30,MARGAO,D'SILVA FIONA,parties.IN.IND,IND,10,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-30,goa,1994,30,MARGAO,CHANDRAKANT APPAJI POL,parties.IN.IND,IND,10,0.08,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-30,goa,1994,30,MARGAO,DIAS THOMAS,parties.IN.IND,IND,6,0.05,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-31,goa,1994,31,CURTORIM,GAONKAR ANTONIO DAMIAO,parties.IN.UGDP,UGDP,6564,48.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-31,goa,1994,31,CURTORIM,SARDINHA COSMOFRANCISCO GAETANO,parties.IN.INC,INC,6470,47.47,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-31,goa,1994,31,CURTORIM,VAZ JOSEPH FRANCISCO,parties.IN.BSP,BSP,338,2.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-31,goa,1994,31,CURTORIM,DIAS CONCEICAO SANTANO,parties.IN.IND,IND,89,0.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-31,goa,1994,31,CURTORIM,AMONKAR VILAS CHANDRAKANT,parties.IN.MAG,MAG,84,0.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-31,goa,1994,31,CURTORIM,NARESH M. MIRAJKAR,parties.IN.IND,IND,56,0.41,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-31,goa,1994,31,CURTORIM,NARENDRA LAXMIDAS THAKKAR,parties.IN.IND,IND,29,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-32,goa,1994,32,NAVELIM,LUIZINHO FALEIRO,parties.IN.INC,INC,8178,51.98,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-32,goa,1994,32,NAVELIM,PINTO NAZARIO JOSE,parties.IN.UGDP,UGDP,5296,33.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-32,goa,1994,32,NAVELIM,BALU JOLAPURE,parties.IN.BJP,BJP,1107,7.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-32,goa,1994,32,NAVELIM,COUTINHO XAVIER PHILIP,parties.IN.IND,IND,528,3.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-32,goa,1994,32,NAVELIM,SHAIKH GAWAS AHAMAD KASHINSAB,parties.IN.IND,IND,220,1.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-32,goa,1994,32,NAVELIM,D'COSTA EMIDIO MANUEL,parties.IN.BSP,BSP,171,1.09,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-32,goa,1994,32,NAVELIM,DOSTA MINGUEL CAITANO,parties.IN.IND,IND,88,0.56,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-32,goa,1994,32,NAVELIM,VASQUITO MARTINS,parties.IN.IND,IND,69,0.44,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-32,goa,1994,32,NAVELIM,CHANDRAKANT APPAJI POL,parties.IN.IND,IND,42,0.27,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-32,goa,1994,32,NAVELIM,FIGUEIREDO MENINO JOSEPH,parties.IN.IND,IND,34,0.22,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-33,goa,1994,33,VELIM,FERNANDES MANU,parties.IN.IND,IND,5409,46.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-33,goa,1994,33,VELIM,GRACIAS FARREL ELVIS,parties.IN.INC,INC,2932,25.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-33,goa,1994,33,VELIM,RODRIGUES FILIP CRUZ,parties.IN.UGDP,UGDP,2164,18.67,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-33,goa,1994,33,VELIM,CAIRO SAVIO LOURDES,parties.IN.IND,IND,459,3.96,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-33,goa,1994,33,VELIM,LETAO CIRIO CAITANO,parties.IN.IND,IND,230,1.98,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-33,goa,1994,33,VELIM,COUTINHO CIRIACO ANTONIO,parties.IN.JD,JD,184,1.59,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-33,goa,1994,33,VELIM,MAXIMIANO G. FURTADO,parties.IN.MAG,MAG,171,1.48,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-33,goa,1994,33,VELIM,FURTADO ANTONIO DAMIAO,parties.IN.BSP,BSP,44,0.38,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-34,goa,1994,34,CUNCOLIM,D'SOUZA ARECIO AGAPITO,parties.IN.UGDP,UGDP,5294,39.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-34,goa,1994,34,CUNCOLIM,SHANTARAM LAXMAN NAIK,parties.IN.INC,INC,2909,21.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-34,goa,1994,34,CUNCOLIM,MASCARENHAS JOSEPH MIGUEL,parties.IN.IND,IND,2362,17.72,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-34,goa,1994,34,CUNCOLIM,DESSAI SHABU BABANI,parties.IN.BJP,BJP,1620,12.15,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-goa-34,goa,1994,34,CUNCOLIM,BILL CARDOZO,parties.IN.IND,IND,911,6.83,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-34,goa,1994,34,CUNCOLIM,CAVARLHO SANTANO FRANCISCO,parties.IN.BSP,BSP,88,0.66,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-34,goa,1994,34,CUNCOLIM,DESAI UTTAM DATTARAM,parties.IN.IND,IND,56,0.42,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-34,goa,1994,34,CUNCOLIM,DUAL DESSAI BHIKAN MOLU,parties.IN.IND,IND,56,0.42,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-34,goa,1994,34,CUNCOLIM,ANTONIO FILOSIO GERMANO FERNANDES,parties.IN.IND,IND,36,0.27,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-35,goa,1994,35,SANVORDEM,PRABHU VISHNU GOPAL,parties.IN.MAG,MAG,7256,45.82,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-35,goa,1994,35,SANVORDEM,MARATHE SADASHIV VAMAN,parties.IN.INC,INC,5580,35.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-35,goa,1994,35,SANVORDEM,ULHAS BHIKAJI NAIK,parties.IN.CPIM,CPM,1052,6.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-35,goa,1994,35,SANVORDEM,GHADI GOVIND HARICHANDRA,parties.IN.IND,IND,938,5.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-35,goa,1994,35,SANVORDEM,TATE RAMAVITHAL,parties.IN.BSP,BSP,425,2.68,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-35,goa,1994,35,SANVORDEM,GAONKAR GANESH CHANDRU,parties.IN.IND,IND,357,2.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-35,goa,1994,35,SANVORDEM,DESSAI SONBA RAGHOBA,parties.IN.IND,IND,126,0.8,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-35,goa,1994,35,SANVORDEM,SHRIPAD YESHWANT GAONKAR,parties.IN.IND,IND,101,0.64,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-36,goa,1994,36,SANGUEM,NAIK PANDU VASU,parties.IN.INC,INC,5707,44.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-36,goa,1994,36,SANGUEM,PRABHU DESAI VIVEK KRISHNANATH,parties.IN.IND,IND,3051,24.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-36,goa,1994,36,SANGUEM,NAIK TARI EKNATH BABLE,parties.IN.MAG,MAG,2969,23.4,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-36,goa,1994,36,SANGUEM,JOAQUIM V. LUIS D'COSTA,parties.IN.UGDP,UGDP,851,6.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-36,goa,1994,36,SANGUEM,LAMBOR THAKO NAU,parties.IN.BSP,BSP,83,0.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-36,goa,1994,36,SANGUEM,CARDOZ JOSE LUIS,parties.IN.IND,IND,28,0.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-37,goa,1994,37,CURCHOREM,DOMNIC FERNANDES,parties.IN.INC,INC,7989,50.31,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-37,goa,1994,37,CURCHOREM,ADV. DESSAI NARAYAN MAHADEV,parties.IN.SHS,SHS,3163,19.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-37,goa,1994,37,CURCHOREM,DINIZ LUIS CONSTANCIO,parties.IN.UGDP,UGDP,2664,16.78,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-37,goa,1994,37,CURCHOREM,NAIK ASHOK SHANKER,parties.IN.IND,IND,1683,10.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-37,goa,1994,37,CURCHOREM,NAIK NEEL RAJARAM,parties.IN.IND,IND,287,1.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-37,goa,1994,37,CURCHOREM,ADV. SHIRODKAR GURU INACIO,parties.IN.BSP,BSP,55,0.35,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-goa-37,goa,1994,37,CURCHOREM,BANDODKAR RAMESH,parties.IN.IND,IND,39,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-38,goa,1994,38,QUEPEM,PRAKASH SHANKAR VELIP,parties.IN.MAG,MAG,7579,47.14,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-38,goa,1994,38,QUEPEM,PEREIRA RAUL ROQUE,parties.IN.IND,IND,4335,26.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-38,goa,1994,38,QUEPEM,VELIP KUSHALI KUSTH,parties.IN.INC,INC,2077,12.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-38,goa,1994,38,QUEPEM,REBELLO REMET PAULO,parties.IN.UGDP,UGDP,1746,10.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-38,goa,1994,38,QUEPEM,NOMI GOVIND GAUNKAR,parties.IN.BSP,BSP,170,1.06,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-38,goa,1994,38,QUEPEM,SHAIKH AZIM,parties.IN.IND,IND,170,1.06,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-39,goa,1994,39,CANACONA,BANDEKAR SANJAY VIMAL,parties.IN.INC,INC,6178,52.58,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-39,goa,1994,39,CANACONA,NAIK DESSAI CHANDRAKANT RAM ALIAS DR. SHABA NAIK,parties.IN.MAG,MAG,4881,41.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-39,goa,1994,39,CANACONA,VELIP GHURKO BHISSO,parties.IN.UGDP,UGDP,460,3.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-39,goa,1994,39,CANACONA,FERNANDES INACINA,parties.IN.IND,IND,134,1.14,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-39,goa,1994,39,CANACONA,KOMARPANT SOIRU MADHUKAR,parties.IN.BSP,BSP,96,0.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-40,goa,1994,40,POINGUINIM,ACHARYA GOVIND RAGHUCHANDRA,parties.IN.MAG,MAG,4516,43.59,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-goa-40,goa,1994,40,POINGUINIM,GAONKAR VASU PAIK,parties.IN.INC,INC,3400,32.82,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-goa-40,goa,1994,40,POINGUINIM,ISIDOR DIOGO FERNANDES,parties.IN.IND,IND,2316,22.36,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-goa-40,goa,1994,40,POINGUINIM,PAGI CHANDRAKANT PUTU,parties.IN.BSP,BSP,128,1.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

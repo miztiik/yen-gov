@@ -1,0 +1,47 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-PC-1976-gujarat-15,gujarat,2001,15,SABARKANTHA,MISTRY MADHUSUDAN DEVRAM,parties.IN.INC,INC,265209,47.19,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-gujarat-15,gujarat,2001,15,SABARKANTHA,UPENDRA TRIVEDI,parties.IN.BJP,BJP,244400,43.49,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-gujarat-15,gujarat,2001,15,SABARKANTHA,RATHOD SABIRBHAI A.,parties.IN.IND,IND,27089,4.82,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-gujarat-15,gujarat,2001,15,SABARKANTHA,PATHAN FAJLURAHEMAN SAIDRAHEMAN(ADVOCATE),parties.IN.IND,IND,12424,2.21,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-gujarat-15,gujarat,2001,15,SABARKANTHA,RAMESHBHAI NANJIBHAI BHAMBI,parties.IN.BSP,BSP,6353,1.13,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-gujarat-15,gujarat,2001,15,SABARKANTHA,PATHAN AIYUBKHAN AJABKHAN,parties.IN.IND,IND,2513,0.45,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-gujarat-15,gujarat,2001,15,SABARKANTHA,PATEL RAMESHBHAI DHARMABHAI,parties.IN.SP,SP,2315,0.41,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-gujarat-15,gujarat,2001,15,SABARKANTHA,RATHOD RAMSINH JAVANSINH,parties.IN.GYVP,GYVP,1691,0.3,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-rajasthan-13,rajasthan,2001,13,TONK(SC),KAILASH MEGHWAL,parties.IN.BJP,BJP,287818,52.91,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-rajasthan-13,rajasthan,2001,13,TONK(SC),BANWARI LAL BAIRWA,parties.IN.INC,INC,225916,41.53,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-rajasthan-13,rajasthan,2001,13,TONK(SC),JAGNNATH MORALIYA,parties.IN.IND,IND,18781,3.45,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-rajasthan-13,rajasthan,2001,13,TONK(SC),LADURAM SULA NIYA,parties.IN.SP,SP,11451,2.11,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-27,tamil-nadu,2001,27,THIRUCHIRAPALLI,ELUMALAI +AEA- DALIT EZHIMALAI R.,parties.IN.AIADMK,AIDMK,343874,48.38,1,won,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-tamil-nadu-27,tamil-nadu,2001,27,THIRUCHIRAPALLI,SUKUMAR M. N.,parties.IN.BJP,BJP,326461,45.93,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-27,tamil-nadu,2001,27,THIRUCHIRAPALLI,RAVI P.,parties.IN.IND,IND,16417,2.31,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-27,tamil-nadu,2001,27,THIRUCHIRAPALLI,HARIHARAN G.,parties.IN.IND,IND,6053,0.85,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-27,tamil-nadu,2001,27,THIRUCHIRAPALLI,GURURAJAN K.,parties.IN.IND,IND,4778,0.67,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-27,tamil-nadu,2001,27,THIRUCHIRAPALLI,SIVAKKANNU Dr. M.,parties.IN.IND,IND,3779,0.53,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-27,tamil-nadu,2001,27,THIRUCHIRAPALLI,JAI PRAKASH,parties.IN.IND,IND,2453,0.35,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-27,tamil-nadu,2001,27,THIRUCHIRAPALLI,NAGENTHIRAN A.,parties.IN.IND,IND,1889,0.27,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-27,tamil-nadu,2001,27,THIRUCHIRAPALLI,PADMARAJAN Dr. K.,parties.IN.IND,IND,1866,0.26,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-27,tamil-nadu,2001,27,THIRUCHIRAPALLI,RAJENDRAN J.,parties.IN.IND,IND,1797,0.25,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-tamil-nadu-27,tamil-nadu,2001,27,THIRUCHIRAPALLI,RAJENDRAN R.,parties.IN.IND,IND,1380,0.19,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,2001,14,SHAHJAHANPUR,RAMMURTI SINGH VERMA,parties.IN.SP,SP,152971,31.09,1,won,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,2001,14,SHAHJAHANPUR,KANTA PRASAD,parties.IN.INC,INC,129010,26.22,2,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,2001,14,SHAHJAHANPUR,ANIS AHMAD KHAN,parties.IN.BSP,BSP,98159,19.95,3,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,2001,14,SHAHJAHANPUR,SATYA PAL SINGH YADAV,parties.IN.BJP,BJP,95325,19.38,4,lost,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,2001,14,SHAHJAHANPUR,SARNAM SINGH,parties.IN.IND,IND,3389,0.69,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,2001,14,SHAHJAHANPUR,LALARAM,parties.IN.IND,IND,3283,0.67,6,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,2001,14,SHAHJAHANPUR,PRATAP NARAYAN,parties.IN.SAD,AD,2834,0.58,7,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,2001,14,SHAHJAHANPUR,LAL BAHADUR,parties.IN.IND,IND,1228,0.25,8,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,2001,14,SHAHJAHANPUR,RAMUKUMAR,parties.IN.IND,IND,1153,0.23,9,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,2001,14,SHAHJAHANPUR,RAJESH CHANDRA,parties.IN.IND,IND,1150,0.23,10,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,2001,14,SHAHJAHANPUR,KAILASH CHAND,parties.IN.IND,IND,686,0.14,11,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,2001,14,SHAHJAHANPUR,MUNNA LAL,parties.IN.IND,IND,518,0.11,12,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,2001,14,SHAHJAHANPUR,RAJPAL SINGH,parties.IN.IND,IND,512,0.1,13,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,2001,14,SHAHJAHANPUR,UDIT YADAV,parties.IN.IND,IND,491,0.1,14,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,2001,14,SHAHJAHANPUR,KRISHNA PAL,parties.IN.IND,IND,481,0.1,15,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,2001,14,SHAHJAHANPUR,CHETRUM,parties.IN.IND,IND,402,0.08,16,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-14,uttar-pradesh,2001,14,SHAHJAHANPUR,MEWARAM,parties.IN.IND,IND,401,0.08,17,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-32,west-bengal,2001,32,MIDNAPORE,PROBODH PANDA,parties.IN.CPI,CPI,448237,51.11,1,won,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-32,west-bengal,2001,32,MIDNAPORE,DUTTA MANORANJAN,parties.IN.AITC,AITC,330044,37.63,2,lost,U,,,,crossover,src-31c65dbec869
+IN-PC-1976-west-bengal-32,west-bengal,2001,32,MIDNAPORE,RAMA PRASAD TEWARY,parties.IN.BJP,BJP,70883,8.08,3,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-32,west-bengal,2001,32,MIDNAPORE,AKSHAY KUMAR KHAN,parties.IN.IND,IND,13677,1.56,4,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-32,west-bengal,2001,32,MIDNAPORE,ASHOK BHATTACHARJEE,parties.IN.PDS,PDS,8722,0.99,5,forfeit,U,,,,challenger,src-31c65dbec869
+IN-PC-1976-west-bengal-32,west-bengal,2001,32,MIDNAPORE,MALAYENDRA KISOR CHAUDHURI,parties.IN.BMVP,BMVP,5471,0.62,6,forfeit,U,,,,challenger,src-31c65dbec869

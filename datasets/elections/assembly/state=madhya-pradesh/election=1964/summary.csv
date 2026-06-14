@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1962-madhya-pradesh-182,madhya-pradesh,1964,BINA,56624,28322,50.02,S.N.MUSHRAN,parties.IN.INC,INC,15027,53.06,RAJAJU,parties.IN.JS,JS,12464,2563,9.05,src-1b7bc1c9d39a
+IN-AC-1962-madhya-pradesh-251,madhya-pradesh,1964,SONKATCH,56042,36274,64.73,V.SINGH,parties.IN.JS,JS,19647,54.16,VIJAY SINGH,parties.IN.INC,INC,16056,3591,9.9,src-1b7bc1c9d39a
+IN-AC-1962-madhya-pradesh-283,madhya-pradesh,1964,SITAMAU,52389,31699,60.51,K.SINGH,parties.IN.JS,JS,15532,49,B.L.METHA,parties.IN.INC,INC,15110,422,1.33,src-1b7bc1c9d39a

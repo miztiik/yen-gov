@@ -1,0 +1,42 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-madhya-pradesh-85,madhya-pradesh,2000,85,SUHAGPUR,Shabnam Mousi,parties.IN.IND,IND,39937,44.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-85,madhya-pradesh,2000,85,SUHAGPUR,Lallu Singh,parties.IN.BJP,BJP,22074,24.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-85,madhya-pradesh,2000,85,SUHAGPUR,Brijesh Singh,parties.IN.INC,INC,17282,19.07,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-85,madhya-pradesh,2000,85,SUHAGPUR,Sikandar Khan,parties.IN.JDU,JD(U),4122,4.55,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-85,madhya-pradesh,2000,85,SUHAGPUR,Kuwar Mandhata Singh,parties.IN.SP,SP,3305,3.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-85,madhya-pradesh,2000,85,SUHAGPUR,Munna Chaudhary,parties.IN.IND,IND,1661,1.83,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-85,madhya-pradesh,2000,85,SUHAGPUR,Mahesh Prasad Tiwari,parties.IN.IND,IND,1223,1.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-85,madhya-pradesh,2000,85,SUHAGPUR,Kamala Prasad Tiwari,parties.IN.SVSP,SVSP,612,0.68,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-85,madhya-pradesh,2000,85,SUHAGPUR,Dharmendra Srivastava(Tikku),parties.IN.LSWP,LSWP,393,0.43,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-141,madhya-pradesh,2000,141,RAJIM,Amitesh Shukla,parties.IN.INC,INC,51309,53.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-141,madhya-pradesh,2000,141,RAJIM,Dr. Neena Singh,parties.IN.BJP,BJP,39942,41.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-141,madhya-pradesh,2000,141,RAJIM,Babulal Sahu,parties.IN.IND,IND,2848,2.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-141,madhya-pradesh,2000,141,RAJIM,Ajay Singh,parties.IN.IND,IND,1557,1.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-141,madhya-pradesh,2000,141,RAJIM,Shailendra Kumar Dhruv,parties.IN.GGP,GGP,1085,1.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-179,madhya-pradesh,2000,179,KIRNAPUR,Pushplata Likhiram Kawre,parties.IN.INC,INC,40061,52.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-179,madhya-pradesh,2000,179,KIRNAPUR,Bhuvanlal Parthi,parties.IN.BJP,BJP,17851,23.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-179,madhya-pradesh,2000,179,KIRNAPUR,Anubha Munjare,parties.IN.JP,JP,12537,16.58,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-179,madhya-pradesh,2000,179,KIRNAPUR,Dileep Chaudhary,parties.IN.JDU,JD(U),2897,3.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-179,madhya-pradesh,2000,179,KIRNAPUR,Ramprasad Bisen,parties.IN.IND,IND,2267,3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-196,madhya-pradesh,2000,196,JABALPURCENTRAL,Naresh Saraf,parties.IN.INC,INC,24009,53.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-196,madhya-pradesh,2000,196,JABALPURCENTRAL,Anaro Devi Onkar Tiwari,parties.IN.BJP,BJP,13910,31.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-196,madhya-pradesh,2000,196,JABALPURCENTRAL,Heera Bai,parties.IN.IND,IND,3671,8.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-196,madhya-pradesh,2000,196,JABALPURCENTRAL,Santosh Tiwari (Pinki),parties.IN.IND,IND,2700,6.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-196,madhya-pradesh,2000,196,JABALPURCENTRAL,Swami Suresh Kumar,parties.IN.RDNBP,RDNBP,170,0.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-196,madhya-pradesh,2000,196,JABALPURCENTRAL,Kareemulla Momin,parties.IN.IND,IND,90,0.2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-196,madhya-pradesh,2000,196,JABALPURCENTRAL,Pradip Bhojak,parties.IN.IND,IND,83,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-196,madhya-pradesh,2000,196,JABALPURCENTRAL,Haji Mohammad.Aslam,parties.IN.IND,IND,57,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-209,madhya-pradesh,2000,209,LAKHANDON(ST),Beni Parte,parties.IN.INC,INC,47538,58.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-209,madhya-pradesh,2000,209,LAKHANDON(ST),Rampyare Kulste,parties.IN.BJP,BJP,22546,27.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-209,madhya-pradesh,2000,209,LAKHANDON(ST),Dr. Subodha Netam,parties.IN.IND,IND,2885,3.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-209,madhya-pradesh,2000,209,LAKHANDON(ST),Kaliram Bharti,parties.IN.JDU,JD(U),2872,3.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-209,madhya-pradesh,2000,209,LAKHANDON(ST),Lalbir Singh Thakur,parties.IN.IND,IND,2170,2.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-209,madhya-pradesh,2000,209,LAKHANDON(ST),Ranglal Dhurve,parties.IN.IND,IND,1690,2.08,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-209,madhya-pradesh,2000,209,LAKHANDON(ST),Ram Kumar Inwati,parties.IN.GGP,GGP,1084,1.33,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-209,madhya-pradesh,2000,209,LAKHANDON(ST),Ramswarup Uike,parties.IN.IND,IND,621,0.76,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-245,madhya-pradesh,2000,245,BHOJPUR,Naresh Singh Patel,parties.IN.BJP,BJP,42800,46.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-245,madhya-pradesh,2000,245,BHOJPUR,Shaligram Vakeel,parties.IN.INC,INC,39761,43.08,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-245,madhya-pradesh,2000,245,BHOJPUR,Ramesh Chand Gupta,parties.IN.IND,IND,5270,5.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-245,madhya-pradesh,2000,245,BHOJPUR,Thakur Onkar Singh Sallam,parties.IN.GGP,GGP,2513,2.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-245,madhya-pradesh,2000,245,BHOJPUR,Inderjeet Singh Chouhan,parties.IN.IND,IND,1059,1.15,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-245,madhya-pradesh,2000,245,BHOJPUR,Archana Srivastava,parties.IN.AJBP,AJBP,896,0.97,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a

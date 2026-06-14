@@ -162,8 +162,12 @@ def test_delim_year_is_pure_function_of_ge_year() -> None:
     assert delim_year_for_ge(2009) == 2008
     assert delim_year_for_ge(2019) == 2008
     assert delim_year_for_ge(2024) == 2008
+    # 1991 (and the rest of 1962-1998) joined the registry in PR-3 of
+    # TODO/20260613-party-deferred-followups-plan.md. Pick a year that is
+    # genuinely outside the LS GE corpus for the negative case so the
+    # resolver still raises ``PcCrosswalkError`` on unknown years.
     with pytest.raises(PcCrosswalkError):
-        delim_year_for_ge(1991)
+        delim_year_for_ge(1955)
 
 
 def test_telangana_seat_resolves_to_s29(crosswalk, state_lookup) -> None:

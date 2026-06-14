@@ -1,0 +1,9 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-uttar-pradesh-136,uttar-pradesh,1998,MILKIPUR,261831,112693,43.04,Ram Chander Yadav,parties.IN.SP,SP,36908,32.75,Dr. Brij Bhushan Manitri,parties.IN.BJP,BJP,33776,3132,2.78,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-155,uttar-pradesh,1998,TULSIPUR,220409,102578,46.54,Kamlesh Kumar Singh,parties.IN.BJP,BJP,40016,39.01,Abdul Mashhood Khan Alias Masood Bhayya,parties.IN.SP,SP,36007,4009,3.91,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-20,uttar-pradesh,1998,NAGINA,230760,92184,39.95,Lovekush Kumar,parties.IN.BJP,BJP,36838,39.96,Satish Kumar,parties.IN.SP,SP,26931,9907,10.75,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-231,uttar-pradesh,1998,DILDARNAGAR,264813,89555,33.82,Sinhasan,parties.IN.BJP,BJP,34730,38.78,Lallan,parties.IN.SP,SP,24769,9961,11.12,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-251,uttar-pradesh,1998,MARIAHU,246384,91345,37.07,Barkhu Ram Verma,parties.IN.BSP,BSP,26499,29.01,Savitri Devi,parties.IN.BJP,BJP,26224,275,0.3,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-298,uttar-pradesh,1998,CHAUBEPUR,220087,72182,32.8,Krishna Pal Singh,parties.IN.BSP,BSP,25513,35.35,Bhudhar Narayan Misra,parties.IN.ABLC,ABLC,22603,2910,4.04,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-358,uttar-pradesh,1998,AGRAEAST,220430,89632,40.66,Jagan Prasad Garg,parties.IN.BJP,BJP,34586,38.59,Govind Agarwal,parties.IN.INC,INC,29814,4772,5.33,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-417,uttar-pradesh,1998,HARORA,230094,107567,46.75,Jagpal,parties.IN.BSP,BSP,46737,43.45,Mohar Singh,parties.IN.BJP,BJP,30391,16346,15.2,src-1b7bc1c9d39a

@@ -1,0 +1,175 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1962-jammu-and-kashmir-1,jammu-and-kashmir,1962,1,AKHNUR,SHIV RAM,parties.IN.JKNC,NC,10156,60.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-1,jammu-and-kashmir,1962,1,AKHNUR,SAT DEV,parties.IN.PP,PP,5204,31.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-1,jammu-and-kashmir,1962,1,AKHNUR,PUNNU RAM,parties.IN.HM,HM,901,5.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-1,jammu-and-kashmir,1962,1,AKHNUR,RAM CHAND,parties.IN.UNK,DNC,435,2.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-2,jammu-and-kashmir,1962,2,CHHAMB,CHHAJU RAM,parties.IN.JKNC,NC,10142,52.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-2,jammu-and-kashmir,1962,2,CHHAMB,SAHDEV SINGH,parties.IN.PP,PP,6401,33.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-2,jammu-and-kashmir,1962,2,CHHAMB,DEVI DAYAL,parties.IN.IND,IND,1683,8.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-2,jammu-and-kashmir,1962,2,CHHAMB,PISHORI LAL,parties.IN.HM,HM,964,5.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-3,jammu-and-kashmir,1962,3,RANBIRSINGHPURA,BHAGAT CHHAJU RAM,parties.IN.JKNC,NC,8199,55.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-3,jammu-and-kashmir,1962,3,RANBIRSINGHPURA,SHIV RAM,parties.IN.UNK,DNC,5027,34.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-3,jammu-and-kashmir,1962,3,RANBIRSINGHPURA,KARAM CHAND S/O GULAB DASS,parties.IN.HM,HM,1207,8.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-3,jammu-and-kashmir,1962,3,RANBIRSINGHPURA,KARAM CHAND S/O POHLU,parties.IN.PP,PP,334,2.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-4,jammu-and-kashmir,1962,4,MIRAN SAHIB,KULBIR SINGH,parties.IN.JKNC,NC,6317,49.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-4,jammu-and-kashmir,1962,4,MIRAN SAHIB,SANT SINGH,parties.IN.IND,IND,2244,17.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-4,jammu-and-kashmir,1962,4,MIRAN SAHIB,BACHAN SINGH PANCHI,parties.IN.PP,PP,1823,14.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-4,jammu-and-kashmir,1962,4,MIRAN SAHIB,BALWANT SINGH,parties.IN.IND,IND,1636,12.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-4,jammu-and-kashmir,1962,4,MIRAN SAHIB,BHOLA NATH,parties.IN.UNK,DNC,451,3.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-4,jammu-and-kashmir,1962,4,MIRAN SAHIB,GURMUKH SINGH,parties.IN.IND,IND,182,1.44,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-5,jammu-and-kashmir,1962,5,MARH,GURANDITTA MAL,parties.IN.JKNC,NC,5200,41.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-5,jammu-and-kashmir,1962,5,MARH,RAM RAKHA MAL,parties.IN.PP,PP,3734,29.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-5,jammu-and-kashmir,1962,5,MARH,MILKHI RAM,parties.IN.HM,HM,2877,22.96,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-5,jammu-and-kashmir,1962,5,MARH,BEHARI LAL,parties.IN.UNK,DNC,443,3.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-5,jammu-and-kashmir,1962,5,MARH,RAM SARAN,parties.IN.IND,IND,279,2.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-6,jammu-and-kashmir,1962,6,JANDRAH GHAROTA,ROUNAQ SINGH,parties.IN.JKNC,NC,8867,50.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-6,jammu-and-kashmir,1962,6,JANDRAH GHAROTA,RAJINDER SINGH,parties.IN.PP,PP,5677,32.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-6,jammu-and-kashmir,1962,6,JANDRAH GHAROTA,HARI CHAND,parties.IN.HM,HM,1983,11.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-6,jammu-and-kashmir,1962,6,JANDRAH GHAROTA,GIRDHARI LAL,parties.IN.IND,IND,487,2.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-6,jammu-and-kashmir,1962,6,JANDRAH GHAROTA,KHAJUR SINGH,parties.IN.UNK,DNC,475,2.72,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-7,jammu-and-kashmir,1962,7,BISNAH,TRILOCHAN DATT,parties.IN.JKNC,NC,8783,46.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-7,jammu-and-kashmir,1962,7,BISNAH,RAM PIARA SARAF,parties.IN.UNK,DNC,5768,30.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-7,jammu-and-kashmir,1962,7,BISNAH,SHIV LAL,parties.IN.PP,PP,3899,20.86,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-7,jammu-and-kashmir,1962,7,BISNAH,ISHERI SINGH,parties.IN.IND,IND,242,1.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-8,jammu-and-kashmir,1962,8,RAMGARH,PARMANAD,parties.IN.JKNC,NC,5674,34.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-8,jammu-and-kashmir,1962,8,RAMGARH,SHIVDASS,parties.IN.PP,PP,3903,23.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-8,jammu-and-kashmir,1962,8,RAMGARH,NAHAR SINGH,parties.IN.UNK,DNC,3870,23.65,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-8,jammu-and-kashmir,1962,8,RAMGARH,MUNSHIRAM,parties.IN.HM,HM,2258,13.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-8,jammu-and-kashmir,1962,8,RAMGARH,GIANCHAND,parties.IN.IND,IND,661,4.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-9,jammu-and-kashmir,1962,9,BASOHLI,MAHANT RAM SHARMA,parties.IN.JKNC,NC,7394,59.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-9,jammu-and-kashmir,1962,9,BASOHLI,UTTAM CHAND,parties.IN.PP,PP,4459,35.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-9,jammu-and-kashmir,1962,9,BASOHLI,RAM KRISHAN,parties.IN.UNK,DNC,656,5.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-10,jammu-and-kashmir,1962,10,BILAWAR,RAM CHANDER KHAJURIA,parties.IN.JKNC,NC,7819,49.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-10,jammu-and-kashmir,1962,10,BILAWAR,DHIAN SINGH,parties.IN.PP,PP,7307,46.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-10,jammu-and-kashmir,1962,10,BILAWAR,ALI AKBAR,parties.IN.IND,IND,301,1.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-10,jammu-and-kashmir,1962,10,BILAWAR,JARASINDH PAUL,parties.IN.IND,IND,279,1.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-11,jammu-and-kashmir,1962,11,KATHUA,RANDHIR SINGH,parties.IN.JKNC,NC,9826,55.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-11,jammu-and-kashmir,1962,11,KATHUA,CHAGAR SINGH,parties.IN.PP,PP,4642,26.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-11,jammu-and-kashmir,1962,11,KATHUA,MAJOR SINGH,parties.IN.HM,HM,1305,7.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-11,jammu-and-kashmir,1962,11,KATHUA,SHAMSHER SINGH,parties.IN.IND,IND,1004,5.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-11,jammu-and-kashmir,1962,11,KATHUA,VIDYA PARKASH,parties.IN.IND,IND,494,2.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-11,jammu-and-kashmir,1962,11,KATHUA,SARAN SINGH,parties.IN.UNK,DNC,487,2.74,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-12,jammu-and-kashmir,1962,12,JASMERGARH,GIRDHARI LAL DOGRA,parties.IN.JKNC,NC,13958,58.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-12,jammu-and-kashmir,1962,12,JASMERGARH,BALDEV SINGH,parties.IN.PP,PP,7789,32.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-12,jammu-and-kashmir,1962,12,JASMERGARH,BEHARI LAL,parties.IN.IND,IND,1049,4.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-12,jammu-and-kashmir,1962,12,JASMERGARH,KARTAR SINGH,parties.IN.UNK,DNC,711,2.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-12,jammu-and-kashmir,1962,12,JASMERGARH,RAM DATT DEV,parties.IN.IND,IND,362,1.52,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-13,jammu-and-kashmir,1962,13,SAMBA,K. SAGAR SINGH,parties.IN.JKNC,NC,7495,43.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-13,jammu-and-kashmir,1962,13,SAMBA,DHYAN SINGH,parties.IN.PP,PP,6727,39.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-13,jammu-and-kashmir,1962,13,SAMBA,RAM DASS,parties.IN.HM,HM,1334,7.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-13,jammu-and-kashmir,1962,13,SAMBA,FATEH MOHD.,parties.IN.IND,IND,1039,6.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-13,jammu-and-kashmir,1962,13,SAMBA,SHANTA BHARTI,parties.IN.IND,IND,551,3.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-14,jammu-and-kashmir,1962,14,JAMMU CITY NORTHERN,PREM NATH,parties.IN.PP,PP,14728,66.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-14,jammu-and-kashmir,1962,14,JAMMU CITY NORTHERN,HARDATT BAKSHI,parties.IN.JKNC,NC,6966,31.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-14,jammu-and-kashmir,1962,14,JAMMU CITY NORTHERN,JAGDISH CHANDER,parties.IN.IND,IND,406,1.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-15,jammu-and-kashmir,1962,15,JAMMU CITY SOUTHERN,RAM CHAND MAHAJAN,parties.IN.JKNC,NC,9329,51.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-15,jammu-and-kashmir,1962,15,JAMMU CITY SOUTHERN,RAM NATH,parties.IN.PP,PP,5835,32.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-15,jammu-and-kashmir,1962,15,JAMMU CITY SOUTHERN,SOM NATH,parties.IN.IND,IND,779,4.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-15,jammu-and-kashmir,1962,15,JAMMU CITY SOUTHERN,BALRAJ,parties.IN.PSP,PSP,722,3.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-15,jammu-and-kashmir,1962,15,JAMMU CITY SOUTHERN,AMAR CHAND,parties.IN.UNK,DNC,711,3.91,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-15,jammu-and-kashmir,1962,15,JAMMU CITY SOUTHERN,PARDUMAN SINGH,parties.IN.IND,IND,660,3.63,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-15,jammu-and-kashmir,1962,15,JAMMU CITY SOUTHERN,RAMNIK SINGH,parties.IN.IND,IND,158,0.87,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-16,jammu-and-kashmir,1962,16,NOWSHERA,BELI RAM,parties.IN.JKNC,NC,11608,54.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-16,jammu-and-kashmir,1962,16,NOWSHERA,KRISHAN DEV SETHI,parties.IN.UNK,DNC,4939,23.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-16,jammu-and-kashmir,1962,16,NOWSHERA,NAND KUMAR,parties.IN.PSP,PSP,2651,12.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-16,jammu-and-kashmir,1962,16,NOWSHERA,VED PRAKASH,parties.IN.PP,PP,1622,7.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-16,jammu-and-kashmir,1962,16,NOWSHERA,BEHARI LAL,parties.IN.IND,IND,557,2.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-17,jammu-and-kashmir,1962,17,RAJOURI,ABDUL AZIZ SHAWAL,parties.IN.JKNC,NC,14192,76.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-17,jammu-and-kashmir,1962,17,RAJOURI,DEV RAJ,parties.IN.UNK,DNC,4297,23.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-18,jammu-and-kashmir,1962,18,DARHAL,MOHAMMAD IQBAL,parties.IN.JKNC,NC,13601,71.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-18,jammu-and-kashmir,1962,18,DARHAL,ADBUL REHMAN,parties.IN.PSP,PSP,5550,28.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-19,jammu-and-kashmir,1962,19,MENDHAR,PIR JAMAT ALI SHAH,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-20,jammu-and-kashmir,1962,20,POONCH,GULAM AHMED,parties.IN.JKNC,NC,15148,71.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-20,jammu-and-kashmir,1962,20,POONCH,GHULAM QADIR BANDEY,parties.IN.IND,IND,5819,27.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-20,jammu-and-kashmir,1962,20,POONCH,BHAGWAN DASS,parties.IN.UNK,DNC,325,1.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-21,jammu-and-kashmir,1962,21,RAMNAGAR,HEM RAJ,parties.IN.JKNC,NC,11680,62.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-21,jammu-and-kashmir,1962,21,RAMNAGAR,HANS RAJ,parties.IN.PP,PP,6077,32.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-21,jammu-and-kashmir,1962,21,RAMNAGAR,THAKAR DASS,parties.IN.UNK,DNC,477,2.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-21,jammu-and-kashmir,1962,21,RAMNAGAR,BELI RAM,parties.IN.HM,HM,279,1.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-21,jammu-and-kashmir,1962,21,RAMNAGAR,AMAR CHAND,parties.IN.IND,IND,111,0.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-22,jammu-and-kashmir,1962,22,UDHAMPUR,AMAR NATH SHARMA,parties.IN.JKNC,NC,8003,49.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-22,jammu-and-kashmir,1962,22,UDHAMPUR,PARAS RAM,parties.IN.PP,PP,7815,48.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-22,jammu-and-kashmir,1962,22,UDHAMPUR,SHIV LAL,parties.IN.IND,IND,316,1.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-23,jammu-and-kashmir,1962,23,LANDAR TIKRI,SHIV CHARAN,parties.IN.PP,PP,7595,47.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-23,jammu-and-kashmir,1962,23,LANDAR TIKRI,FAQIR CHAND,parties.IN.JKNC,NC,6929,43.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-23,jammu-and-kashmir,1962,23,LANDAR TIKRI,MOTI RAM,parties.IN.UNK,DNC,778,4.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-23,jammu-and-kashmir,1962,23,LANDAR TIKRI,DURGA DASS,parties.IN.IND,IND,573,3.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-23,jammu-and-kashmir,1962,23,LANDAR TIKRI,JIA LAL,parties.IN.IND,IND,105,0.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-24,jammu-and-kashmir,1962,24,REASI,RISHI KUMAR KAUSHAL,parties.IN.PP,PP,8842,45.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-24,jammu-and-kashmir,1962,24,REASI,RIKHI KESH,parties.IN.JKNC,NC,8595,44.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-24,jammu-and-kashmir,1962,24,REASI,MAKHAN LAL,parties.IN.HM,HM,635,3.26,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-24,jammu-and-kashmir,1962,24,REASI,MUNSHI RAM,parties.IN.IND,IND,511,2.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-24,jammu-and-kashmir,1962,24,REASI,KRISHAN SINGH,parties.IN.IND,IND,510,2.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-24,jammu-and-kashmir,1962,24,REASI,BEHARI LAL,parties.IN.IND,IND,359,1.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-25,jammu-and-kashmir,1962,25,ARNAS,MOHAMMAD AYUB KHAN,parties.IN.JKNC,NC,21378,95.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-25,jammu-and-kashmir,1962,25,ARNAS,LAKHMI CHAND,parties.IN.PP,PP,951,4.26,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-26,jammu-and-kashmir,1962,26,RAMBAN,MIR ASSADULLAH,parties.IN.JKNC,NC,18332,83.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-26,jammu-and-kashmir,1962,26,RAMBAN,DEVI DASS,parties.IN.PSP,PSP,2981,13.56,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-26,jammu-and-kashmir,1962,26,RAMBAN,LABHU RAM,parties.IN.PP,PP,670,3.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-27,jammu-and-kashmir,1962,27,DODA,LASSA WANI,parties.IN.JKNC,NC,16146,89.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-27,jammu-and-kashmir,1962,27,DODA,ABDUL REHMAN,parties.IN.IND,IND,1921,10.63,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-28,jammu-and-kashmir,1962,28,KISHTWAR,SYED MIR BADSHAH,parties.IN.JKNC,NC,14988,75.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-28,jammu-and-kashmir,1962,28,KISHTWAR,SEWA RAM,parties.IN.PP,PP,4752,24.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-29,jammu-and-kashmir,1962,29,BHADERWAH,CHUNI LAL,parties.IN.JKNC,NC,11150,71.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-29,jammu-and-kashmir,1962,29,BHADERWAH,ABDUL REHMAN,parties.IN.PP,PP,4372,28.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-30,jammu-and-kashmir,1962,30,BHALESA BUNJWAH,ABDUL GANI GONI,parties.IN.JKNC,NC,13717,89.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-30,jammu-and-kashmir,1962,30,BHALESA BUNJWAH,RUP CHAND,parties.IN.PP,PP,1678,10.9,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-31,jammu-and-kashmir,1962,31,ANANTNAG,SHAMAS - UD- DIN,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-32,jammu-and-kashmir,1962,32,KOTHAR,MANOHAR NATH KAUL,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-33,jammu-and-kashmir,1962,33,NAUBUG BRANG VALLY,NIZAM - UD- DIN,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-34,jammu-and-kashmir,1962,34,DORU SHAHBAD,MIR QASIM,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-35,jammu-and-kashmir,1962,35,KHOWARPARA,NOOR - UD - DIN - DAR,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-36,jammu-and-kashmir,1962,36,DACHHINPORA,MOHAMMAD SYED,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-37,jammu-and-kashmir,1962,37,DEVASAR,ABDUL AZIZ ZARGAR,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-38,jammu-and-kashmir,1962,38,KULGAM,MOHD. YAQUB BHAT,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-39,jammu-and-kashmir,1962,39,NANDI,ABDUL KABIR WANI,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-40,jammu-and-kashmir,1962,40,NORBAD,GHULAM HUSSAIN KHAN,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-41,jammu-and-kashmir,1962,41,SHOPIAN,ABDUL MAJID BANDEY,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-42,jammu-and-kashmir,1962,42,PAMPUR,PEERZADA GHULAM JEELANI,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-43,jammu-and-kashmir,1962,43,PULWAMA,MASTER SANAULLAH SHEIKH,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-44,jammu-and-kashmir,1962,44,TRAL,A.G. TRALI,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-45,jammu-and-kashmir,1962,45,RAJPORA,GHULAM MOHAMMAD RAJPORI,parties.IN.JKNC,NC,22196,98.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-45,jammu-and-kashmir,1962,45,RAJPORA,ABDUL SATAR RANJUR,parties.IN.UNK,DNC,181,0.8,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-45,jammu-and-kashmir,1962,45,RAJPORA,GH. MOHI UDDIN MIR,parties.IN.IND,IND,122,0.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-46,jammu-and-kashmir,1962,46,AMIRA KADAL,SHAM LAL SARAF,parties.IN.JKNC,NC,10313,85.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-46,jammu-and-kashmir,1962,46,AMIRA KADAL,OM PRAKASH,parties.IN.PSP,PSP,1753,14.53,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-47,jammu-and-kashmir,1962,47,HABBA KADAL,DURGA PRASHAD DHAR,parties.IN.JKNC,NC,14495,95.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-47,jammu-and-kashmir,1962,47,HABBA KADAL,GHULAM MOHAMAD MALIK,parties.IN.UNK,DNC,516,3.39,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-47,jammu-and-kashmir,1962,47,HABBA KADAL,PIARAY LAL KAUL,parties.IN.PSP,PSP,222,1.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-48,jammu-and-kashmir,1962,48,TANKIPURA,G.M. SADIQ,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-49,jammu-and-kashmir,1962,49,KHANYAR,GAZI ABDUL REHMAN,parties.IN.JKNC,NC,12762,95.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-49,jammu-and-kashmir,1962,49,KHANYAR,BAHA - UD - DIN,parties.IN.UNK,DNC,533,4.01,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-50,jammu-and-kashmir,1962,50,SAFA KADAL,BAKHSHI GHULAM MOHAMMAD,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-51,jammu-and-kashmir,1962,51,ZADIBAL,SHAIK MOHAMMAD ABDULLAH,parties.IN.JKNC,NC,14093,83.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-51,jammu-and-kashmir,1962,51,ZADIBAL,SYED ABDULLAH SHAH,parties.IN.IND,IND,2732,16.24,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-52,jammu-and-kashmir,1962,52,KANGAN,MAIN NIZAM UD-DIN,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-53,jammu-and-kashmir,1962,53,GANDERBAL,ABDUL SALAM AITU,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-54,jammu-and-kashmir,1962,54,HAZARATBAL,MOHD. YAHYA SIDIQI,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-55,jammu-and-kashmir,1962,55,BIRWA,SYED ABDUL QUDUS AZAD,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-56,jammu-and-kashmir,1962,56,BADGAM,AGHA SYED ALI SAFVI,parties.IN.JKNC,NC,18719,95.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-56,jammu-and-kashmir,1962,56,BADGAM,GHULAM NABI WANI GOHAR,parties.IN.IND,IND,970,4.93,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-57,jammu-and-kashmir,1962,57,DARHGAM,GHULAM NABI WANI,parties.IN.IND,IND,7573,53.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-57,jammu-and-kashmir,1962,57,DARHGAM,GHULAM MOHD. MIR,parties.IN.JKNC,NC,6527,46.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-58,jammu-and-kashmir,1962,58,KHAN SAHIB,GHULAM MOHI-UD-DIN KHAN,parties.IN.JKNC,NC,9687,76.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-58,jammu-and-kashmir,1962,58,KHAN SAHIB,GHULAM MOHD. BAKSHI,parties.IN.IND,IND,3007,23.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-59,jammu-and-kashmir,1962,59,CHAR I SHARIFF,BAKSHI ABDUL RASHID,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-60,jammu-and-kashmir,1962,60,BARAMULLA,HARBANS SINGH AZAD,parties.IN.JKNC,NC,17021,88.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-60,jammu-and-kashmir,1962,60,BARAMULLA,SANT SINGH,parties.IN.IND,IND,2223,11.55,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-61,jammu-and-kashmir,1962,61,TANGAMARG,MOHAMMAD AKBAR,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-62,jammu-and-kashmir,1962,62,MAGAM,SYED ABBAS,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-63,jammu-and-kashmir,1962,63,PATTAN,GHULAM MOHAMMAD BHAT ZALIB,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-64,jammu-and-kashmir,1962,64,SOPORE,ABDUL GHANI MALIK,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-65,jammu-and-kashmir,1962,65,RAFIABAD,GHULAM RASUL KAR,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-66,jammu-and-kashmir,1962,66,BANDIPUR GUREZ,ABDUL KABIR KHAN,parties.IN.JKNC,NC,21138,98.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-66,jammu-and-kashmir,1962,66,BANDIPUR GUREZ,GH. MOHAMMAD LONE,parties.IN.UNK,DNC,376,1.75,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-67,jammu-and-kashmir,1962,67,SONAWARI,ABDUL KHALIQ BHAT,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-68,jammu-and-kashmir,1962,68,HANDWARA,ABDUL GANI MIR,parties.IN.IND,IND,11429,60.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-68,jammu-and-kashmir,1962,68,HANDWARA,GHULAM QADIR MASSALA,parties.IN.JKNC,NC,7422,39.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-69,jammu-and-kashmir,1962,69,DRUGMULLA,MOHD. SULTAN TANTERY,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-70,jammu-and-kashmir,1962,70,LOLAB,GHULAM NABI WANI,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-71,jammu-and-kashmir,1962,71,RAMHAL,GHULAM MOHAMMAD WANI,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-72,jammu-and-kashmir,1962,72,KARNAH,MOHD. YUNIS KHAN,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-73,jammu-and-kashmir,1962,73,URI,MOHD. AFZAL KHAN RAJA,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-74,jammu-and-kashmir,1962,74,LEH,KUSHAK BAKULA,parties.IN.JKNC,NC,20095,97.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-74,jammu-and-kashmir,1962,74,LEH,CHERING PUNCHOK,parties.IN.IND,IND,558,2.7,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1962-jammu-and-kashmir-75,jammu-and-kashmir,1962,75,KARGIL,AGHA SAYAD IBRAHIM SHAH,parties.IN.JKNC,NC,0,,1,won,U,,,,challenger,src-1b7bc1c9d39a

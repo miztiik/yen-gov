@@ -13,8 +13,14 @@
 // dot per row:
 //   - X    : turnout %        (0..100)
 //   - Y    : margin %         (0..100)
-//   - r    : sqrt(electors)   (OWID Rosling: visual area scales with
-//                              the value, NOT the radius)
+//   - r    : sqrt(margin_votes) (TODO/20260612 Row B: swapped from
+//                              electors so the dot encodes "how
+//                              decisively was this seat won" - a 3k-vote
+//                              squeaker looks tiny next to a 4 lakh-vote
+//                              walkover, even when both have the same %
+//                              margin. Citizen + Max verdict; OWID
+//                              Rosling area-proportional convention
+//                              preserved.)
 //   - fill : winning party    (resolved by getPartyColor at render time)
 //
 // All filter narrowing happens here; the component subscribes to the
@@ -37,9 +43,16 @@ export interface ScatterDatum {
   turnout_pct: number;
   /** Winning margin as a percentage of votes polled (0..100). */
   margin_pct: number;
-  /** Registered electors (raw count). Drives the dot radius via the
-   *  Rosling-style sqrt-area scaling. */
+  /** Registered electors (raw count). Carried for tooltip / future
+   *  re-encoding; no longer drives the dot radius after TODO/20260612
+   *  Row B swapped the encoding to `margin_votes`. */
   electors: number;
+  /** Absolute winner-runnerup vote gap. Drives the dot radius via the
+   *  Rosling-style sqrt-area scaling (TODO/20260612 Row B). Nullable
+   *  because the upstream summary.csv leaves it null for uncontested
+   *  seats; the component clamps null to 0 for layout purposes and the
+   *  tooltip renders "-" instead of a number. */
+  margin_votes: number | null;
   /** Winning party taxonomy id (e.g. `parties.IN.BJP`). */
   winner_party_id: string;
   /** Display short_name for the winning party (tooltip + filter chips). */
@@ -146,4 +159,37 @@ export function maxElectors(data: readonly ScatterDatum[]): number {
     if (d.electors > m) m = d.electors;
   }
   return m;
+}
+
+/** Largest non-null `margin_votes` value in a row set. Drives the
+ *  scatter chart's r-scale domain after the TODO/20260612 Row B
+ *  encoding swap. Returns 0 when every row is null / negative. */
+export function maxMarginVotes(data: readonly ScatterDatum[]): number {
+  let m = 0;
+  for (const d of data) {
+    const v = d.margin_votes;
+    if (v != null && v > m) m = v;
+  }
+  return m;
+}
+
+/** Compute the Y-axis upper bound for the scatter chart per the
+ *  TODO/20260612 Row A spec.
+ *
+ *  Returns `max(40, ceil(1.1 * max_margin_pct / 10) * 10)`, capped at
+ *  100. Empty input -> 40 (Rosling axiom: never collapse the chart to
+ *  zero range). The result is always a multiple of 10 so tick rendering
+ *  stays clean.
+ *
+ *  Pure: same input -> same output, no shared state. */
+export function computeYMax(filtered: readonly ScatterDatum[]): number {
+  const FLOOR = 40;
+  if (filtered.length === 0) return FLOOR;
+  let max = 0;
+  for (const d of filtered) {
+    if (d.margin_pct > max) max = d.margin_pct;
+  }
+  if (max <= 0) return FLOOR;
+  const candidate = Math.ceil((max * 1.1) / 10) * 10;
+  return Math.min(100, Math.max(FLOOR, candidate));
 }

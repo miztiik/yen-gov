@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-assam-1,assam,2003,RATABARI(SC),119080,80697,67.77,KRIPANATH MALLAH,parties.IN.INC,INC,49104,60.85,SAMBHUSING MALLAH,parties.IN.BJP,BJP,17934,31170,38.63,src-1b7bc1c9d39a

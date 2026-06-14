@@ -1,0 +1,369 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-manipur-1,manipur,2002,1,KHUNDRAKPAM,LAIRELLAKPAM LALA,parties.IN.SAP,SAP,3258,19.44,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-1,manipur,2002,1,KHUNDRAKPAM,KONSAM TOMBA SINGH,parties.IN.FPM,FPM,2824,16.85,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-1,manipur,2002,1,KHUNDRAKPAM,THANGJAM SHYAM SINGH,parties.IN.BJP,BJP,2614,15.6,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-1,manipur,2002,1,KHUNDRAKPAM,MOIRANGTHEM SHARAT SINGH,parties.IN.NCP,NCP,2235,13.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-1,manipur,2002,1,KHUNDRAKPAM,THOKCHOM NAVAKUMAR SINGH,parties.IN.INC,INC,1984,11.84,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-1,manipur,2002,1,KHUNDRAKPAM,SOROKHAIBAM SARATCHANDRA,parties.IN.MSCP,MSCP,1155,6.89,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-1,manipur,2002,1,KHUNDRAKPAM,LAIRENLAKPAM SHARATCHANDRA SINGH,parties.IN.DRPP,DRPP,1061,6.33,7,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-1,manipur,2002,1,KHUNDRAKPAM,LAISHRAM PREMCHANDRA,parties.IN.CPI,CPI,732,4.37,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-1,manipur,2002,1,KHUNDRAKPAM,IROM MANGITON SINGH,parties.IN.MPP,MPP,555,3.31,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-1,manipur,2002,1,KHUNDRAKPAM,THOUDAM NILAKAMAL,parties.IN.CPIM,CPM,340,2.03,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-2,manipur,2002,2,HEINGANG,NONGTHOMBAM BIREN,parties.IN.DRPP,DRPP,5869,29.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-2,manipur,2002,2,HEINGANG,YANGLEM MANGI SINGH,parties.IN.MSCP,MSCP,5621,27.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-2,manipur,2002,2,HEINGANG,WAIKHOM JAGOR SINGH,parties.IN.INC,INC,3928,19.45,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-2,manipur,2002,2,HEINGANG,DR. WAKAMBAM THOIBA SINGH,parties.IN.FPM,FPM,3852,19.07,4,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-2,manipur,2002,2,HEINGANG,THONGAM ANGOTON SINGH,parties.IN.BJP,BJP,858,4.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-2,manipur,2002,2,HEINGANG,THIYAM GOURO LUWANG,parties.IN.SAP,SAP,66,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-3,manipur,2002,3,KHURAI,NINGTHOUJAM BIHARI SINGH,parties.IN.FPM,FPM,7417,34.75,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-3,manipur,2002,3,KHURAI,LAISHRAM SOTINKUMAR,parties.IN.CPI,CPI,6120,28.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-3,manipur,2002,3,KHURAI,THOIDINGJAM JOGIMOHON,parties.IN.INC,INC,5014,23.49,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-3,manipur,2002,3,KHURAI,TAKHELLAMBAM BABU SINGH,parties.IN.BJP,BJP,2017,9.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-3,manipur,2002,3,KHURAI,CHANDAM MANIHAR,parties.IN.MSCP,MSCP,456,2.14,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-3,manipur,2002,3,KHURAI,ATOMBA NGAIRANGBAMCHA,parties.IN.JDU,JD(U),319,1.49,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-4,manipur,2002,4,KHETRIGAO,VIVEKRAJ WANGKHEM,parties.IN.MSCP,MSCP,6510,29.62,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-4,manipur,2002,4,KHETRIGAO,MAHAMMUDDIN SHAH,parties.IN.INC,INC,6138,27.93,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-4,manipur,2002,4,KHETRIGAO,ATHOKPAM LALA,parties.IN.CPI,CPI,3352,15.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-4,manipur,2002,4,KHETRIGAO,AYEKPAM DEVEN SINGH,parties.IN.FPM,FPM,3028,13.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-4,manipur,2002,4,KHETRIGAO,KSHETRIMAYUM BRAJAMANI SINGH,parties.IN.MPP,MPP,2545,11.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-4,manipur,2002,4,KHETRIGAO,THOUDAM BRAJAMANI,parties.IN.BJP,BJP,327,1.49,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-4,manipur,2002,4,KHETRIGAO,ABDUL WAHID,parties.IN.JDU,JD(U),76,0.35,7,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-5,manipur,2002,5,THONGJU,BIJOY KOIJAM,parties.IN.MSCP,MSCP,7510,35.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-5,manipur,2002,5,THONGJU,DR. SAPAM DHANANJOY,parties.IN.NCP,NCP,5729,26.9,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-5,manipur,2002,5,THONGJU,P. PREMANANDA,parties.IN.DRPP,DRPP,4103,19.26,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-5,manipur,2002,5,THONGJU,BRAJAGOPAL,parties.IN.FPM,FPM,2653,12.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-5,manipur,2002,5,THONGJU,SERAM MANGI SINGH,parties.IN.INC,INC,738,3.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-5,manipur,2002,5,THONGJU,KARAMCHAND SINGH,parties.IN.BJP,BJP,356,1.67,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-5,manipur,2002,5,THONGJU,M. IBOBI SINGH,parties.IN.JDU,JD(U),210,0.99,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-6,manipur,2002,6,KEIRAO,MD. ALAUDDIN KHAN,parties.IN.INC,INC,5293,28.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-6,manipur,2002,6,KEIRAO,KARAM THAMARJIT SINGH,parties.IN.MNC,MNC,3771,20.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-6,manipur,2002,6,KEIRAO,HIDAM BIDUR,parties.IN.FPM,FPM,3492,18.59,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-6,manipur,2002,6,KEIRAO,SALAM LALA,parties.IN.MPP,MPP,3268,17.39,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-6,manipur,2002,6,KEIRAO,THONGRAM TONY MEITEI,parties.IN.MSCP,MSCP,2964,15.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-7,manipur,2002,7,ANDRO,SALAM CHANDRA SINGH,parties.IN.FPM,FPM,5402,25.67,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-7,manipur,2002,7,ANDRO,SAHID AHAMAD,parties.IN.SAP,SAP,5188,24.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-7,manipur,2002,7,ANDRO,THOUNAOJAM SHYAMKUMAR SINGH,parties.IN.INC,INC,4513,21.44,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-7,manipur,2002,7,ANDRO,LOITONGBAM AMUJOU SINGH,parties.IN.MSCP,MSCP,3574,16.98,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-7,manipur,2002,7,ANDRO,DR. CHINGAKHAM ANGOU SINGH,parties.IN.MPP,MPP,1347,6.4,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-7,manipur,2002,7,ANDRO,PHANJOUBAM CHANDRA SINGH,parties.IN.DRPP,DRPP,1024,4.87,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-8,manipur,2002,8,LAMLAI,PHEIROIJAM PARIJAT,parties.IN.CPI,CPI,5652,30.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-8,manipur,2002,8,LAMLAI,KHONGBANTABAM IBOMCHA SINGH,parties.IN.NCP,NCP,5457,29.36,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-8,manipur,2002,8,LAMLAI,KSHETRIMAYUM BIREN SINGH,parties.IN.FPM,FPM,5359,28.83,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-8,manipur,2002,8,LAMLAI,KHUMANTHEM SARATKUMAR SINGH,parties.IN.MSCP,MSCP,1669,8.98,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-8,manipur,2002,8,LAMLAI,MOIRANGTHEM NILAMANI SINGH,parties.IN.DRPP,DRPP,165,0.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-8,manipur,2002,8,LAMLAI,TELEM DARA SINGH,parties.IN.INC,INC,159,0.86,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-8,manipur,2002,8,LAMLAI,IROM SUNDER SINGH,parties.IN.BJP,BJP,128,0.69,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-9,manipur,2002,9,THANGMEIBAND,MEINAM BHOROT SINGH,parties.IN.BJP,BJP,6686,38.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-9,manipur,2002,9,THANGMEIBAND,RADHABINOD KOIJAM,parties.IN.SAP,SAP,5066,29.3,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-9,manipur,2002,9,THANGMEIBAND,SALAM NABACHANDRA,parties.IN.INC,INC,2235,12.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-9,manipur,2002,9,THANGMEIBAND,KHUMANTHEM DEVABRATA SINGH,parties.IN.MSCP,MSCP,1363,7.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-9,manipur,2002,9,THANGMEIBAND,BHINOY SINGH NINGTHOUJAM,parties.IN.FPM,FPM,1098,6.35,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-9,manipur,2002,9,THANGMEIBAND,SARAT KUMAR NAOREM,parties.IN.DRPP,DRPP,580,3.35,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-9,manipur,2002,9,THANGMEIBAND,MAYANGLAMBAM JANE SINGH,parties.IN.SJP_R,SJP(R),166,0.96,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-9,manipur,2002,9,THANGMEIBAND,AHEIBAM SHANTIKUMAR SINGH,parties.IN.MPP,MPP,53,0.31,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-9,manipur,2002,9,THANGMEIBAND,AHEIBAM LOKESHWOR SINGH,parties.IN.MNC,MNC,45,0.26,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-10,manipur,2002,10,URIPOK,LAISHRAM NANDAKUMAR SINGH,parties.IN.INC,INC,7037,46.69,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-10,manipur,2002,10,URIPOK,P. ACHOU SINGH,parties.IN.FPM,FPM,4740,31.45,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-10,manipur,2002,10,URIPOK,NINGTHOUKHONGJAM TOMBI RAJ,parties.IN.DRPP,DRPP,1637,10.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-10,manipur,2002,10,URIPOK,KHONGBANTABAM JADUMANI,parties.IN.MSCP,MSCP,822,5.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-10,manipur,2002,10,URIPOK,N. RADHAKANTA,parties.IN.NCP,NCP,360,2.39,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-10,manipur,2002,10,URIPOK,NAMEIRAKPAM NODIACHAND SINGH,parties.IN.MPP,MPP,260,1.72,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-10,manipur,2002,10,URIPOK,KONTHOUJAM SURCHAND SINGH,parties.IN.BJP,BJP,217,1.44,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-11,manipur,2002,11,SAGOLBAND,SORAM NATUM SINGH,parties.IN.MNC,MNC,5394,34.31,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-11,manipur,2002,11,SAGOLBAND,DR. KHWAIRAKPAM LOKEN SINGH,parties.IN.INC,INC,4572,29.08,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-11,manipur,2002,11,SAGOLBAND,M. KUMAR SINGH,parties.IN.FPM,FPM,3594,22.86,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-11,manipur,2002,11,SAGOLBAND,THOKCHOM MANGLEM SINGH,parties.IN.CPI,CPI,500,3.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-11,manipur,2002,11,SAGOLBAND,GOGONBIHARI SINGH THOKCHOM,parties.IN.BJP,BJP,368,2.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-11,manipur,2002,11,SAGOLBAND,THANGJAM IBOHAL SINGH,parties.IN.MSCP,MSCP,359,2.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-11,manipur,2002,11,SAGOLBAND,R.K. RASHMANI SINGH,parties.IN.DRPP,DRPP,292,1.86,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-11,manipur,2002,11,SAGOLBAND,RAJKUMAR NOKULSANA,parties.IN.NCP,NCP,241,1.53,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-11,manipur,2002,11,SAGOLBAND,SALAM DAMODAR SINGH,parties.IN.SAP,SAP,234,1.49,9,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-11,manipur,2002,11,SAGOLBAND,LAISHRAM GYANESHWAR,parties.IN.IND,IND,88,0.56,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-11,manipur,2002,11,SAGOLBAND,NONGMAITHEM HOMENDRO SINGH @ ISHWARCHANDRA,parties.IN.IND,IND,79,0.5,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-12,manipur,2002,12,KEISAMTHONG,L. IBOMCHA SINGH,parties.IN.FPM,FPM,6479,30.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-12,manipur,2002,12,KEISAMTHONG,LANGPOKLAKPAM JAYANTAKUMAR SINGH,parties.IN.INC,INC,6392,30.44,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-12,manipur,2002,12,KEISAMTHONG,POTSANGBAM KULACHANDRA SINGH,parties.IN.DRPP,DRPP,3573,17.02,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-12,manipur,2002,12,KEISAMTHONG,LAISHRAM DEV,parties.IN.MSCP,MSCP,2080,9.91,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-12,manipur,2002,12,KEISAMTHONG,ELANGBAM SUNIL SINGH,parties.IN.MNC,MNC,2028,9.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-12,manipur,2002,12,KEISAMTHONG,THOIDINGJAM JAYANTA,parties.IN.BJP,BJP,446,2.12,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-13,manipur,2002,13,SINGJAMEI,I. HEMOCHANDRA SINGH,parties.IN.FPM,FPM,7150,45.29,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-13,manipur,2002,13,SINGJAMEI,HAOBAM BHUBAN SINGH,parties.IN.NCP,NCP,6172,39.1,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-13,manipur,2002,13,SINGJAMEI,HEIGRUJAM NABASHYAM,parties.IN.DRPP,DRPP,1542,9.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-13,manipur,2002,13,SINGJAMEI,UMANANDA SANASAM,parties.IN.MSCP,MSCP,480,3.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-13,manipur,2002,13,SINGJAMEI,S. BIRLA SINGH,parties.IN.INC,INC,297,1.88,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-13,manipur,2002,13,SINGJAMEI,ARIBAM CHAOBA SHARMA,parties.IN.CPI,CPI,145,0.92,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-14,manipur,2002,14,YAISKUL,R.K. DORENDRA SINGH,parties.IN.BJP,BJP,8107,45.01,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-14,manipur,2002,14,YAISKUL,ELANGBAM KUNJESWAR SINGH,parties.IN.INC,INC,6981,38.76,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-14,manipur,2002,14,YAISKUL,G. JOYKUMAR SHARMA,parties.IN.MNC,MNC,1669,9.27,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-14,manipur,2002,14,YAISKUL,LT. COL. H. SARAT SINGH,parties.IN.DRPP,DRPP,992,5.51,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-14,manipur,2002,14,YAISKUL,D. LUNGPUIJEI,parties.IN.SAP,SAP,264,1.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-15,manipur,2002,15,WANGKHEI,ERABOT YUMKHAM,parties.IN.MSCP,MSCP,7999,35.47,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-15,manipur,2002,15,WANGKHEI,ANOUBAM RAJEN SHARMA,parties.IN.FPM,FPM,7500,33.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-15,manipur,2002,15,WANGKHEI,DR. HAOBAM BOROBABU SINGH,parties.IN.BJP,BJP,6231,27.63,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-15,manipur,2002,15,WANGKHEI,YUMNAM KHOGENDRO,parties.IN.INC,INC,594,2.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-15,manipur,2002,15,WANGKHEI,G. GUNAMANI SHARMA,parties.IN.JDU,JD(U),158,0.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-15,manipur,2002,15,WANGKHEI,KHOISNAM BINOY SINGH,parties.IN.MNC,MNC,68,0.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-16,manipur,2002,16,SEKMAI,NINGTHOUJAM BIREN,parties.IN.FPM,FPM,6023,34.01,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-16,manipur,2002,16,SEKMAI,KHWAIRAKPAM CHANDRA,parties.IN.NCP,NCP,4739,26.76,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-16,manipur,2002,16,SEKMAI,DR. HEIKHAM BORAJAO SINGH,parties.IN.SAP,SAP,3602,20.34,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-16,manipur,2002,16,SEKMAI,AMUJAO KHWAIRAKPAM,parties.IN.INC,INC,3345,18.89,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-17,manipur,2002,17,LAMSANG,WANGKHEIMAYUM BRAJABIDHU SINGH,parties.IN.INC,INC,11859,54.8,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-17,manipur,2002,17,LAMSANG,SOROKHAIBAM RAJEN SINGH,parties.IN.FPM,FPM,9579,44.27,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-17,manipur,2002,17,LAMSANG,THOUDAM NABACHANDRA SINGH,parties.IN.BJP,BJP,155,0.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-17,manipur,2002,17,LAMSANG,RAJKUMAR GAMBHIR SINGH,parties.IN.MNC,MNC,46,0.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-18,manipur,2002,18,KONTHOUJAM,DR. THOKCHOM MEINYA,parties.IN.DRPP,DRPP,5152,25.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-18,manipur,2002,18,KONTHOUJAM,HENAM LOKHON,parties.IN.MSCP,MSCP,4223,20.75,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-18,manipur,2002,18,KONTHOUJAM,SAPAM BUDHICHANDRA SINGH,parties.IN.INC,INC,4027,19.79,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-18,manipur,2002,18,KONTHOUJAM,OKRAM IBOTOMBI,parties.IN.CPI,CPI,2923,14.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-18,manipur,2002,18,KONTHOUJAM,KONTHOUJAM RANBIR SINGH,parties.IN.MPP,MPP,2499,12.28,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-18,manipur,2002,18,KONTHOUJAM,MAHENDRA NONGMAITHEM,parties.IN.FPM,FPM,1139,5.6,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-18,manipur,2002,18,KONTHOUJAM,HEIGRUJAM THOITHOI,parties.IN.NCP,NCP,326,1.6,7,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-18,manipur,2002,18,KONTHOUJAM,THOKCHOM MANISHANG DEVI,parties.IN.BJP,BJP,60,0.29,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-19,manipur,2002,19,PATSOI,MOIRANGTHEM NABADWIP,parties.IN.CPI,CPI,8622,39.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-19,manipur,2002,19,PATSOI,LEISHANGTHEM CHANDRAMANI,parties.IN.FPM,FPM,7700,35.32,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-19,manipur,2002,19,PATSOI,KM. AKOIJAM MIRABAI DEVI,parties.IN.INC,INC,4333,19.88,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-19,manipur,2002,19,PATSOI,SAPAM SHAMUNGOU SINGH,parties.IN.DRPP,DRPP,670,3.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-19,manipur,2002,19,PATSOI,ATOM TONDON,parties.IN.NCP,NCP,423,1.94,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-19,manipur,2002,19,PATSOI,SHAMULAILATPAM KAMESHOR,parties.IN.JDU,JD(U),52,0.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-20,manipur,2002,20,LANGTHABAL,OKRAM JOY SINGH,parties.IN.MPP,MPP,4353,24.48,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-20,manipur,2002,20,LANGTHABAL,KARAM BABUDHON SINGH,parties.IN.MNC,MNC,3614,20.33,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-20,manipur,2002,20,LANGTHABAL,NAOREM TOMBI SINGH,parties.IN.MSCP,MSCP,3099,17.43,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-20,manipur,2002,20,LANGTHABAL,LAISHRAM DIBEN,parties.IN.INC,INC,2463,13.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-20,manipur,2002,20,LANGTHABAL,KARAM SHYAM,parties.IN.DRPP,DRPP,2302,12.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-20,manipur,2002,20,LANGTHABAL,YENGKHOM BHASKAR DEVA SINGH,parties.IN.NCP,NCP,1863,10.48,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-20,manipur,2002,20,LANGTHABAL,LAISHRAM MEMO SINGH,parties.IN.FPM,FPM,53,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-20,manipur,2002,20,LANGTHABAL,SOROKHAIBAM GOURDASH,parties.IN.BJP,BJP,32,0.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-21,manipur,2002,21,NAORIYA PAKHANGLAKPA,WAHENGBAM LEIMA DEVI,parties.IN.INC,INC,5712,24.52,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-21,manipur,2002,21,NAORIYA PAKHANGLAKPA,R.K. ANAND,parties.IN.DRPP,DRPP,4990,21.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-21,manipur,2002,21,NAORIYA PAKHANGLAKPA,KEISHAM ROJENKUMAR SINGH,parties.IN.MPP,MPP,4555,19.56,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-21,manipur,2002,21,NAORIYA PAKHANGLAKPA,A.K. IBOBI SINGH,parties.IN.MSCP,MSCP,4340,18.63,4,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-21,manipur,2002,21,NAORIYA PAKHANGLAKPA,CHINGTHAM PRIYOKUMAR SINGH,parties.IN.FPM,FPM,3033,13.02,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-21,manipur,2002,21,NAORIYA PAKHANGLAKPA,MAIBAM SOBHACHANDRA SINGH,parties.IN.SAP,SAP,298,1.28,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-21,manipur,2002,21,NAORIYA PAKHANGLAKPA,SINAM RADHAPRIYARI DEVI,parties.IN.NCP,NCP,265,1.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-21,manipur,2002,21,NAORIYA PAKHANGLAKPA,PEBAM GUNENDO,parties.IN.BJP,BJP,98,0.42,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-22,manipur,2002,22,WANGOI,YUMNAM MANI SINGH,parties.IN.MSCP,MSCP,7526,40.95,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-22,manipur,2002,22,WANGOI,WAHENGBAM NIPAMACHA SINGH,parties.IN.MNC,MNC,6911,37.6,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-22,manipur,2002,22,WANGOI,SAGOLSEM ACHOUBA SINGH,parties.IN.INC,INC,3805,20.7,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-22,manipur,2002,22,WANGOI,NAOREM RABEI SINGH,parties.IN.DRPP,DRPP,136,0.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-23,manipur,2002,23,MAYANG IMPHAL,MEINAM NILCHANDRA SINGH,parties.IN.FPM,FPM,5688,30.75,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-23,manipur,2002,23,MAYANG IMPHAL,ABDUL SALAM,parties.IN.MNC,MNC,5612,30.34,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-23,manipur,2002,23,MAYANG IMPHAL,KH. AMUTOMBI SINGH,parties.IN.INC,INC,4789,25.89,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-23,manipur,2002,23,MAYANG IMPHAL,NINGTHOUJAM IBOTON SINGH,parties.IN.MSCP,MSCP,2325,12.57,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-23,manipur,2002,23,MAYANG IMPHAL,HEIKRUJAM NIKUNJA SINGH,parties.IN.BJP,BJP,85,0.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-24,manipur,2002,24,NAMBOL,NAMEIRAKPAM LOKEN SINGH,parties.IN.INC,INC,10599,46.02,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-24,manipur,2002,24,NAMBOL,THOUNAOJAM BIRA SINGH,parties.IN.MSCP,MSCP,9661,41.95,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-24,manipur,2002,24,NAMBOL,KONJENGBAM KUMARJIT SINGH,parties.IN.MNC,MNC,2769,12.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-25,manipur,2002,25,OINAM,LAISHRAM RADHAKISHORE SINGH,parties.IN.NCP,NCP,7182,36.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-25,manipur,2002,25,OINAM,DR. YUMNAM JITEN SINGH,parties.IN.MSCP,MSCP,6595,33.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-25,manipur,2002,25,OINAM,DR. MUTUM ANGOUBA SINGH,parties.IN.INC,INC,5055,26.03,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-25,manipur,2002,25,OINAM,NAMEIRAKPAM MEGHACHANDRA SINGH,parties.IN.CPI,CPI,285,1.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-25,manipur,2002,25,OINAM,THOKCHOM SURJABORO SINGH,parties.IN.MNC,MNC,170,0.88,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-25,manipur,2002,25,OINAM,OINAM BIMOLA DEVI,parties.IN.DRPP,DRPP,73,0.38,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-25,manipur,2002,25,OINAM,NONGTHOMBAM NIMAI SINGH,parties.IN.BJP,BJP,59,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-26,manipur,2002,26,BISHENPUR,KONTHOUJAM GOVINDAS SINGH,parties.IN.MSCP,MSCP,10833,49.96,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-26,manipur,2002,26,BISHENPUR,NINGTHOUJAM SANAJAOBA SINGH,parties.IN.DRPP,DRPP,9548,44.04,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-26,manipur,2002,26,BISHENPUR,SOROKHAIBAM NILKAMAL SINGH,parties.IN.CPI,CPI,698,3.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-26,manipur,2002,26,BISHENPUR,PUKHRAMBAM GOVERDHON SINGH,parties.IN.BJP,BJP,285,1.31,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-26,manipur,2002,26,BISHENPUR,THIYAM CHANDRAKANTA SINGH,parties.IN.INC,INC,202,0.93,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-26,manipur,2002,26,BISHENPUR,RAJKUMAR BIMOLCHANDRA SINGH,parties.IN.SAP,SAP,116,0.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-27,manipur,2002,27,MOIRANG,SALAM GOPAL SINGH,parties.IN.FPM,FPM,7975,30.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-27,manipur,2002,27,MOIRANG,MOHAMMAD ABDUL MATALIB,parties.IN.MSCP,MSCP,6604,25.33,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-27,manipur,2002,27,MOIRANG,LAISHRAM KERANI SINGH,parties.IN.MPP,MPP,5881,22.56,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-27,manipur,2002,27,MOIRANG,MAIREMBAM MANINDRA SINGH,parties.IN.INC,INC,5485,21.04,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-27,manipur,2002,27,MOIRANG,MAIREMBAM MANI SINGH,parties.IN.NCP,NCP,122,0.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-28,manipur,2002,28,THANGA,SALAM IBOHAL,parties.IN.FPM,FPM,3781,23.33,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-28,manipur,2002,28,THANGA,HAOBIJAM MANISANA SINGH,parties.IN.MSCP,MSCP,3765,23.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-28,manipur,2002,28,THANGA,HAOBIJAM KANGJAMBA SINGH,parties.IN.BJP,BJP,3220,19.86,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-28,manipur,2002,28,THANGA,TONGBRAM MANGIBABU SINGH,parties.IN.INC,INC,2705,16.69,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-28,manipur,2002,28,THANGA,HEISNAM SANAYAIMA SINGH,parties.IN.NCP,NCP,2173,13.41,5,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-28,manipur,2002,28,THANGA,MOIRANGTHEM ASHINIKUMAR SINGH,parties.IN.SAP,SAP,566,3.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-29,manipur,2002,29,KUMBI,NINGTHOUJAM MANGI SINGH,parties.IN.CPI,CPI,5148,27.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-29,manipur,2002,29,KUMBI,AHEIBAM ANGOUSANA SINGH,parties.IN.BJP,BJP,4518,23.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-29,manipur,2002,29,KUMBI,SANASAM BIRA SINGH,parties.IN.MSCP,MSCP,4173,21.91,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-29,manipur,2002,29,KUMBI,NINGOMBAM IBOBI SINGH,parties.IN.INC,INC,3014,15.82,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-29,manipur,2002,29,KUMBI,KHANGEMBAM NABAKUMAR,parties.IN.FPM,FPM,1810,9.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-29,manipur,2002,29,KUMBI,WAHENGBAM KAMAL,parties.IN.SAP,SAP,293,1.54,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-29,manipur,2002,29,KUMBI,NONGMAITHEM CHHATRA SINGH,parties.IN.NCP,NCP,94,0.49,7,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-30,manipur,2002,30,LILONG,DR. MD. MANIRUDDIN SHAIKH,parties.IN.INC,INC,7561,39.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-30,manipur,2002,30,LILONG,MD. HELALUDDIN KHAN,parties.IN.MNC,MNC,6066,31.43,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-30,manipur,2002,30,LILONG,BURHANUDDIN,parties.IN.FPM,FPM,5465,28.31,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-30,manipur,2002,30,LILONG,ISMAIL,parties.IN.DRPP,DRPP,115,0.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-30,manipur,2002,30,LILONG,ABDUL SALAM,parties.IN.BJP,BJP,52,0.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-30,manipur,2002,30,LILONG,MOULANA ABUL KALAM AZAD INQUILABI,parties.IN.SAP,SAP,44,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-31,manipur,2002,31,THOUBAL,LEITANTHEM TOMBA,parties.IN.FPM,FPM,5502,26.45,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-31,manipur,2002,31,THOUBAL,SHRI TOURANGBAM MUKHESH SINGH,parties.IN.INC,INC,4777,22.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-31,manipur,2002,31,THOUBAL,MD. ABDUL ROUF,parties.IN.MPP,MPP,4733,22.75,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-31,manipur,2002,31,THOUBAL,IROM CHAOBA,parties.IN.NCP,NCP,3499,16.82,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-31,manipur,2002,31,THOUBAL,AKOIJAM MANGLEMJAO,parties.IN.MSCP,MSCP,2291,11.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-32,manipur,2002,32,WANGKHEM,DR. NIMAI CHAND LUWANG,parties.IN.MPP,MPP,6139,29.61,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-32,manipur,2002,32,WANGKHEM,THOKCHOM CHANDRA SINGH,parties.IN.MSCP,MSCP,6065,29.25,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-32,manipur,2002,32,WANGKHEM,SOROKHAIBAM JOYCHANDRA SINGH,parties.IN.INC,INC,3239,15.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-32,manipur,2002,32,WANGKHEM,DR. IBOCHOUBA LONGJAM,parties.IN.MNC,MNC,2734,13.19,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-32,manipur,2002,32,WANGKHEM,LAISHRAM KADAMJIT,parties.IN.FPM,FPM,2556,12.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-33,manipur,2002,33,HEIROK,NONGMEIKAPAM SOVAKIRAN SINGH,parties.IN.FPM,FPM,9376,46.46,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-33,manipur,2002,33,HEIROK,MOIRANGTHEM OKENDRO,parties.IN.INC,INC,8772,43.46,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-33,manipur,2002,33,HEIROK,NINGTHOUJAM BORCHANDRA SINGH,parties.IN.MSCP,MSCP,1254,6.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-33,manipur,2002,33,HEIROK,S. KONDUM,parties.IN.MNC,MNC,307,1.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-33,manipur,2002,33,HEIROK,NINGTHOUJAM MUHINDRO SINGH,parties.IN.CPI,CPI,284,1.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-33,manipur,2002,33,HEIROK,MOIRANGTHEM TOMBI,parties.IN.SAP,SAP,189,0.94,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-34,manipur,2002,34,WANGJING TENTHA,MOIRANGTHEM NARA,parties.IN.CPI,CPI,9249,43.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-34,manipur,2002,34,WANGJING TENTHA,MOIRANGTHEM HEMANTA SINGH,parties.IN.MSCP,MSCP,7720,36.54,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-34,manipur,2002,34,WANGJING TENTHA,SHRI SAPAM SURESH SINGH,parties.IN.INC,INC,3491,16.52,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-34,manipur,2002,34,WANGJING TENTHA,SHRI SAGOLSEM IBOCHOUBI SINGH,parties.IN.SAP,SAP,534,2.53,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-34,manipur,2002,34,WANGJING TENTHA,SOROKHAIBAM GITCHANDRA SINGH,parties.IN.BJP,BJP,120,0.57,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-34,manipur,2002,34,WANGJING TENTHA,KHANGEMBAM PRIYOJIT SINGH,parties.IN.IND,IND,15,0.07,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-35,manipur,2002,35,KHANGABO,OKRAM IBOBI SINGH,parties.IN.INC,INC,12897,53.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-35,manipur,2002,35,KHANGABO,LAISHRAM JATRA,parties.IN.FPM,FPM,10567,43.87,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-35,manipur,2002,35,KHANGABO,THOKCHOM ACHOUBA,parties.IN.CPI,CPI,389,1.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-35,manipur,2002,35,KHANGABO,ABDUL RASHID,parties.IN.MSCP,MSCP,172,0.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-35,manipur,2002,35,KHANGABO,DR. NEPRAM KUNJO SINGH,parties.IN.BJP,BJP,62,0.26,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-36,manipur,2002,36,WABGAI,MD. ABDUL SALAM,parties.IN.INC,INC,7512,38.17,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-36,manipur,2002,36,WABGAI,MAYENGBAM MANIHAR SINGH,parties.IN.MSCP,MSCP,7496,38.09,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-36,manipur,2002,36,WABGAI,KHOMDRAM TAMPHAJAO,parties.IN.CPI,CPI,4626,23.51,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-36,manipur,2002,36,WABGAI,MD. BASIRUDIN,parties.IN.FPM,FPM,44,0.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-37,manipur,2002,37,KAKCHING,THOKCHOM TOMBA,parties.IN.CPI,CPI,9377,51.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-37,manipur,2002,37,KAKCHING,NONGMAITHEM NIMAI SINGH,parties.IN.INC,INC,7483,41.23,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-37,manipur,2002,37,KAKCHING,YENGKHOM THAMBAL,parties.IN.IND,IND,1290,7.11,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-38,manipur,2002,38,HIYANGLAM,ELANGBAM BIRAMANI SINGH,parties.IN.NCP,NCP,6095,31.51,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-38,manipur,2002,38,HIYANGLAM,MAIBAM KUNJO,parties.IN.FPM,FPM,4841,25.03,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-38,manipur,2002,38,HIYANGLAM,ELANGBAM DWIJAMANI SINGH,parties.IN.INC,INC,3832,19.81,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-38,manipur,2002,38,HIYANGLAM,NINGTHOUJAM RAJENDRO,parties.IN.MSCP,MSCP,2484,12.84,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-38,manipur,2002,38,HIYANGLAM,LEIPHRAKPAM ASHOKUMAR SINGH,parties.IN.BJP,BJP,2076,10.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-38,manipur,2002,38,HIYANGLAM,HUIDROM RAJBAPU SINGH,parties.IN.SAP,SAP,16,0.08,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-39,manipur,2002,39,SUGNOO,KANGUJAM RANJIT,parties.IN.INC,INC,7318,38.47,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-39,manipur,2002,39,SUGNOO,KHWAIRAKPAM IBOYAIMA,parties.IN.DRPP,DRPP,5675,29.83,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-39,manipur,2002,39,SUGNOO,KHUMUKCHAM RAGHUMANI,parties.IN.MSCP,MSCP,3658,19.23,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-39,manipur,2002,39,SUGNOO,MAYANGLAMBAM BABU SINGH,parties.IN.FPM,FPM,1917,10.08,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-39,manipur,2002,39,SUGNOO,THINGNAM SANAYAIMA SINGH,parties.IN.BJP,BJP,394,2.07,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-39,manipur,2002,39,SUGNOO,LAISHRAM SUBHAS SINGH,parties.IN.NCP,NCP,56,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-39,manipur,2002,39,SUGNOO,ACHOU SINGH SOROKHAIBAM,parties.IN.MNC,MNC,6,0.03,7,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-40,manipur,2002,40,JIRIBAM,TH. DEBENDRA,parties.IN.INC,INC,5527,31.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-40,manipur,2002,40,JIRIBAM,ASHANGBAM BIREN,parties.IN.MNC,MNC,4588,26.24,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-40,manipur,2002,40,JIRIBAM,MD. HABIB ALI,parties.IN.SAP,SAP,3786,21.66,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-40,manipur,2002,40,JIRIBAM,ELANGBAM DIPTI,parties.IN.DRPP,DRPP,2388,13.66,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-40,manipur,2002,40,JIRIBAM,KETREBAM SARAT,parties.IN.FPM,FPM,728,4.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-40,manipur,2002,40,JIRIBAM,TAHEMANG PANMEI,parties.IN.IND,IND,465,2.66,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-41,manipur,2002,41,CHANDEL,B.D. BEHRING,parties.IN.BJP,BJP,23219,64.71,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-41,manipur,2002,41,CHANDEL,T. CHUNGSEI HAOKIP,parties.IN.MSCP,MSCP,8750,24.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-41,manipur,2002,41,CHANDEL,PR SILANKI,parties.IN.MPP,MPP,3797,10.58,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-41,manipur,2002,41,CHANDEL,DN HAOKIP,parties.IN.MNC,MNC,93,0.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-41,manipur,2002,41,CHANDEL,CH. KOPU (CHANDRAMANI),parties.IN.NNLP,NNLP,13,0.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-41,manipur,2002,41,CHANDEL,MANGLIANTHANG,parties.IN.DRPP,DRPP,7,0.02,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-42,manipur,2002,42,TENGNOUPAL,D.K. KORUNGTHANG,parties.IN.SAP,SAP,17140,52.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-42,manipur,2002,42,TENGNOUPAL,ONJAMANG HAOKIP,parties.IN.NCP,NCP,15529,47.12,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-42,manipur,2002,42,TENGNOUPAL,M. YANGLET,parties.IN.BJP,BJP,285,0.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-43,manipur,2002,43,PHUNGYAR,WUNGNAOSHANG,parties.IN.MSCP,MSCP,4412,23.13,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-43,manipur,2002,43,PHUNGYAR,RISHANG KEISHING,parties.IN.INC,INC,3403,17.84,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-43,manipur,2002,43,PHUNGYAR,K. SOMI,parties.IN.FPM,FPM,3084,16.17,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-43,manipur,2002,43,PHUNGYAR,N. SOLOMON,parties.IN.BJP,BJP,2583,13.54,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-43,manipur,2002,43,PHUNGYAR,RAMTHING HUNGYO,parties.IN.NCP,NCP,2559,13.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-43,manipur,2002,43,PHUNGYAR,JOHNSON KEISHING,parties.IN.MNC,MNC,2513,13.17,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-43,manipur,2002,43,PHUNGYAR,NGAITHINGKHUI HUNGYO,parties.IN.NNLP,NNLP,467,2.45,7,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-43,manipur,2002,43,PHUNGYAR,STEPHEN ANGKANG,parties.IN.SAP,SAP,55,0.29,8,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-44,manipur,2002,44,UKHRUL,D. SHAIZA,parties.IN.BJP,BJP,12285,51.38,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-44,manipur,2002,44,UKHRUL,A. S. ARTHUR,parties.IN.INC,INC,8023,33.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-44,manipur,2002,44,UKHRUL,A. S. SHIMREIYO,parties.IN.FPM,FPM,3601,15.06,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-45,manipur,2002,45,CHINGAI,A. AZA,parties.IN.INC,INC,7761,28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-45,manipur,2002,45,CHINGAI,DR. KHASHIM RUIVAH,parties.IN.FPM,FPM,7294,26.32,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-45,manipur,2002,45,CHINGAI,DAVID N. K. SHIMRAY,parties.IN.SAP,SAP,6459,23.31,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-45,manipur,2002,45,CHINGAI,R. N. CHIHANPAM,parties.IN.BJP,BJP,4429,15.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-45,manipur,2002,45,CHINGAI,R. V. MINGTHING,parties.IN.MSCP,MSCP,1232,4.45,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-45,manipur,2002,45,CHINGAI,V. WEAPON ZIMIK,parties.IN.NCP,NCP,539,1.94,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-46,manipur,2002,46,SAIKUL,CHUNGKHOKAI DOUNGEL,parties.IN.NCP,NCP,9989,35.36,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-46,manipur,2002,46,SAIKUL,DOUKHOMANG KHONGSAI,parties.IN.SAP,SAP,7827,27.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-46,manipur,2002,46,SAIKUL,YAMTHONG HAOKIP,parties.IN.INC,INC,7733,27.37,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-46,manipur,2002,46,SAIKUL,SOINEIMANG,parties.IN.FPM,FPM,1869,6.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-46,manipur,2002,46,SAIKUL,CH. AJANG KHONGSAI,parties.IN.MSCP,MSCP,489,1.73,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-46,manipur,2002,46,SAIKUL,NEHKHOMANG (MANGCHA) HAOKIP,parties.IN.BJP,BJP,291,1.03,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-46,manipur,2002,46,SAIKUL,HAOKHOPAO,parties.IN.IND,IND,34,0.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-46,manipur,2002,46,SAIKUL,SONGLAL,parties.IN.LS,LS,15,0.05,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-46,manipur,2002,46,SAIKUL,JAMPAO,parties.IN.JDU,JD(U),2,0.01,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-47,manipur,2002,47,KARONG,P.S. HENRY PAOTEI,parties.IN.FPM,FPM,10304,23.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-47,manipur,2002,47,KARONG,D.D. THAISII,parties.IN.INC,INC,9000,20.79,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-47,manipur,2002,47,KARONG,R.V. SHIRANG,parties.IN.BJP,BJP,7125,16.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-47,manipur,2002,47,KARONG,L. JONATHAN,parties.IN.SAP,SAP,7090,16.38,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-47,manipur,2002,47,KARONG,SOLOMON VEINO,parties.IN.NCP,NCP,5716,13.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-47,manipur,2002,47,KARONG,P.S. ROWLAND,parties.IN.MNC,MNC,4045,9.35,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-48,manipur,2002,48,MAO,R.K. THEKHO,parties.IN.INC,INC,13387,30.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-48,manipur,2002,48,MAO,SOSO LORHO,parties.IN.FPM,FPM,12936,29.55,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-48,manipur,2002,48,MAO,M. THOHRII,parties.IN.SAP,SAP,10628,24.28,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-48,manipur,2002,48,MAO,N. LOLI MAO,parties.IN.BJP,BJP,6755,15.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-48,manipur,2002,48,MAO,LOLI LOHE,parties.IN.NNLP,NNLP,75,0.17,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-49,manipur,2002,49,TADUBI,FRANCIS NGAJOKPA,parties.IN.INC,INC,8766,24.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-49,manipur,2002,49,TADUBI,K. RAINA,parties.IN.BJP,BJP,8416,23.73,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-49,manipur,2002,49,TADUBI,O. LOHRII,parties.IN.SAP,SAP,5841,16.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-49,manipur,2002,49,TADUBI,N. KAYAISII,parties.IN.FPM,FPM,4897,13.81,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-49,manipur,2002,49,TADUBI,DAVID,parties.IN.MSCP,MSCP,4100,11.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-49,manipur,2002,49,TADUBI,NG. LUIKANG,parties.IN.NCP,NCP,3301,9.31,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-49,manipur,2002,49,TADUBI,LOLI LOHE,parties.IN.NNLP,NNLP,57,0.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-49,manipur,2002,49,TADUBI,S. HANGZING,parties.IN.MNC,MNC,38,0.11,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-49,manipur,2002,49,TADUBI,SEHKAM,parties.IN.LS,LS,26,0.07,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-49,manipur,2002,49,TADUBI,A. SOLOMON ENAH,parties.IN.MPP,MPP,21,0.06,10,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-50,manipur,2002,50,KANGPOKPI,THANGMINLIEN,parties.IN.FPM,FPM,9265,40.05,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-50,manipur,2002,50,KANGPOKPI,HARI PRASAD NEPAL,parties.IN.BJP,BJP,5869,25.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-50,manipur,2002,50,KANGPOKPI,V.L. CHONGLOI,parties.IN.INC,INC,4690,20.27,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-50,manipur,2002,50,KANGPOKPI,KISHOR THAPA,parties.IN.SAP,SAP,2276,9.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-50,manipur,2002,50,KANGPOKPI,ACHONG,parties.IN.NCP,NCP,894,3.86,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-50,manipur,2002,50,KANGPOKPI,S. LOW,parties.IN.IND,IND,66,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-50,manipur,2002,50,KANGPOKPI,R. S. DAPHYA,parties.IN.MSCP,MSCP,54,0.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-50,manipur,2002,50,KANGPOKPI,L. S. JOHN,parties.IN.NNLP,NNLP,18,0.08,8,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-51,manipur,2002,51,SAITU,NGAMTHANG HAOKIP,parties.IN.INC,INC,13675,43.41,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-51,manipur,2002,51,SAITU,HAOKHOLET KIPGEN,parties.IN.SAP,SAP,8359,26.53,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-51,manipur,2002,51,SAITU,PASEH,parties.IN.FPM,FPM,8343,26.48,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-51,manipur,2002,51,SAITU,L. HAOPU HAOKIP,parties.IN.MSCP,MSCP,658,2.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-51,manipur,2002,51,SAITU,ROINGAM THANGA,parties.IN.NCP,NCP,269,0.85,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-51,manipur,2002,51,SAITU,JAMNGAM HAOKIP,parties.IN.BJP,BJP,200,0.63,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-52,manipur,2002,52,TAMEI,Z. MANGAIBOU,parties.IN.INC,INC,9893,41.56,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-52,manipur,2002,52,TAMEI,ATHUAN ABONMAI,parties.IN.BJP,BJP,8742,36.72,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-52,manipur,2002,52,TAMEI,LUNGSU PANMEI,parties.IN.SAP,SAP,5169,21.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-53,manipur,2002,53,TAMENGLONG,SAMUEL JENDAI,parties.IN.FPM,FPM,9696,53.91,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-53,manipur,2002,53,TAMENGLONG,KHANGTHUANANG PANMEI,parties.IN.INC,INC,7302,40.6,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-53,manipur,2002,53,TAMENGLONG,ACHONG GANGMEI,parties.IN.BJP,BJP,987,5.49,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-54,manipur,2002,54,NUNGBA,GAIKHANGAM,parties.IN.INC,INC,6977,45.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-54,manipur,2002,54,NUNGBA,PROF. GANGMUMEI KAMEI,parties.IN.FPM,FPM,6085,39.57,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-54,manipur,2002,54,NUNGBA,ASHINPOU GANGMEI,parties.IN.BJP,BJP,1679,10.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-54,manipur,2002,54,NUNGBA,AMU KAMEI,parties.IN.NCP,NCP,636,4.14,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-55,manipur,2002,55,TIPAIMUKH,DR. CHALTONLIEN,parties.IN.INC,INC,3602,32.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-55,manipur,2002,55,TIPAIMUKH,NGURSANGLUR,parties.IN.NCP,NCP,3566,31.88,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-55,manipur,2002,55,TIPAIMUKH,DR. VANLALNGHAK,parties.IN.FPM,FPM,2714,24.26,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-55,manipur,2002,55,TIPAIMUKH,SAPBIEKLIEN,parties.IN.JDU,JD(U),1253,11.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-55,manipur,2002,55,TIPAIMUKH,MALSAWM,parties.IN.BJP,BJP,50,0.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-56,manipur,2002,56,THANLON,SONGCHINKHUP,parties.IN.INC,INC,4825,36.28,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-56,manipur,2002,56,THANLON,JOHN K NGAIHTE,parties.IN.SAP,SAP,3817,28.7,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-56,manipur,2002,56,THANLON,CHIN-GOUTHANG,parties.IN.NCP,NCP,3416,25.69,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-56,manipur,2002,56,THANLON,KAILAL SUANTAK,parties.IN.IND,IND,1123,8.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-56,manipur,2002,56,THANLON,THANGCHINKHAM,parties.IN.BJP,BJP,117,0.88,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-57,manipur,2002,57,HENGLEP,T MANGA VAIPHEI,parties.IN.SAP,SAP,7660,37.31,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-57,manipur,2002,57,HENGLEP,T. THANGZALAM HAOKIP,parties.IN.INC,INC,3662,17.84,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-57,manipur,2002,57,HENGLEP,JAINSON HAOKIP,parties.IN.FPM,FPM,3320,16.17,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-57,manipur,2002,57,HENGLEP,THONGSEI HAOKIP,parties.IN.NCP,NCP,2797,13.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-57,manipur,2002,57,HENGLEP,SEHPU HAOKIP,parties.IN.BJP,BJP,2529,12.32,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-57,manipur,2002,57,HENGLEP,LAMMINLIEN GANGTE,parties.IN.MSCP,MSCP,402,1.96,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-57,manipur,2002,57,HENGLEP,LANDOLUNG,parties.IN.IND,IND,107,0.52,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-57,manipur,2002,57,HENGLEP,SUMNEIKHUP KOM,parties.IN.IND,IND,32,0.16,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-57,manipur,2002,57,HENGLEP,NGULKHOTHANG,parties.IN.DRPP,DRPP,22,0.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-58,manipur,2002,58,CHURACHANDPUR,T. PHUNGZATHANG,parties.IN.INC,INC,15271,48.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-58,manipur,2002,58,CHURACHANDPUR,V. HANGKHANLIAN,parties.IN.NCP,NCP,15043,47.36,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-58,manipur,2002,58,CHURACHANDPUR,LALHRIET,parties.IN.SAP,SAP,615,1.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-58,manipur,2002,58,CHURACHANDPUR,GINMUANLAM,parties.IN.IND,IND,508,1.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-58,manipur,2002,58,CHURACHANDPUR,PUMZADOU,parties.IN.MNC,MNC,128,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-58,manipur,2002,58,CHURACHANDPUR,THANGKHANPAU,parties.IN.BJP,BJP,105,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-58,manipur,2002,58,CHURACHANDPUR,JANGKHONGAM,parties.IN.IND,IND,66,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-58,manipur,2002,58,CHURACHANDPUR,PAUKHOGIN,parties.IN.IND,IND,11,0.03,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-58,manipur,2002,58,CHURACHANDPUR,JAMCHINTHANG,parties.IN.IND,IND,10,0.03,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-58,manipur,2002,58,CHURACHANDPUR,T. MANGKHOPAU,parties.IN.IND,IND,3,0.01,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-59,manipur,2002,59,SAIKOT,T. N. HAOKIP,parties.IN.INC,INC,16699,51.84,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-59,manipur,2002,59,SAIKOT,M. CHUNGKHOSEI,parties.IN.NCP,NCP,11966,37.15,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-59,manipur,2002,59,SAIKOT,ALBERT GEN GOUKHUP MATE,parties.IN.SAP,SAP,2001,6.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-59,manipur,2002,59,SAIKOT,SELKAI HRANGCHAL,parties.IN.BJP,BJP,742,2.3,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-59,manipur,2002,59,SAIKOT,K. LALKHOPAO KOM,parties.IN.IND,IND,438,1.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-59,manipur,2002,59,SAIKOT,D. JANGKHONGAM,parties.IN.FPM,FPM,366,1.14,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-60,manipur,2002,60,SINGHAT,THANGSO BAITE,parties.IN.MSCP,MSCP,6815,36.19,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-60,manipur,2002,60,SINGHAT,HANGKHANPAO,parties.IN.INC,INC,5314,28.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-60,manipur,2002,60,SINGHAT,N. ZATAWN,parties.IN.FPM,FPM,3305,17.55,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-manipur-60,manipur,2002,60,SINGHAT,T. NGAIZANEM,parties.IN.SAP,SAP,1455,7.73,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-60,manipur,2002,60,SINGHAT,T. GAUZADOU,parties.IN.NCP,NCP,1332,7.07,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-manipur-60,manipur,2002,60,SINGHAT,JUBILEE MOMOI,parties.IN.MNC,MNC,531,2.82,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-60,manipur,2002,60,SINGHAT,THANGKHENKHUP,parties.IN.BJP,BJP,65,0.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-60,manipur,2002,60,SINGHAT,GINSUANHAO,parties.IN.IND,IND,8,0.04,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-60,manipur,2002,60,SINGHAT,PUMLIANPAU,parties.IN.LS,LS,4,0.02,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a

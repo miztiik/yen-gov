@@ -1,0 +1,26 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1967-haryana-29,haryana,1970,29,JULANA,D.SINGH,parties.IN.NCN,NCN,23592,55.43,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1967-haryana-29,haryana,1970,29,JULANA,F.SINGH,parties.IN.NCJ,NCJ,17764,41.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-29,haryana,1970,29,JULANA,J.SINGH,parties.IN.IND,IND,954,2.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-29,haryana,1970,29,JULANA,F. LAL,parties.IN.IND,IND,145,0.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-29,haryana,1970,29,JULANA,B.SINGH,parties.IN.IND,IND,104,0.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-45,haryana,1970,45,BAHADURGARH,H.LAL,parties.IN.NCN,NCN,22426,51.97,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1967-haryana-45,haryana,1970,45,BAHADURGARH,K.SINGH,parties.IN.NCJ,NCJ,17760,41.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-45,haryana,1970,45,BAHADURGARH,J.KARAN,parties.IN.IND,IND,2968,6.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-48,haryana,1970,48,PALWAL,K.SINGH,parties.IN.NCJ,NCJ,17695,40.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-48,haryana,1970,48,PALWAL,R.NAND,parties.IN.IND,IND,9548,21.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-48,haryana,1970,48,PALWAL,D.SINGH,parties.IN.IND,IND,6176,14.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-48,haryana,1970,48,PALWAL,L.SINGH,parties.IN.IND,IND,3250,7.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-48,haryana,1970,48,PALWAL,S.SINGH,parties.IN.NCN,NCN,3221,7.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-48,haryana,1970,48,PALWAL,R.PRASHAD,parties.IN.IND,IND,2565,5.89,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-48,haryana,1970,48,PALWAL,J.KISHORE,parties.IN.IND,IND,942,2.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-48,haryana,1970,48,PALWAL,S.DEVI,parties.IN.IND,IND,115,0.26,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-63,haryana,1970,63,BADHRA,L.RANI,parties.IN.NCJ,NCJ,19753,48.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-63,haryana,1970,63,BADHRA,A.SINGH,parties.IN.IND,IND,11443,27.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-63,haryana,1970,63,BADHRA,G.PAL,parties.IN.VHP,VHP,7576,18.53,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-63,haryana,1970,63,BADHRA,P.SINGH,parties.IN.IND,IND,2124,5.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-81,haryana,1970,81,ELLENABAD,OM PRAKASH,parties.IN.NCJ,NCJ,31024,70.27,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1967-haryana-81,haryana,1970,81,ELLENABAD,P.RAJ,parties.IN.IND,IND,12278,27.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-81,haryana,1970,81,ELLENABAD,P.LAL,parties.IN.NCN,NCN,373,0.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-81,haryana,1970,81,ELLENABAD,J.SINGH,parties.IN.IND,IND,310,0.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-haryana-81,haryana,1970,81,ELLENABAD,M.RAM,parties.IN.IND,IND,167,0.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

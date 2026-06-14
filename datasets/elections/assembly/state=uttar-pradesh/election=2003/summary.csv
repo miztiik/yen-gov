@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-uttar-pradesh-106,uttar-pradesh,2003,GAURIGANJ,229276,135940,59.29,JANG BAHADUR,parties.IN.BSP,BSP,38722,28.48,FATEH BAHADUR,parties.IN.INC,INC,31222,7500,5.51,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-132,uttar-pradesh,2003,MAHSI,270180,170735,63.19,Dilip Kumar Verma,parties.IN.SP,SP,66875,39.17,Jamila Khatun,parties.IN.BSP,BSP,45534,21341,12.5,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-228,uttar-pradesh,2003,CHIRAIGAON,335046,140495,41.93,VIRENDRA SINGH,parties.IN.BSP,BSP,55527,39.52,ANIL RAJBHAR,parties.IN.SP,SP,52286,3241,2.3,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-401,uttar-pradesh,2003,HARORA(SC),254336,176459,69.38,Vimla Rakesh,parties.IN.SP,SP,84839,48.08,Jagpal,parties.IN.BSP,BSP,81152,3687,2.09,src-1b7bc1c9d39a

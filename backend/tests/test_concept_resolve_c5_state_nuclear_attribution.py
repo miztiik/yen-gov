@@ -46,7 +46,7 @@ def test_state_nuclear_allocated_uses_allocated_concept():
 
 
 def test_state_nuclear_snapshot_uses_snapshot_concept():
-    row = next(r for r in _rows() if r["indicator_id"] == "state-installed-capacity-snapshot-mw-nuclear")
+    row = next(r for r in _rows() if r["indicator_id"] == "installed-capacity-snapshot-mw-nuclear")
     assert row["concept_id"] == "nuclear-mw-snapshot"
 
 

@@ -64,9 +64,34 @@ import { ECI_TO_LGD_SLUG } from "../boundaries/sources";
 // Reverse lookup: LGD slug -> ECI code. The on-disk electoral.csv keys
 // `state` in LGD form; tile-layout / GeoJSON `unique_id` props key in
 // ECI form. Mirrors the same reverse map in `national-elections.ts`.
-const SLUG_TO_ECI: Readonly<Record<string, string>> = Object.fromEntries(
-  Object.entries(ECI_TO_LGD_SLUG).map(([code, slug]) => [slug, code]),
-);
+//
+// Aliases for slug variants the canonical electoral.csv emits that do
+// not match the LGD-form value in `ECI_TO_LGD_SLUG` verbatim. Each
+// alias resolves to the same ECI state code as the canonical slug.
+// Documented here (rather than in `ECI_TO_LGD_SLUG` itself) because
+// that map's values feed `boundaries/in/panchayats/state=<slug>/...`
+// and `boundaries/in/wards/state=<slug>/...` path constructors via
+// `sources.ts` - on-disk those subtrees follow the LGD slug, so the
+// canonical map must stay anchored on the LGD form. The alias overlay
+// here is local to the election-results loader and only widens the
+// `state_slug -> state_code` lookup for tile-cartogram joins.
+//
+// FU#1 (TODO/20260612-pc-choropleth-tile-and-party-filter-restoration-plan.md
+// closure): "andaman-and-nicobar-islands" on electoral.csv aliases to
+// the canonical "andaman-and-nicobar" entry under U01. Closes 1 of
+// the 110 pending tiles surfaced by PR #958. The remaining 109 are
+// publisher-side `eci_no=0` rows (Scenario C; backend ingest follow-up)
+// and tile-layout drift on the data tier (Scenario C; tile-layout
+// regen follow-up).
+const EXTRA_SLUG_ALIASES: Readonly<Record<string, string>> = {
+  "andaman-and-nicobar-islands": "U01",
+};
+const SLUG_TO_ECI: Readonly<Record<string, string>> = {
+  ...Object.fromEntries(
+    Object.entries(ECI_TO_LGD_SLUG).map(([code, slug]) => [slug, code]),
+  ),
+  ...EXTRA_SLUG_ALIASES,
+};
 
 /** Scope of an election-results query.
  *
@@ -149,6 +174,15 @@ export interface ElectionResultRow {
    *  NATIONAL-PC scope from parliament summary.csv.votes_polled; same
    *  null-arm contract as `electors`. */
   votes_polled: number | null;
+  /** Winner-runnerup absolute vote gap (TODO/20260612 plan Row B). Populated
+   *  at NATIONAL-PC + STATE-AC scopes from summary.csv.margin_votes. CONSTITUENCY
+   *  scope leaves it null - the per-candidate rows don't carry the seat-level
+   *  gap; the scatter chart only consumes NATIONAL-PC + STATE-AC rows.
+   *
+   *  Drives the scatter chart's radius encoding (sqrt-area proportional to
+   *  the absolute vote gap) per the Citizen + Max verdict on circle-size
+   *  encoding: "how decisively was this seat won". */
+  margin_votes: number | null;
   /** Winning candidate's age. Always null at NATIONAL-PC scope (the
    *  bespoke `loadNationalPcWinners` doesn't JOIN candidacies; F1.3b
    *  regression). Populated at STATE-AC + CONSTITUENCY scopes via the
@@ -205,6 +239,13 @@ const reservationOrGen = (v: unknown): "GEN" | "SC" | "ST" => {
 const stateCodeOf = (state_slug: string): string =>
   SLUG_TO_ECI[state_slug] ?? state_slug.toUpperCase();
 
+/** Test-only re-export of the slug -> state-code lookup. The
+ *  uppercase fallback is preserved verbatim for callers that pass
+ *  unknown slugs (e.g. synthetic fixture states). Kept exported so the
+ *  FU#1 alias regression test can pin the contract without poking at
+ *  the loader's SQL path. */
+export const _slugToStateCodeForTests = stateCodeOf;
+
 interface NationalPcRow {
   entity_id: string;
   state_slug: string;
@@ -222,6 +263,10 @@ interface NationalPcRow {
   turnout_pct: number | null;
   electors: number | null;
   votes_polled: number | null;
+  /** Absolute vote gap (winner_votes - runnerup_votes); TODO/20260612 Row B
+   *  adds this to both parliament + assembly SQL projections so the scatter
+   *  chart's radius encoding can read it from the loader. */
+  margin_votes: number | null;
   winner_candidate_name: string | null;
   /** Winner candidate's share of the votes_polled denominator (in
    *  percent). Projected at STATE-AC scope (PR-W4a) from
@@ -294,6 +339,9 @@ async function runNationalPcQuery(
   // (mirrors the STATE-AC arm extended in W3b). PR-W4c (2026-06-10):
   // additive projection of `reservation` so the scatter chart's
   // reservation filter chip can narrow rows without a second loader.
+  // TODO/20260612 Row B: additive projection of `margin_votes` so the
+  // scatter chart's radius encoding can swap from electors -> absolute
+  // vote gap (Citizen + Max verdict: tells the close-vs-walkover story).
   const sql = `
     SELECT
       e.entity_id                   AS entity_id,
@@ -313,6 +361,7 @@ async function runNationalPcQuery(
       s.turnout_pct                 AS turnout_pct,
       s.electors                    AS electors,
       s.votes_polled                AS votes_polled,
+      s.margin_votes                AS margin_votes,
       s.winner_share_pct            AS vote_share_pct,
       s.winner_candidate            AS winner_candidate_name
     FROM read_csv('${sumUrl}', ${sumClause}) s
@@ -357,6 +406,9 @@ async function runStateAcQuery(
   // table can read them from the same per-AC rows (mirroring the
   // NATIONAL-PC arm extended in W3c). PR-W4c (2026-06-10): additive
   // projection of `reservation` for the scatter filter chip.
+  // TODO/20260612 Row B: additive projection of `margin_votes` so the
+  // scatter chart's radius encoding can swap from electors -> absolute
+  // vote gap on state-event surfaces as well.
   const sql = `
     SELECT
       e.entity_id                           AS entity_id,
@@ -376,6 +428,7 @@ async function runStateAcQuery(
       s.turnout_pct                         AS turnout_pct,
       s.electors                            AS electors,
       s.votes_polled                        AS votes_polled,
+      s.margin_votes                        AS margin_votes,
       s.winner_share_pct                    AS vote_share_pct,
       ec.age                                AS winner_age,
       s.winner_candidate                    AS winner_candidate_name
@@ -510,6 +563,10 @@ async function runConstituencyQuery(
     // SELECT them (W3c only needs the NATIONAL-PC arm to surface KPIs).
     electors: null,
     votes_polled: null,
+    // CONSTITUENCY scope: same rationale - per-candidate rows surface the
+    // seat-level margin_votes nowhere today; the scatter consumers only
+    // read NATIONAL-PC + STATE-AC rows.
+    margin_votes: null,
     winner_age: numOrNull(summary?.winner_age),
     winner_candidate_name: summary?.winner_candidate ?? null,
     reservation: reservationOrGen(r.reservation),
@@ -519,7 +576,7 @@ async function runConstituencyQuery(
 // -------------------- shared row mapper (winner-only scopes) --------------------
 
 function toRow(
-  r: NationalPcRow & { electors?: number | null; votes_polled?: number | null },
+  r: NationalPcRow & { electors?: number | null; votes_polled?: number | null; margin_votes?: number | null },
   event: string,
   body: ElectionBody,
   winner_age: number | null,
@@ -550,6 +607,7 @@ function toRow(
     turnout_pct: numOrNull(r.turnout_pct),
     electors: numOrNull(r.electors),
     votes_polled: numOrNull(r.votes_polled),
+    margin_votes: numOrNull(r.margin_votes),
     winner_age,
     winner_candidate_name: r.winner_candidate_name ?? null,
     reservation: reservationOrGen(r.reservation),

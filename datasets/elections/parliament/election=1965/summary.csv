@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-PC-1962-andhra-pradesh-40,andhra-pradesh,1965,MAHBUBABAD,426441,245308,57.52,R.S.REDDY,parties.IN.INC,INC,161156,65.7,M.OMKARU,parties.IN.CPIM,CPM,43819,117337,47.84,src-31c65dbec869
+IN-PC-1962-maharashtra-30,maharashtra,1965,AMRAVATI,475329,180687,38.01,D.V.PANJABRAO,parties.IN.INC,INC,123397,68.29,M.N.DATTATRAYA,parties.IN.PWP,PWP,57290,66107,36.58,src-31c65dbec869
+IN-PC-1962-uttar-pradesh-76,uttar-pradesh,1965,HATHRAS,447606,78602,17.56,N.DEO,parties.IN.INC,INC,46010,58.54,R.S.NIM,parties.IN.IND,IND,26928,19082,24.28,src-31c65dbec869

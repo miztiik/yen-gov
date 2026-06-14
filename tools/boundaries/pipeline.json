@@ -1165,6 +1165,33 @@
         "admin_level": "parliamentary_constituency"
       },
       "coordinate_system": "EPSG:4326"
+    },
+    {
+      "$comment": "Parliament Constituency boundaries under the 2008 Delimitation Commission Order (operative for the 17th / 16th / 15th Lok Sabha elections: LS 2019, 2014, 2009). 543 features, one per LS seat. Upstream: datameet/maps `india_pc_2019_simplified.geojson` (1.9 MB, CC0 1.0; authored by Arun Ganesh as a simplified derivative of the DataMeet Trust raw shapefile sibling under CC-BY-SA 2.5 India). 39 features across the 6 states EXEMPTED from re-delimitation by the 2008 Order (J&K, Jharkhand, Arunachal Pradesh, Assam, Manipur, Nagaland) carry the upstream `status='Pre delimitation'` flag preserved as `pre_delim_2008: true` on the emitted feature — their boundaries reflect the 1976 baseline that ECI used during LS 2009/2014/2019 in those states. Citing as delim=2008 is honest because 2008 IS the operative Order; the citizen-facing methodology footer surfaces the carve-out. The Ladakh PC (datameet pc_no=4 under upstream st_name='Jammu & Kashmir') is SPLIT OUT to the canonical Ladakh UT (state_ut_code=U09) at preprocessor time to match the post-2019 entity modelling on datasets/data/entities/electoral.csv; the other 5 J&K PCs map to U08. JOIN KEY: unlike the delim=2024 PC layer (whose `unique_id = <state_ut_code>_<ls_seat_code>` numeric pattern matches ECI 2024 PC numbering), this layer's `unique_id = <state_ut_code>_<pc_name_slug>` is name-slug based — canonical electoral.csv's `eci_no` values are unreliable for delim=2008 PCs (22 of 544 are zero; many of the populated values are misaligned with ECI's actual 2009 LS numbering). The kebab-case PC name slug is the stable join key (datameet's `pc_name` matches canonical's `name` after the same client-side `slugify()` rule). Delivered as a LOCAL FILE under `datasets/ephemeral/` (gitignored) rather than a live URL: stage via `python -m tools.boundaries._prep_datameet_pc_2008` from a local datameet/maps clone (the operator-replay contract). FU#3 from PR #958 closure; plan-doc TODO/20260612-pc-delim-2008-boundary-ingest-plan.md.",
+      "kind": "pc",
+      "source_triple": {
+        "producer": "DataMeet India Maps Project",
+        "title": "India Lok Sabha Parliamentary Constituency boundaries (2008 Delimitation, simplified)",
+        "vintage": "2008-delimitation"
+      },
+      "country": "IN",
+      "delimitation_vintage": "2008",
+      "out": "../electoral/delim=2008/pc/all.geojson",
+      "source": {
+        "format": "local_file",
+        "path": "datasets/ephemeral/india_pc_2008_simplified.geojson"
+      },
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "name_property": "ls_seat_name",
+      "id_property": "unique_id",
+      "id_property_note": "JOIN KEY is `unique_id = <state_ut_code>_<pc_name_slug>` (name-slug based, not numeric). The 2008 PC layer cannot reliably use the per-state `eci_no` integer because canonical `datasets/data/entities/electoral.csv` carries 22 zero-valued + many misaligned `eci_no` rows for delim=2008 PCs — the kebab-case PC name slug derived via `slugify(pc_name)` is the stable key. Frontend builder constructs the matching key as `${state_code}_${slugify(row.name)}` for delim=2008 events; the delim=2024 layer's numeric `<state_ut_code>_<ls_seat_code>` pattern is unchanged.",
+      "coverage": {
+        "spatial": "India (543 PCs covering the 2008 Delimitation Order; 6 states retain 1976 boundaries via the Order's exemption)",
+        "temporal": "Lok Sabha 2009 / 2014 / 2019 (operative geometry under the 2008 Order)",
+        "admin_level": "parliamentary_constituency"
+      },
+      "coordinate_system": "EPSG:4326"
     }
   ],
   "staged_inputs": [

@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-delhi-15,delhi,2004,RAJOURIGARDEN,101255,38422,37.95,RAMESH LAMBA,parties.IN.INC,INC,19193,49.95,RAMESH KHANNA,parties.IN.BJP,BJP,15544,3649,9.49,src-1b7bc1c9d39a
+IN-AC-1976-delhi-65,delhi,2004,MOTINAGAR,99319,61698,62.12,Subhash Sachdeva,parties.IN.BJP,BJP,34908,56.58,Ram Maggo,parties.IN.INC,INC,24931,9977,16.17,src-1b7bc1c9d39a
+IN-AC-1976-delhi-70,delhi,2004,BALJEETNAGAR,109840,39239,35.72,RAJESH LILOTHIA,parties.IN.INC,INC,21480,54.74,RAJ MEHRA,parties.IN.BJP,BJP,14768,6712,17.1,src-1b7bc1c9d39a

@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-himachal-pradesh-37,himachal-pradesh,2004,GULER,53010,38873,73.33,HARBANS SINGH RANA,parties.IN.BJP,BJP,18806,48.38,NEERAJ BHARTI,parties.IN.INC,INC,17699,1107,2.85,src-1b7bc1c9d39a

@@ -1,0 +1,19 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Satish Kumar,parties.IN.SAP,SAP,58999,47.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Kuamar Puspanjay,parties.IN.RJD,RJD,48302,38.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Arun Kumar Singh,parties.IN.LOK_JAN_SHAKTI,LOK JAN SHAKTI,12269,9.79,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Vijay Paswan,parties.IN.BSP,BSP,1468,1.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Narayan Singh,parties.IN.IND,IND,811,0.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Dinesh Azad,parties.IN.IND,IND,667,0.53,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Rajendra Ravidas,parties.IN.CPIMLL,CPI(ML)(L),609,0.49,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Kaushal Kumar,parties.IN.IND,IND,429,0.34,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Manish Chandra,parties.IN.IND,IND,427,0.34,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Tripurari Prasad Singh,parties.IN.IND,IND,274,0.22,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Prem Kumar Nirala,parties.IN.IND,IND,232,0.19,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Uday Sharma Prasad Singh,parties.IN.IND,IND,215,0.17,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Nawal Kisore,parties.IN.IND,IND,193,0.15,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Sudhir Prasad Singh,parties.IN.SJP_R,SJP(R),160,0.13,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Devendra Paswan,parties.IN.IND,IND,132,0.11,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Vinay Kumar Singh,parties.IN.IND,IND,69,0.06,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Yadvendra Prasad,parties.IN.IND,IND,61,0.05,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-193,bihar,2001,193,ASTHAWAN,Girish Chandra Prasad Singh,parties.IN.IND,IND,57,0.05,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a

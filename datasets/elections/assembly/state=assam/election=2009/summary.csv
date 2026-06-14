@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-assam-22,assam,2009,SALMARA SOUTH,126241,103115,81.68,Wazed Ali Choudhary,parties.IN.INC,INC,53469,51.85,A. Rahman Ajmal,parties.IN.AIDUF,AIDUF,46916,6553,6.35,src-1b7bc1c9d39a
+IN-AC-1976-assam-71,assam,2009,DHEKIAJULI,158815,110050,69.29,Bhimananda Tanti,parties.IN.INC,INC,54487,49.51,Siba Charan Sahu,parties.IN.AGP,AGP,32940,21547,19.58,src-1b7bc1c9d39a

@@ -1,0 +1,44 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-madhya-pradesh-55,madhya-pradesh,1991,55,HATTA,R.PATERYA(W),parties.IN.INC,INC,39551,54.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-55,madhya-pradesh,1991,55,HATTA,G.PATEL(HARAT),parties.IN.BJP,BJP,30536,41.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-55,madhya-pradesh,1991,55,HATTA,D.DAS,parties.IN.IND,IND,607,0.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-55,madhya-pradesh,1991,55,HATTA,SK.RAHMAN,parties.IN.IND,IND,505,0.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-55,madhya-pradesh,1991,55,HATTA,H.SINGH,parties.IN.JD,JD,448,0.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-55,madhya-pradesh,1991,55,HATTA,V.PATHAK,parties.IN.IND,IND,445,0.61,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-55,madhya-pradesh,1991,55,HATTA,G.R.PATEL(KAKRA),parties.IN.IND,IND,422,0.58,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-55,madhya-pradesh,1991,55,HATTA,G.RAM,parties.IN.IND,IND,298,0.41,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-55,madhya-pradesh,1991,55,HATTA,K.S.S.HAZARI,parties.IN.IND,IND,168,0.23,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-73,madhya-pradesh,1991,73,GHURAHAT,A.SINGH,parties.IN.INC,INC,38914,49.31,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-73,madhya-pradesh,1991,73,GHURAHAT,G.P.MISHRA,parties.IN.BJP,BJP,35374,44.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-73,madhya-pradesh,1991,73,GHURAHAT,P.NATH,parties.IN.BSP,BSP,1714,2.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-73,madhya-pradesh,1991,73,GHURAHAT,R.S.PATEL,parties.IN.JD,JD,1359,1.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-73,madhya-pradesh,1991,73,GHURAHAT,R.BAHADUR,parties.IN.IND,IND,315,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-73,madhya-pradesh,1991,73,GHURAHAT,RANGLAL,parties.IN.IND,IND,308,0.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-73,madhya-pradesh,1991,73,GHURAHAT,JAMUNA,parties.IN.IND,IND,297,0.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-73,madhya-pradesh,1991,73,GHURAHAT,D.PRASAD,parties.IN.IND,IND,279,0.35,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-73,madhya-pradesh,1991,73,GHURAHAT,R.M.KEWAT,parties.IN.IND,IND,132,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-73,madhya-pradesh,1991,73,GHURAHAT,H.KUMAR,parties.IN.IND,IND,85,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-73,madhya-pradesh,1991,73,GHURAHAT,A.P.S.CHAUHAN,parties.IN.IND,IND,76,0.1,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-73,madhya-pradesh,1991,73,GHURAHAT,G.N.CHATURVEDI,parties.IN.IND,IND,58,0.07,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-89,madhya-pradesh,1991,89,PREM NAGAR(ST),N.SINGH,parties.IN.BJP,BJP,30909,53.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-89,madhya-pradesh,1991,89,PREM NAGAR(ST),T.SINGH,parties.IN.INC,INC,25322,43.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-89,madhya-pradesh,1991,89,PREM NAGAR(ST),B.SINGH,parties.IN.JD,JD,727,1.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-89,madhya-pradesh,1991,89,PREM NAGAR(ST),G.KRISHNA,parties.IN.BSP,BSP,625,1.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-89,madhya-pradesh,1991,89,PREM NAGAR(ST),MINLESHBARI,parties.IN.IND,IND,329,0.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-89,madhya-pradesh,1991,89,PREM NAGAR(ST),M.LAL,parties.IN.DDP,DDP,211,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-89,madhya-pradesh,1991,89,PREM NAGAR(ST),E.SINGH,parties.IN.IND,IND,177,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-181,madhya-pradesh,1991,181,KHAIRALANJEE,D.N.A.B.PATEL,parties.IN.IND,IND,38620,64.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-181,madhya-pradesh,1991,181,KHAIRALANJEE,T.BISEN,parties.IN.INC,INC,18877,31.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-181,madhya-pradesh,1991,181,KHAIRALANJEE,V.BHANDARKAR,parties.IN.JD,JD,1015,1.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-181,madhya-pradesh,1991,181,KHAIRALANJEE,K.D.L.CHAURE,parties.IN.BSP,BSP,939,1.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-181,madhya-pradesh,1991,181,KHAIRALANJEE,K.GHODESHWAR,parties.IN.IND,IND,284,0.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-181,madhya-pradesh,1991,181,KHAIRALANJEE,R.LILHARE,parties.IN.IND,IND,144,0.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-181,madhya-pradesh,1991,181,KHAIRALANJEE,D.SHUKLA,parties.IN.IND,IND,89,0.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-181,madhya-pradesh,1991,181,KHAIRALANJEE,S.MARSKOLE,parties.IN.IND,IND,70,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-181,madhya-pradesh,1991,181,KHAIRALANJEE,K.SHRIWAS(TATDHARI),parties.IN.DDP,DDP,68,0.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-181,madhya-pradesh,1991,181,KHAIRALANJEE,N.BANSOD,parties.IN.IND,IND,34,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-307,madhya-pradesh,1991,307,PETLAWAD(ST),K.DAMAR(W),parties.IN.INC,INC,32632,53.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-307,madhya-pradesh,1991,307,PETLAWAD(ST),B.GAMAD,parties.IN.BJP,BJP,27613,44.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-307,madhya-pradesh,1991,307,PETLAWAD(ST),M.GAMAD,parties.IN.BSP,BSP,642,1.05,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-307,madhya-pradesh,1991,307,PETLAWAD(ST),GABBAJI,parties.IN.DDP,DDP,344,0.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-307,madhya-pradesh,1991,307,PETLAWAD(ST),SARWANIYA,parties.IN.IND,IND,173,0.28,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

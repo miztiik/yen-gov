@@ -218,21 +218,21 @@ def test_lift_emits_per_district_shards_and_returns_rows(
 
     by_partition = {r.partition_path: r for r in rows}
     expected_paths = {
-        "boundaries/in/panchayats/state=in_s22/district=603/all.geojson",
-        "boundaries/in/panchayats/state=in_s22/district=604/all.geojson",
-        "boundaries/in/panchayats/state=in_s08/district=50/all.geojson",
-        "boundaries/in/panchayats/state=in_u05/district=70/all.geojson",
+        "boundaries/in/panchayats/state=tamil-nadu/district=603/all.geojson",
+        "boundaries/in/panchayats/state=tamil-nadu/district=604/all.geojson",
+        "boundaries/in/panchayats/state=himachal-pradesh/district=50/all.geojson",
+        "boundaries/in/panchayats/state=delhi/district=70/all.geojson",
     }
     assert set(by_partition) == expected_paths
 
     chennai_row = by_partition[
-        "boundaries/in/panchayats/state=in_s22/district=603/all.geojson"
+        "boundaries/in/panchayats/state=tamil-nadu/district=603/all.geojson"
     ]
     assert chennai_row.retained_feature_count == 2
     assert chennai_row.original_feature_count == 2
     assert chennai_row.unkeyed_count == 0
     assert chennai_row.level == "panchayat"
-    assert chennai_row.layer_id == "boundaries.in.panchayats.state=in_s22.district=603"
+    assert chennai_row.layer_id == "boundaries.in.panchayats.state=tamil-nadu.district=603"
     assert chennai_row.entity_state == "S22"
     assert chennai_row.entity_district == "603"
     assert chennai_row.simplification_algorithm == "coord-precision-round"
@@ -262,7 +262,7 @@ def test_lift_is_byte_deterministic(tmp_path: Path, lift_module: Any) -> None:
         / "boundaries"
         / "in"
         / "panchayats"
-        / "state=in_s22"
+        / "state=tamil-nadu"
         / "district=603"
         / "all.geojson"
     )
@@ -276,7 +276,7 @@ def test_lift_is_byte_deterministic(tmp_path: Path, lift_module: Any) -> None:
         / "boundaries"
         / "in"
         / "panchayats"
-        / "state=in_s22"
+        / "state=tamil-nadu"
         / "district=603"
         / "all.geojson"
     )
@@ -321,28 +321,28 @@ def test_remove_stale_shards_deletes_only_non_keep_paths(
     equivalent helper (with the additional district= dir cleanup).
     """
     panchayats = tmp_path / "datasets" / "boundaries" / "in" / "panchayats"
-    (panchayats / "state=in_s22" / "district=603").mkdir(parents=True)
-    (panchayats / "state=in_s22" / "district=603" / "all.geojson").write_text(
+    (panchayats / "state=tamil-nadu" / "district=603").mkdir(parents=True)
+    (panchayats / "state=tamil-nadu" / "district=603" / "all.geojson").write_text(
         "{}", encoding="utf-8"
     )
-    (panchayats / "state=in_s22" / "district=604").mkdir(parents=True)
-    (panchayats / "state=in_s22" / "district=604" / "all.geojson").write_text(
+    (panchayats / "state=tamil-nadu" / "district=604").mkdir(parents=True)
+    (panchayats / "state=tamil-nadu" / "district=604" / "all.geojson").write_text(
         "{}", encoding="utf-8"
     )
-    (panchayats / "state=in_s08" / "district=50").mkdir(parents=True)
-    (panchayats / "state=in_s08" / "district=50" / "all.geojson").write_text(
+    (panchayats / "state=himachal-pradesh" / "district=50").mkdir(parents=True)
+    (panchayats / "state=himachal-pradesh" / "district=50" / "all.geojson").write_text(
         "{}", encoding="utf-8"
     )
 
     # Keep only TN/603; TN/604 and HP/50 are stale.
     deleted = lift_module.remove_stale_shards(
         panchayats,
-        {"boundaries/in/panchayats/state=in_s22/district=603/all.geojson"},
+        {"boundaries/in/panchayats/state=tamil-nadu/district=603/all.geojson"},
     )
     assert deleted == 2
-    assert (panchayats / "state=in_s22" / "district=603" / "all.geojson").is_file()
-    assert not (panchayats / "state=in_s22" / "district=604").exists()
-    assert not (panchayats / "state=in_s08").exists()
+    assert (panchayats / "state=tamil-nadu" / "district=603" / "all.geojson").is_file()
+    assert not (panchayats / "state=tamil-nadu" / "district=604").exists()
+    assert not (panchayats / "state=himachal-pradesh").exists()
 
 
 def test_remove_stale_shards_handles_missing_dir(tmp_path: Path, lift_module: Any) -> None:
@@ -472,7 +472,7 @@ def test_lift_skips_when_even_fallback_precision_exceeds_budget(
         / "boundaries"
         / "in"
         / "panchayats"
-        / "state=in_s22"
+        / "state=tamil-nadu"
         / "district=603"
         / "all.geojson"
     )

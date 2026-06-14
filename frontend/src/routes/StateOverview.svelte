@@ -1,9 +1,133 @@
+<script module lang="ts">
+  // Pure helper for the State Overview KPI tile hero block. Extracted so
+  // vitest pins the count + tile-set contract without mounting the
+  // component (yen-gov pattern: see CountingMethodDoc.svelte +
+  // IndicatorDoc.svelte for the <script module> + sibling .test.ts
+  // precedent). The helper is total: every loading / partial-data
+  // permutation has a defined output so a renderer that forgets a guard
+  // still degrades gracefully.
+
+  import type { ConstituencyEntry } from "../lib/data";
+  import type { District } from "../lib/view-models/districts";
+
+  /** One KPI tile spec consumed by the grid. `icon_name` is the
+   *  TopicIcon registry key (kebab-case filename under public/icons/
+   *  without `.svg`). `chip_bg` + `chip_fg` are literal Tailwind class
+   *  strings so JIT picks them up (NOT dynamic colour interpolation -
+   *  Tailwind cannot see `bg-${color}-500/15` at runtime). */
+  export interface KpiTile {
+    readonly key: string;
+    readonly label: string;
+    readonly value: string;
+    readonly icon_name: string;
+    readonly chip_bg: string;
+    readonly chip_fg: string;
+  }
+
+  const INT_FMT_IN = new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 });
+  const COMPACT_FMT_IN = new Intl.NumberFormat("en-IN", {
+    notation: "compact",
+    maximumFractionDigits: 2,
+  });
+
+  /** Slugs of Indian UTs that do NOT have a Vidhan Sabha (state
+   *  legislature). Administered by the Centre via a Lt. Governor; no
+   *  elected MLAs, no constituencies.json SOT, no "Assembly Map" surface.
+   *  Excludes Delhi (U05), Puducherry (U07), Jammu & Kashmir (U08) which
+   *  DO have assemblies. Structural fact of Indian polity, not a data gap;
+   *  hard-coded as a 5-row Set rather than derived from absence of SOT so
+   *  a bootstrap-pending state (genuine data gap) gets the "Assembly Map"
+   *  copy + spinner, not the "no legislature" copy.
+   *
+   *  The slugs MUST be the literal output of `slugify(display_name)`
+   *  from `datasets/taxonomy/entities.json` (the runtime catalogue
+   *  `states.slug()` resolves through), NOT the short slugs in the
+   *  `state_iso_seed.csv` backend bootstrap. U01's display_name is
+   *  "Andaman and Nicobar Islands" so the slug carries the `-islands`
+   *  suffix; the seed file's shorter `andaman-and-nicobar` is never
+   *  what the frontend router sees. */
+  export const NO_ASSEMBLY_UT_SLUGS: ReadonlySet<string> = new Set([
+    "andaman-and-nicobar-islands",
+    "chandigarh",
+    "dadra-and-nagar-haveli-and-daman-and-diu",
+    "ladakh",
+    "lakshadweep",
+  ]);
+
+  /** Builds the KPI tile set from reference data + summary electors.
+   *
+   *  - `acs === null`: empty array (caller decides whether to render
+   *    skeletons or hide the section based on `acs_status`).
+   *  - `districts === null` with `acs` ready: DISTRICTS tile shows "-"
+   *    (em-dash) so the row count stays stable rather than the column
+   *    silently reflowing while a slower fetch resolves.
+   *  - `electors` null / 0 / undefined: TOTAL VOTERS tile omitted; the
+   *    grid reflows from 5 to 4 columns at lg.
+   *  - RESERVED counts SC + ST (everything that is not "GEN"); GENERAL
+   *    counts "GEN". Sum equals acs.length by construction. */
+  export function buildKpiTiles(
+    acs: readonly ConstituencyEntry[] | null,
+    districts: readonly District[] | null,
+    electors: number | null | undefined,
+  ): KpiTile[] {
+    if (!acs) return [];
+    const reserved = acs.filter(c => c.reservation !== "GEN").length;
+    const general = acs.length - reserved;
+    const tiles: KpiTile[] = [
+      {
+        key: "assemblies",
+        label: "Assemblies",
+        value: INT_FMT_IN.format(acs.length),
+        icon_name: "landmark",
+        chip_bg: "bg-blue-500/15",
+        chip_fg: "text-blue-700",
+      },
+      {
+        key: "districts",
+        label: "Districts",
+        value: districts ? INT_FMT_IN.format(districts.length) : "-",
+        icon_name: "compass",
+        chip_bg: "bg-purple-500/15",
+        chip_fg: "text-purple-700",
+      },
+      {
+        key: "reserved",
+        label: "Reserved",
+        value: INT_FMT_IN.format(reserved),
+        icon_name: "shield",
+        chip_bg: "bg-red-500/15",
+        chip_fg: "text-red-700",
+      },
+      {
+        key: "general",
+        label: "General",
+        value: INT_FMT_IN.format(general),
+        icon_name: "shield",
+        chip_bg: "bg-slate-500/15",
+        chip_fg: "text-slate-700",
+      },
+    ];
+    if (electors != null && electors > 0) {
+      tiles.push({
+        key: "voters",
+        label: "Total voters",
+        value: COMPACT_FMT_IN.format(electors),
+        icon_name: "users",
+        chip_bg: "bg-cyan-500/15",
+        chip_fg: "text-cyan-700",
+      });
+    }
+    return tiles;
+  }
+</script>
+
 <script lang="ts">
-  import {
-    fetchConstituencies,
-    type ConstituencyEntry,
-  } from "../lib/data";
-  import { loadDistricts, type District } from "../lib/view-models/districts";
+  // Types `ConstituencyEntry` and `District` are imported in the
+  // `<script module>` block above and shared with the instance scope
+  // (Svelte 5 module/instance share the same TS module). Importing
+  // them here too would duplicate-identifier under svelte-check.
+  import { fetchConstituencies } from "../lib/data";
+  import { loadDistricts } from "../lib/view-models/districts";
   // PR-F (Phase 1.3b): StateOverview reads state-hub data through the
   // canonical Parquet store via DuckDB-WASM (view-models/state-overview.ts),
   // replacing the per-shard result.summary.json fetch. PR-G (Phase 1.3c)
@@ -29,6 +153,8 @@
     type TopicCatalogue,
   } from "../lib/catalogue";
   import PartyBar from "../lib/PartyBar.svelte";
+  import PartyPill from "../lib/party-pill/PartyPill.svelte";
+  import { partyRowForResolver } from "../lib/colors/party-row";
   import SeatDonut from "../lib/SeatDonut.svelte";
   // Phase 3.6 (c) - composition-bar A/B mount. Per plan resolution R-16
   // the new primitive ships behind a sticky-cookie A/B bucket; removal
@@ -297,6 +423,25 @@
     }
     return m;
   });
+
+  // KPI tile hero block (UX-only). `buildKpiTiles` is the <script module>
+  // pure helper above; the $derived re-runs on any of (acs, districts,
+  // summary.totals.electors). Empty array while acs is null (loading
+  // state renders skeletons; failed state hides the whole section).
+  const kpi_tiles = $derived(
+    buildKpiTiles(acs, districts, summary?.totals?.electors ?? null),
+  );
+
+  // No-assembly UT detection: the citizen lands on /ladakh expecting an
+  // Indian-polity-honest page; "Ladakh Assembly Map" is structurally
+  // wrong because Ladakh has no Vidhan Sabha. Drives the hero copy + the
+  // optional UT explainer below; the KPI section is independently hidden
+  // by `acs_status !== "failed"` (which fires for these same 5 UTs as a
+  // side effect of constituencies.json being absent).
+  const current_slug = $derived(state_code ? states.slug(state_code) : null);
+  const is_no_assembly_ut = $derived(
+    current_slug !== null && NO_ASSEMBLY_UT_SLUGS.has(current_slug),
+  );
 
   // Retry callable for the failed arm (PR-E pattern). Captures current
   // event + state_code at click-time; re-invokes the loader and re-routes
@@ -572,7 +717,27 @@
 {:else}
 <main class="max-w-screen-2xl mx-auto p-6 space-y-6">
   <header class="space-y-1">
-    <h1 class="text-2xl font-bold leading-tight">{states.name(state_code)}</h1>
+    <div class="border-l-4 border-red-500 pl-3 py-0.5">
+      {#if is_no_assembly_ut}
+        <h1 class="text-2xl font-bold leading-tight text-slate-900">
+          {states.name(state_code)}
+        </h1>
+        <p class="text-sm text-slate-500">
+          Union Territory administered by the Centre. No state legislature.
+        </p>
+      {:else}
+        <h1 class="text-2xl font-bold leading-tight text-slate-900">
+          {states.name(state_code)} Assembly Map
+        </h1>
+        <p class="text-sm text-slate-500">
+          {#if acs && acs.length > 0}
+            Interactive map showing all {acs.length} assembly constituencies
+          {:else}
+            Interactive map of assembly constituencies
+          {/if}
+        </p>
+      {/if}
+    </div>
     <p class="text-sm text-slate-600">
       {#if event_row}
         {selected_event_id ? "Election" : "Most recent assembly election"}: {event_row.display}.
@@ -617,6 +782,51 @@
   {#if !state_code}
     <div class="text-slate-500">Resolving state …</div>
   {:else}
+    <!-- State Overview KPI tile hero block (UX-only; spec from Jony
+         2026-06-13). Reference-data tiles (assemblies / districts /
+         reserved / general) render as long as the constituencies-ref
+         fetch is not in the `failed` arm; the optional total-voters
+         tile lights up only when summary.totals.electors > 0. Skeleton
+         while acs is mid-flight; hidden entirely on failed (the
+         existing election-section copy below carries the citizen
+         signal - no need for a second "data unavailable" surface). -->
+    {#if acs_status !== "failed"}
+      <section data-testid="state-overview-kpi" class="space-y-3">
+        <div class="border-l-4 border-red-500 pl-3 py-0.5">
+          <h2 class="text-lg font-bold text-slate-900">State Overview</h2>
+        </div>
+        {#if acs_status === "loading"}
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3" aria-hidden="true">
+            {#each [0, 1, 2, 3] as i (i)}
+              <div class="animate-pulse bg-slate-100 rounded-xl h-24 ring-1 ring-slate-200/70"></div>
+            {/each}
+          </div>
+        {:else}
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 {kpi_tiles.length >= 5 ? 'lg:grid-cols-5' : 'lg:grid-cols-4'}">
+            {#each kpi_tiles as t (t.key)}
+              <div
+                data-testid="kpi-tile"
+                data-kpi-key={t.key}
+                class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200/70 p-4"
+              >
+                <div class="flex items-center gap-3">
+                  <div class="rounded-md p-2 shrink-0 {t.chip_bg} {t.chip_fg}">
+                    <TopicIcon name={t.icon_name} cls="w-5 h-5" />
+                  </div>
+                  <div class="text-[10px] uppercase tracking-[0.12em] text-slate-500 font-semibold">
+                    {t.label}
+                  </div>
+                </div>
+                <div class="text-3xl font-bold tabular-nums text-slate-800 mt-2">
+                  {t.value}
+                </div>
+              </div>
+            {/each}
+          </div>
+        {/if}
+      </section>
+    {/if}
+
     <!-- Recency banner (ADR-0023 §3 recency rule). When polling closed
          within the last 90 days, the citizen wants to know about the
          election first; otherwise the government card leads. -->
@@ -734,19 +944,17 @@
     <!-- Election sections — preserved unchanged in capability and layout,
          but no longer the page's lead. Per ADR-0023 these are gated on
          the per-state event row: states with `data_status: pending_upstream`
-         get an honest "awaiting publication" notice; states with no row at
-         all (no election data ingested) skip the block entirely. -->
+         get an honest "not yet ingested" notice (the upstream flag is
+         set whether ECI hasn't published yet OR yen-gov hasn't loaded
+         the published file — the citizen-visible outcome is the same:
+         the canonical store doesn't carry this cohort); states with no
+         row at all (no election data ingested) skip the block entirely. -->
     {#if event_status === "pending_upstream"}
       <section class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-700">
-        <strong class="font-semibold">Election results awaiting publication.</strong>
+        <strong class="font-semibold">Not yet ingested.</strong>
         {#if event_row}
           {event_row.display} — polled {event_row.polled_on}.
         {/if}
-        The Election Commission of India has not yet released the
-        Statistical Report Section&nbsp;10 for this election (typical
-        publication lag is 6–18 months). yen-gov ingests results from
-        the official Statistical Reports rather than partial day-of
-        feeds, so this page will populate as soon as ECI publishes.
       </section>
     {:else if event_row && summaryResult.status === "failed"}
       <!-- PR-F: failed arm — DuckDB-WASM / fetch / SQL error reading the
@@ -765,13 +973,10 @@
            (indicator cards, government card, AC directory) above and below
            still render. -->
       <section class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-700">
-        <strong class="font-semibold">Election results not yet in the canonical store.</strong>
+        <strong class="font-semibold">Not yet ingested.</strong>
         {#if event_row}
           {event_row.display} — polled {event_row.polled_on}.
         {/if}
-        The pipeline has not yet ingested this cohort into the canonical
-        Parquet store. The AC directory below still reflects the constituency
-        reference file for this state.
       </section>
     {:else if event_row && summaryResult.status === "loading"}
       <div class="text-slate-500">Loading election data…</div>
@@ -786,11 +991,7 @@
     {:else if event_row && summary && acs_status === "failed"}
       <section class="bg-white rounded-lg shadow-sm p-6 text-sm text-slate-600">
         <p class="font-medium text-slate-700 mb-1">Election results loaded.</p>
-        <p>
-          Per-constituency directory for {event_row.display}
-          isn't available yet — the constituencies reference file for this
-          state still needs to be bootstrapped.
-        </p>
+        <p>Constituency directory unavailable.</p>
       </section>
     {:else if event_row && summary && acs}
 
@@ -963,17 +1164,19 @@
       {:else}
         <ul class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-1 text-sm">
           {#each filtered_parties as p}
-            {#if p.party_eci_code}
+            {@const party_href = link.party(p.party_id)}
+            {@const pill_row = partyRowForResolver(p)}
+            {#if party_href}
               <li>
-                <a class="hover:underline" href={link.party(state_code, p.party_eci_code, p.party_short)}>
-                  <span class="font-medium">{p.party_short}</span>
-                  <span class="text-slate-400 text-xs"> · {p.seats_won} seats · {p.vote_share_pct.toFixed(1)}%</span>
+                <a class="hover:underline inline-flex items-center gap-1.5" href={party_href}>
+                  <PartyPill size="sm" party_id={p.party_id} party_short={p.party_short} row={pill_row}/>
+                  <span class="text-slate-400 text-xs">· {p.seats_won} seats · {p.vote_share_pct.toFixed(1)}%</span>
                 </a>
               </li>
             {:else}
-              <li class="text-slate-500">
-                {p.party_short}
-                <span class="text-slate-400 text-xs"> · {p.seats_won} seats · {p.vote_share_pct.toFixed(1)}%</span>
+              <li class="inline-flex items-center gap-1.5">
+                <PartyPill size="sm" party_id={p.party_id} party_short={p.party_short} row={pill_row}/>
+                <span class="text-slate-400 text-xs">· {p.seats_won} seats · {p.vote_share_pct.toFixed(1)}%</span>
               </li>
             {/if}
           {/each}

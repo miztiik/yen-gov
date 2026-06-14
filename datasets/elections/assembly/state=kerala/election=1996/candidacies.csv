@@ -1,0 +1,1196 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-kerala-1,kerala,1996,1,MANJESWAR,CHERKALAM ABDULLAH,parties.IN.IUML,MUL,34705,38.23,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-1,kerala,1996,1,MANJESWAR,V.BALAKRISHNA SHETTY,parties.IN.BJP,BJP,32413,35.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-1,kerala,1996,1,MANJESWAR,M.RAMANNA RAI,parties.IN.CPIM,CPM,22601,24.9,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-1,kerala,1996,1,MANJESWAR,K.S.FAKRUDDEEN,parties.IN.IND,IND,608,0.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-1,kerala,1996,1,MANJESWAR,M.K.E.ABBAS,parties.IN.IND,IND,455,0.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-2,kerala,1996,2,KASARAGOD,C.T.AHAMMED ALI,parties.IN.IUML,MUL,33932,37.03,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-2,kerala,1996,2,KASARAGOD,K.MADHAVA HERALA,parties.IN.BJP,BJP,30149,32.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-2,kerala,1996,2,KASARAGOD,N.A.NELLIKUNNU,parties.IN.IND,IND,24254,26.47,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-2,kerala,1996,2,KASARAGOD,KUNHALI,parties.IN.IND,IND,946,1.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-2,kerala,1996,2,KASARAGOD,AMBADY,parties.IN.IND,IND,720,0.79,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-2,kerala,1996,2,KASARAGOD,FASALUREHIMAN,parties.IN.IND,IND,360,0.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-2,kerala,1996,2,KASARAGOD,ABBAS MUDALAPARA,parties.IN.IND,IND,257,0.28,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-2,kerala,1996,2,KASARAGOD,T.A.AHAMMED,parties.IN.IND,IND,223,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-2,kerala,1996,2,KASARAGOD,SAMSUDDIN,parties.IN.IND,IND,209,0.23,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-2,kerala,1996,2,KASARAGOD,SUNANDAKSHAN,parties.IN.IND,IND,197,0.21,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-2,kerala,1996,2,KASARAGOD,S.J. PRASAD,parties.IN.IND,IND,130,0.14,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-2,kerala,1996,2,KASARAGOD,B.K.AHAMMED KUNHI,parties.IN.IND,IND,128,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-2,kerala,1996,2,KASARAGOD,K.KRISHNAN,parties.IN.IND,IND,78,0.09,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-2,kerala,1996,2,KASARAGOD,HANEEF KASARAGOD,parties.IN.IND,IND,46,0.05,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-3,kerala,1996,3,UDMA,P. RAGHAVAN,parties.IN.CPIM,CPM,50854,46.73,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-3,kerala,1996,3,UDMA,K.P.KUNHIKANNAN,parties.IN.INC,INC,40459,37.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-3,kerala,1996,3,UDMA,MADIKAI KAMMARAN,parties.IN.BJP,BJP,14370,13.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-3,kerala,1996,3,UDMA,VALLIYADI KUNHIRAMAN,parties.IN.IND,IND,650,0.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-3,kerala,1996,3,UDMA,ABDULLA MAMMU HAJI,parties.IN.IND,IND,399,0.37,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-3,kerala,1996,3,UDMA,MUHAMMED ALI KALANAD,parties.IN.IND,IND,314,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-3,kerala,1996,3,UDMA,THOMAS JOSEPH,parties.IN.IND,IND,278,0.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-3,kerala,1996,3,UDMA,KRISHNAN KUNNARA,parties.IN.IND,IND,264,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-3,kerala,1996,3,UDMA,SAIFUDEEN MAKKOT,parties.IN.IND,IND,244,0.22,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-3,kerala,1996,3,UDMA,K. VIJAYAN,parties.IN.IND,IND,234,0.22,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-3,kerala,1996,3,UDMA,PUTHIYAPILA MUHAMMED KUNHI KIZHOOR,parties.IN.IND,IND,231,0.21,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-3,kerala,1996,3,UDMA,R.K.MUHAMMAD,parties.IN.IND,IND,173,0.16,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-3,kerala,1996,3,UDMA,AHAMED ORAVANGARA,parties.IN.IND,IND,137,0.13,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-3,kerala,1996,3,UDMA,P.MUHAMMED KUNHI HASANABAD,parties.IN.IND,IND,109,0.1,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-3,kerala,1996,3,UDMA,SHAFI ABDUL KHADER,parties.IN.IND,IND,73,0.07,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-3,kerala,1996,3,UDMA,K.M. SHAFI,parties.IN.IND,IND,42,0.04,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-4,kerala,1996,4,HOSDRUG,M. NARAYANAN,parties.IN.CPI,CPI,62786,50.83,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-4,kerala,1996,4,HOSDRUG,C.P. KRISHNAN,parties.IN.INC,INC,50977,41.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-4,kerala,1996,4,HOSDRUG,M.GOPALAN,parties.IN.BJP,BJP,9250,7.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-4,kerala,1996,4,HOSDRUG,P.SEKHARAN,parties.IN.IND,IND,514,0.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-5,kerala,1996,5,TRIKKARPUR,K.P.SATEESH CHANDRAN,parties.IN.CPIM,CPM,71234,53.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-5,kerala,1996,5,TRIKKARPUR,SONY SEBASTIAN,parties.IN.INC,INC,55486,41.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-5,kerala,1996,5,TRIKKARPUR,K. KUNHIRAMAN,parties.IN.BJP,BJP,4097,3.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-5,kerala,1996,5,TRIKKARPUR,P.K.C.AHAMMED,parties.IN.IND,IND,508,0.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-5,kerala,1996,5,TRIKKARPUR,ISSAC DEVASSYA,parties.IN.IND,IND,329,0.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-5,kerala,1996,5,TRIKKARPUR,AHAMMED MADAMBILLATH,parties.IN.IND,IND,295,0.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-5,kerala,1996,5,TRIKKARPUR,K.V. KAMALAKSHAN,parties.IN.IND,IND,153,0.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-5,kerala,1996,5,TRIKKARPUR,M.ABDUL NASAR,parties.IN.IND,IND,119,0.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-5,kerala,1996,5,TRIKKARPUR,SUKUMARAN KODAKKAD,parties.IN.IND,IND,104,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-5,kerala,1996,5,TRIKKARPUR,GOPALAN PADINHARE VEETIL,parties.IN.IND,IND,78,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-6,kerala,1996,6,IRIKKUR,K.C. JOSEPH,parties.IN.INC,INC,62407,55.93,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-6,kerala,1996,6,IRIKKUR,A.J. JOSEPH,parties.IN.KEC,KEC,44575,39.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-6,kerala,1996,6,IRIKKUR,A.V. KARUNAKARAN MASTER,parties.IN.BJP,BJP,3391,3.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-6,kerala,1996,6,IRIKKUR,PARASSERIL MATHEW JOSEPH,parties.IN.IND,IND,1041,0.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-6,kerala,1996,6,IRIKKUR,CHERATTIYADANTAKATH ABDUL MAJEED,parties.IN.IND,IND,94,0.08,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-6,kerala,1996,6,IRIKKUR,VAYAKKOTHMADATHIL NARAYANAN NAMBEESAN,parties.IN.IND,IND,65,0.06,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-7,kerala,1996,7,PAYYANNUR,PINARAYI VIJAYAN,parties.IN.CPIM,CPM,70870,59.42,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-7,kerala,1996,7,PAYYANNUR,K.N.KANNOTH,parties.IN.INC,INC,42792,35.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-7,kerala,1996,7,PAYYANNUR,K.RAMACHANDRAN,parties.IN.BJP,BJP,4577,3.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-7,kerala,1996,7,PAYYANNUR,M.KESAVAN NAMBOODIRI,parties.IN.IND,IND,493,0.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-7,kerala,1996,7,PAYYANNUR,C.P.ABDUL SHUKKOOR,parties.IN.IND,IND,343,0.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-7,kerala,1996,7,PAYYANNUR,NARAYANAN PALERI,parties.IN.IND,IND,189,0.16,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-8,kerala,1996,8,TALIPARAMBA,M.V.GOVINDAN MASTER,parties.IN.CPIM,CPM,70550,54.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-8,kerala,1996,8,TALIPARAMBA,SATHEESAN PACHENI,parties.IN.INC,INC,52933,41.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-8,kerala,1996,8,TALIPARAMBA,VANAJA RAGHAVAN,parties.IN.BJP,BJP,4367,3.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-8,kerala,1996,8,TALIPARAMBA,PATTATHIL RAGHAVAN,parties.IN.IND,IND,811,0.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-9,kerala,1996,9,AZHICODE,T.K.BALAN,parties.IN.CPIM,CPM,52240,55.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-9,kerala,1996,9,AZHICODE,T.P.HAREENDRAN,parties.IN.CMPKSC,CMPKSC,37734,39.87,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-9,kerala,1996,9,AZHICODE,C. NARAYANAN,parties.IN.BJP,BJP,3202,3.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-9,kerala,1996,9,AZHICODE,K.M.KUNHAHAMMED HAJI,parties.IN.IND,IND,751,0.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-9,kerala,1996,9,AZHICODE,NIRICHAN THOMAS JOSEPH,parties.IN.IND,IND,512,0.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-9,kerala,1996,9,AZHICODE,SUBASH AYYOTH,parties.IN.JKPDP,PDP,196,0.21,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-10,kerala,1996,10,CANNANORE,K.SUDHAKARAN,parties.IN.INC,INC,45148,48.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-10,kerala,1996,10,CANNANORE,N.RAMAKRISHNAN,parties.IN.IND,IND,37286,40.38,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-10,kerala,1996,10,CANNANORE,KASIM V.IRIKKUR,parties.IN.INL,INL,4476,4.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-10,kerala,1996,10,CANNANORE,K. JAYARAJAN,parties.IN.BJP,BJP,4449,4.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-10,kerala,1996,10,CANNANORE,K.P.CHANDRASEKHARAN,parties.IN.IND,IND,873,0.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-10,kerala,1996,10,CANNANORE,PANAYAN KUMARAN,parties.IN.IND,IND,98,0.11,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-11,kerala,1996,11,EDAKKAD,M.V.JAYARAJAN,parties.IN.CPIM,CPM,59239,51.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-11,kerala,1996,11,EDAKKAD,A.D.MUSTAFA,parties.IN.INC,INC,51955,45.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-11,kerala,1996,11,EDAKKAD,U.T.JAYANDAN,parties.IN.BJP,BJP,3049,2.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-11,kerala,1996,11,EDAKKAD,MAHAMOOD PARAKKATT,parties.IN.JKPDP,PDP,411,0.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-11,kerala,1996,11,EDAKKAD,K.GIREESHAN,parties.IN.IND,IND,117,0.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-11,kerala,1996,11,EDAKKAD,KALARIYIL ABDUL SHUKOOR,parties.IN.INL,INL,115,0.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-11,kerala,1996,11,EDAKKAD,P.C.RAGHUNATHAN,parties.IN.IND,IND,98,0.09,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-12,kerala,1996,12,TELLICHERRY,E.K. Nayanar,parties.IN.CPIM,CPM,60841,56.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-12,kerala,1996,12,TELLICHERRY,T. Asafali,parties.IN.INC,INC,36340,33.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-12,kerala,1996,12,TELLICHERRY,P.K. Krishnadas,parties.IN.BJP,BJP,9852,9.18,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-12,kerala,1996,12,TELLICHERRY,V. Sasi,parties.IN.IND,IND,292,0.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-13,kerala,1996,13,PERINGALAM,P.R.KURUP,parties.IN.JD,JD,51921,50.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-13,kerala,1996,13,PERINGALAM,K.M.SOOPY,parties.IN.IUML,MUL,37841,36.45,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-13,kerala,1996,13,PERINGALAM,PANNIANNUR CHANDRAN,parties.IN.BJP,BJP,10306,9.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-13,kerala,1996,13,PERINGALAM,MANIKKOTH HAMEED,parties.IN.IND,IND,1224,1.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-13,kerala,1996,13,PERINGALAM,M.C.SUKUMARAN,parties.IN.IND,IND,1138,1.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-13,kerala,1996,13,PERINGALAM,K.SUDHEER KUMAR,parties.IN.IND,IND,619,0.6,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-13,kerala,1996,13,PERINGALAM,ILLATH GOPALAN,parties.IN.IND,IND,402,0.39,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-13,kerala,1996,13,PERINGALAM,GOPALAN PARAMBATH,parties.IN.IND,IND,211,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-13,kerala,1996,13,PERINGALAM,MEETHAL YUSUF,parties.IN.IND,IND,142,0.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-14,kerala,1996,14,KUTHUPARAMBA,K.K.SHYLAJA,parties.IN.CPIM,CPM,61519,55.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-14,kerala,1996,14,KUTHUPARAMBA,M.P.KRISHNAN NAIR,parties.IN.INC,INC,42526,38.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-14,kerala,1996,14,KUTHUPARAMBA,O.K.VASU,parties.IN.BJP,BJP,6001,5.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-14,kerala,1996,14,KUTHUPARAMBA,AMBILAT MOHANAN,parties.IN.IND,IND,1248,1.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-14,kerala,1996,14,KUTHUPARAMBA,NELLIMALA THOMAS GEORGE,parties.IN.IND,IND,520,0.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-15,kerala,1996,15,PERAVOOR,K.T.KUNNAHAMMED,parties.IN.ICS,ICS,57450,46.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-15,kerala,1996,15,PERAVOOR,K.P.NOORUDEEN,parties.IN.INC,INC,57264,46.35,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-15,kerala,1996,15,PERAVOOR,P.M. BALACHANDRAN,parties.IN.BJP,BJP,5997,4.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-15,kerala,1996,15,PERAVOOR,NECHIKKADAN SAIDALAVI,parties.IN.IND,IND,1840,1.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-15,kerala,1996,15,PERAVOOR,K.K.KEETUKANDY,parties.IN.IND,IND,224,0.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-15,kerala,1996,15,PERAVOOR,NAROTH NANU,parties.IN.JP,JP,224,0.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-15,kerala,1996,15,PERAVOOR,KEERAMBATH ILLIKKAL ASSOTTY,parties.IN.IND,IND,206,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-15,kerala,1996,15,PERAVOOR,T.S.ROY,parties.IN.IND,IND,102,0.08,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-15,kerala,1996,15,PERAVOOR,C.M.ALI,parties.IN.IND,IND,97,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-15,kerala,1996,15,PERAVOOR,COTHUMMAKKAL KURIAN CHUMMAR,parties.IN.IND,IND,78,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-15,kerala,1996,15,PERAVOOR,KELICHAMKANDY ACHUTHAN,parties.IN.IND,IND,74,0.06,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-16,kerala,1996,16,NORTH WYNAD,RADHA RAGHAVAN,parties.IN.INC,INC,50617,48.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-16,kerala,1996,16,NORTH WYNAD,K.C.KUNHIRAMAN,parties.IN.CPIM,CPM,42652,41.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-16,kerala,1996,16,NORTH WYNAD,IRUMUTTOOR KUNHAMAN,parties.IN.BJP,BJP,7435,7.18,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-16,kerala,1996,16,NORTH WYNAD,P.ANNAN,parties.IN.IND,IND,1291,1.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-16,kerala,1996,16,NORTH WYNAD,P.K.KELU,parties.IN.AIIC_T,AIIC(T),589,0.57,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-16,kerala,1996,16,NORTH WYNAD,V.C.APPAYYAN,parties.IN.IND,IND,288,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-16,kerala,1996,16,NORTH WYNAD,K.J.JOSEPH,parties.IN.IND,IND,260,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-16,kerala,1996,16,NORTH WYNAD,C.M.YOGI,parties.IN.IND,IND,244,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-16,kerala,1996,16,NORTH WYNAD,BALAN KOLAKKADAN,parties.IN.IND,IND,173,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-17,kerala,1996,17,BADAGARA,C K NANU,parties.IN.JD,JD,67145,57.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-17,kerala,1996,17,BADAGARA,"VATHSALAN,C.",parties.IN.INC,INC,40159,34.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-17,kerala,1996,17,BADAGARA,C.V. RAJU,parties.IN.BJP,BJP,7893,6.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-17,kerala,1996,17,BADAGARA,ERIKKIL MOIDU,parties.IN.IND,IND,949,0.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-17,kerala,1996,17,BADAGARA,C.BHASKARAN,parties.IN.SAP,SAP,453,0.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-17,kerala,1996,17,BADAGARA,K K KRISHNAN,parties.IN.IND,IND,192,0.16,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-18,kerala,1996,18,NADAPURAM,SATHYAN MOKERI,parties.IN.CPI,CPI,65561,53.42,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-18,kerala,1996,18,NADAPURAM,"ABU,K.C.",parties.IN.INC,INC,50944,41.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-18,kerala,1996,18,NADAPURAM,"INDIRA, P.P",parties.IN.BJP,BJP,4759,3.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-18,kerala,1996,18,NADAPURAM,"KUNHABDULLA, N.K.",parties.IN.IND,IND,672,0.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-18,kerala,1996,18,NADAPURAM,ALIKUTTY ARIYERI,parties.IN.IND,IND,347,0.28,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-18,kerala,1996,18,NADAPURAM,"MUHAMMAD THAZHE, V.",parties.IN.IND,IND,277,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-18,kerala,1996,18,NADAPURAM,"PADMANABHAN,P.R",parties.IN.IND,IND,157,0.13,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-19,kerala,1996,19,MEPPAYUR,A.KANARAN,parties.IN.CPIM,CPM,65932,53.94,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-19,kerala,1996,19,MEPPAYUR,PV MUHAMED AREEKODE,parties.IN.IUML,MUL,49388,40.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-19,kerala,1996,19,MEPPAYUR,M.MOHANAN,parties.IN.BJP,BJP,5832,4.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-19,kerala,1996,19,MEPPAYUR,P.K.RADHAKRISHNAN,parties.IN.IND,IND,424,0.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-19,kerala,1996,19,MEPPAYUR,C.P.GOPALAN,parties.IN.SAP,SAP,399,0.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-19,kerala,1996,19,MEPPAYUR,K.T.SASI MANIYOOR,parties.IN.IND,IND,261,0.21,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-20,kerala,1996,20,QUILANDY,P.VISWAN,parties.IN.CPIM,CPM,59242,47.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-20,kerala,1996,20,QUILANDY,P.SANKARAN,parties.IN.INC,INC,54391,43.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-20,kerala,1996,20,QUILANDY,AHALLIYA SANKER,parties.IN.BJP,BJP,9324,7.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-20,kerala,1996,20,QUILANDY,JAFFER ATHOLI,parties.IN.INL,INL,389,0.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-20,kerala,1996,20,QUILANDY,V.E.AHAMMED THEKKE KAVALATTIL,parties.IN.IND,IND,290,0.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-20,kerala,1996,20,QUILANDY,N.T.KUNHIKANNAN,parties.IN.SAP,SAP,148,0.12,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-21,kerala,1996,21,PERAMBRA,N.K.RADHA,parties.IN.CPIM,CPM,59328,47.99,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-21,kerala,1996,21,PERAMBRA,ROSHY AUGUSTINE,parties.IN.KECM,KEC(M),56576,45.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-21,kerala,1996,21,PERAMBRA,K.M.SUDHAKARAN,parties.IN.BJP,BJP,5794,4.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-21,kerala,1996,21,PERAMBRA,T.K. KALANTHAN HAJI,parties.IN.IND,IND,420,0.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-21,kerala,1996,21,PERAMBRA,M.P.KUNHIRAMAN,parties.IN.IND,IND,417,0.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-21,kerala,1996,21,PERAMBRA,NELLIYOT KUNHAMMED,parties.IN.INL,INL,390,0.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-21,kerala,1996,21,PERAMBRA,P.J.THOMAS PARATHALA,parties.IN.IND,IND,204,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-21,kerala,1996,21,PERAMBRA,THRESSIAMMA,parties.IN.IND,IND,187,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-21,kerala,1996,21,PERAMBRA,PRAKASAN ERAVATTOOR,parties.IN.SAP,SAP,138,0.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-21,kerala,1996,21,PERAMBRA,DEVI,parties.IN.IND,IND,99,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-21,kerala,1996,21,PERAMBRA,M.P.MADHAVAN,parties.IN.IND,IND,64,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-22,kerala,1996,22,BALUSSERI,A.C.SHANMUKHADAS,parties.IN.ICS,ICS,55588,52.45,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-22,kerala,1996,22,BALUSSERI,R.K.RAVIVARMA,parties.IN.INC,INC,40558,38.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-22,kerala,1996,22,BALUSSERI,V.V.RAJAN,parties.IN.BJP,BJP,9571,9.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-22,kerala,1996,22,BALUSSERI,MINAPARAMBATH THEYYATHIRA,parties.IN.IND,IND,268,0.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-23,kerala,1996,23,KODUVALLY,C.MOYINKUTTY,parties.IN.IUML,MUL,49752,43.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-23,kerala,1996,23,KODUVALLY,C.MOHSIN,parties.IN.JD,JD,49658,43.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-23,kerala,1996,23,KODUVALLY,CHETTOR BALAKRISHNAN,parties.IN.BJP,BJP,9596,8.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-23,kerala,1996,23,KODUVALLY,N.AHAMAD,parties.IN.INL,INL,1968,1.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-23,kerala,1996,23,KODUVALLY,KUNNUMMEL ASHRAF,parties.IN.JP,JP,941,0.83,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-23,kerala,1996,23,KODUVALLY,ANAPARAPORAYIL CHOYI,parties.IN.IND,IND,761,0.67,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-23,kerala,1996,23,KODUVALLY,K.P.BASHEER HAJI,parties.IN.JKPDP,PDP,252,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-23,kerala,1996,23,KODUVALLY,T.P. HARIDASAN,parties.IN.IND,IND,201,0.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-23,kerala,1996,23,KODUVALLY,I.SIDDIQUE BABU,parties.IN.IND,IND,110,0.1,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-23,kerala,1996,23,KODUVALLY,K.V.POOVATHMEETHAL KRISHNAN,parties.IN.IND,IND,106,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-24,kerala,1996,24,CALICUT- I,M.DASAN,parties.IN.CPIM,CPM,46455,46.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-24,kerala,1996,24,CALICUT- I,A.SUJANAPAL,parties.IN.INC,INC,43184,43.13,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-24,kerala,1996,24,CALICUT- I,SUMATHI HARIDAS,parties.IN.BJP,BJP,9556,9.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-24,kerala,1996,24,CALICUT- I,V.K.SADANANDAN,parties.IN.IND,IND,469,0.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-24,kerala,1996,24,CALICUT- I,K.P.MOOSABAI,parties.IN.IND,IND,143,0.14,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-24,kerala,1996,24,CALICUT- I,NARIKUNI CHANDRAN,parties.IN.IND,IND,130,0.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-24,kerala,1996,24,CALICUT- I,GOPI,parties.IN.IND,IND,99,0.1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-24,kerala,1996,24,CALICUT- I,ABBAS KOYA,parties.IN.IND,IND,92,0.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-25,kerala,1996,25,CALICUT- II,ELAMARAM KAREEM,parties.IN.CPIM,CPM,49105,48.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-25,kerala,1996,25,CALICUT- II,QAMARUNNISA ANVAR,parties.IN.IUML,MUL,40339,39.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-25,kerala,1996,25,CALICUT- II,K.KRISHNAN,parties.IN.BJP,BJP,10782,10.66,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-25,kerala,1996,25,CALICUT- II,K.GOPALAKRISHNAN,parties.IN.IND,IND,221,0.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-25,kerala,1996,25,CALICUT- II,KUNHI MOIDEEN KUTTY,parties.IN.IND,IND,202,0.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-25,kerala,1996,25,CALICUT- II,A.A.VAHAB,parties.IN.INL,INL,138,0.14,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-25,kerala,1996,25,CALICUT- II,SALEEM PUTHIYAPALAM,parties.IN.JKPDP,PDP,134,0.13,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-25,kerala,1996,25,CALICUT- II,"RAJAN,T.",parties.IN.IND,IND,121,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-25,kerala,1996,25,CALICUT- II,K.V.PREMAN,parties.IN.SAP,SAP,117,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-26,kerala,1996,26,BEYPORE,T.K.HAMZA,parties.IN.CPIM,CPM,62144,48.67,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-26,kerala,1996,26,BEYPORE,UMMER PANDIKASALA,parties.IN.IUML,MUL,50048,39.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-26,kerala,1996,26,BEYPORE,V.MOHANAN,parties.IN.BJP,BJP,14363,11.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-26,kerala,1996,26,BEYPORE,MOYIN BAPPU,parties.IN.JKPDP,PDP,825,0.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-26,kerala,1996,26,BEYPORE,PAYYUNNI ASHRAF,parties.IN.IND,IND,149,0.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-26,kerala,1996,26,BEYPORE,KAMBISTORE ABDULLAKOYA,parties.IN.INL,INL,146,0.11,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-27,kerala,1996,27,KUNNAMANGALAM,C.P.BALAN VAIDYAR,parties.IN.CPIM,CPM,51401,47.37,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-27,kerala,1996,27,KUNNAMANGALAM,A.P.UNNIKRISHNAN,parties.IN.IUML,MUL,44785,41.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-27,kerala,1996,27,KUNNAMANGALAM,P.K.VELAYUDHAN,parties.IN.BJP,BJP,11878,10.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-27,kerala,1996,27,KUNNAMANGALAM,P.K.RADHAKRISHNAN,parties.IN.INL,INL,296,0.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-27,kerala,1996,27,KUNNAMANGALAM,"SIVADASAN,V.P.",parties.IN.IND,IND,143,0.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-28,kerala,1996,28,THIRUVAMBADI,ABDURAHIMAN HAJI AV,parties.IN.IUML,MUL,48942,48.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-28,kerala,1996,28,THIRUVAMBADI,CYRIAC JOHN,parties.IN.ICS,ICS,43820,43.28,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-kerala-28,kerala,1996,28,THIRUVAMBADI,PRABHAKARAN K,parties.IN.BJP,BJP,5220,5.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-28,kerala,1996,28,THIRUVAMBADI,CHOYIKKUTTY,parties.IN.IND,IND,1762,1.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-28,kerala,1996,28,THIRUVAMBADI,ABDUL NAZAR,parties.IN.IND,IND,432,0.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-28,kerala,1996,28,THIRUVAMBADI,CHERUVATT ABDULLA HAJI,parties.IN.IND,IND,343,0.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-28,kerala,1996,28,THIRUVAMBADI,PANNIYAM KUZHIYAL MUHAMAD,parties.IN.IND,IND,302,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-28,kerala,1996,28,THIRUVAMBADI,KADAMBANAT MATHACHAN,parties.IN.IND,IND,204,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-28,kerala,1996,28,THIRUVAMBADI,AYANIKKATT CHOKKUTTY,parties.IN.IND,IND,125,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-28,kerala,1996,28,THIRUVAMBADI,C.K.SREEDHARAN,parties.IN.IND,IND,100,0.1,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-29,kerala,1996,29,KALPETTA,K.K. RAMACHANDRAN,parties.IN.INC,INC,49577,49.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-29,kerala,1996,29,KALPETTA,JAINENDRA KALPETTA,parties.IN.JD,JD,42655,42.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-29,kerala,1996,29,KALPETTA,V.SREENIVASAN,parties.IN.BJP,BJP,5876,5.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-29,kerala,1996,29,KALPETTA,C.R.KUMARAN,parties.IN.IND,IND,491,0.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-29,kerala,1996,29,KALPETTA,GOPINATHAN ELLAN,parties.IN.IND,IND,459,0.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-29,kerala,1996,29,KALPETTA,POKKER KALLAI,parties.IN.IND,IND,294,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-29,kerala,1996,29,KALPETTA,GOPALAN BHASKARAN,parties.IN.IND,IND,255,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-29,kerala,1996,29,KALPETTA,MEENAKSHI THANKAPPAN,parties.IN.BSP,BSP,180,0.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-29,kerala,1996,29,KALPETTA,JAMES CHACKO,parties.IN.IND,IND,165,0.16,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-29,kerala,1996,29,KALPETTA,NABEESA BASHEER,parties.IN.IND,IND,81,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-29,kerala,1996,29,KALPETTA,V.C.GEORGE CHACKO,parties.IN.IND,IND,64,0.06,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-29,kerala,1996,29,KALPETTA,P.K. DAMODARAN,parties.IN.IND,IND,43,0.04,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-30,kerala,1996,30,SULTAN'S BATTERY,VARGHESE VAIDYAR,parties.IN.CPIM,CPM,50316,44.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-30,kerala,1996,30,SULTAN'S BATTERY,KC ROSAKUTTY,parties.IN.INC,INC,49020,43.28,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-30,kerala,1996,30,SULTAN'S BATTERY,P.C.GOPINATH,parties.IN.BJP,BJP,8495,7.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-30,kerala,1996,30,SULTAN'S BATTERY,DAMODARAN,parties.IN.IND,IND,1701,1.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-30,kerala,1996,30,SULTAN'S BATTERY,P.T.JOHN,parties.IN.IND,IND,1265,1.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-30,kerala,1996,30,SULTAN'S BATTERY,VISWANATHAN THAMPI,parties.IN.IND,IND,1080,0.95,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-30,kerala,1996,30,SULTAN'S BATTERY,SUMA BABY VAZHAYIL,parties.IN.IND,IND,388,0.34,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-30,kerala,1996,30,SULTAN'S BATTERY,V.M.JOSEPH,parties.IN.IND,IND,228,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-30,kerala,1996,30,SULTAN'S BATTERY,POOTHADY MOHANAN,parties.IN.IND,IND,223,0.2,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-30,kerala,1996,30,SULTAN'S BATTERY,ASSAIN MAVADY,parties.IN.IND,IND,158,0.14,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-30,kerala,1996,30,SULTAN'S BATTERY,V.N.SASEENDRAN,parties.IN.IND,IND,144,0.13,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-30,kerala,1996,30,SULTAN'S BATTERY,P.K. RAMAN,parties.IN.IND,IND,138,0.12,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-30,kerala,1996,30,SULTAN'S BATTERY,POKKATHAYIL KURIACHAN,parties.IN.IND,IND,107,0.09,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-31,kerala,1996,31,WANDOOR,N.KANNAN,parties.IN.CPIM,CPM,55399,48.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-31,kerala,1996,31,WANDOOR,PANDALAM SUDHAKARAN,parties.IN.INC,INC,51198,45.01,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-31,kerala,1996,31,WANDOOR,K.U.CHANDRAN,parties.IN.BJP,BJP,3856,3.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-31,kerala,1996,31,WANDOOR,KUNNATHOOR SREENIVASAN,parties.IN.JKPDP,PDP,2827,2.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-31,kerala,1996,31,WANDOOR,P.K.RAJAN,parties.IN.INL,INL,458,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-32,kerala,1996,32,NILAMBUR,ARYADAN MUHAMMED,parties.IN.INC,INC,61945,49.86,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-32,kerala,1996,32,NILAMBUR,MALAYIL THOMAS MATHEW,parties.IN.IND,IND,55252,44.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-32,kerala,1996,32,NILAMBUR,O.GANGADHARAN,parties.IN.BJP,BJP,4314,3.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-32,kerala,1996,32,NILAMBUR,EDAPPATTA ABOOBACKER,parties.IN.JKPDP,PDP,1101,0.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-32,kerala,1996,32,NILAMBUR,PULLIYIL MUHAMMED IBRAHIM @ CHERIYON,parties.IN.IND,IND,986,0.79,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-32,kerala,1996,32,NILAMBUR,KARIMBAN JOSE,parties.IN.IND,IND,277,0.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-32,kerala,1996,32,NILAMBUR,ABDUL AZEEZ,parties.IN.IND,IND,124,0.1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-32,kerala,1996,32,NILAMBUR,VELAYUDHAN NAIR,parties.IN.IND,IND,123,0.1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-32,kerala,1996,32,NILAMBUR,KANJIRAMPARA ABBAS HAJI,parties.IN.IND,IND,104,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-33,kerala,1996,33,MANJERI,ISHAQUE KURIKKAL,parties.IN.IUML,MUL,62029,59.6,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-33,kerala,1996,33,MANJERI,P.M.ZAFARULLA,parties.IN.JD,JD,33374,32.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-33,kerala,1996,33,MANJERI,K.SOMASUNDARAN,parties.IN.BJP,BJP,4679,4.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-33,kerala,1996,33,MANJERI,K.BABUMANI,parties.IN.JKPDP,PDP,2014,1.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-33,kerala,1996,33,MANJERI,KOTTAKUNNAN MOHAMMED HAJI,parties.IN.IND,IND,1502,1.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-33,kerala,1996,33,MANJERI,VADAKKEKARA V.C.CHEKKU,parties.IN.INL,INL,301,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-33,kerala,1996,33,MANJERI,THALTHODIKA SIDDIQUE,parties.IN.IND,IND,119,0.11,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-33,kerala,1996,33,MANJERI,PARAKKAL ABDU SHERIF,parties.IN.IND,IND,59,0.06,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-34,kerala,1996,34,MALAPPURAM,M.K.MUNEER,parties.IN.IUML,MUL,52593,57.3,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-34,kerala,1996,34,MALAPPURAM,P.M.A.SALAM,parties.IN.INL,INL,32072,34.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-34,kerala,1996,34,MALAPPURAM,NARUKARA GOPI,parties.IN.BJP,BJP,4105,4.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-34,kerala,1996,34,MALAPPURAM,"BABU MANI, K.",parties.IN.JKPDP,PDP,2046,2.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-34,kerala,1996,34,MALAPPURAM,KADAMBOTTU MUSTHAFFA,parties.IN.ICS,ICS,508,0.55,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-34,kerala,1996,34,MALAPPURAM,MULANTHIPULAKKAL MUHAMMED HAJI,parties.IN.IND,IND,311,0.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-34,kerala,1996,34,MALAPPURAM,P. FAISAL HASSAN BAVA,parties.IN.IND,IND,155,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-35,kerala,1996,35,KONDOTTY,P K.K.BAVA,parties.IN.IUML,MUL,57728,57.41,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-35,kerala,1996,35,KONDOTTY,K.P.MOHAMMED,parties.IN.JD,JD,31590,31.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-35,kerala,1996,35,KONDOTTY,K.KRISHNA KUMAR,parties.IN.BJP,BJP,8019,7.98,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-35,kerala,1996,35,KONDOTTY,K.P ABDU HAJI,parties.IN.JKPDP,PDP,1680,1.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-35,kerala,1996,35,KONDOTTY,ULIANKAL MOIDINKUTTY,parties.IN.IND,IND,1009,1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-35,kerala,1996,35,KONDOTTY,ATASERI MOIDEENKUTTY,parties.IN.IND,IND,186,0.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-35,kerala,1996,35,KONDOTTY,K.V. VELAYUDHAN,parties.IN.SAP,SAP,177,0.18,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-35,kerala,1996,35,KONDOTTY,KANNIYATH MOHAMMED @ KUNHIMAN,parties.IN.IND,IND,157,0.16,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-36,kerala,1996,36,TIRURANGADI,KUTTY AHAMED KUTTY,parties.IN.IUML,MUL,48953,48.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-36,kerala,1996,36,TIRURANGADI,A.V.ABDU HAJI,parties.IN.IND,IND,40921,40.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-36,kerala,1996,36,TIRURANGADI,K. JANARDHANAN,parties.IN.BJP,BJP,9788,9.66,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-36,kerala,1996,36,TIRURANGADI,CHEMBA IBRAHIM KUTTY,parties.IN.IND,IND,1061,1.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-36,kerala,1996,36,TIRURANGADI,M. BEERAN KUTTY,parties.IN.IND,IND,241,0.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-36,kerala,1996,36,TIRURANGADI,M.A.MAJEED HAJI,parties.IN.IND,IND,123,0.12,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-36,kerala,1996,36,TIRURANGADI,CHUKKAN SAIDALAVI,parties.IN.IND,IND,105,0.1,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-36,kerala,1996,36,TIRURANGADI,JAFFAR ATHOLI,parties.IN.IND,IND,88,0.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-37,kerala,1996,37,TANUR,ABDU RABB,parties.IN.IUML,MUL,48603,53.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-37,kerala,1996,37,TANUR,T.V. MOIDEEN KUTTY @ KUNHAN BAVA HAJI,parties.IN.IND,IND,28590,31.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-37,kerala,1996,37,TANUR,K.NARAYANAN,parties.IN.BJP,BJP,9190,10.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-37,kerala,1996,37,TANUR,M. BEERANKUTTY,parties.IN.JKPDP,PDP,3182,3.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-37,kerala,1996,37,TANUR,ABDUL MAJEED MOOTHEDATH,parties.IN.IND,IND,911,1.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-38,kerala,1996,38,TIRUR,E.T.MOHAMED BASHEER,parties.IN.IUML,MUL,52037,48.08,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-38,kerala,1996,38,TIRUR,U.A.NASEER,parties.IN.IND,IND,42353,39.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-38,kerala,1996,38,TIRUR,C.BALAKRISHNAN,parties.IN.BJP,BJP,9621,8.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-38,kerala,1996,38,TIRUR,PUTHUTHOTTIL IBRAHIM,parties.IN.JKPDP,PDP,2160,2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-38,kerala,1996,38,TIRUR,I.P.YOOSUF,parties.IN.IND,IND,920,0.85,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-38,kerala,1996,38,TIRUR,P.P.MOHAMMED,parties.IN.IND,IND,525,0.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-38,kerala,1996,38,TIRUR,ENNAZHIYIL BHASKARAN,parties.IN.IND,IND,462,0.43,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-38,kerala,1996,38,TIRUR,SALAM PARAVANNA,parties.IN.IND,IND,143,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-39,kerala,1996,39,PONNANI,MUHAMMEDKUTTY PALOLI,parties.IN.CPIM,CPM,49594,48.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-39,kerala,1996,39,PONNANI,P.T.MOHANAKRISHNAN,parties.IN.INC,INC,40976,39.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-39,kerala,1996,39,PONNANI,GOPALAN DEEPAKMANDIR,parties.IN.BJP,BJP,6687,6.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-39,kerala,1996,39,PONNANI,K.ASHRAF,parties.IN.JKPDP,PDP,4803,4.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-39,kerala,1996,39,PONNANI,"KUNHIMON, T.",parties.IN.IND,IND,460,0.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-39,kerala,1996,39,PONNANI,"ZAKHIR ALI, T.",parties.IN.IND,IND,264,0.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-39,kerala,1996,39,PONNANI,"ABDUL AZEEZ, P.",parties.IN.IND,IND,258,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-39,kerala,1996,39,PONNANI,P.M.VASU,parties.IN.IND,IND,151,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-40,kerala,1996,40,KUTTIPPURAM,P.K. KUNHALIKUTTY,parties.IN.IUML,MUL,46943,59.58,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-40,kerala,1996,40,KUTTIPPURAM,IBRAHIM HAJI MAYYERI,parties.IN.INL,INL,22247,28.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-40,kerala,1996,40,KUTTIPPURAM,PUSHPARAJAN ATHAVANAD,parties.IN.BJP,BJP,5018,6.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-40,kerala,1996,40,KUTTIPPURAM,C.K.ABDUL AZEEZ,parties.IN.IND,IND,2219,2.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-40,kerala,1996,40,KUTTIPPURAM,HAMSAKUTTY MAYYERI,parties.IN.IND,IND,1029,1.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-40,kerala,1996,40,KUTTIPPURAM,K.P.SAIDALI,parties.IN.IND,IND,578,0.73,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-40,kerala,1996,40,KUTTIPPURAM,K.C. SREEDHARAN,parties.IN.IND,IND,341,0.43,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-40,kerala,1996,40,KUTTIPPURAM,KALLAN ABDURAHIMAN,parties.IN.IND,IND,180,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-40,kerala,1996,40,KUTTIPPURAM,YOOSUF KARIKULAKKAT,parties.IN.IND,IND,130,0.16,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-40,kerala,1996,40,KUTTIPPURAM,POONERI KUNHIMOIDEEN,parties.IN.JKPDP,PDP,109,0.14,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-41,kerala,1996,41,MANKADA,K.P. ABDUL MAJEED,parties.IN.IUML,MUL,52044,46.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-41,kerala,1996,41,MANKADA,MANJALAMKUZHI ALI,parties.IN.IND,IND,50990,46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-41,kerala,1996,41,MANKADA,M.V.NARAYANAN,parties.IN.BJP,BJP,4396,3.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-41,kerala,1996,41,MANKADA,U. KUNHIMOHAMMED,parties.IN.JKPDP,PDP,1911,1.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-41,kerala,1996,41,MANKADA,M.M. ABDUL SALAM KURIKKAL,parties.IN.INL,INL,528,0.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-41,kerala,1996,41,MANKADA,V.T.MOHAMMED KUTTY,parties.IN.IND,IND,461,0.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-41,kerala,1996,41,MANKADA,K.P. SREEVALLABAN NAIR,parties.IN.IND,IND,411,0.37,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-41,kerala,1996,41,MANKADA,M. HAMZA HAJI,parties.IN.AIIC_T,AIIC(T),117,0.11,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-42,kerala,1996,42,PERINTHALMANNA,NALAKATH SOOPPY,parties.IN.IUML,MUL,55008,49.89,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-42,kerala,1996,42,PERINTHALMANNA,A.MOHAMED,parties.IN.IND,IND,48760,44.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-42,kerala,1996,42,PERINTHALMANNA,UNNIKRISHNAN CHERATH,parties.IN.BJP,BJP,3137,2.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-42,kerala,1996,42,PERINTHALMANNA,K.V.ABDURAZAK,parties.IN.IND,IND,1801,1.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-42,kerala,1996,42,PERINTHALMANNA,PARAMANANDAN MANKADA,parties.IN.JKPDP,PDP,920,0.83,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-42,kerala,1996,42,PERINTHALMANNA,C. VISWANATHAN,parties.IN.IND,IND,161,0.15,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-42,kerala,1996,42,PERINTHALMANNA,V. ABDURAHIMAN,parties.IN.IND,IND,130,0.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-42,kerala,1996,42,PERINTHALMANNA,P.E. NARAYANAN NAIR,parties.IN.IND,IND,129,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-42,kerala,1996,42,PERINTHALMANNA,CHEELATH UNNI AVARA,parties.IN.IND,IND,115,0.1,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-42,kerala,1996,42,PERINTHALMANNA,K. SAIDALIKKUTY,parties.IN.IND,IND,89,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-43,kerala,1996,43,THRITHALA,V.K.CHANDRAN,parties.IN.CPIM,CPM,46410,47.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-43,kerala,1996,43,THRITHALA,A.P.ANILKUMAR,parties.IN.INC,INC,42009,42.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-43,kerala,1996,43,THRITHALA,P.K.CHAMI,parties.IN.BJP,BJP,6977,7.14,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-43,kerala,1996,43,THRITHALA,VALLIKUNNAM PRASAD,parties.IN.JKPDP,PDP,1928,1.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-43,kerala,1996,43,THRITHALA,M.KRISHNAN,parties.IN.IND,IND,444,0.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-44,kerala,1996,44,PATTAMBI,K.E.ISMAIL,parties.IN.CPI,CPI,43984,47.66,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-44,kerala,1996,44,PATTAMBI,M.I.SHANAVAS,parties.IN.INC,INC,38510,41.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-44,kerala,1996,44,PATTAMBI,SASIKALA,parties.IN.BJP,BJP,7580,8.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-44,kerala,1996,44,PATTAMBI,K.P.ABDURAHIMAN,parties.IN.JKPDP,PDP,1754,1.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-44,kerala,1996,44,PATTAMBI,KOLLARUTHODY HAMZA,parties.IN.IND,IND,458,0.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-45,kerala,1996,45,OTTAPALAM,V.C.KABEER,parties.IN.ICS,ICS,40615,45.33,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-kerala-45,kerala,1996,45,OTTAPALAM,K.V. PRABHAKARAN NAMBIAR,parties.IN.INC,INC,33257,37.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-45,kerala,1996,45,OTTAPALAM,K.KRISHNAKUMAR,parties.IN.BJP,BJP,10856,12.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-45,kerala,1996,45,OTTAPALAM,M. CHANDRAN,parties.IN.IND,IND,3508,3.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-45,kerala,1996,45,OTTAPALAM,P.P.AVARACHAN,parties.IN.IND,IND,565,0.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-45,kerala,1996,45,OTTAPALAM,A.K.KUMARAN,parties.IN.IND,IND,507,0.57,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-45,kerala,1996,45,OTTAPALAM,M.SANKARJI,parties.IN.IND,IND,288,0.32,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-46,kerala,1996,46,SREEKRISHNAPURAM,GIRIJA SURENDRAN,parties.IN.CPIM,CPM,55108,48.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-46,kerala,1996,46,SREEKRISHNAPURAM,P.BALAN,parties.IN.INC,INC,51091,45.23,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-46,kerala,1996,46,SREEKRISHNAPURAM,N.V.GOPALAKRISHNAN,parties.IN.BJP,BJP,6098,5.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-46,kerala,1996,46,SREEKRISHNAPURAM,P.T.VALIYAKASIM,parties.IN.JKPDP,PDP,504,0.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-46,kerala,1996,46,SREEKRISHNAPURAM,C.AMMINI,parties.IN.IND,IND,163,0.14,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-47,kerala,1996,47,MANNARKKAD,JOSE BABY,parties.IN.CPI,CPI,57688,50.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-47,kerala,1996,47,MANNARKKAD,KALLADI MOHAMMED,parties.IN.IUML,MUL,50720,44.24,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-47,kerala,1996,47,MANNARKKAD,A.SATHYANATHAN,parties.IN.BJP,BJP,4588,4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-47,kerala,1996,47,MANNARKKAD,C.SELVARAJ,parties.IN.IND,IND,454,0.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-47,kerala,1996,47,MANNARKKAD,"RAMAKRISHNAN,T.",parties.IN.IND,IND,404,0.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-47,kerala,1996,47,MANNARKKAD,P.C.CHANDRAN,parties.IN.JKPDP,PDP,383,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-47,kerala,1996,47,MANNARKKAD,SULAIMAN KHALID,parties.IN.INL,INL,337,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-47,kerala,1996,47,MANNARKKAD,ABBAS PODUVACHOLA,parties.IN.IND,IND,69,0.06,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-48,kerala,1996,48,MALAMPUZHA,T.SIVADASA MENON,parties.IN.CPIM,CPM,54033,56.45,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-48,kerala,1996,48,MALAMPUZHA,M.GURUSWAMY,parties.IN.INC,INC,35254,36.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-48,kerala,1996,48,MALAMPUZHA,N.SIVARAJAN,parties.IN.BJP,BJP,5423,5.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-48,kerala,1996,48,MALAMPUZHA,K.MANI,parties.IN.IND,IND,334,0.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-48,kerala,1996,48,MALAMPUZHA,G.VELUSWAMY GOUNDER,parties.IN.IND,IND,314,0.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-48,kerala,1996,48,MALAMPUZHA,K.SIVANARAYANAN,parties.IN.IND,IND,280,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-48,kerala,1996,48,MALAMPUZHA,P.K.T.KUTTAN,parties.IN.SAP,SAP,78,0.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-49,kerala,1996,49,PALGHAT,T.K.NOUSHAD,parties.IN.CPIM,CPM,39198,43.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-49,kerala,1996,49,PALGHAT,C.M.SUNDARAM,parties.IN.INC,INC,38602,42.54,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-49,kerala,1996,49,PALGHAT,S.R.BALASUBRAMANIAN,parties.IN.BJP,BJP,11446,12.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-49,kerala,1996,49,PALGHAT,C.G.MANI,parties.IN.JKPDP,PDP,400,0.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-49,kerala,1996,49,PALGHAT,SANKARAN KAVASSERY,parties.IN.IND,IND,332,0.37,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-49,kerala,1996,49,PALGHAT,M.SIVANARAYANAN,parties.IN.JP,JP,296,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-49,kerala,1996,49,PALGHAT,P.P.MENON,parties.IN.IND,IND,229,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-49,kerala,1996,49,PALGHAT,G.P. GANAPATHI THARAKAN,parties.IN.IND,IND,157,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-49,kerala,1996,49,PALGHAT,PV CHIDAMBARESWARAN,parties.IN.IND,IND,75,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-50,kerala,1996,50,CHITTUR,"ACHUTHAN,K.",parties.IN.INC,INC,47894,47.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-50,kerala,1996,50,CHITTUR,K.KRISHNAN KUTTY,parties.IN.JD,JD,47458,46.99,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-50,kerala,1996,50,CHITTUR,BABUJAYAN,parties.IN.BJP,BJP,3504,3.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-50,kerala,1996,50,CHITTUR,MUHAMMED KAPEER,parties.IN.IND,IND,903,0.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-50,kerala,1996,50,CHITTUR,A.CHANDRAN,parties.IN.IND,IND,673,0.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-50,kerala,1996,50,CHITTUR,L.DORASWAMY @ V.L. DORA,parties.IN.IND,IND,333,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-50,kerala,1996,50,CHITTUR,S.KRISHNAN,parties.IN.SAP,SAP,224,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-51,kerala,1996,51,KOLLENGODE,K.A.CHANDRAN,parties.IN.INC,INC,48530,47.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-51,kerala,1996,51,KOLLENGODE,M.CHANDRAN,parties.IN.CPIM,CPM,47393,46.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-51,kerala,1996,51,KOLLENGODE,M.LAKSHMANAN,parties.IN.BJP,BJP,4254,4.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-51,kerala,1996,51,KOLLENGODE,ISMATH SULAIMAN,parties.IN.JKPDP,PDP,434,0.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-51,kerala,1996,51,KOLLENGODE,V.KRISHNAN,parties.IN.IND,IND,405,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-51,kerala,1996,51,KOLLENGODE,ABDUL NAZAR,parties.IN.IND,IND,120,0.12,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-52,kerala,1996,52,COYALMANNAM,M.NARAYANAN,parties.IN.CPIM,CPM,50349,53,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-52,kerala,1996,52,COYALMANNAM,M.V.SURESH,parties.IN.INC,INC,39853,41.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-52,kerala,1996,52,COYALMANNAM,V.SURESH,parties.IN.BJP,BJP,4542,4.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-52,kerala,1996,52,COYALMANNAM,N.K.CHINNAPPAN,parties.IN.IND,IND,250,0.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-53,kerala,1996,53,ALATHUR,C.K.RAJENDRAN,parties.IN.CPIM,CPM,53763,53.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-53,kerala,1996,53,ALATHUR,R.CHELLAMMA,parties.IN.INC,INC,41597,41.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-53,kerala,1996,53,ALATHUR,P.KRISHNAN KUTTY,parties.IN.BJP,BJP,3313,3.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-53,kerala,1996,53,ALATHUR,P.A.JALEEL,parties.IN.JKPDP,PDP,889,0.88,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-53,kerala,1996,53,ALATHUR,V.H.BASHEER,parties.IN.AIIC_T,AIIC(T),537,0.53,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-53,kerala,1996,53,ALATHUR,C.MADHAVAN,parties.IN.IND,IND,407,0.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-53,kerala,1996,53,ALATHUR,M.K.KANNAN,parties.IN.CMPKSC,CMPKSC,230,0.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-53,kerala,1996,53,ALATHUR,RADHAKRISHNAN,parties.IN.IND,IND,143,0.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-53,kerala,1996,53,ALATHUR,O.HARIDASAN,parties.IN.IND,IND,75,0.07,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-54,kerala,1996,54,CHELAKARA,K.RADHAKRISHNAN,parties.IN.CPIM,CPM,44260,46.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-54,kerala,1996,54,CHELAKARA,T.A.RADHAKRISHNAN,parties.IN.INC,INC,41937,44.47,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-54,kerala,1996,54,CHELAKARA,C.C.KUNJAN,parties.IN.BJP,BJP,6374,6.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-54,kerala,1996,54,CHELAKARA,M.K. KRISHNAKUMAR,parties.IN.IND,IND,1115,1.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-54,kerala,1996,54,CHELAKARA,M.R.KRISHNAN,parties.IN.IND,IND,624,0.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-55,kerala,1996,55,WADAKKANCHERRY,V.BALARAM,parties.IN.INC,INC,51050,51.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-55,kerala,1996,55,WADAKKANCHERRY,K.MOHANDAS,parties.IN.KEC,KEC,41372,41.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-55,kerala,1996,55,WADAKKANCHERRY,V.K.BABU,parties.IN.BLP,BLP,3632,3.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-55,kerala,1996,55,WADAKKANCHERRY,DIVAKARAN NAMPOODIRI,parties.IN.JP,JP,824,0.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-55,kerala,1996,55,WADAKKANCHERRY,P.P.KOMAN,parties.IN.IND,IND,781,0.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-55,kerala,1996,55,WADAKKANCHERRY,DIVAKARAN THAMPI,parties.IN.IND,IND,586,0.59,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-55,kerala,1996,55,WADAKKANCHERRY,ABDUL LATHEEF,parties.IN.IND,IND,412,0.41,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-55,kerala,1996,55,WADAKKANCHERRY,P.N.SURENDRAN,parties.IN.IND,IND,299,0.3,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-55,kerala,1996,55,WADAKKANCHERRY,LOVELY SURGY,parties.IN.IND,IND,281,0.28,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-55,kerala,1996,55,WADAKKANCHERRY,APPUNNI,parties.IN.IND,IND,180,0.18,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-55,kerala,1996,55,WADAKKANCHERRY,NOHA PATHROSE,parties.IN.IND,IND,162,0.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-56,kerala,1996,56,KUNNAMKULAM,N.R.BALAN,parties.IN.CPIM,CPM,49289,46.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-56,kerala,1996,56,KUNNAMKULAM,T.V. CHANDRAMOHAN,parties.IN.INC,INC,48405,45.38,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-56,kerala,1996,56,KUNNAMKULAM,A.V. KARAPPAKUTTY,parties.IN.BJP,BJP,5703,5.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-56,kerala,1996,56,KUNNAMKULAM,VARU,parties.IN.IND,IND,837,0.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-56,kerala,1996,56,KUNNAMKULAM,C.A.AJITHAN,parties.IN.IND,IND,429,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-56,kerala,1996,56,KUNNAMKULAM,P.T.VARGHESE,parties.IN.IND,IND,384,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-56,kerala,1996,56,KUNNAMKULAM,VIJAYAN KURIYAKKOT,parties.IN.IND,IND,334,0.31,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-56,kerala,1996,56,KUNNAMKULAM,THAMPI VARGHESE,parties.IN.IND,IND,254,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-56,kerala,1996,56,KUNNAMKULAM,M.N.CHANDRA SEKHARAN,parties.IN.JP,JP,232,0.22,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-56,kerala,1996,56,KUNNAMKULAM,K. CHAKKUNNY,parties.IN.IND,IND,210,0.2,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-56,kerala,1996,56,KUNNAMKULAM,K.I.VARATHAPPAN,parties.IN.IND,IND,181,0.17,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-56,kerala,1996,56,KUNNAMKULAM,PRINCE KUNNAMKULAM,parties.IN.IND,IND,134,0.13,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-56,kerala,1996,56,KUNNAMKULAM,"GEEVAR,V.V.",parties.IN.IND,IND,117,0.11,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-56,kerala,1996,56,KUNNAMKULAM,"JOSE,J. KUTTIKKATT",parties.IN.IND,IND,88,0.08,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-56,kerala,1996,56,KUNNAMKULAM,JOSE PEREPPADEN,parties.IN.IND,IND,64,0.06,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-57,kerala,1996,57,CHERPU,K.P.RAJENDRAN,parties.IN.CPI,CPI,49506,49.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-57,kerala,1996,57,CHERPU,M.K.ABDUL SALAM,parties.IN.INC,INC,44314,43.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-57,kerala,1996,57,CHERPU,SUJA NANDAKUMAR,parties.IN.BJP,BJP,5064,5.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-57,kerala,1996,57,CHERPU,K.K.SAIDU,parties.IN.IND,IND,657,0.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-57,kerala,1996,57,CHERPU,P. GOPALAKRISHNAN,parties.IN.IND,IND,329,0.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-57,kerala,1996,57,CHERPU,RAJAN KADAVATH,parties.IN.IND,IND,257,0.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-57,kerala,1996,57,CHERPU,KANICHIL SIVAN,parties.IN.IND,IND,245,0.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-57,kerala,1996,57,CHERPU,P.A.KUTTAPPAN,parties.IN.IND,IND,178,0.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-57,kerala,1996,57,CHERPU,R.K.THAYYIL,parties.IN.JP,JP,134,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-57,kerala,1996,57,CHERPU,M.S. CHANDRAPRAKASH,parties.IN.IND,IND,127,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-57,kerala,1996,57,CHERPU,K.C.DASAN,parties.IN.IND,IND,61,0.06,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-58,kerala,1996,58,TRICHUR,THERAMBIL RAMAKRISHNAN,parties.IN.INC,INC,49597,51.78,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-58,kerala,1996,58,TRICHUR,M.R.GOVINDAN,parties.IN.IND,IND,39388,41.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-58,kerala,1996,58,TRICHUR,M.UNNIKRISHNAN,parties.IN.BJP,BJP,4867,5.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-58,kerala,1996,58,TRICHUR,P.M.RAMAN NAIR,parties.IN.IND,IND,446,0.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-58,kerala,1996,58,TRICHUR,K.G.PISHARODY,parties.IN.IND,IND,313,0.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-58,kerala,1996,58,TRICHUR,P.R.JACOB,parties.IN.IND,IND,291,0.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-58,kerala,1996,58,TRICHUR,"VIJAYAN, K. VIYYOOR",parties.IN.IND,IND,180,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-58,kerala,1996,58,TRICHUR,J.WILLIAM JOHN,parties.IN.IND,IND,180,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-58,kerala,1996,58,TRICHUR,KK.UNNIKRISHNAN,parties.IN.IND,IND,142,0.15,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-58,kerala,1996,58,TRICHUR,PRABHAKARAN PERUMBAI,parties.IN.IND,IND,141,0.15,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-58,kerala,1996,58,TRICHUR,K.C.DASAN,parties.IN.IND,IND,134,0.14,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-58,kerala,1996,58,TRICHUR,C.A.PAUL,parties.IN.IND,IND,101,0.11,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-59,kerala,1996,59,OLLUR,C.N.JAYADEVAN,parties.IN.CPI,CPI,52757,46.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-59,kerala,1996,59,OLLUR,P.P.GEORGE,parties.IN.INC,INC,48389,43.02,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-59,kerala,1996,59,OLLUR,BIJOY THOMAS,parties.IN.BJP,BJP,5693,5.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-59,kerala,1996,59,OLLUR,P.S.JOHNY,parties.IN.IND,IND,4890,4.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-59,kerala,1996,59,OLLUR,T.K.BHASKARAN,parties.IN.IND,IND,215,0.19,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-59,kerala,1996,59,OLLUR,T.K.JANARDHANAN VAIDYAR,parties.IN.IND,IND,203,0.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-59,kerala,1996,59,OLLUR,"ANANTHAN,K.K.",parties.IN.IND,IND,175,0.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-59,kerala,1996,59,OLLUR,RAJU CHENNAIPPARA,parties.IN.IND,IND,149,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-60,kerala,1996,60,KODAKARA,K.P.VISWANATHAN,parties.IN.INC,INC,48366,45.72,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-60,kerala,1996,60,KODAKARA,P.R.RAJAN,parties.IN.CPIM,CPM,46220,43.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-60,kerala,1996,60,KODAKARA,P.S.SREERAMAN,parties.IN.BJP,BJP,10192,9.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-60,kerala,1996,60,KODAKARA,MOHAN KARTHARA,parties.IN.IND,IND,480,0.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-60,kerala,1996,60,KODAKARA,K.G.NANDAKUMAR,parties.IN.JP,JP,253,0.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-60,kerala,1996,60,KODAKARA,SHAJAN MANJALY,parties.IN.SAP,SAP,182,0.17,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-60,kerala,1996,60,KODAKARA,SHAJI KANATTY,parties.IN.IND,IND,89,0.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-61,kerala,1996,61,CHALAKUDI,SAVITHRI LAKSHMANAN,parties.IN.INC,INC,48810,51.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-61,kerala,1996,61,CHALAKUDI,N.M.JOSEPH,parties.IN.JD,JD,37644,40.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-61,kerala,1996,61,CHALAKUDI,PURUSHOTHAMAN ELAYIDAM,parties.IN.BJP,BJP,4088,4.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-61,kerala,1996,61,CHALAKUDI,JOSE THOTTATHIL,parties.IN.JP,JP,1172,1.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-61,kerala,1996,61,CHALAKUDI,SANDAR K THOMAS,parties.IN.IND,IND,979,1.04,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-61,kerala,1996,61,CHALAKUDI,N.P.SASI,parties.IN.IND,IND,454,0.48,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-61,kerala,1996,61,CHALAKUDI,KAMBALATH BOSE,parties.IN.IND,IND,272,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-61,kerala,1996,61,CHALAKUDI,BALAGANGADHARAN PILLA,parties.IN.IND,IND,259,0.28,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-61,kerala,1996,61,CHALAKUDI,"VELAYUDHAN,M.K.",parties.IN.IND,IND,171,0.18,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-61,kerala,1996,61,CHALAKUDI,"KANNAN,A.K.",parties.IN.IND,IND,106,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-62,kerala,1996,62,MALA,V.K.RAJAN,parties.IN.CPI,CPI,49993,48.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-62,kerala,1996,62,MALA,MERCY RAVI,parties.IN.INC,INC,46752,45.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-62,kerala,1996,62,MALA,O.D. BALANCHANDRAN,parties.IN.BJP,BJP,3909,3.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-62,kerala,1996,62,MALA,K.A.BAVA HAJI,parties.IN.IND,IND,1247,1.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-62,kerala,1996,62,MALA,K.K.RAMU,parties.IN.JP,JP,244,0.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-62,kerala,1996,62,MALA,P.G.NARAYANAN,parties.IN.IND,IND,186,0.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-62,kerala,1996,62,MALA,PAULOSE,parties.IN.IND,IND,134,0.13,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-62,kerala,1996,62,MALA,P.MURALIDHARA MENON,parties.IN.IND,IND,97,0.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-62,kerala,1996,62,MALA,T.K.SAHEER,parties.IN.IND,IND,51,0.05,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-63,kerala,1996,63,IRINJALAKUDA,LONAPPAN NAMBADAN,parties.IN.IND,IND,49421,49.23,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-63,kerala,1996,63,IRINJALAKUDA,THOMAS UNNIYADAN,parties.IN.KECM,KEC(M),43295,43.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-63,kerala,1996,63,IRINJALAKUDA,BIJU MENON,parties.IN.BJP,BJP,6890,6.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-63,kerala,1996,63,IRINJALAKUDA,KK RAMAKRISHNAN,parties.IN.BSP,BSP,775,0.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-64,kerala,1996,64,MANALUR,ROSAMMA CHACKO,parties.IN.INC,INC,39700,45.07,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-64,kerala,1996,64,MANALUR,C.G.SANTHAKUMAR,parties.IN.IND,IND,38568,43.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-64,kerala,1996,64,MANALUR,UMA RAJENDRAN,parties.IN.BJP,BJP,6852,7.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-64,kerala,1996,64,MANALUR,V. NOUSHAD,parties.IN.IND,IND,1467,1.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-64,kerala,1996,64,MANALUR,V.V.ANTONY,parties.IN.IND,IND,349,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-64,kerala,1996,64,MANALUR,M.V.VIJAYAN,parties.IN.IND,IND,278,0.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-64,kerala,1996,64,MANALUR,SUNNY PAVARTY,parties.IN.IND,IND,246,0.28,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-64,kerala,1996,64,MANALUR,SHYNI DASAN,parties.IN.IND,IND,214,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-64,kerala,1996,64,MANALUR,K.A.VASAN,parties.IN.IND,IND,178,0.2,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-64,kerala,1996,64,MANALUR,P.GOPI,parties.IN.IND,IND,136,0.15,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-64,kerala,1996,64,MANALUR,JOSE MANNUMMEL,parties.IN.IND,IND,101,0.11,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-65,kerala,1996,65,GURUVAYOOR,P.T. KUNJU MUHAMMED,parties.IN.IND,IND,39870,44.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-65,kerala,1996,65,GURUVAYOOR,R.P.MOIDUTTY,parties.IN.IUML,MUL,37034,41.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-65,kerala,1996,65,GURUVAYOOR,DEYANANDAN MAMBULLY,parties.IN.BJP,BJP,9724,10.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-65,kerala,1996,65,GURUVAYOOR,K.E.ABDULLA,parties.IN.IND,IND,2384,2.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-65,kerala,1996,65,GURUVAYOOR,A.K.JAMALUDEEN,parties.IN.JP,JP,296,0.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-65,kerala,1996,65,GURUVAYOOR,DEVASSY CHOWALOOR,parties.IN.IND,IND,291,0.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-65,kerala,1996,65,GURUVAYOOR,M.A.VASUDEVAN,parties.IN.IND,IND,191,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-65,kerala,1996,65,GURUVAYOOR,P.C.FRANCIS,parties.IN.IND,IND,149,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-65,kerala,1996,65,GURUVAYOOR,P.V.ASHRAF,parties.IN.IND,IND,136,0.15,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-66,kerala,1996,66,NATTIKA,KRISHNAN KANIYAMPARAMBIL,parties.IN.CPI,CPI,47826,51.31,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-66,kerala,1996,66,NATTIKA,K.K.RAHULAN,parties.IN.INC,INC,38135,40.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-66,kerala,1996,66,NATTIKA,PURUSHOTHAMAN,parties.IN.BJP,BJP,4878,5.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-66,kerala,1996,66,NATTIKA,K.K.VENUJI,parties.IN.IND,IND,1122,1.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-66,kerala,1996,66,NATTIKA,KA KARAPPAKUTTY,parties.IN.IND,IND,389,0.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-66,kerala,1996,66,NATTIKA,U.A.KARUNAKARAN,parties.IN.IND,IND,250,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-66,kerala,1996,66,NATTIKA,V. RAMAKRISHNAN,parties.IN.IND,IND,213,0.23,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-66,kerala,1996,66,NATTIKA,VENUGOPALAN,parties.IN.IND,IND,151,0.16,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-66,kerala,1996,66,NATTIKA,SIDHIC VALIYAKATH,parties.IN.IND,IND,85,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-66,kerala,1996,66,NATTIKA,RAJAN PANAPPARAMBIL,parties.IN.IND,IND,85,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-66,kerala,1996,66,NATTIKA,RAMANANDAN KANNOLY,parties.IN.IND,IND,80,0.09,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-67,kerala,1996,67,KODUNGALLUR,MEENAKSHY THAMBAN,parties.IN.CPI,CPI,51343,51.24,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-67,kerala,1996,67,KODUNGALLUR,K.VENU,parties.IN.IND,IND,37234,37.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-67,kerala,1996,67,KODUNGALLUR,PN BALAKRISHNAN,parties.IN.BJP,BJP,7490,7.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-67,kerala,1996,67,KODUNGALLUR,M.K.PAVITHRAN,parties.IN.IND,IND,2922,2.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-67,kerala,1996,67,KODUNGALLUR,SHAJAHAN C.A. (SHAJI),parties.IN.IND,IND,633,0.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-67,kerala,1996,67,KODUNGALLUR,U.M.KUNJUMOIDEEN,parties.IN.IND,IND,273,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-67,kerala,1996,67,KODUNGALLUR,P.P.SATHIAN,parties.IN.IND,IND,205,0.2,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-67,kerala,1996,67,KODUNGALLUR,M. DENNY JACOB,parties.IN.IND,IND,106,0.11,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-68,kerala,1996,68,ANKAMALI,P.J.JOY,parties.IN.INC,INC,56252,47.86,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-68,kerala,1996,68,ANKAMALI,M.V.MANY,parties.IN.KEC,KEC,55708,47.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-68,kerala,1996,68,ANKAMALI,C.P.SREEKUMAR,parties.IN.BJP,BJP,3455,2.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-68,kerala,1996,68,ANKAMALI,K.J.JOY,parties.IN.IND,IND,588,0.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-68,kerala,1996,68,ANKAMALI,K.V.MANY,parties.IN.IND,IND,469,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-68,kerala,1996,68,ANKAMALI,M.M.KUTTAPPAN,parties.IN.IND,IND,384,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-68,kerala,1996,68,ANKAMALI,POULOSE VARKEY (OROMATTAM),parties.IN.IND,IND,277,0.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-68,kerala,1996,68,ANKAMALI,P.J.JOY (POTTATTIL),parties.IN.IND,IND,198,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-68,kerala,1996,68,ANKAMALI,C.T.RADHAKRISHN CHENGAT,parties.IN.IND,IND,113,0.1,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-68,kerala,1996,68,ANKAMALI,GEORGE KURUVILA,parties.IN.IND,IND,92,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-69,kerala,1996,69,VADAKKEKARA,S.SARMA,parties.IN.CPIM,CPM,50200,47.06,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-69,kerala,1996,69,VADAKKEKARA,V.P.MARAKKAR,parties.IN.INC,INC,49831,46.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-69,kerala,1996,69,VADAKKEKARA,M.A.MOHANAN,parties.IN.BJP,BJP,5135,4.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-69,kerala,1996,69,VADAKKEKARA,O. KRISHNANKUTTY,parties.IN.IND,IND,760,0.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-69,kerala,1996,69,VADAKKEKARA,M.R.SATHYADEVAN,parties.IN.IND,IND,530,0.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-69,kerala,1996,69,VADAKKEKARA,JOSE VAPPALASSERY,parties.IN.IND,IND,226,0.21,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-70,kerala,1996,70,PARUR,P.RAJU,parties.IN.CPI,CPI,39723,44.93,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-70,kerala,1996,70,PARUR,V.D.SATHEESAN,parties.IN.INC,INC,38607,43.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-70,kerala,1996,70,PARUR,P.S.ARAVINDAKSHAN,parties.IN.BJP,BJP,4141,4.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-70,kerala,1996,70,PARUR,A. SIVAPRASAD,parties.IN.IND,IND,2632,2.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-70,kerala,1996,70,PARUR,SACHIDANANDAN NAKULAN,parties.IN.IND,IND,2349,2.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-70,kerala,1996,70,PARUR,N.S.MENON,parties.IN.IND,IND,219,0.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-70,kerala,1996,70,PARUR,V. RAVINDRANATHAN MENON,parties.IN.IND,IND,197,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-70,kerala,1996,70,PARUR,MUHAMMADUNNY ABDUREHIMAN,parties.IN.IND,IND,149,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-70,kerala,1996,70,PARUR,MADHAVAN PILLAI,parties.IN.IND,IND,134,0.15,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-70,kerala,1996,70,PARUR,V.A.A.HACKEEM,parties.IN.IND,IND,99,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-70,kerala,1996,70,PARUR,PA NIYAMATHULLA,parties.IN.IND,IND,84,0.1,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-70,kerala,1996,70,PARUR,PEETHAMBARAN,parties.IN.IND,IND,71,0.08,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-71,kerala,1996,71,NARAKAL,M.A.KUTTAPPAN,parties.IN.INC,INC,42920,46.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-71,kerala,1996,71,NARAKAL,V.K.BABU,parties.IN.ICS,ICS,41933,45.6,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-71,kerala,1996,71,NARAKAL,N.M.VIJAYAN,parties.IN.BJP,BJP,3789,4.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-71,kerala,1996,71,NARAKAL,SARALA SUKUMARAN,parties.IN.IND,IND,2966,3.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-71,kerala,1996,71,NARAKAL,SATHYAN ANNAKKATHAN,parties.IN.JKPDP,PDP,346,0.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-72,kerala,1996,72,ERNAKULAM,GEORGE EDEN,parties.IN.INC,INC,49908,51.84,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-72,kerala,1996,72,ERNAKULAM,V.B.CHERIYAN,parties.IN.CPIM,CPM,39168,40.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-72,kerala,1996,72,ERNAKULAM,V.SANTHARAM,parties.IN.BJP,BJP,6211,6.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-72,kerala,1996,72,ERNAKULAM,C.P.JOSEPH,parties.IN.IND,IND,302,0.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-72,kerala,1996,72,ERNAKULAM,UNNIKRISHAN NAIR,parties.IN.SHS,SHS,194,0.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-72,kerala,1996,72,ERNAKULAM,KALOOR JOSEPH,parties.IN.IND,IND,175,0.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-72,kerala,1996,72,ERNAKULAM,MOHANDAS KRISHNA SHENOY,parties.IN.IND,IND,161,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-72,kerala,1996,72,ERNAKULAM,A. GILBERT,parties.IN.IND,IND,146,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-73,kerala,1996,73,MATTANCHERRY,M.A.THOMAS,parties.IN.IND,IND,24003,40.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-73,kerala,1996,73,MATTANCHERRY,T.A.AHAMED KABEER,parties.IN.IUML,MUL,23578,39.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-73,kerala,1996,73,MATTANCHERRY,K.SASIDHARAN,parties.IN.BJP,BJP,5431,9.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-73,kerala,1996,73,MATTANCHERRY,SABU ALI,parties.IN.JKPDP,PDP,5238,8.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-73,kerala,1996,73,MATTANCHERRY,T.S.THAMPAN,parties.IN.SHS,SHS,638,1.08,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-73,kerala,1996,73,MATTANCHERRY,S.BALAKRISHNAN BHAT,parties.IN.IND,IND,205,0.35,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-73,kerala,1996,73,MATTANCHERRY,VINAYARAM RAMDAS,parties.IN.IND,IND,133,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-73,kerala,1996,73,MATTANCHERRY,ASHARAF ABOO,parties.IN.IND,IND,87,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-74,kerala,1996,74,PALLURUTHY,DOMINIC PRESENTATION,parties.IN.INC,INC,52900,46.45,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-74,kerala,1996,74,PALLURUTHY,T.P. PEETHAMBARAN,parties.IN.ICS,ICS,51790,45.47,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-kerala-74,kerala,1996,74,PALLURUTHY,JOSE PADIKKAL,parties.IN.AIIC_T,AIIC(T),4138,3.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-74,kerala,1996,74,PALLURUTHY,S.K.BALACHANDRAN,parties.IN.BJP,BJP,3740,3.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-74,kerala,1996,74,PALLURUTHY,ABDUL KHAREEM,parties.IN.IND,IND,598,0.53,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-74,kerala,1996,74,PALLURUTHY,P.P. CHANDRA MOHAN,parties.IN.SHS,SHS,365,0.32,6,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-kerala-74,kerala,1996,74,PALLURUTHY,R. BHASKARAN,parties.IN.IND,IND,159,0.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-74,kerala,1996,74,PALLURUTHY,A.B. MATHEW,parties.IN.IND,IND,131,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-74,kerala,1996,74,PALLURUTHY,AYYAPPAN,parties.IN.IND,IND,74,0.06,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-75,kerala,1996,75,THRIPPUNITHURA,K.BABU,parties.IN.INC,INC,69256,51.62,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-75,kerala,1996,75,THRIPPUNITHURA,GOPI KOTTAMURIKKAL,parties.IN.CPIM,CPM,54483,40.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-75,kerala,1996,75,THRIPPUNITHURA,A.N.RADHAKRISHNAN,parties.IN.BJP,BJP,5506,4.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-75,kerala,1996,75,THRIPPUNITHURA,TOMY VARGHESE,parties.IN.IND,IND,3106,2.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-75,kerala,1996,75,THRIPPUNITHURA,AB.JALEEL,parties.IN.IND,IND,642,0.48,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-75,kerala,1996,75,THRIPPUNITHURA,GOPI KOVATTIL,parties.IN.IND,IND,273,0.2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-75,kerala,1996,75,THRIPPUNITHURA,UNNI BHASKARAN,parties.IN.SHS,SHS,195,0.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-75,kerala,1996,75,THRIPPUNITHURA,A.RAJAPPAN,parties.IN.IND,IND,181,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-75,kerala,1996,75,THRIPPUNITHURA,RADHAKRISHNAN NAIR,parties.IN.AIIC_T,AIIC(T),162,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-75,kerala,1996,75,THRIPPUNITHURA,CHANDRASEKHRAN,parties.IN.IND,IND,141,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-75,kerala,1996,75,THRIPPUNITHURA,K.RAGHAVAN,parties.IN.IND,IND,97,0.07,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-75,kerala,1996,75,THRIPPUNITHURA,GOPI PANANCHIKKAL,parties.IN.IND,IND,85,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-75,kerala,1996,75,THRIPPUNITHURA,GOPI NARAYANAN,parties.IN.IND,IND,45,0.03,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-76,kerala,1996,76,ALWAYE,K.MOHAMMEDALI,parties.IN.INC,INC,57902,47.53,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-76,kerala,1996,76,ALWAYE,SAROJINI BALANANDHAN,parties.IN.CPIM,CPM,40480,33.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-76,kerala,1996,76,ALWAYE,P.S.GOPINATH,parties.IN.BJP,BJP,9245,7.59,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-76,kerala,1996,76,ALWAYE,NAZEER BABU,parties.IN.JKPDP,PDP,7485,6.14,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-76,kerala,1996,76,ALWAYE,T. THANKAPPAN NAIR,parties.IN.IND,IND,4990,4.1,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-76,kerala,1996,76,ALWAYE,K.T.JOY,parties.IN.IND,IND,1050,0.86,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-76,kerala,1996,76,ALWAYE,K.S.RAVIKUMAR,parties.IN.IND,IND,227,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-76,kerala,1996,76,ALWAYE,RAMAKRISHNAN KARTHA,parties.IN.SHS,SHS,167,0.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-76,kerala,1996,76,ALWAYE,M.R.MANOHARAN,parties.IN.IND,IND,155,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-76,kerala,1996,76,ALWAYE,MARY R.PAI,parties.IN.IND,IND,110,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-77,kerala,1996,77,PERUMBAVOOR,P.P.THANKACHAN,parties.IN.INC,INC,51266,48.89,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-77,kerala,1996,77,PERUMBAVOOR,RAMAN KARTHA,parties.IN.JD,JD,46483,44.33,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-kerala-77,kerala,1996,77,PERUMBAVOOR,K.C.SIVAN,parties.IN.BJP,BJP,3477,3.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-77,kerala,1996,77,PERUMBAVOOR,KARIM MEERAN,parties.IN.JKPDP,PDP,1493,1.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-77,kerala,1996,77,PERUMBAVOOR,ALUNKAL DEVASSY,parties.IN.IND,IND,1098,1.05,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-77,kerala,1996,77,PERUMBAVOOR,BENNY ITTEERA,parties.IN.IND,IND,557,0.53,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-77,kerala,1996,77,PERUMBAVOOR,S.K.PANEER,parties.IN.IND,IND,296,0.28,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-77,kerala,1996,77,PERUMBAVOOR,SIVAN KADALI,parties.IN.IND,IND,197,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,M.P.VARGHEESE,parties.IN.CPIM,CPM,50034,45.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,T.H.MUSTHAFFA,parties.IN.INC,INC,49974,45.03,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,K.CHANDRA MOHAN,parties.IN.BJP,BJP,4708,4.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,K.N.RADHAKRISHNAN,parties.IN.IND,IND,3176,2.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,P.A.SHAJAHAN,parties.IN.IND,IND,729,0.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,A.C.THANKAPPAN,parties.IN.IND,IND,336,0.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,POULOSE YACOB,parties.IN.IND,IND,228,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,A.Y.JOSE,parties.IN.IND,IND,207,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,KRISHNAN NAMBIAR,parties.IN.IND,IND,195,0.18,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,THEVAN SASTHAVU,parties.IN.IND,IND,187,0.17,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,SABU KURUVILLA @ S. THOZHUPPADAN,parties.IN.IND,IND,180,0.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,K.C.KODIYAN,parties.IN.IND,IND,177,0.16,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,P.T.POULOSE(MAITHRY),parties.IN.IND,IND,156,0.14,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,ALEYAMMA KURIAN,parties.IN.IND,IND,145,0.13,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,C.M.MOIDEEN,parties.IN.IND,IND,104,0.09,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,ISSAC MATHEW,parties.IN.IND,IND,94,0.08,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,SIVADAS,parties.IN.IND,IND,93,0.08,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,ALIAS MATHEW KUPPAKKATTU,parties.IN.IND,IND,88,0.08,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,BABU SAIDU MOHAMMED,parties.IN.IND,IND,87,0.08,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-78,kerala,1996,78,KUNNATHUNAD,IBRAHIM PAREETH,parties.IN.IND,IND,86,0.08,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-79,kerala,1996,79,PIRAVOM,T.M.JACOB,parties.IN.KECJ,KEC(J),51873,49.42,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-79,kerala,1996,79,PIRAVOM,C.POULOSE,parties.IN.IND,IND,44165,42.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-79,kerala,1996,79,PIRAVOM,T.K.SUDHEER KUMAR,parties.IN.IND,IND,5110,4.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-79,kerala,1996,79,PIRAVOM,M.B.SANTHAKUMAR,parties.IN.BJP,BJP,2512,2.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-79,kerala,1996,79,PIRAVOM,M.C.PAULOSE,parties.IN.IND,IND,384,0.37,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-79,kerala,1996,79,PIRAVOM,RAJU MATHAI,parties.IN.IND,IND,288,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-79,kerala,1996,79,PIRAVOM,PAULOSE EASO,parties.IN.IND,IND,249,0.24,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-79,kerala,1996,79,PIRAVOM,ANIYAN VARGHESE,parties.IN.IND,IND,209,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-79,kerala,1996,79,PIRAVOM,N.P.SUKUMARAN,parties.IN.IND,IND,174,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-80,kerala,1996,80,MUVATTUPUZHA,JOHNY NELLOOR,parties.IN.KECJ,KEC(J),47841,49.59,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-80,kerala,1996,80,MUVATTUPUZHA,P.M.THOMAS,parties.IN.IND,IND,38145,39.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-80,kerala,1996,80,MUVATTUPUZHA,ALIAS ERADIKUNNEL,parties.IN.IND,IND,4602,4.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-80,kerala,1996,80,MUVATTUPUZHA,M.N.GANGADHARAN,parties.IN.BJP,BJP,3014,3.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-80,kerala,1996,80,MUVATTUPUZHA,C.M.MUSTHAFA,parties.IN.IND,IND,761,0.79,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-80,kerala,1996,80,MUVATTUPUZHA,CHERIAN VARUGHESE,parties.IN.IND,IND,618,0.64,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-80,kerala,1996,80,MUVATTUPUZHA,JOHN ABRAHAM,parties.IN.IND,IND,262,0.27,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-80,kerala,1996,80,MUVATTUPUZHA,A.M.THOMAS,parties.IN.IND,IND,239,0.25,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-80,kerala,1996,80,MUVATTUPUZHA,PAULOSEKUTTY VARGESE,parties.IN.IND,IND,195,0.2,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-80,kerala,1996,80,MUVATTUPUZHA,THOMAS ULAHANNAN,parties.IN.IND,IND,184,0.19,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-80,kerala,1996,80,MUVATTUPUZHA,JOY KURIAN,parties.IN.IND,IND,172,0.18,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-80,kerala,1996,80,MUVATTUPUZHA,JAYAN KUNJUNELLAN,parties.IN.IND,IND,152,0.16,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-80,kerala,1996,80,MUVATTUPUZHA,KURUVILLA JOHN,parties.IN.IND,IND,150,0.16,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-80,kerala,1996,80,MUVATTUPUZHA,JOHN JOSEPH,parties.IN.IND,IND,138,0.14,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-81,kerala,1996,81,KOTHAMANGALAM,V.J.POULOSE,parties.IN.INC,INC,49874,48.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-81,kerala,1996,81,KOTHAMANGALAM,T.M.MEETHIAN,parties.IN.CPIM,CPM,43783,42.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-81,kerala,1996,81,KOTHAMANGALAM,P.P.SAJEEV,parties.IN.BJP,BJP,4114,3.98,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-81,kerala,1996,81,KOTHAMANGALAM,SEETHI MUHAMMED,parties.IN.IND,IND,2887,2.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-81,kerala,1996,81,KOTHAMANGALAM,LALU JOSE KACHAPPILLY,parties.IN.IND,IND,1090,1.05,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-81,kerala,1996,81,KOTHAMANGALAM,MAITHEEN MOHD. @ A.M. MAITHEEN,parties.IN.IND,IND,290,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-81,kerala,1996,81,KOTHAMANGALAM,PAUL VATTAPPALLIL,parties.IN.IND,IND,254,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-81,kerala,1996,81,KOTHAMANGALAM,A.V.ANTONY,parties.IN.IND,IND,232,0.22,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-81,kerala,1996,81,KOTHAMANGALAM,HAROLD ANTONY NEDUMKALLEL,parties.IN.IND,IND,228,0.22,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-81,kerala,1996,81,KOTHAMANGALAM,CHACKO CHACKO @ P.C. CHACKO,parties.IN.IND,IND,185,0.18,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-81,kerala,1996,81,KOTHAMANGALAM,PAUL CHERIYA,parties.IN.IND,IND,160,0.15,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-81,kerala,1996,81,KOTHAMANGALAM,O.V.MANI,parties.IN.IND,IND,133,0.13,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-81,kerala,1996,81,KOTHAMANGALAM,ABRAHAM CHACKO,parties.IN.IND,IND,92,0.09,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,P.J.JOSEPH,parties.IN.KEC,KEC,63414,49.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,P.T.THOMAS,parties.IN.INC,INC,59290,46.51,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,P.P.SANU,parties.IN.BJP,BJP,2135,1.67,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,C.H.ASHARUF,parties.IN.IND,IND,864,0.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,KURIAKOSE KURIAN,parties.IN.IND,IND,318,0.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,P.J.JOSEPH,parties.IN.IND,IND,281,0.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,BALAN PILLAI KIZHAKKANATTU,parties.IN.IND,IND,193,0.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,GEORGE PAULOSE BABY ACHAN,parties.IN.IND,IND,153,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,M.T.THOMAS,parties.IN.IND,IND,151,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,KASSIM MUHAMMED,parties.IN.IND,IND,138,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,ABU ABRAHAM,parties.IN.IND,IND,132,0.1,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,THANKAPPAN MYLAN,parties.IN.IND,IND,113,0.09,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,TOM CHERIAN,parties.IN.IND,IND,85,0.07,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,ANINCHAN,parties.IN.IND,IND,76,0.06,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,K.S. VIJAYAN SANKARAN,parties.IN.IND,IND,62,0.05,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,ABBAS SYED MUHAMMED,parties.IN.IND,IND,35,0.03,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,GEORGE THOMAS,parties.IN.IND,IND,27,0.02,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-82,kerala,1996,82,THODUPUZHA,JOSEPH XAVIER,parties.IN.IND,IND,23,0.02,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-83,kerala,1996,83,DEVICOLAM,A.K.MONI,parties.IN.INC,INC,51733,50.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-83,kerala,1996,83,DEVICOLAM,S.SUNDARAMANICKOM,parties.IN.CPIM,CPM,48497,47.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-83,kerala,1996,83,DEVICOLAM,SUBRAMONIAN,parties.IN.BJP,BJP,2233,2.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-83,kerala,1996,83,DEVICOLAM,K.P.GOPINATHAN,parties.IN.IND,IND,285,0.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-83,kerala,1996,83,DEVICOLAM,N.K.BABU,parties.IN.JP,JP,224,0.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-83,kerala,1996,83,DEVICOLAM,SELVA RAJ,parties.IN.IND,IND,79,0.08,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-84,kerala,1996,84,IDUKKI,P.P. SULAIMAN RAWTHER,parties.IN.JD,JD,52443,50.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-84,kerala,1996,84,IDUKKI,JOY VETTIKUZHY,parties.IN.KECM,KEC(M),46030,44.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-84,kerala,1996,84,IDUKKI,C.N.SANKAR,parties.IN.IND,IND,2385,2.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-84,kerala,1996,84,IDUKKI,K.N.SOMARAJAN,parties.IN.BJP,BJP,2168,2.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-84,kerala,1996,84,IDUKKI,SABU JOSEPH,parties.IN.JP,JP,351,0.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-84,kerala,1996,84,IDUKKI,SEBASTIAN KUNNAPPILLY,parties.IN.IND,IND,240,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-84,kerala,1996,84,IDUKKI,K.N.VIJAYAKUMAR,parties.IN.IND,IND,88,0.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-84,kerala,1996,84,IDUKKI,THANKACHAN JOSEPH,parties.IN.IND,IND,57,0.05,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-84,kerala,1996,84,IDUKKI,DEVASSIA AUGUSTHY,parties.IN.IND,IND,53,0.05,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-84,kerala,1996,84,IDUKKI,THOMMAN THOMAS,parties.IN.IND,IND,52,0.05,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-84,kerala,1996,84,IDUKKI,RAJU GEORGE,parties.IN.IND,IND,47,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-85,kerala,1996,85,UDUMBANCHOLA,E.M.AUGUSTHY,parties.IN.INC,INC,57266,47.68,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-85,kerala,1996,85,UDUMBANCHOLA,M.M.MONI,parties.IN.CPIM,CPM,52599,43.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-85,kerala,1996,85,UDUMBANCHOLA,MATHEW THOMAS,parties.IN.IND,IND,4200,3.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-85,kerala,1996,85,UDUMBANCHOLA,MANMATHAN MATTAKKARA,parties.IN.BJP,BJP,2994,2.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-85,kerala,1996,85,UDUMBANCHOLA,SURESH CHEMMANNAR,parties.IN.BSP,BSP,1393,1.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-85,kerala,1996,85,UDUMBANCHOLA,KOMALAN NARAYANAN,parties.IN.IND,IND,404,0.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-85,kerala,1996,85,UDUMBANCHOLA,GEORGE CHOORAMPALLIL,parties.IN.IND,IND,387,0.32,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-85,kerala,1996,85,UDUMBANCHOLA,E.C.AUGUSTHY,parties.IN.IND,IND,252,0.21,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-85,kerala,1996,85,UDUMBANCHOLA,UNNIKUNJU JOSEPH,parties.IN.JP,JP,206,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-85,kerala,1996,85,UDUMBANCHOLA,SASI NARAYANAN,parties.IN.IND,IND,135,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-85,kerala,1996,85,UDUMBANCHOLA,K.G.JAMES,parties.IN.IND,IND,110,0.09,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-85,kerala,1996,85,UDUMBANCHOLA,M.C.VARGHESE,parties.IN.IND,IND,93,0.08,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-85,kerala,1996,85,UDUMBANCHOLA,K. JAMES ABRAHAM,parties.IN.IND,IND,65,0.05,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-86,kerala,1996,86,PEERMADE,C.A.KURIAN,parties.IN.CPI,CPI,40842,47.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-86,kerala,1996,86,PEERMADE,MATHEW STEPHEN,parties.IN.KECJ,KEC(J),38435,45.13,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-86,kerala,1996,86,PEERMADE,JOHN ABRAHAM,parties.IN.IND,IND,2813,3.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-86,kerala,1996,86,PEERMADE,B.SUKUMARAN,parties.IN.BJP,BJP,1744,2.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-86,kerala,1996,86,PEERMADE,C.S.RAJENDRAN,parties.IN.BSP,BSP,726,0.85,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-86,kerala,1996,86,PEERMADE,JOSEPH KAKKANADAN,parties.IN.JP,JP,271,0.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-86,kerala,1996,86,PEERMADE,A.S.VIJAYAKUMAR,parties.IN.IND,IND,125,0.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-86,kerala,1996,86,PEERMADE,KHAN C.P.MADATHIL,parties.IN.IND,IND,85,0.1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-86,kerala,1996,86,PEERMADE,M.G.THAMPI,parties.IN.IND,IND,80,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-86,kerala,1996,86,PEERMADE,P.K.HANEEFA,parties.IN.IND,IND,52,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-87,kerala,1996,87,KANJIRAPPALLY,GEORGE J.MATHEW,parties.IN.INC,INC,47535,48.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-87,kerala,1996,87,KANJIRAPPALLY,K.J.THOMAS,parties.IN.CPIM,CPM,40609,41.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-87,kerala,1996,87,KANJIRAPPALLY,KALLARA SUKUMARAN,parties.IN.BSP,BSP,4355,4.42,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-87,kerala,1996,87,KANJIRAPPALLY,R.C.NAIR,parties.IN.BJP,BJP,3127,3.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-87,kerala,1996,87,KANJIRAPPALLY,M.D.JANAMMA,parties.IN.IND,IND,2032,2.06,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-87,kerala,1996,87,KANJIRAPPALLY,SIVANANDAN RAGHAVAN,parties.IN.IND,IND,291,0.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-87,kerala,1996,87,KANJIRAPPALLY,JOSE ANTONY @ PUTHENPURA,parties.IN.IND,IND,249,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-87,kerala,1996,87,KANJIRAPPALLY,JAMES JAMES THEKKEMURIYIL,parties.IN.IND,IND,150,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-87,kerala,1996,87,KANJIRAPPALLY,BASHEER HASSAN,parties.IN.IND,IND,134,0.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-87,kerala,1996,87,KANJIRAPPALLY,JOY THOMAS,parties.IN.IND,IND,97,0.1,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-88,kerala,1996,88,VAZHOOR,K.NARAYANA KURUP,parties.IN.KECM,KEC(M),40503,48.44,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-88,kerala,1996,88,VAZHOOR,KANAM RAJENDRAN,parties.IN.CPI,CPI,37987,45.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-88,kerala,1996,88,VAZHOOR,U.N.THAMPI,parties.IN.IND,IND,2385,2.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-88,kerala,1996,88,VAZHOOR,RAJMOHAN THAMPI,parties.IN.BSP,BSP,1842,2.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-88,kerala,1996,88,VAZHOOR,VINU KAVERI,parties.IN.IND,IND,462,0.55,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-88,kerala,1996,88,VAZHOOR,CHAMPAKARA SAJEEVAN,parties.IN.SHS,SHS,142,0.17,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-88,kerala,1996,88,VAZHOOR,JOHN CHACKO VALIAPARAMBIL,parties.IN.IND,IND,141,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-88,kerala,1996,88,VAZHOOR,MANIKUTTAN,parties.IN.IND,IND,81,0.1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-88,kerala,1996,88,VAZHOOR,C.J. RAJASEKHARAN @ BABY,parties.IN.JKPDP,PDP,75,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-89,kerala,1996,89,CHANGANACHERRY,C.F.THOMAS,parties.IN.KECM,KEC(M),50784,50.02,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-89,kerala,1996,89,CHANGANACHERRY,P.RAVINDRANATH,parties.IN.CPIM,CPM,43182,42.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-89,kerala,1996,89,CHANGANACHERRY,B.RADHAKRISHNA MENON,parties.IN.BJP,BJP,5665,5.58,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-89,kerala,1996,89,CHANGANACHERRY,MINI K.PHILIP,parties.IN.IND,IND,1063,1.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-89,kerala,1996,89,CHANGANACHERRY,ABDUL LATHEEF HASINAR,parties.IN.IND,IND,836,0.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-90,kerala,1996,90,KOTTAYAM,T.K.RAMAKRISHNAN,parties.IN.CPIM,CPM,52609,50.77,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-90,kerala,1996,90,KOTTAYAM,MOHAN SANKAR,parties.IN.INC,INC,45545,43.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-90,kerala,1996,90,KOTTAYAM,TG BALAKRISHNAN GOPALAKRISHNAN PANICKER,parties.IN.BJP,BJP,2747,2.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-90,kerala,1996,90,KOTTAYAM,ROY PADINJAREKARA,parties.IN.IND,IND,1434,1.38,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-90,kerala,1996,90,KOTTAYAM,SUNNY K.JOHN,parties.IN.IND,IND,423,0.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-90,kerala,1996,90,KOTTAYAM,RAJ MOHAN SABHARAJ,parties.IN.IND,IND,231,0.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-90,kerala,1996,90,KOTTAYAM,R.HARISH,parties.IN.SHS,SHS,226,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-90,kerala,1996,90,KOTTAYAM,ALEX GEORGE,parties.IN.IND,IND,222,0.21,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-90,kerala,1996,90,KOTTAYAM,JAMES JOSEPH KANNANPADOM,parties.IN.IND,IND,96,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-90,kerala,1996,90,KOTTAYAM,SUSAMMA MATHEW,parties.IN.IND,IND,80,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-91,kerala,1996,91,ETTUMANOOR,THOMAS CHAZHIKADAN,parties.IN.KECM,KEC(M),53632,54.33,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-91,kerala,1996,91,ETTUMANOOR,VAIKOM VISWAN,parties.IN.CPIM,CPM,39759,40.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-91,kerala,1996,91,ETTUMANOOR,ASHOK RAMACHANDRAN,parties.IN.IND,IND,3492,3.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-91,kerala,1996,91,ETTUMANOOR,HARIDAS KRISHNAN,parties.IN.IND,IND,494,0.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-91,kerala,1996,91,ETTUMANOOR,ROFFY DEVASIA MATHASERIL,parties.IN.IND,IND,251,0.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-91,kerala,1996,91,ETTUMANOOR,P.S.JOY,parties.IN.IND,IND,224,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-91,kerala,1996,91,ETTUMANOOR,VARGHESE CHERIYAN,parties.IN.IND,IND,213,0.22,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-91,kerala,1996,91,ETTUMANOOR,ETTUMANOOR CHANDRA BOSE,parties.IN.SHS,SHS,206,0.21,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-91,kerala,1996,91,ETTUMANOOR,J.P.KALLUPARAMBAN,parties.IN.IND,IND,113,0.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-91,kerala,1996,91,ETTUMANOOR,RAJESH MATHEW,parties.IN.IND,IND,93,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-91,kerala,1996,91,ETTUMANOOR,SAJI KUMARAN,parties.IN.IND,IND,87,0.09,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-91,kerala,1996,91,ETTUMANOOR,O.J.JOSEPH,parties.IN.IND,IND,85,0.09,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-91,kerala,1996,91,ETTUMANOOR,RAJAN SREEDHARAN NAIR,parties.IN.IND,IND,71,0.07,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-92,kerala,1996,92,PUTHUPPALLY,OOMMEN CHANDY,parties.IN.INC,INC,54147,51.45,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-92,kerala,1996,92,PUTHUPPALLY,REJI ZACHARIAH,parties.IN.CPIM,CPM,43992,41.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-92,kerala,1996,92,PUTHUPPALLY,K.R.SURENDRAN,parties.IN.IND,IND,4418,4.2,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-92,kerala,1996,92,PUTHUPPALLY,ROY PARACKAL,parties.IN.BSP,BSP,1695,1.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-92,kerala,1996,92,PUTHUPPALLY,JACOB JOHN,parties.IN.IND,IND,698,0.66,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-92,kerala,1996,92,PUTHUPPALLY,P.A.S.KUNJUKUTTY,parties.IN.IND,IND,294,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-93,kerala,1996,93,POONJAR,P.C.GEORGE,parties.IN.KEC,KEC,48834,53.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-93,kerala,1996,93,POONJAR,JOY ABRAHAM,parties.IN.KECM,KEC(M),38698,42.73,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-93,kerala,1996,93,POONJAR,K.M.SANTHOSHKUMAR,parties.IN.BJP,BJP,1779,1.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-93,kerala,1996,93,POONJAR,BASHEER THENAMAKKAL,parties.IN.JKPDP,PDP,725,0.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-93,kerala,1996,93,POONJAR,TOM THOMAS,parties.IN.IND,IND,177,0.2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-93,kerala,1996,93,POONJAR,"GOPALAKRISHNAN NAIR @ MANI, B. NAGANAM",parties.IN.SHS,SHS,125,0.14,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-93,kerala,1996,93,POONJAR,O.RAGHAVAN ULAKAN,parties.IN.IND,IND,107,0.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-93,kerala,1996,93,POONJAR,JOSEPH KAKKANADAN,parties.IN.JP,JP,62,0.07,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-93,kerala,1996,93,POONJAR,NAJEEB LATHEEF,parties.IN.IND,IND,39,0.04,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-93,kerala,1996,93,POONJAR,TOMY SEBASTIAN,parties.IN.IND,IND,16,0.02,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-93,kerala,1996,93,POONJAR,ABDUL KARIM,parties.IN.IND,IND,5,0.01,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-94,kerala,1996,94,PALAI,K.M.MANI,parties.IN.KECM,KEC(M),52550,61.11,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-94,kerala,1996,94,PALAI,C.K.JEEVAN,parties.IN.IND,IND,28760,33.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-94,kerala,1996,94,PALAI,P.R.MURALEEDHARAN,parties.IN.BJP,BJP,3489,4.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-94,kerala,1996,94,PALAI,P.J.SEBASTIAN,parties.IN.BSP,BSP,357,0.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-94,kerala,1996,94,PALAI,T.SURESHKUMAR BALAKRISHNA PANICKER,parties.IN.SHS,SHS,289,0.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-94,kerala,1996,94,PALAI,SHAJI MICHAEL,parties.IN.IND,IND,147,0.17,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-94,kerala,1996,94,PALAI,C.O.JOSEPH,parties.IN.IND,IND,145,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-94,kerala,1996,94,PALAI,K.T.MATHEW,parties.IN.IND,IND,117,0.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-94,kerala,1996,94,PALAI,MATHEW MATHAI,parties.IN.IND,IND,81,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-94,kerala,1996,94,PALAI,O.M.MICHAEL,parties.IN.IND,IND,57,0.07,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-95,kerala,1996,95,KADUTHURUTHY,MONS JOSEPH,parties.IN.KEC,KEC,39131,44.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-95,kerala,1996,95,KADUTHURUTHY,P.M.MATHEW,parties.IN.KECJ,KEC(J),23965,27.07,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-95,kerala,1996,95,KADUTHURUTHY,P.C.THOMAS,parties.IN.IND,IND,20950,23.67,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-95,kerala,1996,95,KADUTHURUTHY,NEEZHOOR DEVARAJAN,parties.IN.BJP,BJP,2825,3.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-95,kerala,1996,95,KADUTHURUTHY,U.R.HARSHAKUMAR,parties.IN.IND,IND,455,0.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-95,kerala,1996,95,KADUTHURUTHY,V.KARTHIKEYAN NAIR,parties.IN.IND,IND,352,0.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-95,kerala,1996,95,KADUTHURUTHY,V.D.JOHN,parties.IN.IND,IND,271,0.31,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-95,kerala,1996,95,KADUTHURUTHY,JOHN POOCHAKKADAN,parties.IN.IND,IND,204,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-95,kerala,1996,95,KADUTHURUTHY,BIBY STEPHEN THEKKENATTU,parties.IN.IND,IND,144,0.16,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-95,kerala,1996,95,KADUTHURUTHY,JOSEPH PATHROSE,parties.IN.IND,IND,84,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-95,kerala,1996,95,KADUTHURUTHY,CHARLEY JOSEPH,parties.IN.IND,IND,75,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-95,kerala,1996,95,KADUTHURUTHY,CHACKO JOSEPH @ JOY CHACKO,parties.IN.IND,IND,58,0.07,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-96,kerala,1996,96,VAIKOM,M.K.KESAVAN,parties.IN.CPI,CPI,52262,52.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-96,kerala,1996,96,VAIKOM,K.K. BALAKRISHNAN,parties.IN.INC,INC,43024,43.02,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-96,kerala,1996,96,VAIKOM,CA THANKACHAN,parties.IN.BJP,BJP,2930,2.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-96,kerala,1996,96,VAIKOM,P.SHANMUGHAN,parties.IN.BSP,BSP,808,0.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-96,kerala,1996,96,VAIKOM,K.K.KESAVAN,parties.IN.IND,IND,801,0.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-96,kerala,1996,96,VAIKOM,P.KUTTAN,parties.IN.IND,IND,184,0.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-97,kerala,1996,97,AROOR,K.R.GOWRI AMMA,parties.IN.JPSS,JPSS,61972,55.17,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-97,kerala,1996,97,AROOR,B.VINOD,parties.IN.CPIM,CPM,45439,40.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-97,kerala,1996,97,AROOR,H.JAYAKUMAR,parties.IN.BJP,BJP,4004,3.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-97,kerala,1996,97,AROOR,T.S. BALAKRISHNAN,parties.IN.IND,IND,528,0.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-97,kerala,1996,97,AROOR,T.K.VASU,parties.IN.IND,IND,232,0.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-97,kerala,1996,97,AROOR,PRABHAKARAN VAVA,parties.IN.IND,IND,156,0.14,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-98,kerala,1996,98,SHERTHALAI,A.K.ANTONY,parties.IN.INC,INC,56691,52.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-98,kerala,1996,98,SHERTHALAI,C.K.CHANDRAPPAN,parties.IN.CPI,CPI,48306,44.48,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-98,kerala,1996,98,SHERTHALAI,S.PADMAKUMAR,parties.IN.BJP,BJP,2163,1.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-98,kerala,1996,98,SHERTHALAI,T.C.ANTONY,parties.IN.IND,IND,437,0.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-98,kerala,1996,98,SHERTHALAI,M.A.KAREEM,parties.IN.JKPDP,PDP,420,0.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-98,kerala,1996,98,SHERTHALAI,RAVI,parties.IN.IND,IND,301,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-98,kerala,1996,98,SHERTHALAI,C.V. MURALEEDHARAN NAIR,parties.IN.IND,IND,147,0.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-98,kerala,1996,98,SHERTHALAI,JAYAGOPALAN OM PILLAI,parties.IN.IND,IND,125,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-99,kerala,1996,99,MARARIKULAM,P.J.FRANCIS,parties.IN.INC,INC,68302,49.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-99,kerala,1996,99,MARARIKULAM,V.S.ACHUTHANANDAN,parties.IN.CPIM,CPM,66337,47.91,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-99,kerala,1996,99,MARARIKULAM,PETER MARKOSE,parties.IN.BJP,BJP,3813,2.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-100,kerala,1996,100,ALLEPPEY,K.C.VENUGOPAL,parties.IN.INC,INC,45104,50.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-100,kerala,1996,100,ALLEPPEY,P.S. SOMASEKHARAN,parties.IN.CPI,CPI,37568,42.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-100,kerala,1996,100,ALLEPPEY,P.M.HUSSAIN,parties.IN.JKPDP,PDP,3847,4.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-100,kerala,1996,100,ALLEPPEY,K.R.RAJAPPAN,parties.IN.IND,IND,1190,1.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-100,kerala,1996,100,ALLEPPEY,S.SEETHILAL,parties.IN.IND,IND,365,0.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-100,kerala,1996,100,ALLEPPEY,CHERIAN JACOB,parties.IN.IND,IND,241,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-100,kerala,1996,100,ALLEPPEY,MURALEEDHARAN,parties.IN.IND,IND,143,0.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-100,kerala,1996,100,ALLEPPEY,FASY,parties.IN.IND,IND,103,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-101,kerala,1996,101,AMBALAPUZHA,SUSEELA GOPALAN,parties.IN.CPIM,CPM,47968,48.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-101,kerala,1996,101,AMBALAPUZHA,DEVADATH G.PURAKKAD,parties.IN.INC,INC,45710,46.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-101,kerala,1996,101,AMBALAPUZHA,K.D. RAMAKRISHNAN,parties.IN.BJP,BJP,2801,2.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-101,kerala,1996,101,AMBALAPUZHA,P.SAHADEVAN,parties.IN.JKPDP,PDP,1242,1.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-101,kerala,1996,101,AMBALAPUZHA,K.J.SHEELA,parties.IN.IND,IND,432,0.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-101,kerala,1996,101,AMBALAPUZHA,P.T.CHANDRABABU KAINAKARY,parties.IN.IND,IND,397,0.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-101,kerala,1996,101,AMBALAPUZHA,RADHAKRISHNAN N.N. PILLAI,parties.IN.IND,IND,75,0.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-102,kerala,1996,102,KUTTANAD,K.C.JOSEPH,parties.IN.KEC,KEC,44532,50.67,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-102,kerala,1996,102,KUTTANAD,J.JOSEPH,parties.IN.INC,INC,40447,46.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-102,kerala,1996,102,KUTTANAD,G.MOHANDAS,parties.IN.BJP,BJP,2602,2.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-102,kerala,1996,102,KUTTANAD,K.C.SUNNY,parties.IN.IND,IND,130,0.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-102,kerala,1996,102,KUTTANAD,THOMAS ANTONY,parties.IN.IND,IND,110,0.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-102,kerala,1996,102,KUTTANAD,MOHANAN JOSE,parties.IN.IND,IND,68,0.08,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-103,kerala,1996,103,HARIPAD,A.V. THAMARAKSHAN,parties.IN.RSP,RSP,54055,50.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-103,kerala,1996,103,HARIPAD,N.MOHAN KUMAR,parties.IN.INC,INC,46837,43.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-103,kerala,1996,103,HARIPAD,T.S.GIRISHKUMAR,parties.IN.BJP,BJP,2952,2.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-103,kerala,1996,103,HARIPAD,UDAYAN KESAVAN,parties.IN.IND,IND,714,0.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-103,kerala,1996,103,HARIPAD,M.IQBAL,parties.IN.JKPDP,PDP,606,0.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-103,kerala,1996,103,HARIPAD,V.RAMAKRISHNAN,parties.IN.IND,IND,432,0.4,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-103,kerala,1996,103,HARIPAD,A.RAMACHANDRAN,parties.IN.IND,IND,410,0.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-103,kerala,1996,103,HARIPAD,B.BHADRAN,parties.IN.IND,IND,351,0.33,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-103,kerala,1996,103,HARIPAD,C.V.SUDHAKARANACHARY,parties.IN.IND,IND,343,0.32,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-103,kerala,1996,103,HARIPAD,A.K.RAJU,parties.IN.IND,IND,305,0.28,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-103,kerala,1996,103,HARIPAD,SHAJI KARTHIKAYAN,parties.IN.IND,IND,203,0.19,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-103,kerala,1996,103,HARIPAD,PREMJITH YESODHARAN,parties.IN.IND,IND,193,0.18,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-103,kerala,1996,103,HARIPAD,G.RAJEEVKUMAR,parties.IN.IND,IND,144,0.13,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-104,kerala,1996,104,KAYAMKULAM,G.SUDHAKARAN,parties.IN.CPIM,CPM,47776,48.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-104,kerala,1996,104,KAYAMKULAM,THACHADI PRABHAKARAN,parties.IN.INC,INC,45129,46.03,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-104,kerala,1996,104,KAYAMKULAM,THAHA KUNJU,parties.IN.JKPDP,PDP,2646,2.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-104,kerala,1996,104,KAYAMKULAM,JAYAPRAKASH BHAKT,parties.IN.BJP,BJP,2487,2.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,1996,105,THIRUVALLA,MAMMAN MATHAI,parties.IN.KECM,KEC(M),39606,50.12,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,1996,105,THIRUVALLA,OOMMEN THALAVADY,parties.IN.JD,JD,33665,42.6,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,1996,105,THIRUVALLA,M.KRISHNAN,parties.IN.IND,IND,4391,5.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,1996,105,THIRUVALLA,NIRANAM RAJAN,parties.IN.IND,IND,585,0.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,1996,105,THIRUVALLA,CHRISTAPHER GEORGE,parties.IN.IND,IND,296,0.37,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,1996,105,THIRUVALLA,KRISHNAN KUTTY,parties.IN.IND,IND,250,0.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,1996,105,THIRUVALLA,HARIDAS THEKKUMMURIYIL,parties.IN.IND,IND,124,0.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,1996,105,THIRUVALLA,M.R.HARIDAS,parties.IN.IND,IND,110,0.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-106,kerala,1996,106,KALLOOPPARA,T.S.JOHN,parties.IN.KEC,KEC,32112,43.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-106,kerala,1996,106,KALLOOPPARA,JOSEPH M.PUTHUSSERI,parties.IN.KECM,KEC(M),31940,43.69,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-106,kerala,1996,106,KALLOOPPARA,NV BALAGOPALA PILLAI,parties.IN.BJP,BJP,7317,10.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-106,kerala,1996,106,KALLOOPPARA,K.S.JOSE,parties.IN.BSP,BSP,1089,1.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-106,kerala,1996,106,KALLOOPPARA,PRASAD K.MATHEW,parties.IN.IND,IND,216,0.3,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-106,kerala,1996,106,KALLOOPPARA,NALINAKSHAN NAIR,parties.IN.IND,IND,210,0.29,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-106,kerala,1996,106,KALLOOPPARA,ADIYAR GURU RAJAN,parties.IN.IND,IND,104,0.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-106,kerala,1996,106,KALLOOPPARA,M.V.MATHEW,parties.IN.IND,IND,74,0.1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-106,kerala,1996,106,KALLOOPPARA,RAJAN CHEKKAYIL,parties.IN.IND,IND,36,0.05,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-107,kerala,1996,107,ARANMULA,KADAMMANITTA RAMAKRISHNAN,parties.IN.IND,IND,34657,45.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-107,kerala,1996,107,ARANMULA,M.V.RAGHAVAN,parties.IN.CMPKSC,CMPKSC,31970,41.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-107,kerala,1996,107,ARANMULA,V.N.UNNI,parties.IN.BJP,BJP,8856,11.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-107,kerala,1996,107,ARANMULA,"ALEX JOSEPH, K.",parties.IN.AIIC_T,AIIC(T),393,0.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-107,kerala,1996,107,ARANMULA,BHASKARA PILLAI,parties.IN.IND,IND,139,0.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-107,kerala,1996,107,ARANMULA,S.N.VIJAYAN,parties.IN.IND,IND,97,0.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-107,kerala,1996,107,ARANMULA,GOPINATHA PILLAI,parties.IN.IND,IND,86,0.11,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-108,kerala,1996,108,CHENGANNUR,SOBHANA GEORGE,parties.IN.INC,INC,37242,43.82,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-108,kerala,1996,108,CHENGANNUR,MAMMEN IYPE,parties.IN.ICS,ICS,34140,40.17,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-kerala-108,kerala,1996,108,CHENGANNUR,RAJAN MOOLAVEETTIL,parties.IN.BJP,BJP,10976,12.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-108,kerala,1996,108,CHENGANNUR,P.P.MATHEW,parties.IN.IND,IND,1551,1.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-108,kerala,1996,108,CHENGANNUR,SHAJAHAN,parties.IN.IND,IND,509,0.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-108,kerala,1996,108,CHENGANNUR,P.P.CHANDRADAS,parties.IN.IND,IND,238,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-108,kerala,1996,108,CHENGANNUR,P.N.NEDUVELI,parties.IN.IND,IND,216,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-108,kerala,1996,108,CHENGANNUR,SOMAN G.VENPUZHASSERY,parties.IN.IND,IND,65,0.08,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-108,kerala,1996,108,CHENGANNUR,JOSEPH KADAVIL,parties.IN.IND,IND,60,0.07,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-109,kerala,1996,109,MAVELIKARA,M.MURALI,parties.IN.INC,INC,51784,52.7,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-109,kerala,1996,109,MAVELIKARA,P.N. VISWANATHAN,parties.IN.CPIM,CPM,42053,42.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-109,kerala,1996,109,MAVELIKARA,C. SADASIVAN PILLAI,parties.IN.BJP,BJP,3211,3.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-109,kerala,1996,109,MAVELIKARA,REJI,parties.IN.IND,IND,465,0.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-109,kerala,1996,109,MAVELIKARA,M. SUDARSANAN,parties.IN.IND,IND,240,0.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-109,kerala,1996,109,MAVELIKARA,BHASI KURUP,parties.IN.IND,IND,239,0.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-109,kerala,1996,109,MAVELIKARA,SURESH BABU,parties.IN.IND,IND,171,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-109,kerala,1996,109,MAVELIKARA,T.SAHADEVAN,parties.IN.IND,IND,95,0.1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-110,kerala,1996,110,PANDALAM,P.K.KUMARAN,parties.IN.CPIM,CPM,50056,47.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-110,kerala,1996,110,PANDALAM,PANDALAM BHARATHAN,parties.IN.JPSS,JPSS,44896,42.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-110,kerala,1996,110,PANDALAM,PRASANNA THANKAPPAN,parties.IN.BJP,BJP,7279,6.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-110,kerala,1996,110,PANDALAM,BHAWANI CHELLAPPAN,parties.IN.IND,IND,1081,1.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-110,kerala,1996,110,PANDALAM,SURENDRAN PAPPY,parties.IN.IND,IND,673,0.64,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-110,kerala,1996,110,PANDALAM,VIJAYAMMA MADHAVAN,parties.IN.IND,IND,548,0.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-110,kerala,1996,110,PANDALAM,DAMODARAN AZHAKAN,parties.IN.IND,IND,316,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-110,kerala,1996,110,PANDALAM,JEEVAN BOSE KALASSERY,parties.IN.IND,IND,222,0.21,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1996,111,RANNI,RAJU ABRAHAM,parties.IN.CPIM,CPM,40932,47.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1996,111,RANNI,PEEILIPOSE THOMAS,parties.IN.INC,INC,37503,43.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1996,111,RANNI,T.K.RAMAKRISHNAN,parties.IN.BJP,BJP,3890,4.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1996,111,RANNI,O.T.PAPPY,parties.IN.IND,IND,1925,2.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1996,111,RANNI,P.R.RAJUMON,parties.IN.BSP,BSP,1146,1.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1996,111,RANNI,RAMAKRISHNAN,parties.IN.IND,IND,104,0.12,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1996,111,RANNI,W.E.E.THAMPI,parties.IN.SAP,SLAP,58,0.07,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1996,111,RANNI,SALIM ENGINEER,parties.IN.IND,IND,47,0.05,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-112,kerala,1996,112,PATHANAMTHITTA,K.K.NAIR,parties.IN.INC,INC,40215,49.17,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-112,kerala,1996,112,PATHANAMTHITTA,D.K.JOHN,parties.IN.KEC,KEC,34408,42.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-112,kerala,1996,112,PATHANAMTHITTA,K.HARIDAS,parties.IN.BJP,BJP,6390,7.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-112,kerala,1996,112,PATHANAMTHITTA,"RAVEENDRAN ACHARI, V.",parties.IN.IND,IND,137,0.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-112,kerala,1996,112,PATHANAMTHITTA,JOSEPH ANTONY,parties.IN.IND,IND,131,0.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-112,kerala,1996,112,PATHANAMTHITTA,"CHARLY THOMAS, T.",parties.IN.IND,IND,121,0.15,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-112,kerala,1996,112,PATHANAMTHITTA,SAMUEL CHANDY,parties.IN.IND,IND,117,0.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-112,kerala,1996,112,PATHANAMTHITTA,P.V. THOMAS KUTTY,parties.IN.IND,IND,103,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-112,kerala,1996,112,PATHANAMTHITTA,N.JANARDHANAN NAIR,parties.IN.AIFB,FBL,86,0.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-112,kerala,1996,112,PATHANAMTHITTA,BABY MALLASSERY,parties.IN.IND,IND,83,0.1,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-113,kerala,1996,113,KONNI,ADOOR PRAKASH,parties.IN.INC,INC,43474,47.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-113,kerala,1996,113,KONNI,A.PADMAKUMAR,parties.IN.CPIM,CPM,42668,46.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-113,kerala,1996,113,KONNI,P.D.PADMAKUMAR,parties.IN.BJP,BJP,4525,4.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-113,kerala,1996,113,KONNI,"C.I.SULAIMAN RAWTHER, K.",parties.IN.JKPDP,PDP,580,0.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-113,kerala,1996,113,KONNI,K.P.THANKAPPAN,parties.IN.IND,IND,239,0.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-113,kerala,1996,113,KONNI,DHARALAYAM SASI,parties.IN.IND,IND,239,0.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-114,kerala,1996,114,PATHANAPURAM,K.PRAKASH BABU,parties.IN.CPI,CPI,49023,49.89,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-114,kerala,1996,114,PATHANAPURAM,THOMAS KUTHIRAVATTAM,parties.IN.KEC_B,KEC(B),44535,45.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-114,kerala,1996,114,PATHANAPURAM,T.K.SOMASEKHARAN,parties.IN.IND,IND,2050,2.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-114,kerala,1996,114,PATHANAPURAM,GEORGE VARGHESE,parties.IN.JKPDP,PDP,1026,1.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-114,kerala,1996,114,PATHANAPURAM,KHADAR ALI,parties.IN.IND,IND,428,0.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-114,kerala,1996,114,PATHANAPURAM,BIJU GEORGE,parties.IN.IND,IND,311,0.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-114,kerala,1996,114,PATHANAPURAM,SYAMALA THANKAPPAN,parties.IN.IND,IND,247,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-114,kerala,1996,114,PATHANAPURAM,M.R.GOVINDAN KUTTY,parties.IN.IND,IND,216,0.22,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-114,kerala,1996,114,PATHANAPURAM,K.GOPINATHA PILLAI,parties.IN.IND,IND,198,0.2,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-114,kerala,1996,114,PATHANAPURAM,AYOOB KHAN,parties.IN.IND,IND,150,0.15,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-114,kerala,1996,114,PATHANAPURAM,ABUL MAJEED,parties.IN.IND,IND,88,0.09,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-115,kerala,1996,115,PUNALUR,P.S. Supal,parties.IN.CPI,CPI,65401,57.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-115,kerala,1996,115,PUNALUR,Bharathipuram Sasi,parties.IN.INC,INC,44068,38.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-115,kerala,1996,115,PUNALUR,Vettithitta Sasidharan,parties.IN.BJP,BJP,4044,3.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-116,kerala,1996,116,CHADAYAMANGALAM,R. LATHA DEVI,parties.IN.CPI,CPI,42550,48.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-116,kerala,1996,116,CHADAYAMANGALAM,PRAYAR GOPALAKRISHNAN,parties.IN.INC,INC,39804,45.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-116,kerala,1996,116,CHADAYAMANGALAM,"ABDUL RASHEED MAULAVI, U.K.",parties.IN.JKPDP,PDP,3258,3.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-116,kerala,1996,116,CHADAYAMANGALAM,ANCHAL BHASI,parties.IN.IND,IND,1326,1.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-116,kerala,1996,116,CHADAYAMANGALAM,P.LALKUMAR,parties.IN.IND,IND,232,0.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-116,kerala,1996,116,CHADAYAMANGALAM,E.M.SHAHAB,parties.IN.IND,IND,136,0.16,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-117,kerala,1996,117,KOTTARAKARA,R.BALKRISHNA PILLAI,parties.IN.KEC_B,KEC(B),47433,50.61,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-117,kerala,1996,117,KOTTARAKARA,GEORGE MATHEW,parties.IN.CPIM,CPM,44054,47,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-117,kerala,1996,117,KOTTARAKARA,M.SUKUMARAN,parties.IN.IND,IND,1577,1.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-117,kerala,1996,117,KOTTARAKARA,KUNNATHUR S.A.RAHIM,parties.IN.JKPDP,PDP,337,0.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-117,kerala,1996,117,KOTTARAKARA,M.M.VARGHESE,parties.IN.IND,IND,321,0.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-118,kerala,1996,118,NEDUVATHUR,EZHUKONE NARAYANAN,parties.IN.INC,INC,44940,47.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-118,kerala,1996,118,NEDUVATHUR,B.RAGHAVAN,parties.IN.CPIM,CPM,43976,46.26,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-118,kerala,1996,118,NEDUVATHUR,M.SIVAPRASAD,parties.IN.IND,IND,3150,3.31,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-118,kerala,1996,118,NEDUVATHUR,C.PODIYAN,parties.IN.BJP,BJP,3002,3.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-119,kerala,1996,119,ADOOR,THIRUVANCHOOR RADHAKRISHNAN,parties.IN.INC,INC,47907,52.8,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-119,kerala,1996,119,ADOOR,K.N.BALAGOPAL,parties.IN.CPIM,CPM,38706,42.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-119,kerala,1996,119,ADOOR,K.MADHUSOODANAN NAIR,parties.IN.BJP,BJP,3153,3.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-119,kerala,1996,119,ADOOR,T.R.VASUDEVAN,parties.IN.SHS,SHS,192,0.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-119,kerala,1996,119,ADOOR,S.RAMACHANDRA IYYER,parties.IN.IND,IND,172,0.19,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-119,kerala,1996,119,ADOOR,PARAKKODE SREENI,parties.IN.JP,JP,162,0.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-119,kerala,1996,119,ADOOR,TOMICHAN CHACKO,parties.IN.IND,IND,159,0.18,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-119,kerala,1996,119,ADOOR,CHANDRAN SANKARAN,parties.IN.IND,IND,159,0.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-119,kerala,1996,119,ADOOR,SHAMSUDEEN,parties.IN.IND,IND,128,0.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-120,kerala,1996,120,KUNNATHUR,T. NANOO,parties.IN.RSP,RSP,51697,46.62,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-120,kerala,1996,120,KUNNATHUR,VISALAKSHY,parties.IN.INC,INC,46934,42.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-120,kerala,1996,120,KUNNATHUR,T.A.VELAYUDHAN,parties.IN.JKPDP,PDP,7231,6.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-120,kerala,1996,120,KUNNATHUR,K.SADANANDAN,parties.IN.BJP,BJP,4098,3.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-120,kerala,1996,120,KUNNATHUR,SASIKUMAR,parties.IN.IND,IND,525,0.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-120,kerala,1996,120,KUNNATHUR,JANARDHANAN,parties.IN.IND,IND,228,0.21,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-120,kerala,1996,120,KUNNATHUR,G.BALAKRISHNAN,parties.IN.SWJP,SWJP,167,0.15,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-121,kerala,1996,121,KARUNAGAPALLY,E. CHANDRASEKHARAN NAIR,parties.IN.CPI,CPI,49587,50.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-121,kerala,1996,121,KARUNAGAPALLY,SATHJITH,parties.IN.JPSS,JPSS,33237,34.05,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-121,kerala,1996,121,KARUNAGAPALLY,"SUVARNAKUMAR,S.",parties.IN.JKPDP,PDP,8314,8.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-121,kerala,1996,121,KARUNAGAPALLY,V.THAMARAKSHAN,parties.IN.BJP,BJP,5119,5.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-121,kerala,1996,121,KARUNAGAPALLY,K.MOHAMMED KUNJU,parties.IN.IND,IND,1355,1.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-122,kerala,1996,122,CHAVARA,BABY JOHN,parties.IN.RSP,RSP,53730,51.69,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-122,kerala,1996,122,CHAVARA,K.KARUNAKARAN PILLAI,parties.IN.INC,INC,45655,43.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-122,kerala,1996,122,CHAVARA,B.SUNIL KUMAR,parties.IN.BJP,BJP,3384,3.26,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-122,kerala,1996,122,CHAVARA,G.DEVARAJAN,parties.IN.AIFB,FBL,810,0.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-122,kerala,1996,122,CHAVARA,ABU MUHAMED,parties.IN.IND,IND,215,0.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-122,kerala,1996,122,CHAVARA,A.J.NISSAR AHAMED,parties.IN.INL,INL,114,0.11,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-122,kerala,1996,122,CHAVARA,"SUBHASH CHANDRA BOSE, P.",parties.IN.IND,IND,47,0.05,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-123,kerala,1996,123,KUNDARA,J.MERCYKUTTIAMMA,parties.IN.CPIM,CPM,46322,50.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-123,kerala,1996,123,KUNDARA,ALPHONSA JOHN,parties.IN.INC,INC,39846,43.37,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-123,kerala,1996,123,KUNDARA,G.CHANDRIKA,parties.IN.BJP,BJP,3049,3.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-123,kerala,1996,123,KUNDARA,KERALAPURAM JABBAR,parties.IN.IND,IND,1209,1.32,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-123,kerala,1996,123,KUNDARA,LEONS SASTHAMCOTTA,parties.IN.IND,IND,380,0.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-123,kerala,1996,123,KUNDARA,CHRISTIBAI JARVAS,parties.IN.IND,IND,310,0.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-123,kerala,1996,123,KUNDARA,D.SUNDARESAN,parties.IN.IND,IND,229,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-123,kerala,1996,123,KUNDARA,SURESH GOPI,parties.IN.IND,IND,226,0.25,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-123,kerala,1996,123,KUNDARA,PERINAD ABU,parties.IN.IND,IND,115,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-123,kerala,1996,123,KUNDARA,KUNDRA HARISI,parties.IN.IND,IND,109,0.12,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-123,kerala,1996,123,KUNDARA,MERCILIN FERNANDEZ,parties.IN.IND,IND,88,0.1,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-124,kerala,1996,124,QUILON,BABU DIVAKARAN,parties.IN.RSP,RSP,45383,49.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-124,kerala,1996,124,QUILON,KADAVOOR SIVADASAN,parties.IN.INC,INC,39085,42.62,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-124,kerala,1996,124,QUILON,P.RADHAKRISHNAN,parties.IN.BJP,BJP,4720,5.15,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-124,kerala,1996,124,QUILON,KOTHETHU BHASURAN,parties.IN.IND,IND,1415,1.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-124,kerala,1996,124,QUILON,K.R. BRAHMANANDAN,parties.IN.AIFB,FBL,358,0.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-124,kerala,1996,124,QUILON,B.IMAMUDEEN,parties.IN.IND,IND,231,0.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-124,kerala,1996,124,QUILON,ANZAR RAHIM RAHIM,parties.IN.IND,IND,186,0.2,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-124,kerala,1996,124,QUILON,CHRISTIE BAI JERVAS,parties.IN.IND,IND,134,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-124,kerala,1996,124,QUILON,G.JOSEPH FERNANDEZ,parties.IN.IND,IND,77,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-124,kerala,1996,124,QUILON,"BHUVANACHANDRAN, C.",parties.IN.IND,IND,64,0.07,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-124,kerala,1996,124,QUILON,MAKAYIRAM RADHAKRISHNAN NAIR,parties.IN.IND,IND,51,0.06,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-125,kerala,1996,125,ERAVIPURAM,V.P. RAMAKRISHNA PILLAI,parties.IN.RSP,RSP,53344,46.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-125,kerala,1996,125,ERAVIPURAM,A.YOONUS KUNJU,parties.IN.IUML,MUL,48554,42.25,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-125,kerala,1996,125,ERAVIPURAM,SOORYA RAJENDRAN,parties.IN.BJP,BJP,6052,5.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-125,kerala,1996,125,ERAVIPURAM,MUNDOTTIL SHAMSUDIN,parties.IN.JKPDP,PDP,3012,2.62,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-125,kerala,1996,125,ERAVIPURAM,ANZAR RAHIM,parties.IN.IND,IND,2519,2.19,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-125,kerala,1996,125,ERAVIPURAM,S.RADHAKRISHNAN,parties.IN.IND,IND,758,0.66,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-125,kerala,1996,125,ERAVIPURAM,RADHAKRISHNA PILLAI,parties.IN.IND,IND,359,0.31,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-125,kerala,1996,125,ERAVIPURAM,KAMALUDEEN,parties.IN.IND,IND,158,0.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-125,kerala,1996,125,ERAVIPURAM,JANARDANAN PILLAI,parties.IN.IND,IND,153,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-126,kerala,1996,126,CHATHANOOR,P.RAVEENDRAN,parties.IN.CPI,CPI,49083,46.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-126,kerala,1996,126,CHATHANOOR,C.V.PADMARAJAN,parties.IN.INC,INC,46968,44.83,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-126,kerala,1996,126,CHATHANOOR,RAJENDRAN,parties.IN.BJP,BJP,3633,3.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-126,kerala,1996,126,CHATHANOOR,KOTTIYAM GOPALAN,parties.IN.JKPDP,PDP,2447,2.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-126,kerala,1996,126,CHATHANOOR,"SHEL KUMAR,G.",parties.IN.IND,IND,982,0.94,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-126,kerala,1996,126,CHATHANOOR,K.P. PANKAJAKSHAN,parties.IN.IND,IND,888,0.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-126,kerala,1996,126,CHATHANOOR,BIJU JACOB,parties.IN.IND,IND,295,0.28,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-126,kerala,1996,126,CHATHANOOR,MADHUSOODANAN PILLAI,parties.IN.IND,IND,256,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-126,kerala,1996,126,CHATHANOOR,N. GANAPATHI PILLAI,parties.IN.IND,IND,226,0.22,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-127,kerala,1996,127,VARKALA,A.ALI HASSAN,parties.IN.CPIM,CPM,42093,55.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-127,kerala,1996,127,VARKALA,G.PRIYADARSANAN,parties.IN.INC,INC,15704,20.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-127,kerala,1996,127,VARKALA,K. SUDARSANAN,parties.IN.IND,IND,15279,20.04,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-127,kerala,1996,127,VARKALA,VARKALA SAJEEV,parties.IN.BJP,BJP,2084,2.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-127,kerala,1996,127,VARKALA,VARKALA RAJ,parties.IN.JKPDP,PDP,427,0.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-127,kerala,1996,127,VARKALA,THETTIKULAM SATHYADAS,parties.IN.IND,IND,259,0.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-127,kerala,1996,127,VARKALA,B.KARUNAKARA KURUP,parties.IN.SHS,SHS,187,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-127,kerala,1996,127,VARKALA,K.RADHAKRISHNAN,parties.IN.IND,IND,91,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-127,kerala,1996,127,VARKALA,R.S.KABEER,parties.IN.IND,IND,89,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-127,kerala,1996,127,VARKALA,PRAKASH RAMAN,parties.IN.IND,IND,34,0.04,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-128,kerala,1996,128,ATTINGAL,ANATHALAVATTOM ANANDAN,parties.IN.CPIM,CPM,42161,48.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-128,kerala,1996,128,ATTINGAL,VAKKOM PURUSHOTHAMAN,parties.IN.INC,INC,41145,47.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-128,kerala,1996,128,ATTINGAL,S.KUTTAPPAN CHETTIAR,parties.IN.IND,IND,1311,1.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-128,kerala,1996,128,ATTINGAL,AURANGASEEB,parties.IN.JKPDP,PDP,553,0.64,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-128,kerala,1996,128,ATTINGAL,K.HARI,parties.IN.IND,IND,252,0.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-128,kerala,1996,128,ATTINGAL,N.SIVADASAN,parties.IN.SHS,SHS,226,0.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-128,kerala,1996,128,ATTINGAL,N.JAGADANAN,parties.IN.IND,IND,186,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-128,kerala,1996,128,ATTINGAL,K.V.SATHYAVAN,parties.IN.IND,IND,174,0.2,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-128,kerala,1996,128,ATTINGAL,DEVADETHAN,parties.IN.IND,IND,144,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-128,kerala,1996,128,ATTINGAL,HARI,parties.IN.IND,IND,142,0.16,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-128,kerala,1996,128,ATTINGAL,D.SUBHASH CHANDRAN DAS,parties.IN.IND,IND,109,0.13,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-128,kerala,1996,128,ATTINGAL,SATHYASEELAN VELAYUDHAN,parties.IN.IND,IND,96,0.11,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-128,kerala,1996,128,ATTINGAL,SUPRABHA DHARMASEELAN,parties.IN.IND,IND,93,0.11,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-129,kerala,1996,129,KILIMANOOR,BHARGAVI THANKAPPAN,parties.IN.CPI,CPI,49637,50.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-129,kerala,1996,129,KILIMANOOR,M.RADHAKRISHNAN,parties.IN.INC,INC,40832,41.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-129,kerala,1996,129,KILIMANOOR,P. KRISHNANKUTTY,parties.IN.BJP,BJP,4390,4.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-129,kerala,1996,129,KILIMANOOR,PANDALAM RAJENDRAN,parties.IN.BSP,BSP,3506,3.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-129,kerala,1996,129,KILIMANOOR,A.VINAYN,parties.IN.IND,IND,181,0.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-129,kerala,1996,129,KILIMANOOR,VEMBAYAM SUKUMARAN,parties.IN.IND,IND,170,0.17,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-129,kerala,1996,129,KILIMANOOR,KUNJAN AYYAPPAN,parties.IN.IND,IND,136,0.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-130,kerala,1996,130,VAMANAPURAM,PIRAPPANCODE MURALI,parties.IN.CPIM,CPM,48491,48.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-130,kerala,1996,130,VAMANAPURAM,C.K.SITARAM,parties.IN.JPSS,JPSS,42105,41.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-130,kerala,1996,130,VAMANAPURAM,A.ANSARI,parties.IN.JKPDP,PDP,5758,5.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-130,kerala,1996,130,VAMANAPURAM,CHANDRIKA G.KURUP,parties.IN.IND,IND,2845,2.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-130,kerala,1996,130,VAMANAPURAM,MAHESH GANGADHARAN,parties.IN.SHS,SHS,527,0.52,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-130,kerala,1996,130,VAMANAPURAM,KARETTE RAJENDRAN,parties.IN.IND,IND,461,0.46,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-130,kerala,1996,130,VAMANAPURAM,VAKKOM ABDUL VAHEED,parties.IN.IND,IND,455,0.45,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-130,kerala,1996,130,VAMANAPURAM,S.RAVEENDRAN,parties.IN.IND,IND,302,0.3,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-131,kerala,1996,131,ARIYANAD,G.KARTHIKEYAN,parties.IN.INC,INC,45152,49.54,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-131,kerala,1996,131,ARIYANAD,K.P.SANKARADAS,parties.IN.RSP,RSP,36535,40.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-131,kerala,1996,131,ARIYANAD,P. SREEKUMAR,parties.IN.BJP,BJP,6138,6.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-131,kerala,1996,131,ARIYANAD,SATHYADEV,parties.IN.JKPDP,PDP,2381,2.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-131,kerala,1996,131,ARIYANAD,N.RAJAN,parties.IN.IND,IND,317,0.35,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-131,kerala,1996,131,ARIYANAD,POOJANILAYAM SASI,parties.IN.JP,JP,245,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-131,kerala,1996,131,ARIYANAD,S. BHUVANENDRAN,parties.IN.SHS,SHS,241,0.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-131,kerala,1996,131,ARIYANAD,T.VISWAMBHARAN,parties.IN.IND,IND,138,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-132,kerala,1996,132,NEDUMANGAD,PALODE RAVI,parties.IN.INC,INC,57220,49.32,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-132,kerala,1996,132,NEDUMANGAD,M.RADHAKRISHNAN,parties.IN.CPI,CPI,52956,45.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-132,kerala,1996,132,NEDUMANGAD,V.SOMASEKHARAN NAIR,parties.IN.BJP,BJP,3960,3.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-132,kerala,1996,132,NEDUMANGAD,J.JAYAPALAN,parties.IN.JKPDP,PDP,1674,1.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-132,kerala,1996,132,NEDUMANGAD,RADHAKRISHNAN NAIR,parties.IN.IND,IND,210,0.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-133,kerala,1996,133,KAZHAKUTTAM,K.SURENDRAN,parties.IN.CPIM,CPM,56425,53.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-133,kerala,1996,133,KAZHAKUTTAM,E.A.RASHEED,parties.IN.IND,IND,32368,30.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-133,kerala,1996,133,KAZHAKUTTAM,PADMAKUMAR,parties.IN.BJP,BJP,9230,8.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-133,kerala,1996,133,KAZHAKUTTAM,K. SHAHUL HAMEED,parties.IN.JKPDP,PDP,4479,4.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-133,kerala,1996,133,KAZHAKUTTAM,K.R.GILBERT,parties.IN.IND,IND,441,0.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-133,kerala,1996,133,KAZHAKUTTAM,NANTHANKODE SEBASTIAN,parties.IN.IND,IND,317,0.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-133,kerala,1996,133,KAZHAKUTTAM,A.TAHA,parties.IN.IND,IND,296,0.28,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-133,kerala,1996,133,KAZHAKUTTAM,D.SUDARSANAN,parties.IN.IND,IND,285,0.27,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-133,kerala,1996,133,KAZHAKUTTAM,M.SIDHIKE HASSAN,parties.IN.IND,IND,277,0.26,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-133,kerala,1996,133,KAZHAKUTTAM,CHERUVIKKAL ARJUNAN,parties.IN.IND,IND,201,0.19,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-133,kerala,1996,133,KAZHAKUTTAM,MANOHAR,parties.IN.IND,IND,177,0.17,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-133,kerala,1996,133,KAZHAKUTTAM,ABDUL VAHAB PAKKRR KUTTY,parties.IN.IND,IND,123,0.12,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-133,kerala,1996,133,KAZHAKUTTAM,UDAYAN,parties.IN.IND,IND,121,0.12,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-134,kerala,1996,134,TRIVANDRUM NORTH,M.VIJAYAKUMAR,parties.IN.CPIM,CPM,62479,52.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-134,kerala,1996,134,TRIVANDRUM NORTH,T.SARATCHANDRA PRASAD,parties.IN.INC,INC,48170,40.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-134,kerala,1996,134,TRIVANDRUM NORTH,VS MAHESWARAN PILLAI,parties.IN.IND,IND,4487,3.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-134,kerala,1996,134,TRIVANDRUM NORTH,B.VIJAYAKUMAR,parties.IN.IND,IND,553,0.47,4,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-134,kerala,1996,134,TRIVANDRUM NORTH,P.MOHANAN NAIR,parties.IN.IND,IND,541,0.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-134,kerala,1996,134,TRIVANDRUM NORTH,SARATCHANDRAN THAMPI,parties.IN.IND,IND,519,0.44,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-134,kerala,1996,134,TRIVANDRUM NORTH,T.JAYACHANDRA PRASAD,parties.IN.IND,IND,372,0.31,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-134,kerala,1996,134,TRIVANDRUM NORTH,S.S.SIVAKUMAR,parties.IN.JP,JP,347,0.29,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-134,kerala,1996,134,TRIVANDRUM NORTH,G.RAJU,parties.IN.IND,IND,333,0.28,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-134,kerala,1996,134,TRIVANDRUM NORTH,T.J.KUNJACHAN,parties.IN.IND,IND,245,0.21,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-134,kerala,1996,134,TRIVANDRUM NORTH,VELLAIKADAVU SIVARAJAN,parties.IN.AIFB,FBL,148,0.13,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-134,kerala,1996,134,TRIVANDRUM NORTH,S.RAJAN,parties.IN.IND,IND,107,0.09,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-134,kerala,1996,134,TRIVANDRUM NORTH,S.SATHISH KUMAR,parties.IN.IND,IND,63,0.05,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-135,kerala,1996,135,TRIVANDRUM WEST,ANTONY RAJU,parties.IN.KEC,KEC,38335,45.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-135,kerala,1996,135,TRIVANDRUM WEST,M.M.HASSAN,parties.IN.INC,INC,31441,37.66,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-135,kerala,1996,135,TRIVANDRUM WEST,B.K.SEKHAR,parties.IN.BJP,BJP,7355,8.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-135,kerala,1996,135,TRIVANDRUM WEST,POONTHURA SIRAJ,parties.IN.JKPDP,PDP,4614,5.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-135,kerala,1996,135,TRIVANDRUM WEST,CHIDAMBARA IYER,parties.IN.IND,IND,319,0.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-135,kerala,1996,135,TRIVANDRUM WEST,VELI BABU,parties.IN.JP,JP,300,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-135,kerala,1996,135,TRIVANDRUM WEST,K. MAHEEN KANNU,parties.IN.IND,IND,271,0.32,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-135,kerala,1996,135,TRIVANDRUM WEST,IBRAHIM KUNJU,parties.IN.IND,IND,208,0.25,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-135,kerala,1996,135,TRIVANDRUM WEST,HASSAN KANNU,parties.IN.IND,IND,174,0.21,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-135,kerala,1996,135,TRIVANDRUM WEST,C.C.GEORGE,parties.IN.IND,IND,154,0.18,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-135,kerala,1996,135,TRIVANDRUM WEST,K.NIZARUDEEN,parties.IN.IND,IND,131,0.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-135,kerala,1996,135,TRIVANDRUM WEST,HAJA HANEEFA,parties.IN.IND,IND,110,0.13,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-135,kerala,1996,135,TRIVANDRUM WEST,NIZAR ABDUL KARIM,parties.IN.IND,IND,83,0.1,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-136,kerala,1996,136,TRIVANDRUM EAST,B.VIJAYA KUMAR,parties.IN.INC,INC,32389,38.29,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-136,kerala,1996,136,TRIVANDRUM EAST,K.KRISHNA PILLAI,parties.IN.ICS,ICS,29911,35.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-136,kerala,1996,136,TRIVANDRUM EAST,P.ASHOK KUMAR,parties.IN.BJP,BJP,19475,23.03,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-136,kerala,1996,136,TRIVANDRUM EAST,MOHANRAJ,parties.IN.IND,IND,651,0.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-136,kerala,1996,136,TRIVANDRUM EAST,HARIHARAN,parties.IN.JP,JP,399,0.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-136,kerala,1996,136,TRIVANDRUM EAST,J.R.VIJAYA KUMAR,parties.IN.AIIC_T,AIIC(T),304,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-136,kerala,1996,136,TRIVANDRUM EAST,P.DIVAKARAN PILLAI,parties.IN.IND,IND,284,0.34,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-136,kerala,1996,136,TRIVANDRUM EAST,T.K.NARAYANAN,parties.IN.IND,IND,232,0.27,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-136,kerala,1996,136,TRIVANDRUM EAST,G.SURENDRAN,parties.IN.IND,IND,150,0.18,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-136,kerala,1996,136,TRIVANDRUM EAST,RAJAKUMAR MANI,parties.IN.IND,IND,129,0.15,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-136,kerala,1996,136,TRIVANDRUM EAST,MOHANKUMAR,parties.IN.AIFB,FBL,124,0.15,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-136,kerala,1996,136,TRIVANDRUM EAST,"AYYAPPAN NAIR,S.",parties.IN.IND,IND,116,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-136,kerala,1996,136,TRIVANDRUM EAST,S.RAVEENDRAN NAIR,parties.IN.IND,IND,115,0.14,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-136,kerala,1996,136,TRIVANDRUM EAST,PRATHAAPCHANDRAN NAIR,parties.IN.IND,IND,114,0.13,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-136,kerala,1996,136,TRIVANDRUM EAST,R.R.UNNITHAN,parties.IN.IND,IND,84,0.1,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-136,kerala,1996,136,TRIVANDRUM EAST,APPU,parties.IN.IND,IND,67,0.08,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-136,kerala,1996,136,TRIVANDRUM EAST,"BABULAL,V.S.",parties.IN.IND,IND,37,0.04,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-137,kerala,1996,137,NEMOM,VENGANOOR P. BHASKARAN,parties.IN.CPIM,CPM,51139,46.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-137,kerala,1996,137,NEMOM,K.MOHANKUMAR,parties.IN.INC,INC,47543,43.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-137,kerala,1996,137,NEMOM,MADAVOOR SURESH,parties.IN.BJP,BJP,9011,8.18,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-137,kerala,1996,137,NEMOM,"SAILAMONY, R.",parties.IN.AIFB,FBL,996,0.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-137,kerala,1996,137,NEMOM,RAJESH MALAYINKEEZHU,parties.IN.IND,IND,545,0.49,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-137,kerala,1996,137,NEMOM,B.PRABHAKARAN,parties.IN.IND,IND,204,0.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-137,kerala,1996,137,NEMOM,ABDUL AZEEZ,parties.IN.IND,IND,153,0.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-137,kerala,1996,137,NEMOM,S.SUBAIR,parties.IN.IND,IND,139,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-137,kerala,1996,137,NEMOM,SYAMALA MOHAN KUMAR,parties.IN.IND,IND,124,0.11,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-137,kerala,1996,137,NEMOM,B. RAJAN,parties.IN.IND,IND,120,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-137,kerala,1996,137,NEMOM,S.BALACHANDRAN,parties.IN.IND,IND,108,0.1,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-137,kerala,1996,137,NEMOM,GIREESH DAMODARAN,parties.IN.IND,IND,61,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-138,kerala,1996,138,KOVALAM,A. NEELALOHITHADASAN N.,parties.IN.JD,JD,57180,56.91,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-138,kerala,1996,138,KOVALAM,GEORGE MASCRENE,parties.IN.INC,INC,35239,35.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-138,kerala,1996,138,KOVALAM,R.S.MONI,parties.IN.IND,IND,3649,3.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-138,kerala,1996,138,KOVALAM,ANTO MARCELINE,parties.IN.AIIC_T,AIIC(T),2309,2.3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-138,kerala,1996,138,KOVALAM,M.C.VELAPPAN,parties.IN.JP,JP,844,0.84,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-138,kerala,1996,138,KOVALAM,"N. KUTTAPPAN, T.",parties.IN.ILC,ILC,630,0.63,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-138,kerala,1996,138,KOVALAM,D.R.SUNIL,parties.IN.IND,IND,254,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-138,kerala,1996,138,KOVALAM,GOVINDAN GANGADHARAN,parties.IN.IND,IND,185,0.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-138,kerala,1996,138,KOVALAM,Y.CHELLAYYAN NADAR,parties.IN.IND,IND,176,0.18,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-139,kerala,1996,139,NEYYATTINKARA,THAMPANOOR RAVI,parties.IN.INC,INC,50924,49.38,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-kerala-139,kerala,1996,139,NEYYATTINKARA,CHARUPARA RAVI,parties.IN.JD,JD,36500,35.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-139,kerala,1996,139,NEYYATTINKARA,P.SAROJINI AMMA,parties.IN.BJP,BJP,7090,6.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-139,kerala,1996,139,NEYYATTINKARA,S.R.THANKARAJ,parties.IN.IND,IND,6881,6.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-139,kerala,1996,139,NEYYATTINKARA,O.M.K.KABIR,parties.IN.JKPDP,PDP,1149,1.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-139,kerala,1996,139,NEYYATTINKARA,J.SADANANDA RAJU,parties.IN.IND,IND,261,0.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-139,kerala,1996,139,NEYYATTINKARA,A.SUDARSANA PANICKER,parties.IN.IND,IND,212,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-139,kerala,1996,139,NEYYATTINKARA,PARAYIL SOBHANAKUMAR,parties.IN.IND,IND,115,0.11,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-140,kerala,1996,140,PARASSALA,N.SUNDARAN NADAR,parties.IN.IND,IND,36297,37.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-140,kerala,1996,140,PARASSALA,W.R.HEEBA,parties.IN.CPIM,CPM,31570,33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-140,kerala,1996,140,PARASSALA,M.R.REGHUCHANDRABAL,parties.IN.INC,INC,19264,20.14,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-140,kerala,1996,140,PARASSALA,N.BALACHANDRAN NAIR,parties.IN.BJP,BJP,7849,8.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-140,kerala,1996,140,PARASSALA,VENKODU SOOSAN,parties.IN.IND,IND,353,0.37,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-140,kerala,1996,140,PARASSALA,P.SATHYANESAN,parties.IN.IND,IND,221,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-140,kerala,1996,140,PARASSALA,M.BENEDICT,parties.IN.IND,IND,109,0.11,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

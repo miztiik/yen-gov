@@ -1,0 +1,9 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-west-bengal-10,west-bengal,1988,10,KUMARGRAM(ST),S.TOPPO,parties.IN.RSP,RSP,49595,64.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-10,west-bengal,1988,10,KUMARGRAM(ST),K.N.THAKUR,parties.IN.INC,INC,27297,35.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-10,west-bengal,1988,10,KUMARGRAM(ST),F.LAKRA,parties.IN.IND,IND,568,0.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-258,west-bengal,1988,258,BARABANI,M.UPADHYAY,parties.IN.INC,INC,45424,47.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-258,west-bengal,1988,258,BARABANI,S.R.DAS,parties.IN.CPIM,CPM,44771,46.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-258,west-bengal,1988,258,BARABANI,B.TUDU,parties.IN.IND,IND,2569,2.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-258,west-bengal,1988,258,BARABANI,S.NARAYAN,parties.IN.BJP,BJP,1389,1.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-258,west-bengal,1988,258,BARABANI,S.DAS,parties.IN.IND,IND,1232,1.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a

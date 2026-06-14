@@ -1,0 +1,7 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-rajasthan-64,rajasthan,1984,64,THANAGAZI,D.LAL,parties.IN.INC,INC,25770,49.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-64,rajasthan,1984,64,THANAGAZI,S.NARAIN,parties.IN.BJP,BJP,24255,46.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-64,rajasthan,1984,64,THANAGAZI,R.KISHAN,parties.IN.IND,IND,847,1.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-64,rajasthan,1984,64,THANAGAZI,L.N.LOTTERYWALA,parties.IN.IND,IND,551,1.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-64,rajasthan,1984,64,THANAGAZI,V.KHINCHI,parties.IN.IND,IND,338,0.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-rajasthan-64,rajasthan,1984,64,THANAGAZI,O.PRAKASH,parties.IN.IND,IND,294,0.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a

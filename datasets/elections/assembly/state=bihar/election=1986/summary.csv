@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-bihar-100,bihar,1986,ROSERA,137225,65114,47.45,G.PD.SINGH,parties.IN.LKD,LKD,28280,43.43,S.N.CHAUDHARY,parties.IN.INC,INC,22459,5821,8.94,src-1b7bc1c9d39a
+IN-AC-1976-bihar-174,bihar,1986,BANKA,129952,62414,48.03,J.YADAV,parties.IN.BJP,BJP,20934,33.54,T.ANSARI,parties.IN.INC,INC,19672,1262,2.02,src-1b7bc1c9d39a
+IN-AC-1976-bihar-178,bihar,1986,JHAJHA,112510,63032,56.02,R.K.YADAV,parties.IN.INC,INC,39561,62.76,S.JHA,parties.IN.JP,JNP,21263,18298,29.03,src-1b7bc1c9d39a
+IN-AC-1976-bihar-248,bihar,1986,KONCH,147971,104067,70.33,R.P.SINGH,parties.IN.INC,INC,73263,70.4,P.DEVI(W),parties.IN.LKD,LKD,27458,45805,44.02,src-1b7bc1c9d39a

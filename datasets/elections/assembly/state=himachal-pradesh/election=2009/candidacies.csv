@@ -1,0 +1,9 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-himachal-pradesh-3,himachal-pradesh,2009,3,ROHRU,Khushi Ram Bal.,parties.IN.BJP,BJP,27705,56.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-himachal-pradesh-3,himachal-pradesh,2009,3,ROHRU,Manjit Singh Thakur,parties.IN.INC,INC,19232,39.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-himachal-pradesh-3,himachal-pradesh,2009,3,ROHRU,Bihari Lal Chauhan,parties.IN.IND,IND,946,1.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-himachal-pradesh-3,himachal-pradesh,2009,3,ROHRU,Kewal Ram Negi,parties.IN.IND,IND,808,1.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-himachal-pradesh-36,himachal-pradesh,2009,36,JAWALI,Sujan S.Pathani,parties.IN.INC,INC,25168,50.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-himachal-pradesh-36,himachal-pradesh,2009,36,JAWALI,Baldev Raj,parties.IN.BJP,BJP,19919,40.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-himachal-pradesh-36,himachal-pradesh,2009,36,JAWALI,Madan Sharma,parties.IN.IND,IND,3580,7.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-himachal-pradesh-36,himachal-pradesh,2009,36,JAWALI,Ashok Kr.Somal,parties.IN.IND,IND,952,1.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

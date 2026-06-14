@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-west-bengal-160,west-bengal,1984,BELGACHIA,98861,78956,79.87,A.N.BHATTACHARYA,parties.IN.INC,INC,40680,51.52,L.C.SEN,parties.IN.CPIM,CPM,37588,3092,3.91,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-165,west-bengal,1984,SHIBPUR,152377,118738,77.92,S.N.GHOSE,parties.IN.AIFB,FBL,62094,52.29,M.BANERJEE,parties.IN.INC,INC,56224,5870,4.94,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-284,west-bengal,1984,BOLPUR,93455,78480,83.98,S.BANERJEE,parties.IN.INC,INC,38168,48.63,G.M.MOLLAH,parties.IN.RSP,RSP,34109,4059,5.17,src-1b7bc1c9d39a

@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-odisha-120,odisha,1997,KAMAKHYANAGAR,160746,99223,61.73,Premalata Mohapatra,parties.IN.INC,INC,60695,61.17,Rudra Narayan Pany,parties.IN.BJP,BJP,32491,28204,28.42,src-1b7bc1c9d39a
+IN-AC-1976-odisha-64,odisha,1997,DASPALLA,134865,67771,50.25,Harihar Karan,parties.IN.IND,IND,29765,43.92,Sudipta Chandra Ray,parties.IN.INC,INC,27543,2222,3.28,src-1b7bc1c9d39a
+IN-AC-1976-odisha-94,odisha,1997,NAWAPARA,137633,81611,59.3,Jagannath Pattnaik,parties.IN.INC,INC,31425,38.51,Basanta Kumar Panda,parties.IN.BJP,BJP,25107,6318,7.75,src-1b7bc1c9d39a

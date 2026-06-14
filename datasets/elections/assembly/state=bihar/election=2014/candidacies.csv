@@ -25,7 +25,7 @@ IN-AC-2008-bihar-1192,bihar,2014,37,RAJNAGAR,Ram Prit Paswan,parties.IN.BJP,BJP,
 IN-AC-2008-bihar-1192,bihar,2014,37,RAJNAGAR,Utim Paswan,parties.IN.UNK,CPI(L),2736,2.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1192,bihar,2014,37,RAJNAGAR,Lal Paswan,parties.IN.ABMP,ABMP,1918,1.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1192,bihar,2014,37,RAJNAGAR,Ram Bilas Sadai,parties.IN.SP,SP,1817,1.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1192,bihar,2014,37,RAJNAGAR,Bhogendra Prasad Paswan,parties.IN.UNK,SBP,1437,1.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1192,bihar,2014,37,RAJNAGAR,Bhogendra Prasad Paswan,parties.IN.SBP,SBP,1437,1.18,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1215,bihar,2014,55,KOCHADHAMAN,Mujahid Alam,parties.IN.JDU,JD(U),41288,32.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1215,bihar,2014,55,KOCHADHAMAN,Sadique Samdani,parties.IN.INC,INC,31050,24.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1215,bihar,2014,55,KOCHADHAMAN,Abdur Rahman,parties.IN.BJP,BJP,28924,22.87,3,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -64,7 +64,7 @@ IN-AC-2008-bihar-1297,bihar,2014,118,CHAPRA,Yogendra Rai,parties.IN.IND,IND,1347
 IN-AC-2008-bihar-1297,bihar,2014,118,CHAPRA,Manoj Kumar Singh,parties.IN.IND,IND,1254,1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1297,bihar,2014,118,CHAPRA,Chandan Gupta Alias Chandan Kumar,parties.IN.BJP,BJP,927,0.74,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1297,bihar,2014,118,CHAPRA,Krishan Kumar Gupta,parties.IN.IND,IND,713,0.57,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1297,bihar,2014,118,CHAPRA,Arpana Devi,parties.IN.UNK,BJKD(D),639,0.51,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1297,bihar,2014,118,CHAPRA,Arpana Devi,parties.IN.BJKD,BJKD(D),639,0.51,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1169,bihar,2014,123,HAJIPUR,Awadhesh Singh,parties.IN.BJP,BJP,52528,38.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1169,bihar,2014,123,HAJIPUR,Rajinder Roy,parties.IN.JDU,JD(U),46401,34.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1169,bihar,2014,123,HAJIPUR,Deo Kumar Chaurasia,parties.IN.IND,IND,21010,15.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -89,7 +89,7 @@ IN-AC-2008-bihar-1333,bihar,2014,137,MOHIUDDINNAGAR,Ram Niwash Ray,parties.IN.IN
 IN-AC-2008-bihar-1333,bihar,2014,137,MOHIUDDINNAGAR,Amrendra Kumar Yadav,parties.IN.SP,SP,1055,0.93,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1333,bihar,2014,137,MOHIUDDINNAGAR,Radha Krishan Sah,parties.IN.IND,IND,1033,0.91,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1333,bihar,2014,137,MOHIUDDINNAGAR,Nagina Sahni,parties.IN.SKLP,SKLP,905,0.79,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1333,bihar,2014,137,MOHIUDDINNAGAR,Randheer Bhai,parties.IN.UNK,BVP,387,0.34,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1333,bihar,2014,137,MOHIUDDINNAGAR,Randheer Bhai,parties.IN.BVP,BVP,387,0.34,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1333,bihar,2014,137,MOHIUDDINNAGAR,Ajay Kumar Yadav,parties.IN.IND,IND,339,0.3,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1137,bihar,2014,145,SAHEBPUR KAMAL,Shri Narayan Yadav,parties.IN.RJD,RJD,53813,39.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1137,bihar,2014,145,SAHEBPUR KAMAL,Shashi Kant Kumar,parties.IN.BJP,BJP,37178,26.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
@@ -110,7 +110,7 @@ IN-AC-2008-bihar-1209,bihar,2014,151,PARBATTA,Sanjay Ram,parties.IN.IND,IND,915,
 IN-AC-2008-bihar-1209,bihar,2014,151,PARBATTA,Brahamded Thakur,parties.IN.IND,IND,768,0.52,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1209,bihar,2014,151,PARBATTA,Shiv Kumar Mishra,parties.IN.IND,IND,693,0.47,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1209,bihar,2014,151,PARBATTA,Sanjay Kumar,parties.IN.IND,IND,684,0.46,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1209,bihar,2014,151,PARBATTA,Shekhawat Khan,parties.IN.UNK,NDP,442,0.3,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1209,bihar,2014,151,PARBATTA,Shekhawat Khan,parties.IN.NDEP,NDP,442,0.3,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1139,bihar,2014,156,BHAGALPUR,Ajeet Sharma,parties.IN.INC,INC,63753,56.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1139,bihar,2014,156,BHAGALPUR,Nabhay Kumar Choudhary,parties.IN.BJP,BJP,46524,40.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1139,bihar,2014,156,BHAGALPUR,Mukesh Kumar Das,parties.IN.UNK,CPI(L),1026,0.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
@@ -131,4 +131,4 @@ IN-AC-2008-bihar-1306,bihar,2014,204,MOHANIA,Indrajit Ram,parties.IN.IND,IND,179
 IN-AC-2008-bihar-1306,bihar,2014,204,MOHANIA,Kamta Paswan,parties.IN.IND,IND,1414,1.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1306,bihar,2014,204,MOHANIA,Brajesh Kumar,parties.IN.IND,IND,1362,1.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
 IN-AC-2008-bihar-1306,bihar,2014,204,MOHANIA,Ram Bahadur Paswan,parties.IN.SP,SP,1001,0.87,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
-IN-AC-2008-bihar-1306,bihar,2014,204,MOHANIA,Ravi Shankar Prasad,parties.IN.UNK,SBP,598,0.52,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-2008-bihar-1306,bihar,2014,204,MOHANIA,Ravi Shankar Prasad,parties.IN.SBP,SBP,598,0.52,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a

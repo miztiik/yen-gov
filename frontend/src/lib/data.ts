@@ -28,6 +28,13 @@ export interface PartyTotals {
    *  through to anchor or algorithmic tier. */
   brand_colour_hex?: string | null;
   brand_colour_confidence?: "high" | "medium" | "low" | null;
+  /** TODO/20260612 Row D: alliance short tag (e.g. "NDA", "INDIA",
+   *  "SPA") sourced via `loadAlliances(event).byParty(party_id)`. Null
+   *  when the active event has no curated alliance row for this party;
+   *  PartyBar renders the tag only when truthy so existing call-sites
+   *  that leave this field undefined render unchanged (additive
+   *  contract). */
+  alliance_short?: string | null;
 }
 
 export interface CandidateBio {

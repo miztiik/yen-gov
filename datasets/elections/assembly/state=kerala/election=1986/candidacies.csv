@@ -1,0 +1,15 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-kerala-111,kerala,1986,111,RANNI,R.S.PANAVELI,parties.IN.ICS,ICS,30065,42.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1986,111,RANNI,M.C.CHERIAN,parties.IN.INC,INC,29442,42.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1986,111,RANNI,T.N.CHANDRASEKHARAN,parties.IN.IND,IND,7170,10.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1986,111,RANNI,P.CHARLES,parties.IN.IND,IND,1196,1.71,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1986,111,RANNI,K.SUKUMARAN,parties.IN.IND,IND,1121,1.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1986,111,RANNI,S.GOPALAKRISHNAN,parties.IN.IND,IND,522,0.75,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1986,111,RANNI,P.V.KUMAR,parties.IN.IND,IND,100,0.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1986,111,RANNI,A.VELTIPURAM,parties.IN.IND,IND,96,0.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1986,111,RANNI,M.YOHANNAN,parties.IN.IND,IND,90,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1986,111,RANNI,R.KUMARAN,parties.IN.IND,IND,78,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1986,111,RANNI,T.K.ABRAHAM,parties.IN.IND,IND,55,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1986,111,RANNI,V.C.ZACHARIAH,parties.IN.IND,IND,47,0.07,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1986,111,RANNI,B.SAMUEL,parties.IN.IND,IND,45,0.06,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-111,kerala,1986,111,RANNI,A.THOMAS,parties.IN.IND,IND,39,0.06,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a

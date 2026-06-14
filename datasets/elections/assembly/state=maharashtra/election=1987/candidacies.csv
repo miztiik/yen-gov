@@ -1,0 +1,23 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-maharashtra-38,maharashtra,1987,38,VILE PARLE,R.Y.PRABHOO,parties.IN.ID,ID,29574,46.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-38,maharashtra,1987,38,VILE PARLE,P.KUNTE,parties.IN.INC,INC,18783,29.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-38,maharashtra,1987,38,VILE PARLE,Y.PRANLAL,parties.IN.JP,JNP,13928,21.88,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-38,maharashtra,1987,38,VILE PARLE,J.S.JADHAV,parties.IN.IND,IND,474,0.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-38,maharashtra,1987,38,VILE PARLE,P.MERCHANT,parties.IN.IND,IND,235,0.37,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-38,maharashtra,1987,38,VILE PARLE,P.S.AMBRE,parties.IN.IND,IND,207,0.33,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-38,maharashtra,1987,38,VILE PARLE,A.R.RAUT,parties.IN.IND,IND,135,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-38,maharashtra,1987,38,VILE PARLE,A.P.SHRIDHAR,parties.IN.IND,IND,94,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-38,maharashtra,1987,38,VILE PARLE,Z.K.DALICHAND,parties.IN.IND,IND,86,0.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-38,maharashtra,1987,38,VILE PARLE,K.P.YADAV,parties.IN.IND,IND,48,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-38,maharashtra,1987,38,VILE PARLE,B.MORE,parties.IN.IND,IND,40,0.06,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-38,maharashtra,1987,38,VILE PARLE,Y.CHAMUR,parties.IN.IND,IND,29,0.05,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-38,maharashtra,1987,38,VILE PARLE,P.H.BHAI,parties.IN.IND,IND,26,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-38,maharashtra,1987,38,VILE PARLE,Y.S.KESHAV,parties.IN.IND,IND,11,0.02,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-211,maharashtra,1987,211,NILANGA,P.S.BAJIRAO,parties.IN.INC,INC,75482,77.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-211,maharashtra,1987,211,NILANGA,P.V.B.WEGEDKAI,parties.IN.PWP,PWP,12770,13.09,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-211,maharashtra,1987,211,NILANGA,T.U.MANIKRAO,parties.IN.BJP,BJP,5494,5.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-211,maharashtra,1987,211,NILANGA,S.D.NAMDEO,parties.IN.IND,IND,1517,1.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-211,maharashtra,1987,211,NILANGA,K.A.YADAV,parties.IN.IND,IND,1279,1.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-211,maharashtra,1987,211,NILANGA,K.S.RAMRAO,parties.IN.IND,IND,497,0.51,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-211,maharashtra,1987,211,NILANGA,G.D.RAMA,parties.IN.IND,IND,345,0.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-211,maharashtra,1987,211,NILANGA,S.S.SHRIPATRAO,parties.IN.IND,IND,147,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a

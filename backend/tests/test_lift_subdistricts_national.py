@@ -165,8 +165,8 @@ def test_lift_emits_per_state_shards_and_returns_rows(
     assert tn_row.unkeyed_count == 0
     assert tn_row.original_feature_count == 2
     assert tn_row.level == "subdistrict"
-    assert tn_row.partition_path == "boundaries/in/subdistricts/state=in_s22/all.geojson"
-    assert tn_row.layer_id == "boundaries.in.subdistricts.state=in_s22"
+    assert tn_row.partition_path == "boundaries/in/subdistricts/state=tamil-nadu/all.geojson"
+    assert tn_row.layer_id == "boundaries.in.subdistricts.state=tamil-nadu"
     assert tn_row.simplification_algorithm == "coord-precision-round"
     assert tn_row.simplification_tolerance_deg == 10**-3
 
@@ -189,13 +189,13 @@ def test_lift_is_byte_deterministic(tmp_path: Path, lift_module: Any) -> None:
     mapping = {33: "S22"}
 
     lift_module.lift_subdistricts_to_per_state_shards(geojsonl, mapping, datasets_root)
-    shard = datasets_root / "boundaries" / "in" / "subdistricts" / "state=in_s22" / "all.geojson"
+    shard = datasets_root / "boundaries" / "in" / "subdistricts" / "state=tamil-nadu" / "all.geojson"
     sha1 = hashlib.sha256(shard.read_bytes()).hexdigest()
 
     # rerun against fresh datasets_root
     datasets_root2 = tmp_path / "datasets_v2"
     lift_module.lift_subdistricts_to_per_state_shards(geojsonl, mapping, datasets_root2)
-    shard2 = datasets_root2 / "boundaries" / "in" / "subdistricts" / "state=in_s22" / "all.geojson"
+    shard2 = datasets_root2 / "boundaries" / "in" / "subdistricts" / "state=tamil-nadu" / "all.geojson"
     sha2 = hashlib.sha256(shard2.read_bytes()).hexdigest()
 
     assert sha1 == sha2, "byte-determinism broken — features must sort identically across runs"
@@ -236,19 +236,19 @@ def test_remove_stale_shards_deletes_only_non_keep_paths(
     but defensively test the negation case.)
     """
     subdistricts = tmp_path / "datasets" / "boundaries" / "in" / "subdistricts"
-    (subdistricts / "state=in_s22").mkdir(parents=True)
-    (subdistricts / "state=in_s22" / "all.geojson").write_text("{}", encoding="utf-8")
-    (subdistricts / "state=in_s08").mkdir(parents=True)
-    (subdistricts / "state=in_s08" / "all.geojson").write_text("{}", encoding="utf-8")
+    (subdistricts / "state=tamil-nadu").mkdir(parents=True)
+    (subdistricts / "state=tamil-nadu" / "all.geojson").write_text("{}", encoding="utf-8")
+    (subdistricts / "state=himachal-pradesh").mkdir(parents=True)
+    (subdistricts / "state=himachal-pradesh" / "all.geojson").write_text("{}", encoding="utf-8")
 
-    # Keep only S22; S08 is stale.
+    # Keep only TN; HP is stale.
     deleted = lift_module.remove_stale_shards(
         subdistricts,
-        {"boundaries/in/subdistricts/state=in_s22/all.geojson"},
+        {"boundaries/in/subdistricts/state=tamil-nadu/all.geojson"},
     )
     assert deleted == 1
-    assert (subdistricts / "state=in_s22" / "all.geojson").is_file()
-    assert not (subdistricts / "state=in_s08").exists()
+    assert (subdistricts / "state=tamil-nadu" / "all.geojson").is_file()
+    assert not (subdistricts / "state=himachal-pradesh").exists()
 
 
 def test_remove_stale_shards_handles_missing_dir(tmp_path: Path, lift_module: Any) -> None:

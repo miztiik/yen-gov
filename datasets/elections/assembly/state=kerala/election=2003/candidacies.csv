@@ -1,0 +1,13 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-kerala-105,kerala,2003,105,THIRUVALLA,Adv. E.M. Mathai,parties.IN.KC_M,KC(M),41453,47.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,2003,105,THIRUVALLA,Dr.Verghese George,parties.IN.JDS,JD(S),36784,41.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,2003,105,THIRUVALLA,K.P.P.Varma,parties.IN.BJP,BJP,7684,8.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,2003,105,THIRUVALLA,Soman,parties.IN.RLD,RLD,601,0.68,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,2003,105,THIRUVALLA,S.Karippakushi,parties.IN.IND,IND,459,0.52,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,2003,105,THIRUVALLA,M.Mathew,parties.IN.NB,NB,327,0.37,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,2003,105,THIRUVALLA,V.P.Thampi,parties.IN.IND,IND,233,0.26,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,2003,105,THIRUVALLA,Adv.Jocob John,parties.IN.IND,IND,228,0.26,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,2003,105,THIRUVALLA,Annamma Jose,parties.IN.IND,IND,138,0.16,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,2003,105,THIRUVALLA,Adv. V.Raveendran Nair,parties.IN.IND,IND,113,0.13,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,2003,105,THIRUVALLA,Krishnan,parties.IN.IND,IND,78,0.09,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-kerala-105,kerala,2003,105,THIRUVALLA,Sanu,parties.IN.IND,IND,52,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a

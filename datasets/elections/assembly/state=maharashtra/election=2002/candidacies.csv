@@ -1,0 +1,13 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-maharashtra-95,maharashtra,2002,95,JALGAON,J.S.K.BHIKAMCHAND,parties.IN.NCP,NCP,57857,47.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-95,maharashtra,2002,95,JALGAON,S.C.BALIRAM,parties.IN.SHS,SHS,55305,45.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-95,maharashtra,2002,95,JALGAON,PATIL NARENDRA BHASKARRAO,parties.IN.IND,IND,5879,4.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-95,maharashtra,2002,95,JALGAON,SHE. AMIN.SHE YASIN,parties.IN.IND,IND,1921,1.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-95,maharashtra,2002,95,JALGAON,KOLHE ASHOK PUNDALIK,parties.IN.BBM,BBM,1234,1.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-127,maharashtra,2002,127,ARVI,KALE AMAR SHARADRAO,parties.IN.INC,INC,74738,57.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-127,maharashtra,2002,127,ARVI,VIJAY ANNAJI MUDE,parties.IN.BJP,BJP,44938,34.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-127,maharashtra,2002,127,ARVI,VINOD PANDURANG PATIL,parties.IN.IND,IND,4235,3.26,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-127,maharashtra,2002,127,ARVI,KODAPE ASHOK CHAITUJI,parties.IN.GGP,GGP,1705,1.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-127,maharashtra,2002,127,ARVI,PATIL HARIDAS SHAMRAOJI,parties.IN.IND,IND,1462,1.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-127,maharashtra,2002,127,ARVI,IRPACHE PRAMILA BAPURAO,parties.IN.IND,IND,1389,1.07,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-maharashtra-127,maharashtra,2002,127,ARVI,RATANLAL HANSARAJ SOLANKI(PATIL),parties.IN.IND,IND,1331,1.03,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a

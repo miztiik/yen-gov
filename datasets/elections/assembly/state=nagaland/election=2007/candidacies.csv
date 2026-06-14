@@ -1,0 +1,10 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-nagaland-1,nagaland,2007,1,DIMAPUR-I,ATOMI,parties.IN.NPF,NPF,7584,52.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-1,nagaland,2007,1,DIMAPUR-I,AHETO V. YEPTHO,parties.IN.INC,INC,3938,27.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-1,nagaland,2007,1,DIMAPUR-I,KEVISE ANGAMI,parties.IN.BJP,BJP,1931,13.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-1,nagaland,2007,1,DIMAPUR-I,LIMATEMJEN,parties.IN.JDU,JD(U),834,5.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-1,nagaland,2007,1,DIMAPUR-I,ROLAND,parties.IN.NDEP,NDP,291,2,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-54,nagaland,2007,54,TUENSANG SADAR-II,SHRI KEJONG,parties.IN.INC,INC,5947,33.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-54,nagaland,2007,54,TUENSANG SADAR-II,SMT. RHAKILA,parties.IN.IND,IND,5322,29.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-54,nagaland,2007,54,TUENSANG SADAR-II,SHRI WONGTO,parties.IN.NPF,NPF,4979,27.67,3,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-54,nagaland,2007,54,TUENSANG SADAR-II,SHRI N. KAIMANG,parties.IN.IND,IND,1744,9.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -1,0 +1,88 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-jammu-and-kashmir-1,jammu-and-kashmir,2002,KARNAH,28948,18922,65.37,Kafil-u-Rehman,parties.IN.JKNC,JKN,8707,46.02,Mohd Sikander Khan,parties.IN.INC,INC,6719,1988,10.51,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-10,jammu-and-kashmir,2002,BANDIPORA,70963,22179,31.25,Usman Abdul Majid,parties.IN.JKAL,JKAL,5722,25.8,Habibullah Bhat,parties.IN.INC,INC,5469,253,1.14,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-11,jammu-and-kashmir,2002,SONAWARI,78299,44246,56.51,Mohd Akbar Lone,parties.IN.JKNC,JKN,25687,58.05,Mohd Yousuf Parray,parties.IN.JKAL,JKAL,12929,12758,28.83,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-12,jammu-and-kashmir,2002,SANGRAMA,46566,10294,22.11,Ghulam Nabi Lone,parties.IN.JKPDP,PDP,3697,35.91,Mohd Yousuf,parties.IN.JKNC,JKN,2638,1059,10.28,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-13,jammu-and-kashmir,2002,BARAMULLA,73274,17693,24.15,Muzaffer Hussain Baigh,parties.IN.JKPDP,PDP,6833,38.62,Ghulam Nabi Kachru,parties.IN.JKNC,JKN,3984,2849,16.1,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-14,jammu-and-kashmir,2002,GULMARG,70378,35486,50.42,Ghulam Hassan Mir,parties.IN.JKPDP,PDP,27737,78.16,Sheikh Mustafa Kamal,parties.IN.JKNC,JKN,7749,19988,56.32,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-15,jammu-and-kashmir,2002,PATTAN,69803,29008,41.56,Molvi Ifthikar Hussain Ansari,parties.IN.JKNC,JKN,15268,52.63,DR. ABDUL AHAD YATOO,parties.IN.INC,INC,13084,2184,7.53,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-16,jammu-and-kashmir,2002,KANGAN,50452,26249,52.03,Altaf Ahmad,parties.IN.JKNC,JKN,16987,64.71,Ghulam Mohd. Dar,parties.IN.JKPDP,PDP,5948,11039,42.05,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-17,jammu-and-kashmir,2002,GANDERBAL,68402,24081,35.21,Qazi Mohd Afzal,parties.IN.JKPDP,PDP,11622,48.26,Omar Abdullah,parties.IN.JKNC,JKN,8752,2870,11.92,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-18,jammu-and-kashmir,2002,HAZRATBAL,85827,6110,7.12,Mohd. Syed Akhoon,parties.IN.JKNC,JKN,3042,49.79,Ghulam Mohi-Ud-Din Akhoon,parties.IN.JKPDP,PDP,1639,1403,22.97,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-19,jammu-and-kashmir,2002,ZADIBAL,67852,3244,4.78,Shahjahan Dar,parties.IN.IND,IND,1514,46.67,Khawja Sadiq Ali,parties.IN.JKNC,JKN,1220,294,9.06,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-2,jammu-and-kashmir,2002,KUPWARA,80536,43889,54.5,MIR SAIFULLAH,parties.IN.JKNC,JKN,19233,43.82,Gh.Qadir Mir,parties.IN.IND,IND,19101,132,0.3,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-20,jammu-and-kashmir,2002,IDGAH,70372,3342,4.75,Mubarak Ahmad Gul,parties.IN.JKNC,JKN,2026,60.62,Mohd Ashraf Bakashi,parties.IN.IND,IND,747,1279,38.27,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-21,jammu-and-kashmir,2002,KHANYAR,72495,3056,4.22,ALI MOHD. SAGAR,parties.IN.JKNC,JKN,2868,93.85,MUSHTAQ AHMAD,parties.IN.INC,INC,127,2741,89.69,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-22,jammu-and-kashmir,2002,HABBAKADAL,66782,2062,3.09,Raman Mattoo,parties.IN.IND,IND,587,28.47,Hira Lal Chatta,parties.IN.BJP,BJP,416,171,8.3,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-23,jammu-and-kashmir,2002,AMIRAKADAL,74442,2280,3.06,Mohd. Shafi Bhat,parties.IN.INC,INC,1163,51.01,Gh.Nabi Mir,parties.IN.JKNC,JKN,672,491,21.54,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-24,jammu-and-kashmir,2002,SONAWAR,63272,6303,9.96,Mohd. Yaseen Shah,parties.IN.JKNC,JKN,3445,54.66,Gh. Hussain Wani,parties.IN.JKPDP,PDP,1740,1705,27.05,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-25,jammu-and-kashmir,2002,BATAMALOO,104213,4171,4,Gh.Mohi-ud-din Shah,parties.IN.JKNC,JKN,2065,49.51,Tariq Hamid Qara,parties.IN.JKPDP,PDP,1223,842,20.19,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-26,jammu-and-kashmir,2002,CHADOORA,52315,27439,52.45,Javid Mir,parties.IN.JKPDP,PDP,15923,58.03,Ali Mohd Dar,parties.IN.JKNC,JKN,7876,8047,29.33,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-27,jammu-and-kashmir,2002,BADGAM,67450,22531,33.4,Aga Syed Roohullah Mehdi,parties.IN.JKNC,JKN,11398,50.59,Aga Syed Mahmood Almosvi,parties.IN.IND,IND,4753,6645,29.49,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-28,jammu-and-kashmir,2002,BEERWAH,72976,25583,35.06,Mohd Sarfraz Khan,parties.IN.JKPDP,PDP,16886,66,Mohd Amin Banday,parties.IN.JKNC,JKN,4966,11920,46.59,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-29,jammu-and-kashmir,2002,KHANSAHIB,60645,30028,49.51,Hakim Mohd Yassin,parties.IN.IND,IND,20186,67.22,Abdul Gani Naseem,parties.IN.JKNC,JKN,4393,15793,52.59,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-3,jammu-and-kashmir,2002,LOLAB,72715,34093,46.89,Qaiser Ahmed Lone Alias Qaiser Jamsheed Lone,parties.IN.JKNC,JKN,14408,42.26,Ab.Haq Khan,parties.IN.IND,IND,12412,1996,5.85,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-30,jammu-and-kashmir,2002,CHRARI SHARIEF,62040,39527,63.71,Abdul Rahim Rather,parties.IN.JKNC,JKN,20275,51.29,Advocate Ghulam Nabi Lone,parties.IN.JKPDP,PDP,16520,3755,9.5,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-31,jammu-and-kashmir,2002,TRAL,59555,6878,11.55,GHULAM NABI BHAT,parties.IN.JKNC,JKN,3253,47.3,Surinder Singh,parties.IN.INC,INC,2944,309,4.5,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-32,jammu-and-kashmir,2002,PAMPORE,51688,9908,19.17,Ab. Aziz Mir,parties.IN.JKPDP,PDP,3811,38.46,Mohd. Anwar Bhat,parties.IN.INC,INC,3106,705,7.11,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-33,jammu-and-kashmir,2002,PULWAMA,54107,9811,18.13,Mohamad Khalil Band,parties.IN.JKPDP,PDP,5209,53.09,Bashir Ahmad Nengroo,parties.IN.JKNC,JKN,2782,2427,24.73,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-34,jammu-and-kashmir,2002,RAJPORA,64829,23799,36.71,Syed Bashir Ahmad,parties.IN.JKPDP,PDP,13946,58.6,Ghulam Mohi-ud-din,parties.IN.JKNC,JKN,5860,8086,33.98,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-35,jammu-and-kashmir,2002,WACHI,50054,14160,28.29,Khalil Naik,parties.IN.CPIM,CPM,4133,29.19,Gh. Hassan Bhat,parties.IN.JKPDP,PDP,4053,80,0.57,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-36,jammu-and-kashmir,2002,SHOPIAN,55812,15012,26.9,Gh. Hassan Khan,parties.IN.JKPDP,PDP,4083,27.2,Sheikh Mohd. Rafi,parties.IN.JKNC,JKN,3363,720,4.8,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-37,jammu-and-kashmir,2002,NOORABAD,51946,12157,23.4,Ab. Aziz Zargar,parties.IN.JKPDP,PDP,3616,29.74,Sakeena Akhtar,parties.IN.JKNC,JKN,3301,315,2.59,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-38,jammu-and-kashmir,2002,KULGAM,66159,16138,24.39,Mohd. Yousf Tarigami,parties.IN.CPIM,CPM,8346,51.72,Gh. Nabi Dar,parties.IN.JKNC,JKN,3461,4885,30.27,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-39,jammu-and-kashmir,2002,HOMESHALIBUGH,50635,11612,22.93,Ab. Gafar Sofi,parties.IN.JKPDP,PDP,6803,58.59,MOHD. AMIN DAR,parties.IN.CPIM,CPM,2327,4476,38.55,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-4,jammu-and-kashmir,2002,HANDWARA,64056,32976,51.48,Gh.Mohi-ud-din Sofi,parties.IN.IND,IND,15389,46.67,Chowdry Mohd Ramzan,parties.IN.JKNC,JKN,12392,2997,9.09,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-40,jammu-and-kashmir,2002,ANANTNAG,69815,5002,7.16,Dr. Mehboob Beigh,parties.IN.JKNC,JKN,3513,70.23,Liyakat Ali Khan,parties.IN.JKAL,JKAL,652,2861,57.2,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-41,jammu-and-kashmir,2002,DEVSAR,63667,22639,35.56,Mohd. Sartaj Madni,parties.IN.JKPDP,PDP,8721,38.52,MOHD. YAQUB,parties.IN.CPIM,CPM,5695,3026,13.36,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-42,jammu-and-kashmir,2002,DORU,53974,21848,40.48,Gh. Ahmad Mir,parties.IN.INC,INC,14461,66.19,Syed Manzoor Ahmad,parties.IN.JKNC,JKN,3119,11342,51.91,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-43,jammu-and-kashmir,2002,KOKERNAG,57743,8817,15.27,Peerzada Mohd. Syed,parties.IN.INC,INC,3356,38.06,GH. RASOOL MALIK,parties.IN.JKPDP,PDP,2920,436,4.94,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-44,jammu-and-kashmir,2002,SHANGUS,54319,13799,25.4,PEER MOHD. HUSSAIN,parties.IN.JKPDP,PDP,5115,37.07,Gulzar Ahamad,parties.IN.INC,INC,4774,341,2.47,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-45,jammu-and-kashmir,2002,BIJBEHARA,61322,10221,16.67,Ab. Rehman Bhat,parties.IN.JKPDP,PDP,5961,58.32,Haji Ab. Gani Shah,parties.IN.JKNC,JKN,2084,3877,37.93,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-46,jammu-and-kashmir,2002,PAHALGAM,57363,18940,33.02,Mehbooba Mufti,parties.IN.JKPDP,PDP,8544,45.11,Rafi Ah. Mir,parties.IN.JKNC,JKN,6405,2139,11.29,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-47,jammu-and-kashmir,2002,NOBRA,12244,1,0.01,Sonam Wangchuk Narboo,parties.IN.IND,IND,1,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-48,jammu-and-kashmir,2002,LEH,74471,1,0,Sh. Nawang RigZin,parties.IN.IND,IND,1,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-49,jammu-and-kashmir,2002,KARGIL,64646,48372,74.83,HAJI NISSAR ALI,parties.IN.IND,IND,27384,56.61,Qamar Ali Akhoon,parties.IN.JKNC,JKN,20988,6396,13.22,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-5,jammu-and-kashmir,2002,LANGATE,49501,26717,53.97,Sharief-Ud-din Shariq,parties.IN.JKNC,JKN,8058,30.16,M. Sultan Pandithpori,parties.IN.JKPDP,PDP,5658,2400,8.98,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-50,jammu-and-kashmir,2002,ZANSKAR,22792,17998,78.97,MOHD ABASS,parties.IN.JKNC,JKN,8580,47.67,TSERING CHHOSPHEL,parties.IN.IND,IND,5393,3187,17.71,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-51,jammu-and-kashmir,2002,KISHTWAR,73838,40473,54.81,Sajjad Hussain,parties.IN.JKNC,JKN,16725,41.32,Gulam Haider Sheikh,parties.IN.INC,INC,15062,1663,4.11,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-52,jammu-and-kashmir,2002,INDERWAL,66991,37917,56.6,Gulam Mohammad,parties.IN.INC,INC,24551,64.75,Jalal-ud-Din,parties.IN.JKNC,JKN,5667,18884,49.8,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-53,jammu-and-kashmir,2002,DODA,70413,39104,55.54,ABDUL MAJID,parties.IN.IND,IND,13799,35.29,Khalid Najib Soharawardy,parties.IN.JKNC,JKN,13192,607,1.55,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-54,jammu-and-kashmir,2002,BHADERWAH,91478,49628,54.25,Mohd. Sharief,parties.IN.INC,INC,16962,34.18,Mohd. Aslam,parties.IN.JKNC,JKN,10135,6827,13.76,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-55,jammu-and-kashmir,2002,RAMBAN,73011,42133,57.71,Chaman Lal,parties.IN.JKNC,JKN,15220,36.12,ASHOK KUMAR,parties.IN.INC,INC,12681,2539,6.02,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-56,jammu-and-kashmir,2002,BANIHAL,59137,23980,40.55,Molvi Abdul Rashid,parties.IN.IND,IND,11393,47.51,MOHD. FAROOQ MIR,parties.IN.JKNC,JKN,4719,6674,27.83,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-57,jammu-and-kashmir,2002,GULABGARH,63386,35492,55.99,AB. GANI MALIK,parties.IN.JKNC,JKN,12476,35.15,Ajaz Ahmad Khan,parties.IN.IND,IND,9546,2930,8.25,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-58,jammu-and-kashmir,2002,REASI,100222,62333,62.19,Jugal Kishore,parties.IN.INC,INC,23045,36.97,Baldev Raj,parties.IN.BJP,BJP,20989,2056,3.3,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-59,jammu-and-kashmir,2002,GOOL ARNAS,54286,32614,60.08,Aijaz Ahmad,parties.IN.IND,IND,10881,33.36,KABALA SINGH,parties.IN.BJP,BJP,5895,4986,15.28,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-6,jammu-and-kashmir,2002,URI,63429,42174,66.49,Taj Mohi-u-Din,parties.IN.INC,INC,20460,48.51,MOHAMMED SHAFI,parties.IN.JKNC,JKN,20276,184,0.43,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-60,jammu-and-kashmir,2002,UDHAMPUR,104642,61103,58.39,Balwant Singh,parties.IN.JKNPP,JKNPP,24679,40.39,Pawan Kumar Gupta,parties.IN.BJP,BJP,14727,9952,16.29,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-61,jammu-and-kashmir,2002,CHANANI,74330,45743,61.54,Sh Faquir Nath,parties.IN.JKNPP,JKNPP,17118,37.42,Sh. Krishan Chander,parties.IN.INC,INC,15353,1765,3.86,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-62,jammu-and-kashmir,2002,RAMNAGAR,97787,59354,60.7,Harsh Dev Singh,parties.IN.JKNPP,JKNPP,29914,50.4,Khalil Allaha Qazi,parties.IN.BSP,BSP,13430,16484,27.77,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-63,jammu-and-kashmir,2002,BANI,36015,24356,67.63,Prem Sagar,parties.IN.INC,INC,10395,42.68,Gh. Haider malik,parties.IN.JKNC,JKN,6708,3687,15.14,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-64,jammu-and-kashmir,2002,BASOHLI,68710,43380,63.13,LAL SINGH,parties.IN.INC,INC,18916,43.61,Jagdish Raj Sapolia,parties.IN.BJP,BJP,15248,3668,8.46,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-65,jammu-and-kashmir,2002,KATHUA,112359,64021,56.98,Jatinder Singh,parties.IN.DM,DM,16366,25.56,Sagar Chand,parties.IN.BSP,BSP,13307,3059,4.77,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-66,jammu-and-kashmir,2002,BILLAWAR,81170,51783,63.8,Manohar Lal Sharma,parties.IN.IND,IND,24736,47.77,Balbir Singh,parties.IN.INC,INC,10175,14561,28.12,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-67,jammu-and-kashmir,2002,HIRANAGAR,95173,57215,60.12,Girdhari Lal,parties.IN.INC,INC,31402,54.88,Gopal Dass,parties.IN.BJP,BJP,13190,18212,31.83,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-68,jammu-and-kashmir,2002,SAMBA,74934,43780,58.42,Yash Paul,parties.IN.JKNPP,JKNPP,11079,25.31,Swarn Lata,parties.IN.INC,INC,10333,746,1.71,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-69,jammu-and-kashmir,2002,VIJAYPUR,101046,64802,64.13,MANJIT SINGH,parties.IN.BSP,BSP,25406,39.21,Surjit Singh Salathia,parties.IN.JKNC,JKN,20329,5077,7.84,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-7,jammu-and-kashmir,2002,RAFIABAD,62942,33072,52.54,Mohamad Dilawar Mir,parties.IN.JKNC,JKN,11576,35,Abdul Gani Vakil,parties.IN.INC,INC,10944,632,1.91,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-70,jammu-and-kashmir,2002,NAGROTA,62238,39723,63.82,Jugal Kishore,parties.IN.BJP,BJP,10653,26.82,Ajat Shatru Singh,parties.IN.JKNC,JKN,10586,67,0.17,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-71,jammu-and-kashmir,2002,GANDHINAGAR,153334,74299,48.46,Raman Bhalla,parties.IN.INC,INC,37010,49.81,Harbans Singh,parties.IN.JKNC,JKN,26517,10493,14.12,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-72,jammu-and-kashmir,2002,JAMMU EAST,87314,33753,38.66,Yogesh Kumar Sawhney,parties.IN.INC,INC,11784,34.91,ASHOK KUMAR,parties.IN.BJP,BJP,8448,3336,9.88,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-73,jammu-and-kashmir,2002,JAMMU WEST,163689,63327,38.69,Mangat Ram Sharma,parties.IN.INC,INC,25627,40.47,Virander Kumar Gupta,parties.IN.IND,IND,17704,7923,12.51,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-74,jammu-and-kashmir,2002,BISHNAH,81424,54895,67.42,Ashwani Kumar Sharma,parties.IN.IND,IND,17961,32.72,Kamal Verma,parties.IN.JKNC,JKN,13298,4663,8.5,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-75,jammu-and-kashmir,2002,R.S. PURA,77388,47507,61.39,Suman lata Bhagat,parties.IN.INC,INC,19669,41.4,Romesh Lal Mottan,parties.IN.NCP,NCP,16485,3184,6.7,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-76,jammu-and-kashmir,2002,SUCHETGARH,59238,41332,69.77,Gharu Ram,parties.IN.INC,INC,11344,27.45,RAJINDER SINGH CHIB,parties.IN.BJP,BJP,11207,137,0.34,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-77,jammu-and-kashmir,2002,MARH,68194,46935,68.83,Ajay Kumar,parties.IN.JKNC,JKN,14959,31.87,Sukhnandan Kumar,parties.IN.BJP,BJP,13792,1167,2.48,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-78,jammu-and-kashmir,2002,RAIPUR DOMANA,77364,47230,61.05,Mulla Ram,parties.IN.INC,INC,20538,43.49,Bharat Bhushan,parties.IN.IND,IND,8852,11686,24.75,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-79,jammu-and-kashmir,2002,AKHNOOR,81788,58242,71.21,Madan Lal Sharma,parties.IN.INC,INC,17102,29.36,GOVIND RAM SHARMA,parties.IN.JKNC,JKN,16037,1065,1.82,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-8,jammu-and-kashmir,2002,SOPORE,76779,6212,8.09,ABDUL RASHID,parties.IN.INC,INC,2062,33.19,Abdul Ahad Vakil,parties.IN.JKNC,JKN,1515,547,8.8,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-80,jammu-and-kashmir,2002,CHHAMB,63294,44562,70.4,Tara Chand,parties.IN.INC,INC,20630,46.3,Chhaju Ram,parties.IN.JKNC,JKN,10296,10334,23.2,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-81,jammu-and-kashmir,2002,NOWSHERA,88099,50957,57.84,Romesh Chander,parties.IN.INC,INC,20511,40.25,Radhey Sham Sharma,parties.IN.JKNC,JKN,16037,4474,8.78,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-82,jammu-and-kashmir,2002,DARHAL,90353,42115,46.61,Puran Singh,parties.IN.IND,IND,11832,28.09,Ch. Liaqat Ali,parties.IN.JKNC,JKN,11615,217,0.51,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-83,jammu-and-kashmir,2002,RAJOURI,110458,29836,27.01,Mohd Aslam,parties.IN.JKNC,JKN,11933,40,Qammer Hussain,parties.IN.INC,INC,9255,2678,8.98,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-84,jammu-and-kashmir,2002,KALAKOTE,85210,41462,48.66,Rachpal Singh,parties.IN.JKNC,JKN,19324,46.61,ASHOK KUMAR SHARMA,parties.IN.INC,INC,18124,1200,2.9,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-85,jammu-and-kashmir,2002,SURANKOTE,83113,33254,40.01,Mushtaq Ahmad Shah,parties.IN.JKNC,JKN,15243,45.84,MOHD ASLAM,parties.IN.INC,INC,13271,1972,5.93,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-86,jammu-and-kashmir,2002,MENDHAR,79826,47729,59.79,Javed Ahmad Rana,parties.IN.JKNC,JKN,24530,51.39,Rafiq Hussain Khan,parties.IN.IND,IND,16665,7865,16.47,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-87,jammu-and-kashmir,2002,POONCH HAVELI,95028,57712,60.73,GHULAM MOHD JAN,parties.IN.JKNC,JKN,27364,47.41,Yeshpal Sharma,parties.IN.INC,INC,26718,646,1.11,src-1b7bc1c9d39a
+IN-AC-1976-jammu-and-kashmir-9,jammu-and-kashmir,2002,GUREZ,14140,10817,76.5,Nazir Ahmad,parties.IN.JKNC,JKN,5782,53.45,Faqir Mohd,parties.IN.IND,IND,4532,1250,11.55,src-1b7bc1c9d39a

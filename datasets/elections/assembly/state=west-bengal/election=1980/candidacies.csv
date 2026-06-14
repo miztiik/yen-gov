@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-west-bengal-14,west-bengal,1980,14,MADARIHAT(ST),S.KUJAR,parties.IN.RSP,RSP,29194,62.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-14,west-bengal,1980,14,MADARIHAT(ST),M.D.BHAGAT,parties.IN.INC_I,INC(I),12362,26.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-14,west-bengal,1980,14,MADARIHAT(ST),M.BHAGAT,parties.IN.IND,IND,3132,6.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-west-bengal-14,west-bengal,1980,14,MADARIHAT(ST),M.URAON,parties.IN.JNP_S,JNP(S),1946,4.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

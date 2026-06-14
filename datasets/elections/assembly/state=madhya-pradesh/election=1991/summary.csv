@@ -1,0 +1,6 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-madhya-pradesh-181,madhya-pradesh,1991,KHAIRALANJEE,86394,60140,69.61,D.N.A.B.PATEL,parties.IN.IND,IND,38620,64.22,T.BISEN,parties.IN.INC,INC,18877,19743,32.83,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-307,madhya-pradesh,1991,PETLAWAD(ST),117863,61404,52.1,K.DAMAR(W),parties.IN.INC,INC,32632,53.14,B.GAMAD,parties.IN.BJP,BJP,27613,5019,8.17,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-55,madhya-pradesh,1991,HATTA,123713,72980,58.99,R.PATERYA(W),parties.IN.INC,INC,39551,54.19,G.PATEL(HARAT),parties.IN.BJP,BJP,30536,9015,12.35,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-73,madhya-pradesh,1991,GHURAHAT,121817,78911,64.78,A.SINGH,parties.IN.INC,INC,38914,49.31,G.P.MISHRA,parties.IN.BJP,BJP,35374,3540,4.48,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-89,madhya-pradesh,1991,PREM NAGAR(ST),107405,58300,54.28,N.SINGH,parties.IN.BJP,BJP,30909,53.02,T.SINGH,parties.IN.INC,INC,25322,5587,9.59,src-1b7bc1c9d39a

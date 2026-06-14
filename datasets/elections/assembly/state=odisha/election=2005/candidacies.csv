@@ -1,0 +1,12 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-odisha-135,odisha,2005,135,SUNDARGARH,Sushma Patel,parties.IN.BJP,BJP,53641,47.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-135,odisha,2005,135,SUNDARGARH,Kishore Chandra Patel,parties.IN.INC,INC,44596,39.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-135,odisha,2005,135,SUNDARGARH,Gopal Chandra Padhan,parties.IN.OGP,OGP,3885,3.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-135,odisha,2005,135,SUNDARGARH,Snehalata Patel,parties.IN.IND,IND,3179,2.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-135,odisha,2005,135,SUNDARGARH,Sunil Singh,parties.IN.BSP,BSP,2247,2,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-135,odisha,2005,135,SUNDARGARH,Soumen Barik,parties.IN.IND,IND,1003,0.89,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-135,odisha,2005,135,SUNDARGARH,Bijay Kumar Munda,parties.IN.IND,IND,1000,0.89,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-135,odisha,2005,135,SUNDARGARH,Suresh Patel,parties.IN.IND,IND,890,0.79,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-135,odisha,2005,135,SUNDARGARH,Dilip Kumar Panda,parties.IN.PSS,PSS,738,0.66,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-135,odisha,2005,135,SUNDARGARH,Marsel Kisan,parties.IN.IND,IND,599,0.53,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-135,odisha,2005,135,SUNDARGARH,Toshananda Naik,parties.IN.IND,IND,535,0.48,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a

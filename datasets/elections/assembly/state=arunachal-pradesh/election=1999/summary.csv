@@ -1,0 +1,60 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-arunachal-pradesh-1,arunachal-pradesh,1999,LUMLA,6511,5858,89.97,T.G. RINPOCHE,parties.IN.INC,INC,3282,56.03,SANGE NAWANG,parties.IN.AC,AC,2576,706,12.06,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-10,arunachal-pradesh,1999,SEPPA EAST,11324,6557,57.9,ATUM VELLY,parties.IN.NCP,NCP,3491,53.24,BIDA TAKO,parties.IN.INC,INC,3066,425,6.48,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-11,arunachal-pradesh,1999,SEPPA WEST,5950,4512,75.83,HARI NOTUNG,parties.IN.INC,INC,2594,57.49,TANI LOFFA,parties.IN.AC,AC,1918,676,14.98,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-12,arunachal-pradesh,1999,PAKKE-KASANG,6449,4519,70.07,DERA NATUNG,parties.IN.INC,INC,2421,53.57,TECHI HEMU,parties.IN.AC,AC,2098,323,7.14,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-13,arunachal-pradesh,1999,ITANAGAR,38807,18883,48.66,LICHI LEGI,parties.IN.INC,INC,6766,35.83,MALLO TARIN,parties.IN.BJP,BJP,4612,2154,11.41,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-14,arunachal-pradesh,1999,DOIMUKH,13720,9431,68.74,T.C. TELI,parties.IN.INC,INC,3864,40.97,NGURANG PINCH,parties.IN.AC,AC,2630,1234,13.08,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-15,arunachal-pradesh,1999,SAGALEE,9184,7166,78.03,NABAM TUKI,parties.IN.INC,INC,5699,79.53,NABAM NIKIA,parties.IN.AC,AC,1467,4232,59.06,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-16,arunachal-pradesh,1999,YACHULI,11281,8757,77.63,JOTOM TOKO TAKAM,parties.IN.NCP,NCP,3816,43.58,NEELAM TARAM,parties.IN.INC,INC,3358,458,5.23,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-17,arunachal-pradesh,1999,ZIRO-HAPOLI,16309,11118,68.17,PADI RICHO,parties.IN.INC,INC,5536,49.79,NANI RIBIA,parties.IN.BJP,BJP,2595,2941,26.45,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-18,arunachal-pradesh,1999,PALIN,11268,7803,69.25,TAKAM SANJOY,parties.IN.INC,INC,6471,82.93,CHARU TUGLO,parties.IN.NCP,NCP,1266,5205,66.71,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-19,arunachal-pradesh,1999,NYAPIN,11246,7596,67.54,TATAR KIPA,parties.IN.INC,INC,5231,68.87,TAKO CHANGRIANG,parties.IN.AC,AC,2365,2866,37.74,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-2,arunachal-pradesh,1999,TAWANG,7476,0,0,THUPTEN TEMPA,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-20,arunachal-pradesh,1999,TALI,6966,4514,64.8,TAKAM SORANG,parties.IN.INC,INC,2919,64.67,TARANG TAGRU,parties.IN.AC,AC,1547,1372,30.4,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-21,arunachal-pradesh,1999,KOLORIANG,10156,6817,67.12,KAHFA BENGIA,parties.IN.INC,INC,6658,97.67,LOKAM TASAR,parties.IN.AC,AC,159,6499,95.34,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-22,arunachal-pradesh,1999,NACHO,7495,5529,73.77,TANGA BYALING,parties.IN.INC,INC,2646,47.86,TARING DUI,parties.IN.BJP,BJP,1835,811,14.67,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-23,arunachal-pradesh,1999,TALIHA,6709,4768,71.07,NYATO RIGIA,parties.IN.INC,INC,1829,38.36,PUNJI MARA,parties.IN.AC,AC,1386,443,9.29,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-24,arunachal-pradesh,1999,DAPORIJO,14683,8931,60.83,TADAK DULOM,parties.IN.INC,INC,4116,46.09,DAKLO NIDAK,parties.IN.AC,AC,2439,1677,18.78,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-25,arunachal-pradesh,1999,RAGA,11381,8035,70.6,TALO MUGLI,parties.IN.INC,INC,4939,61.47,KABAK TACHO,parties.IN.IND,IND,2744,2195,27.32,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-26,arunachal-pradesh,1999,DAMPORIJO,9939,8120,81.7,TAKAR MARDE,parties.IN.INC,INC,5006,61.65,TAKAR DONI,parties.IN.AC,AC,3114,1892,23.3,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-27,arunachal-pradesh,1999,LIROMOBA,8835,7146,80.88,LIJUM RONYA,parties.IN.INC,INC,4316,60.4,GEGONG APANG,parties.IN.AC,AC,2830,1486,20.8,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-28,arunachal-pradesh,1999,LIKABALI,7507,5682,75.69,RIMA TAIPODIA,parties.IN.INC,INC,1920,33.79,JOMDE KENA,parties.IN.IND,IND,1775,145,2.55,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-29,arunachal-pradesh,1999,BASAR,14292,10252,71.73,EKEN RIBA,parties.IN.INC,INC,3760,36.68,GOJEN GADI,parties.IN.IND,IND,3372,388,3.79,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-3,arunachal-pradesh,1999,MUKTO,5559,4882,87.82,DORJEE KHANDU,parties.IN.INC,INC,2777,56.88,THEG TSE RINPOCHE,parties.IN.NCP,NCP,2105,672,13.76,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-30,arunachal-pradesh,1999,ALONG WEST,8762,7109,81.13,KENTO ETE,parties.IN.INC,INC,4647,65.37,KIRGE ESHI,parties.IN.AC,AC,2462,2185,30.74,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-31,arunachal-pradesh,1999,ALONG EAST,10319,7326,71,KITO SORA,parties.IN.INC,INC,3009,41.07,GUMLI LOLLEN,parties.IN.NCP,NCP,2457,552,7.53,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-32,arunachal-pradesh,1999,RUMGONG,9029,7250,80.3,TAMIYO TAGA,parties.IN.INC,INC,4031,55.6,DIBANG TATAK,parties.IN.AC,AC,2673,1358,18.73,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-33,arunachal-pradesh,1999,MECHUKA,7000,5963,85.19,TADIK CHIJE,parties.IN.INC,INC,3791,63.58,PASANG WANGCHUK SONA,parties.IN.AC,AC,2172,1619,27.16,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-34,arunachal-pradesh,1999,TUTING-YINKGKIONG,10677,7569,70.89,GEGONG APANG,parties.IN.AC,AC,4591,60.66,ANONG JONGKEY,parties.IN.INC,INC,2978,1613,21.32,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-35,arunachal-pradesh,1999,PANGIN,10467,8535,81.54,TANYONG TATAK,parties.IN.INC,INC,4173,48.89,TAPANG TALOH,parties.IN.BJP,BJP,3204,969,11.35,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-36,arunachal-pradesh,1999,NARI-KOYU,5496,4403,80.11,TAKO DABI,parties.IN.INC,INC,2994,68,TAJUM RINGU,parties.IN.AC,AC,1403,1591,36.14,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-37,arunachal-pradesh,1999,PASIGHAT WEST,10646,7696,72.29,TANGOR TAPAK,parties.IN.INC,INC,3759,48.84,YADAP APANG,parties.IN.AC,AC,2296,1463,19.01,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-38,arunachal-pradesh,1999,PASIGHAT EAST,16157,10834,67.05,NINONG ERING,parties.IN.INC,INC,6302,58.17,BOSIRAM SIRAM,parties.IN.BJP,BJP,4350,1952,18.02,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-39,arunachal-pradesh,1999,MEBO,8621,6413,74.39,LOMBO TAYENG,parties.IN.INC,INC,3612,56.32,KATON BORANG,parties.IN.AC,AC,2392,1220,19.02,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-4,arunachal-pradesh,1999,DIRANG,10247,7710,75.24,TSERING GYURME,parties.IN.INC,INC,4472,58,TONGCHEN JOMBA KHRIMEY,parties.IN.BJP,BJP,2949,1523,19.75,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-40,arunachal-pradesh,1999,MARIYANG-GEKU,9124,7366,80.73,KABANG BORANG,parties.IN.INC,INC,3178,43.14,J.K. PANGGENG,parties.IN.AC,AC,2813,365,4.95,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-42,arunachal-pradesh,1999,DAMBUK,9352,6739,72.06,RODING PERTIN,parties.IN.INC,INC,4064,60.31,TONY PERTIN,parties.IN.AC,AC,2675,1389,20.62,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-43,arunachal-pradesh,1999,ROING,10343,0,0,MUKUT MITHI,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-44,arunachal-pradesh,1999,TEZU,13526,8816,65.18,NAKUL CHAI,parties.IN.INC,INC,3313,37.58,KARIKHO KRI,parties.IN.IND,IND,3089,224,2.54,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-45,arunachal-pradesh,1999,HAUYULIANG,10022,7865,78.48,KALIKHO PUL,parties.IN.INC,INC,6778,86.18,KHUJE DRAI,parties.IN.BJP,BJP,566,6212,78.98,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-46,arunachal-pradesh,1999,CHOWKHAM,12431,8100,65.16,INDRAJIT NAMCHOOM,parties.IN.IND,IND,4429,54.68,CHOW TEWA MEIN,parties.IN.INC,INC,3200,1229,15.17,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-47,arunachal-pradesh,1999,NAMSAI,16076,11300,70.29,C.P. NAMCHOOM,parties.IN.INC,INC,6609,58.49,CHOW EMPU CHOWPOO,parties.IN.BJP,BJP,2219,4390,38.85,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-48,arunachal-pradesh,1999,LEKANG,12742,10212,80.14,CHOW NA MEIN,parties.IN.INC,INC,5482,53.68,SOTAI KRI,parties.IN.BJP,BJP,4730,752,7.36,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-49,arunachal-pradesh,1999,BORDUMSA-DIYUM,10099,7740,76.64,C.C. SINGPHO,parties.IN.INC,INC,2604,33.64,KHUMRAL LUNGPHI,parties.IN.IND,IND,2152,452,5.84,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-5,arunachal-pradesh,1999,KALAKTANG,8998,6021,66.91,D.K. THONGDOK,parties.IN.INC,INC,2630,43.68,RINCHIN KHANDU KHRIMEY,parties.IN.BJP,BJP,2359,271,4.5,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-50,arunachal-pradesh,1999,MIAO,14637,10307,70.42,SAMCHOM NGEMU,parties.IN.INC,INC,5334,51.75,KAMLUNG MOSANG,parties.IN.IND,IND,4973,361,3.5,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-51,arunachal-pradesh,1999,NAMPONG,8721,6032,69.17,SETONG SENA,parties.IN.INC,INC,3024,50.13,KOMOLI MOSANG,parties.IN.BJP,BJP,3008,16,0.26,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-52,arunachal-pradesh,1999,CHANGLANG SOUTH,4236,3534,83.43,PHOSUM KHIMHUN,parties.IN.INC,INC,2122,60.05,NGUNGTIM CHANGMI,parties.IN.BJP,BJP,1412,710,20.1,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-53,arunachal-pradesh,1999,CHANGLANG NORTH,10512,7300,69.44,THINGHAP TAIJU,parties.IN.INC,INC,3516,48.16,WANGNIA PONGTE,parties.IN.IND,IND,2522,994,13.61,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-54,arunachal-pradesh,1999,NAMSANG,8396,5025,59.85,WANGKI LOWANG,parties.IN.NCP,NCP,2623,52.2,CHANGKOM HONDIK,parties.IN.INC,INC,2402,221,4.4,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-55,arunachal-pradesh,1999,KHONSA EAST,8289,0,0,T.L. RAJKUMAR,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-56,arunachal-pradesh,1999,KHONSA WEST,7078,6093,86.08,THAJAM ABOH,parties.IN.INC,INC,2754,45.2,HANGLIAM SUMNYAN,parties.IN.NCP,NCP,2208,546,8.96,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-57,arunachal-pradesh,1999,BORDURIA- BAGAPANI,6571,4565,69.47,LOWANGCHA WANGLAT,parties.IN.INC,INC,2289,50.14,WANGLIN LOWANGDONG,parties.IN.IND,IND,2276,13,0.28,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-58,arunachal-pradesh,1999,KANUBARI,7276,6039,83,NEWLAI TINGKHATRA,parties.IN.INC,INC,2386,39.51,LAICHOI WANGPAN,parties.IN.IND,IND,1123,1263,20.91,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-59,arunachal-pradesh,1999,LONGDING-PUMAO,8287,6615,79.82,TINGPONG WANGHAM,parties.IN.INC,INC,2567,38.81,THANGWANG WANGHAM,parties.IN.NCP,NCP,1892,675,10.21,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-6,arunachal-pradesh,1999,THRIZINO-BURAGAON,9188,6593,71.76,NARESH GLOW,parties.IN.INC,INC,3334,50.57,GOVARDHON NIMASOW,parties.IN.AC,AC,3259,75,1.14,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-60,arunachal-pradesh,1999,PONGCHOU-WAKKA,11863,9355,78.86,ANOK WANGSA,parties.IN.NCP,NCP,4902,52.4,HONCHUN NGANDAM,parties.IN.INC,INC,4453,449,4.8,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-7,arunachal-pradesh,1999,BOMDILA,8910,5629,63.18,JAPU DERU,parties.IN.INC,INC,2515,44.68,R.T. KHUNJUJU,parties.IN.IND,IND,2155,360,6.4,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-8,arunachal-pradesh,1999,BAMENG,10819,6648,61.45,MEKUP DOLO,parties.IN.IND,IND,2916,43.86,MEDI RAM DODUM,parties.IN.INC,INC,2032,884,13.29,src-1b7bc1c9d39a
+IN-AC-1976-arunachal-pradesh-9,arunachal-pradesh,1999,CHAYANGTAJO,9807,5954,60.71,KAMENG DOLO,parties.IN.INC,INC,3569,59.94,SAMA YANGFO,parties.IN.AC,AC,2322,1247,20.94,src-1b7bc1c9d39a

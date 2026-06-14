@@ -1,0 +1,4 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-uttar-pradesh-147,uttar-pradesh,2008,COLONELGANJ,285163,125314,43.94,VRIJ SINGH ALIAS VRIJ KUNWARI,parties.IN.BSP,BSP,50283,40.13,YOGESH PRATAP SINGH ALIAS YOGESH BHAIYA,parties.IN.SP,SP,40546,9737,7.77,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-373,uttar-pradesh,2008,MURADNAGAR,260983,133521,51.16,RAJPAL TYAGI,parties.IN.BSP,BSP,58687,43.95,KUNWAR AYYUB ALI,parties.IN.RLD,RLD,51834,6853,5.13,src-1b7bc1c9d39a
+IN-AC-1976-uttar-pradesh-74,uttar-pradesh,2008,BILGRAM,278505,162382,58.3,RAJNI TIWARI,parties.IN.BSP,BSP,92196,56.78,VISHRAM SINGH YADAV,parties.IN.SP,SP,54028,38168,23.51,src-1b7bc1c9d39a

@@ -1,0 +1,61 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-nagaland-1,nagaland,1998,DIMAPUR-I,25200,0,0,I. VIKHESHE,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-10,nagaland,1998,NORTHERN ANGAMI-I,14685,0,0,SEYIEKUOLIE,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-11,nagaland,1998,NORTHERN ANGAMI-II,15138,0,0,NEIPHIU RIO,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-12,nagaland,1998,TSEMINYU,19472,0,0,NILLO RENGMA,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-13,nagaland,1998,PUGHOBOTO,12491,0,0,JOSHUA SUMI,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-14,nagaland,1998,SOUTHERN ANGAMI-I,11559,7252,62.74,MAVIL KHIEYA,parties.IN.IND,IND,3964,54.66,K. TASE,parties.IN.INC,INC,3288,676,9.32,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-15,nagaland,1998,SOUTHERN ANGAMI-II,10293,0,0,K.V. PUSA,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-16,nagaland,1998,PFUTSERO,17001,0,0,KEWEKHAPE THERIE,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-17,nagaland,1998,CHIZAMI,12367,0,0,ZHOVEHU LOHE,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-18,nagaland,1998,CHAZOUBA,16699,11059,66.23,NUZOTA SWURO,parties.IN.INC,INC,6533,59.07,YESONU VEYIE,parties.IN.IND,IND,4526,2007,18.14,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-19,nagaland,1998,PHEK,14714,0,0,ZACHILHU,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-2,nagaland,1998,DIMAPUR-II,46761,0,0,IMTISUNGET JAMIR,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-20,nagaland,1998,MELURI,12398,9408,75.88,KHUOSATHO,parties.IN.INC,INC,7001,74.42,WETETSO,parties.IN.IND,IND,2407,4594,48.84,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-21,nagaland,1998,TULI,16154,0,0,T.TALI,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-22,nagaland,1998,ARKAKONG,13587,0,0,IMTIYANGER,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-23,nagaland,1998,IMPUR,11396,0,0,T. CHUBA,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-24,nagaland,1998,ANGETYONGPANG,11124,0,0,T. SENTICHUBA,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-25,nagaland,1998,MONGOYA,11240,-1,-0.01,R. Aolepden,parties.IN.INC,INC,-1,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-26,nagaland,1998,AONGLENDEN,9143,0,0,S.C. JAMIR,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-27,nagaland,1998,MOKOKCHUNG TOWN,4556,0,0,NUNGSHIZENBA,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-28,nagaland,1998,KORIDANG,15254,0,0,T. NOKYU LONGCHAR,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-29,nagaland,1998,JANGPETKONG,9849,0,0,I. IMKONG,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-3,nagaland,1998,DIMAPUR-III,17050,2292,13.44,ATOVI SUMI,parties.IN.INC,INC,1955,85.3,T.L. ANGAMI,parties.IN.IND,IND,337,1618,70.6,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-30,nagaland,1998,ALONGTAKI,12638,0,0,TONGPANG NUNGSHI,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-31,nagaland,1998,AKULUTO,6888,0,0,KAKHETO,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-32,nagaland,1998,ATOIZU,9582,0,0,DOSHEHE-Y-SEMA,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-33,nagaland,1998,SURUHOTO,9175,0,0,KIYEZHE SEMA,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-34,nagaland,1998,AGHUNATO,9860,0,0,TOKHEHO YEPTHOMI,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-35,nagaland,1998,ZUNHEBOTO,13573,7663,56.46,KAKHEHO,parties.IN.IND,IND,5218,68.09,GHUTOSHE,parties.IN.INC,INC,2445,2773,36.18,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-36,nagaland,1998,SATAKHA,10355,0,0,KAITO,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-37,nagaland,1998,TYUI,15906,0,0,T.C.K. LOTHA,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-38,nagaland,1998,WOKHA,26971,0,0,JOHN LOTHA,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-39,nagaland,1998,SANIS,17203,0,0,THOMAS NGULLIE,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-4,nagaland,1998,GHASPANI-I,50657,0,0,DR. V. KANITO,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-40,nagaland,1998,BHANDARI,17049,0,0,L. YANTHUNGO PATTON,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-41,nagaland,1998,TIZIT,13467,11753,87.27,TINGKUP,parties.IN.INC,INC,6000,51.05,YEANGPHONG,parties.IN.IND,IND,5753,247,2.1,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-42,nagaland,1998,WAKCHING,11990,0,0,P. ENYEI KONYAK,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-43,nagaland,1998,TAPI,9655,0,0,BONGNAO,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-44,nagaland,1998,PHOMCHING,14785,0,0,KONGAM,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-45,nagaland,1998,TEHOK,13156,0,0,W. WONGYUH KONYAK,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-46,nagaland,1998,MON TOWN,14409,13635,94.63,C.JOHN,parties.IN.IND,IND,6988,51.25,N.THONGWANG,parties.IN.INC,INC,6647,341,2.5,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-47,nagaland,1998,ABOI,8122,7409,91.22,EYONG KONYAK,parties.IN.INC,INC,5452,73.59,HOWING,parties.IN.IND,IND,1957,3495,47.18,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-48,nagaland,1998,MOKA,11921,0,0,NYIAMNYEI KONYAK,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-49,nagaland,1998,TAMLU,27044,26952,99.66,B.PHONGSHAK PHOM,parties.IN.INC,INC,15120,56.1,DR.O.KONGYAN PHOM,parties.IN.IND,IND,11832,3288,12.2,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-5,nagaland,1998,GHASPANI-II,22771,0,0,ROKONICHA,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-50,nagaland,1998,LONGLENG,27325,26838,98.22,SHAMI ANGH,parties.IN.IND,IND,11843,44.13,M.CHENLOM PHOM,parties.IN.INC,INC,11285,558,2.08,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-51,nagaland,1998,NOKSEN,6781,6665,98.29,H.CHUBA CHANG,parties.IN.INC,INC,4624,69.38,NOKSHANG,parties.IN.IND,IND,2041,2583,38.76,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-52,nagaland,1998,LONGKHIM CHARE,13807,0,0,S.K.SANGTAM,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-53,nagaland,1998,TUENSANG SADAR-I,14300,12245,85.63,P.CHUBA CHANG,parties.IN.IND,IND,7017,57.31,CHANGKONG CHANG,parties.IN.INC,INC,5228,1789,14.62,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-54,nagaland,1998,TUENSANG SADAR-II,11139,8583,77.05,KIJONG CHANG,parties.IN.INC,INC,4479,52.18,K. IMLONG,parties.IN.IND,IND,4104,375,4.36,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-55,nagaland,1998,TOBU,11383,0,0,SHEAKPONG KONYAK,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-56,nagaland,1998,NOKLAK,9936,0,0,SEDEM KHAMING,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-57,nagaland,1998,THONOKNYU,10747,10014,93.18,SHINGNYU,parties.IN.INC,INC,3022,30.18,N.L.AIMONG,parties.IN.IND,IND,2451,571,5.7,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-58,nagaland,1998,SHAMATOR CHESSORE,13522,0,0,K.YAMAKAM,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-59,nagaland,1998,SEYOCHUNG SITIMI,14635,14146,96.66,S.SETHRICHO,parties.IN.INC,INC,7337,51.87,KIPILI,parties.IN.IND,IND,6809,528,3.74,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-6,nagaland,1998,TENNING,16683,0,0,T.R.ZELANG,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-60,nagaland,1998,PUNGRO KIPHIRE,20495,0,0,R.L.AKAMBA,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-7,nagaland,1998,PEREN,19123,0,0,NEIBA NDANG,parties.IN.INC,INC,0,,,,,,,,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-8,nagaland,1998,WESTERN ANGAMI,15509,9646,62.2,ASU KEYHO,parties.IN.IND,IND,5562,57.66,N.T. NAKHRO,parties.IN.INC,INC,4084,1478,15.32,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-9,nagaland,1998,KOHIMA TOWN,25889,17872,69.03,T.ABAO KIRE,parties.IN.IND,IND,9166,51.29,Z. OBED,parties.IN.INC,INC,8706,460,2.58,src-1b7bc1c9d39a

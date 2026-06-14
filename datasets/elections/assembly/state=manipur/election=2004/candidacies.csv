@@ -1,0 +1,7 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-manipur-18,manipur,2004,18,KONTHOUJAM,DR. SAPAM BUDHICHANDRA SINGH,parties.IN.INC,INC,6402,30.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-18,manipur,2004,18,KONTHOUJAM,KONTHOUJAM RANBIR SINGH,parties.IN.MPP,MPP,4439,21.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-18,manipur,2004,18,KONTHOUJAM,SORAISAM IBOBI SINGH,parties.IN.IND,IND,3744,18.12,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-18,manipur,2004,18,KONTHOUJAM,SHAMOM NABAKUMAR MEETEI,parties.IN.IND,IND,2647,12.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-18,manipur,2004,18,KONTHOUJAM,HEIGRUJAM THOITHOI,parties.IN.NCP,NCP,2547,12.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-manipur-18,manipur,2004,18,KONTHOUJAM,ANGOM MANIHAR SINGH,parties.IN.MSCP,MSCP,884,4.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a

@@ -61,15 +61,24 @@ test.describe("state event view (PR-W3b rebuild)", () => {
       /Parliament/,
     );
 
+    // TODO/20260612 Row C: the "Event slug general-2024" developer
+    // metadata is gone from the header. Assert its absence so a future
+    // refactor cannot silently re-leak it.
+    await expect(
+      page.locator("header").filter({ has: page.getByTestId("state-event-header") }),
+    ).not.toContainText("Event slug");
+
     // KPIs strip mounts even on empty data (4 cards always render).
     await expect(page.getByTestId("state-event-kpis")).toBeVisible({
       timeout: 30_000,
     });
 
-    // Top-parties data-arrival oracle: at least 1 row after the loader
-    // resolves and the per-state filter narrows.
+    // TODO/20260612 Row D: top-parties bar now reuses PartyBar; oracle
+    // shifts from the retired `state-event-top-parties-row` to the new
+    // additive `party-bar-row` testid the PartyBar primitive emits per
+    // ranked party.
     await expect(
-      page.getByTestId("state-event-top-parties-row").first(),
+      page.getByTestId("party-bar-row").first(),
     ).toBeVisible({ timeout: 30_000 });
 
     // Constituency table also mounts once data arrives.
@@ -77,13 +86,41 @@ test.describe("state event view (PR-W3b rebuild)", () => {
       page.getByTestId("state-event-constituency-row").first(),
     ).toBeVisible({ timeout: 30_000 });
 
-    // Alliance panel mounts (either with totals or with the
-    // "alliance data pending" placeholder for events without curated
-    // alliance rows; general-2024 has no rows for Chhattisgarh today
-    // so the placeholder path is the expected one).
+    // Alliance panel mounts; after the Phase 1 alliance fix (2026-06-12,
+    // plan TODO/20260612-alliance-phase-1-structural-fix-plan.md)
+    // general-2024 is curated nationally (state=IN rows), so the panel
+    // shows the headline with the alliance totals (NDA-2024 / INDIA-2024
+    // / Others). The amber pending pill is the regression signal: if it
+    // appears, D1 (loader/route key mismatch) has re-leaked.
     await expect(page.getByTestId("alliance-totals")).toBeVisible({
       timeout: 30_000,
     });
+    await expect(
+      page.getByTestId("alliance-totals-headline"),
+    ).toBeVisible({ timeout: 30_000 });
+    await expect(
+      page.getByTestId("alliance-totals-headline"),
+    ).toContainText(/NDA-2024/);
+    await expect(
+      page.getByTestId("alliance-totals-headline"),
+    ).toContainText(/INDIA-2024/);
+    await expect(page.getByTestId("alliance-totals-pending")).toHaveCount(0);
+
+    // TODO/20260612 Row C: Parliament events show a PC map placeholder
+    // card (the country PC topojson exists but per-state PC integration
+    // is follow-up work). The card pins the citizen-facing copy so the
+    // TODO/20260612-pc-choropleth-tile plan Row D: Parliament events now
+    // render the StatePcMapD3 component (the country PC topojson is
+    // filtered by `state_ut_code === state_code` so only the state's
+    // PCs paint). The placeholder card from PR #954 is GONE; assert
+    // that the d3 PC choropleth container mounts AND the placeholder
+    // testid no longer exists.
+    await expect(page.getByTestId("state-pc-map-d3")).toBeVisible({
+      timeout: 30_000,
+    });
+    await expect(
+      page.getByTestId("state-event-pc-map-placeholder"),
+    ).toHaveCount(0);
 
     // Inline swing panel mounts; for parliament events it renders the
     // disabled placeholder (the psephlab canonical loader is assembly-
@@ -128,6 +165,16 @@ test.describe("state event view (PR-W3b rebuild)", () => {
     await expect(
       page.getByTestId("inline-counterfactual-swing"),
     ).toBeVisible({ timeout: 30_000 });
+
+    // TODO/20260612 Row C: assembly events render the StateAcMap with
+    // a sub-threshold marker legend below it. The legend is the only
+    // place the page explains the circular markers overlay on small ACs.
+    await expect(
+      page.getByTestId("state-ac-map-legend"),
+    ).toBeVisible({ timeout: 30_000 });
+    await expect(
+      page.getByTestId("state-ac-map-legend"),
+    ).toContainText(/dense urban constituencies/i);
 
     // Slider mounts only after the canonical loader resolves; once it
     // does, the seats card is visible too.
@@ -190,6 +237,124 @@ test.describe("state event view (PR-W3b rebuild)", () => {
     await expect(page.getByTestId("constituency-header")).toContainText(
       "Bastar",
       { ignoreCase: true },
+    );
+  });
+
+  test("party-mute via PartyBar reveals 'Show all (N muted)' reset (Row F)", async ({
+    page,
+  }) => {
+    // TODO/20260612 Row F: clicking a PartyBar row mutes that party;
+    // the reset button surfaces above the bar with the muted count.
+    // Verified on chhattisgarh general-2024 (small party set, stable).
+    await page.goto("/chhattisgarh/elections/general-2024");
+
+    // Wait for the bar to populate (PartyBar emits party-bar-row per
+    // ranked party).
+    await expect(page.getByTestId("party-bar-row").first()).toBeVisible({
+      timeout: 30_000,
+    });
+
+    // The reset button is absent until at least one party is muted.
+    await expect(
+      page.getByTestId("state-event-top-parties-reset"),
+    ).toHaveCount(0);
+
+    // Click the first PartyBar row to mute.
+    await page.getByTestId("party-bar-row").first().click();
+
+    // Reset surfaces with the muted count.
+    await expect(
+      page.getByTestId("state-event-top-parties-reset"),
+    ).toBeVisible();
+    await expect(
+      page.getByTestId("state-event-top-parties-reset"),
+    ).toContainText(/Show all \(1 muted\)/);
+
+    // Click reset; muted count returns to 0 and the button disappears.
+    await page.getByTestId("state-event-top-parties-reset").click();
+    await expect(
+      page.getByTestId("state-event-top-parties-reset"),
+    ).toHaveCount(0);
+  });
+
+  test("AC events: Map | Equal seats toggle mounts TileCartogram (Row E)", async ({
+    page,
+  }) => {
+    // TODO/20260612 Row E: assembly events get a Map | Equal seats
+    // toggle. Karnataka assembly-2023 has the per-state AC tile layout
+    // on disk so the toggle is offered; click "Equal seats" -> the
+    // hex container mounts (the map-geo container goes away).
+    await page.goto("/karnataka/elections/assembly-2023");
+
+    // Map arm is the default; geo container visible.
+    await expect(page.getByTestId("state-event-map-geo")).toBeVisible({
+      timeout: 30_000,
+    });
+
+    // Toggle visible (Karnataka has a tile layout) and offers two arms.
+    await expect(page.getByTestId("state-event-map-view")).toBeVisible({
+      timeout: 30_000,
+    });
+    await page
+      .getByTestId("state-event-map-view")
+      .getByRole("button", { name: "Equal seats" })
+      .click();
+
+    // Hex container mounts after the click.
+    await expect(page.getByTestId("state-event-map-hex")).toBeVisible({
+      timeout: 30_000,
+    });
+  });
+
+  test("alliance panel: Maharashtra assembly-2024 shows populated headline (Mahayuti / MVA)", async ({
+    page,
+  }) => {
+    // Phase 1 alliance fix smoke 1 (plan TODO/20260612-): the 11 already-
+    // curated Mahayuti / MVA rows in datasets/data/entities/party_alliances.csv
+    // (state=maharashtra, event_id=assembly-2024) MUST light up after the
+    // v2.0 schema rename + state filter. Pre-fix this was the placeholder
+    // path because the loader filtered on period_label='AcGenNov2024'
+    // strict-equality but the route passed event_id='assembly-2024'.
+    await page.goto("/maharashtra/elections/assembly-2024");
+    await expect(page.getByTestId("alliance-totals")).toBeVisible({
+      timeout: 30_000,
+    });
+    await expect(
+      page.getByTestId("alliance-totals-headline"),
+    ).toBeVisible({ timeout: 30_000 });
+    await expect(
+      page.getByTestId("alliance-totals-headline"),
+    ).toContainText(/Mahayuti/);
+    await expect(
+      page.getByTestId("alliance-totals-headline"),
+    ).toContainText(/MVA/);
+    await expect(page.getByTestId("alliance-totals-pending")).toHaveCount(0);
+  });
+
+  test("alliance panel: Kerala assembly-2021 shows pending pill (D2 state-scoping fix)", async ({
+    page,
+  }) => {
+    // Phase 1 alliance fix smoke 4 (plan TODO/20260612-): CRITICAL
+    // state-scoping check. The 8 assembly-2021 rows in party_alliances.csv
+    // carry state=west-bengal (Sanyukta Morcha). Kerala asking the lookup
+    // for assembly-2021 MUST NOT inherit those rows -- that was D2 in the
+    // plan-doc. The lookup returns no matches -> AllianceTotals renders
+    // the amber pending pill (correct -- Kerala 2021 LDF/UDF not yet
+    // curated; Phase 1b queue). Pin both that the headline DOES NOT
+    // appear AND that the pending pill DOES appear, so a regression to
+    // unscoped lookup instantly breaks the spec.
+    await page.goto("/kerala/elections/assembly-2021");
+    await expect(page.getByTestId("alliance-totals")).toBeVisible({
+      timeout: 30_000,
+    });
+    await expect(page.getByTestId("alliance-totals-pending")).toBeVisible({
+      timeout: 30_000,
+    });
+    await expect(page.getByTestId("alliance-totals-headline")).toHaveCount(0);
+    // Negative: the WB Sanyukta Morcha label MUST NOT leak onto the
+    // Kerala page anywhere in the alliance section.
+    await expect(page.getByTestId("alliance-totals")).not.toContainText(
+      "Sanyukta Morcha",
     );
   });
 });

@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-PC-1976-andhra-pradesh-31,andhra-pradesh,1979,SECUNDERABAD,615045,312679,50.84,P.S.SHANKER,parties.IN.INC_I,INC(I),153037,48.94,T.L.KANTAMMA(W),parties.IN.JP,JNP,133092,19945,6.37,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-32,andhra-pradesh,1979,SINDDIPET(SC),616118,318606,51.71,N.YELLAIAH,parties.IN.INC_I,INC(I),232683,73.03,C.R.RAO,parties.IN.JP,JNP,58604,174079,54.64,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-10,madhya-pradesh,1979,SINDHI,590957,188711,31.93,R.N.SINGH,parties.IN.JP,JNP,79968,42.38,M.SINGH,parties.IN.INC_I,INC(I),62637,17331,9.19,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-34,madhya-pradesh,1979,KHANDWA,524670,373615,71.21,K.THAKRE,parties.IN.JP,JNP,192280,51.46,S.N.THAKUR,parties.IN.INC_I,INC(I),153794,38486,10.3,src-31c65dbec869

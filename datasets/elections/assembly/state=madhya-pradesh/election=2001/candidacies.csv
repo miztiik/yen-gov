@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-madhya-pradesh-286,madhya-pradesh,2001,286,SHAHPUR,Ramdas Shivhare,parties.IN.BJP,BJP,40355,49.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-286,madhya-pradesh,2001,286,SHAHPUR,Shriram Padhavrao Patil,parties.IN.INC,INC,36648,44.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-286,madhya-pradesh,2001,286,SHAHPUR,Santosh Singh Jagannathsingh Dikshit (Nandu bhaiya),parties.IN.IND,IND,2716,3.33,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-madhya-pradesh-286,madhya-pradesh,2001,286,SHAHPUR,Dr. Gokul Singh Prabhusingh Yadav,parties.IN.IND,IND,1793,2.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

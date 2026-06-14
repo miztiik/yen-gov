@@ -1,0 +1,213 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-nagaland-1,nagaland,1987,1,DIMAPUR-I,HOKISHE,parties.IN.INC,INC,14457,72.34,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-1,nagaland,1987,1,DIMAPUR-I,C.KEVICHUSA,parties.IN.NND,NND,5527,27.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-2,nagaland,1987,2,DIMAPUR-II,IMTI SUNGAT JAMIR,parties.IN.IND,IND,8763,41.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-2,nagaland,1987,2,DIMAPUR-II,I. VIKHESHE,parties.IN.INC,INC,8280,39.43,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-2,nagaland,1987,2,DIMAPUR-II,NEISATUO KIDITSU,parties.IN.IND,IND,3699,17.61,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-2,nagaland,1987,2,DIMAPUR-II,YEHOBI,parties.IN.NND,NND,258,1.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-3,nagaland,1987,3,DIMAPUR-III,VEHEPU YEPTHOMI,parties.IN.IND,IND,4200,48.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-3,nagaland,1987,3,DIMAPUR-III,PRODEP SINGYONG,parties.IN.NND,NND,2825,32.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-3,nagaland,1987,3,DIMAPUR-III,LOLIT MECH,parties.IN.INC,INC,1508,17.36,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-3,nagaland,1987,3,DIMAPUR-III,LHOUSAO,parties.IN.IND,IND,152,1.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-4,nagaland,1987,4,GHASPANI-I,SHIKIHO SEMA,parties.IN.INC,INC,10551,56.64,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-4,nagaland,1987,4,GHASPANI-I,KHEKIHO,parties.IN.NPP,NPP,6795,36.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-4,nagaland,1987,4,GHASPANI-I,TOKUHO SUNEHO,parties.IN.NND,NND,1283,6.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-5,nagaland,1987,5,GHASPANI-II,ROKONICHA,parties.IN.NND,NND,3483,26.26,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-5,nagaland,1987,5,GHASPANI-II,HEKIYE L.,parties.IN.IND,IND,3400,25.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-5,nagaland,1987,5,GHASPANI-II,KAKHETO ZHIMOMI,parties.IN.NPP,NPP,3224,24.3,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-5,nagaland,1987,5,GHASPANI-II,THEPFU WHETUO,parties.IN.INC,INC,2329,17.56,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-5,nagaland,1987,5,GHASPANI-II,SEIKHOLUM,parties.IN.IND,IND,830,6.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-6,nagaland,1987,6,TENNING,HENLUM L. SINGSON,parties.IN.INC,INC,2235,26.79,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-6,nagaland,1987,6,TENNING,T. R. ZELIANG,parties.IN.NND,NND,2182,26.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-6,nagaland,1987,6,TENNING,T. HANGSING,parties.IN.NPP,NPP,1658,19.87,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-6,nagaland,1987,6,TENNING,AZU NEWMAI,parties.IN.IND,IND,1407,16.86,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-6,nagaland,1987,6,TENNING,N. NAMGANGBI CHEWANG,parties.IN.IND,IND,861,10.32,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-7,nagaland,1987,7,PEREN,BANGDI EHEILUNG,parties.IN.NND,NND,2548,27.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-7,nagaland,1987,7,PEREN,N. C. ZELIANG,parties.IN.INC,INC,1863,20.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-7,nagaland,1987,7,PEREN,NEIBA,parties.IN.IND,IND,1246,13.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-7,nagaland,1987,7,PEREN,G. PATRICK RONGMEI,parties.IN.NPP,NPP,1096,11.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-7,nagaland,1987,7,PEREN,ARANG,parties.IN.IND,IND,772,8.34,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-7,nagaland,1987,7,PEREN,SIBEULE,parties.IN.IND,IND,729,7.88,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-7,nagaland,1987,7,PEREN,KUYIDING,parties.IN.IND,IND,588,6.35,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-7,nagaland,1987,7,PEREN,EKWERANGBE,parties.IN.IND,IND,412,4.45,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-8,nagaland,1987,8,WESTERN ANGAMI,SHURHIU,parties.IN.NND,NND,2811,43.57,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-8,nagaland,1987,8,WESTERN ANGAMI,VIBIKHO,parties.IN.INC,INC,2125,32.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-8,nagaland,1987,8,WESTERN ANGAMI,MHIESIZOKHO,parties.IN.NPP,NPP,1516,23.5,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-9,nagaland,1987,9,KOHIMA TOWN,J. B. JASOKIE,parties.IN.INC,INC,4880,53.69,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-9,nagaland,1987,9,KOHIMA TOWN,KHRIEKETOULIE,parties.IN.NND,NND,4210,46.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-10,nagaland,1987,10,NORTHERN ANGAMI-I,SHURHOZELIE,parties.IN.NND,NND,2027,36.29,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-10,nagaland,1987,10,NORTHERN ANGAMI-I,NEIKHOTSO LINYU,parties.IN.NPP,NPP,2024,36.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-10,nagaland,1987,10,NORTHERN ANGAMI-I,VILHOUZHALIE,parties.IN.INC,INC,1535,27.48,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-11,nagaland,1987,11,NORTHERN ANGAMI-II,K. V. KEDITSU,parties.IN.IND,IND,2012,22.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-11,nagaland,1987,11,NORTHERN ANGAMI-II,NEIPHIU RIO,parties.IN.IND,IND,1928,21.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-11,nagaland,1987,11,NORTHERN ANGAMI-II,CHUPFUO,parties.IN.NND,NND,1848,21.02,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-11,nagaland,1987,11,NORTHERN ANGAMI-II,R. SOPU ANGAMI,parties.IN.INC,INC,1577,17.94,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-11,nagaland,1987,11,NORTHERN ANGAMI-II,LUOZOLIE,parties.IN.IND,IND,1427,16.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-12,nagaland,1987,12,TSEMINYU,NILLO,parties.IN.INC,INC,3019,39.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-12,nagaland,1987,12,TSEMINYU,R. S. RENGMA,parties.IN.NND,NND,2441,31.82,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-12,nagaland,1987,12,TSEMINYU,KHASU,parties.IN.NPP,NPP,2211,28.82,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-13,nagaland,1987,13,PUGHOBOTO,JOSHUA ACHUMI,parties.IN.INC,INC,2502,43.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-13,nagaland,1987,13,PUGHOBOTO,HUSKA SUMI,parties.IN.NPP,NPP,2339,40.27,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-13,nagaland,1987,13,PUGHOBOTO,L. GHOSHITO YEPTHO,parties.IN.NND,NND,967,16.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-14,nagaland,1987,14,SOUTHERN ANGAMI-I,DIETHOO,parties.IN.IND,IND,2123,36.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-14,nagaland,1987,14,SOUTHERN ANGAMI-I,PUSE ZHOTSO,parties.IN.INC,INC,1221,21.2,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-14,nagaland,1987,14,SOUTHERN ANGAMI-I,VITSONEI K. ANGAMI,parties.IN.NND,NND,1220,21.18,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-14,nagaland,1987,14,SOUTHERN ANGAMI-I,V. ZAO,parties.IN.NPP,NPP,1196,20.76,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-15,nagaland,1987,15,SOUTHERN ANGAMI-II,VIZADEN,parties.IN.INC,INC,2080,39.18,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-15,nagaland,1987,15,SOUTHERN ANGAMI-II,VIZOL,parties.IN.NND,NND,1985,37.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-15,nagaland,1987,15,SOUTHERN ANGAMI-II,NEIKHAHO RHETSO,parties.IN.IND,IND,1178,22.19,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-15,nagaland,1987,15,SOUTHERN ANGAMI-II,HOVIZO,parties.IN.NPP,NPP,66,1.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-16,nagaland,1987,16,PFUTSERO,JHENUCHO,parties.IN.NND,NND,3543,51.84,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-16,nagaland,1987,16,PFUTSERO,LHIWESHELO,parties.IN.INC,INC,3291,48.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-17,nagaland,1987,17,CHIZAMI,ZHOVEHU LOHE,parties.IN.INC,INC,2872,38.74,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-17,nagaland,1987,17,CHIZAMI,KEWEZU G. KENYE,parties.IN.NND,NND,2554,34.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-17,nagaland,1987,17,CHIZAMI,VETETSO LASUH,parties.IN.IND,IND,1987,26.8,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-18,nagaland,1987,18,CHAZOUBA,VAMUZO,parties.IN.NND,NND,5250,56.94,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-18,nagaland,1987,18,CHAZOUBA,NUZOTA SWURO,parties.IN.INC,INC,3970,43.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-19,nagaland,1987,19,PHEK,VEJOI,parties.IN.NND,NND,3653,49.54,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-19,nagaland,1987,19,PHEK,ZACHILHU,parties.IN.INC,INC,3473,47.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-19,nagaland,1987,19,PHEK,NEVOZO,parties.IN.NPP,NPP,248,3.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-20,nagaland,1987,20,MELURI,CHIEKHUTSO,parties.IN.NND,NND,2673,36.51,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-20,nagaland,1987,20,MELURI,ASANG,parties.IN.IND,IND,2156,29.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-20,nagaland,1987,20,MELURI,RASUTHO,parties.IN.INC,INC,1729,23.62,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-20,nagaland,1987,20,MELURI,THUCHAMO,parties.IN.NPP,NPP,763,10.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-21,nagaland,1987,21,TULI,T. TALI,parties.IN.NND,NND,5906,62.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-21,nagaland,1987,21,TULI,TSUKNUNGPENZU,parties.IN.INC,INC,3532,37.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-22,nagaland,1987,22,ARKAKONG,JONGPONGCHITEN,parties.IN.INC,INC,3747,43.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-22,nagaland,1987,22,ARKAKONG,MARCHIBA,parties.IN.NPP,NPP,2494,29.03,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-22,nagaland,1987,22,ARKAKONG,CHUBALEMLA,parties.IN.NND,NND,2350,27.35,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-23,nagaland,1987,23,IMPUR,T. CHUBA,parties.IN.IND,IND,4246,45.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-23,nagaland,1987,23,IMPUR,S. LIMA AIER,parties.IN.INC,INC,3567,37.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-23,nagaland,1987,23,IMPUR,M. KARIBA,parties.IN.NPP,NPP,1385,14.75,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-23,nagaland,1987,23,IMPUR,SUPONGTSUNGBA,parties.IN.NND,NND,195,2.08,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-24,nagaland,1987,24,ANGETYONGPANG,AKUMBENBA,parties.IN.NPP,NPP,2227,29.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-24,nagaland,1987,24,ANGETYONGPANG,S. LIMA,parties.IN.INC,INC,2068,26.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-24,nagaland,1987,24,ANGETYONGPANG,T. SENTICHUBAOZUKUM,parties.IN.NND,NND,1890,24.64,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-24,nagaland,1987,24,ANGETYONGPANG,JONGSHILEMBA,parties.IN.IND,IND,1456,18.98,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-24,nagaland,1987,24,ANGETYONGPANG,LUNUTOSHI,parties.IN.IND,IND,31,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-25,nagaland,1987,25,MONGOYA,N. I. JAMIR,parties.IN.INC,INC,4220,58.93,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-25,nagaland,1987,25,MONGOYA,J. MAPUTEMJEN,parties.IN.IND,IND,1274,17.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-25,nagaland,1987,25,MONGOYA,NUNGSANGEMA,parties.IN.NND,NND,994,13.88,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-25,nagaland,1987,25,MONGOYA,N. T. SOBA AO,parties.IN.NPP,NPP,673,9.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-26,nagaland,1987,26,AONGLENDEN,NUNGSHIZENBA,parties.IN.INC,INC,3686,60.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-26,nagaland,1987,26,AONGLENDEN,M. BENDANGNUKSHI,parties.IN.NND,NND,2421,39.49,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-26,nagaland,1987,26,AONGLENDEN,LANUTOSHI,parties.IN.IND,IND,24,0.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-27,nagaland,1987,27,MOKOKCHUNG TOWN,IMTIMEREN,parties.IN.INC,INC,861,37.4,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-27,nagaland,1987,27,MOKOKCHUNG TOWN,IMKONGMAR,parties.IN.IND,IND,784,34.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-27,nagaland,1987,27,MOKOKCHUNG TOWN,TAKUYABA,parties.IN.NND,NND,628,27.28,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-27,nagaland,1987,27,MOKOKCHUNG TOWN,LANUTOSHI,parties.IN.IND,IND,29,1.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-28,nagaland,1987,28,KORIDANG,NOKZENKETBA,parties.IN.INC,INC,3045,32.78,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-28,nagaland,1987,28,KORIDANG,BENDANGTOSHI,parties.IN.IND,IND,2426,26.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-28,nagaland,1987,28,KORIDANG,PANGJUNGTEMSU,parties.IN.NND,NND,2320,24.98,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-28,nagaland,1987,28,KORIDANG,L. CHUBATOSHI PONGEN,parties.IN.NPP,NPP,1497,16.12,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-29,nagaland,1987,29,JANGPETKONG,CHUBATEMJEN A.,parties.IN.INC,INC,2516,42.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-29,nagaland,1987,29,JANGPETKONG,KIREMWATI,parties.IN.IND,IND,1765,29.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-29,nagaland,1987,29,JANGPETKONG,I. IMKONG,parties.IN.NND,NND,1608,27.31,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-30,nagaland,1987,30,ALONGTAKI,TIAMEREN IMCHEN,parties.IN.INC,INC,2082,34.83,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-30,nagaland,1987,30,ALONGTAKI,AOMERI,parties.IN.IND,IND,1772,29.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-30,nagaland,1987,30,ALONGTAKI,IMNANUNGSANG,parties.IN.NND,NND,1240,20.74,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-30,nagaland,1987,30,ALONGTAKI,K. MAO LONGKUMER,parties.IN.NPP,NPP,884,14.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-31,nagaland,1987,31,AKULUTO,I. KHEHOTO,parties.IN.INC,INC,1644,40.88,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-31,nagaland,1987,31,AKULUTO,I. VITOKHE,parties.IN.NND,NND,1455,36.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-31,nagaland,1987,31,AKULUTO,KANITO,parties.IN.NPP,NPP,923,22.95,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-32,nagaland,1987,32,ATOIZU,K. L. CHISHI,parties.IN.INC,INC,2847,47.71,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-32,nagaland,1987,32,ATOIZU,N. YESHITO CHISHI,parties.IN.IND,IND,2721,45.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-32,nagaland,1987,32,ATOIZU,TOVISHE,parties.IN.NND,NND,399,6.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-33,nagaland,1987,33,SURUHOTO,KIYEZHE SEMA,parties.IN.INC,INC,2677,43.37,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-33,nagaland,1987,33,SURUHOTO,KHUKIVI,parties.IN.NND,NND,2671,43.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-33,nagaland,1987,33,SURUHOTO,KHEKIYE,parties.IN.NPP,NPP,825,13.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-34,nagaland,1987,34,AGHUNATO,K. KIHOTO HOLLOHON,parties.IN.INC,INC,1872,34.83,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-34,nagaland,1987,34,AGHUNATO,NIHOKHE,parties.IN.NND,NND,1697,31.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-34,nagaland,1987,34,AGHUNATO,PUKHAYI,parties.IN.IND,IND,1175,21.86,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-34,nagaland,1987,34,AGHUNATO,KAKIYA,parties.IN.NPP,NPP,631,11.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-35,nagaland,1987,35,ZUNHEBOTO,GHUTOSHE,parties.IN.INC,INC,2432,37.19,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-35,nagaland,1987,35,ZUNHEBOTO,TOKHEHO,parties.IN.NND,NND,1632,24.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-35,nagaland,1987,35,ZUNHEBOTO,VIHOTO,parties.IN.NPP,NPP,1613,24.67,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-35,nagaland,1987,35,ZUNHEBOTO,AHETO,parties.IN.IND,IND,862,13.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-36,nagaland,1987,36,SATAKHA,HOKHETO,parties.IN.INC,INC,2902,48.7,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-36,nagaland,1987,36,SATAKHA,KUGHAVI,parties.IN.NND,NND,2871,48.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-36,nagaland,1987,36,SATAKHA,PHOISHE,parties.IN.NPP,NPP,180,3.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-36,nagaland,1987,36,SATAKHA,G. KAITO SEMA,parties.IN.IND,IND,6,0.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-37,nagaland,1987,37,TYUI,N. L. ODYUO,parties.IN.NND,NND,4254,49.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-37,nagaland,1987,37,TYUI,T. A. NGULLIE,parties.IN.INC,INC,3632,42.55,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-37,nagaland,1987,37,TYUI,E. YENCHAMONGULLIE,parties.IN.IND,IND,649,7.6,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-38,nagaland,1987,38,WOKHA,JOHN LOTHA,parties.IN.IND,IND,3689,37.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-38,nagaland,1987,38,WOKHA,T. MYINGTHUNGO LOTHA,parties.IN.NND,NND,3349,34.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-38,nagaland,1987,38,WOKHA,MHAO,parties.IN.INC,INC,2774,28.27,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-39,nagaland,1987,39,SANIS,T. N. NGULLIE,parties.IN.INC,INC,2715,40.03,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-39,nagaland,1987,39,SANIS,NKHOA,parties.IN.NND,NND,2558,37.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-39,nagaland,1987,39,SANIS,RAINBOW,parties.IN.IND,IND,1374,20.26,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-39,nagaland,1987,39,SANIS,P. PIUS,parties.IN.BJP,BJP,136,2.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-40,nagaland,1987,40,BHANDARI,T. KIKON,parties.IN.NND,NND,3698,41.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-40,nagaland,1987,40,BHANDARI,E. T. EZUNG,parties.IN.INC,INC,3606,40.81,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-40,nagaland,1987,40,BHANDARI,T. C. KITHAN,parties.IN.IND,IND,1261,14.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-40,nagaland,1987,40,BHANDARI,LOCHUMLO YANTHAN,parties.IN.IND,IND,271,3.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-41,nagaland,1987,41,TIZIT,N. YEANGPHONG KONYAK,parties.IN.INC,INC,5161,54.31,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-41,nagaland,1987,41,TIZIT,B. TINGKAP WANGNAO,parties.IN.NND,NND,3374,35.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-41,nagaland,1987,41,TIZIT,T. KHONGWANG KONYAK,parties.IN.NPP,NPP,968,10.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-42,nagaland,1987,42,WAKCHING,CHINGWANG,parties.IN.INC,INC,5151,56.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-42,nagaland,1987,42,WAKCHING,P. ENYEI,parties.IN.NND,NND,4007,43.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-43,nagaland,1987,43,TAPI,NOKE,parties.IN.NND,NND,3125,43.2,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-43,nagaland,1987,43,TAPI,M. L. TONGWANG,parties.IN.INC,INC,2196,30.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-43,nagaland,1987,43,TAPI,BENJEI,parties.IN.IND,IND,1912,26.43,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-44,nagaland,1987,44,PHOMCHING,P. POHWANG,parties.IN.INC,INC,4226,55.86,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-44,nagaland,1987,44,PHOMCHING,KONNGAM,parties.IN.NND,NND,3339,44.14,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-45,nagaland,1987,45,TEHOK,T. P. MANLEM,parties.IN.NND,NND,3382,41.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-45,nagaland,1987,45,TEHOK,C. NOCKLEM K.,parties.IN.INC,INC,3242,40.05,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-45,nagaland,1987,45,TEHOK,LOCKNYEM,parties.IN.IND,IND,1470,18.16,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-46,nagaland,1987,46,MON TOWN,S.YOKTEN,parties.IN.INC,INC,6492,62.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-46,nagaland,1987,46,MON TOWN,TINGNEI K.,parties.IN.NND,NND,3187,30.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-46,nagaland,1987,46,MON TOWN,L. YANLONG,parties.IN.BJP,BJP,790,7.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-47,nagaland,1987,47,ABOI,W. EYUNG,parties.IN.INC,INC,2868,43.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-47,nagaland,1987,47,ABOI,KHUMPEI,parties.IN.IND,IND,1555,23.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-47,nagaland,1987,47,ABOI,Y. NYEIWANG,parties.IN.NND,NND,1491,22.45,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-47,nagaland,1987,47,ABOI,B. P. HANGHUH KONYAK,parties.IN.IND,IND,726,10.93,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-48,nagaland,1987,48,MOKA,A. NYAMNYEI,parties.IN.INC,INC,3017,36.46,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-48,nagaland,1987,48,MOKA,K. KIKO KONYAK,parties.IN.IND,IND,2838,34.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-48,nagaland,1987,48,MOKA,E. E. PANGTEANG KONYAK,parties.IN.NND,NND,2419,29.24,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-49,nagaland,1987,49,TAMLU,BANGJAKPHOM,parties.IN.INC,INC,3434,51.56,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-49,nagaland,1987,49,TAMLU,H. N. YEMLIPHOM,parties.IN.NND,NND,3183,47.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-49,nagaland,1987,49,TAMLU,PHONGCHEKPHOM,parties.IN.NPP,NPP,43,0.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-50,nagaland,1987,50,LONGLENG,CHENLOMPHOM,parties.IN.INC,INC,2736,30.37,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-50,nagaland,1987,50,LONGLENG,HEONGPHOM,parties.IN.IND,IND,2248,24.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-50,nagaland,1987,50,LONGLENG,ZUKCHEM,parties.IN.NND,NND,2069,22.97,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-50,nagaland,1987,50,LONGLENG,Y. B. ANGAM,parties.IN.NPP,NPP,1955,21.7,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-51,nagaland,1987,51,NOKSEN,C. CHONGSHEN,parties.IN.INC,INC,2144,50.59,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-51,nagaland,1987,51,NOKSEN,H. CHUBA CHANG,parties.IN.IND,IND,1313,30.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-51,nagaland,1987,51,NOKSEN,S. SAO CHANG,parties.IN.NND,NND,781,18.43,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-52,nagaland,1987,52,LONGKHIM CHARE,THRINIMONG,parties.IN.IND,IND,2468,30.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-52,nagaland,1987,52,LONGKHIM CHARE,S. K. SANGTAM,parties.IN.INC,INC,2121,25.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-52,nagaland,1987,52,LONGKHIM CHARE,HORANGSE,parties.IN.NND,NND,1421,17.37,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-52,nagaland,1987,52,LONGKHIM CHARE,R. SETHRONGCHEM,parties.IN.NPP,NPP,1102,13.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-52,nagaland,1987,52,LONGKHIM CHARE,K. THRONGLONGSE,parties.IN.IND,IND,978,11.95,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-52,nagaland,1987,52,LONGKHIM CHARE,C. THRIDONGSE,parties.IN.IND,IND,91,1.11,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-53,nagaland,1987,53,TUENSANG SADAR-I,CHANGKONG,parties.IN.INC,INC,3489,49.18,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-53,nagaland,1987,53,TUENSANG SADAR-I,S. KHONEY CHANG,parties.IN.IND,IND,1742,24.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-53,nagaland,1987,53,TUENSANG SADAR-I,KECHINGBA,parties.IN.NND,NND,1237,17.43,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-53,nagaland,1987,53,TUENSANG SADAR-I,YANCHUMONG,parties.IN.IND,IND,627,8.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-54,nagaland,1987,54,TUENSANG SADAR-II,LAKIUMONG,parties.IN.INC,INC,2659,43.69,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-54,nagaland,1987,54,TUENSANG SADAR-II,M. B. VIMKONG,parties.IN.IND,IND,1754,28.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-54,nagaland,1987,54,TUENSANG SADAR-II,K. IMLONG,parties.IN.NND,NND,1673,27.49,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-55,nagaland,1987,55,TOBU,A. SOPEN,parties.IN.NND,NND,3991,39.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-55,nagaland,1987,55,TOBU,SHIAKPONG,parties.IN.INC,INC,3647,36.32,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-55,nagaland,1987,55,TOBU,PONGCHAI,parties.IN.IND,IND,2312,23.02,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-55,nagaland,1987,55,TOBU,B. THONGO,parties.IN.NPP,NPP,92,0.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-56,nagaland,1987,56,NOKLAK,SEDEM KHAMING,parties.IN.NND,NND,1997,31.98,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-56,nagaland,1987,56,NOKLAK,TOCHI HANSO,parties.IN.IND,IND,1843,29.52,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-56,nagaland,1987,56,NOKLAK,H. THANGPONG,parties.IN.INC,INC,1367,21.89,3,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-56,nagaland,1987,56,NOKLAK,TONGTHAN,parties.IN.NPP,NPP,1037,16.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-57,nagaland,1987,57,THONOKNYU,P. PONGOM,parties.IN.NND,NND,1793,27.39,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-57,nagaland,1987,57,THONOKNYU,HENO,parties.IN.INC,INC,1540,23.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-57,nagaland,1987,57,THONOKNYU,MONGCHUA,parties.IN.NPP,NPP,1323,20.21,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-57,nagaland,1987,57,THONOKNYU,P. K. F. TOCHU,parties.IN.IND,IND,1270,19.4,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-57,nagaland,1987,57,THONOKNYU,T. LONGSO KHIMN,parties.IN.IND,IND,620,9.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-58,nagaland,1987,58,SHAMATOR CHESSORE,K. ZUNGKUM,parties.IN.NND,NND,2189,31.6,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-58,nagaland,1987,58,SHAMATOR CHESSORE,YAMUKUM,parties.IN.INC,INC,1905,27.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-58,nagaland,1987,58,SHAMATOR CHESSORE,THRONGSHE,parties.IN.IND,IND,1196,17.27,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-58,nagaland,1987,58,SHAMATOR CHESSORE,K. M. CAMING,parties.IN.IND,IND,1060,15.3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-58,nagaland,1987,58,SHAMATOR CHESSORE,THASANKIU,parties.IN.NPP,NPP,577,8.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-59,nagaland,1987,59,SEYOCHUNG SITIMI,YOPIKYU,parties.IN.NND,NND,3695,54.91,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-59,nagaland,1987,59,SEYOCHUNG SITIMI,SETHRICHO,parties.IN.INC,INC,2817,41.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-59,nagaland,1987,59,SEYOCHUNG SITIMI,AKHAI,parties.IN.NPP,NPP,217,3.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-60,nagaland,1987,60,PUNGRO KIPHIRE,T. ROTHRONG,parties.IN.INC,INC,4732,51.91,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-60,nagaland,1987,60,PUNGRO KIPHIRE,T. TORECHU,parties.IN.NND,NND,4384,48.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a

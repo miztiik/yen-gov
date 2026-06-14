@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-bihar-146,bihar,2006,MANIHARI,159760,83595,52.33,SRI VISHWANATH SINGH,parties.IN.JDU,JD(U),38613,46.19,SRI MAHAMMAD HAMID MUBARAK,parties.IN.INC,INC,35855,2758,3.3,src-1b7bc1c9d39a
+IN-AC-1976-bihar-188,bihar,2006,PATNA WEST,512506,92364,18.02,Nitin Naveen,parties.IN.BJP,BJP,76025,82.31,Ajay Kumar Singh,parties.IN.INC,INC,10858,65167,70.55,src-1b7bc1c9d39a

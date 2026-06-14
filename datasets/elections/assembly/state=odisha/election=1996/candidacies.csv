@@ -1,0 +1,27 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-odisha-15,odisha,1996,15,SORO,Smt. Indurani Mahapatra,parties.IN.INC,INC,61671,57.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-15,odisha,1996,15,SORO,Jadunath Dash Mohapatra,parties.IN.IND,IND,37448,34.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-15,odisha,1996,15,SORO,Chandra Sekhar Mohanty,parties.IN.BJP,BJP,5112,4.74,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-15,odisha,1996,15,SORO,Pitamber Panda,parties.IN.CPI,CPI,3506,3.25,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-50,odisha,1996,50,BHUBANESWAR,Biswabhusan Harichandan,parties.IN.BJP,BJP,58263,45.3,1,won,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-50,odisha,1996,50,BHUBANESWAR,Bhagirathi Badjena,parties.IN.INC,INC,39551,30.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-50,odisha,1996,50,BHUBANESWAR,Shivananda Ray,parties.IN.JD,JD,28723,22.33,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-50,odisha,1996,50,BHUBANESWAR,Kiran Bala Mangaraj,parties.IN.IND,IND,1207,0.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-50,odisha,1996,50,BHUBANESWAR,Gobinda Chandra Samal,parties.IN.JTKM,JTKM,549,0.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-50,odisha,1996,50,BHUBANESWAR,Hrushikesh Mishra,parties.IN.IND,IND,314,0.24,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-54,odisha,1996,54,KAKATPUR,Surendranath Naik,parties.IN.JD,JD,59315,48.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-54,odisha,1996,54,KAKATPUR,Kadambini Swain,parties.IN.INC,INC,55440,45.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-54,odisha,1996,54,KAKATPUR,Gauri Sankar Dash,parties.IN.BJP,BJP,4106,3.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-54,odisha,1996,54,KAKATPUR,Rabindra Swain,parties.IN.IND,IND,1080,0.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-54,odisha,1996,54,KAKATPUR,Upendra Sahoo,parties.IN.IND,IND,711,0.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-54,odisha,1996,54,KAKATPUR,Pramod Biswal,parties.IN.IND,IND,343,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-54,odisha,1996,54,KAKATPUR,Sarbeswar Ojha,parties.IN.IND,IND,212,0.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-54,odisha,1996,54,KAKATPUR,Sudarsan Kanungo,parties.IN.IND,IND,167,0.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-80,odisha,1996,80,GUNUPUR(ST),Bhagirathi Gomango,parties.IN.INC,INC,28336,32.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-80,odisha,1996,80,GUNUPUR(ST),Bijaya Kumar Gomango,parties.IN.INC,INC,26603,30.85,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-odisha-80,odisha,1996,80,GUNUPUR(ST),Rama Murthy Gomango,parties.IN.JD,JD,20466,23.73,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-80,odisha,1996,80,GUNUPUR(ST),Tripati Gomango,parties.IN.CPIMLL,CPI(ML)(L),3675,4.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-80,odisha,1996,80,GUNUPUR(ST),Budho Gomango,parties.IN.IND,IND,3164,3.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-80,odisha,1996,80,GUNUPUR(ST),Purusottam Gomango,parties.IN.AIIC_T,AIIC(T),1896,2.2,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-80,odisha,1996,80,GUNUPUR(ST),Sankar Bidika,parties.IN.BJP,BJP,1494,1.73,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-odisha-80,odisha,1996,80,GUNUPUR(ST),Gasino Gomango,parties.IN.IND,IND,594,0.69,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a

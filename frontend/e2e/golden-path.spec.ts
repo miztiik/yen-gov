@@ -172,7 +172,7 @@ test.describe("golden path", () => {
     await expect(page.getByText(/Most recent assembly election/i)).toBeVisible({ timeout: 15_000 });
     // Pre-fix: the bootstrap notice rendered here for ~1.5s. Post-fix the
     // page shows "Loading constituency directory…" instead.
-    await expect(page.getByText(/isn't available yet/i)).toHaveCount(0);
+    await expect(page.getByText(/constituency directory unavailable/i)).toHaveCount(0);
     await expect(page.getByText(/bootstrap_constituencies_from_results/)).toHaveCount(0);
     // And the directory eventually renders (proves the fix didn't break
     // the success arm — `acs_status` transitions through "ready").

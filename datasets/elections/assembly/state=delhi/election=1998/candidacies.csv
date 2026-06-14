@@ -1,0 +1,804 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-delhi-1,delhi,1998,1,SAROJINI NAGAR,SH. RAM BHAJ,parties.IN.BJP,BJP,21318,49.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-1,delhi,1998,1,SAROJINI NAGAR,MUKESH BHATT,parties.IN.INC,INC,19790,46.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-1,delhi,1998,1,SAROJINI NAGAR,SHELA GAUR,parties.IN.IND,IND,741,1.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-1,delhi,1998,1,SAROJINI NAGAR,DHARAM BIR SINGH,parties.IN.IND,IND,521,1.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-1,delhi,1998,1,SAROJINI NAGAR,ADERSH KUMAR,parties.IN.IND,IND,123,0.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-1,delhi,1998,1,SAROJINI NAGAR,YOGENDER SINGH,parties.IN.IND,IND,90,0.21,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-1,delhi,1998,1,SAROJINI NAGAR,MANMOHAN,parties.IN.IND,IND,76,0.18,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-1,delhi,1998,1,SAROJINI NAGAR,VED PARKASH,parties.IN.IND,IND,63,0.15,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-1,delhi,1998,1,SAROJINI NAGAR,UMA JOSHI,parties.IN.IND,IND,60,0.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-1,delhi,1998,1,SAROJINI NAGAR,LAYAK SINGH,parties.IN.IND,IND,26,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1998,2,GOLE MARKET,SHEILA DIKSHIT,parties.IN.INC,INC,24881,53.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1998,2,GOLE MARKET,KIRTI AZAD,parties.IN.BJP,BJP,19214,41.66,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1998,2,GOLE MARKET,M.M.GOPE,parties.IN.CPI,CPI,831,1.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1998,2,GOLE MARKET,ROMESH SABHARWAL,parties.IN.IND,IND,342,0.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1998,2,GOLE MARKET,RAM KUMAR,parties.IN.SP,SP,321,0.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1998,2,GOLE MARKET,NARESH,parties.IN.IND,IND,239,0.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1998,2,GOLE MARKET,RAM MURAT SHOLA,parties.IN.LSWP,LSWP,154,0.33,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-2,delhi,1998,2,GOLE MARKET,RAJNEESH SHARMA,parties.IN.IND,IND,139,0.3,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-3,delhi,1998,3,MINTO ROAD,TAJDAR BABAR,parties.IN.INC,INC,28815,53.73,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-3,delhi,1998,3,MINTO ROAD,ARUN JAIN ENGINEER,parties.IN.BJP,BJP,14050,26.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-3,delhi,1998,3,MINTO ROAD,RAMESH DUTTA,parties.IN.IND,IND,7656,14.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-3,delhi,1998,3,MINTO ROAD,MINOO KAIM,parties.IN.BSP,BSP,960,1.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-3,delhi,1998,3,MINTO ROAD,ANFAL NIZAM,parties.IN.JD,JD,475,0.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-3,delhi,1998,3,MINTO ROAD,SRIDHARAN NAIDU,parties.IN.IND,IND,468,0.87,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-3,delhi,1998,3,MINTO ROAD,MOHATRAM KHAN,parties.IN.IND,IND,403,0.75,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-3,delhi,1998,3,MINTO ROAD,JITENDER KUMAR,parties.IN.IND,IND,299,0.56,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-3,delhi,1998,3,MINTO ROAD,SUFI MOHD. NASEEM SULTANI,parties.IN.LSWP,LSWP,222,0.41,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-3,delhi,1998,3,MINTO ROAD,ASHOK KUMAR TIWARI,parties.IN.SHS,SHS,200,0.37,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-3,delhi,1998,3,MINTO ROAD,KULDIP KHANNA,parties.IN.IND,IND,84,0.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-4,delhi,1998,4,KASTURBA NAGAR,SUSHIL CHOUDHARY,parties.IN.BJP,BJP,20146,42.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-4,delhi,1998,4,KASTURBA NAGAR,RAM RATTAN GUPTA,parties.IN.INC,INC,19247,40.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-4,delhi,1998,4,KASTURBA NAGAR,JAGDISH LAL BATRA,parties.IN.IND,IND,6825,14.24,3,forfeit,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-4,delhi,1998,4,KASTURBA NAGAR,RAM KARAN GUPTA,parties.IN.JD,JD,922,1.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-4,delhi,1998,4,KASTURBA NAGAR,SUNIL RAWAT,parties.IN.IND,IND,486,1.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-4,delhi,1998,4,KASTURBA NAGAR,SUMER CHAND,parties.IN.IND,IND,297,0.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-5,delhi,1998,5,JANGPURA,TARVINDER SINGH MARWAH,parties.IN.INC,INC,28384,51.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-5,delhi,1998,5,JANGPURA,BIR BAHADUR,parties.IN.BJP,BJP,16465,29.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-5,delhi,1998,5,JANGPURA,TILAK RAJ MALHOTRA,parties.IN.IND,IND,8605,15.6,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-5,delhi,1998,5,JANGPURA,HARI LAL MANDORA,parties.IN.BSP,BSP,464,0.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-5,delhi,1998,5,JANGPURA,INDER JIT SINGH SETHI,parties.IN.JD,JD,419,0.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-5,delhi,1998,5,JANGPURA,HARVINDER SINGH,parties.IN.IND,IND,354,0.64,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-5,delhi,1998,5,JANGPURA,SHANTI SWAROOP GERA,parties.IN.IND,IND,206,0.37,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-5,delhi,1998,5,JANGPURA,MANOHER LAL JHA,parties.IN.IND,IND,146,0.26,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-5,delhi,1998,5,JANGPURA,TRILOCHAN SINGH,parties.IN.IND,IND,101,0.18,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-6,delhi,1998,6,OKHLA,PARVEZ HASHMI,parties.IN.INC,INC,32774,57.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-6,delhi,1998,6,OKHLA,KRISHAN KUMAR MEHTA,parties.IN.BJP,BJP,14613,25.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-6,delhi,1998,6,OKHLA,ASIF MOHHAMAD KHAN,parties.IN.SP,SP,5693,10.04,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-6,delhi,1998,6,OKHLA,ASGHAR KHAN,parties.IN.BSP,BSP,1438,2.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-6,delhi,1998,6,OKHLA,AMIRUDDIN,parties.IN.NLP,NLP,633,1.12,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-delhi-6,delhi,1998,6,OKHLA,ASHRAF KHAN,parties.IN.JD,JD,534,0.94,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-6,delhi,1998,6,OKHLA,PYARE LAL VEDYAL,parties.IN.ICS,ICS,490,0.86,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-6,delhi,1998,6,OKHLA,ZAHID KHAN,parties.IN.NDPF,NDPF,277,0.49,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-6,delhi,1998,6,OKHLA,ITRAT HUSAIN,parties.IN.IND,IND,82,0.14,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-6,delhi,1998,6,OKHLA,MOHMAD MURTZA,parties.IN.IND,IND,63,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-6,delhi,1998,6,OKHLA,ANIL KUMAR,parties.IN.IND,IND,40,0.07,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-6,delhi,1998,6,OKHLA,PHOOL SINGH,parties.IN.LSWP,LSWP,24,0.04,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-6,delhi,1998,6,OKHLA,ZIAUDDIN,parties.IN.IND,IND,15,0.03,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-7,delhi,1998,7,KALKAJI,SUBHASH CHOPRA,parties.IN.INC,INC,29948,53.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-7,delhi,1998,7,KALKAJI,PURNIMA SETHI,parties.IN.BJP,BJP,24704,44.23,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-7,delhi,1998,7,KALKAJI,SEWA SINGH,parties.IN.BSP,BSP,665,1.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-7,delhi,1998,7,KALKAJI,JASVINDER SINGH,parties.IN.JD,JD,203,0.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-7,delhi,1998,7,KALKAJI,VIJENDER KUMAR,parties.IN.SJP_R,SJP(R),99,0.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-7,delhi,1998,7,KALKAJI,PARMINDER SINGH,parties.IN.IND,IND,97,0.17,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-7,delhi,1998,7,KALKAJI,LAXMI NARAYAN GOYAL,parties.IN.ABJS,ABJS,70,0.13,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-7,delhi,1998,7,KALKAJI,NIRMAL SINGH,parties.IN.IND,IND,62,0.11,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-8,delhi,1998,8,MALVIYA NAGAR,DR. YOGANAND SHASTRI,parties.IN.INC,INC,30910,55.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-8,delhi,1998,8,MALVIYA NAGAR,RAJENDRA GUPTA,parties.IN.BJP,BJP,22946,40.97,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-8,delhi,1998,8,MALVIYA NAGAR,PITAMBER SINGH,parties.IN.BSP,BSP,1406,2.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-8,delhi,1998,8,MALVIYA NAGAR,MOHD. FEROZ KHAN,parties.IN.JD,JD,308,0.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-8,delhi,1998,8,MALVIYA NAGAR,MOHD. UMAR,parties.IN.SP,SP,247,0.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-8,delhi,1998,8,MALVIYA NAGAR,SHAILENDER CHOUDHARY,parties.IN.ABSR,ABSR,72,0.13,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-8,delhi,1998,8,MALVIYA NAGAR,WAHID HUSSAIN,parties.IN.AP,AP,70,0.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-8,delhi,1998,8,MALVIYA NAGAR,SATISH KUMAR,parties.IN.IND,IND,45,0.08,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-9,delhi,1998,9,HAUZ KHAS,SUSHMA SWARAJ,parties.IN.BJP,BJP,25267,49.29,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-9,delhi,1998,9,HAUZ KHAS,PROFESSOR KIRAN WALIA,parties.IN.INC,INC,22652,44.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-9,delhi,1998,9,HAUZ KHAS,VIRENDER SINGH,parties.IN.IND,IND,1301,2.54,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-9,delhi,1998,9,HAUZ KHAS,KHEM CHAND JATAV,parties.IN.BSP,BSP,835,1.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-9,delhi,1998,9,HAUZ KHAS,RAM PAL SINGH,parties.IN.JP,JP,407,0.79,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-9,delhi,1998,9,HAUZ KHAS,AJAY SHARMA,parties.IN.IND,IND,299,0.58,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-9,delhi,1998,9,HAUZ KHAS,DHARAM VIR,parties.IN.ABSR,ABSR,267,0.52,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-9,delhi,1998,9,HAUZ KHAS,SITA RAM BHARDWAJ,parties.IN.JD,JD,229,0.45,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-10,delhi,1998,10,R.K.PURAM,ASHOK SINGH,parties.IN.INC,INC,20509,45.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-10,delhi,1998,10,R.K.PURAM,BODH RAJ,parties.IN.BJP,BJP,17152,38.44,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-10,delhi,1998,10,R.K.PURAM,AJIT SINGH,parties.IN.IND,IND,4779,10.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-10,delhi,1998,10,R.K.PURAM,RAJENDRA SINGH,parties.IN.IND,IND,1141,2.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-10,delhi,1998,10,R.K.PURAM,DR. (MAJOR) NISHAN SINGH CHEEMA,parties.IN.IND,IND,746,1.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-10,delhi,1998,10,R.K.PURAM,MAHESH CHANDRA SINGH,parties.IN.IND,IND,173,0.39,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-10,delhi,1998,10,R.K.PURAM,VISHNU DEV,parties.IN.IND,IND,92,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-10,delhi,1998,10,R.K.PURAM,RAVINDER KUMAR,parties.IN.IND,IND,26,0.06,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-11,delhi,1998,11,DELHI CANTONMENT,KIRAN CHOUDHARY,parties.IN.INC,INC,23445,51.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-11,delhi,1998,11,DELHI CANTONMENT,KARAN SINGH TANWAR,parties.IN.BJP,BJP,20819,46.12,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-11,delhi,1998,11,DELHI CANTONMENT,RAJENDRA,parties.IN.IND,IND,356,0.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-11,delhi,1998,11,DELHI CANTONMENT,ASHOK CHOUDHARY,parties.IN.IND,IND,202,0.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-11,delhi,1998,11,DELHI CANTONMENT,BALJEET SINGH,parties.IN.IND,IND,173,0.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-11,delhi,1998,11,DELHI CANTONMENT,EMANUEL MASSEY,parties.IN.IND,IND,61,0.14,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-11,delhi,1998,11,DELHI CANTONMENT,DILBAG,parties.IN.IND,IND,51,0.11,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-11,delhi,1998,11,DELHI CANTONMENT,KAUSHAL SHARMA,parties.IN.IND,IND,30,0.07,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-12,delhi,1998,12,JANAK PURI,PROF. JAGDISH MUKHI,parties.IN.BJP,BJP,31115,55.86,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-12,delhi,1998,12,JANAK PURI,SHIV KUMAR SONDHI,parties.IN.INC,INC,23415,42.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-12,delhi,1998,12,JANAK PURI,RAJBIR SINGH,parties.IN.LS,LS,750,1.35,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-12,delhi,1998,12,JANAK PURI,RAJENDER KAPOOR,parties.IN.IND,IND,224,0.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-12,delhi,1998,12,JANAK PURI,NARESH MALIK,parties.IN.SHS,SHS,148,0.27,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-12,delhi,1998,12,JANAK PURI,MUKESH JAIN,parties.IN.IND,IND,49,0.09,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-13,delhi,1998,13,HARI NAGAR,HARSHARAN SINGH BALLI,parties.IN.BJP,BJP,29136,49.79,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-13,delhi,1998,13,HARI NAGAR,O.P.WADHWA,parties.IN.INC,INC,28519,48.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-13,delhi,1998,13,HARI NAGAR,RAJINDER SINGH,parties.IN.SP,SP,333,0.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-13,delhi,1998,13,HARI NAGAR,AFROZ KHAN,parties.IN.JD,JD,242,0.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-13,delhi,1998,13,HARI NAGAR,NAVRUNG PAUL,parties.IN.IND,IND,129,0.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-13,delhi,1998,13,HARI NAGAR,PANKAJ KUMAR,parties.IN.IND,IND,110,0.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-13,delhi,1998,13,HARI NAGAR,ASHWANI KHANNA,parties.IN.IND,IND,49,0.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-14,delhi,1998,14,TILAK NAGAR,JASPAL SINGH,parties.IN.INC,INC,27240,49.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-14,delhi,1998,14,TILAK NAGAR,O.P. BABBAR,parties.IN.BJP,BJP,25724,46.48,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-14,delhi,1998,14,TILAK NAGAR,MANNU DEVI,parties.IN.BSP,BSP,414,0.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-14,delhi,1998,14,TILAK NAGAR,SUDHIR BATHLA,parties.IN.IND,IND,385,0.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-14,delhi,1998,14,TILAK NAGAR,RANJIT SINGH,parties.IN.SP,SP,330,0.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-14,delhi,1998,14,TILAK NAGAR,VINOD KUMAR,parties.IN.JD,JD,286,0.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-14,delhi,1998,14,TILAK NAGAR,JITENDER SABHARWAL,parties.IN.SHS,SHS,285,0.51,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-14,delhi,1998,14,TILAK NAGAR,SHANTI,parties.IN.IND,IND,132,0.24,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-14,delhi,1998,14,TILAK NAGAR,RAJAN,parties.IN.IND,IND,129,0.23,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-14,delhi,1998,14,TILAK NAGAR,SOHAN LAL,parties.IN.IND,IND,97,0.18,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-14,delhi,1998,14,TILAK NAGAR,SHIKHA GARG,parties.IN.IND,IND,82,0.15,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-14,delhi,1998,14,TILAK NAGAR,LAKHMIR,parties.IN.IND,IND,75,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-14,delhi,1998,14,TILAK NAGAR,AMRIT SINGH RANGILA,parties.IN.IND,IND,68,0.12,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-14,delhi,1998,14,TILAK NAGAR,KRISHAN LAL BHARTI,parties.IN.JP,JP,56,0.1,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-14,delhi,1998,14,TILAK NAGAR,SUDHIR GUPTA,parties.IN.IND,IND,40,0.07,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-15,delhi,1998,15,RAJOURI GARDEN,AJAY MAKAN,parties.IN.INC,INC,36060,65.73,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-15,delhi,1998,15,RAJOURI GARDEN,SASHI PRABHA ARYA,parties.IN.BJP,BJP,16763,30.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-15,delhi,1998,15,RAJOURI GARDEN,SHAKUNTLA,parties.IN.BSP,BSP,1094,1.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-15,delhi,1998,15,RAJOURI GARDEN,SUBHASH BAIRWA,parties.IN.IND,IND,367,0.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-15,delhi,1998,15,RAJOURI GARDEN,JAGDISH PARSHAD NAINAWAT,parties.IN.IND,IND,233,0.42,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-15,delhi,1998,15,RAJOURI GARDEN,SAHIB SINGH,parties.IN.IND,IND,187,0.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-15,delhi,1998,15,RAJOURI GARDEN,GOPI CHAND TYAGI,parties.IN.RAM,RAM,70,0.13,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-15,delhi,1998,15,RAJOURI GARDEN,NEERAJ MALIK,parties.IN.IND,IND,56,0.1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-15,delhi,1998,15,RAJOURI GARDEN,TARA CHAND,parties.IN.IND,IND,32,0.06,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-16,delhi,1998,16,MADIPUR,MALA RAM GANGWAL,parties.IN.INC,INC,33639,55.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-16,delhi,1998,16,MADIPUR,LAXMAN SINGH ATAL,parties.IN.BJP,BJP,25543,42.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-16,delhi,1998,16,MADIPUR,ROOP SINGH AHIRWAR,parties.IN.BSP,BSP,1184,1.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-16,delhi,1998,16,MADIPUR,NAVAL KISHORE,parties.IN.IND,IND,183,0.3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-16,delhi,1998,16,MADIPUR,OM PARKASH PHULWARIA,parties.IN.RPI,RPI,146,0.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-16,delhi,1998,16,MADIPUR,K.R.SUNDA,parties.IN.SHS,SHS,42,0.07,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-17,delhi,1998,17,TRI NAGAR,NAND KISHORE GARG,parties.IN.BJP,BJP,25776,51.09,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-17,delhi,1998,17,TRI NAGAR,CHATTAR SINGH,parties.IN.INC,INC,23493,46.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-17,delhi,1998,17,TRI NAGAR,SHIV KUMAR,parties.IN.SP,SP,543,1.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-17,delhi,1998,17,TRI NAGAR,VIKRAM SINGH KHARI,parties.IN.IND,IND,244,0.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-17,delhi,1998,17,TRI NAGAR,NATHU SINGH GARG,parties.IN.SAP,SAP,200,0.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-17,delhi,1998,17,TRI NAGAR,RAJ MALA VERMA,parties.IN.IND,IND,149,0.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-17,delhi,1998,17,TRI NAGAR,YAD RAM BOKOLIA,parties.IN.IND,IND,32,0.06,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-17,delhi,1998,17,TRI NAGAR,RAJENDER KUMAR,parties.IN.IND,IND,16,0.03,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-18,delhi,1998,18,SHAKURBASTI,DR. S.C. VATS,parties.IN.INC,INC,36010,56.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-18,delhi,1998,18,SHAKURBASTI,GAURI SHANKAR BHARDWAJ,parties.IN.BJP,BJP,27371,42.67,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-18,delhi,1998,18,SHAKURBASTI,PRADEEP,parties.IN.IND,IND,417,0.65,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-18,delhi,1998,18,SHAKURBASTI,DEEPAK KUMAR GUPTA,parties.IN.JP,JP,184,0.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-18,delhi,1998,18,SHAKURBASTI,AJAY SHRIVASTAVA,parties.IN.SHS,SHS,166,0.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-19,delhi,1998,19,SHALIMAR BAGH,RAVINDER NATH,parties.IN.BJP,BJP,32623,57.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-19,delhi,1998,19,SHALIMAR BAGH,SARLA KAUSHIK,parties.IN.INC,INC,22618,39.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-19,delhi,1998,19,SHALIMAR BAGH,KRISHAN KUMAR AGGARWAL,parties.IN.IND,IND,656,1.15,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-19,delhi,1998,19,SHALIMAR BAGH,O.P.MITTAL,parties.IN.IND,IND,551,0.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-19,delhi,1998,19,SHALIMAR BAGH,JAGDISH CHANDRA,parties.IN.BSP,BSP,305,0.54,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-19,delhi,1998,19,SHALIMAR BAGH,VINOD DUKHIYA,parties.IN.IND,IND,46,0.08,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-19,delhi,1998,19,SHALIMAR BAGH,MAHESH DUTT TYAGI,parties.IN.IND,IND,43,0.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-19,delhi,1998,19,SHALIMAR BAGH,MAHENDER KUMAR,parties.IN.IND,IND,24,0.04,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-20,delhi,1998,20,BADLI,JAI BHAGWAN AGGARWAL,parties.IN.BJP,BJP,42259,47.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-20,delhi,1998,20,BADLI,NARAIN SINGH YADAV,parties.IN.INC,INC,37822,42.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-20,delhi,1998,20,BADLI,PHOOL CHAND,parties.IN.BSP,BSP,3808,4.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-20,delhi,1998,20,BADLI,RAMESH CHANDER SHARMA,parties.IN.SAP,SAP,2509,2.85,4,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-delhi-20,delhi,1998,20,BADLI,MANMEET SINGH,parties.IN.IND,IND,997,1.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-20,delhi,1998,20,BADLI,RAMGOPAL SISODIA,parties.IN.LS,LS,239,0.27,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-20,delhi,1998,20,BADLI,K.L. GARG,parties.IN.IND,IND,164,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-20,delhi,1998,20,BADLI,KANWAR SAIN JAIN,parties.IN.IND,IND,139,0.16,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-20,delhi,1998,20,BADLI,NATHU RAM JAIN,parties.IN.IND,IND,69,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-20,delhi,1998,20,BADLI,ANIL GOGIA,parties.IN.IND,IND,52,0.06,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-20,delhi,1998,20,BADLI,GULSHAN KUMAR BAJAJ,parties.IN.IND,IND,51,0.06,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-20,delhi,1998,20,BADLI,SANJU KUMAR GOEL,parties.IN.IND,IND,27,0.03,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,RAMESH KUMAR,parties.IN.INC,INC,35328,44.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,KULWANT RANA,parties.IN.BJP,BJP,25529,32.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,RAVINDER KUMAR GUPTA,parties.IN.IND,IND,7620,9.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,HARI SINGH,parties.IN.BSP,BSP,4040,5.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,KANWAR SINGH,parties.IN.SHS,SHS,1430,1.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,BHUPINDER SINGH RAWAT,parties.IN.UNK,DBP,1293,1.63,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,SATISH YADAV,parties.IN.JD,JD,1289,1.63,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,MEHRUDDIN,parties.IN.LD,LD,1187,1.5,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,RANBIR SINGH PAL,parties.IN.RJD,RJD,422,0.53,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,BADRI PRASAD SHARMA,parties.IN.LS,LS,267,0.34,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,MAHENDER AGGARWAL,parties.IN.SP,SP,259,0.33,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,AMAR NATH GUPTA,parties.IN.IND,IND,227,0.29,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,ROHTASH SINGH,parties.IN.RAJPA,RJP,145,0.18,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,NARINDER PAL KASHYAP,parties.IN.IND,IND,101,0.13,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,VINOD,parties.IN.RPI,RPI,91,0.11,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,TIKA RAM,parties.IN.BKMP,BKMP,52,0.07,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,SANT RAM,parties.IN.IND,IND,32,0.04,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-21,delhi,1998,21,SAHIBABAD DAULATPUR,HARVIR,parties.IN.IND,IND,9,0.01,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-22,delhi,1998,22,BAWANA,SURENDER KUMAR,parties.IN.INC,INC,40241,59.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-22,delhi,1998,22,BAWANA,OM PARKASH RANG,parties.IN.IND,IND,14543,21.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-22,delhi,1998,22,BAWANA,HEM CHANDER,parties.IN.INLD,INLD,8588,12.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-22,delhi,1998,22,BAWANA,RAM PALAT GAUTAM,parties.IN.BSP,BSP,2282,3.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-22,delhi,1998,22,BAWANA,TALEWAR,parties.IN.IND,IND,980,1.44,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-22,delhi,1998,22,BAWANA,RAM MILAN,parties.IN.ABJC,ABJC,578,0.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-22,delhi,1998,22,BAWANA,NARESH KUMAR,parties.IN.SP,SP,413,0.61,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-22,delhi,1998,22,BAWANA,RANI LAJWANTI,parties.IN.SHS,SHS,192,0.28,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-22,delhi,1998,22,BAWANA,BANWARI LAL,parties.IN.MSP,MSP,185,0.27,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-23,delhi,1998,23,SULTANPUR MAJRA,SUSHILA DEVI,parties.IN.INC,INC,34194,56.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-23,delhi,1998,23,SULTANPUR MAJRA,KAILASH,parties.IN.BJP,BJP,17261,28.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-23,delhi,1998,23,SULTANPUR MAJRA,KIRAN DEVI,parties.IN.BSP,BSP,3085,5.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-23,delhi,1998,23,SULTANPUR MAJRA,NAND RAM BAGRI,parties.IN.IND,IND,2646,4.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-23,delhi,1998,23,SULTANPUR MAJRA,RANBIR SINGH,parties.IN.JD,JD,1695,2.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-23,delhi,1998,23,SULTANPUR MAJRA,PRADEEP KUMAR,parties.IN.IND,IND,416,0.69,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-23,delhi,1998,23,SULTANPUR MAJRA,SHUBHASH,parties.IN.MSP,MSP,389,0.65,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-23,delhi,1998,23,SULTANPUR MAJRA,ASHA RANI,parties.IN.LS,LS,322,0.53,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-23,delhi,1998,23,SULTANPUR MAJRA,VINOD,parties.IN.SHS,SHS,108,0.18,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-23,delhi,1998,23,SULTANPUR MAJRA,KALYANI,parties.IN.SSP,SHSP,92,0.15,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1998,24,MANGOLPURI,RAJ KUMAR CHAUHAN,parties.IN.INC,INC,32372,60.8,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1998,24,MANGOLPURI,LAKSHMI NARAYAN,parties.IN.BJP,BJP,11358,21.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1998,24,MANGOLPURI,MAHENDER SINGH,parties.IN.BSP,BSP,6707,12.6,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1998,24,MANGOLPURI,SURAJ PAL,parties.IN.RJD,RJD,1500,2.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1998,24,MANGOLPURI,TEJ SINGH,parties.IN.JD,JD,844,1.59,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1998,24,MANGOLPURI,SHYAM KALEE,parties.IN.CPI,CPI,286,0.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1998,24,MANGOLPURI,RATTAN SINGH,parties.IN.IND,IND,66,0.12,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1998,24,MANGOLPURI,ROHTASH,parties.IN.IND,IND,62,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-24,delhi,1998,24,MANGOLPURI,RAJ KUMAR,parties.IN.LS,LS,45,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-25,delhi,1998,25,NANGLOI JAT,PREM CHAND,parties.IN.INC,INC,30533,49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-25,delhi,1998,25,NANGLOI JAT,DEVENDER SINGH,parties.IN.BJP,BJP,27706,44.46,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-25,delhi,1998,25,NANGLOI JAT,PANMESHWARI,parties.IN.SAP,SAP,1149,1.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-25,delhi,1998,25,NANGLOI JAT,ARVIND KATARIA,parties.IN.BSP,BSP,682,1.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-25,delhi,1998,25,NANGLOI JAT,JAI PARKASH,parties.IN.JD,JD,560,0.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-25,delhi,1998,25,NANGLOI JAT,SIRAJ ANWAR,parties.IN.IND,IND,407,0.65,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-25,delhi,1998,25,NANGLOI JAT,BILKIS BANO,parties.IN.IND,IND,290,0.47,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-25,delhi,1998,25,NANGLOI JAT,GANGA RAM,parties.IN.BCVD,BCVD,258,0.41,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-25,delhi,1998,25,NANGLOI JAT,RAJ KUMAR,parties.IN.IND,IND,195,0.31,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-25,delhi,1998,25,NANGLOI JAT,MOHAN,parties.IN.IND,IND,178,0.29,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-25,delhi,1998,25,NANGLOI JAT,SURENDER BHAGAT,parties.IN.IND,IND,152,0.24,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-25,delhi,1998,25,NANGLOI JAT,SATBIR,parties.IN.IND,IND,113,0.18,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-25,delhi,1998,25,NANGLOI JAT,MUMTIYAZ ALI,parties.IN.IND,IND,90,0.14,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-26,delhi,1998,26,VISHNU GARDEN,MAHINDER SINGH SAATHI,parties.IN.INC,INC,21612,40.42,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-26,delhi,1998,26,VISHNU GARDEN,DAYANAND CHANDILA,parties.IN.JMM,JMM,17375,32.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-26,delhi,1998,26,VISHNU GARDEN,DHANWANT SINGH,parties.IN.BJP,BJP,9763,18.26,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-26,delhi,1998,26,VISHNU GARDEN,GURCHARAN SINGH BABBAR,parties.IN.IND,IND,1889,3.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-26,delhi,1998,26,VISHNU GARDEN,PRITPAL SINGH PALI,parties.IN.SADM,SAD(M),1393,2.61,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-26,delhi,1998,26,VISHNU GARDEN,GOPAL PAHARIA,parties.IN.IND,IND,595,1.11,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-26,delhi,1998,26,VISHNU GARDEN,RAJ KUMAR,parties.IN.SHS,SHS,265,0.5,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-26,delhi,1998,26,VISHNU GARDEN,AVTAR SINGH,parties.IN.SP,SP,203,0.38,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-26,delhi,1998,26,VISHNU GARDEN,AFTAB ALAM,parties.IN.IND,IND,129,0.24,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-26,delhi,1998,26,VISHNU GARDEN,DHARMENDER KUMAR,parties.IN.IND,IND,85,0.16,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-26,delhi,1998,26,VISHNU GARDEN,JATINDER PAL SINGH,parties.IN.IND,IND,56,0.1,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-26,delhi,1998,26,VISHNU GARDEN,SHIV SHANKAR SINGH,parties.IN.IND,IND,32,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-26,delhi,1998,26,VISHNU GARDEN,WAZIR SINGH,parties.IN.IND,IND,31,0.06,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-26,delhi,1998,26,VISHNU GARDEN,RAVINDER SINGH,parties.IN.IND,IND,22,0.04,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-26,delhi,1998,26,VISHNU GARDEN,NAWAB SINGH CHANDILA,parties.IN.IND,IND,18,0.03,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-27,delhi,1998,27,HASTSAL,MUKESH SHARMA,parties.IN.INC,INC,48146,52.79,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-27,delhi,1998,27,HASTSAL,NARESH TYAGI,parties.IN.BJP,BJP,24858,27.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-27,delhi,1998,27,HASTSAL,KARAN YADAV,parties.IN.SAP,SAP,14006,15.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-27,delhi,1998,27,HASTSAL,RAJ BHARTI,parties.IN.BSP,BSP,2858,3.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-27,delhi,1998,27,HASTSAL,RAVI KUMAR,parties.IN.IND,IND,346,0.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-27,delhi,1998,27,HASTSAL,HAMID ALI,parties.IN.SP,SP,309,0.34,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-27,delhi,1998,27,HASTSAL,R.A.YADAV,parties.IN.JD,JD,170,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-27,delhi,1998,27,HASTSAL,ASHOK KUMAR,parties.IN.SHS,SHS,154,0.17,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-27,delhi,1998,27,HASTSAL,GIRJA SHANKAR SINGH,parties.IN.SJP_R,SJP(R),117,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-27,delhi,1998,27,HASTSAL,OM PARKASH,parties.IN.IND,IND,73,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-27,delhi,1998,27,HASTSAL,ASHA SINGH,parties.IN.IND,IND,60,0.07,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-27,delhi,1998,27,HASTSAL,RAMESH,parties.IN.IND,IND,56,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-27,delhi,1998,27,HASTSAL,MANOJ KUMAR,parties.IN.IND,IND,26,0.03,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-27,delhi,1998,27,HASTSAL,KM. RAJESH YADAV,parties.IN.IND,IND,21,0.02,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-28,delhi,1998,28,NAJAFGARH,KANWAL SINGH,parties.IN.INC,INC,21111,28.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-28,delhi,1998,28,NAJAFGARH,JAI KISHAN SHARMA,parties.IN.IND,IND,19284,25.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-28,delhi,1998,28,NAJAFGARH,PRITAM SINGH,parties.IN.INLD,INLD,15382,20.42,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-28,delhi,1998,28,NAJAFGARH,JAGBIR,parties.IN.RJD,RJD,6244,8.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-28,delhi,1998,28,NAJAFGARH,JAI OM DAGAR,parties.IN.IND,IND,5980,7.94,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-28,delhi,1998,28,NAJAFGARH,RAJESH SHARMA,parties.IN.IND,IND,3170,4.21,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-28,delhi,1998,28,NAJAFGARH,RAMESHWER SINGH,parties.IN.BSP,BSP,2142,2.84,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-28,delhi,1998,28,NAJAFGARH,VIJAY PAL,parties.IN.JD,JD,875,1.16,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-28,delhi,1998,28,NAJAFGARH,DINESH KUMAR BHARADWAJ,parties.IN.IND,IND,465,0.62,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-28,delhi,1998,28,NAJAFGARH,MAHAVIR SINGH,parties.IN.IND,IND,292,0.39,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-28,delhi,1998,28,NAJAFGARH,SAMEER SINGH,parties.IN.SP,SP,165,0.22,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-28,delhi,1998,28,NAJAFGARH,SATVIR SINGH GOSWAMY,parties.IN.IND,IND,110,0.15,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-28,delhi,1998,28,NAJAFGARH,RAJESH KUMAR,parties.IN.IND,IND,83,0.11,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-28,delhi,1998,28,NAJAFGARH,KRISHNA CHAUDHARY,parties.IN.IND,IND,36,0.05,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,MAHABAL MISHRA,parties.IN.INC,INC,37774,48.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,VINOD KUMAR SHARMA,parties.IN.BJP,BJP,36344,46.45,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,AHIBARAN KUMAR,parties.IN.BSP,BSP,1860,2.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,BRIJ KISHOR SINGH,parties.IN.SAP,SAP,707,0.9,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,RAGHUNANDAN PASWAN,parties.IN.RJD,RJD,240,0.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,T.S. CHAUHAN,parties.IN.SHS,SHS,129,0.16,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,NARESH,parties.IN.LS,LS,104,0.13,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,VEERENDRA,parties.IN.IND,IND,91,0.12,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,PARSURAM MISRA,parties.IN.NDPF,NDPF,73,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,MEENA,parties.IN.IND,IND,58,0.07,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,BHAGWAN,parties.IN.IND,IND,52,0.07,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,BHAGWAN DEVI,parties.IN.RAM,RAM,51,0.07,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,ANIL SARKHEL,parties.IN.IND,IND,48,0.06,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,V.N.GAUR,parties.IN.IND,IND,46,0.06,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,DEVENDER SHARMA,parties.IN.IND,IND,46,0.06,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,J.N. SHARMA,parties.IN.IND,IND,44,0.06,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,ANIL LOHCHUB,parties.IN.IND,IND,40,0.05,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,SATYA PARKASH,parties.IN.IND,IND,37,0.05,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,BAL KRISHAN,parties.IN.IND,IND,37,0.05,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,ANIL,parties.IN.IND,IND,37,0.05,20,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,MOHAN LAL,parties.IN.IND,IND,33,0.04,21,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,MADAN LAL,parties.IN.IND,IND,32,0.04,22,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,ANAND KUMAR SINGH,parties.IN.IND,IND,30,0.04,23,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,DESH PAL,parties.IN.IND,IND,25,0.03,24,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,RAJ KISHOR,parties.IN.IND,IND,25,0.03,25,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,DEVENDER KUMAR,parties.IN.IND,IND,22,0.03,26,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,TARUN DEEP,parties.IN.IND,IND,20,0.03,27,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,SUDHIR SHARMA,parties.IN.IND,IND,18,0.02,28,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,VED PARKASH,parties.IN.IND,IND,18,0.02,29,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,NARESH KUMAR,parties.IN.IND,IND,17,0.02,30,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,RAMESH KUMAR RAGHAV,parties.IN.IND,IND,17,0.02,31,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,HEERA LAL SHUKLA,parties.IN.IND,IND,16,0.02,32,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,RAM RATTI,parties.IN.IND,IND,15,0.02,33,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,SANJAY GOYEL,parties.IN.IND,IND,15,0.02,34,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,GAJENDRA,parties.IN.IND,IND,14,0.02,35,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,GYAN CHAND,parties.IN.IND,IND,14,0.02,36,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,RAMESH CHAND,parties.IN.IND,IND,12,0.02,37,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,HEM LATA TIWARI,parties.IN.IND,IND,12,0.02,38,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,IFTKHAR KHAN,parties.IN.IND,IND,11,0.01,39,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,KAILASH SHARMA,parties.IN.IND,IND,10,0.01,40,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,BIJENDER,parties.IN.IND,IND,9,0.01,41,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,RAM PAL,parties.IN.IND,IND,9,0.01,42,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,SRINIWAS GARG,parties.IN.IND,IND,9,0.01,43,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,RAJENDER KUMAR,parties.IN.IND,IND,8,0.01,44,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,SHASHI MEHTA,parties.IN.IND,IND,7,0.01,45,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,P.N. PATHAK,parties.IN.IND,IND,7,0.01,46,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-29,delhi,1998,29,NASIRPUR,DHOOP SINGH LAMBA,parties.IN.IND,IND,3,0,47,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-30,delhi,1998,30,PALAM,MAHENDER YADAV,parties.IN.INC,INC,32699,48.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-30,delhi,1998,30,PALAM,DHARAM DEV SOLANKI,parties.IN.BJP,BJP,27152,40.37,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-30,delhi,1998,30,PALAM,JASBIR SINGH SOLANKI,parties.IN.IND,IND,2196,3.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-30,delhi,1998,30,PALAM,SARNAM SINGH PAL,parties.IN.BSP,BSP,1889,2.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-30,delhi,1998,30,PALAM,MAHENDER YADAV,parties.IN.RJD,RJD,1869,2.78,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-30,delhi,1998,30,PALAM,AVDHESH TIWARI,parties.IN.IND,IND,829,1.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-30,delhi,1998,30,PALAM,SHIVAN BANSAL,parties.IN.JD,JD,473,0.7,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-30,delhi,1998,30,PALAM,RAM SWAROOP,parties.IN.IND,IND,126,0.19,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-30,delhi,1998,30,PALAM,PARVEEN KUMAR,parties.IN.IND,IND,25,0.04,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-31,delhi,1998,31,MAHIPALPUR,MAHENDER SINGH,parties.IN.INC,INC,31818,51.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-31,delhi,1998,31,MAHIPALPUR,SURAT SINGH,parties.IN.INLD,INLD,14984,24.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-31,delhi,1998,31,MAHIPALPUR,YUDHVIR SINGH,parties.IN.LD,LD,8276,13.51,3,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-delhi-31,delhi,1998,31,MAHIPALPUR,INDER MALIK,parties.IN.BSP,BSP,4748,7.75,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-31,delhi,1998,31,MAHIPALPUR,RAM MEHAR,parties.IN.SJP_R,SJP(R),623,1.02,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-31,delhi,1998,31,MAHIPALPUR,JAWAR SINGH,parties.IN.JD,JD,428,0.7,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-31,delhi,1998,31,MAHIPALPUR,GIRISH,parties.IN.RAM,RAM,184,0.3,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-31,delhi,1998,31,MAHIPALPUR,HEERA LAL,parties.IN.ABJC,ABJC,79,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-31,delhi,1998,31,MAHIPALPUR,NARENDER KAUSHIK,parties.IN.BD,BD,72,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-31,delhi,1998,31,MAHIPALPUR,ASHOK KUMAR,parties.IN.IND,IND,68,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-32,delhi,1998,32,MEHRAULI,BHRAM SINGH TANWAR,parties.IN.BJP,BJP,24996,37.44,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-32,delhi,1998,32,MEHRAULI,BALRAM TANWAR,parties.IN.IND,IND,22389,33.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-32,delhi,1998,32,MEHRAULI,VIJAY DEEP,parties.IN.INC,INC,17427,26.1,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-32,delhi,1998,32,MEHRAULI,KIRAN SINGH,parties.IN.IND,IND,480,0.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-32,delhi,1998,32,MEHRAULI,RANJEET,parties.IN.JD,JD,385,0.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-32,delhi,1998,32,MEHRAULI,ROBERT MASSEY,parties.IN.UCP,UCP,324,0.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-32,delhi,1998,32,MEHRAULI,OM PRAKASH,parties.IN.BSP,BSP,251,0.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-32,delhi,1998,32,MEHRAULI,GURDEV SINGH,parties.IN.LSWP,LSWP,169,0.25,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-32,delhi,1998,32,MEHRAULI,YOGESHWAR BISHT,parties.IN.IND,IND,136,0.2,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-32,delhi,1998,32,MEHRAULI,SUNDER,parties.IN.IND,IND,129,0.19,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-32,delhi,1998,32,MEHRAULI,NANAK CHAND,parties.IN.SJP_R,SJP(R),79,0.12,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-33,delhi,1998,33,SAKET,TEK CHAND SHARMA,parties.IN.INC,INC,24903,40.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-33,delhi,1998,33,SAKET,VIJAY JOLLY,parties.IN.BJP,BJP,17729,28.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-33,delhi,1998,33,SAKET,MANOJ CHOUDHARY,parties.IN.JD,JD,9426,15.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-33,delhi,1998,33,SAKET,CHHOTEY LAL CHANDRA,parties.IN.BSP,BSP,3073,5.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-33,delhi,1998,33,SAKET,NARJIT SINGH YADAV,parties.IN.RJD,RJD,2983,4.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-33,delhi,1998,33,SAKET,SHANKAR DUTT PANDEY,parties.IN.UKKD,UKKD,1206,1.97,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-33,delhi,1998,33,SAKET,BABU LAL CHOHAN,parties.IN.IND,IND,842,1.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-33,delhi,1998,33,SAKET,PREAM KOSHIK,parties.IN.LD,LD,506,0.83,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-33,delhi,1998,33,SAKET,BUNDU KHAN,parties.IN.IND,IND,327,0.53,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-33,delhi,1998,33,SAKET,RAJ PAL SINGH NAGAR,parties.IN.SHS,SHS,140,0.23,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-33,delhi,1998,33,SAKET,DEEPAK ARORA,parties.IN.IND,IND,48,0.08,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-33,delhi,1998,33,SAKET,DR. AFAQ PARVEEN,parties.IN.LSWP,LSWP,33,0.05,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-34,delhi,1998,34,DR. AMBEDKAR NAGAR,CH. PREM SINGH,parties.IN.INC,INC,27670,52.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-34,delhi,1998,34,DR. AMBEDKAR NAGAR,JAGDISH BHARTI,parties.IN.BJP,BJP,9662,18.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-34,delhi,1998,34,DR. AMBEDKAR NAGAR,RAJBIR,parties.IN.CPIM,CPM,3614,6.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-34,delhi,1998,34,DR. AMBEDKAR NAGAR,SEVA DAS,parties.IN.BSP,BSP,3330,6.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-34,delhi,1998,34,DR. AMBEDKAR NAGAR,RAJESH CHOUHAN,parties.IN.IND,IND,2185,4.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-34,delhi,1998,34,DR. AMBEDKAR NAGAR,DALIP KUMAR,parties.IN.JD,JD,2031,3.89,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-34,delhi,1998,34,DR. AMBEDKAR NAGAR,RAM JI LAL,parties.IN.IND,IND,1914,3.66,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-34,delhi,1998,34,DR. AMBEDKAR NAGAR,HARISH CHANDER RAJORA,parties.IN.IND,IND,1486,2.84,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-34,delhi,1998,34,DR. AMBEDKAR NAGAR,SANJIV KUMAR,parties.IN.IND,IND,278,0.53,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-34,delhi,1998,34,DR. AMBEDKAR NAGAR,SHIV RAJ SINGH,parties.IN.IND,IND,58,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-34,delhi,1998,34,DR. AMBEDKAR NAGAR,MAM CHAND,parties.IN.IND,IND,45,0.09,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,SHISH PAL SINGH,parties.IN.INC,INC,39551,49.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,RAMESH BIDHURI,parties.IN.BJP,BJP,30672,38.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,DHARAM VIR SINGH,parties.IN.BSP,BSP,3342,4.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,BABU LAL,parties.IN.IND,IND,2834,3.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,SUNIL MEHTA,parties.IN.IND,IND,683,0.86,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,DHARAM PAL SINGH,parties.IN.IND,IND,666,0.83,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,GAJ RAJ SINGH,parties.IN.JD,JD,587,0.74,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,DURGA DEVI,parties.IN.IND,IND,361,0.45,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,VICKI KHAN,parties.IN.UNK,JSMP,257,0.32,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,KUSUM RANI,parties.IN.IND,IND,194,0.24,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,GOPAL JHA,parties.IN.AIRJP,AIRJP,168,0.21,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,NURUDDIN KHAN,parties.IN.IND,IND,90,0.11,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,DR. ABDUL KADIR BURNEY,parties.IN.IND,IND,79,0.1,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,MAHESH JOSHI,parties.IN.SJP_R,SJP(R),73,0.09,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,KULWANT SINGH,parties.IN.SHS,SHS,53,0.07,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,RAJA RAM,parties.IN.IND,IND,45,0.06,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,MOHD. SABIR,parties.IN.NLP,NLP,41,0.05,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,SUBHASH CHAND AKELA,parties.IN.IND,IND,39,0.05,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-35,delhi,1998,35,TUGLAKABAD,RICHHPAL SINGH,parties.IN.IND,IND,28,0.04,19,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-36,delhi,1998,36,BADARPUR,RAM SINGH NETAJI,parties.IN.IND,IND,40548,45.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-36,delhi,1998,36,BADARPUR,RAMVIR SINGH BIDHURI,parties.IN.INC,INC,26259,29.46,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-36,delhi,1998,36,BADARPUR,SURAJ BHAN,parties.IN.BJP,BJP,8858,9.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-36,delhi,1998,36,BADARPUR,CHANDER PAL,parties.IN.BSP,BSP,5075,5.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-36,delhi,1998,36,BADARPUR,INDER RAJ SINGH,parties.IN.IND,IND,2361,2.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-36,delhi,1998,36,BADARPUR,JIVAN LAL,parties.IN.IND,IND,1938,2.17,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-36,delhi,1998,36,BADARPUR,SUNIL KUMAR,parties.IN.IND,IND,1286,1.44,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-36,delhi,1998,36,BADARPUR,RAJ KUMARI SINGH,parties.IN.SAP,SAP,880,0.99,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-36,delhi,1998,36,BADARPUR,SURJEET SINGH KASANA,parties.IN.SP,SP,623,0.7,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-36,delhi,1998,36,BADARPUR,VINOD RAJ,parties.IN.IND,IND,468,0.53,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-36,delhi,1998,36,BADARPUR,KAMAL SINGH,parties.IN.RAM,RAM,201,0.23,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-36,delhi,1998,36,BADARPUR,RAJ KUMAR,parties.IN.SHS,SHS,179,0.2,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-36,delhi,1998,36,BADARPUR,SUBASH CHANDRA DUBEY,parties.IN.LS,LS,123,0.14,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-36,delhi,1998,36,BADARPUR,SHIV CHARAN,parties.IN.JP,JP,111,0.12,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-36,delhi,1998,36,BADARPUR,BHAGWAN PASWAN,parties.IN.IND,IND,99,0.11,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-36,delhi,1998,36,BADARPUR,H.B.MISHRA,parties.IN.IND,IND,76,0.09,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-36,delhi,1998,36,BADARPUR,SHOKAT ALI,parties.IN.LD,LD,41,0.05,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-37,delhi,1998,37,TRILOKPURI,BRAHM PAL,parties.IN.INC,INC,22887,43.79,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-37,delhi,1998,37,TRILOKPURI,RAM CHARAN(GUJRATI),parties.IN.BJP,BJP,18116,34.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-37,delhi,1998,37,TRILOKPURI,GANGA RAM BAIRWA,parties.IN.BSP,BSP,9419,18.02,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-37,delhi,1998,37,TRILOKPURI,RAMJI LAL S/O BUDH RAM,parties.IN.IND,IND,448,0.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-37,delhi,1998,37,TRILOKPURI,KAMAL KISHORE,parties.IN.JD,JD,335,0.64,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-37,delhi,1998,37,TRILOKPURI,BUDH RAM,parties.IN.IND,IND,254,0.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-37,delhi,1998,37,TRILOKPURI,VIRENDER KUMAR,parties.IN.IND,IND,193,0.37,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-37,delhi,1998,37,TRILOKPURI,RAJENDER KUMAR,parties.IN.IND,IND,114,0.22,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-37,delhi,1998,37,TRILOKPURI,DHARAM VEER JATAV,parties.IN.IND,IND,113,0.22,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-37,delhi,1998,37,TRILOKPURI,PRAKASH CHAND,parties.IN.RPI,RPI,111,0.21,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-37,delhi,1998,37,TRILOKPURI,OM PARKASH,parties.IN.SP,SP,103,0.2,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-37,delhi,1998,37,TRILOKPURI,ANIT,parties.IN.SJP_R,SJP(R),71,0.14,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-37,delhi,1998,37,TRILOKPURI,KAILASH CHAND SOOD,parties.IN.IND,IND,55,0.11,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-37,delhi,1998,37,TRILOKPURI,RAMJI LAL S/O BALU RAM,parties.IN.IND,IND,48,0.09,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-38,delhi,1998,38,PATPAR GANJ,AMRISH SINGH GAUTAM,parties.IN.INC,INC,33351,58.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-38,delhi,1998,38,PATPAR GANJ,GANGA RAM PIPAL,parties.IN.BJP,BJP,17030,29.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-38,delhi,1998,38,PATPAR GANJ,RAJVEER SINGH,parties.IN.BSP,BSP,4363,7.6,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-38,delhi,1998,38,PATPAR GANJ,BACHAN SINGH,parties.IN.IND,IND,722,1.26,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-38,delhi,1998,38,PATPAR GANJ,RANJANA,parties.IN.UKKD,UKKD,650,1.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-38,delhi,1998,38,PATPAR GANJ,SON DAYAL,parties.IN.CPIM,CPM,511,0.89,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-38,delhi,1998,38,PATPAR GANJ,DHAN DEVI,parties.IN.JD,JD,336,0.58,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-38,delhi,1998,38,PATPAR GANJ,RAJ KUMAR,parties.IN.ABDUP,ABDUP,157,0.27,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-38,delhi,1998,38,PATPAR GANJ,RAJ KUMAR ANAND (RAJU),parties.IN.RJD,RJD,154,0.27,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-38,delhi,1998,38,PATPAR GANJ,RAJENDRA KUMAR,parties.IN.SHS,SHS,82,0.14,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-38,delhi,1998,38,PATPAR GANJ,SHER SINGH,parties.IN.IND,IND,54,0.09,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-38,delhi,1998,38,PATPAR GANJ,NARENDRA KUMAR,parties.IN.RPI,RPI,31,0.05,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-39,delhi,1998,39,MANDAWALI,MEERA BHARDWAJ,parties.IN.INC,INC,24150,43.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-39,delhi,1998,39,MANDAWALI,MURARI SINGH PANWAR,parties.IN.BJP,BJP,22307,40.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-39,delhi,1998,39,MANDAWALI,SHRIPAL SINGH,parties.IN.BSP,BSP,2945,5.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-39,delhi,1998,39,MANDAWALI,VIJAY SHARMA,parties.IN.IND,IND,1408,2.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-39,delhi,1998,39,MANDAWALI,PRAHLAD SINGH GUSAIN,parties.IN.JD,JD,901,1.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-39,delhi,1998,39,MANDAWALI,M.G.KHULLAR,parties.IN.IND,IND,722,1.3,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-39,delhi,1998,39,MANDAWALI,D.P.SINGH,parties.IN.CPI,CPI,650,1.17,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-39,delhi,1998,39,MANDAWALI,TRILOKI PRASAD SINGH,parties.IN.SAP,SAP,598,1.08,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-39,delhi,1998,39,MANDAWALI,HUTE RAM KASANA,parties.IN.SP,SP,453,0.82,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-39,delhi,1998,39,MANDAWALI,SUMITRA SINHA,parties.IN.CPIMLL,CPI(ML)(L),401,0.72,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-39,delhi,1998,39,MANDAWALI,SARITA GUPTA,parties.IN.ABMAD,ABMAD,264,0.48,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-39,delhi,1998,39,MANDAWALI,MAHESH KUMAR,parties.IN.PSSS,PSSS,179,0.32,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-39,delhi,1998,39,MANDAWALI,RAM VILAS SINGH,parties.IN.ABJC,ABJC,119,0.21,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-39,delhi,1998,39,MANDAWALI,GRIJESH,parties.IN.LS,LS,106,0.19,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-39,delhi,1998,39,MANDAWALI,RAMESH CHAND SHARMA,parties.IN.KMM,KMM,72,0.13,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-39,delhi,1998,39,MANDAWALI,JEET SINGH,parties.IN.IND,IND,51,0.09,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-39,delhi,1998,39,MANDAWALI,ASHOK KUMAR RAWAT,parties.IN.IND,IND,36,0.07,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-40,delhi,1998,40,GEETA COLONY,ASHOK KUMAR WALIA,parties.IN.INC,INC,40094,67.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-40,delhi,1998,40,GEETA COLONY,DARSHAN KUMAR BAHAL,parties.IN.BJP,BJP,17124,28.68,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-40,delhi,1998,40,GEETA COLONY,MOOL CHAND,parties.IN.BSP,BSP,908,1.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-40,delhi,1998,40,GEETA COLONY,RAJIV NAGAR,parties.IN.JD,JD,693,1.16,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-40,delhi,1998,40,GEETA COLONY,ANIL KUMAR,parties.IN.IND,IND,220,0.37,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-40,delhi,1998,40,GEETA COLONY,VIJAY KUMAR KHANNA,parties.IN.SHS,SHS,134,0.22,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-40,delhi,1998,40,GEETA COLONY,RIFAQAT ALI,parties.IN.SP,SP,127,0.21,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-40,delhi,1998,40,GEETA COLONY,B.B.RANGA,parties.IN.ICS,ICS,110,0.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-40,delhi,1998,40,GEETA COLONY,NARENDRA SEXENA,parties.IN.IND,IND,79,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-40,delhi,1998,40,GEETA COLONY,AJAY KUMAR,parties.IN.IND,IND,52,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-40,delhi,1998,40,GEETA COLONY,KISHORI LAL JAIN,parties.IN.IND,IND,44,0.07,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-40,delhi,1998,40,GEETA COLONY,P.N.KUNDU,parties.IN.IND,IND,43,0.07,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-40,delhi,1998,40,GEETA COLONY,DHARAM PAL SHARMA,parties.IN.AIRKC,AIRKC,37,0.06,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-40,delhi,1998,40,GEETA COLONY,PRAVESH GARG,parties.IN.IND,IND,36,0.06,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-41,delhi,1998,41,GANDHI NAGAR,ARVINDER SINGH (LOVELY),parties.IN.INC,INC,21905,41.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-41,delhi,1998,41,GANDHI NAGAR,SWINDERJIT SINGH BAJWA,parties.IN.BJP,BJP,15143,28.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-41,delhi,1998,41,GANDHI NAGAR,RAGHUVIR SINGH JAIN,parties.IN.IND,IND,8144,15.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-41,delhi,1998,41,GANDHI NAGAR,NAVEEN CHAUDHARY,parties.IN.IND,IND,5159,9.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-41,delhi,1998,41,GANDHI NAGAR,SANJAY KUMAR GAHLOT,parties.IN.BSP,BSP,1468,2.79,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-41,delhi,1998,41,GANDHI NAGAR,MOHD. ALLAUDDIN,parties.IN.JD,JD,408,0.78,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-41,delhi,1998,41,GANDHI NAGAR,INDER PAL,parties.IN.IND,IND,155,0.29,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-41,delhi,1998,41,GANDHI NAGAR,BALWANT SINGH PARWANA,parties.IN.IND,IND,120,0.23,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-41,delhi,1998,41,GANDHI NAGAR,RAJ KUMAR,parties.IN.ABHM,ABHM,68,0.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-42,delhi,1998,42,KRISHNA NAGAR,HARSH VARDHAN,parties.IN.BJP,BJP,30358,54.82,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-42,delhi,1998,42,KRISHNA NAGAR,S.N.MISRA,parties.IN.INC,INC,23748,42.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-42,delhi,1998,42,KRISHNA NAGAR,VIRENDRA KUSHWAHA,parties.IN.BSP,BSP,567,1.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-42,delhi,1998,42,KRISHNA NAGAR,PRAMOD KUMAR,parties.IN.SHS,SHS,458,0.83,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-42,delhi,1998,42,KRISHNA NAGAR,KRISHNA,parties.IN.JD,JD,140,0.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-42,delhi,1998,42,KRISHNA NAGAR,MOHAN LAL,parties.IN.ABHM,ABHM,103,0.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-43,delhi,1998,43,VISHWASH NAGAR,NASEEB SINGH,parties.IN.INC,INC,30380,48.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-43,delhi,1998,43,VISHWASH NAGAR,DR. VED VYAS MAHAJAN,parties.IN.BJP,BJP,29924,47.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-43,delhi,1998,43,VISHWASH NAGAR,NARENDER KUMAR,parties.IN.BSP,BSP,1500,2.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-43,delhi,1998,43,VISHWASH NAGAR,SURINDER KUMAR,parties.IN.IND,IND,621,0.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-43,delhi,1998,43,VISHWASH NAGAR,JAI CHAND,parties.IN.IND,IND,159,0.25,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-43,delhi,1998,43,VISHWASH NAGAR,J.P.SUGAN,parties.IN.RPI,RPI,157,0.25,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-43,delhi,1998,43,VISHWASH NAGAR,MAHMOOD KHAN,parties.IN.BKD_J,BKD(J),86,0.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-43,delhi,1998,43,VISHWASH NAGAR,RAJAN MOUDGIL,parties.IN.ABHM,ABHM,81,0.13,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-43,delhi,1998,43,VISHWASH NAGAR,AJAY,parties.IN.ICS,ICS,73,0.12,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-43,delhi,1998,43,VISHWASH NAGAR,SATISH GARG,parties.IN.AIRKC,AIRKC,56,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-43,delhi,1998,43,VISHWASH NAGAR,RAMESH KUMAR,parties.IN.IND,IND,23,0.04,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-44,delhi,1998,44,SHAHDARA,NARENDER NATH,parties.IN.INC,INC,29929,55.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-44,delhi,1998,44,SHAHDARA,JYOTSNA AGGARWAL,parties.IN.BJP,BJP,20689,38.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-44,delhi,1998,44,SHAHDARA,DHARMENDRA KUMAR,parties.IN.BSP,BSP,1130,2.11,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-44,delhi,1998,44,SHAHDARA,PRAYAGRAJ GUPTA,parties.IN.SHS,SHS,818,1.53,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-44,delhi,1998,44,SHAHDARA,MAHINDER SINGH,parties.IN.JD,JD,348,0.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-44,delhi,1998,44,SHAHDARA,S.CHANDER SHEKHAR,parties.IN.LS,LS,236,0.44,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-44,delhi,1998,44,SHAHDARA,PRITHVI RAJ KAIN,parties.IN.RPI,RPI,165,0.31,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-44,delhi,1998,44,SHAHDARA,KAMAL KISHORE TRIPATHI,parties.IN.ICS,ICS,155,0.29,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-44,delhi,1998,44,SHAHDARA,TRIBHUVAN PRASAD,parties.IN.BKD_J,BKD(J),113,0.21,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-45,delhi,1998,45,SEEMAPURI,VEER SINGH,parties.IN.INC,INC,30330,63.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-45,delhi,1998,45,SEEMAPURI,CHANDER PAL SINGH,parties.IN.BJP,BJP,13647,28.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-45,delhi,1998,45,SEEMAPURI,BRIJ PAL SINGH,parties.IN.BSP,BSP,1813,3.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-45,delhi,1998,45,SEEMAPURI,MADAN LAL,parties.IN.SHS,SHS,571,1.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-45,delhi,1998,45,SEEMAPURI,K.K.GOTHWAL,parties.IN.ICS,ICS,430,0.9,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-45,delhi,1998,45,SEEMAPURI,ANOOP SAGAR,parties.IN.SP,SP,369,0.77,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-45,delhi,1998,45,SEEMAPURI,RAVI VERMA,parties.IN.IND,IND,269,0.56,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-45,delhi,1998,45,SEEMAPURI,CH. BANWARI LAL,parties.IN.JD,JD,193,0.4,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-45,delhi,1998,45,SEEMAPURI,RAJ KUMAR,parties.IN.AGRJP,AGRJP,110,0.23,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-45,delhi,1998,45,SEEMAPURI,HARVIR SINGH HARNOTIA,parties.IN.IND,IND,69,0.14,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-45,delhi,1998,45,SEEMAPURI,HIRA LAL DAHARA,parties.IN.IND,IND,61,0.13,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-45,delhi,1998,45,SEEMAPURI,TULI RAM SAGAR,parties.IN.IND,IND,58,0.12,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-45,delhi,1998,45,SEEMAPURI,MALKHAN SINGH,parties.IN.IND,IND,28,0.06,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-46,delhi,1998,46,NAND NAGARI,ROOP CHAND,parties.IN.INC,INC,25742,46.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-46,delhi,1998,46,NAND NAGARI,FATEH SINGH,parties.IN.BJP,BJP,15006,27.27,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-46,delhi,1998,46,NAND NAGARI,SATISH KUMAR,parties.IN.BSP,BSP,6997,12.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-46,delhi,1998,46,NAND NAGARI,SHISHU PAL SINGH,parties.IN.IND,IND,2922,5.31,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-46,delhi,1998,46,NAND NAGARI,RAJESH KUMAR,parties.IN.IND,IND,1580,2.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-46,delhi,1998,46,NAND NAGARI,AMAR PAL SINGH,parties.IN.JD,JD,868,1.58,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-46,delhi,1998,46,NAND NAGARI,RAM PRAKASH,parties.IN.SP,SP,640,1.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-46,delhi,1998,46,NAND NAGARI,FERU SINGH,parties.IN.IND,IND,376,0.68,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-46,delhi,1998,46,NAND NAGARI,SHYAM LAL,parties.IN.IND,IND,288,0.52,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-46,delhi,1998,46,NAND NAGARI,RAJVIR SINGH,parties.IN.IND,IND,120,0.22,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-46,delhi,1998,46,NAND NAGARI,BRAHM PRAKASH,parties.IN.IND,IND,115,0.21,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-46,delhi,1998,46,NAND NAGARI,IQBAL SINGH,parties.IN.IND,IND,105,0.19,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-46,delhi,1998,46,NAND NAGARI,HARI SINGH,parties.IN.JP,JP,72,0.13,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-46,delhi,1998,46,NAND NAGARI,SHIV DUTT,parties.IN.ABGMKP,ABGMKP,71,0.13,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-46,delhi,1998,46,NAND NAGARI,PURAN PRAKASH,parties.IN.RUD,RUD,68,0.12,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-46,delhi,1998,46,NAND NAGARI,KUNWAR PAL,parties.IN.ABJC,ABJC,52,0.09,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-47,delhi,1998,47,ROHTAS NAGAR,RADHEY SHYAM KHANNA,parties.IN.INC,INC,22746,43.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-47,delhi,1998,47,ROHTAS NAGAR,ALOK KUMAR,parties.IN.BJP,BJP,22579,42.87,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-47,delhi,1998,47,ROHTAS NAGAR,PREM PRAKASH,parties.IN.BSP,BSP,3497,6.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-47,delhi,1998,47,ROHTAS NAGAR,JANARDHAN,parties.IN.IND,IND,1465,2.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-47,delhi,1998,47,ROHTAS NAGAR,DAMODAR JOSHI,parties.IN.UKKD,UKKD,741,1.41,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-47,delhi,1998,47,ROHTAS NAGAR,PANNA LAL SAGAR,parties.IN.IND,IND,612,1.16,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-47,delhi,1998,47,ROHTAS NAGAR,SMT. TARUN CHOUDHARY,parties.IN.LD,LD,352,0.67,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-47,delhi,1998,47,ROHTAS NAGAR,SUKHENDER SINGH,parties.IN.ABLTC,ABLTC,233,0.44,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-47,delhi,1998,47,ROHTAS NAGAR,ABHIMANYU,parties.IN.SHS,SHS,225,0.43,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-47,delhi,1998,47,ROHTAS NAGAR,KALI RAM TOMAR,parties.IN.RJD,RJD,102,0.19,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-47,delhi,1998,47,ROHTAS NAGAR,MUNISHWARI,parties.IN.ABMAD,ABMAD,67,0.13,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-47,delhi,1998,47,ROHTAS NAGAR,RAM NARIAN GOEL,parties.IN.IND,IND,50,0.09,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-48,delhi,1998,48,BABARPUR,NARESH GAUR,parties.IN.BJP,BJP,22606,42.96,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-48,delhi,1998,48,BABARPUR,ABDUL HAMEED,parties.IN.INC,INC,21643,41.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-48,delhi,1998,48,BABARPUR,SUNIL VASHISHT,parties.IN.ICS,ICS,4618,8.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-48,delhi,1998,48,BABARPUR,M.A.CHAND,parties.IN.RAS,RAS,1007,1.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-48,delhi,1998,48,BABARPUR,USHA YADAV,parties.IN.SP,SP,899,1.71,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-48,delhi,1998,48,BABARPUR,RAKESH,parties.IN.SHS,SHS,562,1.07,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-48,delhi,1998,48,BABARPUR,RAM KARAN VISHKARMA,parties.IN.BSP,BSP,538,1.02,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-48,delhi,1998,48,BABARPUR,RASHEED AHMED,parties.IN.JD,JD,233,0.44,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-48,delhi,1998,48,BABARPUR,MUKESH,parties.IN.RUD,RUD,166,0.32,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-48,delhi,1998,48,BABARPUR,MUNNI BEGUM,parties.IN.BKD_J,BKD(J),132,0.25,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-48,delhi,1998,48,BABARPUR,MAHENDER KUMAR,parties.IN.IND,IND,71,0.13,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-48,delhi,1998,48,BABARPUR,KIRAN TYAGI,parties.IN.IND,IND,45,0.09,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-48,delhi,1998,48,BABARPUR,UDAY KAUSHIK,parties.IN.IND,IND,39,0.07,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-48,delhi,1998,48,BABARPUR,HAZI ABDUL SALEEM KHAN,parties.IN.IND,IND,35,0.07,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-48,delhi,1998,48,BABARPUR,HASEEN AHMED,parties.IN.IND,IND,21,0.04,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,CH. MATEEN AHMAD,parties.IN.IND,IND,27376,49.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,DATA RAM,parties.IN.BJP,BJP,11001,19.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,SALAUDDIN,parties.IN.INC,INC,7497,13.6,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,MOHD. NAHID,parties.IN.BSP,BSP,2317,4.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,SULTAN AHMAD,parties.IN.JD,JD,2148,3.9,5,forfeit,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,MOHD. YUSUF,parties.IN.NLP,NLP,1411,2.56,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,ABDUL KHALID,parties.IN.IND,IND,1119,2.03,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,JAGDISH,parties.IN.IND,IND,829,1.5,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,DILSHAD KHAN,parties.IN.RAS,RAS,299,0.54,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,NISAR AHMED KHAN,parties.IN.IND,IND,267,0.48,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,KAMRE ALAM,parties.IN.SJP_R,SJP(R),195,0.35,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,RASID,parties.IN.LS,LS,176,0.32,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,HAJI MOHD. UMAR,parties.IN.RJD,RJD,160,0.29,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,SABIR KHAN,parties.IN.IND,IND,103,0.19,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,MUKESH KUMAR,parties.IN.IND,IND,76,0.14,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,NARENDER KUMAR SHARMA,parties.IN.LSWP,LSWP,55,0.1,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,ABDUL KHALIK,parties.IN.RMNMP,RMMP,41,0.07,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-49,delhi,1998,49,SEELAMPUR,KOMAL PRASAD,parties.IN.ICS,ICS,40,0.07,18,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-50,delhi,1998,50,GHONDA,Bheeshm Sharma,parties.IN.INC,INC,23171,46.67,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-50,delhi,1998,50,GHONDA,B. D. Sharma,parties.IN.BJP,BJP,21551,43.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-50,delhi,1998,50,GHONDA,Kumar Pal Rajora,parties.IN.BSP,BSP,2002,4.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-50,delhi,1998,50,GHONDA,Raj Kumar Bhati,parties.IN.JD,JD,1535,3.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-50,delhi,1998,50,GHONDA,Alla Mehar Ali,parties.IN.SP,SP,752,1.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-50,delhi,1998,50,GHONDA,Ved Prakash,parties.IN.LSWP,LSWP,633,1.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-51,delhi,1998,51,YAMUNA VIHAR,SAHAB SINGH CHAUHAN,parties.IN.BJP,BJP,24258,44.63,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-51,delhi,1998,51,YAMUNA VIHAR,PUSHKAR SINGH RAWAT,parties.IN.INC,INC,22974,42.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-51,delhi,1998,51,YAMUNA VIHAR,PRAMOD NAGAR,parties.IN.JD,JD,2206,4.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-51,delhi,1998,51,YAMUNA VIHAR,B.D.PHULORIYA,parties.IN.IND,IND,1785,3.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-51,delhi,1998,51,YAMUNA VIHAR,ABDUL SATTAR,parties.IN.NLP,NLP,984,1.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-51,delhi,1998,51,YAMUNA VIHAR,RAM PAL TANWAR,parties.IN.BSP,BSP,732,1.35,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-51,delhi,1998,51,YAMUNA VIHAR,RAUF KHAN,parties.IN.IND,IND,450,0.83,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-51,delhi,1998,51,YAMUNA VIHAR,RISH PAL,parties.IN.LD,LD,309,0.57,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-51,delhi,1998,51,YAMUNA VIHAR,DWARKA PRASAD,parties.IN.SHS,SHS,308,0.57,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-51,delhi,1998,51,YAMUNA VIHAR,MOHAN SINGH,parties.IN.IND,IND,184,0.34,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-51,delhi,1998,51,YAMUNA VIHAR,DORI LAL,parties.IN.SAD,AD,125,0.23,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-51,delhi,1998,51,YAMUNA VIHAR,DR. P.R.SHARMA,parties.IN.IND,IND,40,0.07,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-52,delhi,1998,52,QARAWAL NAGAR,MOHAN SINGH BISHT,parties.IN.BJP,BJP,23191,29.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-52,delhi,1998,52,QARAWAL NAGAR,ZILE SINGH,parties.IN.INC,INC,20133,25.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-52,delhi,1998,52,QARAWAL NAGAR,HAZI MANGTA,parties.IN.IND,IND,9410,11.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-52,delhi,1998,52,QARAWAL NAGAR,JAGDISH PRADHAN,parties.IN.IND,IND,8530,10.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-52,delhi,1998,52,QARAWAL NAGAR,KESHU PRASAD,parties.IN.SP,SP,5657,7.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-52,delhi,1998,52,QARAWAL NAGAR,ISRAR ALI,parties.IN.BSP,BSP,3243,4.08,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-52,delhi,1998,52,QARAWAL NAGAR,RAM SINGH,parties.IN.IND,IND,2742,3.45,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-52,delhi,1998,52,QARAWAL NAGAR,JAI PRAKASH,parties.IN.IND,IND,1865,2.35,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-52,delhi,1998,52,QARAWAL NAGAR,IRFAN,parties.IN.NLP,NLP,1695,2.13,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-52,delhi,1998,52,QARAWAL NAGAR,SAT PAL SINGH,parties.IN.IND,IND,776,0.98,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-52,delhi,1998,52,QARAWAL NAGAR,M.SHAKEEL MALIK,parties.IN.JD,JD,663,0.83,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-52,delhi,1998,52,QARAWAL NAGAR,PREM PAL,parties.IN.IND,IND,550,0.69,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-52,delhi,1998,52,QARAWAL NAGAR,SATYVIR SINGH,parties.IN.BKD_J,BKD(J),420,0.53,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-52,delhi,1998,52,QARAWAL NAGAR,SURENDER,parties.IN.IND,IND,274,0.34,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-52,delhi,1998,52,QARAWAL NAGAR,SHRI RAM,parties.IN.IND,IND,189,0.24,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-52,delhi,1998,52,QARAWAL NAGAR,MOHD. ISLAMUDDIN,parties.IN.AP,AP,97,0.12,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-52,delhi,1998,52,QARAWAL NAGAR,RAMJI LAL KASANA,parties.IN.IND,IND,59,0.07,17,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-53,delhi,1998,53,WAZIRPUR,BANDHU DEEP CHAND,parties.IN.INC,INC,36010,59.69,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-53,delhi,1998,53,WAZIRPUR,SHYAM LAL GARG,parties.IN.BJP,BJP,21132,35.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-53,delhi,1998,53,WAZIRPUR,RAJENDER PRASAD,parties.IN.BSP,BSP,1450,2.4,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-53,delhi,1998,53,WAZIRPUR,UMESH KHARI,parties.IN.JD,JD,1413,2.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-53,delhi,1998,53,WAZIRPUR,CHHIMMA PRASAD,parties.IN.IND,IND,140,0.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-53,delhi,1998,53,WAZIRPUR,SURENDER KUMAR (SAJAN),parties.IN.RJD,RJD,54,0.09,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-53,delhi,1998,53,WAZIRPUR,BRIJ MOHAN SHARMA,parties.IN.IND,IND,47,0.08,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-53,delhi,1998,53,WAZIRPUR,GYAN TYAGI,parties.IN.IND,IND,44,0.07,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-53,delhi,1998,53,WAZIRPUR,SANDEEP SINGH,parties.IN.IND,IND,32,0.05,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-53,delhi,1998,53,WAZIRPUR,UTTAM KUMAR,parties.IN.IND,IND,9,0.01,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-54,delhi,1998,54,NARELA,CHARAN SINGH KANDERA,parties.IN.INC,INC,19143,37.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-54,delhi,1998,54,NARELA,LAXMAN SINGH,parties.IN.BJP,BJP,16549,32.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-54,delhi,1998,54,NARELA,OM PARKASH RANGA,parties.IN.IND,IND,7881,15.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-54,delhi,1998,54,NARELA,INDRAJ SINGH,parties.IN.IND,IND,4796,9.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-54,delhi,1998,54,NARELA,KISHORI LAL,parties.IN.BSP,BSP,1981,3.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-54,delhi,1998,54,NARELA,BIJENDER SINGH,parties.IN.JD,JD,424,0.83,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-54,delhi,1998,54,NARELA,SOMPAL SINGH,parties.IN.LD,LD,96,0.19,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-55,delhi,1998,55,BHALSWA JAHANGIRPUR,J.S.CHAUHAN,parties.IN.INC,INC,31991,41.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-55,delhi,1998,55,BHALSWA JAHANGIRPUR,JITENDER KUMAR,parties.IN.DVP,DVP,16749,21.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-55,delhi,1998,55,BHALSWA JAHANGIRPUR,ROSHAN KANSHAL,parties.IN.BJP,BJP,13094,17.08,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-55,delhi,1998,55,BHALSWA JAHANGIRPUR,RAM PHAL TYAGI,parties.IN.IND,IND,6790,8.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-55,delhi,1998,55,BHALSWA JAHANGIRPUR,SAMAY SINGH,parties.IN.BSP,BSP,2829,3.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-55,delhi,1998,55,BHALSWA JAHANGIRPUR,RAJENDER KUMAR YADAV,parties.IN.JD,JD,2330,3.04,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-55,delhi,1998,55,BHALSWA JAHANGIRPUR,BALRAM SHARMA,parties.IN.IND,IND,1147,1.5,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-55,delhi,1998,55,BHALSWA JAHANGIRPUR,RAJ SINGH MANN,parties.IN.RJD,RJD,556,0.73,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-55,delhi,1998,55,BHALSWA JAHANGIRPUR,GYAN PRAKASH,parties.IN.SP,SP,521,0.68,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-55,delhi,1998,55,BHALSWA JAHANGIRPUR,AMRIT LAL,parties.IN.JP,JP,164,0.21,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-55,delhi,1998,55,BHALSWA JAHANGIRPUR,YASH PAL BHAI,parties.IN.RMEP,RMEP,126,0.16,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-55,delhi,1998,55,BHALSWA JAHANGIRPUR,KRISHAN LAL AHUJA,parties.IN.IND,IND,113,0.15,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-55,delhi,1998,55,BHALSWA JAHANGIRPUR,KHEM CHAND SAINI,parties.IN.IND,IND,94,0.12,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-55,delhi,1998,55,BHALSWA JAHANGIRPUR,OM PRAKASH,parties.IN.UNK,DBP,90,0.12,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-55,delhi,1998,55,BHALSWA JAHANGIRPUR,SATISH CHAND GUPTA,parties.IN.IND,IND,59,0.08,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-56,delhi,1998,56,ADARSH NAGAR,MANGAT RAM,parties.IN.INC,INC,37818,61.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-56,delhi,1998,56,ADARSH NAGAR,JAI PARKASH YADAV,parties.IN.BJP,BJP,18300,29.88,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-56,delhi,1998,56,ADARSH NAGAR,SHIV CHARAN BHASKAR,parties.IN.BSP,BSP,3620,5.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-56,delhi,1998,56,ADARSH NAGAR,PARDIP SKHOKIN,parties.IN.JD,JD,839,1.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-56,delhi,1998,56,ADARSH NAGAR,DR. KRISHAN KUMAR GOYAL,parties.IN.IND,IND,223,0.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-56,delhi,1998,56,ADARSH NAGAR,RAJNI GEORGE,parties.IN.LD,LD,142,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-56,delhi,1998,56,ADARSH NAGAR,SHIV KUMAR BHARDWAJ,parties.IN.IND,IND,96,0.16,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-56,delhi,1998,56,ADARSH NAGAR,VIRENDER SINGH,parties.IN.RMEP,RMEP,96,0.16,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-56,delhi,1998,56,ADARSH NAGAR,AJAY KUMAR,parties.IN.SHS,SHS,45,0.07,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-56,delhi,1998,56,ADARSH NAGAR,VIJAY GUPTA,parties.IN.IND,IND,44,0.07,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-56,delhi,1998,56,ADARSH NAGAR,AVDHESH MISHRA,parties.IN.IND,IND,25,0.04,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-57,delhi,1998,57,PAHAR GANJ,ANJALI RAI,parties.IN.INC,INC,31065,63.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-57,delhi,1998,57,PAHAR GANJ,NIRMAL KHANDELWAL,parties.IN.BJP,BJP,14217,29.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-57,delhi,1998,57,PAHAR GANJ,IQBAL AHMED,parties.IN.JD,JD,2275,4.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-57,delhi,1998,57,PAHAR GANJ,RAM GOPAL,parties.IN.BSP,BSP,512,1.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-57,delhi,1998,57,PAHAR GANJ,JAGDISH MANOCHA,parties.IN.CPIM,CPM,173,0.36,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-57,delhi,1998,57,PAHAR GANJ,G.P.TIWARI,parties.IN.IND,IND,138,0.28,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-57,delhi,1998,57,PAHAR GANJ,ASHOK KUMAR GUPTA,parties.IN.IND,IND,62,0.13,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-57,delhi,1998,57,PAHAR GANJ,JAI RAM SINGH JAI,parties.IN.BKD_J,BKD(J),54,0.11,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-57,delhi,1998,57,PAHAR GANJ,NEERAJ KANAGAT,parties.IN.IND,IND,44,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-57,delhi,1998,57,PAHAR GANJ,GANGA PRASHAD SHARMA,parties.IN.IND,IND,40,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-57,delhi,1998,57,PAHAR GANJ,RAJIV GANDHI,parties.IN.IND,IND,34,0.07,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-57,delhi,1998,57,PAHAR GANJ,SUDHIR CHAUDHARY,parties.IN.IND,IND,5,0.01,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-58,delhi,1998,58,MATIA MAHAL,SHOAIB IQBAL,parties.IN.JD,JD,28872,65.18,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-58,delhi,1998,58,MATIA MAHAL,AZIZ AHMAD SIDDIQUI,parties.IN.INC,INC,8956,20.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-58,delhi,1998,58,MATIA MAHAL,ASLAM SADAR,parties.IN.BJP,BJP,5230,11.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-58,delhi,1998,58,MATIA MAHAL,MOHD. ASIF,parties.IN.RJD,RJD,406,0.92,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-58,delhi,1998,58,MATIA MAHAL,MOHD. IRFAN QURESHI,parties.IN.AP,AP,335,0.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-58,delhi,1998,58,MATIA MAHAL,BHAGAT SINGH,parties.IN.IND,IND,169,0.38,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-58,delhi,1998,58,MATIA MAHAL,ZAHIDA KHATUN,parties.IN.LS,LS,142,0.32,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-58,delhi,1998,58,MATIA MAHAL,RIAZUDDIN,parties.IN.BSP,BSP,79,0.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-58,delhi,1998,58,MATIA MAHAL,SATISH KUMAR DHAWAN,parties.IN.IND,IND,43,0.1,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-58,delhi,1998,58,MATIA MAHAL,DEVRAJ,parties.IN.IND,IND,41,0.09,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-58,delhi,1998,58,MATIA MAHAL,MAN MOHAN LAL,parties.IN.LD,LD,22,0.05,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-59,delhi,1998,59,BALLI MARAN,HAROON YUSUF,parties.IN.INC,INC,38105,70.05,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-59,delhi,1998,59,BALLI MARAN,VISHWAMBER DATT SHARMA,parties.IN.BJP,BJP,14262,26.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-59,delhi,1998,59,BALLI MARAN,SYED HAMID HUSSAIN KHIZAR,parties.IN.BSP,BSP,811,1.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-59,delhi,1998,59,BALLI MARAN,NAVED YAR KHAN,parties.IN.JD,JD,399,0.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-59,delhi,1998,59,BALLI MARAN,JAVED ASHRAF KHAN,parties.IN.SP,SP,395,0.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-59,delhi,1998,59,BALLI MARAN,WASIMUZAMAN,parties.IN.IND,IND,175,0.32,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-59,delhi,1998,59,BALLI MARAN,LALLU RAM,parties.IN.IND,IND,136,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-59,delhi,1998,59,BALLI MARAN,SHIV PRAKASH VASHISHT,parties.IN.SHS,SHS,96,0.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-59,delhi,1998,59,BALLI MARAN,LAXMI NARAIN,parties.IN.IND,IND,18,0.03,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-60,delhi,1998,60,CHANDNI CHOWK,PRAHLAD SINGH SAWHNEY,parties.IN.INC,INC,24348,47.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-60,delhi,1998,60,CHANDNI CHOWK,VIRESH PRATAP CHAUDHRY,parties.IN.BJP,BJP,16186,31.84,2,lost,U,,,,crossover,src-1b7bc1c9d39a
+IN-AC-1976-delhi-60,delhi,1998,60,CHANDNI CHOWK,AMOD KUMAR SHARMA,parties.IN.IND,IND,6574,12.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-60,delhi,1998,60,CHANDNI CHOWK,CHAKRESH KUMAR JAIN,parties.IN.IND,IND,3214,6.32,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-60,delhi,1998,60,CHANDNI CHOWK,MANOJ KUMAR,parties.IN.IND,IND,293,0.58,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-60,delhi,1998,60,CHANDNI CHOWK,SANJAY SHARMA,parties.IN.SHS,SHS,116,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-60,delhi,1998,60,CHANDNI CHOWK,BALRAM BARE,parties.IN.IND,IND,73,0.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-60,delhi,1998,60,CHANDNI CHOWK,MAZID AHMED,parties.IN.IND,IND,31,0.06,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-61,delhi,1998,61,TIMARPUR,JAGDISH ANAND,parties.IN.INC,INC,27411,52.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-61,delhi,1998,61,TIMARPUR,RAGHUVANSH SINGHAL,parties.IN.BJP,BJP,19559,37.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-61,delhi,1998,61,TIMARPUR,SURINDER PAL SINGH,parties.IN.IND,IND,2809,5.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-61,delhi,1998,61,TIMARPUR,BHAGWAN SINGH,parties.IN.SP,SP,555,1.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-61,delhi,1998,61,TIMARPUR,TILAK RAJ JATAV,parties.IN.JD,JD,529,1.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-61,delhi,1998,61,TIMARPUR,ASHOK KUMAR SONKAR,parties.IN.BSP,BSP,489,0.93,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-61,delhi,1998,61,TIMARPUR,JAGAN NATH,parties.IN.IND,IND,260,0.5,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-61,delhi,1998,61,TIMARPUR,SANJEEV KUMAR,parties.IN.IND,IND,253,0.48,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-61,delhi,1998,61,TIMARPUR,YOGENDER,parties.IN.IND,IND,184,0.35,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-61,delhi,1998,61,TIMARPUR,DR. MANGE RAM ACHARYA,parties.IN.IND,IND,114,0.22,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-61,delhi,1998,61,TIMARPUR,KAILASH KAUSHIK,parties.IN.IND,IND,71,0.14,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-61,delhi,1998,61,TIMARPUR,RAM NIWASH RATHORE,parties.IN.SJP_R,SJP(R),67,0.13,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-61,delhi,1998,61,TIMARPUR,HARMINDER SINGH,parties.IN.IND,IND,50,0.1,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-61,delhi,1998,61,TIMARPUR,TANVEER KUMAR MARWAH,parties.IN.KMM,KMM,39,0.07,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-61,delhi,1998,61,TIMARPUR,SUDHIR MADAN,parties.IN.IND,IND,27,0.05,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-61,delhi,1998,61,TIMARPUR,ANWAR KHAN,parties.IN.IND,IND,22,0.04,16,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-62,delhi,1998,62,MODEL TOWN,KANWAR KARAN SINGH,parties.IN.INC,INC,32315,55.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-62,delhi,1998,62,MODEL TOWN,BHOLA NATH VIJ,parties.IN.BJP,BJP,21276,36.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-62,delhi,1998,62,MODEL TOWN,M.L. RAM,parties.IN.BSP,BSP,1791,3.09,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-62,delhi,1998,62,MODEL TOWN,SURESH KUMAR SONKAR,parties.IN.JD,JD,1023,1.76,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-62,delhi,1998,62,MODEL TOWN,TARA SHANKAR,parties.IN.IND,IND,399,0.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-62,delhi,1998,62,MODEL TOWN,PT. MAKHAN LAL,parties.IN.IND,IND,361,0.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-62,delhi,1998,62,MODEL TOWN,RAM ADHAR,parties.IN.IND,IND,261,0.45,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-62,delhi,1998,62,MODEL TOWN,MANORANJAN SEHGAL,parties.IN.SHS,SHS,203,0.35,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-62,delhi,1998,62,MODEL TOWN,DEEPAK KAKKAR,parties.IN.IND,IND,183,0.32,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-62,delhi,1998,62,MODEL TOWN,JAGDISH,parties.IN.IND,IND,65,0.11,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-62,delhi,1998,62,MODEL TOWN,VINOD KUMAR JAIN,parties.IN.IND,IND,24,0.04,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-62,delhi,1998,62,MODEL TOWN,SURENDER SINGH,parties.IN.IND,IND,23,0.04,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-62,delhi,1998,62,MODEL TOWN,JAI PRAKASH,parties.IN.IND,IND,17,0.03,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-62,delhi,1998,62,MODEL TOWN,HARJINDER SINGH GEHLOT,parties.IN.IND,IND,14,0.02,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-62,delhi,1998,62,MODEL TOWN,AMIT,parties.IN.IND,IND,12,0.02,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-63,delhi,1998,63,KAMLA NAGAR,SHADI RAM,parties.IN.INC,INC,26326,49.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-63,delhi,1998,63,KAMLA NAGAR,PROF .P.K.CHANDLA,parties.IN.BJP,BJP,19940,37.5,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-63,delhi,1998,63,KAMLA NAGAR,SURESH GUPTA,parties.IN.IND,IND,6696,12.59,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-63,delhi,1998,63,KAMLA NAGAR,SURESH CHAND,parties.IN.IND,IND,96,0.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-63,delhi,1998,63,KAMLA NAGAR,SUDHIR YADAV,parties.IN.IND,IND,68,0.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-63,delhi,1998,63,KAMLA NAGAR,SHADI LAL,parties.IN.IND,IND,54,0.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-64,delhi,1998,64,SADAR BAZAR,RAJESH JAIN,parties.IN.INC,INC,32555,63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-64,delhi,1998,64,SADAR BAZAR,HARI KRISHAN,parties.IN.BJP,BJP,16187,31.33,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-64,delhi,1998,64,SADAR BAZAR,RAJENDER SINGH MATHU,parties.IN.BSP,BSP,1072,2.07,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-64,delhi,1998,64,SADAR BAZAR,SUMIT PAL SINGH,parties.IN.JD,JD,919,1.78,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-64,delhi,1998,64,SADAR BAZAR,CHANDER SHEKHAR GUPTA,parties.IN.SHS,SHS,381,0.74,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-64,delhi,1998,64,SADAR BAZAR,LAIQ AHMED,parties.IN.IND,IND,283,0.55,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-64,delhi,1998,64,SADAR BAZAR,RAFTAR HUSSAIN,parties.IN.IND,IND,73,0.14,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-64,delhi,1998,64,SADAR BAZAR,JAGAN NATH,parties.IN.IND,IND,50,0.1,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-64,delhi,1998,64,SADAR BAZAR,RAJESH KUMAR,parties.IN.IND,IND,49,0.09,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-64,delhi,1998,64,SADAR BAZAR,AVINASH PURI,parties.IN.UNK,DBP,28,0.05,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-64,delhi,1998,64,SADAR BAZAR,RAM PRAKASH,parties.IN.LSWP,LSWP,22,0.04,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-64,delhi,1998,64,SADAR BAZAR,RAJESH KUMAR,parties.IN.IND,IND,20,0.04,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-64,delhi,1998,64,SADAR BAZAR,SITA RAM MOURYA,parties.IN.IND,IND,18,0.03,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-64,delhi,1998,64,SADAR BAZAR,SANJAY JAIN,parties.IN.IND,IND,13,0.03,14,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-64,delhi,1998,64,SADAR BAZAR,KANWAR PAL,parties.IN.IND,IND,4,0.01,15,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-65,delhi,1998,65,MOTI NAGAR,AVINASH SAHNI,parties.IN.BJP,BJP,29589,49.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-65,delhi,1998,65,MOTI NAGAR,KANWALJIT SINGH,parties.IN.INC,INC,26280,44.29,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-65,delhi,1998,65,MOTI NAGAR,MOTI RAM,parties.IN.BSP,BSP,2640,4.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-65,delhi,1998,65,MOTI NAGAR,SUBHASH GOEL,parties.IN.SHS,SHS,616,1.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-65,delhi,1998,65,MOTI NAGAR,ASHOK KUMAR MUNNA,parties.IN.IND,IND,127,0.21,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-65,delhi,1998,65,MOTI NAGAR,PARAMJIT SINGH,parties.IN.IND,IND,61,0.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-65,delhi,1998,65,MOTI NAGAR,JAHANGIR,parties.IN.IND,IND,25,0.04,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-66,delhi,1998,66,PATEL NAGAR,RAMA KANT GOSWAMI,parties.IN.INC,INC,26135,47.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-66,delhi,1998,66,PATEL NAGAR,MEWA RAM ARYA,parties.IN.BJP,BJP,20541,37.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-66,delhi,1998,66,PATEL NAGAR,DILVINDER SINGH,parties.IN.IND,IND,5861,10.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-66,delhi,1998,66,PATEL NAGAR,VINITA,parties.IN.BSP,BSP,1630,2.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-66,delhi,1998,66,PATEL NAGAR,KIRAN KAPOOR,parties.IN.IND,IND,370,0.67,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-66,delhi,1998,66,PATEL NAGAR,SANTOSH CHAWLA,parties.IN.SJP_R,SJP(R),144,0.26,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-66,delhi,1998,66,PATEL NAGAR,SANDEEP SAXENA,parties.IN.RJD,RJD,138,0.25,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-66,delhi,1998,66,PATEL NAGAR,OM PARKASH TREHAN,parties.IN.IND,IND,101,0.18,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-66,delhi,1998,66,PATEL NAGAR,CHANDU LAL,parties.IN.IND,IND,95,0.17,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-66,delhi,1998,66,PATEL NAGAR,JAI BHAGWAN GUPTA,parties.IN.IND,IND,57,0.1,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-66,delhi,1998,66,PATEL NAGAR,SURESH KAPOOR,parties.IN.IND,IND,55,0.1,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-66,delhi,1998,66,PATEL NAGAR,DWARIKA PARSAD,parties.IN.IND,IND,35,0.06,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-67,delhi,1998,67,RAJINDER NAGAR,PURAN CHAND YOGI,parties.IN.BJP,BJP,21150,37.63,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-67,delhi,1998,67,RAJINDER NAGAR,BRAHM YADAV,parties.IN.IND,IND,19767,35.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-67,delhi,1998,67,RAJINDER NAGAR,RAM ASHISH SINGH,parties.IN.INC,INC,12189,21.69,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-67,delhi,1998,67,RAJINDER NAGAR,B.K. PARSAD,parties.IN.JD,JD,1037,1.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-67,delhi,1998,67,RAJINDER NAGAR,SHYAM SUNDER,parties.IN.IND,IND,651,1.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-67,delhi,1998,67,RAJINDER NAGAR,OM PRAKASH MEHRA,parties.IN.BSP,BSP,623,1.11,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-67,delhi,1998,67,RAJINDER NAGAR,ARUN KUMAR,parties.IN.SHS,SHS,542,0.96,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-67,delhi,1998,67,RAJINDER NAGAR,MANI RAM YADAV,parties.IN.SP,SP,81,0.14,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-67,delhi,1998,67,RAJINDER NAGAR,RAJPAL,parties.IN.IND,IND,47,0.08,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-67,delhi,1998,67,RAJINDER NAGAR,K. RAVINDRAN,parties.IN.JP,JP,43,0.08,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-67,delhi,1998,67,RAJINDER NAGAR,KAILASH CHAND,parties.IN.IND,IND,31,0.06,11,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-67,delhi,1998,67,RAJINDER NAGAR,SUDAMA SINGH,parties.IN.IND,IND,25,0.04,12,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-67,delhi,1998,67,RAJINDER NAGAR,ANIL KUMAR DIWAN,parties.IN.IND,IND,22,0.04,13,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-68,delhi,1998,68,KAROL BAGH,MOTI LAL BOKOLIA,parties.IN.INC,INC,26466,50.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-68,delhi,1998,68,KAROL BAGH,SURENDER PAL RATAWAL,parties.IN.BJP,BJP,24154,46.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-68,delhi,1998,68,KAROL BAGH,ROHTASH,parties.IN.BSP,BSP,588,1.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-68,delhi,1998,68,KAROL BAGH,AJAY HARIT,parties.IN.JD,JD,300,0.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-68,delhi,1998,68,KAROL BAGH,KRISHAN KUMAR RAJORA,parties.IN.IND,IND,262,0.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-68,delhi,1998,68,KAROL BAGH,PARTAP SINGH,parties.IN.LS,LS,117,0.23,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-68,delhi,1998,68,KAROL BAGH,JITENDRA KUMAR,parties.IN.IND,IND,59,0.11,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-68,delhi,1998,68,KAROL BAGH,MADAN LAL SURYAVANSHI,parties.IN.SHS,SHS,29,0.06,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-68,delhi,1998,68,KAROL BAGH,HARISH CHANDRA,parties.IN.IND,IND,15,0.03,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-69,delhi,1998,69,RAM NAGAR,DARSHNA,parties.IN.INC,INC,31794,56.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-69,delhi,1998,69,RAM NAGAR,MOTI LAL SODHI,parties.IN.BJP,BJP,19811,35.44,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1976-delhi-69,delhi,1998,69,RAM NAGAR,NATHU PRASAD,parties.IN.CPIM,CPM,2568,4.59,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-69,delhi,1998,69,RAM NAGAR,GOPAL CHAUHAN,parties.IN.BSP,BSP,546,0.98,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-69,delhi,1998,69,RAM NAGAR,RAMESH KUMAR,parties.IN.JD,JD,526,0.94,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-69,delhi,1998,69,RAM NAGAR,MADAN LAL DEWAN,parties.IN.SHS,SHS,446,0.8,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-69,delhi,1998,69,RAM NAGAR,RANJIT SINGH,parties.IN.ABSR,ABSR,154,0.28,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-69,delhi,1998,69,RAM NAGAR,RAJENDER SIRASWAL,parties.IN.MSP,MSP,30,0.05,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-69,delhi,1998,69,RAM NAGAR,CHARAN DAS,parties.IN.IND,IND,25,0.04,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-70,delhi,1998,70,BALJIT NAGAR,KRISHNA,parties.IN.INC,INC,28832,55.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-70,delhi,1998,70,BALJIT NAGAR,YOGENDERA CHANDOLIYA,parties.IN.BJP,BJP,17047,33.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-70,delhi,1998,70,BALJIT NAGAR,JAI SINGH BHARTI,parties.IN.BSP,BSP,3611,6.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-70,delhi,1998,70,BALJIT NAGAR,MAN MOHAN SINGH,parties.IN.IND,IND,1723,3.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-70,delhi,1998,70,BALJIT NAGAR,BIMLA DEVI,parties.IN.LS,LS,375,0.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-delhi-70,delhi,1998,70,BALJIT NAGAR,PARVEEN KUMAR,parties.IN.IND,IND,54,0.1,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a

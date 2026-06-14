@@ -1,0 +1,1059 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1967-west-bengal-1,west-bengal,1967,1,MEKLIGANJ,A.N.R.PRODHAN,parties.IN.AIFB,FBL,31402,64.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-1,west-bengal,1967,1,MEKLIGANJ,M.ROY,parties.IN.INC,INC,16753,34.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-1,west-bengal,1967,1,MEKLIGANJ,T.ROY BASUNIA,parties.IN.SWA,SWA,905,1.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-2,west-bengal,1967,2,MATHABHANGA,D.C.DAKUA,parties.IN.CPIM,CPM,26872,64.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-2,west-bengal,1967,2,MATHABHANGA,M.N.DAKUA,parties.IN.INC,INC,14943,35.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-3,west-bengal,1967,3,COOCH BEHAR WEST,P.BARMAN,parties.IN.INC,INC,18409,42.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-3,west-bengal,1967,3,COOCH BEHAR WEST,J.N.ROY,parties.IN.AIFB,FBL,15367,35.47,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-3,west-bengal,1967,3,COOCH BEHAR WEST,M.M.PATOWARI,parties.IN.SWA,SWA,9546,22.03,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-4,west-bengal,1967,4,SITAI,F.HOQUE,parties.IN.INC,INC,20485,48.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-4,west-bengal,1967,4,SITAI,B.K.ROY,parties.IN.AIFB,FBL,19170,45.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-4,west-bengal,1967,4,SITAI,M.A.AWAL,parties.IN.SWA,SWA,2161,5.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-5,west-bengal,1967,5,DINHATA,K.K.GUHA,parties.IN.AIFB,FBL,29371,55.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-5,west-bengal,1967,5,DINHATA,U.C.MANDAL,parties.IN.INC,INC,23206,43.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-5,west-bengal,1967,5,DINHATA,K.K.R.SINGHA,parties.IN.SWA,SWA,818,1.53,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-6,west-bengal,1967,6,COOCH BEHAR NORTH,M.R.TAR,parties.IN.INC,INC,17440,37.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-6,west-bengal,1967,6,COOCH BEHAR NORTH,S.D.GUPTA,parties.IN.AIFB,FBL,15293,33.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-6,west-bengal,1967,6,COOCH BEHAR NORTH,G.C.SAHA,parties.IN.CPIM,CPM,8940,19.34,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-6,west-bengal,1967,6,COOCH BEHAR NORTH,N.C.GHOSH,parties.IN.SWA,SWA,4554,9.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-7,west-bengal,1967,7,COOCH BEHAR SOUTH,S.K.ROY,parties.IN.INC,INC,19479,42.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-7,west-bengal,1967,7,COOCH BEHAR SOUTH,D.C.NEOGI,parties.IN.AIFB,FBL,14772,32.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-7,west-bengal,1967,7,COOCH BEHAR SOUTH,S.N.CHOUDHURY,parties.IN.CPIM,CPM,5903,12.95,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-7,west-bengal,1967,7,COOCH BEHAR SOUTH,P.N.KUMAR,parties.IN.SWA,SWA,3977,8.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-7,west-bengal,1967,7,COOCH BEHAR SOUTH,M.M.HOSSAIN,parties.IN.IND,IND,789,1.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-7,west-bengal,1967,7,COOCH BEHAR SOUTH,J.K.DEY,parties.IN.IND,IND,677,1.48,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-8,west-bengal,1967,8,TUFANGANJ,I.S.SEN,parties.IN.INC,INC,27283,55.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-8,west-bengal,1967,8,TUFANGANJ,D.C.KARJEE,parties.IN.CPIM,CPM,11795,24.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-8,west-bengal,1967,8,TUFANGANJ,D.N.BARMA,parties.IN.SWA,SWA,7202,14.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-8,west-bengal,1967,8,TUFANGANJ,B.NANDESWAR,parties.IN.CPI,CPI,2690,5.49,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-9,west-bengal,1967,9,KUMARGRAM,P.K.MUKHERJEE,parties.IN.INC,INC,16093,41.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-9,west-bengal,1967,9,KUMARGRAM,R.DAS GUPTA,parties.IN.CPIM,CPM,9007,23.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-9,west-bengal,1967,9,KUMARGRAM,M.BASUMATA,parties.IN.IND,IND,8927,22.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-9,west-bengal,1967,9,KUMARGRAM,M.ADHIKARI,parties.IN.AIFB,FBL,2981,7.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-9,west-bengal,1967,9,KUMARGRAM,J.N.DAS,parties.IN.IND,IND,1962,5.03,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-10,west-bengal,1967,10,KALCHINI,D.LAKRA,parties.IN.INC,INC,14025,51.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-10,west-bengal,1967,10,KALCHINI,J.A.B.URAON,parties.IN.IND,IND,10749,39.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-10,west-bengal,1967,10,KALCHINI,K.BHAGAT,parties.IN.IND,IND,2354,8.57,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-10,west-bengal,1967,10,KALCHINI,H.N.BRAMA,parties.IN.IND,IND,324,1.18,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-11,west-bengal,1967,11,ALIPORE DUARS,N.BHATTACHARYA,parties.IN.IND,IND,26186,53.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-11,west-bengal,1967,11,ALIPORE DUARS,B.K.BHOWMICK,parties.IN.INC,INC,20931,42.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-11,west-bengal,1967,11,ALIPORE DUARS,K.B.GOSWAMI,parties.IN.BAC,BAC,1874,3.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-12,west-bengal,1967,12,FALAKATA,J.ROY,parties.IN.PSP,PSP,14223,38.76,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-12,west-bengal,1967,12,FALAKATA,H.L.SINGHA,parties.IN.INC,INC,11965,32.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-12,west-bengal,1967,12,FALAKATA,N.N.ROY,parties.IN.SSP,SSP,10511,28.64,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-13,west-bengal,1967,13,MADARIHAT,D.N.RAI,parties.IN.INC,INC,13601,42.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-13,west-bengal,1967,13,MADARIHAT,K.STEPHEN,parties.IN.IND,IND,12217,38.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-13,west-bengal,1967,13,MADARIHAT,K.PAHAN,parties.IN.IND,IND,3904,12.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-13,west-bengal,1967,13,MADARIHAT,M.B.ORAON,parties.IN.IND,IND,2144,6.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-14,west-bengal,1967,14,DHUPGURI,A.G.NEOGI,parties.IN.SSP,SSP,17437,47.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-14,west-bengal,1967,14,DHUPGURI,D.N.MOITRA,parties.IN.INC,INC,11893,32.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-14,west-bengal,1967,14,DHUPGURI,B.C.BHATTACHARYA,parties.IN.BAC,BAC,2938,7.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-14,west-bengal,1967,14,DHUPGURI,S.CHOUDHURY,parties.IN.IND,IND,2454,6.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-14,west-bengal,1967,14,DHUPGURI,M.MUNDA,parties.IN.IND,IND,1526,4.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-14,west-bengal,1967,14,DHUPGURI,M.M.ALIWUDDIN,parties.IN.IND,IND,780,2.11,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-15,west-bengal,1967,15,NAGRAKATA,B.BHAGAT,parties.IN.INC,INC,16002,48.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-15,west-bengal,1967,15,NAGRAKATA,P.URAON,parties.IN.CPIM,CPM,10920,32.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-15,west-bengal,1967,15,NAGRAKATA,M.BHAGAT,parties.IN.IND,IND,6199,18.72,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-16,west-bengal,1967,16,MAINAGURI,J.RAY,parties.IN.BAC,BAC,14098,35.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-16,west-bengal,1967,16,MAINAGURI,P.MALLICK,parties.IN.PSP,PSP,12507,31.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-16,west-bengal,1967,16,MAINAGURI,B.D.RAIKAT,parties.IN.INC,INC,12059,30.69,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-16,west-bengal,1967,16,MAINAGURI,U.ROY,parties.IN.BJS,BJS,508,1.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-16,west-bengal,1967,16,MAINAGURI,H.M.BARMAN,parties.IN.IND,IND,121,0.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-17,west-bengal,1967,17,MAL,A.TOPNA,parties.IN.INC,INC,22095,54.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-17,west-bengal,1967,17,MAL,A.ORAON,parties.IN.CPI,CPI,10600,26.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-17,west-bengal,1967,17,MAL,M.BHAKAT,parties.IN.PSP,PSP,7965,19.59,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-18,west-bengal,1967,18,JALPAIGURI,K.N.DAS GUPTA,parties.IN.INC,INC,21978,42.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-18,west-bengal,1967,18,JALPAIGURI,N.C.CHAKROVARTY,parties.IN.CPI,CPI,15029,28.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-18,west-bengal,1967,18,JALPAIGURI,S.SEN,parties.IN.CPIM,CPM,14203,27.17,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-18,west-bengal,1967,18,JALPAIGURI,C.S.CHOWDHURI,parties.IN.IND,IND,1068,2.04,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-19,west-bengal,1967,19,RAJGANJ,B.N.R.HAKIM,parties.IN.SSP,SSP,15632,39.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-19,west-bengal,1967,19,RAJGANJ,P.D.BOSE,parties.IN.INC,INC,14553,36.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-19,west-bengal,1967,19,RAJGANJ,M.B.ROY,parties.IN.BAC,BAC,9826,24.56,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-20,west-bengal,1967,20,KALIMPONG,K.B.GURUNG,parties.IN.INC,INC,15023,50.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-20,west-bengal,1967,20,KALIMPONG,R.DAHAL,parties.IN.IND,IND,11985,40.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-20,west-bengal,1967,20,KALIMPONG,B.B.HAMAL,parties.IN.CPI,CPI,1470,4.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-20,west-bengal,1967,20,KALIMPONG,T.PRASAD,parties.IN.BJS,BJS,1174,3.96,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-21,west-bengal,1967,21,DARJEELING,D.RAI,parties.IN.IND,IND,14281,51.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-21,west-bengal,1967,21,DARJEELING,M.K.THAPA,parties.IN.INC,INC,9085,32.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-21,west-bengal,1967,21,DARJEELING,G.L.SUBBA,parties.IN.IND,IND,4621,16.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-22,west-bengal,1967,22,JOREBUNGLOW,N.GURUNG,parties.IN.IND,IND,12428,42.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-22,west-bengal,1967,22,JOREBUNGLOW,P.B.GURUNG,parties.IN.INC,INC,10501,36.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-22,west-bengal,1967,22,JOREBUNGLOW,R.BRAHMAN,parties.IN.CPIM,CPM,6001,20.74,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-23,west-bengal,1967,23,SILIGURI,A.K.MOITRA,parties.IN.INC,INC,14633,32.81,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-23,west-bengal,1967,23,SILIGURI,P.THAPA,parties.IN.IND,IND,11671,26.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-23,west-bengal,1967,23,SILIGURI,B.MAULIK,parties.IN.BAC,BAC,8393,18.82,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-23,west-bengal,1967,23,SILIGURI,S.BOSE,parties.IN.CPIM,CPM,6846,15.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-23,west-bengal,1967,23,SILIGURI,J.AGARWAL,parties.IN.BJS,BJS,2301,5.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-23,west-bengal,1967,23,SILIGURI,S.K.JAIN,parties.IN.IND,IND,760,1.7,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-24,west-bengal,1967,24,PHANSIDEWA,T.WANGOI,parties.IN.INC,INC,16227,45.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-24,west-bengal,1967,24,PHANSIDEWA,J.SAONTAL,parties.IN.CPIM,CPM,10484,29.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-24,west-bengal,1967,24,PHANSIDEWA,I.C.TIRKEY,parties.IN.IND,IND,9066,25.34,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-25,west-bengal,1967,25,CHOPRA,A.CHOWDHURY,parties.IN.INC,INC,7330,24.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-25,west-bengal,1967,25,CHOPRA,B.MUNSHI,parties.IN.CPIM,CPM,6449,21.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-25,west-bengal,1967,25,CHOPRA,S.A.Q.JALALUDDIN,parties.IN.IND,IND,6214,21.09,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-25,west-bengal,1967,25,CHOPRA,K.SETH,parties.IN.IND,IND,4016,13.63,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-25,west-bengal,1967,25,CHOPRA,M.G.RABBANI,parties.IN.CPI,CPI,2398,8.14,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-25,west-bengal,1967,25,CHOPRA,A.R.DAS,parties.IN.PSP,PSP,2167,7.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-25,west-bengal,1967,25,CHOPRA,P.N.NEOGI,parties.IN.IND,IND,887,3.01,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-26,west-bengal,1967,26,GOAL POKHAR,M.SALIMUDDIN,parties.IN.PSP,PSP,9331,36.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-26,west-bengal,1967,26,GOAL POKHAR,M.B.SARSHAAR,parties.IN.SSP,SSP,7996,31.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-26,west-bengal,1967,26,GOAL POKHAR,M.H.ALI,parties.IN.INC,INC,3559,13.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-26,west-bengal,1967,26,GOAL POKHAR,C.M.SINGHA,parties.IN.AIFB,FBL,2938,11.5,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-26,west-bengal,1967,26,GOAL POKHAR,M.MOZAMMIL,parties.IN.IND,IND,1174,4.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-26,west-bengal,1967,26,GOAL POKHAR,S.PAZI,parties.IN.SWA,SWA,547,2.14,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-27,west-bengal,1967,27,KARANDIGHI,H.S.HUSSAIN,parties.IN.PSP,PSP,13361,38.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-27,west-bengal,1967,27,KARANDIGHI,S.C.SINHA,parties.IN.AIFB,FBL,8483,24.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-27,west-bengal,1967,27,KARANDIGHI,P.C.SINHA,parties.IN.INC,INC,5800,16.75,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-27,west-bengal,1967,27,KARANDIGHI,B.B.LAL,parties.IN.SSP,SSP,3369,9.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-27,west-bengal,1967,27,KARANDIGHI,K.C.GHOSH,parties.IN.IND,IND,2964,8.56,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-27,west-bengal,1967,27,KARANDIGHI,S.AHMAD,parties.IN.IND,IND,642,1.85,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-28,west-bengal,1967,28,RAIGANJ,N.N.KUNDU,parties.IN.PSP,PSP,16318,41.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-28,west-bengal,1967,28,RAIGANJ,R.N.DUTT,parties.IN.INC,INC,12173,30.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-28,west-bengal,1967,28,RAIGANJ,M.ROY,parties.IN.CPIM,CPM,7078,17.95,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-28,west-bengal,1967,28,RAIGANJ,B.G.ROY,parties.IN.IND,IND,2144,5.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-28,west-bengal,1967,28,RAIGANJ,M.A.ALI,parties.IN.IND,IND,1708,4.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-29,west-bengal,1967,29,KALIAGANJ,S.P.BARMAN,parties.IN.INC,INC,13689,42.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-29,west-bengal,1967,29,KALIAGANJ,N.G.ROY,parties.IN.CPIM,CPM,12940,39.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-29,west-bengal,1967,29,KALIAGANJ,H.K.RAY,parties.IN.BAC,BAC,3175,9.76,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-29,west-bengal,1967,29,KALIAGANJ,P.K.ROY,parties.IN.IND,IND,1958,6.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-29,west-bengal,1967,29,KALIAGANJ,A.R.BARMAN,parties.IN.IND,IND,774,2.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-30,west-bengal,1967,30,ITAHAR,Z.ABEDIN,parties.IN.INC,INC,25620,55.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-30,west-bengal,1967,30,ITAHAR,B.L.CHATTOPADHYAY,parties.IN.IND,IND,10529,22.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-30,west-bengal,1967,30,ITAHAR,A.DAS,parties.IN.IND,IND,7092,15.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-30,west-bengal,1967,30,ITAHAR,K. ALI,parties.IN.IND,IND,1780,3.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-30,west-bengal,1967,30,ITAHAR,A.N.SEN,parties.IN.BAC,BAC,1268,2.74,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-31,west-bengal,1967,31,KUSHMANDI,J.M.ROY,parties.IN.INC,INC,12433,40.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-31,west-bengal,1967,31,KUSHMANDI,B.C.SARKER,parties.IN.CPI,CPI,6580,21.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-31,west-bengal,1967,31,KUSHMANDI,J.N.ROY,parties.IN.IND,IND,5797,18.73,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-31,west-bengal,1967,31,KUSHMANDI,J.K.R.CHOWDHARY,parties.IN.IND,IND,5577,18.02,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-31,west-bengal,1967,31,KUSHMANDI,R.N.ROY SARKER,parties.IN.IND,IND,558,1.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-32,west-bengal,1967,32,GANGARAMPUR,K.SAYED,parties.IN.INC,INC,10384,26.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-32,west-bengal,1967,32,GANGARAMPUR,A.SARKER,parties.IN.CPIM,CPM,8015,20.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-32,west-bengal,1967,32,GANGARAMPUR,M.K.BAGCHI,parties.IN.CPI,CPI,7886,20.24,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-32,west-bengal,1967,32,GANGARAMPUR,A.HAKIM,parties.IN.IND,IND,4985,12.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-32,west-bengal,1967,32,GANGARAMPUR,S.L.PARIK,parties.IN.IND,IND,4321,11.09,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-32,west-bengal,1967,32,GANGARAMPUR,B.B.SAHA,parties.IN.IND,IND,3366,8.64,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-33,west-bengal,1967,33,KUMARGANJ,M.BOSE,parties.IN.INC,INC,18571,46.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-33,west-bengal,1967,33,KUMARGANJ,D.C.CHOUDHURY,parties.IN.BAC,BAC,9120,22.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-33,west-bengal,1967,33,KUMARGANJ,J.K.MOJUMDAR,parties.IN.CPIM,CPM,8403,20.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-33,west-bengal,1967,33,KUMARGANJ,A.M.WAJUDDIN,parties.IN.IND,IND,4098,10.2,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-34,west-bengal,1967,34,BALURGHAT,M.BASU,parties.IN.IND,IND,23583,50.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-34,west-bengal,1967,34,BALURGHAT,G.L.GHOSE,parties.IN.INC,INC,19322,41.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-34,west-bengal,1967,34,BALURGHAT,S.C.SARKAR,parties.IN.IND,IND,2743,5.89,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-34,west-bengal,1967,34,BALURGHAT,D.N.MOHANTO,parties.IN.IND,IND,676,1.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-34,west-bengal,1967,34,BALURGHAT,K.P.DAS,parties.IN.IND,IND,255,0.55,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-35,west-bengal,1967,35,TAPAN,N.MURMU,parties.IN.IND,IND,23961,58.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-35,west-bengal,1967,35,TAPAN,K.H.RAM,parties.IN.INC,INC,14926,36.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-35,west-bengal,1967,35,TAPAN,H.MARDI,parties.IN.IND,IND,2399,5.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-36,west-bengal,1967,36,HABIBPUR,B.MURMU,parties.IN.INC,INC,21866,47.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-36,west-bengal,1967,36,HABIBPUR,N.C.MURMU,parties.IN.CPI,CPI,21249,46.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-36,west-bengal,1967,36,HABIBPUR,C.HEROM,parties.IN.SWA,SWA,2960,6.42,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-37,west-bengal,1967,37,GAJOL,D.MURMU,parties.IN.INC,INC,20665,56.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-37,west-bengal,1967,37,GAJOL,D.HEMROM,parties.IN.CPIM,CPM,10554,28.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-37,west-bengal,1967,37,GAJOL,S.MURMU,parties.IN.CPI,CPI,3572,9.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-37,west-bengal,1967,37,GAJOL,J.MURMU,parties.IN.SWA,SWA,1929,5.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-38,west-bengal,1967,38,KHARBA,G.YAZDANI,parties.IN.IND,IND,27627,56.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-38,west-bengal,1967,38,KHARBA,M.HAQUE,parties.IN.INC,INC,21201,43.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-39,west-bengal,1967,39,HARISH CHANDRAPUR,M.E.RAZI,parties.IN.IND,IND,26797,56.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-39,west-bengal,1967,39,HARISH CHANDRAPUR,B.K.MAITRA,parties.IN.INC,INC,19413,40.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-39,west-bengal,1967,39,HARISH CHANDRAPUR,A.K.SINHA,parties.IN.IND,IND,1043,2.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-39,west-bengal,1967,39,HARISH CHANDRAPUR,S.C.DEY,parties.IN.SWA,SWA,380,0.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-40,west-bengal,1967,40,RATDA,S.M.MISRA,parties.IN.INC,INC,13875,40.8,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-40,west-bengal,1967,40,RATDA,M.ALI,parties.IN.IND,IND,10760,31.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-40,west-bengal,1967,40,RATDA,D.P.SARAF,parties.IN.SWA,SWA,5959,17.52,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-40,west-bengal,1967,40,RATDA,S.N.MISRA,parties.IN.BAC,BAC,3410,10.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-41,west-bengal,1967,41,MALDA,M.S.MIA,parties.IN.INC,INC,19407,49.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-41,west-bengal,1967,41,MALDA,N.CHOUDHURY,parties.IN.SWA,SWA,8877,22.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-41,west-bengal,1967,41,MALDA,S.C.CHOUDHURY,parties.IN.IND,IND,6737,17.06,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-41,west-bengal,1967,41,MALDA,T.SEN,parties.IN.BAC,BAC,2600,6.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-41,west-bengal,1967,41,MALDA,R.K.AGARWALA,parties.IN.IND,IND,1866,4.73,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-42,west-bengal,1967,42,ENGLISHBAZAR,S.G.SEN,parties.IN.INC,INC,12593,32.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-42,west-bengal,1967,42,ENGLISHBAZAR,B.K.DAS,parties.IN.CPI,CPI,9647,24.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-42,west-bengal,1967,42,ENGLISHBAZAR,S.JHA,parties.IN.CPIM,CPM,7034,18.19,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-42,west-bengal,1967,42,ENGLISHBAZAR,H.MISRA,parties.IN.BJS,BJS,5789,14.97,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-42,west-bengal,1967,42,ENGLISHBAZAR,M.H.F.RAHAMAN,parties.IN.IND,IND,2102,5.43,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-42,west-bengal,1967,42,ENGLISHBAZAR,A.D.DUTTA,parties.IN.SWA,SWA,1515,3.92,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-43,west-bengal,1967,43,MANIKCHAK,R.S.SINGHI,parties.IN.SWA,SWA,18728,50.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-43,west-bengal,1967,43,MANIKCHAK,P.JHA,parties.IN.INC,INC,9709,26.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-43,west-bengal,1967,43,MANIKCHAK,S.C.DAS,parties.IN.CPI,CPI,4256,11.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-43,west-bengal,1967,43,MANIKCHAK,S.K.BUKSH,parties.IN.IND,IND,2874,7.72,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-43,west-bengal,1967,43,MANIKCHAK,B.PATHAK,parties.IN.IND,IND,1679,4.51,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-44,west-bengal,1967,44,SUZAPUR,A.B.A.G.K.CHOUDHURY,parties.IN.INC,INC,36809,75.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-44,west-bengal,1967,44,SUZAPUR,S.AHAMMAD,parties.IN.SWA,SWA,4099,8.41,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-44,west-bengal,1967,44,SUZAPUR,H.GHOSH,parties.IN.BAC,BAC,3160,6.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-44,west-bengal,1967,44,SUZAPUR,N.SINGHA,parties.IN.IND,IND,1982,4.07,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-44,west-bengal,1967,44,SUZAPUR,B.SARKAR,parties.IN.IND,IND,1781,3.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-44,west-bengal,1967,44,SUZAPUR,S.HOSSAIN,parties.IN.IND,IND,926,1.9,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-45,west-bengal,1967,45,KALIACHAK,N.ISLAM,parties.IN.CPIM,CPM,17244,41.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-45,west-bengal,1967,45,KALIACHAK,P.R.BOSE,parties.IN.INC,INC,12794,30.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-45,west-bengal,1967,45,KALIACHAK,M.B.SARKAR,parties.IN.BAC,BAC,6141,14.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-45,west-bengal,1967,45,KALIACHAK,B.B.MISRA,parties.IN.SWA,SWA,5196,12.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-46,west-bengal,1967,46,FARAKKA,T.A.N.NABI,parties.IN.BAC,BAC,18812,59.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-46,west-bengal,1967,46,FARAKKA,B.M.W.ALI,parties.IN.INC,INC,7194,22.78,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-46,west-bengal,1967,46,FARAKKA,B.K.MANDAL,parties.IN.IND,IND,2875,9.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-46,west-bengal,1967,46,FARAKKA,J.AHMED,parties.IN.IND,IND,2703,8.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-47,west-bengal,1967,47,SUTI,S.MAHAMMAD,parties.IN.IND,IND,28925,54.19,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-47,west-bengal,1967,47,SUTI,M. SOHARAB,parties.IN.INC,INC,24452,45.81,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-48,west-bengal,1967,48,JANGIPUR,A. HAQUE,parties.IN.IND,IND,26978,62.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-48,west-bengal,1967,48,JANGIPUR,M. CHATTOPADHYAY,parties.IN.INC,INC,16129,37.42,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-49,west-bengal,1967,49,SAGARDIGHI,A.C. DAS,parties.IN.INC,INC,10440,49.88,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-49,west-bengal,1967,49,SAGARDIGHI,K.C. HALDAR,parties.IN.BAC,BAC,8981,42.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-49,west-bengal,1967,49,SAGARDIGHI,D.P. SARKAR,parties.IN.IND,IND,1509,7.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-50,west-bengal,1967,50,LALGOLA,A. SATTAR,parties.IN.INC,INC,28300,69.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-50,west-bengal,1967,50,LALGOLA,S. ALI,parties.IN.IND,IND,10544,25.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-50,west-bengal,1967,50,LALGOLA,P.N. ROY,parties.IN.IND,IND,2028,4.96,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-51,west-bengal,1967,51,BHAGABANGOLA,S. BHATTACHARYYA,parties.IN.INC,INC,17227,43.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-51,west-bengal,1967,51,BHAGABANGOLA,S.N. ADHIVARY,parties.IN.SSP,SSP,14552,36.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-51,west-bengal,1967,51,BHAGABANGOLA,M.D. BAKSH,parties.IN.IND,IND,5310,13.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-51,west-bengal,1967,51,BHAGABANGOLA,S. MANDAL,parties.IN.IND,IND,2505,6.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-52,west-bengal,1967,52,NABAGRAM,A. K. BAKSHI,parties.IN.INC,INC,20291,47.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-52,west-bengal,1967,52,NABAGRAM,B. N. ROY,parties.IN.IND,IND,20029,47.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-52,west-bengal,1967,52,NABAGRAM,K.N. DAS,parties.IN.IND,IND,1002,2.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-52,west-bengal,1967,52,NABAGRAM,M.N. SARKAR,parties.IN.IND,IND,993,2.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-53,west-bengal,1967,53,MURSHIDABAD,S.K.A.MEERZA,parties.IN.INC,INC,21843,53.09,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-53,west-bengal,1967,53,MURSHIDABAD,S.N.J.MEERZA,parties.IN.IND,IND,14618,35.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-53,west-bengal,1967,53,MURSHIDABAD,P.C.HALDAR,parties.IN.IND,IND,2158,5.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-53,west-bengal,1967,53,MURSHIDABAD,A.BHATTACHARJEE,parties.IN.IND,IND,1699,4.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-53,west-bengal,1967,53,MURSHIDABAD,J.H.SARKAR,parties.IN.IND,IND,829,2.01,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-54,west-bengal,1967,54,JALANGI,A.RAHAMAN,parties.IN.INC,INC,15392,40.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-54,west-bengal,1967,54,JALANGI,M.Y.HUSSAIN,parties.IN.IND,IND,8516,22.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-54,west-bengal,1967,54,JALANGI,P.K.SARKAR,parties.IN.BJS,BJS,4745,12.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-54,west-bengal,1967,54,JALANGI,P.K.CHAKRABORTTY,parties.IN.CPIM,CPM,4084,10.66,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-54,west-bengal,1967,54,JALANGI,J.N.MONDAL,parties.IN.IND,IND,3719,9.7,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-54,west-bengal,1967,54,JALANGI,M.I.HOQUE,parties.IN.IND,IND,1869,4.88,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-55,west-bengal,1967,55,DOMKAL,M.A.BARI,parties.IN.CPIM,CPM,26277,60.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-55,west-bengal,1967,55,DOMKAL,A.B.BISWAS,parties.IN.INC,INC,17092,39.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-56,west-bengal,1967,56,NAODA,M.ISRAIL,parties.IN.INC,INC,23374,47.47,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-56,west-bengal,1967,56,NAODA,J.K.BISWAS,parties.IN.IND,IND,23205,47.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-56,west-bengal,1967,56,NAODA,A.HAQUE,parties.IN.IND,IND,2663,5.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-57,west-bengal,1967,57,HARIHARPARA,S.AHMED,parties.IN.INC,INC,17591,44.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-57,west-bengal,1967,57,HARIHARPARA,A.R.MONDAL,parties.IN.IND,IND,14717,36.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-57,west-bengal,1967,57,HARIHARPARA,S.K.CHOWDHURY,parties.IN.IND,IND,4185,10.52,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-57,west-bengal,1967,57,HARIHARPARA,S.N.ISLAM,parties.IN.IND,IND,3295,8.28,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-58,west-bengal,1967,58,BERHAMPORE,S.BHATTACHARYYA,parties.IN.INC,INC,17823,39.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-58,west-bengal,1967,58,BERHAMPORE,S.SANYAL,parties.IN.IND,IND,10242,22.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-58,west-bengal,1967,58,BERHAMPORE,A.K.BHATTACHARYYA,parties.IN.CPIM,CPM,8690,19.25,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-58,west-bengal,1967,58,BERHAMPORE,S.K.RAHA,parties.IN.CPI,CPI,7635,16.91,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-58,west-bengal,1967,58,BERHAMPORE,D.MISRA,parties.IN.IND,IND,764,1.69,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-59,west-bengal,1967,59,BELDANGA,A.LATIF,parties.IN.INC,INC,30119,58.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-59,west-bengal,1967,59,BELDANGA,S.BHADRA,parties.IN.IND,IND,19317,37.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-59,west-bengal,1967,59,BELDANGA,C.GHOSE,parties.IN.IND,IND,1771,3.42,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-59,west-bengal,1967,59,BELDANGA,A.R.KHAN,parties.IN.IND,IND,572,1.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-60,west-bengal,1967,60,KANDI,G.TRIVEDI,parties.IN.INC,INC,26564,60.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-60,west-bengal,1967,60,KANDI,S.DAS,parties.IN.IND,IND,11363,25.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-60,west-bengal,1967,60,KANDI,P.K.GHOSE,parties.IN.IND,IND,4395,9.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-60,west-bengal,1967,60,KANDI,M.H.SHEIKH,parties.IN.IND,IND,1675,3.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-61,west-bengal,1967,61,KHARGRAM,S.K.MONDAL,parties.IN.INC,INC,19698,50.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-61,west-bengal,1967,61,KHARGRAM,K.C.MOULICK,parties.IN.IND,IND,19344,49.55,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-62,west-bengal,1967,62,BARWAN,A.L.ROY,parties.IN.IND,IND,19916,47.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-62,west-bengal,1967,62,BARWAN,S.M.G.MOULIK,parties.IN.INC,INC,17814,42.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-62,west-bengal,1967,62,BARWAN,S.H.KHAN,parties.IN.IND,IND,4059,9.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-63,west-bengal,1967,63,BHARATPUR,S.SINHA,parties.IN.INC,INC,11771,31.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-63,west-bengal,1967,63,BHARATPUR,S.P.BHATTACHARYYA,parties.IN.IND,IND,10715,28.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-63,west-bengal,1967,63,BHARATPUR,F.A.CHOUDHURY,parties.IN.IND,IND,9180,24.84,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-63,west-bengal,1967,63,BHARATPUR,A.P.SAHA,parties.IN.IND,IND,3525,9.54,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-63,west-bengal,1967,63,BHARATPUR,B.A.A.F.CHOUDHURY,parties.IN.IND,IND,1764,4.77,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-64,west-bengal,1967,64,KARIMPUR,N.SANYAL,parties.IN.BAC,BAC,32144,68.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-64,west-bengal,1967,64,KARIMPUR,S.BANERJEE,parties.IN.INC,INC,10436,22.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-64,west-bengal,1967,64,KARIMPUR,N.N.BISWAS,parties.IN.IND,IND,4038,8.66,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-65,west-bengal,1967,65,TEHATTA,S.BANERJI,parties.IN.INC,INC,22168,44.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-65,west-bengal,1967,65,TEHATTA,M.MOHANTA,parties.IN.CPIM,CPM,21618,43.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-65,west-bengal,1967,65,TEHATTA,M.BHADURI,parties.IN.IND,IND,4992,9.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-65,west-bengal,1967,65,TEHATTA,N.K.SARKAR,parties.IN.BJS,BJS,1197,2.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-66,west-bengal,1967,66,KALIGANJ,S.M.F.RAHMAN,parties.IN.INC,INC,28014,53.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-66,west-bengal,1967,66,KALIGANJ,R.N.MUKHERJEE,parties.IN.BAC,BAC,24697,46.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-67,west-bengal,1967,67,NAKASHIPARA,M.C.MONDAL,parties.IN.BAC,BAC,20270,49.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-67,west-bengal,1967,67,NAKASHIPARA,N.K.SARKAR,parties.IN.INC,INC,15666,38.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-67,west-bengal,1967,67,NAKASHIPARA,D.HALDAR,parties.IN.IND,IND,3383,8.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-67,west-bengal,1967,67,NAKASHIPARA,N.SARKER,parties.IN.RPI,RPI,1253,3.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-68,west-bengal,1967,68,CHAPRA,J.MOJUMDER,parties.IN.BAC,BAC,25785,60.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-68,west-bengal,1967,68,CHAPRA,M.DE,parties.IN.INC,INC,12922,30.19,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-68,west-bengal,1967,68,CHAPRA,G.GANGULI,parties.IN.IND,IND,2309,5.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-68,west-bengal,1967,68,CHAPRA,A.K.MULLICK,parties.IN.IND,IND,1193,2.79,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-68,west-bengal,1967,68,CHAPRA,P.KHAN,parties.IN.BJS,BJS,597,1.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-69,west-bengal,1967,69,NABADWIP,S.M.NANDY,parties.IN.INC,INC,25404,50.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-69,west-bengal,1967,69,NABADWIP,K.KUNDU,parties.IN.CPIM,CPM,22081,44.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-69,west-bengal,1967,69,NABADWIP,G.C.KUNDU,parties.IN.BJS,BJS,2381,4.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-70,west-bengal,1967,70,KRISHNAGAR WEST,A.MUKHERJEE,parties.IN.CPIM,CPM,17678,43.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-70,west-bengal,1967,70,KRISHNAGAR WEST,I.P.CHOWDHURY,parties.IN.INC,INC,15309,37.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-70,west-bengal,1967,70,KRISHNAGAR WEST,S.R.D.GUPTA,parties.IN.SSP,SSP,3675,9.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-70,west-bengal,1967,70,KRISHNAGAR WEST,P.GUPTA,parties.IN.IND,IND,3011,7.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-70,west-bengal,1967,70,KRISHNAGAR WEST,R.N.GHOSH,parties.IN.IND,IND,905,2.23,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-71,west-bengal,1967,71,KRISHNAGAR EAST,K.K.MAITRA,parties.IN.SSP,SSP,32427,67.99,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-71,west-bengal,1967,71,KRISHNAGAR EAST,A.K.HALDAR,parties.IN.INC,INC,15266,32.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-72,west-bengal,1967,72,HANSKHALI,C.M.SARKAR,parties.IN.BAC,BAC,33298,67.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-72,west-bengal,1967,72,HANSKHALI,R.K.MALLICK,parties.IN.INC,INC,16308,32.88,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-73,west-bengal,1967,73,SANTIPUR,K.PAL,parties.IN.CPIM,CPM,20695,47.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-73,west-bengal,1967,73,SANTIPUR,H.DEY,parties.IN.INC,INC,16577,38.15,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-73,west-bengal,1967,73,SANTIPUR,N.GOSWAMI,parties.IN.IND,IND,4223,9.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-73,west-bengal,1967,73,SANTIPUR,B.PRAMANIK,parties.IN.IND,IND,1958,4.51,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-74,west-bengal,1967,74,RANAGHAT WEST,B.K.CHATTOPADHYAY,parties.IN.INC,INC,26613,49.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-74,west-bengal,1967,74,RANAGHAT WEST,G.C.KUNDU,parties.IN.CPIM,CPM,22844,42.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-74,west-bengal,1967,74,RANAGHAT WEST,S.GHATAK,parties.IN.IND,IND,4249,7.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-75,west-bengal,1967,75,RANAGHAT EAST,N.SARKAR,parties.IN.CPI,CPI,22935,50.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-75,west-bengal,1967,75,RANAGHAT EAST,S.K.MRIDHA,parties.IN.INC,INC,18530,40.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-75,west-bengal,1967,75,RANAGHAT EAST,M.HALDAR,parties.IN.IND,IND,3987,8.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-76,west-bengal,1967,76,CHAKDAH,H.MITRA,parties.IN.BAC,BAC,20761,42.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-76,west-bengal,1967,76,CHAKDAH,S.TAGORE,parties.IN.IND,IND,14888,30.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-76,west-bengal,1967,76,CHAKDAH,S.DAS,parties.IN.INC,INC,12874,26.11,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-76,west-bengal,1967,76,CHAKDAH,S.BHATTACHARJEE,parties.IN.IND,IND,779,1.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-77,west-bengal,1967,77,HARINGHATA,B.M.KARIM,parties.IN.IND,IND,21923,42.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-77,west-bengal,1967,77,HARINGHATA,B.N.SARKAR,parties.IN.INC,INC,21029,40.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-77,west-bengal,1967,77,HARINGHATA,S.K.BHATTACHARYYA,parties.IN.CPI,CPI,8362,16.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-78,west-bengal,1967,78,BAGDAHA,A.L.MAJUMDAR,parties.IN.AIFB,FBL,32263,71.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-78,west-bengal,1967,78,BAGDAHA,M.B.BISWAS,parties.IN.INC,INC,13124,28.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-79,west-bengal,1967,79,BONGAON,K.BHOWMICK,parties.IN.INC,INC,17736,35.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-79,west-bengal,1967,79,BONGAON,A.K.GANGULI,parties.IN.CPI,CPI,13215,26.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-79,west-bengal,1967,79,BONGAON,S.GHOSH,parties.IN.CPIM,CPM,12063,23.89,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-79,west-bengal,1967,79,BONGAON,N.K.R.CHOUDHURI,parties.IN.IND,IND,6736,13.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-79,west-bengal,1967,79,BONGAON,J.CHAKRABORTY,parties.IN.IND,IND,734,1.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-80,west-bengal,1967,80,GAIGHATA,C.MITRA,parties.IN.BAC,BAC,18922,39.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-80,west-bengal,1967,80,GAIGHATA,S.BISWAS,parties.IN.INC,INC,16328,33.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-80,west-bengal,1967,80,GAIGHATA,B.K.MOZUMDER,parties.IN.IND,IND,10924,22.61,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-80,west-bengal,1967,80,GAIGHATA,P.SENGUPTA,parties.IN.IND,IND,935,1.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-80,west-bengal,1967,80,GAIGHATA,P.BHATTACHARYA,parties.IN.IND,IND,915,1.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-80,west-bengal,1967,80,GAIGHATA,J.N.BISWAS,parties.IN.BJS,BJS,286,0.59,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-81,west-bengal,1967,81,ASHOKENAGAR,S.K.SEN,parties.IN.CPI,CPI,17877,34.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-81,west-bengal,1967,81,ASHOKENAGAR,K.R.CHATTOPADHYA,parties.IN.INC,INC,16782,31.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-81,west-bengal,1967,81,ASHOKENAGAR,N.C.BISWAS,parties.IN.CPIM,CPM,15121,28.8,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-81,west-bengal,1967,81,ASHOKENAGAR,S.B.BHATTACHARYYA,parties.IN.PSP,PSP,2105,4.01,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-81,west-bengal,1967,81,ASHOKENAGAR,J.C.MUKHERJEE,parties.IN.IND,IND,619,1.18,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-82,west-bengal,1967,82,BARASAT,H.K.BASU,parties.IN.AIFB,FBL,32776,58.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-82,west-bengal,1967,82,BARASAT,A.K.DUTTA,parties.IN.INC,INC,22716,40.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-82,west-bengal,1967,82,BARASAT,A.K.CHATTERJEE,parties.IN.IND,IND,700,1.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-83,west-bengal,1967,83,RAJARHAT,S.N.DAS,parties.IN.CPIM,CPM,14874,30.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-83,west-bengal,1967,83,RAJARHAT,S.N.ROY,parties.IN.BAC,BAC,11793,24.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-83,west-bengal,1967,83,RAJARHAT,A.K.PRAMINIK,parties.IN.INC,INC,11347,23.11,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-83,west-bengal,1967,83,RAJARHAT,K.N.MONDAL,parties.IN.IND,IND,11083,22.57,4,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-84,west-bengal,1967,84,DEGANGA,J.KABIR,parties.IN.BAC,BAC,30073,73.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-84,west-bengal,1967,84,DEGANGA,M.Z.HAQUE,parties.IN.INC,INC,9577,23.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-84,west-bengal,1967,84,DEGANGA,S.KD.MUKHOPADDYA,parties.IN.IND,IND,1484,3.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-85,west-bengal,1967,85,HABRA,J.P.MUKHERJEE,parties.IN.BAC,BAC,26945,50.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-85,west-bengal,1967,85,HABRA,T.K.GHOSH,parties.IN.INC,INC,23843,44.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-85,west-bengal,1967,85,HABRA,P.SARKAR,parties.IN.SSP,SSP,3076,5.71,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-86,west-bengal,1967,86,SWARUPNAGAR,J.R.SEN,parties.IN.CPI,CPI,32087,56.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-86,west-bengal,1967,86,SWARUPNAGAR,A.GAFUR,parties.IN.INC,INC,22152,39.12,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-86,west-bengal,1967,86,SWARUPNAGAR,B.M.ROY,parties.IN.IND,IND,2392,4.22,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-87,west-bengal,1967,87,BADURIA,Q.A.GAFFAR,parties.IN.INC,INC,19824,37.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-87,west-bengal,1967,87,BADURIA,M.SAYEED,parties.IN.CPIM,CPM,17820,33.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-87,west-bengal,1967,87,BADURIA,K.M.DAS,parties.IN.BAC,BAC,15395,29.03,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-88,west-bengal,1967,88,BASIRHAT,A.B.BANDOPADHYAY,parties.IN.CPI,CPI,32631,64.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-88,west-bengal,1967,88,BASIRHAT,B.C.SEN,parties.IN.INC,INC,15981,31.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-88,west-bengal,1967,88,BASIRHAT,R.B.GHOSE,parties.IN.CPIM,CPM,1896,3.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-89,west-bengal,1967,89,HASNABAD,H.N.MAZUMDAR,parties.IN.BAC,BAC,18281,47.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-89,west-bengal,1967,89,HASNABAD,D.DAS,parties.IN.INC,INC,10357,26.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-89,west-bengal,1967,89,HASNABAD,H.GHOSHAL,parties.IN.CPIM,CPM,5552,14.39,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-89,west-bengal,1967,89,HASNABAD,J.BARI,parties.IN.IND,IND,4405,11.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-90,west-bengal,1967,90,HINGALGANJ,B.N.BRAHMACHARI,parties.IN.IND,IND,14478,31.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-90,west-bengal,1967,90,HINGALGANJ,H.MANDAL,parties.IN.CPI,CPI,14117,30.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-90,west-bengal,1967,90,HINGALGANJ,R.MANDAL,parties.IN.INC,INC,10942,24,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-90,west-bengal,1967,90,HINGALGANJ,P.MANDAL,parties.IN.IND,IND,6061,13.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-91,west-bengal,1967,91,GOSABA,G.N.MANDAL,parties.IN.BJS,BJS,17620,38.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-91,west-bengal,1967,91,GOSABA,H.C.MANDAL,parties.IN.IND,IND,16564,36.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-91,west-bengal,1967,91,GOSABA,A.K.BAIDYA,parties.IN.INC,INC,11350,24.93,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-92,west-bengal,1967,92,SANDESHKHALI,D.N.SINHA,parties.IN.INC,INC,17894,42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-92,west-bengal,1967,92,SANDESHKHALI,S.SARDAR,parties.IN.CPIM,CPM,14093,33.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-92,west-bengal,1967,92,SANDESHKHALI,A.SARDAR,parties.IN.CPI,CPI,8708,20.44,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-92,west-bengal,1967,92,SANDESHKHALI,P.PAHANTIGA,parties.IN.IND,IND,1905,4.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-93,west-bengal,1967,93,HAROA,G.PRAMANICK,parties.IN.BAC,BAC,23613,61.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-93,west-bengal,1967,93,HAROA,N.B.MANDAL,parties.IN.INC,INC,9637,24.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-93,west-bengal,1967,93,HAROA,J.SARDAR,parties.IN.IND,IND,4440,11.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-93,west-bengal,1967,93,HAROA,A.MANDAL,parties.IN.IND,IND,1000,2.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-94,west-bengal,1967,94,BASANTI,S.KHATUN,parties.IN.INC,INC,21325,38.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-94,west-bengal,1967,94,BASANTI,S.SARKAR,parties.IN.IND,IND,19879,35.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-94,west-bengal,1967,94,BASANTI,S.L.DAS,parties.IN.IND,IND,7036,12.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-94,west-bengal,1967,94,BASANTI,B.RAHAMAN,parties.IN.BAC,BAC,4746,8.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-94,west-bengal,1967,94,BASANTI,L.K.SINHA,parties.IN.IND,IND,1842,3.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-94,west-bengal,1967,94,BASANTI,P.MONDAL,parties.IN.IND,IND,497,0.9,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-95,west-bengal,1967,95,CANNING,A.C.HALDER,parties.IN.BAC,BAC,28961,58.18,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-95,west-bengal,1967,95,CANNING,N.NASKAR,parties.IN.INC,INC,20820,41.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-96,west-bengal,1967,96,KULTALI,P.PURKAIT,parties.IN.IND,IND,32904,60.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-96,west-bengal,1967,96,KULTALI,A.M.TANTI,parties.IN.INC,INC,20694,38.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-96,west-bengal,1967,96,KULTALI,S.C.MONDAL,parties.IN.IND,IND,810,1.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-97,west-bengal,1967,97,JOYNAGAR,S.BANERJEE,parties.IN.IND,IND,34772,61.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-97,west-bengal,1967,97,JOYNAGAR,J.CHAKRAVARTTY,parties.IN.INC,INC,14355,25.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-97,west-bengal,1967,97,JOYNAGAR,S.N.HALDAR,parties.IN.IND,IND,5930,10.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-97,west-bengal,1967,97,JOYNAGAR,K.M.ABDULLAM,parties.IN.IND,IND,766,1.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-97,west-bengal,1967,97,JOYNAGAR,N.CHATTERJEE,parties.IN.IND,IND,626,1.11,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-98,west-bengal,1967,98,BARUIPUR,K.R.MANDAL,parties.IN.SSP,SSP,21059,41.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-98,west-bengal,1967,98,BARUIPUR,S.K.SARKAR,parties.IN.BAC,BAC,16294,32.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-98,west-bengal,1967,98,BARUIPUR,A.K.NASKAR,parties.IN.INC,INC,12849,25.59,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-99,west-bengal,1967,99,SONARPUR,G.NASKAR,parties.IN.CPIM,CPM,18019,36.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-99,west-bengal,1967,99,SONARPUR,G.SARDAR,parties.IN.INC,INC,15980,32.03,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-99,west-bengal,1967,99,SONARPUR,S.K.SAFUI,parties.IN.IND,IND,7691,15.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-99,west-bengal,1967,99,SONARPUR,H.MANDAL,parties.IN.CPI,CPI,4410,8.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-99,west-bengal,1967,99,SONARPUR,N.N.NASKAR,parties.IN.IND,IND,3533,7.08,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-99,west-bengal,1967,99,SONARPUR,A.N.DALUI,parties.IN.IND,IND,260,0.52,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-100,west-bengal,1967,100,BHANGAR,A.MOLLA,parties.IN.BAC,BAC,35048,76.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-100,west-bengal,1967,100,BHANGAR,SUKURALI,parties.IN.INC,INC,10623,23.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-101,west-bengal,1967,101,JADAVPUR,B.C.GUHA,parties.IN.CPIM,CPM,33698,50.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-101,west-bengal,1967,101,JADAVPUR,B.B.SARKAR,parties.IN.INC,INC,28820,43.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-101,west-bengal,1967,101,JADAVPUR,S.K.GUHA,parties.IN.IND,IND,1282,1.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-101,west-bengal,1967,101,JADAVPUR,S.S.GUPTA,parties.IN.IND,IND,1251,1.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-101,west-bengal,1967,101,JADAVPUR,S.ROY,parties.IN.PSP,PSP,1195,1.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-102,west-bengal,1967,102,BEHALA EAST,N.MUKHERJEE,parties.IN.CPIM,CPM,20757,45.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-102,west-bengal,1967,102,BEHALA EAST,B.M.GHATAK,parties.IN.INC,INC,15716,34.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-102,west-bengal,1967,102,BEHALA EAST,B.CHAKRAVARTY,parties.IN.CPI,CPI,8614,18.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-102,west-bengal,1967,102,BEHALA EAST,T.MUKHERJEE,parties.IN.IND,IND,264,0.58,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-103,west-bengal,1967,103,BEHALA WEST,R.MUKHERJEE,parties.IN.CPIM,CPM,35634,55.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-103,west-bengal,1967,103,BEHALA WEST,R.ROY,parties.IN.INC,INC,28075,44.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-104,west-bengal,1967,104,GARDEN REACH,S.M.ABDULLAH,parties.IN.INC,INC,18443,39.89,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-104,west-bengal,1967,104,GARDEN REACH,H.N.H.MALI,parties.IN.IND,IND,13154,28.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-104,west-bengal,1967,104,GARDEN REACH,M.R.KHAN,parties.IN.IND,IND,7150,15.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-104,west-bengal,1967,104,GARDEN REACH,N.D.GUPTA,parties.IN.IND,IND,6194,13.4,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-104,west-bengal,1967,104,GARDEN REACH,M.S.SAHID,parties.IN.IND,IND,1293,2.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-105,west-bengal,1967,105,MAHESHTOLA,S.C.BHANDARI,parties.IN.CPIM,CPM,30805,53.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-105,west-bengal,1967,105,MAHESHTOLA,S.A.MALAQUE,parties.IN.INC,INC,21227,36.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-105,west-bengal,1967,105,MAHESHTOLA,A.GHOSH,parties.IN.CPI,CPI,5591,9.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-106,west-bengal,1967,106,BUDGE BUDGE,K.B.R.BARMAN,parties.IN.CPIM,CPM,31024,53.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-106,west-bengal,1967,106,BUDGE BUDGE,H.L.HALDAR,parties.IN.INC,INC,20609,35.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-106,west-bengal,1967,106,BUDGE BUDGE,B.B.GJOSE,parties.IN.AIFB,FBL,3942,6.83,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-106,west-bengal,1967,106,BUDGE BUDGE,M.K.POLLEY,parties.IN.IND,IND,2156,3.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-107,west-bengal,1967,107,BISHNUPUR WEST,P.C.ROY,parties.IN.CPIM,CPM,32759,56.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-107,west-bengal,1967,107,BISHNUPUR WEST,J.C.SANTRA,parties.IN.INC,INC,24475,42.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-107,west-bengal,1967,107,BISHNUPUR WEST,S.C.SAMANTA,parties.IN.IND,IND,498,0.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-108,west-bengal,1967,108,BISHNUPUR EAST,S.K.NASKAR,parties.IN.CPIM,CPM,19224,39.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-108,west-bengal,1967,108,BISHNUPUR EAST,S.MONDAL,parties.IN.INC,INC,12576,25.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-108,west-bengal,1967,108,BISHNUPUR EAST,S.MANDAL,parties.IN.IND,IND,8910,18.4,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-108,west-bengal,1967,108,BISHNUPUR EAST,R.ROY,parties.IN.CPI,CPI,4560,9.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-108,west-bengal,1967,108,BISHNUPUR EAST,B.N.BISWAS,parties.IN.IND,IND,2583,5.33,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-108,west-bengal,1967,108,BISHNUPUR EAST,N.L.NASKAR,parties.IN.IND,IND,577,1.19,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-109,west-bengal,1967,109,FALTA,J.ROY,parties.IN.CPIM,CPM,29577,53.95,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-109,west-bengal,1967,109,FALTA,J.N.DAS,parties.IN.INC,INC,18531,33.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-109,west-bengal,1967,109,FALTA,M.KAYAL,parties.IN.IND,IND,3553,6.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-109,west-bengal,1967,109,FALTA,S.G.PANJATAN,parties.IN.IND,IND,2633,4.8,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-109,west-bengal,1967,109,FALTA,A.MIR,parties.IN.IND,IND,530,0.97,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-110,west-bengal,1967,110,DIAMOND HARBOUR,A.Q.MOLLA,parties.IN.CPIM,CPM,22765,38.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-110,west-bengal,1967,110,DIAMOND HARBOUR,J.HALDAR,parties.IN.BAC,BAC,20613,34.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-110,west-bengal,1967,110,DIAMOND HARBOUR,M.BANERJI,parties.IN.INC,INC,15314,25.74,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-110,west-bengal,1967,110,DIAMOND HARBOUR,M.C.BAIDHYA,parties.IN.BJS,BJS,810,1.36,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-111,west-bengal,1967,111,MAGRAHAT EAST,R.PRAMANIK,parties.IN.CPIM,CPM,28928,51.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-111,west-bengal,1967,111,MAGRAHAT EAST,A.S.NASKAR,parties.IN.INC,INC,25204,44.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-111,west-bengal,1967,111,MAGRAHAT EAST,G.MONDAL,parties.IN.IND,IND,1548,2.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-111,west-bengal,1967,111,MAGRAHAT EAST,S.HALDAR,parties.IN.BJS,BJS,649,1.15,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-112,west-bengal,1967,112,MAGRAHAT WEST,J.ABDIN,parties.IN.BAC,BAC,26891,47.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-112,west-bengal,1967,112,MAGRAHAT WEST,A.HASSEM,parties.IN.INC,INC,18565,32.74,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-112,west-bengal,1967,112,MAGRAHAT WEST,N.K.BISWAS,parties.IN.CPIM,CPM,10939,19.29,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-112,west-bengal,1967,112,MAGRAHAT WEST,M.C.BAIDYA,parties.IN.BJS,BJS,315,0.56,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-113,west-bengal,1967,113,KULPI,N.K.HALDAR,parties.IN.INC,INC,29682,53.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-113,west-bengal,1967,113,KULPI,P.KUMAR,parties.IN.BAC,BAC,25679,46.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-114,west-bengal,1967,114,MATHURAPUR,H.HALDAR,parties.IN.BAC,BAC,20772,34.57,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-114,west-bengal,1967,114,MATHURAPUR,R.HALDAR,parties.IN.IND,IND,19821,32.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-114,west-bengal,1967,114,MATHURAPUR,B.GAYEN,parties.IN.INC,INC,19501,32.45,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-115,west-bengal,1967,115,PATHARPRATIMA,R.MANDAL,parties.IN.IND,IND,19592,36.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-115,west-bengal,1967,115,PATHARPRATIMA,B.C.DAS,parties.IN.INC,INC,16303,30.37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-115,west-bengal,1967,115,PATHARPRATIMA,N.P.PRADHAN,parties.IN.BAC,BAC,16096,29.99,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-115,west-bengal,1967,115,PATHARPRATIMA,J.BASU,parties.IN.IND,IND,1253,2.33,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-115,west-bengal,1967,115,PATHARPRATIMA,K.K.CHATTERJEE,parties.IN.IND,IND,431,0.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-116,west-bengal,1967,116,KAKDWIP,H.DHARA,parties.IN.INC,INC,45031,73.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-116,west-bengal,1967,116,KAKDWIP,H.MAITY,parties.IN.CPIM,CPM,14269,23.31,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-116,west-bengal,1967,116,KAKDWIP,S.B.MONDAL,parties.IN.BJS,BJS,1453,2.37,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-116,west-bengal,1967,116,KAKDWIP,C.C.MOIRA,parties.IN.IND,IND,474,0.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-117,west-bengal,1967,117,SAGAR,T.MISRA,parties.IN.INC,INC,21702,37.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-117,west-bengal,1967,117,SAGAR,G.DINGAL,parties.IN.IND,IND,18271,31.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-117,west-bengal,1967,117,SAGAR,J.MAITY,parties.IN.CPI,CPI,16326,28.15,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-117,west-bengal,1967,117,SAGAR,B.BANSH,parties.IN.IND,IND,1178,2.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-117,west-bengal,1967,117,SAGAR,B.K.MONDAL,parties.IN.BJS,BJS,517,0.89,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-118,west-bengal,1967,118,BIJPUR,J.C.DAS,parties.IN.CPIM,CPM,17662,38.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-118,west-bengal,1967,118,BIJPUR,P.GHOSH,parties.IN.INC,INC,16348,35.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-118,west-bengal,1967,118,BIJPUR,N.BHATTACHARYA,parties.IN.CPI,CPI,8468,18.56,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-118,west-bengal,1967,118,BIJPUR,S.P.SINHA,parties.IN.IND,IND,2020,4.43,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-118,west-bengal,1967,118,BIJPUR,P.SINGOTE,parties.IN.BJS,BJS,830,1.82,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-118,west-bengal,1967,118,BIJPUR,J.KOIRI,parties.IN.IND,IND,285,0.62,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-119,west-bengal,1967,119,NAIHATI,G.BHATTACHARJEE,parties.IN.INC,INC,26619,46.83,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-119,west-bengal,1967,119,NAIHATI,G.BASU,parties.IN.CPIM,CPM,22515,39.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-119,west-bengal,1967,119,NAIHATI,B.MUKUTMANI,parties.IN.CPI,CPI,7443,13.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-119,west-bengal,1967,119,NAIHATI,B.YADAV,parties.IN.BJS,BJS,261,0.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-120,west-bengal,1967,120,BHATPARA,D.BERI,parties.IN.INC,INC,32027,49.45,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-120,west-bengal,1967,120,BHATPARA,S.GUPTA,parties.IN.CPIM,CPM,27281,42.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-120,west-bengal,1967,120,BHATPARA,J.GUPTA,parties.IN.IND,IND,1858,2.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-120,west-bengal,1967,120,BHATPARA,S.SETH,parties.IN.CPI,CPI,1286,1.99,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-120,west-bengal,1967,120,BHATPARA,B.B.BANERJEE,parties.IN.IND,IND,1217,1.88,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-120,west-bengal,1967,120,BHATPARA,K.CHATTOPADHYAYA,parties.IN.IND,IND,630,0.97,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-120,west-bengal,1967,120,BHATPARA,B.KESHARI,parties.IN.PSP,PSP,463,0.71,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-121,west-bengal,1967,121,NOAPARA,S.ROY,parties.IN.INC,INC,21248,42.62,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-121,west-bengal,1967,121,NOAPARA,J.SAHA,parties.IN.CPIM,CPM,21219,42.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-121,west-bengal,1967,121,NOAPARA,U.SINHA,parties.IN.IND,IND,6040,12.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-121,west-bengal,1967,121,NOAPARA,P.BASU,parties.IN.BJS,BJS,1344,2.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-122,west-bengal,1967,122,TITAGARH,K.K.SHUKLA,parties.IN.INC,INC,17435,36.55,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-122,west-bengal,1967,122,TITAGARH,M.AMIN,parties.IN.CPIM,CPM,16690,34.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-122,west-bengal,1967,122,TITAGARH,S.CHOUDHURY,parties.IN.CPI,CPI,11702,24.53,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-122,west-bengal,1967,122,TITAGARH,G.N.BARNWAL,parties.IN.BJS,BJS,1486,3.12,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-122,west-bengal,1967,122,TITAGARH,M.L.D.GUPTA,parties.IN.IND,IND,383,0.8,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-123,west-bengal,1967,123,KHARDAH,S.K.CHAKRABORTY,parties.IN.CPIM,CPM,18507,34.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-123,west-bengal,1967,123,KHARDAH,B.N.GHOSE,parties.IN.INC,INC,16907,31.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-123,west-bengal,1967,123,KHARDAH,G.BANERJEE,parties.IN.CPI,CPI,16780,31.59,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-123,west-bengal,1967,123,KHARDAH,J.SINGH,parties.IN.BJS,BJS,919,1.73,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-124,west-bengal,1967,124,PANIHATI,G.K. BHATTACHARYYA,parties.IN.CPIM,CPM,34671,47.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-124,west-bengal,1967,124,PANIHATI,S.C. DATTA,parties.IN.INC,INC,23851,32.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-124,west-bengal,1967,124,PANIHATI,N.D. SRIMANI,parties.IN.CPI,CPI,10919,15.01,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-124,west-bengal,1967,124,PANIHATI,S.N. GHOSH,parties.IN.PSP,PSP,2739,3.77,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-124,west-bengal,1967,124,PANIHATI,S. MITRA,parties.IN.BJS,BJS,550,0.76,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-125,west-bengal,1967,125,KAMARHATI,R.R. BANERJI,parties.IN.CPIM,CPM,30095,51.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-125,west-bengal,1967,125,KAMARHATI,A. GHOSAL,parties.IN.INC,INC,21559,36.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-125,west-bengal,1967,125,KAMARHATI,D.P. GHOSAL,parties.IN.BAC,BAC,5528,9.42,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-125,west-bengal,1967,125,KAMARHATI,K. GOSWAMI,parties.IN.BJS,BJS,760,1.3,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-125,west-bengal,1967,125,KAMARHATI,K.C. BANERJEE,parties.IN.IND,IND,714,1.22,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-126,west-bengal,1967,126,BARANAGAR,J. BASU,parties.IN.CPIM,CPM,31354,52.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-126,west-bengal,1967,126,BARANAGAR,N. BHATACHARJEE,parties.IN.INC,INC,27895,46.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-126,west-bengal,1967,126,BARANAGAR,B. H. RAO,parties.IN.IND,IND,472,0.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-127,west-bengal,1967,127,DUM DUM,T.K.S. GUPTA,parties.IN.CPIM,CPM,37066,53.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-127,west-bengal,1967,127,DUM DUM,B.P. GUHA,parties.IN.INC,INC,30682,44.4,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-127,west-bengal,1967,127,DUM DUM,A. CHATTERJEE,parties.IN.IND,IND,1358,1.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-128,west-bengal,1967,128,COSSIPUR,S.K.PAUL,parties.IN.INC,INC,18003,36.14,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-128,west-bengal,1967,128,COSSIPUR,P.DASGUPTA,parties.IN.CPIM,CPM,15239,30.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-128,west-bengal,1967,128,COSSIPUR,H.K.BASU,parties.IN.AIFB,FBL,7279,14.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-128,west-bengal,1967,128,COSSIPUR,S.K.DAS GUPTA,parties.IN.IND,IND,6729,13.51,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-128,west-bengal,1967,128,COSSIPUR,T.N.MISHRA,parties.IN.BJS,BJS,2571,5.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-129,west-bengal,1967,129,SHAMPUKUR,G.C.DEY,parties.IN.INC,INC,24875,47.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-129,west-bengal,1967,129,SHAMPUKUR,A.N.BASU,parties.IN.CPIM,CPM,23874,45.85,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-129,west-bengal,1967,129,SHAMPUKUR,S.C.ROY,parties.IN.BJS,BJS,3320,6.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-130,west-bengal,1967,130,JORABAGAN,H.P.CHATTERJEE,parties.IN.CPIM,CPM,23383,43.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-130,west-bengal,1967,130,JORABAGAN,N.C.ROY,parties.IN.INC,INC,20925,38.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-130,west-bengal,1967,130,JORABAGAN,T.C.PAUL,parties.IN.BJS,BJS,9565,17.75,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-131,west-bengal,1967,131,JORASANKO,R.K.PODDAR,parties.IN.INC,INC,22134,46.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-131,west-bengal,1967,131,JORASANKO,P.D.HALWARIA,parties.IN.BJS,BJS,20080,42.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-131,west-bengal,1967,131,JORASANKO,G.SHARMA,parties.IN.AIFB,FBL,2835,5.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-131,west-bengal,1967,131,JORASANKO,B.M.PUROHIT,parties.IN.IND,IND,1822,3.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-131,west-bengal,1967,131,JORASANKO,R.PODDAR,parties.IN.IND,IND,325,0.68,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-131,west-bengal,1967,131,JORASANKO,G.R.AAGARWAL,parties.IN.IND,IND,274,0.57,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-131,west-bengal,1967,131,JORASANKO,I.HUSAIN,parties.IN.IND,IND,226,0.47,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-132,west-bengal,1967,132,BARABAZAR,I.D.JALAN,parties.IN.INC,INC,28166,54.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-132,west-bengal,1967,132,BARABAZAR,B.P.KEDIA,parties.IN.BJS,BJS,19122,37,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-132,west-bengal,1967,132,BARABAZAR,R.S.PANDEY,parties.IN.SSP,SSP,2552,4.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-132,west-bengal,1967,132,BARABAZAR,L.SHAWARMAL,parties.IN.IND,IND,936,1.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-132,west-bengal,1967,132,BARABAZAR,B.R.KISAN,parties.IN.IND,IND,550,1.06,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-132,west-bengal,1967,132,BARABAZAR,G.RATHI,parties.IN.IND,IND,180,0.35,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-132,west-bengal,1967,132,BARABAZAR,R.P.SHUKLA,parties.IN.IND,IND,178,0.34,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-133,west-bengal,1967,133,BOWBAZAR,B.S.NAHAR,parties.IN.INC,INC,24699,57.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-133,west-bengal,1967,133,BOWBAZAR,S.GUPTA,parties.IN.AIFB,FBL,8482,19.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-133,west-bengal,1967,133,BOWBAZAR,H.CHATTRJEE,parties.IN.CPIM,CPM,6089,14.18,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-133,west-bengal,1967,133,BOWBAZAR,S.GUHA,parties.IN.BJS,BJS,3468,8.08,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-133,west-bengal,1967,133,BOWBAZAR,A.WAHAB,parties.IN.IND,IND,197,0.46,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-134,west-bengal,1967,134,CHOWRINGHEE,S.S.RAY,parties.IN.INC,INC,22954,62.27,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-134,west-bengal,1967,134,CHOWRINGHEE,S.GUPTA,parties.IN.CPIM,CPM,11658,31.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-134,west-bengal,1967,134,CHOWRINGHEE,G.A.W.ROZE,parties.IN.BJS,BJS,2252,6.11,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-135,west-bengal,1967,135,KABITHIRTHA,B.B.PAUL,parties.IN.INC,INC,23229,46.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-135,west-bengal,1967,135,KABITHIRTHA,K.SHAMS,parties.IN.AIFB,FBL,17746,35.18,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-135,west-bengal,1967,135,KABITHIRTHA,N.C.BANERJEE,parties.IN.CPIM,CPM,8306,16.47,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-135,west-bengal,1967,135,KABITHIRTHA,M.A.KALAM,parties.IN.IND,IND,1017,2.02,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-135,west-bengal,1967,135,KABITHIRTHA,P.S.ARORA,parties.IN.IND,IND,147,0.29,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-136,west-bengal,1967,136,ALIPORE,M.SANYAL,parties.IN.CPI,CPI,21268,48.5,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-136,west-bengal,1967,136,ALIPORE,N.N.SEN,parties.IN.INC,INC,21029,47.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-136,west-bengal,1967,136,ALIPORE,A.SINGH,parties.IN.IND,IND,1559,3.55,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-137,west-bengal,1967,137,KALIGHAT,B.MITRA,parties.IN.INC,INC,24375,47.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-137,west-bengal,1967,137,KALIGHAT,D.MAZUMDER,parties.IN.CPIM,CPM,23670,45.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-137,west-bengal,1967,137,KALIGHAT,D.R.CHOWDHURY,parties.IN.BJS,BJS,1495,2.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-137,west-bengal,1967,137,KALIGHAT,S.K.BANERJEE,parties.IN.IND,IND,654,1.27,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-137,west-bengal,1967,137,KALIGHAT,N.K.ROY,parties.IN.IND,IND,577,1.12,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-137,west-bengal,1967,137,KALIGHAT,S.SIKDAR,parties.IN.IND,IND,528,1.03,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-137,west-bengal,1967,137,KALIGHAT,B.JOGI,parties.IN.IND,IND,194,0.38,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-138,west-bengal,1967,138,RASHBEHARIAVENUE,B.K.BANERJEE,parties.IN.IND,IND,17817,44.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-138,west-bengal,1967,138,RASHBEHARIAVENUE,G.MUKHERJEE,parties.IN.INC,INC,12169,30.35,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-138,west-bengal,1967,138,RASHBEHARIAVENUE,S.K.DAS,parties.IN.PSP,PSP,10114,25.22,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-139,west-bengal,1967,139,TOLLY GUNGE,N.S.GUPTA,parties.IN.CPIM,CPM,28581,53.44,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-139,west-bengal,1967,139,TOLLY GUNGE,A.P.D.GUPTA,parties.IN.INC,INC,23599,44.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-139,west-bengal,1967,139,TOLLY GUNGE,M.N.CHANDA,parties.IN.BJS,BJS,1298,2.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-140,west-bengal,1967,140,DHAKURIA,S.LAHIRI,parties.IN.CPI,CPI,20212,38.08,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-140,west-bengal,1967,140,DHAKURIA,H.MALAKAR,parties.IN.CPIM,CPM,17098,32.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-140,west-bengal,1967,140,DHAKURIA,D.CHATTERJEE,parties.IN.INC,INC,15762,29.7,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-141,west-bengal,1967,141,BALLYGUNGE,J . B . BHATTACHARYA,parties.IN.IND,IND,21153,53.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-141,west-bengal,1967,141,BALLYGUNGE,A . MAITRA,parties.IN.INC,INC,16929,43.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-141,west-bengal,1967,141,BALLYGUNGE,J . ALAM,parties.IN.IND,IND,572,1.45,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-141,west-bengal,1967,141,BALLYGUNGE,L . ROY,parties.IN.IND,IND,483,1.23,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-141,west-bengal,1967,141,BALLYGUNGE,S . C . SARKAR,parties.IN.IND,IND,226,0.57,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-142,west-bengal,1967,142,BELIAGHATA SOUTH,G . P . ROY,parties.IN.INC,INC,23273,56.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-142,west-bengal,1967,142,BELIAGHATA SOUTH,R . S . PRASAD,parties.IN.CPIM,CPM,18212,43.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-143,west-bengal,1967,143,ENTALLY,A . A . M . O . GHANI,parties.IN.CPI,CPI,20582,59.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-143,west-bengal,1967,143,ENTALLY,G . GOUS,parties.IN.INC,INC,11251,32.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-143,west-bengal,1967,143,ENTALLY,A . K . BISWAS,parties.IN.IND,IND,1942,5.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-143,west-bengal,1967,143,ENTALLY,S. N . MUKHERJEE,parties.IN.IND,IND,626,1.81,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-143,west-bengal,1967,143,ENTALLY,R . QADAR,parties.IN.IND,IND,208,0.6,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-144,west-bengal,1967,144,TALTOLA,K . HOSSAIN,parties.IN.INC,INC,14194,39.74,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-144,west-bengal,1967,144,TALTOLA,A . HASSAN,parties.IN.CPIM,CPM,12041,33.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-144,west-bengal,1967,144,TALTOLA,S. L . SENGUPTA,parties.IN.PSP,PSP,4423,12.38,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-144,west-bengal,1967,144,TALTOLA,S. M . ALI,parties.IN.IND,IND,2765,7.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-144,west-bengal,1967,144,TALTOLA,J . MAJUMDAR,parties.IN.IND,IND,972,2.72,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-144,west-bengal,1967,144,TALTOLA,A. S. M . K . RAHAMAN,parties.IN.IND,IND,766,2.14,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-144,west-bengal,1967,144,TALTOLA,A . A . KHAN,parties.IN.IND,IND,234,0.66,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-144,west-bengal,1967,144,TALTOLA,K . M . ALI,parties.IN.IND,IND,178,0.5,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-144,west-bengal,1967,144,TALTOLA,N . HOSSAINI,parties.IN.IND,IND,141,0.39,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-145,west-bengal,1967,145,SEALDAH,P . C . CHUNDER,parties.IN.INC,INC,20114,42.49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-145,west-bengal,1967,145,SEALDAH,S . M . CHOWDHURY,parties.IN.CPIM,CPM,15813,33.41,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-145,west-bengal,1967,145,SEALDAH,B . K . DEY,parties.IN.BAC,BAC,10888,23,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-145,west-bengal,1967,145,SEALDAH,H . ROY,parties.IN.IND,IND,519,1.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-146,west-bengal,1967,146,VIDYASAGAR,N . C . ROY,parties.IN.CPIM,CPM,24812,56.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-146,west-bengal,1967,146,VIDYASAGAR,D . L . DUTT,parties.IN.INC,INC,18064,41.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-146,west-bengal,1967,146,VIDYASAGAR,D . K . GUPTA,parties.IN.IND,IND,1170,2.66,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-147,west-bengal,1967,147,BELIAGHATA NORTH,K . P . GHOSH,parties.IN.CPIM,CPM,21387,42.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-147,west-bengal,1967,147,BELIAGHATA NORTH,S . BISWAS,parties.IN.INC,INC,17435,34.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-147,west-bengal,1967,147,BELIAGHATA NORTH,N . K . GUHA,parties.IN.AIFB,FBL,11346,22.62,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-148,west-bengal,1967,148,MANICKTOLA,I . MITRA,parties.IN.CPI,CPI,30380,56.41,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-148,west-bengal,1967,148,MANICKTOLA,N . SEN,parties.IN.INC,INC,23476,43.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-149,west-bengal,1967,149,BURTOLA,N . DAS,parties.IN.IND,IND,28437,54.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-149,west-bengal,1967,149,BURTOLA,S . C . R . CHAUDHURI,parties.IN.INC,INC,23688,45.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-150,west-bengal,1967,150,BELGACHIA,L . C . SEN,parties.IN.CPIM,CPM,27646,50.06,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-150,west-bengal,1967,150,BELGACHIA,G . SUR,parties.IN.INC,INC,25489,46.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-150,west-bengal,1967,150,BELGACHIA,N . K . SENGUPTA,parties.IN.IND,IND,900,1.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-150,west-bengal,1967,150,BELGACHIA,J . P . SENGUPTA,parties.IN.IND,IND,625,1.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-150,west-bengal,1967,150,BELGACHIA,F. DUTTA,parties.IN.IND,IND,561,1.02,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-151,west-bengal,1967,151,BALLY,S . N . MUKHRJEE,parties.IN.INC,INC,25632,43.77,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-151,west-bengal,1967,151,BALLY,P . P . PATHAK,parties.IN.CPIM,CPM,23469,40.07,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-151,west-bengal,1967,151,BALLY,S . MUKHRJEE,parties.IN.BAC,BAC,7649,13.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-151,west-bengal,1967,151,BALLY,M . K . SINGH,parties.IN.IND,IND,1815,3.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-152,west-bengal,1967,152,HOWRAH NORTH,S . K . MUKHRJEE,parties.IN.INC,INC,27896,51.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-152,west-bengal,1967,152,HOWRAH NORTH,D . P . SINGHA,parties.IN.IND,IND,20651,38.33,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-152,west-bengal,1967,152,HOWRAH NORTH,D . PRASAD,parties.IN.IND,IND,3574,6.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-152,west-bengal,1967,152,HOWRAH NORTH,S . BANRJEE,parties.IN.IND,IND,1128,2.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-152,west-bengal,1967,152,HOWRAH NORTH,J . N . JAISWAL,parties.IN.BJS,BJS,626,1.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-153,west-bengal,1967,153,HOWRAH CENTRAL,D . MITRA,parties.IN.INC,INC,19770,41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-153,west-bengal,1967,153,HOWRAH CENTRAL,A . DAS,parties.IN.IND,IND,15663,32.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-153,west-bengal,1967,153,HOWRAH CENTRAL,H . BHARATI,parties.IN.BJS,BJS,9464,19.63,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-153,west-bengal,1967,153,HOWRAH CENTRAL,S . C . BISWAS,parties.IN.AIFB,FBL,3323,6.89,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-154,west-bengal,1967,154,HOWRAH SOUTH,B . K . BHATTACHARJA,parties.IN.INC,INC,29106,54.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-154,west-bengal,1967,154,HOWRAH SOUTH,N . D . GUPTA,parties.IN.CPIM,CPM,18432,34.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-154,west-bengal,1967,154,HOWRAH SOUTH,R . SEN,parties.IN.CPI,CPI,5470,10.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-154,west-bengal,1967,154,HOWRAH SOUTH,R . MITRA,parties.IN.IND,IND,784,1.46,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-155,west-bengal,1967,155,SHIBPUR,M . BANERJEE,parties.IN.INC,INC,19617,37.45,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-155,west-bengal,1967,155,SHIBPUR,K . BHATTACHARYA,parties.IN.AIFB,FBL,18312,34.96,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-155,west-bengal,1967,155,SHIBPUR,H . MITRA,parties.IN.CPIM,CPM,14446,27.58,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-156,west-bengal,1967,156,DOMJUR,A . H . MONDAL,parties.IN.INC,INC,28271,48.6,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-156,west-bengal,1967,156,DOMJUR,J . MUKHERJEE,parties.IN.CPIM,CPM,27462,47.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-156,west-bengal,1967,156,DOMJUR,A . G . CHATTAPADHAYAYA,parties.IN.IND,IND,2440,4.19,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-157,west-bengal,1967,157,JAGATBALLAVPUR,B . B . BOSE,parties.IN.CPIM,CPM,24447,49.22,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-157,west-bengal,1967,157,JAGATBALLAVPUR,A. L . HAZRA,parties.IN.INC,INC,20369,41.01,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-157,west-bengal,1967,157,JAGATBALLAVPUR,G . C . BAG,parties.IN.AIFB,FBL,4854,9.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-158,west-bengal,1967,158,PANCHLA,P . MUKHOPADHYA,parties.IN.INC,INC,22051,43.28,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-158,west-bengal,1967,158,PANCHLA,M . R . SEPAI,parties.IN.IND,IND,13918,27.32,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-158,west-bengal,1967,158,PANCHLA,B . C . RAY,parties.IN.AIFB,FBL,13340,26.18,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-158,west-bengal,1967,158,PANCHLA,P . DAS,parties.IN.IND,IND,1640,3.22,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-159,west-bengal,1967,159,SANKRAIL,N . N . BHUNIA,parties.IN.INC,INC,25019,50.72,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-159,west-bengal,1967,159,SANKRAIL,H . C . HAJRA,parties.IN.CPIM,CPM,16198,32.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-159,west-bengal,1967,159,SANKRAIL,D . C . MONDAL,parties.IN.CPI,CPI,8110,16.44,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-160,west-bengal,1967,160,ULUBERIA NORTH,K.MONDAL,parties.IN.AIFB,FBL,29160,73.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-160,west-bengal,1967,160,ULUBERIA NORTH,D.M.MOHAN,parties.IN.INC,INC,10488,26.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-161,west-bengal,1967,161,ULIBERIA SOUTH,B . D . GHOSE,parties.IN.AIFB,FBL,20336,38.05,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-161,west-bengal,1967,161,ULIBERIA SOUTH,A . K . BASU,parties.IN.INC,INC,17493,32.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-161,west-bengal,1967,161,ULIBERIA SOUTH,B . K . DAS,parties.IN.CPIM,CPM,13234,24.76,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-161,west-bengal,1967,161,ULIBERIA SOUTH,M . KOHAD,parties.IN.IND,IND,1830,3.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-161,west-bengal,1967,161,ULIBERIA SOUTH,A . K . SIRCAR,parties.IN.IND,IND,551,1.03,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-162,west-bengal,1967,162,SHYAMPUR,S . BERA,parties.IN.AIFB,FBL,34991,57.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-162,west-bengal,1967,162,SHYAMPUR,M . M . MANNA,parties.IN.INC,INC,26013,42.64,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-163,west-bengal,1967,163,BAGNAN,R . G . CHOUDHURY,parties.IN.INC,INC,18956,37.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-163,west-bengal,1967,163,BAGNAN,N . CHATTOPADHAYA,parties.IN.CPIM,CPM,18126,35.75,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-163,west-bengal,1967,163,BAGNAN,A . K . GANGULY,parties.IN.BAC,BAC,13625,26.87,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-164,west-bengal,1967,164,KALYANPUR,S . K . MITRA,parties.IN.BAC,BAC,23004,46.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-164,west-bengal,1967,164,KALYANPUR,A . ROY,parties.IN.INC,INC,19841,39.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-164,west-bengal,1967,164,KALYANPUR,S . K . BHOWMICK,parties.IN.AIFB,FBL,6372,12.75,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-164,west-bengal,1967,164,KALYANPUR,M . M . SINHA,parties.IN.PSP,PSP,773,1.55,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-165,west-bengal,1967,165,AMTA,N . BHANDARI,parties.IN.CPIM,CPM,30603,58.73,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-165,west-bengal,1967,165,AMTA,T . PRAMANIK,parties.IN.INC,INC,20448,39.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-165,west-bengal,1967,165,AMTA,B . GHORUI,parties.IN.AIFB,FBL,1058,2.03,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-166,west-bengal,1967,166,UDAYNARAYANPUR,P . L . MAJI,parties.IN.CPIM,CPM,27075,54.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-166,west-bengal,1967,166,UDAYNARAYANPUR,S . C . SAMANTA,parties.IN.INC,INC,20508,41.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-166,west-bengal,1967,166,UDAYNARAYANPUR,S . KOLEY,parties.IN.AIFB,FBL,2324,4.66,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-167,west-bengal,1967,167,JANGIPARA,M . N . JANA,parties.IN.CPIM,CPM,20111,44.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-167,west-bengal,1967,167,JANGIPARA,K . L . DEY,parties.IN.INC,INC,18981,41.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-167,west-bengal,1967,167,JANGIPARA,S . BHAR,parties.IN.BAC,BAC,6457,14.18,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-168,west-bengal,1967,168,CHANDITALA,M . A . LATIF,parties.IN.IND,IND,17317,37.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-168,west-bengal,1967,168,CHANDITALA,S . S . BUKHSH,parties.IN.INC,INC,12187,26.5,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-168,west-bengal,1967,168,CHANDITALA,K . K . BASU,parties.IN.CPIM,CPM,10272,22.34,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-168,west-bengal,1967,168,CHANDITALA,M . BHATTACHARJYA,parties.IN.CPI,CPI,3379,7.35,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-168,west-bengal,1967,168,CHANDITALA,S . C . KOLAY,parties.IN.IND,IND,2832,6.16,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-169,west-bengal,1967,169,UTTARPARA,M . HAZRA,parties.IN.CPIM,CPM,24618,47.39,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-169,west-bengal,1967,169,UTTARPARA,M . M . MITRA,parties.IN.INC,INC,20195,38.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-169,west-bengal,1967,169,UTTARPARA,G . BANDY IPADHAYA,parties.IN.CPI,CPI,6066,11.68,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-169,west-bengal,1967,169,UTTARPARA,P . BHATTACHARJYA,parties.IN.IND,IND,1067,2.05,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-170,west-bengal,1967,170,SERAMPORE,G . D . NAG,parties.IN.INC,INC,33203,55.64,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-170,west-bengal,1967,170,SERAMPORE,P . BHADURI,parties.IN.CPI,CPI,25234,42.28,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-170,west-bengal,1967,170,SERAMPORE,A . PRASAD,parties.IN.IND,IND,1243,2.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-171,west-bengal,1967,171,CHAMPDANI,B . MAJUMDAR,parties.IN.INC,INC,28517,53.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-171,west-bengal,1967,171,CHAMPDANI,H . MUKHERJEE,parties.IN.CPIM,CPM,15368,28.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-171,west-bengal,1967,171,CHAMPDANI,G . B . MUKHOPADHYA,parties.IN.CPI,CPI,8701,16.28,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-171,west-bengal,1967,171,CHAMPDANI,S . CHATTOPADHYAY,parties.IN.IND,IND,849,1.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-172,west-bengal,1967,172,CHANDERNAGORE,B . MUKHERJEE,parties.IN.CPIM,CPM,29830,54.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-172,west-bengal,1967,172,CHANDERNAGORE,S . BANDYOPADHYAY,parties.IN.INC,INC,23073,42.43,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-172,west-bengal,1967,172,CHANDERNAGORE,P . GHOSH,parties.IN.IND,IND,881,1.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-172,west-bengal,1967,172,CHANDERNAGORE,P . C . DAS,parties.IN.IND,IND,597,1.1,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-173,west-bengal,1967,173,SINGUR,P . PAL,parties.IN.INC,INC,26121,48.25,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-173,west-bengal,1967,173,SINGUR,G . C . BANDOPADHYAY,parties.IN.CPIM,CPM,14618,27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-173,west-bengal,1967,173,SINGUR,A . K . BASU,parties.IN.CPI,CPI,13394,24.74,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-174,west-bengal,1967,174,HARIPAL,A . C . MAJUMDAR,parties.IN.SSP,SSP,18732,44.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-174,west-bengal,1967,174,HARIPAL,S . C . BHATTACHARYYA,parties.IN.INC,INC,16139,37.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-174,west-bengal,1967,174,HARIPAL,A . C . BRAHMACHARI,parties.IN.AIFB,FBL,7678,18.05,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-175,west-bengal,1967,175,CHINSURAH,S . C . GHOSE,parties.IN.AIFB,FBL,34073,58.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-175,west-bengal,1967,175,CHINSURAH,N . K . SEN,parties.IN.INC,INC,23073,39.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-175,west-bengal,1967,175,CHINSURAH,N . K . GHOSH,parties.IN.BJS,BJS,1041,1.79,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-176,west-bengal,1967,176,POLBA,B . CHATTOPADHAYAY,parties.IN.INC,INC,27942,56.67,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-176,west-bengal,1967,176,POLBA,B . G . NEOGY,parties.IN.CPIM,CPM,20067,40.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-176,west-bengal,1967,176,POLBA,J . M . RAY,parties.IN.BJS,BJS,1295,2.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-177,west-bengal,1967,177,BALAGARH,H . K . DAS,parties.IN.INC,INC,20183,45.2,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-177,west-bengal,1967,177,BALAGARH,A . PRAMANIK,parties.IN.CPIM,CPM,20140,45.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-177,west-bengal,1967,177,BALAGARH,K . C . ROY,parties.IN.BAC,BAC,4329,9.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-178,west-bengal,1967,178,PANDUA,R . KUNDU,parties.IN.INC,INC,19507,45.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-178,west-bengal,1967,178,PANDUA,M . R . MANDAL,parties.IN.CPIM,CPM,16277,37.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-178,west-bengal,1967,178,PANDUA,S . CHATTOPADHYAY,parties.IN.BAC,BAC,6780,15.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-178,west-bengal,1967,178,PANDUA,K . M . ALI,parties.IN.IND,IND,628,1.45,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-179,west-bengal,1967,179,DHANIAKHALI,K . SAHA,parties.IN.AIFB,FBL,20662,47.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-179,west-bengal,1967,179,DHANIAKHALI,R . DAS,parties.IN.INC,INC,17647,40.68,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-179,west-bengal,1967,179,DHANIAKHALI,P . PATRA,parties.IN.CPIM,CPM,5070,11.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-180,west-bengal,1967,180,TARAKESWAR,R . CHATTERJEE,parties.IN.IND,IND,29383,62.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-180,west-bengal,1967,180,TARAKESWAR,N . ADHIKARY,parties.IN.INC,INC,17510,37.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-181,west-bengal,1967,181,PURSURAH,S . M . ROY,parties.IN.INC,INC,27760,54.1,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-181,west-bengal,1967,181,PURSURAH,M . ROY,parties.IN.CPIM,CPM,21301,41.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-181,west-bengal,1967,181,PURSURAH,D . GHOSH,parties.IN.IND,IND,1191,2.32,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-181,west-bengal,1967,181,PURSURAH,B .SAU,parties.IN.IND,IND,1065,2.08,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-182,west-bengal,1967,182,KHANAKUL,M . SAHA,parties.IN.CPIM,CPM,29347,64.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-182,west-bengal,1967,182,KHANAKUL,K . P . PANDIT,parties.IN.INC,INC,16377,35.82,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-183,west-bengal,1967,183,ARAMBAGH,A . K . MUKHOPADHYAYA,parties.IN.BAC,BAC,27916,49.86,1,won,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-183,west-bengal,1967,183,ARAMBAGH,P . C . SEN,parties.IN.INC,INC,27035,48.29,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-183,west-bengal,1967,183,ARAMBAGH,P . J . BRAHMA,parties.IN.IND,IND,1039,1.86,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-184,west-bengal,1967,184,GOGHAT,A . K . BISWAS,parties.IN.AIFB,FBL,28126,66.01,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-184,west-bengal,1967,184,GOGHAT,S . ROY,parties.IN.INC,INC,13504,31.69,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-184,west-bengal,1967,184,GOGHAT,N . R . ROY,parties.IN.IND,IND,979,2.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-185,west-bengal,1967,185,CHANDRAKONA,I . ROY,parties.IN.INC,INC,16592,39.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-185,west-bengal,1967,185,CHANDRAKONA,S . P . SINGHA,parties.IN.CPIM,CPM,12571,29.73,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-185,west-bengal,1967,185,CHANDRAKONA,M . CHATTER JEE,parties.IN.BAC,BAC,9671,22.87,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-185,west-bengal,1967,185,CHANDRAKONA,P . SINGHA,parties.IN.IND,IND,3454,8.17,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-186,west-bengal,1967,186,GHATAL,N . R . DAL,parties.IN.CPIM,CPM,18645,44.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-186,west-bengal,1967,186,GHATAL,H . N . DOLUI,parties.IN.INC,INC,13633,32.25,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-186,west-bengal,1967,186,GHATAL,K . DOLUI,parties.IN.BAC,BAC,9996,23.65,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-187,west-bengal,1967,187,DASPUR,B . C . SASMAL,parties.IN.INC,INC,27822,50.21,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-187,west-bengal,1967,187,DASPUR,M . BHATTACHARJYA,parties.IN.CPIM,CPM,23658,42.7,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-187,west-bengal,1967,187,DASPUR,B . C . MAJEE,parties.IN.IND,IND,3240,5.85,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-187,west-bengal,1967,187,DASPUR,H . K . BERA,parties.IN.IND,IND,690,1.25,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-188,west-bengal,1967,188,PANSKURA WEST,R . K . PRAMANIK,parties.IN.BAC,BAC,36132,63.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-188,west-bengal,1967,188,PANSKURA WEST,S . BHATTACHARYYA,parties.IN.INC,INC,20949,36.7,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-189,west-bengal,1967,189,PANSKURA EAST,G. MUKHOPADHYAY,parties.IN.CPI,CPI,34252,63.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-189,west-bengal,1967,189,PANSKURA EAST,S. SAMANTA,parties.IN.INC,INC,15098,27.93,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-189,west-bengal,1967,189,PANSKURA EAST,B. GOURI,parties.IN.IND,IND,3839,7.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-189,west-bengal,1967,189,PANSKURA EAST,B.K. BARMAN,parties.IN.IND,IND,871,1.61,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-190,west-bengal,1967,190,MOYNA,K. BHOWMIK,parties.IN.CPI,CPI,38934,65.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-190,west-bengal,1967,190,MOYNA,A.M. DAS,parties.IN.INC,INC,17841,30.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-190,west-bengal,1967,190,MOYNA,P. BERA,parties.IN.CPIM,CPM,2285,3.87,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-191,west-bengal,1967,191,TAMOUK,A.MALAKAR,parties.IN.BAC,BAC,33606,87.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-191,west-bengal,1967,191,TAMOUK,H.ADHHIKARY,parties.IN.INC,INC,3285,8.56,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-191,west-bengal,1967,191,TAMOUK,S.N.GHORI,parties.IN.IND,IND,1499,3.9,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-192,west-bengal,1967,192,MAHISHADAL,S.K. BHARA,parties.IN.BAC,BAC,41783,71.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-192,west-bengal,1967,192,MAHISHADAL,D.P. GARGA,parties.IN.INC,INC,16972,28.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-193,west-bengal,1967,193,SUTAHATA,M.C. DAS,parties.IN.BAC,BAC,29194,52.65,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-193,west-bengal,1967,193,SUTAHATA,H. DEB,parties.IN.INC,INC,23901,43.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-193,west-bengal,1967,193,SUTAHATA,M. DAS,parties.IN.IND,IND,2359,4.25,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-194,west-bengal,1967,194,NANDIGRAM,B.C. PANDA,parties.IN.CPI,CPI,34552,58.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-194,west-bengal,1967,194,NANDIGRAM,P.C. JANA,parties.IN.INC,INC,23989,40.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-194,west-bengal,1967,194,NANDIGRAM,S.O. ALI,parties.IN.IND,IND,459,0.78,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-195,west-bengal,1967,195,NARGHAT,P.K. GAYEN,parties.IN.BAC,BAC,35072,60.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-195,west-bengal,1967,195,NARGHAT,S.C. MAITI,parties.IN.INC,INC,22877,39.48,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-196,west-bengal,1967,196,BHAGBANPUR,A. MAITI,parties.IN.INC,INC,25147,48.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-196,west-bengal,1967,196,BHAGBANPUR,A. JANA,parties.IN.BAC,BAC,22750,44.26,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-196,west-bengal,1967,196,BHAGBANPUR,B . K . PANDA,parties.IN.SSP,SSP,3503,6.82,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-197,west-bengal,1967,197,KHAJURI,B . PAIK,parties.IN.INC,INC,17894,39.69,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-197,west-bengal,1967,197,KHAJURI,A . K . DAS,parties.IN.BAC,BAC,15452,34.27,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-197,west-bengal,1967,197,KHAJURI,L . B . DAS,parties.IN.SSP,SSP,11443,25.38,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-197,west-bengal,1967,197,KHAJURI,S . B . MONDAL,parties.IN.BJS,BJS,295,0.65,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-198,west-bengal,1967,198,CONTAI NORTH,M . L . DAS,parties.IN.INC,INC,22419,44.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-198,west-bengal,1967,198,CONTAI NORTH,S . G . GUCHHAIT,parties.IN.PSP,PSP,21386,42.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-198,west-bengal,1967,198,CONTAI NORTH,A . MISHRA,parties.IN.CPIM,CPM,6558,13.02,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-199,west-bengal,1967,199,CONTAI SOUTH,S .C . DAS,parties.IN.PSP,PSP,26089,51.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-199,west-bengal,1967,199,CONTAI SOUTH,S . MAITY,parties.IN.INC,INC,23342,45.66,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-199,west-bengal,1967,199,CONTAI SOUTH,R . C . NANDI,parties.IN.SSP,SSP,1075,2.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-199,west-bengal,1967,199,CONTAI SOUTH,P . B . DAS,parties.IN.IND,IND,610,1.19,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-200,west-bengal,1967,200,RAMNAGAR,T . PRADHAN,parties.IN.INC,INC,28091,54.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-200,west-bengal,1967,200,RAMNAGAR,B . L . D . MAHAPATRA,parties.IN.PSP,PSP,22532,43.74,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-200,west-bengal,1967,200,RAMNAGAR,M . MAITY,parties.IN.SSP,SSP,893,1.73,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-201,west-bengal,1967,201,EGRA,B . PAHARI,parties.IN.PSP,PSP,33640,61.96,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-201,west-bengal,1967,201,EGRA,H . CHAKRAVARTY,parties.IN.INC,INC,20650,38.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-202,west-bengal,1967,202,MUGBERIA,B . MAITY,parties.IN.BAC,BAC,24166,52.04,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-202,west-bengal,1967,202,MUGBERIA,H . GAYEN,parties.IN.INC,INC,16009,34.47,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-202,west-bengal,1967,202,MUGBERIA,P . RAY,parties.IN.SSP,SSP,6262,13.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-203,west-bengal,1967,203,PATASPUR,K . D . MAHAPATRA,parties.IN.CPI,CPI,28389,54.43,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-203,west-bengal,1967,203,PATASPUR,R . D . ADHIKARY,parties.IN.INC,INC,23764,45.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-204,west-bengal,1967,204,PINGLA,G . SAMANTA,parties.IN.CPI,CPI,28410,55.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-204,west-bengal,1967,204,PINGLA,S . SAMANTA,parties.IN.INC,INC,22019,42.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-204,west-bengal,1967,204,PINGLA,S . JANA,parties.IN.BJS,BJS,1063,2.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-205,west-bengal,1967,205,DEBRA,K . CHAKRABORTY,parties.IN.BAC,BAC,18851,47.91,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-205,west-bengal,1967,205,DEBRA,S . K . MUKHOPADHYAY,parties.IN.INC,INC,14399,36.59,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-205,west-bengal,1967,205,DEBRA,B . MONDAL,parties.IN.CPIM,CPM,6099,15.5,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-206,west-bengal,1967,206,KESHPUR,R . K . DOLOI,parties.IN.INC,INC,22658,47.4,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-206,west-bengal,1967,206,KESHPUR,G . KUAR,parties.IN.BAC,BAC,13403,28.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-206,west-bengal,1967,206,KESHPUR,I . N . DOLOI,parties.IN.CPIM,CPM,11744,24.57,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-207,west-bengal,1967,207,GARHBETA EAST,K . K . CHALAK,parties.IN.INC,INC,22539,49.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-207,west-bengal,1967,207,GARHBETA EAST,S . P . BERA,parties.IN.BAC,BAC,15343,33.95,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-207,west-bengal,1967,207,GARHBETA EAST,B . DOLOI,parties.IN.CPIM,CPM,7310,16.18,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-208,west-bengal,1967,208,GARHBETA WEST,P . SINHARAY,parties.IN.INC,INC,21387,46.18,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-208,west-bengal,1967,208,GARHBETA WEST,S . ROY,parties.IN.CPI,CPI,19345,41.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-208,west-bengal,1967,208,GARHBETA WEST,S . MONDAL,parties.IN.CPIM,CPM,3382,7.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-208,west-bengal,1967,208,GARHBETA WEST,J . SAREN,parties.IN.IND,IND,1523,3.29,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-208,west-bengal,1967,208,GARHBETA WEST,P . B . GANGOPADHYAY,parties.IN.BJS,BJS,679,1.47,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-209,west-bengal,1967,209,SALBANI,A . R . MAHATO,parties.IN.BAC,BAC,15654,40.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-209,west-bengal,1967,209,SALBANI,S . K . GHOSAL,parties.IN.INC,INC,11865,30.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-209,west-bengal,1967,209,SALBANI,S . K . PANDAY,parties.IN.CPIM,CPM,6517,16.78,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-209,west-bengal,1967,209,SALBANI,R . S . S . RAY,parties.IN.IND,IND,2884,7.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-209,west-bengal,1967,209,SALBANI,R . B . MAHATO,parties.IN.IND,IND,1315,3.39,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-209,west-bengal,1967,209,SALBANI,J . HANSOA,parties.IN.IND,IND,612,1.58,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-210,west-bengal,1967,210,MIDNAPUR,K . C . GHOSE,parties.IN.CPI,CPI,23784,56.34,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-210,west-bengal,1967,210,MIDNAPUR,S . S . BARI,parties.IN.INC,INC,15704,37.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-210,west-bengal,1967,210,MIDNAPUR,M . C . GHOSE,parties.IN.BJS,BJS,2728,6.46,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-211,west-bengal,1967,211,KHARAGPUR,N .CHOUBEY,parties.IN.CPI,CPI,20118,49,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-211,west-bengal,1967,211,KHARAGPUR,G . S . SOHANPAL,parties.IN.INC,INC,18186,44.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-211,west-bengal,1967,211,KHARAGPUR,V . V . S . J . RAO,parties.IN.CPIM,CPM,2749,6.7,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-212,west-bengal,1967,212,KHARAGPUR LOCAL,D . DAS,parties.IN.CPI,CPI,20569,55.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-212,west-bengal,1967,212,KHARAGPUR LOCAL,L . N . PAUL,parties.IN.INC,INC,16247,44.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-213,west-bengal,1967,213,NARAYANGARH,K . D . ROY,parties.IN.INC,INC,25768,52.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-213,west-bengal,1967,213,NARAYANGARH,M . K . LAHA,parties.IN.BAC,BAC,22705,46.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-213,west-bengal,1967,213,NARAYANGARH,G . BARMAN,parties.IN.IND,IND,625,1.27,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-214,west-bengal,1967,214,DANTAN,D . N . DAS,parties.IN.BAC,BAC,27729,54.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-214,west-bengal,1967,214,DANTAN,P . K . MAHANTI,parties.IN.INC,INC,22887,45.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-215,west-bengal,1967,215,KESHIARI,B . C . TUDU,parties.IN.INC,INC,15262,50.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-215,west-bengal,1967,215,KESHIARI,B . KISKU,parties.IN.BAC,BAC,13651,45.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-215,west-bengal,1967,215,KESHIARI,M . SINGH,parties.IN.IND,IND,1355,4.48,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-216,west-bengal,1967,216,NAYAGRAM,J . HANSDA,parties.IN.BAC,BAC,11476,40.27,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-216,west-bengal,1967,216,NAYAGRAM,I . MAN-DI,parties.IN.SSP,SSP,8500,29.83,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-216,west-bengal,1967,216,NAYAGRAM,D . HANSDA,parties.IN.INC,INC,7060,24.77,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-216,west-bengal,1967,216,NAYAGRAM,L . SAREN,parties.IN.IND,IND,1462,5.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-217,west-bengal,1967,217,GOPIBALLAVPUR,D . KAR,parties.IN.SSP,SSP,29019,60.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-217,west-bengal,1967,217,GOPIBALLAVPUR,S . N . MAHATA,parties.IN.INC,INC,18856,39.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-218,west-bengal,1967,218,JHARGRAM,P . C . GHOSH,parties.IN.IND,IND,26760,59.46,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-218,west-bengal,1967,218,JHARGRAM,B . B . MALLADEB,parties.IN.INC,INC,18245,40.54,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-219,west-bengal,1967,219,BINPUR,M . C . SAREN,parties.IN.INC,INC,11961,40.13,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-219,west-bengal,1967,219,BINPUR,J . SAREN,parties.IN.CPI,CPI,7975,26.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-219,west-bengal,1967,219,BINPUR,G . SINGHA,parties.IN.SSP,SSP,4444,14.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-219,west-bengal,1967,219,BINPUR,S . MURMU,parties.IN.IND,IND,4288,14.39,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-219,west-bengal,1967,219,BINPUR,G . MURMU,parties.IN.IND,IND,1135,3.81,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-220,west-bengal,1967,220,BANDUAN,K . MAJHI,parties.IN.IND,IND,18740,52.07,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-220,west-bengal,1967,220,BANDUAN,B . MAJHI,parties.IN.INC,INC,13140,36.51,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-220,west-bengal,1967,220,BANDUAN,G . MURMU,parties.IN.SWA,SWA,3217,8.94,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-220,west-bengal,1967,220,BANDUAN,L . MAJHI,parties.IN.BJS,BJS,892,2.48,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-221,west-bengal,1967,221,MANBAZAR,G . MAHATO,parties.IN.IND,IND,19802,50.17,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-221,west-bengal,1967,221,MANBAZAR,S . MAHATO,parties.IN.INC,INC,13091,33.17,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-221,west-bengal,1967,221,MANBAZAR,P . CHAKRABORTY,parties.IN.SWA,SWA,5353,13.56,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-221,west-bengal,1967,221,MANBAZAR,H . SHARMA,parties.IN.BJS,BJS,1220,3.09,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-222,west-bengal,1967,222,BALARAMPUR,G . MAJHI,parties.IN.IND,IND,12164,38.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-222,west-bengal,1967,222,BALARAMPUR,T . MAJHI,parties.IN.CPIM,CPM,8587,27.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-222,west-bengal,1967,222,BALARAMPUR,K . MAJHI,parties.IN.INC,INC,7311,23.32,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-222,west-bengal,1967,222,BALARAMPUR,M . MURMU,parties.IN.BJS,BJS,2639,8.42,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-222,west-bengal,1967,222,BALARAMPUR,H . SARDAR,parties.IN.IND,IND,654,2.09,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-223,west-bengal,1967,223,ARSHA,B . MUKHERJEE,parties.IN.INC,INC,13544,32.3,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-223,west-bengal,1967,223,ARSHA,M . MAJHI,parties.IN.SWA,SWA,9071,21.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-223,west-bengal,1967,223,ARSHA,D . C . KUIRI,parties.IN.AIFB,FBL,7537,17.97,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-223,west-bengal,1967,223,ARSHA,S . C . BANERJEE,parties.IN.IND,IND,6090,14.52,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-223,west-bengal,1967,223,ARSHA,P . K . KUNDU,parties.IN.IND,IND,2686,6.4,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-223,west-bengal,1967,223,ARSHA,G . MAHATO,parties.IN.IND,IND,1120,2.67,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-223,west-bengal,1967,223,ARSHA,D . SEN,parties.IN.BJS,BJS,631,1.5,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-223,west-bengal,1967,223,ARSHA,B . B . SINGH,parties.IN.IND,IND,459,1.09,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-223,west-bengal,1967,223,ARSHA,A . G . P . MAHATO,parties.IN.IND,IND,424,1.01,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-223,west-bengal,1967,223,ARSHA,S . K . CHAKRABARTY,parties.IN.IND,IND,375,0.89,10,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-224,west-bengal,1967,224,JHALDA,C . MAHATO,parties.IN.AIFB,FBL,22277,52.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-224,west-bengal,1967,224,JHALDA,D . N . MAHATO,parties.IN.INC,INC,19981,46.67,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-224,west-bengal,1967,224,JHALDA,S . S . TRIVEDY,parties.IN.BJS,BJS,556,1.3,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-225,west-bengal,1967,225,JAIPUR,R . K . MAHATO,parties.IN.INC,INC,10180,32.87,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-225,west-bengal,1967,225,JAIPUR,D . R . SINGHA,parties.IN.SWA,SWA,5582,18.02,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-225,west-bengal,1967,225,JAIPUR,N . C . ROY,parties.IN.IND,IND,4664,15.06,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-225,west-bengal,1967,225,JAIPUR,A . CHAUDHURY,parties.IN.IND,IND,3358,10.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-225,west-bengal,1967,225,JAIPUR,C . MAHATO,parties.IN.IND,IND,2402,7.75,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-225,west-bengal,1967,225,JAIPUR,K . MAHATO,parties.IN.BJS,BJS,1765,5.7,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-225,west-bengal,1967,225,JAIPUR,P . MAHATO,parties.IN.IND,IND,1683,5.43,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-225,west-bengal,1967,225,JAIPUR,J . C . K . MAHTO,parties.IN.IND,IND,954,3.08,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-225,west-bengal,1967,225,JAIPUR,S . A . OBAICULLA,parties.IN.IND,IND,387,1.25,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-226,west-bengal,1967,226,PURULIA,B . B . D . GUPTA,parties.IN.IND,IND,18607,48.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-226,west-bengal,1967,226,PURULIA,T . P . ROY,parties.IN.INC,INC,11062,28.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-226,west-bengal,1967,226,PURULIA,U . C . MAHTC,parties.IN.IND,IND,3117,8.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-226,west-bengal,1967,226,PURULIA,J . N . MAHATO,parties.IN.IND,IND,1941,5.06,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-226,west-bengal,1967,226,PURULIA,A . K . KABIRAJ,parties.IN.BJS,BJS,1482,3.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-226,west-bengal,1967,226,PURULIA,B . K . SARKAR,parties.IN.IND,IND,783,2.04,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-226,west-bengal,1967,226,PURULIA,K . MAHATO,parties.IN.IND,IND,747,1.95,7,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-226,west-bengal,1967,226,PURULIA,S . K . MAHTO,parties.IN.IND,IND,468,1.22,8,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-226,west-bengal,1967,226,PURULIA,L . K . MAHATO,parties.IN.IND,IND,126,0.33,9,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-227,west-bengal,1967,227,PARA,S . BAURI,parties.IN.BAC,BAC,10474,40.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-227,west-bengal,1967,227,PARA,B . BAURI,parties.IN.INC,INC,9367,36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-227,west-bengal,1967,227,PARA,M . RAJWAR,parties.IN.BJS,BJS,4654,17.89,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-227,west-bengal,1967,227,PARA,B . C . DAS,parties.IN.IND,IND,1522,5.85,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-228,west-bengal,1967,228,RAGHUNATHPUR,N . BAURI,parties.IN.INC,INC,13372,46.31,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-228,west-bengal,1967,228,RAGHUNATHPUR,H . BAURI,parties.IN.IND,IND,11133,38.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-228,west-bengal,1967,228,RAGHUNATHPUR,H . DAS,parties.IN.IND,IND,2862,9.91,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-228,west-bengal,1967,228,RAGHUNATHPUR,D . BAURI,parties.IN.BJS,BJS,1505,5.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-229,west-bengal,1967,229,KASHIPUR,S . N . S . DEO,parties.IN.INC,INC,12442,43.63,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-229,west-bengal,1967,229,KASHIPUR,K . K . R . CHOWDHURY,parties.IN.CPI,CPI,12103,42.44,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-229,west-bengal,1967,229,KASHIPUR,G . BANDYAPADHYA,parties.IN.BJS,BJS,3970,13.92,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-230,west-bengal,1967,230,HURA,S . OJHA,parties.IN.IND,IND,12434,33.51,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-230,west-bengal,1967,230,HURA,R . R . P . S . DEO,parties.IN.INC,INC,11807,31.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-230,west-bengal,1967,230,HURA,B . MAHATO,parties.IN.IND,IND,5232,14.1,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-230,west-bengal,1967,230,HURA,K . K . MUKHERJEE,parties.IN.IND,IND,4207,11.34,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-230,west-bengal,1967,230,HURA,T . T . MAHATO,parties.IN.BJS,BJS,3427,9.24,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-231,west-bengal,1967,231,TALDANGRA,P . MUKHOPADHYAY,parties.IN.INC,INC,29775,57.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-231,west-bengal,1967,231,TALDANGRA,D . MAHANTI,parties.IN.CPIM,CPM,22143,42.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-232,west-bengal,1967,232,RAIPUR,B . SAREN,parties.IN.BAC,BAC,22840,51.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-232,west-bengal,1967,232,RAIPUR,J . N . MURMU,parties.IN.INC,INC,18705,42.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-232,west-bengal,1967,232,RAIPUR,B . N . HANSDA,parties.IN.BJS,BJS,2824,6.36,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-233,west-bengal,1967,233,RANIBANDH,B . HEMRAN,parties.IN.INC,INC,21902,52.11,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-233,west-bengal,1967,233,RANIBANDH,J . HANSDA,parties.IN.CPIM,CPM,9700,23.08,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-233,west-bengal,1967,233,RANIBANDH,B . SARDAR,parties.IN.IND,IND,7083,16.85,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-233,west-bengal,1967,233,RANIBANDH,I . MAJI,parties.IN.BJS,BJS,1976,4.7,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-233,west-bengal,1967,233,RANIBANDH,F . HANSDA,parties.IN.IND,IND,1371,3.26,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-234,west-bengal,1967,234,INDPUR,B . B . MAJI,parties.IN.INC,INC,20998,55.36,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-234,west-bengal,1967,234,INDPUR,G . C . LOHAR,parties.IN.BAC,BAC,11593,30.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-234,west-bengal,1967,234,INDPUR,N . MANDAL,parties.IN.BJS,BJS,3541,9.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-234,west-bengal,1967,234,INDPUR,B . BAURI,parties.IN.SSP,SSP,1799,4.74,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-235,west-bengal,1967,235,CHHATNA,J . KOLEY,parties.IN.INC,INC,19384,49.48,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-235,west-bengal,1967,235,CHHATNA,S . SINGH,parties.IN.SSP,SSP,13243,33.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-235,west-bengal,1967,235,CHHATNA,B . KUNDU,parties.IN.IND,IND,2401,6.13,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-235,west-bengal,1967,235,CHHATNA,K .K .ROY,parties.IN.BAC,BAC,1922,4.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-235,west-bengal,1967,235,CHHATNA,B . ROY,parties.IN.IND,IND,1126,2.87,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-235,west-bengal,1967,235,CHHATNA,A . B . SAREN,parties.IN.IND,IND,1099,2.81,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-236,west-bengal,1967,236,GANGJALGHATI,G . MAJI,parties.IN.BAC,BAC,20278,56.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-236,west-bengal,1967,236,GANGJALGHATI,G . KHAN,parties.IN.INC,INC,15582,43.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-237,west-bengal,1967,237,BARJORA,A . CHATTERJEE,parties.IN.INC,INC,23134,46.38,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-237,west-bengal,1967,237,BARJORA,A . K . RAJ,parties.IN.CPIM,CPM,21431,42.97,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-237,west-bengal,1967,237,BARJORA,P . C . ROY,parties.IN.BJS,BJS,5309,10.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-238,west-bengal,1967,238,BANKURA,S . MITRA,parties.IN.INC,INC,14105,30.86,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-238,west-bengal,1967,238,BANKURA,B . GHOSH,parties.IN.CPI,CPI,14090,30.82,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-238,west-bengal,1967,238,BANKURA,R . K . BISWAS,parties.IN.IND,IND,9558,20.91,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-238,west-bengal,1967,238,BANKURA,P . K . MULLICK,parties.IN.IND,IND,6412,14.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-238,west-bengal,1967,238,BANKURA,K . DE,parties.IN.SSP,SSP,1545,3.38,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-239,west-bengal,1967,239,ONDA,S . DUTTA,parties.IN.INC,INC,21931,45.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-239,west-bengal,1967,239,ONDA,B . CHATTOPADHYAY,parties.IN.IND,IND,19970,41.12,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-239,west-bengal,1967,239,ONDA,S . C. DEY,parties.IN.BAC,BAC,2991,6.16,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-239,west-bengal,1967,239,ONDA,N . GOSWAMI,parties.IN.IND,IND,2404,4.95,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-239,west-bengal,1967,239,ONDA,N . NIYOGI,parties.IN.PSP,PSP,1275,2.63,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-240,west-bengal,1967,240,VISHNUPUR,B . C . MANDAL,parties.IN.INC,INC,20042,49.35,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-240,west-bengal,1967,240,VISHNUPUR,K . K . BASU,parties.IN.IND,IND,6144,15.13,2,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-240,west-bengal,1967,240,VISHNUPUR,B . K . SARKAR,parties.IN.CPI,CPI,5133,12.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-240,west-bengal,1967,240,VISHNUPUR,D . DUTTA,parties.IN.CPIM,CPM,4393,10.82,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-240,west-bengal,1967,240,VISHNUPUR,A . MITRA,parties.IN.IND,IND,3919,9.65,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-240,west-bengal,1967,240,VISHNUPUR,B . MUKHOPADHYAY,parties.IN.BJS,BJS,981,2.42,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-241,west-bengal,1967,241,KOTULPUR,S . SARKAR,parties.IN.BAC,BAC,20593,46.59,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-241,west-bengal,1967,241,KOTULPUR,A . B . ROY,parties.IN.INC,INC,19697,44.57,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-241,west-bengal,1967,241,KOTULPUR,EUNAS,parties.IN.CPIM,CPM,3008,6.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-241,west-bengal,1967,241,KOTULPUR,T . BRAHMA,parties.IN.IND,IND,899,2.03,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-242,west-bengal,1967,242,INDAS,P . C . MAL,parties.IN.BAC,BAC,24501,68.66,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-242,west-bengal,1967,242,INDAS,S . SANTRA,parties.IN.INC,INC,11182,31.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-243,west-bengal,1967,243,SONAMUKHI,K . SAHA,parties.IN.INC,INC,19652,47.68,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-243,west-bengal,1967,243,SONAMUKHI,K . K . BAGDI,parties.IN.CPIM,CPM,11794,28.62,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-243,west-bengal,1967,243,SONAMUKHI,A . K . SAHA,parties.IN.BAC,BAC,9767,23.7,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-244,west-bengal,1967,244,HIRAPUR,S . GHATAK,parties.IN.INC,INC,15336,38.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-244,west-bengal,1967,244,HIRAPUR,C . S . MUKHOPADHYAY,parties.IN.CPIM,CPM,14614,36.53,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-244,west-bengal,1967,244,HIRAPUR,T . HOSSAIN,parties.IN.CPI,CPI,6972,17.43,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-244,west-bengal,1967,244,HIRAPUR,J . PANDEY,parties.IN.BAC,BAC,1946,4.86,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-244,west-bengal,1967,244,HIRAPUR,M . N . BOSE,parties.IN.PSP,PSP,1141,2.85,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-245,west-bengal,1967,245,KULTI,J . SHARMA,parties.IN.INC,INC,12327,35.12,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-245,west-bengal,1967,245,KULTI,T . CHAKRABORTY,parties.IN.SSP,SSP,11480,32.71,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-245,west-bengal,1967,245,KULTI,S . P . VERMA,parties.IN.BAC,BAC,11290,32.17,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-246,west-bengal,1967,246,BARABANI,M . UPADHYAY,parties.IN.INC,INC,17080,49.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-246,west-bengal,1967,246,BARABANI,S . B . RAY,parties.IN.CPIM,CPM,13541,39.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-246,west-bengal,1967,246,BARABANI,H . CHAKRABARTY,parties.IN.CPI,CPI,4065,11.72,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-247,west-bengal,1967,247,ASANSOL,G . R . MITRA,parties.IN.INC,INC,17065,44.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-247,west-bengal,1967,247,ASANSOL,B . MUKHERJEE,parties.IN.CPIM,CPM,12871,33.92,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-247,west-bengal,1967,247,ASANSOL,A . CHATTOPADHYAY,parties.IN.IND,IND,3722,9.81,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-247,west-bengal,1967,247,ASANSOL,B . R . ROY,parties.IN.CPI,CPI,3463,9.13,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-247,west-bengal,1967,247,ASANSOL,H . P . KESHARI,parties.IN.BJS,BJS,825,2.17,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-248,west-bengal,1967,248,RANIGANJ,H . ROY,parties.IN.CPIM,CPM,17013,48.15,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-248,west-bengal,1967,248,RANIGANJ,S . C . GHOSH,parties.IN.INC,INC,16030,45.36,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-248,west-bengal,1967,248,RANIGANJ,S . N . SHARMA,parties.IN.BJS,BJS,2293,6.49,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-249,west-bengal,1967,249,JAMURIA,T . MONDAL,parties.IN.SSP,SSP,12861,53.85,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-249,west-bengal,1967,249,JAMURIA,A . MONDAL,parties.IN.INC,INC,10306,43.16,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-249,west-bengal,1967,249,JAMURIA,R . K . DAS,parties.IN.BAC,BAC,714,2.99,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-250,west-bengal,1967,250,UKHRA,H . MONDAL,parties.IN.INC,INC,16247,46.92,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-250,west-bengal,1967,250,UKHRA,L . BAGDI,parties.IN.CPIM,CPM,13955,40.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-250,west-bengal,1967,250,UKHRA,D . MONDAL,parties.IN.BAC,BAC,4422,12.77,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-251,west-bengal,1967,251,DURGAPUR,D . K . MAZUMDAR,parties.IN.CPIM,CPM,28752,49.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-251,west-bengal,1967,251,DURGAPUR,A . G . MUKHERJEE,parties.IN.INC,INC,27043,46.61,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-251,west-bengal,1967,251,DURGAPUR,N . MUKHERJEE,parties.IN.CPI,CPI,2219,3.82,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-252,west-bengal,1967,252,FARIDPUR,M . BAKSI,parties.IN.BAC,BAC,15865,49.47,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-252,west-bengal,1967,252,FARIDPUR,L . G . GHATAK,parties.IN.INC,INC,15034,46.88,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-252,west-bengal,1967,252,FARIDPUR,N . P . MUKHERJEE,parties.IN.IND,IND,1168,3.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-253,west-bengal,1967,253,AUSGRAM,K . C . HALDER,parties.IN.CPIM,CPM,17934,51.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-253,west-bengal,1967,253,AUSGRAM,K . L . DAS,parties.IN.INC,INC,13401,38.77,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-253,west-bengal,1967,253,AUSGRAM,B . N . SAHA,parties.IN.IND,IND,3229,9.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-254,west-bengal,1967,254,BHATAR,S . HAZRA,parties.IN.INC,INC,12291,38.16,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-254,west-bengal,1967,254,BHATAR,A . ROY,parties.IN.CPI,CPI,11638,36.13,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-254,west-bengal,1967,254,BHATAR,R . DUTTA,parties.IN.IND,IND,8281,25.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-255,west-bengal,1967,255,GALSI,P . C . ROY,parties.IN.IND,IND,21741,57.56,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-255,west-bengal,1967,255,GALSI,L . MOLLICK,parties.IN.INC,INC,13143,34.8,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-255,west-bengal,1967,255,GALSI,D . K . BANERJEE,parties.IN.IND,IND,2885,7.64,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-256,west-bengal,1967,256,BURDWAN NORTH,S . SHAHEDULLAH,parties.IN.CPIM,CPM,20631,48.52,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-256,west-bengal,1967,256,BURDWAN NORTH,G . BASU,parties.IN.INC,INC,17819,41.9,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-256,west-bengal,1967,256,BURDWAN NORTH,D . R . SEN,parties.IN.AIFB,FBL,4073,9.58,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-257,west-bengal,1967,257,BURDWAN SOUTH,S . B . CHOUDHURY,parties.IN.INC,INC,19936,45.71,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-257,west-bengal,1967,257,BURDWAN SOUTH,B . K . CHOWDHURY,parties.IN.CPIM,CPM,18226,41.79,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-257,west-bengal,1967,257,BURDWAN SOUTH,A . K . GHOSH,parties.IN.IND,IND,5456,12.51,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-258,west-bengal,1967,258,KHANDAGHOSH,P . DHIBAR,parties.IN.INC,INC,13548,45.03,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-258,west-bengal,1967,258,KHANDAGHOSH,G . PAKRAY,parties.IN.SSP,SSP,12149,40.38,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-258,west-bengal,1967,258,KHANDAGHOSH,T . MALIK,parties.IN.AIFB,FBL,4390,14.59,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-259,west-bengal,1967,259,RAINA,D . TAH,parties.IN.PSP,PSP,15324,37.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-259,west-bengal,1967,259,RAINA,P . GUHA,parties.IN.INC,INC,14556,35.99,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-259,west-bengal,1967,259,RAINA,G . ROY,parties.IN.CPIM,CPM,9481,23.44,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-259,west-bengal,1967,259,RAINA,A . K . ADHIKARY,parties.IN.IND,IND,1079,2.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-260,west-bengal,1967,260,JAMAL PUR,P . PRAMANIK,parties.IN.INC,INC,22528,64.54,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-260,west-bengal,1967,260,JAMAL PUR,T . SARKAR,parties.IN.CPIM,CPM,8676,24.86,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-260,west-bengal,1967,260,JAMAL PUR,S . P . DHARA,parties.IN.PSP,PSP,3702,10.61,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-261,west-bengal,1967,261,MEMARI,P . BISHAYEE,parties.IN.INC,INC,23101,49.53,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-261,west-bengal,1967,261,MEMARI,B . K . KONAR,parties.IN.CPIM,CPM,22217,47.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-261,west-bengal,1967,261,MEMARI,K . CHAKRABORTY,parties.IN.AIFB,FBL,667,1.43,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-261,west-bengal,1967,261,MEMARI,H . GEN,parties.IN.PSP,PSP,657,1.41,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-262,west-bengal,1967,262,KALNA,H . K . KONAR,parties.IN.CPIM,CPM,22128,47.58,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-262,west-bengal,1967,262,KALNA,D . B . GHOSH,parties.IN.INC,INC,20877,44.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-262,west-bengal,1967,262,KALNA,N . K . ROY,parties.IN.PSP,PSP,3240,6.97,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-262,west-bengal,1967,262,KALNA,K . DAS,parties.IN.IND,IND,266,0.57,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-263,west-bengal,1967,263,NADANGHAT,P . C . GOSWAMI,parties.IN.INC,INC,26025,51.33,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-263,west-bengal,1967,263,NADANGHAT,S . C . BHOWAL,parties.IN.CPIM,CPM,21070,41.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-263,west-bengal,1967,263,NADANGHAT,K . CHANDRA,parties.IN.CPI,CPI,3608,7.12,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-264,west-bengal,1967,264,MANTESWAR,N . C . CHAUDHURI,parties.IN.INC,INC,25631,56.79,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-264,west-bengal,1967,264,MANTESWAR,S . A . M . HABIBULLAH,parties.IN.CPIM,CPM,16867,37.37,2,lost,U,,,,incumbent,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-264,west-bengal,1967,264,MANTESWAR,M . BRAHMACHARI,parties.IN.AIFB,FBL,2636,5.84,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-265,west-bengal,1967,265,PURBASTHALI,L . HAZRA,parties.IN.CPIM,CPM,21108,46.84,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-265,west-bengal,1967,265,PURBASTHALI,RAMA DEVI,parties.IN.INC,INC,19418,43.09,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-265,west-bengal,1967,265,PURBASTHALI,B . C . ROY,parties.IN.IND,IND,2671,5.93,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-265,west-bengal,1967,265,PURBASTHALI,B . B . DEBNATH,parties.IN.PSP,PSP,1280,2.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-265,west-bengal,1967,265,PURBASTHALI,U . S . K . GURU,parties.IN.BJS,BJS,590,1.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-266,west-bengal,1967,266,KATWA,S. CHOWDHURY,parties.IN.CPIM,CPM,20870,48.81,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-266,west-bengal,1967,266,KATWA,T . BANDYOPADHYAY,parties.IN.INC,INC,20263,47.39,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-266,west-bengal,1967,266,KATWA,G . HALADHAR,parties.IN.IND,IND,946,2.21,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-266,west-bengal,1967,266,KATWA,S . K . BANERJEE,parties.IN.IND,IND,679,1.59,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-267,west-bengal,1967,267,MANGALKOT,N. SATTAR,parties.IN.INC,INC,18996,52.42,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-267,west-bengal,1967,267,MANGALKOT,S.S. CHOWDHURY,parties.IN.CPIM,CPM,17241,47.58,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-268,west-bengal,1967,268,KETUGRAM,P. MANDAL,parties.IN.INC,INC,20611,52.55,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-268,west-bengal,1967,268,KETUGRAM,N. DAS,parties.IN.CPIM,CPM,18614,47.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-269,west-bengal,1967,269,NANUR,S. JASH,parties.IN.INC,INC,14627,43.93,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-269,west-bengal,1967,269,NANUR,B. DAS,parties.IN.CPIM,CPM,12187,36.6,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-269,west-bengal,1967,269,NANUR,K.K. DAS,parties.IN.BAC,BAC,6484,19.47,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-270,west-bengal,1967,270,BOLPUR,R.K. SINHA,parties.IN.IND,IND,19130,52.97,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-270,west-bengal,1967,270,BOLPUR,A.K. CHATTOPADHYAY,parties.IN.INC,INC,16339,45.24,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-270,west-bengal,1967,270,BOLPUR,A.K. NANDAN,parties.IN.IND,IND,649,1.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-271,west-bengal,1967,271,LABPUR,S. BANDYOPADHYAY,parties.IN.INC,INC,19063,59.24,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-271,west-bengal,1967,271,LABPUR,R. CHANTTORAJ,parties.IN.CPIM,CPM,13115,40.76,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-272,west-bengal,1967,272,DUBRAJPUR,K.N. BANDOPADHYAY,parties.IN.IND,IND,13214,36.26,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-272,west-bengal,1967,272,DUBRAJPUR,B. B. MANDAL,parties.IN.AIFB,FBL,12924,35.46,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-272,west-bengal,1967,272,DUBRAJPUR,A.N. SARKAR,parties.IN.INC,INC,10307,28.28,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-273,west-bengal,1967,273,RAJNAGAR,S. MANDAL,parties.IN.AIFB,FBL,11996,46.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-273,west-bengal,1967,273,RAJNAGAR,N. MANDAL,parties.IN.INC,INC,11809,45.3,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-273,west-bengal,1967,273,RAJNAGAR,N. DAS,parties.IN.IND,IND,1324,5.08,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-273,west-bengal,1967,273,RAJNAGAR,K. DAS,parties.IN.IND,IND,939,3.6,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-274,west-bengal,1967,274,SURI,B. BANDOPADHYAY,parties.IN.INC,INC,15228,37.32,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-274,west-bengal,1967,274,SURI,P . MUKHERJEE,parties.IN.IND,IND,14828,36.34,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-274,west-bengal,1967,274,SURI,M . CHATTOPADHYAY,parties.IN.PSP,PSP,10744,26.33,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-275,west-bengal,1967,275,MAHAMMAD BAZAR,N . GHOSH,parties.IN.INC,INC,17397,53.7,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-275,west-bengal,1967,275,MAHAMMAD BAZAR,R . SARKAR,parties.IN.BAC,BAC,12924,39.89,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-275,west-bengal,1967,275,MAHAMMAD BAZAR,M . HANIF,parties.IN.IND,IND,2077,6.41,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-276,west-bengal,1967,276,MAYURESWAR,K . SAHA,parties.IN.INC,INC,15149,50.89,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-276,west-bengal,1967,276,MAYURESWAR,P . LET,parties.IN.CPIM,CPM,7331,24.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-276,west-bengal,1967,276,MAYURESWAR,L . FULMALI,parties.IN.CPI,CPI,5738,19.28,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-276,west-bengal,1967,276,MAYURESWAR,B . P . DAS,parties.IN.IND,IND,1550,5.21,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-277,west-bengal,1967,277,RAMPURHAT,S . S . MONDAL,parties.IN.AIFB,FBL,14232,35.61,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-277,west-bengal,1967,277,RAMPURHAT,N . MAJUMDAR,parties.IN.INC,INC,10279,25.72,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-277,west-bengal,1967,277,RAMPURHAT,T . B . HALDER,parties.IN.IND,IND,8870,22.19,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-277,west-bengal,1967,277,RAMPURHAT,D . ROY,parties.IN.CPIM,CPM,6584,16.47,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-278,west-bengal,1967,278,HANSAN,S . PRASAD,parties.IN.INC,INC,10005,41.75,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-278,west-bengal,1967,278,HANSAN,M . R . HURY,parties.IN.IND,IND,7692,32.1,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-278,west-bengal,1967,278,HANSAN,M . MONDAL,parties.IN.AIFB,FBL,6107,25.48,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-278,west-bengal,1967,278,HANSAN,S . MANDAL,parties.IN.IND,IND,160,0.67,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-279,west-bengal,1967,279,NALHATI,G . MAHIUDDIN,parties.IN.IND,IND,7664,27.41,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-279,west-bengal,1967,279,NALHATI,M . A . RAQUIL,parties.IN.INC,INC,6440,23.04,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-279,west-bengal,1967,279,NALHATI,A . MUKHERJEE,parties.IN.IND,IND,5619,20.1,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-279,west-bengal,1967,279,NALHATI,S . DUTTA,parties.IN.IND,IND,4036,14.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-279,west-bengal,1967,279,NALHATI,U . R . DEBI,parties.IN.AIFB,FBL,2602,9.31,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-279,west-bengal,1967,279,NALHATI,A . AZIZ,parties.IN.IND,IND,1596,5.71,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-280,west-bengal,1967,280,MURARAI,B . AHAMAD,parties.IN.IND,IND,14944,41.37,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-280,west-bengal,1967,280,MURARAI,M . HOSSAIN,parties.IN.INC,INC,14170,39.23,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-280,west-bengal,1967,280,MURARAI,S . K . CHATTOPADHYAY,parties.IN.IND,IND,6759,18.71,3,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1967-west-bengal-280,west-bengal,1967,280,MURARAI,N . H . A . ALAM,parties.IN.BAC,BAC,248,0.69,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a

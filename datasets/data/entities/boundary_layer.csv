@@ -30,7 +30,8 @@ boundaries.electoral.delim=2008.ac.state=tripura,ac,S23,,,boundaries/electoral/d
 boundaries.electoral.delim=2008.ac.state=uttar-pradesh,ac,S24,,,boundaries/electoral/delim=2008/ac/state=uttar-pradesh/all.geojson,geojson,EPSG:4326,coord-precision-round,0.0001,404,404,0,,13567925,src-a1dd899f902d,,2008
 boundaries.electoral.delim=2008.ac.state=uttarakhand,ac,S28,,,boundaries/electoral/delim=2008/ac/state=uttarakhand/all.geojson,geojson,EPSG:4326,coord-precision-round,0.0001,70,70,0,,1643455,src-a1dd899f902d,,2008
 boundaries.electoral.delim=2008.ac.state=west-bengal,ac,S25,,,boundaries/electoral/delim=2008/ac/state=west-bengal/all.geojson,geojson,EPSG:4326,coord-precision-round,0.0001,293,293,0,,5948488,src-a1dd899f902d,,2008
-boundaries.electoral.delim=2024.pc,pc,,,,boundaries/electoral/delim=2024/pc/all.geojson,geojson,EPSG:4326,coord-precision-round,1e-06,545,545,0,,1282035,src-2af556fe59e0,,2024
+boundaries.electoral.delim=2008.pc,pc,,,,boundaries/electoral/delim=2008/pc/all.geojson,geojson,EPSG:4326,,,543,543,0,,1713987,src-7d2ccb3b996e,,2008
+boundaries.electoral.delim=2024.pc,pc,,,,boundaries/electoral/delim=2024/pc/all.geojson,geojson,EPSG:4326,,,545,545,0,,1282035,src-2af556fe59e0,,2024
 boundaries.in.blocks.state=in_s01,block,S01,,,boundaries/in/blocks/state=in_s01/all.geojson,geojson,EPSG:4326,coord-precision-round,0.001,670,670,0,,7589769,src-a1dd899f902d,,
 boundaries.in.blocks.state=in_s02,block,S02,,,boundaries/in/blocks/state=in_s02/all.geojson,geojson,EPSG:4326,coord-precision-round,0.001,125,125,0,,696154,src-a1dd899f902d,,
 boundaries.in.blocks.state=in_s03,block,S03,,,boundaries/in/blocks/state=in_s03/all.geojson,geojson,EPSG:4326,coord-precision-round,0.001,232,232,0,,3163374,src-a1dd899f902d,,

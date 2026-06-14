@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-rajasthan-19,rajasthan,1982,SARDARSHAHAR,101431,65456,64.53,K.CHAND,parties.IN.INC,INC,24316,37.15,M.BALLABH,parties.IN.BJP,BJP,23022,1294,1.98,src-1b7bc1c9d39a

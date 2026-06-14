@@ -1,0 +1,7 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-bihar-136,bihar,1997,136,AMOUR,Saba Jafer,parties.IN.IND,IND,45082,37.9,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-136,bihar,1997,136,AMOUR,Abdul Jalil Mastan,parties.IN.INC,INC,39923,33.56,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-136,bihar,1997,136,AMOUR,Sikender Alam,parties.IN.SP,SP,16201,13.62,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-136,bihar,1997,136,AMOUR,Raghunath Bhgat,parties.IN.BJP,BJP,13529,11.37,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-136,bihar,1997,136,AMOUR,Akhilesh Das,parties.IN.IND,IND,3637,3.06,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-bihar-136,bihar,1997,136,AMOUR,Abdul Razaque,parties.IN.IND,IND,587,0.49,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a

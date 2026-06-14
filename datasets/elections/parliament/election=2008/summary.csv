@@ -1,0 +1,11 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-PC-1976-andhra-pradesh-35,andhra-pradesh,2008,ADILABAD,1192246,774407,64.95,ALLOLA INDRAKARAN REDDY,parties.IN.INC,INC,323109,41.72,VENUGOPALA CHARY.S,parties.IN.TDP,TD,267139,55970,7.22,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-37,andhra-pradesh,2008,KARIMNAGAR,1452946,734986,50.59,K.CHANDRA SHEKHAR RAO,parties.IN.BRS,TRS,269452,36.66,T.JEEVAN REDDY,parties.IN.INC,INC,253687,15765,2.14,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-38,andhra-pradesh,2008,HANAMKONDA,1256358,767239,61.07,BOIANAPALLI VINOD KUMAR,parties.IN.BRS,TRS,315310,41.1,KONDA SUREKHA,parties.IN.INC,INC,260046,55264,7.21,src-31c65dbec869
+IN-PC-1976-andhra-pradesh-39,andhra-pradesh,2008,WARANGAL,1247939,843434,67.59,ERRABELLI DAYAKAR RAO,parties.IN.TDP,TD,287323,34.07,PODDUTURIRAMESHWAR REDDY,parties.IN.INC,INC,282937,4386,0.52,src-31c65dbec869
+IN-PC-1976-himachal-pradesh-4,himachal-pradesh,2008,HAMIRPUR,1172944,585433,49.91,ANURAG SINGH THAKUR,parties.IN.BJP,BJP,374339,63.94,O.P.RATTAN,parties.IN.INC,INC,199673,174666,29.83,src-31c65dbec869
+IN-PC-1976-madhya-pradesh-17,madhya-pradesh,2008,BETUL,1090804,656051,60.14,Khandelwal Hemant Vijay Kumar,parties.IN.BJP,BJP,300676,45.83,Sukhdeo Panse,parties.IN.INC,INC,265234,35442,5.4,src-31c65dbec869
+IN-PC-1976-maharashtra-10,maharashtra,2008,THANE,3623806,889568,24.55,ANAND PRAKASH PARANJPE,parties.IN.SHS,SS,462766,52.02,SANJEEV GANESH NAIK,parties.IN.NCP,NCP,371894,90872,10.21,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-32,uttar-pradesh,2008,KHALILABAD,1470017,582383,39.62,BHISHMA SHANKER ALIAS KUSHAL TIWARI,parties.IN.BSP,BSP,218393,37.5,BHAL CHANDRA YADAV,parties.IN.SP,SP,153761,64632,11.1,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-39,uttar-pradesh,2008,BALIA,1521916,541614,35.59,NEERAJ SHEKHAR,parties.IN.SP,SP,295736,54.6,VINAY SHANKAR TEWARI,parties.IN.BSP,BSP,164450,131286,24.24,src-31c65dbec869
+IN-PC-1976-uttar-pradesh-41,uttar-pradesh,2008,AZAMGARH,1467384,609521,41.54,AKBAR AHAMAD DAMPI,parties.IN.BSP,BSP,227341,37.3,RAMAKANT YADAV,parties.IN.BJP,BJP,173089,54252,8.9,src-31c65dbec869

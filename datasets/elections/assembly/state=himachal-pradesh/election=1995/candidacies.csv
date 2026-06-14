@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-himachal-pradesh-1,himachal-pradesh,1995,1,KINNAUR,Jagat Singh Negi,parties.IN.INC,INC,17056,53.94,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-himachal-pradesh-1,himachal-pradesh,1995,1,KINNAUR,Chet Ram Negi,parties.IN.BJP,BJP,14563,46.06,2,lost,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-himachal-pradesh-45,himachal-pradesh,1995,45,SULAH,K.Durga Chand,parties.IN.INC,INC,15154,56.02,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-himachal-pradesh-45,himachal-pradesh,1995,45,SULAH,B.S.Parmar,parties.IN.BJP,BJP,11897,43.98,2,lost,U,,,,challenger,src-1b7bc1c9d39a

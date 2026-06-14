@@ -1,0 +1,3 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id
+IN-AC-1976-nagaland-53,nagaland,1984,53,TUENSANG SADAR-I,CHANGKONG,parties.IN.INC,INC,4850,55.78,1,won,U,,,,challenger,src-1b7bc1c9d39a
+IN-AC-1976-nagaland-53,nagaland,1984,53,TUENSANG SADAR-I,C.SANGTAM,parties.IN.NND,NND,3845,44.22,2,lost,U,,,,challenger,src-1b7bc1c9d39a

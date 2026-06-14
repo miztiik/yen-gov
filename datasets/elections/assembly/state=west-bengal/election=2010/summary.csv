@@ -1,0 +1,2 @@
+entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id
+IN-AC-1976-west-bengal-264,west-bengal,2010,DURGAPUR -I,136955,104187,76.07,Archana Bhattacharya,parties.IN.CPIM,CPM,53513,51.36,Karmakar Banshi Badan,parties.IN.INC,INC,44696,8817,8.46,src-1b7bc1c9d39a
