@@ -39,6 +39,7 @@
 -->
 <script lang="ts" module>
   import type { PartyMeta } from "../view-models/parties";
+  import { formatLeaderSince } from "../view-models/parties";
 
   /**
    * Renderable view-model for one tooltip card. The Svelte template
@@ -83,6 +84,17 @@
     /** Wikipedia URL; null when blank OR when the party is a sentinel
      *  (sentinels have no wiki entry). */
     wikipediaUrl: string | null;
+    /** PR-11: current leader card line (role + name + citizen-formatted
+     *  since-date). Null when no leadership row exists for this party
+     *  OR when the party is a sentinel. Template renders nothing when
+     *  null so the tooltip shrinks gracefully (the common case today -
+     *  only ~9 of 75 known parties have a Wikidata leadership binding
+     *  on the first SPARQL snapshot). */
+    leader: {
+      role: string;
+      name: string;
+      sinceLabel: string;
+    } | null;
   }
 
   /**
@@ -108,6 +120,7 @@
         recognitionScope: null,
         nativeScript: null,
         wikipediaUrl: null,
+        leader: null,
       };
     }
     if (!meta) {
@@ -123,6 +136,7 @@
         recognitionScope: null,
         nativeScript: null,
         wikipediaUrl: null,
+        leader: null,
       };
     }
     const hasSymbol = !!meta.symbol_asset && meta.symbol_asset.length > 0;
@@ -149,6 +163,17 @@
       recognitionScope: meta.recognition_scope,
       nativeScript: isSentinel ? null : meta.name_native_script,
       wikipediaUrl: isSentinel ? null : meta.wikipedia,
+      // PR-11: suppress leader for sentinels (IND/NOTA do not have a
+      // "leader" in the parliamentary sense). For non-sentinels with
+      // no leadership row, meta.leader is already null from the loader.
+      leader:
+        !isSentinel && meta.leader
+          ? {
+              role: meta.leader.role,
+              name: meta.leader.name,
+              sinceLabel: formatLeaderSince(meta.leader.since),
+            }
+          : null,
     };
   }
 
@@ -313,6 +338,16 @@
             data-testid="tooltip-native-script"
           >
             {view.nativeScript}
+          </div>
+        {/if}
+        {#if view.leader}
+          <div
+            class="text-[11px] text-slate-500"
+            data-testid="tooltip-leader"
+          >
+            <span class="font-semibold text-slate-700">{view.leader.role}:</span>
+            {view.leader.name}
+            <span class="text-slate-400">. since {view.leader.sinceLabel}</span>
           </div>
         {/if}
       </div>
