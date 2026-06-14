@@ -45,12 +45,15 @@ def test_shipped_columns_validates_against_schema_of_schemas(contract):
     # the artifact's own self-declared $schema points at the sibling validator.
     raw = json.loads(COLUMNS_PATH.read_text(encoding="utf-8"))
     assert raw["$schema"] == "./columns.schema.json"
+    # 2.1 bump (PR-A of TODO/20260614-three-ephemeral-ingests-plan.md):
+    # ADDITIVE — new file-class datasets/elections/parliament/election=*/mcc_seizures.csv
+    # (13 cols, per-event MCC-period daily enforcement-seizures press note).
     # 2.0 bump (Phase 1 of TODO/20260612-alliance-phase-1-structural-fix-plan.md):
     # MAJOR breaking on the datasets/data/entities/party_alliances.csv file-class
     # (renamed period_label -> event_id, added state, dropped short_name).
     # 1.1 bump was the prior PR-0 of TODO/20260610-electoral-data-quality-and-party-catalogue-plan.md
     # (10 nullable identity-metadata columns appended to parties.csv).
-    assert raw["$schema_version"] == "2.0"
+    assert raw["$schema_version"] == "2.1"
     assert len(contract.file_classes) >= 14
 
 

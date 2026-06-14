@@ -1,0 +1,62 @@
+{
+  "checks": [
+    {
+      "doc_link": "docs/concepts/pre-flight-ingest.md",
+      "evidence": "no existing concept scores >= 0.70; mint_new acceptable",
+      "name": "concept_overlap",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/concepts/owid-alignment.md",
+      "evidence": "proposal has no concept_id; mint_new requires a new row in datasets/taxonomy/concepts.json in the same PR",
+      "name": "concept_fk",
+      "status": "warn"
+    },
+    {
+      "doc_link": "docs/architecture/decisions/0044-grain-over-entity.md",
+      "evidence": "proposed_id='mcc-enforcement-seizures' carries no grain prefix",
+      "name": "grain_prefix",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/concepts/pre-flight-ingest.md",
+      "evidence": "update_period_days=1825 (positive int)",
+      "name": "update_period_days",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/concepts/pre-flight-ingest.md",
+      "evidence": "justification length=707",
+      "name": "justification",
+      "status": "pass"
+    },
+    {
+      "doc_link": "docs/architecture/decisions/0032-sources-citation-ledger.md",
+      "evidence": "source_id (or absence) matches derive_source_id output",
+      "name": "source_id_derivation",
+      "status": "pass"
+    }
+  ],
+  "generated_at": "preflight:sha256:341c15e2949ddb6f",
+  "input_echo": {
+    "concept": "MCC-period daily enforcement-seizures press-note series",
+    "entity_kind": "state",
+    "family": "elections",
+    "justification": "Per-event self-contained file (datasets/elections/parliament/election=*/mcc_seizures.csv) carrying the ECI's MCC-period daily enforcement-seizures press note as a 13-column long-format CSV (state_slug, date, 9 measurement columns, source_id, processing_level). Mints no new meadow-tier indicator; the file is a citizen-facing exhibit (one file per general election) parallel to the per-event candidacies.csv / summary.csv files already present under parliament/election=*. The pre-flight gate is run for documentation completeness per the plan-doc DoD; verdict mint_new expected (no existing concept covers MCC-window enforcement seizures). Update cadence 1825 days = once per 5-year general-election cycle.",
+    "normalisation": "absolute",
+    "proposed_id": "mcc-enforcement-seizures",
+    "source_producer": "Election Commission of India",
+    "source_title": "Press Note - Daily Enforcement Seizures during 17th Lok Sabha General Election (MCC)",
+    "source_vintage": "2019",
+    "unit": "INR_crore",
+    "update_period_days": 1825
+  },
+  "recommended_action": {
+    "kind": "mint_new",
+    "rationale": "no concept overlap >= 0.70; proceed with mint_new",
+    "target_indicator_id": null,
+    "target_parquet_path": "datasets/elections/elections_<role>.parquet"
+  },
+  "schema_version": "1.0",
+  "verdict": "mint_new"
+}

@@ -3,7 +3,7 @@
   "$id": "./columns.schema.json",
   "title": "CSV column contract (schema-of-schemas)",
   "description": "Validates datasets/data/_schema/columns.json - the one machine-readable home for the per-file-class CSV column contract. Spec: docs/architecture/data/csv-column-contract.md (D-DOC0). Consumed by the backend write-time validator (B1.3), the frontend typed-read codegen (F1), and the cross-format drift test.",
-  "x-version": "2.0",
+  "x-version": "2.1",
   "x-changelog": [
     {
       "version": "1.0",
@@ -19,6 +19,11 @@
       "version": "2.0",
       "date": "2026-06-12",
       "description": "Companion bump for columns.json $schema_version 1.1 -> 2.0 (Phase 1 of TODO/20260612-alliance-phase-1-structural-fix-plan.md). No structural change to the schema-of-schemas itself; MAJOR breaking on the datasets/data/entities/party_alliances.csv file-class: renamed period_label -> event_id so the column joins citizen-route canonical event_id values (general-2024, assembly-2024, ...); added state column (LGD state slug for state-scoped events, literal IN for national events) to disambiguate per-state cohorts that share an event_id; dropped short_name (Holy Law #6 - readers join through party_id FK to parties.csv.short_name). PK changed from (party_id, period_label) to (party_id, event_id, state). All 61 existing on-disk rows migrated 1:1 in the same commit (no row loss); the 10 TN-AcGenMay2026 rows additionally repointed to a new Wikipedia src_id (src-bca3c60cdafb) for the 2026 Tamil Nadu Legislative Assembly election article (Resolution A; the legacy src-c3e2fd43efa5 row in source.csv stays as the legitimate citation for the 1999-LS data it actually describes)."
+    },
+    {
+      "version": "2.1",
+      "date": "2026-06-14",
+      "description": "Companion bump for columns.json $schema_version 2.0 -> 2.1 (PR-A of TODO/20260614-three-ephemeral-ingests-plan.md). No structural change to the schema-of-schemas itself; pure-additive minor on the data file: NEW file-class datasets/elections/parliament/election=*/mcc_seizures.csv for the ECI MCC-period daily enforcement-seizures press-note series (national 17th-LS 2019 press-note, 36 states/UTs x 10 dates = 360 rows, composite PK (state_slug, date), 13 columns). Publisher's TOTAL is preserved verbatim (D3 'no derived totals') so total_seizure_inr_crore is NOT derived; consumers MUST NOT recompute it. The 2 pre-2020-merger UTs (Dadra and Nagar Haveli, Daman and Diu) are kept on their historical slugs (dadra-and-nagar-haveli, daman-and-diu) - not the merged dadra-and-nagar-haveli-and-daman-and-diu slug - because the 2019 publisher rows are historically distinct; state_slug in this file-class has no FK declared (per-event publisher-distinct identity, not a state_codes.csv reference). Existing file-classes unchanged in shape."
     }
   ],
   "type": "object",
