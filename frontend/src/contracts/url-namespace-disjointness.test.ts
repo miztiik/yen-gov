@@ -15,10 +15,12 @@
  *
  *   1. State slugs   — slugified `display_name` from `datasets/taxonomy/entities.json`
  *   2. Topic slugs   — `id` field from `datasets/taxonomy/topics.json`
- *   3. AC slugs      — slugified `name` from `datasets/data/entities/electoral.csv`
- *                      where `entity_kind === "ac"`. The set is deduped
- *                      across states + delim years; collision is the
- *                      concern, not currency.
+ *   3. Bare AC slugs — slugified `name` from the current per-state
+ *                      `datasets/data/entities/boundaries_sot/<state>/constituencies.json`
+ *                      files read by `StateSubRouter` through
+ *                      `fetchConstituencies(state)`. The set is deduped
+ *                      across states; this mirrors the live depth-2
+ *                      `/<state>/<ac>` registry.
  *   4. RESERVED      — `RESERVED_PATH_TOKENS` from `links.ts`
  *
  * Pairwise disjointness asserted:
@@ -89,7 +91,7 @@
  * artefacts, not synthetic ones.
  */
 import { describe, it, expect } from "vitest";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -107,6 +109,10 @@ const topicsPath = resolve(repoRoot, "datasets/taxonomy/topics.json");
 const electoralCsvPath = resolve(
   repoRoot,
   "datasets/data/entities/electoral.csv",
+);
+const boundariesSotPath = resolve(
+  repoRoot,
+  "datasets/data/entities/boundaries_sot",
 );
 const indicatorsPath = resolve(repoRoot, "datasets/taxonomy/indicators.json");
 const partiesCsvPath = resolve(repoRoot, "datasets/data/entities/parties.csv");
@@ -128,6 +134,10 @@ interface IndicatorRow {
   indicator_id: string;
   url_slug: string;
   url_slug_history?: string[];
+}
+
+interface ConstituenciesEnvelope {
+  constituencies?: { name?: string }[];
 }
 
 function loadActiveStateSlugs(): string[] {
@@ -152,20 +162,36 @@ function loadTopicSlugs(): string[] {
 }
 
 /**
- * Load the deduped set of AC name-slugs from the canonical electoral
- * entities CSV. The CSV column order is
- * `entity_id, name, entity_kind, delim_year, state, parent, eci_no, aliases, reservation`
- * (verified 2026-06-10: 4734 rows, all 9 columns, zero quoted fields,
- * so the naive `split(",")` is safe — no name in the corpus contains a
- * comma).
+ * Load the deduped set of bare depth-2 AC name-slugs from the same
+ * current per-state `boundaries_sot/<state>/constituencies.json` files
+ * the runtime `StateSubRouter` reads through `fetchConstituencies`.
  *
- * Include ALL AC rows across all delim_years; the disjointness concern
- * is the unique slug set, not which delimitation cohort emitted it. Two
- * ACs with the same name across states / delim cohorts collapse to one
- * slug — exactly the case we need to test against the state / topic /
- * RESERVED registries.
+ * Historical AC names in `electoral.csv` are still relevant to the
+ * event-nested route regex checks below, but they are not exposed as
+ * bare `/<state>/<ac>` depth-2 URLs. Using the runtime registry here
+ * keeps the strict namespace gate focused on the route it protects.
  */
 function loadActiveAcSlugs(): string[] {
+  const slugs = new Set<string>();
+  for (const stateDir of readdirSync(boundariesSotPath, { withFileTypes: true })) {
+    if (!stateDir.isDirectory()) continue;
+    const path = resolve(boundariesSotPath, stateDir.name, "constituencies.json");
+    const raw = JSON.parse(readFileSync(path, "utf-8")) as ConstituenciesEnvelope;
+    for (const c of raw.constituencies ?? []) {
+      if (!c.name) continue;
+      const slug = slugify(c.name);
+      if (slug) slugs.add(slug);
+    }
+  }
+  return [...slugs];
+}
+
+/**
+ * Load all historical AC name-slugs from `electoral.csv`. Event-nested
+ * constituency routes can point at historical election cohorts, so the
+ * event-context regex gate must still see the full electoral catalogue.
+ */
+function loadElectoralAcSlugs(): string[] {
   const csv = readFileSync(electoralCsvPath, "utf-8");
   const lines = csv.split(/\r?\n/).filter((l) => l.length > 0);
   lines.shift(); // header
@@ -175,7 +201,8 @@ function loadActiveAcSlugs(): string[] {
     if (cols[2] !== "ac") continue;
     const name = cols[1];
     if (!name) continue;
-    slugs.add(slugify(name));
+    const slug = slugify(name);
+    if (slug) slugs.add(slug);
   }
   return [...slugs];
 }
@@ -257,36 +284,43 @@ function loadDistrictSlugsByState(): Map<string, Set<string>> {
 /**
  * Per-state AC slug map for the Deferral 1 disjointness gate.
  *
- * Returns `Map<stateSlug, Set<acSlug>>` derived from the SAME
- * `datasets/data/entities/electoral.csv` the runtime loader reads.
- * The `state` column (index 4) is already in lower-case slug form
- * (`tamil-nadu`, `andhra-pradesh`) so no extra normalisation is
- * needed.
- *
- * Includes ALL AC rows across all delim_years (the runtime
- * StateSubRouter loads them via fetchConstituencies which is
- * per-state); for the disjointness gate the slug-set union per
- * state is what matters.
+ * Returns `Map<stateSlug, Set<acSlug>>` derived from the SAME current
+ * `boundaries_sot/<state>/constituencies.json` files the runtime
+ * `StateSubRouter` reads through `fetchConstituencies`. The directory
+ * name is the ECI state code; the state slug comes from the active
+ * state catalogue so the map mirrors the route's first segment.
  */
 function loadAcSlugsByState(): Map<string, Set<string>> {
-  const csv = readFileSync(electoralCsvPath, "utf-8");
-  const lines = csv.split(/\r?\n/).filter((l) => l.length > 0);
-  lines.shift(); // header
+  const raw = JSON.parse(readFileSync(entitiesPath, "utf-8")) as {
+    entities: EntityRow[];
+  };
+  const stateSlugByCode = new Map<string, string>();
+  for (const r of raw.entities) {
+    if (
+      (r.entity_type === "state" || r.entity_type === "ut") &&
+      (r.entity_valid_to === null || r.entity_valid_to === undefined) &&
+      r.entity_code
+    ) {
+      stateSlugByCode.set(r.entity_code, slugify(r.display_name));
+    }
+  }
   const byState = new Map<string, Set<string>>();
-  for (const line of lines) {
-    const cols = line.split(",");
-    if (cols[2] !== "ac") continue;
-    const name = cols[1];
-    const stateSlug = cols[4];
-    if (!name || !stateSlug) continue;
-    const slug = slugify(name);
-    if (!slug) continue;
+  for (const stateDir of readdirSync(boundariesSotPath, { withFileTypes: true })) {
+    if (!stateDir.isDirectory()) continue;
+    const stateSlug = stateSlugByCode.get(stateDir.name);
+    if (!stateSlug) continue;
+    const path = resolve(boundariesSotPath, stateDir.name, "constituencies.json");
+    const raw = JSON.parse(readFileSync(path, "utf-8")) as ConstituenciesEnvelope;
     let set = byState.get(stateSlug);
     if (!set) {
       set = new Set<string>();
       byState.set(stateSlug, set);
     }
-    set.add(slug);
+    for (const c of raw.constituencies ?? []) {
+      if (!c.name) continue;
+      const slug = slugify(c.name);
+      if (slug) set.add(slug);
+    }
   }
   return byState;
 }
@@ -398,9 +432,9 @@ describe("Phase 2 URL namespace disjointness (ADR-0037)", () => {
   });
 
   it("loads ≥3000 unique AC name-slugs (sanity)", () => {
-    // 4189 AC rows across all delim_years dedupe to ~3960 unique slugs
-    // as of 2026-06-10. The floor catches "CSV failed to load at all"
-    // without pinning a brittle exact count that future ingest will move.
+    // The current `boundaries_sot` AC corpus carries thousands of
+    // bare-routeable constituency names. The floor catches "registry
+    // failed to load at all" without pinning a brittle exact count.
     expect(acSlugs.length).toBeGreaterThanOrEqual(3000);
   });
 
@@ -470,7 +504,7 @@ describe("PR-0 event-context disjointness (election experience overhaul plan)", 
 
   const stateSlugs = loadActiveStateSlugs();
   const topicSlugs = loadTopicSlugs();
-  const acSlugs = loadActiveAcSlugs();
+  const acSlugs = loadElectoralAcSlugs();
 
   it("event-slug regex accepts the four canonical shapes", () => {
     // Sanity-pin the locked grammar so a typo in the regex itself
@@ -532,7 +566,7 @@ describe("PR-0 event-context disjointness (election experience overhaul plan)", 
     // ability to tell them apart. STOP-AND-SURFACE: a real such name
     // is escalation (rename the seat in electoral.csv with
     // Hans+Max signoff, NOT a router-side workaround).
-    const acSlugs = loadActiveAcSlugs();
+    const acSlugs = loadElectoralAcSlugs();
     const pcSlugs = loadActivePcSlugs();
     const constituency_slugs = [...new Set([...acSlugs, ...pcSlugs])];
     const collisions = constituency_slugs.filter((s) =>
@@ -813,10 +847,10 @@ describe("ADR-0053 URL namespace disjointness — party slugs (6-way)", () => {
 
   it("partySlugs ⊥ acSlugs", () => {
     // STOP-AND-SURFACE: if a party slug collides with an AC name slug
-    // (e.g. some state happened to mint an AC named "BJP"), the
-    // resolution is to fix the AC name in `electoral.csv`, NOT the
-    // party slug. Party slugs are anchored to the party_id PK and
-    // citizen-visible everywhere; AC names are local to one state.
+    // (e.g. a party tail `jind` vs the Haryana AC `Jind`), the
+    // resolution is a party slug override in `slug.ts`, not a
+    // constituency rename. Constituency names are issuing-authority
+    // geography; the party page slug is the operator-owned projection.
     const overlap = intersection(partySlugs, acSlugs);
     expect(overlap).toEqual([]);
   });

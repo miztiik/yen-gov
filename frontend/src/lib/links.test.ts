@@ -99,11 +99,12 @@ describe("Grammar A — links.ts builder shapes (ADR-0037)", () => {
     expect(link.party("parties.IN.SHS_UBT")).toBe("/parties/shs-ubt");
   });
 
-  it("party applies sentinel overrides (Independent + Arunachal Congress + Goa + Mahakranti Dal)", () => {
+  it("party applies sentinel and namespace-collision overrides", () => {
     expect(link.party("parties.IN.IND")).toBe("/parties/independent");
     expect(link.party("parties.IN.NOTA")).toBe("/parties/nota");
     expect(link.party("parties.IN.AC")).toBe("/parties/arunachal-congress");
     expect(link.party("parties.IN.GOA")).toBe("/parties/goemcarancho-otrec-astro");
+    expect(link.party("parties.IN.JIND")).toBe("/parties/jind-party");
     expect(link.party("parties.IN.MAHAD")).toBe("/parties/mahakranti-dal");
   });
 

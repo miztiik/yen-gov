@@ -122,10 +122,12 @@ A constituency is NEVER addressable outside an election context. (3) **Bare `/s/
    - `parties.IN.NOTA` -> `/parties/nota` — bare-tail default; citizen recognition is on the acronym; the page MUST surface the *PUCL v. Union of India 2013* legal-context caveat per Hans verdict 5.d (deferred to a follow-up PR per the plan-doc section 2; v1 page renders the same shape with honest framing). The page MUST also surface that NOTA is NOT a counted negative vote — even if NOTA leads, the leading candidate is still elected.
    - `parties.IN.UNK` -> NO PAGE (no citizen entity; resolver fallback per the no-silent-demotion rule, CLAUDE.md §10). `link.party("parties.IN.UNK")` returns `null`; callers render `party_short_raw` as plain text.
 
-   Plus three non-sentinel disambiguators caught by the Tier-A 6-way disjointness contract:
+   Plus four non-sentinel disambiguators caught by the Tier-A 6-way disjointness contract:
    - `parties.IN.AC` (Arunachal Congress) -> `/parties/arunachal-congress` — bare tail `ac` collides with the RESERVED `ac` chrome token.
    - `parties.IN.GOA` (Goemcarancho Otrec Astro, Goa) -> `/parties/goemcarancho-otrec-astro` — bare tail `goa` collides with the state slug `goa`.
    - `parties.IN.MAHAD` (Mahakranti Dal, UP) -> `/parties/mahakranti-dal` — bare tail `mahad` collides with the AC slug `mahad` (Maharashtra constituency no. 194).
+
+   The fourth disambiguator is `parties.IN.JIND` -> `/parties/jind-party`: bare tail `jind` collides with the current Haryana AC slug `jind`; parties.csv has no useful full-name expansion (`full` is `NA's`), so the override uses an explicit namespace suffix.
 
    Same citizen-framing doctrine in every case: when the bare tail collides with a reserved token / state slug / AC slug, spell out the full party name. The disjointness test pins this invariant so new collisions surface at PR-time, not citizen-time.
 
