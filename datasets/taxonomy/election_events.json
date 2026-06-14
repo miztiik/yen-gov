@@ -1967,6 +1967,16 @@
         "event_id_aliases": [
           "LsGenNov1989"
         ]
+      },
+      {
+        "event_id": "assembly-bye-2024-channapatna",
+        "event_id_aliases": [],
+        "kind": "assembly_bye",
+        "display": "Karnataka Assembly - Channapatna by-election - November 2024",
+        "polled_on": "2024-11-13",
+        "term_end_estimated": null,
+        "data_status": "complete",
+        "notes": "Channapatna AC by-election (caused by H. D. Kumaraswamy resigning to contest Mandya Lok Sabha 2024; poll held alongside MH/JH AE 2024). Ingested via tools/ingest_channapatna_bye_2024.py from ECI Bye-Election Statistical Report (transcribed via Wikipedia table)."
       }
     ],
     "S11": [
@@ -4407,16 +4417,6 @@
       }
     ],
     "S29": [
-      {
-        "event_id": "assembly-bye-2024-channapatna",
-        "event_id_aliases": [],
-        "kind": "assembly_bye",
-        "display": "Karnataka Assembly - Channapatna by-election - November 2024",
-        "polled_on": "2024-11-13",
-        "term_end_estimated": null,
-        "data_status": "pending_upstream",
-        "notes": "Channapatna AC by-election (caused by C.P. Yogeshwara contesting from a different seat / D.K. Suresh resignation). Fixture row added by PR-W2a (2026-06-10) to validate the new `assembly_bye` kind + the bye-slug grammar `assembly-bye-<YYYY>-<seat-slug>` locked in PR-0. Real ingest tracked separately; data_status pending_upstream until ECI Statistical Report lands."
-      },
       {
         "event_id": "general-2024",
         "kind": "parliament",

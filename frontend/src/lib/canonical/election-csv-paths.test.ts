@@ -15,6 +15,7 @@ import {
   assemblyCandidaciesPath,
   assemblySummaryPath,
   electoralEntitiesPath,
+  eventByeSeatSlug,
   eventYear,
   parliamentCandidaciesPath,
   parliamentSummaryPath,
@@ -33,9 +34,28 @@ describe("eventYear", () => {
     expect(eventYear("LsGenApr2019")).toBe(2019);
   });
 
+  it("extracts the year from an assembly by-election event id", () => {
+    // Grammar: assembly-bye-<YYYY>-<seat-slug>
+    expect(eventYear("assembly-bye-2024-channapatna")).toBe(2024);
+    expect(eventYear("assembly-bye-2009-some-seat-name")).toBe(2009);
+  });
+
   it("throws on an event id with no 4-digit suffix", () => {
     expect(() => eventYear("AcGenApr21")).toThrow(/no 4-digit year suffix/);
     expect(() => eventYear("not-an-event")).toThrow(/no 4-digit year suffix/);
+  });
+});
+
+describe("eventByeSeatSlug", () => {
+  it("returns the seat-slug suffix for a bye event_id", () => {
+    expect(eventByeSeatSlug("assembly-bye-2024-channapatna")).toBe("channapatna");
+    expect(eventByeSeatSlug("assembly-bye-2009-some-seat-name")).toBe("some-seat-name");
+  });
+
+  it("returns null for general-election event ids", () => {
+    expect(eventByeSeatSlug("AcGenApr2021")).toBeNull();
+    expect(eventByeSeatSlug("LsGenJun2024")).toBeNull();
+    expect(eventByeSeatSlug("assembly-2024")).toBeNull();
   });
 });
 
@@ -57,6 +77,20 @@ describe("assembly path builders", () => {
     // U99 is a synthetic fixture state code not in ECI_TO_LGD_SLUG.
     expect(assemblyCandidaciesPath("U99", "AcGenJan2020")).toBe(
       "datasets/elections/assembly/state=u99/election=2020/candidacies.csv",
+    );
+  });
+
+  it("embeds the bye seat-slug in the folder name for by-elections", () => {
+    // S10 -> "karnataka". assembly-bye-2024-channapatna -> election=2024-channapatna-bye/
+    expect(
+      assemblyCandidaciesPath("S10", "assembly-bye-2024-channapatna"),
+    ).toBe(
+      "datasets/elections/assembly/state=karnataka/election=2024-channapatna-bye/candidacies.csv",
+    );
+    expect(
+      assemblySummaryPath("S10", "assembly-bye-2024-channapatna"),
+    ).toBe(
+      "datasets/elections/assembly/state=karnataka/election=2024-channapatna-bye/summary.csv",
     );
   });
 });
