@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-bihar-163,bihar,2004,PARBATTA,206914,121332,58.64,Ramanand Prasad Singh,parties.IN.JDU,JD(U),54229,44.69,Rakesh Kumar,parties.IN.RJD,RJD,43095,11134,9.17,src-1b7bc1c9d39a,minor,
-IN-AC-1976-bihar-66,bihar,2004,SHROHAR,209499,104312,49.79,Sanjay Kumar Gupta,parties.IN.RJD,RJD,45356,43.48,Thakur Ratnakar,parties.IN.JDU,JD(U),40941,4415,4.23,src-1b7bc1c9d39a,minor,
+IN-AC-1976-bihar-163,bihar,2004,PARBATTA,206914,121332,58.64,Ramanand Prasad Singh,parties.IN.JDU,JD(U),54229,44.69,Rakesh Kumar,parties.IN.RJD,RJD,43095,11134,9.17,src-0c1b8f274551,minor,
+IN-AC-1976-bihar-66,bihar,2004,SHROHAR,209499,104312,49.79,Sanjay Kumar Gupta,parties.IN.RJD,RJD,45356,43.48,Thakur Ratnakar,parties.IN.JDU,JD(U),40941,4415,4.23,src-0c1b8f274551,minor,

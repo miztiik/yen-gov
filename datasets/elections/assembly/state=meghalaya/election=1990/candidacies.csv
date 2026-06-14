@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
-IN-AC-1976-meghalaya-17,meghalaya,1990,17,LAITUMKHARAH,R.KHARSHING,parties.IN.HPU,HPU,4214,48.47,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-meghalaya-17,meghalaya,1990,17,LAITUMKHARAH,G.M.WAR,parties.IN.INC,INC,3377,38.84,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-meghalaya-17,meghalaya,1990,17,LAITUMKHARAH,G.R.MARBANIANG,parties.IN.IND,IND,1103,12.69,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-17,meghalaya,1990,17,LAITUMKHARAH,R.KHARSHING,parties.IN.HPU,HPU,4214,48.47,1,won,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-meghalaya-17,meghalaya,1990,17,LAITUMKHARAH,G.M.WAR,parties.IN.INC,INC,3377,38.84,2,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-meghalaya-17,meghalaya,1990,17,LAITUMKHARAH,G.R.MARBANIANG,parties.IN.IND,IND,1103,12.69,3,forfeit,U,,,,challenger,src-0c1b8f274551,minor,

@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
-IN-AC-1976-mizoram-5,mizoram,2006,5,CHAWNGTE(ST),ALAK BIKASH CHAKMA,parties.IN.MNF,MNF,8194,56.06,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
-IN-AC-1976-mizoram-5,mizoram,2006,5,CHAWNGTE(ST),NIRUPAM CHAKMA,parties.IN.INC,INC,5354,36.63,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-mizoram-5,mizoram,2006,5,CHAWNGTE(ST),INDRA LAL,parties.IN.IND,IND,1069,7.31,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-mizoram-32,mizoram,2006,32,TLUNGVEL(ST),LALCHHANDAMA RALTE,parties.IN.MNF,MNF,4692,50.57,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-mizoram-32,mizoram,2006,32,TLUNGVEL(ST),LALTHANLIANA,parties.IN.IND,IND,3544,38.2,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-mizoram-32,mizoram,2006,32,TLUNGVEL(ST),RUALKHUMA HMAR,parties.IN.ZNP,ZNP,1042,11.23,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-5,mizoram,2006,5,CHAWNGTE(ST),ALAK BIKASH CHAKMA,parties.IN.MNF,MNF,8194,56.06,1,won,U,,,,crossover,src-0c1b8f274551,minor,
+IN-AC-1976-mizoram-5,mizoram,2006,5,CHAWNGTE(ST),NIRUPAM CHAKMA,parties.IN.INC,INC,5354,36.63,2,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-mizoram-5,mizoram,2006,5,CHAWNGTE(ST),INDRA LAL,parties.IN.IND,IND,1069,7.31,3,forfeit,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-mizoram-32,mizoram,2006,32,TLUNGVEL(ST),LALCHHANDAMA RALTE,parties.IN.MNF,MNF,4692,50.57,1,won,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-mizoram-32,mizoram,2006,32,TLUNGVEL(ST),LALTHANLIANA,parties.IN.IND,IND,3544,38.2,2,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-mizoram-32,mizoram,2006,32,TLUNGVEL(ST),RUALKHUMA HMAR,parties.IN.ZNP,ZNP,1042,11.23,3,forfeit,U,,,,challenger,src-0c1b8f274551,minor,

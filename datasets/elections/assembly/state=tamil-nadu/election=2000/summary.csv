@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-tamil-nadu-167,tamil-nadu,2000,TIRUCHIRAPALLIII,221587,105336,47.54,Anbil Periyasamy,parties.IN.DMK,DMK,60990,57.9,Rathinavel T.,parties.IN.AIADMK,ADMK,41330,19660,18.66,src-1b7bc1c9d39a,minor,
-IN-AC-1976-tamil-nadu-193,tamil-nadu,2000,ARUNTANGI,220968,132805,60.1,Anbarasan C.,parties.IN.MADMK,MADMK,71491,53.83,Raja Paramasivam,parties.IN.AIADMK,ADMK,44733,26758,20.15,src-1b7bc1c9d39a,minor,
-IN-AC-1976-tamil-nadu-62,tamil-nadu,2000,NELLIKPPAM,171250,110966,64.8,Shanmugam V.C.,parties.IN.DMK,DMK,62256,56.1,Velayutham M.,parties.IN.AIADMK,ADMK,47367,14889,13.41,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tamil-nadu-167,tamil-nadu,2000,TIRUCHIRAPALLIII,221587,105336,47.54,Anbil Periyasamy,parties.IN.DMK,DMK,60990,57.9,Rathinavel T.,parties.IN.AIADMK,ADMK,41330,19660,18.66,src-0c1b8f274551,minor,
+IN-AC-1976-tamil-nadu-193,tamil-nadu,2000,ARUNTANGI,220968,132805,60.1,Anbarasan C.,parties.IN.MADMK,MADMK,71491,53.83,Raja Paramasivam,parties.IN.AIADMK,ADMK,44733,26758,20.15,src-0c1b8f274551,minor,
+IN-AC-1976-tamil-nadu-62,tamil-nadu,2000,NELLIKPPAM,171250,110966,64.8,Shanmugam V.C.,parties.IN.DMK,DMK,62256,56.1,Velayutham M.,parties.IN.AIADMK,ADMK,47367,14889,13.41,src-0c1b8f274551,minor,

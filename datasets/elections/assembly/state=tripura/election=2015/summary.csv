@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-2008-tripura-1629,tripura,2015,SURMA,40873,34101,83.43,Anjan Das,parties.IN.CPIM,CPM,23275,68.25,Ashis Das,parties.IN.BJP,BJP,7966,15309,44.89,src-1b7bc1c9d39a,minor,
-IN-AC-2008-tripura-1651,tripura,2015,PRATAPGARH,49009,43840,89.45,Ramu Das(E),parties.IN.CPI,CPI,27555,62.85,Mousumi Das,parties.IN.BJP,BJP,10229,17326,39.52,src-1b7bc1c9d39a,minor,
+IN-AC-2008-tripura-1629,tripura,2015,SURMA,40873,34101,83.43,Anjan Das,parties.IN.CPIM,CPM,23275,68.25,Ashis Das,parties.IN.BJP,BJP,7966,15309,44.89,src-0c1b8f274551,minor,
+IN-AC-2008-tripura-1651,tripura,2015,PRATAPGARH,49009,43840,89.45,Ramu Das(E),parties.IN.CPI,CPI,27555,62.85,Mousumi Das,parties.IN.BJP,BJP,10229,17326,39.52,src-0c1b8f274551,minor,

@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-himachal-pradesh-1,himachal-pradesh,1995,KINNAUR,40923,31619,77.26,Jagat Singh Negi,parties.IN.INC,INC,17056,53.94,Chet Ram Negi,parties.IN.BJP,BJP,14563,2493,7.88,src-1b7bc1c9d39a,minor,
-IN-AC-1976-himachal-pradesh-45,himachal-pradesh,1995,SULAH,39317,27051,68.8,K.Durga Chand,parties.IN.INC,INC,15154,56.02,B.S.Parmar,parties.IN.BJP,BJP,11897,3257,12.04,src-1b7bc1c9d39a,minor,
+IN-AC-1976-himachal-pradesh-1,himachal-pradesh,1995,KINNAUR,40923,31619,77.26,Jagat Singh Negi,parties.IN.INC,INC,17056,53.94,Chet Ram Negi,parties.IN.BJP,BJP,14563,2493,7.88,src-0c1b8f274551,minor,
+IN-AC-1976-himachal-pradesh-45,himachal-pradesh,1995,SULAH,39317,27051,68.8,K.Durga Chand,parties.IN.INC,INC,15154,56.02,B.S.Parmar,parties.IN.BJP,BJP,11897,3257,12.04,src-0c1b8f274551,minor,

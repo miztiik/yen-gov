@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-odisha-125,odisha,1991,BIJEPUR,136911,79166,57.82,K.SINGH(W),parties.IN.JD,JD,44756,56.53,M.NAG,parties.IN.INC,INC,24264,20492,25.88,src-1b7bc1c9d39a,minor,
-IN-AC-1976-odisha-18,odisha,1991,BHANDARIPOKHARI(SC),123139,88806,72.12,P.K.JENA,parties.IN.JD,JD,41554,46.79,"P,MANDAL",parties.IN.IND,IND,29960,11594,13.05,src-1b7bc1c9d39a,minor,
-IN-AC-1976-odisha-56,odisha,1991,PURI,163909,88210,53.82,U.B.RATH,parties.IN.JD,JD,43560,49.38,G.MISRA,parties.IN.INC,INC,35315,8245,9.34,src-1b7bc1c9d39a,minor,
+IN-AC-1976-odisha-125,odisha,1991,BIJEPUR,136911,79166,57.82,K.SINGH(W),parties.IN.JD,JD,44756,56.53,M.NAG,parties.IN.INC,INC,24264,20492,25.88,src-0c1b8f274551,minor,
+IN-AC-1976-odisha-18,odisha,1991,BHANDARIPOKHARI(SC),123139,88806,72.12,P.K.JENA,parties.IN.JD,JD,41554,46.79,"P,MANDAL",parties.IN.IND,IND,29960,11594,13.05,src-0c1b8f274551,minor,
+IN-AC-1976-odisha-56,odisha,1991,PURI,163909,88210,53.82,U.B.RATH,parties.IN.JD,JD,43560,49.38,G.MISRA,parties.IN.INC,INC,35315,8245,9.34,src-0c1b8f274551,minor,

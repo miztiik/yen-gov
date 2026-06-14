@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1962-andhra-pradesh-168,andhra-pradesh,1965,HINDUPUR,55115,31872,57.83,K.S.RAO,parties.IN.INC,INC,17881,56.1,R.DASA,parties.IN.IND,IND,13267,4614,14.47,src-1b7bc1c9d39a,minor,
-IN-AC-1962-andhra-pradesh-185,andhra-pradesh,1965,DHONE,66605,36740,55.16,C.R.REDDY,parties.IN.INC,INC,25834,70.32,CHINNA VENKATAPPA,parties.IN.IND,IND,10906,14928,40.64,src-1b7bc1c9d39a,minor,
-IN-AC-1962-andhra-pradesh-294,andhra-pradesh,1965,CHINNAKONDUR,66394,42918,64.64,L.B.KONDA,parties.IN.INC,INC,34970,81.48,J.M.R.KONDAVETI,parties.IN.CPIM,CPM,7948,27022,62.96,src-1b7bc1c9d39a,minor,
-IN-AC-1962-andhra-pradesh-58,andhra-pradesh,1965,AMALAPURAM,65678,45401,69.13,N.R.RAJU,parties.IN.INC,INC,25166,55.43,K.VENKATARATNAM,parties.IN.IND,IND,20235,4931,10.86,src-1b7bc1c9d39a,minor,
-IN-AC-1962-andhra-pradesh-98,andhra-pradesh,1965,VEMUR,70903,49851,70.31,S.R.CHOUDARY,parties.IN.INC,INC,21866,43.86,Y.VENKATARAO,parties.IN.SWA,SWA,21378,488,0.98,src-1b7bc1c9d39a,minor,
+IN-AC-1962-andhra-pradesh-168,andhra-pradesh,1965,HINDUPUR,55115,31872,57.83,K.S.RAO,parties.IN.INC,INC,17881,56.1,R.DASA,parties.IN.IND,IND,13267,4614,14.47,src-0c1b8f274551,minor,
+IN-AC-1962-andhra-pradesh-185,andhra-pradesh,1965,DHONE,66605,36740,55.16,C.R.REDDY,parties.IN.INC,INC,25834,70.32,CHINNA VENKATAPPA,parties.IN.IND,IND,10906,14928,40.64,src-0c1b8f274551,minor,
+IN-AC-1962-andhra-pradesh-294,andhra-pradesh,1965,CHINNAKONDUR,66394,42918,64.64,L.B.KONDA,parties.IN.INC,INC,34970,81.48,J.M.R.KONDAVETI,parties.IN.CPIM,CPM,7948,27022,62.96,src-0c1b8f274551,minor,
+IN-AC-1962-andhra-pradesh-58,andhra-pradesh,1965,AMALAPURAM,65678,45401,69.13,N.R.RAJU,parties.IN.INC,INC,25166,55.43,K.VENKATARATNAM,parties.IN.IND,IND,20235,4931,10.86,src-0c1b8f274551,minor,
+IN-AC-1962-andhra-pradesh-98,andhra-pradesh,1965,VEMUR,70903,49851,70.31,S.R.CHOUDARY,parties.IN.INC,INC,21866,43.86,Y.VENKATARAO,parties.IN.SWA,SWA,21378,488,0.98,src-0c1b8f274551,minor,

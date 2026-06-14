@@ -1,5 +1,5 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-2008-goa-3682,goa,2019,MANDREM,32162,28128,87.46,Dayanand Raghunath Sopte,parties.IN.BJP,BJP,13468,47.88,Jit Vinayak Arolkar,parties.IN.IND,IND,9343,4125,14.66,src-1b7bc1c9d39a,minor,
-IN-AC-2008-goa-3683,goa,2019,MAPUSA,29217,22733,77.81,JOSHUA PETER DE SOUZA,parties.IN.BJP,BJP,11167,49.12,SUDHIR RAMA KANDOLKAR,parties.IN.INC,INC,10016,1151,5.06,src-1b7bc1c9d39a,minor,
-IN-AC-2008-goa-3684,goa,2019,PANAJI,22482,16918,75.25,Atanasio Monserrate,parties.IN.INC,INC,8748,51.71,Sidharth Sripad Kuncalienker,parties.IN.BJP,BJP,6990,1758,10.39,src-1b7bc1c9d39a,minor,
-IN-AC-2008-goa-3714,goa,2019,SIRODA,28962,24467,84.48,Subhash Ankush Shirodkar,parties.IN.BJP,BJP,10661,43.57,Pandurang alias Deepak Madhav Dhavalikar,parties.IN.MAG,MAG,10585,76,0.31,src-1b7bc1c9d39a,minor,
+IN-AC-2008-goa-3682,goa,2019,MANDREM,32162,28128,87.46,Dayanand Raghunath Sopte,parties.IN.BJP,BJP,13468,47.88,Jit Vinayak Arolkar,parties.IN.IND,IND,9343,4125,14.66,src-0c1b8f274551,minor,
+IN-AC-2008-goa-3683,goa,2019,MAPUSA,29217,22733,77.81,JOSHUA PETER DE SOUZA,parties.IN.BJP,BJP,11167,49.12,SUDHIR RAMA KANDOLKAR,parties.IN.INC,INC,10016,1151,5.06,src-0c1b8f274551,minor,
+IN-AC-2008-goa-3684,goa,2019,PANAJI,22482,16918,75.25,Atanasio Monserrate,parties.IN.INC,INC,8748,51.71,Sidharth Sripad Kuncalienker,parties.IN.BJP,BJP,6990,1758,10.39,src-0c1b8f274551,minor,
+IN-AC-2008-goa-3714,goa,2019,SIRODA,28962,24467,84.48,Subhash Ankush Shirodkar,parties.IN.BJP,BJP,10661,43.57,Pandurang alias Deepak Madhav Dhavalikar,parties.IN.MAG,MAG,10585,76,0.31,src-0c1b8f274551,minor,

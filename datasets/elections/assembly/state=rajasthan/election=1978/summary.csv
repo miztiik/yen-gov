@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-rajasthan-157,rajasthan,1978,BANERA,71378,38937,54.55,K.S.KALVI,parties.IN.JP,JNP,23695,60.85,R.P.LADHA,parties.IN.INC_I,INC(I),11443,12252,31.46,src-1b7bc1c9d39a,minor,
-IN-AC-1976-rajasthan-73,rajasthan,1978,RUPBAS(SC),65016,38134,58.65,D.RAM,parties.IN.JP,JNP,22499,59,B.RAM,parties.IN.INC_I,INC(I),7036,15463,40.55,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-157,rajasthan,1978,BANERA,71378,38937,54.55,K.S.KALVI,parties.IN.JP,JNP,23695,60.85,R.P.LADHA,parties.IN.INC_I,INC(I),11443,12252,31.46,src-0c1b8f274551,minor,
+IN-AC-1976-rajasthan-73,rajasthan,1978,RUPBAS(SC),65016,38134,58.65,D.RAM,parties.IN.JP,JNP,22499,59,B.RAM,parties.IN.INC_I,INC(I),7036,15463,40.55,src-0c1b8f274551,minor,

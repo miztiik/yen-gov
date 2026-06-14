@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
-IN-AC-1976-puducherry-16,puducherry,1998,16,OSSUDU,A. Elumalai,parties.IN.TMC_M,TMC(M),6826,47.72,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-puducherry-16,puducherry,1998,16,OSSUDU,R. Govindammal,parties.IN.AIADMK,ADMK,4021,28.11,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-puducherry-16,puducherry,1998,16,OSSUDU,N. Marimuthu,parties.IN.INC,INC,2832,19.8,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-puducherry-16,puducherry,1998,16,OSSUDU,A. Senthamizh,parties.IN.IND,IND,607,4.24,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-puducherry-16,puducherry,1998,16,OSSUDU,P. Sivakumar,parties.IN.IND,IND,19,0.13,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-puducherry-16,puducherry,1998,16,OSSUDU,A. Elumalai,parties.IN.TMC_M,TMC(M),6826,47.72,1,won,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-puducherry-16,puducherry,1998,16,OSSUDU,R. Govindammal,parties.IN.AIADMK,ADMK,4021,28.11,2,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-puducherry-16,puducherry,1998,16,OSSUDU,N. Marimuthu,parties.IN.INC,INC,2832,19.8,3,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-puducherry-16,puducherry,1998,16,OSSUDU,A. Senthamizh,parties.IN.IND,IND,607,4.24,4,forfeit,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-puducherry-16,puducherry,1998,16,OSSUDU,P. Sivakumar,parties.IN.IND,IND,19,0.13,5,forfeit,U,,,,challenger,src-0c1b8f274551,minor,

@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1962-punjab-111,punjab,1964,PATTI,66813,43945,65.77,U.SINGH,parties.IN.INC,INC,22452,51.09,DINDAR SINGH,parties.IN.IND,IND,18747,3705,8.43,src-1b7bc1c9d39a,minor,
-IN-AC-1962-punjab-122,punjab,1964,BEAS,65968,41238,62.51,SOHAN SINGH,parties.IN.INC,INC,22623,54.86,GURBACHAN SINGH,parties.IN.IND,IND,18615,4008,9.72,src-1b7bc1c9d39a,minor,
-IN-AC-1962-punjab-149,punjab,1964,MAHAL KALAN,64369,42473,65.98,RANJIT SINGH,parties.IN.INC,INC,22800,53.68,H.S.L.BADDI,parties.IN.IND,IND,17696,5104,12.02,src-1b7bc1c9d39a,minor,
-IN-AC-1962-punjab-2,punjab,1964,SERAJ,49053,11964,24.39,JIT RAM,parties.IN.INC,INC,6308,52.72,BANSI RAM,parties.IN.IND,IND,5656,652,5.44,src-1b7bc1c9d39a,minor,
-IN-AC-1962-punjab-29,punjab,1964,JIND,66869,43760,65.44,DAL SINGH,parties.IN.INC,INC,28285,64.64,INDER SINGH,parties.IN.IND,IND,14940,13345,30.5,src-1b7bc1c9d39a,minor,
+IN-AC-1962-punjab-111,punjab,1964,PATTI,66813,43945,65.77,U.SINGH,parties.IN.INC,INC,22452,51.09,DINDAR SINGH,parties.IN.IND,IND,18747,3705,8.43,src-0c1b8f274551,minor,
+IN-AC-1962-punjab-122,punjab,1964,BEAS,65968,41238,62.51,SOHAN SINGH,parties.IN.INC,INC,22623,54.86,GURBACHAN SINGH,parties.IN.IND,IND,18615,4008,9.72,src-0c1b8f274551,minor,
+IN-AC-1962-punjab-149,punjab,1964,MAHAL KALAN,64369,42473,65.98,RANJIT SINGH,parties.IN.INC,INC,22800,53.68,H.S.L.BADDI,parties.IN.IND,IND,17696,5104,12.02,src-0c1b8f274551,minor,
+IN-AC-1962-punjab-2,punjab,1964,SERAJ,49053,11964,24.39,JIT RAM,parties.IN.INC,INC,6308,52.72,BANSI RAM,parties.IN.IND,IND,5656,652,5.44,src-0c1b8f274551,minor,
+IN-AC-1962-punjab-29,punjab,1964,JIND,66869,43760,65.44,DAL SINGH,parties.IN.INC,INC,28285,64.64,INDER SINGH,parties.IN.IND,IND,14940,13345,30.5,src-0c1b8f274551,minor,

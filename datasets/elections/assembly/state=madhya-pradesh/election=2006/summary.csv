@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,BUDHNI,174819,112889,64.57,Shivraj Singh,parties.IN.BJP,BJP,66689,59.07,Rajkumar Patel,parties.IN.INC,INC,30164,36525,32.35,src-1b7bc1c9d39a,minor,
-IN-AC-1976-madhya-pradesh-193,madhya-pradesh,2006,PANDHANA,153246,96086,62.7,DEVENDER VERMA,parties.IN.BJP,BJP,45459,47.31,HIRALAL SILAWAT,parties.IN.INC,INC,33475,11984,12.47,src-1b7bc1c9d39a,minor,
-IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,MALEHRA,184384,115323,62.55,K.C.Ghuwara,parties.IN.BJP,BJP,38880,33.71,Rekha Yadav,parties.IN.BJS,BJS,34494,4386,3.8,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-144,madhya-pradesh,2006,BUDHNI,174819,112889,64.57,Shivraj Singh,parties.IN.BJP,BJP,66689,59.07,Rajkumar Patel,parties.IN.INC,INC,30164,36525,32.35,src-0c1b8f274551,minor,
+IN-AC-1976-madhya-pradesh-193,madhya-pradesh,2006,PANDHANA,153246,96086,62.7,DEVENDER VERMA,parties.IN.BJP,BJP,45459,47.31,HIRALAL SILAWAT,parties.IN.INC,INC,33475,11984,12.47,src-0c1b8f274551,minor,
+IN-AC-1976-madhya-pradesh-47,madhya-pradesh,2006,MALEHRA,184384,115323,62.55,K.C.Ghuwara,parties.IN.BJP,BJP,38880,33.71,Rekha Yadav,parties.IN.BJS,BJS,34494,4386,3.8,src-0c1b8f274551,minor,

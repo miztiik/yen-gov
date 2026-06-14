@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-andhra-pradesh-135,andhra-pradesh,1988,SRIKALAHASTI,126339,92438,73.17,C.R.TATIPARTHY,parties.IN.INC,INC,47984,51.91,K.S.MURTHY,parties.IN.TDP,TDP,43565,4419,4.78,src-1b7bc1c9d39a,minor,
-IN-AC-1976-andhra-pradesh-146,andhra-pradesh,1988,VAYALPAD,110003,79781,72.53,C.R.REDDY,parties.IN.TDP,TDP,41001,51.39,N.SAROJAMMA(W),parties.IN.INC,INC,37739,3262,4.09,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-135,andhra-pradesh,1988,SRIKALAHASTI,126339,92438,73.17,C.R.TATIPARTHY,parties.IN.INC,INC,47984,51.91,K.S.MURTHY,parties.IN.TDP,TDP,43565,4419,4.78,src-0c1b8f274551,minor,
+IN-AC-1976-andhra-pradesh-146,andhra-pradesh,1988,VAYALPAD,110003,79781,72.53,C.R.REDDY,parties.IN.TDP,TDP,41001,51.39,N.SAROJAMMA(W),parties.IN.INC,INC,37739,3262,4.09,src-0c1b8f274551,minor,

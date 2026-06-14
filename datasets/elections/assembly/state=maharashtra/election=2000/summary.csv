@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-maharashtra-19,maharashtra,2000,COLABAUDIVADA,130739,31347,23.98,Dinaz Marazban,parties.IN.SHS,SHS,16368,52.22,Annie Shekhar,parties.IN.INC,INC,13803,2565,8.19,src-1b7bc1c9d39a,minor,
-IN-AC-1976-maharashtra-280,maharashtra,2000,SHAHUWADI,161567,119907,74.22,G.Sanjeevanidevi.Sanjaysingh,parties.IN.INC,INC,55209,46.04,P.B.Yashwantrao,parties.IN.IND,IND,51088,4121,3.43,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-19,maharashtra,2000,COLABAUDIVADA,130739,31347,23.98,Dinaz Marazban,parties.IN.SHS,SHS,16368,52.22,Annie Shekhar,parties.IN.INC,INC,13803,2565,8.19,src-0c1b8f274551,minor,
+IN-AC-1976-maharashtra-280,maharashtra,2000,SHAHUWADI,161567,119907,74.22,G.Sanjeevanidevi.Sanjaysingh,parties.IN.INC,INC,55209,46.04,P.B.Yashwantrao,parties.IN.IND,IND,51088,4121,3.43,src-0c1b8f274551,minor,

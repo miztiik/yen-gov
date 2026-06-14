@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-rajasthan-64,rajasthan,1984,THANAGAZI,75344,52055,69.09,D.LAL,parties.IN.INC,INC,25770,49.51,S.NARAIN,parties.IN.BJP,BJP,24255,1515,2.92,src-1b7bc1c9d39a,minor,
+IN-AC-1976-rajasthan-64,rajasthan,1984,THANAGAZI,75344,52055,69.09,D.LAL,parties.IN.INC,INC,25770,49.51,S.NARAIN,parties.IN.BJP,BJP,24255,1515,2.92,src-0c1b8f274551,minor,

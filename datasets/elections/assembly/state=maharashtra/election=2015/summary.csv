@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-2008-maharashtra-2901,maharashtra,2015,ASHTI,341703,165422,48.41,Urmila Devi,parties.IN.SP,SP,82159,49.67,Akhil Rajpoot,parties.IN.BJP,BJP,41210,40949,24.76,src-1b7bc1c9d39a,minor,
-IN-AC-2008-maharashtra-3047,maharashtra,2015,MUKHED,274960,156754,57.01,T.G Rathod,parties.IN.BJP,BJP,100319,64,P.M.V.Betmogarekar,parties.IN.INC,INC,53071,47248,30.14,src-1b7bc1c9d39a,minor,
-IN-AC-2008-maharashtra-3116,maharashtra,2015,TASGAON - KAVATHE MAHANKAL,271273,153452,56.57,Suman R.R.(Aba) Patil,parties.IN.NCP,NCP,131236,85.52,Adv.Swapnil Diliprao Patil,parties.IN.IND,IND,18273,112963,73.61,src-1b7bc1c9d39a,minor,
+IN-AC-2008-maharashtra-2901,maharashtra,2015,ASHTI,341703,165422,48.41,Urmila Devi,parties.IN.SP,SP,82159,49.67,Akhil Rajpoot,parties.IN.BJP,BJP,41210,40949,24.76,src-0c1b8f274551,minor,
+IN-AC-2008-maharashtra-3047,maharashtra,2015,MUKHED,274960,156754,57.01,T.G Rathod,parties.IN.BJP,BJP,100319,64,P.M.V.Betmogarekar,parties.IN.INC,INC,53071,47248,30.14,src-0c1b8f274551,minor,
+IN-AC-2008-maharashtra-3116,maharashtra,2015,TASGAON - KAVATHE MAHANKAL,271273,153452,56.57,Suman R.R.(Aba) Patil,parties.IN.NCP,NCP,131236,85.52,Adv.Swapnil Diliprao Patil,parties.IN.IND,IND,18273,112963,73.61,src-0c1b8f274551,minor,

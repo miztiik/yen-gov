@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
-IN-AC-1976-odisha-133,odisha,2001,133,RAIRAKHOL(SC),SANATAN BISI,parties.IN.BJD,BJD,45925,50.48,1,won,U,,,,crossover,src-1b7bc1c9d39a,minor,
-IN-AC-1976-odisha-133,odisha,2001,133,RAIRAKHOL(SC),ASHOK KUMAR BERIHA,parties.IN.INC,INC,31344,34.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-odisha-133,odisha,2001,133,RAIRAKHOL(SC),BINOD MAHANANDA,parties.IN.OGP,OGP,8405,9.24,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-odisha-133,odisha,2001,133,RAIRAKHOL(SC),HAMID LUHA,parties.IN.SPSP,SPSP,2217,2.44,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-odisha-133,odisha,2001,133,RAIRAKHOL(SC),DEBAKI MAHANANDA,parties.IN.NCP,NCP,1686,1.85,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-odisha-133,odisha,2001,133,RAIRAKHOL(SC),BHABANI SHANKAR SOHELA,parties.IN.BBM,BBM,1400,1.54,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-odisha-133,odisha,2001,133,RAIRAKHOL(SC),SANATAN BISI,parties.IN.BJD,BJD,45925,50.48,1,won,U,,,,crossover,src-0c1b8f274551,minor,
+IN-AC-1976-odisha-133,odisha,2001,133,RAIRAKHOL(SC),ASHOK KUMAR BERIHA,parties.IN.INC,INC,31344,34.45,2,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-odisha-133,odisha,2001,133,RAIRAKHOL(SC),BINOD MAHANANDA,parties.IN.OGP,OGP,8405,9.24,3,forfeit,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-odisha-133,odisha,2001,133,RAIRAKHOL(SC),HAMID LUHA,parties.IN.SPSP,SPSP,2217,2.44,4,forfeit,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-odisha-133,odisha,2001,133,RAIRAKHOL(SC),DEBAKI MAHANANDA,parties.IN.NCP,NCP,1686,1.85,5,forfeit,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-odisha-133,odisha,2001,133,RAIRAKHOL(SC),BHABANI SHANKAR SOHELA,parties.IN.BBM,BBM,1400,1.54,6,forfeit,U,,,,challenger,src-0c1b8f274551,minor,

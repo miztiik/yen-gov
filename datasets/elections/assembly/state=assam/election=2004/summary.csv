@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-assam-101,assam,2004,MARIANI,94519,62394,66.01,Alok Kumar Ghose,parties.IN.AITC,AITC,18424,29.53,Binod Gogoi,parties.IN.BJP,BJP,15754,2670,4.28,src-1b7bc1c9d39a,minor,
-IN-AC-1976-assam-115,assam,2004,MORAN,96467,61852,64.12,JIBANTARA GHATOWAR,parties.IN.INC,INC,31916,51.6,PARAG JYOTI BARUAH,parties.IN.AGP,AGP,23339,8577,13.87,src-1b7bc1c9d39a,minor,
+IN-AC-1976-assam-101,assam,2004,MARIANI,94519,62394,66.01,Alok Kumar Ghose,parties.IN.AITC,AITC,18424,29.53,Binod Gogoi,parties.IN.BJP,BJP,15754,2670,4.28,src-0c1b8f274551,minor,
+IN-AC-1976-assam-115,assam,2004,MORAN,96467,61852,64.12,JIBANTARA GHATOWAR,parties.IN.INC,INC,31916,51.6,PARAG JYOTI BARUAH,parties.IN.AGP,AGP,23339,8577,13.87,src-0c1b8f274551,minor,

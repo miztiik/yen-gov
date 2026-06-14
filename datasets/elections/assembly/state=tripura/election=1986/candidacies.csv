@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
-IN-AC-1976-tripura-29,tripura,1986,29,KRISHNAPUR,J.SARKAR,parties.IN.CPIM,CPM,9211,55.64,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-tripura-29,tripura,1986,29,KRISHNAPUR,A.K.BAIDYA,parties.IN.INC,INC,5829,35.21,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-tripura-29,tripura,1986,29,KRISHNAPUR,G.RUDRAPAL,parties.IN.IND,IND,1291,7.8,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-tripura-29,tripura,1986,29,KRISHNAPUR,M.DEBNATH,parties.IN.IND,IND,151,0.91,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-tripura-29,tripura,1986,29,KRISHNAPUR,P.C.ROY,parties.IN.IND,IND,74,0.45,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-tripura-29,tripura,1986,29,KRISHNAPUR,J.SARKAR,parties.IN.CPIM,CPM,9211,55.64,1,won,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-tripura-29,tripura,1986,29,KRISHNAPUR,A.K.BAIDYA,parties.IN.INC,INC,5829,35.21,2,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-tripura-29,tripura,1986,29,KRISHNAPUR,G.RUDRAPAL,parties.IN.IND,IND,1291,7.8,3,forfeit,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-tripura-29,tripura,1986,29,KRISHNAPUR,M.DEBNATH,parties.IN.IND,IND,151,0.91,4,forfeit,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-tripura-29,tripura,1986,29,KRISHNAPUR,P.C.ROY,parties.IN.IND,IND,74,0.45,5,forfeit,U,,,,challenger,src-0c1b8f274551,minor,

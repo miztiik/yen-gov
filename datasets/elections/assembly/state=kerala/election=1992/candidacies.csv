@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
-IN-AC-1976-kerala-37,kerala,1992,37,TANNUR,KUTTY AHAMMED KUTTY,parties.IN.IUML,IUML,47250,71,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-kerala-37,kerala,1992,37,TANNUR,M MOHAMMED MASTER,parties.IN.CPIM,CPM,19067,28.65,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-kerala-37,kerala,1992,37,TANNUR,K E ASSANAR,parties.IN.JP,JP,229,0.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-kerala-71,kerala,1992,71,NJARAKKAL SC,BABU V K,parties.IN.UNK,IC (S),47898,51.69,1,won,U,,,,crossover,src-1b7bc1c9d39a,major,Publisher label 'IC (S)' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
-IN-AC-1976-kerala-71,kerala,1992,71,NJARAKKAL SC,ANANTHAKUMAR K K,parties.IN.INC,INC,43684,47.14,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-kerala-71,kerala,1992,71,NJARAKKAL SC,GOPINATHAN P K,parties.IN.IND,IND,1087,1.17,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-kerala-37,kerala,1992,37,TANNUR,KUTTY AHAMMED KUTTY,parties.IN.IUML,IUML,47250,71,1,won,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-kerala-37,kerala,1992,37,TANNUR,M MOHAMMED MASTER,parties.IN.CPIM,CPM,19067,28.65,2,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-kerala-37,kerala,1992,37,TANNUR,K E ASSANAR,parties.IN.JP,JP,229,0.34,3,forfeit,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-kerala-71,kerala,1992,71,NJARAKKAL SC,BABU V K,parties.IN.UNK,IC (S),47898,51.69,1,won,U,,,,crossover,src-0c1b8f274551,major,Publisher label 'IC (S)' unmatched against TCPD/ECI catalogues; awaiting oracle resolution per datasets/_ops/unk-ledger-2026-06-12.csv.
+IN-AC-1976-kerala-71,kerala,1992,71,NJARAKKAL SC,ANANTHAKUMAR K K,parties.IN.INC,INC,43684,47.14,2,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-kerala-71,kerala,1992,71,NJARAKKAL SC,GOPINATHAN P K,parties.IN.IND,IND,1087,1.17,3,forfeit,U,,,,challenger,src-0c1b8f274551,minor,

@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
-IN-AC-1976-punjab-20,punjab,2005,20,AJNALA,HARPARTAP SINGH AJNALA,parties.IN.INC,INC,66661,56.87,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-punjab-20,punjab,2005,20,AJNALA,AMARPAL SINGH AJNALA,parties.IN.SAD,SAD,47415,40.45,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-punjab-20,punjab,2005,20,AJNALA,HARVINDER SINGH,parties.IN.IND,IND,1567,1.34,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-punjab-20,punjab,2005,20,AJNALA,RAJ KUMAR,parties.IN.IND,IND,990,0.84,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-punjab-20,punjab,2005,20,AJNALA,MANDEEP SINGH,parties.IN.IND,IND,585,0.5,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-punjab-20,punjab,2005,20,AJNALA,HARPARTAP SINGH AJNALA,parties.IN.INC,INC,66661,56.87,1,won,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-punjab-20,punjab,2005,20,AJNALA,AMARPAL SINGH AJNALA,parties.IN.SAD,SAD,47415,40.45,2,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-punjab-20,punjab,2005,20,AJNALA,HARVINDER SINGH,parties.IN.IND,IND,1567,1.34,3,forfeit,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-punjab-20,punjab,2005,20,AJNALA,RAJ KUMAR,parties.IN.IND,IND,990,0.84,4,forfeit,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-punjab-20,punjab,2005,20,AJNALA,MANDEEP SINGH,parties.IN.IND,IND,585,0.5,5,forfeit,U,,,,challenger,src-0c1b8f274551,minor,

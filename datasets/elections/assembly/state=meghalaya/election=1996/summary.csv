@@ -1,2 +1,2 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-meghalaya-17,meghalaya,1996,LAITUMKHARAM(ST),17030,10211,59.96,Peter G. Marbaniang,parties.IN.INC,INC,5847,57.26,Naramai Langstieh,parties.IN.HPU,HPU,2951,2896,28.36,src-1b7bc1c9d39a,minor,
+IN-AC-1976-meghalaya-17,meghalaya,1996,LAITUMKHARAM(ST),17030,10211,59.96,Peter G. Marbaniang,parties.IN.INC,INC,5847,57.26,Naramai Langstieh,parties.IN.HPU,HPU,2951,2896,28.36,src-0c1b8f274551,minor,

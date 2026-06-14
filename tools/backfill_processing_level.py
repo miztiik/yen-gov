@@ -49,6 +49,24 @@ _KSP_NOTE = (
     "against TCPD 2026-06-14 catalogue."
 )
 
+# LS years whose PC-level summary totals were derived by aggregating
+# TCPD's per-AC ``All_States_GA.csv`` rows up to the PC grain (segment-
+# approximate). The direct-PC TCPD CSV for these years is not published.
+# 2024 onward ships from direct-PC TCPD CSVs and stays ``minor``.
+TCPD_SOURCED_LS_YEARS = frozenset({1999, 2004, 2009, 2014, 2019})
+_TCPD_SEGMENT_NOTE = (
+    "PC summary derived from TCPD All_States_GA.csv (AC-segment "
+    "aggregation to PC level); direct-PC TCPD CSV not published for "
+    "this LS year."
+)
+
+
+def _is_tcpd_sourced_ls_year(year_str: str) -> bool:
+    try:
+        return int(year_str) in TCPD_SOURCED_LS_YEARS
+    except (TypeError, ValueError):
+        return False
+
 
 def _expected_candidacy_tags(row: dict[str, str]) -> tuple[str, str]:
     """Return ``(processing_level, processing_note)`` for a candidacy row."""
@@ -64,8 +82,18 @@ def _expected_candidacy_tags(row: dict[str, str]) -> tuple[str, str]:
     return "minor", ""
 
 
-def _expected_summary_tags(row: dict[str, str]) -> tuple[str, str]:
-    """Summary rows inherit from the winner_party_id."""
+def _expected_summary_tags(
+    row: dict[str, str],
+    *,
+    chamber: str,
+    election_year: str,
+) -> tuple[str, str]:
+    """Summary rows inherit from the winner_party_id, with one chamber-
+    aware override: parliament summaries for the TCPD-sourced LS years
+    (1999-2019) tag ``major`` with the segment-aggregation note because
+    their PC totals were rolled up from per-AC rows. Per-row UNK / BJC /
+    KSP gates win over the segment override so the original note is
+    preserved."""
 
     party_id = (row.get("winner_party_id") or "").strip()
     if party_id == "parties.IN.UNK":
@@ -77,6 +105,8 @@ def _expected_summary_tags(row: dict[str, str]) -> tuple[str, str]:
         return "major", _BJC_NOTE
     if party_id == "parties.IN.KSP":
         return "major", _KSP_NOTE
+    if chamber == "parliament" and _is_tcpd_sourced_ls_year(election_year):
+        return "major", _TCPD_SEGMENT_NOTE
     return "minor", ""
 
 
@@ -94,7 +124,25 @@ def _process_file(path: Path, is_summary: bool) -> tuple[bool, int, int]:
 
     has_level = "processing_level" in original_fieldnames
     has_note = "processing_note" in original_fieldnames
-    classify = _expected_summary_tags if is_summary else _expected_candidacy_tags
+
+    # Derive (chamber, election_year) from the path. Path shape:
+    #   datasets/elections/{assembly|parliament}/.../election=YYYY/<file>.csv
+    chamber = ""
+    election_year = ""
+    for parent in path.parents:
+        name = parent.name
+        if name in ("assembly", "parliament"):
+            chamber = name
+        elif name.startswith("election="):
+            election_year = name.split("=", 1)[1]
+
+    if is_summary:
+        def classify(row: dict[str, str]) -> tuple[str, str]:
+            return _expected_summary_tags(
+                row, chamber=chamber, election_year=election_year,
+            )
+    else:
+        classify = _expected_candidacy_tags
 
     new_rows: list[dict[str, str]] = []
     n_minor = 0

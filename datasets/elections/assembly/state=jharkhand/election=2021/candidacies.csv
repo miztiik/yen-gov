@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
-IN-AC-2008-jharkhand-2167,jharkhand,2021,13,MADHUPUR,HAFIZUL HASSAN,parties.IN.JMM,JMM,110812,48,1,won,M,46,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-2008-jharkhand-2167,jharkhand,2021,13,MADHUPUR,GANGA NARAYAN SINGH,parties.IN.BJP,BJP,105565,45.73,2,lost,M,42,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-2008-jharkhand-2167,jharkhand,2021,13,MADHUPUR,ASHOK KUMAR THAKUR,parties.IN.IND,IND,3924,1.7,4,forfeit,M,55,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-2008-jharkhand-2167,jharkhand,2021,13,MADHUPUR,RAJENDRA KUMAR,parties.IN.IND,IND,2409,1.04,5,forfeit,M,36,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-2008-jharkhand-2167,jharkhand,2021,13,MADHUPUR,UTTAM KUMAR YADAV,parties.IN.IND,IND,2003,0.87,6,forfeit,M,30,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-2008-jharkhand-2167,jharkhand,2021,13,MADHUPUR,KISHAN KUMAR BATHWAL,parties.IN.IND,IND,1033,0.45,7,forfeit,M,44,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-jharkhand-2167,jharkhand,2021,13,MADHUPUR,HAFIZUL HASSAN,parties.IN.JMM,JMM,110812,48,1,won,M,46,,,challenger,src-0c1b8f274551,minor,
+IN-AC-2008-jharkhand-2167,jharkhand,2021,13,MADHUPUR,GANGA NARAYAN SINGH,parties.IN.BJP,BJP,105565,45.73,2,lost,M,42,,,challenger,src-0c1b8f274551,minor,
+IN-AC-2008-jharkhand-2167,jharkhand,2021,13,MADHUPUR,ASHOK KUMAR THAKUR,parties.IN.IND,IND,3924,1.7,4,forfeit,M,55,,,challenger,src-0c1b8f274551,minor,
+IN-AC-2008-jharkhand-2167,jharkhand,2021,13,MADHUPUR,RAJENDRA KUMAR,parties.IN.IND,IND,2409,1.04,5,forfeit,M,36,,,challenger,src-0c1b8f274551,minor,
+IN-AC-2008-jharkhand-2167,jharkhand,2021,13,MADHUPUR,UTTAM KUMAR YADAV,parties.IN.IND,IND,2003,0.87,6,forfeit,M,30,,,challenger,src-0c1b8f274551,minor,
+IN-AC-2008-jharkhand-2167,jharkhand,2021,13,MADHUPUR,KISHAN KUMAR BATHWAL,parties.IN.IND,IND,1033,0.45,7,forfeit,M,44,,,challenger,src-0c1b8f274551,minor,

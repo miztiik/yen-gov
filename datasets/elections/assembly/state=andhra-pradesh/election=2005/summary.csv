@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-andhra-pradesh-166,andhra-pradesh,2005,PENUKONDA,168774,119544,70.83,Paritala Sunithamma,parties.IN.TDP,TDP,65730,54.98,Boya Sreeramulu,parties.IN.INC,INC,46878,18852,15.77,src-1b7bc1c9d39a,minor,
-IN-AC-1976-andhra-pradesh-199,andhra-pradesh,2005,MAKTHAL,184294,98886,53.66,Chittemram Mohan Reddy,parties.IN.INC,INC,64878,65.61,Sugappa,parties.IN.IND,IND,24799,40079,40.53,src-1b7bc1c9d39a,minor,
+IN-AC-1976-andhra-pradesh-166,andhra-pradesh,2005,PENUKONDA,168774,119544,70.83,Paritala Sunithamma,parties.IN.TDP,TDP,65730,54.98,Boya Sreeramulu,parties.IN.INC,INC,46878,18852,15.77,src-0c1b8f274551,minor,
+IN-AC-1976-andhra-pradesh-199,andhra-pradesh,2005,MAKTHAL,184294,98886,53.66,Chittemram Mohan Reddy,parties.IN.INC,INC,64878,65.61,Sugappa,parties.IN.IND,IND,24799,40079,40.53,src-0c1b8f274551,minor,

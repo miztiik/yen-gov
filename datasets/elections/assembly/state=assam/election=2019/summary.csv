@@ -1,5 +1,5 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-2008-assam-1733,assam,2019,JANIA,187988,150477,80.05,Rafiqul Islam,parties.IN.AIUDF,AIUDF,81780,54.35,SHAMSUL HOQUE,parties.IN.INC,INC,46639,35141,23.36,src-1b7bc1c9d39a,minor,
-IN-AC-2008-assam-1771,assam,2019,SONARI,170472,122207,71.69,Nabanita Handique,parties.IN.BJP,BJP,66698,54.58,Sushil Kumar Suri,parties.IN.INC,INC,51268,15430,12.63,src-1b7bc1c9d39a,minor,
-IN-AC-2008-assam-1792,assam,2019,RATABARI,164312,115730,70.43,BIJOY MALAKAR,parties.IN.BJP,BJP,68455,59.15,KESHAB PRASAD RAJAK,parties.IN.INC,INC,44454,24001,20.74,src-1b7bc1c9d39a,minor,
-IN-AC-2008-assam-1844,assam,2019,RANGAPARA,154595,118059,76.37,RAJEN BORTHAKUR,parties.IN.BJP,BJP,78301,66.32,KARTIK KURMI,parties.IN.INC,INC,28702,49599,42.01,src-1b7bc1c9d39a,minor,
+IN-AC-2008-assam-1733,assam,2019,JANIA,187988,150477,80.05,Rafiqul Islam,parties.IN.AIUDF,AIUDF,81780,54.35,SHAMSUL HOQUE,parties.IN.INC,INC,46639,35141,23.36,src-0c1b8f274551,minor,
+IN-AC-2008-assam-1771,assam,2019,SONARI,170472,122207,71.69,Nabanita Handique,parties.IN.BJP,BJP,66698,54.58,Sushil Kumar Suri,parties.IN.INC,INC,51268,15430,12.63,src-0c1b8f274551,minor,
+IN-AC-2008-assam-1792,assam,2019,RATABARI,164312,115730,70.43,BIJOY MALAKAR,parties.IN.BJP,BJP,68455,59.15,KESHAB PRASAD RAJAK,parties.IN.INC,INC,44454,24001,20.74,src-0c1b8f274551,minor,
+IN-AC-2008-assam-1844,assam,2019,RANGAPARA,154595,118059,76.37,RAJEN BORTHAKUR,parties.IN.BJP,BJP,78301,66.32,KARTIK KURMI,parties.IN.INC,INC,28702,49599,42.01,src-0c1b8f274551,minor,

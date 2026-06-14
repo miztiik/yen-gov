@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-2008-odisha-2230,odisha,2020,BALASORE,230292,162339,70.49,Swarup Kumar Das,parties.IN.BJD,BJD,84097,51.8,Manas Kumar Dutta,parties.IN.BJP,BJP,70746,13351,8.22,src-1b7bc1c9d39a,minor,
-IN-AC-2008-odisha-2291,odisha,2020,TIRTOL,237281,166921,70.35,Bijaya Shankar Das,parties.IN.BJD,BJD,88310,52.91,Rajkishore Behera,parties.IN.BJP,BJP,46607,41703,24.99,src-1b7bc1c9d39a,minor,
+IN-AC-2008-odisha-2230,odisha,2020,BALASORE,230292,162339,70.49,Swarup Kumar Das,parties.IN.BJD,BJD,84097,51.8,Manas Kumar Dutta,parties.IN.BJP,BJP,70746,13351,8.22,src-0c1b8f274551,minor,
+IN-AC-2008-odisha-2291,odisha,2020,TIRTOL,237281,166921,70.35,Bijaya Shankar Das,parties.IN.BJD,BJD,88310,52.91,Rajkishore Behera,parties.IN.BJP,BJP,46607,41703,24.99,src-0c1b8f274551,minor,

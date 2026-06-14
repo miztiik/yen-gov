@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
-IN-AC-2008-mizoram-1569,mizoram,2019,15,AIZAWL WEST I,ZOTHANTLUANGA,parties.IN.MNF,MNF,12489,67.91,1,won,M,65,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-2008-mizoram-1569,mizoram,2019,15,AIZAWL WEST I,LALBUANGA SAILO,parties.IN.IND,IND,5322,28.94,2,lost,M,62,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-2008-mizoram-1569,mizoram,2019,15,AIZAWL WEST I,REV. DR. ZAICHHAWNA HLAWNDO,parties.IN.IND,IND,452,2.46,3,forfeit,M,55,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-2008-mizoram-1569,mizoram,2019,15,AIZAWL WEST I,ZOTHANTLUANGA,parties.IN.MNF,MNF,12489,67.91,1,won,M,65,,,challenger,src-0c1b8f274551,minor,
+IN-AC-2008-mizoram-1569,mizoram,2019,15,AIZAWL WEST I,LALBUANGA SAILO,parties.IN.IND,IND,5322,28.94,2,lost,M,62,,,challenger,src-0c1b8f274551,minor,
+IN-AC-2008-mizoram-1569,mizoram,2019,15,AIZAWL WEST I,REV. DR. ZAICHHAWNA HLAWNDO,parties.IN.IND,IND,452,2.46,3,forfeit,M,55,,,challenger,src-0c1b8f274551,minor,

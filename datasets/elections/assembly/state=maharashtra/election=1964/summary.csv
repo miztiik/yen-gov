@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1962-maharashtra-128,maharashtra,1964,BHAGUR,56303,25469,45.24,A.T.KALE,parties.IN.INC,INC,15607,61.28,B.DUTTUMANJI,parties.IN.RPI,RPI,9862,5745,22.56,src-1b7bc1c9d39a,minor,
-IN-AC-1962-maharashtra-208,maharashtra,1964,SAOLI,70330,46418,66,W.V.GANDAMWAR,parties.IN.INC,INC,31081,66.96,V.A.PATIL,parties.IN.PSP,PSP,12378,18703,40.29,src-1b7bc1c9d39a,minor,
-IN-AC-1962-maharashtra-55,maharashtra,1964,AMBEGAON,62193,-1,0,SMT.V.A.AWATE,parties.IN.INC,INC,-1,,,,,,,,src-1b7bc1c9d39a,minor,
+IN-AC-1962-maharashtra-128,maharashtra,1964,BHAGUR,56303,25469,45.24,A.T.KALE,parties.IN.INC,INC,15607,61.28,B.DUTTUMANJI,parties.IN.RPI,RPI,9862,5745,22.56,src-0c1b8f274551,minor,
+IN-AC-1962-maharashtra-208,maharashtra,1964,SAOLI,70330,46418,66,W.V.GANDAMWAR,parties.IN.INC,INC,31081,66.96,V.A.PATIL,parties.IN.PSP,PSP,12378,18703,40.29,src-0c1b8f274551,minor,
+IN-AC-1962-maharashtra-55,maharashtra,1964,AMBEGAON,62193,-1,0,SMT.V.A.AWATE,parties.IN.INC,INC,-1,,,,,,,,src-0c1b8f274551,minor,

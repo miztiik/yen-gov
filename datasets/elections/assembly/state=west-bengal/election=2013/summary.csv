@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-2008-west-bengal-1934,west-bengal,2013,NALHATI,176584,167701,94.97,Dipak Chatterjee,parties.IN.AIFB,AIFB,55341,33,Abdur Rahaman,parties.IN.INC,INC,47595,7746,4.62,src-1b7bc1c9d39a,minor,
-IN-AC-2008-west-bengal-2065,west-bengal,2013,ENGLISHBAZAR,208529,179990,86.31,Krishnendu Narayan Choudhary,parties.IN.INC,INC,70791,39.33,Koushik Nisra (Saheb),parties.IN.CPI,CPI,50339,20452,11.36,src-1b7bc1c9d39a,minor,
+IN-AC-2008-west-bengal-1934,west-bengal,2013,NALHATI,176584,167701,94.97,Dipak Chatterjee,parties.IN.AIFB,AIFB,55341,33,Abdur Rahaman,parties.IN.INC,INC,47595,7746,4.62,src-0c1b8f274551,minor,
+IN-AC-2008-west-bengal-2065,west-bengal,2013,ENGLISHBAZAR,208529,179990,86.31,Krishnendu Narayan Choudhary,parties.IN.INC,INC,70791,39.33,Koushik Nisra (Saheb),parties.IN.CPI,CPI,50339,20452,11.36,src-0c1b8f274551,minor,

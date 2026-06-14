@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-uttar-pradesh-255,uttar-pradesh,1979,RARI,133584,73893,55.32,S.N.UPADHYA,parties.IN.INC_I,INC(I),31473,42.59,ARJUN,parties.IN.JP,JNP,29622,1851,2.5,src-1b7bc1c9d39a,minor,
-IN-AC-1976-uttar-pradesh-277,uttar-pradesh,1979,ALLAHABAD,125724,40038,31.85,C.N.SINGH,parties.IN.INC_I,INC(I),14000,34.97,M.AHMAD,parties.IN.JP,JNP,8865,5135,12.83,src-1b7bc1c9d39a,minor,
-IN-AC-1976-uttar-pradesh-41,uttar-pradesh,1979,GUNNAUR,129351,60852,47.04,PREMVATI(W),parties.IN.JP,JNP,37592,61.78,J.KISHORE,parties.IN.INC_I,INC(I),15610,21982,36.13,src-1b7bc1c9d39a,minor,
+IN-AC-1976-uttar-pradesh-255,uttar-pradesh,1979,RARI,133584,73893,55.32,S.N.UPADHYA,parties.IN.INC_I,INC(I),31473,42.59,ARJUN,parties.IN.JP,JNP,29622,1851,2.5,src-0c1b8f274551,minor,
+IN-AC-1976-uttar-pradesh-277,uttar-pradesh,1979,ALLAHABAD,125724,40038,31.85,C.N.SINGH,parties.IN.INC_I,INC(I),14000,34.97,M.AHMAD,parties.IN.JP,JNP,8865,5135,12.83,src-0c1b8f274551,minor,
+IN-AC-1976-uttar-pradesh-41,uttar-pradesh,1979,GUNNAUR,129351,60852,47.04,PREMVATI(W),parties.IN.JP,JNP,37592,61.78,J.KISHORE,parties.IN.INC_I,INC(I),15610,21982,36.13,src-0c1b8f274551,minor,

@@ -1,4 +1,4 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
-IN-AC-1976-goa-28,goa,1996,28,BENAULIM,Alemao Joaquim Braz,parties.IN.UGDP,UGDP,7107,53.46,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-goa-28,goa,1996,28,BENAULIM,Agnelo Fernandes,parties.IN.INC,INC,5970,44.91,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-goa-28,goa,1996,28,BENAULIM,Silveira Tiaf Caitano,parties.IN.BJP,BJP,217,1.63,3,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-goa-28,goa,1996,28,BENAULIM,Alemao Joaquim Braz,parties.IN.UGDP,UGDP,7107,53.46,1,won,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-goa-28,goa,1996,28,BENAULIM,Agnelo Fernandes,parties.IN.INC,INC,5970,44.91,2,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-goa-28,goa,1996,28,BENAULIM,Silveira Tiaf Caitano,parties.IN.BJP,BJP,217,1.63,3,forfeit,U,,,,challenger,src-0c1b8f274551,minor,

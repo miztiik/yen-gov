@@ -1,6 +1,6 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-PC-1976-andhra-pradesh-31,andhra-pradesh,1987,SECUNDERABAD,856674,354711,41.41,T.MANEMMHJA(W),parties.IN.INC,INC,182861,51.55,B.P.REDDY,parties.IN.TDP,TDP,90300,92561,26.09,src-31c65dbec869,minor,
-IN-PC-1976-haryana-5,haryana,1987,ROHTAK,742030,526441,70.95,H.LAL,parties.IN.LKD,LKD,263209,50,S.SINGH,parties.IN.INC,INC,160705,102504,19.47,src-31c65dbec869,minor,
-IN-PC-1976-haryana-8,haryana,1987,BHIWANI,782290,593080,75.81,R.N.SINGH,parties.IN.LKD,LKD,312900,52.76,D.NAND,parties.IN.INC,INC,223548,89352,15.07,src-31c65dbec869,minor,
-IN-PC-1976-maharashtra-30,maharashtra,1987,NANDED,820467,476415,58.07,C.A.SHANKARRAO,parties.IN.INC,INC,283019,59.41,P.Y.AMBEDKAR,parties.IN.IND,IND,171901,111118,23.33,src-31c65dbec869,minor,
-IN-PC-1976-uttar-pradesh-85,uttar-pradesh,1987,HARDWAR(SC),692463,383391,55.37,R.SINGH,parties.IN.INC,INC,149377,38.96,MAYAWATI(W),parties.IN.BSP,BSP,125399,23978,6.25,src-31c65dbec869,minor,
+IN-PC-1976-andhra-pradesh-31,andhra-pradesh,1987,SECUNDERABAD,856674,354711,41.41,T.MANEMMHJA(W),parties.IN.INC,INC,182861,51.55,B.P.REDDY,parties.IN.TDP,TDP,90300,92561,26.09,src-d4b15132ad0e,minor,
+IN-PC-1976-haryana-5,haryana,1987,ROHTAK,742030,526441,70.95,H.LAL,parties.IN.LKD,LKD,263209,50,S.SINGH,parties.IN.INC,INC,160705,102504,19.47,src-d4b15132ad0e,minor,
+IN-PC-1976-haryana-8,haryana,1987,BHIWANI,782290,593080,75.81,R.N.SINGH,parties.IN.LKD,LKD,312900,52.76,D.NAND,parties.IN.INC,INC,223548,89352,15.07,src-d4b15132ad0e,minor,
+IN-PC-1976-maharashtra-30,maharashtra,1987,NANDED,820467,476415,58.07,C.A.SHANKARRAO,parties.IN.INC,INC,283019,59.41,P.Y.AMBEDKAR,parties.IN.IND,IND,171901,111118,23.33,src-d4b15132ad0e,minor,
+IN-PC-1976-uttar-pradesh-85,uttar-pradesh,1987,HARDWAR(SC),692463,383391,55.37,R.SINGH,parties.IN.INC,INC,149377,38.96,MAYAWATI(W),parties.IN.BSP,BSP,125399,23978,6.25,src-d4b15132ad0e,minor,

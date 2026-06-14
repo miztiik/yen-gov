@@ -1,5 +1,5 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-madhya-pradesh-220,madhya-pradesh,1986,SAUSAR,85979,53125,61.79,K.B.R.CHORE(W),parties.IN.INC,INC,28136,52.96,R.R.MAHALE,parties.IN.BJP,BJP,19768,8368,15.75,src-1b7bc1c9d39a,minor,
-IN-AC-1976-madhya-pradesh-222,madhya-pradesh,1986,PIPARIA,92189,50322,54.59,M.M(M.BHAIYA),parties.IN.BJP,BJP,24879,49.44,G.S.RAJPUT(L.BHAIYA),parties.IN.INC,INC,23427,1452,2.89,src-1b7bc1c9d39a,minor,
-IN-AC-1976-madhya-pradesh-239,madhya-pradesh,1986,BHOPAL  SOUTH,149312,73235,49.05,H.SIDDIQUI,parties.IN.INC,INC,36878,50.36,K.N.SARANG,parties.IN.BJP,BJP,35120,1758,2.4,src-1b7bc1c9d39a,minor,
-IN-AC-1976-madhya-pradesh-244,madhya-pradesh,1986,BARELI,89491,64410,71.97,J.SINGH,parties.IN.INC,INC,33704,52.33,B.SINGH,parties.IN.BJP,BJP,29214,4490,6.97,src-1b7bc1c9d39a,minor,
+IN-AC-1976-madhya-pradesh-220,madhya-pradesh,1986,SAUSAR,85979,53125,61.79,K.B.R.CHORE(W),parties.IN.INC,INC,28136,52.96,R.R.MAHALE,parties.IN.BJP,BJP,19768,8368,15.75,src-0c1b8f274551,minor,
+IN-AC-1976-madhya-pradesh-222,madhya-pradesh,1986,PIPARIA,92189,50322,54.59,M.M(M.BHAIYA),parties.IN.BJP,BJP,24879,49.44,G.S.RAJPUT(L.BHAIYA),parties.IN.INC,INC,23427,1452,2.89,src-0c1b8f274551,minor,
+IN-AC-1976-madhya-pradesh-239,madhya-pradesh,1986,BHOPAL  SOUTH,149312,73235,49.05,H.SIDDIQUI,parties.IN.INC,INC,36878,50.36,K.N.SARANG,parties.IN.BJP,BJP,35120,1758,2.4,src-0c1b8f274551,minor,
+IN-AC-1976-madhya-pradesh-244,madhya-pradesh,1986,BARELI,89491,64410,71.97,J.SINGH,parties.IN.INC,INC,33704,52.33,B.SINGH,parties.IN.BJP,BJP,29214,4490,6.97,src-0c1b8f274551,minor,

@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-mizoram-32,mizoram,2006,TLUNGVEL(ST),11395,9278,81.42,LALCHHANDAMA RALTE,parties.IN.MNF,MNF,4692,50.57,LALTHANLIANA,parties.IN.IND,IND,3544,1148,12.37,src-1b7bc1c9d39a,minor,
-IN-AC-1976-mizoram-5,mizoram,2006,CHAWNGTE(ST),20101,14617,72.72,ALAK BIKASH CHAKMA,parties.IN.MNF,MNF,8194,56.06,NIRUPAM CHAKMA,parties.IN.INC,INC,5354,2840,19.43,src-1b7bc1c9d39a,minor,
+IN-AC-1976-mizoram-32,mizoram,2006,TLUNGVEL(ST),11395,9278,81.42,LALCHHANDAMA RALTE,parties.IN.MNF,MNF,4692,50.57,LALTHANLIANA,parties.IN.IND,IND,3544,1148,12.37,src-0c1b8f274551,minor,
+IN-AC-1976-mizoram-5,mizoram,2006,CHAWNGTE(ST),20101,14617,72.72,ALAK BIKASH CHAKMA,parties.IN.MNF,MNF,8194,56.06,NIRUPAM CHAKMA,parties.IN.INC,INC,5354,2840,19.43,src-0c1b8f274551,minor,

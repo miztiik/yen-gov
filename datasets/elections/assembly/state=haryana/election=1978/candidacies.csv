@@ -1,7 +1,7 @@
 entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
-IN-AC-1976-haryana-36,haryana,1978,36,BADLI,U.SINGH,parties.IN.JP,JNP,19742,44.63,1,won,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-haryana-36,haryana,1978,36,BADLI,P.SINGH,parties.IN.IND,IND,9263,20.94,2,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-haryana-36,haryana,1978,36,BADLI,B.LAL,parties.IN.INC_I,INC(I),8188,18.51,3,lost,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-haryana-36,haryana,1978,36,BADLI,C.BHAN,parties.IN.IND,IND,5279,11.94,4,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-haryana-36,haryana,1978,36,BADLI,H.SINGH,parties.IN.INC,INC,1600,3.62,5,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
-IN-AC-1976-haryana-36,haryana,1978,36,BADLI,R.NARAIN,parties.IN.IND,IND,158,0.36,6,forfeit,U,,,,challenger,src-1b7bc1c9d39a,minor,
+IN-AC-1976-haryana-36,haryana,1978,36,BADLI,U.SINGH,parties.IN.JP,JNP,19742,44.63,1,won,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-haryana-36,haryana,1978,36,BADLI,P.SINGH,parties.IN.IND,IND,9263,20.94,2,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-haryana-36,haryana,1978,36,BADLI,B.LAL,parties.IN.INC_I,INC(I),8188,18.51,3,lost,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-haryana-36,haryana,1978,36,BADLI,C.BHAN,parties.IN.IND,IND,5279,11.94,4,forfeit,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-haryana-36,haryana,1978,36,BADLI,H.SINGH,parties.IN.INC,INC,1600,3.62,5,forfeit,U,,,,challenger,src-0c1b8f274551,minor,
+IN-AC-1976-haryana-36,haryana,1978,36,BADLI,R.NARAIN,parties.IN.IND,IND,158,0.36,6,forfeit,U,,,,challenger,src-0c1b8f274551,minor,

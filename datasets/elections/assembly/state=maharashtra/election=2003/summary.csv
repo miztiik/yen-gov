@@ -1,3 +1,3 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1976-maharashtra-188,maharashtra,2003,BHOKARDEN,215000,142751,66.4,CHANDRAKANT P. DANVE,parties.IN.NCP,NCP,74918,52.48,T.SHIVAJIRAO DHONDIBA,parties.IN.BJP,BJP,58242,16676,11.68,src-1b7bc1c9d39a,minor,
-IN-AC-1976-maharashtra-215,maharashtra,2003,SOUTHSOLAPUR,175515,93739,53.41,Shinde Sushilkumar Sambhajirao,parties.IN.INC,INC,85329,91.03,Sadaphule Sanjiv Sidram,parties.IN.BSP,BSP,5896,79433,84.74,src-1b7bc1c9d39a,minor,
+IN-AC-1976-maharashtra-188,maharashtra,2003,BHOKARDEN,215000,142751,66.4,CHANDRAKANT P. DANVE,parties.IN.NCP,NCP,74918,52.48,T.SHIVAJIRAO DHONDIBA,parties.IN.BJP,BJP,58242,16676,11.68,src-0c1b8f274551,minor,
+IN-AC-1976-maharashtra-215,maharashtra,2003,SOUTHSOLAPUR,175515,93739,53.41,Shinde Sushilkumar Sambhajirao,parties.IN.INC,INC,85329,91.03,Sadaphule Sanjiv Sidram,parties.IN.BSP,BSP,5896,79433,84.74,src-0c1b8f274551,minor,

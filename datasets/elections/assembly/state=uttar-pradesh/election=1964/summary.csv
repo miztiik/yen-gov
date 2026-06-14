@@ -1,5 +1,5 @@
 entity_id,state,election_year,constituency_name,electors,votes_polled,turnout_pct,winner_candidate,winner_party_id,winner_party_short_raw,winner_votes,winner_share_pct,runnerup_candidate,runnerup_party_id,runnerup_party_short_raw,runnerup_votes,margin_votes,margin_pct,source_id,processing_level,processing_note
-IN-AC-1962-uttar-pradesh-107,uttar-pradesh,1964,MOHANLALGANJ,78450,34056,43.41,KHYALI RAM,parties.IN.PSP,PSP,10759,31.59,PRABHOO DAYAL,parties.IN.JS,JS,9442,1317,3.87,src-1b7bc1c9d39a,minor,
-IN-AC-1962-uttar-pradesh-165,uttar-pradesh,1964,MANKAPUR,91382,45916,50.25,K.A.SINGH,parties.IN.INC,INC,34366,74.85,DEVANDRA NATH,parties.IN.JS,JS,5960,28406,61.87,src-1b7bc1c9d39a,minor,
-IN-AC-1962-uttar-pradesh-200,uttar-pradesh,1964,SHAYM DEURWA,79297,39333,49.6,S.L.SEXENA,parties.IN.IND,IND,19944,50.71,BAKSHISH ALI,parties.IN.PSP,PSP,6788,13156,33.45,src-1b7bc1c9d39a,minor,
-IN-AC-1962-uttar-pradesh-204,uttar-pradesh,1964,SINDHUWA JOBNA,88949,37806,42.5,DASARATH KPRASAD,parties.IN.INC,INC,17697,46.81,SRINARAIN,parties.IN.JS,JS,13686,4011,10.61,src-1b7bc1c9d39a,minor,
+IN-AC-1962-uttar-pradesh-107,uttar-pradesh,1964,MOHANLALGANJ,78450,34056,43.41,KHYALI RAM,parties.IN.PSP,PSP,10759,31.59,PRABHOO DAYAL,parties.IN.JS,JS,9442,1317,3.87,src-0c1b8f274551,minor,
+IN-AC-1962-uttar-pradesh-165,uttar-pradesh,1964,MANKAPUR,91382,45916,50.25,K.A.SINGH,parties.IN.INC,INC,34366,74.85,DEVANDRA NATH,parties.IN.JS,JS,5960,28406,61.87,src-0c1b8f274551,minor,
+IN-AC-1962-uttar-pradesh-200,uttar-pradesh,1964,SHAYM DEURWA,79297,39333,49.6,S.L.SEXENA,parties.IN.IND,IND,19944,50.71,BAKSHISH ALI,parties.IN.PSP,PSP,6788,13156,33.45,src-0c1b8f274551,minor,
+IN-AC-1962-uttar-pradesh-204,uttar-pradesh,1964,SINDHUWA JOBNA,88949,37806,42.5,DASARATH KPRASAD,parties.IN.INC,INC,17697,46.81,SRINARAIN,parties.IN.JS,JS,13686,4011,10.61,src-0c1b8f274551,minor,

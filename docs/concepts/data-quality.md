@@ -117,3 +117,13 @@ OWID's [Metadata reference for ETL](https://docs.owid.io/projects/etl/architectu
 - The yen-gov election corpus carries individual records (one candidate per row, one constituency per summary row), each with its own processing history. A per-variable tag would force the whole candidacies.csv to inherit the most-discretionary row's level (any UNK in the file -> the whole file is `major`), which destroys the audit signal.
 - The discretionary calls are localised: a single row's party_id may need curator review while every other row in the same CSV is mechanical. The per-row tag lets the citizen see exactly which rows need review.
 - The vocabulary is unchanged. A future yen-gov per-variable summary (e.g. on a topic page) can derive `MAX(level)` over the rows + concatenate distinct `processing_note` values; the per-row tag does not preclude per-variable rollups.
+
+## When PC totals come from AC-segment aggregation
+
+The Lok Sabha PC-level summaries for elections 1999, 2004, 2009, 2014, and 2019 are NOT lifted from a direct-PC publisher CSV - TCPD does not publish one for these years. Instead, the PC totals are rolled up from TCPD's per-AC `All_States_GA.csv` row stack: every Assembly Constituency vote count under a PC is summed to that PC's electors / votes_polled / winner_votes / runnerup_votes / margin_votes columns. This is the segment-aggregation method ECI itself documents for delimitation-year analyses; it is reproducible and arithmetically faithful, but it is a derived computation, not a verbatim publisher cell.
+
+Per yen-gov's per-row `processing_level` doctrine (Holy Law #9 + the OWID-aligned vocabulary above), every such PC-summary row carries `processing_level = "major"` and a non-empty `processing_note`:
+
+> PC summary derived from TCPD All_States_GA.csv (AC-segment aggregation to PC level); direct-PC TCPD CSV not published for this LS year.
+
+2024 onward ships from direct-PC TCPD returns and stays `minor`. Per-candidate rows in the same five LS years stay `minor` too - they are name-level vote counts, not aggregations; only the PC summary inherits the AC-segment caveat. Bumping these to `major` is the audit-loop closure that lets a citizen reading a 2009 PC turnout number see the receipt that the number was assembled from AC-grain inputs, not pulled verbatim from a PC-grain publisher cell. The `source_id` FK on the same row still points at the ECI election-returns ledger; the publisher rebrand from TCPD (the compiler) to ECI (the issuing authority) does not change the segment-aggregation provenance carried by `processing_level` + `processing_note`.
