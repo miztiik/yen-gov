@@ -126,7 +126,7 @@ describe("computeKpis", () => {
 
 describe("formatLatestSentence", () => {
   it("returns null when the history is empty (consumer skips the line)", () => {
-    expect(formatLatestSentence([], 543, "Lok Sabha")).toBeNull();
+    expect(formatLatestSentence([], 543, "Parliament")).toBeNull();
   });
 
   it("formats latest seats + vote share + peak framing when latest is below peak", () => {
@@ -134,9 +134,9 @@ describe("formatLatestSentence", () => {
       { year: 1984, period_label: "LsGenDec1984", seats: 415, vote_share_pct: 49.1, contested: 517 },
       { year: 2024, period_label: "LsGenMay2024", seats: 99, vote_share_pct: 21.2, contested: 328 },
     ];
-    const out = formatLatestSentence(ls, 543, "Lok Sabha");
+    const out = formatLatestSentence(ls, 543, "Parliament");
     expect(out).toBe(
-      "Lok Sabha (2024): 99 of 543 seats . 21.2% vote share . v from peak 415 in 1984.",
+      "Parliament (2024): 99 of 543 seats won, 21.2% of votes - down from the party's peak of 415 seats in 1984.",
     );
   });
 
@@ -145,8 +145,8 @@ describe("formatLatestSentence", () => {
       { year: 2019, period_label: "LsGenApr2019", seats: 200, vote_share_pct: 31, contested: 400 },
       { year: 2024, period_label: "LsGenMay2024", seats: 240, vote_share_pct: 36, contested: 440 },
     ];
-    const out = formatLatestSentence(ls, 543, "Lok Sabha")!;
-    expect(out).toMatch(/Lok Sabha \(2024\)/);
+    const out = formatLatestSentence(ls, 543, "Parliament")!;
+    expect(out).toMatch(/Parliament \(2024\)/);
     expect(out).toMatch(/240 of 543/);
     expect(out).not.toMatch(/peak/);
   });
@@ -156,16 +156,16 @@ describe("formatLatestSentence", () => {
       { year: 2019, period_label: "LsGenApr2019", seats: 50, vote_share_pct: 10, contested: 200 },
       { year: 2024, period_label: "LsGenMay2024", seats: 240, vote_share_pct: 36, contested: 440 },
     ];
-    const out = formatLatestSentence(ls, 543, "Lok Sabha")!;
-    expect(out).toMatch(/\^ from earlier low 50 in 2019/);
+    const out = formatLatestSentence(ls, 543, "Parliament")!;
+    expect(out).toMatch(/up from the party's earlier low of 50 in 2019/);
   });
 
-  it("omits the 'of N' denominator when total_seats == 0 (mixed-state VS bar)", () => {
+  it("omits the 'of N' denominator when total_seats == 0 (mixed-state State Assembly bar)", () => {
     const vs: PartyHistoryPoint[] = [
       { year: 2021, period_label: "AcGenApr2021", seats: 133, vote_share_pct: 37.7, contested: 188 },
     ];
-    const out = formatLatestSentence(vs, 0, "Vidhan Sabha")!;
-    expect(out).toMatch(/Vidhan Sabha \(2021\): 133 seats/);
+    const out = formatLatestSentence(vs, 0, "State Assembly")!;
+    expect(out).toMatch(/State Assembly \(2021\): 133 seats won/);
     expect(out).not.toMatch(/of \d+/);
   });
 
@@ -173,8 +173,8 @@ describe("formatLatestSentence", () => {
     const ls: PartyHistoryPoint[] = [
       { year: 2024, period_label: "LsGenMay2024", seats: 99, vote_share_pct: null, contested: 328 },
     ];
-    const out = formatLatestSentence(ls, 543, "Lok Sabha")!;
-    expect(out).toBe("Lok Sabha (2024): 99 of 543 seats.");
+    const out = formatLatestSentence(ls, 543, "Parliament")!;
+    expect(out).toBe("Parliament (2024): 99 of 543 seats won.");
   });
 
   it("sorts the history defensively before picking the latest", () => {
@@ -184,7 +184,7 @@ describe("formatLatestSentence", () => {
         { year: 1984, period_label: "LsGenDec1984", seats: 415, vote_share_pct: 49.1, contested: 517 },
       ],
       543,
-      "Lok Sabha",
+      "Parliament",
     )!;
     expect(out).toMatch(/\(2024\):/);
   });
