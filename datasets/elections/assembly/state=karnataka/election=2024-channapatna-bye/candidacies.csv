@@ -1,0 +1,5 @@
+entity_id,state,election_year,constituency_no,constituency_name,candidate_name,party_id,party_short_raw,votes,vote_share_pct,position,result,sex,age,education,profession,candidate_type,source_id,processing_level,processing_note
+IN-AC-2008-karnataka-3479,karnataka,2024,185,Channapatna,C. P. Yogeshwara,parties.IN.INC,INC,112642,55.2513,1,won,U,,,,challenger,src-13b150734773,minor,
+IN-AC-2008-karnataka-3479,karnataka,2024,185,Channapatna,Nikhil Kumaraswamy,parties.IN.JDS,JD(S),87229,42.7862,2,lost,U,,,,challenger,src-13b150734773,minor,
+IN-AC-2008-karnataka-3479,karnataka,2024,185,Channapatna,Ningaraju S. D. S. S. Shanakanapura,parties.IN.IND,IND,2352,1.1537,3,lost,U,,,,challenger,src-13b150734773,minor,
+IN-AC-2008-karnataka-3479,karnataka,2024,185,Channapatna,J. T. Prakash,parties.IN.IND,IND,1649,0.8088,4,lost,U,,,,challenger,src-13b150734773,minor,

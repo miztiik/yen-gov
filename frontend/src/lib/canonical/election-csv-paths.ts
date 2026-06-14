@@ -18,17 +18,39 @@
 
 import { electionStatePartition } from "../election-partitions";
 
-/** Extract the trailing 4-digit year from an ECI event id like
- *  `AcGenApr2021` or `LsGenJun2024`. Throws if the id does not end
- *  in four digits - the event-id grammar guarantees a year suffix
- *  (see `frontend/src/lib/election-events.ts` `event_id` doc), so any
- *  non-matching input is a programmer error, not a runtime miss. */
+/** Extract the 4-digit year from an ECI event id.
+ *
+ *  Two grammars supported:
+ *    - General elections: `<Kind>Gen<Month><Year>` (e.g. `AcGenApr2021`,
+ *      `LsGenJun2024`) - year is the trailing 4-digit suffix.
+ *    - By-elections:     `assembly-bye-<Year>-<seat-slug>` (e.g.
+ *      `assembly-bye-2024-channapatna`) - year follows the `bye-` prefix.
+ *
+ *  Throws if no 4-digit year can be located - the event-id grammar
+ *  guarantees one (see `frontend/src/lib/election-events.ts` `event_id`
+ *  doc), so any non-matching input is a programmer error, not a runtime
+ *  miss. */
 export function eventYear(event_id: string): number {
-  const m = event_id.match(/(\d{4})$/);
-  if (!m) {
-    throw new Error(`election-csv-paths: event_id "${event_id}" has no 4-digit year suffix`);
-  }
-  return Number(m[1]);
+  // Bye-election grammar: year follows `bye-`
+  const bye = event_id.match(/-bye-(\d{4})-/);
+  if (bye) return Number(bye[1]);
+  // General-election grammar: trailing 4 digits
+  const tail = event_id.match(/(\d{4})$/);
+  if (tail) return Number(tail[1]);
+  throw new Error(`election-csv-paths: event_id "${event_id}" has no 4-digit year suffix`);
+}
+
+/** Return the bye seat-slug suffix for a bye event_id, else null.
+ *
+ *  ``assembly-bye-2024-channapatna`` -> ``"channapatna"``
+ *  ``AcGenApr2021`` -> ``null``
+ *
+ *  The bye seat-slug becomes part of the on-disk folder name so multiple
+ *  byes in the same state in the same year stay disambiguated
+ *  (``state=karnataka/election=2024-channapatna-bye/``). */
+export function eventByeSeatSlug(event_id: string): string | null {
+  const m = event_id.match(/-bye-\d{4}-(.+)$/);
+  return m ? m[1] : null;
 }
 
 /**
@@ -49,14 +71,20 @@ export const ENTITIES_ELECTORAL_GLOB =
   "datasets/data/entities/electoral.csv" as const;
 
 /** Concrete on-disk path for a per-(state, year) assembly candidacies
- *  file. Inputs are the ECI vocabulary the view-models already carry. */
+ *  file. Inputs are the ECI vocabulary the view-models already carry.
+ *
+ *  By-elections: the per-event folder is
+ *  `election=<year>-<seat-slug>-bye/` to keep multiple byes for the same
+ *  (state, year) disambiguated. */
 export function assemblyCandidaciesPath(
   state_code: string,
   event_id: string,
 ): string {
   const slug = electionStatePartition(state_code);
   const year = eventYear(event_id);
-  return `datasets/elections/assembly/state=${slug}/election=${year}/candidacies.csv`;
+  const bye = eventByeSeatSlug(event_id);
+  const folder = bye === null ? `${year}` : `${year}-${bye}-bye`;
+  return `datasets/elections/assembly/state=${slug}/election=${folder}/candidacies.csv`;
 }
 
 /** Concrete on-disk path for a per-(state, year) assembly summary file. */
@@ -66,7 +94,9 @@ export function assemblySummaryPath(
 ): string {
   const slug = electionStatePartition(state_code);
   const year = eventYear(event_id);
-  return `datasets/elections/assembly/state=${slug}/election=${year}/summary.csv`;
+  const bye = eventByeSeatSlug(event_id);
+  const folder = bye === null ? `${year}` : `${year}-${bye}-bye`;
+  return `datasets/elections/assembly/state=${slug}/election=${folder}/summary.csv`;
 }
 
 /** Concrete on-disk path for a per-year parliament candidacies file.

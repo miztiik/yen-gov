@@ -296,21 +296,11 @@
       });
       return;
     }
-    // Bye-election rows have no on-disk results today; skip cleanly.
-    // (The catalogue should already mark these pending_upstream; this
-    // guard is a defence-in-depth backstop for any future bye row that
-    // slips through with data_status:complete.)
-    if (
-      row.kind === "assembly_bye" ||
-      row.kind === "general_bye" ||
-      row.kind === "by_election"
-    ) {
-      setHydration(row.row_id, {
-        status: "skipped",
-        reason: "bye election - results not on disk",
-      });
-      return;
-    }
+    // Bye-election rows that ARE on disk (catalogue marks them
+    // data_status:complete) flow through the regular loader path - the
+    // per-event CSV layout for byes is the same as for general
+    // elections, just under a folder like `election=2024-<seat>-bye/`
+    // resolved by `assemblyCandidaciesPath()`.
     setHydration(row.row_id, { status: "loading" });
     enqueue(async () => {
       try {
