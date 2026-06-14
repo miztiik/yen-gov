@@ -775,6 +775,12 @@ cd frontend
 
 Per Holy Law #9, any card without a source attribution is a ship-block. The contract test fails if any card returns an empty `used_in`.
 
+### Scope-change ledger
+
+| Row | Date | Intent (what changed, why, what it overrode) | signoff |
+| --- | --- | --- | --- |
+| PR-9 +5 | 2026-06-14 | Backfilled 5 rows in `datasets/data/entities/source.csv` for `source_id` values already cited by existing rows in `datasets/data/datapoints/electoral/*_election_results.csv` but missing from the citation ledger: `src-7011f3395a15` (vintage 1989), `src-7e1f7d152977` (vintage 1998), `src-8edc505f253c` (vintage 1996), `src-b38e5d2db7f2` (vintage 1991), `src-f28d937e57b8` (vintage 1962). All five share producer "Election Commission of India" and TCPD-tagged title `"General Election to Lok Sabha {YYYY} - Constituency-wise candidate results (TCPD compilation of ECI returns)"` (em-dash preserved as required by `derive_source_id` SHA-256 input). Discovery surface: PR-9's new Tier-A contract test `frontend/src/contracts/party-page-provenance.test.ts` (enforcing Holy Law #9) revealed the gap at strict-throw on the new `loadSourceLookup()` boundary. Path A (backfill the 5 ledger rows) chosen over Path B (loader-soften to skip missing source_ids, forbidden by Holy Law #5 as a band-aid) and Path C (strict-throw + follow-up PR, ships the page broken in the interim). Surgical inserts via alphabetical anchors at physical lines 217, 240, 272, 360, 455 (per user-memory "parties.csv trap" precedent: never bulk-sort the file). Overrode the section 11 scope assumption that `source.csv` was already complete. | orchestrator-2026-06-14 |
+
 ## 12. PR-10 - DualAxisBarLine composite mode + section glyph wiring
 
 **Scope**. Two coordinated changes to make both Parliament + state Assembly charts citizen-readable (Jony J6 + J3g):

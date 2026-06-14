@@ -28,6 +28,12 @@ import {
   loadPartyAllianceContext,
   type PartyAllianceContext,
 } from "./party-alliance-context";
+import {
+  buildPartyProvenance,
+  loadSourceLookup,
+  splitSourceIds,
+  type PartyProvenance,
+} from "./party-sources";
 
 /** Party-page mart paths (repo-relative for columns.json lookup +
  *  runtime URL for DuckDB-WASM HTTP reads). */
@@ -35,6 +41,14 @@ const PARTY_HISTORY_REL = "datasets/data/marts/party_pages/history.csv";
 const PARTY_HISTORY_URL = `${DATA_BASE}/data/marts/party_pages/history.csv`;
 const PARTY_STRONGHOLDS_REL = "datasets/data/marts/party_pages/strongholds.csv";
 const PARTY_STRONGHOLDS_URL = `${DATA_BASE}/data/marts/party_pages/strongholds.csv`;
+/** PR-9: alliance ledger - read by the loader to surface the
+ *  per-party set of distinct source_ids the Alliance Context card
+ *  consumes. The alliance view-model (`party-alliance-context.ts`)
+ *  does NOT surface source_ids on its public types today; we pull
+ *  them here so the provenance envelope can attribute the card
+ *  without breaking the alliance VM contract. */
+const PARTY_ALLIANCES_REL = "datasets/data/entities/party_alliances.csv";
+const PARTY_ALLIANCES_URL = `${DATA_BASE}/data/entities/party_alliances.csv`;
 
 /** PR-10: methodology-breaks catalogue URL. The catalogue ships as a
  *  hand-authored JSON under `datasets/taxonomy/` (NOT a derived mart);
@@ -99,6 +113,15 @@ export interface PartyHistoryPoint {
    *  null when the cycle has no `party-contested-acs` (VS) or
    *  `party-contested-pcs` (LS) row. */
   contested: number | null;
+  /** PR-9: distinct source_ids backing this cycle (union across
+   *  the per-state rows the mart aggregator collapsed into this
+   *  point). Each entry MUST be present in
+   *  `datasets/data/entities/source.csv`; the
+   *  `party-page-provenance.test.ts` contract test enforces this
+   *  mechanically. Empty `[]` is illegal once a point lands on the
+   *  view-model - `historyPointFromMart` returns null for rows with
+   *  no source_ids on the underlying mart row (Holy Law #9). */
+  source_ids: string[];
 }
 
 /** One stronghold constituency for a party, scoped to one body. */
@@ -121,6 +144,11 @@ export interface PartyStronghold {
   /** Per-event outcome chronologically (oldest first). `"W"` when
    *  this party won that event, `"L"` otherwise (loss OR no-contest). */
   results: ("W" | "L")[];
+  /** PR-9: distinct source_ids backing this stronghold (union
+   *  across the per-event winner rows that contributed to the W/L
+   *  sparkline). Pipe-delimited on the mart; split + deduped at
+   *  the loader boundary. */
+  source_ids: string[];
 }
 
 /** Aggregate KPI totals for the header strip. */
@@ -182,6 +210,26 @@ export interface PartyDetailViewModel {
    *  `datasets/data/entities/party_alliances.csv`. The consumer
    *  (`PartyAllianceContext.svelte`) renders nothing when null. */
   alliance_context: PartyAllianceContext | null;
+  /** PR-9: distinct source_ids backing the alliance card. Empty
+   *  `[]` when `alliance_context` is null. Derived by a separate
+   *  DuckDB query against `datasets/data/entities/party_alliances.csv`
+   *  in the loader (the per-state alliance VM rows do not surface
+   *  source_id today; pulling it here keeps the alliance VM
+   *  contract untouched). */
+  alliance_source_ids: string[];
+  /** PR-9: distinct source_ids backing the current-strength card.
+   *  Empty `[]` when `current_strength` is null. Derived from the
+   *  latest LS cycle's source_ids plus the latest VS cycle per
+   *  state - the same set of rows the current-strength loader
+   *  aggregates. */
+  current_strength_source_ids: string[];
+  /** PR-9: Holy Law #9 envelope. Carries the 5 per-card coverage
+   *  badges + the bottom-of-page source-pill strip. Built by
+   *  `buildPartyProvenance` from the populated VM + the
+   *  source.csv lookup. THROWS at load time when any rendered
+   *  card has data but resolves zero source_ids (STOP-AND-SURFACE
+   *  per CLAUDE.md section 10). */
+  provenance: PartyProvenance;
 }
 
 /** Raw history-row shape from DuckDB. */
@@ -207,6 +255,12 @@ interface RawPartyHistoryMartRow {
   seats: number | bigint | null;
   vote_share_pct: number | null;
   contested: number | bigint | null;
+  /** PR-9: per-cycle source_ids derived via
+   *  STRING_AGG(DISTINCT source_ids, '|') across the per-state
+   *  rows that fold into one (body, period_label) point. The mart
+   *  carries a single src-XXXX per row, so this is effectively a
+   *  pipe-delimited dedupe across states. */
+  source_ids: string | null;
 }
 
 /** Raw party-page stronghold mart row. */
@@ -219,6 +273,18 @@ interface RawPartyStrongholdMartRow {
   wins: number | bigint | null;
   contested: number | bigint | null;
   results: string | null;
+  /** PR-9: pipe-delimited source_ids per stronghold (the writer
+   *  emits the union of every winner-cycle's source_ids; see
+   *  `derive-party-pages` in the backend). */
+  source_ids: string | null;
+}
+
+/** PR-9: raw alliance ledger row reduced to the source_id column.
+ *  party_alliances.csv carries one row per (party_id, event_id,
+ *  state); we DISTINCT the source_id to surface the unique citation
+ *  set the alliance card consumes. */
+interface RawAllianceSourceRow {
+  source_id: string | null;
 }
 
 function intOrNull(value: number | bigint | null | undefined): number | null {
@@ -287,6 +353,12 @@ export function foldHistoryRows(
       seats: 0,
       vote_share_pct: null,
       contested: null,
+      // Legacy fold path (test-only); the production loader uses
+      // `historyPointFromMart` which surfaces real per-cycle
+      // source_ids from the mart. The fold helper's inputs do not
+      // carry source_ids today, so we surface an empty list -
+      // callers of the legacy path are not provenance-bearing.
+      source_ids: [],
     };
     switch (r.indicator_id) {
       case "party-seats-won":
@@ -388,6 +460,8 @@ export function foldStrongholdRows(
       wins,
       contested: events.length,
       results,
+      // Legacy fold path (test-only); see `foldHistoryRows` note.
+      source_ids: [],
     });
   }
   // Top-10 by wins desc, then by win-rate desc (so a 5-of-5 sweeper
@@ -568,15 +642,23 @@ async function fetchPartyDetail(
   const alliance_context_promise = loadPartyAllianceContext(party_id, {
     is_sentinel: metadata.is_sentinel,
   }).catch(() => null);
+  // PR-9: the source.csv lookup (Holy Law #9 citation ledger) is
+  // shared across every party page; the loader caches it on first
+  // call. Run in parallel with the marts.
+  const source_lookup_promise = loadSourceLookup();
   await Promise.all([
     registerCsvFile(PARTY_HISTORY_URL),
     registerCsvFile(PARTY_STRONGHOLDS_URL),
+    registerCsvFile(PARTY_ALLIANCES_URL),
   ]);
 
-  const [historyClause, strongholdsClause] = await Promise.all([
-    csvColumnsClause(PARTY_HISTORY_REL),
-    csvColumnsClause(PARTY_STRONGHOLDS_REL),
-  ]);
+  const [historyClause, strongholdsClause, alliancesClause] = await Promise.all(
+    [
+      csvColumnsClause(PARTY_HISTORY_REL),
+      csvColumnsClause(PARTY_STRONGHOLDS_REL),
+      csvColumnsClause(PARTY_ALLIANCES_REL),
+    ],
+  );
   const safePartyId = party_id.replace(/'/g, "''");
 
   // SUM(BIGINT) in DuckDB promotes to HUGEINT, which duckdb-wasm
@@ -584,9 +666,14 @@ async function fetchPartyDetail(
   // would then coerce to null, then `?? 0` would surface as 0 seats on
   // the citizen-facing headline). CAST back to BIGINT so the result
   // lands as a plain JS bigint that intOrNull handles correctly.
+  //
+  // PR-9: STRING_AGG(DISTINCT source_ids, '|') folds the per-state
+  // source_ids into a pipe-delimited list per cycle. The mart carries
+  // one src-XXXX per row, so the post-aggregation distinct count is
+  // typically 1 for LS cycles + small (<=N states) for VS cycles.
   const historySql = `
     WITH per_state AS (
-      SELECT body, period_label, year, seats, vote_share_pct, contested, party_votes, total_votes
+      SELECT body, period_label, year, seats, vote_share_pct, contested, party_votes, total_votes, source_ids
       FROM read_csv('${PARTY_HISTORY_URL}', ${historyClause}, header=true)
       WHERE party_id = '${safePartyId}'
     )
@@ -600,7 +687,8 @@ async function fetchPartyDetail(
         WHEN COUNT(vote_share_pct) > 0 THEN AVG(vote_share_pct)
         ELSE NULL
       END AS vote_share_pct,
-      CAST(SUM(contested) AS BIGINT) AS contested
+      CAST(SUM(contested) AS BIGINT) AS contested,
+      STRING_AGG(DISTINCT source_ids, '|') AS source_ids
     FROM per_state
     GROUP BY body, period_label
     ORDER BY year, period_label
@@ -616,7 +704,8 @@ async function fetchPartyDetail(
       state,
       wins,
       contested,
-      results
+      results,
+      source_ids
     FROM read_csv('${PARTY_STRONGHOLDS_URL}', ${strongholdsClause}, header=true)
     WHERE party_id = '${safePartyId}'
     ORDER BY body, rank
@@ -650,6 +739,89 @@ async function fetchPartyDetail(
   const current_strength = await current_strength_promise;
   const alliance_context = await alliance_context_promise;
 
+  // PR-9: derive source_ids for the two cards that don't surface
+  // them on per-row VM data today.
+  //
+  // alliance_source_ids: DISTINCT source_id over party_alliances
+  // rows for this party_id. We run a small dedicated query
+  // (4-col + party_id filter) rather than reshape the alliance
+  // VM contract. Empty `[]` when alliance_context is null
+  // (sentinel + Independent + no-alliance-rows parties).
+  let alliance_source_ids: string[] = [];
+  if (alliance_context !== null) {
+    const allianceSql = `
+      SELECT DISTINCT source_id
+      FROM read_csv('${PARTY_ALLIANCES_URL}', ${alliancesClause}, header=true)
+      WHERE party_id = '${safePartyId}'
+        AND source_id IS NOT NULL
+        AND length(trim(source_id)) > 0
+    `;
+    const allianceRows = await query<RawAllianceSourceRow>(allianceSql);
+    const seen = new Set<string>();
+    for (const r of allianceRows) {
+      const sid = (r.source_id ?? "").trim();
+      if (sid.length === 0) continue;
+      if (seen.has(sid)) continue;
+      seen.add(sid);
+      alliance_source_ids.push(sid);
+    }
+  }
+
+  // current_strength_source_ids: union of (a) source_ids on the
+  // latest LS cycle + (b) source_ids on the latest VS cycle per
+  // state the party contested in. The (a) leg falls out of the
+  // already-loaded history; the (b) leg needs a per-state read
+  // since the main historySql aggregates state granularity away.
+  // Empty `[]` when current_strength is null.
+  let current_strength_source_ids: string[] = [];
+  if (current_strength !== null) {
+    const ids = new Set<string>();
+    if (current_strength.parliament_latest !== null && ls_history.length > 0) {
+      const latest_ls = ls_history[ls_history.length - 1]!;
+      for (const sid of latest_ls.source_ids) ids.add(sid);
+    }
+    if (current_strength.state_assemblies_latest !== null) {
+      const csVsSql = `
+        WITH per_state AS (
+          SELECT state, year, source_ids
+          FROM read_csv('${PARTY_HISTORY_URL}', ${historyClause}, header=true)
+          WHERE party_id = '${safePartyId}' AND body = 'assembly'
+        ),
+        latest AS (
+          SELECT state, MAX(year) AS y FROM per_state GROUP BY state
+        )
+        SELECT DISTINCT p.source_ids
+        FROM per_state p
+        JOIN latest l ON l.state = p.state AND l.y = p.year
+        WHERE p.source_ids IS NOT NULL AND length(trim(p.source_ids)) > 0
+      `;
+      const csVsRows = await query<{ source_ids: string | null }>(csVsSql);
+      for (const r of csVsRows) {
+        for (const sid of splitSourceIds(r.source_ids)) ids.add(sid);
+      }
+    }
+    current_strength_source_ids = [...ids];
+  }
+
+  const source_lookup = await source_lookup_promise;
+  // Build the provenance envelope LAST - it requires every other
+  // VM section to be populated. STOP-AND-SURFACE (Holy Law #9):
+  // throws when any rendered card has data but resolves zero
+  // source_ids. The outer `loadPartyDetail` catches + clears the
+  // cache so the page error state surfaces.
+  const partialVm = {
+    metadata,
+    ls_history,
+    vs_history,
+    ls_strongholds,
+    vs_strongholds,
+    current_strength,
+    alliance_context,
+    alliance_source_ids,
+    current_strength_source_ids,
+  };
+  const provenance = buildPartyProvenance(partialVm, source_lookup);
+
   return {
     metadata,
     ls_history,
@@ -660,6 +832,9 @@ async function fetchPartyDetail(
     ls_methodology_breaks,
     current_strength,
     alliance_context,
+    alliance_source_ids,
+    current_strength_source_ids,
+    provenance,
   };
 }
 
@@ -674,6 +849,7 @@ function historyPointFromMart(
     seats: intOrNull(row.seats) ?? 0,
     vote_share_pct: numOrNull(row.vote_share_pct),
     contested: intOrNull(row.contested),
+    source_ids: splitSourceIds(row.source_ids),
   };
 }
 
@@ -692,6 +868,7 @@ function strongholdFromMart(
     wins: intOrNull(row.wins) ?? 0,
     contested: intOrNull(row.contested) ?? 0,
     results,
+    source_ids: splitSourceIds(row.source_ids),
   };
 }
 

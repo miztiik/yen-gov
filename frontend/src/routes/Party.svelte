@@ -265,6 +265,13 @@
   // sentinels (defence in depth) and for parties with no alliance
   // rows on file (Independent + new entrants).
   import PartyAllianceContext from "../lib/parties/PartyAllianceContext.svelte";
+  // PR-9: per-card coverage badges + bottom-of-page source-pill
+  // strip. Both consume the `view_model.provenance` envelope built
+  // by `buildPartyProvenance` (Holy Law #9). Each badge
+  // self-suppresses when its `text` prop is empty; the strip
+  // self-suppresses when `total_count === 0`.
+  import PartyCoverageBadge from "../lib/parties/PartyCoverageBadge.svelte";
+  import PartySourcesStrip from "../lib/parties/PartySourcesStrip.svelte";
   import {
     homeStateEciCodes,
     mapPcStrongholdsToChoroplethRows,
@@ -521,6 +528,7 @@
       current_strength={view_model.current_strength}
       is_sentinel={meta.is_sentinel}
     />
+    <PartyCoverageBadge text={view_model.provenance.badges.current_strength} />
 
     <!-- PR-8: "Who they ride with" Alliance Context strip. Sits
          directly under the Current Strength strip and above the
@@ -532,6 +540,7 @@
       alliance_context={view_model.alliance_context}
       is_sentinel={meta.is_sentinel}
     />
+    <PartyCoverageBadge text={view_model.provenance.badges.alliance_context} />
 
     <!--
       PR-6 layout: header sits full-width above. Sections (2)-(6) live
@@ -640,6 +649,7 @@
             hover to see what changed.
           </p>
         {/if}
+        <PartyCoverageBadge text={view_model.provenance.badges.parliament} />
       </section>
     {/if}
 
@@ -665,6 +675,7 @@
           bar_format={(n) => n.toLocaleString()}
           line_format={(n) => `${n.toFixed(1)}%`}
         />
+        <PartyCoverageBadge text={view_model.provenance.badges.state_assembly} />
       </section>
     {/if}
 
@@ -774,6 +785,7 @@
             </ul>
           </div>
         {/if}
+        <PartyCoverageBadge text={view_model.provenance.badges.strongholds} />
       </section>
     {/if}
 
@@ -808,5 +820,11 @@
         Introduced by the Supreme Court in PUCL v. Union of India (Sep 2013).
       </p>
     {/if}
+
+    <!-- (8) PR-9: bottom-of-page source-pill strip (Holy Law #9).
+         Collapsed by default; renders the page-level citation
+         ledger as a 4-column table when expanded. Hidden when the
+         page has zero sources (sentinel + no-data view). -->
+    <PartySourcesStrip strip={view_model.provenance.strip} />
   {/if}
 </main>

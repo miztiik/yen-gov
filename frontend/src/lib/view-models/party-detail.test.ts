@@ -31,6 +31,30 @@ vi.mock("./party-alliance-context", () => ({
   loadPartyAllianceContext: vi.fn(),
 }));
 
+// PR-9: neutralise the provenance envelope in party-detail's outer-shape
+// tests. The STOP-AND-SURFACE check inside `buildPartyProvenance` would
+// otherwise throw on every fixture here (the raw mart rows below don't
+// stub `source_ids` on each row). The provenance contract itself is
+// gated by `frontend/src/contracts/party-page-provenance.test.ts`; here
+// we only need the loader to assemble a VM end-to-end.
+vi.mock("./party-sources", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("./party-sources")>();
+  return {
+    ...actual,
+    loadSourceLookup: vi.fn(async () => new Map()),
+    buildPartyProvenance: vi.fn(() => ({
+      badges: {
+        parliament: "",
+        state_assembly: "",
+        strongholds: "",
+        current_strength: "",
+        alliance_context: "",
+      },
+      strip: { total_count: 0, all: [], producer_summary: "" },
+    })),
+  };
+});
+
 import { query, registerCsvFile } from "../duckdb";
 import { loadPartyMeta, type PartyMeta } from "./parties";
 import { loadPartyCurrentStrength } from "./party-current-strength";
@@ -209,6 +233,7 @@ describe("foldHistoryRows", () => {
       seats: 133,
       vote_share_pct: 37.7,
       contested: 188,
+      source_ids: [],
     });
   });
 
@@ -241,7 +266,7 @@ describe("foldHistoryRows", () => {
       },
     ]);
     expect(out).toEqual([
-      { year: 1989, period_label: "AcGenJan1989", seats: 0, vote_share_pct: 14.4, contested: null },
+      { year: 1989, period_label: "AcGenJan1989", seats: 0, vote_share_pct: 14.4, contested: null, source_ids: [] },
     ]);
   });
 
@@ -303,6 +328,7 @@ describe("foldStrongholdRows", () => {
       wins: 2,
       contested: 3,
       results: ["W", "W", "L"],
+      source_ids: [],
     });
   });
 
@@ -381,11 +407,11 @@ describe("foldStrongholdRows", () => {
 describe("computeTotals", () => {
   it("sums seats per body and picks the peak year by max seats", () => {
     const ls: PartyHistoryPoint[] = [
-      { year: 1984, period_label: "LsGenDec1984", seats: 415, vote_share_pct: 49.1, contested: 517 },
-      { year: 2024, period_label: "LsGenMay2024", seats: 99, vote_share_pct: 21.2, contested: 328 },
+      { year: 1984, period_label: "LsGenDec1984", seats: 415, vote_share_pct: 49.1, contested: 517, source_ids: [] },
+      { year: 2024, period_label: "LsGenMay2024", seats: 99, vote_share_pct: 21.2, contested: 328, source_ids: [] },
     ];
     const vs: PartyHistoryPoint[] = [
-      { year: 2021, period_label: "AcGenApr2021", seats: 133, vote_share_pct: 37.7, contested: 188 },
+      { year: 2021, period_label: "AcGenApr2021", seats: 133, vote_share_pct: 37.7, contested: 188, source_ids: [] },
     ];
     const t = computeTotals(ls, vs);
     expect(t.ls_seats).toBe(514);
@@ -416,14 +442,14 @@ describe("computeTotals", () => {
 
   it("counts cycles where contested > 0 even when seats are zero (no-win contesting)", () => {
     const ls: PartyHistoryPoint[] = [
-      { year: 2019, period_label: "LsGenApr2019", seats: 0, vote_share_pct: 0.5, contested: 5 },
+      { year: 2019, period_label: "LsGenApr2019", seats: 0, vote_share_pct: 0.5, contested: 5, source_ids: [] },
     ];
     expect(computeTotals(ls, []).elections_contested).toBe(1);
   });
 
   it("only counts cycles with seats>0 OR contested>0 (defensive vs zero-everything rows)", () => {
     const ls: PartyHistoryPoint[] = [
-      { year: 2019, period_label: "LsGenApr2019", seats: 0, vote_share_pct: 0, contested: 0 },
+      { year: 2019, period_label: "LsGenApr2019", seats: 0, vote_share_pct: 0, contested: 0, source_ids: [] },
     ];
     expect(computeTotals(ls, []).elections_contested).toBe(0);
   });
@@ -521,6 +547,7 @@ describe("visibleLsMethodologyBreaks", () => {
       seats: 0,
       vote_share_pct: null,
       contested: null,
+      source_ids: [],
     };
   }
 

@@ -79,6 +79,23 @@ function viewModelFixture(
     // discipline - existing tests don't need to fabricate the
     // alliance shape; new alliance-aware tests override per-case.
     alliance_context: null,
+    // PR-9: provenance envelope (Holy Law #9). Default-empty so
+    // existing pure-helper tests don't have to fabricate it; the
+    // provenance-aware contract test in
+    // `frontend/src/contracts/party-page-provenance.test.ts`
+    // exercises `buildPartyProvenance` directly.
+    alliance_source_ids: [],
+    current_strength_source_ids: [],
+    provenance: {
+      badges: {
+        parliament: "",
+        state_assembly: "",
+        strongholds: "",
+        current_strength: "",
+        alliance_context: "",
+      },
+      strip: { total_count: 0, all: [], producer_summary: "" },
+    },
     ...overrides,
   };
 }
@@ -142,8 +159,8 @@ describe("formatLatestSentence", () => {
 
   it("formats latest seats + vote share + peak framing when latest is below peak", () => {
     const ls: PartyHistoryPoint[] = [
-      { year: 1984, period_label: "LsGenDec1984", seats: 415, vote_share_pct: 49.1, contested: 517 },
-      { year: 2024, period_label: "LsGenMay2024", seats: 99, vote_share_pct: 21.2, contested: 328 },
+      { year: 1984, period_label: "LsGenDec1984", seats: 415, vote_share_pct: 49.1, contested: 517, source_ids: [] },
+      { year: 2024, period_label: "LsGenMay2024", seats: 99, vote_share_pct: 21.2, contested: 328, source_ids: [] },
     ];
     const out = formatLatestSentence(ls, 543, "Parliament");
     expect(out).toBe(
@@ -153,8 +170,8 @@ describe("formatLatestSentence", () => {
 
   it("omits the peak framing when the latest IS the peak (no down-framing)", () => {
     const ls: PartyHistoryPoint[] = [
-      { year: 2019, period_label: "LsGenApr2019", seats: 200, vote_share_pct: 31, contested: 400 },
-      { year: 2024, period_label: "LsGenMay2024", seats: 240, vote_share_pct: 36, contested: 440 },
+      { year: 2019, period_label: "LsGenApr2019", seats: 200, vote_share_pct: 31, contested: 400, source_ids: [] },
+      { year: 2024, period_label: "LsGenMay2024", seats: 240, vote_share_pct: 36, contested: 440, source_ids: [] },
     ];
     const out = formatLatestSentence(ls, 543, "Parliament")!;
     expect(out).toMatch(/Parliament \(2024\)/);
@@ -164,8 +181,8 @@ describe("formatLatestSentence", () => {
 
   it("emits the up-from-low framing when latest exceeds earlier low", () => {
     const ls: PartyHistoryPoint[] = [
-      { year: 2019, period_label: "LsGenApr2019", seats: 50, vote_share_pct: 10, contested: 200 },
-      { year: 2024, period_label: "LsGenMay2024", seats: 240, vote_share_pct: 36, contested: 440 },
+      { year: 2019, period_label: "LsGenApr2019", seats: 50, vote_share_pct: 10, contested: 200, source_ids: [] },
+      { year: 2024, period_label: "LsGenMay2024", seats: 240, vote_share_pct: 36, contested: 440, source_ids: [] },
     ];
     const out = formatLatestSentence(ls, 543, "Parliament")!;
     expect(out).toMatch(/up from the party's earlier low of 50 in 2019/);
@@ -173,7 +190,7 @@ describe("formatLatestSentence", () => {
 
   it("omits the 'of N' denominator when total_seats == 0 (mixed-state State Assembly bar)", () => {
     const vs: PartyHistoryPoint[] = [
-      { year: 2021, period_label: "AcGenApr2021", seats: 133, vote_share_pct: 37.7, contested: 188 },
+      { year: 2021, period_label: "AcGenApr2021", seats: 133, vote_share_pct: 37.7, contested: 188, source_ids: [] },
     ];
     const out = formatLatestSentence(vs, 0, "State Assembly")!;
     expect(out).toMatch(/State Assembly \(2021\): 133 seats won/);
@@ -182,7 +199,7 @@ describe("formatLatestSentence", () => {
 
   it("omits the vote-share clause when the latest cycle has no vote_share_pct", () => {
     const ls: PartyHistoryPoint[] = [
-      { year: 2024, period_label: "LsGenMay2024", seats: 99, vote_share_pct: null, contested: 328 },
+      { year: 2024, period_label: "LsGenMay2024", seats: 99, vote_share_pct: null, contested: 328, source_ids: [] },
     ];
     const out = formatLatestSentence(ls, 543, "Parliament")!;
     expect(out).toBe("Parliament (2024): 99 of 543 seats won.");
@@ -191,8 +208,8 @@ describe("formatLatestSentence", () => {
   it("sorts the history defensively before picking the latest", () => {
     const out = formatLatestSentence(
       [
-        { year: 2024, period_label: "LsGenMay2024", seats: 99, vote_share_pct: 21.2, contested: 328 },
-        { year: 1984, period_label: "LsGenDec1984", seats: 415, vote_share_pct: 49.1, contested: 517 },
+        { year: 2024, period_label: "LsGenMay2024", seats: 99, vote_share_pct: 21.2, contested: 328, source_ids: [] },
+        { year: 1984, period_label: "LsGenDec1984", seats: 415, vote_share_pct: 49.1, contested: 517, source_ids: [] },
       ],
       543,
       "Parliament",
