@@ -1,6 +1,6 @@
 source_id,producer,title,vintage,url
 src-008f07366555,Wikipedia,List of Chief Ministers of Tripura,,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Tripura
-src-0099686311a2,Election Commission of India,General Election to Lok Sabha 2009 — Constituency-wise candidate results (TCPD compilation of ECI returns),2009,
+src-9be18d311190,Election Commission of India,General Election to Lok Sabha 2009,2009,
 src-00d07ff222d2,Wikipedia,List of Chief Ministers of Haryana,,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Haryana
 src-018bb42f9519,NITI Aayog India Climate & Energy Dashboard,Rooftop Solar Capacity (MW) State-wise API (per-state cumulative rooftop solar installed capacity),2024-25,https://icedapi.niti.gov.in/energy/renewable/solar/rooftop/state
 src-01ee3a9101c8,Wikipedia,List of Chief Ministers of Punjab,,"https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Punjab,_India"
@@ -353,7 +353,7 @@ src-b0e345f8906c,Rajya Sabha Secretariat (Government of India),"Rajya Sabha Sess
 src-b152d3829185,IndiaVotes,Rajasthan Vidhan Sabha 2023,2023-11,https://www.indiavotes.com/vidhan-sabha/rajasthan/2023
 src-b186201797e9,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Telangana, 2018",2018,
 src-b222d76f33c1,NITI Aayog India Climate & Energy Dashboard,"State-wise Deep Dive API — Sectoral GVA (state, INR crore, current + constant prices)",2024-25,https://iced.niti.gov.in/analytics/state-wise-deep-dive
-src-b2b916daabf9,Election Commission of India,General Election to Lok Sabha 2019 — Constituency-wise candidate results (TCPD compilation of ECI returns),2019,
+src-8beec592f488,Election Commission of India,General Election to Lok Sabha 2019,2019,
 src-b2eeb28b5a24,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Manipur, 1990",1990,
 src-b34454befb7d,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Gujarat, 1967",1967,
 src-b353edd3cdf7,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S12 AcGenNov2023,AcGenNov2023,https://www.eci.gov.in/eci-backend/public/all_files/full-statistical-reports/mp/2023/Detailed_Results.xlsx
@@ -390,7 +390,7 @@ src-bfb4e7fb9785,Election Commission of India,General Election to Lok Sabha 2024
 src-c03df2072e66,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Odisha, 2000",2000,
 src-c222a8e2cd61,NITI Aayog India Climate & Energy Dashboard,"Coal Consumption (Domestic) State-wise API (per-state fiscal-year coal consumption, by grade)",2024-25,https://icedapi.niti.gov.in/energy/fuel-sources/coal/consumption-domestic-state
 src-c385c8c3345a,Wikipedia,List of Chief Ministers of Mizoram,,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Mizoram
-src-c3e2fd43efa5,Election Commission of India,General Election to Lok Sabha 1999 — Constituency-wise candidate results (TCPD compilation of ECI returns),1999,
+src-84efcb6e2cc4,Election Commission of India,General Election to Lok Sabha 1999,1999,
 src-c8f80c7da161,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S17 AcGenFeb2023,AcGenFeb2023,
 src-c968d22ee290,Wikipedia,List of Chief Ministers of Himachal Pradesh,operator-snapshot-2026-05,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Himachal_Pradesh
 src-ca6603af28eb,DataMeet India Maps Project,datameet/maps Admin2 boundary bundle,,https://github.com/datameet/maps
@@ -400,7 +400,7 @@ src-cba8334fedc5,NITI Aayog India Climate & Energy Dashboard,"Oil Product Consum
 src-cbafd828698c,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Karnataka, 2004",2004,
 src-cbd0cce08734,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Maharashtra, 1985",1985,
 src-cc4613f255cb,Wikipedia,List of Chief Ministers of Arunachal Pradesh,operator-snapshot-2026-05,https://en.wikipedia.org/wiki/List_of_chief_ministers_of_Arunachal_Pradesh
-src-cc5ad18c17b4,Election Commission of India,General Election to Lok Sabha 2014 — Constituency-wise candidate results (TCPD compilation of ECI returns),2014,
+src-85c74b162cce,Election Commission of India,General Election to Lok Sabha 2014,2014,
 src-cfea7c9e8ffd,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Bihar, 2015",2015,
 src-d032a31fc06c,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Gujarat, 1995",1995,
 src-d3f934ea3334,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Meghalaya, 1988",1988,
@@ -457,7 +457,7 @@ src-f4d9506c4aec,Election Commission of India,"Statistical Report on General Ele
 src-f4e05ebbff66,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Puducherry, 2001",2001,
 src-f5fa33ba82de,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Chhattisgarh, 2013",2013,
 src-f7ce9960caba,Reserve Bank of India,Handbook of Statistics on Indian States — Table 141: State-wise Power Requirement,2024-25,https://rbi.org.in/Scripts/PublicationsView.aspx?id=22512
-src-f8813ce137a0,Election Commission of India,General Election to Lok Sabha 2004 — Constituency-wise candidate results (TCPD compilation of ECI returns),2004,
+src-6e952de88bcd,Election Commission of India,General Election to Lok Sabha 2004,2004,
 src-f93a139da605,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Manipur, 2002",2002,
 src-fa1aba648c1e,Election Commission of India,Statistical Report Section 10 (Detailed Results) — S25 AcGenMay2026,AcGenMay2026,https://www.eci.gov.in/eci-backend/public//all_files/election_report/General_Election_to_the_Legislative_Assembly_of_West_Bengal_2026_2026/10-Detailed_Results_1778165388.xlsx
 src-fad57435c58f,Election Commission of India,"Statistical Report on General Election to the Legislative Assembly of Odisha, 1985",1985,

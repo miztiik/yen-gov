@@ -1,6 +1,6 @@
 alliance_id,party_id,term_start,term_end,source_id
-AIADMK+,parties.IN.AIADMK,2026-05-08,,src-c3e2fd43efa5
-AIADMK+,parties.IN.DMDK,2026-05-08,,src-c3e2fd43efa5
+AIADMK+,parties.IN.AIADMK,2026-05-08,,src-84efcb6e2cc4
+AIADMK+,parties.IN.DMDK,2026-05-08,,src-84efcb6e2cc4
 AIADMK+INC,parties.IN.AIADMK,1991-06-24,1996-05-12,src-a99bd0998bba
 AIADMK+INC,parties.IN.AIADMK,2001-05-14,2001-09-21,src-a99bd0998bba
 AIADMK+INC,parties.IN.AIADMK,2001-09-21,2002-03-01,src-a99bd0998bba
@@ -75,13 +75,13 @@ NDA,parties.IN.BJP,2023-12-15,,src-7a217e3416d4
 NDA,parties.IN.BJP,2024-03-12,,src-e08fc8e92a25
 NDA,parties.IN.BJP,2024-06-12,,src-e7e597f4e81b
 NDA,parties.IN.BJP,2025-02-20,,src-aedf97ce448b
-NDA,parties.IN.BJP,2026-05-08,,src-c3e2fd43efa5
-NDA,parties.IN.PMK,2026-05-08,,src-c3e2fd43efa5
-SPA,parties.IN.CPI,2026-05-08,,src-c3e2fd43efa5
-SPA,parties.IN.CPIM,2026-05-08,,src-c3e2fd43efa5
-SPA,parties.IN.DMK,2026-05-08,,src-c3e2fd43efa5
-SPA,parties.IN.INC,2026-05-08,,src-c3e2fd43efa5
-SPA,parties.IN.MDMK,2026-05-08,,src-c3e2fd43efa5
+NDA,parties.IN.BJP,2026-05-08,,src-84efcb6e2cc4
+NDA,parties.IN.PMK,2026-05-08,,src-84efcb6e2cc4
+SPA,parties.IN.CPI,2026-05-08,,src-84efcb6e2cc4
+SPA,parties.IN.CPIM,2026-05-08,,src-84efcb6e2cc4
+SPA,parties.IN.DMK,2026-05-08,,src-84efcb6e2cc4
+SPA,parties.IN.INC,2026-05-08,,src-84efcb6e2cc4
+SPA,parties.IN.MDMK,2026-05-08,,src-84efcb6e2cc4
 Secular Progressive Alliance (later INDIA bloc),parties.IN.DMK,2021-05-07,2026-05-12,src-a99bd0998bba
 UDF,parties.IN.INC,1991-06-24,1995-03-22,src-9fb64167b105
 UDF,parties.IN.INC,1995-03-22,1996-05-09,src-9fb64167b105
