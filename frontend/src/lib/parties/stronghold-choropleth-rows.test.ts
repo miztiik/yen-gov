@@ -110,6 +110,7 @@ describe("mapPcStrongholdsToChoroplethRows", () => {
       wins: 3,
       contested: 4,
       results: ["W", "W", "L", "W"],
+      source_ids: [],
     },
     {
       entity_id: "IN-PC-2008-S22-12",
@@ -118,6 +119,7 @@ describe("mapPcStrongholdsToChoroplethRows", () => {
       wins: 1,
       contested: 4,
       results: ["L", "L", "W", "L"],
+      source_ids: [],
     },
     {
       // Non-PC pattern: defensive drop.
@@ -127,6 +129,7 @@ describe("mapPcStrongholdsToChoroplethRows", () => {
       wins: 5,
       contested: 8,
       results: ["W", "W", "W", "L", "W", "W", "L", "W"],
+      source_ids: [],
     },
   ];
 
