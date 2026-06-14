@@ -1899,3 +1899,69 @@ def ingest_mh_ae2024_cmd(
     typer.echo(f"  unresolved winners:     {unk_winners} ACs with parties.IN.UNK")
     typer.echo(f"  missing ACs (gap):      {missing_acs} eci_nos not in electoral.csv")
     typer.echo("  election_events.json:   S13 assembly-2024 -> complete")
+
+@app.command("ingest-eci-ae-form10")
+def ingest_eci_ae_form10_cmd(
+    root: Path = typer.Option(
+        Path.cwd(),
+        "--root",
+        "-r",
+        help="Repo root (defaults to current directory).",
+        file_okay=False,
+        dir_okay=True,
+        exists=True,
+    ),
+    report_csv: Path | None = typer.Option(
+        None,
+        "--report-csv",
+        help="Optional path to write a per-event yearwise ingest report CSV.",
+    ),
+) -> None:
+    """Ingest all 13 ECI Form-10 Detailed Results xlsx workbooks for the 2023-2025 cohort.
+
+    Reads ``datasets/ephemeral/<state>_*Detailed_Results*.xlsx`` and emits canonical
+    per-event CSVs into ``datasets/elections/assembly/state=<slug>/election=<year>/``.
+
+    Also:
+      - Appends ECI source citation rows to ``datasets/data/entities/source.csv``.
+      - Flips ``datasets/taxonomy/election_events.json`` data_status to ``complete``
+        for every successfully-ingested event.
+    """
+    from yen_gov.canonical.adapters.eci_form10_ae import ingest_all
+
+    results, flipped = ingest_all(root)
+    typer.echo("ingest-eci-ae-form10: results")
+    typer.echo(f"  {'STATE':<25} {'YEAR':<5} {'EVENT_ID':<16} {'STATUS':<6} {'CAND':<6} {'AC':<4} {'UNK':<4} {'GAP':<4} REASON")
+    for r in results:
+        typer.echo(
+            f"  {r.state_slug:<25} {r.election_year:<5} {r.event_id:<16} "
+            f"{r.status:<6} {r.n_candidacies:<6} {r.n_summary:<4} "
+            f"{r.n_unresolved_winners:<4} {r.n_missing_acs:<4} {r.reason}"
+        )
+    typer.echo(f"election_events.json: {flipped} entries flipped to 'complete'")
+
+    if report_csv is not None:
+        import csv as csv_mod
+        fields = [
+            "state_slug", "election_year", "event_id", "file_name", "status",
+            "n_candidacies", "n_summary", "n_unresolved_winners",
+            "n_missing_acs", "expected_acs", "reason",
+        ]
+        with report_csv.open("w", encoding="utf-8", newline="") as fh:
+            writer = csv_mod.DictWriter(fh, fieldnames=fields)
+            writer.writeheader()
+            for r in results:
+                writer.writerow({
+                    "state_slug": r.state_slug,
+                    "election_year": r.election_year,
+                    "event_id": r.event_id,
+                    "file_name": r.file_name,
+                    "status": r.status,
+                    "n_candidacies": r.n_candidacies,
+                    "n_summary": r.n_summary,
+                    "n_unresolved_winners": r.n_unresolved_winners,
+                    "n_missing_acs": r.n_missing_acs,
+                    "expected_acs": r.expected_acs,
+                    "reason": r.reason,
+                })
+        typer.echo(f"report written to {report_csv}")
