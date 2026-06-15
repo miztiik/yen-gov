@@ -60,12 +60,8 @@
     resolvePartyPalette,
     type PartyRowForResolver,
   } from "../lib/colors/resolver";
-  import StateAcMapD3 from "../lib/charts/StateAcMapD3.svelte";
-  import StatePcMapD3, {
-    type PcWinnerRow,
-  } from "../lib/charts/StatePcMapD3.svelte";
   import { INDIA_PC, INDIA_PC_2008 } from "../lib/boundaries/sources";
-  import TileCartogram from "../lib/charts/TileCartogram.svelte";
+  import type { PcWinnerRow } from "../lib/charts/StatePcMapD3.svelte";
   import {
     fetchElectionTileLayouts,
     fetchElectionTileScopes,
@@ -87,10 +83,11 @@
   import StateEventScatter from "../lib/elections/StateEventScatter.svelte";
   import StateEventConstituencyList from "../lib/elections/StateEventConstituencyList.svelte";
   import StateEventHero from "../lib/elections/StateEventHero.svelte";
+  import StateEventMap from "../lib/elections/StateEventMap.svelte";
+  import StateEventPartyComposite from "../lib/elections/StateEventPartyComposite.svelte";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
-  import PartyBar from "../lib/PartyBar.svelte";
   import type { PartyTotals } from "../lib/data";
   import { loadAlliances } from "../lib/psephlab/alliances";
   import type { AllianceLookup } from "../lib/psephlab/types";
@@ -499,13 +496,14 @@
   // recompute seats or vote share. Reset on event change so muting
   // "BJP" on chhattisgarh general-2024 doesn't silently carry to
   // general-2019 when the citizen navigates.
+  //
+  // R3 of TODO/20260615-state-election-event-page-redesign-plan.md
+  // (2026-06-15): the toggleHidden handler is now owned by the
+  // extracted StateEventPartyComposite subcomponent. `hidden_parties`
+  // is passed as $bindable so the subcomponent's button writes flow
+  // back to this proxy, which is what the hidden_pids derivation +
+  // the AC / PC override paths below continue to read.
   let hidden_parties = $state<Set<string>>(new Set());
-  function toggleHidden(key: string): void {
-    const next = new Set(hidden_parties);
-    if (next.has(key)) next.delete(key);
-    else next.add(key);
-    hidden_parties = next;
-  }
   $effect(() => {
     void event_row?.event_id;
     void params.state;
@@ -844,253 +842,57 @@
            PC events: StatePcMapD3 + Winner|Margin sub-toggle + party-
                        mute. No Equal-seats arm (per-state PC tile
                        layouts have not been authored yet; surfaced
-                       inline below the map). -->
-      {#if body === "ac" && state_code && STATE_AC[state_code]}
-        <section
-          class="space-y-2"
-          data-testid="state-event-map"
-        >
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <h2 class="text-sm font-medium text-slate-700">
-              Constituencies
-            </h2>
-            <div class="flex flex-wrap items-center gap-2">
-              <div
-                class="inline-flex rounded border border-slate-200 bg-white p-0.5 text-xs"
-                data-testid="state-event-map-mode"
-              >
-                <button
-                  type="button"
-                  class={color_mode === "winner"
-                    ? "rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-800"
-                    : "px-2 py-0.5 text-slate-500"}
-                  data-testid="state-event-map-mode-winner"
-                  onclick={() => (color_mode = "winner")}
-                >Winner</button>
-                <button
-                  type="button"
-                  class={color_mode === "margin"
-                    ? "rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-800"
-                    : "px-2 py-0.5 text-slate-500"}
-                  data-testid="state-event-map-mode-margin"
-                  onclick={() => (color_mode = "margin")}
-                >Margin</button>
-              </div>
-              {#if has_ac_equal_seats === true}
-                <div
-                  class="inline-flex rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-sm"
-                  data-testid="state-event-map-view"
-                >
-                  <button
-                    type="button"
-                    class="rounded-md px-3 py-1 transition-colors {ac_view === 'map'
-                      ? 'bg-white font-medium text-slate-900 shadow-sm'
-                      : 'text-slate-500 hover:text-slate-700'}"
-                    data-view="map"
-                    onclick={() => (ac_view = "map")}
-                  >Map</button>
-                  <button
-                    type="button"
-                    class="rounded-md px-3 py-1 transition-colors {ac_view === 'hex'
-                      ? 'bg-white font-medium text-slate-900 shadow-sm'
-                      : 'text-slate-500 hover:text-slate-700'}"
-                    data-view="hex"
-                    onclick={() => (ac_view = "hex")}
-                  >Equal seats</button>
-                </div>
-              {/if}
-            </div>
-          </div>
-          {#if ac_view === "map"}
-            <div data-testid="state-event-map-geo">
-              <StateAcMapD3
-                state={state_code}
-                rows={ac_winners_shim}
-                event={ev.event_id}
-                height="420px"
-                fillsOverride={ac_fills_override}
-                opacitiesOverride={ac_opacities_override}
-              />
-            </div>
-          {:else}
-            <div data-testid="state-event-map-hex">
-              {#if ac_tile_layout_error}
-                <div
-                  class="rounded border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800"
-                >
-                  Equal-seats layout couldn't load.
-                </div>
-              {:else if ac_tile_layout == null}
-                <p class="p-4 text-sm text-slate-500">
-                  Loading equal-seats layout...
-                </p>
-              {:else}
-                <TileCartogram
-                  tiles={ac_tile_rows}
-                  height="420px"
-                  onSelect={onAcTileSelect}
-                />
-              {/if}
-            </div>
-          {/if}
-          <p class="text-xs text-slate-500">
-            {color_mode === "winner"
-              ? "Each constituency is filled with the winning party's colour."
-              : "Each constituency is shaded by winning margin (darker = larger margin)."}
-          </p>
-          {#if ac_view === "map"}
-            <!-- TODO/20260612 Row C: sub-threshold marker legend - the
-                 StateAcMapD3 component overlays circular markers for ACs
-                 whose bbox is too small to render as a polygon at this
-                 zoom. Without this caption citizens read the circles as
-                 an unexplained second symbology. -->
-            <p
-              class="text-[11px] text-slate-500"
-              data-testid="state-ac-map-legend"
-            >
-              Circles mark dense urban constituencies whose polygon is too
-              small to render at this zoom.
-            </p>
-          {/if}
-        </section>
-      {:else if body === "pc" && state_code}
-        <!-- TODO/20260612 Row D: PC choropleth via StatePcMapD3,
-             filtering the national PC topojson by `state_ut_code ===
-             state_code`. Replaces the "Constituency map being
-             prepared" placeholder card from PR #954 for LS 2024
-             (delim=2024) AND LS 2019 / 2014 / 2009 (delim=2008,
-             ingested by FU#3 plan TODO/20260612-pc-delim-2008-
-             boundary-ingest-plan.md). Pre-2009 LS events
-             (general-2004 / general-1999 / ...) have no PC geometry
-             on disk and render the placeholder card below.
+                       inline below the map).
 
-             No "Equal seats" arm: per-state PC tile layouts have not
-             been authored (only national PC + per-state AC layouts
-             exist today). The note below directs the citizen to the
-             national surface for the hex view. -->
-        {#if pc_delim_year == null}
-          <!-- Pre-2009 LS event: no PC geometry available; placeholder
-               card persists. This is by design (FU#3 plan-doc Smoke 6
-               regression check). -->
-          <section
-            class="space-y-2"
-            data-testid="state-event-map-placeholder"
-          >
-            <h2 class="text-sm font-medium text-slate-700">
-              Constituencies
-            </h2>
-            <div
-              class="rounded border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600"
-            >
-              Constituency map for pre-2009 Lok Sabha events is not yet
-              available. No machine-readable GIS source for the 1976
-              Delimitation Commission Order has been ingested. See the
-              constituency table below for results.
-            </div>
-          </section>
-        {:else}
-        <section
-          class="space-y-2"
-          data-testid="state-event-map"
-        >
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <h2 class="text-sm font-medium text-slate-700">
-              Constituencies
-            </h2>
-            <div
-              class="inline-flex rounded border border-slate-200 bg-white p-0.5 text-xs"
-              data-testid="state-event-map-mode"
-            >
-              <button
-                type="button"
-                class={color_mode === "winner"
-                  ? "rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-800"
-                  : "px-2 py-0.5 text-slate-500"}
-                data-testid="state-event-map-mode-winner"
-                onclick={() => (color_mode = "winner")}
-              >Winner</button>
-              <button
-                type="button"
-                class={color_mode === "margin"
-                  ? "rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-800"
-                  : "px-2 py-0.5 text-slate-500"}
-                data-testid="state-event-map-mode-margin"
-                onclick={() => (color_mode = "margin")}
-              >Margin</button>
-            </div>
-          </div>
-          <StatePcMapD3
-            state={state_code}
+           R3 of TODO/20260615-state-election-event-page-redesign-plan.md
+           (2026-06-15): extracted to StateEventMap.svelte as a Beck
+           two-hat structural-only refactor; the section's DOM shape +
+           every data-testid are preserved verbatim. R4 will reorder
+           this above the PartyComposite + add the
+           SiblingEventsRail. color_mode + ac_view are bound through
+           so the parent's override derivations still read the same
+           proxy. -->
+      {#if state_code && (body === "ac" || body === "pc")}
+        {#if body === "pc" || STATE_AC[state_code]}
+          <StateEventMap
+            {body}
+            state_code={state_code}
+            event_id={ev.event_id}
+            {ac_winners_shim}
+            {ac_fills_override}
+            {ac_opacities_override}
+            {has_ac_equal_seats}
+            {ac_tile_layout}
+            {ac_tile_layout_error}
+            {ac_tile_rows}
+            {onAcTileSelect}
+            {pc_winners}
+            {pc_delim_year}
+            {pc_boundary}
+            {pc_fills_override}
+            {pc_opacities_override}
             state_slug={params.state}
-            rows={pc_winners}
-            event={ev.event_id}
-            height="420px"
-            fillsOverride={pc_fills_override}
-            opacitiesOverride={pc_opacities_override}
-            boundary={pc_boundary}
+            bind:color_mode
+            bind:ac_view
           />
-          <p class="text-xs text-slate-500">
-            {color_mode === "winner"
-              ? "Each constituency is filled with the winning party's colour."
-              : "Each constituency is shaded by winning margin (darker = larger margin)."}
-          </p>
-          <p
-            class="text-[11px] text-slate-500"
-            data-testid="state-pc-map-legend"
-          >
-            Circles mark dense urban constituencies whose polygon is too
-            small to render at this zoom. Equal-seats view available on
-            the
-            <a
-              class="text-sky-700 hover:underline"
-              href={`/t/elections/${encodeURIComponent(ev.event_id)}`}
-            >national {ev.event_id} surface</a>.
-          </p>
-        </section>
         {/if}
       {/if}
 
-      <!-- Top parties (TODO/20260612 Row D: reuses PartyBar; vote-share +
-           seats + optional alliance tag. Row F: click-to-mute via
-           hidden_parties + reset button when N > 0; mute recedes
-           matching cells on the AC + PC maps via the override path. -->
-      <section
-        class="space-y-2"
-        data-testid="state-event-top-parties"
-      >
-        <div class="flex items-baseline justify-between gap-2 flex-wrap">
-          <h2 class="text-sm font-medium text-slate-700">
-            Top parties by seats
-          </h2>
-          {#if hidden_parties.size > 0}
-            <button
-              type="button"
-              class="text-xs text-sky-700 hover:underline"
-              data-testid="state-event-top-parties-reset"
-              onclick={() => (hidden_parties = new Set())}
-            >Show all ({hidden_parties.size} muted)</button>
-          {/if}
-        </div>
-        {#if loading}
-          <p
-            class="text-xs text-slate-500"
-            data-testid="state-event-top-parties-loading"
-          >Loading top parties...</p>
-        {:else if top_parties.length === 0}
-          <p class="text-xs text-slate-500">No party totals yet.</p>
-        {:else}
-          <PartyBar
-            parties={top_parties}
-            total_seats={kpis.total_seats}
-            {hidden_parties}
-            onToggleHidden={toggleHidden}
-          />
-          <p class="text-[11px] text-slate-500">
-            Click a party row to mute it; muted parties recede on the
-            map. Vote totals don't recompute.
-          </p>
-        {/if}
-      </section>
+      <!-- Top parties: R3 of TODO/20260615-state-election-event-page-
+           redesign-plan.md (2026-06-15): extracted to
+           StateEventPartyComposite.svelte as a Beck two-hat structural-
+           only refactor; the section's DOM shape + data-testids are
+           preserved verbatim. R4 will extend this into a per-party
+           row table with [symbol][short][alliance-chip][seats-bar]
+           [seats-count][vote-share%]. hidden_parties is bound through
+           so the parent's hidden_pids derivation continues to power
+           the AC + PC map recede paths. -->
+      <StateEventPartyComposite
+        {loading}
+        {top_parties}
+        total_seats={kpis.total_seats}
+        bind:hidden_parties
+      />
 
       <!-- Alliance totals -->
       <AllianceTotals
