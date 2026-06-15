@@ -656,7 +656,10 @@
     <!-- (4) LS DualAxisBarLine -->
     {#if !meta.is_sentinel && ls_bars.length > 0}
       <section class="space-y-2" data-testid="party-ls-chart">
-        <RecognitionStrip party_id={meta.party_id} />
+        <RecognitionStrip
+          party_id={meta.party_id}
+          symbol_url={avatar.symbol_url}
+        />
         <div class="flex items-end justify-between">
           <h2 class="text-lg font-semibold text-slate-800 inline-flex items-center gap-2">
             <TopicIcon name="landmark" cls="w-5 h-5 text-slate-500 shrink-0" />
