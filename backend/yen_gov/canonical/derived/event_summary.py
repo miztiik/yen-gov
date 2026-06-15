@@ -25,7 +25,7 @@ Inputs (read seam):
   display-string parsing -- see R1.5 Gregor verdict 2026-06-15)
 - `datasets/taxonomy/lgd_states.json` via `eci_to_lgd_slug()` (eci_st_code ->
   on-disk LGD slug -- the canonical bridge for the assembly partition
-  layout; one helper, also used by `party_pages.py`)
+  layout; one helper, also used by `eci_ls.py` and `eci_ae_panel.py`)
 - `datasets/data/entities/source.csv` (FK target; the writer UPSERTs the
   mart citation row)
 - `datasets/elections/{parliament,assembly}/.../summary.csv` (per-PC / per-AC
