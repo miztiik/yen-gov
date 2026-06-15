@@ -412,3 +412,64 @@ def test_writer_handles_jammu_and_kashmir_ut(tmp_path: Path) -> None:
     assert st["seats_contested"] == "90"
     assert st["runner_up_party_id"] == "parties.IN.BJP"
     assert st["runner_up_seats"] == "29"
+
+
+def test_writer_handles_puducherry_u07(tmp_path: Path) -> None:
+    """U07 -> 'puducherry' slug bridge (R1.5 anchor case #3).
+
+    Same doctrine as the U08 (J&K) case above: catalogue keys are ECI codes,
+    the disk slug derives from `eci_to_lgd_slug('U07')` which returns
+    'puducherry' from `datasets/taxonomy/lgd_states.json`. The catalogue
+    display string ('Puducherry Assembly . April 2021') is irrelevant to
+    the writer; we wire a deliberately mismatched display ('Pondicherry
+    UT Assembly . 2021') to prove the writer never reads it."""
+    _write_min_schema(tmp_path)
+    _write_state_codes(tmp_path)
+    _write_source(tmp_path)
+    path = tmp_path / "datasets" / "taxonomy" / "election_events.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(
+            {
+                "$schema_version": "1.3",
+                "states": {
+                    "U07": [
+                        {
+                            "event_id": "assembly-2021",
+                            "kind": "assembly",
+                            "polled_on": "2021-04-06",
+                            # Deliberately mismatched display: writer must
+                            # not depend on this string.
+                            "display": "Pondicherry UT Assembly . 2021",
+                        },
+                    ],
+                },
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    _write_summary(
+        tmp_path / "datasets/elections/assembly/state=puducherry/election=2021/summary.csv",
+        winners=[("parties.IN.AINRC", 1000, 600)] * 10
+        + [("parties.IN.DMK", 1000, 550)] * 6
+        + [("parties.IN.INC", 1000, 500)] * 2
+        + [("parties.IN.BJP", 1000, 500)] * 6
+        + [("parties.IN.IND", 1000, 500)] * 6,
+        state_slug="puducherry",
+        year=2021,
+    )
+    result = refresh_event_summary_mart(tmp_path)
+    assert result.state_row_count == 1, (
+        "U07 row absent: writer regressed to display-string parsing"
+    )
+    rows = list(csv.DictReader((tmp_path / EVENT_SUMMARY_REL).open(encoding="utf-8")))
+    st = next(r for r in rows if r["state_code"] == "U07")
+    assert st["event_id"] == "assembly-2021"
+    assert st["kind"] == "assembly"
+    assert st["polled_on"] == "2021-04-06"
+    assert st["leading_party_id"] == "parties.IN.AINRC"
+    assert st["seats_won"] == "10"
+    assert st["seats_contested"] == "30"
+    assert st["runner_up_party_id"] == "parties.IN.BJP"
+    assert st["runner_up_seats"] == "6"
