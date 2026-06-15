@@ -88,14 +88,13 @@ function viewModelFixture(
     alliance_source_ids: [],
     current_strength_source_ids: [],
     provenance: {
-      badges: {
-        parliament: "",
-        state_assembly: "",
-        strongholds: "",
-        current_strength: "",
-        alliance_context: "",
+      pills_per_card: {
+        parliament: [],
+        state_assembly: [],
+        strongholds: [],
+        current_strength: [],
+        alliance_context: [],
       },
-      strip: { total_count: 0, all: [], producer_summary: "" },
     },
     ...overrides,
   };
