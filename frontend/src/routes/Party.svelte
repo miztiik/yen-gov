@@ -239,6 +239,8 @@
   import { partyIdFromSlug } from "../lib/slug";
   import { link } from "../lib/links";
   import { states } from "../lib/states.svelte";
+  import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import { route } from "../lib/router.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import DualAxisBarLine from "../lib/charts/DualAxisBarLine/DualAxisBarLine.svelte";
   import RecognitionStrip from "../lib/parties/RecognitionStrip.svelte";
@@ -441,7 +443,18 @@
   // helper (Hans H7 vocabulary, PR-6). Single source of truth - the
   // in-header subline (line 483) and the side-rail card render the
   // same string for the same scope.
+
+  // PR-12 (D12 of TODO/20260615-party-page-citizen-fixes-plan.md): per-
+  // route crumb chain mounted via the shared `<Breadcrumb>` primitive.
+  // Reactive on route navigation AND on async catalogue load (the
+  // `partyCrumbs` builder reads `states` reactively for the home-state
+  // fallback in future widenings). The shared component self-suppresses
+  // single-leaf chains; the partyCrumbs builder always returns 3 crumbs
+  // (Home -> Parties -> <slug>) so the bar renders on every party page.
+  const crumbs = $derived(route.crumbs ? route.crumbs(route.params) : []);
 </script>
+
+<Breadcrumb {crumbs} />
 
 <main
   class="max-w-5xl mx-auto p-4 sm:p-6 space-y-6"

@@ -35,6 +35,8 @@
   import { ruleById, RULES } from "../lib/psephlab/rules";
   import { link } from "../lib/links";
   import { docsUrl } from "../lib/repo";
+  import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import { route } from "../lib/router.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
 
   interface Props {
@@ -53,18 +55,17 @@
   const long_form_href = $derived(
     docsUrl(`docs/concepts/counting-methods/${method_id}.md`),
   );
+
+  // PR-12 (D12 of TODO/20260615-party-page-citizen-fixes-plan.md):
+  // replace the bespoke 4-crumb chain (`Home / Docs / Election Studio /
+  // Counting methods`) with the canonical shared <Breadcrumb> primitive
+  // driven by `countingMethodDocCrumbs` (wired in main.ts).
+  const crumbs = $derived(route.crumbs ? route.crumbs(route.params) : []);
 </script>
 
+<Breadcrumb {crumbs} />
+
 <div class="max-w-3xl mx-auto p-4 md:p-6 space-y-4">
-  <nav class="text-xs" aria-label="Breadcrumb">
-    <a class="text-slate-500 hover:underline" href={link.home()}>Home</a>
-    <span class="text-slate-400">/</span>
-    <span class="text-slate-500">Docs</span>
-    <span class="text-slate-400">/</span>
-    <span class="text-slate-500">Election Studio</span>
-    <span class="text-slate-400">/</span>
-    <span class="text-slate-700">Counting methods</span>
-  </nav>
 
   {#if !lookup.ok || rule == null}
     <section class="rounded-lg border border-line bg-surface p-6 shadow-sm">
