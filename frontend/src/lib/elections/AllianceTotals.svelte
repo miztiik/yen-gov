@@ -9,17 +9,24 @@
   // alliance-phase-1-structural-fix-plan.md v2.0 schema.
   //
   // Layout:
-  //   1. Alliance-first total line: "NDA 11 / INDIA 0 / Others 0"
-  //   2. Caption: "alliance as of polling date <date>"
-  //   3. Toggle: "Show party breakdown"
+  //   1. Honesty caption (R6 of 20260615-state-election-event-page-redesign-plan)
+  //      naming pre-poll vs post-poll attribution + the source title.
+  //   2. Alliance-first total line: "NDA 11 / INDIA 0 / Others 0"
+  //   3. Caption: "alliance as of polling date <date>"
+  //   4. Toggle: "Show party breakdown"
   //      - Expands to a grouped list of (alliance -> [party x seats])
   //
   // Citizen-readable framing: parties without an alliance row collapse
   // under "Others". An alliance entry shows as "<alliance> <seats>" with
-  // no comma after the last entry. The component degrades gracefully
-  // when no alliance rows exist for the event (renders an inline
-  // "alliance data pending" pill in lieu of the total line) per the
-  // PR-W3b escalation rule in the plan-doc.
+  // no comma after the last entry.
+  //
+  // R6 honesty rule (silence on uncurated events): when the lookup
+  // returns zero rows for (event_id, state), the entire panel is
+  // SUPPRESSED rather than rendering an amber "pending" pill. Per Max +
+  // Hans verdict in plan-doc Section 0.1: an uncurated event should
+  // be silently absent from the page; rendering a debt-tracking pill is
+  // a different surface (the operator receipt at datasets/_ops/, not
+  // the citizen page).
   //
   // State scoping (D2 fix, v2.0 schema): pass the LGD state slug
   // (`params.state`, e.g. "tamil-nadu") to scope to per-state rows OR
@@ -49,9 +56,14 @@
      *  `state_slug` (not `state`) to avoid shadowing Svelte 5's
      *  `$state()` rune in the destructured props. */
     state_slug?: string;
+    /** Optional source title for the R6 honesty caption (e.g. "Wikipedia"
+     *  or "ECI Form 21A"). When provided, the caption reads "as reported
+     *  by {source_title}"; otherwise the caption uses a generic phrasing. */
+    source_title?: string | null;
   }
 
-  let { event, winners, polled_on, state_slug }: Props = $props();
+  let { event, winners, polled_on, state_slug, source_title }: Props
+    = $props();
 
   let lookup = $state<AllianceLookup | null>(null);
 
@@ -77,21 +89,43 @@
   }
 </script>
 
-<section
-  class="rounded border border-slate-200 bg-white p-4"
-  data-testid="alliance-totals"
->
-  <h2 class="text-sm font-medium text-slate-700">Alliance totals</h2>
-  {#if lookup === null}
-    <p class="mt-2 text-xs text-slate-500">Loading alliance data…</p>
-  {:else if !breakdown.has_any}
+{#if lookup === null}
+  <section
+    class="rounded border border-slate-200 bg-white p-4"
+    data-testid="alliance-totals"
+  >
+    <h2 class="text-sm font-medium text-slate-700">Alliance totals</h2>
+    <p class="mt-2 text-xs text-slate-500">Loading alliance data&hellip;</p>
+  </section>
+{:else if !breakdown.has_any}
+  <!-- R6 (TODO/20260615-state-election-event-page-redesign-plan.md):
+       silence on uncurated events. The entire panel is SUPPRESSED when
+       the lookup returns zero rows for (event_id, state); no amber
+       "pending" pill is rendered. Per Max + Hans verdict in plan-doc
+       Section 0.1 (alliance honesty): an uncurated event should be
+       silently absent from the page; debt tracking lives at
+       datasets/_ops/ + the operator-receipt surface, not on the citizen
+       page. -->
+{:else}
+  <section
+    class="rounded border border-slate-200 bg-white p-4"
+    data-testid="alliance-totals"
+  >
+    <h2 class="text-sm font-medium text-slate-700">Alliance totals</h2>
+    <!-- R6 honesty caption above the panel. The wording distinguishes
+         pre-poll seat-sharing arrangements from post-poll government
+         formation; the cited source attribution flows from the citation
+         ledger so the citizen can verify the claim. Per Max-authored
+         draft in plan-doc Section 0.1. -->
     <p
-      class="mt-2 inline-block rounded bg-amber-50 px-2 py-0.5 text-xs text-amber-800"
-      data-testid="alliance-totals-pending"
+      class="mt-1 text-[11px] italic text-slate-500"
+      data-testid="alliance-totals-honesty-caption"
     >
-      Alliance data pending for this event.
+      Pre-poll alliance composition{source_title
+        ? ` as reported by ${source_title}`
+        : ""}. Post-election government formation may differ.
+      Uncategorised parties shown under &ldquo;Others&rdquo;.
     </p>
-  {:else}
     <p
       class="mt-2 text-lg font-semibold text-slate-900"
       data-testid="alliance-totals-headline"
@@ -140,5 +174,6 @@
         {/each}
       </ul>
     {/if}
-  {/if}
-</section>
+  </section>
+{/if}
+

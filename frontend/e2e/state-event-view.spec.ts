@@ -331,29 +331,27 @@ test.describe("state event view (PR-W3b rebuild)", () => {
     await expect(page.getByTestId("alliance-totals-pending")).toHaveCount(0);
   });
 
-  test("alliance panel: Kerala assembly-2021 shows pending pill (D2 state-scoping fix)", async ({
+  test("alliance panel: Kerala assembly-2021 is silently absent (R6 honesty: no pending pill)", async ({
     page,
   }) => {
-    // Phase 1 alliance fix smoke 4 (plan TODO/20260612-): CRITICAL
-    // state-scoping check. The 8 assembly-2021 rows in party_alliances.csv
-    // carry state=west-bengal (Sanyukta Morcha). Kerala asking the lookup
-    // for assembly-2021 MUST NOT inherit those rows -- that was D2 in the
-    // plan-doc. The lookup returns no matches -> AllianceTotals renders
-    // the amber pending pill (correct -- Kerala 2021 LDF/UDF not yet
-    // curated; Phase 1b queue). Pin both that the headline DOES NOT
-    // appear AND that the pending pill DOES appear, so a regression to
-    // unscoped lookup instantly breaks the spec.
+    // R6 of TODO/20260615-state-election-event-page-redesign-plan.md
+    // (replaces the Phase 1 D2 state-scoping test that asserted the
+    // amber pending pill was visible). Max + Hans verdict in plan-doc
+    // Section 0.1 (alliance honesty): when the (event_id, state)
+    // lookup returns zero alliance rows, the entire panel is
+    // SUPPRESSED rather than rendering a debt-tracking pending pill.
+    // Kerala asking the lookup for assembly-2021 still MUST NOT
+    // inherit the WB Sanyukta Morcha rows (the D2 state-scoping
+    // invariant), so the panel stays silent here.
     await page.goto("/kerala/elections/assembly-2021");
-    await expect(page.getByTestId("alliance-totals")).toBeVisible({
-      timeout: 30_000,
-    });
-    await expect(page.getByTestId("alliance-totals-pending")).toBeVisible({
-      timeout: 30_000,
-    });
+    // The section is suppressed when no alliance data; both the
+    // panel container AND every sub-testid must be absent.
+    await expect(page.getByTestId("alliance-totals")).toHaveCount(0);
+    await expect(page.getByTestId("alliance-totals-pending")).toHaveCount(0);
     await expect(page.getByTestId("alliance-totals-headline")).toHaveCount(0);
-    // Negative: the WB Sanyukta Morcha label MUST NOT leak onto the
-    // Kerala page anywhere in the alliance section.
-    await expect(page.getByTestId("alliance-totals")).not.toContainText(
+    // Negative: even when silent, the WB Sanyukta Morcha label MUST
+    // NOT leak onto the Kerala page anywhere on the surface.
+    await expect(page.locator("body")).not.toContainText(
       "Sanyukta Morcha",
     );
   });

@@ -1,6 +1,6 @@
 {
   "$schema": "./columns.schema.json",
-  "$schema_version": "2.4",
+  "$schema_version": "2.5",
   "file_classes": {
     "datasets/data/variables.csv": {
       "notes": "Catalogue: one row per indicator (variable). Spec: csv-column-contract.md section 3.1.",
@@ -135,13 +135,14 @@
       ]
     },
     "datasets/data/entities/party_alliances.csv": {
-      "notes": "Per-event party alliance memberships (composite PK: party_id + event_id + state). One row per (party, election event, state) triple where an alliance was declared; alliance null = party contested unallied. v2.0 (2026-06-12, plan TODO/20260612-alliance-phase-1-structural-fix-plan.md): MAJOR breaking - renamed period_label -> event_id so the column joins citizen-route canonical event_id values (`general-2024`, `assembly-2024`); added state (LGD state slug like `tamil-nadu` for state-scoped events, literal `IN` for national events) to disambiguate per-state cohorts that share an event_id (e.g. 5-state May 2026 simultaneous cohort); dropped short_name (Holy Law #6 - readers join through party_id FK to parties.csv.short_name). Frontend JOIN: state-overview view-model reads via inline read_csv(...) keyed on (party_id, event_id, state).",
+      "notes": "Per-event party alliance memberships (composite PK: party_id + event_id + state). One row per (party, election event, state) triple where an alliance was declared; alliance null = party contested unallied. v2.0 (2026-06-12, plan TODO/20260612-alliance-phase-1-structural-fix-plan.md): MAJOR breaking - renamed period_label -> event_id so the column joins citizen-route canonical event_id values (`general-2024`, `assembly-2024`); added state (LGD state slug like `tamil-nadu` for state-scoped events, literal `IN` for national events) to disambiguate per-state cohorts that share an event_id (e.g. 5-state May 2026 simultaneous cohort); dropped short_name (Holy Law #6 - readers join through party_id FK to parties.csv.short_name). Frontend JOIN: state-overview view-model reads via inline read_csv(...) keyed on (party_id, event_id, state). v2.5 (2026-06-15, R6 of TODO/20260615-state-election-event-page-redesign-plan.md): pure-additive minor - NEW nullable trailing column `formation` (enum [pre_poll, post_poll, hybrid]). The AllianceTotals caption picks its wording from this value so the citizen can distinguish pre-poll seat-sharing (NDA / INDIA / MVA / Mahayuti) from post-poll government formation (JD(U) joining NDA after the 2024 LS result). null defaults to pre_poll wording for back-compat with the 61 pre-v2.5 rows.",
       "columns": [
         { "name": "party_id", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/parties.csv.party_id" },
         { "name": "event_id", "dtype": "string", "nullable": false, "pk": true },
         { "name": "state", "dtype": "string", "nullable": false, "pk": true, "fk": "datasets/data/entities/geo.csv.entity_id" },
         { "name": "alliance", "dtype": "string", "nullable": true },
-        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" }
+        { "name": "source_id", "dtype": "string", "nullable": false, "fk": "datasets/data/entities/source.csv.source_id" },
+        { "name": "formation", "dtype": "string", "nullable": true, "enum": ["pre_poll", "post_poll", "hybrid"] }
       ]
     },
     "datasets/data/entities/source.csv": {
