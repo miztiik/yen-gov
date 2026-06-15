@@ -18,7 +18,18 @@
    *           - Maharashtra (2024): led Mahayuti with SHS (+1 other).
    *           - Bihar (2020): junior in NDA with BJP.
    *           - Kerala (2021): contested alone.
-   *   <slate-400 italic caveat>
+   *
+   * Recency window (PR-11): the rendered rows are capped to events
+   * in the last 10 years (cutoff = current year - 10). Older alliance
+   * ledger rows survive in `datasets/data/entities/party_alliances.csv`
+   * but are dropped at the view-model layer for citizen clarity -
+   * the political alignment of a >10y-old alliance rarely answers
+   * the "who do they ride with NOW?" question the strip is asking.
+   * See `RECENCY_CAP_YEARS` in the view-model module. The methodology
+   * surface for this (and for the alliance-row-without-candidacies
+   * degraded state below) lives on the citizen-facing concept page
+   * `docs/concepts/party-page-coverage.md`, linked from the Party
+   * page footer "About this page" line.
    *
    * Suppression contracts:
    *   - `is_sentinel`: defence-in-depth short-circuit. NOTA / UNK
@@ -183,12 +194,5 @@
         </div>
       </div>
     {/if}
-    <p
-      data-testid="party-alliance-context-caveat"
-      class="mt-3 text-xs italic text-slate-400"
-    >
-      Alliance ties recorded only for the cycles already ingested;
-      older arrangements may exist in publisher records not yet on file.
-    </p>
   </section>
 {/if}

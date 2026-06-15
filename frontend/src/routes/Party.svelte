@@ -308,15 +308,20 @@
   // sentinels (defence in depth) and for parties with no alliance
   // rows on file (Independent + new entrants).
   import PartyAllianceContext from "../lib/parties/PartyAllianceContext.svelte";
-  // PR-9: per-card coverage badges + bottom-of-page source-pill
-  // strip. Both consume the `view_model.provenance` envelope built
-  // by `buildPartyProvenance` (Holy Law #9). Each badge
-  // self-suppresses when its `text` prop is empty; the strip
-  // self-suppresses when `total_count === 0`.
-  import PartyCoverageBadge from "../lib/parties/PartyCoverageBadge.svelte";
-  import PartySourcesStrip from "../lib/parties/PartySourcesStrip.svelte";
+  // PR-9: per-card publisher-pill footers replace the retired
+  // free-text coverage badges + bottom-of-page strip. Each `SourceList`
+  // self-suppresses on an empty `pills` array, so cards without
+  // resolved sources render nothing (no row, no whitespace).
+  import { SourceList } from "../lib/sources";
   import { stateNameFromEntityId } from "../lib/parties/party-detail-utils";
   import { formatLeaderSince } from "../lib/view-models/parties";
+  // PR-13 D13: quiet footer link to the page-coverage docs concept.
+  // No in-app `/docs/concepts/:slug` route exists; the canonical
+  // pattern is `docsUrl()` building a GitHub blob URL (same as
+  // `CountingMethodDoc.svelte` + `Psephlab.svelte`). The page itself
+  // lives at `docs/concepts/party-page-coverage.md` and consolidates
+  // the meta-disclaimers the page previously rendered inline.
+  import { docsUrl } from "../lib/repo";
 
   interface Props {
     params: { slug: string };
@@ -601,7 +606,7 @@
       current_strength={view_model.current_strength}
       is_sentinel={meta.is_sentinel}
     />
-    <PartyCoverageBadge text={view_model.provenance.badges.current_strength} />
+    <SourceList pills={view_model.provenance.pills_per_card.current_strength} />
 
     <!-- PR-8: "Who they ride with" Alliance Context strip. Sits
          directly under the Current Strength strip and above the
@@ -613,7 +618,7 @@
       alliance_context={view_model.alliance_context}
       is_sentinel={meta.is_sentinel}
     />
-    <PartyCoverageBadge text={view_model.provenance.badges.alliance_context} />
+    <SourceList pills={view_model.provenance.pills_per_card.alliance_context} />
 
     <!--
       PR-6 layout: header sits full-width above. Sections (2)-(6) live
@@ -731,7 +736,7 @@
             hover to see what changed.
           </p>
         {/if}
-        <PartyCoverageBadge text={view_model.provenance.badges.parliament} />
+        <SourceList pills={view_model.provenance.pills_per_card.parliament} />
       </section>
     {/if}
 
@@ -757,7 +762,7 @@
           bar_y_label="Vote share %"
           bar_format={(n) => `${n.toFixed(1)}%`}
         />
-        <PartyCoverageBadge text={view_model.provenance.badges.state_assembly} />
+        <SourceList pills={view_model.provenance.pills_per_card.state_assembly} />
       </section>
     {/if}
 
@@ -835,7 +840,7 @@
             </ul>
           </div>
         {/if}
-        <PartyCoverageBadge text={view_model.provenance.badges.strongholds} />
+        <SourceList pills={view_model.provenance.pills_per_card.strongholds} />
       </section>
     {/if}
 
@@ -871,10 +876,22 @@
       </p>
     {/if}
 
-    <!-- (8) PR-9: bottom-of-page source-pill strip (Holy Law #9).
-         Collapsed by default; renders the page-level citation
-         ledger as a 4-column table when expanded. Hidden when the
-         page has zero sources (sentinel + no-data view). -->
-    <PartySourcesStrip strip={view_model.provenance.strip} />
+    <!-- PR-13 D13: one quiet "About this page" link. Slate-400, no
+         italic, no chrome. Points at the GitHub-rendered concept doc
+         (no in-app `/docs/concepts/:slug` route exists - canonical
+         pattern is `docsUrl()` -> GitHub blob URL, mirroring
+         `CountingMethodDoc.svelte` + `Psephlab.svelte`). The doc
+         consolidates the meta-disclaimers the page previously
+         rendered inline (PR-9 retired 2 of 4; PR-11 retires the
+         remaining 2). -->
+    <p class="mt-8 text-sm text-slate-400">
+      <a
+        href={docsUrl("docs/concepts/party-page-coverage.md")}
+        target="_blank"
+        rel="noreferrer"
+        class="hover:underline"
+        data-testid="party-page-coverage-link"
+      >About this page -&gt;</a>
+    </p>
   {/if}
 </PageContainer>

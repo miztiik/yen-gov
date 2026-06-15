@@ -9,6 +9,7 @@ import { describe, expect, it } from "vitest";
 import {
   buildPartyProvenance,
   compressProducers,
+  mergeLabelDuplicates,
   splitSourceIds,
   type PartyPageSource,
 } from "./party-sources";
@@ -107,14 +108,13 @@ function vmFixture(
     alliance_source_ids: [],
     current_strength_source_ids: [],
     provenance: {
-      badges: {
-        parliament: "",
-        state_assembly: "",
-        strongholds: "",
-        current_strength: "",
-        alliance_context: "",
+      pills_per_card: {
+        parliament: [],
+        state_assembly: [],
+        strongholds: [],
+        current_strength: [],
+        alliance_context: [],
       },
-      strip: { total_count: 0, all: [], producer_summary: "" },
     },
     ...overrides,
   };
@@ -127,7 +127,7 @@ function srcRow(
   vintage: string,
   url = "",
 ): PartyPageSource {
-  return { source_id, producer, title, vintage, url, used_in: [] };
+  return { source_id, producer, title, vintage, url };
 }
 
 // --- splitSourceIds -------------------------------------------------------
@@ -181,15 +181,104 @@ describe("compressProducers", () => {
   });
 });
 
+// --- mergeLabelDuplicates -------------------------------------------------
+
+describe("mergeLabelDuplicates", () => {
+  it("returns input unchanged when length <= 1", () => {
+    expect(mergeLabelDuplicates([])).toEqual([]);
+    const single = [
+      { label: "RBI", vintage_summary: "2024", url: null, count: 1 },
+    ];
+    expect(mergeLabelDuplicates(single)).toEqual(single);
+  });
+
+  it("preserves pills that already have distinct labels", () => {
+    const out = mergeLabelDuplicates([
+      { label: "RBI State Finances", vintage_summary: "2025-26", url: null, count: 3 },
+      { label: "ECI", vintage_summary: "2024", url: "https://eci.gov.in/x", count: 2 },
+    ]);
+    expect(out).toHaveLength(2);
+    // Sorted: RBI (count 3) before ECI (count 2).
+    expect(out.map((p) => p.label)).toEqual(["RBI State Finances", "ECI"]);
+  });
+
+  it("collapses two pills with same label + same vintage_summary into one with summed count", () => {
+    const out = mergeLabelDuplicates([
+      { label: "ECI", vintage_summary: "2024", url: null, count: 2 },
+      { label: "ECI", vintage_summary: "2024", url: "https://eci.gov.in/x", count: 3 },
+    ]);
+    expect(out).toHaveLength(1);
+    expect(out[0]!.label).toBe("ECI");
+    expect(out[0]!.vintage_summary).toBe("2024");
+    expect(out[0]!.count).toBe(5);
+    // First non-empty url wins.
+    expect(out[0]!.url).toBe("https://eci.gov.in/x");
+  });
+
+  it("collapses same-label pills with different vintages via summarize rule", () => {
+    // Two distinct vintage_summary strings -> "<a> to <b>".
+    const out2 = mergeLabelDuplicates([
+      { label: "ECI", vintage_summary: "2019", url: null, count: 1 },
+      { label: "ECI", vintage_summary: "2024", url: null, count: 1 },
+    ]);
+    expect(out2).toHaveLength(1);
+    expect(out2[0]!.vintage_summary).toBe("2019 to 2024");
+    // Three+ distinct -> "various".
+    const out3 = mergeLabelDuplicates([
+      { label: "ECI", vintage_summary: "2019", url: null, count: 1 },
+      { label: "ECI", vintage_summary: "2024", url: null, count: 1 },
+      { label: "ECI", vintage_summary: "1984", url: null, count: 1 },
+    ]);
+    expect(out3).toHaveLength(1);
+    expect(out3[0]!.vintage_summary).toBe("various");
+  });
+
+  it("collapses same-label pills whose vintage_summary strings are all empty", () => {
+    const out = mergeLabelDuplicates([
+      { label: "ECI", vintage_summary: "", url: null, count: 1 },
+      { label: "ECI", vintage_summary: "", url: null, count: 1 },
+    ]);
+    expect(out).toHaveLength(1);
+    expect(out[0]!.vintage_summary).toBe("");
+  });
+
+  it("guarantees unique (label + vintage_summary) Svelte keys post-merge", () => {
+    // Regression guard for the SourceList.svelte each-key collision
+    // that originally caused this helper to exist. Input simulates a
+    // page where many ECI titles all overflow the 30-char label budget
+    // and dedupeToPills produces multiple "ECI" pills.
+    const out = mergeLabelDuplicates([
+      { label: "ECI", vintage_summary: "2024", url: null, count: 1 },
+      { label: "ECI", vintage_summary: "2024", url: null, count: 1 },
+      { label: "ECI", vintage_summary: "2019", url: null, count: 1 },
+      { label: "TCPD", vintage_summary: "2024", url: null, count: 1 },
+      { label: "TCPD", vintage_summary: "2024", url: null, count: 1 },
+    ]);
+    const keys = out.map((p) => `${p.label}::${p.vintage_summary}`);
+    expect(new Set(keys).size).toBe(keys.length);
+  });
+
+  it("sorts merged output by count desc, then label asc", () => {
+    const out = mergeLabelDuplicates([
+      { label: "TCPD", vintage_summary: "2024", url: null, count: 1 },
+      { label: "ECI", vintage_summary: "2024", url: null, count: 2 },
+      { label: "ECI", vintage_summary: "2019", url: null, count: 3 },
+    ]);
+    // After merge: ECI (count 5), TCPD (count 1).
+    expect(out.map((p) => p.label)).toEqual(["ECI", "TCPD"]);
+    expect(out[0]!.count).toBe(5);
+  });
+});
+
 // --- buildPartyProvenance (happy path) ------------------------------------
 
 describe("buildPartyProvenance happy path", () => {
-  it("emits 5 non-empty badges and a sorted strip when every card has data + sources", () => {
+  it("emits non-empty pills_per_card entries when every card has data + sources", () => {
     const lookup = new Map<string, PartyPageSource>([
-      ["src-eci-ls-2024", srcRow("src-eci-ls-2024", "ECI", "LS Statistical Report", "2024", "https://eci.gov.in/ls2024")],
-      ["src-eci-ae-2021", srcRow("src-eci-ae-2021", "ECI", "AE Statistical Report", "2021", "https://eci.gov.in/ae2021")],
-      ["src-tcpd-ae-2021", srcRow("src-tcpd-ae-2021", "TCPD", "AE Candidates", "2021-06")],
-      ["src-tcpd-ls-2024", srcRow("src-tcpd-ls-2024", "TCPD", "LS Candidates", "2024-06")],
+      ["src-eci-ls-2024", srcRow("src-eci-ls-2024", "Election Commission of India", "General Election to Lok Sabha 2024 - Statistical Report", "2024", "https://eci.gov.in/ls2024")],
+      ["src-eci-ae-2021", srcRow("src-eci-ae-2021", "Election Commission of India", "State Assembly Election 2021 - Statistical Report", "2021", "https://eci.gov.in/ae2021")],
+      ["src-tcpd-ae-2021", srcRow("src-tcpd-ae-2021", "TCPD", "AE Candidates 2021", "2021-06")],
+      ["src-tcpd-ls-2024", srcRow("src-tcpd-ls-2024", "TCPD", "LS Candidates 2024", "2024-06")],
       ["src-aece-2025", srcRow("src-aece-2025", "Adam Carr Election Centre", "Alliance Tracker", "2025-01")],
     ]);
     const vm = vmFixture({
@@ -237,40 +326,32 @@ describe("buildPartyProvenance happy path", () => {
       current_strength_source_ids: ["src-eci-ls-2024", "src-eci-ae-2021"],
     });
     const out = buildPartyProvenance(vm, lookup);
-    expect(out.badges.parliament).toContain("Parliament 1984-2024");
-    expect(out.badges.parliament).toContain("2 cycles");
-    expect(out.badges.state_assembly).toContain("State Assembly 2021");
-    expect(out.badges.state_assembly).toContain("1 cycle");
-    expect(out.badges.strongholds).toContain("Computed from");
-    expect(out.badges.current_strength).toContain("Parliament 2024");
-    expect(out.badges.current_strength).toContain("1 state");
-    expect(out.badges.alliance_context).toContain("1 cycle");
-    expect(out.badges.alliance_context).toContain("1 jurisdiction");
-    // Strip carries all 5 distinct source_ids
-    expect(out.strip.total_count).toBe(5);
-    // Producer order ASC + vintage DESC
-    const producers = out.strip.all.map((s) => s.producer);
-    expect(producers[0]).toBe("Adam Carr Election Centre");
-    // The two ECI rows come next, newest vintage first
-    expect(producers[1]).toBe("ECI");
-    expect(producers[2]).toBe("ECI");
-    expect(out.strip.all[1]!.vintage).toBe("2024");
-    expect(out.strip.all[2]!.vintage).toBe("2021");
-    // producer_summary caps at 3 names
-    expect(out.strip.producer_summary).toBe(
-      "Adam Carr Election Centre, ECI, TCPD",
+    // Every card with data emits at least one pill; pill labels reflect
+    // the publisher abbreviation (ECI, TCPD) plus the series_family
+    // sliced from the title's leading clause.
+    expect(out.pills_per_card.parliament.length).toBeGreaterThan(0);
+    expect(out.pills_per_card.state_assembly.length).toBeGreaterThan(0);
+    expect(out.pills_per_card.strongholds.length).toBeGreaterThan(0);
+    expect(out.pills_per_card.current_strength.length).toBeGreaterThan(0);
+    expect(out.pills_per_card.alliance_context.length).toBeGreaterThan(0);
+    // Spot-check one pill: parliament should carry an ECI pill that
+    // names both 2024 and 1984 cycle vintages.
+    const parl_eci = out.pills_per_card.parliament.find((p) =>
+      p.label.startsWith("ECI"),
     );
-    // used_in[] correctness: src-eci-ls-2024 lit by Parliament + Strongholds + Current Strength
-    const eci_ls = out.strip.all.find((s) => s.source_id === "src-eci-ls-2024")!;
-    expect(eci_ls.used_in.sort()).toEqual(
-      ["Current Strength", "Parliament chart", "Strongholds"].sort(),
+    expect(parl_eci).toBeDefined();
+    expect(parl_eci!.vintage_summary).toBe("2024");
+    // The alliance card cites the single Adam Carr Election Centre pill.
+    expect(out.pills_per_card.alliance_context).toHaveLength(1);
+    expect(out.pills_per_card.alliance_context[0]!.label).toBe(
+      "Adam Carr Election Centre",
     );
-    // alliance src is ONLY used_in alliance_context
-    const aece = out.strip.all.find((s) => s.source_id === "src-aece-2025")!;
-    expect(aece.used_in).toEqual(["Alliance Context"]);
+    expect(out.pills_per_card.alliance_context[0]!.vintage_summary).toBe(
+      "2025-01",
+    );
   });
 
-  it("emits an empty envelope for a sentinel party with zero data on every card", () => {
+  it("emits an empty pills array per card for a sentinel party with zero data", () => {
     const lookup = new Map<string, PartyPageSource>();
     const out = buildPartyProvenance(
       vmFixture({
@@ -282,14 +363,11 @@ describe("buildPartyProvenance happy path", () => {
       }),
       lookup,
     );
-    expect(out.badges.parliament).toBe("");
-    expect(out.badges.state_assembly).toBe("");
-    expect(out.badges.strongholds).toBe("");
-    expect(out.badges.current_strength).toBe("");
-    expect(out.badges.alliance_context).toBe("");
-    expect(out.strip.total_count).toBe(0);
-    expect(out.strip.all).toEqual([]);
-    expect(out.strip.producer_summary).toBe("");
+    expect(out.pills_per_card.parliament).toEqual([]);
+    expect(out.pills_per_card.state_assembly).toEqual([]);
+    expect(out.pills_per_card.strongholds).toEqual([]);
+    expect(out.pills_per_card.current_strength).toEqual([]);
+    expect(out.pills_per_card.alliance_context).toEqual([]);
   });
 });
 

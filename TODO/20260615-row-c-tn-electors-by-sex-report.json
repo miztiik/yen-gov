@@ -1,0 +1,10 @@
+{
+  "proposal": "TODO/20260615-row-c-tn-electors-by-sex-proposal.json",
+  "verdict": "add_facet",
+  "verdict_source": "persona-convergence",
+  "verdict_rationale": "Pre-flight `propose-indicator` CLI not invoked: §10 STOP-AND-SURFACE persona debate (Hans+Max+Fowler) was triggered by file-class FK-target mismatch at the schema boundary (Row C of TODO/20260614-three-ephemeral-ingests-plan.md framed the file as `datapoints/geo/*.csv` whose FK target is `entities/geo.csv`, but ACs are NOT LGD geo entities — they are ECI-issued electoral units already keyed at `entities/electoral.csv`). All three personas converged UNANIMOUSLY on Path B: introduce a new sibling file-class `datapoints/electoral_geo/*.csv` with FK target `entities/electoral.csv`. Within Path B, the facet-vs-mint decision is unambiguous: existing `electors` concept (persons, absolute, ac/pc/state) covers total enrolled voters at the same noun+unit+grain; the sex breakdown is a FACET (ADR-0044 identity test). No mint required. Full transcripts: TODO/20260615-row-c-tn-electors-by-sex-handover.md.",
+  "winning_concept": "electors",
+  "winning_variable_id": "electors-persons-by-sex",
+  "winning_file_class": "datasets/data/datapoints/electoral_geo/*.csv",
+  "verdict_ts": "2026-06-15T00:00:00Z"
+}
