@@ -388,6 +388,21 @@ export function stateElectionCrumbs(params: Record<string, unknown>): Crumb[] {
   ];
 }
 
+/** Crumbs for `/<state>/elections/` landing (R2 of the state-event-page
+ * redesign plan, 2026-06-15). One short hop from the state hub to the
+ * landing list; the leaf is the literal "elections". */
+export function stateElectionsLandingCrumbs(
+  params: Record<string, unknown>,
+): Crumb[] {
+  const stateSlug = typeof params.state === "string" ? params.state : "";
+  const sName = stateLabel(stateSlug);
+  return [
+    ROOT_LINK,
+    { label: sName, href: link.stateHub(stateSlug) },
+    { label: `${sName} elections`, isLeaf: true },
+  ];
+}
+
 export function exploreCrumbs(params: Record<string, unknown>): Crumb[] {
   const stateSlug = typeof params.state === "string" ? params.state : "";
   return [

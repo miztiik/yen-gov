@@ -25,6 +25,7 @@ import TopicIndex from "./routes/TopicIndex.svelte";
 import TopicLanding from "./routes/TopicLanding.svelte";
 import StateTopic from "./routes/StateTopic.svelte";
 import StateElection from "./routes/StateElection.svelte";
+import StateElectionsLanding from "./routes/StateElectionsLanding.svelte";
 // District + Constituency + NotFound are mounted INSIDE StateSubRouter
 // (the depth-2 state-sub dispatcher) so main.ts no longer imports them
 // directly. The 1-segment `/:state` catch-all still mounts StateOverview;
@@ -63,6 +64,7 @@ import {
   psephlabCrumbs,
   settingsCrumbs,
   stateElectionCrumbs,
+  stateElectionsLandingCrumbs,
   stateOverviewCrumbs,
   stateTopicCrumbs,
   topicIndexCrumbs,
@@ -306,6 +308,18 @@ startRouter({
     // results compare) — this is the neutral citizen permalink for a
     // specific cohort's results in a specific state.
     { pattern: "/:state/elections/:event", component: StateElection, crumbs: stateElectionCrumbs },
+    // R2 of TODO/20260615-state-election-event-page-redesign-plan.md
+    // (2026-06-15): per-state elections landing at /<state>/elections
+    // (no trailing slash; the router's compiled regex does not
+    // normalise trailing slashes, so the link builder + route pattern
+    // both omit the trailing slash). Lists every assembly + parliament
+    // event the state has on record. Mounted AFTER the 3-segment
+    // `/:state/elections/:event` so segment-count ordering keeps the
+    // more-specific route's first-match guarantee intact (the 2-segment
+    // pattern would never poach a 3-segment URL because the compiled
+    // regex anchors `$`, but ordering keeps the table grammar
+    // place-first-most-specific-first per ADR-0037).
+    { pattern: "/:state/elections", component: StateElectionsLanding, crumbs: stateElectionsLandingCrumbs },
     // PR-W3b (election experience overhaul, 2026-06-10): bare-slug
     // constituency leaf at /<state>/elections/<event>/<constituency>.
     // Dispatches AC vs PC inside `Constituency.svelte` from the
