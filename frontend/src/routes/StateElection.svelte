@@ -78,13 +78,18 @@
     buildPartyKeyToPid,
     hiddenPidSet,
   } from "../lib/charts/india-pc-map-helpers";
-  import InlineCounterfactualSwing from "../lib/elections/InlineCounterfactualSwing.svelte";
   import AllianceTotals from "../lib/elections/AllianceTotals.svelte";
   import StateEventScatter from "../lib/elections/StateEventScatter.svelte";
   import StateEventConstituencyList from "../lib/elections/StateEventConstituencyList.svelte";
   import StateEventHero from "../lib/elections/StateEventHero.svelte";
   import StateEventMap from "../lib/elections/StateEventMap.svelte";
   import StateEventPartyComposite from "../lib/elections/StateEventPartyComposite.svelte";
+  import SiblingEventsRail from "../lib/elections/SiblingEventsRail.svelte";
+  import { buildSiblingEventsRail } from "../lib/elections/sibling-events-rail-model";
+  import {
+    loadEventSummary,
+    type EventSummaryRow,
+  } from "../lib/elections/event-summary-loader";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
   import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
@@ -739,6 +744,102 @@
     return `/compare/elections/${params.state}/${encodeURIComponent(prev.event_id)}/${encodeURIComponent(ev.event_id)}`;
   });
 
+  // ---- R4 (TODO/20260615-state-election-event-page-redesign-plan.md):
+  // Load the per-event aggregate mart once for: (a) the SiblingEventsRail
+  // winner-color underlines (resolves event_id -> leading_party brand
+  // colour), and (b) the HeroCards turnout pp-delta vs the previous
+  // same-body event. Mart shape carries leading_party_id + turnout_pct
+  // keyed by (event_id, state_code). Cached singleton, so the cost is
+  // paid once per page session.
+  let event_summary_rows = $state<EventSummaryRow[] | null>(null);
+  let event_summary_error = $state<string | null>(null);
+  $effect(() => {
+    // re-fire on identity change (event navigation reuses this route).
+    void event_row?.event_id;
+    if (event_summary_rows !== null || event_summary_error !== null) return;
+    loadEventSummary()
+      .then((rows) => (event_summary_rows = rows))
+      .catch((e) => (event_summary_error = String(e)));
+  });
+
+  const event_summary_by_id = $derived.by<Map<string, EventSummaryRow>>(() => {
+    const out = new Map<string, EventSummaryRow>();
+    if (!event_summary_rows || !state_code) return out;
+    for (const r of event_summary_rows) {
+      // Restrict to the current state's rows; the leading_party for
+      // (event_id, state_code) is the per-state winner (Assembly).
+      // For Parliament events we still scope by state_code so the
+      // colour matches the per-state winner of that LS election.
+      if (r.state_code === state_code) {
+        out.set(r.event_id, r);
+      }
+    }
+    return out;
+  });
+
+  // Resolver consumed by SiblingEventsRail: maps an event_id to its
+  // leading party's brand colour for the chip's underline. Returns
+  // null when the mart row is missing OR the leading_party has no
+  // brand_colour entry in this event's winners. The rail's component
+  // falls back to slate-200 in that case.
+  function winnerColorForEventId(event_id: string): string | null {
+    const row = event_summary_by_id.get(event_id);
+    if (!row || !row.leading_party_id) return null;
+    // Resolve via the canonical 3-tier resolver. For the leading
+    // party of a sibling event we may not have a brand_colour row
+    // loaded (winners[] is scoped to the CURRENT event). Hand the
+    // resolver a null brand_colour so it falls back to the algorithmic
+    // tier (deterministic colour from the party_id).
+    return getPartyColor(row.leading_party_id, null).hex;
+  }
+
+  const sibling_events_rail_model = $derived.by(() => {
+    if (!catalogue || !state_code || !event_row || !body) return null;
+    return buildSiblingEventsRail({
+      catalogue,
+      state_code,
+      state_slug: params.state,
+      current_event_id: event_row.event_id,
+      body,
+      winner_color_for_event_id: winnerColorForEventId,
+    });
+  });
+
+  // Hero turnout-delta payload. Compares the current event's
+  // turnout_pct against the previous same-body event's turnout_pct
+  // (both derived from event_summary.csv per the plan's RATIFIED
+  // sourcing rule). When the prior row is missing OR the field is
+  // null on either side, the delta is OMITTED entirely (first-event-
+  // on-record card-collapse pin per J-elevated-3 amend).
+  interface HeroDeltaPayload {
+    turnout_pp: number | null;
+    prev_event_label: string | null;
+  }
+  const hero_delta = $derived.by<HeroDeltaPayload>(() => {
+    const prev = previous_same_body;
+    const ev = event_row;
+    if (!ev || !prev) return { turnout_pp: null, prev_event_label: null };
+    const current_row = event_summary_by_id.get(ev.event_id);
+    const prev_row = event_summary_by_id.get(prev.event_id);
+    if (!current_row || !prev_row) {
+      return { turnout_pp: null, prev_event_label: null };
+    }
+    if (current_row.turnout_pct == null || prev_row.turnout_pct == null) {
+      return { turnout_pp: null, prev_event_label: null };
+    }
+    const pp = current_row.turnout_pct - prev_row.turnout_pct;
+    // Compact label: "Assembly 2019" rather than the full catalogue
+    // display string "Maharashtra Assembly 2019" since the citizen
+    // is already on the Maharashtra page.
+    const kind_pretty = prev.kind === "parliament" ? "Parliament" : "Assembly";
+    const year_match = /(\d{4})/.exec(prev.event_id);
+    const year = year_match ? year_match[1] : prev.event_id;
+    return {
+      turnout_pp: pp,
+      prev_event_label: `${kind_pretty} ${year}`,
+    };
+  });
+
   // ---- Display label --------------------------------------------------
   // event_row.display already includes the state name for parliament
   // events ("Chhattisgarh · Parliament 2024") and assembly events
@@ -828,10 +929,19 @@
       {loading}
       {pending}
       {kpis}
+      delta={hero_delta}
       {fmtInt}
       {fmtCompact}
       {fmtPct}
     />
+
+    <!-- Sibling-events year-chip rail. R4 J-elevated-4: replaces the
+         deleted "Prev / Next / Compare ->" text strip; pure year
+         chips with winner-color underlines + a trailing Compare
+         pill (no arrows ever). -->
+    {#if sibling_events_rail_model}
+      <SiblingEventsRail model={sibling_events_rail_model} />
+    {/if}
 
     {#if result.status !== "failed"}
       <!-- TODO/20260612 Rows D + E + F: state choropleth.
@@ -906,30 +1016,13 @@
         polled_on={ev.polled_on}
       />
 
-      <!-- Inline counterfactual swing (assembly only) -->
-      {#if state_code}
-        <InlineCounterfactualSwing
-          event={ev.event_id}
-          state_code={state_code}
-          disabled={body !== "ac"}
-        />
-      {/if}
-
-      <!-- Constituency table + Compare CTA. R3 of
-           TODO/20260615-state-election-event-page-redesign-plan.md
-           (2026-06-15): extracted to StateEventConstituencyList as a
-           Beck two-hat structural-only refactor; the section's
-           data-testids and DOM shape are preserved verbatim. R4 will
-           refactor this surface (fold + search; delete the flat
-           288-row table). -->
-      <StateEventConstituencyList
-        {loading}
-        {seat_rows}
-        {previous_same_body}
-        {compare_href}
-        {fmtInt}
-        {fmtPct}
-      />
+      <!-- R4 (TODO/20260615-state-election-event-page-redesign-plan.md):
+           the InlineCounterfactualSwing mount that previously sat
+           between AllianceTotals and the constituency table is
+           DELETED on this surface. Counterfactual ergonomics live on
+           Psephlab; the state-event page is the canonical fact view.
+           The component file is retained because Psephlab still
+           mounts it; only the mount is removed here. -->
 
       <!-- Scatter chart (PR-W4c MUST-FEATURE; state filter pre-applied via loader).
            TODO/20260612 Row A.5: lock_body=true hides the Body chip
@@ -937,13 +1030,32 @@
            R3 (TODO/20260615-state-election-event-page-redesign-plan.md):
            extracted to StateEventScatter.svelte as a Beck two-hat
            structural-only refactor; the section's data-testid and DOM
-           shape are preserved verbatim. -->
+           shape are preserved verbatim. R4 moves Scatter ABOVE
+           ConstituencyList so the citizen reads turnout-vs-margin
+           context BEFORE diving into per-AC rows. -->
       <StateEventScatter
         {winners}
         {body}
         {state_name}
         fallback_event_id={params.event}
         resolved_event_id={event_row?.event_id}
+      />
+
+      <!-- Constituency table + Compare CTA. R3 of
+           TODO/20260615-state-election-event-page-redesign-plan.md
+           (2026-06-15): extracted to StateEventConstituencyList as a
+           Beck two-hat structural-only refactor; the section's
+           data-testids and DOM shape were preserved verbatim. R4
+           rebuilds the inside (district-grouped fold + sticky search +
+           Compare CTA as a slate-link last row) - the testids stay
+           verbatim so all prior e2e assertions still pass. -->
+      <StateEventConstituencyList
+        {loading}
+        {seat_rows}
+        {previous_same_body}
+        {compare_href}
+        {fmtInt}
+        {fmtPct}
       />
     {/if}
   {/if}
