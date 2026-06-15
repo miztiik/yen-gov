@@ -90,6 +90,7 @@ class _PeerEntityKey:
 @dataclass(frozen=True)
 class _WinnerEvent:
     period_label: str
+    year: int
     winner_party_id: str
     source_id: str
 
@@ -178,6 +179,7 @@ def refresh_party_page_marts(repo_root: Path) -> PartyPageMartResult:
                     winner_events[(body, entity_id)].append(
                         _WinnerEvent(
                             period_label=period_label,
+                            year=int(row.get("year") or 0),
                             winner_party_id=winner_party_id,
                             source_id=source_id,
                         )
@@ -437,6 +439,9 @@ def _stronghold_rows(
             if wins <= 0:
                 continue
             results = "".join("W" if event.winner_party_id == party_id else "L" for event in events)
+            last_won_year = max(
+                event.year for event in events if event.winner_party_id == party_id
+            )
             per_party_body[(party_id, body)].append(
                 {
                     "party_id": party_id,
@@ -447,6 +452,7 @@ def _stronghold_rows(
                     "state": state,
                     "wins": wins,
                     "contested": len(events),
+                    "last_won_year": last_won_year,
                     "results": results,
                     "source_ids": source_ids,
                     "derivation": "computed_from_canonical_winner_rows",

@@ -218,6 +218,12 @@ def test_refresh_party_page_marts_writes_history_and_strongholds(tmp_path: Path)
     assert dmk_rows[0]["constituency_name"] == "Second Seat"
     assert dmk_rows[0]["results"] == "W"
     assert dmk_rows[1]["results"] == "WL"
+    # PR-7: `last_won_year` is the year of the most recent W per
+    # (party, entity_id). DMK won IN-S22-AC-2008-2 only in 2021 + won
+    # IN-S22-AC-2008-1 in 2021 then lost in 2026 - so the last-won
+    # year for the WL row is 2021, not the most recent event.
+    assert dmk_rows[0]["last_won_year"] == "2021"
+    assert dmk_rows[1]["last_won_year"] == "2021"
 
     assert party_page_mart_freshness_failures(tmp_path) == []
 

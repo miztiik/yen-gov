@@ -67,6 +67,10 @@ function stronghold(
     state: "tamil-nadu",
     wins: 3,
     contested: 4,
+    // PR-7: `last_won_year` widening - fixture pins null since
+    // this test covers the source-provenance envelope (recency is
+    // not in scope).
+    last_won_year: null,
     results: ["W", "W", "L", "W"],
     source_ids,
   };

@@ -10,6 +10,7 @@ import { describe, expect, it } from "vitest";
 import {
   computeKpis,
   formatLatestSentence,
+  formatStrongholdTally,
   getAvatarStyle,
   partyRowFromMeta,
   sentinelFraming,
@@ -400,5 +401,96 @@ describe("showPuclAttribution", () => {
     expect(showPuclAttribution("parties.IN.INC")).toBe(false);
     expect(showPuclAttribution("parties.IN.BJP")).toBe(false);
     expect(showPuclAttribution("parties.IN.AAP")).toBe(false);
+  });
+});
+
+// --- formatStrongholdTally ------------------------------------------------
+//
+// PR-7 (TODO/20260615-party-page-citizen-fixes-plan.md): one-line
+// stronghold tally that replaces the prior 2-cell layout (constituency
+// + right-flush SVG dot strip). Authority: Jony + Citizen.
+//
+// Doctrine receipts:
+//   - section 0.5 RIP doctrine: deletions land in the SAME PR as
+//     replacements (`StrongholdDotStrip.svelte` + its vitest pin are
+//     git-removed alongside this rewrite).
+//   - citizen-honest recency: the "last YYYY" suffix surfaces the
+//     most recent W per (party, entity_id). A stronghold last won in
+//     1980 is materially different from one last won in 2024 - the
+//     citizen needs the year, not just the W/L count.
+//   - null recency = legacy in-memory fold path (test-only). Production
+//     loader always populates `last_won_year` from the mart's
+//     `last_won_year` column (writer in
+//     `backend/yen_gov/canonical/derived/party_pages.py`).
+
+describe("formatStrongholdTally", () => {
+  function strongholdFixture(
+    overrides: Partial<{
+      entity_id: string;
+      constituency_name: string;
+      state: string;
+      wins: number;
+      contested: number;
+      last_won_year: number | null;
+    }> = {},
+  ) {
+    return {
+      entity_id: "IN-S19-AC-1976-100",
+      constituency_name: "Sangrur",
+      state: "punjab",
+      wins: 3,
+      contested: 4,
+      last_won_year: 2024,
+      results: ["W", "W", "L", "W"] as ("W" | "L")[],
+      source_ids: ["src-aaaaaaaaaaaa"],
+      ...overrides,
+    };
+  }
+
+  it("formats the citizen-readable one-liner with state + recency (plan-doc example)", () => {
+    const out = formatStrongholdTally(strongholdFixture(), "Punjab");
+    expect(out).toBe("Punjab - Sangrur: won 3 of 4 times, last 2024");
+  });
+
+  it("drops the state prefix when the entity_id is not state-coded", () => {
+    const out = formatStrongholdTally(strongholdFixture(), "");
+    expect(out).toBe("Sangrur: won 3 of 4 times, last 2024");
+  });
+
+  it("drops the recency suffix when last_won_year is null (legacy fold path)", () => {
+    const out = formatStrongholdTally(
+      strongholdFixture({ last_won_year: null }),
+      "Punjab",
+    );
+    expect(out).toBe("Punjab - Sangrur: won 3 of 4 times");
+  });
+
+  it("falls back to entity_id when constituency_name is empty (taxonomy-miss)", () => {
+    const out = formatStrongholdTally(
+      strongholdFixture({
+        entity_id: "IN-S19-AC-1976-999",
+        constituency_name: "",
+      }),
+      "Punjab",
+    );
+    expect(out).toBe("Punjab - IN-S19-AC-1976-999: won 3 of 4 times, last 2024");
+  });
+
+  it("preserves UPPERCASE constituency names verbatim (matches mart shape for AE rows)", () => {
+    // Per `datasets/data/marts/party_pages/strongholds.csv`, AE
+    // constituency names ship UPPERCASE (e.g. "GIDDAR BAHA",
+    // "BAREILLY CITY"); LS names ship Title Case (e.g. "Karimganj",
+    // "Bathinda"). The helper is a pure passthrough on the name -
+    // the casing decision lives upstream in the canonical writer.
+    const out = formatStrongholdTally(
+      strongholdFixture({
+        constituency_name: "GIDDAR BAHA",
+        wins: 6,
+        contested: 7,
+        last_won_year: 2007,
+      }),
+      "Punjab",
+    );
+    expect(out).toBe("Punjab - GIDDAR BAHA: won 6 of 7 times, last 2007");
   });
 });

@@ -111,6 +111,10 @@ function stronghold(source_ids: string[]): PartyStronghold {
     state: "tamil-nadu",
     wins: 1,
     contested: 1,
+    // PR-7: `last_won_year` widening - fixture pins null since
+    // this contract test covers the provenance envelope (recency
+    // is not in scope).
+    last_won_year: null,
     results: ["W"],
     source_ids,
   };

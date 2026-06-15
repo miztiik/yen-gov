@@ -144,6 +144,13 @@ export interface PartyStronghold {
   /** Per-event outcome chronologically (oldest first). `"W"` when
    *  this party won that event, `"L"` otherwise (loss OR no-contest). */
   results: ("W" | "L")[];
+  /** PR-7 (TODO/20260615-party-page-citizen-fixes-plan.md): year
+   *  of the MOST RECENT win by this party in this constituency.
+   *  Renders as the "last YYYY" suffix on the one-line stronghold
+   *  tally. Null when the legacy in-memory fold path (test-only)
+   *  emits a stronghold; the production loader always populates
+   *  from the mart's `last_won_year` column. */
+  last_won_year: number | null;
   /** PR-9: distinct source_ids backing this stronghold (union
    *  across the per-event winner rows that contributed to the W/L
    *  sparkline). Pipe-delimited on the mart; split + deduped at
@@ -272,6 +279,12 @@ interface RawPartyStrongholdMartRow {
   state: string | null;
   wins: number | bigint | null;
   contested: number | bigint | null;
+  /** PR-7: year of the most recent W per (party, entity_id);
+   *  surfaced as the "last YYYY" suffix on the one-line stronghold
+   *  tally. The writer always emits a non-null integer (computed
+   *  via `max(year for event in events if winner == party_id)`
+   *  with `wins > 0` guaranteed at the same row scope). */
+  last_won_year: number | bigint | null;
   results: string | null;
   /** PR-9: pipe-delimited source_ids per stronghold (the writer
    *  emits the union of every winner-cycle's source_ids; see
@@ -459,6 +472,10 @@ export function foldStrongholdRows(
       state: entity_state_lookup.get(entity_id) ?? "",
       wins,
       contested: events.length,
+      // Legacy fold path: `RawStrongholdRow` does not carry year;
+      // the helper is test-only and its callers are not
+      // recency-bearing. Production loader populates from the mart.
+      last_won_year: null,
       results,
       // Legacy fold path (test-only); see `foldHistoryRows` note.
       source_ids: [],
@@ -704,6 +721,7 @@ async function fetchPartyDetail(
       state,
       wins,
       contested,
+      last_won_year,
       results,
       source_ids
     FROM read_csv('${PARTY_STRONGHOLDS_URL}', ${strongholdsClause}, header=true)
@@ -867,6 +885,7 @@ function strongholdFromMart(
     state: row.state ?? "",
     wins: intOrNull(row.wins) ?? 0,
     contested: intOrNull(row.contested) ?? 0,
+    last_won_year: intOrNull(row.last_won_year),
     results,
     source_ids: splitSourceIds(row.source_ids),
   };

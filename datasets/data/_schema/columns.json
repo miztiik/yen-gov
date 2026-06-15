@@ -260,6 +260,7 @@
         { "name": "state", "dtype": "string", "nullable": true },
         { "name": "wins", "dtype": "integer", "nullable": false, "derived": true },
         { "name": "contested", "dtype": "integer", "nullable": false, "derived": true },
+        { "name": "last_won_year", "dtype": "integer", "nullable": false, "derived": true },
         { "name": "results", "dtype": "string", "nullable": false, "derived": true },
         { "name": "source_ids", "dtype": "string", "nullable": true },
         { "name": "derivation", "dtype": "string", "nullable": false }
