@@ -78,6 +78,8 @@
 </script>
 
 <script lang="ts">
+  import TopicIcon from "../TopicIcon.svelte";
+
   interface Props {
     current_strength: PartyCurrentStrength | null;
     /** Sentinel short-circuit: NOTA / UNK suppress the strip even if
@@ -107,13 +109,9 @@
         data-testid="party-current-strength-parliament"
         class="flex items-start text-base text-slate-800"
       >
-        <img
-          src="/icons/landmark.svg"
-          alt=""
-          aria-hidden="true"
-          width="16"
-          height="16"
-          class="mr-2 mt-1 inline-block flex-none"
+        <TopicIcon
+          name="landmark"
+          cls="mr-2 mt-1 inline-block flex-none w-4 h-4 text-slate-500"
         />
         <span>
           Parliament ({parliament.month_label}):
@@ -129,13 +127,9 @@
         data-testid="party-current-strength-assemblies"
         class="mt-2 flex items-start text-sm text-slate-700"
       >
-        <img
-          src="/icons/flag.svg"
-          alt=""
-          aria-hidden="true"
-          width="16"
-          height="16"
-          class="mr-2 mt-0.5 inline-block flex-none"
+        <TopicIcon
+          name="flag"
+          cls="mr-2 mt-0.5 inline-block flex-none w-4 h-4 text-slate-500"
         />
         <span>
           State Assemblies (latest cycles in
