@@ -313,7 +313,7 @@ PR-0 has narrowed the scope and ratified section 0.7. Before PR-1 dispatches, th
 - [docs/concepts/owid-alignment.md](../../concepts/owid-alignment.md) - fallback doctrine; Named divergence #5 is now PERMANENT (closed via Path A).
 - [docs/concepts/data-provenance.md](../../concepts/data-provenance.md) - citation-ledger contract; 5-col source.csv shape stays unchanged (was the binding constraint that ruled out adding `origin.date_accessed` as a 6th column).
 - [OWID metadata reference](https://docs.owid.io/projects/etl/architecture/metadata/reference/) - canonical source for OWID grammar.
-- [TODO/20260611-sources-simplification-plan.md](../../../TODO/20260611-sources-simplification-plan.md) - precedent for "extraordinary cleanup" plan shape; this plan follows its operating-contract grammar.
+- [docs/archive/plans/20260611-sources-simplification-plan.md](20260611-sources-simplification-plan.md) - precedent for "extraordinary cleanup" plan shape; this plan follows its operating-contract grammar.
 - [CLAUDE.md section 10](../../../CLAUDE.md) - anti-pattern stack carries the closure note on `$schema_version` literals + `schema_registry` mandate.
 - [CLAUDE.md section 11](../../../CLAUDE.md) - schema-versioning grammar; the "Code never hand-types schema-version literals" rule is now enforced at the 5 historically-hardcoded tool sites.
 
