@@ -16719,3 +16719,61 @@ IN-PC-1976-west-bengal-39,BURDWAN,pc,1976,west-bengal,,39,,GEN
 IN-PC-1976-west-bengal-40,KATWA,pc,1976,west-bengal,,40,,GEN
 IN-PC-1976-west-bengal-41,BOLPUR,pc,1976,west-bengal,,41,,GEN
 IN-PC-1976-west-bengal-42,BIRBHUM,pc,1976,west-bengal,,42,,SC
+IN-AC-2008-maharashtra-eci7,DHULE CITY,ac,2008,maharashtra,,7,,GEN
+IN-AC-2008-maharashtra-eci13,JALGAON CITY,ac,2008,maharashtra,,13,,GEN
+IN-AC-2008-maharashtra-eci25,MEHKAR,ac,2008,maharashtra,,25,,SC
+IN-AC-2008-maharashtra-eci107,AURANGABAD CENTRAL,ac,2008,maharashtra,,107,,GEN
+IN-AC-2008-maharashtra-eci159,DINDOSHI,ac,2008,maharashtra,,159,,GEN
+IN-AC-2008-maharashtra-eci168,CHANDIVALI,ac,2008,maharashtra,,168,,GEN
+IN-AC-2008-maharashtra-eci169,GHATKOPAR WEST,ac,2008,maharashtra,,169,,GEN
+IN-AC-2008-maharashtra-eci171,MANKHURD SHIVAJI NAGAR,ac,2008,maharashtra,,171,,GEN
+IN-AC-2008-maharashtra-eci176,VANDRE EAST,ac,2008,maharashtra,,176,,GEN
+IN-AC-2008-maharashtra-eci178,DHARAVI,ac,2008,maharashtra,,178,,SC
+IN-AC-2008-maharashtra-eci179,SION KOLIWADA,ac,2008,maharashtra,,179,,GEN
+IN-AC-2008-maharashtra-eci180,WADALA,ac,2008,maharashtra,,180,,GEN
+IN-AC-2008-maharashtra-eci181,MAHIM,ac,2008,maharashtra,,181,,GEN
+IN-AC-2008-maharashtra-eci182,WORLI,ac,2008,maharashtra,,182,,GEN
+IN-AC-2008-maharashtra-eci183,SHIVADI,ac,2008,maharashtra,,183,,GEN
+IN-AC-2008-maharashtra-eci184,BYCULLA,ac,2008,maharashtra,,184,,GEN
+IN-AC-2008-maharashtra-eci185,MALABAR HILL,ac,2008,maharashtra,,185,,GEN
+IN-AC-2008-maharashtra-eci186,MUMBADEVI,ac,2008,maharashtra,,186,,GEN
+IN-AC-2008-maharashtra-eci187,COLABA,ac,2008,maharashtra,,187,,GEN
+IN-AC-2008-maharashtra-eci212,PARVATI,ac,2008,maharashtra,,212,,GEN
+IN-AC-2008-maharashtra-eci215,KASBA PETH,ac,2008,maharashtra,,215,,GEN
+IN-AC-2008-maharashtra-eci249,SOLAPUR CITY CENTRAL,ac,2008,maharashtra,,249,,GEN
+IN-AC-2008-jammu-and-kashmir-eci18,GANDERBAL,ac,2008,jammu-and-kashmir,,18,,GEN
+IN-AC-2008-jammu-and-kashmir-eci19,HAZRATBAL,ac,2008,jammu-and-kashmir,,19,,GEN
+IN-AC-2008-jammu-and-kashmir-eci21,HABBAKADAL,ac,2008,jammu-and-kashmir,,21,,GEN
+IN-AC-2008-jammu-and-kashmir-eci23,CHANNAPORA,ac,2008,jammu-and-kashmir,,23,,GEN
+IN-AC-2008-jammu-and-kashmir-eci47,PAHALGAM,ac,2008,jammu-and-kashmir,,47,,GEN
+IN-AC-2008-jammu-and-kashmir-eci48,INDERWAL,ac,2008,jammu-and-kashmir,,48,,GEN
+IN-AC-2008-jammu-and-kashmir-eci49,KISHTWAR,ac,2008,jammu-and-kashmir,,49,,GEN
+IN-AC-2008-jammu-and-kashmir-eci50,PADDER - NAGSENI,ac,2008,jammu-and-kashmir,,50,,GEN
+IN-AC-2008-jammu-and-kashmir-eci72,BISHNAH(SC),ac,2008,jammu-and-kashmir,,72,,SC
+IN-AC-2008-jammu-and-kashmir-eci73,SUCHETGARH(SC),ac,2008,jammu-and-kashmir,,73,,SC
+IN-AC-2008-jammu-and-kashmir-eci88,SURANKOTE(ST),ac,2008,jammu-and-kashmir,,88,,ST
+IN-AC-2008-jammu-and-kashmir-eci89,POONCH HAVELI,ac,2008,jammu-and-kashmir,,89,,GEN
+IN-AC-2008-jammu-and-kashmir-eci90,MENDHAR(ST),ac,2008,jammu-and-kashmir,,90,,ST
+IN-AC-2008-odisha-eci12,Rourkela,ac,2008,odisha,,12,,GEN
+IN-AC-2008-sikkim-eci25,UPPER TADONG,ac,2008,sikkim,,25,,GEN
+IN-AC-2008-sikkim-eci27,GANGTOK (BL),ac,2008,sikkim,,27,,GEN
+IN-AC-2008-sikkim-eci32,SANGHA,ac,2008,sikkim,,32,,GEN
+IN-AC-2008-telangana-eci17,Nizamabad (Urban),ac,2008,telangana,,17,,GEN
+IN-AC-2008-telangana-eci22,Dharmapuri,ac,2008,telangana,,22,,SC
+IN-AC-2008-telangana-eci56,Tandur,ac,2008,telangana,,56,,GEN
+IN-AC-2008-telangana-eci65,Goshamahal,ac,2008,telangana,,65,,GEN
+IN-AC-2008-telangana-eci66,Charminar,ac,2008,telangana,,66,,GEN
+IN-AC-2008-telangana-eci68,Yakutpura,ac,2008,telangana,,68,,GEN
+IN-AC-2008-telangana-eci71,Secunderabad Cantt.,ac,2008,telangana,,71,,SC
+IN-AC-2008-telangana-eci82,Achampet,ac,2008,telangana,,82,,SC
+IN-AC-2008-telangana-eci105,Warangal West,ac,2008,telangana,,105,,GEN
+IN-AC-2008-telangana-eci106,Warangal East,ac,2008,telangana,,106,,GEN
+IN-AC-2008-madhya-pradesh-eci62,Raigaon,ac,2008,madhya-pradesh,,62,,SC
+IN-AC-2008-mizoram-eci10,Aizawl North-I,ac,2008,mizoram,,10,,ST
+IN-AC-2008-mizoram-eci11,Aizawl North-II,ac,2008,mizoram,,11,,ST
+IN-AC-2008-mizoram-eci12,Aizawl North-III,ac,2008,mizoram,,12,,ST
+IN-AC-2008-mizoram-eci14,Aizawl East-II,ac,2008,mizoram,,14,,ST
+IN-AC-2008-mizoram-eci16,Aizawl West-II,ac,2008,mizoram,,16,,ST
+IN-AC-2008-mizoram-eci17,Aizawl West-III,ac,2008,mizoram,,17,,ST
+IN-AC-2008-mizoram-eci18,Aizawl South-I,ac,2008,mizoram,,18,,ST
+IN-AC-2008-mizoram-eci19,Aizawl South-II,ac,2008,mizoram,,19,,ST
