@@ -99,6 +99,8 @@
 </script>
 
 <script lang="ts">
+  import TopicIcon from "../TopicIcon.svelte";
+
   interface Props {
     alliance_context: PartyAllianceContext | null;
     /** Sentinel short-circuit: NOTA / UNK suppress the strip even
@@ -135,13 +137,9 @@
         data-testid="party-alliance-context-parliament"
         class="flex items-start text-base text-slate-800"
       >
-        <img
-          src="/icons/landmark.svg"
-          alt=""
-          aria-hidden="true"
-          width="16"
-          height="16"
-          class="mr-2 mt-1 inline-block flex-none"
+        <TopicIcon
+          name="landmark"
+          cls="mr-2 mt-1 inline-block flex-none w-4 h-4 text-slate-500"
         />
         <span>
           {parliament.event_label}:
@@ -161,13 +159,9 @@
         data-testid="party-alliance-context-assemblies"
         class="mt-2 flex items-start text-sm text-slate-700"
       >
-        <img
-          src="/icons/flag.svg"
-          alt=""
-          aria-hidden="true"
-          width="16"
-          height="16"
-          class="mr-2 mt-0.5 inline-block flex-none"
+        <TopicIcon
+          name="flag"
+          cls="mr-2 mt-0.5 inline-block flex-none w-4 h-4 text-slate-500"
         />
         <div>
           <p class="mb-1">State Assembly alliances:</p>
