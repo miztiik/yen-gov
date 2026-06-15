@@ -73,6 +73,11 @@ function stronghold(
     last_won_year: null,
     results: ["W", "W", "L", "W"],
     source_ids,
+    // PR-8b D8a: `pc_slug` + `href` widening - fixture pins null
+    // since this test covers source-provenance (clickability is
+    // not in scope).
+    pc_slug: null,
+    href: null,
   };
 }
 
