@@ -18,6 +18,7 @@
 -->
 <script lang="ts">
   import ElectionsRouteTabs from "../lib/elections/ElectionsRouteTabs.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import {
     loadAssemblyElections,
     type AssemblyCardViewModel,
@@ -39,7 +40,7 @@
   }
 </script>
 
-<main class="mx-auto max-w-6xl space-y-4 p-4">
+<PageContainer width="wide">
   <ElectionsRouteTabs current="assembly" />
 
   <header class="space-y-1">
@@ -155,4 +156,4 @@
       {/each}
     </ul>
   {/if}
-</main>
+</PageContainer>

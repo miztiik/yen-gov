@@ -27,6 +27,7 @@
   import { onMount } from "svelte";
   import { link } from "../lib/links";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import {
@@ -201,7 +202,7 @@
 
 <Breadcrumb {crumbs} />
 
-<section class="p-4 sm:p-6 space-y-6 max-w-6xl">
+<PageContainer width="wide">
   <header class="space-y-2">
     <div class="flex items-baseline justify-between gap-3 flex-wrap">
       <h1 class="text-2xl font-bold flex items-center gap-2">
@@ -323,4 +324,4 @@
       initial_rows={pinned_codes.length > 0 ? Math.max(10, pinned_codes.length) : 10}
     />
   {/if}
-</section>
+</PageContainer>

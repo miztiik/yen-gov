@@ -36,6 +36,7 @@
   import { link } from "../lib/links";
   import { docsUrl } from "../lib/repo";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
 
@@ -65,7 +66,7 @@
 
 <Breadcrumb {crumbs} />
 
-<div class="max-w-3xl mx-auto p-4 md:p-6 space-y-4">
+<PageContainer width="narrow">
 
   {#if !lookup.ok || rule == null}
     <section class="rounded-lg border border-line bg-surface p-6 shadow-sm">
@@ -181,4 +182,4 @@
       </p>
     </section>
   {/if}
-</div>
+</PageContainer>

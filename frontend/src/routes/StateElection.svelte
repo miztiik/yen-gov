@@ -85,6 +85,7 @@
   import InlineCounterfactualSwing from "../lib/elections/InlineCounterfactualSwing.svelte";
   import AllianceTotals from "../lib/elections/AllianceTotals.svelte";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
   import Scatter from "../lib/charts/Scatter.svelte";
   import type {
@@ -824,7 +825,7 @@
 
 <Breadcrumb {crumbs} />
 
-<main class="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
+<PageContainer width="wide">
   {#if catalogue_error}
     <div
       class="rounded border border-rose-200 bg-rose-50 p-4 text-sm text-rose-900"
@@ -1307,4 +1308,4 @@
       </section>
     {/if}
   {/if}
-</main>
+</PageContainer>

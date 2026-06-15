@@ -48,6 +48,7 @@
   import { states } from "../lib/states.svelte";
   import { navigate } from "../lib/url";
   import { link } from "../lib/links";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import TopicIcon from "../lib/TopicIcon.svelte";
   import { docsUrl } from "../lib/repo";
   import { majorityFor } from "../lib/electoral";
@@ -329,7 +330,7 @@
   const PSEPHLAB_DOC = "docs/architecture/frontend/psephlab.md";
 </script>
 
-<div class="max-w-6xl mx-auto p-4 md:p-6 space-y-4">
+<PageContainer width="wide">
   <header class="space-y-3">
     <p class="text-xs"><a class="text-slate-500 hover:underline" href={state_code ? link.state(state_code) : link.home()}>← {states.name(state_code)} overview</a></p>
     <div class="flex items-baseline justify-between gap-4 flex-wrap">
@@ -853,4 +854,4 @@
       </div>
     </section>
   {/if}
-</div>
+</PageContainer>

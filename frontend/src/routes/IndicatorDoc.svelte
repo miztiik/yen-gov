@@ -114,6 +114,7 @@
   } from "../lib/grapher/catalogue";
   import { fetchIndicator, type IndicatorArtifact } from "../lib/indicators";
   import ChartShell from "../lib/charts/ChartShell.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import { SourceList, dedupeToPills } from "../lib/sources";
   import { link } from "../lib/links";
   import { DATA_BASE } from "../lib/paths";
@@ -227,7 +228,7 @@
   );
 </script>
 
-<section class="p-4 sm:p-6 space-y-6 max-w-4xl">
+<PageContainer width="narrow">
   <nav class="text-sm">
     <a href={link.topics()} class="text-sky-700 hover:underline">All topics</a>
     {#if matched_topic}
@@ -390,4 +391,4 @@
       </div>
     {/if}
   </ChartShell>
-</section>
+</PageContainer>

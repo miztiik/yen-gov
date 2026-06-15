@@ -23,6 +23,7 @@
 -->
 <script lang="ts">
   import ElectionsRouteTabs from "../lib/elections/ElectionsRouteTabs.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import {
     loadGeneralElections,
     type GeneralElectionRowViewModel,
@@ -70,7 +71,7 @@
   }
 </script>
 
-<main class="mx-auto max-w-6xl space-y-4 p-4">
+<PageContainer width="wide">
   <ElectionsRouteTabs current="general" />
 
   <header class="space-y-1">
@@ -216,4 +217,4 @@
       </table>
     </div>
   {/if}
-</main>
+</PageContainer>

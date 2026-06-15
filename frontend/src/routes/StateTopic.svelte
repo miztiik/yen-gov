@@ -52,6 +52,7 @@
   import { states } from "../lib/states.svelte";
   import { link } from "../lib/links";
   import Breadcrumb from "../lib/Breadcrumb.svelte";
+  import PageContainer from "../lib/layout/PageContainer.svelte";
   import { route } from "../lib/router.svelte";
   import {
     fetchElectionEvents,
@@ -134,7 +135,7 @@
 
 <Breadcrumb {crumbs} />
 
-<section class="p-4 sm:p-6 space-y-6 max-w-6xl">
+<PageContainer width="wide">
   {#if load_error}
     <div class="rounded border border-rose-200 bg-rose-50 p-4 text-sm text-rose-900">
       Failed to load topic catalogue: <code>{load_error}</code>
@@ -286,4 +287,4 @@
       </div>
     {/if}
   {/if}
-</section>
+</PageContainer>
