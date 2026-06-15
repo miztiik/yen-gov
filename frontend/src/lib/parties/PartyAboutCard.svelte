@@ -119,6 +119,7 @@
 
 <script lang="ts">
   import { link } from "../links";
+  import TopicIcon from "../TopicIcon.svelte";
 
   interface Props {
     meta: PartyMeta;
@@ -213,7 +214,12 @@
           target="_blank"
           rel="noopener noreferrer"
           class="text-sky-600 hover:underline"
+          data-testid="party-wikipedia-link"
         >
+          <TopicIcon
+            name="wikipedia"
+            cls="w-3.5 h-3.5 inline-block mr-1 text-slate-400 align-text-bottom"
+          />
           Wikipedia
         </a>
       </dd>

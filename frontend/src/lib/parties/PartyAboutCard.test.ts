@@ -9,6 +9,8 @@
  * the live render path on the dev server).
  */
 import { describe, it, expect } from "vitest";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import {
   foundingYearLabel,
   recognitionLabel,
@@ -80,5 +82,38 @@ describe("shortPartyToken", () => {
     // the trailing-token split; the helper falls back to the input so
     // the consumer never renders a literal empty <a> link.
     expect(shortPartyToken("parties.IN.")).toBe("parties.IN.");
+  });
+});
+
+describe("PartyAboutCard source-string pins (PR-3 D4)", () => {
+  // Source-string pin against the .svelte file (per project doctrine -
+  // no `@testing-library/svelte`). Pins the Wikipedia link gets a
+  // citizen-visible W glyph reinforcement + a stable testid for the
+  // browser smoke loop. See PR-3 of
+  // TODO/20260615-party-page-citizen-fixes-plan.md.
+  const src = readFileSync(
+    resolve(__dirname, "./PartyAboutCard.svelte"),
+    "utf8",
+  );
+
+  it("imports the TopicIcon renderer", () => {
+    expect(src).toContain(
+      'import TopicIcon from "../TopicIcon.svelte";',
+    );
+  });
+
+  it("renders the wikipedia glyph before the Wikipedia label", () => {
+    // Looser match than `<TopicIcon name="wikipedia"` because the
+    // attribute is line-wrapped in the source; normalise whitespace
+    // before asserting the (component, name) pair appears together.
+    const normalised = src.replace(/\s+/g, " ");
+    expect(normalised).toContain('<TopicIcon name="wikipedia"');
+    // And the literal label survives next to the glyph - the icon is
+    // reinforcement, not replacement.
+    expect(normalised).toContain("Wikipedia");
+  });
+
+  it("stamps a stable testid on the Wikipedia anchor", () => {
+    expect(src).toContain('data-testid="party-wikipedia-link"');
   });
 });
