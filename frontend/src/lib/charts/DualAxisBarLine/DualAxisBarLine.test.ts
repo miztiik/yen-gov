@@ -83,31 +83,77 @@ describe("buildScales", () => {
   });
 });
 
-// --- pickLabelStride ------------------------------------------------------
+// --- pickLabelStride (PR-10 width-driven) ---------------------------------
 
 describe("pickLabelStride", () => {
-  it("returns the mobile stride when the viewport is < 640px", () => {
-    expect(pickLabelStride(360, 14, 4)).toBe(4);
-    expect(pickLabelStride(639, 6, 3)).toBe(3);
+  // PR-10 of TODO/20260615-party-page-citizen-fixes-plan.md replaced
+  // the prior viewport-cutoff rule with a width-driven formula:
+  //   maxTicksThatFit = max(1, floor(chart_width / min_label_spacing_px))
+  //   stride = max(1, ceil(year_count / maxTicksThatFit))
+  // The default `min_label_spacing_px` is 48 (OWID time-axis spacing
+  // for rotated 4-digit year labels at 10px font). The 3rd arg is
+  // now the spacing override, not a mobile stride.
+
+  it("returns stride 1 when every tick fits at the minimum 48px spacing", () => {
+    // inner_w 1184 (the 1280-viewport bound after MARGIN_LEFT+RIGHT)
+    // fits floor(1184/48) = 24 ticks. 18 years <= 24, so no thinning.
+    expect(pickLabelStride(1184, 18)).toBe(1);
+    expect(pickLabelStride(1184, 24)).toBe(1);
+    expect(pickLabelStride(720, 12)).toBe(1);
   });
 
-  it("returns stride 1 above 640px when the year count is <= 12", () => {
-    expect(pickLabelStride(900, 5, 4)).toBe(1);
-    expect(pickLabelStride(900, 12, 4)).toBe(1);
+  it("thins to keep adjacent labels >= 48px apart on mobile", () => {
+    // inner_w 224 (the 320-viewport bound after MARGIN_LEFT+RIGHT)
+    // fits floor(224/48) = 4 ticks. 18 years -> ceil(18/4) = 5.
+    expect(pickLabelStride(224, 18)).toBe(5);
+    // 14 years on a 360-viewport drawable region (~264px) fits
+    // floor(264/48) = 5 ticks; ceil(14/5) = 3.
+    expect(pickLabelStride(264, 14)).toBe(3);
   });
 
-  it("returns stride 2 above 640px when the year count is > 12 (label density rule)", () => {
-    expect(pickLabelStride(900, 13, 4)).toBe(2);
-    expect(pickLabelStride(1280, 20, 4)).toBe(2);
+  it("thins on desktop when year_count exceeds maxTicksThatFit", () => {
+    // 30 years on a 1184 drawable region: floor(1184/48) = 24,
+    // ceil(30/24) = 2; rendered count = ceil(30/2) = 15.
+    expect(pickLabelStride(1184, 30)).toBe(2);
+    // 100 years on a 1184 drawable region: ceil(100/24) = 5;
+    // rendered count = ceil(100/5) = 20.
+    expect(pickLabelStride(1184, 100)).toBe(5);
+  });
+
+  it("honours the min_label_spacing_px override (3rd arg)", () => {
+    // Wider spacing -> fewer slots -> larger stride.
+    expect(pickLabelStride(960, 20, 96)).toBe(2); // floor(960/96)=10, ceil(20/10)=2
+    expect(pickLabelStride(960, 8, 96)).toBe(1); // 8 <= 10
   });
 
   it("returns 1 for an empty year list (defensive)", () => {
-    expect(pickLabelStride(900, 0, 4)).toBe(1);
+    expect(pickLabelStride(900, 0)).toBe(1);
+    expect(pickLabelStride(0, 0)).toBe(1);
   });
 
-  it("clamps a zero / negative mobile_stride up to 1", () => {
+  it("clamps a zero / negative spacing up to 1 so the formula stays defined", () => {
+    // spacing clamped to 1 -> maxTicks = chart_width -> stride = 1
+    // for any reasonable year_count <= chart_width.
     expect(pickLabelStride(360, 14, 0)).toBe(1);
-    expect(pickLabelStride(360, 14, -3)).toBe(1);
+    expect(pickLabelStride(360, 14, -8)).toBe(1);
+  });
+
+  it("guarantees the rendered tick count stays <= the visual ceiling at the spec viewports", () => {
+    // Acceptance gate from the PR-10 brief: at chart_width = 320
+    // (mobile, before margin trim) the renderer caps at 8 labels;
+    // at chart_width = 1280 (desktop) it caps at 24. Test the
+    // upper-bound math directly via the rendered-count formula
+    // `ceil(year_count / stride)` for a stressed 60-year domain.
+    const year_count = 60;
+    // Mobile: inner_w 224 (320 - 96 margins). 60 years -> stride
+    // ceil(60/4) = 15 -> rendered ceil(60/15) = 4 labels. Well
+    // under the 8-label ceiling.
+    const stride_mobile = pickLabelStride(224, year_count);
+    expect(Math.ceil(year_count / stride_mobile)).toBeLessThanOrEqual(8);
+    // Desktop: inner_w 1184. 60 years -> stride ceil(60/24) = 3
+    // -> rendered ceil(60/3) = 20 labels. Under the 24 ceiling.
+    const stride_desktop = pickLabelStride(1184, year_count);
+    expect(Math.ceil(year_count / stride_desktop)).toBeLessThanOrEqual(24);
   });
 });
 
