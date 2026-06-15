@@ -153,15 +153,23 @@ export function topicLandingCrumbs(
 }
 
 /**
- * Elections firehose (`/t/elections`). PR-W3d (2026-06-10): the bare
- * `/t/elections` path now resolves to the firehose route (registered
- * BEFORE `/t/elections/:event` in main.ts), not the generic
- * TopicLanding. Two-crumb trail (Home -> Elections leaf) matches the
- * nationalElection chain's middle crumb so the firehose visually sits
- * between Home and a specific event view.
+ * General elections (`/t/elections`). PR-E4 (2026-06-15) of the
+ * elections-redesign-plan renames the firehose to the General-elections
+ * route. Two-crumb trail (Home -> General elections leaf) matches the
+ * nationalElection chain's middle crumb so a per-event drill-down sits
+ * one level deeper.
  */
-export function electionsFirehoseCrumbs(): Crumb[] {
-  return [ROOT_LINK, { label: "Elections", isLeaf: true }];
+export function generalElectionsCrumbs(): Crumb[] {
+  return [ROOT_LINK, { label: "General elections", isLeaf: true }];
+}
+
+/**
+ * Assembly elections (`/t/elections/assemblies`). New route in PR-E4
+ * (2026-06-15). Two-crumb trail (Home -> Assembly elections leaf); the
+ * tab strip on the page surfaces the General-elections sibling.
+ */
+export function assemblyElectionsCrumbs(): Crumb[] {
+  return [ROOT_LINK, { label: "Assembly elections", isLeaf: true }];
 }
 
 // =============================================================

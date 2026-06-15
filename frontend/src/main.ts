@@ -32,7 +32,8 @@ import StateElection from "./routes/StateElection.svelte";
 // Constituency directly via its own route entry below.
 import StateSubRouter from "./routes/StateSubRouter.svelte";
 import NationalElection from "./routes/NationalElection.svelte";
-import ElectionsFirehose from "./routes/ElectionsFirehose.svelte";
+import GeneralElections from "./routes/GeneralElections.svelte";
+import AssemblyElections from "./routes/AssemblyElections.svelte";
 import DataCompleteness from "./routes/DataCompleteness.svelte";
 import DevChartsSandbox from "./routes/DevChartsSandbox.svelte";
 import Yenask from "./routes/Yenask.svelte";
@@ -50,7 +51,8 @@ import {
   dataCompletenessCrumbs,
   devChartsSandboxCrumbs,
   disclaimerCrumbs,
-  electionsFirehoseCrumbs,
+  assemblyElectionsCrumbs,
+  generalElectionsCrumbs,
   exploreCrumbs,
   homeCrumbs,
   indicatorDocCrumbs,
@@ -172,17 +174,23 @@ startRouter({
     // route order is not load-bearing. Removal = git rm of
     // routes/Yenask.svelte + lib/yenask/ + this entry.
     { pattern: "/lab/yenask", component: Yenask, crumbs: yenaskCrumbs },
-    // Elections firehose (PR-W3d). The bare `/t/elections` lists EVERY
-    // election event in the catalogue (Parliament collapsed to one row
-    // per event_id, Assembly + bye per-state). MUST be registered
-    // BEFORE `/t/elections/:event` and `/t/:topic` because the router
-    // is first-match-wins; the parameterised route's regex
-    // (`^/t/elections/([^/]+)$`) does not match the bare path but the
-    // generic topic route (`^/t/([^/]+)$`) WOULD greedily resolve `/t/elections`
-    // to TopicLanding({topic: "elections"}) if placed first. Two-crumb
-    // trail (Home -> Elections leaf) matches the middle crumb of
-    // `nationalElectionCrumbs` so the chain visually nests.
-    { pattern: "/t/elections", component: ElectionsFirehose, crumbs: electionsFirehoseCrumbs },
+    // Elections - General + Assembly redesign (PR-E4 of
+    // TODO/20260615-elections-redesign-plan.md). Replaces the 315-row
+    // lazy-hydration firehose (rip-and-replace per user mandate; no
+    // strangler-fig).
+    //
+    // The Assembly route MUST be registered BEFORE the General route
+    // because the router is first-match-wins: `/t/elections/assemblies`
+    // would otherwise be poached by `/t/elections/:event` (regex
+    // `^/t/elections/([^/]+)$` matches `assemblies` as a slug).
+    {
+      pattern: "/t/elections/assemblies",
+      component: AssemblyElections,
+      crumbs: assemblyElectionsCrumbs,
+    },
+    // Bare `/t/elections` lands on the General-elections table; the
+    // tab strip surfaces the Assembly route one tap away.
+    { pattern: "/t/elections", component: GeneralElections, crumbs: generalElectionsCrumbs },
     // National event view (election experience overhaul, PR-W3c).
     // 3-segment pattern, distinct from /t/:topic (2 segments); placed first
     // so the more-specific route wins regardless of matcher order. The
