@@ -1,0 +1,22 @@
+{
+  "proposed_id": "electors-persons-by-sex",
+  "family": "elections",
+  "concept_noun": "Electors",
+  "concept_unit": "persons",
+  "concept_normalisation": "absolute",
+  "entity_kinds": ["ac"],
+  "update_period_days": 1825,
+  "justification": "Existing `electors` concept (persons, ac/pc/state) covers total enrolled voters per entity. This ingest adds the publisher-provided sex breakdown (male / female / third_gender) as a FACET on the existing concept per ADR-0044 (same noun + unit + grain = facet, not new mint). TN CEO publishes this disaggregation before each AE cycle. The variable_id deliberately omits the `ac-` prefix — same indicator identity surfaces at state-aggregate and pc-aggregate grains once future ingests land them (Max OWID identity test).",
+  "source_producer": "Office of the Chief Electoral Officer, Tamil Nadu",
+  "source_title": "Tamil Nadu Electoral Roll - AC-wise Electors by Sex",
+  "source_vintage": "2021",
+  "source_url": "https://www.elections.tn.gov.in/",
+  "file_class": "datasets/data/datapoints/electoral_geo/*.csv",
+  "fk_target": "entities/electoral.csv",
+  "delim_year": 2008,
+  "expected_atomic_row_count": 702,
+  "expected_unique_entity_ids": 234,
+  "facet_axis": "sex",
+  "facet_values": ["male", "female", "third_gender"],
+  "processing_level": "minor"
+}

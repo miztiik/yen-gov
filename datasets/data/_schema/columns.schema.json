@@ -3,7 +3,7 @@
   "$id": "./columns.schema.json",
   "title": "CSV column contract (schema-of-schemas)",
   "description": "Validates datasets/data/_schema/columns.json - the one machine-readable home for the per-file-class CSV column contract. Spec: docs/architecture/data/csv-column-contract.md (D-DOC0). Consumed by the backend write-time validator (B1.3), the frontend typed-read codegen (F1), and the cross-format drift test.",
-  "x-version": "2.3",
+  "x-version": "2.4",
   "x-changelog": [
     {
       "version": "1.0",
@@ -34,6 +34,11 @@
       "version": "2.3",
       "date": "2026-06-15",
       "description": "Companion bump for columns.json $schema_version 2.2 -> 2.3 (PR-1 of TODO/20260615-party-page-citizen-fixes-plan.md). No structural change to the schema-of-schemas itself; pure-additive minor on the data file: 3 nullable trailing columns appended to datasets/data/entities/parties.csv file-class (source_id FK datasets/data/entities/source.csv.source_id, processing_level enum [minor, major], processing_note free-text) per user-ratified Path A (Scope-change ledger L-4) and the L-1 per-row processing-level doctrine at docs/concepts/data-quality.md. The bump unblocks PR-1 D1 founded_year backfill (952 of 2776 rows previously null) by giving the catalogue a place to record the issuing-authority source_id + the per-row processing receipt per CLAUDE.md Holy Law #9 + section 12 + the OWID-aligned per-row scope (named divergence #6, docs/concepts/owid-alignment.md). All 2779 pre-v1.2 rows ship the 3 trailing fields empty (no semantic change); the 14 priority parties get founded_year + the 3 provenance fields populated via the canonical helpers (backend.yen_gov.canonical.processing_quality.derive_processing_for_party_founded_year_backfill + backend.yen_gov.canonical.citation.derive_source_id) per CLAUDE.md section 10 anti-pattern (NO hand-authored literals). Other file-classes unchanged in shape."
+    },
+    {
+      "version": "2.4",
+      "date": "2026-06-15",
+      "description": "Companion bump for columns.json $schema_version 2.3 -> 2.4 (Row C of TODO/20260614-three-ephemeral-ingests-plan.md). No structural change to the schema-of-schemas itself; pure-additive minor on the data file: NEW file-class datasets/data/datapoints/electoral_geo/*.csv for long-format datapoints keyed to ECI electoral entities (AC + PC grain), sibling to the existing datasets/data/datapoints/geo/*.csv (which is keyed to LGD entities at country/state/district grain). The new file-class mirrors at the datapoints tier the LGD-vs-ECI issuing-authority split already cemented at the entities tier (entities/geo.csv vs entities/electoral.csv) - the FK target is entities/electoral.csv.entity_id, NOT entities/geo.csv.entity_id. 6 columns: composite PK (entity_id, time, sex); sex closed enum [male, female, third_gender]; value nullable; source_id FK into source.csv; processing_level enum [minor, major] required per the L-1 per-row processing-level doctrine. Seeds with one file (datasets/data/datapoints/electoral_geo/electors-persons-by-sex.csv, 234 TN ACs x 3 sex facets = 702 rows, vintage 2021). Unblocks the FB-2 35-state AC-grain electors-by-sex backlog, all future MLA-affidavit / ADR criminal-cases / MPLADS-by-PC datapoint shapes. Decision: Hans + Max + Fowler unanimous on Path B over Path A (widen entities/geo.csv to absorb 14,682 ACs, Level-4, rejected as LGD-vs-ECI ontology violation) and Path C (defer; rejected as 35-state coverage punt). See ledger entry 'C resolution' in TODO/20260614 plan-doc + handover TODO/20260615-row-c-tn-electors-by-sex-handover.md."
     }
   ],
   "type": "object",
